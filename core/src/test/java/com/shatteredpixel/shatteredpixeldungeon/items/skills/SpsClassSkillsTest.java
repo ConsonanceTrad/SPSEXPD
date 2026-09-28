@@ -51,13 +51,17 @@ public final class SpsClassSkillsTest {
 
 	private static void testMappings() {
 		Class<?>[] expected = {WarriorSkill.class, MageSkill.class, RogueSkill.class, HuntressSkill.class,
-				PerformerSkill.class, SoldierSkill.class, FollowerSkill.class, AsceticSkill.class};
+				null, PerformerSkill.class, SoldierSkill.class, FollowerSkill.class, AsceticSkill.class};
 		HeroClass[] playable = HeroClass.playableClasses();
 		for (int i = 0; i < playable.length; i++) {
 			ClassSkill skill = ClassSkill.createFor(playable[i]);
-			check(skill != null && skill.getClass() == expected[i], "职业技能映射错误: " + playable[i]);
+			if (expected[i] == null) {
+				check(skill == null, "决斗家走破碎武器能力体系，不应生成SPS技能: " + playable[i]);
+			} else {
+				check(skill != null && skill.getClass() == expected[i], "职业技能映射错误: " + playable[i]);
+			}
 		}
-		check(ClassSkill.createFor(HeroClass.DUELIST) == null, "隐藏的破碎职业不应生成SPS技能");
+		check(ClassSkill.createFor(HeroClass.DUELIST) == null, "决斗家走破碎武器能力体系，不应生成SPS技能");
 	}
 
 	private static void testSharedBuffs() {

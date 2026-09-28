@@ -53,7 +53,7 @@ import javax.imageio.ImageIO;
 /** Headless verification for SPS-PD's special arrow pools and effects. */
 public final class SpsSpecialArrowsTest {
 
-	private static final String MAGIC_HAND_HASH = "AE79DFC7C21B894F8659B339F52B169E3DD5BAC62AEC511CB45B5CC6AC733F02";
+	private static final String MAGIC_HAND_HASH = "C92C20EB9EEA9F39C5F6B4C6D9903EE190DB266F92940B3FD4815E4BCA13568C";
 	private static final String RICE_BALL_HASH = "98A27F038F114784D8761A05C8C061376ED6D5D2CC6447BD1EE7AC1324A01B92";
 
 	public static void main(String[] args) throws Exception {

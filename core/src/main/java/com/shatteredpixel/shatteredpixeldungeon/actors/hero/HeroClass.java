@@ -241,6 +241,7 @@ public enum HeroClass {
 
 	private static final HeroClass[] SPS_PLAYABLE = {
 			WARRIOR, MAGE, ROGUE, HUNTRESS,
+			DUELIST,
 			PERFORMER, SOLDIER, FOLLOWER, ASCETIC
 	};
 
@@ -250,7 +251,7 @@ public enum HeroClass {
 		this.subClasses = subClasses;
 	}
 
-	/** Classes exposed by the SPS-PD 0.9.8 character-selection flow. */
+	/** Classes exposed by the character-selection flow: SPS-PD 0.9.8's roster plus the Duelist (SPSEXPD). */
 	public static HeroClass[] playableClasses() {
 		return SPS_PLAYABLE.clone();
 	}

@@ -67,7 +67,7 @@ public final class SpsLearnLevelTest {
 	private static void testHiddenBeginnerClass() {
 		check(GamesInProgress.MAX_SLOTS == HeroClass.playableClasses().length,
 				"隐藏职业改变了普通存档槽位数量");
-		check(GamesInProgress.MAX_SLOTS == 8, "SPS普通存档槽位数量应与八个可见职业一致");
+		check(GamesInProgress.MAX_SLOTS == 9, "SPS普通存档槽位数量应与九个可见职业一致（含决斗家）");
 		for (HeroClass heroClass : HeroClass.playableClasses())
 			check(heroClass != HeroClass.NEWPLAYER, "隐藏新手职业出现在职业选择中");
 		Hero hero = new Hero();

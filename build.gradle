@@ -602,9 +602,9 @@ tasks.register('verifySpsMechanics') {
 		def playableMatch = heroClass =~ /(?s)SPS_PLAYABLE\s*=\s*\{(.*?)\}/
 		if (!playableMatch.find()) throw new GradleException('SPS职业入口: 找不到可见职业白名单')
 		def playableClasses = (playableMatch.group(1) =~ /\b[A-Z_]+\b/).collect { it as String }
-		def expectedPlayable = ['WARRIOR', 'MAGE', 'ROGUE', 'HUNTRESS', 'PERFORMER', 'SOLDIER', 'FOLLOWER', 'ASCETIC']
+		def expectedPlayable = ['WARRIOR', 'MAGE', 'ROGUE', 'HUNTRESS', 'DUELIST', 'PERFORMER', 'SOLDIER', 'FOLLOWER', 'ASCETIC']
 		if (playableClasses != expectedPlayable || heroSelect.contains('HeroClass.values()')) {
-			throw new GradleException("SPS职业入口: 只能显示8个旧版职业，当前=${playableClasses}")
+			throw new GradleException("SPS职业入口: 只能显示9个职业（SPS旧版8职业+决斗家），当前=${playableClasses}")
 		}
 		def badgeSource = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/Badges.java')
 		def metamorphosisSource = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/scrolls/exotic/ScrollOfMetamorphosis.java')
