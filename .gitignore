@@ -34,3 +34,7 @@ _ref/
 # 系统杂项
 .DS_Store
 Thumbs.db
+
+# 发布签名密钥（不入库）
+*.keystore
+*.jks

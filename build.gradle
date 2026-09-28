@@ -21,7 +21,7 @@ allprojects {
 
         //Full releases gets +2 on version code, needed for an F-Droid quirk
 		appVersionCode = 922
-		appVersionName = '4.0.0-sps.1'
+		appVersionName = '0.1.0-alpha'
 
         appJavaCompatibility = JavaVersion.VERSION_11
 

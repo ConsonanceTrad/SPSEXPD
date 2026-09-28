@@ -1,5 +1,12 @@
 apply plugin: 'com.android.application'
 
+//SPSEXPD: 发布签名（keystore 在项目根、密码在 local.properties，两者均不入库）
+def spsexpdLocalProps = new Properties()
+def spsexpdLocalPropsFile = rootProject.file('local.properties')
+if (spsexpdLocalPropsFile.exists()) {
+    spsexpdLocalPropsFile.withInputStream { spsexpdLocalProps.load(it) }
+}
+
 android {
     namespace 'com.shatteredpixel.shatteredpixeldungeon.android'
     compileSdk appAndroidCompileSDK
@@ -23,6 +30,15 @@ android {
         targetSdkVersion appAndroidTargetSDK
     }
 
+    signingConfigs {
+        release {
+            storeFile rootProject.file('spsexpd-release.keystore')
+            storePassword spsexpdLocalProps.getProperty('spsexpd.storePassword', '')
+            keyAlias 'spsexpd'
+            keyPassword spsexpdLocalProps.getProperty('spsexpd.keyPassword', '')
+        }
+    }
+
     buildTypes {
         debug {
             applicationIdSuffix ".indev"
@@ -38,6 +54,7 @@ android {
             //This makes release APKs smaller and more efficient, but also makes debugging trickier
             //as the information produced in stack traces must be de-obfuscated.
             //See here: https://developer.android.com/studio/build/shrink-code#decode-stack-trace
+            signingConfig signingConfigs.release
             shrinkResources true
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
