@@ -15,9 +15,9 @@ allprojects {
 	}
 
     ext {
-		appName = 'SPS-SPD'
+		appName = 'SPSEXPD'
 		appPackageName = 'com.shatteredpixel.shatteredpixeldungeon'
-		appAndroidPackageName = 'com.hmdzl.spsspd'
+		appAndroidPackageName = 'com.hmdzl.spsexpd'
 
         //Full releases gets +2 on version code, needed for an F-Droid quirk
 		appVersionCode = 922

@@ -1,14 +1,15 @@
-# SPS-SPD
+# SPSEXPD
 
-SPS-SPD is a source-level port of Special Surprise Pixel Dungeon 0.9.8 to the
-Shattered Pixel Dungeon 4.0.0 engine. It starts from the Shattered 4.0 project
+SPSEXPD is a source-level port of Special Surprise Pixel Dungeon (SPS) 0.9.8 to
+the Shattered Pixel Dungeon 4.0.0 engine, blending selected low-pressure QoL
+features of SPS into the Shattered base. It starts from the Shattered 4.0 project
 layout and retains the already-tested SPS systems from the local Fusion Pixel
 Dungeon prototype while the remaining legacy content is migrated subsystem by
-subsystem.
+subsystem. SPSEXPD is a distinct project from SPSSPD (the original SPS port).
 
-The Android application id is `com.hmdzl.spsspd`, so it can be installed beside
-official Shattered Pixel Dungeon and the older Fusion build. This repository is
-GPLv3; source and art provenance are documented in `docs/`.
+The Android application id is `com.hmdzl.spsexpd`, so it can be installed beside
+official Shattered Pixel Dungeon, SPSSPD, and the older Fusion build. This
+repository is GPLv3; source and art provenance are documented in `docs/`.
 
 Compile the current desktop build and run the SPS checks with:
 

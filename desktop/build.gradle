@@ -58,6 +58,9 @@ tasks.register('release', Jar) {
         attributes 'Specification-Version': appVersionName
         attributes 'Implementation-Version': appVersionCode
     }
+
+    //SPSEXPD: 打包产物更名（SPSEXPD.jar，与 SPSSPD 区分）
+    archiveBaseName = 'SPSEXPD'
 }
 installDist.dependsOn release
 startScripts.dependsOn release

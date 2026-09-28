@@ -56,6 +56,11 @@ android {
     }
 }
 
+//SPSEXPD: 打包产物更名（SPSEXPD-debug.apk / SPSEXPD-release.apk，与 SPSSPD 区分）
+base {
+    archivesName = 'SPSEXPD'
+}
+
 configurations { natives }
 
 dependencies {

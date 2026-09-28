@@ -65,7 +65,7 @@ public class DesktopLauncher {
 		
 		String configuredTitle = DesktopLauncher.class.getPackage().getSpecificationTitle();
 		if (configuredTitle == null || configuredTitle.isEmpty()) {
-			configuredTitle = System.getProperty("Specification-Title", "SPS-SPD");
+			configuredTitle = System.getProperty("Specification-Title", "SPSEXPD");
 		}
 		final String title = configuredTitle;
 		
