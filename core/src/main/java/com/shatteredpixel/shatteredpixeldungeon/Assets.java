@@ -278,13 +278,13 @@ public class Assets {
 		public static final String MAGE     = "splashes/mage.jpg";
 		public static final String ROGUE    = "splashes/rogue.jpg";
 		public static final String HUNTRESS = "splashes/huntress.jpg";
-		public static final String DUELIST  = "splashes/duelist.jpg";
+		public static final String DUELIST  = "splashes/duelist.png";
 		public static final String CLERIC   = "splashes/cleric.jpg";
-		public static final String SPELLSWORD = "splashes/fusion_spellsword.png";
-		public static final String PERFORMER  = "splashes/fusion_performer.png";
-		public static final String SOLDIER    = "splashes/fusion_soldier.png";
-		public static final String FOLLOWER   = "splashes/fusion_follower.png";
-		public static final String ASCETIC    = "splashes/fusion_ascetic.png";
+		public static final String SPELLSWORD = "splashes/fusion_spellsword.jpg";
+		public static final String PERFORMER  = "splashes/fusion_performer.jpg";
+		public static final String SOLDIER    = "splashes/fusion_soldier.jpg";
+		public static final String FOLLOWER   = "splashes/fusion_follower.jpg";
+		public static final String ASCETIC    = "splashes/fusion_ascetic.jpg";
 
 		public static final String SEWERS   = "splashes/sewers.jpg";
 		public static final String PRISON   = "splashes/prison.jpg";

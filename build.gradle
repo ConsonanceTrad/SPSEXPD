@@ -389,8 +389,8 @@ tasks.register('verifySpsContent') {
 		}
 		def spellswordSkin = file('core/src/main/assets/sprites/heroes/fusion_spellsword.png')
 		validateHeroSheet(spellswordSkin, '魔剑士动画图集')
-		def splashFiles = ['fusion_spellsword.png', 'fusion_performer.png', 'fusion_soldier.png',
-				'fusion_follower.png', 'fusion_ascetic.png']
+		def splashFiles = ['fusion_spellsword.jpg', 'fusion_performer.jpg', 'fusion_soldier.jpg',
+				'fusion_follower.jpg', 'fusion_ascetic.jpg']
 		splashFiles.each { name ->
 			def splash = file("core/src/main/assets/splashes/${name}")
 			def image = javax.imageio.ImageIO.read(splash)
