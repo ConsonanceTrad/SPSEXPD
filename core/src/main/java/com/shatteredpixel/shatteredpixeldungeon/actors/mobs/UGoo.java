@@ -1,0 +1,162 @@
+/* Special Surprise Pixel Dungeon, GPLv3 or later. */
+package com.shatteredpixel.shatteredpixeldungeon.actors.mobs;
+
+import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
+import com.shatteredpixel.shatteredpixeldungeon.actors.Actor;
+import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
+import com.shatteredpixel.shatteredpixeldungeon.actors.blobs.Blob;
+import com.shatteredpixel.shatteredpixeldungeon.actors.blobs.Fire;
+import com.shatteredpixel.shatteredpixeldungeon.actors.blobs.SlowGas;
+import com.shatteredpixel.shatteredpixeldungeon.actors.blobs.ToxicGas;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Amok;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Buff;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Burning;
+import com.shatteredpixel.shatteredpixeldungeon.actors.blobs.effectblobs.ElectriShock;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Ooze;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Poison;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Roots;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Silent;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Sleep;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Terror;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Vertigo;
+import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfPsionicBlast;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.enchantments.EnchantmentDark;
+import com.shatteredpixel.shatteredpixeldungeon.levels.BossRushLevel;
+import com.shatteredpixel.shatteredpixeldungeon.mechanics.Ballistica;
+import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.UGooSprite;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.special.Handcannon;
+import com.watabou.utils.PathFinder;
+import com.watabou.utils.Random;
+
+/** The four-element lord goo and its original elemental projections. */
+public class UGoo extends BossRushBoss {
+
+	{
+		spriteClass = UGooSprite.class;
+		baseSpeed = 0.25f;
+		loot = new Handcannon();
+		lootChance = 0.5f;
+		properties.add(Property.ACIDIC);
+		properties.add(Property.ELEMENT);
+		properties.add(Property.UNKNOW);
+		resistances.add(EnchantmentDark.class);
+		immunities.add(EnchantmentDark.class);
+	}
+
+	@Override
+	protected void onPhaseChanged(int phase) {
+		if (!hasLivingMinions()) {
+			spawnMinion(new EarthGoo());
+			spawnMinion(new FireGoo());
+			spawnMinion(new ShockGoo());
+			spawnMinion(new IceGoo());
+		}
+	}
+
+	protected void spawnMinion(Mob minion) {
+		if (!(Dungeon.level instanceof BossRushLevel)) return;
+		minion.pos = ((BossRushLevel) Dungeon.level).safeSpawnCell(pos);
+		GameScene.add(minion);
+	}
+
+	protected boolean hasLivingMinions() {
+		for (Mob mob : Dungeon.level.mobs) if (mob instanceof ElementGoo && mob.isAlive()) return true;
+		return false;
+	}
+
+	@Override
+	public void damage(int damage, Object source) {
+		if (hasLivingMinions()) damage = 0;
+		super.damage(damage, source);
+	}
+
+	@Override
+	public float speed() {
+		return breaks == 3 ? 3f * super.speed() : super.speed();
+	}
+
+	@Override
+	protected Class<? extends BossRushBoss> nextBoss() {
+		return UTengu.class;
+	}
+
+	@Override
+	public void die(Object cause) {
+		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+			if (mob instanceof ElementGoo || mob instanceof Eye) mob.die(cause);
+		}
+		super.die(cause);
+	}
+
+	public abstract static class ElementGoo extends Mob {
+		{
+			HP = HT = 10;
+			EXP = 0;
+			defenseSkill = 5;
+			baseSpeed = 0.75f;
+			state = WANDERING;
+			properties.add(Property.BOSS_MINION);
+			properties.add(Property.ELEMENT);
+			properties.add(Property.UNKNOW);
+			properties.add(Property.MINIBOSS);
+			resistances.add(ToxicGas.class);
+			resistances.add(EnchantmentDark.class);
+			immunities.add(Amok.class);
+			immunities.add(Sleep.class);
+			immunities.add(Terror.class);
+			immunities.add(Vertigo.class);
+		}
+		@Override public int attackSkill(Char target) { return 10; }
+		@Override public int damageRoll() { return Random.NormalIntRange(0, 1); }
+		@Override public int drRoll() { return 2; }
+	}
+
+	public static class EarthGoo extends ElementGoo {
+		{ spriteClass = UGooSprite.EarthSpawnSprite.class; immunities.add(Poison.class); immunities.add(ToxicGas.class); }
+		@Override public int drRoll() { return 0; }
+		@Override public int attackProc(Char enemy, int damage) {
+			if (Random.Int(5) == 0) Buff.affect(enemy, Ooze.class).set(8f);
+			if (Random.Int(5) == 0) Buff.prolong(enemy, Roots.class, 2f);
+			return damage;
+		}
+	}
+
+	public static class FireGoo extends ElementGoo {
+		{ spriteClass = UGooSprite.FireSpawnSprite.class; properties.add(Property.FIERY); immunities.add(Burning.class); immunities.add(ScrollOfPsionicBlast.class); immunities.add(ToxicGas.class); }
+		@Override protected boolean act() {
+			for (int offset : PathFinder.NEIGHBOURS9) {
+				int cell = pos + offset;
+				if (Dungeon.level.insideMap(cell)) GameScene.add(Blob.seed(cell, 2, Fire.class));
+			}
+			return super.act();
+		}
+		@Override protected boolean canAttack(Char enemy) {
+			if (buff(Silent.class) != null) return Dungeon.level.adjacent(pos, enemy.pos) && !isCharmedBy(enemy);
+			return new Ballistica(pos, enemy.pos, Ballistica.MAGIC_BOLT).collisionPos == enemy.pos;
+		}
+	}
+
+	public static class IceGoo extends ElementGoo {
+		{ spriteClass = UGooSprite.IceSpawnSprite.class; state = FLEEING; properties.add(Property.ICY); immunities.add(Poison.class); immunities.add(ToxicGas.class); immunities.add(SlowGas.class); }
+		@Override protected boolean act() {
+			for (int offset : PathFinder.NEIGHBOURS9) {
+				int cell = pos + offset;
+				if (Dungeon.level.insideMap(cell)) GameScene.add(Blob.seed(cell, 2, SlowGas.class));
+			}
+			return super.act();
+		}
+	}
+
+	public static class ShockGoo extends ElementGoo {
+		{ spriteClass = UGooSprite.ShockSpawnSprite.class; properties.add(Property.ELECTRIC); immunities.add(Burning.class); immunities.add(ScrollOfPsionicBlast.class); immunities.add(ElectriShock.class); }
+		@Override public void damage(int damage, Object source) {
+			GameScene.add(Blob.seed(pos, 5, ElectriShock.class));
+			super.damage(damage, source);
+		}
+		@Override protected boolean canAttack(Char enemy) {
+			if (buff(Silent.class) != null) return Dungeon.level.adjacent(pos, enemy.pos) && !isCharmedBy(enemy);
+			return new Ballistica(pos, enemy.pos, Ballistica.MAGIC_BOLT).collisionPos == enemy.pos;
+		}
+	}
+}

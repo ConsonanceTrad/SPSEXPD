@@ -1,0 +1,41 @@
+/* Special Surprise Pixel Dungeon, GPLv3 or later. */
+package com.shatteredpixel.shatteredpixeldungeon.windows;
+
+import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
+import com.shatteredpixel.shatteredpixeldungeon.items.CurseBlood;
+import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
+import com.shatteredpixel.shatteredpixeldungeon.scenes.PixelScene;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSprite;
+import com.shatteredpixel.shatteredpixeldungeon.ui.RedButton;
+import com.shatteredpixel.shatteredpixeldungeon.ui.RenderedTextBlock;
+import com.shatteredpixel.shatteredpixeldungeon.ui.Window;
+import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
+
+/** SaidBySun's original 100,000-gold material purchase. */
+public class WndSaidBySun extends Window {
+	private static final int WIDTH = 120;
+	public WndSaidBySun() {
+		CurseBlood reward = new CurseBlood();
+		IconTitle title = new IconTitle(new ItemSprite(reward.image(), null), Messages.titleCase(reward.name()));
+		title.setRect(0, 0, WIDTH, 0);
+		add(title);
+		RenderedTextBlock message = PixelScene.renderTextBlock(Messages.get(this, "message"), 6);
+		message.maxWidth(WIDTH);
+		message.setPos(0, title.bottom() + 2);
+		add(message);
+		RedButton buy = new RedButton(Messages.get(this, "buy")) {
+			@Override protected void onClick() {
+				if (Dungeon.gold >= 100000) {
+					Dungeon.gold -= 100000;
+					if (!reward.doPickUp(Dungeon.hero)) Dungeon.level.drop(reward, Dungeon.hero.pos).sprite.drop();
+				} else {
+					GLog.w(Messages.get(WndSaidBySun.class, "more_gold"));
+				}
+				hide();
+			}
+		};
+		buy.setRect(0, message.bottom() + 2, WIDTH, 20);
+		add(buy);
+		resize(WIDTH, (int) buy.bottom());
+	}
+}

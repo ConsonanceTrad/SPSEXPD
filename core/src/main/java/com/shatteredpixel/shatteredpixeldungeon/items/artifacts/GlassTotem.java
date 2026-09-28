@@ -1,0 +1,137 @@
+/* Special Surprise Pixel Dungeon, GPLv3 or later. */
+package com.shatteredpixel.shatteredpixeldungeon.items.artifacts;
+
+import com.shatteredpixel.shatteredpixeldungeon.Assets;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.ArmorBreak;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.AttackUp;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Buff;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.DefenceUp;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.GlassShield;
+import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
+import com.shatteredpixel.shatteredpixeldungeon.effects.particles.ElmoParticle;
+import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
+import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
+import com.watabou.noosa.audio.Sample;
+import com.watabou.utils.Random;
+
+import java.util.ArrayList;
+
+/** SPS-PD 0.9.8's self-charging glass blessing artifact. */
+public class GlassTotem extends Artifact {
+
+	public static final String AC_ATK = "ATK";
+	public static final String AC_DEF = "DEF";
+	public static final int FULL_CHARGE = 100;
+	public static final int MAX_LEVEL = 10;
+
+	{
+		image = ItemSpriteSheet.SPS_GLASS_TOTEM;
+		levelCap = MAX_LEVEL;
+		chargeCap = FULL_CHARGE;
+		defaultAction = AC_ATK;
+	}
+
+	@Override
+	public ArrayList<String> actions(Hero hero) {
+		ArrayList<String> actions = super.actions(hero);
+		if (isEquipped(hero) && !cursed && charge == chargeCap) actions.add(AC_ATK);
+		if (isEquipped(hero) && !cursed && level() > 2) actions.add(AC_DEF);
+		return actions;
+	}
+
+	@Override
+	public void execute(Hero hero, String action) {
+		super.execute(hero, action);
+		if (AC_ATK.equals(action)) {
+			if (!isEquipped(hero)) {
+				GLog.i(Messages.get(Artifact.class, "need_to_equip"));
+			} else if (cursed) {
+				GLog.i(Messages.get(Artifact.class, "cursed"));
+			} else if (charge != chargeCap) {
+				GLog.i(Messages.get(Artifact.class, "no_charge"));
+			} else {
+				useAttackBlessing(hero);
+			}
+		} else if (AC_DEF.equals(action)) {
+			if (!isEquipped(hero)) {
+				GLog.i(Messages.get(Artifact.class, "need_to_equip"));
+			} else if (cursed) {
+				GLog.i(Messages.get(Artifact.class, "cursed"));
+			} else if (level() > 2) {
+				useDefenceBlessing(hero);
+			}
+		}
+	}
+
+	void useAttackBlessing(Hero hero) {
+		if (level() < levelCap) level(level() + 1);
+		Buff.affect(hero, AttackUp.class, 200f).level(8 * level());
+		Buff.affect(hero, ArmorBreak.class, 200f).level(8 * level());
+		charge = 0;
+		partialCharge = 0;
+		finishUse(hero, 1f);
+	}
+
+	void useDefenceBlessing(Hero hero) {
+		level(level() - 2);
+		Sample.INSTANCE.play(Assets.Sounds.BURNING);
+		if (hero.sprite != null) hero.sprite.emitter().burst(ElmoParticle.FACTORY, 12);
+		Buff.detach(hero, AttackUp.class);
+		Buff.affect(hero, GlassShield.class).turns(2);
+		finishUse(hero, 3f);
+	}
+
+	private void finishUse(Hero hero, float time) {
+		hero.spend(time);
+		hero.busy();
+		if (hero.sprite != null) hero.sprite.operate(hero.pos);
+		updateQuickslot();
+	}
+
+	void advanceCharge() {
+		if (charge >= chargeCap) {
+			partialCharge = 0;
+			return;
+		}
+		partialCharge++;
+		if (partialCharge >= 5f) {
+			charge++;
+			partialCharge = 0;
+		}
+	}
+
+	void applyCursedBacklash(Hero hero) {
+		Buff.affect(hero, ArmorBreak.class, 10f).level(100);
+	}
+
+	void applyFullChargeBlessing(Hero hero) {
+		Buff.affect(hero, AttackUp.class, 5f).level(20);
+		Buff.affect(hero, DefenceUp.class, 5f).level(20);
+	}
+
+	public int charge() { return charge; }
+
+	@Override
+	protected ArtifactBuff passiveBuff() {
+		return new GlassRecharge();
+	}
+
+	public class GlassRecharge extends ArtifactBuff {
+		@Override
+		public boolean act() {
+			if (charge < chargeCap && !cursed) {
+				advanceCharge();
+			} else if (cursed && target instanceof Hero && Random.Int(100) == 0) {
+				applyCursedBacklash((Hero)target);
+			} else if (!cursed && target instanceof Hero && Random.Int(1000 / (level() + 1)) == 0) {
+				applyFullChargeBlessing((Hero)target);
+			} else {
+				partialCharge = 0;
+			}
+			updateQuickslot();
+			spend(TICK);
+			return true;
+		}
+	}
+}

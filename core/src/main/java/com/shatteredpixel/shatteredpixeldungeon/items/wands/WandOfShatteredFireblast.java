@@ -1,0 +1,172 @@
+/* Special Surprise Pixel Dungeon, GPLv3 or later. */
+package com.shatteredpixel.shatteredpixeldungeon.items.wands;
+
+import com.shatteredpixel.shatteredpixeldungeon.Assets;
+import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
+import com.shatteredpixel.shatteredpixeldungeon.actors.Actor;
+import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
+import com.shatteredpixel.shatteredpixeldungeon.actors.blobs.Blob;
+import com.shatteredpixel.shatteredpixeldungeon.actors.blobs.Fire;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Buff;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Burning;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Cripple;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Paralysis;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.MagesStaff;
+import com.shatteredpixel.shatteredpixeldungeon.mechanics.Ballistica;
+import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
+import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
+import com.shatteredpixel.shatteredpixeldungeon.effects.MagicMissile;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSprite;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
+import com.watabou.noosa.audio.Sample;
+import com.watabou.utils.Callback;
+import com.watabou.utils.PathFinder;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+/** SFB's expanding fire-wave wand from SPS-PD 0.9.8. */
+public class WandOfShatteredFireblast extends DamageWand {
+
+	private static final ItemSprite.Glowing WHITE = new ItemSprite.Glowing(0xFFFFFF);
+	private Set<Integer> affectedCells = new HashSet<>();
+	private Set<Integer> visualCells = new HashSet<>();
+	private Map<Integer, Float> spreadStrength = new HashMap<>();
+	private int direction;
+
+	{
+		image = ItemSpriteSheet.WAND_SPS_FIREBOLT;
+		collisionProperties = Ballistica.STOP_SOLID;
+	}
+
+	@Override public ItemSprite.Glowing glowing() { return WHITE; }
+
+	@Override
+	public int min(int level) {
+		return Math.round((1 + level) * castMultiplier(chargesPerCast()));
+	}
+
+	@Override
+	public int max(int level) {
+		return Math.round((5 + 3 * level) * castMultiplier(chargesPerCast()));
+	}
+
+	public static float castMultiplier(int charges) {
+		return (float)Math.pow(1.5f, Math.max(0, charges - 1));
+	}
+
+	public static int chargeCost(int currentCharges) {
+		return Math.max(1, (int)Math.ceil(currentCharges * 0.3f));
+	}
+
+	public static int maximumDistance(int charges) {
+		return (int)(4 * Math.pow(1.5f, Math.max(0, charges - 1)));
+	}
+
+	@Override
+	public void onZap(Ballistica bolt) {
+		for (int cell : affectedCells) {
+			if (cell == bolt.sourcePos || !Dungeon.level.insideMap(cell)) continue;
+			if (!Dungeon.level.adjacent(bolt.sourcePos, cell) || Dungeon.level.flamable[cell]) {
+				GameScene.add(Blob.seed(cell, 1 + chargesPerCast(), Fire.class));
+			}
+			Char target = Actor.findChar(cell);
+			if (target != null) {
+				wandProc(target, chargesPerCast());
+				target.damage(damageRoll(), this);
+				if (target.isActive()) {
+					Buff.affect(target, Burning.class).reignite(target);
+					if (chargesPerCast() == 2) Buff.affect(target, Cripple.class, 4f);
+					else if (chargesPerCast() >= 3) Buff.affect(target, Paralysis.class, 4f);
+				}
+			}
+		}
+	}
+
+	public Set<Integer> prepareFlameCells(Ballistica bolt) {
+		affectedCells = new HashSet<>();
+		visualCells = new HashSet<>();
+		spreadStrength = new HashMap<>();
+		int maxDistance = maximumDistance(chargesPerCast());
+		int distance = Math.min(bolt.dist, maxDistance);
+		if (distance < 1 || bolt.path.size() < 2) return new HashSet<>(affectedCells);
+
+		for (int i = 0; i < PathFinder.NEIGHBOURS8.length; i++) {
+			if (bolt.sourcePos + PathFinder.NEIGHBOURS8[i] == bolt.path.get(1)) {
+				direction = i;
+				break;
+			}
+		}
+
+		float strength = maxDistance;
+		for (int cell : bolt.subPath(1, distance)) {
+			strength--;
+			affectedCells.add(cell);
+			if (strength > 1f) {
+				spreadFlames(cell + PathFinder.NEIGHBOURS8[left(direction)], strength - 1f);
+				spreadFlames(cell + PathFinder.NEIGHBOURS8[direction], strength - 1f);
+				spreadFlames(cell + PathFinder.NEIGHBOURS8[right(direction)], strength - 1f);
+			} else {
+				visualCells.add(cell);
+			}
+		}
+		visualCells.remove(bolt.path.get(distance));
+		return new HashSet<>(affectedCells);
+	}
+
+	private void spreadFlames(int cell, float strength) {
+		if (!Dungeon.level.insideMap(cell)) return;
+		Float previousStrength = spreadStrength.get(cell);
+		if (previousStrength != null && previousStrength >= strength) return;
+		spreadStrength.put(cell, strength);
+		if (strength >= 0f && (Dungeon.level.passable[cell] || Dungeon.level.flamable[cell])) {
+			affectedCells.add(cell);
+			if (strength >= 1.5f) {
+				visualCells.remove(cell);
+				spreadFlames(cell + PathFinder.NEIGHBOURS8[left(direction)], strength - 1.5f);
+				spreadFlames(cell + PathFinder.NEIGHBOURS8[direction], strength - 1.5f);
+				spreadFlames(cell + PathFinder.NEIGHBOURS8[right(direction)], strength - 1.5f);
+			} else {
+				visualCells.add(cell);
+			}
+		} else if (!Dungeon.level.passable[cell]) {
+			visualCells.add(cell);
+		}
+	}
+
+	private static int left(int direction) { return direction == 0 ? 7 : direction - 1; }
+	private static int right(int direction) { return direction == 7 ? 0 : direction + 1; }
+
+	@Override
+	public void fx(Ballistica bolt, Callback callback) {
+		prepareFlameCells(bolt);
+		int distance = Math.min(bolt.dist, maximumDistance(chargesPerCast()));
+		if (distance < 1) {
+			callback.call();
+			return;
+		}
+		for (int cell : visualCells) {
+			MagicMissile.boltFromChar(curUser.sprite.parent, MagicMissile.FIRE_CONE,
+					curUser.sprite, cell, null);
+		}
+		MagicMissile.boltFromChar(curUser.sprite.parent, MagicMissile.FIRE_CONE,
+				curUser.sprite, bolt.path.get(distance), callback);
+		Sample.INSTANCE.play(Assets.Sounds.ZAP);
+	}
+
+	@Override protected int chargesPerCast() { return chargeCost(curCharges); }
+
+	@Override
+	public String statsDesc() {
+		return levelKnown
+				? Messages.get(this, "stats_desc", chargesPerCast(), min(), max())
+				: Messages.get(this, "stats_desc", chargesPerCast(), min(0), max(0));
+	}
+
+	@Override
+	public void onHit(MagesStaff staff, Char attacker, Char defender, int damage) {
+		// SPS-PD predates battlemage wand-on-hit effects.
+	}
+}

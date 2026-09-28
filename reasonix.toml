@@ -1,0 +1,5 @@
+[permissions]
+allow = ["Bash=for c in java javac keytool jarsigner apktool jadx d2j-dex2jar baksmali unzip zip 7z aapt aapt2 apkanalyzer gradle adb; do printf \"%-14s \" \"$c\"; command -v \"$c\" 2>/dev/null || echo \"-- 未找到\"; done", "Bash=cd \"E:\\Code\\Project\\STSSP\\STSSP\" && echo \"JAVA_HOME=$JAVA_HOME\"; echo \"ANDROID_HOME=$ANDROID_HOME\"; echo \"ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT\"; ls ~/.gradle 2>/dev/null; ls /c/Program\\ Files/Java 2>/dev/null; ls /c/Program\\ Files/Android 2>/dev/null; ls \"$LOCALAPPDATA/Android\" 2>/dev/null"]
+# swallowtail MCP moved to global config.toml (project-level [[plugins]] is NOT loaded by the session; see MCP diagnosis notes)
+
+

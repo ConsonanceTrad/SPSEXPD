@@ -1,0 +1,186 @@
+/*
+ * Shattered Pixel Dungeon
+ * Copyright (C) 2014-2026 Evan Debenham
+ *
+ * Pet families adapted from Special Surprise Pixel Dungeon.
+ * Distributed under the GNU General Public License v3 or later.
+ */
+
+package com.shatteredpixel.shatteredpixeldungeon.actors.mobs.npcs;
+
+import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
+import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Blindness;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Buff;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Cripple;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Poison;
+import com.shatteredpixel.shatteredpixeldungeon.mechanics.Ballistica;
+import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.BatSprite;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.CrabSprite;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.ElementalSprite;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.PiranhaSprite;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.RatSprite;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.SheepSprite;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.SpinnerSprite;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.WraithSprite;
+import com.watabou.utils.Bundle;
+import com.watabou.utils.Random;
+
+public class FusionPet extends DirectableAlly {
+
+	public static final int TYPE_COUNT = 16;
+
+	private int type;
+
+	{
+		EXP = 0;
+		maxLvl = -1;
+		state = HUNTING;
+	}
+
+	public FusionPet configure(int type) {
+		this.type = Math.max(0, Math.min(TYPE_COUNT - 1, type));
+		setSprite();
+		updateStats(true);
+		return this;
+	}
+
+	public int type() {
+		return type;
+	}
+
+	private int role() {
+		return type % 4;
+	}
+
+	private void setSprite() {
+		switch (type % 8) {
+			case 0: spriteClass = RatSprite.class; break;
+			case 1: spriteClass = SheepSprite.class; break;
+			case 2: spriteClass = CrabSprite.class; break;
+			case 3: spriteClass = PiranhaSprite.class; break;
+			case 4: spriteClass = BatSprite.class; break;
+			case 5: spriteClass = SpinnerSprite.class; break;
+			case 6: spriteClass = WraithSprite.class; break;
+			default: spriteClass = ElementalSprite.Fire.class;
+		}
+	}
+
+	private void updateStats(boolean refill) {
+		int level = Dungeon.hero == null ? 1 : Dungeon.hero.lvl;
+		int oldHT = HT;
+		HT = 10 + 2 * level;
+		if (role() == 0) HT += 6 + level / 2;
+		if (role() == 1) HT -= 2;
+		defenseSkill = 5 + level + (role() == 0 ? 3 : 0);
+		if (refill) HP = HT;
+		else if (HT != oldHT) HP = Math.min(HT, HP + Math.max(0, HT - oldHT));
+	}
+
+	@Override
+	protected boolean act() {
+		updateStats(false);
+		return super.act();
+	}
+
+	@Override
+	public String name() {
+		return Messages.get(this, "name_" + type);
+	}
+
+	@Override
+	public String description() {
+		return Messages.get(this, "desc", Messages.get(this, "role_" + role()));
+	}
+
+	@Override
+	public int damageRoll() {
+		int level = Dungeon.hero == null ? 1 : Dungeon.hero.lvl;
+		int min = 1 + level / 6;
+		int max = 3 + level / 3;
+		if (role() == 1) {
+			min++;
+			max += 2;
+		} else if (role() == 0) {
+			max--;
+		}
+		return Random.NormalIntRange(min, Math.max(min, max));
+	}
+
+	@Override
+	public int attackSkill(Char target) {
+		return 10 + (Dungeon.hero == null ? 1 : Dungeon.hero.lvl);
+	}
+
+	@Override
+	public int drRoll() {
+		int level = Dungeon.hero == null ? 1 : Dungeon.hero.lvl;
+		return Random.NormalIntRange(0, role() == 0 ? 2 + level / 7 : 1 + level / 10);
+	}
+
+	@Override
+	protected boolean canAttack(Char enemy) {
+		return super.canAttack(enemy) || role() == 2
+				&& new Ballistica(pos, enemy.pos, Ballistica.MAGIC_BOLT).collisionPos == enemy.pos;
+	}
+
+	@Override
+	protected boolean doAttack(Char enemy) {
+		if (role() == 2 && !Dungeon.level.adjacent(pos, enemy.pos)) {
+			if (sprite != null && (sprite.visible || enemy.sprite.visible)) {
+				sprite.zap(enemy.pos);
+				return false;
+			}
+			rangedAttack();
+			return true;
+		}
+		return super.doAttack(enemy);
+	}
+
+	private void rangedAttack() {
+		spend(TICK);
+		if (enemy != null && enemy.isAlive() && hit(this, enemy, true)) {
+			enemy.damage(Math.max(1, Math.round(damageRoll() * 0.75f)), this);
+		}
+	}
+
+	public void onZapComplete() {
+		rangedAttack();
+		next();
+	}
+
+	@Override
+	public int attackProc(Char enemy, int damage) {
+		damage = super.attackProc(enemy, damage);
+		if (Random.Int(8) == 0) {
+			if (role() == 1) Buff.affect(enemy, Cripple.class, 1f);
+			else if (role() == 2) Buff.affect(enemy, Blindness.class, 1f);
+			else if (role() == 3) Buff.affect(enemy, Poison.class).set(2f);
+		}
+		return damage;
+	}
+
+	public int feed() {
+		int missing = HT - HP;
+		int healed = Math.min(missing, Math.max(5, HT / 2));
+		HP += healed;
+		return healed;
+	}
+
+	private static final String TYPE = "fusion_pet_type";
+
+	@Override
+	public void storeInBundle(Bundle bundle) {
+		super.storeInBundle(bundle);
+		bundle.put(TYPE, type);
+	}
+
+	@Override
+	public void restoreFromBundle(Bundle bundle) {
+		super.restoreFromBundle(bundle);
+		type = Math.max(0, Math.min(TYPE_COUNT - 1, bundle.getInt(TYPE)));
+		setSprite();
+		updateStats(false);
+	}
+}

@@ -1,0 +1,72 @@
+{
+    "atlas":  "core/src/main/assets/interfaces/banners.png",
+    "outDir":  "assets-src/interfaces/banners",
+    "entries":  [
+                    {
+                        "file":  "banner_000",
+                        "frames":  [
+                                       {
+                                           "x":  0,
+                                           "y":  0,
+                                           "w":  139,
+                                           "h":  100
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "banner_001",
+                        "frames":  [
+                                       {
+                                           "x":  139,
+                                           "y":  0,
+                                           "w":  139,
+                                           "h":  100
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "banner_002",
+                        "frames":  [
+                                       {
+                                           "x":  0,
+                                           "y":  100,
+                                           "w":  240,
+                                           "h":  57
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "banner_003",
+                        "frames":  [
+                                       {
+                                           "x":  240,
+                                           "y":  100,
+                                           "w":  240,
+                                           "h":  57
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "banner_004",
+                        "frames":  [
+                                       {
+                                           "x":  0,
+                                           "y":  157,
+                                           "w":  127,
+                                           "h":  68
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "banner_005",
+                        "frames":  [
+                                       {
+                                           "x":  128,
+                                           "y":  157,
+                                           "w":  128,
+                                           "h":  35
+                                       }
+                                   ]
+                    }
+                ]
+}

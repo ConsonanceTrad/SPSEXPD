@@ -1,0 +1,94 @@
+{
+    "atlas":  "core/src/main/assets/effects/spell_icons.png",
+    "outDir":  "assets-src/effects/spell_icons",
+    "entries":  [
+                    {
+                        "file":  "spell_000",
+                        "frames":  [
+                                       {
+                                           "x":  0,
+                                           "y":  0,
+                                           "w":  16,
+                                           "h":  16
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "spell_001",
+                        "frames":  [
+                                       {
+                                           "x":  16,
+                                           "y":  0,
+                                           "w":  16,
+                                           "h":  16
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "spell_002",
+                        "frames":  [
+                                       {
+                                           "x":  32,
+                                           "y":  0,
+                                           "w":  16,
+                                           "h":  16
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "spell_003",
+                        "frames":  [
+                                       {
+                                           "x":  48,
+                                           "y":  0,
+                                           "w":  16,
+                                           "h":  16
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "spell_004",
+                        "frames":  [
+                                       {
+                                           "x":  64,
+                                           "y":  0,
+                                           "w":  16,
+                                           "h":  16
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "spell_005",
+                        "frames":  [
+                                       {
+                                           "x":  80,
+                                           "y":  0,
+                                           "w":  16,
+                                           "h":  16
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "spell_006",
+                        "frames":  [
+                                       {
+                                           "x":  96,
+                                           "y":  0,
+                                           "w":  16,
+                                           "h":  16
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "spell_007",
+                        "frames":  [
+                                       {
+                                           "x":  112,
+                                           "y":  0,
+                                           "w":  16,
+                                           "h":  16
+                                       }
+                                   ]
+                    }
+                ]
+}

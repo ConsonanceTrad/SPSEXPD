@@ -1,0 +1,56 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.mobidevelop.robovm:robovm-gradle-plugin:$robovmVersion"
+    }
+}
+
+apply plugin: "java"
+apply plugin: "robovm"
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+java.sourceCompatibility = java.targetCompatibility = appJavaCompatibility
+
+task updateRoboVMProps(){
+    def props = new Properties()
+    
+    props.setProperty ('appName', appName)
+    //append .apple because com.shatteredpixel.shatteredpixeldungeon was taken =(
+    props.setProperty ('appApplePackageName', appPackageName + ".apple")
+
+    props.setProperty ('appVersionCode', appVersionCode.toString())
+    props.setProperty ('appVersionName', appVersionName)
+    //parse out just #.#.# from version name, this is an apple requirement
+    props.setProperty ('appShortVersionName', (appVersionName =~ /\d+\.\d+\.\d+/)[0])
+
+    props.setProperty ('appMainclass', appPackageName + ".ios.IOSLauncher")
+    props.setProperty ('appExecutable', "IOSLauncher")
+
+    file("robovm.properties").withWriter { props.store(it, "Dynamically generated, do not commit to version control!") }
+}
+
+build.dependsOn updateRoboVMProps
+
+launchIPhoneSimulator.dependsOn build
+launchIPadSimulator.dependsOn build
+launchIOSDevice.dependsOn build
+createIPA.dependsOn build
+
+dependencies {
+    implementation project(':core')
+    implementation project(':services:updates:debugUpdates')
+	implementation project(':services:news:debugNews')
+
+    implementation "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+    implementation "com.mobidevelop.robovm:robovm-rt:$robovmVersion"
+    implementation "com.mobidevelop.robovm:robovm-cocoatouch:$robovmVersion"
+    //FIXME using a prior version of metalangle backend as 1.13.5+ crashes on A7 and A8 devices
+    // Yes this is dangerous, the old backend seems to only work with libGDX 1.14.0 incidentally
+    // Ideally the next release of libGDX will fix this and this can simply use $gdxVersion again
+    implementation "com.badlogicgames.gdx:gdx-backend-robovm-metalangle:1.13.1"
+    implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-ios"
+    implementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-ios"
+    implementation "com.badlogicgames.gdx-controllers:gdx-controllers-ios:$gdxControllersVersion"
+}

@@ -1,0 +1,2268 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:9.2.0'
+    }
+}
+
+allprojects {
+
+	tasks.withType(JavaCompile).configureEach {
+		options.encoding = 'UTF-8'
+	}
+
+    ext {
+		appName = 'SPS-SPD'
+		appPackageName = 'com.shatteredpixel.shatteredpixeldungeon'
+		appAndroidPackageName = 'com.hmdzl.spsspd'
+
+        //Full releases gets +2 on version code, needed for an F-Droid quirk
+		appVersionCode = 922
+		appVersionName = '4.0.0-sps.1'
+
+        appJavaCompatibility = JavaVersion.VERSION_11
+
+        appAndroidCompileSDK = 36   //Android 15
+        appAndroidMinSDK = 21       //Android 5.0
+        appAndroidTargetSDK = 36    //Android 15
+
+        gdxVersion = '1.14.0'
+        gdxControllersVersion = '2.2.4'
+        robovmVersion = '2.3.24'
+    }
+    version = appVersionName
+
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://central.sonatype.com/repository/maven-snapshots/' }
+    }
+
+}
+
+tasks.register('verifySpsContent') {
+    group = 'verification'
+    description = '检查SPS移植内容的中英文资源、UTF-8文本与固定地图模板。'
+
+    doLast {
+		fileTree('core/src/main/assets/messages').matching { include '**/*.properties' }.each { resource ->
+			def decoder = java.nio.charset.StandardCharsets.UTF_8.newDecoder()
+					.onMalformedInput(java.nio.charset.CodingErrorAction.REPORT)
+					.onUnmappableCharacter(java.nio.charset.CodingErrorAction.REPORT)
+			def text
+			try {
+				text = decoder.decode(java.nio.ByteBuffer.wrap(resource.bytes)).toString()
+			} catch (java.nio.charset.CharacterCodingException error) {
+				throw new GradleException("${resource}: 不是严格UTF-8文本", error)
+			}
+			if (text.contains('\uFFFD') || text.contains('锟斤拷') || text.contains('烫烫烫')) {
+				throw new GradleException("${resource}: 检测到疑似乱码")
+			}
+			if (text.readLines().any { it.startsWith('com.shatteredpixel.shatteredpixeldungeon.') }) {
+				throw new GradleException("${resource}: 资源键错误包含完整Java包名前缀")
+			}
+		}
+
+        def messagePairs = [
+                [file('core/src/main/assets/messages/items/items.properties'),
+                 file('core/src/main/assets/messages/items/items_zh.properties')],
+                [file('core/src/main/assets/messages/actors/actors.properties'),
+                 file('core/src/main/assets/messages/actors/actors_zh.properties')],
+                [file('core/src/main/assets/messages/levels/levels.properties'),
+                 file('core/src/main/assets/messages/levels/levels_zh.properties')],
+                [file('core/src/main/assets/messages/plants/plants.properties'),
+                 file('core/src/main/assets/messages/plants/plants_zh.properties')],
+                [file('core/src/main/assets/messages/scenes/scenes.properties'),
+				 file('core/src/main/assets/messages/scenes/scenes_zh.properties')],
+				[file('core/src/main/assets/messages/windows/windows.properties'),
+				 file('core/src/main/assets/messages/windows/windows_zh.properties')]
+        ]
+        def spsPrefixes = [
+                'items.weapon.melee.fusion.',
+				'items.weapon.missiles.fusion.',
+				'items.weapon.missiles.arrows.glassfruit.',
+                'items.armor.fusion.',
+                'items.wands.fusion.',
+                'items.rings.fusion.',
+                'items.artifacts.fusion.',
+                'items.food.fusion.',
+				'items.food.fruit.',
+				'items.food.vegetable.',
+				'items.food.completefood.',
+				'items.food.fishcracker.',
+				'items.food.honey.',
+				'items.food.staplefood.',
+				'items.food.meatfood.',
+				'items.journalpages.',
+				'items.reddewdrop.',
+				'items.violetdewdrop.',
+				'items.yellowdewdrop.',
+				'items.transmutationball.',
+				'items.upgradeeatball.',
+				'items.upgradeblob',
+				'items.potions.potionofmending.',
+				'items.potions.potionofmight.',
+				'items.potions.potionofmixing.',
+				'items.potions.potionofshield.',
+				'items.potions.potionofoverhealing.',
+				'items.medicine.',
+				'items.food.bugmeat.',
+				'items.expore.',
+				'items.leveldown.',
+				'items.bombs.dungeonbomb.',
+				'items.bombs.spsfirebomb.',
+				'items.bombs.icebomb.',
+				'items.bombs.stormbomb.',
+				'items.misc.shovel.',
+				'items.misc.gunofsoldier.',
+				'items.misc.faithsign.',
+				'items.misc.rockmanjumpshoes.',
+				'items.misc.bigbattery.',
+				'items.misc.savagehelmet.',
+				'items.misc.horsetotem.',
+				'items.misc.rangebag.',
+				'items.misc.dancelion.',
+				'items.misc.healbag.',
+				'items.weapon.melee.start.whisk.',
+				'items.weapon.melee.special.testweapon.',
+				'items.wands.wandoftest.',
+				'items.armor.specialarmor.testarmor.',
+				'items.misc.rewardpaper.',
+				'items.weapon.melee.start.demonblade.',
+				'items.weapon.melee.start.bunnydagger.',
+				'items.weapon.melee.start.bunnyspanner.',
+				'items.weapon.melee.start.xsaber.',
+				'items.weapon.melee.special.ninjafan.',
+				'items.weapon.missiles.megacannon.',
+				'items.armor.specialarmor.renbarmor.',
+				'items.weapon.rockcode.',
+				'items.bombs.minibomb.',
+				'items.weapon.missiles.elfbow.',
+				'items.weapon.missiles.throwing.mindarrow.',
+				'items.misc.needpaper.',
+				'items.misc.ppc.',
+				'items.misc.dicetower.',
+				'items.misc.leaderflag.',
+				'items.misc.nmhealbag.',
+				'items.weapon.missiles.buildblock.waterblock.',
+				'actors.buffs.forevershadow.',
+				'actors.buffs.bunnycombo.',
+				'actors.buffs.funnybuff.',
+				'actors.buffs.mindbuff.',
+				'items.weapon.melee.normalweapon.woodenstaff.',
+				'items.weapon.melee.normalweapon.tricksand.',
+				'plants.dewcatcher',
+				'plants.dreamfoil',
+				'plants.freshberry',
+				'plants.nutplant',
+				'plants.renepenth',
+				'plants.seedpod',
+				'plants.siotwoflower',
+				'plants.stareater',
+				'items.waterskin.',
+				'items.misc.spectacles.',
+				'items.misc.autopotion.',
+				'items.misc.luckybadge.',
+				'items.weapon.missiles.throwing.boomerang.',
+				'items.weapon.spammo.',
+				'items.weapon.guns.',
+				'items.weapon.ranges.',
+				'items.weapon.missiles.manyknive.',
+				'items.weapon.missiles.throwing.escapeknive.',
+				'items.weapon.missiles.throwing.empbola.',
+				'items.weapon.missiles.arrows.blindfruit.',
+				'items.weapon.missiles.arrows.healfruit.',
+				'items.weapon.missiles.arrows.shockfruit.',
+				'items.weapon.missiles.arrows.toxicfruit.',
+				'items.weapon.missiles.arrows.rootfruit.',
+				'items.weapon.missiles.arrows.firefruit.',
+				'items.weapon.missiles.arrows.charmfruit.',
+				'items.weapon.missiles.arrows.smokefruit.',
+				'items.weapon.missiles.arrows.nutfruit.',
+				'items.weapon.missiles.arrows.icefruit.',
+				'items.scrolls.scrollofmagicalinfusion.',
+				'items.scrolls.scrollofregrowth.',
+				'items.garbage.',
+				'items.stoneore.',
+				'items.greatrune.',
+                'items.quest.challengejournal.',
+                'items.quest.mapfragment.',
+                'items.quest.adventurejournal.',
+                'items.quest.petcompendium.',
+                'actors.mobs.challengeguardian.',
+                'actors.mobs.adventureguardian.',
+				'actors.mobs.yearbeast.',
+                'actors.mobs.npcs.adventureguide.',
+                'actors.mobs.npcs.fusionpet.',
+                'actors.mobs.npcs.sokobanblock.',
+                'actors.hero.combatstyle.',
+                'actors.hero.heroclass.performer',
+                'actors.hero.heroclass.soldier',
+                'actors.hero.heroclass.follower',
+                'actors.hero.heroclass.ascetic',
+                'actors.hero.herosubclass.superstar',
+                'actors.hero.herosubclass.joker',
+                'actors.hero.herosubclass.agent',
+                'actors.hero.herosubclass.leader',
+                'actors.hero.herosubclass.artisan',
+                'actors.hero.herosubclass.pastor',
+                'actors.hero.herosubclass.ascetic_monk',
+				'actors.hero.herosubclass.hacker',
+				'actors.buffs.tentsleep.',
+				'actors.buffs.bugslow.',
+				'actors.buffs.lightshootattack.',
+				'actors.buffs.becorrupt.',
+				'actors.buffs.holystun.',
+				'actors.buffs.superarcane.',
+				'actors.buffs.notice.',
+				'actors.buffs.wargroove.',
+				'actors.buffs.betired.',
+				'actors.buffs.faithbuff.',
+				'actors.blobs.slowgas.',
+				'actors.mobs.spscitymobs$',
+				'actors.mobs.spshallsmobs$',
+				'actors.mobs.sewerheart',
+				'actors.mobs.plaguedoctor',
+				'levels.adventurelevel.',
+				'levels.challengelevel.',
+				'levels.level.tent_',
+				'levels.level.iron_maker_',
+				'scenes.heroselectscene.skin_',
+				'scenes.heroselectscene.style_',
+				'windows.wndtent.',
+				'windows.wndironmaker.',
+				'items.palantir.',
+				'items.soulcollect.',
+				'items.potkey.',
+				'items.shadoweaterkey.',
+				'items.chaospack.',
+				'items.emptybody.',
+				'items.curseblood.',
+				'items.weapon.melee.special.shadoweater.',
+				'items.bags.heartofscarecrow.',
+				'items.powerhand.',
+				'actors.mobs.magiceye.',
+				'actors.mobs.zot.',
+				'actors.mobs.zotphase.',
+				'actors.mobs.spstengu.',
+				'actors.mobs.npcs.blacksmith.shadoweater',
+				'windows.wndice13.',
+				'windows.wndsaidbysun.',
+				'windows.wndkeybindings.quickslot_'
+        ]
+        def parseKeys = { File resource ->
+            def keys = []
+            resource.readLines('UTF-8').each { line ->
+                if (line && !line.startsWith('#') && line.contains('=')) {
+                    keys << line.substring(0, line.indexOf('='))
+                }
+            }
+            def duplicates = keys.countBy { it }.findAll { key, count -> count > 1 }.keySet()
+            if (!duplicates.isEmpty()) throw new GradleException("${resource}: 存在重复资源键 ${duplicates}")
+            keys.findAll { key -> spsPrefixes.any { key.startsWith(it) } }.toSet()
+        }
+
+        messagePairs.each { pair ->
+            pair.each { resource ->
+                def text = resource.getText('UTF-8')
+                if (text.contains('\uFFFD') || text.contains('锟斤拷') || text.contains('烫烫烫')) {
+                    throw new GradleException("${resource}: 检测到疑似乱码")
+                }
+            }
+            def baseKeys = parseKeys(pair[0])
+            def zhKeys = parseKeys(pair[1])
+            if (baseKeys != zhKeys) {
+                throw new GradleException("${pair[0].parent}: SPS内容的中英文资源键不一致，英文独有=${baseKeys-zhKeys}，中文独有=${zhKeys-baseKeys}")
+            }
+        }
+
+		def citySprites = [
+				'sps_dragonrider.png': [264, 36], 'sps_spiderbot.png': [256, 16],
+				'sps_musketeer.png': [256, 32], 'sps_manyskeleton.png': [64, 16],
+				'sps_levelchecker.png': [64, 16], 'sps_greatmoss.png': [256, 16],
+				'sps_redwraith.png': [128, 16], 'sps_cellmob.png': [256, 32],
+				'items.png': [256, 992]
+		]
+		citySprites.each { name, dimensions ->
+			def resource = fileTree(dir: 'core/src/main/assets/sprites', includes: ["**/${name}"]).singleFile
+			if (!resource.isFile()) throw new GradleException("缺少SPS城区素材：${name}")
+			def image = javax.imageio.ImageIO.read(resource)
+			if (image == null || image.width != dimensions[0] || image.height != dimensions[1]) {
+				throw new GradleException("SPS城区素材尺寸错误：${name}")
+			}
+		}
+		def itemSheetSource = file('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/sprites/ItemSpriteSheet.java').getText('UTF-8')
+		if (!itemSheetSource.contains('TX_HEIGHT = 992')) {
+			throw new GradleException('ItemSpriteSheet: 图集高度必须为992，避免SPS药丸图标被裁切')
+		}
+		def medicineIconHashes = [
+				'MUSHROOM_LANTERN':       'E6D20A912E6CCA916B88D8703AC1B35796486903E3C598527BA83AF62780136F',
+				'MUSHROOM_EARTHSTAR':      'C1FAF6BD074C6D9C4EC3976135D1CED7DB22AC0A62A8B309B327704CE46EDE8F',
+				'MUSHROOM_GREEN_SPORE':    'FE5D9E5D680FD7755E130C1C5F7D78BB3AF71AD7E3BE88ED38DCF8A7EAC5A0BB',
+				'MUSHROOM_DEATHCAP':       '4AE5C036CFDACE2A730875DBD40A3E3A50FA2FEB52A0FFC6931FF75891D7483D',
+				'MUSHROOM_PIXIEPARASOL':   'A639F90CB936B9461C852E0244B5B167ADAC7F99DD18372E777D15750C3D11FC',
+				'MUSHROOM_GOLDENJELLY':    'B2B4D2277E8E585DCC90B801B845B98A9A532D35995668BE29A3761CD226C4DD',
+				'MUSHROOM_BLUEMILK':       '800A7433F330AC2A6F3B4667C0FC1A91088CADC8D847DB75ABADA9FA711E55CD',
+				'GREAT_PILL':               'D864F3BFD443A565849566465ECB5AB18A13251700047A1AADBE7FB4738846E9',
+				'WINE':                     '4CFFD6B4BC50655AC84964CE5F720C1F877B844DC0FADE93F50F16470B1D92E7'
+		]
+		def medicineSheet = javax.imageio.ImageIO.read(file('core/src/main/assets/sprites/items/items.png'))
+		medicineIconHashes.eachWithIndex { name, expected, slot ->
+			def pixelBytes = new java.io.ByteArrayOutputStream(16 * 16 * 4)
+			def pixels = new java.io.DataOutputStream(pixelBytes)
+			for (int y = 976; y < 992; y++) {
+				for (int x = slot * 16; x < slot * 16 + 16; x++) {
+					pixels.writeInt(medicineSheet.getRGB(x, y))
+				}
+			}
+			pixels.flush()
+			def actual = java.security.MessageDigest.getInstance('SHA-256')
+					.digest(pixelBytes.toByteArray()).encodeHex().toString().toUpperCase()
+			if (actual != expected) {
+				throw new GradleException("SPS药丸图标像素不一致: ${name}")
+			}
+		}
+		def terrainFeatures = javax.imageio.ImageIO.read(file('core/src/main/assets/environment/features/terrain_features.png'))
+		if (terrainFeatures == null || terrainFeatures.width != 256 || terrainFeatures.height != 288) {
+			throw new GradleException('SPS植物图集: terrain_features.png必须为256x288像素')
+		}
+		def hallsSprites = [
+				'sps_demongoo.png': [256, 16], 'sps_thiefimp.png': [352, 16],
+				'sps_demonflower.png': [176, 16], 'sps_sufferer.png': [180, 14],
+				'sps_demonrabbit.png': [103, 15]
+		]
+		hallsSprites.each { name, dimensions ->
+			def resource = fileTree(dir: 'core/src/main/assets/sprites', includes: ["**/${name}"]).singleFile
+			if (!resource.isFile()) throw new GradleException("缺少SPS恶魔大厅素材：${name}")
+			def image = javax.imageio.ImageIO.read(resource)
+			if (image == null || image.width != dimensions[0] || image.height != dimensions[1]) {
+				throw new GradleException("SPS恶魔大厅素材尺寸错误：${name}")
+			}
+		}
+		def sewerBossSprites = [
+				'sps_sewer_heart.png': [128, 16], 'sps_sewer_lasher.png': [128, 16],
+				'sps_plague_doctor.png': [256, 16], 'sps_shadow_rat.png': [256, 94]
+		]
+		sewerBossSprites.each { name, dimensions ->
+			def resource = fileTree(dir: 'core/src/main/assets/sprites', includes: ["**/${name}"]).singleFile
+			if (!resource.isFile()) throw new GradleException("缺少SPS下水道首领素材：${name}")
+			def image = javax.imageio.ImageIO.read(resource)
+			if (image == null || image.width != dimensions[0] || image.height != dimensions[1]) {
+				throw new GradleException("SPS下水道首领素材尺寸错误：${name}")
+			}
+		}
+
+        def levelSource = file('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/AdventureLevel.java')
+                .readLines('UTF-8')
+        def layoutRows = levelSource.collect { it.trim() }
+                .findAll { it ==~ '"[#.@\\$XSaAg~N]+",?' }
+                .collect { it.replace('"', '').replace(',', '') }
+        if (layoutRows.isEmpty() || layoutRows.any { it.length() != 17 }) {
+            throw new GradleException('AdventureLevel: 固定地图模板缺失或行宽不是17格')
+        }
+
+		def skinFiles = ['sps_warrior.png', 'sps_mage.png', 'sps_rogue.png', 'sps_huntress.png',
+				'fusion_performer.png', 'fusion_soldier.png', 'fusion_follower.png', 'fusion_ascetic.png']
+		def validateHeroSheet = { File skin, String label ->
+			def image = javax.imageio.ImageIO.read(skin)
+			if (image == null || image.width != 256 || image.height != 128) {
+				throw new GradleException("${skin}: ${label}必须为256x128像素")
+			}
+			(0..<8).each { row ->
+				boolean hasVisiblePixel = false
+				for (int y = row * 15; y < row * 15 + 15 && !hasVisiblePixel; y++) {
+					for (int x = 0; x < image.width; x++) {
+						if (((image.getRGB(x, y) >>> 24) & 0xFF) != 0) {
+							hasVisiblePixel = true
+							break
+						}
+					}
+				}
+				if (!hasVisiblePixel) throw new GradleException("${skin}: 第${row + 1}行动画为空")
+			}
+		}
+		skinFiles.each { name ->
+			validateHeroSheet(fileTree(dir: 'core/src/main/assets/sprites', includes: ["**/${name}"]).singleFile, '职业皮肤图集')
+		}
+		def spellswordSkin = file('core/src/main/assets/sprites/heroes/fusion_spellsword.png')
+		validateHeroSheet(spellswordSkin, '魔剑士动画图集')
+		def splashFiles = ['fusion_spellsword.png', 'fusion_performer.png', 'fusion_soldier.png',
+				'fusion_follower.png', 'fusion_ascetic.png']
+		splashFiles.each { name ->
+			def splash = file("core/src/main/assets/splashes/${name}")
+			def image = javax.imageio.ImageIO.read(splash)
+			if (image == null || image.width != 800 || image.height != 450) {
+				throw new GradleException("${splash}: 融合职业原画必须为800x450像素")
+			}
+		}
+
+		def journalSource = file('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/quest/AdventureJournal.java').getText('UTF-8')
+		if (!journalSource.contains('DESTINATION_COUNT = 25')) {
+			throw new GradleException('AdventureJournal: 异界目的地数量不是25')
+		}
+		def styleLines = file('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/CombatStyle.java').readLines('UTF-8')
+		if (styleLines.count { it ==~ /\s*[A-Z]+\(.*/ } != 8) {
+			throw new GradleException('CombatStyle: 战斗风格数量不是8')
+		}
+		def generatorSource = file('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/Generator.java').getText('UTF-8')
+		def medicineClasses = ['BlueMilk', 'DeathCap', 'Earthstar', 'Foamedbeverage', 'GoldenJelly',
+				'Greaterpill', 'GreenSpore', 'Hardpill', 'JackOLantern', 'LingPotion', 'MagicPill',
+				'MendingTonic', 'Musicpill', 'PixieParasol', 'Powerpill', 'RealgarWine', 'Shootpill',
+				'Smashpill', 'TimePill', 'Timepill2']
+		medicineClasses.each { name ->
+			def source = file("core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/medicine/${name}.java")
+			if (!source.isFile() || !generatorSource.contains("${name}.class")) {
+				throw new GradleException("SPS药物未完整接入生成器: ${name}")
+			}
+		}
+		def berryClasses = ['Blackberry', 'Blueberry', 'Cherry', 'Cloudberry', 'Durian',
+				'FullMoonberry', 'Moonberry', 'Strawberry']
+		berryClasses.each { name ->
+			def source = file("core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/food/fruit/${name}.java")
+			if (!source.isFile() || !generatorSource.contains("${name}.class")) {
+				throw new GradleException("SPS果实未完整接入生成器: ${name}")
+			}
+		}
+		def vegetableClasses = ['BattleFlower', 'BrewLeft', 'DreamLeaf', 'HealGrass',
+				'NutVegetable', 'Truffles']
+		vegetableClasses.each { name ->
+			def source = file("core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/food/vegetable/${name}.java")
+			if (!source.isFile() || !generatorSource.contains("${name}.class")) {
+				throw new GradleException("SPS蔬菜未完整接入生成器: ${name}")
+			}
+		}
+		def plantProductClasses = ['RedDewdrop', 'VioletDewdrop', 'YellowDewdrop',
+				'TransmutationBall', 'UpgradeEatBall', 'UpgradeBlobYellow',
+				'UpgradeBlobRed', 'UpgradeBlobViolet']
+		plantProductClasses.each { name ->
+			def source = file("core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/${name}.java")
+			if (!source.isFile()) throw new GradleException("SPS植物产物缺失: ${name}")
+		}
+		def spsPotionClasses = ['PotionOfMending', 'PotionOfMight', 'PotionOfMixing',
+				'PotionOfShield', 'PotionOfOverHealing']
+		def potionSource = file('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/potions/Potion.java').getText('UTF-8')
+		spsPotionClasses.each { name ->
+			def source = file("core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/potions/${name}.java")
+			if (!source.isFile() || !generatorSource.contains("${name}.class") || !potionSource.contains("${name}.class")) {
+				throw new GradleException("SPS植物药剂未完整接入生成器和种子炼金: ${name}")
+			}
+		}
+		def plantClasses = ['Dewcatcher', 'Dreamfoil', 'Freshberry', 'NutPlant',
+				'ReNepenth', 'Seedpod', 'SiOtwoFlower', 'StarEater']
+		def plantLogic = plantClasses.collectEntries { name ->
+			[(name): file("core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/plants/${name}.java").getText('UTF-8')]
+		}
+		['Dewcatcher': ['RedDewdrop', 'VioletDewdrop', 'YellowDewdrop'],
+		 'Dreamfoil': ['DreamLeaf'], 'Freshberry': ['Category.BERRY'],
+		 'NutPlant': ['NutVegetable', 'Strawberry', 'Cherry'],
+		 'ReNepenth': ['TransmutationBall'], 'SiOtwoFlower': ['GlassFruit'],
+		 'StarEater': ['UpgradeEatBall']].each { plant, tokens ->
+			tokens.each { token ->
+				if (!plantLogic[plant].contains(token)) {
+					throw new GradleException("SPS植物掉落尚未接入: ${plant} -> ${token}")
+				}
+			}
+		}
+		plantClasses.each { name ->
+			def source = file("core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/plants/${name}.java")
+			if (!source.isFile() || !generatorSource.contains("${name}.Seed.class")) {
+				throw new GradleException("SPS植物未完整接入种子生成器: ${name}")
+			}
+		}
+		['MissileShield', 'PotionOfMage'].each { name ->
+			def source = file("core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/misc/${name}.java")
+			if (!source.isFile()) throw new GradleException("第5层特殊战利品缺失: ${name}")
+		}
+		['Gleaf', 'Dpotion'].each { name ->
+			def source = file("core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/weapon/rockcode/${name}.java")
+			if (!source.isFile()) throw new GradleException("演员第7皮肤首领奖励缺失: ${name}")
+		}
+		def rockCodeBossDrops = [
+				'SpsGoo': 'Obubble', 'SpsTengu': 'Nshuriken', 'PrisonWander': 'Ichain',
+				'Tank': 'Trush', 'SpiderQueen': 'Sweb', 'SpsDM300': 'Bmech',
+				'Hybrid': 'Mlaser', 'LichDancer': 'Lbox', 'King': 'Zshield',
+				'ElderAvatar': 'Alink'
+		]
+		rockCodeBossDrops.each { boss, code ->
+			def codeSource = file("core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/weapon/rockcode/${code}.java")
+			def bossSource = file("core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/${boss}.java")
+			if (!codeSource.isFile() || !bossSource.isFile()) {
+				throw new GradleException("演员第7皮肤首领芯片文件缺失: ${boss} -> ${code}")
+			}
+			def bossLogic = bossSource.getText('UTF-8')
+			if (!bossLogic.contains('RockCode.dropForPerformer(') ||
+					!bossLogic.contains("rockcode.${code}()")) {
+				throw new GradleException("演员第7皮肤首领芯片未接入限定掉落: ${boss} -> ${code}")
+			}
+		}
+
+		println "SPS内容审计通过：全部消息资源均为严格UTF-8；${layoutRows.size()}行固定地图、25个目的地、8条挑战路线、20种药物、14种果蔬、8种植物产物、5种植物药剂、8种独有植物、12枚洛克芯片、8套战斗风格、9张保留职业动画图集和5张独立职业原画；中英文资源键一致。"
+    }
+}
+
+tasks.register('verifySpsMechanics') {
+    group = 'verification'
+    description = '静态验证SPS路线、奖励门槛及关键存档机制。'
+
+    doLast {
+        def readSource = { String path -> file(path).getText('UTF-8') }
+        def requireText = { String source, String token, String label ->
+            if (!source.contains(token)) throw new GradleException("${label}: 缺少关键逻辑 ${token}")
+        }
+
+        def journal = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/quest/AdventureJournal.java')
+        def anchorMatch = journal =~ /(?s)ANCHOR_DEPTHS\s*=\s*\{(.*?)\}/
+        if (!anchorMatch.find()) throw new GradleException('AdventureJournal: 找不到路线深度表')
+        def anchors = (anchorMatch.group(1) =~ /\d+/).collect { it as int }
+        if (anchors.size() != 25 || anchors.any { it < 1 || it > 25 }) {
+            throw new GradleException("AdventureJournal: 路线深度表必须包含25个1至25层的入口，当前=${anchors}")
+        }
+
+        def rewardMatches = journal =~ /case\s+(\d+):\s+reward\s*=\s*new\s+([A-Za-z0-9_]+)/
+        def actualRewards = [:]
+        rewardMatches.each { match -> actualRewards[match[1] as int] = match[2] }
+        def expectedRewards = [
+                1: 'Nut', 2: 'ScrollOfIdentify', 3: 'ScrollOfMagicMapping', 4: 'StoneOfEnchantment',
+                7: 'MendingTonic', 9: 'ReedPipe', 10: 'MendingTonic', 11: 'ScrollOfRemoveCurse',
+                12: 'RitualBlade', 13: 'MagicPill', 14: 'CatSharkArmor', 15: 'VerdantGuard',
+                16: 'TimePill', 17: 'MendingTonic', 18: 'Harp', 19: 'LifeArmor',
+                20: 'EyeOfSkadi', 21: 'WarDrum', 22: 'PotionOfHaste', 23: 'NoomlinCrown',
+                24: 'MendingTonic'
+        ]
+        if (actualRewards != expectedRewards) {
+            throw new GradleException("AdventureJournal: 首次奖励表不符合设计，实际=${actualRewards}")
+        }
+        requireText(journal, 'if (journal == null || journal.isCompleted(destination)) return false;', 'AdventureJournal')
+        requireText(journal, 'journal.completedMask |= 1 << destination;', 'AdventureJournal')
+        if (journal.indexOf('journal.completedMask |= 1 << destination;') > journal.indexOf('grantReward(destination);')) {
+            throw new GradleException('AdventureJournal: 必须先记录完成状态再发放奖励')
+        }
+		requireText(journal, 'if (destination >= 8 && destination < 24) return destination + 1;', 'AdventureJournal')
+        requireText(journal, 'if (destination >= 21 && !Statistics.amuletObtained)', 'AdventureJournal')
+		['UNLOCKED', 'COMPLETED', 'RETURN_DEPTH', 'RETURN_BRANCH', 'RETURN_POS', 'CHARGE'].each {
+			requireText(journal, "bundle.put(${it}", 'AdventureJournal存档')
+		}
+		requireText(journal, 'FULL_CHARGE = 1000', '多利亚石板充能上限')
+		requireText(journal, 'PORTAL_CHARGE = 500', '多利亚石板传送消耗')
+		requireText(journal, 'charge >= PORTAL_CHARGE || Badges.checkOtilukeRescued()', '多利亚石板传送门槛')
+		requireText(journal, 'consumePortalCharge();', '多利亚石板传送扣费')
+		def dolyaSlate = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/DolyaSlate.java')
+		requireText(dolyaSlate, 'extends AdventureJournal', '多利亚石板实体')
+		requireText(dolyaSlate, 'image = ItemSpriteSheet.DOLYA_SLATE;', '多利亚石板原版图标')
+		requireText(dolyaSlate, 'return 300 * quantity;', '多利亚石板售价')
+
+		def challengeJournal = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/quest/ChallengeJournal.java')
+        requireText(challengeJournal, 'CHALLENGE_COUNT = 8', 'ChallengeJournal')
+        requireText(challengeJournal, 'REGION_CHALLENGE_COUNT = 5', 'ChallengeJournal')
+		requireText(challengeJournal, 'return page != null && unlock(page.challenge());', '挑战纸片装订')
+		requireText(challengeJournal, 'if (challenge < 0 || challenge >= CHALLENGE_COUNT || isUnlocked(challenge)) return false;', '挑战纸片防重复')
+		requireText(challengeJournal, 'unlockedMask |= 1 << challenge;', '挑战地点解锁')
+		['UNLOCKED', 'COMPLETED', 'RETURN_DEPTH', 'RETURN_BRANCH', 'RETURN_POS', 'LEGACY_MIGRATION'].each {
+			requireText(challengeJournal, "bundle.put(${it}", 'ChallengeJournal存档')
+		}
+		if (challengeJournal.contains('rewardFor(') || challengeJournal.contains('complete(int challenge)')) {
+			throw new GradleException('ChallengeJournal: 不得恢复早期融合版的守卫奖励路径')
+		}
+		def challengeBook = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/ChallengeBook.java')
+		requireText(challengeBook, 'extends ChallengeJournal', 'ChallengeBook实体')
+		requireText(challengeJournal, 'journal = new ChallengeBook();', 'ChallengeBook实体创建')
+		def challengeDrops = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/challengelists/ChallengePageDrops.java')
+		requireText(challengeDrops, 'journal != null && journal.isUnlocked(page.challenge())', '挑战纸片已装订防重')
+		requireText(challengeDrops, 'Dungeon.hero.belongings.getItem(page.getClass()) != null', '挑战纸片背包防重')
+		requireText(challengeDrops, 'page.getClass().isInstance(item)', '挑战纸片地面防重')
+
+		def hero = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Hero.java')
+		requireText(hero, 'Dungeon.branch == 0 && Dungeon.depth < 26', '多利亚石板主地牢逐回合充能')
+        ['bundle.put( SKIN, skin )', 'bundle.put( STYLE, combatStyle )',
+         'bundle.contains(STYLE) ? bundle.getEnum(STYLE, CombatStyle.class) : CombatStyle.BALANCED',
+         'Math.max(0, Math.min(7, bundle.getInt(SKIN)))'].each {
+            requireText(hero, it, '英雄外观与风格存档')
+        }
+		def heroClass = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/HeroClass.java')
+		if (heroClass.contains('new ChallengeJournal().collect()')) {
+			throw new GradleException('普通职业不得开局免费获得挑战日志')
+		}
+		def townNpc = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/npcs/TownNpc.java')
+		requireText(townNpc, 'dropAtHero(new ChallengeBook())', 'REN首次交谈掉落ChallengeBook')
+		['Assets.Sprites.SPELLSWORD', 'Assets.Sprites.PERFORMER', 'Assets.Sprites.SOLDIER',
+		 'Assets.Sprites.FOLLOWER', 'Assets.Sprites.ASCETIC', 'Assets.Splashes.SPELLSWORD',
+		 'Assets.Splashes.PERFORMER', 'Assets.Splashes.SOLDIER', 'Assets.Splashes.FOLLOWER',
+		 'Assets.Splashes.ASCETIC'].each {
+			requireText(heroClass, it, '新增职业独立素材')
+		}
+		def talent = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Talent.java')
+		['displayedHeroClass()', 'adaptFusionNames', 'fusion_meta_prefix', 'displayedFusionSubClass'].each {
+			 requireText(talent, it, '融合职业天赋文本')
+		}
+
+		def heroSelect = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/HeroSelectScene.java')
+		def playableMatch = heroClass =~ /(?s)SPS_PLAYABLE\s*=\s*\{(.*?)\}/
+		if (!playableMatch.find()) throw new GradleException('SPS职业入口: 找不到可见职业白名单')
+		def playableClasses = (playableMatch.group(1) =~ /\b[A-Z_]+\b/).collect { it as String }
+		def expectedPlayable = ['WARRIOR', 'MAGE', 'ROGUE', 'HUNTRESS', 'PERFORMER', 'SOLDIER', 'FOLLOWER', 'ASCETIC']
+		if (playableClasses != expectedPlayable || heroSelect.contains('HeroClass.values()')) {
+			throw new GradleException("SPS职业入口: 只能显示8个旧版职业，当前=${playableClasses}")
+		}
+		def badgeSource = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/Badges.java')
+		def metamorphosisSource = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/scrolls/exotic/ScrollOfMetamorphosis.java')
+		def disguiseSource = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/HeroDisguise.java')
+		[badgeSource, metamorphosisSource, disguiseSource].each { source ->
+			if (source.contains('HeroClass.values()')) {
+				throw new GradleException('SPS职业入口: 用户可见流程仍可能显示隐藏职业')
+			}
+		}
+		['options[8] = Messages.get(HeroSelectScene.class, "skin_back")',
+		 'options[styles.length] = Messages.get(HeroSelectScene.class, "style_back")',
+		 'chooseSkinAndStart();'].each {
+			requireText(heroSelect, it, '外观与战斗风格返回路径')
+		}
+		def styleBack = heroSelect =~ /(?s)options\[styles\.length\].*?public void onBackPressed\(\)\s*\{\s*hide\(\);\s*chooseSkinAndStart\(\);/
+		if (!styleBack.find()) {
+			throw new GradleException('外观与战斗风格返回路径: 系统返回键没有回到外观选择')
+		}
+
+		def dungeon = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/Dungeon.java')
+		if (dungeon.count('level = new BetweenLevel();') != 5) {
+			throw new GradleException('SPS主线: 1、6、11、16、21层必须全部使用BetweenLevel')
+		}
+		['depth == 1', 'depth == 6', 'depth == 11', 'depth == 16', 'depth == 21'].each {
+			requireText(dungeon, it, 'SPS过渡层商店')
+		}
+		def between = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/BetweenLevel.java')
+		['new SpsShopRoom()', 'new SpsTentRoom()', 'new Moonberry()', 'new Blueberry()', 'new Cloudberry()',
+		 'new Blackberry()', 'new Mushroom()', 'new Tinkerer1()', 'Terrain.LOCKED_EXIT',
+		 'new EmptyRoom()', 'heap.type != Heap.Type.FOR_SALE',
+		 'map[cell] == Terrain.SECRET_DOOR', 'map[cell] = Terrain.DOOR',
+		 'protected void createMobs()', 'return null;'].each {
+			 requireText(between, it, 'SPS过渡层')
+		}
+		def betweenBuilder = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/builders/SpsBetweenBuilder.java')
+		['rooms.remove(tent)', 'placeRoom(result, shop, tent', 'shop.connected.containsKey(tent)',
+		 'tent.neigbours.contains(entrance)', 'area(shop) <= 54', 'area(tent) <= 54'].each {
+			requireText(betweenBuilder, it, 'SPS过渡层严格拓扑')
+		}
+		def waterskinSource = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/Waterskin.java')
+		['RANDOM_BLESS', 'ACCURATE', 'bundle.put(UPGRADE_MODE, upgradeMode)',
+		 'bundle.getEnum(UPGRADE_MODE, UpgradeMode.class)'].each {
+			requireText(waterskinSource, it, '首层露珠研究任务存档')
+		}
+		def tinkererWindow = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndTinkerer.java')
+		['Dungeon.dewWater = mode == Waterskin.UpgradeMode.RANDOM_BLESS',
+		 'Dungeon.dewDraw = mode == Waterskin.UpgradeMode.ACCURATE',
+		 'Statistics.previousFloorMoves = 500',
+		 'Buff.affect(Dungeon.hero, Dewcharge.class, 300f)',
+		 'new SpsSkeletonKey(Dungeon.depth)'].each {
+			requireText(tinkererWindow, it, '首层研究者旧版奖励')
+		}
+		['bundle.put( DEW_DRAW, dewDraw )', 'bundle.put( DEW_WATER, dewWater )',
+		 'bundle.put( DEW_NORN, dewNorn )', 'bundle.put( WINGS, wings )',
+		 'dewDraw = bundle.getBoolean( DEW_DRAW )', 'dewWater = bundle.getBoolean( DEW_WATER )',
+		 'dewNorn = bundle.getBoolean( DEW_NORN )', 'wings = bundle.getBoolean( WINGS )'].each {
+			requireText(dungeon, it, '露珠路线存档')
+		}
+		def statistics = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/Statistics.java')
+		['bundle.put( FLOOR_MOVES, floorMoves )',
+		 'bundle.put( PREVIOUS_FLOOR_MOVES, previousFloorMoves )'].each {
+			requireText(statistics, it, '露珠步数存档')
+		}
+		def mob = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/Mob.java')
+		['dropChargedDew(pos)', 'new VioletDewdrop()', 'new RedDewdrop()', 'new YellowDewdrop()',
+		 'bundle.put(SPS_ORIGINAL_GENERATION, spsOriginalGeneration)',
+		 'Dungeon.level.hasSpsOriginalMobs()', 'new BoundReward()'].each {
+			requireText(mob, it, '露珠爆炸掉落')
+		}
+		def level = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/Level.java')
+		['bundle.put( CURRENT_MOVES, currentMoves )', 'bundle.put( CLEARED, cleared )',
+		 'bundle.put( FORCE_DONE, forceDone )', 'markSpsOriginalMobs()',
+		 'hasSpsOriginalMobs()', 'spsDewPar()', 'placeSpsDewBless()',
+		 'Dungeon.shopOnLevel()', 'new WndDescend()', 'hasSpsDew()'].each {
+			requireText(level, it, '露珠清层进度')
+		}
+		def terrain = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/Terrain.java')
+		requireText(terrain, 'DEW_BLESS', '露珠神像地形')
+		def dewBless = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/features/DewBlessRoom.java')
+		requireText(dewBless, 'Buff.affect((Hero) ch, Dewcharge.class, 720f)', '露珠神像祝福')
+		def descend = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndDescend.java')
+		requireText(descend, 'Dungeon.level.forceDone = true', '露珠路线离层确认')
+		requireText(between, 'new SpsTentRoom()', '过渡层帐篷房')
+		def tentRoom = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/rooms/special/SpsTentRoom.java')
+		['Terrain.TENT', 'Terrain.IRON_MAKER', 'Terrain.ALCHEMY', 'SpsFeatureVisual.TENT',
+		 'SpsFeatureVisual.IRON_MAKER'].each { requireText(tentRoom, it, '旧版帐篷房') }
+		def tent = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndTent.java')
+		['food.energy', 'Hunger.class', 'TentSleep.class', 'spendAndNext(time)'].each {
+			requireText(tent, it, '帐篷休息')
+		}
+		def ironMaker = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndIronMaker.java')
+		['garbage + ore == 5', 'new ScrollOfRemoveCurse()', 'new ScrollOfIdentify()',
+		 'new BuildBomb()', 'new HugeBomb()', 'new GreatRune()', 'equipment == 2',
+		 'water * 15', 'new Garbage(2)'].each {
+			requireText(ironMaker, it, '铁砧基础配方')
+		}
+		def buildBomb = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/bombs/BuildBomb.java')
+		['ch.HT / 12', 'ch.HT / 5', 'Terrain.EMBERS', 'return 10 * quantity()'].each {
+			requireText(buildBomb, it, '土制炸弹')
+		}
+		def hugeBomb = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/bombs/HugeBomb.java')
+		['explosionRange()', 'return 2;', 'ch.HT / 8', 'ch.HT / 4',
+		 'Terrain.WALL_DECO', 'heap.explode()', 'return 20 * quantity()'].each {
+			requireText(hugeBomb, it, '巨大炸弹')
+		}
+		def caves = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/CavesLevel.java')
+		['Dungeon.depth == 12', 'new Mushroom()', 'new Tinkerer2()'].each {
+			requireText(caves, it, '深度12露珠研究任务')
+		}
+		def tinkerer2 = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndTinkerer2.java')
+		['new ActiveMrDestructo()', 'new FairyCard()', 'new Mobile()',
+		 'Dungeon.dewNorn = true', 'mushroom.detach', 'tinkerer.destroy()'].each {
+			requireText(tinkerer2, it, '深度12研究者奖励')
+		}
+		['ActiveMrDestructo', 'FairyCard', 'Mobile'].each { name ->
+			if (!file("core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/summon/${name}.java").isFile()) {
+				throw new GradleException("深度12研究者奖励缺少召唤物: ${name}")
+			}
+		}
+		def armorBreak = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/ArmorBreak.java')
+		['bundle.put(LEVEL, level)', 'level = bundle.getInt(LEVEL)'].each {
+			requireText(armorBreak, it, '护甲破坏存档')
+		}
+		def charSource = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/Char.java')
+		requireText(charSource, '1f + armorBreak.level() / 100f', '护甲破坏伤害倍率')
+		def featureImage = file('core/src/main/assets/environment/features/sps_features.png')
+		if (!featureImage.isFile()) throw new GradleException('旧版地形图块: 缺少sps_features.png')
+		def featureSheet = javax.imageio.ImageIO.read(featureImage)
+		if (featureSheet == null || featureSheet.width != 256 || featureSheet.height != 64) {
+			throw new GradleException('旧版地形图块: sps_features.png必须为256x64像素')
+		}
+		['sps_tiles_town.png', 'sps_tiles_forest.png'].each { name ->
+			def sheet = javax.imageio.ImageIO.read(fileTree(dir: 'core/src/main/assets/environment', includes: ["**/${name}"]).singleFile)
+			if (sheet == null || sheet.width != 256 || sheet.height != 64) {
+				throw new GradleException("安全居所原始图集: ${name}必须为256x64像素")
+			}
+		}
+		def puzzleSheet = javax.imageio.ImageIO.read(file('core/src/main/assets/environment/tiles/sps_tiles_puzzle.png'))
+		if (puzzleSheet == null || puzzleSheet.width != 256 || puzzleSheet.height != 80) {
+			throw new GradleException('安全居所原始图集: sps_tiles_puzzle.png必须为256x80像素')
+		}
+		def safeWater = javax.imageio.ImageIO.read(file('core/src/main/assets/environment/water/sps_water_prison.png'))
+		if (safeWater == null || safeWater.width != 32 || safeWater.height != 32) {
+			throw new GradleException('安全居所原始水面: sps_water_prison.png必须为32x32像素')
+		}
+		def spsMusicHashes = [
+			'sps_theme.mp3': 'A4A23B606FA8739ED6E09CE6FF2798BDF60499E79D6DFBA956D705E1D405838C',
+			'sps_game.mp3': 'A014A27D2C1438F59759488CCF844B70F0EC21E5E286E7461E181A76E86B3F11',
+			'sps_surface.mp3': '87942F77EF6AC0B390BD334468E9110163338CFB1FCE3C53D726D82094CBBDB0'
+		]
+		spsMusicHashes.each { name, expected ->
+			def musicFile = file("core/src/main/assets/music/${name}")
+			if (!musicFile.isFile()) throw new GradleException("旧版音乐缺失: ${name}")
+			def actual = java.security.MessageDigest.getInstance('SHA-256')
+					.digest(musicFile.bytes).encodeHex().toString().toUpperCase()
+			if (actual != expected) throw new GradleException("旧版音乐字节不一致: ${name}")
+		}
+		def spsSoundHashes = [
+			'alert.mp3': 'B616089A567CC36CCDAB1193155DE1A7E465537902E46A266BD1103778114140',
+			'badge.mp3': 'CD55703FC4544ED55D6BFA6433015B432AAC8CEBEE6F9AD7BD5A41098D4BC83A',
+			'beacon.mp3': '597C44C116C75FDCB7A10CA3482D67E7C030F84D781651C1392C13D25659ED8A',
+			'bee.mp3': '0FF5588B093F29BCD312E2F4E580CCFAC83A321C926BB3B5E767428116B92B03',
+			'blast.mp3': 'B468515B20B0E499E89FB7027A69BEB786E62EAE47FFE79F94744DCF9861A510',
+			'bones.mp3': '4CCA7B2836F0DCF28660460FCE0C23E34F61DF8C86A32431D6D0B0E5E7140A44',
+			'boss.mp3': '8C0CC668EF3705D4D3E1A7A7788141ED14CE964921F8779855D0FBAD1C783D24',
+			'burning.mp3': 'E5A1E48932E50CC6576A4E44260142326500E588FEB5BB7AFDD33105699D1B0F',
+			'challenge.mp3': '1FEAB2786E93C82DFDEC1395C19AC68E245D858490176E78B27BC9BE4453D98D',
+			'charms.mp3': '3E0E74D6B610A5154AA5C0504AAE8ED7962C99E04EF99807EA5D87C7C4BA0D25',
+			'click.mp3': '3B2AA665EFE4D4954F7FA8B85E17E60DFC7C25F790546AAF6E5E8E68FD957976',
+			'cursed.mp3': '537DE2454E4BB828E9B4043C4ABD63167BEACD24C8C7354D858B6EAE019BE9CD',
+			'death.mp3': 'DC0FA4F647045559F72346975543189567A09A540C733A31D965D8CB52252843',
+			'degrade.mp3': '679C9DEF3CFAA5D291D9B97AF6F43E54991765AC628F369B0E6641310ECCCDF1',
+			'descend.mp3': 'B0E78916E91DD8A4B494283F018DEF5FC1769E701D66D8F19A188F5A120A698E',
+			'dewdrop.mp3': '99829A946D04F767E7ED4B59E1C13204E6FF3DC77F0A90092E7175CC449BEDF2',
+			'door_open.mp3': 'EEBE18DD49C1C7C6EC207407F341EAF594ED33397CD3452F455C8478C8512D57',
+			'drink.mp3': '549E349901C33BCB6B1AC230E4B30EDCFD09D031EABF9DEB265A4962CABA167A',
+			'eat.mp3': '90741F6BE028602AFE27373482A05853DB28B1197DEC34176DEE75B657102536',
+			'evoke.mp3': 'B942D1635C22D0CD069B71744BD09B91A456C6371B5DF0527C983DA06A382641',
+			'falling.mp3': '52EE821CFD52EBF6FCC404B1769F937839C77D1E70143747A3C521845BB46C57',
+			'ghost.mp3': '43B4D71B72C7363CE18CA2007F0B7F73124AB473E67ED33DC6C92F63DD8B2294',
+			'gold.mp3': '81B1C39E1932A00D2FDB09A14661F1C1996D42AB078882C7A48F5CD626EF8203',
+			'hit.mp3': '5FCEA28CC160921EEB39383C2E08FE40966E3BE3D9CED1CCD87E2FD9B7F8FB7C',
+			'item.mp3': '7B9AE5D12DB55E62C3822DD47E2DDA4513635B2C970B9C73D0D17E8134748915',
+			'levelup.mp3': 'F6F2100DB8350812B44A6D1339811E7D66CA8FBDAD5298E29B671CC5DDD3F3F4',
+			'lightning.mp3': 'BCC2DFE6A6BAE346FC7CB887138BF6C4A36458307B300CC19C3538CDEBB0CB81',
+			'lullaby.mp3': '61F878A4DF64A61EC34660052455B196D43A5A9C196C7F78BB5F4A3727F47D56',
+			'mastery.mp3': 'FC702717305EE054C40AF7DB142B1927E391FD43BF6E2C9DCB55B5F6DA154409',
+			'meld.mp3': 'FE0B67FAC963FC68D82C3D3D1133C1BE1F006C783CFB5360803FAAD1AC8B7A32',
+			'mimic.mp3': '1ED829FED1D1106B6177EC85A06EAA73515AB0277DB6572DF2FCCE64BE8840D1',
+			'miss.mp3': '1214EB78900FC5246429A137ADD7E489BC673363D4F3F77685AE3221ED25855B',
+			'plant.mp3': '66DA1050FD6AD83E280ABF7B9D04AA2C58B89A9912E29DFDFC9706531BF9DC29',
+			'puff.mp3': '2905535D892D1E7C8D89701EA77F78E2EB3144E869C9AB5FE48F82F8CAC82E40',
+			'ray.mp3': 'D9F0C281A69F0E0330022C347003BBD6DE9BAB246B74B2D0EA29090B81789B43',
+			'read.mp3': 'EB328CF478DEDFBF78E1A1081A3512228A3EAADFEE683DD36B239D82B9C4DBF1',
+			'rocks.mp3': 'F0E2FA9B3E45222DEF75E7D0A6538177A8E85CFE364AB4900BBA82145F816165',
+			'secret.mp3': '2702EA66A923DDE01C5C7E46897D052BC5AFB29632DC9C15FB923020B2CBF57A',
+			'shatter.mp3': '5F31C3CCE5594224E32AB4E1AC295C3B4001E9F19D245EFB501626D52CEF0174',
+			'step.mp3': '3E210C98054EA87D04EDDC6FC04634471297F16C3A2B6BF3B186E939FBE89A2E',
+			'teleport.mp3': '7E84366C820D4492C425B04583EDCDBD91505A3147CB9A69EFE381AAD2971EE9',
+			'tomb.mp3': 'F7B33D29A1EED26F7C7A7EA5ED880F6A19C87D19A207B2D53CF8BEBF65DEA87D',
+			'trap.mp3': '6CDD4B72CC433A54CA1752F8117BE2AE03CDF8A864D444BAA7AF7E282E9DDEC1',
+			'unlock.mp3': '5DD8565B06445C5B945CDFC9FB6EFA8C173504AC75B958AAAF1A88DB28876E97',
+			'water.mp3': 'B6D321F079C99AC01C383FFBF19AD9FAF7E1F113A0082307BD2BC7F1A739B3CF',
+			'zap.mp3': '47572211930C3AAD6F4C8E7CB563F8A579A66E638E031B79620F16983C7A4158'
+		]
+		spsSoundHashes.each { name, expected ->
+			def soundFile = file("core/src/main/assets/sounds/${name}")
+			if (!soundFile.isFile()) throw new GradleException("旧版音效缺失: ${name}")
+			def actual = java.security.MessageDigest.getInstance('SHA-256')
+					.digest(soundFile.bytes).encodeHex().toString().toUpperCase()
+			if (actual != expected) throw new GradleException("旧版音效字节不一致: ${name}")
+		}
+		def assetsSource = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/Assets.java')
+		['SPS_THEME', 'SPS_GAME', 'SPS_SURFACE'].each { requireText(assetsSource, it, '旧版音乐资源') }
+		spsSoundHashes.keySet().each { name ->
+			requireText(assetsSource, "sounds/${name}", '旧版音效资源')
+		}
+		requireText(readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/TitleScene.java'),
+				'Assets.Music.SPS_THEME', '旧版标题音乐')
+		requireText(readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/GameScene.java'),
+				'Assets.Music.SPS_GAME', '旧版游戏音乐')
+		requireText(readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/SurfaceScene.java'),
+				'Assets.Music.SPS_SURFACE', '旧版地表音乐')
+		['SewerLevel.java', 'PrisonLevel.java', 'CavesLevel.java', 'CityLevel.java', 'HallsLevel.java',
+		 'SpsCavesBossLevel.java', 'SpsCityBossLevel.java', 'SpsHallsBossLevel.java', 'LastLevel.java'].each { name ->
+			def source = readSource("core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/${name}")
+			requireText(source, 'Music.INSTANCE.play(Assets.Music.SPS_GAME, true)', "旧版关卡音乐 ${name}")
+		}
+		def safeLevel = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/SafeLevel.java')
+		['SaveRoomLayouts.ROOM_OF_GRASS.clone()', 'SaveRoomLayouts.ROOM_OF_FOREST.clone()',
+		 'SaveRoomLayouts.SAFE_ROOM_DEFAULT.clone()', 'public static final int WIDTH = 48;',
+		 'public static final int ENTRANCE = 23 + WIDTH * 15;', 'Heap.Type.M_WEB',
+		 'Heap.Type.E_DUST', 'SpsLegacyLevelVisual.fromTerrainMap'].each {
+			requireText(safeLevel, it, '安全居所地图与玩法')
+		}
+		requireText(dungeon, 'destination == 0 ? new SafeLevel()', '日志第0页安全居所路线')
+		def sokobanIntro = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/SokobanIntroLevel.java')
+		['SokobanLayouts.SOKOBAN_INTRO_LEVEL.clone()', 'public static final int WIDTH = 48;',
+		 'public static final int ENTRANCE = 7 + WIDTH * 3;', 'Terrain.SOKOBAN_ITEM_REVEAL',
+		 'Terrain.SOKOBAN_PORT_SWITCH', 'new Towel()', 'AdventureJournal.complete(1)'].each {
+			requireText(sokobanIntro, it, '推箱第一关地图与玩法')
+		}
+		requireText(dungeon, 'destination == 1 ? new SokobanIntroLevel()', '日志第1页推箱路线')
+		requireText(dungeon, 'destination == 2 ? new SokobanCastle()', '日志第2页推箱城堡路线')
+		requireText(dungeon, 'destination == 3 ? new SokobanTeleportLevel()', '日志第3页推箱传送路线')
+		requireText(dungeon, 'destination == 4 ? new SokobanPuzzlesLevel()', '日志第4页推箱谜题集路线')
+		['core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/SokobanLayouts.java',
+		 'core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/npcs/SpsSokobanSheep.java',
+		 'core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/Towel.java'].each { path ->
+			if (!file(path).isFile()) throw new GradleException("推箱第一关缺少源码: ${path}")
+		}
+		def sokobanSheep = javax.imageio.ImageIO.read(file('core/src/main/assets/sprites/mobs/sps_sokoban_sheep.png'))
+		if (sokobanSheep == null || sokobanSheep.width != 64 || sokobanSheep.height != 64) {
+			throw new GradleException('推箱第一关: sps_sokoban_sheep.png必须为64x64像素')
+		}
+		def sentinelSheet = javax.imageio.ImageIO.read(file('core/src/main/assets/sprites/mobs/sps_sentinel.png'))
+		if (sentinelSheet == null || sentinelSheet.width != 256 || sentinelSheet.height != 16) {
+			throw new GradleException('推箱城堡: sps_sentinel.png必须为256x16像素')
+		}
+		def sokobanCastle = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/SokobanCastle.java')
+		['return SokobanLayouts.SOKOBAN_CASTLE', 'public static final int ENTRANCE = 24 + WIDTH * 22;',
+		 'new SokobanSentinel()', 'new Spectacles()', 'new ScrollOfMagicalInfusion()',
+		 'new ScrollOfRegrowth()', 'AdventureJournal.complete(destinationIndex())'].each {
+			requireText(sokobanCastle, it, '推箱城堡地图与玩法')
+		}
+		def sokobanTeleport = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/SokobanTeleportLevel.java')
+		['SokobanLayouts.SOKOBAN_TELEPORT_LEVEL', 'public static final int ENTRANCE = 8 + WIDTH * 16;',
+		 'new AutoPotion()', 'new ScrollOfMagicalInfusion()', 'new ScrollOfRegrowth()'].each {
+			requireText(sokobanTeleport, it, '推箱传送关地图与玩法')
+		}
+		def sokobanPuzzles = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/SokobanPuzzlesLevel.java')
+		['SokobanLayouts.SOKOBAN_PUZZLE_LEVEL', 'public static final int ENTRANCE = 15 + WIDTH * 11;',
+		 'PORTALS[1]', 'new KnowledgeBook()', 'new Egg()', 'new PotionOfLiquidFlame()'].each {
+			requireText(sokobanPuzzles, it, '推箱谜题集地图与玩法')
+		}
+		['sps_blue_dragon.png', 'sps_blue_girl.png', 'sps_bug_dragon.png', 'sps_gold_dragon.png',
+		 'sps_green_dragon.png', 'sps_light_dragon.png', 'sps_red_dragon.png',
+		 'sps_shadow_dragon.png', 'sps_violet_dragon.png', 'sps_butterfly.png', 'sps_chocobo.png',
+		 'sps_datura.png', 'sps_dog.png', 'sps_dwarfboy.png', 'sps_foxhelper.png', 'sps_frogpet.png',
+		 'sps_gentlecrab.png', 'sps_kodora.png', 'sps_litdemon.png', 'sps_kliks.png',
+		 'sps_newsnake.png', 'sps_newspinner.png', 'sps_starkid.png', 'sps_swarm.png',
+		 'sps_ribbon_rat.png'].each { name ->
+			if (!fileTree(dir: 'core/src/main/assets/sprites', includes: ["**/${name}"]).singleFile.isFile()) {
+				throw new GradleException("旧版宠物缺少原始图集: ${name}")
+			}
+		}
+		def itemSheet = javax.imageio.ImageIO.read(file('core/src/main/assets/sprites/items/items.png'))
+		if (itemSheet == null || itemSheet.width != 256 || itemSheet.height != 992) {
+			throw new GradleException('SPS扩展物品图集: items.png必须为256x992像素')
+		}
+		def zotSprites = [[name: 'sps_zot.png', width: 256, height: 18],
+			[name: 'sps_zot_phase.png', width: 256, height: 18],
+			[name: 'sps_magic_eye.png', width: 256, height: 32]]
+		zotSprites.each { spec ->
+			def sheet = javax.imageio.ImageIO.read(fileTree(dir: 'core/src/main/assets/sprites', includes: ["**/${spec.name}"]).singleFile)
+			if (sheet == null || sheet.width != spec.width || sheet.height != spec.height) {
+				throw new GradleException("Zot路线原始图集尺寸错误: ${spec.name}")
+			}
+		}
+		['sps_lynn.png', 'sps_fairy.png', 'sps_mobile.png', 'sps_mrdestructo.png'].each { name ->
+			if (!fileTree(dir: 'core/src/main/assets/sprites', includes: ["**/${name}"]).singleFile.isFile()) {
+				throw new GradleException("深度12任务缺少原始角色图集: ${name}")
+			}
+		}
+		requireText(hero, 'Dungeon.level.currentMoves++', '露珠清层计时')
+
+		def lastLevel = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/LastLevel.java')
+		['private static final int WIDTH = 48;', 'private static final int HEIGHT = 48;',
+		 'private static final int ENTRANCE_POS = SIZE * WIDTH + SIZE / 2 + 1;',
+		 'private static final int PEDESTAL_POS = (SIZE / 2 + 1) * (WIDTH + 1) - 4 * WIDTH;',
+		 'Painter.fill(this, 7, 31, 19, 1, Terrain.WALL);',
+		 'Painter.fill(this, 15, 10, 3, 21, Terrain.EMPTY);',
+		 'map[PEDESTAL_POS - 1 - width()] = Terrain.STATUE_SP;',
+		 'drop(new PuddingCup(), PEDESTAL_POS);', 'viewDistance = 8;'].each {
+			requireText(lastLevel, it, 'SPS终局地图')
+		}
+		if (lastLevel.contains('new Amulet()') || lastLevel.contains('class CustomFloor')) {
+			throw new GradleException('SPS终局地图: 仍残留破碎护符或旧绘制覆盖层')
+		}
+		if (48 * 30 + 30.intdiv(2) + 1 != 1456 || (30.intdiv(2) + 1) * (48 + 1) - 4 * 48 != 592) {
+			throw new GradleException('SPS终局地图: 固定入口或基座公式被破坏')
+		}
+
+		def generator = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/Generator.java')
+		def equipmentDeckStart = generator.indexOf('WAND.classes')
+		def equipmentDeckEnd = generator.indexOf('//Trinkets are unique')
+		if (equipmentDeckStart < 0 || equipmentDeckEnd <= equipmentDeckStart) {
+			throw new GradleException('SPS装备生成器: 无法定位装备牌组')
+		}
+		def equipmentDeck = generator.substring(equipmentDeckStart, equipmentDeckEnd)
+		['DuelistArmor.class', 'ClericArmor.class', 'HolyTome.class', 'RingOfArcana.class',
+		 'RingOfWealth.class', 'WandOfLivingEarth.class', 'WandOfWarding.class',
+		 'WornShortsword.class', 'MagesStaff.class', 'Greatshield.class', 'WarScythe.class'].each {
+			if (equipmentDeck.contains(it)) {
+				throw new GradleException("SPS装备生成器: 破碎独有装备仍在可见牌组中 ${it}")
+			}
+		}
+		def catalog = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/journal/Catalog.java')
+		['ENCHANTMENTS.addItems', 'GLYPHS.addItems', 'TRINKETS.addItems',
+		 'MISC_EQUIPMENT.addItems', 'equipmentCatalogs.add(TRINKETS)',
+		 'equipmentCatalogs.add(MISC_EQUIPMENT)'].each {
+			if (catalog.contains(it)) {
+				throw new GradleException("SPS装备图鉴: 破碎独有分类仍然可见 ${it}")
+			}
+		}
+		requireText(dungeon, 'public static boolean trinketCataNeeded(){', 'SPS饰物隐藏')
+		def trinketMethod = dungeon.substring(dungeon.indexOf('public static boolean trinketCataNeeded(){'), dungeon.indexOf('public static boolean labRoomNeeded(){'))
+		if (!trinketMethod.contains('return false;')) {
+			throw new GradleException('SPS饰物隐藏: 主线仍会生成破碎饰物催化剂')
+		}
+
+		def waterskin = waterskinSource
+		['BASE_MAX_VOLUME = 100', 'WING_MAX_VOLUME = 200', 'EX_VOLUME = "dewpointex"',
+		 'PEEK_COST = 5', 'SPLASH_COST = 15', 'POUR_COST = 20', 'WATER_COST = 25',
+		 'BLESS_COST = 70', 'REFINE_COST = 100', 'overflow += collected - stored',
+		 'left = 20', 'Buff.prolong(hero, MindVision.class, 2f)',
+		 'Buff.prolong(hero, Haste.class, Haste.DURATION)',
+		 'Buff.prolong(hero, Levitation.class, Levitation.DURATION)',
+		 'GameScene.add(Blob.seed(cell, 40, Water.class))',
+		 'new WaterItem(10)', 'Random.Float() < chance', 'overflow++',
+		 'defaultAction = AC_CHOOSE', 'GameScene.show(new WndUseItem(null, this))'].each {
+			requireText(waterskin, it, '旧版露珠瓶能力')
+		}
+		def dewDrop = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/Dewdrop.java')
+		def coloredDew = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/ColoredDewdrop.java')
+		if (dewDrop.contains('flask != null && !flask.isFull()')
+				|| coloredDew.contains('waterskin != null && !waterskin.isFull()')) {
+			throw new GradleException('旧版露珠瓶溢出池: 满瓶时仍必须继续收集露珠')
+		}
+		['core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/blobs/Water.java',
+		 'core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/food/WaterItem.java',
+		 'core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/reward/BoundReward.java'].each { path ->
+			if (!file(path).isFile()) throw new GradleException("旧版露珠系统缺少文件: ${path}")
+		}
+
+		def quickSlot = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/QuickSlot.java')
+		requireText(quickSlot, 'SIZE = 9', '九格快捷栏')
+		def actions = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/SPDAction.java')
+		def quickSlotButton = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/QuickSlotButton.java')
+		def toolbar = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/Toolbar.java')
+		(7..9).each { slot ->
+			requireText(actions, "QUICKSLOT_${slot}", '九格快捷栏键位')
+			requireText(actions, "Input.Keys.NUM_${slot}", '九格快捷栏默认键位')
+			requireText(quickSlotButton, "SPDAction.QUICKSLOT_${slot}", '九格快捷栏按钮')
+		}
+		['new String[QuickSlot.SIZE]', 'quickslotPage * quickslotsToShow',
+		 'QuickSlotButton.lastVisible = QuickSlot.SIZE'].each {
+			requireText(toolbar, it, '九格快捷栏界面')
+		}
+
+		def pets = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/quest/PetCompendium.java')
+        requireText(pets, 'lastSummonDepth == Dungeon.depth && lastSummonBranch == Dungeon.branch', '伙伴重召限制')
+        ['SELECTED', 'PET_ID', 'SUMMON_DEPTH', 'SUMMON_BRANCH'].each {
+            requireText(pets, "bundle.put(${it}", '伙伴图鉴存档')
+        }
+
+        def guardian = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/AdventureGuardian.java')
+        requireText(guardian, 'destination == 21 && rushWave < 3', '首领连续战')
+        requireText(guardian, 'bundle.put(RUSH_WAVE, rushWave)', '首领连续战存档')
+        requireText(guardian, 'rushWave = bundle.getInt(RUSH_WAVE)', '首领连续战恢复')
+
+        def guide = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/npcs/AdventureGuide.java')
+        requireText(guide, 'bundle.put(PURCHASED, purchasedMask)', '城镇库存存档')
+        requireText(guide, 'bundle.put(CRAFTED, crafted)', '异界锻造存档')
+
+		def palantir = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/Palantir.java')
+		['public static final int BRANCH = 48;', 'Dungeon.zotKilled',
+		 'bundle.put(RETURN_DEPTH, returnDepth)', 'detach(hero.belongings.backpack)'].each {
+			requireText(palantir, it, 'Zot监牢往返流程')
+		}
+		def zotLevel = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/ZotBossLevel.java')
+		['public static final int WIDTH = 48;', 'public static final int HEIGHT = 48;',
+		 'if (enteredArena && !Dungeon.zotKilled)', 'return false;', 'safeBossCell'].each {
+			requireText(zotLevel, it, 'Zot监牢地图与坏档修复')
+		}
+		def zot = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/Zot.java')
+		['HP = HT = 25000', 'countMobs(ZotPhase.class) >= 7',
+		 'Dungeon.level.drop(new SoulCollect()', 'Dungeon.zotKilled = true'].each {
+			requireText(zot, it, 'Zot首领机制')
+		}
+
+		def heroClassSource = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/HeroClass.java')
+		requireText(heroClassSource, 'ClassSkill classSkill = ClassSkill.createFor(this);', '八职业开局技能物品')
+		requireText(heroClassSource, 'classSkill.collect(hero.belongings.backpack);', '八职业开局技能物品')
+		['new Porksoup().identify().collect()', 'new Meatroll().identify().collect()',
+		 'new RiceGruel().identify().collect()', 'new Vegetablekebab().identify().collect()',
+		 'new NutCookie(6).identify().collect()', 'new MixPizza(4).identify().collect()',
+		 'new MoonCake().identify().collect()', 'new FruitCandy(3).identify().collect()'].each {
+			requireText(heroClassSource, it, '八职业默认皮肤开局食物')
+		}
+		['hero.belongings.weapon = new ShortSword()', 'hero.belongings.armor = new WoodenArmor()',
+		 'new MissileShield().identify().collect()', 'new Powerpill().identify().collect()',
+		 'new Smashpill().identify().collect()', 'new Hardpill().identify().collect()',
+		 'hero.belongings.weapon = new MageBook()', 'new WandOfDisintegration()',
+		 'new PotionOfMage().identify().collect()', 'hero.improveMagicSkill(3)'].each {
+			requireText(heroClassSource, it, '战士与法师默认皮肤开局配置')
+		}
+		['items.weapon.melee.normalweapon.Dagger()', 'hero.belongings.armor = new VestArmor()',
+		 'new BlindFruit(3)', 'hero.belongings.weapon = new com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.normalweapon.Knuckles()',
+		 'new Boomerang()', 'new EmpBola(3)'].each {
+			requireText(heroClassSource, it, '盗贼与女猎手默认皮肤开局配置')
+		}
+		['hero.belongings.weapon = new Triangolo()', 'new Shovel()', 'new SpsFireBomb()',
+		 'new IceBomb()', 'new StormBomb()', 'hero.belongings.weapon = new Sling()',
+		 'new GunOfSoldier()', 'new EscapeKnive(3)', 'hero.improveAttackSkill(4)',
+		 'hero.improveDefenseSkill(2)'].each {
+			requireText(heroClassSource, it, '演员与星兵默认皮肤开局配置')
+		}
+		requireText(hero, 'if (shovel != null) shovel.gainCharge();', '铁铲逐回合充能')
+		requireText(hero, 'if (soldierGun != null) soldierGun.gainCharge();', '脉冲手枪逐回合充能')
+		requireText(hero, 'if (jumpW != null) jumpW.gainCharge();', '战士之鞋逐回合充能')
+		requireText(readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/Mob.java'),
+				'shovel.gainCharge(5);', '演员击杀恢复铁铲耐久')
+		requireText(readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/Mob.java'),
+				'contract.gainSoul();', '恶魔契约击杀收集灵魂')
+		requireText(hero, 'SuperArcane arcane = buff(SuperArcane.class);', '奥术灌注法强接入')
+		requireText(hero, 'boolean notice = buff(Notice.class) != null;', '敏锐被动搜索接入')
+		requireText(hero, '} else if (intentional || notice){', '敏锐必定发现隐藏事物')
+
+		println 'SPS机制静态测试通过：8个旧版职业可见且开局获得对应技能物品、6个过渡层已接入、破碎独有装备已移出主生成牌组；25条异界路线、8条挑战路线、29份一次性奖励、终局门槛、外观返回路径、九格快捷栏、水袋功能选择及5组关键存档机制均符合当前实现。'
+    }
+}
+
+tasks.register('verifySpsRelease') {
+    group = 'verification'
+    description = '执行SPS-SPD发布前全部内容与机制检查。'
+	dependsOn ':core:verifySpsUnstableSpellbook'
+	dependsOn ':core:verifySpsEyeOfSkadi'
+	dependsOn ':core:verifySpsNoomlinCrown'
+	dependsOn ':core:verifySpsRankings'
+	dependsOn ':core:verifySpsPickaxe'
+	dependsOn ':core:verifySpsSigns'
+	dependsOn ':core:verifySpsBossKeys'
+	dependsOn ':core:verifySpsTimekeepersHourglass'
+	dependsOn ':core:verifySpsRingOfElements', ':core:verifySpsLegacyRings', ':core:verifySpsMagicKnowledgeRings', ':core:verifySpsLegacyConsumableBuffs', ':core:verifySpsLegacyProperties', ':core:verifySpsChaliceOfBlood', ':core:verifySpsGlassTotem', ':core:verifySpsFlyChains', ':core:verifySpsLegacyUtilityItems', ':core:verifySpsLegacyChallenges', ':core:verifySpsLegacyBlobs', ':core:verifySpsCallCoconut', ':core:verifySpsPocketBallFull', ':core:verifySpsEasterWeapons', ':core:verifySpsSpecialRewardWeapons', ':core:verifySpsExtendedLegacyWeapons', ':core:verifySpsLegacySpecialMelee', ':core:verifySpsSewerBossTimeline', ':core:verifySpsPrisonBossTimeline', ':core:verifySpsCavesBossTimeline', ':core:verifySpsCityBossTimeline', ':core:verifySpsHallsBossTimeline', ':core:verifySpsTownBlockWeapons', ':core:verifySpsDangerousBomb', ':core:verifySpsOrbOfZot', ':core:verifySpsJournalPages', ':core:verifySpsStoryGuide', ':core:verifySpsCatalog', ':core:verifySpsMobCatalog', ':core:verifySpsTenguKey', ':core:verifySpsSpecialArrows', ':core:verifySpsTransmutationWell', ':core:verifySpsPsionicBlast'
+	dependsOn 'verifySpsContent', 'verifySpsMechanics', ':core:verifySpsAdventureRoutes', ':core:verifySpsBetweenBuilder', ':core:verifySpsBetweenLevels', ':core:verifySpsBspLayout', ':core:verifySpsRegularLevels', ':core:verifySpsFixedLevels', ':core:verifySpsBossSprites', ':core:verifySpsMainBossTimelines', ':core:verifySpsLearnLevel', ':core:verifySpsChallengeLevels', ':core:verifySpsTriangleLevels', ':core:verifySpsChallengeJournal', ':core:verifySpsChallengeRewards', ':core:verifySpsLegacyTraps', ':core:verifySpsLightBomb', ':core:verifySpsLegacyWands', ':core:verifySpsLegacyArmor', ':core:verifySpsLegacyGlyphs', ':core:verifySpsSpecialArmor', ':core:verifySpsLegacyMelee', ':core:verifySpsLegacyStartMeleeStats', ':core:verifySpsRelicWeapons', ':core:verifySpsLegacyEnchantments', ':core:verifySpsCompleteFoods', ':core:verifySpsBasicFoods', ':core:verifySpsSpecialFoods', ':core:verifySpsPasty', ':core:verifySpsAlchemy', ':core:verifySpsMedicineEffects', ':core:verifySpsAlchemistsToolkit', ':core:verifySpsBlandfruit', ':core:verifySpsHornOfPlenty', ':core:verifySpsCapeOfThorns', ':core:verifySpsCloakOfShadows', ':core:verifySpsDriedRose', ':core:verifySpsEtherealChains', ':core:verifySpsMasterThievesArmband', ':core:verifySpsSandalsOfNature', ':core:verifySpsTalismanOfForesight', ':core:verifySpsStartingMissiles', ':core:verifySpsEnhancedPlants', ':core:verifySpsStartTools', ':core:verifySpsFaithAsceticStart', ':core:verifySpsSkinOneStart', ':core:verifySpsSkinOneInteractions', ':core:verifySpsSkinTwoWarrior', ':core:verifySpsSkinThree', ':core:verifySpsSkinFourTester', ':core:verifySpsSkinFive', ':core:verifySpsSkinSix', ':core:verifySpsSkinSeven', ':core:verifySpsRockCodes', ':core:verifySpsRobotDmt', ':core:verifySpsTestCloak', ':core:verifySpsSellItems', ':core:verifySpsTownNpcLoot', ':core:verifySpsAshWolf', ':core:verifySpsBasePets', ':core:verifySpsPetEggs', ':core:verifySpsPetInteractions', ':core:verifySpsTestTimeLoadout', ':core:verifySpsLegacyBags', ':core:verifySpsApostleBox', ':core:verifySpsTownMisc', ':core:verifySpsTownMelee', ':core:verifySpsXiXiBox', ':core:verifySpsMoneyBook', ':core:verifySpsBottleFire', ':core:verifySpsTownMagic', ':core:verifySpsHoneyArrow', ':core:verifySpsLynnDoll', ':core:verifySpsRustybladeCat', ':core:verifySpsGiftNpc', ':core:verifySpsGhostQuest', ':core:verifySpsWandmakerQuest', ':core:verifySpsBlacksmithImpQuest', ':core:verifySpsLloydsBeacon', ':core:verifySpsLegacyDisplay', ':core:verifySpsMobRotations', ':core:verifySpsHiddenShop', ':core:verifySpsSpecialRooms', ':core:verifySpsMemorySave', ':core:verifySpsMemoryItems', ':core:verifySpsClassSkills', ':core:verifySpsShadowEaterQuest', ':core:verifySpsLuckyBadge', ':core:verifySpsBoomerang', ':core:verifySpsAmmo', ':core:verifySpsGuns', ':core:verifySpsRangeWeapons', ':core:verifySpsManyKnive'
+}
+
+project(':core') {
+	tasks.register('verifySpsPickaxe', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS旧版镐子的数值、楼层、暗金采掘和战斗效果。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.quest.SpsPickaxeTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsRankings', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS旧版排行榜楼层、失败与胜利评分公式。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.SpsRankingsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsSewerBossTimeline', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS下水道三首领的蓄力、分裂、阶段、光束、气体、召唤物和存档。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.mobs.SpsSewerBossTimelineTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsCityBossTimeline', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS都市三首领的召唤、墓碑、炸弹、方尖碑阶段、随从规则和存档。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.mobs.SpsCityBossTimelineTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsHallsBossTimeline', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS恶魔大厅Yog四阶段、四拳远射、年兽、重召、奖励和存档。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.mobs.SpsHallsBossTimelineTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsCavesBossTimeline', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS洞穴三首领的塔能、分裂、产卵、孵化、深度成长和存档。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.mobs.SpsCavesBossTimelineTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsPrisonBossTimeline', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS监狱三首领的跳跃、种子、传送、追踪炸弹、暗属性尾迹和属性防御。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.mobs.SpsPrisonBossTimelineTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLegacyProperties', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS旧版阵营抗性、免疫、弱点与状态时长。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.SpsLegacyPropertiesTest'
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLegacyBlobs', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS纳米云、暗影咒网、七类元素区域、真实入口和四语UTF-8。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.blobs.SpsLegacyBlobsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsMobCatalog', JavaExec) {
+		group = 'verification'
+		description = '验证SPS七组怪物目录的113个条目、顺序、实例化、旧版实体、入口和多语言标题。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.journal.SpsMobCatalogTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsCatalog', JavaExec) {
+		group = 'verification'
+		description = '验证SPS七组物品目录的371个条目、顺序、实例化、入口和多语言标题。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.journal.SpsCatalogTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsStoryGuide', JavaExec) {
+		group = 'verification'
+		description = '验证SPS大陆文档的13页内容、日志入口及旧版多语言UTF-8原文。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.journal.SpsStoryGuideTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsMagicKnowledgeRings', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS奥术与学识戒指的法强、暴击、掉落、存档、生成权重和双语原文。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.rings.fusion.SpsMagicKnowledgeRingsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLegacyRings', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS精准、闪避、狂怒和疾速戒指的数值、实战接入、负等级及双语原文。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.rings.SpsLegacyRingsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsRingOfElements', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS元素戒指的状态时长、法术减伤、名单、上限和双语原文。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.rings.SpsRingOfElementsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsEnhancedPlants', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS旧版19种强化植物、9种果实、生成限制、存档与原始像素。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.plants.SpsEnhancedPlantsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLegacyWands', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS旧版法杖数值、状态、生成权重和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.wands.SpsLegacyWandsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLegacyArmor', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS旧版18套普通防具牌组、数值、存档和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.armor.normalarmor.SpsLegacyArmorTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLegacyGlyphs', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS旧版13种护甲刻印、抗性、效果、边界和存档。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.armor.glyphs.SpsLegacyGlyphTest'
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsSpecialArmor', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS八职业特殊护甲映射、数值、受击被动、存档和图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.armor.specialarmor.SpsSpecialArmorTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLegacyMelee', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS旧版20件普通近战武器牌组、数值、效果、存档和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.normalweapon.SpsLegacyMeleeTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLegacyStartMeleeStats', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS十二件起始近战武器的旧版基础伤害和强化成长。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.start.SpsLegacyStartMeleeStatsTest'
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsMainBossTimelines', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS四段主线首领的蓄力、远射、第二阶段、重召和解锁时序。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.mobs.SpsMainBossTimelineTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsRelicWeapons', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS五件遗物武器、专属附魔、充能、主动技能、售价和存档。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.relic.SpsRelicWeaponTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLegacyEnchantments', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS旧版14种普通武器附魔、元素伤害、状态、边界、存档和文本。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.enchantments.SpsLegacyEnchantmentTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsCompleteFoods', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS八种开局食物、状态效果、存档和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.food.completefood.SpsCompleteFoodTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsStartingMissiles', JavaExec) {
+		group = 'verification'
+		description = '无图形验证盗贼闪耀果与女猎手电磁套索的数值、状态、机械伤害和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.SpsStartingMissilesTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsStartTools', JavaExec) {
+		group = 'verification'
+		description = '无图形验证演员铁铲、元素炸弹、战意律动及星兵脉冲手枪。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.misc.SpsStartToolsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsFaithAsceticStart', JavaExec) {
+		group = 'verification'
+		description = '无图形验证信徒与苦修者默认开局、信仰、疲劳、存档和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.misc.SpsFaithAsceticStartTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsSkinOneStart', JavaExec) {
+		group = 'verification'
+		description = '无图形验证八职业皮肤1开局、专属物品机制和存档。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.misc.SpsSkinOneStartTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsSkinOneInteractions', JavaExec) {
+		group = 'verification'
+		description = '无图形验证皮肤1专属物品的地图、战斗、时间与充能交互。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.misc.SpsSkinOneInteractionTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsSkinTwoWarrior', JavaExec) {
+		group = 'verification'
+		description = '无图形验证皮肤2战士与法师开局、契约、仪式、职业鞋、存档和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.misc.SpsSkinTwoWarriorTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsSkinThree', JavaExec) {
+		group = 'verification'
+		description = '无图形验证皮肤3八职业开局、六件专属物品、存档和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.misc.SpsSkinThreeTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsSkinFourTester', JavaExec) {
+		group = 'verification'
+		description = '无图形验证皮肤4测试员战士开局、测试装备、报酬兑换、存档和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.misc.SpsSkinFourTesterTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsSkinFive', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS皮肤5的八职业随机装备开局。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.misc.SpsSkinFiveTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsSkinSix', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS皮肤6八职业开局、专属装备机制、存档和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.misc.SpsSkinSixTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsSkinSeven', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS皮肤7八职业开局、专属装备机制、存档和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.misc.SpsSkinSevenTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsRockCodes', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS洛克技能芯片、演员首领掉落、存档和迷你炸弹。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.rockcode.SpsRockCodeTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsBasicFoods', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS普通主食、元素肉、怪物掉落和地面加工。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.food.meatfood.SpsBasicFoodTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsAlchemy', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS旧版确定性炼金配方、材料消耗及三至五槽解锁。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.SpsAlchemyRecipesTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsMedicineEffects', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS旧版药丸基类、全层蘑菇、战斗状态、数值、售价和图标槽。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.medicine.SpsMedicineEffectsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsBlandfruit', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS无味果生食、独立酿制果、旧存档兼容、号角及四语文本。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.food.SpsBlandfruitTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsAlchemistsToolkit', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS炼金工具箱三药顺序、动作、评分、效率、存档和四语文本。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.artifacts.SpsAlchemistsToolkitTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsHornOfPlenty', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS丰饶之角等级、食物价值、时间充能、盛宴和存档迁移。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.artifacts.SpsHornOfPlentyTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsCapeOfThorns', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS荆棘斗篷耗竭、充能、反射、护盾、成长、存档和高草种子联动。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.artifacts.SpsCapeOfThornsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsCloakOfShadows', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS暗影斗篷潜行、充能、成长、耗竭永影、存档迁移和四语文本。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.artifacts.SpsCloakOfShadowsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsDriedRose', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS干花玫瑰任务动作、充能、超度、幽灵分支、存档和四语文本。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.artifacts.SpsDriedRoseTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsEtherealChains', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS虚空锁链动作、耗竭封印、充能、成长和四语文本。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.artifacts.SpsEtherealChainsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsMasterThievesArmband', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS神偷袖章盗取、点金、充能、成长、存档和四语文本。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.artifacts.SpsMasterThievesArmbandTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsSandalsOfNature', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS自然凉鞋喂种成长、扎根护甲、充能、发芽、存档和四语文本。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.artifacts.SpsSandalsOfNatureTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsTalismanOfForesight', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS先见护符满充探查、耗竭预知、危险提示、充能、成长、存档和四语文本。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.artifacts.SpsTalismanOfForesightTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsTimekeepersHourglass', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS时光沙漏停滞、冻结、耗竭重置、充能、沙袋、存档和四语文本。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.artifacts.SpsTimekeepersHourglassTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsUnstableSpellbook', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS不稳定魔典露珠升级、随机卷轴、圣歌、充能、存档和四语文本。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.artifacts.SpsUnstableSpellbookTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsEyeOfSkadi', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS斯嘉蒂之眼诅咒、冰暴、献祭、充能、存档、来源、四语文本和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.artifacts.fusion.SpsEyeOfSkadiTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsNoomlinCrown', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS诺姆林王冠空被动、一级上限、售价、存档、来源、四语文本和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.artifacts.fusion.SpsNoomlinCrownTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsSpecialFoods', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS特殊食物、年糕召唤、年兽奖励、公共开局食物和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.food.completefood.SpsSpecialFoodTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsPasty', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS节日肉馅饼的日期、图标和全部效果。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.food.staplefood.SpsPastyTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsAdventureRoutes', JavaExec) {
+		group = 'verification'
+		description = '验证SPS异界日志的全部专用地图路由和旧版死路回退。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.SpsAdventureRouteTest'
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsBetweenBuilder', JavaExec) {
+		group = 'verification'
+		description = '使用固定随机种子压力测试SPS过渡层商店与帐篷拓扑。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.levels.builders.SpsBetweenBuilderTest'
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsBetweenLevels', JavaExec) {
+		group = 'verification'
+		description = '绘制完整SPS过渡层并验证旧版地砖、水面、告示牌和动态视觉。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.levels.SpsBetweenLevelTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	 tasks.register('verifySpsBspLayout', JavaExec) {
+		group = 'verification'
+		description = '使用固定随机种子压力测试SPS旧版普通层BSP拓扑。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.levels.builders.SpsBspLayoutTest'
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsRegularLevels', JavaExec) {
+		group = 'verification'
+		description = '生成五区域普通层并验证48x48尺寸、入口出口、连通性和边界。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.levels.SpsRegularLevelTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsFixedLevels', JavaExec) {
+		group = 'verification'
+		description = '验证已迁移SPS固定地图的关键几何坐标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.levels.SpsFixedLevelTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsSigns', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS主线、死路、混沌层和样板房告示牌及四语UTF-8文本。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.levels.features.SpsSignTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLearnLevel', JavaExec) {
+		group = 'verification'
+		description = '验证SPS旧版新手教程地图、隐藏职业、导师链、物品和陷阱。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.levels.SpsLearnLevelTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+
+	tasks.register('verifySpsChallengeLevels', JavaExec) {
+		group = 'verification'
+		description = '运行SPS五张区域挑战地图的固定种子回归测试。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.levels.SpsChallengeLevelsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsChallengeRewards', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS区域挑战敌人数值、百杀奖励链和存档。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.reward.SpsChallengeRewardsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsTriangleLevels', JavaExec) {
+		group = 'verification'
+		description = '运行SPS三张三角试炼地图的固定种子回归测试。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.levels.SpsTriangleLevelsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsChallengeJournal', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS挑战纸片装订、解锁、防重和存档。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.quest.SpsChallengeJournalTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLegacyTraps', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS旧版闪电陷阱及已整合的推箱机关。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.levels.SpsLegacyTrapTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLightBomb', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS圣光炸弹的旧版生物属性映射。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.bombs.SpsLightBombTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsMobRotations', JavaExec) {
+		group = 'verification'
+		description = '验证SPS主线各层怪物牌组及权重。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.mobs.SpsMobRotationTest'
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsHiddenShop', JavaExec) {
+		group = 'verification'
+		description = '验证SPS隐藏商店布局、生命交易和存档。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.levels.SpsHiddenShopTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsSpecialRooms', JavaExec) {
+		group = 'verification'
+		description = '验证SPS特殊房、购物车和建筑方块。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.levels.SpsSpecialRoomsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsMemorySave', JavaExec) {
+		group = 'verification'
+		description = '在隔离目录验证SPS记忆火焰存档复制。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.MemorySaveTest'
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsMemoryItems', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS布丁杯、紧急离线装置、作者NPC与鼠王的记忆存档入口。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.SpsMemoryItemsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsClassSkills', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS八职业技能、核心状态、冷却和存档。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.skills.SpsClassSkillsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsShadowEaterQuest', JavaExec) {
+		group = 'verification'
+		description = '无图形验证罐罐挑战函、三材料暗噬锻造、武器充能和存档。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.SpsShadowEaterQuestTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLuckyBadge', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS幸运徽章、职业与祝福加成、掉落概率和循环上限。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.SpsLuckyBadgeTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsBoomerang', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS盗贼王回旋镖掉落、旧版数值、存档和立即返还。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.throwing.SpsBoomerangTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsAmmo', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS特殊弹药、回旋镖装填、战斗效果和铁匠配方。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.spammo.SpsAmmoTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsGuns', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS五档枪械、投石索、玩具枪、弹匣、弹药、存档和旧版图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.guns.SpsGunTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsRangeWeapons', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS十五把弓、远程牌组、五章商店二选一和旧版图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.ranges.SpsRangeWeaponTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsManyKnive', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS千支刀、涂油、逃脱小刀、护盾打击、稀有掉落和旧版图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.SpsManyKniveTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsRobotDmt', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS机械核心、十种解析、错误装备、蜘蛛女王掉落、存档和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.artifacts.SpsRobotDmtTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsTestCloak', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS实验斗篷、三种100回合状态、消耗、SaidbySun掉落和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.SpsTestCloakTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsSellItems', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS十三件纪念品、售价、堆叠、NPC特殊掉落和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.sellitem.SpsSellItemsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsTownNpcLoot', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS城镇居民已有物品的七条旧版特殊掉落。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.mobs.npcs.SpsTownNpcLootTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLegacySpecialMelee', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS特殊武器成长、负等级、奥能火炮、符文重铸、皇家叉勺、天狗剑及四语资源。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.special.SpsLegacySpecialMeleeTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsAshWolf', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS城镇阿萨、SEED4、南瓜交换、新居路线、测试挑战、存档和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.mobs.npcs.SpsAshWolfTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsBasePets', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS普通宠物的成长、食物、奖励、战斗、孵化、存档和原始素材。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.mobs.pets.SpsBasePetsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsPetEggs', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS龙魂、随机宠物包、十二月映射、生成池、VIP奖励和中文资源。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.eggs.SpsPetEggsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsPetInteractions', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS宠物喂食、收获、留守、跟随、交换位置、全部产物和音乐套装。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.mobs.pets.SpsPetInteractionsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsTestTimeLoadout', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS TEST_TIME完整开局物资、路线、容量、玩偶机制和双语资源。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.hero.SpsTestTimeLoadoutTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLegacyBags', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS暗器袋、钥匙环、法杖套的容量、收纳分类、法杖充能、八职业开局和双语资源。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.bags.SpsLegacyBagsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLegacyUtilityItems', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS绿色露珠、金币袋、S币、根骨瓶、十字架、来源、双语资源和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.SpsLegacyUtilityItemsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLegacyChallenges', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS梦魇病毒与能量流失挑战、边界、开局补偿、双语资源和原始素材。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.mobs.SpsLegacyChallengesTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsCallCoconut', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS召唤钥匙、普通与领袖椰子猫、地图安全、双语资源和原始素材。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.summon.SpsCallCoconutTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsPocketBallFull', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS容魂灯、35种宠物映射、状态存档、召回指令、普通换层携带、失败保护和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.SpsPocketBallFullTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsEasterWeapons', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS完整15件节日武器池、补回武器、特效、存档、边界和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.special.SpsEasterWeaponsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsSpecialRewardWeapons', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS三件特殊奖励武器、击杀与NPC来源、存档、双语文本和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.mobs.SpsSpecialRewardWeaponsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsExtendedLegacyWeapons', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS十碑、破法武器、近战投掷武器、怪物来源和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.SpsExtendedLegacyWeaponsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsTownBlockWeapons', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS哥布林神盾、特制指虎、城镇购买路径、存档、双语资源和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.block.SpsTownBlockWeaponsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsDangerousBomb', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS危险炸弹、混源体阶段爆炸、地形破坏和边界保护。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.bombs.SpsDangerousBombTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsOrbOfZot', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS储能装置、能源炮台、ShadowYog掉落、日志路线和原始素材。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.mobs.SpsOrbOfZotTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsGlassTotem', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS玻璃图腾充能、祝福、诅咒、存档、来源、双语资源和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.artifacts.SpsGlassTotemTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsChaliceOfBlood', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS蓄血圣杯的血怒、血祭、回血、存档、来源和双语资源。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.artifacts.SpsChaliceOfBloodTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLegacyConsumableBuffs', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS满月之力、澪祷之愿、消耗品来源、存档、原文和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.SpsLegacyConsumableBuffsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsFlyChains', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS翔虫充能、击杀成长、封印、皮肤3开局、存档和双语资源。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.artifacts.SpsFlyChainsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsApostleBox', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS混沌之盒四种效果、消耗、Apostle掉落和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.sellitem.SpsApostleBoxTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsTownMisc', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS四件城镇饰品、被动效果、NPC来源和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.misc.SpsTownMiscTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsTownMelee', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS袜子、煎锅双形态、NPC来源和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.special.SpsTownMeleeTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsXiXiBox', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS牢固箱独立蓄力、自毁奖励、NPC来源和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.special.SpsXiXiBoxTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsMoneyBook', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS空白账本群控、消耗、FruitCat来源和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.throwing.SpsMoneyBookTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsBottleFire', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS瓶装火焰、跟随蒸汽、Lery来源和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.throwing.SpsBottleFireTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsTownMagic', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS水晶瓶、城镇奖励法杖、NPC来源、存档、边界和原始图像。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.wands.SpsTownMagicTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsHoneyArrow', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS蜜蜂针头、领袖钢蜂、蜜罐联动、存档和原始图像。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.throwing.SpsHoneyArrowTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLynnDoll', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS梦瑶娃娃、Lynn惩罚、诅咒少女AI、存档和原始图像。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.throwing.SpsLynnDollTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsRustybladeCat', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS零式呼机、两种黄油猫、枪械补弹、护盾和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.summon.SpsRustybladeCatTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsGiftNpc', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS帐篷礼物居民、好感奖励、宠物蛋、宠物、地图分支、存档和原始素材。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.mobs.npcs.SpsGiftNpcTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsGhostQuest', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS幽灵任务、三项奖励、神器牌组、存档迁移和四语文本。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.mobs.npcs.SpsGhostQuestTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsWandmakerQuest', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS法杖匠任务、双法杖池、材料落点、存档迁移和四语文本。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.mobs.npcs.SpsWandmakerQuestTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsBlacksmithImpQuest', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS旧铁匠与小恶魔任务、奖励、存档迁移和四语文本。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.mobs.npcs.SpsBlacksmithImpQuestTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLloydsBeacon', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS旧版时空道标、动作限制、存档迁移和四语文本。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.artifacts.SpsLloydsBeaconTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsLegacyDisplay', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS旧版战争迷雾、地图点击与巨鼠头骨存档兼容。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.tiles.SpsLegacyDisplayTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsPsionicBlast', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS旧版灵能汲取卷轴、14类生成池、符文素材、存档迁移和四语文本。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.scrolls.SpsPsionicBlastTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsBossSprites', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS主线首领原始动画图集和全部切帧范围。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.sprites.SpsBossSpriteTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsJournalPages', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS六张实体日志页、首领与商店来源、装订、存档和双语文本。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.mobs.SpsJournalPagesTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsTenguKey', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS天狗钥匙、监狱首领来源、往返存档、击杀门槛、双语资源和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.SpsTenguKeyTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsBossKeys', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS三枚25杀挑战信物、旧存档回程点和传送前宠物收回。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.SpsBossKeysTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsSpecialArrows', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS魔术手、糯米团、专用箭池、猎人技能、商店来源、双语资源和原始图标。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.arrows.SpsSpecialArrowsTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsTransmutationWell', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS嬗变之泉、旧版转化规则、井房来源、安全边界和双语文本。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.actors.blobs.SpsTransmutationWellTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+}

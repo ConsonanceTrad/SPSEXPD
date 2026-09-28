@@ -1,0 +1,89 @@
+/* Special Surprise Pixel Dungeon, GPLv3 or later. */
+package com.shatteredpixel.shatteredpixeldungeon.scenes;
+
+import com.shatteredpixel.shatteredpixeldungeon.Assets;
+import com.shatteredpixel.shatteredpixeldungeon.Badges;
+import com.shatteredpixel.shatteredpixeldungeon.Chrome;
+import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
+import com.shatteredpixel.shatteredpixeldungeon.GamesInProgress;
+import com.shatteredpixel.shatteredpixeldungeon.effects.Flare;
+import com.shatteredpixel.shatteredpixeldungeon.items.PowerHand;
+import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
+import com.shatteredpixel.shatteredpixeldungeon.ui.Icons;
+import com.shatteredpixel.shatteredpixeldungeon.ui.RenderedTextBlock;
+import com.shatteredpixel.shatteredpixeldungeon.ui.StyledButton;
+import com.watabou.noosa.Camera;
+import com.watabou.noosa.Game;
+import com.watabou.noosa.Image;
+import com.watabou.utils.RectF;
+
+public class PowerHandScene extends PixelScene {
+
+	private static final int WIDTH = 120;
+	private static final int BUTTON_HEIGHT = 20;
+	private StyledButton exitButton;
+	private StyledButton stayButton;
+
+	{
+		inGameScene = true;
+	}
+
+	@Override
+	public void create() {
+		super.create();
+		RenderedTextBlock text = renderTextBlock(Messages.get(this, "text"), 8);
+		text.maxWidth(PixelScene.landscape() ? 2 * WIDTH - 4 : WIDTH);
+		add(text);
+
+		Image pudding = new Image(Assets.Sprites.PUDDING_CUP);
+		add(pudding);
+
+		exitButton = new StyledButton(Chrome.Type.GREY_BUTTON_TR, Messages.get(this, "exit")) {
+			@Override protected void onClick() {
+				exitButton.enable(false);
+				stayButton.enable(false);
+				Dungeon.win(PowerHand.class);
+				Dungeon.deleteGame(GamesInProgress.curSlot, true);
+				Badges.saveGlobal();
+				Game.switchScene(RankingsScene.class);
+			}
+		};
+		exitButton.icon(Icons.CLOSE.get());
+		exitButton.setSize(WIDTH, BUTTON_HEIGHT);
+		add(exitButton);
+
+		stayButton = new StyledButton(Chrome.Type.GREY_BUTTON_TR, Messages.get(this, "stay")) {
+			@Override protected void onClick() {
+				exitButton.enable(false);
+				stayButton.enable(false);
+				InterlevelScene.mode = InterlevelScene.Mode.RETURN;
+				InterlevelScene.returnDepth = Dungeon.depth;
+				InterlevelScene.returnBranch = PowerHand.CHAOS_BRANCH;
+				InterlevelScene.returnPos = -1;
+				Game.switchScene(InterlevelScene.class);
+			}
+		};
+		stayButton.setSize(WIDTH, BUTTON_HEIGHT);
+		add(stayButton);
+
+		RectF insets = getCommonInsets();
+		int width = (int) (Camera.main.width - insets.left - insets.right);
+		int height = (int) (Camera.main.height - insets.top - insets.bottom);
+		float contentHeight = pudding.height + 8 + text.height() + 8
+				+ exitButton.height() + 2 + stayButton.height();
+		pudding.x = insets.left + (width - pudding.width) / 2;
+		pudding.y = insets.top + (height - contentHeight) / 2;
+		align(pudding);
+		text.setPos(insets.left + (width - text.width()) / 2, pudding.y + pudding.height + 8);
+		align(text);
+		exitButton.setPos(insets.left + (width - exitButton.width()) / 2, text.bottom() + 8);
+		stayButton.setPos(exitButton.left(), exitButton.bottom() + 2);
+		new Flare(8, 48).color(0xFFDDBB, true).show(pudding, 0).angularSpeed = 30;
+		fadeIn();
+	}
+
+	@Override
+	protected void onBackPressed() {
+		// Choosing an ending is intentional; do not dismiss into an invalid save state.
+	}
+}

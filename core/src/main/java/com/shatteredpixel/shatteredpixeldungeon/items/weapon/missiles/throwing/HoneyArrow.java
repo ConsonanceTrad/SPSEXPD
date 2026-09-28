@@ -1,0 +1,110 @@
+/* Special Surprise Pixel Dungeon, GPLv3 or later. */
+package com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.throwing;
+
+import com.shatteredpixel.shatteredpixeldungeon.Assets;
+import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
+import com.shatteredpixel.shatteredpixeldungeon.actors.Actor;
+import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
+import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroSubClass;
+import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.Bee;
+import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.Mob;
+import com.shatteredpixel.shatteredpixeldungeon.effects.Pushing;
+import com.shatteredpixel.shatteredpixeldungeon.effects.Splash;
+import com.shatteredpixel.shatteredpixeldungeon.items.Honeypot;
+import com.shatteredpixel.shatteredpixeldungeon.items.Item;
+import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
+import com.watabou.noosa.Game;
+import com.watabou.noosa.audio.Sample;
+import com.watabou.noosa.tweeners.AlphaTweener;
+import com.watabou.utils.PathFinder;
+import com.watabou.utils.Random;
+
+import java.util.ArrayList;
+
+/** Honey Poooot's disposable needle, which summons bees around its target. */
+public class HoneyArrow extends TossWeapon {
+
+	{
+		image = ItemSpriteSheet.HONEY_ARROW;
+		tier = 1;
+		baseUses = 1;
+		bones = false;
+	}
+
+	public HoneyArrow() { this(2); }
+	public HoneyArrow(int number) { quantity = number; }
+
+	@Override public int min(int level) { return 1; }
+	@Override public int max(int level) { return 1; }
+	@Override public int STRReq(int level) { return 10; }
+
+	@Override
+	protected void onThrow(int cell) {
+		if (Actor.findChar(cell) == null) shatter(null, cell);
+		else super.onThrow(cell);
+	}
+
+	@Override
+	public int proc(Char attacker, Char defender, int damage) {
+		for (int offset : PathFinder.NEIGHBOURS4) {
+			int cell = defender.pos + offset;
+			if (Dungeon.level.insideMap(cell) && Dungeon.level.passable[cell]
+					&& Actor.findChar(cell) == null) shatter(null, cell);
+		}
+		return super.proc(attacker, defender, damage);
+	}
+
+	@Override
+	public Item random() {
+		quantity = Random.Int(1, 2);
+		return this;
+	}
+
+	@Override public int value() { return 20 * quantity; }
+
+	public Mob createBee() {
+		if (Dungeon.hero != null && Dungeon.hero.subClass == HeroSubClass.LEADER) {
+			Honeypot.SteelBee bee = new Honeypot.SteelBee();
+			bee.spawn(Dungeon.legacyDepth());
+			return bee;
+		}
+		Bee bee = new Bee();
+		bee.spawn(Dungeon.legacyDepth());
+		return bee;
+	}
+
+	public Mob shatter(Char owner, int pos) {
+		if (Dungeon.level == null || !Dungeon.level.insideMap(pos)) return null;
+		if (Game.instance != null && Dungeon.level.heroFOV[pos]) {
+			Sample.INSTANCE.play(Assets.Sounds.SHATTER);
+			Splash.at(pos, 0xffd500, 5);
+		}
+
+		int newPos = pos;
+		if (Actor.findChar(pos) != null) {
+			ArrayList<Integer> candidates = new ArrayList<>();
+			for (int offset : PathFinder.NEIGHBOURS4) {
+				int cell = pos + offset;
+				if (Dungeon.level.insideMap(cell) && Dungeon.level.passable[cell]
+						&& Actor.findChar(cell) == null) candidates.add(cell);
+			}
+			newPos = candidates.isEmpty() ? -1 : Random.element(candidates);
+		}
+		if (newPos == -1) return null;
+
+		Mob bee = createBee();
+		if (bee instanceof Bee) ((Bee)bee).setPotInfo(pos, owner);
+		bee.HP = bee.HT;
+		bee.pos = newPos;
+		GameScene.add(bee);
+		Dungeon.level.occupyCell(bee);
+		if (newPos != pos) Actor.add(new Pushing(bee, pos, newPos));
+		if (bee.sprite != null) {
+			bee.sprite.alpha(0);
+			if (bee.sprite.parent != null) bee.sprite.parent.add(new AlphaTweener(bee.sprite, 1, 0.15f));
+		}
+		if (Game.instance != null) Sample.INSTANCE.play(Assets.Sounds.BEE);
+		return bee;
+	}
+}

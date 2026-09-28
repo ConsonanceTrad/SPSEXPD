@@ -1,0 +1,103 @@
+/* Special Surprise Pixel Dungeon, GPLv3 or later. */
+package com.shatteredpixel.shatteredpixeldungeon.actors.buffs;
+
+import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
+import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
+import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
+import com.shatteredpixel.shatteredpixeldungeon.levels.Terrain;
+import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
+import com.shatteredpixel.shatteredpixeldungeon.ui.BuffIndicator;
+import com.watabou.utils.Bundle;
+
+/** Accumulates an attack multiplier while the target remains next to a wall. */
+public class HighAttack extends Buff {
+
+	public static final float DURATION = 30f;
+	private static final String LEVEL = "level";
+
+	private int level;
+	private boolean grantsInvisibility;
+
+	{
+		type = buffType.POSITIVE;
+		announced = true;
+	}
+
+	@Override
+	public boolean attachTo(Char target) {
+		if (!super.attachTo(target)) return false;
+		if (target instanceof Hero && ((Hero) target).lvl > 55) {
+			target.invisible++;
+			grantsInvisibility = true;
+		}
+		return true;
+	}
+
+	@Override
+	public boolean act() {
+		if (target == null || !target.isAlive() || !nextToWall(target.pos)) {
+			detach();
+		} else {
+			level++;
+			spend(TICK);
+		}
+		return true;
+	}
+
+	private static boolean nextToWall(int cell) {
+		if (Dungeon.level == null || cell < 0 || cell >= Dungeon.level.length()) return false;
+		int width = Dungeon.level.width();
+		int height = Dungeon.level.height();
+		int cx = cell % width;
+		int cy = cell / width;
+		for (int y = Math.max(0, cy - 1); y <= Math.min(height - 1, cy + 1); y++) {
+			for (int x = Math.max(0, cx - 1); x <= Math.min(width - 1, cx + 1); x++) {
+				if (x == cx && y == cy) continue;
+				int terrain = Dungeon.level.map[x + y * width];
+				if ((Terrain.flags[terrain] & Terrain.SOLID) != 0 || terrain == Terrain.OPEN_DOOR) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public void detach() {
+		if (grantsInvisibility && target != null && target.invisible > 0) {
+			target.invisible--;
+		}
+		grantsInvisibility = false;
+		super.detach();
+	}
+
+	public int level() {
+		return level;
+	}
+
+	public void level(int value) {
+		level = Math.max(level, value);
+	}
+
+	@Override
+	public int icon() {
+		return BuffIndicator.PREPARATION;
+	}
+
+	@Override
+	public String desc() {
+		return Messages.get(this, "desc", level);
+	}
+
+	@Override
+	public void storeInBundle(Bundle bundle) {
+		super.storeInBundle(bundle);
+		bundle.put(LEVEL, level);
+	}
+
+	@Override
+	public void restoreFromBundle(Bundle bundle) {
+		super.restoreFromBundle(bundle);
+		level = Math.max(0, bundle.getInt(LEVEL));
+	}
+}

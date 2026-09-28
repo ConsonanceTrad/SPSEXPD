@@ -1,0 +1,116 @@
+{
+    "atlas":  "core/src/main/assets/effects/effects.png",
+    "outDir":  "assets-src/effects/effects",
+    "entries":  [
+                    {
+                        "file":  "effect_000",
+                        "frames":  [
+                                       {
+                                           "x":  0,
+                                           "y":  0,
+                                           "w":  16,
+                                           "h":  16
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "effect_001",
+                        "frames":  [
+                                       {
+                                           "x":  16,
+                                           "y":  0,
+                                           "w":  16,
+                                           "h":  8
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "effect_002",
+                        "frames":  [
+                                       {
+                                           "x":  16,
+                                           "y":  8,
+                                           "w":  16,
+                                           "h":  8
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "effect_003",
+                        "frames":  [
+                                       {
+                                           "x":  0,
+                                           "y":  16,
+                                           "w":  6,
+                                           "h":  9
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "effect_004",
+                        "frames":  [
+                                       {
+                                           "x":  6,
+                                           "y":  16,
+                                           "w":  5,
+                                           "h":  6
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "effect_005",
+                        "frames":  [
+                                       {
+                                           "x":  11,
+                                           "y":  16,
+                                           "w":  5,
+                                           "h":  6
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "effect_006",
+                        "frames":  [
+                                       {
+                                           "x":  16,
+                                           "y":  16,
+                                           "w":  16,
+                                           "h":  8
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "effect_007",
+                        "frames":  [
+                                       {
+                                           "x":  16,
+                                           "y":  23,
+                                           "w":  16,
+                                           "h":  8
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "effect_008",
+                        "frames":  [
+                                       {
+                                           "x":  16,
+                                           "y":  30,
+                                           "w":  16,
+                                           "h":  8
+                                       }
+                                   ]
+                    },
+                    {
+                        "file":  "effect_009",
+                        "frames":  [
+                                       {
+                                           "x":  16,
+                                           "y":  45,
+                                           "w":  16,
+                                           "h":  8
+                                       }
+                                   ]
+                    }
+                ]
+}

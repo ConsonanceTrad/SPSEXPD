@@ -1,0 +1,607 @@
+/*
+ * Pixel Dungeon
+ * Copyright (C) 2012-2015 Oleg Dolya
+ *
+ * Shattered Pixel Dungeon
+ * Copyright (C) 2014-2026 Evan Debenham
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ */
+
+package com.shatteredpixel.shatteredpixeldungeon.items;
+
+import com.shatteredpixel.shatteredpixeldungeon.Assets;
+import com.shatteredpixel.shatteredpixeldungeon.Badges;
+import com.shatteredpixel.shatteredpixeldungeon.Challenges;
+import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
+import com.shatteredpixel.shatteredpixeldungeon.Statistics;
+import com.shatteredpixel.shatteredpixeldungeon.actors.Actor;
+import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
+import com.shatteredpixel.shatteredpixeldungeon.actors.blobs.Blob;
+import com.shatteredpixel.shatteredpixeldungeon.actors.blobs.Water;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Bless;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Buff;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Burning;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Haste;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Invisibility;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Levitation;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.MindVision;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Ooze;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.STRDown;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Tar;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Vertigo;
+import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Belongings;
+import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
+import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroClass;
+import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroSubClass;
+import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Talent;
+import com.shatteredpixel.shatteredpixeldungeon.effects.Speck;
+import com.shatteredpixel.shatteredpixeldungeon.effects.SpellSprite;
+import com.shatteredpixel.shatteredpixeldungeon.items.bags.Bag;
+import com.shatteredpixel.shatteredpixeldungeon.items.food.WaterItem;
+import com.shatteredpixel.shatteredpixeldungeon.items.trinkets.VialOfBlood;
+import com.shatteredpixel.shatteredpixeldungeon.journal.Catalog;
+import com.shatteredpixel.shatteredpixeldungeon.levels.Terrain;
+import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
+import com.shatteredpixel.shatteredpixeldungeon.plants.Plant;
+import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.CharSprite;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
+import com.shatteredpixel.shatteredpixeldungeon.ui.BuffIndicator;
+import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
+import com.shatteredpixel.shatteredpixeldungeon.windows.WndBag;
+import com.shatteredpixel.shatteredpixeldungeon.windows.WndUseItem;
+import com.watabou.noosa.audio.Sample;
+import com.watabou.utils.Bundle;
+import com.watabou.utils.GameMath;
+import com.watabou.utils.Random;
+
+import java.util.ArrayList;
+
+public class Waterskin extends Item {
+
+	private static final int BASE_MAX_VOLUME = 100;
+	private static final int WING_MAX_VOLUME = 200;
+
+	private static final String AC_DRINK = "DRINK";
+	private static final String AC_WATER = "WATER";
+	private static final String AC_SPLASH = "SPLASH";
+	private static final String AC_BLESS = "BLESS";
+	private static final String AC_LIGHT = "LIGHT";
+	private static final String AC_POUR = "POUR";
+	private static final String AC_PEEK = "PEEK";
+	private static final String AC_REFINE = "REFINE";
+	private static final String AC_CHOOSE = "CHOOSE";
+
+	private static final int PEEK_COST = 5;
+	private static final int SPLASH_COST = 15;
+	private static final int POUR_COST = 20;
+	private static final int WATER_COST = 25;
+	private static final int BLESS_COST = 70;
+	private static final int REFINE_COST = 100;
+
+	private static final float TIME_TO_LIGHT = 1f;
+	private static final float TIME_TO_DRINK = 2f;
+	private static final float TIME_TO_WATER = 3f;
+
+	private static final String TXT_STATUS = "%d";
+	private static final String TXT_STATUS2 = "%d/%d";
+
+	{
+		image = ItemSpriteSheet.VIAL;
+		defaultAction = AC_CHOOSE;
+		unique = true;
+	}
+
+	private int volume;
+	private int overflow;
+	private UpgradeMode upgradeMode = UpgradeMode.NONE;
+
+	private static final String VOLUME = "volume";
+	private static final String LEGACY_VOLUME = "dewpoint";
+	private static final String EX_VOLUME = "dewpointex";
+	private static final String UPGRADE_MODE = "sps_upgrade_mode";
+
+	public enum UpgradeMode {
+		NONE,
+		RANDOM_BLESS,
+		ACCURATE
+	}
+
+	public Waterskin() {
+		super();
+	}
+
+	public Waterskin(int volume, int overflow) {
+		this.volume = Math.max(0, volume);
+		this.overflow = Math.max(0, overflow);
+	}
+
+	public int checkVol() {
+		return volume;
+	}
+
+	public int checkVolEx() {
+		return overflow;
+	}
+
+	public int totalDew() {
+		return volume + overflow;
+	}
+
+	public void setVol(int volume, int overflow) {
+		this.volume = Math.max(0, Math.min(volume, maxVolume()));
+		this.overflow = Math.max(0, overflow + Math.max(0, volume - maxVolume()));
+		updateQuickslot();
+	}
+
+	@Override
+	public void storeInBundle(Bundle bundle) {
+		super.storeInBundle(bundle);
+		bundle.put(VOLUME, volume);
+		bundle.put(LEGACY_VOLUME, volume);
+		bundle.put(EX_VOLUME, overflow);
+		bundle.put(UPGRADE_MODE, upgradeMode);
+	}
+
+	@Override
+	public void restoreFromBundle(Bundle bundle) {
+		super.restoreFromBundle(bundle);
+		volume = bundle.contains(VOLUME) ? bundle.getInt(VOLUME) : bundle.getInt(LEGACY_VOLUME);
+		overflow = bundle.getInt(EX_VOLUME);
+		upgradeMode = bundle.contains(UPGRADE_MODE)
+				? bundle.getEnum(UPGRADE_MODE, UpgradeMode.class)
+				: UpgradeMode.NONE;
+		volume = Math.max(0, volume);
+		overflow = Math.max(0, overflow);
+		if (volume > maxVolume()) {
+			overflow += volume - maxVolume();
+			volume = maxVolume();
+		}
+	}
+
+	@Override
+	public ArrayList<String> actions(Hero hero) {
+		ArrayList<String> actions = super.actions(hero);
+		actions.remove(AC_DROP);
+		actions.remove(AC_THROW);
+
+		if (volume > 1) {
+			actions.add(AC_DRINK);
+			actions.add(AC_LIGHT);
+		}
+		if (Dungeon.dewNorn && volume > 29 && volume >= dewCost(SPLASH_COST)) {
+			actions.add(AC_SPLASH);
+			if (volume >= dewCost(POUR_COST)) actions.add(AC_POUR);
+		}
+		if (totalDew() > 29 && totalDew() >= dewCost(PEEK_COST)) actions.add(AC_PEEK);
+		if (hasFirstUpgrade() && totalDew() > 39 && totalDew() >= dewCost(WATER_COST)) actions.add(AC_WATER);
+		if (hasFirstUpgrade() && totalDew() > 99) {
+			if (totalDew() >= dewCost(BLESS_COST)) actions.add(AC_BLESS);
+			if (totalDew() >= dewCost(REFINE_COST)) actions.add(AC_REFINE);
+		}
+		return actions;
+	}
+
+	@Override
+	public void execute(final Hero hero, String action) {
+		super.execute(hero, action);
+
+		if (action.equals(AC_CHOOSE)) {
+			if (hero.buff(DewLight.class) == null) GameScene.show(new WndUseItem(null, this));
+			else Buff.detach(hero, DewLight.class);
+		} else if (action.equals(AC_DRINK)) {
+			drink(hero);
+		} else if (action.equals(AC_LIGHT)) {
+			if (hero.buff(DewLight.class) == null) Buff.affect(hero, DewLight.class);
+			else Buff.detach(hero, DewLight.class);
+		} else if (action.equals(AC_PEEK) && consumeCombined(dewCost(PEEK_COST))) {
+			Buff.prolong(hero, MindVision.class, 2f);
+			SpellSprite.show(hero, SpellSprite.VISION, 1f, 0.77f, 0.9f);
+			Dungeon.observe();
+			operate(hero, TIME_TO_LIGHT);
+			GLog.i(Messages.get(this, "peeked"));
+		} else if (action.equals(AC_WATER) && consumeCombined(dewCost(WATER_COST))) {
+			waterArea(hero);
+			operate(hero, TIME_TO_WATER);
+			GLog.i(Messages.get(this, "watered"));
+		} else if (action.equals(AC_SPLASH) && consumeOrdinary(dewCost(SPLASH_COST))) {
+			Buff.prolong(hero, Haste.class, Haste.DURATION);
+			if (Dungeon.wings && Dungeon.legacyDepth() < 51) {
+				Buff.prolong(hero, Levitation.class, Levitation.DURATION);
+				GLog.i(Messages.get(this, "fly"));
+			}
+			GLog.i(Messages.get(this, "fast"));
+		} else if (action.equals(AC_POUR) && consumeOrdinary(dewCost(POUR_COST))) {
+			cleanse(hero);
+			Buff.prolong(hero, Invisibility.class, Invisibility.DURATION);
+			Buff.prolong(hero, Bless.class, Bless.DURATION);
+			operate(hero, TIME_TO_WATER);
+			GLog.i(Messages.get(this, "poured"));
+		} else if (action.equals(AC_BLESS) && randomBlessMode()
+				&& consumeCombined(dewCost(BLESS_COST))) {
+			randomBless(hero);
+			updateQuickslot();
+		} else if (action.equals(AC_BLESS) && accurateMode()) {
+			curUser = hero;
+			GameScene.selectItem(itemSelector);
+		} else if (action.equals(AC_REFINE) && consumeCombined(dewCost(REFINE_COST))) {
+			refine(hero);
+		}
+	}
+
+	private boolean hasFirstUpgrade() {
+		return Dungeon.dewWater || Dungeon.dewDraw || upgradeMode != UpgradeMode.NONE;
+	}
+
+	private boolean randomBlessMode() {
+		return Dungeon.dewWater || upgradeMode == UpgradeMode.RANDOM_BLESS;
+	}
+
+	private boolean accurateMode() {
+		return Dungeon.dewDraw || upgradeMode == UpgradeMode.ACCURATE;
+	}
+
+	private void drink(Hero hero) {
+		if (!consumeDrink(hero)) return;
+		operate(hero, TIME_TO_DRINK);
+		Sample.INSTANCE.play(Assets.Sounds.DRINK);
+	}
+
+	boolean consumeDrink(Hero hero) {
+		if (volume <= 0) {
+			GLog.w(Messages.get(this, "empty"));
+			return false;
+		}
+
+		float dropHealPercent = dropHealPercent(hero);
+		float missingHealthPercent = 1f - hero.HP / (float) hero.HT;
+		float dropsNeeded = missingHealthPercent / dropHealPercent;
+		if (dropsNeeded > 1.01f && VialOfBlood.delayBurstHealing()) {
+			dropsNeeded /= VialOfBlood.totalHealMultiplier();
+		}
+		com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Barrier barrier =
+				hero.buff(com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Barrier.class);
+		int curShield = barrier == null ? 0 : barrier.shielding();
+		int maxShield = Math.round(hero.HT * 0.2f * hero.pointsInTalent(Talent.SHIELDING_DEW));
+		if (hero.hasTalent(Talent.SHIELDING_DEW) && maxShield > 0) {
+			float missingShieldPercent = 1f - curShield / (float) maxShield;
+			missingShieldPercent *= 0.2f * hero.pointsInTalent(Talent.SHIELDING_DEW);
+			if (missingShieldPercent > 0) dropsNeeded += missingShieldPercent / dropHealPercent;
+		}
+
+		int dropsToConsume = (int) Math.ceil(dropsNeeded - 0.01f);
+		dropsToConsume = (int) GameMath.gate(1, dropsToConsume, volume);
+		if (Dewdrop.consumeDew(dropsToConsume, hero, true, dropHealPercent)) {
+			volume -= dropsToConsume;
+			fillCrystalVial(hero);
+			Catalog.countUses(Dewdrop.class, dropsToConsume);
+			updateQuickslot();
+			return true;
+		}
+		return false;
+	}
+
+	static float dropHealPercent(Hero hero) {
+		return hero.subClass == HeroSubClass.WARDEN ? 0.04f : 0.025f;
+	}
+
+	static int dewCost(int baseCost) {
+		return baseCost + (Dungeon.isChallenged(Challenges.DEW_REJECTION) ? 10 : 0);
+	}
+
+	void waterArea(Hero hero) {
+		int cx = hero.pos % Dungeon.level.width();
+		int cy = hero.pos / Dungeon.level.width();
+		for (int y = Math.max(0, cy - 1); y <= Math.min(Dungeon.level.height() - 1, cy + 1); y++) {
+			for (int x = Math.max(0, cx - 1); x <= Math.min(Dungeon.level.width() - 1, cx + 1); x++) {
+				int cell = x + y * Dungeon.level.width();
+				if (Dungeon.level.heroFOV[cell]) {
+					int terrain = Dungeon.level.map[cell];
+					GameScene.add(Blob.seed(cell, 40, Water.class));
+					if (terrain == Terrain.FLOWER_POT) {
+						Dungeon.level.plant((Plant.Seed) Generator.random(Generator.Category.SEED4), cell);
+					}
+				}
+			}
+		}
+	}
+
+	static void cleanse(Hero hero) {
+		Buff.detach(hero, Burning.class);
+		Buff.detach(hero, Ooze.class);
+		Buff.detach(hero, Tar.class);
+		Buff.detach(hero, STRDown.class);
+		Buff.detach(hero, Vertigo.class);
+	}
+
+	private void randomBless(Hero hero) {
+		boolean upgraded = blessItems(hero, hero.belongings.backpack.items.toArray(new Item[0]));
+		Item[] equipped = {
+				hero.belongings.weapon, hero.belongings.armor, hero.belongings.artifact,
+				hero.belongings.misc, hero.belongings.ring, hero.belongings.secondWep,
+				hero.belongings.secondArmor
+		};
+		upgraded |= blessItems(hero, equipped);
+		upgraded |= blessItems(hero, equipped);
+		if (upgraded) GLog.i(Messages.get(this, "blessed"));
+	}
+
+	private boolean blessItems(Hero hero, Item... items) {
+		int levelLimit = Math.max(3, 3 + Math.round((Statistics.deepestFloor - 2) / 2f));
+		if (hero.heroClass == HeroClass.MAGE) levelLimit++;
+		float chance = hero.heroClass == HeroClass.MAGE ? 0.5f : 0.33f;
+		boolean upgraded = false;
+
+		for (Item item : items) {
+			if (item == null) continue;
+			if (item.isUpgradable()) {
+				if (Random.Float() < chance && item.level() < levelLimit) {
+					item.upgrade();
+					upgraded = true;
+					hero.sprite.emitter().start(Speck.factory(Speck.UP), 0.2f, 3);
+					Badges.validateItemLevelAquired(item);
+				} else {
+					overflow++;
+				}
+			}
+			if (item instanceof Bag) {
+				upgraded |= blessItems(hero, ((Bag) item).items.toArray(new Item[0]));
+			}
+		}
+		return upgraded;
+	}
+
+	private final WndBag.ItemSelector itemSelector = new WndBag.ItemSelector() {
+		@Override
+		public String textPrompt() {
+			return Messages.get(Waterskin.class, "select");
+		}
+
+		@Override
+		public Class<? extends Bag> preferredBag() {
+			return Belongings.Backpack.class;
+		}
+
+		@Override
+		public boolean itemSelectable(Item item) {
+			return item != null && item.isUpgradable();
+		}
+
+		@Override
+		public void onSelect(Item item) {
+			int cost = dewCost(BLESS_COST);
+			if (item == null || totalDew() < cost) return;
+			int min = Math.min(1, Statistics.deepestFloor / 24);
+			int max = Math.max(2, Statistics.deepestFloor / 6);
+			int upgrades = 1 + Random.Int(min, max);
+			for (int i = 0; i < upgrades; i++) item.upgrade();
+			if (item.level() > 14) item.identify();
+			consumeCombined(cost);
+			fillCrystalVial(curUser);
+			Badges.validateItemLevelAquired(item);
+			curUser.sprite.operate(curUser.pos);
+			curUser.sprite.emitter().start(Speck.factory(Speck.UP), 0.2f, 3);
+			curUser.spendAndNext(Actor.TICK);
+			GLog.i(Messages.get(Waterskin.class, "upgraded", item.name(), upgrades));
+			updateQuickslot();
+		}
+	};
+
+	private void refine(Hero hero) {
+		operate(hero, TIME_TO_DRINK);
+		WaterItem water = new WaterItem(10);
+		if (water.doPickUp(hero)) {
+			GLog.i(Messages.get(hero, "you_now_have", water.name()));
+		} else {
+			Dungeon.level.drop(water, hero.pos).sprite.drop();
+		}
+		GLog.i(Messages.get(this, "refined"));
+	}
+
+	private static void fillCrystalVial(Hero hero) {
+		CrystalVial vial = hero == null ? null : hero.belongings.getItem(CrystalVial.class);
+		if (vial != null) vial.fill();
+	}
+
+	private void operate(Hero hero, float time) {
+		hero.spend(time);
+		hero.busy();
+		hero.sprite.operate(hero.pos);
+		updateQuickslot();
+	}
+
+	private boolean consumeOrdinary(int amount) {
+		if (volume < amount) {
+			GLog.w(Messages.get(this, "not_enough"));
+			return false;
+		}
+		volume -= amount;
+		Catalog.countUses(Dewdrop.class, amount);
+		updateQuickslot();
+		return true;
+	}
+
+	private boolean consumeCombined(int amount) {
+		if (totalDew() < amount) {
+			GLog.w(Messages.get(this, "not_enough"));
+			return false;
+		}
+		int fromOverflow = Math.min(overflow, amount);
+		overflow -= fromOverflow;
+		volume -= amount - fromOverflow;
+		Catalog.countUses(Dewdrop.class, amount);
+		updateQuickslot();
+		return true;
+	}
+
+	public void empty() {
+		volume = Math.max(0, volume - 10);
+		updateQuickslot();
+	}
+
+	public void sip() {
+		consumeOrdinary(1);
+	}
+
+	public void upbook(int amount) {
+		overflow = Math.max(0, overflow - amount);
+		updateQuickslot();
+	}
+
+	@Override
+	public boolean isUpgradable() {
+		return false;
+	}
+
+	@Override
+	public boolean isIdentified() {
+		return true;
+	}
+
+	public boolean isFullBless() {
+		return overflow >= 100;
+	}
+
+	public boolean isFull() {
+		return volume >= maxVolume();
+	}
+
+	private int maxVolume() {
+		return Dungeon.wings ? WING_MAX_VOLUME : BASE_MAX_VOLUME;
+	}
+
+	public void collectDew(Dewdrop dew) {
+		GLog.i(Messages.get(this, "collected"));
+		int collected = dew.dewValue();
+		int room = Math.max(0, maxVolume() - volume);
+		int stored = Math.min(room, collected);
+		volume += stored;
+		overflow += collected - stored;
+		if (volume >= maxVolume()) GLog.p(Messages.get(this, "full"));
+		updateQuickslot();
+	}
+
+	public void fill() {
+		overflow += volume;
+		volume = maxVolume();
+		updateQuickslot();
+	}
+
+	public void applySpsUpgrade(UpgradeMode mode) {
+		upgradeMode = mode;
+		fill();
+	}
+
+	public UpgradeMode upgradeMode() {
+		return upgradeMode;
+	}
+
+	@Override
+	public String status() {
+		return Messages.format(TXT_STATUS, volume);
+	}
+
+	public String status2() {
+		return Messages.format(TXT_STATUS2, volume, overflow);
+	}
+
+	@Override
+	public String toString() {
+		return super.toString() + " (" + status2() + ")";
+	}
+
+	@Override
+	public String info() {
+		String info = super.info();
+		if (overflow > 0) info += "\n\n" + Messages.get(this, "desc_ex", overflow);
+		if (hasFirstUpgrade()) info += "\n\n" + Messages.get(this, "desc_v1");
+		if (Dungeon.dewNorn) info += "\n\n" + Messages.get(this, "desc_v2");
+		if (Dungeon.wings) info += "\n\n" + Messages.get(this, "desc_v3");
+		return info;
+	}
+
+	public static class DewLight extends Buff {
+
+		private int left;
+
+		{
+			type = buffType.NEUTRAL;
+		}
+
+		@Override
+		public boolean attachTo(Char target) {
+			if (!super.attachTo(target)) return false;
+			if (Dungeon.level != null) {
+				target.viewDistance = Math.max(Dungeon.level.viewDistance, 6);
+				Dungeon.observe();
+			}
+			return true;
+		}
+
+		@Override
+		public void detach() {
+			if (Dungeon.level != null) {
+				target.viewDistance = Dungeon.level.viewDistance;
+				Dungeon.observe();
+			}
+			super.detach();
+		}
+
+		@Override
+		public boolean act() {
+			left--;
+			if (left <= 0) {
+				Waterskin waterskin = target instanceof Hero
+						? ((Hero) target).belongings.getItem(Waterskin.class) : null;
+				if (waterskin == null || !waterskin.consumeOrdinary(1)) {
+					detach();
+					GLog.w(Messages.get(Waterskin.class, "no_charge"));
+					if (target instanceof Hero) ((Hero) target).interrupt();
+				} else {
+					left = 20;
+				}
+			}
+			spend(TICK);
+			return true;
+		}
+
+		@Override
+		public int icon() {
+			return BuffIndicator.LIGHT;
+		}
+
+		@Override
+		public void fx(boolean on) {
+			if (on) target.sprite.add(CharSprite.State.ILLUMINATED);
+			else target.sprite.remove(CharSprite.State.ILLUMINATED);
+		}
+
+		@Override
+		public String toString() {
+			return Messages.get(this, "name");
+		}
+
+		@Override
+		public String desc() {
+			return Messages.get(this, "desc");
+		}
+
+		private static final String LEFT = "left";
+
+		@Override
+		public void storeInBundle(Bundle bundle) {
+			super.storeInBundle(bundle);
+			bundle.put(LEFT, left);
+		}
+
+		@Override
+		public void restoreFromBundle(Bundle bundle) {
+			super.restoreFromBundle(bundle);
+			left = bundle.getInt(LEFT);
+		}
+	}
+}

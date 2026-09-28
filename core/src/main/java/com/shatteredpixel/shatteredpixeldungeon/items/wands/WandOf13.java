@@ -1,0 +1,91 @@
+/* Special Surprise Pixel Dungeon, GPLv3 or later. */
+package com.shatteredpixel.shatteredpixeldungeon.items.wands;
+
+import com.shatteredpixel.shatteredpixeldungeon.Assets;
+import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
+import com.shatteredpixel.shatteredpixeldungeon.actors.Actor;
+import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.ArmorBreak;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Bleeding;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Buff;
+import com.shatteredpixel.shatteredpixeldungeon.effects.Beam;
+import com.shatteredpixel.shatteredpixeldungeon.effects.CellEmitter;
+import com.shatteredpixel.shatteredpixeldungeon.effects.particles.PurpleParticle;
+import com.shatteredpixel.shatteredpixeldungeon.items.Heap;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.MagesStaff;
+import com.shatteredpixel.shatteredpixeldungeon.mechanics.Ballistica;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSprite;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
+import com.shatteredpixel.shatteredpixeldungeon.tiles.DungeonTilemap;
+import com.watabou.noosa.audio.Sample;
+import com.watabou.noosa.Game;
+import com.watabou.utils.Callback;
+import com.watabou.utils.Random;
+
+import java.util.ArrayList;
+
+/** Ice13's Blood Moon wand from SPS-PD 0.9.8. */
+public class WandOf13 extends DamageWand {
+
+	private static final ItemSprite.Glowing RED = new ItemSprite.Glowing(0xCC0000);
+
+	{
+		image = ItemSpriteSheet.WAND_SPS_DISINTEGRATION;
+		collisionProperties = Ballistica.WONT_STOP;
+	}
+
+	@Override public ItemSprite.Glowing glowing() { return RED; }
+	@Override public int min(int level) { return level; }
+	@Override public int max(int level) { return 1 + 2 * level; }
+
+	public static int maxDistance(int level) {
+		return Math.min(10, level + 1);
+	}
+
+	public static int damageLevel(int level, int targets) {
+		return Math.max(level - targets, 1);
+	}
+
+	@Override
+	public void onZap(Ballistica beam) {
+		int maximum = Math.min(maxDistance(level()), beam.dist);
+		ArrayList<Char> targets = new ArrayList<>();
+		for (int cell : beam.subPath(1, maximum)) {
+			Char target = Actor.findChar(cell);
+			if (target != null) targets.add(target);
+			Heap heap = Dungeon.level.heaps.get(cell);
+			if (heap != null) heap.darkhit();
+			if (Game.instance != null
+					&& Game.scene() instanceof com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene) {
+				CellEmitter.center(cell).burst(PurpleParticle.BURST, Random.IntRange(1, 2));
+			}
+		}
+
+		int effectiveLevel = damageLevel(level(), targets.size());
+		for (Char target : targets) {
+			wandProc(target, chargesPerCast());
+			Buff.affect(target, Bleeding.class).set(damageRoll());
+			Buff.affect(target, ArmorBreak.class, 5f).level(20);
+			target.damage((int)(damageRoll(effectiveLevel)
+					* (1f + 0.1f * Dungeon.hero.magicSkill())), this);
+			if (target.sprite != null) {
+				target.sprite.centerEmitter().burst(PurpleParticle.BURST, Random.IntRange(1, 2));
+				target.sprite.flash();
+			}
+		}
+	}
+
+	@Override
+	public void fx(Ballistica beam, Callback callback) {
+		int cell = beam.path.get(Math.min(beam.dist, maxDistance(level())));
+		curUser.sprite.parent.add(new Beam.DeathRay(curUser.sprite.center(),
+				DungeonTilemap.tileCenterToWorld(cell)));
+		Sample.INSTANCE.play(Assets.Sounds.RAY);
+		callback.call();
+	}
+
+	@Override
+	public void onHit(MagesStaff staff, Char attacker, Char defender, int damage) {
+		// SPS-PD predates battlemage wand-on-hit effects.
+	}
+}

@@ -1,0 +1,36 @@
+# Built application files
+*.apk
+*.aab
+
+# Files for the Dalvik VM
+*.dex
+
+# Java class files
+*.class
+
+# Gradle build files
+.gradle/
+build/
+out/
+release/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# IntelliJ / IDE project files
+.idea/
+*.iml
+.vscode/
+
+# 参照树（第三方/反编译/归档源码，不入库；换机手动放置）
+_ref/
+
+# 图集工具备份（曾误被打进 APK，禁止残留）
+*.pack-backup.png
+
+# Reasonix 会话数据
+.reasonix/
+
+# 系统杂项
+.DS_Store
+Thumbs.db

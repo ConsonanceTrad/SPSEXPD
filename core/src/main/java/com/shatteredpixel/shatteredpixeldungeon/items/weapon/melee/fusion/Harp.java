@@ -1,0 +1,55 @@
+/*
+ * Content adapted from Special Surprise Pixel Dungeon for Shattered Pixel Dungeon 4.0.
+ * Distributed under the GNU General Public License v3 or later.
+ */
+
+package com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.fusion;
+
+import com.shatteredpixel.shatteredpixeldungeon.Assets;
+import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
+import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
+import com.shatteredpixel.shatteredpixeldungeon.items.Item;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Scimitar;
+import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
+import com.watabou.utils.Bundle;
+
+public class Harp extends Scimitar {
+
+	private static final String HITS = "hits";
+	private int hits;
+
+	{
+		image = ItemSpriteSheet.MAGES_STAFF;
+		hitSound = Assets.Sounds.HIT_SLASH;
+		hitSoundPitch = 1.4f;
+		tier = 5;
+	}
+
+	@Override
+	public int max(int lvl) {
+		return 18 + 6 * lvl;
+	}
+
+	@Override
+	public int proc(Char attacker, Char defender, int damage) {
+		int result = super.proc(attacker, defender, damage);
+		if (attacker instanceof Hero && ++hits >= 5) {
+			hits = 0;
+			attacker.HP = Math.min(attacker.HT, attacker.HP + 1 + Math.max(0, buffedLvl()) / 3);
+			Item.updateQuickslot();
+		}
+		return result;
+	}
+
+	@Override
+	public void storeInBundle(Bundle bundle) {
+		super.storeInBundle(bundle);
+		bundle.put(HITS, hits);
+	}
+
+	@Override
+	public void restoreFromBundle(Bundle bundle) {
+		super.restoreFromBundle(bundle);
+		hits = bundle.getInt(HITS);
+	}
+}
