@@ -64,6 +64,8 @@ import java.util.ArrayList;
 public class ChangesScene extends PixelScene {
 	
 	public static int changesSelected = 0;
+	//SPS: 三来源标签页（0=PD 破碎 1=SPS 特别惊喜 2=SPSEX 移植版）
+	public static int sourceSelected = 0;
 
 	private NinePatch rightPanel;
 	private ScrollPane rightScroll;
@@ -98,6 +100,35 @@ public class ChangesScene extends PixelScene {
 		);
 		align(title);
 		add(title);
+
+		//SPS: 三来源标签页按钮
+		float tabW = (w - 4) / 3f;
+		float tabLeft = insets.left;
+		float tabTop = insets.top + 21;
+
+		StyledButton tabPD = new StyledButton(Chrome.Type.GREY_BUTTON_TR, Messages.get(this, "tab_pd")){
+			@Override
+			protected void onClick() { sourceSelected = 0; ShatteredPixelDungeon.switchNoFade(ChangesScene.class); }
+		};
+		tabPD.setRect(tabLeft, tabTop, tabW, 14);
+		align(tabPD);
+		add(tabPD);
+
+		StyledButton tabSPS = new StyledButton(Chrome.Type.GREY_BUTTON_TR, Messages.get(this, "tab_sps")){
+			@Override
+			protected void onClick() { sourceSelected = 1; ShatteredPixelDungeon.switchNoFade(ChangesScene.class); }
+		};
+		tabSPS.setRect(tabPD.right() + 2, tabTop, tabW, 14);
+		align(tabSPS);
+		add(tabSPS);
+
+		StyledButton tabSPSEX = new StyledButton(Chrome.Type.GREY_BUTTON_TR, Messages.get(this, "tab_spsex")){
+			@Override
+			protected void onClick() { sourceSelected = 2; ShatteredPixelDungeon.switchNoFade(ChangesScene.class); }
+		};
+		tabSPSEX.setRect(tabSPS.right() + 2, tabTop, tabW, 14);
+		align(tabSPSEX);
+		add(tabSPSEX);
 
 		ExitButton btnExit = new ExitButton();
 		btnExit.setPos( insets.left + w - btnExit.width(), insets.top );
@@ -150,12 +181,19 @@ public class ChangesScene extends PixelScene {
 		
 		final ArrayList<ChangeInfo> changeInfos = new ArrayList<>();
 
-		if (Messages.lang() != Languages.ENGLISH){
+		if (sourceSelected == 0 && Messages.lang() != Languages.ENGLISH){
 			ChangeInfo langWarn = new ChangeInfo("", true, Messages.get(this, "lang_warn"));
 			langWarn.hardlight(CharSprite.WARNING);
 			changeInfos.add(langWarn);
 		}
-		
+
+		//SPS: 三来源标签页内容（PD=破碎官方 changelist；SPS/SPSEX 为移植项目自述进度）
+		if (sourceSelected == 1) {
+			changeInfos.add(new ChangeInfo(Messages.get(this, "sps_title"), true, Messages.get(this, "sps_body")));
+		} else if (sourceSelected == 2) {
+			changeInfos.add(new ChangeInfo(Messages.get(this, "spsex_title"), true, Messages.get(this, "spsex_body")));
+			changeInfos.add(new ChangeInfo(Messages.get(this, "spsex_title2"), true, Messages.get(this, "spsex_body2")));
+		} else
 		switch (changesSelected){
 			case 0: default:
 				v4_X_Changes.addAllChanges(changeInfos);
@@ -245,6 +283,7 @@ public class ChangesScene extends PixelScene {
 
 		float left = list.left()-4f;
 
+		if (sourceSelected == 0) {
 		if (changesSelected <= 3){
 
 			left = setupChangesSelectionButton(0, "v4.X", left, list.bottom(), 24);
@@ -263,6 +302,7 @@ public class ChangesScene extends PixelScene {
 			left = setupChangesSelectionButton(8, "v0.5-", left, list.bottom(), 23);
 
 		}
+		}   //SPS: 版本切换按钮仅 PD 破碎标签页显示
 
 		addToBack( BG );
 

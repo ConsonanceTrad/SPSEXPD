@@ -244,7 +244,7 @@ public class WndBag extends WndTabbed {
 	}
 
 	//SPS: 延续破碎"分配空间"的排布——侧栏每项恒定占 1/5（不拉伸）：
-	//左右两栏都按 unitF 网格从顶部逐格摆放，主背包恒定占右栏底部 1/5。
+	//左右两栏都按 1/5 网格从顶部逐格摆放，主背包恒定占右栏底部 1/5。
 	//（用户裁决 2026-09：左侧也占恒定 1/5，不再按数量均分整侧）
 	@Override
 	public void layoutTabs(){
@@ -261,9 +261,9 @@ public class WndBag extends WndTabbed {
 		int leftCount = Math.min( bagCount, LEFT_TABS );
 
 		//SPS: 左右两栏每项都恒定占 1/5（不拉伸）。
-		//两栏均用浮点步长定位、高度取整——保证左右两侧上下逐项对齐（消除取整累计误差）。
-		float unitF = usableH / 5f;
-		int unitH = Math.max( 1, Math.round( unitF ) );
+		//整数网格（用户裁决 2026-09-30）：标签页间恒留 1px 间隙避免像素融合——
+		//高度 = g-1、步进 = g（浮点步进取整会在 0~1px 间抖动导致相邻标签粘连/融合）
+		int g = Math.max( 2, (int)( (usableH + 1) / 5 ) );
 
 		//SPS: 标签在窗框外侧——未选中时压在窗框下、选中时探入框带。
 		//探入深度 = 窗框带 6px - 2px = 4px（再外移 2px 让选中态探入浅一点）
@@ -274,20 +274,19 @@ public class WndBag extends WndTabbed {
 			Tab tab = tabs.get(i);
 			boolean left = sideIdx < leftCount;
 			int slotIdx = left ? sideIdx : sideIdx - leftCount;   //本栏内第几格（0 起）
-			tab.setSize( TAB_W, unitH );
+			tab.setSize( TAB_W, g - 1 );
 			tab.setPos(
 					left ? leftX : rightX,
-					top + slotIdx * unitF );
+					top + slotIdx * g );
 			if (tab instanceof BagTab) ((BagTab)tab).setLeftSide( left );
 			PixelScene.align( tab );
 			sideIdx++;
 		}
 
-		//主背包（getBags() 首位）固定右栏最下一格（1/5）——与左栏格线严格对齐，
-		//避免用 usableH-unitF 与 4*unitF 之间的取整差异造成两侧约 1px 的错位
+		//主背包（getBags() 首位）固定右栏最下一格（1/5）——与左栏格线严格对齐
 		Tab main = tabs.get(0);
-		main.setSize( TAB_W, unitH );
-		main.setPos( rightX, top + (LEFT_TABS - 1) * unitF );
+		main.setSize( TAB_W, g - 1 );
+		main.setPos( rightX, top + (LEFT_TABS - 1) * g );
 		if (main instanceof BagTab) ((BagTab)main).setLeftSide( false );
 		PixelScene.align( main );
 	}

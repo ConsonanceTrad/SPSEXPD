@@ -25,7 +25,6 @@ import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.levels.MiningLevel;
 import com.shatteredpixel.shatteredpixeldungeon.levels.Terrain;
 import com.watabou.noosa.Image;
-import com.watabou.utils.PathFinder;
 
 public class DungeonTerrainTilemap extends DungeonTilemap {
 
@@ -43,15 +42,7 @@ public class DungeonTerrainTilemap extends DungeonTilemap {
 	protected int getTileVisual(int pos, int tile, boolean flat) {
 		//SPS: 回 2D 渲染 —— Terrain 常量经 SpsTerrainFrames 直映 SPS 帧号（单层 16x16，
 		//同 SPS 0.9.8 DungeonTilemap 的“常量即帧号”语义）。2.5D 分体/缝合绘制停用。
-		if (tile == Terrain.WATER) {
-			//水边缘缝合暂保留（帧位语义 B4 对齐 SPS paintWaterEdges）
-			return DungeonTileSheet.stitchWaterTile(
-					map[pos + PathFinder.CIRCLE4[0]],
-					map[pos + PathFinder.CIRCLE4[1]],
-					map[pos + PathFinder.CIRCLE4[2]],
-					map[pos + PathFinder.CIRCLE4[3]]
-			);
-		}
+		//水（Terrain.WATER）由 SpsWaterEdgesTilemap 独立层绘制，本层不再处理。
 		return SpsTerrainFrames.visual(tile);
 	}
 
@@ -63,6 +54,7 @@ public class DungeonTerrainTilemap extends DungeonTilemap {
 
 	@Override
 	protected boolean needsRender(int pos) {
-		return super.needsRender(pos) && data[pos] != DungeonTileSheet.WATER;
+		//SPS: 水格全部交给 SpsWaterEdgesTilemap 独立层（本层不再画水）
+		return super.needsRender(pos) && map[pos] != Terrain.WATER;
 	}
 }

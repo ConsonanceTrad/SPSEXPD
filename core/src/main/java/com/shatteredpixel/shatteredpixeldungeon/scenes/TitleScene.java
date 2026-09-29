@@ -73,17 +73,15 @@ public class TitleScene extends PixelScene {
 	private StyledButton btnPlay;
 	//SPS: 继续游戏（原创缺口，原版无此按钮）
 	private StyledButton btnContinue;
-	private StyledButton btnLearn;
 	private StyledButton btnSupport;
 	private StyledButton btnRankings;
-	private StyledButton btnJournal;
-	private StyledButton btnNews;
+	//SPS: 关于/日志收敛为左上角小图标
+	private IconButton btnJournal;
 	private StyledButton btnChanges;
 	private StyledButton btnSettings;
-	private StyledButton btnAbout;
+	private IconButton btnAbout;
 
 	private BitmapText version;
-	private IconButton btnFade;
 	private ExitButton btnExit;
 
 	@Override
@@ -190,20 +188,9 @@ public class TitleScene extends PixelScene {
 				ShatteredPixelDungeon.switchScene(InterlevelScene.class);
 			}
 		};
-		btnContinue.icon(Icons.get(Icons.ENTER));
+		btnContinue.icon(Icons.get(Icons.DEMON_BLADE));
 		btnContinue.visible = latestGame != null; //无存档时隐藏，保持上游原版布局
 		add(btnContinue);
-
-		btnLearn = new StyledButton(GREY_TR, Messages.get(this, "learn")) {
-			@Override
-			protected void onClick() {
-				prepareTutorial();
-				Game.switchScene(InterlevelScene.class);
-			}
-		};
-		btnLearn.icon(Icons.get(Icons.INFO));
-		add(btnLearn);
-
 
 		btnSupport = new SupportButton(GREY_TR, Messages.get(this, "support"));
 		add(btnSupport);
@@ -218,18 +205,14 @@ public class TitleScene extends PixelScene {
 		add(btnRankings);
 		Dungeon.daily = Dungeon.dailyReplay = false;
 
-		btnJournal = new StyledButton(GREY_TR, Messages.get(this, "journal")){
+		//SPS: 日志改为左上角小图标（不常用功能收敛）
+		btnJournal = new IconButton(Icons.get(Icons.JOURNAL)){
 			@Override
 			protected void onClick() {
 				ShatteredPixelDungeon.switchNoFade( JournalScene.class );
 			}
 		};
-		btnJournal.icon(Icons.get(Icons.JOURNAL));
 		add(btnJournal);
-
-		btnNews = new NewsButton(GREY_TR, Messages.get(this, "news"));
-		btnNews.icon(Icons.get(Icons.NEWS));
-		add(btnNews);
 
 		btnChanges = new ChangesButton(GREY_TR, Messages.get(this, "changes"));
 		btnChanges.icon(Icons.get(Icons.CHANGES));
@@ -238,58 +221,77 @@ public class TitleScene extends PixelScene {
 		btnSettings = new SettingsButton(GREY_TR, Messages.get(this, "settings"));
 		add(btnSettings);
 
-		btnAbout = new StyledButton(GREY_TR, Messages.get(this, "about")){
+		//SPS: 关于改为左上角小图标（不常用功能收敛）
+		btnAbout = new IconButton(Icons.get(Icons.SHPX)){
 			@Override
 			protected void onClick() {
 				ShatteredPixelDungeon.switchScene( AboutScene.class );
 			}
 		};
-		btnAbout.icon(Icons.get(Icons.SHPX));
 		add(btnAbout);
 		
 		final int BTN_HEIGHT = 20;
-		int rows = (landscape() ? 3 : 6) + (btnContinue.visible ? 1 : 0);
-		int GAP = Math.max(2, (int)((h - topRegion - rows * BTN_HEIGHT) / (rows + 1)));
+		//SPS: 排行榜/改动/设置各占满一行（避免整体太空旷）；关于与日志为左上角小图标。
+		//按钮间距固定 4px（隐藏布局按钮已移除，无需再避让底部）
+		int rows = landscape() ? 4 : 5;
+		final int GAP = 4;
 
 		float buttonAreaWidth = landscape() ? PixelScene.MIN_WIDTH_L-6 : PixelScene.MIN_WIDTH_P-2;
 		float btnAreaLeft = insets.left + (w - buttonAreaWidth) / 2f;
+
+		//SPS: 左上角一行小图标（日志、关于）
+		btnJournal.setRect(insets.left + 2, insets.top + 2, 20, 20);
+		align(btnJournal);
+		btnAbout.setRect(btnJournal.right() + 2, btnJournal.top(), 20, 20);
+		align(btnAbout);
+
 		if (landscape()) {
 			float third = (buttonAreaWidth - 4) / 3f;
-			//SPS: 有存档时继续游戏占第一行（全宽）；按钮块整体上移（顶隙减半）
 			float rowTop = insets.top + topRegion + GAP / 2f;
+			//SPS: 有存档时继续游戏与开始游戏并排第一行（继续在左）
 			if (btnContinue.visible) {
-				btnContinue.setRect(btnAreaLeft, rowTop, buttonAreaWidth, BTN_HEIGHT);
+				btnContinue.setRect(btnAreaLeft, rowTop, third, BTN_HEIGHT);
 				align(btnContinue);
-				rowTop = btnContinue.bottom() + GAP;
+				btnPlay.setRect(btnContinue.right()+2, rowTop, third, BTN_HEIGHT);
+				align(btnPlay);
+				btnSupport.setRect(btnPlay.right()+2, rowTop, third, BTN_HEIGHT);
+				align(btnSupport);
+			} else {
+				btnPlay.setRect(btnAreaLeft, rowTop, third, BTN_HEIGHT);
+				align(btnPlay);
+				btnSupport.setRect(btnPlay.right()+2, rowTop, third, BTN_HEIGHT);
+				align(btnSupport);
+				btnRankings.setRect(btnSupport.right()+2, rowTop, third, BTN_HEIGHT);
+				align(btnRankings);
 			}
-			btnPlay.setRect(btnAreaLeft, rowTop, third, BTN_HEIGHT);
-			align(btnPlay);
-			btnLearn.setRect(btnPlay.right()+2, btnPlay.top(), third, BTN_HEIGHT);
-			btnSupport.setRect(btnLearn.right()+2, btnPlay.top(), third, BTN_HEIGHT);
-			btnRankings.setRect(btnPlay.left(), btnPlay.bottom()+ GAP, (float) (Math.floor(buttonAreaWidth/3f)-1), BTN_HEIGHT);
-			btnJournal.setRect(btnRankings.right()+2, btnRankings.top(), btnRankings.width(), BTN_HEIGHT);
-			btnNews.setRect(btnJournal.right()+2, btnJournal.top(), btnRankings.width(), BTN_HEIGHT);
-			btnSettings.setRect(btnRankings.left(), btnRankings.bottom() + GAP, btnRankings.width(), BTN_HEIGHT);
-			btnChanges.setRect(btnSettings.right()+2, btnSettings.top(), btnRankings.width(), BTN_HEIGHT);
-			btnAbout.setRect(btnChanges.right()+2, btnSettings.top(), btnRankings.width(), BTN_HEIGHT);
+			float row2 = rowTop + BTN_HEIGHT + GAP;
+			btnRankings.setRect(btnAreaLeft, row2, buttonAreaWidth, BTN_HEIGHT);
+			align(btnRankings);
+			btnChanges.setRect(btnAreaLeft, btnRankings.bottom() + GAP, buttonAreaWidth, BTN_HEIGHT);
+			align(btnChanges);
+			btnSettings.setRect(btnAreaLeft, btnChanges.bottom() + GAP, buttonAreaWidth, BTN_HEIGHT);
+			align(btnSettings);
 		} else {
-			//SPS: 有存档时继续游戏占第一行（全宽）；按钮块整体上移（顶隙减半）
 			float rowTop = insets.top + topRegion + GAP / 2f;
+			float half = (buttonAreaWidth - 2) / 2f;
+			//SPS: 有存档时继续游戏与开始游戏并排第一行（继续在左）
 			if (btnContinue.visible) {
-				btnContinue.setRect(btnAreaLeft, rowTop, buttonAreaWidth, BTN_HEIGHT);
+				btnContinue.setRect(btnAreaLeft, rowTop, half, BTN_HEIGHT);
 				align(btnContinue);
-				rowTop = btnContinue.bottom() + GAP;
+				btnPlay.setRect(btnContinue.right()+2, rowTop, half, BTN_HEIGHT);
+				align(btnPlay);
+			} else {
+				btnPlay.setRect(btnAreaLeft, rowTop, buttonAreaWidth, BTN_HEIGHT);
+				align(btnPlay);
 			}
-			btnPlay.setRect(btnAreaLeft, rowTop, buttonAreaWidth, BTN_HEIGHT);
-			align(btnPlay);
-			btnLearn.setRect(btnPlay.left(), btnPlay.bottom()+ GAP, btnPlay.width(), BTN_HEIGHT);
-			btnSupport.setRect(btnPlay.left(), btnLearn.bottom()+ GAP, btnPlay.width(), BTN_HEIGHT);
-			btnRankings.setRect(btnPlay.left(), btnSupport.bottom()+ GAP, (btnPlay.width()/2)-1, BTN_HEIGHT);
-			btnJournal.setRect(btnRankings.right()+2, btnRankings.top(), btnRankings.width(), BTN_HEIGHT);
-			btnNews.setRect(btnRankings.left(), btnRankings.bottom()+ GAP, btnRankings.width(), BTN_HEIGHT);
-			btnChanges.setRect(btnNews.right()+2, btnNews.top(), btnNews.width(), BTN_HEIGHT);
-			btnSettings.setRect(btnNews.left(), btnNews.bottom()+GAP, btnRankings.width(), BTN_HEIGHT);
-			btnAbout.setRect(btnSettings.right()+2, btnSettings.top(), btnSettings.width(), BTN_HEIGHT);
+			btnSupport.setRect(btnAreaLeft, btnPlay.bottom() + GAP, buttonAreaWidth, BTN_HEIGHT);
+			align(btnSupport);
+			btnRankings.setRect(btnAreaLeft, btnSupport.bottom() + GAP, buttonAreaWidth, BTN_HEIGHT);
+			align(btnRankings);
+			btnChanges.setRect(btnAreaLeft, btnRankings.bottom() + GAP, buttonAreaWidth, BTN_HEIGHT);
+			align(btnChanges);
+			btnSettings.setRect(btnAreaLeft, btnChanges.bottom() + GAP, buttonAreaWidth, BTN_HEIGHT);
+			align(btnSettings);
 		}
 
 		version = new BitmapText( "v" + Game.version, pixelFont);
@@ -298,46 +300,6 @@ public class TitleScene extends PixelScene {
 		version.x = insets.left + w - version.width() - (DeviceCompat.isDesktop() ? 4 : 8);
 		version.y = insets.top + h - version.height() - (DeviceCompat.isDesktop() ? 2 : 4);
 		add( version );
-
-		btnFade = new IconButton(Icons.CHEVRON.get()){
-			@Override
-			protected void onClick() {
-				enable(false);
-				parent.add(new Tweener(parent, 0.5f) {
-					@Override
-					protected void updateValues(float progress) {
-						if (!btnFade.active) {
-							uiAlpha = 1 - progress;
-							updateFade();
-						}
-					}
-				});
-			}
-		};
-		btnFade.icon().originToCenter();
-		btnFade.icon().angle = 180f;
-		btnFade.setRect(btnAreaLeft + (buttonAreaWidth-16)/2, camera.main.height - 16 - insets.bottom, 16, 16);
-		add(btnFade);
-
-		PointerArea fadeResetter = new PointerArea(0, 0, Camera.main.width, Camera.main.height){
-			@Override
-			public boolean onSignal(PointerEvent event) {
-				if (event != null && event.type == PointerEvent.Type.UP && !btnPlay.active){
-					parent.add(new Tweener(parent, 0.5f) {
-						@Override
-						protected void updateValues(float progress) {
-							uiAlpha = progress;
-							updateFade();
-							if (progress >= 1){
-								btnFade.enable(true);
-							}
-						}
-					});
-				}
-				return false;
-			}
-		};
-		add(fadeResetter);
 
 		if (DeviceCompat.isDesktop()) {
 			btnExit = new ExitButton();
@@ -376,24 +338,20 @@ public class TitleScene extends PixelScene {
 		//signs.am = alpha; handles this itself
 
 		btnPlay.enable(alpha != 0);
-		btnLearn.enable(alpha != 0);
 		btnSupport.enable(alpha != 0);
 		btnRankings.enable(alpha != 0);
 		btnJournal.enable(alpha != 0);
-		btnNews.enable(alpha != 0);
 		btnChanges.enable(alpha != 0);
 		btnSettings.enable(alpha != 0);
 		btnAbout.enable(alpha != 0);
 
 		btnPlay.alpha(alpha);
-		btnLearn.alpha(alpha);
 		btnSupport.alpha(alpha);
 		btnRankings.alpha(alpha);
-		btnJournal.alpha(alpha);
-		btnNews.alpha(alpha);
+		btnJournal.visible = alpha > 0;   //IconButton 无 alpha(float)，用显隐跟随淡出
 		btnChanges.alpha(alpha);
 		btnSettings.alpha(alpha);
-		btnAbout.alpha(alpha);
+		btnAbout.visible = alpha > 0;
 
 		//SPS: 继续游戏按钮随 UI 淡出
 		if (btnContinue != null && btnContinue.visible){
@@ -402,7 +360,6 @@ public class TitleScene extends PixelScene {
 		}
 
 		version.alpha(alpha);
-		btnFade.icon().alpha(alpha);
 		if (btnExit != null){
 			btnExit.enable(alpha != 0);
 			btnExit.icon().alpha(alpha);
@@ -560,7 +517,8 @@ public class TitleScene extends PixelScene {
 		public SupportButton( Chrome.Type type, String label ){
 			super(type, label);
 			icon(Icons.get(Icons.GOLD));
-			textColor(Window.TITLE_COLOR);
+			//SPS: 支持游戏开发改为白色字体
+			textColor( 0xFFFFFF );
 		}
 
 		@Override

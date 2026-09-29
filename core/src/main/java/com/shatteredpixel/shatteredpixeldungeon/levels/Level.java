@@ -116,7 +116,9 @@ import com.shatteredpixel.shatteredpixeldungeon.tiles.custom.SpsFeatureVisual;
 import com.shatteredpixel.shatteredpixeldungeon.tiles.custom.SpsLegacyLevelVisual;
 import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
 import com.shatteredpixel.shatteredpixeldungeon.windows.WndDescend;
+import com.shatteredpixel.shatteredpixeldungeon.windows.WndMessage;
 import com.watabou.noosa.Game;
+import com.watabou.utils.Callback;
 import com.watabou.noosa.Group;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.BArray;
@@ -695,11 +697,18 @@ public abstract class Level implements Bundlable {
 		if (locked){
 			return false;
 		}
-		if (transition.type == LevelTransition.Type.REGULAR_EXIT
-				&& shouldWarnSpsDescend(hero)) {
-			GameScene.show(new WndDescend());
+		//SPS: 0 层向上会进入负数层，禁止楼层移动（弹 SPS 弹窗文案并停住）
+		//注意：WndMessage 构造会测量文字，必须切回渲染线程（actor 线程直接 new 会崩）
+		if (transition.destDepth < 0) {
+			Game.runOnRenderThread(new Callback() {
+				@Override
+				public void call() {
+					GameScene.show( new WndMessage( Messages.get(hero, "leave") ) );
+				}
+			});
 			return false;
 		}
+
 		if (transition.type == LevelTransition.Type.REGULAR_EXIT
 				&& forceDone && isSpsClearable() && !cleared) {
 			cleared = true;

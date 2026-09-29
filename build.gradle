@@ -630,7 +630,7 @@ tasks.register('verifySpsMechanics') {
 
 		def dungeon = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/Dungeon.java')
 		if (dungeon.count('level = new BetweenLevel();') != 5) {
-			throw new GradleException('SPS主线: 1、6、11、16、21层必须全部使用BetweenLevel')
+			throw new GradleException('SPS主线: 0、6、11、16、21层必须全部使用BetweenLevel')
 		}
 		['depth == 1', 'depth == 6', 'depth == 11', 'depth == 16', 'depth == 21'].each {
 			requireText(dungeon, it, 'SPS过渡层商店')

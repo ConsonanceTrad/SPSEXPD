@@ -55,7 +55,9 @@ tasks.register('release', Jar) {
         attributes 'Main-Class': appMainClass
         attributes 'Specification-Title': appName
         attributes 'Implementation-Title': appPackageName
-        attributes 'Specification-Version': appVersionName
+        //SPS: alpha 测试期（用户裁决 2026-09-30）——所有构建保留调试器，
+        //版本带 -INDEV 使 DeviceCompat.isDebug() 为真（暂停菜单显示"调试物品"）；正式版去掉后缀即隐藏
+        attributes 'Specification-Version': appVersionName + "-INDEV"
         attributes 'Implementation-Version': appVersionCode
     }
 

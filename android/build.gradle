@@ -50,6 +50,10 @@ android {
         }
         release {
 
+            //SPS: alpha 测试期（用户裁决 2026-09-30）——所有构建保留调试器，
+            //版本带 -INDEV 使 DeviceCompat.isDebug() 为真（暂停菜单显示"调试物品"）；正式版去掉后缀即隐藏
+            versionNameSuffix '-INDEV'
+
             //These lines enable R8, which is a code shrinker/optimizer/obfuscator.
             //This makes release APKs smaller and more efficient, but also makes debugging trickier
             //as the information produced in stack traces must be de-obfuscated.

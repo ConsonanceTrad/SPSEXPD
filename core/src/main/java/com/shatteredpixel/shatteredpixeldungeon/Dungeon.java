@@ -337,8 +337,8 @@ public class Dungeon {
 		branch = 0;
 		generatedLevels.clear();
 
-		//SPS: 开局 10 金币（配合 0 层商店的任务蘑菇 10 金，进层即可买蘑菇交任务）
-		gold = 10;
+		//SPS: 开局 100 金币（0 层商店有任务蘑菇出售，进层即可购买交任务）
+		gold = 100;
 		energy = 0;
 		dewDraw = false;
 		dewWater = false;

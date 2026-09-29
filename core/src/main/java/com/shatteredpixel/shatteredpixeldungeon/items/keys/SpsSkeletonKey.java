@@ -31,9 +31,4 @@ public class SpsSkeletonKey extends Key {
 	public SpsSkeletonKey(int depth) {
 		this.depth = depth;
 	}
-
-	@Override
-	public boolean isSimilar(Item item) {
-		return false;
-	}
 }

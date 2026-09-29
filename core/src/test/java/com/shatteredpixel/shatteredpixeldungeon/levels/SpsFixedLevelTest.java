@@ -216,11 +216,11 @@ public final class SpsFixedLevelTest {
 	}
 
 	private static void testBetweenLevelTextures() {
-		int[] depths = {1, 6, 11, 16, 21};
+		int[] depths = {0, 6, 11, 16, 21};
 		String[] tiles = {Assets.Environment.TILES_SEWERS, Assets.Environment.TILES_PRISON,
 				Assets.Environment.TILES_CAVES, Assets.Environment.TILES_CITY,
 				Assets.Environment.TILES_HALLS};
-		String[] legacyTiles = {Assets.Environment.SPS_TILES_SPRING,
+		String[] legacyTiles = {Assets.Environment.SPS_TILES_SEWERS_LEGACY,
 				Assets.Environment.SPS_TILES_PRISON_LEGACY, Assets.Environment.SPS_TILES_BEACH,
 				Assets.Environment.SPS_TILES_CITY_LEGACY, Assets.Environment.SPS_TILES_HALLS_LEGACY};
 		String[] waters = {Assets.Environment.SPS_WATER_SEWERS, Assets.Environment.SPS_WATER_PRISON,

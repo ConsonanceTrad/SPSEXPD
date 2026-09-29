@@ -44,6 +44,9 @@ public class SupporterScene extends PixelScene {
 	private static final int BTN_HEIGHT = 22;
 	private static final int GAP = 2;
 
+	//SPS: 三来源标签页（0=PD 破碎 1=SPS 特别惊喜 2=SPSEX 移植版）
+	public static int sourceSelected = 0;
+
 	@Override
 	public void create() {
 		super.create();
@@ -75,37 +78,91 @@ public class SupporterScene extends PixelScene {
 		align(title);
 		add(title);
 
-		SupporterMessage msg = new SupporterMessage();
+		//SPS: 三来源标签页按钮
+		float tabW = (elementWidth - 4) / 3f;
+		float tabLeft = insets.left + (w - elementWidth) / 2f;
+		float tabTop = insets.top + 21;
+
+		StyledButton tabPD = new StyledButton(Chrome.Type.GREY_BUTTON_TR, Messages.get(this, "tab_pd")){
+			@Override
+			protected void onClick() { sourceSelected = 0; ShatteredPixelDungeon.switchNoFade(SupporterScene.class); }
+		};
+		tabPD.setRect(tabLeft, tabTop, tabW, 14);
+		align(tabPD);
+		add(tabPD);
+
+		StyledButton tabSPS = new StyledButton(Chrome.Type.GREY_BUTTON_TR, Messages.get(this, "tab_sps")){
+			@Override
+			protected void onClick() { sourceSelected = 1; ShatteredPixelDungeon.switchNoFade(SupporterScene.class); }
+		};
+		tabSPS.setRect(tabPD.right() + 2, tabTop, tabW, 14);
+		align(tabSPS);
+		add(tabSPS);
+
+		StyledButton tabSPSEX = new StyledButton(Chrome.Type.GREY_BUTTON_TR, Messages.get(this, "tab_spsex")){
+			@Override
+			protected void onClick() { sourceSelected = 2; ShatteredPixelDungeon.switchNoFade(SupporterScene.class); }
+		};
+		tabSPSEX.setRect(tabSPS.right() + 2, tabTop, tabW, 14);
+		align(tabSPSEX);
+		add(tabSPSEX);
+
+		//SPS: 内容按标签页切换
+		String message;
+		String linkLabel = null;
+		String linkUrl = null;
+		switch (sourceSelected) {
+			case 1:
+				message = Messages.get(this, "sps_msg");
+				break;
+			case 2:
+				message = Messages.get(this, "spsex_msg");
+				linkLabel = Messages.get(this, "spsex_link");
+				linkUrl = Messages.get(this, "spsex_url");
+				break;
+			default:
+				message = Messages.get(this, "intro");
+				message += "\n\n" + Messages.get(this, "patreon_msg");
+				if (Messages.lang() != Languages.ENGLISH) {
+					message += "\n" + Messages.get(this, "patreon_english");
+				}
+				message += "\n\n- Evan";
+				linkLabel = Messages.get(this, "supporter_link");
+				linkUrl = "https://www.patreon.com/ShatteredPixel?utm_source=shatteredpd&utm_medium=supporter_page&utm_campaign=ingame_link";
+		}
+
+		SupporterMessage msg = new SupporterMessage(message);
 		msg.setSize(elementWidth, 0);
 		add(msg);
 
-		StyledButton link = new StyledButton(Chrome.Type.GREY_BUTTON_TR, Messages.get(this, "supporter_link")){
-			@Override
-			protected void onClick() {
-				super.onClick();
-				String link = "https://www.patreon.com/ShatteredPixel";
-				//tracking codes, so that the website knows where this pageview came from
-				link += "?utm_source=shatteredpd";
-				link += "&utm_medium=supporter_page";
-				link += "&utm_campaign=ingame_link";
-				ShatteredPixelDungeon.platform.openURI(link);
-			}
-		};
-		link.icon(Icons.get(Icons.GOLD));
-		link.textColor(Window.TITLE_COLOR);
-		link.setSize(elementWidth, BTN_HEIGHT);
-		add(link);
+		StyledButton link = null;
+		if (linkLabel != null) {
+			final String url = linkUrl;
+			link = new StyledButton(Chrome.Type.GREY_BUTTON_TR, linkLabel){
+				@Override
+				protected void onClick() {
+					super.onClick();
+					ShatteredPixelDungeon.platform.openURI(url);
+				}
+			};
+			link.icon(Icons.get(Icons.GOLD));
+			link.textColor(Window.TITLE_COLOR);
+			link.setSize(elementWidth, BTN_HEIGHT);
+			add(link);
+		}
 
-		float elementHeight = msg.height() + BTN_HEIGHT + GAP;
+		float elementHeight = msg.height() + (link != null ? BTN_HEIGHT + GAP : 0);
 
-		float top = insets.top + 16 + (h - 16 - elementHeight)/2f;
+		float top = insets.top + 40 + (h - 40 - elementHeight)/2f;
 		float left = insets.left + (w-elementWidth)/2f;
 
 		msg.setPos(left, top);
 		align(msg);
 
-		link.setPos(left, msg.bottom()+GAP);
-		align(link);
+		if (link != null) {
+			link.setPos(left, msg.bottom()+GAP);
+			align(link);
+		}
 
 	}
 
@@ -119,18 +176,16 @@ public class SupporterScene extends PixelScene {
 		NinePatch bg;
 		RenderedTextBlock text;
 		Image icon;
+		String message;
+
+		public SupporterMessage( String message ){
+			this.message = message;
+		}
 
 		@Override
 		protected void createChildren() {
 			bg = Chrome.get(Chrome.Type.GREY_BUTTON_TR);
 			add(bg);
-
-			String message = Messages.get(SupporterScene.class, "intro");
-			message += "\n\n" + Messages.get(SupporterScene.class, "patreon_msg");
-			if (Messages.lang() != Languages.ENGLISH) {
-				message += "\n" + Messages.get(SupporterScene.class, "patreon_english");
-			}
-			message += "\n\n- Evan";
 
 			text = PixelScene.renderTextBlock(message, 6);
 			add(text);

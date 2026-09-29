@@ -90,6 +90,7 @@ import com.shatteredpixel.shatteredpixeldungeon.tiles.FogOfWar;
 import com.shatteredpixel.shatteredpixeldungeon.tiles.GridTileMap;
 import com.shatteredpixel.shatteredpixeldungeon.tiles.RaisedTerrainTilemap;
 import com.shatteredpixel.shatteredpixeldungeon.tiles.TerrainFeaturesTilemap;
+import com.shatteredpixel.shatteredpixeldungeon.tiles.SpsWaterEdgesTilemap;
 import com.shatteredpixel.shatteredpixeldungeon.tiles.WallBlockingTilemap;
 import com.shatteredpixel.shatteredpixeldungeon.tiles.WallOcclusionTilemap;
 import com.shatteredpixel.shatteredpixeldungeon.ui.ActionIndicator;
@@ -152,6 +153,7 @@ import com.watabou.utils.PlatformSupport;
 import com.watabou.utils.Point;
 import com.watabou.utils.PointF;
 import com.watabou.utils.Random;
+import com.watabou.utils.PathFinder;
 import com.watabou.utils.RectF;
 
 import java.io.IOException;
@@ -165,6 +167,8 @@ public class GameScene extends PixelScene {
 
 	private SkinnedBlock water;
 	private DungeonTerrainTilemap tiles;
+	//SPS: 水缝合边独立层（水脱离地形图集的 48-63 段语义）
+	private SpsWaterEdgesTilemap waterEdges;
 	private GridTileMap visualGrid;
 	private WallOcclusionTilemap occlusion;
 	private TerrainFeaturesTilemap terrainFeatures;
@@ -284,6 +288,11 @@ public class GameScene extends PixelScene {
 		
 		tiles = new DungeonTerrainTilemap();
 		terrain.add( tiles );
+
+		//SPS: 水缝合边独立层（紧贴地形层之上；水不再取地形图集的 48-63 帧段，
+		//避免破碎系地形图集关卡把水渲染成物件图标）
+		waterEdges = new SpsWaterEdgesTilemap();
+		terrain.add( waterEdges );
 
 		customTiles = new Group();
 		terrain.add(customTiles);
@@ -1395,6 +1404,7 @@ public class GameScene extends PixelScene {
 			if (scene.occlusion != null) scene.occlusion.map(Dungeon.level.map, Dungeon.level.width() );
 			if (scene.visualGrid != null) scene.visualGrid.map(Dungeon.level.map, Dungeon.level.width() );
 			scene.terrainFeatures.map(Dungeon.level.map, Dungeon.level.width() );
+			if (scene.waterEdges != null) scene.waterEdges.map(Dungeon.level.map, Dungeon.level.width() );
 			if (scene.raisedTerrain != null) scene.raisedTerrain.map(Dungeon.level.map, Dungeon.level.width() );
 			if (scene.walls != null) scene.walls.map(Dungeon.level.map, Dungeon.level.width() );
 		}
@@ -1408,6 +1418,7 @@ public class GameScene extends PixelScene {
 			if (scene.occlusion != null) scene.occlusion.updateMap();
 			if (scene.visualGrid != null) scene.visualGrid.updateMap();
 			scene.terrainFeatures.updateMap();
+			if (scene.waterEdges != null) scene.waterEdges.updateMap();
 			if (scene.raisedTerrain != null) scene.raisedTerrain.updateMap();
 			if (scene.walls != null) scene.walls.updateMap();
 			updateFog();
@@ -1420,6 +1431,16 @@ public class GameScene extends PixelScene {
 			if (scene.occlusion != null) scene.occlusion.updateMapCell( cell );
 			if (scene.visualGrid != null) scene.visualGrid.updateMapCell( cell );
 			scene.terrainFeatures.updateMapCell( cell );
+			//水缝合边跨格（邻格变化影响本格帧），连同邻格一起刷新
+			if (scene.waterEdges != null) {
+				scene.waterEdges.updateMapCell( cell );
+				for (int i = 0; i < PathFinder.CIRCLE4.length; i++) {
+					int n = cell + PathFinder.CIRCLE4[i];
+					if (n >= 0 && n < Dungeon.level.map.length) {
+						scene.waterEdges.updateMapCell( n );
+					}
+				}
+			}
 			if (scene.raisedTerrain != null) scene.raisedTerrain.updateMapCell( cell );
 			if (scene.walls != null) scene.walls.updateMapCell( cell );
 			//update adjacent cells too
@@ -1436,6 +1457,7 @@ public class GameScene extends PixelScene {
 	public static void discoverTile( int pos, int oldValue ) {
 		if (scene != null) {
 			scene.tiles.discover( pos, oldValue );
+			if (scene.waterEdges != null) scene.waterEdges.discover( pos, oldValue );
 		}
 	}
 	

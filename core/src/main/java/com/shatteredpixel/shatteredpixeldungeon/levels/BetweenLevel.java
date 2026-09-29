@@ -111,7 +111,7 @@ public class BetweenLevel extends RegularLevel {
 	@Override
 	public String tilesTex() {
 		switch (Dungeon.depth) {
-			case 1:  return Assets.Environment.TILES_SEWERS;
+			case 0:  return Assets.Environment.TILES_SEWERS;
 			case 6:  return Assets.Environment.TILES_PRISON;
 			case 11: return Assets.Environment.TILES_CAVES;
 			case 16: return Assets.Environment.TILES_CITY;
@@ -121,7 +121,7 @@ public class BetweenLevel extends RegularLevel {
 
 	String legacyTilesTex() {
 		switch (Dungeon.depth) {
-			case 1:  return Assets.Environment.SPS_TILES_SPRING;
+			case 0:  return Assets.Environment.SPS_TILES_SEWERS_LEGACY;   //SPS: 0 层用 SPS 下水道盖图组
 			case 6:  return Assets.Environment.SPS_TILES_PRISON_LEGACY;
 			case 11: return Assets.Environment.SPS_TILES_BEACH;
 			case 16: return Assets.Environment.SPS_TILES_CITY_LEGACY;
@@ -132,7 +132,7 @@ public class BetweenLevel extends RegularLevel {
 	@Override
 	public String waterTex() {
 		switch (Dungeon.depth) {
-			case 1:  return Assets.Environment.SPS_WATER_SEWERS;
+			case 0:  return Assets.Environment.SPS_WATER_SEWERS;
 			case 6:  return Assets.Environment.SPS_WATER_PRISON;
 			case 11: return Assets.Environment.SPS_WATER_CAVES;
 			case 16: return Assets.Environment.SPS_WATER_CITY;
@@ -158,13 +158,12 @@ public class BetweenLevel extends RegularLevel {
 		}
 		for (int cell : nonShopHeaps) heaps.remove(cell);
 
-		//SPS: 0 层 = 特殊初始层（学者+任务蘑菇+锁出口）；其余过渡层照旧
+		//SPS: 0 层 = 特殊初始层（学者+锁出口）；任务蘑菇仅商店购买（地面刷新会消失，不落地）
 		if (Dungeon.depth == 0) {
 			dropAtRandom(new Moonberry());
 			dropAtRandom(new Blueberry());
 			dropAtRandom(new Cloudberry());
 			dropAtRandom(new Blackberry());
-			dropAtRandom(new Mushroom());
 			placeTinkerer();
 			Level.set(exit(), Terrain.LOCKED_EXIT, this);
 		}

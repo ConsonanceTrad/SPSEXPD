@@ -130,6 +130,8 @@ public enum Icons {
 	KEYRING,
 	HOS,
 	ARROW_C,
+	//SPS: 恶魔刀锋（主菜单「继续游戏」图标，取自 SPS_DEMON_BLADE 物品图）
+	DEMON_BLADE,
 
 	//icons that appear in the about screen, variable spacing
 	LIBGDX,
@@ -421,6 +423,9 @@ public enum Icons {
 				break;
 			case ARROW_C:
 				icon.frame( icon.texture.uvRectBySize( 226, 46, 10, 11 ) );
+				break;
+			case DEMON_BLADE:
+				icon.frame( icon.texture.uvRectBySize( 160, 0, 16, 16 ) );
 				break;
 
 			case LIBGDX:

@@ -57,6 +57,14 @@ public class Assets {
 		public static final String SPS_WATER_CITY = "environment/water/sps_water_city.png";
 		public static final String SPS_WATER_HALLS = "environment/water/sps_water_halls.png";
 		public static final String SPS_WATER_HONEY = "environment/water/sps_water_honey.png";
+		//SPS: 水缝合边独立图集（每区域一张、256x16、帧 0-15 = 缝合 bit；水渲染不再取地形图集的 48-63 段）
+		public static final String SPS_WATER_EDGES_SEWERS = "environment/water/sps_water_edges_sewers.png";
+		public static final String SPS_WATER_EDGES_PRISON = "environment/water/sps_water_edges_prison.png";
+		public static final String SPS_WATER_EDGES_CAVES  = "environment/water/sps_water_edges_caves.png";
+		public static final String SPS_WATER_EDGES_CITY   = "environment/water/sps_water_edges_city.png";
+		public static final String SPS_WATER_EDGES_HALLS  = "environment/water/sps_water_edges_halls.png";
+		public static final String SPS_WATER_EDGES_SNOW   = "environment/water/sps_water_edges_snow.png";
+		public static final String SPS_WATER_EDGES_HONEY  = "environment/water/sps_water_edges_honey.png";
 		public static final String RAISED_TERRAIN = "environment/legacy-2.5d/raised_terrain.png";
 
 		public static final String VISUAL_GRID          = "environment/legacy-2.5d/visual_grid.png";
