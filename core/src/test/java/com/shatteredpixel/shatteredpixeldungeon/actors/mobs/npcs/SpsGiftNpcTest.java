@@ -185,7 +185,7 @@ public final class SpsGiftNpcTest {
 
 	private static void testTentPopulation() {
 		Dungeon.branch = 0;
-		Dungeon.depth = 1;
+		Dungeon.depth = 0;   //SPS: 0 层为带商店的特殊初始层
 		TestLevel shop = paintTent();
 		check(shop.mobs.size() == 1, "商店层帐篷没有生成一名居民");
 		for (Mob mob : shop.mobs) check(mob instanceof GiftNpc, "商店层帐篷生成了错误居民");

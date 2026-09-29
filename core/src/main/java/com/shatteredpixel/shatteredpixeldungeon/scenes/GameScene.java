@@ -110,6 +110,7 @@ import com.shatteredpixel.shatteredpixeldungeon.ui.StyledButton;
 import com.shatteredpixel.shatteredpixeldungeon.ui.Tag;
 import com.shatteredpixel.shatteredpixeldungeon.ui.TargetHealthIndicator;
 import com.shatteredpixel.shatteredpixeldungeon.ui.Toast;
+import com.shatteredpixel.shatteredpixeldungeon.ui.SideQuickBar;
 import com.shatteredpixel.shatteredpixeldungeon.ui.Toolbar;
 import com.shatteredpixel.shatteredpixeldungeon.ui.Window;
 import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
@@ -209,6 +210,8 @@ public class GameScene extends PixelScene {
 	private static boolean invVisible = true;
 
 	private Toolbar toolbar;
+	//SPS: 两侧快捷栏（左 0-4、右 0-4，数量可调，用户裁决 2026-09）
+	private SideQuickBar sideQuickBar;
 	private Toast prompt;
 
 	private AttackIndicator attack;
@@ -540,6 +543,11 @@ public class GameScene extends PixelScene {
 		toolbar.camera = uiCamera;
 		add( toolbar );
 
+		//SPS: 两侧快捷栏（左 0-4、右 0-4，数量可调，用户裁决 2026-09）
+		sideQuickBar = new SideQuickBar();
+		sideQuickBar.camera = uiCamera;
+		add( sideQuickBar );
+
 		if (uiSize == 2) {
 			inventory = new InventoryPane();
 			inventory.camera = uiCamera;
@@ -550,6 +558,9 @@ public class GameScene extends PixelScene {
 		} else {
 			toolbar.setRect( insets.left, uiCamera.height - toolbar.height() - insets.bottom, uiCamera.width - insets.right, toolbar.height() );
 		}
+
+		//SPS: 两侧快捷栏占满内容高、贴左右边缘（随 insets 避让安全区）
+		sideQuickBar.setRect( insets.left, 0, uiCamera.width - insets.left - insets.right, uiCamera.height - insets.bottom );
 
 		if (insets.bottom > 0){
 			SkinnedBlock bar = new SkinnedBlock(uiCamera.width, insets.bottom, TextureCache.createSolid(0x88000000));

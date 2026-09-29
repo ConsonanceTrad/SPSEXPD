@@ -36,12 +36,25 @@ public class QuickSlot {
 	 * which can happen for a stackable item that has been 'used up', these are referred to as placeholders.
 	 */
 
-	public static final int SIZE = 9;
+	//SPS: 快捷栏共 18 槽，三区固定槽位段（用户裁决 2026-09）：
+	//下 0-9（设置显示 3-10 个）、左 10-13（0-4 个）、右 14-17（0-4 个）。
+	//各区数量由设置控制，隐藏槽位的物品绑定保留（改设置不丢物品）。
+	//旧存档 quickslotpos 0-8 落入下段，天然兼容。
+	public static final int SIZE = 18;
+
+	public static final int BOTTOM_START	= 0;
+	public static final int BOTTOM_SIZE		= 10;
+	public static final int LEFT_START		= 10;
+	public static final int LEFT_SIZE		= 4;
+	public static final int RIGHT_START		= 14;
+	public static final int RIGHT_SIZE		= 4;
+
 	private Item[] slots = new Item[SIZE];
 
 
 	//direct array interaction methods, everything should build from these methods.
 	public void setSlot(int slot, Item item){
+		if (slot < 0 || slot >= SIZE) return;   //SPS: 旧档/越界索引保护，直接忽略
 		clearItem(item); //we don't want to allow the same item in multiple slots.
 		slots[slot] = item;
 	}
@@ -55,6 +68,7 @@ public class QuickSlot {
 	}
 
 	public Item getItem(int slot){
+		if (slot < 0 || slot >= SIZE) return null;   //SPS: 越界索引保护
 		return slots[slot];
 	}
 
@@ -146,9 +160,10 @@ public class QuickSlot {
 
 		int i = 0;
 		for (Bundlable item : placeholders){
-			while (!placements[i]){
+			while (i < placements.length && !placements[i]){
 				i++;
 			}
+			if (i >= placements.length) return;   //SPS: 旧档 placements（长度 9）保护
 			setSlot( i, (Item)item );
 			i++;
 		}

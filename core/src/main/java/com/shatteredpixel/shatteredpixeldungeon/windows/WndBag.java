@@ -77,6 +77,10 @@ public class WndBag extends WndTabbed {
 	protected static int SLOT_HEIGHT_L	= 24;
 
 	protected static final int SLOT_MARGIN	= 1;
+
+	//SPS: 正方形格子边长下限——再小则 16px 图标缩得过多、观感劣化；
+	//格子缩到 16 以下时图标按需略缩（见 ItemSlot.layout）
+	protected static final int MIN_SLOT	= 12;
 	
 	protected static final int TITLE_HEIGHT	= 14;
 
@@ -149,34 +153,30 @@ public class WndBag extends WndTabbed {
 		int windowWidth = contentWidth;
 		int windowHeight = TITLE_HEIGHT + slotHeight * nRows + SLOT_MARGIN * (nRows - 1);
 
-		if (PixelScene.landscape()){
-			while (slotHeight >= 24 && (windowHeight + 20 + chrome.marginTop()) > PixelScene.uiCamera.height){
-				slotHeight--;
-				windowHeight -= nRows;
-			}
-		} else {
-			//SPS: 标签在窗框外，左右各占 TAB_W，一并计入屏宽判断
-			while (slotWidth >= 26 && (windowWidth + 2 * TAB_W + chrome.marginHor()) > PixelScene.uiCamera.width){
-				slotWidth--;
-				windowWidth -= nCols;
-			}
+		//SPS: 格子恒为正方形——宽高联动收缩（同步 -1，初始均为 24，全程保持相等）。
+		//此前横/竖屏循环与移动端安全区循环各自只缩一维，高缩放时格子被压成长方形。
+		//约束统一为宽高两条同时满足：窗口 + 左右标签带 + 外框 ≤ 屏宽上限，
+		//窗口 + 外框 ≤ 屏高上限（横屏沿用底部 20px 预留）；Android 再乘 MOBILE_SAFE。
+		//只缩格子，绝不压缩标签带宽度——TAB_W 必须等于贴图帧宽，否则三段按 TAB_W
+		//裁取会切掉图案右侧，在移动端高缩放下表现为选项卡渲染错位
+		int limitW = PixelScene.uiCamera.width;
+		int limitH = PixelScene.uiCamera.height;
+		if (PixelScene.landscape()) {
+			limitH -= 20;
 		}
-
-		//SPS: 移动端安全适配——把「窗口 + 左右标签带 + 外框」限制在屏幕 94% 以内，
-		//避免包裹窗口/选项卡被裁切（选项卡被裁会点不到，功能不可用）
 		if (DeviceCompat.isAndroid()) {
-			int safeW = (int)(PixelScene.uiCamera.width * MOBILE_SAFE);
-			int safeH = (int)(PixelScene.uiCamera.height * MOBILE_SAFE);
-			//SPS: 只缩格子，绝不压缩标签带宽度——TAB_W 必须等于贴图帧宽，否则三段按 TAB_W
-			//裁取会切掉图案右侧，在移动端高缩放下表现为选项卡渲染错位
-			while (slotWidth > 16 && (windowWidth + 2 * TAB_W + chrome.marginHor()) > safeW) {
-				slotWidth--;
-				windowWidth -= nCols;
-			}
-			while (slotHeight > 16 && (windowHeight + chrome.marginVer()) > safeH) {
-				slotHeight--;
-				windowHeight -= nRows;
-			}
+			//SPS: 移动端安全适配——把「窗口 + 左右标签带 + 外框」限制在屏幕 94% 以内，
+			//避免包裹窗口/选项卡被裁切（选项卡被裁会点不到，功能不可用）
+			limitW = (int)(limitW * MOBILE_SAFE);
+			limitH = (int)(limitH * MOBILE_SAFE);
+		}
+		while (slotWidth > MIN_SLOT &&
+				(windowWidth + 2 * TAB_W + chrome.marginHor() > limitW ||
+				 windowHeight + chrome.marginVer() > limitH)) {
+			slotWidth--;
+			windowWidth -= nCols;
+			slotHeight--;
+			windowHeight -= nRows;
 		}
 
 		placeTitle( bag, windowWidth );
@@ -243,8 +243,9 @@ public class WndBag extends WndTabbed {
 		layoutTabs();
 	}
 
-	//SPS: 延续破碎"分配空间"的排布——侧栏可用高度均分给各标签：
-	//左栏均分整侧；右栏除主背包外均分上部 4/5，主背包恒定占右栏底部 1/5。
+	//SPS: 延续破碎"分配空间"的排布——侧栏每项恒定占 1/5（不拉伸）：
+	//左右两栏都按 unitF 网格从顶部逐格摆放，主背包恒定占右栏底部 1/5。
+	//（用户裁决 2026-09：左侧也占恒定 1/5，不再按数量均分整侧）
 	@Override
 	public void layoutTabs(){
 		int n = tabs.size();
@@ -259,11 +260,9 @@ public class WndBag extends WndTabbed {
 		int bagCount = n - 1;                                  //除主背包
 		int leftCount = Math.min( bagCount, LEFT_TABS );
 
-		//SPS: 左栏均分整侧（占满）；右栏每项恒定占 1/5（不拉伸），主背包固定右下角 1/5。
+		//SPS: 左右两栏每项都恒定占 1/5（不拉伸）。
 		//两栏均用浮点步长定位、高度取整——保证左右两侧上下逐项对齐（消除取整累计误差）。
 		float unitF = usableH / 5f;
-		float leftStepF = leftCount > 0 ? usableH / leftCount : usableH;
-		int leftH = Math.max( 1, Math.round( leftStepF ) );
 		int unitH = Math.max( 1, Math.round( unitF ) );
 
 		//SPS: 标签在窗框外侧——未选中时压在窗框下、选中时探入框带。
@@ -274,10 +273,11 @@ public class WndBag extends WndTabbed {
 		for (int i = 1; i < n; i++) {
 			Tab tab = tabs.get(i);
 			boolean left = sideIdx < leftCount;
-			tab.setSize( TAB_W, left ? leftH : unitH );
+			int slotIdx = left ? sideIdx : sideIdx - leftCount;   //本栏内第几格（0 起）
+			tab.setSize( TAB_W, unitH );
 			tab.setPos(
 					left ? leftX : rightX,
-					top + (left ? sideIdx * leftStepF : (sideIdx - leftCount) * unitF ) );
+					top + slotIdx * unitF );
 			if (tab instanceof BagTab) ((BagTab)tab).setLeftSide( left );
 			PixelScene.align( tab );
 			sideIdx++;

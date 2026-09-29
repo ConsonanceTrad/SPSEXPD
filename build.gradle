@@ -614,6 +614,10 @@ tasks.register('verifySpsMechanics') {
 				throw new GradleException('SPS职业入口: 用户可见流程仍可能显示隐藏职业')
 			}
 		}
+		def keyDisplaySource = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/KeyDisplay.java')
+		['SpsSkeletonKey.class, 1', 'GoldenSkeletonKey.class, 3', 'slot != null'].each {
+			requireText(keyDisplaySource, it, 'HUD钥匙显示SPS钥匙登记')
+		}
 		['options[8] = Messages.get(HeroSelectScene.class, "skin_back")',
 		 'options[styles.length] = Messages.get(HeroSelectScene.class, "style_back")',
 		 'chooseSkinAndStart();'].each {
@@ -981,18 +985,27 @@ tasks.register('verifySpsMechanics') {
 		}
 
 		def quickSlot = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/QuickSlot.java')
-		requireText(quickSlot, 'SIZE = 9', '九格快捷栏')
+		//SPS: 快捷栏 18 槽三区结构（下 0-9 / 左 10-13 / 右 14-17，数量可调，用户裁决 2026-09）
+		requireText(quickSlot, 'SIZE = 18', '三区快捷栏容量')
+		requireText(quickSlot, 'BOTTOM_SIZE', '三区快捷栏下段')
+		requireText(quickSlot, 'LEFT_START', '三区快捷栏左段')
+		requireText(quickSlot, 'RIGHT_START', '三区快捷栏右段')
 		def actions = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/SPDAction.java')
 		def quickSlotButton = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/QuickSlotButton.java')
 		def toolbar = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/Toolbar.java')
+		def sideQuickBar = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/ui/SideQuickBar.java')
 		(7..9).each { slot ->
 			requireText(actions, "QUICKSLOT_${slot}", '九格快捷栏键位')
 			requireText(actions, "Input.Keys.NUM_${slot}", '九格快捷栏默认键位')
 			requireText(quickSlotButton, "SPDAction.QUICKSLOT_${slot}", '九格快捷栏按钮')
 		}
-		['new String[QuickSlot.SIZE]', 'quickslotPage * quickslotsToShow',
-		 'QuickSlotButton.lastVisible = QuickSlot.SIZE'].each {
-			requireText(toolbar, it, '九格快捷栏界面')
+		requireText(quickSlotButton, 'slotVisible', '三区快捷栏可见性')
+		['SPDSettings.quickslotsBottom()', 'QuickSlot.BOTTOM_SIZE'].each {
+			requireText(toolbar, it, '下快捷栏数量设置')
+		}
+		['QuickSlot.LEFT_START', 'QuickSlot.RIGHT_START',
+		 'SPDSettings.quickslotsLeft()', 'SPDSettings.quickslotsRight()'].each {
+			requireText(sideQuickBar, it, '两侧快捷栏')
 		}
 
 		def pets = readSource('core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/quest/PetCompendium.java')
@@ -1064,7 +1077,7 @@ tasks.register('verifySpsMechanics') {
 		requireText(hero, 'boolean notice = buff(Notice.class) != null;', '敏锐被动搜索接入')
 		requireText(hero, '} else if (intentional || notice){', '敏锐必定发现隐藏事物')
 
-		println 'SPS机制静态测试通过：8个旧版职业可见且开局获得对应技能物品、6个过渡层已接入、破碎独有装备已移出主生成牌组；25条异界路线、8条挑战路线、29份一次性奖励、终局门槛、外观返回路径、九格快捷栏、水袋功能选择及5组关键存档机制均符合当前实现。'
+		println 'SPS机制静态测试通过：8个旧版职业可见且开局获得对应技能物品、6个过渡层已接入、破碎独有装备已移出主生成牌组；25条异界路线、8条挑战路线、29份一次性奖励、终局门槛、外观返回路径、三区快捷栏（下3-10、左右0-4）、水袋功能选择及5组关键存档机制均符合当前实现。'
     }
 }
 
@@ -1075,12 +1088,13 @@ tasks.register('verifySpsRelease') {
 	dependsOn ':core:verifySpsEyeOfSkadi'
 	dependsOn ':core:verifySpsNoomlinCrown'
 	dependsOn ':core:verifySpsRankings'
+	dependsOn ':core:verifySpsQuickSlotLayout'
 	dependsOn ':core:verifySpsPickaxe'
 	dependsOn ':core:verifySpsSigns'
 	dependsOn ':core:verifySpsBossKeys'
 	dependsOn ':core:verifySpsTimekeepersHourglass'
 	dependsOn ':core:verifySpsRingOfElements', ':core:verifySpsLegacyRings', ':core:verifySpsMagicKnowledgeRings', ':core:verifySpsLegacyConsumableBuffs', ':core:verifySpsLegacyProperties', ':core:verifySpsChaliceOfBlood', ':core:verifySpsGlassTotem', ':core:verifySpsFlyChains', ':core:verifySpsLegacyUtilityItems', ':core:verifySpsLegacyChallenges', ':core:verifySpsLegacyBlobs', ':core:verifySpsCallCoconut', ':core:verifySpsPocketBallFull', ':core:verifySpsEasterWeapons', ':core:verifySpsSpecialRewardWeapons', ':core:verifySpsExtendedLegacyWeapons', ':core:verifySpsLegacySpecialMelee', ':core:verifySpsSewerBossTimeline', ':core:verifySpsPrisonBossTimeline', ':core:verifySpsCavesBossTimeline', ':core:verifySpsCityBossTimeline', ':core:verifySpsHallsBossTimeline', ':core:verifySpsTownBlockWeapons', ':core:verifySpsDangerousBomb', ':core:verifySpsOrbOfZot', ':core:verifySpsJournalPages', ':core:verifySpsStoryGuide', ':core:verifySpsCatalog', ':core:verifySpsMobCatalog', ':core:verifySpsTenguKey', ':core:verifySpsSpecialArrows', ':core:verifySpsTransmutationWell', ':core:verifySpsPsionicBlast'
-	dependsOn 'verifySpsContent', 'verifySpsMechanics', ':core:verifySpsAdventureRoutes', ':core:verifySpsBetweenBuilder', ':core:verifySpsBetweenLevels', ':core:verifySpsBspLayout', ':core:verifySpsRegularLevels', ':core:verifySpsFixedLevels', ':core:verifySpsBossSprites', ':core:verifySpsMainBossTimelines', ':core:verifySpsLearnLevel', ':core:verifySpsChallengeLevels', ':core:verifySpsTriangleLevels', ':core:verifySpsChallengeJournal', ':core:verifySpsChallengeRewards', ':core:verifySpsLegacyTraps', ':core:verifySpsLightBomb', ':core:verifySpsLegacyWands', ':core:verifySpsLegacyArmor', ':core:verifySpsLegacyGlyphs', ':core:verifySpsSpecialArmor', ':core:verifySpsLegacyMelee', ':core:verifySpsLegacyStartMeleeStats', ':core:verifySpsRelicWeapons', ':core:verifySpsLegacyEnchantments', ':core:verifySpsCompleteFoods', ':core:verifySpsBasicFoods', ':core:verifySpsSpecialFoods', ':core:verifySpsPasty', ':core:verifySpsAlchemy', ':core:verifySpsMedicineEffects', ':core:verifySpsAlchemistsToolkit', ':core:verifySpsBlandfruit', ':core:verifySpsHornOfPlenty', ':core:verifySpsCapeOfThorns', ':core:verifySpsCloakOfShadows', ':core:verifySpsDriedRose', ':core:verifySpsEtherealChains', ':core:verifySpsMasterThievesArmband', ':core:verifySpsSandalsOfNature', ':core:verifySpsTalismanOfForesight', ':core:verifySpsStartingMissiles', ':core:verifySpsEnhancedPlants', ':core:verifySpsStartTools', ':core:verifySpsFaithAsceticStart', ':core:verifySpsSkinOneStart', ':core:verifySpsSkinOneInteractions', ':core:verifySpsSkinTwoWarrior', ':core:verifySpsSkinThree', ':core:verifySpsSkinFourTester', ':core:verifySpsSkinFive', ':core:verifySpsSkinSix', ':core:verifySpsSkinSeven', ':core:verifySpsRockCodes', ':core:verifySpsRobotDmt', ':core:verifySpsTestCloak', ':core:verifySpsSellItems', ':core:verifySpsTownNpcLoot', ':core:verifySpsAshWolf', ':core:verifySpsBasePets', ':core:verifySpsPetEggs', ':core:verifySpsPetInteractions', ':core:verifySpsTestTimeLoadout', ':core:verifySpsLegacyBags', ':core:verifySpsApostleBox', ':core:verifySpsTownMisc', ':core:verifySpsTownMelee', ':core:verifySpsXiXiBox', ':core:verifySpsMoneyBook', ':core:verifySpsBottleFire', ':core:verifySpsTownMagic', ':core:verifySpsHoneyArrow', ':core:verifySpsLynnDoll', ':core:verifySpsRustybladeCat', ':core:verifySpsGiftNpc', ':core:verifySpsGhostQuest', ':core:verifySpsWandmakerQuest', ':core:verifySpsBlacksmithImpQuest', ':core:verifySpsLloydsBeacon', ':core:verifySpsLegacyDisplay', ':core:verifySpsMobRotations', ':core:verifySpsHiddenShop', ':core:verifySpsSpecialRooms', ':core:verifySpsMemorySave', ':core:verifySpsMemoryItems', ':core:verifySpsClassSkills', ':core:verifySpsShadowEaterQuest', ':core:verifySpsLuckyBadge', ':core:verifySpsBoomerang', ':core:verifySpsAmmo', ':core:verifySpsGuns', ':core:verifySpsRangeWeapons', ':core:verifySpsManyKnive'
+	dependsOn 'verifySpsContent', 'verifySpsMechanics', ':core:verifySpsKeyPickup', ':core:verifySpsAdventureRoutes', ':core:verifySpsBetweenBuilder', ':core:verifySpsBetweenLevels', ':core:verifySpsBspLayout', ':core:verifySpsRegularLevels', ':core:verifySpsFixedLevels', ':core:verifySpsBossSprites', ':core:verifySpsMainBossTimelines', ':core:verifySpsLearnLevel', ':core:verifySpsChallengeLevels', ':core:verifySpsTriangleLevels', ':core:verifySpsChallengeJournal', ':core:verifySpsChallengeRewards', ':core:verifySpsLegacyTraps', ':core:verifySpsLightBomb', ':core:verifySpsLegacyWands', ':core:verifySpsLegacyArmor', ':core:verifySpsLegacyGlyphs', ':core:verifySpsSpecialArmor', ':core:verifySpsLegacyMelee', ':core:verifySpsLegacyStartMeleeStats', ':core:verifySpsRelicWeapons', ':core:verifySpsLegacyEnchantments', ':core:verifySpsCompleteFoods', ':core:verifySpsBasicFoods', ':core:verifySpsSpecialFoods', ':core:verifySpsPasty', ':core:verifySpsAlchemy', ':core:verifySpsMedicineEffects', ':core:verifySpsAlchemistsToolkit', ':core:verifySpsBlandfruit', ':core:verifySpsHornOfPlenty', ':core:verifySpsCapeOfThorns', ':core:verifySpsCloakOfShadows', ':core:verifySpsDriedRose', ':core:verifySpsEtherealChains', ':core:verifySpsMasterThievesArmband', ':core:verifySpsSandalsOfNature', ':core:verifySpsTalismanOfForesight', ':core:verifySpsStartingMissiles', ':core:verifySpsEnhancedPlants', ':core:verifySpsStartTools', ':core:verifySpsFaithAsceticStart', ':core:verifySpsSkinOneStart', ':core:verifySpsSkinOneInteractions', ':core:verifySpsSkinTwoWarrior', ':core:verifySpsSkinThree', ':core:verifySpsSkinFourTester', ':core:verifySpsSkinFive', ':core:verifySpsSkinSix', ':core:verifySpsSkinSeven', ':core:verifySpsRockCodes', ':core:verifySpsRobotDmt', ':core:verifySpsTestCloak', ':core:verifySpsSellItems', ':core:verifySpsTownNpcLoot', ':core:verifySpsAshWolf', ':core:verifySpsBasePets', ':core:verifySpsPetEggs', ':core:verifySpsPetInteractions', ':core:verifySpsTestTimeLoadout', ':core:verifySpsLegacyBags', ':core:verifySpsApostleBox', ':core:verifySpsTownMisc', ':core:verifySpsTownMelee', ':core:verifySpsXiXiBox', ':core:verifySpsMoneyBook', ':core:verifySpsBottleFire', ':core:verifySpsTownMagic', ':core:verifySpsHoneyArrow', ':core:verifySpsLynnDoll', ':core:verifySpsRustybladeCat', ':core:verifySpsGiftNpc', ':core:verifySpsGhostQuest', ':core:verifySpsWandmakerQuest', ':core:verifySpsBlacksmithImpQuest', ':core:verifySpsLloydsBeacon', ':core:verifySpsLegacyDisplay', ':core:verifySpsMobRotations', ':core:verifySpsHiddenShop', ':core:verifySpsSpecialRooms', ':core:verifySpsMemorySave', ':core:verifySpsMemoryItems', ':core:verifySpsClassSkills', ':core:verifySpsShadowEaterQuest', ':core:verifySpsLuckyBadge', ':core:verifySpsBoomerang', ':core:verifySpsAmmo', ':core:verifySpsGuns', ':core:verifySpsRangeWeapons', ':core:verifySpsManyKnive'
 }
 
 project(':core') {
@@ -1090,6 +1104,24 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.quest.SpsPickaxeTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsKeyPickup', JavaExec) {
+		group = 'verification'
+		description = '无图形验证SPS任务钥匙拾取链路无崩溃（HUD钥匙显示槽位登记回归）。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.items.keys.SpsKeyPickupTest'
+		workingDir = file('src/main/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsQuickSlotLayout', JavaExec) {
+		group = 'verification'
+		description = '无图形验证三区快捷栏（下3-10、左0-4、右0-4）的18槽结构、越界保护与旧档兼容。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = 'com.shatteredpixel.shatteredpixeldungeon.SpsQuickSlotLayoutTest'
 		workingDir = file('src/main/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}

@@ -573,11 +573,12 @@ public class SkeletonKey extends Artifact {
 
 		{
 			revivePersists = true;
-			ironKeysNeeded = new int[26];
+			//SPS: 27 格覆盖 depth 0-26（0 层加入后深度范围 0..26；原 26 格在 depth 26 越界）
+			ironKeysNeeded = new int[27];
 			Arrays.fill(ironKeysNeeded, -1);
-			goldenKeysNeeded = new int[26];
+			goldenKeysNeeded = new int[27];
 			Arrays.fill(goldenKeysNeeded, -1);
-			crystalKeysNeeded = new int[26];
+			crystalKeysNeeded = new int[27];
 			Arrays.fill(crystalKeysNeeded, -1);
 		}
 

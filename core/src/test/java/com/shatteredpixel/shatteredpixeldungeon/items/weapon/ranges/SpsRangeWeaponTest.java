@@ -138,7 +138,7 @@ public final class SpsRangeWeaponTest {
 	private static void testChapterShops() throws Exception {
 		Method method = SpsShopRoom.class.getDeclaredMethod("chapterShootWeapon");
 		method.setAccessible(true);
-		int[] depths = {1, 6, 11, 16, 21};
+		int[] depths = {0, 6, 11, 16, 21};   //SPS: 0 层为第一章特殊层（原 1 层）
 		Class<?>[] bows = {WoodenBowN.class, StoneBowN.class, MetalBowN.class, AlloyBowN.class, PVCBowN.class};
 		Class<?>[] guns = {GunA.class, GunB.class, GunC.class, GunD.class, GunE.class};
 		for (int i = 0; i < depths.length; i++) {

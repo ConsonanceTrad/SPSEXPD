@@ -124,8 +124,17 @@ public class ItemSlot extends Button {
 	protected void layout() {
 		super.layout();
 		
-		sprite.x = x + margin.left + (width - sprite.width - (margin.left + margin.right)) / 2f;
-		sprite.y = y + margin.top + (height - sprite.height - (margin.top + margin.bottom)) / 2f;
+		//SPS: 图标自适应略缩——格子小于图标原生尺寸（移动端高缩放把格子缩到 16 以下）时
+		//按需缩小并居中，保持不溢出格子、不压到相邻格；格子 ≥16px 时 scale 恒为 1，渲染不变
+		float availW = width - margin.left - margin.right;
+		float availH = height - margin.top - margin.bottom;
+		float iconScale = 1f;
+		if (sprite.width > 0 && sprite.height > 0) {
+			iconScale = Math.min( 1f, Math.min( availW / sprite.width, availH / sprite.height ) );
+		}
+		sprite.scale.set( iconScale );
+		sprite.x = x + margin.left + (availW - sprite.width()) / 2f;
+		sprite.y = y + margin.top + (availH - sprite.height()) / 2f;
 		PixelScene.align(sprite);
 		
 		if (status != null) {

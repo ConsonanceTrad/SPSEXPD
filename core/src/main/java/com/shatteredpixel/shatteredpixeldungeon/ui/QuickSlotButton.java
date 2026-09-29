@@ -141,7 +141,7 @@ public class QuickSlotButton extends Button {
 			@Override
 			protected String hoverText() {
 				if (item == null){
-					return Messages.titleCase(Messages.get(WndKeyBindings.class, "quickslot_" + (slotNum+1)));
+					return Messages.titleCase(slotName(slotNum));
 				} else {
 					return super.hoverText();
 				}
@@ -215,10 +215,18 @@ public class QuickSlotButton extends Button {
 	@Override
 	protected String hoverText() {
 		if (slot.item == null){
-			return Messages.titleCase(Messages.get(WndKeyBindings.class, "quickslot_" + (slotNum+1)));
+			return Messages.titleCase(slotName(slotNum));
 		} else {
 			return super.hoverText();
 		}
+	}
+
+	//SPS: 槽 0-8 显示对应键位名；下栏第 10 格与左右栏槽无键位，按区域命名
+	private static String slotName( int slotNum ){
+		if (slotNum < 9) return Messages.get(WndKeyBindings.class, "quickslot_" + (slotNum+1));
+		if (slotNum < QuickSlot.LEFT_START) return Messages.get(QuickSlotButton.class, "slot_bottom");
+		if (slotNum < QuickSlot.RIGHT_START) return Messages.get(QuickSlotButton.class, "slot_left");
+		return Messages.get(QuickSlotButton.class, "slot_right");
 	}
 	
 	@Override
@@ -264,11 +272,18 @@ public class QuickSlotButton extends Button {
 		}
 	};
 
-	public static int lastVisible = instance.length;
+	//SPS: 槽位在当前设置下是否可见（下 0..n-1、左 10..10+l-1、右 14..14+r-1）。
+	//隐藏槽位的物品绑定保留，只是不显示；放物品时优先放进可见空槽
+	public static boolean slotVisible( int slotNum ){
+		if (slotNum < SPDSettings.quickslotsBottom()) return true;
+		if (slotNum >= QuickSlot.LEFT_START && slotNum < QuickSlot.LEFT_START + SPDSettings.quickslotsLeft()) return true;
+		if (slotNum >= QuickSlot.RIGHT_START && slotNum < QuickSlot.RIGHT_START + SPDSettings.quickslotsRight()) return true;
+		return false;
+	}
 
 	public static void set(Item item){
-		for (int i = 0; i < lastVisible; i++) {
-			if (select(i) == null || select(i) == item) {
+		for (int i = 0; i < QuickSlot.SIZE; i++) {
+			if (slotVisible(i) && (select(i) == null || select(i) == item)) {
 				set(i, item);
 				return;
 			}
@@ -318,7 +333,10 @@ public class QuickSlotButton extends Button {
 	}
 
 	public static void useTargeting(int idx){
-		instance[idx].useTargeting();
+		//SPS: 槽位可能隐藏（无对应按钮），null 保护
+		if (idx >= 0 && idx < instance.length && instance[idx] != null) {
+			instance[idx].useTargeting();
+		}
 	}
 
 	private void useTargeting() {
@@ -384,9 +402,6 @@ public class QuickSlotButton extends Button {
 				instance[i].enable(instance[i].active);
 			}
 		}
-		if (Toolbar.SWAP_INSTANCE != null){
-			Toolbar.SWAP_INSTANCE.updateVisuals();
-		}
 		//Remember if the player removes the waterskin as one of their first actions.
 		if (Statistics.duration + Actor.now() <= 10){
 			boolean containsWaterskin = false;
@@ -411,10 +426,11 @@ public class QuickSlotButton extends Button {
 	public static void cancel() {
 		if (targetingSlot != -1) {
 			for (QuickSlotButton btn : instance) {
+				if (btn == null) continue;   //SPS: 隐藏槽位无按钮，null 保护
 				btn.crossB.visible = false;
 				btn.crossM.remove();
-				targetingSlot = -1;
 			}
+			targetingSlot = -1;
 		}
 	}
 }

@@ -296,7 +296,6 @@ public enum Rankings {
 		Notes.reset();
 		Dungeon.quickslot.reset();
 		QuickSlotButton.reset();
-		Toolbar.quickslotPage = 0;
 
 		if (data == null) return;
 

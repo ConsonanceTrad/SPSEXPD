@@ -64,7 +64,6 @@ public class Toolbar extends Component {
 	private Tool btnSearch;
 	private Tool btnInventory;
 	private QuickslotTool[] btnQuick;
-	private SlotSwapTool btnSwap;
 	
 	private PickedUpItem pickedUp;
 	
@@ -96,9 +95,9 @@ public class Toolbar extends Component {
 	@Override
 	protected void createChildren() {
 
-		add(btnSwap = new SlotSwapTool(128, 0, 21, 23));
-
-		btnQuick = new QuickslotTool[QuickSlot.SIZE];
+		//SPS: 下栏只建下段槽位（0-9），左右栏槽位由 SideQuickBar 创建；
+		//显示数量由设置控制（3-10，用户裁决 2026-09），翻页机制随 quickSwapper 一并移除
+		btnQuick = new QuickslotTool[QuickSlot.BOTTOM_SIZE];
 		for (int i = 0; i < btnQuick.length; i++){
 			add( btnQuick[i] = new QuickslotTool(64, 0, 22, 24, i) );
 		}
@@ -121,18 +120,27 @@ public class Toolbar extends Component {
 
 				if (Dungeon.hero != null && Dungeon.hero.ready && !GameScene.cancel()) {
 
-					String[] slotNames = new String[QuickSlot.SIZE];
-					Image[] slotIcons = new Image[QuickSlot.SIZE];
+					//SPS: 只列出当前设置下可见的槽位（下/左/右三区，隐藏槽不列出）
+					final int[] slotNums = new int[QuickSlot.SIZE];
+					int shown = 0;
 					for (int i = 0; i < QuickSlot.SIZE; i++){
+						if (QuickSlotButton.slotVisible(i)) slotNums[shown++] = i;
+					}
+					int shownCount = shown;
+
+					String[] slotNames = new String[shownCount];
+					Image[] slotIcons = new Image[shownCount];
+					for (int s = 0; s < shownCount; s++){
+						int i = slotNums[s];
 						Item item = Dungeon.quickslot.getItem(i);
 
 						if (item != null && !Dungeon.quickslot.isPlaceholder(i) &&
 								(!Dungeon.hero.belongings.lostInventory() || item.keptThroughLostInventory())){
-							slotNames[i] = Messages.titleCase(item.name());
-							slotIcons[i] = new ItemSprite(item);
+							slotNames[s] = Messages.titleCase(item.name());
+							slotIcons[s] = new ItemSprite(item);
 						} else {
-							slotNames[i] = Messages.get(Toolbar.class, "quickslot_assign");
-							slotIcons[i] = new ItemSprite(ItemSpriteSheet.SOMETHING);
+							slotNames[s] = Messages.get(Toolbar.class, "quickslot_assign");
+							slotIcons[s] = new ItemSprite(ItemSpriteSheet.SOMETHING);
 						}
 					}
 
@@ -150,9 +158,10 @@ public class Toolbar extends Component {
 					Game.scene().addToFront(new RadialMenu(Messages.get(Toolbar.class, "quickslot_prompt"), info, slotNames, slotIcons) {
 						@Override
 						public void onSelect(int idx, boolean alt) {
-							Item item = Dungeon.quickslot.getItem(idx);
+							final int slotIdx = slotNums[idx];
+							Item item = Dungeon.quickslot.getItem(slotIdx);
 
-							if (item == null || Dungeon.quickslot.isPlaceholder(idx)
+							if (item == null || Dungeon.quickslot.isPlaceholder(slotIdx)
 									|| (Dungeon.hero.belongings.lostInventory() && !item.keptThroughLostInventory())
 									|| alt){
 								//TODO would be nice to use a radial menu for this too
@@ -171,7 +180,7 @@ public class Toolbar extends Component {
 									@Override
 									public void onSelect(Item item) {
 										if (item != null) {
-											QuickSlotButton.set(idx, item);
+											QuickSlotButton.set(slotIdx, item);
 										}
 									}
 								});
@@ -179,7 +188,7 @@ public class Toolbar extends Component {
 
 								item.execute(Dungeon.hero);
 								if (item.usesTargeting) {
-									QuickSlotButton.useTargeting(idx);
+									QuickSlotButton.useTargeting(slotIdx);
 								}
 							}
 							super.onSelect(idx, alt);
@@ -493,27 +502,10 @@ public class Toolbar extends Component {
 
 		float right = width;
 
-		int quickslotsToShow = 4;
-		if (PixelScene.uiCamera.width > 152) quickslotsToShow ++;
-		if (PixelScene.uiCamera.width > 170) quickslotsToShow ++;
-		if (PixelScene.uiCamera.width > 188) quickslotsToShow ++;
-		if (PixelScene.uiCamera.width > 206) quickslotsToShow ++;
-		if (PixelScene.uiCamera.width > 224) quickslotsToShow ++;
-
-		int startingSlot;
-		if (SPDSettings.quickSwapper() && quickslotsToShow < QuickSlot.SIZE){
-			quickslotsToShow = 3;
-			startingSlot = quickslotPage * quickslotsToShow;
-			btnSwap.visible = true;
-			btnSwap.active = lastEnabled;
-			QuickSlotButton.lastVisible = QuickSlot.SIZE;
-		} else {
-			startingSlot = 0;
-			btnSwap.visible = btnSwap.active = false;
-			btnSwap.setPos(0, PixelScene.uiCamera.height);
-			QuickSlotButton.lastVisible = quickslotsToShow;
-		}
-		int endingSlot = startingSlot+quickslotsToShow-1;
+		//SPS: 下栏数量由设置控制（3-10，用户裁决 2026-09），按设置数量并排显示，
+		//不设翻页/缩放兜底——窄屏放不下时由玩家自行调小数量
+		int startingSlot = 0;
+		int endingSlot = SPDSettings.quickslotsBottom() - 1;
 
 		for (int i = 0; i < btnQuick.length; i++){
 			btnQuick[i].visible = i >= startingSlot && i <= endingSlot;
@@ -544,8 +536,6 @@ public class Toolbar extends Component {
 				right = btnQuick[i].left();
 			}
 
-			//swap button never appears on larger interface sizes
-
 			return;
 		}
 
@@ -564,7 +554,6 @@ public class Toolbar extends Component {
 			}
 		}
 
-		float shift = 0;
 		Toolbar.Mode mode;
 		try {
 			mode = Mode.valueOf(SPDSettings.toolbarMode());
@@ -584,12 +573,6 @@ public class Toolbar extends Component {
 				btnQuick[startingSlot].setPos(btnInventory.left() - btnQuick[startingSlot].width(), y + 2);
 				for (int i = startingSlot+1; i <= endingSlot; i++) {
 					btnQuick[i].setPos(btnQuick[i-1].left() - btnQuick[i].width(), y + 2);
-					shift = btnSearch.right() - btnQuick[i].left();
-				}
-
-				if (btnSwap.visible){
-					btnSwap.setPos(btnQuick[endingSlot].left() - (btnSwap.width()-2), y+3);
-					shift = btnSearch.right() - btnSwap.left();
 				}
 
 				break;
@@ -600,8 +583,8 @@ public class Toolbar extends Component {
 				for(Button slot : btnQuick){
 					if (slot.visible) toolbarWidth += slot.width();
 				}
-				if (btnSwap.visible) toolbarWidth += btnSwap.width()-2;
-				right = (width + toolbarWidth)/2;
+				//SPS: 超宽时钳制为右对齐（与 GROUP 一致），不再向两侧溢出
+				right = Math.min( (width + toolbarWidth)/2, width );
 
 			case GROUP:
 				btnWait.setPos(right - btnWait.width(), y);
@@ -611,27 +594,13 @@ public class Toolbar extends Component {
 				btnQuick[startingSlot].setPos(btnInventory.left() - btnQuick[startingSlot].width(), y + 2);
 				for (int i = startingSlot+1; i <= endingSlot; i++) {
 					btnQuick[i].setPos(btnQuick[i-1].left() - btnQuick[i].width(), y + 2);
-					shift = -btnQuick[i].left();
-				}
-
-				if (btnSwap.visible){
-					btnSwap.setPos(btnQuick[endingSlot].left() - (btnSwap.width()-2), y+3);
-					shift = -btnSwap.left();
 				}
 				
 				break;
 		}
 
-		if (shift > 0){
-			shift /= 2; //we want to center;
-			for (int i = startingSlot; i <= endingSlot; i++) {
-				btnQuick[i].setPos(btnQuick[i].left()+shift,  btnQuick[i].top());
-			}
-			if (btnSwap.visible){
-				btnSwap.setPos(btnSwap.left()+shift, btnSwap.top());
-			}
-		}
-
+		//SPS: 超宽时不居中分摊——右端（背包按钮侧）绝对固定，格子向左延伸，
+		//溢出只吞尾部（出左屏/被等待搜索按钮压住），保证槽 0 起的前几格位置恒定可用
 		right = width;
 
 		if (SPDSettings.flipToolbar()) {
@@ -642,10 +611,6 @@ public class Toolbar extends Component {
 
 			for(int i = startingSlot; i <= endingSlot; i++) {
 				btnQuick[i].setPos( right - btnQuick[i].right(), y+2);
-			}
-
-			if (btnSwap.visible){
-				btnSwap.setPos( right - btnSwap.right(), y+3);
 			}
 
 		}
@@ -682,7 +647,6 @@ public class Toolbar extends Component {
 		for (QuickslotTool tool : btnQuick){
 			tool.alpha(value);
 		}
-		btnSwap.alpha( value );
 	}
 
 	public void pickup( Item item, int cell ) {
@@ -706,7 +670,7 @@ public class Toolbar extends Component {
 		}
 	};
 	
-	private static class Tool extends Button {
+	static class Tool extends Button {
 		
 		private static final int BGCOLOR = 0x7B8073;
 		
@@ -782,7 +746,7 @@ public class Toolbar extends Component {
 		}
 	}
 	
-	private static class QuickslotTool extends Tool {
+	static class QuickslotTool extends Tool {
 		
 		private QuickSlotButton slot;
 		private int borderLeft = 2;
@@ -821,122 +785,6 @@ public class Toolbar extends Component {
 		}
 	}
 
-	public static int quickslotPage = 0;
-	public static SlotSwapTool SWAP_INSTANCE;
-
-	public static class SlotSwapTool extends Tool {
-
-		private Image[] icons = new Image[4];
-		private Item[] items = new Item[4];
-
-		public SlotSwapTool(int x, int y, int width, int height) {
-			super(x, y, width, height);
-			SWAP_INSTANCE = this;
-			updateVisuals();
-		}
-
-		@Override
-		public synchronized void destroy() {
-			super.destroy();
-			if (SWAP_INSTANCE == this) SWAP_INSTANCE = null;
-		}
-
-		@Override
-		protected void onClick() {
-			super.onClick();
-			quickslotPage = (quickslotPage + 1) % ((QuickSlot.SIZE + 2) / 3);
-			updateLayout();
-			updateVisuals();
-		}
-
-		public void updateVisuals(){
-			if (icons[0] == null){
-				icons[0] = Icons.get(Icons.CHANGES);
-				icons[0].scale.set(PixelScene.align(0.45f));
-				add(icons[0]);
-			}
-
-			int nextPage = (quickslotPage + 1) % ((QuickSlot.SIZE + 2) / 3);
-			int slot;
-			int slotDir;
-			if (SPDSettings.flipToolbar()){
-				slot = nextPage * 3;
-				slotDir = +1;
-			} else {
-				slot = nextPage * 3 + 2;
-				slotDir = -1;
-			}
-
-			for (int i = 1; i < 4; i++){
-				if (items[i] == Dungeon.quickslot.getItem(slot)){
-					slot += slotDir;
-					continue;
-				} else {
-					items[i] = Dungeon.quickslot.getItem(slot);
-				}
-				if (icons[i] != null){
-					icons[i].killAndErase();
-					icons[i] = null;
-				}
-				if (items[i] != null){
-					icons[i] = new ItemSprite(items[i]);
-					icons[i].scale.set(PixelScene.align(0.45f));
-					if (Dungeon.quickslot.isPlaceholder(slot)) icons[i].alpha(0.29f);
-					add(icons[i]);
-				}
-				slot += slotDir;
-			}
-
-			icons[0].x = x + 2 + (8 - icons[0].width())/2;
-			icons[0].y = y + 2 + (9 - icons[0].height())/2;
-			PixelScene.align(icons[0]);
-
-			if (icons[1] != null){
-				icons[1].x = x + 11 + (8 - icons[1].width())/2;
-				icons[1].y = y + 2 + (9 - icons[1].height())/2;
-				PixelScene.align(icons[1]);
-			}
-
-			if (icons[2] != null){
-				icons[2].x = x + 2 + (8 - icons[2].width())/2;
-				icons[2].y = y + 12 + (9 - icons[2].height())/2;
-				PixelScene.align(icons[2]);
-			}
-
-			if (icons[3] != null){
-				icons[3].x = x + 11 + (8 - icons[3].width())/2;
-				icons[3].y = y + 12 + (9 - icons[3].height())/2;
-				PixelScene.align(icons[3]);
-			}
-		}
-
-		@Override
-		protected void layout() {
-			super.layout();
-			updateVisuals();
-		}
-
-		@Override
-		public void alpha(float value) {
-			super.alpha(value);
-			for (Image im : icons){
-				if (im != null) im.alpha(value);
-			}
-		}
-
-		@Override
-		public void enable(boolean value) {
-			super.enable(value);
-			for (Image ic : icons){
-				if (ic != null && ic.alpha() >= 0.3f){
-					ic.alpha( value ? 1 : 0.3f);
-				}
-			}
-		}
-
-		//private
-
-	}
 	
 	public static class PickedUpItem extends ItemSprite {
 		

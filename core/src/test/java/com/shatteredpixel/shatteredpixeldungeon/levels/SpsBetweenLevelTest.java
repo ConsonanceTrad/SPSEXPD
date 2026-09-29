@@ -30,6 +30,7 @@ import com.shatteredpixel.shatteredpixeldungeon.items.eggs.Egg;
 import com.shatteredpixel.shatteredpixeldungeon.items.food.staplefood.Pasty;
 import com.shatteredpixel.shatteredpixeldungeon.items.journalpages.Town;
 import com.shatteredpixel.shatteredpixeldungeon.items.potions.Potion;
+import com.shatteredpixel.shatteredpixeldungeon.items.quest.Mushroom;
 import com.shatteredpixel.shatteredpixeldungeon.items.rings.Ring;
 import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.Scroll;
 import com.shatteredpixel.shatteredpixeldungeon.items.summon.ActiveMrDestructo;
@@ -62,7 +63,7 @@ import java.util.HashSet;
 /** Draws complete SPS transition floors and validates their legacy visual layer. */
 public final class SpsBetweenLevelTest {
 
-	private static final int[] DEPTHS = {1, 6, 11, 16, 21};
+	private static final int[] DEPTHS = {0, 6, 11, 16, 21};   //SPS: 0 层为特殊初始层，其余过渡层照旧
 	private static final int SEEDS_PER_DEPTH = 50;
 
 	public static void main(String[] args) {
@@ -188,8 +189,8 @@ public final class SpsBetweenLevelTest {
 				stock.addAll(heap.items);
 			}
 		}
-		//SPS: 种子包已取消（绒布袋替代，用户裁决 2026-09-28），第 1 层商店总数基数 19→18
-		int minimum = depth == 1 ? 18 : depth == 16 ? 16 : depth == 21 ? 18 : 17;
+		//SPS: 种子包已取消（绒布袋替代，用户裁决 2026-09-28）；0 层商店新增任务蘑菇（10 金），基数 18→19
+		int minimum = depth == 0 ? 19 : depth == 16 ? 16 : depth == 21 ? 18 : 17;
 		check(stock.size() == minimum || stock.size() == minimum + 1, depth, seed,
 				"商店商品总数不符合旧版可选宠物蛋分支：" + stock.size());
 		check(count(stock, Ankh.class) == 1, depth, seed, "商店没有固定出售十字架");
@@ -201,14 +202,16 @@ public final class SpsBetweenLevelTest {
 
 		Class<?>[] bows = {WoodenBowN.class, StoneBowN.class, MetalBowN.class, AlloyBowN.class, PVCBowN.class};
 		Class<?>[] guns = {GunA.class, GunB.class, GunC.class, GunD.class, GunE.class};
-		int chapter = depth == 1 ? 0 : depth == 6 ? 1 : depth == 11 ? 2 : depth == 16 ? 3 : 4;
+		int chapter = depth == 0 ? 0 : depth == 6 ? 1 : depth == 11 ? 2 : depth == 16 ? 3 : 4;
 		check(count(stock, bows[chapter]) + count(stock, guns[chapter]) >= 1, depth, seed,
 				"章节枪械或弓档位错误");
 
-		if (depth == 1) {
+		if (depth == 0) {
+			//SPS: 0 层商店固定出售任务蘑菇（10 金币）+ 专属商品
 			check(count(stock, MeleePan.class) >= 1
-					&& count(stock, Pasty.class) >= 1 && count(stock, NoomlinCrown.class) >= 1,
-					depth, seed, "第1层商店专属商品不完整");
+					&& count(stock, Pasty.class) >= 1 && count(stock, NoomlinCrown.class) >= 1
+					&& count(stock, Mushroom.class) >= 1,
+					depth, seed, "0层商店专属商品不完整（应含任务蘑菇）");
 		} else if (depth == 6) {
 			check(count(stock, ScrollHolder.class) == 1 && count(stock, DolyaSlate.class) == 1,
 					depth, seed, "第6层商店专属商品不完整");

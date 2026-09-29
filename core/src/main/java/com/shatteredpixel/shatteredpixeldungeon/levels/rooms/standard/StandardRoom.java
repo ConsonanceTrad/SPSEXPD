@@ -184,6 +184,9 @@ public abstract class StandardRoom extends Room {
 
 		chances[21] = new float[]{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 10,10,10,5,5,  1,1,1,1,1,1,1,1,1,1};
 		chances[26] = chances[25] = chances[24] = chances[23] = chances[22] = chances[21];
+
+		//SPS: 0 层（特殊初始层）沿用原 1 层房间样式
+		chances[0] = chances[1];
 	}
 	
 	

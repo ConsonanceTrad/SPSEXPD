@@ -25,6 +25,7 @@ import com.shatteredpixel.shatteredpixeldungeon.items.eggs.Egg;
 import com.shatteredpixel.shatteredpixeldungeon.items.eggs.randomone.RandomMonthEgg;
 import com.shatteredpixel.shatteredpixeldungeon.items.food.staplefood.Pasty;
 import com.shatteredpixel.shatteredpixeldungeon.items.journalpages.Town;
+import com.shatteredpixel.shatteredpixeldungeon.items.quest.Mushroom;
 import com.shatteredpixel.shatteredpixeldungeon.items.summon.ActiveMrDestructo;
 import com.shatteredpixel.shatteredpixeldungeon.items.summon.FairyCard;
 import com.shatteredpixel.shatteredpixeldungeon.items.summon.Mobile;
@@ -93,12 +94,14 @@ public class SpsShopRoom extends ShopRoom {
 		itemsToSpawn = new ArrayList<>();
 
 		switch (Dungeon.legacyDepth()) {
-			case 1:
-				//SPS: 种子包已取消（绒布袋 VelvetPouch 为其替代品，用户裁决 2026-09-28）
+			case 0:
+				//SPS: 0 层特殊初始层商店；种子包已取消（绒布袋 VelvetPouch 为其替代品，用户裁决 2026-09-28）
 				itemsToSpawn.add(chapterShootWeapon().identify(false));
 				itemsToSpawn.add(new MeleePan());
 				itemsToSpawn.add(new Pasty());
 				itemsToSpawn.add(new NoomlinCrown());
+				//SPS: 任务蘑菇固定出售，售价 10 金币（配合开局 10 金币）
+				itemsToSpawn.add(new Mushroom());
 				break;
 			case 6:
 				itemsToSpawn.add(new ScrollHolder());
@@ -262,7 +265,7 @@ public class SpsShopRoom extends ShopRoom {
 	private static Item chapterShootWeapon() {
 		if (Random.Int(2) == 0) return chapterBow();
 		switch (Dungeon.legacyDepth()) {
-			case 1: return new GunA();
+			case 0: return new GunA();   //SPS: 0 层为第一章（原 1 层）
 			case 6: return new GunB();
 			case 11: return new GunC();
 			case 16: return new GunD();
@@ -272,7 +275,7 @@ public class SpsShopRoom extends ShopRoom {
 
 	private static Item chapterBow() {
 		switch (Dungeon.legacyDepth()) {
-			case 1: return new WoodenBowN();
+			case 0: return new WoodenBowN();   //SPS: 0 层为第一章（原 1 层）
 			case 6: return new StoneBowN();
 			case 11: return new MetalBowN();
 			case 16: return new AlloyBowN();

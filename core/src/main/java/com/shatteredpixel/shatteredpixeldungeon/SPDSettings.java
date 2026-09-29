@@ -122,7 +122,10 @@ public class SPDSettings extends GameSettings {
 
 	public static final String KEY_UI_SIZE 	    = "full_ui";
 	public static final String KEY_SCALE		= "scale";
-	public static final String KEY_QUICK_SWAP	= "quickslot_swapper";
+	//SPS: 三区快捷栏数量（用户裁决 2026-09）：下 3-10、左 0-4、右 0-4
+	public static final String KEY_QSLOT_BOTTOM	= "quickslots_bottom";
+	public static final String KEY_QSLOT_LEFT	= "quickslots_left";
+	public static final String KEY_QSLOT_RIGHT	= "quickslots_right";
 	public static final String KEY_FLIPTOOLBAR	= "flipped_ui";
 	public static final String KEY_FLIPTAGS 	= "flip_tags";
 	public static final String KEY_BARMODE		= "toolbar_mode";
@@ -151,9 +154,18 @@ public class SPDSettings extends GameSettings {
 		return getInt( KEY_SCALE, 0 );
 	}
 	
-	public static void quickSwapper(boolean value ){ put( KEY_QUICK_SWAP, value ); }
-	
-	public static boolean quickSwapper(){ return getBoolean( KEY_QUICK_SWAP, true); }
+	//SPS: 三区快捷栏数量（用户裁决 2026-09）：下 3-10（默认 9，延续九格定案）、左 0-4、右 0-4（默认 0 不显示）
+	public static void quickslotsBottom( int value ){ put( KEY_QSLOT_BOTTOM, Math.max( 3, Math.min( 10, value ) ) ); }
+
+	public static int quickslotsBottom(){ return Math.max( 3, Math.min( 10, getInt( KEY_QSLOT_BOTTOM, 9 ) ) ); }
+
+	public static void quickslotsLeft( int value ){ put( KEY_QSLOT_LEFT, Math.max( 0, Math.min( 4, value ) ) ); }
+
+	public static int quickslotsLeft(){ return Math.max( 0, Math.min( 4, getInt( KEY_QSLOT_LEFT, 0 ) ) ); }
+
+	public static void quickslotsRight( int value ){ put( KEY_QSLOT_RIGHT, Math.max( 0, Math.min( 4, value ) ) ); }
+
+	public static int quickslotsRight(){ return Math.max( 0, Math.min( 4, getInt( KEY_QSLOT_RIGHT, 0 ) ) ); }
 	
 	public static void flipToolbar( boolean value) {
 		put(KEY_FLIPTOOLBAR, value );

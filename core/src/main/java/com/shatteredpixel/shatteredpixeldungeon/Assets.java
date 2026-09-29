@@ -107,6 +107,9 @@ public class Assets {
 		public static final String CHROME   = "interfaces/chrome.png";
 		//SPS: 侧边标签底板（横向 2 帧：左=选中 | 右=未选，手动旋转后的标签贴图，每帧 TAB_W×TAB_H）
 		public static final String SIDE_TABS= "interfaces/side_tabs.png";
+		//SPS: 左右快捷栏整栏外框三段纹理（横向 3 帧：上帽/中段/下帽，
+		//由 tools/make-side-toolbar.ps1 从 toolbar.png 下栏三段转置生成）
+		public static final String SIDE_TOOLBAR = "interfaces/side_toolbar.png";
 		public static final String ICONS    = "interfaces/icons.png";
 		public static final String STATUS   = "interfaces/status_pane.png";
 		public static final String MENU     = "interfaces/menu_pane.png";

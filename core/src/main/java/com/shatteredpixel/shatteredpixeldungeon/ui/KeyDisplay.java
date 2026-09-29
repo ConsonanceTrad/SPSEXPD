@@ -25,8 +25,10 @@ import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.items.keys.CrystalKey;
 import com.shatteredpixel.shatteredpixeldungeon.items.keys.GoldenKey;
+import com.shatteredpixel.shatteredpixeldungeon.items.keys.GoldenSkeletonKey;
 import com.shatteredpixel.shatteredpixeldungeon.items.keys.IronKey;
 import com.shatteredpixel.shatteredpixeldungeon.items.keys.Key;
+import com.shatteredpixel.shatteredpixeldungeon.items.keys.SpsSkeletonKey;
 import com.shatteredpixel.shatteredpixeldungeon.items.keys.WornKey;
 import com.shatteredpixel.shatteredpixeldungeon.journal.Notes;
 import com.watabou.gltextures.SmartTexture;
@@ -58,8 +60,11 @@ public class KeyDisplay extends Visual {
 	private static final LinkedHashMap<Class<? extends Key>, Integer> keyMap = new LinkedHashMap<>();
 	static {
 		keyMap.put(WornKey.class, 1);
+		//SPS: 任务/传承钥匙与其外观对应的原版钥匙共用槽位（SpsSkeletonKey 图标即 WORN_KEY）
+		keyMap.put(SpsSkeletonKey.class, 1);
 		keyMap.put(CrystalKey.class, 2);
 		keyMap.put(GoldenKey.class, 3);
+		keyMap.put(GoldenSkeletonKey.class, 3);
 		keyMap.put(IronKey.class, 4);
 	}
 	
@@ -77,7 +82,9 @@ public class KeyDisplay extends Visual {
 				//only ever 1 black key
 				keys[0] = 1;
 			} else if (rec.depth() == Dungeon.depth && Dungeon.branch == 0){
-				keys[keyMap.get(rec.type())] += rec.quantity();
+				//SPS: 未登记的钥匙类跳过显示，绝不因 null 槽位崩溃（曾致拾取钥匙闪退）
+				Integer slot = keyMap.get(rec.type());
+				if (slot != null) keys[slot] += rec.quantity();
 			}
 		}
 		

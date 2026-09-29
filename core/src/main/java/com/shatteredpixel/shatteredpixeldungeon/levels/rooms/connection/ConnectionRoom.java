@@ -76,6 +76,9 @@ public abstract class ConnectionRoom extends Room {
 		
 		chances[22] = new float[]{15, 4,    0, 2,       3, 2};
 		chances[26] = chances[25] = chances[24] = chances[23] = chances[22];
+
+		//SPS: 0 层（特殊初始层）沿用原 1 层房间样式
+		chances[0] = chances[1];
 	}
 	
 	public static ConnectionRoom createRoom(){

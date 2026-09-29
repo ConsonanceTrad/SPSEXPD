@@ -38,6 +38,7 @@ import com.shatteredpixel.shatteredpixeldungeon.ui.Icons;
 import com.shatteredpixel.shatteredpixeldungeon.ui.OptionSlider;
 import com.shatteredpixel.shatteredpixeldungeon.ui.RedButton;
 import com.shatteredpixel.shatteredpixeldungeon.ui.RenderedTextBlock;
+import com.shatteredpixel.shatteredpixeldungeon.ui.SideQuickBar;
 import com.shatteredpixel.shatteredpixeldungeon.ui.Toolbar;
 import com.shatteredpixel.shatteredpixeldungeon.ui.Window;
 import com.watabou.input.ControllerHandler;
@@ -405,8 +406,7 @@ public class WndSettings extends WndTabbed {
 
 							RenderedTextBlock barDesc;
 							RedButton btnSplit; RedButton btnGrouped; RedButton btnCentered;
-							CheckBox chkQuickSwapper;
-							RenderedTextBlock swapperDesc;
+							OptionSlider optQSlotBottom; OptionSlider optQSlotLeft; OptionSlider optQSlotRight;
 							CheckBox chkFlipToolbar;
 							CheckBox chkFlipTags;
 
@@ -459,20 +459,39 @@ public class WndSettings extends WndTabbed {
 								}
 								add(btnCentered);
 
-								chkQuickSwapper = new CheckBox(Messages.get(WndSettings.UITab.this, "quickslot_swapper")) {
+								//SPS: 三区快捷栏数量（下 3-10、左 0-4、右 0-4，用户裁决 2026-09），改动即时重排
+								optQSlotBottom = new OptionSlider(Messages.get(WndSettings.UITab.this, "qslot_bottom"), "3", "10", 3, 10) {
 									@Override
-									protected void onClick() {
-										super.onClick();
-										SPDSettings.quickSwapper(checked());
+									protected void onChange() {
+										SPDSettings.quickslotsBottom(getSelectedValue());
 										Toolbar.updateLayout();
+										SideQuickBar.updateLayout();
 									}
 								};
-								chkQuickSwapper.checked(SPDSettings.quickSwapper());
-								add(chkQuickSwapper);
+								optQSlotBottom.setSelectedValue(SPDSettings.quickslotsBottom());
+								add(optQSlotBottom);
 
-								swapperDesc = PixelScene.renderTextBlock(Messages.get(WndSettings.UITab.this, "swapper_desc"), 5);
-								swapperDesc.hardlight(0x888888);
-								add(swapperDesc);
+								optQSlotLeft = new OptionSlider(Messages.get(WndSettings.UITab.this, "qslot_left"), "0", "4", 0, 4) {
+									@Override
+									protected void onChange() {
+										SPDSettings.quickslotsLeft(getSelectedValue());
+										Toolbar.updateLayout();
+										SideQuickBar.updateLayout();
+									}
+								};
+								optQSlotLeft.setSelectedValue(SPDSettings.quickslotsLeft());
+								add(optQSlotLeft);
+
+								optQSlotRight = new OptionSlider(Messages.get(WndSettings.UITab.this, "qslot_right"), "0", "4", 0, 4) {
+									@Override
+									protected void onChange() {
+										SPDSettings.quickslotsRight(getSelectedValue());
+										Toolbar.updateLayout();
+										SideQuickBar.updateLayout();
+									}
+								};
+								optQSlotRight.setSelectedValue(SPDSettings.quickslotsRight());
+								add(optQSlotRight);
 
 								chkFlipToolbar = new CheckBox(Messages.get(WndSettings.UITab.this, "flip_toolbar")) {
 									@Override
@@ -507,16 +526,15 @@ public class WndSettings extends WndTabbed {
 								btnGrouped.setRect(btnSplit.right() + GAP, btnSplit.top(), btnWidth, BTN_HEIGHT-2);
 								btnCentered.setRect(btnGrouped.right() + GAP, btnSplit.top(), btnWidth, BTN_HEIGHT-2);
 
-								chkQuickSwapper.setRect(0, btnGrouped.bottom() + GAP, width, BTN_HEIGHT);
-
-								swapperDesc.maxWidth(width);
-								swapperDesc.setPos(0, chkQuickSwapper.bottom()+1);
+								optQSlotBottom.setRect(0, btnGrouped.bottom() + GAP, width, SLIDER_HEIGHT);
+								optQSlotLeft.setRect(0, optQSlotBottom.bottom() + GAP, width/2-GAP/2, SLIDER_HEIGHT);
+								optQSlotRight.setRect(optQSlotLeft.right() + GAP, optQSlotLeft.top(), width/2-GAP/2, SLIDER_HEIGHT);
 
 								if (width > 200) {
-									chkFlipToolbar.setRect(0, swapperDesc.bottom() + GAP, width / 2 - 1, BTN_HEIGHT);
+									chkFlipToolbar.setRect(0, optQSlotRight.bottom() + GAP, width / 2 - 1, BTN_HEIGHT);
 									chkFlipTags.setRect(chkFlipToolbar.right() + GAP, chkFlipToolbar.top(), width / 2 - 1, BTN_HEIGHT);
 								} else {
-									chkFlipToolbar.setRect(0, swapperDesc.bottom() + GAP, width, BTN_HEIGHT);
+									chkFlipToolbar.setRect(0, optQSlotRight.bottom() + GAP, width, BTN_HEIGHT);
 									chkFlipTags.setRect(0, chkFlipToolbar.bottom() + GAP, width, BTN_HEIGHT);
 								}
 

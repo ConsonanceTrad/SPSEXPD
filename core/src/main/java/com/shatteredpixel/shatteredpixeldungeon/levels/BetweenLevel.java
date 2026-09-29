@@ -37,6 +37,7 @@ import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.special.SpsTentRoom
 import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.standard.EmptyRoom;
 import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.standard.StandardRoom;
 import com.shatteredpixel.shatteredpixeldungeon.tiles.custom.SpsLegacyLevelVisual;
+import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
 
 import java.util.ArrayList;
@@ -157,7 +158,8 @@ public class BetweenLevel extends RegularLevel {
 		}
 		for (int cell : nonShopHeaps) heaps.remove(cell);
 
-		if (Dungeon.depth == 1) {
+		//SPS: 0 层 = 特殊初始层（学者+任务蘑菇+锁出口）；其余过渡层照旧
+		if (Dungeon.depth == 0) {
 			dropAtRandom(new Moonberry());
 			dropAtRandom(new Blueberry());
 			dropAtRandom(new Cloudberry());
@@ -170,15 +172,25 @@ public class BetweenLevel extends RegularLevel {
 
 	private void placeTinkerer() {
 		ArrayList<Integer> candidates = new ArrayList<>();
-		int entranceX = entrance() % width();
-		int entranceY = entrance() / width();
-		for (int cell = 0; cell < length(); cell++) {
-			int x = cell % width();
-			int y = cell / width();
-			if (Math.abs(x - entranceX) <= 5 && Math.abs(y - entranceY) <= 5
-					&& passable[cell] && cell != entrance() && cell != exit()
+		//SPS: 0 层学者贴入口楼梯旁（类似破碎法师 NPC 的出场位置）：先取入口 8 邻格
+		for (int n : PathFinder.NEIGHBOURS8) {
+			int cell = entrance() + n;
+			if (cell >= 0 && cell < length() && passable[cell] && cell != exit()
 					&& heaps.get(cell) == null && findMob(cell) == null) {
 				candidates.add(cell);
+			}
+		}
+		if (candidates.isEmpty()) {
+			int entranceX = entrance() % width();
+			int entranceY = entrance() / width();
+			for (int cell = 0; cell < length(); cell++) {
+				int x = cell % width();
+				int y = cell / width();
+				if (Math.abs(x - entranceX) <= 5 && Math.abs(y - entranceY) <= 5
+						&& passable[cell] && cell != entrance() && cell != exit()
+						&& heaps.get(cell) == null && findMob(cell) == null) {
+					candidates.add(cell);
+				}
 			}
 		}
 		if (candidates.isEmpty()) {

@@ -332,13 +332,13 @@ public class Dungeon {
 
 		quickslot.reset();
 		QuickSlotButton.reset();
-		Toolbar.quickslotPage = 0;
 		
-		depth = 1;
+		depth = 0;
 		branch = 0;
 		generatedLevels.clear();
 
-		gold = 0;
+		//SPS: 开局 10 金币（配合 0 层商店的任务蘑菇 10 金，进层即可买蘑菇交任务）
+		gold = 10;
 		energy = 0;
 		dewDraw = false;
 		dewWater = false;
@@ -394,9 +394,11 @@ public class Dungeon {
 		Level level;
 		if (branch == 0) {
 			switch (depth) {
-				case 1:
+				case 0:
+					//SPS: 0 层 = 特殊初始层（学者+商店安全层）
 					level = new BetweenLevel();
 					break;
+				case 1:
 				case 2:
 				case 3:
 				case 4:
@@ -598,7 +600,8 @@ public class Dungeon {
 	}
 	
 	public static boolean shopOnLevel() {
-		return depth == 1 || depth == 6 || depth == 11 || depth == 16 || depth == 21;
+		//SPS: 0 层为特殊初始层（带商店），1 层起为普通层；其余过渡层照旧
+		return depth == 0 || depth == 6 || depth == 11 || depth == 16 || depth == 21;
 	}
 	
 	public static boolean bossLevel() {
@@ -999,7 +1002,6 @@ public class Dungeon {
 
 		quickslot.reset();
 		QuickSlotButton.reset();
-		Toolbar.quickslotPage = 0;
 
 		Dungeon.challenges = bundle.getInt( CHALLENGES );
 		Dungeon.mobsToChampion = bundle.getFloat( MOBS_TO_CHAMPION );
