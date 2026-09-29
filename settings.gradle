@@ -11,7 +11,6 @@ include ':desktop'
 include ':services'
     //updates
     include ':services:updates:debugUpdates'
-    include ':services:updates:githubUpdates'
     //news
     include ':services:news:debugNews'
-    include ':services:news:shatteredNews'
+    //SPSEXPD: 上游联网实现（githubUpdates / shatteredNews）已归档到 _ref/archive/upstream-network-services/，不再参与构建

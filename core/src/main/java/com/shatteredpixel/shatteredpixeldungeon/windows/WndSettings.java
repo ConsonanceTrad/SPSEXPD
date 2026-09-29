@@ -29,7 +29,6 @@ import com.shatteredpixel.shatteredpixeldungeon.messages.Languages;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.PixelScene;
-import com.shatteredpixel.shatteredpixeldungeon.services.news.News;
 import com.shatteredpixel.shatteredpixeldungeon.services.updates.Updates;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.CharSprite;
 import com.shatteredpixel.shatteredpixeldungeon.ui.CheckBox;
@@ -766,7 +765,6 @@ public class WndSettings extends WndTabbed {
 
 		RenderedTextBlock title;
 		ColorBlock sep1;
-		CheckBox chkNews;
 		CheckBox chkUpdates;
 		CheckBox chkBetas;
 		CheckBox chkWifi;
@@ -780,17 +778,7 @@ public class WndSettings extends WndTabbed {
 			sep1 = new ColorBlock(1, 1, 0xFF000000);
 			add(sep1);
 
-			chkNews = new CheckBox(Messages.get(this, "news")){
-				@Override
-				protected void onClick() {
-					super.onClick();
-					SPDSettings.news(checked());
-					News.clearArticles();
-				}
-			};
-			chkNews.checked(SPDSettings.news());
-			add(chkNews);
-
+			//SPSEXPD: 新闻入口已移除（上游新闻服务不再接入），数据页不再有「新闻」开关
 			if (Updates.supportsUpdates() && Updates.supportsUpdatePrompts()) {
 				chkUpdates = new CheckBox(Messages.get(this, "updates")) {
 					@Override
@@ -836,18 +824,11 @@ public class WndSettings extends WndTabbed {
 			sep1.size(width, 1);
 			sep1.y = title.bottom() + 3*GAP;
 
-			float pos;
-			if (width > 200 && chkUpdates != null){
-				chkNews.setRect(0, sep1.y + 1 + GAP, width/2-1, BTN_HEIGHT);
-				chkUpdates.setRect(chkNews.right() + GAP, chkNews.top(), width/2-1, BTN_HEIGHT);
+			float pos = sep1.y + 1 + GAP;
+
+			if (chkUpdates != null) {
+				chkUpdates.setRect(0, pos, width, BTN_HEIGHT);
 				pos = chkUpdates.bottom();
-			} else {
-				chkNews.setRect(0, sep1.y + 1 + GAP, width, BTN_HEIGHT);
-				pos = chkNews.bottom();
-				if (chkUpdates != null) {
-					chkUpdates.setRect(0, chkNews.bottom() + GAP, width, BTN_HEIGHT);
-					pos = chkUpdates.bottom();
-				}
 			}
 
 			if (chkBetas != null){
