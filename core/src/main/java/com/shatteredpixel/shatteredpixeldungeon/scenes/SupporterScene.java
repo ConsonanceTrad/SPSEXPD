@@ -21,6 +21,7 @@
 
 package com.shatteredpixel.shatteredpixeldungeon.scenes;
 
+import com.badlogic.gdx.Gdx;
 import com.shatteredpixel.shatteredpixeldungeon.Chrome;
 import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Languages;
@@ -29,11 +30,11 @@ import com.shatteredpixel.shatteredpixeldungeon.ui.ExitButton;
 import com.shatteredpixel.shatteredpixeldungeon.ui.Icons;
 import com.shatteredpixel.shatteredpixeldungeon.ui.TitleBackground;
 import com.shatteredpixel.shatteredpixeldungeon.ui.RenderedTextBlock;
+import com.shatteredpixel.shatteredpixeldungeon.ui.ScrollPane;
 import com.shatteredpixel.shatteredpixeldungeon.ui.StyledButton;
 import com.shatteredpixel.shatteredpixeldungeon.ui.Window;
 import com.shatteredpixel.shatteredpixeldungeon.windows.IconTitle;
 import com.watabou.noosa.Camera;
-import com.watabou.noosa.Image;
 import com.watabou.noosa.NinePatch;
 import com.watabou.noosa.ui.Component;
 import com.watabou.utils.Callback;
@@ -45,7 +46,8 @@ public class SupporterScene extends PixelScene {
 	private static final int GAP = 2;
 
 	//SPS: 三来源标签页（0=PD 破碎 1=SPS 特别惊喜 2=SPSEX 移植版）
-	public static int sourceSelected = 0;
+	//SPS: 默认为 SPS——主菜单进入此页的入口是「加入交流群」
+	public static int sourceSelected = 1;
 
 	@Override
 	public void create() {
@@ -107,60 +109,68 @@ public class SupporterScene extends PixelScene {
 		align(tabSPSEX);
 		add(tabSPSEX);
 
-		//SPS: 内容按标签页切换
-		String message;
+		//SPS: 底部按钮按标签页切换（正文文本见 messageText()）
 		String linkLabel = null;
 		String linkUrl = null;
+		String copyText = null;
 		switch (sourceSelected) {
 			case 1:
-				message = Messages.get(this, "sps_msg");
+				//SPS: SPS 标签页底部是「复制群号」按钮
+				linkLabel = Messages.get(this, "copy_qq");
+				copyText = Messages.get(this, "qq_group");
 				break;
 			case 2:
-				message = Messages.get(this, "spsex_msg");
 				linkLabel = Messages.get(this, "spsex_link");
 				linkUrl = Messages.get(this, "spsex_url");
 				break;
-			default:
-				message = Messages.get(this, "intro");
-				message += "\n\n" + Messages.get(this, "patreon_msg");
-				if (Messages.lang() != Languages.ENGLISH) {
-					message += "\n" + Messages.get(this, "patreon_english");
-				}
-				message += "\n\n- Evan";
+			case 0: default:
 				linkLabel = Messages.get(this, "supporter_link");
 				linkUrl = "https://www.patreon.com/ShatteredPixel?utm_source=shatteredpd&utm_medium=supporter_page&utm_campaign=ingame_link";
 		}
 
-		SupporterMessage msg = new SupporterMessage(message);
-		msg.setSize(elementWidth, 0);
-		add(msg);
+		SupporterMessage msg = new SupporterMessage();
+		//SPS: 宽度留出滚动条与裁剪余量，避免长行被滚动区右边缘裁掉
+		msg.setSize(elementWidth - 4, 0);
+
+		ScrollPane msgPane = new ScrollPane(msg);
+		add(msgPane);
 
 		StyledButton link = null;
 		if (linkLabel != null) {
 			final String url = linkUrl;
+			final String clipboard = copyText;
 			link = new StyledButton(Chrome.Type.GREY_BUTTON_TR, linkLabel){
 				@Override
 				protected void onClick() {
 					super.onClick();
-					ShatteredPixelDungeon.platform.openURI(url);
+					if (clipboard != null) {
+						//SPS: 复制交流群号，并把按钮文案改为已复制
+						Gdx.app.getClipboard().setContents(clipboard);
+						text(Messages.get(SupporterScene.class, "copy_qq_done"));
+					} else {
+						ShatteredPixelDungeon.platform.openURI(url);
+					}
 				}
 			};
-			link.icon(Icons.get(Icons.GOLD));
+			link.icon(Icons.get(clipboard != null ? Icons.COPY : Icons.GOLD));
 			link.textColor(Window.TITLE_COLOR);
 			link.setSize(elementWidth, BTN_HEIGHT);
 			add(link);
 		}
 
-		float elementHeight = msg.height() + (link != null ? BTN_HEIGHT + GAP : 0);
+		//SPS: 正文区高度封顶，内容过长时在区域内部滚动（矮屏/横屏不再压住标签栏与底部按钮）
+		float msgHeight = Math.min(msg.height(), h - 40 - (link != null ? BTN_HEIGHT + GAP : 0));
+		float elementHeight = msgHeight + (link != null ? BTN_HEIGHT + GAP : 0);
 
 		float top = insets.top + 40 + (h - 40 - elementHeight)/2f;
 		float left = insets.left + (w-elementWidth)/2f;
 
-		msg.setPos(left, top);
-		align(msg);
+		msgPane.setRect(left, top, elementWidth, msgHeight);
+		msgPane.scrollTo(0, 0);
+		align(msgPane);
 
 		if (link != null) {
-			link.setPos(left, msg.bottom()+GAP);
+			link.setPos(left, top + msgHeight + GAP);
 			align(link);
 		}
 
@@ -171,27 +181,39 @@ public class SupporterScene extends PixelScene {
 		ShatteredPixelDungeon.switchNoFade( TitleScene.class );
 	}
 
+	//SPS: 支持窗口正文文本按标签页切换（0=PD 破碎 1=SPS 特别惊喜 2=SPSEX 移植版）
+	private static String messageText(){
+		switch (sourceSelected) {
+			case 1:
+				return Messages.get(SupporterScene.class, "sps_msg");
+			case 2:
+				return Messages.get(SupporterScene.class, "spsex_msg");
+			default:
+				String message = Messages.get(SupporterScene.class, "intro");
+				message += "\n\n" + Messages.get(SupporterScene.class, "patreon_msg");
+				if (Messages.lang() != Languages.ENGLISH) {
+					message += "\n" + Messages.get(SupporterScene.class, "patreon_english");
+				}
+				message += "\n\n- Evan";
+				//SPS: 破碎官方支持渠道（捐款 + 仓库）
+				message += "\n\n" + Messages.get(SupporterScene.class, "pd_repo");
+				return message;
+		}
+	}
+
 	private static class SupporterMessage extends Component {
 
 		NinePatch bg;
 		RenderedTextBlock text;
-		Image icon;
-		String message;
-
-		public SupporterMessage( String message ){
-			this.message = message;
-		}
 
 		@Override
 		protected void createChildren() {
 			bg = Chrome.get(Chrome.Type.GREY_BUTTON_TR);
 			add(bg);
 
-			text = PixelScene.renderTextBlock(message, 6);
+			//SPS: 文本必须在 createChildren 内取，构造参数此时尚未赋值
+			text = PixelScene.renderTextBlock(messageText(), 6);
 			add(text);
-
-			icon = Icons.get(Icons.SHPX);
-			add(icon);
 
 		}
 
@@ -202,9 +224,6 @@ public class SupporterScene extends PixelScene {
 
 			text.maxWidth((int)width - bg.marginHor());
 			text.setPos(x + bg.marginLeft(), y + bg.marginTop() + 1);
-
-			icon.y = text.bottom() - icon.height() + 4;
-			icon.x = x + 25;
 
 			height = (text.bottom() + 3) - y;
 

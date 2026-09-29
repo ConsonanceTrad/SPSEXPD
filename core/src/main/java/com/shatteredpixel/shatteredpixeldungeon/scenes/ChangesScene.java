@@ -28,6 +28,7 @@ import com.shatteredpixel.shatteredpixeldungeon.messages.Languages;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.CharSprite;
 import com.shatteredpixel.shatteredpixeldungeon.ui.ExitButton;
+import com.shatteredpixel.shatteredpixeldungeon.ui.IconButton;
 import com.shatteredpixel.shatteredpixeldungeon.ui.Icons;
 import com.shatteredpixel.shatteredpixeldungeon.ui.TitleBackground;
 import com.shatteredpixel.shatteredpixeldungeon.ui.RenderedTextBlock;
@@ -64,9 +65,13 @@ import java.util.ArrayList;
 public class ChangesScene extends PixelScene {
 	
 	public static int changesSelected = 0;
-	//SPS: 三来源标签页（0=PD 破碎 1=SPS 特别惊喜 2=SPSEX 移植版）
-	public static int sourceSelected = 0;
+	//SPS: 三来源标签页（0=PD 破碎 1=SPS 特别惊喜 2=SPSEX 移植版）；默认展示 SPSEX
+	public static int sourceSelected = 2;
 
+	//SPS: 侧栏来源标签的图标尺寸与竖向步进
+	private static final int TAB_ICON = 16;
+	private static final int TAB_STEP = 18;
+	
 	private NinePatch rightPanel;
 	private ScrollPane rightScroll;
 	private IconTitle changeTitle;
@@ -92,43 +97,47 @@ public class ChangesScene extends PixelScene {
 		w -= insets.left + insets.right;
 		h -= insets.top + insets.bottom;
 
+		//SPS: 内容区让出左侧来源图标栏的宽度（标题与内容面板同以此居中）
+		float contentLeft = insets.left + TAB_STEP;
+		float contentW = w - TAB_STEP;
+
 		IconTitle title = new IconTitle(Icons.CHANGES.get(), Messages.get(this, "title"));
 		title.setSize(200, 0);
 		title.setPos(
-				insets.left + (w - title.reqWidth()) / 2f,
+				contentLeft + (contentW - title.reqWidth()) / 2f,
 				insets.top + (20 - title.height()) / 2f
 		);
 		align(title);
 		add(title);
 
-		//SPS: 三来源标签页按钮
-		float tabW = (w - 4) / 3f;
-		float tabLeft = insets.left;
-		float tabTop = insets.top + 21;
-
-		StyledButton tabPD = new StyledButton(Chrome.Type.GREY_BUTTON_TR, Messages.get(this, "tab_pd")){
+		//SPS: 三来源标签页按钮（侧栏竖排图标，避免被内容面板覆盖）
+		IconButton tabPD = new IconButton(Icons.get(Icons.SHPX)){
 			@Override
 			protected void onClick() { sourceSelected = 0; ShatteredPixelDungeon.switchNoFade(ChangesScene.class); }
+			@Override
+			protected String hoverText() { return Messages.get(ChangesScene.class, "tab_pd"); }
 		};
-		tabPD.setRect(tabLeft, tabTop, tabW, 14);
-		align(tabPD);
-		add(tabPD);
-
-		StyledButton tabSPS = new StyledButton(Chrome.Type.GREY_BUTTON_TR, Messages.get(this, "tab_sps")){
+		IconButton tabSPS = new IconButton(Icons.get(Icons.LUCKY_BADGE)){
 			@Override
 			protected void onClick() { sourceSelected = 1; ShatteredPixelDungeon.switchNoFade(ChangesScene.class); }
+			@Override
+			protected String hoverText() { return Messages.get(ChangesScene.class, "tab_sps"); }
 		};
-		tabSPS.setRect(tabPD.right() + 2, tabTop, tabW, 14);
-		align(tabSPS);
-		add(tabSPS);
-
-		StyledButton tabSPSEX = new StyledButton(Chrome.Type.GREY_BUTTON_TR, Messages.get(this, "tab_spsex")){
+		IconButton tabSPSEX = new IconButton(Icons.get(Icons.DEMON_BLADE)){
 			@Override
 			protected void onClick() { sourceSelected = 2; ShatteredPixelDungeon.switchNoFade(ChangesScene.class); }
+			@Override
+			protected String hoverText() { return Messages.get(ChangesScene.class, "tab_spsex"); }
 		};
-		tabSPSEX.setRect(tabSPS.right() + 2, tabTop, tabW, 14);
-		align(tabSPSEX);
-		add(tabSPSEX);
+
+		IconButton[] sourceTabs = { tabPD, tabSPS, tabSPSEX };
+		for (int i = 0; i < sourceTabs.length; i++) {
+			sourceTabs[i].setRect(insets.left + 1, insets.top + 22 + i * TAB_STEP, TAB_ICON, TAB_ICON);
+			//SPS: 选中项不透明、其余半透明表示未选中（仍可点击）
+			sourceTabs[i].icon().alpha(i == sourceSelected ? 1f : 0.4f);
+			align(sourceTabs[i]);
+			add(sourceTabs[i]);
+		}
 
 		ExitButton btnExit = new ExitButton();
 		btnExit.setPos( insets.left + w - btnExit.width(), insets.top );
@@ -141,13 +150,13 @@ public class ChangesScene extends PixelScene {
 
 		if (h >= PixelScene.MIN_HEIGHT_FULL && w >= 300) {
 			panel.size( pw, ph );
-			panel.x = insets.left + (w - pw) / 2f - pw/2 - 1;
+			panel.x = contentLeft + (contentW - pw) / 2f - pw/2 - 1;
 			panel.y = insets.top + 20;
 
 			rightPanel = Chrome.get(Chrome.Type.TOAST);
 			rightPanel.size( pw, ph );
-			rightPanel.x = (w - pw) / 2f + pw/2 + 1;
-			rightPanel.y = 20;
+			rightPanel.x = contentLeft + (contentW - pw) / 2f + pw/2 + 1;
+			rightPanel.y = insets.top + 20;
 			add(rightPanel);
 
 			rightScroll = new ScrollPane(new Component());
@@ -173,7 +182,7 @@ public class ChangesScene extends PixelScene {
 
 		} else {
 			panel.size( pw, ph );
-			panel.x = insets.left + (w - pw) / 2f;
+			panel.x = contentLeft + (contentW - pw) / 2f;
 			panel.y = insets.top + 20;
 		}
 		align( panel );

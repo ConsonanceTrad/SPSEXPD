@@ -516,7 +516,8 @@ public class TitleScene extends PixelScene {
 
 		public SupportButton( Chrome.Type type, String label ){
 			super(type, label);
-			icon(Icons.get(Icons.GOLD));
+			//SPS: 图标改为幸运徽章（音频/社区入口）
+			icon(Icons.get(Icons.LUCKY_BADGE));
 			//SPS: 支持游戏开发改为白色字体
 			textColor( 0xFFFFFF );
 		}

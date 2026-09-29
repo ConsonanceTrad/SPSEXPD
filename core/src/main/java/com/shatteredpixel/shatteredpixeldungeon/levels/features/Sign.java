@@ -32,7 +32,9 @@ import com.shatteredpixel.shatteredpixeldungeon.tiles.CustomTilemap;
 import com.shatteredpixel.shatteredpixeldungeon.tiles.custom.SpsFeatureVisual;
 import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
 import com.shatteredpixel.shatteredpixeldungeon.windows.WndMessage;
+import com.watabou.noosa.Game;
 import com.watabou.noosa.audio.Sample;
+import com.watabou.utils.Callback;
 
 import java.util.Iterator;
 
@@ -43,13 +45,25 @@ public final class Sign {
 
 	public static void read(int pos) {
 		if (pos == Dungeon.level.pitSign) {
-			GameScene.show(new WndMessage(Messages.get(Sign.class, "pit_message")));
+			//SPS: UI 构造必须切回渲染线程（Sign.read 由 Hero 的 actor 流程调用，直接 new 会崩）
+			Game.runOnRenderThread(new Callback() {
+				@Override
+				public void call() {
+					GameScene.show(new WndMessage(Messages.get(Sign.class, "pit_message")));
+				}
+			});
 			return;
 		}
 
 		String key = messageKey(Dungeon.level, Dungeon.depth, Statistics.roomType);
 		if (key == null) return;
-		GameScene.show(new WndMessage(Messages.get(Sign.class, key)));
+		final String fkey = key;
+		Game.runOnRenderThread(new Callback() {
+			@Override
+			public void call() {
+				GameScene.show(new WndMessage(Messages.get(Sign.class, fkey)));
+			}
+		});
 		if (key.startsWith("tip_") && Dungeon.depth >= 22) burn(pos);
 	}
 

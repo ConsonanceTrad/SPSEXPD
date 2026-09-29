@@ -1365,22 +1365,25 @@ public class Hero extends Char {
 	}
 
 	private boolean actAlchemy( HeroAction.Alchemy action ) {
-		int dst = action.dst;
+		final int dst = action.dst;
 		if (Dungeon.level.distance(dst, pos) <= 1) {
 
 			ready();
 
-			if (Dungeon.level.map[dst] == Terrain.TENT) {
-				GameScene.show(new WndTent());
-				return false;
-			}
-			if (Dungeon.level.map[dst] == Terrain.IRON_MAKER) {
-				GameScene.show(new WndIronMaker());
-				return false;
-			}
-			
-			AlchemyScene.clearToolkit();
-			ShatteredPixelDungeon.switchScene(AlchemyScene.class);
+			//SPS: 交互与场景切换必须切回渲染线程（actor 线程构造 UI / switchScene 都会崩）
+			Game.runOnRenderThread(new Callback() {
+				@Override
+				public void call() {
+					if (Dungeon.level.map[dst] == Terrain.TENT) {
+						GameScene.show(new WndTent());
+					} else if (Dungeon.level.map[dst] == Terrain.IRON_MAKER) {
+						GameScene.show(new WndIronMaker());
+					} else {
+						AlchemyScene.clearToolkit();
+						ShatteredPixelDungeon.switchScene(AlchemyScene.class);
+					}
+				}
+			});
 			return false;
 
 		} else if (getCloser( dst )) {

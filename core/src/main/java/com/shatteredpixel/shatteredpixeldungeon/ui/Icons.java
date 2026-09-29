@@ -132,6 +132,8 @@ public enum Icons {
 	ARROW_C,
 	//SPS: 恶魔刀锋（主菜单「继续游戏」图标，取自 SPS_DEMON_BLADE 物品图）
 	DEMON_BLADE,
+	//SPS: 幸运徽章（主菜单「加入交流群」图标，取自 LUCKY_BADGE 物品图）
+	LUCKY_BADGE,
 
 	//icons that appear in the about screen, variable spacing
 	LIBGDX,
@@ -426,6 +428,9 @@ public enum Icons {
 				break;
 			case DEMON_BLADE:
 				icon.frame( icon.texture.uvRectBySize( 160, 0, 16, 16 ) );
+				break;
+			case LUCKY_BADGE:
+				icon.frame( icon.texture.uvRectBySize( 176, 0, 16, 16 ) );
 				break;
 
 			case LIBGDX:
