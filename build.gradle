@@ -2321,3 +2321,45 @@ project(':core') {
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 }
+
+// ---------------------------------------------------------------------------
+// SPSEXPD: 构建产物汇总
+// 每次构建完成后把各平台产物复制到根目录 output/，便于统一查找。
+// output/ 不入库（见 .gitignore）。手动执行：.\gradlew.bat collectOutputs
+// ---------------------------------------------------------------------------
+tasks.register('collectOutputs', Copy) {
+	group = 'distribution'
+	description = '把 APK / 桌面 jar / 安装包复制到根目录 output/（output/ 不入库）'
+
+	//Android 安装包
+	from('android/build/outputs/apk') {
+		include '**/*.apk'
+	}
+	//桌面可执行 jar（release 任务产物；排除默认命名的模块 jar）
+	from('desktop/build/libs') {
+		include 'SPSEXPD*.jar'
+	}
+	//jpackage 安装包
+	from('desktop/build/jpackage') {
+		include '**/*.exe', '**/*.msi', '**/*.dmg', '**/*.deb', '**/*.rpm'
+	}
+
+	into 'output'
+	includeEmptyDirs = false
+	//同名冲突保留全部来源；重跑时 Copy 会覆盖 output/ 中的同名旧产物
+	duplicatesStrategy = DuplicatesStrategy.INCLUDE
+	//拉平目录层级：产物一律平铺在 output/ 下，便于查找
+	eachFile { details -> details.path = details.name }
+}
+
+//构建任务完成后自动汇总（assembleDebug / assembleRelease / desktop release）
+gradle.projectsEvaluated {
+	def collect = rootProject.tasks.named('collectOutputs')
+	allprojects { p ->
+		p.tasks.matching { t ->
+			t.name == 'assembleDebug' || t.name == 'assembleRelease' || t.name == 'release'
+		}.configureEach { t ->
+			t.finalizedBy collect
+		}
+	}
+}

@@ -41,3 +41,6 @@ Thumbs.db
 
 # 图集工具的临时工作目录（真相源是 core 图集，work 按需生成不入库）
 tools/atlas-meta/**/work/
+
+# 构建产物汇总目录（每次构建后自动复制 APK / 桌面 jar 到此，不入库）
+output/
