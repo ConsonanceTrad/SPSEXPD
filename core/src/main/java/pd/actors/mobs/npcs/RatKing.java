@@ -38,7 +38,7 @@ import pd.utils.Holiday;
 import pd.windows.WndInfoArmorAbility;
 import pd.windows.WndOptions;
 import render.noosa.Game;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 public class RatKing extends NPC {
 

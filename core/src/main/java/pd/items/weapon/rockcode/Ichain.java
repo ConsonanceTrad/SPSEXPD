@@ -9,7 +9,7 @@ import pd.actors.buffs.HolyStun;
 import pd.actors.buffs.Paralysis;
 import pd.effects.MagicMissile;
 import pd.mechanics.Ballistica;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Ichain extends RockCode {
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "I.c"; }

@@ -38,10 +38,10 @@ import render.noosa.Group;
 import render.noosa.Visual;
 import render.noosa.particles.Emitter;
 import render.noosa.particles.PixelParticle;
-import render.utils.Callback;
-import render.utils.ColorMath;
-import render.utils.PointF;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.geom.PointF;
+import render.utils.math.ColorMath;
+import render.utils.math.Random;
 
 public class MagicMissile extends Emitter {
 

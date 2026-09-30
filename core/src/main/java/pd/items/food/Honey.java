@@ -4,7 +4,7 @@ package pd.items.food;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Honey extends Food {
 	{

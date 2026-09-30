@@ -33,8 +33,8 @@ import pd.items.Item;
 import pd.items.scrolls.ScrollOfMagicalInfusion;
 import pd.scenes.GameScene;
 import pd.sprites.SwarmSprite;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

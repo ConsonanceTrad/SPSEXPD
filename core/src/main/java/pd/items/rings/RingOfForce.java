@@ -35,7 +35,7 @@ import pd.sprites.ItemSpriteSheet;
 import pd.ui.AttackIndicator;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

@@ -4,7 +4,7 @@ package pd.actors.buffs;
 import pd.actors.Char;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class BeCorrupt extends Buff {
 	private static final String LEVEL = "level";

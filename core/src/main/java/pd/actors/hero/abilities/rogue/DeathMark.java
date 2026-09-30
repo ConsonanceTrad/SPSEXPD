@@ -40,11 +40,11 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
-import render.utils.BArray;
 import pd.utils.GLog;
 import render.noosa.Image;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
+import render.utils.data.BArray;
+import render.utils.serialize.Bundle;
 
 public class DeathMark extends ArmorAbility {
 

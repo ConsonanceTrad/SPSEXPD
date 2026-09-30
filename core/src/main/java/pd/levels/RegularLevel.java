@@ -84,10 +84,10 @@ import pd.levels.traps.Trap;
 import pd.levels.traps.WornDartTrap;
 import pd.mechanics.ShadowCaster;
 import pd.mechanics.pathfind.PathFinder;
-import render.utils.BArray;
-import render.utils.Bundle;
-import render.utils.Point;
-import render.utils.Random;
+import render.utils.data.BArray;
+import render.utils.geom.Point;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.Collection;

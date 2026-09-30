@@ -10,8 +10,8 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.noosa.TextureFilm;
 import render.noosa.audio.Sample;
-import render.utils.Callback;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.math.Random;
 
 /** Original 18px Zot animation and explosive ranged attack. */
 public class ZotSprite extends MobSprite {

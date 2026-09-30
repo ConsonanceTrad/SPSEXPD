@@ -38,7 +38,7 @@ import pd.messages.Messages;
 import pd.sprites.MissileSprite;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 import java.util.HashSet;
 

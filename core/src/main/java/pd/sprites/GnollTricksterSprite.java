@@ -26,7 +26,7 @@ import pd.Dungeon;
 import pd.items.weapon.missiles.darts.ParalyticDart;
 import render.noosa.MovieClip;
 import render.noosa.TextureFilm;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 public class GnollTricksterSprite extends MobSprite {
 

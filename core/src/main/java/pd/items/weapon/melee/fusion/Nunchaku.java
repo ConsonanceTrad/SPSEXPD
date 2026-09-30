@@ -6,7 +6,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Daze;
 import pd.items.weapon.melee.Sai;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Nunchaku extends Sai implements FusionWeapon {
 	{ image = ItemSpriteSheet.SAI; tier = 3; DLY = 0.8f; }

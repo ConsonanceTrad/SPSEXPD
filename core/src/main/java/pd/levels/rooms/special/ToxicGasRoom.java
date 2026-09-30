@@ -35,7 +35,7 @@ import pd.levels.painters.Painter;
 import pd.levels.traps.Trap;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import render.utils.Point;
+import render.utils.geom.Point;
 
 import java.util.ArrayList;
 

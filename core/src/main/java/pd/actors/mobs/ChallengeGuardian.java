@@ -19,8 +19,8 @@ import pd.sprites.MonkSprite;
 import pd.sprites.RatSprite;
 import pd.sprites.ScorpioSprite;
 import pd.sprites.SkeletonSprite;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class ChallengeGuardian extends Mob {
 

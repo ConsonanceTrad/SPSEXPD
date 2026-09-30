@@ -4,7 +4,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Paralysis;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Club extends NormalMeleeWeapon {
 	public Club() { super(4, 1f, 1f, 1, 28, 40, ItemSpriteSheet.SPS_WEP_CLUB); }

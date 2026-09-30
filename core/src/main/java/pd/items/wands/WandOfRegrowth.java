@@ -49,11 +49,11 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.sprites.LotusSprite;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
-import render.utils.Callback;
-import render.utils.ColorMath;
-import render.utils.GameMath;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.math.ColorMath;
+import render.utils.math.GameMath;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.Iterator;

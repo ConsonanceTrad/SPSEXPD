@@ -3,8 +3,8 @@ package pd.actors.mobs.pets;
 
 import pd.Dungeon;
 import pd.actors.Char;
-import pd.items.Item;
 import pd.items.Heap;
+import pd.items.Item;
 import pd.items.UpgradeBlobRed;
 import pd.items.food.completefood.PetFood;
 import pd.items.food.fruit.Fruit;
@@ -12,7 +12,7 @@ import pd.items.food.vegetable.Vegetable;
 import pd.items.scrolls.ScrollOfUpgrade;
 import pd.plants.Plant;
 import pd.sprites.FoxHelperSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class FoxHelper extends PET {
 	{

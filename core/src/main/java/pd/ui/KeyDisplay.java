@@ -37,7 +37,7 @@ import render.glwrap.Quad;
 import render.glwrap.Vertexbuffer;
 import render.noosa.NoosaScript;
 import render.noosa.Visual;
-import render.utils.RectF;
+import render.utils.geom.RectF;
 
 import java.nio.Buffer;
 import java.nio.FloatBuffer;

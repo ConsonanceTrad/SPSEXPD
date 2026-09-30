@@ -30,9 +30,9 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.VaultLevel;
 import pd.levels.painters.Painter;
-import render.utils.GameMath;
-import render.utils.Random;
-import render.utils.Rect;
+import render.utils.geom.Rect;
+import render.utils.math.GameMath;
+import render.utils.math.Random;
 
 public class VaultHardLaserTreasureRoom extends VaultTreasureRoom {
 

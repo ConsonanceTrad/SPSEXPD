@@ -57,8 +57,8 @@ import render.noosa.Game;
 import render.noosa.Image;
 import render.noosa.RenderedText;
 import render.noosa.TextureFilm;
-import render.utils.Callback;
-import render.utils.SparseArray;
+import render.utils.data.Callback;
+import render.utils.data.SparseArray;
 
 import java.util.ArrayList;
 import java.util.Collections;

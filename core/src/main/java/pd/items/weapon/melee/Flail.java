@@ -34,7 +34,7 @@ import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.Image;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class Flail extends MeleeWeapon {
 

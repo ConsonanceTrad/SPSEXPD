@@ -25,7 +25,7 @@ import pd.sprites.CharSprite;
 import render.glwrap.Blending;
 import render.noosa.Game;
 import render.noosa.Halo;
-import render.utils.PointF;
+import render.utils.geom.PointF;
 
 public class ShieldHalo extends Halo {
 	

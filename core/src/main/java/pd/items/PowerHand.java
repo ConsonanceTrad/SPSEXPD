@@ -14,7 +14,7 @@ import pd.utils.GLog;
 import pd.windows.WndBag;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 import java.io.IOException;
 import java.util.ArrayList;

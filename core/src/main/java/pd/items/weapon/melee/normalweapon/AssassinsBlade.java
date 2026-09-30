@@ -2,7 +2,7 @@ package pd.items.weapon.melee.normalweapon;
 
 import pd.actors.Char;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class AssassinsBlade extends NormalMeleeWeapon {
 	public AssassinsBlade() { super(4, 1f, 1f, 1, 26, 34, ItemSpriteSheet.SPS_WEP_ASSASSINS_BLADE); }

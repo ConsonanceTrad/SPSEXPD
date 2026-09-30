@@ -21,7 +21,7 @@ import pd.items.weapon.missiles.buildblock.PlantPotBlock;
 import pd.items.weapon.missiles.fusion.RocketMissile;
 import pd.plants.Plant;
 import pd.ui.CurrencyIndicator;
-import render.utils.FileUtils;
+import render.utils.serialize.FileUtils;
 
 import java.io.InputStreamReader;
 import java.lang.reflect.Field;

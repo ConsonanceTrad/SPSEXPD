@@ -29,9 +29,9 @@ import pd.levels.traps.Trap;
 import pd.plants.Plant;
 import render.noosa.Image;
 import render.noosa.tweeners.ScaleTweener;
-import render.utils.PointF;
-import render.utils.RectF;
-import render.utils.SparseArray;
+import render.utils.data.SparseArray;
+import render.utils.geom.PointF;
+import render.utils.geom.RectF;
 
 public class TerrainFeaturesTilemap extends DungeonTilemap {
 	private static final int SPS_PLANT_OFFSET = 16 * 16;

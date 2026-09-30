@@ -26,7 +26,7 @@ import pd.items.Generator;
 import pd.items.Item;
 import pd.items.food.MysteryMeat;
 import pd.sprites.CrabSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Crab extends Mob {
 

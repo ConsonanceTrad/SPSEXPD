@@ -47,11 +47,11 @@ import render.noosa.Image;
 import render.noosa.Tilemap;
 import render.noosa.audio.Music;
 import render.noosa.tweeners.AlphaTweener;
-import render.utils.Bundle;
-import render.utils.Callback;
-import render.utils.Point;
-import render.utils.Random;
-import render.utils.Rect;
+import render.utils.data.Callback;
+import render.utils.geom.Point;
+import render.utils.geom.Rect;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.HashSet;

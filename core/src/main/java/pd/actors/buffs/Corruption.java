@@ -25,7 +25,7 @@ import pd.actors.Char;
 import pd.effects.FloatingText;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class Corruption extends AllyBuff implements Buff.DOTbuff {
 

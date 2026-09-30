@@ -34,7 +34,7 @@ import render.noosa.BitmapText;
 import render.noosa.Image;
 import render.noosa.particles.Emitter;
 import render.noosa.ui.Component;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 public class BossHealthBar extends Component {
 

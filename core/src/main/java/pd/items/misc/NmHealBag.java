@@ -18,7 +18,7 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndUseItem;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

@@ -19,7 +19,7 @@ import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** The basic SPS crafted bomb and ingredient for the elemental bomb recipes. */
 public class BuildBomb extends Bomb {

@@ -81,7 +81,7 @@ import render.noosa.Group;
 import render.noosa.Image;
 import render.noosa.PointerArea;
 import render.noosa.ui.Component;
-import render.utils.Reflection;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 import java.util.Arrays;

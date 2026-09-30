@@ -19,7 +19,7 @@ import pd.items.weapon.missiles.arrows.BlindFruit;
 import pd.items.weapon.missiles.throwing.EmpBola;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

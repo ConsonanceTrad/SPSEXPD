@@ -26,8 +26,8 @@ import render.input.ControllerHandler;
 import render.input.GameAction;
 import render.input.KeyBindings;
 import render.input.KeyEvent;
-import render.utils.Bundle;
-import render.utils.FileUtils;
+import render.utils.serialize.Bundle;
+import render.utils.serialize.FileUtils;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;

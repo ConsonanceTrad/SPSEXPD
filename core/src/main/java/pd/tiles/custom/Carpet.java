@@ -27,8 +27,8 @@ import pd.levels.Level;
 import pd.messages.Messages;
 import pd.tiles.CustomTilemap;
 import render.noosa.Tilemap;
-import render.utils.Bundle;
-import render.utils.SparseArray;
+import render.utils.data.SparseArray;
+import render.utils.serialize.Bundle;
 
 //TODO currently carpets only have implemented visuals for the dwarven city,
 // and also only support being rectangular in shape

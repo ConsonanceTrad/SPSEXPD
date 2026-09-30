@@ -9,8 +9,8 @@ import pd.actors.damagetype.DamageType;
 import pd.items.VioletDewdrop;
 import pd.mechanics.Ballistica;
 import pd.sprites.VaultProtectorSprite;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class VaultProtector extends Mob {
 

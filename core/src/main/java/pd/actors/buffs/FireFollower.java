@@ -7,7 +7,7 @@ import pd.actors.blobs.SteamWarn;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 /** Leaves delayed fire beneath the affected character for thirty turns. */
 public class FireFollower extends Buff {

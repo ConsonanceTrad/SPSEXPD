@@ -29,8 +29,8 @@ import render.noosa.Game;
 import render.noosa.Image;
 import render.noosa.TextureFilm;
 import render.noosa.audio.Sample;
-import render.utils.Point;
-import render.utils.PointF;
+import render.utils.geom.Point;
+import render.utils.geom.PointF;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -8,7 +8,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Ooze;
 import pd.effects.MagicMissile;
 import pd.mechanics.Ballistica;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Obubble extends RockCode {
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "O.b"; }

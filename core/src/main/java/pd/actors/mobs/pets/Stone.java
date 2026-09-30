@@ -9,7 +9,7 @@ import pd.items.Item;
 import pd.items.food.completefood.PetFood;
 import pd.items.weapon.missiles.MissileWeapon;
 import pd.sprites.StoneSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 public class Stone extends PET {
 	{ spriteClass=StoneSprite.class;cooldown=50;properties.add(Property.ELEMENT);updateStats(true); }
 	@Override protected Kind kind(){return Kind.STONE;}

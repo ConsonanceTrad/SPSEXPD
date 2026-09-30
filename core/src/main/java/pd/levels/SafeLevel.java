@@ -23,8 +23,8 @@ import pd.items.food.SmallMeat;
 import pd.items.quest.AdventureJournal;
 import pd.levels.features.LevelTransition;
 import pd.tiles.custom.SpsLegacyLevelVisual;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 /** The three original SPS safe-haven layouts, selected by {@link Statistics#roomType}. */
 public class SafeLevel extends Level {

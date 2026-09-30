@@ -6,7 +6,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Earthstar extends Pill {
 	{ image = ItemSpriteSheet.MUSHROOM_EARTHSTAR; }

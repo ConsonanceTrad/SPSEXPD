@@ -3,7 +3,7 @@ package pd.items.weapon.melee.special;
 
 import pd.actors.Char;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class Goei extends SpsSpecialMeleeWeapon {
 	private static final String CHARGE = "charge";

@@ -1,8 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.actors.mobs;
 
-import render.utils.Random;
-import render.utils.Reflection;
+import render.utils.math.Random;
+import render.utils.serialize.Reflection;
 
 public final class SpsChallengeMobPool {
 

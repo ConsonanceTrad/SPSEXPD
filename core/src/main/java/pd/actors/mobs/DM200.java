@@ -31,9 +31,9 @@ import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.DM200Sprite;
-import render.utils.BArray;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.data.BArray;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class DM200 extends Mob {
 

@@ -33,8 +33,8 @@ import pd.effects.particles.EnergyParticle;
 import pd.effects.particles.SparkParticle;
 import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.BArray;
 import render.noosa.audio.Sample;
+import render.utils.data.BArray;
 
 import java.util.ArrayList;
 

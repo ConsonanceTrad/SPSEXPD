@@ -32,8 +32,8 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.GooSprite;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.particles.Emitter;
-import render.utils.BArray;
-import render.utils.Random;
+import render.utils.data.BArray;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

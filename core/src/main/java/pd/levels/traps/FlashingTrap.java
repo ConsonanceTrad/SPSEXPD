@@ -34,7 +34,7 @@ import pd.effects.Speck;
 import pd.items.Heap;
 import pd.scenes.GameScene;
 import render.noosa.audio.Sample;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class FlashingTrap extends Trap {
 

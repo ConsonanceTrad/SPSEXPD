@@ -29,13 +29,13 @@ import pd.actors.blobs.SandStorm;
 import pd.actors.buffs.Amok;
 import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
-import pd.items.food.meatfood.Meat;
 import pd.items.Generator;
 import pd.items.Item;
+import pd.items.food.meatfood.Meat;
 import pd.items.wands.Wand;
 import pd.scenes.GameScene;
 import pd.sprites.AlbinoSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Albino extends Rat {
 

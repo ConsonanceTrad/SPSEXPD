@@ -24,7 +24,7 @@ import pd.items.bags.KeyRing;
 import pd.items.rings.Ring;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

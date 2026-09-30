@@ -41,9 +41,9 @@ import pd.ui.QuickSlotButton;
 import pd.ui.Toolbar;
 import pd.utils.DungeonSeed;
 import render.noosa.Game;
-import render.utils.Bundlable;
-import render.utils.Bundle;
-import render.utils.FileUtils;
+import render.utils.serialize.Bundlable;
+import render.utils.serialize.Bundle;
+import render.utils.serialize.FileUtils;
 
 import java.io.IOException;
 import java.text.DateFormat;

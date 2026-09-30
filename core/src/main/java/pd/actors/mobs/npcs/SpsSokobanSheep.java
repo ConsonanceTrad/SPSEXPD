@@ -16,8 +16,8 @@ import pd.items.Item;
 import pd.items.sellitem.SheepFur;
 import pd.levels.SpsSokobanLevel;
 import pd.messages.Messages;
-import pd.sprites.SpsSokobanSheepSprite;
 import pd.sprites.SheepSprite;
+import pd.sprites.SpsSokobanSheepSprite;
 
 /** Pushable sheep used by the original SPS Sokoban maps. */
 public class SpsSokobanSheep extends NPC {

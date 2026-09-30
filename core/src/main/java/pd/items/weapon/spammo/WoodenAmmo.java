@@ -5,7 +5,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Paralysis;
 import pd.actors.buffs.Vertigo;
 import pd.sprites.ItemSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class WoodenAmmo extends SpAmmo {
 	private static final ItemSprite.Glowing BLACK = new ItemSprite.Glowing(0x000000);

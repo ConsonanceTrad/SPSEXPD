@@ -7,7 +7,7 @@ import pd.actors.Char;
 import pd.effects.MagicMissile;
 import pd.items.weapon.missiles.MegaCannon;
 import pd.mechanics.Ballistica;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Nshuriken extends RockCode {
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "N.s"; }

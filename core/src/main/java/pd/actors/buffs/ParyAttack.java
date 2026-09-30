@@ -5,7 +5,7 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 /** Legacy stationary parry which gains one stack per turn, or two after level 55. */
 public class ParyAttack extends Buff {

@@ -3,8 +3,8 @@ package pd.effects.particles;
 
 import render.noosa.particles.Emitter;
 import render.noosa.particles.PixelParticle;
-import render.utils.ColorMath;
-import render.utils.Random;
+import render.utils.math.ColorMath;
+import render.utils.math.Random;
 
 public class AcidPoolParticle extends PixelParticle.Shrinking {
 

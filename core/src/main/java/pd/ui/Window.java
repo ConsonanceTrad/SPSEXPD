@@ -33,10 +33,10 @@ import render.noosa.Game;
 import render.noosa.Group;
 import render.noosa.NinePatch;
 import render.noosa.PointerArea;
-import render.utils.PlatformSupport;
-import render.utils.Point;
-import render.utils.RectF;
-import render.utils.Signal;
+import render.utils.data.Signal;
+import render.utils.geom.Point;
+import render.utils.geom.RectF;
+import render.utils.platform.PlatformSupport;
 
 public class Window extends Group implements Signal.Listener<KeyEvent> {
 

@@ -46,7 +46,7 @@ import pd.windows.IconTitle;
 import pd.windows.WndInfoItem;
 import pd.windows.WndSadGhost;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 import java.io.IOException;
 import java.util.ArrayList;

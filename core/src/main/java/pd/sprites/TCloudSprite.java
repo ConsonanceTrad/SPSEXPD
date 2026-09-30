@@ -4,7 +4,7 @@ package pd.sprites;
 import pd.Assets;
 import pd.effects.Lightning;
 import render.noosa.TextureFilm;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 public class TCloudSprite extends MobSprite {
 

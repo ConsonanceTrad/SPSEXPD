@@ -5,7 +5,7 @@ import pd.actors.blobs.Blob;
 import pd.levels.traps.Trap;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import render.utils.BArray;
+import render.utils.data.BArray;
 
 abstract class ElementalBuffTrap extends Trap {
 	private final Class<? extends Blob> blobClass;

@@ -8,7 +8,7 @@ import pd.actors.buffs.Charm;
 import pd.items.Item;
 import pd.items.weapon.missiles.MissileWeapon;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Wave extends MissileWeapon {
 

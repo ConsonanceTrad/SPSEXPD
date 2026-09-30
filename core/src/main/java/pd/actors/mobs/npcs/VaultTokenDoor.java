@@ -40,7 +40,7 @@ import pd.utils.GLog;
 import pd.windows.WndOptions;
 import pd.windows.WndTitledMessage;
 import render.noosa.audio.Sample;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 public class VaultTokenDoor extends NPC {
 

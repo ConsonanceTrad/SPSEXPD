@@ -6,13 +6,13 @@ import pd.Dungeon;
 import pd.items.ArmorKit;
 import pd.items.Gold;
 import pd.items.Item;
-import pd.items.misc.LuckyBadge;
 import pd.items.journalpages.JournalPage;
 import pd.items.journalpages.Sokoban4;
 import pd.items.keys.SpsSkeletonKey;
 import pd.items.keys.WornKey;
+import pd.items.misc.LuckyBadge;
 import pd.scenes.GameScene;
-import render.utils.Random;
+import render.utils.math.Random;
 
 final class SpsCityBossRewards {
 	private SpsCityBossRewards() { }

@@ -28,8 +28,8 @@ import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.Icons;
 import render.noosa.Image;
-import render.utils.Bundle;
-import render.utils.DeviceCompat;
+import render.utils.platform.DeviceCompat;
+import render.utils.serialize.Bundle;
 
 import java.util.Collection;
 import java.util.LinkedHashMap;

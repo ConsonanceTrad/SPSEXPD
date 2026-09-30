@@ -6,7 +6,7 @@ import pd.items.artifacts.ChaliceOfBlood;
 import pd.items.potions.PotionOfInvisibility;
 import pd.items.scrolls.ScrollOfRage;
 import pd.sprites.ThiefImpSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** Original SPS-PD runtime and save identity for the thief imp. */
 public class ThiefImp extends SpsHallsMobs.ThiefImp {

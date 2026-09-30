@@ -34,8 +34,8 @@ import pd.items.Item;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.BanditSprite;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class Bandit extends Thief {
 

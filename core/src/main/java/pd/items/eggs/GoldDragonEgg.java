@@ -5,7 +5,7 @@ import pd.actors.mobs.pets.BugDragon;
 import pd.actors.mobs.pets.GoldDragon;
 import pd.actors.mobs.pets.LegacyPet;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.Calendar;
 

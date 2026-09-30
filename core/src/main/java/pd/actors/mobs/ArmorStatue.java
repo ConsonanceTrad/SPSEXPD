@@ -27,8 +27,8 @@ import pd.items.armor.normalarmor.NormalArmor;
 import pd.journal.Notes;
 import pd.messages.Messages;
 import pd.sprites.StatueSprite;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 /** SPS-PD's armor-only statue, paired with a weapon statue in StatueRoom. */
 public class ArmorStatue extends Mob {

@@ -9,7 +9,7 @@ import pd.actors.hero.HeroClass;
 import pd.actors.mobs.BanditKing;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 /** Headless checks for the Bandit King drop and immediate-return boomerang. */
 public final class SpsBoomerangTest {

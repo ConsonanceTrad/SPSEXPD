@@ -32,7 +32,7 @@ import render.noosa.Game;
 import render.noosa.Group;
 import render.noosa.PointerArea;
 import render.noosa.ui.Component;
-import render.utils.Signal;
+import render.utils.data.Signal;
 
 public class Button extends Component {
 

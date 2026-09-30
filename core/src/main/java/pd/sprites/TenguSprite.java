@@ -26,7 +26,7 @@ import pd.Dungeon;
 import pd.items.Item;
 import pd.scenes.GameScene;
 import render.noosa.TextureFilm;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 public class TenguSprite extends MobSprite {
 	

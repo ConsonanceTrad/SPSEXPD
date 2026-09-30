@@ -8,7 +8,7 @@ import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** Threatens ordinary targets and disorients a hero target. */
 public class JupitersHorror extends Weapon.Enchantment {

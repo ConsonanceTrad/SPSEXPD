@@ -29,7 +29,6 @@ import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.utils.GLog;
 import pd.sprites.BatSprite;
 import pd.sprites.DM300Sprite;
 import pd.sprites.EyeSprite;
@@ -38,8 +37,9 @@ import pd.sprites.GuardSprite;
 import pd.sprites.MonkSprite;
 import pd.sprites.ScorpioSprite;
 import pd.sprites.SkeletonSprite;
-import render.utils.Bundle;
-import render.utils.Random;
+import pd.utils.GLog;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

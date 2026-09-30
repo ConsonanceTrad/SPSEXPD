@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package render.utils;
+package render.utils.serialize;
 
 public interface Bundlable {
 

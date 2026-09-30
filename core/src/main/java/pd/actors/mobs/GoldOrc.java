@@ -9,7 +9,7 @@ import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
 import pd.scenes.GameScene;
 import pd.sprites.GoldOrcSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class GoldOrc extends Mob {
 

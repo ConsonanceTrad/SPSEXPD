@@ -12,9 +12,9 @@ import pd.scenes.PixelScene;
 import pd.sprites.CharSprite;
 import pd.sprites.FlyingProtectorSprite;
 import pd.utils.GLog;
-import render.utils.Callback;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class FlyingProtector extends Mob implements Callback {
 

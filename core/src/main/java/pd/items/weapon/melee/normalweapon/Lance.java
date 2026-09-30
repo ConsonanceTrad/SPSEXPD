@@ -2,7 +2,7 @@ package pd.items.weapon.melee.normalweapon;
 
 import pd.actors.Char;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Lance extends NormalMeleeWeapon {
 	public Lance() { super(5, 1f, 1f, 1, 35, 44, ItemSpriteSheet.SPS_WEP_LANCE); }

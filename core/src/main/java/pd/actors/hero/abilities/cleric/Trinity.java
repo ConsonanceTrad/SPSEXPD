@@ -71,9 +71,9 @@ import pd.ui.Window;
 import pd.utils.GLog;
 import pd.windows.WndTitledMessage;
 import render.noosa.audio.Sample;
-import render.utils.Bundlable;
-import render.utils.Bundle;
-import render.utils.Reflection;
+import render.utils.serialize.Bundlable;
+import render.utils.serialize.Bundle;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 

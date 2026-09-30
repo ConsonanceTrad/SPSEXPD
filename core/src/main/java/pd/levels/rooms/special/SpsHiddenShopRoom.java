@@ -17,8 +17,8 @@ import pd.items.weapon.missiles.fusion.RocketMissile;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import render.utils.Point;
-import render.utils.Random;
+import render.utils.geom.Point;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

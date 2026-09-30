@@ -39,7 +39,7 @@ import pd.windows.WndBag;
 import pd.windows.WndKeyBindings;
 import render.input.GameAction;
 import render.noosa.Image;
-import render.utils.BArray;
+import render.utils.data.BArray;
 
 public class QuickSlotButton extends Button {
 	

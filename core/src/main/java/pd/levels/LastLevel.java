@@ -33,7 +33,7 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import render.noosa.Group;
 import render.noosa.audio.Music;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 import java.util.Arrays;

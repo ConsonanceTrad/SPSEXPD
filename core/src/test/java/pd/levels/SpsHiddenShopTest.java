@@ -20,10 +20,10 @@ import pd.levels.rooms.special.SpsHiddenShopRoom;
 import pd.levels.rooms.standard.EmptyRoom;
 import pd.plants.Plant;
 import pd.windows.WndLifeTradeItem;
-import render.utils.Bundle;
 import render.noosa.Game;
-import render.utils.Random;
-import render.utils.SparseArray;
+import render.utils.data.SparseArray;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.HashMap;

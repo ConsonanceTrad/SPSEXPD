@@ -8,7 +8,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.FrostIce;
 import pd.effects.MagicMissile;
 import pd.mechanics.Ballistica;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Lbox extends RockCode {
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "L.b"; }

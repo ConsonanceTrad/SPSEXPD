@@ -22,7 +22,7 @@
 package pd.levels.rooms.standard;
 
 import pd.levels.Terrain;
-import render.utils.Point;
+import render.utils.geom.Point;
 
 public class WaterBridgeRoom extends StandardBridgeRoom {
 

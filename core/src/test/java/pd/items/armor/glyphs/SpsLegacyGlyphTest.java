@@ -13,8 +13,8 @@ import pd.actors.mobs.Mob;
 import pd.items.armor.Armor;
 import pd.items.armor.normalarmor.ClothArmor;
 import render.noosa.Game;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 /** Headless regression checks for all thirteen SPS-PD 0.9.8 armor glyphs. */
 public final class SpsLegacyGlyphTest {

@@ -28,10 +28,10 @@ import pd.items.wands.WandOfLight;
 import pd.items.weapon.enchantments.EnchantmentLight;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
-import pd.plants.Plant;
 import pd.plants.Blindweed;
 import pd.plants.Firebloom;
 import pd.plants.Icecap;
+import pd.plants.Plant;
 import pd.plants.Sorrowmoss;
 import pd.plants.Starflower;
 import pd.plants.Stormvine;
@@ -40,9 +40,9 @@ import pd.sprites.PrisonWanderSprite;
 import pd.sprites.SeekingBombSprite;
 import pd.ui.BossHealthBar;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
-import render.utils.Callback;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

@@ -29,8 +29,8 @@ import pd.sprites.CharSprite;
 import render.noosa.Camera;
 import render.noosa.Game;
 import render.noosa.Visual;
-import render.utils.Callback;
-import render.utils.PointF;
+import render.utils.data.Callback;
+import render.utils.geom.PointF;
 
 public class Pushing extends Actor {
 

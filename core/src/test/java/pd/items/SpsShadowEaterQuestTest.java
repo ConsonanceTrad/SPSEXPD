@@ -1,7 +1,7 @@
 package pd.items;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessApplication;
 import com.badlogic.gdx.backends.headless.HeadlessApplicationConfiguration;
 import com.badlogic.gdx.backends.headless.HeadlessFiles;
@@ -19,8 +19,8 @@ import pd.items.scrolls.Scroll;
 import pd.items.weapon.melee.special.ShadowEater;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 /** Headless checks for the complete three-material Shadow Eater quest chain. */
 public final class SpsShadowEaterQuestTest {

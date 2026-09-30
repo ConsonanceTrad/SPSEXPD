@@ -44,8 +44,8 @@ import pd.levels.rooms.standard.EmptyRoom;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import render.utils.Point;
-import render.utils.Random;
+import render.utils.geom.Point;
+import render.utils.math.Random;
 
 public class MagicalFireRoom extends SpecialRoom {
 

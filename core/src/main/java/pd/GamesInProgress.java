@@ -21,12 +21,12 @@
 
 package pd;
 
+import pd.actors.hero.CombatStyle;
 import pd.actors.hero.HeroClass;
 import pd.actors.hero.HeroSubClass;
-import pd.actors.hero.CombatStyle;
 import pd.messages.Messages;
-import render.utils.Bundle;
-import render.utils.FileUtils;
+import render.utils.serialize.Bundle;
+import render.utils.serialize.FileUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -30,10 +30,10 @@ import pd.sprites.CharSprite;
 import pd.ui.ExitButton;
 import pd.ui.IconButton;
 import pd.ui.Icons;
-import pd.ui.TitleBackground;
 import pd.ui.RenderedTextBlock;
 import pd.ui.ScrollPane;
 import pd.ui.StyledButton;
+import pd.ui.TitleBackground;
 import pd.ui.changelist.ChangeInfo;
 import pd.ui.changelist.Pixel_Dungeon_Changes;
 import pd.ui.changelist.WndChanges;
@@ -58,7 +58,7 @@ import render.noosa.NinePatch;
 import render.noosa.Scene;
 import render.noosa.audio.Music;
 import render.noosa.ui.Component;
-import render.utils.RectF;
+import render.utils.geom.RectF;
 
 import java.util.ArrayList;
 

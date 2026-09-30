@@ -8,7 +8,7 @@ import pd.actors.buffs.Vertigo;
 import pd.items.wands.fusion.WandOfFlow;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class PaperFan extends SpsSpecialMeleeWeapon {
 	private static final String CHARGE = "charge";

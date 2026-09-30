@@ -49,8 +49,8 @@ import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
-import render.utils.BArray;
-import render.utils.Bundle;
+import render.utils.data.BArray;
+import render.utils.serialize.Bundle;
 
 public class Challenge extends ArmorAbility {
 

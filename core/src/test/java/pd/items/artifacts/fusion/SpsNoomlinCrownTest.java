@@ -19,9 +19,9 @@ import pd.levels.traps.Trap;
 import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
-import render.utils.Bundle;
-import render.utils.FileUtils;
-import render.utils.SparseArray;
+import render.utils.data.SparseArray;
+import render.utils.serialize.Bundle;
+import render.utils.serialize.FileUtils;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

@@ -21,8 +21,8 @@
 
 package pd.mechanics.pathfind;
 
-import render.utils.BArray;
-import render.utils.Point;
+import render.utils.data.BArray;
+import render.utils.geom.Point;
 
 import java.util.Arrays;
 import java.util.LinkedList;

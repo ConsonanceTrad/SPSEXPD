@@ -48,10 +48,10 @@ import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
-import render.utils.Callback;
-import render.utils.ColorMath;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.math.ColorMath;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class WandOfLivingEarth extends DamageWand {
 	

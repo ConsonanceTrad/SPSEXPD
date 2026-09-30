@@ -28,8 +28,8 @@ import render.noosa.Group;
 import render.noosa.Image;
 import render.noosa.TextureFilm;
 import render.noosa.ui.Component;
-import render.utils.Random;
-import render.utils.RectF;
+import render.utils.geom.RectF;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

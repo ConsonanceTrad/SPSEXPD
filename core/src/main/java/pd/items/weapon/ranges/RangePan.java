@@ -7,7 +7,7 @@ import pd.actors.buffs.Burning;
 import pd.actors.hero.Hero;
 import pd.items.weapon.melee.special.MeleePan;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

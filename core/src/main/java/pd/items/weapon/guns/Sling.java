@@ -2,7 +2,7 @@ package pd.items.weapon.guns;
 
 import pd.actors.Char;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Sling extends GunWeapon {
 	{ image = ItemSpriteSheet.SLING; }

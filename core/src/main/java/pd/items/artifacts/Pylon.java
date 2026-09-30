@@ -25,8 +25,8 @@ import pd.ui.QuickSlotButton;
 import pd.utils.GLog;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
-import render.utils.Callback;
+import render.utils.data.Callback;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 
@@ -181,7 +181,7 @@ public class Pylon extends Artifact {
 					fallback.add(cell);
 				}
 			}
-			if (!fallback.isEmpty()) pos = render.utils.Random.element(fallback);
+			if (!fallback.isEmpty()) pos = render.utils.math.Random.element(fallback);
 		}
 		if (pos == -1) return false;
 		target.pos = pos;

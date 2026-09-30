@@ -1,16 +1,16 @@
 package pd.actors.mobs.npcs;
 
-import pd.actors.hero.Hero;
 import pd.actors.Char;
+import pd.actors.hero.Hero;
 import pd.items.Flag;
 import pd.items.Item;
+import pd.levels.Level;
 import pd.sprites.ItemSpriteSheet;
-import pd.windows.WndDream;
 import pd.windows.WndAscend;
+import pd.windows.WndDream;
 import pd.windows.WndHate;
 import pd.windows.WndHotel;
 import pd.windows.WndIssic;
-import pd.levels.Level;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

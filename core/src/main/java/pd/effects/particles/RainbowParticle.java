@@ -23,8 +23,8 @@ package pd.effects.particles;
 
 import render.noosa.particles.Emitter;
 import render.noosa.particles.PixelParticle;
-import render.utils.PointF;
-import render.utils.Random;
+import render.utils.geom.PointF;
+import render.utils.math.Random;
 
 public class RainbowParticle extends PixelParticle {
 

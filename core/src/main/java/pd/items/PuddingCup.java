@@ -1,7 +1,7 @@
 package pd.items;
 
-import pd.Dungeon;
 import pd.Badges;
+import pd.Dungeon;
 import pd.ShatteredPixelDungeon;
 import pd.actors.Actor;
 import pd.actors.hero.Hero;

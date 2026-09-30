@@ -24,11 +24,11 @@ package pd.levels.rooms;
 import pd.levels.Level;
 import pd.levels.painters.Painter;
 import pd.mechanics.pathfind.Graph;
-import render.utils.Bundlable;
-import render.utils.Bundle;
-import render.utils.Point;
-import render.utils.Random;
-import render.utils.Rect;
+import render.utils.geom.Point;
+import render.utils.geom.Rect;
+import render.utils.math.Random;
+import render.utils.serialize.Bundlable;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.Collection;

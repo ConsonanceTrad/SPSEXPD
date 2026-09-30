@@ -11,7 +11,7 @@ import pd.levels.Terrain;
 import pd.tiles.CustomTilemap;
 import pd.tiles.SpsTerrainFrames;
 import render.noosa.Tilemap;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 /** Renders a complete SPS fixed layout using its original 16x16 tile atlas. */
 public class SpsLegacyLevelVisual extends CustomTilemap {

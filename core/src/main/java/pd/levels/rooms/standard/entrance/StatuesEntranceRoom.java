@@ -28,8 +28,8 @@ import pd.levels.painters.Painter;
 import pd.levels.rooms.standard.StatuesRoom;
 import pd.mechanics.pathfind.PathFinder;
 import pd.tiles.custom.Carpet;
-import render.utils.Point;
-import render.utils.Rect;
+import render.utils.geom.Point;
+import render.utils.geom.Rect;
 
 public class StatuesEntranceRoom extends StatuesRoom {
 

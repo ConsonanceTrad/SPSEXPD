@@ -50,9 +50,9 @@ import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
 import render.noosa.MovieClip;
 import render.noosa.TextureFilm;
-import render.utils.Bundle;
-import render.utils.Random;
-import render.utils.SparseArray;
+import render.utils.data.SparseArray;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

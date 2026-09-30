@@ -9,7 +9,7 @@ import pd.items.food.fruit.Fruit;
 import pd.items.food.fusion.Nut;
 import pd.plants.Plant;
 import pd.sprites.MonkeySprite;
-import render.utils.Random;
+import render.utils.math.Random;
 public class Monkey extends PET {
 	{ spriteClass = MonkeySprite.class; cooldown = 50; properties.add(Property.HUMAN); updateStats(true); }
 	@Override protected Kind kind() { return Kind.MONKEY; }

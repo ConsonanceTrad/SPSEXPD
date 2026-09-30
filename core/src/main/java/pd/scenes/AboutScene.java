@@ -36,7 +36,7 @@ import render.noosa.Group;
 import render.noosa.Image;
 import render.noosa.PointerArea;
 import render.noosa.ui.Component;
-import render.utils.RectF;
+import render.utils.geom.RectF;
 
 public class AboutScene extends PixelScene {
 

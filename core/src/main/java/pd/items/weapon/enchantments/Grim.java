@@ -26,8 +26,8 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.items.weapon.Weapon;
-import pd.sprites.ItemSprite;
 import pd.sprites.ItemSprite.Glowing;
+import pd.sprites.ItemSprite;
 
 public class Grim extends Weapon.Enchantment {
 	

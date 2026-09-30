@@ -33,12 +33,12 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
-import render.utils.BArray;
 import render.noosa.Image;
 import render.noosa.audio.Sample;
 import render.noosa.particles.Emitter;
-import render.utils.Bundle;
-import render.utils.Point;
+import render.utils.data.BArray;
+import render.utils.geom.Point;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

@@ -18,8 +18,8 @@ import pd.actors.buffs.Vertigo;
 import pd.effects.CellEmitter;
 import pd.effects.Pushing;
 import pd.effects.Speck;
-import pd.items.SoulCollect;
 import pd.items.Heap;
+import pd.items.SoulCollect;
 import pd.items.misc.AutoPotion;
 import pd.items.scrolls.ScrollOfPsionicBlast;
 import pd.items.weapon.enchantments.EnchantmentDark;
@@ -31,8 +31,8 @@ import pd.scenes.GameScene;
 import pd.sprites.ZotSprite;
 import pd.ui.BossHealthBar;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

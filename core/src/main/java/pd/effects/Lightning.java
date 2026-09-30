@@ -26,9 +26,9 @@ import render.glwrap.Blending;
 import render.noosa.Game;
 import render.noosa.Group;
 import render.noosa.Image;
-import render.utils.Callback;
-import render.utils.PointF;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.geom.PointF;
+import render.utils.math.Random;
 
 import java.util.Arrays;
 import java.util.List;

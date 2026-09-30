@@ -26,7 +26,7 @@ import pd.items.Item;
 import pd.items.Recipe;
 import pd.journal.Catalog;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

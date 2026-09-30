@@ -17,8 +17,8 @@ import pd.sprites.LynnSprite;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
 import render.noosa.tweeners.AlphaTweener;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

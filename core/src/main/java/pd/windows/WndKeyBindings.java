@@ -37,7 +37,7 @@ import render.input.KeyEvent;
 import render.input.PointerEvent;
 import render.noosa.ColorBlock;
 import render.noosa.ui.Component;
-import render.utils.PointF;
+import render.utils.geom.PointF;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

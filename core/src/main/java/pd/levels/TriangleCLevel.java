@@ -4,12 +4,12 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.actors.mobs.BlueWraith;
 import pd.actors.mobs.DwarfLich;
-import pd.actors.mobs.Mob;
 import pd.actors.mobs.ManySkeleton;
+import pd.actors.mobs.Mob;
 import pd.actors.mobs.Zombie;
 import pd.items.Item;
 import pd.items.TriforceOfCourage;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class TriangleCLevel extends SpsTriangleLevel {
 	{ color1 = 0x48763c; color2 = 0x59994a; viewDistance = 3; }

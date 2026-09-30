@@ -27,7 +27,7 @@ import render.glwrap.Attribute;
 import render.glwrap.Quad;
 import render.glwrap.Uniform;
 import render.glwrap.Vertexbuffer;
-import render.utils.DeviceCompat;
+import render.utils.platform.DeviceCompat;
 
 import java.nio.Buffer;
 import java.nio.FloatBuffer;

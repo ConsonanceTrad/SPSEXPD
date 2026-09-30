@@ -42,8 +42,8 @@ import render.noosa.Image;
 import render.noosa.NinePatch;
 import render.noosa.particles.Emitter;
 import render.noosa.ui.Component;
-import render.utils.ColorMath;
-import render.utils.GameMath;
+import render.utils.math.ColorMath;
+import render.utils.math.GameMath;
 
 public class StatusPane extends Component {
 

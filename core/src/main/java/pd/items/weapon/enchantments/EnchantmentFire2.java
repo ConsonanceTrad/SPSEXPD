@@ -8,7 +8,7 @@ import pd.actors.buffs.Tar;
 import pd.effects.particles.FlameParticle;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import static pd.actors.damagetype.DamageType.FIRE_DAMAGE;
 

@@ -26,8 +26,8 @@ import pd.actors.Char;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
-import render.utils.Bundle;
-import render.utils.Reflection;
+import render.utils.serialize.Bundle;
+import render.utils.serialize.Reflection;
 
 import java.util.HashSet;
 

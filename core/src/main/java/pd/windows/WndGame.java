@@ -35,7 +35,7 @@ import pd.ui.Icons;
 import pd.ui.RedButton;
 import pd.ui.Window;
 import render.noosa.Game;
-import render.utils.DeviceCompat;
+import render.utils.platform.DeviceCompat;
 
 import java.io.IOException;
 

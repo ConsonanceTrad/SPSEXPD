@@ -6,7 +6,7 @@ import pd.actors.Char;
 import pd.effects.Pushing;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Rapier extends NormalMeleeWeapon {
 	public Rapier() { super(3, 1f, 1f, 2, 18, 25, ItemSpriteSheet.SPS_WEP_RAPIER); }

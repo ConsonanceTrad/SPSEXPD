@@ -38,7 +38,7 @@ import pd.ui.TalentsPane;
 import render.noosa.Game;
 import render.noosa.Image;
 import render.noosa.ui.Component;
-import render.utils.DeviceCompat;
+import render.utils.platform.DeviceCompat;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

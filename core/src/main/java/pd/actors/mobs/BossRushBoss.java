@@ -16,13 +16,13 @@ import pd.actors.buffs.Poison;
 import pd.actors.buffs.Sleep;
 import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
-import pd.levels.BossRushLevel;
 import pd.items.scrolls.ScrollOfPsionicBlast;
+import pd.levels.BossRushLevel;
 import pd.scenes.GameScene;
 import pd.ui.BossHealthBar;
-import render.utils.Bundle;
-import render.utils.Random;
-import render.utils.Reflection;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
+import render.utils.serialize.Reflection;
 
 /** Shared state and safe stage hand-off for the eight ultimate bosses. */
 public abstract class BossRushBoss extends Mob {

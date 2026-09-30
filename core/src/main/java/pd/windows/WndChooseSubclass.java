@@ -37,7 +37,7 @@ import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import render.noosa.Game;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class WndChooseSubclass extends Window {
 	

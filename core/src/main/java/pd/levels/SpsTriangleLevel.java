@@ -20,7 +20,7 @@ import pd.levels.builders.SpsBspLayout.Room;
 import pd.levels.builders.SpsBspLayout.Type;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

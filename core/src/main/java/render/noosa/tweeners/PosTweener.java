@@ -22,7 +22,7 @@
 package render.noosa.tweeners;
 
 import render.noosa.Visual;
-import render.utils.PointF;
+import render.utils.geom.PointF;
 
 public class PosTweener extends Tweener {
 

@@ -7,8 +7,8 @@ import pd.actors.mobs.PrisonWander;
 import pd.actors.mobs.SpsTengu;
 import pd.actors.mobs.Tank;
 import pd.tiles.custom.SpsLegacyLevelVisual;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 /** SPS-PD's fixed prison arena and its original three-way random boss selection. */
 public class SpsPrisonBossLevel extends SpsFixedBossLevel {

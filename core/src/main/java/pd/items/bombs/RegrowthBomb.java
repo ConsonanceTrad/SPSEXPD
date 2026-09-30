@@ -36,8 +36,8 @@ import pd.plants.Plant;
 import pd.plants.Starflower;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.BArray;
-import render.utils.Random;
+import render.utils.data.BArray;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

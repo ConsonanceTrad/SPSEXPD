@@ -27,7 +27,7 @@ import pd.items.artifacts.HornOfPlenty;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class ArtifactRecharge extends Buff {
 

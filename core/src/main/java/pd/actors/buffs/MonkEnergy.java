@@ -53,9 +53,9 @@ import render.noosa.BitmapText;
 import render.noosa.Image;
 import render.noosa.Visual;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
-import render.utils.Callback;
-import render.utils.GameMath;
+import render.utils.data.Callback;
+import render.utils.math.GameMath;
+import render.utils.serialize.Bundle;
 
 public class MonkEnergy extends Buff implements ActionIndicator.Action {
 

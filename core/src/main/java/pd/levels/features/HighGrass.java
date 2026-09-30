@@ -45,7 +45,7 @@ import pd.levels.MiningLevel;
 import pd.levels.Terrain;
 import pd.levels.VaultLevel;
 import pd.scenes.GameScene;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class HighGrass {
 	

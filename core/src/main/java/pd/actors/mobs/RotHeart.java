@@ -32,7 +32,7 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.plants.Rotberry;
 import pd.scenes.GameScene;
 import pd.sprites.RotHeartSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class RotHeart extends Mob {
 

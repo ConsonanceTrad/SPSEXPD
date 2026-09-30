@@ -44,9 +44,9 @@ import pd.sprites.CharSprite;
 import pd.sprites.GooSprite;
 import pd.ui.BossHealthBar;
 import pd.utils.GLog;
-import render.utils.Bundle;
-import render.utils.GameMath;
-import render.utils.Random;
+import render.utils.math.GameMath;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class Goo extends Mob {
 

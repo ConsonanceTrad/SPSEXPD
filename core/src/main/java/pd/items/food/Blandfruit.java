@@ -44,8 +44,8 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndUseItem;
-import render.utils.Bundle;
-import render.utils.Reflection;
+import render.utils.serialize.Bundle;
+import render.utils.serialize.Reflection;
 
 public class Blandfruit extends Fruit {
 

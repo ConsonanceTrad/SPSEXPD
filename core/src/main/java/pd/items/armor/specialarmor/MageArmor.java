@@ -4,7 +4,7 @@ package pd.items.armor.specialarmor;
 import pd.actors.Char;
 import pd.items.armor.normalarmor.NormalArmor;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class MageArmor extends NormalArmor {
 	public MageArmor() { super(1, 3f, 7f, 4, 0, 4, 0, 1, 4, ItemSpriteSheet.SPS_ARMOR_MAGE); }

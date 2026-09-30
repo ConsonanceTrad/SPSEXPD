@@ -29,7 +29,7 @@ import pd.mechanics.ShadowCaster;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.Point;
+import render.utils.geom.Point;
 
 public class StoneOfClairvoyance extends Runestone {
 	

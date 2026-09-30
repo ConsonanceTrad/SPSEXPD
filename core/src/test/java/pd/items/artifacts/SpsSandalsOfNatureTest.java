@@ -17,7 +17,7 @@ import pd.plants.Firebloom;
 import pd.plants.Icecap;
 import pd.plants.Sorrowmoss;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;

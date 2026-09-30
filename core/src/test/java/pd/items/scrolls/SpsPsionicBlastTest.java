@@ -26,11 +26,10 @@ import pd.levels.traps.Trap;
 import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
-import render.utils.Bundle;
-import render.utils.FileUtils;
-import render.utils.SparseArray;
+import render.utils.data.SparseArray;
+import render.utils.serialize.Bundle;
+import render.utils.serialize.FileUtils;
 
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.InputStreamReader;
@@ -41,6 +40,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Properties;
+import javax.imageio.ImageIO;
 
 /** Runtime parity checks for the ordinary SPS-PD 0.9.8 psionic-draw scroll. */
 public final class SpsPsionicBlastTest {
@@ -99,7 +99,7 @@ public final class SpsPsionicBlastTest {
 		resetLabels();
 		HashSet<Integer> images = new HashSet<>();
 		for (Class<?> type : expected) {
-			Scroll scroll = (Scroll) render.utils.Reflection.newInstance(type);
+			Scroll scroll = (Scroll) render.utils.serialize.Reflection.newInstance(type);
 			images.add(scroll.image);
 		}
 		check(images.size() == 14 && Scroll.getUnknown().size() == 14,

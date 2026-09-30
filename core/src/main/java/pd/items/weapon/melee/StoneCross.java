@@ -5,7 +5,7 @@ import pd.actors.Char;
 import pd.items.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class StoneCross extends NormalMeleeWeapon {
 	public static final int FULL_CHARGE = 20;

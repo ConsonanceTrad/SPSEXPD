@@ -16,8 +16,8 @@ import pd.messages.Messages;
 import pd.sprites.BanditKingSprite;
 import pd.sprites.CharSprite;
 import pd.utils.GLog;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 /** Dormant SPS-PD mob retained with its original amulet-stealing behavior. */
 public class BlueCat extends Mob {

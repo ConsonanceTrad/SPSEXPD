@@ -31,7 +31,7 @@ import pd.items.weapon.Weapon;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
 import render.noosa.audio.Sample;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Dazzling extends Weapon.Enchantment {
 

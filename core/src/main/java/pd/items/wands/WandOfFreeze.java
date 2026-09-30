@@ -14,8 +14,8 @@ import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.Callback;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.math.Random;
 
 /** The freeze wand from SPS-PD 0.9.8, distinct from Shattered's frost wand. */
 public class WandOfFreeze extends DamageWand {

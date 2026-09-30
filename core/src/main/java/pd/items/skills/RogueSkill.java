@@ -21,7 +21,7 @@ import pd.items.Generator;
 import pd.items.Item;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** The four rogue class skills from SPS-PD 0.9.8. */
 public class RogueSkill extends ClassSkill {

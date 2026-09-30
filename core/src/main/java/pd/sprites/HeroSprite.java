@@ -33,9 +33,9 @@ import render.noosa.Camera;
 import render.noosa.Game;
 import render.noosa.Image;
 import render.noosa.TextureFilm;
-import render.utils.Callback;
-import render.utils.PointF;
-import render.utils.RectF;
+import render.utils.data.Callback;
+import render.utils.geom.PointF;
+import render.utils.geom.RectF;
 
 public class HeroSprite extends CharSprite {
 	

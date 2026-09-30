@@ -8,7 +8,7 @@ import pd.actors.buffs.Burning;
 import pd.actors.buffs.armorbuff.GlyphFire;
 import pd.items.armor.Armor;
 import pd.sprites.ItemSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Fireglyph extends SpsGlyph {
 	private static final ItemSprite.Glowing COLOR = new ItemSprite.Glowing(0xFF4400);

@@ -19,10 +19,10 @@ import pd.sprites.CatSheepSprite;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.BArray;
-import render.utils.Bundle;
-import render.utils.Callback;
-import render.utils.Random;
+import render.utils.data.BArray;
+import render.utils.data.Callback;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 /** Black Meow's single-cat obstruction wand from SPS-PD 0.9.8. */
 public class WandOfBlackMeow extends Wand {

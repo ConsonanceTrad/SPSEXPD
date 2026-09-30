@@ -35,9 +35,9 @@ import pd.sprites.CharSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
-import render.utils.Bundle;
-import render.utils.GameMath;
-import render.utils.Random;
+import render.utils.math.GameMath;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

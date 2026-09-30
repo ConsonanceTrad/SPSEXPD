@@ -29,7 +29,7 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndJournal;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public abstract class DocumentPage extends Item {
 	

@@ -3,13 +3,13 @@ package pd.actors.buffs.armorbuff;
 
 import pd.actors.blobs.SwampGas;
 import pd.actors.blobs.weather.WeatherOfSand;
+import pd.actors.buffs.AcidOoze;
 import pd.actors.buffs.GrowSeed;
 import pd.actors.buffs.Poison;
 import pd.actors.buffs.Roots;
-import pd.actors.buffs.AcidOoze;
 import pd.actors.damagetype.DamageType;
-import pd.items.weapon.enchantments.EnchantmentEarth;
 import pd.items.weapon.enchantments.EnchantmentEarth2;
+import pd.items.weapon.enchantments.EnchantmentEarth;
 
 public class GlyphEarth extends ArmorGlyphBuff {
 	{

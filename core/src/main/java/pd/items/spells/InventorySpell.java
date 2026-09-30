@@ -32,7 +32,7 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.windows.WndBag;
 import render.noosa.audio.Sample;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public abstract class InventorySpell extends Spell {
 	

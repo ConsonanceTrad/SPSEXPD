@@ -28,7 +28,7 @@ import pd.scenes.TitleScene;
 import pd.windows.WndKeyBindings;
 import render.input.GameAction;
 import render.noosa.Game;
-import render.utils.DeviceCompat;
+import render.utils.platform.DeviceCompat;
 
 public class ExitButton extends IconButton {
 

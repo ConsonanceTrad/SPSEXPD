@@ -37,9 +37,9 @@ import pd.levels.rooms.special.MagicalFireRoom;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.Callback;
-import render.utils.PointF;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.geom.PointF;
+import render.utils.math.Random;
 
 public class WandOfFrost extends DamageWand {
 

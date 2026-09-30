@@ -27,7 +27,7 @@ import pd.scenes.PixelScene;
 import pd.utils.GLog;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class RockfallTrap extends Trap {
 

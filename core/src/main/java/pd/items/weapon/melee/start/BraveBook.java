@@ -1,5 +1,6 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.start;
+import java.util.ArrayList;
 import pd.actors.Char;
 import pd.actors.buffs.*;
 import pd.actors.hero.Hero;
@@ -11,8 +12,7 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
-import render.utils.Bundle;
-import java.util.ArrayList;
+import render.utils.serialize.Bundle;
 public class BraveBook extends NormalMeleeWeapon {
 	public static final String AC_ADD="ADD",AC_IMPROVE="IMPROVE",AC_HEAL="HEAL";private static final String CHARGE="charge",UP1="uptime1",UP2="uptime2";private int charge,uptime1=1,uptime2=1;
 	public BraveBook(){super(2,1.2f,.5f,1,4,14,ItemSpriteSheet.LEGACY_BRAVE_BOOK);unique=true;reinforced=true;cursed=true;defaultAction=AC_ADD;}

@@ -31,10 +31,10 @@ import pd.levels.traps.bufftrap.FireBuffTrap;
 import pd.scenes.InterlevelScene;
 import pd.tiles.custom.SpsLegacyLevelVisual;
 import render.noosa.Game;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
-import java.util.Arrays;
 import java.io.IOException;
+import java.util.Arrays;
 
 public final class SpsLearnLevelTest {
 

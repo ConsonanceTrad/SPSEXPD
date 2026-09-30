@@ -31,7 +31,7 @@ import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class RoundShield extends MeleeWeapon {
 

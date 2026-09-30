@@ -22,7 +22,7 @@
 package pd.mechanics;
 
 import pd.ShatteredPixelDungeon;
-import render.utils.BArray;
+import render.utils.data.BArray;
 
 //based on: http://www.roguebasin.com/index.php?title=FOV_using_recursive_shadowcasting
 public final class ShadowCaster {

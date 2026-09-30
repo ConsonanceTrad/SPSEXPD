@@ -24,7 +24,7 @@ package pd.levels.painters;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.rooms.Room;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

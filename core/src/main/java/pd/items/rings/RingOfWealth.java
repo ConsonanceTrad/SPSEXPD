@@ -47,9 +47,9 @@ import pd.items.weapon.Weapon;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.Visual;
-import render.utils.Bundle;
-import render.utils.Random;
-import render.utils.Reflection;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 

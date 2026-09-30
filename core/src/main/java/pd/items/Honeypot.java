@@ -41,8 +41,8 @@ import pd.sprites.ItemSpriteSheet;
 import pd.sprites.SteelBeeSprite;
 import render.noosa.audio.Sample;
 import render.noosa.tweeners.AlphaTweener;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.HashSet;

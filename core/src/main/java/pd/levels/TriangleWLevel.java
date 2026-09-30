@@ -3,10 +3,10 @@ package pd.levels;
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.mobs.Elemental;
-import pd.actors.mobs.FlyingProtector;
-import pd.actors.mobs.FireElemental;
-import pd.actors.mobs.LevelChecker;
 import pd.actors.mobs.Eye;
+import pd.actors.mobs.FireElemental;
+import pd.actors.mobs.FlyingProtector;
+import pd.actors.mobs.LevelChecker;
 import pd.actors.mobs.Mob;
 import pd.actors.mobs.PatrolUAV;
 import pd.actors.mobs.Sentinel;
@@ -19,7 +19,7 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.plants.BlandfruitBush;
 import pd.plants.ReNepenth;
 import pd.plants.StarEater;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class TriangleWLevel extends SpsTriangleLevel {
 	{ color1 = 0x48763c; color2 = 0x59994a; }

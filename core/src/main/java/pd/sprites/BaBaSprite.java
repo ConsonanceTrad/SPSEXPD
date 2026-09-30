@@ -3,7 +3,7 @@ package pd.sprites;
 
 import pd.Assets;
 import render.noosa.TextureFilm;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** The armed sheep frames stored on the second row of SPS-PD's sheep sheet. */
 public class BaBaSprite extends MobSprite {

@@ -31,9 +31,9 @@ import pd.levels.features.Chasm;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import render.utils.Bundle;
-import render.utils.PointF;
-import render.utils.Random;
+import render.utils.geom.PointF;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class Bleeding extends Buff implements Buff.DOTbuff {
 

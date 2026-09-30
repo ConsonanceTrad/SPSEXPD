@@ -32,8 +32,8 @@ import pd.actors.hero.HeroSubClass;
 import pd.actors.mobs.Mob;
 import pd.effects.CellEmitter;
 import pd.effects.particles.FlameParticle;
-import pd.levels.traps.Trap;
 import pd.items.weapon.missiles.arrows.FireFruit;
+import pd.levels.traps.Trap;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 

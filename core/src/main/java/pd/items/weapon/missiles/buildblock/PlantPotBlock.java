@@ -8,7 +8,7 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** A thrown construction block which creates a plantable flower pot. */
 public class PlantPotBlock extends BuildBlock {

@@ -5,7 +5,7 @@ import pd.actors.buffs.ArmorBreak;
 import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Scimitar extends NormalMeleeWeapon {
 	public Scimitar() { super(3, 1f, 1f, 1, 23, 35, ItemSpriteSheet.SPS_WEP_SCIMITAR); }

@@ -4,7 +4,7 @@ package pd.actors.mobs;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.sprites.CellmobSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** The stationary life-cell produced by legacy evolve ammunition. */
 public class NormalCell extends Mob {

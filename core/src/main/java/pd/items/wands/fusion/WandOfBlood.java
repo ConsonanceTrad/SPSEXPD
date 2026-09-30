@@ -11,8 +11,8 @@ import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.Callback;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.math.Random;
 
 /** The original SPS-PD blood wand, kept in the fusion package for save compatibility. */
 public class WandOfBlood extends DamageWand {

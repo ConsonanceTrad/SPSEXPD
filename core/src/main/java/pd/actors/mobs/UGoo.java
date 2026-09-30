@@ -8,10 +8,10 @@ import pd.actors.blobs.Blob;
 import pd.actors.blobs.Fire;
 import pd.actors.blobs.SlowGas;
 import pd.actors.blobs.ToxicGas;
+import pd.actors.blobs.effectblobs.ElectriShock;
 import pd.actors.buffs.Amok;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Burning;
-import pd.actors.blobs.effectblobs.ElectriShock;
 import pd.actors.buffs.Ooze;
 import pd.actors.buffs.Poison;
 import pd.actors.buffs.Roots;
@@ -21,13 +21,13 @@ import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
 import pd.items.scrolls.ScrollOfPsionicBlast;
 import pd.items.weapon.enchantments.EnchantmentDark;
+import pd.items.weapon.melee.special.Handcannon;
 import pd.levels.BossRushLevel;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.UGooSprite;
-import pd.items.weapon.melee.special.Handcannon;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** The four-element lord goo and its original elemental projections. */
 public class UGoo extends BossRushBoss {

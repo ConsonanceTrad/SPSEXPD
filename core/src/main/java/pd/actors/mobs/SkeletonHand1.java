@@ -8,7 +8,7 @@ import pd.actors.buffs.Burning;
 import pd.actors.buffs.Terror;
 import pd.items.potions.PotionOfLiquidFlame;
 import pd.sprites.SkeletonHand1Sprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class SkeletonHand1 extends Mob {
 	{

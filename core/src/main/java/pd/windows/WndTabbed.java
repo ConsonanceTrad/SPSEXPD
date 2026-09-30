@@ -34,8 +34,8 @@ import render.noosa.Game;
 import render.noosa.Image;
 import render.noosa.NinePatch;
 import render.noosa.audio.Sample;
-import render.utils.RectF;
-import render.utils.Signal;
+import render.utils.data.Signal;
+import render.utils.geom.RectF;
 
 import java.util.ArrayList;
 

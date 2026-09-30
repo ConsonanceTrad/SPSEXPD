@@ -30,8 +30,8 @@ import pd.items.weapon.missiles.meleethrow.Brick;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.RatSprite;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class Rat extends Mob {
 	private static final float SPAWN_DELAY = 2f;

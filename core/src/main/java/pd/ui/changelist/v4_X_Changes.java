@@ -28,7 +28,7 @@ import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.Icons;
 import pd.ui.Window;
-import render.utils.DeviceCompat;
+import render.utils.platform.DeviceCompat;
 
 import java.util.ArrayList;
 

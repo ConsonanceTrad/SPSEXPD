@@ -23,7 +23,7 @@ package render.gltextures;
 
 import com.badlogic.gdx.graphics.Pixmap;
 import render.glwrap.Texture;
-import render.utils.RectF;
+import render.utils.geom.RectF;
 
 public class SmartTexture extends Texture {
 

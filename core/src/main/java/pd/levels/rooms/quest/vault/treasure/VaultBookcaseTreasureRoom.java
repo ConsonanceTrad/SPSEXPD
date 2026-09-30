@@ -30,8 +30,8 @@ import pd.levels.Terrain;
 import pd.levels.VaultLevel;
 import pd.levels.painters.Painter;
 import pd.mechanics.pathfind.PathFinder;
-import render.utils.GameMath;
-import render.utils.Random;
+import render.utils.math.GameMath;
+import render.utils.math.Random;
 
 public class VaultBookcaseTreasureRoom extends VaultTreasureRoom {
 

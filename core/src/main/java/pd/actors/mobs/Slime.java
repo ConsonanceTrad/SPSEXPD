@@ -28,7 +28,7 @@ import pd.items.Generator;
 import pd.items.Item;
 import pd.items.weapon.melee.MeleeWeapon;
 import pd.sprites.SlimeSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Slime extends Mob {
 	

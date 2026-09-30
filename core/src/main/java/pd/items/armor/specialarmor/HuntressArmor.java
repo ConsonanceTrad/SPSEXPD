@@ -4,7 +4,7 @@ package pd.items.armor.specialarmor;
 import pd.actors.Char;
 import pd.items.armor.normalarmor.NormalArmor;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class HuntressArmor extends NormalArmor {
 	public HuntressArmor() { super(2, 2.4f, 6f, 4, 0, 12, 0, 1, 3, ItemSpriteSheet.SPS_ARMOR_HUNTRESS); }

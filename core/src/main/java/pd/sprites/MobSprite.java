@@ -26,8 +26,8 @@ import pd.tiles.DungeonTilemap;
 import render.noosa.Game;
 import render.noosa.tweeners.AlphaTweener;
 import render.noosa.tweeners.ScaleTweener;
-import render.utils.PointF;
-import render.utils.Random;
+import render.utils.geom.PointF;
+import render.utils.math.Random;
 
 public class MobSprite extends CharSprite {
 

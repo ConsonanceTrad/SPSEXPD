@@ -32,7 +32,7 @@ import render.noosa.Game;
 import render.noosa.TextureFilm;
 import render.noosa.audio.Sample;
 import render.noosa.tweeners.AlphaTweener;
-import render.utils.PointF;
+import render.utils.geom.PointF;
 
 public abstract class CrystalWispSprite extends MobSprite {
 

@@ -24,7 +24,7 @@ package pd.actors.buffs;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.actors.hero.Talent;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.Collections;

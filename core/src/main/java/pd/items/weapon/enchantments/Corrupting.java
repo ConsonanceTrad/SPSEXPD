@@ -31,7 +31,7 @@ import pd.items.armor.curses.Multiplicity;
 import pd.items.weapon.Weapon;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Corrupting extends Weapon.Enchantment {
 	

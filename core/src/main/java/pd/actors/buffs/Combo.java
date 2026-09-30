@@ -48,9 +48,9 @@ import render.noosa.BitmapText;
 import render.noosa.Image;
 import render.noosa.Visual;
 import render.noosa.audio.Sample;
-import render.utils.BArray;
-import render.utils.Bundle;
-import render.utils.Callback;
+import render.utils.data.BArray;
+import render.utils.data.Callback;
+import render.utils.serialize.Bundle;
 
 public class Combo extends Buff implements ActionIndicator.Action {
 

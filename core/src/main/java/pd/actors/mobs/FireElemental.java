@@ -15,11 +15,11 @@ import pd.items.Item;
 import pd.items.misc.LuckyBadge;
 import pd.items.potions.PotionOfLiquidFlame;
 import pd.items.wands.WandOfFirebolt;
-import pd.items.weapon.enchantments.EnchantmentFire;
 import pd.items.weapon.enchantments.EnchantmentFire2;
+import pd.items.weapon.enchantments.EnchantmentFire;
 import pd.plants.Firebloom;
 import pd.sprites.FireElementalSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** Original SPS-PD runtime and save identity for the city fire elemental. */
 public class FireElemental extends Mob {

@@ -22,8 +22,8 @@
 package pd.journal;
 
 import pd.ShatteredPixelDungeon;
-import render.utils.Bundle;
-import render.utils.FileUtils;
+import render.utils.serialize.Bundle;
+import render.utils.serialize.FileUtils;
 
 import java.io.IOException;
 

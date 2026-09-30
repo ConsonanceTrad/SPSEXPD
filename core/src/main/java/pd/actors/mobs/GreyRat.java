@@ -21,7 +21,7 @@ import pd.items.scrolls.ScrollOfPsionicBlast;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.GreyRatSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** Original SPS-PD runtime and save identity for the grey rat. */
 public class GreyRat extends Mob {

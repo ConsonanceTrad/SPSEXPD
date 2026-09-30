@@ -28,9 +28,9 @@ import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
 import pd.plants.Firebloom;
 import pd.plants.Plant;
-import render.utils.Point;
-import render.utils.Random;
-import render.utils.Rect;
+import render.utils.geom.Point;
+import render.utils.geom.Rect;
+import render.utils.math.Random;
 
 public class PlantsRoom extends StandardRoom {
 	

@@ -4,7 +4,7 @@ package pd.actors.buffs;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 /** Grants permanent combat growth after the requested number of hostile kills. */
 public class LearnSkill extends Buff {

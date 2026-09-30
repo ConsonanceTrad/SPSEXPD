@@ -35,9 +35,9 @@ import pd.actors.hero.HeroSubClass;
 import pd.actors.hero.spells.BodyForm;
 import pd.actors.hero.spells.HolyWeapon;
 import pd.actors.mobs.Mob;
+import pd.items.Item;
 import pd.items.rings.RingOfAccuracy;
 import pd.items.rings.RingOfEvasion;
-import pd.items.Item;
 import pd.items.sellitem.Mirror2;
 import pd.items.weapon.Weapon;
 import pd.items.weapon.melee.WornShortsword;
@@ -46,8 +46,8 @@ import pd.sprites.CharSprite;
 import pd.sprites.MirrorSprite;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class MirrorImage extends NPC {
 

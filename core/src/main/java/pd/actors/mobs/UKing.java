@@ -8,13 +8,13 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Poison;
 import pd.actors.buffs.Roots;
 import pd.effects.Speck;
+import pd.items.misc.FourClover;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.PlantKingSprite;
-import pd.items.misc.FourClover;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** Plant king, with the old terrain-growing rage phase and its indexing bug fixed. */
 public class UKing extends BossRushBoss {

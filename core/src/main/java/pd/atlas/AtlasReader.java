@@ -2,7 +2,7 @@ package pd.atlas;
 
 import render.gltextures.SmartTexture;
 import render.noosa.Image;
-import render.utils.RectF;
+import render.utils.geom.RectF;
 
 /**
  * 图集条目的统一读取器：全项目通过字典取图的唯一入口。

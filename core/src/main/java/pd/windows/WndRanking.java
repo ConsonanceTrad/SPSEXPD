@@ -61,8 +61,8 @@ import render.noosa.Group;
 import render.noosa.Image;
 import render.noosa.audio.Sample;
 import render.noosa.ui.Component;
-import render.utils.Bundle;
-import render.utils.DeviceCompat;
+import render.utils.platform.DeviceCompat;
+import render.utils.serialize.Bundle;
 
 import java.text.NumberFormat;
 import java.util.Locale;

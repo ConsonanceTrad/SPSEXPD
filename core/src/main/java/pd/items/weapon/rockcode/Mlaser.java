@@ -7,7 +7,7 @@ import pd.actors.Char;
 import pd.actors.damagetype.DamageType;
 import pd.effects.MagicMissile;
 import pd.mechanics.Ballistica;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Mlaser extends RockCode {
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "M.l"; }

@@ -22,7 +22,7 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.BArray;
+import render.utils.data.BArray;
 
 public class Firebomb extends Bomb {
 	{ image = ItemSpriteSheet.FIRE_BOMB; }

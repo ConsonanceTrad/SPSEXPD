@@ -27,7 +27,7 @@ import pd.levels.rooms.connection.MazeConnectionRoom;
 import pd.levels.rooms.secret.SecretRoom;
 import pd.levels.rooms.special.ShopRoom;
 import pd.levels.rooms.standard.StandardRoom;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;

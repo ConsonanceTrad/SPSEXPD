@@ -41,9 +41,9 @@ import pd.items.stones.StoneOfEnchantment;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
-import render.utils.Bundle;
-import render.utils.Callback;
-import render.utils.Reflection;
+import render.utils.data.Callback;
+import render.utils.serialize.Bundle;
+import render.utils.serialize.Reflection;
 
 public class RecallInscription extends ClericSpell {
 

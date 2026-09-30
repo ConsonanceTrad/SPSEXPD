@@ -4,8 +4,8 @@ package pd.items.eggs.randomone;
 import pd.actors.mobs.pets.LegacyPet;
 import pd.items.eggs.Egg;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
-import render.utils.Reflection;
+import render.utils.math.Random;
+import render.utils.serialize.Reflection;
 
 /** Shared implementation for the original category and monthly random souls. */
 public abstract class RandomPetEgg extends Egg {

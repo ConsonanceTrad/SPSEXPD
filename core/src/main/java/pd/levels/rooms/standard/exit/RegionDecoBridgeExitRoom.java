@@ -27,7 +27,7 @@ import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.standard.RegionDecoBridgeRoom;
 import pd.mechanics.pathfind.PathFinder;
-import render.utils.Point;
+import render.utils.geom.Point;
 
 public class RegionDecoBridgeExitRoom extends RegionDecoBridgeRoom {
 

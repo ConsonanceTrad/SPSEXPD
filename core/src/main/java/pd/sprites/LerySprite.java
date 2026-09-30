@@ -3,7 +3,7 @@ package pd.sprites;
 import pd.Assets;
 import pd.effects.MagicMissile;
 import render.noosa.TextureFilm;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 public class LerySprite extends MobSprite {
 	public LerySprite() {

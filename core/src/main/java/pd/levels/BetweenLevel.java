@@ -25,10 +25,10 @@ import pd.items.food.fruit.Blueberry;
 import pd.items.food.fruit.Cloudberry;
 import pd.items.food.fruit.Moonberry;
 import pd.items.quest.Mushroom;
-import pd.levels.painters.Painter;
-import pd.levels.painters.SpsBetweenPainter;
 import pd.levels.builders.Builder;
 import pd.levels.builders.SpsBetweenBuilder;
+import pd.levels.painters.Painter;
+import pd.levels.painters.SpsBetweenPainter;
 import pd.levels.rooms.Room;
 import pd.levels.rooms.secret.SecretRoom;
 import pd.levels.rooms.special.ShopRoom;
@@ -38,7 +38,7 @@ import pd.levels.rooms.standard.EmptyRoom;
 import pd.levels.rooms.standard.StandardRoom;
 import pd.mechanics.pathfind.PathFinder;
 import pd.tiles.custom.SpsLegacyLevelVisual;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

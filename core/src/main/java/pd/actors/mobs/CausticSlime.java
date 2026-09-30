@@ -28,7 +28,7 @@ import pd.actors.buffs.Ooze;
 import pd.items.quest.GooBlob;
 import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.CausticSlimeSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class CausticSlime extends Slime {
 	

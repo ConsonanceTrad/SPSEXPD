@@ -34,7 +34,7 @@ import render.noosa.Image;
 import render.noosa.NinePatch;
 import render.noosa.PointerArea;
 import render.noosa.ui.Component;
-import render.utils.Point;
+import render.utils.geom.Point;
 
 import java.util.ArrayList;
 

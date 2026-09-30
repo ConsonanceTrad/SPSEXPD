@@ -41,9 +41,9 @@ import pd.items.trinkets.ExoticCrystals;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import render.utils.Point;
-import render.utils.Random;
-import render.utils.Reflection;
+import render.utils.geom.Point;
+import render.utils.math.Random;
+import render.utils.serialize.Reflection;
 
 import java.util.HashMap;
 

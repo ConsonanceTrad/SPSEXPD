@@ -29,8 +29,8 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.windows.WndInfoTrap;
 import render.noosa.audio.Sample;
-import render.utils.Bundlable;
-import render.utils.Bundle;
+import render.utils.serialize.Bundlable;
+import render.utils.serialize.Bundle;
 
 public abstract class Trap implements Bundlable {
 

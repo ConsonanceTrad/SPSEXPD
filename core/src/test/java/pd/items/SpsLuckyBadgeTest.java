@@ -12,7 +12,7 @@ import pd.actors.hero.HeroSubClass;
 import pd.items.misc.LuckyBadge;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** Headless checks for the complete legacy luck formula and its loop guard. */
 public final class SpsLuckyBadgeTest {

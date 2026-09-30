@@ -27,8 +27,8 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.tiles.custom.SpsLegacyLevelVisual;
 import pd.windows.WndMessage;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 /** The original SPS energy-core arena, journal destination 7. */
 public class MinesBossLevel extends Level {

@@ -37,8 +37,8 @@ import render.noosa.Image;
 import render.noosa.NoosaScript;
 import render.noosa.TextureFilm;
 import render.noosa.Tilemap;
-import render.utils.Point;
-import render.utils.Random;
+import render.utils.geom.Point;
+import render.utils.math.Random;
 
 public class AmbitiousImpRoom extends SpecialRoom {
 

@@ -32,17 +32,17 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import pd.SPDSettings;
 import render.input.ControllerHandler;
 import render.noosa.Game;
-import render.utils.PlatformSupport;
-import render.utils.RectF;
+import render.utils.geom.RectF;
+import render.utils.platform.PlatformSupport;
 
+import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.robovm.apple.audiotoolbox.AudioServices;
 import org.robovm.apple.systemconfiguration.SCNetworkReachability;
 import org.robovm.apple.systemconfiguration.SCNetworkReachabilityFlags;
 import org.robovm.apple.uikit.UIApplication;
 import org.robovm.apple.uikit.UIInterfaceOrientation;
-import java.util.HashMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class IOSPlatformSupport extends PlatformSupport {
 

@@ -26,7 +26,7 @@ import render.gltextures.SmartTexture;
 import render.glwrap.Matrix;
 import render.glwrap.Quad;
 import render.glwrap.Vertexbuffer;
-import render.utils.RectF;
+import render.utils.geom.RectF;
 
 import java.nio.Buffer;
 import java.nio.FloatBuffer;

@@ -22,7 +22,7 @@
 package render.noosa;
 
 import render.glwrap.Texture;
-import render.utils.RectF;
+import render.utils.geom.RectF;
 
 public class SkinnedBlock extends Image {
 	

@@ -13,7 +13,7 @@ import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** The four ascetic class skills from SPS-PD 0.9.8. */
 public class AsceticSkill extends ClassSkill {

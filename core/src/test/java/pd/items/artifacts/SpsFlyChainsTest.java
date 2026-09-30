@@ -20,8 +20,8 @@ import pd.actors.mobs.Gnoll;
 import pd.items.Generator;
 import pd.items.rings.Ring;
 import render.noosa.Game;
-import render.utils.Bundle;
-import render.utils.FileUtils;
+import render.utils.serialize.Bundle;
+import render.utils.serialize.FileUtils;
 
 import java.io.File;
 import java.nio.charset.StandardCharsets;

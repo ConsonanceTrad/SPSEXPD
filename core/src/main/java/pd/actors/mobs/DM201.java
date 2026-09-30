@@ -30,7 +30,7 @@ import pd.items.quest.MetalShard;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.DM201Sprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class DM201 extends DM200 {
 

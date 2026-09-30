@@ -3,7 +3,7 @@ package pd.actors.buffs;
 
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 /** Legacy SPS flat damage bonus, consumed by the next successful attack. */
 public class DamageUp extends Buff {

@@ -22,7 +22,7 @@
 package render.noosa.tweeners;
 
 import render.noosa.Camera;
-import render.utils.PointF;
+import render.utils.geom.PointF;
 
 public class CameraScrollTweener extends Tweener {
 

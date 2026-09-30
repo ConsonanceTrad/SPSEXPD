@@ -7,7 +7,7 @@ import pd.actors.hero.HeroClass;
 import pd.actors.hero.HeroSubClass;
 import pd.items.Item;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** The shared implementation of the three legacy SPS luck bonuses. */
 public class LuckyBadge extends Item {

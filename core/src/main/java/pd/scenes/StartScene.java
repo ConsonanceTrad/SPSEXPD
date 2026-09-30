@@ -33,9 +33,9 @@ import pd.sprites.HeroSprite;
 import pd.ui.Button;
 import pd.ui.ExitButton;
 import pd.ui.Icons;
-import pd.ui.TitleBackground;
 import pd.ui.RenderedTextBlock;
 import pd.ui.StyledButton;
+import pd.ui.TitleBackground;
 import pd.ui.Window;
 import pd.windows.IconTitle;
 import pd.windows.WndGameInProgress;
@@ -44,7 +44,7 @@ import render.noosa.Camera;
 import render.noosa.Game;
 import render.noosa.Image;
 import render.noosa.NinePatch;
-import render.utils.RectF;
+import render.utils.geom.RectF;
 
 import java.util.ArrayList;
 

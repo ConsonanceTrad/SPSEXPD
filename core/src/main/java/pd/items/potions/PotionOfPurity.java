@@ -33,9 +33,9 @@ import pd.effects.SpellSprite;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.BArray;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import render.utils.data.BArray;
 
 import java.util.ArrayList;
 

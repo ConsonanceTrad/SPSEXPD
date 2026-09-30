@@ -24,7 +24,7 @@ package pd.actors.buffs;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.ui.BuffIndicator;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class Charm extends FlavourBuff {
 

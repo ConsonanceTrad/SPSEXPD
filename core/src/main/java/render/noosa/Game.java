@@ -34,10 +34,10 @@ import render.input.ControllerHandler;
 import render.input.InputHandler;
 import render.noosa.audio.Music;
 import render.noosa.audio.Sample;
-import render.utils.Callback;
-import render.utils.DeviceCompat;
-import render.utils.PlatformSupport;
-import render.utils.Reflection;
+import render.utils.data.Callback;
+import render.utils.platform.DeviceCompat;
+import render.utils.platform.PlatformSupport;
+import render.utils.serialize.Reflection;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

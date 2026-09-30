@@ -1,12 +1,12 @@
 package pd.items.wands;
 
 import pd.Dungeon;
+import pd.actors.blobs.SwampGas;
 import pd.actors.buffs.AcidOoze;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Ooze;
-import pd.actors.buffs.SpsAcidOoze;
 import pd.actors.buffs.SpeedSlow;
-import pd.actors.blobs.SwampGas;
+import pd.actors.buffs.SpsAcidOoze;
 import pd.items.Generator;
 import pd.items.wands.fusion.WandOfBlood;
 import pd.items.wands.fusion.WandOfFlow;

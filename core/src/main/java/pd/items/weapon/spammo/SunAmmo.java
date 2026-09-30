@@ -7,7 +7,7 @@ import pd.actors.buffs.GrowSeed;
 import pd.actors.damagetype.DamageType;
 import pd.effects.particles.EarthParticle;
 import pd.sprites.ItemSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class SunAmmo extends SpAmmo {
 	private static final ItemSprite.Glowing PINK = new ItemSprite.Glowing(0xCCAA88);

@@ -47,9 +47,9 @@ import pd.items.armor.Armor;
 import pd.items.artifacts.ChaliceOfBlood;
 import pd.items.bombs.ArcaneBomb;
 import pd.items.bombs.HolyBomb;
+import pd.items.scrolls.ScrollOfPsionicBlast;
 import pd.items.scrolls.ScrollOfRetribution;
 import pd.items.scrolls.ScrollOfTeleportation;
-import pd.items.scrolls.ScrollOfPsionicBlast;
 import pd.items.wands.CursedWand;
 import pd.items.wands.WandOfBlastWave;
 import pd.items.wands.WandOfDisintegration;
@@ -69,7 +69,7 @@ import pd.items.weapon.missiles.darts.HolyDart;
 import pd.levels.traps.DisintegrationTrap;
 import pd.levels.traps.GrimTrap;
 import pd.sprites.ItemSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.HashSet;
 

@@ -10,8 +10,8 @@ import pd.items.weapon.melee.relic.SpsRelicWeapon;
 import pd.messages.Messages;
 import pd.sprites.ItemSprite;
 import pd.ui.BuffIndicator;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 /** Converts an Ares relic hit into delayed healing and nearby-soul charge. */
 public class AresLeech extends Weapon.Enchantment {

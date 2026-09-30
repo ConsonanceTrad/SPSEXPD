@@ -1,19 +1,19 @@
 package pd.items.medicine;
 
-import pd.actors.buffs.Bless;
+import pd.actors.buffs.BerryRegeneration;
 import pd.actors.buffs.Bleeding;
+import pd.actors.buffs.Bless;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Cripple;
 import pd.actors.buffs.EarthImbue;
 import pd.actors.buffs.FireImbue;
 import pd.actors.buffs.FrostImbue;
-import pd.actors.buffs.BerryRegeneration;
-import pd.actors.buffs.ToxicImbue;
 import pd.actors.buffs.Poison;
 import pd.actors.buffs.STRDown;
+import pd.actors.buffs.ToxicImbue;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Foamedbeverage extends Pill {
 	{ image = ItemSpriteSheet.FOAMED; }

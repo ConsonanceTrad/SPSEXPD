@@ -6,9 +6,9 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Slow;
 import pd.actors.hero.Hero;
+import pd.items.weapon.enchantments.NeptuneShock;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
-import pd.items.weapon.enchantments.NeptuneShock;
 import pd.sprites.ItemSpriteSheet;
 
 public class NeptunusTrident extends RelicMeleeWeapon {

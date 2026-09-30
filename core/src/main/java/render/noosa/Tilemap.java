@@ -25,8 +25,8 @@ import render.gltextures.SmartTexture;
 import render.gltextures.TextureCache;
 import render.glwrap.Quad;
 import render.glwrap.Vertexbuffer;
-import render.utils.Rect;
-import render.utils.RectF;
+import render.utils.geom.Rect;
+import render.utils.geom.RectF;
 
 import java.nio.Buffer;
 import java.nio.FloatBuffer;

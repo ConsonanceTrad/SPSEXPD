@@ -9,7 +9,7 @@ import pd.actors.buffs.SkillRecharge;
 import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** REN's cursed phone reproduces its original one-in-ten periodic status burst. */
 public class CursePhone extends MiscEquippable {

@@ -34,8 +34,8 @@ import pd.items.quest.GooBlob;
 import pd.journal.Catalog;
 import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.BArray;
 import render.noosa.audio.Sample;
+import render.utils.data.BArray;
 
 import java.util.ArrayList;
 

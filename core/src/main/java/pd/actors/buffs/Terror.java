@@ -22,7 +22,7 @@
 package pd.actors.buffs;
 
 import pd.ui.BuffIndicator;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class Terror extends FlavourBuff {
 

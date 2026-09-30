@@ -37,7 +37,7 @@ import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 public class TelekineticGrab extends TargetedSpell {
 

@@ -1,5 +1,6 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.start;
+import java.util.ArrayList;
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -16,8 +17,7 @@ import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
-import render.utils.Bundle;
-import java.util.ArrayList;
+import render.utils.serialize.Bundle;
 public class HolyMace extends NormalMeleeWeapon {
 	public static final String AC_ADD="ADD",AC_LIGHT="LIGHT",AC_TRIAL="TRIAL";private static final String CHARGE="charge",UP1="uptime1",UP2="uptime2";private int charge,uptime1=1,uptime2=1;
 	public HolyMace(){super(3,1.2f,1f,2,8,20,ItemSpriteSheet.LEGACY_HOLY_MACE);unique=true;reinforced=true;cursed=true;defaultAction=AC_ADD;usesTargeting=true;}

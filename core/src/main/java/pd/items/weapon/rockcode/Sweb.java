@@ -12,7 +12,7 @@ import pd.effects.MagicMissile;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Sweb extends RockCode {
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "S.w"; }

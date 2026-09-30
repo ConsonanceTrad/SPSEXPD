@@ -31,9 +31,9 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.rooms.special.ShopRoom;
 import pd.scenes.GameScene;
-import render.utils.Bundle;
-import render.utils.Point;
-import render.utils.Random;
+import render.utils.geom.Point;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.Collection;

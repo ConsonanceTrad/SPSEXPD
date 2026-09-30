@@ -39,8 +39,8 @@ import pd.levels.Level;
 import pd.levels.RegularLevel;
 import pd.levels.Terrain;
 import pd.levels.rooms.special.WeakFloorRoom;
-import pd.levels.traps.Trap;
 import pd.levels.traps.PitfallTrap;
+import pd.levels.traps.Trap;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.InterlevelScene;
@@ -51,8 +51,8 @@ import pd.windows.WndOptions;
 import render.noosa.Game;
 import render.noosa.Image;
 import render.noosa.audio.Sample;
-import render.utils.Callback;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.math.Random;
 
 public class Chasm implements Hero.Doom {
 

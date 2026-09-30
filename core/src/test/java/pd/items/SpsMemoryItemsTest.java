@@ -9,7 +9,7 @@ import pd.items.quest.AdventureJournal;
 import pd.items.sellitem.DevUpPlan;
 import pd.scenes.MemorySaveScene;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 /** Headless checks for the two legacy item-driven memory-save routes. */
 public final class SpsMemoryItemsTest {

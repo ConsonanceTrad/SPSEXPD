@@ -21,22 +21,22 @@
 
 package pd.ui;
 
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.hero.HeroClass;
+import pd.atlas.AtlasReader;
+import pd.atlas.IconEntry;
+import pd.atlas.interfaces.IconsDict;
 import pd.levels.Level;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.Image;
-import pd.atlas.AtlasReader;
-import pd.atlas.IconEntry;
-import pd.atlas.interfaces.IconsDict;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import render.utils.RectF;
+import render.utils.geom.RectF;
 
 public enum Icons {
 

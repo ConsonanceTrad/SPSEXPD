@@ -1,6 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.artifacts;
 
+import java.util.ArrayList;
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Char;
@@ -23,9 +24,8 @@ import pd.utils.GLog;
 import pd.windows.WndOptions;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
-import render.utils.Random;
-import java.util.ArrayList;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class TimeOclock extends Artifact {
 	public static final String AC_ACTIVATE="ACTIVATE",AC_RESTART="RESTART";

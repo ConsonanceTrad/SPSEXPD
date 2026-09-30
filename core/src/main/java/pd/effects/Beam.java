@@ -26,7 +26,7 @@ import render.glwrap.Blending;
 import render.noosa.Game;
 import render.noosa.Image;
 import render.noosa.audio.Sample;
-import render.utils.PointF;
+import render.utils.geom.PointF;
 
 public class Beam extends Image {
 	

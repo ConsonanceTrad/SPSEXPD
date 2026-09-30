@@ -25,7 +25,7 @@ import pd.Assets;
 import pd.effects.Splash;
 import render.noosa.Game;
 import render.noosa.TextureFilm;
-import render.utils.PointF;
+import render.utils.geom.PointF;
 
 public class SpawnerSprite extends MobSprite {
 

@@ -53,7 +53,7 @@ import pd.ui.Window;
 import render.noosa.BitmapText;
 import render.noosa.ColorBlock;
 import render.noosa.audio.Sample;
-import render.utils.Reflection;
+import render.utils.serialize.Reflection;
 
 public class WndUpgrade extends Window {
 

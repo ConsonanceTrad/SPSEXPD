@@ -23,8 +23,8 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.levels.features.LevelTransition;
 import pd.tiles.custom.SpsLegacyLevelVisual;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 /** The original 48x48 Spring Festival town, journal destination 6. */
 public class SpringFestivalLevel extends Level {

@@ -25,7 +25,7 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.effects.MagicMissile;
 import render.noosa.TextureFilm;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 public class FungalSentrySprite extends MobSprite {
 

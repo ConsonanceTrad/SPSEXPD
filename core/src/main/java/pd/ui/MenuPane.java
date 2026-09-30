@@ -45,7 +45,7 @@ import render.noosa.Image;
 import render.noosa.NinePatch;
 import render.noosa.audio.Sample;
 import render.noosa.ui.Component;
-import render.utils.DeviceCompat;
+import render.utils.platform.DeviceCompat;
 
 public class MenuPane extends Component {
 

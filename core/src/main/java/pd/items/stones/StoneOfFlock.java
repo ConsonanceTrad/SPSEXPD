@@ -30,8 +30,8 @@ import pd.effects.Speck;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.BArray;
 import render.noosa.audio.Sample;
+import render.utils.data.BArray;
 
 import java.util.ArrayList;
 

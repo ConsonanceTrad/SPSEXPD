@@ -27,7 +27,7 @@ import pd.actors.Char;
 import pd.actors.hero.Talent;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class LifeLink extends FlavourBuff {
 

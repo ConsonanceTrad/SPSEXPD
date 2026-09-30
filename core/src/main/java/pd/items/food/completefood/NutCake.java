@@ -6,7 +6,7 @@ import pd.actors.buffs.ShieldArmor;
 import pd.actors.hero.Hero;
 import pd.effects.Speck;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class NutCake extends CompleteFood {
 	{

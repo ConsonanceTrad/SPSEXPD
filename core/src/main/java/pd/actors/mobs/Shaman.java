@@ -39,7 +39,7 @@ import pd.sprites.CharSprite;
 import pd.sprites.ShamanSprite;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public abstract class Shaman extends Mob {
 	

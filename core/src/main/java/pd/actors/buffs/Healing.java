@@ -27,8 +27,8 @@ import pd.items.trinkets.VialOfBlood;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
-import render.utils.Bundle;
-import render.utils.GameMath;
+import render.utils.math.GameMath;
+import render.utils.serialize.Bundle;
 
 public class Healing extends Buff {
 

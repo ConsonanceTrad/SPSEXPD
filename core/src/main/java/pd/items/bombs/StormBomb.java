@@ -16,8 +16,8 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.BArray;
-import render.utils.Random;
+import render.utils.data.BArray;
+import render.utils.math.Random;
 
 public class StormBomb extends Bomb {
 	{ image = ItemSpriteSheet.LEGACY_STORM_BOMB; }

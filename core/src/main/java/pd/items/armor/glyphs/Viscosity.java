@@ -27,15 +27,15 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Talent;
-import pd.items.armor.Armor;
 import pd.items.armor.Armor.Glyph;
+import pd.items.armor.Armor;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSprite;
 import pd.sprites.ItemSprite.Glowing;
+import pd.sprites.ItemSprite;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class Viscosity extends Glyph {
 	

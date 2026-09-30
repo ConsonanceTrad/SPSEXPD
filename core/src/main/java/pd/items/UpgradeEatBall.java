@@ -12,7 +12,7 @@ import pd.plants.Seedpod;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

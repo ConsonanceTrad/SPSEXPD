@@ -25,8 +25,8 @@ import pd.Dungeon;
 import pd.actors.mobs.npcs.Blacksmith;
 import pd.levels.MiningLevel;
 import pd.levels.Terrain;
-import render.utils.Random;
-import render.utils.SparseArray;
+import render.utils.data.SparseArray;
+import render.utils.math.Random;
 
 import java.util.Arrays;
 import java.util.HashSet;

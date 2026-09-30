@@ -3,7 +3,7 @@ package pd.items.weapon.spammo;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.sprites.ItemSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class GoldAmmo extends SpAmmo {
 	private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing(0xFFFF44);

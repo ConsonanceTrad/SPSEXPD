@@ -16,8 +16,8 @@ import pd.actors.buffs.Cripple;
 import pd.actors.buffs.Paralysis;
 import pd.actors.buffs.Poison;
 import pd.actors.buffs.Roots;
-import pd.actors.buffs.Sleep;
 import pd.actors.buffs.STRDown;
+import pd.actors.buffs.Sleep;
 import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
 import pd.items.AdamantRing;
@@ -34,8 +34,8 @@ import pd.scenes.GameScene;
 import pd.sprites.GnollKeeperSprite;
 import pd.sprites.GnollKingSprite;
 import pd.ui.BossHealthBar;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class GnollKing extends Mob {
 	private int breaks;

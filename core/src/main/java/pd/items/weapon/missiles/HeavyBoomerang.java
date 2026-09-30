@@ -30,8 +30,8 @@ import pd.actors.hero.Hero;
 import pd.sprites.ItemSpriteSheet;
 import pd.sprites.MissileSprite;
 import render.noosa.tweeners.AlphaTweener;
-import render.utils.Bundle;
-import render.utils.Callback;
+import render.utils.data.Callback;
+import render.utils.serialize.Bundle;
 
 public class HeavyBoomerang extends MissileWeapon {
 	

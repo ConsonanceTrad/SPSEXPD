@@ -25,7 +25,7 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
 import pd.tiles.custom.Carpet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class StatuesRoom extends StandardRoom {
 

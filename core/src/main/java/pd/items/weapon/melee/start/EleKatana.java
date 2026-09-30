@@ -7,8 +7,8 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Invisibility;
-import pd.actors.buffs.Shocked;
 import pd.actors.buffs.Shocked2;
+import pd.actors.buffs.Shocked;
 import pd.actors.buffs.Silent;
 import pd.actors.hero.Hero;
 import pd.items.Item;
@@ -21,8 +21,8 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

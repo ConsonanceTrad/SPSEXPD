@@ -21,8 +21,8 @@
 
 package pd.effects.particles;
 
-import render.noosa.particles.Emitter;
 import render.noosa.particles.Emitter.Factory;
+import render.noosa.particles.Emitter;
 import render.noosa.particles.PixelParticle;
 
 public class FlameParticle extends PixelParticle.Shrinking {

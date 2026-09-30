@@ -9,7 +9,7 @@ import pd.actors.buffs.Dry;
 import pd.actors.buffs.Hot;
 import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Tree extends MeleeThrowWeapon {
 	public Tree() { super(1, 1, 5, ItemSpriteSheet.SPS_EASTER_TREE); }

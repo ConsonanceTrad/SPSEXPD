@@ -9,7 +9,7 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class NutFruit extends SpsFruit {
 	public NutFruit() { this(1); }

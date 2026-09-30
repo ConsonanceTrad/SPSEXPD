@@ -26,7 +26,7 @@ import pd.actors.Char;
 import pd.actors.hero.HeroClass;
 import pd.actors.mobs.npcs.MirrorImage;
 import render.noosa.TextureFilm;
-import render.utils.PointF;
+import render.utils.geom.PointF;
 
 public class MirrorSprite extends MobSprite {
 	

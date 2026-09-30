@@ -2,14 +2,14 @@
 package pd.actors.mobs;
 
 import pd.actors.Char;
-import pd.actors.buffs.Buff;
 import pd.actors.buffs.BoxStar;
+import pd.actors.buffs.Buff;
 import pd.actors.buffs.Frost;
 import pd.actors.buffs.StoneIce;
-import pd.sprites.IceRabbit2Sprite;
 import pd.items.eggs.EasterEgg;
-import render.utils.Bundle;
-import render.utils.Random;
+import pd.sprites.IceRabbit2Sprite;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 /** FrostNova's invulnerable opening phase and faster final form. */
 public class UIcecorps2 extends UIcecorps {

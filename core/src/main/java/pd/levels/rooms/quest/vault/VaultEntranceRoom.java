@@ -36,8 +36,8 @@ import pd.messages.Messages;
 import pd.tiles.CustomTilemap;
 import pd.tiles.custom.Carpet;
 import render.noosa.Tilemap;
-import render.utils.Point;
-import render.utils.Random;
+import render.utils.geom.Point;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

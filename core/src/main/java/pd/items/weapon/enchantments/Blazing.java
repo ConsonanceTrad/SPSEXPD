@@ -27,9 +27,9 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Burning;
 import pd.effects.particles.FlameParticle;
 import pd.items.weapon.Weapon;
-import pd.sprites.ItemSprite;
 import pd.sprites.ItemSprite.Glowing;
-import render.utils.Random;
+import pd.sprites.ItemSprite;
+import render.utils.math.Random;
 
 public class Blazing extends Weapon.Enchantment {
 

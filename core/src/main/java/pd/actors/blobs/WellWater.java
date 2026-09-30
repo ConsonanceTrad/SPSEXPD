@@ -31,7 +31,7 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public abstract class WellWater extends Blob {
 

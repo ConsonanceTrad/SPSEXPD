@@ -8,12 +8,12 @@ import pd.actors.buffs.BeOld;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Poison;
 import pd.actors.buffs.Silent;
-import pd.mechanics.Ballistica;
 import pd.items.BossRush;
+import pd.mechanics.Ballistica;
 import pd.messages.Messages;
-import pd.sprites.NewDragon01Sprite;
 import pd.sprites.CharSprite;
-import render.utils.Random;
+import pd.sprites.NewDragon01Sprite;
+import render.utils.math.Random;
 
 /** The original fixed guardian dragon in Dolya town. */
 public class AdultDragonViolet extends Mob {

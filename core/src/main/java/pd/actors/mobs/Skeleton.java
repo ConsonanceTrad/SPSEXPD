@@ -35,8 +35,8 @@ import pd.actors.hero.spells.HolyWard;
 import pd.actors.hero.spells.ShieldOfLight;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.weapon.melee.StoneCross;
 import pd.items.wands.WandOfLivingEarth;
+import pd.items.weapon.melee.StoneCross;
 import pd.levels.features.Chasm;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
@@ -45,7 +45,7 @@ import pd.sprites.SkeletonSprite;
 import pd.ui.TargetHealthIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Skeleton extends Mob {
 	@Override public Item SupercreateLoot() { return new StoneCross(); }

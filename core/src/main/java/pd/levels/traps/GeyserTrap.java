@@ -35,9 +35,9 @@ import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.tiles.DungeonTilemap;
 import render.noosa.audio.Sample;
-import render.utils.BArray;
-import render.utils.PointF;
-import render.utils.Random;
+import render.utils.data.BArray;
+import render.utils.geom.PointF;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

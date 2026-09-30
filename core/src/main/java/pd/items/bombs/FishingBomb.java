@@ -13,8 +13,8 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import render.utils.BArray;
-import render.utils.Random;
+import render.utils.data.BArray;
+import render.utils.math.Random;
 
 public class FishingBomb extends Bomb {
 

@@ -35,7 +35,7 @@ import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.Image;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

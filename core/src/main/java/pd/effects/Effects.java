@@ -21,12 +21,12 @@
 
 package pd.effects;
 
+import java.util.HashMap;
+import java.util.Map;
 import pd.Assets;
 import pd.atlas.AtlasReader;
 import pd.atlas.IconEntry;
 import pd.atlas.effects.EffectsDict;
-import java.util.HashMap;
-import java.util.Map;
 import render.noosa.Image;
 
 public class Effects {

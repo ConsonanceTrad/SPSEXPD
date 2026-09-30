@@ -25,7 +25,7 @@ import pd.items.Item;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class ScrollEmpower extends Buff {
 

@@ -9,8 +9,8 @@
 package pd.levels.builders;
 
 import pd.mechanics.pathfind.Graph;
-import render.utils.Random;
-import render.utils.Rect;
+import render.utils.geom.Rect;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 import java.util.Collection;

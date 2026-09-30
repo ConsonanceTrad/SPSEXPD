@@ -25,7 +25,7 @@ import pd.Dungeon;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class Ooze extends Buff implements Buff.DOTbuff {
 

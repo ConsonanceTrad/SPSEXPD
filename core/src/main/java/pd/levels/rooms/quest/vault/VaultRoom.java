@@ -24,9 +24,9 @@ package pd.levels.rooms.quest.vault;
 import pd.levels.Level;
 import pd.levels.rooms.Room;
 import pd.levels.rooms.standard.StandardRoom;
-import render.utils.Point;
-import render.utils.Random;
-import render.utils.Reflection;
+import render.utils.geom.Point;
+import render.utils.math.Random;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 

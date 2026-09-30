@@ -36,7 +36,7 @@ import pd.items.potions.PotionOfParalyticGas;
 import pd.items.potions.PotionOfPurity;
 import pd.items.potions.PotionOfStrength;
 import pd.items.potions.PotionOfToxicGas;
-import render.utils.Reflection;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

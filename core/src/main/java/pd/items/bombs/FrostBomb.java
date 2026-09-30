@@ -31,7 +31,7 @@ import pd.actors.buffs.Frost;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.BArray;
+import render.utils.data.BArray;
 
 public class FrostBomb extends Bomb {
 	

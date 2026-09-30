@@ -8,9 +8,9 @@ import pd.actors.buffs.Healing;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.items.potions.PotionOfHealing;
+import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import pd.messages.Messages;
 import render.noosa.audio.Sample;
 
 import java.util.ArrayList;

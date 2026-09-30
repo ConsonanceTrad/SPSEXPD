@@ -8,12 +8,12 @@ import pd.actors.buffs.Buff;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.items.wands.WandOfBlastWave;
+import pd.items.weapon.melee.special.TenguSword;
 import pd.levels.BossRushLevel;
 import pd.mechanics.Ballistica;
 import pd.sprites.UTenguSprite;
-import pd.items.weapon.melee.special.TenguSword;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 /** Young Tengu, retaining the original ranged/melee phases and periodic jump. */
 public class UTengu extends BossRushBoss {

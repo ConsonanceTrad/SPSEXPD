@@ -2,7 +2,7 @@
 package pd.actors.buffs;
 
 import pd.Statistics;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 import java.util.Calendar;
 

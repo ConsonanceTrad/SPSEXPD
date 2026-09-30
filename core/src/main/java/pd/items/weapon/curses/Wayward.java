@@ -28,7 +28,7 @@ import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Wayward extends Weapon.Enchantment {
 

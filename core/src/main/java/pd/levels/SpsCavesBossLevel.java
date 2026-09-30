@@ -7,8 +7,8 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.mobs.Hybrid;
 import pd.actors.mobs.Mob;
-import pd.actors.mobs.SpsDM300;
 import pd.actors.mobs.SpiderQueen;
+import pd.actors.mobs.SpsDM300;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.levels.features.LevelTransition;
@@ -21,8 +21,8 @@ import render.noosa.Camera;
 import render.noosa.Group;
 import render.noosa.audio.Music;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

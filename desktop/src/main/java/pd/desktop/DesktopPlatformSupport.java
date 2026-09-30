@@ -30,8 +30,8 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import pd.SPDSettings;
 import render.input.ControllerHandler;
 import render.noosa.Game;
-import render.utils.PlatformSupport;
-import render.utils.Point;
+import render.utils.geom.Point;
+import render.utils.platform.PlatformSupport;
 
 import java.util.HashMap;
 import java.util.regex.Matcher;

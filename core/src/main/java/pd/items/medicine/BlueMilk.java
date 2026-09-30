@@ -1,8 +1,8 @@
 package pd.items.medicine;
 
-import pd.actors.buffs.Buff;
 import pd.actors.buffs.AttackDown;
 import pd.actors.buffs.BerryRegeneration;
+import pd.actors.buffs.Buff;
 import pd.actors.buffs.HasteBuff;
 import pd.actors.buffs.Slow;
 import pd.actors.hero.Hero;

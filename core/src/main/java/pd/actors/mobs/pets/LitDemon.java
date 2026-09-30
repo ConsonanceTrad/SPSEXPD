@@ -7,7 +7,7 @@ import pd.items.food.completefood.PetFood;
 import pd.items.potions.PotionOfMending;
 import pd.items.scrolls.ScrollOfRage;
 import pd.sprites.LitDemonSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class LitDemon extends PET {
 	{

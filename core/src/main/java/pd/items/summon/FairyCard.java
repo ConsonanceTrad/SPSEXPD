@@ -10,7 +10,7 @@ import pd.sprites.CharSprite;
 import pd.sprites.FairySprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.sprites.SugarplumFairySprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class FairyCard extends SpsSummonItem {
 

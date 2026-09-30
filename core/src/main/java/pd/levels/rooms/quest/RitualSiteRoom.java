@@ -31,9 +31,9 @@ import pd.messages.Messages;
 import pd.tiles.CustomTilemap;
 import render.noosa.Image;
 import render.noosa.Tilemap;
-import render.utils.Bundle;
-import render.utils.Point;
-import render.utils.Random;
+import render.utils.geom.Point;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.Arrays;
 

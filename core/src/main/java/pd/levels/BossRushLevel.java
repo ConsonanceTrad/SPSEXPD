@@ -16,8 +16,8 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.UAmulet;
 import pd.actors.mobs.UDM300;
 import pd.actors.mobs.UGoo;
-import pd.actors.mobs.UIcecorps;
 import pd.actors.mobs.UIcecorps2;
+import pd.actors.mobs.UIcecorps;
 import pd.actors.mobs.UKing;
 import pd.actors.mobs.UTengu;
 import pd.actors.mobs.UYog;
@@ -28,8 +28,8 @@ import pd.levels.painters.Painter;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.tiles.custom.SpsLegacyLevelVisual;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.Arrays;
 

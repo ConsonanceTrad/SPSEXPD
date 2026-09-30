@@ -14,7 +14,7 @@ import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 /** The direct-damage swamp-gas wand from SPS-PD 0.9.8. */
 public class WandOfSwamp extends DamageWand {

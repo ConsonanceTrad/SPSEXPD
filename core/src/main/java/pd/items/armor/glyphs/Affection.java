@@ -25,11 +25,11 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Charm;
 import pd.effects.Speck;
-import pd.items.armor.Armor;
 import pd.items.armor.Armor.Glyph;
-import pd.sprites.ItemSprite;
+import pd.items.armor.Armor;
 import pd.sprites.ItemSprite.Glowing;
-import render.utils.Random;
+import pd.sprites.ItemSprite;
+import render.utils.math.Random;
 
 public class Affection extends Glyph {
 	

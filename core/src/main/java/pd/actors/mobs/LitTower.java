@@ -8,7 +8,7 @@ import pd.effects.particles.SparkParticle;
 import pd.messages.Messages;
 import pd.sprites.OtiluckStoneSprite;
 import render.noosa.Camera;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** Invulnerable lightning statue powered by the corrupted Otiluke mirror. */
 public class LitTower extends Mob {

@@ -29,7 +29,7 @@ import pd.actors.buffs.Buff;
 import pd.items.rings.RingOfSharpshooting;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Tomahawk extends MissileWeapon {
 

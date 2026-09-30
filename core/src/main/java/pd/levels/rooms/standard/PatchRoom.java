@@ -24,7 +24,7 @@ package pd.levels.rooms.standard;
 import pd.levels.Level;
 import pd.levels.Patch;
 import pd.mechanics.pathfind.PathFinder;
-import render.utils.BArray;
+import render.utils.data.BArray;
 
 //This room type uses the patch system to fill itself in in some manner
 //it's still up to the specific room to implement paint, but utility methods are provided

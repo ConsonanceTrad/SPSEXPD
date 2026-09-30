@@ -20,9 +20,9 @@ import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
-import render.utils.Random;
-import render.utils.Reflection;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 

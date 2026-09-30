@@ -27,8 +27,8 @@ import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.standard.LibraryRingRoom;
 import pd.tiles.custom.Carpet;
-import render.utils.Point;
-import render.utils.Random;
+import render.utils.geom.Point;
+import render.utils.math.Random;
 
 public class LibraryRingExitRoom extends LibraryRingRoom {
 

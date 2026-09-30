@@ -22,7 +22,7 @@
 package render.noosa;
 
 import render.input.PointerEvent;
-import render.utils.Signal;
+import render.utils.data.Signal;
 
 public class PointerArea extends Visual implements Signal.Listener<PointerEvent> {
 	

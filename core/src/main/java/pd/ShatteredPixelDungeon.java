@@ -28,8 +28,8 @@ import pd.scenes.WelcomeScene;
 import render.noosa.Game;
 import render.noosa.audio.Music;
 import render.noosa.audio.Sample;
-import render.utils.DeviceCompat;
-import render.utils.PlatformSupport;
+import render.utils.platform.DeviceCompat;
+import render.utils.platform.PlatformSupport;
 
 public class ShatteredPixelDungeon extends Game {
 
@@ -49,55 +49,55 @@ public class ShatteredPixelDungeon extends Game {
 		super( sceneClass == null ? WelcomeScene.class : sceneClass, platform );
 
 		//pre-v3.3.0
-		render.utils.Bundle.addAlias(
+		render.utils.serialize.Bundle.addAlias(
 				pd.items.keys.WornKey.class,
 				"com.shatteredpixel.shatteredpixeldungeon.items.keys.SkeletonKey" );
-		render.utils.Bundle.addAlias(
+		render.utils.serialize.Bundle.addAlias(
 				pd.items.artifacts.fusion.EyeOfSkadi.class,
 				"com.hmdzl.spspd.items.artifacts.EyeOfSkadi" );
-		render.utils.Bundle.addAlias(
+		render.utils.serialize.Bundle.addAlias(
 				pd.items.artifacts.fusion.EyeOfSkadi.EyeRecharge.class,
 				"com.hmdzl.spspd.items.artifacts.EyeOfSkadi$eyeRecharge" );
-		render.utils.Bundle.addAlias(
+		render.utils.serialize.Bundle.addAlias(
 				pd.items.artifacts.fusion.NoomlinCrown.class,
 				"com.hmdzl.spspd.items.artifacts.NoomlinCrown" );
-		render.utils.Bundle.addAlias(
+		render.utils.serialize.Bundle.addAlias(
 				pd.items.artifacts.fusion.NoomlinCrown.Crown.class,
 				"com.hmdzl.spspd.items.artifacts.NoomlinCrown$crown" );
-		render.utils.Bundle.addAlias(
+		render.utils.serialize.Bundle.addAlias(
 				pd.items.artifacts.AlienBag.class,
 				"com.hmdzl.spspd.items.artifacts.AlienBag" );
-		render.utils.Bundle.addAlias(
+		render.utils.serialize.Bundle.addAlias(
 				pd.items.artifacts.AlienBag.BagRecharge.class,
 				"com.hmdzl.spspd.items.artifacts.AlienBag$bagRecharge" );
-		render.utils.Bundle.addAlias(
+		render.utils.serialize.Bundle.addAlias(
 				pd.items.artifacts.Pylon.class,
 				"com.hmdzl.spspd.items.artifacts.Pylon" );
-		render.utils.Bundle.addAlias(
+		render.utils.serialize.Bundle.addAlias(
 				pd.items.artifacts.Pylon.BeaconRecharge.class,
 				"com.hmdzl.spspd.items.artifacts.Pylon$beaconRecharge" );
-		render.utils.Bundle.addAlias(
+		render.utils.serialize.Bundle.addAlias(
 				pd.items.artifacts.TimeOclock.class,
 				"com.hmdzl.spspd.items.artifacts.TimeOclock" );
-		render.utils.Bundle.addAlias(
+		render.utils.serialize.Bundle.addAlias(
 				pd.items.artifacts.TimeOclock.OclockRecharge.class,
 				"com.hmdzl.spspd.items.artifacts.TimeOclock$oclockRecharge" );
-		render.utils.Bundle.addAlias(
+		render.utils.serialize.Bundle.addAlias(
 				pd.items.artifacts.TimeOclock.TimeStasis.class,
 				"com.hmdzl.spspd.items.artifacts.TimeOclock$timeStasis2" );
-		render.utils.Bundle.addAlias(
+		render.utils.serialize.Bundle.addAlias(
 				pd.items.artifacts.TimeOclock.Clock.class,
 				"com.hmdzl.spspd.items.artifacts.TimeOclock$clock" );
-		render.utils.Bundle.addAlias(
+		render.utils.serialize.Bundle.addAlias(
 				pd.items.artifacts.RobotDMT.class,
 				"com.hmdzl.spspd.items.artifacts.RobotDMT" );
-		render.utils.Bundle.addAlias(
+		render.utils.serialize.Bundle.addAlias(
 				pd.items.artifacts.RobotDMT.DmtRecharge.class,
 				"com.hmdzl.spspd.items.artifacts.RobotDMT$dmtRecharge" );
-		render.utils.Bundle.addAlias(
+		render.utils.serialize.Bundle.addAlias(
 				pd.items.medicine.TimePill.class,
 				"com.hmdzl.spspd.items.medicine.Timepill" );
-		render.utils.Bundle.addAlias(
+		render.utils.serialize.Bundle.addAlias(
 				pd.items.medicine.Timepill2.class,
 				"com.hmdzl.spspd.items.medicine.Timepill2" );
 

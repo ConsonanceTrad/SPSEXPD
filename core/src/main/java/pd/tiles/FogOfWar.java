@@ -19,7 +19,7 @@ import render.gltextures.TextureCache;
 import render.noosa.Image;
 import render.noosa.NoosaScript;
 import render.noosa.NoosaScriptNoLighting;
-import render.utils.Rect;
+import render.utils.geom.Rect;
 
 /** SPS-PD 0.9.8's four-cell-corner fog mask, adapted to libGDX pixmaps. */
 public class FogOfWar extends Image {

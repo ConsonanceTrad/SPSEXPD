@@ -30,7 +30,7 @@ import pd.items.trinkets.TrinketCatalyst;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class RunestoneRoom extends SpecialRoom {
 	

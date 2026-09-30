@@ -5,12 +5,12 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.*;
-import pd.actors.mobs.BrokenRobot;
-import pd.actors.mobs.DemonFlower;
-import pd.actors.mobs.DemonGoo;
 import pd.actors.mobs.Assassin;
 import pd.actors.mobs.BambooMob;
+import pd.actors.mobs.BrokenRobot;
 import pd.actors.mobs.BrownBat;
+import pd.actors.mobs.DemonFlower;
+import pd.actors.mobs.DemonGoo;
 import pd.items.quest.AdventureJournal;
 import pd.levels.builders.SpsBspLayout;
 import pd.levels.features.LevelTransition;
@@ -18,8 +18,8 @@ import pd.levels.painters.HallsPainter;
 import pd.levels.painters.Painter;
 import pd.levels.traps.DistortionTrap;
 import pd.tiles.custom.SpsLegacyLevelVisual;
-import render.utils.Random;
-import render.utils.Reflection;
+import render.utils.math.Random;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 

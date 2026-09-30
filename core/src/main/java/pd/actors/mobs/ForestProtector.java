@@ -10,7 +10,7 @@ import pd.items.VioletDewdrop;
 import pd.mechanics.Ballistica;
 import pd.sprites.CharSprite;
 import pd.sprites.ForestProtectorSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class ForestProtector extends Mob {
 

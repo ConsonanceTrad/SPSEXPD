@@ -29,7 +29,7 @@ import pd.actors.buffs.Corrosion;
 import pd.effects.BlobEmitter;
 import pd.effects.Speck;
 import pd.messages.Messages;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class CorrosiveGas extends Blob {
 

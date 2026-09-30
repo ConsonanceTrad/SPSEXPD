@@ -29,13 +29,13 @@ import pd.actors.Char;
 import pd.actors.hero.Belongings;
 import pd.items.ChangeEquip;
 import pd.items.Item;
-import pd.items.bags.Bag;
 import pd.items.bags.ArrowCollecter;
+import pd.items.bags.Bag;
 import pd.items.bags.KeyRing;
 import pd.items.bags.MagicalHolster;
 import pd.items.bags.PotionBandolier;
-import pd.items.bags.SeedPouch;
 import pd.items.bags.ScrollHolder;
+import pd.items.bags.SeedPouch;
 import pd.items.bags.VelvetPouch;
 import pd.items.bags.WandHolster;
 import pd.messages.Messages;
@@ -57,9 +57,9 @@ import render.noosa.Image;
 import render.noosa.NinePatch;
 import render.noosa.PointerArea;
 import render.noosa.ui.Component;
-import render.utils.Point;
-import render.utils.PointF;
-import render.utils.Signal;
+import render.utils.data.Signal;
+import render.utils.geom.Point;
+import render.utils.geom.PointF;
 
 import java.util.ArrayList;
 

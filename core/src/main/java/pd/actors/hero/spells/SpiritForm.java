@@ -61,9 +61,9 @@ import pd.ui.HeroIcon;
 import pd.ui.QuickSlotButton;
 import render.noosa.Game;
 import render.noosa.Image;
-import render.utils.Bundlable;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundlable;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

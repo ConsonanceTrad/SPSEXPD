@@ -2,13 +2,13 @@ package pd.plants;
 
 import pd.Dungeon;
 import pd.actors.Char;
-import pd.items.food.fusion.Nut;
 import pd.items.food.fruit.Cherry;
 import pd.items.food.fruit.Strawberry;
+import pd.items.food.fusion.Nut;
 import pd.items.food.vegetable.NutVegetable;
 import pd.items.weapon.missiles.arrows.NutFruit;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class NutPlant extends Plant {
 	{ image = 17; seedClass = Seed.class; }

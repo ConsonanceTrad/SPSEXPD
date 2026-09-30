@@ -1,19 +1,19 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.levels;
+import java.util.ArrayList;
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
-import pd.actors.mobs.Mob;
 import pd.actors.mobs.BanditKing;
+import pd.actors.mobs.Mob;
 import pd.actors.mobs.ThiefKing;
 import pd.items.quest.AdventureJournal;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.scenes.GameScene;
-import render.utils.Bundle;
-import render.utils.Random;
-import java.util.ArrayList;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 public class ThiefBossLevel extends Level {
 	public static final int WIDTH=48,HEIGHT=48,TOP=2,HALL_WIDTH=13,HALL_HEIGHT=15,CHAMBER_HEIGHT=3,LEFT=(WIDTH-HALL_WIDTH)/2,CENTER=LEFT+HALL_WIDTH/2;
 	private int arenaDoor;private boolean enteredArena;

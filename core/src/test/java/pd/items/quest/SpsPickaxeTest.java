@@ -21,8 +21,8 @@ import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.plants.Plant;
 import render.noosa.Game;
-import render.utils.Random;
-import render.utils.SparseArray;
+import render.utils.data.SparseArray;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 import java.util.Arrays;

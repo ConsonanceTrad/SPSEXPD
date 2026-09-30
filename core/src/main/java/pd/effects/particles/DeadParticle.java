@@ -2,7 +2,7 @@ package pd.effects.particles;
 
 import render.noosa.particles.Emitter;
 import render.noosa.particles.PixelParticle;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class DeadParticle extends PixelParticle {
 	public static final Emitter.Factory FACTORY = new Emitter.Factory() {

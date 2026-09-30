@@ -1,5 +1,6 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.actors.mobs;
+import java.util.ArrayList;
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -18,9 +19,8 @@ import pd.sprites.CrabKingSprite;
 import pd.ui.BossHealthBar;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
-import render.utils.Random;
-import java.util.ArrayList;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 public class CrabKing extends Mob {
 	private static final int JUMP_DELAY = 5;
 	private int timeToJump = JUMP_DELAY;

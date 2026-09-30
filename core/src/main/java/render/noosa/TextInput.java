@@ -41,9 +41,9 @@ import render.glwrap.Blending;
 import render.glwrap.Quad;
 import render.glwrap.Texture;
 import render.noosa.ui.Component;
-import render.utils.DeviceCompat;
-import render.utils.FileUtils;
-import render.utils.Point;
+import render.utils.geom.Point;
+import render.utils.platform.DeviceCompat;
+import render.utils.serialize.FileUtils;
 
 //essentially contains a libGDX text input field, plus a PD-rendered background
 public class TextInput extends Component {

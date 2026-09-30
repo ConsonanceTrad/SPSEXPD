@@ -36,7 +36,7 @@ import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.BitmapText;
 import render.noosa.Image;
-import render.utils.Rect;
+import render.utils.geom.Rect;
 
 public class ItemSlot extends Button {
 

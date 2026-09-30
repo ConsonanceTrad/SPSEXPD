@@ -22,8 +22,8 @@
 package render.noosa;
 
 import render.glwrap.Matrix;
-import render.utils.Point;
-import render.utils.PointF;
+import render.utils.geom.Point;
+import render.utils.geom.PointF;
 
 public class Visual extends Gizmo {
 

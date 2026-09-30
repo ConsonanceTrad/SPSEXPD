@@ -24,7 +24,7 @@ package pd.levels.rooms.standard;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class PillarsRoom extends StandardRoom {
 	

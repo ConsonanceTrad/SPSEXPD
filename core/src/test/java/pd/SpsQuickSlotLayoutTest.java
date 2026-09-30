@@ -2,8 +2,8 @@ package pd;
 
 import pd.items.Item;
 import render.noosa.Game;
-import render.utils.Bundlable;
-import render.utils.Bundle;
+import render.utils.serialize.Bundlable;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

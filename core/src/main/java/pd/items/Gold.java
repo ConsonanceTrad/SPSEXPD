@@ -32,7 +32,7 @@ import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

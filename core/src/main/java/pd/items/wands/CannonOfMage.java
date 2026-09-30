@@ -15,12 +15,12 @@ import pd.actors.buffs.Ooze;
 import pd.actors.buffs.Shocked;
 import pd.effects.MagicMissile;
 import pd.items.Item;
-import pd.mechanics.Ballistica;
 import pd.items.weapon.melee.MagesStaff;
+import pd.mechanics.Ballistica;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.Callback;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.math.Random;
 
 public class CannonOfMage extends DamageWand {
 	{

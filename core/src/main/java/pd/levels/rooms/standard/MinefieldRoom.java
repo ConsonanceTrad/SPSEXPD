@@ -28,8 +28,8 @@ import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
 import pd.levels.traps.ExplosiveTrap;
 import pd.mechanics.pathfind.PathFinder;
-import render.utils.Point;
-import render.utils.Random;
+import render.utils.geom.Point;
+import render.utils.math.Random;
 
 public class MinefieldRoom extends StandardRoom {
 

@@ -18,7 +18,7 @@ import pd.scenes.GiftShopScene;
 import pd.scenes.InterlevelScene;
 import pd.scenes.TitleScene;
 import render.noosa.Game;
-import render.utils.FileUtils;
+import render.utils.serialize.FileUtils;
 
 import java.io.File;
 

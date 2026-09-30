@@ -26,9 +26,9 @@ import pd.actors.mobs.Mimic;
 import pd.effects.FloatingText;
 import pd.items.weapon.Weapon;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSprite;
 import pd.sprites.ItemSprite.Glowing;
-import render.utils.Random;
+import pd.sprites.ItemSprite;
+import render.utils.math.Random;
 
 public class Vampiric extends Weapon.Enchantment {
 

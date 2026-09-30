@@ -3,7 +3,7 @@ package pd.items.weapon.spammo;
 
 import pd.actors.Char;
 import pd.actors.damagetype.DamageType;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class DewAmmo extends SpAmmo {
 	@Override public void onHit(Char attacker, Char defender, int damage) {

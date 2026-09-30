@@ -3,7 +3,7 @@ package pd.actors.buffs;
 
 import pd.Dungeon;
 import pd.ui.BuffIndicator;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** SPS-PD's permanent acid effect. Water is the only normal way to remove it. */
 public class AcidOoze extends Buff {

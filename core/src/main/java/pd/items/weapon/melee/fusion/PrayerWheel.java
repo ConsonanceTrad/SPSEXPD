@@ -4,7 +4,7 @@ package pd.items.weapon.melee.fusion;
 import pd.actors.Char;
 import pd.items.weapon.melee.Mace;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class PrayerWheel extends Mace implements FusionWeapon {
 	private int charge;

@@ -30,8 +30,8 @@ import pd.actors.buffs.ShieldBuff;
 import pd.actors.buffs.Terror;
 import pd.effects.FloatingText;
 import pd.effects.SpellSprite;
-import pd.items.Gold;
 import pd.items.Generator;
+import pd.items.Gold;
 import pd.items.Item;
 import pd.items.wands.Wand;
 import pd.items.weapon.missiles.meleethrow.Tamahawk;
@@ -41,8 +41,8 @@ import pd.sprites.BruteSprite;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class Brute extends Mob {
 	@Override public Item SupercreateLoot() { return new Tamahawk(); }

@@ -26,12 +26,12 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Hunger;
 import pd.actors.hero.Hero;
 import pd.effects.FloatingText;
-import pd.items.armor.Armor;
 import pd.items.armor.Armor.Glyph;
+import pd.items.armor.Armor;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSprite;
 import pd.sprites.ItemSprite.Glowing;
-import render.utils.Random;
+import pd.sprites.ItemSprite;
+import render.utils.math.Random;
 
 public class Metabolism extends Glyph {
 

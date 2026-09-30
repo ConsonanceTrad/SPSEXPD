@@ -8,8 +8,8 @@ import pd.actors.hero.Hero;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 /** A short SPS damage-over-time growth which feeds nearby living characters. */
 public class GrowSeed extends Buff implements Hero.Doom {

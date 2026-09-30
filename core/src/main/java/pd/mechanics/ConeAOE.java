@@ -22,9 +22,9 @@
 package pd.mechanics;
 
 import pd.Dungeon;
-import render.utils.GameMath;
-import render.utils.Point;
-import render.utils.PointF;
+import render.utils.geom.Point;
+import render.utils.geom.PointF;
+import render.utils.math.GameMath;
 
 import java.util.ArrayList;
 import java.util.HashSet;

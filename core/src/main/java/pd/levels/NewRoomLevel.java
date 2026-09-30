@@ -18,7 +18,7 @@ import pd.actors.Char;
 import pd.actors.mobs.Mob;
 import pd.levels.features.LevelTransition;
 import pd.tiles.custom.SpsLegacyLevelVisual;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** The original journal page 8 home, randomly using one of its two fixed layouts. */
 public class NewRoomLevel extends Level {

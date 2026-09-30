@@ -28,7 +28,7 @@ import render.noosa.Game;
 import render.noosa.Group;
 import render.noosa.NoosaScript;
 import render.noosa.Visual;
-import render.utils.PointF;
+import render.utils.geom.PointF;
 
 import java.nio.Buffer;
 import java.nio.ByteBuffer;

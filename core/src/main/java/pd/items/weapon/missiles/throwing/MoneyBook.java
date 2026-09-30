@@ -10,7 +10,7 @@ import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
 import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.BArray;
+import render.utils.data.BArray;
 
 import java.util.ArrayList;
 

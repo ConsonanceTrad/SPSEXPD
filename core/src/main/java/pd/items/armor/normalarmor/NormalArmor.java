@@ -8,8 +8,6 @@ import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.items.armor.Armor;
 import pd.items.armor.glyphs.Stone;
-import pd.items.rings.RingOfEvasion;
-import pd.messages.Messages;
 import pd.items.armor.specialarmor.AsceticArmor;
 import pd.items.armor.specialarmor.FollowerArmor;
 import pd.items.armor.specialarmor.HuntressArmor;
@@ -18,6 +16,8 @@ import pd.items.armor.specialarmor.PerformerArmor;
 import pd.items.armor.specialarmor.RogueArmor;
 import pd.items.armor.specialarmor.SoldierArmor;
 import pd.items.armor.specialarmor.WarriorArmor;
+import pd.items.rings.RingOfEvasion;
+import pd.messages.Messages;
 
 /** Shared implementation of SPS-PD's defense, dexterity, stealth and energy armor stats. */
 public class NormalArmor extends Armor {

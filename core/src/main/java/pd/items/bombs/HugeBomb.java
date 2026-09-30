@@ -20,8 +20,8 @@ import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.BArray;
-import render.utils.Random;
+import render.utils.data.BArray;
+import render.utils.math.Random;
 
 /** SPS two-tile blast bomb, including its intended wall-breaking behavior. */
 public class HugeBomb extends Bomb {

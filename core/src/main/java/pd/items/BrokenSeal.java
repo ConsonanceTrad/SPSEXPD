@@ -44,8 +44,8 @@ import pd.windows.WndOptions;
 import pd.windows.WndUseItem;
 import render.noosa.Image;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
-import render.utils.GameMath;
+import render.utils.math.GameMath;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.Arrays;

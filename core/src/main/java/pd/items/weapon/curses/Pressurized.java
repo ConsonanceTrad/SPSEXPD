@@ -27,7 +27,7 @@ import pd.items.weapon.melee.MeleeWeapon;
 import pd.levels.traps.GeyserTrap;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Pressurized extends Weapon.Enchantment {
 

@@ -51,8 +51,8 @@ import pd.windows.WndOptions;
 import pd.windows.WndTitledMessage;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
-import render.utils.Reflection;
+import render.utils.serialize.Bundle;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 

@@ -2,15 +2,15 @@
 package pd.items;
 
 import pd.Dungeon;
-import pd.actors.hero.Hero;
 import pd.actors.buffs.Invisibility;
+import pd.actors.hero.Hero;
 import pd.levels.Level;
 import pd.messages.Messages;
 import pd.scenes.InterlevelScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.Game;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

@@ -25,8 +25,8 @@ import pd.tiles.DungeonTilemap;
 import render.noosa.Game;
 import render.noosa.Group;
 import render.noosa.Image;
-import render.utils.Callback;
-import render.utils.PointF;
+import render.utils.data.Callback;
+import render.utils.geom.PointF;
 
 public class Chains extends Group {
 

@@ -29,7 +29,7 @@ import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
 import pd.levels.rooms.standard.RegionDecoPatchRoom;
 import pd.mechanics.pathfind.PathFinder;
-import render.utils.Point;
+import render.utils.geom.Point;
 
 public class RegionDecoPatchEntranceRoom extends RegionDecoPatchRoom {
 

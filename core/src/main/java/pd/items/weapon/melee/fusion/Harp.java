@@ -11,7 +11,7 @@ import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.items.weapon.melee.Scimitar;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class Harp extends Scimitar implements FusionWeapon {
 

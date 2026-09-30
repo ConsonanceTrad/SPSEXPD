@@ -49,7 +49,7 @@ import pd.services.updates.Updates;
 import pd.ui.Button;
 import render.input.KeyEvent;
 import render.noosa.Game;
-import render.utils.FileUtils;
+import render.utils.serialize.FileUtils;
 
 public class AndroidLauncher extends AndroidApplication {
 	

@@ -31,7 +31,7 @@ import pd.ui.ActionIndicator;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import pd.ui.QuickSlotButton;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class SnipersMark extends FlavourBuff implements ActionIndicator.Action {
 

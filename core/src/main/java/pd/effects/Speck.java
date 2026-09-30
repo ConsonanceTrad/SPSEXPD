@@ -27,10 +27,10 @@ import render.noosa.Game;
 import render.noosa.Image;
 import render.noosa.TextureFilm;
 import render.noosa.particles.Emitter;
-import render.utils.ColorMath;
-import render.utils.PointF;
-import render.utils.Random;
-import render.utils.SparseArray;
+import render.utils.data.SparseArray;
+import render.utils.geom.PointF;
+import render.utils.math.ColorMath;
+import render.utils.math.Random;
 
 public class Speck extends Image {
 

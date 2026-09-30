@@ -22,6 +22,7 @@
 package pd.windows;
 
 import pd.Dungeon;
+import pd.items.Generator;
 import pd.items.Item;
 import pd.items.bags.ArrowCollecter;
 import pd.items.bags.HeartOfScarecrow;
@@ -33,7 +34,6 @@ import pd.items.bags.SeedPouch;
 import pd.items.bags.ShoppingCart;
 import pd.items.bags.VelvetPouch;
 import pd.items.bags.WandHolster;
-import pd.items.Generator;
 import pd.journal.Catalog;
 import pd.journal.SpsCatalog;
 import pd.messages.Messages;
@@ -44,7 +44,7 @@ import pd.ui.RedButton;
 import pd.ui.Window;
 import pd.utils.GLog;
 import render.noosa.Game;
-import render.utils.DeviceCompat;
+import render.utils.platform.DeviceCompat;
 
 import java.util.ArrayList;
 import java.util.Collection;

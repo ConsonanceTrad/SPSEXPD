@@ -8,7 +8,7 @@ import pd.actors.buffs.Burning;
 import pd.actors.hero.Hero;
 import pd.items.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class DemonBlade extends NormalMeleeWeapon {
 

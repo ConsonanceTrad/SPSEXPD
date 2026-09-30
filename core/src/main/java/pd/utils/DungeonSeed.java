@@ -21,7 +21,7 @@
 
 package pd.utils;
 
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.Locale;
 

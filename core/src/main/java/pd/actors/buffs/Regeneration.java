@@ -29,7 +29,7 @@ import pd.items.artifacts.ChaliceOfBlood;
 import pd.items.trinkets.ChaoticCenser;
 import pd.items.trinkets.SaltCube;
 import pd.levels.VaultLevel;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class Regeneration extends Buff {
 	

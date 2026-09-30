@@ -33,7 +33,7 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class PrismaticGuard extends Buff {
 	

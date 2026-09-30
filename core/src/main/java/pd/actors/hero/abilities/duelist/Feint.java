@@ -51,7 +51,7 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.noosa.tweeners.AlphaTweener;
 import render.noosa.tweeners.Delayer;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 public class Feint extends ArmorAbility {
 

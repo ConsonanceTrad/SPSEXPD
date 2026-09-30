@@ -6,7 +6,7 @@ import pd.actors.Char;
 import pd.items.weapon.Weapon;
 import pd.messages.Messages;
 import pd.sprites.SentinelSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** The passive enchanted-weapon guardian from the legacy wisdom trial. */
 public class Sentinel extends Statue {

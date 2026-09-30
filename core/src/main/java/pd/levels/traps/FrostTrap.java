@@ -31,8 +31,8 @@ import pd.actors.mobs.Mob;
 import pd.effects.Splash;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import render.utils.BArray;
 import render.noosa.audio.Sample;
+import render.utils.data.BArray;
 
 public class FrostTrap extends Trap {
 

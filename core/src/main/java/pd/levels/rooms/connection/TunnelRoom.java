@@ -24,11 +24,11 @@ package pd.levels.rooms.connection;
 import pd.levels.Level;
 import pd.levels.painters.Painter;
 import pd.mechanics.pathfind.PathFinder;
-import render.utils.GameMath;
-import render.utils.Point;
-import render.utils.PointF;
-import render.utils.Random;
-import render.utils.Rect;
+import render.utils.geom.Point;
+import render.utils.geom.PointF;
+import render.utils.geom.Rect;
+import render.utils.math.GameMath;
+import render.utils.math.Random;
 
 //tunnels along the rooms center, with straight lines
 public class TunnelRoom extends ConnectionRoom {

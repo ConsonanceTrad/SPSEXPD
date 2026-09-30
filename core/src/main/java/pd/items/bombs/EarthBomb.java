@@ -9,7 +9,7 @@ import pd.actors.buffs.Ooze;
 import pd.actors.buffs.Roots;
 import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.BArray;
+import render.utils.data.BArray;
 
 public class EarthBomb extends Bomb {
 

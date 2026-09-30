@@ -28,8 +28,8 @@ import pd.levels.rooms.standard.StandardRoom;
 import pd.tiles.CustomTilemap;
 import render.noosa.Image;
 import render.noosa.Tilemap;
-import render.utils.Point;
-import render.utils.Random;
+import render.utils.geom.Point;
+import render.utils.math.Random;
 
 public abstract class GooBossRoom extends StandardRoom {
 

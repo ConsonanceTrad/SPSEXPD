@@ -19,9 +19,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package render.utils;
+package render.utils.bitmap;
 
 import com.badlogic.gdx.graphics.Pixmap;
+import render.utils.geom.Rect;
 
 import java.util.HashMap;
 

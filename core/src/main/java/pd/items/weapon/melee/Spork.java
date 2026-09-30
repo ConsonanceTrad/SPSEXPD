@@ -4,7 +4,7 @@ package pd.items.weapon.melee;
 import pd.actors.Char;
 import pd.effects.Speck;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Spork extends MeleeWeapon {
 	{ image = ItemSpriteSheet.SPORK; tier = 3; ACC = 1f; DLY = 0.8f; }

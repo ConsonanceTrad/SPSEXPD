@@ -22,8 +22,8 @@
 package pd.utils;
 
 import pd.messages.Messages;
-import render.utils.DeviceCompat;
-import render.utils.Signal;
+import render.utils.data.Signal;
+import render.utils.platform.DeviceCompat;
 
 public class GLog {
 

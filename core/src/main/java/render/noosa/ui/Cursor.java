@@ -26,9 +26,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Pixmap;
 import render.input.ControllerHandler;
 import render.noosa.Game;
-import render.utils.DeviceCompat;
-import render.utils.FileUtils;
-import render.utils.PointF;
+import render.utils.geom.PointF;
+import render.utils.platform.DeviceCompat;
+import render.utils.serialize.FileUtils;
 
 public class Cursor {
 

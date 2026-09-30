@@ -8,7 +8,7 @@ import pd.actors.buffs.ShadowCurse;
 import pd.actors.buffs.Terror;
 import pd.items.Generator;
 import pd.sprites.ErrorSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** Dormant SPS-PD summoner type, retained with its original behavior and save identity. */
 public class DemonSummoner extends Mob {

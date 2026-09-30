@@ -3,13 +3,13 @@ package pd.plants;
 
 import pd.Dungeon;
 import pd.actors.Char;
-import pd.items.Heap;
 import pd.items.Generator;
+import pd.items.Heap;
 import pd.items.Item;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
-import render.utils.Random;
-import render.utils.Reflection;
+import render.utils.math.Random;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 

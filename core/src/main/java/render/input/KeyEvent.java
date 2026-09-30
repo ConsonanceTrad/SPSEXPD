@@ -22,7 +22,7 @@
 package render.input;
 
 import render.noosa.Game;
-import render.utils.Signal;
+import render.utils.data.Signal;
 
 import java.util.ArrayList;
 

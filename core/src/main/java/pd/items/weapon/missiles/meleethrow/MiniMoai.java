@@ -5,7 +5,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Charm;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class MiniMoai extends MeleeThrowWeapon {
 	public MiniMoai() { super(1, 10, 10, ItemSpriteSheet.SPS_MINI_MOAI); }

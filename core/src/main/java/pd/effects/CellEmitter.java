@@ -24,7 +24,7 @@ package pd.effects;
 import pd.scenes.GameScene;
 import pd.tiles.DungeonTilemap;
 import render.noosa.particles.Emitter;
-import render.utils.PointF;
+import render.utils.geom.PointF;
 
 public class CellEmitter {
 

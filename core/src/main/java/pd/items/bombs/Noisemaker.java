@@ -31,7 +31,7 @@ import pd.effects.Speck;
 import pd.items.Heap;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class Noisemaker extends Bomb {
 	

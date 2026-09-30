@@ -35,7 +35,7 @@ import pd.ui.AttackIndicator;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 public class Sword extends MeleeWeapon {
 	

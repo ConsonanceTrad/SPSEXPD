@@ -24,7 +24,7 @@ import pd.scenes.GameScene;
 import pd.tiles.CustomTilemap;
 import pd.tiles.custom.SpsLegacyLevelVisual;
 import pd.utils.GLog;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** Original fixed dragon-cave treasure map and its armor-eating traps. */
 public class DragonCaveLevel extends Level {

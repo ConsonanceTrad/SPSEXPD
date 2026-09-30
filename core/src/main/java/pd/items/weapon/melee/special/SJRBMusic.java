@@ -17,7 +17,7 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** The original sound-wave club awarded by the velocirooster. */
 public class SJRBMusic extends MeleeWeapon {

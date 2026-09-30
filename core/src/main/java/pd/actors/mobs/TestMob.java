@@ -1,6 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.actors.mobs;
 
+import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Amok;
 import pd.actors.buffs.Buff;
@@ -9,10 +10,9 @@ import pd.actors.buffs.ShieldArmor;
 import pd.actors.buffs.Sleep;
 import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
-import pd.Dungeon;
 import pd.items.bags.HeartOfScarecrow;
 import pd.sprites.ScarecrowSprite;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 /** The original passive damage-test scarecrow. */
 public class TestMob extends Mob {

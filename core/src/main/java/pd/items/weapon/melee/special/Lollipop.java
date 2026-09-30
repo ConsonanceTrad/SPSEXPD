@@ -14,7 +14,7 @@ import pd.items.Item;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Lollipop extends SpsSpecialMeleeWeapon {
 	public Lollipop() { super(1, 1f, 1f, 1, 50, 50, ItemSpriteSheet.SPS_LOLLIPOP); usesTargeting = true; }

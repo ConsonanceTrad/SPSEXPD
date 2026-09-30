@@ -32,8 +32,8 @@ import pd.actors.hero.HeroSubClass;
 import pd.actors.mobs.Mob;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
-import pd.levels.traps.Trap;
 import pd.items.weapon.missiles.arrows.BlindFruit;
+import pd.levels.traps.Trap;
 import pd.sprites.ItemSpriteSheet;
 
 public class Blindweed extends Plant {

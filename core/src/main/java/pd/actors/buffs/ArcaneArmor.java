@@ -25,7 +25,7 @@ import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 //A magical version of barkskin, essentially
 public class ArcaneArmor extends Buff {

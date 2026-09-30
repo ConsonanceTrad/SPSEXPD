@@ -37,15 +37,15 @@ import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
 import pd.effects.particles.ShadowParticle;
 import pd.items.scrolls.ScrollOfMagicalInfusion;
-import pd.items.scrolls.ScrollOfUpgrade;
 import pd.items.scrolls.ScrollOfPsionicBlast;
+import pd.items.scrolls.ScrollOfUpgrade;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.WraithSprite;
 import render.noosa.tweeners.AlphaTweener;
-import render.utils.Bundle;
-import render.utils.Random;
-import render.utils.Reflection;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 

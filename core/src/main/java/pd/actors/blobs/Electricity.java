@@ -35,7 +35,7 @@ import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.utils.GLog;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Electricity extends Blob {
 	

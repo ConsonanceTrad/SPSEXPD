@@ -8,7 +8,7 @@ import pd.actors.mobs.npcs.DirectableAlly;
 import pd.sprites.ExMobileSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.sprites.MobileSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Mobile extends SpsSummonItem {
 

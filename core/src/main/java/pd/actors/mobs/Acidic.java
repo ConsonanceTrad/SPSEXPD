@@ -30,7 +30,7 @@ import pd.items.potions.PotionOfToxicGas;
 import pd.items.wands.WandOfAcid;
 import pd.scenes.GameScene;
 import pd.sprites.AcidicSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Acidic extends Scorpio {
 

@@ -21,7 +21,7 @@
 
 package pd.levels;
 
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Patch {
 

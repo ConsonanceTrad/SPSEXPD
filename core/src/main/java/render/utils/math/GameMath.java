@@ -19,10 +19,28 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package render.utils;
+package render.utils.math;
 
-public interface Callback {
+import render.noosa.Game;
 
-	void call();
+public class GameMath {
 	
+	public static float speed( float speed, float acc ) {
+		
+		if (acc != 0) {
+			speed += acc * Game.elapsed;
+		}
+		
+		return speed;
+	}
+	
+	public static float gate( float min, float value, float max ) {
+		if (value < min) {
+			return min;
+		} else if (value > max) {
+			return max;
+		} else {
+			return value;
+		}
+	}
 }

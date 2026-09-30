@@ -35,7 +35,7 @@ import pd.journal.Catalog;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 import java.util.ArrayList;
 

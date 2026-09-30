@@ -23,9 +23,9 @@ package pd.levels.rooms.secret;
 
 import pd.ShatteredPixelDungeon;
 import pd.levels.rooms.special.SpecialRoom;
-import render.utils.Bundle;
-import render.utils.Random;
-import render.utils.Reflection;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 import java.util.Arrays;

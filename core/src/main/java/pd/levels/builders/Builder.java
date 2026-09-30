@@ -22,11 +22,11 @@
 package pd.levels.builders;
 
 import pd.levels.rooms.Room;
-import render.utils.GameMath;
-import render.utils.Point;
-import render.utils.PointF;
-import render.utils.Random;
-import render.utils.Rect;
+import render.utils.geom.Point;
+import render.utils.geom.PointF;
+import render.utils.geom.Rect;
+import render.utils.math.GameMath;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 import java.util.Iterator;

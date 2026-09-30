@@ -32,7 +32,7 @@ import pd.effects.FloatingText;
 import pd.items.Generator;
 import pd.sprites.CharSprite;
 import pd.sprites.RotLasherSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class RotLasher extends Mob {
 

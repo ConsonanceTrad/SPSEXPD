@@ -53,8 +53,8 @@ import render.noosa.Gizmo;
 import render.noosa.Image;
 import render.noosa.PointerArea;
 import render.noosa.ui.Component;
-import render.utils.Point;
-import render.utils.PointF;
+import render.utils.geom.Point;
+import render.utils.geom.PointF;
 
 import java.util.ArrayList;
 

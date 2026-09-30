@@ -29,7 +29,7 @@ import pd.effects.Speck;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Displacing extends Weapon.Enchantment {
 

@@ -43,8 +43,8 @@ import render.noosa.MovieClip;
 import render.noosa.NoosaScript;
 import render.noosa.audio.Sample;
 import render.noosa.particles.Emitter;
-import render.utils.PointF;
-import render.utils.Random;
+import render.utils.geom.PointF;
+import render.utils.math.Random;
 
 import java.nio.Buffer;
 

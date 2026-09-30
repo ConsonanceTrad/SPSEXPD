@@ -26,8 +26,8 @@ import pd.scenes.PixelScene;
 import render.noosa.Game;
 import render.noosa.NinePatch;
 import render.noosa.ui.Component;
-import render.utils.GameMath;
-import render.utils.RectF;
+import render.utils.geom.RectF;
+import render.utils.math.GameMath;
 
 public class Tooltip extends Component {
 

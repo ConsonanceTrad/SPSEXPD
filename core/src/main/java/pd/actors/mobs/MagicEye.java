@@ -13,10 +13,10 @@ import pd.items.Item;
 import pd.items.StoneOre;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
-import pd.sprites.MagicEyeSprite;
 import pd.sprites.CharSprite;
+import pd.sprites.MagicEyeSprite;
 import pd.utils.GLog;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** Zot's original eye minion. Its beam behavior comes from the modern evil eye. */
 public class MagicEye extends Eye {

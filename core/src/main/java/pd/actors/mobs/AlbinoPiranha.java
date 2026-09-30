@@ -11,14 +11,14 @@ import pd.actors.buffs.Paralysis;
 import pd.actors.buffs.Roots;
 import pd.items.food.meatfood.Meat;
 
-import pd.items.food.vegetable.NutVegetable;
-import pd.items.bombs.FishingBomb;
 import pd.items.Item;
+import pd.items.bombs.FishingBomb;
+import pd.items.food.vegetable.NutVegetable;
 import pd.messages.Messages;
 import pd.sprites.AlbinoPiranhaSprite;
 import pd.utils.GLog;
-import render.utils.BArray;
-import render.utils.Random;
+import render.utils.data.BArray;
+import render.utils.math.Random;
 
 public class AlbinoPiranha extends Mob {
 

@@ -19,21 +19,21 @@ import pd.items.potions.PotionOfHealing;
 import pd.items.potions.PotionOfMight;
 import pd.items.potions.PotionOfOverHealing;
 import pd.items.potions.PotionOfStrength;
-import pd.scenes.AlchemyScene;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.Trap;
 import pd.plants.Plant;
-import render.utils.Bundle;
-import render.utils.SparseArray;
+import pd.scenes.AlchemyScene;
+import render.utils.data.SparseArray;
+import render.utils.serialize.Bundle;
 
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
-import java.util.HashSet;
-import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Properties;
 
 /** Runtime parity checks for SPS-PD 0.9.8's Alchemist's Toolkit. */

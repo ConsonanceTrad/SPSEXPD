@@ -12,7 +12,7 @@ import pd.levels.rooms.Room;
 import pd.levels.rooms.connection.ConnectionRoom;
 import pd.levels.rooms.special.SpsShopRoom;
 import pd.levels.rooms.special.SpsTentRoom;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

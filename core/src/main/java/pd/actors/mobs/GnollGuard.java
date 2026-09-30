@@ -29,8 +29,8 @@ import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.sprites.GnollGuardSprite;
 import pd.utils.GLog;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class GnollGuard extends Mob {
 

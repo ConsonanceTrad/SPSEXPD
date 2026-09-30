@@ -17,7 +17,7 @@ import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 /** The single-target firebolt wand from SPS-PD 0.9.8. */
 public class WandOfFirebolt extends DamageWand {

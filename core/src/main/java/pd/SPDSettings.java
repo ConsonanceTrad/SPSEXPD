@@ -24,12 +24,12 @@ package pd;
 import pd.messages.Languages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
+import pd.settings.GameSettings;
 import render.noosa.Game;
 import render.noosa.audio.Music;
 import render.noosa.audio.Sample;
-import pd.settings.GameSettings;
-import render.utils.DeviceCompat;
-import render.utils.Point;
+import render.utils.geom.Point;
+import render.utils.platform.DeviceCompat;
 
 import java.util.Locale;
 

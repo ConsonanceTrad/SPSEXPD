@@ -10,7 +10,7 @@ import pd.items.YellowDewdrop;
 import pd.messages.Messages;
 import pd.sprites.MossySkeletonSprite;
 import pd.utils.GLog;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class MossySkeleton extends LegacyDualLootMob {
 

@@ -7,8 +7,8 @@ import pd.actors.Char;
 import pd.actors.blobs.Blob;
 import pd.actors.blobs.Fire;
 import pd.actors.blobs.ToxicGas;
-import pd.actors.buffs.Buff;
 import pd.actors.buffs.Amok;
+import pd.actors.buffs.Buff;
 import pd.actors.buffs.Burning;
 import pd.actors.buffs.Charm;
 import pd.actors.buffs.Ooze;
@@ -36,8 +36,8 @@ import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.sprites.SpsYogSprites;
 import pd.ui.BossHealthBar;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

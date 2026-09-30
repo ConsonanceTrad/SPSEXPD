@@ -21,7 +21,7 @@
 
 package render.noosa;
 
-import render.utils.RectF;
+import render.utils.geom.RectF;
 
 public class MovieClip extends Image {
 

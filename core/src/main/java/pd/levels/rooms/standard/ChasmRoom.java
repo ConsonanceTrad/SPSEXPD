@@ -25,7 +25,7 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
-import render.utils.Rect;
+import render.utils.geom.Rect;
 
 public class ChasmRoom extends PatchRoom {
 

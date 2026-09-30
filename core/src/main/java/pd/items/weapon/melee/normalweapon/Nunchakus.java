@@ -4,7 +4,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.HolyStun;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Nunchakus extends NormalMeleeWeapon {
 	public Nunchakus() { super(3, 1f, 1f, 1, 18, 27, ItemSpriteSheet.SPS_WEP_NUNCHAKUS); }

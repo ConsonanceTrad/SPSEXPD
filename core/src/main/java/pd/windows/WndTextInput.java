@@ -31,7 +31,7 @@ import pd.ui.Window;
 import render.input.PointerEvent;
 import render.noosa.Game;
 import render.noosa.TextInput;
-import render.utils.DeviceCompat;
+import render.utils.platform.DeviceCompat;
 
 public class WndTextInput extends Window {
 

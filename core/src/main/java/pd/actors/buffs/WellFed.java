@@ -29,7 +29,7 @@ import pd.items.trinkets.SaltCube;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class WellFed extends Buff {
 

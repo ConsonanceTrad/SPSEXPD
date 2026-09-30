@@ -36,8 +36,8 @@ import render.noosa.BitmapText;
 import render.noosa.Image;
 import render.noosa.Visual;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
-import render.utils.GameMath;
+import render.utils.math.GameMath;
+import render.utils.serialize.Bundle;
 
 public class Momentum extends Buff implements ActionIndicator.Action {
 	

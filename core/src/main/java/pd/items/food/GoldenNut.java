@@ -7,7 +7,7 @@ import pd.items.food.fruit.Fruit;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class GoldenNut extends Fruit {
 	{ image = ItemSpriteSheet.GOLDEN_NUT; energy = 100f; hornValue = 2; }

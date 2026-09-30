@@ -1,12 +1,13 @@
 package pd.actors;
 
 import pd.Dungeon;
-import pd.actors.blobs.HealLight;
 import pd.actors.blobs.DarkGas;
+import pd.actors.blobs.HealLight;
 import pd.actors.blobs.SlowGas;
 import pd.actors.blobs.TarGas;
 import pd.actors.blobs.ToxicGas;
 import pd.actors.blobs.effectblobs.ElectriShock;
+import pd.actors.buffs.AcidOoze;
 import pd.actors.buffs.AttackDown;
 import pd.actors.buffs.AttackUp;
 import pd.actors.buffs.BeOld;
@@ -23,9 +24,8 @@ import pd.actors.buffs.Frost;
 import pd.actors.buffs.Poison;
 import pd.actors.buffs.Roots;
 import pd.actors.buffs.ShadowCurse;
-import pd.actors.buffs.Tar;
 import pd.actors.buffs.StoneIce;
-import pd.actors.buffs.AcidOoze;
+import pd.actors.buffs.Tar;
 import pd.actors.buffs.Wet;
 import pd.actors.buffs.armorbuff.GlyphEarth;
 import pd.actors.damagetype.DamageType;
@@ -47,15 +47,15 @@ import pd.actors.mobs.pets.Bunny;
 import pd.actors.mobs.pets.LeryFire;
 import pd.actors.mobs.pets.Scorpion;
 import pd.actors.mobs.pets.YearPet;
+import pd.items.bombs.DungeonBomb;
+import pd.items.scrolls.ScrollOfPsionicBlast;
 import pd.items.wands.WandOfAcid;
 import pd.items.wands.WandOfFreeze;
 import pd.items.wands.WandOfLight;
 import pd.items.wands.fusion.WandOfFlow;
-import pd.items.weapon.enchantments.EnchantmentEarth;
-import pd.items.weapon.enchantments.EnchantmentEarth2;
-import pd.items.scrolls.ScrollOfPsionicBlast;
 import pd.items.weapon.enchantments.EnchantmentDark;
-import pd.items.bombs.DungeonBomb;
+import pd.items.weapon.enchantments.EnchantmentEarth2;
+import pd.items.weapon.enchantments.EnchantmentEarth;
 
 /** Verifies the resistance, immunity, and weakness table from SPS-PD 0.9.8 Char.Property. */
 public final class SpsLegacyPropertiesTest {

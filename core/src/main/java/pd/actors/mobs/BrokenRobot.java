@@ -14,7 +14,7 @@ import pd.items.scrolls.ScrollOfRecharging;
 import pd.items.weapon.melee.normalweapon.ShortSword;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** Original SPS-PD runtime and save identity for the damaged cave robot. */
 public class BrokenRobot extends SpsDM300.BrokenRobot {

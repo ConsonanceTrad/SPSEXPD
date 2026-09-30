@@ -20,8 +20,8 @@ import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.Callback;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.math.Random;
 
 /** The direct-hit plus 3x3 meteor explosion from SPS-PD 0.9.8. */
 public class WandOfMeteorite extends DamageWand {

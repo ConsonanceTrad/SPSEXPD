@@ -29,7 +29,7 @@ import pd.items.bombs.Bomb;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import render.utils.Point;
+import render.utils.geom.Point;
 
 public class SecretHoneypotRoom extends SecretRoom {
 	

@@ -24,15 +24,15 @@ import pd.items.challengelists.WisdomChallenge;
 import pd.levels.Level;
 import pd.plants.Plant;
 import render.noosa.Game;
-import render.utils.Bundle;
-import render.utils.SparseArray;
+import render.utils.data.SparseArray;
+import render.utils.serialize.Bundle;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 
 /** Verifies the legacy page-binding progression and its save contract. */
 public final class SpsChallengeJournalTest {

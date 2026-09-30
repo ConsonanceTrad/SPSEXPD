@@ -29,14 +29,14 @@ import pd.actors.buffs.Burning;
 import pd.actors.buffs.Frost;
 import pd.actors.buffs.Paralysis;
 import pd.actors.buffs.Roots;
-import pd.items.food.meatfood.Meat;
+import pd.items.Item;
 import pd.items.challengelists.CaveChallenge;
 import pd.items.challengelists.ChallengePageDrops;
-import pd.items.Item;
+import pd.items.food.meatfood.Meat;
 import pd.items.weapon.missiles.meleethrow.HugeShuriken;
 import pd.sprites.PiranhaSprite;
-import render.utils.BArray;
-import render.utils.Random;
+import render.utils.data.BArray;
+import render.utils.math.Random;
 
 public class Piranha extends Mob {
 	@Override public Item SupercreateLoot() { return new HugeShuriken(); }

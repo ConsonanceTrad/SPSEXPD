@@ -25,7 +25,7 @@ import pd.actors.mobs.npcs.VaultSentry;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import render.utils.Point;
+import render.utils.geom.Point;
 
 public class VaultCrossRoom extends VaultRoom {
 

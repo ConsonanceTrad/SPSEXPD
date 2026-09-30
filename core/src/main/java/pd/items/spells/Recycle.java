@@ -40,7 +40,7 @@ import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import render.utils.Reflection;
+import render.utils.serialize.Reflection;
 
 public class Recycle extends InventorySpell {
 	

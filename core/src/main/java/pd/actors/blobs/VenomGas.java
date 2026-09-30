@@ -8,7 +8,7 @@ import pd.actors.buffs.Venom;
 import pd.effects.BlobEmitter;
 import pd.effects.Speck;
 import pd.messages.Messages;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class VenomGas extends Blob {
 	private static final String STRENGTH = "strength";

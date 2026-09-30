@@ -47,7 +47,7 @@ import pd.windows.WndOptions;
 import pd.windows.WndTradeItem;
 import pd.windows.WndUpgrade;
 import render.noosa.audio.Sample;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

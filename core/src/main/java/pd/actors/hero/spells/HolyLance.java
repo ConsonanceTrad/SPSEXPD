@@ -46,8 +46,8 @@ import pd.utils.GLog;
 import render.noosa.Image;
 import render.noosa.audio.Sample;
 import render.noosa.particles.Emitter;
-import render.utils.Callback;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.math.Random;
 
 public class HolyLance extends TargetedClericSpell {
 

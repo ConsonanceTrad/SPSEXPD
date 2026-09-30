@@ -34,7 +34,7 @@ import pd.utils.GLog;
 import pd.windows.WndMessage;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 import java.util.Iterator;
 

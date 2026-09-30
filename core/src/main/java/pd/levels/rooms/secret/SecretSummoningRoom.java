@@ -28,7 +28,7 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
 import pd.levels.traps.SummoningTrap;
-import render.utils.Point;
+import render.utils.geom.Point;
 
 public class SecretSummoningRoom extends SecretRoom {
 	

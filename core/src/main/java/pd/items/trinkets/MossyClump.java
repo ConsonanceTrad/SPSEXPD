@@ -25,8 +25,8 @@ import pd.Dungeon;
 import pd.levels.Level;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

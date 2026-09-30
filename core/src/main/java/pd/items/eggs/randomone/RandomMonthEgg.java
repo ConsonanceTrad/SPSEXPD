@@ -4,7 +4,7 @@ package pd.items.eggs.randomone;
 import pd.actors.hero.Hero;
 import pd.items.eggs.RandomEasterEgg;
 import pd.items.sellitem.VIPcard;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** Opens into one of all twelve monthly pet soul packs. */
 public class RandomMonthEgg extends RandomEgg {

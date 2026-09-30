@@ -7,7 +7,7 @@ import pd.actors.buffs.Charm;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.VelociroosterSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Velocirooster extends PET {
 	{

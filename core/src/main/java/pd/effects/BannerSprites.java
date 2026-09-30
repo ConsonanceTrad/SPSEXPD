@@ -21,12 +21,12 @@
 
 package pd.effects;
 
+import java.util.HashMap;
+import java.util.Map;
 import pd.Assets;
 import pd.atlas.AtlasReader;
 import pd.atlas.IconEntry;
 import pd.atlas.interfaces.BannersDict;
-import java.util.HashMap;
-import java.util.Map;
 import render.noosa.Image;
 
 public class BannerSprites {

@@ -12,7 +12,7 @@ import pd.actors.mobs.Mob;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class ShitBall extends MissileWeapon {
 	private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0xCC6600);

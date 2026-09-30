@@ -33,9 +33,9 @@ import pd.levels.Terrain;
 import pd.levels.traps.Trap;
 import pd.plants.Plant;
 import render.noosa.Game;
-import render.utils.Bundle;
-import render.utils.Random;
-import render.utils.SparseArray;
+import render.utils.data.SparseArray;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

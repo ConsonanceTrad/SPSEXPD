@@ -10,7 +10,7 @@ import pd.actors.mobs.Mob;
 import pd.scenes.GameScene;
 import pd.sprites.ShadowRatSprite;
 import render.noosa.audio.Sample;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class DarkFallen extends Buff {
 

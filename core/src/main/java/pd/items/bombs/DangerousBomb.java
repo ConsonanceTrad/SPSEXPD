@@ -21,8 +21,8 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import render.utils.BArray;
-import render.utils.Random;
+import render.utils.data.BArray;
+import render.utils.math.Random;
 
 /** Hybrid's phase-change bomb from SPS-PD 0.9.8. */
 public class DangerousBomb extends Bomb {

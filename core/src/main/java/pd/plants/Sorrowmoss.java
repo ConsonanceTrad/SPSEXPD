@@ -29,9 +29,9 @@ import pd.actors.buffs.ShadowCurse;
 import pd.actors.mobs.Mob;
 import pd.effects.CellEmitter;
 import pd.effects.particles.PoisonParticle;
+import pd.items.weapon.missiles.arrows.ToxicFruit;
 import pd.levels.traps.Trap;
 import pd.sprites.ItemSpriteSheet;
-import pd.items.weapon.missiles.arrows.ToxicFruit;
 
 public class Sorrowmoss extends Plant {
 

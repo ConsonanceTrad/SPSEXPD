@@ -25,7 +25,7 @@ import pd.Dungeon;
 import pd.tiles.DungeonTilemap;
 import render.noosa.Camera;
 import render.noosa.Image;
-import render.utils.PointF;
+import render.utils.geom.PointF;
 
 public class Compass extends Image {
 

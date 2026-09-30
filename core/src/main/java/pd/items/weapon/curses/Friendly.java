@@ -27,7 +27,7 @@ import pd.actors.buffs.Charm;
 import pd.effects.Speck;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Friendly extends Weapon.Enchantment {
 	

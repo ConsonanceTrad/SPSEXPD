@@ -26,9 +26,9 @@ import pd.levels.Terrain;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
 import pd.mechanics.pathfind.PathFinder;
-import render.utils.Point;
-import render.utils.PointF;
-import render.utils.Random;
+import render.utils.geom.Point;
+import render.utils.geom.PointF;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

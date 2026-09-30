@@ -21,7 +21,7 @@
 
 package pd.actors.buffs;
 
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 //A buff whose only purposes is to keep track of a count of some form
 public class CounterBuff extends Buff {

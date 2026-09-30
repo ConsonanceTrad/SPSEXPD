@@ -47,8 +47,8 @@ import render.noosa.ColorBlock;
 import render.noosa.Game;
 import render.noosa.Image;
 import render.noosa.audio.Music;
-import render.utils.FileUtils;
-import render.utils.RectF;
+import render.utils.geom.RectF;
+import render.utils.serialize.FileUtils;
 
 import java.util.Collections;
 

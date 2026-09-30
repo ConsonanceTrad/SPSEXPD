@@ -19,7 +19,7 @@ import pd.levels.builders.SpsBspLayout.Room;
 import pd.levels.builders.SpsBspLayout.Type;
 import pd.plants.NutPlant;
 import pd.plants.Seedpod;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class TrianglePLevel extends SpsTriangleLevel {
 	{ color1 = 0x4b6636; color2 = 0xf2f2f2; }

@@ -47,9 +47,9 @@ import render.noosa.BitmapText;
 import render.noosa.Camera;
 import render.noosa.Image;
 import render.noosa.audio.Music;
-import render.utils.DeviceCompat;
-import render.utils.GameMath;
-import render.utils.RectF;
+import render.utils.geom.RectF;
+import render.utils.math.GameMath;
+import render.utils.platform.DeviceCompat;
 
 public class RankingsScene extends PixelScene {
 	

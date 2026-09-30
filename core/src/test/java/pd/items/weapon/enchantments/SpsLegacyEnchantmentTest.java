@@ -34,9 +34,9 @@ import pd.items.weapon.melee.normalweapon.Dagger;
 import pd.levels.Level;
 import pd.plants.Plant;
 import render.noosa.Game;
-import render.utils.Bundle;
-import render.utils.Random;
-import render.utils.SparseArray;
+import render.utils.data.SparseArray;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;

@@ -34,7 +34,7 @@ import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class Earthroot extends Plant {
 	

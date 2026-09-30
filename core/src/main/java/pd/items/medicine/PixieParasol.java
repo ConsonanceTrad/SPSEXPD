@@ -9,7 +9,7 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.effects.Speck;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class PixieParasol extends Pill {
 	{ image = ItemSpriteSheet.MUSHROOM_PIXIEPARASOL; }

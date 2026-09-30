@@ -11,7 +11,7 @@ package pd.tiles.custom;
 import pd.Assets;
 import pd.tiles.CustomTilemap;
 import render.noosa.Tilemap;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 /** Renders individual terrain cells directly from the original SPS-PD tile sheet. */
 public class SpsFeatureVisual extends CustomTilemap {

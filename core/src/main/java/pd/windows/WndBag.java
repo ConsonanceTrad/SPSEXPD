@@ -21,25 +21,24 @@
 
 package pd.windows;
 
-import pd.Dungeon;
 import pd.Assets;
+import pd.Dungeon;
 import pd.SPDAction;
 import pd.actors.hero.Belongings;
 import pd.actors.hero.Hero;
 import pd.items.ChangeEquip;
 import pd.items.Item;
-import pd.items.bags.Bag;
 import pd.items.bags.ArrowCollecter;
-import pd.items.bags.KeyRing;
+import pd.items.bags.Bag;
 import pd.items.bags.HeartOfScarecrow;
-import pd.items.bags.ShoppingCart;
+import pd.items.bags.KeyRing;
 import pd.items.bags.MagicalHolster;
 import pd.items.bags.PotionBandolier;
-import pd.items.bags.SeedPouch;
 import pd.items.bags.ScrollHolder;
+import pd.items.bags.SeedPouch;
+import pd.items.bags.ShoppingCart;
 import pd.items.bags.VelvetPouch;
 import pd.items.bags.WandHolster;
-import render.utils.DeviceCompat;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
@@ -60,7 +59,8 @@ import render.input.PointerEvent;
 import render.noosa.BitmapText;
 import render.noosa.Game;
 import render.noosa.Image;
-import render.utils.PointF;
+import render.utils.geom.PointF;
+import render.utils.platform.DeviceCompat;
 
 public class WndBag extends WndTabbed {
 	

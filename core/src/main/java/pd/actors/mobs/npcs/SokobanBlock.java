@@ -13,10 +13,10 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
-import pd.messages.Messages;
 import pd.levels.AdventureLevel;
+import pd.messages.Messages;
 import pd.sprites.GolemSprite;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class SokobanBlock extends NPC {
 

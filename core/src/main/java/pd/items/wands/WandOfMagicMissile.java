@@ -13,7 +13,7 @@ import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 /** The original SPS-PD magic missile and magic-weakness wand. */
 public class WandOfMagicMissile extends DamageWand {

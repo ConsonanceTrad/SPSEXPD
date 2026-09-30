@@ -6,7 +6,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Ooze;
 import pd.actors.buffs.Roots;
 import pd.sprites.ItemSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class RotAmmo extends SpAmmo {
 	private static final ItemSprite.Glowing RED = new ItemSprite.Glowing(0xCC0000);

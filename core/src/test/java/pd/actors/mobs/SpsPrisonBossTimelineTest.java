@@ -22,9 +22,9 @@ import pd.plants.Sorrowmoss;
 import pd.plants.Starflower;
 import pd.plants.Stormvine;
 import render.noosa.Game;
-import render.utils.Bundle;
-import render.utils.Random;
-import render.utils.SparseArray;
+import render.utils.data.SparseArray;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.Arrays;

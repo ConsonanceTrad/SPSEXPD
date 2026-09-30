@@ -5,7 +5,7 @@ import pd.actors.hero.Hero;
 import pd.items.Generator;
 import pd.items.Item;
 import pd.items.armor.specialarmor.RenBArmor;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class GiftRen extends GiftNpc {
 	{

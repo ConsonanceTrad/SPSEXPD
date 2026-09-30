@@ -79,7 +79,7 @@ import render.noosa.SkinnedBlock;
 import render.noosa.audio.Sample;
 import render.noosa.particles.Emitter;
 import render.noosa.ui.Component;
-import render.utils.RectF;
+import render.utils.geom.RectF;
 
 import java.io.IOException;
 import java.util.ArrayList;

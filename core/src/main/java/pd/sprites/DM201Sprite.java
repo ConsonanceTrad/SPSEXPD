@@ -29,7 +29,7 @@ import pd.messages.Messages;
 import pd.utils.GLog;
 import render.noosa.TextureFilm;
 import render.noosa.audio.Sample;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 public class DM201Sprite extends MobSprite {
 

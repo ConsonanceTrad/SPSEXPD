@@ -28,7 +28,7 @@ import pd.actors.hero.Hero;
 import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndSupportPrompt;
 import render.noosa.Game;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 import java.io.IOException;
 

@@ -28,7 +28,7 @@ import render.noosa.Image;
 import render.noosa.TextureFilm;
 import render.noosa.Tilemap;
 import render.noosa.tweeners.AlphaTweener;
-import render.utils.PointF;
+import render.utils.geom.PointF;
 
 public abstract class DungeonTilemap extends Tilemap {
 

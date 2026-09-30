@@ -5,7 +5,7 @@ import pd.Dungeon;
 import pd.items.weapon.missiles.ShitBall;
 import render.noosa.MovieClip.Animation;
 import render.noosa.TextureFilm;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 public final class SpsSewerSprites {
 	private SpsSewerSprites() { }

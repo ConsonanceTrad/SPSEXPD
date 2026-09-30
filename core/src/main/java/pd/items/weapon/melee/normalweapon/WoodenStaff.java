@@ -4,7 +4,7 @@ package pd.items.weapon.melee.normalweapon;
 import pd.actors.Char;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class WoodenStaff extends NormalMeleeWeapon {
 

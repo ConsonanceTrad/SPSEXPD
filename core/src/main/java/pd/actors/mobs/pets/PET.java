@@ -1,6 +1,10 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.actors.mobs.pets;
 
+import pd.actors.blobs.CorruptGas;
+import pd.actors.blobs.NmGas;
+import pd.actors.blobs.ToxicGas;
+import pd.actors.blobs.VenomGas;
 import pd.actors.buffs.AttackUp;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Burning;
@@ -11,10 +15,6 @@ import pd.actors.buffs.MagicArmor;
 import pd.actors.buffs.ShieldArmor;
 import pd.actors.buffs.SpeedUp;
 import pd.actors.buffs.WatchOut;
-import pd.actors.blobs.CorruptGas;
-import pd.actors.blobs.NmGas;
-import pd.actors.blobs.ToxicGas;
-import pd.actors.blobs.VenomGas;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.items.scrolls.ScrollOfPsionicBlast;

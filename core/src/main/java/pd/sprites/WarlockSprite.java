@@ -26,7 +26,7 @@ import pd.actors.mobs.Warlock;
 import pd.effects.MagicMissile;
 import render.noosa.TextureFilm;
 import render.noosa.audio.Sample;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 public class WarlockSprite extends MobSprite {
 	

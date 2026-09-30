@@ -31,7 +31,7 @@ import pd.journal.Notes;
 import pd.scenes.GameScene;
 import pd.windows.WndJournal;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public abstract class Key extends Item {
 

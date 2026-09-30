@@ -24,8 +24,8 @@ package render.input;
 import com.badlogic.gdx.Input;
 import render.noosa.Game;
 import render.noosa.ui.Cursor;
-import render.utils.PointF;
-import render.utils.Signal;
+import render.utils.data.Signal;
+import render.utils.geom.PointF;
 
 import java.util.ArrayList;
 import java.util.HashMap;

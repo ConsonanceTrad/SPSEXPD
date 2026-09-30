@@ -23,7 +23,7 @@ package pd.sprites;
 
 import pd.Assets;
 import render.noosa.TextureFilm;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class SheepSprite extends MobSprite {
 	

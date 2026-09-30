@@ -55,8 +55,8 @@ import pd.plants.Stormvine;
 import pd.plants.Sungrass;
 import pd.windows.WndIronMaker;
 import render.noosa.Game;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -239,10 +239,10 @@ public final class SpsAmmoTest {
 		TestLevel() {
 			setSize(8, 8);
 			mobs = new HashSet<>();
-			heaps = new render.utils.SparseArray<>();
+			heaps = new render.utils.data.SparseArray<>();
 			blobs = new HashMap<>();
-			plants = new render.utils.SparseArray<Plant>();
-			traps = new render.utils.SparseArray<>();
+			plants = new render.utils.data.SparseArray<Plant>();
+			traps = new render.utils.data.SparseArray<>();
 			transitions = new ArrayList<>();
 			customTiles = new ArrayList<>();
 			customTerrain = new ArrayList<>();

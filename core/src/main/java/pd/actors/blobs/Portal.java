@@ -4,7 +4,7 @@ package pd.actors.blobs;
 import pd.effects.BlobEmitter;
 import pd.effects.particles.ShaftParticle;
 import pd.levels.Level;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 /** Legacy single-cell portal visual. Teleport rules remain owned by the fixed levels. */
 public class Portal extends Blob {

@@ -11,7 +11,7 @@ import pd.effects.Speck;
 import pd.items.weapon.enchantments.JupitersHorror;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.Camera;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class JupitersWraith extends RelicMeleeWeapon {
 

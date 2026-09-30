@@ -8,12 +8,12 @@ import pd.actors.buffs.Vertigo;
 import pd.actors.mobs.Mob;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.items.wands.fusion.WandOfFlow;
+import pd.items.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class Whisk extends NormalMeleeWeapon {
 

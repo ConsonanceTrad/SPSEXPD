@@ -13,7 +13,7 @@ import pd.items.Item;
 import pd.items.wands.WandOfAcid;
 import pd.items.wands.WandOfSwamp;
 import pd.sprites.DustElementSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** Original SPS-PD runtime and save identity for the dust elemental. */
 public class DustElement extends SpsSewerMobs.DustElement {

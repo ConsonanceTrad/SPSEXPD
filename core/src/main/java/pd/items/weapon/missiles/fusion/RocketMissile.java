@@ -4,7 +4,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Burning;
 import pd.items.weapon.missiles.Javelin;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class RocketMissile extends Javelin {
 

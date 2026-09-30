@@ -23,7 +23,7 @@ package render.noosa;
 
 import render.gltextures.SmartTexture;
 import render.gltextures.TextureCache;
-import render.utils.RectF;
+import render.utils.geom.RectF;
 
 import java.util.HashMap;
 

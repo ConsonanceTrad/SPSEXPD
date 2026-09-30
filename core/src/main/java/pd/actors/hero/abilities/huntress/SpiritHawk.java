@@ -46,9 +46,9 @@ import pd.sprites.MobSprite;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
 import render.noosa.TextureFilm;
-import render.utils.Bundle;
-import render.utils.GameMath;
-import render.utils.Random;
+import render.utils.math.GameMath;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

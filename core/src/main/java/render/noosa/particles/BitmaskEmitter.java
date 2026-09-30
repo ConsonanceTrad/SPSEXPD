@@ -23,8 +23,8 @@ package render.noosa.particles;
 
 import render.gltextures.SmartTexture;
 import render.noosa.Image;
-import render.utils.Random;
-import render.utils.RectF;
+import render.utils.geom.RectF;
+import render.utils.math.Random;
 
 public class BitmaskEmitter extends Emitter {
 

@@ -49,9 +49,9 @@ import pd.sprites.MissileSprite;
 import pd.ui.QuickSlotButton;
 import render.noosa.audio.Sample;
 import render.noosa.particles.Emitter;
-import render.utils.Callback;
-import render.utils.Random;
-import render.utils.Reflection;
+import render.utils.data.Callback;
+import render.utils.math.Random;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 

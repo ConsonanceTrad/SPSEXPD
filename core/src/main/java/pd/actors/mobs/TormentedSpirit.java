@@ -33,7 +33,7 @@ import pd.items.weapon.Weapon;
 import pd.messages.Messages;
 import pd.sprites.TormentedSpiritSprite;
 import render.noosa.audio.Sample;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class TormentedSpirit extends Wraith {
 

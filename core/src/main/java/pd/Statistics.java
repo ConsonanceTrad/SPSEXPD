@@ -21,8 +21,8 @@
 
 package pd;
 
-import render.utils.Bundle;
-import render.utils.SparseArray;
+import render.utils.data.SparseArray;
+import render.utils.serialize.Bundle;
 
 import java.util.Arrays;
 import java.util.HashSet;

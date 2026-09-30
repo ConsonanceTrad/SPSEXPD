@@ -17,7 +17,7 @@ import pd.windows.WndOptions;
 import render.noosa.Camera;
 import render.noosa.Game;
 import render.noosa.ui.Component;
-import render.utils.FileUtils;
+import render.utils.serialize.FileUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;

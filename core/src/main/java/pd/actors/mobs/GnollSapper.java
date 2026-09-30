@@ -30,9 +30,9 @@ import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.GnollSapperSprite;
-import render.utils.Bundle;
-import render.utils.GameMath;
-import render.utils.Random;
+import render.utils.math.GameMath;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class GnollSapper extends Mob {
 

@@ -24,8 +24,8 @@ package pd.levels.rooms.standard;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import render.utils.Point;
-import render.utils.Random;
+import render.utils.geom.Point;
+import render.utils.math.Random;
 
 //places a line of statues along the least used wall
 public class StatueLineRoom extends StandardRoom {

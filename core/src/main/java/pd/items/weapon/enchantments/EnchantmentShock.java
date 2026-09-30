@@ -9,7 +9,7 @@ import pd.effects.particles.SparkParticle;
 import pd.items.weapon.Weapon;
 import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -81,8 +81,8 @@ import render.noosa.ColorBlock;
 import render.noosa.Image;
 import render.noosa.Visual;
 import render.noosa.ui.Component;
-import render.utils.RectF;
-import render.utils.Reflection;
+import render.utils.geom.RectF;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 import java.util.Collection;

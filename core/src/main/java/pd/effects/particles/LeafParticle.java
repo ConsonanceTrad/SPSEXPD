@@ -22,11 +22,11 @@
 package pd.effects.particles;
 
 import pd.Dungeon;
-import render.noosa.particles.Emitter;
 import render.noosa.particles.Emitter.Factory;
+import render.noosa.particles.Emitter;
 import render.noosa.particles.PixelParticle;
-import render.utils.ColorMath;
-import render.utils.Random;
+import render.utils.math.ColorMath;
+import render.utils.math.Random;
 
 public class LeafParticle extends PixelParticle.Shrinking {
 	

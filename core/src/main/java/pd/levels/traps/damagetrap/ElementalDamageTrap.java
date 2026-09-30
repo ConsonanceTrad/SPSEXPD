@@ -6,7 +6,7 @@ import pd.actors.blobs.SpsElementalDamage;
 import pd.levels.traps.Trap;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import render.utils.BArray;
+import render.utils.data.BArray;
 
 abstract class ElementalDamageTrap extends Trap {
 	private final Class<? extends SpsElementalDamage> blobClass;

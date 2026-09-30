@@ -17,8 +17,8 @@ import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndGoblin;
 import pd.windows.WndShower;
 import render.noosa.Game;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

@@ -1,7 +1,7 @@
 package pd.actors.blobs;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessApplication;
 import com.badlogic.gdx.backends.headless.HeadlessApplicationConfiguration;
 import com.badlogic.gdx.backends.headless.HeadlessFiles;
@@ -32,8 +32,8 @@ import pd.levels.traps.damagetrap.FireDamageTrap;
 import pd.mechanics.pathfind.PathFinder;
 import pd.plants.Plant;
 import render.noosa.Game;
-import render.utils.Reflection;
-import render.utils.SparseArray;
+import render.utils.data.SparseArray;
+import render.utils.serialize.Reflection;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.CharacterCodingException;

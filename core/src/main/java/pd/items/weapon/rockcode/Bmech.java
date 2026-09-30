@@ -6,7 +6,7 @@ import pd.effects.MagicMissile;
 import pd.items.bombs.DungeonBomb;
 import pd.items.bombs.MiniBomb;
 import pd.mechanics.Ballistica;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Bmech extends RockCode {
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "B.m"; }

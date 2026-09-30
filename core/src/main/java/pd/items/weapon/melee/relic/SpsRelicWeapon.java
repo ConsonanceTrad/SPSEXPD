@@ -5,7 +5,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.items.weapon.melee.MeleeWeapon;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

@@ -13,7 +13,7 @@ import pd.items.Item;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class SpsFireBomb extends Bomb {
 	{ image = ItemSpriteSheet.LEGACY_FIRE_BOMB; }

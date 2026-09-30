@@ -23,8 +23,8 @@ package pd.items.wands;
 
 import pd.Assets;
 import pd.Dungeon;
-import pd.actors.buffs.WandEmpower;
 import pd.actors.buffs.Arcane;
+import pd.actors.buffs.WandEmpower;
 import pd.actors.hero.Hero;
 import pd.items.rings.fusion.RingOfKnowledge;
 import pd.messages.Messages;
@@ -62,7 +62,7 @@ public abstract class DamageWand extends Wand{
 			Sample.INSTANCE.play(Assets.Sounds.HIT_STRONG, 0.75f, 1.2f);
 		}
 		dmg = applyArcaneBonus(curUser, dmg);
-		return RingOfKnowledge.applyCriticalBonus(curUser, dmg, render.utils.Random.Int(20));
+		return RingOfKnowledge.applyCriticalBonus(curUser, dmg, render.utils.math.Random.Int(20));
 	}
 
 	public static int applyArcaneBonus(Hero user, int damage) {

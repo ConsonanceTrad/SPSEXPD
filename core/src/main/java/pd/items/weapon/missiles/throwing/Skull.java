@@ -7,7 +7,7 @@ import pd.actors.buffs.SoulMark;
 import pd.items.Item;
 import pd.items.weapon.missiles.MissileWeapon;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Skull extends MissileWeapon {
 

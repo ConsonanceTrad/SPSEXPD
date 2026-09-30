@@ -30,7 +30,7 @@ import com.badlogic.gdx.controllers.ControllerMapping;
 import com.badlogic.gdx.controllers.Controllers;
 import render.noosa.Game;
 import render.noosa.ui.Cursor;
-import render.utils.PointF;
+import render.utils.geom.PointF;
 
 public class ControllerHandler implements ControllerListener {
 

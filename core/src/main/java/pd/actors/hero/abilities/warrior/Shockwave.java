@@ -44,8 +44,8 @@ import pd.scenes.PixelScene;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
-import render.utils.Callback;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.math.Random;
 
 public class Shockwave extends ArmorAbility {
 

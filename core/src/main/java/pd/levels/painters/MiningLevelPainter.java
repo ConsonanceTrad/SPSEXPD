@@ -30,8 +30,8 @@ import pd.levels.rooms.Room;
 import pd.levels.rooms.quest.MineSecretRoom;
 import pd.mechanics.pathfind.Graph;
 import pd.mechanics.pathfind.PathFinder;
-import render.utils.Point;
-import render.utils.Random;
+import render.utils.geom.Point;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 import java.util.HashMap;

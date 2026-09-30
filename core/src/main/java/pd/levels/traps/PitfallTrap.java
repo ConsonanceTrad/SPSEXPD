@@ -16,7 +16,7 @@ import pd.levels.Terrain;
 import pd.levels.features.Chasm;
 import pd.scenes.GameScene;
 import render.noosa.Game;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

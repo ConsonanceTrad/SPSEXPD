@@ -24,11 +24,11 @@ package pd.items.armor.glyphs;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.effects.particles.EnergyParticle;
-import pd.items.armor.Armor;
 import pd.items.armor.Armor.Glyph;
-import pd.sprites.ItemSprite;
+import pd.items.armor.Armor;
 import pd.sprites.ItemSprite.Glowing;
-import render.utils.Random;
+import pd.sprites.ItemSprite;
+import render.utils.math.Random;
 
 public class Potential extends Glyph {
 	

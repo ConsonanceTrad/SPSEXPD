@@ -23,9 +23,9 @@ package pd.levels.rooms.quest.vault.treasure;
 
 import pd.levels.Level;
 import pd.levels.rooms.quest.vault.VaultRoom;
-import render.utils.Point;
-import render.utils.Random;
-import render.utils.Reflection;
+import render.utils.geom.Point;
+import render.utils.math.Random;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 import java.util.Arrays;

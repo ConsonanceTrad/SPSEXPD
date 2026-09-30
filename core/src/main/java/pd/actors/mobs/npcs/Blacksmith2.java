@@ -24,7 +24,7 @@ import pd.utils.GLog;
 import pd.windows.WndBlacksmith2;
 import pd.windows.WndQuest;
 import render.noosa.Game;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 /** SPS troll welder, who combines equipment with matching adamant components. */
 public class Blacksmith2 extends NPC {

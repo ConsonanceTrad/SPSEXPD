@@ -24,7 +24,7 @@ package pd.settings;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import render.noosa.Game;
-import render.utils.GameMath;
+import render.utils.math.GameMath;
 
 //游戏设置的持久化基类：键值读写、范围校验与容错，具体设置项由 pd.SPDSettings 定义。
 //设置是游戏概念，因此基类位于游戏侧（pd.settings），渲染库只保留渲染与平台能力。

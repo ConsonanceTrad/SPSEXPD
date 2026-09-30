@@ -38,11 +38,11 @@ import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.SpsHallsSprites;
 import pd.sprites.CharSprite;
+import pd.sprites.SpsHallsSprites;
 import pd.utils.GLog;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

@@ -27,8 +27,8 @@ import pd.plants.StarEater;
 import pd.plants.Starflower;
 import pd.plants.Sungrass;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

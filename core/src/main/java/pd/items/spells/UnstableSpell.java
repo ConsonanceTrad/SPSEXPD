@@ -39,8 +39,8 @@ import pd.items.scrolls.exotic.ExoticScroll;
 import pd.items.stones.Runestone;
 import pd.journal.Catalog;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
-import render.utils.Reflection;
+import render.utils.math.Random;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 import java.util.HashMap;

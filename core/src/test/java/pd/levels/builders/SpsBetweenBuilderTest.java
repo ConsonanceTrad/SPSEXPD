@@ -7,7 +7,7 @@ import pd.levels.rooms.special.SpsTentRoom;
 import pd.levels.rooms.standard.EmptyRoom;
 import pd.levels.rooms.standard.entrance.EntranceRoom;
 import pd.levels.rooms.standard.exit.ExitRoom;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 import java.util.HashSet;

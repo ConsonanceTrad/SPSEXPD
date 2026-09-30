@@ -23,8 +23,8 @@ package pd.sprites;
 
 import pd.Assets;
 import render.noosa.TextureFilm;
-import render.utils.Callback;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.math.Random;
 
 public class RipperSprite extends MobSprite {
 

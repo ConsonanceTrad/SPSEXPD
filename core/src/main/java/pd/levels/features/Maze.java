@@ -22,8 +22,8 @@
 package pd.levels.features;
 
 import pd.levels.rooms.Room;
-import render.utils.Random;
-import render.utils.Rect;
+import render.utils.geom.Rect;
+import render.utils.math.Random;
 
 public class Maze {
 	

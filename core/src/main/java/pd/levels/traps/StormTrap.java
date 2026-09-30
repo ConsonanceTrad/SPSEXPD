@@ -30,8 +30,8 @@ import pd.actors.buffs.Buff;
 import pd.actors.mobs.Mob;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import render.utils.BArray;
 import render.noosa.audio.Sample;
+import render.utils.data.BArray;
 
 public class StormTrap extends Trap {
 	

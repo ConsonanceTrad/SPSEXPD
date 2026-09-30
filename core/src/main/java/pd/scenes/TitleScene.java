@@ -55,10 +55,10 @@ import render.noosa.Image;
 import render.noosa.PointerArea;
 import render.noosa.audio.Music;
 import render.noosa.tweeners.Tweener;
-import render.utils.ColorMath;
-import render.utils.DeviceCompat;
-import render.utils.GameMath;
-import render.utils.RectF;
+import render.utils.geom.RectF;
+import render.utils.math.ColorMath;
+import render.utils.math.GameMath;
+import render.utils.platform.DeviceCompat;
 
 public class TitleScene extends PixelScene {
 

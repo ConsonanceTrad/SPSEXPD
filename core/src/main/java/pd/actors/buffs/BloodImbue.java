@@ -4,7 +4,7 @@ package pd.actors.buffs;
 import pd.actors.Char;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class BloodImbue extends FlavourBuff {
 	{

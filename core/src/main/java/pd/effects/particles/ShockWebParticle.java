@@ -6,7 +6,7 @@ import render.noosa.Game;
 import render.noosa.Image;
 import render.noosa.TextureFilm;
 import render.noosa.particles.Emitter;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class ShockWebParticle extends Image {
 

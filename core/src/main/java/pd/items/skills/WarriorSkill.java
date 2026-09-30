@@ -11,7 +11,7 @@ import pd.items.Generator;
 import pd.items.Item;
 import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** The four warrior class skills from SPS-PD 0.9.8. */
 public class WarriorSkill extends ClassSkill {

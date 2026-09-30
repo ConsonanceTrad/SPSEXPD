@@ -26,7 +26,7 @@ import pd.scenes.PixelScene;
 import pd.sprites.CharSprite;
 import pd.utils.GLog;
 import render.noosa.ui.Component;
-import render.utils.Signal;
+import render.utils.data.Signal;
 
 import java.util.ArrayList;
 import java.util.regex.Pattern;

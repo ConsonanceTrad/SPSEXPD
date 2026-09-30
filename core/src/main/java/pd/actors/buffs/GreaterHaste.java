@@ -26,7 +26,7 @@ import pd.actors.hero.Talent;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 //currently only applies to the hero
 public class GreaterHaste extends Buff {

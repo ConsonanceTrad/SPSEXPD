@@ -13,7 +13,7 @@ import pd.items.food.completefood.PetFood;
 import pd.plants.Dewcatcher;
 import pd.plants.Plant;
 import pd.sprites.DaturaSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Datura extends PET {
 	{

@@ -22,11 +22,11 @@ import pd.actors.mobs.YogDzewa;
 import pd.items.armor.Armor;
 import pd.items.wands.WandOfFreeze;
 import pd.items.wands.fusion.WandOfFlow;
-import pd.items.weapon.enchantments.EnchantmentIce;
 import pd.items.weapon.enchantments.EnchantmentIce2;
+import pd.items.weapon.enchantments.EnchantmentIce;
 import render.noosa.Game;
-import render.utils.Reflection;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Reflection;
 
 import java.nio.charset.CodingErrorAction;
 import java.nio.charset.StandardCharsets;

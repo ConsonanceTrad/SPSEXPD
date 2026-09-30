@@ -12,7 +12,7 @@ import pd.items.bombs.BuildBomb;
 import pd.scenes.GameScene;
 import pd.sprites.CocoCatSprite;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class CallCoconut extends SpsSummonItem {
 	private boolean summonOnThrow;

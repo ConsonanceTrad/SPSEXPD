@@ -23,7 +23,7 @@ package render.glscripts;
 
 import render.glwrap.Program;
 import render.glwrap.Shader;
-import render.utils.Reflection;
+import render.utils.serialize.Reflection;
 
 import java.util.HashMap;
 

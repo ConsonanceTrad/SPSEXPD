@@ -38,10 +38,10 @@ import render.input.ScrollEvent;
 import render.noosa.Camera;
 import render.noosa.Game;
 import render.noosa.ScrollArea;
-import render.utils.GameMath;
-import render.utils.Point;
-import render.utils.PointF;
-import render.utils.Signal;
+import render.utils.data.Signal;
+import render.utils.geom.Point;
+import render.utils.geom.PointF;
+import render.utils.math.GameMath;
 
 public class CellSelector extends ScrollArea {
 

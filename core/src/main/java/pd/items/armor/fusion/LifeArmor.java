@@ -3,7 +3,7 @@ package pd.items.armor.fusion;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.items.armor.ScaleArmor;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class LifeArmor extends ScaleArmor {
 

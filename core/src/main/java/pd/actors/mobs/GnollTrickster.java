@@ -35,8 +35,8 @@ import pd.items.weapon.missiles.darts.PoisonDart;
 import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
 import pd.sprites.GnollTricksterSprite;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class GnollTrickster extends Gnoll {
 

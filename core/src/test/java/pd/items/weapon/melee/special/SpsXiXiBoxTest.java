@@ -18,8 +18,8 @@ import pd.levels.Level;
 import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
-import render.utils.Bundle;
-import render.utils.SparseArray;
+import render.utils.data.SparseArray;
+import render.utils.serialize.Bundle;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

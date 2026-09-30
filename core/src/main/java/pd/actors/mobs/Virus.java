@@ -12,7 +12,7 @@ import pd.actors.hero.Hero;
 import pd.items.scrolls.ScrollOfPsionicBlast;
 import pd.scenes.GameScene;
 import pd.sprites.ErrorSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** The hostile body produced by the legacy Nightmare Virus challenge. */
 public class Virus extends Mob {

@@ -12,9 +12,9 @@ import pd.actors.hero.HeroSubClass;
 import pd.actors.mobs.Mob;
 import pd.items.Item;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.sprites.ErrorSprite;
-import render.utils.Random;
+import pd.sprites.ItemSpriteSheet;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 import java.util.HashSet;

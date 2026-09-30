@@ -30,7 +30,7 @@ import pd.actors.hero.Hero;
 import pd.effects.particles.ShadowParticle;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class HolyDart extends TippedDart {
 

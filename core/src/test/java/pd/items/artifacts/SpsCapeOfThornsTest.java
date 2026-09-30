@@ -13,8 +13,8 @@ import pd.actors.buffs.ShieldArmor;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.levels.features.HighGrass;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;

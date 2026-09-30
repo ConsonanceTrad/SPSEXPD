@@ -4,7 +4,7 @@ package pd.actors.mobs.pets;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.sprites.BeastYearSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** The original slow, durable year-beast companion. */
 public class YearPet extends PET {

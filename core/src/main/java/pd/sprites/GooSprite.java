@@ -29,11 +29,11 @@ import pd.effects.particles.ElmoParticle;
 import pd.mechanics.Ballistica;
 import render.noosa.TextureFilm;
 import render.noosa.audio.Sample;
-import render.noosa.particles.Emitter;
 import render.noosa.particles.Emitter.Factory;
+import render.noosa.particles.Emitter;
 import render.noosa.particles.PixelParticle;
-import render.utils.PointF;
-import render.utils.Random;
+import render.utils.geom.PointF;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

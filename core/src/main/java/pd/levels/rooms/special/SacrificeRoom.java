@@ -32,8 +32,8 @@ import pd.items.weapon.Weapon;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import render.utils.Point;
-import render.utils.Random;
+import render.utils.geom.Point;
+import render.utils.math.Random;
 
 public class SacrificeRoom extends SpecialRoom {
 

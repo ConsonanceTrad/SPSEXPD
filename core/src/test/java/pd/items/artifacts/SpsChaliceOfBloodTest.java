@@ -19,7 +19,7 @@ import pd.items.Generator;
 import pd.items.rings.Ring;
 import pd.items.weapon.melee.MeleeWeapon;
 import render.noosa.Game;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;

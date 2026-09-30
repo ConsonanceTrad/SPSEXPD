@@ -26,10 +26,10 @@ import pd.actors.buffs.Buff;
 import pd.items.Item;
 import pd.items.rings.RingOfWealth;
 import pd.items.weapon.Weapon;
-import pd.sprites.ItemSprite;
 import pd.sprites.ItemSprite.Glowing;
+import pd.sprites.ItemSprite;
 import render.noosa.Visual;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Lucky extends Weapon.Enchantment {
 

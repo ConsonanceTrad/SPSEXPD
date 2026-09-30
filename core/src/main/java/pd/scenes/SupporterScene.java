@@ -28,17 +28,17 @@ import pd.messages.Languages;
 import pd.messages.Messages;
 import pd.ui.ExitButton;
 import pd.ui.Icons;
-import pd.ui.TitleBackground;
 import pd.ui.RenderedTextBlock;
 import pd.ui.ScrollPane;
 import pd.ui.StyledButton;
+import pd.ui.TitleBackground;
 import pd.ui.Window;
 import pd.windows.IconTitle;
 import render.noosa.Camera;
 import render.noosa.NinePatch;
 import render.noosa.ui.Component;
-import render.utils.Callback;
-import render.utils.RectF;
+import render.utils.data.Callback;
+import render.utils.geom.RectF;
 
 public class SupporterScene extends PixelScene {
 

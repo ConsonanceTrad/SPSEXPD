@@ -35,9 +35,9 @@ import pd.tiles.DungeonTilemap;
 import render.noosa.Game;
 import render.noosa.Halo;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
-import render.utils.Point;
-import render.utils.PointF;
+import render.utils.geom.Point;
+import render.utils.geom.PointF;
+import render.utils.serialize.Bundle;
 
 public class SuperNovaTracker extends Buff {
 

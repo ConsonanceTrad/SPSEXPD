@@ -31,7 +31,7 @@ import pd.levels.rooms.standard.exit.ExitRoom;
 import pd.tiles.CustomTilemap;
 import render.noosa.Image;
 import render.noosa.Tilemap;
-import render.utils.Point;
+import render.utils.geom.Point;
 
 public class SewerBossExitRoom extends ExitRoom {
 	

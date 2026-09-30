@@ -22,7 +22,7 @@
 package render.noosa;
 
 import render.input.ScrollEvent;
-import render.utils.Signal;
+import render.utils.data.Signal;
 
 //pointer area with additional support for detecting scrolling events
 public class ScrollArea extends PointerArea {

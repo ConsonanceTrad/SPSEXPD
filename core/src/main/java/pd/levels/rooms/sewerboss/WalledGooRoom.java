@@ -25,7 +25,7 @@ import pd.actors.mobs.Goo;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import render.utils.Point;
+import render.utils.geom.Point;
 
 public class WalledGooRoom extends GooBossRoom {
 	

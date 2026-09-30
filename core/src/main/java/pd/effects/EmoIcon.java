@@ -27,8 +27,8 @@ import pd.sprites.CharSprite;
 import pd.ui.Icons;
 import render.noosa.Game;
 import render.noosa.Image;
-import render.utils.PointF;
-import render.utils.Random;
+import render.utils.geom.PointF;
+import render.utils.math.Random;
 
 public class EmoIcon extends Image {
 

@@ -44,7 +44,7 @@ import pd.windows.WndBag;
 import pd.windows.WndChooseAbility;
 import pd.windows.WndOptions;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

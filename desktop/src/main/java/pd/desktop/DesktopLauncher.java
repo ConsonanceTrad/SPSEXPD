@@ -36,8 +36,8 @@ import pd.services.news.NewsImpl;
 import pd.services.updates.UpdateImpl;
 import pd.services.updates.Updates;
 import render.noosa.Game;
-import render.utils.FileUtils;
-import render.utils.Point;
+import render.utils.geom.Point;
+import render.utils.serialize.FileUtils;
 
 import org.lwjgl.util.tinyfd.TinyFileDialogs;
 

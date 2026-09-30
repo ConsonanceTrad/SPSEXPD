@@ -30,15 +30,15 @@ import pd.actors.buffs.Poison;
 import pd.actors.buffs.Silent;
 import pd.items.Generator;
 import pd.items.Heap;
-import pd.items.weapon.Weapon;
 import pd.items.weapon.Weapon.Enchantment;
+import pd.items.weapon.Weapon;
 import pd.items.weapon.melee.MeleeWeapon;
 import pd.journal.Notes;
 import pd.messages.Messages;
 import pd.sprites.StatueSprite;
 import pd.utils.GLog;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class Statue extends Mob {
 	

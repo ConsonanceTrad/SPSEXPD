@@ -82,7 +82,7 @@ import pd.plants.Sungrass;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Reflection;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 
@@ -235,7 +235,7 @@ public class WndIronMaker extends WndOptions {
 		}
 		if (equipment == 1 && water > 0 && equipment + water == items.size()) {
 			Item source = first(items, EquipableItem.class);
-			if (source != null && source.isUpgradable() && render.utils.Random.Int(100) < water * 15) {
+			if (source != null && source.isUpgradable() && render.utils.math.Random.Int(100) < water * 15) {
 				Item result = Reflection.newInstance((Class<? extends Item>)source.getClass());
 				if (result == null) return new Garbage();
 				result.level(source.level() + 1).identify();

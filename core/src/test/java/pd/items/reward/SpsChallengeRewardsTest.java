@@ -1,7 +1,7 @@
 package pd.items.reward;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Files;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessFiles;
 import com.badlogic.gdx.utils.GdxNativesLoader;
 import pd.Dungeon;
@@ -35,10 +35,10 @@ import pd.items.food.fruit.FullMoonberry;
 import pd.items.food.fruit.Moonberry;
 import pd.levels.SewerChallengeLevel;
 import render.noosa.Game;
-import render.utils.Bundle;
-import render.utils.FileUtils;
-import render.utils.Random;
-import render.utils.SparseArray;
+import render.utils.data.SparseArray;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
+import render.utils.serialize.FileUtils;
 
 public final class SpsChallengeRewardsTest {
 	private SpsChallengeRewardsTest() { }

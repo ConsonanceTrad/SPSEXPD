@@ -28,7 +28,7 @@ import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndMessage;
 import pd.windows.WndOptions;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class AdventureGuide extends NPC {
 

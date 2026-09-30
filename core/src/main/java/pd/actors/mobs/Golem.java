@@ -38,7 +38,7 @@ import pd.items.weapon.guns.GunD;
 import pd.items.weapon.guns.GunE;
 import pd.scenes.GameScene;
 import pd.sprites.GolemSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Golem extends Mob {
 	

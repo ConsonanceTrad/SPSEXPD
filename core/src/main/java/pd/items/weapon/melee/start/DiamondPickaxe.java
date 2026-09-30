@@ -1,5 +1,6 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.start;
+import java.util.ArrayList;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Hunger;
@@ -19,8 +20,7 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import render.utils.Random;
-import java.util.ArrayList;
+import render.utils.math.Random;
 public class DiamondPickaxe extends NormalMeleeWeapon {
 	public static final String AC_MINE="MINE"; public DiamondPickaxe(){super(3,2f,.5f,2,2,8,ItemSpriteSheet.LEGACY_DIAMOND_PICKAXE);unique=true;reinforced=true;defaultAction=AC_MINE;}
 	@Override protected void applyLegacyUpgrade(Stats stats){stats.min++;stats.max++;}

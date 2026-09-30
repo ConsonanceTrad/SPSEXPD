@@ -31,8 +31,8 @@ import pd.sprites.CharSprite;
 import pd.windows.WndKeyBindings;
 import render.input.GameAction;
 import render.noosa.Game;
-import render.utils.Random;
-import render.utils.Reflection;
+import render.utils.math.Random;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 

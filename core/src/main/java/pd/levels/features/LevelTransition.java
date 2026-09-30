@@ -23,11 +23,11 @@ package pd.levels.features;
 
 import pd.Dungeon;
 import pd.levels.Level;
-import render.utils.Bundlable;
-import render.utils.Bundle;
-import render.utils.Point;
-import render.utils.Random;
-import render.utils.Rect;
+import render.utils.geom.Point;
+import render.utils.geom.Rect;
+import render.utils.math.Random;
+import render.utils.serialize.Bundlable;
+import render.utils.serialize.Bundle;
 
 public class LevelTransition extends Rect implements Bundlable {
 

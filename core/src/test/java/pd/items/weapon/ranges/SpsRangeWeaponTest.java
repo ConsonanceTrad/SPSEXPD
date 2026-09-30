@@ -17,9 +17,8 @@ import pd.items.weapon.melee.Dagger;
 import pd.levels.rooms.special.SpsShopRoom;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
-import render.utils.Random;
+import render.utils.math.Random;
 
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.lang.reflect.Method;
@@ -27,6 +26,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.security.MessageDigest;
 import java.util.HashSet;
+import javax.imageio.ImageIO;
 
 /** Headless checks for all fifteen SPS bow variants and their gameplay entry points. */
 public final class SpsRangeWeaponTest {

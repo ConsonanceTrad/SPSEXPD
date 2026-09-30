@@ -44,9 +44,9 @@ import pd.sprites.VaultMirrorSprite;
 import pd.utils.GLog;
 import pd.windows.WndOptions;
 import pd.windows.WndTitledMessage;
-import render.utils.Bundle;
-import render.utils.Callback;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class VaultMirror extends NPC {
 

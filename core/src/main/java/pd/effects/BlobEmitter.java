@@ -25,8 +25,8 @@ import pd.Dungeon;
 import pd.actors.blobs.Blob;
 import pd.tiles.DungeonTilemap;
 import render.noosa.particles.Emitter;
-import render.utils.Random;
-import render.utils.RectF;
+import render.utils.geom.RectF;
+import render.utils.math.Random;
 
 public class BlobEmitter extends Emitter {
 	

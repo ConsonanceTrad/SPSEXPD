@@ -7,14 +7,14 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Terror;
 import pd.actors.mobs.Mob;
-import pd.actors.mobs.YearBeast;
 import pd.actors.mobs.YearBeast2;
+import pd.actors.mobs.YearBeast;
 import pd.effects.CellEmitter;
 import pd.effects.particles.SmokeParticle;
 import pd.items.weapon.melee.MeleeWeapon;
 import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** The original 2018 firecracker weapon. */
 public class FireCracker extends MeleeWeapon {

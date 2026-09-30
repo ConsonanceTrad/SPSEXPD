@@ -28,8 +28,8 @@ import render.noosa.ColorBlock;
 import render.noosa.NinePatch;
 import render.noosa.PointerArea;
 import render.noosa.ui.Component;
-import render.utils.GameMath;
-import render.utils.PointF;
+import render.utils.geom.PointF;
+import render.utils.math.GameMath;
 
 public abstract class OptionSlider extends Component {
 

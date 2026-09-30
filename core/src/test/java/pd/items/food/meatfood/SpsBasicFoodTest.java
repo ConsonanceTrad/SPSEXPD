@@ -19,12 +19,12 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.Rat;
 import pd.items.Generator;
 import pd.items.Heap;
-import pd.items.food.staplefood.Pasty;
 import pd.items.food.staplefood.NormalRation;
 import pd.items.food.staplefood.OverpricedRation;
+import pd.items.food.staplefood.Pasty;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.Arrays;
 

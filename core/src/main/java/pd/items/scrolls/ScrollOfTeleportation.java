@@ -38,16 +38,16 @@ import pd.levels.rooms.secret.SecretRoom;
 import pd.levels.rooms.special.SpecialRoom;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
+import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import pd.scenes.CellSelector;
 import pd.utils.GLog;
 import render.noosa.Camera;
 import render.noosa.audio.Sample;
 import render.noosa.tweeners.AlphaTweener;
-import render.utils.BArray;
-import render.utils.Point;
-import render.utils.Random;
+import render.utils.data.BArray;
+import render.utils.geom.Point;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

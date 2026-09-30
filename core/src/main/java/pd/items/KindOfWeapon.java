@@ -38,8 +38,8 @@ import pd.sprites.ItemSprite;
 import pd.utils.GLog;
 import pd.windows.WndOptions;
 import render.noosa.audio.Sample;
-import render.utils.BArray;
-import render.utils.Random;
+import render.utils.data.BArray;
+import render.utils.math.Random;
 
 abstract public class KindOfWeapon extends EquipableItem {
 

@@ -23,9 +23,9 @@ package render.noosa.audio;
 
 import com.badlogic.gdx.Gdx;
 import render.noosa.Game;
-import render.utils.Callback;
-import render.utils.DeviceCompat;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.math.Random;
+import render.utils.platform.DeviceCompat;
 
 import java.util.ArrayList;
 import java.util.Collections;

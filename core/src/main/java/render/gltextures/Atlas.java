@@ -21,7 +21,7 @@
 
 package render.gltextures;
 
-import render.utils.RectF;
+import render.utils.geom.RectF;
 
 import java.util.HashMap;
 

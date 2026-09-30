@@ -32,7 +32,7 @@ import pd.scenes.PixelScene;
 import render.noosa.TextureFilm;
 import render.noosa.audio.Sample;
 import render.noosa.particles.Emitter;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 public class DM300Sprite extends MobSprite {
 

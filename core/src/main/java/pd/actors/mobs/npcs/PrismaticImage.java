@@ -41,8 +41,8 @@ import pd.levels.features.Chasm;
 import pd.sprites.CharSprite;
 import pd.sprites.PrismaticSprite;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class PrismaticImage extends NPC {
 	

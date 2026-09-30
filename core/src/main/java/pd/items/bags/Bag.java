@@ -27,11 +27,11 @@ import pd.actors.Char;
 import pd.actors.buffs.LostInventory;
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.scenes.GameScene;
 import pd.items.quest.DarkGold;
+import pd.scenes.GameScene;
 import pd.windows.WndQuickBag;
-import render.utils.Bundlable;
-import render.utils.Bundle;
+import render.utils.serialize.Bundlable;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.Iterator;

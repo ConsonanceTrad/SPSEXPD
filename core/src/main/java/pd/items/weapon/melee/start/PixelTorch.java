@@ -9,7 +9,7 @@ import pd.actors.buffs.Shocked;
 import pd.actors.hero.Hero;
 import pd.items.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

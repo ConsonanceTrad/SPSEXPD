@@ -39,13 +39,13 @@ import pd.sprites.CharSprite;
 import pd.ui.ActionIndicator;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
-import render.utils.BArray;
 import pd.utils.GLog;
 import render.noosa.BitmapText;
 import render.noosa.Image;
 import render.noosa.Visual;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
+import render.utils.data.BArray;
+import render.utils.serialize.Bundle;
 
 import java.util.Arrays;
 import java.util.Collections;

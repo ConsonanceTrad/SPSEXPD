@@ -37,7 +37,7 @@ import render.noosa.Image;
 import render.noosa.audio.Sample;
 import render.noosa.tweeners.AlphaTweener;
 import render.noosa.ui.Component;
-import render.utils.GameMath;
+import render.utils.math.GameMath;
 
 import java.util.ArrayList;
 import java.util.Collections;

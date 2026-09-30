@@ -34,7 +34,7 @@ import pd.journal.Bestiary;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.noosa.audio.Sample;
-import render.utils.BArray;
+import render.utils.data.BArray;
 
 import java.util.ArrayList;
 
@@ -62,7 +62,7 @@ public class FlockTrap extends Trap {
 					&& Actor.findChar(i) == null
 					&& !(Dungeon.level.pit[i])) {
 				Sheep sheep = new Sheep();
-				sheep.initialize(2 + render.utils.Random.Int(scalingDepth() + 10));
+				sheep.initialize(2 + render.utils.math.Random.Int(scalingDepth() + 10));
 				sheep.pos = i;
 				GameScene.add(sheep);
 				if (Dungeon.level.heroFOV[i]) {

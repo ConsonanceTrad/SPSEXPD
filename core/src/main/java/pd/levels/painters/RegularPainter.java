@@ -37,10 +37,10 @@ import pd.levels.traps.Trap;
 import pd.mechanics.pathfind.Graph;
 import pd.mechanics.pathfind.PathFinder;
 import render.noosa.Game;
-import render.utils.Point;
-import render.utils.Random;
-import render.utils.Rect;
-import render.utils.Reflection;
+import render.utils.geom.Point;
+import render.utils.geom.Rect;
+import render.utils.math.Random;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 import java.util.HashMap;

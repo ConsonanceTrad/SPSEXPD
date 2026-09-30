@@ -5,7 +5,7 @@ import com.badlogic.gdx.backends.headless.HeadlessFiles;
 import com.badlogic.gdx.utils.GdxNativesLoader;
 import pd.items.Item;
 import render.noosa.Game;
-import render.utils.Reflection;
+import render.utils.serialize.Reflection;
 
 import java.nio.charset.CodingErrorAction;
 import java.nio.charset.StandardCharsets;

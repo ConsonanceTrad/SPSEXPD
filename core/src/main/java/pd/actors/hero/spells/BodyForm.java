@@ -34,8 +34,8 @@ import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import render.noosa.Image;
-import render.utils.Bundlable;
-import render.utils.Bundle;
+import render.utils.serialize.Bundlable;
+import render.utils.serialize.Bundle;
 
 public class BodyForm extends ClericSpell {
 

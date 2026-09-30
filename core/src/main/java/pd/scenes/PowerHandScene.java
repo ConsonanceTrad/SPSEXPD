@@ -15,7 +15,7 @@ import pd.ui.StyledButton;
 import render.noosa.Camera;
 import render.noosa.Game;
 import render.noosa.Image;
-import render.utils.RectF;
+import render.utils.geom.RectF;
 
 public class PowerHandScene extends PixelScene {
 

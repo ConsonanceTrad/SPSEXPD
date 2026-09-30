@@ -23,7 +23,7 @@ package pd.sprites;
 
 import pd.Assets;
 import render.noosa.TextureFilm;
-import render.utils.GameMath;
+import render.utils.math.GameMath;
 
 public class StatueSprite extends MobSprite {
 	

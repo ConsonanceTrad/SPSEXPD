@@ -32,7 +32,7 @@ import pd.scenes.PixelScene;
 import pd.tiles.DungeonTilemap;
 import render.noosa.audio.Sample;
 import render.noosa.particles.Emitter;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.List;

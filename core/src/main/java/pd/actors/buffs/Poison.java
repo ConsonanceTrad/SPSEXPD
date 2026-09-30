@@ -31,7 +31,7 @@ import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.Image;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class Poison extends Buff implements Hero.Doom, Buff.DOTbuff {
 	

@@ -1,8 +1,8 @@
 package pd.items.medicine;
 
-import pd.actors.buffs.Buff;
 import pd.actors.buffs.BeCorrupt;
 import pd.actors.buffs.BeOld;
+import pd.actors.buffs.Buff;
 import pd.actors.buffs.Cripple;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;

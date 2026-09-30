@@ -11,7 +11,7 @@ import pd.scenes.InterlevelScene;
 import pd.sprites.ItemSprite;
 import pd.utils.GLog;
 import render.noosa.Game;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

@@ -37,15 +37,15 @@ import pd.tiles.TerrainFeaturesTilemap;
 import pd.ui.ExitButton;
 import pd.ui.IconButton;
 import pd.ui.Icons;
-import pd.ui.TitleBackground;
 import pd.ui.StyledButton;
+import pd.ui.TitleBackground;
 import pd.windows.IconTitle;
 import pd.windows.WndJournal;
 import render.noosa.Camera;
 import render.noosa.NinePatch;
 import render.noosa.audio.Music;
-import render.utils.RectF;
-import render.utils.SparseArray;
+import render.utils.data.SparseArray;
+import render.utils.geom.RectF;
 
 public class JournalScene extends PixelScene {
 

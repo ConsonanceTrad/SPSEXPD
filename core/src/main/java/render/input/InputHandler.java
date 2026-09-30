@@ -26,7 +26,7 @@ import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.InputProcessor;
 import render.noosa.Game;
-import render.utils.PointF;
+import render.utils.geom.PointF;
 
 public class InputHandler extends InputAdapter {
 

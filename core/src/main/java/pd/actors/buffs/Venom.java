@@ -3,7 +3,7 @@ package pd.actors.buffs;
 import pd.Dungeon;
 import pd.messages.Messages;
 import render.noosa.Image;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class Venom extends Poison {
 	private static final String DAMAGE = "damage";

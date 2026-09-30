@@ -18,8 +18,8 @@ import pd.mechanics.Ballistica;
 import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTilemap;
 import render.noosa.audio.Sample;
-import render.utils.Callback;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.math.Random;
 
 /** The wall-piercing light wand from SPS-PD 0.9.8. */
 public class WandOfLight extends DamageWand {

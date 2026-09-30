@@ -33,13 +33,13 @@ import pd.levels.builders.LineBuilder;
 import pd.levels.painters.CityPainter;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
+import pd.levels.rooms.standard.ImpShopRoom;
 import pd.levels.rooms.standard.entrance.EntranceRoom;
 import pd.levels.rooms.standard.exit.ExitRoom;
-import pd.levels.rooms.standard.ImpShopRoom;
 import pd.messages.Messages;
 import render.noosa.Group;
-import render.utils.Point;
-import render.utils.Random;
+import render.utils.geom.Point;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

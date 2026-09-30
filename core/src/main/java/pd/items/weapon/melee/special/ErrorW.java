@@ -18,8 +18,8 @@ import pd.effects.particles.ShadowParticle;
 import pd.items.Item;
 import pd.items.weapon.melee.MeleeWeapon;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 /** The unstable zero-tier weapon produced by RobotDMT. */
 public class ErrorW extends MeleeWeapon {

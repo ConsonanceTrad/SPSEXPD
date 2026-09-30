@@ -9,7 +9,7 @@ import pd.items.YellowDewdrop;
 import pd.items.medicine.GreenSpore;
 import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Dewcatcher extends Plant {
 	{ image = 12; seedClass = Seed.class; }

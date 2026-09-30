@@ -14,9 +14,9 @@ import pd.levels.Terrain;
 import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
 import pd.sprites.LynnSprite;
-import render.utils.Bundle;
-import render.utils.SparseArray;
 import render.noosa.Game;
+import render.utils.data.SparseArray;
+import render.utils.serialize.Bundle;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

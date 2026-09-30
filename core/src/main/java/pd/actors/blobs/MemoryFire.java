@@ -13,7 +13,7 @@ import pd.messages.Messages;
 import pd.scenes.MemorySaveScene;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 import java.io.IOException;
 

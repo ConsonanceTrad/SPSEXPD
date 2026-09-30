@@ -7,7 +7,7 @@ import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

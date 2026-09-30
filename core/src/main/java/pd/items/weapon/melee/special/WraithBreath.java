@@ -6,7 +6,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class WraithBreath extends SpsSpecialMeleeWeapon {
 	public WraithBreath() { super(2, .75f, 1f, 4, 7, 11, ItemSpriteSheet.SPS_WRAITH_BREATH); }

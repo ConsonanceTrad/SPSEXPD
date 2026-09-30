@@ -53,9 +53,9 @@ import render.noosa.Game;
 import render.noosa.Group;
 import render.noosa.Tilemap;
 import render.noosa.audio.Music;
-import render.utils.Bundle;
-import render.utils.Callback;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

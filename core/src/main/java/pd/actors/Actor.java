@@ -29,9 +29,9 @@ import pd.actors.mobs.Mob;
 import pd.effects.TargetedCell;
 import pd.levels.VaultLevel;
 import render.noosa.Game;
-import render.utils.Bundlable;
-import render.utils.Bundle;
-import render.utils.SparseArray;
+import render.utils.data.SparseArray;
+import render.utils.serialize.Bundlable;
+import render.utils.serialize.Bundle;
 
 import java.util.HashSet;
 

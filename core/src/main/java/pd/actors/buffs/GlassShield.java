@@ -4,7 +4,7 @@ package pd.actors.buffs;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 /** The legacy SPS shield which caps a limited number of substantial hits at 10 damage. */
 public class GlassShield extends Buff {

@@ -30,8 +30,8 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.npcs.Imp;
 import pd.items.Item;
 import pd.items.KindOfWeapon;
-import pd.items.food.staplefood.OverpricedRation;
 import pd.items.food.staplefood.NormalRation;
+import pd.items.food.staplefood.OverpricedRation;
 import pd.items.weapon.melee.normalweapon.FightGloves;
 import pd.items.weapon.melee.normalweapon.Knuckles;
 import pd.messages.Messages;
@@ -39,7 +39,7 @@ import pd.sprites.MonkSprite;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.Image;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Monk extends Mob {
 	/** Kept for subclasses and save compatibility; SPS monks do not use focus. */

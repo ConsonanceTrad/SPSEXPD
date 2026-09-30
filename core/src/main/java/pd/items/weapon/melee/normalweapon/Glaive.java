@@ -4,7 +4,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Cripple;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Glaive extends NormalMeleeWeapon {
 	public Glaive() { super(4, 1f, 1.75f, 2, 42, 60, ItemSpriteSheet.SPS_WEP_GLAIVE); }

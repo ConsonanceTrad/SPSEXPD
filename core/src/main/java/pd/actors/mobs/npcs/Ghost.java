@@ -47,10 +47,10 @@ import pd.windows.WndQuest;
 import pd.windows.WndSadGhost;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
-import render.utils.Callback;
-import render.utils.Random;
-import render.utils.Reflection;
+import render.utils.data.Callback;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
+import render.utils.serialize.Reflection;
 
 public class Ghost extends NPC {
 

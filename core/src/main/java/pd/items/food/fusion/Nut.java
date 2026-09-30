@@ -6,7 +6,7 @@ import pd.actors.buffs.Hunger;
 import pd.actors.hero.Hero;
 import pd.items.food.Food;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Nut extends Food {
 

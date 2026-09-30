@@ -7,7 +7,7 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.effects.Wound;
 import render.noosa.audio.Sample;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class GrimTrap extends Trap {
 	{

@@ -7,7 +7,7 @@ import pd.actors.buffs.FrostIce;
 import pd.effects.particles.SnowParticle;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import static pd.actors.damagetype.DamageType.ICE_DAMAGE;
 

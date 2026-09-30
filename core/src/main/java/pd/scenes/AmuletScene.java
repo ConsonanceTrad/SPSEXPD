@@ -41,8 +41,8 @@ import render.noosa.Game;
 import render.noosa.Image;
 import render.noosa.audio.Music;
 import render.noosa.tweeners.Delayer;
-import render.utils.Random;
-import render.utils.RectF;
+import render.utils.geom.RectF;
+import render.utils.math.Random;
 
 public class AmuletScene extends PixelScene {
 	

@@ -18,10 +18,9 @@ import pd.levels.Level;
 import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.nio.ByteBuffer;
@@ -30,6 +29,7 @@ import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import javax.imageio.ImageIO;
 
 /** Headless checks for the reusable knife set, escape knives, and unbreakable stun. */
 public final class SpsManyKniveTest {
@@ -159,10 +159,10 @@ public final class SpsManyKniveTest {
 		TestLevel() {
 			setSize(8, 8);
 			mobs = new HashSet<>();
-			heaps = new render.utils.SparseArray<>();
+			heaps = new render.utils.data.SparseArray<>();
 			blobs = new HashMap<>();
-			plants = new render.utils.SparseArray<Plant>();
-			traps = new render.utils.SparseArray<>();
+			plants = new render.utils.data.SparseArray<Plant>();
+			traps = new render.utils.data.SparseArray<>();
 			transitions = new ArrayList<>();
 			customTiles = new ArrayList<>();
 			customTerrain = new ArrayList<>();

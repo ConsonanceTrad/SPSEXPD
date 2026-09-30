@@ -18,8 +18,8 @@ import pd.levels.BossRushLevel;
 import pd.scenes.GameScene;
 import pd.sprites.SeekingBombSprite;
 import pd.sprites.UDM300Sprite;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 /** The SPS killing machine with status phases and four homing bombs per break. */
 public class UDM300 extends BossRushBoss {

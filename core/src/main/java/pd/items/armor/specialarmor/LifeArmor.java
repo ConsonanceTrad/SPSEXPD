@@ -6,7 +6,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.items.armor.normalarmor.NormalArmor;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 /** Living armor which stores recent damage as defense, then converts it to healing. */
 public class LifeArmor extends NormalArmor {

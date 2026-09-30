@@ -26,7 +26,7 @@ import pd.actors.mobs.Shaman;
 import pd.effects.MagicMissile;
 import render.noosa.TextureFilm;
 import render.noosa.audio.Sample;
-import render.utils.Callback;
+import render.utils.data.Callback;
 
 public abstract class ShamanSprite extends MobSprite {
 	

@@ -36,7 +36,7 @@ import pd.items.scrolls.ScrollOfTeleportation;
 import pd.items.scrolls.ScrollOfTerror;
 import pd.items.scrolls.ScrollOfTransmutation;
 import pd.items.scrolls.ScrollOfUpgrade;
-import render.utils.Reflection;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

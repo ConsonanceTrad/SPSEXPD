@@ -38,8 +38,8 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import pd.SPDSettings;
 import pd.ShatteredPixelDungeon;
 import render.noosa.Game;
-import render.utils.PlatformSupport;
-import render.utils.RectF;
+import render.utils.geom.RectF;
+import render.utils.platform.PlatformSupport;
 
 import java.util.HashMap;
 import java.util.regex.Matcher;

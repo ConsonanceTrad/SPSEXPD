@@ -3,7 +3,7 @@ package pd.actors.buffs;
 
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 /** Permanent stacking 10% damage bonus purchased with maximum HP. */
 public class Blasphemy extends Buff {

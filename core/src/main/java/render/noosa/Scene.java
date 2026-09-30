@@ -24,7 +24,7 @@ package render.noosa;
 import render.input.GameAction;
 import render.input.KeyBindings;
 import render.input.KeyEvent;
-import render.utils.Signal;
+import render.utils.data.Signal;
 
 public class Scene extends Group {
 	

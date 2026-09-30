@@ -24,8 +24,8 @@ package pd.effects;
 import render.glwrap.Blending;
 import render.noosa.Group;
 import render.noosa.particles.PixelParticle;
-import render.utils.PointF;
-import render.utils.Random;
+import render.utils.geom.PointF;
+import render.utils.math.Random;
 
 public class Identification extends Group {
 

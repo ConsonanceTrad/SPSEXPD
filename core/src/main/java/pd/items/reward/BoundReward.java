@@ -18,7 +18,7 @@ import pd.actors.hero.Hero;
 import pd.items.Generator;
 import pd.items.Item;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

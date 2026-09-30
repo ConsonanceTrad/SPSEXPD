@@ -40,7 +40,7 @@ import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import render.noosa.Image;
 import render.noosa.audio.Sample;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 public class Endure extends ArmorAbility {
 

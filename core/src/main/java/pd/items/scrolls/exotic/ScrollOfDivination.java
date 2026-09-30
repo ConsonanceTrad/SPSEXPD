@@ -37,8 +37,8 @@ import pd.ui.Window;
 import pd.utils.GLog;
 import pd.windows.IconTitle;
 import render.noosa.audio.Sample;
-import render.utils.Random;
-import render.utils.Reflection;
+import render.utils.math.Random;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 import java.util.HashSet;

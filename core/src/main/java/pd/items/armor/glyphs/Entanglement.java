@@ -26,13 +26,13 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.effects.CellEmitter;
 import pd.effects.particles.EarthParticle;
-import pd.items.armor.Armor;
 import pd.items.armor.Armor.Glyph;
+import pd.items.armor.Armor;
 import pd.plants.Earthroot;
 import pd.scenes.PixelScene;
-import pd.sprites.ItemSprite;
 import pd.sprites.ItemSprite.Glowing;
-import render.utils.Random;
+import pd.sprites.ItemSprite;
+import render.utils.math.Random;
 
 public class Entanglement extends Glyph {
 	

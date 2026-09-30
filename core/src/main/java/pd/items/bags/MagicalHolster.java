@@ -22,15 +22,15 @@
 package pd.items.bags;
 
 import pd.items.Item;
-import pd.items.bombs.Bomb;
-import pd.items.wands.Wand;
 import pd.items.StoneOre;
 import pd.items.TriforceOfCourage;
 import pd.items.TriforceOfPower;
 import pd.items.TriforceOfWisdom;
-import pd.items.weapon.spammo.SpAmmo;
+import pd.items.bombs.Bomb;
+import pd.items.wands.Wand;
 import pd.items.weapon.guns.GunWeapon;
 import pd.items.weapon.rockcode.RockCode;
+import pd.items.weapon.spammo.SpAmmo;
 import pd.sprites.ItemSpriteSheet;
 
 public class MagicalHolster extends Bag {

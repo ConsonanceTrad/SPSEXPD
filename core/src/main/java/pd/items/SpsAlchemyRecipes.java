@@ -2,8 +2,8 @@
 package pd.items;
 
 import pd.ShatteredPixelDungeon;
-import pd.items.eggs.Egg;
 import pd.items.brewed.Brewed;
+import pd.items.eggs.Egg;
 import pd.items.food.Blandfruit;
 import pd.items.food.FishCracker;
 import pd.items.food.Honey;
@@ -22,8 +22,8 @@ import pd.items.potions.Potion;
 import pd.items.potions.PotionOfMixing;
 import pd.items.scrolls.Scroll;
 import pd.plants.*;
-import render.utils.Reflection;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 import java.util.Arrays;

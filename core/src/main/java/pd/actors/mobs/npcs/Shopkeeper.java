@@ -36,8 +36,8 @@ import pd.effects.Speck;
 import pd.effects.particles.ElmoParticle;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.sellitem.SellPermit;
 import pd.items.armor.Armor;
+import pd.items.sellitem.SellPermit;
 import pd.items.weapon.missiles.MissileWeapon;
 import pd.journal.Notes;
 import pd.mechanics.pathfind.PathFinder;
@@ -54,10 +54,10 @@ import pd.windows.WndTitledMessage;
 import pd.windows.WndTradeItem;
 import render.noosa.Game;
 import render.noosa.Image;
-import render.utils.BArray;
-import render.utils.Bundlable;
-import render.utils.Bundle;
-import render.utils.Callback;
+import render.utils.data.BArray;
+import render.utils.data.Callback;
+import render.utils.serialize.Bundlable;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

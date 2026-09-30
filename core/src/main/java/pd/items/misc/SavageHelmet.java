@@ -5,7 +5,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.DamageUp;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class SavageHelmet extends MiscEquippable {
 

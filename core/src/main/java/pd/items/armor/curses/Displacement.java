@@ -25,7 +25,7 @@ import pd.actors.Char;
 import pd.items.armor.Armor;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.sprites.ItemSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Displacement extends Armor.Glyph {
 

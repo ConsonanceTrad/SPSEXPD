@@ -32,8 +32,8 @@ import pd.levels.rooms.special.MagicWellRoom;
 import pd.levels.traps.Trap;
 import pd.plants.Plant;
 import render.noosa.Game;
-import render.utils.FileUtils;
-import render.utils.SparseArray;
+import render.utils.data.SparseArray;
+import render.utils.serialize.FileUtils;
 
 import java.io.File;
 import java.lang.reflect.Field;

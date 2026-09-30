@@ -6,8 +6,8 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.DBurning;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
-import pd.sprites.ItemSpriteSheet;
 import pd.scenes.GameScene;
+import pd.sprites.ItemSpriteSheet;
 
 public class JackOLantern extends Pill {
 	{ image = ItemSpriteSheet.MUSHROOM_LANTERN; }

@@ -9,7 +9,7 @@ import pd.items.weapon.Weapon;
 import pd.items.weapon.melee.relic.SpsRelicWeapon;
 import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSprite;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.HashSet;
 

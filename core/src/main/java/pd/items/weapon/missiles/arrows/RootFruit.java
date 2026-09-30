@@ -2,8 +2,8 @@
 package pd.items.weapon.missiles.arrows;
 
 import pd.actors.Char;
-import pd.actors.blobs.damageblobs.EarthEffectDamage;
 import pd.actors.blobs.Web;
+import pd.actors.blobs.damageblobs.EarthEffectDamage;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Roots;
 import pd.sprites.ItemSpriteSheet;

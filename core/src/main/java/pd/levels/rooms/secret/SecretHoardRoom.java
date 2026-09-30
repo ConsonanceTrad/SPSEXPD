@@ -31,9 +31,9 @@ import pd.levels.traps.DisintegrationTrap;
 import pd.levels.traps.PoisonDartTrap;
 import pd.levels.traps.RockfallTrap;
 import pd.levels.traps.Trap;
-import render.utils.Point;
-import render.utils.Random;
-import render.utils.Reflection;
+import render.utils.geom.Point;
+import render.utils.math.Random;
+import render.utils.serialize.Reflection;
 
 public class SecretHoardRoom extends SecretRoom {
 	

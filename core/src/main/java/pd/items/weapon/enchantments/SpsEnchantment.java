@@ -4,7 +4,7 @@ package pd.items.weapon.enchantments;
 import pd.actors.Char;
 import pd.items.misc.FourClover;
 import pd.items.weapon.Weapon;
-import render.utils.Random;
+import render.utils.math.Random;
 
 /** Shared SPS-PD 0.9.8 elemental damage rolls with repaired low-level bounds. */
 abstract class SpsEnchantment extends Weapon.Enchantment {

@@ -16,9 +16,9 @@ package pd.actors.mobs.npcs;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
+import pd.items.AdamantWand;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.AdamantWand;
 import pd.items.quest.CorpseDust;
 import pd.items.wands.Wand;
 import pd.items.wands.WandOfAcid;
@@ -45,9 +45,9 @@ import pd.sprites.WandmakerSprite;
 import pd.windows.WndQuest;
 import pd.windows.WndWandmaker;
 import render.noosa.Game;
-import render.utils.Bundle;
-import render.utils.Callback;
-import render.utils.Random;
+import render.utils.data.Callback;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

@@ -36,7 +36,7 @@ import render.noosa.Game;
 import render.noosa.PointerArea;
 import render.noosa.audio.Sample;
 import render.noosa.ui.Component;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class CurrencyIndicator extends Component {
 

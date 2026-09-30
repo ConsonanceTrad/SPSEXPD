@@ -12,7 +12,7 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class Gleaf extends RockCode {
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "G.l"; }

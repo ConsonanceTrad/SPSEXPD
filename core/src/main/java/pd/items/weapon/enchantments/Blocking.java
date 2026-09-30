@@ -34,8 +34,8 @@ import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class Blocking extends Weapon.Enchantment {
 	

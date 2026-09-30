@@ -21,8 +21,8 @@
 
 package render.input;
 
-import render.utils.PointF;
-import render.utils.Signal;
+import render.utils.data.Signal;
+import render.utils.geom.PointF;
 
 import java.util.ArrayList;
 

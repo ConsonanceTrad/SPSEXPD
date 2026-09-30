@@ -4,7 +4,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Paralysis;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Random;
+import render.utils.math.Random;
 
 public class FightGloves extends NormalMeleeWeapon {
 	public FightGloves() { super(2, 1f, 1f, 1, 11, 17, ItemSpriteSheet.SPS_WEP_FIGHT_GLOVES); }

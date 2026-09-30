@@ -41,7 +41,7 @@ import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
 import render.noosa.audio.Sample;
-import render.utils.Random;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 

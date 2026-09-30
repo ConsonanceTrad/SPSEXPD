@@ -12,8 +12,8 @@ import pd.plants.BlandfruitBush;
 import pd.plants.Plant;
 import pd.plants.ReNepenth;
 import pd.plants.StarEater;
-import render.utils.Point;
-import render.utils.Random;
+import render.utils.geom.Point;
+import render.utils.math.Random;
 
 /** Hidden magic well and special plant from SPS-PD 0.9.8. */
 public class SpsMagicWellRoom extends SpecialRoom {

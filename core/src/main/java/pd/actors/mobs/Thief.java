@@ -23,10 +23,10 @@ package pd.actors.mobs;
 
 import pd.Dungeon;
 import pd.actors.Char;
-import pd.actors.hero.Hero;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Locked;
 import pd.actors.buffs.Terror;
+import pd.actors.hero.Hero;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.items.Generator;
@@ -37,8 +37,8 @@ import pd.items.food.vegetable.NutVegetable;
 import pd.messages.Messages;
 import pd.sprites.ThiefSprite;
 import pd.utils.GLog;
-import render.utils.Bundle;
-import render.utils.Random;
+import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 public class Thief extends Mob {
 	

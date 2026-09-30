@@ -3,9 +3,9 @@ package pd.items.misc;
 
 import pd.Dungeon;
 import pd.actors.Actor;
-import pd.actors.mobs.Mob;
 import pd.actors.buffs.InfJump;
 import pd.actors.hero.Hero;
+import pd.actors.mobs.Mob;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.items.Item;
@@ -15,7 +15,7 @@ import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import render.utils.Bundle;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 

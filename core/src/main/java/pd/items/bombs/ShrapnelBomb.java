@@ -28,8 +28,8 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.BlastParticle;
 import pd.mechanics.ShadowCaster;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.Point;
-import render.utils.Random;
+import render.utils.geom.Point;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 
