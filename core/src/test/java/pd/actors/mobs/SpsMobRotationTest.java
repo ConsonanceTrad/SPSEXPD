@@ -493,7 +493,7 @@ public final class SpsMobRotationTest {
 	}
 
 	private static void checkBanditText() {
-		java.nio.file.Path base = java.nio.file.Path.of("src", "main", "assets", "messages", "actors");
+		java.nio.file.Path base = java.nio.file.Path.of("messages", "actors");
 		String[][] expected = {
 				{"en/actors.properties", "actors.mobs.bandit.name=Crazy bandit", "actors.mobs.bandit.desc=Crazy bandit can harm target when steal from it.", "actors.mobs.senior.name=senior monk", "actors.mobs.senior.desc=He is stronger."},
 				{"zh/actors.properties", "actors.mobs.bandit.name=紫衣大盗", "actors.mobs.bandit.desc=较普通绿衣小贼而言，紫衣大盗在偷窃同时，会狠狠伤害被偷窃者，以方便自己逃跑。", "actors.mobs.senior.name=武僧大师", "actors.mobs.senior.desc=相较普通武僧而言，武僧大师变秃了，也变强了!"},

@@ -1,5 +1,15 @@
 apply plugin: 'java-library'
 
+//SPSEXPD: 源码根上提一层（src/main → src），目录即功能地图，不再有 Gradle 默认的 main/test 夹层
+sourceSets {
+    main {
+        java.srcDirs = ['src/java']
+    }
+    test {
+        java.srcDirs = ['src/test/java']
+    }
+}
+
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 java.sourceCompatibility = java.targetCompatibility = appJavaCompatibility
 

@@ -117,9 +117,9 @@ public final class SpsNoomlinCrownTest {
 
 		BufferedImage current = ImageIO.read(Path.of("sprites/items", "items.png").toFile());
 		//外部 0.9.8 基准缺失时回退到仓库内置参考源码
-		java.nio.file.Path legacyPng = Path.of("..", "..", "..", "..", "..",
+		java.nio.file.Path legacyPng = Path.of("..", "..", "..", "..",
 				"SPS-PD-0.9.8", "SPS-PD-0.9.8", "assets", "items.png");
-		if (!legacyPng.toFile().exists()) legacyPng = Path.of("..", "..", "..", "..", "_ref", "ref", "SPS-PD", "assets", "items.png");
+		if (!legacyPng.toFile().exists()) legacyPng = Path.of("..", "..", "..", "_ref", "ref", "SPS-PD", "assets", "items.png");
 		BufferedImage legacy = ImageIO.read(legacyPng.toFile());
 		for (int y = 0; y < 16; y++) {
 			for (int x = 0; x < 16; x++) {

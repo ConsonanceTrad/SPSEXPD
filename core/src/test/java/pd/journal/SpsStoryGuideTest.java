@@ -45,11 +45,11 @@ public final class SpsStoryGuideTest {
 	}
 
 	private static void testOriginalTranslations() throws Exception {
-		Path legacy = Path.of("..", "..", "..", "..", "..", "SPS-PD-0.9.8", "SPS-PD-0.9.8",
+		Path legacy = Path.of("..", "..", "..", "..", "SPS-PD-0.9.8", "SPS-PD-0.9.8",
 				"resources", "com", "hmdzl", "spspd", "messages", "misc");
 		if (!legacy.toFile().exists()) {
 			//外部 0.9.8 基准目录缺失时回退到仓库内置参考源码
-			legacy = Path.of("..", "..", "..", "..", "_ref", "ref", "SPS-PD",
+			legacy = Path.of("..", "..", "..", "_ref", "ref", "SPS-PD",
 					"resources", "com", "hmdzl", "spspd", "messages", "misc");
 		}
 		compareLocale(legacy.resolve("misc.properties"), Path.of("messages", "journal", "en", "journal.properties"));

@@ -36,7 +36,7 @@ allprojects {
         //校验脚手架：根包与源码根集中定义（143 个 verifySpsXxx 任务复用；包名/目录重组只需改这里）
         corePackage = 'pd'
         corePackageDir = 'pd'
-        coreMainDir = 'core/src/main/java'
+        coreMainDir = 'core/src/java'
     }
     version = appVersionName
 
@@ -58,7 +58,7 @@ tasks.register('verifySpsContent') {
     description = '检查SPS移植内容的中英文资源、UTF-8文本与固定地图模板。'
 
     doLast {
-		fileTree('core/src/main/assets/messages').matching { include '**/*.properties' }.each { resource ->
+		fileTree('core/src/assets/messages').matching { include '**/*.properties' }.each { resource ->
 			def decoder = java.nio.charset.StandardCharsets.UTF_8.newDecoder()
 					.onMalformedInput(java.nio.charset.CodingErrorAction.REPORT)
 					.onUnmappableCharacter(java.nio.charset.CodingErrorAction.REPORT)
@@ -77,22 +77,22 @@ tasks.register('verifySpsContent') {
 		}
 
         def messagePairs = [
-                [file('core/src/main/assets/messages/items/en/items.properties'),
-                 file('core/src/main/assets/messages/items/zh/items.properties')],
-                [file('core/src/main/assets/messages/actors/en/actors.properties'),
-                 file('core/src/main/assets/messages/actors/zh/actors.properties')],
-                [file('core/src/main/assets/messages/levels/en/levels.properties'),
-                 file('core/src/main/assets/messages/levels/zh/levels.properties')],
-                [file('core/src/main/assets/messages/plants/en/plants.properties'),
-                 file('core/src/main/assets/messages/plants/zh/plants.properties')],
-                [file('core/src/main/assets/messages/scenes/en/scenes.properties'),
-				 file('core/src/main/assets/messages/scenes/zh/scenes.properties')],
-				[file('core/src/main/assets/messages/windows/en/windows.properties'),
-				 file('core/src/main/assets/messages/windows/zh/windows.properties')],
-				[file('core/src/main/assets/messages/misc/en/misc.properties'),
-				 file('core/src/main/assets/messages/misc/zh/misc.properties')],
-				[file('core/src/main/assets/messages/ui/en/ui.properties'),
-				 file('core/src/main/assets/messages/ui/zh/ui.properties')]
+                [file('core/src/assets/messages/items/en/items.properties'),
+                 file('core/src/assets/messages/items/zh/items.properties')],
+                [file('core/src/assets/messages/actors/en/actors.properties'),
+                 file('core/src/assets/messages/actors/zh/actors.properties')],
+                [file('core/src/assets/messages/levels/en/levels.properties'),
+                 file('core/src/assets/messages/levels/zh/levels.properties')],
+                [file('core/src/assets/messages/plants/en/plants.properties'),
+                 file('core/src/assets/messages/plants/zh/plants.properties')],
+                [file('core/src/assets/messages/scenes/en/scenes.properties'),
+				 file('core/src/assets/messages/scenes/zh/scenes.properties')],
+				[file('core/src/assets/messages/windows/en/windows.properties'),
+				 file('core/src/assets/messages/windows/zh/windows.properties')],
+				[file('core/src/assets/messages/misc/en/misc.properties'),
+				 file('core/src/assets/messages/misc/zh/misc.properties')],
+				[file('core/src/assets/messages/ui/en/ui.properties'),
+				 file('core/src/assets/messages/ui/zh/ui.properties')]
         ]
         def spsPrefixes = [
                 'giftunlocks',
@@ -308,7 +308,7 @@ tasks.register('verifySpsContent') {
 				'items.png': [256, 992]
 		]
 		citySprites.each { name, dimensions ->
-			def resource = fileTree(dir: 'core/src/main/assets/sprites', includes: ["**/${name}"]).singleFile
+			def resource = fileTree(dir: 'core/src/assets/sprites', includes: ["**/${name}"]).singleFile
 			if (!resource.isFile()) throw new GradleException("缺少SPS城区素材：${name}")
 			def image = javax.imageio.ImageIO.read(resource)
 			if (image == null || image.width != dimensions[0] || image.height != dimensions[1]) {
@@ -330,7 +330,7 @@ tasks.register('verifySpsContent') {
 				'GREAT_PILL':               'D864F3BFD443A565849566465ECB5AB18A13251700047A1AADBE7FB4738846E9',
 				'WINE':                     '4CFFD6B4BC50655AC84964CE5F720C1F877B844DC0FADE93F50F16470B1D92E7'
 		]
-		def medicineSheet = javax.imageio.ImageIO.read(file('core/src/main/assets/sprites/items/items.png'))
+		def medicineSheet = javax.imageio.ImageIO.read(file('core/src/assets/sprites/items/items.png'))
 		medicineIconHashes.eachWithIndex { name, expected, slot ->
 			def pixelBytes = new java.io.ByteArrayOutputStream(16 * 16 * 4)
 			def pixels = new java.io.DataOutputStream(pixelBytes)
@@ -346,7 +346,7 @@ tasks.register('verifySpsContent') {
 				throw new GradleException("SPS药丸图标像素不一致: ${name}")
 			}
 		}
-		def terrainFeatures = javax.imageio.ImageIO.read(file('core/src/main/assets/environment/features/terrain_features.png'))
+		def terrainFeatures = javax.imageio.ImageIO.read(file('core/src/assets/environment/features/terrain_features.png'))
 		if (terrainFeatures == null || terrainFeatures.width != 256 || terrainFeatures.height != 288) {
 			throw new GradleException('SPS植物图集: terrain_features.png必须为256x288像素')
 		}
@@ -356,7 +356,7 @@ tasks.register('verifySpsContent') {
 				'sps_demonrabbit.png': [103, 15]
 		]
 		hallsSprites.each { name, dimensions ->
-			def resource = fileTree(dir: 'core/src/main/assets/sprites', includes: ["**/${name}"]).singleFile
+			def resource = fileTree(dir: 'core/src/assets/sprites', includes: ["**/${name}"]).singleFile
 			if (!resource.isFile()) throw new GradleException("缺少SPS恶魔大厅素材：${name}")
 			def image = javax.imageio.ImageIO.read(resource)
 			if (image == null || image.width != dimensions[0] || image.height != dimensions[1]) {
@@ -368,7 +368,7 @@ tasks.register('verifySpsContent') {
 				'sps_plague_doctor.png': [256, 16], 'sps_shadow_rat.png': [256, 94]
 		]
 		sewerBossSprites.each { name, dimensions ->
-			def resource = fileTree(dir: 'core/src/main/assets/sprites', includes: ["**/${name}"]).singleFile
+			def resource = fileTree(dir: 'core/src/assets/sprites', includes: ["**/${name}"]).singleFile
 			if (!resource.isFile()) throw new GradleException("缺少SPS下水道首领素材：${name}")
 			def image = javax.imageio.ImageIO.read(resource)
 			if (image == null || image.width != dimensions[0] || image.height != dimensions[1]) {
@@ -406,14 +406,14 @@ tasks.register('verifySpsContent') {
 			}
 		}
 		skinFiles.each { name ->
-			validateHeroSheet(fileTree(dir: 'core/src/main/assets/sprites', includes: ["**/${name}"]).singleFile, '职业皮肤图集')
+			validateHeroSheet(fileTree(dir: 'core/src/assets/sprites', includes: ["**/${name}"]).singleFile, '职业皮肤图集')
 		}
-		def spellswordSkin = file('core/src/main/assets/sprites/heroes/fusion_spellsword.png')
+		def spellswordSkin = file('core/src/assets/sprites/heroes/fusion_spellsword.png')
 		validateHeroSheet(spellswordSkin, '魔剑士动画图集')
 		def splashFiles = ['fusion_spellsword.jpg', 'fusion_performer.jpg', 'fusion_soldier.jpg',
 				'fusion_follower.jpg', 'fusion_ascetic.jpg']
 		splashFiles.each { name ->
-			def splash = file("core/src/main/assets/splashes/${name}")
+			def splash = file("core/src/assets/splashes/${name}")
 			def image = javax.imageio.ImageIO.read(splash)
 			if (image == null || image.width != 800 || image.height != 450) {
 				throw new GradleException("${splash}: 融合职业原画必须为800x450像素")
@@ -756,23 +756,23 @@ tasks.register('verifySpsMechanics') {
 		}
 		def charSource = readSource('actors/Char.java')
 		requireText(charSource, '1f + armorBreak.level() / 100f', '护甲破坏伤害倍率')
-		def featureImage = file('core/src/main/assets/environment/features/sps_features.png')
+		def featureImage = file('core/src/assets/environment/features/sps_features.png')
 		if (!featureImage.isFile()) throw new GradleException('旧版地形图块: 缺少sps_features.png')
 		def featureSheet = javax.imageio.ImageIO.read(featureImage)
 		if (featureSheet == null || featureSheet.width != 256 || featureSheet.height != 64) {
 			throw new GradleException('旧版地形图块: sps_features.png必须为256x64像素')
 		}
 		['sps_tiles_town.png', 'sps_tiles_forest.png'].each { name ->
-			def sheet = javax.imageio.ImageIO.read(fileTree(dir: 'core/src/main/assets/environment', includes: ["**/${name}"]).singleFile)
+			def sheet = javax.imageio.ImageIO.read(fileTree(dir: 'core/src/assets/environment', includes: ["**/${name}"]).singleFile)
 			if (sheet == null || sheet.width != 256 || sheet.height != 64) {
 				throw new GradleException("安全居所原始图集: ${name}必须为256x64像素")
 			}
 		}
-		def puzzleSheet = javax.imageio.ImageIO.read(file('core/src/main/assets/environment/tiles/sps_tiles_puzzle.png'))
+		def puzzleSheet = javax.imageio.ImageIO.read(file('core/src/assets/environment/tiles/sps_tiles_puzzle.png'))
 		if (puzzleSheet == null || puzzleSheet.width != 256 || puzzleSheet.height != 80) {
 			throw new GradleException('安全居所原始图集: sps_tiles_puzzle.png必须为256x80像素')
 		}
-		def safeWater = javax.imageio.ImageIO.read(file('core/src/main/assets/environment/water/sps_water_prison.png'))
+		def safeWater = javax.imageio.ImageIO.read(file('core/src/assets/environment/water/sps_water_prison.png'))
 		if (safeWater == null || safeWater.width != 32 || safeWater.height != 32) {
 			throw new GradleException('安全居所原始水面: sps_water_prison.png必须为32x32像素')
 		}
@@ -782,7 +782,7 @@ tasks.register('verifySpsMechanics') {
 			'sps_surface.mp3': '87942F77EF6AC0B390BD334468E9110163338CFB1FCE3C53D726D82094CBBDB0'
 		]
 		spsMusicHashes.each { name, expected ->
-			def musicFile = file("core/src/main/assets/music/${name}")
+			def musicFile = file("core/src/assets/music/${name}")
 			if (!musicFile.isFile()) throw new GradleException("旧版音乐缺失: ${name}")
 			def actual = java.security.MessageDigest.getInstance('SHA-256')
 					.digest(musicFile.bytes).encodeHex().toString().toUpperCase()
@@ -837,7 +837,7 @@ tasks.register('verifySpsMechanics') {
 			'zap.mp3': '47572211930C3AAD6F4C8E7CB563F8A579A66E638E031B79620F16983C7A4158'
 		]
 		spsSoundHashes.each { name, expected ->
-			def soundFile = file("core/src/main/assets/sounds/${name}")
+			def soundFile = file("core/src/assets/sounds/${name}")
 			if (!soundFile.isFile()) throw new GradleException("旧版音效缺失: ${name}")
 			def actual = java.security.MessageDigest.getInstance('SHA-256')
 					.digest(soundFile.bytes).encodeHex().toString().toUpperCase()
@@ -882,11 +882,11 @@ tasks.register('verifySpsMechanics') {
 		 'items/Towel.java'].each { path ->
 			if (!coreSource(path).isFile()) throw new GradleException("推箱第一关缺少源码: ${path}")
 		}
-		def sokobanSheep = javax.imageio.ImageIO.read(file('core/src/main/assets/sprites/mobs/sps_sokoban_sheep.png'))
+		def sokobanSheep = javax.imageio.ImageIO.read(file('core/src/assets/sprites/mobs/sps_sokoban_sheep.png'))
 		if (sokobanSheep == null || sokobanSheep.width != 64 || sokobanSheep.height != 64) {
 			throw new GradleException('推箱第一关: sps_sokoban_sheep.png必须为64x64像素')
 		}
-		def sentinelSheet = javax.imageio.ImageIO.read(file('core/src/main/assets/sprites/mobs/sps_sentinel.png'))
+		def sentinelSheet = javax.imageio.ImageIO.read(file('core/src/assets/sprites/mobs/sps_sentinel.png'))
 		if (sentinelSheet == null || sentinelSheet.width != 256 || sentinelSheet.height != 16) {
 			throw new GradleException('推箱城堡: sps_sentinel.png必须为256x16像素')
 		}
@@ -913,11 +913,11 @@ tasks.register('verifySpsMechanics') {
 		 'sps_gentlecrab.png', 'sps_kodora.png', 'sps_litdemon.png', 'sps_kliks.png',
 		 'sps_newsnake.png', 'sps_newspinner.png', 'sps_starkid.png', 'sps_swarm.png',
 		 'sps_ribbon_rat.png'].each { name ->
-			if (!fileTree(dir: 'core/src/main/assets/sprites', includes: ["**/${name}"]).singleFile.isFile()) {
+			if (!fileTree(dir: 'core/src/assets/sprites', includes: ["**/${name}"]).singleFile.isFile()) {
 				throw new GradleException("旧版宠物缺少原始图集: ${name}")
 			}
 		}
-		def itemSheet = javax.imageio.ImageIO.read(file('core/src/main/assets/sprites/items/items.png'))
+		def itemSheet = javax.imageio.ImageIO.read(file('core/src/assets/sprites/items/items.png'))
 		if (itemSheet == null || itemSheet.width != 256 || itemSheet.height != 992) {
 			throw new GradleException('SPS扩展物品图集: items.png必须为256x992像素')
 		}
@@ -925,13 +925,13 @@ tasks.register('verifySpsMechanics') {
 			[name: 'sps_zot_phase.png', width: 256, height: 18],
 			[name: 'sps_magic_eye.png', width: 256, height: 32]]
 		zotSprites.each { spec ->
-			def sheet = javax.imageio.ImageIO.read(fileTree(dir: 'core/src/main/assets/sprites', includes: ["**/${spec.name}"]).singleFile)
+			def sheet = javax.imageio.ImageIO.read(fileTree(dir: 'core/src/assets/sprites', includes: ["**/${spec.name}"]).singleFile)
 			if (sheet == null || sheet.width != spec.width || sheet.height != spec.height) {
 				throw new GradleException("Zot路线原始图集尺寸错误: ${spec.name}")
 			}
 		}
 		['sps_lynn.png', 'sps_fairy.png', 'sps_mobile.png', 'sps_mrdestructo.png'].each { name ->
-			if (!fileTree(dir: 'core/src/main/assets/sprites', includes: ["**/${name}"]).singleFile.isFile()) {
+			if (!fileTree(dir: 'core/src/assets/sprites', includes: ["**/${name}"]).singleFile.isFile()) {
 				throw new GradleException("深度12任务缺少原始角色图集: ${name}")
 			}
 		}
@@ -1135,7 +1135,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('SpsSCoinGiftShopTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsPickaxe', JavaExec) {
@@ -1144,7 +1144,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.quest.SpsPickaxeTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsKeyPickup', JavaExec) {
@@ -1153,7 +1153,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.keys.SpsKeyPickupTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsQuickSlotLayout', JavaExec) {
@@ -1162,7 +1162,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('SpsQuickSlotLayoutTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsRankings', JavaExec) {
@@ -1171,7 +1171,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('SpsRankingsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsSewerBossTimeline', JavaExec) {
@@ -1180,7 +1180,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.mobs.SpsSewerBossTimelineTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsCityBossTimeline', JavaExec) {
@@ -1189,7 +1189,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.mobs.SpsCityBossTimelineTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsHallsBossTimeline', JavaExec) {
@@ -1198,7 +1198,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.mobs.SpsHallsBossTimelineTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsCavesBossTimeline', JavaExec) {
@@ -1207,7 +1207,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.mobs.SpsCavesBossTimelineTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsPrisonBossTimeline', JavaExec) {
@@ -1216,7 +1216,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.mobs.SpsPrisonBossTimelineTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsLegacyProperties', JavaExec) {
@@ -1233,7 +1233,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.blobs.SpsLegacyBlobsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsMobCatalog', JavaExec) {
@@ -1242,7 +1242,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('journal.SpsMobCatalogTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsCatalog', JavaExec) {
@@ -1251,7 +1251,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('journal.SpsCatalogTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsStoryGuide', JavaExec) {
@@ -1260,7 +1260,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('journal.SpsStoryGuideTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsMagicKnowledgeRings', JavaExec) {
@@ -1269,7 +1269,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.rings.fusion.SpsMagicKnowledgeRingsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsLegacyRings', JavaExec) {
@@ -1278,7 +1278,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.rings.SpsLegacyRingsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsRingOfElements', JavaExec) {
@@ -1287,7 +1287,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.rings.SpsRingOfElementsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsEnhancedPlants', JavaExec) {
@@ -1296,7 +1296,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('plants.SpsEnhancedPlantsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsLegacyWands', JavaExec) {
@@ -1305,7 +1305,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.wands.SpsLegacyWandsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsLegacyArmor', JavaExec) {
@@ -1314,7 +1314,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.armor.normalarmor.SpsLegacyArmorTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsLegacyGlyphs', JavaExec) {
@@ -1331,7 +1331,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.armor.specialarmor.SpsSpecialArmorTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsLegacyMelee', JavaExec) {
@@ -1340,7 +1340,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.melee.normalweapon.SpsLegacyMeleeTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsLegacyStartMeleeStats', JavaExec) {
@@ -1357,7 +1357,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.mobs.SpsMainBossTimelineTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsRelicWeapons', JavaExec) {
@@ -1366,7 +1366,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.melee.relic.SpsRelicWeaponTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsLegacyEnchantments', JavaExec) {
@@ -1375,7 +1375,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.enchantments.SpsLegacyEnchantmentTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsCompleteFoods', JavaExec) {
@@ -1384,7 +1384,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.food.completefood.SpsCompleteFoodTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsStartingMissiles', JavaExec) {
@@ -1393,7 +1393,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.missiles.SpsStartingMissilesTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsStartTools', JavaExec) {
@@ -1402,7 +1402,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.misc.SpsStartToolsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsFaithAsceticStart', JavaExec) {
@@ -1411,7 +1411,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.misc.SpsFaithAsceticStartTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsSkinOneStart', JavaExec) {
@@ -1420,7 +1420,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.misc.SpsSkinOneStartTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsSkinOneInteractions', JavaExec) {
@@ -1429,7 +1429,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.misc.SpsSkinOneInteractionTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsSkinTwoWarrior', JavaExec) {
@@ -1438,7 +1438,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.misc.SpsSkinTwoWarriorTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsSkinThree', JavaExec) {
@@ -1447,7 +1447,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.misc.SpsSkinThreeTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsSkinFourTester', JavaExec) {
@@ -1456,7 +1456,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.misc.SpsSkinFourTesterTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsSkinFive', JavaExec) {
@@ -1465,7 +1465,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.misc.SpsSkinFiveTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsSkinSix', JavaExec) {
@@ -1474,7 +1474,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.misc.SpsSkinSixTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsSkinSeven', JavaExec) {
@@ -1483,7 +1483,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.misc.SpsSkinSevenTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsRockCodes', JavaExec) {
@@ -1492,7 +1492,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.rockcode.SpsRockCodeTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsBasicFoods', JavaExec) {
@@ -1501,7 +1501,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.food.meatfood.SpsBasicFoodTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsAlchemy', JavaExec) {
@@ -1510,7 +1510,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.SpsAlchemyRecipesTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsMedicineEffects', JavaExec) {
@@ -1519,7 +1519,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.medicine.SpsMedicineEffectsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsBlandfruit', JavaExec) {
@@ -1528,7 +1528,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.food.SpsBlandfruitTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsAlchemistsToolkit', JavaExec) {
@@ -1537,7 +1537,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.artifacts.SpsAlchemistsToolkitTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsHornOfPlenty', JavaExec) {
@@ -1546,7 +1546,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.artifacts.SpsHornOfPlentyTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsCapeOfThorns', JavaExec) {
@@ -1555,7 +1555,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.artifacts.SpsCapeOfThornsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsCloakOfShadows', JavaExec) {
@@ -1564,7 +1564,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.artifacts.SpsCloakOfShadowsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsDriedRose', JavaExec) {
@@ -1573,7 +1573,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.artifacts.SpsDriedRoseTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsEtherealChains', JavaExec) {
@@ -1582,7 +1582,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.artifacts.SpsEtherealChainsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsMasterThievesArmband', JavaExec) {
@@ -1591,7 +1591,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.artifacts.SpsMasterThievesArmbandTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsSandalsOfNature', JavaExec) {
@@ -1600,7 +1600,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.artifacts.SpsSandalsOfNatureTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsTalismanOfForesight', JavaExec) {
@@ -1609,7 +1609,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.artifacts.SpsTalismanOfForesightTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsTimekeepersHourglass', JavaExec) {
@@ -1618,7 +1618,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.artifacts.SpsTimekeepersHourglassTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsUnstableSpellbook', JavaExec) {
@@ -1627,7 +1627,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.artifacts.SpsUnstableSpellbookTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsEyeOfSkadi', JavaExec) {
@@ -1636,7 +1636,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.artifacts.fusion.SpsEyeOfSkadiTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsNoomlinCrown', JavaExec) {
@@ -1645,7 +1645,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.artifacts.fusion.SpsNoomlinCrownTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsSpecialFoods', JavaExec) {
@@ -1654,7 +1654,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.food.completefood.SpsSpecialFoodTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsPasty', JavaExec) {
@@ -1663,7 +1663,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.food.staplefood.SpsPastyTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsAdventureRoutes', JavaExec) {
@@ -1688,7 +1688,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('levels.SpsBetweenLevelTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	 tasks.register('verifySpsBspLayout', JavaExec) {
@@ -1705,7 +1705,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('levels.SpsRegularLevelTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsFixedLevels', JavaExec) {
@@ -1714,7 +1714,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('levels.SpsFixedLevelTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsSigns', JavaExec) {
@@ -1723,7 +1723,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('levels.features.SpsSignTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsLearnLevel', JavaExec) {
@@ -1732,7 +1732,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('levels.SpsLearnLevelTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 
@@ -1742,7 +1742,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('levels.SpsChallengeLevelsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsChallengeRewards', JavaExec) {
@@ -1751,7 +1751,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.reward.SpsChallengeRewardsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsTriangleLevels', JavaExec) {
@@ -1760,7 +1760,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('levels.SpsTriangleLevelsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsChallengeJournal', JavaExec) {
@@ -1769,7 +1769,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.quest.SpsChallengeJournalTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsLegacyTraps', JavaExec) {
@@ -1778,7 +1778,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('levels.SpsLegacyTrapTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsLightBomb', JavaExec) {
@@ -1787,7 +1787,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.bombs.SpsLightBombTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsMobRotations', JavaExec) {
@@ -1796,6 +1796,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.mobs.SpsMobRotationTest')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsHiddenShop', JavaExec) {
@@ -1804,7 +1805,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('levels.SpsHiddenShopTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsSpecialRooms', JavaExec) {
@@ -1813,7 +1814,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('levels.SpsSpecialRoomsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsMemorySave', JavaExec) {
@@ -1830,7 +1831,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.SpsMemoryItemsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsClassSkills', JavaExec) {
@@ -1839,7 +1840,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.skills.SpsClassSkillsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsShadowEaterQuest', JavaExec) {
@@ -1848,7 +1849,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.SpsShadowEaterQuestTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsLuckyBadge', JavaExec) {
@@ -1857,7 +1858,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.SpsLuckyBadgeTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsBoomerang', JavaExec) {
@@ -1866,7 +1867,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.missiles.throwing.SpsBoomerangTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsAmmo', JavaExec) {
@@ -1875,7 +1876,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.spammo.SpsAmmoTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsGuns', JavaExec) {
@@ -1884,7 +1885,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.guns.SpsGunTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsRangeWeapons', JavaExec) {
@@ -1893,7 +1894,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.ranges.SpsRangeWeaponTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsManyKnive', JavaExec) {
@@ -1902,7 +1903,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.missiles.SpsManyKniveTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsRobotDmt', JavaExec) {
@@ -1911,7 +1912,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.artifacts.SpsRobotDmtTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsTestCloak', JavaExec) {
@@ -1920,7 +1921,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.SpsTestCloakTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsSellItems', JavaExec) {
@@ -1929,7 +1930,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.sellitem.SpsSellItemsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsTownNpcLoot', JavaExec) {
@@ -1938,7 +1939,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.mobs.npcs.SpsTownNpcLootTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsLegacySpecialMelee', JavaExec) {
@@ -1947,7 +1948,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.melee.special.SpsLegacySpecialMeleeTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsAshWolf', JavaExec) {
@@ -1956,7 +1957,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.mobs.npcs.SpsAshWolfTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsBasePets', JavaExec) {
@@ -1965,7 +1966,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.mobs.pets.SpsBasePetsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsPetEggs', JavaExec) {
@@ -1974,7 +1975,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.eggs.SpsPetEggsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsPetInteractions', JavaExec) {
@@ -1983,7 +1984,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.mobs.pets.SpsPetInteractionsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsTestTimeLoadout', JavaExec) {
@@ -1992,7 +1993,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.hero.SpsTestTimeLoadoutTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsLegacyBags', JavaExec) {
@@ -2001,7 +2002,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.bags.SpsLegacyBagsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsLegacyUtilityItems', JavaExec) {
@@ -2010,7 +2011,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.SpsLegacyUtilityItemsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsLegacyChallenges', JavaExec) {
@@ -2019,7 +2020,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.mobs.SpsLegacyChallengesTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsCallCoconut', JavaExec) {
@@ -2028,7 +2029,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.summon.SpsCallCoconutTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsPocketBallFull', JavaExec) {
@@ -2037,7 +2038,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.SpsPocketBallFullTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsEasterWeapons', JavaExec) {
@@ -2046,7 +2047,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.melee.special.SpsEasterWeaponsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsSpecialRewardWeapons', JavaExec) {
@@ -2055,7 +2056,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.mobs.SpsSpecialRewardWeaponsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsExtendedLegacyWeapons', JavaExec) {
@@ -2064,7 +2065,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.melee.SpsExtendedLegacyWeaponsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsTownBlockWeapons', JavaExec) {
@@ -2073,7 +2074,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.melee.block.SpsTownBlockWeaponsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsDangerousBomb', JavaExec) {
@@ -2082,7 +2083,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.bombs.SpsDangerousBombTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsOrbOfZot', JavaExec) {
@@ -2091,7 +2092,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.mobs.SpsOrbOfZotTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsGlassTotem', JavaExec) {
@@ -2100,7 +2101,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.artifacts.SpsGlassTotemTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsChaliceOfBlood', JavaExec) {
@@ -2109,7 +2110,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.artifacts.SpsChaliceOfBloodTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsLegacyConsumableBuffs', JavaExec) {
@@ -2118,7 +2119,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.SpsLegacyConsumableBuffsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsFlyChains', JavaExec) {
@@ -2127,7 +2128,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.artifacts.SpsFlyChainsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsApostleBox', JavaExec) {
@@ -2136,7 +2137,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.sellitem.SpsApostleBoxTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsTownMisc', JavaExec) {
@@ -2145,7 +2146,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.misc.SpsTownMiscTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsTownMelee', JavaExec) {
@@ -2154,7 +2155,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.melee.special.SpsTownMeleeTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsXiXiBox', JavaExec) {
@@ -2163,7 +2164,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.melee.special.SpsXiXiBoxTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsMoneyBook', JavaExec) {
@@ -2172,7 +2173,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.missiles.throwing.SpsMoneyBookTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsBottleFire', JavaExec) {
@@ -2181,7 +2182,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.missiles.throwing.SpsBottleFireTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsTownMagic', JavaExec) {
@@ -2190,7 +2191,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.wands.SpsTownMagicTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsHoneyArrow', JavaExec) {
@@ -2199,7 +2200,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.missiles.throwing.SpsHoneyArrowTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsLynnDoll', JavaExec) {
@@ -2208,7 +2209,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.missiles.throwing.SpsLynnDollTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsRustybladeCat', JavaExec) {
@@ -2217,7 +2218,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.summon.SpsRustybladeCatTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsGiftNpc', JavaExec) {
@@ -2226,7 +2227,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.mobs.npcs.SpsGiftNpcTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsGhostQuest', JavaExec) {
@@ -2235,7 +2236,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.mobs.npcs.SpsGhostQuestTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsWandmakerQuest', JavaExec) {
@@ -2244,7 +2245,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.mobs.npcs.SpsWandmakerQuestTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsBlacksmithImpQuest', JavaExec) {
@@ -2253,7 +2254,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.mobs.npcs.SpsBlacksmithImpQuestTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsLloydsBeacon', JavaExec) {
@@ -2262,7 +2263,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.artifacts.SpsLloydsBeaconTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsLegacyDisplay', JavaExec) {
@@ -2271,7 +2272,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('tiles.SpsLegacyDisplayTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsPsionicBlast', JavaExec) {
@@ -2280,7 +2281,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.scrolls.SpsPsionicBlastTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsBossSprites', JavaExec) {
@@ -2289,7 +2290,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('sprites.SpsBossSpriteTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsJournalPages', JavaExec) {
@@ -2298,7 +2299,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.mobs.SpsJournalPagesTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsTenguKey', JavaExec) {
@@ -2307,7 +2308,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.SpsTenguKeyTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsBossKeys', JavaExec) {
@@ -2316,7 +2317,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.SpsBossKeysTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsSpecialArrows', JavaExec) {
@@ -2325,7 +2326,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.weapon.missiles.arrows.SpsSpecialArrowsTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsTransmutationWell', JavaExec) {
@@ -2334,7 +2335,7 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('actors.blobs.SpsTransmutationWellTest')
-		workingDir = file('src/main/assets')
+		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 }

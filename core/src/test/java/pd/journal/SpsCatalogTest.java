@@ -35,11 +35,11 @@ public final class SpsCatalogTest {
 	}
 
 	private static void testExactLegacyLists() throws Exception {
-		Path oldSource = Path.of("..", "..", "..", "..", "..", "SPS-PD-0.9.8", "SPS-PD-0.9.8",
+		Path oldSource = Path.of("..", "..", "..", "..", "SPS-PD-0.9.8", "SPS-PD-0.9.8",
 				"java", "com", "hmdzl", "spspd", "infos", "NewCatalog.java");
 		if (!Files.exists(oldSource)) {
 			//外部 0.9.8 基准目录缺失时回退到仓库内置参考源码（内容同为 0.9.8 NewCatalog.java）
-			oldSource = Path.of("..", "..", "..", "..", "_ref", "ref", "SPS-PD",
+			oldSource = Path.of("..", "..", "..", "_ref", "ref", "SPS-PD",
 					"java", "com", "hmdzl", "spspd", "infos", "NewCatalog.java");
 		}
 		Map<SpsCatalog, List<String>> expected = new EnumMap<>(SpsCatalog.class);

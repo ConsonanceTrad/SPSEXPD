@@ -12,7 +12,7 @@ android {
     compileSdk appAndroidCompileSDK
     compileOptions.sourceCompatibility = compileOptions.targetCompatibility = appJavaCompatibility
 
-    sourceSets.main.assets.srcDirs = [new File(project(':core').projectDir, "/src/main/assets")]
+    sourceSets.main.assets.srcDirs = [new File(project(':core').projectDir, "/src/assets")]
 
     androidResources {
         localeFilters += ['en', 'zh-rCN', 'ko', 'ru', 'es', 'pt', 'fr', 'de', 'zh-rTW', 'ja', 'pl',

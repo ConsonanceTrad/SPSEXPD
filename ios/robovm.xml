@@ -7,7 +7,7 @@
 	<iosInfoPList>Info.plist</iosInfoPList>
 	<resources>
 		<resource>
-			<directory>../core/src/main/assets</directory>
+			<directory>../core/src/assets</directory>
 			<includes>
 				<include>**</include>
 			</includes>

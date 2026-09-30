@@ -8,8 +8,8 @@ java.sourceCompatibility = java.targetCompatibility = appJavaCompatibility
 ext.appMainClass = "pd.desktop.DesktopLauncher"
 application.mainClass = appMainClass
 processResources {
-    from new File(project(':core').projectDir, "/src/main/assets")
-    from new File(project(':desktop').projectDir,"/src/main/assets")
+    from new File(project(':core').projectDir, "/src/assets")
+    from new File(project(':desktop').projectDir,"/src/assets")
 }
 
 def osName = System.getProperty('os.name').toLowerCase(Locale.ROOT)
