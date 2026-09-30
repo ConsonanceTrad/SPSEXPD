@@ -22,14 +22,14 @@
 package pd.ui;
 
 import pd.Assets;
-import watabou.gltextures.TextureCache;
-import watabou.noosa.Game;
-import watabou.noosa.Group;
-import watabou.noosa.Image;
-import watabou.noosa.TextureFilm;
-import watabou.noosa.ui.Component;
-import watabou.utils.Random;
-import watabou.utils.RectF;
+import render.gltextures.TextureCache;
+import render.noosa.Game;
+import render.noosa.Group;
+import render.noosa.Image;
+import render.noosa.TextureFilm;
+import render.noosa.ui.Component;
+import render.utils.Random;
+import render.utils.RectF;
 
 import java.util.ArrayList;
 

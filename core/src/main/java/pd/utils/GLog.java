@@ -22,8 +22,8 @@
 package pd.utils;
 
 import pd.messages.Messages;
-import watabou.utils.DeviceCompat;
-import watabou.utils.Signal;
+import render.utils.DeviceCompat;
+import render.utils.Signal;
 
 public class GLog {
 

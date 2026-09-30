@@ -16,7 +16,7 @@ import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.levels.AdventureLevel;
 import pd.sprites.GolemSprite;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 public class SokobanBlock extends NPC {
 

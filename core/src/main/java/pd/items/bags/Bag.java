@@ -30,8 +30,8 @@ import pd.items.Item;
 import pd.scenes.GameScene;
 import pd.items.quest.DarkGold;
 import pd.windows.WndQuickBag;
-import watabou.utils.Bundlable;
-import watabou.utils.Bundle;
+import render.utils.Bundlable;
+import render.utils.Bundle;
 
 import java.util.ArrayList;
 import java.util.Iterator;

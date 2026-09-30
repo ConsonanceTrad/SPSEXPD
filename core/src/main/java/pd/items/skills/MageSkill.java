@@ -12,8 +12,8 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 /** The four mage class skills from SPS-PD 0.9.8. */
 public class MageSkill extends ClassSkill {

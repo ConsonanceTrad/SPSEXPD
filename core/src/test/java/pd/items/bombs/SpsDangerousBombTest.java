@@ -22,10 +22,10 @@ import pd.levels.Terrain;
 import pd.levels.traps.Trap;
 import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.Game;
-import watabou.utils.FileUtils;
-import watabou.utils.Random;
-import watabou.utils.SparseArray;
+import render.noosa.Game;
+import render.utils.FileUtils;
+import render.utils.Random;
+import render.utils.SparseArray;
 
 import java.io.File;
 import java.lang.reflect.Method;

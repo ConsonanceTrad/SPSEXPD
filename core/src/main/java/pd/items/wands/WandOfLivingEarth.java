@@ -45,13 +45,13 @@ import pd.sprites.CharSprite;
 import pd.sprites.EarthGuardianSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
-import watabou.noosa.Image;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.Callback;
-import watabou.utils.ColorMath;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.noosa.Image;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.Callback;
+import render.utils.ColorMath;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 public class WandOfLivingEarth extends DamageWand {
 	

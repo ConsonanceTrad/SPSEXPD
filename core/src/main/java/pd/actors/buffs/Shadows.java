@@ -27,8 +27,8 @@ import pd.actors.Char;
 import pd.actors.mobs.Mob;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
 
 public class Shadows extends Invisibility {
 	

@@ -24,7 +24,7 @@ package pd.sprites;
 import pd.Assets;
 import pd.actors.Char;
 import pd.effects.Splash;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 public class YogSprite extends MobSprite {
 	

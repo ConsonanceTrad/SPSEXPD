@@ -40,7 +40,7 @@ import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
 import pd.windows.WndTitledMessage;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class ScrollOfEnchantment extends ExoticScroll {
 	

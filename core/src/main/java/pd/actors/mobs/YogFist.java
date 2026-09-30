@@ -58,9 +58,9 @@ import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.sprites.FistSprite;
 import pd.utils.GLog;
-import watabou.utils.Bundle;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.Bundle;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 public abstract class YogFist extends Mob {
 

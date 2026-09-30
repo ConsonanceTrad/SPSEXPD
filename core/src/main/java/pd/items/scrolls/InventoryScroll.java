@@ -29,7 +29,7 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public abstract class InventoryScroll extends Scroll {
 

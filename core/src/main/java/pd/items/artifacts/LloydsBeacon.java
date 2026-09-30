@@ -35,10 +35,10 @@ import pd.scenes.InterlevelScene;
 import pd.sprites.ItemSprite.Glowing;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import watabou.noosa.Game;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.PathFinder;
+import render.noosa.Game;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.PathFinder;
 
 import java.util.ArrayList;
 

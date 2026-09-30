@@ -45,10 +45,10 @@ import pd.scenes.GameScene;
 import pd.sprites.ImpSprite;
 import pd.windows.WndImpOld;
 import pd.windows.WndQuest;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
-import watabou.utils.Callback;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.utils.Bundle;
+import render.utils.Callback;
+import render.utils.Random;
 
 import java.util.ArrayList;
 import java.util.Collection;

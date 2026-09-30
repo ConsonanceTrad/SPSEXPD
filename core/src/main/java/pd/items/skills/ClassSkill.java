@@ -13,13 +13,13 @@ import pd.items.Heap;
 import pd.items.bags.Bag;
 import pd.messages.Messages;
 import pd.utils.GLog;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 import java.util.ArrayList;
 import pd.Assets;
 import pd.actors.mobs.Mob;
 import pd.effects.particles.ElmoParticle;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 /** SPS-PD 0.9.8's reusable, class-specific skill item. */
 public abstract class ClassSkill extends Item {

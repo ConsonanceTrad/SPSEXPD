@@ -43,14 +43,14 @@ import pd.sprites.HeroSprite;
 import pd.sprites.MobSprite;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
-import watabou.noosa.TextureFilm;
-import watabou.noosa.audio.Sample;
-import watabou.noosa.particles.Emitter;
-import watabou.noosa.tweeners.Tweener;
-import watabou.utils.BArray;
-import watabou.utils.Bundle;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.noosa.TextureFilm;
+import render.noosa.audio.Sample;
+import render.noosa.particles.Emitter;
+import render.noosa.tweeners.Tweener;
+import render.utils.BArray;
+import render.utils.Bundle;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

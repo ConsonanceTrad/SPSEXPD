@@ -7,7 +7,7 @@ import pd.actors.buffs.Silent;
 import pd.items.Generator;
 import pd.mechanics.Ballistica;
 import pd.sprites.ZotPhaseSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 /** Ranged phase split off from Zot. */
 public class ZotPhase extends Mob {

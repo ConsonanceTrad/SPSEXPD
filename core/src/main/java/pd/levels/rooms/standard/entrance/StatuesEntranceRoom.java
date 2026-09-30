@@ -27,9 +27,9 @@ import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.standard.StatuesRoom;
 import pd.tiles.custom.Carpet;
-import watabou.utils.PathFinder;
-import watabou.utils.Point;
-import watabou.utils.Rect;
+import render.utils.PathFinder;
+import render.utils.Point;
+import render.utils.Rect;
 
 public class StatuesEntranceRoom extends StatuesRoom {
 

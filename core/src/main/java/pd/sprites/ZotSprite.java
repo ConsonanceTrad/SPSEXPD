@@ -7,11 +7,11 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.items.trinkets.RatSkull;
 import pd.scenes.GameScene;
-import watabou.noosa.TextureFilm;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Callback;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.noosa.TextureFilm;
+import render.noosa.audio.Sample;
+import render.utils.Callback;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 /** Original 18px Zot animation and explosive ranged attack. */
 public class ZotSprite extends MobSprite {

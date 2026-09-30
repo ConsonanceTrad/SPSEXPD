@@ -8,7 +8,7 @@ import pd.actors.buffs.Poison;
 import pd.effects.CellEmitter;
 import pd.effects.particles.PoisonParticle;
 import pd.items.Heap;
-import watabou.noosa.Game;
+import render.noosa.Game;
 
 public class PoisonTrap extends Trap {
 	{ color = VIOLET; shape = DIAMOND; }

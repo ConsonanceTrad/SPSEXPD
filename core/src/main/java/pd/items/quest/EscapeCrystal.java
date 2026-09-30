@@ -49,10 +49,10 @@ import pd.windows.WndBag;
 import pd.windows.WndError;
 import pd.windows.WndOptions;
 import pd.windows.WndTitledMessage;
-import watabou.noosa.Game;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.Reflection;
+import render.noosa.Game;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.Reflection;
 
 import java.util.ArrayList;
 

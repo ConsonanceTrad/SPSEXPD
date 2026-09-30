@@ -14,10 +14,10 @@ import pd.ui.StyledButton;
 import pd.ui.TitleBackground;
 import pd.ui.Window;
 import pd.windows.WndOptions;
-import watabou.noosa.Camera;
-import watabou.noosa.Game;
-import watabou.noosa.ui.Component;
-import watabou.utils.FileUtils;
+import render.noosa.Camera;
+import render.noosa.Game;
+import render.noosa.ui.Component;
+import render.utils.FileUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;

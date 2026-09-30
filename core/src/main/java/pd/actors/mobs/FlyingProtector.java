@@ -12,9 +12,9 @@ import pd.scenes.PixelScene;
 import pd.sprites.CharSprite;
 import pd.sprites.FlyingProtectorSprite;
 import pd.utils.GLog;
-import watabou.utils.Callback;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.utils.Callback;
+import render.utils.Bundle;
+import render.utils.Random;
 
 public class FlyingProtector extends Mob implements Callback {
 

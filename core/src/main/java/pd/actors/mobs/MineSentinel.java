@@ -17,9 +17,9 @@ import pd.items.Generator;
 import pd.items.weapon.Weapon;
 import pd.messages.Messages;
 import pd.sprites.SentinelSprite;
-import watabou.utils.Bundle;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.Bundle;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

@@ -28,9 +28,9 @@ import pd.effects.Beam;
 import pd.effects.MagicMissile;
 import pd.items.wands.WandOfWarding;
 import pd.tiles.DungeonTilemap;
-import watabou.noosa.Game;
-import watabou.noosa.audio.Sample;
-import watabou.noosa.tweeners.AlphaTweener;
+import render.noosa.Game;
+import render.noosa.audio.Sample;
+import render.noosa.tweeners.AlphaTweener;
 
 public class WardSprite extends MobSprite {
 

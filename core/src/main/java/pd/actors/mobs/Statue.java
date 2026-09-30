@@ -37,8 +37,8 @@ import pd.journal.Notes;
 import pd.messages.Messages;
 import pd.sprites.StatueSprite;
 import pd.utils.GLog;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.utils.Bundle;
+import render.utils.Random;
 
 public class Statue extends Mob {
 	

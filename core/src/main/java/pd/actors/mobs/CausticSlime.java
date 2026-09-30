@@ -27,8 +27,8 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Ooze;
 import pd.items.quest.GooBlob;
 import pd.sprites.CausticSlimeSprite;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 public class CausticSlime extends Slime {
 	

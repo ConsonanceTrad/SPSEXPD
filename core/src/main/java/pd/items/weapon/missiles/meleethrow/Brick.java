@@ -9,7 +9,7 @@ import pd.items.KindOfWeapon;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class Brick extends MeleeThrowWeapon {
 	public Brick() { super(1, 8, 8, ItemSpriteSheet.SPS_EASTER_BRICK); }

@@ -31,9 +31,9 @@ import pd.items.scrolls.ScrollOfTeleportation;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
-import watabou.noosa.Image;
-import watabou.utils.Bundle;
-import watabou.utils.PathFinder;
+import render.noosa.Image;
+import render.utils.Bundle;
+import render.utils.PathFinder;
 
 public class PrismaticGuard extends Buff {
 	

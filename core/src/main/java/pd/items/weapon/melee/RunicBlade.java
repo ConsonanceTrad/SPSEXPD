@@ -33,8 +33,8 @@ import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.AttackIndicator;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Callback;
+import render.noosa.audio.Sample;
+import render.utils.Callback;
 
 public class RunicBlade extends MeleeWeapon {
 

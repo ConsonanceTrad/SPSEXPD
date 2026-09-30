@@ -14,7 +14,7 @@ import pd.mechanics.Ballistica;
 import pd.sprites.ItemSpriteSheet;
 import pd.sprites.MrDestructo2dot0Sprite;
 import pd.sprites.MrDestructoSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class ActiveMrDestructo extends SpsSummonItem {
 

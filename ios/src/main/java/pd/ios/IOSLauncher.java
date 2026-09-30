@@ -36,8 +36,8 @@ import pd.services.news.News;
 import pd.services.news.NewsImpl;
 import pd.services.updates.UpdateImpl;
 import pd.services.updates.Updates;
-import watabou.noosa.Game;
-import watabou.utils.FileUtils;
+import render.noosa.Game;
+import render.utils.FileUtils;
 
 import org.robovm.apple.foundation.NSAutoreleasePool;
 import org.robovm.apple.foundation.NSBundle;

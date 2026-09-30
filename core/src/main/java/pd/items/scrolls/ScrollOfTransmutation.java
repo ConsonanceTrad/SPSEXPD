@@ -56,7 +56,7 @@ import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import watabou.utils.Reflection;
+import render.utils.Reflection;
 
 public class ScrollOfTransmutation extends InventoryScroll {
 	

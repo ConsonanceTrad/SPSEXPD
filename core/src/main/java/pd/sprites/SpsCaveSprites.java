@@ -5,7 +5,7 @@ import pd.Assets;
 import pd.actors.mobs.SpsCaveMobs;
 import pd.effects.Lightning;
 import pd.scenes.GameScene;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 public final class SpsCaveSprites {
 	private SpsCaveSprites() { }

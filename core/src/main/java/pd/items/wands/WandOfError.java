@@ -31,9 +31,9 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Callback;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Callback;
+import render.utils.Random;
 
 /** SPS-PD's deliberately unpredictable, zero-generation-weight wand. */
 public class WandOfError extends Wand {

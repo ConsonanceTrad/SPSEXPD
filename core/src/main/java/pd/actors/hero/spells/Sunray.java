@@ -41,8 +41,8 @@ import pd.tiles.DungeonTilemap;
 import pd.ui.HeroIcon;
 import pd.ui.QuickSlotButton;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Random;
 
 public class Sunray extends TargetedClericSpell {
 

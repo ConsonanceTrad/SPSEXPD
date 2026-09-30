@@ -4,7 +4,7 @@ package pd.actors.buffs;
 import pd.actors.Char;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 /** Damages and roots the target if it moves before this charge expires. */
 public class Shocked2 extends Buff {

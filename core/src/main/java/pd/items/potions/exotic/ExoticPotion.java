@@ -36,7 +36,7 @@ import pd.items.potions.PotionOfParalyticGas;
 import pd.items.potions.PotionOfPurity;
 import pd.items.potions.PotionOfStrength;
 import pd.items.potions.PotionOfToxicGas;
-import watabou.utils.Reflection;
+import render.utils.Reflection;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

@@ -33,9 +33,9 @@ import pd.items.Generator;
 import pd.items.Item;
 import pd.scenes.GameScene;
 import pd.sprites.BanditSprite;
-import watabou.utils.Bundle;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.Bundle;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 public class Bandit extends Thief {
 

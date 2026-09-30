@@ -32,8 +32,8 @@ import pd.levels.Terrain;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
 import pd.levels.rooms.standard.EmptyRoom;
-import watabou.utils.Point;
-import watabou.utils.Random;
+import render.utils.Point;
+import render.utils.Random;
 
 public class CrystalChoiceRoom extends SpecialRoom {
 

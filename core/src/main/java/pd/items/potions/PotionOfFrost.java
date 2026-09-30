@@ -27,8 +27,8 @@ import pd.actors.blobs.Blob;
 import pd.actors.blobs.Freezing;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
-import watabou.utils.PathFinder;
+import render.noosa.audio.Sample;
+import render.utils.PathFinder;
 
 public class PotionOfFrost extends Potion {
 

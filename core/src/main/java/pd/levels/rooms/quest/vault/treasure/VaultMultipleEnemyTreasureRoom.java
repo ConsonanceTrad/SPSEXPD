@@ -28,10 +28,10 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.VaultLevel;
 import pd.levels.painters.Painter;
-import watabou.utils.GameMath;
-import watabou.utils.PathFinder;
-import watabou.utils.Point;
-import watabou.utils.Random;
+import render.utils.GameMath;
+import render.utils.PathFinder;
+import render.utils.Point;
+import render.utils.Random;
 
 public class VaultMultipleEnemyTreasureRoom extends VaultTreasureRoom {
 

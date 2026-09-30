@@ -8,8 +8,8 @@ import pd.actors.buffs.Frost;
 import pd.actors.buffs.StoneIce;
 import pd.sprites.IceRabbit2Sprite;
 import pd.items.eggs.EasterEgg;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.utils.Bundle;
+import render.utils.Random;
 
 /** FrostNova's invulnerable opening phase and faster final form. */
 public class UIcecorps2 extends UIcecorps {

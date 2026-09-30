@@ -30,7 +30,7 @@ import pd.items.bags.Bag;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.windows.WndBag;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
 

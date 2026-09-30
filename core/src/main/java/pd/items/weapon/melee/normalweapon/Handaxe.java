@@ -4,7 +4,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class Handaxe extends NormalMeleeWeapon {
 	public Handaxe() { super(2, 1f, 1f, 1, 11, 22, ItemSpriteSheet.SPS_WEP_HANDAXE); }

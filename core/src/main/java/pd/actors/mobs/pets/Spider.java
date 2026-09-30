@@ -11,7 +11,7 @@ import pd.items.food.completefood.PetFood;
 import pd.items.food.meatfood.MeatFood;
 import pd.scenes.GameScene;
 import pd.sprites.NewSpinnerSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 public class Spider extends PET {
 	{ spriteClass=NewSpinnerSprite.class;cooldown=50;properties.add(Property.PLANT);updateStats(true); }
 	@Override protected Kind kind(){return Kind.SPIDER;}

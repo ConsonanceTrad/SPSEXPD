@@ -5,7 +5,7 @@ import pd.Assets;
 import pd.actors.mobs.Mob;
 import pd.actors.mobs.SpsChallengeMobPool;
 import pd.items.Gold;
-import watabou.utils.Random;
+import render.utils.Random;
 
 /** SPS-PD 0.9.8 treasure-vault arena (challenge-book room 4). */
 public class CityChallengeLevel extends SpsRegionChallengeLevel {

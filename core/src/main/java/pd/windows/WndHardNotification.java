@@ -22,9 +22,9 @@
 package pd.windows;
 
 import pd.ui.RedButton;
-import watabou.noosa.Game;
-import watabou.noosa.Image;
-import watabou.noosa.ui.Component;
+import render.noosa.Game;
+import render.noosa.Image;
+import render.noosa.ui.Component;
 
 //a notification window that the player can't get rid of quickly, good for forcibly telling a message
 //USE THIS SPARINGLY

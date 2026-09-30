@@ -23,9 +23,9 @@ package pd.effects;
 
 import pd.Dungeon;
 import pd.tiles.DungeonTilemap;
-import watabou.gltextures.TextureCache;
-import watabou.noosa.Game;
-import watabou.noosa.Image;
+import render.gltextures.TextureCache;
+import render.noosa.Game;
+import render.noosa.Image;
 
 public class CheckedCell extends Image {
 	

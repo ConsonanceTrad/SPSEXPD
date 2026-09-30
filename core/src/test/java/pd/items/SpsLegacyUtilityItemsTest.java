@@ -34,11 +34,11 @@ import pd.items.potions.PotionOfMight;
 import pd.items.scrolls.Scroll;
 import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndIronMaker;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
-import watabou.utils.FileUtils;
-import watabou.utils.Random;
-import watabou.utils.SparseArray;
+import render.noosa.Game;
+import render.utils.Bundle;
+import render.utils.FileUtils;
+import render.utils.Random;
+import render.utils.SparseArray;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

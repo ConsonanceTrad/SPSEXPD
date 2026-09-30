@@ -28,10 +28,10 @@ import pd.actors.buffs.Buff;
 import pd.actors.mobs.Mob;
 import pd.effects.TargetedCell;
 import pd.levels.VaultLevel;
-import watabou.noosa.Game;
-import watabou.utils.Bundlable;
-import watabou.utils.Bundle;
-import watabou.utils.SparseArray;
+import render.noosa.Game;
+import render.utils.Bundlable;
+import render.utils.Bundle;
+import render.utils.SparseArray;
 
 import java.util.HashSet;
 

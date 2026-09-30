@@ -36,9 +36,9 @@ import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
-import watabou.utils.BArray;
-import watabou.utils.PathFinder;
+import render.noosa.audio.Sample;
+import render.utils.BArray;
+import render.utils.PathFinder;
 
 public class Dagger extends MeleeWeapon {
 	

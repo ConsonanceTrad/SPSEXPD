@@ -28,10 +28,10 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.PixmapPacker;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import pd.SPDSettings;
-import watabou.input.ControllerHandler;
-import watabou.noosa.Game;
-import watabou.utils.PlatformSupport;
-import watabou.utils.Point;
+import render.input.ControllerHandler;
+import render.noosa.Game;
+import render.utils.PlatformSupport;
+import render.utils.Point;
 
 import java.util.HashMap;
 import java.util.regex.Matcher;

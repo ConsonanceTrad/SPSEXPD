@@ -85,12 +85,12 @@ import pd.levels.traps.bufftrap.LightBuff2Trap;
 import pd.levels.traps.bufftrap.ShockBuff2Trap;
 import pd.levels.traps.damagetrap.FireDamageTrap;
 import pd.plants.Plant;
-import watabou.utils.Point;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
-import watabou.utils.Rect;
-import watabou.utils.Reflection;
-import watabou.utils.Bundle;
+import render.utils.Point;
+import render.utils.PathFinder;
+import render.utils.Random;
+import render.utils.Rect;
+import render.utils.Reflection;
+import render.utils.Bundle;
 
 import java.util.ArrayList;
 import java.util.Arrays;

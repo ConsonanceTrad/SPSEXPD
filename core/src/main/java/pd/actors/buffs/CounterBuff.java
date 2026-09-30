@@ -21,7 +21,7 @@
 
 package pd.actors.buffs;
 
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 //A buff whose only purposes is to keep track of a count of some form
 public class CounterBuff extends Buff {

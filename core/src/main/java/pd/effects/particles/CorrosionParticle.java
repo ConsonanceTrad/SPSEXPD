@@ -21,10 +21,10 @@
 
 package pd.effects.particles;
 
-import watabou.noosa.particles.Emitter;
-import watabou.noosa.particles.PixelParticle;
-import watabou.utils.ColorMath;
-import watabou.utils.Random;
+import render.noosa.particles.Emitter;
+import render.noosa.particles.PixelParticle;
+import render.utils.ColorMath;
+import render.utils.Random;
 
 public class CorrosionParticle extends PixelParticle {
 	

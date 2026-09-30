@@ -26,8 +26,8 @@ import pd.actors.hero.HeroClass;
 import pd.scenes.GameScene;
 import pd.sprites.HeroSprite;
 import pd.ui.BuffIndicator;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.utils.Bundle;
+import render.utils.Random;
 
 public class HeroDisguise extends FlavourBuff {
 

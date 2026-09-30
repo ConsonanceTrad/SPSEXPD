@@ -39,10 +39,10 @@ import pd.sprites.CharSprite;
 import pd.sprites.PylonSprite;
 import pd.tiles.DungeonTilemap;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

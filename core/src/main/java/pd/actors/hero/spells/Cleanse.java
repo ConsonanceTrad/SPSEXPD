@@ -37,7 +37,7 @@ import pd.items.artifacts.HolyTome;
 import pd.items.potions.exotic.PotionOfCleansing;
 import pd.messages.Messages;
 import pd.ui.HeroIcon;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
 

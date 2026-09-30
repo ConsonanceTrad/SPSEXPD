@@ -12,9 +12,9 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.items.armor.Armor;
 import pd.items.armor.normalarmor.ClothArmor;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.utils.Bundle;
+import render.utils.Random;
 
 /** Headless regression checks for all thirteen SPS-PD 0.9.8 armor glyphs. */
 public final class SpsLegacyGlyphTest {

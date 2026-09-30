@@ -1,6 +1,6 @@
 package pd.sprites;
 
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 public class SpiderJumpSprite extends SpiderNormalSprite {
 	public SpiderJumpSprite() {

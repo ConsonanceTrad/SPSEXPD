@@ -35,7 +35,7 @@ import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.RedButton;
 import pd.utils.GLog;
-import watabou.noosa.Game;
+import render.noosa.Game;
 
 public class WndEnergizeItem extends WndInfoItem {
 

@@ -25,9 +25,9 @@ import pd.scenes.PixelScene;
 import pd.ui.RenderedTextBlock;
 import pd.windows.IconTitle;
 import pd.windows.WndTabbed;
-import watabou.input.PointerEvent;
-import watabou.noosa.Image;
-import watabou.noosa.PointerArea;
+import render.input.PointerEvent;
+import render.noosa.Image;
+import render.noosa.PointerArea;
 
 import java.util.ArrayList;
 

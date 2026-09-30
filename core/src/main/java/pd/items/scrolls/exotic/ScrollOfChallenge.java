@@ -32,13 +32,13 @@ import pd.mechanics.ShadowCaster;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
-import watabou.utils.BArray;
-import watabou.noosa.Image;
-import watabou.noosa.audio.Sample;
-import watabou.noosa.particles.Emitter;
-import watabou.utils.Bundle;
-import watabou.utils.PathFinder;
-import watabou.utils.Point;
+import render.utils.BArray;
+import render.noosa.Image;
+import render.noosa.audio.Sample;
+import render.noosa.particles.Emitter;
+import render.utils.Bundle;
+import render.utils.PathFinder;
+import render.utils.Point;
 
 import java.util.ArrayList;
 

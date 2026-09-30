@@ -41,11 +41,11 @@ import pd.items.scrolls.ScrollOfUpgrade;
 import pd.items.scrolls.ScrollOfPsionicBlast;
 import pd.scenes.GameScene;
 import pd.sprites.WraithSprite;
-import watabou.noosa.tweeners.AlphaTweener;
-import watabou.utils.Bundle;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
-import watabou.utils.Reflection;
+import render.noosa.tweeners.AlphaTweener;
+import render.utils.Bundle;
+import render.utils.PathFinder;
+import render.utils.Random;
+import render.utils.Reflection;
 
 import java.util.ArrayList;
 

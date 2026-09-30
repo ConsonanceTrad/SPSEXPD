@@ -35,10 +35,10 @@ import pd.ui.Icons;
 import pd.ui.RenderedTextBlock;
 import pd.ui.TalentButton;
 import pd.ui.TalentsPane;
-import watabou.noosa.Game;
-import watabou.noosa.Image;
-import watabou.noosa.ui.Component;
-import watabou.utils.DeviceCompat;
+import render.noosa.Game;
+import render.noosa.Image;
+import render.noosa.ui.Component;
+import render.utils.DeviceCompat;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

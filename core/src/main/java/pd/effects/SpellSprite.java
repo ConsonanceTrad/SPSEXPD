@@ -24,9 +24,9 @@ package pd.effects;
 import pd.Assets;
 import pd.actors.Char;
 import pd.scenes.GameScene;
-import watabou.noosa.Game;
-import watabou.noosa.Image;
-import watabou.noosa.TextureFilm;
+import render.noosa.Game;
+import render.noosa.Image;
+import render.noosa.TextureFilm;
 
 import java.util.HashMap;
 

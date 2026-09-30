@@ -43,7 +43,7 @@ import pd.items.weapon.Weapon;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
 

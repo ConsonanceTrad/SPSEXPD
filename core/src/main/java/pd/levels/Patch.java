@@ -21,7 +21,7 @@
 
 package pd.levels;
 
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class Patch {
 

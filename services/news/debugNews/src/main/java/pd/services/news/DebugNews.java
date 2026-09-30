@@ -23,7 +23,7 @@ package pd.services.news;
 import pd.services.news.NewsArticle;
 import pd.services.news.NewsService;
 
-import watabou.noosa.Game;
+import render.noosa.Game;
 
 import java.util.ArrayList;
 import java.util.Date;

@@ -6,7 +6,7 @@ import pd.actors.Char;
 import pd.items.Item;
 import pd.items.keys.Key;
 import pd.scenes.InterlevelScene;
-import watabou.noosa.Game;
+import render.noosa.Game;
 
 public class DistortionTrap extends Trap {
 

@@ -37,8 +37,8 @@ import pd.sprites.RatKingSprite;
 import pd.utils.Holiday;
 import pd.windows.WndInfoArmorAbility;
 import pd.windows.WndOptions;
-import watabou.noosa.Game;
-import watabou.utils.Callback;
+import render.noosa.Game;
+import render.utils.Callback;
 
 public class RatKing extends NPC {
 

@@ -8,8 +8,8 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Ooze;
 import pd.actors.buffs.Roots;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.BArray;
-import watabou.utils.PathFinder;
+import render.utils.BArray;
+import render.utils.PathFinder;
 
 public class EarthBomb extends Bomb {
 

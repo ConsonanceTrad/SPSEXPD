@@ -14,8 +14,8 @@ import pd.sprites.CharSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
 import pd.windows.WndUseItem;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
 
 import java.util.ArrayList;
 

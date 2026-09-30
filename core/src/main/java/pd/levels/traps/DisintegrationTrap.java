@@ -26,9 +26,9 @@ import pd.items.bags.Bag;
 import pd.messages.Messages;
 import pd.tiles.DungeonTilemap;
 import pd.utils.GLog;
-import watabou.noosa.Game;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.noosa.audio.Sample;
+import render.utils.Random;
 
 public class DisintegrationTrap extends Trap {
 

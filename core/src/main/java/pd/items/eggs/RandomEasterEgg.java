@@ -6,7 +6,7 @@ import pd.actors.mobs.pets.CocoCat;
 import pd.actors.mobs.pets.LegacyPet;
 import pd.actors.mobs.pets.Velocirooster;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class RandomEasterEgg extends Egg {
 	{ image = ItemSpriteSheet.COCO_CAT_EGG; }

@@ -26,7 +26,7 @@ import pd.levels.TenguDenLevel;
 import pd.levels.ThiefBossLevel;
 import pd.levels.ThiefCatchLevel;
 import pd.levels.TownLevel;
-import watabou.noosa.Game;
+import render.noosa.Game;
 
 /** Verifies every normal journal route and rejects the early fusion placeholder maps. */
 public final class SpsAdventureRouteTest {

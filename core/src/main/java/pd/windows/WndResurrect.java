@@ -37,7 +37,7 @@ import pd.ui.ItemButton;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
-import watabou.noosa.Game;
+import render.noosa.Game;
 
 public class WndResurrect extends Window {
 	

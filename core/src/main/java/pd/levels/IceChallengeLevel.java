@@ -5,7 +5,7 @@ import pd.Assets;
 import pd.actors.mobs.IceBall;
 import pd.actors.mobs.Mob;
 import pd.items.Dewdrop;
-import watabou.utils.Random;
+import render.utils.Random;
 
 /** SPS-PD 0.9.8 frost arena (challenge-book room 0). */
 public class IceChallengeLevel extends SpsRegionChallengeLevel {

@@ -22,7 +22,7 @@
 package pd.ui.changelist;
 
 import pd.Assets;
-import watabou.noosa.Image;
+import render.noosa.Image;
 
 //separate sprite assets for icons in the changelist, so that old visuals are preserved here after changes
 public enum ChangeIcons {

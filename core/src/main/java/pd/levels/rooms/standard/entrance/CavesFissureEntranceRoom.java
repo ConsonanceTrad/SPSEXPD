@@ -26,7 +26,7 @@ import pd.levels.Terrain;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.standard.CavesFissureRoom;
-import watabou.utils.PathFinder;
+import render.utils.PathFinder;
 
 public class CavesFissureEntranceRoom extends CavesFissureRoom {
 

@@ -17,9 +17,9 @@ import pd.levels.SpsSokobanLevel;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTilemap;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Callback;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Callback;
+import render.utils.Random;
 
 /** The original SPS-PD water and knockback wand. */
 public class WandOfFlow extends DamageWand {

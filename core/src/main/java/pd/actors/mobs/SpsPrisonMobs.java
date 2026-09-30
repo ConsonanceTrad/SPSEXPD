@@ -45,9 +45,9 @@ import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.SpsPrisonSprites;
-import watabou.utils.Bundle;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.Bundle;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 public final class SpsPrisonMobs {
 	private SpsPrisonMobs() { }

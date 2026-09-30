@@ -24,7 +24,7 @@ package pd.actors.buffs;
 import pd.Challenges;
 import pd.Dungeon;
 import pd.ui.BuffIndicator;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 public class LockedFloor extends Buff {
 

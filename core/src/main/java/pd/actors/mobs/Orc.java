@@ -14,7 +14,7 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.OrcSprite;
 import pd.utils.GLog;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class Orc extends Mob {
 

@@ -26,7 +26,7 @@ import pd.levels.Terrain;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.standard.RuinsRoom;
-import watabou.utils.PathFinder;
+import render.utils.PathFinder;
 
 public class RuinsEntranceRoom extends RuinsRoom {
 

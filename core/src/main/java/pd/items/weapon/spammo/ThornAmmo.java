@@ -6,7 +6,7 @@ import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Cripple;
 import pd.sprites.ItemSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class ThornAmmo extends SpAmmo {
 	private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0xCC6600);

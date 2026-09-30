@@ -12,7 +12,7 @@ import pd.actors.buffs.MagicImmune;
 import pd.actors.hero.Hero;
 import pd.items.keys.IronKey;
 import pd.scenes.InterlevelScene;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;

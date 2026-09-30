@@ -4,7 +4,7 @@ import pd.Dungeon;
 import pd.actors.blobs.Blob;
 import pd.effects.BlobEmitter;
 import pd.messages.Messages;
-import watabou.noosa.particles.Emitter;
+import render.noosa.particles.Emitter;
 
 abstract class SpsWeather extends Blob {
 	@Override

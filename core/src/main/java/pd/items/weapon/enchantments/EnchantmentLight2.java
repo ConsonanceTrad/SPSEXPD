@@ -7,7 +7,7 @@ import pd.actors.buffs.LightShootAttack;
 import pd.effects.Speck;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 import static pd.actors.damagetype.DamageType.LIGHT_DAMAGE;
 

@@ -29,10 +29,10 @@ import pd.items.Item;
 import pd.items.artifacts.Artifact;
 import pd.items.remains.RemainsItem;
 import pd.items.weapon.missiles.MissileWeapon;
-import watabou.utils.Bundle;
-import watabou.utils.FileUtils;
-import watabou.utils.Random;
-import watabou.utils.Reflection;
+import render.utils.Bundle;
+import render.utils.FileUtils;
+import render.utils.Random;
+import render.utils.Reflection;
 
 import java.io.IOException;
 import java.util.ArrayList;

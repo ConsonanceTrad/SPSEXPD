@@ -28,7 +28,7 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.secret.SecretRoom;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class MineSecretRoom extends SecretRoom {
 

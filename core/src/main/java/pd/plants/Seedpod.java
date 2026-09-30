@@ -4,8 +4,8 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.items.Generator;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

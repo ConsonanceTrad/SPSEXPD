@@ -24,9 +24,9 @@ package pd.levels.rooms.connection;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import watabou.utils.GameMath;
-import watabou.utils.Point;
-import watabou.utils.Rect;
+import render.utils.GameMath;
+import render.utils.Point;
+import render.utils.Rect;
 
 public class RingTunnelRoom extends TunnelRoom {
 

@@ -9,8 +9,8 @@ import pd.actors.buffs.HolyStun;
 import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.BArray;
-import watabou.utils.PathFinder;
+import render.utils.BArray;
+import render.utils.PathFinder;
 
 import java.util.ArrayList;
 

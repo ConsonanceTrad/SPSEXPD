@@ -13,7 +13,7 @@ import pd.items.scrolls.ScrollOfTeleportation;
 import pd.messages.Messages;
 import pd.plants.Fadeleaf;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class TeleportationTrap extends Trap {
 

@@ -38,11 +38,11 @@ import pd.journal.Catalog;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.sprites.SteelBeeSprite;
-import watabou.noosa.audio.Sample;
-import watabou.noosa.tweeners.AlphaTweener;
-import watabou.utils.PathFinder;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.noosa.tweeners.AlphaTweener;
+import render.utils.PathFinder;
+import render.utils.Bundle;
+import render.utils.Random;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,7 +1,7 @@
 package pd.sprites;
 
 import pd.Assets;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 public class ScorpionSprite extends MobSprite {
 	public ScorpionSprite() {

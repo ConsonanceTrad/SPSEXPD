@@ -24,7 +24,7 @@ package pd.actors.mobs;
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.items.trinkets.RatSkull;
-import watabou.utils.Random;
+import render.utils.Random;
 
 import java.util.ArrayList;
 import java.util.Arrays;

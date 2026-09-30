@@ -18,8 +18,8 @@ import pd.actors.mobs.Mob;
 import pd.items.weapon.missiles.arrows.BlindFruit;
 import pd.items.weapon.missiles.throwing.EmpBola;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.Game;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.utils.Random;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

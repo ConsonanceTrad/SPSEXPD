@@ -28,7 +28,7 @@ import pd.effects.Splash;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSprite.Glowing;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class Chilling extends Weapon.Enchantment {
 

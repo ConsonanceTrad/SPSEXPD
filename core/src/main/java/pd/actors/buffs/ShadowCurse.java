@@ -3,7 +3,7 @@ package pd.actors.buffs;
 
 import pd.effects.particles.ShadowParticle;
 import pd.ui.BuffIndicator;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 public class ShadowCurse extends Buff {
 	private static final String TICKS = "ticks";

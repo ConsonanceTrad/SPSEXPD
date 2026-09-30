@@ -4,7 +4,7 @@ package pd.actors.buffs;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.ui.BuffIndicator;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 /** SPS frostbite: slows movement and deals percentage damage when the target moves. */
 public class FrostIce extends Buff implements Buff.DOTbuff {

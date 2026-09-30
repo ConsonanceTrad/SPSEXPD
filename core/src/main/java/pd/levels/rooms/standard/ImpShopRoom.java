@@ -31,9 +31,9 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.rooms.special.ShopRoom;
 import pd.scenes.GameScene;
-import watabou.utils.Bundle;
-import watabou.utils.Point;
-import watabou.utils.Random;
+import render.utils.Bundle;
+import render.utils.Point;
+import render.utils.Random;
 
 import java.util.ArrayList;
 import java.util.Collection;

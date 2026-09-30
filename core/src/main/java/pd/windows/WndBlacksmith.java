@@ -47,7 +47,7 @@ import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
 

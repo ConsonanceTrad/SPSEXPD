@@ -27,7 +27,7 @@ import pd.items.quest.DwarfToken;
 import pd.messages.Messages;
 import pd.sprites.RatSprite;
 import pd.sprites.SkeletonSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class VaultRat extends Rat {
 

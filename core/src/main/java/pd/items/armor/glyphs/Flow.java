@@ -26,7 +26,7 @@ import pd.actors.Char;
 import pd.effects.Speck;
 import pd.items.armor.Armor;
 import pd.sprites.ItemSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class Flow extends Armor.Glyph {
 

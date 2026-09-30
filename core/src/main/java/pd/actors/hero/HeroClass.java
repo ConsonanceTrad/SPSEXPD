@@ -223,7 +223,7 @@ import pd.items.bombs.DungeonBomb;
 import pd.items.weapon.melee.fusion.ReedPipe;
 import pd.journal.Catalog;
 import pd.messages.Messages;
-import watabou.utils.DeviceCompat;
+import render.utils.DeviceCompat;
 
 public enum HeroClass {
 

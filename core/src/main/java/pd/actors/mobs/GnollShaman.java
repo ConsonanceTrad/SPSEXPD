@@ -7,7 +7,7 @@ import pd.items.artifacts.SandalsOfNature;
 import pd.items.potions.PotionOfLevitation;
 import pd.items.scrolls.ScrollOfRegrowth;
 import pd.sprites.GnollShamanSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 /** Original SPS-PD runtime and save identity for the cave shaman. */
 public class GnollShaman extends SpsCaveMobs.GnollShaman {

@@ -30,7 +30,7 @@ import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import watabou.noosa.Image;
+import render.noosa.Image;
 
 public class ElixirOfFeatherFall extends Elixir {
 

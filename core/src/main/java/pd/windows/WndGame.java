@@ -34,8 +34,8 @@ import pd.scenes.TitleScene;
 import pd.ui.Icons;
 import pd.ui.RedButton;
 import pd.ui.Window;
-import watabou.noosa.Game;
-import watabou.utils.DeviceCompat;
+import render.noosa.Game;
+import render.utils.DeviceCompat;
 
 import java.io.IOException;
 

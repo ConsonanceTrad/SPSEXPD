@@ -28,7 +28,7 @@ import pd.items.weapon.missiles.darts.Dart;
 import pd.items.weapon.missiles.darts.TippedDart;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 import java.util.ArrayList;
 import java.util.Collection;

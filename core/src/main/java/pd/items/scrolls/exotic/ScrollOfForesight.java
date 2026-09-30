@@ -25,7 +25,7 @@ import pd.Assets;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Foresight;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class ScrollOfForesight extends ExoticScroll {
 	

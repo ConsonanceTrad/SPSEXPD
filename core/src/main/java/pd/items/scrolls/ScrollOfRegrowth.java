@@ -20,10 +20,10 @@ import pd.plants.Starflower;
 import pd.plants.Sungrass;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
-import watabou.utils.BArray;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.BArray;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

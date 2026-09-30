@@ -10,7 +10,7 @@ import pd.items.food.meatfood.MeatFood;
 import pd.items.potions.PotionOfLiquidFlame;
 import pd.items.wands.WandOfMagicMissile;
 import pd.sprites.KodoraSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class Kodora extends PET {
 	{

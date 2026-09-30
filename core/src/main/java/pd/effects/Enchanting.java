@@ -24,7 +24,7 @@ package pd.effects;
 import pd.actors.Char;
 import pd.items.Item;
 import pd.sprites.ItemSprite;
-import watabou.noosa.Game;
+import render.noosa.Game;
 
 public class Enchanting extends ItemSprite {
 

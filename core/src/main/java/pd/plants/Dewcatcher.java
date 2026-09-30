@@ -8,8 +8,8 @@ import pd.items.VioletDewdrop;
 import pd.items.YellowDewdrop;
 import pd.items.medicine.GreenSpore;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 public class Dewcatcher extends Plant {
 	{ image = 12; seedClass = Seed.class; }

@@ -42,10 +42,10 @@ import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
 import pd.windows.WndUseItem;
-import watabou.noosa.Image;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.GameMath;
+import render.noosa.Image;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.GameMath;
 
 import java.util.ArrayList;
 import java.util.Arrays;

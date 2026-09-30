@@ -27,8 +27,8 @@ import pd.actors.Char;
 import pd.effects.Speck;
 import pd.items.armor.Armor;
 import pd.sprites.ItemSprite;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 public class Swiftness extends Armor.Glyph {
 

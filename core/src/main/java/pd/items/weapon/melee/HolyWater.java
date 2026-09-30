@@ -5,7 +5,7 @@ import pd.actors.Char;
 import pd.items.Item;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 public class HolyWater extends MeleeWeapon {
 	public static final int FULL_CHARGE = 14;

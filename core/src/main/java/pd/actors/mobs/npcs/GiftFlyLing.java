@@ -9,7 +9,7 @@ import pd.items.medicine.LingPotion;
 import pd.items.potions.PotionOfMending;
 import pd.items.sellitem.LingHeart;
 import pd.plants.Plant;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class GiftFlyLing extends GiftNpc {
 	{ properties.add(Property.ELF); }

@@ -35,9 +35,9 @@ import pd.levels.rooms.quest.AmbitiousImpRoom;
 import pd.messages.Messages;
 import pd.tiles.CustomTilemap;
 import pd.tiles.custom.Carpet;
-import watabou.noosa.Tilemap;
-import watabou.utils.Point;
-import watabou.utils.Random;
+import render.noosa.Tilemap;
+import render.utils.Point;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

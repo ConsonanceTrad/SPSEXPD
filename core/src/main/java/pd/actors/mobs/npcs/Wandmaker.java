@@ -44,10 +44,10 @@ import pd.scenes.GameScene;
 import pd.sprites.WandmakerSprite;
 import pd.windows.WndQuest;
 import pd.windows.WndWandmaker;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
-import watabou.utils.Callback;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.utils.Bundle;
+import render.utils.Callback;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

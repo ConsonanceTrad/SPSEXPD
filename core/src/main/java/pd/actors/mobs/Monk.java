@@ -38,8 +38,8 @@ import pd.messages.Messages;
 import pd.sprites.MonkSprite;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import watabou.noosa.Image;
-import watabou.utils.Random;
+import render.noosa.Image;
+import render.utils.Random;
 
 public class Monk extends Mob {
 	/** Kept for subclasses and save compatibility; SPS monks do not use focus. */

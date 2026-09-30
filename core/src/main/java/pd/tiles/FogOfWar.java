@@ -15,11 +15,11 @@ package pd.tiles;
 
 import com.badlogic.gdx.graphics.Pixmap;
 import pd.Dungeon;
-import watabou.gltextures.TextureCache;
-import watabou.noosa.Image;
-import watabou.noosa.NoosaScript;
-import watabou.noosa.NoosaScriptNoLighting;
-import watabou.utils.Rect;
+import render.gltextures.TextureCache;
+import render.noosa.Image;
+import render.noosa.NoosaScript;
+import render.noosa.NoosaScriptNoLighting;
+import render.utils.Rect;
 
 /** SPS-PD 0.9.8's four-cell-corner fog mask, adapted to libGDX pixmaps. */
 public class FogOfWar extends Image {

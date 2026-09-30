@@ -24,9 +24,9 @@ package pd.sprites;
 import pd.Assets;
 import pd.actors.mobs.Shaman;
 import pd.effects.MagicMissile;
-import watabou.noosa.TextureFilm;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Callback;
+import render.noosa.TextureFilm;
+import render.noosa.audio.Sample;
+import render.utils.Callback;
 
 public abstract class ShamanSprite extends MobSprite {
 	

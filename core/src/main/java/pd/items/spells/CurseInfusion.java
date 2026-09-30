@@ -37,7 +37,7 @@ import pd.items.weapon.Weapon;
 import pd.items.weapon.melee.MagesStaff;
 import pd.journal.Catalog;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
 

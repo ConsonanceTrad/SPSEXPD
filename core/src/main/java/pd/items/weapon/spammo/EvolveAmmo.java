@@ -10,7 +10,7 @@ import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class EvolveAmmo extends SpAmmo {
 	private static final ItemSprite.Glowing DEEP_GREEN = new ItemSprite.Glowing(0x006633);

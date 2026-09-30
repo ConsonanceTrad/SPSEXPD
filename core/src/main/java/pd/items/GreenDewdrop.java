@@ -12,8 +12,8 @@ import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Random;
 
 /** The original SPS green dew, whose healing and stored value are randomized per pickup. */
 public class GreenDewdrop extends Dewdrop {

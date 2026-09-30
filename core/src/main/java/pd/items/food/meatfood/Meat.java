@@ -5,7 +5,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Poison;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class Meat extends MeatFood {
 	{

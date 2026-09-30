@@ -30,11 +30,11 @@ import pd.effects.particles.BloodParticle;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.windows.WndInfoMob;
-import watabou.noosa.BitmapText;
-import watabou.noosa.Image;
-import watabou.noosa.particles.Emitter;
-import watabou.noosa.ui.Component;
-import watabou.utils.Callback;
+import render.noosa.BitmapText;
+import render.noosa.Image;
+import render.noosa.particles.Emitter;
+import render.noosa.ui.Component;
+import render.utils.Callback;
 
 public class BossHealthBar extends Component {
 

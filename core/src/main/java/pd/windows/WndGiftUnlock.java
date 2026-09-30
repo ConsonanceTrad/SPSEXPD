@@ -11,8 +11,8 @@ import pd.scenes.PixelScene;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
-import watabou.noosa.Game;
-import watabou.noosa.Image;
+import render.noosa.Game;
+import render.noosa.Image;
 
 /** 礼物商店的单个解锁购买窗口（对照 SPS 0.9.9 WndGiftUnlock）。 */
 public class WndGiftUnlock extends Window {

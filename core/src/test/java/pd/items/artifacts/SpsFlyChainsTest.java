@@ -19,9 +19,9 @@ import pd.actors.hero.HeroClass;
 import pd.actors.mobs.Gnoll;
 import pd.items.Generator;
 import pd.items.rings.Ring;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
-import watabou.utils.FileUtils;
+import render.noosa.Game;
+import render.utils.Bundle;
+import render.utils.FileUtils;
 
 import java.io.File;
 import java.nio.charset.StandardCharsets;

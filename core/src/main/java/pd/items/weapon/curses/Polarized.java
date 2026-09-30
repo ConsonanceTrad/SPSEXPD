@@ -24,7 +24,7 @@ package pd.items.weapon.curses;
 import pd.actors.Char;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class Polarized extends Weapon.Enchantment {
 	

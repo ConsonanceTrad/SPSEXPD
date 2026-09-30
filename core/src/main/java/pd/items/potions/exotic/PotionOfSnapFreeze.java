@@ -29,8 +29,8 @@ import pd.actors.blobs.Freezing;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Roots;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
-import watabou.utils.PathFinder;
+import render.noosa.audio.Sample;
+import render.utils.PathFinder;
 
 public class PotionOfSnapFreeze extends ExoticPotion {
 	

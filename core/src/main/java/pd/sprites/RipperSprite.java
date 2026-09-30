@@ -22,9 +22,9 @@
 package pd.sprites;
 
 import pd.Assets;
-import watabou.noosa.TextureFilm;
-import watabou.utils.Callback;
-import watabou.utils.Random;
+import render.noosa.TextureFilm;
+import render.utils.Callback;
+import render.utils.Random;
 
 public class RipperSprite extends MobSprite {
 

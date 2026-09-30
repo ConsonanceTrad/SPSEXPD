@@ -23,8 +23,8 @@ package pd.ui;
 
 import pd.Assets;
 import pd.actors.buffs.Buff;
-import watabou.noosa.Image;
-import watabou.noosa.TextureFilm;
+import render.noosa.Image;
+import render.noosa.TextureFilm;
 
 public class BuffIcon extends Image {
 

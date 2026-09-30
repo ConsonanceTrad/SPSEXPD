@@ -28,7 +28,7 @@ import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndMessage;
 import pd.windows.WndOptions;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 public class AdventureGuide extends NPC {
 

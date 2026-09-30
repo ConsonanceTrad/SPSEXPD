@@ -6,7 +6,7 @@ import pd.actors.hero.Hero;
 import pd.items.food.BugMeat;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 public class BugSlow extends Buff {
 

@@ -24,7 +24,7 @@ package pd.actors.buffs;
 import pd.actors.Char;
 import pd.effects.particles.SnowParticle;
 import pd.ui.BuffIndicator;
-import watabou.noosa.Image;
+import render.noosa.Image;
 
 public class FrostImbue extends FlavourBuff {
 	

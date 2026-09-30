@@ -28,7 +28,7 @@ import pd.messages.Messages;
 import pd.scenes.InterlevelScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import watabou.noosa.Game;
+import render.noosa.Game;
 
 public class ScrollOfPassage extends ExoticScroll {
 	

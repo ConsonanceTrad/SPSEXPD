@@ -3,7 +3,7 @@ package pd.actors.buffs;
 
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 /** SPS fatigue: taking sixteen hits before it expires triggers backlash damage. */
 public class BeTired extends Buff {

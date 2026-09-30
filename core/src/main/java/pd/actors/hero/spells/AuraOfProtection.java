@@ -32,8 +32,8 @@ import pd.items.artifacts.HolyTome;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
-import watabou.noosa.audio.Sample;
-import watabou.noosa.particles.Emitter;
+import render.noosa.audio.Sample;
+import render.noosa.particles.Emitter;
 
 public class AuraOfProtection extends ClericSpell {
 

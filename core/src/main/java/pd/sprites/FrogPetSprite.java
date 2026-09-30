@@ -1,7 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.sprites;
 import pd.Assets;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 public class FrogPetSprite extends MobSprite {
 	public FrogPetSprite() { texture(Assets.Sprites.SPS_FROG_PET); TextureFilm f = new TextureFilm(texture, 19, 14);
 		idle = new Animation(5, true); idle.frames(f, 0, 1, 2, 3, 0, 1, 2, 3, 0, 11, 2, 3);

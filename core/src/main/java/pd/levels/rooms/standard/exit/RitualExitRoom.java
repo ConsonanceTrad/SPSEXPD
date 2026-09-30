@@ -26,7 +26,7 @@ import pd.levels.Terrain;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.standard.RitualRoom;
-import watabou.utils.Point;
+import render.utils.Point;
 
 public class RitualExitRoom extends RitualRoom {
 

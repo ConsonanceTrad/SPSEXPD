@@ -20,9 +20,9 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import watabou.utils.BArray;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.BArray;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 /** Hybrid's phase-change bomb from SPS-PD 0.9.8. */
 public class DangerousBomb extends Bomb {

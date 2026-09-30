@@ -6,7 +6,7 @@ import pd.items.Item;
 import pd.items.artifacts.MasterThievesArmband;
 import pd.items.sellitem.VIPcard;
 import pd.sprites.GoldCollectorSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 /** Original SPS-PD runtime and save identity for the goblin tax collector. */
 public class GoldCollector extends SpsPrisonMobs.GoldCollector {

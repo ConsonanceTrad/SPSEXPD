@@ -25,9 +25,9 @@ import pd.sprites.CharSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
-import watabou.noosa.tweeners.AlphaTweener;
-import watabou.utils.Bundle;
+import render.noosa.audio.Sample;
+import render.noosa.tweeners.AlphaTweener;
+import render.utils.Bundle;
 
 import java.util.ArrayList;
 

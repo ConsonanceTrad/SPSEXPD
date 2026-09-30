@@ -28,9 +28,9 @@ import pd.actors.blobs.Electricity;
 import pd.items.potions.PotionOfParalyticGas;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.BArray;
-import watabou.noosa.audio.Sample;
-import watabou.utils.PathFinder;
+import render.utils.BArray;
+import render.noosa.audio.Sample;
+import render.utils.PathFinder;
 
 public class ShockingBrew extends Brew {
 	

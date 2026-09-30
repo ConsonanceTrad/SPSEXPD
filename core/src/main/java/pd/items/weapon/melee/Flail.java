@@ -32,9 +32,9 @@ import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import watabou.noosa.Image;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
+import render.noosa.Image;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
 
 public class Flail extends MeleeWeapon {
 

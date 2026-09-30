@@ -26,8 +26,8 @@ import pd.actors.Char;
 import pd.actors.mobs.Mob;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import watabou.noosa.Image;
-import watabou.utils.Bundle;
+import render.noosa.Image;
+import render.utils.Bundle;
 
 public class Dread extends Buff {
 

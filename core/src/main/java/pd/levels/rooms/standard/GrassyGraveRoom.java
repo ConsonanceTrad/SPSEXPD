@@ -28,8 +28,8 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
-import watabou.utils.Random;
-import watabou.utils.Rect;
+import render.utils.Random;
+import render.utils.Rect;
 
 public class GrassyGraveRoom extends StandardRoom {
 

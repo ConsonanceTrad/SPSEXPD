@@ -43,9 +43,9 @@ import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.sprites.MimicSprite;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.Random;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -369,7 +369,7 @@ public class Mimic extends Mob {
 		Char occupant = Actor.findChar(pos);
 		if (occupant != null) {
 			ArrayList<Integer> candidates = new ArrayList<>();
-			for (int offset : watabou.utils.PathFinder.NEIGHBOURS8) {
+			for (int offset : render.utils.PathFinder.NEIGHBOURS8) {
 				int cell = pos + offset;
 				if (Dungeon.level.insideMap(cell)
 						&& (Dungeon.level.passable[cell] || Dungeon.level.avoid[cell])

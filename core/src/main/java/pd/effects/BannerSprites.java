@@ -22,7 +22,7 @@
 package pd.effects;
 
 import pd.Assets;
-import watabou.noosa.Image;
+import render.noosa.Image;
 
 public class BannerSprites {
 

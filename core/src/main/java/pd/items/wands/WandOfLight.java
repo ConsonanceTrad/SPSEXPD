@@ -17,9 +17,9 @@ import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTilemap;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Callback;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Callback;
+import render.utils.Random;
 
 /** The wall-piercing light wand from SPS-PD 0.9.8. */
 public class WandOfLight extends DamageWand {

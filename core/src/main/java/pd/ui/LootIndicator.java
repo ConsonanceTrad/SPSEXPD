@@ -25,7 +25,7 @@ import pd.Dungeon;
 import pd.SPDAction;
 import pd.items.Heap;
 import pd.items.Item;
-import watabou.input.GameAction;
+import render.input.GameAction;
 
 public class LootIndicator extends Tag {
 	

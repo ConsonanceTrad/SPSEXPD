@@ -30,8 +30,8 @@ import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.ui.HeroIcon;
-import watabou.utils.Bundlable;
-import watabou.utils.Bundle;
+import render.utils.Bundlable;
+import render.utils.Bundle;
 
 public abstract class ArmorAbility implements Bundlable {
 

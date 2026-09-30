@@ -3,8 +3,8 @@ package pd.sprites;
 
 import pd.actors.Char;
 import pd.actors.mobs.npcs.GiftNpc;
-import watabou.noosa.TextureFilm;
-import watabou.noosa.particles.PixelParticle;
+import render.noosa.TextureFilm;
+import render.noosa.particles.PixelParticle;
 
 /** Uses the original standalone animation sheet selected by each gift resident. */
 public class GiftNpcSprite extends MobSprite {

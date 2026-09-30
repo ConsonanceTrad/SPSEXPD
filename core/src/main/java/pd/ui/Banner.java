@@ -21,8 +21,8 @@
 
 package pd.ui;
 
-import watabou.noosa.Game;
-import watabou.noosa.Image;
+import render.noosa.Game;
+import render.noosa.Image;
 
 public class Banner extends Image {
 

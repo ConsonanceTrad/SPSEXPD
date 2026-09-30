@@ -25,8 +25,8 @@ import pd.SPDSettings;
 import pd.scenes.PixelScene;
 import pd.sprites.CharSprite;
 import pd.utils.GLog;
-import watabou.noosa.ui.Component;
-import watabou.utils.Signal;
+import render.noosa.ui.Component;
+import render.utils.Signal;
 
 import java.util.ArrayList;
 import java.util.regex.Pattern;

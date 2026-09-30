@@ -33,9 +33,9 @@ import pd.items.potions.PotionOfToxicGas;
 import pd.items.quest.GooBlob;
 import pd.journal.Catalog;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.BArray;
-import watabou.noosa.audio.Sample;
-import watabou.utils.PathFinder;
+import render.utils.BArray;
+import render.noosa.audio.Sample;
+import render.utils.PathFinder;
 
 import java.util.ArrayList;
 

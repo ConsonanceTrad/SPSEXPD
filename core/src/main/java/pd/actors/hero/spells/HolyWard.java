@@ -33,7 +33,7 @@ import pd.items.artifacts.HolyTome;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class HolyWard extends ClericSpell {
 

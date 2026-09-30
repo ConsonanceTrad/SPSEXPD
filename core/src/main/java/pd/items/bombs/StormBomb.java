@@ -14,10 +14,10 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.SmokeParticle;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
-import watabou.utils.BArray;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.BArray;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 public class StormBomb extends Bomb {
 	{ image = ItemSpriteSheet.LEGACY_STORM_BOMB; }

@@ -37,10 +37,10 @@ import pd.items.weapon.Weapon;
 import pd.items.weapon.melee.normalweapon.ShortSword;
 import pd.items.weapon.melee.normalweapon.Spear;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
-import watabou.utils.FileUtils;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.utils.Bundle;
+import render.utils.FileUtils;
+import render.utils.Random;
 
 import java.io.File;
 import java.nio.ByteBuffer;

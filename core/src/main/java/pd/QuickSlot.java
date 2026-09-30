@@ -22,9 +22,9 @@
 package pd;
 
 import pd.items.Item;
-import watabou.utils.Bundlable;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.utils.Bundlable;
+import render.utils.Bundle;
+import render.utils.Random;
 
 import java.util.ArrayList;
 import java.util.Collection;

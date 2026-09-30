@@ -9,7 +9,7 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.items.weapon.melee.special.MeleePan;
 import pd.items.weapon.missiles.MissileWeapon;
-import watabou.utils.Random;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

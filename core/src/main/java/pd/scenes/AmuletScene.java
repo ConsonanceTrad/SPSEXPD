@@ -36,13 +36,13 @@ import pd.sprites.ItemSpriteSheet;
 import pd.ui.Icons;
 import pd.ui.RenderedTextBlock;
 import pd.ui.StyledButton;
-import watabou.noosa.Camera;
-import watabou.noosa.Game;
-import watabou.noosa.Image;
-import watabou.noosa.audio.Music;
-import watabou.noosa.tweeners.Delayer;
-import watabou.utils.Random;
-import watabou.utils.RectF;
+import render.noosa.Camera;
+import render.noosa.Game;
+import render.noosa.Image;
+import render.noosa.audio.Music;
+import render.noosa.tweeners.Delayer;
+import render.utils.Random;
+import render.utils.RectF;
 
 public class AmuletScene extends PixelScene {
 	

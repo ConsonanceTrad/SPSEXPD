@@ -17,10 +17,10 @@ import pd.mechanics.Ballistica;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTilemap;
-import watabou.noosa.audio.Sample;
-import watabou.noosa.Game;
-import watabou.utils.Callback;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.noosa.Game;
+import render.utils.Callback;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

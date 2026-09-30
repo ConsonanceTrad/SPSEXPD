@@ -24,7 +24,7 @@ package pd.levels.rooms.connection;
 import pd.levels.Level;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
-import watabou.utils.Point;
+import render.utils.Point;
 
 import java.util.ArrayList;
 

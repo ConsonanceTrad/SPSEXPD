@@ -7,7 +7,7 @@ import pd.actors.buffs.Burning;
 import pd.actors.damagetype.DamageType;
 import pd.effects.particles.FlameParticle;
 import pd.sprites.ItemSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class FireAmmo extends SpAmmo {
 	private static final ItemSprite.Glowing ORANGE = new ItemSprite.Glowing(0xFF4400);

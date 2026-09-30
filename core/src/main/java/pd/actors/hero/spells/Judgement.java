@@ -34,9 +34,9 @@ import pd.items.artifacts.HolyTome;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.ui.HeroIcon;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Callback;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Callback;
+import render.utils.Random;
 
 public class Judgement extends ClericSpell {
 

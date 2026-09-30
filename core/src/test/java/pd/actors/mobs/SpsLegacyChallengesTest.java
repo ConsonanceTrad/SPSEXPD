@@ -48,11 +48,11 @@ import pd.levels.traps.Trap;
 import pd.plants.Plant;
 import pd.sprites.CharSprite;
 import pd.sprites.ErrorSprite;
-import watabou.noosa.Game;
-import watabou.utils.FileUtils;
-import watabou.utils.Bundle;
-import watabou.utils.SparseArray;
-import watabou.utils.Reflection;
+import render.noosa.Game;
+import render.utils.FileUtils;
+import render.utils.Bundle;
+import render.utils.SparseArray;
+import render.utils.Reflection;
 
 import java.io.File;
 import java.lang.reflect.Method;

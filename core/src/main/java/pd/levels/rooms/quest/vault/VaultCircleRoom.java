@@ -25,8 +25,8 @@ import pd.actors.mobs.npcs.VaultSentry;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import watabou.utils.Point;
-import watabou.utils.Random;
+import render.utils.Point;
+import render.utils.Random;
 
 public class VaultCircleRoom extends VaultRoom {
 

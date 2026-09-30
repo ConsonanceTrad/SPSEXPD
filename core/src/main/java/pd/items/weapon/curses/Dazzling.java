@@ -30,8 +30,8 @@ import pd.actors.buffs.Buff;
 import pd.items.weapon.Weapon;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Random;
 
 public class Dazzling extends Weapon.Enchantment {
 

@@ -32,8 +32,8 @@ import pd.levels.painters.CavesPainter;
 import pd.levels.painters.Painter;
 import pd.plants.ReNepenth;
 import pd.plants.Starflower;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.utils.Bundle;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

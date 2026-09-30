@@ -27,7 +27,7 @@ import pd.levels.rooms.Room;
 import pd.levels.rooms.quest.BlacksmithRoom;
 import pd.levels.rooms.standard.StandardRoom;
 import pd.tiles.DungeonTileSheet;
-import watabou.utils.Random;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

@@ -35,7 +35,7 @@ import pd.sprites.CharSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.items.weapon.missiles.arrows.HealFruit;
 import pd.ui.BuffIndicator;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 public class Sungrass extends Plant {
 	

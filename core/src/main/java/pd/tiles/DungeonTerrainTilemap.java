@@ -24,7 +24,7 @@ package pd.tiles;
 import pd.Dungeon;
 import pd.levels.MiningLevel;
 import pd.levels.Terrain;
-import watabou.noosa.Image;
+import render.noosa.Image;
 
 public class DungeonTerrainTilemap extends DungeonTilemap {
 

@@ -58,9 +58,9 @@ import pd.scenes.AlchemyScene;
 import pd.sprites.HeroSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
-import watabou.utils.Reflection;
+import render.utils.Bundle;
+import render.utils.Random;
+import render.utils.Reflection;
 
 import java.util.ArrayList;
 import java.util.HashMap;

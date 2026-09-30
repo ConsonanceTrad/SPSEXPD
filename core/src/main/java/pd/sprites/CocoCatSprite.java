@@ -3,7 +3,7 @@ package pd.sprites;
 
 import pd.Dungeon;
 import pd.items.weapon.missiles.ShitBall;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 public class CocoCatSprite extends MobSprite {
 	public CocoCatSprite() {

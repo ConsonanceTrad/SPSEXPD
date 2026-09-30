@@ -2,7 +2,7 @@
 package pd.actors.buffs;
 
 import pd.ui.BuffIndicator;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 /** SPS shock: delayed percentage damage with a bounded saved duration. */
 public class Shocked extends Buff {

@@ -22,10 +22,10 @@
 package pd.ui;
 
 import pd.scenes.PixelScene;
-import watabou.noosa.BitmapText;
-import watabou.noosa.ColorBlock;
-import watabou.noosa.Image;
-import watabou.noosa.ui.Component;
+import render.noosa.BitmapText;
+import render.noosa.ColorBlock;
+import render.noosa.Image;
+import render.noosa.ui.Component;
 
 import java.util.ArrayList;
 

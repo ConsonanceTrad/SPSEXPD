@@ -6,7 +6,7 @@ import pd.actors.buffs.Healing;
 import pd.actors.buffs.MindVision;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class Blackberry extends Fruit {
 	{ image = ItemSpriteSheet.BLACKBERRY; }

@@ -37,8 +37,8 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
 
 public class AscendedForm extends ArmorAbility {
 

@@ -59,10 +59,10 @@ import pd.items.Item;
 import pd.items.bombs.FishingBomb;
 import pd.items.bombs.LightBomb;
 import pd.items.quest.ChallengeJournal;
-import watabou.noosa.Game;
-import watabou.utils.Random;
-import watabou.utils.Reflection;
-import watabou.utils.SparseArray;
+import render.noosa.Game;
+import render.utils.Random;
+import render.utils.Reflection;
+import render.utils.SparseArray;
 
 import java.util.ArrayList;
 import java.util.HashMap;

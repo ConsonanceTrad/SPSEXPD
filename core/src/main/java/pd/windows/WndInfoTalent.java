@@ -30,7 +30,7 @@ import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.TalentIcon;
 import pd.ui.Window;
-import watabou.utils.Callback;
+import render.utils.Callback;
 
 public class WndInfoTalent extends Window {
 

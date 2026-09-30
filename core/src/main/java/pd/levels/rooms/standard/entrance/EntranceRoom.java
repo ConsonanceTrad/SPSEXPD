@@ -33,9 +33,9 @@ import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
 import pd.levels.rooms.standard.StandardRoom;
 import pd.levels.rooms.standard.exit.CircleWallEntranceRoom;
-import watabou.utils.Point;
-import watabou.utils.Random;
-import watabou.utils.Reflection;
+import render.utils.Point;
+import render.utils.Random;
+import render.utils.Reflection;
 
 import java.util.ArrayList;
 

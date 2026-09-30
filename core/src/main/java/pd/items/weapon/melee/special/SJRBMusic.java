@@ -15,9 +15,9 @@ import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 /** The original sound-wave club awarded by the velocirooster. */
 public class SJRBMusic extends MeleeWeapon {

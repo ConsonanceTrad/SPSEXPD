@@ -83,11 +83,11 @@ import pd.levels.traps.PitfallTrap;
 import pd.levels.traps.Trap;
 import pd.levels.traps.WornDartTrap;
 import pd.mechanics.ShadowCaster;
-import watabou.utils.BArray;
-import watabou.utils.Bundle;
-import watabou.utils.PathFinder;
-import watabou.utils.Point;
-import watabou.utils.Random;
+import render.utils.BArray;
+import render.utils.Bundle;
+import render.utils.PathFinder;
+import render.utils.Point;
+import render.utils.Random;
 
 import java.util.ArrayList;
 import java.util.Collection;

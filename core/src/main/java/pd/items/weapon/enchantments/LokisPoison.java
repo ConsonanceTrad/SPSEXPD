@@ -5,7 +5,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 /** Applies the stronger SPS relic poison. */
 public class LokisPoison extends Weapon.Enchantment {

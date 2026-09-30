@@ -8,7 +8,7 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class MiniBomb extends Bomb {
 	{ image = ItemSpriteSheet.SPS_MINI_BOMB; }

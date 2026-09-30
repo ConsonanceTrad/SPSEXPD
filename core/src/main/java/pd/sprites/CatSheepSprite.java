@@ -1,7 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.sprites;
 
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 /** Original animated cat summoned by the Wand of Smart Meow. */
 public class CatSheepSprite extends MobSprite {

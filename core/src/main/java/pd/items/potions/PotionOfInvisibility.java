@@ -28,7 +28,7 @@ import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class PotionOfInvisibility extends Potion {
 

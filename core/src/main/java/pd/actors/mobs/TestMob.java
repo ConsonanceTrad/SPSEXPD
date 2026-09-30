@@ -12,7 +12,7 @@ import pd.actors.buffs.Vertigo;
 import pd.Dungeon;
 import pd.items.bags.HeartOfScarecrow;
 import pd.sprites.ScarecrowSprite;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 /** The original passive damage-test scarecrow. */
 public class TestMob extends Mob {

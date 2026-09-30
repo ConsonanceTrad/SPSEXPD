@@ -23,8 +23,8 @@ package pd.effects;
 
 import pd.scenes.GameScene;
 import pd.tiles.DungeonTilemap;
-import watabou.noosa.particles.Emitter;
-import watabou.utils.PointF;
+import render.noosa.particles.Emitter;
+import render.utils.PointF;
 
 public class CellEmitter {
 

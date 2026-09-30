@@ -29,8 +29,8 @@ import pd.messages.Messages;
 import pd.sprites.ItemSprite.Glowing;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
 
 import java.util.ArrayList;
 

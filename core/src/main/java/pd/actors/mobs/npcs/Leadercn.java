@@ -17,10 +17,10 @@ import pd.items.wands.WandOfTest;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.windows.WndQuest;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.utils.Bundle;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

@@ -22,11 +22,11 @@
 package pd.effects;
 
 import pd.Assets;
-import watabou.glwrap.Blending;
-import watabou.noosa.Game;
-import watabou.noosa.Image;
-import watabou.noosa.audio.Sample;
-import watabou.utils.PointF;
+import render.glwrap.Blending;
+import render.noosa.Game;
+import render.noosa.Image;
+import render.noosa.audio.Sample;
+import render.utils.PointF;
 
 public class Beam extends Image {
 	

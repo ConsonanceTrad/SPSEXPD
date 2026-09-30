@@ -41,8 +41,8 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
-import watabou.utils.PathFinder;
+import render.noosa.audio.Sample;
+import render.utils.PathFinder;
 
 public class WallOfLight extends TargetedClericSpell {
 

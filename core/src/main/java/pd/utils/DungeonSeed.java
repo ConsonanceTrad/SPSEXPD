@@ -21,7 +21,7 @@
 
 package pd.utils;
 
-import watabou.utils.Random;
+import render.utils.Random;
 
 import java.util.Locale;
 

@@ -31,8 +31,8 @@ import pd.effects.particles.FlameParticle;
 import pd.journal.Catalog;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
-import watabou.noosa.particles.Emitter;
+import render.noosa.audio.Sample;
+import render.noosa.particles.Emitter;
 
 import java.util.ArrayList;
 

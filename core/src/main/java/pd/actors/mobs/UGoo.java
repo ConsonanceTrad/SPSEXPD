@@ -26,8 +26,8 @@ import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
 import pd.sprites.UGooSprite;
 import pd.items.weapon.melee.special.Handcannon;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 /** The four-element lord goo and its original elemental projections. */
 public class UGoo extends BossRushBoss {

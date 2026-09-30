@@ -39,7 +39,7 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class BlessSpell extends TargetedClericSpell {
 

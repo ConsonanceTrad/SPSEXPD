@@ -4,7 +4,7 @@ package pd.sprites;
 import pd.Assets;
 import pd.actors.mobs.FlyingProtector;
 import pd.effects.Lightning;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 public class FlyingProtectorSprite extends MobSprite {
 

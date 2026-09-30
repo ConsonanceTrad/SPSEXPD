@@ -10,9 +10,9 @@ import pd.items.potions.PotionOfHealing;
 import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
 import pd.sprites.DwarfLichSprite;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
-import watabou.utils.Bundle;
+import render.utils.PathFinder;
+import render.utils.Random;
+import render.utils.Bundle;
 
 public class DwarfLich extends LegacyDualLootMob {
 	int tombId = -1;

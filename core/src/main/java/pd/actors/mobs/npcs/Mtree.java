@@ -7,7 +7,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Poison;
 import pd.actors.buffs.Roots;
 import pd.sprites.WarTreeSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 /** Huntress war tree summoned by the fourth legacy class skill. */
 public class Mtree extends DirectableAlly {

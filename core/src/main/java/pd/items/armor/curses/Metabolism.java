@@ -31,7 +31,7 @@ import pd.items.armor.Armor.Glyph;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSprite.Glowing;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class Metabolism extends Glyph {
 

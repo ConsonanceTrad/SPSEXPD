@@ -35,8 +35,8 @@ import pd.items.challengelists.ChallengePageDrops;
 import pd.items.Item;
 import pd.items.weapon.missiles.meleethrow.HugeShuriken;
 import pd.sprites.PiranhaSprite;
-import watabou.utils.BArray;
-import watabou.utils.Random;
+import render.utils.BArray;
+import render.utils.Random;
 
 public class Piranha extends Mob {
 	@Override public Item SupercreateLoot() { return new HugeShuriken(); }

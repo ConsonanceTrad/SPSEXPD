@@ -1,8 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.effects.particles;
 
-import watabou.noosa.particles.Emitter;
-import watabou.noosa.particles.PixelParticle;
+import render.noosa.particles.Emitter;
+import render.noosa.particles.PixelParticle;
 
 public class BlackFlameParticle extends PixelParticle.Shrinking {
 

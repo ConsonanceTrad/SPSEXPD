@@ -34,8 +34,8 @@ import pd.items.wands.Wand;
 import pd.items.weapon.melee.MagesStaff;
 import pd.messages.Messages;
 import pd.utils.GLog;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 public class Electricity extends Blob {
 	

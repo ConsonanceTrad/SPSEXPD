@@ -6,8 +6,8 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.items.Item;
 import pd.scenes.GameScene;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

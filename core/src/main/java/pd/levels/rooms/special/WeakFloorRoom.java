@@ -30,9 +30,9 @@ import pd.levels.Terrain;
 import pd.levels.painters.Painter;
 import pd.messages.Messages;
 import pd.tiles.CustomTilemap;
-import watabou.noosa.Tilemap;
-import watabou.utils.Point;
-import watabou.utils.Random;
+import render.noosa.Tilemap;
+import render.utils.Point;
+import render.utils.Random;
 
 public class WeakFloorRoom extends SpecialRoom {
 

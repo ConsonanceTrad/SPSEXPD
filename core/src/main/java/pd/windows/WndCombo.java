@@ -31,7 +31,7 @@ import pd.sprites.ItemSpriteSheet;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
-import watabou.noosa.Image;
+import render.noosa.Image;
 
 public class WndCombo extends Window {
 

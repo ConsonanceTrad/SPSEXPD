@@ -9,7 +9,7 @@ import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
 

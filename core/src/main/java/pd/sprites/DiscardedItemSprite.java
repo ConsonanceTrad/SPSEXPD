@@ -22,7 +22,7 @@
 package pd.sprites;
 
 import pd.tiles.DungeonTilemap;
-import watabou.noosa.Game;
+import render.noosa.Game;
 
 public class DiscardedItemSprite extends ItemSprite {
 	

@@ -11,7 +11,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Daze;
 import pd.items.weapon.melee.Whip;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class ReedPipe extends Whip implements FusionWeapon {
 

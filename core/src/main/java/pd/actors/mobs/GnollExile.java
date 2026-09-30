@@ -31,10 +31,10 @@ import pd.items.Item;
 import pd.messages.Messages;
 import pd.sprites.GnollExileSprite;
 import pd.utils.GLog;
-import watabou.utils.BArray;
-import watabou.utils.Bundle;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.BArray;
+import render.utils.Bundle;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

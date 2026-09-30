@@ -2,7 +2,7 @@ package pd.items.food.vegetable;
 
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class Truffles extends Vegetable {
 	{ image = ItemSpriteSheet.TRUFFLES; }

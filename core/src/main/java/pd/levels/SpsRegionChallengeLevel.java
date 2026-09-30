@@ -8,7 +8,7 @@ import pd.actors.mobs.Mob;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.scenes.GameScene;
-import watabou.utils.Random;
+import render.utils.Random;
 
 /** Shared geometry used by the five SPS-PD challenge-book region arenas. */
 abstract class SpsRegionChallengeLevel extends Level {

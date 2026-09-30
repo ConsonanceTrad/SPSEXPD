@@ -46,8 +46,8 @@ import pd.levels.traps.WornDartTrap;
 import pd.scenes.GameScene;
 import pd.messages.Messages;
 import pd.utils.GLog;
-import watabou.utils.PathFinder;
-import watabou.utils.Bundle;
+import render.utils.PathFinder;
+import render.utils.Bundle;
 
 import java.util.ArrayList;
 

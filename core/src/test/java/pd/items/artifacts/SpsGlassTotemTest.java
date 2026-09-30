@@ -23,8 +23,8 @@ import pd.items.bags.ArrowCollecter;
 import pd.items.bags.KeyRing;
 import pd.items.rings.Ring;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
+import render.noosa.Game;
+import render.utils.Bundle;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

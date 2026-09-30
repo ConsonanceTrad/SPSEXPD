@@ -35,7 +35,7 @@ import pd.sprites.ItemSprite;
 import pd.sprites.ItemSprite.Glowing;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 public class Viscosity extends Glyph {
 	

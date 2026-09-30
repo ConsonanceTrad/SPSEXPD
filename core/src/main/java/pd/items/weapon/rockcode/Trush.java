@@ -9,7 +9,7 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class Trush extends RockCode {
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "T.r"; }

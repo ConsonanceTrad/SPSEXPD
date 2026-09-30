@@ -21,8 +21,8 @@
 
 package pd.items;
 
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.utils.Bundle;
+import render.utils.Random;
 
 import java.util.ArrayList;
 import java.util.Arrays;

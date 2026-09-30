@@ -28,7 +28,7 @@ import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.messages.Messages;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class AlarmTrap extends Trap {
 

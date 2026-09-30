@@ -57,10 +57,10 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
-import watabou.utils.SparseArray;
+import render.noosa.Game;
+import render.utils.Bundle;
+import render.utils.Random;
+import render.utils.SparseArray;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

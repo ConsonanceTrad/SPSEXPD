@@ -9,8 +9,8 @@ import pd.actors.Char;
 import pd.actors.mobs.Mob;
 import pd.scenes.GameScene;
 import pd.sprites.ShadowRatSprite;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Random;
 
 public class DarkFallen extends Buff {
 

@@ -4,8 +4,8 @@ package pd.sprites;
 import pd.Assets;
 import pd.effects.Speck;
 import pd.effects.particles.ShaftParticle;
-import watabou.glwrap.Blending;
-import watabou.noosa.TextureFilm;
+import render.glwrap.Blending;
+import render.noosa.TextureFilm;
 
 /** Original SPS-PD 0.9.8 dried-rose ghost. */
 public class NewGhostSprite extends MobSprite {

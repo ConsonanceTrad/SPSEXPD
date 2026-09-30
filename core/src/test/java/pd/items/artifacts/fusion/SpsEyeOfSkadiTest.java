@@ -27,10 +27,10 @@ import pd.levels.Terrain;
 import pd.levels.traps.Trap;
 import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
-import watabou.utils.FileUtils;
-import watabou.utils.SparseArray;
+import render.noosa.Game;
+import render.utils.Bundle;
+import render.utils.FileUtils;
+import render.utils.SparseArray;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

@@ -9,7 +9,7 @@ import pd.items.food.completefood.CompleteFood;
 import pd.items.food.completefood.PetFood;
 import pd.items.food.staplefood.NormalRation;
 import pd.sprites.DwarfBoySprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class DwarfBoy extends PET {
 	{

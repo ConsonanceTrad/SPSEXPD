@@ -35,9 +35,9 @@ import pd.items.wands.WandOfError;
 import pd.items.weapon.melee.special.ErrorW;
 import pd.items.weapon.missiles.throwing.ErrorAmmo;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.utils.Bundle;
+import render.utils.Random;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

@@ -28,8 +28,8 @@ import pd.items.rings.RingOfWealth;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSprite.Glowing;
-import watabou.noosa.Visual;
-import watabou.utils.Random;
+import render.noosa.Visual;
+import render.utils.Random;
 
 public class Lucky extends Weapon.Enchantment {
 

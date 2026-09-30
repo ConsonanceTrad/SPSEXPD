@@ -25,9 +25,9 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import watabou.noosa.Image;
-import watabou.utils.Bundle;
-import watabou.utils.Reflection;
+import render.noosa.Image;
+import render.utils.Bundle;
+import render.utils.Reflection;
 
 import java.util.HashSet;
 

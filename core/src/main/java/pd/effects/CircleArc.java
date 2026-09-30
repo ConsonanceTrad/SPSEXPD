@@ -21,14 +21,14 @@
 
 package pd.effects;
 
-import watabou.gltextures.SmartTexture;
-import watabou.gltextures.TextureCache;
-import watabou.glwrap.Blending;
-import watabou.noosa.Game;
-import watabou.noosa.Group;
-import watabou.noosa.NoosaScript;
-import watabou.noosa.Visual;
-import watabou.utils.PointF;
+import render.gltextures.SmartTexture;
+import render.gltextures.TextureCache;
+import render.glwrap.Blending;
+import render.noosa.Game;
+import render.noosa.Group;
+import render.noosa.NoosaScript;
+import render.noosa.Visual;
+import render.utils.PointF;
 
 import java.nio.Buffer;
 import java.nio.ByteBuffer;

@@ -35,7 +35,7 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class DivineSense extends ClericSpell {
 

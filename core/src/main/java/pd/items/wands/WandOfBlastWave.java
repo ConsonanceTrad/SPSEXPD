@@ -44,14 +44,14 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTilemap;
 import pd.utils.GLog;
-import watabou.noosa.Game;
-import watabou.noosa.Group;
-import watabou.noosa.Image;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Callback;
-import watabou.utils.PathFinder;
-import watabou.utils.PointF;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.noosa.Group;
+import render.noosa.Image;
+import render.noosa.audio.Sample;
+import render.utils.Callback;
+import render.utils.PathFinder;
+import render.utils.PointF;
+import render.utils.Random;
 
 public class WandOfBlastWave extends DamageWand {
 

@@ -31,8 +31,8 @@ import pd.actors.buffs.Buff;
 import pd.items.stones.StoneOfAggression;
 import pd.messages.Messages;
 import pd.sprites.BeeSprite;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.utils.Bundle;
+import render.utils.Random;
 
 //FIXME the AI for these things is becoming a complete mess, should refactor
 public class Bee extends Mob {

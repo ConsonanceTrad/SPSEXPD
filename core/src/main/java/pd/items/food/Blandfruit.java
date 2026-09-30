@@ -44,8 +44,8 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndUseItem;
-import watabou.utils.Bundle;
-import watabou.utils.Reflection;
+import render.utils.Bundle;
+import render.utils.Reflection;
 
 public class Blandfruit extends Fruit {
 

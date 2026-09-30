@@ -36,10 +36,10 @@ import pd.scenes.PixelScene;
 import pd.sprites.CharSprite;
 import pd.windows.WndBag;
 import pd.windows.WndKeyBindings;
-import watabou.input.GameAction;
-import watabou.noosa.Image;
-import watabou.utils.BArray;
-import watabou.utils.PathFinder;
+import render.input.GameAction;
+import render.noosa.Image;
+import render.utils.BArray;
+import render.utils.PathFinder;
 
 public class QuickSlotButton extends Button {
 	

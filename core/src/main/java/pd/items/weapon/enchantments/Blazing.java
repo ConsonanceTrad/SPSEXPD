@@ -29,7 +29,7 @@ import pd.effects.particles.FlameParticle;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSprite.Glowing;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class Blazing extends Weapon.Enchantment {
 

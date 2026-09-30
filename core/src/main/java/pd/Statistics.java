@@ -21,8 +21,8 @@
 
 package pd;
 
-import watabou.utils.Bundle;
-import watabou.utils.SparseArray;
+import render.utils.Bundle;
+import render.utils.SparseArray;
 
 import java.util.Arrays;
 import java.util.HashSet;

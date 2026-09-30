@@ -31,9 +31,9 @@ import pd.actors.mobs.Mob;
 import pd.effects.CellEmitter;
 import pd.effects.particles.FlameParticle;
 import pd.scenes.GameScene;
-import watabou.utils.BArray;
-import watabou.noosa.audio.Sample;
-import watabou.utils.PathFinder;
+import render.utils.BArray;
+import render.noosa.audio.Sample;
+import render.utils.PathFinder;
 
 public class BlazingTrap extends Trap {
 

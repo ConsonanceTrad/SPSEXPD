@@ -17,9 +17,9 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.QuickSlotButton;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.Callback;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.Callback;
 
 import java.util.ArrayList;
 

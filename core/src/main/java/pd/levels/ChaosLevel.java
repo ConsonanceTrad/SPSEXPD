@@ -18,8 +18,8 @@ import pd.levels.painters.HallsPainter;
 import pd.levels.painters.Painter;
 import pd.levels.traps.DistortionTrap;
 import pd.tiles.custom.SpsLegacyLevelVisual;
-import watabou.utils.Random;
-import watabou.utils.Reflection;
+import render.utils.Random;
+import render.utils.Reflection;
 
 import java.util.ArrayList;
 

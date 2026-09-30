@@ -436,10 +436,10 @@ import pd.plants.Starflower;
 import pd.plants.Stormvine;
 import pd.plants.Sungrass;
 import pd.plants.Swiftthistle;
-import watabou.utils.Bundle;
-import watabou.utils.GameMath;
-import watabou.utils.Random;
-import watabou.utils.Reflection;
+import render.utils.Bundle;
+import render.utils.GameMath;
+import render.utils.Random;
+import render.utils.Reflection;
 
 import java.util.ArrayList;
 import java.util.Arrays;

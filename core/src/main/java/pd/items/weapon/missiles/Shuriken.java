@@ -26,7 +26,7 @@ import pd.actors.Char;
 import pd.actors.buffs.FlavourBuff;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
-import watabou.noosa.Image;
+import render.noosa.Image;
 
 public class Shuriken extends MissileWeapon {
 

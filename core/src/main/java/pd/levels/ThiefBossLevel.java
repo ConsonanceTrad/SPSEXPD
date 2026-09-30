@@ -11,8 +11,8 @@ import pd.items.quest.AdventureJournal;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.scenes.GameScene;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.utils.Bundle;
+import render.utils.Random;
 import java.util.ArrayList;
 public class ThiefBossLevel extends Level {
 	public static final int WIDTH=48,HEIGHT=48,TOP=2,HALL_WIDTH=13,HALL_HEIGHT=15,CHAMBER_HEIGHT=3,LEFT=(WIDTH-HALL_WIDTH)/2,CENTER=LEFT+HALL_WIDTH/2;

@@ -7,7 +7,7 @@ import pd.items.Item;
 import pd.items.eggs.RandomEasterEgg;
 import pd.items.sellitem.VIPcard;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Random;
+import render.utils.Random;
 
 import java.util.ArrayList;
 import java.util.Calendar;

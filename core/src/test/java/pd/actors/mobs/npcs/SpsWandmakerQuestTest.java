@@ -24,11 +24,11 @@ import pd.levels.rooms.standard.EmptyRoom;
 import pd.levels.traps.Trap;
 import pd.plants.Plant;
 import pd.plants.Rotberry;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
-import watabou.utils.FileUtils;
-import watabou.utils.Random;
-import watabou.utils.SparseArray;
+import render.noosa.Game;
+import render.utils.Bundle;
+import render.utils.FileUtils;
+import render.utils.Random;
+import render.utils.SparseArray;
 
 import java.io.File;
 import java.io.InputStreamReader;

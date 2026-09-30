@@ -24,9 +24,9 @@ package pd.ui;
 import pd.Assets;
 import pd.Chrome;
 import pd.scenes.PixelScene;
-import watabou.noosa.Image;
-import watabou.noosa.NinePatch;
-import watabou.noosa.audio.Sample;
+import render.noosa.Image;
+import render.noosa.NinePatch;
+import render.noosa.audio.Sample;
 
 //simple button which support a background chrome, text, and an icon.
 public class StyledButton extends Button {

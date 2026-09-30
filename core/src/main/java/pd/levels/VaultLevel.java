@@ -109,11 +109,11 @@ import pd.plants.Stormvine;
 import pd.plants.Sungrass;
 import pd.plants.Swiftthistle;
 import pd.scenes.InterlevelScene;
-import watabou.noosa.Game;
-import watabou.noosa.audio.Music;
-import watabou.utils.Callback;
-import watabou.utils.Random;
-import watabou.utils.Reflection;
+import render.noosa.Game;
+import render.noosa.audio.Music;
+import render.utils.Callback;
+import render.utils.Random;
+import render.utils.Reflection;
 
 import java.util.ArrayList;
 import java.util.Arrays;

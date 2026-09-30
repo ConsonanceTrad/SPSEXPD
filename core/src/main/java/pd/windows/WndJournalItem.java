@@ -22,9 +22,9 @@
 package pd.windows;
 
 import pd.scenes.PixelScene;
-import watabou.input.PointerEvent;
-import watabou.noosa.Image;
-import watabou.noosa.PointerArea;
+import render.input.PointerEvent;
+import render.noosa.Image;
+import render.noosa.PointerArea;
 
 public class WndJournalItem extends WndTitledMessage {
 

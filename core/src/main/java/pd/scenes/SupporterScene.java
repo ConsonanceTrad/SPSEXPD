@@ -34,11 +34,11 @@ import pd.ui.ScrollPane;
 import pd.ui.StyledButton;
 import pd.ui.Window;
 import pd.windows.IconTitle;
-import watabou.noosa.Camera;
-import watabou.noosa.NinePatch;
-import watabou.noosa.ui.Component;
-import watabou.utils.Callback;
-import watabou.utils.RectF;
+import render.noosa.Camera;
+import render.noosa.NinePatch;
+import render.noosa.ui.Component;
+import render.utils.Callback;
+import render.utils.RectF;
 
 public class SupporterScene extends PixelScene {
 

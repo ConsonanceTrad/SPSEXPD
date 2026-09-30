@@ -31,7 +31,7 @@ import pd.tiles.DungeonTerrainTilemap;
 import pd.tiles.DungeonTilemap;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
-import watabou.noosa.Image;
+import render.noosa.Image;
 
 public class WndInfoCell extends Window {
 	

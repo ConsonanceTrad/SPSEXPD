@@ -28,9 +28,9 @@ import pd.levels.Terrain;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
-import watabou.noosa.Image;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.noosa.Image;
+import render.utils.Bundle;
+import render.utils.Random;
 
 public class FireImbue extends Buff {
 	

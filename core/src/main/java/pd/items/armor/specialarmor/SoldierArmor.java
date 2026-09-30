@@ -9,7 +9,7 @@ import pd.items.Item;
 import pd.items.armor.normalarmor.NormalArmor;
 import pd.items.weapon.guns.GunWeapon;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class SoldierArmor extends NormalArmor {
 	public SoldierArmor() { super(5, 1f, 1f, 2, 20, 40, 1, 0, 3, ItemSpriteSheet.SPS_ARMOR_SOLDIER); }

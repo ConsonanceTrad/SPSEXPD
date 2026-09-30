@@ -9,8 +9,8 @@ import pd.actors.buffs.Terror;
 import pd.actors.buffs.armorbuff.GlyphLight;
 import pd.items.armor.Armor;
 import pd.sprites.ItemSprite;
-import watabou.utils.GameMath;
-import watabou.utils.Random;
+import render.utils.GameMath;
+import render.utils.Random;
 
 public class Lightglyph extends SpsGlyph {
 	private static final ItemSprite.Glowing COLOR = new ItemSprite.Glowing(0xFFFF44);

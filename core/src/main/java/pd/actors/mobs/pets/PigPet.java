@@ -6,7 +6,7 @@ import pd.actors.Char;
 import pd.items.Generator;
 import pd.items.food.SmallMeat;
 import pd.sprites.PigPetSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class PigPet extends PET {
 	{

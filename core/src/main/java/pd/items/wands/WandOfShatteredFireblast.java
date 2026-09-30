@@ -18,9 +18,9 @@ import pd.scenes.GameScene;
 import pd.effects.MagicMissile;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Callback;
-import watabou.utils.PathFinder;
+import render.noosa.audio.Sample;
+import render.utils.Callback;
+import render.utils.PathFinder;
 
 import java.util.HashMap;
 import java.util.HashSet;

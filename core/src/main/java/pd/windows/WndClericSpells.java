@@ -41,12 +41,12 @@ import pd.ui.RenderedTextBlock;
 import pd.ui.RightClickMenu;
 import pd.ui.Window;
 import pd.utils.GLog;
-import watabou.input.PointerEvent;
-import watabou.noosa.ColorBlock;
-import watabou.noosa.Image;
-import watabou.noosa.NinePatch;
-import watabou.utils.DeviceCompat;
-import watabou.utils.PointF;
+import render.input.PointerEvent;
+import render.noosa.ColorBlock;
+import render.noosa.Image;
+import render.noosa.NinePatch;
+import render.utils.DeviceCompat;
+import render.utils.PointF;
 
 import java.util.ArrayList;
 

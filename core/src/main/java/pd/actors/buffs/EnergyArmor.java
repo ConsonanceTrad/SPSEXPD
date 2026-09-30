@@ -3,7 +3,7 @@ package pd.actors.buffs;
 
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 /** Persistent all-source shield used by SPS Hybrid. */
 public class EnergyArmor extends ShieldBuff {

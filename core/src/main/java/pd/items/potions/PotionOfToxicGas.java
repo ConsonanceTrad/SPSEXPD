@@ -27,7 +27,7 @@ import pd.actors.blobs.Blob;
 import pd.actors.blobs.ToxicGas;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class PotionOfToxicGas extends Potion {
 

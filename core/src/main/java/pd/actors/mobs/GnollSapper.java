@@ -29,10 +29,10 @@ import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
 import pd.sprites.GnollSapperSprite;
-import watabou.utils.Bundle;
-import watabou.utils.GameMath;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.Bundle;
+import render.utils.GameMath;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 public class GnollSapper extends Mob {
 

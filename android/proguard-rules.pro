@@ -1,11 +1,11 @@
 # retain these to support class references for the bundling and translation systems
 -keepnames class pd.** { *; }
--keepnames class watabou.** { *; }
+-keepnames class render.** { *; }
 
 # keep classes that are instantiated via reflection
--keep class * extends watabou.noosa.Gizmo { *; }
--keep class * extends watabou.glscripts.Script { *; }
--keep class * implements watabou.utils.Bundlable { *; }
+-keep class * extends render.noosa.Gizmo { *; }
+-keep class * extends render.glscripts.Script { *; }
+-keep class * implements render.utils.Bundlable { *; }
 
 # retained to support meaningful stack traces
 # note that the mapping file must be referenced in order to make sense of line numbers

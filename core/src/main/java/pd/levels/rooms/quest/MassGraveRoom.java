@@ -36,10 +36,10 @@ import pd.levels.rooms.Room;
 import pd.levels.rooms.special.SpecialRoom;
 import pd.messages.Messages;
 import pd.tiles.CustomTilemap;
-import watabou.noosa.Image;
-import watabou.noosa.Tilemap;
-import watabou.utils.Point;
-import watabou.utils.Random;
+import render.noosa.Image;
+import render.noosa.Tilemap;
+import render.utils.Point;
+import render.utils.Random;
 
 import java.util.ArrayList;
 import java.util.Arrays;

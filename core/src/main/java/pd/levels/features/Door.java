@@ -28,7 +28,7 @@ import pd.actors.Char;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class Door {
 

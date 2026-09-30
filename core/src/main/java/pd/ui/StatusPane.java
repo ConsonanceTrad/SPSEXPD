@@ -34,16 +34,16 @@ import pd.scenes.PixelScene;
 import pd.sprites.HeroSprite;
 import pd.windows.WndHero;
 import pd.windows.WndKeyBindings;
-import watabou.input.GameAction;
-import watabou.noosa.BitmapText;
-import watabou.noosa.Camera;
-import watabou.noosa.Game;
-import watabou.noosa.Image;
-import watabou.noosa.NinePatch;
-import watabou.noosa.particles.Emitter;
-import watabou.noosa.ui.Component;
-import watabou.utils.ColorMath;
-import watabou.utils.GameMath;
+import render.input.GameAction;
+import render.noosa.BitmapText;
+import render.noosa.Camera;
+import render.noosa.Game;
+import render.noosa.Image;
+import render.noosa.NinePatch;
+import render.noosa.particles.Emitter;
+import render.noosa.ui.Component;
+import render.utils.ColorMath;
+import render.utils.GameMath;
 
 public class StatusPane extends Component {
 

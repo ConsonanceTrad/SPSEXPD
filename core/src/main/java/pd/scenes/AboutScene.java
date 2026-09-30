@@ -29,14 +29,14 @@ import pd.ui.RenderedTextBlock;
 import pd.ui.ScrollPane;
 import pd.ui.TitleBackground;
 import pd.ui.Window;
-import watabou.input.PointerEvent;
-import watabou.noosa.Camera;
-import watabou.noosa.ColorBlock;
-import watabou.noosa.Group;
-import watabou.noosa.Image;
-import watabou.noosa.PointerArea;
-import watabou.noosa.ui.Component;
-import watabou.utils.RectF;
+import render.input.PointerEvent;
+import render.noosa.Camera;
+import render.noosa.ColorBlock;
+import render.noosa.Group;
+import render.noosa.Image;
+import render.noosa.PointerArea;
+import render.noosa.ui.Component;
+import render.utils.RectF;
 
 public class AboutScene extends PixelScene {
 
@@ -138,8 +138,8 @@ public class AboutScene extends PixelScene {
 				"Pixel Dungeon",
 				Icons.WATA.get(),
 				"Developed by: _Watabou_\nInspired by Brian Walker's Brogue",
-				"watabou.itch.io",
-				"https://watabou.itch.io/");
+				"render.itch.io",
+				"https://render.itch.io/");
 		if (landscape()){
 			wata.setRect(shpx.left(), alastair.bottom() + 8, colWidth, 0);
 		} else {

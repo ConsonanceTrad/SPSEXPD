@@ -19,7 +19,7 @@ import pd.actors.buffs.Recharging;
 import pd.actors.buffs.Vertigo;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.Game;
+import render.noosa.Game;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

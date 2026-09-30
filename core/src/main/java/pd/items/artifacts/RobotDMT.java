@@ -24,10 +24,10 @@ import pd.messages.Messages;
 import pd.scenes.MemorySaveScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import watabou.noosa.Game;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.Random;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -28,7 +28,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Cripple;
 import pd.actors.buffs.Roots;
 import pd.effects.Wound;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class GrippingTrap extends Trap {
 

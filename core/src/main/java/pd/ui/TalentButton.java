@@ -32,11 +32,11 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.windows.WndInfoTalent;
-import watabou.noosa.ColorBlock;
-import watabou.noosa.Image;
-import watabou.noosa.PointerArea;
-import watabou.noosa.audio.Sample;
-import watabou.noosa.particles.Emitter;
+import render.noosa.ColorBlock;
+import render.noosa.Image;
+import render.noosa.PointerArea;
+import render.noosa.audio.Sample;
+import render.noosa.particles.Emitter;
 
 import java.util.LinkedHashMap;
 

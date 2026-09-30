@@ -24,9 +24,9 @@ package pd.ui;
 import pd.messages.Languages;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
-import watabou.noosa.Game;
-import watabou.noosa.RenderedText;
-import watabou.noosa.ui.Component;
+import render.noosa.Game;
+import render.noosa.RenderedText;
+import render.noosa.ui.Component;
 
 import java.util.ArrayList;
 

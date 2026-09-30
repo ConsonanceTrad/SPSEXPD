@@ -4,8 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessFiles;
 import com.badlogic.gdx.utils.GdxNativesLoader;
 import pd.items.Item;
-import watabou.noosa.Game;
-import watabou.utils.Reflection;
+import render.noosa.Game;
+import render.utils.Reflection;
 
 import java.nio.charset.CodingErrorAction;
 import java.nio.charset.StandardCharsets;

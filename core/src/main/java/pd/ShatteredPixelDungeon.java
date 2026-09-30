@@ -25,11 +25,11 @@ import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.scenes.TitleScene;
 import pd.scenes.WelcomeScene;
-import watabou.noosa.Game;
-import watabou.noosa.audio.Music;
-import watabou.noosa.audio.Sample;
-import watabou.utils.DeviceCompat;
-import watabou.utils.PlatformSupport;
+import render.noosa.Game;
+import render.noosa.audio.Music;
+import render.noosa.audio.Sample;
+import render.utils.DeviceCompat;
+import render.utils.PlatformSupport;
 
 public class ShatteredPixelDungeon extends Game {
 
@@ -49,55 +49,55 @@ public class ShatteredPixelDungeon extends Game {
 		super( sceneClass == null ? WelcomeScene.class : sceneClass, platform );
 
 		//pre-v3.3.0
-		watabou.utils.Bundle.addAlias(
+		render.utils.Bundle.addAlias(
 				pd.items.keys.WornKey.class,
 				"com.shatteredpixel.shatteredpixeldungeon.items.keys.SkeletonKey" );
-		watabou.utils.Bundle.addAlias(
+		render.utils.Bundle.addAlias(
 				pd.items.artifacts.fusion.EyeOfSkadi.class,
 				"com.hmdzl.spspd.items.artifacts.EyeOfSkadi" );
-		watabou.utils.Bundle.addAlias(
+		render.utils.Bundle.addAlias(
 				pd.items.artifacts.fusion.EyeOfSkadi.EyeRecharge.class,
 				"com.hmdzl.spspd.items.artifacts.EyeOfSkadi$eyeRecharge" );
-		watabou.utils.Bundle.addAlias(
+		render.utils.Bundle.addAlias(
 				pd.items.artifacts.fusion.NoomlinCrown.class,
 				"com.hmdzl.spspd.items.artifacts.NoomlinCrown" );
-		watabou.utils.Bundle.addAlias(
+		render.utils.Bundle.addAlias(
 				pd.items.artifacts.fusion.NoomlinCrown.Crown.class,
 				"com.hmdzl.spspd.items.artifacts.NoomlinCrown$crown" );
-		watabou.utils.Bundle.addAlias(
+		render.utils.Bundle.addAlias(
 				pd.items.artifacts.AlienBag.class,
 				"com.hmdzl.spspd.items.artifacts.AlienBag" );
-		watabou.utils.Bundle.addAlias(
+		render.utils.Bundle.addAlias(
 				pd.items.artifacts.AlienBag.BagRecharge.class,
 				"com.hmdzl.spspd.items.artifacts.AlienBag$bagRecharge" );
-		watabou.utils.Bundle.addAlias(
+		render.utils.Bundle.addAlias(
 				pd.items.artifacts.Pylon.class,
 				"com.hmdzl.spspd.items.artifacts.Pylon" );
-		watabou.utils.Bundle.addAlias(
+		render.utils.Bundle.addAlias(
 				pd.items.artifacts.Pylon.BeaconRecharge.class,
 				"com.hmdzl.spspd.items.artifacts.Pylon$beaconRecharge" );
-		watabou.utils.Bundle.addAlias(
+		render.utils.Bundle.addAlias(
 				pd.items.artifacts.TimeOclock.class,
 				"com.hmdzl.spspd.items.artifacts.TimeOclock" );
-		watabou.utils.Bundle.addAlias(
+		render.utils.Bundle.addAlias(
 				pd.items.artifacts.TimeOclock.OclockRecharge.class,
 				"com.hmdzl.spspd.items.artifacts.TimeOclock$oclockRecharge" );
-		watabou.utils.Bundle.addAlias(
+		render.utils.Bundle.addAlias(
 				pd.items.artifacts.TimeOclock.TimeStasis.class,
 				"com.hmdzl.spspd.items.artifacts.TimeOclock$timeStasis2" );
-		watabou.utils.Bundle.addAlias(
+		render.utils.Bundle.addAlias(
 				pd.items.artifacts.TimeOclock.Clock.class,
 				"com.hmdzl.spspd.items.artifacts.TimeOclock$clock" );
-		watabou.utils.Bundle.addAlias(
+		render.utils.Bundle.addAlias(
 				pd.items.artifacts.RobotDMT.class,
 				"com.hmdzl.spspd.items.artifacts.RobotDMT" );
-		watabou.utils.Bundle.addAlias(
+		render.utils.Bundle.addAlias(
 				pd.items.artifacts.RobotDMT.DmtRecharge.class,
 				"com.hmdzl.spspd.items.artifacts.RobotDMT$dmtRecharge" );
-		watabou.utils.Bundle.addAlias(
+		render.utils.Bundle.addAlias(
 				pd.items.medicine.TimePill.class,
 				"com.hmdzl.spspd.items.medicine.Timepill" );
-		watabou.utils.Bundle.addAlias(
+		render.utils.Bundle.addAlias(
 				pd.items.medicine.Timepill2.class,
 				"com.hmdzl.spspd.items.medicine.Timepill2" );
 

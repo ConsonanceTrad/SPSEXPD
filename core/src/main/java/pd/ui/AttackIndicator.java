@@ -29,10 +29,10 @@ import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.sprites.CharSprite;
 import pd.windows.WndKeyBindings;
-import watabou.input.GameAction;
-import watabou.noosa.Game;
-import watabou.utils.Random;
-import watabou.utils.Reflection;
+import render.input.GameAction;
+import render.noosa.Game;
+import render.utils.Random;
+import render.utils.Reflection;
 
 import java.util.ArrayList;
 

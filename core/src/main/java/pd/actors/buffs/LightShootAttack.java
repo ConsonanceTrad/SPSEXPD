@@ -6,7 +6,7 @@ import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 public class LightShootAttack extends Buff implements Hero.Doom, Buff.DOTbuff {
 

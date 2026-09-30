@@ -26,12 +26,12 @@ import pd.Chrome;
 import pd.SPDSettings;
 import pd.effects.CircleArc;
 import pd.scenes.PixelScene;
-import watabou.input.ControllerHandler;
-import watabou.noosa.ColorBlock;
-import watabou.noosa.Game;
-import watabou.noosa.Image;
-import watabou.noosa.ui.Cursor;
-import watabou.utils.PointF;
+import render.input.ControllerHandler;
+import render.noosa.ColorBlock;
+import render.noosa.Game;
+import render.noosa.Image;
+import render.noosa.ui.Cursor;
+import render.utils.PointF;
 
 public class RadialMenu extends Window {
 

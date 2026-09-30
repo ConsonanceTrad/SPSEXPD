@@ -25,9 +25,9 @@ import pd.Dungeon;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.rooms.Room;
-import watabou.utils.Point;
-import watabou.utils.Random;
-import watabou.utils.Reflection;
+import render.utils.Point;
+import render.utils.Random;
+import render.utils.Reflection;
 
 import java.util.ArrayList;
 

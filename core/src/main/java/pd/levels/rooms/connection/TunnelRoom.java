@@ -23,12 +23,12 @@ package pd.levels.rooms.connection;
 
 import pd.levels.Level;
 import pd.levels.painters.Painter;
-import watabou.utils.GameMath;
-import watabou.utils.PathFinder;
-import watabou.utils.Point;
-import watabou.utils.PointF;
-import watabou.utils.Random;
-import watabou.utils.Rect;
+import render.utils.GameMath;
+import render.utils.PathFinder;
+import render.utils.Point;
+import render.utils.PointF;
+import render.utils.Random;
+import render.utils.Rect;
 
 //tunnels along the rooms center, with straight lines
 public class TunnelRoom extends ConnectionRoom {

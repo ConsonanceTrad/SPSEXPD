@@ -37,9 +37,9 @@ import pd.levels.rooms.standard.entrance.EntranceRoom;
 import pd.levels.rooms.standard.exit.ExitRoom;
 import pd.levels.rooms.standard.ImpShopRoom;
 import pd.messages.Messages;
-import watabou.noosa.Group;
-import watabou.utils.Point;
-import watabou.utils.Random;
+import render.noosa.Group;
+import render.utils.Point;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

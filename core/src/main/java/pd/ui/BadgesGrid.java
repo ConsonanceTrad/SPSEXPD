@@ -26,11 +26,11 @@ import pd.Badges;
 import pd.effects.BadgeBanner;
 import pd.scenes.PixelScene;
 import pd.windows.WndBadge;
-import watabou.noosa.Game;
-import watabou.noosa.Image;
-import watabou.noosa.audio.Sample;
-import watabou.noosa.ui.Component;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.noosa.Image;
+import render.noosa.audio.Sample;
+import render.noosa.ui.Component;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

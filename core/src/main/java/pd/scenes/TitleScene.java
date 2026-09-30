@@ -46,19 +46,19 @@ import pd.ui.Window;
 import pd.windows.WndOptions;
 import pd.windows.WndSettings;
 import pd.windows.WndVictoryCongrats;
-import watabou.glwrap.Blending;
-import watabou.input.PointerEvent;
-import watabou.noosa.BitmapText;
-import watabou.noosa.Camera;
-import watabou.noosa.Game;
-import watabou.noosa.Image;
-import watabou.noosa.PointerArea;
-import watabou.noosa.audio.Music;
-import watabou.noosa.tweeners.Tweener;
-import watabou.utils.ColorMath;
-import watabou.utils.DeviceCompat;
-import watabou.utils.GameMath;
-import watabou.utils.RectF;
+import render.glwrap.Blending;
+import render.input.PointerEvent;
+import render.noosa.BitmapText;
+import render.noosa.Camera;
+import render.noosa.Game;
+import render.noosa.Image;
+import render.noosa.PointerArea;
+import render.noosa.audio.Music;
+import render.noosa.tweeners.Tweener;
+import render.utils.ColorMath;
+import render.utils.DeviceCompat;
+import render.utils.GameMath;
+import render.utils.RectF;
 
 public class TitleScene extends PixelScene {
 

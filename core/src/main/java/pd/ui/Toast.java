@@ -23,9 +23,9 @@ package pd.ui;
 
 import pd.Chrome;
 import pd.scenes.PixelScene;
-import watabou.input.GameAction;
-import watabou.noosa.NinePatch;
-import watabou.noosa.ui.Component;
+import render.input.GameAction;
+import render.noosa.NinePatch;
+import render.noosa.ui.Component;
 
 public class Toast extends Component {
 

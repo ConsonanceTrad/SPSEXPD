@@ -22,9 +22,9 @@
 package pd.effects;
 
 import pd.sprites.CharSprite;
-import watabou.glwrap.Blending;
-import watabou.noosa.Game;
-import watabou.noosa.Halo;
+import render.glwrap.Blending;
+import render.noosa.Game;
+import render.noosa.Halo;
 
 public class TorchHalo extends Halo {
 

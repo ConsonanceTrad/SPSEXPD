@@ -15,8 +15,8 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.features.Chasm;
 import pd.scenes.GameScene;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
+import render.noosa.Game;
+import render.utils.Bundle;
 
 import java.util.ArrayList;
 

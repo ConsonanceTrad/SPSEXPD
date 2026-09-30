@@ -45,8 +45,8 @@ import pd.utils.GLog;
 import pd.windows.IconTitle;
 import pd.windows.WndInfoItem;
 import pd.windows.WndSadGhost;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
 
 import java.io.IOException;
 import java.util.ArrayList;

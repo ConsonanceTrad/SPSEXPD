@@ -44,11 +44,11 @@ import pd.scenes.GameScene;
 import pd.sprites.MobSprite;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
-import watabou.noosa.TextureFilm;
-import watabou.utils.Bundle;
-import watabou.utils.GameMath;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.noosa.TextureFilm;
+import render.utils.Bundle;
+import render.utils.GameMath;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

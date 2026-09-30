@@ -1,9 +1,9 @@
 package pd;
 
 import pd.items.Item;
-import watabou.noosa.Game;
-import watabou.utils.Bundlable;
-import watabou.utils.Bundle;
+import render.noosa.Game;
+import render.utils.Bundlable;
+import render.utils.Bundle;
 
 import java.util.ArrayList;
 

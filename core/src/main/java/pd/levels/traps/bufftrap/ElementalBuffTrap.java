@@ -4,8 +4,8 @@ import pd.Dungeon;
 import pd.actors.blobs.Blob;
 import pd.levels.traps.Trap;
 import pd.scenes.GameScene;
-import watabou.utils.BArray;
-import watabou.utils.PathFinder;
+import render.utils.BArray;
+import render.utils.PathFinder;
 
 abstract class ElementalBuffTrap extends Trap {
 	private final Class<? extends Blob> blobClass;

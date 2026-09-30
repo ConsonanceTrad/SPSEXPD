@@ -30,9 +30,9 @@ import pd.items.medicine.LingPotion;
 import pd.items.rings.Ring;
 import pd.items.weapon.melee.MeleeWeapon;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.utils.Bundle;
+import render.utils.Random;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

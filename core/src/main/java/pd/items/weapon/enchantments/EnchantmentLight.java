@@ -6,7 +6,7 @@ import pd.actors.buffs.Blindness;
 import pd.actors.buffs.Buff;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 import static pd.actors.damagetype.DamageType.LIGHT_DAMAGE;
 

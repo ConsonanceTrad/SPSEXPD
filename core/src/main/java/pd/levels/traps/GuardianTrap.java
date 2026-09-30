@@ -34,7 +34,7 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.StatueSprite;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class GuardianTrap extends Trap {
 

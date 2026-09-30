@@ -10,8 +10,8 @@ package pd.tiles.custom;
 
 import pd.Assets;
 import pd.tiles.CustomTilemap;
-import watabou.noosa.Tilemap;
-import watabou.utils.Bundle;
+import render.noosa.Tilemap;
+import render.utils.Bundle;
 
 /** Renders individual terrain cells directly from the original SPS-PD tile sheet. */
 public class SpsFeatureVisual extends CustomTilemap {

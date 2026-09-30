@@ -51,13 +51,13 @@ import pd.windows.WndBag;
 import pd.windows.WndOptions;
 import pd.windows.WndTitledMessage;
 import pd.windows.WndTradeItem;
-import watabou.noosa.Game;
-import watabou.noosa.Image;
-import watabou.utils.BArray;
-import watabou.utils.Bundlable;
-import watabou.utils.Bundle;
-import watabou.utils.Callback;
-import watabou.utils.PathFinder;
+import render.noosa.Game;
+import render.noosa.Image;
+import render.utils.BArray;
+import render.utils.Bundlable;
+import render.utils.Bundle;
+import render.utils.Callback;
+import render.utils.PathFinder;
 
 import java.util.ArrayList;
 

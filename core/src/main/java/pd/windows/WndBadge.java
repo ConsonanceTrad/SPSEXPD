@@ -26,9 +26,9 @@ import pd.effects.BadgeBanner;
 import pd.scenes.PixelScene;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
-import watabou.input.PointerEvent;
-import watabou.noosa.Image;
-import watabou.noosa.PointerArea;
+import render.input.PointerEvent;
+import render.noosa.Image;
+import render.noosa.PointerArea;
 
 public class WndBadge extends Window {
 	

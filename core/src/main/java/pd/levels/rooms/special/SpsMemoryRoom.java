@@ -7,7 +7,7 @@ import pd.actors.blobs.MemoryFire;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import watabou.utils.Point;
+import render.utils.Point;
 
 /** Hidden overgrown SPS chamber containing the memory fire. */
 public class SpsMemoryRoom extends SpecialRoom {

@@ -23,8 +23,8 @@ package pd.levels.builders;
 
 import pd.levels.rooms.Room;
 import pd.levels.rooms.connection.ConnectionRoom;
-import watabou.utils.PointF;
-import watabou.utils.Random;
+import render.utils.PointF;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

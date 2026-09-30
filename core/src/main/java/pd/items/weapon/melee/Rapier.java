@@ -35,9 +35,9 @@ import pd.scenes.PixelScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.AttackIndicator;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Callback;
-import watabou.utils.PathFinder;
+import render.noosa.audio.Sample;
+import render.utils.Callback;
+import render.utils.PathFinder;
 
 public class Rapier extends MeleeWeapon {
 

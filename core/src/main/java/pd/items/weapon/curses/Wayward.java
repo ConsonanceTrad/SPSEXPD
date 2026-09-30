@@ -27,8 +27,8 @@ import pd.actors.buffs.FlavourBuff;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
 import pd.ui.BuffIndicator;
-import watabou.noosa.Image;
-import watabou.utils.Random;
+import render.noosa.Image;
+import render.utils.Random;
 
 public class Wayward extends Weapon.Enchantment {
 

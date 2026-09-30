@@ -28,7 +28,7 @@ import pd.SPDSettings;
 import pd.ShatteredPixelDungeon;
 import pd.sprites.ItemSprite;
 import pd.ui.Icons;
-import watabou.noosa.Image;
+import render.noosa.Image;
 
 import java.util.ArrayList;
 import java.util.Calendar;

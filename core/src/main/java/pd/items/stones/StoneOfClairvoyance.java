@@ -28,8 +28,8 @@ import pd.items.scrolls.ScrollOfMagicMapping;
 import pd.mechanics.ShadowCaster;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Point;
+import render.noosa.audio.Sample;
+import render.utils.Point;
 
 public class StoneOfClairvoyance extends Runestone {
 	

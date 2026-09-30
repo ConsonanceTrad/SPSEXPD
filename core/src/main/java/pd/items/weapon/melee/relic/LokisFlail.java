@@ -6,7 +6,7 @@ import pd.actors.buffs.Shadows;
 import pd.actors.hero.Hero;
 import pd.items.weapon.enchantments.LokisPoison;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class LokisFlail extends RelicMeleeWeapon {
 

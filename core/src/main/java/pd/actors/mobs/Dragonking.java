@@ -13,8 +13,8 @@ import pd.levels.BossRushLevel;
 import pd.scenes.GameScene;
 import pd.sprites.NewDragon02Sprite;
 import pd.ui.BossHealthBar;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.utils.Bundle;
+import render.utils.Random;
 
 /** The exact opening gatekeeper of the SPS 0.9.8 boss rush. */
 public class Dragonking extends Mob {

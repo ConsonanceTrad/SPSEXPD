@@ -31,9 +31,9 @@ import pd.levels.rooms.secret.SecretWellRoom;
 import pd.levels.rooms.special.MagicWellRoom;
 import pd.levels.traps.Trap;
 import pd.plants.Plant;
-import watabou.noosa.Game;
-import watabou.utils.FileUtils;
-import watabou.utils.SparseArray;
+import render.noosa.Game;
+import render.utils.FileUtils;
+import render.utils.SparseArray;
 
 import java.io.File;
 import java.lang.reflect.Field;

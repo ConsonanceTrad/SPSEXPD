@@ -12,10 +12,10 @@ import pd.messages.Messages;
 import pd.ui.Icons;
 import pd.ui.RenderedTextBlock;
 import pd.ui.StyledButton;
-import watabou.noosa.Camera;
-import watabou.noosa.Game;
-import watabou.noosa.Image;
-import watabou.utils.RectF;
+import render.noosa.Camera;
+import render.noosa.Game;
+import render.noosa.Image;
+import render.utils.RectF;
 
 public class PowerHandScene extends PixelScene {
 

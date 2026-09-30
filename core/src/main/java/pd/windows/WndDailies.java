@@ -30,8 +30,8 @@ import pd.ui.Icons;
 import pd.ui.RenderedTextBlock;
 import pd.ui.ScrollPane;
 import pd.ui.Window;
-import watabou.noosa.ColorBlock;
-import watabou.noosa.ui.Component;
+import render.noosa.ColorBlock;
+import render.noosa.ui.Component;
 
 import java.text.DateFormat;
 import java.text.NumberFormat;

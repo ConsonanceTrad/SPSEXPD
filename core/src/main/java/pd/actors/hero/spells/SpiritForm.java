@@ -58,12 +58,12 @@ import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import pd.ui.QuickSlotButton;
-import watabou.noosa.Game;
-import watabou.noosa.Image;
-import watabou.utils.Bundlable;
-import watabou.utils.Bundle;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.noosa.Image;
+import render.utils.Bundlable;
+import render.utils.Bundle;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

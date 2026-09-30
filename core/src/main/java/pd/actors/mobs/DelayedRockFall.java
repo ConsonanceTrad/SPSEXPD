@@ -30,9 +30,9 @@ import pd.effects.Speck;
 import pd.effects.particles.EarthParticle;
 import pd.scenes.PixelScene;
 import pd.tiles.DungeonTilemap;
-import watabou.noosa.audio.Sample;
-import watabou.noosa.particles.Emitter;
-import watabou.utils.Bundle;
+import render.noosa.audio.Sample;
+import render.noosa.particles.Emitter;
+import render.utils.Bundle;
 
 import java.util.ArrayList;
 import java.util.List;

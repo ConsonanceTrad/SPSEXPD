@@ -45,11 +45,11 @@ import pd.mechanics.ConeAOE;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Callback;
-import watabou.utils.GameMath;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Callback;
+import render.utils.GameMath;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

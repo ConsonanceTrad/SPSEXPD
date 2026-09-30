@@ -30,13 +30,13 @@ import pd.scenes.PixelScene;
 import pd.utils.GLog;
 import pd.windows.WndMessage;
 import pd.windows.WndOptions;
-import watabou.input.PointerEvent;
-import watabou.noosa.BitmapText;
-import watabou.noosa.Game;
-import watabou.noosa.PointerArea;
-import watabou.noosa.audio.Sample;
-import watabou.noosa.ui.Component;
-import watabou.utils.Random;
+import render.input.PointerEvent;
+import render.noosa.BitmapText;
+import render.noosa.Game;
+import render.noosa.PointerArea;
+import render.noosa.audio.Sample;
+import render.noosa.ui.Component;
+import render.utils.Random;
 
 public class CurrencyIndicator extends Component {
 

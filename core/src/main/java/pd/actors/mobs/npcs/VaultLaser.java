@@ -39,9 +39,9 @@ import pd.scenes.GameScene;
 import pd.sprites.SentrySprite;
 import pd.tiles.DungeonTilemap;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.Random;
 
 public class VaultLaser extends NPC {
 

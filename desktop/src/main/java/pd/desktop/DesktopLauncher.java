@@ -35,9 +35,9 @@ import pd.services.news.News;
 import pd.services.news.NewsImpl;
 import pd.services.updates.UpdateImpl;
 import pd.services.updates.Updates;
-import watabou.noosa.Game;
-import watabou.utils.FileUtils;
-import watabou.utils.Point;
+import render.noosa.Game;
+import render.utils.FileUtils;
+import render.utils.Point;
 
 import org.lwjgl.util.tinyfd.TinyFileDialogs;
 
@@ -82,7 +82,7 @@ public class DesktopLauncher {
 				//shorten/simplify exception message to make it easier to fit into a message box
 				exceptionMsg = exceptionMsg.replaceAll("\\(.*:([0-9]*)\\)", "($1)");
 				exceptionMsg = exceptionMsg.replace("pd.", "");
-				exceptionMsg = exceptionMsg.replace("watabou.", "");
+				exceptionMsg = exceptionMsg.replace("render.", "");
 				exceptionMsg = exceptionMsg.replace("com.badlogic.gdx.", "");
 				exceptionMsg = exceptionMsg.replace("\t", "  "); //shortens length of tabs
 

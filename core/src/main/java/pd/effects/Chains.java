@@ -22,11 +22,11 @@
 package pd.effects;
 
 import pd.tiles.DungeonTilemap;
-import watabou.noosa.Game;
-import watabou.noosa.Group;
-import watabou.noosa.Image;
-import watabou.utils.Callback;
-import watabou.utils.PointF;
+import render.noosa.Game;
+import render.noosa.Group;
+import render.noosa.Image;
+import render.utils.Callback;
+import render.utils.PointF;
 
 public class Chains extends Group {
 

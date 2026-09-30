@@ -53,10 +53,10 @@ import pd.ui.ActionIndicator;
 import pd.ui.AttackIndicator;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
-import watabou.noosa.Image;
-import watabou.noosa.Visual;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
+import render.noosa.Image;
+import render.noosa.Visual;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
 
 import java.util.ArrayList;
 

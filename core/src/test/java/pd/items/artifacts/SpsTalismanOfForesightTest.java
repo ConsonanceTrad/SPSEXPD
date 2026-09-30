@@ -21,8 +21,8 @@ import pd.levels.traps.Trap;
 import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
-import watabou.utils.Bundle;
-import watabou.utils.SparseArray;
+import render.utils.Bundle;
+import render.utils.SparseArray;
 
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;

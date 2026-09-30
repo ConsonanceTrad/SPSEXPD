@@ -32,7 +32,7 @@ import pd.plants.Earthroot;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSprite.Glowing;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class Entanglement extends Glyph {
 	

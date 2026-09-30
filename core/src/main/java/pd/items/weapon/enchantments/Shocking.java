@@ -29,10 +29,10 @@ import pd.effects.Lightning;
 import pd.effects.particles.SparkParticle;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
-import watabou.utils.BArray;
-import watabou.noosa.audio.Sample;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.BArray;
+import render.noosa.audio.Sample;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

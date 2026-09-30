@@ -18,8 +18,8 @@ import pd.actors.hero.Hero;
 import pd.items.Generator;
 import pd.items.rings.Ring;
 import pd.items.weapon.melee.MeleeWeapon;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
+import render.noosa.Game;
+import render.utils.Bundle;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;

@@ -1,7 +1,7 @@
 package pd.sprites;
 
 import pd.Assets;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 public class DwarfKingTombSprite extends MobSprite {
 	public DwarfKingTombSprite() {

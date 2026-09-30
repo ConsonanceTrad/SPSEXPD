@@ -39,12 +39,12 @@ import pd.ui.StyledButton;
 import pd.ui.Window;
 import pd.windows.IconTitle;
 import pd.windows.WndGameInProgress;
-import watabou.noosa.BitmapText;
-import watabou.noosa.Camera;
-import watabou.noosa.Game;
-import watabou.noosa.Image;
-import watabou.noosa.NinePatch;
-import watabou.utils.RectF;
+import render.noosa.BitmapText;
+import render.noosa.Camera;
+import render.noosa.Game;
+import render.noosa.Image;
+import render.noosa.NinePatch;
+import render.utils.RectF;
 
 import java.util.ArrayList;
 

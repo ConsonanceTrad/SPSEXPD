@@ -34,8 +34,8 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import watabou.noosa.Image;
-import watabou.utils.Random;
+import render.noosa.Image;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

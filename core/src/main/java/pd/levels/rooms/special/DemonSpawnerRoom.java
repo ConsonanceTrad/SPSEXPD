@@ -30,8 +30,8 @@ import pd.levels.Terrain;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
 import pd.tiles.CustomTilemap;
-import watabou.noosa.Tilemap;
-import watabou.utils.Point;
+import render.noosa.Tilemap;
+import render.utils.Point;
 
 public class DemonSpawnerRoom extends SpecialRoom {
 	@Override

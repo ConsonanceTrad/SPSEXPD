@@ -25,8 +25,8 @@ import pd.Assets;
 import pd.actors.Char;
 import pd.actors.mobs.GnollGuard;
 import pd.effects.particles.EarthParticle;
-import watabou.noosa.TextureFilm;
-import watabou.noosa.particles.Emitter;
+import render.noosa.TextureFilm;
+import render.noosa.particles.Emitter;
 
 public class GnollGuardSprite extends MobSprite {
 

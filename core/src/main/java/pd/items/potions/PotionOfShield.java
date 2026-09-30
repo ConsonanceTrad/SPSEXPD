@@ -9,7 +9,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Paralysis;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class PotionOfShield extends SpsPotion {
 	{ image = ItemSpriteSheet.SPS_POTION_SHIELD; }

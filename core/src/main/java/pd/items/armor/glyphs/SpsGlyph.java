@@ -6,7 +6,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.armorbuff.ArmorGlyphBuff;
 import pd.items.armor.Armor;
 import pd.items.misc.FourClover;
-import watabou.utils.Random;
+import render.utils.Random;
 
 abstract class SpsGlyph extends Armor.Glyph {
 	static int level(Armor armor) { return Math.max(0, armor.level()); }

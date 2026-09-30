@@ -25,9 +25,9 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.TenguSprite;
 import pd.ui.BossHealthBar;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

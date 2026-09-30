@@ -22,8 +22,8 @@
 package pd.effects;
 
 import pd.Assets;
-import watabou.gltextures.SmartTexture;
-import watabou.noosa.NinePatch;
+import render.gltextures.SmartTexture;
+import render.noosa.NinePatch;
 
 public class ShadowBox extends NinePatch {
 

@@ -24,7 +24,7 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.LeafParticle;
 import pd.levels.Level;
 import pd.scenes.GameScene;
-import watabou.noosa.Game;
+import render.noosa.Game;
 
 /** The persistent grass tile used by SPS maps; trampling it never removes the tile. */
 public final class OldHighGrass {

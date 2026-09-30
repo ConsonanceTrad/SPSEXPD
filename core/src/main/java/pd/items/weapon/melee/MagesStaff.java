@@ -51,11 +51,11 @@ import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
 import pd.windows.WndUseItem;
-import watabou.noosa.audio.Sample;
-import watabou.noosa.particles.Emitter;
-import watabou.noosa.particles.PixelParticle;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.noosa.particles.Emitter;
+import render.noosa.particles.PixelParticle;
+import render.utils.Bundle;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

@@ -16,7 +16,7 @@ import pd.items.Item;
 import pd.levels.Level;
 import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.SparseArray;
+import render.utils.SparseArray;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

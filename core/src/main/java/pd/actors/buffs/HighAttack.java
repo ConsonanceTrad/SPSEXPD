@@ -7,7 +7,7 @@ import pd.actors.hero.Hero;
 import pd.levels.Terrain;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 /** Accumulates an attack multiplier while the target remains next to a wall. */
 public class HighAttack extends Buff {

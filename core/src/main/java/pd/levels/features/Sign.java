@@ -32,9 +32,9 @@ import pd.tiles.CustomTilemap;
 import pd.tiles.custom.SpsFeatureVisual;
 import pd.utils.GLog;
 import pd.windows.WndMessage;
-import watabou.noosa.Game;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Callback;
+import render.noosa.Game;
+import render.noosa.audio.Sample;
+import render.utils.Callback;
 
 import java.util.Iterator;
 

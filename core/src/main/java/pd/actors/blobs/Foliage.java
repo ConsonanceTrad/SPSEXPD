@@ -32,7 +32,7 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import watabou.utils.PathFinder;
+import render.utils.PathFinder;
 
 public class Foliage extends Blob {
 

@@ -51,9 +51,9 @@ import pd.utils.GLog;
 import pd.windows.WndMessage;
 import pd.windows.WndOptions;
 import pd.windows.WndBag;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.utils.Bundle;
+import render.utils.Random;
 
 import java.util.ArrayList;
 import java.util.Collections;

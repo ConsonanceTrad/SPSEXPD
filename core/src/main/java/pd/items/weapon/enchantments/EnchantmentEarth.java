@@ -8,7 +8,7 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.EarthParticle;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 import static pd.actors.damagetype.DamageType.EARTH_DAMAGE;
 

@@ -25,7 +25,7 @@ import pd.Assets;
 import pd.actors.hero.Hero;
 import pd.items.scrolls.ScrollOfRecharging;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class BrokenStaff extends RemainsItem {
 

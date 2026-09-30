@@ -46,8 +46,8 @@ import pd.sprites.CharSprite;
 import pd.sprites.MirrorSprite;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.utils.Bundle;
+import render.utils.Random;
 
 public class MirrorImage extends NPC {
 

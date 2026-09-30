@@ -23,8 +23,8 @@ package pd.ui;
 
 import pd.Assets;
 import pd.scenes.PixelScene;
-import watabou.noosa.Image;
-import watabou.noosa.audio.Sample;
+import render.noosa.Image;
+import render.noosa.audio.Sample;
 
 public class IconButton extends Button {
 	

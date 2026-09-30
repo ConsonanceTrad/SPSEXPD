@@ -52,13 +52,13 @@ import pd.ui.changelist.v2_X_Changes;
 import pd.ui.changelist.v3_X_Changes;
 import pd.ui.changelist.v4_X_Changes;
 import pd.windows.IconTitle;
-import watabou.noosa.Camera;
-import watabou.noosa.Image;
-import watabou.noosa.NinePatch;
-import watabou.noosa.Scene;
-import watabou.noosa.audio.Music;
-import watabou.noosa.ui.Component;
-import watabou.utils.RectF;
+import render.noosa.Camera;
+import render.noosa.Image;
+import render.noosa.NinePatch;
+import render.noosa.Scene;
+import render.noosa.audio.Music;
+import render.noosa.ui.Component;
+import render.utils.RectF;
 
 import java.util.ArrayList;
 

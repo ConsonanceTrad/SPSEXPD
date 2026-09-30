@@ -41,10 +41,10 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.plants.Plant;
 import pd.levels.traps.Trap;
-import watabou.utils.Bundle;
-import watabou.utils.FileUtils;
-import watabou.utils.SparseArray;
-import watabou.noosa.Game;
+import render.utils.Bundle;
+import render.utils.FileUtils;
+import render.utils.SparseArray;
+import render.noosa.Game;
 
 import java.io.File;
 import java.io.InputStreamReader;

@@ -27,9 +27,9 @@ import pd.actors.Char;
 import pd.actors.mobs.Necromancer;
 import pd.effects.CellEmitter;
 import pd.effects.particles.ShadowParticle;
-import watabou.noosa.TextureFilm;
-import watabou.noosa.audio.Sample;
-import watabou.noosa.particles.Emitter;
+import render.noosa.TextureFilm;
+import render.noosa.audio.Sample;
+import render.noosa.particles.Emitter;
 
 public class SpectralNecromancerSprite extends MobSprite {
 

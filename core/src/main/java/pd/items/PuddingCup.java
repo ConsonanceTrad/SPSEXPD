@@ -8,7 +8,7 @@ import pd.actors.hero.Hero;
 import pd.scenes.MemorySaveScene;
 import pd.scenes.PuddingCupScene;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.Game;
+import render.noosa.Game;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ public class PuddingCup extends Item {
 		}
 	}
 
-	static Class<? extends watabou.noosa.Scene> saveScene() {
+	static Class<? extends render.noosa.Scene> saveScene() {
 		return MemorySaveScene.class;
 	}
 

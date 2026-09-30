@@ -80,10 +80,10 @@ import pd.plants.Seedpod;
 import pd.plants.Fadeleaf;
 import pd.plants.ReNepenth;
 import pd.plants.StarEater;
-import watabou.noosa.Game;
-import watabou.utils.Random;
-import watabou.utils.SparseArray;
-import watabou.utils.Bundle;
+import render.noosa.Game;
+import render.utils.Random;
+import render.utils.SparseArray;
+import render.utils.Bundle;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;

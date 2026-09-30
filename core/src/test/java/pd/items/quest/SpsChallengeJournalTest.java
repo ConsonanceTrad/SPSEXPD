@@ -23,9 +23,9 @@ import pd.items.challengelists.SewerChallenge;
 import pd.items.challengelists.WisdomChallenge;
 import pd.levels.Level;
 import pd.plants.Plant;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
-import watabou.utils.SparseArray;
+import render.noosa.Game;
+import render.utils.Bundle;
+import render.utils.SparseArray;
 
 import java.util.ArrayList;
 import java.util.HashMap;

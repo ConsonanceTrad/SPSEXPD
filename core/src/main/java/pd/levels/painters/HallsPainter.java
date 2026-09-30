@@ -24,8 +24,8 @@ package pd.levels.painters;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.rooms.Room;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

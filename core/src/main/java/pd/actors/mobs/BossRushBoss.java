@@ -20,9 +20,9 @@ import pd.levels.BossRushLevel;
 import pd.items.scrolls.ScrollOfPsionicBlast;
 import pd.scenes.GameScene;
 import pd.ui.BossHealthBar;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
-import watabou.utils.Reflection;
+import render.utils.Bundle;
+import render.utils.Random;
+import render.utils.Reflection;
 
 /** Shared state and safe stage hand-off for the eight ultimate bosses. */
 public abstract class BossRushBoss extends Mob {

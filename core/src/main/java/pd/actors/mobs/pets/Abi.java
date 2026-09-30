@@ -10,7 +10,7 @@ import pd.actors.mobs.Mob;
 import pd.mechanics.Ballistica;
 import pd.sprites.AbiSprite;
 import pd.sprites.CharSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 /** The original Abbey companion summoned by Alfred's whistle. */
 public class Abi extends PET {

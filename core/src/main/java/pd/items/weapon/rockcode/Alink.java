@@ -9,7 +9,7 @@ import pd.actors.mobs.npcs.MirrorImage;
 import pd.effects.MagicMissile;
 import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
-import watabou.utils.Random;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

@@ -23,12 +23,12 @@ package pd.tiles;
 
 import pd.Dungeon;
 import pd.levels.Level;
-import watabou.noosa.Image;
-import watabou.noosa.NoosaScript;
-import watabou.noosa.TextureFilm;
-import watabou.noosa.Tilemap;
-import watabou.utils.Bundlable;
-import watabou.utils.Bundle;
+import render.noosa.Image;
+import render.noosa.NoosaScript;
+import render.noosa.TextureFilm;
+import render.noosa.Tilemap;
+import render.utils.Bundlable;
+import render.utils.Bundle;
 
 public abstract class CustomTilemap implements Bundlable {
 

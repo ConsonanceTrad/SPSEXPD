@@ -6,7 +6,7 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.SpsChallengeMobPool;
 import pd.items.Heap;
 import pd.items.bombs.LightBomb;
-import watabou.utils.Random;
+import render.utils.Random;
 
 /** SPS-PD 0.9.8 overgrown prison arena (challenge-book room 2). */
 public class PrisonChallengeLevel extends SpsRegionChallengeLevel {

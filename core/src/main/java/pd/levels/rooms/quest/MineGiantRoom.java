@@ -32,10 +32,10 @@ import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
 import pd.levels.rooms.secret.SecretRoom;
 import pd.levels.rooms.standard.CaveRoom;
-import watabou.utils.GameMath;
-import watabou.utils.Point;
-import watabou.utils.Random;
-import watabou.utils.Rect;
+import render.utils.GameMath;
+import render.utils.Point;
+import render.utils.Random;
+import render.utils.Rect;
 
 import java.util.ArrayList;
 

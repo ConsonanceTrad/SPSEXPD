@@ -28,7 +28,7 @@ import pd.effects.Splash;
 import pd.scenes.GameScene;
 import pd.tiles.DungeonWallsTilemap;
 import pd.tiles.RaisedTerrainTilemap;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 public abstract class CrystalSpireSprite extends MobSprite {
 

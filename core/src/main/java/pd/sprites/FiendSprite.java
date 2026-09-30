@@ -4,8 +4,8 @@ package pd.sprites;
 import pd.Assets;
 import pd.actors.mobs.Fiend;
 import pd.effects.MagicMissile;
-import watabou.noosa.TextureFilm;
-import watabou.noosa.audio.Sample;
+import render.noosa.TextureFilm;
+import render.noosa.audio.Sample;
 
 public class FiendSprite extends MobSprite {
 

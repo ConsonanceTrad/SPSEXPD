@@ -29,10 +29,10 @@ import pd.effects.Speck;
 import pd.effects.particles.BlastParticle;
 import pd.effects.particles.SparkParticle;
 import pd.scenes.PixelScene;
-import watabou.noosa.TextureFilm;
-import watabou.noosa.audio.Sample;
-import watabou.noosa.particles.Emitter;
-import watabou.utils.Callback;
+import render.noosa.TextureFilm;
+import render.noosa.audio.Sample;
+import render.noosa.particles.Emitter;
+import render.utils.Callback;
 
 public class DM300Sprite extends MobSprite {
 

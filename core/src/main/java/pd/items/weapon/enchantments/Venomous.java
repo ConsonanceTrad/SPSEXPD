@@ -28,7 +28,7 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.PoisonParticle;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class Venomous extends Weapon.Enchantment {
 

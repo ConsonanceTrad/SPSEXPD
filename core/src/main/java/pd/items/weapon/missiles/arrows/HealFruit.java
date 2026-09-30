@@ -6,7 +6,7 @@ import pd.actors.blobs.HealLight;
 import pd.effects.Speck;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class HealFruit extends SpsFruit {
 	public HealFruit() { this(1); }

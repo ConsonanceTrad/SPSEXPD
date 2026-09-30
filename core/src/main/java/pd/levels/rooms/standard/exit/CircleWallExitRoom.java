@@ -26,9 +26,9 @@ import pd.levels.Terrain;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.standard.CircleWallRoom;
-import watabou.utils.PathFinder;
-import watabou.utils.Point;
-import watabou.utils.Random;
+import render.utils.PathFinder;
+import render.utils.Point;
+import render.utils.Random;
 
 public class CircleWallExitRoom extends CircleWallRoom {
 

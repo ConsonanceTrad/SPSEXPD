@@ -28,7 +28,7 @@ import pd.actors.hero.Hero;
 import pd.effects.particles.FlameParticle;
 import pd.items.potions.exotic.PotionOfDragonsBreath;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class ElixirOfDragonsBlood extends Elixir {
 	

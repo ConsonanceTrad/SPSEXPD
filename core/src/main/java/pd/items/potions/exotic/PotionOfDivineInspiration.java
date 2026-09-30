@@ -37,9 +37,9 @@ import pd.ui.TalentsPane;
 import pd.utils.GLog;
 import pd.windows.WndHero;
 import pd.windows.WndOptions;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.Random;
 
 public class PotionOfDivineInspiration extends ExoticPotion {
 	

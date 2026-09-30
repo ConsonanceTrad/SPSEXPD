@@ -33,8 +33,8 @@ import pd.levels.traps.TenguDartTrap;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
-import watabou.utils.PathFinder;
+import render.noosa.audio.Sample;
+import render.utils.PathFinder;
 
 import java.util.ArrayList;
 import java.util.Collections;

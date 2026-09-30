@@ -37,9 +37,9 @@ import com.badlogic.gdx.graphics.g2d.PixmapPacker;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import pd.SPDSettings;
 import pd.ShatteredPixelDungeon;
-import watabou.noosa.Game;
-import watabou.utils.PlatformSupport;
-import watabou.utils.RectF;
+import render.noosa.Game;
+import render.utils.PlatformSupport;
+import render.utils.RectF;
 
 import java.util.HashMap;
 import java.util.regex.Matcher;

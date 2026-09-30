@@ -46,10 +46,10 @@ import pd.items.trinkets.ExoticCrystals;
 import pd.items.weapon.Weapon;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.Visual;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
-import watabou.utils.Reflection;
+import render.noosa.Visual;
+import render.utils.Bundle;
+import render.utils.Random;
+import render.utils.Reflection;
 
 import java.util.ArrayList;
 

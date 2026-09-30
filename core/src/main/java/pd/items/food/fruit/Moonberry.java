@@ -5,7 +5,7 @@ import pd.actors.buffs.Barkskin;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class Moonberry extends Fruit {
 	{ image = ItemSpriteSheet.MOONBERRY; }

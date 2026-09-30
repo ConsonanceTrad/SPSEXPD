@@ -28,13 +28,13 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
-import watabou.input.PointerEvent;
-import watabou.noosa.ColorBlock;
-import watabou.noosa.Image;
-import watabou.noosa.NinePatch;
-import watabou.noosa.PointerArea;
-import watabou.noosa.ui.Component;
-import watabou.utils.Point;
+import render.input.PointerEvent;
+import render.noosa.ColorBlock;
+import render.noosa.Image;
+import render.noosa.NinePatch;
+import render.noosa.PointerArea;
+import render.noosa.ui.Component;
+import render.utils.Point;
 
 import java.util.ArrayList;
 

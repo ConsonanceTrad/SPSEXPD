@@ -29,7 +29,7 @@ import pd.plants.Swiftthistle;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
-import watabou.noosa.Image;
+import render.noosa.Image;
 
 public class Levitation extends FlavourBuff {
 	

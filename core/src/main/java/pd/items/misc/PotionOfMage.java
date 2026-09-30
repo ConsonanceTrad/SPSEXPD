@@ -38,9 +38,9 @@ import pd.sprites.ItemSpriteSheet;
 import pd.sprites.MissileSprite;
 import pd.ui.QuickSlotButton;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

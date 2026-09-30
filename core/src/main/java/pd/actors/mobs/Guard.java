@@ -39,11 +39,11 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.GuardSprite;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.Callback;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.Callback;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 public class Guard extends Mob {
 

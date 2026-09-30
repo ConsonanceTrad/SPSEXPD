@@ -3,7 +3,7 @@ package pd.actors.buffs;
 
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 /** Stores SeriousPunch's multiplier until the hero's next successful attack. */
 public class OnePunch extends Buff {

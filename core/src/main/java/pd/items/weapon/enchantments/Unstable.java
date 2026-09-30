@@ -24,8 +24,8 @@ package pd.items.weapon.enchantments;
 import pd.actors.Char;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
-import watabou.utils.Random;
-import watabou.utils.Reflection;
+import render.utils.Random;
+import render.utils.Reflection;
 
 public class Unstable extends Weapon.Enchantment {
 

@@ -21,7 +21,7 @@
 
 package pd;
 
-import watabou.noosa.NinePatch;
+import render.noosa.NinePatch;
 
 public class Chrome {
 

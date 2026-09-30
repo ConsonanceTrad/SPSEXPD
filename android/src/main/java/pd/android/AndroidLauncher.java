@@ -47,9 +47,9 @@ import pd.services.news.NewsImpl;
 import pd.services.updates.UpdateImpl;
 import pd.services.updates.Updates;
 import pd.ui.Button;
-import watabou.input.KeyEvent;
-import watabou.noosa.Game;
-import watabou.utils.FileUtils;
+import render.input.KeyEvent;
+import render.noosa.Game;
+import render.utils.FileUtils;
 
 public class AndroidLauncher extends AndroidApplication {
 	

@@ -12,9 +12,9 @@ import pd.levels.Terrain;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import watabou.utils.BArray;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.BArray;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 public class FishingBomb extends Bomb {
 

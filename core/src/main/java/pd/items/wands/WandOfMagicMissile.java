@@ -12,8 +12,8 @@ import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
-import watabou.noosa.Image;
-import watabou.utils.Bundle;
+import render.noosa.Image;
+import render.utils.Bundle;
 
 /** The original SPS-PD magic missile and magic-weakness wand. */
 public class WandOfMagicMissile extends DamageWand {

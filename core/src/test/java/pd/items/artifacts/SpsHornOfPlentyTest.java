@@ -22,8 +22,8 @@ import pd.items.food.staplefood.OverpricedRation;
 import pd.items.food.vegetable.BrewLeft;
 import pd.items.food.vegetable.Vegetable;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Bundle;
-import watabou.utils.Reflection;
+import render.utils.Bundle;
+import render.utils.Reflection;
 
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;

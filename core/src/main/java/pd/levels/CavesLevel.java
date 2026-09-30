@@ -78,13 +78,13 @@ import pd.tiles.DungeonTilemap;
 import pd.utils.GLog;
 import pd.windows.WndOptions;
 import pd.windows.WndTitledMessage;
-import watabou.noosa.Game;
-import watabou.noosa.Group;
-import watabou.noosa.audio.Music;
-import watabou.noosa.particles.PixelParticle;
-import watabou.utils.Callback;
-import watabou.utils.PointF;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.noosa.Group;
+import render.noosa.audio.Music;
+import render.noosa.particles.PixelParticle;
+import render.utils.Callback;
+import render.utils.PointF;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

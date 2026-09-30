@@ -54,9 +54,9 @@ import pd.plants.Starflower;
 import pd.plants.Stormvine;
 import pd.plants.Sungrass;
 import pd.windows.WndIronMaker;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.utils.Bundle;
+import render.utils.Random;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -239,10 +239,10 @@ public final class SpsAmmoTest {
 		TestLevel() {
 			setSize(8, 8);
 			mobs = new HashSet<>();
-			heaps = new watabou.utils.SparseArray<>();
+			heaps = new render.utils.SparseArray<>();
 			blobs = new HashMap<>();
-			plants = new watabou.utils.SparseArray<Plant>();
-			traps = new watabou.utils.SparseArray<>();
+			plants = new render.utils.SparseArray<Plant>();
+			traps = new render.utils.SparseArray<>();
 			transitions = new ArrayList<>();
 			customTiles = new ArrayList<>();
 			customTerrain = new ArrayList<>();

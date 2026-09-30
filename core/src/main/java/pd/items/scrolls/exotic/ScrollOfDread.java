@@ -30,7 +30,7 @@ import pd.actors.buffs.Terror;
 import pd.actors.mobs.Mob;
 import pd.effects.Flare;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class ScrollOfDread extends ExoticScroll {
 	

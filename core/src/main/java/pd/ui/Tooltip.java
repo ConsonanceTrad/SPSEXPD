@@ -23,11 +23,11 @@ package pd.ui;
 
 import pd.Chrome;
 import pd.scenes.PixelScene;
-import watabou.noosa.Game;
-import watabou.noosa.NinePatch;
-import watabou.noosa.ui.Component;
-import watabou.utils.GameMath;
-import watabou.utils.RectF;
+import render.noosa.Game;
+import render.noosa.NinePatch;
+import render.noosa.ui.Component;
+import render.utils.GameMath;
+import render.utils.RectF;
 
 public class Tooltip extends Component {
 

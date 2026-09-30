@@ -41,9 +41,9 @@ import pd.items.trinkets.ExoticCrystals;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import watabou.utils.Point;
-import watabou.utils.Random;
-import watabou.utils.Reflection;
+import render.utils.Point;
+import render.utils.Random;
+import render.utils.Reflection;
 
 import java.util.HashMap;
 

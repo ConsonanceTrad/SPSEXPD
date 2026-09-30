@@ -18,9 +18,9 @@ import pd.items.wands.fusion.WandOfBlood;
 import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
 import pd.sprites.FiendSprite;
-import watabou.utils.Bundle;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.Bundle;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 public class Fiend extends Mob {
 

@@ -12,8 +12,8 @@ import pd.plants.BlandfruitBush;
 import pd.plants.Plant;
 import pd.plants.ReNepenth;
 import pd.plants.StarEater;
-import watabou.utils.Point;
-import watabou.utils.Random;
+import render.utils.Point;
+import render.utils.Random;
 
 /** Hidden magic well and special plant from SPS-PD 0.9.8. */
 public class SpsMagicWellRoom extends SpecialRoom {

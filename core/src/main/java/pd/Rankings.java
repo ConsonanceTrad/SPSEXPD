@@ -40,10 +40,10 @@ import pd.messages.Messages;
 import pd.ui.QuickSlotButton;
 import pd.ui.Toolbar;
 import pd.utils.DungeonSeed;
-import watabou.noosa.Game;
-import watabou.utils.Bundlable;
-import watabou.utils.Bundle;
-import watabou.utils.FileUtils;
+import render.noosa.Game;
+import render.utils.Bundlable;
+import render.utils.Bundle;
+import render.utils.FileUtils;
 
 import java.io.IOException;
 import java.text.DateFormat;

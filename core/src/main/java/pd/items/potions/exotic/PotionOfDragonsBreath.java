@@ -45,10 +45,10 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndOptions;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Callback;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Callback;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

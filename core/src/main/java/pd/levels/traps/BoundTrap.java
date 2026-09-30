@@ -6,8 +6,8 @@ import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.items.Generator;
 import pd.items.Heap;
-import watabou.noosa.Game;
-import watabou.noosa.audio.Sample;
+import render.noosa.Game;
+import render.noosa.audio.Sample;
 
 public class BoundTrap extends Trap {
 	{ color = ORANGE; shape = GRILL; }

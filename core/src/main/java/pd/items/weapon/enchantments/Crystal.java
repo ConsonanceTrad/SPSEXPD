@@ -35,10 +35,10 @@ import pd.items.weapon.missiles.MissileWeapon;
 import pd.messages.Messages;
 import pd.sprites.ItemSprite;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.GameMath;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.GameMath;
+import render.utils.Random;
 
 public class Crystal extends Weapon.Enchantment {
 

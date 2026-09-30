@@ -29,8 +29,8 @@ import pd.items.weapon.enchantments.Corrupting;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.StatueSprite;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.utils.Bundle;
+import render.utils.Random;
 
 public class ArmoredStatue extends Statue {
 

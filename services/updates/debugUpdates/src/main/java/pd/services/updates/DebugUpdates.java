@@ -24,7 +24,7 @@ import pd.services.updates.AvailableUpdateData;
 import pd.services.updates.UpdateService;
 
 
-import watabou.noosa.Game;
+import render.noosa.Game;
 
 public class DebugUpdates extends UpdateService {
 

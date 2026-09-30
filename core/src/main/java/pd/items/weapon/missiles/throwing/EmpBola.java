@@ -10,7 +10,7 @@ import pd.actors.buffs.Shocked;
 import pd.items.Item;
 import pd.items.weapon.missiles.MissileWeapon;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class EmpBola extends MissileWeapon {
 

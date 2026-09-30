@@ -47,12 +47,12 @@ import pd.sprites.ItemSpriteSheet;
 import pd.sprites.WardSprite;
 import pd.utils.GLog;
 import pd.windows.WndOptions;
-import watabou.noosa.Game;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.Callback;
-import watabou.utils.PointF;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.Callback;
+import render.utils.PointF;
+import render.utils.Random;
 
 public class WandOfWarding extends Wand {
 

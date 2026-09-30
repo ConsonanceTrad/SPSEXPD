@@ -4,7 +4,7 @@ package pd.sprites;
 import pd.Assets;
 import pd.actors.mobs.pets.Abi;
 import pd.effects.MagicMissile;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 /** Original Abbey animation sheet. */
 public class AbiSprite extends MobSprite {

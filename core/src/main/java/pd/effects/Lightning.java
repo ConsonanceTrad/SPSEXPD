@@ -22,13 +22,13 @@
 package pd.effects;
 
 import pd.tiles.DungeonTilemap;
-import watabou.glwrap.Blending;
-import watabou.noosa.Game;
-import watabou.noosa.Group;
-import watabou.noosa.Image;
-import watabou.utils.Callback;
-import watabou.utils.PointF;
-import watabou.utils.Random;
+import render.glwrap.Blending;
+import render.noosa.Game;
+import render.noosa.Group;
+import render.noosa.Image;
+import render.utils.Callback;
+import render.utils.PointF;
+import render.utils.Random;
 
 import java.util.Arrays;
 import java.util.List;

@@ -2,7 +2,7 @@
 package pd.sprites;
 
 import pd.Assets;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 public class PigPetSprite extends MobSprite {
 	public PigPetSprite() {

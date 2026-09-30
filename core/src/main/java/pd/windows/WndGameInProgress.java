@@ -37,7 +37,7 @@ import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import pd.utils.DungeonSeed;
-import watabou.noosa.Game;
+import render.noosa.Game;
 
 import java.util.Locale;
 

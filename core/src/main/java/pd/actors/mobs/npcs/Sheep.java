@@ -31,9 +31,9 @@ import pd.journal.Bestiary;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.SheepSprite;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.Random;
 
 public class Sheep extends NPC {
 

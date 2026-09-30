@@ -26,9 +26,9 @@ import pd.items.weapon.melee.normalweapon.Knuckles;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.utils.GLog;
-import watabou.noosa.Game;
-import watabou.noosa.audio.Sample;
-import watabou.utils.PathFinder;
+import render.noosa.Game;
+import render.noosa.audio.Sample;
+import render.utils.PathFinder;
 
 public class DisarmingTrap extends Trap {
 

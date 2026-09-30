@@ -27,9 +27,9 @@ import pd.actors.Char;
 import pd.effects.CellEmitter;
 import pd.effects.particles.LeafParticle;
 import pd.items.wands.WandOfRegrowth;
-import watabou.noosa.MovieClip;
-import watabou.noosa.TextureFilm;
-import watabou.noosa.particles.Emitter;
+import render.noosa.MovieClip;
+import render.noosa.TextureFilm;
+import render.noosa.particles.Emitter;
 
 import java.util.ArrayList;
 

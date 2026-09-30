@@ -23,12 +23,12 @@ package pd.tiles;
 
 import pd.Dungeon;
 import pd.levels.Terrain;
-import watabou.noosa.Image;
-import watabou.noosa.TextureFilm;
-import watabou.noosa.Tilemap;
-import watabou.noosa.tweeners.AlphaTweener;
-import watabou.utils.PathFinder;
-import watabou.utils.PointF;
+import render.noosa.Image;
+import render.noosa.TextureFilm;
+import render.noosa.Tilemap;
+import render.noosa.tweeners.AlphaTweener;
+import render.utils.PathFinder;
+import render.utils.PointF;
 
 public abstract class DungeonTilemap extends Tilemap {
 

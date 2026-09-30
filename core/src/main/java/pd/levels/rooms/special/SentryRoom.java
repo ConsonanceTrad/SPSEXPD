@@ -42,10 +42,10 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.SentrySprite;
 import pd.utils.GLog;
-import watabou.utils.Bundle;
-import watabou.utils.Point;
-import watabou.utils.Random;
-import watabou.utils.Rect;
+import render.utils.Bundle;
+import render.utils.Point;
+import render.utils.Random;
+import render.utils.Rect;
 
 public class SentryRoom extends SpecialRoom {
 

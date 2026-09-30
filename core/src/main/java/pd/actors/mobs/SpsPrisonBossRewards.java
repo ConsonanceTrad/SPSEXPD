@@ -12,7 +12,7 @@ import pd.items.journalpages.Sokoban2;
 import pd.items.keys.SpsSkeletonKey;
 import pd.items.keys.WornKey;
 import pd.scenes.GameScene;
-import watabou.utils.Random;
+import render.utils.Random;
 
 final class SpsPrisonBossRewards {
 	private SpsPrisonBossRewards() { }

@@ -24,7 +24,7 @@ package pd.sprites;
 import pd.Assets;
 import pd.actors.Char;
 import pd.actors.mobs.Mimic;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 public class MimicSprite extends MobSprite {
 

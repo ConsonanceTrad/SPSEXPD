@@ -2,7 +2,7 @@
 package pd.sprites;
 
 import pd.Assets;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 /** Original four-frame Spring Festival year-beast animation. */
 public class BeastYearSprite extends MobSprite {

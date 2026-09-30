@@ -36,8 +36,8 @@ import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Random;
 
 public class PotionOfMastery extends ExoticPotion {
 	

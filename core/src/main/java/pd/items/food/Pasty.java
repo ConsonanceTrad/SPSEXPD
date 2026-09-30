@@ -40,7 +40,7 @@ import pd.sprites.CharSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.TargetHealthIndicator;
 import pd.utils.Holiday;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class Pasty extends Food {
 

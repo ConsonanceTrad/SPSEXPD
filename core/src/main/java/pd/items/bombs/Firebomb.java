@@ -20,9 +20,9 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.FlameParticle;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
-import watabou.utils.BArray;
-import watabou.utils.PathFinder;
+import render.noosa.audio.Sample;
+import render.utils.BArray;
+import render.utils.PathFinder;
 
 public class Firebomb extends Bomb {
 	{ image = ItemSpriteSheet.FIRE_BOMB; }

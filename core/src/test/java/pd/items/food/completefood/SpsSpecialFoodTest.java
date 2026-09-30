@@ -47,9 +47,9 @@ import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
 import pd.tiles.CustomTilemap;
 import pd.windows.WndIronMaker;
-import watabou.noosa.Game;
-import watabou.utils.Random;
-import watabou.utils.SparseArray;
+import render.noosa.Game;
+import render.utils.Random;
+import render.utils.SparseArray;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

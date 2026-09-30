@@ -28,7 +28,7 @@ import pd.levels.Patch;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
 import pd.plants.Starflower;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class SecretGardenRoom extends SecretRoom {
 	

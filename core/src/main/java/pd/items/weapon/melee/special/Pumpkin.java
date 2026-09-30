@@ -10,7 +10,7 @@ import pd.effects.Speck;
 import pd.effects.particles.FlameParticle;
 import pd.items.weapon.melee.MeleeWeapon;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Random;
+import render.utils.Random;
 
 /** The original Halloween pumpkin lamp weapon. */
 public class Pumpkin extends MeleeWeapon {

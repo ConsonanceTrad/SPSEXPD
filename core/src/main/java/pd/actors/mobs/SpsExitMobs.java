@@ -74,11 +74,11 @@ import pd.sprites.SeniorSprite;
 import pd.sprites.ShieldedSprite;
 import pd.sprites.SpsExitSprites;
 import pd.sprites.SuccubusSprite;
-import watabou.noosa.audio.Sample;
-import watabou.utils.BArray;
-import watabou.utils.Bundle;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.BArray;
+import render.utils.Bundle;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

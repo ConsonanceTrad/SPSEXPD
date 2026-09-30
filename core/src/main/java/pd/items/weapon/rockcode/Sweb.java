@@ -11,8 +11,8 @@ import pd.actors.buffs.Roots;
 import pd.effects.MagicMissile;
 import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 public class Sweb extends RockCode {
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "S.w"; }

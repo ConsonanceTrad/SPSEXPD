@@ -9,7 +9,7 @@ import pd.items.weapon.Weapon;
 import pd.items.weapon.melee.MeleeWeapon;
 import pd.items.weapon.ranges.RangePan;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Random;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

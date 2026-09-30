@@ -22,17 +22,17 @@
 package pd.ui;
 
 import pd.SPDSettings;
-import watabou.input.ControllerHandler;
-import watabou.input.GameAction;
-import watabou.input.KeyBindings;
-import watabou.input.KeyEvent;
-import watabou.input.PointerEvent;
-import watabou.noosa.Camera;
-import watabou.noosa.Game;
-import watabou.noosa.Group;
-import watabou.noosa.PointerArea;
-import watabou.noosa.ui.Component;
-import watabou.utils.Signal;
+import render.input.ControllerHandler;
+import render.input.GameAction;
+import render.input.KeyBindings;
+import render.input.KeyEvent;
+import render.input.PointerEvent;
+import render.noosa.Camera;
+import render.noosa.Game;
+import render.noosa.Group;
+import render.noosa.PointerArea;
+import render.noosa.ui.Component;
+import render.utils.Signal;
 
 public class Button extends Component {
 

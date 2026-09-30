@@ -40,11 +40,11 @@ import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Callback;
-import watabou.utils.ColorMath;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Callback;
+import render.utils.ColorMath;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 public class WandOfCorrosion extends Wand {
 

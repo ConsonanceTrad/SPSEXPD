@@ -6,7 +6,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Paralysis;
 import pd.items.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class BunnySpanner extends NormalMeleeWeapon {
 	public BunnySpanner() {

@@ -49,13 +49,13 @@ import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
 import pd.windows.WndMonkAbilities;
-import watabou.noosa.BitmapText;
-import watabou.noosa.Image;
-import watabou.noosa.Visual;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.Callback;
-import watabou.utils.GameMath;
+import render.noosa.BitmapText;
+import render.noosa.Image;
+import render.noosa.Visual;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.Callback;
+import render.utils.GameMath;
 
 public class MonkEnergy extends Buff implements ActionIndicator.Action {
 

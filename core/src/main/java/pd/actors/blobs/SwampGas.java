@@ -11,7 +11,7 @@ import pd.actors.buffs.StandDown;
 import pd.effects.BlobEmitter;
 import pd.effects.Speck;
 import pd.messages.Messages;
-import watabou.utils.Random;
+import render.utils.Random;
 
 /** SPS-PD's stacking slow and vulnerability cloud. */
 public class SwampGas extends Blob {

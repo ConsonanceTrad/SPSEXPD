@@ -7,7 +7,7 @@ import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
 import pd.items.weapon.melee.MeleeWeapon;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Random;
+import render.utils.Random;
 
 /** Young Tengu's unusually fast sword. */
 public class TenguSword extends MeleeWeapon {

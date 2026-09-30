@@ -70,10 +70,10 @@ import pd.ui.RedButton;
 import pd.ui.Window;
 import pd.utils.GLog;
 import pd.windows.WndTitledMessage;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundlable;
-import watabou.utils.Bundle;
-import watabou.utils.Reflection;
+import render.noosa.audio.Sample;
+import render.utils.Bundlable;
+import render.utils.Bundle;
+import render.utils.Reflection;
 
 import java.util.ArrayList;
 

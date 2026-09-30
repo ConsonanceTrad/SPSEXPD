@@ -3,7 +3,7 @@ package pd.items.food.completefood;
 
 import pd.actors.hero.Hero;
 import pd.items.food.Food;
-import watabou.utils.Random;
+import render.utils.Random;
 
 import java.util.HashMap;
 import java.util.Map;

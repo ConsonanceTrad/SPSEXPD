@@ -27,7 +27,7 @@ import pd.actors.blobs.Blob;
 import pd.actors.blobs.ParalyticGas;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class PotionOfParalyticGas extends Potion {
 

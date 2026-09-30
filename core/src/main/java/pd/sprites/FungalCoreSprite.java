@@ -25,7 +25,7 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.scenes.GameScene;
 import pd.tiles.DungeonWallsTilemap;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 public class FungalCoreSprite extends MobSprite {
 

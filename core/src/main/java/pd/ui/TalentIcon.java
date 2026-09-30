@@ -23,8 +23,8 @@ package pd.ui;
 
 import pd.Assets;
 import pd.actors.hero.Talent;
-import watabou.noosa.Image;
-import watabou.noosa.TextureFilm;
+import render.noosa.Image;
+import render.noosa.TextureFilm;
 
 public class TalentIcon extends Image {
 

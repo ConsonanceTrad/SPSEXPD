@@ -39,8 +39,8 @@ import pd.sprites.VaultTokenDoorSprite;
 import pd.utils.GLog;
 import pd.windows.WndOptions;
 import pd.windows.WndTitledMessage;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Callback;
+import render.noosa.audio.Sample;
+import render.utils.Callback;
 
 public class VaultTokenDoor extends NPC {
 

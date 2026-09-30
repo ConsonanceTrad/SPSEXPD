@@ -32,7 +32,7 @@ import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class StoneOfAggression extends Runestone {
 	

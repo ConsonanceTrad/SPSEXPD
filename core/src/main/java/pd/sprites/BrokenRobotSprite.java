@@ -5,7 +5,7 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.effects.Beam;
 import pd.tiles.DungeonTilemap;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 public class BrokenRobotSprite extends MobSprite {
 	private int attackPos;

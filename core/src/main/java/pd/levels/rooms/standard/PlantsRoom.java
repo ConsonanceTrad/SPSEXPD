@@ -28,9 +28,9 @@ import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
 import pd.plants.Firebloom;
 import pd.plants.Plant;
-import watabou.utils.Point;
-import watabou.utils.Random;
-import watabou.utils.Rect;
+import render.utils.Point;
+import render.utils.Random;
+import render.utils.Rect;
 
 public class PlantsRoom extends StandardRoom {
 	

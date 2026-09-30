@@ -23,14 +23,14 @@ package pd.effects;
 
 import pd.Assets;
 import pd.scenes.PixelScene;
-import watabou.noosa.Game;
-import watabou.noosa.Image;
-import watabou.noosa.TextureFilm;
-import watabou.noosa.particles.Emitter;
-import watabou.utils.ColorMath;
-import watabou.utils.PointF;
-import watabou.utils.Random;
-import watabou.utils.SparseArray;
+import render.noosa.Game;
+import render.noosa.Image;
+import render.noosa.TextureFilm;
+import render.noosa.particles.Emitter;
+import render.utils.ColorMath;
+import render.utils.PointF;
+import render.utils.Random;
+import render.utils.SparseArray;
 
 public class Speck extends Image {
 

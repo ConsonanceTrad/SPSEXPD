@@ -41,10 +41,10 @@ import pd.items.wands.WandOfSwamp;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.SpsSewerSprites;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 /** Early-floor SPS-PD monsters, grouped to keep the legacy spawn table explicit. */
 public final class SpsSewerMobs {

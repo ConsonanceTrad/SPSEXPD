@@ -17,8 +17,8 @@ import pd.items.Item;
 import pd.messages.Messages;
 import pd.sprites.AlbinoPiranhaSprite;
 import pd.utils.GLog;
-import watabou.utils.BArray;
-import watabou.utils.Random;
+import render.utils.BArray;
+import render.utils.Random;
 
 public class AlbinoPiranha extends Mob {
 

@@ -32,10 +32,10 @@ import pd.effects.Speck;
 import pd.effects.SpellSprite;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.BArray;
+import render.utils.BArray;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
-import watabou.utils.PathFinder;
+import render.noosa.audio.Sample;
+import render.utils.PathFinder;
 
 import java.util.ArrayList;
 

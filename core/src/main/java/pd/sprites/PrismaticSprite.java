@@ -22,7 +22,7 @@
 package pd.sprites;
 
 import pd.actors.mobs.npcs.PrismaticImage;
-import watabou.noosa.Game;
+import render.noosa.Game;
 
 public class PrismaticSprite extends MirrorSprite {
 

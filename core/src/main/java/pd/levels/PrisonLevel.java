@@ -60,14 +60,14 @@ import pd.levels.traps.damagetrap.LightDamageTrap;
 import pd.levels.traps.damagetrap.ShockDamageTrap;
 import pd.messages.Messages;
 import pd.tiles.DungeonTilemap;
-import watabou.noosa.Game;
-import watabou.noosa.Group;
-import watabou.noosa.Halo;
-import watabou.noosa.audio.Music;
-import watabou.noosa.particles.Emitter;
-import watabou.utils.Callback;
-import watabou.utils.PointF;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.noosa.Group;
+import render.noosa.Halo;
+import render.noosa.audio.Music;
+import render.noosa.particles.Emitter;
+import render.utils.Callback;
+import render.utils.PointF;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

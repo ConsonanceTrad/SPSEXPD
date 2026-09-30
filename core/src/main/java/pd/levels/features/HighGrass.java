@@ -45,7 +45,7 @@ import pd.levels.MiningLevel;
 import pd.levels.Terrain;
 import pd.levels.VaultLevel;
 import pd.scenes.GameScene;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class HighGrass {
 	

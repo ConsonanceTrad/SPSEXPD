@@ -50,13 +50,13 @@ import pd.tiles.DungeonTileSheet;
 import pd.tiles.custom.Carpet;
 import pd.utils.GLog;
 import pd.windows.WndTitledMessage;
-import watabou.noosa.Image;
-import watabou.noosa.Tilemap;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.Callback;
-import watabou.utils.Point;
-import watabou.utils.Random;
+import render.noosa.Image;
+import render.noosa.Tilemap;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.Callback;
+import render.utils.Point;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

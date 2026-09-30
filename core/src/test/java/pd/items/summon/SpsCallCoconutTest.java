@@ -14,7 +14,7 @@ import pd.levels.traps.Trap;
 import pd.plants.Plant;
 import pd.sprites.CocoCatSprite;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.SparseArray;
+import render.utils.SparseArray;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

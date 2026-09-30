@@ -27,8 +27,8 @@ import pd.ShatteredPixelDungeon;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndSupportPrompt;
-import watabou.noosa.Game;
-import watabou.utils.Callback;
+import render.noosa.Game;
+import render.utils.Callback;
 
 import java.io.IOException;
 

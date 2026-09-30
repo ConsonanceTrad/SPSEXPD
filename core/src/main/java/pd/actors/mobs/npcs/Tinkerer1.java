@@ -11,7 +11,7 @@ import pd.scenes.GameScene;
 import pd.sprites.TinkererSprite;
 import pd.windows.WndQuest;
 import pd.windows.WndTinkerer;
-import watabou.noosa.Game;
+import render.noosa.Game;
 
 public class Tinkerer1 extends NPC {
 

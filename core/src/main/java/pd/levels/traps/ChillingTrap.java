@@ -30,8 +30,8 @@ import pd.actors.buffs.Buff;
 import pd.actors.mobs.Mob;
 import pd.effects.Splash;
 import pd.scenes.GameScene;
-import watabou.noosa.audio.Sample;
-import watabou.utils.PathFinder;
+import render.noosa.audio.Sample;
+import render.utils.PathFinder;
 
 public class ChillingTrap extends Trap{
 

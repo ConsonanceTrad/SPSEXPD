@@ -11,8 +11,8 @@ import pd.items.bombs.IceBomb;
 import pd.items.bombs.SpsFireBomb;
 import pd.items.bombs.StormBomb;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
+import render.noosa.Game;
+import render.utils.Bundle;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

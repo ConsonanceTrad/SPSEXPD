@@ -14,9 +14,9 @@ import pd.levels.Terrain;
 import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
 import pd.sprites.LynnSprite;
-import watabou.utils.Bundle;
-import watabou.utils.SparseArray;
-import watabou.noosa.Game;
+import render.utils.Bundle;
+import render.utils.SparseArray;
+import render.noosa.Game;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

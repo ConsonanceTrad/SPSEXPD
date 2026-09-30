@@ -28,7 +28,7 @@ import pd.actors.Char;
 import pd.actors.mobs.Mob;
 import pd.levels.features.LevelTransition;
 import pd.tiles.custom.SpsFeatureVisual;
-import watabou.utils.Random;
+import render.utils.Random;
 
 import java.util.Arrays;
 

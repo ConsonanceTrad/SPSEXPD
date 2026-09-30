@@ -47,11 +47,11 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.sprites.MissileSprite;
 import pd.ui.QuickSlotButton;
-import watabou.noosa.audio.Sample;
-import watabou.noosa.particles.Emitter;
-import watabou.utils.Callback;
-import watabou.utils.Random;
-import watabou.utils.Reflection;
+import render.noosa.audio.Sample;
+import render.noosa.particles.Emitter;
+import render.utils.Callback;
+import render.utils.Random;
+import render.utils.Reflection;
 
 import java.util.ArrayList;
 

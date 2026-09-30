@@ -32,9 +32,9 @@ import pd.actors.hero.Hero;
 import pd.items.Generator;
 import pd.items.medicine.Foamedbeverage;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.utils.Bundle;
+import render.utils.Random;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

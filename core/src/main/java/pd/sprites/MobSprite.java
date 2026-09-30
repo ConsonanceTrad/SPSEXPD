@@ -23,11 +23,11 @@ package pd.sprites;
 
 import pd.actors.mobs.Mob;
 import pd.tiles.DungeonTilemap;
-import watabou.noosa.Game;
-import watabou.noosa.tweeners.AlphaTweener;
-import watabou.noosa.tweeners.ScaleTweener;
-import watabou.utils.PointF;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.noosa.tweeners.AlphaTweener;
+import render.noosa.tweeners.ScaleTweener;
+import render.utils.PointF;
+import render.utils.Random;
 
 public class MobSprite extends CharSprite {
 

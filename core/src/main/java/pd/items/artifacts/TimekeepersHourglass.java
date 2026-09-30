@@ -45,11 +45,11 @@ import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndOptions;
-import watabou.noosa.Game;
-import watabou.noosa.audio.Sample;
-import watabou.noosa.particles.Emitter;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.noosa.audio.Sample;
+import render.noosa.particles.Emitter;
+import render.utils.Bundle;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

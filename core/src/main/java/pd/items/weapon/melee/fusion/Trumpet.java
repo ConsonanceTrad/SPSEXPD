@@ -5,7 +5,7 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.items.weapon.melee.WarHammer;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.PathFinder;
+import render.utils.PathFinder;
 
 public class Trumpet extends WarHammer implements FusionWeapon {
 	{ image = ItemSpriteSheet.WAR_HAMMER; tier = 4; ACC = 0.95f; }

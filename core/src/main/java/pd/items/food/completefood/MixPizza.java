@@ -9,7 +9,7 @@ import pd.actors.buffs.Light;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class MixPizza extends CompleteFood {
 

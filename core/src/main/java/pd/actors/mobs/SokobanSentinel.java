@@ -10,8 +10,8 @@ import pd.items.weapon.Weapon;
 import pd.items.weapon.melee.MeleeWeapon;
 import pd.messages.Messages;
 import pd.sprites.SentinelSprite;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.utils.Bundle;
+import render.utils.Random;
 
 public class SokobanSentinel extends Mob {
 	private Weapon weapon;

@@ -21,11 +21,11 @@
 
 package pd.effects;
 
-import watabou.glwrap.Blending;
-import watabou.noosa.Group;
-import watabou.noosa.particles.PixelParticle;
-import watabou.utils.PointF;
-import watabou.utils.Random;
+import render.glwrap.Blending;
+import render.noosa.Group;
+import render.noosa.particles.PixelParticle;
+import render.utils.PointF;
+import render.utils.Random;
 
 public class Identification extends Group {
 

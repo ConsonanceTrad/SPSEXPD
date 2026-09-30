@@ -32,13 +32,13 @@ import pd.levels.rooms.special.SpecialRoom;
 import pd.messages.Messages;
 import pd.tiles.CustomTilemap;
 import pd.tiles.custom.Carpet;
-import watabou.noosa.Game;
-import watabou.noosa.Image;
-import watabou.noosa.NoosaScript;
-import watabou.noosa.TextureFilm;
-import watabou.noosa.Tilemap;
-import watabou.utils.Point;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.noosa.Image;
+import render.noosa.NoosaScript;
+import render.noosa.TextureFilm;
+import render.noosa.Tilemap;
+import render.utils.Point;
+import render.utils.Random;
 
 public class AmbitiousImpRoom extends SpecialRoom {
 

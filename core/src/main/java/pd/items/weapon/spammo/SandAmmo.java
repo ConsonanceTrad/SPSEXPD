@@ -8,7 +8,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Dry;
 import pd.effects.Speck;
 import pd.sprites.ItemSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class SandAmmo extends SpAmmo {
 	private static final ItemSprite.Glowing GREY = new ItemSprite.Glowing(0xCCCCCC);

@@ -2,11 +2,11 @@
 package pd.effects.particles;
 
 import pd.Assets;
-import watabou.noosa.Game;
-import watabou.noosa.Image;
-import watabou.noosa.TextureFilm;
-import watabou.noosa.particles.Emitter;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.noosa.Image;
+import render.noosa.TextureFilm;
+import render.noosa.particles.Emitter;
+import render.utils.Random;
 
 public class ShockWebParticle extends Image {
 

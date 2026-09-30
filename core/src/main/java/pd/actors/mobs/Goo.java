@@ -43,10 +43,10 @@ import pd.sprites.CharSprite;
 import pd.sprites.GooSprite;
 import pd.ui.BossHealthBar;
 import pd.utils.GLog;
-import watabou.utils.Bundle;
-import watabou.utils.GameMath;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.Bundle;
+import render.utils.GameMath;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 public class Goo extends Mob {
 

@@ -25,8 +25,8 @@ import pd.Assets;
 import pd.actors.Char;
 import pd.actors.mobs.Pylon;
 import pd.effects.particles.BlastParticle;
-import watabou.noosa.TextureFilm;
-import watabou.noosa.audio.Sample;
+import render.noosa.TextureFilm;
+import render.noosa.audio.Sample;
 
 public class PylonSprite extends MobSprite {
 

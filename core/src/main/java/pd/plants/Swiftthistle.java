@@ -34,9 +34,9 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
-import watabou.noosa.Image;
-import watabou.noosa.particles.Emitter;
-import watabou.utils.Bundle;
+import render.noosa.Image;
+import render.noosa.particles.Emitter;
+import render.utils.Bundle;
 
 import java.util.ArrayList;
 

@@ -13,7 +13,7 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.items.Item;
 import pd.items.StoneOre;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;

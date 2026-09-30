@@ -6,7 +6,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.MagicArmor;
 import pd.items.armor.normalarmor.NormalArmor;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class WarriorArmor extends NormalArmor {
 	public WarriorArmor() { super(7, 1f, 1f, 2, 20, 40, 0, 3, 5, ItemSpriteSheet.SPS_ARMOR_WARRIOR); }

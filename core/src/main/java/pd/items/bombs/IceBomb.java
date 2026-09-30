@@ -12,8 +12,8 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.SmokeParticle;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 public class IceBomb extends Bomb {
 	{ image = ItemSpriteSheet.LEGACY_ICE_BOMB; }

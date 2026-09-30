@@ -33,7 +33,7 @@ import pd.actors.mobs.Bee;
 import pd.items.Honeypot;
 import pd.items.potions.PotionOfHealing;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class ElixirOfHoneyedHealing extends Elixir {
 	

@@ -35,7 +35,7 @@ import pd.items.artifacts.HolyTome;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.HeroIcon;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class DivineIntervention extends ClericSpell {
 

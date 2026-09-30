@@ -4,7 +4,7 @@ package pd.sprites;
 import pd.Assets;
 import pd.actors.mobs.AdultDragonViolet;
 import pd.effects.MagicMissile;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 /** Original ten-frame town guardian dragon sheet. */
 public class AdultDragonVioletSprite extends MobSprite {

@@ -27,11 +27,11 @@ import pd.levels.LastShopLevel;
 import pd.levels.Terrain;
 import pd.levels.traps.Trap;
 import pd.plants.Plant;
-import watabou.noosa.Image;
-import watabou.noosa.tweeners.ScaleTweener;
-import watabou.utils.PointF;
-import watabou.utils.RectF;
-import watabou.utils.SparseArray;
+import render.noosa.Image;
+import render.noosa.tweeners.ScaleTweener;
+import render.utils.PointF;
+import render.utils.RectF;
+import render.utils.SparseArray;
 
 public class TerrainFeaturesTilemap extends DungeonTilemap {
 	private static final int SPS_PLANT_OFFSET = 16 * 16;

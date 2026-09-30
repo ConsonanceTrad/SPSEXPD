@@ -28,7 +28,7 @@ import pd.actors.blobs.Regrowth;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import pd.sprites.FungalSpinnerSprite;
-import watabou.utils.PathFinder;
+import render.utils.PathFinder;
 
 public class FungalSpinner extends Spinner {
 

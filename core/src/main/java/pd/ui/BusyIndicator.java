@@ -22,7 +22,7 @@
 package pd.ui;
 
 import pd.Dungeon;
-import watabou.noosa.Image;
+import render.noosa.Image;
 
 public class BusyIndicator extends Image {
 	

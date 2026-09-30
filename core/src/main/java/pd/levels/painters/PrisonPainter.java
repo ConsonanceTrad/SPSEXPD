@@ -27,7 +27,7 @@ import pd.levels.rooms.Room;
 import pd.levels.rooms.special.SpecialRoom;
 import pd.levels.rooms.standard.ChasmBridgeRoom;
 import pd.levels.rooms.standard.FissureRoom;
-import watabou.utils.Random;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

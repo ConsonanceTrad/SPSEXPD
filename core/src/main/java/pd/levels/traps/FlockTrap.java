@@ -32,9 +32,9 @@ import pd.effects.Speck;
 import pd.items.Heap;
 import pd.journal.Bestiary;
 import pd.scenes.GameScene;
-import watabou.noosa.audio.Sample;
-import watabou.utils.BArray;
-import watabou.utils.PathFinder;
+import render.noosa.audio.Sample;
+import render.utils.BArray;
+import render.utils.PathFinder;
 
 import java.util.ArrayList;
 
@@ -62,7 +62,7 @@ public class FlockTrap extends Trap {
 					&& Actor.findChar(i) == null
 					&& !(Dungeon.level.pit[i])) {
 				Sheep sheep = new Sheep();
-				sheep.initialize(2 + watabou.utils.Random.Int(scalingDepth() + 10));
+				sheep.initialize(2 + render.utils.Random.Int(scalingDepth() + 10));
 				sheep.pos = i;
 				GameScene.add(sheep);
 				if (Dungeon.level.heroFOV[i]) {

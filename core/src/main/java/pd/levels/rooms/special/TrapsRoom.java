@@ -41,9 +41,9 @@ import pd.levels.traps.PoisonDartTrap;
 import pd.levels.traps.TeleportationTrap;
 import pd.levels.traps.Trap;
 import pd.levels.traps.WarpingTrap;
-import watabou.utils.Point;
-import watabou.utils.Random;
-import watabou.utils.Reflection;
+import render.utils.Point;
+import render.utils.Random;
+import render.utils.Reflection;
 
 public class TrapsRoom extends SpecialRoom {
 

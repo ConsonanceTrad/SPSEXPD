@@ -21,11 +21,11 @@
 
 package pd.effects.particles;
 
-import watabou.noosa.particles.Emitter;
-import watabou.noosa.particles.Emitter.Factory;
-import watabou.noosa.particles.PixelParticle;
-import watabou.utils.PointF;
-import watabou.utils.Random;
+import render.noosa.particles.Emitter;
+import render.noosa.particles.Emitter.Factory;
+import render.noosa.particles.PixelParticle;
+import render.utils.PointF;
+import render.utils.Random;
 
 public class BloodParticle extends PixelParticle.Shrinking {
 	

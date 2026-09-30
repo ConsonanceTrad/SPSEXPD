@@ -10,8 +10,8 @@ import pd.actors.buffs.LightShootAttack;
 import pd.effects.CellEmitter;
 import pd.effects.particles.SmokeParticle;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 public class LightBomb extends Bomb {
 

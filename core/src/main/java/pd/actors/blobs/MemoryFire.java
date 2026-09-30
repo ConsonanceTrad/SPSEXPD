@@ -11,9 +11,9 @@ import pd.effects.particles.MemoryParticle;
 import pd.journal.Notes;
 import pd.messages.Messages;
 import pd.scenes.MemorySaveScene;
-import watabou.noosa.Game;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
+import render.noosa.Game;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
 
 import java.io.IOException;
 

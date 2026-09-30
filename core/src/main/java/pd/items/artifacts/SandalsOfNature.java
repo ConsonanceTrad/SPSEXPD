@@ -51,12 +51,12 @@ import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTilemap;
 import pd.utils.GLog;
 import pd.windows.WndBag;
-import watabou.noosa.Camera;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.PointF;
-import watabou.utils.Random;
-import watabou.utils.Reflection;
+import render.noosa.Camera;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.PointF;
+import render.utils.Random;
+import render.utils.Reflection;
 
 import java.util.ArrayList;
 import java.util.Collections;

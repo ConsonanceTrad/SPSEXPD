@@ -43,9 +43,9 @@ import pd.levels.rooms.Room;
 import pd.levels.rooms.standard.EmptyRoom;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import watabou.utils.PathFinder;
-import watabou.utils.Point;
-import watabou.utils.Random;
+import render.utils.PathFinder;
+import render.utils.Point;
+import render.utils.Random;
 
 public class MagicalFireRoom extends SpecialRoom {
 

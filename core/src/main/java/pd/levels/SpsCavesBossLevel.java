@@ -17,12 +17,12 @@ import pd.levels.traps.ToxicTrap;
 import pd.levels.traps.Trap;
 import pd.scenes.GameScene;
 import pd.tiles.custom.SpsLegacyLevelVisual;
-import watabou.noosa.Camera;
-import watabou.noosa.Group;
-import watabou.noosa.audio.Music;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.noosa.Camera;
+import render.noosa.Group;
+import render.noosa.audio.Music;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

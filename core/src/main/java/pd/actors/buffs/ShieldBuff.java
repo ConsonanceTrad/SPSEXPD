@@ -24,7 +24,7 @@ package pd.actors.buffs;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.actors.hero.Talent;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -40,9 +40,9 @@ import pd.scenes.GameScene;
 import pd.ui.HeroIcon;
 import pd.ui.QuickSlotButton;
 import pd.utils.GLog;
-import watabou.utils.Bundlable;
-import watabou.utils.Callback;
-import watabou.utils.Random;
+import render.utils.Bundlable;
+import render.utils.Callback;
+import render.utils.Random;
 
 public class MindForm extends ClericSpell {
 

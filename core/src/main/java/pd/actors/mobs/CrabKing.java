@@ -17,9 +17,9 @@ import pd.scenes.GameScene;
 import pd.sprites.CrabKingSprite;
 import pd.ui.BossHealthBar;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.Random;
 import java.util.ArrayList;
 public class CrabKing extends Mob {
 	private static final int JUMP_DELAY = 5;

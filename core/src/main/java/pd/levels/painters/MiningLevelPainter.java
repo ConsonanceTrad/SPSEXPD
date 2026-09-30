@@ -28,10 +28,10 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.rooms.Room;
 import pd.levels.rooms.quest.MineSecretRoom;
-import watabou.utils.Graph;
-import watabou.utils.PathFinder;
-import watabou.utils.Point;
-import watabou.utils.Random;
+import render.utils.Graph;
+import render.utils.PathFinder;
+import render.utils.Point;
+import render.utils.Random;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -14,9 +14,9 @@ import pd.items.scrolls.ScrollOfTeleportation;
 import pd.messages.Messages;
 import pd.scenes.InterlevelScene;
 import pd.utils.GLog;
-import watabou.noosa.Game;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.noosa.audio.Sample;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

@@ -27,7 +27,7 @@ import pd.items.Item;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import watabou.utils.Point;
+import render.utils.Point;
 
 public class VaultLongRingsRoom extends VaultLongRoom {
 

@@ -34,7 +34,7 @@ import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 public class Earthroot extends Plant {
 	

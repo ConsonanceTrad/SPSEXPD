@@ -51,9 +51,9 @@ import pd.plants.Plant;
 import pd.plants.Fadeleaf;
 import pd.plants.Sungrass;
 import pd.scenes.InterlevelScene;
-import watabou.noosa.Game;
-import watabou.utils.Random;
-import watabou.utils.SparseArray;
+import render.noosa.Game;
+import render.utils.Random;
+import render.utils.SparseArray;
 
 import java.util.ArrayList;
 import java.util.Arrays;

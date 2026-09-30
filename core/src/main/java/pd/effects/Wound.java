@@ -24,10 +24,10 @@ package pd.effects;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.tiles.DungeonTilemap;
-import watabou.noosa.Game;
-import watabou.noosa.Group;
-import watabou.noosa.Image;
-import watabou.noosa.Visual;
+import render.noosa.Game;
+import render.noosa.Group;
+import render.noosa.Image;
+import render.noosa.Visual;
 
 public class Wound extends Image {
 

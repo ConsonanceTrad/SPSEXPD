@@ -10,7 +10,7 @@ import pd.items.food.completefood.MoonCake;
 import pd.items.food.completefood.PetFood;
 import pd.items.food.meatfood.MeatFood;
 import pd.sprites.DogPetSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class DogPet extends PET {
 	{

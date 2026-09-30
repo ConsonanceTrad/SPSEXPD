@@ -1,7 +1,7 @@
 package pd.sprites;
 
 import pd.Assets;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 /** The second row of the original SPS troll smith sprite sheet. */
 public class ElectricwelderSprite extends MobSprite {

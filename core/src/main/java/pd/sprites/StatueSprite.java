@@ -22,8 +22,8 @@
 package pd.sprites;
 
 import pd.Assets;
-import watabou.noosa.TextureFilm;
-import watabou.utils.GameMath;
+import render.noosa.TextureFilm;
+import render.utils.GameMath;
 
 public class StatueSprite extends MobSprite {
 	

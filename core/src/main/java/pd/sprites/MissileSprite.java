@@ -39,11 +39,11 @@ import pd.items.weapon.missiles.ThrowingSpike;
 import pd.items.weapon.missiles.Trident;
 import pd.items.weapon.missiles.darts.Dart;
 import pd.tiles.DungeonTilemap;
-import watabou.noosa.Visual;
-import watabou.noosa.tweeners.PosTweener;
-import watabou.noosa.tweeners.Tweener;
-import watabou.utils.Callback;
-import watabou.utils.PointF;
+import render.noosa.Visual;
+import render.noosa.tweeners.PosTweener;
+import render.noosa.tweeners.Tweener;
+import render.utils.Callback;
+import render.utils.PointF;
 
 import java.util.HashMap;
 

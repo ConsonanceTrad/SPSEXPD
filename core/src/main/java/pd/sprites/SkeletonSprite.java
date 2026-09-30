@@ -24,7 +24,7 @@ package pd.sprites;
 import pd.Assets;
 import pd.Dungeon;
 import pd.effects.Speck;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 public class SkeletonSprite extends MobSprite {
 	

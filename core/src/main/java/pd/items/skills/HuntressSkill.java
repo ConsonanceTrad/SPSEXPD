@@ -12,8 +12,8 @@ import pd.items.reward.BoundReward;
 import pd.items.summon.FairyCard;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

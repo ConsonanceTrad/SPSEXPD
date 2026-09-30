@@ -34,7 +34,7 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 public class Hunger extends Buff implements Hero.Doom {
 

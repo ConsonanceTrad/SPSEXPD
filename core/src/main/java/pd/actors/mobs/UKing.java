@@ -13,8 +13,8 @@ import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import pd.sprites.PlantKingSprite;
 import pd.items.misc.FourClover;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 /** Plant king, with the old terrain-growing rage phase and its indexing bug fixed. */
 public class UKing extends BossRushBoss {

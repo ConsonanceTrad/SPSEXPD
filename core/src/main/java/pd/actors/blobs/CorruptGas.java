@@ -13,7 +13,7 @@ import pd.effects.BlobEmitter;
 import pd.effects.particles.ShadowParticle;
 import pd.messages.Messages;
 import pd.utils.GLog;
-import watabou.utils.Random;
+import render.utils.Random;
 
 /** SPS corruption cloud: percentage damage, bleeding, and crippling. */
 public class CorruptGas extends Blob implements Hero.Doom {

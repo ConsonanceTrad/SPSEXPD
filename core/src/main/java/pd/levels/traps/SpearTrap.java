@@ -8,8 +8,8 @@ import pd.actors.Char;
 import pd.effects.Wound;
 import pd.messages.Messages;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Random;
 
 public class SpearTrap extends Trap {
 	{

@@ -22,10 +22,10 @@
 package pd.effects;
 
 import pd.sprites.CharSprite;
-import watabou.glwrap.Blending;
-import watabou.noosa.Game;
-import watabou.noosa.Halo;
-import watabou.utils.PointF;
+import render.glwrap.Blending;
+import render.noosa.Game;
+import render.noosa.Halo;
+import render.utils.PointF;
 
 public class ShieldHalo extends Halo {
 	

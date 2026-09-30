@@ -43,11 +43,11 @@ import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import pd.ui.QuickSlotButton;
 import pd.utils.GLog;
-import watabou.noosa.Image;
-import watabou.noosa.audio.Sample;
-import watabou.noosa.particles.Emitter;
-import watabou.utils.Callback;
-import watabou.utils.Random;
+import render.noosa.Image;
+import render.noosa.audio.Sample;
+import render.noosa.particles.Emitter;
+import render.utils.Callback;
+import render.utils.Random;
 
 public class HolyLance extends TargetedClericSpell {
 

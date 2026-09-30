@@ -23,7 +23,7 @@ import pd.plants.Plant;
 import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class NmImbue extends Buff implements Hero.Doom {
 

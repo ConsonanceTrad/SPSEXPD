@@ -26,7 +26,7 @@ import pd.items.Item;
 import pd.items.Recipe;
 import pd.journal.Catalog;
 import pd.sprites.ItemSpriteSheet;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 import java.util.ArrayList;
 

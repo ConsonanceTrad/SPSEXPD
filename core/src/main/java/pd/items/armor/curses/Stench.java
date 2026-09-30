@@ -27,7 +27,7 @@ import pd.actors.blobs.ToxicGas;
 import pd.items.armor.Armor;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class Stench extends Armor.Glyph {
 

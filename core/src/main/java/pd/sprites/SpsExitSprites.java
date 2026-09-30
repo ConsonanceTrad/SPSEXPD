@@ -2,7 +2,7 @@
 package pd.sprites;
 
 import pd.Assets;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 /** Alternate source frames used only by SPS exit-room guards. */
 public final class SpsExitSprites {

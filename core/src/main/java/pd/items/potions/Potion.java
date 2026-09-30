@@ -75,10 +75,10 @@ import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
 import pd.windows.WndUseItem;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
-import watabou.utils.Reflection;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.Random;
+import render.utils.Reflection;
 
 import java.util.ArrayList;
 import java.util.HashMap;

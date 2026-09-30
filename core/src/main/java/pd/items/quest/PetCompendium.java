@@ -23,8 +23,8 @@ import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
-import watabou.utils.Bundle;
-import watabou.utils.PathFinder;
+import render.utils.Bundle;
+import render.utils.PathFinder;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -41,7 +41,7 @@ import pd.windows.WndOptions;
 import pd.windows.WndTextInput;
 import pd.windows.WndTitledMessage;
 import pd.windows.WndUseItem;
-import watabou.utils.Reflection;
+import render.utils.Reflection;
 
 import java.util.ArrayList;
 import java.util.Collections;

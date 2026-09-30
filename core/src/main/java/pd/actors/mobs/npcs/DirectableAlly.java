@@ -25,7 +25,7 @@ import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.mobs.Mob;
-import watabou.utils.Bundle;
+import render.utils.Bundle;
 
 public class DirectableAlly extends NPC {
 

@@ -19,8 +19,8 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.windows.WndPetInfo;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.utils.Bundle;
+import render.utils.Random;
 
 /** Common runtime for the original SPS egg pets. */
 public abstract class LegacyPet extends DirectableAlly {

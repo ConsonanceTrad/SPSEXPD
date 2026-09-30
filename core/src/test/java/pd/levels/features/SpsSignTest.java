@@ -3,7 +3,7 @@ package pd.levels.features;
 import pd.levels.ChaosLevel;
 import pd.levels.DeadEndLevel;
 import pd.levels.NewRoomLevel;
-import watabou.noosa.Game;
+import render.noosa.Game;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.CodingErrorAction;

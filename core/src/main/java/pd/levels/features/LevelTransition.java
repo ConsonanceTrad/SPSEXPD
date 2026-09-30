@@ -23,11 +23,11 @@ package pd.levels.features;
 
 import pd.Dungeon;
 import pd.levels.Level;
-import watabou.utils.Bundlable;
-import watabou.utils.Bundle;
-import watabou.utils.Point;
-import watabou.utils.Random;
-import watabou.utils.Rect;
+import render.utils.Bundlable;
+import render.utils.Bundle;
+import render.utils.Point;
+import render.utils.Random;
+import render.utils.Rect;
 
 public class LevelTransition extends Rect implements Bundlable {
 

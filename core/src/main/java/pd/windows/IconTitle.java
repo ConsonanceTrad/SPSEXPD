@@ -29,8 +29,8 @@ import pd.sprites.ItemSprite;
 import pd.ui.HealthBar;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
-import watabou.noosa.Image;
-import watabou.noosa.ui.Component;
+import render.noosa.Image;
+import render.noosa.ui.Component;
 
 public class IconTitle extends Component {
 

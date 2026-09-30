@@ -2,8 +2,8 @@
 package pd.sprites;
 
 import pd.Assets;
-import watabou.noosa.TextureFilm;
-import watabou.utils.Random;
+import render.noosa.TextureFilm;
+import render.utils.Random;
 
 /** The armed sheep frames stored on the second row of SPS-PD's sheep sheet. */
 public class BaBaSprite extends MobSprite {

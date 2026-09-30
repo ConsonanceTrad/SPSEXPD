@@ -38,9 +38,9 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.ui.HeroIcon;
-import watabou.utils.Callback;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.utils.Callback;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 public class HeroicLeap extends ArmorAbility {
 

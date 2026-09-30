@@ -24,7 +24,7 @@ package pd.tiles;
 import pd.Assets;
 import pd.Dungeon;
 import pd.levels.Terrain;
-import watabou.utils.PathFinder;
+import render.utils.PathFinder;
 
 /**
  * SPS: 水缝合边的独立渲染层。

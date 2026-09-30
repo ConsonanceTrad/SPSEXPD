@@ -8,7 +8,7 @@ import pd.actors.buffs.GasesImmunity;
 import pd.items.armor.Armor;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 
 public class Testglyph extends SpsGlyph {
 	private static final ItemSprite.Glowing COLOR = new ItemSprite.Glowing(0x22CC44);

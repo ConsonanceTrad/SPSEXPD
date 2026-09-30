@@ -10,7 +10,7 @@ import pd.journal.Catalog;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public abstract class ColoredDewdrop extends Dewdrop {
 

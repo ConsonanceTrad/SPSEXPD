@@ -83,12 +83,12 @@ import pd.windows.WndBag;
 import pd.windows.WndInfoItem;
 import pd.windows.WndQuest;
 import pd.windows.WndUseItem;
-import watabou.noosa.Game;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Bundle;
-import watabou.utils.Callback;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.noosa.audio.Sample;
+import render.utils.Bundle;
+import render.utils.Callback;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 import java.util.ArrayList;
 

@@ -47,10 +47,10 @@ import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
-import watabou.utils.BArray;
-import watabou.utils.Bundle;
-import watabou.utils.PathFinder;
+import render.noosa.audio.Sample;
+import render.utils.BArray;
+import render.utils.Bundle;
+import render.utils.PathFinder;
 
 public class Challenge extends ArmorAbility {
 

@@ -38,7 +38,7 @@ import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class Dewdrop extends Item {
 	

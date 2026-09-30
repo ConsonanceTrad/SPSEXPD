@@ -15,8 +15,8 @@ import pd.items.weapon.melee.Spork;
 import pd.items.weapon.melee.normalweapon.ShortSword;
 import pd.items.weapon.missiles.throwing.Boomerang;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.Game;
-import watabou.utils.Bundle;
+import render.noosa.Game;
+import render.utils.Bundle;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

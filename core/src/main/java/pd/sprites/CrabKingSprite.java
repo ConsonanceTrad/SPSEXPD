@@ -1,7 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.sprites;
 import pd.Assets;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 public class CrabKingSprite extends MobSprite {
 	public CrabKingSprite() {
 		texture(Assets.Sprites.SPS_CRAB_KING); TextureFilm f = new TextureFilm(texture, 16, 16);

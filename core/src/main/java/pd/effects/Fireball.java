@@ -22,8 +22,8 @@
 package pd.effects;
 
 import pd.scenes.PixelScene;
-import watabou.noosa.MovieClip;
-import watabou.noosa.TextureFilm;
+import render.noosa.MovieClip;
+import render.noosa.TextureFilm;
 
 public class Fireball extends MovieClip {
 

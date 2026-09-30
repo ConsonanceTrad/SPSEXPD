@@ -3,7 +3,7 @@ import pd.Dungeon;
 import pd.actors.buffs.Bless;
 import pd.actors.buffs.Buff;
 import pd.effects.particles.ShaftParticle;
-import watabou.noosa.particles.Emitter;
+import render.noosa.particles.Emitter;
 public class WeatherOfQuite extends SpsWeather {
 	@Override protected void affectHero(){ Buff.prolong(Dungeon.hero, Bless.class, 5f); }
 	@Override protected Emitter.Factory particle(){ return ShaftParticle.FACTORY; }

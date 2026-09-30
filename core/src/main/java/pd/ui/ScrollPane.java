@@ -23,20 +23,20 @@ package pd.ui;
 
 import pd.SPDAction;
 import pd.scenes.PixelScene;
-import watabou.input.GameAction;
-import watabou.input.KeyBindings;
-import watabou.input.KeyEvent;
-import watabou.input.PointerEvent;
-import watabou.input.ScrollEvent;
-import watabou.noosa.Camera;
-import watabou.noosa.ColorBlock;
-import watabou.noosa.Game;
-import watabou.noosa.ScrollArea;
-import watabou.noosa.ui.Component;
-import watabou.utils.GameMath;
-import watabou.utils.Point;
-import watabou.utils.PointF;
-import watabou.utils.Signal;
+import render.input.GameAction;
+import render.input.KeyBindings;
+import render.input.KeyEvent;
+import render.input.PointerEvent;
+import render.input.ScrollEvent;
+import render.noosa.Camera;
+import render.noosa.ColorBlock;
+import render.noosa.Game;
+import render.noosa.ScrollArea;
+import render.noosa.ui.Component;
+import render.utils.GameMath;
+import render.utils.Point;
+import render.utils.PointF;
+import render.utils.Signal;
 
 public class ScrollPane extends Component {
 

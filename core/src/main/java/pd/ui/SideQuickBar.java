@@ -25,8 +25,8 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.QuickSlot;
 import pd.SPDSettings;
-import watabou.noosa.Image;
-import watabou.noosa.ui.Component;
+import render.noosa.Image;
+import render.noosa.ui.Component;
 
 //SPS: 两侧快捷栏（参照 SPS-PD 0.9.8 两侧快捷栏机制，用户裁决 2026-09）：
 //左栏槽 10-13、右栏槽 14-17，贴屏幕左右边缘、自上而下、距顶避让状态栏；

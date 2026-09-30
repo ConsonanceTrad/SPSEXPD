@@ -16,9 +16,9 @@ import pd.items.rings.Ring;
 import pd.items.weapon.Weapon;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.Visual;
-import watabou.utils.Bundle;
-import watabou.utils.Random;
+import render.noosa.Visual;
+import render.utils.Bundle;
+import render.utils.Random;
 
 import java.util.ArrayList;
 import java.util.HashSet;

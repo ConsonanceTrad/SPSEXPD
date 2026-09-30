@@ -26,8 +26,8 @@ import pd.levels.Terrain;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.standard.PillarsRoom;
-import watabou.utils.PathFinder;
-import watabou.utils.Point;
+import render.utils.PathFinder;
+import render.utils.Point;
 
 public class PillarsExitRoom extends PillarsRoom {
 

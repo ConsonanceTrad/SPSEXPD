@@ -24,8 +24,8 @@ package pd.sprites;
 import pd.Assets;
 import pd.actors.Char;
 import pd.actors.mobs.CrystalGuardian;
-import watabou.noosa.MovieClip;
-import watabou.noosa.TextureFilm;
+import render.noosa.MovieClip;
+import render.noosa.TextureFilm;
 
 public abstract class CrystalGuardianSprite extends MobSprite {
 

@@ -23,8 +23,8 @@ package pd.levels.rooms.standard;
 
 import pd.levels.Level;
 import pd.levels.Patch;
-import watabou.utils.BArray;
-import watabou.utils.PathFinder;
+import render.utils.BArray;
+import render.utils.PathFinder;
 
 //This room type uses the patch system to fill itself in in some manner
 //it's still up to the specific room to implement paint, but utility methods are provided

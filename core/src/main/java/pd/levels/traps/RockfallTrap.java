@@ -24,10 +24,10 @@ import pd.effects.Speck;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.utils.GLog;
-import watabou.noosa.Game;
-import watabou.noosa.audio.Sample;
-import watabou.utils.PathFinder;
-import watabou.utils.Random;
+import render.noosa.Game;
+import render.noosa.audio.Sample;
+import render.utils.PathFinder;
+import render.utils.Random;
 
 public class RockfallTrap extends Trap {
 

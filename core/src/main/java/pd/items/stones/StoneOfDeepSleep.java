@@ -29,7 +29,7 @@ import pd.actors.buffs.MagicalSleep;
 import pd.actors.mobs.Mob;
 import pd.effects.Speck;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class StoneOfDeepSleep extends Runestone {
 	

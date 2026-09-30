@@ -23,10 +23,10 @@ package pd.ui;
 
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
-import watabou.noosa.ColorBlock;
-import watabou.noosa.Image;
-import watabou.noosa.Visual;
-import watabou.noosa.ui.Component;
+import render.noosa.ColorBlock;
+import render.noosa.Image;
+import render.noosa.Visual;
+import render.noosa.ui.Component;
 
 import java.util.ArrayList;
 

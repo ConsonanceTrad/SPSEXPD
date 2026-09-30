@@ -26,7 +26,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.PhysicalEmpower;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
+import render.noosa.audio.Sample;
 
 public class BrokenHilt extends RemainsItem {
 

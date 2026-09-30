@@ -23,8 +23,8 @@ package pd.effects;
 
 import pd.Dungeon;
 import pd.tiles.DungeonTilemap;
-import watabou.noosa.Game;
-import watabou.noosa.Image;
+import render.noosa.Game;
+import render.noosa.Image;
 
 public class Ripple extends Image {
 

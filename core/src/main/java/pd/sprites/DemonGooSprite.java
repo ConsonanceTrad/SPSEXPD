@@ -1,7 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.sprites;
 
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 /** Original SPS-PD sprite identity, including the legacy unused pump animations. */
 public class DemonGooSprite extends SpsHallsSprites.DemonGoo {

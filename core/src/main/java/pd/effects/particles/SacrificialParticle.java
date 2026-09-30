@@ -21,9 +21,9 @@
 
 package pd.effects.particles;
 
-import watabou.noosa.particles.Emitter;
-import watabou.noosa.particles.Emitter.Factory;
-import watabou.noosa.particles.PixelParticle;
+import render.noosa.particles.Emitter;
+import render.noosa.particles.Emitter.Factory;
+import render.noosa.particles.PixelParticle;
 
 public class SacrificialParticle extends PixelParticle.Shrinking {
 

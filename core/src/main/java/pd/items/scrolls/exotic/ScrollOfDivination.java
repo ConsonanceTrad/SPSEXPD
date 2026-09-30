@@ -36,9 +36,9 @@ import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import pd.utils.GLog;
 import pd.windows.IconTitle;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Random;
-import watabou.utils.Reflection;
+import render.noosa.audio.Sample;
+import render.utils.Random;
+import render.utils.Reflection;
 
 import java.util.ArrayList;
 import java.util.HashSet;

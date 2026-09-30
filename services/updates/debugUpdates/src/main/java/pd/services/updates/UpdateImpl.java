@@ -22,7 +22,7 @@
 package pd.services.updates;
 import pd.services.updates.UpdateService;
 
-import watabou.noosa.Game;
+import render.noosa.Game;
 
 public class UpdateImpl {
 

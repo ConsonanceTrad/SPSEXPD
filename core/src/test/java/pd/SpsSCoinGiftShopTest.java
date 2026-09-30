@@ -21,7 +21,7 @@ import pd.items.weapon.missiles.buildblock.PlantPotBlock;
 import pd.items.weapon.missiles.fusion.RocketMissile;
 import pd.plants.Plant;
 import pd.ui.CurrencyIndicator;
-import watabou.utils.FileUtils;
+import render.utils.FileUtils;
 
 import java.io.InputStreamReader;
 import java.lang.reflect.Field;
@@ -40,7 +40,7 @@ public final class SpsSCoinGiftShopTest {
 	private SpsSCoinGiftShopTest() { }
 
 	public static void main(String[] args) throws Exception {
-		watabou.noosa.Game.version = "test";
+		render.noosa.Game.version = "test";
 		GdxNativesLoader.load();
 		HeadlessApplication app = new HeadlessApplication(new ApplicationAdapter() {
 			@Override public void create() { }

@@ -16,7 +16,7 @@ import pd.messages.Messages;
 import pd.sprites.MagicEyeSprite;
 import pd.sprites.CharSprite;
 import pd.utils.GLog;
-import watabou.utils.Random;
+import render.utils.Random;
 
 /** Zot's original eye minion. Its beam behavior comes from the modern evil eye. */
 public class MagicEye extends Eye {

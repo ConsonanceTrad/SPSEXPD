@@ -8,7 +8,7 @@ import pd.items.food.completefood.PetFood;
 import pd.items.food.meatfood.MeatFood;
 import pd.items.potions.PotionOfToxicGas;
 import pd.sprites.NewSnakeSprite;
-import watabou.utils.Random;
+import render.utils.Random;
 public class Snake extends PET {
 	{ spriteClass=NewSnakeSprite.class;cooldown=50;properties.add(Property.BEAST);updateStats(true); }
 	@Override protected Kind kind(){return Kind.SNAKE;}

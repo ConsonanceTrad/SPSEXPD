@@ -18,9 +18,9 @@ import pd.items.Item;
 import pd.mechanics.Ballistica;
 import pd.items.weapon.melee.MagesStaff;
 import pd.sprites.ItemSpriteSheet;
-import watabou.noosa.audio.Sample;
-import watabou.utils.Callback;
-import watabou.utils.Random;
+import render.noosa.audio.Sample;
+import render.utils.Callback;
+import render.utils.Random;
 
 public class CannonOfMage extends DamageWand {
 	{

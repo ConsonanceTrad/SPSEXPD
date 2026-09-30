@@ -3,7 +3,7 @@ package pd.sprites;
 import pd.Assets;
 import pd.actors.Char;
 import pd.effects.particles.ElmoParticle;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 public class TinkererSprite extends MobSprite {
 

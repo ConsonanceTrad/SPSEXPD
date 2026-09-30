@@ -17,8 +17,8 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.Trap;
 import pd.plants.Plant;
-import watabou.noosa.Game;
-import watabou.utils.SparseArray;
+import render.noosa.Game;
+import render.utils.SparseArray;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;

@@ -3,7 +3,7 @@ package pd.sprites;
 import pd.Assets;
 import pd.Dungeon;
 import pd.items.weapon.missiles.darts.PoisonDart;
-import watabou.noosa.TextureFilm;
+import render.noosa.TextureFilm;
 
 public class ElderAvatarSprite extends MobSprite {
 	private final Animation cast;

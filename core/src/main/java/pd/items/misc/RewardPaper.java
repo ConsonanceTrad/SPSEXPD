@@ -11,7 +11,7 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
 import pd.windows.WndUseItem;
-import watabou.utils.Random;
+import render.utils.Random;
 
 import java.util.ArrayList;
 
