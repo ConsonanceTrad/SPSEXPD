@@ -59,9 +59,6 @@ public enum SpsMobCatalog {
 	EX("GnollArcher MossySkeleton AlbinoPiranha GoldThief BlueWraith Orc GoldOrc Fiend Wraith Greatmoss Piranha Mimic TestMob"),
 	ETC("BlueDragon BugDragon Bunny ButterflyPet Chocobo CocoCat Datura DogPet Fly GentleCrab GoldDragon GreenDragon Haro Kodora LeryFire LightDragon Monkey PigPet RedDragon RibbonRat Scorpion ShadowDragon Snake Spider Stone Velocirooster VioletDragon YearPet FoxHelper DwarfBoy FrogPet StarKid LitDemon Abi");
 
-	// 目录即语义：以 Mob 所在包为锚点，只写相对子包，不出现任何根包名
-	private static final String MOBS_PACKAGE = Mob.class.getPackage().getName() + ".";
-	private static final String[] MOB_SUBPACKAGES = { "pets.", "" };
 	private final LinkedHashSet<Class<? extends Mob>> mobs = new LinkedHashSet<>();
 
 	SpsMobCatalog(String classNames) {
@@ -128,9 +125,12 @@ public enum SpsMobCatalog {
 			case "FireSuccubus": return FireSuccubus.class;
 			case "Yog": return YogDzewa.class;
 			default:
-				for (String subPackage : MOB_SUBPACKAGES) {
+				// 目录即语义：以 Mob 所在包为锚点，只写相对子包，不出现任何根包名。
+				// 必须在方法内内联计算——枚举常量的构造早于静态字段初始化。
+				String mobsPackage = Mob.class.getPackage().getName() + ".";
+				for (String subPackage : new String[]{"pets.", ""}) {
 					try {
-						Class<?> type = Class.forName(MOBS_PACKAGE + subPackage + name);
+						Class<?> type = Class.forName(mobsPackage + subPackage + name);
 						if (Mob.class.isAssignableFrom(type)) return (Class<? extends Mob>)type;
 					} catch (ClassNotFoundException ignored) {
 						// Continue through the finite legacy mob package list.
