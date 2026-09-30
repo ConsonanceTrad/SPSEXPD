@@ -704,9 +704,14 @@ tasks.register('verifySpsMechanics') {
 		}
 		def level = readSource('levels/Level.java')
 		['bundle.put( CURRENT_MOVES, currentMoves )', 'bundle.put( CLEARED, cleared )',
-		 'bundle.put( FORCE_DONE, forceDone )', 'markSpsOriginalMobs()',
-		 'Dungeon.shopOnLevel()'].each {
+		 'bundle.put( FORCE_DONE, forceDone )', 'markSpsOriginalMobs()'].each {
 			requireText(level, it, '露珠清层进度')
+		}
+		//SPS 楼层感受与补给已移入 FloorFeeling，覆盖检查随之内聚
+		def floorFeeling = readSource('levels/FloorFeeling.java')
+		['Dungeon.shopOnLevel()', 'LuckyBadge.rareRewardChance', 'MossyClump.getNextFeeling',
+		 'TrapMechanism.getNextFeeling', 'level.feeling', 'level.viewDistance'].each {
+			requireText(floorFeeling, it, '楼层感受与补给')
 		}
 		//SPS 露珠：祝福点铺设与露珠数量统计已移入 SpsDew，覆盖检查随之内聚
 		def spsDew = readSource('levels/SpsDew.java')
