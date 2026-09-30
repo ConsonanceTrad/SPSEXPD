@@ -34,8 +34,8 @@ allprojects {
         robovmVersion = '2.3.24'
 
         //校验脚手架：根包与源码根集中定义（143 个 verifySpsXxx 任务复用；包名/目录重组只需改这里）
-        corePackage = 'com.shatteredpixel.shatteredpixeldungeon'
-        corePackageDir = 'com/shatteredpixel/shatteredpixeldungeon'
+        corePackage = 'pd'
+        corePackageDir = 'pd'
         coreMainDir = 'core/src/main/java'
     }
     version = appVersionName
@@ -71,7 +71,7 @@ tasks.register('verifySpsContent') {
 			if (text.contains('\uFFFD') || text.contains('锟斤拷') || text.contains('烫烫烫')) {
 				throw new GradleException("${resource}: 检测到疑似乱码")
 			}
-			if (text.readLines().any { it.startsWith('com.shatteredpixel.shatteredpixeldungeon.') }) {
+			if (text.readLines().any { it.startsWith('pd.') }) {
 				throw new GradleException("${resource}: 资源键错误包含完整Java包名前缀")
 			}
 		}
@@ -1080,7 +1080,7 @@ tasks.register('verifySpsMechanics') {
 			requireText(heroClassSource, it, '战士与法师默认皮肤开局配置')
 		}
 		['items.weapon.melee.normalweapon.Dagger()', 'hero.belongings.armor = new VestArmor()',
-		 'new BlindFruit(3)', 'hero.belongings.weapon = new com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.normalweapon.Knuckles()',
+		 'new BlindFruit(3)', 'hero.belongings.weapon = new pd.items.weapon.melee.normalweapon.Knuckles()',
 		 'new Boomerang()', 'new EmpBola(3)'].each {
 			requireText(heroClassSource, it, '盗贼与女猎手默认皮肤开局配置')
 		}

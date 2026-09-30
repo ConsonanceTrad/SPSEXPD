@@ -1,0 +1,37 @@
+/* Special Surprise Pixel Dungeon, GPLv3 or later. */
+package pd.actors.mobs.pets;
+
+import pd.actors.Char;
+import pd.items.Item;
+import pd.items.food.completefood.PetFood;
+import pd.items.potions.PotionOfMending;
+import pd.items.scrolls.ScrollOfRage;
+import pd.sprites.LitDemonSprite;
+import com.watabou.utils.Random;
+
+public class LitDemon extends PET {
+	{
+		spriteClass = LitDemonSprite.class; cooldown = 50; properties.add(Property.DEMONIC); updateStats(true);
+	}
+	@Override protected Kind kind() { return Kind.LIT_DEMON; }
+	@Override public boolean lovefood(Item item) { return item instanceof PetFood || item instanceof PotionOfMending; }
+	@Override public Item SupercreateLoot() { return new ScrollOfRage(); }
+	@Override public void updateStats(boolean refill) {
+		int old = HT; HT = 150 + petLevel() * 2; defenseSkill = petLevel();
+		if (refill) HP = HT; else if (HT > old) HP = Math.min(HT, HP + HT - old);
+	}
+	@Override public int damageRoll() { return Random.NormalIntRange(5 + petLevel(), 5 + petLevel() * 2); }
+	@Override public int drRoll() { return Random.IntRange(0, petLevel() * 2); }
+	@Override public int attackSkill(Char target) { return petLevel() + 10; }
+	@Override public int attackProc(Char enemy, int damage) {
+		if (enemy == null) return super.attackProc(null, damage);
+		int fragmentMax = Math.max(1, damage / 5);
+		enemy.damage(Random.IntRange(1, fragmentMax), Item.class);
+		if (cooldown <= 0 && enemy.isAlive()) {
+			for (int i = 0; i < 5; i++) enemy.damage(Random.IntRange(1, fragmentMax), Item.class);
+			cooldown = Math.max(6, 26 - petLevel());
+		}
+		if (cooldown > 0) cooldown--;
+		return super.attackProc(enemy, damage);
+	}
+}

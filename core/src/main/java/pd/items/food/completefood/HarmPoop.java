@@ -1,0 +1,21 @@
+/* Special Surprise Pixel Dungeon, GPLv3 or later. */
+package pd.items.food.meatfood;
+
+import pd.actors.buffs.Buff;
+import pd.actors.buffs.Poison;
+import pd.actors.buffs.Slow;
+import pd.actors.hero.Hero;
+import pd.sprites.ItemSpriteSheet;
+
+public class HarmPoop extends MeatFood {
+	{
+		image = ItemSpriteSheet.MEAT;
+		energy = 10f;
+		hornValue = 0;
+	}
+	@Override protected void doEat(Hero hero) {
+		Buff.affect(hero, Poison.class).set(hero.HT / 10f);
+		Buff.prolong(hero, Slow.class, 5f);
+	}
+	@Override public int value() { return 2 * quantity; }
+}

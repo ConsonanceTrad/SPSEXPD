@@ -1,0 +1,8 @@
+package pd.actors.mobs.pets;
+
+import pd.sprites.VioletDragonSprite;
+
+public class VioletDragon extends PET {
+	{ spriteClass = VioletDragonSprite.class; properties.add(Property.DRAGON); updateStats(true); }
+	@Override protected Kind kind() { return Kind.VIOLET_DRAGON; }
+}
