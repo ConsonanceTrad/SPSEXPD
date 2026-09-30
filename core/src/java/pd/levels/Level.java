@@ -536,6 +536,12 @@ public abstract class Level implements Bundlable {
 		
 		mobs().restoreFromBundle( bundle );
 
+		collection = bundle.getCollection( BLOBS );
+		for (Bundlable b : collection) {
+			Blob blob = (Blob)b;
+			blobs.put( blob.getClass(), blob );
+		}
+
 		feeling = bundle.getEnum( FEELING, Feeling.class );
 		if (feeling == Feeling.DARK) {
 			viewDistance = Math.round(5 * viewDistance / 8f);
@@ -577,6 +583,8 @@ public abstract class Level implements Bundlable {
 		bundle.put( CUSTOM_TERRAIN, customTerrain);
 		bundle.put( CUSTOM_WALLS, customWalls );
 		mobs().storeInBundle( bundle );
+		bundle.put( BLOBS, blobs.values() );
+		bundle.put( FEELING, feeling );
 		bundle.put( "targeted_cells", TargetedCell.cells.valueList() );
 	}
 	
