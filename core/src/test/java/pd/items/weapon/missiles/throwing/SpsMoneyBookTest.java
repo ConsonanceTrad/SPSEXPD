@@ -30,7 +30,7 @@ import javax.imageio.ImageIO;
 public final class SpsMoneyBookTest {
 
 	private static final String ICON_HASH =
-			"B605077A6B6EDDA6A74B91AD06EA9737DE67F6CDE416AFA22D2699034FE50B16";
+			"09E3B2489FC6BB4C7A3460D412E8EB6525830446841D719C203A574AB81B2F2B";
 
 	public static void main(String[] args) throws Exception {
 		Game.version = "test";

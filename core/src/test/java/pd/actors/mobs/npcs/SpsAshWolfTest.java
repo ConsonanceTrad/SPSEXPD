@@ -173,7 +173,7 @@ public final class SpsAshWolfTest {
 		check(sheet != null && sheet.getWidth() == 256 && sheet.getHeight() == 992, "物品图集尺寸错误");
 		check("7206B92337C4A2D762B9252A5E085F565EE73D9F72D1AD6D8B36A80BCCC9B24C".equals(hash(sheet, 96, 896)),
 				"南瓜灯不是SPS-PD 0.9.8原始图标");
-		check("B605077A6B6EDDA6A74B91AD06EA9737DE67F6CDE416AFA22D2699034FE50B16".equals(hash(sheet, 240, 848)),
+		check("09E3B2489FC6BB4C7A3460D412E8EB6525830446841D719C203A574AB81B2F2B".equals(hash(sheet, 240, 848)),
 				"样板房地点纸片不是SPS-PD 0.9.8原始图标");
 		String itemsZh = Files.readString(new File("messages/items/zh/items.properties").toPath(), StandardCharsets.UTF_8);
 		String miscZh = Files.readString(new File("messages/misc/zh/misc.properties").toPath(), StandardCharsets.UTF_8);

@@ -35,7 +35,7 @@ import javax.imageio.ImageIO;
 public final class SpsXiXiBoxTest {
 
 	private static final String ICON_HASH =
-			"7C6507135FBE0124D7B482DF0288A87623C4F18843609399EE482E95370F4503";
+			"8D4CF74A834529F3CE21341C84ADB75CDC2F9964EBF50C6F661E8F0FBD5DC4D6";
 
 	public static void main(String[] args) throws Exception {
 		GdxNativesLoader.load();

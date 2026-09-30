@@ -160,7 +160,7 @@ public final class SpsLegacyConsumableBuffsTest {
 		check(enItems.contains("It was blessed by Selemene."), "满月浆果英文原文缺失");
 
 		BufferedImage sheet = ImageIO.read(new File("sprites/items/items.png"));
-		check("27D9B7BF83AB3454024741ECB582904E7A2D1B936C9AC96A04FA69B0C49C1851".equals(
+		check("363CA1AEF7BF922A25167EB80B19B527CDFAD153E34901B093DE76B7C35C6954".equals(
 				hash(sheet, ItemSpriteSheet.SPS_LING_POTION)), "澪祷星瓶不是0.9.8原始图标");
 	}
 

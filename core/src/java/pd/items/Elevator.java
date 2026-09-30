@@ -14,6 +14,10 @@ public class Elevator extends Item {
 	public static final String AC_UP = "UP";
 	public static final String AC_DOWN = "DOWN";
 
+	//SPS: 可达主地牢 0（初始层）至 25 层
+	private static final int MIN_DEPTH = 0;
+	private static final int MAX_DEPTH = 25;
+
 	{
 		image = ItemSpriteSheet.ELEVATOR;
 		stackable = true;
@@ -22,9 +26,10 @@ public class Elevator extends Item {
 
 	@Override public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);
-		if (Dungeon.branch == 0 && Dungeon.depth > 1 && Dungeon.depth <= 25) {
-			actions.add(AC_UP);
-			actions.add(AC_DOWN);
+		if (Dungeon.branch == 0 && Dungeon.depth >= MIN_DEPTH && Dungeon.depth <= MAX_DEPTH) {
+			//SPS: 0 层之上已无处可去，25 层以下也不再是主地牢层
+			if (Dungeon.depth > MIN_DEPTH) actions.add(AC_UP);
+			if (Dungeon.depth < MAX_DEPTH) actions.add(AC_DOWN);
 		}
 		return actions;
 	}

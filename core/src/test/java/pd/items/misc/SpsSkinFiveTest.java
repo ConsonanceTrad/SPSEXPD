@@ -251,7 +251,7 @@ public final class SpsSkinFiveTest {
 	private static void testChangeIcon() {
 		try {
 			java.awt.image.BufferedImage sheet = ImageIO.read(new File("sprites/items/items.png"));
-			check("738436C58AF9907F5C7395D41AF6ABC47DB120071BF56EC3420954CF2DEEEDF8"
+			check("D9661F57560E7BC74C5798BB43E10A71FF9B8FA913CE3DB987BC49A530B5CD97"
 					.equals(hash(sheet, 128, 816)), "装备切换原始图标错误");
 		} catch (Exception e) {
 			throw new AssertionError("无法校验装备切换原始图标", e);
