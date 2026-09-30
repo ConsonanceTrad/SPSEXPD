@@ -703,9 +703,15 @@ tasks.register('verifySpsMechanics') {
 			requireText(mob, it, '露珠爆炸掉落')
 		}
 		def level = readSource('levels/Level.java')
-		['bundle.put( CURRENT_MOVES, currentMoves )', 'bundle.put( CLEARED, cleared )',
-		 'bundle.put( FORCE_DONE, forceDone )', 'markSpsOriginalMobs()'].each {
+		['markSpsOriginalMobs()'].each {
 			requireText(level, it, '露珠清层进度')
+		}
+		//SPS 关卡的存档读写已移入 LevelPersistence，覆盖检查随之内聚
+		def levelPersistence = readSource('levels/LevelPersistence.java')
+		['bundle.put( CURRENT_MOVES, level.currentMoves )', 'bundle.put( CLEARED, level.cleared )',
+		 'bundle.put( FORCE_DONE, level.forceDone )', 'bundle.put( FEELING, level.feeling )',
+		 'level.mobs().storeInBundle( bundle )', 'level.mobs().restoreFromBundle( bundle )'].each {
+			requireText(levelPersistence, it, '关卡存档读写')
 		}
 		//SPS 楼层感受与补给已移入 FloorFeeling，覆盖检查随之内聚
 		def floorFeeling = readSource('levels/FloorFeeling.java')

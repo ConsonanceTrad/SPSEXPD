@@ -223,26 +223,6 @@ public abstract class Level implements Bundlable {
 	public int color1 = 0x004400;
 	public int color2 = 0x88CC44;
 
-	private static final String VERSION     = "version";
-	private static final String WIDTH       = "width";
-	private static final String HEIGHT      = "height";
-	private static final String MAP			= "map";
-	private static final String VISITED		= "visited";
-	private static final String MAPPED		= "mapped";
-	private static final String TRANSITIONS	= "transitions";
-	private static final String LOCKED      = "locked";
-	private static final String HEAPS		= "heaps";
-	private static final String PLANTS		= "plants";
-	private static final String TRAPS       = "traps";
-	private static final String CUSTOM_TILES= "customTiles";
-	private static final String CUSTOM_TERRAIN= "customTerrain";
-	private static final String CUSTOM_WALLS= "customWalls";
-	private static final String BLOBS		= "blobs";
-	private static final String FEELING		= "feeling";
-	private static final String CURRENT_MOVES = "currentmoves";
-	private static final String CLEARED		= "cleared";
-	private static final String FORCE_DONE	= "forcedone";
-	private static final String PIT_SIGN     = "pit_sign";
 
 	public void create() {
 
@@ -294,130 +274,12 @@ public abstract class Level implements Bundlable {
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
-
-		version = bundle.getInt( VERSION );
-		
-		//saves from before v3.1.1 are not supported
-		if (version < ShatteredPixelDungeon.v3_1_1){
-			throw new RuntimeException("old save");
-		}
-
-		setSize( bundle.getInt(WIDTH), bundle.getInt(HEIGHT));
-		
-		mobs().clear();
-		heaps = new SparseArray<>();
-		blobs = new HashMap<>();
-		plants = new SparseArray<>();
-		traps = new SparseArray<>();
-		customTiles = new ArrayList<>();
-		customTerrain = new ArrayList<>();
-		customWalls = new ArrayList<>();
-		
-		map		= bundle.getIntArray( MAP );
-
-		visited	= bundle.getBooleanArray( VISITED );
-		mapped	= bundle.getBooleanArray( MAPPED );
-
-		transitions = new ArrayList<>();
-		for (Bundlable b : bundle.getCollection( TRANSITIONS )){
-			transitions.add((LevelTransition) b);
-		}
-
-		locked      = bundle.getBoolean( LOCKED );
-		currentMoves = bundle.getInt( CURRENT_MOVES );
-		cleared = bundle.getBoolean( CLEARED );
-		forceDone = bundle.getBoolean( FORCE_DONE );
-		pitSign = bundle.contains(PIT_SIGN) ? bundle.getInt(PIT_SIGN) : -1;
-		
-		Collection<Bundlable> collection = bundle.getCollection( HEAPS );
-		for (Bundlable h : collection) {
-			Heap heap = (Heap)h;
-			if (!heap.isEmpty())
-				heaps.put( heap.pos, heap );
-		}
-		
-		collection = bundle.getCollection( PLANTS );
-		for (Bundlable p : collection) {
-			Plant plant = (Plant)p;
-			plants.put( plant.pos, plant );
-		}
-
-		collection = bundle.getCollection( TRAPS );
-		for (Bundlable p : collection) {
-			Trap trap = (Trap)p;
-			traps.put( trap.pos, trap );
-		}
-
-		collection = bundle.getCollection( CUSTOM_TILES );
-		for (Bundlable p : collection) {
-			CustomTilemap vis = (CustomTilemap)p;
-			customTiles.add(vis);
-		}
-
-		collection = bundle.getCollection( CUSTOM_TERRAIN );
-		for (Bundlable p : collection) {
-			CustomTilemap vis = (CustomTilemap)p;
-			customTerrain.add(vis);
-		}
-
-		collection = bundle.getCollection( CUSTOM_WALLS );
-		for (Bundlable p : collection) {
-			CustomTilemap vis = (CustomTilemap)p;
-			customWalls.add(vis);
-		}
-		
-		mobs().restoreFromBundle( bundle );
-
-		collection = bundle.getCollection( BLOBS );
-		for (Bundlable b : collection) {
-			Blob blob = (Blob)b;
-			blobs.put( blob.getClass(), blob );
-		}
-
-		feeling = bundle.getEnum( FEELING, Feeling.class );
-		if (feeling == Feeling.DARK) {
-			viewDistance = Math.round(5 * viewDistance / 8f);
-		}
-		TargetedCell.cells.clear();
-		if (bundle.contains( "targeted_cells" )){
-			collection = bundle.getCollection( "targeted_cells" );
-			for (Bundlable c : collection) {
-				TargetedCell cell = (TargetedCell)c;
-				if (cell != null) {
-					TargetedCell.cells.put(cell.pos, cell);
-				}
-			}
-		}
-
-		buildFlagMaps();
-		CellFlags.cleanWalls( this );
-
+		LevelPersistence.restore( this, bundle );
 	}
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
-		bundle.put( VERSION, Game.versionCode );
-		bundle.put( WIDTH, width );
-		bundle.put( HEIGHT, height );
-		bundle.put( MAP, map );
-		bundle.put( VISITED, visited );
-		bundle.put( MAPPED, mapped );
-		bundle.put( TRANSITIONS, transitions );
-		bundle.put( LOCKED, locked );
-		bundle.put( CURRENT_MOVES, currentMoves );
-		bundle.put( CLEARED, cleared );
-		bundle.put( FORCE_DONE, forceDone );
-		bundle.put( PIT_SIGN, pitSign );
-		bundle.put( HEAPS, heaps.valueList() );
-		bundle.put( PLANTS, plants.valueList() );
-		bundle.put( TRAPS, traps.valueList() );
-		bundle.put( CUSTOM_TILES, customTiles );
-		bundle.put( CUSTOM_TERRAIN, customTerrain);
-		bundle.put( CUSTOM_WALLS, customWalls );
-		mobs().storeInBundle( bundle );
-		bundle.put( BLOBS, blobs.values() );
-		bundle.put( FEELING, feeling );
-		bundle.put( "targeted_cells", TargetedCell.cells.valueList() );
+		LevelPersistence.store( this, bundle );
 	}
 	
 	public int tunnelTile() {
