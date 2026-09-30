@@ -34,6 +34,7 @@ import pd.effects.Pushing;
 import pd.items.Item;
 import pd.items.potions.PotionOfHealing;
 import pd.items.scrolls.ScrollOfTeleportation;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
@@ -44,7 +45,6 @@ import render.noosa.audio.Sample;
 import render.utils.BArray;
 import render.utils.Bundle;
 import render.utils.Callback;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class Necromancer extends Mob {

@@ -28,12 +28,12 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.items.Generator;
 import pd.items.Item;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.GnollExileSprite;
 import pd.utils.GLog;
 import render.utils.BArray;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

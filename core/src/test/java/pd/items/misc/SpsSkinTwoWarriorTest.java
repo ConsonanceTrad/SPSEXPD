@@ -942,7 +942,7 @@ public final class SpsSkinTwoWarriorTest {
 		check(book.growGrass(hero) && Dungeon.gold == 1, "自然之书枯枝护佑没有严格消耗500金币");
 		check(hero.buff(Levitation.class) != null && hero.buff(ShieldArmor.class) != null
 				&& hero.buff(ShieldArmor.class).level() == hero.lvl + 10, "自然之书缺少30回合漂浮或等级+10护盾");
-		for (int offset : render.utils.PathFinder.NEIGHBOURS8) {
+		for (int offset : pd.mechanics.pathfind.PathFinder.NEIGHBOURS8) {
 			check(level.map[CENTER + offset] == Terrain.OLD_HIGH_GRASS, "自然之书没有把周围可用地面变成旧式高草");
 		}
 

@@ -27,10 +27,10 @@ import pd.actors.Char;
 import pd.items.Item;
 import pd.items.food.meatfood.Meat;
 import pd.items.weapon.missiles.meleethrow.Brick;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.RatSprite;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class Rat extends Mob {

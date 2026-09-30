@@ -3,8 +3,8 @@ package pd.plants;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.items.Generator;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

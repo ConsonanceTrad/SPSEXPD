@@ -30,10 +30,10 @@ import pd.actors.buffs.Buff;
 import pd.actors.mobs.Mob;
 import pd.effects.CellEmitter;
 import pd.effects.particles.FlameParticle;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.utils.BArray;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 
 public class BlazingTrap extends Trap {
 

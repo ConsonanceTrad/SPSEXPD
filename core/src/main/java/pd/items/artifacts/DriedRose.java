@@ -63,6 +63,7 @@ import pd.items.weapon.melee.MeleeWeapon;
 import pd.items.weapon.melee.special.WraithBreath;
 import pd.journal.Catalog;
 import pd.levels.VaultLevel;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.AlchemyScene;
 import pd.scenes.CellSelector;
@@ -87,7 +88,6 @@ import render.noosa.Game;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
 import render.utils.Callback;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

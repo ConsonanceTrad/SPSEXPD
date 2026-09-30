@@ -121,6 +121,7 @@ import pd.levels.VaultLevel;
 import pd.levels.features.LevelTransition;
 import pd.levels.rooms.secret.SecretRoom;
 import pd.levels.rooms.special.SpecialRoom;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.ui.QuickSlotButton;
@@ -132,7 +133,6 @@ import render.utils.BArray;
 import render.utils.Bundlable;
 import render.utils.Bundle;
 import render.utils.FileUtils;
-import render.utils.PathFinder;
 import render.utils.Random;
 import render.utils.SparseArray;
 

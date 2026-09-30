@@ -23,6 +23,7 @@ import pd.items.weapon.melee.fusion.Harp;
 import pd.items.weapon.melee.fusion.ReedPipe;
 import pd.items.weapon.melee.fusion.WarDrum;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.BatteryTombSprite;
@@ -31,7 +32,6 @@ import pd.sprites.SeekingBombSprite;
 import pd.ui.BossHealthBar;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

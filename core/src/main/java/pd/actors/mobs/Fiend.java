@@ -16,10 +16,10 @@ import pd.items.Generator;
 import pd.items.quest.AdventureJournal;
 import pd.items.wands.fusion.WandOfBlood;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.FiendSprite;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class Fiend extends Mob {

@@ -37,6 +37,7 @@ import pd.items.artifacts.AlienBag;
 import pd.items.bombs.MiniBomb;
 import pd.items.wands.WandOfDisintegration;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ElderAvatarSprite;
@@ -49,7 +50,6 @@ import pd.ui.BossHealthBar;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 /** SPS-PD's elder-avatar city boss and its four low-health reinforcement waves. */

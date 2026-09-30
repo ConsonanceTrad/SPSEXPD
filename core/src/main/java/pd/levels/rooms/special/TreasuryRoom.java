@@ -30,7 +30,7 @@ import pd.items.keys.IronKey;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import render.utils.PathFinder;
+import pd.mechanics.pathfind.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

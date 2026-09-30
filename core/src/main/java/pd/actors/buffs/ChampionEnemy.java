@@ -32,13 +32,13 @@ import pd.actors.mobs.Crab;
 import pd.actors.mobs.Guard;
 import pd.actors.mobs.Mob;
 import pd.actors.mobs.Thief;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.BArray;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public abstract class ChampionEnemy extends Buff {

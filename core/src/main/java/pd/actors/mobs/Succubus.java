@@ -39,10 +39,10 @@ import pd.items.scrolls.ScrollOfLullaby;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.items.wands.WandOfCharm;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.SuccubusSprite;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

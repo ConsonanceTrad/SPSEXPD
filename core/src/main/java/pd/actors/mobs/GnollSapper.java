@@ -27,11 +27,11 @@ import pd.actors.Char;
 import pd.effects.TargetedCell;
 import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.GnollSapperSprite;
 import render.utils.Bundle;
 import render.utils.GameMath;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class GnollSapper extends Mob {

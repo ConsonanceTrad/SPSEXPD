@@ -9,8 +9,8 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.pets.LegacyPet;
 import pd.items.Generator;
 import pd.items.Item;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 /** The four warrior class skills from SPS-PD 0.9.8. */

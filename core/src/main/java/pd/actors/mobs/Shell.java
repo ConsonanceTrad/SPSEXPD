@@ -8,11 +8,11 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Silent;
 import pd.items.RedDewdrop;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.ShellSprite;
 import pd.utils.GLog;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class Shell extends Mob {

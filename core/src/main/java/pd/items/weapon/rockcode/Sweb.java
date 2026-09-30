@@ -10,8 +10,8 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Roots;
 import pd.effects.MagicMissile;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class Sweb extends RockCode {

@@ -28,9 +28,9 @@ import pd.actors.blobs.Blob;
 import pd.actors.blobs.Electricity;
 import pd.actors.buffs.Buff;
 import pd.actors.mobs.Mob;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 
 public class ShockingTrap extends Trap {
 

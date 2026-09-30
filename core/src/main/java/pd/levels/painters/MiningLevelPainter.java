@@ -28,8 +28,8 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.rooms.Room;
 import pd.levels.rooms.quest.MineSecretRoom;
-import render.utils.Graph;
-import render.utils.PathFinder;
+import pd.mechanics.pathfind.Graph;
+import pd.mechanics.pathfind.PathFinder;
 import render.utils.Point;
 import render.utils.Random;
 

@@ -9,8 +9,8 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.LightShootAttack;
 import pd.effects.CellEmitter;
 import pd.effects.particles.SmokeParticle;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class LightBomb extends Bomb {

@@ -38,11 +38,11 @@ import pd.items.rings.Ring;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.items.trinkets.MimicTooth;
 import pd.items.wands.Wand;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.MimicSprite;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

@@ -4,8 +4,8 @@ package pd.items.weapon.melee.fusion;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.items.weapon.melee.Mace;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.PathFinder;
 
 public class Flute extends Mace implements FusionWeapon {
 	{ image = ItemSpriteSheet.WAND_REGROWTH; tier = 2; ACC = 1.05f; }

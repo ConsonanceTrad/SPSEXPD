@@ -18,6 +18,7 @@ import pd.items.quest.AdventureJournal;
 import pd.items.quest.ChallengeJournal;
 import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.BaBaSprite;
@@ -28,7 +29,6 @@ import render.noosa.audio.Sample;
 import render.utils.BArray;
 import render.utils.Bundle;
 import render.utils.Callback;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 /** The single-sheep obstruction wand from SPS-PD 0.9.8. */

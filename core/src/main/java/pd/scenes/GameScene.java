@@ -75,6 +75,7 @@ import pd.levels.Terrain;
 import pd.levels.rooms.Room;
 import pd.levels.rooms.secret.SecretRoom;
 import pd.levels.traps.Trap;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.sprites.CharSprite;
@@ -153,7 +154,6 @@ import render.utils.PlatformSupport;
 import render.utils.Point;
 import render.utils.PointF;
 import render.utils.Random;
-import render.utils.PathFinder;
 import render.utils.RectF;
 
 import java.io.IOException;

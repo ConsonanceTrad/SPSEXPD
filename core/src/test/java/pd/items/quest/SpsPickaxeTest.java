@@ -18,9 +18,9 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.levels.Level;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.plants.Plant;
 import render.noosa.Game;
-import render.utils.PathFinder;
 import render.utils.Random;
 import render.utils.SparseArray;
 

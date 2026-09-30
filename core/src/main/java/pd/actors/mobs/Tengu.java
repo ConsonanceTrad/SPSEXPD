@@ -58,6 +58,7 @@ import pd.items.bombs.Bomb;
 import pd.levels.Level;
 import pd.levels.PrisonBossLevel;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.scenes.GameScene;
@@ -74,7 +75,6 @@ import render.utils.BArray;
 import render.utils.Bundle;
 import render.utils.Callback;
 import render.utils.GameMath;
-import render.utils.PathFinder;
 import render.utils.PointF;
 import render.utils.Random;
 

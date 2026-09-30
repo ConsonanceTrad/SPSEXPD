@@ -9,12 +9,12 @@ import pd.actors.buffs.WatchOut;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.pets.*;
 import pd.items.eggs.*;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

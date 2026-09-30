@@ -42,6 +42,7 @@ import pd.items.scrolls.ScrollOfTeleportation;
 import pd.items.scrolls.exotic.ScrollOfSirensSong;
 import pd.journal.Bestiary;
 import pd.journal.Notes;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.RatSprite;
@@ -50,7 +51,6 @@ import pd.ui.TargetHealthIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

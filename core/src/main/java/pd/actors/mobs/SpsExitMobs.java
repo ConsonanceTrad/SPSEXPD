@@ -66,6 +66,7 @@ import pd.items.weapon.melee.normalweapon.Handaxe;
 import pd.items.weapon.melee.normalweapon.FightGloves;
 import pd.items.weapon.melee.normalweapon.Knuckles;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.AcidicSprite;
 import pd.sprites.AlbinoSprite;
@@ -77,7 +78,6 @@ import pd.sprites.SuccubusSprite;
 import render.noosa.audio.Sample;
 import render.utils.BArray;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

@@ -12,11 +12,11 @@ import pd.items.Item;
 import pd.items.food.completefood.PetFood;
 import pd.items.food.fusion.Nut;
 import pd.items.scrolls.ScrollOfMirrorImage;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.RibbonRatSprite;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

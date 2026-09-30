@@ -32,10 +32,10 @@ import pd.actors.mobs.Mob;
 import pd.effects.Splash;
 import pd.items.wands.WandOfBlastWave;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.tiles.DungeonTilemap;
 import render.noosa.audio.Sample;
 import render.utils.BArray;
-import render.utils.PathFinder;
 import render.utils.PointF;
 import render.utils.Random;
 

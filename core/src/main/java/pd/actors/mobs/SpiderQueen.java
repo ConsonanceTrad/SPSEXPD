@@ -30,6 +30,7 @@ import pd.items.scrolls.ScrollOfTeleportation;
 import pd.levels.Terrain;
 import pd.levels.features.Door;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.SpiderEggSprite;
@@ -41,7 +42,6 @@ import pd.sprites.SpiderQueenSprite;
 import pd.ui.BossHealthBar;
 import render.utils.BArray;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

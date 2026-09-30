@@ -36,6 +36,7 @@ import pd.items.artifacts.DriedRose;
 import pd.items.keys.WornKey;
 import pd.items.quest.GooBlob;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
@@ -45,7 +46,6 @@ import pd.ui.BossHealthBar;
 import pd.utils.GLog;
 import render.utils.Bundle;
 import render.utils.GameMath;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class Goo extends Mob {

@@ -5,10 +5,10 @@ import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 /** A short SPS damage-over-time growth which feeds nearby living characters. */

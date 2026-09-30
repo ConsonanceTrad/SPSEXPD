@@ -26,10 +26,10 @@ import pd.Dungeon;
 import pd.actors.blobs.Blob;
 import pd.actors.blobs.Inferno;
 import pd.items.potions.PotionOfLiquidFlame;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 
 public class InfernalBrew extends Brew {
 	

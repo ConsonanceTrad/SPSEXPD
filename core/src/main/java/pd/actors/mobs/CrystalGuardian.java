@@ -35,12 +35,12 @@ import pd.effects.Splash;
 import pd.journal.Bestiary;
 import pd.levels.Level;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.sprites.CrystalGuardianSprite;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class CrystalGuardian extends Mob{

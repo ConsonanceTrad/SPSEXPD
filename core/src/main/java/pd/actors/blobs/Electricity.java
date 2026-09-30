@@ -32,9 +32,9 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.items.wands.Wand;
 import pd.items.weapon.melee.MagesStaff;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.utils.GLog;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class Electricity extends Blob {

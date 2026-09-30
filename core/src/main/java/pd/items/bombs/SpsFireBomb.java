@@ -10,9 +10,9 @@ import pd.actors.blobs.TarGas;
 import pd.effects.CellEmitter;
 import pd.effects.particles.SmokeParticle;
 import pd.items.Item;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class SpsFireBomb extends Bomb {

@@ -35,12 +35,12 @@ import pd.actors.mobs.npcs.NPC;
 import pd.effects.Pushing;
 import pd.effects.Splash;
 import pd.journal.Catalog;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.sprites.SteelBeeSprite;
 import render.noosa.audio.Sample;
 import render.noosa.tweeners.AlphaTweener;
-import render.utils.PathFinder;
 import render.utils.Bundle;
 import render.utils.Random;
 

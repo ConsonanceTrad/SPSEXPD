@@ -29,10 +29,10 @@ import pd.actors.hero.spells.ClericSpell;
 import pd.items.food.PhantomMeat;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.items.wands.Wand;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.PhantomPiranhaSprite;
 import pd.utils.GLog;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

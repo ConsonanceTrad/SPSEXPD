@@ -36,6 +36,7 @@ import pd.effects.Pushing;
 import pd.items.armor.ClassArmor;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.levels.Level;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.InterlevelScene;
@@ -49,7 +50,6 @@ import render.noosa.audio.Sample;
 import render.noosa.particles.Emitter;
 import render.utils.BArray;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

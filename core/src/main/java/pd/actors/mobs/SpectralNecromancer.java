@@ -28,11 +28,11 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.effects.Pushing;
 import pd.items.scrolls.ScrollOfRemoveCurse;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.SpectralNecromancerSprite;
 import pd.utils.GLog;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

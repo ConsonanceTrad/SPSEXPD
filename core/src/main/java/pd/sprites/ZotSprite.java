@@ -6,11 +6,11 @@ import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.items.trinkets.RatSkull;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.noosa.TextureFilm;
 import render.noosa.audio.Sample;
 import render.utils.Callback;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 /** Original 18px Zot animation and explosive ranged attack. */

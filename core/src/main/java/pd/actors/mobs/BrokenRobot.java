@@ -12,8 +12,8 @@ import pd.items.misc.LuckyBadge;
 import pd.items.potions.PotionOfLiquidFlame;
 import pd.items.scrolls.ScrollOfRecharging;
 import pd.items.weapon.melee.normalweapon.ShortSword;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 /** Original SPS-PD runtime and save identity for the damaged cave robot. */

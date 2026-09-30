@@ -14,12 +14,12 @@ import pd.items.bombs.DungeonBomb;
 import pd.items.keys.IronKey;
 import pd.items.sellitem.DevUpPlan;
 import pd.items.wands.WandOfTest;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.windows.WndQuest;
 import render.noosa.Game;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

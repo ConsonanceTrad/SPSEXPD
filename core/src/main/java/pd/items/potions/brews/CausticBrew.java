@@ -32,10 +32,10 @@ import pd.items.Item;
 import pd.items.potions.PotionOfToxicGas;
 import pd.items.quest.GooBlob;
 import pd.journal.Catalog;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
 import render.utils.BArray;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 
 import java.util.ArrayList;
 

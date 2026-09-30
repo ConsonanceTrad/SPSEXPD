@@ -16,9 +16,9 @@ import pd.effects.particles.BlastParticle;
 import pd.effects.particles.SmokeParticle;
 import pd.levels.Level;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 /** The basic SPS crafted bomb and ingredient for the elemental bomb recipes. */

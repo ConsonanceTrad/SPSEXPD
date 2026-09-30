@@ -36,6 +36,7 @@ import pd.levels.rooms.Room;
 import pd.levels.rooms.quest.vault.treasure.VaultTreasureRoom;
 import pd.levels.rooms.secret.SecretRoom;
 import pd.levels.rooms.special.SpecialRoom;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
@@ -45,7 +46,6 @@ import render.noosa.Camera;
 import render.noosa.audio.Sample;
 import render.noosa.tweeners.AlphaTweener;
 import render.utils.BArray;
-import render.utils.PathFinder;
 import render.utils.Point;
 import render.utils.Random;
 

@@ -8,7 +8,7 @@
 
 package pd.levels.builders;
 
-import render.utils.Graph;
+import pd.mechanics.pathfind.Graph;
 import render.utils.Random;
 import render.utils.Rect;
 

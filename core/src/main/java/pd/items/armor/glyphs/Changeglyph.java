@@ -12,9 +12,9 @@ import pd.actors.mobs.NormalCell;
 import pd.actors.mobs.npcs.MirrorImage;
 import pd.items.armor.Armor;
 import pd.items.scrolls.ScrollOfTeleportation;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

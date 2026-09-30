@@ -7,8 +7,8 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.blobs.Blob;
 import pd.items.weapon.missiles.MissileWeapon;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import render.utils.PathFinder;
 
 abstract class SpsFruit extends MissileWeapon {
 	private final int baseMin;

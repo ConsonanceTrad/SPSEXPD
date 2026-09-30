@@ -30,12 +30,12 @@ import pd.actors.hero.Hero;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.effects.SpellSprite;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import render.utils.BArray;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 
 import java.util.ArrayList;
 

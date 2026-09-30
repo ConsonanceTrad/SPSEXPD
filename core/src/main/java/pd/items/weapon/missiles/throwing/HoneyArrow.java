@@ -12,12 +12,12 @@ import pd.effects.Pushing;
 import pd.effects.Splash;
 import pd.items.Honeypot;
 import pd.items.Item;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
 import render.noosa.tweeners.AlphaTweener;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

@@ -19,13 +19,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package render.utils;
+package pd.mechanics.pathfind;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
+//房间连通图与距离图：节点由 pd.levels.rooms.Room 实现，供关卡布局与房间连接使用。
 public class Graph {
 
 	public static <T extends Node> void setPrice( List<T> nodes, int value ) {

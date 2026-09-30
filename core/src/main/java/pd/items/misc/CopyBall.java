@@ -21,6 +21,7 @@ import pd.effects.Splash;
 import pd.items.Item;
 import pd.items.bombs.DungeonBomb;
 import pd.items.weapon.missiles.MissileWeapon;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
@@ -29,7 +30,6 @@ import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

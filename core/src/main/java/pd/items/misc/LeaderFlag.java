@@ -14,12 +14,12 @@ import pd.items.weapon.missiles.buildblock.WaterBlock;
 import pd.items.weapon.missiles.buildblock.WoodenBlock;
 import pd.levels.Level;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 
 import java.util.ArrayList;
 

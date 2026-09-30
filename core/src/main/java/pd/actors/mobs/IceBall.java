@@ -5,9 +5,9 @@ import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.SnowballSprite;
-import render.utils.PathFinder;
 
 public class IceBall extends Mob {
 

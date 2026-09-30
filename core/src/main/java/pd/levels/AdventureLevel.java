@@ -43,10 +43,10 @@ import pd.levels.traps.ShockingTrap;
 import pd.levels.traps.TeleportationTrap;
 import pd.levels.traps.Trap;
 import pd.levels.traps.WornDartTrap;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.messages.Messages;
 import pd.utils.GLog;
-import render.utils.PathFinder;
 import render.utils.Bundle;
 
 import java.util.ArrayList;

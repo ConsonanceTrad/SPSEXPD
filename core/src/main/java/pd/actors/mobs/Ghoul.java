@@ -31,11 +31,11 @@ import pd.effects.FloatingText;
 import pd.effects.Pushing;
 import pd.items.Gold;
 import pd.levels.features.Chasm;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.sprites.GhoulSprite;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

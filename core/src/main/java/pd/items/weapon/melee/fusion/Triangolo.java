@@ -4,8 +4,8 @@ package pd.items.weapon.melee.fusion;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.items.weapon.melee.Shortsword;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.PathFinder;
 
 public class Triangolo extends Shortsword implements FusionWeapon {
 	{ image = ItemSpriteSheet.SAI; tier = 1; }

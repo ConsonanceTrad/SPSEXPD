@@ -222,6 +222,7 @@ import pd.items.weapon.melee.RoundShield;
 import pd.items.weapon.melee.Sai;
 import pd.items.weapon.melee.Scimitar;
 import pd.items.weapon.melee.WornShortsword;
+import pd.mechanics.pathfind.PathFinder;
 import pd.plants.Earthroot;
 import pd.items.weapon.missiles.MissileWeapon;
 import pd.items.weapon.missiles.MegaCannon;
@@ -266,7 +267,6 @@ import render.utils.BArray;
 import render.utils.Bundle;
 import render.utils.Callback;
 import render.utils.GameMath;
-import render.utils.PathFinder;
 import render.utils.Point;
 import render.utils.Random;
 

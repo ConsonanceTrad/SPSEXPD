@@ -17,6 +17,7 @@ import pd.items.Item;
 import pd.items.bags.Bag;
 import pd.items.food.Food;
 import pd.items.scrolls.ScrollOfTeleportation;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
@@ -24,7 +25,6 @@ import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 
 import java.util.ArrayList;
 import java.util.Collections;

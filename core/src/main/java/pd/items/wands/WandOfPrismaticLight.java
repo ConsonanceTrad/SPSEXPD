@@ -39,13 +39,13 @@ import pd.items.scrolls.ScrollOfMagicMapping;
 import pd.items.weapon.melee.MagesStaff;
 import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTilemap;
 import render.noosa.audio.Sample;
 import render.utils.Callback;
-import render.utils.PathFinder;
 import render.utils.PointF;
 import render.utils.Random;
 

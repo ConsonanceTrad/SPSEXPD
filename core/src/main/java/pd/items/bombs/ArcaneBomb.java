@@ -28,11 +28,11 @@ import pd.actors.Char;
 import pd.effects.CellEmitter;
 import pd.effects.particles.ElmoParticle;
 import pd.items.Heap;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.GooSprite;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.particles.Emitter;
 import render.utils.BArray;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

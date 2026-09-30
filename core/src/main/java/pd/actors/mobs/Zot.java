@@ -25,13 +25,13 @@ import pd.items.scrolls.ScrollOfPsionicBlast;
 import pd.items.weapon.enchantments.EnchantmentDark;
 import pd.levels.ZotBossLevel;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ZotSprite;
 import pd.ui.BossHealthBar;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

@@ -29,6 +29,7 @@ import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.effects.particles.ChallengeParticle;
 import pd.mechanics.ShadowCaster;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
@@ -37,7 +38,6 @@ import render.noosa.Image;
 import render.noosa.audio.Sample;
 import render.noosa.particles.Emitter;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Point;
 
 import java.util.ArrayList;

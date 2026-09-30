@@ -21,12 +21,12 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Paralysis;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.utils.GLog;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class RockfallTrap extends Trap {

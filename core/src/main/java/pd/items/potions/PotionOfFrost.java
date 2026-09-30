@@ -25,10 +25,10 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.actors.blobs.Blob;
 import pd.actors.blobs.Freezing;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 
 public class PotionOfFrost extends Potion {
 

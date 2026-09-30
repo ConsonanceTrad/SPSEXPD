@@ -28,7 +28,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Ooze;
 import pd.actors.mobs.Mob;
 import pd.effects.Splash;
-import render.utils.PathFinder;
+import pd.mechanics.pathfind.PathFinder;
 
 public class OozeTrap extends Trap {
 

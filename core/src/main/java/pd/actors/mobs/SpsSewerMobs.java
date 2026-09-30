@@ -38,12 +38,12 @@ import pd.items.weapon.missiles.ShitBall;
 import pd.items.wands.WandOfLightning;
 import pd.items.wands.WandOfAcid;
 import pd.items.wands.WandOfSwamp;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.SpsSewerSprites;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 /** Early-floor SPS-PD monsters, grouped to keep the legacy spawn table explicit. */

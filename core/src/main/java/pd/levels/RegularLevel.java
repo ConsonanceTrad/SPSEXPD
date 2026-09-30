@@ -83,9 +83,9 @@ import pd.levels.traps.PitfallTrap;
 import pd.levels.traps.Trap;
 import pd.levels.traps.WornDartTrap;
 import pd.mechanics.ShadowCaster;
+import pd.mechanics.pathfind.PathFinder;
 import render.utils.BArray;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Point;
 import render.utils.Random;
 

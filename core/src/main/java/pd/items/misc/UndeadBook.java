@@ -17,13 +17,13 @@ import pd.items.Ankh;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.summon.FairyCard;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

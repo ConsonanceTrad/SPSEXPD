@@ -12,13 +12,13 @@ import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.items.Item;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

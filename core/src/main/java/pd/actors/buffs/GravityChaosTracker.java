@@ -29,13 +29,13 @@ import pd.actors.mobs.Mob;
 import pd.items.wands.CursedWand;
 import pd.items.wands.WandOfBlastWave;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.Image;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

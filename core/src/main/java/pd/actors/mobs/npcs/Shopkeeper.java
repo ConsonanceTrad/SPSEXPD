@@ -40,6 +40,7 @@ import pd.items.sellitem.SellPermit;
 import pd.items.armor.Armor;
 import pd.items.weapon.missiles.MissileWeapon;
 import pd.journal.Notes;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
@@ -57,7 +58,6 @@ import render.utils.BArray;
 import render.utils.Bundlable;
 import render.utils.Bundle;
 import render.utils.Callback;
-import render.utils.PathFinder;
 
 import java.util.ArrayList;
 

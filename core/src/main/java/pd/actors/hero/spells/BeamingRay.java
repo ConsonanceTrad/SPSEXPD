@@ -38,6 +38,7 @@ import pd.effects.Beam;
 import pd.items.artifacts.HolyTome;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.tiles.DungeonTilemap;
@@ -46,7 +47,6 @@ import pd.ui.HeroIcon;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 
 public class BeamingRay extends TargetedClericSpell {
 

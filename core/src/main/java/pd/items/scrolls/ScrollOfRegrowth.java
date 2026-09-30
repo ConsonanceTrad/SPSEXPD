@@ -14,6 +14,7 @@ import pd.actors.buffs.Invisibility;
 import pd.actors.mobs.Mob;
 import pd.items.Generator;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.plants.Earthroot;
 import pd.plants.Plant;
 import pd.plants.Starflower;
@@ -22,7 +23,6 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.BArray;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

@@ -13,6 +13,7 @@ import pd.items.Item;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.levels.Level;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
@@ -26,7 +27,6 @@ import render.noosa.Game;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
 import render.utils.Callback;
-import render.utils.PathFinder;
 
 import java.util.ArrayList;
 

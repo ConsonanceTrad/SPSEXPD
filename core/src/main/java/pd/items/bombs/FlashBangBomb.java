@@ -32,6 +32,7 @@ import pd.actors.buffs.Paralysis;
 import pd.effects.CellEmitter;
 import pd.effects.Lightning;
 import pd.effects.particles.SparkParticle;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
@@ -39,7 +40,6 @@ import pd.tiles.DungeonTilemap;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.BArray;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

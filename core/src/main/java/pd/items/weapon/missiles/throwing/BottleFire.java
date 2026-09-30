@@ -10,9 +10,9 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Burning;
 import pd.actors.buffs.FireFollower;
 import pd.actors.hero.Hero;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.PathFinder;
 
 /** Lery's bottled flame, which leaves a thirty-turn trail of delayed fire. */
 public class BottleFire extends TossWeapon {

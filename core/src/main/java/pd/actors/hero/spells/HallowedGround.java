@@ -45,6 +45,7 @@ import pd.items.artifacts.HolyTome;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
@@ -52,7 +53,6 @@ import pd.ui.HeroIcon;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.BArray;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

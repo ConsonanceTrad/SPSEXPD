@@ -28,10 +28,10 @@ import pd.actors.blobs.Blob;
 import pd.actors.blobs.Freezing;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Frost;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import render.utils.BArray;
-import render.utils.PathFinder;
 
 public class FrostBomb extends Bomb {
 	

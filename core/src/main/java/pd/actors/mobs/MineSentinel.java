@@ -15,10 +15,10 @@ import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
 import pd.items.Generator;
 import pd.items.weapon.Weapon;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.SentinelSprite;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

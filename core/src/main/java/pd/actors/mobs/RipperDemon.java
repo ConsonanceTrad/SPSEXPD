@@ -31,6 +31,7 @@ import pd.actors.buffs.Light;
 import pd.effects.Pushing;
 import pd.effects.TargetedCell;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
@@ -40,7 +41,6 @@ import render.noosa.audio.Sample;
 import render.utils.Bundle;
 import render.utils.Callback;
 import render.utils.GameMath;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class RipperDemon extends Mob {

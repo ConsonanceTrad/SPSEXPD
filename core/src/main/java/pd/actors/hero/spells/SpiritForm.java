@@ -45,6 +45,7 @@ import pd.items.artifacts.TimekeepersHourglass;
 import pd.items.artifacts.UnstableSpellbook;
 import pd.items.rings.Ring;
 import pd.items.rings.RingOfMight;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.plants.Blindweed;
 import pd.plants.Fadeleaf;
@@ -62,7 +63,6 @@ import render.noosa.Game;
 import render.noosa.Image;
 import render.utils.Bundlable;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

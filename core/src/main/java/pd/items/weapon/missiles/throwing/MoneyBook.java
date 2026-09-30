@@ -8,9 +8,9 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.HolyStun;
 import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
 import render.utils.BArray;
-import render.utils.PathFinder;
 
 import java.util.ArrayList;
 

@@ -33,8 +33,8 @@ import pd.levels.rooms.Room;
 import pd.levels.rooms.secret.SecretRoom;
 import pd.levels.rooms.standard.CaveRoom;
 import pd.levels.traps.GnollRockfallTrap;
+import pd.mechanics.pathfind.PathFinder;
 import render.utils.GameMath;
-import render.utils.PathFinder;
 import render.utils.Point;
 import render.utils.Random;
 

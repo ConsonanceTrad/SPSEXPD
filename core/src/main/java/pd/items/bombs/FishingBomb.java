@@ -9,11 +9,11 @@ import pd.actors.mobs.npcs.NPC;
 import pd.effects.CellEmitter;
 import pd.effects.particles.SmokeParticle;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.BArray;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class FishingBomb extends Bomb {

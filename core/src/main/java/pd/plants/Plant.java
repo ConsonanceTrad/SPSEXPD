@@ -38,13 +38,13 @@ import pd.journal.Bestiary;
 import pd.journal.Catalog;
 import pd.levels.Level;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.Bundlable;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 import render.utils.Reflection;
 

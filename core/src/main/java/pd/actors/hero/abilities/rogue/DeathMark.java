@@ -35,6 +35,7 @@ import pd.actors.hero.Talent;
 import pd.actors.hero.abilities.ArmorAbility;
 import pd.effects.FloatingText;
 import pd.items.armor.ClassArmor;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
@@ -44,7 +45,6 @@ import pd.utils.GLog;
 import render.noosa.Image;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 
 public class DeathMark extends ArmorAbility {
 

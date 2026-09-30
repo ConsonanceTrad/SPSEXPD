@@ -26,6 +26,7 @@ import pd.actors.buffs.Weakness;
 import pd.items.quest.AdventureJournal;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.utils.GLog;
@@ -38,7 +39,6 @@ import pd.sprites.MonkSprite;
 import pd.sprites.ScorpioSprite;
 import pd.sprites.SkeletonSprite;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

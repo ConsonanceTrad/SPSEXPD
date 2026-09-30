@@ -37,6 +37,7 @@ import pd.effects.particles.SmokeParticle;
 import pd.items.armor.Armor;
 import pd.items.armor.ClassArmor;
 import pd.levels.CityLevel;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.HeroSprite;
@@ -49,7 +50,6 @@ import render.noosa.particles.Emitter;
 import render.noosa.tweeners.Tweener;
 import render.utils.BArray;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

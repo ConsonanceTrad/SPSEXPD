@@ -6,6 +6,7 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.effects.Pushing;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
@@ -14,7 +15,6 @@ import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class BunnyCombo extends Buff implements ActionIndicator.Action {

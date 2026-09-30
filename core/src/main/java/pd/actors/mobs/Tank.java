@@ -22,6 +22,7 @@ import pd.items.weapon.enchantments.EnchantmentDark;
 import pd.items.weapon.enchantments.EnchantmentLight;
 import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.TankSprite;
@@ -30,7 +31,6 @@ import pd.utils.GLog;
 import render.noosa.Camera;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

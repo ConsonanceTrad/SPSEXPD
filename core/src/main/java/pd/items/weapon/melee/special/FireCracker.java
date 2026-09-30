@@ -12,8 +12,8 @@ import pd.actors.mobs.YearBeast2;
 import pd.effects.CellEmitter;
 import pd.effects.particles.SmokeParticle;
 import pd.items.weapon.melee.MeleeWeapon;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 /** The original 2018 firecracker weapon. */

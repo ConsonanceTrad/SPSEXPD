@@ -369,7 +369,7 @@ public class Mimic extends Mob {
 		Char occupant = Actor.findChar(pos);
 		if (occupant != null) {
 			ArrayList<Integer> candidates = new ArrayList<>();
-			for (int offset : render.utils.PathFinder.NEIGHBOURS8) {
+			for (int offset : pd.mechanics.pathfind.PathFinder.NEIGHBOURS8) {
 				int cell = pos + offset;
 				if (Dungeon.level.insideMap(cell)
 						&& (Dungeon.level.passable[cell] || Dungeon.level.avoid[cell])

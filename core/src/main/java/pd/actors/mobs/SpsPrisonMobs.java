@@ -39,6 +39,7 @@ import pd.items.wands.Wand;
 import pd.items.weapon.missiles.throwing.Boomerang;
 import pd.items.quest.AdventureJournal;
 import pd.levels.ThiefCatchLevel;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.utils.GLog;
 import pd.mechanics.Ballistica;
@@ -46,7 +47,6 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.SpsPrisonSprites;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public final class SpsPrisonMobs {

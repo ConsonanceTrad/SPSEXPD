@@ -30,6 +30,7 @@ import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
 import pd.levels.Terrain;
 import pd.levels.features.Door;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSpriteSheet;
@@ -37,7 +38,6 @@ import pd.ui.AttackIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.Callback;
-import render.utils.PathFinder;
 
 public class Rapier extends MeleeWeapon {
 

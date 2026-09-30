@@ -44,6 +44,7 @@ import pd.items.rings.RingOfEnergy;
 import pd.journal.Catalog;
 import pd.levels.MiningLevel;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
@@ -54,7 +55,6 @@ import render.utils.BArray;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.Callback;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

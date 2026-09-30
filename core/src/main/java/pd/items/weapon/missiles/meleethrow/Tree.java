@@ -7,8 +7,8 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Dry;
 import pd.actors.buffs.Hot;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class Tree extends MeleeThrowWeapon {

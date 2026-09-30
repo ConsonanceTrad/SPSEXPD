@@ -28,11 +28,11 @@ import pd.actors.blobs.ToxicGas;
 import pd.items.Generator;
 import pd.items.Item;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.DM200Sprite;
 import render.utils.BArray;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class DM200 extends Mob {

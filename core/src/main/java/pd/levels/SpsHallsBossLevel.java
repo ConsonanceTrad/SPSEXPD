@@ -11,12 +11,12 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.FlameParticle;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.tiles.custom.SpsLegacyLevelVisual;
 import render.noosa.Group;
 import render.noosa.audio.Music;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

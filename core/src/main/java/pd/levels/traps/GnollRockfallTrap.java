@@ -36,13 +36,13 @@ import pd.effects.Speck;
 import pd.levels.Level;
 import pd.levels.MiningLevel;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.BArray;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

@@ -53,13 +53,13 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.GeyserTrap;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.sprites.FistSprite;
 import pd.utils.GLog;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public abstract class YogFist extends Mob {

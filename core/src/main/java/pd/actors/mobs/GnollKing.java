@@ -28,13 +28,13 @@ import pd.items.quest.GnollClothes;
 import pd.items.scrolls.ScrollOfPsionicBlast;
 import pd.items.weapon.enchantments.EnchantmentDark;
 import pd.levels.FieldBossLevel;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.GnollKeeperSprite;
 import pd.sprites.GnollKingSprite;
 import pd.ui.BossHealthBar;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class GnollKing extends Mob {

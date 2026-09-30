@@ -26,8 +26,8 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.effects.Speck;
 import pd.items.armor.Armor;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSprite;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class Swiftness extends Armor.Glyph {

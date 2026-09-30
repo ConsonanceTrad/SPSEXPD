@@ -8,9 +8,9 @@ import pd.actors.hero.HeroClass;
 import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.ui.RedButton;
-import render.utils.PathFinder;
 
 /** Trade window for the hidden shop's permanent-health purchases. */
 public class WndLifeTradeItem extends WndInfoItem {

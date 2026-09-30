@@ -30,6 +30,7 @@ import pd.actors.hero.Talent;
 import pd.actors.mobs.npcs.NPC;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
@@ -45,7 +46,6 @@ import render.noosa.Image;
 import render.noosa.Visual;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 
 import java.util.Arrays;
 import java.util.Collections;

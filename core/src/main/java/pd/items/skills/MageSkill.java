@@ -10,9 +10,9 @@ import pd.items.Item;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.levels.Level;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 /** The four mage class skills from SPS-PD 0.9.8. */

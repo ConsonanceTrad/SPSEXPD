@@ -29,9 +29,9 @@ import pd.effects.particles.LeafParticle;
 import pd.items.weapon.Weapon;
 import pd.levels.Level;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

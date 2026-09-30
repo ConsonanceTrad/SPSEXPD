@@ -41,9 +41,9 @@ import pd.levels.Terrain;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
 import pd.levels.rooms.standard.EmptyRoom;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import render.utils.PathFinder;
 import render.utils.Point;
 import render.utils.Random;
 

@@ -36,13 +36,13 @@ import pd.actors.mobs.npcs.DirectableAlly;
 import pd.effects.MagicMissile;
 import pd.items.artifacts.HolyTome;
 import pd.items.scrolls.ScrollOfTeleportation;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

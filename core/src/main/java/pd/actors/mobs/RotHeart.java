@@ -28,10 +28,10 @@ import pd.actors.blobs.Blob;
 import pd.actors.blobs.ToxicGas;
 import pd.actors.buffs.Burning;
 import pd.journal.Bestiary;
+import pd.mechanics.pathfind.PathFinder;
 import pd.plants.Rotberry;
 import pd.scenes.GameScene;
 import pd.sprites.RotHeartSprite;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class RotHeart extends Mob {

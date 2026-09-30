@@ -10,10 +10,10 @@ import pd.actors.buffs.Roots;
 import pd.effects.Speck;
 import pd.levels.Level;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.PlantKingSprite;
 import pd.items.misc.FourClover;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 /** Plant king, with the old terrain-growing rage phase and its indexing bug fixed. */

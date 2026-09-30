@@ -29,9 +29,9 @@ import pd.items.potions.PotionOfHealing;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.damagetrap.FireDamageTrap;
+import pd.mechanics.pathfind.PathFinder;
 import pd.plants.Plant;
 import render.noosa.Game;
-import render.utils.PathFinder;
 import render.utils.Reflection;
 import render.utils.SparseArray;
 

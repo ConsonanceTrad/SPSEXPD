@@ -9,9 +9,9 @@ import pd.effects.particles.SmokeParticle;
 import pd.items.Item;
 import pd.levels.Level;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class DungeonBomb extends Bomb {

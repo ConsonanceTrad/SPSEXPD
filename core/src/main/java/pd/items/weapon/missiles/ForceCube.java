@@ -30,11 +30,11 @@ import pd.actors.buffs.SnipersMark;
 import pd.actors.hero.HeroSubClass;
 import pd.items.wands.WandOfBlastWave;
 import pd.levels.traps.TenguDartTrap;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 
 import java.util.ArrayList;
 import java.util.Collections;

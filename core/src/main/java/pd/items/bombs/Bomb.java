@@ -45,6 +45,7 @@ import pd.items.scrolls.ScrollOfRage;
 import pd.items.scrolls.ScrollOfRecharging;
 import pd.items.scrolls.ScrollOfRemoveCurse;
 import pd.journal.Catalog;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Languages;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -55,7 +56,6 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.BArray;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 import render.utils.Reflection;
 

@@ -27,9 +27,9 @@ import pd.actors.blobs.Blob;
 import pd.actors.blobs.CorrosiveGas;
 import pd.actors.buffs.Corruption;
 import pd.items.quest.MetalShard;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.DM201Sprite;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class DM201 extends DM200 {

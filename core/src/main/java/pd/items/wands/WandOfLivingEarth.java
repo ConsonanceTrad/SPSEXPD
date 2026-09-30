@@ -39,6 +39,7 @@ import pd.effects.FloatingText;
 import pd.effects.MagicMissile;
 import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
@@ -50,7 +51,6 @@ import render.noosa.audio.Sample;
 import render.utils.Bundle;
 import render.utils.Callback;
 import render.utils.ColorMath;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class WandOfLivingEarth extends DamageWand {

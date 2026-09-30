@@ -27,8 +27,8 @@ import pd.scenes.PixelScene;
 import render.noosa.Game;
 import render.noosa.audio.Music;
 import render.noosa.audio.Sample;
+import pd.settings.GameSettings;
 import render.utils.DeviceCompat;
-import render.utils.GameSettings;
 import render.utils.Point;
 
 import java.util.Locale;

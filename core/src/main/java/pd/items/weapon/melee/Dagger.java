@@ -31,6 +31,7 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
@@ -38,7 +39,6 @@ import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.BArray;
-import render.utils.PathFinder;
 
 public class Dagger extends MeleeWeapon {
 	

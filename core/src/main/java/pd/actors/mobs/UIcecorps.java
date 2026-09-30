@@ -15,11 +15,11 @@ import pd.levels.BossRushLevel;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.SpearTrap;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.SpsFireRabbitSprite;
 import pd.sprites.IceRabbitSprite;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 /** FrostNova's first form. */

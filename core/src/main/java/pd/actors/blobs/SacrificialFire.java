@@ -42,11 +42,11 @@ import pd.effects.particles.SacrificialParticle;
 import pd.items.Item;
 import pd.journal.Notes;
 import pd.levels.rooms.special.SacrificeRoom;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class SacrificialFire extends Blob {

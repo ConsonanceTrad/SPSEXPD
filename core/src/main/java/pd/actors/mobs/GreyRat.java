@@ -18,9 +18,9 @@ import pd.items.Item;
 import pd.items.food.meatfood.Meat;
 import pd.items.misc.LuckyBadge;
 import pd.items.scrolls.ScrollOfPsionicBlast;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.GreyRatSprite;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 /** Original SPS-PD runtime and save identity for the grey rat. */

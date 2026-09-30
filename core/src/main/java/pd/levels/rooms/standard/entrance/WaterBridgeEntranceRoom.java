@@ -28,7 +28,7 @@ import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
 import pd.levels.rooms.standard.WaterBridgeRoom;
-import render.utils.PathFinder;
+import pd.mechanics.pathfind.PathFinder;
 import render.utils.Point;
 
 public class WaterBridgeEntranceRoom extends WaterBridgeRoom {

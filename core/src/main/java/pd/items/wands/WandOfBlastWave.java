@@ -39,6 +39,7 @@ import pd.levels.Terrain;
 import pd.levels.features.Door;
 import pd.levels.traps.TenguDartTrap;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
@@ -49,7 +50,6 @@ import render.noosa.Group;
 import render.noosa.Image;
 import render.noosa.audio.Sample;
 import render.utils.Callback;
-import render.utils.PathFinder;
 import render.utils.PointF;
 import render.utils.Random;
 

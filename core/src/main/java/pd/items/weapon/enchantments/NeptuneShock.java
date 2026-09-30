@@ -7,8 +7,8 @@ import pd.actors.Char;
 import pd.actors.damagetype.DamageType;
 import pd.items.weapon.Weapon;
 import pd.items.weapon.melee.relic.SpsRelicWeapon;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSprite;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.HashSet;

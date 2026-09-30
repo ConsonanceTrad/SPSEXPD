@@ -26,9 +26,9 @@ import pd.actors.Char;
 import pd.actors.blobs.Blob;
 import pd.actors.blobs.Regrowth;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.FungalSpinnerSprite;
-import render.utils.PathFinder;
 
 public class FungalSpinner extends Spinner {
 

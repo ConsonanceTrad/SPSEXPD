@@ -29,9 +29,9 @@ import pd.actors.buffs.Burning;
 import pd.effects.particles.FlameParticle;
 import pd.items.armor.Armor;
 import pd.items.armor.Armor.Glyph;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSprite.Glowing;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class AntiEntropy extends Glyph {

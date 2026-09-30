@@ -5,8 +5,8 @@ import pd.actors.Actor;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.items.Item;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

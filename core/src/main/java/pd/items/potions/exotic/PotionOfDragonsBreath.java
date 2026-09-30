@@ -39,6 +39,7 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
 import pd.mechanics.ConeAOE;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
@@ -47,7 +48,6 @@ import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndOptions;
 import render.noosa.audio.Sample;
 import render.utils.Callback;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

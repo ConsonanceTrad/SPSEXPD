@@ -31,10 +31,10 @@ import pd.effects.CellEmitter;
 import pd.effects.Lightning;
 import pd.effects.particles.EnergyParticle;
 import pd.effects.particles.SparkParticle;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
 import render.utils.BArray;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 
 import java.util.ArrayList;
 

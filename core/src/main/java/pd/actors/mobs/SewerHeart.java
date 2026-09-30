@@ -26,6 +26,7 @@ import pd.items.keys.SpsSkeletonKey;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.items.weapon.rockcode.Gleaf;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.plants.Rotberry;
 import pd.scenes.GameScene;
@@ -36,7 +37,6 @@ import pd.ui.BossHealthBar;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

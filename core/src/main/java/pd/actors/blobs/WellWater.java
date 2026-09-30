@@ -29,8 +29,8 @@ import pd.items.Item;
 import pd.journal.Notes;
 import pd.levels.Level;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public abstract class WellWater extends Blob {

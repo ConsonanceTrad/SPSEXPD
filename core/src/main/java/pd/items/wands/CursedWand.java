@@ -94,6 +94,7 @@ import pd.levels.traps.SummoningTrap;
 import pd.mechanics.Ballistica;
 import pd.mechanics.ConeAOE;
 import pd.mechanics.ShadowCaster;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Languages;
 import pd.messages.Messages;
 import pd.plants.Plant;
@@ -109,7 +110,6 @@ import render.noosa.Game;
 import render.noosa.audio.Sample;
 import render.utils.BArray;
 import render.utils.Callback;
-import render.utils.PathFinder;
 import render.utils.Point;
 import render.utils.Random;
 

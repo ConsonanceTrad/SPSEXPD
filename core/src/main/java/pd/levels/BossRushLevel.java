@@ -25,10 +25,10 @@ import pd.items.BossRush;
 import pd.items.quest.AdventureJournal;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.tiles.custom.SpsLegacyLevelVisual;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.Arrays;

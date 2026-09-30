@@ -7,9 +7,9 @@ import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.effects.Pushing;
 import pd.items.Item;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.MonsterBoxSprite;
-import render.utils.PathFinder;
 import render.utils.Random;
 import render.utils.Reflection;
 

@@ -30,6 +30,7 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.items.Item;
 import pd.items.Waterskin;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
@@ -39,7 +40,6 @@ import pd.windows.WndKeyBindings;
 import render.input.GameAction;
 import render.noosa.Image;
 import render.utils.BArray;
-import render.utils.PathFinder;
 
 public class QuickSlotButton extends Button {
 	

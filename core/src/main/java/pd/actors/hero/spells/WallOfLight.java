@@ -37,12 +37,12 @@ import pd.items.wands.WandOfBlastWave;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 
 public class WallOfLight extends TargetedClericSpell {
 

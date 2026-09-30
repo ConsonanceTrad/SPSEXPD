@@ -9,10 +9,10 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.ForeverShadow;
 import pd.actors.buffs.Invisibility;
 import pd.actors.mobs.Mob;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.DummySprite;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

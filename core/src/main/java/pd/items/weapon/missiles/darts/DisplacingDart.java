@@ -27,10 +27,10 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.items.artifacts.TalismanOfForesight;
 import pd.items.scrolls.ScrollOfTeleportation;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import render.utils.BArray;
-import render.utils.PathFinder;
 
 import java.util.ArrayList;
 

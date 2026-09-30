@@ -24,10 +24,10 @@ package pd.items.bombs;
 import pd.Dungeon;
 import pd.actors.blobs.Blob;
 import pd.actors.blobs.SmokeScreen;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import render.utils.BArray;
-import render.utils.PathFinder;
 
 public class SmokeBomb extends Bomb {
 	

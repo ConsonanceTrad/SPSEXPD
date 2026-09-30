@@ -14,9 +14,9 @@ import pd.actors.buffs.Locked;
 import pd.actors.buffs.Silent;
 import pd.actors.buffs.Vertigo;
 import pd.items.weapon.missiles.MissileWeapon;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.PathFinder;
 
 public class BlindFruit extends MissileWeapon {
 

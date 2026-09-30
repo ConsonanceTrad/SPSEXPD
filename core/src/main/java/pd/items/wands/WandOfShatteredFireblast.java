@@ -13,6 +13,7 @@ import pd.actors.buffs.Cripple;
 import pd.actors.buffs.Paralysis;
 import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.effects.MagicMissile;
@@ -20,7 +21,6 @@ import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.Callback;
-import render.utils.PathFinder;
 
 import java.util.HashMap;
 import java.util.HashSet;

@@ -45,6 +45,7 @@ import pd.effects.Speck;
 import pd.items.Item;
 import pd.items.armor.ClassArmor;
 import pd.items.scrolls.ScrollOfTeleportation;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
@@ -54,7 +55,6 @@ import pd.utils.GLog;
 import render.noosa.TextureFilm;
 import render.noosa.audio.Sample;
 import render.utils.BArray;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class SmokeBomb extends ArmorAbility {

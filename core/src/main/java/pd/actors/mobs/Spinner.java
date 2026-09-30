@@ -34,10 +34,10 @@ import pd.effects.particles.ShadowParticle;
 import pd.items.Item;
 import pd.items.food.MysteryMeat;
 import pd.items.weapon.melee.normalweapon.Whip;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.SpinnerSprite;
 import render.noosa.tweeners.AlphaTweener;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class Spinner extends Mob {

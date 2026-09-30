@@ -23,12 +23,12 @@ import pd.items.Item;
 import pd.items.KindOfWeapon;
 import pd.items.weapon.melee.normalweapon.FightGloves;
 import pd.items.weapon.melee.normalweapon.Knuckles;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.utils.GLog;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 
 public class DisarmingTrap extends Trap {
 

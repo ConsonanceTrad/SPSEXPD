@@ -9,8 +9,8 @@ import pd.Assets;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.items.weapon.melee.Mace;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.PathFinder;
 
 public class WarDrum extends Mace implements FusionWeapon {
 

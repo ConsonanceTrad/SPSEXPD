@@ -39,6 +39,7 @@ import pd.effects.Speck;
 import pd.effects.particles.ShaftParticle;
 import pd.items.armor.ClassArmor;
 import pd.items.scrolls.ScrollOfTeleportation;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.MobSprite;
@@ -47,7 +48,6 @@ import pd.utils.GLog;
 import render.noosa.TextureFilm;
 import render.utils.Bundle;
 import render.utils.GameMath;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

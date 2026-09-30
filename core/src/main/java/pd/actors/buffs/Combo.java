@@ -32,6 +32,7 @@ import pd.actors.mobs.DwarfKing;
 import pd.items.BrokenSeal;
 import pd.items.wands.WandOfBlastWave;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
@@ -50,7 +51,6 @@ import render.noosa.audio.Sample;
 import render.utils.BArray;
 import render.utils.Bundle;
 import render.utils.Callback;
-import render.utils.PathFinder;
 
 public class Combo extends Buff implements ActionIndicator.Action {
 

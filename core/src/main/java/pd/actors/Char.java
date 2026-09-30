@@ -210,6 +210,7 @@ import pd.levels.features.Door;
 import pd.levels.traps.GeyserTrap;
 import pd.levels.traps.GnollRockfallTrap;
 import pd.levels.traps.GrimTrap;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Languages;
 import pd.messages.Messages;
 import pd.plants.Earthroot;
@@ -223,7 +224,6 @@ import render.noosa.audio.Sample;
 import render.utils.BArray;
 import render.utils.Bundlable;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.PointF;
 import render.utils.Random;
 

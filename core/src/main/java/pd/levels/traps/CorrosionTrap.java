@@ -27,9 +27,9 @@ import pd.actors.blobs.Blob;
 import pd.actors.blobs.CorrosiveGas;
 import pd.actors.buffs.Buff;
 import pd.actors.mobs.Mob;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 
 public class CorrosionTrap extends Trap {
 

@@ -76,6 +76,7 @@ import pd.items.weapon.melee.relic.NeptunusTrident;
 import pd.items.weapon.missiles.darts.Dart;
 import pd.items.weapon.missiles.darts.TippedDart;
 import pd.journal.Document;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.plants.Rotberry;
@@ -85,7 +86,6 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.Bundlable;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

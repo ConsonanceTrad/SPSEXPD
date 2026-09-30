@@ -34,12 +34,12 @@ import pd.actors.hero.abilities.ArmorAbility;
 import pd.items.armor.ClassArmor;
 import pd.items.wands.WandOfBlastWave;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.ui.HeroIcon;
 import render.utils.Callback;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class HeroicLeap extends ArmorAbility {

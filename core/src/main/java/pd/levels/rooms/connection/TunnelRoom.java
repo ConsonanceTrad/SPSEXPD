@@ -23,8 +23,8 @@ package pd.levels.rooms.connection;
 
 import pd.levels.Level;
 import pd.levels.painters.Painter;
+import pd.mechanics.pathfind.PathFinder;
 import render.utils.GameMath;
-import render.utils.PathFinder;
 import render.utils.Point;
 import render.utils.PointF;
 import render.utils.Random;

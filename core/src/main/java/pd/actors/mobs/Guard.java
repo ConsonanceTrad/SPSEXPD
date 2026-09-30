@@ -35,6 +35,7 @@ import pd.items.Item;
 import pd.items.weapon.enchantments.EnchantmentDark;
 import pd.items.weapon.enchantments.EnchantmentDark2;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.GuardSprite;
@@ -42,7 +43,6 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
 import render.utils.Callback;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class Guard extends Mob {

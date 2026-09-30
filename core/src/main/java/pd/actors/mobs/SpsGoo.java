@@ -38,6 +38,7 @@ import pd.items.weapon.enchantments.EnchantmentDark2;
 import pd.items.weapon.enchantments.EnchantmentFire;
 import pd.items.weapon.enchantments.EnchantmentFire2;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
@@ -49,7 +50,6 @@ import render.noosa.Camera;
 import render.noosa.audio.Sample;
 import render.utils.BArray;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

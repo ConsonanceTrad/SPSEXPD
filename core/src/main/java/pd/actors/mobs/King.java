@@ -15,6 +15,7 @@ import pd.items.Item;
 import pd.items.artifacts.ChaliceOfBlood;
 import pd.items.wands.WandOfDisintegration;
 import pd.items.weapon.missiles.throwing.Skull;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.DwarfKingTombSprite;
@@ -23,7 +24,6 @@ import pd.sprites.SpsUndeadSprite;
 import pd.ui.BossHealthBar;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

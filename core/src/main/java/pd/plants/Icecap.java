@@ -32,8 +32,8 @@ import pd.actors.hero.HeroSubClass;
 import pd.actors.mobs.Mob;
 import pd.levels.traps.Trap;
 import pd.items.weapon.missiles.arrows.IceFruit;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.PathFinder;
 
 public class Icecap extends Plant {
 	

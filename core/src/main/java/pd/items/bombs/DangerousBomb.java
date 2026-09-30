@@ -16,12 +16,12 @@ import pd.effects.particles.SmokeParticle;
 import pd.items.Heap;
 import pd.levels.Level;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.BArray;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 /** Hybrid's phase-change bomb from SPS-PD 0.9.8. */

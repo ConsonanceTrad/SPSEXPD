@@ -17,10 +17,10 @@ import pd.effects.particles.SmokeParticle;
 import pd.items.Heap;
 import pd.levels.Level;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import render.utils.BArray;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 /** SPS two-tile blast bomb, including its intended wall-breaking behavior. */

@@ -26,11 +26,11 @@ import pd.Dungeon;
 import pd.actors.blobs.Blob;
 import pd.actors.blobs.Electricity;
 import pd.items.potions.PotionOfParalyticGas;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import render.utils.BArray;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 
 public class ShockingBrew extends Brew {
 	

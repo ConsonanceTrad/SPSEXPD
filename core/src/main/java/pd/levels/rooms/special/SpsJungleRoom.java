@@ -10,11 +10,11 @@ import pd.items.weapon.missiles.buildblock.PlantPotBlock;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
+import pd.mechanics.pathfind.PathFinder;
 import pd.plants.BlandfruitBush;
 import pd.plants.NutPlant;
 import pd.plants.Plant;
 import pd.plants.Seedpod;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

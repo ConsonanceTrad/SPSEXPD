@@ -10,9 +10,9 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.FrostIce;
 import pd.effects.CellEmitter;
 import pd.effects.particles.SmokeParticle;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class IceBomb extends Bomb {

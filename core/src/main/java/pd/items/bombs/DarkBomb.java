@@ -9,8 +9,8 @@ import pd.actors.buffs.ShadowCurse;
 import pd.actors.buffs.Terror;
 import pd.effects.CellEmitter;
 import pd.effects.particles.SmokeParticle;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class DarkBomb extends Bomb {

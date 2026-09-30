@@ -56,6 +56,7 @@ import pd.items.wands.WandOfLightning;
 import pd.journal.Bestiary;
 import pd.levels.CityBossLevel;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
@@ -69,7 +70,6 @@ import render.noosa.audio.Sample;
 import render.noosa.particles.Emitter;
 import render.utils.Bundle;
 import render.utils.Callback;
-import render.utils.PathFinder;
 import render.utils.Random;
 import render.utils.Reflection;
 

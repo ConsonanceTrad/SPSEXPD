@@ -23,10 +23,10 @@ import pd.items.scrolls.ScrollOfPsionicBlast;
 import pd.items.weapon.enchantments.EnchantmentDark;
 import pd.levels.BossRushLevel;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.UGooSprite;
 import pd.items.weapon.melee.special.Handcannon;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 /** The four-element lord goo and its original elemental projections. */

@@ -31,10 +31,10 @@ import pd.actors.buffs.EnergyArmor;
 import pd.actors.buffs.Poison;
 import pd.items.Generator;
 import pd.items.Item;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.BanditSprite;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class Bandit extends Thief {

@@ -15,11 +15,11 @@ import pd.items.TriforceOfWisdom;
 import pd.items.potions.PotionOfLevitation;
 import pd.levels.builders.SpsBspLayout.Room;
 import pd.levels.builders.SpsBspLayout.Type;
+import pd.mechanics.pathfind.PathFinder;
 import pd.plants.BlandfruitBush;
 import pd.plants.ReNepenth;
 import pd.plants.StarEater;
 import render.utils.Random;
-import render.utils.PathFinder;
 
 public class TriangleWLevel extends SpsTriangleLevel {
 	{ color1 = 0x48763c; color2 = 0x59994a; }

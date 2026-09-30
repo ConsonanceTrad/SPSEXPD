@@ -35,6 +35,7 @@ import pd.items.scrolls.exotic.ScrollOfPassage;
 import pd.journal.Catalog;
 import pd.journal.Notes;
 import pd.levels.Level;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.InterlevelScene;
@@ -45,7 +46,6 @@ import pd.windows.WndOptions;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

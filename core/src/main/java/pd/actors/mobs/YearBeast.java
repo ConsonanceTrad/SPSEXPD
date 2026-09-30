@@ -34,12 +34,12 @@ import pd.items.weapon.melee.normalweapon.Knuckles;
 import pd.items.weapon.melee.special.FireCracker;
 import pd.items.weapon.missiles.MoneyPack;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.BeastYearSprite;
 import pd.utils.GLog;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.Calendar;

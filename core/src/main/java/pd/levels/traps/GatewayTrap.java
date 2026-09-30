@@ -33,9 +33,9 @@ import pd.items.Heap;
 import pd.items.Honeypot;
 import pd.items.Item;
 import pd.items.scrolls.ScrollOfTeleportation;
+import pd.mechanics.pathfind.PathFinder;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

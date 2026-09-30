@@ -41,6 +41,7 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
@@ -54,7 +55,6 @@ import render.noosa.Tilemap;
 import render.noosa.audio.Music;
 import render.utils.Bundle;
 import render.utils.Callback;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

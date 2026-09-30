@@ -7,8 +7,8 @@ import pd.items.RedDewdrop;
 import pd.items.VioletDewdrop;
 import pd.items.YellowDewdrop;
 import pd.items.medicine.GreenSpore;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSpriteSheet;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class Dewcatcher extends Plant {

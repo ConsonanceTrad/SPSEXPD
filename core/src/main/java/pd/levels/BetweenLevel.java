@@ -36,8 +36,8 @@ import pd.levels.rooms.special.SpsShopRoom;
 import pd.levels.rooms.special.SpsTentRoom;
 import pd.levels.rooms.standard.EmptyRoom;
 import pd.levels.rooms.standard.StandardRoom;
+import pd.mechanics.pathfind.PathFinder;
 import pd.tiles.custom.SpsLegacyLevelVisual;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

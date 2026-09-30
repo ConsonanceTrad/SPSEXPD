@@ -30,9 +30,9 @@ import pd.effects.particles.ShaftParticle;
 import pd.journal.Notes;
 import pd.levels.Level;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import render.utils.PathFinder;
 
 public class Foliage extends Blob {
 

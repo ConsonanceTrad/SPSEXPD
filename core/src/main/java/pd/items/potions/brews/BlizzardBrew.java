@@ -26,10 +26,10 @@ import pd.Dungeon;
 import pd.actors.blobs.Blizzard;
 import pd.actors.blobs.Blob;
 import pd.items.potions.PotionOfFrost;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 
 public class BlizzardBrew extends Brew {
 	

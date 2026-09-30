@@ -24,7 +24,7 @@ package pd.tiles;
 import pd.Assets;
 import pd.Dungeon;
 import pd.levels.Terrain;
-import render.utils.PathFinder;
+import pd.mechanics.pathfind.PathFinder;
 
 /**
  * SPS: 水缝合边的独立渲染层。

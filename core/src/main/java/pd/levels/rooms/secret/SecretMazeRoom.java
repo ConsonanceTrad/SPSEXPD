@@ -32,7 +32,7 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.features.Maze;
 import pd.levels.painters.Painter;
-import render.utils.PathFinder;
+import pd.mechanics.pathfind.PathFinder;
 import render.utils.Point;
 import render.utils.Random;
 

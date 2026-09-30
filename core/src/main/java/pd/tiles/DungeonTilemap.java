@@ -23,11 +23,11 @@ package pd.tiles;
 
 import pd.Dungeon;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import render.noosa.Image;
 import render.noosa.TextureFilm;
 import render.noosa.Tilemap;
 import render.noosa.tweeners.AlphaTweener;
-import render.utils.PathFinder;
 import render.utils.PointF;
 
 public abstract class DungeonTilemap extends Tilemap {

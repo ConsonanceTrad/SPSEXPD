@@ -70,7 +70,7 @@ public class RustybladeCat extends Item {
 		if (Actor.findChar(cell) == null && Dungeon.level.insideMap(cell)
 				&& Dungeon.level.passable[cell]) return cell;
 		ArrayList<Integer> candidates = new ArrayList<>();
-		for (int offset : render.utils.PathFinder.NEIGHBOURS8) {
+		for (int offset : pd.mechanics.pathfind.PathFinder.NEIGHBOURS8) {
 			int candidate = cell + offset;
 			if (Dungeon.level.insideMap(candidate) && Dungeon.level.passable[candidate]
 					&& !Dungeon.level.pit[candidate] && Actor.findChar(candidate) == null) {

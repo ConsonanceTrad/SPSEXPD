@@ -25,12 +25,12 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.blobs.Blob;
 import pd.actors.blobs.ToxicGas;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 
 public class ToxicImbue extends Buff {
 	

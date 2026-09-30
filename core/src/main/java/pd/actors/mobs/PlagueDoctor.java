@@ -33,6 +33,7 @@ import pd.items.keys.SpsSkeletonKey;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.items.wands.WandOfLight;
 import pd.items.weapon.rockcode.Dpotion;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.PlagueDoctorSprite;
@@ -41,7 +42,6 @@ import pd.ui.BossHealthBar;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

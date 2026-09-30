@@ -23,9 +23,9 @@ package pd.levels.rooms;
 
 import pd.levels.Level;
 import pd.levels.painters.Painter;
+import pd.mechanics.pathfind.Graph;
 import render.utils.Bundlable;
 import render.utils.Bundle;
-import render.utils.Graph;
 import render.utils.Point;
 import render.utils.Random;
 import render.utils.Rect;

@@ -34,12 +34,12 @@ import pd.items.Item;
 import pd.levels.PrisonLevel;
 import pd.levels.RegularLevel;
 import pd.levels.rooms.quest.RitualSiteRoom;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.noosa.particles.Emitter;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

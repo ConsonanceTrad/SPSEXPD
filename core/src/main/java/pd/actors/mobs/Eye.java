@@ -37,13 +37,13 @@ import pd.items.potions.PotionOfHealing;
 import pd.items.wands.WandOfDisintegration;
 import pd.items.weapon.enchantments.EnchantmentDark;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.sprites.EyeSprite;
 import pd.utils.GLog;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 import render.noosa.tweeners.AlphaTweener;
 

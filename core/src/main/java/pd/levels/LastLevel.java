@@ -29,10 +29,10 @@ import pd.actors.mobs.Mob;
 import pd.items.PuddingCup;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import render.noosa.Group;
 import render.noosa.audio.Music;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

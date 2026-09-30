@@ -74,6 +74,7 @@ import pd.items.weapon.melee.MeleeWeapon;
 import pd.items.weapon.missiles.MissileWeapon;
 import pd.levels.Level;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
@@ -83,7 +84,6 @@ import render.noosa.Image;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
 import render.utils.GameMath;
-import render.utils.PathFinder;
 import render.utils.Random;
 import render.utils.Reflection;
 

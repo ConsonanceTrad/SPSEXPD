@@ -19,11 +19,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package render.utils;
+package pd.mechanics.pathfind;
+
+import render.utils.BArray;
+import render.utils.Point;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 
+//游戏地形寻路：按关卡通行性与危险度构建距离图并回退最短路，供怪物 AI、传送落点与关卡生成使用。
+//位置隶属于游戏侧（pd.mechanics.pathfind）；渲染库不再承载寻路逻辑。
 public class PathFinder {
 	
 	public static int[] distance;

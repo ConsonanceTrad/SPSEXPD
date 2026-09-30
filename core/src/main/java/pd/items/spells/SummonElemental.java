@@ -44,6 +44,7 @@ import pd.items.scrolls.ScrollOfRecharging;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.items.scrolls.ScrollOfTransmutation;
 import pd.journal.Catalog;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
@@ -53,7 +54,6 @@ import pd.utils.GLog;
 import pd.windows.WndBag;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 import render.utils.Reflection;
 

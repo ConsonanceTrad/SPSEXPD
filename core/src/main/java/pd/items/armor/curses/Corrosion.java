@@ -27,8 +27,8 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Ooze;
 import pd.effects.Splash;
 import pd.items.armor.Armor;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSprite;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class Corrosion extends Armor.Glyph {

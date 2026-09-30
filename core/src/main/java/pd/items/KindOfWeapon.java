@@ -31,6 +31,7 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.HeroClass;
 import pd.actors.hero.HeroSubClass;
 import pd.actors.hero.Talent;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
@@ -38,7 +39,6 @@ import pd.utils.GLog;
 import pd.windows.WndOptions;
 import render.noosa.audio.Sample;
 import render.utils.BArray;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 abstract public class KindOfWeapon extends EquipableItem {

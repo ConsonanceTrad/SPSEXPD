@@ -3,9 +3,9 @@ package pd.actors.mobs;
 
 import pd.Dungeon;
 import pd.actors.Actor;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ManySkeletonSprite;
-import render.utils.PathFinder;
 
 /** Original SPS-PD runtime and save identity for the huge skull. */
 public class ManySkeleton extends SpsCityMobs.ManySkeleton {

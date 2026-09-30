@@ -20,11 +20,11 @@ import pd.items.quest.AdventureJournal;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.Trap;
+import pd.mechanics.pathfind.PathFinder;
 import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.SparseArray;
 
 import java.awt.image.BufferedImage;

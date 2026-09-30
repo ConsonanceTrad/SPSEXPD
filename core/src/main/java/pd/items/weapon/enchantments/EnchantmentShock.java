@@ -7,8 +7,8 @@ import pd.actors.Char;
 import pd.effects.Lightning;
 import pd.effects.particles.SparkParticle;
 import pd.items.weapon.Weapon;
+import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSprite;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

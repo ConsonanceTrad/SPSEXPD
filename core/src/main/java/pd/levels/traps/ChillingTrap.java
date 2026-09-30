@@ -29,9 +29,9 @@ import pd.actors.blobs.Freezing;
 import pd.actors.buffs.Buff;
 import pd.actors.mobs.Mob;
 import pd.effects.Splash;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 
 public class ChillingTrap extends Trap{
 

@@ -8,12 +8,12 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.OrbOfZotMob;
 import pd.effects.particles.ElmoParticle;
 import pd.items.journalpages.EnergyCore;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

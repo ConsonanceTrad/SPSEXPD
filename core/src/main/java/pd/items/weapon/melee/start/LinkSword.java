@@ -33,13 +33,13 @@ import pd.items.weapon.missiles.throwing.EscapeKnive;
 import pd.items.weapon.missiles.throwing.Skull;
 import pd.items.weapon.missiles.throwing.Wave;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 import render.utils.Reflection;
 

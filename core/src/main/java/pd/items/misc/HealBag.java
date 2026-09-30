@@ -15,11 +15,11 @@ import pd.actors.hero.Hero;
 import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

@@ -12,6 +12,7 @@ import pd.effects.Speck;
 import pd.items.Item;
 import pd.levels.Level;
 import pd.levels.Terrain;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
@@ -19,7 +20,6 @@ import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 
 import java.util.ArrayList;
 

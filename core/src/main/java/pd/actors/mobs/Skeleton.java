@@ -38,13 +38,13 @@ import pd.items.Item;
 import pd.items.weapon.melee.StoneCross;
 import pd.items.wands.WandOfLivingEarth;
 import pd.levels.features.Chasm;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.plants.Earthroot;
 import pd.sprites.SkeletonSprite;
 import pd.ui.TargetHealthIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class Skeleton extends Mob {

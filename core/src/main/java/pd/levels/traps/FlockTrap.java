@@ -31,10 +31,10 @@ import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.items.Heap;
 import pd.journal.Bestiary;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.noosa.audio.Sample;
 import render.utils.BArray;
-import render.utils.PathFinder;
 
 import java.util.ArrayList;
 

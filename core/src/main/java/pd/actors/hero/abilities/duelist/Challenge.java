@@ -40,6 +40,7 @@ import pd.effects.CellEmitter;
 import pd.effects.FloatingText;
 import pd.effects.Speck;
 import pd.items.armor.ClassArmor;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
@@ -50,7 +51,6 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.BArray;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 
 public class Challenge extends ArmorAbility {
 

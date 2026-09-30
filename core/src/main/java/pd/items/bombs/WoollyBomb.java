@@ -27,11 +27,11 @@ import pd.actors.Actor;
 import pd.actors.mobs.npcs.Sheep;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import render.utils.BArray;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 
 import java.util.ArrayList;
 

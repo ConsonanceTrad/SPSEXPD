@@ -28,8 +28,8 @@ import pd.actors.mobs.Mob;
 import pd.items.Heap;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.journal.Bestiary;
+import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

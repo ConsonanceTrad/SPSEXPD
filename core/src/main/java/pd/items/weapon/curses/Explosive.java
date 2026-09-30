@@ -29,12 +29,12 @@ import pd.items.Item;
 import pd.items.bombs.Bomb;
 import pd.items.weapon.Weapon;
 import pd.items.weapon.missiles.MissileWeapon;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite;
 import pd.utils.GLog;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 public class Explosive extends Weapon.Enchantment {

@@ -20,13 +20,13 @@ import pd.items.bombs.DangerousBomb;
 import pd.items.potions.PotionOfExperience;
 import pd.levels.Terrain;
 import pd.levels.features.Door;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.effects.Pushing;
 import pd.sprites.HybridSprite;
 import pd.ui.BossHealthBar;
 import render.utils.Bundle;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 import java.util.ArrayList;

@@ -12,11 +12,11 @@ import pd.effects.Pushing;
 import pd.effects.Speck;
 import pd.items.weapon.melee.MeleeWeapon;
 import pd.mechanics.Ballistica;
+import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
-import render.utils.PathFinder;
 import render.utils.Random;
 
 /** The original sound-wave club awarded by the velocirooster. */
