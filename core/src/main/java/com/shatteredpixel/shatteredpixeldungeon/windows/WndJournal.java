@@ -909,6 +909,10 @@ public class WndJournal extends WndTabbed {
 				}
 
 				CharSprite sprite = mob.sprite();
+				if (sprite == null) {
+					//健壮性：spriteClass 未设置的实体（占位类/旧存档壳类）跳过，避免整个怪物页崩溃
+					continue;
+				}
 				sprite.idle();
 
 				icon = new Image(sprite);
