@@ -30,6 +30,7 @@ import pd.actors.hero.abilities.duelist.Challenge;
 import pd.effects.FloatingText;
 import pd.effects.Pushing;
 import pd.items.Gold;
+import pd.levels.FieldOfView;
 import pd.levels.features.Chasm;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
@@ -246,7 +247,7 @@ public class Ghoul extends Mob {
 
 			if (target.fieldOfView == null){
 				target.fieldOfView = new boolean[Dungeon.level.length()];
-				Dungeon.level.updateFieldOfView( target, target.fieldOfView );
+				FieldOfView.update( Dungeon.level,  target, target.fieldOfView );
 			}
 
 			if (!target.fieldOfView[ghoul.pos] && Dungeon.level.distance(ghoul.pos, target.pos) >= 4){
@@ -364,7 +365,7 @@ public class Ghoul extends Mob {
 						&& ch.buff(Challenge.SpectatorFreeze.class) == null){
 					if (ch.fieldOfView == null){
 						ch.fieldOfView = new boolean[Dungeon.level.length()];
-						Dungeon.level.updateFieldOfView( ch, ch.fieldOfView );
+						FieldOfView.update( Dungeon.level,  ch, ch.fieldOfView );
 					}
 					if (ch.fieldOfView[dieing.pos] || Dungeon.level.distance(ch.pos, dieing.pos) < 4){
 						return (Ghoul) ch;

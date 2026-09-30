@@ -55,6 +55,7 @@ import pd.items.Item;
 import pd.items.TengusMask;
 import pd.items.artifacts.DriedRose;
 import pd.items.bombs.Bomb;
+import pd.levels.FieldOfView;
 import pd.levels.Level;
 import pd.levels.PrisonBossLevel;
 import pd.mechanics.Ballistica;
@@ -237,7 +238,7 @@ public class Tengu extends Mob {
 		//in case tengu hasn't had a chance to act yet
 		if (fieldOfView == null || fieldOfView.length != Dungeon.level.length()){
 			fieldOfView = new boolean[Dungeon.level.length()];
-			Dungeon.level.updateFieldOfView( this, fieldOfView );
+			FieldOfView.update( Dungeon.level,  this, fieldOfView );
 		}
 		
 		if (enemy == null) enemy = chooseEnemy();

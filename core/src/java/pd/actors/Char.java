@@ -204,6 +204,7 @@ import pd.items.weapon.melee.MeleeWeapon;
 import pd.items.weapon.melee.Sickle;
 import pd.items.weapon.missiles.MissileWeapon;
 import pd.items.weapon.missiles.darts.ShockingDart;
+import pd.levels.FieldOfView;
 import pd.levels.Terrain;
 import pd.levels.features.Chasm;
 import pd.levels.features.Door;
@@ -268,7 +269,7 @@ public abstract class Char extends Actor {
 		if (fieldOfView == null || fieldOfView.length != Dungeon.level.length()){
 			fieldOfView = new boolean[Dungeon.level.length()];
 		}
-		Dungeon.level.updateFieldOfView( this, fieldOfView );
+		FieldOfView.update( Dungeon.level,  this, fieldOfView );
 
 		//throw any items that are on top of an immovable char
 		if (properties().contains(Property.IMMOVABLE)){

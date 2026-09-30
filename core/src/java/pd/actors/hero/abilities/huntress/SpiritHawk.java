@@ -39,6 +39,7 @@ import pd.effects.Speck;
 import pd.effects.particles.ShaftParticle;
 import pd.items.armor.ClassArmor;
 import pd.items.scrolls.ScrollOfTeleportation;
+import pd.levels.FieldOfView;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -220,7 +221,7 @@ public class SpiritHawk extends ArmorAbility {
 			viewDistance = 6+Dungeon.hero.pointsInTalent(Talent.EAGLE_EYE);
 			baseSpeed = 2f + Dungeon.hero.pointsInTalent(Talent.SWIFT_SPIRIT)/2f;
 			boolean result = super.act();
-			Dungeon.level.updateFieldOfView( this, fieldOfView );
+			FieldOfView.update( Dungeon.level,  this, fieldOfView );
 			GameScene.updateFog(pos, viewDistance+(int)Math.ceil(speed()));
 			return result;
 		}

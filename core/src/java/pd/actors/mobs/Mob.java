@@ -103,6 +103,7 @@ import pd.items.weapon.missiles.MissileWeapon;
 import pd.items.weapon.missiles.darts.Dart;
 import pd.journal.Bestiary;
 import pd.journal.Notes;
+import pd.levels.FieldOfView;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.VaultLevel;
@@ -350,7 +351,7 @@ public abstract class Mob extends Char {
 
 		//for updating hero FOV
 		if (buff(PowerOfMany.PowerBuff.class) != null){
-			Dungeon.level.updateFieldOfView( this, fieldOfView );
+			FieldOfView.update( Dungeon.level,  this, fieldOfView );
 			GameScene.updateFog(pos, viewDistance+(int)Math.ceil(speed()));
 		}
 
@@ -1977,7 +1978,7 @@ public abstract class Mob extends Char {
 				if (ally.fieldOfView == null || ally.fieldOfView.length != level.length()){
 					ally.fieldOfView = new boolean[level.length()];
 				}
-				Dungeon.level.updateFieldOfView( ally, ally.fieldOfView );
+				FieldOfView.update( Dungeon.level,  ally, ally.fieldOfView );
 				
 			}
 		}

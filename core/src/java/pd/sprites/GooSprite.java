@@ -26,6 +26,7 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.effects.CellEmitter;
 import pd.effects.particles.ElmoParticle;
+import pd.levels.FieldOfView;
 import pd.mechanics.Ballistica;
 import render.noosa.TextureFilm;
 import render.noosa.audio.Sample;
@@ -105,7 +106,7 @@ public class GooSprite extends MobSprite {
 			lastPumpUpPos = ch.pos;
 			if (ch.fieldOfView == null || ch.fieldOfView.length != Dungeon.level.length()) {
 				ch.fieldOfView = new boolean[Dungeon.level.length()];
-				Dungeon.level.updateFieldOfView(ch, ch.fieldOfView);
+				FieldOfView.update( Dungeon.level, ch, ch.fieldOfView);
 			}
 			for (int i = 0; i < Dungeon.level.length(); i++) {
 				if (ch.fieldOfView != null && ch.fieldOfView[i]

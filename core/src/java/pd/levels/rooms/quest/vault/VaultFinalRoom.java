@@ -36,6 +36,7 @@ import pd.items.wands.Wand;
 import pd.items.weapon.melee.MagesStaff;
 import pd.items.weapon.melee.MeleeWeapon;
 import pd.items.weapon.missiles.MissileWeapon;
+import pd.levels.FieldOfView;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -257,7 +258,7 @@ public class VaultFinalRoom extends SpecialRoom {
 				GameScene.add(boss, 1);
 				//we add a 1 turn delay, but compute FOV to prevent an opening surprise attack
 				boss.fieldOfView = new boolean[Dungeon.level.length()];
-				Dungeon.level.updateFieldOfView( boss, boss.fieldOfView );
+				FieldOfView.update( Dungeon.level,  boss, boss.fieldOfView );
 				boss.aggro(Dungeon.hero);
 				boss.sprite.turnTo(boss.pos, Dungeon.hero.pos);
 				boss.setElementalForm(boss.curForm()); //re-assert default form for particle fx

@@ -227,6 +227,7 @@ import pd.items.weapon.missiles.MissileWeapon;
 import pd.journal.Catalog;
 import pd.journal.Document;
 import pd.journal.Notes;
+import pd.levels.FieldOfView;
 import pd.levels.Level;
 import pd.levels.MiningLevel;
 import pd.levels.Terrain;
@@ -1101,7 +1102,7 @@ public class Hero extends Char {
 				Dungeon.observe();
 			} else {
 				//otherwise just directly re-calculate FOV
-				Dungeon.level.updateFieldOfView(this, fieldOfView);
+				FieldOfView.update( Dungeon.level, this, fieldOfView);
 			}
 		}
 		
@@ -2302,7 +2303,7 @@ public class Hero extends Char {
 
 		if (fieldOfView == null || fieldOfView.length != Dungeon.level.length()){
 			fieldOfView = new boolean[Dungeon.level.length()];
-			Dungeon.level.updateFieldOfView( this, fieldOfView );
+			FieldOfView.update( Dungeon.level,  this, fieldOfView );
 		}
 
 		if (!Dungeon.level.visited[cell] && !Dungeon.level.mapped[cell]

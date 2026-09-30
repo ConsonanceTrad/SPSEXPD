@@ -37,6 +37,7 @@ import pd.effects.Pushing;
 import pd.effects.Splash;
 import pd.items.quest.Pickaxe;
 import pd.journal.Bestiary;
+import pd.levels.FieldOfView;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
@@ -90,7 +91,7 @@ public class CrystalSpire extends Mob {
 		if (fieldOfView == null || fieldOfView.length != Dungeon.level.length()){
 			fieldOfView = new boolean[Dungeon.level.length()];
 		}
-		Dungeon.level.updateFieldOfView( this, fieldOfView );
+		FieldOfView.update( Dungeon.level,  this, fieldOfView );
 
 		throwItems();
 
@@ -361,7 +362,7 @@ public class CrystalSpire extends Mob {
 
 						if (fieldOfView == null || fieldOfView.length != Dungeon.level.length()){
 							fieldOfView = new boolean[Dungeon.level.length()];
-							Dungeon.level.updateFieldOfView( CrystalSpire.this, fieldOfView );
+							FieldOfView.update( Dungeon.level,  CrystalSpire.this, fieldOfView );
 						}
 
 						for (int i = 0; i < Dungeon.level.length(); i++){

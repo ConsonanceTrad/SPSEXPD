@@ -34,6 +34,7 @@ import pd.effects.CellEmitter;
 import pd.effects.Lightning;
 import pd.effects.particles.SparkParticle;
 import pd.levels.CavesBossLevel;
+import pd.levels.FieldOfView;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
@@ -74,7 +75,7 @@ public class Pylon extends Mob {
 		if (fieldOfView == null || fieldOfView.length != Dungeon.level.length()){
 			fieldOfView = new boolean[Dungeon.level.length()];
 		}
-		Dungeon.level.updateFieldOfView( this, fieldOfView );
+		FieldOfView.update( Dungeon.level,  this, fieldOfView );
 
 		throwItems();
 

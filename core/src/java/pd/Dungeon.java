@@ -76,6 +76,7 @@ import pd.levels.CityLevel;
 import pd.levels.DeadEndLevel;
 import pd.levels.DragonCaveLevel;
 import pd.levels.FieldBossLevel;
+import pd.levels.FieldOfView;
 import pd.levels.FishingBossLevel;
 import pd.levels.HallsLevel;
 import pd.levels.IceChallengeLevel;
@@ -1208,7 +1209,7 @@ public class Dungeon {
 			return;
 		}
 		
-		level.updateFieldOfView(hero, level.heroFOV);
+		FieldOfView.update( level, hero, level.heroFOV);
 		boolean forgetVisited = isChallenged(Challenges.SPS_DARKNESS);
 		if (forgetVisited) {
 			Arrays.fill(level.visited, false);

@@ -34,6 +34,7 @@ import pd.items.challengelists.CaveChallenge;
 import pd.items.challengelists.ChallengePageDrops;
 import pd.items.food.meatfood.Meat;
 import pd.items.weapon.missiles.meleethrow.HugeShuriken;
+import pd.levels.FieldOfView;
 import pd.sprites.PiranhaSprite;
 import render.utils.data.BArray;
 import render.utils.math.Random;
@@ -74,7 +75,7 @@ public class Piranha extends Mob {
 		if (fieldOfView == null || fieldOfView.length != Dungeon.level.length()) {
 			fieldOfView = new boolean[Dungeon.level.length()];
 		}
-		Dungeon.level.updateFieldOfView(this, fieldOfView);
+		FieldOfView.update( Dungeon.level, this, fieldOfView);
 		enemy = chooseEnemy();
 		if (state == HUNTING && (enemy == null || !enemy.isAlive()
 				|| !Dungeon.level.insideMap(enemy.pos) || !fieldOfView[enemy.pos]

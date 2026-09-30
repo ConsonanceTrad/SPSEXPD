@@ -40,6 +40,7 @@ import pd.effects.particles.PurpleParticle;
 import pd.effects.particles.ShadowParticle;
 import pd.items.artifacts.DriedRose;
 import pd.journal.Bestiary;
+import pd.levels.FieldOfView;
 import pd.levels.Level;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
@@ -163,7 +164,7 @@ public class YogDzewa extends Mob {
 		if (fieldOfView == null || fieldOfView.length != Dungeon.level.length()){
 			fieldOfView = new boolean[Dungeon.level.length()];
 		}
-		Dungeon.level.updateFieldOfView( this, fieldOfView );
+		FieldOfView.update( Dungeon.level,  this, fieldOfView );
 
 		throwItems();
 

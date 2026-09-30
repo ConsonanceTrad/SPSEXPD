@@ -34,6 +34,7 @@ import pd.items.armor.Armor;
 import pd.items.potions.PotionOfHaste;
 import pd.items.weapon.Weapon;
 import pd.journal.Bestiary;
+import pd.levels.FieldOfView;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -243,7 +244,7 @@ public class SentryRoom extends SpecialRoom {
 			if (fieldOfView == null || fieldOfView.length != Dungeon.level.length()){
 				fieldOfView = new boolean[Dungeon.level.length()];
 			}
-			Dungeon.level.updateFieldOfView( this, fieldOfView );
+			FieldOfView.update( Dungeon.level,  this, fieldOfView );
 
 			if (properties().contains(Property.IMMOVABLE)){
 				throwItems();

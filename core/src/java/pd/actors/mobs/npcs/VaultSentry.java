@@ -32,6 +32,7 @@ import pd.actors.mobs.DM100;
 import pd.effects.Lightning;
 import pd.effects.particles.SparkParticle;
 import pd.journal.Bestiary;
+import pd.levels.FieldOfView;
 import pd.mechanics.Ballistica;
 import pd.mechanics.ConeAOE;
 import pd.messages.Messages;
@@ -86,7 +87,7 @@ public class VaultSentry extends NPC {
 		if (fieldOfView == null || fieldOfView.length != Dungeon.level.length()){
 			fieldOfView = new boolean[Dungeon.level.length()];
 		}
-		Dungeon.level.updateFieldOfView( this, fieldOfView );
+		FieldOfView.update( Dungeon.level,  this, fieldOfView );
 
 		curCooldown--;
 

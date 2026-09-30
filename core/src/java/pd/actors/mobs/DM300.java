@@ -51,6 +51,7 @@ import pd.items.artifacts.DriedRose;
 import pd.items.quest.MetalShard;
 import pd.items.wands.WandOfBlastWave;
 import pd.levels.CavesBossLevel;
+import pd.levels.FieldOfView;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
@@ -170,7 +171,7 @@ public class DM300 extends Mob {
 			//in case DM-300 hasn't been able to act yet
 			if (fieldOfView == null || fieldOfView.length != Dungeon.level.length()){
 				fieldOfView = new boolean[Dungeon.level.length()];
-				Dungeon.level.updateFieldOfView( this, fieldOfView );
+				FieldOfView.update( Dungeon.level,  this, fieldOfView );
 			}
 
 			//determine if DM can reach its enemy
