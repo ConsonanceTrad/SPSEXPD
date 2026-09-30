@@ -5,7 +5,7 @@ plugins {
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 java.sourceCompatibility = java.targetCompatibility = appJavaCompatibility
 
-ext.appMainClass = "com.shatteredpixel.shatteredpixeldungeon.desktop.DesktopLauncher"
+ext.appMainClass = "pd.desktop.DesktopLauncher"
 application.mainClass = appMainClass
 processResources {
     from new File(project(':core').projectDir, "/src/main/assets")
@@ -32,7 +32,7 @@ tasks.register('debug', JavaExec) {
 tasks.register('smokeCapture', JavaExec) {
     dependsOn testClasses
     classpath = sourceSets.test.runtimeClasspath
-    mainClass = 'com.shatteredpixel.shatteredpixeldungeon.desktop.DesktopSmokeCapture'
+    mainClass = 'pd.desktop.DesktopSmokeCapture'
     jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
     args project.findProperty('smokeMode') ?: 'title',
             project.findProperty('smokeOutput') ?: file("${rootProject.buildDir}/desktop-smoke.png").absolutePath,

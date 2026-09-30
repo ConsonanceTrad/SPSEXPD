@@ -1,6 +1,5 @@
 # retain these to support class references for the bundling and translation systems
 -keepnames class pd.** { *; }
--keepnames class com.shatteredpixel.** { *; }
 -keepnames class watabou.** { *; }
 
 # keep classes that are instantiated via reflection

@@ -8,7 +8,7 @@ if (spsexpdLocalPropsFile.exists()) {
 }
 
 android {
-    namespace 'com.shatteredpixel.shatteredpixeldungeon.android'
+    namespace 'pd.android'
     compileSdk appAndroidCompileSDK
     compileOptions.sourceCompatibility = compileOptions.targetCompatibility = appJavaCompatibility
 
