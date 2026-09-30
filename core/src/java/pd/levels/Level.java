@@ -405,7 +405,7 @@ public abstract class Level implements Bundlable {
 			}
 		} while (!build());
 
-		placeSpsDewBless();
+		SpsDew.place( this );
 		
 		buildFlagMaps();
 		cleanWalls();
@@ -710,7 +710,7 @@ public abstract class Level implements Bundlable {
 
 		//SPS: 露珠清层——直接下楼即标记本层已清（已按用户裁决移除下楼前的露珠状态确认框）
 		if (transition.type == LevelTransition.Type.REGULAR_EXIT
-				&& isSpsClearable() && !cleared) {
+				&& SpsDew.isClearable( this ) && !cleared) {
 			cleared = true;
 			Statistics.previousFloorMoves = 0;
 		}
@@ -844,83 +844,6 @@ public abstract class Level implements Bundlable {
 		}
 	}
 
-	private void placeSpsDewBless() {
-		if (!(Dungeon.dewDraw || Dungeon.dewWater) || Dungeon.branch != 0
-				|| Dungeon.depth <= 1 || Dungeon.depth >= 25 || Dungeon.bossLevel()
-				|| Dungeon.shopOnLevel() || this instanceof BetweenLevel) {
-			return;
-		}
-		int entrance = entrance();
-		if (!insideMap(entrance)) return;
-		ArrayList<Integer> candidates = new ArrayList<>();
-		int ex = entrance % width();
-		int ey = entrance / width();
-		for (int radius = 1; radius <= 4 && candidates.isEmpty(); radius++) {
-			for (int y = Math.max(1, ey - radius); y <= Math.min(height() - 2, ey + radius); y++) {
-				for (int x = Math.max(1, ex - radius); x <= Math.min(width() - 2, ex + radius); x++) {
-					if (Math.max(Math.abs(x - ex), Math.abs(y - ey)) != radius) continue;
-					int cell = x + y * width();
-					int terrain = map[cell];
-					if ((terrain == Terrain.EMPTY || terrain == Terrain.EMPTY_DECO
-							|| terrain == Terrain.GRASS || terrain == Terrain.EMBERS)
-							&& traps.get(cell) == null && plants.get(cell) == null
-							&& !insideTransition(cell)) {
-						candidates.add(cell);
-					}
-				}
-			}
-		}
-		if (!candidates.isEmpty()) {
-			int cell = Random.element(candidates);
-			map[cell] = Terrain.DEW_BLESS;
-			SpsFeatureVisual visual = new SpsFeatureVisual(SpsFeatureVisual.DEW_BLESS);
-			visual.pos(cell, this);
-			customTiles.add(visual);
-		}
-	}
-
-	//本关卡内的地形查询不能走 getTransition(cell)/LevelTransition.inside(int)：
-	//二者按 Dungeon.level 换算坐标，而本方法在 Level.create() 期间执行，此时 Dungeon.level 尚未指向本关卡
-	private boolean insideTransition(int cell) {
-		Point p = cellToPoint(cell);
-		for (LevelTransition transition : transitions) {
-			if (transition.inside(p)) return true;
-		}
-		return false;
-	}
-
-	private boolean isSpsClearable() {
-		return Dungeon.branch == 0 && Dungeon.depth > 1 && Dungeon.depth < 25
-				&& !Dungeon.bossLevel() && !(this instanceof BetweenLevel);
-	}
-
-	public boolean hasSpsDew() {
-		for (Heap heap : heaps.valueList()) {
-			for (Item item : heap.items) {
-				if (item instanceof Dewdrop) return true;
-			}
-		}
-		return false;
-	}
-
-
-	public int spsDewPar() {
-		int base;
-		switch ((Dungeon.depth - 1) / 5) {
-			case 0: default: base = 500; break;
-			case 1: base = 400; break;
-			case 2: base = 300; break;
-			case 3: base = 250; break;
-			case 4: base = 200; break;
-		}
-		int secretDoors = 0;
-		for (int terrain : map) if (terrain == Terrain.SECRET_DOOR) secretDoors++;
-		return base + Dungeon.depth * 50 + secretDoors * 20;
-	}
-
-
-
-	
 	public int randomRespawnCell( Char ch ) {
 		int cell;
 		int count = 0;

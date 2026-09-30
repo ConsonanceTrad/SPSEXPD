@@ -16,6 +16,7 @@ import pd.actors.hero.Hero;
 import pd.effects.CellEmitter;
 import pd.effects.particles.ElmoParticle;
 import pd.levels.Level;
+import pd.levels.SpsDew;
 import pd.levels.Terrain;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -30,7 +31,7 @@ public final class DewBlessRoom {
 		CellEmitter.get(pos).burst(ElmoParticle.FACTORY, 6);
 		if (ch instanceof Hero) {
 			Buff.affect((Hero) ch, Dewcharge.class, 720f);
-			GLog.h(Messages.get(DewBlessRoom.class, "order"), level.spsDewPar());
+			GLog.h(Messages.get(DewBlessRoom.class, "order"), SpsDew.par( level ));
 			Level.set(pos, Terrain.GRASS);
 			GameScene.updateMap(pos);
 		}

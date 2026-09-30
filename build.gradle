@@ -705,9 +705,14 @@ tasks.register('verifySpsMechanics') {
 		def level = readSource('levels/Level.java')
 		['bundle.put( CURRENT_MOVES, currentMoves )', 'bundle.put( CLEARED, cleared )',
 		 'bundle.put( FORCE_DONE, forceDone )', 'markSpsOriginalMobs()',
-		 'spsDewPar()', 'placeSpsDewBless()',
-		 'Dungeon.shopOnLevel()', 'hasSpsDew()'].each {
+		 'Dungeon.shopOnLevel()'].each {
 			requireText(level, it, '露珠清层进度')
+		}
+		//SPS 露珠：祝福点铺设与露珠数量统计已移入 SpsDew，覆盖检查随之内聚
+		def spsDew = readSource('levels/SpsDew.java')
+		['place( Level level )', 'isClearable( Level level )', 'hasDew( Level level )', 'par( Level level )',
+		 'Dungeon.shopOnLevel()', 'Terrain.DEW_BLESS'].each {
+			requireText(spsDew, it, '露珠祝福点与统计')
 		}
 		//SPS 露珠：怪物集合与驻留机制已移入 LevelMobs，覆盖检查随之内聚
 		def levelMobs = readSource('levels/mobs/LevelMobs.java')

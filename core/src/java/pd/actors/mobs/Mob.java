@@ -105,6 +105,7 @@ import pd.journal.Bestiary;
 import pd.journal.Notes;
 import pd.levels.FieldOfView;
 import pd.levels.Level;
+import pd.levels.SpsDew;
 import pd.levels.Terrain;
 import pd.levels.VaultLevel;
 import pd.levels.features.Chasm;
@@ -1112,7 +1113,7 @@ public abstract class Mob extends Char {
 				&& !Dungeon.level.cleared
 				&& !Dungeon.level.mobs().hasSpsOriginalMobs()) {
 			Dungeon.level.cleared = true;
-			Statistics.previousFloorMoves = Math.max(Dungeon.level.spsDewPar() - Dungeon.level.currentMoves, 0);
+			Statistics.previousFloorMoves = Math.max(SpsDew.par( Dungeon.level ) - Dungeon.level.currentMoves, 0);
 			if (Statistics.previousFloorMoves > 1) {
 				GLog.h(Messages.get(Mob.class, "sps_clear"), Statistics.previousFloorMoves);
 				Dungeon.level.drop(new BoundReward(), pos).sprite.drop();
