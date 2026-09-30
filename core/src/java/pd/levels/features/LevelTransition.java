@@ -81,7 +81,9 @@ public class LevelTransition extends Rect implements Bundlable {
 			case SURFACE:
 				destDepth = 0;
 				destBranch = 0;
-				destType = null;
+				//SPS: 1 层上楼回到 0 层时，落点应是 0 层通往 1 层的楼梯（exit），
+				//而不是 0 层通向外界的门（entrance）——上游此处置 null 会落到 entrance
+				destType = Type.REGULAR_EXIT;
 				break;
 		}
 	}
