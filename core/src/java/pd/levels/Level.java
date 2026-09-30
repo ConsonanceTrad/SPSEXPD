@@ -972,160 +972,16 @@ public abstract class Level implements Bundlable {
 	}
 	
 	public void occupyCell( Char ch ){
-		if (!ch.isImmune(Web.class) && Blob.volumeAt(ch.pos, Web.class) > 0){
-			blobs.get(Web.class).clear(ch.pos);
-			Web.affectChar( ch );
-		}
-
-		if (Blob.volumeAt(ch.pos, SacrificialFire.class) > 0 && ch.buff( SacrificialFire.Marked.class ) == null){
-			if (Dungeon.level.heroFOV[ch.pos]) {
-				CellEmitter.get(ch.pos).burst( SacrificialParticle.FACTORY, 5 );
-			}
-			Buff.prolong( ch, SacrificialFire.Marked.class, SacrificialFire.Marked.DURATION );
-		}
-
-		if (!ch.flying){
-
-			//we call act here instead of detach in case the debuffs haven't managed to deal dmg once yet
-			if (map[ch.pos] == Terrain.WATER){
-				if (ch.buff(Burning.class) != null){
-					ch.buff(Burning.class).act();
-				}
-				if (ch.buff(Ooze.class) != null){
-					ch.buff(Ooze.class).act();
-				}
-			}
-
-			if ( (map[ch.pos] == Terrain.GRASS || map[ch.pos] == Terrain.EMBERS)
-					&& ch == Dungeon.hero && Dungeon.hero.hasTalent(Talent.REJUVENATING_STEPS)
-					&& ch.buff(Talent.RejuvenatingStepsCooldown.class) == null){
-
-				if (!Regeneration.regenOn()){
-					set(ch.pos, Terrain.FURROWED_GRASS);
-				} else if (ch.buff(Talent.RejuvenatingStepsFurrow.class) != null && ch.buff(Talent.RejuvenatingStepsFurrow.class).count() >= 200) {
-					set(ch.pos, Terrain.FURROWED_GRASS);
-				} else {
-					set(ch.pos, Terrain.HIGH_GRASS);
-					Buff.count(ch, Talent.RejuvenatingStepsFurrow.class, 3 - Dungeon.hero.pointsInTalent(Talent.REJUVENATING_STEPS));
-				}
-				GameScene.updateMap(ch.pos);
-				Buff.affect(ch, Talent.RejuvenatingStepsCooldown.class, 15f - 5f*Dungeon.hero.pointsInTalent(Talent.REJUVENATING_STEPS));
-			}
-			
-			if (pit[ch.pos]){
-				if (ch == Dungeon.hero) {
-					Chasm.heroFall(ch.pos);
-				} else if (ch instanceof Mob) {
-					Chasm.mobFall( (Mob)ch );
-				}
-				return;
-			}
-			
-			//characters which are not the hero or a sheep 'soft' press cells
-			pressCell( ch.pos, ch instanceof Hero || ch instanceof Sheep);
-		} else {
-			if (map[ch.pos] == Terrain.DOOR){
-				Door.enter( ch.pos );
-			}
-		}
-
-		if (ch.isAlive() && ch instanceof Piranha && !water[ch.pos]){
-			((Piranha) ch).dieOnLand();
-		}
+		CellTriggers.occupy( this, ch );
 	}
 	
 	//public method for forcing the hard press of a cell. e.g. when an item lands on it
 	public void pressCell( int cell ){
-		pressCell( cell, true );
+		CellTriggers.press( this, cell, true );
 	}
 	
 	//a 'soft' press ignores hidden traps
 	//a 'hard' press triggers all things
-	private void pressCell( int cell, boolean hard ) {
-
-		Trap trap = null;
-		
-		switch (map[cell]) {
-		
-		case Terrain.SECRET_TRAP:
-			if (hard) {
-				trap = traps.get( cell );
-				GLog.i(Messages.get(Level.class, "hidden_trap", trap.name()));
-			}
-			break;
-			
-		case Terrain.TRAP:
-			trap = traps.get( cell );
-			break;
-			
-		case Terrain.HIGH_GRASS:
-		case Terrain.FURROWED_GRASS:
-			HighGrass.trample( this, cell);
-			break;
-
-		case Terrain.OLD_HIGH_GRASS:
-			OldHighGrass.trample(this, cell, Actor.findChar(cell));
-			break;
-			
-		case Terrain.WELL:
-			WellWater.affectCell( cell );
-			break;
-
-		case Terrain.DEW_BLESS:
-			DewBlessRoom.trample(this, cell, Actor.findChar(cell));
-			break;
-			
-		case Terrain.DOOR:
-			Door.enter( cell );
-			break;
-		}
-
-		TimekeepersHourglass.timeFreeze timeFreeze =
-				Dungeon.hero.buff(TimekeepersHourglass.timeFreeze.class);
-
-		Swiftthistle.TimeBubble bubble =
-				Dungeon.hero.buff(Swiftthistle.TimeBubble.class);
-
-		if (trap != null) {
-			if (bubble != null){
-				Sample.INSTANCE.play(Assets.Sounds.TRAP);
-				CellFlags.discover( this, cell );
-				bubble.setDelayedPress(cell);
-				
-			} else if (timeFreeze != null){
-				Sample.INSTANCE.play(Assets.Sounds.TRAP);
-				CellFlags.discover( this, cell );
-				timeFreeze.setDelayedPress(cell);
-				
-			} else {
-				if (Dungeon.hero.pos == cell) {
-					Dungeon.hero.interrupt();
-				}
-				trap.trigger();
-
-			}
-		}
-		
-		Plant plant = plants.get( cell );
-		if (plant != null) {
-			if (bubble != null){
-				Sample.INSTANCE.play(Assets.Sounds.TRAMPLE, 1, Random.Float( 0.96f, 1.05f ) );
-				bubble.setDelayedPress(cell);
-
-			} else if (timeFreeze != null){
-				Sample.INSTANCE.play(Assets.Sounds.TRAMPLE, 1, Random.Float( 0.96f, 1.05f ) );
-				timeFreeze.setDelayedPress(cell);
-
-			} else {
-				plant.trigger();
-
-			}
-		}
-
-		if (hard && Blob.volumeAt(cell, Web.class) > 0){
-			blobs.get(Web.class).clear(cell);
-		}
-	}
 
 
 	public float levelExplorePercent( int depth ){
