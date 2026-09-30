@@ -21,22 +21,11 @@
 
 package pd.ui;
 
-import pd.Assets;
 import pd.Dungeon;
-import pd.SPDSettings;
-import pd.messages.Messages;
-import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
-import pd.utils.GLog;
-import pd.windows.WndMessage;
-import pd.windows.WndOptions;
-import render.input.PointerEvent;
 import render.noosa.BitmapText;
 import render.noosa.Game;
-import render.noosa.PointerArea;
-import render.noosa.audio.Sample;
 import render.noosa.ui.Component;
-import render.utils.math.Random;
 
 public class CurrencyIndicator extends Component {
 
@@ -51,7 +40,6 @@ public class CurrencyIndicator extends Component {
 	private BitmapText gold;
 	private BitmapText energy;
 
-	private PointerArea goldTouch;
 	
 	private float goldTime;
 	private float energyTime;
@@ -72,14 +60,6 @@ public class CurrencyIndicator extends Component {
 		energy.hardlight( 0x44CCFF );
 		add( energy );
 
-		//SPS: 金币行点击兑换 S金（2333:1）。可见时拦截点击，避免穿透到背包按钮。
-		goldTouch = new PointerArea( 0, 0, 0, 0 ) {
-			@Override
-			protected void onClick( PointerEvent event ) {
-				onGoldClick();
-			}
-		};
-		add( goldTouch );
 		
 		gold.visible = energy.visible = false;
 	}
@@ -96,11 +76,6 @@ public class CurrencyIndicator extends Component {
 			energy.y = top() + 1;
 		}
 
-		//点击区覆盖金币数字所在行；不可见时由 update 关闭拦截
-		goldTouch.x = x;
-		goldTouch.y = top();
-		goldTouch.width = width;
-		goldTouch.height = 12;
 	}
 	
 	@Override
@@ -163,37 +138,9 @@ public class CurrencyIndicator extends Component {
 			goldTime = TIME/2;
 		}
 
-		//点击拦截跟随金币显示状态：隐藏时点击穿透到背包按钮
-		goldTouch.active = gold.visible;
 
 	}
 
-	//SPS: 点击金币 → 确认后按 2333:1 把金币兑换为全局 S金
-	private void onGoldClick() {
-		if (Dungeon.hero == null || !Dungeon.hero.isAlive()) return;
-
-		int sCoin = sCoinForGold( Dungeon.gold );
-		if (sCoin <= 0) {
-			GameScene.show( new WndMessage( Messages.get( this, "not_enough", SC_EXCHANGE_RATE ) ) );
-			return;
-		}
-		final int spend = sCoin * SC_EXCHANGE_RATE;
-		GameScene.show( new WndOptions(
-				Messages.get( this, "exchange_title" ),
-				Messages.get( this, "exchange_body", spend, sCoin ),
-				Messages.get( this, "exchange_confirm" ),
-				Messages.get( this, "cancel" ) ) {
-			@Override
-			protected void onSelect( int index ) {
-				if (index != 0) return;
-				if (Dungeon.gold < spend) return;
-				Dungeon.gold -= spend;
-				SPDSettings.sCoinAdd( sCoin );
-				GLog.p( Messages.get( CurrencyIndicator.class, "exchange_ok", spend, sCoin ) );
-				Sample.INSTANCE.play( Assets.Sounds.GOLD, 1, 1, Random.Float( 0.9f, 1.1f ) );
-			}
-		} );
-	}
 
 	/** 按 2333:1 计算可兑换的 S金数量（整除，余数留在金币）。 */
 	public static int sCoinForGold( int gold ) {

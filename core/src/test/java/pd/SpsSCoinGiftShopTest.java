@@ -357,7 +357,13 @@ public final class SpsSCoinGiftShopTest {
 		String currency = java.nio.file.Files.readString(
 				Path.of("../java/pd/ui/CurrencyIndicator.java"));
 		check(currency.contains("SC_EXCHANGE_RATE = 2333"), "兑换比例常量不是 2333");
-		check(currency.contains("SPDSettings.sCoinAdd"), "兑换没有入账到 S金钱包");
+		//SPS: 兑换入口已按用户裁决移到背包界面的金币图标，HUD 指示器只保留金币变化提示
+		check(!currency.contains("onGoldClick"), "兑换点击逻辑不应留在 HUD 金币指示器上");
+
+		String wndBag = java.nio.file.Files.readString(
+				Path.of("../java/pd/windows/WndBag.java"));
+		check(wndBag.contains("askSGoldExchange"), "背包界面缺少 S金兑换入口");
+		check(wndBag.contains("SPDSettings.sCoinAdd"), "兑换没有入账到 S金钱包");
 
 		String giftShop = java.nio.file.Files.readString(
 				Path.of("../java/pd/scenes/GiftShopScene.java"));

@@ -24,6 +24,7 @@ package pd.windows;
 import pd.Assets;
 import pd.Dungeon;
 import pd.SPDAction;
+import pd.SPDSettings;
 import pd.actors.hero.Belongings;
 import pd.actors.hero.Hero;
 import pd.items.ChangeEquip;
@@ -44,12 +45,16 @@ import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
+import pd.ui.CurrencyIndicator;
 import pd.ui.Icons;
 import pd.ui.InventorySlot;
 import pd.ui.QuickSlotButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.RightClickMenu;
 import pd.ui.Window;
+import pd.utils.GLog;
+import pd.windows.WndMessage;
+import pd.windows.WndOptions;
 import render.gltextures.SmartTexture;
 import render.gltextures.TextureCache;
 import render.input.GameAction;
@@ -59,7 +64,10 @@ import render.input.PointerEvent;
 import render.noosa.BitmapText;
 import render.noosa.Game;
 import render.noosa.Image;
+import render.noosa.PointerArea;
+import render.noosa.audio.Sample;
 import render.utils.geom.PointF;
+import render.utils.math.Random;
 import render.utils.platform.DeviceCompat;
 
 public class WndBag extends WndTabbed {
@@ -339,6 +347,7 @@ public class WndBag extends WndTabbed {
 			gold.y = (TITLE_HEIGHT - gold.height()) / 2f;
 			PixelScene.align(gold);
 			add(gold);
+			addSGoldExchange(gold);
 
 			BitmapText amt = new BitmapText(Integer.toString(Dungeon.gold), PixelScene.pixelFont);
 			amt.hardlight(TITLE_COLOR);
@@ -356,6 +365,7 @@ public class WndBag extends WndTabbed {
 			gold.y = 0;
 			PixelScene.align(gold);
 			add(gold);
+			addSGoldExchange(gold);
 
 			BitmapText amt = new BitmapText(Integer.toString(Dungeon.gold), PixelScene.pixelFont);
 			amt.hardlight(TITLE_COLOR);
@@ -397,6 +407,43 @@ public class WndBag extends WndTabbed {
 		add( txtTitle );
 	}
 	
+	//SPS: 背包界面的金币图标即 S金兑换入口（用户裁决 2026-09-30：原先挂在 HUD 背包按钮上，位置有误导）
+	private void addSGoldExchange( Image gold ) {
+		add( new PointerArea( gold.x, gold.y, gold.width(), gold.height() ) {
+			@Override
+			protected void onClick( PointerEvent event ) {
+				askSGoldExchange();
+			}
+		} );
+	}
+
+	//SPS: 点击金币 → 确认后按 2333:1 把金币兑换为全局 S金（文案沿用 currencyindicator 一组）
+	private void askSGoldExchange() {
+		if (Dungeon.hero == null || !Dungeon.hero.isAlive()) return;
+
+		int sCoin = CurrencyIndicator.sCoinForGold( Dungeon.gold );
+		if (sCoin <= 0) {
+			GameScene.show( new WndMessage( Messages.get( CurrencyIndicator.class, "not_enough", CurrencyIndicator.SC_EXCHANGE_RATE ) ) );
+			return;
+		}
+		final int spend = sCoin * CurrencyIndicator.SC_EXCHANGE_RATE;
+		GameScene.show( new WndOptions(
+				Messages.get( CurrencyIndicator.class, "exchange_title" ),
+				Messages.get( CurrencyIndicator.class, "exchange_body", spend, sCoin ),
+				Messages.get( CurrencyIndicator.class, "exchange_confirm" ),
+				Messages.get( CurrencyIndicator.class, "cancel" ) ) {
+			@Override
+			protected void onSelect( int index ) {
+				if (index != 0) return;
+				if (Dungeon.gold < spend) return;
+				Dungeon.gold -= spend;
+				SPDSettings.sCoinAdd( sCoin );
+				GLog.p( Messages.get( CurrencyIndicator.class, "exchange_ok", spend, sCoin ) );
+				Sample.INSTANCE.play( Assets.Sounds.GOLD, 1, 1, Random.Float( 0.9f, 1.1f ) );
+			}
+		} );
+	}
+
 	protected void placeItems( Bag container ) {
 
 		// SPS: 装备区固定两排 10 格
