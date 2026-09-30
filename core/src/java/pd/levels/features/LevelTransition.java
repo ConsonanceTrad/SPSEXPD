@@ -154,5 +154,8 @@ public class LevelTransition extends Rect implements Bundlable {
 		destDepth = bundle.getInt(DEST_DEPTH);
 		destBranch = bundle.getInt(DEST_BRANCH);
 		if (bundle.contains(DEST_TYPE)) destType = bundle.getEnum(DEST_TYPE, Type.class);
+		//SPS: 旧存档里 SURFACE 的 destType 存的是 null（上游此类型没有落点概念），
+		//留 null 会让上楼落到 0 层通向外界的门；补成 REGULAR_EXIT 即落在通往 1 层的楼梯
+		if (type == Type.SURFACE && destType == null) destType = Type.REGULAR_EXIT;
 	}
 }
