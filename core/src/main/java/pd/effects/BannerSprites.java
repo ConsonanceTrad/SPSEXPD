@@ -22,6 +22,11 @@
 package pd.effects;
 
 import pd.Assets;
+import pd.atlas.AtlasReader;
+import pd.atlas.IconEntry;
+import pd.atlas.interfaces.BannersDict;
+import java.util.HashMap;
+import java.util.Map;
 import render.noosa.Image;
 
 public class BannerSprites {
@@ -34,29 +39,22 @@ public class BannerSprites {
 		BOSS_SLAIN,
 		GAME_OVER,
 	}
+	//位置字典：类型 → 图集中的位置（数据源自 tools/atlas-meta，由 gen-atlas-dict 生成）
+	private static final Map<Type, IconEntry> ENTRIES = new HashMap<>();
+	static {
+		ENTRIES.put(Type.BOSS_SLAIN, BannersDict.BANNER_004);
+		ENTRIES.put(Type.GAME_OVER, BannersDict.BANNER_005);
+		ENTRIES.put(Type.TITLE_GLOW_LAND, BannersDict.BANNER_003);
+		ENTRIES.put(Type.TITLE_GLOW_PORT, BannersDict.BANNER_001);
+		ENTRIES.put(Type.TITLE_LAND, BannersDict.BANNER_002);
+		ENTRIES.put(Type.TITLE_PORT, BannersDict.BANNER_000);
+	}
 
 	public static Image get( Type type ) {
-		Image icon = new Image( Assets.Interfaces.BANNERS );
-		switch (type) {
-			case TITLE_PORT:
-				icon.frame( icon.texture.uvRect( 0, 0, 139, 100 ) );
-				break;
-			case TITLE_GLOW_PORT:
-				icon.frame( icon.texture.uvRect( 139, 0, 278, 100 ) );
-				break;
-			case TITLE_LAND:
-				icon.frame( icon.texture.uvRect( 0, 100, 240, 157) );
-				break;
-			case TITLE_GLOW_LAND:
-				icon.frame( icon.texture.uvRect( 240, 100, 480, 157 ) );
-				break;
-			case BOSS_SLAIN:
-				icon.frame( icon.texture.uvRect( 0, 157, 127, 225 ) );
-				break;
-			case GAME_OVER:
-				icon.frame( icon.texture.uvRect( 128, 157, 256, 192 ) );
-				break;
-		}
-		return icon;
+		//位置来自字典（pd/atlas），取图统一经 AtlasReader
+		IconEntry entry = ENTRIES.get(type);
+		if (entry != null) return AtlasReader.image(entry);
+		//兜底：字典未收录该类型时返回空图
+		return new Image( Assets.Interfaces.BANNERS );
 	}
 }

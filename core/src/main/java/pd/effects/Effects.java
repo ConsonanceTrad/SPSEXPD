@@ -22,6 +22,11 @@
 package pd.effects;
 
 import pd.Assets;
+import pd.atlas.AtlasReader;
+import pd.atlas.IconEntry;
+import pd.atlas.effects.EffectsDict;
+import java.util.HashMap;
+import java.util.Map;
 import render.noosa.Image;
 
 public class Effects {
@@ -38,41 +43,26 @@ public class Effects {
 		HEALTH_RAY,
 		WATER_RAY
 	}
-	
+	//位置字典：类型 → 图集中的位置（数据源自 tools/atlas-meta，由 gen-atlas-dict 生成）
+	private static final Map<Type, IconEntry> ENTRIES = new HashMap<>();
+	static {
+		ENTRIES.put(Type.CHAIN, EffectsDict.EFFECT_004);
+		ENTRIES.put(Type.DEATH_RAY, EffectsDict.EFFECT_006);
+		ENTRIES.put(Type.ETHEREAL_CHAIN, EffectsDict.EFFECT_005);
+		ENTRIES.put(Type.EXCLAMATION, EffectsDict.EFFECT_003);
+		ENTRIES.put(Type.HEALTH_RAY, EffectsDict.EFFECT_008);
+		ENTRIES.put(Type.LIGHT_RAY, EffectsDict.EFFECT_007);
+		ENTRIES.put(Type.LIGHTNING, EffectsDict.EFFECT_001);
+		ENTRIES.put(Type.RIPPLE, EffectsDict.EFFECT_000);
+		ENTRIES.put(Type.WATER_RAY, EffectsDict.EFFECT_009);
+		ENTRIES.put(Type.WOUND, EffectsDict.EFFECT_002);
+	}
+
 	public static Image get( Type type ) {
-		Image icon = new Image( Assets.Effects.EFFECTS );
-		switch (type) {
-			case RIPPLE:
-				icon.frame(icon.texture.uvRect(0, 0, 16, 16));
-				break;
-			case LIGHTNING:
-				icon.frame(icon.texture.uvRect(16, 0, 32, 8));
-				break;
-			case WOUND:
-				icon.frame(icon.texture.uvRect(16, 8, 32, 16));
-				break;
-			case EXCLAMATION:
-				icon.frame(icon.texture.uvRect(0, 16, 6, 25));
-				break;
-			case CHAIN:
-				icon.frame(icon.texture.uvRect(6, 16, 11, 22));
-				break;
-			case ETHEREAL_CHAIN:
-				icon.frame(icon.texture.uvRect(11, 16, 16, 22));
-				break;
-			case DEATH_RAY:
-				icon.frame(icon.texture.uvRect(16, 16, 32, 24));
-				break;
-			case LIGHT_RAY:
-				icon.frame(icon.texture.uvRect(16, 23, 32, 31));
-				break;
-			case HEALTH_RAY:
-				icon.frame(icon.texture.uvRect(16, 30, 32, 38));
-				break;
-			case WATER_RAY:
-				icon.frame(icon.texture.uvRect(16, 45, 32, 53));
-				break;
-		}
-		return icon;
+		//位置来自字典（pd/atlas），取图统一经 AtlasReader
+		IconEntry entry = ENTRIES.get(type);
+		if (entry != null) return AtlasReader.image(entry);
+		//兜底：字典未收录该类型时返回空图
+		return new Image( Assets.Effects.EFFECTS );
 	}
 }
