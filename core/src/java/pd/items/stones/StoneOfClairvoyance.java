@@ -25,6 +25,7 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.effects.CheckedCell;
 import pd.items.scrolls.ScrollOfMagicMapping;
+import pd.levels.CellFlags;
 import pd.mechanics.ShadowCaster;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
@@ -66,7 +67,7 @@ public class StoneOfClairvoyance extends Runestone {
 				Dungeon.level.mapped[curr] = true;
 				
 				if (Dungeon.level.secret[curr]) {
-					Dungeon.level.discover(curr);
+					CellFlags.discover( Dungeon.level, curr);
 					
 					if (Dungeon.level.heroFOV[curr]) {
 						GameScene.discoverTile(curr, Dungeon.level.map[curr]);

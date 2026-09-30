@@ -69,6 +69,7 @@ import pd.items.wands.WandOfRegrowth;
 import pd.items.wands.WandOfTransfusion;
 import pd.items.wands.WandOfWarding;
 import pd.items.weapon.melee.MagesStaff;
+import pd.levels.CellFlags;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
@@ -244,7 +245,7 @@ public class ElementalBlast extends ArmorAbility {
 									int terr = Dungeon.level.map[c];
 									if ((Terrain.flags[terr] & Terrain.SECRET) != 0) {
 
-										Dungeon.level.discover(c);
+										CellFlags.discover( Dungeon.level, c);
 
 										GameScene.discoverTile(c, terr);
 										ScrollOfMagicMapping.discover(c);

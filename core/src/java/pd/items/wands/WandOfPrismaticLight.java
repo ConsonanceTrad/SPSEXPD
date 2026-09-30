@@ -37,6 +37,7 @@ import pd.effects.particles.RainbowParticle;
 import pd.effects.particles.ShadowParticle;
 import pd.items.scrolls.ScrollOfMagicMapping;
 import pd.items.weapon.melee.MagesStaff;
+import pd.levels.CellFlags;
 import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
@@ -121,7 +122,7 @@ public class WandOfPrismaticLight extends DamageWand {
 				int terr = Dungeon.level.map[cell];
 				if ((Terrain.flags[terr] & Terrain.SECRET) != 0) {
 
-					Dungeon.level.discover( cell );
+					CellFlags.discover( Dungeon.level,  cell );
 
 					GameScene.discoverTile( cell, terr );
 					ScrollOfMagicMapping.discover(cell);

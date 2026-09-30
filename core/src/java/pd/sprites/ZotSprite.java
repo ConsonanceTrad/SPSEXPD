@@ -6,6 +6,7 @@ import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.items.trinkets.RatSkull;
+import pd.levels.CellFlags;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.noosa.TextureFilm;
@@ -61,7 +62,7 @@ public class ZotSprite extends MobSprite {
 			int target = cell + offset;
 			if (!Dungeon.level.insideMap(target)) continue;
 			if (Dungeon.level.flamable[target]) {
-				Dungeon.level.destroy(target);
+				CellFlags.destroy( Dungeon.level, target);
 				GameScene.updateMap(target);
 				terrainAffected = true;
 			}

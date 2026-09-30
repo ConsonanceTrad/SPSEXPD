@@ -41,6 +41,7 @@ import pd.items.quest.DarkGold;
 import pd.items.quest.Pickaxe;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.items.wands.WandOfBlastWave;
+import pd.levels.CellFlags;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
@@ -431,7 +432,7 @@ public class GnollGeomancer extends Mob {
 		}
 		//we potentially update a lot of cells, so might as well just reset properties instead of incrementally updating
 		Dungeon.level.buildFlagMaps();
-		Dungeon.level.cleanWalls();
+		CellFlags.cleanWalls( Dungeon.level );
 		GameScene.updateMap();
 		GameScene.updateFog();
 		Dungeon.observe();

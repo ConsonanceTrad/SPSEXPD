@@ -7,6 +7,7 @@ import pd.Statistics;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.mobs.Mob;
+import pd.levels.CellFlags;
 import pd.scenes.GameScene;
 import pd.sprites.ShadowRatSprite;
 import render.noosa.audio.Sample;
@@ -115,7 +116,7 @@ public class DarkFallen extends Buff {
 			for (int cell = 0; cell < Dungeon.level.length(); cell++) {
 				if (Dungeon.level.distance(cell, pos) < 3 && Dungeon.level.discoverable[cell]) {
 					Dungeon.level.mapped[cell] = true;
-					Dungeon.level.discover(cell);
+					CellFlags.discover( Dungeon.level, cell);
 				}
 			}
 			GameScene.updateFog(pos, 3);

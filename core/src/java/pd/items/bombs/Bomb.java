@@ -45,6 +45,7 @@ import pd.items.scrolls.ScrollOfRage;
 import pd.items.scrolls.ScrollOfRecharging;
 import pd.items.scrolls.ScrollOfRemoveCurse;
 import pd.journal.Catalog;
+import pd.levels.CellFlags;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Languages;
 import pd.messages.Messages;
@@ -174,7 +175,7 @@ public class Bomb extends Item {
 				}
 
 				if (Dungeon.level.flamable[i]) {
-					Dungeon.level.destroy(i);
+					CellFlags.destroy( Dungeon.level, i);
 					GameScene.updateMap(i);
 					terrainAffected = true;
 				}

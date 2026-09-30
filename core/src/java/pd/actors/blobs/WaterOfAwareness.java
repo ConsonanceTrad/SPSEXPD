@@ -32,6 +32,7 @@ import pd.effects.Speck;
 import pd.items.Item;
 import pd.items.scrolls.ScrollOfIdentify;
 import pd.journal.Notes.Landmark;
+import pd.levels.CellFlags;
 import pd.levels.Terrain;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -54,7 +55,7 @@ public class WaterOfAwareness extends WellWater {
 			int terr = Dungeon.level.map[i];
 			if ((Terrain.flags[terr] & Terrain.SECRET) != 0) {
 				
-				Dungeon.level.discover( i );
+				CellFlags.discover( Dungeon.level,  i );
 				
 				if (Dungeon.level.heroFOV[i]) {
 					GameScene.discoverTile( i, terr );

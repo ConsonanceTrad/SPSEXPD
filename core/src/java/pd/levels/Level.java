@@ -408,7 +408,7 @@ public abstract class Level implements Bundlable {
 		SpsDew.place( this );
 		
 		buildFlagMaps();
-		cleanWalls();
+		CellFlags.cleanWalls( this );
 		
 		createMobs();
 		markSpsOriginalMobs();
@@ -558,7 +558,7 @@ public abstract class Level implements Bundlable {
 		}
 
 		buildFlagMaps();
-		cleanWalls();
+		CellFlags.cleanWalls( this );
 
 	}
 	
@@ -873,117 +873,13 @@ public abstract class Level implements Bundlable {
 	
 
 	public void buildFlagMaps() {
-		
-		for (int i=0; i < length(); i++) {
-			int flags = Terrain.flags[map[i]];
-			passable[i]     = (flags & Terrain.PASSABLE) != 0;
-			losBlocking[i]  = (flags & Terrain.LOS_BLOCKING) != 0;
-			flamable[i]     = (flags & Terrain.FLAMABLE) != 0;
-			secret[i]       = (flags & Terrain.SECRET) != 0;
-			solid[i]        = (flags & Terrain.SOLID) != 0;
-			avoid[i]        = (flags & Terrain.AVOID) != 0;
-			water[i]        = (flags & Terrain.LIQUID) != 0;
-			pit[i]          = (flags & Terrain.PIT) != 0;
-		}
-
-		for (Blob b : blobs.values()){
-			b.onBuildFlagMaps(this);
-		}
-		
-		int lastRow = length() - width();
-		for (int i=0; i < width(); i++) {
-			passable[i] = avoid[i] = false;
-			losBlocking[i] = solid[i] = true;
-			passable[lastRow + i] = avoid[lastRow + i] = false;
-			losBlocking[lastRow + i] = solid[lastRow + i] = true;
-		}
-		for (int i=width(); i < lastRow; i += width()) {
-			passable[i] = avoid[i] = false;
-			losBlocking[i] = solid[i] = true;
-			passable[i + width()-1] = avoid[i + width()-1] = false;
-			losBlocking[i + width()-1] = solid[i + width()-1] = true;
-		}
-
-		//an open space is large enough to fit large mobs. A space is open when it is not solid
-		// and there is an open corner with both adjacent cells opens
-		for (int i=0; i < length(); i++) {
-			if (solid[i]){
-				openSpace[i] = false;
-			} else {
-				for (int j = 1; j < PathFinder.CIRCLE8.length; j += 2){
-					if (solid[i+PathFinder.CIRCLE8[j]]) {
-						openSpace[i] = false;
-					} else if (!solid[i+PathFinder.CIRCLE8[(j+1)%8]]
-							&& !solid[i+PathFinder.CIRCLE8[(j+2)%8]]){
-						openSpace[i] = true;
-						break;
-					}
-				}
-			}
-		}
-
+		CellFlags.build( this );
 	}
 
-	//updates open space both on the cell itself and adjacent cells
-	public void updateOpenSpace(int cell){
-		int centerX = cell % width();
-		int centerY = cell / width();
-		for (int dy = -1; dy <= 1; dy++) {
-			for (int dx = -1; dx <= 1; dx++) {
-				int x = centerX + dx;
-				int y = centerY + dy;
-				if (x < 0 || y < 0 || x >= width() || y >= height()) continue;
-				int target = x + y * width();
-				if (solid[target] || x == 0 || y == 0 || x == width() - 1 || y == height() - 1){
-					openSpace[target] = false;
-					continue;
-				}
-				openSpace[target] = false;
-				for (int j = 1; j < PathFinder.CIRCLE8.length; j += 2){
-					if (solid[target + PathFinder.CIRCLE8[j]]) {
-						openSpace[target] = false;
-					} else if (!solid[target + PathFinder.CIRCLE8[(j+1)%8]]
-							&& !solid[target + PathFinder.CIRCLE8[(j+2)%8]]){
-						openSpace[target] = true;
-						break;
-					}
-				}
-			}
-		}
-	}
+
 
 	public void destroy( int pos ) {
-		//if raw tile type is flammable or empty
-		int terr = map[pos];
-		if (terr == Terrain.EMPTY || terr == Terrain.EMPTY_DECO
-				|| (Terrain.flags[map[pos]] & Terrain.FLAMABLE) != 0) {
-			set(pos, Terrain.EMBERS);
-		}
-		Blob web = blobs.get(Web.class);
-		if (web != null){
-			web.clear(pos);
-		}
-	}
-
-	public void cleanWalls() {
-		if (discoverable == null || discoverable.length != length) {
-			discoverable = new boolean[length()];
-		}
-
-		for (int i=0; i < length(); i++) {
-			
-			boolean d = false;
-			
-			for (int j=0; j < PathFinder.NEIGHBOURS9.length; j++) {
-				int n = i + PathFinder.NEIGHBOURS9[j];
-				if (n >= 0 && n < length() && map[n] != Terrain.WALL && map[n] != Terrain.WALL_DECO) {
-					d = true;
-					break;
-				}
-			}
-			
-			discoverable[i] = d;
-		}
+		CellFlags.destroy( this, pos );
 	}
 	
 	public static void set( int cell, int terrain ){
@@ -1008,29 +904,7 @@ public abstract class Level implements Bundlable {
 	}
 
 	public void updateCellFlags( int cell ){
-		int terrain = map[cell];
-
-		int flags = Terrain.flags[terrain];
-		passable[cell]      = (flags & Terrain.PASSABLE) != 0;
-		losBlocking[cell]   = (flags & Terrain.LOS_BLOCKING) != 0;
-		flamable[cell]      = (flags & Terrain.FLAMABLE) != 0;
-		secret[cell]        = (flags & Terrain.SECRET) != 0;
-		solid[cell]         = (flags & Terrain.SOLID) != 0;
-		avoid[cell]         = (flags & Terrain.AVOID) != 0;
-		pit[cell]           = (flags & Terrain.PIT) != 0;
-		water[cell]         = terrain == Terrain.WATER;
-
-		if (this instanceof SewerLevel){
-			if (map[cell] == Terrain.REGION_DECO || map[cell] == Terrain.REGION_DECO_ALT){
-				flamable[cell] = true;
-			}
-		}
-
-		for (Blob b : blobs.values()){
-			b.onUpdateCellFlags(this, cell);
-		}
-
-		updateOpenSpace(cell);
+		CellFlags.updateCellFlags( this, cell );
 	}
 	
 	public Heap drop( Item item, int cell ) {
@@ -1082,47 +956,9 @@ public abstract class Level implements Bundlable {
 	}
 	
 
-	public void discover( int cell ) {
-		set( cell, Terrain.discover( map[cell] ) );
-		Trap trap = traps.get( cell );
-		if (trap != null)
-			trap.reveal();
-		GameScene.updateMap( cell );
-	}
 
 	public boolean setCellToWater( boolean includeTraps, int cell ){
-		Point p = cellToPoint(cell);
-
-		//if a custom tilemap is over that cell, check if it allows water
-		for (CustomTilemap cust : customTiles){
-			Point custPoint = new Point(p);
-			custPoint.x -= cust.tileX;
-			custPoint.y -= cust.tileY;
-			if (custPoint.x >= 0 && custPoint.y >= 0
-					&& custPoint.x < cust.tileW && custPoint.y < cust.tileH){
-				if (!cust.allowWater(custPoint.x, custPoint.y)){
-					return false;
-				}
-			}
-		}
-
-		int terr = map[cell];
-		if (terr == Terrain.EMPTY || terr == Terrain.GRASS ||
-				terr == Terrain.EMBERS || terr == Terrain.EMPTY_SP ||
-				terr == Terrain.HIGH_GRASS || terr == Terrain.FURROWED_GRASS
-				|| terr == Terrain.EMPTY_DECO){
-			set(cell, Terrain.WATER);
-			GameScene.updateMap(cell);
-			return true;
-		} else if (includeTraps && (terr == Terrain.SECRET_TRAP ||
-				terr == Terrain.TRAP || terr == Terrain.INACTIVE_TRAP)){
-			set(cell, Terrain.WATER);
-			Dungeon.level.traps.remove(cell);
-			GameScene.updateMap(cell);
-			return true;
-		}
-
-		return false;
+		return CellFlags.setCellToWater( this, includeTraps, cell );
 	}
 	
 	public int fallCell( boolean fallIntoPit ) {
@@ -1253,12 +1089,12 @@ public abstract class Level implements Bundlable {
 		if (trap != null) {
 			if (bubble != null){
 				Sample.INSTANCE.play(Assets.Sounds.TRAP);
-				discover(cell);
+				CellFlags.discover( this, cell );
 				bubble.setDelayedPress(cell);
 				
 			} else if (timeFreeze != null){
 				Sample.INSTANCE.play(Assets.Sounds.TRAP);
-				discover(cell);
+				CellFlags.discover( this, cell );
 				timeFreeze.setDelayedPress(cell);
 				
 			} else {

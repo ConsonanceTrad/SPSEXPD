@@ -51,6 +51,7 @@ import pd.items.artifacts.DriedRose;
 import pd.items.quest.MetalShard;
 import pd.items.wands.WandOfBlastWave;
 import pd.levels.CavesBossLevel;
+import pd.levels.CellFlags;
 import pd.levels.FieldOfView;
 import pd.levels.Level;
 import pd.levels.Terrain;
@@ -634,7 +635,7 @@ public class DM300 extends Mob {
 						Dungeon.level.blobs.get(WallOfLight.LightWall.class).clear(pos+i);
 					}
 				}
-				Dungeon.level.cleanWalls();
+				CellFlags.cleanWalls( Dungeon.level );
 				Dungeon.observe();
 				spend(Dungeon.isChallenged(Challenges.STRONGER_BOSSES) ? 2f : 3f);
 

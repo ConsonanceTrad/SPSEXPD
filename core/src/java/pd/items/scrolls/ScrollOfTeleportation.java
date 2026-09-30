@@ -30,6 +30,7 @@ import pd.actors.buffs.Roots;
 import pd.actors.hero.Hero;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
+import pd.levels.CellFlags;
 import pd.levels.RegularLevel;
 import pd.levels.Terrain;
 import pd.levels.rooms.Room;
@@ -223,7 +224,7 @@ public class ScrollOfTeleportation extends Scroll {
 				Sample.INSTANCE.play( Assets.Sounds.SECRET );
 				int oldValue = Dungeon.level.map[doorPos];
 				GameScene.discoverTile( doorPos, oldValue );
-				Dungeon.level.discover( doorPos );
+				CellFlags.discover( Dungeon.level,  doorPos );
 				ScrollOfMagicMapping.discover( doorPos );
 			}
 			Dungeon.observe();

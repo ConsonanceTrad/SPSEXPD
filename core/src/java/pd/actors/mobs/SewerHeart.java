@@ -25,6 +25,7 @@ import pd.items.keys.SpsSkeletonKey;
 import pd.items.misc.MissileShield;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.items.weapon.rockcode.Gleaf;
+import pd.levels.CellFlags;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
@@ -168,7 +169,7 @@ public class SewerHeart extends LegacyDualLootMob {
 		for (int cell : beam.subPath(1, beam.dist)) {
 			if (!Dungeon.level.insideMap(cell)) continue;
 			if (Dungeon.level.flamable[cell]) {
-				Dungeon.level.destroy(cell);
+				CellFlags.destroy( Dungeon.level, cell);
 				GameScene.updateMap(cell);
 				terrainAffected = true;
 			}

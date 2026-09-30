@@ -33,6 +33,7 @@ import pd.effects.Beam;
 import pd.effects.CellEmitter;
 import pd.effects.particles.PurpleParticle;
 import pd.journal.Bestiary;
+import pd.levels.CellFlags;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -88,7 +89,7 @@ public class VaultLaser extends NPC {
 					visible = true;
 				}
 				if (Dungeon.level.flamable[cell]){
-					Dungeon.level.destroy( cell );
+					CellFlags.destroy( Dungeon.level,  cell );
 					observe = true;
 					GameScene.updateMap( cell );
 				}

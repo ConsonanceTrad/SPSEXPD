@@ -25,6 +25,7 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.actors.buffs.FlavourBuff;
 import pd.journal.Bestiary;
+import pd.levels.CellFlags;
 import pd.levels.GroundItems;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -98,7 +99,7 @@ public abstract class Trap implements Bundlable {
 				Sample.INSTANCE.play(Assets.Sounds.TRAP);
 			}
 			if (disarmedByActivation) disarm();
-			Dungeon.level.discover(pos);
+			CellFlags.discover( Dungeon.level, pos);
 			Bestiary.setSeen(getClass());
 			Bestiary.countEncounter(getClass());
 			activate();

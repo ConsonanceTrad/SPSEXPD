@@ -39,6 +39,7 @@ import pd.effects.particles.ElmoParticle;
 import pd.items.Heap;
 import pd.items.scrolls.ScrollOfMagicMapping;
 import pd.journal.Catalog;
+import pd.levels.CellFlags;
 import pd.levels.SpsSokobanLevel;
 import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
@@ -204,7 +205,7 @@ public class TalismanOfForesight extends Artifact {
 					if (Dungeon.level.secret[cell]) {
 						int oldValue = Dungeon.level.map[cell];
 						GameScene.discoverTile(cell, oldValue);
-						Dungeon.level.discover( cell );
+						CellFlags.discover( Dungeon.level,  cell );
 						ScrollOfMagicMapping.discover(cell);
 						noticed = true;
 

@@ -27,6 +27,7 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.effects.FloatingText;
 import pd.items.bombs.Bomb;
+import pd.levels.CellFlags;
 import pd.mechanics.ShadowCaster;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
@@ -107,7 +108,7 @@ public class SuperNovaTracker extends Buff {
 					//9x bomb dmg when fully inside
 					//6x when along straight edge
 					//3x when outside straight edge
-					Dungeon.level.destroy(i);
+					CellFlags.destroy( Dungeon.level, i);
 					if (Actor.findChar(i) == Dungeon.hero){
 						GameScene.flash(0x80FFFFFF);
 					}

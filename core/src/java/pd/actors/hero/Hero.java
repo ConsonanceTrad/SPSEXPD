@@ -227,6 +227,7 @@ import pd.items.weapon.missiles.MissileWeapon;
 import pd.journal.Catalog;
 import pd.journal.Document;
 import pd.journal.Notes;
+import pd.levels.CellFlags;
 import pd.levels.FieldOfView;
 import pd.levels.Level;
 import pd.levels.MiningLevel;
@@ -2675,7 +2676,7 @@ public class Hero extends Char {
 				
 				visited[i] = true;
 				if ((Terrain.flags[terr] & Terrain.SECRET) != 0) {
-					Dungeon.level.discover( i );
+					CellFlags.discover( Dungeon.level,  i );
 				}
 			}
 		}
@@ -3066,7 +3067,7 @@ public class Hero extends Char {
 							
 							GameScene.discoverTile( curr, oldValue );
 							
-							Dungeon.level.discover( curr );
+							CellFlags.discover( Dungeon.level,  curr );
 							
 							ScrollOfMagicMapping.discover( curr );
 							

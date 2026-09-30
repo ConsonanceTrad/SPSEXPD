@@ -40,6 +40,7 @@ import pd.effects.particles.PurpleParticle;
 import pd.effects.particles.ShadowParticle;
 import pd.items.artifacts.DriedRose;
 import pd.journal.Bestiary;
+import pd.levels.CellFlags;
 import pd.levels.FieldOfView;
 import pd.levels.Level;
 import pd.mechanics.Ballistica;
@@ -205,7 +206,7 @@ public class YogDzewa extends Mob {
 							affected.add(ch);
 						}
 						if (Dungeon.level.flamable[p]) {
-							Dungeon.level.destroy(p);
+							CellFlags.destroy( Dungeon.level, p);
 							GameScene.updateMap(p);
 							terrainAffected = true;
 						}

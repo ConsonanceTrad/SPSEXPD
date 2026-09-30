@@ -26,6 +26,7 @@ import pd.Dungeon;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.effects.SpellSprite;
+import pd.levels.CellFlags;
 import pd.levels.Terrain;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -63,7 +64,7 @@ public class ScrollOfMagicMapping extends Scroll {
 				mapped[i] = true;
 				if (discoverSecrets && (Terrain.flags[terr] & Terrain.SECRET) != 0) {
 					
-					Dungeon.level.discover( i );
+					CellFlags.discover( Dungeon.level,  i );
 					
 					if (Dungeon.level.heroFOV[i]) {
 						GameScene.discoverTile( i, terr );

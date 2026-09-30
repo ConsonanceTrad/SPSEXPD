@@ -69,6 +69,7 @@ import pd.journal.Bestiary;
 import pd.journal.Document;
 import pd.journal.Journal;
 import pd.journal.Notes;
+import pd.levels.CellFlags;
 import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.RegularLevel;
@@ -1379,7 +1380,7 @@ public class GameScene extends PixelScene {
 			//clear hidden doors, it's floor 1 so there are only the entrance ones
 			for (int i = 0; i < Dungeon.level.length(); i++){
 				if (Dungeon.level.map[i] == Terrain.SECRET_DOOR){
-					Dungeon.level.discover(i);
+					CellFlags.discover( Dungeon.level, i);
 					discoverTile(i, Terrain.SECRET_DOOR);
 				}
 			}

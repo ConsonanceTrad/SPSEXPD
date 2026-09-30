@@ -38,6 +38,7 @@ import pd.effects.MagicMissile;
 import pd.effects.particles.BlastParticle;
 import pd.effects.particles.SmokeParticle;
 import pd.items.weapon.melee.MagesStaff;
+import pd.levels.CellFlags;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
@@ -188,7 +189,7 @@ public class WandOfFireblast extends DamageWand {
 				for (int i : PathFinder.NEIGHBOURS9) {
 					CellEmitter.get(defender.pos + i).burst(SmokeParticle.FACTORY, 4);
 					if (Fire.volumeAt(defender.pos+i, Fire.class) > 0){
-						Dungeon.level.destroy(defender.pos + i);
+						CellFlags.destroy( Dungeon.level, defender.pos + i);
 						GameScene.updateMap(defender.pos + i);
 						fire.clear(defender.pos + i);
 					}

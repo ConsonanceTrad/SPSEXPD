@@ -55,6 +55,7 @@ import pd.items.Item;
 import pd.items.TengusMask;
 import pd.items.artifacts.DriedRose;
 import pd.items.bombs.Bomb;
+import pd.levels.CellFlags;
 import pd.levels.FieldOfView;
 import pd.levels.Level;
 import pd.levels.PrisonBossLevel;
@@ -885,7 +886,7 @@ public class Tengu extends Mob {
 							}
 							
 							if (Dungeon.level.flamable[cell]){
-								Dungeon.level.destroy( cell );
+								CellFlags.destroy( Dungeon.level,  cell );
 								
 								observe = true;
 								GameScene.updateMap( cell );

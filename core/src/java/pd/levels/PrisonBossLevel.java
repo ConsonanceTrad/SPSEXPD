@@ -358,7 +358,7 @@ public class PrisonBossLevel extends Level {
 	
 	private void cleanMapState(){
 		buildFlagMaps();
-		cleanWalls();
+		CellFlags.cleanWalls( this );
 		
 		BArray.setFalse(visited);
 		BArray.setFalse(mapped);

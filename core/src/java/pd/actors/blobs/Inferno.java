@@ -24,6 +24,7 @@ package pd.actors.blobs;
 import pd.Dungeon;
 import pd.effects.BlobEmitter;
 import pd.effects.Speck;
+import pd.levels.CellFlags;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 
@@ -58,7 +59,7 @@ public class Inferno extends Blob {
 					Fire.burn(cell);
 
 					if (Dungeon.level.flamable[cell]){
-						Dungeon.level.destroy( cell );
+						CellFlags.destroy( Dungeon.level,  cell );
 
 						observe = true;
 						GameScene.updateMap( cell );

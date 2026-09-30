@@ -29,6 +29,7 @@ import pd.actors.buffs.Burning;
 import pd.effects.BlobEmitter;
 import pd.effects.particles.FlameParticle;
 import pd.items.Heap;
+import pd.levels.CellFlags;
 import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.scenes.GameScene;
@@ -62,7 +63,7 @@ public class Fire extends Blob {
 					fire = cur[cell] - 1;
 					if (fire <= 0 && flamable[cell]) {
 
-						Dungeon.level.destroy( cell );
+						CellFlags.destroy( Dungeon.level,  cell );
 
 						observe = true;
 						GameScene.updateMap( cell );
