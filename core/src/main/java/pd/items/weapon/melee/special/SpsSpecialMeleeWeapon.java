@@ -6,7 +6,7 @@ import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.weapon.melee.MeleeWeapon;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** Shared stat and safety rules for SPS-PD's event melee weapons. */
 abstract class SpsSpecialMeleeWeapon extends MeleeWeapon {

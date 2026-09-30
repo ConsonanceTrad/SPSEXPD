@@ -24,8 +24,8 @@ package pd.windows;
 import pd.scenes.PixelScene;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.ui.Component;
+import watabou.noosa.Image;
+import watabou.noosa.ui.Component;
 
 public class WndTitledMessage extends Window {
 

@@ -6,7 +6,7 @@ import pd.items.RedDewdrop;
 import pd.items.artifacts.UnstableSpellbook;
 import pd.items.scrolls.ScrollOfUpgrade;
 import pd.sprites.SuffererSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** Original SPS-PD runtime and save identity for the corrupted warlock. */
 public class Sufferer extends SpsHallsMobs.Sufferer {

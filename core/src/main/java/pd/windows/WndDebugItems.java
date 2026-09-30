@@ -43,8 +43,8 @@ import pd.ui.Button;
 import pd.ui.RedButton;
 import pd.ui.Window;
 import pd.utils.GLog;
-import com.watabou.noosa.Game;
-import com.watabou.utils.DeviceCompat;
+import watabou.noosa.Game;
+import watabou.utils.DeviceCompat;
 
 import java.util.ArrayList;
 import java.util.Collection;

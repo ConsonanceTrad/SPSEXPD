@@ -27,7 +27,7 @@ import pd.items.armor.Armor;
 import pd.items.wands.WandOfBlastWave;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Repulsion extends Armor.Glyph {
 

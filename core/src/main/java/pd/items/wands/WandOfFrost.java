@@ -36,10 +36,10 @@ import pd.items.weapon.melee.MagesStaff;
 import pd.levels.rooms.special.MagicalFireRoom;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
-import com.watabou.utils.PointF;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Callback;
+import watabou.utils.PointF;
+import watabou.utils.Random;
 
 public class WandOfFrost extends DamageWand {
 

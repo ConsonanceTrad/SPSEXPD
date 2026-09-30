@@ -4,7 +4,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Cripple;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Halberd extends NormalMeleeWeapon {
 	public Halberd() { super(5, 1f, 2f, 2, 62, 82, ItemSpriteSheet.SPS_WEP_HALBERD); }

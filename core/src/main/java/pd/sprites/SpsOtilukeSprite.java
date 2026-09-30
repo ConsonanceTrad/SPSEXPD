@@ -4,7 +4,7 @@ package pd.sprites;
 import pd.Assets;
 import pd.actors.mobs.Otiluke;
 import pd.effects.MagicMissile;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 public class SpsOtilukeSprite extends MobSprite {
 

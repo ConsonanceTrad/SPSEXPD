@@ -27,8 +27,8 @@ import pd.items.trinkets.VialOfBlood;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.GameMath;
+import watabou.utils.Bundle;
+import watabou.utils.GameMath;
 
 public class Healing extends Buff {
 

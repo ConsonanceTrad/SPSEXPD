@@ -23,7 +23,7 @@ package pd.actors.buffs;
 
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
-import com.watabou.noosa.Image;
+import watabou.noosa.Image;
 
 public class SoulMark extends FlavourBuff {
 

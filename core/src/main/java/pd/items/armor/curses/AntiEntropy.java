@@ -31,8 +31,8 @@ import pd.items.armor.Armor;
 import pd.items.armor.Armor.Glyph;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSprite.Glowing;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 public class AntiEntropy extends Glyph {
 

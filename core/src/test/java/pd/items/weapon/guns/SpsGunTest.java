@@ -11,9 +11,9 @@ import pd.actors.mobs.Mob;
 import pd.items.weapon.spammo.FireAmmo;
 import pd.items.weapon.spammo.HeavyAmmo;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

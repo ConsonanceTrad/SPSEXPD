@@ -89,11 +89,11 @@ import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndOptions;
-import com.watabou.noosa.particles.Emitter;
-import com.watabou.utils.Bundlable;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
-import com.watabou.utils.Reflection;
+import watabou.noosa.particles.Emitter;
+import watabou.utils.Bundlable;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
+import watabou.utils.Reflection;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -30,7 +30,7 @@ import pd.actors.buffs.Vertigo;
 import pd.effects.Flare;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Eldritch extends Weapon.Enchantment {
 

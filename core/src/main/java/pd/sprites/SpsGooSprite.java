@@ -2,7 +2,7 @@
 package pd.sprites;
 
 import pd.Assets;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 /** Original SPS Goo animation sheet, kept separate from Shattered's Goo. */
 public class SpsGooSprite extends MobSprite {

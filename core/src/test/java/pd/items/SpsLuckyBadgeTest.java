@@ -11,8 +11,8 @@ import pd.actors.hero.HeroClass;
 import pd.actors.hero.HeroSubClass;
 import pd.items.misc.LuckyBadge;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.utils.Random;
 
 /** Headless checks for the complete legacy luck formula and its loop guard. */
 public final class SpsLuckyBadgeTest {

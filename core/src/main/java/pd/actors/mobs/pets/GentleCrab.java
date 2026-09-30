@@ -9,7 +9,7 @@ import pd.items.food.completefood.PetFood;
 import pd.items.food.vegetable.Vegetable;
 import pd.items.potions.PotionOfShield;
 import pd.sprites.GentleCrabSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class GentleCrab extends PET {
 	{

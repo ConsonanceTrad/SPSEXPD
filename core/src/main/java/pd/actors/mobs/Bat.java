@@ -30,7 +30,7 @@ import pd.items.Item;
 import pd.items.potions.PotionOfHealing;
 import pd.sprites.BatSprite;
 import pd.sprites.CharSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Bat extends Mob {
 

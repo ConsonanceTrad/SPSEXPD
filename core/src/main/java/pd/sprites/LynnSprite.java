@@ -1,7 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.sprites;
 
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 /** Original Lynn animation, reused by her summoned curse doll. */
 public class LynnSprite extends MobSprite {

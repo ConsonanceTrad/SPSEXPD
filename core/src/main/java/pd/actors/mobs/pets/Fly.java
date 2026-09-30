@@ -16,10 +16,10 @@ import pd.items.food.meatfood.MeatFood;
 import pd.items.potions.PotionOfMending;
 import pd.scenes.GameScene;
 import pd.sprites.FlySprite;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.noosa.audio.Sample;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

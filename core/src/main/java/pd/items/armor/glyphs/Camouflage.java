@@ -28,7 +28,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Invisibility;
 import pd.items.armor.Armor;
 import pd.sprites.ItemSprite;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.audio.Sample;
 
 public class Camouflage extends Armor.Glyph {
 

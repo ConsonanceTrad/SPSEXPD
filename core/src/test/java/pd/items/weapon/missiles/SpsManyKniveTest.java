@@ -17,9 +17,9 @@ import pd.items.weapon.spammo.HeavyAmmo;
 import pd.levels.Level;
 import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -159,10 +159,10 @@ public final class SpsManyKniveTest {
 		TestLevel() {
 			setSize(8, 8);
 			mobs = new HashSet<>();
-			heaps = new com.watabou.utils.SparseArray<>();
+			heaps = new watabou.utils.SparseArray<>();
 			blobs = new HashMap<>();
-			plants = new com.watabou.utils.SparseArray<Plant>();
-			traps = new com.watabou.utils.SparseArray<>();
+			plants = new watabou.utils.SparseArray<Plant>();
+			traps = new watabou.utils.SparseArray<>();
 			transitions = new ArrayList<>();
 			customTiles = new ArrayList<>();
 			customTerrain = new ArrayList<>();

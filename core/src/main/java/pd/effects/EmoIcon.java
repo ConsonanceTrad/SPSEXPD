@@ -25,10 +25,10 @@ import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.CharSprite;
 import pd.ui.Icons;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Image;
-import com.watabou.utils.PointF;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.noosa.Image;
+import watabou.utils.PointF;
+import watabou.utils.Random;
 
 public class EmoIcon extends Image {
 

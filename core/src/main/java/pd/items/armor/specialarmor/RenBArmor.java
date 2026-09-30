@@ -9,7 +9,7 @@ import pd.items.armor.normalarmor.NormalArmor;
 import pd.items.eggs.EasterEgg;
 import pd.sprites.HeroSprite;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 public class RenBArmor extends NormalArmor {
 	private static final String CHARGE = "charge";

@@ -48,10 +48,10 @@ import pd.sprites.MirrorSprite;
 import pd.ui.HeroIcon;
 import pd.ui.TargetHealthIndicator;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.noosa.tweeners.AlphaTweener;
-import com.watabou.noosa.tweeners.Delayer;
-import com.watabou.utils.Callback;
+import watabou.noosa.audio.Sample;
+import watabou.noosa.tweeners.AlphaTweener;
+import watabou.noosa.tweeners.Delayer;
+import watabou.utils.Callback;
 
 public class Feint extends ArmorAbility {
 

@@ -11,7 +11,7 @@ import pd.items.food.completefood.PetFood;
 import pd.items.food.fruit.Fruit;
 import pd.sprites.ButterflyPetSprite;
 import pd.sprites.CharSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class ButterflyPet extends PET {
 	{

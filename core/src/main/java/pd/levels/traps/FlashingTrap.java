@@ -33,8 +33,8 @@ import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.items.Heap;
 import pd.scenes.GameScene;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Random;
 
 public class FlashingTrap extends Trap {
 

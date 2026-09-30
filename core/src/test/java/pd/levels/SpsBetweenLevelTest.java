@@ -52,9 +52,9 @@ import pd.items.weapon.ranges.WoodenBowN;
 import pd.plants.Plant;
 import pd.tiles.CustomTilemap;
 import pd.tiles.custom.SpsLegacyLevelVisual;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Random;
-import com.watabou.utils.SparseArray;
+import watabou.noosa.Game;
+import watabou.utils.Random;
+import watabou.utils.SparseArray;
 
 import java.util.ArrayList;
 import java.util.HashMap;

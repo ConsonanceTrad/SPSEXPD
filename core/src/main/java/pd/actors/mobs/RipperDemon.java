@@ -36,12 +36,12 @@ import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.sprites.RipperSprite;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Callback;
-import com.watabou.utils.GameMath;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundle;
+import watabou.utils.Callback;
+import watabou.utils.GameMath;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 public class RipperDemon extends Mob {
 

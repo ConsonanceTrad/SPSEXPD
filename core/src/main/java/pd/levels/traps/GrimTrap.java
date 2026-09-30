@@ -6,8 +6,8 @@ import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.effects.Wound;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Random;
 
 public class GrimTrap extends Trap {
 	{

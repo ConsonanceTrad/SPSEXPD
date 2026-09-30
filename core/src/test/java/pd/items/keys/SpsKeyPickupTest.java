@@ -11,7 +11,7 @@ import pd.actors.hero.Hero;
 import pd.actors.buffs.Buff;
 import pd.items.artifacts.SkeletonKey;
 import pd.journal.Notes;
-import com.watabou.noosa.Game;
+import watabou.noosa.Game;
 
 /** 回归：学者任务钥匙（SpsSkeletonKey）拾取不得崩溃（曾因 HUD 钥匙显示未登记槽位而 NPE 闪退）。 */
 public final class SpsKeyPickupTest {

@@ -27,7 +27,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Poison;
 import pd.mechanics.Ballistica;
 import pd.sprites.FungalSentrySprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class FungalSentry extends Mob {
 

@@ -63,13 +63,13 @@ import pd.levels.traps.bufftrap.LightBuff3Trap;
 import pd.levels.traps.bufftrap.ShockBuff3Trap;
 import pd.messages.Messages;
 import pd.tiles.DungeonTilemap;
-import com.watabou.glwrap.Blending;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Group;
-import com.watabou.noosa.audio.Music;
-import com.watabou.noosa.particles.PixelParticle;
-import com.watabou.utils.PointF;
-import com.watabou.utils.Random;
+import watabou.glwrap.Blending;
+import watabou.noosa.Game;
+import watabou.noosa.Group;
+import watabou.noosa.audio.Music;
+import watabou.noosa.particles.PixelParticle;
+import watabou.utils.PointF;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

@@ -35,8 +35,8 @@ import pd.items.weapon.missiles.darts.PoisonDart;
 import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
 import pd.sprites.GnollTricksterSprite;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 public class GnollTrickster extends Gnoll {
 

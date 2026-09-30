@@ -27,7 +27,7 @@ import pd.actors.buffs.Buff;
 import pd.effects.SpellSprite;
 import pd.items.scrolls.ScrollOfRecharging;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.audio.Sample;
 
 public class ScrollOfMysticalEnergy extends ExoticScroll {
 	

@@ -32,11 +32,11 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.windows.WndOptions;
-import com.watabou.noosa.ColorBlock;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.ui.Component;
-import com.watabou.utils.Random;
+import watabou.noosa.ColorBlock;
+import watabou.noosa.Game;
+import watabou.noosa.Image;
+import watabou.noosa.ui.Component;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

@@ -2,7 +2,7 @@
 package pd.sprites;
 
 import pd.Assets;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 /** Original SPS-PD grey-rat sprite identity and atlas layout. */
 public class GreyRatSprite extends MobSprite {

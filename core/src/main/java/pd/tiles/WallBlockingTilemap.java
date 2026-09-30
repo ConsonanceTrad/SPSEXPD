@@ -26,8 +26,8 @@ import pd.Dungeon;
 import pd.levels.HallsBossLevel;
 import pd.levels.MiningLevel;
 import pd.levels.Terrain;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.Tilemap;
+import watabou.noosa.TextureFilm;
+import watabou.noosa.Tilemap;
 
 
 public class WallBlockingTilemap extends Tilemap {

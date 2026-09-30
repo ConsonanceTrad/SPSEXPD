@@ -25,9 +25,9 @@ import pd.Assets;
 import pd.actors.Char;
 import pd.actors.mobs.Spinner;
 import pd.effects.MagicMissile;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
+import watabou.noosa.TextureFilm;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Callback;
 
 //TODO improvements here
 public class SpinnerSprite extends MobSprite {

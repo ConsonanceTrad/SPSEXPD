@@ -25,8 +25,8 @@ import pd.Assets;
 import pd.actors.hero.HeroSubClass;
 import pd.actors.hero.abilities.ArmorAbility;
 import pd.actors.hero.spells.ClericSpell;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.Image;
+import watabou.noosa.TextureFilm;
 
 //icons for hero subclasses and abilities atm, maybe add classes?
 public class HeroIcon extends Image {

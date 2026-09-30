@@ -28,9 +28,9 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndIronMaker;
-import com.watabou.utils.Random;
-import com.watabou.utils.Reflection;
-import com.watabou.utils.Bundle;
+import watabou.utils.Random;
+import watabou.utils.Reflection;
+import watabou.utils.Bundle;
 
 import java.util.ArrayList;
 

@@ -28,9 +28,9 @@ import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
 import pd.levels.rooms.secret.SecretRoom;
 import pd.levels.rooms.standard.CaveRoom;
-import com.watabou.utils.GameMath;
-import com.watabou.utils.Point;
-import com.watabou.utils.Random;
+import watabou.utils.GameMath;
+import watabou.utils.Point;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

@@ -61,7 +61,7 @@ import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import pd.ui.QuickSlotButton;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.audio.Sample;
 
 public class MnemonicPrayer extends TargetedClericSpell {
 

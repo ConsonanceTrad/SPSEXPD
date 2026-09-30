@@ -6,7 +6,7 @@ import pd.ShatteredPixelDungeon;
 import pd.actors.hero.Hero;
 import pd.scenes.MemorySaveScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.Game;
+import watabou.noosa.Game;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,7 +43,7 @@ public class SaveYourLife extends Item {
 		}
 	}
 
-	static Class<? extends com.watabou.noosa.Scene> saveScene() {
+	static Class<? extends watabou.noosa.Scene> saveScene() {
 		return MemorySaveScene.class;
 	}
 

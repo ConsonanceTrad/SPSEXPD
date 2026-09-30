@@ -2,7 +2,7 @@
 package pd.sprites;
 
 import pd.Assets;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 /** Second-row bee animation used by the Leader's steel bee. */
 public class SteelBeeSprite extends MobSprite {

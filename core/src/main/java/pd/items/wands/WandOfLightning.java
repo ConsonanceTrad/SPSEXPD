@@ -12,10 +12,10 @@ import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.BArray;
-import com.watabou.utils.Callback;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.BArray;
+import watabou.utils.Callback;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

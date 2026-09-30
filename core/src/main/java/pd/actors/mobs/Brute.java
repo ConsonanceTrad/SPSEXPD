@@ -41,8 +41,8 @@ import pd.sprites.BruteSprite;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 public class Brute extends Mob {
 	@Override public Item SupercreateLoot() { return new Tamahawk(); }

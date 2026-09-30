@@ -24,9 +24,9 @@ package pd.levels.rooms.quest.vault;
 import pd.levels.Level;
 import pd.levels.rooms.Room;
 import pd.levels.rooms.standard.StandardRoom;
-import com.watabou.utils.Point;
-import com.watabou.utils.Random;
-import com.watabou.utils.Reflection;
+import watabou.utils.Point;
+import watabou.utils.Random;
+import watabou.utils.Reflection;
 
 import java.util.ArrayList;
 

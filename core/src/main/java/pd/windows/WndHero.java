@@ -42,12 +42,12 @@ import pd.ui.TalentButton;
 import pd.ui.TalentsPane;
 import pd.ui.Window;
 import pd.utils.DungeonSeed;
-import com.watabou.input.KeyBindings;
-import com.watabou.input.KeyEvent;
-import com.watabou.noosa.Gizmo;
-import com.watabou.noosa.Group;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.ui.Component;
+import watabou.input.KeyBindings;
+import watabou.input.KeyEvent;
+import watabou.noosa.Gizmo;
+import watabou.noosa.Group;
+import watabou.noosa.Image;
+import watabou.noosa.ui.Component;
 
 import java.util.ArrayList;
 import java.util.Locale;

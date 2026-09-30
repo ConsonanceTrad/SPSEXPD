@@ -9,7 +9,7 @@ import pd.actors.mobs.ManySkeleton;
 import pd.actors.mobs.Zombie;
 import pd.items.Item;
 import pd.items.TriforceOfCourage;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class TriangleCLevel extends SpsTriangleLevel {
 	{ color1 = 0x48763c; color2 = 0x59994a; viewDistance = 3; }

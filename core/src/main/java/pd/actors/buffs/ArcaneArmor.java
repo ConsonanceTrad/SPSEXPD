@@ -24,8 +24,8 @@ package pd.actors.buffs;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import com.watabou.noosa.Image;
-import com.watabou.utils.Bundle;
+import watabou.noosa.Image;
+import watabou.utils.Bundle;
 
 //A magical version of barkskin, essentially
 public class ArcaneArmor extends Buff {

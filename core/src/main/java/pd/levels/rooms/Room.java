@@ -23,12 +23,12 @@ package pd.levels.rooms;
 
 import pd.levels.Level;
 import pd.levels.painters.Painter;
-import com.watabou.utils.Bundlable;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Graph;
-import com.watabou.utils.Point;
-import com.watabou.utils.Random;
-import com.watabou.utils.Rect;
+import watabou.utils.Bundlable;
+import watabou.utils.Bundle;
+import watabou.utils.Graph;
+import watabou.utils.Point;
+import watabou.utils.Random;
+import watabou.utils.Rect;
 
 import java.util.ArrayList;
 import java.util.Collection;

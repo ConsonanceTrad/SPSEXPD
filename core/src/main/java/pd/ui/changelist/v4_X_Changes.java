@@ -28,7 +28,7 @@ import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.Icons;
 import pd.ui.Window;
-import com.watabou.utils.DeviceCompat;
+import watabou.utils.DeviceCompat;
 
 import java.util.ArrayList;
 

@@ -26,8 +26,8 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.hero.Talent;
 import pd.ui.BuffIndicator;
-import com.watabou.noosa.Image;
-import com.watabou.utils.Bundle;
+import watabou.noosa.Image;
+import watabou.utils.Bundle;
 
 public class LifeLink extends FlavourBuff {
 

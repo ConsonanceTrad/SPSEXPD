@@ -41,9 +41,9 @@ import pd.items.wands.Wand;
 import pd.messages.Messages;
 import pd.sprites.MimicSprite;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

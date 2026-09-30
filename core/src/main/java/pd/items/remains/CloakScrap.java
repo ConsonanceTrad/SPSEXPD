@@ -26,7 +26,7 @@ import pd.actors.buffs.ArtifactRecharge;
 import pd.actors.hero.Hero;
 import pd.items.scrolls.ScrollOfRecharging;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.audio.Sample;
 
 public class CloakScrap extends RemainsItem {
 

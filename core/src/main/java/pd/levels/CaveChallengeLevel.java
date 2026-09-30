@@ -6,7 +6,7 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.SpsChallengeMobPool;
 import pd.items.Heap;
 import pd.items.bombs.FishingBomb;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** SPS-PD 0.9.8 flooded beach arena (challenge-book room 3). */
 public class CaveChallengeLevel extends SpsRegionChallengeLevel {

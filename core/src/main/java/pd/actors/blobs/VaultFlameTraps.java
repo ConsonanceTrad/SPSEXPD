@@ -37,8 +37,8 @@ import pd.items.Heap;
 import pd.levels.Level;
 import pd.messages.Messages;
 import pd.plants.Plant;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundle;
 
 import java.util.Arrays;
 

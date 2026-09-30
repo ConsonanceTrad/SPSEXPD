@@ -26,7 +26,7 @@ import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.actors.hero.Talent;
 import pd.ui.BuffIndicator;
-import com.watabou.noosa.Image;
+import watabou.noosa.Image;
 
 public class EnhancedRings extends FlavourBuff {
 

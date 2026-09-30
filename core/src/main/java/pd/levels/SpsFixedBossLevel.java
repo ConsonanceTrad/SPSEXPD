@@ -7,7 +7,7 @@ import pd.actors.Char;
 import pd.actors.mobs.Mob;
 import pd.levels.features.LevelTransition;
 import pd.scenes.GameScene;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 /** Shared lifecycle for the legacy 48x48 sewer and prison boss maps. */
 abstract class SpsFixedBossLevel extends Level {

@@ -25,7 +25,7 @@ import pd.items.wands.WandOfMagicMissile;
 import pd.items.weapon.missiles.ThrowingKnife;
 import pd.items.weapon.ranges.WoodenBowN;
 import pd.plants.Firebloom;
-import com.watabou.noosa.Game;
+import watabou.noosa.Game;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;

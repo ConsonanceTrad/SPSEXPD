@@ -16,7 +16,7 @@ import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 import java.util.ArrayList;
 public class HolyMace extends NormalMeleeWeapon {
 	public static final String AC_ADD="ADD",AC_LIGHT="LIGHT",AC_TRIAL="TRIAL";private static final String CHARGE="charge",UP1="uptime1",UP2="uptime2";private int charge,uptime1=1,uptime2=1;

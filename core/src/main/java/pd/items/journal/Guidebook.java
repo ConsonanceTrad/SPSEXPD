@@ -32,9 +32,9 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.GameLog;
 import pd.utils.GLog;
-import com.watabou.input.ControllerHandler;
-import com.watabou.input.KeyBindings;
-import com.watabou.noosa.audio.Sample;
+import watabou.input.ControllerHandler;
+import watabou.input.KeyBindings;
+import watabou.noosa.audio.Sample;
 
 public class Guidebook extends Item {
 

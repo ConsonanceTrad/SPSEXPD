@@ -163,7 +163,7 @@ import pd.plants.Starflower;
 import pd.plants.Stormvine;
 import pd.plants.Sungrass;
 import pd.plants.Swiftthistle;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 import java.util.ArrayList;
 import java.util.Collection;

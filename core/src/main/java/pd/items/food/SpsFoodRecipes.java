@@ -14,7 +14,7 @@ import pd.items.food.meatfood.MeatFood;
 import pd.items.food.staplefood.StapleFood;
 import pd.items.food.vegetable.Truffles;
 import pd.items.food.vegetable.Vegetable;
-import com.watabou.utils.Reflection;
+import watabou.utils.Reflection;
 
 import java.util.ArrayList;
 

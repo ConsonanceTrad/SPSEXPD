@@ -26,8 +26,8 @@ import pd.SPDAction;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.windows.WndKeyBindings;
-import com.watabou.input.GameAction;
-import com.watabou.noosa.Image;
+import watabou.input.GameAction;
+import watabou.noosa.Image;
 
 public class ResumeIndicator extends Tag {
 

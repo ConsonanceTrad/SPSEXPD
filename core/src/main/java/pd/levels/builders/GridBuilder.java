@@ -22,11 +22,11 @@
 package pd.levels.builders;
 
 import pd.levels.rooms.Room;
-import com.watabou.utils.Point;
-import com.watabou.utils.PointF;
-import com.watabou.utils.Random;
-import com.watabou.utils.Rect;
-import com.watabou.utils.SparseArray;
+import watabou.utils.Point;
+import watabou.utils.PointF;
+import watabou.utils.Random;
+import watabou.utils.Rect;
+import watabou.utils.SparseArray;
 
 import java.util.ArrayList;
 

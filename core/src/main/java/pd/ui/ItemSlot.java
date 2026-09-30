@@ -34,9 +34,9 @@ import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.BitmapText;
-import com.watabou.noosa.Image;
-import com.watabou.utils.Rect;
+import watabou.noosa.BitmapText;
+import watabou.noosa.Image;
+import watabou.utils.Rect;
 
 public class ItemSlot extends Button {
 

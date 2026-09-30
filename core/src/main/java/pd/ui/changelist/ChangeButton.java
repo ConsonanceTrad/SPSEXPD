@@ -26,8 +26,8 @@ import pd.messages.Messages;
 import pd.scenes.ChangesScene;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.ui.Component;
+import watabou.noosa.Image;
+import watabou.noosa.ui.Component;
 
 //not actually a button, but functions as one.
 public class ChangeButton extends Component {

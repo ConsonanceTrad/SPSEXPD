@@ -4,7 +4,7 @@ package pd.sprites;
 import pd.Assets;
 import pd.Dungeon;
 import pd.items.weapon.missiles.darts.PoisonDart;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 /** Original SPS scarecrow animation and ranged dart presentation. */
 public class SpsScarecrowSprite extends MobSprite {

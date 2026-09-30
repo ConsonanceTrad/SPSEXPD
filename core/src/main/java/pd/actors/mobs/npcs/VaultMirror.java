@@ -44,9 +44,9 @@ import pd.sprites.VaultMirrorSprite;
 import pd.utils.GLog;
 import pd.windows.WndOptions;
 import pd.windows.WndTitledMessage;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Callback;
+import watabou.utils.Random;
 
 public class VaultMirror extends NPC {
 

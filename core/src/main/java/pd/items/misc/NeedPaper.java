@@ -19,7 +19,7 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndUseItem;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

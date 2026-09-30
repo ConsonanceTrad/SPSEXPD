@@ -14,8 +14,8 @@ import pd.plants.BlandfruitBush;
 import pd.plants.NutPlant;
 import pd.plants.Plant;
 import pd.plants.Seedpod;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

@@ -8,7 +8,7 @@ import pd.effects.BlobEmitter;
 import pd.items.Heap;
 import pd.levels.Level;
 import pd.messages.Messages;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public abstract class SpsElementalDamage extends Blob {
 	protected void affectHeap(Heap heap) { }

@@ -29,9 +29,9 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.VaultLevel;
 import pd.levels.painters.Painter;
-import com.watabou.utils.GameMath;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.GameMath;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 public class VaultBookcaseTreasureRoom extends VaultTreasureRoom {
 

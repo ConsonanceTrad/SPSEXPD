@@ -22,8 +22,8 @@
 package pd.effects;
 
 import pd.sprites.CharSprite;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Gizmo;
+import watabou.noosa.Game;
+import watabou.noosa.Gizmo;
 
 public class GlowBlock extends Gizmo {
 

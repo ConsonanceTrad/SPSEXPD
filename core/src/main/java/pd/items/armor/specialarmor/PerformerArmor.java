@@ -6,7 +6,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Charm;
 import pd.items.armor.normalarmor.NormalArmor;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class PerformerArmor extends NormalArmor {
 	public PerformerArmor() { super(2, 4f, 12f, 3, 0, 10, -1, 1, 3, ItemSpriteSheet.SPS_ARMOR_PERFORMER); }

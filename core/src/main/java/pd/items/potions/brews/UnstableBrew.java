@@ -40,8 +40,8 @@ import pd.items.potions.PotionOfToxicGas;
 import pd.items.potions.exotic.ExoticPotion;
 import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
-import com.watabou.utils.Reflection;
+import watabou.utils.Random;
+import watabou.utils.Reflection;
 
 import java.util.ArrayList;
 import java.util.HashMap;

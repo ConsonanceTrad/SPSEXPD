@@ -6,7 +6,7 @@ import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
 import pd.effects.Speck;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class HookHam extends SpsSpecialMeleeWeapon {
 	public HookHam() { super(1, 1f, 1f, 1, 1, 5, ItemSpriteSheet.SPS_HOOK_HAM); usesTargeting = true; }

@@ -3,7 +3,7 @@ package pd.sprites;
 
 import pd.Assets;
 import pd.actors.Char;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 public class SkeletonHand1Sprite extends MobSprite {
 	public SkeletonHand1Sprite() {

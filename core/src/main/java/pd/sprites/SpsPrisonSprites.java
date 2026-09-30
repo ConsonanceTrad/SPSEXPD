@@ -5,7 +5,7 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.effects.MagicMissile;
 import pd.items.weapon.missiles.Shuriken;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 public final class SpsPrisonSprites {
 	private SpsPrisonSprites() { }

@@ -97,10 +97,10 @@ import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.sprites.ItemSprite;
 import pd.utils.GLog;
-import com.watabou.utils.Bundlable;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
-import com.watabou.utils.Reflection;
+import watabou.utils.Bundlable;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
+import watabou.utils.Reflection;
 
 import java.util.ArrayList;
 import java.util.Arrays;

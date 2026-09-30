@@ -7,8 +7,8 @@ import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 /** SPS percentage-burning effect used by the senior exit guard. */
 public class DBurning extends Buff implements Hero.Doom, Buff.DOTbuff {

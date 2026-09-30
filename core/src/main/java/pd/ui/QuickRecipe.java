@@ -76,12 +76,12 @@ import pd.scenes.PixelScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
 import pd.windows.WndInfoItem;
-import com.watabou.noosa.BitmapText;
-import com.watabou.noosa.Group;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.PointerArea;
-import com.watabou.noosa.ui.Component;
-import com.watabou.utils.Reflection;
+import watabou.noosa.BitmapText;
+import watabou.noosa.Group;
+import watabou.noosa.Image;
+import watabou.noosa.PointerArea;
+import watabou.noosa.ui.Component;
+import watabou.utils.Reflection;
 
 import java.util.ArrayList;
 import java.util.Arrays;

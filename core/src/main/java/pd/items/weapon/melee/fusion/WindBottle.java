@@ -6,7 +6,7 @@ import pd.items.wands.WandOfBlastWave;
 import pd.items.weapon.melee.Sword;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class WindBottle extends Sword implements FusionWeapon {
 	{ image = ItemSpriteSheet.WAND_BLAST_WAVE; tier = 3; }

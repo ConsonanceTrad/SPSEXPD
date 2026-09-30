@@ -5,7 +5,7 @@ import pd.Dungeon;
 import pd.actors.Actor;
 import pd.scenes.GameScene;
 import pd.sprites.ManySkeletonSprite;
-import com.watabou.utils.PathFinder;
+import watabou.utils.PathFinder;
 
 /** Original SPS-PD runtime and save identity for the huge skull. */
 public class ManySkeleton extends SpsCityMobs.ManySkeleton {

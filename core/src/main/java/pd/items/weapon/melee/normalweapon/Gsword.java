@@ -4,7 +4,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Gsword extends NormalMeleeWeapon {
 	public Gsword() { super(5, 1f, 1f, 1, 50, 64, ItemSpriteSheet.SPS_WEP_GSWORD); }

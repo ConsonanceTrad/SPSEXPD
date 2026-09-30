@@ -43,9 +43,9 @@ import pd.journal.Document;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.utils.GLog;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.FileUtils;
+import watabou.noosa.Game;
+import watabou.utils.Bundle;
+import watabou.utils.FileUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;

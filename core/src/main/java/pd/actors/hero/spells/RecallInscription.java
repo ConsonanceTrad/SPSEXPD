@@ -41,9 +41,9 @@ import pd.items.stones.StoneOfEnchantment;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Reflection;
+import watabou.utils.Bundle;
+import watabou.utils.Callback;
+import watabou.utils.Reflection;
 
 public class RecallInscription extends ClericSpell {
 

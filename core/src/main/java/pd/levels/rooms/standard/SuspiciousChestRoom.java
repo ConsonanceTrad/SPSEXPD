@@ -29,7 +29,7 @@ import pd.items.trinkets.MimicTooth;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class SuspiciousChestRoom extends StandardRoom {
 

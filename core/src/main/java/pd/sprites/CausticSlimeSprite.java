@@ -22,7 +22,7 @@
 package pd.sprites;
 
 import pd.Assets;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 public class CausticSlimeSprite extends MobSprite {
 	

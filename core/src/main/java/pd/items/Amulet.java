@@ -32,7 +32,7 @@ import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.scenes.AmuletScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.Game;
+import watabou.noosa.Game;
 
 import java.io.IOException;
 import java.util.ArrayList;

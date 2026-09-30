@@ -21,7 +21,7 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.Trap;
 import pd.plants.Plant;
-import com.watabou.utils.SparseArray;
+import watabou.utils.SparseArray;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -350,7 +350,7 @@ public final class SpsMobRotationTest {
 			throw new AssertionError("SPS bandit did not reset its gold skill at the first health phase");
 		}
 
-		com.watabou.utils.Bundle saved = new com.watabou.utils.Bundle();
+		watabou.utils.Bundle saved = new watabou.utils.Bundle();
 		bandit.storeInBundle(saved);
 		if (saved.getInt("breaks") != 1 || !saved.getBoolean("skill_used")) {
 			throw new AssertionError("SPS bandit did not store its phase and skill state");
@@ -585,7 +585,7 @@ public final class SpsMobRotationTest {
 			throw new AssertionError("SPS wraith immunities differ from the source");
 		}
 
-		com.watabou.utils.Bundle saved = new com.watabou.utils.Bundle();
+		watabou.utils.Bundle saved = new watabou.utils.Bundle();
 		wraith.adjustStats(7);
 		wraith.storeInBundle(saved);
 		WraithProbe restored = new WraithProbe();
@@ -1195,7 +1195,7 @@ public final class SpsMobRotationTest {
 				pd.items.Amulet.class) != null) {
 			throw new AssertionError("blue cat did not steal and retain the amulet");
 		}
-		com.watabou.utils.Bundle saved = new com.watabou.utils.Bundle();
+		watabou.utils.Bundle saved = new watabou.utils.Bundle();
 		cat.storeInBundle(saved);
 		BlueCat restored = new BlueCat();
 		restored.restoreFromBundle(saved);
@@ -1243,7 +1243,7 @@ public final class SpsMobRotationTest {
 			throw new AssertionError("旧版特殊怪物仍按异界入口锚点成长");
 		}
 
-		com.watabou.utils.Random.pushGenerator(0x5350534445505448L);
+		watabou.utils.Random.pushGenerator(0x5350534445505448L);
 		try {
 			for (int i = 0; i < 4096; i++) {
 				int amount = new pd.items.Gold().random().quantity();
@@ -1252,7 +1252,7 @@ public final class SpsMobRotationTest {
 				}
 			}
 		} finally {
-			com.watabou.utils.Random.popGenerator();
+			watabou.utils.Random.popGenerator();
 		}
 
 		SommonSkeleton skeleton = new SommonSkeleton();
@@ -1260,7 +1260,7 @@ public final class SpsMobRotationTest {
 		skeleton.HP = skeleton.HT - 17;
 		int savedHp = skeleton.HP;
 		int savedHt = skeleton.HT;
-		com.watabou.utils.Bundle bundle = new com.watabou.utils.Bundle();
+		watabou.utils.Bundle bundle = new watabou.utils.Bundle();
 		skeleton.storeInBundle(bundle);
 		SommonSkeleton restored = new SommonSkeleton();
 		restored.restoreFromBundle(bundle);

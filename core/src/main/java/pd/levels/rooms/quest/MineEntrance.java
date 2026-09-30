@@ -33,12 +33,12 @@ import pd.levels.rooms.secret.SecretRoom;
 import pd.levels.rooms.standard.CaveRoom;
 import pd.messages.Messages;
 import pd.tiles.CustomTilemap;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.Tilemap;
-import com.watabou.utils.GameMath;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Point;
-import com.watabou.utils.Random;
+import watabou.noosa.Image;
+import watabou.noosa.Tilemap;
+import watabou.utils.GameMath;
+import watabou.utils.PathFinder;
+import watabou.utils.Point;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

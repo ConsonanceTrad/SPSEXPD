@@ -44,17 +44,17 @@ import pd.windows.WndKeyBindings;
 import pd.windows.WndMessage;
 import pd.windows.WndQuickBag;
 import pd.windows.WndUseItem;
-import com.watabou.input.ControllerHandler;
-import com.watabou.input.GameAction;
-import com.watabou.input.KeyBindings;
-import com.watabou.noosa.Camera;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Gizmo;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.PointerArea;
-import com.watabou.noosa.ui.Component;
-import com.watabou.utils.Point;
-import com.watabou.utils.PointF;
+import watabou.input.ControllerHandler;
+import watabou.input.GameAction;
+import watabou.input.KeyBindings;
+import watabou.noosa.Camera;
+import watabou.noosa.Game;
+import watabou.noosa.Gizmo;
+import watabou.noosa.Image;
+import watabou.noosa.PointerArea;
+import watabou.noosa.ui.Component;
+import watabou.utils.Point;
+import watabou.utils.PointF;
 
 import java.util.ArrayList;
 

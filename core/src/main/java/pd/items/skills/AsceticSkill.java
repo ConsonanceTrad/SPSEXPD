@@ -12,8 +12,8 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 /** The four ascetic class skills from SPS-PD 0.9.8. */
 public class AsceticSkill extends ClassSkill {

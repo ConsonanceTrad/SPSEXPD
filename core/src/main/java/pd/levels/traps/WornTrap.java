@@ -4,7 +4,7 @@ import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.messages.Messages;
 import pd.utils.GLog;
-import com.watabou.noosa.Game;
+import watabou.noosa.Game;
 
 public class WornTrap extends Trap {
 	{ color = BLACK; shape = DOTS; canBeHidden = false; }

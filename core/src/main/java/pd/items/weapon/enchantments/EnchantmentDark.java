@@ -7,7 +7,7 @@ import pd.actors.buffs.Terror;
 import pd.effects.particles.ShadowParticle;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 import static pd.actors.damagetype.DamageType.DARK_DAMAGE;
 

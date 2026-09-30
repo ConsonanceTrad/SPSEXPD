@@ -14,7 +14,7 @@ import pd.items.Item;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.sprites.ErrorSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -70,7 +70,7 @@ public class RustybladeCat extends Item {
 		if (Actor.findChar(cell) == null && Dungeon.level.insideMap(cell)
 				&& Dungeon.level.passable[cell]) return cell;
 		ArrayList<Integer> candidates = new ArrayList<>();
-		for (int offset : com.watabou.utils.PathFinder.NEIGHBOURS8) {
+		for (int offset : watabou.utils.PathFinder.NEIGHBOURS8) {
 			int candidate = cell + offset;
 			if (Dungeon.level.insideMap(candidate) && Dungeon.level.passable[candidate]
 					&& !Dungeon.level.pit[candidate] && Actor.findChar(candidate) == null) {

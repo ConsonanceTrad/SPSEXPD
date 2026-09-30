@@ -10,7 +10,7 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.messages.Messages;
 import pd.ui.RedButton;
-import com.watabou.utils.PathFinder;
+import watabou.utils.PathFinder;
 
 /** Trade window for the hidden shop's permanent-health purchases. */
 public class WndLifeTradeItem extends WndInfoItem {

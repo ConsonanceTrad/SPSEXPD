@@ -4,8 +4,8 @@ package pd.sprites;
 import pd.Assets;
 import pd.Dungeon;
 import pd.items.weapon.missiles.ThrowingKnife;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.utils.Callback;
+import watabou.noosa.TextureFilm;
+import watabou.utils.Callback;
 
 public class GnollArcherSprite extends MobSprite {
 	private final Animation cast;

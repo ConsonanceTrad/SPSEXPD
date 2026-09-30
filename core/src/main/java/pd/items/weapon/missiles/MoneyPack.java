@@ -5,7 +5,7 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.items.Item;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** The original 2020 red packet, converting carried gold directly into damage. */
 public class MoneyPack extends MissileWeapon {

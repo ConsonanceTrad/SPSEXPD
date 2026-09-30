@@ -36,10 +36,10 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
 import pd.utils.GLog;
 import pd.windows.WndOptions;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.BArray;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.BArray;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 abstract public class KindOfWeapon extends EquipableItem {
 

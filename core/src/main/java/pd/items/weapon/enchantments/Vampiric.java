@@ -28,7 +28,7 @@ import pd.items.weapon.Weapon;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSprite.Glowing;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Vampiric extends Weapon.Enchantment {
 

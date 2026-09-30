@@ -27,7 +27,7 @@ import pd.ShatteredPixelDungeon;
 import pd.messages.Languages;
 import pd.messages.Messages;
 import pd.services.news.News;
-import com.shatteredpixel.shatteredpixeldungeon.services.news.NewsArticle;
+import pd.services.news.NewsArticle;
 import pd.sprites.CharSprite;
 import pd.ui.ExitButton;
 import pd.ui.Icons;
@@ -38,12 +38,12 @@ import pd.ui.StyledButton;
 import pd.ui.Window;
 import pd.windows.IconTitle;
 import pd.windows.WndTitledMessage;
-import com.watabou.noosa.BitmapText;
-import com.watabou.noosa.Camera;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.NinePatch;
-import com.watabou.noosa.ui.Component;
-import com.watabou.utils.RectF;
+import watabou.noosa.BitmapText;
+import watabou.noosa.Camera;
+import watabou.noosa.Game;
+import watabou.noosa.NinePatch;
+import watabou.noosa.ui.Component;
+import watabou.utils.RectF;
 
 import java.util.ArrayList;
 

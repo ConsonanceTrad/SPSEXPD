@@ -21,11 +21,9 @@
 
 package pd.services.updates;
 
-import com.shatteredpixel.shatteredpixeldungeon.services.updates.AvailableUpdateData;
-import com.shatteredpixel.shatteredpixeldungeon.services.updates.UpdateService;
 
 import pd.SPDSettings;
-import com.watabou.utils.Callback;
+import watabou.utils.Callback;
 
 import java.util.Date;
 

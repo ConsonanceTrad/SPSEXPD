@@ -19,8 +19,8 @@ import pd.sprites.MonkSprite;
 import pd.sprites.RatSprite;
 import pd.sprites.ScorpioSprite;
 import pd.sprites.SkeletonSprite;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 public class ChallengeGuardian extends Mob {
 

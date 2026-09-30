@@ -5,7 +5,7 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.effects.particles.ElmoParticle;
 import pd.items.weapon.missiles.arrows.GlassFruit;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 public final class SpsHallsSprites {
 	private SpsHallsSprites() { }

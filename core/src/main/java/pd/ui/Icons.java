@@ -28,8 +28,8 @@ import pd.levels.Level;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.Image;
-import com.watabou.utils.RectF;
+import watabou.noosa.Image;
+import watabou.utils.RectF;
 
 public enum Icons {
 

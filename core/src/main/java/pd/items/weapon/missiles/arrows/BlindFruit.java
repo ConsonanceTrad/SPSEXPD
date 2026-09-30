@@ -16,7 +16,7 @@ import pd.actors.buffs.Vertigo;
 import pd.items.weapon.missiles.MissileWeapon;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.PathFinder;
+import watabou.utils.PathFinder;
 
 public class BlindFruit extends MissileWeapon {
 

@@ -6,7 +6,7 @@ import pd.actors.buffs.armorbuff.GlyphDark;
 import pd.actors.damagetype.DamageType;
 import pd.items.armor.Armor;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Darkglyph extends SpsGlyph {
 	private static final ItemSprite.Glowing COLOR = new ItemSprite.Glowing(0x000000);

@@ -30,8 +30,8 @@ import pd.levels.VaultLevel;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
 import pd.levels.rooms.standard.StandardRoom;
-import com.watabou.utils.Point;
-import com.watabou.utils.Random;
+import watabou.utils.Point;
+import watabou.utils.Random;
 
 public abstract class VaultLongRoom extends VaultRoom {
 

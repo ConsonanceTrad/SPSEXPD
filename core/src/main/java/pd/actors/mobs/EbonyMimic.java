@@ -39,7 +39,7 @@ import pd.levels.features.Door;
 import pd.messages.Messages;
 import pd.sprites.MimicSprite;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.audio.Sample;
 
 public class EbonyMimic extends Mimic {
 

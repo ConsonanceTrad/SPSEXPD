@@ -25,10 +25,10 @@ import pd.levels.Terrain;
 import pd.levels.traps.Trap;
 import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.FileUtils;
-import com.watabou.utils.SparseArray;
+import watabou.noosa.Game;
+import watabou.utils.Bundle;
+import watabou.utils.FileUtils;
+import watabou.utils.SparseArray;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -99,7 +99,7 @@ public final class SpsPsionicBlastTest {
 		resetLabels();
 		HashSet<Integer> images = new HashSet<>();
 		for (Class<?> type : expected) {
-			Scroll scroll = (Scroll) com.watabou.utils.Reflection.newInstance(type);
+			Scroll scroll = (Scroll) watabou.utils.Reflection.newInstance(type);
 			images.add(scroll.image);
 		}
 		check(images.size() == 14 && Scroll.getUnknown().size() == 14,

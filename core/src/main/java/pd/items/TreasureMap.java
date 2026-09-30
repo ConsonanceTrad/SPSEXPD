@@ -10,8 +10,8 @@ import pd.scenes.InterlevelScene;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Bundle;
+import watabou.noosa.Game;
+import watabou.utils.Bundle;
 
 import java.util.ArrayList;
 

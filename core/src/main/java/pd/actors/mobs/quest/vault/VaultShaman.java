@@ -30,8 +30,8 @@ import pd.actors.mobs.Shaman;
 import pd.items.Item;
 import pd.items.quest.DwarfToken;
 import pd.sprites.ShamanSprite;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 public class VaultShaman extends Shaman {
 

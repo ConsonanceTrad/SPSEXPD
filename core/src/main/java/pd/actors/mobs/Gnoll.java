@@ -31,7 +31,7 @@ import pd.items.artifacts.GlassTotem;
 import pd.items.weapon.melee.normalweapon.Club;
 import pd.items.weapon.missiles.throwing.EscapeKnive;
 import pd.sprites.GnollSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Gnoll extends Mob {
 	

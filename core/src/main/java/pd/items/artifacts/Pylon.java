@@ -22,11 +22,11 @@ import pd.sprites.ItemSprite.Glowing;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.QuickSlotButton;
 import pd.utils.GLog;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Callback;
-import com.watabou.utils.PathFinder;
+import watabou.noosa.Game;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundle;
+import watabou.utils.Callback;
+import watabou.utils.PathFinder;
 
 import java.util.ArrayList;
 
@@ -181,7 +181,7 @@ public class Pylon extends Artifact {
 					fallback.add(cell);
 				}
 			}
-			if (!fallback.isEmpty()) pos = com.watabou.utils.Random.element(fallback);
+			if (!fallback.isEmpty()) pos = watabou.utils.Random.element(fallback);
 		}
 		if (pos == -1) return false;
 		target.pos = pos;

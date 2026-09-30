@@ -67,8 +67,8 @@ import pd.levels.traps.Trap;
 import pd.plants.Dewcatcher;
 import pd.plants.Plant;
 import pd.plants.Seedpod;
-import com.watabou.noosa.Game;
-import com.watabou.utils.SparseArray;
+import watabou.noosa.Game;
+import watabou.utils.SparseArray;
 
 import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;

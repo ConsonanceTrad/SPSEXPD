@@ -23,9 +23,9 @@ package pd.sprites;
 
 import pd.Assets;
 import pd.effects.Splash;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.utils.PointF;
+import watabou.noosa.Game;
+import watabou.noosa.TextureFilm;
+import watabou.utils.PointF;
 
 public class SpawnerSprite extends MobSprite {
 

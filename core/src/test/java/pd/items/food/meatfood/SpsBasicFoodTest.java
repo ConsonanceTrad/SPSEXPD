@@ -23,8 +23,8 @@ import pd.items.food.staplefood.Pasty;
 import pd.items.food.staplefood.NormalRation;
 import pd.items.food.staplefood.OverpricedRation;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.utils.Random;
 
 import java.util.Arrays;
 

@@ -19,9 +19,9 @@ import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Callback;
+import watabou.utils.Random;
 
 /** The direct-hit plus 3x3 meteor explosion from SPS-PD 0.9.8. */
 public class WandOfMeteorite extends DamageWand {

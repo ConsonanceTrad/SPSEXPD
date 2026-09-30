@@ -20,8 +20,10 @@
  */
 
 package com.shatteredpixel.shatteredpixeldungeon.services.news;
+import pd.services.news.NewsArticle;
+import pd.services.news.NewsService;
 
-import com.watabou.noosa.Game;
+import watabou.noosa.Game;
 
 import java.util.ArrayList;
 import java.util.Date;

@@ -28,8 +28,8 @@ import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
 import pd.levels.rooms.standard.RegionDecoPatchRoom;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Point;
+import watabou.utils.PathFinder;
+import watabou.utils.Point;
 
 public class RegionDecoPatchEntranceRoom extends RegionDecoPatchRoom {
 

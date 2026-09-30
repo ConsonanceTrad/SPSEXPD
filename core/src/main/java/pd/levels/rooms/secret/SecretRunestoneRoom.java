@@ -27,7 +27,7 @@ import pd.items.stones.StoneOfEnchantment;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import com.watabou.utils.Point;
+import watabou.utils.Point;
 
 public class SecretRunestoneRoom extends SecretRoom {
 	

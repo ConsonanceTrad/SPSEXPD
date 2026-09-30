@@ -13,9 +13,9 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

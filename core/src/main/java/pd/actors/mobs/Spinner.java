@@ -36,9 +36,9 @@ import pd.items.food.MysteryMeat;
 import pd.items.weapon.melee.normalweapon.Whip;
 import pd.scenes.GameScene;
 import pd.sprites.SpinnerSprite;
-import com.watabou.noosa.tweeners.AlphaTweener;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.noosa.tweeners.AlphaTweener;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 public class Spinner extends Mob {
 

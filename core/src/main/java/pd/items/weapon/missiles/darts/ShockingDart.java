@@ -28,9 +28,9 @@ import pd.actors.blobs.Electricity;
 import pd.effects.Lightning;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.PointF;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.PointF;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

@@ -15,7 +15,7 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.SkeletonKingSprite;
 import pd.ui.BossHealthBar;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class SkeletonKing extends Mob {
 	{

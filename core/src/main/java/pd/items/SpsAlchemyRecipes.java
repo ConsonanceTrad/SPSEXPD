@@ -22,8 +22,8 @@ import pd.items.potions.Potion;
 import pd.items.potions.PotionOfMixing;
 import pd.items.scrolls.Scroll;
 import pd.plants.*;
-import com.watabou.utils.Reflection;
-import com.watabou.utils.Random;
+import watabou.utils.Reflection;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,7 +1,7 @@
 package pd.sprites;
 
 import pd.Assets;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 public class SpiderNormalSprite extends MobSprite {
 	public SpiderNormalSprite() { this(0); }

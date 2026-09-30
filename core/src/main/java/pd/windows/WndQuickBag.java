@@ -37,7 +37,7 @@ import pd.ui.InventorySlot;
 import pd.ui.QuickSlotButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
-import com.watabou.noosa.Game;
+import watabou.noosa.Game;
 
 import java.util.ArrayList;
 import java.util.Collections;

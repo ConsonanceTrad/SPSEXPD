@@ -8,8 +8,8 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.HeroClass;
 import pd.actors.mobs.BanditKing;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Bundle;
+import watabou.noosa.Game;
+import watabou.utils.Bundle;
 
 /** Headless checks for the Bandit King drop and immediate-return boomerang. */
 public final class SpsBoomerangTest {

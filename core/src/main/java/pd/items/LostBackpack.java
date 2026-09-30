@@ -34,7 +34,7 @@ import pd.journal.Notes;
 import pd.scenes.GameScene;
 import pd.sprites.HeroSprite;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.audio.Sample;
 
 public class LostBackpack extends Item {
 

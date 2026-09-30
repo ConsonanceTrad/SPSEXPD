@@ -29,8 +29,8 @@ import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.effects.particles.ShadowParticle;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Random;
 
 public class HolyDart extends TippedDart {
 

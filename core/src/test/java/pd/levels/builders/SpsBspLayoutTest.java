@@ -1,6 +1,6 @@
 package pd.levels.builders;
 
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 import java.util.HashSet;

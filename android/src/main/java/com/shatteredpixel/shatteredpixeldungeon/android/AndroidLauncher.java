@@ -47,9 +47,9 @@ import com.shatteredpixel.shatteredpixeldungeon.services.news.NewsImpl;
 import com.shatteredpixel.shatteredpixeldungeon.services.updates.UpdateImpl;
 import pd.services.updates.Updates;
 import pd.ui.Button;
-import com.watabou.input.KeyEvent;
-import com.watabou.noosa.Game;
-import com.watabou.utils.FileUtils;
+import watabou.input.KeyEvent;
+import watabou.noosa.Game;
+import watabou.utils.FileUtils;
 
 public class AndroidLauncher extends AndroidApplication {
 	

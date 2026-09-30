@@ -9,7 +9,7 @@ import pd.items.StoneOre;
 import pd.items.food.completefood.PetFood;
 import pd.items.potions.PotionOfExperience;
 import pd.sprites.StarKidSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 public class StarKid extends PET {
 	{ spriteClass=StarKidSprite.class;cooldown=50;properties.add(Property.ALIEN);updateStats(true); }
 	@Override protected Kind kind(){return Kind.STAR_KID;}

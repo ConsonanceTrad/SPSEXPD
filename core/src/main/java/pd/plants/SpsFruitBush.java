@@ -7,9 +7,9 @@ import pd.items.Heap;
 import pd.items.Generator;
 import pd.items.Item;
 import pd.messages.Messages;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
-import com.watabou.utils.Reflection;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
+import watabou.utils.Reflection;
 
 import java.util.ArrayList;
 

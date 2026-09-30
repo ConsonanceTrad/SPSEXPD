@@ -26,10 +26,10 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.effects.Lightning;
 import pd.effects.Speck;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
-import com.watabou.utils.PointF;
+import watabou.noosa.TextureFilm;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Callback;
+import watabou.utils.PointF;
 
 public class DM100Sprite extends MobSprite {
 

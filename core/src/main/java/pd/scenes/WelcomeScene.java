@@ -40,15 +40,15 @@ import pd.ui.StyledButton;
 import pd.ui.TitleBackground;
 import pd.windows.WndError;
 import pd.windows.WndHardNotification;
-import com.watabou.glwrap.Blending;
-import com.watabou.input.ControllerHandler;
-import com.watabou.noosa.Camera;
-import com.watabou.noosa.ColorBlock;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.audio.Music;
-import com.watabou.utils.FileUtils;
-import com.watabou.utils.RectF;
+import watabou.glwrap.Blending;
+import watabou.input.ControllerHandler;
+import watabou.noosa.Camera;
+import watabou.noosa.ColorBlock;
+import watabou.noosa.Game;
+import watabou.noosa.Image;
+import watabou.noosa.audio.Music;
+import watabou.utils.FileUtils;
+import watabou.utils.RectF;
 
 import java.util.Collections;
 

@@ -34,8 +34,8 @@ import pd.actors.hero.Hero;
 import pd.effects.Flare;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.Image;
+import watabou.noosa.audio.Sample;
 
 public class PotionOfCleansing extends ExoticPotion {
 	

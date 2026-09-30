@@ -51,11 +51,11 @@ import pd.scenes.PixelScene;
 import pd.sprites.MobSprite;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.BArray;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.noosa.TextureFilm;
+import watabou.noosa.audio.Sample;
+import watabou.utils.BArray;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 public class SmokeBomb extends ArmorAbility {
 

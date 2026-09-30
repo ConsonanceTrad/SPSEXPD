@@ -25,8 +25,8 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
-import com.watabou.utils.Random;
-import com.watabou.utils.Rect;
+import watabou.utils.Random;
+import watabou.utils.Rect;
 
 public class StripedRoom extends StandardRoom {
 	

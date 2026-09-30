@@ -9,7 +9,7 @@ import pd.actors.buffs.Wet;
 import pd.actors.damagetype.DamageType;
 import pd.effects.particles.SnowParticle;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class IceAmmo extends SpAmmo {
 	private static final ItemSprite.Glowing BLUE = new ItemSprite.Glowing(0x0000FF);

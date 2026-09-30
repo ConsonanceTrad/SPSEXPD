@@ -30,9 +30,9 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.VaultLevel;
 import pd.levels.painters.Painter;
-import com.watabou.utils.GameMath;
-import com.watabou.utils.Random;
-import com.watabou.utils.Rect;
+import watabou.utils.GameMath;
+import watabou.utils.Random;
+import watabou.utils.Rect;
 
 public class VaultHardLaserTreasureRoom extends VaultTreasureRoom {
 

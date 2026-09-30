@@ -10,7 +10,7 @@ import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import pd.utils.GLog;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** Millilitre's original blood-for-gold trade. */
 public class WndIssic extends Window {

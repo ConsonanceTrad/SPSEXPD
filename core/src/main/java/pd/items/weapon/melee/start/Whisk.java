@@ -13,7 +13,7 @@ import pd.items.wands.fusion.WandOfFlow;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 public class Whisk extends NormalMeleeWeapon {
 

@@ -41,13 +41,13 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.scenes.CellSelector;
 import pd.utils.GLog;
-import com.watabou.noosa.Camera;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.noosa.tweeners.AlphaTweener;
-import com.watabou.utils.BArray;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Point;
-import com.watabou.utils.Random;
+import watabou.noosa.Camera;
+import watabou.noosa.audio.Sample;
+import watabou.noosa.tweeners.AlphaTweener;
+import watabou.utils.BArray;
+import watabou.utils.PathFinder;
+import watabou.utils.Point;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

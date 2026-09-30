@@ -11,7 +11,7 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 import java.util.ArrayList;
 public class BraveBook extends NormalMeleeWeapon {
 	public static final String AC_ADD="ADD",AC_IMPROVE="IMPROVE",AC_HEAL="HEAL";private static final String CHARGE="charge",UP1="uptime1",UP2="uptime2";private int charge,uptime1=1,uptime2=1;

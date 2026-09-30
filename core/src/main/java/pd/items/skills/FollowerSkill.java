@@ -12,7 +12,7 @@ import pd.items.bags.Bag;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** The four follower class skills from SPS-PD 0.9.8. */
 public class FollowerSkill extends ClassSkill {

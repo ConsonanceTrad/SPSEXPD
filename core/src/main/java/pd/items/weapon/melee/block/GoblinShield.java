@@ -23,8 +23,8 @@ import pd.items.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.plants.Plant;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 /** The chaos shield sold by the goblin tester after Otiluke is rescued. */
 public class GoblinShield extends NormalMeleeWeapon {

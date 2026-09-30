@@ -20,8 +20,8 @@ import pd.items.misc.LuckyBadge;
 import pd.items.scrolls.ScrollOfPsionicBlast;
 import pd.scenes.GameScene;
 import pd.sprites.GreyRatSprite;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 /** Original SPS-PD runtime and save identity for the grey rat. */
 public class GreyRat extends Mob {

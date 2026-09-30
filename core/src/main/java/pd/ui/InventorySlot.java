@@ -28,9 +28,9 @@ import pd.items.Gold;
 import pd.items.Item;
 import pd.items.bags.Bag;
 import pd.items.wands.Wand;
-import com.watabou.gltextures.TextureCache;
-import com.watabou.noosa.ColorBlock;
-import com.watabou.noosa.audio.Sample;
+import watabou.gltextures.TextureCache;
+import watabou.noosa.ColorBlock;
+import watabou.noosa.audio.Sample;
 
 public class InventorySlot extends ItemSlot {
 

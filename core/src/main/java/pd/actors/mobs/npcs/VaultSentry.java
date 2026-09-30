@@ -38,10 +38,10 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.SentrySprite;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.noosa.particles.Emitter;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.noosa.particles.Emitter;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

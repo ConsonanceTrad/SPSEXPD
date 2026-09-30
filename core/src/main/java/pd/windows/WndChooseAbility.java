@@ -37,8 +37,8 @@ import pd.ui.Icons;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.utils.Random;
 
 public class WndChooseAbility extends Window {
 

@@ -22,7 +22,7 @@
 package pd.effects;
 
 import pd.sprites.CharSprite;
-import com.watabou.noosa.Gizmo;
+import watabou.noosa.Gizmo;
 
 public class DarkBlock extends Gizmo{
 

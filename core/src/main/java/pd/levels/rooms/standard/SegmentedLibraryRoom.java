@@ -25,9 +25,9 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
 import pd.tiles.custom.Carpet;
-import com.watabou.utils.Point;
-import com.watabou.utils.Random;
-import com.watabou.utils.Rect;
+import watabou.utils.Point;
+import watabou.utils.Random;
+import watabou.utils.Rect;
 
 //FIXME some copypasta from segmented room with changed constants in here, might want to externalize
 public class SegmentedLibraryRoom extends StandardRoom {

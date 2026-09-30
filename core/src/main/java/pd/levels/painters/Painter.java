@@ -23,8 +23,8 @@ package pd.levels.painters;
 
 import pd.levels.Level;
 import pd.levels.rooms.Room;
-import com.watabou.utils.Point;
-import com.watabou.utils.Rect;
+import watabou.utils.Point;
+import watabou.utils.Rect;
 
 import java.util.ArrayList;
 import java.util.Arrays;

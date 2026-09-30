@@ -38,8 +38,8 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.ShamanSprite;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Random;
 
 public abstract class Shaman extends Mob {
 	

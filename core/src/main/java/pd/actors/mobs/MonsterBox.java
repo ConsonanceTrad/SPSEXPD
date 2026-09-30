@@ -9,9 +9,9 @@ import pd.effects.Pushing;
 import pd.items.Item;
 import pd.scenes.GameScene;
 import pd.sprites.MonsterBoxSprite;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
-import com.watabou.utils.Reflection;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
+import watabou.utils.Reflection;
 
 import java.util.ArrayList;
 

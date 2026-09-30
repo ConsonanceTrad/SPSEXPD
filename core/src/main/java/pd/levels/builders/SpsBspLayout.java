@@ -8,9 +8,9 @@
 
 package pd.levels.builders;
 
-import com.watabou.utils.Graph;
-import com.watabou.utils.Random;
-import com.watabou.utils.Rect;
+import watabou.utils.Graph;
+import watabou.utils.Random;
+import watabou.utils.Rect;
 
 import java.util.ArrayList;
 import java.util.Collection;

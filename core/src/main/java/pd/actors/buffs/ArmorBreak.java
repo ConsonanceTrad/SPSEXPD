@@ -2,7 +2,7 @@ package pd.actors.buffs;
 
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 /** SPS-PD's percentage-based incoming damage vulnerability. */
 public class ArmorBreak extends FlavourBuff {

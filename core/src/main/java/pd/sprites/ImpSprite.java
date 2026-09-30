@@ -23,7 +23,7 @@ package pd.sprites;
 
 import pd.Assets;
 import pd.effects.Speck;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 public class ImpSprite extends MobSprite {
 	

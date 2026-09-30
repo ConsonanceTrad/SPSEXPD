@@ -9,7 +9,7 @@ import pd.items.Item;
 import pd.items.wands.Wand;
 import pd.messages.Messages;
 import pd.utils.GLog;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** Legacy teal diamond trap: percentage damage plus wand and heap electrification. */
 public class LightningTrap extends Trap {

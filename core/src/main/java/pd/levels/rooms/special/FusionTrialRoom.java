@@ -24,9 +24,9 @@ import pd.levels.traps.GrippingTrap;
 import pd.levels.traps.PoisonDartTrap;
 import pd.levels.traps.Trap;
 import pd.levels.traps.WarpingTrap;
-import com.watabou.utils.Point;
-import com.watabou.utils.Random;
-import com.watabou.utils.Reflection;
+import watabou.utils.Point;
+import watabou.utils.Random;
+import watabou.utils.Reflection;
 
 public class FusionTrialRoom extends SpecialRoom {
 

@@ -39,8 +39,8 @@ import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import pd.windows.WndBag;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.Image;
+import watabou.noosa.audio.Sample;
 
 import java.util.ArrayList;
 

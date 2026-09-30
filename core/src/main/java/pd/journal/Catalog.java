@@ -118,7 +118,7 @@ import pd.items.weapon.SpiritBow;
 import pd.items.weapon.Weapon;
 import pd.items.weapon.missiles.darts.TippedDart;
 import pd.messages.Messages;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 import java.util.ArrayList;
 import java.util.Arrays;

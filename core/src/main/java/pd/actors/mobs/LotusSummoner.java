@@ -3,7 +3,7 @@ package pd.actors.mobs;
 
 import pd.items.potions.PotionOfHealing;
 import pd.sprites.ErrorSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** Dormant SPS-PD lotus summoner type, retained with its original save identity. */
 public class LotusSummoner extends Mob {

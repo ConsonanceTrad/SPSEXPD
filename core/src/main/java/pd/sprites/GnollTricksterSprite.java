@@ -24,9 +24,9 @@ package pd.sprites;
 import pd.Assets;
 import pd.Dungeon;
 import pd.items.weapon.missiles.darts.ParalyticDart;
-import com.watabou.noosa.MovieClip;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.utils.Callback;
+import watabou.noosa.MovieClip;
+import watabou.noosa.TextureFilm;
+import watabou.utils.Callback;
 
 public class GnollTricksterSprite extends MobSprite {
 

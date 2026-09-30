@@ -33,9 +33,9 @@ import pd.scenes.GameScene;
 import pd.sprites.GnollKeeperSprite;
 import pd.sprites.GnollKingSprite;
 import pd.ui.BossHealthBar;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 public class GnollKing extends Mob {
 	private int breaks;

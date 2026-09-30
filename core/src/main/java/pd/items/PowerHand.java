@@ -12,9 +12,9 @@ import pd.scenes.PowerHandScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
+import watabou.noosa.Game;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundle;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -41,12 +41,12 @@ import pd.levels.Terrain;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundlable;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
-import com.watabou.utils.Reflection;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundlable;
+import watabou.utils.Bundle;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
+import watabou.utils.Reflection;
 
 import java.util.ArrayList;
 

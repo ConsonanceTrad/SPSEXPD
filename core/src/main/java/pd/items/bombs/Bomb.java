@@ -52,12 +52,12 @@ import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.BArray;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
-import com.watabou.utils.Reflection;
+import watabou.noosa.audio.Sample;
+import watabou.utils.BArray;
+import watabou.utils.Bundle;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
+import watabou.utils.Reflection;
 
 import java.util.ArrayList;
 import java.util.HashMap;

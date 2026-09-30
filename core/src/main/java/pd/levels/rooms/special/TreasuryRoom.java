@@ -30,8 +30,8 @@ import pd.items.keys.IronKey;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

@@ -4,7 +4,7 @@ package pd.sprites;
 import pd.Assets;
 import pd.items.weapon.missiles.throwing.EmpBola;
 import pd.items.weapon.missiles.throwing.Wave;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 public final class SpsCitySprites {
 	private SpsCitySprites() { }

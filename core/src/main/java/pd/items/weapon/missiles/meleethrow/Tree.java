@@ -8,8 +8,8 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Dry;
 import pd.actors.buffs.Hot;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 public class Tree extends MeleeThrowWeapon {
 	public Tree() { super(1, 1, 5, ItemSpriteSheet.SPS_EASTER_TREE); }

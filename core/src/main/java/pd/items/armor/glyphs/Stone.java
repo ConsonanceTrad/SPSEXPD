@@ -33,7 +33,7 @@ import pd.actors.hero.Talent;
 import pd.items.armor.Armor;
 import pd.items.trinkets.FerretTuft;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.GameMath;
+import watabou.utils.GameMath;
 
 public class Stone extends Armor.Glyph {
 

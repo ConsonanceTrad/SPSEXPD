@@ -22,7 +22,7 @@
 package pd.actors.buffs;
 
 import pd.ui.BuffIndicator;
-import com.watabou.noosa.Image;
+import watabou.noosa.Image;
 
 public class Recharging extends FlavourBuff {
 

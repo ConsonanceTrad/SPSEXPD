@@ -33,11 +33,11 @@ import pd.effects.Splash;
 import pd.items.wands.WandOfBlastWave;
 import pd.mechanics.Ballistica;
 import pd.tiles.DungeonTilemap;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.BArray;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.PointF;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.BArray;
+import watabou.utils.PathFinder;
+import watabou.utils.PointF;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

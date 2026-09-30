@@ -33,9 +33,9 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite;
 import pd.ui.BuffIndicator;
-import com.watabou.noosa.Image;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.noosa.Image;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 public class Blocking extends Weapon.Enchantment {
 	

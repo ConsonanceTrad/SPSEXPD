@@ -23,9 +23,9 @@ package pd.ui;
 
 import pd.Dungeon;
 import pd.tiles.DungeonTilemap;
-import com.watabou.noosa.Camera;
-import com.watabou.noosa.Image;
-import com.watabou.utils.PointF;
+import watabou.noosa.Camera;
+import watabou.noosa.Image;
+import watabou.utils.PointF;
 
 public class Compass extends Image {
 

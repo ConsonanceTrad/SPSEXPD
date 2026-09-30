@@ -20,10 +20,10 @@ import pd.levels.rooms.special.SpsHiddenShopRoom;
 import pd.levels.rooms.standard.EmptyRoom;
 import pd.plants.Plant;
 import pd.windows.WndLifeTradeItem;
-import com.watabou.utils.Bundle;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Random;
-import com.watabou.utils.SparseArray;
+import watabou.utils.Bundle;
+import watabou.noosa.Game;
+import watabou.utils.Random;
+import watabou.utils.SparseArray;
 
 import java.util.ArrayList;
 import java.util.HashMap;

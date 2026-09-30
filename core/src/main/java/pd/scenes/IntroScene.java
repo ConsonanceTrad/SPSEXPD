@@ -8,7 +8,7 @@ package pd.scenes;
 
 import pd.messages.Messages;
 import pd.windows.WndStory;
-import com.watabou.noosa.Game;
+import watabou.noosa.Game;
 
 /** The one-time SPS story shown after the first hero is fully configured. */
 public class IntroScene extends PixelScene {

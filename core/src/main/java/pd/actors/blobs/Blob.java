@@ -26,9 +26,9 @@ import pd.actors.Actor;
 import pd.effects.BlobEmitter;
 import pd.journal.Notes;
 import pd.levels.Level;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Rect;
-import com.watabou.utils.Reflection;
+import watabou.utils.Bundle;
+import watabou.utils.Rect;
+import watabou.utils.Reflection;
 
 import java.util.ArrayList;
 

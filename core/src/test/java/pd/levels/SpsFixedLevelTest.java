@@ -125,10 +125,10 @@ import pd.items.weapon.melee.relic.NeptunusTrident;
 import pd.windows.WndAflyInfo;
 import pd.items.food.SmallMeat;
 import pd.tiles.custom.SpsLegacyLevelVisual;
-import com.watabou.utils.Random;
-import com.watabou.utils.SparseArray;
-import com.watabou.utils.Bundle;
-import com.watabou.noosa.Game;
+import watabou.utils.Random;
+import watabou.utils.SparseArray;
+import watabou.utils.Bundle;
+import watabou.noosa.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessFiles;
 import com.badlogic.gdx.backends.headless.HeadlessApplication;
@@ -146,7 +146,7 @@ public final class SpsFixedLevelTest {
 	public static void main(String[] args) {
 		GdxNativesLoader.load();
 		Gdx.files = new HeadlessFiles();
-		com.watabou.utils.FileUtils.setDefaultFileProperties(com.badlogic.gdx.Files.FileType.Absolute,
+		watabou.utils.FileUtils.setDefaultFileProperties(com.badlogic.gdx.Files.FileType.Absolute,
 				System.getProperty("java.io.tmpdir") + "sps-fixed-levels" + java.io.File.separator);
 		pd.Badges.loadGlobal();
 		Game.version = "test";

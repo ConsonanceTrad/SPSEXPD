@@ -45,12 +45,12 @@ import pd.sprites.GhostSprite;
 import pd.utils.GLog;
 import pd.windows.WndQuest;
 import pd.windows.WndSadGhost;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
-import com.watabou.utils.Reflection;
+import watabou.noosa.Game;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundle;
+import watabou.utils.Callback;
+import watabou.utils.Random;
+import watabou.utils.Reflection;
 
 public class Ghost extends NPC {
 

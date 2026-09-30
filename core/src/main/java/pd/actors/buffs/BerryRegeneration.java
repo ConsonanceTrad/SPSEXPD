@@ -2,7 +2,7 @@ package pd.actors.buffs;
 
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 public class BerryRegeneration extends Buff {
 

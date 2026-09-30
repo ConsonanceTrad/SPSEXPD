@@ -32,12 +32,12 @@ import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.CharSprite;
 import pd.tiles.DungeonTilemap;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Halo;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Point;
-import com.watabou.utils.PointF;
+import watabou.noosa.Game;
+import watabou.noosa.Halo;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundle;
+import watabou.utils.Point;
+import watabou.utils.PointF;
 
 public class SuperNovaTracker extends Buff {
 

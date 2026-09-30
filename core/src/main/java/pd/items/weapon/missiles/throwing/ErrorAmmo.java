@@ -4,7 +4,7 @@ package pd.items.weapon.missiles.throwing;
 import pd.items.Item;
 import pd.items.weapon.missiles.MissileWeapon;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** SPS-PD's deliberately overpowered error projectile. */
 public class ErrorAmmo extends MissileWeapon {

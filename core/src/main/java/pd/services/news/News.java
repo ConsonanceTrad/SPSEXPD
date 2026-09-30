@@ -21,8 +21,6 @@
 
 package pd.services.news;
 
-import com.shatteredpixel.shatteredpixeldungeon.services.news.NewsArticle;
-import com.shatteredpixel.shatteredpixeldungeon.services.news.NewsService;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
@@ -30,7 +28,7 @@ import pd.SPDSettings;
 import pd.ShatteredPixelDungeon;
 import pd.sprites.ItemSprite;
 import pd.ui.Icons;
-import com.watabou.noosa.Image;
+import watabou.noosa.Image;
 
 import java.util.ArrayList;
 import java.util.Calendar;

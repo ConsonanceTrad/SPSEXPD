@@ -10,7 +10,7 @@ import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 import java.util.ArrayList;
 

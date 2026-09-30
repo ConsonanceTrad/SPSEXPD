@@ -22,7 +22,7 @@
 package pd.effects;
 
 import pd.Assets;
-import com.watabou.noosa.Image;
+import watabou.noosa.Image;
 
 public class Effects {
 

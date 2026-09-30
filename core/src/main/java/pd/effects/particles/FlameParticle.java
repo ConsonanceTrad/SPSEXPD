@@ -21,9 +21,9 @@
 
 package pd.effects.particles;
 
-import com.watabou.noosa.particles.Emitter;
-import com.watabou.noosa.particles.Emitter.Factory;
-import com.watabou.noosa.particles.PixelParticle;
+import watabou.noosa.particles.Emitter;
+import watabou.noosa.particles.Emitter.Factory;
+import watabou.noosa.particles.PixelParticle;
 
 public class FlameParticle extends PixelParticle.Shrinking {
 	

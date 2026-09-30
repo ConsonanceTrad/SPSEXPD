@@ -7,7 +7,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.HolyStun;
 import pd.actors.buffs.Recharging;
 import pd.sprites.HaroSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Haro extends PET {
 	{

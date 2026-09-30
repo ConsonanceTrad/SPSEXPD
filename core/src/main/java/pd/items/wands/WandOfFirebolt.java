@@ -16,8 +16,8 @@ import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Callback;
 
 /** The single-target firebolt wand from SPS-PD 0.9.8. */
 public class WandOfFirebolt extends DamageWand {

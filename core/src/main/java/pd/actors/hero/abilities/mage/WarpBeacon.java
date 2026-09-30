@@ -43,14 +43,14 @@ import pd.ui.AttackIndicator;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
 import pd.windows.WndOptions;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.noosa.particles.Emitter;
-import com.watabou.utils.BArray;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.noosa.Image;
+import watabou.noosa.audio.Sample;
+import watabou.noosa.particles.Emitter;
+import watabou.utils.BArray;
+import watabou.utils.Bundle;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

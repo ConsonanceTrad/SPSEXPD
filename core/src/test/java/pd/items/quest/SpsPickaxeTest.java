@@ -19,10 +19,10 @@ import pd.items.Item;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.plants.Plant;
-import com.watabou.noosa.Game;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
-import com.watabou.utils.SparseArray;
+import watabou.noosa.Game;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
+import watabou.utils.SparseArray;
 
 import java.util.ArrayList;
 import java.util.Arrays;

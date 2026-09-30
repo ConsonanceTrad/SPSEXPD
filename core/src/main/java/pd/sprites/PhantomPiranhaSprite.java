@@ -25,9 +25,9 @@ import pd.Assets;
 import pd.actors.Char;
 import pd.effects.Speck;
 import pd.scenes.GameScene;
-import com.watabou.noosa.MovieClip;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.particles.Emitter;
+import watabou.noosa.MovieClip;
+import watabou.noosa.TextureFilm;
+import watabou.noosa.particles.Emitter;
 
 public class PhantomPiranhaSprite extends MobSprite {
 

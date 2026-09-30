@@ -4,8 +4,14 @@ apply plugin: 'java-library'
 java.sourceCompatibility = java.targetCompatibility = appJavaCompatibility
 
 dependencies {
-    api project(':SPD-classes')
-    implementation project(':services')
+    //SPSEXPD: SPD-classes 已并入本模块，其依赖在此承担（api 保证平台模块仍能传递拿到 gdx）
+    api "com.badlogicgames.gdx:gdx:$gdxVersion"
+    api "com.badlogicgames.gdx-controllers:gdx-controllers-core:$gdxControllersVersion"
+    implementation "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+
+    //noinspection GradleDependency , later JSON versions cause crashes on old versions of android
+    implementation "org.json:json:20170516"
+
     testImplementation "com.badlogicgames.gdx:gdx-backend-headless:$gdxVersion"
     testRuntimeOnly "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
 }

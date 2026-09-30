@@ -58,12 +58,12 @@ import pd.sprites.SpawnerSprite;
 import pd.sprites.StatueSprite;
 import pd.sprites.WandmakerSprite;
 import pd.ui.Icons;
-import com.watabou.noosa.BitmapText;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.Visual;
-import com.watabou.utils.Bundlable;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Reflection;
+import watabou.noosa.BitmapText;
+import watabou.noosa.Image;
+import watabou.noosa.Visual;
+import watabou.utils.Bundlable;
+import watabou.utils.Bundle;
+import watabou.utils.Reflection;
 
 import java.util.ArrayList;
 import java.util.Collections;

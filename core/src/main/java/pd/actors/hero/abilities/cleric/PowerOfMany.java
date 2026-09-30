@@ -54,10 +54,10 @@ import pd.sprites.MobSprite;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.noosa.TextureFilm;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 public class PowerOfMany extends ArmorAbility {
 

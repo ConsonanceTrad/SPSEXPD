@@ -25,10 +25,10 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.effects.Speck;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.audio.Music;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.noosa.particles.Emitter;
+import watabou.noosa.TextureFilm;
+import watabou.noosa.audio.Music;
+import watabou.noosa.audio.Sample;
+import watabou.noosa.particles.Emitter;
 
 public class BlacksmithSprite extends MobSprite {
 	

@@ -13,9 +13,9 @@ import pd.ui.ActionIndicator;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 public class NewCombo extends Buff implements ActionIndicator.Action {
 

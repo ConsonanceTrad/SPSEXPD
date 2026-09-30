@@ -2,7 +2,7 @@ package pd.items;
 
 import pd.actors.mobs.pets.LegacyPet;
 import pd.items.eggs.Egg;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 /** Save-compatible soul produced when an empty pocket ball captures a migrated pet. */
 public class CapturedPetEgg extends Egg {

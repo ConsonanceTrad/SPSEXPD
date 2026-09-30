@@ -4,7 +4,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Cripple;
 import pd.items.weapon.missiles.HeavyBoomerang;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class TempestBoomerang extends HeavyBoomerang {
 

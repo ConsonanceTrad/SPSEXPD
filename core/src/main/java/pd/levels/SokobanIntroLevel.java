@@ -36,8 +36,8 @@ import pd.scenes.GameScene;
 import pd.tiles.CustomTilemap;
 import pd.tiles.custom.SpsLegacyLevelVisual;
 import pd.utils.GLog;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

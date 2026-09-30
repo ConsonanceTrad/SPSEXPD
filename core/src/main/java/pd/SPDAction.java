@@ -22,12 +22,12 @@
 package pd;
 
 import com.badlogic.gdx.Input;
-import com.watabou.input.ControllerHandler;
-import com.watabou.input.GameAction;
-import com.watabou.input.KeyBindings;
-import com.watabou.input.KeyEvent;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.FileUtils;
+import watabou.input.ControllerHandler;
+import watabou.input.GameAction;
+import watabou.input.KeyBindings;
+import watabou.input.KeyEvent;
+import watabou.utils.Bundle;
+import watabou.utils.FileUtils;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;

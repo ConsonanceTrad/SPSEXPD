@@ -39,10 +39,10 @@ import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.tweeners.Delayer;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.noosa.tweeners.Delayer;
+import watabou.utils.Callback;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

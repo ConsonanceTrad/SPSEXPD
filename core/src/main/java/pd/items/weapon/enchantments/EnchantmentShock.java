@@ -8,8 +8,8 @@ import pd.effects.Lightning;
 import pd.effects.particles.SparkParticle;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 import java.util.HashSet;

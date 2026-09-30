@@ -32,7 +32,7 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
 import pd.utils.GLog;
 import pd.windows.WndOptions;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 
 public abstract class KindofMisc extends EquipableItem {

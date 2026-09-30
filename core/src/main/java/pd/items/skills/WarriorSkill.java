@@ -10,8 +10,8 @@ import pd.actors.mobs.pets.LegacyPet;
 import pd.items.Generator;
 import pd.items.Item;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 /** The four warrior class skills from SPS-PD 0.9.8. */
 public class WarriorSkill extends ClassSkill {

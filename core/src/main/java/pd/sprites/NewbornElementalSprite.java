@@ -24,8 +24,8 @@ package pd.sprites;
 
 import pd.Assets;
 import pd.actors.Char;
-import com.watabou.noosa.MovieClip;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.MovieClip;
+import watabou.noosa.TextureFilm;
 
 public class NewbornElementalSprite extends MobSprite{
 

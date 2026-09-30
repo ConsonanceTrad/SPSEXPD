@@ -12,7 +12,7 @@ import pd.actors.mobs.Mob;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class MagicHand extends Arrows {
 

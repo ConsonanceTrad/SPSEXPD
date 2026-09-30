@@ -7,8 +7,8 @@ import pd.actors.buffs.Buff;
 import pd.effects.particles.SparkParticle;
 import pd.messages.Messages;
 import pd.sprites.OtiluckStoneSprite;
-import com.watabou.noosa.Camera;
-import com.watabou.utils.Random;
+import watabou.noosa.Camera;
+import watabou.utils.Random;
 
 /** Invulnerable lightning statue powered by the corrupted Otiluke mirror. */
 public class LitTower extends Mob {

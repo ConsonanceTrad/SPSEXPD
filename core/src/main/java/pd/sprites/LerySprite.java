@@ -2,8 +2,8 @@ package pd.sprites;
 
 import pd.Assets;
 import pd.effects.MagicMissile;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.utils.Callback;
+import watabou.noosa.TextureFilm;
+import watabou.utils.Callback;
 
 public class LerySprite extends MobSprite {
 	public LerySprite() {

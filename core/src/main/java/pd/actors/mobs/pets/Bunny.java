@@ -8,7 +8,7 @@ import pd.items.Item;
 import pd.items.quest.Mushroom;
 import pd.levels.Terrain;
 import pd.sprites.BunnySprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Bunny extends PET {
 	{

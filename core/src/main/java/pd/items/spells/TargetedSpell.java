@@ -33,9 +33,9 @@ import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.ui.QuickSlotButton;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Callback;
+import watabou.utils.Random;
 
 public abstract class TargetedSpell extends Spell {
 	

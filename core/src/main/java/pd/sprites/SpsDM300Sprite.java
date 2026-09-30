@@ -3,7 +3,7 @@ package pd.sprites;
 
 import pd.Assets;
 import pd.effects.Speck;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 public class SpsDM300Sprite extends MobSprite {
 	public SpsDM300Sprite() {

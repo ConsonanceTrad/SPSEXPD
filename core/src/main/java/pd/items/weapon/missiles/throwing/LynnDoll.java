@@ -14,11 +14,11 @@ import pd.items.Item;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.sprites.LynnSprite;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.noosa.tweeners.AlphaTweener;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.noosa.audio.Sample;
+import watabou.noosa.tweeners.AlphaTweener;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

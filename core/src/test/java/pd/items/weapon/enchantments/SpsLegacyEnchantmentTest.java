@@ -33,10 +33,10 @@ import pd.items.weapon.Weapon;
 import pd.items.weapon.melee.normalweapon.Dagger;
 import pd.levels.Level;
 import pd.plants.Plant;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
-import com.watabou.utils.SparseArray;
+import watabou.noosa.Game;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
+import watabou.utils.SparseArray;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;

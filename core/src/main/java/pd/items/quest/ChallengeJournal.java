@@ -25,8 +25,8 @@ import pd.utils.GLog;
 import pd.windows.WndMessage;
 import pd.windows.WndOptions;
 import pd.windows.WndBag;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Bundle;
+import watabou.noosa.Game;
+import watabou.utils.Bundle;
 
 import java.util.ArrayList;
 import java.util.Collections;

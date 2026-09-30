@@ -37,9 +37,9 @@ import pd.messages.Messages;
 import pd.ui.AttackIndicator;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Callback;
+import watabou.utils.Random;
 
 public class Smite extends TargetedClericSpell {
 

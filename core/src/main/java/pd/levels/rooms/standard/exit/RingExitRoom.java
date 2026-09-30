@@ -26,7 +26,7 @@ import pd.levels.Terrain;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.standard.RingRoom;
-import com.watabou.utils.Point;
+import watabou.utils.Point;
 
 public class RingExitRoom extends RingRoom {
 

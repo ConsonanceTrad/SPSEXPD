@@ -41,13 +41,13 @@ import pd.levels.rooms.sewerboss.SewerBossEntranceRoom;
 import pd.levels.rooms.sewerboss.SewerBossExitRoom;
 import pd.levels.rooms.standard.StandardRoom;
 import pd.scenes.GameScene;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Group;
-import com.watabou.noosa.audio.Music;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Point;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.noosa.Group;
+import watabou.noosa.audio.Music;
+import watabou.utils.Bundle;
+import watabou.utils.Callback;
+import watabou.utils.Point;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

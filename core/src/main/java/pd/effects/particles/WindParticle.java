@@ -23,11 +23,11 @@ package pd.effects.particles;
 
 import pd.Dungeon;
 import pd.tiles.DungeonTilemap;
-import com.watabou.noosa.particles.Emitter;
-import com.watabou.noosa.particles.Emitter.Factory;
-import com.watabou.noosa.particles.PixelParticle;
-import com.watabou.utils.PointF;
-import com.watabou.utils.Random;
+import watabou.noosa.particles.Emitter;
+import watabou.noosa.particles.Emitter.Factory;
+import watabou.noosa.particles.PixelParticle;
+import watabou.utils.PointF;
+import watabou.utils.Random;
 
 public class WindParticle extends PixelParticle {
 

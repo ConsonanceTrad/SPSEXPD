@@ -6,7 +6,7 @@ import pd.items.artifacts.TimekeepersHourglass;
 import pd.items.medicine.Timepill2;
 import pd.items.potions.PotionOfMindVision;
 import pd.sprites.TimeKeeperSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** Original SPS-PD runtime and save identity for the timekeeper. */
 public class TimeKeeper extends SpsCaveMobs.TimeKeeper {

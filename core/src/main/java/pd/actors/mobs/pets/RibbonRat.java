@@ -14,10 +14,10 @@ import pd.items.food.fusion.Nut;
 import pd.items.scrolls.ScrollOfMirrorImage;
 import pd.scenes.GameScene;
 import pd.sprites.RibbonRatSprite;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.noosa.audio.Sample;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

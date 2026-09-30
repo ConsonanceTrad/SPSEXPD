@@ -14,8 +14,8 @@ import pd.levels.builders.SpsBspLayout.Type;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.CavesPainter;
 import pd.levels.painters.Painter;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

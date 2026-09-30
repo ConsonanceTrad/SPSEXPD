@@ -62,8 +62,8 @@ import pd.levels.Terrain;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import com.watabou.noosa.Image;
-import com.watabou.utils.Bundle;
+import watabou.noosa.Image;
+import watabou.utils.Bundle;
 
 import java.util.HashMap;
 

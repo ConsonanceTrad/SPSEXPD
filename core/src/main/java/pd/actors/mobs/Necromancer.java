@@ -40,12 +40,12 @@ import pd.sprites.CharSprite;
 import pd.sprites.NecromancerSprite;
 import pd.sprites.SkeletonSprite;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.BArray;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Callback;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.BArray;
+import watabou.utils.Bundle;
+import watabou.utils.Callback;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 public class Necromancer extends Mob {
 	

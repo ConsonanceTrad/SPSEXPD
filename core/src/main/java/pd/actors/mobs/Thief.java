@@ -37,8 +37,8 @@ import pd.items.food.vegetable.NutVegetable;
 import pd.messages.Messages;
 import pd.sprites.ThiefSprite;
 import pd.utils.GLog;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 public class Thief extends Mob {
 	

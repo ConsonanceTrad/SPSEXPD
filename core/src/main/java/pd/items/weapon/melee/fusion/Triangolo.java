@@ -5,7 +5,7 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.items.weapon.melee.Shortsword;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.PathFinder;
+import watabou.utils.PathFinder;
 
 public class Triangolo extends Shortsword implements FusionWeapon {
 	{ image = ItemSpriteSheet.SAI; tier = 1; }

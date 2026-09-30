@@ -28,8 +28,8 @@ import pd.actors.buffs.Ooze;
 import pd.effects.Splash;
 import pd.items.armor.Armor;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 public class Corrosion extends Armor.Glyph {
 

@@ -11,7 +11,7 @@ import pd.items.food.vegetable.Vegetable;
 import pd.items.weapon.melee.Whip;
 import pd.plants.Plant;
 import pd.sprites.FrogPetSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class FrogPet extends PET {
 	{

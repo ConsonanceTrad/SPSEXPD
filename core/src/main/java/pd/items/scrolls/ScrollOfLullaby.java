@@ -32,7 +32,7 @@ import pd.effects.Speck;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.audio.Sample;
 
 public class ScrollOfLullaby extends Scroll {
 

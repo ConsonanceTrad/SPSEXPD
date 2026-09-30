@@ -17,12 +17,12 @@ import pd.scenes.GameScene;
 import pd.sprites.CatSheepSprite;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.BArray;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Callback;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.BArray;
+import watabou.utils.Bundle;
+import watabou.utils.Callback;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 /** Black Meow's single-cat obstruction wand from SPS-PD 0.9.8. */
 public class WandOfBlackMeow extends Wand {

@@ -25,8 +25,8 @@ import pd.Dungeon;
 import pd.actors.mobs.npcs.Blacksmith;
 import pd.levels.MiningLevel;
 import pd.levels.Terrain;
-import com.watabou.utils.Random;
-import com.watabou.utils.SparseArray;
+import watabou.utils.Random;
+import watabou.utils.SparseArray;
 
 import java.util.Arrays;
 import java.util.HashSet;

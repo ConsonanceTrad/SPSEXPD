@@ -7,7 +7,7 @@ import pd.items.Item;
 import pd.items.weapon.curses.Wayward;
 import pd.items.weapon.melee.MeleeWeapon;
 import pd.messages.Messages;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** Shared implementation of SPS-PD 0.9.8's mutable melee-weapon statistics. */
 public abstract class NormalMeleeWeapon extends MeleeWeapon {

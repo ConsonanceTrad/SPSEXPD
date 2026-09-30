@@ -14,8 +14,8 @@ import pd.items.quest.AdventureJournal;
 import pd.items.scrolls.ScrollOfUpgrade;
 import pd.levels.features.LevelTransition;
 import pd.tiles.custom.SpsLegacyLevelVisual;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 /** Legacy grass treasure room. Its portal and sheep tables were empty in SPS-PD 0.9.8. */
 public class RoomOfZotLevel extends Level {

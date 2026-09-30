@@ -34,10 +34,10 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
-import com.watabou.noosa.Image;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.GameMath;
-import com.watabou.utils.Random;
+import watabou.noosa.Image;
+import watabou.utils.Bundle;
+import watabou.utils.GameMath;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

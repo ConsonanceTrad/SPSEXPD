@@ -4,7 +4,7 @@ package pd.actors.buffs;
 import pd.actors.Char;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Needling extends FlavourBuff {
 	{ type = buffType.POSITIVE; announced = true; }

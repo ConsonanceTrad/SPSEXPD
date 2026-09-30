@@ -58,7 +58,7 @@ import pd.items.trinkets.Trinket;
 import pd.items.trinkets.TrinketCatalyst;
 import pd.items.wands.Wand;
 import pd.items.weapon.missiles.MissileWeapon;
-import com.watabou.utils.Reflection;
+import watabou.utils.Reflection;
 
 import java.util.ArrayList;
 

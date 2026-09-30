@@ -7,7 +7,7 @@ import pd.actors.damagetype.DamageType;
 import pd.actors.hero.Hero;
 import pd.effects.particles.ShadowParticle;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class StarAmmo extends SpAmmo {
 	private static final ItemSprite.Glowing BLACK = new ItemSprite.Glowing(0x000000);

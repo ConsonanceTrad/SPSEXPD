@@ -8,7 +8,7 @@ import pd.actors.buffs.Charm;
 import pd.actors.buffs.Paralysis;
 import pd.actors.buffs.Terror;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class KeyWeapon extends SpsSpecialMeleeWeapon {
 	public KeyWeapon() { super(1, 1f, 1f, 1, 1, 10, ItemSpriteSheet.SPS_KEY_WEAPON); }

@@ -16,8 +16,8 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.sprites.OrbOfZotSprite;
-import com.watabou.utils.Random;
-import com.watabou.noosa.particles.Emitter;
+import watabou.utils.Random;
+import watabou.noosa.particles.Emitter;
 
 import java.util.ArrayList;
 

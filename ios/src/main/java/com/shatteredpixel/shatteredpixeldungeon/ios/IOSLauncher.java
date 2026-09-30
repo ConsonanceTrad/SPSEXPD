@@ -36,8 +36,8 @@ import pd.services.news.News;
 import com.shatteredpixel.shatteredpixeldungeon.services.news.NewsImpl;
 import com.shatteredpixel.shatteredpixeldungeon.services.updates.UpdateImpl;
 import pd.services.updates.Updates;
-import com.watabou.noosa.Game;
-import com.watabou.utils.FileUtils;
+import watabou.noosa.Game;
+import watabou.utils.FileUtils;
 
 import org.robovm.apple.foundation.NSAutoreleasePool;
 import org.robovm.apple.foundation.NSBundle;

@@ -8,7 +8,7 @@ import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 /** Crystalline ice which punishes movement, matching FrostNova's old attack. */
 public class StoneIce extends Buff implements Hero.Doom {

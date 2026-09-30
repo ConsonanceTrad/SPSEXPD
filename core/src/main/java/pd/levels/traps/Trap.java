@@ -28,9 +28,9 @@ import pd.journal.Bestiary;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.windows.WndInfoTrap;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundlable;
-import com.watabou.utils.Bundle;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundlable;
+import watabou.utils.Bundle;
 
 public abstract class Trap implements Bundlable {
 

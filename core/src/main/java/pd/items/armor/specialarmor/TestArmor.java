@@ -6,7 +6,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.items.armor.normalarmor.NormalArmor;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 /** Zero-defense test armor which converts every received hit into an experiment point. */
 public class TestArmor extends NormalArmor {

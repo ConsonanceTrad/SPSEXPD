@@ -22,8 +22,8 @@
 package pd.ui;
 
 import pd.actors.Char;
-import com.watabou.noosa.ColorBlock;
-import com.watabou.noosa.ui.Component;
+import watabou.noosa.ColorBlock;
+import watabou.noosa.ui.Component;
 
 public class HealthBar extends Component {
 

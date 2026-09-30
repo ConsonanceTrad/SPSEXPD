@@ -30,7 +30,7 @@ import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import com.watabou.utils.Callback;
+import watabou.utils.Callback;
 
 import java.util.ArrayList;
 

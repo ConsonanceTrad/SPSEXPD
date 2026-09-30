@@ -41,11 +41,11 @@ import pd.ui.TitleBackground;
 import pd.ui.StyledButton;
 import pd.windows.IconTitle;
 import pd.windows.WndJournal;
-import com.watabou.noosa.Camera;
-import com.watabou.noosa.NinePatch;
-import com.watabou.noosa.audio.Music;
-import com.watabou.utils.RectF;
-import com.watabou.utils.SparseArray;
+import watabou.noosa.Camera;
+import watabou.noosa.NinePatch;
+import watabou.noosa.audio.Music;
+import watabou.utils.RectF;
+import watabou.utils.SparseArray;
 
 public class JournalScene extends PixelScene {
 

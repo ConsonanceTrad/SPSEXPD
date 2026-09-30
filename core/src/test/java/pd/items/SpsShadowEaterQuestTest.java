@@ -18,9 +18,9 @@ import pd.items.rings.Ring;
 import pd.items.scrolls.Scroll;
 import pd.items.weapon.melee.special.ShadowEater;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 /** Headless checks for the complete three-material Shadow Eater quest chain. */
 public final class SpsShadowEaterQuestTest {

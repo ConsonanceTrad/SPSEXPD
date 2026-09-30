@@ -4,7 +4,7 @@ package pd.actors.buffs;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 /** Grants permanent combat growth after the requested number of hostile kills. */
 public class LearnSkill extends Buff {

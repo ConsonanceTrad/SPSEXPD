@@ -7,7 +7,7 @@ import pd.actors.buffs.FrostIce;
 import pd.effects.particles.SnowParticle;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 import static pd.actors.damagetype.DamageType.ICE_DAMAGE;
 

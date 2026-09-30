@@ -48,11 +48,11 @@ import pd.scenes.PixelScene;
 import pd.sprites.MobSprite;
 import pd.utils.GLog;
 import pd.windows.WndOptions;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.noosa.Image;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Callback;
+import watabou.utils.Random;
 
 public class Chasm implements Hero.Doom {
 

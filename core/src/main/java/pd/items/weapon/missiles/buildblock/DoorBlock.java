@@ -8,7 +8,7 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** A thrown construction block which turns its landing tile into a door. */
 public class DoorBlock extends BuildBlock {

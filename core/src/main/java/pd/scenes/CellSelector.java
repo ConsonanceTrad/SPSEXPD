@@ -29,19 +29,19 @@ import pd.actors.Char;
 import pd.actors.mobs.Mob;
 import pd.items.Heap;
 import pd.tiles.DungeonTilemap;
-import com.watabou.input.ControllerHandler;
-import com.watabou.input.GameAction;
-import com.watabou.input.KeyBindings;
-import com.watabou.input.KeyEvent;
-import com.watabou.input.PointerEvent;
-import com.watabou.input.ScrollEvent;
-import com.watabou.noosa.Camera;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.ScrollArea;
-import com.watabou.utils.GameMath;
-import com.watabou.utils.Point;
-import com.watabou.utils.PointF;
-import com.watabou.utils.Signal;
+import watabou.input.ControllerHandler;
+import watabou.input.GameAction;
+import watabou.input.KeyBindings;
+import watabou.input.KeyEvent;
+import watabou.input.PointerEvent;
+import watabou.input.ScrollEvent;
+import watabou.noosa.Camera;
+import watabou.noosa.Game;
+import watabou.noosa.ScrollArea;
+import watabou.utils.GameMath;
+import watabou.utils.Point;
+import watabou.utils.PointF;
+import watabou.utils.Signal;
 
 public class CellSelector extends ScrollArea {
 

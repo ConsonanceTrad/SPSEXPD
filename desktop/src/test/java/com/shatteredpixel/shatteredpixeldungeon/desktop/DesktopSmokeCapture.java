@@ -17,8 +17,8 @@ import pd.scenes.GameScene;
 import pd.scenes.GiftShopScene;
 import pd.scenes.InterlevelScene;
 import pd.scenes.TitleScene;
-import com.watabou.noosa.Game;
-import com.watabou.utils.FileUtils;
+import watabou.noosa.Game;
+import watabou.utils.FileUtils;
 
 import java.io.File;
 

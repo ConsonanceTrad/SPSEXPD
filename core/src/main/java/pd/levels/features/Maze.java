@@ -22,8 +22,8 @@
 package pd.levels.features;
 
 import pd.levels.rooms.Room;
-import com.watabou.utils.Random;
-import com.watabou.utils.Rect;
+import watabou.utils.Random;
+import watabou.utils.Rect;
 
 public class Maze {
 	

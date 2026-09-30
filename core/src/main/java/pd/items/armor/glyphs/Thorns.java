@@ -26,7 +26,7 @@ import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
 import pd.items.armor.Armor;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Thorns extends Armor.Glyph {
 

@@ -8,7 +8,7 @@ import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
 import pd.items.Generator;
 import pd.sprites.BlueWraithSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class BlueWraith extends Wraith {
 

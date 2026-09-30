@@ -31,8 +31,8 @@ import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.windows.WndBag;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Random;
 
 public abstract class InventorySpell extends Spell {
 	

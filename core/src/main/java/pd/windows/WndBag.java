@@ -39,7 +39,7 @@ import pd.items.bags.SeedPouch;
 import pd.items.bags.ScrollHolder;
 import pd.items.bags.VelvetPouch;
 import pd.items.bags.WandHolster;
-import com.watabou.utils.DeviceCompat;
+import watabou.utils.DeviceCompat;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
@@ -51,16 +51,16 @@ import pd.ui.QuickSlotButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.RightClickMenu;
 import pd.ui.Window;
-import com.watabou.gltextures.SmartTexture;
-import com.watabou.gltextures.TextureCache;
-import com.watabou.input.GameAction;
-import com.watabou.input.KeyBindings;
-import com.watabou.input.KeyEvent;
-import com.watabou.input.PointerEvent;
-import com.watabou.noosa.BitmapText;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Image;
-import com.watabou.utils.PointF;
+import watabou.gltextures.SmartTexture;
+import watabou.gltextures.TextureCache;
+import watabou.input.GameAction;
+import watabou.input.KeyBindings;
+import watabou.input.KeyEvent;
+import watabou.input.PointerEvent;
+import watabou.noosa.BitmapText;
+import watabou.noosa.Game;
+import watabou.noosa.Image;
+import watabou.utils.PointF;
 
 public class WndBag extends WndTabbed {
 	

@@ -26,9 +26,9 @@ import pd.actors.hero.Talent;
 import pd.items.Item;
 import pd.sprites.ItemSprite;
 import pd.ui.TalentIcon;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.ui.Component;
+import watabou.noosa.Game;
+import watabou.noosa.Image;
+import watabou.noosa.ui.Component;
 
 public class Transmuting extends Component {
 

@@ -37,7 +37,7 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.tiles.DungeonTilemap;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.audio.Sample;
 
 public class WaterOfAwareness extends WellWater {
 

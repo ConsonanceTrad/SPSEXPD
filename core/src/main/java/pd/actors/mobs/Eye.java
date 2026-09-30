@@ -42,10 +42,10 @@ import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.sprites.EyeSprite;
 import pd.utils.GLog;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
-import com.watabou.noosa.tweeners.AlphaTweener;
+import watabou.utils.Bundle;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
+import watabou.noosa.tweeners.AlphaTweener;
 
 public class Eye extends Mob {
 	

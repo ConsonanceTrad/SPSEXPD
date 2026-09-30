@@ -12,9 +12,9 @@ import pd.actors.mobs.Mob;
 import pd.items.armor.normalarmor.NormalArmor;
 import pd.items.weapon.guns.GunA;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

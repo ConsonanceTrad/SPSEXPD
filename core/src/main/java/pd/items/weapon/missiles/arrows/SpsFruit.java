@@ -8,7 +8,7 @@ import pd.actors.Char;
 import pd.actors.blobs.Blob;
 import pd.items.weapon.missiles.MissileWeapon;
 import pd.scenes.GameScene;
-import com.watabou.utils.PathFinder;
+import watabou.utils.PathFinder;
 
 abstract class SpsFruit extends MissileWeapon {
 	private final int baseMin;

@@ -27,13 +27,13 @@ import pd.actors.Char;
 import pd.effects.CellEmitter;
 import pd.effects.particles.ElmoParticle;
 import pd.mechanics.Ballistica;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.noosa.particles.Emitter;
-import com.watabou.noosa.particles.Emitter.Factory;
-import com.watabou.noosa.particles.PixelParticle;
-import com.watabou.utils.PointF;
-import com.watabou.utils.Random;
+import watabou.noosa.TextureFilm;
+import watabou.noosa.audio.Sample;
+import watabou.noosa.particles.Emitter;
+import watabou.noosa.particles.Emitter.Factory;
+import watabou.noosa.particles.PixelParticle;
+import watabou.utils.PointF;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

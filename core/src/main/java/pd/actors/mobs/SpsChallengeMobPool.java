@@ -1,8 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.actors.mobs;
 
-import com.watabou.utils.Random;
-import com.watabou.utils.Reflection;
+import watabou.utils.Random;
+import watabou.utils.Reflection;
 
 public final class SpsChallengeMobPool {
 

@@ -39,9 +39,9 @@ import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

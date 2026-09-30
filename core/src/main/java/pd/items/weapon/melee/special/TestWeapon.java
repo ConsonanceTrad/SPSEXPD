@@ -6,7 +6,7 @@ import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.items.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** The tester loadout weapon, which awards experiment points on high damage rolls. */
 public class TestWeapon extends NormalMeleeWeapon {

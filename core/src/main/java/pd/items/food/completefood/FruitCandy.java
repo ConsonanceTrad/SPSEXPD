@@ -9,7 +9,7 @@ import pd.actors.buffs.Notice;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class FruitCandy extends CompleteFood {
 

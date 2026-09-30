@@ -7,7 +7,7 @@ import pd.actors.buffs.Burning;
 import pd.actors.hero.Hero;
 import pd.items.weapon.melee.special.MeleePan;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

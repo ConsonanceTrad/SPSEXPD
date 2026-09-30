@@ -9,7 +9,7 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.PoisonParticle;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 /** Original SPS ageing damage-over-time effect used by the town guardian dragon. */
 public class BeOld extends Buff implements Hero.Doom, Buff.DOTbuff {

@@ -10,9 +10,9 @@ import pd.items.wands.DamageWand;
 import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Callback;
+import watabou.utils.Random;
 
 /** The original SPS-PD blood wand, kept in the fusion package for save compatibility. */
 public class WandOfBlood extends DamageWand {

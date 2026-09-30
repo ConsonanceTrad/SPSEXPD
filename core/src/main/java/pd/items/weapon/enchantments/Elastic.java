@@ -28,7 +28,7 @@ import pd.items.weapon.Weapon;
 import pd.items.weapon.missiles.MissileWeapon;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Elastic extends Weapon.Enchantment {
 	

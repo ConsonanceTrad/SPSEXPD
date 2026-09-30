@@ -2,7 +2,7 @@
 package pd.sprites;
 
 import pd.Assets;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 /** Original SPS-PD 0.9.8 town war-tree sprite. */
 public class WarTreeSprite extends MobSprite {

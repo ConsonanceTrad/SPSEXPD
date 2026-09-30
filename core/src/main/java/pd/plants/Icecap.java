@@ -33,7 +33,7 @@ import pd.actors.mobs.Mob;
 import pd.levels.traps.Trap;
 import pd.items.weapon.missiles.arrows.IceFruit;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.PathFinder;
+import watabou.utils.PathFinder;
 
 public class Icecap extends Plant {
 	

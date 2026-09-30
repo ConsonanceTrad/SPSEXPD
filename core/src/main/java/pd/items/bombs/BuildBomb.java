@@ -18,8 +18,8 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 /** The basic SPS crafted bomb and ingredient for the elemental bomb recipes. */
 public class BuildBomb extends Bomb {

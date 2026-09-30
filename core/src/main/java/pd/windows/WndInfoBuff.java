@@ -27,7 +27,7 @@ import pd.scenes.PixelScene;
 import pd.ui.BuffIcon;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
-import com.watabou.noosa.Image;
+import watabou.noosa.Image;
 
 public class WndInfoBuff extends Window {
 

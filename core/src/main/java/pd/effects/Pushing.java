@@ -26,11 +26,11 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
-import com.watabou.noosa.Camera;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Visual;
-import com.watabou.utils.Callback;
-import com.watabou.utils.PointF;
+import watabou.noosa.Camera;
+import watabou.noosa.Game;
+import watabou.noosa.Visual;
+import watabou.utils.Callback;
+import watabou.utils.PointF;
 
 public class Pushing extends Actor {
 

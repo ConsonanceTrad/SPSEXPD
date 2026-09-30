@@ -30,10 +30,10 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.PixmapPacker;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import pd.SPDSettings;
-import com.watabou.input.ControllerHandler;
-import com.watabou.noosa.Game;
-import com.watabou.utils.PlatformSupport;
-import com.watabou.utils.RectF;
+import watabou.input.ControllerHandler;
+import watabou.noosa.Game;
+import watabou.utils.PlatformSupport;
+import watabou.utils.RectF;
 
 import org.robovm.apple.audiotoolbox.AudioServices;
 import org.robovm.apple.systemconfiguration.SCNetworkReachability;

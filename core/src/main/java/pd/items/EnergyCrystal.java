@@ -29,7 +29,7 @@ import pd.effects.FloatingText;
 import pd.journal.Catalog;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.audio.Sample;
 
 import java.util.ArrayList;
 

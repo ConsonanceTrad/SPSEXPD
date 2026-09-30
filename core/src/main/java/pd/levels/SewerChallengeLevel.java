@@ -4,7 +4,7 @@ package pd.levels;
 import pd.Assets;
 import pd.actors.mobs.Mob;
 import pd.actors.mobs.SpsChallengeMobPool;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** SPS-PD 0.9.8 forest arena (challenge-book room 1). */
 public class SewerChallengeLevel extends SpsRegionChallengeLevel {

@@ -10,8 +10,8 @@ import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.items.weapon.enchantments.JupitersHorror;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.Camera;
-import com.watabou.utils.Random;
+import watabou.noosa.Camera;
+import watabou.utils.Random;
 
 public class JupitersWraith extends RelicMeleeWeapon {
 

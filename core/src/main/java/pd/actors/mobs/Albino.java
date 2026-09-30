@@ -35,7 +35,7 @@ import pd.items.Item;
 import pd.items.wands.Wand;
 import pd.scenes.GameScene;
 import pd.sprites.AlbinoSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Albino extends Rat {
 
@@ -54,7 +54,7 @@ public class Albino extends Rat {
 	@Override
 	public boolean act() {
 		if (Dungeon.level != null) {
-			for (int offset : com.watabou.utils.PathFinder.NEIGHBOURS9) {
+			for (int offset : watabou.utils.PathFinder.NEIGHBOURS9) {
 				int cell = pos + offset;
 				if (Dungeon.level.insideMap(cell) && (cell == pos || Dungeon.level.adjacent(pos, cell))) {
 					GameScene.add(Blob.seed(cell, 2, SandStorm.class));

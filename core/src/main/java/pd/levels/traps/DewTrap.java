@@ -6,9 +6,9 @@ import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.items.Heap;
 import pd.items.VioletDewdrop;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.PathFinder;
+import watabou.noosa.Game;
+import watabou.noosa.audio.Sample;
+import watabou.utils.PathFinder;
 
 public class DewTrap extends Trap {
 	{ color = RED; shape = CROSSHAIR; }

@@ -12,8 +12,8 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.GoldThiefSprite;
 import pd.utils.GLog;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 public class GoldThief extends Mob {
 

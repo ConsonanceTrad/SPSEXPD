@@ -24,9 +24,9 @@ package pd.ui;
 import pd.Assets;
 import pd.Chrome;
 import pd.items.Item;
-import com.watabou.noosa.NinePatch;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.noosa.ui.Component;
+import watabou.noosa.NinePatch;
+import watabou.noosa.audio.Sample;
+import watabou.noosa.ui.Component;
 
 //essentially a RedButton version of ItemSlot
 public class ItemButton extends Component {

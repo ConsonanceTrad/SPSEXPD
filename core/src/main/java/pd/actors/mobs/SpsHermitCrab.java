@@ -9,7 +9,7 @@ import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.sprites.SpsHermitCrabSprite;
 import pd.utils.GLog;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 public class SpsHermitCrab extends Mob {
 	private static final float TIME_TO_ZAP = 2f;
 	{ spriteClass = SpsHermitCrabSprite.class; HP = HT = 200; defenseSkill = 22; EXP = 60; loot = Generator.Category.BERRY; lootChance = 0.33f; properties.add(Property.BEAST); properties.add(Property.BOSS); properties.add(Property.BOSS_MINION); resistances.add(pd.actors.blobs.Electricity.class); }

@@ -12,7 +12,7 @@ import pd.actors.buffs.Slow;
 import pd.items.VioletDewdrop;
 import pd.mechanics.Ballistica;
 import pd.sprites.GraveProtectorSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class GraveProtector extends Mob {
 

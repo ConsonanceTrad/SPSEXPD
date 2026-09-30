@@ -13,11 +13,11 @@ import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.scenes.GameScene;
 import pd.tiles.custom.SpsLegacyLevelVisual;
-import com.watabou.noosa.Group;
-import com.watabou.noosa.audio.Music;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.noosa.Group;
+import watabou.noosa.audio.Music;
+import watabou.utils.Bundle;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

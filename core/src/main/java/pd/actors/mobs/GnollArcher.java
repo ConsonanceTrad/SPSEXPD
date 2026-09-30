@@ -11,7 +11,7 @@ import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.sprites.GnollArcherSprite;
 import pd.utils.GLog;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class GnollArcher extends Mob {
 	{

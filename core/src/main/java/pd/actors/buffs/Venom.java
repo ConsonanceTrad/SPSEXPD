@@ -2,8 +2,8 @@ package pd.actors.buffs;
 
 import pd.Dungeon;
 import pd.messages.Messages;
-import com.watabou.noosa.Image;
-import com.watabou.utils.Bundle;
+import watabou.noosa.Image;
+import watabou.utils.Bundle;
 
 public class Venom extends Poison {
 	private static final String DAMAGE = "damage";

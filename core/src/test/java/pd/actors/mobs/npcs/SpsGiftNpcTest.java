@@ -47,12 +47,12 @@ import pd.levels.rooms.standard.EmptyRoom;
 import pd.plants.Plant;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.MovieClip;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
-import com.watabou.utils.SparseArray;
+import watabou.noosa.Game;
+import watabou.noosa.MovieClip;
+import watabou.noosa.TextureFilm;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
+import watabou.utils.SparseArray;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

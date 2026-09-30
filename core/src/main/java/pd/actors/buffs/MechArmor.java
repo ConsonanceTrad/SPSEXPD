@@ -3,7 +3,7 @@ package pd.actors.buffs;
 
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 /** Soldier armor which absorbs all damage and also decays by one point per turn. */
 public class MechArmor extends Buff {

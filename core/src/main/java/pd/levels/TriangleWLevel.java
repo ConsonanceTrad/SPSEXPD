@@ -18,8 +18,8 @@ import pd.levels.builders.SpsBspLayout.Type;
 import pd.plants.BlandfruitBush;
 import pd.plants.ReNepenth;
 import pd.plants.StarEater;
-import com.watabou.utils.Random;
-import com.watabou.utils.PathFinder;
+import watabou.utils.Random;
+import watabou.utils.PathFinder;
 
 public class TriangleWLevel extends SpsTriangleLevel {
 	{ color1 = 0x48763c; color2 = 0x59994a; }

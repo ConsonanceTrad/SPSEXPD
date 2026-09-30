@@ -32,9 +32,9 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.features.Maze;
 import pd.levels.painters.Painter;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Point;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Point;
+import watabou.utils.Random;
 
 public class SecretMazeRoom extends SecretRoom {
 	

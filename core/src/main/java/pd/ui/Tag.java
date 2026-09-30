@@ -23,8 +23,8 @@ package pd.ui;
 
 import pd.Chrome;
 import pd.scenes.GameScene;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.NinePatch;
+import watabou.noosa.Game;
+import watabou.noosa.NinePatch;
 
 public class Tag extends Button {
 

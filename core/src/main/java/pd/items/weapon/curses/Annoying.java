@@ -31,8 +31,8 @@ import pd.items.weapon.Weapon;
 import pd.messages.Messages;
 import pd.sprites.ItemSprite;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Random;
 
 public class Annoying extends Weapon.Enchantment {
 

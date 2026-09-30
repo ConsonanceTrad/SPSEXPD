@@ -13,7 +13,7 @@ import pd.items.BossRush;
 import pd.messages.Messages;
 import pd.sprites.NewDragon01Sprite;
 import pd.sprites.CharSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** The original fixed guardian dragon in Dolya town. */
 public class AdultDragonViolet extends Mob {

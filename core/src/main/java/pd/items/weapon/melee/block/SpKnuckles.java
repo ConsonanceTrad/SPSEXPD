@@ -7,7 +7,7 @@ import pd.actors.buffs.Paralysis;
 import pd.actors.buffs.ShieldArmor;
 import pd.items.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** The knuckle-sect weapon sold by Shower after Otiluke is rescued. */
 public class SpKnuckles extends NormalMeleeWeapon {

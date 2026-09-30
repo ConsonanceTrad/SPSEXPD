@@ -25,7 +25,7 @@ import pd.Dungeon;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 public class Ooze extends Buff implements Buff.DOTbuff {
 

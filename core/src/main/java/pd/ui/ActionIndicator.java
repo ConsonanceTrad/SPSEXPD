@@ -25,9 +25,9 @@ import pd.Dungeon;
 import pd.SPDAction;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
-import com.watabou.input.GameAction;
-import com.watabou.noosa.BitmapText;
-import com.watabou.noosa.Visual;
+import watabou.input.GameAction;
+import watabou.noosa.BitmapText;
+import watabou.noosa.Visual;
 
 public class ActionIndicator extends Tag {
 

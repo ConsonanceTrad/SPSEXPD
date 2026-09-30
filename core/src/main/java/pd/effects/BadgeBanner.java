@@ -23,14 +23,14 @@ package pd.effects;
 
 import pd.Assets;
 import pd.Badges;
-import com.watabou.gltextures.SmartTexture;
-import com.watabou.gltextures.TextureCache;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Point;
-import com.watabou.utils.PointF;
+import watabou.gltextures.SmartTexture;
+import watabou.gltextures.TextureCache;
+import watabou.noosa.Game;
+import watabou.noosa.Image;
+import watabou.noosa.TextureFilm;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Point;
+import watabou.utils.PointF;
 
 import java.util.ArrayList;
 import java.util.HashMap;

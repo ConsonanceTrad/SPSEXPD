@@ -2,8 +2,8 @@
 package pd;
 
 import pd.messages.Messages;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.FileUtils;
+import watabou.utils.Bundle;
+import watabou.utils.FileUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;

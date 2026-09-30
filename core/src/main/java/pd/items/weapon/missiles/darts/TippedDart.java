@@ -50,7 +50,7 @@ import pd.plants.Swiftthistle;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
 import pd.windows.WndOptions;
-import com.watabou.utils.Reflection;
+import watabou.utils.Reflection;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

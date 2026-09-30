@@ -3,8 +3,8 @@ package pd;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessFiles;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.FileUtils;
+import watabou.utils.Bundle;
+import watabou.utils.FileUtils;
 
 import java.io.IOException;
 import java.nio.file.Path;

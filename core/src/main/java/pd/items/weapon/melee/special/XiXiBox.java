@@ -13,8 +13,8 @@ import pd.items.weapon.melee.MeleeWeapon;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 /** XixiZero's box, which breaks into four equipment rewards after 101 strong hits. */
 public class XiXiBox extends MeleeWeapon {

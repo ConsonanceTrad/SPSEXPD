@@ -31,7 +31,7 @@ import pd.ui.Icons;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
-import com.watabou.noosa.Image;
+import watabou.noosa.Image;
 
 public class WndVictoryCongrats extends Window {
 

@@ -5,7 +5,7 @@ import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.scenes.InterlevelScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.Game;
+import watabou.noosa.Game;
 
 import java.util.ArrayList;
 

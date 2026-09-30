@@ -35,7 +35,7 @@ import pd.levels.Level;
 import pd.levels.traps.Trap;
 import pd.scenes.InterlevelScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.Game;
+import watabou.noosa.Game;
 
 public class Fadeleaf extends Plant {
 	

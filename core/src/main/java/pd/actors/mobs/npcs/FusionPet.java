@@ -24,8 +24,8 @@ import pd.sprites.RatSprite;
 import pd.sprites.SheepSprite;
 import pd.sprites.SpinnerSprite;
 import pd.sprites.WraithSprite;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 public class FusionPet extends DirectableAlly {
 

@@ -13,8 +13,8 @@ import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
 import pd.windows.WndQuest;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 import java.util.Arrays;

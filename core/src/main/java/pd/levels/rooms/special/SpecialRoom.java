@@ -24,9 +24,9 @@ package pd.levels.rooms.special;
 import pd.Dungeon;
 import pd.ShatteredPixelDungeon;
 import pd.levels.rooms.Room;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
-import com.watabou.utils.Reflection;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
+import watabou.utils.Reflection;
 
 import java.util.ArrayList;
 import java.util.Arrays;

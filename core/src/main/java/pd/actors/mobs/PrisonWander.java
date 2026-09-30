@@ -39,10 +39,10 @@ import pd.scenes.GameScene;
 import pd.sprites.PrisonWanderSprite;
 import pd.sprites.SeekingBombSprite;
 import pd.ui.BossHealthBar;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundle;
+import watabou.utils.Callback;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

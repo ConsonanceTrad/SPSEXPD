@@ -69,7 +69,7 @@ import pd.items.weapon.missiles.darts.HolyDart;
 import pd.levels.traps.DisintegrationTrap;
 import pd.levels.traps.GrimTrap;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 import java.util.HashSet;
 

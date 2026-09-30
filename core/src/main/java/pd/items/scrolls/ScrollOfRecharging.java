@@ -34,8 +34,8 @@ import pd.effects.particles.EnergyParticle;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.noosa.particles.Emitter;
+import watabou.noosa.audio.Sample;
+import watabou.noosa.particles.Emitter;
 
 public class ScrollOfRecharging extends Scroll {
 

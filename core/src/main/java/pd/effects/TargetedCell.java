@@ -24,11 +24,11 @@ package pd.effects;
 import pd.actors.Actor;
 import pd.tiles.DungeonTilemap;
 import pd.ui.Icons;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Image;
-import com.watabou.utils.Bundlable;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.SparseArray;
+import watabou.noosa.Game;
+import watabou.noosa.Image;
+import watabou.utils.Bundlable;
+import watabou.utils.Bundle;
+import watabou.utils.SparseArray;
 
 public class TargetedCell extends Image implements Bundlable {
 

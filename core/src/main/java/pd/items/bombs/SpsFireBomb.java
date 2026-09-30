@@ -12,8 +12,8 @@ import pd.effects.particles.SmokeParticle;
 import pd.items.Item;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 public class SpsFireBomb extends Bomb {
 	{ image = ItemSpriteSheet.LEGACY_FIRE_BOMB; }

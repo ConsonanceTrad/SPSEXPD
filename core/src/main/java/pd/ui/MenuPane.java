@@ -38,14 +38,14 @@ import pd.windows.WndJournal;
 import pd.windows.WndKeyBindings;
 import pd.windows.WndStory;
 import pd.windows.WndTitledMessage;
-import com.watabou.input.GameAction;
-import com.watabou.noosa.BitmapText;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.NinePatch;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.noosa.ui.Component;
-import com.watabou.utils.DeviceCompat;
+import watabou.input.GameAction;
+import watabou.noosa.BitmapText;
+import watabou.noosa.Game;
+import watabou.noosa.Image;
+import watabou.noosa.NinePatch;
+import watabou.noosa.audio.Sample;
+import watabou.noosa.ui.Component;
+import watabou.utils.DeviceCompat;
 
 public class MenuPane extends Component {
 

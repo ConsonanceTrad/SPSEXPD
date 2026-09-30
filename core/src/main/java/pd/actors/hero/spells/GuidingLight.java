@@ -41,10 +41,10 @@ import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import pd.ui.QuickSlotButton;
 import pd.utils.GLog;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
+import watabou.noosa.Image;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Callback;
+import watabou.utils.Random;
 
 public class GuidingLight extends TargetedClericSpell {
 

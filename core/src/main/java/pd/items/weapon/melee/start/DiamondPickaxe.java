@@ -18,8 +18,8 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 import java.util.ArrayList;
 public class DiamondPickaxe extends NormalMeleeWeapon {
 	public static final String AC_MINE="MINE"; public DiamondPickaxe(){super(3,2f,.5f,2,2,8,ItemSpriteSheet.LEGACY_DIAMOND_PICKAXE);unique=true;reinforced=true;defaultAction=AC_MINE;}

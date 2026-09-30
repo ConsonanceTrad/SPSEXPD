@@ -24,8 +24,8 @@ package pd.sprites;
 import pd.Assets;
 import pd.actors.Char;
 import pd.effects.Speck;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.particles.Emitter;
+import watabou.noosa.TextureFilm;
+import watabou.noosa.particles.Emitter;
 
 public class FetidRatSprite extends MobSprite {
 	

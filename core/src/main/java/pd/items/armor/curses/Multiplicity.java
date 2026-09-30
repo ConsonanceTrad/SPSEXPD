@@ -39,10 +39,10 @@ import pd.items.armor.Armor;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
-import com.watabou.utils.Reflection;
+import watabou.utils.Bundle;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
+import watabou.utils.Reflection;
 
 import java.util.ArrayList;
 

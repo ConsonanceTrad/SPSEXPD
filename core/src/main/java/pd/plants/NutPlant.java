@@ -8,7 +8,7 @@ import pd.items.food.fruit.Strawberry;
 import pd.items.food.vegetable.NutVegetable;
 import pd.items.weapon.missiles.arrows.NutFruit;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class NutPlant extends Plant {
 	{ image = 17; seedClass = Seed.class; }

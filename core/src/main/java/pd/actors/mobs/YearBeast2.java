@@ -26,8 +26,8 @@ import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.sprites.BeastYearSprite;
 import pd.utils.GLog;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 import java.util.Arrays;
 import java.util.HashSet;

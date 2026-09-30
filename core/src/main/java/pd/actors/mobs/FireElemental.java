@@ -19,7 +19,7 @@ import pd.items.weapon.enchantments.EnchantmentFire;
 import pd.items.weapon.enchantments.EnchantmentFire2;
 import pd.plants.Firebloom;
 import pd.sprites.FireElementalSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** Original SPS-PD runtime and save identity for the city fire elemental. */
 public class FireElemental extends Mob {

@@ -2,7 +2,7 @@
 package pd.actors.buffs;
 
 import pd.Statistics;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 import java.util.Calendar;
 

@@ -25,8 +25,8 @@ import pd.actors.hero.HeroClass;
 import pd.actors.hero.HeroSubClass;
 import pd.actors.hero.CombatStyle;
 import pd.messages.Messages;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.FileUtils;
+import watabou.utils.Bundle;
+import watabou.utils.FileUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;

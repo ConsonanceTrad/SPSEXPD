@@ -30,8 +30,8 @@ import pd.effects.particles.PoisonParticle;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import com.watabou.noosa.Image;
-import com.watabou.utils.Bundle;
+import watabou.noosa.Image;
+import watabou.utils.Bundle;
 
 public class Poison extends Buff implements Hero.Doom, Buff.DOTbuff {
 	

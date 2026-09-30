@@ -20,6 +20,7 @@
  */
 
 package com.shatteredpixel.shatteredpixeldungeon.services.news;
+import pd.services.news.NewsService;
 
 public class NewsImpl {
 

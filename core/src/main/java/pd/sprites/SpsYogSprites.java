@@ -2,7 +2,7 @@ package pd.sprites;
 
 import pd.Assets;
 import pd.effects.Splash;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 public final class SpsYogSprites {
 	private SpsYogSprites() { }

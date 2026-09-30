@@ -30,7 +30,7 @@ import pd.effects.BlobEmitter;
 import pd.effects.Speck;
 import pd.messages.Messages;
 import pd.utils.GLog;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class ToxicGas extends Blob implements Hero.Doom {
 

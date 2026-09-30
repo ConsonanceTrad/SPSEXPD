@@ -8,7 +8,7 @@ import pd.actors.buffs.Vertigo;
 import pd.actors.damagetype.DamageType;
 import pd.effects.Speck;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class BlindAmmo extends SpAmmo {
 	private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing(0xFFFF44);

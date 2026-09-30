@@ -25,7 +25,7 @@ import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.items.armor.glyphs.AntiMagic;
 import pd.ui.BuffIndicator;
-import com.watabou.noosa.Image;
+import watabou.noosa.Image;
 
 public class MagicImmune extends FlavourBuff {
 

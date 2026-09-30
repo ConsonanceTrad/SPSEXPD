@@ -29,7 +29,7 @@ import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
 import pd.ui.HealthBar;
 import pd.ui.RenderedTextBlock;
-import com.watabou.noosa.ui.Component;
+import watabou.noosa.ui.Component;
 
 public class WndInfoMob extends WndTitledMessage {
 	

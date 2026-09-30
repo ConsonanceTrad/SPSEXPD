@@ -5,8 +5,8 @@ import pd.Dungeon;
 import pd.items.Generator;
 import pd.items.Item;
 import pd.items.misc.LuckyBadge;
-import com.watabou.utils.Random;
-import com.watabou.utils.Reflection;
+import watabou.utils.Random;
+import watabou.utils.Reflection;
 
 /** Reproduces SPS-PD's primary-roll, then secondary-roll loot sequence. */
 abstract class LegacyDualLootMob extends Mob {

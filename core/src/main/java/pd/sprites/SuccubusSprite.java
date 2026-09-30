@@ -24,7 +24,7 @@ package pd.sprites;
 import pd.Assets;
 import pd.effects.Speck;
 import pd.effects.particles.ShadowParticle;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 public class SuccubusSprite extends MobSprite {
 	

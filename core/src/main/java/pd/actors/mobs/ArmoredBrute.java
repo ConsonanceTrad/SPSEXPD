@@ -32,7 +32,7 @@ import pd.items.armor.ScaleArmor;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.ShieldedSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class ArmoredBrute extends Brute {
 

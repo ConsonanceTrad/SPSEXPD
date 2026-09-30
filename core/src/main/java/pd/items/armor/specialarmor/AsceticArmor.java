@@ -6,7 +6,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.HasteBuff;
 import pd.items.armor.normalarmor.NormalArmor;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class AsceticArmor extends NormalArmor {
 	public AsceticArmor() { super(3, 3.5f, 11f, 4, 0, 15, -1, 1, 3, ItemSpriteSheet.SPS_ARMOR_ASCETIC); }

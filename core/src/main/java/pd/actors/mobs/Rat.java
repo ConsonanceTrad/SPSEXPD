@@ -29,9 +29,9 @@ import pd.items.food.meatfood.Meat;
 import pd.items.weapon.missiles.meleethrow.Brick;
 import pd.scenes.GameScene;
 import pd.sprites.RatSprite;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 public class Rat extends Mob {
 	private static final float SPAWN_DELAY = 2f;

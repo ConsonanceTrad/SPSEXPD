@@ -25,7 +25,7 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
 import pd.tiles.custom.Carpet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class StatuesRoom extends StandardRoom {
 

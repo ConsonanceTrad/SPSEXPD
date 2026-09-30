@@ -24,9 +24,9 @@ import pd.items.wands.WandOfFreeze;
 import pd.items.wands.fusion.WandOfFlow;
 import pd.items.weapon.enchantments.EnchantmentIce;
 import pd.items.weapon.enchantments.EnchantmentIce2;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Reflection;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.utils.Reflection;
+import watabou.utils.Random;
 
 import java.nio.charset.CodingErrorAction;
 import java.nio.charset.StandardCharsets;

@@ -39,8 +39,8 @@ import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import pd.ui.QuickSlotButton;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundle;
 
 public class ShieldOfLight extends TargetedClericSpell {
 

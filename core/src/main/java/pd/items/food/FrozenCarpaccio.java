@@ -32,7 +32,7 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class FrozenCarpaccio extends Food {
 

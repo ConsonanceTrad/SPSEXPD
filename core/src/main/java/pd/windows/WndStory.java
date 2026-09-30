@@ -25,10 +25,10 @@ import pd.Chrome;
 import pd.scenes.PixelScene;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
-import com.watabou.input.PointerEvent;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.PointerArea;
+import watabou.input.PointerEvent;
+import watabou.noosa.Game;
+import watabou.noosa.Image;
+import watabou.noosa.PointerArea;
 
 public class WndStory extends Window {
 

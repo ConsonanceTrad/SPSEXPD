@@ -29,7 +29,7 @@ import pd.scenes.PixelScene;
 import pd.ui.Icons;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
-import com.watabou.noosa.Group;
+import watabou.noosa.Group;
 
 import java.text.NumberFormat;
 

@@ -10,7 +10,7 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.npcs.NPC;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.audio.Sample;
 
 /** The ordinary SPS psionic-draw scroll, distinct from Shattered's exotic scroll. */
 public class ScrollOfPsionicBlast extends Scroll {

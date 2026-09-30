@@ -21,7 +21,7 @@ import pd.actors.mobs.BrokenRobot;
 import pd.actors.mobs.SpsDM300;
 import pd.actors.mobs.Yog;
 import pd.levels.traps.SpearTrap;
-import com.watabou.noosa.Game;
+import watabou.noosa.Game;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;

@@ -21,11 +21,11 @@
 
 package pd.effects.particles;
 
-import com.watabou.noosa.particles.Emitter;
-import com.watabou.noosa.particles.Emitter.Factory;
-import com.watabou.noosa.particles.PixelParticle;
-import com.watabou.utils.ColorMath;
-import com.watabou.utils.Random;
+import watabou.noosa.particles.Emitter;
+import watabou.noosa.particles.Emitter.Factory;
+import watabou.noosa.particles.PixelParticle;
+import watabou.utils.ColorMath;
+import watabou.utils.Random;
 
 public class WoolParticle extends PixelParticle.Shrinking {
 	

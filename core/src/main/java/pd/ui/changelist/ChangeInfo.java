@@ -23,8 +23,8 @@ package pd.ui.changelist;
 
 import pd.scenes.PixelScene;
 import pd.ui.RenderedTextBlock;
-import com.watabou.noosa.ColorBlock;
-import com.watabou.noosa.ui.Component;
+import watabou.noosa.ColorBlock;
+import watabou.noosa.ui.Component;
 
 import java.util.ArrayList;
 

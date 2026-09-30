@@ -10,7 +10,7 @@ import pd.items.KindOfWeapon;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class DragonBoat extends MeleeThrowWeapon {
 	public DragonBoat() { super(1, 5, 10, ItemSpriteSheet.SPS_DRAGON_BOAT); }

@@ -29,10 +29,10 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ZotSprite;
 import pd.ui.BossHealthBar;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundle;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

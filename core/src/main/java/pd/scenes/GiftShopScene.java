@@ -10,8 +10,8 @@ import pd.ui.Archs;
 import pd.ui.ExitButton;
 import pd.ui.GiftUnlockList;
 import pd.ui.RenderedTextBlock;
-import com.watabou.noosa.Camera;
-import com.watabou.noosa.NinePatch;
+import watabou.noosa.Camera;
+import watabou.noosa.NinePatch;
 
 /**
  * SPS 礼物商店：用 S金购买永久强化解锁（对照 SPS 0.9.9 GiftShopScene）。

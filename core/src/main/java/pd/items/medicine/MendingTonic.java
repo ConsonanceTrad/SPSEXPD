@@ -11,7 +11,7 @@ import pd.items.potions.PotionOfHealing;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.messages.Messages;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.audio.Sample;
 
 import java.util.ArrayList;
 

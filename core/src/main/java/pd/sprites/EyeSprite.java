@@ -28,9 +28,9 @@ import pd.actors.mobs.Eye;
 import pd.effects.Beam;
 import pd.effects.MagicMissile;
 import pd.tiles.DungeonTilemap;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.noosa.particles.Emitter;
+import watabou.noosa.TextureFilm;
+import watabou.noosa.audio.Sample;
+import watabou.noosa.particles.Emitter;
 
 public class EyeSprite extends MobSprite {
 

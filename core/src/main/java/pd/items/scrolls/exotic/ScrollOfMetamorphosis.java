@@ -39,8 +39,8 @@ import pd.ui.TalentsPane;
 import pd.ui.Window;
 import pd.windows.IconTitle;
 import pd.windows.WndOptions;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

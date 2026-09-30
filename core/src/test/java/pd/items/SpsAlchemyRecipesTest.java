@@ -33,8 +33,8 @@ import pd.items.potions.PotionOfMixing;
 import pd.items.scrolls.ScrollOfIdentify;
 import pd.plants.*;
 import pd.scenes.AlchemyScene;
-import com.watabou.utils.Reflection;
-import com.watabou.utils.Bundle;
+import watabou.utils.Reflection;
+import watabou.utils.Bundle;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

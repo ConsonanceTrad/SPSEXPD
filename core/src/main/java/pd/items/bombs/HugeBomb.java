@@ -19,9 +19,9 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.BArray;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.BArray;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 /** SPS two-tile blast bomb, including its intended wall-breaking behavior. */
 public class HugeBomb extends Bomb {

@@ -29,8 +29,8 @@ import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.sprites.GnollGuardSprite;
 import pd.utils.GLog;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 public class GnollGuard extends Mob {
 

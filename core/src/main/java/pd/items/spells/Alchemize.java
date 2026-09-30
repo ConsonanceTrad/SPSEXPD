@@ -46,8 +46,8 @@ import pd.windows.WndInfoItem;
 import pd.windows.WndOptions;
 import pd.windows.WndTradeItem;
 import pd.windows.WndUpgrade;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

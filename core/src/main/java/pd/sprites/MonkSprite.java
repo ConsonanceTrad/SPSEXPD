@@ -22,8 +22,8 @@
 package pd.sprites;
 
 import pd.Assets;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.utils.Random;
+import watabou.noosa.TextureFilm;
+import watabou.utils.Random;
 
 public class MonkSprite extends MobSprite {
 	

@@ -27,10 +27,10 @@ import pd.actors.mobs.Mob;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.windows.WndKeyBindings;
-import com.watabou.input.GameAction;
-import com.watabou.noosa.BitmapText;
-import com.watabou.noosa.Camera;
-import com.watabou.noosa.Image;
+import watabou.input.GameAction;
+import watabou.noosa.BitmapText;
+import watabou.noosa.Camera;
+import watabou.noosa.Image;
 
 public class DangerIndicator extends Tag {
 	

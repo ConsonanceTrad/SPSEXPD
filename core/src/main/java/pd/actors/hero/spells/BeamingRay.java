@@ -44,9 +44,9 @@ import pd.tiles.DungeonTilemap;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.PathFinder;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundle;
+import watabou.utils.PathFinder;
 
 public class BeamingRay extends TargetedClericSpell {
 

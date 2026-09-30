@@ -37,7 +37,7 @@ import pd.messages.Messages;
 import pd.tiles.DungeonTilemap;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.audio.Sample;
 
 public class LifeLinkSpell extends ClericSpell {
 

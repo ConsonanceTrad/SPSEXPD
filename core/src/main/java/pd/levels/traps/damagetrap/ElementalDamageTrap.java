@@ -5,8 +5,8 @@ import pd.actors.blobs.Blob;
 import pd.actors.blobs.SpsElementalDamage;
 import pd.levels.traps.Trap;
 import pd.scenes.GameScene;
-import com.watabou.utils.BArray;
-import com.watabou.utils.PathFinder;
+import watabou.utils.BArray;
+import watabou.utils.PathFinder;
 
 abstract class ElementalDamageTrap extends Trap {
 	private final Class<? extends SpsElementalDamage> blobClass;

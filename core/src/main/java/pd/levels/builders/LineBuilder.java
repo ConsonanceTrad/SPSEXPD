@@ -23,7 +23,7 @@ package pd.levels.builders;
 
 import pd.levels.rooms.Room;
 import pd.levels.rooms.connection.ConnectionRoom;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

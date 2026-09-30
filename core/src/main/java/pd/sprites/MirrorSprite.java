@@ -25,8 +25,8 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.hero.HeroClass;
 import pd.actors.mobs.npcs.MirrorImage;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.utils.PointF;
+import watabou.noosa.TextureFilm;
+import watabou.utils.PointF;
 
 public class MirrorSprite extends MobSprite {
 	

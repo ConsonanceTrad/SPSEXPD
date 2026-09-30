@@ -28,7 +28,7 @@ import pd.items.Generator;
 import pd.journal.Document;
 import pd.scenes.GameScene;
 import pd.sprites.SnakeSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Snake extends Mob {
 	

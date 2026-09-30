@@ -7,7 +7,7 @@ import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 import java.util.ArrayList;
 

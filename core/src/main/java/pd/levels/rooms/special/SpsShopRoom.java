@@ -45,9 +45,9 @@ import pd.items.weapon.ranges.WoodenBowN;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Point;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Point;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 import java.util.Collections;

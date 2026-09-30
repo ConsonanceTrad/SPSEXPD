@@ -23,7 +23,7 @@ package pd.items.trinkets;
 
 import pd.messages.Messages;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class ThirteenLeafClover extends Trinket {
 

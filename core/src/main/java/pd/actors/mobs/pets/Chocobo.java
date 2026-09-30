@@ -10,7 +10,7 @@ import pd.items.eggs.RandomEasterEgg;
 import pd.items.food.completefood.PetFood;
 import pd.items.food.vegetable.Vegetable;
 import pd.sprites.ChocoboSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Chocobo extends PET {
 	{

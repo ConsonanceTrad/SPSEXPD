@@ -11,7 +11,7 @@ import pd.items.journalpages.Sokoban3;
 import pd.items.keys.SpsSkeletonKey;
 import pd.items.keys.WornKey;
 import pd.scenes.GameScene;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 final class SpsCavesBossRewards {
 	private SpsCavesBossRewards() { }

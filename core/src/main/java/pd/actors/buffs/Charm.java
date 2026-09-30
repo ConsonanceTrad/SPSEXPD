@@ -24,7 +24,7 @@ package pd.actors.buffs;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.ui.BuffIndicator;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 public class Charm extends FlavourBuff {
 

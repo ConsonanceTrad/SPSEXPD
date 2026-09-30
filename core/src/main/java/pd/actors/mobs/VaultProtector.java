@@ -9,8 +9,8 @@ import pd.actors.damagetype.DamageType;
 import pd.items.VioletDewdrop;
 import pd.mechanics.Ballistica;
 import pd.sprites.VaultProtectorSprite;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 public class VaultProtector extends Mob {
 

@@ -28,9 +28,9 @@ import pd.effects.Beam;
 import pd.effects.MagicMissile;
 import pd.levels.rooms.special.SentryRoom;
 import pd.tiles.DungeonTilemap;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.noosa.particles.Emitter;
+import watabou.noosa.Game;
+import watabou.noosa.audio.Sample;
+import watabou.noosa.particles.Emitter;
 
 //a generic class for various different sentry NPCs
 // notably not the sentries from wand of warding though

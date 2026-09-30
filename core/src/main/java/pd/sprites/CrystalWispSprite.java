@@ -28,11 +28,11 @@ import pd.effects.Beam;
 import pd.effects.TorchHalo;
 import pd.scenes.GameScene;
 import pd.tiles.DungeonTilemap;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.noosa.tweeners.AlphaTweener;
-import com.watabou.utils.PointF;
+import watabou.noosa.Game;
+import watabou.noosa.TextureFilm;
+import watabou.noosa.audio.Sample;
+import watabou.noosa.tweeners.AlphaTweener;
+import watabou.utils.PointF;
 
 public abstract class CrystalWispSprite extends MobSprite {
 

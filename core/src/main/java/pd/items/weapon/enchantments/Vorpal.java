@@ -27,7 +27,7 @@ import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Vorpal extends Weapon.Enchantment {
 

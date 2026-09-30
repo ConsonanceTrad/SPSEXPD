@@ -54,10 +54,10 @@ import pd.levels.builders.SpsBspLayout;
 import pd.levels.traps.damagetrap.FireDamageTrap;
 import pd.plants.Plant;
 import pd.plants.SpsFruitBush;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
-import com.watabou.utils.SparseArray;
+import watabou.noosa.Game;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
+import watabou.utils.SparseArray;
 
 import java.util.ArrayList;
 import java.util.Arrays;

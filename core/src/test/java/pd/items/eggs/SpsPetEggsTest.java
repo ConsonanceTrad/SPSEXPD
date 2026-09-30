@@ -18,7 +18,7 @@ import pd.items.quest.AdventureJournal;
 import pd.items.eggs.randomone.*;
 import pd.items.sellitem.VIPcard;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.Game;
+import watabou.noosa.Game;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;

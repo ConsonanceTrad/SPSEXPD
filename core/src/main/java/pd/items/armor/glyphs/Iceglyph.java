@@ -10,8 +10,8 @@ import pd.items.armor.Armor;
 import pd.messages.Messages;
 import pd.sprites.ItemSprite;
 import pd.ui.BuffIndicator;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 public class Iceglyph extends SpsGlyph {
 	private static final ItemSprite.Glowing COLOR = new ItemSprite.Glowing(0x0000FF);

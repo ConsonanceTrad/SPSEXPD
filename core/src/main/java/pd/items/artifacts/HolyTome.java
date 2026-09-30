@@ -42,7 +42,7 @@ import pd.ui.HeroIcon;
 import pd.ui.QuickSlotButton;
 import pd.utils.GLog;
 import pd.windows.WndClericSpells;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 import java.util.ArrayList;
 

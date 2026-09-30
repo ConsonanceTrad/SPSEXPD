@@ -101,10 +101,10 @@ import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.ui.AttackIndicator;
 import pd.ui.HeroIcon;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Callback;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 import java.util.Collections;

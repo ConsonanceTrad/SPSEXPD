@@ -23,13 +23,13 @@ package pd.ui;
 
 import pd.Chrome;
 import pd.scenes.PixelScene;
-import com.watabou.input.PointerEvent;
-import com.watabou.noosa.ColorBlock;
-import com.watabou.noosa.NinePatch;
-import com.watabou.noosa.PointerArea;
-import com.watabou.noosa.ui.Component;
-import com.watabou.utils.GameMath;
-import com.watabou.utils.PointF;
+import watabou.input.PointerEvent;
+import watabou.noosa.ColorBlock;
+import watabou.noosa.NinePatch;
+import watabou.noosa.PointerArea;
+import watabou.noosa.ui.Component;
+import watabou.utils.GameMath;
+import watabou.utils.PointF;
 
 public abstract class OptionSlider extends Component {
 

@@ -11,8 +11,8 @@ import pd.items.Generator;
 import pd.items.skills.ClassSkill;
 import pd.items.skills.WarriorSkill;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Bundle;
+import watabou.noosa.Game;
+import watabou.utils.Bundle;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

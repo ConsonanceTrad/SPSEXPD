@@ -33,8 +33,8 @@ import pd.items.Item;
 import pd.items.scrolls.ScrollOfMagicalInfusion;
 import pd.scenes.GameScene;
 import pd.sprites.SwarmSprite;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

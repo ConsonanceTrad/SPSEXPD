@@ -33,7 +33,7 @@ import pd.items.food.MysteryMeat;
 import pd.items.potions.PotionOfHealing;
 import pd.items.weapon.melee.normalweapon.Dagger;
 import pd.sprites.ScorpioSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Scorpio extends Mob {
 	

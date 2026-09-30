@@ -15,7 +15,7 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.SparseArray;
+import watabou.utils.SparseArray;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

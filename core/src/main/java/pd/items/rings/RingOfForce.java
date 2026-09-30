@@ -35,7 +35,7 @@ import pd.sprites.ItemSpriteSheet;
 import pd.ui.AttackIndicator;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 import java.util.ArrayList;
 

@@ -30,10 +30,10 @@ import pd.effects.particles.ElmoParticle;
 import pd.items.Heap;
 import pd.sprites.GooSprite;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.particles.Emitter;
-import com.watabou.utils.BArray;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.noosa.particles.Emitter;
+import watabou.utils.BArray;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

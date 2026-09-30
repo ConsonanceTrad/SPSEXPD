@@ -31,8 +31,8 @@ import pd.journal.Bestiary;
 import pd.plants.Rotberry;
 import pd.scenes.GameScene;
 import pd.sprites.RotHeartSprite;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 public class RotHeart extends Mob {
 

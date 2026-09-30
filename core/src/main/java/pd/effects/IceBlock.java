@@ -23,9 +23,9 @@ package pd.effects;
 
 import pd.Assets;
 import pd.sprites.CharSprite;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Gizmo;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.Game;
+import watabou.noosa.Gizmo;
+import watabou.noosa.audio.Sample;
 
 public class IceBlock extends Gizmo {
 	

@@ -62,15 +62,15 @@ import pd.scenes.SurfaceScene;
 import pd.tiles.DungeonTilemap;
 import pd.windows.WndMessage;
 import pd.windows.WndAscend;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Group;
-import com.watabou.noosa.audio.Music;
-import com.watabou.noosa.particles.Emitter;
-import com.watabou.noosa.particles.PixelParticle;
-import com.watabou.utils.Callback;
-import com.watabou.utils.ColorMath;
-import com.watabou.utils.PointF;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.noosa.Group;
+import watabou.noosa.audio.Music;
+import watabou.noosa.particles.Emitter;
+import watabou.noosa.particles.PixelParticle;
+import watabou.utils.Callback;
+import watabou.utils.ColorMath;
+import watabou.utils.PointF;
+import watabou.utils.Random;
 
 public class SewerLevel extends SpsRegularLevel {
 

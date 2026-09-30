@@ -9,7 +9,7 @@ import pd.items.armor.Armor;
 import pd.items.wands.fusion.WandOfFlow;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class RecoilGlyph extends SpsGlyph {
 	private static final ItemSprite.Glowing COLOR = new ItemSprite.Glowing(0xCC6600);

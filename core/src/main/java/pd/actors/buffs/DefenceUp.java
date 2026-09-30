@@ -3,7 +3,7 @@ package pd.actors.buffs;
 
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 /** Percentage damage reduction used by SPS legacy effects. */
 public class DefenceUp extends FlavourBuff {

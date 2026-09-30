@@ -29,7 +29,7 @@ import pd.actors.buffs.Corrosion;
 import pd.effects.BlobEmitter;
 import pd.effects.Speck;
 import pd.messages.Messages;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 public class CorrosiveGas extends Blob {
 

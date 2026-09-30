@@ -24,7 +24,7 @@ package com.shatteredpixel.shatteredpixeldungeon.desktop;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Window;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3WindowListener;
 import pd.SPDSettings;
-import com.watabou.noosa.audio.Music;
+import watabou.noosa.audio.Music;
 
 public class DesktopWindowListener implements Lwjgl3WindowListener {
 	

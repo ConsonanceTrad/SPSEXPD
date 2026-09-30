@@ -28,8 +28,8 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.BlastParticle;
 import pd.mechanics.ShadowCaster;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Point;
-import com.watabou.utils.Random;
+import watabou.utils.Point;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

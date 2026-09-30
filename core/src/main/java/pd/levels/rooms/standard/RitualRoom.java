@@ -26,8 +26,8 @@ import pd.items.Item;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import com.watabou.utils.Point;
-import com.watabou.utils.Random;
+import watabou.utils.Point;
+import watabou.utils.Random;
 
 public class RitualRoom extends PatchRoom {
 

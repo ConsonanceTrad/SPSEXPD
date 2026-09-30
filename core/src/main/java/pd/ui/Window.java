@@ -25,18 +25,18 @@ import pd.Chrome;
 import pd.SPDAction;
 import pd.effects.ShadowBox;
 import pd.scenes.PixelScene;
-import com.watabou.input.KeyBindings;
-import com.watabou.input.KeyEvent;
-import com.watabou.input.PointerEvent;
-import com.watabou.noosa.Camera;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Group;
-import com.watabou.noosa.NinePatch;
-import com.watabou.noosa.PointerArea;
-import com.watabou.utils.PlatformSupport;
-import com.watabou.utils.Point;
-import com.watabou.utils.RectF;
-import com.watabou.utils.Signal;
+import watabou.input.KeyBindings;
+import watabou.input.KeyEvent;
+import watabou.input.PointerEvent;
+import watabou.noosa.Camera;
+import watabou.noosa.Game;
+import watabou.noosa.Group;
+import watabou.noosa.NinePatch;
+import watabou.noosa.PointerArea;
+import watabou.utils.PlatformSupport;
+import watabou.utils.Point;
+import watabou.utils.RectF;
+import watabou.utils.Signal;
 
 public class Window extends Group implements Signal.Listener<KeyEvent> {
 

@@ -2,7 +2,7 @@ package pd;
 
 import pd.actors.hero.Hero;
 import pd.items.quest.AdventureJournal;
-import com.watabou.noosa.Game;
+import watabou.noosa.Game;
 
 /** Verifies the SPS-PD 0.9.8 ranking depth and score formula. */
 public final class SpsRankingsTest {

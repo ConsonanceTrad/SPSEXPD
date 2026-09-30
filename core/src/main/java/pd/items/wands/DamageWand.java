@@ -28,7 +28,7 @@ import pd.actors.buffs.Arcane;
 import pd.actors.hero.Hero;
 import pd.items.rings.fusion.RingOfKnowledge;
 import pd.messages.Messages;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.audio.Sample;
 
 //for wands that directly damage a target
 //wands with AOE or circumstantial direct damage count here (e.g. fireblast, transfusion), but wands with indirect damage do not (e.g. corrosion)
@@ -62,7 +62,7 @@ public abstract class DamageWand extends Wand{
 			Sample.INSTANCE.play(Assets.Sounds.HIT_STRONG, 0.75f, 1.2f);
 		}
 		dmg = applyArcaneBonus(curUser, dmg);
-		return RingOfKnowledge.applyCriticalBonus(curUser, dmg, com.watabou.utils.Random.Int(20));
+		return RingOfKnowledge.applyCriticalBonus(curUser, dmg, watabou.utils.Random.Int(20));
 	}
 
 	public static int applyArcaneBonus(Hero user, int damage) {

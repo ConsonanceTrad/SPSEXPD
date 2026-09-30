@@ -7,7 +7,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.scenes.GameScene;
 import pd.sprites.SnowballSprite;
-import com.watabou.utils.PathFinder;
+import watabou.utils.PathFinder;
 
 public class IceBall extends Mob {
 

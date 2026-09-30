@@ -3,7 +3,7 @@ package pd.actors.buffs;
 
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 /** Persistent shield consumed only by magic and status damage. */
 public class MagicArmor extends Buff {

@@ -30,7 +30,7 @@ import pd.items.Generator;
 import pd.items.armor.Armor;
 import pd.plants.Plant;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Overgrowth extends Armor.Glyph {
 	

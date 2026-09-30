@@ -22,8 +22,8 @@
 package pd.journal;
 
 import pd.ShatteredPixelDungeon;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.FileUtils;
+import watabou.utils.Bundle;
+import watabou.utils.FileUtils;
 
 import java.io.IOException;
 

@@ -80,7 +80,7 @@ import pd.levels.features.LevelTransition;
 import pd.plants.Starflower;
 import pd.plants.ReNepenth;
 import pd.tiles.custom.SpsLegacyLevelVisual;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 import java.util.Calendar;
 

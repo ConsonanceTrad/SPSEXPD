@@ -9,7 +9,7 @@ import pd.actors.buffs.Paralysis;
 import pd.actors.buffs.Terror;
 import pd.items.weapon.melee.MeleeWeapon;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** AFly's tier-one sock, applying one of four control effects on every hit. */
 public class AFlySock extends MeleeWeapon {

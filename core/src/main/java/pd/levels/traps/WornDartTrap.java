@@ -35,9 +35,9 @@ import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.sprites.MissileSprite;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Callback;
+import watabou.utils.Random;
 
 public class WornDartTrap extends Trap {
 

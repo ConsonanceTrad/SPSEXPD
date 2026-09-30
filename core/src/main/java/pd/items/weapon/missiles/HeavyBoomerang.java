@@ -29,9 +29,9 @@ import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSpriteSheet;
 import pd.sprites.MissileSprite;
-import com.watabou.noosa.tweeners.AlphaTweener;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Callback;
+import watabou.noosa.tweeners.AlphaTweener;
+import watabou.utils.Bundle;
+import watabou.utils.Callback;
 
 public class HeavyBoomerang extends MissileWeapon {
 	

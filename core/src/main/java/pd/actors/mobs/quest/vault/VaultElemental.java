@@ -23,7 +23,7 @@ package pd.actors.mobs.quest.vault;
 
 import pd.actors.mobs.Elemental;
 import pd.items.quest.DwarfToken;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public abstract class VaultElemental extends Elemental {
 

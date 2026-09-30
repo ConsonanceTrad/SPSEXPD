@@ -8,10 +8,10 @@ import pd.messages.Messages;
 import pd.ui.Icons;
 import pd.ui.RenderedTextBlock;
 import pd.ui.StyledButton;
-import com.watabou.noosa.Camera;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Image;
-import com.watabou.utils.RectF;
+import watabou.noosa.Camera;
+import watabou.noosa.Game;
+import watabou.noosa.Image;
+import watabou.utils.RectF;
 
 public class PuddingCupScene extends PixelScene {
 

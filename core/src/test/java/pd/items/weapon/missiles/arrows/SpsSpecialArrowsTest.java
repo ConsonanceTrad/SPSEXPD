@@ -30,9 +30,9 @@ import pd.levels.rooms.special.SpsShopRoom;
 import pd.levels.traps.Trap;
 import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.Game;
-import com.watabou.utils.FileUtils;
-import com.watabou.utils.SparseArray;
+import watabou.noosa.Game;
+import watabou.utils.FileUtils;
+import watabou.utils.SparseArray;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

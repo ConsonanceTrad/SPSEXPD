@@ -27,10 +27,10 @@ import pd.actors.mobs.Golem;
 import pd.actors.mobs.quest.vault.VaultGolem;
 import pd.effects.MagicMissile;
 import pd.effects.particles.ElmoParticle;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.noosa.particles.Emitter;
-import com.watabou.utils.Callback;
+import watabou.noosa.TextureFilm;
+import watabou.noosa.audio.Sample;
+import watabou.noosa.particles.Emitter;
+import watabou.utils.Callback;
 
 public class GolemSprite extends MobSprite {
 

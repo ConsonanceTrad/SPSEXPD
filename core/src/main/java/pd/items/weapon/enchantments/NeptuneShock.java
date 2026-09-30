@@ -8,8 +8,8 @@ import pd.actors.damagetype.DamageType;
 import pd.items.weapon.Weapon;
 import pd.items.weapon.melee.relic.SpsRelicWeapon;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 import java.util.HashSet;
 

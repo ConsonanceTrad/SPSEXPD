@@ -21,7 +21,7 @@ import pd.items.potions.PotionOfFrost;
 import pd.plants.Icecap;
 import pd.sprites.CharSprite;
 import pd.windows.WndBag;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 import java.io.InputStreamReader;
 import java.lang.reflect.Field;

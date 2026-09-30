@@ -4,7 +4,7 @@ package pd.actors.mobs;
 import pd.items.Generator;
 import pd.items.Item;
 import pd.sprites.LiveMossSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** Original SPS-PD runtime and save identity for living moss. */
 public class LiveMoss extends SpsSewerMobs.LiveMoss {

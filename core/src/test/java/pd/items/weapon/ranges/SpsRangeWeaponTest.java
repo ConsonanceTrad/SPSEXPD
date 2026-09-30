@@ -16,8 +16,8 @@ import pd.items.weapon.guns.GunE;
 import pd.items.weapon.melee.Dagger;
 import pd.levels.rooms.special.SpsShopRoom;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.utils.Random;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

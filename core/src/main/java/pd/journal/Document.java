@@ -27,9 +27,9 @@ import pd.messages.Messages;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.ui.Icons;
-import com.watabou.noosa.Image;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.DeviceCompat;
+import watabou.noosa.Image;
+import watabou.utils.Bundle;
+import watabou.utils.DeviceCompat;
 
 import java.util.Collection;
 import java.util.LinkedHashMap;

@@ -26,10 +26,10 @@ import pd.levels.Level;
 import pd.levels.rooms.Room;
 import pd.levels.rooms.standard.StandardRoom;
 import pd.tiles.CustomTilemap;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.Tilemap;
-import com.watabou.utils.Point;
-import com.watabou.utils.Random;
+import watabou.noosa.Image;
+import watabou.noosa.Tilemap;
+import watabou.utils.Point;
+import watabou.utils.Random;
 
 public abstract class GooBossRoom extends StandardRoom {
 

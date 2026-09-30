@@ -36,13 +36,13 @@ import pd.ui.ActionIndicator;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
-import com.watabou.noosa.BitmapText;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.Visual;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.GameMath;
-import com.watabou.utils.Random;
+import watabou.noosa.BitmapText;
+import watabou.noosa.Image;
+import watabou.noosa.Visual;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundle;
+import watabou.utils.GameMath;
+import watabou.utils.Random;
 
 public class Berserk extends ShieldBuff implements ActionIndicator.Action {
 

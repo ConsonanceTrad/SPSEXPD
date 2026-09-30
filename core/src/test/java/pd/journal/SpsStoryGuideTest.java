@@ -1,6 +1,6 @@
 package pd.journal;
 
-import com.watabou.noosa.Game;
+import watabou.noosa.Game;
 
 import java.io.IOException;
 import java.io.Reader;

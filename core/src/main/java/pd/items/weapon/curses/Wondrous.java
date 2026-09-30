@@ -28,7 +28,7 @@ import pd.items.wands.CursedWand;
 import pd.items.weapon.Weapon;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Wondrous extends Weapon.Enchantment {
 

@@ -13,7 +13,7 @@ import pd.items.food.completefood.PetFood;
 import pd.plants.Dewcatcher;
 import pd.plants.Plant;
 import pd.sprites.DaturaSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Datura extends PET {
 	{

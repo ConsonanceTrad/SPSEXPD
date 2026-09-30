@@ -10,8 +10,8 @@ import pd.effects.Beam;
 import pd.effects.Speck;
 import pd.effects.particles.EnergyParticle;
 import pd.tiles.DungeonTilemap;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.particles.Emitter;
+import watabou.noosa.TextureFilm;
+import watabou.noosa.particles.Emitter;
 
 public class SewerHeartSprite extends MobSprite {
 	private int zapPos;

@@ -26,8 +26,8 @@ import pd.actors.blobs.Blob;
 import pd.actors.blobs.SmokeScreen;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.BArray;
-import com.watabou.utils.PathFinder;
+import watabou.utils.BArray;
+import watabou.utils.PathFinder;
 
 public class SmokeBomb extends Bomb {
 	

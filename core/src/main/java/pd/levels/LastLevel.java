@@ -30,10 +30,10 @@ import pd.items.PuddingCup;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.messages.Messages;
-import com.watabou.noosa.Group;
-import com.watabou.noosa.audio.Music;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.noosa.Group;
+import watabou.noosa.audio.Music;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -16,7 +16,7 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import pd.sprites.FishProtectorSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class FishProtector extends Mob {
 

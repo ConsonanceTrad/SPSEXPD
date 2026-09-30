@@ -8,7 +8,7 @@ import pd.actors.buffs.armorbuff.GlyphEarth;
 import pd.items.armor.Armor;
 import pd.plants.Earthroot;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Earthglyph extends SpsGlyph {
 	private static final ItemSprite.Glowing COLOR = new ItemSprite.Glowing(0xCCCCCC);

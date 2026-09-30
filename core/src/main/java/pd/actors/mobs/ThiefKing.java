@@ -16,7 +16,7 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ThiefKingSprite;
 import pd.ui.BossHealthBar;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 public class ThiefKing extends Mob {
 	{spriteClass=ThiefKingSprite.class;HP=HT=2000;defenseSkill=28;EXP=60;flying=true;loot=Generator.Category.SCROLL;lootChance=1f;properties.add(Property.ELF);properties.add(Property.BOSS);resistances.add(Electricity.class);}
 	@Override public int damageRoll(){return Random.NormalIntRange(20,70);}

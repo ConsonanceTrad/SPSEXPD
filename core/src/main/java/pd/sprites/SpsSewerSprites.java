@@ -3,9 +3,9 @@ package pd.sprites;
 import pd.Assets;
 import pd.Dungeon;
 import pd.items.weapon.missiles.ShitBall;
-import com.watabou.noosa.MovieClip.Animation;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.utils.Callback;
+import watabou.noosa.MovieClip.Animation;
+import watabou.noosa.TextureFilm;
+import watabou.utils.Callback;
 
 public final class SpsSewerSprites {
 	private SpsSewerSprites() { }

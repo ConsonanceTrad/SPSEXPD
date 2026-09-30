@@ -5,7 +5,7 @@ import pd.actors.mobs.pets.BugDragon;
 import pd.actors.mobs.pets.GoldDragon;
 import pd.actors.mobs.pets.LegacyPet;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 import java.util.Calendar;
 

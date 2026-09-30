@@ -29,7 +29,7 @@ import pd.items.artifacts.ChaliceOfBlood;
 import pd.items.trinkets.ChaoticCenser;
 import pd.items.trinkets.SaltCube;
 import pd.levels.VaultLevel;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 public class Regeneration extends Buff {
 	

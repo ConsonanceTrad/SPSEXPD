@@ -44,8 +44,8 @@ import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import pd.utils.GLog;
 import pd.windows.IconTitle;
-import com.watabou.noosa.Image;
-import com.watabou.utils.Reflection;
+import watabou.noosa.Image;
+import watabou.utils.Reflection;
 
 import java.util.ArrayList;
 

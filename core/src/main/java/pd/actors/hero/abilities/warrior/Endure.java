@@ -38,9 +38,9 @@ import pd.items.armor.ClassArmor;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
+import watabou.noosa.Image;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundle;
 
 public class Endure extends ArmorAbility {
 

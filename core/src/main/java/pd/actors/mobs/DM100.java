@@ -34,8 +34,8 @@ import pd.scenes.PixelScene;
 import pd.sprites.CharSprite;
 import pd.sprites.DM100Sprite;
 import pd.utils.GLog;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
+import watabou.utils.Callback;
+import watabou.utils.Random;
 
 public class DM100 extends Mob {
 

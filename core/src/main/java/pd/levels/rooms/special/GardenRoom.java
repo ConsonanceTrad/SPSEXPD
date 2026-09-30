@@ -32,7 +32,7 @@ import pd.levels.painters.Painter;
 import pd.plants.BlandfruitBush;
 import pd.plants.Plant;
 import pd.plants.Seedpod;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 import java.util.Calendar;

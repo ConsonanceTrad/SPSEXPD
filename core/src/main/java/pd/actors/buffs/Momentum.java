@@ -32,12 +32,12 @@ import pd.sprites.CharSprite;
 import pd.ui.ActionIndicator;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
-import com.watabou.noosa.BitmapText;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.Visual;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.GameMath;
+import watabou.noosa.BitmapText;
+import watabou.noosa.Image;
+import watabou.noosa.Visual;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundle;
+import watabou.utils.GameMath;
 
 public class Momentum extends Buff implements ActionIndicator.Action {
 	

@@ -16,8 +16,8 @@ import pd.mechanics.Ballistica;
 import pd.plants.Plant;
 import pd.sprites.CatSheepSprite;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.SparseArray;
+import watabou.utils.Bundle;
+import watabou.utils.SparseArray;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

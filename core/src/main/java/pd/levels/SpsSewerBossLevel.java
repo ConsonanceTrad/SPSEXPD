@@ -9,8 +9,8 @@ import pd.actors.mobs.SpsGoo;
 import pd.items.Generator;
 import pd.items.Heap;
 import pd.tiles.custom.SpsLegacyLevelVisual;
-import com.watabou.utils.Random;
-import com.watabou.utils.Bundle;
+import watabou.utils.Random;
+import watabou.utils.Bundle;
 
 /** SPS-PD's fixed sewer boss arena. Boss behavior is migrated separately. */
 public class SpsSewerBossLevel extends SpsFixedBossLevel {

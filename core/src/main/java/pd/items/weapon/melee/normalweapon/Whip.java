@@ -4,7 +4,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Roots;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Whip extends NormalMeleeWeapon {
 	public Whip() { super(3, 1f, 1f, 2, 24, 35, ItemSpriteSheet.SPS_WEP_WHIP); }

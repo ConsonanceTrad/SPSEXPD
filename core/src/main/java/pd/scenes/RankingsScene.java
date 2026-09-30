@@ -43,13 +43,13 @@ import pd.windows.IconTitle;
 import pd.windows.WndDailies;
 import pd.windows.WndRanking;
 import pd.windows.WndVictoryCongrats;
-import com.watabou.noosa.BitmapText;
-import com.watabou.noosa.Camera;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.audio.Music;
-import com.watabou.utils.DeviceCompat;
-import com.watabou.utils.GameMath;
-import com.watabou.utils.RectF;
+import watabou.noosa.BitmapText;
+import watabou.noosa.Camera;
+import watabou.noosa.Image;
+import watabou.noosa.audio.Music;
+import watabou.utils.DeviceCompat;
+import watabou.utils.GameMath;
+import watabou.utils.RectF;
 
 public class RankingsScene extends PixelScene {
 	

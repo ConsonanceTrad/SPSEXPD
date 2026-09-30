@@ -24,12 +24,12 @@ package pd;
 import pd.messages.Languages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.audio.Music;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.DeviceCompat;
-import com.watabou.utils.GameSettings;
-import com.watabou.utils.Point;
+import watabou.noosa.Game;
+import watabou.noosa.audio.Music;
+import watabou.noosa.audio.Sample;
+import watabou.utils.DeviceCompat;
+import watabou.utils.GameSettings;
+import watabou.utils.Point;
 
 import java.util.Locale;
 

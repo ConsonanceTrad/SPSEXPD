@@ -23,7 +23,7 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.messages.Messages;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.audio.Sample;
 
 public class CursingTrap extends Trap {
 

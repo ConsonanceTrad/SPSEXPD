@@ -33,7 +33,7 @@ import pd.effects.particles.LeafParticle;
 import pd.items.armor.ClassArmor;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.audio.Sample;
 
 public class NaturesPower extends ArmorAbility {
 

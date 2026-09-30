@@ -16,9 +16,9 @@ import pd.items.weapon.melee.block.SpKnuckles;
 import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndGoblin;
 import pd.windows.WndShower;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

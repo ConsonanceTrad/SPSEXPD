@@ -34,8 +34,8 @@ import pd.items.wands.CursedWand;
 import pd.journal.Catalog;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Callback;
 
 import java.util.ArrayList;
 

@@ -4,7 +4,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Paralysis;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class WarHammer extends NormalMeleeWeapon {
 	public WarHammer() { super(5, 1f, 1f, 1, 41, 56, ItemSpriteSheet.SPS_WEP_WAR_HAMMER); }

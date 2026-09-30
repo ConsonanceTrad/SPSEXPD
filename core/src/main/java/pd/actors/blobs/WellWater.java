@@ -30,8 +30,8 @@ import pd.journal.Notes;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 public abstract class WellWater extends Blob {
 

@@ -23,11 +23,11 @@ package pd.effects;
 
 import pd.scenes.GameScene;
 import pd.tiles.DungeonTilemap;
-import com.watabou.noosa.Visual;
-import com.watabou.noosa.particles.Emitter;
-import com.watabou.noosa.particles.PixelParticle;
-import com.watabou.utils.PointF;
-import com.watabou.utils.Random;
+import watabou.noosa.Visual;
+import watabou.noosa.particles.Emitter;
+import watabou.noosa.particles.PixelParticle;
+import watabou.utils.PointF;
+import watabou.utils.Random;
 
 import java.util.HashMap;
 

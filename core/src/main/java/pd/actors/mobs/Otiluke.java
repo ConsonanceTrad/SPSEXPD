@@ -19,7 +19,7 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.OtilukeSprite;
 import pd.utils.GLog;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** Corrupted Otiluke mirror which powers the energy-core defenses. */
 public class Otiluke extends Mob {

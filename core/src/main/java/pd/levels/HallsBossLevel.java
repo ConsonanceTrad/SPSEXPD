@@ -48,14 +48,14 @@ import pd.sprites.ItemSpriteSheet;
 import pd.tiles.CustomTilemap;
 import pd.ui.BossHealthBar;
 import pd.windows.WndOptions;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Group;
-import com.watabou.noosa.Tilemap;
-import com.watabou.noosa.audio.Music;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Callback;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.noosa.Group;
+import watabou.noosa.Tilemap;
+import watabou.noosa.audio.Music;
+import watabou.utils.Bundle;
+import watabou.utils.Callback;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

@@ -24,9 +24,9 @@ package pd.effects;
 import pd.Dungeon;
 import pd.actors.blobs.Blob;
 import pd.tiles.DungeonTilemap;
-import com.watabou.noosa.particles.Emitter;
-import com.watabou.utils.Random;
-import com.watabou.utils.RectF;
+import watabou.noosa.particles.Emitter;
+import watabou.utils.Random;
+import watabou.utils.RectF;
 
 public class BlobEmitter extends Emitter {
 	

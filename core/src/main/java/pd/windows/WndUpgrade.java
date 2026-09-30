@@ -50,10 +50,10 @@ import pd.ui.ItemSlot;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
-import com.watabou.noosa.BitmapText;
-import com.watabou.noosa.ColorBlock;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Reflection;
+import watabou.noosa.BitmapText;
+import watabou.noosa.ColorBlock;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Reflection;
 
 public class WndUpgrade extends Window {
 

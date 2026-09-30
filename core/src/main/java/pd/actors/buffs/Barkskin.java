@@ -26,7 +26,7 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.Talent;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 public class Barkskin extends Buff {
 	

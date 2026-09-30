@@ -3,8 +3,8 @@ package pd.sprites;
 
 import pd.Assets;
 import pd.effects.Lightning;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.utils.Callback;
+import watabou.noosa.TextureFilm;
+import watabou.utils.Callback;
 
 public class KeKeSprite extends MobSprite {
 

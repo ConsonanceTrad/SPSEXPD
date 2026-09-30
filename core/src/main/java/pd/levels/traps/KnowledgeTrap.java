@@ -4,8 +4,8 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.Game;
+import watabou.noosa.audio.Sample;
 
 public class KnowledgeTrap extends Trap {
 	{ color = RED; shape = STARS; }

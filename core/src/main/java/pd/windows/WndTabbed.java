@@ -28,14 +28,14 @@ import pd.scenes.PixelScene;
 import pd.ui.Button;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
-import com.watabou.input.KeyBindings;
-import com.watabou.input.KeyEvent;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.NinePatch;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.RectF;
-import com.watabou.utils.Signal;
+import watabou.input.KeyBindings;
+import watabou.input.KeyEvent;
+import watabou.noosa.Game;
+import watabou.noosa.Image;
+import watabou.noosa.NinePatch;
+import watabou.noosa.audio.Sample;
+import watabou.utils.RectF;
+import watabou.utils.Signal;
 
 import java.util.ArrayList;
 

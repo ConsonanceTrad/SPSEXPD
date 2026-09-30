@@ -9,8 +9,8 @@ import pd.effects.Speck;
 import pd.items.StoneOre;
 import pd.items.weapon.missiles.Bolas;
 import pd.tiles.DungeonTilemap;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.TextureFilm;
+import watabou.noosa.audio.Sample;
 
 /** Original SPS-PD challenge-arena sprite sheets and animation cuts. */
 public final class SpsChallengeSprites {

@@ -7,7 +7,7 @@ import pd.actors.buffs.HasteBuff;
 import pd.actors.buffs.Levitation;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Cloudberry extends Fruit {
 	{ image = ItemSpriteSheet.CLOUDBERRY; }

@@ -30,7 +30,7 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
 import pd.plants.BlandfruitBush;
-import com.watabou.utils.Point;
+import watabou.utils.Point;
 
 public class SecretLarderRoom extends SecretRoom {
 	

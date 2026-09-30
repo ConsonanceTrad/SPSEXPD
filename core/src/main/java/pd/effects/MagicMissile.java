@@ -33,15 +33,15 @@ import pd.effects.particles.RainbowParticle;
 import pd.effects.particles.ShadowParticle;
 import pd.effects.particles.SparkParticle;
 import pd.tiles.DungeonTilemap;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Group;
-import com.watabou.noosa.Visual;
-import com.watabou.noosa.particles.Emitter;
-import com.watabou.noosa.particles.PixelParticle;
-import com.watabou.utils.Callback;
-import com.watabou.utils.ColorMath;
-import com.watabou.utils.PointF;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.noosa.Group;
+import watabou.noosa.Visual;
+import watabou.noosa.particles.Emitter;
+import watabou.noosa.particles.PixelParticle;
+import watabou.utils.Callback;
+import watabou.utils.ColorMath;
+import watabou.utils.PointF;
+import watabou.utils.Random;
 
 public class MagicMissile extends Emitter {
 

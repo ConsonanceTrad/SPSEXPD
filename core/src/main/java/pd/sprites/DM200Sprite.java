@@ -27,9 +27,9 @@ import pd.effects.MagicMissile;
 import pd.effects.Speck;
 import pd.messages.Messages;
 import pd.utils.GLog;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
+import watabou.noosa.TextureFilm;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Callback;
 
 public class DM200Sprite extends MobSprite {
 

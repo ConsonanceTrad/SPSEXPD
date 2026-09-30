@@ -26,7 +26,7 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.hero.abilities.Ratmogrify;
 import pd.utils.Holiday;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 public class RatKingSprite extends MobSprite {
 

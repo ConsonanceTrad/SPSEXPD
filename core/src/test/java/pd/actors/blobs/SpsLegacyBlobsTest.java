@@ -30,10 +30,10 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.damagetrap.FireDamageTrap;
 import pd.plants.Plant;
-import com.watabou.noosa.Game;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Reflection;
-import com.watabou.utils.SparseArray;
+import watabou.noosa.Game;
+import watabou.utils.PathFinder;
+import watabou.utils.Reflection;
+import watabou.utils.SparseArray;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.CharacterCodingException;

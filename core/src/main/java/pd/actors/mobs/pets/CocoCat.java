@@ -5,7 +5,7 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.items.bombs.BuildBomb;
 import pd.sprites.CocoCatSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class CocoCat extends PET {
 	{

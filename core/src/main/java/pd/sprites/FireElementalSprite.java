@@ -3,7 +3,7 @@ package pd.sprites;
 
 import pd.Assets;
 import pd.actors.Char;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 /** Original SPS-PD fire-elemental sprite identity and atlas layout. */
 public class FireElementalSprite extends MobSprite {

@@ -29,8 +29,8 @@ import pd.actors.buffs.Corruption;
 import pd.items.quest.MetalShard;
 import pd.scenes.GameScene;
 import pd.sprites.DM201Sprite;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 public class DM201 extends DM200 {
 

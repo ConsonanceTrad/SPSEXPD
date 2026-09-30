@@ -24,7 +24,7 @@ package pd.windows;
 import pd.scenes.PixelScene;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
-import com.watabou.noosa.Image;
+import watabou.noosa.Image;
 
 import java.util.ArrayList;
 

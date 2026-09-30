@@ -1,8 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.effects.particles;
 
-import com.watabou.noosa.particles.Emitter;
-import com.watabou.noosa.particles.PixelParticle;
+import watabou.noosa.particles.Emitter;
+import watabou.noosa.particles.PixelParticle;
 
 /** Green rising particles used by the SPS memory fire. */
 public class MemoryParticle extends PixelParticle.Shrinking {

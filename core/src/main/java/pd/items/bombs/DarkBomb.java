@@ -10,8 +10,8 @@ import pd.actors.buffs.Terror;
 import pd.effects.CellEmitter;
 import pd.effects.particles.SmokeParticle;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 public class DarkBomb extends Bomb {
 

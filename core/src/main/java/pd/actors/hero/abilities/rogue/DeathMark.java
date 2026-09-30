@@ -39,12 +39,12 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
-import com.watabou.utils.BArray;
+import watabou.utils.BArray;
 import pd.utils.GLog;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.PathFinder;
+import watabou.noosa.Image;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundle;
+import watabou.utils.PathFinder;
 
 public class DeathMark extends ArmorAbility {
 

@@ -25,8 +25,8 @@ import pd.Assets;
 import pd.actors.Char;
 import pd.effects.ShieldHalo;
 import pd.effects.particles.ElmoParticle;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.TextureFilm;
+import watabou.noosa.audio.Sample;
 
 public class WandmakerSprite extends MobSprite {
 	

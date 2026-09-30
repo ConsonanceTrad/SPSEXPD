@@ -15,9 +15,9 @@ import pd.items.Heap;
 import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Callback;
+import watabou.utils.Random;
 
 /** The half-charge charm wand from SPS-PD 0.9.8. */
 public class WandOfCharm extends Wand {

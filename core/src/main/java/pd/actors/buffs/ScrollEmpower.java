@@ -24,8 +24,8 @@ package pd.actors.buffs;
 import pd.items.Item;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import com.watabou.noosa.Image;
-import com.watabou.utils.Bundle;
+import watabou.noosa.Image;
+import watabou.utils.Bundle;
 
 public class ScrollEmpower extends Buff {
 

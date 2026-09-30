@@ -35,7 +35,7 @@ import pd.levels.painters.Painter;
 import pd.levels.traps.Trap;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import com.watabou.utils.Point;
+import watabou.utils.Point;
 
 import java.util.ArrayList;
 

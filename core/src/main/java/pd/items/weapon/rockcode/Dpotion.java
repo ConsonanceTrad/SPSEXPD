@@ -8,7 +8,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.ShadowCurse;
 import pd.effects.MagicMissile;
 import pd.mechanics.Ballistica;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Dpotion extends RockCode {
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "D.p"; }

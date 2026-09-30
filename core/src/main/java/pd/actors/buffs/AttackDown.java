@@ -3,7 +3,7 @@ package pd.actors.buffs;
 
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 /** Percentage physical attack reduction used by legacy SPS enemies and equipment. */
 public class AttackDown extends FlavourBuff {

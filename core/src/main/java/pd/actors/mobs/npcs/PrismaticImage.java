@@ -40,9 +40,9 @@ import pd.items.rings.RingOfEvasion;
 import pd.levels.features.Chasm;
 import pd.sprites.CharSprite;
 import pd.sprites.PrismaticSprite;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 public class PrismaticImage extends NPC {
 	

@@ -4,7 +4,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Cripple;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Spear extends NormalMeleeWeapon {
 	public Spear() { super(2, 1f, 1.5f, 2, 14, 30, ItemSpriteSheet.SPS_WEP_SPEAR); }

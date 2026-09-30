@@ -29,7 +29,7 @@ import pd.actors.buffs.Ooze;
 import pd.actors.mobs.npcs.Ghost;
 import pd.scenes.GameScene;
 import pd.sprites.FetidRatSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class FetidRat extends Rat {
 

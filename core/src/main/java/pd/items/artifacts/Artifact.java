@@ -35,8 +35,8 @@ import pd.items.Item;
 import pd.items.KindofMisc;
 import pd.messages.Messages;
 import pd.utils.GLog;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 public class Artifact extends KindofMisc {
 

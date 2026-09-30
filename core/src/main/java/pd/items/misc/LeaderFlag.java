@@ -18,8 +18,8 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.PathFinder;
+import watabou.utils.Bundle;
+import watabou.utils.PathFinder;
 
 import java.util.ArrayList;
 

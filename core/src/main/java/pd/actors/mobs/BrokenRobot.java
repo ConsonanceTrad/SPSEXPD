@@ -13,8 +13,8 @@ import pd.items.potions.PotionOfLiquidFlame;
 import pd.items.scrolls.ScrollOfRecharging;
 import pd.items.weapon.melee.normalweapon.ShortSword;
 import pd.scenes.GameScene;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 /** Original SPS-PD runtime and save identity for the damaged cave robot. */
 public class BrokenRobot extends SpsDM300.BrokenRobot {

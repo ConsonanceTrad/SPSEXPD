@@ -11,9 +11,9 @@ import pd.actors.buffs.Invisibility;
 import pd.actors.mobs.Mob;
 import pd.scenes.GameScene;
 import pd.sprites.DummySprite;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

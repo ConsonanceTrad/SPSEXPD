@@ -27,8 +27,8 @@ import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.standard.LibraryRingRoom;
 import pd.tiles.custom.Carpet;
-import com.watabou.utils.Point;
-import com.watabou.utils.Random;
+import watabou.utils.Point;
+import watabou.utils.Random;
 
 public class LibraryRingExitRoom extends LibraryRingRoom {
 

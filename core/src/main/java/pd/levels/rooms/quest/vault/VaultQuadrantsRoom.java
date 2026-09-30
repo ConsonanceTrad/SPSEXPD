@@ -30,8 +30,8 @@ import pd.levels.Terrain;
 import pd.levels.VaultLevel;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
-import com.watabou.utils.Point;
-import com.watabou.utils.Random;
+import watabou.utils.Point;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

@@ -29,11 +29,11 @@ import pd.levels.painters.Painter;
 import pd.levels.rooms.standard.StandardRoom;
 import pd.messages.Messages;
 import pd.tiles.CustomTilemap;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.Tilemap;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Point;
-import com.watabou.utils.Random;
+import watabou.noosa.Image;
+import watabou.noosa.Tilemap;
+import watabou.utils.Bundle;
+import watabou.utils.Point;
+import watabou.utils.Random;
 
 import java.util.Arrays;
 

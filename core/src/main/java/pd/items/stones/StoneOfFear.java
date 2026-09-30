@@ -30,7 +30,7 @@ import pd.actors.buffs.Terror;
 import pd.effects.Flare;
 import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTilemap;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.audio.Sample;
 
 public class StoneOfFear extends Runestone {
 	

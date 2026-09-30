@@ -27,8 +27,8 @@ import pd.plants.StarEater;
 import pd.plants.Starflower;
 import pd.plants.Sungrass;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

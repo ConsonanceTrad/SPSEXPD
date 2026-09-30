@@ -12,7 +12,7 @@ import pd.items.food.vegetable.Vegetable;
 import pd.items.scrolls.ScrollOfUpgrade;
 import pd.plants.Plant;
 import pd.sprites.FoxHelperSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class FoxHelper extends PET {
 	{

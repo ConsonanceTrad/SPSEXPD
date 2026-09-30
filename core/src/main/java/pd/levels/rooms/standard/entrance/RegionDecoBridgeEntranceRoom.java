@@ -26,7 +26,7 @@ import pd.levels.Terrain;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.standard.RegionDecoBridgeRoom;
-import com.watabou.utils.PathFinder;
+import watabou.utils.PathFinder;
 
 public class RegionDecoBridgeEntranceRoom extends RegionDecoBridgeRoom {
 

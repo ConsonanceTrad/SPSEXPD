@@ -12,8 +12,8 @@ import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.scenes.GameScene;
 import pd.tiles.custom.SpsLegacyLevelVisual;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 import java.util.Arrays;

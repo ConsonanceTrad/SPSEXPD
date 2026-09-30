@@ -9,7 +9,7 @@ import pd.actors.buffs.Roots;
 import pd.actors.buffs.Terror;
 import pd.items.potions.PotionOfLiquidFlame;
 import pd.sprites.SkeletonHand2Sprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class SkeletonHand2 extends Mob {
 	{

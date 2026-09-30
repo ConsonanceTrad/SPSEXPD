@@ -43,7 +43,7 @@ import pd.journal.Notes.Landmark;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.audio.Sample;
 
 public class WaterOfHealth extends WellWater {
 	

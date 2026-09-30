@@ -24,8 +24,8 @@ package pd.levels.rooms.standard;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import com.watabou.utils.Random;
-import com.watabou.utils.Rect;
+import watabou.utils.Random;
+import watabou.utils.Rect;
 
 public class CellBlockRoom extends StandardRoom {
 

@@ -9,7 +9,7 @@ import pd.scenes.GameScene;
 import pd.sprites.LynnSprite;
 import pd.windows.WndQuest;
 import pd.windows.WndTinkerer2;
-import com.watabou.noosa.Game;
+import watabou.noosa.Game;
 
 public class Tinkerer2 extends NPC {
 

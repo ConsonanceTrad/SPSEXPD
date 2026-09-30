@@ -22,9 +22,9 @@
 package pd.mechanics;
 
 import pd.Dungeon;
-import com.watabou.utils.GameMath;
-import com.watabou.utils.Point;
-import com.watabou.utils.PointF;
+import watabou.utils.GameMath;
+import watabou.utils.Point;
+import watabou.utils.PointF;
 
 import java.util.ArrayList;
 import java.util.HashSet;

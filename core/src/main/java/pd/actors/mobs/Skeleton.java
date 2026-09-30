@@ -43,9 +43,9 @@ import pd.plants.Earthroot;
 import pd.sprites.SkeletonSprite;
 import pd.ui.TargetHealthIndicator;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 public class Skeleton extends Mob {
 	@Override public Item SupercreateLoot() { return new StoneCross(); }

@@ -30,8 +30,8 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Frost;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.BArray;
-import com.watabou.utils.PathFinder;
+import watabou.utils.BArray;
+import watabou.utils.PathFinder;
 
 public class FrostBomb extends Bomb {
 	

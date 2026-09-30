@@ -27,9 +27,9 @@ import pd.levels.Terrain;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
 import pd.levels.traps.ExplosiveTrap;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Point;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Point;
+import watabou.utils.Random;
 
 public class MinefieldRoom extends StandardRoom {
 

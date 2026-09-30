@@ -26,9 +26,9 @@ import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.scenes.TitleScene;
 import pd.windows.WndKeyBindings;
-import com.watabou.input.GameAction;
-import com.watabou.noosa.Game;
-import com.watabou.utils.DeviceCompat;
+import watabou.input.GameAction;
+import watabou.noosa.Game;
+import watabou.utils.DeviceCompat;
 
 public class ExitButton extends IconButton {
 

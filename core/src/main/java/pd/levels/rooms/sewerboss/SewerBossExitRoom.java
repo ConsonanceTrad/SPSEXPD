@@ -29,9 +29,9 @@ import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
 import pd.levels.rooms.standard.exit.ExitRoom;
 import pd.tiles.CustomTilemap;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.Tilemap;
-import com.watabou.utils.Point;
+import watabou.noosa.Image;
+import watabou.noosa.Tilemap;
+import watabou.utils.Point;
 
 public class SewerBossExitRoom extends ExitRoom {
 	

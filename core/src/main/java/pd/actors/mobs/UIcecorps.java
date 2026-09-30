@@ -18,9 +18,9 @@ import pd.levels.traps.SpearTrap;
 import pd.scenes.GameScene;
 import pd.sprites.SpsFireRabbitSprite;
 import pd.sprites.IceRabbitSprite;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 /** FrostNova's first form. */
 public class UIcecorps extends BossRushBoss {

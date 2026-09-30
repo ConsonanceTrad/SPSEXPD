@@ -28,10 +28,10 @@ import pd.ui.Icons;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
-import com.watabou.input.PointerEvent;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.TextInput;
-import com.watabou.utils.DeviceCompat;
+import watabou.input.PointerEvent;
+import watabou.noosa.Game;
+import watabou.noosa.TextInput;
+import watabou.utils.DeviceCompat;
 
 public class WndTextInput extends Window {
 

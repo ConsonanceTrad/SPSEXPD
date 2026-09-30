@@ -20,8 +20,9 @@
  */
 
 package com.shatteredpixel.shatteredpixeldungeon.services.updates;
+import pd.services.updates.UpdateService;
 
-import com.watabou.noosa.Game;
+import watabou.noosa.Game;
 
 public class UpdateImpl {
 

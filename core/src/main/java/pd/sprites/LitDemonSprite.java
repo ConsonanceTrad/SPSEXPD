@@ -1,7 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.sprites;
 import pd.Assets;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 public class LitDemonSprite extends MobSprite {
 	public LitDemonSprite() { texture(Assets.Sprites.SPS_LIT_DEMON); TextureFilm f = new TextureFilm(texture, 16, 16);
 		idle = new Animation(2, true); idle.frames(f, 0, 1, 2, 3); run = new Animation(4, true); run.frames(f, 4, 5, 6, 7);

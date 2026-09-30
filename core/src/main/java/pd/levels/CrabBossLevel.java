@@ -12,8 +12,8 @@ import pd.items.quest.AdventureJournal;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.scenes.GameScene;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 import java.util.ArrayList;
 public class CrabBossLevel extends Level {
 	public static final int WIDTH=48, HEIGHT=48, TOP=2, HALL_WIDTH=13, HALL_HEIGHT=15, CHAMBER_HEIGHT=3;

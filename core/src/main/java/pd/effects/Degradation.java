@@ -21,11 +21,11 @@
 
 package pd.effects;
 
-import com.watabou.glwrap.Blending;
-import com.watabou.noosa.Group;
-import com.watabou.noosa.particles.PixelParticle;
-import com.watabou.utils.PointF;
-import com.watabou.utils.Random;
+import watabou.glwrap.Blending;
+import watabou.noosa.Group;
+import watabou.noosa.particles.PixelParticle;
+import watabou.utils.PointF;
+import watabou.utils.Random;
 
 public class Degradation extends Group {
 

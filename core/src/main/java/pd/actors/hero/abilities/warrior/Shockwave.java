@@ -43,9 +43,9 @@ import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Callback;
+import watabou.utils.Random;
 
 public class Shockwave extends ArmorAbility {
 

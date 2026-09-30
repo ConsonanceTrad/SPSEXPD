@@ -29,14 +29,14 @@ import pd.ui.RenderedTextBlock;
 import pd.ui.ScrollPane;
 import pd.ui.TitleBackground;
 import pd.ui.Window;
-import com.watabou.input.PointerEvent;
-import com.watabou.noosa.Camera;
-import com.watabou.noosa.ColorBlock;
-import com.watabou.noosa.Group;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.PointerArea;
-import com.watabou.noosa.ui.Component;
-import com.watabou.utils.RectF;
+import watabou.input.PointerEvent;
+import watabou.noosa.Camera;
+import watabou.noosa.ColorBlock;
+import watabou.noosa.Group;
+import watabou.noosa.Image;
+import watabou.noosa.PointerArea;
+import watabou.noosa.ui.Component;
+import watabou.utils.RectF;
 
 public class AboutScene extends PixelScene {
 

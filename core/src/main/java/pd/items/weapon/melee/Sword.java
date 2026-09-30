@@ -34,8 +34,8 @@ import pd.sprites.ItemSpriteSheet;
 import pd.ui.AttackIndicator;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Callback;
 
 public class Sword extends MeleeWeapon {
 	

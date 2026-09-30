@@ -30,8 +30,8 @@ import pd.journal.Catalog;
 import pd.journal.Notes;
 import pd.scenes.GameScene;
 import pd.windows.WndJournal;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundle;
 
 public abstract class Key extends Item {
 

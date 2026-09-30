@@ -22,14 +22,14 @@
 package pd.ui;
 
 import pd.Assets;
-import com.watabou.gltextures.TextureCache;
-import com.watabou.glwrap.Blending;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.NoosaScript;
-import com.watabou.noosa.NoosaScriptNoLighting;
-import com.watabou.noosa.SkinnedBlock;
-import com.watabou.noosa.ui.Component;
+import watabou.gltextures.TextureCache;
+import watabou.glwrap.Blending;
+import watabou.noosa.Game;
+import watabou.noosa.Image;
+import watabou.noosa.NoosaScript;
+import watabou.noosa.NoosaScriptNoLighting;
+import watabou.noosa.SkinnedBlock;
+import watabou.noosa.ui.Component;
 
 public class Archs extends Component {
 

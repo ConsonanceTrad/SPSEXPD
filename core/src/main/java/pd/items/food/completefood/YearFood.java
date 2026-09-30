@@ -7,7 +7,7 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.YearBeast;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

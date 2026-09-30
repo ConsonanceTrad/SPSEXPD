@@ -22,11 +22,11 @@
 package pd.effects.particles;
 
 import pd.tiles.DungeonTilemap;
-import com.watabou.noosa.Visual;
-import com.watabou.noosa.particles.Emitter;
-import com.watabou.noosa.particles.Emitter.Factory;
-import com.watabou.noosa.particles.PixelParticle;
-import com.watabou.utils.Random;
+import watabou.noosa.Visual;
+import watabou.noosa.particles.Emitter;
+import watabou.noosa.particles.Emitter.Factory;
+import watabou.noosa.particles.PixelParticle;
+import watabou.utils.Random;
 
 public class SparkParticle extends PixelParticle {
 

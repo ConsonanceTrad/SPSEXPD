@@ -30,8 +30,8 @@ import pd.items.weapon.melee.special.TestWeapon;
 import pd.levels.traps.bufftrap.FireBuffTrap;
 import pd.scenes.InterlevelScene;
 import pd.tiles.custom.SpsLegacyLevelVisual;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Bundle;
+import watabou.noosa.Game;
+import watabou.utils.Bundle;
 
 import java.util.Arrays;
 import java.io.IOException;

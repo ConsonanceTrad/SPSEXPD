@@ -6,7 +6,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Shocked;
 import pd.items.weapon.Weapon;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 import static pd.actors.damagetype.DamageType.SHOCK_DAMAGE;
 

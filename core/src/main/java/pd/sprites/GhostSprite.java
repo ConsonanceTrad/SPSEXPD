@@ -24,8 +24,8 @@ package pd.sprites;
 import pd.Assets;
 import pd.effects.Speck;
 import pd.effects.particles.ShaftParticle;
-import com.watabou.glwrap.Blending;
-import com.watabou.noosa.TextureFilm;
+import watabou.glwrap.Blending;
+import watabou.noosa.TextureFilm;
 
 public class GhostSprite extends MobSprite {
 	

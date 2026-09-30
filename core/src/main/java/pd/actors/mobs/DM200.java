@@ -30,10 +30,10 @@ import pd.items.Item;
 import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
 import pd.sprites.DM200Sprite;
-import com.watabou.utils.BArray;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.BArray;
+import watabou.utils.Bundle;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 public class DM200 extends Mob {
 

@@ -27,15 +27,15 @@ import pd.actors.buffs.HeroDisguise;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroClass;
 import pd.scenes.GameScene;
-import com.watabou.gltextures.SmartTexture;
-import com.watabou.gltextures.TextureCache;
-import com.watabou.noosa.Camera;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.utils.Callback;
-import com.watabou.utils.PointF;
-import com.watabou.utils.RectF;
+import watabou.gltextures.SmartTexture;
+import watabou.gltextures.TextureCache;
+import watabou.noosa.Camera;
+import watabou.noosa.Game;
+import watabou.noosa.Image;
+import watabou.noosa.TextureFilm;
+import watabou.utils.Callback;
+import watabou.utils.PointF;
+import watabou.utils.RectF;
 
 public class HeroSprite extends CharSprite {
 	

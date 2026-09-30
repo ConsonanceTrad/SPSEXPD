@@ -5,7 +5,7 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.items.weapon.melee.Mace;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.PathFinder;
+import watabou.utils.PathFinder;
 
 public class Flute extends Mace implements FusionWeapon {
 	{ image = ItemSpriteSheet.WAND_REGROWTH; tier = 2; ACC = 1.05f; }

@@ -23,8 +23,8 @@ package pd.levels.rooms.connection;
 
 import pd.Dungeon;
 import pd.levels.rooms.Room;
-import com.watabou.utils.Random;
-import com.watabou.utils.Reflection;
+import watabou.utils.Random;
+import watabou.utils.Reflection;
 
 import java.util.ArrayList;
 

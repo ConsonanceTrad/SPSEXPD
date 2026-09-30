@@ -12,7 +12,7 @@ import pd.actors.buffs.ForeverShadow;
 import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
 import pd.ui.BuffIndicator;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;

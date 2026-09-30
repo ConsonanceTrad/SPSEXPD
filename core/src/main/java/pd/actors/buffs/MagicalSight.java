@@ -25,7 +25,7 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
-import com.watabou.noosa.Image;
+import watabou.noosa.Image;
 
 public class MagicalSight extends FlavourBuff {
 	

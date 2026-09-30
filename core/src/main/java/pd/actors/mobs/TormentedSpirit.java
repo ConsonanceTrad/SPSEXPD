@@ -32,8 +32,8 @@ import pd.items.armor.Armor;
 import pd.items.weapon.Weapon;
 import pd.messages.Messages;
 import pd.sprites.TormentedSpiritSprite;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Random;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Random;
 
 public class TormentedSpirit extends Wraith {
 

@@ -26,11 +26,11 @@ import pd.levels.Terrain;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
 import pd.tiles.custom.Carpet;
-import com.watabou.utils.GameMath;
-import com.watabou.utils.Point;
-import com.watabou.utils.PointF;
-import com.watabou.utils.Random;
-import com.watabou.utils.Rect;
+import watabou.utils.GameMath;
+import watabou.utils.Point;
+import watabou.utils.PointF;
+import watabou.utils.Random;
+import watabou.utils.Rect;
 
 public class HallwayRoom extends StandardRoom {
 

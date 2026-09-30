@@ -22,8 +22,8 @@
 package pd.sprites;
 
 import pd.Assets;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.particles.PixelParticle;
+import watabou.noosa.TextureFilm;
+import watabou.noosa.particles.PixelParticle;
 
 public class ShopkeeperSprite extends MobSprite {
 	

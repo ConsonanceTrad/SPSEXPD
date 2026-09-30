@@ -9,7 +9,7 @@ import pd.actors.buffs.Locked;
 import pd.mechanics.Ballistica;
 import pd.items.bags.HeartOfScarecrow;
 import pd.sprites.ScarecrowSprite;
-import com.watabou.utils.Bundle;
+import watabou.utils.Bundle;
 
 /** The original clockwork scarecrow, dormant until struck and capable of ranged attacks. */
 public class TestMob2 extends Mob {

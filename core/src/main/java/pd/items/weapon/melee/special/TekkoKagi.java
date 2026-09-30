@@ -6,7 +6,7 @@ import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.effects.particles.ShadowParticle;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class TekkoKagi extends SpsSpecialMeleeWeapon {
 	public TekkoKagi() { super(1, 1f, 1f, 1, 6, 12, ItemSpriteSheet.SPS_TEKKO_KAGI); }

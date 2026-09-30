@@ -1,8 +1,8 @@
 package pd.sprites;
 
 import pd.Assets;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.Game;
+import watabou.noosa.TextureFilm;
 
 public class LichDancerSprite extends MobSprite {
 	public LichDancerSprite() {

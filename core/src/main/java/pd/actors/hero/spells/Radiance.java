@@ -34,7 +34,7 @@ import pd.actors.mobs.Mob;
 import pd.items.artifacts.HolyTome;
 import pd.scenes.GameScene;
 import pd.ui.HeroIcon;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.audio.Sample;
 
 public class Radiance extends ClericSpell {
 

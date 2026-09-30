@@ -6,7 +6,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Shocked;
 import pd.actors.damagetype.DamageType;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class StormAmmo extends SpAmmo {
 	private static final ItemSprite.Glowing WHITE = new ItemSprite.Glowing(0xFFFFFF);

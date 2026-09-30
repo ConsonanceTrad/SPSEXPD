@@ -40,7 +40,7 @@ import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
-import com.watabou.utils.Reflection;
+import watabou.utils.Reflection;
 
 public class Recycle extends InventorySpell {
 	

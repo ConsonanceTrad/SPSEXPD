@@ -4,7 +4,7 @@ package pd.sprites;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.mobs.npcs.TownNpc;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 /** Loads each town resident's original standalone sprite sheet. */
 public class TownNpcSprite extends MobSprite {

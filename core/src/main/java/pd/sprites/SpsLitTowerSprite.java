@@ -3,7 +3,7 @@ package pd.sprites;
 
 import pd.Assets;
 import pd.effects.Lightning;
-import com.watabou.noosa.TextureFilm;
+import watabou.noosa.TextureFilm;
 
 public class SpsLitTowerSprite extends MobSprite {
 

@@ -7,7 +7,7 @@ import pd.items.scrolls.ScrollOfRecharging;
 import pd.items.wands.WandOfLightning;
 import pd.items.wands.WandOfTCloud;
 import pd.sprites.PatrolUAVSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 /** Original SPS-PD runtime and save identity for the patrol drone. */
 public class PatrolUAV extends SpsSewerMobs.PatrolUAV {

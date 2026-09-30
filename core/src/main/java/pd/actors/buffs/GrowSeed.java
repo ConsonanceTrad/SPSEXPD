@@ -7,9 +7,9 @@ import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 /** A short SPS damage-over-time growth which feeds nearby living characters. */
 public class GrowSeed extends Buff implements Hero.Doom {

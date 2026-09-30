@@ -10,7 +10,7 @@ import pd.items.YellowDewdrop;
 import pd.messages.Messages;
 import pd.sprites.MossySkeletonSprite;
 import pd.utils.GLog;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class MossySkeleton extends LegacyDualLootMob {
 

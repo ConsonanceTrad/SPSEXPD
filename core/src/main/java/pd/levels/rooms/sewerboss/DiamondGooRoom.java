@@ -25,7 +25,7 @@ import pd.actors.mobs.Goo;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
-import com.watabou.utils.Point;
+import watabou.utils.Point;
 
 public class DiamondGooRoom extends GooBossRoom {
 	

@@ -26,9 +26,9 @@ import pd.Dungeon;
 import pd.levels.Level;
 import pd.messages.Messages;
 import pd.tiles.CustomTilemap;
-import com.watabou.noosa.Tilemap;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.SparseArray;
+import watabou.noosa.Tilemap;
+import watabou.utils.Bundle;
+import watabou.utils.SparseArray;
 
 //TODO currently carpets only have implemented visuals for the dwarven city,
 // and also only support being rectangular in shape

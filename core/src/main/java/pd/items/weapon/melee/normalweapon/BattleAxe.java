@@ -4,7 +4,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class BattleAxe extends NormalMeleeWeapon {
 	public BattleAxe() { super(4, 1f, 1f, 1, 36, 49, ItemSpriteSheet.SPS_WEP_BATTLE_AXE); }

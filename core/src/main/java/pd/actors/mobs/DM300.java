@@ -62,16 +62,16 @@ import pd.sprites.CharSprite;
 import pd.sprites.DM300Sprite;
 import pd.ui.BossHealthBar;
 import pd.utils.GLog;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.audio.Music;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Callback;
-import com.watabou.utils.GameMath;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Point;
-import com.watabou.utils.Random;
-import com.watabou.utils.Rect;
+import watabou.noosa.Game;
+import watabou.noosa.audio.Music;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundle;
+import watabou.utils.Callback;
+import watabou.utils.GameMath;
+import watabou.utils.PathFinder;
+import watabou.utils.Point;
+import watabou.utils.Random;
+import watabou.utils.Rect;
 
 import java.util.ArrayList;
 

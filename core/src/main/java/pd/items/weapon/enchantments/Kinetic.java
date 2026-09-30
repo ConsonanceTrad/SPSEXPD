@@ -28,8 +28,8 @@ import pd.items.weapon.Weapon;
 import pd.messages.Messages;
 import pd.sprites.ItemSprite;
 import pd.ui.BuffIndicator;
-import com.watabou.noosa.Image;
-import com.watabou.utils.Bundle;
+import watabou.noosa.Image;
+import watabou.utils.Bundle;
 
 public class Kinetic extends Weapon.Enchantment {
 	

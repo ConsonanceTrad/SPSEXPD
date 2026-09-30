@@ -9,7 +9,7 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Revivalglyph extends SpsGlyph {
 	private static final ItemSprite.Glowing COLOR = new ItemSprite.Glowing(0xCC0000);

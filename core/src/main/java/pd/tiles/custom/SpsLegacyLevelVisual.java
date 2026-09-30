@@ -10,8 +10,8 @@ package pd.tiles.custom;
 import pd.levels.Terrain;
 import pd.tiles.CustomTilemap;
 import pd.tiles.SpsTerrainFrames;
-import com.watabou.noosa.Tilemap;
-import com.watabou.utils.Bundle;
+import watabou.noosa.Tilemap;
+import watabou.utils.Bundle;
 
 /** Renders a complete SPS fixed layout using its original 16x16 tile atlas. */
 public class SpsLegacyLevelVisual extends CustomTilemap {

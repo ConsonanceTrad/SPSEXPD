@@ -5,7 +5,7 @@ import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.items.eggs.PigpetEgg;
 import pd.items.food.vegetable.Truffles;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class GiftAshWolf extends GiftNpc {
 	{ properties.add(Property.ORC); }

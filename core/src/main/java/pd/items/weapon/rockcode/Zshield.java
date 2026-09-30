@@ -8,7 +8,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.EnergyArmor;
 import pd.effects.MagicMissile;
 import pd.mechanics.Ballistica;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Zshield extends RockCode {
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "Z.s"; }

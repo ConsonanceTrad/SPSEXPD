@@ -32,8 +32,8 @@ import pd.items.wands.Wand;
 import pd.messages.Messages;
 import pd.sprites.PhantomPiranhaSprite;
 import pd.utils.GLog;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

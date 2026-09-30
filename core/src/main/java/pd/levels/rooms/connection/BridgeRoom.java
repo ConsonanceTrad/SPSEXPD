@@ -25,8 +25,8 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;
-import com.watabou.utils.Point;
-import com.watabou.utils.Rect;
+import watabou.utils.Point;
+import watabou.utils.Rect;
 
 public class BridgeRoom extends TunnelRoom {
 	

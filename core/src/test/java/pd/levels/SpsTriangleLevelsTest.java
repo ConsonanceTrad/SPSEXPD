@@ -47,10 +47,10 @@ import pd.plants.Plant;
 import pd.plants.ReNepenth;
 import pd.plants.Seedpod;
 import pd.plants.StarEater;
-import com.watabou.noosa.Game;
-import com.watabou.utils.Random;
-import com.watabou.utils.FileUtils;
-import com.watabou.utils.SparseArray;
+import watabou.noosa.Game;
+import watabou.utils.Random;
+import watabou.utils.FileUtils;
+import watabou.utils.SparseArray;
 
 import java.util.ArrayList;
 import java.util.HashMap;

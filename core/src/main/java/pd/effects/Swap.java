@@ -27,10 +27,10 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.Visual;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.PointF;
+import watabou.noosa.Game;
+import watabou.noosa.Visual;
+import watabou.noosa.audio.Sample;
+import watabou.utils.PointF;
 
 public class Swap extends Actor {
 

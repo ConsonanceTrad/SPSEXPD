@@ -82,8 +82,8 @@ import pd.windows.WndONS;
 import pd.windows.WndSaidBySun;
 import pd.windows.WndShower;
 import pd.plants.Plant;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 /** Data-backed implementation of the original named residents of Dolya town. */
 public class TownNpc extends NPC {

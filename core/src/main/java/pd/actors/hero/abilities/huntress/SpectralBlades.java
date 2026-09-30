@@ -38,7 +38,7 @@ import pd.messages.Messages;
 import pd.sprites.MissileSprite;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
-import com.watabou.utils.Callback;
+import watabou.utils.Callback;
 
 import java.util.HashSet;
 

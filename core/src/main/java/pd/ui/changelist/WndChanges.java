@@ -23,9 +23,9 @@ package pd.ui.changelist;
 
 import pd.scenes.PixelScene;
 import pd.windows.WndTitledMessage;
-import com.watabou.input.PointerEvent;
-import com.watabou.noosa.Image;
-import com.watabou.noosa.PointerArea;
+import watabou.input.PointerEvent;
+import watabou.noosa.Image;
+import watabou.noosa.PointerArea;
 
 public class WndChanges extends WndTitledMessage {
 	

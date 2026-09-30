@@ -26,7 +26,7 @@ import pd.items.weapon.melee.MagesStaff;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.ui.HeroIcon;
-import com.watabou.noosa.Game;
+import watabou.noosa.Game;
 
 public enum HeroSubClass {
 

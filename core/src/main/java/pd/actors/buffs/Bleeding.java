@@ -31,9 +31,9 @@ import pd.levels.features.Chasm;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.PointF;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.PointF;
+import watabou.utils.Random;
 
 public class Bleeding extends Buff implements Buff.DOTbuff {
 

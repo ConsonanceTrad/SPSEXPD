@@ -12,8 +12,8 @@ import pd.levels.BossRushLevel;
 import pd.mechanics.Ballistica;
 import pd.sprites.UTenguSprite;
 import pd.items.weapon.melee.special.TenguSword;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Random;
+import watabou.utils.Bundle;
+import watabou.utils.Random;
 
 /** Young Tengu, retaining the original ranged/melee phases and periodic jump. */
 public class UTengu extends BossRushBoss {

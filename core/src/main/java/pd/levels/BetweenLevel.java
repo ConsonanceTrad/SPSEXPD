@@ -37,8 +37,8 @@ import pd.levels.rooms.special.SpsTentRoom;
 import pd.levels.rooms.standard.EmptyRoom;
 import pd.levels.rooms.standard.StandardRoom;
 import pd.tiles.custom.SpsLegacyLevelVisual;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

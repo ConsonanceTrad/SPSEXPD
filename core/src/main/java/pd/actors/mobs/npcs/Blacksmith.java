@@ -56,11 +56,11 @@ import pd.utils.GLog;
 import pd.windows.WndBlacksmith;
 import pd.windows.WndBlacksmithLegacy;
 import pd.windows.WndQuest;
-import com.watabou.noosa.Game;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Bundle;
-import com.watabou.utils.Callback;
-import com.watabou.utils.Random;
+import watabou.noosa.Game;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Bundle;
+import watabou.utils.Callback;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 import java.util.Collection;

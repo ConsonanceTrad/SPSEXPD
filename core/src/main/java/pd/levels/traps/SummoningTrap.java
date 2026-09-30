@@ -29,8 +29,8 @@ import pd.items.Heap;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.journal.Bestiary;
 import pd.scenes.GameScene;
-import com.watabou.utils.PathFinder;
-import com.watabou.utils.Random;
+import watabou.utils.PathFinder;
+import watabou.utils.Random;
 
 import java.util.ArrayList;
 

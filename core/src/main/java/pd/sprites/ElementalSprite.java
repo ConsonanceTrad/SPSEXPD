@@ -31,10 +31,10 @@ import pd.effects.particles.FlameParticle;
 import pd.effects.particles.RainbowParticle;
 import pd.effects.particles.SparkParticle;
 import pd.tiles.DungeonTilemap;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.noosa.particles.Emitter;
-import com.watabou.utils.Callback;
+import watabou.noosa.TextureFilm;
+import watabou.noosa.audio.Sample;
+import watabou.noosa.particles.Emitter;
+import watabou.utils.Callback;
 
 public abstract class ElementalSprite extends MobSprite {
 	

@@ -24,9 +24,9 @@ package pd.sprites;
 import pd.Assets;
 import pd.actors.mobs.Warlock;
 import pd.effects.MagicMissile;
-import com.watabou.noosa.TextureFilm;
-import com.watabou.noosa.audio.Sample;
-import com.watabou.utils.Callback;
+import watabou.noosa.TextureFilm;
+import watabou.noosa.audio.Sample;
+import watabou.utils.Callback;
 
 public class WarlockSprite extends MobSprite {
 	

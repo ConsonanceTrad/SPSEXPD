@@ -37,7 +37,7 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.WarlockSprite;
 import pd.utils.GLog;
-import com.watabou.utils.Random;
+import watabou.utils.Random;
 
 public class Warlock extends Mob {
 	

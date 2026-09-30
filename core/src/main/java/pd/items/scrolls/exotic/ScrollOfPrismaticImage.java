@@ -31,7 +31,7 @@ import pd.actors.mobs.npcs.PrismaticImage;
 import pd.effects.FloatingText;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSpriteSheet;
-import com.watabou.noosa.audio.Sample;
+import watabou.noosa.audio.Sample;
 
 public class ScrollOfPrismaticImage extends ExoticScroll {
 	
