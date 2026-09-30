@@ -50,7 +50,7 @@ public class ShadowEaterLevel extends Level {
 	protected void createItems() {
 		TownNpc painter = new TownNpc().configure(TownNpc.Spec.NUT_PAINTER);
 		painter.pos = PAINTER_POS;
-		mobs.add(painter);
+		mobs().add(painter);
 		if (Dungeon.hero != null) AdventureJournal.complete(16);
 	}
 

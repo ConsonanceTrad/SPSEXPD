@@ -207,7 +207,7 @@ public final class SpsClassSkillsTest {
 		TestLevel() {
 			setSize(32, 32);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

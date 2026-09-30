@@ -157,7 +157,7 @@ public class Ghoul extends Mob {
 				beingLifeLinked = true;
 				timesDowned++;
 				Actor.remove(this);
-				Dungeon.level.mobs.remove( this );
+				Dungeon.level.mobs().remove( this );
 				Buff.append(nearby, GhoulLifeLink.class).set(timesDowned*5, this);
 				((GhoulSprite)sprite).crumple();
 				return;
@@ -290,7 +290,7 @@ public class Ghoul extends Mob {
 				ghoul.beingLifeLinked = false;
 				Actor.add(ghoul);
 				ghoul.timeToNow();
-				Dungeon.level.mobs.add(ghoul);
+				Dungeon.level.mobs().add(ghoul);
 				Dungeon.level.occupyCell( ghoul );
 				ghoul.sprite.idle();
 				ghoul.sprite.showStatusWithIcon(CharSprite.POSITIVE, Integer.toString(Math.round(ghoul.HT/10f)), FloatingText.HEALING);

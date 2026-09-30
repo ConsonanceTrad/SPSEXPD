@@ -66,7 +66,7 @@ public class Dread extends Buff {
 			}
 			target.destroy();
 			target.sprite.killAndErase();
-			Dungeon.level.mobs.remove(target);
+			Dungeon.level.mobs().remove(target);
 		} else {
 			left--;
 			if (left <= 0){

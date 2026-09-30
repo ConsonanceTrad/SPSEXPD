@@ -144,7 +144,7 @@ public final class SpsPocketBallFullTest {
 		Hero hero = hero(27);
 		LegacyPet dog = PocketBallFull.createPet(201);
 		dog.pos = 28;
-		level.mobs.add(dog);
+		level.mobs().add(dog);
 		Actor.add(dog);
 		new ExposedPocketBall().throwAt(28);
 		check(level.heaps.get(28) != null && level.heaps.get(28).peek() instanceof DogpetEgg,
@@ -171,17 +171,17 @@ public final class SpsPocketBallFullTest {
 		pet.restoreRuntimeState(41, 13);
 		pet.pos = 62;
 		pet.stayHere();
-		source.mobs.add(pet);
+		source.mobs().add(pet);
 		Actor.add(pet);
 
 		Mob.holdAllies(source);
-		check(!source.mobs.contains(pet), "普通换层没有从旧层暂存宠物");
+		check(!source.mobs().contains(pet), "普通换层没有从旧层暂存宠物");
 		check(!pet.staying(), "普通换层后宠物仍保留旧层驻守位置");
 
 		TestLevel destination = level();
 		Dungeon.hero = hero;
 		Mob.restoreAllies(destination, hero.pos);
-		check(destination.mobs.contains(pet) && LegacyPet.active() == pet,
+		check(destination.mobs().contains(pet) && LegacyPet.active() == pet,
 				"普通换层没有在新层恢复原宠物实体");
 		check(destination.adjacent(hero.pos, pet.pos), "换层后宠物没有落在英雄相邻格");
 		check(pet.HP == 41 && pet.rewardCooldown() == 13,
@@ -194,7 +194,7 @@ public final class SpsPocketBallFullTest {
 		Hero hero = hero(27);
 		LegacyPet pet = PocketBallFull.createPet(201);
 		pet.pos = 28;
-		level.mobs.add(pet);
+		level.mobs().add(pet);
 		Actor.add(pet);
 		PocketBallFull lantern = new PocketBallFull(101, 20);
 
@@ -274,7 +274,7 @@ public final class SpsPocketBallFullTest {
 	private static final class TestLevel extends Level {
 		TestLevel() {
 			setSize(8, 8);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

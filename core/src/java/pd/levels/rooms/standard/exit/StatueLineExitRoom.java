@@ -52,7 +52,7 @@ public class StatueLineExitRoom extends StatueLineRoom {
 		int exit;
 		do {
 			exit = level.pointToCell(random(3));
-		} while (level.findMob(exit) != null);
+		} while (level.mobs().findMob(exit) != null);
 
 		Painter.set(level, exit, Terrain.EXIT);
 		level.transitions.add(new LevelTransition(level, exit, LevelTransition.Type.REGULAR_EXIT));

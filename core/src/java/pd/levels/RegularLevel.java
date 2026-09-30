@@ -213,11 +213,11 @@ public abstract class RegularLevel extends Level {
 			else                            return 10;
 		}
 
-		int mobs = 3 + legacyDepth % 5 + Random.Int(3);
+		int count = 3 + legacyDepth % 5 + Random.Int(3);
 		if (feeling == Feeling.LARGE){
-			mobs = (int)Math.ceil(mobs * 1.33f);
+			count = (int)Math.ceil(count * 1.33f);
 		}
-		return mobs;
+		return count;
 	}
 	
 	@Override
@@ -268,7 +268,7 @@ public abstract class RegularLevel extends Level {
 			do {
 				mob.pos = pointToCell(roomToSpawn.random());
 				tries--;
-			} while (tries >= 0 && (findMob(mob.pos) != null
+			} while (tries >= 0 && (mobs().findMob(mob.pos) != null
 					|| entranceFOV[mob.pos] || PathFinder.distance[mob.pos] != Integer.MAX_VALUE
 					|| !passable[mob.pos]
 					|| solid[mob.pos]
@@ -279,7 +279,7 @@ public abstract class RegularLevel extends Level {
 
 			if (tries >= 0) {
 				mobsToSpawn--;
-				mobs.add(mob);
+				mobs().add(mob);
 				mob = null;
 
 				//chance to add a second mob to this room, except on floor 1
@@ -290,7 +290,7 @@ public abstract class RegularLevel extends Level {
 					do {
 						mob.pos = pointToCell(roomToSpawn.random());
 						tries--;
-					} while (tries >= 0 && (findMob(mob.pos) != null
+					} while (tries >= 0 && (mobs().findMob(mob.pos) != null
 							|| entranceFOV[mob.pos] || PathFinder.distance[mob.pos] != Integer.MAX_VALUE
 							|| !passable[mob.pos]
 							|| solid[mob.pos]
@@ -301,14 +301,14 @@ public abstract class RegularLevel extends Level {
 
 					if (tries >= 0) {
 						mobsToSpawn--;
-						mobs.add(mob);
+						mobs().add(mob);
 						mob = null;
 					}
 				}
 			}
 		}
 
-		for (Mob m : mobs){
+		for (Mob m : mobs()){
 			if (map[m.pos] == Terrain.HIGH_GRASS || map[m.pos] == Terrain.FURROWED_GRASS) {
 				map[m.pos] = Terrain.GRASS;
 				losBlocking[m.pos] = false;
@@ -419,16 +419,16 @@ public abstract class RegularLevel extends Level {
 			case 4:
 				//base mimic chance is 1/20, regular chest is 4/20
 				// so each +1x mimic spawn rate converts to a 25% chance here
-				if (Random.Float() < (MimicTooth.mimicChanceMultiplier() - 1f)/4f  && findMob(cell) == null){
-					mobs.add(Mimic.spawnAt(cell, toDrop));
+				if (Random.Float() < (MimicTooth.mimicChanceMultiplier() - 1f)/4f  && mobs().findMob(cell) == null){
+					mobs().add(Mimic.spawnAt(cell, toDrop));
 					continue;
 				}
 
 				type = Heap.Type.CHEST;
 				break;
 			case 5:
-				if (Dungeon.depth > 1 && findMob(cell) == null){
-					mobs.add(Mimic.spawnAt(cell, toDrop));
+				if (Dungeon.depth > 1 && mobs().findMob(cell) == null){
+					mobs().add(Mimic.spawnAt(cell, toDrop));
 					continue;
 				}
 				type = Heap.Type.CHEST;
@@ -442,8 +442,8 @@ public abstract class RegularLevel extends Level {
 					(toDrop.isUpgradable() && Random.Int(4 - toDrop.level()) == 0)){
 
 				float mimicChance = 1/10f * MimicTooth.mimicChanceMultiplier();
-				if (Dungeon.depth > 1 && Random.Float() < mimicChance && findMob(cell) == null){
-					mobs.add(Mimic.spawnAt(cell, GoldenMimic.class, toDrop));
+				if (Dungeon.depth > 1 && Random.Float() < mimicChance && mobs().findMob(cell) == null){
+					mobs().add(Mimic.spawnAt(cell, GoldenMimic.class, toDrop));
 				} else {
 					Heap dropped = drop(toDrop, cell);
 					if (heaps.get(cell) == dropped) {
@@ -672,18 +672,18 @@ public abstract class RegularLevel extends Level {
 					for (Heap h : heaps.valueList()){
 						if (h.type == Heap.Type.HEAP
 								&& !(room(h.pos) instanceof SpecialRoom)
-								&& findMob(h.pos) == null){
+								&& mobs().findMob(h.pos) == null){
 							candidateCells.add(h.pos);
 						}
 					}
 				}
 
 				if (candidateCells.isEmpty()) {
-					if (Random.Int(5) == 0 && findMob(exit()) == null) {
+					if (Random.Int(5) == 0 && mobs().findMob(exit()) == null) {
 						candidateCells.add(exit());
 					} else {
 						for (int i = 0; i < length(); i++) {
-							if (map[i] == Terrain.DOOR && findMob(i) == null) {
+							if (map[i] == Terrain.DOOR && mobs().findMob(i) == null) {
 								candidateCells.add(i);
 							}
 						}
@@ -691,7 +691,7 @@ public abstract class RegularLevel extends Level {
 				}
 
 				int pos = Random.element(candidateCells);
-				mobs.add(Mimic.spawnAt(pos, EbonyMimic.class, false));
+				mobs().add(Mimic.spawnAt(pos, EbonyMimic.class, false));
 			}
 		Random.popGenerator();
 
@@ -765,7 +765,7 @@ public abstract class RegularLevel extends Level {
 						&& pos != exit()
 						&& heaps.get(pos) == null
 						&& room.canPlaceItem(cellToPoint(pos), this)
-						&& findMob(pos) == null) {
+						&& mobs().findMob(pos) == null) {
 					
 					Trap t = traps.get(pos);
 					
@@ -793,7 +793,7 @@ public abstract class RegularLevel extends Level {
 					for (Point p : room.getPoints()){
 						int cell = pointToCell(p);
 						if (passable[cell] &&
-								findMob(cell) == null){
+								mobs().findMob(cell) == null){
 							candidates.add(cell);
 						}
 					}
@@ -843,7 +843,7 @@ public abstract class RegularLevel extends Level {
 		}
 
 		//There are undefeated statues or mimics in it
-		for (Mob m : mobs.toArray(new Mob[0])){
+		for (Mob m : mobs().toArray(new Mob[0])){
 			if (m.alignment != Char.Alignment.ALLY){
 				if (m instanceof Statue && ((Statue) m).levelGenStatue){
 					missedRooms.add(room(StatueRoom.class)); //use room the statue came from

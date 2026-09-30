@@ -63,7 +63,7 @@ public class Abi extends PET {
 	private void superAttack() {
 		spend(TICK);
 		int damage = damageRoll() * 3;
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (mob.isAlive() && !(mob instanceof LegacyPet)) mob.damage(damage, this);
 		}
 		cooldown = 5;

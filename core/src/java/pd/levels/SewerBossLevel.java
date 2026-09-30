@@ -66,7 +66,7 @@ public class SewerBossLevel extends SewerLevel {
 		}
 
 		boolean gooAlive = false;
-		for (Mob m : mobs){
+		for (Mob m : mobs()){
 			if (m instanceof Goo) {
 				gooAlive = true;
 				break;

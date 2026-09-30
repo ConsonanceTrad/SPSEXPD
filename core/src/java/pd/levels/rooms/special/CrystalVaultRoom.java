@@ -76,7 +76,7 @@ public class CrystalVaultRoom extends SpecialRoom {
 		if (altChance > 0.1f) altChance = (altChance+0.1f)/2f; //rat skull is 1/2 as effective here
 		altChance *= MimicTooth.mimicChanceMultiplier(); //mimic tooth has full effectiveness
 		if (Random.Float() < altChance){
-			level.mobs.add(Mimic.spawnAt(i2Pos, CrystalMimic.class, i2));
+			level.mobs().add(Mimic.spawnAt(i2Pos, CrystalMimic.class, i2));
 		} else {
 			level.drop(i2, i2Pos).type = Heap.Type.CRYSTAL_CHEST;
 		}

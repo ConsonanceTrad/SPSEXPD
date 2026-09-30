@@ -67,7 +67,7 @@ public class BigBattery extends Item {
 				return;
 			}
 			if (Dungeon.level != null) {
-				for (Mob mob : Dungeon.level.mobs) {
+				for (Mob mob : Dungeon.level.mobs()) {
 					if (mob.isAlive() && hero.fieldOfView != null && hero.fieldOfView[mob.pos]) {
 						Buff.affect(mob, BeTired.class).set(30f);
 					}

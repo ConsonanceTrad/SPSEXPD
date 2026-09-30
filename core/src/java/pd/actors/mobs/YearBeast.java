@@ -74,7 +74,7 @@ public class YearBeast extends Mob {
 	protected boolean act() {
 		times++;
 		if (Dungeon.level != null) {
-			for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+			for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 				Buff.affect(mob, Burning.class).reignite(mob, 3f);
 			}
 			for (int offset : PathFinder.NEIGHBOURS9) {

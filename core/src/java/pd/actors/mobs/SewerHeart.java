@@ -119,7 +119,7 @@ public class SewerHeart extends LegacyDualLootMob {
 			Sample.INSTANCE.play(Assets.Sounds.PUFF);
 		}
 		GLog.n(Messages.get(this, "blink"));
-		if (Dungeon.hero != null && Dungeon.level.mobs.size() < Dungeon.hero.lvl * 2) SewerLasher.spawnAroundChance(newPos);
+		if (Dungeon.hero != null && Dungeon.level.mobs().size() < Dungeon.hero.lvl * 2) SewerLasher.spawnAroundChance(newPos);
 	}
 
 	@Override public int defenseProc(Char enemy, int damage) {
@@ -193,7 +193,7 @@ public class SewerHeart extends LegacyDualLootMob {
 
 	@Override public void destroy() {
 		super.destroy();
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) if (mob instanceof SewerLasher) mob.die(null);
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) if (mob instanceof SewerLasher) mob.die(null);
 	}
 
 	@Override public void die(Object cause) {
@@ -244,7 +244,7 @@ public class SewerHeart extends LegacyDualLootMob {
 		@Override public boolean act() {
 			charge++;
 			int lashers = 1;
-			for (Mob mob : Dungeon.level.mobs) if (mob instanceof SewerLasher) lashers++;
+			for (Mob mob : Dungeon.level.mobs()) if (mob instanceof SewerLasher) lashers++;
 			int needed = Math.min(25, lashers);
 			if (charge >= needed) {
 				charge -= needed;

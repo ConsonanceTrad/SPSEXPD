@@ -54,12 +54,12 @@ public class VaultMultipleEnemyTreasureRoom extends VaultTreasureRoom {
 			VaultGhoul ghoul = new VaultGhoul();
 			ghoul.maxLvl = 0; //no token
 			ghoul.pos = c.x + areaTop*level.width();
-			level.mobs.add(ghoul);
+			level.mobs().add(ghoul);
 
 			ghoul = new VaultGhoul();
 			ghoul.maxLvl = 0; //no token
 			ghoul.pos = c.x + (areaTop+4)*level.width();
-			level.mobs.add(ghoul);
+			level.mobs().add(ghoul);
 
 			ghoul = new VaultGhoul();
 			if (entrance.x == left){
@@ -69,7 +69,7 @@ public class VaultMultipleEnemyTreasureRoom extends VaultTreasureRoom {
 				ghoul.pos = c.x - 1 + (areaTop+2)*level.width();
 				treasurePos = ghoul.pos - 2;
 			}
-			level.mobs.add(ghoul);
+			level.mobs().add(ghoul);
 
 		} else {
 			int areaLeft = (int)GameMath.gate(left+1, entrance.x-2, right-5);
@@ -79,12 +79,12 @@ public class VaultMultipleEnemyTreasureRoom extends VaultTreasureRoom {
 			VaultGhoul ghoul = new VaultGhoul();
 			ghoul.maxLvl = 0; //no token
 			ghoul.pos = areaLeft + c.y*level.width();
-			level.mobs.add(ghoul);
+			level.mobs().add(ghoul);
 
 			ghoul = new VaultGhoul();
 			ghoul.maxLvl = 0; //no token
 			ghoul.pos = areaLeft+4 + c.y*level.width();
-			level.mobs.add(ghoul);
+			level.mobs().add(ghoul);
 
 			ghoul = new VaultGhoul();
 			if (entrance.y == top){
@@ -94,7 +94,7 @@ public class VaultMultipleEnemyTreasureRoom extends VaultTreasureRoom {
 				ghoul.pos = areaLeft+2 + (c.y-1)*level.width();
 				treasurePos = ghoul.pos - 2*level.width();
 			}
-			level.mobs.add(ghoul);
+			level.mobs().add(ghoul);
 		}
 
 		Painter.set(level, treasurePos, Terrain.PEDESTAL);

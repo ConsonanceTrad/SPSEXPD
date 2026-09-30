@@ -41,7 +41,7 @@ public class StartLevel extends Level {
 			if (map[cell] == Terrain.GROUND_A) {
 				Tinkerer1 tinkerer = new Tinkerer1();
 				tinkerer.pos = cell;
-				mobs.add(tinkerer);
+				mobs().add(tinkerer);
 			}
 		}
 	}

@@ -244,7 +244,7 @@ public class TownLevel extends Level {
 		for (int cell : SHOPKEEPER_CELLS) {
 			Shopkeeper shopkeeper = new Shopkeeper();
 			shopkeeper.pos = cell;
-			mobs.add(shopkeeper);
+			mobs().add(shopkeeper);
 		}
 		for (int i = 0; i < RESIDENTS.length; i++) {
 			TownNpc.Spec spec = RESIDENTS[i];
@@ -253,7 +253,7 @@ public class TownLevel extends Level {
 			}
 			TownNpc resident = TownNpc.create(spec);
 			resident.pos = RESIDENT_CELLS[i];
-			mobs.add(resident);
+			mobs().add(resident);
 		}
 		if (Badges.checkTombRescued()) addResidents(TOMB_RESIDENTS, TOMB_RESIDENT_CELLS);
 		if (Badges.checkUncleRescued()) addResidents(UNCLE_RESIDENTS, UNCLE_RESIDENT_CELLS);
@@ -262,7 +262,7 @@ public class TownLevel extends Level {
 		if (Badges.checkMOSRescued()) {
 			Piranha piranha = new Piranha();
 			piranha.pos = 19 + WIDTH * 9;
-			mobs.add(piranha);
+			mobs().add(piranha);
 		}
 		if (Badges.checkSARRescued()) addResidents(SAR_RESIDENTS, SAR_RESIDENT_CELLS);
 		if (Dungeon.dewNorn) {
@@ -273,26 +273,26 @@ public class TownLevel extends Level {
 			addResidents(RAIN_RESIDENTS, RAIN_RESIDENT_CELLS);
 			TestMob testMob = new TestMob();
 			testMob.pos = 18 + WIDTH * 44;
-			mobs.add(testMob);
+			mobs().add(testMob);
 		}
 		if (Badges.checkFishRescued()) {
 			addResidents(FISH_RESIDENTS, FISH_RESIDENT_CELLS);
 			for (int cell : new int[]{42 + WIDTH * 37, 42 + WIDTH * 36}) {
 				Piranha piranha = new Piranha();
 				piranha.pos = cell;
-				mobs.add(piranha);
+				mobs().add(piranha);
 			}
 		}
 		AdultDragonViolet dragon = new AdultDragonViolet();
 		dragon.pos = 5 + WIDTH * 43;
-		mobs.add(dragon);
+		mobs().add(dragon);
 		TestMob2 clockwork = new TestMob2();
 		clockwork.pos = 21 + WIDTH * 44;
-		mobs.add(clockwork);
+		mobs().add(clockwork);
 		if (Badges.checkOtilukeRescued() && Actor.findChar(32 + WIDTH * 15) == null) {
 			TownNpc otiluke = TownNpc.create(TownNpc.Spec.OTILUKE_NPC);
 			otiluke.pos = 32 + WIDTH * 15;
-			mobs.add(otiluke);
+			mobs().add(otiluke);
 		}
 	}
 
@@ -300,7 +300,7 @@ public class TownLevel extends Level {
 		for (int i = 0; i < specs.length; i++) {
 			TownNpc resident = TownNpc.create(specs[i]);
 			resident.pos = cells[i];
-			mobs.add(resident);
+			mobs().add(resident);
 		}
 	}
 

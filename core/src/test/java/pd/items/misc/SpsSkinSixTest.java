@@ -190,7 +190,7 @@ public final class SpsSkinSixTest {
 		turbulence.act();
 		check(mob.HP == hp - mob.HT / 20 && mob.buff(Roots.class) != null && mob.buff(Shocked2.class) == null, "环绕乱流移动惩罚错误");
 
-		Actor.remove(mob); level.mobs.remove(mob); katana.charge(10); int oldPos = hero.pos;
+		Actor.remove(mob); level.mobs().remove(mob); katana.charge(10); int oldPos = hero.pos;
 		check(katana.zap(hero, oldPos + 3) && hero.pos == oldPos + 3 && katana.charge() == 0, "武士雷刀一闪边界错误");
 
 		BeastKnive knife = new BeastKnive(); mob = mobAt(level, hero.pos + 1);
@@ -247,7 +247,7 @@ public final class SpsSkinSixTest {
 	}
 
 	private static TestMob mobAt(TestLevel level, int pos) {
-		TestMob mob = new TestMob(); mob.HP = mob.HT = 100; mob.pos = pos; level.mobs.add(mob); Actor.add(mob); return mob;
+		TestMob mob = new TestMob(); mob.HP = mob.HT = 100; mob.pos = pos; level.mobs().add(mob); Actor.add(mob); return mob;
 	}
 
 	private static boolean has(Hero hero, Class<? extends Item> type) { return hero.belongings.getItem(type) != null; }
@@ -265,7 +265,7 @@ public final class SpsSkinSixTest {
 	private static final class TestHero extends Hero { @Override public void damage(int damage, Object source) { HP = Math.max(0, HP - Math.max(0, damage)); } }
 	private static final class TestLevel extends Level {
 		TestLevel() {
-			setSize(16, 16); Arrays.fill(map, Terrain.EMPTY); mobs = new HashSet<>(); heaps = new SparseArray<>(); blobs = new HashMap<>();
+			setSize(16, 16); Arrays.fill(map, Terrain.EMPTY); mobs().clear(); heaps = new SparseArray<>(); blobs = new HashMap<>();
 			plants = new SparseArray<Plant>(); traps = new SparseArray<Trap>(); transitions = new ArrayList<>(); customTiles = new ArrayList<>(); customTerrain = new ArrayList<>(); customWalls = new ArrayList<>();
 			buildFlagMaps(); Arrays.fill(heroFOV, true);
 		}

@@ -126,7 +126,7 @@ public class CrystalGuardian extends Mob{
 		//if enemy is hero, and they aren't currently fighting the spire, -100 points
 		if (enemy == Dungeon.hero){
 			boolean spireNear = false;
-			for (Mob m : Dungeon.level.mobs.toArray(new Mob[0])){
+			for (Mob m : Dungeon.level.mobs().toArray(new Mob[0])){
 				if (m instanceof CrystalSpire && m.HP != m.HT && Dungeon.level.distance(pos, m.pos) <= 8){
 					spireNear = true;
 				}

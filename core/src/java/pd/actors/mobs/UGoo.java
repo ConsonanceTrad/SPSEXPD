@@ -61,7 +61,7 @@ public class UGoo extends BossRushBoss {
 	}
 
 	protected boolean hasLivingMinions() {
-		for (Mob mob : Dungeon.level.mobs) if (mob instanceof ElementGoo && mob.isAlive()) return true;
+		for (Mob mob : Dungeon.level.mobs()) if (mob instanceof ElementGoo && mob.isAlive()) return true;
 		return false;
 	}
 
@@ -83,7 +83,7 @@ public class UGoo extends BossRushBoss {
 
 	@Override
 	public void die(Object cause) {
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (mob instanceof ElementGoo || mob instanceof Eye) mob.die(cause);
 		}
 		super.die(cause);

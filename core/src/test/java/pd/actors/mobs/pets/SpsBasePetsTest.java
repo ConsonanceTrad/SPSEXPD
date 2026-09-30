@@ -296,7 +296,7 @@ public final class SpsBasePetsTest {
 	private static class Dummy extends Mob { Dummy() { HP = HT = 1000; defenseSkill = 0; } @Override public int attackSkill(Char target) { return 0; } @Override public int damageRoll() { return 0; } }
 	private static class DummyAt extends Dummy { DummyAt(int position) { pos = position; } }
 	private static class TestLevel extends Level {
-		TestLevel() { setSize(32, 32); mobs = new HashSet<>(); heaps = new SparseArray<>(); blobs = new HashMap<>(); plants = new SparseArray<>(); traps = new SparseArray<>(); transitions = new ArrayList<>(); customTiles = new ArrayList<>(); customTerrain = new ArrayList<>(); customWalls = new ArrayList<>(); Arrays.fill(map, Terrain.EMPTY); Arrays.fill(passable, true); buildFlagMaps(); }
+		TestLevel() { setSize(32, 32); mobs().clear(); heaps = new SparseArray<>(); blobs = new HashMap<>(); plants = new SparseArray<>(); traps = new SparseArray<>(); transitions = new ArrayList<>(); customTiles = new ArrayList<>(); customTerrain = new ArrayList<>(); customWalls = new ArrayList<>(); Arrays.fill(map, Terrain.EMPTY); Arrays.fill(passable, true); buildFlagMaps(); }
 		@Override protected boolean build() { return true; } @Override protected void createMobs() { } @Override protected void createItems() { } @Override public String tilesTex() { return null; } @Override public String waterTex() { return null; }
 	}
 	private SpsBasePetsTest() { }

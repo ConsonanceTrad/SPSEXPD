@@ -79,7 +79,7 @@ public class Pill extends Item {
 	}
 
 	protected Mob[] mobs() {
-		return Dungeon.level.mobs.toArray(new Mob[0]);
+		return Dungeon.level.mobs().toArray(new Mob[0]);
 	}
 
 	@Override public boolean isIdentified() { return true; }

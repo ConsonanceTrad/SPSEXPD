@@ -197,7 +197,7 @@ public final class SpsTestTimeLoadoutTest {
 		ScrollOfDummy.MiniDummy dummy = (ScrollOfDummy.MiniDummy)spawn.invoke(null, 0, 30);
 		check(dummy != null && dummy.HT == 30 && dummy.HP == 30 && dummy.pos >= 0
 				&& dummy.pos < level.length(), "地图边缘没有安全生成30生命玩偶");
-		check(level.mobs.contains(dummy), "生成的玩偶没有加入地图");
+		check(level.mobs().contains(dummy), "生成的玩偶没有加入地图");
 		dummy.damage(99, hero);
 		check(dummy.HP == 28, "玩偶没有把正伤害固定为2");
 		dummy.defenseProc(hero, 7);
@@ -248,7 +248,7 @@ public final class SpsTestTimeLoadoutTest {
 		TestLevel() {
 			setSize(16, 16);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

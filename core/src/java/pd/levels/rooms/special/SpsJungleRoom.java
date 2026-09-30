@@ -62,7 +62,7 @@ public class SpsJungleRoom extends SpecialRoom {
 			for (int x = left + 1; x < right; x++) {
 				int cell = x + y * level.width();
 				if (level.map[cell] == Terrain.GRASS && level.heaps.get(cell) == null
-						&& level.plants.get(cell) == null && level.findMob(cell) == null) result.add(cell);
+						&& level.plants.get(cell) == null && level.mobs().findMob(cell) == null) result.add(cell);
 			}
 		}
 		return result;
@@ -72,7 +72,7 @@ public class SpsJungleRoom extends SpecialRoom {
 		ArrayList<Integer> result = grassCells(level);
 		result.removeIf(cell -> {
 			for (int offset : PathFinder.NEIGHBOURS9) {
-				if (level.findMob(cell + offset) != null) return true;
+				if (level.mobs().findMob(cell + offset) != null) return true;
 			}
 			return false;
 		});
@@ -82,7 +82,7 @@ public class SpsJungleRoom extends SpecialRoom {
 	private void placeMoss(Level level, int cell) {
 		Mob moss = new Greatmoss();
 		moss.pos = cell;
-		level.mobs.add(moss);
+		level.mobs().add(moss);
 		for (int offset : PathFinder.NEIGHBOURS8) {
 			int adjacent = cell + offset;
 			if (level.map[adjacent] == Terrain.GRASS) Painter.set(level, adjacent, Terrain.HIGH_GRASS);

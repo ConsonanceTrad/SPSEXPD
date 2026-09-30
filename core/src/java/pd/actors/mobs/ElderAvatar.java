@@ -135,7 +135,7 @@ public class ElderAvatar extends Mob {
 	private Obelisk findObelisk() {
 		Actor actor = Actor.findById(obeliskId);
 		if (actor instanceof Obelisk && ((Obelisk) actor).isAlive()) return (Obelisk) actor;
-		if (Dungeon.level != null) for (Mob mob : Dungeon.level.mobs) {
+		if (Dungeon.level != null) for (Mob mob : Dungeon.level.mobs()) {
 			if (mob instanceof Obelisk && ((Obelisk) mob).ownerId == id() && mob.isAlive()) {
 				obeliskId = mob.id();
 				return (Obelisk) mob;

@@ -47,7 +47,7 @@ public class ScrollOfLullaby extends Scroll {
 		if (curUser.sprite != null) curUser.sprite.centerEmitter().start( Speck.factory( Speck.NOTE ), 0.3f, 5 );
 		Sample.INSTANCE.play( Assets.Sounds.LULLABY );
 
-		for (Mob mob : Dungeon.level.mobs.toArray( new Mob[0] )) {
+		for (Mob mob : Dungeon.level.mobs().toArray( new Mob[0] )) {
 			if (Dungeon.level.heroFOV[mob.pos]) {
 				Buff.affect( mob, Drowsy.class, Drowsy.DURATION );
 				Buff.affect(mob, AttackDown.class, 10f).level(50);
@@ -69,7 +69,7 @@ public class ScrollOfLullaby extends Scroll {
 	@Override
 	public void empoweredRead() {
 		doRead();
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (Dungeon.level.heroFOV[mob.pos]) {
 				Buff drowsy = mob.buff(Drowsy.class);
 				if (drowsy != null) drowsy.act();

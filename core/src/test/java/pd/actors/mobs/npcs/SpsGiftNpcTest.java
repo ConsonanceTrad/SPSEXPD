@@ -187,14 +187,14 @@ public final class SpsGiftNpcTest {
 		Dungeon.branch = 0;
 		Dungeon.depth = 0;   //SPS: 0 层为带商店的特殊初始层
 		TestLevel shop = paintTent();
-		check(shop.mobs.size() == 1, "商店层帐篷没有生成一名居民");
-		for (Mob mob : shop.mobs) check(mob instanceof GiftNpc, "商店层帐篷生成了错误居民");
+		check(shop.mobs().size() == 1, "商店层帐篷没有生成一名居民");
+		for (Mob mob : shop.mobs()) check(mob instanceof GiftNpc, "商店层帐篷生成了错误居民");
 
 		Dungeon.depth = 2;
 		TestLevel ordinary = paintTent();
-		check(ordinary.mobs.size() == 2, "普通层帐篷精英数量错误");
+		check(ordinary.mobs().size() == 2, "普通层帐篷精英数量错误");
 		HashSet<Integer> positions = new HashSet<>();
-		for (Mob guard : ordinary.mobs) {
+		for (Mob guard : ordinary.mobs()) {
 			check(guard instanceof SpsExitMobs.ExitGuard && guard.buff(ExProtect.class) != null,
 					"普通层帐篷没有生成受精英保护的旧版守卫");
 			check(positions.add(guard.pos), "普通层帐篷守卫位置重叠");
@@ -301,7 +301,7 @@ public final class SpsGiftNpcTest {
 
 	private static final class TestLevel extends Level {
 		TestLevel() {
-			setSize(32, 32); mobs = new HashSet<>(); heaps = new SparseArray<>(); blobs = new HashMap<>();
+			setSize(32, 32); mobs().clear(); heaps = new SparseArray<>(); blobs = new HashMap<>();
 			plants = new SparseArray<Plant>(); traps = new SparseArray<>(); transitions = new ArrayList<>();
 			customTiles = new ArrayList<>(); customTerrain = new ArrayList<>(); customWalls = new ArrayList<>();
 			Arrays.fill(map, Terrain.EMPTY); Arrays.fill(passable, true); buildFlagMaps();

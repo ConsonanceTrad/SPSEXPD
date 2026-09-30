@@ -414,7 +414,7 @@ public final class SpsEnhancedPlantsTest {
 		TestLevel(int width, int height) {
 			setSize(width, height);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<>();

@@ -227,7 +227,7 @@ public final class SpsTransmutationWellTest {
 		RecordingLevel(int width, int height) {
 			setSize(width, height);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

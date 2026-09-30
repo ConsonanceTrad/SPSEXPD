@@ -390,7 +390,7 @@ public class Imp extends NPC {
 			if (cell == -1) return false;
 
 			npc.pos = cell;
-			level.mobs.add(npc);
+			level.mobs().add(npc);
 			spawned = true;
 			oldQuest = true;
 			alternative = Random.Int(2) == 0;

@@ -447,7 +447,7 @@ public final class SpsLegacyUtilityItemsTest {
 		TestLevel() {
 			setSize(16, 16);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

@@ -78,7 +78,7 @@ public class RegionDecoPatchEntranceRoom extends RegionDecoPatchRoom {
 
 			//need extra logic here as these rooms can spawn small and cramped in very rare cases
 			if (tries-- > 0){
-				valid = level.map[entrance] != Terrain.REGION_DECO && level.findMob(entrance) == null;
+				valid = level.map[entrance] != Terrain.REGION_DECO && level.mobs().findMob(entrance) == null;
 			} else {
 				valid = false;
 				for (int i : PathFinder.NEIGHBOURS4){
@@ -86,7 +86,7 @@ public class RegionDecoPatchEntranceRoom extends RegionDecoPatchRoom {
 						valid = true;
 					}
 				}
-				valid = valid && level.findMob(entrance) == null;
+				valid = valid && level.mobs().findMob(entrance) == null;
 			}
 		} while (!valid);
 		Painter.set( level, entrance, Terrain.ENTRANCE );

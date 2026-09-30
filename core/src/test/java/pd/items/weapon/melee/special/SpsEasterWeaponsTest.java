@@ -178,7 +178,7 @@ public final class SpsEasterWeaponsTest {
 		listener.pos = 45;
 		listener.HP = listener.HT = 100_000;
 		Actor.add(listener);
-		fireLevel.mobs.add(listener);
+		fireLevel.mobs().add(listener);
 		FireCracker cracker = new FireCracker();
 		int splashHp = splash.HP;
 		for (int i = 0; i < 1_000 && (listener.beckons == 0
@@ -330,7 +330,7 @@ public final class SpsEasterWeaponsTest {
 	private static final class TestLevel extends Level {
 		TestLevel() {
 			setSize(8, 8);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

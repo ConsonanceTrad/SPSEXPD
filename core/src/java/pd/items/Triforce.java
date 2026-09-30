@@ -49,7 +49,7 @@ public class Triforce extends Item {
 		PocketBallFull.removePet(hero);
 		int arenaBranch = AdventureJournal.branchFor(DESTINATION);
 		if (Dungeon.branch == arenaBranch) {
-			for (Mob mob : Dungeon.level.mobs) {
+			for (Mob mob : Dungeon.level.mobs()) {
 				if (mob instanceof ShadowYog && mob.isAlive()) {
 					hero.spend(TIME_TO_USE);
 					GLog.w(Messages.get(Item.class, "boss_first"));

@@ -111,14 +111,14 @@ public class SpringFestivalLevel extends Level {
 		for (int i = 0; i < RESTORED_RESIDENTS.length; i++) {
 			TownNpc resident = TownNpc.create(RESTORED_RESIDENTS[i]);
 			resident.pos = RESTORED_RESIDENT_CELLS[i];
-			mobs.add(resident);
+			mobs().add(resident);
 		}
 		TestMob scarecrow = new TestMob();
 		scarecrow.pos = 15 + WIDTH * 3;
-		mobs.add(scarecrow);
+		mobs().add(scarecrow);
 		YearBeast2 yearBeast = new YearBeast2();
 		yearBeast.pos = 6 + WIDTH * 44;
-		mobs.add(yearBeast);
+		mobs().add(yearBeast);
 	}
 
 	@Override

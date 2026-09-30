@@ -185,12 +185,12 @@ public class FieldBossLevel extends Level {
 		locked = !bossDefeated();
 		if (enteredArena && !bossDefeated()) {
 			boolean found = false;
-			for (Mob mob : mobs) if (mob instanceof GnollKing) { found = true; break; }
+			for (Mob mob : mobs()) if (mob instanceof GnollKing) { found = true; break; }
 			if (!found) {
 				GnollKing king = new GnollKing();
 				king.pos = safeSpawnCell(entranceCell - 5 * width());
 				king.state = king.HUNTING;
-				mobs.add(king);
+				mobs().add(king);
 			}
 		}
 	}

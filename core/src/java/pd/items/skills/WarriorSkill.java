@@ -39,7 +39,7 @@ public class WarriorSkill extends ClassSkill {
 
 	@Override public void doSpecial2() {
 		int seen = 0;
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (!visibleMob(mob, Integer.MAX_VALUE)) continue;
 			seen++;
 			if (Dungeon.level.distance(curUser.pos, mob.pos) <= 3) {
@@ -59,7 +59,7 @@ public class WarriorSkill extends ClassSkill {
 	}
 
 	@Override public void doSpecial3() {
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (mob instanceof LegacyPet) mob.HP = Math.min(mob.HT, mob.HP + mob.HT / 2);
 		}
 		Buff.affect(curUser, ShieldArmor.class).level(curUser.HT / 2);

@@ -53,7 +53,7 @@ public class SpsWishPoolRoom extends SpecialRoom {
 
 		TownNpc hmdzl = new TownNpc().configure(TownNpc.Spec.HMDZL001);
 		hmdzl.pos = center;
-		level.mobs.add(hmdzl);
+		level.mobs().add(hmdzl);
 
 		Random.shuffle(water);
 		for (int cell : water) level.drop(randomDew(), cell);
@@ -63,7 +63,7 @@ public class SpsWishPoolRoom extends SpecialRoom {
 			for (int x = left + 1; x < right; x++) {
 				int cell = x + y * level.width();
 				if (level.map[cell] == Terrain.EMPTY_SP && level.heaps.get(cell) == null
-						&& level.findMob(cell) == null) rewardCells.add(cell);
+						&& level.mobs().findMob(cell) == null) rewardCells.add(cell);
 			}
 		}
 		if (!rewardCells.isEmpty()) level.drop(Generator.random(), Random.element(rewardCells));

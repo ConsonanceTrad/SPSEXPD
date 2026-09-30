@@ -137,7 +137,7 @@ public class VaultEntranceRoom extends VaultRoom {
 		int entrance;
 		do {
 			entrance = level.pointToCell(center());
-		} while (level.findMob(entrance) != null);
+		} while (level.mobs().findMob(entrance) != null);
 
 		level.transitions.add(new LevelTransition(level,
 				entrance,

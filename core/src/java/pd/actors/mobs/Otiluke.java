@@ -70,7 +70,7 @@ public class Otiluke extends Mob {
 	public void damage(int damage, Object source) {
 		if (state == PASSIVE) state = HUNTING;
 		if (state == HUNTING) {
-			for (Mob mob : Dungeon.level.mobs) {
+			for (Mob mob : Dungeon.level.mobs()) {
 				if (mob instanceof MineSentinel && mob.state == PASSIVE && Random.Int(20) < 2) {
 					mob.damage(1, this);
 					break;

@@ -164,7 +164,7 @@ public class SpsDM300 extends Mob {
 
 	private static void finishFight(int pos, boolean towerWasKilled) {
 		if (Dungeon.level == null) return;
-		for (Mob mob : Dungeon.level.mobs) {
+		for (Mob mob : Dungeon.level.mobs()) {
 			if ((mob instanceof SpsDM300 || mob instanceof Tower) && mob.isAlive()) return;
 		}
 		if (towerWasKilled) Dungeon.level.drop(new Gold(Random.IntRange(3000, 6000)), pos).sprite.drop();
@@ -217,7 +217,7 @@ public class SpsDM300 extends Mob {
 		@Override
 		public void damage(int damage, Object src) {
 			if (Dungeon.level != null) {
-				for (Mob mob : Dungeon.level.mobs) mob.beckon(Dungeon.hero == null ? pos : Dungeon.hero.pos);
+				for (Mob mob : Dungeon.level.mobs()) mob.beckon(Dungeon.hero == null ? pos : Dungeon.hero.pos);
 			}
 			if (sprite != null) {
 				sprite.centerEmitter().start(Speck.factory(Speck.SCREAM), 0.3f, 3);
@@ -231,7 +231,7 @@ public class SpsDM300 extends Mob {
 		protected boolean act() {
 			switch (Random.Int(4)) {
 				case 1:
-					if (Dungeon.level != null) for (Mob mob : Dungeon.level.mobs) {
+					if (Dungeon.level != null) for (Mob mob : Dungeon.level.mobs()) {
 						if (mob instanceof Tower && mob != this && mob.sprite != null) {
 							mob.sprite.centerEmitter().burst(SparkParticle.FACTORY, 3);
 							mob.sprite.flash();
@@ -239,7 +239,7 @@ public class SpsDM300 extends Mob {
 					}
 					break;
 				case 2:
-					if (Dungeon.level != null && Dungeon.level.mobs.size() < 10) {
+					if (Dungeon.level != null && Dungeon.level.mobs().size() < 10) {
 						pd.actors.mobs.BrokenRobot.spawnAround(pos);
 						GLog.n(Messages.get(this, "robots"));
 					}

@@ -163,17 +163,17 @@ public final class SpsAmmoTest {
 		TestMob attacker = new TestMob(100);
 		TestMob ordinary = new TestMob(73);
 		ordinary.pos = 27;
-		level.mobs.add(ordinary);
+		level.mobs().add(ordinary);
 		check(EvolveAmmo.transform(attacker, ordinary), "退化弹不能转换普通怪物");
-		check(!level.mobs.contains(ordinary), "退化弹转换后仍残留原怪物");
-		Mob result = level.findMob(27);
+		check(!level.mobs().contains(ordinary), "退化弹转换后仍残留原怪物");
+		Mob result = level.mobs().findMob(27);
 		check(result instanceof NormalCell && result.HP == 73 && result.HT == 73,
 				"退化弹没有生成等生命值的生命细胞");
 
 		TestBoss boss = new TestBoss();
 		boss.pos = 28;
-		level.mobs.add(boss);
-		check(!EvolveAmmo.transform(attacker, boss) && level.mobs.contains(boss),
+		level.mobs().add(boss);
+		check(!EvolveAmmo.transform(attacker, boss) && level.mobs().contains(boss),
 				"退化弹错误转换了首领");
 	}
 
@@ -238,7 +238,7 @@ public final class SpsAmmoTest {
 	private static final class TestLevel extends Level {
 		TestLevel() {
 			setSize(8, 8);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new render.utils.data.SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new render.utils.data.SparseArray<Plant>();

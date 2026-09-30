@@ -153,7 +153,7 @@ public class SentryRoom extends SpecialRoom {
 		sentry.room = new EmptyRoom();
 		sentry.room.set((Rect)this);
 		sentry.initialChargeDelay = sentry.curChargeDelay = dangerDist / 3f + 0.1f;
-		level.mobs.add( sentry );
+		level.mobs().add( sentry );
 
 		Painter.set(level, treasurePos, Terrain.PEDESTAL);
 		level.drop( prize( level ), level.pointToCell(treasurePos) ).type = Heap.Type.CHEST;

@@ -29,7 +29,7 @@ public class ScrollOfPsionicBlast extends Scroll {
 		Invisibility.dispel();
 
 		int people = 0;
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			mob.beckon(curUser.pos);
 			if (!(mob instanceof NPC)) people++;
 		}
@@ -46,7 +46,7 @@ public class ScrollOfPsionicBlast extends Scroll {
 		Sample.INSTANCE.play(Assets.Sounds.BLAST);
 		Invisibility.dispel();
 
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (Dungeon.level.heroFOV[mob.pos]) mob.damage(mob.HT, this);
 		}
 

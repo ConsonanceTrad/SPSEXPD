@@ -264,7 +264,7 @@ public final class SpsFixedLevelTest {
 				ChaosLevel level = new ChaosLevel();
 				level.transitions = new ArrayList<>();
 				level.customTiles = new ArrayList<>();
-				level.mobs = new HashSet<>();
+				level.mobs().clear();
 				level.heaps = new SparseArray<>();
 				level.blobs = new java.util.HashMap<>();
 				level.plants = new SparseArray<>();
@@ -312,7 +312,7 @@ public final class SpsFixedLevelTest {
 			level.customTiles = new ArrayList<>();
 			level.customTerrain = new ArrayList<>();
 			level.customWalls = new ArrayList<>();
-			level.mobs = new HashSet<>();
+			level.mobs().clear();
 			level.heaps = new SparseArray<>();
 			level.blobs = new java.util.HashMap<>();
 			level.plants = new SparseArray<>();
@@ -324,12 +324,12 @@ public final class SpsFixedLevelTest {
 			check(level.build(), "Chaos怪物生成测试地图构建失败");
 			level.buildFlagMaps();
 			Dungeon.level = level;
-			HashSet<Mob> existingMobs = new HashSet<>(level.mobs);
+			HashSet<Mob> existingMobs = new HashSet<>(level.mobs().all());
 			int existing = existingMobs.size();
 			level.createMobs();
-			int generated = level.mobs.size() - existing;
+			int generated = level.mobs().size() - existing;
 			check(generated >= 16 && generated <= 18, "Chaos层旧版怪物数量错误：" + generated);
-			for (Mob mob : level.mobs) {
+			for (Mob mob : level.mobs()) {
 				if (!existingMobs.contains(mob)) {
 					check(poolTypes.contains(mob.getClass()), "Chaos层生成了旧版池外怪物：" + mob.getClass());
 				}
@@ -352,7 +352,7 @@ public final class SpsFixedLevelTest {
 			RoomOfZotLevel level = new RoomOfZotLevel();
 			level.transitions = new ArrayList<>();
 			level.customTiles = new ArrayList<>();
-			level.mobs = new HashSet<>();
+			level.mobs().clear();
 			level.heaps = new SparseArray<>();
 			check(level.build(), "Zot藏宝屋构建失败");
 			check(level.width() == 48 && level.height() == 48, "Zot藏宝屋必须为48x48");
@@ -368,7 +368,7 @@ public final class SpsFixedLevelTest {
 				}
 			}
 			level.createMobs();
-			check(level.mobs.isEmpty(), "Zot藏宝屋旧版空配置不应生成羊或敌人");
+			check(level.mobs().isEmpty(), "Zot藏宝屋旧版空配置不应生成羊或敌人");
 			level.createItems();
 			int badges = 0;
 			int chests = 0;
@@ -402,7 +402,7 @@ public final class SpsFixedLevelTest {
 				RoomOfZotLevel revisit = new RoomOfZotLevel();
 				revisit.transitions = new ArrayList<>();
 				revisit.customTiles = new ArrayList<>();
-				revisit.mobs = new HashSet<>();
+				revisit.mobs().clear();
 				revisit.heaps = new SparseArray<>();
 				check(revisit.build(), "Zot藏宝屋重访构建失败，种子=" + seed);
 				check(!revisit.firstVisitForTesting(), "Zot藏宝屋完成后仍按首次进入处理");
@@ -432,7 +432,7 @@ public final class SpsFixedLevelTest {
 				ThiefCatchLevel level = new ThiefCatchLevel();
 				level.transitions = new ArrayList<>();
 				level.customTiles = new ArrayList<>();
-				level.mobs = new HashSet<>();
+				level.mobs().clear();
 				level.heaps = new SparseArray<>();
 				level.blobs = new java.util.HashMap<>();
 				level.traps = new SparseArray<>();
@@ -451,7 +451,7 @@ public final class SpsFixedLevelTest {
 				check(countMobs(level, BanditKing.class) == 1,
 						"盗贼追捕关必须且只能生成一名蓝衣神偷");
 				Mob king = null;
-				for (Mob mob : level.mobs) if (mob instanceof BanditKing) king = mob;
+				for (Mob mob : level.mobs()) if (mob instanceof BanditKing) king = mob;
 				check(king != null && reachable(level, level.entrance(), true)[king.pos],
 						"盗贼追捕关目标无法从入口抵达");
 				int entrance = level.entrance();
@@ -475,7 +475,7 @@ public final class SpsFixedLevelTest {
 			DragonCaveLevel level = new DragonCaveLevel();
 			level.transitions = new ArrayList<>();
 			level.customTiles = new ArrayList<>();
-			level.mobs = new HashSet<>();
+			level.mobs().clear();
 			level.heaps = new SparseArray<>();
 			level.blobs = new java.util.HashMap<>();
 			level.traps = new SparseArray<>();
@@ -508,7 +508,7 @@ public final class SpsFixedLevelTest {
 			DragonCaveLevel revisit = new DragonCaveLevel();
 			revisit.transitions = new ArrayList<>();
 			revisit.customTiles = new ArrayList<>();
-			revisit.mobs = new HashSet<>();
+			revisit.mobs().clear();
 			revisit.heaps = new SparseArray<>();
 			revisit.blobs = new java.util.HashMap<>();
 			revisit.traps = new SparseArray<>();
@@ -559,7 +559,7 @@ public final class SpsFixedLevelTest {
 		ShadowEaterLevel level = new ShadowEaterLevel();
 		level.transitions = new ArrayList<>();
 		level.customTiles = new ArrayList<>();
-		level.mobs = new HashSet<>();
+		level.mobs().clear();
 		level.heaps = new SparseArray<>();
 		level.blobs = new java.util.HashMap<>();
 		level.traps = new SparseArray<>();
@@ -576,8 +576,8 @@ public final class SpsFixedLevelTest {
 				&& level.customTiles.get(0) instanceof SpsLegacyLevelVisual,
 				"暗噬避难所原始城镇图层缺失");
 		level.createItems();
-		check(level.findMob(ShadowEaterLevel.PAINTER_POS) instanceof TownNpc
-				&& ((TownNpc) level.findMob(ShadowEaterLevel.PAINTER_POS)).spec() == TownNpc.Spec.NUT_PAINTER,
+		check(level.mobs().findMob(ShadowEaterLevel.PAINTER_POS) instanceof TownNpc
+				&& ((TownNpc) level.mobs().findMob(ShadowEaterLevel.PAINTER_POS)).spec() == TownNpc.Spec.NUT_PAINTER,
 				"暗噬避难所坚果教教主缺失或坐标错误");
 		Dungeon.level = null;
 		Dungeon.branch = 0;
@@ -589,7 +589,7 @@ public final class SpsFixedLevelTest {
 		PotLevel level = new PotLevel();
 		level.transitions = new ArrayList<>();
 		level.customTiles = new ArrayList<>();
-		level.mobs = new HashSet<>();
+		level.mobs().clear();
 		level.heaps = new SparseArray<>();
 		level.blobs = new java.util.HashMap<>();
 		level.traps = new SparseArray<>();
@@ -623,7 +623,7 @@ public final class SpsFixedLevelTest {
 				ThiefBossLevel level = new ThiefBossLevel();
 				level.transitions = new ArrayList<>();
 				level.customTiles = new ArrayList<>();
-				level.mobs = new HashSet<>();
+				level.mobs().clear();
 				level.heaps = new SparseArray<>();
 				level.blobs = new java.util.HashMap<>();
 				level.traps = new SparseArray<>();
@@ -667,7 +667,7 @@ public final class SpsFixedLevelTest {
 					Dungeon.level = null;
 					Level level = variant == 0 ? new SkeletonBossLevel() : new CrabBossLevel();
 					level.transitions = new ArrayList<>(); level.customTiles = new ArrayList<>();
-					level.mobs = new HashSet<>(); level.heaps = new SparseArray<>();
+					level.mobs().clear(); level.heaps = new SparseArray<>();
 					level.blobs = new java.util.HashMap<>(); level.traps = new SparseArray<>();
 					boolean built = variant == 0 ? ((SkeletonBossLevel)level).build() : ((CrabBossLevel)level).build();
 					check(built && level.width() == 48 && level.height() == 48,
@@ -773,7 +773,7 @@ public final class SpsFixedLevelTest {
 		SpsHermitCrab crab = new SpsHermitCrab();
 		crab.pos = hero.pos + level.width();
 		crab.sprite = new SilentCharSprite();
-		level.mobs.add(crab);
+		level.mobs().add(crab);
 		Actor.add(crab);
 		crab.die(crab);
 
@@ -782,14 +782,14 @@ public final class SpsFixedLevelTest {
 				"寄居蟹死亡后必须在原地真实掉落水晶万能钥匙");
 		check(((GoldenSkeletonKey) heap.peek()).depth == 0,
 				"寄居蟹掉落的水晶万能钥匙必须可跨深度使用");
-		check(!level.mobs.contains(crab), "寄居蟹死亡后未从地图演员列表移除");
+		check(!level.mobs().contains(crab), "寄居蟹死亡后未从地图演员列表移除");
 	}
 
 	private static CrabBossLevel buildCrabBossLevelForInteraction() {
 		CrabBossLevel level = new InteractionCrabBossLevel();
 		level.transitions = new ArrayList<>();
 		level.customTiles = new ArrayList<>();
-		level.mobs = new HashSet<>();
+		level.mobs().clear();
 		level.heaps = new SparseArray<>();
 		level.blobs = new java.util.HashMap<>();
 		level.traps = new SparseArray<>();
@@ -828,7 +828,7 @@ public final class SpsFixedLevelTest {
 				TenguDenLevel level = new TenguDenLevel();
 				level.transitions = new ArrayList<>();
 				level.customTiles = new ArrayList<>();
-				level.mobs = new HashSet<>();
+				level.mobs().clear();
 				level.heaps = new SparseArray<>();
 				level.blobs = new java.util.HashMap<>();
 				level.traps = new SparseArray<>();
@@ -855,7 +855,7 @@ public final class SpsFixedLevelTest {
 				check(countMobs(level, TenguDen.class) == 1
 						&& countMobs(level, TownNpc.class) == 1,
 						"天狗隐匿处必须生成匿藏天狗与宝藏猎人，种子=" + seed);
-				for (Mob mob : level.mobs) {
+				for (Mob mob : level.mobs()) {
 					if (mob instanceof TownNpc) {
 						check(((TownNpc)mob).spec() == TownNpc.Spec.STORM_AND_RAIN,
 								"天狗宝箱密室NPC身份错误，种子=" + seed);
@@ -884,7 +884,7 @@ public final class SpsFixedLevelTest {
 				InfestBossLevel level = new InfestBossLevel();
 				level.transitions = new ArrayList<>();
 				level.customTiles = new ArrayList<>();
-				level.mobs = new HashSet<>();
+				level.mobs().clear();
 				level.heaps = new SparseArray<>();
 				level.blobs = new java.util.HashMap<>();
 				level.traps = new SparseArray<>();
@@ -910,9 +910,9 @@ public final class SpsFixedLevelTest {
 							"寄生虫巢残留墙内陷阱，种子=" + seed + "，格=" + trap.pos);
 				}
 				level.createMobs();
-				check(level.mobs.size() == InfestBossLevel.INITIAL_MOB_COUNT,
+				check(level.mobs().size() == InfestBossLevel.INITIAL_MOB_COUNT,
 						"寄生虫巢必须生成20个常驻怪，种子=" + seed);
-				for (Mob mob : level.mobs) {
+				for (Mob mob : level.mobs()) {
 					check(mob instanceof GoldOrc || mob instanceof Fiend,
 							"寄生虫巢常驻怪类型错误，种子=" + seed);
 				}
@@ -946,7 +946,7 @@ public final class SpsFixedLevelTest {
 				SpsCavesBossLevel level = new SpsCavesBossLevel();
 				level.transitions = new ArrayList<>();
 				level.customTiles = new ArrayList<>();
-				level.mobs = new HashSet<>();
+				level.mobs().clear();
 				level.heaps = new SparseArray<>();
 				level.blobs = new java.util.HashMap<>();
 				level.traps = new SparseArray<>();
@@ -1051,7 +1051,7 @@ public final class SpsFixedLevelTest {
 				SpsCityBossLevel level = new SpsCityBossLevel();
 				level.transitions = new ArrayList<>();
 				level.customTiles = new ArrayList<>();
-				level.mobs = new HashSet<>();
+				level.mobs().clear();
 				level.heaps = new SparseArray<>();
 				level.blobs = new java.util.HashMap<>();
 				level.traps = new SparseArray<>();
@@ -1143,7 +1143,7 @@ public final class SpsFixedLevelTest {
 				SpsHallsBossLevel level = new SpsHallsBossLevel();
 				level.transitions = new ArrayList<>();
 				level.customTiles = new ArrayList<>();
-				level.mobs = new HashSet<>();
+				level.mobs().clear();
 				level.heaps = new SparseArray<>();
 				level.blobs = new java.util.HashMap<>();
 				level.traps = new SparseArray<>();
@@ -1236,7 +1236,7 @@ public final class SpsFixedLevelTest {
 				level.customTiles = new ArrayList<>();
 				level.customTerrain = new ArrayList<>();
 				level.customWalls = new ArrayList<>();
-				level.mobs = new HashSet<>();
+				level.mobs().clear();
 				level.heaps = new SparseArray<>();
 				level.blobs = new java.util.HashMap<>();
 				level.plants = new SparseArray<>();
@@ -1581,7 +1581,7 @@ public final class SpsFixedLevelTest {
 					expected = PlagueDoctor.class;
 				}
 				orphan.pos = SpsFixedBossLevel.BOSS_CELL + 1;
-				source.mobs.add(orphan);
+				source.mobs().add(orphan);
 				source.locked = true;
 				Level.set(source.entrance(), Terrain.WALL_DECO, source);
 
@@ -1609,7 +1609,7 @@ public final class SpsFixedLevelTest {
 		level.customTiles = new ArrayList<>();
 		level.customTerrain = new ArrayList<>();
 		level.customWalls = new ArrayList<>();
-		level.mobs = new HashSet<>();
+		level.mobs().clear();
 		level.heaps = new SparseArray<>();
 		level.blobs = new java.util.HashMap<>();
 		level.plants = new SparseArray<>();
@@ -1628,7 +1628,7 @@ public final class SpsFixedLevelTest {
 				ZotBossLevel level = new ZotBossLevel();
 				level.transitions = new ArrayList<>();
 				level.customTiles = new ArrayList<>();
-				level.mobs = new HashSet<>();
+				level.mobs().clear();
 				level.heaps = new SparseArray<>();
 				level.blobs = new java.util.HashMap<>();
 				check(level.build(), "Zot监牢构建失败，种子=" + seed);
@@ -1758,16 +1758,16 @@ public final class SpsFixedLevelTest {
 			live.map[trigger] = Terrain.EMPTY;
 			live.pressCell(trigger);
 			Zot spawned = null;
-			for (Mob mob : live.mobs) if (mob instanceof Zot) spawned = (Zot) mob;
+			for (Mob mob : live.mobs()) if (mob instanceof Zot) spawned = (Zot) mob;
 			check(spawned != null && spawned.pos != hero.pos, "踏出中央监牢没有生成Zot");
 
-			live.mobs.remove(spawned);
+			live.mobs().remove(spawned);
 			Bundle interrupted = new Bundle();
 			live.storeInBundle(interrupted);
 			ZotBossLevel recovered = new ZotBossLevel();
 			recovered.restoreFromBundle(interrupted);
 			Zot recoveredZot = null;
-			for (Mob mob : recovered.mobs) if (mob instanceof Zot) recoveredZot = (Zot) mob;
+			for (Mob mob : recovered.mobs()) if (mob instanceof Zot) recoveredZot = (Zot) mob;
 			check(recoveredZot != null, "Zot战中坏档没有补回缺失首领");
 
 			Dungeon.level = recovered;
@@ -1777,12 +1777,12 @@ public final class SpsFixedLevelTest {
 			ZotPhase cleanupPhase = new ZotPhase();
 			cleanupPhase.pos = recovered.safeBossCell(recoveredZot.pos + 1);
 			cleanupPhase.sprite = new SilentCharSprite();
-			recovered.mobs.add(cleanupPhase);
+			recovered.mobs().add(cleanupPhase);
 			Actor.add(cleanupPhase);
 			MagicEye cleanupEye = new MagicEye();
 			cleanupEye.pos = recovered.safeBossCell(recoveredZot.pos - 1);
 			cleanupEye.sprite = new SilentCharSprite();
-			recovered.mobs.add(cleanupEye);
+			recovered.mobs().add(cleanupEye);
 			Actor.add(cleanupEye);
 			int deathCell = recoveredZot.pos;
 			recoveredZot.sprite = new SilentCharSprite();
@@ -1792,7 +1792,7 @@ public final class SpsFixedLevelTest {
 			check(Dungeon.zotKilled && !recovered.locked
 					&& soul != null && soul.items.stream().anyMatch(item -> item instanceof SoulCollect),
 					"Zot真实死亡没有解锁监牢或掉落灵魂收集石");
-			for (Mob mob : recovered.mobs) {
+			for (Mob mob : recovered.mobs()) {
 				check(!(mob instanceof ZotPhase) && !(mob instanceof MagicEye),
 						"Zot死亡后仍残留虚像或魔眼");
 			}
@@ -1830,7 +1830,7 @@ public final class SpsFixedLevelTest {
 			level.customTiles = new ArrayList<>();
 			level.customTerrain = new ArrayList<>();
 			level.customWalls = new ArrayList<>();
-			level.mobs = new HashSet<>();
+			level.mobs().clear();
 			level.heaps = new SparseArray<>();
 			level.blobs = new java.util.HashMap<>();
 			level.plants = new SparseArray<>();
@@ -1874,17 +1874,17 @@ public final class SpsFixedLevelTest {
 			Actor.add(hero);
 			level.pressCell(hero.pos);
 			GnollKing spawned = null;
-			for (Mob mob : level.mobs) if (mob instanceof GnollKing) spawned = (GnollKing) mob;
+			for (Mob mob : level.mobs()) if (mob instanceof GnollKing) spawned = (GnollKing) mob;
 			check(spawned != null && spawned.pos / level.width() < 17 && spawned.pos != hero.pos,
 					"踏入原野主战区没有在旧版战区随机生成豺狼王");
 
-			level.mobs.remove(spawned);
+			level.mobs().remove(spawned);
 			Bundle interrupted = new Bundle();
 			level.storeInBundle(interrupted);
 			FieldBossLevel recovered = new FieldBossLevel();
 			recovered.restoreFromBundle(interrupted);
 			GnollKing recoveredKing = null;
-			for (Mob mob : recovered.mobs) if (mob instanceof GnollKing) recoveredKing = (GnollKing) mob;
+			for (Mob mob : recovered.mobs()) if (mob instanceof GnollKing) recoveredKing = (GnollKing) mob;
 			check(recoveredKing != null, "原野首领战坏档没有补回缺失的豺狼王");
 
 			Dungeon.level = recovered;
@@ -1930,7 +1930,7 @@ public final class SpsFixedLevelTest {
 			level.customTiles = new ArrayList<>();
 			level.customTerrain = new ArrayList<>();
 			level.customWalls = new ArrayList<>();
-			level.mobs = new HashSet<>();
+			level.mobs().clear();
 			level.heaps = new SparseArray<>();
 			level.blobs = new java.util.HashMap<>();
 			level.plants = new SparseArray<>();
@@ -1958,9 +1958,9 @@ public final class SpsFixedLevelTest {
 				check(found, "BossRush第" + (lane + 1) + "条纵向通道缺失");
 			}
 			level.createMobs();
-			check(level.mobs.size() == 1 && level.mobs.iterator().next() instanceof Dragonking,
+			check(level.mobs().size() == 1 && level.mobs().iterator().next() instanceof Dragonking,
 					"BossRush首战必须为异界龙王");
-			Dragonking dragon = (Dragonking) level.mobs.iterator().next();
+			Dragonking dragon = (Dragonking) level.mobs().iterator().next();
 			check(dragon.HT == 100 && dragon.defenseSkill == 0 && dragon.EXP == 1,
 					"异界龙王旧版基础数值错误");
 			GoldenSkeletonKey dragonKey = new TestDragonking().legacyKey();
@@ -1975,10 +1975,10 @@ public final class SpsFixedLevelTest {
 					&& new UIcecorps2().HT == 1500 && new UYog().HT == 1000 && new UAmulet().HT == 1000,
 					"BossRush后续首领生命值错误");
 
-			level.mobs.clear();
+			level.mobs().clear();
 			UDM300 savedBoss = new UDM300();
 			savedBoss.pos = BossRushLevel.ENTRANCE;
-			level.mobs.add(savedBoss);
+			level.mobs().add(savedBoss);
 			Bundle legacy = new Bundle();
 			level.storeInBundle(legacy);
 			legacy.remove("boss_stage");
@@ -2009,7 +2009,7 @@ public final class SpsFixedLevelTest {
 			live.customTiles = new ArrayList<>();
 			live.customTerrain = new ArrayList<>();
 			live.customWalls = new ArrayList<>();
-			live.mobs = new HashSet<>();
+			live.mobs().clear();
 			live.heaps = new SparseArray<>();
 			live.blobs = new java.util.HashMap<>();
 			live.plants = new SparseArray<>();
@@ -2021,9 +2021,9 @@ public final class SpsFixedLevelTest {
 			Actor.add(hero);
 			live.createMobs();
 			for (int stage = 0; stage < expected.length; stage++) {
-				check(live.mobs.size() == 1,
-						"BossRush第" + stage + "阶段首领数量错误：" + live.mobs.size());
-				Mob boss = live.mobs.iterator().next();
+				check(live.mobs().size() == 1,
+						"BossRush第" + stage + "阶段首领数量错误：" + live.mobs().size());
+				Mob boss = live.mobs().iterator().next();
 				check(boss.getClass() == expected[stage],
 						"BossRush真实死亡链第" + stage + "阶段类型错误：" + boss.getClass());
 				boss.sprite = new SilentCharSprite();
@@ -2032,7 +2032,7 @@ public final class SpsFixedLevelTest {
 				check(live.bossStage() == stage + 1,
 						"BossRush真实死亡后阶段未推进，阶段=" + stage);
 			}
-			check(live.mobs.isEmpty(), "BossRush最终首领死亡后仍残留阶段首领");
+			check(live.mobs().isEmpty(), "BossRush最终首领死亡后仍残留阶段首领");
 			check(live.completed() && !live.locked
 					&& live.map[live.arenaExit()] == Terrain.UNLOCKED_EXIT,
 					"BossRush九战结束后未解锁真实出口");
@@ -2213,7 +2213,7 @@ public final class SpsFixedLevelTest {
 			level.customTiles = new ArrayList<>();
 			level.customTerrain = new ArrayList<>();
 			level.customWalls = new ArrayList<>();
-			level.mobs = new HashSet<>();
+			level.mobs().clear();
 			level.heaps = new SparseArray<>();
 			level.blobs = new java.util.HashMap<>();
 			level.plants = new SparseArray<>();
@@ -2263,7 +2263,7 @@ public final class SpsFixedLevelTest {
 			check(afterPortal[SokobanIntroLevel.TOWEL_PRIZE_CELL], "推箱第一关毛巾掉落点经传送门不可达");
 
 			level.createMobs();
-			check(level.mobs.size() == 19, "推箱第一关绵羊总数错误");
+			check(level.mobs().size() == 19, "推箱第一关绵羊总数错误");
 			checkMobCount(level, SheepSokoban.class, 5);
 			checkMobCount(level, SheepSokobanCorner.class, 2);
 			checkMobCount(level, SheepSokobanSwitch.class, 8);
@@ -2322,7 +2322,7 @@ public final class SpsFixedLevelTest {
 		SokobanCastle level = new SokobanCastle();
 		level.transitions = new ArrayList<>();
 		level.customTiles = new ArrayList<>();
-		level.mobs = new HashSet<>();
+		level.mobs().clear();
 		level.heaps = new SparseArray<>();
 		check(level.build(), "SokobanCastle构建失败");
 		check(level.width() == 48 && level.height() == 48, "推箱城堡必须为48x48");
@@ -2388,7 +2388,7 @@ public final class SpsFixedLevelTest {
 		SokobanCastle revisit = new SokobanCastle();
 		revisit.transitions = new ArrayList<>();
 		revisit.customTiles = new ArrayList<>();
-		revisit.mobs = new HashSet<>();
+		revisit.mobs().clear();
 		revisit.heaps = new SparseArray<>();
 		check(revisit.build(), "推箱城堡重访构建失败");
 		check(!revisit.hasBonusPrizes(), "推箱城堡完成后仍保留首次限定奖励池");
@@ -2418,7 +2418,7 @@ public final class SpsFixedLevelTest {
 		SokobanTeleportLevel level = new SokobanTeleportLevel();
 		level.transitions = new ArrayList<>();
 		level.customTiles = new ArrayList<>();
-		level.mobs = new HashSet<>();
+		level.mobs().clear();
 		level.heaps = new SparseArray<>();
 		check(level.build(), "SokobanTeleportLevel构建失败");
 		check(level.width() == 48 && level.height() == 48, "推箱传送关必须为48x48");
@@ -2460,7 +2460,7 @@ public final class SpsFixedLevelTest {
 		SokobanPuzzlesLevel level = new SokobanPuzzlesLevel();
 		level.transitions = new ArrayList<>();
 		level.customTiles = new ArrayList<>();
-		level.mobs = new HashSet<>();
+		level.mobs().clear();
 		level.heaps = new SparseArray<>();
 		check(level.build(), "SokobanPuzzlesLevel构建失败");
 		check(level.width() == 48 && level.height() == 48, "推箱谜题集必须为48x48");
@@ -2595,7 +2595,7 @@ public final class SpsFixedLevelTest {
 			ordinary.pos = ordinaryChange;
 			level.afterSheepMoved(ordinary);
 			check(level.map[ordinaryChange] == Terrain.INACTIVE_TRAP
-					&& level.findMob(ordinaryChange) instanceof SheepSokobanCorner,
+					&& level.mobs().findMob(ordinaryChange) instanceof SheepSokobanCorner,
 					"普通羊踩变形陷阱后未替换为斜推羊");
 
 			for (int cell = 0; cell < level.length(); cell++) {
@@ -2665,7 +2665,7 @@ public final class SpsFixedLevelTest {
 		level.customTiles = new ArrayList<>();
 		level.customTerrain = new ArrayList<>();
 		level.customWalls = new ArrayList<>();
-		level.mobs = new HashSet<>();
+		level.mobs().clear();
 		level.heaps = new SparseArray<>();
 		level.blobs = new java.util.HashMap<>();
 		level.plants = new SparseArray<>();
@@ -2692,7 +2692,7 @@ public final class SpsFixedLevelTest {
 		TownLevel level = new TownLevel();
 		level.transitions = new ArrayList<>();
 		level.customTiles = new ArrayList<>();
-		level.mobs = new HashSet<>();
+		level.mobs().clear();
 		level.heaps = new SparseArray<>();
 		check(level.build(), "TownLevel构建失败");
 		check(level.width() == 48 && level.height() == 48, "城镇必须为48x48");
@@ -2759,25 +2759,25 @@ public final class SpsFixedLevelTest {
 				"训练区居民身份表与坐标表长度不一致");
 		check(TownLevel.FISH_RESIDENTS.length == TownLevel.FISH_RESIDENT_CELLS.length,
 				"鱼塘居民身份表与坐标表长度不一致");
-		check(level.mobs.size() == TownLevel.RESIDENTS.length + TownLevel.SHOPKEEPER_CELLS.length + 2,
+		check(level.mobs().size() == TownLevel.RESIDENTS.length + TownLevel.SHOPKEEPER_CELLS.length + 2,
 				"城镇固定居民或店主数量错误");
-		check(level.findMob(5 + 48 * 43) instanceof AdultDragonViolet,
+		check(level.mobs().findMob(5 + 48 * 43) instanceof AdultDragonViolet,
 				"城镇固定守卫巨龙坐标错误");
-		AdultDragonViolet dragon = (AdultDragonViolet) level.findMob(5 + 48 * 43);
+		AdultDragonViolet dragon = (AdultDragonViolet) level.mobs().findMob(5 + 48 * 43);
 		check(dragon.HT == 8000 && dragon.defenseSkill == 40,
 				"城镇守卫巨龙旧版生命或闪避数值错误");
-		check(level.findMob(21 + 48 * 44) instanceof TestMob2,
+		check(level.mobs().findMob(21 + 48 * 44) instanceof TestMob2,
 				"城镇固定发条稻草人坐标错误");
-		check(level.findMob(21 + 48 * 44).HT == 100000,
+		check(level.mobs().findMob(21 + 48 * 44).HT == 100000,
 				"发条稻草人旧版生命值错误");
 		for (int cell : TownLevel.SHOPKEEPER_CELLS) {
-			check(level.findMob(cell) instanceof pd.actors.mobs.npcs.Shopkeeper,
+			check(level.mobs().findMob(cell) instanceof pd.actors.mobs.npcs.Shopkeeper,
 					"城镇固定店主坐标错误，格=" + cell);
 		}
 		HashSet<Integer> occupiedCells = new HashSet<>();
 		for (int i = 0; i < TownLevel.RESIDENTS.length; i++) {
 			TownNpc found = null;
-			for (Mob mob : level.mobs) {
+			for (Mob mob : level.mobs()) {
 				if (mob.pos == TownLevel.RESIDENT_CELLS[i] && mob instanceof TownNpc) {
 					found = (TownNpc) mob;
 					break;
@@ -2790,7 +2790,7 @@ public final class SpsFixedLevelTest {
 		}
 		check(level.map[23 + 48 * 12] == Terrain.WALL_GROUND,
 				"LaJi所在墙格必须保持旧版地图原值");
-		Mob ren = level.findMob(28 + 48 * 27);
+		Mob ren = level.mobs().findMob(28 + 48 * 27);
 		check(ren instanceof TownNpc && ((TownNpc) ren).spec() == TownNpc.Spec.RENNPC,
 				"REN必须位于旧版固定坐标(28,27)");
 	}
@@ -2872,7 +2872,7 @@ public final class SpsFixedLevelTest {
 		level.customTiles = new ArrayList<>();
 		level.customTerrain = new ArrayList<>();
 		level.customWalls = new ArrayList<>();
-		level.mobs = new HashSet<>();
+		level.mobs().clear();
 		level.heaps = new SparseArray<>();
 		level.blobs = new java.util.HashMap<>();
 		level.plants = new SparseArray<>();
@@ -2941,15 +2941,15 @@ public final class SpsFixedLevelTest {
 		check(SpringFestivalLevel.RESTORED_RESIDENTS.length
 				== SpringFestivalLevel.RESTORED_RESIDENT_CELLS.length,
 				"春节镇居民身份表与坐标表长度不一致");
-		check(level.mobs.size() == SpringFestivalLevel.RESTORED_RESIDENTS.length + 2,
+		check(level.mobs().size() == SpringFestivalLevel.RESTORED_RESIDENTS.length + 2,
 				"春节镇已恢复居民数量错误");
-		check(level.findMob(15 + 48 * 3) instanceof TestMob,
+		check(level.mobs().findMob(15 + 48 * 3) instanceof TestMob,
 				"春节镇固定训练稻草人坐标错误");
-		check(level.findMob(15 + 48 * 3).HT == 100000,
+		check(level.mobs().findMob(15 + 48 * 3).HT == 100000,
 				"春节镇训练稻草人旧版生命值错误");
-		check(level.findMob(6 + 48 * 44) instanceof YearBeast2,
+		check(level.mobs().findMob(6 + 48 * 44) instanceof YearBeast2,
 				"春节镇固定年兽坐标错误");
-		YearBeast2 yearBeast = (YearBeast2) level.findMob(6 + 48 * 44);
+		YearBeast2 yearBeast = (YearBeast2) level.mobs().findMob(6 + 48 * 44);
 		check(yearBeast.HT == 1000 && yearBeast.defenseSkill == 30
 				&& yearBeast.flying && yearBeast.viewDistance == 6,
 				"春节镇年兽旧版基础数值错误");
@@ -2959,7 +2959,7 @@ public final class SpsFixedLevelTest {
 		SpringFestivalLevel combatLevel = new InteractionSpringFestivalLevel();
 		combatLevel.transitions = new ArrayList<>();
 		combatLevel.customTiles = new ArrayList<>();
-		combatLevel.mobs = new HashSet<>();
+		combatLevel.mobs().clear();
 		combatLevel.heaps = new SparseArray<>();
 		combatLevel.blobs = new java.util.HashMap<>();
 		combatLevel.traps = new SparseArray<>();
@@ -2977,7 +2977,7 @@ public final class SpsFixedLevelTest {
 		YearBeast2 defeated = new YearBeast2();
 		defeated.pos = 6 + SpringFestivalLevel.WIDTH * 44;
 		defeated.sprite = new SilentCharSprite();
-		combatLevel.mobs.add(defeated);
+		combatLevel.mobs().add(defeated);
 		Actor.add(defeated);
 		defeated.die(hero);
 		check(journal.isCompleted(6), "击败春节镇年兽后异界日志未完成目的地6");
@@ -3001,7 +3001,7 @@ public final class SpsFixedLevelTest {
 			MinesBossLevel level = new MinesBossLevel();
 			level.transitions = new ArrayList<>();
 			level.customTiles = new ArrayList<>();
-			level.mobs = new HashSet<>();
+			level.mobs().clear();
 			level.heaps = new SparseArray<>();
 			check(level.build(), "MinesBossLevel构建失败");
 			check(level.width() == 48 && level.height() == 48, "能源核心必须为48x48");
@@ -3101,7 +3101,7 @@ public final class SpsFixedLevelTest {
 
 	private static int countMobs(Level level, Class<? extends Mob> type) {
 		int count = 0;
-		for (Mob mob : level.mobs) if (type.isInstance(mob)) count++;
+		for (Mob mob : level.mobs()) if (type.isInstance(mob)) count++;
 		return count;
 	}
 
@@ -3132,7 +3132,7 @@ public final class SpsFixedLevelTest {
 
 	private static void checkMobCount(SokobanIntroLevel level, Class<?> type, int expected) {
 		int actual = 0;
-		for (Mob mob : level.mobs) if (mob.getClass() == type) actual++;
+		for (Mob mob : level.mobs()) if (mob.getClass() == type) actual++;
 		check(actual == expected, type.getSimpleName() + "数量错误，预期=" + expected + "，实际=" + actual);
 	}
 

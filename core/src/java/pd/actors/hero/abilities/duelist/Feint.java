@@ -141,7 +141,7 @@ public class Feint extends ArmorAbility {
 			}
 		});
 
-		for (Mob m : Dungeon.level.mobs.toArray( new Mob[0] )){
+		for (Mob m : Dungeon.level.mobs().toArray( new Mob[0] )){
 			if ((m.isTargeting(hero) && m.state == m.HUNTING) ||
 					(m.alignment == Char.Alignment.ENEMY && m.state != m.PASSIVE && m.state != m.SLEEPING && Dungeon.level.distance(m.pos, image.pos) <= 2)){
 				m.aggro(image);

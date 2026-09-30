@@ -335,7 +335,7 @@ public class DwarfKing extends Mob {
 
 	private HashSet<Mob> getSubjects(){
 		HashSet<Mob> subjects = new HashSet<>();
-		for (Mob m : Dungeon.level.mobs){
+		for (Mob m : Dungeon.level.mobs()){
 			if (m.alignment == alignment && (m instanceof Ghoul || m instanceof Monk || m instanceof Warlock || m instanceof Golem)){
 				subjects.add(m);
 			}
@@ -779,7 +779,7 @@ public class DwarfKing extends Mob {
 		@Override
 		public void detach() {
 			super.detach();
-			for (Mob m : Dungeon.level.mobs){
+			for (Mob m : Dungeon.level.mobs()){
 				if (m instanceof DwarfKing){
 					int damage = m.HT / (Dungeon.isChallenged(Challenges.STRONGER_BOSSES) ? 18 : 12);
 					m.damage(damage, this);

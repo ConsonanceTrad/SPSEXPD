@@ -165,38 +165,38 @@ public final class SpsMainBossTimelineTest {
 
 	private static <T extends Mob> T add(RecordingLevel level, T mob, int pos) {
 		mob.pos = pos;
-		level.mobs.add(mob);
+		level.mobs().add(mob);
 		Actor.add(mob);
 		return mob;
 	}
 
 	private static <T extends Mob> T first(RecordingLevel level, Class<T> type) {
-		for (Mob mob : level.mobs) if (type.isInstance(mob) && mob.isAlive()) return type.cast(mob);
+		for (Mob mob : level.mobs()) if (type.isInstance(mob) && mob.isAlive()) return type.cast(mob);
 		return null;
 	}
 
 	private static int count(RecordingLevel level, Class<? extends Mob> type) {
 		int count = 0;
-		for (Mob mob : level.mobs) if (type.isInstance(mob) && mob.isAlive()) count++;
+		for (Mob mob : level.mobs()) if (type.isInstance(mob) && mob.isAlive()) count++;
 		return count;
 	}
 
 	private static int countOwnedFists(RecordingLevel level, SpsYog yog) {
 		int count = 0;
-		for (Mob mob : level.mobs) if (mob instanceof SpsYog.Fist
+		for (Mob mob : level.mobs()) if (mob instanceof SpsYog.Fist
 				&& ((SpsYog.Fist) mob).ownerId == yog.id() && mob.isAlive()) count++;
 		return count;
 	}
 
 	private static int countOwnedLarvae(RecordingLevel level, SpsYog yog) {
 		int count = 0;
-		for (Mob mob : level.mobs) if (mob instanceof SpsYog.Larva
+		for (Mob mob : level.mobs()) if (mob instanceof SpsYog.Larva
 				&& ((SpsYog.Larva) mob).ownerId == yog.id() && mob.isAlive()) count++;
 		return count;
 	}
 
 	private static void removeOwnedFists(RecordingLevel level, SpsYog yog) {
-		for (Mob mob : new ArrayList<>(level.mobs)) if (mob instanceof SpsYog.Fist
+		for (Mob mob : new ArrayList<>(level.mobs().all())) if (mob instanceof SpsYog.Fist
 				&& ((SpsYog.Fist) mob).ownerId == yog.id()) {
 			attachDeathSprite(mob);
 			mob.die(SpsMainBossTimelineTest.class);
@@ -204,7 +204,7 @@ public final class SpsMainBossTimelineTest {
 	}
 
 	private static void prepareDeaths(RecordingLevel level) {
-		for (Mob mob : level.mobs) attachDeathSprite(mob);
+		for (Mob mob : level.mobs()) attachDeathSprite(mob);
 	}
 
 	private static void attachDeathSprite(Mob mob) {
@@ -254,7 +254,7 @@ public final class SpsMainBossTimelineTest {
 		RecordingLevel() {
 			setSize(48, 48);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

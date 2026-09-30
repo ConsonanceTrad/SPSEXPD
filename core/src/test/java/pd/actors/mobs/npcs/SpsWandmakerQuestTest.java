@@ -107,11 +107,11 @@ public final class SpsWandmakerQuestTest {
 		room.set(2, 2, 10, 10);
 		Dungeon.depth = 6;
 		Wandmaker.Quest.spawn(level, room);
-		check(level.mobs.isEmpty(), "法杖匠在第7层之外生成");
+		check(level.mobs().isEmpty(), "法杖匠在第7层之外生成");
 
 		Dungeon.depth = 7;
 		Wandmaker.Quest.spawn(level, room);
-		check(level.mobs.size() == 1 && level.mobs.iterator().next() instanceof Wandmaker,
+		check(level.mobs().size() == 1 && level.mobs().iterator().next() instanceof Wandmaker,
 				"法杖匠没有在第7层入口房生成");
 		check(contains(BATTLE, Wandmaker.Quest.wand1.getClass().getSimpleName())
 				&& contains(UTILITY, Wandmaker.Quest.wand2.getClass().getSimpleName()),
@@ -227,7 +227,7 @@ public final class SpsWandmakerQuestTest {
 		final int respawnCell = 300;
 		TestPrisonLevel() {
 			setSize(32, 32);
-			mobs = new HashSet<>(); heaps = new SparseArray<Heap>(); blobs = new HashMap<>();
+			mobs().clear(); heaps = new SparseArray<Heap>(); blobs = new HashMap<>();
 			plants = new SparseArray<Plant>(); traps = new SparseArray<Trap>(); transitions = new ArrayList<>();
 			customTiles = new ArrayList<>(); customTerrain = new ArrayList<>(); customWalls = new ArrayList<>();
 			Arrays.fill(map, Terrain.EMPTY); Arrays.fill(passable, true); buildFlagMaps();

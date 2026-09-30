@@ -66,7 +66,7 @@ public class SpsSewerBossLevel extends SpsFixedBossLevel {
 			if (bossVariant < GOO || bossVariant > PLAGUE_DOCTOR) bossVariant = GOO;
 			return;
 		}
-		for (Mob mob : mobs) {
+		for (Mob mob : mobs()) {
 			if (mob instanceof SewerHeart) bossVariant = SEWER_HEART;
 			else if (mob instanceof PlagueDoctor) bossVariant = PLAGUE_DOCTOR;
 			else if (mob instanceof SpsGoo) bossVariant = GOO;

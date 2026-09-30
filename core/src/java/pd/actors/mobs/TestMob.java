@@ -57,7 +57,7 @@ public class TestMob extends Mob {
 		super.die(cause);
 		Dungeon.level.drop(new HeartOfScarecrow(), pos).sprite.drop();
 		dropLegacyDew(pos);
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (mob instanceof TestMob && mob.isAlive()) {
 				mob.HP += 10;
 				Buff.affect(mob, ShieldArmor.class).level(1000);

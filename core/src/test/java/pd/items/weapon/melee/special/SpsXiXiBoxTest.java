@@ -117,7 +117,7 @@ public final class SpsXiXiBoxTest {
 		int lastCell;
 		RecordingLevel() {
 			setSize(8, 8);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

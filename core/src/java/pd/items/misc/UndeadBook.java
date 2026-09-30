@@ -93,7 +93,7 @@ public class UndeadBook extends Item {
 				break;
 			case 2:
 				if (Dungeon.level != null) {
-					for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+					for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 						if (Dungeon.level.heroFOV[mob.pos]) mob.damage(mob.HT / 2, this);
 					}
 				}

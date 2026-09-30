@@ -135,7 +135,7 @@ public final class SpsTriangleLevelsTest {
 		Dungeon.branch = ChallengeJournal.branchFor(challenge);
 		Dungeon.level = level;
 		check(Mob.legacyDungeonDepth() == depth, "试炼没有使用旧版真实深度" + depth);
-		for (Mob mob : level.mobs) {
+		for (Mob mob : level.mobs()) {
 			if (mob instanceof BlueWraith) {
 				check(mob.HT == 250 && mob.defenseSkill == 24 && mob.attackSkill(Dungeon.hero) == 46,
 						"蓝色怨灵属性偏离旧版");
@@ -329,7 +329,7 @@ public final class SpsTriangleLevelsTest {
 			level.customTiles = new ArrayList<>();
 			level.customTerrain = new ArrayList<>();
 			level.customWalls = new ArrayList<>();
-			level.mobs = new HashSet<>();
+			level.mobs().clear();
 			level.heaps = new SparseArray<>();
 			level.blobs = new HashMap<>();
 			level.plants = new SparseArray<>();
@@ -403,7 +403,7 @@ public final class SpsTriangleLevelsTest {
 	private static void checkMobPool(Level level, int min, int max, Set<Class<?>> seen,
 			Class<? extends Mob>... allowed) {
 		int matchedCount = 0;
-		for (Mob mob : level.mobs) {
+		for (Mob mob : level.mobs()) {
 			boolean matched = false;
 			for (Class<? extends Mob> type : allowed) {
 				if (type.isInstance(mob)) {
@@ -443,7 +443,7 @@ public final class SpsTriangleLevelsTest {
 
 	private static int countMobs(Level level, Class<? extends Mob> type) {
 		int result = 0;
-		for (Mob mob : level.mobs) if (type.isInstance(mob)) result++;
+		for (Mob mob : level.mobs()) if (type.isInstance(mob)) result++;
 		return result;
 	}
 

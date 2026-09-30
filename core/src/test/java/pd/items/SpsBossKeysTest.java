@@ -114,7 +114,7 @@ public final class SpsBossKeysTest {
 			BlueDragon pet = new BlueDragon();
 			pet.HP = 77;
 			pet.pos = CENTER + 1;
-			Dungeon.level.mobs.add(pet);
+			Dungeon.level.mobs().add(pet);
 			Actor.add(pet);
 			hero.belongings.backpack.items.add(key);
 
@@ -153,7 +153,7 @@ public final class SpsBossKeysTest {
 			BlueDragon pet = new BlueDragon();
 			pet.HP = 76;
 			pet.pos = CENTER + 1;
-			Dungeon.level.mobs.add(pet);
+			Dungeon.level.mobs().add(pet);
 			Actor.add(pet);
 			hero.belongings.backpack.items.add(portals[i]);
 
@@ -190,7 +190,7 @@ public final class SpsBossKeysTest {
 		TestLevel() {
 			setSize(16, 16);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

@@ -43,7 +43,7 @@ public class StenchGas extends Blob {
 		int cell;
 
 		boolean fetidRatSpawned = false;
-		for (Mob m : Dungeon.level.mobs){
+		for (Mob m : Dungeon.level.mobs()){
 			if (m instanceof FetidRat){
 				fetidRatSpawned = true;
 				break;

@@ -38,7 +38,7 @@ public class SwarmIntelTracker extends Buff {
 
 		alertRange = 0;
 		float lowestCooldown = 1;
-		for (Mob m : Dungeon.level.mobs){
+		for (Mob m : Dungeon.level.mobs()){
 			if (target.fieldOfView != null
 					&& target.fieldOfView.length == Dungeon.level.length()
 					&& target.fieldOfView[m.pos]) {

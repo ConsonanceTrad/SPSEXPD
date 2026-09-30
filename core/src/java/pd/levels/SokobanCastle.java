@@ -127,13 +127,13 @@ public class SokobanCastle extends Level implements SpsSokobanLevel {
 			SpsSokobanSheep sheep = sheepForTerrain(map[cell]);
 			if (sheep != null) {
 				sheep.pos = cell;
-				mobs.add(sheep);
+				mobs().add(sheep);
 			}
 		}
 		for (int cell : sentinelCells()) {
 			SokobanSentinel sentinel = new SokobanSentinel();
 			sentinel.pos = cell;
-			mobs.add(sentinel);
+			mobs().add(sentinel);
 		}
 	}
 
@@ -281,7 +281,7 @@ public class SokobanCastle extends Level implements SpsSokobanLevel {
 	}
 
 	public void resetPuzzle(Hero hero) {
-		for (Mob mob : mobs.toArray(new Mob[0])) {
+		for (Mob mob : mobs().toArray(new Mob[0])) {
 			if (mob instanceof SpsSokobanSheep || mob instanceof SokobanSentinel) {
 				mob.destroy();
 				if (mob.sprite != null) mob.sprite.killAndErase();

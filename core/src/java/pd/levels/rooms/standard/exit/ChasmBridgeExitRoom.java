@@ -54,7 +54,7 @@ public class ChasmBridgeExitRoom extends ChasmBridgeRoom {
 		do {
 			exit = level.pointToCell(random(2));
 
-		} while (spaceRect.inside(level.cellToPoint(exit)) || level.findMob(exit) != null);
+		} while (spaceRect.inside(level.cellToPoint(exit)) || level.mobs().findMob(exit) != null);
 
 		for (int i : PathFinder.NEIGHBOURS8){
 			Painter.set(level, exit + i, Terrain.EMPTY);

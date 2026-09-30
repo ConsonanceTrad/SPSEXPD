@@ -72,7 +72,7 @@ public final class SpsSewerMobs {
 		@Override public void die(Object cause) {
 			super.die(cause);
 			if (Random.Int(5) == 0 && enemy != null && Dungeon.level != null) {
-				for (Mob mob : Dungeon.level.mobs) if (Random.Int(2) == 0) mob.beckon(enemy.pos);
+				for (Mob mob : Dungeon.level.mobs()) if (Random.Int(2) == 0) mob.beckon(enemy.pos);
 				yell(Messages.get(this, "die"));
 			}
 		}

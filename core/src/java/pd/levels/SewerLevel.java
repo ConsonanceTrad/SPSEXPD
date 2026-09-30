@@ -144,9 +144,9 @@ public class SewerLevel extends SpsRegularLevel {
 		if (Dungeon.depth == 4) {
 			GnollArcher archer = new GnollArcher();
 			int pos = randomRespawnCell(archer);
-			if (pos >= 0 && findMob(pos) == null) {
+			if (pos >= 0 && mobs().findMob(pos) == null) {
 				archer.pos = pos;
-				mobs.add(archer);
+				mobs().add(archer);
 			}
 		}
 	}

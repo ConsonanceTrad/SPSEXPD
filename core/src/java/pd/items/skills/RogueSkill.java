@@ -46,7 +46,7 @@ public class RogueSkill extends ClassSkill {
 				default: Buff.affect(curUser, AttackUp.class, 15f).level(50); break;
 			}
 		}
-		for (Mob mob : Dungeon.level.mobs) {
+		for (Mob mob : Dungeon.level.mobs()) {
 			if (mob.pos >= 0 && mob.pos < Dungeon.level.heroFOV.length
 					&& Dungeon.level.heroFOV[mob.pos]
 					&& Dungeon.level.distance(curUser.pos, mob.pos) <= 10) {

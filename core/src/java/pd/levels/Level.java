@@ -106,6 +106,7 @@ import pd.levels.painters.Painter;
 import pd.levels.traps.Trap;
 import pd.mechanics.ShadowCaster;
 import pd.mechanics.pathfind.PathFinder;
+import pd.levels.mobs.LevelMobs;
 import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.plants.Swiftthistle;
@@ -203,7 +204,8 @@ public abstract class Level implements Bundlable {
 	public boolean forceDone = false;
 	public int pitSign = -1;
 	
-	public HashSet<Mob> mobs;
+	//怪物集合与驻留机制见 pd.levels.mobs.LevelMobs；本类只保留各关卡不同的刷怪钩子
+	private final LevelMobs levelMobs = new LevelMobs( this );
 	public SparseArray<Heap> heaps;
 	public HashMap<Class<? extends Blob>,Blob> blobs;
 	public SparseArray<Plant> plants;
@@ -234,7 +236,6 @@ public abstract class Level implements Bundlable {
 	private static final String CUSTOM_TILES= "customTiles";
 	private static final String CUSTOM_TERRAIN= "customTerrain";
 	private static final String CUSTOM_WALLS= "customWalls";
-	private static final String MOBS		= "mobs";
 	private static final String BLOBS		= "blobs";
 	private static final String FEELING		= "feeling";
 	private static final String CURRENT_MOVES = "currentmoves";
@@ -389,7 +390,7 @@ public abstract class Level implements Bundlable {
 
 			transitions = new ArrayList<>();
 
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<>();
@@ -447,9 +448,9 @@ public abstract class Level implements Bundlable {
 	
 	public void reset() {
 		
-		for (Mob mob : mobs.toArray( new Mob[0] )) {
+		for (Mob mob : mobs().toArray( new Mob[0] )) {
 			if (!mob.reset()) {
-				mobs.remove( mob );
+				mobs().remove( mob );
 			}
 		}
 		createMobs();
@@ -471,7 +472,7 @@ public abstract class Level implements Bundlable {
 
 		setSize( bundle.getInt(WIDTH), bundle.getInt(HEIGHT));
 		
-		mobs = new HashSet<>();
+		mobs().clear();
 		heaps = new SparseArray<>();
 		blobs = new HashMap<>();
 		plants = new SparseArray<>();
@@ -533,35 +534,12 @@ public abstract class Level implements Bundlable {
 			customWalls.add(vis);
 		}
 		
-		collection = bundle.getCollection( MOBS );
-		for (Bundlable m : collection) {
-			Mob mob = (Mob)m;
-			if (mob != null) {
-				mobs.add( mob );
-			}
-		}
-		
-		collection = bundle.getCollection( BLOBS );
-		for (Bundlable b : collection) {
-			Blob blob = (Blob)b;
-			blobs.put( blob.getClass(), blob );
-		}
+		mobs().restoreFromBundle( bundle );
 
 		feeling = bundle.getEnum( FEELING, Feeling.class );
 		if (feeling == Feeling.DARK) {
 			viewDistance = Math.round(5 * viewDistance / 8f);
 		}
-
-		if (bundle.contains( "mobs_to_spawn" )) {
-			for (Class<? extends Mob> mob : bundle.getClassArray("mobs_to_spawn")) {
-				if (mob != null) mobsToSpawn.add(mob);
-			}
-		}
-
-		if (bundle.contains( "respawner" )){
-			respawner = (MobSpawner) bundle.get("respawner");
-		}
-
 		TargetedCell.cells.clear();
 		if (bundle.contains( "targeted_cells" )){
 			collection = bundle.getCollection( "targeted_cells" );
@@ -598,11 +576,7 @@ public abstract class Level implements Bundlable {
 		bundle.put( CUSTOM_TILES, customTiles );
 		bundle.put( CUSTOM_TERRAIN, customTerrain);
 		bundle.put( CUSTOM_WALLS, customWalls );
-		bundle.put( MOBS, mobs );
-		bundle.put( BLOBS, blobs.values() );
-		bundle.put( FEELING, feeling );
-		bundle.put( "mobs_to_spawn", mobsToSpawn.toArray(new Class[0]));
-		bundle.put( "respawner", respawner );
+		mobs().storeInBundle( bundle );
 		bundle.put( "targeted_cells", TargetedCell.cells.valueList() );
 	}
 	
@@ -612,6 +586,31 @@ public abstract class Level implements Bundlable {
 
 	public int width() {
 		return width;
+	}
+
+	//在场怪物的集合与驻留机制
+	public LevelMobs mobs() {
+		return levelMobs;
+	}
+
+	//各关卡可覆写驻留者的创建（21 个子类覆写）；默认交由 LevelMobs 驱动
+	public Actor addRespawner() {
+		return mobs().addRespawner();
+	}
+
+	//各关卡可覆写刷怪节流（MiningLevel 等会放大）；默认由 LevelMobs 按在场权重计算
+	public float respawnCooldown() {
+		return mobs().respawnCooldown();
+	}
+
+	//各关卡可覆写补充怪物的方式（SpsRegionChallengeLevel 等会改写落点规则）
+	public boolean spawnMob(int disLimit) {
+		return spawnMob( disLimit );
+	}
+
+	//各关卡可覆写的刷怪节流基准（MiningLevel 等会放大它）
+	public static float timeToRespawn() {
+		return TIME_TO_RESPAWN;
 	}
 
 	public int height() {
@@ -632,16 +631,9 @@ public abstract class Level implements Bundlable {
 	
 	abstract protected boolean build();
 	
-	private ArrayList<Class<?extends Mob>> mobsToSpawn = new ArrayList<>();
-	
+	//刷怪队列与轮换在 LevelMobs；这里保留可覆写入口，默认走轮换队列
 	public Mob createMob() {
-		if (mobsToSpawn == null || mobsToSpawn.isEmpty()) {
-			mobsToSpawn = MobSpawner.getMobRotation(Dungeon.depth);
-		}
-
-		Mob m = Reflection.newInstance(mobsToSpawn.remove(0));
-		ChampionEnemy.rollForChampion(m);
-		return m;
+		return mobs().createMob();
 	}
 
 	abstract protected void createMobs();
@@ -789,7 +781,7 @@ public abstract class Level implements Bundlable {
 				}
 			}
 		}
-		for (Mob m : mobs){
+		for (Mob m : mobs()){
 			for (PinCushion b : m.buffs(PinCushion.class)){
 				items.addAll(b.getStuckItems());
 			}
@@ -834,21 +826,12 @@ public abstract class Level implements Bundlable {
 		return 0;
 	}
 
-	public int mobCount(){
-		float count = 0;
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])){
-			if (mob.alignment == Char.Alignment.ENEMY && !mob.properties().contains(Char.Property.MINIBOSS)) {
-				count += mob.spawningWeight();
-			}
-		}
-		return Math.round(count);
-	}
 
 	protected void markSpsOriginalMobs() {
 		if (Dungeon.branch != 0 || Dungeon.depth <= 1 || Dungeon.depth >= 25 || Dungeon.bossLevel()) {
 			return;
 		}
-		for (Mob mob : mobs) {
+		for (Mob mob : mobs()) {
 			if (mob.alignment == Char.Alignment.ENEMY) mob.spsOriginalGeneration = true;
 		}
 	}
@@ -912,12 +895,6 @@ public abstract class Level implements Bundlable {
 		return false;
 	}
 
-	public boolean hasSpsOriginalMobs() {
-		for (Mob mob : mobs) {
-			if (mob.alignment == Char.Alignment.ENEMY && mob.spsOriginalGeneration) return true;
-		}
-		return false;
-	}
 
 	public int spsDewPar() {
 		int base;
@@ -933,71 +910,8 @@ public abstract class Level implements Bundlable {
 		return base + Dungeon.depth * 50 + secretDoors * 20;
 	}
 
-	public Mob findMob( int pos ){
-		for (Mob mob : mobs){
-			if (mob.pos == pos){
-				return mob;
-			}
-		}
-		return null;
-	}
 
-	private MobSpawner respawner;
 
-	public Actor addRespawner() {
-		if (respawner == null){
-			respawner = new MobSpawner();
-			Actor.addDelayed(respawner, respawnCooldown());
-		} else {
-			Actor.add(respawner);
-			if (respawner.cooldown() > respawnCooldown()){
-				respawner.resetCooldown();
-			}
-		}
-		return respawner;
-	}
-
-	public float respawnCooldown(){
-		float cooldown;
-		if (Statistics.amuletObtained){
-			if (Dungeon.depth == 1){
-				//very fast spawns on floor 1! 0/2/4/6/8/10/12, etc.
-				cooldown = (Dungeon.level.mobCount()) * (TIME_TO_RESPAWN / 25f);
-			} else {
-				//respawn time is 5/5/10/15/20/25/25, etc.
-				cooldown = Math.round(GameMath.gate( TIME_TO_RESPAWN/10f, Dungeon.level.mobCount() * (TIME_TO_RESPAWN / 10f), TIME_TO_RESPAWN / 2f));
-			}
-		} else if (Dungeon.level.feeling == Feeling.DARK){
-			cooldown = 2*TIME_TO_RESPAWN/3f;
-		} else {
-			cooldown = TIME_TO_RESPAWN;
-		}
-		return cooldown / DimensionalSundial.spawnMultiplierAtCurrentTime();
-	}
-
-	public boolean spawnMob(int disLimit){
-		PathFinder.buildDistanceMap(Dungeon.hero.pos, BArray.or(passable, avoid, null));
-
-		Mob mob = createMob();
-		if (mob.state != mob.PASSIVE) {
-			mob.state = mob.WANDERING;
-		}
-		int tries = 30;
-		do {
-			mob.pos = randomRespawnCell(mob);
-			tries--;
-		} while ((mob.pos == -1 || PathFinder.distance[mob.pos] < disLimit) && tries > 0);
-
-		if (Dungeon.hero.isAlive() && mob.pos != -1 && PathFinder.distance[mob.pos] >= disLimit) {
-			GameScene.add( mob );
-			if (!mob.buffs(ChampionEnemy.class).isEmpty()){
-				GLog.w(Messages.get(ChampionEnemy.class, "warn"));
-			}
-			return true;
-		} else {
-			return false;
-		}
-	}
 	
 	public int randomRespawnCell( Char ch ) {
 		int cell;
@@ -1396,7 +1310,7 @@ public abstract class Level implements Bundlable {
 			result = randomRespawnCell( null );
 			if (result == -1) return -1;
 		} while (traps.get(result) != null
-				|| findMob(result) != null);
+				|| mobs().findMob(result) != null);
 		return result;
 	}
 	
@@ -1659,7 +1573,7 @@ public abstract class Level implements Bundlable {
 
 		if (c instanceof SpiritHawk.HawkAlly && Dungeon.hero.pointsInTalent(Talent.EAGLE_EYE) >= 3){
 			int range = 1+(Dungeon.hero.pointsInTalent(Talent.EAGLE_EYE)-2);
-			for (Mob mob : mobs) {
+			for (Mob mob : mobs()) {
 				int p = mob.pos;
 				if (!fieldOfView[p] && distance(c.pos, p) <= range) {
 					for (int i : PathFinder.NEIGHBOURS9) {
@@ -1705,7 +1619,7 @@ public abstract class Level implements Bundlable {
 					ally = null;
 				}
 
-				for (Mob mob : mobs) {
+				for (Mob mob : mobs()) {
 					if ((mob instanceof Mimic && mob.alignment == Char.Alignment.NEUTRAL && ((Mimic) mob).stealthy())
 						|| Char.hasProp(mob, Char.Property.OBJECT)){
 						continue;
@@ -1740,7 +1654,7 @@ public abstract class Level implements Bundlable {
 				for (int i : PathFinder.NEIGHBOURS9) heroMindFov[h.pos+i] = true;
 			}
 
-			for (Mob m : mobs){
+			for (Mob m : mobs()){
 				if (m instanceof WandOfWarding.Ward
 						|| m instanceof WandOfRegrowth.Lotus
 						|| m instanceof SpiritHawk.HawkAlly
@@ -1759,7 +1673,7 @@ public abstract class Level implements Bundlable {
 			}
 
 			//set mind vision chars
-			for (Mob mob : mobs) {
+			for (Mob mob : mobs()) {
 				if (heroMindFov[mob.pos] && !fieldOfView[mob.pos]){
 					Dungeon.hero.mindVisionEnemies.add(mob);
 				}

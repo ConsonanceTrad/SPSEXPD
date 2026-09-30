@@ -58,7 +58,7 @@ public class VaultLasersRoom extends VaultRoom {
 				}
 				laser.afterShotCooldown = Random.IntRange(3, 7);
 				laser.curCooldown = Random.IntRange(1, laser.afterShotCooldown);
-				level.mobs.add(laser);
+				level.mobs().add(laser);
 			}
 		}
 
@@ -79,7 +79,7 @@ public class VaultLasersRoom extends VaultRoom {
 				}
 				laser.afterShotCooldown = Random.IntRange(3, 7);
 				laser.curCooldown = Random.IntRange(1, laser.afterShotCooldown);
-				level.mobs.add(laser);
+				level.mobs().add(laser);
 			}
 		}
 

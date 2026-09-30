@@ -73,7 +73,7 @@ public class VaultEnemyCenterRoom extends VaultRoom {
 		enemy.pos = wanderPositions[idx];
 		enemy.setupStealthGameplayWanderPositions(wanderPositions, idx);
 		enemy.state = enemy.WANDERING;
-		level.mobs.add(enemy);
+		level.mobs().add(enemy);
 
 		int tier = 1;
 		for (Class<?extends Mob> cls : VaultLevel.T1Mobs){

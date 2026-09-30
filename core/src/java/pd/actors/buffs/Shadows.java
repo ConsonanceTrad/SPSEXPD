@@ -57,7 +57,7 @@ public class Shadows extends Invisibility {
 	@Override
 	public boolean attachTo( Char target ) {
 		if (Dungeon.level != null) {
-			for (Mob m : Dungeon.level.mobs) {
+			for (Mob m : Dungeon.level.mobs()) {
 				if (Dungeon.level.adjacent(m.pos, target.pos) && m.alignment != target.alignment) {
 					return false;
 				}
@@ -91,7 +91,7 @@ public class Shadows extends Invisibility {
 				return true;
 			}
 
-			for (Mob m : Dungeon.level.mobs){
+			for (Mob m : Dungeon.level.mobs()){
 				if (Dungeon.level.adjacent(m.pos, target.pos) && m.alignment != target.alignment){
 					detach();
 					return true;

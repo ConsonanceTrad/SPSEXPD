@@ -104,7 +104,7 @@ public final class SpsDangerousBombTest {
 		Hybrid hybrid = new Hybrid();
 		hybrid.pos = CENTER;
 		hybrid.HP = hybrid.HT / 2;
-		level.mobs.add(hybrid);
+		level.mobs().add(hybrid);
 		Actor.add(hybrid);
 		Method act = Hybrid.class.getDeclaredMethod("act");
 		act.setAccessible(true);
@@ -137,7 +137,7 @@ public final class SpsDangerousBombTest {
 		TestMob mob = new TestMob();
 		mob.pos = pos;
 		mob.HP = mob.HT = health;
-		level.mobs.add(mob);
+		level.mobs().add(mob);
 		Actor.add(mob);
 		return mob;
 	}
@@ -162,7 +162,7 @@ public final class SpsDangerousBombTest {
 		TestLevel() {
 			setSize(WIDTH, WIDTH);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

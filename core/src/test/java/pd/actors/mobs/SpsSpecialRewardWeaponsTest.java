@@ -260,7 +260,7 @@ public final class SpsSpecialRewardWeaponsTest {
 	private static final class RecordingLevel extends Level {
 		RecordingLevel() {
 			setSize(8, 8);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

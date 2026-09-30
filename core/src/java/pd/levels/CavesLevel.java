@@ -160,12 +160,12 @@ public class CavesLevel extends SpsRegularLevel {
 		if (!npcCells.isEmpty()) {
 			Blacksmith smith = new Blacksmith();
 			smith.pos = npcCells.remove(Random.Int(npcCells.size()));
-			mobs.add(smith);
+			mobs().add(smith);
 		}
 		if (!npcCells.isEmpty()) {
 			Blacksmith2 welder = new Blacksmith2();
 			welder.pos = npcCells.remove(Random.Int(npcCells.size()));
-			mobs.add(welder);
+			mobs().add(welder);
 		}
 
 		for (int y = room.top + 1; y < room.bottom; y++) {
@@ -223,11 +223,11 @@ public class CavesLevel extends SpsRegularLevel {
 			int cell;
 			do {
 				cell = randomRespawnCell(null);
-			} while (cell != -1 && (heaps.get(cell) != null || findMob(cell) != null));
+			} while (cell != -1 && (heaps.get(cell) != null || mobs().findMob(cell) != null));
 			if (cell != -1) {
 				Tinkerer2 tinkerer = new Tinkerer2();
 				tinkerer.pos = cell;
-				mobs.add(tinkerer);
+				mobs().add(tinkerer);
 			}
 		}
 		super.createItems();

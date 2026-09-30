@@ -44,7 +44,7 @@ public class TriangleWLevel extends SpsTriangleLevel {
 		}
 		Sentinel sentinel = new Sentinel();
 		sentinel.pos = trialRoomCell(room, 0);
-		mobs.add(sentinel);
+		mobs().add(sentinel);
 	}
 	@Override protected void decorateTrial() {
 		for (int cell = 0; cell < length(); cell++) {
@@ -54,7 +54,7 @@ public class TriangleWLevel extends SpsTriangleLevel {
 			if (map[cell] == Terrain.EMPTY_SP && heaps.get(cell) == null && Random.Float() < 0.05f) {
 				Eye eye = new Eye();
 				eye.pos = cell;
-				mobs.add(eye);
+				mobs().add(eye);
 			}
 			if (map[cell] == Terrain.CHASM && heaps.get(cell) == null && Random.Float() < 0.05f) {
 				map[cell] = Terrain.EMPTY_DECO;

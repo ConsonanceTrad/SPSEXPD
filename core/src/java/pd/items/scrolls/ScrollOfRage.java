@@ -46,7 +46,7 @@ public class ScrollOfRage extends Scroll {
 	public void doRead() {
 
 		detach(curUser.belongings.backpack);
-		for (Mob mob : Dungeon.level.mobs.toArray( new Mob[0] )) {
+		for (Mob mob : Dungeon.level.mobs().toArray( new Mob[0] )) {
 			mob.beckon( curUser.pos );
 			if (Dungeon.level.heroFOV[mob.pos]) {
 				Buff.prolong(mob, Amok.class, 5f);
@@ -74,7 +74,7 @@ public class ScrollOfRage extends Scroll {
 
 	@Override
 	public void empoweredRead() {
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (Dungeon.level.heroFOV[mob.pos]) {
 				Buff.prolong(mob, Amok.class, 10f);
 				Buff.affect(mob, Silent.class, 40f);

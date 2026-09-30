@@ -99,7 +99,7 @@ public class MineSentinel extends Mob {
 	}
 
 	private boolean otilukeAlive() {
-		for (Mob mob : Dungeon.level.mobs) if (mob instanceof Otiluke && mob.isAlive()) return true;
+		for (Mob mob : Dungeon.level.mobs()) if (mob instanceof Otiluke && mob.isAlive()) return true;
 		return false;
 	}
 

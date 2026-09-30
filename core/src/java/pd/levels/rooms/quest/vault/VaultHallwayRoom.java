@@ -91,7 +91,7 @@ public class VaultHallwayRoom extends VaultLongRoom {
 		}
 		enemy.pos = level.pointToCell(c);
 		enemy.state = enemy.WANDERING;
-		level.mobs.add(enemy);
+		level.mobs().add(enemy);
 
 		for (Door door : connected.values()) {
 			door.set( Door.Type.REGULAR );

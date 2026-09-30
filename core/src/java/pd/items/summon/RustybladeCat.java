@@ -171,7 +171,7 @@ public class RustybladeCat extends Item {
 		protected Char chooseEnemy() {
 			if (enemy == null || !enemy.isAlive()) {
 				HashSet<Mob> enemies = new HashSet<>();
-				for (Mob mob : Dungeon.level.mobs) {
+				for (Mob mob : Dungeon.level.mobs()) {
 					if (mob.alignment == Alignment.ENEMY && fieldOfView != null && fieldOfView[mob.pos]) {
 						enemies.add(mob);
 					}

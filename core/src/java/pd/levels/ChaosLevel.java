@@ -124,9 +124,9 @@ public class ChaosLevel extends SpsRegularLevel {
 			Mob mob = createMob();
 			if (mob == null) continue;
 			int cell = randomRespawnCell(mob);
-			if (cell == -1 || findMob(cell) != null) continue;
+			if (cell == -1 || mobs().findMob(cell) != null) continue;
 			mob.pos = cell;
-			mobs.add(mob);
+			mobs().add(mob);
 			spawned++;
 		}
 	}

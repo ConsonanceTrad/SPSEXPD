@@ -60,7 +60,7 @@ public class VaultRingsRoom extends VaultRoom {
 			enemy.pos = level.pointToCell(random(1));
 		} while (level.map[enemy.pos] == Terrain.WALL);
 		enemy.state = enemy.WANDERING;
-		level.mobs.add(enemy);
+		level.mobs().add(enemy);
 
 		int[] wanderPositions = new int[]{
 				level.pointToCell(new Point(left+1, top+1)),

@@ -120,7 +120,7 @@ public final class SpsOrbOfZotTest {
 		arm(orb);
 		orb.throwAt(CENTER);
 		OrbOfZotMob turret = null;
-		for (Mob mob : level.mobs) if (mob instanceof OrbOfZotMob) turret = (OrbOfZotMob)mob;
+		for (Mob mob : level.mobs()) if (mob instanceof OrbOfZotMob) turret = (OrbOfZotMob)mob;
 		check(turret != null && turret.pos != CENTER && level.adjacent(turret.pos, CENTER)
 				&& Actor.findChar(turret.pos) == null, "占用格投掷没有选择合法邻格");
 
@@ -134,7 +134,7 @@ public final class SpsOrbOfZotTest {
 		orb = chargedOrb();
 		arm(orb);
 		orb.throwAt(CENTER);
-		check(level.mobs.isEmpty(), "没有合法落点时错误生成重叠炮台");
+		check(level.mobs().isEmpty(), "没有合法落点时错误生成重叠炮台");
 		check(level.heaps.get(CENTER) != null && level.heaps.get(CENTER).peek() == orb,
 				"没有合法落点时吞掉了储能装置");
 
@@ -149,7 +149,7 @@ public final class SpsOrbOfZotTest {
 		turret.pos = CENTER;
 		turret.fieldOfView = new boolean[level.length()];
 		Arrays.fill(turret.fieldOfView, true);
-		level.mobs.add(turret);
+		level.mobs().add(turret);
 		Actor.add(turret);
 
 		TestMob ally = mobAt(level, CENTER + 2, 500, Char.Alignment.ALLY);
@@ -228,7 +228,7 @@ public final class SpsOrbOfZotTest {
 	private static ShadowYog shadowAt(TestLevel level, int pos) {
 		ShadowYog yog = new ShadowYog();
 		yog.pos = pos;
-		level.mobs.add(yog);
+		level.mobs().add(yog);
 		Actor.add(yog);
 		return yog;
 	}
@@ -257,7 +257,7 @@ public final class SpsOrbOfZotTest {
 		mob.pos = pos;
 		mob.HP = mob.HT = health;
 		mob.alignment = alignment;
-		level.mobs.add(mob);
+		level.mobs().add(mob);
 		Actor.add(mob);
 		return mob;
 	}
@@ -309,7 +309,7 @@ public final class SpsOrbOfZotTest {
 		TestLevel() {
 			setSize(WIDTH, WIDTH);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

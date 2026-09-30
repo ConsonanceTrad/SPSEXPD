@@ -220,7 +220,7 @@ public class SpsShopRoom extends ShopRoom {
 		if (pos == -1) pos = level.pointToCell(center());
 		Mob shopkeeper = Dungeon.legacyDepth() > 20 ? new ImpShopkeeper() : new Shopkeeper();
 		shopkeeper.pos = pos;
-		level.mobs.add(shopkeeper);
+		level.mobs().add(shopkeeper);
 
 		if (Dungeon.legacyDepth() > 20) {
 			for (int offset : PathFinder.NEIGHBOURS9) {
@@ -237,7 +237,7 @@ public class SpsShopRoom extends ShopRoom {
 		for (int y = top + 1; y < bottom; y++) {
 			for (int x = left + 1; x < right; x++) {
 				int cell = x + y * level.width();
-				if (level.heaps.get(cell) == null && level.findMob(cell) == null) candidates.add(cell);
+				if (level.heaps.get(cell) == null && level.mobs().findMob(cell) == null) candidates.add(cell);
 			}
 		}
 		return candidates.isEmpty() ? -1 : Random.element(candidates);

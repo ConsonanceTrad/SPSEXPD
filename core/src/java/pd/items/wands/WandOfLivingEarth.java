@@ -76,7 +76,7 @@ public class WandOfLivingEarth extends DamageWand {
 		int armorToAdd = damage;
 
 		EarthGuardian guardian = null;
-		for (Mob m : Dungeon.level.mobs){
+		for (Mob m : Dungeon.level.mobs()){
 			if (m instanceof EarthGuardian){
 				guardian = (EarthGuardian) m;
 				break;
@@ -224,7 +224,7 @@ public class WandOfLivingEarth extends DamageWand {
 	@Override
 	public void onHit(MagesStaff staff, Char attacker, Char defender, int damage) {
 		EarthGuardian guardian = null;
-		for (Mob m : Dungeon.level.mobs){
+		for (Mob m : Dungeon.level.mobs()){
 			if (m instanceof EarthGuardian){
 				guardian = (EarthGuardian) m;
 				break;

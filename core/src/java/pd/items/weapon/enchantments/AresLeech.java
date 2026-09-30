@@ -21,7 +21,7 @@ public class AresLeech extends Weapon.Enchantment {
 		int level = Math.max(0, weapon.level());
 		int maximum = damage * (level + 2) / (level + 6);
 		int effective = Math.min(Random.IntRange(0, Math.max(0, maximum)), attacker.HT - attacker.HP);
-		for (Mob mob : Dungeon.level.mobs) {
+		for (Mob mob : Dungeon.level.mobs()) {
 			if (Dungeon.level.distance(attacker.pos, mob.pos) < 3 && mob.isAlive() && effective < mob.HP) {
 				relic.charge = Math.min(SpsRelicWeapon.CHARGE_CAP, relic.charge + 1);
 			}

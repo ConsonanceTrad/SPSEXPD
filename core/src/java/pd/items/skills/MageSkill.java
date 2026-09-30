@@ -20,7 +20,7 @@ public class MageSkill extends ClassSkill {
 	{ image = ItemSpriteSheet.ARMOR_MAGE; }
 
 	@Override public void doSpecial() {
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (!visibleMob(mob, 10)) continue;
 			int raw = mob.HT / 10 + Math.round(curUser.lvl * (1f + 0.1f * curUser.magicSkill()));
 			int damage = Math.max(0, Math.min(mob.HP - 10, raw));

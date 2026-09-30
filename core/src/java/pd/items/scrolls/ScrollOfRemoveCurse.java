@@ -111,7 +111,7 @@ public class ScrollOfRemoveCurse extends InventoryScroll {
 	public static boolean uncurse( Hero hero, Item... items ) {
 		boolean procced = uncurseItems(items);
 		if (Dungeon.level != null) {
-			for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+			for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 				if (Dungeon.level.heroFOV[mob.pos]) Buff.affect(mob, LightShootAttack.class).level(6);
 			}
 		}

@@ -57,7 +57,7 @@ public class ScrollOfRecharging extends Scroll {
 		GLog.i( Messages.get(this, "surge") );
 		SpellSprite.show( curUser, SpellSprite.CHARGE );
 		identify();
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (Dungeon.level.heroFOV[mob.pos]) Buff.affect(mob, Shocked.class).level(6);
 		}
 

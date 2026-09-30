@@ -130,9 +130,9 @@ public class EyeOfSkadi extends Artifact {
 	}
 
 	public int blast() {
-		if (Dungeon.level == null || Dungeon.level.mobs == null) return 0;
+		if (Dungeon.level == null) return 0;
 		int hit = 0;
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (mob == null || !mob.isAlive()) continue;
 			emitSnow(mob);
 			int minimum = Math.max(0, mob.HP / 4);

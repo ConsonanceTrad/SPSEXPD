@@ -147,7 +147,7 @@ public class VaultCircleScanTreasureRoom extends VaultTreasureRoom {
 			sentry.scanDirs = reverse;
 		}
 
-		level.mobs.add(sentry);
+		level.mobs().add(sentry);
 
 		int treasurePos = level.pointToCell(Random.element(treasure.getPoints()));
 		Item treasureItem = ((VaultLevel)level).createEquipment(1);

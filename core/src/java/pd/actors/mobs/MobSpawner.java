@@ -38,21 +38,21 @@ public class MobSpawner extends Actor {
 	@Override
 	protected boolean act() {
 		if ((Dungeon.dewDraw || Dungeon.dewWater) && !Dungeon.level.cleared) {
-			spend(Dungeon.level.respawnCooldown());
+			spend(Dungeon.level.mobs().respawnCooldown());
 			return true;
 		}
 
-		if (Dungeon.level.mobCount() < Dungeon.level.mobLimit()) {
+		if (Dungeon.level.mobs().mobCount() < Dungeon.level.mobLimit()) {
 
-			if (Dungeon.level.spawnMob(12)){
-				spend(Dungeon.level.respawnCooldown());
+			if (Dungeon.level.mobs().spawnMob(12)){
+				spend(Dungeon.level.mobs().respawnCooldown());
 			} else {
 				//try again in 1 turn
 				spend(TICK);
 			}
 
 		} else {
-			spend(Dungeon.level.respawnCooldown());
+			spend(Dungeon.level.mobs().respawnCooldown());
 		}
 
 		return true;
@@ -60,7 +60,7 @@ public class MobSpawner extends Actor {
 
 	public void resetCooldown(){
 		spend(-cooldown());
-		spend(Dungeon.level.respawnCooldown());
+		spend(Dungeon.level.mobs().respawnCooldown());
 	}
 
 	public static ArrayList<Class<? extends Mob>> getMobRotation(int depth ){

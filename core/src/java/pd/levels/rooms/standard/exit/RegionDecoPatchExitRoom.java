@@ -58,7 +58,7 @@ public class RegionDecoPatchExitRoom extends RegionDecoPatchRoom {
 
 			//need extra logic here as these rooms can spawn small and cramped in very rare cases
 			if (tries-- > 0){
-				valid = level.map[exit] != Terrain.REGION_DECO && level.findMob(exit) == null;
+				valid = level.map[exit] != Terrain.REGION_DECO && level.mobs().findMob(exit) == null;
 			} else {
 				valid = false;
 				for (int i : PathFinder.NEIGHBOURS4){
@@ -66,7 +66,7 @@ public class RegionDecoPatchExitRoom extends RegionDecoPatchRoom {
 						valid = true;
 					}
 				}
-				valid = valid && level.findMob(exit) == null;
+				valid = valid && level.mobs().findMob(exit) == null;
 			}
 		} while (!valid);
 		Painter.set( level, exit, Terrain.EXIT );

@@ -194,7 +194,7 @@ public class Wandmaker extends NPC {
 			if (spawnPos < 0) return;
 
 			npc.pos = spawnPos;
-			level.mobs.add(npc);
+			level.mobs().add(npc);
 			spawned = true;
 			alternative = Random.Int(2) == 0;
 			given = false;

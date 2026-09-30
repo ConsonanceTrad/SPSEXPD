@@ -2095,7 +2095,7 @@ public class Hero extends Char {
 		boolean newMob = false;
 
 		Mob target = null;
-		for (Mob m : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob m : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (fieldOfView[ m.pos ] && m.landmark() != null){
 				Notes.add(m.landmark());
 			}

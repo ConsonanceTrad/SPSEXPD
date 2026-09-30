@@ -96,7 +96,7 @@ public class ShadowYog extends Mob {
 				GameScene.updateMap(cell);
 			}
 			int heroLevel = Dungeon.hero == null ? 1 : Math.max(1, Dungeon.hero.lvl);
-			if (Dungeon.level.mobs.size() < heroLevel * 2) Fiend.spawnAroundChance(pos);
+			if (Dungeon.level.mobs().size() < heroLevel * 2) Fiend.spawnAroundChance(pos);
 		}
 		super.damage(damage, source);
 	}
@@ -107,11 +107,11 @@ public class ShadowYog extends Mob {
 		if (sprite == null || Dungeon.hero == null) {
 			HP = 0;
 			Actor.remove(this);
-			if (Dungeon.level != null) Dungeon.level.mobs.remove(this);
+			if (Dungeon.level != null) Dungeon.level.mobs().remove(this);
 		} else super.die(cause);
 		if (Dungeon.level == null) return;
 		boolean anotherAlive = false;
-		for (Mob mob : Dungeon.level.mobs) {
+		for (Mob mob : Dungeon.level.mobs()) {
 			if (mob != this && mob instanceof ShadowYog && mob.isAlive()) {
 				anotherAlive = true;
 				break;
@@ -123,7 +123,7 @@ public class ShadowYog extends Mob {
 			if (heap != null && heap.sprite != null) heap.sprite.drop();
 			Dungeon.level.unseal();
 			if (sprite != null) GameScene.bossSlain();
-			for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+			for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 				if (mob instanceof Fiend || mob instanceof GoldOrc) mob.die(cause);
 			}
 			if (sprite != null) {

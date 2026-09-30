@@ -110,7 +110,7 @@ public final class SpsChallengeLevelsTest {
 			validateChallengeMobStats(prison, 1, 27);
 			validateChallengeMobStats(cave, 2, 28);
 			validateChallengeMobStats(city, 3, 29);
-			for (Mob mob : cave.mobs) {
+			for (Mob mob : cave.mobs()) {
 				check(cave.map[mob.pos] == Terrain.WATER,
 						"洞窟挑战敌人必须生成在水中：" + mob.getClass().getSimpleName());
 			}
@@ -256,7 +256,7 @@ public final class SpsChallengeLevelsTest {
 			level.customTiles = new ArrayList<>();
 			level.customTerrain = new ArrayList<>();
 			level.customWalls = new ArrayList<>();
-			level.mobs = new HashSet<>();
+			level.mobs().clear();
 			level.heaps = new SparseArray<>();
 			level.blobs = new HashMap<>();
 			level.plants = new SparseArray<>();
@@ -279,7 +279,7 @@ public final class SpsChallengeLevelsTest {
 					level.getClass().getSimpleName() + "北端封闭目标被改写");
 			check(level.transitions.size() == 1 && level.entrance() == entrance,
 					level.getClass().getSimpleName() + "支线出生过渡错误");
-			check(level.findMob(entrance) == null,
+			check(level.mobs().findMob(entrance) == null,
 					level.getClass().getSimpleName() + "敌人与入口重叠");
 			return level;
 		} finally {
@@ -298,7 +298,7 @@ public final class SpsChallengeLevelsTest {
 		Dungeon.branch = ChallengeJournal.branchFor(challenge);
 		Dungeon.level = level;
 		check(Mob.legacyDungeonDepth() == depth, "区域挑战旧版真实深度错误：" + depth);
-		for (Mob mob : level.mobs) {
+		for (Mob mob : level.mobs()) {
 			if (mob instanceof GnollArcher) {
 				check(mob.HT == 25 && mob.defenseSkill == 5 && mob.attackSkill(null) == 30,
 						"豺狼弓手属性偏离旧版");
@@ -383,9 +383,9 @@ public final class SpsChallengeLevelsTest {
 	@SafeVarargs
 	private static void checkMobPool(Level level, int expected,
 			Class<? extends Mob>... allowed) {
-		check(level.mobs.size() == expected,
-				level.getClass().getSimpleName() + "敌人数量错误，实际=" + level.mobs.size());
-		for (Mob mob : level.mobs) {
+		check(level.mobs().size() == expected,
+				level.getClass().getSimpleName() + "敌人数量错误，实际=" + level.mobs().size());
+		for (Mob mob : level.mobs()) {
 			boolean matched = false;
 			for (Class<? extends Mob> type : allowed) {
 				if (type.isInstance(mob)) {

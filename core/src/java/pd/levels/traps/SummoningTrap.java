@@ -73,7 +73,7 @@ public class SummoningTrap extends Trap {
 			nMobs--;
 		}
 
-		ArrayList<Mob> mobs = new ArrayList<>();
+		ArrayList<Mob> spawned = new ArrayList<>();
 
 		for (Integer point : respawnPoints) {
 			Mob mob = Dungeon.level.createMob();
@@ -90,13 +90,13 @@ public class SummoningTrap extends Trap {
 				}
 				mob.pos = point;
 				GameScene.add(mob, DELAY);
-				mobs.add(mob);
+				spawned.add(mob);
 			}
 		}
 
-		//important to process the visuals and pressing of cells last, so spawned mobs have a chance to occupy cells first
+		//important to process the visuals and pressing of cells last, so spawned spawned have a chance to occupy cells first
 		Trap t;
-		for (Mob mob : mobs){
+		for (Mob mob : spawned){
 			//manually trigger traps first to avoid sfx spam
 			if ((t = Dungeon.level.traps.get(mob.pos)) != null && t.active){
 				if (t.disarmedByActivation) t.disarm();

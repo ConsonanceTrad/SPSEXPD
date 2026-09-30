@@ -30,7 +30,7 @@ public class DarkFallen extends Buff {
 	}
 
 	private boolean hasDarkLiver() {
-		for (Mob mob : Dungeon.level.mobs) {
+		for (Mob mob : Dungeon.level.mobs()) {
 			if (mob instanceof DarkLiver && mob.isAlive()) return true;
 		}
 		return false;

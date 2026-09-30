@@ -205,9 +205,9 @@ public final class SpsSpecialFoodTest {
 		int oldHT = hero.HT;
 		new YearFood().doEat(hero);
 		check(hero.HT >= oldHT + 6 && hero.HT <= oldHT + 10, "年糕在25层没有提供两次永久生命");
-		check(level.mobs.size() == 1 && level.mobs.iterator().next() instanceof YearBeast,
+		check(level.mobs().size() == 1 && level.mobs().iterator().next() instanceof YearBeast,
 				"年糕在25层没有召唤正确的年兽");
-		YearBeast beast = (YearBeast)level.mobs.iterator().next();
+		YearBeast beast = (YearBeast)level.mobs().iterator().next();
 		check(!level.adjacent(beast.pos, hero.pos), "年兽生成在英雄相邻格");
 
 		beast.die(hero);
@@ -227,7 +227,7 @@ public final class SpsSpecialFoodTest {
 		new YearFood().doEat(hero);
 		check(hero.HT >= oldHT + 3 && hero.HT <= oldHT + 5,
 				"混沌85层的年糕错误获得了主线25层双倍生命");
-		check(level.mobs.isEmpty(), "混沌85层的年糕错误召唤了主线25层年兽");
+		check(level.mobs().isEmpty(), "混沌85层的年糕错误召唤了主线25层年兽");
 		Dungeon.branch = 0;
 	}
 
@@ -359,7 +359,7 @@ public final class SpsSpecialFoodTest {
 		TestLevel() {
 			setSize(16, 16);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

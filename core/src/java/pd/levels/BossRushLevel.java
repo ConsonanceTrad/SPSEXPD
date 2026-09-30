@@ -115,7 +115,7 @@ public class BossRushLevel extends Level {
 		Dragonking boss = new Dragonking();
 		boss.pos = safeSpawnCell(ENTRANCE - 4 * width());
 		boss.state = boss.HUNTING;
-		mobs.add(boss);
+		mobs().add(boss);
 		bossStage = 0;
 	}
 
@@ -239,7 +239,7 @@ public class BossRushLevel extends Level {
 	}
 
 	private int inferBossStage() {
-		for (Mob mob : mobs) {
+		for (Mob mob : mobs()) {
 			for (int stage = 0; stage < BOSS_SEQUENCE.length; stage++) {
 				if (mob.getClass() == BOSS_SEQUENCE[stage]) return stage;
 			}

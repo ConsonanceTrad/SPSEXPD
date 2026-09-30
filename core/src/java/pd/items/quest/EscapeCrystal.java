@@ -103,7 +103,7 @@ public class EscapeCrystal extends Item {
 
 					//1,000 for collecting tokens (100 each), plus a 250 bonus for opening the door
 					boolean doorOpened = true;
-					for (Char ch : Dungeon.level.mobs){
+					for (Char ch : Dungeon.level.mobs()){
 						if (ch instanceof VaultTokenDoor){
 							doorOpened = false;
 							break;
@@ -122,7 +122,7 @@ public class EscapeCrystal extends Item {
 					VaultFinalRoom r = (VaultFinalRoom) ((VaultLevel) Dungeon.level).room(VaultFinalRoom.class);
 					if (r.elementalWasSummoned()){
 						boolean elementalFound = false;
-						for (Char ch : Dungeon.level.mobs){
+						for (Char ch : Dungeon.level.mobs()){
 							if (ch instanceof VaultBossElemental){
 								elementalFound = true;
 								score += (int) (750 * (ch.HP/(float)ch.HT));

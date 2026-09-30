@@ -62,7 +62,7 @@ public class CaveEntranceRoom extends CaveRoom {
 
 			//need extra logic here as these rooms can spawn small and cramped in very rare cases
 			if (tries-- > 0){
-				valid = level.map[entrance] != Terrain.WALL && level.findMob(entrance) == null;
+				valid = level.map[entrance] != Terrain.WALL && level.mobs().findMob(entrance) == null;
 			} else {
 				valid = false;
 				for (int i : PathFinder.NEIGHBOURS4){
@@ -70,7 +70,7 @@ public class CaveEntranceRoom extends CaveRoom {
 						valid = true;
 					}
 				}
-				valid = valid && level.findMob(entrance) == null;
+				valid = valid && level.mobs().findMob(entrance) == null;
 			}
 		} while (!valid);
 		Painter.set( level, entrance, Terrain.ENTRANCE );

@@ -253,7 +253,7 @@ public final class SpsTalismanOfForesightTest {
 	private static class TestLevel extends Level {
 		TestLevel() {
 			setSize(9, 9);
-			mobs = new HashSet<>(); heaps = new SparseArray<Heap>(); blobs = new HashMap<>();
+			mobs().clear(); heaps = new SparseArray<Heap>(); blobs = new HashMap<>();
 			plants = new SparseArray<Plant>(); traps = new SparseArray<Trap>(); transitions = new ArrayList<>();
 			customTiles = new ArrayList<>(); customTerrain = new ArrayList<>(); customWalls = new ArrayList<>();
 			Arrays.fill(map, Terrain.EMPTY); Arrays.fill(passable, true); buildFlagMaps();

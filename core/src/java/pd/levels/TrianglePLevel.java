@@ -46,7 +46,7 @@ public class TrianglePLevel extends SpsTriangleLevel {
 		}
 		Greatmoss moss = new Greatmoss();
 		moss.pos = trialRoomCell(room, 0);
-		mobs.add(moss);
+		mobs().add(moss);
 		if (Random.Int(5) == 0) addTrialWeather(room, Random.Int(4));
 	}
 

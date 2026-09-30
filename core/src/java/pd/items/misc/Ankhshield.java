@@ -54,7 +54,7 @@ public class Ankhshield extends Item {
 		if (hero == null || Dungeon.level == null || charge < DEFENCE_COST) return false;
 		if (hero.sprite != null) new Flare(6, 32).color(0x33FF33, true).show(hero.sprite, 2f);
 		Sample.INSTANCE.play(Assets.Sounds.TELEPORT);
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (!mob.isAlive() || !Dungeon.level.heroFOV[mob.pos]) continue;
 			if (Dungeon.level.distance(hero.pos, mob.pos) < 4) {
 				mob.damage(5, this);

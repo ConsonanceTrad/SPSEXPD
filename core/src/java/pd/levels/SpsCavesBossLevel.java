@@ -194,7 +194,7 @@ public class SpsCavesBossLevel extends Level {
 		}
 		boss.pos = restoring ? farthestFromEntrance(candidates) : Random.element(candidates);
 		boss.state = boss.HUNTING;
-		if (restoring) mobs.add(boss);
+		if (restoring) mobs().add(boss);
 		else {
 			GameScene.add(boss);
 			boss.notice();
@@ -302,7 +302,7 @@ public class SpsCavesBossLevel extends Level {
 		if (bundle.contains(BOSS_VARIANT)) bossVariant = bundle.getInt(BOSS_VARIANT);
 		else {
 			bossVariant = HYBRID;
-			for (Mob mob : mobs) {
+			for (Mob mob : mobs()) {
 				if (mob instanceof SpsDM300 || mob instanceof SpsDM300.Tower) bossVariant = DM300;
 				else if (mob instanceof SpiderQueen) bossVariant = SPIDER_QUEEN;
 			}
@@ -310,7 +310,7 @@ public class SpsCavesBossLevel extends Level {
 		if (bossVariant < HYBRID || bossVariant > SPIDER_QUEEN) bossVariant = HYBRID;
 		if (enteredArena && locked) {
 			boolean found = false;
-			for (Mob mob : mobs) if (isFightActor(mob)) { found = true; break; }
+			for (Mob mob : mobs()) if (isFightActor(mob)) { found = true; break; }
 			if (!found) spawnBoss(true);
 		}
 	}

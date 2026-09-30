@@ -75,7 +75,7 @@ public class MineGiantRoom extends CaveRoom {
 			Point p = center();
 			CrystalSpire m = new CrystalSpire();
 			m.pos = level.pointToCell(p);
-			level.mobs.add(m);
+			level.mobs().add(m);
 			Painter.set(level, p, Terrain.EMPTY);
 
 		} else if (Blacksmith.Quest.Type() == Blacksmith.Quest.GNOLL){
@@ -125,7 +125,7 @@ public class MineGiantRoom extends CaveRoom {
 			GnollGeomancer g = new GnollGeomancer();
 			g.pos = level.pointToCell(center);
 			Buff.affect(g, GnollGeomancer.RockArmor.class).setShield(50);
-			level.mobs.add(g);
+			level.mobs().add(g);
 
 		} else if (Blacksmith.Quest.Type() == Blacksmith.Quest.FUNGI){
 			Painter.fillEllipse(level, this, 2, Terrain.HIGH_GRASS);
@@ -138,7 +138,7 @@ public class MineGiantRoom extends CaveRoom {
 			Point p = center();
 			FungalCore m = new FungalCore();
 			m.pos = level.pointToCell(p);
-			level.mobs.add(m);
+			level.mobs().add(m);
 
 		} else {
 			Painter.fillEllipse(level, this, 3, Terrain.EMPTY);

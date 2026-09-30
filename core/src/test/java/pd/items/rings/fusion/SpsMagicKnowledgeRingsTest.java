@@ -161,7 +161,7 @@ public final class SpsMagicKnowledgeRingsTest {
 		TestMob boss = new TestMob();
 		boss.pos = 41;
 		boss.makeBoss();
-		Dungeon.level.mobs.add(boss);
+		Dungeon.level.mobs().add(boss);
 		Actor.add(boss);
 		boss.rollToDropLoot();
 		check(((TestLevel)Dungeon.level).dropped.size() >= 1,
@@ -255,7 +255,7 @@ public final class SpsMagicKnowledgeRingsTest {
 		TestLevel() {
 			setSize(9, 9);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

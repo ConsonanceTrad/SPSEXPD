@@ -90,7 +90,7 @@ public class GnollKing extends Mob {
 
 	private int keeperCount() {
 		int count = 0;
-		for (Mob mob : Dungeon.level.mobs) if (mob instanceof GnollKeeper) count++;
+		for (Mob mob : Dungeon.level.mobs()) if (mob instanceof GnollKeeper) count++;
 		return count;
 	}
 

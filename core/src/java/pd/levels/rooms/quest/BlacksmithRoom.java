@@ -67,7 +67,7 @@ public class BlacksmithRoom extends StandardRoom {
 		
 		Blacksmith npc = new Blacksmith();
 		npc.pos = left + 3 + (level.width()*(top+3));
-		level.mobs.add( npc );
+		level.mobs().add( npc );
 
 		Painter.set(level, npc.pos+1, Terrain.CUSTOM_DECO_WTR);
 		Painter.set(level, npc.pos+1-level.width(), Terrain.CUSTOM_DECO);

@@ -114,7 +114,7 @@ abstract class SpsRegionChallengeLevel extends Level {
 			int cell = randomPassableCell(mob, challengeMobsRequireWater());
 			if (cell == -1) break;
 			mob.pos = cell;
-			mobs.add(mob);
+			mobs().add(mob);
 		}
 	}
 	@Override protected void createItems() { }
@@ -141,12 +141,12 @@ abstract class SpsRegionChallengeLevel extends Level {
 		for (int tries = 0; tries < 500; tries++) {
 			int cell = Random.Int(length());
 			if ((!waterOnly || map[cell] == Terrain.WATER)
-					&& passable[cell] && cell != legacyEntrance && findMob(cell) == null
+					&& passable[cell] && cell != legacyEntrance && mobs().findMob(cell) == null
 					&& Actor.findChar(cell) == null) return cell;
 		}
 		for (int cell = 0; cell < length(); cell++) {
 			if ((!waterOnly || map[cell] == Terrain.WATER)
-					&& passable[cell] && cell != legacyEntrance && findMob(cell) == null
+					&& passable[cell] && cell != legacyEntrance && mobs().findMob(cell) == null
 					&& Actor.findChar(cell) == null) return cell;
 		}
 		return -1;

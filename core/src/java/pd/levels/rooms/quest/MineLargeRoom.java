@@ -100,7 +100,7 @@ public class MineLargeRoom extends CaveRoom {
 
 			CrystalGuardian m = new CrystalGuardian();
 			m.pos = level.pointToCell(p);
-			level.mobs.add(m);
+			level.mobs().add(m);
 			Painter.set(level, p, Terrain.EMPTY);
 
 		} else if (Blacksmith.Quest.Type() == Blacksmith.Quest.GNOLL){
@@ -129,7 +129,7 @@ public class MineLargeRoom extends CaveRoom {
 			GnollSapper s = new GnollSapper();
 			s.pos = sapperPos;
 			s.spawnPos = s.pos;
-			level.mobs.add(s);
+			level.mobs().add(s);
 
 			int guardPos;
 			do {
@@ -137,7 +137,7 @@ public class MineLargeRoom extends CaveRoom {
 			} while (level.map[guardPos] != Terrain.EMPTY);
 			GnollGuard g = new GnollGuard();
 			g.pos = guardPos;
-			level.mobs.add(g);
+			level.mobs().add(g);
 			s.linkPartner(g);
 
 			int barricades = Random.Int(2) == 0 ? 2 : 1;
@@ -201,7 +201,7 @@ public class MineLargeRoom extends CaveRoom {
 			Point p = center();
 			FungalSentry m = new FungalSentry();
 			m.pos = level.pointToCell(p);
-			level.mobs.add(m);
+			level.mobs().add(m);
 			Painter.set(level, p, Terrain.GRASS);
 
 			//no high grass directly above the sentry

@@ -200,7 +200,7 @@ public final class SpsTownMagicTest {
 	private static final class TestLevel extends Level {
 		TestLevel() {
 			setSize(8, 8);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

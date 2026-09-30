@@ -191,7 +191,7 @@ public final class SpsLegacyRingsTest {
 	private static TestMob mobAt(int pos) {
 		TestMob mob = new TestMob();
 		mob.pos = pos;
-		Dungeon.level.mobs.add(mob);
+		Dungeon.level.mobs().add(mob);
 		Actor.add(mob);
 		return mob;
 	}
@@ -217,7 +217,7 @@ public final class SpsLegacyRingsTest {
 		TestLevel() {
 			setSize(9, 9);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

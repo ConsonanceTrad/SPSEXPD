@@ -122,7 +122,7 @@ public class LloydsBeacon extends Item {
 		} else if (AC_RETURN.equals(action)) {
 			if (returnDepth == Dungeon.depth) {
 				ScrollOfTeleportation.appear(hero, returnPos);
-				for (Mob mob : Dungeon.level.mobs) {
+				for (Mob mob : Dungeon.level.mobs()) {
 					if (mob.pos == hero.pos) {
 						for (int offset : PathFinder.NEIGHBOURS8) {
 							int destination = mob.pos + offset;

@@ -239,7 +239,7 @@ public final class SpsMedicineEffectsTest {
 		TestMob mob = new TestMob();
 		mob.HP = mob.HT = 100;
 		mob.pos = CENTER + 2;
-		level.mobs.add(mob);
+		level.mobs().add(mob);
 		Actor.add(mob);
 		return new State(hero, mob);
 	}
@@ -260,7 +260,7 @@ public final class SpsMedicineEffectsTest {
 		TestLevel() {
 			setSize(16, 16);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

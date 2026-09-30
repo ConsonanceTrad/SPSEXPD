@@ -111,7 +111,7 @@ public class SpsYog extends Mob {
 	}
 
 	private boolean hasYearBeast() {
-		if (Dungeon.level != null) for (Mob mob : Dungeon.level.mobs) if (mob instanceof YearBeast && mob.isAlive()) return true;
+		if (Dungeon.level != null) for (Mob mob : Dungeon.level.mobs().all()) if (mob instanceof YearBeast && mob.isAlive()) return true;
 		return false;
 	}
 
@@ -147,7 +147,7 @@ public class SpsYog extends Mob {
 
 	private int fistCount() {
 		int count = 0;
-		if (Dungeon.level != null) for (Mob mob : Dungeon.level.mobs) if (mob instanceof Fist && ((Fist) mob).ownerId == id() && mob.isAlive()) count++;
+		if (Dungeon.level != null) for (Mob mob : Dungeon.level.mobs().all()) if (mob instanceof Fist && ((Fist) mob).ownerId == id() && mob.isAlive()) count++;
 		return count;
 	}
 
@@ -161,7 +161,7 @@ public class SpsYog extends Mob {
 			Larva larva = createLarva(); larva.ownerId = id(); larva.pos = Random.element(cells); larva.state = larva.HUNTING;
 			GameScene.add(larva); Actor.addDelayed(new Pushing(larva, pos, larva.pos), -1);
 		}
-		if (Dungeon.level != null) for (Mob mob : Dungeon.level.mobs) if ((mob instanceof Fist || mob instanceof Larva) && enemy != null) mob.aggro(enemy);
+		if (Dungeon.level != null) for (Mob mob : Dungeon.level.mobs().all()) if ((mob instanceof Fist || mob instanceof Larva) && enemy != null) mob.aggro(enemy);
 		if (fistsSpawned && fistCount() == 0) {
 			spawnFists();
 			if (sprite != null) sprite.emitter().burst(ShadowParticle.UP, 2);
@@ -182,7 +182,7 @@ public class SpsYog extends Mob {
 		super.die(cause);
 		Cleanup cleanup = new Cleanup();
 		if (Dungeon.level == null) return;
-		for (Mob mob : new ArrayList<>(Dungeon.level.mobs)) {
+		for (Mob mob : new ArrayList<>(Dungeon.level.mobs().all())) {
 			if ((mob instanceof Fist && ((Fist) mob).ownerId == id())
 					|| (mob instanceof Larva && ((Larva) mob).ownerId == id())
 					|| mob instanceof Eye) mob.die(cleanup);

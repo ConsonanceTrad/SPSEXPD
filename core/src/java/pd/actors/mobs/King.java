@@ -56,7 +56,7 @@ public class King extends Mob {
 	private int pedestal() { return pd.levels.SpsCityBossLevel.pedestal(nextPedestal); }
 	private int undeadCount() {
 		int count = 0;
-		if (Dungeon.level != null) for (Mob mob : Dungeon.level.mobs) if (mob instanceof Undead && ((Undead) mob).ownerId == id() && mob.isAlive()) count++;
+		if (Dungeon.level != null) for (Mob mob : Dungeon.level.mobs().all()) if (mob instanceof Undead && ((Undead) mob).ownerId == id() && mob.isAlive()) count++;
 		return count;
 	}
 	private int maxArmySize() { return 1 + MAX_ARMY_SIZE * (HT - HP) / HT; }
@@ -97,7 +97,7 @@ public class King extends Mob {
 	private DwarfKingTomb findTomb() {
 		Actor actor = Actor.findById(tombId);
 		if (actor instanceof DwarfKingTomb && ((DwarfKingTomb) actor).isAlive()) return (DwarfKingTomb) actor;
-		if (Dungeon.level != null) for (Mob mob : Dungeon.level.mobs) if (mob instanceof DwarfKingTomb && ((DwarfKingTomb) mob).ownerId == id() && mob.isAlive()) {
+		if (Dungeon.level != null) for (Mob mob : Dungeon.level.mobs().all()) if (mob instanceof DwarfKingTomb && ((DwarfKingTomb) mob).ownerId == id() && mob.isAlive()) {
 			tombId = mob.id(); return (DwarfKingTomb) mob;
 		}
 		return null;
@@ -175,7 +175,7 @@ public class King extends Mob {
 		@Override public void die(Object cause) {
 			super.die(cause);
 			TombCleanup cleanup = new TombCleanup();
-			for (Mob mob : new ArrayList<>(Dungeon.level.mobs)) {
+			for (Mob mob : new ArrayList<>(Dungeon.level.mobs().all())) {
 				if ((mob instanceof Undead && ((Undead) mob).ownerId == ownerId) || (mob instanceof DwarfLich && ((DwarfLich) mob).tombId == id())) mob.die(cleanup);
 			}
 			SpsCityBossRewards.grant(pos, 1000, 2000, rareLoot(), commonLoot());

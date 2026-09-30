@@ -93,7 +93,7 @@ public class SokobanIntroLevel extends Level implements SpsSokobanLevel {
 			SpsSokobanSheep sheep = sheepForTerrain(map[cell]);
 			if (sheep != null) {
 				sheep.pos = cell;
-				mobs.add(sheep);
+				mobs().add(sheep);
 			}
 		}
 	}
@@ -192,11 +192,11 @@ public class SokobanIntroLevel extends Level implements SpsSokobanLevel {
 	}
 
 	public void resetPuzzle(Hero hero) {
-		for (Mob mob : mobs.toArray(new Mob[0])) {
+		for (Mob mob : mobs().toArray(new Mob[0])) {
 			if (mob instanceof SpsSokobanSheep) {
 				mob.destroy();
 				if (mob.sprite != null) mob.sprite.killAndErase();
-				mobs.remove(mob);
+				mobs().remove(mob);
 			}
 		}
 		map = SokobanLayouts.SOKOBAN_INTRO_LEVEL.clone();
@@ -232,7 +232,7 @@ public class SokobanIntroLevel extends Level implements SpsSokobanLevel {
 			SpsSokobanSheep sheep = sheepForTerrain(map[cell]);
 			if (sheep != null) {
 				sheep.pos = cell;
-				mobs.add(sheep);
+				mobs().add(sheep);
 				GameScene.add(sheep);
 			}
 		}

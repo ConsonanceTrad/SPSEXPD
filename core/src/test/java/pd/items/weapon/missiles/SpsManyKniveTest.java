@@ -158,7 +158,7 @@ public final class SpsManyKniveTest {
 		int escapeDrops;
 		TestLevel() {
 			setSize(8, 8);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new render.utils.data.SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new render.utils.data.SparseArray<Plant>();

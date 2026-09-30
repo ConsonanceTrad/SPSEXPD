@@ -324,7 +324,7 @@ public class HallsBossLevel extends Level {
 	@Override
 	public void restoreFromBundle(Bundle bundle) {
 		super.restoreFromBundle(bundle);
-		for (Mob m : mobs){
+		for (Mob m : mobs()){
 			if (m instanceof YogDzewa){
 				((YogDzewa) m).updateVisibility(this);
 			}

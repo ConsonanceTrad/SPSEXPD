@@ -179,7 +179,7 @@ public final class SpsSkinSevenTest {
 		Bundle saved = new Bundle(); cannon.storeInBundle(saved); MegaCannon restored = new MegaCannon(); restored.restoreFromBundle(saved);
 		check(restored.charge() == 3, "洛克手炮充能没有存档");
 
-		Actor.remove(mob); level.mobs.remove(mob);
+		Actor.remove(mob); level.mobs().remove(mob);
 		RockManJumpshoes shoes = new RockManJumpshoes(); int origin = hero.pos;
 		boolean jumped = shoes.jumpTo(hero, origin + 3);
 		check(jumped && hero.pos == origin + 3 && hero.cooldown() == 3f,
@@ -277,7 +277,7 @@ public final class SpsSkinSevenTest {
 		hero.HP = hero.HT = 100; hero.pos = CENTER; Dungeon.hero = hero; Actor.add(hero); return hero;
 	}
 	private static TestMob mobAt(TestLevel level, int pos) {
-		TestMob mob = new TestMob(); mob.HP = mob.HT = 100; mob.pos = pos; level.mobs.add(mob); Actor.add(mob); return mob;
+		TestMob mob = new TestMob(); mob.HP = mob.HT = 100; mob.pos = pos; level.mobs().add(mob); Actor.add(mob); return mob;
 	}
 	private static boolean has(Hero hero, Class<? extends Item> type) { return hero.belongings.getItem(type) != null; }
 	private static int quantity(Hero hero, Class<? extends Item> type) { Item item = hero.belongings.getItem(type); return item == null ? 0 : item.quantity(); }
@@ -300,7 +300,7 @@ public final class SpsSkinSevenTest {
 	}
 	private static final class TestLevel extends Level {
 		TestLevel() {
-			setSize(16, 16); Arrays.fill(map, Terrain.EMPTY); mobs = new HashSet<>(); heaps = new SparseArray<>(); blobs = new HashMap<>();
+			setSize(16, 16); Arrays.fill(map, Terrain.EMPTY); mobs().clear(); heaps = new SparseArray<>(); blobs = new HashMap<>();
 			plants = new SparseArray<Plant>(); traps = new SparseArray<Trap>(); transitions = new ArrayList<>(); customTiles = new ArrayList<>(); customTerrain = new ArrayList<>(); customWalls = new ArrayList<>();
 			buildFlagMaps(); Arrays.fill(heroFOV, true);
 		}

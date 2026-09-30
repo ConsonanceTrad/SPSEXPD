@@ -79,13 +79,13 @@ public class SpsTentRoom extends SpecialRoom {
 		if (Dungeon.shopOnLevel()) {
 			GiftNpc resident = GiftNpc.randomResident();
 			resident.pos = embers.remove(Random.Int(embers.size()));
-			level.mobs.add(resident);
+			level.mobs().add(resident);
 		} else {
 			for (int i = 0; i < 2 && !embers.isEmpty(); i++) {
 				Mob guard = SpsExitMobs.randomTentGuard();
 				guard.pos = embers.remove(Random.Int(embers.size()));
 				Buff.affect(guard, ExProtect.class);
-				level.mobs.add(guard);
+				level.mobs().add(guard);
 			}
 		}
 	}

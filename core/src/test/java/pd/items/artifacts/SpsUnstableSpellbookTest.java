@@ -377,7 +377,7 @@ public final class SpsUnstableSpellbookTest {
 	private static final class TestLevel extends Level {
 		TestLevel() {
 			setSize(32, 32);
-			mobs = new HashSet<>(); heaps = new SparseArray<>(); blobs = new HashMap<>();
+			mobs().clear(); heaps = new SparseArray<>(); blobs = new HashMap<>();
 			plants = new SparseArray<Plant>(); traps = new SparseArray<Trap>(); transitions = new ArrayList<>();
 			customTiles = new ArrayList<>(); customTerrain = new ArrayList<>(); customWalls = new ArrayList<>();
 			Arrays.fill(map, Terrain.EMPTY); Arrays.fill(passable, true); buildFlagMaps();

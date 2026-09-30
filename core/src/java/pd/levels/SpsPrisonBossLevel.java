@@ -75,7 +75,7 @@ public class SpsPrisonBossLevel extends SpsFixedBossLevel {
 			if (bossVariant < TENGU || bossVariant > TANK) bossVariant = TENGU;
 			return;
 		}
-		for (Mob mob : mobs) {
+		for (Mob mob : mobs()) {
 			if (mob instanceof PrisonWander) bossVariant = PRISON_WANDER;
 			else if (mob instanceof Tank) bossVariant = TANK;
 			else if (mob instanceof SpsTengu) bossVariant = TENGU;

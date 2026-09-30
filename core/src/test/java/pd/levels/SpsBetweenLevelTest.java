@@ -118,7 +118,7 @@ public final class SpsBetweenLevelTest {
 
 	private static void prepare(BetweenLevel level) {
 		level.transitions = new ArrayList<>();
-		level.mobs = new HashSet<>();
+		level.mobs().clear();
 		level.heaps = new SparseArray<Heap>();
 		level.blobs = new HashMap<>();
 		level.plants = new SparseArray<Plant>();
@@ -134,7 +134,7 @@ public final class SpsBetweenLevelTest {
 		check(count(level.map, Terrain.SIGN) == 1, depth, seed, "入口告示牌数量不是1");
 		check(count(level.map, Terrain.SECRET_DOOR) == 0, depth, seed, "仍有隐藏门");
 		int residents = 0;
-		for (pd.actors.mobs.Mob mob : level.mobs) {
+		for (pd.actors.mobs.Mob mob : level.mobs()) {
 			if (mob instanceof GiftNpc) residents++;
 			check(mob.alignment != pd.actors.Char.Alignment.ENEMY,
 					depth, seed, "过渡层生成了普通敌人");
@@ -167,7 +167,7 @@ public final class SpsBetweenLevelTest {
 
 	private static void validateLegacyShop(BetweenLevel level, int depth, int seed) {
 		Shopkeeper keeper = null;
-		for (Mob mob : level.mobs) {
+		for (Mob mob : level.mobs()) {
 			if (mob instanceof Shopkeeper) {
 				check(keeper == null, depth, seed, "商店生成了多名商人");
 				keeper = (Shopkeeper)mob;

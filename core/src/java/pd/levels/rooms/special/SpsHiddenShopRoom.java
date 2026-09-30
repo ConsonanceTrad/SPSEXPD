@@ -56,7 +56,7 @@ public class SpsHiddenShopRoom extends SpecialRoom {
 			for (int x = left + 1; x < right; x++) {
 				Point point = new Point(x, y);
 				int cell = level.pointToCell(point);
-				if (level.heaps.get(cell) == null && level.findMob(cell) == null) {
+				if (level.heaps.get(cell) == null && level.mobs().findMob(cell) == null) {
 					keeperCells.add(point);
 				}
 			}
@@ -71,7 +71,7 @@ public class SpsHiddenShopRoom extends SpecialRoom {
 				TownNpc.Spec.SAID_BY_SUN};
 		TownNpc keeper = new TownNpc().configure(Random.element(keepers));
 		keeper.pos = level.pointToCell(keeperCell);
-		level.mobs.add(keeper);
+		level.mobs().add(keeper);
 		paintPedestal(level, keeperCell);
 
 		for (Door door : connected.values()) door.set(Door.Type.HIDDEN);

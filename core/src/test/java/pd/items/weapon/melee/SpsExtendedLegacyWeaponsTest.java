@@ -331,7 +331,7 @@ public final class SpsExtendedLegacyWeaponsTest {
 	private static final class TestLevel extends Level {
 		TestLevel() {
 			setSize(8, 8);
-			mobs = new HashSet<>(); heaps = new SparseArray<>(); blobs = new HashMap<>();
+			mobs().clear(); heaps = new SparseArray<>(); blobs = new HashMap<>();
 			plants = new SparseArray<Plant>(); traps = new SparseArray<>(); transitions = new ArrayList<>();
 			customTiles = new ArrayList<>(); customTerrain = new ArrayList<>(); customWalls = new ArrayList<>();
 		}

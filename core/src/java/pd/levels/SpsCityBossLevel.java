@@ -145,7 +145,7 @@ public class SpsCityBossLevel extends Level {
 		}
 		boss.pos = restoring ? farthestFromEntrance(candidates) : Random.element(candidates);
 		boss.state = boss.HUNTING;
-		if (restoring) mobs.add(boss);
+		if (restoring) mobs().add(boss);
 		else { GameScene.add(boss); boss.notice(); }
 	}
 
@@ -203,7 +203,7 @@ public class SpsCityBossLevel extends Level {
 	int bossVariantForTesting() { selectBoss(); return bossVariant; }
 
 	private boolean hasRequiredFightActor() {
-		for (Mob mob : mobs) {
+		for (Mob mob : mobs()) {
 			if (bossVariant == LICH_DANCER && mob instanceof LichDancer) return true;
 			if (bossVariant == ELDER_AVATAR && mob instanceof ElderAvatar) return true;
 			if (bossVariant == KING && (mob instanceof King || mob instanceof King.DwarfKingTomb)) return true;
@@ -224,7 +224,7 @@ public class SpsCityBossLevel extends Level {
 		if (bundle.contains(BOSS_VARIANT)) bossVariant = bundle.getInt(BOSS_VARIANT);
 		else {
 			bossVariant = LICH_DANCER;
-			for (Mob mob : mobs) {
+			for (Mob mob : mobs()) {
 				if (mob instanceof ElderAvatar || mob instanceof ElderAvatar.Obelisk) bossVariant = ELDER_AVATAR;
 				else if (mob instanceof King || mob instanceof King.DwarfKingTomb || mob instanceof DwarfLich) bossVariant = KING;
 			}

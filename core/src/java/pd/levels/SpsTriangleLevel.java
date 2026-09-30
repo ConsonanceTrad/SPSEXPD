@@ -214,12 +214,12 @@ abstract class SpsTriangleLevel extends SpsRegularLevel {
 			int cell = -1;
 			for (int tries = 0; tries < 20 && cell < 0; tries++) {
 				int candidate = randomRespawnCell(mob);
-				if (candidate >= 0 && findMob(candidate) == null) cell = candidate;
+				if (candidate >= 0 && mobs().findMob(candidate) == null) cell = candidate;
 			}
 			if (cell < 0) {
 				for (int candidate = 0; candidate < length(); candidate++) {
 					if (candidate != entrance && candidate != exit && passable[candidate]
-							&& findMob(candidate) == null) {
+							&& mobs().findMob(candidate) == null) {
 						cell = candidate;
 						break;
 					}
@@ -227,7 +227,7 @@ abstract class SpsTriangleLevel extends SpsRegularLevel {
 			}
 			if (cell < 0) break;
 			mob.pos = cell;
-			mobs.add(mob);
+			mobs().add(mob);
 		}
 	}
 

@@ -75,8 +75,8 @@ public final class SpsHiddenShopTest {
 			}
 			check(life == 6 && gold == 8, "生命商品或金币商品数量错误");
 
-			check(level.mobs.size() == 1, "隐藏商店店主数量错误");
-			Mob keeper = level.mobs.iterator().next();
+			check(level.mobs().size() == 1, "隐藏商店店主数量错误");
+			Mob keeper = level.mobs().iterator().next();
 			check(keeper instanceof TownNpc, "隐藏商店没有使用旧版店主");
 			check(level.heaps.get(keeper.pos) == null, "隐藏商店店主与商品位置重叠");
 			check(keeper.pos % level.width() > room.left && keeper.pos % level.width() < room.right
@@ -132,7 +132,7 @@ public final class SpsHiddenShopTest {
 	private static final class TestLevel extends Level {
 		TestLevel() {
 			setSize(32, 32);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

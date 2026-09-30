@@ -422,7 +422,7 @@ public final class SpsSkinTwoWarriorTest {
 		book.applyHolyBless(hero, 2);
 		check(first.HP == 50 && second.HP == 50, "神圣庇佑没有伤害视野内所有敌人");
 		FairyCard.Fairy fairy = book.summonFairy(hero);
-		check(fairy != null && fairy.HT == 12 && fairy.HP == 12 && level.mobs.contains(fairy),
+		check(fairy != null && fairy.HT == 12 && fairy.HP == 12 && level.mobs().contains(fairy),
 				"神圣庇佑召唤的仙女位置或生命错误");
 
 		level = freshLevel();
@@ -652,7 +652,7 @@ public final class SpsSkinTwoWarriorTest {
 				"侵蚀核心充能上限或施放条件错误");
 		CopyBall.SlimeS slime = ball.spawnClone(CENTER + 2);
 		check(slime != null && slime.pos == CENTER + 2 && slime.HP == 33 && slime.HT == 33
-				&& slime.alignment == Char.Alignment.ALLY && slime.flying && level.mobs.contains(slime),
+				&& slime.alignment == Char.Alignment.ALLY && slime.flying && level.mobs().contains(slime),
 				"侵蚀核心分身位置、生命或阵营错误");
 		Buff.affect(slime, Slow.class, 3f);
 		check(slime.buff(Slow.class) == null,
@@ -1052,7 +1052,7 @@ public final class SpsSkinTwoWarriorTest {
 		TestMob mob = new TestMob();
 		mob.HP = mob.HT = 100;
 		mob.pos = pos;
-		level.mobs.add(mob);
+		level.mobs().add(mob);
 		Actor.add(mob);
 		return mob;
 	}
@@ -1082,7 +1082,7 @@ public final class SpsSkinTwoWarriorTest {
 		TestLevel() {
 			setSize(16, 16);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

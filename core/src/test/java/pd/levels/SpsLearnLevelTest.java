@@ -91,14 +91,14 @@ public final class SpsLearnLevelTest {
 				"教学层旧版拼图图层缺失");
 
 		int guides = 0, scarecrows = 0;
-		for (Mob mob : level.mobs) {
+		for (Mob mob : level.mobs()) {
 			if (mob instanceof Leadercn) guides++;
 			if (mob instanceof TestMob) {
 				scarecrows++;
 				check(mob.HP == 100 && mob.HT == 100000, "教学稻草人数值错误");
 			}
 		}
-		check(guides == 8 && scarecrows == 2 && level.mobs.size() == 10, "教学怪物/NPC数量错误");
+		check(guides == 8 && scarecrows == 2 && level.mobs().size() == 10, "教学怪物/NPC数量错误");
 		check(level.traps.valueList().size() == 2, "教学火焰陷阱数量错误");
 		for (pd.levels.traps.Trap trap : level.traps.valueList())
 			check(trap instanceof FireBuffTrap, "教学层生成了错误陷阱");
@@ -125,9 +125,9 @@ public final class SpsLearnLevelTest {
 		Dungeon.level = level;
 		level.create();
 		int tinkerers = 0;
-		for (Mob mob : level.mobs) if (mob instanceof Tinkerer1) tinkerers++;
+		for (Mob mob : level.mobs()) if (mob instanceof Tinkerer1) tinkerers++;
 		check(Arrays.hashCode(level.map) == 431741786, "旧版起始层地图错误");
-		check(tinkerers == 8 && level.mobs.size() == 8, "旧版起始层NPC数量错误");
+		check(tinkerers == 8 && level.mobs().size() == 8, "旧版起始层NPC数量错误");
 		check(level.heaps.valueList().isEmpty() && level.traps.valueList().size() == 2,
 				"旧版起始层物品或陷阱错误");
 	}

@@ -89,11 +89,11 @@ public class StatueRoom extends SpecialRoom {
 		Statue statue = new Statue();
 		statue.createWeapon(true);
 		statue.pos = cx + cy * level.width();
-		level.mobs.add( statue );
+		level.mobs().add( statue );
 
 		ArmorStatue armorStatue = new ArmorStatue();
 		armorStatue.pos = c.x + c.y * level.width();
-		level.mobs.add(armorStatue);
+		level.mobs().add(armorStatue);
 	}
 
 	private Item prize() {

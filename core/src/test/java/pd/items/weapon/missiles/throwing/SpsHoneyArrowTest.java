@@ -81,8 +81,8 @@ public final class SpsHoneyArrowTest {
 		target.HP = target.HT = 100;
 		Actor.add(target);
 		new HoneyArrow().proc(hero, target, 1);
-		check(level.mobs.size() == 4, "蜜蜂针头命中后没有在四个方向召唤蜜蜂");
-		for (Mob mob : level.mobs) check(mob instanceof Bee && mob.HP == mob.HT
+		check(level.mobs().size() == 4, "蜜蜂针头命中后没有在四个方向召唤蜜蜂");
+		for (Mob mob : level.mobs()) check(mob instanceof Bee && mob.HP == mob.HT
 				&& mob.HT == 120 && ((Bee)mob).beeLevel() == 10,
 				"非领袖蜜蜂针头召唤了错误单位、生命或深度");
 	}
@@ -96,14 +96,14 @@ public final class SpsHoneyArrowTest {
 		target.HP = target.HT = 100;
 		Actor.add(target);
 		new HoneyArrow().proc(hero, target, 1);
-		check(level.mobs.size() == 4, "领袖蜜蜂针头命中后召唤数量错误");
-		for (Mob mob : level.mobs) check(mob instanceof Honeypot.SteelBee
+		check(level.mobs().size() == 4, "领袖蜜蜂针头命中后召唤数量错误");
+		for (Mob mob : level.mobs()) check(mob instanceof Honeypot.SteelBee
 				&& mob.alignment == Char.Alignment.ALLY, "领袖蜜蜂针头没有召唤友方钢蜂");
 
-		level.mobs.clear();
+		level.mobs().clear();
 		Item result = new Honeypot().shatter(hero, 29);
-		check(result instanceof Honeypot.ShatteredPot && level.mobs.size() == 1
-				&& level.mobs.iterator().next() instanceof Honeypot.SteelBee,
+		check(result instanceof Honeypot.ShatteredPot && level.mobs().size() == 1
+				&& level.mobs().iterator().next() instanceof Honeypot.SteelBee,
 				"领袖打碎普通蜜罐时没有恢复钢蜂分支");
 	}
 
@@ -137,7 +137,7 @@ public final class SpsHoneyArrowTest {
 		check(chaosSteel.beeLevel() == 25 && chaosSteel.HT == 540
 				&& chaosSteel.attackSkill(null) == 200,
 				"混沌路线钢蜂没有使用旧版85层生成数值");
-		check(level.mobs.isEmpty(), "纯召唤数值测试错误加入了地图角色");
+		check(level.mobs().isEmpty(), "纯召唤数值测试错误加入了地图角色");
 	}
 
 	private static void testAssets() throws Exception {
@@ -184,7 +184,7 @@ public final class SpsHoneyArrowTest {
 	private static final class TestLevel extends Level {
 		TestLevel() {
 			setSize(8, 8);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

@@ -92,7 +92,7 @@ public final class SpsPickaxeTest {
 		TestMob defender = new TestMob();
 		defender.HP = defender.HT = 10000;
 		defender.pos = CENTER + 1;
-		Dungeon.level.mobs.add(defender);
+		Dungeon.level.mobs().add(defender);
 		Actor.add(defender);
 		Random.pushGenerator(0x5049434B415845L);
 		try {
@@ -137,7 +137,7 @@ public final class SpsPickaxeTest {
 		TestLevel() {
 			setSize(16, 16);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

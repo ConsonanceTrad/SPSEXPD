@@ -115,7 +115,7 @@ public final class SpsEyeOfSkadiTest {
 		eye.level(3);
 		eye.setCharge(EyeOfSkadi.FULL_CHARGE);
 		Gnoll victim = mob(105, 100);
-		Dungeon.level.mobs.add(victim);
+		Dungeon.level.mobs().add(victim);
 		Actor.add(victim);
 		check(!eye.curse(-1, hero) && eye.charge() == EyeOfSkadi.FULL_CHARGE,
 				"越界目标错误触发冰眼诅咒");
@@ -137,8 +137,8 @@ public final class SpsEyeOfSkadiTest {
 		eye.level(4);
 		Gnoll normal = mob(110, 100);
 		Gnoll low = mob(111, 1);
-		Dungeon.level.mobs.add(normal);
-		Dungeon.level.mobs.add(low);
+		Dungeon.level.mobs().add(normal);
+		Dungeon.level.mobs().add(low);
 		Actor.add(normal);
 		Actor.add(low);
 		check(eye.blast() == 2, "冰暴没有攻击全层两只怪物");
@@ -147,7 +147,7 @@ public final class SpsEyeOfSkadiTest {
 		check(low.HP == 1 && low.buff(Frost.class) != null,
 				"一生命怪物触发了无效随机区间或没有冻结");
 
-		Dungeon.level.mobs.clear();
+		Dungeon.level.mobs().clear();
 		eye.level(3);
 		eye.execute(hero, EyeOfSkadi.AC_BLAST);
 		check(eye.level() == 2 && close(hero.spent, 0f), "耗竭冰暴没有降低一级或错误消耗回合");
@@ -316,7 +316,7 @@ public final class SpsEyeOfSkadiTest {
 	private static final class TestLevel extends Level {
 		TestLevel() {
 			setSize(32, 32);
-			mobs = new HashSet<>(); heaps = new SparseArray<>(); blobs = new HashMap<>();
+			mobs().clear(); heaps = new SparseArray<>(); blobs = new HashMap<>();
 			plants = new SparseArray<Plant>(); traps = new SparseArray<Trap>(); transitions = new ArrayList<>();
 			customTiles = new ArrayList<>(); customTerrain = new ArrayList<>(); customWalls = new ArrayList<>();
 			Arrays.fill(map, Terrain.EMPTY); Arrays.fill(passable, true); buildFlagMaps();

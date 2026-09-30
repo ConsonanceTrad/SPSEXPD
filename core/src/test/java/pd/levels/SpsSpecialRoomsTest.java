@@ -163,7 +163,7 @@ public final class SpsSpecialRoomsTest {
 		check(countItems(f.level, Honeypot.class) == 1, "丛林房蜂蜜罐缺失");
 		check(countItems(f.level, PlantPotBlock.class) == 1, "丛林房种植盆缺失");
 		int moss = 0;
-		for (pd.actors.mobs.Mob mob : f.level.mobs) {
+		for (pd.actors.mobs.Mob mob : f.level.mobs()) {
 			if (mob instanceof Greatmoss) moss++;
 		}
 		check(moss == 3, "丛林房苔藓数量错误");
@@ -178,14 +178,14 @@ public final class SpsSpecialRoomsTest {
 		int weaponStatues = 0;
 		int armorStatues = 0;
 		ArmorStatue armorStatue = null;
-		for (pd.actors.mobs.Mob mob : f.level.mobs) {
+		for (pd.actors.mobs.Mob mob : f.level.mobs()) {
 			if (mob.getClass() == Statue.class) weaponStatues++;
 			if (mob instanceof ArmorStatue) {
 				armorStatues++;
 				armorStatue = (ArmorStatue)mob;
 			}
 		}
-		check(weaponStatues == 1 && armorStatues == 1 && f.level.mobs.size() == 2,
+		check(weaponStatues == 1 && armorStatues == 1 && f.level.mobs().size() == 2,
 				"雕像房没有固定生成一只武器石像和一只护甲石像");
 
 		int prizes = 0;
@@ -255,11 +255,11 @@ public final class SpsSpecialRoomsTest {
 		check(reward.items.size() == 1 && (reward.peek() instanceof Armor || reward.peek() instanceof Weapon),
 				"水池房奖励没有使用旧版武器护甲池");
 		int piranhas = 0;
-		for (pd.actors.mobs.Mob mob : f.level.mobs) {
+		for (pd.actors.mobs.Mob mob : f.level.mobs()) {
 			if (mob.getClass() == Piranha.class) piranhas++;
 			check(f.level.map[mob.pos] == Terrain.WATER, "水池房食人鱼没有落在水中");
 		}
-		check(piranhas == 4 && f.level.mobs.size() == 4, "水池房没有固定生成四条普通食人鱼");
+		check(piranhas == 4 && f.level.mobs().size() == 4, "水池房没有固定生成四条普通食人鱼");
 		check(f.level.findPrizeItem(PotionOfInvisibility.class) != null, "水池房没有安排隐形药剂");
 	}
 
@@ -298,7 +298,7 @@ public final class SpsSpecialRoomsTest {
 				int mimicCell = mimic.pos;
 				mimic.open(Dungeon.hero);
 				Mimic awakened = null;
-				for (pd.actors.mobs.Mob mob : f.level.mobs) {
+				for (pd.actors.mobs.Mob mob : f.level.mobs()) {
 					if (mob.getClass() == Mimic.class) awakened = (Mimic)mob;
 				}
 				check(f.level.heaps.get(mimicCell) == null && awakened != null
@@ -373,7 +373,7 @@ public final class SpsSpecialRoomsTest {
 		check(countTerrain(f.level, Terrain.EMPTY) == 16 && countTerrain(f.level, Terrain.EMPTY_SP) == 20,
 				"宝库双层地面布局错误");
 		check(countHeapType(f.level, Heap.Type.CRYSTAL_CHEST) == 3, "宝库没有生成三个水晶箱");
-		check(f.level.mobs.isEmpty(), "宝库错误生成现代拟态怪");
+		check(f.level.mobs().isEmpty(), "宝库错误生成现代拟态怪");
 		for (Heap heap : f.level.heaps.valueList()) {
 			check(heap.items.size() == 1, "宝库箱内奖励数量错误");
 			Item item = heap.peek();
@@ -392,9 +392,9 @@ public final class SpsSpecialRoomsTest {
 		check(countTerrain(f.level, Terrain.TENT) == 1, "帐篷房休息点缺失");
 		check(countTerrain(f.level, Terrain.STATUE_SP) == 1, "帐篷房中心雕像缺失");
 		check(f.level.plants.valueList().size() == 1, "帐篷房花盆没有强化植物");
-		check(f.level.mobs.size() == 2, "非商店层帐篷房守卫数量错误");
+		check(f.level.mobs().size() == 2, "非商店层帐篷房守卫数量错误");
 		HashSet<Integer> guardCells = new HashSet<>();
-		for (pd.actors.mobs.Mob guard : f.level.mobs) {
+		for (pd.actors.mobs.Mob guard : f.level.mobs()) {
 			check(guard.buff(ExProtect.class) != null, "非商店层帐篷守卫缺少额外保护");
 			check(guardCells.add(guard.pos), "非商店层帐篷守卫位置重叠");
 		}
@@ -409,8 +409,8 @@ public final class SpsSpecialRoomsTest {
 		for (int cell = 0; cell < f.level.length(); cell++) {
 			if (f.level.map[cell] == Terrain.WATER) check(f.level.heaps.get(cell) != null, "水环缺少露珠");
 		}
-		check(f.level.mobs.size() == 1 && f.level.mobs.iterator().next() instanceof TownNpc
-				&& ((TownNpc)f.level.mobs.iterator().next()).spec() == TownNpc.Spec.HMDZL001,
+		check(f.level.mobs().size() == 1 && f.level.mobs().iterator().next() instanceof TownNpc
+				&& ((TownNpc)f.level.mobs().iterator().next()).spec() == TownNpc.Spec.HMDZL001,
 				"许愿池作者NPC错误");
 		checkRoomWalls(f.level, "许愿池覆盖了房间外墙");
 	}
@@ -634,7 +634,7 @@ public final class SpsSpecialRoomsTest {
 	private static final class TestLevel extends Level {
 		TestLevel() {
 			setSize(32, 32);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

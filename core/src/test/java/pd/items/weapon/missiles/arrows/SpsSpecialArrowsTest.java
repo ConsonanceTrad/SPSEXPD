@@ -254,7 +254,7 @@ public final class SpsSpecialArrowsTest {
 			setSize(16, 16);
 			Arrays.fill(map, Terrain.EMPTY);
 			Arrays.fill(passable, true);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

@@ -53,7 +53,7 @@ public class OrbOfZotMob extends Mob {
 				&& visible(enemy.pos)) return enemy;
 
 		ArrayList<Mob> enemies = new ArrayList<>();
-		for (Mob mob : Dungeon.level.mobs) {
+		for (Mob mob : Dungeon.level.mobs()) {
 			if (mob != this && mob.isAlive() && mob.alignment == Alignment.ENEMY
 					&& mob.invisible <= 0 && visible(mob.pos)) enemies.add(mob);
 		}

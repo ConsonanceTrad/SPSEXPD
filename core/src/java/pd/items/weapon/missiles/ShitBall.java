@@ -33,7 +33,7 @@ public class ShitBall extends MissileWeapon {
 	@Override protected void onThrow(int cell) {
 		Char target = Actor.findChar(cell);
 		if (target == null) {
-			for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+			for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 				if (Dungeon.level.heroFOV[mob.pos] && Dungeon.level.distance(cell, mob.pos) <= 5) {
 					Buff.affect(mob, Blindness.class, 5f);
 					mob.beckon(cell);

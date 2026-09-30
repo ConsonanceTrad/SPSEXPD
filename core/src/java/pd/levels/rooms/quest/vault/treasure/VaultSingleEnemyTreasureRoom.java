@@ -45,7 +45,7 @@ public class VaultSingleEnemyTreasureRoom extends VaultTreasureRoom {
 
 		Mob enemy = Reflection.newInstance(Random.oneOf(VaultLevel.T2Mobs));
 		enemy.pos = level.pointToCell(center());
-		level.mobs.add(enemy);
+		level.mobs().add(enemy);
 
 		int treasurePos;
 		if (entrance().x == left){

@@ -241,7 +241,7 @@ public final class SpsRelicWeaponTest {
 		TestMob mob = new TestMob();
 		mob.pos = pos;
 		mob.HT = mob.HP = 1000;
-		level.mobs.add(mob);
+		level.mobs().add(mob);
 		return mob;
 	}
 
@@ -260,7 +260,7 @@ public final class SpsRelicWeaponTest {
 		TestLevel() {
 			setSize(16, 16);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

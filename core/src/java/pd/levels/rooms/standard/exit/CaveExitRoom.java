@@ -63,7 +63,7 @@ public class CaveExitRoom extends CaveRoom {
 
 			//need extra logic here as these rooms can spawn small and cramped in very rare cases
 			if (tries-- > 0){
-				valid = level.map[exit] != Terrain.WALL && level.findMob(exit) == null;
+				valid = level.map[exit] != Terrain.WALL && level.mobs().findMob(exit) == null;
 			} else {
 				valid = false;
 				for (int i : PathFinder.NEIGHBOURS4){
@@ -71,7 +71,7 @@ public class CaveExitRoom extends CaveRoom {
 						valid = true;
 					}
 				}
-				valid = valid && level.findMob(exit) == null;
+				valid = valid && level.mobs().findMob(exit) == null;
 			}
 		} while (!valid);
 		Painter.set( level, exit, Terrain.EXIT );

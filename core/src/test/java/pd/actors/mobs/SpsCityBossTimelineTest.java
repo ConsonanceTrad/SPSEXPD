@@ -300,7 +300,7 @@ public final class SpsCityBossTimelineTest {
 	private static TestObelisk replaceObelisk(RecordingLevel level, TestElder elder) throws Exception {
 		ElderAvatar.Obelisk original = first(level, ElderAvatar.Obelisk.class);
 		if (original == null) return null;
-		level.mobs.remove(original);
+		level.mobs().remove(original);
 		Actor.remove(original);
 		TestObelisk replacement = add(level, new TestObelisk(), original.pos);
 		setInt(replacement, ElderAvatar.Obelisk.class, "ownerId", elder.id());
@@ -327,25 +327,25 @@ public final class SpsCityBossTimelineTest {
 
 	private static <T extends Mob> T add(RecordingLevel level, T mob, int pos) {
 		mob.pos = pos;
-		level.mobs.add(mob);
+		level.mobs().add(mob);
 		Actor.add(mob);
 		return mob;
 	}
 
 	private static <T extends Mob> T first(RecordingLevel level, Class<T> type) {
-		for (Mob mob : level.mobs) if (type.isInstance(mob) && mob.isAlive()) return type.cast(mob);
+		for (Mob mob : level.mobs()) if (type.isInstance(mob) && mob.isAlive()) return type.cast(mob);
 		return null;
 	}
 
 	private static int count(RecordingLevel level, Class<?> type) {
 		int result = 0;
-		for (Mob mob : level.mobs) if (type.isInstance(mob) && mob.isAlive()) result++;
+		for (Mob mob : level.mobs()) if (type.isInstance(mob) && mob.isAlive()) result++;
 		return result;
 	}
 
 	private static int countExact(RecordingLevel level, Class<?> type) {
 		int result = 0;
-		for (Mob mob : level.mobs) if (mob.getClass() == type && mob.isAlive()) result++;
+		for (Mob mob : level.mobs()) if (mob.getClass() == type && mob.isAlive()) result++;
 		return result;
 	}
 
@@ -433,7 +433,7 @@ public final class SpsCityBossTimelineTest {
 			map[WELL + WIDTH * 2] = Terrain.STATUE_SP;
 			map[LEFT_PEDESTAL] = Terrain.PEDESTAL;
 			map[RIGHT_PEDESTAL] = Terrain.PEDESTAL;
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

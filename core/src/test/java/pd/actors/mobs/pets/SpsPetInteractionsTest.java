@@ -128,7 +128,7 @@ public final class SpsPetInteractionsTest {
 		Hero hero = heroAndLevel(10);
 		BlueDragon pet = new BlueDragon();
 		pet.pos = hero.pos + 1;
-		Dungeon.level.mobs.add(pet);
+		Dungeon.level.mobs().add(pet);
 		Actor.add(pet);
 		pet.stayHere();
 		check(pet.staying(), "宠物没有立即进入原地留守状态");
@@ -179,7 +179,7 @@ public final class SpsPetInteractionsTest {
 	private static class TestLevel extends Level {
 		TestLevel() {
 			setSize(32, 32);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<>();

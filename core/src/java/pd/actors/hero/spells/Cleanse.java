@@ -73,7 +73,7 @@ public class Cleanse extends ClericSpell {
 		ArrayList<Char> affected = new ArrayList<>();
 		affected.add(hero);
 
-		for (Mob mob : Dungeon.level.mobs.toArray( new Mob[0] )) {
+		for (Mob mob : Dungeon.level.mobs().toArray( new Mob[0] )) {
 			if (Dungeon.level.heroFOV[mob.pos] && mob.alignment == Char.Alignment.ALLY) {
 				affected.add(mob);
 			}

@@ -142,7 +142,7 @@ public class PlagueDoctor extends LegacyDualLootMob {
 
 	@Override public void destroy() {
 		super.destroy();
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) if (mob instanceof ShadowRat) mob.die(null);
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) if (mob instanceof ShadowRat) mob.die(null);
 	}
 
 	@Override public void die(Object cause) {
@@ -187,7 +187,7 @@ public class PlagueDoctor extends LegacyDualLootMob {
 		@Override public boolean act() {
 			charge++;
 			int rats = 1;
-			for (Mob mob : Dungeon.level.mobs) if (mob instanceof ShadowRat) rats++;
+			for (Mob mob : Dungeon.level.mobs()) if (mob instanceof ShadowRat) rats++;
 			int needed = Math.min(10, rats);
 			if (charge >= needed) {
 				charge -= needed;

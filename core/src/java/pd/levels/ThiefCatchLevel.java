@@ -90,7 +90,7 @@ public class ThiefCatchLevel extends SpsRegularLevel {
 		if (cell < 0) return;
 		BanditKing king = new BanditKing();
 		king.pos = cell;
-		mobs.add(king);
+		mobs().add(king);
 	}
 
 	@Override protected void createItems() { }

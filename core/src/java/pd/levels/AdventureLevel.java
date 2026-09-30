@@ -344,22 +344,22 @@ public class AdventureLevel extends RegularLevel {
 		if (peaceful()) {
 			AdventureGuide guide = new AdventureGuide().configure(destination());
 			guide.pos = goalCell;
-			mobs.add(guide);
+			mobs().add(guide);
 			return;
 		}
 		int destination = destination();
 		AdventureGuardian guardian = new AdventureGuardian().configure(destination, true);
 		guardian.pos = goalCell;
-		mobs.add(guardian);
+		mobs().add(guardian);
 
 		int echoes = destination == 21 ? 0 : destination >= 21 ? 3 + destination % 3
 				: destination >= 9 ? 1 + destination % 3 : 1;
 		for (int i = 0; i < echoes; i++) {
 			AdventureGuardian echo = new AdventureGuardian().configure(destination, false);
 			int pos = randomRespawnCell(echo);
-			if (pos >= 0 && pos != goalCell && findMob(pos) == null) {
+			if (pos >= 0 && pos != goalCell && mobs().findMob(pos) == null) {
 				echo.pos = pos;
-				mobs.add(echo);
+				mobs().add(echo);
 			}
 		}
 	}
@@ -369,14 +369,14 @@ public class AdventureLevel extends RegularLevel {
 			SokobanBlock block = new SokobanBlock();
 			block.pos = start;
 			block.setHomePos(start);
-			mobs.add(block);
+			mobs().add(block);
 		}
 	}
 
 	public void resetPuzzle(Hero hero) {
 		if (!puzzle() || puzzleStartPositions.length == 0) return;
 		ArrayList<SokobanBlock> blocks = new ArrayList<>();
-		for (Mob mob : mobs) {
+		for (Mob mob : mobs()) {
 			if (mob instanceof SokobanBlock) blocks.add((SokobanBlock)mob);
 		}
 		if (blocks.size() != puzzleStartPositions.length) return;
@@ -438,7 +438,7 @@ public class AdventureLevel extends RegularLevel {
 	}
 
 	private void checkPuzzleSolved() {
-		for (Mob mob : mobs) {
+		for (Mob mob : mobs()) {
 			if (mob instanceof SokobanBlock && map[mob.pos] != Terrain.PEDESTAL) return;
 		}
 		AdventureJournal.complete(destination());

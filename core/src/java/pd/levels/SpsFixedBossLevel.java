@@ -106,7 +106,7 @@ abstract class SpsFixedBossLevel extends Level {
 		if (enteredArena && map[EXIT] == Terrain.LOCKED_EXIT) {
 			locked = true;
 			boolean found = false;
-			for (Mob mob : mobs) {
+			for (Mob mob : mobs()) {
 				if (isLegacyBossActor(mob)) {
 					found = true;
 					break;
@@ -116,7 +116,7 @@ abstract class SpsFixedBossLevel extends Level {
 				Mob boss = createLegacyBoss();
 				boss.pos = BOSS_CELL;
 				boss.state = boss.HUNTING;
-				mobs.add(boss);
+				mobs().add(boss);
 			}
 		}
 	}

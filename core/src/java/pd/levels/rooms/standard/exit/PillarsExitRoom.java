@@ -58,7 +58,7 @@ public class PillarsExitRoom extends PillarsRoom {
 				}
 			}
 
-		} while (level.findMob(exit) != null || level.map[exit] == Terrain.WALL || !valid);
+		} while (level.mobs().findMob(exit) != null || level.map[exit] == Terrain.WALL || !valid);
 		Painter.set( level, exit, Terrain.EXIT );
 
 		level.transitions.add(new LevelTransition(level, exit, LevelTransition.Type.REGULAR_EXIT));

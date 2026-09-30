@@ -74,7 +74,7 @@ public class HuntressSkill extends ClassSkill {
 	}
 
 	@Override public void doSpecial4() {
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (visibleMob(mob, 10)) {
 				Buff.prolong(mob, Roots.class, 8f);
 				Buff.affect(mob, GrowSeed.class).set(10f);

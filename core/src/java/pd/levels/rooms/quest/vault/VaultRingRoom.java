@@ -64,6 +64,6 @@ public class VaultRingRoom extends VaultRoom {
 		enemy.pos = wanderPositions[idx];
 		enemy.setupStealthGameplayWanderPositions(wanderPositions, idx);
 		enemy.state = enemy.WANDERING;
-		level.mobs.add(enemy);
+		level.mobs().add(enemy);
 	}
 }

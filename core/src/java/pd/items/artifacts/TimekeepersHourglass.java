@@ -419,11 +419,11 @@ public class TimekeepersHourglass extends Artifact {
 			if (!(target instanceof Hero) || Dungeon.level == null) return;
 			Emitter.freezeEmitters = on;
 			if (on){
-				for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+				for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 					if (mob.sprite != null) mob.sprite.add(CharSprite.State.PARALYSED);
 				}
 			} else {
-				for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+				for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 					if (mob.paralysed <= 0 && mob.sprite != null) mob.sprite.remove(CharSprite.State.PARALYSED);
 				}
 			}

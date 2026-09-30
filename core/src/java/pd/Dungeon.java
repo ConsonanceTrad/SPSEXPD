@@ -675,9 +675,9 @@ public class Dungeon {
 
 		Actor.init();
 
-		level.addRespawner();
+		level.mobs().addRespawner();
 		
-		for(Mob m : level.mobs){
+		for(Mob m : level.mobs()){
 			if (m.pos == hero.pos && !Char.hasProp(m, Char.Property.IMMOVABLE)){
 				//displace mob
 				for(int i : PathFinder.NEIGHBOURS8){
@@ -1245,7 +1245,7 @@ public class Dungeon {
 		}
 
 		if (hero.buff(MindVision.class) != null || hero.buff(DivineSense.DivineSenseTracker.class) != null){
-			for (Mob m : level.mobs.toArray(new Mob[0])){
+			for (Mob m : level.mobs().toArray(new Mob[0])){
 				if (m instanceof Mimic && m.alignment == Char.Alignment.NEUTRAL && ((Mimic) m).stealthy()){
 					continue;
 				}

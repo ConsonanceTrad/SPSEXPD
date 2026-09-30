@@ -313,14 +313,14 @@ public final class SpsSewerBossTimelineTest {
 
 	private static <T extends Mob> T add(RecordingLevel level, T mob, int pos) {
 		mob.pos = pos;
-		level.mobs.add(mob);
+		level.mobs().add(mob);
 		Actor.add(mob);
 		return mob;
 	}
 
 	private static int count(RecordingLevel level, Class<? extends Mob> type) {
 		int count = 0;
-		for (Mob mob : level.mobs) if (type.isInstance(mob) && mob.isAlive()) count++;
+		for (Mob mob : level.mobs()) if (type.isInstance(mob) && mob.isAlive()) count++;
 		return count;
 	}
 
@@ -391,7 +391,7 @@ public final class SpsSewerBossTimelineTest {
 		RecordingLevel() {
 			setSize(WIDTH, WIDTH);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

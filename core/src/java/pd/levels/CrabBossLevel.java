@@ -36,5 +36,5 @@ public class CrabBossLevel extends Level {
 	private boolean completed(){if(Dungeon.hero==null)return false;AdventureJournal j=Dungeon.hero.belongings.getItem(AdventureJournal.class);return j!=null&&j.isCompleted(12);}
 	private static final String DOOR="door",ENTERED="entered";
 	@Override public void storeInBundle(Bundle b){super.storeInBundle(b);b.put(DOOR,arenaDoor);b.put(ENTERED,enteredArena);}
-	@Override public void restoreFromBundle(Bundle b){super.restoreFromBundle(b);arenaDoor=b.getInt(DOOR);enteredArena=b.getBoolean(ENTERED);if(enteredArena&&!completed()){boolean found=false;for(Mob mob:mobs)if(mob instanceof CrabKing){found=true;break;}if(!found)enteredArena=false;}}
+	@Override public void restoreFromBundle(Bundle b){super.restoreFromBundle(b);arenaDoor=b.getInt(DOOR);enteredArena=b.getBoolean(ENTERED);if(enteredArena&&!completed()){boolean found=false;for(Mob mob:mobs())if(mob instanceof CrabKing){found=true;break;}if(!found)enteredArena=false;}}
 }

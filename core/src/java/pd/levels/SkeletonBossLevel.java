@@ -138,7 +138,7 @@ public class SkeletonBossLevel extends Level {
 		super.restoreFromBundle(b); arenaDoor = b.getInt(DOOR); enteredArena = b.getBoolean(ENTERED);
 		if (enteredArena && !completed()) {
 			boolean found = false;
-			for (Mob mob : mobs) if (mob instanceof SkeletonKing) { found = true; break; }
+			for (Mob mob : mobs()) if (mob instanceof SkeletonKing) { found = true; break; }
 			if (!found) enteredArena = false;
 		}
 	}

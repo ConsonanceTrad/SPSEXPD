@@ -97,7 +97,7 @@ public class RotHeart extends Mob {
 	public void destroy() {
 		super.destroy();
 		Bestiary.skipCountingEncounters = true;
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[Dungeon.level.mobs.size()])){
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[Dungeon.level.mobs().size()])){
 			if (mob instanceof RotLasher){
 				mob.die(null);
 			}

@@ -562,7 +562,7 @@ public class VaultLevel extends CityLevel {
 		return Reflection.newInstance(cls);
 	}
 
-	//important to try and preserve mobs that can't spawn in a certain place (e.g. corridors)
+	//important to try and preserve mobs() that can't spawn in a certain place (e.g. corridors)
 	public void returnMob( Class<?extends Mob> cls){
 		mobsToSpawn.add(0, cls);
 	}

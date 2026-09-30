@@ -87,7 +87,7 @@ public class Necromancer extends Mob {
 	public void aggro(Char ch) {
 		super.aggro(ch);
 		if (mySkeleton != null && mySkeleton.isAlive()
-				&& Dungeon.level.mobs.contains(mySkeleton)
+				&& Dungeon.level.mobs().contains(mySkeleton)
 				&& mySkeleton.alignment == alignment){
 			mySkeleton.aggro(ch);
 		}
@@ -288,7 +288,7 @@ public class Necromancer extends Mob {
 			
 			if (mySkeleton != null &&
 					(!mySkeleton.isAlive()
-					|| !Dungeon.level.mobs.contains(mySkeleton)
+					|| !Dungeon.level.mobs().contains(mySkeleton)
 					|| mySkeleton.alignment != alignment)){
 				mySkeleton = null;
 			}

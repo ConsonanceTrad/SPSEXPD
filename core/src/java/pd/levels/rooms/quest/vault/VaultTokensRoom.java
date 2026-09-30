@@ -104,12 +104,12 @@ public class VaultTokensRoom extends VaultLongRoom {
 		Painter.set(level, c.x, c.y+3, Terrain.LOCKED_DOOR);
 		VaultTokenDoor door = new VaultTokenDoor();
 		door.pos = c.x + (c.y+3)*level.width();
-		level.mobs.add(door);
+		level.mobs().add(door);
 
 		VaultMirror mirror = new VaultMirror();
 		mirror.createReward(Dungeon.hero.heroClass);
 		mirror.pos = c.x + (c.y-1)*level.width();
-		level.mobs.add(mirror);
+		level.mobs().add(mirror);
 
 		if (Random.Int(2) == 0) {
 			level.drop(((VaultLevel) level).createEquipment(3), c.x - 2 + c.y * level.width());
@@ -147,7 +147,7 @@ public class VaultTokensRoom extends VaultLongRoom {
 		enemy.pos = wanderPositions[idx];
 		enemy.setupStealthGameplayWanderPositions(wanderPositions, idx);
 		enemy.state = enemy.WANDERING;
-		level.mobs.add(enemy);
+		level.mobs().add(enemy);
 
 		for (Class<?extends Mob> cls : toReturn){
 			((VaultLevel) level).returnMob(cls);

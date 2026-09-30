@@ -100,7 +100,7 @@ public class Noisemaker extends Bomb {
 								CellEmitter.center( heap.pos ).start( Speck.factory( Speck.SCREAM ), 0.3f, 3 );
 								Sample.INSTANCE.play( Assets.Sounds.ALERT );
 
-								for (Mob mob : Dungeon.level.mobs.toArray( new Mob[0] )) {
+								for (Mob mob : Dungeon.level.mobs().toArray( new Mob[0] )) {
 									mob.beckon( heap.pos );
 								}
 								left = 6;

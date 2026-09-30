@@ -150,7 +150,7 @@ public final class SpsRegularLevelTest {
 
 	private static void prepare(SpsRegularLevel level) {
 		level.transitions = new ArrayList<>();
-		level.mobs = new HashSet<>();
+		level.mobs().clear();
 		level.heaps = new SparseArray<Heap>();
 		level.blobs = new HashMap<>();
 		level.plants = new SparseArray<Plant>();
@@ -250,7 +250,7 @@ public final class SpsRegularLevelTest {
 
 	private static void validateExitGuard(SpsRegularLevel level, int region, int seed) {
 		Mob guard = null;
-		for (Mob mob : level.mobs) {
+		for (Mob mob : level.mobs()) {
 			if (!(mob instanceof SpsExitMobs.ExitGuard)) continue;
 			int x = mob.pos % level.width();
 			int y = mob.pos / level.width();
@@ -387,7 +387,7 @@ public final class SpsRegularLevelTest {
 		for (int region = 0; region < types.length; region++) {
 			Dungeon.depth = depths[region];
 			SpsRegularLevel level = newLevel(types[region]);
-			level.mobs = new HashSet<>();
+			level.mobs().clear();
 			Mob mob = new Rat();
 			level.applyLegacyInitialMobTraits(mob);
 			check(mob.spsOriginalGeneration, region, -4, "初始怪物未标记为旧版原生怪物");
@@ -407,7 +407,7 @@ public final class SpsRegularLevelTest {
 						|| (region != 4 && glass == null), region, -4, "玻璃盾层数错误");
 			}
 			Mob questNpc = new Rat();
-			level.mobs.add(questNpc);
+			level.mobs().add(questNpc);
 			level.markSpsOriginalMobs();
 			check(!questNpc.spsOriginalGeneration, region, -4, "任务角色被误标记为初始怪物");
 		}
@@ -657,7 +657,7 @@ public final class SpsRegularLevelTest {
 			level.buildFlagMaps();
 			Dungeon.level = level;
 			Mob guard = null;
-			for (Mob mob : level.mobs) if (mob instanceof SpsExitMobs.ExitGuard) guard = mob;
+			for (Mob mob : level.mobs()) if (mob instanceof SpsExitMobs.ExitGuard) guard = mob;
 			check(guard != null, 0, -5, "出口保护测试缺少守卫");
 			int hp = guard.HP;
 			ShieldArmor shield = guard.buff(ShieldArmor.class);
@@ -957,13 +957,13 @@ public final class SpsRegularLevelTest {
 
 	private static int countMobs(Level level, Class<?> type) {
 		int count = 0;
-		for (Mob mob : level.mobs) if (type.isInstance(mob)) count++;
+		for (Mob mob : level.mobs()) if (type.isInstance(mob)) count++;
 		return count;
 	}
 
 	private static int countExactMobs(Level level, Class<?> type) {
 		int count = 0;
-		for (Mob mob : level.mobs) if (mob.getClass() == type) count++;
+		for (Mob mob : level.mobs()) if (mob.getClass() == type) count++;
 		return count;
 	}
 

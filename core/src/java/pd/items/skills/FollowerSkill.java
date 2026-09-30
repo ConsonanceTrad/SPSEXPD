@@ -26,7 +26,7 @@ public class FollowerSkill extends ClassSkill {
 
 	@Override public void doSpecial2() {
 		int people = 0;
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			mob.beckon(curUser.pos);
 			if (!(mob instanceof NPC)) people++;
 		}

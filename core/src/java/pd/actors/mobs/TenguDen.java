@@ -97,7 +97,7 @@ public class TenguDen extends Mob {
 			Sample.INSTANCE.play(pd.Assets.Sounds.PUFF);
 		}
 		spend(1f / speed());
-		if (Dungeon.level.mobs.size() < 7) Assassin.spawnAt(oldPos);
+		if (Dungeon.level.mobs().size() < 7) Assassin.spawnAt(oldPos);
 		return true;
 	}
 

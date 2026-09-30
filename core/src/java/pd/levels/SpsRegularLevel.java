@@ -350,7 +350,7 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		Buff.affect(mob, ExProtect.class);
 		Buff.affect(mob, ShieldArmor.class).level(Dungeon.depth * 5);
 		Buff.affect(mob, MagicArmor.class).level(Dungeon.depth * 5);
-		mobs.add(mob);
+		mobs().add(mob);
 	}
 
 	private void placeLegacyEntrancePlant(Room room) {
@@ -1200,9 +1200,9 @@ public abstract class SpsRegularLevel extends RegularLevel {
 
 	@Override
 	protected void createMobs() {
-		HashSet<Mob> existing = new HashSet<>(mobs);
+		HashSet<Mob> existing = mobs().snapshot();
 		super.createMobs();
-		for (Mob mob : mobs) {
+		for (Mob mob : mobs()) {
 			if (!existing.contains(mob)) applyLegacyInitialMobTraits(mob);
 		}
 	}

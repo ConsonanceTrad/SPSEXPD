@@ -289,7 +289,7 @@ public class Ghost extends NPC {
 				}
 				if (spawnPos < 0) return;
 				ghost.pos = spawnPos;
-				level.mobs.add( ghost );
+				level.mobs().add( ghost );
 				
 				spawned = true;
 				//dungeon depth determines type of quest.
@@ -342,7 +342,7 @@ public class Ghost extends NPC {
 		public static void process() {
 			if (spawned && given && !processed && (depth == Dungeon.depth)) {
 				GLog.n( Messages.get(Ghost.class, "find_me") );
-				for (Mob mob : Dungeon.level.mobs) {
+				for (Mob mob : Dungeon.level.mobs()) {
 					if (mob instanceof Ghost) mob.beckon(Dungeon.hero.pos);
 				}
 				Sample.INSTANCE.play( Assets.Sounds.GHOST );

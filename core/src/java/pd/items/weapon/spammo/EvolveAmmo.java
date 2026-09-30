@@ -33,7 +33,7 @@ public class EvolveAmmo extends SpAmmo {
 		cell.HT = cell.HP = Math.max(1, defender.HP);
 		cell.pos = pos;
 		Actor.remove(defender);
-		Dungeon.level.mobs.remove(defender);
+		Dungeon.level.mobs().remove(defender);
 		if (defender.sprite != null) defender.sprite.killAndErase();
 		GameScene.add(cell);
 		Dungeon.level.occupyCell(cell);

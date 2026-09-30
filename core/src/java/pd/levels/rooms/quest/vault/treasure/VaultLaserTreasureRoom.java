@@ -57,7 +57,7 @@ public class VaultLaserTreasureRoom extends VaultTreasureRoom {
 					sentry.afterShotCooldown = 3;
 					sentry.giveWarning = false;
 					Painter.set(level, sentry.pos, Terrain.PEDESTAL);
-					level.mobs.add(sentry);
+					level.mobs().add(sentry);
 
 					//second row is only visual, to avoid double damage
 					sentry = new VaultLaser();
@@ -67,7 +67,7 @@ public class VaultLaserTreasureRoom extends VaultTreasureRoom {
 					sentry.afterShotCooldown = Integer.MAX_VALUE;
 					sentry.giveWarning = false;
 					Painter.set(level, sentry.pos, Terrain.PEDESTAL);
-					level.mobs.add(sentry);
+					level.mobs().add(sentry);
 				}
 			} else {
 				itemPlace = new Rect(left+1, areaTop, left+1, areaTop+4);
@@ -79,7 +79,7 @@ public class VaultLaserTreasureRoom extends VaultTreasureRoom {
 					sentry.afterShotCooldown = 3;
 					sentry.giveWarning = false;
 					Painter.set(level, sentry.pos, Terrain.PEDESTAL);
-					level.mobs.add(sentry);
+					level.mobs().add(sentry);
 
 					//second row is only visual, to avoid double damage
 					sentry = new VaultLaser();
@@ -89,7 +89,7 @@ public class VaultLaserTreasureRoom extends VaultTreasureRoom {
 					sentry.afterShotCooldown = Integer.MAX_VALUE;
 					sentry.giveWarning = false;
 					Painter.set(level, sentry.pos, Terrain.PEDESTAL);
-					level.mobs.add(sentry);
+					level.mobs().add(sentry);
 				}
 			}
 		} else {
@@ -105,7 +105,7 @@ public class VaultLaserTreasureRoom extends VaultTreasureRoom {
 					sentry.afterShotCooldown = 3;
 					sentry.giveWarning = false;
 					Painter.set(level, sentry.pos, Terrain.PEDESTAL);
-					level.mobs.add(sentry);
+					level.mobs().add(sentry);
 
 					//second row is only visual, to avoid double damage
 					sentry = new VaultLaser();
@@ -115,7 +115,7 @@ public class VaultLaserTreasureRoom extends VaultTreasureRoom {
 					sentry.afterShotCooldown = Integer.MAX_VALUE;
 					sentry.giveWarning = false;
 					Painter.set(level, sentry.pos, Terrain.PEDESTAL);
-					level.mobs.add(sentry);
+					level.mobs().add(sentry);
 				}
 			} else {
 				itemPlace = new Rect(areaLeft, top+1, areaLeft+4,  top+1);
@@ -127,7 +127,7 @@ public class VaultLaserTreasureRoom extends VaultTreasureRoom {
 					sentry.afterShotCooldown = 3;
 					sentry.giveWarning = false;
 					Painter.set(level, sentry.pos, Terrain.PEDESTAL);
-					level.mobs.add(sentry);
+					level.mobs().add(sentry);
 
 					//second row is only visual, to avoid double damage
 					sentry = new VaultLaser();
@@ -137,7 +137,7 @@ public class VaultLaserTreasureRoom extends VaultTreasureRoom {
 					sentry.afterShotCooldown = Integer.MAX_VALUE;
 					sentry.giveWarning = false;
 					Painter.set(level, sentry.pos, Terrain.PEDESTAL);
-					level.mobs.add(sentry);
+					level.mobs().add(sentry);
 				}
 			}
 		}

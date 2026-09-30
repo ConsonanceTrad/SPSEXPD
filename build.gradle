@@ -699,15 +699,20 @@ tasks.register('verifySpsMechanics') {
 		def mob = readSource('actors/mobs/Mob.java')
 		['dropChargedDew(pos)', 'new VioletDewdrop()', 'new RedDewdrop()', 'new YellowDewdrop()',
 		 'bundle.put(SPS_ORIGINAL_GENERATION, spsOriginalGeneration)',
-		 'Dungeon.level.hasSpsOriginalMobs()', 'new BoundReward()'].each {
+		 'Dungeon.level.mobs().hasSpsOriginalMobs()', 'new BoundReward()'].each {
 			requireText(mob, it, '露珠爆炸掉落')
 		}
 		def level = readSource('levels/Level.java')
 		['bundle.put( CURRENT_MOVES, currentMoves )', 'bundle.put( CLEARED, cleared )',
 		 'bundle.put( FORCE_DONE, forceDone )', 'markSpsOriginalMobs()',
-		 'hasSpsOriginalMobs()', 'spsDewPar()', 'placeSpsDewBless()',
+		 'spsDewPar()', 'placeSpsDewBless()',
 		 'Dungeon.shopOnLevel()', 'hasSpsDew()'].each {
 			requireText(level, it, '露珠清层进度')
+		}
+		//SPS 露珠：怪物集合与驻留机制已移入 LevelMobs，覆盖检查随之内聚
+		def levelMobs = readSource('levels/mobs/LevelMobs.java')
+		['hasSpsOriginalMobs()', 'mobsToSpawn', 'respawner', 'bundle.put( MOBS, mobs )'].each {
+			requireText(levelMobs, it, '怪物集合与驻留机制')
 		}
 		def terrain = readSource('levels/Terrain.java')
 		requireText(terrain, 'DEW_BLESS', '露珠神像地形')

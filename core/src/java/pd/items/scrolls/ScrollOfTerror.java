@@ -52,7 +52,7 @@ public class ScrollOfTerror extends Scroll {
 		
 		int count = 0;
 		Mob affected = null;
-		for (Mob mob : Dungeon.level.mobs.toArray( new Mob[0] )) {
+		for (Mob mob : Dungeon.level.mobs().toArray( new Mob[0] )) {
 			if (mob.alignment != Char.Alignment.ALLY && Dungeon.level.heroFOV[mob.pos]) {
 				Buff.affect( mob, Terror.class, Terror.DURATION ).object = curUser.id();
 				Buff.affect(mob, HasteBuff.class, Terror.DURATION * 0.5f);
@@ -83,7 +83,7 @@ public class ScrollOfTerror extends Scroll {
 	@Override
 	public void empoweredRead() {
 		doRead();
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (Dungeon.level.heroFOV[mob.pos] && mob.buff(Terror.class) != null) {
 				Buff.prolong(mob, Terror.class, Terror.DURATION * 1.5f).object = curUser.id();
 				Buff.affect(mob, Paralysis.class, Terror.DURATION * 0.5f);

@@ -138,7 +138,7 @@ public class ChallengeLevel extends RegularLevel {
 		int challenge = challenge();
 		ChallengeGuardian guardian = new ChallengeGuardian().configure(challenge, true);
 		guardian.pos = goalCell;
-		mobs.add(guardian);
+		mobs().add(guardian);
 
 		int echoes = challenge == 5 ? 4 : challenge == 6 ? 0 : challenge == 7 ? 1 : 2;
 		for (int i = 0; i < echoes; i++) {
@@ -147,10 +147,10 @@ public class ChallengeLevel extends RegularLevel {
 			int tries = 30;
 			do {
 				pos = randomRespawnCell(echo);
-			} while (--tries > 0 && (pos < 0 || findMob(pos) != null || pos == goalCell));
-			if (pos >= 0 && findMob(pos) == null && pos != goalCell) {
+			} while (--tries > 0 && (pos < 0 || mobs().findMob(pos) != null || pos == goalCell));
+			if (pos >= 0 && mobs().findMob(pos) == null && pos != goalCell) {
 				echo.pos = pos;
-				mobs.add(echo);
+				mobs().add(echo);
 			}
 		}
 	}

@@ -192,7 +192,7 @@ public class Zot extends Mob {
 
 	private int countMobs(Class<? extends Mob> type) {
 		int count = 0;
-		for (Mob mob : Dungeon.level.mobs) if (type.isInstance(mob)) count++;
+		for (Mob mob : Dungeon.level.mobs()) if (type.isInstance(mob)) count++;
 		return count;
 	}
 
@@ -219,7 +219,7 @@ public class Zot extends Mob {
 		}
 		Heap soul = Dungeon.level.drop(new SoulCollect(), pos);
 		if (soul != null && soul.sprite != null) soul.sprite.drop();
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (mob instanceof ZotPhase || mob instanceof MagicEye) mob.die(null);
 		}
 		yell(Messages.get(this, "die"));

@@ -35,7 +35,7 @@ public class SJRBMusic extends MeleeWeapon {
 		int extraDamage = Dungeon.hero != null ? Dungeon.hero.damageRoll() : attacker.damageRoll();
 		if (Random.Int(100) < 40) Buff.affect(defender, Charm.class, 5f).object = attacker.id();
 		if (Random.Int(100) > 60 && Dungeon.level != null) {
-			for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) mob.beckon(attacker.pos);
+			for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) mob.beckon(attacker.pos);
 			if (attacker.sprite != null) {
 				attacker.sprite.centerEmitter().start(Speck.factory(Speck.SCREAM), 0.3f, 3);
 				attacker.sprite.showStatus(CharSprite.NEUTRAL, Messages.get(this, "rap"));

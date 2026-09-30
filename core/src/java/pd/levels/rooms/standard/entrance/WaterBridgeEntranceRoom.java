@@ -74,7 +74,7 @@ public class WaterBridgeEntranceRoom extends WaterBridgeRoom {
 		do {
 			entrance = level.pointToCell(random(2));
 
-		} while (spaceRect.inside(level.cellToPoint(entrance)) || level.findMob(entrance) != null);
+		} while (spaceRect.inside(level.cellToPoint(entrance)) || level.mobs().findMob(entrance) != null);
 
 		for (int i : PathFinder.NEIGHBOURS8){
 			Painter.set(level, entrance + i, Terrain.EMPTY);

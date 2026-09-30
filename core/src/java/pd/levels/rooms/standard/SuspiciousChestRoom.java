@@ -64,7 +64,7 @@ public class SuspiciousChestRoom extends StandardRoom {
 
 		float mimicChance = 1/3f * MimicTooth.mimicChanceMultiplier();
 		if (Random.Float() < mimicChance) {
-			level.mobs.add(Mimic.spawnAt(center, i));
+			level.mobs().add(Mimic.spawnAt(center, i));
 		} else {
 			level.drop(i, center).type = Heap.Type.CHEST;
 		}

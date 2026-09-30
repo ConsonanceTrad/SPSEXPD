@@ -44,7 +44,7 @@ public class ScrollOfPrismaticImage extends ExoticScroll {
 
 		detach(curUser.belongings.backpack);
 		boolean found = false;
-		for (Mob m : Dungeon.level.mobs.toArray(new Mob[0])){
+		for (Mob m : Dungeon.level.mobs().toArray(new Mob[0])){
 			if (m instanceof PrismaticImage){
 				found = true;
 				m.HP = m.HT;

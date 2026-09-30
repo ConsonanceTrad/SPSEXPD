@@ -626,7 +626,7 @@ public final class SpsMobRotationTest {
 		}
 		Mimic awakened = Mimic.spawnAt(12, Arrays.asList(
 				new pd.items.Gold(7)));
-		if (awakened == null || !Dungeon.level.mobs.contains(awakened) || awakened.items == null
+		if (awakened == null || !Dungeon.level.mobs().contains(awakened) || awakened.items == null
 				|| awakened.items.size() != 1
 				|| !(awakened.items.get(0) instanceof pd.items.Gold)) {
 			throw new AssertionError("SPS mimic did not awaken and retain its heap reward");
@@ -1621,7 +1621,7 @@ public final class SpsMobRotationTest {
 		TestLevel() {
 			setSize(5, 5);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

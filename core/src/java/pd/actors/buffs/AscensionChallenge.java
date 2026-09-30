@@ -128,7 +128,7 @@ public class AscensionChallenge extends Buff {
 	public static void beckonEnemies(){
 		if (Dungeon.hero.buff(AscensionChallenge.class) != null
 				&& Dungeon.hero.buff(AscensionChallenge.class).stacks >= 2f){
-			for (Mob m : Dungeon.level.mobs){
+			for (Mob m : Dungeon.level.mobs()){
 				if (m.alignment == Char.Alignment.ENEMY && m.distance(Dungeon.hero) > 8) {
 					m.beckon(Dungeon.hero.pos);
 				}
@@ -268,17 +268,17 @@ public class AscensionChallenge extends Buff {
 
 				//clears any existing mobs from the level and adds one initial one
 				//this helps balance difficulty between levels with lots of mobs left, and ones with few
-				for (Mob mob : Dungeon.level.mobs.toArray( new Mob[0] )) {
+				for (Mob mob : Dungeon.level.mobs().toArray( new Mob[0] )) {
 					if (!mob.reset()) {
-						Dungeon.level.mobs.remove( mob );
+						Dungeon.level.mobs().remove( mob );
 					}
 				}
-				Dungeon.level.spawnMob(12);
+				Dungeon.level.mobs().spawnMob(12);
 
 			}
 		}
 		if (Statistics.highestAscent < 20){
-			for (Mob m : Dungeon.level.mobs.toArray(new Mob[0])){
+			for (Mob m : Dungeon.level.mobs().toArray(new Mob[0])){
 				if (m instanceof Shopkeeper){
 					((Shopkeeper) m).flee();
 				}

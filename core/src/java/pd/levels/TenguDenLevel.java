@@ -96,7 +96,7 @@ public class TenguDenLevel extends SpsRegularLevel {
 
 		TownNpc hunter = TownNpc.create(TownNpc.Spec.STORM_AND_RAIN);
 		hunter.pos = room.randomCell(width(), 0);
-		mobs.add(hunter);
+		mobs().add(hunter);
 	}
 
 	private void addChest(int cell, int door) {
@@ -177,7 +177,7 @@ public class TenguDenLevel extends SpsRegularLevel {
 		if (completed()) return;
 		TenguDen boss = new TenguDen();
 		boss.pos = bossCell;
-		mobs.add(boss);
+		mobs().add(boss);
 	}
 
 	@Override protected void createItems() { }

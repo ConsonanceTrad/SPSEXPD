@@ -86,7 +86,7 @@ public class Shell extends Mob {
 
 	private void zapAll() {
 		GLog.n(Messages.get(this, "zap"));
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (mob != this && mob.isAlive() && Dungeon.level.distance(pos, mob.pos) > 1) {
 				mob.damage(1, this);
 				if (sprite != null && mob.sprite != null && (sprite.visible || mob.sprite.visible)) sprite.zap(mob.pos);

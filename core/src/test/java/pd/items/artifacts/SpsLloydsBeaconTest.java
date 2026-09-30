@@ -155,7 +155,7 @@ public final class SpsLloydsBeaconTest {
 
 		DummyMob occupant = new DummyMob();
 		occupant.pos = 200;
-		Dungeon.level.mobs.add(occupant);
+		Dungeon.level.mobs().add(occupant);
 		Actor.add(occupant);
 		beacon.execute(hero, LloydsBeacon.AC_RETURN);
 		check(hero.pos == 200 && occupant.pos != hero.pos,
@@ -233,7 +233,7 @@ public final class SpsLloydsBeaconTest {
 	private static final class TestLevel extends Level {
 		TestLevel() {
 			setSize(32, 32);
-			mobs = new HashSet<>(); heaps = new SparseArray<Heap>(); blobs = new HashMap<>();
+			mobs().clear(); heaps = new SparseArray<Heap>(); blobs = new HashMap<>();
 			plants = new SparseArray<Plant>(); traps = new SparseArray<Trap>(); transitions = new ArrayList<>();
 			customTiles = new ArrayList<>(); customTerrain = new ArrayList<>(); customWalls = new ArrayList<>();
 			Arrays.fill(map, Terrain.EMPTY); Arrays.fill(passable, true); buildFlagMaps();

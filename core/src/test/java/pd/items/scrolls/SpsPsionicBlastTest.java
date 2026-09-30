@@ -123,7 +123,7 @@ public final class SpsPsionicBlastTest {
 		TestNpc npc = new TestNpc();
 		npc.pos = CENTER - 1;
 		npc.HP = npc.HT = 20;
-		level.mobs.add(npc);
+		level.mobs().add(npc);
 		Actor.add(npc);
 
 		TestScroll scroll = new TestScroll();
@@ -248,7 +248,7 @@ public final class SpsPsionicBlastTest {
 		mob.pos = position;
 		mob.HP = mob.HT = 20;
 		level.heroFOV[position] = visible;
-		level.mobs.add(mob);
+		level.mobs().add(mob);
 		Actor.add(mob);
 		return mob;
 	}
@@ -304,7 +304,7 @@ public final class SpsPsionicBlastTest {
 	private static final class TestLevel extends Level {
 		TestLevel() {
 			setSize(WIDTH, WIDTH);
-			mobs = new HashSet<>(); heaps = new SparseArray<>(); blobs = new HashMap<>();
+			mobs().clear(); heaps = new SparseArray<>(); blobs = new HashMap<>();
 			plants = new SparseArray<Plant>(); traps = new SparseArray<Trap>(); transitions = new ArrayList<>();
 			customTiles = new ArrayList<>(); customTerrain = new ArrayList<>(); customWalls = new ArrayList<>();
 			Arrays.fill(map, Terrain.EMPTY); Arrays.fill(passable, true); buildFlagMaps();

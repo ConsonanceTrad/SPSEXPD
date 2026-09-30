@@ -148,7 +148,7 @@ public class WandOfTCloud extends Wand {
 		protected Char chooseEnemy() {
 			if (enemy == null || !enemy.isAlive() || enemy.alignment != Alignment.ENEMY) {
 				ArrayList<Mob> enemies = new ArrayList<>();
-				for (Mob mob : Dungeon.level.mobs) {
+				for (Mob mob : Dungeon.level.mobs()) {
 					if (mob.alignment == Alignment.ENEMY && mob.isAlive()
 							&& Dungeon.level.heroFOV[mob.pos]) enemies.add(mob);
 				}

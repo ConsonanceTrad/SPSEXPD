@@ -644,7 +644,7 @@ public class CursedWand {
 
 		@Override
 		public boolean effect(Item origin, Char user, Ballistica bolt, boolean positiveOnly) {
-			for (Mob mob : Dungeon.level.mobs) {
+			for (Mob mob : Dungeon.level.mobs()) {
 				mob.beckon( user.pos );
 			}
 			user.sprite.centerEmitter().start( Speck.factory( Speck.SCREAM ), 0.3f, 3 );
@@ -711,7 +711,7 @@ public class CursedWand {
 				sheep.pos = ch.pos;
 				ch.destroy();
 				ch.sprite.killAndErase();
-				Dungeon.level.mobs.remove(ch);
+				Dungeon.level.mobs().remove(ch);
 				TargetHealthIndicator.instance.target(null);
 				GameScene.add(sheep);
 				CellEmitter.get(sheep.pos).burst(Speck.factory(Speck.WOOL), 4);

@@ -51,7 +51,7 @@ public class StatueLineEntranceRoom extends StatueLineRoom {
 		int entrance;
 		do {
 			entrance = level.pointToCell(random(3));
-		} while (level.findMob(entrance) != null);
+		} while (level.mobs().findMob(entrance) != null);
 
 		Painter.set( level, entrance, Terrain.ENTRANCE );
 		level.transitions.add(new LevelTransition(level, entrance, LevelTransition.Type.REGULAR_ENTRANCE));

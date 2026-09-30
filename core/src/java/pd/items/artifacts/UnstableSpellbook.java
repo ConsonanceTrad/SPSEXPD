@@ -240,14 +240,14 @@ public class UnstableSpellbook extends Artifact {
 		//if the base scroll (exotics all match) is an AOE effect, then also trigger illuminate
 		if (scroll instanceof ScrollOfLullaby
 				|| scroll instanceof ScrollOfRemoveCurse || scroll instanceof ScrollOfTerror) {
-			for (Mob mob : Dungeon.level.mobs.toArray( new Mob[0] )) {
+			for (Mob mob : Dungeon.level.mobs().toArray( new Mob[0] )) {
 				if (Dungeon.level.heroFOV[mob.pos]) {
 					artifactProc(mob, visiblyUpgraded(), 1);
 				}
 			}
 		//except rage, which affects everything even if it isn't visible
 		} else if (scroll instanceof ScrollOfRage){
-			for (Mob mob : Dungeon.level.mobs.toArray( new Mob[0] )) {
+			for (Mob mob : Dungeon.level.mobs().toArray( new Mob[0] )) {
 				artifactProc(mob, visiblyUpgraded(), 1);
 			}
 		}

@@ -139,7 +139,7 @@ public final class SpsChallengeJournalTest {
 	private static final class RecordingLevel extends Level {
 		RecordingLevel() {
 			setSize(16, 16);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

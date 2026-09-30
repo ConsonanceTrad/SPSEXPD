@@ -129,7 +129,7 @@ public class InfestBossLevel extends Level {
 			int cell = randomRespawnCell(mob);
 			if (cell < 0) break;
 			mob.pos = cell;
-			mobs.add(mob);
+			mobs().add(mob);
 		}
 	}
 
@@ -207,7 +207,7 @@ public class InfestBossLevel extends Level {
 		enteredArena = bundle.getBoolean(ENTERED);
 		if (enteredArena && !completed()) {
 			boolean found = false;
-			for (Mob mob : mobs) {
+			for (Mob mob : mobs()) {
 				if (mob instanceof ShadowYog) { found = true; break; }
 			}
 			if (!found) {

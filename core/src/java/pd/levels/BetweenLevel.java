@@ -175,7 +175,7 @@ public class BetweenLevel extends RegularLevel {
 		for (int n : PathFinder.NEIGHBOURS8) {
 			int cell = entrance() + n;
 			if (cell >= 0 && cell < length() && passable[cell] && cell != exit()
-					&& heaps.get(cell) == null && findMob(cell) == null) {
+					&& heaps.get(cell) == null && mobs().findMob(cell) == null) {
 				candidates.add(cell);
 			}
 		}
@@ -187,7 +187,7 @@ public class BetweenLevel extends RegularLevel {
 				int y = cell / width();
 				if (Math.abs(x - entranceX) <= 5 && Math.abs(y - entranceY) <= 5
 						&& passable[cell] && cell != entrance() && cell != exit()
-						&& heaps.get(cell) == null && findMob(cell) == null) {
+						&& heaps.get(cell) == null && mobs().findMob(cell) == null) {
 					candidates.add(cell);
 				}
 			}
@@ -195,7 +195,7 @@ public class BetweenLevel extends RegularLevel {
 		if (candidates.isEmpty()) {
 			for (int cell = 0; cell < length(); cell++) {
 				if (passable[cell] && cell != entrance() && cell != exit()
-						&& heaps.get(cell) == null && findMob(cell) == null) {
+						&& heaps.get(cell) == null && mobs().findMob(cell) == null) {
 					candidates.add(cell);
 				}
 			}
@@ -203,7 +203,7 @@ public class BetweenLevel extends RegularLevel {
 		if (!candidates.isEmpty()) {
 			Tinkerer1 tinkerer = new Tinkerer1();
 			tinkerer.pos = Random.element(candidates);
-			mobs.add(tinkerer);
+			mobs().add(tinkerer);
 		}
 	}
 

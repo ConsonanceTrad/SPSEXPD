@@ -336,7 +336,7 @@ public class GameScene extends PixelScene {
 		hero.updateArmor();
 		mobs.add( hero );
 		
-		for (Mob mob : Dungeon.level.mobs) {
+		for (Mob mob : Dungeon.level.mobs()) {
 			addMobSprite( mob );
 		}
 		
@@ -661,7 +661,7 @@ public class GameScene extends PixelScene {
 
 				int spawnersAbove = Statistics.spawnersAlive;
 				if (spawnersAbove > 0 && Dungeon.depth <= 25) {
-					for (Mob m : Dungeon.level.mobs) {
+					for (Mob m : Dungeon.level.mobs()) {
 						if (m instanceof DemonSpawner && ((DemonSpawner) m).spawnRecorded) {
 							spawnersAbove--;
 						}
@@ -746,7 +746,7 @@ public class GameScene extends PixelScene {
 					break;
 			}
 
-			for (Mob mob : Dungeon.level.mobs) {
+			for (Mob mob : Dungeon.level.mobs()) {
 				if (!mob.buffs(ChampionEnemy.class).isEmpty()) {
 					GLog.w(Messages.get(ChampionEnemy.class, "warn"));
 				}
@@ -1210,7 +1210,7 @@ public class GameScene extends PixelScene {
 	}
 	
 	public static void add( Mob mob, float delay ) {
-		Dungeon.level.mobs.add( mob );
+		Dungeon.level.mobs().add( mob );
 		//mobs added on partial turns wait until next full turn to act
 		delay = (float)Math.ceil(Actor.now() + delay) - Actor.now();
 		if (scene != null) {
@@ -1556,7 +1556,7 @@ public class GameScene extends PixelScene {
 	
 	public static void afterObserve() {
 		if (scene != null) {
-			for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+			for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 				if (mob.sprite != null) {
 					if (mob instanceof Mimic && mob.state == mob.PASSIVE && ((Mimic) mob).stealthy() && Dungeon.level.visited[mob.pos]){
 						//mimics stay visible in fog of war after being first seen

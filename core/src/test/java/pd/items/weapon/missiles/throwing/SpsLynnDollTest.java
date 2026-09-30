@@ -75,7 +75,7 @@ public final class SpsLynnDollTest {
 		target.HP = target.HT = 1000;
 		Actor.add(target);
 		LynnDoll.CurseDoll doll = new LynnDoll().shatter(target, target.pos);
-		check(doll != null && level.mobs.contains(doll) && doll.pos != target.pos
+		check(doll != null && level.mobs().contains(doll) && doll.pos != target.pos
 				&& Dungeon.level.insideMap(doll.pos), "诅咒少女没有在有效空格远程出现");
 		check(doll.HT == 10000 && doll.HP == 10000 && doll.attackSkill(target) == 1000
 				&& doll.speed() == 3f && doll.flying && doll.properties().contains(Char.Property.UNKNOW),
@@ -133,7 +133,7 @@ public final class SpsLynnDollTest {
 	private static final class TestLevel extends Level {
 		TestLevel() {
 			setSize(8, 8);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

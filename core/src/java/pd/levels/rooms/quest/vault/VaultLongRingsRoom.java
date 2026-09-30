@@ -63,7 +63,7 @@ public class VaultLongRingsRoom extends VaultLongRoom {
 			enemy.pos = wanderPositions[0];
 			enemy.setupStealthGameplayWanderPositions(wanderPositions, 0);
 			enemy.state = enemy.WANDERING;
-			level.mobs.add(enemy);
+			level.mobs().add(enemy);
 		}
 
 		for (Door door : connected.values()) {

@@ -65,7 +65,7 @@ public class Leadercn extends TownNpc {
 				new WndQuest(Leadercn.this, Messages.get(Leadercn.this, "yell" + (currentLesson + 1)))));
 		dropLessonReward(currentLesson);
 
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (mob instanceof Leadercn && mob.isAlive()) ((Leadercn) mob).lesson++;
 		}
 		destroy();
@@ -106,7 +106,7 @@ public class Leadercn extends TownNpc {
 	}
 
 	private void separateOverlappingMobs() {
-		for (Mob other : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob other : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (other == this || other.pos != pos) continue;
 			ArrayList<Integer> candidates = neighbourCells();
 			candidates.removeIf(cell -> Actor.findChar(cell) != null);

@@ -82,7 +82,7 @@ public class JumpH extends Item {
 	public int attackVisibleEnemies(Hero hero) {
 		if (hero == null || Dungeon.level == null) return 0;
 		ArrayList<Mob> targets = new ArrayList<>();
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (mob.isAlive() && Dungeon.level.insideMap(mob.pos) && Dungeon.level.heroFOV[mob.pos]
 					&& Dungeon.level.distance(hero.pos, mob.pos) <= 7) targets.add(mob);
 		}

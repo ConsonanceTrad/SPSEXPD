@@ -228,7 +228,7 @@ public class SpsGoo extends Mob {
 	}
 
 	private static void finishFightIfClear(int pos) {
-		for (Mob mob : Dungeon.level.mobs) {
+		for (Mob mob : Dungeon.level.mobs()) {
 			if (mob instanceof SpsGoo || mob instanceof PoisonGoo) return;
 		}
 		Dungeon.level.unseal();
@@ -313,7 +313,7 @@ public class SpsGoo extends Mob {
 		@Override
 		public int defenseProc(Char enemy, int damage) {
 			boolean bossAlive = false;
-			for (Mob mob : Dungeon.level.mobs) {
+			for (Mob mob : Dungeon.level.mobs()) {
 				if (mob instanceof SpsGoo) {
 					bossAlive = true;
 					break;

@@ -78,10 +78,10 @@ public final class SpsCavesBossTimelineTest {
 		check(count(level, SpsDM300.Tower.class) == 2, "DM-300首次行动没有生成两座塔");
 		assertDmPowered(dm);
 
-		for (Mob mob : new ArrayList<>(level.mobs)) {
+		for (Mob mob : new ArrayList<>(level.mobs().all())) {
 			if (mob instanceof SpsDM300.Tower) {
 				mob.HP = 0;
-				level.mobs.remove(mob);
+				level.mobs().remove(mob);
 			}
 		}
 		check(count(level, SpsDM300.Tower.class) == 0, "测试未能移除DM-300塔");
@@ -223,19 +223,19 @@ public final class SpsCavesBossTimelineTest {
 
 	private static <T extends Mob> T add(RecordingLevel level, T mob, int pos) {
 		mob.pos = pos;
-		level.mobs.add(mob);
+		level.mobs().add(mob);
 		Actor.add(mob);
 		return mob;
 	}
 
 	private static int count(RecordingLevel level, Class<? extends Mob> type) {
 		int result = 0;
-		for (Mob mob : level.mobs) if (type.isInstance(mob) && mob.isAlive()) result++;
+		for (Mob mob : level.mobs()) if (type.isInstance(mob) && mob.isAlive()) result++;
 		return result;
 	}
 
 	private static <T extends Mob> T firstExact(RecordingLevel level, Class<T> type) {
-		for (Mob mob : level.mobs) if (mob.getClass() == type && mob.isAlive()) return type.cast(mob);
+		for (Mob mob : level.mobs()) if (mob.getClass() == type && mob.isAlive()) return type.cast(mob);
 		return null;
 	}
 
@@ -281,7 +281,7 @@ public final class SpsCavesBossTimelineTest {
 		RecordingLevel() {
 			setSize(WIDTH, WIDTH);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

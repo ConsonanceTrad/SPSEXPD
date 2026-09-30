@@ -178,7 +178,7 @@ public class ZotBossLevel extends Level {
 		locked = !Dungeon.zotKilled;
 		if (enteredArena && !Dungeon.zotKilled) {
 			boolean found = false;
-			for (Mob mob : mobs) {
+			for (Mob mob : mobs()) {
 				if (mob instanceof Zot) {
 					found = true;
 					break;
@@ -188,7 +188,7 @@ public class ZotBossLevel extends Level {
 				Zot zot = new Zot();
 				zot.pos = safeBossCell(entranceCell);
 				zot.state = zot.HUNTING;
-				mobs.add(zot);
+				mobs().add(zot);
 			}
 		}
 	}

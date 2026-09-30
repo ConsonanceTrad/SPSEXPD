@@ -263,7 +263,7 @@ public final class SpsLegacyChallengesTest {
 
 	private static int countDarkLivers(TestLevel level) {
 		int count = 0;
-		for (Mob mob : level.mobs) if (mob instanceof DarkFallen.DarkLiver) count++;
+		for (Mob mob : level.mobs()) if (mob instanceof DarkFallen.DarkLiver) count++;
 		return count;
 	}
 
@@ -427,12 +427,12 @@ public final class SpsLegacyChallengesTest {
 	private static void testSpawnAndFallback() {
 		TestLevel level = freshLevel();
 		TestMob mob = mobAt(level, CENTER);
-		check(mob.spawnVirus() == null && level.mobs.size() == 1,
+		check(mob.spawnVirus() == null && level.mobs().size() == 1,
 				"未开启挑战时错误生成病毒");
 
 		Dungeon.challenges = Challenges.NIGHTMARE_VIRUS;
 		Virus virus = mob.spawnVirus();
-		check(virus != null && level.mobs.contains(virus), "普通怪死亡路径没有生成病毒");
+		check(virus != null && level.mobs().contains(virus), "普通怪死亡路径没有生成病毒");
 		int delta = Math.abs(virus.pos - CENTER);
 		check(delta == 1 || delta == WIDTH, "病毒没有生成在尸体四个正方向：" + virus.pos);
 
@@ -528,7 +528,7 @@ public final class SpsLegacyChallengesTest {
 		TestMob mob = new TestMob();
 		mob.pos = pos;
 		mob.alignment = Char.Alignment.NEUTRAL;
-		level.mobs.add(mob);
+		level.mobs().add(mob);
 		Actor.add(mob);
 		return mob;
 	}
@@ -596,7 +596,7 @@ public final class SpsLegacyChallengesTest {
 		TestLevel() {
 			setSize(WIDTH, WIDTH);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

@@ -34,7 +34,7 @@ public class FireCracker extends MeleeWeapon {
 		if (defender instanceof YearBeast || defender instanceof YearBeast2) defender.damage(1, this);
 
 		if (Random.Int(100) > 75 && Dungeon.level != null) {
-			for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) mob.beckon(attacker.pos);
+			for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) mob.beckon(attacker.pos);
 		}
 		if (Random.Int(100) > 50 && Dungeon.level != null) {
 			for (int offset : PathFinder.NEIGHBOURS9) {

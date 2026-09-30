@@ -79,7 +79,7 @@ public class VaultSimpleEnemyTreasureRoom extends VaultRoom {
 				break;
 		}
 
-		//no T1 mobs, only T2+
+		//no T1 mobs(), only T2+
 		Mob enemy;
 		ArrayList<Class<?extends Mob>> toReturn = new ArrayList<>();
 		boolean valid = true;
@@ -121,7 +121,7 @@ public class VaultSimpleEnemyTreasureRoom extends VaultRoom {
 		}
 
 		enemy.pos = enemyPos;
-		level.mobs.add(enemy);
+		level.mobs().add(enemy);
 
 	}
 

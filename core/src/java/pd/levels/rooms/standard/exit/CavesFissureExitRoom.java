@@ -51,7 +51,7 @@ public class CavesFissureExitRoom extends CavesFissureRoom {
 
 		} while (level.map[exit] == Terrain.CHASM
 				|| level.map[exit] == Terrain.EMPTY_SP
-				|| level.findMob(exit) != null);
+				|| level.mobs().findMob(exit) != null);
 
 
 		for (int i : PathFinder.NEIGHBOURS4){

@@ -129,7 +129,7 @@ public class SpsHallsBossLevel extends Level {
 		Yog boss = new Yog();
 		boss.pos = restoring ? farthest(cells) : Random.element(cells);
 		boss.state = boss.HUNTING;
-		if (restoring) mobs.add(boss);
+		if (restoring) mobs().add(boss);
 		else { GameScene.add(boss); boss.notice(); boss.spawnFists(); }
 	}
 
@@ -163,7 +163,7 @@ public class SpsHallsBossLevel extends Level {
 		enteredArena = bundle.getBoolean(ENTERED);
 		if (enteredArena && locked) {
 			boolean found = false;
-			for (Mob mob : mobs) if (mob instanceof Yog) { found = true; break; }
+			for (Mob mob : mobs()) if (mob instanceof Yog) { found = true; break; }
 			if (!found) spawnBoss(true);
 		}
 	}

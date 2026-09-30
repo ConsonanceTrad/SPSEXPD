@@ -118,7 +118,7 @@ public class ShopRoom extends SpecialRoom {
 
 		Mob shopkeeper = new Shopkeeper();
 		shopkeeper.pos = pos;
-		level.mobs.add( shopkeeper );
+		level.mobs().add( shopkeeper );
 
 	}
 
@@ -204,7 +204,7 @@ public class ShopRoom extends SpecialRoom {
 			for (Point p : getPoints()){
 				int cell = level.pointToCell(p);
 				if ((level.map[cell] == Terrain.EMPTY_SP || level.map[cell] == Terrain.EMPTY)
-						&& level.heaps.get(cell) == null && level.findMob(cell) == null){
+						&& level.heaps.get(cell) == null && level.mobs().findMob(cell) == null){
 					level.drop( itemsToSpawn.remove(0), level.pointToCell(p) ).type = Heap.Type.FOR_SALE;
 				}
 				if (itemsToSpawn.isEmpty()){

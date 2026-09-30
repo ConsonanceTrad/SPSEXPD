@@ -24,7 +24,7 @@ public class PerformerSkill extends ClassSkill {
 	{ image = ItemSpriteSheet.ARTIFACT_HORN1; }
 
 	@Override public void doSpecial() {
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (!visibleMob(mob, Integer.MAX_VALUE)) continue;
 			Buff.affect(mob, Charm.class, 10f).object = curUser.id();
 			Buff.prolong(mob, Amok.class, 10f);
@@ -41,7 +41,7 @@ public class PerformerSkill extends ClassSkill {
 	@Override public void doSpecial2() {
 		Buff.prolong(curUser, HighVoice.class, 100f);
 		if (curUser.lvl > 55) dropAtHero(new DungeonBomb());
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (!visibleMob(mob, Integer.MAX_VALUE)) continue;
 			int damage = Math.max(1, Math.round(curUser.lvl * (1f + 0.1f * curUser.magicSkill())));
 			mob.damage(damage, SpsMagicDamage.ENERGY);

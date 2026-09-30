@@ -48,7 +48,7 @@ public class CavesFissureEntranceRoom extends CavesFissureRoom {
 		do {
 			entrance = level.pointToCell(random(2));
 
-		} while (level.map[entrance] == Terrain.CHASM || level.map[entrance] == Terrain.EMPTY_SP || level.findMob(entrance) != null);
+		} while (level.map[entrance] == Terrain.CHASM || level.map[entrance] == Terrain.EMPTY_SP || level.mobs().findMob(entrance) != null);
 
 
 		for (int i : PathFinder.NEIGHBOURS4){

@@ -369,7 +369,7 @@ public abstract class Mob extends Char {
 			}
 
 			int range = swarmAlertRange();
-			for (Mob mob : Dungeon.level.mobs) {
+			for (Mob mob : Dungeon.level.mobs()) {
 				if (mob.alignment == Alignment.ENEMY
 						&& mob.paralysed <= 0
 						&& Dungeon.level.distance(pos, mob.pos) <= range
@@ -463,7 +463,7 @@ public abstract class Mob extends Char {
 			//if we are amoked...
 			if ( buff(Amok.class) != null) {
 				//try to find an enemy mob to attack first.
-				for (Mob mob : Dungeon.level.mobs)
+				for (Mob mob : Dungeon.level.mobs())
 					if (mob.alignment == Alignment.ENEMY && mob != this
 							&& fieldOfView[mob.pos] && mob.invisible <= 0) {
 						enemies.add(mob);
@@ -471,7 +471,7 @@ public abstract class Mob extends Char {
 				
 				if (enemies.isEmpty()) {
 					//try to find ally mobs to attack second.
-					for (Mob mob : Dungeon.level.mobs)
+					for (Mob mob : Dungeon.level.mobs())
 						if (mob.alignment == Alignment.ALLY && mob != this
 								&& fieldOfView[mob.pos] && mob.invisible <= 0) {
 							enemies.add(mob);
@@ -488,7 +488,7 @@ public abstract class Mob extends Char {
 			//if we are an ally...
 			} else if ( alignment == Alignment.ALLY ) {
 				//look for hostile mobs to attack
-				for (Mob mob : Dungeon.level.mobs)
+				for (Mob mob : Dungeon.level.mobs())
 					if (mob.alignment == Alignment.ENEMY && fieldOfView[mob.pos]
 							&& mob.invisible <= 0 && !mob.isInvulnerable(getClass()))
 						//do not target passive mobs
@@ -501,7 +501,7 @@ public abstract class Mob extends Char {
 			//if we are an enemy...
 			} else if (alignment == Alignment.ENEMY) {
 				//look for ally mobs to attack
-				for (Mob mob : Dungeon.level.mobs)
+				for (Mob mob : Dungeon.level.mobs())
 					if (mob.alignment == Alignment.ALLY && fieldOfView[mob.pos] && mob.invisible <= 0)
 						enemies.add(mob);
 
@@ -988,7 +988,7 @@ public abstract class Mob extends Char {
 		
 		super.destroy();
 		
-		Dungeon.level.mobs.remove( this );
+		Dungeon.level.mobs().remove( this );
 
 		if (Dungeon.hero.buff(MindVision.class) != null){
 			Dungeon.observe();
@@ -1109,7 +1109,7 @@ public abstract class Mob extends Char {
 				&& !Dungeon.bossLevel()
 				&& (Dungeon.dewDraw || Dungeon.dewWater)
 				&& !Dungeon.level.cleared
-				&& !Dungeon.level.hasSpsOriginalMobs()) {
+				&& !Dungeon.level.mobs().hasSpsOriginalMobs()) {
 			Dungeon.level.cleared = true;
 			Statistics.previousFloorMoves = Math.max(Dungeon.level.spsDewPar() - Dungeon.level.currentMoves, 0);
 			if (Statistics.previousFloorMoves > 1) {
@@ -1897,21 +1897,21 @@ public abstract class Mob extends Char {
 
 	public static void holdAllies( Level level, int holdFromPos ){
 		heldAllies.clear();
-		for (Mob mob : level.mobs.toArray( new Mob[0] )) {
+		for (Mob mob : level.mobs().toArray( new Mob[0] )) {
 			//preserve directable allies or empowered intelligent allies no matter where they are
 			if (mob instanceof DirectableAlly
 				|| (mob.intelligentAlly && PowerOfMany.getPoweredAlly() == mob)) {
 				if (mob instanceof DirectableAlly) {
 					((DirectableAlly) mob).clearDefensingPos();
 				}
-				level.mobs.remove( mob );
+				level.mobs().remove( mob );
 				heldAllies.add(mob);
 				
 			//preserve other intelligent allies if they are near the hero
 			} else if (mob.alignment == Alignment.ALLY
 					&& mob.intelligentAlly
 					&& Dungeon.level.distance(holdFromPos, mob.pos) <= 5){
-				level.mobs.remove( mob );
+				level.mobs().remove( mob );
 				heldAllies.add(mob);
 			}
 		}
@@ -1926,7 +1926,7 @@ public abstract class Mob extends Char {
 			
 			ArrayList<Integer> candidatePositions = new ArrayList<>();
 			for (int i : PathFinder.NEIGHBOURS8) {
-				if (!Dungeon.level.solid[i+pos] && !Dungeon.level.avoid[i+pos] && level.findMob(i+pos) == null){
+				if (!Dungeon.level.solid[i+pos] && !Dungeon.level.avoid[i+pos] && level.mobs().findMob(i+pos) == null){
 					candidatePositions.add(i+pos);
 				}
 			}
@@ -1946,7 +1946,7 @@ public abstract class Mob extends Char {
 
 			//can only have one empowered ally at once, prioritize incoming ally
 			if (Stasis.getStasisAlly() != null){
-				for (Mob mob : level.mobs.toArray( new Mob[0] )) {
+				for (Mob mob : level.mobs().toArray( new Mob[0] )) {
 					if (mob.buff(PowerOfMany.PowerBuff.class) != null){
 						mob.buff(PowerOfMany.PowerBuff.class).detach();
 					}
@@ -1957,14 +1957,14 @@ public abstract class Mob extends Char {
 
 				//can only have one empowered ally at once, prioritize incoming ally
 				if (ally.buff(PowerOfMany.PowerBuff.class) != null){
-					for (Mob mob : level.mobs.toArray( new Mob[0] )) {
+					for (Mob mob : level.mobs().toArray( new Mob[0] )) {
 						if (mob.buff(PowerOfMany.PowerBuff.class) != null){
 							mob.buff(PowerOfMany.PowerBuff.class).detach();
 						}
 					}
 				}
 
-				level.mobs.add(ally);
+				level.mobs().add(ally);
 				ally.state = ally.WANDERING;
 				
 				if (!candidatePositions.isEmpty()){

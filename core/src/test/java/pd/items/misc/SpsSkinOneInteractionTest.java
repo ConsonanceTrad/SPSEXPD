@@ -108,7 +108,7 @@ public final class SpsSkinOneInteractionTest {
 		TestMob mob = new TestMob();
 		mob.HP = mob.HT = 100;
 		mob.pos = CENTER + 3 + level.width();
-		level.mobs.add(mob);
+		level.mobs().add(mob);
 		Actor.add(mob);
 		Random.pushGenerator(0x53484F4553L);
 		try {
@@ -154,7 +154,7 @@ public final class SpsSkinOneInteractionTest {
 		TestMob mob = new TestMob();
 		mob.HP = mob.HT = 100;
 		mob.pos = CENTER + 2;
-		level.mobs.add(mob);
+		level.mobs().add(mob);
 		TimeOclock clock = new TimeOclock();
 		check(clock.useFreeze(hero), "怀表无法发动全层冻结");
 		check(clock.charge() == 4 && hero.buff(HasteBuff.class) != null, "怀表没有扣除充能或赋予加速");
@@ -371,13 +371,13 @@ public final class SpsSkinOneInteractionTest {
 
 	private static TestMob mobAt(TestLevel level, int pos, int health) {
 		TestMob mob = new TestMob(); mob.HP = mob.HT = health; mob.pos = pos;
-		level.mobs.add(mob); Actor.add(mob); return mob;
+		level.mobs().add(mob); Actor.add(mob); return mob;
 	}
 
 	private static TaggedMob taggedMobAt(TestLevel level, int pos, int health,
 			pd.actors.Char.Property property) {
 		TaggedMob mob = new TaggedMob(property); mob.HP = mob.HT = health; mob.pos = pos;
-		level.mobs.add(mob); Actor.add(mob); return mob;
+		level.mobs().add(mob); Actor.add(mob); return mob;
 	}
 
 	private static TestLevel freshLevel() {
@@ -415,7 +415,7 @@ public final class SpsSkinOneInteractionTest {
 		TestLevel() {
 			setSize(16, 16);
 			Arrays.fill(map, Terrain.EMPTY);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

@@ -53,7 +53,7 @@ public class VaultCrossRoom extends VaultRoom {
 				new int[]{sentry.pos+level.width()},
 		};
 
-		level.mobs.add(sentry);
+		level.mobs().add(sentry);
 
 		for (Door door : connected.values()) {
 			door.set( Door.Type.REGULAR );

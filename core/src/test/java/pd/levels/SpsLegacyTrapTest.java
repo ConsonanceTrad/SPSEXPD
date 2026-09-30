@@ -164,7 +164,7 @@ public final class SpsLegacyTrapTest {
 
 	private static void testSummonTraps(RecordingLevel level) {
 		Actor.clear();
-		level.mobs.clear();
+		level.mobs().clear();
 		level.heaps.clear();
 		Dungeon.hero = new Hero();
 		Dungeon.hero.pos = 16;
@@ -196,9 +196,9 @@ public final class SpsLegacyTrapTest {
 		SummoningTrap bossTrap = new SummoningTrap();
 		bossTrap.pos = 81;
 		level.drop(new Bomb(), bossTrap.pos);
-		int before = level.mobs.size();
+		int before = level.mobs().size();
 		bossTrap.activate();
-		check(level.mobs.size() == before && level.heaps.get(bossTrap.pos) != null,
+		check(level.mobs().size() == before && level.heaps.get(bossTrap.pos) != null,
 				"召唤陷阱在首领层没有按旧版完全停用");
 	}
 
@@ -221,7 +221,7 @@ public final class SpsLegacyTrapTest {
 		check(level.heaps.get(trap.pos) == null,
 				"守卫陷阱没有对陷阱格炸弹执行暗属性反应");
 		int guardians = 0;
-		for (pd.actors.mobs.Mob mob : level.mobs) {
+		for (pd.actors.mobs.Mob mob : level.mobs()) {
 			if (mob instanceof GuardianTrap.Guardian) {
 				GuardianTrap.Guardian guardian = (GuardianTrap.Guardian)mob;
 				guardians++;
@@ -571,7 +571,7 @@ public final class SpsLegacyTrapTest {
 
 		RecordingLevel() {
 			setSize(16, 16);
-			mobs = new HashSet<>();
+			mobs().clear();
 			heaps = new SparseArray<>();
 			blobs = new HashMap<>();
 			plants = new SparseArray<Plant>();

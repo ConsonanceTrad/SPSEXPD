@@ -89,13 +89,13 @@ public class PoolRoom extends SpecialRoom {
 		for (int fy = top + 1; fy < bottom; fy++) {
 			for (int fx = left + 1; fx < right; fx++) {
 				int cell = fx + fy * level.width();
-				if (level.map[cell] == Terrain.WATER && level.findMob(cell) == null) fishCells.add(cell);
+				if (level.map[cell] == Terrain.WATER && level.mobs().findMob(cell) == null) fishCells.add(cell);
 			}
 		}
 		for (int i = 0; i < NPIRANHAS && !fishCells.isEmpty(); i++) {
 			Piranha piranha = new Piranha();
 			piranha.pos = fishCells.remove(Random.Int(fishCells.size()));
-			level.mobs.add( piranha );
+			level.mobs().add( piranha );
 		}
 	}
 	

@@ -63,7 +63,7 @@ public class ScrollOfRegrowth extends Scroll {
 			}
 			Dungeon.level.plant(guaranteed, cell);
 		}
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (Dungeon.level.heroFOV[mob.pos]) Buff.affect(mob, GrowSeed.class).set(6f);
 		}
 		GameScene.updateMap();

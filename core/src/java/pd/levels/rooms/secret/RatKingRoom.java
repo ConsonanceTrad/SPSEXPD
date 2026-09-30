@@ -116,7 +116,7 @@ public class RatKingRoom extends SecretRoom {
 
 		RatKing king = new RatKing();
 		king.pos = center;
-		level.mobs.add( king );
+		level.mobs().add( king );
 
 		for (Point p : getPoints()){
 			int cell = level.pointToCell(p);

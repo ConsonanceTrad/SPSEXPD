@@ -245,7 +245,7 @@ public class CityLevel extends SpsRegularLevel {
 		}
 		if (cell != -1) {
 			thief.pos = cell;
-			mobs.add(thief);
+			mobs().add(thief);
 		}
 	}
 	

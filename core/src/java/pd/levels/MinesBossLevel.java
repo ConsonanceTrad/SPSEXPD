@@ -84,12 +84,12 @@ public class MinesBossLevel extends Level {
 			else if (MineBossLayouts.MINE_BOSS[cell] == Terrain.CORNER_SOKOBAN_SHEEP) mob = new LitTower();
 			if (mob != null) {
 				mob.pos = cell;
-				mobs.add(mob);
+				mobs().add(mob);
 			}
 		}
 		Otiluke boss = new Otiluke();
 		boss.pos = BOSS_CELL;
-		mobs.add(boss);
+		mobs().add(boss);
 	}
 
 	@Override

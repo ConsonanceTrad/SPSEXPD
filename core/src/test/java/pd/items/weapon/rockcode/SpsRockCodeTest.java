@@ -157,7 +157,7 @@ public final class SpsRockCodeTest {
 		Dungeon.hero = hero; Actor.add(hero); return hero;
 	}
 	private static TestMob mobAt(TestLevel level, int pos) {
-		TestMob mob = new TestMob(); mob.HP = mob.HT = 1000; mob.pos = pos; level.mobs.add(mob); Actor.add(mob); return mob;
+		TestMob mob = new TestMob(); mob.HP = mob.HT = 1000; mob.pos = pos; level.mobs().add(mob); Actor.add(mob); return mob;
 	}
 	private static void check(boolean condition, String message) { if (!condition) throw new AssertionError(message); }
 	private static String hash(BufferedImage sheet, int left, int top) throws Exception {
@@ -176,7 +176,7 @@ public final class SpsRockCodeTest {
 	}
 	private static final class TestLevel extends Level {
 		TestLevel() {
-			setSize(16, 16); Arrays.fill(map, Terrain.EMPTY); mobs = new HashSet<>(); heaps = new SparseArray<>(); blobs = new HashMap<>();
+			setSize(16, 16); Arrays.fill(map, Terrain.EMPTY); mobs().clear(); heaps = new SparseArray<>(); blobs = new HashMap<>();
 			plants = new SparseArray<Plant>(); traps = new SparseArray<Trap>(); transitions = new ArrayList<>(); customTiles = new ArrayList<>(); customTerrain = new ArrayList<>(); customWalls = new ArrayList<>();
 			buildFlagMaps();
 		}

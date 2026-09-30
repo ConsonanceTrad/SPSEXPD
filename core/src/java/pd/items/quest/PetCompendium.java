@@ -134,7 +134,7 @@ public class PetCompendium extends Item {
 			return (FusionPet)Actor.findById(petID);
 		}
 		if (Dungeon.level != null) {
-			for (Mob mob : Dungeon.level.mobs) {
+			for (Mob mob : Dungeon.level.mobs()) {
 				if (mob instanceof FusionPet && mob.isAlive()) {
 					petID = mob.id();
 					return (FusionPet)mob;

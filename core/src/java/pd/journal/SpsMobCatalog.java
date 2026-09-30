@@ -82,7 +82,7 @@ public enum SpsMobCatalog {
 	}
 
 	public static boolean contains(Class<?> type) {
-		for (SpsMobCatalog catalog : values()) if (catalog.mobs.contains(type)) return true;
+		for (SpsMobCatalog catalog : values()) if (catalog.mobs().contains(type)) return true;
 		return false;
 	}
 

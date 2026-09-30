@@ -131,7 +131,7 @@ public class LichDancer extends Mob {
 
 	private boolean hasBattery() {
 		if (Dungeon.level == null) return false;
-		for (Mob mob : Dungeon.level.mobs) if (mob instanceof BatteryTomb && mob.isAlive()) return true;
+		for (Mob mob : Dungeon.level.mobs()) if (mob instanceof BatteryTomb && mob.isAlive()) return true;
 		return false;
 	}
 
@@ -189,7 +189,7 @@ public class LichDancer extends Mob {
 		@Override public void damage(int damage, Object src) { super.damage(Math.min(50, damage), src); }
 
 		@Override protected boolean act() {
-			if (Random.Int(20) == 0 && Dungeon.level != null && Dungeon.level.mobs.size() < 6) {
+			if (Random.Int(20) == 0 && Dungeon.level != null && Dungeon.level.mobs().size() < 6) {
 				for (int offset : PathFinder.NEIGHBOURS4) {
 					int cell = pos + offset;
 					if (!Dungeon.level.insideMap(cell) || !Dungeon.level.passable[cell] || Actor.findChar(cell) != null) continue;

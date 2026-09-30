@@ -202,12 +202,12 @@ public abstract class Actor implements Bundlable {
 		
 		add( Dungeon.hero );
 		
-		for (Mob mob : Dungeon.level.mobs) {
+		for (Mob mob : Dungeon.level.mobs()) {
 			add( mob );
 		}
 
 		//mobs need to remember their targets after every actor is added
-		for (Mob mob : Dungeon.level.mobs) {
+		for (Mob mob : Dungeon.level.mobs()) {
 			mob.restoreEnemy();
 		}
 		

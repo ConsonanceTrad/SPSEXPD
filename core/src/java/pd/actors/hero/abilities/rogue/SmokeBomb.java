@@ -108,7 +108,7 @@ public class SmokeBomb extends ArmorAbility {
 			boolean shadowStepping = hero.invisible > 0 && hero.hasTalent(Talent.SHADOW_STEP);
 
 			if (!shadowStepping) {
-				for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])) {
+				for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 					if (Dungeon.level.adjacent(mob.pos, hero.pos) && mob.alignment != Char.Alignment.ALLY) {
 						Buff.prolong(mob, Blindness.class, Blindness.DURATION / 2f);
 						if (mob.state == mob.HUNTING) mob.state = mob.WANDERING;

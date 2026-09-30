@@ -93,9 +93,9 @@ public class MassGraveRoom extends SpecialRoom {
 				//pull in range for top two rows
 				if (p.y <= top+2) p.x = Random.IntRange(left+4, right-4);
 				pos = level.pointToCell(p);
-			} while (p.y > top+3 || level.findMob(pos) != null);
+			} while (p.y > top+3 || level.mobs().findMob(pos) != null);
 			skele.pos = pos;
-			level.mobs.add( skele );
+			level.mobs().add( skele );
 		}
 
 		ArrayList<Item> items = new ArrayList<>();

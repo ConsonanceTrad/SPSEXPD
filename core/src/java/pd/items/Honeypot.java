@@ -193,7 +193,7 @@ public class Honeypot extends Item {
 		protected Char chooseEnemy() {
 			if (enemy == null || !enemy.isAlive() || state == WANDERING) {
 				HashSet<Mob> enemies = new HashSet<>();
-				for (Mob mob : Dungeon.level.mobs) {
+				for (Mob mob : Dungeon.level.mobs()) {
 					if (mob.alignment == Alignment.ENEMY && mob.state != PASSIVE
 							&& fieldOfView != null && fieldOfView[mob.pos]) enemies.add(mob);
 				}

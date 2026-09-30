@@ -54,12 +54,12 @@ public class LearnLevel extends Level {
 			if (map[cell] == Terrain.GROUND_A) {
 				Leadercn guide = new Leadercn();
 				guide.pos = cell;
-				mobs.add(guide);
+				mobs().add(guide);
 			} else if (map[cell] == Terrain.EMPTY_SP) {
 				TestMob mob = new TestMob();
 				mob.pos = cell;
 				mob.HP = 100;
-				mobs.add(mob);
+				mobs().add(mob);
 			}
 		}
 	}

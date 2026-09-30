@@ -142,7 +142,7 @@ public class RotGardenRoom extends SpecialRoom {
 		}
 
 		for (int i : PathFinder.NEIGHBOURS9){
-			if (level.findMob(pos+i) != null){
+			if (level.mobs().findMob(pos+i) != null){
 				return false;
 			}
 		}
@@ -175,7 +175,7 @@ public class RotGardenRoom extends SpecialRoom {
 
 	private static void placePlant(Level level, int pos, Mob plant){
 		plant.pos = pos;
-		level.mobs.add( plant );
+		level.mobs().add( plant );
 
 		Painter.set(level, pos, Terrain.GRASS);
 	}

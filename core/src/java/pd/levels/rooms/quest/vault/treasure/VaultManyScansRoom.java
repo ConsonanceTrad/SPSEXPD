@@ -68,7 +68,7 @@ public class VaultManyScansRoom extends VaultTreasureRoom {
 				sentry.scanDirs = new int[][]{
 						new int[]{c.x + w*c.y}
 				};
-				level.mobs.add(sentry);
+				level.mobs().add(sentry);
 			}
 		}
 

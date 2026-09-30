@@ -77,7 +77,7 @@ public class AmbitiousImpRoom extends SpecialRoom {
 			npc.pos += Random.IntRange(-1, 1);
 			npc.pos += level.width() * (entrance.y == top ? -2 : 2);
 		}
-		level.mobs.add( npc );
+		level.mobs().add( npc );
 
 		Painter.drawInside(level, this, entrance, 1, Terrain.EMPTY);
 		entrance.set( Door.Type.REGULAR );

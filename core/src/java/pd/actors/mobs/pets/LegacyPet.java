@@ -403,7 +403,7 @@ public abstract class LegacyPet extends DirectableAlly {
 
 	public static LegacyPet active() {
 		if (Dungeon.level == null) return null;
-		for (Mob mob : Dungeon.level.mobs) if (mob instanceof LegacyPet && mob.isAlive()) return (LegacyPet) mob;
+		for (Mob mob : Dungeon.level.mobs()) if (mob instanceof LegacyPet && mob.isAlive()) return (LegacyPet) mob;
 		return null;
 	}
 

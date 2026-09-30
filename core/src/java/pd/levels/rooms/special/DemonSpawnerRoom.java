@@ -51,7 +51,7 @@ public class DemonSpawnerRoom extends SpecialRoom {
 		spawner.pos = cx + cy * level.width();
 		Statistics.spawnersAlive++;
 		spawner.spawnRecorded = true;
-		level.mobs.add( spawner );
+		level.mobs().add( spawner );
 
 		CustomFloor vis = new CustomFloor();
 		vis.setRect(left+1, top+1, width()-2, height()-2);
@@ -98,7 +98,7 @@ public class DemonSpawnerRoom extends SpecialRoom {
 					cell = tileX + (tileY + i / tileW) * Dungeon.level.width();
 				}
 
-				if (Dungeon.level.findMob(cell) instanceof DemonSpawner){
+				if (Dungeon.level.mobs().findMob(cell) instanceof DemonSpawner){
 					data[i-1] = 5 + 4*8;
 					data[i] = 6 + 4*8;
 					data[i+1] = 7 + 4*8;

@@ -137,7 +137,7 @@ public class PrisonBossLevel extends Level {
 		if (state == State.START || state == State.FIGHT_PAUSE) {
 			tengu = (Tengu)bundle.get( TENGU );
 		} else {
-			for (Mob mob : mobs){
+			for (Mob mob : mobs()){
 				if (mob instanceof Tengu) {
 					tengu = (Tengu) mob;
 					break;
@@ -342,7 +342,7 @@ public class PrisonBossLevel extends Level {
 			}
 		}
 		
-		for (Mob mob : Dungeon.level.mobs.toArray(new Mob[0])){
+		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])){
 			if (mob != tengu && (safeArea == null || !safeArea.inside(cellToPoint(mob.pos)))){
 				mob.destroy();
 				if (mob.sprite != null)
@@ -474,7 +474,7 @@ public class PrisonBossLevel extends Level {
 
 				Doom d = tengu.buff(Doom.class);
 				Actor.remove(tengu);
-				mobs.remove(tengu);
+				mobs().remove(tengu);
 				tengu.clearTime();
 				TargetHealthIndicator.instance.target(null);
 				tengu.sprite.kill();
@@ -523,10 +523,10 @@ public class PrisonBossLevel extends Level {
 				
 				//remove all mobs, but preserve allies
 				ArrayList<Mob> allies = new ArrayList<>();
-				for(Mob m : mobs.toArray(new Mob[0])){
+				for(Mob m : mobs().toArray(new Mob[0])){
 					if (m.alignment == Char.Alignment.ALLY && !m.properties().contains(Char.Property.IMMOVABLE)){
 						allies.add(m);
-						mobs.remove(m);
+						mobs().remove(m);
 					}
 				}
 				
@@ -535,9 +535,9 @@ public class PrisonBossLevel extends Level {
 				for (Mob m : allies){
 					do{
 						m.pos = randomTenguCellPos();
-					} while (findMob(m.pos) != null || m.pos == Dungeon.hero.pos);
+					} while (mobs().findMob(m.pos) != null || m.pos == Dungeon.hero.pos);
 					if (m.sprite != null) m.sprite.place(m.pos);
-					mobs.add(m);
+					mobs().add(m);
 				}
 				
 				tengu.die(Dungeon.hero);
