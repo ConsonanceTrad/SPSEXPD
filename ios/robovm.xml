@@ -24,7 +24,7 @@
 			<skipPngCrush>true</skipPngCrush>
 		</resource>
 		<resource>
-			<directory>assets</directory>
+			<directory>../core/src/ios/assets</directory>
 		</resource>
 	</resources>
 	<forceLinkClasses>

@@ -10,6 +10,13 @@ buildscript {
 apply plugin: "java"
 apply plugin: "robovm"
 
+//SPSEXPD: 平台源码集中在 core/src/<平台>/，本模块只声明 sourceSet 与打包配置
+sourceSets {
+    main {
+        java.srcDirs = ['../core/src/ios/java']
+    }
+}
+
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 java.sourceCompatibility = java.targetCompatibility = appJavaCompatibility
 
