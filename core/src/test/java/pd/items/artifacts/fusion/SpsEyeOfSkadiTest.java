@@ -206,8 +206,8 @@ public final class SpsEyeOfSkadiTest {
 				&& !source.contains("extends TalismanOfForesight"),
 				"冰眼充能、献祭、冰伤或独立实现发生偏移");
 
-		for (String file : new String[]{"items.properties", "items_zh.properties",
-				"items_zh-hant.properties", "items_ru.properties"}) {
+		for (String file : new String[]{"en/items.properties", "zh/items.properties",
+				"zh-hant/items.properties", "ru/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_add", "ac_blast", "ac_curse", "no_charge",
 					"prompt", "need_charge", "full_charge", "exp", "infuse_ore", "desc"}) {
@@ -216,7 +216,7 @@ public final class SpsEyeOfSkadiTest {
 			check(items.getProperty("items.artifacts.fusion.eyeofskadi.exp").contains("%s"),
 					file + "的献祭经验文本缺少占位符");
 		}
-		Properties zh = load("messages/items/items_zh.properties");
+		Properties zh = load("messages/items/zh/items.properties");
 		check("斯嘉蒂之眼".equals(zh.getProperty("items.artifacts.fusion.eyeofskadi.name"))
 				&& "耗竭-冰暴".equals(zh.getProperty("items.artifacts.fusion.eyeofskadi.ac_blast")),
 				"斯嘉蒂之眼简体中文不是旧版文本或出现乱码");

@@ -195,8 +195,8 @@ public final class SpsSandalsOfNatureTest {
 	}
 
 	private static void testLocalizedResources() throws Exception {
-		for (String file : new String[]{"items.properties", "items_zh.properties",
-				"items_zh-hant.properties", "items_ru.properties"}) {
+		for (String file : new String[]{"en/items.properties", "zh/items.properties",
+				"zh-hant/items.properties", "ru/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_feed", "ac_root", "ac_sprout", "no_charge",
 					"prompt", "already_fed", "levelup", "absorb_seed", "desc_0", "desc_1",
@@ -204,13 +204,13 @@ public final class SpsSandalsOfNatureTest {
 				required(items, "items.artifacts.sandalsofnature." + key, file);
 			}
 		}
-		for (String file : new String[]{"plants.properties", "plants_zh.properties",
-				"plants_zh-hant.properties", "plants_ru.properties"}) {
+		for (String file : new String[]{"en/plants.properties", "zh/plants.properties",
+				"zh-hant/plants.properties", "ru/plants.properties"}) {
 			Properties plants = load("messages/plants/" + file);
 			required(plants, "plants.earthroot$magicplantarmor.name", file);
 			required(plants, "plants.earthroot$magicplantarmor.desc", file);
 		}
-		Properties zh = load("messages/items/items_zh.properties");
+		Properties zh = load("messages/items/zh/items.properties");
 		check("耗竭-发芽".equals(zh.getProperty("items.artifacts.sandalsofnature.ac_sprout")),
 				"自然凉鞋简体中文发芽动作乱码或错误");
 	}

@@ -110,8 +110,8 @@ public final class SpsCallCoconutTest {
 	}
 
 	private static void testResourcesAndPixels() throws Exception {
-		String zh = Files.readString(Paths.get("messages/items/items_zh.properties"), StandardCharsets.UTF_8);
-		String en = Files.readString(Paths.get("messages/items/items.properties"), StandardCharsets.UTF_8);
+		String zh = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
+		String en = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
 		String[] keys = {"items.summon.callcoconut.name=", "items.summon.callcoconut.ac_active=",
 				"items.summon.callcoconut$scococat.name=", "items.summon.callcoconut$excococat.name="};
 		for (String key : keys) check(zh.contains(key) && en.contains(key), "中英文资源缺少键：" + key);

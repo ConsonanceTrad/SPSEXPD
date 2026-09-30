@@ -114,8 +114,8 @@ public final class SpsChallengeJournalTest {
 		check(!heroClass.contains("new ChallengeJournal().collect()"), "普通职业仍在开局免费获得挑战日志");
 		check(!dungeon.contains("ChallengeJournal.ensureFor(hero)"), "读档仍会无条件凭空创建挑战日志");
 		check(townNpc.contains("dropAtHero(new ChallengeBook())"), "REN首次交谈没有掉落实体ChallengeBook");
-		String en = Files.readString(Path.of("messages", "items", "items.properties"), StandardCharsets.UTF_8);
-		String zh = Files.readString(Path.of("messages", "items", "items_zh.properties"), StandardCharsets.UTF_8);
+		String en = Files.readString(Path.of("messages", "items", "en", "items.properties"), StandardCharsets.UTF_8);
+		String zh = Files.readString(Path.of("messages", "items", "zh", "items.properties"), StandardCharsets.UTF_8);
 		check(en.contains("items.challengebook.name=") && zh.contains("items.challengebook.name=")
 				&& en.indexOf('\uFFFD') < 0 && zh.indexOf('\uFFFD') < 0,
 				"ChallengeBook双语资源缺失或含乱码");

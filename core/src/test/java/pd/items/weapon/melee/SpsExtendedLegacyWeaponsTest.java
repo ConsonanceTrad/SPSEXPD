@@ -277,8 +277,8 @@ public final class SpsExtendedLegacyWeaponsTest {
 				&& new SmallChakram().image == ItemSpriteSheet.SPS_SMALL_CHAKRAM
 				&& new HugeShuriken().image == ItemSpriteSheet.SPS_HUGE_SHURIKEN
 				&& new Tamahawk().image == ItemSpriteSheet.SPS_TAMAHAWK, "扩展旧版武器图标槽绑定错误");
-		String zh = Files.readString(Paths.get("messages/items/items_zh.properties"), StandardCharsets.UTF_8);
-		String en = Files.readString(Paths.get("messages/items/items.properties"), StandardCharsets.UTF_8);
+		String zh = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
+		String en = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
 		check(!zh.contains("\uFFFD") && !en.contains("\uFFFD"), "扩展旧版武器文本含UTF-8替换字符");
 		for (String key : Arrays.asList("stonecross", "mirrordoll", "handlight", "cursebox")) {
 			check(zh.contains("items.weapon.melee." + key + ".name=")

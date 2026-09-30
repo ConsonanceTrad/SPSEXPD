@@ -86,25 +86,22 @@ public class Messages {
 
 		//store language and locale info for various string logic
 		Messages.lang = lang;
-		Locale bundleLocal;
 		if (lang == Languages.ENGLISH){
 			locale = Locale.ENGLISH;
-			bundleLocal = Locale.ROOT; //english is source, uses root locale for fetching bundle
 		} else {
 			locale = new Locale(lang.code());
-			bundleLocal = locale;
 		}
 		formatters.clear();
 
+		//文本按"用途目录 / 语言目录"两级组织：messages/<用途>/<语言>/<用途>.properties
+		//直接以语言目录名定位（英语为 en），不再依赖平台 locale 后缀，因此也不需要 id/in 兼容 hack
+		String langDir = (lang == Languages.ENGLISH) ? "en" : lang.code();
+
 		bundles = new ArrayList<>();
 		for (String file : prop_files) {
-			if (bundleLocal.getLanguage().equals("id")){
-				//This is a really silly hack to fix some platforms using "id" for indonesian and some using "in" (Android 14- mostly).
-				//So if we detect "id" then we treat "###_in" as the base bundle so that it gets loaded instead of English.
-				bundles.add(I18NBundle.createBundle(Gdx.files.internal(file + "_in"), bundleLocal));
-			} else {
-				bundles.add(I18NBundle.createBundle(Gdx.files.internal(file), bundleLocal));
-			}
+			int slash = file.lastIndexOf('/');
+			String path = file.substring(0, slash) + "/" + langDir + "/" + file.substring(slash + 1);
+			bundles.add(I18NBundle.createBundle(Gdx.files.internal(path), Locale.ROOT));
 		}
 	}
 

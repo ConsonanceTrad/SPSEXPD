@@ -478,10 +478,10 @@ public final class SpsLegacyChallengesTest {
 				"病毒死亡没有释放20量腐化气体");
 		check(virus.spriteClass == ErrorSprite.class, "病毒没有使用旧版错误精灵");
 
-		String miscZh = read("messages/misc/misc_zh.properties");
-		String miscEn = read("messages/misc/misc.properties");
-		String actorsZh = read("messages/actors/actors_zh.properties");
-		String actorsEn = read("messages/actors/actors.properties");
+		String miscZh = read("messages/misc/zh/misc.properties");
+		String miscEn = read("messages/misc/en/misc.properties");
+		String actorsZh = read("messages/actors/zh/actors.properties");
+		String actorsEn = read("messages/actors/en/actors.properties");
 		check(miscZh.contains("challenges.nightmare_virus=梦魇病毒")
 				&& miscEn.contains("challenges.nightmare_virus=nightmare virus")
 				&& miscZh.contains("challenges.energy_lost=能量流失")

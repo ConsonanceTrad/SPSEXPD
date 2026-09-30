@@ -134,8 +134,8 @@ public final class SpsDriedRoseTest {
 	}
 
 	private static void testLocalizedResources() throws Exception {
-		for (String file : new String[]{"items.properties", "items_zh.properties",
-				"items_zh-hant.properties", "items_ru.properties"}) {
+		for (String file : new String[]{"en/items.properties", "zh/items.properties",
+				"zh-hant/items.properties", "ru/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_summon", "ac_outfit", "ac_soulbless",
 					"no_charge", "cursed", "no_space", "charged", "desc"}) {
@@ -144,7 +144,7 @@ public final class SpsDriedRoseTest {
 			required(items, "items.artifacts.driedrose$superghosthero.name", file);
 			required(items, "items.artifacts.driedrose$superghosthero.desc", file);
 		}
-		Properties zh = load("messages/items/items_zh.properties");
+		Properties zh = load("messages/items/zh/items.properties");
 		check("耗竭-超度".equals(zh.getProperty("items.artifacts.driedrose.ac_soulbless")),
 				"干花玫瑰简体中文超度动作乱码或错误");
 		try (java.util.stream.Stream<Path> paths = java.nio.file.Files.walk(Path.of("messages"))) {

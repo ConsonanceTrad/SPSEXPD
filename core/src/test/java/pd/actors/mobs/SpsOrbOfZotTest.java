@@ -191,10 +191,10 @@ public final class SpsOrbOfZotTest {
 		check(ICON_HASH.equals(tileHash(sheet, 224, 528)), "储能装置物品图标与旧版不一致");
 		check(SPRITE_HASH.equals(fileHash("sprites/mobs/sps_orbofzot.png")), "能源炮台动画与旧版不一致");
 
-		String zhItems = read("messages/items/items_zh.properties");
-		String enItems = read("messages/items/items.properties");
-		String zhActors = read("messages/actors/actors_zh.properties");
-		String enActors = read("messages/actors/actors.properties");
+		String zhItems = read("messages/items/zh/items.properties");
+		String enItems = read("messages/items/en/items.properties");
+		String zhActors = read("messages/actors/zh/actors.properties");
+		String enActors = read("messages/actors/en/actors.properties");
 		for (String text : Arrays.asList(zhItems, enItems, zhActors, enActors)) {
 			check(!text.contains("\uFFFD"), "储能装置双语资源含UTF-8替换字符");
 		}

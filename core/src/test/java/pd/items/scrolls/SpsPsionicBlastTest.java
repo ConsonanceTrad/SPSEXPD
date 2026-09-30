@@ -209,8 +209,8 @@ public final class SpsPsionicBlastTest {
 				&& ItemSpriteSheet.SCROLL_NENDIL != ItemSpriteSheet.SCROLL_LIBRA,
 				"新增旧版符文图标槽发生冲突");
 
-		for (String file : new String[]{"items.properties", "items_zh.properties",
-				"items_zh-hant.properties", "items_ru.properties"}) {
+		for (String file : new String[]{"en/items.properties", "zh/items.properties",
+				"zh-hant/items.properties", "ru/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ondeath", "desc"}) {
 				required(items, "items.scrolls.scrollofpsionicblast." + key, file);

@@ -231,8 +231,8 @@ public final class SpsUnstableSpellbookTest {
 	}
 
 	private static void testLocalizedResourcesAndSourceGuards() throws Exception {
-		for (String file : new String[]{"items.properties", "items_zh.properties",
-				"items_zh-hant.properties", "items_ru.properties"}) {
+		for (String file : new String[]{"en/items.properties", "zh/items.properties",
+				"zh-hant/items.properties", "ru/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_read", "ac_add", "ac_song", "blinded",
 					"no_charge", "cursed", "update", "dew_empty", "desc", "desc_cursed", "desc_index"}) {
@@ -241,7 +241,7 @@ public final class SpsUnstableSpellbookTest {
 			check(items.getProperty("items.artifacts.unstablespellbook.desc_index").contains("%s"),
 					file + "的露珠升级说明缺少数量占位符");
 		}
-		Properties zh = load("messages/items/items_zh.properties");
+		Properties zh = load("messages/items/zh/items.properties");
 		check("耗竭-圣歌".equals(zh.getProperty("items.artifacts.unstablespellbook.ac_song"))
 				&& zh.getProperty("items.artifacts.unstablespellbook.desc_index").contains("露珠"),
 				"不稳定魔典简体中文不是旧版文案或出现乱码");

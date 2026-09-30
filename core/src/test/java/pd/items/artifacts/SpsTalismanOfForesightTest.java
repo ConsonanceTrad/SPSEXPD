@@ -180,8 +180,8 @@ public final class SpsTalismanOfForesightTest {
 	}
 
 	private static void testLocalizedResources() throws Exception {
-		for (String file : new String[]{"items.properties", "items_zh.properties",
-				"items_zh-hant.properties", "items_ru.properties"}) {
+		for (String file : new String[]{"en/items.properties", "zh/items.properties",
+				"zh-hant/items.properties", "ru/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_scry", "ac_notice", "no_charge", "scry",
 					"desc", "desc_worn", "desc_cursed"}) {
@@ -191,7 +191,7 @@ public final class SpsTalismanOfForesightTest {
 				required(items, "items.artifacts.talismanofforesight$foresight." + key, file);
 			}
 		}
-		Properties zh = load("messages/items/items_zh.properties");
+		Properties zh = load("messages/items/zh/items.properties");
 		check("耗竭-预知".equals(zh.getProperty("items.artifacts.talismanofforesight.ac_notice"))
 				&& "护符将关于本层的知识填满了你的脑海。".equals(
 				zh.getProperty("items.artifacts.talismanofforesight.scry")),

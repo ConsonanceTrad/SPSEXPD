@@ -180,8 +180,8 @@ public final class SpsMagicKnowledgeRingsTest {
 	}
 
 	private static void testResources() throws Exception {
-		String zh = Files.readString(Paths.get("messages/items/items_zh.properties"), StandardCharsets.UTF_8);
-		String en = Files.readString(Paths.get("messages/items/items.properties"), StandardCharsets.UTF_8);
+		String zh = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
+		String en = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
 		check(zh.contains("items.rings.fusion.ringofmagic.name=奥术戒指")
 				&& zh.contains("你的法强值会提升_%d_点")
 				&& zh.contains("items.rings.fusion.ringofknowledge.name=学识戒指")

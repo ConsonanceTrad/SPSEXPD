@@ -148,9 +148,9 @@ public final class SpsLegacyConsumableBuffsTest {
 	private static void testSourcesResourcesAndIcon() throws Exception {
 		check(new TownNpc().configure(TownNpc.Spec.FLY_LING).SupercreateLoot() instanceof LingPotion,
 				"澪的特殊奖励不是澪祷星瓶");
-		String zhItems = Files.readString(Paths.get("messages/items/items_zh.properties"), StandardCharsets.UTF_8);
-		String zhActors = Files.readString(Paths.get("messages/actors/actors_zh.properties"), StandardCharsets.UTF_8);
-		String enItems = Files.readString(Paths.get("messages/items/items.properties"), StandardCharsets.UTF_8);
+		String zhItems = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
+		String zhActors = Files.readString(Paths.get("messages/actors/zh/actors.properties"), StandardCharsets.UTF_8);
+		String enItems = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
 		check(zhItems.contains("items.medicine.lingpotion.name=澪祷星瓶")
 				&& zhItems.contains("一瓶来自澪的圣水，能极大提升使用者的能力")
 				&& zhItems.contains("items.food.fruit.fullmoonberry.name=满月浆果"), "消耗品中文原文缺失");

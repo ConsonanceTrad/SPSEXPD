@@ -148,8 +148,8 @@ public final class SpsFlyChainsTest {
 	}
 
 	private static void testBilingualResources() throws Exception {
-		String zh = Files.readString(Paths.get("messages/items/items_zh.properties"), StandardCharsets.UTF_8);
-		String en = Files.readString(Paths.get("messages/items/items.properties"), StandardCharsets.UTF_8);
+		String zh = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
+		String en = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
 		String[] keys = {"items.artifacts.flychains.name=", "items.artifacts.flychains.ac_locked=",
 				"items.artifacts.flychains.desc=", "items.artifacts.flychains$chainsrecharge2.levelup="};
 		for (String key : keys) check(zh.contains(key) && en.contains(key), "中英文资源缺少键：" + key);

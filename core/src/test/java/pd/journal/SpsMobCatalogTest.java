@@ -163,8 +163,8 @@ public final class SpsMobCatalogTest {
 		String source = Files.readString(window, StandardCharsets.UTF_8);
 		check(source.contains("for (SpsMobCatalog catalog : SpsMobCatalog.values())"),
 				"当前日志仍未使用完整SPS怪物目录");
-		for (String file : new String[]{"journal.properties", "journal_zh.properties",
-				"journal_zh-hant.properties", "journal_ru.properties"}) {
+		for (String file : new String[]{"en/journal.properties", "zh/journal.properties",
+				"zh-hant/journal.properties", "ru/journal.properties"}) {
 			Path path = Path.of("messages", "journal", file);
 			String text = StandardCharsets.UTF_8.newDecoder()
 					.onMalformedInput(CodingErrorAction.REPORT)

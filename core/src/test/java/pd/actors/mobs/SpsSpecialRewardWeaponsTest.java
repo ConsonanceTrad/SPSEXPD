@@ -184,8 +184,8 @@ public final class SpsSpecialRewardWeaponsTest {
 				&& new WraithBreath().image == ItemSpriteSheet.SPS_WRAITH_BREATH,
 				"特殊奖励武器图标槽绑定错误");
 
-		String zh = Files.readString(Paths.get("messages/items/items_zh.properties"), StandardCharsets.UTF_8);
-		String en = Files.readString(Paths.get("messages/items/items.properties"), StandardCharsets.UTF_8);
+		String zh = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
+		String en = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
 		check(!zh.contains("\uFFFD") && !en.contains("\uFFFD"), "特殊奖励武器文本含UTF-8替换字符");
 		for (String key : Arrays.asList("goei.name", "tekkokagi.name", "wraithbreath.name")) {
 			check(zh.contains("items.weapon.melee.special." + key + "=")

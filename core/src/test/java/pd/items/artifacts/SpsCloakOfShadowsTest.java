@@ -195,8 +195,8 @@ public final class SpsCloakOfShadowsTest {
 	}
 
 	private static void testLocalizedResources() throws Exception {
-		for (String file : new String[]{"items.properties", "items_zh.properties",
-				"items_zh-hant.properties", "items_ru.properties"}) {
+		for (String file : new String[]{"en/items.properties", "zh/items.properties",
+				"zh-hant/items.properties", "ru/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_stealth", "ac_shadow", "cooldown", "no_charge", "desc"}) {
 				required(items, "items.artifacts.cloakofshadows." + key, file);
@@ -205,13 +205,13 @@ public final class SpsCloakOfShadowsTest {
 				required(items, "items.artifacts.cloakofshadows$cloakstealth." + key, file);
 			}
 		}
-		for (String file : new String[]{"actors.properties", "actors_zh.properties",
-				"actors_zh-hant.properties", "actors_ru.properties"}) {
+		for (String file : new String[]{"en/actors.properties", "zh/actors.properties",
+				"zh-hant/actors.properties", "ru/actors.properties"}) {
 			Properties actors = load("messages/actors/" + file);
 			required(actors, "actors.buffs.forevershadow.name", file);
 			required(actors, "actors.buffs.forevershadow.desc", file);
 		}
-		Properties zh = load("messages/items/items_zh.properties");
+		Properties zh = load("messages/items/zh/items.properties");
 		check("耗竭-永影".equals(zh.getProperty("items.artifacts.cloakofshadows.ac_shadow")),
 				"暗影斗篷简体中文永影动作乱码或错误");
 		try (java.util.stream.Stream<Path> paths = java.nio.file.Files.walk(Path.of("messages"))) {

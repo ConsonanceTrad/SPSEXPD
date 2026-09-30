@@ -120,10 +120,10 @@ public final class SpsTownBlockWeaponsTest {
 		check(sheet != null && sheet.getWidth() == 256 && sheet.getHeight() == 992, "物品图集尺寸错误");
 		check("42C20F707B5351E9C295CBCACA6B89B179D709FDCD14F78CDC19397EC0D9E733".equals(iconHash(sheet, 208, 944)), "哥布林神盾原始图标错误");
 		check("4A51C6CF834F7BD014AE6EC0D3E1C12A0144FE82A316A737973604649D0A4834".equals(iconHash(sheet, 224, 944)), "特制指虎原始图标错误");
-		String zh = Files.readString(Paths.get("messages/items/items_zh.properties"), StandardCharsets.UTF_8)
-				+ Files.readString(Paths.get("messages/windows/windows_zh.properties"), StandardCharsets.UTF_8);
-		String en = Files.readString(Paths.get("messages/items/items.properties"), StandardCharsets.UTF_8)
-				+ Files.readString(Paths.get("messages/windows/windows.properties"), StandardCharsets.UTF_8);
+		String zh = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8)
+				+ Files.readString(Paths.get("messages/windows/zh/windows.properties"), StandardCharsets.UTF_8);
+		String en = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8)
+				+ Files.readString(Paths.get("messages/windows/en/windows.properties"), StandardCharsets.UTF_8);
 		for (String key : new String[]{"goblinshield.name=", "spknuckles.name="}) {
 			check(zh.contains(key) && en.contains(key), "城镇格挡武器缺少双语文本：" + key);
 		}

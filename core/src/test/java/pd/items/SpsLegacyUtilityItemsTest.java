@@ -377,15 +377,15 @@ public final class SpsLegacyUtilityItemsTest {
 	}
 
 	private static void testResourcesAndSprites() throws Exception {
-		String zh = java.nio.file.Files.readString(Paths.get("messages/items/items_zh.properties"), StandardCharsets.UTF_8);
-		String en = java.nio.file.Files.readString(Paths.get("messages/items/items.properties"), StandardCharsets.UTF_8);
+		String zh = java.nio.file.Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
+		String en = java.nio.file.Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
 		String[] keys = {"items.greendewdrop.name=", "items.gold.ac_makebag=", "items.goldbag.name=",
 				"items.specialcoin.name=", "items.mitbottle.name=", "items.unblessankh.name=",
 				"items.vialupdater.name=", "items.vialupdater.ac_use=", "items.vialupdater.desc="};
 		for (String key : keys) check(zh.contains(key) && en.contains(key), "中英文资源缺少键：" + key);
 		check(zh.contains("绿色露珠") && zh.contains("根骨之瓶") && !zh.contains("�"), "通用道具中文乱码或缺失");
-		String miscZh = java.nio.file.Files.readString(Paths.get("messages/misc/misc_zh.properties"), StandardCharsets.UTF_8);
-		String miscEn = java.nio.file.Files.readString(Paths.get("messages/misc/misc.properties"), StandardCharsets.UTF_8);
+		String miscZh = java.nio.file.Files.readString(Paths.get("messages/misc/zh/misc.properties"), StandardCharsets.UTF_8);
+		String miscEn = java.nio.file.Files.readString(Paths.get("messages/misc/en/misc.properties"), StandardCharsets.UTF_8);
 		check(miscZh.contains("challenges.dew_rejection=排异露珠")
 				&& miscEn.contains("challenges.dew_rejection=dew rejection")
 				&& miscZh.contains("challenges.item_phobia=恐物幻觉")

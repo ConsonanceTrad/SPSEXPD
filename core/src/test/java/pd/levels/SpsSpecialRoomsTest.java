@@ -219,8 +219,8 @@ public final class SpsSpecialRoomsTest {
 				&& restored.armor().glyph != null, "护甲石像存档没有恢复护甲和刻印");
 
 		try {
-			String en = java.nio.file.Files.readString(Path.of("messages", "actors", "actors.properties"), StandardCharsets.UTF_8);
-			String zh = java.nio.file.Files.readString(Path.of("messages", "actors", "actors_zh.properties"), StandardCharsets.UTF_8);
+			String en = java.nio.file.Files.readString(Path.of("messages", "actors", "en", "actors.properties"), StandardCharsets.UTF_8);
+			String zh = java.nio.file.Files.readString(Path.of("messages", "actors", "zh", "actors.properties"), StandardCharsets.UTF_8);
 			check(en.contains("actors.mobs.armorstatue.name=") && en.contains("actors.mobs.armorstatue.desc="),
 					"护甲石像缺少英文资源");
 			check(zh.contains("actors.mobs.armorstatue.name=活化装甲石像") && !zh.contains("�"),
@@ -455,8 +455,8 @@ public final class SpsSpecialRoomsTest {
 		f.level.storeInBundle(saved);
 		check(saved.getInt("pit_sign") == f.level.pitSign, "陷坑提示牌位置没有写入存档");
 		try {
-			String en = java.nio.file.Files.readString(Path.of("messages", "levels", "levels.properties"), StandardCharsets.UTF_8);
-			String zh = java.nio.file.Files.readString(Path.of("messages", "levels", "levels_zh.properties"), StandardCharsets.UTF_8);
+			String en = java.nio.file.Files.readString(Path.of("messages", "levels", "en", "levels.properties"), StandardCharsets.UTF_8);
+			String zh = java.nio.file.Files.readString(Path.of("messages", "levels", "zh", "levels.properties"), StandardCharsets.UTF_8);
 			check(en.contains("levels.features.sign.pit_message=Note to self:"), "陷坑提示牌缺少英文文案");
 			check(zh.contains("levels.features.sign.pit_message=这块地方没有出口") && !zh.contains("�"),
 					"陷坑提示牌中文文案缺失或乱码");

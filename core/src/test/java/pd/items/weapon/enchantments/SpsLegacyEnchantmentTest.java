@@ -212,8 +212,8 @@ public final class SpsLegacyEnchantmentTest {
 	}
 
 	private static void testLocalization() throws Exception {
-		String english = new String(Files.readAllBytes(Paths.get("messages/items/items.properties")), StandardCharsets.UTF_8);
-		String chinese = new String(Files.readAllBytes(Paths.get("messages/items/items_zh.properties")), StandardCharsets.UTF_8);
+		String english = new String(Files.readAllBytes(Paths.get("messages/items/en/items.properties")), StandardCharsets.UTF_8);
+		String chinese = new String(Files.readAllBytes(Paths.get("messages/items/zh/items.properties")), StandardCharsets.UTF_8);
 		check(!english.contains("\uFFFD") && !chinese.contains("\uFFFD"), "附魔文本含有UTF-8替换字符");
 		for (Class<?> type : CLASSES) {
 			String key = "items.weapon.enchantments." + type.getSimpleName().toLowerCase() + ".";

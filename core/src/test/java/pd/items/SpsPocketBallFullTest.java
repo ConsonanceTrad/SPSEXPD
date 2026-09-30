@@ -222,8 +222,8 @@ public final class SpsPocketBallFullTest {
 	}
 
 	private static void testResourcesAndIcon() throws Exception {
-		String zh = Files.readString(Paths.get("messages/items/items_zh.properties"), StandardCharsets.UTF_8);
-		String en = Files.readString(Paths.get("messages/items/items.properties"), StandardCharsets.UTF_8);
+		String zh = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
+		String en = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
 		String[] keys = {"items.pocketballfull.name=", "items.pocketballfull.ac_use=",
 				"items.pocketballfull.no_place=", "items.pocketballfull.no_pet="};
 		for (String key : keys) check(zh.contains(key) && en.contains(key), "中英文资源缺少键：" + key);

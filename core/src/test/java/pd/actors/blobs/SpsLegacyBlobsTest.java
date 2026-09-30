@@ -199,7 +199,7 @@ public final class SpsLegacyBlobsTest {
 	}
 
 	private static void testUtf8Messages() throws Exception {
-		String[] files = {"actors.properties", "actors_zh.properties", "actors_zh-hant.properties", "actors_ru.properties"};
+		String[] files = {"en/actors.properties", "zh/actors.properties", "zh-hant/actors.properties", "ru/actors.properties"};
 		for (String file : files) {
 			byte[] bytes = Files.readAllBytes(Paths.get("messages", "actors", file));
 			String text = decodeUtf8(bytes, file);
@@ -210,10 +210,10 @@ public final class SpsLegacyBlobsTest {
 					&& text.contains("actors.blobs.damageblobs.energyeffectdamage.desc=")
 					&& text.contains("actors.buffs.actbuff.nmimbue.name="), file + "缺少旧版环境机制文本");
 		}
-		String simplified = decodeUtf8(Files.readAllBytes(Paths.get("messages", "actors", "actors_zh.properties")), "actors_zh.properties");
+		String simplified = decodeUtf8(Files.readAllBytes(Paths.get("messages", "actors", "zh", "actors.properties")), "zh/actors.properties");
 		check(simplified.contains("纳米环绕") && simplified.contains("暗影咒丝")
 				&& simplified.contains("能量伤害"), "简体中文环境机制文本损坏");
-		String itemText = decodeUtf8(Files.readAllBytes(Paths.get("messages", "items", "items_zh.properties")), "items_zh.properties");
+		String itemText = decodeUtf8(Files.readAllBytes(Paths.get("messages", "items", "zh", "items.properties")), "zh/items.properties");
 		check(itemText.contains("items.torch.ac_set=放置"), "火把放置动作的简体中文文本缺失或损坏");
 	}
 

@@ -52,10 +52,10 @@ public final class SpsStoryGuideTest {
 			legacy = Path.of("..", "..", "..", "..", "_ref", "ref", "SPS-PD",
 					"resources", "com", "hmdzl", "spspd", "messages", "misc");
 		}
-		compareLocale(legacy.resolve("misc.properties"), Path.of("messages", "journal", "journal.properties"));
-		compareLocale(legacy.resolve("misc_zh.properties"), Path.of("messages", "journal", "journal_zh.properties"));
-		compareLocale(legacy.resolve("misc_tzh.properties"), Path.of("messages", "journal", "journal_zh-hant.properties"));
-		compareLocale(legacy.resolve("misc_ru.properties"), Path.of("messages", "journal", "journal_ru.properties"));
+		compareLocale(legacy.resolve("misc.properties"), Path.of("messages", "journal", "en", "journal.properties"));
+		compareLocale(legacy.resolve("misc_zh.properties"), Path.of("messages", "journal", "zh", "journal.properties"));
+		compareLocale(legacy.resolve("misc_tzh.properties"), Path.of("messages", "journal", "zh-hant", "journal.properties"));
+		compareLocale(legacy.resolve("misc_ru.properties"), Path.of("messages", "journal", "ru", "journal.properties"));
 	}
 
 	private static void compareLocale(Path legacyPath, Path currentPath) throws Exception {

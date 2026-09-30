@@ -175,8 +175,8 @@ public final class SpsAshWolfTest {
 				"南瓜灯不是SPS-PD 0.9.8原始图标");
 		check("B605077A6B6EDDA6A74B91AD06EA9737DE67F6CDE416AFA22D2699034FE50B16".equals(hash(sheet, 240, 848)),
 				"样板房地点纸片不是SPS-PD 0.9.8原始图标");
-		String itemsZh = Files.readString(new File("messages/items/items_zh.properties").toPath(), StandardCharsets.UTF_8);
-		String miscZh = Files.readString(new File("messages/misc/misc_zh.properties").toPath(), StandardCharsets.UTF_8);
+		String itemsZh = Files.readString(new File("messages/items/zh/items.properties").toPath(), StandardCharsets.UTF_8);
+		String miscZh = Files.readString(new File("messages/misc/zh/misc.properties").toPath(), StandardCharsets.UTF_8);
 		check(itemsZh.contains("items.weapon.melee.special.pumpkin.name=南瓜灯")
 				&& itemsZh.contains("items.journalpages.newhome.name=样板房坐标")
 				&& miscZh.contains("challenges.test_time=测试时间"), "阿萨相关中文资源缺失");

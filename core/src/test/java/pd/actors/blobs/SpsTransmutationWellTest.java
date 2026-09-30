@@ -171,10 +171,10 @@ public final class SpsTransmutationWellTest {
 
 		Path actors = Path.of("messages", "actors");
 		Path journal = Path.of("messages", "journal");
-		String en = strictUtf8(actors.resolve("actors.properties"));
-		String zh = strictUtf8(actors.resolve("actors_zh.properties"));
-		String journalEn = strictUtf8(journal.resolve("journal.properties"));
-		String journalZh = strictUtf8(journal.resolve("journal_zh.properties"));
+		String en = strictUtf8(actors.resolve("en/actors.properties"));
+		String zh = strictUtf8(actors.resolve("zh/actors.properties"));
+		String journalEn = strictUtf8(journal.resolve("en/journal.properties"));
+		String journalZh = strictUtf8(journal.resolve("zh/journal.properties"));
 		check(en.contains("actors.blobs.wateroftransmutation.name=")
 				&& en.contains("actors.blobs.wateroftransmutation.desc="), "嬗变之泉缺少英文文本");
 		check(zh.contains("actors.blobs.wateroftransmutation.name=嬗变之泉")

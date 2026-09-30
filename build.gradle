@@ -77,22 +77,22 @@ tasks.register('verifySpsContent') {
 		}
 
         def messagePairs = [
-                [file('core/src/main/assets/messages/items/items.properties'),
-                 file('core/src/main/assets/messages/items/items_zh.properties')],
-                [file('core/src/main/assets/messages/actors/actors.properties'),
-                 file('core/src/main/assets/messages/actors/actors_zh.properties')],
-                [file('core/src/main/assets/messages/levels/levels.properties'),
-                 file('core/src/main/assets/messages/levels/levels_zh.properties')],
-                [file('core/src/main/assets/messages/plants/plants.properties'),
-                 file('core/src/main/assets/messages/plants/plants_zh.properties')],
-                [file('core/src/main/assets/messages/scenes/scenes.properties'),
-				 file('core/src/main/assets/messages/scenes/scenes_zh.properties')],
-				[file('core/src/main/assets/messages/windows/windows.properties'),
-				 file('core/src/main/assets/messages/windows/windows_zh.properties')],
-				[file('core/src/main/assets/messages/misc/misc.properties'),
-				 file('core/src/main/assets/messages/misc/misc_zh.properties')],
-				[file('core/src/main/assets/messages/ui/ui.properties'),
-				 file('core/src/main/assets/messages/ui/ui_zh.properties')]
+                [file('core/src/main/assets/messages/items/en/items.properties'),
+                 file('core/src/main/assets/messages/items/zh/items.properties')],
+                [file('core/src/main/assets/messages/actors/en/actors.properties'),
+                 file('core/src/main/assets/messages/actors/zh/actors.properties')],
+                [file('core/src/main/assets/messages/levels/en/levels.properties'),
+                 file('core/src/main/assets/messages/levels/zh/levels.properties')],
+                [file('core/src/main/assets/messages/plants/en/plants.properties'),
+                 file('core/src/main/assets/messages/plants/zh/plants.properties')],
+                [file('core/src/main/assets/messages/scenes/en/scenes.properties'),
+				 file('core/src/main/assets/messages/scenes/zh/scenes.properties')],
+				[file('core/src/main/assets/messages/windows/en/windows.properties'),
+				 file('core/src/main/assets/messages/windows/zh/windows.properties')],
+				[file('core/src/main/assets/messages/misc/en/misc.properties'),
+				 file('core/src/main/assets/messages/misc/zh/misc.properties')],
+				[file('core/src/main/assets/messages/ui/en/ui.properties'),
+				 file('core/src/main/assets/messages/ui/zh/ui.properties')]
         ]
         def spsPrefixes = [
                 'giftunlocks',

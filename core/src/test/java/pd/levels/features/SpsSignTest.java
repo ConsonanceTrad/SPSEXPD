@@ -24,8 +24,8 @@ public final class SpsSignTest {
 		check("tip_22".equals(Sign.messageKey(null, 22, 0)), "主线告示牌没有使用实际层号");
 		check(Sign.messageKey(null, 26, 0) == null, "终局层不应生成普通提示文本");
 
-		for (String locale : new String[]{"", "_zh", "_zh-hant", "_ru"}) {
-			Path file = Path.of("messages", "levels", "levels" + locale + ".properties");
+		for (String lang : new String[]{"en", "zh", "zh-hant", "ru"}) {
+			Path file = Path.of("messages", "levels", lang, "levels.properties");
 			String text = strictUtf8(file);
 			for (String key : new String[]{"chaos", "new_room_0", "new_room_1"}) {
 				String prefix = "levels.features.sign." + key + "=";

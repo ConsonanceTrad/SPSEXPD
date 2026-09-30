@@ -102,15 +102,15 @@ public final class SpsNoomlinCrownTest {
 		check(source.contains("levelCap = 1") && source.contains("return new Crown()")
 				&& !source.contains("MasterThievesArmband"), "王冠一级上限、空被动或独立实现发生偏移");
 
-		for (String file : new String[]{"items.properties", "items_zh.properties",
-				"items_zh-hant.properties", "items_ru.properties"}) {
+		for (String file : new String[]{"en/items.properties", "zh/items.properties",
+				"zh-hant/items.properties", "ru/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			required(items, "items.artifacts.fusion.noomlincrown.name", file);
 			required(items, "items.artifacts.fusion.noomlincrown.desc", file);
 			check(items.getProperty("items.artifacts.fusion.noomlincrown.ac_steal") == null,
 					file + "仍保留错误的征收动作文本");
 		}
-		Properties zh = load("messages/items/items_zh.properties");
+		Properties zh = load("messages/items/zh/items.properties");
 		check("诺姆林王冠".equals(zh.getProperty("items.artifacts.fusion.noomlincrown.name"))
 				&& zh.getProperty("items.artifacts.fusion.noomlincrown.desc").contains("没有力量"),
 				"诺姆林王冠简体中文不是旧版文本或出现乱码");

@@ -156,8 +156,8 @@ public final class SpsLegacyRingsTest {
 	}
 
 	private static void testResources() throws Exception {
-		String zh = Files.readString(Paths.get("messages/items/items_zh.properties"), StandardCharsets.UTF_8);
-		String en = Files.readString(Paths.get("messages/items/items.properties"), StandardCharsets.UTF_8);
+		String zh = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
+		String en = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
 		check(zh.contains("items.rings.ringofaccuracy.name=精准戒指")
 				&& zh.contains("攻击距离会增加_%2$d_格")
 				&& zh.contains("闪避值会增加_%d_点，潜行会增加_%2$d_点")

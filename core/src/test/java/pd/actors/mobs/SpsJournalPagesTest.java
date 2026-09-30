@@ -249,8 +249,8 @@ public final class SpsJournalPagesTest {
 		check(dolya.contains("extends AdventureJournal") && dolya.contains("DOLYA_SLATE"),
 				"多利亚石板实体类或旧版图标接线缺失");
 
-		String en = Files.readString(Path.of("messages", "items", "items.properties"), StandardCharsets.UTF_8);
-		String zh = Files.readString(Path.of("messages", "items", "items_zh.properties"), StandardCharsets.UTF_8);
+		String en = Files.readString(Path.of("messages", "items", "en", "items.properties"), StandardCharsets.UTF_8);
+		String zh = Files.readString(Path.of("messages", "items", "zh", "items.properties"), StandardCharsets.UTF_8);
 		for (String key : Arrays.asList("safespotpage", "sokoban1", "sokoban2", "sokoban3", "sokoban4", "town")) {
 			check(en.contains("items.journalpages." + key + ".name=")
 					&& zh.contains("items.journalpages." + key + ".name="), key + "缺少英文或简体中文文本");

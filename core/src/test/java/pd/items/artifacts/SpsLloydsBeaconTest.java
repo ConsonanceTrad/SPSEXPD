@@ -174,8 +174,8 @@ public final class SpsLloydsBeaconTest {
 	}
 
 	private static void testLocalizedResources() throws Exception {
-		String[] files = {"items.properties", "items_zh.properties",
-				"items_zh-hant.properties", "items_ru.properties"};
+		String[] files = {"en/items.properties", "zh/items.properties",
+				"zh-hant/items.properties", "ru/items.properties"};
 		String[] requiredKeys = {"name", "ac_set", "ac_return", "preventing",
 				"creatures", "return", "desc", "desc_set"};
 		for (String file : files) {

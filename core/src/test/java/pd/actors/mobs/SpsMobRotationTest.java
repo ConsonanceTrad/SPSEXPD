@@ -495,10 +495,10 @@ public final class SpsMobRotationTest {
 	private static void checkBanditText() {
 		java.nio.file.Path base = java.nio.file.Path.of("src", "main", "assets", "messages", "actors");
 		String[][] expected = {
-				{"actors.properties", "actors.mobs.bandit.name=Crazy bandit", "actors.mobs.bandit.desc=Crazy bandit can harm target when steal from it.", "actors.mobs.senior.name=senior monk", "actors.mobs.senior.desc=He is stronger."},
-				{"actors_zh.properties", "actors.mobs.bandit.name=紫衣大盗", "actors.mobs.bandit.desc=较普通绿衣小贼而言，紫衣大盗在偷窃同时，会狠狠伤害被偷窃者，以方便自己逃跑。", "actors.mobs.senior.name=武僧大师", "actors.mobs.senior.desc=相较普通武僧而言，武僧大师变秃了，也变强了!"},
-				{"actors_zh-hant.properties", "actors.mobs.bandit.name=紫衣大盜", "actors.mobs.bandit.desc=較普通綠衣小賊而言，紫衣大盜在偷竊同時，會狠狠傷害被偷竊者，以方便自己逃跑。", "actors.mobs.senior.name=武僧大師", "actors.mobs.senior.desc=相較普通武僧而言，武僧大師變禿了，也變強了!"},
-				{"actors_ru.properties", "actors.mobs.bandit.name=Безумный бандит", "actors.mobs.bandit.desc=По сравнению с обычным вором в зеленой мантии, вор в фиолетовой мантии серьезно ранит во время кражи, чтобы облегчить свой побег.", "actors.mobs.senior.name=Монах-наставник", "actors.mobs.senior.desc=Эти монахи - фанатики, посвятившие себя защите своего короля физической силой. Их преданность настолько велика, что они полностью предали свое сознание своему королю, и теперь они бродят по городу дворфов как безмозглые зомби.\\n\\nПо сравнению с обычными монахами, монахи-наставники стали лысее и сильнее!"}
+				{"en/actors.properties", "actors.mobs.bandit.name=Crazy bandit", "actors.mobs.bandit.desc=Crazy bandit can harm target when steal from it.", "actors.mobs.senior.name=senior monk", "actors.mobs.senior.desc=He is stronger."},
+				{"zh/actors.properties", "actors.mobs.bandit.name=紫衣大盗", "actors.mobs.bandit.desc=较普通绿衣小贼而言，紫衣大盗在偷窃同时，会狠狠伤害被偷窃者，以方便自己逃跑。", "actors.mobs.senior.name=武僧大师", "actors.mobs.senior.desc=相较普通武僧而言，武僧大师变秃了，也变强了!"},
+				{"zh-hant/actors.properties", "actors.mobs.bandit.name=紫衣大盜", "actors.mobs.bandit.desc=較普通綠衣小賊而言，紫衣大盜在偷竊同時，會狠狠傷害被偷竊者，以方便自己逃跑。", "actors.mobs.senior.name=武僧大師", "actors.mobs.senior.desc=相較普通武僧而言，武僧大師變禿了，也變強了!"},
+				{"ru/actors.properties", "actors.mobs.bandit.name=Безумный бандит", "actors.mobs.bandit.desc=По сравнению с обычным вором в зеленой мантии, вор в фиолетовой мантии серьезно ранит во время кражи, чтобы облегчить свой побег.", "actors.mobs.senior.name=Монах-наставник", "actors.mobs.senior.desc=Эти монахи - фанатики, посвятившие себя защите своего короля физической силой. Их преданность настолько велика, что они полностью предали свое сознание своему королю, и теперь они бродят по городу дворфов как безмозглые зомби.\\n\\nПо сравнению с обычными монахами, монахи-наставники стали лысее и сильнее!"}
 		};
 		try {
 			for (String[] locale : expected) {

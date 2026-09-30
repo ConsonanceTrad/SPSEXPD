@@ -172,10 +172,10 @@ public final class SpsWandmakerQuestTest {
 
 	private static void testLegacyLabels() throws Exception {
 		String[][] expected = {
-				{"windows.properties", "As I promised, you can choose one of my high quality wands.", "Battle Wand", "Non-Battle Wand"},
-				{"windows_zh.properties", "哦，你成功了，希望没给你带来太多麻烦。选择你的奖励吧。", "战斗法杖", "辅助法杖"},
-				{"windows_zh-hant.properties", "哦，你成功了，希望沒給你帶來太多麻煩。選擇你的獎勵吧。", "戰鬥法杖", "輔助法杖"},
-				{"windows_ru.properties", "Как и обещал, ты можешь выбрать одну из моих лучших палочек.", "Боевая палочка", "Небоевая палочка"}
+				{"en/windows.properties", "As I promised, you can choose one of my high quality wands.", "Battle Wand", "Non-Battle Wand"},
+				{"zh/windows.properties", "哦，你成功了，希望没给你带来太多麻烦。选择你的奖励吧。", "战斗法杖", "辅助法杖"},
+				{"zh-hant/windows.properties", "哦，你成功了，希望沒給你帶來太多麻煩。選擇你的獎勵吧。", "戰鬥法杖", "輔助法杖"},
+				{"ru/windows.properties", "Как и обещал, ты можешь выбрать одну из моих лучших палочек.", "Боевая палочка", "Небоевая палочка"}
 		};
 		for (String[] row : expected) {
 			Properties properties = new Properties();

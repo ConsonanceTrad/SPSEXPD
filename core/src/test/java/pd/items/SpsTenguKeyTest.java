@@ -152,8 +152,8 @@ public final class SpsTenguKeyTest {
 		check(den.contains("Dungeon.tenguDenKilled = true") && den.contains("AdventureJournal.complete(10)"),
 				"击杀天狗没有同时兼容钥匙与日志路线");
 
-		String en = java.nio.file.Files.readString(Path.of("messages", "items", "items.properties"), StandardCharsets.UTF_8);
-		String zh = java.nio.file.Files.readString(Path.of("messages", "items", "items_zh.properties"), StandardCharsets.UTF_8);
+		String en = java.nio.file.Files.readString(Path.of("messages", "items", "en", "items.properties"), StandardCharsets.UTF_8);
+		String zh = java.nio.file.Files.readString(Path.of("messages", "items", "zh", "items.properties"), StandardCharsets.UTF_8);
 		for (String key : new String[]{"items.tengukey.name=", "items.tengukey.ac_port=", "items.tengukey.desc="}) {
 			check(en.contains(key) && zh.contains(key), "天狗钥匙缺少中英文资源键：" + key);
 		}

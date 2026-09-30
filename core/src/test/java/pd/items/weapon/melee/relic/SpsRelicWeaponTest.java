@@ -206,8 +206,8 @@ public final class SpsRelicWeaponTest {
 	}
 
 	private static void testResources() throws Exception {
-		String zhItems = Files.readString(Paths.get("messages/items/items_zh.properties"), StandardCharsets.UTF_8);
-		String zhActors = Files.readString(Paths.get("messages/actors/actors_zh.properties"), StandardCharsets.UTF_8);
+		String zhItems = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
+		String zhActors = Files.readString(Paths.get("messages/actors/zh/actors.properties"), StandardCharsets.UTF_8);
 		check(zhItems.contains("items.weapon.enchantments.aresleech.name=抽灵%s")
 				&& zhItems.contains("items.weapon.melee.relic.aressword.name=萃魂长剑")
 				&& zhActors.contains("actors.buffs.lokispoison.name=猛毒")

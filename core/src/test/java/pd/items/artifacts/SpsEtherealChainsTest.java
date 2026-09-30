@@ -81,14 +81,14 @@ public final class SpsEtherealChainsTest {
 	}
 
 	private static void testLocalizedResources() throws Exception {
-		for (String file : new String[]{"items.properties", "items_zh.properties",
-				"items_zh-hant.properties", "items_ru.properties"}) {
+		for (String file : new String[]{"en/items.properties", "zh/items.properties",
+				"zh-hant/items.properties", "ru/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_cast", "ac_locked", "no_charge", "cursed", "prompt", "desc"}) {
 				required(items, "items.artifacts.etherealchains." + key, file);
 			}
 		}
-		Properties zh = load("messages/items/items_zh.properties");
+		Properties zh = load("messages/items/zh/items.properties");
 		check("耗竭-封印".equals(zh.getProperty("items.artifacts.etherealchains.ac_locked")),
 				"虚空锁链简体中文封印动作乱码或错误");
 	}

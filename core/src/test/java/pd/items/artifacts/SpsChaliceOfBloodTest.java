@@ -148,10 +148,10 @@ public final class SpsChaliceOfBloodTest {
 	}
 
 	private static void testResources() throws Exception {
-		String enItems = Files.readString(Paths.get("messages/items/items.properties"), StandardCharsets.UTF_8);
-		String zhItems = Files.readString(Paths.get("messages/items/items_zh.properties"), StandardCharsets.UTF_8);
-		String enActors = Files.readString(Paths.get("messages/actors/actors.properties"), StandardCharsets.UTF_8);
-		String zhActors = Files.readString(Paths.get("messages/actors/actors_zh.properties"), StandardCharsets.UTF_8);
+		String enItems = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
+		String zhItems = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
+		String enActors = Files.readString(Paths.get("messages/actors/en/actors.properties"), StandardCharsets.UTF_8);
+		String zhActors = Files.readString(Paths.get("messages/actors/zh/actors.properties"), StandardCharsets.UTF_8);
 		check(enItems.contains("items.artifacts.chaliceofblood.ac_bloodangry=S-BLOODANGRY")
 				&& enItems.contains("Each time you use the chalice it will drain more life energy")
 				&& enItems.contains("you can subtly feel the chalice feeding life energy into you. You still want"),

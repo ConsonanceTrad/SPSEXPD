@@ -150,10 +150,10 @@ public final class SpsGhostQuestTest {
 
 	private static void testLegacyLabels() throws Exception {
 		String[][] expected = {
-				{"windows.properties", "Ghost's Artifact", "Ghost's Ring", "Ghost's Pet"},
-				{"windows_zh.properties", "幽灵的饰品", "幽灵的信物", "幽灵的玩伴"},
-				{"windows_zh-hant.properties", "幽靈的飾品", "幽靈的信物", "幽靈的玩伴"},
-				{"windows_ru.properties", "Оружие призрака", "Доспех призрака", "Питомец призрака"}
+				{"en/windows.properties", "Ghost's Artifact", "Ghost's Ring", "Ghost's Pet"},
+				{"zh/windows.properties", "幽灵的饰品", "幽灵的信物", "幽灵的玩伴"},
+				{"zh-hant/windows.properties", "幽靈的飾品", "幽靈的信物", "幽靈的玩伴"},
+				{"ru/windows.properties", "Оружие призрака", "Доспех призрака", "Питомец призрака"}
 		};
 		for (String[] row : expected) {
 			Properties properties = new Properties();

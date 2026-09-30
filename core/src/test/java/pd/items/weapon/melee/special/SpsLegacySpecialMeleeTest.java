@@ -124,14 +124,14 @@ public final class SpsLegacySpecialMeleeTest {
 	}
 
 	private static void testResources() throws Exception {
-		String en = Files.readString(Paths.get("messages/items/items.properties"), StandardCharsets.UTF_8);
-		String zh = Files.readString(Paths.get("messages/items/items_zh.properties"), StandardCharsets.UTF_8);
+		String en = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
+		String zh = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
 		String key = "items.weapon.melee.special.runicblade.";
 		for (String suffix : new String[]{"name=", "ac_reforge=", "choose=", "reforged=", "desc="}) {
 			check(en.contains(key + suffix) && zh.contains(key + suffix), "符文之刃缺少双语文本：" + suffix);
 		}
-		for (String path : new String[]{"messages/items/items.properties", "messages/items/items_zh.properties",
-				"messages/items/items_zh-hant.properties", "messages/items/items_ru.properties"}) {
+		for (String path : new String[]{"messages/items/en/items.properties", "messages/items/zh/items.properties",
+				"messages/items/zh-hant/items.properties", "messages/items/ru/items.properties"}) {
 			String text = Files.readString(Paths.get(path), StandardCharsets.UTF_8);
 			String cannon = "items.weapon.melee.special.handcannon.";
 			for (String suffix : new String[]{"name=", "ac_onoff=", "fuel=", "power_on=", "power_off=", "desc="}) {

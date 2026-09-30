@@ -280,50 +280,50 @@ public final class SpsSCoinGiftShopTest {
 
 	//7. 四语文本（英/简/繁/俄）
 	private static void testLocalizedResources() throws Exception {
-		String[] langSuffixes = {"", "_zh", "_zh-hant", "_ru"};
+		String[] langs = {"en", "zh", "zh-hant", "ru"};
 
-		for (String suffix : langSuffixes) {
-			Properties misc = load("messages/misc/misc" + suffix + ".properties");
-			required(misc, "giftunlocks.price", suffix);
+		for (String lang : langs) {
+			Properties misc = load("messages/misc/" + lang + "/misc.properties");
+			required(misc, "giftunlocks.price", lang);
 			for (GiftUnlocks.GiftUnlock unlock : GiftUnlocks.GiftUnlock.values()) {
 				String base = "giftunlocks$giftunlock." + unlock.name().toLowerCase() + ".";
-				required(misc, base + "title", suffix);
-				required(misc, base + "desc", suffix);
+				required(misc, base + "title", lang);
+				required(misc, base + "desc", lang);
 			}
 
-			Properties scenes = load("messages/scenes/scenes" + suffix + ".properties");
-			required(scenes, "scenes.titlescene.giftshop", suffix);
-			required(scenes, "scenes.giftshopscene.title", suffix);
-			required(scenes, "scenes.giftshopscene.balance", suffix);
+			Properties scenes = load("messages/scenes/" + lang + "/scenes.properties");
+			required(scenes, "scenes.titlescene.giftshop", lang);
+			required(scenes, "scenes.giftshopscene.title", lang);
+			required(scenes, "scenes.giftshopscene.balance", lang);
 
-			Properties windows = load("messages/windows/windows" + suffix + ".properties");
-			required(windows, "windows.wndgiftunlock.buy", suffix);
-			required(windows, "windows.wndgiftunlock.more_gold", suffix);
+			Properties windows = load("messages/windows/" + lang + "/windows.properties");
+			required(windows, "windows.wndgiftunlock.buy", lang);
+			required(windows, "windows.wndgiftunlock.more_gold", lang);
 
-			Properties ui = load("messages/ui/ui" + suffix + ".properties");
+			Properties ui = load("messages/ui/" + lang + "/ui.properties");
 			for (String key : new String[]{"exchange_title", "exchange_body", "exchange_confirm",
 					"cancel", "not_enough", "exchange_ok"}) {
-				required(ui, "ui.currencyindicator." + key, suffix);
+				required(ui, "ui.currencyindicator." + key, lang);
 			}
 
-			Properties items = load("messages/items/items" + suffix + ".properties");
+			Properties items = load("messages/items/" + lang + "/items.properties");
 			for (String key : new String[]{"items.summon.chinamech.name", "items.summon.chinamech.ac_active",
 					"items.summon.chinamech.desc", "items.summon.chinamech$huaweidajiang.name",
 					"items.summon.chinamech$huaweidajiang.desc",
 					"items.sellitem.jumperdancer.name", "items.sellitem.jumperdancer.desc"}) {
-				required(items, key, suffix);
+				required(items, key, lang);
 			}
 
 			for (Properties properties : new Properties[]{misc, scenes, windows, ui, items}) {
 				for (Object value : properties.values()) {
-					check(!String.valueOf(value).contains("\uFFFD"), "资源包含Unicode替换字符：" + suffix);
+					check(!String.valueOf(value).contains("\uFFFD"), "资源包含Unicode替换字符：" + lang);
 				}
 			}
 		}
 
-		Properties zh = load("messages/misc/misc_zh.properties");
+		Properties zh = load("messages/misc/zh/misc.properties");
 		check("售价: %s S金".equals(zh.getProperty("giftunlocks.price")), "简体售价文本错误");
-		Properties zhUi = load("messages/ui/ui_zh.properties");
+		Properties zhUi = load("messages/ui/zh/ui.properties");
 		check(zhUi.getProperty("ui.currencyindicator.exchange_body").contains("2333"),
 				"简体兑换确认文本缺少 2333 比例说明");
 	}

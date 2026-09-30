@@ -142,9 +142,9 @@ public final class SpsPetInteractionsTest {
 	}
 
 	private static void testWindowAndMusicResources() throws Exception {
-		String zhWindows = Files.readString(Paths.get("messages/windows/windows_zh.properties"), StandardCharsets.UTF_8);
-		String enWindows = Files.readString(Paths.get("messages/windows/windows.properties"), StandardCharsets.UTF_8);
-		String zhItems = Files.readString(Paths.get("messages/items/items_zh.properties"), StandardCharsets.UTF_8);
+		String zhWindows = Files.readString(Paths.get("messages/windows/zh/windows.properties"), StandardCharsets.UTF_8);
+		String enWindows = Files.readString(Paths.get("messages/windows/en/windows.properties"), StandardCharsets.UTF_8);
+		String zhItems = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
 		check(zhWindows.contains("windows.wndpetinfo.title=宠物信息")
 				&& zhWindows.contains("windows.wndpetinfo.change=交换")
 				&& zhWindows.contains("windows.wndpetinfo.recover=收获")

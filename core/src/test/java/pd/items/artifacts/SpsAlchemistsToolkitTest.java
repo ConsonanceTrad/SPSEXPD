@@ -158,15 +158,15 @@ public final class SpsAlchemistsToolkitTest {
 		String[] keys = {"name", "ac_brew", "ac_cooking", "ac_create", "prompt", "waste", "prefect",
 				"bestbrew", "bdorder", "right", "desc", "desc_cursed", "level_zero", "level_ten",
 				"make_from", "need_fix", "addpotion", "have_add", "know_first"};
-		for (String file : new String[]{"items.properties", "items_zh.properties",
-				"items_zh-hant.properties", "items_ru.properties"}) {
+		for (String file : new String[]{"en/items.properties", "zh/items.properties",
+				"zh-hant/items.properties", "ru/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			for (String key : keys) required(items, "items.artifacts.alchemiststoolkit." + key, file);
 			check(!items.containsKey("items.artifacts.alchemiststoolkit.ac_energize")
 					&& !items.containsKey("items.artifacts.alchemiststoolkit.desc_warming"),
 					file + "仍含破碎版供能或预热文本");
 		}
-		Properties zh = load("messages/items/items_zh.properties");
+		Properties zh = load("messages/items/zh/items.properties");
 		check("组合".equals(zh.getProperty("items.artifacts.alchemiststoolkit.ac_brew"))
 				&& "耗竭-造物".equals(zh.getProperty("items.artifacts.alchemiststoolkit.ac_create")),
 				"炼金工具箱简体中文动作乱码或错误");

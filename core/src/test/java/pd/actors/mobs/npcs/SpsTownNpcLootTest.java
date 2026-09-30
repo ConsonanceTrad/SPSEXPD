@@ -109,8 +109,8 @@ public final class SpsTownNpcLootTest {
 		WndAscend.confirmDeparture(surface);
 		check(surface.forceDone, "WndAscend没有记录旧版地表离开确认");
 
-		String[] files = {"windows.properties", "windows_zh.properties",
-				"windows_zh-hant.properties", "windows_ru.properties"};
+		String[] files = {"en/windows.properties", "zh/windows.properties",
+				"zh-hant/windows.properties", "ru/windows.properties"};
 		String[] required = {"windows.wndegoalinfo.title=", "windows.wndhotel.message=",
 				"windows.wnddream.message=", "windows.wndissic.message=", "windows.wndhate.message=",
 				"windows.wndascend.message="};
@@ -294,8 +294,8 @@ public final class SpsTownNpcLootTest {
 		BufferedImage sheet = ImageIO.read(new File("sprites/items/items.png"));
 		check("7B6AC7FDBC6FA7F86AA8746705E179B442EA7D7AF364649DAC486FB63FA9A735"
 				.equals(iconHash(sheet, 240, 944)), "军旗原始图标错误");
-		String zh = Files.readString(Paths.get("messages/items/items_zh.properties"), StandardCharsets.UTF_8);
-		String en = Files.readString(Paths.get("messages/items/items.properties"), StandardCharsets.UTF_8);
+		String zh = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
+		String en = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
 		check(zh.contains("items.flag.name=军旗") && en.contains("items.flag.name=flag")
 				&& !zh.contains("\uFFFD") && !en.contains("\uFFFD"), "军旗双语文本缺失或乱码");
 	}

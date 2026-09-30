@@ -187,8 +187,8 @@ public final class SpsSpecialArrowsTest {
 	}
 
 	private static void testResourcesAndIcons() throws Exception {
-		String en = java.nio.file.Files.readString(Path.of("messages", "items", "items.properties"), StandardCharsets.UTF_8);
-		String zh = java.nio.file.Files.readString(Path.of("messages", "items", "items_zh.properties"), StandardCharsets.UTF_8);
+		String en = java.nio.file.Files.readString(Path.of("messages", "items", "en", "items.properties"), StandardCharsets.UTF_8);
+		String zh = java.nio.file.Files.readString(Path.of("messages", "items", "zh", "items.properties"), StandardCharsets.UTF_8);
 		for (String key : new String[]{"items.weapon.missiles.arrows.magichand.name=",
 				"items.weapon.missiles.arrows.magichand.desc=",
 				"items.weapon.missiles.arrows.riceball.name=",
