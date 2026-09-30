@@ -6,10 +6,5 @@ include ':android'
 include ':ios'
 include ':desktop'
 
-//service modules
-include ':services'
-    //updates
-    include ':services:updates:debugUpdates'
-    //news
-    include ':services:news:debugNews'
-    //SPSEXPD: 上游联网实现（githubUpdates / shatteredNews）已归档到 _ref/archive/upstream-network-services/，不再参与构建
+//SPSEXPD: services 的调用与实现已并入 core，源码在 core/src/services/java，不再单独成模块
+//SPSEXPD: 上游联网实现（githubUpdates / shatteredNews）已归档到 _ref/archive/upstream-network-services/，不再参与构建

@@ -47,8 +47,6 @@ createIPA.dependsOn build
 
 dependencies {
     implementation project(':core')
-    implementation project(':services:updates:debugUpdates')
-	implementation project(':services:news:debugNews')
 
     implementation "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
     implementation "com.mobidevelop.robovm:robovm-rt:$robovmVersion"

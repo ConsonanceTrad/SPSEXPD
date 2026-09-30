@@ -1,4 +1,0 @@
-apply plugin: 'java-library'
-
-[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
-java.sourceCompatibility = java.targetCompatibility = appJavaCompatibility

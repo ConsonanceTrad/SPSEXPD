@@ -44,8 +44,6 @@ android {
             applicationIdSuffix ".indev"
             versionNameSuffix '-INDEV'
             dependencies {
-                debugImplementation project(':services:updates:debugUpdates')
-                debugImplementation project(':services:news:debugNews')
             }
         }
         release {
@@ -64,14 +62,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
             dependencies {
-				releaseImplementation project(':services:updates:debugUpdates')
-				releaseImplementation project(':services:news:debugNews')
             }
         }
     }
 
     sourceSets {
         main {
+            //SPSEXPD: Android 平台源码集中在 core/src/android/java，本模块只保留 res/libs/清单等插件约定内容
+            java.srcDirs = ['../core/src/android/java']
             jniLibs.srcDirs = ['libs']
         }
     }

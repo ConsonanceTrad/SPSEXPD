@@ -1,9 +1,10 @@
 apply plugin: 'java-library'
 
 //SPSEXPD: 源码根上提一层（src/main → src），目录即功能地图，不再有 Gradle 默认的 main/test 夹层
+//services 的调用与实现已并入本模块（src/services/java），与 src/java 同包、分属不同源目录
 sourceSets {
     main {
-        java.srcDirs = ['src/java']
+        java.srcDirs = ['src/java', 'src/services/java']
     }
     test {
         java.srcDirs = ['src/test/java']
