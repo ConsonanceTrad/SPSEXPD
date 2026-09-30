@@ -1103,9 +1103,18 @@ tasks.register('verifySpsMechanics') {
     }
 }
 
+//SPSEXPD: 图标字典一致性——pd/atlas 的字典由 tools/atlas-meta 生成，改图集后必须重新生成
+tasks.register('verifyIconDict', Exec) {
+	group = 'verification'
+	description = '校验 pd/atlas 图标字典与 tools/atlas-meta 元数据一致（需 PowerShell）'
+	workingDir rootProject.projectDir
+	commandLine 'powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', 'tools/gen-atlas-dict.ps1', '-Check'
+}
+
 tasks.register('verifySpsRelease') {
     group = 'verification'
     description = '执行SPS-SPD发布前全部内容与机制检查。'
+	dependsOn 'verifyIconDict'
 	dependsOn ':core:verifySpsUnstableSpellbook'
 	dependsOn ':core:verifySpsEyeOfSkadi'
 	dependsOn ':core:verifySpsNoomlinCrown'
