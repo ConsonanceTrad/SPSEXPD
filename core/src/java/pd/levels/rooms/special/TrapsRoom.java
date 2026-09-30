@@ -28,6 +28,7 @@ import pd.items.Item;
 import pd.items.armor.Armor;
 import pd.items.potions.PotionOfLevitation;
 import pd.items.weapon.Weapon;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -104,7 +105,7 @@ public class TrapsRoom extends SpecialRoom {
 		for(Point p : getPoints()) {
 			int cell = level.pointToCell(p);
 			if (level.map[cell] == Terrain.TRAP){
-				level.setTrap(Reflection.newInstance(trapClass).reveal(), cell);
+				GroundItems.setTrap( level, Reflection.newInstance(trapClass).reveal(), cell);
 			}
 		}
 		
@@ -119,7 +120,7 @@ public class TrapsRoom extends SpecialRoom {
 			level.drop( prize( level ), pos ).type = Heap.Type.CHEST;
 		}
 		
-		level.addItemToSpawn( new PotionOfLevitation() );
+		GroundItems.addItemToSpawn( level,  new PotionOfLevitation() );
 	}
 	
 	private static Item prize( Level level ) {
@@ -128,7 +129,7 @@ public class TrapsRoom extends SpecialRoom {
 
 		//67% chance for prize item
 		if (Random.Int(3) != 0){
-			prize = level.findPrizeItem();
+			prize = GroundItems.findPrizeItem( level );
 			if (prize != null)
 				return prize;
 		}

@@ -27,6 +27,7 @@ import pd.items.Item;
 import pd.items.keys.IronKey;
 import pd.items.stones.Runestone;
 import pd.items.trinkets.TrinketCatalyst;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -61,14 +62,14 @@ public class RunestoneRoom extends SpecialRoom {
 		}
 		
 		entrance().set( Door.Type.LOCKED );
-		level.addItemToSpawn( new IronKey( Dungeon.depth ) );
+		GroundItems.addItemToSpawn( level,  new IronKey( Dungeon.depth ) );
 	}
 	
 	private static Item prize( Level level ) {
 
-		Item prize = level.findPrizeItem( TrinketCatalyst.class );
+		Item prize = GroundItems.findPrizeItem( level,  TrinketCatalyst.class );
 		if (prize == null){
-			prize = level.findPrizeItem( Runestone.class );
+			prize = GroundItems.findPrizeItem( level,  Runestone.class );
 			if (prize == null) {
 				prize = Generator.random( Generator.Category.STONE );
 			}

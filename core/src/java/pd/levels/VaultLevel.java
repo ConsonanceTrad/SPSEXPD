@@ -84,6 +84,7 @@ import pd.items.wands.WandOfRegrowth;
 import pd.items.wands.WandOfTransfusion;
 import pd.items.weapon.Weapon;
 import pd.items.weapon.missiles.darts.Dart;
+import pd.levels.GroundItems;
 import pd.levels.builders.Builder;
 import pd.levels.builders.GridBuilder;
 import pd.levels.features.LevelTransition;
@@ -132,15 +133,15 @@ public class VaultLevel extends CityLevel {
 		itemsToSpawn.clear();
 
 		for (int i = 0; i < 4; i++){
-			addItemToSpawn(createEquipment(0));
+			GroundItems.addItemToSpawn( this, createEquipment(0));
 		}
-		addItemToSpawn(new Dart());
+		GroundItems.addItemToSpawn( this, new Dart());
 		for (int i = 0; i < 5; i++){
-			addItemToSpawn(createConsumabe(0));
+			GroundItems.addItemToSpawn( this, createConsumabe(0));
 		}
-		addItemToSpawn(Generator.randomUsingDefaults(Generator.Category.FOOD));
-		addItemToSpawn(Generator.randomUsingDefaults(Generator.Category.FOOD));
-		addItemToSpawn(Generator.randomUsingDefaults(Generator.Category.FOOD));
+		GroundItems.addItemToSpawn( this, Generator.randomUsingDefaults(Generator.Category.FOOD));
+		GroundItems.addItemToSpawn( this, Generator.randomUsingDefaults(Generator.Category.FOOD));
+		GroundItems.addItemToSpawn( this, Generator.randomUsingDefaults(Generator.Category.FOOD));
 
 		return super.build();
 	}
@@ -499,7 +500,7 @@ public class VaultLevel extends CityLevel {
 		Random.shuffle(T3SolveItems);
 		Item result = null;
 		for (Class<?extends Item> itemCls : T3SolveItems){
-			result = findPrizeItem(itemCls);
+			result = GroundItems.findPrizeItem( this, itemCls);
 			if (result != null){
 				return result;
 			}
@@ -516,7 +517,7 @@ public class VaultLevel extends CityLevel {
 		Random.shuffle(T2SolveItems);
 		Item result = null;
 		for (Class<?extends Item> itemCls : T2SolveItems){
-			result = findPrizeItem(itemCls);
+			result = GroundItems.findPrizeItem( this, itemCls);
 			if (result != null){
 				return result;
 			}
@@ -681,7 +682,7 @@ public class VaultLevel extends CityLevel {
 			traps.curCooldowns[cell] = initialCD;
 			traps.afterTriggerCooldowns[cell] = afterTriggerCD;
 			traps.triggersAfterCooldown[cell] = triggers;
-			level.setTrap(new VaultLevel.VaultFlameTrap().reveal(), cell);
+			GroundItems.setTrap( level, new VaultLevel.VaultFlameTrap().reveal(), cell);
 			Painter.set(level, cell, Terrain.INACTIVE_TRAP);
 		}
 

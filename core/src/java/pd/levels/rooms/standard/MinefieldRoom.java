@@ -22,6 +22,7 @@
 package pd.levels.rooms.standard;
 
 import pd.items.trinkets.TrapMechanism;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -85,11 +86,11 @@ public class MinefieldRoom extends StandardRoom {
 			revealInc += revealedChance;
 			if (revealInc >= 1) {
 				Painter.set(level, pos, Terrain.TRAP);
-				level.setTrap(new ExplosiveTrap().reveal(), pos);
+				GroundItems.setTrap( level, new ExplosiveTrap().reveal(), pos);
 				revealInc--;
 			} else {
 				Painter.set(level, pos, Terrain.SECRET_TRAP);
-				level.setTrap(new ExplosiveTrap().hide(), pos);
+				GroundItems.setTrap( level, new ExplosiveTrap().hide(), pos);
 			}
 
 		}

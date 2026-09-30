@@ -15,6 +15,7 @@ import pd.items.weapon.melee.fusion.ReedPipe;
 import pd.items.weapon.melee.fusion.RitualBlade;
 import pd.items.weapon.melee.fusion.VerdantGuard;
 import pd.items.weapon.melee.fusion.WarDrum;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -64,13 +65,13 @@ public class FusionTrialRoom extends SpecialRoom {
 			for (int dy : new int[]{-1, 1}) {
 				int cell = level.pointToCell(new Point(center.x + dx, center.y + dy));
 				Painter.set(level, cell, Terrain.TRAP);
-				level.setTrap(Reflection.newInstance(trapClass).reveal(), cell);
+				GroundItems.setTrap( level, Reflection.newInstance(trapClass).reveal(), cell);
 			}
 		}
 
 		level.drop(prize(), level.pointToCell(center)).type = Heap.Type.CHEST;
 		entrance().set(Door.Type.LOCKED);
-		level.addItemToSpawn(new IronKey(Dungeon.depth));
+		GroundItems.addItemToSpawn( level, new IronKey(Dungeon.depth));
 	}
 
 	private static Class<? extends Trap> trapForDepth() {

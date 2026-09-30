@@ -23,6 +23,7 @@ package pd.levels.rooms.secret;
 
 import pd.actors.blobs.Foliage;
 import pd.items.wands.WandOfRegrowth;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Patch;
 import pd.levels.Terrain;
@@ -48,14 +49,14 @@ public class SecretGardenRoom extends SecretRoom {
 		
 		entrance().set( Door.Type.HIDDEN );
 		
-		level.plant(new Starflower.Seed(), plantPos(level));
-		level.plant(new WandOfRegrowth.Seedpod.Seed(), plantPos( level ));
-		level.plant(new WandOfRegrowth.Dewcatcher.Seed(), plantPos( level ));
+		GroundItems.plant( level, new Starflower.Seed(), plantPos(level));
+		GroundItems.plant( level, new WandOfRegrowth.Seedpod.Seed(), plantPos( level ));
+		GroundItems.plant( level, new WandOfRegrowth.Dewcatcher.Seed(), plantPos( level ));
 		
 		if (Random.Int(2) == 0){
-			level.plant(new WandOfRegrowth.Seedpod.Seed(), plantPos( level ));
+			GroundItems.plant( level, new WandOfRegrowth.Seedpod.Seed(), plantPos( level ));
 		} else {
-			level.plant(new WandOfRegrowth.Dewcatcher.Seed(), plantPos( level ));
+			GroundItems.plant( level, new WandOfRegrowth.Dewcatcher.Seed(), plantPos( level ));
 		}
 		
 		Foliage light = (Foliage)level.blobs.get( Foliage.class );

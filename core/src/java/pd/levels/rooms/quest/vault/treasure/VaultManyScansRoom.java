@@ -26,6 +26,7 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.items.potions.PotionOfInvisibility;
 import pd.items.quest.DwarfToken;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.VaultLevel;
@@ -80,7 +81,7 @@ public class VaultManyScansRoom extends VaultTreasureRoom {
 		level.drop(treasureItem, c.x + w*c.y + PathFinder.NEIGHBOURS8[Random.Int(PathFinder.NEIGHBOURS8.length)]);
 		level.drop(new DwarfToken(), c.x + w*c.y + PathFinder.NEIGHBOURS8[Random.Int(PathFinder.NEIGHBOURS8.length)]);
 
-		level.addItemToSpawn(new PotionOfInvisibility());
+		GroundItems.addItemToSpawn( level, new PotionOfInvisibility());
 
 	}
 

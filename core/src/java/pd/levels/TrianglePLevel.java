@@ -38,11 +38,11 @@ public class TrianglePLevel extends SpsTriangleLevel {
 		if (Random.Int(2) == 0) {
 			fillTrialRoom(room, 1, Terrain.HIGH_GRASS);
 			fillTrialRoom(room, 2, Terrain.WATER);
-			plant(new Seedpod.Seed(), plantCell);
+			GroundItems.plant( this, new Seedpod.Seed(), plantCell);
 		} else {
 			fillTrialRoom(room, 1, Terrain.WATER);
 			fillTrialRoom(room, 2, Terrain.HIGH_GRASS);
-			plant(new NutPlant.Seed(), plantCell);
+			GroundItems.plant( this, new NutPlant.Seed(), plantCell);
 		}
 		Greatmoss moss = new Greatmoss();
 		moss.pos = trialRoomCell(room, 0);
@@ -58,7 +58,7 @@ public class TrianglePLevel extends SpsTriangleLevel {
 		}
 		blobs.put(weather.getClass(), weather);
 	}
-	@Override protected void createItems() { addItemToSpawn(new Vialupdater()); super.createItems(); }
+	@Override protected void createItems() { GroundItems.addItemToSpawn( this, new Vialupdater()); super.createItems(); }
 	@Override public Mob createMob() {
 		switch (Random.chances(new float[]{1f, 0.05f, 0.5f, 0.4f})) {
 			case 1: return new GoldOrc();

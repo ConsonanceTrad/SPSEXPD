@@ -35,6 +35,7 @@ import pd.items.wands.WandOfTCloud;
 import pd.items.wands.fusion.WandOfBlood;
 import pd.items.wands.fusion.WandOfFlow;
 import pd.journal.Notes;
+import pd.levels.GroundItems;
 import pd.levels.PrisonLevel;
 import pd.levels.Terrain;
 import pd.levels.rooms.Room;
@@ -253,7 +254,7 @@ public class Wandmaker extends NPC {
 			} else {
 				int pos = freeRespawnCell();
 				if (pos >= 0) {
-					Dungeon.level.plant(new Rotberry.Seed(), pos);
+					GroundItems.plant( Dungeon.level, new Rotberry.Seed(), pos);
 					given = true;
 				}
 			}

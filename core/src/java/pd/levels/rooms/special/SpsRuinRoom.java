@@ -24,6 +24,7 @@ import pd.items.nornstone.GreenNornStone;
 import pd.items.nornstone.OrangeNornStone;
 import pd.items.nornstone.PurpleNornStone;
 import pd.items.nornstone.YellowNornStone;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -43,7 +44,7 @@ public class SpsRuinRoom extends SpecialRoom {
 
 		Door door = entrance();
 		door.set(Door.Type.LOCKED);
-		level.addItemToSpawn(new IronKey(Dungeon.depth));
+		GroundItems.addItemToSpawn( level, new IronKey(Dungeon.depth));
 		carveRuins(level, door);
 
 		int center = level.pointToCell(center());

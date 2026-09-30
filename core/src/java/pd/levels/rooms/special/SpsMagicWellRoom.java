@@ -5,6 +5,7 @@ import pd.actors.blobs.WaterOfAwareness;
 import pd.actors.blobs.WaterOfHealth;
 import pd.actors.blobs.WaterOfTransmutation;
 import pd.actors.blobs.WellWater;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -39,7 +40,7 @@ public class SpsMagicWellRoom extends SpecialRoom {
 			case 1: seed = new BlandfruitBush.Seed(); break;
 			default: seed = new ReNepenth.Seed(); break;
 		}
-		level.plant(seed, level.pointToCell(random()));
+		GroundItems.plant( level, seed, level.pointToCell(random()));
 		entrance().set(Door.Type.HIDDEN);
 	}
 }

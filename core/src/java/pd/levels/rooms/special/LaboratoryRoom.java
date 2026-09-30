@@ -32,6 +32,7 @@ import pd.items.keys.IronKey;
 import pd.items.potions.PotionOfStrength;
 import pd.items.trinkets.TrinketCatalyst;
 import pd.journal.Document;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -118,15 +119,15 @@ public class LaboratoryRoom extends SpecialRoom {
 		}
 
 		entrance.set( Door.Type.LOCKED );
-		level.addItemToSpawn( new IronKey( Dungeon.depth ) );
+		GroundItems.addItemToSpawn( level,  new IronKey( Dungeon.depth ) );
 		
 	}
 	
 	private static Item prize( Level level ) {
 
-		Item prize = level.findPrizeItem( TrinketCatalyst.class );
+		Item prize = GroundItems.findPrizeItem( level,  TrinketCatalyst.class );
 		if (prize == null){
-			prize = level.findPrizeItem( PotionOfStrength.class );
+			prize = GroundItems.findPrizeItem( level,  PotionOfStrength.class );
 			if (prize == null) {
 				prize = Generator.random(Random.oneOf(Generator.Category.POTION, Generator.Category.STONE));
 			}

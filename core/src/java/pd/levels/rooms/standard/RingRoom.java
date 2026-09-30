@@ -21,6 +21,7 @@
 
 package pd.levels.rooms.standard;
 
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -100,6 +101,6 @@ public class RingRoom extends StandardRoom {
 	}
 
 	protected void placeCenterDetail(Level level, int pos){
-		level.drop(level.findPrizeItem(), pos);
+		level.drop(GroundItems.findPrizeItem( level ), pos);
 	}
 }

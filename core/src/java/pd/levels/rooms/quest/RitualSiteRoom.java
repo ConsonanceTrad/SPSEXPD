@@ -23,6 +23,7 @@ package pd.levels.rooms.quest;
 
 import pd.Assets;
 import pd.items.quest.CeremonialCandle;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -123,10 +124,10 @@ public class RitualSiteRoom extends StandardRoom {
 		
 		Painter.fill(level, c.x-1, c.y-1, 3, 3, Terrain.CUSTOM_DECO_EMPTY);
 
-		level.addItemToSpawn(new CeremonialCandle());
-		level.addItemToSpawn(new CeremonialCandle());
-		level.addItemToSpawn(new CeremonialCandle());
-		level.addItemToSpawn(new CeremonialCandle());
+		GroundItems.addItemToSpawn( level, new CeremonialCandle());
+		GroundItems.addItemToSpawn( level, new CeremonialCandle());
+		GroundItems.addItemToSpawn( level, new CeremonialCandle());
+		GroundItems.addItemToSpawn( level, new CeremonialCandle());
 
 		CeremonialCandle.ritualPos = c.x + (level.width() * c.y);
 	}

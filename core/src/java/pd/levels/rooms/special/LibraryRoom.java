@@ -27,6 +27,7 @@ import pd.items.Generator;
 import pd.items.Item;
 import pd.items.keys.IronKey;
 import pd.items.scrolls.Scroll;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -71,7 +72,7 @@ public class LibraryRoom extends SpecialRoom {
 		for (int i = 0; i < n; i++) level.drop(potionPrize(level), Random.element(rewardCells));
 
 		entrance.set( Door.Type.LOCKED );
-		level.addItemToSpawn( new IronKey( Dungeon.depth ) );
+		GroundItems.addItemToSpawn( level,  new IronKey( Dungeon.depth ) );
 	}
 
 	private ArrayList<Integer> rewardCells(Level level) {
@@ -86,12 +87,12 @@ public class LibraryRoom extends SpecialRoom {
 	}
 
 	private static Item scrollPrize(Level level) {
-		Item prize = level.findPrizeItem(Scroll.class);
+		Item prize = GroundItems.findPrizeItem( level, Scroll.class);
 		return prize == null ? Generator.random(Generator.Category.SCROLL) : prize;
 	}
 
 	private static Item potionPrize(Level level) {
-		Item prize = level.findPrizeItem(Scroll.class);
+		Item prize = GroundItems.findPrizeItem( level, Scroll.class);
 		return prize == null ? Generator.random(Generator.Category.POTION) : prize;
 	}
 }

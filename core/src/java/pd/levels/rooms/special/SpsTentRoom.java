@@ -15,6 +15,7 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.SpsExitMobs;
 import pd.actors.mobs.npcs.GiftNpc;
 import pd.items.Generator;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -61,7 +62,7 @@ public class SpsTentRoom extends SpecialRoom {
 		level.customTiles.add(anvilVisual);
 
 		Plant.Seed seed = (Plant.Seed)Generator.random(Generator.Category.SEED);
-		level.explant(seed, level.pointToCell(plant));
+		GroundItems.explant( level, seed, level.pointToCell(plant));
 		populate(level);
 		entrance().set(Door.Type.REGULAR);
 	}

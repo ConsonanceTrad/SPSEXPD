@@ -22,6 +22,7 @@
 package pd.levels.rooms.standard;
 
 import pd.items.trinkets.TrapMechanism;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -92,24 +93,24 @@ public class BurnedRoom extends PatchRoom {
 						break;
 					case 2:
 						t = Terrain.TRAP;
-						level.setTrap(new BurningTrap().reveal(), cell);
+						GroundItems.setTrap( level, new BurningTrap().reveal(), cell);
 						break;
 					case 3:
 						revealInc += revealedChance;
 						if (revealInc >= 1){
 							t = Terrain.TRAP;
-							level.setTrap(new BurningTrap().reveal(), cell);
+							GroundItems.setTrap( level, new BurningTrap().reveal(), cell);
 							revealInc--;
 						} else {
 							t = Terrain.SECRET_TRAP;
-							level.setTrap(new BurningTrap().hide(), cell);
+							GroundItems.setTrap( level, new BurningTrap().hide(), cell);
 						}
 						break;
 					case 4:
 						t = Terrain.INACTIVE_TRAP;
 						BurningTrap trap = new BurningTrap();
 						trap.reveal().active = false;
-						level.setTrap(trap, cell);
+						GroundItems.setTrap( level, trap, cell);
 						break;
 				}
 				level.map[cell] = t;

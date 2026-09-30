@@ -25,6 +25,7 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.actors.buffs.FlavourBuff;
 import pd.journal.Bestiary;
+import pd.levels.GroundItems;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.windows.WndInfoTrap;
@@ -108,7 +109,7 @@ public abstract class Trap implements Bundlable {
 
 	public void disarm(){
 		active = false;
-		Dungeon.level.disarmTrap(pos);
+		GroundItems.disarmTrap( Dungeon.level, pos);
 	}
 
 	// SPS-PD used its separate dungeon-depth counter for every trap, including branches.

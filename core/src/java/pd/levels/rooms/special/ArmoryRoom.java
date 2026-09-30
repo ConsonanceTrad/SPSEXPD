@@ -27,6 +27,7 @@ import pd.items.Item;
 import pd.items.bombs.Bomb;
 import pd.items.keys.IronKey;
 import pd.items.trinkets.TrinketCatalyst;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -65,7 +66,7 @@ public class ArmoryRoom extends SpecialRoom {
 			level.drop( prize( level ), pos );
 		}
 
-		Item cata = level.findPrizeItem(TrinketCatalyst.class);
+		Item cata = GroundItems.findPrizeItem( level, TrinketCatalyst.class);
 		if (cata != null){
 			int pos;
 			do {
@@ -75,7 +76,7 @@ public class ArmoryRoom extends SpecialRoom {
 		}
 		
 		entrance.set( Door.Type.LOCKED );
-		level.addItemToSpawn( new IronKey( Dungeon.depth ) );
+		GroundItems.addItemToSpawn( level,  new IronKey( Dungeon.depth ) );
 	}
 
 	//only a max of 1 prize from each category can be dropped at a time

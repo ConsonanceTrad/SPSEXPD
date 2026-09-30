@@ -30,6 +30,7 @@ import pd.effects.Splash;
 import pd.items.Generator;
 import pd.items.potions.PotionOfHealing;
 import pd.items.wands.WandOfRegrowth;
+import pd.levels.GroundItems;
 import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.plants.Plant;
@@ -92,7 +93,7 @@ public class RegrowthBomb extends Bomb {
 		for (int i = 0; i < plants; i++) {
 			Integer plantPos = Random.element(plantCandidates);
 			if (plantPos != null) {
-				Dungeon.level.plant((Plant.Seed) Generator.randomUsingDefaults(Generator.Category.SEED), plantPos);
+				GroundItems.plant( Dungeon.level, (Plant.Seed) Generator.randomUsingDefaults(Generator.Category.SEED), plantPos);
 				plantCandidates.remove(plantPos);
 			}
 		}
@@ -111,7 +112,7 @@ public class RegrowthBomb extends Bomb {
 					plant = new Starflower.Seed();
 					break;
 			}
-			Dungeon.level.plant( plant, plantPos);
+			GroundItems.plant( Dungeon.level,  plant, plantPos);
 		}
 	}
 	

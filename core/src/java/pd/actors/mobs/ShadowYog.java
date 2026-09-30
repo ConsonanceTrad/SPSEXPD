@@ -17,6 +17,7 @@ import pd.effects.Speck;
 import pd.items.Heap;
 import pd.items.OrbOfZot;
 import pd.items.quest.AdventureJournal;
+import pd.levels.GroundItems;
 import pd.levels.Terrain;
 import pd.levels.traps.SummoningTrap;
 import pd.messages.Messages;
@@ -91,7 +92,7 @@ public class ShadowYog extends Mob {
 			Random.shuffle(inactive);
 			for (int i = 0; i < Math.min(4, inactive.size()); i++) {
 				int cell = inactive.get(i);
-				Dungeon.level.setTrap(new SummoningTrap().reveal(), cell);
+				GroundItems.setTrap( Dungeon.level, new SummoningTrap().reveal(), cell);
 				Dungeon.level.map[cell] = Terrain.TRAP;
 				GameScene.updateMap(cell);
 			}

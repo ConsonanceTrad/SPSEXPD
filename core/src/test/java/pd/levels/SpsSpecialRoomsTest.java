@@ -53,6 +53,7 @@ import pd.items.wands.Wand;
 import pd.items.weapon.Weapon;
 import pd.items.weapon.missiles.buildblock.DoorBlock;
 import pd.items.weapon.missiles.buildblock.PlantPotBlock;
+import pd.levels.GroundItems;
 import pd.levels.rooms.Room;
 import pd.levels.rooms.special.CryptRoom;
 import pd.levels.rooms.special.GardenRoom;
@@ -141,7 +142,7 @@ public final class SpsSpecialRoomsTest {
 		check(countItems(f.level, DoorBlock.class) == 3, "材料房门方块数量错误");
 		int bombs = countItems(f.level, Bomb.class);
 		check(bombs >= 2 && bombs <= 3, "材料房炸弹数量错误");
-		check(f.level.findPrizeItem(IronKey.class) != null, "材料房没有生成铁钥匙");
+		check(GroundItems.findPrizeItem( f.level, IronKey.class) != null, "材料房没有生成铁钥匙");
 	}
 
 	private static void testCookingRoom() {
@@ -153,7 +154,7 @@ public final class SpsSpecialRoomsTest {
 		check(countItems(f.level, ShoppingCart.class) == 1, "厨房购物车数量错误");
 		int heaps = f.level.heaps.valueList().size();
 		check(heaps >= 4 && heaps <= 6, "厨房食物堆数量错误");
-		check(f.level.findPrizeItem(IronKey.class) != null, "厨房没有生成铁钥匙");
+		check(GroundItems.findPrizeItem( f.level, IronKey.class) != null, "厨房没有生成铁钥匙");
 	}
 
 	private static void testJungleRoom() {
@@ -168,13 +169,13 @@ public final class SpsSpecialRoomsTest {
 		}
 		check(moss == 3, "丛林房苔藓数量错误");
 		check(countTerrain(f.level, Terrain.HIGH_GRASS) > 0, "丛林房没有高草");
-		check(f.level.findPrizeItem(IronKey.class) != null, "丛林房没有生成铁钥匙");
+		check(GroundItems.findPrizeItem( f.level, IronKey.class) != null, "丛林房没有生成铁钥匙");
 	}
 
 	private static void testStatueRoom() {
 		RoomFixture f = paint(new StatueRoom(), 31);
 		check(f.door.type == Room.Door.Type.LOCKED, "雕像房没有上锁");
-		check(f.level.findPrizeItem(IronKey.class) != null, "雕像房没有生成铁钥匙");
+		check(GroundItems.findPrizeItem( f.level, IronKey.class) != null, "雕像房没有生成铁钥匙");
 		int weaponStatues = 0;
 		int armorStatues = 0;
 		ArmorStatue armorStatue = null;
@@ -240,7 +241,7 @@ public final class SpsSpecialRoomsTest {
 		check(countHeapType(f.level, Heap.Type.REMAINS) == 1, "废墟房遗骸数量错误");
 		check(countHeapType(f.level, Heap.Type.E_DUST) == 1, "废墟房尘土堆数量错误");
 		check(countTerrain(f.level, Terrain.IRON_MAKER) == 1, "废墟房铁砧数量错误");
-		check(f.level.findPrizeItem(IronKey.class) != null, "废墟房没有生成铁钥匙");
+		check(GroundItems.findPrizeItem( f.level, IronKey.class) != null, "废墟房没有生成铁钥匙");
 	}
 
 	private static void testPoolRoom() {
@@ -260,7 +261,7 @@ public final class SpsSpecialRoomsTest {
 			check(f.level.map[mob.pos] == Terrain.WATER, "水池房食人鱼没有落在水中");
 		}
 		check(piranhas == 4 && f.level.mobs().size() == 4, "水池房没有固定生成四条普通食人鱼");
-		check(f.level.findPrizeItem(PotionOfInvisibility.class) != null, "水池房没有安排隐形药剂");
+		check(GroundItems.findPrizeItem( f.level, PotionOfInvisibility.class) != null, "水池房没有安排隐形药剂");
 	}
 
 	private static void testCryptRoom() {
@@ -270,7 +271,7 @@ public final class SpsSpecialRoomsTest {
 		for (int attempt = 0; attempt < 20; attempt++) {
 			RoomFixture f = paint(new CryptRoom(), 100 + attempt);
 			check(f.door.type == Room.Door.Type.LOCKED, "墓室没有上锁");
-			check(f.level.findPrizeItem(IronKey.class) != null, "墓室没有生成铁钥匙");
+			check(GroundItems.findPrizeItem( f.level, IronKey.class) != null, "墓室没有生成铁钥匙");
 			check(countTerrain(f.level, Terrain.STATUE) == 2, "墓室装饰雕像数量错误");
 			check(countHeapType(f.level, Heap.Type.TOMB) == 1, "墓室中央坟墓数量错误");
 			Heap tomb = null;
@@ -331,7 +332,7 @@ public final class SpsSpecialRoomsTest {
 		check(f.door.type == Room.Door.Type.REGULAR, "花园房被错误上锁");
 		check(countTerrain(f.level, Terrain.WATER) == 16, "花园房中央水池尺寸错误");
 		check(countItems(f.level, Honeypot.class) == 1, "花园房缺少深度25层前必出的蜂蜜罐");
-		check(f.level.findPrizeItem(IronKey.class) == null, "花园房错误生成铁钥匙");
+		check(GroundItems.findPrizeItem( f.level, IronKey.class) == null, "花园房错误生成铁钥匙");
 		Foliage foliage = (Foliage)f.level.blobs.get(Foliage.class);
 		check(foliage != null && foliage.volume == 36, "花园房植被环境没有覆盖整个内室");
 		check(f.level.plants.valueList().size() <= 2, "花园房植物数量超出旧版范围");
@@ -343,7 +344,7 @@ public final class SpsSpecialRoomsTest {
 	private static void testLibraryRoom() {
 		RoomFixture f = paint(new LibraryRoom(), 141);
 		check(f.door.type == Room.Door.Type.LOCKED, "图书馆没有上锁");
-		check(f.level.findPrizeItem(IronKey.class) != null, "图书馆没有生成铁钥匙");
+		check(GroundItems.findPrizeItem( f.level, IronKey.class) != null, "图书馆没有生成铁钥匙");
 		int bookshelves = countTerrain(f.level, Terrain.BOOKSHELF);
 		check(bookshelves == 5 || bookshelves == 6, "图书馆书架或炼金角布局错误");
 		check(countTerrain(f.level, Terrain.ALCHEMY) == 1, "图书馆缺少炼金锅");
@@ -362,14 +363,14 @@ public final class SpsSpecialRoomsTest {
 		check(skeletons >= 2 && skeletons <= 4, "储藏室骨堆数量错误");
 		check(countHeapType(f.level, Heap.Type.CHEST) == 1, "储藏室宝箱数量错误");
 		check(f.level.heaps.valueList().size() == skeletons + 1, "储藏室出现奖励重叠或额外物品堆");
-		check(f.level.findPrizeItem(PotionOfLiquidFlame.class) != null, "储藏室没有安排液火药剂");
+		check(GroundItems.findPrizeItem( f.level, PotionOfLiquidFlame.class) != null, "储藏室没有安排液火药剂");
 	}
 
 	private static void testTreasuryRoom() {
 		RoomFixture f = paint(new TreasuryRoom(), 143);
 		check(f.door.type == Room.Door.Type.LOCKED, "宝库没有上锁");
-		check(f.level.findPrizeItem(IronKey.class) != null, "宝库没有生成铁钥匙");
-		check(f.level.findPrizeItem(GoldenKey.class) != null, "宝库没有生成旧版黄金钥匙");
+		check(GroundItems.findPrizeItem( f.level, IronKey.class) != null, "宝库没有生成铁钥匙");
+		check(GroundItems.findPrizeItem( f.level, GoldenKey.class) != null, "宝库没有生成旧版黄金钥匙");
 		check(countTerrain(f.level, Terrain.EMPTY) == 16 && countTerrain(f.level, Terrain.EMPTY_SP) == 20,
 				"宝库双层地面布局错误");
 		check(countHeapType(f.level, Heap.Type.CRYSTAL_CHEST) == 3, "宝库没有生成三个水晶箱");
@@ -495,7 +496,7 @@ public final class SpsSpecialRoomsTest {
 			}
 		}
 		check(waters == 1, "魔法井房没有生成唯一的旧版井水");
-		check(f.level.findPrizeItem(IronKey.class) == null, "魔法井房错误生成了现代铁钥匙");
+		check(GroundItems.findPrizeItem( f.level, IronKey.class) == null, "魔法井房错误生成了现代铁钥匙");
 	}
 
 	private static void testGlassRoom() {
@@ -507,7 +508,7 @@ public final class SpsSpecialRoomsTest {
 		check(countItems(f.level, NornStone.class) == 1, "玻璃房中心诺恩石数量错误");
 		int ore = countItems(f.level, StoneOre.class);
 		check(ore >= 2 && ore <= 3, "玻璃房原石数量错误");
-		check(f.level.findPrizeItem(DungeonBomb.DoubleBomb.class) != null,
+		check(GroundItems.findPrizeItem( f.level, DungeonBomb.DoubleBomb.class) != null,
 				"玻璃房没有加入双重地牢炸弹待生成奖励");
 	}
 

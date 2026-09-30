@@ -448,7 +448,7 @@ public abstract class RegularLevel extends Level {
 					Heap dropped = drop(toDrop, cell);
 					if (heaps.get(cell) == dropped) {
 						dropped.type = Heap.Type.LOCKED_CHEST;
-						addItemToSpawn(new GoldenKey(Dungeon.depth));
+						GroundItems.addItemToSpawn( this, new GoldenKey(Dungeon.depth));
 					}
 				}
 			} else {
@@ -463,7 +463,7 @@ public abstract class RegularLevel extends Level {
 
 		int fragment = ChallengeJournal.fragmentForDepth(Dungeon.depth);
 		if (Dungeon.branch == 0 && fragment >= 0) {
-			addItemToSpawn(new MapFragment().forChallenge(fragment));
+			GroundItems.addItemToSpawn( this, new MapFragment().forChallenge(fragment));
 		}
 
 		for (Item item : itemsToSpawn) {

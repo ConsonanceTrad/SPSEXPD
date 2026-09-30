@@ -25,6 +25,7 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.items.potions.PotionOfPurity;
 import pd.items.quest.DwarfToken;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.VaultLevel;
@@ -96,7 +97,7 @@ public class VaultFlamesTreasureRoom extends VaultTreasureRoom {
 			level.drop(treasureItem, treasurePositions[treasureIdx+1]);
 		}
 
-		level.addItemToSpawn(new PotionOfPurity());
+		GroundItems.addItemToSpawn( level, new PotionOfPurity());
 
 		entrance().set(Door.Type.REGULAR);
 

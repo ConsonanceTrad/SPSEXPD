@@ -18,6 +18,7 @@ import pd.items.wands.WandOfLight;
 import pd.items.weapon.enchantments.EnchantmentDark;
 import pd.items.weapon.enchantments.EnchantmentLight;
 import pd.items.weapon.missiles.meleethrow.HugeShuriken;
+import pd.levels.GroundItems;
 import pd.levels.Terrain;
 import pd.levels.traps.PoisonDartTrap;
 import pd.mechanics.Ballistica;
@@ -113,7 +114,7 @@ public class SpsTengu extends Mob {
 		for (int i = 0; i < 3; i++) {
 			int trapCell = Random.element(visibleCells);
 			if (Dungeon.level.map[trapCell] == Terrain.INACTIVE_TRAP) {
-				Dungeon.level.setTrap(new PoisonDartTrap().reveal(), trapCell);
+				GroundItems.setTrap( Dungeon.level, new PoisonDartTrap().reveal(), trapCell);
 				Dungeon.level.set(trapCell, Terrain.TRAP);
 				GameScene.updateMap(trapCell);
 			}

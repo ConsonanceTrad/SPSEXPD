@@ -366,7 +366,7 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		}
 		if (candidates.isEmpty()) return;
 		Plant.Seed seed = (Plant.Seed)Generator.random(Generator.Category.SPS_SEED);
-		explant(seed, Random.element(candidates));
+		GroundItems.explant( this, seed, Random.element(candidates));
 	}
 
 	private void paintLegacyStandardRoom(Room room) {
@@ -464,7 +464,7 @@ public abstract class SpsRegularLevel extends RegularLevel {
 					}
 					if (map[cell] == Terrain.SECRET_TRAP) trap.hide(); else trap.reveal();
 					if (map[cell] == Terrain.INACTIVE_TRAP) trap.active = false;
-					setTrap(trap, cell);
+					GroundItems.setTrap( this, trap, cell);
 				}
 			}
 		}
@@ -544,7 +544,7 @@ public abstract class SpsRegularLevel extends RegularLevel {
 			int center = centerPoint.x + centerPoint.y * width();
 			map[center] = Terrain.PEDESTAL;
 			if (Random.Int(2) != 0) {
-				Item item = findPrizeItem();
+				Item item = GroundItems.findPrizeItem( this );
 				if (item != null) {
 					drop(item, center);
 					return;
@@ -740,7 +740,7 @@ public abstract class SpsRegularLevel extends RegularLevel {
 					int cell = x + y * width();
 					if (map[cell] != Terrain.TRAP) continue;
 					Trap trap = Reflection.newInstance(trapClass);
-					if (trap != null) setTrap(trap.reveal(), cell);
+					if (trap != null) GroundItems.setTrap( this, trap.reveal(), cell);
 				}
 			}
 		}
@@ -753,12 +753,12 @@ public abstract class SpsRegularLevel extends RegularLevel {
 			map[rewardCell] = Terrain.PEDESTAL;
 			drop(legacyTrapRoomPrize(), rewardCell);
 		}
-		addItemToSpawn(new PotionOfLevitation());
+		GroundItems.addItemToSpawn( this, new PotionOfLevitation());
 	}
 
 	private Item legacyTrapRoomPrize() {
 		if (Random.Int(4) != 0) {
-			Item prize = findPrizeItem();
+			Item prize = GroundItems.findPrizeItem( this );
 			if (prize != null) return prize;
 		}
 
@@ -1053,7 +1053,7 @@ public abstract class SpsRegularLevel extends RegularLevel {
 			if (trap == null) continue;
 			if (Random.Int(2) == 0) trap.hide(); else trap.reveal();
 			int cell = valid.get(i);
-			setTrap(trap, cell);
+			GroundItems.setTrap( this, trap, cell);
 			map[cell] = trap.visible ? Terrain.TRAP : Terrain.SECRET_TRAP;
 		}
 	}

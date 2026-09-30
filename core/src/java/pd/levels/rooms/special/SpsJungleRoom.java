@@ -7,6 +7,7 @@ import pd.actors.mobs.Mob;
 import pd.items.Honeypot;
 import pd.items.keys.IronKey;
 import pd.items.weapon.missiles.buildblock.PlantPotBlock;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -28,7 +29,7 @@ public class SpsJungleRoom extends SpecialRoom {
 		Painter.fill(level, this, 1, Terrain.GRASS);
 
 		entrance().set(Door.Type.LOCKED);
-		level.addItemToSpawn(new IronKey(Dungeon.depth));
+		GroundItems.addItemToSpawn( level, new IronKey(Dungeon.depth));
 
 		ArrayList<Integer> free = grassCells(level);
 		placeSeed(level, free, new Seedpod.Seed());
@@ -48,7 +49,7 @@ public class SpsJungleRoom extends SpecialRoom {
 	private void placeSeed(Level level, ArrayList<Integer> free, Plant.Seed seed) {
 		if (free.isEmpty()) return;
 		int cell = free.remove(Random.Int(free.size()));
-		level.plant(seed, cell);
+		GroundItems.plant( level, seed, cell);
 	}
 
 	private void drop(Level level, ArrayList<Integer> free, pd.items.Item item) {

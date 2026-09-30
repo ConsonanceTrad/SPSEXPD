@@ -13,6 +13,7 @@ import pd.actors.buffs.GrowSeed;
 import pd.actors.buffs.Invisibility;
 import pd.actors.mobs.Mob;
 import pd.items.Generator;
+import pd.levels.GroundItems;
 import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.plants.Earthroot;
@@ -50,7 +51,7 @@ public class ScrollOfRegrowth extends Scroll {
 		int plants = Random.chances(new float[]{0, 6, 3, 1});
 		for (int i = 0; i < plants && !candidates.isEmpty(); i++) {
 			int cell = Random.element(candidates);
-			Dungeon.level.plant((Plant.Seed) Generator.random(Generator.Category.SEED), cell);
+			GroundItems.plant( Dungeon.level, (Plant.Seed) Generator.random(Generator.Category.SEED), cell);
 			candidates.remove((Integer) cell);
 		}
 		if (!candidates.isEmpty()) {
@@ -61,7 +62,7 @@ public class ScrollOfRegrowth extends Scroll {
 				case 3: guaranteed = new Starflower.Seed(); break;
 				default: guaranteed = new Sungrass.Seed();
 			}
-			Dungeon.level.plant(guaranteed, cell);
+			GroundItems.plant( Dungeon.level, guaranteed, cell);
 		}
 		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
 			if (Dungeon.level.heroFOV[mob.pos]) Buff.affect(mob, GrowSeed.class).set(6f);

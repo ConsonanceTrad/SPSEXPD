@@ -26,6 +26,7 @@ import pd.actors.blobs.Foliage;
 import pd.items.Honeypot;
 import pd.items.Item;
 import pd.items.eggs.EasterEgg;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -76,7 +77,7 @@ public class GardenRoom extends SpecialRoom {
 
 	private void plant(Level level, Plant.Seed seed) {
 		ArrayList<Integer> candidates = cellsWithoutPlant(level);
-		if (!candidates.isEmpty()) level.plant(seed, Random.element(candidates));
+		if (!candidates.isEmpty()) GroundItems.plant( level, seed, Random.element(candidates));
 	}
 
 	private void drop(Level level, Item item) {

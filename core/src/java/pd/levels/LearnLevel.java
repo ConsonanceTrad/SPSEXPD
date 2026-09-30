@@ -43,7 +43,7 @@ public class LearnLevel extends Level {
 		customTiles.add(SpsLegacyLevelVisual.fromTerrainMap(
 				Assets.Environment.SPS_TILES_PUZZLE, width(), height(), map));
 		for (int cell = 0; cell < length(); cell++) {
-			if (map[cell] == Terrain.SECRET_TRAP) setTrap(new FireBuffTrap().hide(), cell);
+			if (map[cell] == Terrain.SECRET_TRAP) GroundItems.setTrap( this, new FireBuffTrap().hide(), cell);
 		}
 		return map.length == length();
 	}

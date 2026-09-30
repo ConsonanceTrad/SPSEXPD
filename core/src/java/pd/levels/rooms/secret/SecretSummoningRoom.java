@@ -24,6 +24,7 @@ package pd.levels.rooms.secret;
 import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.trinkets.TrapMechanism;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -59,11 +60,11 @@ public class SecretSummoningRoom extends SecretRoom {
 			if (level.map[cell] == Terrain.SECRET_TRAP){
 				revealInc += revealedChance;
 				if (revealInc >= 1) {
-					level.setTrap(new SummoningTrap().reveal(), cell);
+					GroundItems.setTrap( level, new SummoningTrap().reveal(), cell);
 					Painter.set(level, cell, Terrain.TRAP);
 					revealInc--;
 				} else {
-					level.setTrap(new SummoningTrap().hide(), cell);
+					GroundItems.setTrap( level, new SummoningTrap().hide(), cell);
 				}
 			}
 		}

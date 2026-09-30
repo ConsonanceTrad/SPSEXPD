@@ -69,6 +69,7 @@ import pd.journal.Bestiary;
 import pd.journal.Document;
 import pd.journal.Journal;
 import pd.journal.Notes;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.RegularLevel;
 import pd.levels.Terrain;
@@ -620,7 +621,7 @@ public class GameScene extends PixelScene {
 				if (item instanceof Potion) {
 					((Potion) item).shatter(pos);
 				} else if (item instanceof Plant.Seed && !Dungeon.isChallenged(Challenges.NO_HERBALISM)) {
-					Dungeon.level.plant((Plant.Seed) item, pos);
+					GroundItems.plant( Dungeon.level, (Plant.Seed) item, pos);
 				} else if (item instanceof Honeypot) {
 					Dungeon.level.drop(((Honeypot) item).shatter(null, pos), pos);
 				} else {

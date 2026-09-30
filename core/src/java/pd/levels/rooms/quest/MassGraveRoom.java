@@ -29,6 +29,7 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.items.potions.PotionOfLiquidFlame;
 import pd.items.quest.CorpseDust;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -56,7 +57,7 @@ public class MassGraveRoom extends SpecialRoom {
 
 		Door entrance = entrance();
 		entrance.set(Door.Type.BARRICADE);
-		level.addItemToSpawn(new PotionOfLiquidFlame());
+		GroundItems.addItemToSpawn( level, new PotionOfLiquidFlame());
 
 		Painter.fill(level, this, Terrain.WALL);
 		Painter.fill(level, this, 1, Terrain.CUSTOM_DECO_EMPTY);

@@ -78,7 +78,7 @@ public class InfestBossLevel extends Level {
 
 		for (int cell = 0; cell < length(); cell++) {
 			if (map[cell] == Terrain.EMPTY && Random.Int(20) == 0) {
-				setTrap(new PoisonDartTrap().reveal(), cell);
+				GroundItems.setTrap( this, new PoisonDartTrap().reveal(), cell);
 				map[cell] = Terrain.TRAP;
 			}
 		}

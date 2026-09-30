@@ -29,6 +29,7 @@ import pd.actors.buffs.Haste;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.actors.mobs.Mob;
+import pd.levels.GroundItems;
 import pd.levels.traps.Trap;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
@@ -156,7 +157,7 @@ public class Swiftthistle extends Plant {
 			for (int cell : presses){
 				Plant p = Dungeon.level.plants.get(cell);
 				if (p != null && !(p instanceof Rotberry)) {
-					Dungeon.level.uproot(cell);
+					GroundItems.uproot( Dungeon.level, cell);
 				}
 				Trap t = Dungeon.level.traps.get(cell);
 				if (t != null && t.disarmedByActivation) {

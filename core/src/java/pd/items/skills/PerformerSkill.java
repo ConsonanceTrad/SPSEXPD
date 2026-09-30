@@ -14,6 +14,7 @@ import pd.items.rings.Ring;
 import pd.items.scrolls.ScrollOfTransmutation;
 import pd.items.wands.Wand;
 import pd.items.weapon.Weapon;
+import pd.levels.GroundItems;
 import pd.plants.Plant;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
@@ -46,7 +47,7 @@ public class PerformerSkill extends ClassSkill {
 			int damage = Math.max(1, Math.round(curUser.lvl * (1f + 0.1f * curUser.magicSkill())));
 			mob.damage(damage, SpsMagicDamage.ENERGY);
 			Item seed = Generator.random(Generator.Category.SEED);
-			if (seed instanceof Plant.Seed && Dungeon.level.insideMap(mob.pos)) Dungeon.level.plant((Plant.Seed) seed, mob.pos);
+			if (seed instanceof Plant.Seed && Dungeon.level.insideMap(mob.pos)) GroundItems.plant( Dungeon.level, (Plant.Seed) seed, mob.pos);
 			if (mob.isAlive()) {
 				Buff.prolong(mob, Blindness.class, 10f);
 				Buff.prolong(mob, Slow.class, 10f);

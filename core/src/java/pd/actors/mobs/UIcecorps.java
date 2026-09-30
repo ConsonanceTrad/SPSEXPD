@@ -12,6 +12,7 @@ import pd.actors.buffs.Frost;
 import pd.actors.buffs.Slow;
 import pd.actors.buffs.StoneIce;
 import pd.levels.BossRushLevel;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.SpearTrap;
@@ -99,7 +100,7 @@ public class UIcecorps extends BossRushBoss {
 		if (!Dungeon.level.insideMap(cell)) return;
 		if (Dungeon.level.heroFOV[cell]) {
 			if (Dungeon.level.water[cell]) {
-				Dungeon.level.setTrap(new SpearTrap().reveal(), cell);
+				GroundItems.setTrap( Dungeon.level, new SpearTrap().reveal(), cell);
 				Level.set(cell, Terrain.TRAP, Dungeon.level);
 				GameScene.updateMap(cell);
 			} else if (Dungeon.level.map[cell] == Terrain.EMPTY) {

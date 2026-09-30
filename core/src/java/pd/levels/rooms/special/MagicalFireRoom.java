@@ -36,6 +36,7 @@ import pd.items.Generator;
 import pd.items.Honeypot;
 import pd.items.Item;
 import pd.items.potions.PotionOfFrost;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -109,14 +110,14 @@ public class MagicalFireRoom extends SpecialRoom {
 				level.drop( prize( level ), pos );
 		}
 
-		level.addItemToSpawn(new PotionOfFrost());
+		GroundItems.addItemToSpawn( level, new PotionOfFrost());
 
 	}
 
 	private static Item prize( Level level ) {
 
 		if (Random.Int(3) != 0){
-			Item prize = level.findPrizeItem();
+			Item prize = GroundItems.findPrizeItem( level );
 			if (prize != null)
 				return prize;
 		}

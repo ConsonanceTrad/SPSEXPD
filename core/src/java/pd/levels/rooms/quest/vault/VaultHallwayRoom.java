@@ -24,6 +24,7 @@ package pd.levels.rooms.quest.vault;
 import pd.actors.mobs.Mob;
 import pd.items.EquipableItem;
 import pd.items.Item;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -74,7 +75,7 @@ public class VaultHallwayRoom extends VaultLongRoom {
 			lootPositions.add(level.pointToCell(c));
 		}
 
-		Item i = level.findPrizeItem(EquipableItem.class);
+		Item i = GroundItems.findPrizeItem( level, EquipableItem.class);
 		if (i != null){
 			level.drop(i, lootPositions.get(0));
 		}

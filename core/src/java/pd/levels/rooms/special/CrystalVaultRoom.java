@@ -32,6 +32,7 @@ import pd.items.keys.CrystalKey;
 import pd.items.keys.IronKey;
 import pd.items.trinkets.MimicTooth;
 import pd.items.trinkets.RatSkull;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -83,10 +84,10 @@ public class CrystalVaultRoom extends SpecialRoom {
 		Painter.set(level, i1Pos, Terrain.PEDESTAL);
 		Painter.set(level, i2Pos, Terrain.PEDESTAL);
 
-		level.addItemToSpawn( new CrystalKey( Dungeon.depth ) );
+		GroundItems.addItemToSpawn( level,  new CrystalKey( Dungeon.depth ) );
 		
 		entrance().set( Door.Type.LOCKED );
-		level.addItemToSpawn( new IronKey( Dungeon.depth ) );
+		GroundItems.addItemToSpawn( level,  new IronKey( Dungeon.depth ) );
 	}
 	
 	private Item prize() {

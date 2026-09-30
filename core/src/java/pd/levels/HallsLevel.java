@@ -147,7 +147,7 @@ public class HallsLevel extends SpsRegularLevel {
 	
 	@Override
 	public void create() {
-		addItemToSpawn( new Torch() );
+		GroundItems.addItemToSpawn( this,  new Torch() );
 		super.create();
 	}
 
@@ -158,7 +158,7 @@ public class HallsLevel extends SpsRegularLevel {
 	}
 
 	void addLegacyExitKeyToSpawn() {
-		if (Dungeon.depth != 25) addItemToSpawn(new SpsSkeletonKey(Dungeon.depth));
+		if (Dungeon.depth != 25) GroundItems.addItemToSpawn( this, new SpsSkeletonKey(Dungeon.depth));
 	}
 	
 	@Override

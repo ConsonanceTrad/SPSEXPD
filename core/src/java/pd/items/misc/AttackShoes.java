@@ -7,6 +7,7 @@ import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.items.Generator;
 import pd.items.Item;
+import pd.levels.GroundItems;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
@@ -36,7 +37,7 @@ public class AttackShoes extends Item {
 			Char ch = Actor.findChar(adjacent);
 			if (ch != null && ch != hero && ch.isAlive()) ch.damage(30 + hero.lvl * 3, this);
 		}
-		if (Random.Int(20) == 10) Dungeon.level.plant((Plant.Seed)Generator.random(Generator.Category.SEED), cell);
+		if (Random.Int(20) == 10) GroundItems.plant( Dungeon.level, (Plant.Seed)Generator.random(Generator.Category.SEED), cell);
 		hero.spendAndNext(2f); return true;
 	}
 	private final CellSelector.Listener jumper = new CellSelector.Listener() {

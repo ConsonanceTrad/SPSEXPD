@@ -28,15 +28,15 @@ abstract class SpsTriangleLevel extends SpsRegularLevel {
 	@Override protected Painter painter() { return null; }
 
 	void prepareLegacyTrial() {
-		addItemToSpawn(Generator.random(Generator.Category.FOOD));
-		addItemToSpawn(Generator.random(Generator.Category.FOOD));
-		addItemToSpawn(new ScrollOfUpgrade());
+		GroundItems.addItemToSpawn( this, Generator.random(Generator.Category.FOOD));
+		GroundItems.addItemToSpawn( this, Generator.random(Generator.Category.FOOD));
+		GroundItems.addItemToSpawn( this, new ScrollOfUpgrade());
 		if (Random.Int(2) == 0) {
-			addItemToSpawn(new Stylus());
-			addItemToSpawn(new Weightstone());
+			GroundItems.addItemToSpawn( this, new Stylus());
+			GroundItems.addItemToSpawn( this, new Weightstone());
 		}
 		if (Random.Float() < LuckyBadge.rareRewardChance(LuckyBadge.luckBonus(Dungeon.hero))) {
-			addItemToSpawn(Random.Int(2) == 0
+			GroundItems.addItemToSpawn( this, Random.Int(2) == 0
 					? new ScrollOfMagicalInfusion() : new PotionOfOverHealing());
 		}
 		if (legacyTrialDepth() == 31) {

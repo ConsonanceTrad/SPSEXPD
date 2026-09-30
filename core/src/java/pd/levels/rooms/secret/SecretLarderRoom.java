@@ -26,6 +26,7 @@ import pd.actors.buffs.Hunger;
 import pd.items.food.ChargrilledMeat;
 import pd.items.food.Food;
 import pd.items.food.Pasty;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -54,7 +55,7 @@ public class SecretLarderRoom extends SecretRoom {
 		Painter.fill(level, c.x-1, c.y-1, 3, 3, Terrain.WATER);
 		Painter.set(level, c, Terrain.GRASS);
 		
-		level.plant(new BlandfruitBush.Seed(), level.pointToCell(c));
+		GroundItems.plant( level, new BlandfruitBush.Seed(), level.pointToCell(c));
 		
 		int extraFood = (int)(Hunger.STARVING - Hunger.HUNGRY) * (1 + Dungeon.depth / 5);
 		

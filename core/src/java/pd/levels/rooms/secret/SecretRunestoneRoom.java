@@ -24,6 +24,7 @@ package pd.levels.rooms.secret;
 import pd.items.Generator;
 import pd.items.potions.PotionOfLiquidFlame;
 import pd.items.stones.StoneOfEnchantment;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -61,7 +62,7 @@ public class SecretRunestoneRoom extends SecretRoom {
 			}
 		}
 		
-		level.addItemToSpawn(new PotionOfLiquidFlame());
+		GroundItems.addItemToSpawn( level, new PotionOfLiquidFlame());
 		
 		int dropPos;
 		

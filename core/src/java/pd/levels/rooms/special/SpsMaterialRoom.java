@@ -14,6 +14,7 @@ import pd.items.bombs.SmokeBomb;
 import pd.items.bombs.WoollyBomb;
 import pd.items.keys.IronKey;
 import pd.items.weapon.missiles.buildblock.DoorBlock;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -43,7 +44,7 @@ public class SpsMaterialRoom extends SpecialRoom {
 		for (int i = 0; i < blocks; i++) level.drop(new DoorBlock(), floor.remove(0));
 
 		entrance.set(Door.Type.LOCKED);
-		level.addItemToSpawn(new IronKey(Dungeon.depth));
+		GroundItems.addItemToSpawn( level, new IronKey(Dungeon.depth));
 	}
 
 	private Point oppositeCorner(Door entrance) {

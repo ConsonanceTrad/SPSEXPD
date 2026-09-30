@@ -26,6 +26,7 @@ import pd.items.bombs.DungeonBomb;
 import pd.items.wands.WandOfBlastWave;
 import pd.items.wands.WandOfLight;
 import pd.items.weapon.enchantments.EnchantmentLight;
+import pd.levels.GroundItems;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.plants.Blindweed;
@@ -98,7 +99,7 @@ public class PrisonWander extends Mob {
 		if (Random.Int(10) == 0 && breaks < 4 && Dungeon.level != null) {
 			Plant.Seed seed = randomBossSeed();
 			if (Dungeon.level.passable[pos]) {
-				Dungeon.level.plant(seed, pos);
+				GroundItems.plant( Dungeon.level, seed, pos);
 			}
 			spend(TICK);
 			return true;

@@ -26,6 +26,7 @@ import pd.items.Gold;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.trinkets.MimicTooth;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -52,7 +53,7 @@ public class SuspiciousChestRoom extends StandardRoom {
 			door.set( Door.Type.REGULAR );
 		}
 
-		Item i = level.findPrizeItem();
+		Item i = GroundItems.findPrizeItem( level );
 
 		if ( i == null ){
 			i = new Gold().random();

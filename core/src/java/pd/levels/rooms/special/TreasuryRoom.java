@@ -27,6 +27,7 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.items.keys.GoldenKey;
 import pd.items.keys.IronKey;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -61,7 +62,7 @@ public class TreasuryRoom extends SpecialRoom {
 		if (!neighbourCells.isEmpty()) {
 			level.drop(second, Random.element(neighbourCells)).type = Heap.Type.CRYSTAL_CHEST;
 		}
-		level.addItemToSpawn(new GoldenKey(Dungeon.depth));
+		GroundItems.addItemToSpawn( level, new GoldenKey(Dungeon.depth));
 
 		ArrayList<Integer> emptyCells = new ArrayList<>();
 		for (int y = top + 1; y < bottom; y++) {
@@ -80,7 +81,7 @@ public class TreasuryRoom extends SpecialRoom {
 		}
 		
 		entrance().set( Door.Type.LOCKED );
-		level.addItemToSpawn( new IronKey( Dungeon.depth ) );
+		GroundItems.addItemToSpawn( level,  new IronKey( Dungeon.depth ) );
 	}
 
 	private static Item prizeUncursed() {

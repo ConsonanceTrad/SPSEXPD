@@ -9,6 +9,7 @@ import pd.items.Item;
 import pd.items.bags.ShoppingCart;
 import pd.items.keys.IronKey;
 import pd.items.potions.Potion;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -49,7 +50,7 @@ public class SpsCookingRoom extends SpecialRoom {
 		for (int i = 0; i < food; i++) level.drop(potionOrFood(level), prizeCells.remove(0));
 
 		entrance.set(Door.Type.LOCKED);
-		level.addItemToSpawn(new IronKey(Dungeon.depth));
+		GroundItems.addItemToSpawn( level, new IronKey(Dungeon.depth));
 	}
 
 	private ArrayList<Integer> cellsWithoutHeaps(Level level, Integer terrain) {
@@ -64,12 +65,12 @@ public class SpsCookingRoom extends SpecialRoom {
 	}
 
 	private static Item potionOrFood(Level level) {
-		Item prize = level.findPrizeItem(Potion.class);
+		Item prize = GroundItems.findPrizeItem( level, Potion.class);
 		return prize != null ? prize : Generator.random(Generator.Category.FOOD);
 	}
 
 	private static Item potionOrHighFood(Level level) {
-		Item prize = level.findPrizeItem(Potion.class);
+		Item prize = GroundItems.findPrizeItem( level, Potion.class);
 		if (prize != null) return prize;
 		return Generator.random(Generator.Category.HIGHFOOD);
 	}

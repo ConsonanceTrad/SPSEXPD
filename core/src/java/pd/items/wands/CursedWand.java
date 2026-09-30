@@ -81,6 +81,7 @@ import pd.items.scrolls.exotic.ScrollOfChallenge;
 import pd.items.scrolls.exotic.ScrollOfMetamorphosis;
 import pd.items.scrolls.exotic.ScrollOfSirensSong;
 import pd.items.trinkets.WondrousResin;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.BurningTrap;
@@ -455,7 +456,7 @@ public class CursedWand {
 		public boolean effect(Item origin, Char user, Ballistica bolt, boolean positiveOnly) {
 			if (valid(origin, user, bolt, positiveOnly)) {
 				tryForWandProc(Actor.findChar(bolt.collisionPos), origin);
-				Dungeon.level.plant((Plant.Seed) Generator.randomUsingDefaults(Generator.Category.SEED), bolt.collisionPos);
+				GroundItems.plant( Dungeon.level, (Plant.Seed) Generator.randomUsingDefaults(Generator.Category.SEED), bolt.collisionPos);
 				return true;
 			} else {
 				return false;

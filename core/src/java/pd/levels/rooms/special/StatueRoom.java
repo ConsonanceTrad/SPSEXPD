@@ -27,6 +27,7 @@ import pd.actors.mobs.Statue;
 import pd.items.Generator;
 import pd.items.Item;
 import pd.items.keys.IronKey;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -49,7 +50,7 @@ public class StatueRoom extends SpecialRoom {
 		Door door = entrance();
 		
 		door.set( Door.Type.LOCKED );
-		level.addItemToSpawn( new IronKey( Dungeon.depth ) );
+		GroundItems.addItemToSpawn( level,  new IronKey( Dungeon.depth ) );
 		
 		if (door.x == left) {
 			

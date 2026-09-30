@@ -172,7 +172,7 @@ public class CavesLevel extends SpsRegularLevel {
 			for (int x = room.left + 1; x < room.right; x++) {
 				int cell = x + y * width();
 				if (map[cell] == Terrain.TRAP && traps.get(cell) == null) {
-					setTrap(new FireDamageTrap().reveal(), cell);
+					GroundItems.setTrap( this, new FireDamageTrap().reveal(), cell);
 				}
 			}
 		}
@@ -219,7 +219,7 @@ public class CavesLevel extends SpsRegularLevel {
 	@Override
 	protected void createItems() {
 		if (Dungeon.depth == 12) {
-			addItemToSpawn(new Mushroom());
+			GroundItems.addItemToSpawn( this, new Mushroom());
 			int cell;
 			do {
 				cell = randomRespawnCell(null);

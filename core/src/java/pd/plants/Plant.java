@@ -36,6 +36,7 @@ import pd.items.Item;
 import pd.items.wands.WandOfRegrowth;
 import pd.journal.Bestiary;
 import pd.journal.Catalog;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
@@ -82,7 +83,7 @@ public abstract class Plant implements Bundlable {
 	public abstract void activate( Char ch );
 	
 	public void wither() {
-		Dungeon.level.uproot( pos );
+		GroundItems.uproot( Dungeon.level,  pos );
 
 		if (Dungeon.level.heroFOV[pos]) {
 			CellEmitter.get( pos ).burst( LeafParticle.GENERAL, 6 );
@@ -160,7 +161,7 @@ public abstract class Plant implements Bundlable {
 				super.onThrow( cell );
 			} else {
 				Catalog.countUse(getClass());
-				Dungeon.level.plant( this, cell );
+				GroundItems.plant( Dungeon.level,  this, cell );
 				if (Dungeon.hero.subClass == HeroSubClass.WARDEN) {
 					for (int i : PathFinder.NEIGHBOURS8) {
 						int c = Dungeon.level.map[cell + i];

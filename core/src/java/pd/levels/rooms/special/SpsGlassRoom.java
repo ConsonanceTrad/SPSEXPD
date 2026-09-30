@@ -9,6 +9,7 @@ import pd.items.nornstone.GreenNornStone;
 import pd.items.nornstone.OrangeNornStone;
 import pd.items.nornstone.PurpleNornStone;
 import pd.items.nornstone.YellowNornStone;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -37,7 +38,7 @@ public class SpsGlassRoom extends SpecialRoom {
 		for (int i = 0; i < stones; i++) level.drop(new StoneOre(), floorCells.get(i));
 
 		entrance().set(Door.Type.HIDDEN);
-		level.addItemToSpawn(new DungeonBomb.DoubleBomb());
+		GroundItems.addItemToSpawn( level, new DungeonBomb.DoubleBomb());
 	}
 
 	private ArrayList<Integer> cells(Level level, int terrain) {

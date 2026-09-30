@@ -38,9 +38,9 @@ public class TriangleWLevel extends SpsTriangleLevel {
 		map[center] = Terrain.PEDESTAL;
 		int plantCell = trialRoomCell(room, 0);
 		switch (Random.Int(3)) {
-			case 0: plant(new StarEater.Seed(), plantCell); break;
-			case 1: plant(new BlandfruitBush.Seed(), plantCell); break;
-			default: plant(new ReNepenth.Seed(), plantCell); break;
+			case 0: GroundItems.plant( this, new StarEater.Seed(), plantCell); break;
+			case 1: GroundItems.plant( this, new BlandfruitBush.Seed(), plantCell); break;
+			default: GroundItems.plant( this, new ReNepenth.Seed(), plantCell); break;
 		}
 		Sentinel sentinel = new Sentinel();
 		sentinel.pos = trialRoomCell(room, 0);

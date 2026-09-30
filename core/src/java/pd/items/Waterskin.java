@@ -44,6 +44,7 @@ import pd.items.bags.Bag;
 import pd.items.food.WaterItem;
 import pd.items.trinkets.VialOfBlood;
 import pd.journal.Catalog;
+import pd.levels.GroundItems;
 import pd.levels.Terrain;
 import pd.messages.Messages;
 import pd.plants.Plant;
@@ -303,7 +304,7 @@ public class Waterskin extends Item {
 					int terrain = Dungeon.level.map[cell];
 					GameScene.add(Blob.seed(cell, 40, Water.class));
 					if (terrain == Terrain.FLOWER_POT) {
-						Dungeon.level.plant((Plant.Seed) Generator.random(Generator.Category.SEED4), cell);
+						GroundItems.plant( Dungeon.level, (Plant.Seed) Generator.random(Generator.Category.SEED4), cell);
 					}
 				}
 			}

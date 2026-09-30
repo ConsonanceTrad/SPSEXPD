@@ -7,6 +7,7 @@ import pd.actors.buffs.InfJump;
 import pd.actors.hero.Hero;
 import pd.items.Generator;
 import pd.items.Item;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
@@ -95,7 +96,7 @@ public class JumpF extends Item {
 	public Plant plantSpecialSeed(int cell) {
 		if (Dungeon.level == null || !Dungeon.level.insideMap(cell)) return null;
 		Plant.Seed seed = (Plant.Seed)Generator.random(Generator.Category.SEED3);
-		return Dungeon.level.plant(seed, cell);
+		return GroundItems.plant( Dungeon.level, seed, cell);
 	}
 
 	public void gainCharge() { if (charge < FULL_CHARGE) charge++; }

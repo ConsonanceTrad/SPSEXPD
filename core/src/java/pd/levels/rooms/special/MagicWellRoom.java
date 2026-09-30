@@ -27,6 +27,7 @@ import pd.actors.blobs.WaterOfHealth;
 import pd.actors.blobs.WaterOfTransmutation;
 import pd.actors.blobs.WellWater;
 import pd.items.keys.IronKey;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -58,6 +59,6 @@ public class MagicWellRoom extends SpecialRoom {
 		WellWater.seed(c.x + level.width() * c.y, 1, waterClass, level);
 		
 		entrance().set( Door.Type.LOCKED );
-		level.addItemToSpawn( new IronKey( Dungeon.depth ) );
+		GroundItems.addItemToSpawn( level,  new IronKey( Dungeon.depth ) );
 	}
 }

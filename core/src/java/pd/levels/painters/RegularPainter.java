@@ -26,6 +26,7 @@ import pd.SPDSettings;
 import pd.ShatteredPixelDungeon;
 import pd.items.trinkets.TrapMechanism;
 import pd.journal.Document;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Patch;
 import pd.levels.Terrain;
@@ -493,7 +494,7 @@ public abstract class RegularPainter extends Painter {
 				trap.hide();
 			}
 
-			l.setTrap( trap, trapPos );
+			GroundItems.setTrap( l,  trap, trapPos );
 			//some traps will not be hidden
 			l.map[trapPos] = trap.visible ? Terrain.TRAP : Terrain.SECRET_TRAP;
 		}

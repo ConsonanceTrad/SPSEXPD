@@ -23,6 +23,7 @@ package pd.levels.rooms.standard;
 
 import pd.items.Generator;
 import pd.items.Item;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -78,7 +79,7 @@ public class StudyRoom extends StandardRoom {
 		Point center = center();
 		Painter.set( level, center, Terrain.PEDESTAL );
 		
-		Item prize = (Random.Int(2) == 0) ? level.findPrizeItem() : null;
+		Item prize = (Random.Int(2) == 0) ? GroundItems.findPrizeItem( level ) : null;
 		
 		if (prize != null) {
 			level.drop(prize, (center.x + center.y * level.width()));

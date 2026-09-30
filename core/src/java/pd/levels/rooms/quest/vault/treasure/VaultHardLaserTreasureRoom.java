@@ -26,6 +26,7 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.items.quest.DwarfToken;
 import pd.items.stones.StoneOfBlink;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.VaultLevel;
@@ -167,6 +168,6 @@ public class VaultHardLaserTreasureRoom extends VaultTreasureRoom {
 		} while (level.heaps.get(treasurePos) != null);
 		level.drop(new DwarfToken(), treasurePos);
 
-		level.addItemToSpawn(new StoneOfBlink());
+		GroundItems.addItemToSpawn( level, new StoneOfBlink());
 	}
 }

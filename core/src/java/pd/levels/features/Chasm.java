@@ -35,6 +35,7 @@ import pd.effects.Wound;
 import pd.items.artifacts.TimekeepersHourglass;
 import pd.items.potions.elixirs.ElixirOfFeatherFall;
 import pd.journal.Notes;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.RegularLevel;
 import pd.levels.Terrain;
@@ -144,7 +145,7 @@ public class Chasm implements Hero.Doom {
 		Buff.prolong(mob, Trap.HazardAssistTracker.class, Trap.HazardAssistTracker.DURATION);
 		Wound.hit(mob);
 		mob.damage(mob.HT / 5, new Chasm());
-		Dungeon.level.setTrap(new PitfallTrap().hide(), pos);
+		GroundItems.setTrap( Dungeon.level, new PitfallTrap().hide(), pos);
 		Level.set(pos, Terrain.SECRET_TRAP, Dungeon.level);
 		GameScene.updateMap(pos);
 		if (mob.sprite instanceof MobSprite) ((MobSprite)mob.sprite).fall();

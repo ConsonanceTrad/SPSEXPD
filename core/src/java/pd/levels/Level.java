@@ -102,11 +102,11 @@ import pd.levels.features.Door;
 import pd.levels.features.HighGrass;
 import pd.levels.features.LevelTransition;
 import pd.levels.features.OldHighGrass;
+import pd.levels.mobs.LevelMobs;
 import pd.levels.painters.Painter;
 import pd.levels.traps.Trap;
 import pd.mechanics.ShadowCaster;
 import pd.mechanics.pathfind.PathFinder;
-import pd.levels.mobs.LevelMobs;
 import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.plants.Swiftthistle;
@@ -256,56 +256,56 @@ public abstract class Level implements Bundlable {
 
 			if (this instanceof SpsRegularLevel) {
 				// SPS-PD queued these supplies on every ordinary floor before painting it.
-				addItemToSpawn(Generator.random(Generator.Category.FOOD));
-				addItemToSpawn(Generator.random(Generator.Category.FOOD));
-				addItemToSpawn(new ScrollOfUpgrade());
+				GroundItems.addItemToSpawn( this, Generator.random(Generator.Category.FOOD));
+				GroundItems.addItemToSpawn( this, Generator.random(Generator.Category.FOOD));
+				GroundItems.addItemToSpawn( this, new ScrollOfUpgrade());
 				if (Random.Int(2) == 0) {
-					addItemToSpawn(new Stylus());
-					addItemToSpawn(new Weightstone());
+					GroundItems.addItemToSpawn( this, new Stylus());
+					GroundItems.addItemToSpawn( this, new Weightstone());
 				}
 				if (Dungeon.posNeeded() && !Dungeon.shopOnLevel()) {
 					Dungeon.LimitedDrops.STRENGTH_POTIONS.count++;
-					addItemToSpawn(new StrBottle());
+					GroundItems.addItemToSpawn( this, new StrBottle());
 				}
 				if (Random.Float() < LuckyBadge.rareRewardChance(LuckyBadge.luckBonus(Dungeon.hero))) {
-					addItemToSpawn(Random.Int(2) == 0
+					GroundItems.addItemToSpawn( this, Random.Int(2) == 0
 							? new ScrollOfMagicalInfusion()
 							: new PotionOfOverHealing());
 				}
 			} else {
-				addItemToSpawn(Generator.random(Generator.Category.FOOD));
+				GroundItems.addItemToSpawn( this, Generator.random(Generator.Category.FOOD));
 				if (Random.Float() < LuckyBadge.rareRewardChance(LuckyBadge.luckBonus(Dungeon.hero))) {
-					addItemToSpawn(Random.Int(2) == 0
+					GroundItems.addItemToSpawn( this, Random.Int(2) == 0
 							? new ScrollOfMagicalInfusion()
 							: new PotionOfOverHealing());
 				}
 
 				if (Dungeon.posNeeded()) {
 					Dungeon.LimitedDrops.STRENGTH_POTIONS.count++;
-					addItemToSpawn( new PotionOfStrength() );
+					GroundItems.addItemToSpawn( this,  new PotionOfStrength() );
 				}
 				if (Dungeon.souNeeded()) {
 					Dungeon.LimitedDrops.UPGRADE_SCROLLS.count++;
 					//every 2nd scroll of upgrade is removed with forbidden runes challenge on
 					if (!Dungeon.isChallenged(Challenges.NO_SCROLLS) || Dungeon.LimitedDrops.UPGRADE_SCROLLS.count%2 != 0){
-						addItemToSpawn(new ScrollOfUpgrade());
+						GroundItems.addItemToSpawn( this, new ScrollOfUpgrade());
 					}
 				}
 				if (Dungeon.asNeeded()) {
 					Dungeon.LimitedDrops.ARCANE_STYLI.count++;
-					addItemToSpawn( new Stylus() );
+					GroundItems.addItemToSpawn( this,  new Stylus() );
 				}
 				if ( Dungeon.enchStoneNeeded() ){
 					Dungeon.LimitedDrops.ENCH_STONE.drop();
-					addItemToSpawn( new StoneOfEnchantment() );
+					GroundItems.addItemToSpawn( this,  new StoneOfEnchantment() );
 				}
 				if ( Dungeon.intStoneNeeded() ){
 					Dungeon.LimitedDrops.INT_STONE.drop();
-					addItemToSpawn( new StoneOfIntuition() );
+					GroundItems.addItemToSpawn( this,  new StoneOfIntuition() );
 				}
 				if ( Dungeon.trinketCataNeeded() ){
 					Dungeon.LimitedDrops.TRINKET_CATA.drop();
-					addItemToSpawn( new TrinketCatalyst());
+					GroundItems.addItemToSpawn( this,  new TrinketCatalyst());
 				}
 			}
 			
@@ -318,9 +318,9 @@ public abstract class Level implements Bundlable {
 						case 2: feeling = Feeling.GRASS; break;
 						case 3:
 							feeling = Feeling.DARK;
-							addItemToSpawn(new Torch());
-							addItemToSpawn(new Torch());
-							addItemToSpawn(new Torch());
+							GroundItems.addItemToSpawn( this, new Torch());
+							GroundItems.addItemToSpawn( this, new Torch());
+							GroundItems.addItemToSpawn( this, new Torch());
 							viewDistance = (int)Math.ceil(viewDistance / 3f);
 							break;
 						case 4: feeling = Feeling.SPECIAL_FLOOR; break;
@@ -330,9 +330,9 @@ public abstract class Level implements Bundlable {
 					switch (roll) {
 						case 0:
 							feeling = Feeling.DARK;
-							addItemToSpawn(new Torch());
-							addItemToSpawn(new Torch());
-							addItemToSpawn(new Torch());
+							GroundItems.addItemToSpawn( this, new Torch());
+							GroundItems.addItemToSpawn( this, new Torch());
+							GroundItems.addItemToSpawn( this, new Torch());
 							viewDistance = (int)Math.ceil(viewDistance / 3f);
 							break;
 						case 1: feeling = Feeling.WATER; break;
@@ -360,7 +360,7 @@ public abstract class Level implements Bundlable {
 						break;
 					case 4:
 						feeling = Feeling.LARGE;
-						addItemToSpawn(Generator.random(Generator.Category.FOOD));
+						GroundItems.addItemToSpawn( this, Generator.random(Generator.Category.FOOD));
 						break;
 					case 5:
 						feeling = Feeling.TRAPS;
@@ -948,41 +948,6 @@ public abstract class Level implements Bundlable {
 		return cell;
 	}
 	
-	public void addItemToSpawn( Item item ) {
-		if (item != null) {
-			itemsToSpawn.add( item );
-		}
-	}
-
-	public Item findPrizeItem(){ return findPrizeItem(null); }
-
-	public Item findPrizeItem(Class<?extends Item> match){
-		if (itemsToSpawn.size() == 0)
-			return null;
-
-		if (match == null){
-			//if we have a trinket catalyst, always return that first
-			for (Item item : itemsToSpawn){
-				if (item instanceof TrinketCatalyst){
-					itemsToSpawn.remove(item);
-					return item;
-				}
-			}
-
-			Item item = Random.element(itemsToSpawn);
-			itemsToSpawn.remove(item);
-			return item;
-		}
-
-		for (Item item : itemsToSpawn){
-			if (match.isInstance(item)){
-				itemsToSpawn.remove( item );
-				return item;
-			}
-		}
-
-		return null;
-	}
 
 	public void buildFlagMaps() {
 		
@@ -1193,81 +1158,6 @@ public abstract class Level implements Bundlable {
 		return heap;
 	}
 	
-	public Plant plant( Plant.Seed seed, int pos ) {
-
-		Plant plant = plants.get( pos );
-		if (plant != null) {
-			plant.wither();
-		}
-
-		if (map[pos] == Terrain.HIGH_GRASS ||
-				map[pos] == Terrain.FURROWED_GRASS ||
-				map[pos] == Terrain.EMPTY ||
-				map[pos] == Terrain.EMBERS ||
-				map[pos] == Terrain.EMPTY_DECO) {
-			set(pos, Terrain.GRASS, this);
-			GameScene.updateMap(pos);
-		}
-
-		//we have to get this far as grass placement has RNG implications in levelgen
-		if (Dungeon.isChallenged(Challenges.NO_HERBALISM)){
-			return null;
-		}
-		
-		plant = seed.couch( pos, this );
-		plants.put( pos, plant );
-		
-		GameScene.plantSeed( pos );
-
-		for (Char ch : Actor.chars()){
-			if (ch instanceof WandOfRegrowth.Lotus
-					&& ((WandOfRegrowth.Lotus) ch).inRange(pos)
-					&& Actor.findChar(pos) != null){
-				plant.trigger();
-				return null;
-			}
-		}
-		
-		return plant;
-	}
-
-	public Plant explant( Plant.Seed seed, int pos ) {
-		Plant plant = plants.get(pos);
-		if (plant != null) plant.wither();
-
-		if (map[pos] == Terrain.HIGH_GRASS || map[pos] == Terrain.FURROWED_GRASS
-				|| map[pos] == Terrain.EMPTY || map[pos] == Terrain.EMBERS
-				|| map[pos] == Terrain.EMPTY_DECO) {
-			set(pos, Terrain.GRASS, this);
-			GameScene.updateMap(pos);
-		}
-
-		plant = seed.excouch(pos, this);
-		plants.put(pos, plant);
-		GameScene.plantSeed(pos);
-		return plant;
-	}
-	
-	public void uproot( int pos ) {
-		plants.remove(pos);
-		GameScene.updateMap( pos );
-	}
-
-	public Trap setTrap( Trap trap, int pos ){
-		Trap existingTrap = traps.get(pos);
-		if (existingTrap != null){
-			traps.remove( pos );
-		}
-		trap.set( pos );
-		traps.put( pos, trap );
-		GameScene.updateMap( pos );
-		return trap;
-	}
-
-	public void disarmTrap( int pos ) {
-		set(pos, Terrain.INACTIVE_TRAP);
-		GameScene.updateMap(pos);
-	}
 
 	public void discover( int cell ) {
 		set( cell, Terrain.discover( map[cell] ) );

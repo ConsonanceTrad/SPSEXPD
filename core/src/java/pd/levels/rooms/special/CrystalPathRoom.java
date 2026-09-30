@@ -32,6 +32,7 @@ import pd.items.scrolls.ScrollOfTransmutation;
 import pd.items.scrolls.exotic.ExoticScroll;
 import pd.items.scrolls.exotic.ScrollOfMetamorphosis;
 import pd.items.trinkets.ExoticCrystals;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -243,9 +244,9 @@ public class CrystalPathRoom extends SpecialRoom {
 		level.drop(potions.remove(0), shuffle == 1 ? prize1 : prize2).autoExplored = true;
 		level.drop(scrolls.remove(0), shuffle == 1 ? prize2 : prize1).autoExplored = true;
 
-		level.addItemToSpawn( new CrystalKey( Dungeon.depth ) );
-		level.addItemToSpawn( new CrystalKey( Dungeon.depth ) );
-		level.addItemToSpawn( new CrystalKey( Dungeon.depth ) );
+		GroundItems.addItemToSpawn( level,  new CrystalKey( Dungeon.depth ) );
+		GroundItems.addItemToSpawn( level,  new CrystalKey( Dungeon.depth ) );
+		GroundItems.addItemToSpawn( level,  new CrystalKey( Dungeon.depth ) );
 
 		entrance().set( Door.Type.REGULAR );
 

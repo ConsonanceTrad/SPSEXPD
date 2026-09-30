@@ -27,6 +27,7 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.items.keys.CrystalKey;
 import pd.items.keys.IronKey;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -129,10 +130,10 @@ public class CrystalChoiceRoom extends SpecialRoom {
 		//opening the chest is optional, so it doesn't count for exploration bonus
 		chest.autoExplored = true;
 
-		level.addItemToSpawn( new CrystalKey( Dungeon.depth ) );
+		GroundItems.addItemToSpawn( level,  new CrystalKey( Dungeon.depth ) );
 
 		entrance().set( Door.Type.LOCKED );
-		level.addItemToSpawn( new IronKey( Dungeon.depth ) );
+		GroundItems.addItemToSpawn( level,  new IronKey( Dungeon.depth ) );
 
 	}
 }

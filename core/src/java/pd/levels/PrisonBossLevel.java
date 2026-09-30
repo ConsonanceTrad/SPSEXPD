@@ -713,7 +713,7 @@ public class PrisonBossLevel extends Level {
 						&& Dungeon.level.plants.get(cell) == null
 						&& Actor.findChar(cell) == null) {
 					Level.set(cell, Terrain.SECRET_TRAP);
-					setTrap(new TenguDartTrap().hide(), cell);
+					GroundItems.setTrap( this, new TenguDartTrap().hide(), cell);
 					CellEmitter.get(cell).burst(Speck.factory(Speck.LIGHT), 2);
 				}
 			}

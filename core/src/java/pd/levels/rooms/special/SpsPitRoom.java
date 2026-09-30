@@ -6,6 +6,7 @@ import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.scrolls.ScrollOfTeleportation;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -81,7 +82,7 @@ public class SpsPitRoom extends SpecialRoom {
 
 	private static Item extraPrize(Level level) {
 		if (Random.Int(2) != 0) {
-			Item prize = level.findPrizeItem();
+			Item prize = GroundItems.findPrizeItem( level );
 			if (prize != null) return prize;
 		}
 		return Generator.random(Random.oneOf(Generator.Category.POTION,

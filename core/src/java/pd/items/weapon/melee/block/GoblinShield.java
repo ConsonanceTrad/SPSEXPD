@@ -20,6 +20,7 @@ import pd.actors.buffs.Recharging;
 import pd.actors.buffs.Terror;
 import pd.items.Generator;
 import pd.items.weapon.melee.normalweapon.NormalMeleeWeapon;
+import pd.levels.GroundItems;
 import pd.plants.Plant;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
@@ -70,7 +71,7 @@ public class GoblinShield extends NormalMeleeWeapon {
 			case 11: Buff.prolong(defender, Blindness.class, 5f); break;
 			case 12:
 				if (Dungeon.level != null) {
-					Dungeon.level.plant((Plant.Seed) Generator.random(Generator.Category.SEED), defender.pos);
+					GroundItems.plant( Dungeon.level, (Plant.Seed) Generator.random(Generator.Category.SEED), defender.pos);
 				}
 				break;
 			case 13: attacker.HP = Math.min(attacker.HT, attacker.HP + damage); break;

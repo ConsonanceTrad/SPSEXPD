@@ -24,6 +24,7 @@ package pd.levels.rooms.secret;
 import pd.Dungeon;
 import pd.items.Gold;
 import pd.items.Item;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -68,7 +69,7 @@ public class SecretHoardRoom extends SecretRoom {
 		
 		for (Point p : getPoints()){
 			if (Random.Int(2) == 0 && level.map[level.pointToCell(p)] == Terrain.EMPTY){
-				level.setTrap(Reflection.newInstance(trapClass).reveal(), level.pointToCell(p));
+				GroundItems.setTrap( level, Reflection.newInstance(trapClass).reveal(), level.pointToCell(p));
 				Painter.set(level, p, Terrain.TRAP);
 			}
 		}

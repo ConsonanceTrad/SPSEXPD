@@ -26,6 +26,7 @@ import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.keys.GoldenKey;
 import pd.items.potions.PotionOfLevitation;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -110,7 +111,7 @@ public class SecretChestChasmRoom extends SecretRoom {
 			chests--;
 		}
 		
-		level.addItemToSpawn(new PotionOfLevitation());
+		GroundItems.addItemToSpawn( level, new PotionOfLevitation());
 		
 		entrance().set(Door.Type.HIDDEN);
 	}

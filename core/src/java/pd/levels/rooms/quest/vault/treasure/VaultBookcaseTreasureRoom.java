@@ -25,6 +25,7 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.items.potions.PotionOfLiquidFlame;
 import pd.items.quest.DwarfToken;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.VaultLevel;
@@ -74,7 +75,7 @@ public class VaultBookcaseTreasureRoom extends VaultTreasureRoom {
 		Painter.set(level, firstItem, Terrain.PEDESTAL);
 		Painter.set(level, secondItem, Terrain.PEDESTAL);
 
-		Item treasureItem = level.findPrizeItem();
+		Item treasureItem = GroundItems.findPrizeItem( level );
 		if (treasureItem != null){
 			level.drop(treasureItem, firstItem);
 		}
@@ -91,7 +92,7 @@ public class VaultBookcaseTreasureRoom extends VaultTreasureRoom {
 		treasureItem = new DwarfToken();
 		level.drop(treasureItem, secondItem + PathFinder.NEIGHBOURS8[Random.Int(PathFinder.NEIGHBOURS8.length)]);
 
-		level.addItemToSpawn(new PotionOfLiquidFlame());
+		GroundItems.addItemToSpawn( level, new PotionOfLiquidFlame());
 
 		Painter.drawInside(level, this, entrance, 2, Terrain.EMPTY_SP);
 

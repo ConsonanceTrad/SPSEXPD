@@ -37,6 +37,7 @@ import pd.effects.MagicMissile;
 import pd.items.Dewdrop;
 import pd.items.Generator;
 import pd.items.weapon.melee.MagesStaff;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
@@ -164,13 +165,13 @@ public class WandOfRegrowth extends Wand {
 		if (!cells.isEmpty() && Random.Float() > furrowedChance &&
 				(Random.Int(6) < chrgUsed)){ // 16%/33%/50% chance to spawn a seed pod or dewcatcher
 			int cell = cells.remove(0);
-			Dungeon.level.plant( Random.Int(2) == 0 ? new Seedpod.Seed() : new Dewcatcher.Seed(), cell);
+			GroundItems.plant( Dungeon.level,  Random.Int(2) == 0 ? new Seedpod.Seed() : new Dewcatcher.Seed(), cell);
 		}
 
 		if (!cells.isEmpty() && Random.Float() > furrowedChance &&
 				(Random.Int(3) < chrgUsed)){ // 33%/66%/100% chance to spawn a plant
 			int cell = cells.remove(0);
-			Dungeon.level.plant((Plant.Seed) Generator.randomUsingDefaults(Generator.Category.SEED), cell);
+			GroundItems.plant( Dungeon.level, (Plant.Seed) Generator.randomUsingDefaults(Generator.Category.SEED), cell);
 		}
 
 		for (int cell : cells){

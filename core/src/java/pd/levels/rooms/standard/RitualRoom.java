@@ -23,6 +23,7 @@ package pd.levels.rooms.standard;
 
 import pd.items.Generator;
 import pd.items.Item;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -103,7 +104,7 @@ public class RitualRoom extends PatchRoom {
 	}
 
 	protected void placeloot(Level level, Point p){
-		Item prize = Random.Int(2) == 0 ? level.findPrizeItem() : null;
+		Item prize = Random.Int(2) == 0 ? GroundItems.findPrizeItem( level ) : null;
 
 		if (prize == null){
 			prize = Generator.random( Random.oneOf(Generator.Category.POTION, Generator.Category.SCROLL));

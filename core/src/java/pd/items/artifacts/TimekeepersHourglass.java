@@ -34,6 +34,7 @@ import pd.actors.mobs.Mob;
 import pd.items.Item;
 import pd.items.keys.Key;
 import pd.journal.Catalog;
+import pd.levels.GroundItems;
 import pd.levels.traps.Trap;
 import pd.messages.Messages;
 import pd.plants.Plant;
@@ -391,7 +392,7 @@ public class TimekeepersHourglass extends Artifact {
 			for (int cell : presses){
 				Plant p = Dungeon.level.plants.get(cell);
 				if (p != null && !(p instanceof Rotberry)) {
-					Dungeon.level.uproot(cell);
+					GroundItems.uproot( Dungeon.level, cell);
 				}
 				Trap t = Dungeon.level.traps.get(cell);
 				if (t != null && t.disarmedByActivation) {

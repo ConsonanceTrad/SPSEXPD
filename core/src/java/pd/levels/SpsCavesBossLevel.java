@@ -90,7 +90,7 @@ public class SpsCavesBossLevel extends Level {
 				map[cell] = Terrain.INACTIVE_TRAP;
 				Trap trap = new ToxicTrap().reveal();
 				trap.active = false;
-				setTrap(trap, cell);
+				GroundItems.setTrap( this, trap, cell);
 			}
 		}
 

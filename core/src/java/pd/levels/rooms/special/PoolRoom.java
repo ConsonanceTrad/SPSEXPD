@@ -26,6 +26,7 @@ import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.potions.PotionOfInvisibility;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -83,7 +84,7 @@ public class PoolRoom extends SpecialRoom {
 		level.drop( prize( level ), pos ).type = Random.Int(3) == 0 ? Heap.Type.CHEST : Heap.Type.HEAP;
 		Painter.set( level, pos, Terrain.PEDESTAL );
 		
-		level.addItemToSpawn( new PotionOfInvisibility() );
+		GroundItems.addItemToSpawn( level,  new PotionOfInvisibility() );
 
 		ArrayList<Integer> fishCells = new ArrayList<>();
 		for (int fy = top + 1; fy < bottom; fy++) {
@@ -104,7 +105,7 @@ public class PoolRoom extends SpecialRoom {
 		Item prize;
 
 		if (Random.Int(3) != 0){
-			prize = level.findPrizeItem();
+			prize = GroundItems.findPrizeItem( level );
 			if (prize != null)
 				return prize;
 		}

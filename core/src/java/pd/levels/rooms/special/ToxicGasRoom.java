@@ -29,6 +29,7 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.items.potions.PotionOfPurity;
 import pd.items.trinkets.TrinketCatalyst;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -68,7 +69,7 @@ public class ToxicGasRoom extends SpecialRoom {
 			do {
 				cell = level.pointToCell(random(2));
 			} while (level.map[cell] != Terrain.EMPTY);
-			level.setTrap(new ToxicVent().reveal(), cell);
+			GroundItems.setTrap( level, new ToxicVent().reveal(), cell);
 			Blob.seed(cell, 12, ToxicGasSeed.class, level);
 			Painter.set(level, cell, Terrain.INACTIVE_TRAP);
 		}
@@ -99,12 +100,12 @@ public class ToxicGasRoom extends SpecialRoom {
 		level.drop(mainGold, furthestPos).type = Heap.Type.SKELETON;
 
 		for (int i = 0; i < 2; i++){
-			Item item = level.findPrizeItem(TrinketCatalyst.class);
+			Item item = GroundItems.findPrizeItem( level, TrinketCatalyst.class);
 			if (item == null) item = new Gold().random();
 			level.drop(item, goldPositions.remove(0)).type = Heap.Type.CHEST;
 		}
 
-		level.addItemToSpawn(new PotionOfPurity());
+		GroundItems.addItemToSpawn( level, new PotionOfPurity());
 
 		entrance().set( Door.Type.REGULAR );
 

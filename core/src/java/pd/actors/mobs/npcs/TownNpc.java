@@ -65,6 +65,7 @@ import pd.items.weapon.missiles.throwing.BottleFire;
 import pd.items.weapon.missiles.throwing.HoneyArrow;
 import pd.items.weapon.missiles.throwing.LynnDoll;
 import pd.items.weapon.missiles.throwing.MoneyBook;
+import pd.levels.GroundItems;
 import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.scenes.GameScene;
@@ -580,7 +581,7 @@ public class TownNpc extends NPC {
 			Plant.Seed seed = takeFirstAshWolfSeed();
 			if (seed != null) {
 				yell(Messages.get(key("yell1")));
-				if (Dungeon.level != null) Dungeon.level.plant(seed, Dungeon.hero.pos);
+				if (Dungeon.level != null) GroundItems.plant( Dungeon.level, seed, Dungeon.hero.pos);
 			} else {
 				yell(Messages.get(key("yell2")));
 			}

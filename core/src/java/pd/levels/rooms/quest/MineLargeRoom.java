@@ -26,6 +26,7 @@ import pd.actors.mobs.FungalSentry;
 import pd.actors.mobs.GnollGuard;
 import pd.actors.mobs.GnollSapper;
 import pd.actors.mobs.npcs.Blacksmith;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -159,7 +160,7 @@ public class MineLargeRoom extends CaveRoom {
 						|| level.pointToCell(r) == sapperPos
 						|| level.pointToCell(r) == guardPos);
 				Painter.set(level, r, Terrain.TRAP);
-				level.setTrap(new GnollRockfallTrap().reveal(), level.pointToCell(r));
+				GroundItems.setTrap( level, new GnollRockfallTrap().reveal(), level.pointToCell(r));
 			}
 
 			for (Point p : getPoints()){

@@ -32,6 +32,7 @@ import pd.actors.hero.HeroSubClass;
 import pd.effects.CellEmitter;
 import pd.effects.particles.LeafParticle;
 import pd.items.Gold;
+import pd.levels.GroundItems;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSpriteSheet;
 
@@ -53,7 +54,7 @@ public class Rotberry extends Plant {
 	
 	@Override
 	public void wither() {
-		Dungeon.level.uproot( pos );
+		GroundItems.uproot( Dungeon.level,  pos );
 		
 		if (Dungeon.level.heroFOV[pos]) {
 			CellEmitter.get( pos ).burst( LeafParticle.GENERAL, 6 );

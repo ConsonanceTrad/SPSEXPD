@@ -35,6 +35,7 @@ import pd.items.potions.PotionOfHaste;
 import pd.items.weapon.Weapon;
 import pd.journal.Bestiary;
 import pd.levels.FieldOfView;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -159,7 +160,7 @@ public class SentryRoom extends SpecialRoom {
 		Painter.set(level, treasurePos, Terrain.PEDESTAL);
 		level.drop( prize( level ), level.pointToCell(treasurePos) ).type = Heap.Type.CHEST;
 
-		level.addItemToSpawn(new PotionOfHaste());
+		GroundItems.addItemToSpawn( level, new PotionOfHaste());
 
 		entrance.set( Door.Type.REGULAR );
 	}
@@ -170,7 +171,7 @@ public class SentryRoom extends SpecialRoom {
 
 		//50% chance for prize item
 		if (Random.Int(2) == 0){
-			prize = level.findPrizeItem();
+			prize = GroundItems.findPrizeItem( level );
 			if (prize != null)
 				return prize;
 		}

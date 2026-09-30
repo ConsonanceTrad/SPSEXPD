@@ -25,6 +25,7 @@ import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.potions.PotionOfLiquidFlame;
+import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -67,7 +68,7 @@ public class StorageRoom extends SpecialRoom {
 		}
 
 		entrance.set( Door.Type.REGULAR );
-		level.addItemToSpawn( new PotionOfLiquidFlame() );
+		GroundItems.addItemToSpawn( level,  new PotionOfLiquidFlame() );
 	}
 
 	private ArrayList<Integer> cells(Level level, int terrain, boolean requireNoHeap) {
