@@ -12,6 +12,7 @@ import pd.effects.MagicMissile;
 import pd.items.Item;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.levels.Level;
+import pd.levels.Transitions;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
@@ -142,7 +143,7 @@ public class Pylon extends Artifact {
 			if (!ScrollOfTeleportation.teleportToLocation(hero, returnPos)) return false;
 			return true;
 		}
-		Level.beforeTransition();
+		Transitions.beforeTransition();
 		Invisibility.dispel();
 		InterlevelScene.mode = InterlevelScene.Mode.RETURN;
 		InterlevelScene.returnDepth = returnDepth;

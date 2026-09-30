@@ -126,6 +126,7 @@ import pd.items.weapon.melee.relic.NeptunusTrident;
 import pd.items.weapon.rockcode.Dpotion;
 import pd.items.weapon.rockcode.Gleaf;
 import pd.journal.Notes;
+import pd.levels.Transitions;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSpriteSheet;
 import pd.tiles.custom.SpsLegacyLevelVisual;
@@ -444,7 +445,7 @@ public final class SpsFixedLevelTest {
 				check(!level.entranceHasConnectedRoomAboveForTesting(), "盗贼追捕关入口顶部错误连通");
 				check(level.map[level.returnCellForTesting()] == Terrain.EMPTY_SP,
 						"盗贼追捕关旧版返回格地形错误");
-				check(level.getTransition(null).type
+				check(Transitions.get( level, null).type
 						== pd.levels.features.LevelTransition.Type.BRANCH_ENTRANCE,
 						"盗贼追捕关缺少支线返回入口");
 				level.createMobs();

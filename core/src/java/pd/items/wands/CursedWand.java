@@ -84,6 +84,7 @@ import pd.items.trinkets.WondrousResin;
 import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
+import pd.levels.Transitions;
 import pd.levels.traps.BurningTrap;
 import pd.levels.traps.ChillingTrap;
 import pd.levels.traps.CursingTrap;
@@ -763,7 +764,7 @@ public class CursedWand {
 				}
 				int depth = 1+Random.chances(depths);
 
-				Level.beforeTransition();
+				Transitions.beforeTransition();
 				InterlevelScene.mode = InterlevelScene.Mode.RETURN;
 				InterlevelScene.returnDepth = depth;
 				InterlevelScene.returnBranch = 0;

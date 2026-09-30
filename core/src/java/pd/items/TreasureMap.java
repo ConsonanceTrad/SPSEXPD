@@ -5,6 +5,7 @@ import pd.Dungeon;
 import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
 import pd.levels.Level;
+import pd.levels.Transitions;
 import pd.messages.Messages;
 import pd.scenes.InterlevelScene;
 import pd.sprites.ItemSprite;
@@ -72,7 +73,7 @@ public class TreasureMap extends Item {
 	}
 
 	private void transition(Hero hero, int depth, int branch, int pos) {
-		Level.beforeTransition();
+		Transitions.beforeTransition();
 		Invisibility.dispel();
 		hero.spend(TIME_TO_USE);
 		InterlevelScene.mode = InterlevelScene.Mode.RETURN;

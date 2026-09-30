@@ -36,6 +36,7 @@ import pd.effects.Pushing;
 import pd.items.armor.ClassArmor;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.levels.Level;
+import pd.levels.Transitions;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -181,7 +182,7 @@ public class WarpBeacon extends ArmorAbility {
 							}
 
 							//transition before dispel, to cancel out trap effects
-							Level.beforeTransition();
+							Transitions.beforeTransition();
 							Invisibility.dispel();
 							InterlevelScene.mode = InterlevelScene.Mode.RETURN;
 							InterlevelScene.returnDepth = tracker.depth;

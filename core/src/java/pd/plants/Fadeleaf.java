@@ -32,6 +32,7 @@ import pd.effects.Speck;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.items.weapon.missiles.arrows.SmokeFruit;
 import pd.levels.Level;
+import pd.levels.Transitions;
 import pd.levels.traps.Trap;
 import pd.scenes.InterlevelScene;
 import pd.sprites.ItemSpriteSheet;
@@ -53,7 +54,7 @@ public class Fadeleaf extends Plant {
 			
 			if (((Hero) ch).subClass == HeroSubClass.WARDEN && Dungeon.interfloorTeleportAllowed()){
 
-				Level.beforeTransition();
+				Transitions.beforeTransition();
 				InterlevelScene.mode = InterlevelScene.Mode.RETURN;
 				InterlevelScene.returnDepth = Math.max(1, (Dungeon.depth - 1));
 				InterlevelScene.returnBranch = 0;

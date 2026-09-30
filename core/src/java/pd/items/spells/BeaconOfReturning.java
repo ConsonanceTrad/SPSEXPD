@@ -35,6 +35,7 @@ import pd.items.scrolls.exotic.ScrollOfPassage;
 import pd.journal.Catalog;
 import pd.journal.Notes;
 import pd.levels.Level;
+import pd.levels.Transitions;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -203,7 +204,7 @@ public class BeaconOfReturning extends Spell {
 				return;
 			}
 
-			Level.beforeTransition();
+			Transitions.beforeTransition();
 			Invisibility.dispel();
 			InterlevelScene.mode = InterlevelScene.Mode.RETURN;
 			InterlevelScene.returnDepth = tracker.returnDepth;

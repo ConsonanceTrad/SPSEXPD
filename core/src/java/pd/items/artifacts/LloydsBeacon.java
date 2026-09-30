@@ -29,6 +29,7 @@ import pd.actors.mobs.Mob;
 import pd.items.Item;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.levels.Level;
+import pd.levels.Transitions;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -142,7 +143,7 @@ public class LloydsBeacon extends Item {
 				Dungeon.observe();
 				GameScene.updateFog();
 			} else {
-				Level.beforeTransition();
+				Transitions.beforeTransition();
 				InterlevelScene.mode = InterlevelScene.Mode.RETURN;
 				InterlevelScene.returnDepth = returnDepth;
 				InterlevelScene.returnBranch = 0;

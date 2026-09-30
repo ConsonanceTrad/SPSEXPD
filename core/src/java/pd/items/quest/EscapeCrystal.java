@@ -35,6 +35,7 @@ import pd.items.armor.Armor;
 import pd.items.wands.Wand;
 import pd.items.weapon.melee.MagesStaff;
 import pd.levels.Level;
+import pd.levels.Transitions;
 import pd.levels.VaultLevel;
 import pd.levels.features.LevelTransition;
 import pd.levels.rooms.quest.vault.VaultFinalRoom;
@@ -282,7 +283,7 @@ public class EscapeCrystal extends Item {
 		detachAll(Dungeon.hero.belongings.backpack);
 		if (!Imp.Quest.isOld()) Imp.Quest.complete(score);
 
-		Level.beforeTransition();
+		Transitions.beforeTransition();
 		InterlevelScene.curTransition = new LevelTransition(Dungeon.level,
 				Dungeon.hero.pos,
 				LevelTransition.Type.BRANCH_ENTRANCE,

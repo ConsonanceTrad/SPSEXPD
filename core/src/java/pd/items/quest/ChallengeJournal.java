@@ -16,6 +16,7 @@ import pd.items.Item;
 import pd.items.PocketBallFull;
 import pd.items.challengelists.ChallengeList;
 import pd.levels.Level;
+import pd.levels.Transitions;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.InterlevelScene;
@@ -125,7 +126,7 @@ public class ChallengeJournal extends Item {
 		returnPos = hero.pos;
 
 		PocketBallFull.removePet(hero);
-		Level.beforeTransition();
+		Transitions.beforeTransition();
 		Invisibility.dispel();
 		hero.spend(1f);
 
@@ -145,7 +146,7 @@ public class ChallengeJournal extends Item {
 		}
 
 		PocketBallFull.removePet(hero);
-		Level.beforeTransition();
+		Transitions.beforeTransition();
 		Invisibility.dispel();
 		hero.spend(1f);
 

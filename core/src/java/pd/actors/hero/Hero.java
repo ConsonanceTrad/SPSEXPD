@@ -232,6 +232,7 @@ import pd.levels.FieldOfView;
 import pd.levels.Level;
 import pd.levels.MiningLevel;
 import pd.levels.Terrain;
+import pd.levels.Transitions;
 import pd.levels.VaultLevel;
 import pd.levels.features.Chasm;
 import pd.levels.features.LevelTransition;
@@ -1449,7 +1450,7 @@ public class Hero extends Char {
 					}
 
 					//allow the hero to move between levels even if they can't collect the item
-					if (Dungeon.level.getTransition(pos) != null){
+					if (Transitions.get( Dungeon.level, pos) != null){
 						throwItems();
 					} else {
 						heap.sprite.drop();
@@ -1724,7 +1725,7 @@ public class Hero extends Char {
 	
 	private boolean actTransition(HeroAction.LvlTransition action ) {
 		int stairs = action.dst;
-		LevelTransition transition = Dungeon.level.getTransition(stairs);
+		LevelTransition transition = Transitions.get( Dungeon.level, stairs);
 
 		if (rooted) {
 			PixelScene.shake(1, 1f);
@@ -2373,12 +2374,12 @@ public class Hero extends Char {
 			
 			curAction = new HeroAction.Unlock( cell );
 			
-		} else if (Dungeon.level.getTransition(cell) != null
+		} else if (Transitions.get( Dungeon.level, cell) != null
 				//moving to a transition doesn't automatically trigger it when enemies are near
 				&& (visibleEnemies.size() == 0 || cell == pos)
 				&& !Dungeon.level.locked
 				&& !Dungeon.level.plants.containsKey(cell)
-				&& (Dungeon.depth < 26 || Dungeon.level.getTransition(cell).type == LevelTransition.Type.REGULAR_ENTRANCE) ) {
+				&& (Dungeon.depth < 26 || Transitions.get( Dungeon.level, cell).type == LevelTransition.Type.REGULAR_ENTRANCE) ) {
 
 			curAction = new HeroAction.LvlTransition( cell );
 			

@@ -24,6 +24,7 @@ package pd.items.scrolls.exotic;
 import pd.Dungeon;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.levels.Level;
+import pd.levels.Transitions;
 import pd.messages.Messages;
 import pd.scenes.InterlevelScene;
 import pd.sprites.ItemSpriteSheet;
@@ -50,7 +51,7 @@ public class ScrollOfPassage extends ExoticScroll {
 			
 		}
 
-		Level.beforeTransition();
+		Transitions.beforeTransition();
 		InterlevelScene.mode = InterlevelScene.Mode.RETURN;
 		InterlevelScene.returnDepth = Math.max(1, (Dungeon.depth - 1 - (Dungeon.depth-2)%5));
 		InterlevelScene.returnBranch = 0;

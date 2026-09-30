@@ -39,6 +39,7 @@ import pd.journal.Document;
 import pd.journal.Notes;
 import pd.levels.Level;
 import pd.levels.Terrain;
+import pd.levels.Transitions;
 import pd.levels.features.Chasm;
 import pd.levels.features.LevelTransition;
 import pd.levels.rooms.special.SpecialRoom;
@@ -678,7 +679,7 @@ public class InterlevelScene extends PixelScene {
 				level = Dungeon.newLevel();
 			}
 
-			LevelTransition destTransition = level.getTransition(destType);
+			LevelTransition destTransition = Transitions.get( level, destType);
 			curTransition = null;
 			Dungeon.switchLevel( level, destTransition.cell() );
 		}
@@ -738,7 +739,7 @@ public class InterlevelScene extends PixelScene {
 			level = Dungeon.newLevel();
 		}
 
-		LevelTransition destTransition = level.getTransition(destType);
+		LevelTransition destTransition = Transitions.get( level, destType);
 		curTransition = null;
 		Dungeon.switchLevel( level, destTransition.cell() );
 	}

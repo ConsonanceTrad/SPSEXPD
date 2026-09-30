@@ -7,6 +7,7 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.ShadowYog;
 import pd.items.quest.AdventureJournal;
 import pd.levels.Level;
+import pd.levels.Transitions;
 import pd.messages.Messages;
 import pd.scenes.InterlevelScene;
 import pd.sprites.ItemSprite;
@@ -73,7 +74,7 @@ public class Triforce extends Item {
 	}
 
 	private void transition(Hero hero, int depth, int branch, int pos) {
-		Level.beforeTransition();
+		Transitions.beforeTransition();
 		Invisibility.dispel();
 		hero.spend(TIME_TO_USE);
 		InterlevelScene.mode = InterlevelScene.Mode.RETURN;

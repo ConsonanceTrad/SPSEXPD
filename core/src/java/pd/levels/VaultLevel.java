@@ -85,6 +85,7 @@ import pd.items.wands.WandOfTransfusion;
 import pd.items.weapon.Weapon;
 import pd.items.weapon.missiles.darts.Dart;
 import pd.levels.GroundItems;
+import pd.levels.Transitions;
 import pd.levels.builders.Builder;
 import pd.levels.builders.GridBuilder;
 import pd.levels.features.LevelTransition;
@@ -578,7 +579,7 @@ public class VaultLevel extends CityLevel {
 		super.occupyCell(ch);
 		//extra check to ensure vault is left if quest is completed
 		if (ch == Dungeon.hero && (Imp.Quest.isCompleted() && !Imp.Quest.isOld())){
-			beforeTransition();
+			Transitions.beforeTransition();
 			InterlevelScene.curTransition = new LevelTransition(Dungeon.level,
 					Dungeon.hero.pos,
 					LevelTransition.Type.BRANCH_ENTRANCE,

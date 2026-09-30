@@ -42,6 +42,7 @@ import pd.items.weapon.melee.fusion.WarDrum;
 import pd.levels.AdventureLevel;
 import pd.levels.Level;
 import pd.levels.SpsSokobanLevel;
+import pd.levels.Transitions;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.InterlevelScene;
@@ -243,7 +244,7 @@ public class AdventureJournal extends Item {
 		returnBranch = Dungeon.branch;
 		returnPos = hero.pos;
 		PocketBallFull.removePet(hero);
-		Level.beforeTransition();
+		Transitions.beforeTransition();
 		Invisibility.dispel();
 		hero.spend(1f);
 
@@ -264,7 +265,7 @@ public class AdventureJournal extends Item {
 		}
 
 		PocketBallFull.removePet(hero);
-		Level.beforeTransition();
+		Transitions.beforeTransition();
 		Invisibility.dispel();
 		hero.spend(1f);
 		InterlevelScene.mode = InterlevelScene.Mode.RETURN;

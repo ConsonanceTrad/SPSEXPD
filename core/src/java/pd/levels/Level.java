@@ -96,6 +96,7 @@ import pd.items.trinkets.TrinketCatalyst;
 import pd.items.wands.WandOfRegrowth;
 import pd.items.wands.WandOfWarding;
 import pd.items.weapon.missiles.HeavyBoomerang;
+import pd.levels.Transitions;
 import pd.levels.features.Chasm;
 import pd.levels.features.DewBlessRoom;
 import pd.levels.features.Door;
@@ -649,7 +650,7 @@ public abstract class Level implements Bundlable {
 	abstract protected void createItems();
 
 	public int entrance(){
-		LevelTransition l = getTransition(null);
+		LevelTransition l = Transitions.get( this, null);
 		if (l != null){
 			return l.cell();
 		}
@@ -657,39 +658,13 @@ public abstract class Level implements Bundlable {
 	}
 
 	public int exit(){
-		LevelTransition l = getTransition(LevelTransition.Type.REGULAR_EXIT);
+		LevelTransition l = Transitions.get( this, LevelTransition.Type.REGULAR_EXIT);
 		if (l != null){
 			return l.cell();
 		}
 		return 0;
 	}
 
-	public LevelTransition getTransition(LevelTransition.Type type){
-		if (transitions.isEmpty()){
-			return null;
-		}
-		for (LevelTransition transition : transitions){
-			//if we don't specify a type, prefer to return any entrance
-			if (type == null &&
-					(transition.type == LevelTransition.Type.REGULAR_ENTRANCE
-							|| transition.type == LevelTransition.Type.BRANCH_ENTRANCE
-							|| transition.type == LevelTransition.Type.SURFACE)){
-				return transition;
-			} else if (transition.type == type){
-				return transition;
-			}
-		}
-		return type != null ? getTransition(null) : transitions.get(0);
-	}
-
-	public LevelTransition getTransition(int cell){
-		for (LevelTransition transition : transitions){
-			if (transition.inside(cell)){
-				return transition;
-			}
-		}
-		return null;
-	}
 
 	//returns true if we immediately transition, false otherwise
 	public boolean activateTransition(Hero hero, LevelTransition transition){
@@ -715,7 +690,7 @@ public abstract class Level implements Bundlable {
 			Statistics.previousFloorMoves = 0;
 		}
 
-		beforeTransition();
+		Transitions.beforeTransition();
 		InterlevelScene.curTransition = transition;
 		if (transition.type == LevelTransition.Type.REGULAR_EXIT
 				|| transition.type == LevelTransition.Type.BRANCH_EXIT) {
@@ -728,38 +703,6 @@ public abstract class Level implements Bundlable {
 	}
 
 	//some buff effects have special logic or are cancelled from the hero before transitioning levels
-	public static void beforeTransition(){
-
-		//time freeze effects need to resolve their pressed cells before transitioning
-		TimekeepersHourglass.timeFreeze timeFreeze = Dungeon.hero.buff(TimekeepersHourglass.timeFreeze.class);
-		if (timeFreeze != null) timeFreeze.disarmPresses();
-		Swiftthistle.TimeBubble timeBubble = Dungeon.hero.buff(Swiftthistle.TimeBubble.class);
-		if (timeBubble != null) timeBubble.disarmPresses();
-
-		//iron stomach and challenge arena do not persist between floors
-		Talent.WarriorFoodImmunity foodImmune = Dungeon.hero.buff(Talent.WarriorFoodImmunity.class);
-		if (foodImmune != null) foodImmune.detach();
-		ScrollOfChallenge.ChallengeArena arena = Dungeon.hero.buff(ScrollOfChallenge.ChallengeArena.class);
-		if (arena != null) arena.detach();
-		//awareness also doesn't, honestly it's weird that it's a buff
-		Awareness awareness = Dungeon.hero.buff(Awareness.class);
-		if (awareness != null) awareness.detach();
-
-		Char ally = Stasis.getStasisAlly();
-		if (Char.hasProp(ally, Char.Property.IMMOVABLE)){
-			Dungeon.hero.buff(Stasis.StasisBuff.class).act();
-			GLog.w(Messages.get(Stasis.StasisBuff.class, "left_behind"));
-		}
-
-		//spend the hero's partial turns,  so the hero cannot take partial turns between floors
-		Dungeon.hero.spendToWhole();
-		for (Actor a : Actor.all()){
-			//also adjust any other actors that are now ahead of the hero due to this
-			if (a.cooldown() < Dungeon.hero.cooldown()){
-				a.spendToWhole();
-			}
-		}
-	}
 
 	public void seal(){
 		if (!locked) {

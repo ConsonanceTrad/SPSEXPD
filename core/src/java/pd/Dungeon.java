@@ -114,6 +114,7 @@ import pd.levels.TenguDenLevel;
 import pd.levels.ThiefBossLevel;
 import pd.levels.ThiefCatchLevel;
 import pd.levels.TownLevel;
+import pd.levels.Transitions;
 import pd.levels.TriangleCLevel;
 import pd.levels.TrianglePLevel;
 import pd.levels.TriangleWLevel;
@@ -650,14 +651,14 @@ public class Dungeon {
 
 		//Position of -2 specifically means trying to place the hero the exit
 		if (pos == -2){
-			LevelTransition t = level.getTransition(LevelTransition.Type.REGULAR_EXIT);
+			LevelTransition t = Transitions.get( level, LevelTransition.Type.REGULAR_EXIT);
 			if (t != null) pos = t.cell();
 		}
 
 		//Place hero at the entrance if they are out of the map (often used for pos = -1)
 		// or if they are in invalid terrain terrain (except in the mining level, where that happens normally)
 		if (pos < 0 || pos >= level.length() || level.invalidHeroPos(pos)){
-			pos = level.getTransition(null).cell();
+			pos = Transitions.get( level, null).cell();
 		}
 		
 		PathFinder.setMapSize(level.width(), level.height());
