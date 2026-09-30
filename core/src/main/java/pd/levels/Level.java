@@ -115,7 +115,6 @@ import pd.tiles.CustomTilemap;
 import pd.tiles.custom.SpsFeatureVisual;
 import pd.tiles.custom.SpsLegacyLevelVisual;
 import pd.utils.GLog;
-import pd.windows.WndDescend;
 import pd.windows.WndMessage;
 import com.watabou.noosa.Game;
 import com.watabou.utils.Callback;
@@ -709,21 +708,9 @@ public abstract class Level implements Bundlable {
 			return false;
 		}
 
-		//SPS: 露珠清层进度——下楼梯前弹出确认框（0.9.8 清层流程），确认后置 forceDone 再次下楼即清层
-		//注意：WndDescend 构造会测量文字，必须切回渲染线程（同上）
+		//SPS: 露珠清层——直接下楼即标记本层已清（已按用户裁决移除下楼前的露珠状态确认框）
 		if (transition.type == LevelTransition.Type.REGULAR_EXIT
-				&& shouldWarnSpsDescend(hero)) {
-			Game.runOnRenderThread(new Callback() {
-				@Override
-				public void call() {
-					GameScene.show( new WndDescend() );
-				}
-			});
-			return false;
-		}
-
-		if (transition.type == LevelTransition.Type.REGULAR_EXIT
-				&& forceDone && isSpsClearable() && !cleared) {
+				&& isSpsClearable() && !cleared) {
 			cleared = true;
 			Statistics.previousFloorMoves = 0;
 		}
@@ -886,7 +873,7 @@ public abstract class Level implements Bundlable {
 					if ((terrain == Terrain.EMPTY || terrain == Terrain.EMPTY_DECO
 							|| terrain == Terrain.GRASS || terrain == Terrain.EMBERS)
 							&& traps.get(cell) == null && plants.get(cell) == null
-							&& getTransition(cell) == null) {
+							&& !insideTransition(cell)) {
 						candidates.add(cell);
 					}
 				}
@@ -901,14 +888,19 @@ public abstract class Level implements Bundlable {
 		}
 	}
 
+	//本关卡内的地形查询不能走 getTransition(cell)/LevelTransition.inside(int)：
+	//二者按 Dungeon.level 换算坐标，而本方法在 Level.create() 期间执行，此时 Dungeon.level 尚未指向本关卡
+	private boolean insideTransition(int cell) {
+		Point p = cellToPoint(cell);
+		for (LevelTransition transition : transitions) {
+			if (transition.inside(p)) return true;
+		}
+		return false;
+	}
+
 	private boolean isSpsClearable() {
 		return Dungeon.branch == 0 && Dungeon.depth > 1 && Dungeon.depth < 25
 				&& !Dungeon.bossLevel() && !(this instanceof BetweenLevel);
-	}
-
-	private boolean shouldWarnSpsDescend(Hero hero) {
-		if (forceDone || !(Dungeon.dewDraw || Dungeon.dewWater) || Dungeon.branch != 0) return false;
-		return hasSpsDew() || hero.buff(Dewcharge.class) != null || (isSpsClearable() && !cleared);
 	}
 
 	public boolean hasSpsDew() {

@@ -706,15 +706,13 @@ tasks.register('verifySpsMechanics') {
 		['bundle.put( CURRENT_MOVES, currentMoves )', 'bundle.put( CLEARED, cleared )',
 		 'bundle.put( FORCE_DONE, forceDone )', 'markSpsOriginalMobs()',
 		 'hasSpsOriginalMobs()', 'spsDewPar()', 'placeSpsDewBless()',
-		 'Dungeon.shopOnLevel()', 'new WndDescend()', 'hasSpsDew()'].each {
+		 'Dungeon.shopOnLevel()', 'hasSpsDew()'].each {
 			requireText(level, it, '露珠清层进度')
 		}
 		def terrain = readSource('levels/Terrain.java')
 		requireText(terrain, 'DEW_BLESS', '露珠神像地形')
 		def dewBless = readSource('levels/features/DewBlessRoom.java')
 		requireText(dewBless, 'Buff.affect((Hero) ch, Dewcharge.class, 720f)', '露珠神像祝福')
-		def descend = readSource('windows/WndDescend.java')
-		requireText(descend, 'Dungeon.level.forceDone = true', '露珠路线离层确认')
 		requireText(between, 'new SpsTentRoom()', '过渡层帐篷房')
 		def tentRoom = readSource('levels/rooms/special/SpsTentRoom.java')
 		['Terrain.TENT', 'Terrain.IRON_MAKER', 'Terrain.ALCHEMY', 'SpsFeatureVisual.TENT',
