@@ -319,9 +319,10 @@ public class HeroSelectScene extends PixelScene {
 		} else {
 			background.visible = false;
 
-			//SPS: 每行固定 3 个（原按"两行"分行，窄屏下按钮过密易被遮盖）
-			int cols = 3;
-			int rows = (int)Math.ceil(heroBtns.size() / (float)cols);
+			//SPS: 竖版沿用上游的"两行分列"算法（职业数 > 7 时 2 行）。
+			//原实现的换行判断缺少 count 重置，8 个职业时第 5 个起不会换行、向右溢出，此处补上
+			int rows = heroBtns.size() > 7 ? 2 : 1;
+			int cols = (int)Math.ceil(heroBtns.size() / (float)rows);
 			int btnWidth = Math.max(32, Math.min(HeroBtn.MIN_WIDTH + 15, (int)(w / cols)));
 			float curX = insets.left + (w - btnWidth * cols) / 2f;
 			float rowStart = curX;
@@ -334,6 +335,7 @@ public class HeroSelectScene extends PixelScene {
 				if (count == cols) {
 					curX = rowStart;
 					curY += HeroBtn.HEIGHT;
+					count = 0;
 				}
 			}
 
