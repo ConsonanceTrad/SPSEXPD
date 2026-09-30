@@ -256,8 +256,10 @@ public class HeroSelectScene extends PixelScene {
 				btnHeight += 6;
 			}
 
-			int cols = (int)Math.ceil(heroBtns.size()/2f);
-			float curX = insets.left + (leftArea - btnWidth * cols + (cols-1))/2f;
+			//SPS: 每行固定 3 个（原按"职业数对半"分行，左侧栏内会溢出并被遮盖）
+			int cols = 3;
+			float rowStartX = insets.left + (leftArea - btnWidth * cols + (cols-1))/2f;
+			float curX = rowStartX;
 			float curY = title.bottom() + uiSpacing;
 
 			int count = 0;
@@ -266,12 +268,9 @@ public class HeroSelectScene extends PixelScene {
 				align(button);
 				curX += btnWidth+1;
 				count++;
-				if (count >= (1+heroBtns.size())/2){
-					curX -= btnWidth*count + count;
+				if (count == cols){
+					curX = rowStartX;
 					curY += btnHeight+1;
-					if (heroBtns.size()%2 != 0){
-						curX += btnWidth/2f;
-					}
 					count = 0;
 				}
 			}
@@ -320,8 +319,9 @@ public class HeroSelectScene extends PixelScene {
 		} else {
 			background.visible = false;
 
-			int rows = heroBtns.size() > 7 ? 2 : 1;
-			int cols = (int)Math.ceil(heroBtns.size() / (float)rows);
+			//SPS: 每行固定 3 个（原按"两行"分行，窄屏下按钮过密易被遮盖）
+			int cols = 3;
+			int rows = (int)Math.ceil(heroBtns.size() / (float)cols);
 			int btnWidth = Math.max(32, Math.min(HeroBtn.MIN_WIDTH + 15, (int)(w / cols)));
 			float curX = insets.left + (w - btnWidth * cols) / 2f;
 			float rowStart = curX;
