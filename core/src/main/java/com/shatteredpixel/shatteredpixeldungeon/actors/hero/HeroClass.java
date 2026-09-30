@@ -25,6 +25,7 @@ import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Badges;
 import com.shatteredpixel.shatteredpixeldungeon.Challenges;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
+import com.shatteredpixel.shatteredpixeldungeon.GiftUnlocks;
 import com.shatteredpixel.shatteredpixeldungeon.QuickSlot;
 import com.shatteredpixel.shatteredpixeldungeon.SPDSettings;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Buff;
@@ -336,6 +337,10 @@ public enum HeroClass {
 			chains.activate(hero);
 		}
 		hero.updateHT(true);
+		//SPS: 礼物商店开局强化（对照 SPS 0.9.9 HeroClass.initGift，需已购总开关 START）
+		if (GiftUnlocks.isUnlocked( GiftUnlocks.GiftUnlock.START )) {
+			initGift( hero );
+		}
 		applySpsChallengeStarts(hero);
 		SpsTestTimeLoadout.apply(hero);
 
@@ -348,6 +353,62 @@ public enum HeroClass {
 			}
 		}
 
+	}
+
+	/**
+	 * SPS 礼物商店开局强化（对照 SPS 0.9.9 HeroClass.initGift）。
+	 * 属性与初始物品按已购解锁逐项发放；HT 计入 HTBoost 后由 initHero 统一 updateHT。
+	 */
+	private static void initGift( Hero hero ) {
+		hero.HTBoost += GiftUnlocks.htGiftBonus();
+		hero.improveAttackSkill( GiftUnlocks.hitGiftBonus() );
+		hero.improveDefenseSkill( GiftUnlocks.evadeGiftBonus() );
+		hero.improveMagicSkill( GiftUnlocks.magicGiftBonus() );
+		Dungeon.gold += GiftUnlocks.goldGiftBonus();
+		hero.exp += GiftUnlocks.expGiftBonus();
+		SPDSettings.sCoinAdd( GiftUnlocks.sCoinGiftBonus() );
+
+		//初始幸运：以 1 级幸运徽章计数（LuckyBadge.luckBonus 按等级计入）
+		if (GiftUnlocks.luckyGiftBonus() > 0) {
+			com.shatteredpixel.shatteredpixeldungeon.items.misc.LuckyBadge badge =
+					new com.shatteredpixel.shatteredpixeldungeon.items.misc.LuckyBadge();
+			badge.identify().upgrade( GiftUnlocks.luckyGiftBonus() );
+			badge.collect();
+		}
+
+		for (int i = 0; i < GiftUnlocks.seedGiftCount(); i++) {
+			Generator.random( Generator.Category.SEED ).collect();
+		}
+		if (GiftUnlocks.plantGiftCount() > 0) {
+			new com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.buildblock.PlantPotBlock( 1 ).identify().collect();
+		}
+		if (GiftUnlocks.weaponGiftCount() > 0) {
+			Generator.random( Generator.Category.MELEEWEAPON ).uncurse().identify().upgrade( 1 ).collect();
+		}
+		if (GiftUnlocks.armorGiftCount() > 0) {
+			Generator.random( Generator.Category.ARMOR ).uncurse().identify().upgrade( 1 ).collect();
+		}
+		if (GiftUnlocks.rocketGiftCount() > 0) {
+			new com.shatteredpixel.shatteredpixeldungeon.items.weapon.missiles.fusion.RocketMissile().identify().collect();
+		}
+		if (GiftUnlocks.ringGiftCount() > 0) {
+			Generator.random( Generator.Category.RING ).uncurse().identify().degrade( 10 ).collect();
+		}
+		if (GiftUnlocks.artifactGiftCount() > 0) {
+			new com.shatteredpixel.shatteredpixeldungeon.items.artifacts.fusion.NoomlinCrown().identify().collect();
+		}
+		if (GiftUnlocks.wandGiftCount() > 0) {
+			new WandOfTest().identify().collect();
+		}
+		if (GiftUnlocks.robotGiftCount() > 0) {
+			new com.shatteredpixel.shatteredpixeldungeon.items.summon.ChinaMech().identify().collect();
+		}
+		if (GiftUnlocks.artItemGiftCount() > 0) {
+			new com.shatteredpixel.shatteredpixeldungeon.items.sellitem.JumperDancer().identify().collect();
+		}
+		for (int i = 0; i < GiftUnlocks.upgradeGiftCount(); i++) {
+			new ScrollOfUpgrade().collect();
+		}
 	}
 
 	private static void applySpsChallengeStarts(Hero hero) {

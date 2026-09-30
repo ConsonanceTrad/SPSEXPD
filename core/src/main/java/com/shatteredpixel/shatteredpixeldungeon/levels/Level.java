@@ -709,6 +709,19 @@ public abstract class Level implements Bundlable {
 			return false;
 		}
 
+		//SPS: 露珠清层进度——下楼梯前弹出确认框（0.9.8 清层流程），确认后置 forceDone 再次下楼即清层
+		//注意：WndDescend 构造会测量文字，必须切回渲染线程（同上）
+		if (transition.type == LevelTransition.Type.REGULAR_EXIT
+				&& shouldWarnSpsDescend(hero)) {
+			Game.runOnRenderThread(new Callback() {
+				@Override
+				public void call() {
+					GameScene.show( new WndDescend() );
+				}
+			});
+			return false;
+		}
+
 		if (transition.type == LevelTransition.Type.REGULAR_EXIT
 				&& forceDone && isSpsClearable() && !cleared) {
 			cleared = true;

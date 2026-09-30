@@ -21,21 +21,37 @@
 
 package com.shatteredpixel.shatteredpixeldungeon.ui;
 
+import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
+import com.shatteredpixel.shatteredpixeldungeon.SPDSettings;
+import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
+import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.PixelScene;
+import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
+import com.shatteredpixel.shatteredpixeldungeon.windows.WndMessage;
+import com.shatteredpixel.shatteredpixeldungeon.windows.WndOptions;
+import com.watabou.input.PointerEvent;
 import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.Game;
+import com.watabou.noosa.PointerArea;
+import com.watabou.noosa.audio.Sample;
 import com.watabou.noosa.ui.Component;
+import com.watabou.utils.Random;
 
 public class CurrencyIndicator extends Component {
 
 	private static final float TIME	= 2f;
-	
+
+	//SPS: 金币兑 S金比例（用户裁决 2026-09-30）：2333 金币兑换 1 S金，整除后余数留在金币。
+	public static final int SC_EXCHANGE_RATE = 2333;
+
 	private int lastGold = 0;
 	private int lastEnergy = 0;
 	
 	private BitmapText gold;
 	private BitmapText energy;
+
+	private PointerArea goldTouch;
 	
 	private float goldTime;
 	private float energyTime;
@@ -55,10 +71,19 @@ public class CurrencyIndicator extends Component {
 		energy.measure();
 		energy.hardlight( 0x44CCFF );
 		add( energy );
+
+		//SPS: 金币行点击兑换 S金（2333:1）。可见时拦截点击，避免穿透到背包按钮。
+		goldTouch = new PointerArea( 0, 0, 0, 0 ) {
+			@Override
+			protected void onClick( PointerEvent event ) {
+				onGoldClick();
+			}
+		};
+		add( goldTouch );
 		
 		gold.visible = energy.visible = false;
 	}
-	
+
 	@Override
 	protected void layout() {
 		gold.x = x+1;
@@ -70,6 +95,12 @@ public class CurrencyIndicator extends Component {
 		} else {
 			energy.y = top() + 1;
 		}
+
+		//点击区覆盖金币数字所在行；不可见时由 update 关闭拦截
+		goldTouch.x = x;
+		goldTouch.y = top();
+		goldTouch.width = width;
+		goldTouch.height = 12;
 	}
 	
 	@Override
@@ -123,7 +154,8 @@ public class CurrencyIndicator extends Component {
 			layout();
 		}
 
-		if (showGold){
+		//SPS: 金币可兑换 S金时保持显示（可发现性），其余维持 2 秒淡出
+		if (showGold || Dungeon.gold >= SC_EXCHANGE_RATE){
 			if (!gold.visible){
 				gold.visible = true;
 				layout();
@@ -131,5 +163,40 @@ public class CurrencyIndicator extends Component {
 			goldTime = TIME/2;
 		}
 
+		//点击拦截跟随金币显示状态：隐藏时点击穿透到背包按钮
+		goldTouch.active = gold.visible;
+
+	}
+
+	//SPS: 点击金币 → 确认后按 2333:1 把金币兑换为全局 S金
+	private void onGoldClick() {
+		if (Dungeon.hero == null || !Dungeon.hero.isAlive()) return;
+
+		int sCoin = sCoinForGold( Dungeon.gold );
+		if (sCoin <= 0) {
+			GameScene.show( new WndMessage( Messages.get( this, "not_enough", SC_EXCHANGE_RATE ) ) );
+			return;
+		}
+		final int spend = sCoin * SC_EXCHANGE_RATE;
+		GameScene.show( new WndOptions(
+				Messages.get( this, "exchange_title" ),
+				Messages.get( this, "exchange_body", spend, sCoin ),
+				Messages.get( this, "exchange_confirm" ),
+				Messages.get( this, "cancel" ) ) {
+			@Override
+			protected void onSelect( int index ) {
+				if (index != 0) return;
+				if (Dungeon.gold < spend) return;
+				Dungeon.gold -= spend;
+				SPDSettings.sCoinAdd( sCoin );
+				GLog.p( Messages.get( CurrencyIndicator.class, "exchange_ok", spend, sCoin ) );
+				Sample.INSTANCE.play( Assets.Sounds.GOLD, 1, 1, Random.Float( 0.9f, 1.1f ) );
+			}
+		} );
+	}
+
+	/** 按 2333:1 计算可兑换的 S金数量（整除，余数留在金币）。 */
+	public static int sCoinForGold( int gold ) {
+		return gold < SC_EXCHANGE_RATE ? 0 : gold / SC_EXCHANGE_RATE;
 	}
 }

@@ -74,6 +74,8 @@ public class TitleScene extends PixelScene {
 	private StyledButton btnRankings;
 	//SPS: 关于/日志收敛为左上角小图标
 	private IconButton btnJournal;
+	//SPS: 礼物商店（S金购买永久强化解锁，用户裁决 2026-09-30）
+	private StyledButton btnGiftShop;
 	private StyledButton btnChanges;
 	private StyledButton btnSettings;
 	private IconButton btnAbout;
@@ -211,6 +213,16 @@ public class TitleScene extends PixelScene {
 		};
 		add(btnJournal);
 
+		//SPS: 礼物商店入口（用户裁决 2026-09-30：放在「改动」行左侧）
+		btnGiftShop = new StyledButton(GREY_TR, Messages.get(this, "giftshop")){
+			@Override
+			protected void onClick() {
+				ShatteredPixelDungeon.switchNoFade( GiftShopScene.class );
+			}
+		};
+		btnGiftShop.icon(Icons.get(Icons.BADGES));
+		add(btnGiftShop);
+
 		btnChanges = new ChangesButton(GREY_TR, Messages.get(this, "changes"));
 		btnChanges.icon(Icons.get(Icons.CHANGES));
 		add(btnChanges);
@@ -243,28 +255,27 @@ public class TitleScene extends PixelScene {
 		align(btnAbout);
 
 		if (landscape()) {
-			float third = (buttonAreaWidth - 4) / 3f;
 			float rowTop = insets.top + topRegion + GAP / 2f;
-			//SPS: 有存档时继续游戏与开始游戏并排第一行（继续在左）
+			float halfLand = (buttonAreaWidth - 2) / 2f;
+			//SPS: 有存档时继续游戏与开始游戏各占半宽、占满第一行（用户裁决 2026-09-30）
 			if (btnContinue.visible) {
-				btnContinue.setRect(btnAreaLeft, rowTop, third, BTN_HEIGHT);
+				btnContinue.setRect(btnAreaLeft, rowTop, halfLand, BTN_HEIGHT);
 				align(btnContinue);
-				btnPlay.setRect(btnContinue.right()+2, rowTop, third, BTN_HEIGHT);
+				btnPlay.setRect(btnContinue.right()+2, rowTop, halfLand, BTN_HEIGHT);
 				align(btnPlay);
-				btnSupport.setRect(btnPlay.right()+2, rowTop, third, BTN_HEIGHT);
-				align(btnSupport);
 			} else {
-				btnPlay.setRect(btnAreaLeft, rowTop, third, BTN_HEIGHT);
+				btnPlay.setRect(btnAreaLeft, rowTop, buttonAreaWidth, BTN_HEIGHT);
 				align(btnPlay);
-				btnSupport.setRect(btnPlay.right()+2, rowTop, third, BTN_HEIGHT);
-				align(btnSupport);
-				btnRankings.setRect(btnSupport.right()+2, rowTop, third, BTN_HEIGHT);
-				align(btnRankings);
 			}
 			float row2 = rowTop + BTN_HEIGHT + GAP;
-			btnRankings.setRect(btnAreaLeft, row2, buttonAreaWidth, BTN_HEIGHT);
+			btnSupport.setRect(btnAreaLeft, row2, halfLand, BTN_HEIGHT);
+			align(btnSupport);
+			btnRankings.setRect(btnSupport.right()+2, row2, halfLand, BTN_HEIGHT);
 			align(btnRankings);
-			btnChanges.setRect(btnAreaLeft, btnRankings.bottom() + GAP, buttonAreaWidth, BTN_HEIGHT);
+			//SPS: 礼物商店在「改动」行左侧，各占半宽
+			btnGiftShop.setRect(btnAreaLeft, btnRankings.bottom() + GAP, halfLand, BTN_HEIGHT);
+			align(btnGiftShop);
+			btnChanges.setRect(btnGiftShop.right()+2, btnGiftShop.top(), halfLand, BTN_HEIGHT);
 			align(btnChanges);
 			btnSettings.setRect(btnAreaLeft, btnChanges.bottom() + GAP, buttonAreaWidth, BTN_HEIGHT);
 			align(btnSettings);
@@ -285,7 +296,10 @@ public class TitleScene extends PixelScene {
 			align(btnSupport);
 			btnRankings.setRect(btnAreaLeft, btnSupport.bottom() + GAP, buttonAreaWidth, BTN_HEIGHT);
 			align(btnRankings);
-			btnChanges.setRect(btnAreaLeft, btnRankings.bottom() + GAP, buttonAreaWidth, BTN_HEIGHT);
+			//SPS: 礼物商店在「改动」行左侧，各占半宽
+			btnGiftShop.setRect(btnAreaLeft, btnRankings.bottom() + GAP, half, BTN_HEIGHT);
+			align(btnGiftShop);
+			btnChanges.setRect(btnGiftShop.right()+2, btnGiftShop.top(), half, BTN_HEIGHT);
 			align(btnChanges);
 			btnSettings.setRect(btnAreaLeft, btnChanges.bottom() + GAP, buttonAreaWidth, BTN_HEIGHT);
 			align(btnSettings);
@@ -338,6 +352,7 @@ public class TitleScene extends PixelScene {
 		btnSupport.enable(alpha != 0);
 		btnRankings.enable(alpha != 0);
 		btnJournal.enable(alpha != 0);
+		btnGiftShop.enable(alpha != 0);
 		btnChanges.enable(alpha != 0);
 		btnSettings.enable(alpha != 0);
 		btnAbout.enable(alpha != 0);
@@ -346,6 +361,7 @@ public class TitleScene extends PixelScene {
 		btnSupport.alpha(alpha);
 		btnRankings.alpha(alpha);
 		btnJournal.visible = alpha > 0;   //IconButton 无 alpha(float)，用显隐跟随淡出
+		btnGiftShop.alpha(alpha);
 		btnChanges.alpha(alpha);
 		btnSettings.alpha(alpha);
 		btnAbout.visible = alpha > 0;

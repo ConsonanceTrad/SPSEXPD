@@ -1565,6 +1565,14 @@ public class ItemSpriteSheet {
 		assignItemRect(NOOMLIN_CROWN, 16, 16);
 	}
 
+	//SPS: 0.9.9 礼物商店奖励物品（原 20 列图集导入，ImportChinaMechSprites）
+	public static final int SPS_CHINA_MECH =                             xy(8, 61);
+	public static final int SPS_JUMPER_DANCER =                          xy(9, 61);
+	static {
+		assignItemRect(SPS_CHINA_MECH, 16, 16);
+		assignItemRect(SPS_JUMPER_DANCER, 16, 16);
+	}
+
 	// Original SPS-PD medicine sprites from the legacy 20-column atlas.
 	private static final int SPS_LEGACY_MEDICINES = xy(1, 62);
 	public static final int MUSHROOM_LANTERN = SPS_LEGACY_MEDICINES;

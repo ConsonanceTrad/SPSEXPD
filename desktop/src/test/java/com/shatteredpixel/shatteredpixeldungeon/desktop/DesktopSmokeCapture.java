@@ -14,6 +14,7 @@ import com.shatteredpixel.shatteredpixeldungeon.SPDSettings;
 import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.AlchemyScene;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
+import com.shatteredpixel.shatteredpixeldungeon.scenes.GiftShopScene;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.InterlevelScene;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.TitleScene;
 import com.watabou.noosa.Game;
@@ -60,6 +61,7 @@ public final class DesktopSmokeCapture {
 		private final String output;
 		private int stableFrames;
 		private boolean alchemyRequested;
+		private boolean giftShopRequested;
 
 		SmokeGame(String mode, String output) {
 			super(prepare(mode));
@@ -94,8 +96,19 @@ public final class DesktopSmokeCapture {
 				}
 				return;
 			}
+			//SPS: 礼物商店烟测——标题稳定后切入 GiftShopScene 截图
+			if ("giftshop".equals(mode) && !giftShopRequested) {
+				stableFrames = scene() instanceof TitleScene ? stableFrames + 1 : 0;
+				if (stableFrames == 30) {
+					giftShopRequested = true;
+					stableFrames = 0;
+					Game.switchScene(GiftShopScene.class);
+				}
+				return;
+			}
 			boolean ready;
 			if ("alchemy".equals(mode)) ready = scene() instanceof AlchemyScene;
+			else if ("giftshop".equals(mode)) ready = scene() instanceof GiftShopScene;
 			else ready = "tutorial".equals(mode) ? scene() instanceof GameScene : scene() instanceof TitleScene;
 			stableFrames = ready ? stableFrames + 1 : 0;
 			if (stableFrames == 90) {

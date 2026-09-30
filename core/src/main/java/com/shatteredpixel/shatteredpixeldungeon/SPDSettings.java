@@ -166,7 +166,17 @@ public class SPDSettings extends GameSettings {
 	public static void quickslotsRight( int value ){ put( KEY_QSLOT_RIGHT, Math.max( 0, Math.min( 4, value ) ) ); }
 
 	public static int quickslotsRight(){ return Math.max( 0, Math.min( 4, getInt( KEY_QSLOT_RIGHT, 0 ) ) ); }
-	
+
+	//SPS: S金全局钱包（用户裁决 2026-09-30）：金币经局内金币图标按 2333:1 兑换为 S金，
+	//S金在标题画面礼物商店购买永久强化解锁。跨存档永久有效，不随单局结束清零。
+	public static final String KEY_S_COIN = "scoin";
+
+	public static void sCoinAdd( int value ){ if (value > 0) put( KEY_S_COIN, sCoin() + value ); }
+
+	public static void sCoinSpend( int value ){ if (value > 0) put( KEY_S_COIN, Math.max( 0, sCoin() - value ) ); }
+
+	public static int sCoin(){ return Math.max( 0, getInt( KEY_S_COIN, 0 ) ); }
+
 	public static void flipToolbar( boolean value) {
 		put(KEY_FLIPTOOLBAR, value );
 	}
