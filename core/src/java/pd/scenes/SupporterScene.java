@@ -128,9 +128,16 @@ public class SupporterScene extends PixelScene {
 				linkUrl = "https://www.patreon.com/ShatteredPixel?utm_source=shatteredpd&utm_medium=supporter_page&utm_campaign=ingame_link";
 		}
 
+		//SPS: 正文区可用高度（标签栏与底部按钮之外）
+		float msgMaxHeight = h - 40 - (linkLabel != null ? BTN_HEIGHT + GAP : 0);
+
 		SupporterMessage msg = new SupporterMessage();
-		//SPS: 宽度留出滚动条与裁剪余量，避免长行被滚动区右边缘裁掉
-		msg.setSize(elementWidth - 4, 0);
+		//SPS: 先按完整宽度排版；只有内容确实超出可视高度、需要滚动条时，
+		//才让出滚动条的 4px 并重排 —— 否则短内容会白占宽度、把正文框挤偏
+		msg.setSize(elementWidth, 0);
+		if (msg.height() > msgMaxHeight) {
+			msg.setSize(elementWidth - 4, 0);
+		}
 
 		ScrollPane msgPane = new ScrollPane(msg);
 		add(msgPane);
@@ -159,7 +166,7 @@ public class SupporterScene extends PixelScene {
 		}
 
 		//SPS: 正文区高度封顶，内容过长时在区域内部滚动（矮屏/横屏不再压住标签栏与底部按钮）
-		float msgHeight = Math.min(msg.height(), h - 40 - (link != null ? BTN_HEIGHT + GAP : 0));
+		float msgHeight = Math.min(msg.height(), msgMaxHeight);
 		float elementHeight = msgHeight + (link != null ? BTN_HEIGHT + GAP : 0);
 
 		float top = insets.top + 40 + (h - 40 - elementHeight)/2f;
