@@ -125,7 +125,7 @@ public final class SpsTestTimeLoadout {
 		armband.upgrade(5);
 		collect(hero, armband);
 
-		Dungeon.gold = 10000;
+		Dungeon.gold = 20000;
 		hero.HTBoost = 10000 - hero.baseLevelHT();
 		hero.updateHT(false);
 		hero.HP = hero.HT;

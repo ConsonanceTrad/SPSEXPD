@@ -21,6 +21,7 @@
 
 package pd.windows;
 
+import pd.Challenges;
 import pd.Dungeon;
 import pd.GamesInProgress;
 import pd.SPDSettings;
@@ -62,8 +63,8 @@ public class WndGame extends Window {
 		});
 		curBtn.icon(Icons.get(Icons.PREFS));
 
-		//SPS: 调试物品工具（原创缺口，仅 INDEV 构建显示，所有角色可用）
-		if (DeviceCompat.isDebug()) {
+		//SPS: 调试物品工具（原创缺口）。仅在 INDEV 构建且开启「测试时间」挑战时显示（用户裁决）
+		if (DeviceCompat.isDebug() && Dungeon.isChallenged(Challenges.TEST_TIME)) {
 			addButton( curBtn = new RedButton( Messages.get(this, "debug_items") ) {
 				@Override
 				protected void onClick() {

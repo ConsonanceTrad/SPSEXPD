@@ -94,7 +94,7 @@ public final class SpsTestTimeLoadoutTest {
 			testLegacyContainersAndTome();
 			testDummyMechanicsAndEdgeSafety();
 			testBilingualResources();
-			System.out.println("SPS测试模式开局通过：充满的多利亚石板、25条异界路线、8条挑战路线、完整物资数量、十二枚+10戒指、10000生命金币及玩偶机制均正常。");
+			System.out.println("SPS测试模式开局通过：充满的多利亚石板、25条异界路线、8条挑战路线、完整物资数量、十二枚+10戒指、20000金币/10000生命及玩偶机制均正常。");
 		} finally {
 			Actor.clear();
 			Dungeon.level = null;
@@ -164,8 +164,8 @@ public final class SpsTestTimeLoadoutTest {
 		}
 		MasterThievesArmband armband = hero.belongings.getItem(MasterThievesArmband.class);
 		check(armband != null && armband.level() == 5, "盗贼袖章不是+5");
-		check(Dungeon.gold == 10000 && hero.HT == 10000 && hero.HP == 10000,
-				"测试模式金币或最大生命没有恢复到10000");
+		check(Dungeon.gold == 20000 && hero.HT == 10000 && hero.HP == 10000,
+				"测试模式金币或最大生命没有恢复到规定值（金币20000、生命10000）");
 		check(Dungeon.depth == 1 && Dungeon.branch == 0, "测试模式没有保持主线第一层开局");
 		check(hero.belongings.backpack.capacity() >= 64, "测试模式背包容量不足64格");
 	}
