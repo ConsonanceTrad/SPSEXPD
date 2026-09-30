@@ -9,14 +9,6 @@
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
 package pd.windows;
@@ -25,7 +17,6 @@ import pd.Challenges;
 import pd.SPDSettings;
 import pd.ShatteredPixelDungeon;
 import pd.messages.Messages;
-import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.ui.CheckBox;
 import pd.ui.IconButton;
@@ -47,23 +38,24 @@ public class WndChallenges extends Window {
 	private static final int PAGE_SIZE	= 6;
 
 	private boolean editable;
-	private ArrayList<CheckBox> boxes;
 
-	//SPS: 翻页会重建窗口，勾选值必须跨页携带
-	private int checkedValue;
+	//SPS: 全部项一次建成，翻页只切换可见性。不重建窗口——在暂停菜单里 hide() 掉
+	//当前窗口再 show() 新建一个，会让场景的窗口/输入状态错乱（实测点分页就卡住）。
+	private ArrayList<CheckBox> boxes;
+	private ArrayList<IconButton> infos;
+
+	private RedButton prev;
+	private RedButton next;
+	private RedButton counter;
+
 	private int page;
+	private int pages;
 
 	public WndChallenges( int checked, boolean editable ) {
-		this( checked, editable, 0 );
-	}
-
-	private WndChallenges( int checked, boolean editable, int page ) {
 
 		super();
 
 		this.editable = editable;
-		this.checkedValue = checked;
-		this.page = page;
 
 		RenderedTextBlock title = PixelScene.renderTextBlock( Messages.get(this, "title"), 12 );
 		title.hardlight( TITLE_COLOR );
@@ -75,23 +67,18 @@ public class WndChallenges extends Window {
 		add( title );
 
 		boxes = new ArrayList<>();
+		infos = new ArrayList<>();
 
-		int pages = (Challenges.NAME_IDS.length + PAGE_SIZE - 1) / PAGE_SIZE;
-		int from = page * PAGE_SIZE;
-		int to = Math.min( from + PAGE_SIZE, Challenges.NAME_IDS.length );
+		pages = (Challenges.NAME_IDS.length + PAGE_SIZE - 1) / PAGE_SIZE;
 
 		float pos = TTL_HEIGHT;
-		for (int i=from; i < to; i++) {
+		for (int i=0; i < Challenges.NAME_IDS.length; i++) {
 
 			final String challenge = Challenges.NAME_IDS[i];
 
 			CheckBox cb = new CheckBox( Messages.titleCase(Messages.get(Challenges.class, challenge)) );
-			cb.checked( (checkedValue & Challenges.MASKS[i]) != 0 );
+			cb.checked( (checked & Challenges.MASKS[i]) != 0 );
 			cb.active = editable;
-
-			if (i > from) {
-				pos += GAP;
-			}
 			cb.setRect( 0, pos, WIDTH-16, BTN_HEIGHT );
 
 			add( cb );
@@ -108,44 +95,88 @@ public class WndChallenges extends Window {
 			};
 			info.setRect(cb.right(), pos, 16, BTN_HEIGHT);
 			add(info);
+			infos.add( info );
 
-			pos = cb.bottom();
+			pos = cb.bottom() + GAP;
 		}
 
-		//SPS: 翻页栏——切页前先提交本页勾选，再把累积值传给新窗口
+		//SPS: 翻页栏——只切页、重排，不重建窗口
 		if (pages > 1) {
-			RedButton prev = new RedButton( "<" ) {
+			prev = new RedButton( "<" ) {
 				@Override
 				protected void onClick() {
-					commitPage();
-					hide();
-					GameScene.show( new WndChallenges( checkedValue, editable, page - 1 ) );
+					if (page > 0) {
+						page--;
+						applyPage();
+					}
 				}
 			};
-			prev.enable( page > 0 );
-			prev.setRect( 0, pos + GAP + 1, 20, 15 );
+			prev.setRect( 0, pos + 1, 20, 15 );
 			add( prev );
 
-			RedButton counter = new RedButton( (page + 1) + "/" + pages ) {
+			counter = new RedButton( "" ) {
 				@Override
 				protected void onClick() {}
 			};
 			counter.textColor( TITLE_COLOR );
 			counter.enable( false );
-			counter.setRect( prev.right() + 2, pos + GAP + 1, WIDTH - 44, 15 );
+			counter.setRect( prev.right() + 2, pos + 1, WIDTH - 44, 15 );
 			add( counter );
 
-			RedButton next = new RedButton( ">" ) {
+			next = new RedButton( ">" ) {
 				@Override
 				protected void onClick() {
-					commitPage();
-					hide();
-					GameScene.show( new WndChallenges( checkedValue, editable, page + 1 ) );
+					if (page < pages - 1) {
+						page++;
+						applyPage();
+					}
 				}
 			};
-			next.enable( page < pages - 1 );
-			next.setRect( counter.right() + 2, pos + GAP + 1, 20, 15 );
+			next.setRect( counter.right() + 2, pos + 1, 20, 15 );
 			add( next );
+
+			pos = next.bottom();
+		}
+
+		resize( WIDTH, (int)pos );
+
+		applyPage();
+	}
+
+	//SPS: 按当前页重排——不可见的项只置 visible=false（不再接收点击），
+	//可见项从标题下方紧凑排列，窗口高度随之为「一页 + 翻页栏」
+	private void applyPage() {
+
+		int from = page * PAGE_SIZE;
+		int to = Math.min( from + PAGE_SIZE, boxes.size() );
+
+		float pos = TTL_HEIGHT;
+		for (int i=0; i < boxes.size(); i++) {
+
+			boolean show = i >= from && i < to;
+
+			CheckBox cb = boxes.get( i );
+			cb.visible = show;
+			cb.active = show && editable;
+
+			IconButton info = infos.get( i );
+			info.visible = show;
+
+			if (show) {
+				cb.setRect( 0, pos, WIDTH-16, BTN_HEIGHT );
+				info.setRect( cb.right(), pos, 16, BTN_HEIGHT );
+				pos = cb.bottom() + GAP;
+			}
+		}
+
+		if (pages > 1) {
+			counter.text( (page + 1) + "/" + pages );
+			prev.enable( page > 0 );
+			next.enable( page < pages - 1 );
+
+			prev.setRect( 0, pos + 1, 20, 15 );
+			counter.setRect( prev.right() + 2, pos + 1, WIDTH - 44, 15 );
+			next.setRect( counter.right() + 2, pos + 1, 20, 15 );
 
 			pos = next.bottom();
 		}
@@ -153,25 +184,17 @@ public class WndChallenges extends Window {
 		resize( WIDTH, (int)pos );
 	}
 
-	//SPS: 把当前页的勾选合并进 checkedValue（翻页与关闭时都要提交）
-	private void commitPage() {
-		int from = page * PAGE_SIZE;
-		for (int i=0; i < boxes.size(); i++) {
-			int mask = Challenges.MASKS[from + i];
-			if (boxes.get( i ).checked()) {
-				checkedValue |= mask;
-			} else {
-				checkedValue &= ~mask;
-			}
-		}
-	}
-
 	@Override
 	public void onBackPressed() {
 
 		if (editable) {
-			commitPage();
-			SPDSettings.challenges( checkedValue );
+			int value = 0;
+			for (int i=0; i < boxes.size(); i++) {
+				if (boxes.get( i ).checked()) {
+					value |= Challenges.MASKS[i];
+				}
+			}
+			SPDSettings.challenges( value );
 		}
 
 		super.onBackPressed();
