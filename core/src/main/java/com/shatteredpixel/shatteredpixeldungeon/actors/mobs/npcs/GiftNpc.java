@@ -108,6 +108,7 @@ public abstract class GiftNpc extends NPC {
 
 	protected GiftResult result(String key, Item... items) { return new GiftResult(key, items); }
 
+	//按类名匹配：子类传入的 names 即物品类名（改名需同步调用点）
 	protected boolean named(Item item, String... names) {
 		if (item == null) return false;
 		String name = item.getClass().getSimpleName();

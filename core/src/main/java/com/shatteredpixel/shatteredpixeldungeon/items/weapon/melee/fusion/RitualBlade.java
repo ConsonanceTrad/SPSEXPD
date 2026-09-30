@@ -9,7 +9,7 @@ import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Sword;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 
-public class RitualBlade extends Sword {
+public class RitualBlade extends Sword implements FusionWeapon {
 
 	{
 		image = ItemSpriteSheet.SICKLE;

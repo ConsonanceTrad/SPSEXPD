@@ -20,6 +20,7 @@ import com.shatteredpixel.shatteredpixeldungeon.items.quest.AdventureJournal;
 import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfIdentify;
 import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfMagicMapping;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.MeleeWeapon;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.fusion.FusionWeapon;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ShopkeeperSprite;
@@ -168,9 +169,8 @@ public class AdventureGuide extends NPC {
 
 		@Override
 		public boolean itemSelectable(Item item) {
-			Package itemPackage = item.getClass().getPackage();
-			return item instanceof MeleeWeapon && itemPackage != null
-					&& itemPackage.getName().endsWith(".fusion");
+			//显式标记（FusionWeapon）取代原先按包名后缀 ".fusion" 的判定：包名不再承载语义
+			return item instanceof MeleeWeapon && item instanceof FusionWeapon;
 		}
 
 		@Override

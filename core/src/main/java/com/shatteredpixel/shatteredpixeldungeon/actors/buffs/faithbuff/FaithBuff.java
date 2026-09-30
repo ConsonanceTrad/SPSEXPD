@@ -121,6 +121,7 @@ public abstract class FaithBuff extends Buff {
 		return false;
 	}
 
+	//按类名匹配名单（上面的 *_NAMES 即怪物类名常量：改名需同步名单，否则判定静默失效）
 	private static boolean named(Char ch, Set<String> names) {
 		return ch != null && names.contains(ch.getClass().getSimpleName());
 	}

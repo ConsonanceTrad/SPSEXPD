@@ -10,7 +10,7 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Quarterstaff;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 
-public class VerdantGuard extends Quarterstaff {
+public class VerdantGuard extends Quarterstaff implements FusionWeapon {
 
 	{
 		image = ItemSpriteSheet.ROUND_SHIELD;

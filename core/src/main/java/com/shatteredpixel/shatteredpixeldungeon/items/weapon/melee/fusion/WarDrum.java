@@ -12,7 +12,7 @@ import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Mace;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 import com.watabou.utils.PathFinder;
 
-public class WarDrum extends Mace {
+public class WarDrum extends Mace implements FusionWeapon {
 
 	{
 		image = ItemSpriteSheet.WAR_HAMMER;

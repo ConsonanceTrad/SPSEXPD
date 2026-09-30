@@ -5,34 +5,27 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
 import com.shatteredpixel.shatteredpixeldungeon.items.food.Food;
 import com.watabou.utils.Random;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /** Common base for SPS-PD's prepared foods. */
 public class CompleteFood extends Food {
 
+	//号角值按食物类名归类（类名即语义：改名需同步本表），未列出的默认 3
+	private static final Map<String, Integer> HORN_VALUES = new HashMap<>();
+	static {
+		for (String name : new String[]{"Gel", "HarmPoop"}) HORN_VALUES.put(name, 0);
+		for (String name : new String[]{"FishPetFood", "FruitCandy", "NutCookie", "PetFood"}) HORN_VALUES.put(name, 1);
+		for (String name : new String[]{"FoodFans", "Frenchfries", "HoneyGel", "HoneyWater",
+				"Meatroll", "MixPizza", "MoonCake", "RiceGruel",
+				"Vegetablekebab", "Vegetableroll"}) HORN_VALUES.put(name, 2);
+		for (String name : new String[]{"Chocolate", "ZongZi"}) HORN_VALUES.put(name, 5);
+		HORN_VALUES.put("Hamburger", 6);
+		HORN_VALUES.put("PerfectFood", 10);
+	}
+
 	{
-		switch (getClass().getSimpleName()) {
-			case "Gel": case "HarmPoop":
-				hornValue = 0;
-				break;
-			case "FishPetFood": case "FruitCandy": case "NutCookie": case "PetFood":
-				hornValue = 1;
-				break;
-			case "FoodFans": case "Frenchfries": case "HoneyGel": case "HoneyWater":
-			case "Meatroll": case "MixPizza": case "MoonCake": case "RiceGruel":
-			case "Vegetablekebab": case "Vegetableroll":
-				hornValue = 2;
-				break;
-			case "Chocolate": case "ZongZi":
-				hornValue = 5;
-				break;
-			case "Hamburger":
-				hornValue = 6;
-				break;
-			case "PerfectFood":
-				hornValue = 10;
-				break;
-			default:
-				hornValue = 3;
-		}
+		hornValue = HORN_VALUES.getOrDefault(getClass().getSimpleName(), 3);
 	}
 
 	@Override

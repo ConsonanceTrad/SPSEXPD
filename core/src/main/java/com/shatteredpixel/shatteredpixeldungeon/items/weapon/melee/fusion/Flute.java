@@ -7,7 +7,7 @@ import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Mace;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 import com.watabou.utils.PathFinder;
 
-public class Flute extends Mace {
+public class Flute extends Mace implements FusionWeapon {
 	{ image = ItemSpriteSheet.WAND_REGROWTH; tier = 2; ACC = 1.05f; }
 	@Override public int min(int lvl) { return 3 + lvl; }
 	@Override public int max(int lvl) { return 12 + 3 * lvl; }

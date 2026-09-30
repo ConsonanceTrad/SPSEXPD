@@ -23,6 +23,16 @@ package com.shatteredpixel.shatteredpixeldungeon.windows;
 
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.items.Item;
+import com.shatteredpixel.shatteredpixeldungeon.items.bags.ArrowCollecter;
+import com.shatteredpixel.shatteredpixeldungeon.items.bags.HeartOfScarecrow;
+import com.shatteredpixel.shatteredpixeldungeon.items.bags.KeyRing;
+import com.shatteredpixel.shatteredpixeldungeon.items.bags.MagicalHolster;
+import com.shatteredpixel.shatteredpixeldungeon.items.bags.PotionBandolier;
+import com.shatteredpixel.shatteredpixeldungeon.items.bags.ScrollHolder;
+import com.shatteredpixel.shatteredpixeldungeon.items.bags.SeedPouch;
+import com.shatteredpixel.shatteredpixeldungeon.items.bags.ShoppingCart;
+import com.shatteredpixel.shatteredpixeldungeon.items.bags.VelvetPouch;
+import com.shatteredpixel.shatteredpixeldungeon.items.bags.WandHolster;
 import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
 import com.shatteredpixel.shatteredpixeldungeon.journal.Catalog;
 import com.shatteredpixel.shatteredpixeldungeon.journal.SpsCatalog;
@@ -65,8 +75,57 @@ public class WndDebugItems extends Window {
 		}
 	}
 
-	//SPS: 调试器分组按物品 Java 包细分（武器/护甲/…/包裹袋 28 类），
+	//SPS: 调试器分组按功能域划分（武器/护甲/…/包裹袋 28 组，见 GROUP_LABELS），
 	//类全集 = SpsCatalog ∪ 破碎 Catalog ∪ Generator 生成表 ∪ 手写补充（图鉴外物品）。
+	//功能域 → 组标签（键 = 功能域包名段，与根包名无关；顺序即组菜单顺序）
+	private static final LinkedHashMap<String, String> GROUP_LABELS = new LinkedHashMap<>();
+	static {
+		GROUP_LABELS.put("weapon", "武器");
+		GROUP_LABELS.put("armor", "护甲");
+		GROUP_LABELS.put("wands", "法杖");
+		GROUP_LABELS.put("rings", "戒指");
+		GROUP_LABELS.put("artifacts", "神器");
+		GROUP_LABELS.put("trinkets", "饰品");
+		GROUP_LABELS.put("bags", "包裹袋");
+		GROUP_LABELS.put("potions", "药水");
+		GROUP_LABELS.put("brewed", "酿造");
+		GROUP_LABELS.put("scrolls", "卷轴");
+		GROUP_LABELS.put("stones", "符石");
+		GROUP_LABELS.put("nornstone", "诺恩石");
+		GROUP_LABELS.put("medicine", "药品");
+		GROUP_LABELS.put("food", "食物");
+		GROUP_LABELS.put("bombs", "炸弹");
+		GROUP_LABELS.put("spells", "法术");
+		GROUP_LABELS.put("skills", "技能书");
+		GROUP_LABELS.put("summon", "召唤物");
+		GROUP_LABELS.put("eggs", "宠物蛋");
+		GROUP_LABELS.put("keys", "钥匙");
+		GROUP_LABELS.put("quest", "任务物品");
+		GROUP_LABELS.put("remains", "遗物");
+		GROUP_LABELS.put("reward", "奖励");
+		GROUP_LABELS.put("sellitem", "出售品");
+		GROUP_LABELS.put("challengelists", "挑战书");
+		GROUP_LABELS.put("journalpages", "书页");
+		GROUP_LABELS.put("journal", "日志");
+		GROUP_LABELS.put("misc", "杂物");
+	}
+
+	//分组键 = 类所在包中自内向外第一个命中的功能域段（如 items.weapon.melee.fusion.Flute → weapon）
+	private static String groupKeyOf(Class<?> type) {
+		Package pkg = type.getPackage();
+		if (pkg == null) return null;
+		String name = pkg.getName();
+		int end = name.length();
+		while (end > 0) {
+			int dot = name.lastIndexOf('.', end - 1);
+			String segment = dot < 0 ? name.substring(0, end) : name.substring(dot + 1, end);
+			if (GROUP_LABELS.containsKey(segment)) return segment;
+			if (dot < 0) break;
+			end = dot;
+		}
+		return null;
+	}
+
 	private static LinkedHashMap<String, ArrayList<Class<? extends Item>>> groups() {
 		if (groups != null) return groups;
 
@@ -86,57 +145,25 @@ public class WndDebugItems extends Window {
 			}
 		}
 		//图鉴/生成表外的手写补充：包裹袋全家（含种子包旧存档兼容）、钥匙环、弹药收集器
-		all.put(com.shatteredpixel.shatteredpixeldungeon.items.bags.VelvetPouch.class, true);
-		all.put(com.shatteredpixel.shatteredpixeldungeon.items.bags.ScrollHolder.class, true);
-		all.put(com.shatteredpixel.shatteredpixeldungeon.items.bags.PotionBandolier.class, true);
-		all.put(com.shatteredpixel.shatteredpixeldungeon.items.bags.MagicalHolster.class, true);
-		all.put(com.shatteredpixel.shatteredpixeldungeon.items.bags.KeyRing.class, true);
-		all.put(com.shatteredpixel.shatteredpixeldungeon.items.bags.ArrowCollecter.class, true);
-		all.put(com.shatteredpixel.shatteredpixeldungeon.items.bags.ShoppingCart.class, true);
-		all.put(com.shatteredpixel.shatteredpixeldungeon.items.bags.HeartOfScarecrow.class, true);
+		all.put(VelvetPouch.class, true);
+		all.put(ScrollHolder.class, true);
+		all.put(PotionBandolier.class, true);
+		all.put(MagicalHolster.class, true);
+		all.put(KeyRing.class, true);
+		all.put(ArrowCollecter.class, true);
+		all.put(ShoppingCart.class, true);
+		all.put(HeartOfScarecrow.class, true);
 
-		//按包分组 + 中文标签（顺序即组菜单顺序）
-		LinkedHashMap<String, String> labels = new LinkedHashMap<>();
-		labels.put("weapon", "武器");
-		labels.put("armor", "护甲");
-		labels.put("wands", "法杖");
-		labels.put("rings", "戒指");
-		labels.put("artifacts", "神器");
-		labels.put("trinkets", "饰品");
-		labels.put("bags", "包裹袋");
-		labels.put("potions", "药水");
-		labels.put("brewed", "酿造");
-		labels.put("scrolls", "卷轴");
-		labels.put("stones", "符石");
-		labels.put("nornstone", "诺恩石");
-		labels.put("medicine", "药品");
-		labels.put("food", "食物");
-		labels.put("bombs", "炸弹");
-		labels.put("spells", "法术");
-		labels.put("skills", "技能书");
-		labels.put("summon", "召唤物");
-		labels.put("eggs", "宠物蛋");
-		labels.put("keys", "钥匙");
-		labels.put("quest", "任务物品");
-		labels.put("remains", "遗物");
-		labels.put("reward", "奖励");
-		labels.put("sellitem", "出售品");
-		labels.put("challengelists", "挑战书");
-		labels.put("journalpages", "书页");
-		labels.put("journal", "日志");
-		labels.put("misc", "杂物");
-
+		//按功能域分组（GROUP_LABELS 的顺序即组菜单顺序）
 		LinkedHashMap<String, ArrayList<Class<? extends Item>>> map = new LinkedHashMap<>();
-		for (String key : labels.keySet()) map.put(labels.get(key), new ArrayList<>());
+		for (String label : GROUP_LABELS.values()) map.put(label, new ArrayList<>());
 		ArrayList<Class<? extends Item>> unknown = new ArrayList<>();
 
 		for (Class<? extends Item> t : all.keySet()) {
 			//合并前的旧袋子不列出（用户裁决 2026-09-28：只出现合并后的绒布袋/魔法套筒）
-			if (t == com.shatteredpixel.shatteredpixeldungeon.items.bags.SeedPouch.class
-					|| t == com.shatteredpixel.shatteredpixeldungeon.items.bags.WandHolster.class) continue;
-			String pkg = t.getPackage().getName();
-			String key = pkg.substring(pkg.lastIndexOf('.') + 1);
-			ArrayList<Class<? extends Item>> list = map.get(labels.get(key));
+			if (t == SeedPouch.class || t == WandHolster.class) continue;
+			String label = GROUP_LABELS.get(groupKeyOf(t));
+			ArrayList<Class<? extends Item>> list = label == null ? null : map.get(label);
 			if (list != null) {
 				list.add(t);
 			} else {

@@ -7,7 +7,7 @@ import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.WarHammer;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 import com.watabou.utils.PathFinder;
 
-public class Trumpet extends WarHammer {
+public class Trumpet extends WarHammer implements FusionWeapon {
 	{ image = ItemSpriteSheet.WAR_HAMMER; tier = 4; ACC = 0.95f; }
 	@Override public int min(int lvl) { return 5 + lvl; }
 	@Override public int max(int lvl) { return 22 + 5 * lvl; }

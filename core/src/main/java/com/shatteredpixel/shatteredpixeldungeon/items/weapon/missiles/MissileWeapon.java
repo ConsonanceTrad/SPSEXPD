@@ -782,6 +782,7 @@ abstract public class MissileWeapon extends Weapon {
 			//darts already do this though and need no conversion
 			} else if (!(this instanceof Dart)){
 				levelKnown = cursedKnown = true;
+				//setID 由类名哈希决定（稳定、与包名无关）；改类名会改变堆叠标识，需评估旧存档
 				setID = getClass().getSimpleName().hashCode();
 			}
 		}

@@ -8,7 +8,7 @@ import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Sai;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 import com.watabou.utils.Random;
 
-public class Nunchaku extends Sai {
+public class Nunchaku extends Sai implements FusionWeapon {
 	{ image = ItemSpriteSheet.SAI; tier = 3; DLY = 0.8f; }
 	@Override public int min(int lvl) { return 4 + lvl; }
 	@Override public int max(int lvl) { return 15 + 3 * lvl; }

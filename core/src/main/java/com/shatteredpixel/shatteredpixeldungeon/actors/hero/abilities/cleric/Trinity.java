@@ -524,6 +524,7 @@ public class Trinity extends ArmorAbility {
 			return Messages.get(Trinity.class, "ring_use", SpiritForm.ringLevel(), Messages.decimalFormat("#.##", chargeUse));
 		}
 		if (Artifact.class.isAssignableFrom(cls)){
+			//消息键 = <神器类简单名>_use：神器改名需同步 4 份 messages 里的该键
 			return Messages.get(Trinity.class, cls.getSimpleName() + "_use", SpiritForm.artifactLevel(), Messages.decimalFormat("#.##", chargeUse));
 		}
 		return "error!";

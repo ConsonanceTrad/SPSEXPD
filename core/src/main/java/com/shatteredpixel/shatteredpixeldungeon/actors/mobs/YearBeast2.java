@@ -29,6 +29,10 @@ import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 /** The original Spring Festival year beast and its turn-scaled combat rules. */
 public class YearBeast2 extends Mob {
 
@@ -111,11 +115,12 @@ public class YearBeast2 extends Mob {
 		}
 	}
 
+	//固定装备（免疫缴械）：类名显式名单（这些武器/护甲改名需同步本表）
+	private static final Set<String> FIXED_EQUIPMENT = new HashSet<>(Arrays.asList(
+			"Knuckles", "FightGloves", "WoodenArmor", "RubberArmor", "BaseArmor"));
+
 	private boolean fixedEquipment(Object item) {
-		String name = item.getClass().getSimpleName();
-		return name.equals("Knuckles") || name.equals("FightGloves")
-				|| name.equals("WoodenArmor") || name.equals("RubberArmor")
-				|| name.equals("BaseArmor");
+		return item != null && FIXED_EQUIPMENT.contains(item.getClass().getSimpleName());
 	}
 
 	@Override

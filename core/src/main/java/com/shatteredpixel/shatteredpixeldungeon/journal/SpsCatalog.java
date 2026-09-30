@@ -2,6 +2,7 @@ package com.shatteredpixel.shatteredpixeldungeon.journal;
 
 import com.shatteredpixel.shatteredpixeldungeon.items.Item;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
+import com.shatteredpixel.shatteredpixeldungeon.plants.Plant;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -20,20 +21,22 @@ public enum SpsCatalog {
 	FOODS("Honey Nut WaterItem OverpricedRation NormalRation Pasty BattleFlower DreamLeaf HealGrass NutVegetable Blackberry Blueberry Cloudberry Moonberry FullMoonberry Blandfruit Strawberry Durian Cherry Meat MysteryMeat FireMeat IceMeat EarthMeat ShockMeat LightMeat DarkMeat BugMeat AflyFood Chickennugget Chocolate Crystalnucleus Foamedbeverage FoodFans Frenchfries Fruitsalad Gel GoldenNut Hamburger Herbmeat HoneyGel Honeymeat Honeyrice HoneyWater Icecream Kebab Meatroll NutCake PerfectFood PetFood Porksoup Ricefood Vegetablekebab Vegetableroll Vegetablesoup ZongZi FruitCandy NutCookie MixPizza RiceGruel Sishimi Mediummeat"),
 	PILLS("plants/BlandfruitBush$Seed plants/Blindweed$Seed plants/Dewcatcher$Seed plants/Dreamfoil$Seed plants/Earthroot$Seed plants/Fadeleaf$Seed plants/Firebloom$Seed plants/Icecap$Seed plants/NutPlant$Seed plants/ReNepenth$Seed plants/Rotberry$Seed plants/Seedpod$Seed plants/SiOtwoFlower$Seed plants/Sorrowmoss$Seed plants/StarEater$Seed plants/Starflower$Seed plants/Stormvine$Seed plants/Sungrass$Seed Powerpill Magicpill Shootpill Smashpill Musicpill Hardpill BlueMilk DeathCap Earthstar GoldenJelly GreenSpore JackOLantern PixieParasol RealgarWine Greaterpill Timepill Timepill2 BlindFruit CharmFruit FireFruit GlassFruit HealFruit IceFruit MagicHand NutFruit RocketMissile RootFruit ShockFruit SmokeFruit ToxicFruit");
 
-	private static final String ROOT = "com.shatteredpixel.shatteredpixeldungeon.";
-	private static final String[] ITEM_PACKAGES = {
-			"items.weapon.melee.normalweapon.", "items.weapon.melee.fusion.",
-			"items.weapon.melee.block.", "items.weapon.melee.relic.",
-			"items.weapon.melee.special.", "items.weapon.melee.start.",
-			"items.weapon.melee.", "items.weapon.missiles.arrows.", "items.weapon.missiles.fusion.",
-			"items.weapon.missiles.meleethrow.", "items.weapon.missiles.throwing.",
-			"items.weapon.missiles.", "items.weapon.ranges.", "items.weapon.guns.",
-			"items.armor.normalarmor.", "items.armor.specialarmor.", "items.armor.fusion.", "items.armor.",
-			"items.artifacts.fusion.", "items.artifacts.", "items.eggs.", "items.food.completefood.",
-			"items.food.fruit.", "items.food.meatfood.", "items.food.staplefood.", "items.food.fusion.",
-			"items.food.vegetable.", "items.food.", "items.medicine.", "items.misc.",
-			"items.rings.fusion.", "items.rings.", "items.sellitem.", "items.skills.", "items.summon.",
-			"items.wands.fusion.", "items.wands.", "items."
+	// 目录即语义：候选包以 items / plants 包自身为锚点写成相对子路径，不出现任何根包名
+	private static final String ITEMS_PACKAGE = Item.class.getPackage().getName() + ".";
+	private static final String PLANTS_PACKAGE = Plant.class.getPackage().getName() + ".";
+	private static final String[] ITEM_SUBPACKAGES = {
+			"weapon.melee.normalweapon.", "weapon.melee.fusion.",
+			"weapon.melee.block.", "weapon.melee.relic.",
+			"weapon.melee.special.", "weapon.melee.start.",
+			"weapon.melee.", "weapon.missiles.arrows.", "weapon.missiles.fusion.",
+			"weapon.missiles.meleethrow.", "weapon.missiles.throwing.",
+			"weapon.missiles.", "weapon.ranges.", "weapon.guns.",
+			"armor.normalarmor.", "armor.specialarmor.", "armor.fusion.", "armor.",
+			"artifacts.fusion.", "artifacts.", "eggs.", "food.completefood.",
+			"food.fruit.", "food.meatfood.", "food.staplefood.", "food.fusion.",
+			"food.vegetable.", "food.", "medicine.", "misc.",
+			"rings.fusion.", "rings.", "sellitem.", "skills.", "summon.",
+			"wands.fusion.", "wands.", ""
 	};
 
 	private final String classNames;
@@ -82,15 +85,15 @@ public enum SpsCatalog {
 	@SuppressWarnings("unchecked")
 	private static Class<? extends Item> resolve(String oldName) {
 		if (oldName.startsWith("plants/")) {
-			return checkedClass(ROOT + oldName.replace('/', '.'));
+			return checkedClass(PLANTS_PACKAGE + oldName.substring("plants/".length()).replace('/', '.'));
 		}
 		String currentName = oldName;
 		if (oldName.equals("Wardrum")) currentName = "WarDrum";
 		if (oldName.equals("Magicpill")) currentName = "MagicPill";
 		if (oldName.equals("Timepill")) currentName = "TimePill";
-		for (String itemPackage : ITEM_PACKAGES) {
+		for (String subPackage : ITEM_SUBPACKAGES) {
 			try {
-				Class<?> type = Class.forName(ROOT + itemPackage + currentName);
+				Class<?> type = Class.forName(ITEMS_PACKAGE + subPackage + currentName);
 				if (Item.class.isAssignableFrom(type)) return (Class<? extends Item>)type;
 			} catch (ClassNotFoundException ignored) {
 				// Continue through the finite legacy package list.

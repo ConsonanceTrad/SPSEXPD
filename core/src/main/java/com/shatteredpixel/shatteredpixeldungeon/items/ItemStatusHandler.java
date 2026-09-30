@@ -76,10 +76,16 @@ public class ItemStatusHandler<T extends Item> {
 
 	private static final String PFX_LABEL	= "_label";
 	private static final String PFX_KNOWN	= "_known";
-	
+
+	//存档键 = 类简单名（不依赖包名，目录迁移安全）；
+	//改这些类的名字会使旧存档里的"标签/已知"状态失效，故改名需评估
+	private static String statusKey(Class<? extends Item> cls) {
+		return cls.getSimpleName();
+	}
+
 	public void save( Bundle bundle ) {
 		for (int i=0; i < items.length; i++) {
-			String itemName = items[i].getSimpleName();
+			String itemName = statusKey(items[i]);
 			bundle.put( itemName + PFX_LABEL, itemLabels.get( items[i] ) );
 			bundle.put( itemName + PFX_KNOWN, known.contains( items[i] ) );
 		}
@@ -90,7 +96,7 @@ public class ItemStatusHandler<T extends Item> {
 		for (Item item : itemsToSave){
 			if (items.contains(item.getClass())){
 				Class<? extends T> cls = items.get(items.indexOf(item.getClass()));
-				String itemName = cls.getSimpleName();
+				String itemName = statusKey(cls);
 				bundle.put( itemName + PFX_LABEL, itemLabels.get( cls ) );
 				bundle.put( itemName + PFX_KNOWN, known.contains( cls ) );
 			}
@@ -102,7 +108,7 @@ public class ItemStatusHandler<T extends Item> {
 		for (Class<?extends Item> cls : clsToSave){
 			if (items.contains(cls)){
 				Class<? extends T> toSave = items.get(items.indexOf(cls));
-				String itemName = toSave.getSimpleName();
+				String itemName = statusKey(toSave);
 				bundle.put( itemName + PFX_LABEL, itemLabels.get( toSave ) );
 				bundle.put( itemName + PFX_KNOWN, known.contains( toSave ) );
 			}
@@ -116,7 +122,7 @@ public class ItemStatusHandler<T extends Item> {
 		for (int i=0; i < items.length; i++) {
 
 			Class<? extends T> item = items[i];
-			String itemName = item.getSimpleName();
+			String itemName = statusKey(item);
 
 			if (bundle.contains( itemName + PFX_LABEL )) {
 
@@ -137,7 +143,7 @@ public class ItemStatusHandler<T extends Item> {
 
 		for (Class<? extends T> item : unlabelled){
 
-			String itemName = item.getSimpleName();
+			String itemName = statusKey(item);
 
 			int index = Random.Int( labelsLeft.size() );
 

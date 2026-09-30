@@ -13,7 +13,7 @@ import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Whip;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 import com.watabou.utils.Random;
 
-public class ReedPipe extends Whip {
+public class ReedPipe extends Whip implements FusionWeapon {
 
 	{
 		image = ItemSpriteSheet.WAND_MAGIC_MISSILE;

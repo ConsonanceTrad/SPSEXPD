@@ -13,7 +13,7 @@ import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Scimitar;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 import com.watabou.utils.Bundle;
 
-public class Harp extends Scimitar {
+public class Harp extends Scimitar implements FusionWeapon {
 
 	private static final String HITS = "hits";
 	private int hits;

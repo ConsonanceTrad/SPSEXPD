@@ -7,7 +7,7 @@ import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Shortsword;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 import com.watabou.utils.PathFinder;
 
-public class Triangolo extends Shortsword {
+public class Triangolo extends Shortsword implements FusionWeapon {
 	{ image = ItemSpriteSheet.SAI; tier = 1; }
 	@Override public int min(int lvl) { return 2 + lvl; }
 	@Override public int max(int lvl) { return 7 + 2 * lvl; }

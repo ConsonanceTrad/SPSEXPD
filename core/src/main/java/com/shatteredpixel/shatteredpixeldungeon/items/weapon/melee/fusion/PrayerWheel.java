@@ -6,7 +6,7 @@ import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Mace;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 import com.watabou.utils.Bundle;
 
-public class PrayerWheel extends Mace {
+public class PrayerWheel extends Mace implements FusionWeapon {
 	private int charge;
 	{ image = ItemSpriteSheet.ROUND_SHIELD; tier = 4; ACC = 0.9f; }
 	@Override public int min(int lvl) { return 6 + lvl; }

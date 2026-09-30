@@ -8,7 +8,7 @@ import com.shatteredpixel.shatteredpixeldungeon.mechanics.Ballistica;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 import com.watabou.utils.Random;
 
-public class WindBottle extends Sword {
+public class WindBottle extends Sword implements FusionWeapon {
 	{ image = ItemSpriteSheet.WAND_BLAST_WAVE; tier = 3; }
 	@Override public int min(int lvl) { return 4 + lvl; }
 	@Override public int max(int lvl) { return 17 + 4 * lvl; }
