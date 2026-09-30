@@ -422,7 +422,7 @@ public class WndBag extends WndTabbed {
 		btn.icon().originToCenter();
 		final float left = right - 12 - 3;
 		btn.setSize( 12, TITLE_HEIGHT );
-		btn.setPos( left, -2 );   //SPS: 图标视觉上偏低，整体上移 2px
+		btn.setPos( left, -3 );   //SPS: 图标视觉上偏低，整体上移 3px
 		add( btn );
 		return left;
 	}
