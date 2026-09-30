@@ -5,11 +5,21 @@ plugins {
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 java.sourceCompatibility = java.targetCompatibility = appJavaCompatibility
 
+//SPSEXPD: 平台源码集中在 core/src/<平台>/，本模块只声明 sourceSet 与打包配置
+sourceSets {
+    main {
+        java.srcDirs = ['../core/src/desktop/java']
+    }
+    test {
+        java.srcDirs = ['../core/src/desktop/test/java']
+    }
+}
+
 ext.appMainClass = "pd.desktop.DesktopLauncher"
 application.mainClass = appMainClass
 processResources {
     from new File(project(':core').projectDir, "/src/assets")
-    from new File(project(':desktop').projectDir,"/src/assets")
+    from new File(project(':core').projectDir,"/src/desktop/assets")
 }
 
 def osName = System.getProperty('os.name').toLowerCase(Locale.ROOT)
@@ -94,7 +104,7 @@ runtime {
             javaHome = file("./build/jdks/win/jdk-17.0.17+10").getAbsolutePath()
             jpackage {
                 jpackageHome = file("./build/jdks/win/jdk-17.0.17+10")
-                imageOptions = ["--icon", file("./src/main/assets/icons/windows.ico"),
+                imageOptions = ["--icon", file("../core/src/desktop/assets/icons/windows.ico"),
                                 "--java-options", "-XX:+IgnoreUnrecognizedVMOptions"]
             }
         }
@@ -105,7 +115,7 @@ runtime {
             javaHome = file("./build/jdks/linux/jdk-17.0.17+10").getAbsolutePath()
             jpackage {
                 jpackageHome = file("./build/jdks/linux/jdk-17.0.17+10")
-                imageOptions = ["--icon", file("./src/main/assets/icons/icon_256.png"),
+                imageOptions = ["--icon", file("../core/src/desktop/assets/icons/icon_256.png"),
                                 "--java-options", "-XX:+IgnoreUnrecognizedVMOptions"]
             }
         }
@@ -116,7 +126,7 @@ runtime {
             javaHome = file("./build/jdks/mac/jdk-17.0.17+10/Contents/Home/").getAbsolutePath()
             jpackage {
                 jpackageHome = file("./build/jdks/mac/jdk-17.0.17+10/Contents/Home/")
-                imageOptions = ["--icon", file("./src/main/assets/icons/mac.icns"),
+                imageOptions = ["--icon", file("../core/src/desktop/assets/icons/mac.icns"),
                                 "--java-options", "-XstartOnFirstThread",
                                 "--java-options", "-XX:+IgnoreUnrecognizedVMOptions",
                                 //append .apple because com.shatteredpixel.shatteredpixeldungeon was taken =(

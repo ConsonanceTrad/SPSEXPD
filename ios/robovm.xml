@@ -17,7 +17,7 @@
 			<skipPngCrush>true</skipPngCrush>
 		</resource>
 		<resource>
-			<directory>../desktop/src/main/assets</directory>
+			<directory>../core/src/desktop/assets</directory>
 			<includes>
 				<include>**</include>
 			</includes>
