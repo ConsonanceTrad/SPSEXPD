@@ -127,6 +127,7 @@ public class Bundle {
 			if (aliases.containsKey( clName )) {
 				clName = aliases.get( clName );
 			}
+			clName = migrateClassName( clName );
 
 			return Reflection.forName( clName );
 		}
@@ -144,6 +145,7 @@ public class Bundle {
 		if (aliases.containsKey( clName )) {
 			clName = aliases.get( clName );
 		}
+		clName = migrateClassName( clName );
 
 		Class<?> cl = Reflection.forName( clName );
 		//Skip none-static inner classes as they can't be instantiated through bundle restoring
@@ -260,6 +262,7 @@ public class Bundle {
 				if (aliases.containsKey( clName )) {
 					clName = aliases.get( clName );
 				}
+				clName = migrateClassName( clName );
 				Class cl = Reflection.forName( clName );
 				result[i] = cl;
 			}
@@ -555,6 +558,14 @@ public class Bundle {
 	
 	public static void addAlias( Class<?> cl, String alias ) {
 		aliases.put( alias, cl.getName() );
+	}
+
+	//兼容 0.1.1 及更早版本存档：根包 com.shatteredpixel.shatteredpixeldungeon 已重构为 pd
+	private static String migrateClassName( String clName ) {
+		if (clName != null && clName.startsWith( "com.shatteredpixel.shatteredpixeldungeon." )) {
+			return "pd." + clName.substring( "com.shatteredpixel.shatteredpixeldungeon.".length() );
+		}
+		return clName;
 	}
 	
 }
