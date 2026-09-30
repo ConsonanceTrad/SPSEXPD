@@ -22,17 +22,13 @@
 package pd.levels;
 
 import pd.Assets;
-import pd.Badges;
 import pd.Dungeon;
-import pd.GamesInProgress;
-import pd.Statistics;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.GnollArcher;
 import pd.actors.mobs.Mob;
 import pd.actors.mobs.npcs.Ghost;
 import pd.effects.Ripple;
 import pd.effects.Splash;
-import pd.items.Amulet;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;
 import pd.levels.painters.SewerPainter;
@@ -58,16 +54,12 @@ import pd.levels.traps.bufftrap.LightBuffTrap;
 import pd.levels.traps.bufftrap.ShockBuffTrap;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.scenes.SurfaceScene;
 import pd.tiles.DungeonTilemap;
-import pd.windows.WndAscend;
-import pd.windows.WndMessage;
 import render.noosa.Game;
 import render.noosa.Group;
 import render.noosa.audio.Music;
 import render.noosa.particles.Emitter;
 import render.noosa.particles.PixelParticle;
-import render.utils.data.Callback;
 import render.utils.geom.PointF;
 import render.utils.math.ColorMath;
 import render.utils.math.Random;
@@ -159,44 +151,9 @@ public class SewerLevel extends SpsRegularLevel {
 	
 	@Override
 	public boolean activateTransition(Hero hero, LevelTransition transition) {
-		if (transition.type == LevelTransition.Type.SURFACE){
-			if (hero.belongings.getItem( Amulet.class ) == null) {
-				Game.runOnRenderThread(new Callback() {
-					@Override
-					public void call() {
-						GameScene.show( new WndMessage( Messages.get(hero, "leave") ) );
-					}
-				});
-				return false;
-			} else if (!forceDone) {
-				Game.runOnRenderThread(new Callback() {
-					@Override
-					public void call() {
-						GameScene.show(new WndAscend());
-					}
-				});
-				return false;
-			} else {
-				Statistics.ascended = true;
-				Game.switchScene(SurfaceScene.class, new Game.SceneChangeCallback() {
-					@Override
-					public void beforeCreate() {
-
-					}
-
-					@Override
-					public void afterCreate() {
-						Badges.validateHappyEnd();
-						Dungeon.win( Amulet.class );
-						Dungeon.deleteGame( GamesInProgress.curSlot, true );
-						Badges.saveGlobal();
-					}
-				});
-				return true;
-			}
-		} else {
-			return super.activateTransition(hero, transition);
-		}
+		//SPS: 本项目 1 层之上还有 0 层，SURFACE 只是回到 0 层的入口；
+		//通关判定在 0 层出门时进行（见 BetweenLevel.activateTransition）
+		return super.activateTransition(hero, transition);
 	}
 
 	@Override

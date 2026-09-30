@@ -14,10 +14,15 @@
 package pd.levels;
 
 import pd.Assets;
+import pd.Badges;
 import pd.Dungeon;
+import pd.GamesInProgress;
+import pd.Statistics;
 import pd.actors.Actor;
 import pd.actors.Char;
+import pd.actors.hero.Hero;
 import pd.actors.mobs.npcs.Tinkerer1;
+import pd.items.Amulet;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.food.fruit.Blackberry;
@@ -26,6 +31,7 @@ import pd.items.food.fruit.Cloudberry;
 import pd.items.food.fruit.Moonberry;
 import pd.items.quest.Mushroom;
 import pd.levels.builders.Builder;
+import pd.levels.features.LevelTransition;
 import pd.levels.builders.SpsBetweenBuilder;
 import pd.levels.painters.Painter;
 import pd.levels.painters.SpsBetweenPainter;
@@ -37,7 +43,9 @@ import pd.levels.rooms.special.SpsTentRoom;
 import pd.levels.rooms.standard.EmptyRoom;
 import pd.levels.rooms.standard.StandardRoom;
 import pd.mechanics.pathfind.PathFinder;
+import pd.scenes.SurfaceScene;
 import pd.tiles.custom.SpsLegacyLevelVisual;
+import render.noosa.Game;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
@@ -143,6 +151,31 @@ public class BetweenLevel extends RegularLevel {
 	@Override
 	protected void createMobs() {
 		// SPS transition floors have no ordinary monster population.
+	}
+
+	//SPS: 0 层的入口是通向外界的门（destDepth 为负）。携带护符走过它即为通关；
+	//1 层的 SURFACE 只负责把玩家送回 0 层，通关判定统一放在这里。
+	@Override
+	public boolean activateTransition(Hero hero, LevelTransition transition) {
+		if (Dungeon.depth == 0 && transition.destDepth < 0
+				&& hero.belongings.getItem( Amulet.class ) != null) {
+			Statistics.ascended = true;
+			Game.switchScene(SurfaceScene.class, new Game.SceneChangeCallback() {
+				@Override
+				public void beforeCreate() {
+				}
+
+				@Override
+				public void afterCreate() {
+					Badges.validateHappyEnd();
+					Dungeon.win( Amulet.class );
+					Dungeon.deleteGame( GamesInProgress.curSlot, true );
+					Badges.saveGlobal();
+				}
+			});
+			return true;
+		}
+		return super.activateTransition(hero, transition);
 	}
 
 	@Override
