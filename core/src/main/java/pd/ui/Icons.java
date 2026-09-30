@@ -29,6 +29,13 @@ import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
 import pd.sprites.ItemSpriteSheet;
 import render.noosa.Image;
+import pd.atlas.AtlasReader;
+import pd.atlas.IconEntry;
+import pd.atlas.interfaces.IconsDict;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import render.utils.RectF;
 
 public enum Icons {
@@ -147,223 +154,139 @@ public enum Icons {
 	ARCNOR,
 	ALASTAIR;
 
+	//位置字典：图标 → interfaces/icons.png 中的位置（数据源自 tools/atlas-meta，由 gen-atlas-dict 生成）
+	private static final Map<Icons, IconEntry> ENTRIES = new HashMap<>();
+	//关于界面的大图需要额外缩放
+	private static final Set<Icons> SCALED = EnumSet.noneOf(Icons.class);
+
+	static {
+		ENTRIES.put(ALASTAIR, IconsDict.ICON_081);
+		ENTRIES.put(ALCHEMY, IconsDict.ICON_045);
+		ENTRIES.put(ALEKS, IconsDict.ICON_075);
+		ENTRIES.put(ALERT, IconsDict.ICON_061);
+		ENTRIES.put(ARCNOR, IconsDict.ICON_078);
+		ENTRIES.put(ARROW, IconsDict.ICON_033);
+		ENTRIES.put(ARROW_C, IconsDict.ICON_087);
+		ENTRIES.put(AUDIO, IconsDict.ICON_013);
+		ENTRIES.put(BACKPACK, IconsDict.ICON_065);
+		ENTRIES.put(BACKPACK_LRG, IconsDict.ICON_039);
+		ENTRIES.put(BADGES, IconsDict.ICON_003);
+		ENTRIES.put(BUFFS, IconsDict.ICON_043);
+		ENTRIES.put(BUSY, IconsDict.ICON_060);
+		ENTRIES.put(CALENDAR, IconsDict.ICON_023);
+		ENTRIES.put(CATALOG, IconsDict.ICON_044);
+		ENTRIES.put(CELESTI, IconsDict.ICON_076);
+		ENTRIES.put(CHAL_COUNT, IconsDict.ICON_063);
+		ENTRIES.put(CHALLENGE_COLOR, IconsDict.ICON_034);
+		ENTRIES.put(CHALLENGE_GREY, IconsDict.ICON_018);
+		ENTRIES.put(CHANGES, IconsDict.ICON_005);
+		ENTRIES.put(CHECKED, IconsDict.ICON_029);
+		ENTRIES.put(CHEVRON, IconsDict.ICON_024);
+		ENTRIES.put(CLOSE, IconsDict.ICON_030);
+		ENTRIES.put(COIN_SML, IconsDict.ICON_064);
+		ENTRIES.put(COMPASS, IconsDict.ICON_070);
+		ENTRIES.put(CONTROLLER, IconsDict.ICON_015);
+		ENTRIES.put(COPY, IconsDict.ICON_036);
+		ENTRIES.put(CUBE_CODE, IconsDict.ICON_080);
+		ENTRIES.put(DATA, IconsDict.ICON_012);
+		ENTRIES.put(DEMON_BLADE, IconsDict.ICON_088);
+		ENTRIES.put(DISPLAY_LAND, IconsDict.ICON_011);
+		ENTRIES.put(DISPLAY_PORT, IconsDict.ICON_010);
+		ENTRIES.put(DISTANT_WELL, IconsDict.ICON_058);
+		ENTRIES.put(ENERGY_SML, IconsDict.ICON_073);
+		ENTRIES.put(ENTER, IconsDict.ICON_000);
+		ENTRIES.put(EXIT, IconsDict.ICON_009);
+		ENTRIES.put(GOLD, IconsDict.ICON_001);
+		ENTRIES.put(GRASS, IconsDict.ICON_046);
+		ENTRIES.put(HOS, IconsDict.ICON_086);
+		ENTRIES.put(INFO, IconsDict.ICON_026);
+		ENTRIES.put(INVESTIGATE, IconsDict.ICON_072);
+		ENTRIES.put(JOURNAL, IconsDict.ICON_008);
+		ENTRIES.put(KEYBOARD, IconsDict.ICON_016);
+		ENTRIES.put(KEYRING, IconsDict.ICON_085);
+		ENTRIES.put(LANGS, IconsDict.ICON_014);
+		ENTRIES.put(LEFTARROW, IconsDict.ICON_021);
+		ENTRIES.put(LIBGDX, IconsDict.ICON_074);
+		ENTRIES.put(LOST, IconsDict.ICON_062);
+		ENTRIES.put(LUCKY_BADGE, IconsDict.ICON_089);
+		ENTRIES.put(LUMINE, IconsDict.ICON_077);
+		ENTRIES.put(MAGNIFY, IconsDict.ICON_041);
+		ENTRIES.put(NEWS, IconsDict.ICON_004);
+		ENTRIES.put(PASTE, IconsDict.ICON_037);
+		ENTRIES.put(PLUS, IconsDict.ICON_031);
+		ENTRIES.put(POTION_BANDOLIER, IconsDict.ICON_069);
+		ENTRIES.put(PREFS, IconsDict.ICON_006);
+		ENTRIES.put(PUMPKINVOLT, IconsDict.ICON_083);
+		ENTRIES.put(PURIGRO, IconsDict.ICON_079);
+		ENTRIES.put(RANKINGS, IconsDict.ICON_002);
+		ENTRIES.put(REPEAT, IconsDict.ICON_032);
+		ENTRIES.put(RIGHTARROW, IconsDict.ICON_022);
+		ENTRIES.put(SACRIFICE_ALTAR, IconsDict.ICON_057);
+		ENTRIES.put(SCROLL_COLOR, IconsDict.ICON_035);
+		ENTRIES.put(SCROLL_GREY, IconsDict.ICON_019);
+		ENTRIES.put(SCROLL_HOLDER, IconsDict.ICON_066);
+		ENTRIES.put(SEED, IconsDict.ICON_020);
+		ENTRIES.put(SEED_POUCH, IconsDict.ICON_067);
+		ENTRIES.put(SHOP_CART, IconsDict.ICON_084);
+		ENTRIES.put(SHPX, IconsDict.ICON_007);
+		ENTRIES.put(SHUFFLE, IconsDict.ICON_038);
+		ENTRIES.put(SKULL, IconsDict.ICON_059);
+		ENTRIES.put(SLEEP, IconsDict.ICON_071);
+		ENTRIES.put(SNAKE, IconsDict.ICON_042);
+		ENTRIES.put(STAIRS, IconsDict.ICON_047);
+		ENTRIES.put(STAIRS_CHASM, IconsDict.ICON_048);
+		ENTRIES.put(STAIRS_DARK, IconsDict.ICON_051);
+		ENTRIES.put(STAIRS_GRASS, IconsDict.ICON_050);
+		ENTRIES.put(STAIRS_LARGE, IconsDict.ICON_052);
+		ENTRIES.put(STAIRS_SECRETS, IconsDict.ICON_054);
+		ENTRIES.put(STAIRS_TRAPS, IconsDict.ICON_053);
+		ENTRIES.put(STAIRS_WATER, IconsDict.ICON_049);
+		ENTRIES.put(STATS, IconsDict.ICON_017);
+		ENTRIES.put(TALENT, IconsDict.ICON_040);
+		ENTRIES.put(TARGET, IconsDict.ICON_025);
+		ENTRIES.put(UNCHECKED, IconsDict.ICON_028);
+		ENTRIES.put(WAND_HOLSTER, IconsDict.ICON_068);
+		ENTRIES.put(WARNING, IconsDict.ICON_027);
+		ENTRIES.put(WATA, IconsDict.ICON_082);
+		ENTRIES.put(WELL_AWARENESS, IconsDict.ICON_056);
+		ENTRIES.put(WELL_HEALTH, IconsDict.ICON_055);
+		SCALED.add(CELESTI);
+		SCALED.add(LUMINE);
+		SCALED.add(ARCNOR);
+		SCALED.add(PURIGRO);
+		SCALED.add(CUBE_CODE);
+		SCALED.add(ALASTAIR);
+	}
+
 	public Image get() {
 		return get( this );
 	}
 	
 	public static Image get( Icons type ) {
+		//图标位置来自字典（pd/atlas），取图统一经 AtlasReader
+		IconEntry entry = ENTRIES.get(type);
+		if (entry != null) {
+			Image icon = AtlasReader.image(entry);
+			if (SCALED.contains(type)) {
+				icon.scale.set(PixelScene.align(0.49f));
+			}
+			return icon;
+		}
+		//无固定位置的图标：委托给其它图标，或按运行状态选择
 		Image icon = new Image( Assets.Interfaces.ICONS );
 		switch (type) {
 
-			case ENTER:
-				icon.frame( icon.texture.uvRectBySize( 0, 0, 16, 16 ) );
-				break;
-			case GOLD:
-				icon.frame( icon.texture.uvRectBySize( 17, 0, 17, 16 ) );
-				break;
-			case RANKINGS:
-				icon.frame( icon.texture.uvRectBySize( 34, 0, 17, 16 ) );
-				break;
-			case BADGES:
-				icon.frame( icon.texture.uvRectBySize( 51, 0, 16, 16 ) );
-				break;
-			case NEWS:
-				icon.frame( icon.texture.uvRectBySize( 68, 0, 16, 15 ) );
-				break;
-			case CHANGES:
-				icon.frame( icon.texture.uvRectBySize( 85, 0, 15, 15 ) );
-				break;
-			case PREFS:
-				icon.frame( icon.texture.uvRectBySize( 102, 0, 14, 14 ) );
-				break;
-			case SHPX:
-				icon.frame( icon.texture.uvRectBySize( 119, 0, 16, 16 ) );
-				break;
-			case JOURNAL:
-				icon.frame( icon.texture.uvRectBySize( 136, 0, 17, 15 ) );
-				break;
 
-			case EXIT:
-				icon.frame( icon.texture.uvRectBySize( 0, 16, 15, 11 ) );
-				break;
 			case DISPLAY:
 				if (!PixelScene.landscape()){
 					return get(DISPLAY_PORT);
 				} else {
 					return get(DISPLAY_LAND);
 				}
-			case DISPLAY_PORT:
-				icon.frame( icon.texture.uvRectBySize( 16, 16, 12, 16 ) );
-				break;
-			case DISPLAY_LAND:
-				icon.frame( icon.texture.uvRectBySize( 32, 16, 16, 12 ) );
-				break;
-			case DATA:
-				icon.frame( icon.texture.uvRectBySize( 48, 16, 14, 15 ) );
-				break;
-			case AUDIO:
-				icon.frame( icon.texture.uvRectBySize( 64, 16, 14, 14 ) );
-				break;
-			case LANGS:
-				icon.frame( icon.texture.uvRectBySize( 80, 16, 14, 11 ) );
-				break;
-			case CONTROLLER:
-				icon.frame( icon.texture.uvRectBySize( 96, 16, 16, 12 ) );
-				break;
-			case KEYBOARD:
-				icon.frame( icon.texture.uvRectBySize( 112, 16, 15, 12 ) );
-				break;
-			case STATS:
-				icon.frame( icon.texture.uvRectBySize( 128, 16, 16, 13 ) );
-				break;
-			case CHALLENGE_GREY:
-				icon.frame( icon.texture.uvRectBySize( 144, 16, 15, 12 ) );
-				break;
-			case SCROLL_GREY:
-				icon.frame( icon.texture.uvRectBySize( 160, 16, 15, 14 ) );
-				break;
-			case SEED:
-				icon.frame( icon.texture.uvRectBySize( 176, 16, 15, 10 ) );
-				break;
-			case LEFTARROW:
-				icon.frame( icon.texture.uvRectBySize( 192, 16, 14, 9 ) );
-				break;
-			case RIGHTARROW:
-				icon.frame( icon.texture.uvRectBySize( 208, 16, 14, 9 ) );
-				break;
-			case CALENDAR:
-				icon.frame( icon.texture.uvRectBySize( 224, 16, 15, 12 ) );
-				break;
-			case CHEVRON:
-				icon.frame( icon.texture.uvRectBySize( 240, 16, 13, 10 ) );
-				break;
-			case SHUFFLE:
-				icon.frame(icon.texture.uvRectBySize( 240, 32, 15, 12 ) );
-				break;
 
-			case TARGET:
-				icon.frame( icon.texture.uvRectBySize( 0, 32, 16, 16 ) );
-				break;
-			case INFO:
-				icon.frame( icon.texture.uvRectBySize( 16, 32, 14, 14 ) );
-				break;
-			case WARNING:
-				icon.frame( icon.texture.uvRectBySize( 32, 32, 14, 14 ) );
-				break;
-			case UNCHECKED:
-				icon.frame( icon.texture.uvRectBySize( 48, 32, 12, 12 ) );
-				break;
-			case CHECKED:
-				icon.frame( icon.texture.uvRectBySize( 64, 32, 12, 12 ) );
-				break;
-			case CLOSE:
-				icon.frame( icon.texture.uvRectBySize( 80, 32, 11, 11 ) );
-				break;
-			case PLUS:
-				icon.frame( icon.texture.uvRectBySize( 96, 32, 11, 11 ) );
-				break;
-			case REPEAT:
-				icon.frame( icon.texture.uvRectBySize( 112, 32, 11, 11 ) );
-				break;
-			case ARROW:
-				icon.frame( icon.texture.uvRectBySize( 128, 32, 11, 11 ) );
-				break;
-			case CHALLENGE_COLOR:
-				icon.frame( icon.texture.uvRectBySize( 144, 32, 15, 12 ) );
-				break;
-			case SCROLL_COLOR:
-				icon.frame( icon.texture.uvRectBySize( 160, 32, 15, 14 ) );
-				break;
-			case COPY:
-				icon.frame( icon.texture.uvRectBySize( 176, 32, 13, 13 ) );
-				break;
-			case PASTE:
-				icon.frame( icon.texture.uvRectBySize( 192, 32, 13, 13 ) );
-				break;
 
-			case BACKPACK_LRG:
-				icon.frame( icon.texture.uvRectBySize( 0, 48, 16, 16 ) );
-				break;
-			case TALENT:
-				icon.frame( icon.texture.uvRectBySize( 16, 48, 13, 13 ) );
-				break;
-			case MAGNIFY:
-				icon.frame( icon.texture.uvRectBySize( 32, 48, 14, 14 ) );
-				break;
-			case SNAKE:
-				icon.frame( icon.texture.uvRectBySize( 48, 48,  9, 13 ) );
-				break;
-			case BUFFS:
-				icon.frame( icon.texture.uvRectBySize( 64, 48, 16, 15 ) );
-				break;
-			case CATALOG:
-				icon.frame( icon.texture.uvRectBySize( 80, 48, 13, 16 ) );
-				break;
-			case ALCHEMY:
-				icon.frame( icon.texture.uvRectBySize( 96, 48, 16, 16 ) );
-				break;
-			case GRASS:
-				icon.frame( icon.texture.uvRectBySize( 112, 48, 16, 16 ) );
-				break;
 
-			case STAIRS:
-				icon.frame( icon.texture.uvRectBySize( 0, 64, 15, 16 ) );
-				break;
-			case STAIRS_CHASM:
-				icon.frame( icon.texture.uvRectBySize( 16, 64, 15, 16 ) );
-				break;
-			case STAIRS_WATER:
-				icon.frame( icon.texture.uvRectBySize( 32, 64, 15, 16 ) );
-				break;
-			case STAIRS_GRASS:
-				icon.frame( icon.texture.uvRectBySize( 48, 64, 15, 16 ) );
-				break;
-			case STAIRS_DARK:
-				icon.frame( icon.texture.uvRectBySize( 64, 64, 15, 16 ) );
-				break;
-			case STAIRS_LARGE:
-				icon.frame( icon.texture.uvRectBySize( 80, 64, 15, 16 ) );
-				break;
-			case STAIRS_TRAPS:
-				icon.frame( icon.texture.uvRectBySize( 96, 64, 15, 16 ) );
-				break;
-			case STAIRS_SECRETS:
-				icon.frame( icon.texture.uvRectBySize( 112, 64, 15, 16 ) );
-				break;
-			case WELL_HEALTH:
-				icon.frame( icon.texture.uvRectBySize( 128, 64, 16, 16 ) );
-				break;
-			case WELL_AWARENESS:
-				icon.frame( icon.texture.uvRectBySize( 144, 64, 16, 16 ) );
-				break;
-			case SACRIFICE_ALTAR:
-				icon.frame( icon.texture.uvRectBySize( 160, 64, 16, 16 ) );
-				break;
-			case DISTANT_WELL:
-				icon.frame( icon.texture.uvRectBySize( 176, 64, 16, 16 ) );
-				break;
 
-			case SKULL:
-				icon.frame( icon.texture.uvRectBySize( 0, 80, 8, 8 ) );
-				break;
-			case BUSY:
-				icon.frame( icon.texture.uvRectBySize( 8, 80, 8, 8 ) );
-				break;
-			case COMPASS:
-				icon.frame( icon.texture.uvRectBySize( 0, 88, 7, 5 ) );
-				break;
-			case SLEEP:
-				icon.frame( icon.texture.uvRectBySize( 7, 88, 9, 8 ) );
-				break;
-			case ALERT:
-				icon.frame( icon.texture.uvRectBySize( 16, 80, 8, 8 ) );
-				break;
-			case LOST:
-				icon.frame( icon.texture.uvRectBySize( 24, 80, 8, 8 ) );
-				break;
-			case INVESTIGATE:
-				icon.frame( icon.texture.uvRectBySize( 16, 88, 8, 8 ) );
-				break;
 			case DEPTH:
 				icon.frame( icon.texture.uvRectBySize( 32 + runTypeOfsX(), 80 + runTypeOfsY(), 6, 7 ) );
 				break;
@@ -388,89 +311,11 @@ public enum Icons {
 			case DEPTH_SECRETS:
 				icon.frame( icon.texture.uvRectBySize( 88 + runTypeOfsX(), 80 + runTypeOfsY(), 7, 7 ) );
 				break;
-			case CHAL_COUNT:
-				icon.frame( icon.texture.uvRectBySize( 160, 80, 7, 7 ) );
-				break;
-			case COIN_SML:
-				icon.frame( icon.texture.uvRectBySize( 168, 80, 7, 7 ) );
-				break;
-			case ENERGY_SML:
-				icon.frame( icon.texture.uvRectBySize( 168, 88, 8, 7 ) );
-				break;
-			case BACKPACK:
-				icon.frame( icon.texture.uvRectBySize( 176, 80, 10, 10 ) );
-				break;
-			case SCROLL_HOLDER:
-				icon.frame( icon.texture.uvRectBySize( 186, 80, 10, 10 ) );
-				break;
-			case SEED_POUCH:
-				icon.frame( icon.texture.uvRectBySize( 196, 80, 10, 10 ) );
-				break;
-			case WAND_HOLSTER:
-				icon.frame( icon.texture.uvRectBySize( 206, 80, 10, 10 ) );
-				break;
-			case POTION_BANDOLIER:
-				icon.frame( icon.texture.uvRectBySize( 216, 80, 10, 10 ) );
-				break;
 
 			//SPS: 0.9.8 袋子图标（从 SPS 图集原像素补入本基底 icons.png 的空白区）
-			case SHOP_CART:
-				icon.frame( icon.texture.uvRectBySize( 192, 46, 10, 10 ) );
-				break;
-			case KEYRING:
-				icon.frame( icon.texture.uvRectBySize( 204, 46, 6, 10 ) );
-				break;
-			case HOS:
-				icon.frame( icon.texture.uvRectBySize( 212, 46, 11, 10 ) );
-				break;
-			case ARROW_C:
-				icon.frame( icon.texture.uvRectBySize( 226, 46, 10, 11 ) );
-				break;
-			case DEMON_BLADE:
-				icon.frame( icon.texture.uvRectBySize( 160, 0, 16, 16 ) );
-				break;
-			case LUCKY_BADGE:
-				icon.frame( icon.texture.uvRectBySize( 176, 0, 16, 16 ) );
-				break;
 
-			case LIBGDX:
-				icon.frame( icon.texture.uvRectBySize( 0, 96, 16, 13 ) );
-				break;
-			case ALEKS:
-				icon.frame( icon.texture.uvRectBySize( 16, 96, 16, 13 ) );
-				break;
-			case WATA:
-				icon.frame( icon.texture.uvRectBySize( 0, 112, 17, 12 ) );
-				break;
-			case PUMPKINVOLT:
-				icon.frame( icon.texture.uvRectBySize( 17, 112, 14, 15 ) );
-				break;
 
 			//large icons are scaled down to match game's size
-			case CELESTI:
-				icon.frame( icon.texture.uvRectBySize( 32, 96, 32, 32 ) );
-				icon.scale.set(PixelScene.align(0.49f));
-				break;
-			case LUMINE:
-				icon.frame( icon.texture.uvRectBySize( 64, 96, 32, 32 ) );
-				icon.scale.set(PixelScene.align(0.49f));
-				break;
-			case ARCNOR:
-				icon.frame( icon.texture.uvRectBySize( 96, 96, 32, 32 ) );
-				icon.scale.set(PixelScene.align(0.49f));
-				break;
-			case PURIGRO:
-				icon.frame( icon.texture.uvRectBySize( 128, 96, 32, 32 ) );
-				icon.scale.set(PixelScene.align(0.49f));
-				break;
-			case CUBE_CODE:
-				icon.frame( icon.texture.uvRectBySize( 160, 96, 27, 30 ) );
-				icon.scale.set(PixelScene.align(0.49f));
-				break;
-			case ALASTAIR:
-				icon.frame( icon.texture.uvRectBySize( 192, 96, 32, 32 ) );
-				icon.scale.set(PixelScene.align(0.49f));
-				break;
 
 		}
 		return icon;
