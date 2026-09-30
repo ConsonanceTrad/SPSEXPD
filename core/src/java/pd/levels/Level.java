@@ -246,46 +246,7 @@ public abstract class Level implements Bundlable {
 
 	public void create() {
 
-		TargetedCell.cells.clear();
-		Random.pushGenerator( Dungeon.seedCurDepth() );
-		if (this instanceof SpsTriangleLevel) {
-			((SpsTriangleLevel)this).prepareLegacyTrial();
-		}
-
-		//TODO maybe just make this part of RegularLevel?
-		FloorFeeling.apply( this );
-		
-		int buildAttempts = 0;
-		do {
-			width = height = length = 0;
-
-			transitions = new ArrayList<>();
-
-			mobs().clear();
-			heaps = new SparseArray<>();
-			blobs = new HashMap<>();
-			plants = new SparseArray<>();
-			traps = new SparseArray<>();
-			customTiles = new ArrayList<>();
-			customTerrain = new ArrayList<>();
-			customWalls = new ArrayList<>();
-			if (++buildAttempts > 100) {
-				Random.popGenerator();
-				throw new IllegalStateException("level generation failed after 100 attempts: "
-						+ getClass().getName() + ", depth=" + Dungeon.depth);
-			}
-		} while (!build());
-
-		SpsDew.place( this );
-		
-		buildFlagMaps();
-		CellFlags.cleanWalls( this );
-		
-		createMobs();
-		markSpsOriginalMobs();
-		createItems();
-
-		Random.popGenerator();
+		LevelGeneration.generate( this );
 	}
 	
 	public void setSize(int w, int h){
