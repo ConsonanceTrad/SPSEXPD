@@ -166,7 +166,7 @@ public final class SpsTestTimeLoadoutTest {
 		check(armband != null && armband.level() == 5, "盗贼袖章不是+5");
 		check(Dungeon.gold == 20000 && hero.HT == 10000 && hero.HP == 10000,
 				"测试模式金币或最大生命没有恢复到规定值（金币20000、生命10000）");
-		check(Dungeon.depth == 1 && Dungeon.branch == 0, "测试模式没有保持主线第一层开局");
+		check(Dungeon.depth == 17 && Dungeon.branch == 0, "测试模式不应改写楼层深度（出生点留在 0 层由 Dungeon.init 决定），但应归零分支");
 		check(hero.belongings.backpack.capacity() >= 64, "测试模式背包容量不足64格");
 	}
 

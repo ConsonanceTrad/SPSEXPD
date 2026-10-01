@@ -129,7 +129,8 @@ public final class SpsTestTimeLoadout {
 		hero.HTBoost = 10000 - hero.baseLevelHT();
 		hero.updateHT(false);
 		hero.HP = hero.HT;
-		Dungeon.depth = 1;
+		//SPS: 不再把开局挪到 1 层。Dungeon.init() 已把 depth 设为 0（0 层 = 学者+商店安全层），
+		//这里若覆盖成 1 会把出生点推后一层；测试时间挑战只负责发装备，不改开局位置。
 		Dungeon.branch = 0;
 	}
 
