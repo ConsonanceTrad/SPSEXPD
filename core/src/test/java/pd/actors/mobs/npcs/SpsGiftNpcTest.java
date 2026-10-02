@@ -1,5 +1,8 @@
 package pd.actors.mobs.npcs;
 
+import pd.atlas.items.ConsumSummorDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessFiles;
 import com.badlogic.gdx.utils.GdxNativesLoader;
@@ -19,26 +22,26 @@ import pd.actors.mobs.pets.Velocirooster;
 import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.armor.normalarmor.MachineArmor;
-import pd.items.armor.specialarmor.RenBArmor;
-import pd.items.eggs.CocoCatEgg;
-import pd.items.eggs.EasterEgg;
-import pd.items.eggs.Egg;
-import pd.items.eggs.HaroEgg;
-import pd.items.eggs.PigpetEgg;
-import pd.items.eggs.VelociroosterEgg;
-import pd.items.food.AflyFood;
-import pd.items.food.completefood.Fruitsalad;
-import pd.items.food.completefood.NutCake;
-import pd.items.food.fruit.Strawberry;
-import pd.items.food.vegetable.Truffles;
+import pd.items.equipment.armor.normalarmor.MachineArmor;
+import pd.items.equipment.armor.specialarmor.RenBArmor;
+import pd.items.consum.eggs.CocoCatEgg;
+import pd.items.consum.eggs.EasterEgg;
+import pd.items.consum.eggs.Egg;
+import pd.items.consum.eggs.HaroEgg;
+import pd.items.consum.eggs.PigpetEgg;
+import pd.items.consum.eggs.VelociroosterEgg;
+import pd.items.consum.food.AflyFood;
+import pd.items.consum.food.completefood.Fruitsalad;
+import pd.items.consum.food.completefood.NutCake;
+import pd.items.consum.food.fruit.Strawberry;
+import pd.items.consum.food.vegetable.Truffles;
 import pd.items.nornstone.NornStone;
-import pd.items.scrolls.Scroll;
-import pd.items.scrolls.ScrollOfIdentify;
-import pd.items.sellitem.LingHeart;
-import pd.items.sellitem.MiniBunny;
-import pd.items.weapon.guns.GunE;
-import pd.items.weapon.melee.normalweapon.Club;
+import pd.items.consum.scrolls.Scroll;
+import pd.items.consum.scrolls.ScrollOfIdentify;
+import pd.items.specific.sellitem.LingHeart;
+import pd.items.specific.sellitem.MiniBunny;
+import pd.items.equipment.weapon.guns.GunE;
+import pd.items.equipment.weapon.melee.normalweapon.Club;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.rooms.Room;
@@ -46,7 +49,6 @@ import pd.levels.rooms.special.SpsTentRoom;
 import pd.levels.rooms.standard.EmptyRoom;
 import pd.plants.Plant;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
 import render.noosa.MovieClip;
 import render.noosa.TextureFilm;
@@ -177,9 +179,9 @@ public final class SpsGiftNpcTest {
 		check(hatch(new HaroEgg()) instanceof Haro && hatch(new PigpetEgg()) instanceof PigPet
 				&& hatch(new CocoCatEgg()) instanceof CocoCat && hatch(new VelociroosterEgg()) instanceof Velocirooster,
 				"四种礼物宠物蛋孵化类型错误");
-		check(new HaroEgg().image == ItemSpriteSheet.HARO_EGG && new PigpetEgg().image == ItemSpriteSheet.PIG_PET_EGG
-				&& new CocoCatEgg().image == ItemSpriteSheet.COCO_CAT_EGG
-				&& new VelociroosterEgg().image == ItemSpriteSheet.VELOCIROOSTER_EGG,
+		check(new HaroEgg().image == SpecificPlaceHolderDict.SOMETHING_0 && new PigpetEgg().image == ConsumSummorDict.PIG_PET_EGG_0
+				&& new CocoCatEgg().image == SpecificPlaceHolderDict.SOMETHING_0
+				&& new VelociroosterEgg().image == ConsumSummorDict.VELOCIROOSTER_EGG_0,
 				"四种礼物宠物蛋图标索引错误");
 	}
 

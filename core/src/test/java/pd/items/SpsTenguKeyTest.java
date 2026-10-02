@@ -1,5 +1,7 @@
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
@@ -11,7 +13,7 @@ import pd.Badges;
 import pd.Dungeon;
 import pd.QuickSlot;
 import pd.actors.hero.Hero;
-import pd.items.bags.KeyRing;
+import pd.items.equipment.bags.KeyRing;
 import pd.items.quest.AdventureJournal;
 import pd.levels.Level;
 import pd.levels.Terrain;
@@ -19,7 +21,6 @@ import pd.levels.features.LevelTransition;
 import pd.levels.traps.Trap;
 import pd.plants.Plant;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
 import render.utils.data.SparseArray;
 import render.utils.serialize.Bundle;
@@ -76,7 +77,7 @@ public final class SpsTenguKeyTest {
 	private static void testItemAndSaveState() {
 		Hero hero = deadHero();
 		TenguKey key = new TenguKey();
-		check(key.image == ItemSpriteSheet.TENGU_KEY && key.destination() == 10,
+		check(key.image == SpecificPlaceHolderDict.SOMETHING_0 && key.destination() == 10,
 				"天狗钥匙没有接入旧版图标或天狗巢目的地");
 		check(key.unique && !key.stackable && key.isIdentified() && !key.isUpgradable(),
 				"天狗钥匙基础属性与旧版不一致");

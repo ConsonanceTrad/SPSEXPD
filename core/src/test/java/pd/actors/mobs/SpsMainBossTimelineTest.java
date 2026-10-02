@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import pd.atlas.IconEntry;
 
 public final class SpsMainBossTimelineTest {
 

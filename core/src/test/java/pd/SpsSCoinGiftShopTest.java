@@ -1,5 +1,7 @@
 package pd;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessApplication;
@@ -10,15 +12,15 @@ import pd.actors.Actor;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroClass;
 import pd.items.Item;
-import pd.items.armor.Armor;
-import pd.items.artifacts.fusion.NoomlinCrown;
+import pd.items.equipment.armor.Armor;
+import pd.items.equipment.artifacts.fusion.NoomlinCrown;
 import pd.items.misc.LuckyBadge;
-import pd.items.rings.Ring;
-import pd.items.scrolls.ScrollOfUpgrade;
-import pd.items.wands.WandOfTest;
-import pd.items.weapon.Weapon;
-import pd.items.weapon.missiles.buildblock.PlantPotBlock;
-import pd.items.weapon.missiles.fusion.RocketMissile;
+import pd.items.equipment.rings.Ring;
+import pd.items.consum.scrolls.ScrollOfUpgrade;
+import pd.items.equipment.wands.WandOfTest;
+import pd.items.equipment.weapon.Weapon;
+import pd.items.equipment.weapon.missiles.buildblock.PlantPotBlock;
+import pd.items.equipment.weapon.missiles.fusion.RocketMissile;
 import pd.plants.Plant;
 import pd.ui.CurrencyIndicator;
 import render.utils.serialize.FileUtils;
@@ -229,7 +231,7 @@ public final class SpsSCoinGiftShopTest {
 						pd.items.summon.ChinaMech.class) != null,
 				"开局强化没有发放壁垒支援用无人机");
 		check(hero.belongings.getItem(
-						pd.items.sellitem.JumperDancer.class) != null,
+						pd.items.specific.sellitem.JumperDancer.class) != null,
 				"开局强化没有发放跳舞人偶");
 
 		int seeds = 0;
@@ -259,10 +261,10 @@ public final class SpsSCoinGiftShopTest {
 				"开局强化戒指没有发放或不是已鉴定未诅咒");
 
 		//固定语义：+1 与 -10 的叠加规则（不依赖 Generator 随机初始等级）
-		Item chainWeapon = new pd.items.weapon.melee.WornShortsword();
+		Item chainWeapon = new pd.items.equipment.weapon.melee.WornShortsword();
 		chainWeapon.uncurse().identify().upgrade(1);
 		check(chainWeapon.level() == 1, "uncurse/identify/upgrade(1) 链式 +1 语义失效");
-		Item chainRing = new pd.items.rings.RingOfForce();
+		Item chainRing = new pd.items.equipment.rings.RingOfForce();
 		chainRing.uncurse().identify().degrade(10);
 		check(chainRing.level() == -10, "uncurse/identify/degrade(10) 链式 -10 语义失效");
 
@@ -386,10 +388,10 @@ public final class SpsSCoinGiftShopTest {
 		java.awt.image.BufferedImage sheet = javax.imageio.ImageIO.read(
 				Path.of("sprites/items", "items.png").toFile());
 		check("7B6AC7FDBC6FA7F86AA8746705E179B442EA7D7AF364649DAC486FB63FA9A735"
-						.equals(iconHash(sheet, pd.sprites.ItemSpriteSheet.SPS_CHINA_MECH)),
+						.equals(iconHash(sheet, pd.atlas.items.SpecificPlaceHolderDict.SOMETHING_0)),
 				"壁垒支援用无人机图标不是 0.9.9 原始像素");
 		check("D79A27527CA26CFC252798365C524D73767FE3C58F614E14FED2EA4FCD887BA6"
-						.equals(iconHash(sheet, pd.sprites.ItemSpriteSheet.SPS_JUMPER_DANCER)),
+						.equals(iconHash(sheet, pd.atlas.items.SpecificPlaceHolderDict.SOMETHING_0)),
 				"跳舞人偶图标不是 0.9.9 原始像素");
 	}
 

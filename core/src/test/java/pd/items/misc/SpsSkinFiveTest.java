@@ -1,5 +1,7 @@
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
@@ -19,24 +21,23 @@ import pd.items.Generator;
 import pd.items.Item;
 import pd.items.KnowledgeBook;
 import pd.items.TransmutationBall;
-import pd.items.armor.normalarmor.BaseArmor;
-import pd.items.armor.normalarmor.VestArmor;
-import pd.items.armor.specialarmor.TestArmor;
-import pd.items.artifacts.Artifact;
-import pd.items.food.completefood.FruitCandy;
-import pd.items.food.completefood.Meatroll;
-import pd.items.food.completefood.MixPizza;
-import pd.items.food.completefood.MoonCake;
-import pd.items.food.completefood.NutCookie;
-import pd.items.food.completefood.Porksoup;
-import pd.items.food.completefood.RiceGruel;
-import pd.items.food.completefood.Vegetablekebab;
-import pd.items.rings.Ring;
-import pd.items.scrolls.ScrollOfRemoveCurse;
-import pd.items.weapon.Weapon;
-import pd.items.weapon.melee.normalweapon.ShortSword;
-import pd.items.weapon.melee.normalweapon.Spear;
-import pd.sprites.ItemSpriteSheet;
+import pd.items.equipment.armor.normalarmor.BaseArmor;
+import pd.items.equipment.armor.normalarmor.VestArmor;
+import pd.items.equipment.armor.specialarmor.TestArmor;
+import pd.items.equipment.artifacts.Artifact;
+import pd.items.consum.food.completefood.FruitCandy;
+import pd.items.consum.food.completefood.Meatroll;
+import pd.items.consum.food.completefood.MixPizza;
+import pd.items.consum.food.completefood.MoonCake;
+import pd.items.consum.food.completefood.NutCookie;
+import pd.items.consum.food.completefood.Porksoup;
+import pd.items.consum.food.completefood.RiceGruel;
+import pd.items.consum.food.completefood.Vegetablekebab;
+import pd.items.equipment.rings.Ring;
+import pd.items.consum.scrolls.ScrollOfRemoveCurse;
+import pd.items.equipment.weapon.Weapon;
+import pd.items.equipment.weapon.melee.normalweapon.ShortSword;
+import pd.items.equipment.weapon.melee.normalweapon.Spear;
 import render.noosa.Game;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -75,9 +76,9 @@ public final class SpsSkinFiveTest {
 				System.getProperty("java.io.tmpdir") + "sps-skin-five" + File.separator);
 		Game.version = "test";
 		try {
-			pd.items.scrolls.Scroll.initLabels();
-			pd.items.potions.Potion.initColors();
-			pd.items.rings.Ring.initGems();
+			pd.items.consum.scrolls.Scroll.initLabels();
+			pd.items.consum.potions.Potion.initColors();
+			pd.items.equipment.rings.Ring.initGems();
 			Badges.loadGlobal();
 			testShoeDeck();
 			testAllClassStarts();
@@ -153,8 +154,8 @@ public final class SpsSkinFiveTest {
 		check(slots.length == 5, "通用饰品槽数量不是 5");
 
 		//同一件饰品可放入任意槽；各槽互不串扰
-		pd.items.rings.RingOfForce ring =
-				new pd.items.rings.RingOfForce();
+		pd.items.equipment.rings.RingOfForce ring =
+				new pd.items.equipment.rings.RingOfForce();
 		b.accessory4 = ring;
 		b.accessory5 = ring;
 		check(b.accessory4 == ring && b.accessory5 == ring
@@ -189,7 +190,7 @@ public final class SpsSkinFiveTest {
 		hero.belongings.secondArmor = secondaryArmor;
 
 		ChangeEquip control = new ChangeEquip();
-		check(control.image == ItemSpriteSheet.SPS_EQUIP_CHANGE
+		check(control.image == SpecificPlaceHolderDict.SOMETHING_0
 				&& control.actions(hero).contains(ChangeEquip.AC_CHANGE)
 				&& !control.actions(hero).contains(Item.AC_DROP)
 				&& !control.actions(hero).contains(Item.AC_THROW),
@@ -232,7 +233,7 @@ public final class SpsSkinFiveTest {
 				&& restored.belongings.armor instanceof VestArmor
 				&& restored.belongings.secondArmor instanceof BaseArmor,
 				"双武器或双护甲没有随存档恢复");
-		check(restored.belongings.getAllItems(pd.items.armor.Armor.class).size() == 2,
+		check(restored.belongings.getAllItems(pd.items.equipment.armor.Armor.class).size() == 2,
 				"装备遍历没有包含副护甲");
 
 		Hero removal = new Hero();

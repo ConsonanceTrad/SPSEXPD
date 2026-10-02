@@ -27,31 +27,31 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.items.Stylus;
 import pd.items.Weightstone;
-import pd.items.armor.normalarmor.BaseArmor;
-import pd.items.armor.normalarmor.VestArmor;
-import pd.items.artifacts.CloakOfShadows;
-import pd.items.artifacts.EtherealChains;
-import pd.items.medicine.Hardpill;
-import pd.items.medicine.Powerpill;
-import pd.items.medicine.Smashpill;
-import pd.items.potions.PotionOfHealing;
-import pd.items.rings.RingOfForce;
-import pd.items.rings.RingOfMight;
-import pd.items.scrolls.ScrollOfMagicMapping;
-import pd.items.wands.WandOfLight;
-import pd.items.wands.WandOfLightning;
-import pd.items.weapon.guns.Sling;
-import pd.items.weapon.melee.Mace;
-import pd.items.weapon.melee.normalweapon.ShortSword;
-import pd.items.weapon.melee.normalweapon.TrickSand;
-import pd.items.weapon.melee.normalweapon.WoodenStaff;
-import pd.items.weapon.melee.start.BeastKnive;
-import pd.items.weapon.melee.start.EleKatana;
-import pd.items.weapon.missiles.ShootGun;
-import pd.items.weapon.missiles.arrows.BlindFruit;
-import pd.items.weapon.missiles.darts.PoisonDart;
-import pd.items.weapon.missiles.throwing.EmpBola;
-import pd.items.weapon.missiles.throwing.Skull;
+import pd.items.equipment.armor.normalarmor.BaseArmor;
+import pd.items.equipment.armor.normalarmor.VestArmor;
+import pd.items.equipment.artifacts.CloakOfShadows;
+import pd.items.equipment.artifacts.EtherealChains;
+import pd.items.consum.medicine.Hardpill;
+import pd.items.consum.medicine.Powerpill;
+import pd.items.consum.medicine.Smashpill;
+import pd.items.consum.potions.PotionOfHealing;
+import pd.items.equipment.rings.RingOfForce;
+import pd.items.equipment.rings.RingOfMight;
+import pd.items.consum.scrolls.ScrollOfMagicMapping;
+import pd.items.equipment.wands.WandOfLight;
+import pd.items.equipment.wands.WandOfLightning;
+import pd.items.equipment.weapon.guns.Sling;
+import pd.items.equipment.weapon.melee.Mace;
+import pd.items.equipment.weapon.melee.normalweapon.ShortSword;
+import pd.items.equipment.weapon.melee.normalweapon.TrickSand;
+import pd.items.equipment.weapon.melee.normalweapon.WoodenStaff;
+import pd.items.equipment.weapon.melee.start.BeastKnive;
+import pd.items.equipment.weapon.melee.start.EleKatana;
+import pd.items.equipment.weapon.missiles.ShootGun;
+import pd.items.equipment.weapon.missiles.arrows.BlindFruit;
+import pd.items.equipment.weapon.missiles.darts.PoisonDart;
+import pd.items.equipment.weapon.missiles.throwing.EmpBola;
+import pd.items.equipment.weapon.missiles.throwing.Skull;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.Trap;
@@ -97,9 +97,9 @@ public final class SpsSkinSixTest {
 				System.getProperty("java.io.tmpdir") + "sps-skin-six" + File.separator);
 		Game.version = "test";
 		try {
-			pd.items.scrolls.Scroll.initLabels();
-			pd.items.potions.Potion.initColors();
-			pd.items.rings.Ring.initGems();
+			pd.items.consum.scrolls.Scroll.initLabels();
+			pd.items.consum.potions.Potion.initColors();
+			pd.items.equipment.rings.Ring.initGems();
 			Badges.loadGlobal();
 			testStarts();
 			testPunchAndShield();
@@ -121,7 +121,7 @@ public final class SpsSkinSixTest {
 
 		h = start(HeroClass.MAGE);
 		check(h.belongings.weapon instanceof ShortSword
-				&& h.belongings.armor instanceof pd.items.armor.normalarmor.ClothArmor
+				&& h.belongings.armor instanceof pd.items.equipment.armor.normalarmor.ClothArmor
 				&& has(h, GnollMark.class) && has(h, WandOfLight.class) && has(h, Powerpill.class)
 				&& has(h, Smashpill.class) && has(h, Hardpill.class) && has(h, JumpW.class)
 				&& h.magicSkill() == 3, "皮肤6法师开局错误");
@@ -141,7 +141,7 @@ public final class SpsSkinSixTest {
 
 		h = start(HeroClass.PERFORMER);
 		check(h.STR == Hero.STARTING_STR + 2 && h.belongings.weapon instanceof Mace
-				&& h.belongings.armor instanceof pd.items.armor.normalarmor.LeatherArmor
+				&& h.belongings.armor instanceof pd.items.equipment.armor.normalarmor.LeatherArmor
 				&& has(h, PPC2.class) && has(h, JumpP.class), "皮肤6演员开局错误");
 
 		h = start(HeroClass.SOLDIER);
@@ -155,7 +155,7 @@ public final class SpsSkinSixTest {
 
 		h = start(HeroClass.ASCETIC);
 		check(h.magicSkill() == 3 && has(h, JumpA.class) == false
-				&& has(h, pd.items.food.completefood.FruitCandy.class), "皮肤6苦修者公共开局错误");
+				&& has(h, pd.items.consum.food.completefood.FruitCandy.class), "皮肤6苦修者公共开局错误");
 	}
 
 	private static void testPunchAndShield() {

@@ -1,5 +1,7 @@
 package pd.levels;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessApplication;
@@ -85,21 +87,21 @@ import pd.items.SoulCollect;
 import pd.items.StoneOre;
 import pd.items.TreasureMap;
 import pd.items.YellowDewdrop;
-import pd.items.armor.ClothArmor;
-import pd.items.bags.HeartOfScarecrow;
-import pd.items.eggs.AflyEgg;
-import pd.items.eggs.ShadowDragonEgg;
-import pd.items.eggs.YearPetEgg;
-import pd.items.food.AflyFood;
-import pd.items.food.ChargrilledMeat;
-import pd.items.food.SmallMeat;
-import pd.items.food.SmallRation;
-import pd.items.food.fruit.Strawberry;
-import pd.items.food.vegetable.HealGrass;
-import pd.items.keys.CrystalKey;
-import pd.items.keys.GoldenKey;
-import pd.items.keys.GoldenSkeletonKey;
-import pd.items.keys.IronKey;
+import pd.items.equipment.armor.ClothArmor;
+import pd.items.equipment.bags.HeartOfScarecrow;
+import pd.items.consum.eggs.AflyEgg;
+import pd.items.consum.eggs.ShadowDragonEgg;
+import pd.items.consum.eggs.YearPetEgg;
+import pd.items.consum.food.AflyFood;
+import pd.items.consum.food.ChargrilledMeat;
+import pd.items.consum.food.SmallMeat;
+import pd.items.consum.food.SmallRation;
+import pd.items.consum.food.fruit.Strawberry;
+import pd.items.consum.food.vegetable.HealGrass;
+import pd.items.specific.keys.CrystalKey;
+import pd.items.specific.keys.GoldenKey;
+import pd.items.specific.keys.GoldenSkeletonKey;
+import pd.items.specific.keys.IronKey;
 import pd.items.misc.AutoPotion;
 import pd.items.misc.GnollMark;
 import pd.items.misc.LuckyBadge;
@@ -113,22 +115,21 @@ import pd.items.nornstone.PurpleNornStone;
 import pd.items.nornstone.YellowNornStone;
 import pd.items.quest.AdventureJournal;
 import pd.items.quest.GnollClothes;
-import pd.items.scrolls.ScrollOfUpgrade;
+import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.items.skills.ClassSkill;
 import pd.items.skills.RogueSkill;
-import pd.items.weapon.Weapon;
-import pd.items.weapon.melee.Dagger;
-import pd.items.weapon.melee.relic.AresSword;
-import pd.items.weapon.melee.relic.CromCruachAxe;
-import pd.items.weapon.melee.relic.JupitersWraith;
-import pd.items.weapon.melee.relic.LokisFlail;
-import pd.items.weapon.melee.relic.NeptunusTrident;
-import pd.items.weapon.rockcode.Dpotion;
-import pd.items.weapon.rockcode.Gleaf;
+import pd.items.equipment.weapon.Weapon;
+import pd.items.equipment.weapon.melee.Dagger;
+import pd.items.equipment.weapon.melee.relic.AresSword;
+import pd.items.equipment.weapon.melee.relic.CromCruachAxe;
+import pd.items.equipment.weapon.melee.relic.JupitersWraith;
+import pd.items.equipment.weapon.melee.relic.LokisFlail;
+import pd.items.equipment.weapon.melee.relic.NeptunusTrident;
+import pd.items.equipment.weapon.rockcode.Dpotion;
+import pd.items.equipment.weapon.rockcode.Gleaf;
 import pd.journal.Notes;
 import pd.levels.Transitions;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.tiles.custom.SpsLegacyLevelVisual;
 import pd.windows.WndAflyInfo;
 import render.noosa.Game;
@@ -152,9 +153,9 @@ public final class SpsFixedLevelTest {
 		pd.Badges.loadGlobal();
 		Game.version = "test";
 		Game.versionCode = pd.ShatteredPixelDungeon.v4_0_0;
-		pd.items.scrolls.Scroll.initLabels();
-		pd.items.potions.Potion.initColors();
-		pd.items.rings.Ring.initGems();
+		pd.items.consum.scrolls.Scroll.initLabels();
+		pd.items.consum.potions.Potion.initColors();
+		pd.items.equipment.rings.Ring.initGems();
 		Dungeon.depth = 1;
 		Dungeon.branch = 0;
 		Random.pushGenerator(0x535053L);
@@ -378,7 +379,7 @@ public final class SpsFixedLevelTest {
 				check(heap.type == Heap.Type.CHEST, "Zot藏宝屋掉落必须装在宝箱中");
 				pd.items.Item item = heap.peek();
 				check(item instanceof Gold || item instanceof LuckyBadge
-						|| item instanceof pd.items.scrolls.ScrollOfUpgrade,
+						|| item instanceof pd.items.consum.scrolls.ScrollOfUpgrade,
 						"Zot藏宝屋生成了旧版列表之外的物品");
 				if (item instanceof LuckyBadge) badges++;
 			}
@@ -706,7 +707,7 @@ public final class SpsFixedLevelTest {
 				"寄居蟹缺少旧版野兽属性");
 		GoldenSkeletonKey masterKey = new GoldenSkeletonKey();
 		check(masterKey.depth == 0 && masterKey.value() == 100
-				&& masterKey.image == ItemSpriteSheet.GOLDEN_SKELETON_KEY,
+				&& masterKey.image == SpecificPlaceHolderDict.SOMETHING_0,
 				"寄居蟹必掉水晶钥匙的属性或原始图标错误");
 		testGoldenSkeletonKeyConsumption();
 		testHermitCrabGuaranteedKeyDrop();
@@ -1441,8 +1442,8 @@ public final class SpsFixedLevelTest {
 		Yog yog = new Yog();
 		assertProperties(yog, Char.Property.UNKNOW, Char.Property.BOSS);
 		check(!Char.hasProp(yog, Char.Property.IMMOVABLE)
-				&& yog.resist(pd.items.weapon.enchantments.EnchantmentDark.class) == 0.5f
-				&& yog.resist(pd.items.scrolls.ScrollOfPsionicBlast.class) < 1f
+				&& yog.resist(pd.items.equipment.weapon.enchantments.EnchantmentDark.class) == 0.5f
+				&& yog.resist(pd.items.consum.scrolls.ScrollOfPsionicBlast.class) < 1f
 				&& yog.resist(pd.actors.buffs.Amok.class) == 0.5f
 				&& !yog.isImmune(pd.actors.buffs.Amok.class),
 				"Yog本体的旧版位移或暗属性/灵能/狂乱防御错误");
@@ -1668,8 +1669,8 @@ public final class SpsFixedLevelTest {
 				"Zot虚像旧版基础数值错误");
 		check(phase.resist(pd.actors.blobs.Electricity.class) == 0.5f,
 				"Zot虚像缺少旧版电击抗性");
-		check(zot.isImmune(pd.items.weapon.enchantments.EnchantmentDark.class)
-				&& zot.isImmune(pd.items.scrolls.ScrollOfPsionicBlast.class),
+		check(zot.isImmune(pd.items.equipment.weapon.enchantments.EnchantmentDark.class)
+				&& zot.isImmune(pd.items.consum.scrolls.ScrollOfPsionicBlast.class),
 				"Zot缺少旧版暗属性或灵能震爆免疫");
 
 		MagicEye eyeStats = new MagicEye();
@@ -1853,7 +1854,7 @@ public final class SpsFixedLevelTest {
 			check(new GnollArcher().attackSkill(null) == 30 && new GnollArcher().EXP == 1,
 					"豺狼弓箭手旧版基础数值错误");
 			check(new UYog().createLoot() instanceof PowerHand, "始祖之眼必须掉落力量之手");
-			check(king.isImmune(pd.items.weapon.enchantments.EnchantmentDark.class),
+			check(king.isImmune(pd.items.equipment.weapon.enchantments.EnchantmentDark.class),
 					"豺狼王缺少旧版暗属性附魔免疫");
 			check(king.SupercreateLoot() instanceof GnollMark,
 					"豺狼王特殊奖励必须为旧版仪式面具");
@@ -2098,7 +2099,7 @@ public final class SpsFixedLevelTest {
 		check(!target.canHold(new Gold()), "草靶子不应收纳金币");
 		check(new AdultDragonViolet().createLoot() instanceof BossRush,
 				"城镇守卫巨龙必须掉落BossRush挑战");
-		check(new YearPetEgg().image == pd.sprites.ItemSpriteSheet.YEAR_PET_EGG,
+		check(new YearPetEgg().image == pd.atlas.items.SpecificPlaceHolderDict.SOMETHING_0,
 				"年兽之魂原版图标索引错误");
 		YearPet pet = new YearPet();
 		check(pet.HT == 500 && pet.legacyType() == 666,
@@ -2108,7 +2109,7 @@ public final class SpsFixedLevelTest {
 				"阿飞饭团配方错误");
 		check(WndAflyInfo.createResult(new pd.items.Item[]{
 				new Strawberry(), new HealGrass(), new HealGrass()})
-				instanceof pd.items.armor.fusion.LifeArmor,
+				instanceof pd.items.equipment.armor.fusion.LifeArmor,
 				"阿飞生命护甲配方错误");
 		check(WndAflyInfo.createResult(new pd.items.Item[]{
 				new AflyFood(), new Ankh(), null}) instanceof AflyEgg,
@@ -2497,7 +2498,7 @@ public final class SpsFixedLevelTest {
 				"推箱谜题集第三开关必须指向地图中的(32,15)传送门");
 		check(level.nonKeyPrize(0) instanceof pd.items.KnowledgeBook,
 				"推箱谜题集常驻知识之书奖励缺失");
-		check(level.nonKeyPrize(2) instanceof pd.items.eggs.Egg,
+		check(level.nonKeyPrize(2) instanceof pd.items.consum.eggs.Egg,
 				"推箱谜题集首次宠物蛋奖励缺失");
 		for (int cell : SokobanPuzzlesLevel.SENTINELS) {
 			check((Terrain.flags[level.map[cell]] & Terrain.PASSABLE) != 0,

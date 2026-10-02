@@ -19,11 +19,11 @@ import pd.actors.mobs.SpsCityMobs;
 import pd.actors.mobs.SpsExitMobs;
 import pd.actors.mobs.SpsPrisonMobs;
 import pd.actors.mobs.YogDzewa;
-import pd.items.armor.Armor;
-import pd.items.wands.WandOfFreeze;
-import pd.items.wands.fusion.WandOfFlow;
-import pd.items.weapon.enchantments.EnchantmentIce2;
-import pd.items.weapon.enchantments.EnchantmentIce;
+import pd.items.equipment.armor.Armor;
+import pd.items.equipment.wands.WandOfFreeze;
+import pd.items.equipment.wands.fusion.WandOfFlow;
+import pd.items.equipment.weapon.enchantments.EnchantmentIce2;
+import pd.items.equipment.weapon.enchantments.EnchantmentIce;
 import render.noosa.Game;
 import render.utils.math.Random;
 import render.utils.serialize.Reflection;
@@ -105,7 +105,7 @@ public final class SpsMobCatalogTest {
 				"竹子怪缺少旧版植物中毒免疫");
 		check(bamboo.weak(pd.actors.buffs.Ooze.class) == 1.5f,
 				"竹子怪缺少旧版酸蚀弱点");
-		check(bamboo.weak(pd.items.wands.Wand.class) == 1.5f,
+		check(bamboo.weak(pd.items.equipment.wands.Wand.class) == 1.5f,
 				"竹子怪缺少旧版法杖弱点");
 		check(bamboo.SupercreateLoot() instanceof Armor, "竹子怪的高级掉落不是随机护甲");
 		check(Reflection.newInstance(SpsPrisonMobs.BambooMob.class) != null,

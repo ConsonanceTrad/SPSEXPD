@@ -1,5 +1,7 @@
 package pd.actors.mobs.npcs;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Challenges;
 import pd.Dungeon;
 import pd.QuickSlot;
@@ -12,9 +14,9 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.Rat;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.journalpages.NewHome;
+import pd.items.specific.journalpages.NewHome;
 import pd.items.quest.AdventureJournal;
-import pd.items.weapon.melee.special.Pumpkin;
+import pd.items.equipment.weapon.melee.special.Pumpkin;
 import pd.plants.BlandfruitBush;
 import pd.plants.Dreamfoil;
 import pd.plants.Freshberry;
@@ -26,7 +28,6 @@ import pd.plants.SiOtwoFlower;
 import pd.plants.StarEater;
 import pd.plants.Starflower;
 import pd.plants.Sungrass;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
@@ -106,7 +107,7 @@ public final class SpsAshWolfTest {
 	private static void testNewHomeRouteAndChallenge() {
 		NewHome page = new NewHome();
 		AdventureJournal journal = new AdventureJournal();
-		check(page.destination() == 8 && page.image == ItemSpriteSheet.SPS_JOURNAL_PAGE,
+		check(page.destination() == 8 && page.image == SpecificPlaceHolderDict.SOMETHING_0,
 				"样板房纸片的路线或图标错误");
 		check(journal.addPage(page) && journal.isUnlocked(8), "样板房纸片没有解锁新居路线");
 
@@ -135,7 +136,7 @@ public final class SpsAshWolfTest {
 
 	private static void testPumpkinWeapon() {
 		Pumpkin pumpkin = new Pumpkin();
-		check(pumpkin.image == ItemSpriteSheet.SPS_PUMPKIN && pumpkin.min() == 1 && pumpkin.max() == 5,
+		check(pumpkin.image == SpecificPlaceHolderDict.SOMETHING_0 && pumpkin.min() == 1 && pumpkin.max() == 5,
 				"南瓜灯基础图标或伤害错误");
 		pumpkin.upgrade(3);
 		check(pumpkin.min() == 4 && pumpkin.max() == 8 && Pumpkin.EFFECT_CHANCE == 20

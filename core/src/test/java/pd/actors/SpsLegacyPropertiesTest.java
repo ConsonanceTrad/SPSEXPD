@@ -47,15 +47,15 @@ import pd.actors.mobs.pets.Bunny;
 import pd.actors.mobs.pets.LeryFire;
 import pd.actors.mobs.pets.Scorpion;
 import pd.actors.mobs.pets.YearPet;
-import pd.items.bombs.DungeonBomb;
-import pd.items.scrolls.ScrollOfPsionicBlast;
-import pd.items.wands.WandOfAcid;
-import pd.items.wands.WandOfFreeze;
-import pd.items.wands.WandOfLight;
-import pd.items.wands.fusion.WandOfFlow;
-import pd.items.weapon.enchantments.EnchantmentDark;
-import pd.items.weapon.enchantments.EnchantmentEarth2;
-import pd.items.weapon.enchantments.EnchantmentEarth;
+import pd.items.equipment.bombs.DungeonBomb;
+import pd.items.consum.scrolls.ScrollOfPsionicBlast;
+import pd.items.equipment.wands.WandOfAcid;
+import pd.items.equipment.wands.WandOfFreeze;
+import pd.items.equipment.wands.WandOfLight;
+import pd.items.equipment.wands.fusion.WandOfFlow;
+import pd.items.equipment.weapon.enchantments.EnchantmentDark;
+import pd.items.equipment.weapon.enchantments.EnchantmentEarth2;
+import pd.items.equipment.weapon.enchantments.EnchantmentEarth;
 
 /** Verifies the resistance, immunity, and weakness table from SPS-PD 0.9.8 Char.Property. */
 public final class SpsLegacyPropertiesTest {

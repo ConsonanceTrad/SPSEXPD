@@ -1,5 +1,8 @@
 package pd.actors.mobs;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessFiles;
 import com.badlogic.gdx.utils.GdxNativesLoader;
@@ -13,14 +16,13 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.npcs.TownNpc;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.artifacts.DriedRose;
-import pd.items.weapon.melee.special.Goei;
-import pd.items.weapon.melee.special.TekkoKagi;
-import pd.items.weapon.melee.special.WraithBreath;
+import pd.items.equipment.artifacts.DriedRose;
+import pd.items.equipment.weapon.melee.special.Goei;
+import pd.items.equipment.weapon.melee.special.TekkoKagi;
+import pd.items.equipment.weapon.melee.special.WraithBreath;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.plants.Plant;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
 import render.utils.data.SparseArray;
 import render.utils.math.Random;
@@ -179,9 +181,9 @@ public final class SpsSpecialRewardWeaponsTest {
 			check(ICON_HASHES[i].equals(hex(MessageDigest.getInstance("SHA-256").digest(pixels.array()))),
 					"第" + (i + 1) + "件特殊奖励武器图标错误");
 		}
-		check(new Goei().image == ItemSpriteSheet.SPS_GOEI
-				&& new TekkoKagi().image == ItemSpriteSheet.SPS_TEKKO_KAGI
-				&& new WraithBreath().image == ItemSpriteSheet.SPS_WRAITH_BREATH,
+		check(new Goei().image == SpecificPlaceHolderDict.SOMETHING_0
+				&& new TekkoKagi().image == EquipmentEquipWeaponBasicWeaponDict.SPS_TEKKO_KAGI_0
+				&& new WraithBreath().image == SpecificPlaceHolderDict.SOMETHING_0,
 				"特殊奖励武器图标槽绑定错误");
 
 		String zh = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);

@@ -1,5 +1,8 @@
 package pd.plants;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessFiles;
 import com.badlogic.gdx.utils.GdxNativesLoader;
@@ -36,29 +39,28 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.items.TransmutationBall;
 import pd.items.UpgradeEatBall;
-import pd.items.food.Blandfruit;
-import pd.items.food.fruit.Durian;
-import pd.items.food.fruit.Fruit;
-import pd.items.medicine.GreenSpore;
+import pd.items.consum.food.Blandfruit;
+import pd.items.consum.food.fruit.Durian;
+import pd.items.consum.food.fruit.Fruit;
+import pd.items.consum.medicine.GreenSpore;
 import pd.items.nornstone.NornStone;
 import pd.items.quest.AdventureJournal;
-import pd.items.weapon.missiles.arrows.BlindFruit;
-import pd.items.weapon.missiles.arrows.CharmFruit;
-import pd.items.weapon.missiles.arrows.FireFruit;
-import pd.items.weapon.missiles.arrows.GlassFruit;
-import pd.items.weapon.missiles.arrows.HealFruit;
-import pd.items.weapon.missiles.arrows.IceFruit;
-import pd.items.weapon.missiles.arrows.NutFruit;
-import pd.items.weapon.missiles.arrows.RootFruit;
-import pd.items.weapon.missiles.arrows.ShockFruit;
-import pd.items.weapon.missiles.arrows.SmokeFruit;
-import pd.items.weapon.missiles.arrows.ToxicFruit;
+import pd.items.equipment.weapon.missiles.arrows.BlindFruit;
+import pd.items.equipment.weapon.missiles.arrows.CharmFruit;
+import pd.items.equipment.weapon.missiles.arrows.FireFruit;
+import pd.items.equipment.weapon.missiles.arrows.GlassFruit;
+import pd.items.equipment.weapon.missiles.arrows.HealFruit;
+import pd.items.equipment.weapon.missiles.arrows.IceFruit;
+import pd.items.equipment.weapon.missiles.arrows.NutFruit;
+import pd.items.equipment.weapon.missiles.arrows.RootFruit;
+import pd.items.equipment.weapon.missiles.arrows.ShockFruit;
+import pd.items.equipment.weapon.missiles.arrows.SmokeFruit;
+import pd.items.equipment.weapon.missiles.arrows.ToxicFruit;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.features.LevelTransition;
 import pd.levels.traps.Trap;
 import pd.mechanics.pathfind.PathFinder;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
 import render.utils.data.SparseArray;
 import render.utils.math.Random;
@@ -73,6 +75,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import javax.imageio.ImageIO;
+import pd.atlas.IconEntry;
 
 /** Regression coverage for SPS-PD's entrance-room enhanced plants and fruit missiles. */
 public final class SpsEnhancedPlantsTest {
@@ -95,17 +98,17 @@ public final class SpsEnhancedPlantsTest {
 	private static final int[] PLANT_IMAGES = {
 			0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 9, 17, 11, 14, 15, 12, 13, 7, 18
 	};
-	private static final int[] SEED_IMAGES = {
-			ItemSpriteSheet.SPS_SEED_FIREBLOOM, ItemSpriteSheet.SPS_SEED_ICECAP,
-			ItemSpriteSheet.SPS_SEED_SORROWMOSS, ItemSpriteSheet.SPS_SEED_BLINDWEED,
-			ItemSpriteSheet.SPS_SEED_SUNGRASS, ItemSpriteSheet.SPS_SEED_EARTHROOT,
-			ItemSpriteSheet.SPS_SEED_FADELEAF, ItemSpriteSheet.SPS_SEED_ROTBERRY,
-			ItemSpriteSheet.SPS_SEED_BLANDFRUIT, ItemSpriteSheet.SPS_SEED_DREAMFOIL,
-			ItemSpriteSheet.SPS_SEED_STORMVINE, ItemSpriteSheet.SPS_SEED_DUNGEONNUT,
-			ItemSpriteSheet.SPS_SEED_STARFLOWER, ItemSpriteSheet.SPS_SEED_RENEPENTH,
-			ItemSpriteSheet.SPS_SEED_STAREATER, ItemSpriteSheet.SPS_SEED_DEWCATCHER,
-			ItemSpriteSheet.SPS_SEED_SEEDPOD, ItemSpriteSheet.SPS_SEED_ROTBERRY,
-			ItemSpriteSheet.SPS_SEED_SIOFLOWER
+	private static final IconEntry[] SEED_IMAGES = {
+			ConsumPotionSeedSeedDict.SEED_FIREBLOOM, ConsumPotionSeedSeedDict.SEED_ICECAP,
+			ConsumPotionSeedSeedDict.SEED_SORROWMOSS_0, ConsumPotionSeedSeedDict.SEED_BLINDWEED_0,
+			ConsumPotionSeedSeedDict.SEED_SUNGRASS, ConsumPotionSeedSeedDict.SEED_EARTHROOT_0,
+			ConsumPotionSeedSeedDict.SEED_FADELEAF_0, SpecificPlaceHolderDict.SOMETHING_0,
+			SpecificPlaceHolderDict.SOMETHING_0, SpecificPlaceHolderDict.SOMETHING_0,
+			ConsumPotionSeedSeedDict.SEED_STORMVINE, SpecificPlaceHolderDict.SOMETHING_0,
+			ConsumPotionSeedSeedDict.SEED_STARFLOWER_0, SpecificPlaceHolderDict.SOMETHING_0,
+			ConsumPotionSeedSeedDict.SEED_STAREATER, SpecificPlaceHolderDict.SOMETHING_0,
+			SpecificPlaceHolderDict.SOMETHING_0, SpecificPlaceHolderDict.SOMETHING_0,
+			SpecificPlaceHolderDict.SOMETHING_0
 	};
 	private static final int[] HARVEST_COUNTS = {
 			3, 3, 3, 3, 2, 3, 3, 1, 2, 3, 3, 3, 1, 2, 2, 3, 3, 3, 2
@@ -329,14 +332,14 @@ public final class SpsEnhancedPlantsTest {
 	}
 
 	private static void checkStats(Item item, int min, int max) {
-		pd.items.weapon.Weapon weapon =
-				(pd.items.weapon.Weapon)item;
+		pd.items.equipment.weapon.Weapon weapon =
+				(pd.items.equipment.weapon.Weapon)item;
 		check(weapon.min() == min && weapon.max() == max && weapon.STRReq() == 10,
 				item.getClass().getSimpleName() + "基础数值错误");
 		check(!item.isUpgradable() && item.isIdentified(), item.getClass().getSimpleName() + "识别属性错误");
 	}
 
-	private static void checkBuff(pd.items.weapon.Weapon fruit,
+	private static void checkBuff(pd.items.equipment.weapon.Weapon fruit,
 			TestMob attacker, Class<?> buff, String message) {
 		TestMob target = new TestMob(100);
 		fruit.proc(attacker, target, 10);

@@ -1,5 +1,8 @@
 package pd.items;
 
+import pd.atlas.items.GroundFunctionalFallingDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
@@ -22,17 +25,16 @@ import pd.actors.hero.HeroClass;
 import pd.actors.hero.HeroSubClass;
 import pd.actors.mobs.Mob;
 import pd.actors.mobs.Zombie;
-import pd.items.food.Honey;
-import pd.items.potions.Potion;
-import pd.items.potions.PotionOfMight;
-import pd.items.scrolls.Scroll;
+import pd.items.consum.food.Honey;
+import pd.items.consum.potions.Potion;
+import pd.items.consum.potions.PotionOfMight;
+import pd.items.consum.scrolls.Scroll;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.Trap;
 import pd.plants.Dewcatcher;
 import pd.plants.Firebloom;
 import pd.plants.Plant;
-import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndIronMaker;
 import render.noosa.Game;
 import render.utils.data.SparseArray;
@@ -55,6 +57,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 import javax.imageio.ImageIO;
+import pd.atlas.IconEntry;
 
 public final class SpsLegacyUtilityItemsTest {
 
@@ -113,7 +116,7 @@ public final class SpsLegacyUtilityItemsTest {
 
 	private static void testDewAndForge() throws Exception {
 		GreenDewdrop dew = new GreenDewdrop();
-		check(dew.image == ItemSpriteSheet.SPS_GREEN_DEWDROP, "绿色露珠图标常量错误");
+		check(dew.image == GroundFunctionalFallingDict.DEWDROP_0, "绿色露珠图标常量错误");
 		Random.pushGenerator(0x475245454E444557L);
 		try {
 			for (int i = 0; i < 100; i++) {
@@ -395,9 +398,9 @@ public final class SpsLegacyUtilityItemsTest {
 				&& !miscZh.contains("�"), "旧版主挑战中英文资源缺失或乱码");
 
 		BufferedImage sheet = ImageIO.read(new File("sprites/items/items.png"));
-		int[] icons = {ItemSpriteSheet.SPS_GREEN_DEWDROP, ItemSpriteSheet.SPS_GOLD_BAG,
-				ItemSpriteSheet.SPS_SPECIAL_COIN, ItemSpriteSheet.SPS_MIT_BOTTLE,
-				ItemSpriteSheet.SPS_UNBLESS_ANKH};
+		IconEntry[] icons = {GroundFunctionalFallingDict.DEWDROP_0, SpecificPlaceHolderDict.SOMETHING_0,
+				SpecificPlaceHolderDict.SOMETHING_0, SpecificPlaceHolderDict.SOMETHING_0,
+				SpecificPlaceHolderDict.SOMETHING_0};
 		for (int i = 0; i < icons.length; i++) {
 			check(ICON_HASHES[i].equals(hash(sheet, icons[i])), "第" + (i + 1) + "个通用道具不是旧版原始图标");
 		}
@@ -428,7 +431,7 @@ public final class SpsLegacyUtilityItemsTest {
 		return hero;
 	}
 
-	private static String hash(BufferedImage sheet, int itemIndex) throws Exception {
+	private static String hash(BufferedImage sheet, IconEntry itemIndex) throws Exception {
 		int left = itemIndex % 16 * 16;
 		int top = itemIndex / 16 * 16;
 		ByteBuffer pixels = ByteBuffer.allocate(16 * 16 * 4).order(ByteOrder.LITTLE_ENDIAN);

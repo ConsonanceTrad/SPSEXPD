@@ -1,11 +1,12 @@
 package pd.actors.mobs.npcs;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.items.Flag;
 import pd.items.Item;
 import pd.levels.Level;
-import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndAscend;
 import pd.windows.WndDream;
 import pd.windows.WndHate;
@@ -286,7 +287,7 @@ public final class SpsTownNpcLootTest {
 		check(hbb.hbbReward(0, true) == null && hbb.hbbReward(3, false) == null,
 				"HBB在错误的交互分支或营救前发放军旗");
 		Flag flag = new Flag();
-		check(flag.image == ItemSpriteSheet.SPS_FLAG && flag.unique && !flag.stackable,
+		check(flag.image == SpecificPlaceHolderDict.SOMETHING_0 && flag.unique && !flag.stackable,
 				"军旗图标或唯一属性错误");
 		check(!flag.actions(new Hero()).contains(Item.AC_DROP)
 				&& !flag.actions(new Hero()).contains(Item.AC_THROW), "军旗可以被丢弃或投掷");

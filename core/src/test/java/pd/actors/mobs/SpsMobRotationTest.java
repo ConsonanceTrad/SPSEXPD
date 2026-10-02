@@ -183,7 +183,7 @@ public final class SpsMobRotationTest {
 		if (swarm.HT != 60 || swarm.defenseSkill != 5 || swarm.EXP != 1 || swarm.maxLvl != 10
 				|| swarm.loot != pd.items.Generator.Category.SEED
 				|| Math.abs(swarm.lootChance - 0.1f) > 0.0001f
-				|| Swarm.specialLootType() != pd.items.scrolls.ScrollOfMagicalInfusion.class) {
+				|| Swarm.specialLootType() != pd.items.consum.scrolls.ScrollOfMagicalInfusion.class) {
 			throw new AssertionError("SPS swarm stats or rewards differ from the source");
 		}
 		for (int i = 0; i < 100; i++) {
@@ -230,7 +230,7 @@ public final class SpsMobRotationTest {
 		trickster.pos = 11;
 		target.pos = 13;
 		if (trickster.HT != 60 || trickster.defenseSkill != 5 || trickster.EXP != 5
-				|| !(trickster.loot instanceof pd.items.weapon.missiles.darts.PoisonDart)
+				|| !(trickster.loot instanceof pd.items.equipment.weapon.missiles.darts.PoisonDart)
 				|| Math.abs(trickster.lootChance - 1f) > 0.0001f
 				|| !trickster.properties().contains(Char.Property.ORC)
 				|| !trickster.canAttack(target)) {
@@ -245,7 +245,7 @@ public final class SpsMobRotationTest {
 		if (crab.HT != 100 || crab.defenseSkill != 0 || crab.EXP != 6
 				|| !crab.properties().contains(Char.Property.BEAST)
 				|| !crab.properties().contains(Char.Property.MINIBOSS)
-				|| crab.loot != pd.items.food.MysteryMeat.class
+				|| crab.loot != pd.items.consum.food.MysteryMeat.class
 				|| Math.abs(crab.lootChance - 0.5f) > 0.0001f) {
 			throw new AssertionError("SPS great crab stats, faction, or ordinary loot differ from the source");
 		}
@@ -266,11 +266,11 @@ public final class SpsMobRotationTest {
 		for (int i = 0; i < 100; i++) {
 			Albino albino = new Albino();
 			if (albino.HT < 13 || albino.HT > 19 || albino.EXP != 1
-					|| albino.loot != pd.items.food.meatfood.Meat.class
+					|| albino.loot != pd.items.consum.food.meatfood.Meat.class
 					|| Math.abs(albino.lootChance - 1f) > 0.0001f
 					|| !albino.properties().contains(Char.Property.BEAST)
 					|| !albino.properties().contains(Char.Property.DEMONIC)
-					|| albino.resist(pd.items.wands.Wand.class) >= 1f
+					|| albino.resist(pd.items.equipment.wands.Wand.class) >= 1f
 					|| !albino.isImmune(Amok.class) || !albino.isImmune(Terror.class)
 					|| !albino.isImmune(pd.actors.blobs.CorruptGas.class)
 					|| !albino.isImmune(pd.actors.buffs.Vertigo.class)
@@ -287,8 +287,8 @@ public final class SpsMobRotationTest {
 				|| acidic.properties().contains(Char.Property.ACIDIC)
 				|| !acidic.isImmune(pd.actors.blobs.StenchGas.class)
 				|| !Arrays.equals(Acidic.specialLootTypes(), new Class[]{
-				pd.items.potions.PotionOfToxicGas.class,
-				pd.items.wands.WandOfAcid.class})) {
+				pd.items.consum.potions.PotionOfToxicGas.class,
+				pd.items.equipment.wands.WandOfAcid.class})) {
 			throw new AssertionError("SPS acidic scorpio faction, immunity, or rewards differ from the source");
 		}
 		DamageProbe target = new DamageProbe();
@@ -308,7 +308,7 @@ public final class SpsMobRotationTest {
 
 		BanditProbe bandit = new BanditProbe();
 		bandit.pos = 6;
-		if (bandit.loot != pd.items.food.vegetable.NutVegetable.class
+		if (bandit.loot != pd.items.consum.food.vegetable.NutVegetable.class
 				|| Math.abs(bandit.lootChance - 0.1f) > 0.0001f
 				|| !bandit.properties().contains(Char.Property.GOBLIN)
 				|| !bandit.properties().contains(Char.Property.ELF)
@@ -432,7 +432,7 @@ public final class SpsMobRotationTest {
 				|| shielded.loot != pd.items.Gold.class
 				|| Math.abs(shielded.lootChance - 0.5f) > 0.0001f
 				|| !shielded.properties().contains(Char.Property.ORC)
-				|| !shielded.isWeak(pd.items.wands.Wand.class)
+				|| !shielded.isWeak(pd.items.equipment.wands.Wand.class)
 				|| !shielded.isImmune(Terror.class)
 				|| SpsExitMobs.GuardShielded.secondaryLootCategory()
 				!= pd.items.Generator.Category.RANGEWEAPON) {
@@ -524,9 +524,9 @@ public final class SpsMobRotationTest {
 		Piranha piranha = new Piranha();
 		if (piranha.HT != 55 || piranha.defenseSkill != 16 || piranha.EXP != 5
 				|| Math.abs(piranha.speed() - 1.5f) > 0.0001f
-				|| piranha.loot != pd.items.food.meatfood.Meat.class
+				|| piranha.loot != pd.items.consum.food.meatfood.Meat.class
 				|| Math.abs(piranha.lootChance - 1f) > 0.0001f
-				|| !(piranha.SupercreateLoot() instanceof pd.items.weapon.missiles.meleethrow.HugeShuriken)
+				|| !(piranha.SupercreateLoot() instanceof pd.items.equipment.weapon.missiles.meleethrow.HugeShuriken)
 				|| !(Piranha.random().getClass() == Piranha.class)) {
 			throw new AssertionError("SPS piranha stats, speed, or rewards differ from the source");
 		}
@@ -556,8 +556,8 @@ public final class SpsMobRotationTest {
 				|| !wraith.properties().contains(Char.Property.UNDEAD)
 				|| !wraith.canReach(target)
 				|| !Arrays.equals(Wraith.legacyLootTypes(), new Class[]{
-				pd.items.scrolls.ScrollOfMagicalInfusion.class,
-				pd.items.scrolls.ScrollOfUpgrade.class})
+				pd.items.consum.scrolls.ScrollOfMagicalInfusion.class,
+				pd.items.consum.scrolls.ScrollOfUpgrade.class})
 				|| !Arrays.equals(Wraith.legacyLootChances(), new float[]{0.06f, 0.09f})) {
 			throw new AssertionError("SPS wraith stats, faction, range, or rewards differ from the source");
 		}
@@ -576,7 +576,7 @@ public final class SpsMobRotationTest {
 				|| !wraith.isImmune(pd.actors.buffs.Charm.class)
 				|| !wraith.isImmune(Sleep.class)
 				|| !wraith.isImmune(pd.actors.blobs.ToxicGas.class)
-				|| !wraith.isImmune(pd.items.scrolls.ScrollOfPsionicBlast.class)
+				|| !wraith.isImmune(pd.items.consum.scrolls.ScrollOfPsionicBlast.class)
 				|| !wraith.isImmune(pd.actors.buffs.Vertigo.class)
 				|| !wraith.isImmune(Burning.class)
 				|| !wraith.isImmune(pd.actors.buffs.Paralysis.class)
@@ -614,7 +614,7 @@ public final class SpsMobRotationTest {
 				|| mimic.alignment != Char.Alignment.ENEMY || mimic.state != mimic.HUNTING
 				|| !mimic.properties().contains(Char.Property.UNKNOW)
 				|| mimic.properties().contains(Char.Property.DEMONIC)
-				|| !mimic.isImmune(pd.items.scrolls.ScrollOfPsionicBlast.class)
+				|| !mimic.isImmune(pd.items.consum.scrolls.ScrollOfPsionicBlast.class)
 				|| mimic.items == null || mimic.items.size() != 1 || mimic.items.get(0) != reward) {
 			throw new AssertionError("SPS mimic stats, faction, immunity, or stored reward differ from the source");
 		}
@@ -672,7 +672,7 @@ public final class SpsMobRotationTest {
 		Dungeon.depth = 3;
 		Rat rat = new Rat();
 		if (rat.drRoll() != 1 || !(rat.SupercreateLoot()
-				instanceof pd.items.weapon.missiles.meleethrow.Brick)) {
+				instanceof pd.items.equipment.weapon.missiles.meleethrow.Brick)) {
 			throw new AssertionError("SPS rat armor or special brick reward differs from the source");
 		}
 
@@ -681,8 +681,8 @@ public final class SpsMobRotationTest {
 		if (guard.properties().contains(Char.Property.UNDEAD)
 				|| !guard.properties().contains(Char.Property.HUMAN)
 				|| guard.attackDelay() != 1.2f
-				|| !guard.isImmune(pd.items.weapon.enchantments.EnchantmentDark.class)
-				|| !guard.isImmune(pd.items.weapon.enchantments.EnchantmentDark2.class)) {
+				|| !guard.isImmune(pd.items.equipment.weapon.enchantments.EnchantmentDark.class)
+				|| !guard.isImmune(pd.items.equipment.weapon.enchantments.EnchantmentDark2.class)) {
 			throw new AssertionError("SPS guard faction, speed, or dark enchantment immunity differs from the source");
 		}
 		DamageProbe chainTarget = new DamageProbe();
@@ -694,7 +694,7 @@ public final class SpsMobRotationTest {
 		if (guard.legacyChainAllowed(true)) throw new AssertionError("silenced SPS guard could still use its chain");
 
 		int guardDrops = Dungeon.LimitedDrops.GUARD_ARM.count;
-		if (!(guard.createLoot() instanceof pd.items.armor.Armor)
+		if (!(guard.createLoot() instanceof pd.items.equipment.armor.Armor)
 				|| Dungeon.LimitedDrops.GUARD_ARM.count != guardDrops) {
 			throw new AssertionError("SPS guard retained Shattered's diminishing armor-drop counter");
 		}
@@ -725,7 +725,7 @@ public final class SpsMobRotationTest {
 				|| !warlock.properties().contains(Char.Property.DWARF)
 				|| warlock.loot != pd.items.Generator.Category.POTION
 				|| Math.abs(warlock.lootChance - 0.83f) > 0.0001f
-				|| !(warlock.SupercreateLoot() instanceof pd.items.eggs.Egg)) {
+				|| !(warlock.SupercreateLoot() instanceof pd.items.consum.eggs.Egg)) {
 			throw new AssertionError("SPS warlock faction or loot differs from the source");
 		}
 		if (!warlock.canReach(Dungeon.hero)) throw new AssertionError("SPS warlock lost its clear-line shadow bolt");
@@ -744,13 +744,13 @@ public final class SpsMobRotationTest {
 				|| !monk.properties().contains(Char.Property.DWARF)
 				|| monk.attackDelay() != 0.5f
 				|| !monk.isImmune(Amok.class) || !monk.isImmune(Terror.class)
-				|| monk.loot != pd.items.food.staplefood.NormalRation.class
+				|| monk.loot != pd.items.consum.food.staplefood.NormalRation.class
 				|| Math.abs(monk.lootChance - 0.1f) > 0.0001f
-				|| !(monk.SupercreateLoot() instanceof pd.items.weapon.melee.normalweapon.FightGloves)) {
+				|| !(monk.SupercreateLoot() instanceof pd.items.equipment.weapon.melee.normalweapon.FightGloves)) {
 			throw new AssertionError("SPS monk speed, faction, immunity, or loot differs from the source");
 		}
 		pd.items.KindOfWeapon weapon =
-				new pd.items.weapon.melee.normalweapon.Dagger();
+				new pd.items.equipment.weapon.melee.normalweapon.Dagger();
 		Dungeon.hero.belongings.weapon = weapon;
 		monk.legacyDisarm(Dungeon.hero);
 		if (Dungeon.hero.belongings.weapon != null || Dungeon.level.heaps.get(Dungeon.hero.pos) == null
@@ -768,7 +768,7 @@ public final class SpsMobRotationTest {
 				|| !golem.isImmune(pd.actors.blobs.TarGas.class)
 				|| golem.loot != pd.items.StoneOre.class
 				|| Math.abs(golem.lootChance - 0.5f) > 0.0001f
-				|| !(golem.SupercreateLoot() instanceof pd.items.weapon.guns.GunWeapon)) {
+				|| !(golem.SupercreateLoot() instanceof pd.items.equipment.weapon.guns.GunWeapon)) {
 			throw new AssertionError("SPS golem speed, faction, immunity, or loot differs from the source");
 		}
 		if (Golem.legacyReleasesTar(22, 180) || !Golem.legacyReleasesTar(23, 180)) {
@@ -794,8 +794,8 @@ public final class SpsMobRotationTest {
 		Actor.add(far);
 		if (!eye.canReach(far) || eye.attackDelay() != 1.6f
 				|| !eye.isImmune(Terror.class)
-				|| eye.resist(pd.items.weapon.enchantments.EnchantmentDark.class) >= 1f
-				|| eye.loot != pd.items.potions.PotionOfHealing.class
+				|| eye.resist(pd.items.equipment.weapon.enchantments.EnchantmentDark.class) >= 1f
+				|| eye.loot != pd.items.consum.potions.PotionOfHealing.class
 				|| Math.abs(eye.lootChance - 0.1f) > 0.0001f) {
 			throw new AssertionError("SPS eye beam, speed, defense, or loot differs from the source");
 		}
@@ -812,7 +812,7 @@ public final class SpsMobRotationTest {
 		if (Math.abs(spinner.lootChance - 0.15f) > 0.0001f
 				|| !spinner.isImmune(pd.actors.buffs.Roots.class)
 				|| spinner.isImmune(pd.actors.blobs.Web.class)
-				|| !(spinner.SupercreateLoot() instanceof pd.items.weapon.melee.normalweapon.Whip)
+				|| !(spinner.SupercreateLoot() instanceof pd.items.equipment.weapon.melee.normalweapon.Whip)
 				|| pd.actors.blobs.Blob.volumeAt(12,
 						pd.actors.blobs.Web.class) < 5) {
 			throw new AssertionError("SPS spinner web trail, defense, or loot differs from the source");
@@ -824,9 +824,9 @@ public final class SpsMobRotationTest {
 		if (!scorpio.canReach(far)
 				|| scorpio.properties().contains(Char.Property.DEMONIC)
 				|| !scorpio.properties().contains(Char.Property.BEAST)
-				|| scorpio.loot != pd.items.potions.PotionOfHealing.class
+				|| scorpio.loot != pd.items.consum.potions.PotionOfHealing.class
 				|| Math.abs(scorpio.lootChance - 0.2f) > 0.0001f
-				|| !(scorpio.SupercreateLoot() instanceof pd.items.weapon.melee.normalweapon.Dagger)) {
+				|| !(scorpio.SupercreateLoot() instanceof pd.items.equipment.weapon.melee.normalweapon.Dagger)) {
 			throw new AssertionError("SPS scorpio range, faction, or loot differs from the source");
 		}
 		Buff.affect(scorpio, Locked.class, 10f);
@@ -842,11 +842,11 @@ public final class SpsMobRotationTest {
 		fiend.pos = 11;
 		if (!fiend.canReach(far)
 				|| !fiend.isImmune(pd.actors.damagetype.DamageType.Dark.class)
-				|| fiend.resist(pd.items.wands.fusion.WandOfBlood.class) >= 1f) {
+				|| fiend.resist(pd.items.equipment.wands.fusion.WandOfBlood.class) >= 1f) {
 			throw new AssertionError("SPS fiend range or dark defenses differ from the source: range="
 					+ fiend.canReach(far) + ", collision=" + fiend.collision(far) + ", target=" + far.pos + ", immune="
 					+ fiend.isImmune(pd.actors.damagetype.DamageType.Dark.class)
-					+ ", resist=" + fiend.resist(pd.items.wands.fusion.WandOfBlood.class));
+					+ ", resist=" + fiend.resist(pd.items.equipment.wands.fusion.WandOfBlood.class));
 		}
 		Buff.affect(fiend, Silent.class, 10f);
 		if (fiend.canReach(far)) throw new AssertionError("silenced SPS fiend still attacked at range");
@@ -928,26 +928,26 @@ public final class SpsMobRotationTest {
 	private static void checkLegacyBossLootTypes() {
 		Class<?>[] gunPool = pd.items.Generator.Category.GUNWEAPON.classes;
 		Class<?>[] expectedGuns = {
-				pd.items.weapon.guns.GunA.class,
-				pd.items.weapon.guns.GunB.class,
-				pd.items.weapon.guns.GunC.class,
-				pd.items.weapon.guns.GunD.class,
-				pd.items.weapon.guns.GunE.class
+				pd.items.equipment.weapon.guns.GunA.class,
+				pd.items.equipment.weapon.guns.GunB.class,
+				pd.items.equipment.weapon.guns.GunC.class,
+				pd.items.equipment.weapon.guns.GunD.class,
+				pd.items.equipment.weapon.guns.GunE.class
 		};
 		if (!Arrays.equals(gunPool, expectedGuns)) throw new AssertionError("SPS five-gun boss pool differs from 0.9.8");
-		if (!(ElderAvatar.rareLoot() instanceof pd.items.artifacts.AlienBag)) throw new AssertionError("SPS Elder Avatar rare loot differs from 0.9.8");
+		if (!(ElderAvatar.rareLoot() instanceof pd.items.equipment.artifacts.AlienBag)) throw new AssertionError("SPS Elder Avatar rare loot differs from 0.9.8");
 		if (!Arrays.asList(gunPool).contains(ElderAvatar.commonLoot().getClass())) throw new AssertionError("SPS Elder Avatar common loot differs from 0.9.8");
 		if (!Arrays.asList(pd.items.Generator.Category.EGGS.classes)
 				.contains(Hybrid.rareLoot().getClass())) throw new AssertionError("SPS Hybrid egg loot differs from 0.9.8");
-		if (!(King.rareLoot() instanceof pd.items.artifacts.ChaliceOfBlood)) throw new AssertionError("SPS King rare loot differs from 0.9.8");
+		if (!(King.rareLoot() instanceof pd.items.equipment.artifacts.ChaliceOfBlood)) throw new AssertionError("SPS King rare loot differs from 0.9.8");
 		pd.items.Item kingCommon = King.commonLoot();
-		if (!(kingCommon instanceof pd.items.weapon.missiles.throwing.Skull)
+		if (!(kingCommon instanceof pd.items.equipment.weapon.missiles.throwing.Skull)
 				|| kingCommon.quantity() != 5) throw new AssertionError("SPS King five-skull loot differs from 0.9.8");
-		if (!(LichDancer.rareLoot() instanceof pd.items.artifacts.GlassTotem)) throw new AssertionError("SPS Lich Dancer rare loot differs from 0.9.8");
+		if (!(LichDancer.rareLoot() instanceof pd.items.equipment.artifacts.GlassTotem)) throw new AssertionError("SPS Lich Dancer rare loot differs from 0.9.8");
 		if (!Arrays.asList(pd.items.Generator.Category.MUSICWEAPON.classes)
 				.contains(LichDancer.commonLoot().getClass())) throw new AssertionError("SPS Lich Dancer music loot differs from 0.9.8");
-		if (!(PrisonWander.rareLoot() instanceof pd.items.artifacts.EtherealChains)) throw new AssertionError("SPS Prison Wander rare loot differs from 0.9.8");
-		if (!(PrisonWander.commonLoot() instanceof pd.items.bombs.DungeonBomb)) throw new AssertionError("SPS Prison Wander common loot differs from 0.9.8");
+		if (!(PrisonWander.rareLoot() instanceof pd.items.equipment.artifacts.EtherealChains)) throw new AssertionError("SPS Prison Wander rare loot differs from 0.9.8");
+		if (!(PrisonWander.commonLoot() instanceof pd.items.equipment.bombs.DungeonBomb)) throw new AssertionError("SPS Prison Wander common loot differs from 0.9.8");
 	}
 
 	private static void checkPrisonStatsAndSafety() {
@@ -969,8 +969,8 @@ public final class SpsMobRotationTest {
 				|| collector.spriteClass != pd.sprites.GoldCollectorSprite.class
 				|| !specialLootMatches(GoldCollector.specialLootTypes(), new Class[]{
 				pd.items.Gold.class,
-				pd.items.sellitem.VIPcard.class,
-				pd.items.artifacts.MasterThievesArmband.class})
+				pd.items.specific.sellitem.VIPcard.class,
+				pd.items.equipment.artifacts.MasterThievesArmband.class})
 				|| !SpsPrisonMobs.GoldCollector.class.isAssignableFrom(GoldCollector.class)) {
 			throw new AssertionError("gold collector identity, faction, scaling, or special loot differs from SPS");
 		}
@@ -985,7 +985,7 @@ public final class SpsMobRotationTest {
 				|| !rabbit.isImmune(Burning.class)
 				|| !rabbit.isImmune(pd.actors.damagetype.DamageType.Fire.class)
 				|| !rabbit.isImmune(pd.actors.blobs.effectblobs.Fire.class)
-				|| !rabbit.isImmune(pd.items.wands.WandOfFirebolt.class)
+				|| !rabbit.isImmune(pd.items.equipment.wands.WandOfFirebolt.class)
 				|| !SpsPrisonMobs.FireRabbit.class.isAssignableFrom(FireRabbit.class)) {
 			throw new AssertionError("fire rabbit identity, faction, defenses, or special loot differ from SPS");
 		}
@@ -995,17 +995,17 @@ public final class SpsMobRotationTest {
 				|| !troll.properties().contains(pd.actors.Char.Property.TROLL)
 				|| troll.spriteClass != pd.sprites.TrollWarriorSprite.class
 				|| TrollWarrior.specialLootCategory() != pd.items.Generator.Category.MUSICWEAPON
-				|| troll.resist(pd.items.weapon.enchantments.EnchantmentDark.class) >= 1f
+				|| troll.resist(pd.items.equipment.weapon.enchantments.EnchantmentDark.class) >= 1f
 				|| !SpsPrisonMobs.TrollWarrior.class.isAssignableFrom(TrollWarrior.class)) {
 			throw new AssertionError("troll warrior identity, faction, defense, or special loot differs from SPS");
 		}
 		if (!specialLootMatches(pd.items.Generator.Category.MUSICWEAPON.classes,
 				new Class[]{
-						pd.items.weapon.melee.fusion.Triangolo.class,
-						pd.items.weapon.melee.fusion.Flute.class,
-						pd.items.weapon.melee.fusion.WarDrum.class,
-						pd.items.weapon.melee.fusion.Trumpet.class,
-						pd.items.weapon.melee.fusion.Harp.class})) {
+						pd.items.equipment.weapon.melee.fusion.Triangolo.class,
+						pd.items.equipment.weapon.melee.fusion.Flute.class,
+						pd.items.equipment.weapon.melee.fusion.WarDrum.class,
+						pd.items.equipment.weapon.melee.fusion.Trumpet.class,
+						pd.items.equipment.weapon.melee.fusion.Harp.class})) {
 			throw new AssertionError("music weapon reward pool differs from SPS");
 		}
 
@@ -1015,7 +1015,7 @@ public final class SpsMobRotationTest {
 				|| zombie.spriteClass != pd.sprites.ZombieSprite.class
 				|| Zombie.specialLootType() != pd.items.UnBlessAnkh.class
 				|| !zombie.isWeak(Burning.class)
-				|| !zombie.isWeak(pd.items.wands.WandOfFirebolt.class)
+				|| !zombie.isWeak(pd.items.equipment.wands.WandOfFirebolt.class)
 				|| zombie.resist(pd.actors.blobs.ToxicGas.class) >= 1f
 				|| !SpsPrisonMobs.Zombie.class.isAssignableFrom(Zombie.class)) {
 			throw new AssertionError("zombie identity, faction, defenses, or special loot differs from SPS");
@@ -1052,7 +1052,7 @@ public final class SpsMobRotationTest {
 		if (toiletElf.attackSkill(null) != 13
 				|| !toiletElf.properties().contains(pd.actors.Char.Property.ELF)
 				|| toiletElf.spriteClass != pd.sprites.ShitSprite.class
-				|| Shit.specialLootType() != pd.items.potions.PotionOfToxicGas.class
+				|| Shit.specialLootType() != pd.items.consum.potions.PotionOfToxicGas.class
 				|| !SpsSewerMobs.Shit.class.isAssignableFrom(Shit.class)) {
 			throw new AssertionError("toilet elf identity, faction, scaling, or special loot differ from SPS");
 		}
@@ -1072,10 +1072,10 @@ public final class SpsMobRotationTest {
 				|| drone.properties().contains(pd.actors.Char.Property.INORGANIC)
 				|| drone.spriteClass != pd.sprites.PatrolUAVSprite.class
 				|| !drone.isImmune(pd.actors.blobs.effectblobs.ElectriShock.class)
-				|| !drone.isImmune(pd.items.wands.WandOfLightning.class)
+				|| !drone.isImmune(pd.items.equipment.wands.WandOfLightning.class)
 				|| !specialLootMatches(PatrolUAV.specialLootTypes(), new Class[]{
-				pd.items.scrolls.ScrollOfRecharging.class,
-				pd.items.wands.WandOfTCloud.class})
+				pd.items.consum.scrolls.ScrollOfRecharging.class,
+				pd.items.equipment.wands.WandOfTCloud.class})
 				|| !SpsSewerMobs.PatrolUAV.class.isAssignableFrom(PatrolUAV.class)) {
 			throw new AssertionError("patrol drone identity, faction, defenses, or special loot differ from SPS");
 		}
@@ -1084,10 +1084,10 @@ public final class SpsMobRotationTest {
 		ExVagrant infected = new ExVagrant();
 		if (!vagrant.properties().contains(pd.actors.Char.Property.HUMAN)
 				|| vagrant.spriteClass != pd.sprites.VagrantSprite.class
-				|| Vagrant.specialLootType() != pd.items.weapon.melee.special.SJRBMusic.class
+				|| Vagrant.specialLootType() != pd.items.equipment.weapon.melee.special.SJRBMusic.class
 				|| !infected.properties().contains(pd.actors.Char.Property.HUMAN)
 				|| infected.spriteClass != pd.sprites.ExVagrantSprite.class
-				|| ExVagrant.specialLootType() != pd.items.weapon.melee.special.SJRBMusic.class
+				|| ExVagrant.specialLootType() != pd.items.equipment.weapon.melee.special.SJRBMusic.class
 				|| !SpsSewerMobs.Vagrant.class.isAssignableFrom(Vagrant.class)
 				|| !SpsSewerMobs.ExVagrant.class.isAssignableFrom(ExVagrant.class)) {
 			throw new AssertionError("vagrant identities, factions, or special loot differ from SPS");
@@ -1120,9 +1120,9 @@ public final class SpsMobRotationTest {
 				|| !shaman.properties().contains(pd.actors.Char.Property.MAGICER)
 				|| shaman.spriteClass != pd.sprites.GnollShamanSprite.class
 				|| !specialLootMatches(GnollShaman.specialLootTypes(), new Class[]{
-				pd.items.scrolls.ScrollOfRegrowth.class,
-				pd.items.potions.PotionOfLevitation.class,
-				pd.items.artifacts.SandalsOfNature.class})
+				pd.items.consum.scrolls.ScrollOfRegrowth.class,
+				pd.items.consum.potions.PotionOfLevitation.class,
+				pd.items.equipment.artifacts.SandalsOfNature.class})
 				|| !SpsCaveMobs.GnollShaman.class.isAssignableFrom(GnollShaman.class)) {
 			throw new AssertionError("cave shaman stats, identity, factions, or special loot differ from SPS");
 		}
@@ -1146,9 +1146,9 @@ public final class SpsMobRotationTest {
 				|| !keeper.properties().contains(pd.actors.Char.Property.MAGICER)
 				|| keeper.spriteClass != pd.sprites.TimeKeeperSprite.class
 				|| !specialLootMatches(TimeKeeper.specialLootTypes(), new Class[]{
-				pd.items.medicine.Timepill2.class,
-				pd.items.potions.PotionOfMindVision.class,
-				pd.items.artifacts.TimekeepersHourglass.class})
+				pd.items.consum.medicine.Timepill2.class,
+				pd.items.consum.potions.PotionOfMindVision.class,
+				pd.items.equipment.artifacts.TimekeepersHourglass.class})
 				|| !SpsCaveMobs.TimeKeeper.class.isAssignableFrom(TimeKeeper.class)) {
 			throw new AssertionError("timekeeper identity, factions, or special loot differs from SPS");
 		}
@@ -1164,8 +1164,8 @@ public final class SpsMobRotationTest {
 				|| ice.spriteClass != pd.sprites.IceBugSprite.class
 				|| IceBug.specialLootType() != pd.plants.Icecap.Seed.class
 				|| !ice.isImmune(pd.actors.buffs.FrostIce.class)
-				|| !ice.isImmune(pd.items.weapon.enchantments.EnchantmentIce.class)
-				|| !ice.isImmune(pd.items.weapon.enchantments.EnchantmentIce2.class)
+				|| !ice.isImmune(pd.items.equipment.weapon.enchantments.EnchantmentIce.class)
+				|| !ice.isImmune(pd.items.equipment.weapon.enchantments.EnchantmentIce2.class)
 				|| !SpsCaveMobs.IceBug.class.isAssignableFrom(IceBug.class)) {
 			throw new AssertionError("ice climber identity, faction, defenses, or special loot differs from SPS");
 		}
@@ -1319,9 +1319,9 @@ public final class SpsMobRotationTest {
 		}
 		Class<?>[] loot = BrokenRobot.specialLootTypes();
 		if (loot.length != 3
-				|| loot[0] != pd.items.potions.PotionOfLiquidFlame.class
-				|| loot[1] != pd.items.weapon.melee.normalweapon.ShortSword.class
-				|| loot[2] != pd.items.artifacts.RobotDMT.class) {
+				|| loot[0] != pd.items.consum.potions.PotionOfLiquidFlame.class
+				|| loot[1] != pd.items.equipment.weapon.melee.normalweapon.ShortSword.class
+				|| loot[2] != pd.items.equipment.artifacts.RobotDMT.class) {
 			throw new AssertionError("broken robot special loot does not match its three-item source pool");
 		}
 		if (!SpsDM300.BrokenRobot.class.isAssignableFrom(BrokenRobot.class)) {
@@ -1339,7 +1339,7 @@ public final class SpsMobRotationTest {
 				|| !goo.properties().contains(pd.actors.Char.Property.DEMONIC)
 				|| goo.spriteClass != pd.sprites.DemonGooSprite.class
 				|| goo.newSplit().getClass() != DemonGoo.class
-				|| !(goo.SupercreateLoot() instanceof pd.items.weapon.missiles.throwing.Skull)
+				|| !(goo.SupercreateLoot() instanceof pd.items.equipment.weapon.missiles.throwing.Skull)
 				|| !SpsHallsMobs.DemonGoo.class.isAssignableFrom(DemonGoo.class)) {
 			throw new AssertionError("demon goo identity, faction, split, or special loot differs from SPS");
 		}
@@ -1360,9 +1360,9 @@ public final class SpsMobRotationTest {
 				|| imp.properties().contains(pd.actors.Char.Property.PLANT)
 				|| imp.spriteClass != pd.sprites.ThiefImpSprite.class
 				|| !specialLootMatches(ThiefImp.specialLootTypes(), new Class[]{
-				pd.items.potions.PotionOfInvisibility.class,
-				pd.items.scrolls.ScrollOfRage.class,
-				pd.items.artifacts.ChaliceOfBlood.class})
+				pd.items.consum.potions.PotionOfInvisibility.class,
+				pd.items.consum.scrolls.ScrollOfRage.class,
+				pd.items.equipment.artifacts.ChaliceOfBlood.class})
 				|| !SpsHallsMobs.ThiefImp.class.isAssignableFrom(ThiefImp.class)) {
 			throw new AssertionError("thief imp identity, faction, or special loot differs from SPS");
 		}
@@ -1376,9 +1376,9 @@ public final class SpsMobRotationTest {
 				|| sufferer.properties().contains(pd.actors.Char.Property.ORC)
 				|| sufferer.spriteClass != pd.sprites.SuffererSprite.class
 				|| !specialLootMatches(Sufferer.specialLootTypes(), new Class[]{
-				pd.items.scrolls.ScrollOfUpgrade.class,
+				pd.items.consum.scrolls.ScrollOfUpgrade.class,
 				pd.items.RedDewdrop.class,
-				pd.items.artifacts.UnstableSpellbook.class})
+				pd.items.equipment.artifacts.UnstableSpellbook.class})
 				|| !SpsHallsMobs.Sufferer.class.isAssignableFrom(Sufferer.class)) {
 			throw new AssertionError("sufferer identity, factions, or special loot differs from SPS");
 		}
@@ -1398,7 +1398,7 @@ public final class SpsMobRotationTest {
 		if (!rabbit.properties().contains(pd.actors.Char.Property.ORC)
 				|| !rabbit.properties().contains(pd.actors.Char.Property.DEMONIC)
 				|| rabbit.spriteClass != pd.sprites.DemonRabbitSprite.class
-				|| !(rabbit.SupercreateLoot() instanceof pd.items.weapon.guns.GunD)
+				|| !(rabbit.SupercreateLoot() instanceof pd.items.equipment.weapon.guns.GunD)
 				|| !SpsHallsMobs.DemonRabbit.class.isAssignableFrom(DemonRabbit.class)) {
 			throw new AssertionError("demon rabbit identity, faction, or special loot differs from SPS");
 		}
@@ -1416,9 +1416,9 @@ public final class SpsMobRotationTest {
 				|| FireElemental.specialLootType() != pd.plants.Firebloom.Seed.class
 				|| !fire.isImmune(pd.actors.blobs.effectblobs.Fire.class)
 				|| !fire.isImmune(pd.actors.damagetype.DamageType.Fire.class)
-				|| fire.resist(pd.items.wands.WandOfFirebolt.class) >= 1f
-				|| fire.resist(pd.items.weapon.enchantments.EnchantmentFire.class) >= 1f
-				|| fire.resist(pd.items.weapon.enchantments.EnchantmentFire2.class) >= 1f) {
+				|| fire.resist(pd.items.equipment.wands.WandOfFirebolt.class) >= 1f
+				|| fire.resist(pd.items.equipment.weapon.enchantments.EnchantmentFire.class) >= 1f
+				|| fire.resist(pd.items.equipment.weapon.enchantments.EnchantmentFire2.class) >= 1f) {
 			throw new AssertionError("fire elemental stats, identity, factions, defenses, or special loot differ from SPS");
 		}
 		DamageProbe fireProbe = new DamageProbe();
@@ -1438,7 +1438,7 @@ public final class SpsMobRotationTest {
 				|| !greyRat.properties().contains(pd.actors.Char.Property.BEAST)
 				|| greyRat.spriteClass != pd.sprites.GreyRatSprite.class
 				|| !greyRat.isImmune(Burning.class)
-				|| !greyRat.isImmune(pd.items.scrolls.ScrollOfPsionicBlast.class)
+				|| !greyRat.isImmune(pd.items.consum.scrolls.ScrollOfPsionicBlast.class)
 				|| greyRat.resist(pd.actors.blobs.ToxicGas.class) >= 1f) {
 			throw new AssertionError("grey rat stats, identity, faction, or defenses differ from SPS");
 		}
@@ -1453,7 +1453,7 @@ public final class SpsMobRotationTest {
 		}
 		if (!dragon.properties().contains(pd.actors.Char.Property.DRAGON)
 				|| dragon.spriteClass != pd.sprites.DragonRiderSprite.class
-				|| DragonRider.specialLootType() != pd.items.eggs.randomone.RandomMonthEgg.class
+				|| DragonRider.specialLootType() != pd.items.consum.eggs.randomone.RandomMonthEgg.class
 				|| !SpsCityMobs.DragonRider.class.isAssignableFrom(DragonRider.class)) {
 			throw new AssertionError("dragon rider identity, faction, or special loot differs from SPS");
 		}
@@ -1463,8 +1463,8 @@ public final class SpsMobRotationTest {
 		}
 		if (!spider.properties().contains(pd.actors.Char.Property.BEAST)
 				|| spider.spriteClass != pd.sprites.SpiderBotSprite.class
-				|| !(spider.createLoot() instanceof pd.items.food.meatfood.Meat)
-				|| SpiderBot.specialLootType() != pd.items.food.BugMeat.class
+				|| !(spider.createLoot() instanceof pd.items.consum.food.meatfood.Meat)
+				|| SpiderBot.specialLootType() != pd.items.consum.food.BugMeat.class
 				|| !SpsCityMobs.SpiderBot.class.isAssignableFrom(SpiderBot.class)) {
 			throw new AssertionError("scavenger identity, faction, normal loot, or special loot differs from SPS");
 		}
@@ -1474,7 +1474,7 @@ public final class SpsMobRotationTest {
 		}
 		if (!musketeer.properties().contains(pd.actors.Char.Property.DWARF)
 				|| musketeer.spriteClass != pd.sprites.MusketeerSprite.class
-				|| Musketeer.specialLootType() != pd.items.weapon.guns.ToyGun.class
+				|| Musketeer.specialLootType() != pd.items.equipment.weapon.guns.ToyGun.class
 				|| !SpsCityMobs.Musketeer.class.isAssignableFrom(Musketeer.class)) {
 			throw new AssertionError("musketeer identity, faction, or special loot differs from SPS");
 		}
@@ -1497,7 +1497,7 @@ public final class SpsMobRotationTest {
 		LevelChecker checker = new LevelChecker();
 		if (!checker.properties().contains(pd.actors.Char.Property.MECH)
 				|| checker.properties().contains(pd.actors.Char.Property.INORGANIC)
-				|| !checker.isWeak(pd.items.wands.Wand.class)
+				|| !checker.isWeak(pd.items.equipment.wands.Wand.class)
 				|| checker.spriteClass != pd.sprites.LevelCheckerSprite.class
 				|| LevelChecker.specialLootType() != pd.items.ExpOre.class
 				|| !SpsCityMobs.LevelChecker.class.isAssignableFrom(LevelChecker.class)) {
@@ -1512,7 +1512,7 @@ public final class SpsMobRotationTest {
 		}
 		RedWraith wraith = new RedWraith();
 		if (!wraith.properties().contains(pd.actors.Char.Property.UNDEAD)
-				|| !wraith.isImmune(pd.items.scrolls.ScrollOfPsionicBlast.class)
+				|| !wraith.isImmune(pd.items.consum.scrolls.ScrollOfPsionicBlast.class)
 				|| wraith.spriteClass != pd.sprites.RedWraithSprite.class
 				|| !SpsCityMobs.RedWraith.class.isAssignableFrom(RedWraith.class)) {
 			throw new AssertionError("chaos wraith identity, faction, or psionic immunity differs from SPS");

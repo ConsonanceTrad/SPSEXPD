@@ -1,9 +1,10 @@
 package pd.tiles;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Dungeon;
 import pd.items.Item;
 import pd.items.quest.RatSkull;
-import pd.sprites.ItemSpriteSheet;
 
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
@@ -66,11 +67,11 @@ public final class SpsLegacyDisplayTest {
 		RatSkull skull = new RatSkull();
 		check(RatSkull.class.getSuperclass() == Item.class,
 				"旧任务巨鼠头骨被同名破碎饰品替代");
-		check(skull.unique && skull.image == ItemSpriteSheet.LEGACY_SKULL,
+		check(skull.unique && skull.image == ConsumThrowsDict.SKULL,
 				"旧任务巨鼠头骨的唯一属性或原始图标错误");
 		check(!skull.isUpgradable() && skull.isIdentified() && skull.value() == 100,
 				"旧任务巨鼠头骨的鉴定、升级或价格行为错误");
-		check(!RatSkull.class.equals(pd.items.trinkets.RatSkull.class),
+		check(!RatSkull.class.equals(pd.items.equipment.trinkets.RatSkull.class),
 				"旧任务物品与破碎饰品没有保持独立存档类型");
 		check(!Dungeon.trinketCataNeeded(), "破碎饰品入口仍会出现在SPS正常流程");
 	}

@@ -1,5 +1,9 @@
 package pd.items;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.SpecificTaskDict;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessApplication;
@@ -12,12 +16,11 @@ import pd.actors.buffs.AttackUp;
 import pd.actors.buffs.Bleeding;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.npcs.Blacksmith;
-import pd.items.bags.HeartOfScarecrow;
-import pd.items.potions.Potion;
-import pd.items.rings.Ring;
-import pd.items.scrolls.Scroll;
-import pd.items.weapon.melee.special.ShadowEater;
-import pd.sprites.ItemSpriteSheet;
+import pd.items.equipment.bags.HeartOfScarecrow;
+import pd.items.consum.potions.Potion;
+import pd.items.equipment.rings.Ring;
+import pd.items.consum.scrolls.Scroll;
+import pd.items.equipment.weapon.melee.special.ShadowEater;
 import render.noosa.Game;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -56,9 +59,9 @@ public final class SpsShadowEaterQuestTest {
 		check(new ShadowEaterKey().actions(hero).contains(ShadowEaterKey.AC_PORT), "暗噬原型缺少传送动作");
 		check(PotKey.BRANCH != ShadowEaterKey.BRANCH, "两条特殊路线使用了同一分支");
 		check(new HeartOfScarecrow().canHold(new ShadowEaterKey()), "草靶子不能收纳旧版暗噬原型");
-		check(ItemSpriteSheet.CHAOS_PACK != ItemSpriteSheet.EMPTY_BODY
-				&& ItemSpriteSheet.EMPTY_BODY != ItemSpriteSheet.SHADOW_EATER
-				&& ItemSpriteSheet.SHADOW_EATER != ItemSpriteSheet.POT_KEY, "任务图标槽发生重叠");
+		check(EquipmentNonEquipDict.CHAOS_PACK != SpecificPlaceHolderDict.SOMETHING_0
+				&& SpecificPlaceHolderDict.SOMETHING_0 != SpecificPlaceHolderDict.SOMETHING_0
+				&& SpecificPlaceHolderDict.SOMETHING_0 != SpecificTaskDict.POT_KEY_0, "任务图标槽发生重叠");
 
 		Bundle potState = new Bundle();
 		new PotKey().storeInBundle(potState);

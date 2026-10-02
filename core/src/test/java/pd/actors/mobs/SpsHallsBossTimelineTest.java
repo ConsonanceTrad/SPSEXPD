@@ -30,9 +30,9 @@ import pd.items.Elevator;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.PuddingCup;
-import pd.items.keys.SpsSkeletonKey;
-import pd.items.scrolls.ScrollOfPsionicBlast;
-import pd.items.weapon.enchantments.EnchantmentDark;
+import pd.items.specific.keys.SpsSkeletonKey;
+import pd.items.consum.scrolls.ScrollOfPsionicBlast;
+import pd.items.equipment.weapon.enchantments.EnchantmentDark;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.Trap;
@@ -51,6 +51,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import pd.atlas.IconEntry;
 
 /** Runtime parity checks for SPS-PD 0.9.8's Yog encounter and four fists. */
 public final class SpsHallsBossTimelineTest {

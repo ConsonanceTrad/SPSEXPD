@@ -1,5 +1,7 @@
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessFiles;
 import com.badlogic.gdx.utils.GdxNativesLoader;
@@ -10,27 +12,27 @@ import pd.actors.buffs.Poison;
 import pd.actors.buffs.Recharging;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroClass;
-import pd.items.artifacts.AlchemistsToolkit;
-import pd.items.brewed.Brewed;
-import pd.items.eggs.Egg;
-import pd.items.food.Blandfruit;
-import pd.items.food.FishCracker;
-import pd.items.food.Honey;
-import pd.items.food.WaterItem;
-import pd.items.food.completefood.*;
-import pd.items.food.fruit.Fruit;
-import pd.items.food.fusion.Nut;
-import pd.items.food.meatfood.MeatFood;
-import pd.items.food.staplefood.OverpricedRation;
-import pd.items.food.staplefood.StapleFood;
-import pd.items.food.vegetable.NutVegetable;
-import pd.items.food.vegetable.Truffles;
-import pd.items.food.vegetable.Vegetable;
-import pd.items.medicine.*;
-import pd.items.potions.PotionOfFrost;
-import pd.items.potions.PotionOfHealing;
-import pd.items.potions.PotionOfMixing;
-import pd.items.scrolls.ScrollOfIdentify;
+import pd.items.equipment.artifacts.AlchemistsToolkit;
+import pd.items.consum.brewed.Brewed;
+import pd.items.consum.eggs.Egg;
+import pd.items.consum.food.Blandfruit;
+import pd.items.consum.food.FishCracker;
+import pd.items.consum.food.Honey;
+import pd.items.consum.food.WaterItem;
+import pd.items.consum.food.completefood.*;
+import pd.items.consum.food.fruit.Fruit;
+import pd.items.consum.food.fusion.Nut;
+import pd.items.consum.food.meatfood.MeatFood;
+import pd.items.consum.food.staplefood.OverpricedRation;
+import pd.items.consum.food.staplefood.StapleFood;
+import pd.items.consum.food.vegetable.NutVegetable;
+import pd.items.consum.food.vegetable.Truffles;
+import pd.items.consum.food.vegetable.Vegetable;
+import pd.items.consum.medicine.*;
+import pd.items.consum.potions.PotionOfFrost;
+import pd.items.consum.potions.PotionOfHealing;
+import pd.items.consum.potions.PotionOfMixing;
+import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.plants.*;
 import pd.scenes.AlchemyScene;
 import render.utils.serialize.Bundle;
@@ -135,7 +137,7 @@ public final class SpsAlchemyRecipesTest {
 		Recipe garbage = Recipe.findRecipes(invalid).get(0);
 		Item waste = garbage.brew(invalid);
 		check(waste instanceof Garbage && waste.quantity() == 5
-				&& waste.image == pd.sprites.ItemSpriteSheet.SPS_GARBAGE,
+				&& waste.image == pd.atlas.items.SpecificPlaceHolderDict.SOMETHING_0,
 				"无效五槽组合没有生成五份旧版图标垃圾");
 		checkGarbageIcon();
 

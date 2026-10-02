@@ -1,5 +1,7 @@
 package pd.items.summon;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -7,13 +9,12 @@ import pd.actors.buffs.Slow;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.actors.mobs.Mob;
-import pd.items.bags.ScrollHolder;
+import pd.items.equipment.bags.ScrollHolder;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.Trap;
 import pd.plants.Plant;
 import pd.sprites.CocoCatSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.data.SparseArray;
 
 import java.awt.image.BufferedImage;
@@ -57,7 +58,7 @@ public final class SpsCallCoconutTest {
 		key.quantity(3);
 		check(key.stackable && key.value() == 300 && key.isIdentified() && !key.isUpgradable(),
 				"召唤钥匙基础属性错误");
-		check(key.image == ItemSpriteSheet.SPS_CALL_COCONUT && key.defaultAction().equals("ACTIVE"),
+		check(key.image == SpecificPlaceHolderDict.SOMETHING_0 && key.defaultAction().equals("ACTIVE"),
 				"召唤钥匙图标或默认动作错误");
 		check(new ScrollHolder().canHold(key), "卷轴筒无法收纳召唤钥匙");
 
@@ -118,7 +119,7 @@ public final class SpsCallCoconutTest {
 		check(zh.contains("召唤钥匙") && zh.contains("EX椰子猫") && !zh.contains("�"), "召唤钥匙中文乱码或缺失");
 
 		BufferedImage sheet = ImageIO.read(new File("sprites/items/items.png"));
-		check(ITEM_HASH.equals(hashItem(sheet, ItemSpriteSheet.SPS_CALL_COCONUT)), "召唤钥匙不是旧版原始图标");
+		check(ITEM_HASH.equals(hashItem(sheet, SpecificPlaceHolderDict.SOMETHING_0)), "召唤钥匙不是旧版原始图标");
 		byte[] sprite = Files.readAllBytes(Paths.get("sprites/npcs/sps_town_coconut.png"));
 		check(SPRITE_HASH.equals(hex(MessageDigest.getInstance("SHA-256").digest(sprite))),
 				"椰子猫角色图不是旧版原始素材");
@@ -142,7 +143,7 @@ public final class SpsCallCoconutTest {
 		return hero;
 	}
 
-	private static String hashItem(BufferedImage sheet, int itemIndex) throws Exception {
+	private static String hashItem(BufferedImage sheet, IconEntry itemIndex) throws Exception {
 		int left = itemIndex % 16 * 16, top = itemIndex / 16 * 16;
 		ByteBuffer pixels = ByteBuffer.allocate(16 * 16 * 4).order(ByteOrder.LITTLE_ENDIAN);
 		for (int y = top; y < top + 16; y++) for (int x = left; x < left + 16; x++) pixels.putInt(sheet.getRGB(x, y));

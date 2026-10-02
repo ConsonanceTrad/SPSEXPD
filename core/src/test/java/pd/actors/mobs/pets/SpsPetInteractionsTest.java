@@ -1,5 +1,7 @@
 package pd.actors.mobs.pets;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessFiles;
 import com.badlogic.gdx.utils.GdxNativesLoader;
@@ -9,14 +11,13 @@ import pd.actors.buffs.HasteBuff;
 import pd.actors.hero.Hero;
 import pd.actors.hero.Talent;
 import pd.items.Item;
-import pd.items.food.completefood.PetFood;
-import pd.items.potions.PotionOfFrost;
-import pd.items.scrolls.ScrollOfUpgrade;
-import pd.items.weapon.melee.special.SJRBMusic;
-import pd.items.weapon.missiles.MoneyPack;
+import pd.items.consum.food.completefood.PetFood;
+import pd.items.consum.potions.PotionOfFrost;
+import pd.items.consum.scrolls.ScrollOfUpgrade;
+import pd.items.equipment.weapon.melee.special.SJRBMusic;
+import pd.items.equipment.weapon.missiles.MoneyPack;
 import pd.levels.Level;
 import pd.levels.Terrain;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
 import render.utils.data.SparseArray;
 
@@ -71,7 +72,7 @@ public final class SpsPetInteractionsTest {
 				&& hero.belongings.backpack.items.contains(refused), "拒绝食物仍然被消耗或改变了宠物状态");
 		check(!new BugDragon().lovefood(new PetFood()), "BUG龙不应接受任何食物");
 		check(new YearPet().lovefood(new MoneyPack()), "年兽没有接受钱袋");
-		check(new CocoCat().lovefood(new pd.items.food.fusion.Nut()),
+		check(new CocoCat().lovefood(new pd.items.consum.food.fusion.Nut()),
 				"可可猫没有接受坚果");
 		check(new Velocirooster().lovefood(new pd.plants.Sungrass.Seed()),
 				"迅猛鸡没有接受种子");
@@ -109,7 +110,7 @@ public final class SpsPetInteractionsTest {
 			boolean rewardMatches = reward != null && Arrays.asList(rewards[i].split("\\|"))
 					.contains(reward.getClass().getSimpleName());
 			if (pet instanceof Monkey) {
-				rewardMatches = reward instanceof pd.items.food.fruit.Fruit;
+				rewardMatches = reward instanceof pd.items.consum.food.fruit.Fruit;
 			} else if (pet instanceof Stone) {
 				rewardMatches = reward instanceof pd.items.nornstone.NornStone;
 			}
@@ -155,7 +156,7 @@ public final class SpsPetInteractionsTest {
 				&& zhItems.contains("items.weapon.melee.special.sjrbmusic.rap=鸡你太美!!!"),
 				"S-J-R-B音乐套装中文资源缺失、被改写或乱码");
 		SJRBMusic music = new SJRBMusic();
-		check(music.image == ItemSpriteSheet.SJRB_MUSIC && music.tier == 1
+		check(music.image == SpecificPlaceHolderDict.SOMETHING_0 && music.tier == 1
 				&& music.min(0) == 3 && music.max(0) == 6, "S-J-R-B音乐套装图标或基础属性错误");
 	}
 

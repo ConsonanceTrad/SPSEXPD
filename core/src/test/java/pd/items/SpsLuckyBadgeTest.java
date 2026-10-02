@@ -1,5 +1,7 @@
 package pd.items;
 
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessFiles;
 import com.badlogic.gdx.utils.GdxNativesLoader;
@@ -10,7 +12,6 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.HeroClass;
 import pd.actors.hero.HeroSubClass;
 import pd.items.misc.LuckyBadge;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
 import render.utils.math.Random;
 
@@ -40,7 +41,7 @@ public final class SpsLuckyBadgeTest {
 
 		LuckyBadge badge = (LuckyBadge)new LuckyBadge().level(4);
 		hero.belongings.backpack.items.add(badge);
-		check(badge.image == ItemSpriteSheet.LUCKY_BADGE, "幸运徽章未使用旧版独立图标");
+		check(badge.image == EquipmentJewelleryArtifactDict.LUCKY_BADGE, "幸运徽章未使用旧版独立图标");
 		check(LuckyBadge.luckBonus(hero) == 4, "徽章等级没有计入运气");
 
 		hero.heroClass = HeroClass.SOLDIER;

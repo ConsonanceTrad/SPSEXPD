@@ -1,5 +1,8 @@
 package pd.actors.mobs;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.SpecificTaskDict;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessApplication;
@@ -13,15 +16,15 @@ import pd.actors.hero.Hero;
 import pd.items.DolyaSlate;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.bags.ScrollHolder;
-import pd.items.journalpages.JournalPage;
-import pd.items.journalpages.NewHome;
-import pd.items.journalpages.SafeSpotPage;
-import pd.items.journalpages.Sokoban1;
-import pd.items.journalpages.Sokoban2;
-import pd.items.journalpages.Sokoban3;
-import pd.items.journalpages.Sokoban4;
-import pd.items.journalpages.Town;
+import pd.items.equipment.bags.ScrollHolder;
+import pd.items.specific.journalpages.JournalPage;
+import pd.items.specific.journalpages.NewHome;
+import pd.items.specific.journalpages.SafeSpotPage;
+import pd.items.specific.journalpages.Sokoban1;
+import pd.items.specific.journalpages.Sokoban2;
+import pd.items.specific.journalpages.Sokoban3;
+import pd.items.specific.journalpages.Sokoban4;
+import pd.items.specific.journalpages.Town;
 import pd.items.misc.LuckyBadge;
 import pd.items.quest.AdventureJournal;
 import pd.levels.Level;
@@ -31,7 +34,6 @@ import pd.levels.rooms.special.SpsShopRoom;
 import pd.levels.traps.Trap;
 import pd.plants.Plant;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
 import render.utils.data.SparseArray;
 import render.utils.math.Random;
@@ -91,7 +93,7 @@ public final class SpsJournalPagesTest {
 
 		DolyaSlate slate = new DolyaSlate();
 		Dungeon.hero.belongings.backpack.items.add(slate);
-		check(slate.image == ItemSpriteSheet.DOLYA_SLATE && slate.value() == 300,
+		check(slate.image == SpecificTaskDict.DOLYA_SLATE && slate.value() == 300,
 				"多利亚石板没有使用旧版图标或旧版售价");
 		check(slate.charge() == 0 && !slate.canUsePortal()
 				&& !slate.actions(Dungeon.hero).contains(AdventureJournal.AC_READ),
@@ -150,7 +152,7 @@ public final class SpsJournalPagesTest {
 		for (int i = 0; i < pages.length; i++) {
 			JournalPage page = pages[i];
 			check(page.destination() == i, page.getClass().getSimpleName() + "目的地编号错误");
-			check(page.image == ItemSpriteSheet.SPS_JOURNAL_PAGE, page.getClass().getSimpleName() + "没有使用旧版纸片图标");
+			check(page.image == SpecificPlaceHolderDict.SOMETHING_0, page.getClass().getSimpleName() + "没有使用旧版纸片图标");
 			check(page.value() == 150 && page.unique && holder.canHold(page), page.getClass().getSimpleName() + "基础属性或卷轴筒收纳规则错误");
 			check(journal.addPage(page) && journal.isUnlocked(i), page.getClass().getSimpleName() + "首次装订失败");
 			check(!journal.addPage(page), page.getClass().getSimpleName() + "允许重复装订");

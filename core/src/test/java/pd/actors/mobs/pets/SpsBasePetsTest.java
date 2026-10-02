@@ -1,5 +1,8 @@
 package pd.actors.mobs.pets;
 
+import pd.atlas.items.ConsumSummorDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessFiles;
 import com.badlogic.gdx.utils.GdxNativesLoader;
@@ -23,43 +26,42 @@ import pd.actors.mobs.Mob;
 import pd.items.Garbage;
 import pd.items.Item;
 import pd.items.UpgradeBlobRed;
-import pd.items.eggs.ButterflypetEgg;
-import pd.items.eggs.ChocoboEgg;
-import pd.items.eggs.DaturaEgg;
-import pd.items.eggs.DogpetEgg;
-import pd.items.eggs.DwarfBoyEgg;
-import pd.items.eggs.Egg;
-import pd.items.eggs.FlyEgg;
-import pd.items.eggs.FoxHelperEgg;
-import pd.items.eggs.FrogpetEgg;
-import pd.items.eggs.GentleCrabEgg;
-import pd.items.eggs.KodoraEgg;
-import pd.items.eggs.LitDemonEgg;
-import pd.items.eggs.MonkeyEgg;
-import pd.items.eggs.RandomEasterEgg;
-import pd.items.eggs.RibbonRatEgg;
-import pd.items.eggs.SnakeEgg;
-import pd.items.eggs.SpiderpetEgg;
-import pd.items.eggs.StarKidEgg;
-import pd.items.eggs.StoneEgg;
-import pd.items.food.WaterItem;
-import pd.items.food.completefood.MoonCake;
-import pd.items.food.completefood.PetFood;
-import pd.items.food.fruit.Strawberry;
-import pd.items.food.meatfood.Meat;
-import pd.items.food.staplefood.NormalRation;
-import pd.items.food.vegetable.Truffles;
-import pd.items.potions.PotionOfLiquidFlame;
-import pd.items.potions.PotionOfMending;
-import pd.items.potions.PotionOfShield;
-import pd.items.scrolls.ScrollOfRage;
-import pd.items.scrolls.ScrollOfUpgrade;
-import pd.items.weapon.melee.Whip;
+import pd.items.consum.eggs.ButterflypetEgg;
+import pd.items.consum.eggs.ChocoboEgg;
+import pd.items.consum.eggs.DaturaEgg;
+import pd.items.consum.eggs.DogpetEgg;
+import pd.items.consum.eggs.DwarfBoyEgg;
+import pd.items.consum.eggs.Egg;
+import pd.items.consum.eggs.FlyEgg;
+import pd.items.consum.eggs.FoxHelperEgg;
+import pd.items.consum.eggs.FrogpetEgg;
+import pd.items.consum.eggs.GentleCrabEgg;
+import pd.items.consum.eggs.KodoraEgg;
+import pd.items.consum.eggs.LitDemonEgg;
+import pd.items.consum.eggs.MonkeyEgg;
+import pd.items.consum.eggs.RandomEasterEgg;
+import pd.items.consum.eggs.RibbonRatEgg;
+import pd.items.consum.eggs.SnakeEgg;
+import pd.items.consum.eggs.SpiderpetEgg;
+import pd.items.consum.eggs.StarKidEgg;
+import pd.items.consum.eggs.StoneEgg;
+import pd.items.consum.food.WaterItem;
+import pd.items.consum.food.completefood.MoonCake;
+import pd.items.consum.food.completefood.PetFood;
+import pd.items.consum.food.fruit.Strawberry;
+import pd.items.consum.food.meatfood.Meat;
+import pd.items.consum.food.staplefood.NormalRation;
+import pd.items.consum.food.vegetable.Truffles;
+import pd.items.consum.potions.PotionOfLiquidFlame;
+import pd.items.consum.potions.PotionOfMending;
+import pd.items.consum.potions.PotionOfShield;
+import pd.items.consum.scrolls.ScrollOfRage;
+import pd.items.consum.scrolls.ScrollOfUpgrade;
+import pd.items.equipment.weapon.melee.Whip;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.plants.Dewcatcher;
 import pd.plants.Sungrass;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
 import render.utils.data.SparseArray;
 import render.utils.math.Random;
@@ -120,10 +122,10 @@ public final class SpsBasePetsTest {
 				&& hatch(new SpiderpetEgg()) instanceof Spider && hatch(new StarKidEgg()) instanceof StarKid
 				&& hatch(new StoneEgg()) instanceof Stone && hatch(new FlyEgg()) instanceof Fly
 				&& hatch(new RibbonRatEgg()) instanceof RibbonRat, "最后七种普通蛋孵化类型错误");
-		check(new MonkeyEgg().image == ItemSpriteSheet.MONKEY_EGG && new SnakeEgg().image == ItemSpriteSheet.SNAKE_PET_EGG
-				&& new SpiderpetEgg().image == ItemSpriteSheet.SPIDER_PET_EGG && new StarKidEgg().image == ItemSpriteSheet.STAR_KID_EGG
-				&& new StoneEgg().image == ItemSpriteSheet.STONE_PET_EGG && new FlyEgg().image == ItemSpriteSheet.FLY_EGG
-				&& new RibbonRatEgg().image == ItemSpriteSheet.RIBBON_RAT_EGG, "最后七种普通蛋图标索引错误");
+		check(new MonkeyEgg().image == ConsumSummorDict.MONKEY_EGG_0 && new SnakeEgg().image == ConsumSummorDict.SNAKE_PET_EGG_0
+				&& new SpiderpetEgg().image == ConsumSummorDict.SPIDER_PET_EGG_0 && new StarKidEgg().image == ConsumSummorDict.STAR_KID_EGG_0
+				&& new StoneEgg().image == ConsumSummorDict.STONE_PET_EGG_0 && new FlyEgg().image == ConsumSummorDict.FLY_EGG_0
+				&& new RibbonRatEgg().image == ConsumSummorDict.RIBBON_RAT_EGG_0, "最后七种普通蛋图标索引错误");
 	}
 
 	private static void testSecondPetBatch() throws Exception {
@@ -152,9 +154,9 @@ public final class SpsBasePetsTest {
 		check(hatch(new FoxHelperEgg()) instanceof FoxHelper && hatch(new FrogpetEgg()) instanceof FrogPet
 				&& hatch(new GentleCrabEgg()) instanceof GentleCrab && hatch(new KodoraEgg()) instanceof Kodora
 				&& hatch(new LitDemonEgg()) instanceof LitDemon, "第二批五种普通蛋孵化类型错误");
-		check(new FoxHelperEgg().image == ItemSpriteSheet.FOX_HELPER_EGG && new FrogpetEgg().image == ItemSpriteSheet.FROG_PET_EGG
-				&& new GentleCrabEgg().image == ItemSpriteSheet.GENTLE_CRAB_EGG && new KodoraEgg().image == ItemSpriteSheet.KODORA_EGG
-				&& new LitDemonEgg().image == ItemSpriteSheet.LIT_DEMON_EGG, "第二批五种普通蛋图标索引错误");
+		check(new FoxHelperEgg().image == ConsumSummorDict.FOX_HELPER_EGG_0 && new FrogpetEgg().image == ConsumSummorDict.FROG_PET_EGG_0
+				&& new GentleCrabEgg().image == ConsumSummorDict.GENTLE_CRAB_EGG_0 && new KodoraEgg().image == ConsumSummorDict.KODORA_EGG_0
+				&& new LitDemonEgg().image == ConsumSummorDict.LIT_DEMON_EGG_0, "第二批五种普通蛋图标索引错误");
 	}
 
 	private static void testStatsFoodAndRewards() {
@@ -208,9 +210,9 @@ public final class SpsBasePetsTest {
 		check(hatch(new ButterflypetEgg()) instanceof ButterflyPet && hatch(new ChocoboEgg()) instanceof Chocobo
 				&& hatch(new DaturaEgg()) instanceof Datura && hatch(new DogpetEgg()) instanceof DogPet
 				&& hatch(new DwarfBoyEgg()) instanceof DwarfBoy, "五种普通蛋孵化类型错误");
-		check(new ButterflypetEgg().image == ItemSpriteSheet.BUTTERFLY_EGG
-				&& new ChocoboEgg().image == ItemSpriteSheet.CHOCOBO_EGG && new DaturaEgg().image == ItemSpriteSheet.DATURA_EGG
-				&& new DogpetEgg().image == ItemSpriteSheet.DOG_PET_EGG && new DwarfBoyEgg().image == ItemSpriteSheet.DWARF_BOY_EGG,
+		check(new ButterflypetEgg().image == SpecificPlaceHolderDict.SOMETHING_0
+				&& new ChocoboEgg().image == ConsumSummorDict.CHOCOBO_EGG_0 && new DaturaEgg().image == ConsumSummorDict.DATURA_EGG_0
+				&& new DogpetEgg().image == ConsumSummorDict.DOG_PET_EGG_0 && new DwarfBoyEgg().image == ConsumSummorDict.DWARF_BOY_EGG_0,
 				"五种普通蛋图标索引错误");
 		Set<Class<?>> easter = new HashSet<>();
 		for (int seed = 0; seed < 100; seed++) {

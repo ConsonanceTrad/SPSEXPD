@@ -1,5 +1,8 @@
 package pd.items.misc;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessFiles;
 import com.badlogic.gdx.utils.GdxNativesLoader;
@@ -29,9 +32,8 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.Rat;
 import pd.actors.mobs.Tengu;
 import pd.actors.mobs.Zot;
-import pd.items.weapon.melee.normalweapon.TrickSand;
-import pd.items.weapon.melee.normalweapon.WoodenStaff;
-import pd.sprites.ItemSpriteSheet;
+import pd.items.equipment.weapon.melee.normalweapon.TrickSand;
+import pd.items.equipment.weapon.melee.normalweapon.WoodenStaff;
 import render.noosa.Game;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -169,9 +171,9 @@ public final class SpsFaithAsceticStartTest {
 		FaithSign sign = new FaithSign();
 		Hero hero = hero();
 		check(sign.value() == 30 && sign.actions(hero).size() >= 5, "信标盒价格或派系动作不完整");
-		check(sign.image == ItemSpriteSheet.LEGACY_FAITH_SIGN && new BigBattery().image == ItemSpriteSheet.LEGACY_BIG_BATTERY
-				&& new WoodenStaff().image == ItemSpriteSheet.LEGACY_WOODEN_STAFF
-				&& new TrickSand().image == ItemSpriteSheet.LEGACY_TRICK_SAND, "信徒或苦修者物品图标槽错误");
+		check(sign.image == SpecificPlaceHolderDict.SOMETHING_0 && new BigBattery().image == SpecificPlaceHolderDict.SOMETHING_0
+				&& new WoodenStaff().image == EquipmentEquipWeaponBasicWeaponDict.LEGACY_WOODEN_STAFF_0
+				&& new TrickSand().image == SpecificPlaceHolderDict.SOMETHING_0, "信徒或苦修者物品图标槽错误");
 		BufferedImage sheet = ImageIO.read(new File("sprites/items/items.png"));
 		for (int i = 0; i < ICON_HASHES.length; i++) {
 			check(ICON_HASHES[i].equals(hash(sheet, i * 16, 192)), "信徒或苦修者第" + (i + 1) + "个原始图标错误");

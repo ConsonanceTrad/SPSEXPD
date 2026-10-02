@@ -1,14 +1,15 @@
 package pd.items;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.SpsSewerMobs;
 import pd.actors.mobs.npcs.TownNpc;
 import pd.items.quest.AdventureJournal;
-import pd.items.sellitem.DevUpPlan;
+import pd.items.specific.sellitem.DevUpPlan;
 import pd.scenes.MemorySaveScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.serialize.Bundle;
 
 /** Headless checks for the two legacy item-driven memory-save routes. */
@@ -36,7 +37,7 @@ public final class SpsMemoryItemsTest {
 		hero.belongings.backpack.items.add(pudding);
 		pudding.consumeForSave(hero);
 		check(!hero.belongings.backpack.items.contains(pudding), "布丁杯记忆后没有被消耗");
-		check(device.image == ItemSpriteSheet.SAVE_YOUR_LIFE && device.isIdentified()
+		check(device.image == EquipmentNonEquipDict.SAVE_YOUR_LIFE && device.isIdentified()
 				&& !device.isUpgradable() && device.unique,
 				"紧急离线装置图标或基础属性错误");
 	}

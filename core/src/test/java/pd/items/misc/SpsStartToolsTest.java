@@ -1,5 +1,8 @@
 package pd.items.misc;
 
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessFiles;
 import com.badlogic.gdx.utils.GdxNativesLoader;
@@ -7,10 +10,9 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
-import pd.items.bombs.IceBomb;
-import pd.items.bombs.SpsFireBomb;
-import pd.items.bombs.StormBomb;
-import pd.sprites.ItemSpriteSheet;
+import pd.items.equipment.bombs.IceBomb;
+import pd.items.equipment.bombs.SpsFireBomb;
+import pd.items.equipment.bombs.StormBomb;
 import render.noosa.Game;
 import render.utils.serialize.Bundle;
 
@@ -60,11 +62,11 @@ public final class SpsStartToolsTest {
 	}
 
 	private static void testBombDefinitions() {
-		check(new SpsFireBomb().image == ItemSpriteSheet.LEGACY_FIRE_BOMB && new SpsFireBomb().value() == 20,
+		check(new SpsFireBomb().image == EquipmentEquipWeaponBombDict.FIRE_BOMB_0 && new SpsFireBomb().value() == 20,
 				"旧版火焰炸弹图标或价格错误");
-		check(new IceBomb().image == ItemSpriteSheet.LEGACY_ICE_BOMB && new IceBomb().value() == 20,
+		check(new IceBomb().image == SpecificPlaceHolderDict.SOMETHING_0 && new IceBomb().value() == 20,
 				"寒霜炸弹图标或价格错误");
-		check(new StormBomb().image == ItemSpriteSheet.LEGACY_STORM_BOMB && new StormBomb().value() == 20,
+		check(new StormBomb().image == SpecificPlaceHolderDict.SOMETHING_0 && new StormBomb().value() == 20,
 				"风暴炸弹图标或价格错误");
 	}
 

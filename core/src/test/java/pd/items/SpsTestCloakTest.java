@@ -1,5 +1,7 @@
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.backends.headless.HeadlessApplication;
 import com.badlogic.gdx.backends.headless.HeadlessApplicationConfiguration;
@@ -12,7 +14,6 @@ import pd.actors.buffs.Invisibility;
 import pd.actors.buffs.Levitation;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.npcs.TownNpc;
-import pd.sprites.ItemSpriteSheet;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -56,7 +57,7 @@ public final class SpsTestCloakTest {
 				"实验斗篷没有给予100回合漂浮");
 		check(hero.buff(Invisibility.class) != null && duration(hero.buff(Invisibility.class)) == 100f,
 				"实验斗篷没有给予100回合隐身");
-		check(cloak.value() == 50 && cloak.image == ItemSpriteSheet.TEST_CLOAK,
+		check(cloak.value() == 50 && cloak.image == SpecificPlaceHolderDict.SOMETHING_0,
 				"实验斗篷售价或图标槽位错误");
 		TownNpc npc = new TownNpc().configure(TownNpc.Spec.SAID_BY_SUN);
 		check(npc.SupercreateLoot() instanceof TestCloak

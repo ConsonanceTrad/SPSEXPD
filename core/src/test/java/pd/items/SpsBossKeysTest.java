@@ -1,5 +1,7 @@
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessApplication;
@@ -17,7 +19,6 @@ import pd.items.quest.ChallengeJournal;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.plants.Plant;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
 import render.utils.data.SparseArray;
 import render.utils.serialize.Bundle;
@@ -26,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import pd.atlas.IconEntry;
 
 public final class SpsBossKeysTest {
 
@@ -59,7 +61,7 @@ public final class SpsBossKeysTest {
 		Hero hero = state();
 		SpsBossKey[] keys = {new Bone(), new ConchShell(), new AncientCoin()};
 		int[] destinations = {11, 12, 13};
-		int[] images = {ItemSpriteSheet.KING_BONE, ItemSpriteSheet.CAVE_SHELL, ItemSpriteSheet.ANCIENT_COIN};
+		IconEntry[] images = {SpecificPlaceHolderDict.SOMETHING_0, SpecificPlaceHolderDict.SOMETHING_0, SpecificPlaceHolderDict.SOMETHING_0};
 		for (int i = 0; i < keys.length; i++) {
 			SpsBossKey key = keys[i];
 			check(key.destination() == destinations[i] && key.image == images[i],

@@ -39,15 +39,15 @@ import pd.actors.mobs.Mob;
 import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.armor.normalarmor.DiscArmor;
-import pd.items.armor.normalarmor.VestArmor;
-import pd.items.artifacts.CloakOfShadows;
-import pd.items.artifacts.Pylon;
-import pd.items.artifacts.UnstableSpellbook;
-import pd.items.weapon.melee.start.LinkSword;
-import pd.items.weapon.melee.start.Whisk;
-import pd.items.weapon.missiles.TaurcenBow;
-import pd.items.weapon.spammo.HeavyAmmo;
+import pd.items.equipment.armor.normalarmor.DiscArmor;
+import pd.items.equipment.armor.normalarmor.VestArmor;
+import pd.items.equipment.artifacts.CloakOfShadows;
+import pd.items.equipment.artifacts.Pylon;
+import pd.items.equipment.artifacts.UnstableSpellbook;
+import pd.items.equipment.weapon.melee.start.LinkSword;
+import pd.items.equipment.weapon.melee.start.Whisk;
+import pd.items.equipment.weapon.missiles.TaurcenBow;
+import pd.items.equipment.weapon.spammo.HeavyAmmo;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.Trap;
@@ -92,9 +92,9 @@ public final class SpsSkinThreeTest {
 				System.getProperty("java.io.tmpdir") + "sps-skin-three" + File.separator);
 		Game.version = "test";
 		try {
-			pd.items.scrolls.Scroll.initLabels();
-			pd.items.potions.Potion.initColors();
-			pd.items.rings.Ring.initGems();
+			pd.items.consum.scrolls.Scroll.initLabels();
+			pd.items.consum.potions.Potion.initColors();
+			pd.items.equipment.rings.Ring.initGems();
 			Generator.fullReset();
 			Badges.loadGlobal();
 			testStarts();
@@ -117,44 +117,44 @@ public final class SpsSkinThreeTest {
 	private static void testStarts() {
 		Hero warrior = start(HeroClass.WARRIOR);
 		check(warrior.STR == Hero.STARTING_STR + 2, "皮肤3战士初始力量错误");
-		check(warrior.belongings.weapon instanceof pd.items.weapon.melee.normalweapon.Spear
+		check(warrior.belongings.weapon instanceof pd.items.equipment.weapon.melee.normalweapon.Spear
 				&& warrior.belongings.armor instanceof DiscArmor, "皮肤3战士长矛或圆盘甲错误");
 		check(has(warrior, MissileShield.class) && has(warrior, SavageHelmet.class), "皮肤3战士缺少反射盾或蛮族头盔");
 
 		Hero mage = start(HeroClass.MAGE);
-		check(mage.belongings.weapon instanceof pd.items.weapon.melee.normalweapon.WoodenStaff
+		check(mage.belongings.weapon instanceof pd.items.equipment.weapon.melee.normalweapon.WoodenStaff
 				&& mage.belongings.armor instanceof VestArmor, "皮肤3法师木杖或背心错误");
-		check(has(mage, pd.items.wands.WandOfFirebolt.class)
-				&& has(mage, pd.items.wands.WandOfFreeze.class)
+		check(has(mage, pd.items.equipment.wands.WandOfFirebolt.class)
+				&& has(mage, pd.items.equipment.wands.WandOfFreeze.class)
 				&& has(mage, GnollMark.class) && has(mage, PotionOfMage.class), "皮肤3法师法杖或职业物品缺失");
 
 		Hero rogue = start(HeroClass.ROGUE);
 		check(rogue.STR == Hero.STARTING_STR + 4, "皮肤3盗贼初始力量错误");
-		check(rogue.belongings.weapon instanceof pd.items.weapon.melee.normalweapon.Glaive
+		check(rogue.belongings.weapon instanceof pd.items.equipment.weapon.melee.normalweapon.Glaive
 				&& rogue.belongings.armor instanceof DiscArmor && rogue.belongings.artifact instanceof CloakOfShadows,
 				"皮肤3盗贼关刀、圆盘甲或暗影斗篷错误");
 		check(has(rogue, HorseTotem.class), "皮肤3盗贼缺少赤兔图腾");
 
 		Hero huntress = start(HeroClass.HUNTRESS);
-		check(huntress.belongings.weapon instanceof pd.items.weapon.melee.normalweapon.Knuckles
-				&& huntress.belongings.armor instanceof pd.items.armor.normalarmor.ClothArmor,
+		check(huntress.belongings.weapon instanceof pd.items.equipment.weapon.melee.normalweapon.Knuckles
+				&& huntress.belongings.armor instanceof pd.items.equipment.armor.normalarmor.ClothArmor,
 				"皮肤3女猎手指虎或布甲错误");
 		check(has(huntress, TaurcenBow.class) && has(huntress, RangeBag.class), "皮肤3女猎手缺少马人长弓或飞镖袋");
 
 		Hero performer = start(HeroClass.PERFORMER);
-		check(performer.belongings.weapon instanceof pd.items.weapon.melee.fusion.Triangolo
-				&& performer.belongings.armor instanceof pd.items.armor.normalarmor.ClothArmor
+		check(performer.belongings.weapon instanceof pd.items.equipment.weapon.melee.fusion.Triangolo
+				&& performer.belongings.armor instanceof pd.items.equipment.armor.normalarmor.ClothArmor
 				&& has(performer, Shovel.class) && has(performer, DanceLion.class), "皮肤3演员武器、布甲、铁铲或舞狮手册错误");
 
 		Hero soldier = start(HeroClass.SOLDIER);
-		check(soldier.belongings.weapon instanceof pd.items.weapon.guns.GunA
+		check(soldier.belongings.weapon instanceof pd.items.equipment.weapon.guns.GunA
 				&& soldier.belongings.armor instanceof VestArmor, "皮肤3星兵枪械或背心错误");
 		check(has(soldier, HeavyAmmo.class) && has(soldier, GunOfSoldier.class) && has(soldier, HealBag.class),
 				"皮肤3星兵缺少重弹、制式手枪或医疗箱");
 
 		Hero follower = start(HeroClass.FOLLOWER);
 		check(follower.STR == Hero.STARTING_STR + 4, "皮肤3信徒初始力量错误");
-		check(follower.belongings.weapon instanceof pd.items.weapon.melee.normalweapon.Rapier
+		check(follower.belongings.weapon instanceof pd.items.equipment.weapon.melee.normalweapon.Rapier
 				&& has(follower, FaithSign.class) && follower.belongings.artifact instanceof Pylon,
 				"皮肤3信徒刺剑、信仰印记或已装备电塔错误");
 

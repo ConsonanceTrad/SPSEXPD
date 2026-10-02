@@ -1,5 +1,7 @@
 package pd.items.summon;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -9,12 +11,11 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.actors.mobs.Mob;
 import pd.actors.mobs.npcs.TownNpc;
-import pd.items.weapon.guns.GunA;
-import pd.items.weapon.missiles.ShootGun;
+import pd.items.equipment.weapon.guns.GunA;
+import pd.items.equipment.weapon.missiles.ShootGun;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.plants.Plant;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.data.SparseArray;
 
 import java.awt.image.BufferedImage;
@@ -56,7 +57,7 @@ public final class SpsRustybladeCatTest {
 		pager.quantity(3);
 		check(rusty.properties().contains(Char.Property.HUMAN), "Rustyblade缺少人类属性");
 		check(pager.stackable && pager.value() == 300 && !pager.isUpgradable() && pager.isIdentified()
-				&& pager.image == ItemSpriteSheet.RUSTY_CAT && pager.defaultAction().equals("ACTIVE"),
+				&& pager.image == SpecificPlaceHolderDict.SOMETHING_0 && pager.defaultAction().equals("ACTIVE"),
 				"零式呼机基础属性、售价、动作或图标错误");
 	}
 

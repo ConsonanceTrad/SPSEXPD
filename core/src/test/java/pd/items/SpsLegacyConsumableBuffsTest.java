@@ -1,5 +1,7 @@
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessApplication;
@@ -25,11 +27,10 @@ import pd.actors.buffs.MoonFury;
 import pd.actors.buffs.ToxicImbue;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.npcs.TownNpc;
-import pd.items.food.fruit.FullMoonberry;
-import pd.items.medicine.LingPotion;
-import pd.items.rings.Ring;
-import pd.items.weapon.melee.MeleeWeapon;
-import pd.sprites.ItemSpriteSheet;
+import pd.items.consum.food.fruit.FullMoonberry;
+import pd.items.consum.medicine.LingPotion;
+import pd.items.equipment.rings.Ring;
+import pd.items.equipment.weapon.melee.MeleeWeapon;
 import render.noosa.Game;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -141,7 +142,7 @@ public final class SpsLegacyConsumableBuffsTest {
 		check(hero.buff(Bless.class) == null && hero.buff(FireImbue.class) == null
 				&& hero.buff(ToxicImbue.class) == null, "澪祷星瓶仍在给予替代的火毒亲和");
 		LingPotion potion = new LingPotion();
-		check(potion.value() == 50 && potion.image == ItemSpriteSheet.SPS_LING_POTION,
+		check(potion.value() == 50 && potion.image == SpecificPlaceHolderDict.SOMETHING_0,
 				"澪祷星瓶价格或原始图标槽错误");
 	}
 
@@ -161,7 +162,7 @@ public final class SpsLegacyConsumableBuffsTest {
 
 		BufferedImage sheet = ImageIO.read(new File("sprites/items/items.png"));
 		check("363CA1AEF7BF922A25167EB80B19B527CDFAD153E34901B093DE76B7C35C6954".equals(
-				hash(sheet, ItemSpriteSheet.SPS_LING_POTION)), "澪祷星瓶不是0.9.8原始图标");
+				hash(sheet, SpecificPlaceHolderDict.SOMETHING_0)), "澪祷星瓶不是0.9.8原始图标");
 	}
 
 	private static Hero hero() {
@@ -172,7 +173,7 @@ public final class SpsLegacyConsumableBuffsTest {
 		return hero;
 	}
 
-	private static String hash(BufferedImage sheet, int itemIndex) throws Exception {
+	private static String hash(BufferedImage sheet, IconEntry itemIndex) throws Exception {
 		int left = (itemIndex % 16) * 16;
 		int top = (itemIndex / 16) * 16;
 		ByteBuffer pixels = ByteBuffer.allocate(16 * 16 * 4).order(ByteOrder.LITTLE_ENDIAN);

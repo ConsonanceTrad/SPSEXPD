@@ -25,7 +25,7 @@ import pd.actors.mobs.Rat;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.Torch;
-import pd.items.potions.PotionOfHealing;
+import pd.items.consum.potions.PotionOfHealing;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.damagetrap.FireDamageTrap;

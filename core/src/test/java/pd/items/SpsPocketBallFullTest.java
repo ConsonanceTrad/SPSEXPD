@@ -1,5 +1,7 @@
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessApplication;
@@ -14,15 +16,14 @@ import pd.actors.buffs.WatchOut;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.actors.mobs.pets.LegacyPet;
-import pd.items.eggs.DogpetEgg;
-import pd.items.eggs.Egg;
+import pd.items.consum.eggs.DogpetEgg;
+import pd.items.consum.eggs.Egg;
 import pd.items.quest.AdventureJournal;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.Trap;
 import pd.mechanics.pathfind.PathFinder;
 import pd.plants.Plant;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
 import render.utils.data.SparseArray;
 import render.utils.serialize.Bundle;
@@ -229,7 +230,7 @@ public final class SpsPocketBallFullTest {
 		for (String key : keys) check(zh.contains(key) && en.contains(key), "中英文资源缺少键：" + key);
 		check(zh.contains("容魂灯") && !zh.contains("�"), "容魂灯中文乱码或缺失");
 		BufferedImage sheet = ImageIO.read(new File("sprites/items/items.png"));
-		check(ICON_HASH.equals(hash(sheet, ItemSpriteSheet.SPS_POCKET_BALL_FULL)), "容魂灯不是旧版原始图标");
+		check(ICON_HASH.equals(hash(sheet, SpecificPlaceHolderDict.SOMETHING_0)), "容魂灯不是旧版原始图标");
 	}
 
 	private static TestLevel level() {
@@ -253,7 +254,7 @@ public final class SpsPocketBallFullTest {
 		return hero;
 	}
 
-	private static String hash(BufferedImage sheet, int itemIndex) throws Exception {
+	private static String hash(BufferedImage sheet, IconEntry itemIndex) throws Exception {
 		int left = itemIndex % 16 * 16, top = itemIndex / 16 * 16;
 		ByteBuffer pixels = ByteBuffer.allocate(16 * 16 * 4).order(ByteOrder.LITTLE_ENDIAN);
 		for (int y = top; y < top + 16; y++) for (int x = left; x < left + 16; x++) pixels.putInt(sheet.getRGB(x, y));

@@ -28,22 +28,22 @@ import pd.actors.mobs.Mob;
 import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.armor.normalarmor.StyrofoamArmor;
-import pd.items.armor.normalarmor.VestArmor;
-import pd.items.armor.specialarmor.TestArmor;
-import pd.items.food.completefood.FruitCandy;
-import pd.items.reward.BoundReward;
-import pd.items.wands.WandOfTest;
-import pd.items.weapon.guns.GunA;
-import pd.items.weapon.guns.GunB;
-import pd.items.weapon.melee.Mace;
-import pd.items.weapon.melee.normalweapon.ShortSword;
-import pd.items.weapon.melee.special.TestWeapon;
-import pd.items.weapon.melee.start.DemonBlade;
-import pd.items.weapon.missiles.ElfBow;
-import pd.items.weapon.missiles.buildblock.WaterBlock;
-import pd.items.weapon.missiles.throwing.EscapeKnive;
-import pd.items.weapon.missiles.throwing.MindArrow;
+import pd.items.equipment.armor.normalarmor.StyrofoamArmor;
+import pd.items.equipment.armor.normalarmor.VestArmor;
+import pd.items.equipment.armor.specialarmor.TestArmor;
+import pd.items.consum.food.completefood.FruitCandy;
+import pd.items.specific.reward.BoundReward;
+import pd.items.equipment.wands.WandOfTest;
+import pd.items.equipment.weapon.guns.GunA;
+import pd.items.equipment.weapon.guns.GunB;
+import pd.items.equipment.weapon.melee.Mace;
+import pd.items.equipment.weapon.melee.normalweapon.ShortSword;
+import pd.items.equipment.weapon.melee.special.TestWeapon;
+import pd.items.equipment.weapon.melee.start.DemonBlade;
+import pd.items.equipment.weapon.missiles.ElfBow;
+import pd.items.equipment.weapon.missiles.buildblock.WaterBlock;
+import pd.items.equipment.weapon.missiles.throwing.EscapeKnive;
+import pd.items.equipment.weapon.missiles.throwing.MindArrow;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.Trap;
@@ -95,9 +95,9 @@ public final class SpsSkinFourTesterTest {
 				System.getProperty("java.io.tmpdir") + "sps-skin-four-tester" + File.separator);
 		Game.version = "test";
 		try {
-			pd.items.scrolls.Scroll.initLabels();
-			pd.items.potions.Potion.initColors();
-			pd.items.rings.Ring.initGems();
+			pd.items.consum.scrolls.Scroll.initLabels();
+			pd.items.consum.potions.Potion.initColors();
+			pd.items.equipment.rings.Ring.initGems();
 			Generator.fullReset();
 			Badges.loadGlobal();
 			testStart();
@@ -225,24 +225,24 @@ public final class SpsSkinFourTesterTest {
 		Hero mage = start(HeroClass.MAGE);
 		check(mage.belongings.weapon instanceof ElfBow && mage.belongings.armor instanceof VestArmor
 				&& has(mage, JumpM.class)
-				&& has(mage, pd.items.scrolls.ScrollOfRegrowth.class),
+				&& has(mage, pd.items.consum.scrolls.ScrollOfRegrowth.class),
 				"皮肤4法师的精灵弓、背心、法师之鞋或再生卷轴错误");
 
 		Hero rogue = start(HeroClass.ROGUE);
-		check(rogue.belongings.weapon instanceof pd.items.weapon.melee.normalweapon.Dagger
-				&& rogue.belongings.armor instanceof pd.items.armor.normalarmor.ClothArmor
+		check(rogue.belongings.weapon instanceof pd.items.equipment.weapon.melee.normalweapon.Dagger
+				&& rogue.belongings.armor instanceof pd.items.equipment.armor.normalarmor.ClothArmor
 				&& has(rogue, JumpR.class) && has(rogue, NeedPaper.class),
 				"皮肤4盗贼的匕首、布甲、盗贼之鞋或通缉令错误");
 
 		Hero huntress = start(HeroClass.HUNTRESS);
-		check(huntress.belongings.weapon instanceof pd.items.weapon.melee.normalweapon.WoodenStaff
-				&& huntress.belongings.armor instanceof pd.items.armor.normalarmor.ClothArmor
+		check(huntress.belongings.weapon instanceof pd.items.equipment.weapon.melee.normalweapon.WoodenStaff
+				&& huntress.belongings.armor instanceof pd.items.equipment.armor.normalarmor.ClothArmor
 				&& has(huntress, PPC.class) && has(huntress, JumpH.class),
 				"皮肤4女猎手的木杖、布甲、电子放大镜或女猎手之鞋错误");
 
 		Hero performer = start(HeroClass.PERFORMER);
 		check(performer.STR == Hero.STARTING_STR + 2 && performer.belongings.weapon instanceof Mace
-				&& performer.belongings.armor instanceof pd.items.armor.normalarmor.LeatherArmor
+				&& performer.belongings.armor instanceof pd.items.equipment.armor.normalarmor.LeatherArmor
 				&& has(performer, LeaderFlag.class) && has(performer, JumpP.class) && Dungeon.gold == 1000,
 				"皮肤4演员的力量、钉头锤、皮甲、领主之旗、鞋或金币错误");
 
@@ -254,7 +254,7 @@ public final class SpsSkinFourTesterTest {
 				"皮肤4星兵的测试枪、背心、纳米维生包、鞋或10把逃脱飞刀错误");
 
 		Hero follower = start(HeroClass.FOLLOWER);
-		check(follower.belongings.weapon instanceof pd.items.weapon.melee.normalweapon.Knuckles
+		check(follower.belongings.weapon instanceof pd.items.equipment.weapon.melee.normalweapon.Knuckles
 				&& follower.belongings.armor instanceof VestArmor && has(follower, DiceTower.class)
 				&& has(follower, JumpF.class) && Dungeon.gold == 1000,
 				"皮肤4信徒的指虎、背心、骰子塔、鞋或金币错误");
@@ -262,8 +262,8 @@ public final class SpsSkinFourTesterTest {
 		Hero ascetic = start(HeroClass.ASCETIC);
 		FruitCandy candy = ascetic.belongings.getItem(FruitCandy.class);
 		check(candy != null && candy.quantity() == 3
-				&& new pd.items.scrolls.ScrollOfMirrorImage().isKnown()
-				&& new pd.items.potions.PotionOfShield().isKnown(),
+				&& new pd.items.consum.scrolls.ScrollOfMirrorImage().isKnown()
+				&& new pd.items.consum.potions.PotionOfShield().isKnown(),
 				"皮肤4苦修者没有保持空专属分支和公共糖果、镜像卷轴、护盾药剂");
 	}
 

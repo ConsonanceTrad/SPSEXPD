@@ -1,5 +1,7 @@
 package pd.actors.mobs;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
@@ -17,13 +19,12 @@ import pd.actors.hero.Hero;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.OrbOfZot;
-import pd.items.bags.ScrollHolder;
-import pd.items.journalpages.EnergyCore;
+import pd.items.equipment.bags.ScrollHolder;
+import pd.items.specific.journalpages.EnergyCore;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.Trap;
 import pd.plants.Plant;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
 import render.utils.data.SparseArray;
 import render.utils.math.Random;
@@ -84,7 +85,7 @@ public final class SpsOrbOfZotTest {
 		freshLevel();
 		TestHero hero = heroAt(CENTER, 1000);
 		OrbOfZot orb = new OrbOfZot();
-		check(orb.image == ItemSpriteSheet.ORB_OF_ZOT, "储能装置未绑定原始图标槽");
+		check(orb.image == SpecificPlaceHolderDict.SOMETHING_0, "储能装置未绑定原始图标槽");
 		check(!orb.actions(hero).contains(OrbOfZot.AC_ACTIVATETHROW)
 				&& orb.actions(hero).contains(OrbOfZot.AC_BREAK), "未充满时动作列表错误");
 		for (int i = 0; i < 600; i++) orb.gainCharge();

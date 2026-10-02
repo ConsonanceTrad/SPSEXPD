@@ -30,12 +30,12 @@ import pd.actors.hero.Hero;
 import pd.items.misc.CopyBall;
 import pd.items.misc.MissileShield;
 import pd.items.misc.PotionOfMage;
-import pd.items.wands.WandOfFirebolt;
-import pd.items.wands.WandOfLight;
-import pd.items.weapon.enchantments.EnchantmentDark2;
-import pd.items.weapon.enchantments.EnchantmentDark;
-import pd.items.weapon.enchantments.EnchantmentFire2;
-import pd.items.weapon.enchantments.EnchantmentFire;
+import pd.items.equipment.wands.WandOfFirebolt;
+import pd.items.equipment.wands.WandOfLight;
+import pd.items.equipment.weapon.enchantments.EnchantmentDark2;
+import pd.items.equipment.weapon.enchantments.EnchantmentDark;
+import pd.items.equipment.weapon.enchantments.EnchantmentFire2;
+import pd.items.equipment.weapon.enchantments.EnchantmentFire;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.Trap;
@@ -53,6 +53,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import pd.atlas.IconEntry;
 
 /** Runtime parity checks for all three SPS-PD 0.9.8 sewer bosses. */
 public final class SpsSewerBossTimelineTest {

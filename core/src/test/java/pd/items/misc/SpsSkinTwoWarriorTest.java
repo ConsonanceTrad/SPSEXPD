@@ -52,28 +52,28 @@ import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.StrBottle;
-import pd.items.armor.normalarmor.BaseArmor;
-import pd.items.armor.normalarmor.VestArmor;
-import pd.items.armor.specialarmor.LifeArmor;
-import pd.items.artifacts.Pylon;
-import pd.items.food.completefood.FruitCandy;
-import pd.items.food.completefood.MoonCake;
-import pd.items.food.fruit.Fruit;
-import pd.items.medicine.Pill;
-import pd.items.potions.Potion;
-import pd.items.rings.Ring;
-import pd.items.scrolls.Scroll;
-import pd.items.scrolls.ScrollOfRegrowth;
+import pd.items.equipment.armor.normalarmor.BaseArmor;
+import pd.items.equipment.armor.normalarmor.VestArmor;
+import pd.items.equipment.armor.specialarmor.LifeArmor;
+import pd.items.equipment.artifacts.Pylon;
+import pd.items.consum.food.completefood.FruitCandy;
+import pd.items.consum.food.completefood.MoonCake;
+import pd.items.consum.food.fruit.Fruit;
+import pd.items.consum.medicine.Pill;
+import pd.items.consum.potions.Potion;
+import pd.items.equipment.rings.Ring;
+import pd.items.consum.scrolls.Scroll;
+import pd.items.consum.scrolls.ScrollOfRegrowth;
 import pd.items.summon.FairyCard;
-import pd.items.wands.DamageWand;
-import pd.items.wands.WandOfFirebolt;
-import pd.items.wands.WandOfFreeze;
-import pd.items.wands.WandOfLightning;
-import pd.items.weapon.guns.GunC;
-import pd.items.weapon.melee.Dagger;
-import pd.items.weapon.melee.HolyWater;
-import pd.items.weapon.missiles.TaurcenBow;
-import pd.items.weapon.missiles.throwing.Skull;
+import pd.items.equipment.wands.DamageWand;
+import pd.items.equipment.wands.WandOfFirebolt;
+import pd.items.equipment.wands.WandOfFreeze;
+import pd.items.equipment.wands.WandOfLightning;
+import pd.items.equipment.weapon.guns.GunC;
+import pd.items.equipment.weapon.melee.Dagger;
+import pd.items.equipment.weapon.melee.HolyWater;
+import pd.items.equipment.weapon.missiles.TaurcenBow;
+import pd.items.equipment.weapon.missiles.throwing.Skull;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.Trap;
@@ -321,7 +321,7 @@ public final class SpsSkinTwoWarriorTest {
 		check(hero.buff(HighLight.class) != null && hero.buff(AttackUp.class).level() == 80
 				&& hero.buff(DefenceUp.class).level() == 80 && hero.buff(Silent.class) != null
 				&& hero.buff(Locked.class) != null, "光明仪式状态不完整");
-		new WandOfFirebolt().execute(hero, pd.items.wands.Wand.AC_ZAP);
+		new WandOfFirebolt().execute(hero, pd.items.equipment.wands.Wand.AC_ZAP);
 
 		level = freshLevel();
 		hero = freshHero(level);
@@ -387,8 +387,8 @@ public final class SpsSkinTwoWarriorTest {
 		check(stats.getInt("attackSkill") == 10 && stats.getInt("defenseSkill") == 8
 				&& stats.getInt("magicSkill") == 3, "皮肤2盗贼三项技能错误");
 		check(hero.stealth() == 14f, "皮肤2盗贼潜行加成错误：" + hero.stealth());
-		check(hero.belongings.weapon instanceof pd.items.weapon.melee.normalweapon.Dagger
-				&& hero.belongings.armor instanceof pd.items.armor.normalarmor.ClothArmor,
+		check(hero.belongings.weapon instanceof pd.items.equipment.weapon.melee.normalweapon.Dagger
+				&& hero.belongings.armor instanceof pd.items.equipment.armor.normalarmor.ClothArmor,
 				"皮肤2盗贼没有装备旧版匕首与布甲");
 		check(hero.belongings.getItem(UndeadBook.class) != null
 				&& hero.belongings.getItem(JumpR.class) != null, "皮肤2盗贼亡灵圣经或盗贼之鞋缺失");
@@ -496,8 +496,8 @@ public final class SpsSkinTwoWarriorTest {
 		check(hero.permanentHT() == 20 && hero.HT == 20 && hero.HP == 20, "皮肤2女猎手初始生命错误");
 		check(stats.getInt("attackSkill") == 15 && stats.getInt("defenseSkill") == 8
 				&& stats.getInt("magicSkill") == 0, "皮肤2女猎手三项技能错误");
-		check(hero.belongings.weapon instanceof pd.items.weapon.melee.normalweapon.Knuckles
-				&& hero.belongings.armor instanceof pd.items.armor.normalarmor.ClothArmor,
+		check(hero.belongings.weapon instanceof pd.items.equipment.weapon.melee.normalweapon.Knuckles
+				&& hero.belongings.armor instanceof pd.items.equipment.armor.normalarmor.ClothArmor,
 				"皮肤2女猎手没有装备旧版拳套与布甲");
 		check(hero.belongings.getItem(TaurcenBow.class) != null
 				&& hero.belongings.getItem(JumpH.class) != null, "皮肤2女猎手马人长弓或猎手之鞋缺失");
@@ -610,8 +610,8 @@ public final class SpsSkinTwoWarriorTest {
 				"皮肤2演员圣水或基础护甲错误");
 		check(hero.belongings.getItem(CopyBall.class) != null && hero.belongings.getItem(JumpP.class) != null,
 				"皮肤2演员侵蚀核心或演员之鞋缺失");
-		check(hero.belongings.getItem(pd.items.potions.PotionOfMending.class) != null
-				&& hero.belongings.getItem(pd.items.potions.PotionOfHealing.class) != null,
+		check(hero.belongings.getItem(pd.items.consum.potions.PotionOfMending.class) != null
+				&& hero.belongings.getItem(pd.items.consum.potions.PotionOfHealing.class) != null,
 				"皮肤2演员两瓶治疗药剂缺失");
 	}
 
@@ -770,7 +770,7 @@ public final class SpsSkinTwoWarriorTest {
 		check(hero.permanentHT() == 30 && hero.HT == 30 && hero.HP == 30, "皮肤2信徒初始生命错误");
 		check(stats.getInt("attackSkill") == 10 && stats.getInt("defenseSkill") == 5
 				&& stats.getInt("magicSkill") == 0, "皮肤2信徒三项技能错误");
-		check(hero.belongings.weapon instanceof pd.items.weapon.melee.normalweapon.Dagger
+		check(hero.belongings.weapon instanceof pd.items.equipment.weapon.melee.normalweapon.Dagger
 				&& hero.belongings.weapon.level() == 2 && hero.belongings.armor instanceof VestArmor,
 				"皮肤2信徒的强化匕首或背心甲错误");
 		Pylon pylon = hero.belongings.getItem(Pylon.class);
@@ -893,7 +893,7 @@ public final class SpsSkinTwoWarriorTest {
 				"皮肤2修士应增加10点生命上限但不恢复当前生命");
 		check(stats.getInt("attackSkill") == 14 && stats.getInt("defenseSkill") == 7
 				&& stats.getInt("magicSkill") == 0, "皮肤2修士三项技能错误");
-		check(hero.belongings.weapon instanceof pd.items.weapon.melee.normalweapon.WoodenStaff
+		check(hero.belongings.weapon instanceof pd.items.equipment.weapon.melee.normalweapon.WoodenStaff
 				&& hero.belongings.armor instanceof LifeArmor, "皮肤2修士的木杖或活性护甲错误");
 		check(hero.buff(LifeArmor.LifeCharge.class) != null, "皮肤2修士的活性护甲没有激活");
 		check(hero.belongings.getItem(GrassBook.class) != null
