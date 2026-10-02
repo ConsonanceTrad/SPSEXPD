@@ -157,8 +157,8 @@ public final class SpsLegacySpecialMeleeTest {
 	}
 
 	private static String iconHash(BufferedImage image, IconEntry itemIndex) throws Exception {
-		int left = itemIndex % 16 * 16;
-		int top = itemIndex / 16 * 16;
+		int left = itemIndex.x(0);
+		int top = itemIndex.y(0);
 		ByteBuffer pixels = ByteBuffer.allocate(16 * 16 * 4).order(ByteOrder.LITTLE_ENDIAN);
 		for (int y = top; y < top + 16; y++) {
 			for (int x = left; x < left + 16; x++) pixels.putInt(image.getRGB(x, y));

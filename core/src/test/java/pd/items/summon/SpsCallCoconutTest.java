@@ -144,7 +144,7 @@ public final class SpsCallCoconutTest {
 	}
 
 	private static String hashItem(BufferedImage sheet, IconEntry itemIndex) throws Exception {
-		int left = itemIndex % 16 * 16, top = itemIndex / 16 * 16;
+		int left = itemIndex.x(0), top = itemIndex.y(0);
 		ByteBuffer pixels = ByteBuffer.allocate(16 * 16 * 4).order(ByteOrder.LITTLE_ENDIAN);
 		for (int y = top; y < top + 16; y++) for (int x = left; x < left + 16; x++) pixels.putInt(sheet.getRGB(x, y));
 		return hex(MessageDigest.getInstance("SHA-256").digest(pixels.array()));

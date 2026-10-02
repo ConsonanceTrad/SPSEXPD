@@ -98,7 +98,7 @@ public final class SpsPsionicBlastTest {
 				.getSuperclass() == ExoticScroll.class, "破碎版灵爆秘卷源码未保留");
 
 		resetLabels();
-		HashSet<Integer> images = new HashSet<>();
+		HashSet<IconEntry> images = new HashSet<>();
 		for (Class<?> type : expected) {
 			Scroll scroll = (Scroll) render.utils.serialize.Reflection.newInstance(type);
 			images.add(scroll.image);
