@@ -33,8 +33,17 @@ import pd.sprites.MissileSprite;
 import render.noosa.tweeners.AlphaTweener;
 import render.utils.data.Callback;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class HeavyBoomerang extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(HeavyBoomerang.class)
+			.t("name", "重型回旋镖")
+			.t("stats_desc", "这件武器会在被掷出的五回合后旋回至原位置。")
+			.t("desc", "这把大号回旋镖笨重难用，但能造成可观的伤害。");
+	}
+
 	
 	{
 		image = ConsumThrowsDict.BOOMERANG_0;

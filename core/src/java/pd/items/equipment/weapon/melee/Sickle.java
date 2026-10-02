@@ -36,8 +36,20 @@ import pd.ui.AttackIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
+import pd.messages.InlineText;
 
 public class Sickle extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Sickle.class)
+			.t("name", "短柄镰")
+			.t("stats_desc", "这是一件不太精准的武器。")
+			.t("ability_name", "收割")
+			.t("typical_ability_desc", "决斗家可以用短柄镰来_收割_敌人，这破坏性的一击必定命中，一般会造成_%d点伤害_。若敌人不免疫流血，则造成的伤害会转化为等值流血效果。")
+			.t("ability_desc", "决斗家可以用短柄镰来_收割_敌人，这破坏性的一击必定命中，并会造成_%d点伤害_。若敌人不免疫流血，则造成的伤害会转化为等值流血效果。")
+			.t("desc", "一种手持农具，也可被用作一把强大但笨重的武器。");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.SICKLE_0;

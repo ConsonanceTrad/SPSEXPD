@@ -78,8 +78,45 @@ import render.utils.serialize.Bundle;
 import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Trinity extends ArmorAbility {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Trinity.class)
+			.t("name", "三位一体")
+			.t("no_imbue", "三位一体当前尚未获得任何位格的效果集，使用位格法术以使其获得效果集！")
+			.t("no_duplicate", "三位一体无法复制你已经装备的装备效果！")
+			.t("ench_glyph_use", "三位一体会消耗_%2$s充能_以获得该附魔或刻印的效果_%1$d回合_。")
+			.t("rare_ench_glyph_use", "三位一体会消耗_%2$s充能_以获得该_强力_附魔或刻印的效果_%1$d回合_。")
+			.t("wand_use", "三位一体会消耗_%2$s充能_以使用该法杖的_%1$d级_效果。")
+			.t("wand_multi_use", "三位一体会消耗_%2$s充能_以使用该_复充能_法杖的_%1$d级_效果。")
+			.t("thrown_use", "三位一体会消耗_%2$s充能_以使用该投武的_%1$d级_效果。")
+			.t("ring_use", "三位一体会消耗_%2$s充能_以获得20回合_%1$d等级_该戒指的效果。")
+			.t("alchemiststoolkit_use", "三位一体会消耗_%2$s充能_以使用该神器的远端炼金效果。")
+			.t("chaliceofblood_use", "三位一体会消耗_%2$s充能_以获得该神器的_%1$d级_被动生命回复效果20回合。")
+			.t("driedrose_use", "三位一体会消耗_%2$s充能_以使用该神器召唤_%1$d级_幽灵生命值的友好腐化怨灵的效果。")
+			.t("etherealchains_use", "三位一体会消耗_%2$s充能_以使用该神器_%1$d格_范围的锁链施放效果。")
+			.t("hornofplenty_use", "三位一体会消耗_%2$s充能_以使用该神器的小吃一口效果。")
+			.t("masterthievesarmband_use", "三位一体会消耗_%2$s充能_以使用该神器的_%1$d级_敌人窃取效果。")
+			.t("sandalsofnature_use", "三位一体会消耗_%2$s充能_以使用该神器的随机有害种子扎根效果。")
+			.t("skeletonkey_use", "三位一体会消耗_%2$s充能_以使用该神器的插入效果。")
+			.t("talismanofforesight_use", "三位一体会消耗_%2$s充能_以使用该神器的_%1$d级_探查效果。")
+			.t("timekeepershourglass_use", "三位一体会消耗_%2$s充能_以获得该神器持续_%1$d_回合的时间冻结效果。")
+			.t("unstablespellbook_use", "三位一体会消耗_%2$s充能_以使用该神器_%1$d/10_无额外消耗使用秘卷概率的随机卷轴效果。")
+			.t("cost", "该护甲技能充能消耗不定，但通常为_%d_。")
+			.t("short_desc", "牧师获得_三位一体_的技能，可模拟其已鉴定的装备并通过使用全新法术进行装备分配。")
+			.t("desc", "牧师获得一套_三位一体_的护甲技能，通过使用三种全新法术选择并使用各式各样的物品效果。每种位格法术都专用于模拟牧师本局已鉴定的不同种类装备效果：体之位格(武器与护甲)、智之位格(法杖与投武)、魂之位格(戒指与神器)。\n\n每种位格法术同时只能模拟一种效果，而牧师使用三位一体时可以选择所使用的位格法术的种类。三位一体无法复制你已装备的装备效果。")
+			.t("wndusetrinity.text", "选择三位一体所使用的位格法术。不同位格的效果可同时生效。")
+			.t("wndusetrinity.body", "_体之位格：%s_")
+			.t("wndusetrinity.mind", "_智之位格：%s_")
+			.t("wndusetrinity.spirit", "_魂之位格：%s_")
+			.t("wnditemtypeselect.text", "选择三位一体所模拟的物品效果。附加信息将在确认之前显示。")
+			.t("wnditemconfirm.body", "选择体之位格效果")
+			.t("wnditemconfirm.mind", "选择智之位格效果")
+			.t("wnditemconfirm.spirit", "选择魂之位格效果");
+	}
+
 
 	{
 		baseChargeUse = 25;

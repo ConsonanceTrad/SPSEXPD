@@ -5,8 +5,16 @@ import pd.atlas.items.ConsumSummorDict;
 
 import pd.actors.mobs.pets.LegacyPet;
 import pd.actors.mobs.pets.RedDragon;
+import pd.messages.InlineText;
 
 public class RedDragonEgg extends Egg {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RedDragonEgg.class)
+			.t("name", "红龙之魂")
+			.t("desc", "烈焰所孕化的龙之灵魂。");
+	}
+
 	{ image = ConsumSummorDict.RED_DRAGON_EGG_0; burns = 20; }
 	@Override protected LegacyPet hatchling() { return new RedDragon(); }
 	@Override public int value() { return 500 * quantity; }

@@ -9,8 +9,15 @@ import pd.effects.BlobEmitter;
 import pd.effects.Speck;
 import pd.messages.Messages;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class VenomGas extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(VenomGas.class)
+			.t("desc", "这里盘绕着一片鲜彩毒雾。它具有强烈的腐蚀性，会不断侵蚀其中的生物。");
+	}
+
 	private static final String STRENGTH = "strength";
 
 	private int strength;

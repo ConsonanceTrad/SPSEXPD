@@ -20,9 +20,18 @@ import pd.Assets;
 import pd.actors.mobs.Mob;
 import pd.effects.particles.ElmoParticle;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 /** SPS-PD 0.9.8's reusable, class-specific skill item. */
 public abstract class ClassSkill extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ClassSkill.class)
+			.t("charge", "冷却：%d。")
+			.t("cooldown", "职业技能仍在冷却中。")
+			.t("level_required", "这项技能将在%d级解锁。");
+	}
+
 
 	public static final String AC_SPECIAL = "SPECIAL";
 	public static final String AC_SPECIAL_TWO = "SPECIAL_TWO";

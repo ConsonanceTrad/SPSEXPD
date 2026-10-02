@@ -33,8 +33,17 @@ import pd.actors.buffs.Frost;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.utils.data.BArray;
+import pd.messages.InlineText;
 
 public class FrostBomb extends Bomb {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(FrostBomb.class)
+			.t("name", "冰霜炸弹")
+			.t("desc", "这枚改造过的炸弹的爆炸范围更大，在2格范围内造成_%1$d~%2$d点伤害_并释放出持续冻结的冰霜。")
+			.t("discover_hint", "你可通过炼金合成该物品。");
+	}
+
 	
 	{
 		image = EquipmentEquipWeaponBombDict.FROST_BOMB_0;

@@ -32,8 +32,16 @@ import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite.Glowing;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Metabolism extends Glyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Metabolism.class)
+			.t("name", "代谢%s")
+			.t("desc", "代谢诅咒在穿戴者受伤时能直接将饱腹度转化为生命值，提供额外的治疗，但你会很快陷入饥饿之中。");
+	}
+
 
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 	

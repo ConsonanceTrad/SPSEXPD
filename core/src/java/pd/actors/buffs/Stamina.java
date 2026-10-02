@@ -23,8 +23,16 @@ package pd.actors.buffs;
 
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
+import pd.messages.InlineText;
 
 public class Stamina extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Stamina.class)
+			.t("name", "体力充沛")
+			.t("desc", "你感受到了体内无尽的精力，让你可以以更快的速度移动！\n\n当你处于体力充沛状态下你的移动速度将提升50%%，但是此效果不影响其他行动的耗时。\n\n体力充沛剩余时长：%s回合");
+	}
+
 
 	public static final float DURATION = 100f;
 	

@@ -29,8 +29,17 @@ import pd.items.Item;
 import pd.items.equipment.weapon.melee.MeleeWeapon;
 import pd.sprites.SlimeSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Slime extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Slime.class)
+			.t("name", "史莱姆")
+			.t("def_verb", "格挡")
+			.t("desc", "史莱姆是一种具有胶质外形与液态内核的奇特魔法生物。城市的下水道为它们提供了充分的水源和富足的养分。\n\n史莱姆的外层胶膜具有极强的弹性，这使得任何单次攻击都难以对它们造成超过_6点的伤害_。");
+	}
+
 	
 	{
 		spriteClass = SlimeSprite.class;

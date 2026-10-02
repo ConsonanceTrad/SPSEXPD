@@ -26,8 +26,21 @@ import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 import pd.Assets;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class Gloves extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Gloves.class)
+			.t("name", "镶钉手套")
+			.t("stats_desc", "这是一件非常快的武器。")
+			.t("ability_name", "连击")
+			.t("typical_ability_desc", "决斗家可以使用镶钉手套进行_连击_。这次攻击必定命中，并且决斗家每使用近战或者投掷武器成功命中一次，这次攻击的伤害一般就_增加%d点_。连续5回合(击杀后为15回合)未成功命中会重置连击。")
+			.t("ability_desc", "决斗家可以使用魔岩拳套进行_连击_。这次攻击必定命中，并且决斗家每使用近战或者投掷武器成功命中一次，这次攻击的伤害就_增加%d点_。连续5回合(击杀后为15回合)未成功命中会重置连击。")
+			.t("desc", "这双镶钉手套没有多少防护作用，但能在勉强当作武器使用的同时腾出双手。")
+			.t("discover_hint", "某位英雄初始携带该物品。");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.GLOVES;

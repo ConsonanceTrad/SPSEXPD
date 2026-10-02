@@ -28,8 +28,15 @@ import pd.messages.Messages;
 import pd.sprites.RatSprite;
 import pd.sprites.SkeletonSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class VaultRat extends Rat {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(VaultRat.class)
+			.t("desc", "这只老鼠行为有些许变化，以测试全新的宝库敌人AI：\n_-_其移动可透过墙壁而被“听见”\n_-_其游荡路径沿着预设的路线\n_-_游荡时，其移动方向的反方向上的侦测范围锐减\n_-_睡觉时，其侦测范围也会降低\n_-_侦测到你时，其会在进行追击之前先进行“搜查”。搜查状态的敌人会向你移动但并不会发动攻击，且更容易在门口与转角处跟丢你。");
+	}
+
 
 	{
 		activateSteathGameplayBehaviour();

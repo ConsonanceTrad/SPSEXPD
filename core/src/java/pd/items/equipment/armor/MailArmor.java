@@ -22,9 +22,17 @@
 package pd.items.equipment.armor;
 
 import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
+import pd.messages.InlineText;
 
 
 public class MailArmor extends Armor {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MailArmor.class)
+			.t("name", "链甲")
+			.t("desc", "由金属链环环相扣制成的一套结实又不失灵活的护甲。");
+	}
+
 
 	{
 		image = EquipmentEquipArmorBasicArmorDict.ARMOR_MAIL_0;

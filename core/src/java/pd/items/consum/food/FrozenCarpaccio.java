@@ -34,8 +34,21 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.utils.GLog;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class FrozenCarpaccio extends Food {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(FrozenCarpaccio.class)
+			.t("name", "冷冻生肉片")
+			.t("invis", "你看到自己的手隐形了！")
+			.t("hard", "你感到皮肤变硬了！")
+			.t("refresh", "神清气爽！")
+			.t("better", "你感觉好多了！")
+			.t("desc", "这是份速冻生肉，只能切成薄片取食，而且意外的好吃。")
+			.t("discover_hint", "你可使用另一种食物制作该物品。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

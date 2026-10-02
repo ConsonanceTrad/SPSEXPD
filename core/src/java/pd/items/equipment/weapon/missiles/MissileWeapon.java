@@ -62,8 +62,31 @@ import render.utils.serialize.Bundle;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashMap;
+import pd.messages.InlineText;
 
 abstract public class MissileWeapon extends Weapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MissileWeapon.class)
+			.t("stats_known", "这组_%1$d阶_的投掷武器能造成_%2$d~%3$d点伤害_并且需要_%4$d点力量_来正常使用。")
+			.t("stats_unknown", "通常，这组_%1$d阶_投掷武器能造成_%2$d~%3$d点伤害_并且需要_%4$d点力量_来正常使用。")
+			.t("stats_desc", "")
+			.t("probably_too_heavy", "这件武器对你来说或许太重了。")
+			.t("distance", "远程使用投掷武器更为精准，而近距离使用则反之。")
+			.t("durability", "投掷武器在使用过程中会磨损并最终损坏。")
+			.t("uses_left", "这组投掷武器再使用_%d/%d_次就会损坏一件。")
+			.t("unlimited_uses", "这组投掷武器品质极高，可以永久使用而不损坏。")
+			.t("unknown_uses", "通常，这组投掷武器每使用_%d_次就会损坏一件。")
+			.t("curse_discover", "这件投掷武器被诅咒了！")
+			.t("about_to_break", "你的投掷武器快要损坏了。")
+			.t("has_broken", "你的一件投掷武器已经损坏了。")
+			.t("dust", "你一碰这件投掷武器就化为了尘土。")
+			.t("break_upgraded_warn_desc", "如果一组投掷武器的最后一件损坏，这组投掷武器就会永远消失。你确定还要投掷这件武器吗？")
+			.t("break_upgraded_warn_yes", "确定")
+			.t("break_upgraded_warn_no", "算了")
+			.t("placeholder.name", "投掷武器");
+	}
+
 
 	{
 		stackable = true;

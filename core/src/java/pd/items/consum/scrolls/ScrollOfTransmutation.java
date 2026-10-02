@@ -57,8 +57,19 @@ import pd.plants.Plant;
 import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.utils.serialize.Reflection;
+import pd.messages.InlineText;
 
 public class ScrollOfTransmutation extends InventoryScroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfTransmutation.class)
+			.t("name", "嬗变卷轴")
+			.t("inv_title", "选择一件要嬗变的物品")
+			.t("nothing", "没发生什么有意思的事。")
+			.t("morph", "你的道具变成了另一样东西！")
+			.t("desc", "卷轴内存着强力的嬗变魔法，用在可行的物品上会将其转变成同类型的另一样物品。嬗变魔法还会保留原物品上的升级、附魔和刻印。卷轴或药剂将被转化为秘卷或合剂，反之亦然。");
+	}
+
 	
 	{
 		icon = ItemIconSheet.SCROLL_TRANSMUTE;

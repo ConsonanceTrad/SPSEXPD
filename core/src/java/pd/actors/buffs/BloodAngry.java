@@ -16,8 +16,16 @@ package pd.actors.buffs;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class BloodAngry extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(BloodAngry.class)
+			.t("name", "血怒")
+			.t("desc", "圣杯里的血液和你交融，降低了你当前的生命上限，但大幅度提升了你的速度和伤害。\n\n剩余的效果时长：%s回合。");
+	}
+
 
 	private static final String LEFT = "left";
 

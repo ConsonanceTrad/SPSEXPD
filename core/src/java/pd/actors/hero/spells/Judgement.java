@@ -37,8 +37,17 @@ import pd.ui.HeroIcon;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Judgement extends ClericSpell {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Judgement.class)
+			.t("name", "终末天启")
+			.t("short_desc", "对视野内所有敌人造成伤害。")
+			.t("desc", "牧师撕裂苍穹，以圣光之名审判视野内所有敌人。法术会在造成%1$d~%2$d点伤害的基础之上，再根据牧师自进入超凡升天以来(或自上次施放终末天启以来)的每次施法额外造成33%%伤害。\n\n当前终末天启会造成%3$d~%4$d点伤害。");
+	}
+
 
 	public static Judgement INSTANCE = new Judgement();
 

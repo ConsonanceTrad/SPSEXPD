@@ -36,8 +36,19 @@ import pd.messages.Messages;
 import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class ScrollOfTerror extends Scroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfTerror.class)
+			.t("name", "恐惧卷轴")
+			.t("none", "这个卷轴产生了一阵明亮的红色闪光。")
+			.t("one", "这个卷轴产生了一阵明亮的红色闪光的同时%s逃跑了！")
+			.t("many", "这个卷轴产生了一阵明亮的红色闪光的同时怪物们逃跑了！")
+			.t("desc", "被阅读的时候，该卷轴会爆射出一道可怖的红色闪光，以恐惧压垮使用者视野范围内生物的心智并使它们转身逃跑。攻击正在逃跑的敌人会缩短该效果的持续时长。");
+	}
+
 
 	{
 		icon = ItemIconSheet.SCROLL_TERROR;

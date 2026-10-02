@@ -11,8 +11,16 @@ import pd.actors.buffs.Ooze;
 import pd.actors.buffs.Roots;
 import pd.mechanics.pathfind.PathFinder;
 import render.utils.data.BArray;
+import pd.messages.InlineText;
 
 public class EarthBomb extends Bomb {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(EarthBomb.class)
+			.t("name", "酸蚀炸弹")
+			.t("desc", "这枚炸弹会缠绕附近的生物，并使它们沾满腐蚀淤泥。");
+	}
+
 
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 

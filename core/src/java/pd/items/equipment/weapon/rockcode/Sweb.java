@@ -13,8 +13,17 @@ import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Sweb extends RockCode {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Sweb.class)
+			.t("name", "蛛网陷阱")
+			.t("desc", "来自蜘蛛女王的技能芯片，在目标周围铺设蛛网。")
+			.t("stats_desc", "消耗4点能量中的1点，造成等级伤害，并在相邻可通行地面生成蛛网。");
+	}
+
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "S.w"; }
 	@Override protected int missileType() { return MagicMissile.LIGHT_MISSILE; }
 	@Override protected void onZap(Ballistica bolt) {

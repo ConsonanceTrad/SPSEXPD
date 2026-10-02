@@ -26,8 +26,20 @@ import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 import pd.Assets;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class WarHammer extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WarHammer.class)
+			.t("name", "战锤")
+			.t("stats_desc", "这是一件比较精准的武器。")
+			.t("ability_name", "重击")
+			.t("typical_ability_desc", "决斗家可以用战锤使出_重击_。这用尽全力的一击如果是在伏击敌人，则一般会造成_%1$d~%2$d点伤害_并施加5回合的恍惚，使其精准与闪避均降低50%%。重击必定命中，但若非伏击则只会造成普通的伤害。")
+			.t("ability_desc", "决斗家可以用战锤使出_重击_。这用尽全力的一击如果是在伏击敌人，则会造成_%1$d~%2$d点伤害_并施加5回合的恍惚，使其精准与闪避均降低50%%。重击必定命中，但若非伏击则只会造成普通的伤害。")
+			.t("desc", "很少有生物能抵挡这铅铁巨块的辗压，但也只有最强壮的冒险家才能有效使用它。");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.WAR_HAMMER_0;

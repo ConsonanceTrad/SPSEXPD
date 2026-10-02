@@ -8,8 +8,16 @@ import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.items.consum.food.Food;
 import pd.sprites.ItemSprite;
+import pd.messages.InlineText;
 
 public class EarthMeat extends MeatFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(EarthMeat.class)
+			.t("name", "腌制扣肉")
+			.t("desc", "利用大地力量腌制的肉块，充满了自然的庇护。");
+	}
+
 	private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0x996600);
 	{
 		image = ConsumFoodFoodDict.MEAT;

@@ -39,8 +39,19 @@ import pd.sprites.ThiefSprite;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Thief extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Thief.class)
+			.t("name", "疯狂小偷")
+			.t("stole", "小偷偷走了你的%s！")
+			.t("carries", "\n\n这个小偷携带着一个_%s_。明显是偷来的。")
+			.t("escapes", "小偷带着你的%s逃走了！")
+			.t("desc", "这些囚犯逃出了他们的牢房，却没能逃出这座监牢。随着时间流逝，这座监牢彻底摧毁了他们仅存的心智，以及对自由的向往。这些疯狂的小偷和强盗很久以前就已经彻底忘记它们是谁，以及它们为何偷窃。\n\n这些敌人比起面对面地战斗，更倾向于偷走你的财物随后逃之夭夭。一定要看紧它们，否则你以后可能再也不会见到自己的被盗财物了。");
+	}
+
 	
 	public Item item;
 	

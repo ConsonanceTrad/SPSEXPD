@@ -87,8 +87,19 @@ import render.utils.math.Random;
 import render.utils.serialize.Reflection;
 
 import java.util.HashMap;
+import pd.messages.InlineText;
 
 public class ElementalBlast extends ArmorAbility {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ElementalBlast.class)
+			.t("name", "元素风暴")
+			.t("no_staff", "你不能在没有魔杖的情况下使用这个能力。")
+			.t("short_desc", "法师从魔杖中释放_元素风暴_，席卷以自身为中心的一大片圆形区域，基于灌注的法杖引发不同的效果。")
+			.t("desc", "法师释放出风暴般的魔力，席卷半径为4的圆形区域，对其中的目标造成15~25点伤害。元素风暴引发的特效随魔杖灌注的法杖而变。")
+			.t("generic_desc", "元素风暴引发的效果与法杖向目标施法的效果类似。");
+	}
+
 
 	private static final HashMap<Class<?extends Wand>, Integer> effectTypes = new HashMap<>();
 	static {

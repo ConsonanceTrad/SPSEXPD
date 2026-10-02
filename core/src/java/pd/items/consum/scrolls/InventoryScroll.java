@@ -30,8 +30,17 @@ import pd.sprites.ItemSprite;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public abstract class InventoryScroll extends Scroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(InventoryScroll.class)
+			.t("warning", "你真的想终止这张卷轴的施放？这张卷轴之前未被鉴定，因此它仍会被消耗掉。")
+			.t("yes", "是的，我确定")
+			.t("no", "不，我改变主意了");
+	}
+
 
 	protected static boolean identifiedByUse = false;
 

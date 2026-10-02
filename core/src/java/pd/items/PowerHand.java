@@ -20,9 +20,25 @@ import render.utils.serialize.Bundle;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
+import pd.messages.InlineText;
 
 /** The original five-stone ending item dropped by UYog. */
 public class PowerHand extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PowerHand.class)
+			.t("name", "力量之手")
+			.t("desc", "我们对这件奇怪的道具一无所知。")
+			.t("desc_stones", "已经镶嵌了%d枚魔法矿石。")
+			.t("prompt", "选择要镶嵌的魔法矿石")
+			.t("ac_add", "镶嵌")
+			.t("ac_use", "使用")
+			.t("nothing", "什么也没发生。")
+			.t("already_fed", "这种魔法矿石已经镶嵌过了。")
+			.t("absorb_stone", "你把这枚魔法矿石镶嵌在手套上。")
+			.t("save_failed", "存档失败，力量之手没有启动。");
+	}
+
 
 	public static final int CHAOS_BRANCH = 47;
 	public static final String AC_ADD = "ADD";

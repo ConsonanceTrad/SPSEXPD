@@ -5,9 +5,17 @@ import pd.actors.Char;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 /** A stacking slow which becomes weaker as its remaining duration falls. */
 public class SpeedSlow extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SpeedSlow.class)
+			.t("name", "衰减缓速")
+			.t("desc", "效果逐渐降低的减速，但累加会造成僵直。\n\n减速程度取决于剩余的效果时间，最严重时等同于迟缓效果。\n\n剩余效果时长：%1$s回合\n当前速度降低：%2$s%%");
+	}
+
 
 	{
 		type = buffType.NEGATIVE;

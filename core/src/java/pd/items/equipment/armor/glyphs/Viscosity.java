@@ -36,8 +36,21 @@ import pd.sprites.ItemSprite;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Viscosity extends Glyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Viscosity.class)
+			.t("name", "粘稠%s")
+			.t("deferred", "延缓%d点伤害")
+			.t("defereddamage.name", "延缓伤害")
+			.t("defereddamage.ondeath", "你死于延缓伤害...")
+			.t("defereddamage.rankings_desc", "死于延迟伤害")
+			.t("defereddamage.desc", "瞬时的伤害被延缓，随着时间慢慢释放。\n\n剩余的延迟伤害：%d")
+			.t("desc", "这个刻印可以储存对使用者造成的伤害，让使用者缓慢受伤而不是一下子受到重击。");
+	}
+
 	
 	private static ItemSprite.Glowing PURPLE = new ItemSprite.Glowing( 0x8844CC );
 	

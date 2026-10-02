@@ -29,8 +29,34 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import pd.messages.InlineText;
 
 public class PetCompendium extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PetCompendium.class)
+			.t("name", "伙伴图鉴")
+			.t("ac_call", "召回伙伴")
+			.t("ac_choose", "选择伙伴")
+			.t("ac_feed", "喂食")
+			.t("choose_family", "选择一组伙伴谱系。更换选择不会立即替换当前仍在战斗的伙伴。")
+			.t("family_0", "林地伙伴")
+			.t("family_1", "城镇伙伴")
+			.t("family_2", "异域伙伴")
+			.t("family_3", "高阶伙伴")
+			.t("choose_type", "选择下一次召唤的伙伴。")
+			.t("selected", "已经选择%s作为同行伙伴。")
+			.t("no_space", "你身边没有足够空间让伙伴出现。")
+			.t("spent", "本层的召唤力量已经耗尽；进入另一层后才能再次召唤阵亡的伙伴。")
+			.t("recalled", "%s回到了你身边。")
+			.t("called", "%s响应图鉴，来到你身边。")
+			.t("feed_prompt", "选择一份普通食物喂给当前伙伴")
+			.t("full", "伙伴现在不需要进食。")
+			.t("fed", "%1$s恢复了%2$d点生命。")
+			.t("obtained", "年兽留下了一本伙伴图鉴！")
+			.t("desc", "记录特别惊喜像素地牢伙伴谱系的图鉴。当前选择：_%s_。\n\n每层可召唤一次伙伴；仍存活的伙伴可以不限次数召回。伙伴不会制造战利品，喂食会消耗一份正常食物。");
+	}
+
 
 	public static final String AC_CALL = "CALL";
 	public static final String AC_CHOOSE = "CHOOSE";

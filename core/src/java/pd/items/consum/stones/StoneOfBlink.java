@@ -27,8 +27,16 @@ import pd.actors.Actor;
 import pd.actors.hero.Hero;
 import pd.items.consum.scrolls.ScrollOfTeleportation;
 import pd.mechanics.Ballistica;
+import pd.messages.InlineText;
 
 public class StoneOfBlink extends Runestone {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(StoneOfBlink.class)
+			.t("name", "闪现符石")
+			.t("desc", "这颗符石被扔出后会把使用者传送到目的地。");
+	}
+
 	
 	{
 		image = ConsumScrollAmuletAmuletDict.STONE_BLINK_0;

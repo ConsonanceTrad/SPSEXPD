@@ -35,8 +35,24 @@ import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Hunger extends Buff implements Hero.Doom {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Hunger.class)
+			.t("hungry", "饥饿")
+			.t("starving", "极度饥饿")
+			.t("onhungry", "你有点饿了。")
+			.t("onstarving", "你已经饥肠辘辘！")
+			.t("ondeath", "你活活饿死了...")
+			.t("cursedhorn", "就在你吃东西的时候被诅咒的号角偷走了一部分食物的能量。")
+			.t("rankings_desc", "饥饿致死")
+			.t("desc_intro_hungry", "你能感受到自己的肚子在不断寻求食物，不过还不算那么严重。")
+			.t("desc_intro_starving", "你的饥饿程度已经危及生命了。")
+			.t("desc", "\n\n饥饿会在你在地牢里花费时间的同时缓慢累计，直到你饿得难以忍受。在你极度饥饿时生命值会停止回复并且开始缓慢减少。\n\n合理利用食物非常重要！如果你有足够的生命值来维持饥饿，你就该等到一会儿食物更多的时候再吃。正确的配给可以让食物更有效地发挥作用！");
+	}
+
 
 	public static final float HUNGRY	= 300f;
 	public static final float STARVING	= 450f;

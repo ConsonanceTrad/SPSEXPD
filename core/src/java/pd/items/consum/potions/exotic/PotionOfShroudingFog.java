@@ -29,8 +29,16 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class PotionOfShroudingFog extends ExoticPotion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfShroudingFog.class)
+			.t("name", "暗夜迷雾合剂")
+			.t("desc", "瓶中的液体遇到空气就会迅速爆发出一团能完全阻挡敌人视线的浓雾。");
+	}
+
 	
 	{
 		icon = ItemIconSheet.POTION_SHROUDFOG;

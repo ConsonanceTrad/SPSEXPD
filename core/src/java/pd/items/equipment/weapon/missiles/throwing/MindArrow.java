@@ -9,8 +9,16 @@ import pd.actors.buffs.BeCorrupt;
 import pd.actors.buffs.Buff;
 import pd.items.Item;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
+import pd.messages.InlineText;
 
 public class MindArrow extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MindArrow.class)
+			.t("name", "意识之矢")
+			.t("desc", "利用积累的疯狂伤害并腐化目标。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

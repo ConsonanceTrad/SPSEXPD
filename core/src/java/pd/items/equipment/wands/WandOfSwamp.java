@@ -16,9 +16,18 @@ import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
+import pd.messages.InlineText;
 
 /** The direct-damage swamp-gas wand from SPS-PD 0.9.8. */
 public class WandOfSwamp extends DamageWand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfSwamp.class)
+			.t("name", "沼泽法杖")
+			.t("desc", "这根地属性法杖由一根枯木枝巧琢而成。不知为何它还活着。")
+			.t("stats_desc", "该法杖能射出一颗会在目标位置爆炸的沼泽法球，造成_%1$d~%2$d点伤害_并释放沼泽气体，使其中的生物易伤且越来越迟缓。");
+	}
+
 
 	{
 		image = EquipmentWandBasicWandDict.WAND_POISON;

@@ -30,8 +30,15 @@ import render.utils.serialize.Bundle;
 import render.utils.serialize.Reflection;
 
 import java.util.HashSet;
+import pd.messages.InlineText;
 
 public class Buff extends Actor {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Buff.class)
+			.t("heromsg", "");
+	}
+
 	
 	public Char target;
 

@@ -27,8 +27,17 @@ import pd.actors.buffs.Buff;
 import pd.items.equipment.weapon.Weapon;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Sacrificial extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Sacrificial.class)
+			.t("name", "血祭%s")
+			.t("desc", "血祭诅咒会向使用者索求血液作为攻击的回报，你的状态越健康，诅咒索取的也就越多。")
+			.t("elestrike_desc", "武器拥有血祭诅咒时，元素打击对英雄自身与范围内的每一个敌人都造成初始值为12点的流血效果。");
+	}
+
 
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 

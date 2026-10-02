@@ -76,8 +76,27 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public abstract class Wand extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Wand.class)
+			.t("ac_zap", "释放")
+			.t("fizzles", "你的法杖滋滋作响；一定是没能量了。")
+			.t("no_magic", "你的法杖滋滋作响；你不能在魔法免疫时使用法杖。")
+			.t("self_target", "你不能瞄准你自己！")
+			.t("identify", "你对你的法杖已经足够熟悉并将其完全鉴定。")
+			.t("resin_one", "这根法杖已经从奥术树脂获得了_1_次升级。")
+			.t("resin_many", "这根法杖已经从奥术树脂获得了_%d_次升级。")
+			.t("cursed", "这根法杖受到了诅咒，导致它的魔法混乱而随机。")
+			.t("not_cursed", "这根法杖没有被诅咒。")
+			.t("curse_discover", "这根%s是诅咒的！")
+			.t("prompt", "选择要释放魔法的位置")
+			.t("placeholder.name", "法杖")
+			.t("silent", "沉默状态下无法使用法杖。");
+	}
+
 
 	public static final String AC_ZAP	= "ZAP";
 

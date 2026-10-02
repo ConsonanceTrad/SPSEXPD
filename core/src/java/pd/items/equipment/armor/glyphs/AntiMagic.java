@@ -72,8 +72,16 @@ import pd.sprites.ItemSprite;
 import render.utils.math.Random;
 
 import java.util.HashSet;
+import pd.messages.InlineText;
 
 public class AntiMagic extends Armor.Glyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(AntiMagic.class)
+			.t("name", "敌法%s")
+			.t("desc", "这个强力的刻印能使护甲在防御物理伤害的同时抵御魔法伤害。这种魔法防御不受护甲等阶影响。");
+	}
+
 
 	private static ItemSprite.Glowing TEAL = new ItemSprite.Glowing( 0x88EEFF );
 	

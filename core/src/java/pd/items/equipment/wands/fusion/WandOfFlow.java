@@ -21,9 +21,24 @@ import pd.tiles.DungeonTilemap;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The original SPS-PD water and knockback wand. */
 public class WandOfFlow extends DamageWand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfFlow.class)
+			.t("name", "涌流法杖")
+			.t("staff_name", "涌流魔杖")
+			.t("ondeath", "你被自己的涌流法杖击溃了...")
+			.t("desc", "这根_冰属性_法杖比普通法杖短，但顶端的小喷泉使它看起来和普通法杖一样高。")
+			.t("typical_stats_desc", "涌流通常造成_%1$d~%2$d点伤害_，并将大多数敌人击退。")
+			.t("stats_desc", "该法杖能向目标地点喷射强劲水流，造成_%1$d~%2$d点伤害_，击退目标并将其打湿。")
+			.t("upgrade_stat_name_2", "击退")
+			.t("bmage_desc", "战斗法师以涌流魔杖攻击麻痹目标时，会消耗麻痹并造成额外魔法伤害。")
+			.t("eleblast_desc", "涌流魔杖的元素风暴造成67%伤害并击退范围外沿的敌人。");
+	}
+
 
 	{
 		image = EquipmentWandBasicWandDict.WAND_FLOW;

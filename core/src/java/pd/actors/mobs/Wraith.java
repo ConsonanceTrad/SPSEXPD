@@ -48,8 +48,18 @@ import render.utils.serialize.Bundle;
 import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Wraith extends LegacyDualLootMob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Wraith.class)
+			.t("name", "怨灵")
+			.t("def_verb", "躲避")
+			.t("desc", "怨灵是来自于墓穴中渴望复仇的罪人之魂。作为飘渺的非实体很难被正常武器击中。")
+			.t("discover_hint", "你可在任何地牢区域中遇到该敌人。");
+	}
+
 
 	private static final float SPAWN_DELAY	= 2f;
 	

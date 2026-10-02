@@ -5,8 +5,18 @@ import pd.actors.Char;
 import pd.items.equipment.rings.Ring;
 import pd.messages.Messages;
 import pd.sprites.ItemIconSheet;
+import pd.messages.InlineText;
 
 public class RingOfMagic extends Ring {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RingOfMagic.class)
+			.t("name", "奥术戒指")
+			.t("stats", "佩戴这枚戒指时，你的法强值会提升_%d_点。")
+			.t("upgrade_stat_name_1", "法强加成")
+			.t("desc", "你的法杖在这枚戒指散布的奥术力场中会变得更加强大。在30级时这枚戒指效果达到上限。");
+	}
+
 
 	{
 		icon = ItemIconSheet.RING_ARCANA;

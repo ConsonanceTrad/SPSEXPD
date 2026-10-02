@@ -22,8 +22,19 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import pd.messages.InlineText;
 
 public class RingOfKnowledge extends Ring {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RingOfKnowledge.class)
+			.t("name", "学识戒指")
+			.t("stats", "佩戴这枚戒指时，你施法时有25%%的几率造成_%1$s_倍伤害，有_%2$s%%_的几率在击败敌人后获得额外掉落。")
+			.t("upgrade_stat_name_1", "法术暴击伤害")
+			.t("upgrade_stat_name_2", "额外掉落进度")
+			.t("desc", "这枚戒指提升了配戴者的意识，增加了他造成法术暴击的几率，并允许他在击败敌人时获得额外的战利品。在30级时这枚戒指效果达到上限。");
+	}
+
 
 	{
 		icon = ItemIconSheet.RING_WEALTH;

@@ -4,9 +4,17 @@ package pd.actors.buffs;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Persistent all-source shield used by SPS Hybrid. */
 public class EnergyArmor extends ShieldBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(EnergyArmor.class)
+			.t("name", "能量护盾")
+			.t("desc", "能量护盾会吸收所有类型的伤害。剩余护盾：%s。");
+	}
+
 	private static final String LEGACY_LEVEL = "level";
 	private static final String SHIELDING = "shielding";
 	{

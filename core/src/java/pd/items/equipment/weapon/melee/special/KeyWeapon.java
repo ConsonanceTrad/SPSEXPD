@@ -10,8 +10,16 @@ import pd.actors.buffs.Charm;
 import pd.actors.buffs.Paralysis;
 import pd.actors.buffs.Terror;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class KeyWeapon extends SpsSpecialMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(KeyWeapon.class)
+			.t("name", "天堂之门")
+			.t("desc", "奇怪的钥匙武器。共战2020疫情纪念！\n钝器，穿刺，警示");
+	}
+
 	public KeyWeapon() { super(1, 1f, 1f, 1, 1, 10, SpecificPlaceHolderDict.SOMETHING_0); }
 
 	@Override public int proc(Char attacker, Char defender, int damage) {

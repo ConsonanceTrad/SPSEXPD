@@ -29,9 +29,17 @@ import pd.messages.Messages;
 import pd.sprites.StatueSprite;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** SPS-PD's armor-only statue, paired with a weapon statue in StatueRoom. */
 public class ArmorStatue extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ArmorStatue.class)
+			.t("name", "活化装甲石像")
+			.t("desc", "你以为这只是地牢里的另一个丑陋雕像，但它发出红光的眼睛让你放弃了刚才的想法。 尽管雕像本身是用石头做的，但它穿着_%s_，看起来像是真的。");
+	}
+
 
 	private Armor armor;
 

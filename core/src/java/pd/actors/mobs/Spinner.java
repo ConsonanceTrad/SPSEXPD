@@ -39,8 +39,16 @@ import pd.scenes.GameScene;
 import pd.sprites.SpinnerSprite;
 import render.noosa.tweeners.AlphaTweener;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Spinner extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Spinner.class)
+			.t("name", "矿洞蜘蛛")
+			.t("desc", "绿色而多毛的洞穴蜘蛛们会试着去躲避直接的战斗，它们更喜欢在远处等待其猎物卷入蜘网，在毒素中慢慢死去。");
+	}
+
 
 	{
 		spriteClass = SpinnerSprite.class;

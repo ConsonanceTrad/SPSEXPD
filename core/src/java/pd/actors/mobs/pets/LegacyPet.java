@@ -21,9 +21,16 @@ import pd.sprites.CharSprite;
 import pd.windows.WndPetInfo;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Common runtime for the original SPS egg pets. */
 public abstract class LegacyPet extends DirectableAlly {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(LegacyPet.class)
+			.t("levelup", "仪器确定你的宠物等级已提升。");
+	}
+
 
 	public enum Kind {
 		BLUE_DRAGON(501), GREEN_DRAGON(502), LIGHT_DRAGON(503), RED_DRAGON(504),

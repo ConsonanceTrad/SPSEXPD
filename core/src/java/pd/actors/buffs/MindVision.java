@@ -24,8 +24,16 @@ package pd.actors.buffs;
 import pd.Dungeon;
 import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class MindVision extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(MindVision.class)
+			.t("name", "灵视")
+			.t("desc", "你可以在脑海中以某种方式看到这一层的所有生物。这种感觉非常奇异。\n\n只要灵视效果依然存在，这层的所有生物都会在你的视野当中。通过灵视看到的生物同样算作视野中的目标，可以被很多魔法效果影响。\n\n灵视效果剩余时长：%s回合");
+	}
+
 
 	public static final float DURATION = 20f;
 	

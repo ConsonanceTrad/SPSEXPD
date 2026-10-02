@@ -14,9 +14,17 @@ import pd.mechanics.Ballistica;
 import pd.sprites.UTenguSprite;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Young Tengu, retaining the original ranged/melee phases and periodic jump. */
 public class UTengu extends BossRushBoss {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(UTengu.class)
+			.t("name", "年轻的天狗")
+			.t("desc", "年轻时的天狗，既擅长远程攻击也擅长近战攻击。");
+	}
+
 	private static final int JUMP_DELAY = 10;
 	private int timeToJump = JUMP_DELAY;
 

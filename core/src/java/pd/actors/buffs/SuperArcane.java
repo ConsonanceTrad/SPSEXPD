@@ -4,9 +4,17 @@ package pd.actors.buffs;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Temporarily increases the hero's legacy magic-skill stat. */
 public class SuperArcane extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SuperArcane.class)
+			.t("name", "奥术灌注")
+			.t("desc", "魔力流遍了你的全身，增加%1$s点法强。\n\n剩余效果时长：%2$s回合。");
+	}
+
 
 	public static final float DURATION = 30f;
 	private static final String LEVEL = "level";

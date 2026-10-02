@@ -22,7 +22,18 @@ import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 public class DiamondPickaxe extends NormalMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(DiamondPickaxe.class)
+			.t("name", "史蒂夫的钻石镐")
+			.t("ac_mine", "挖掘")
+			.t("no_thing", "这里没有东西可以挖掘。")
+			.t("break", "你太饿了，无法挖掘。")
+			.t("desc", "一把具有时运、耐久、效率、锋利、精准和杀手能力的钻石镐。");
+	}
+
 	public static final String AC_MINE="MINE"; public DiamondPickaxe(){super(3,2f,.5f,2,2,8,SpecificPlaceHolderDict.SOMETHING_0);unique=true;reinforced=true;defaultAction=AC_MINE;}
 	@Override protected void applyLegacyUpgrade(Stats stats){stats.min++;stats.max++;}
 	@Override public ArrayList<String> actions(Hero h){ArrayList<String>a=super.actions(h);a.add(AC_MINE);return a;}

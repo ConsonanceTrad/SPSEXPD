@@ -23,8 +23,16 @@ package pd.actors.buffs;
 
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
+import pd.messages.InlineText;
 
 public class Recharging extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Recharging.class)
+			.t("name", "充能")
+			.t("desc", "魔力在你体内奔腾而过，提高你的法杖与魔杖的充能速率。\n\n此效果将会在正常充能速率的基础上每回合为你额外回复0.25点法杖充能。\n\n充能效果剩余时长：%s回合");
+	}
+
 
 	public static final float DURATION = 30f;
 

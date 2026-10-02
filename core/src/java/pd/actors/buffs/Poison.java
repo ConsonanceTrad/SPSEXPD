@@ -32,8 +32,19 @@ import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.Image;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Poison extends Buff implements Hero.Doom, Buff.DOTbuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Poison.class)
+			.t("name", "中毒")
+			.t("heromsg", "你中毒了！")
+			.t("ondeath", "你被毒死了...")
+			.t("rankings_desc", "毒发身亡")
+			.t("desc", "毒素传遍全身，缓慢地损伤着各个脏器。\n\n毒素每回合造成的伤害与其剩余的回合数成正比。\n\n中毒效果剩余时长：%s回合");
+	}
+
 	
 	protected float left;
 	

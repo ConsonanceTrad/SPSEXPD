@@ -27,8 +27,17 @@ import pd.Assets;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
+import pd.messages.InlineText;
 
 public class Kunai extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Kunai.class)
+			.t("name", "苦无")
+			.t("stats_desc", "这件武器对未察觉你的敌人更有效。")
+			.t("desc", "技巧高深者能用这种小刀造成可观的伤害。");
+	}
+
 	
 	{
 		image = ConsumThrowsDict.KUNAI_0;

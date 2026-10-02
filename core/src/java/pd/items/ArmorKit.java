@@ -7,9 +7,18 @@ import pd.actors.hero.Hero;
 import pd.items.equipment.armor.normalarmor.NormalArmor;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** The original no-material class armor kit. */
 public class ArmorKit extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ArmorKit.class)
+			.t("name", "护甲配件包")
+			.t("ac_apply", "制作")
+			.t("desc", "使用这套工具和材料，可以无需裁缝材料制作对应职业的专属护甲。");
+	}
+
 	public static final String AC_APPLY = "APPLY";
 	{ image = ConsumUsefulProcessEnhanceDict.KIT_0; unique = true; defaultAction = AC_APPLY; }
 	@Override public ArrayList<String> actions(Hero hero) {

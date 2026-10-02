@@ -39,8 +39,34 @@ import render.noosa.audio.Sample;
 import render.utils.math.GameMath;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Crystal extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Crystal.class)
+			.t("name", "魔晶%s")
+			.t("alert_fixed", "你的魔晶武器崭新如初！")
+			.t("alert_fixed_ghost", "幽灵的魔晶武器崭新如初！")
+			.t("alert_noflaw", "你的魔晶武器上的缺损得到了修复。")
+			.t("alert_noflaw_ghost", "幽灵的魔晶武器上的缺损得到了修复。")
+			.t("alert_nocrack", "你的魔晶武器上的裂纹弥合了。")
+			.t("alert_nocrack_ghost", "幽灵的魔晶武器上的裂纹弥合了。")
+			.t("alert_flawed", "你的魔晶武器略有缺损。")
+			.t("alert_flawed_ghost", "幽灵的魔晶武器略有缺损。")
+			.t("alert_cracked", "你的魔晶武器已经布满裂纹，马上就要粉碎了！")
+			.t("alert_cracked_ghost", "幽灵的魔晶武器已经布满裂纹，马上就要粉碎了！")
+			.t("alert_shattered", "你的魔晶武器化为了齑粉！")
+			.t("alert_shattered_ghost", "幽灵的魔晶武器化为了齑粉！")
+			.t("desc", "这种强力的附魔可以造成额外的魔法伤害并提升武器的价值，但是，如果不加以维修或给其时间进行自我修复，魔力结晶化的武器就会彻底粉碎。")
+			.t("desc_thrown", "魔晶投掷武器的耐久度相当低，但其可随时间流逝而自我修复。")
+			.t("desc_perfect", "这把魔晶武器目前品相完美。")
+			.t("desc_fine", "这把魔晶武器目前品相不错。")
+			.t("desc_flawed", "这把魔晶武器已有缺损，但暂无粉碎的风险。")
+			.t("desc_cracked", "这把魔晶武器上已经布满裂纹，有永久粉碎的风险！")
+			.t("elestrike_desc", "武器拥有魔晶附魔时，元素打击会对范围内除主要目标外的每个敌人造成10~20点伤害并修复武器的碎裂。");
+	}
+
 
 	private static ItemSprite.Glowing LIGHT_BLUE = new ItemSprite.Glowing( 0x0088FF );
 	private static ItemSprite.Glowing FLAW = new ItemSprite.Glowing( 0x0088FF, 0.5f );

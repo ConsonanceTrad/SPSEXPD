@@ -51,8 +51,24 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Challenge extends ArmorAbility {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Challenge.class)
+			.t("name", "公平决斗")
+			.t("prompt", "选择一名敌人以发起决斗")
+			.t("already_dueling", "你在同一时间里只能进行一场决斗。")
+			.t("ally_target", "你只能向敌人发起决斗。")
+			.t("unreachable_target", "你不能选择无法接近的目标。")
+			.t("distant_target", "那个敌人离得太远，无法发起决斗。")
+			.t("short_desc", "决斗家向一名附近的敌人发起_公平决斗_，在短时间内停止所有其它敌人的时间。")
+			.t("desc", "决斗家向一名附近的敌人发起决斗。被选中的敌人会被迫应战，而其它敌人暂时陷入时间冻结。\n\n决斗家只能向5格范围内且可接近的敌人发起决斗。如果出现以下情况的任意一种：决斗进行10回合、敌人死亡或决斗家与敌人的距离超过5格，决斗就会终止。\n\n时间被冻结的敌人处于无敌状态。决斗家的友方单位不会被此能力冻结，但同理，如果对一名头目使用此能力，它的随从亦不会被冻结。")
+			.t("duelparticipant.name", "决斗之中")
+			.t("duelparticipant.desc", "这个角色正处于一场决斗之中。决斗双方及它们的友方单位或随从能够正常活动，其它角色的时间则被冻结，无法行动。\n\n如果出现以下情况：决斗超过一定时间、决斗双方之一死亡、决斗双方距离超过5格，决斗就会终止。\n\n剩余回合数：%d");
+	}
+
 
 	{
 		baseChargeUse = 50;

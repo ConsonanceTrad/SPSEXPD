@@ -51,8 +51,17 @@ import render.utils.data.Callback;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class PotionOfDragonsBreath extends ExoticPotion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfDragonsBreath.class)
+			.t("name", "火龙吐息合剂")
+			.t("prompt", "选择要灼烧的位置")
+			.t("desc", "瓶子内奇特的化合物会在接触口腔后爆燃。迅速吐出液体就能让使用者从口中喷射火焰！");
+	}
+
 	
 	{
 		icon = ItemIconSheet.POTION_DRGBREATH;

@@ -5,9 +5,17 @@ import pd.atlas.items.ConsumSummorDict;
 
 import pd.actors.mobs.pets.BugDragon;
 import pd.actors.mobs.pets.LegacyPet;
+import pd.messages.InlineText;
 
 /** Retains the unusual class spelling used by SPS-PD 0.9.8. */
 public class BugDragonEGG extends Egg {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(BugDragonEGG.class)
+			.t("name", "BUG龙之魂")
+			.t("desc", "召唤缺失编号之龙。");
+	}
+
 	{
 		image = ConsumSummorDict.BUG_DRAGON_EGG_0;
 		moves = 2000; burns = freezes = poisons = lits = darks = lights = 20;

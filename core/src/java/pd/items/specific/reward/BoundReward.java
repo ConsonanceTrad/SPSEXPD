@@ -22,9 +22,20 @@ import pd.items.Item;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Reward dropped when an SPS dew floor is cleared within its par time. */
 public class BoundReward extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(BoundReward.class)
+			.t("name", "清层奖励")
+			.t("desc", "在露珠规定时间内消灭本层所有初始敌人获得的奖励。你可以选择一类奖品。")
+			.t("ac_weapon", "装备")
+			.t("ac_food", "补给")
+			.t("ac_potion", "魔法物品");
+	}
+
 
 	public static final String AC_WEAPON = "WEAPON";
 	public static final String AC_FOOD = "FOOD";

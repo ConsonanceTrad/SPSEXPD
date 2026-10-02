@@ -9,8 +9,16 @@ import pd.items.Heap;
 import pd.levels.Level;
 import pd.messages.Messages;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public abstract class SpsElementalDamage extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SpsElementalDamage.class)
+			.t("ice.desc", "此处残留着寒冰能量，会持续伤害其中的生物。")
+			.t("fire.desc", "此处残留着火焰能量，会持续伤害其中的生物。");
+	}
+
 	protected void affectHeap(Heap heap) { }
 	protected abstract Object damageSource();
 

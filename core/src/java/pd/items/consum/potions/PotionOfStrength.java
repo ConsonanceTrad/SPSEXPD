@@ -28,8 +28,17 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 public class PotionOfStrength extends Potion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfStrength.class)
+			.t("name", "力量药剂")
+			.t("msg", "新生的力量在你体内喷薄而出，你现在拥有%d点力量！")
+			.t("desc", "这种强力的液体会洗刷你的肌肉，永久性增加1点力量值。");
+	}
+
 
 	{
 		icon = ItemIconSheet.POTION_STRENGTH;

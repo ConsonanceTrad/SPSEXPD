@@ -10,8 +10,16 @@ import pd.actors.buffs.MagicArmor;
 import pd.actors.buffs.ShieldArmor;
 import pd.actors.buffs.Silent;
 import pd.items.equipment.weapon.melee.normalweapon.NormalMeleeWeapon;
+import pd.messages.InlineText;
 
 public class HandLight extends NormalMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(HandLight.class)
+			.t("name", "神拳灯")
+			.t("desc", "挖出来，擦一下，数个三，上勾拳。它能沉默目标，并对魔法护盾造成额外打击。——Coconut");
+	}
+
 	public HandLight() { super(4, 1f, 1f, 2, 29, 38, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats stats) { stats.min++; stats.max++; }
 	@Override public int proc(Char attacker, Char defender, int damage) {

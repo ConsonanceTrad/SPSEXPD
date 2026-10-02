@@ -24,8 +24,16 @@ package pd.items.consum.stones;
 import pd.atlas.items.ConsumScrollAmuletAmuletDict;
 
 import pd.items.equipment.bombs.Bomb;
+import pd.messages.InlineText;
 
 public class StoneOfBlast extends Runestone {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(StoneOfBlast.class)
+			.t("name", "震爆符石")
+			.t("desc", "这颗符石被扔出后会在目的地立即爆炸。和炸弹一样，爆炸会对范围内的所有东西造成伤害。");
+	}
+
 	
 	{
 		image = ConsumScrollAmuletAmuletDict.STONE_BLAST_0;

@@ -12,8 +12,16 @@ import pd.items.KindOfWeapon;
 import pd.messages.Messages;
 import pd.utils.GLog;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class DragonBoat extends MeleeThrowWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(DragonBoat.class)
+			.t("name", "龙舟模型")
+			.t("desc", "木制的龙舟模型，说实在的应该放在玻璃瓶里。\n钝器，飞掷，易碎-尖锐");
+	}
+
 	public DragonBoat() { super(1, 5, 10, EquipmentEquipWeaponBasicWeaponDict.DRAGON_BOAT); }
 	@Override public int proc(Char attacker, Char defender, int damage) {
 		if (Random.Int(100) < 40) Buff.prolong(defender, Paralysis.class, 3f);

@@ -117,9 +117,31 @@ import render.utils.math.Random;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 //helper class to contain all the cursed wand zapping logic, so the main wand class doesn't get huge.
 public class CursedWand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(CursedWand.class)
+			.t("ondeath", "你死于自己的%s。")
+			.t("nothing", "什么事都没发生。")
+			.t("mass_invuln", "明耀的光芒从你的法杖迸射而出！")
+			.t("petrify", "你突然被定在了原地！")
+			.t("grass", "草木在你周围疯长而出！")
+			.t("fire", "你闻到了烧烤的味道...")
+			.t("transmogrify_wand", "你的法杖变化成了另一样东西！")
+			.t("transmogrify_other", "你的道具变化成了另一样东西！")
+			.t("disguise", "你的外貌在你眼前发生了变化！")
+			.t("supernova", "一颗灼热的能量球开始膨胀。情况不妙，走为上计！")
+			.t("supernova_positive", "一颗灼热的能量球开始膨胀，但不知何故它似乎很安全。")
+			.t("sinkhole", "你周围的地板在迅速崩塌！")
+			.t("sinkhole_positive", "地板在迅速崩塌，但你感觉脚下足够结实。")
+			.t("gravity", "重力突然开始向随机方向牵引！")
+			.t("gravity_positive", "重力突然开始向随机方向牵引，但这对你没有影响。")
+			.t("gravity_end", "重力混乱结束了。");
+	}
+
 
 	public static void cursedZap(final Item origin, final Char user, final Ballistica bolt, final Callback afterZap){
 

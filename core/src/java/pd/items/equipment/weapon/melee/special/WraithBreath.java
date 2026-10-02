@@ -8,8 +8,16 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class WraithBreath extends SpsSpecialMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WraithBreath.class)
+			.t("name", "幽灵之息")
+			.t("desc", "来自幽灵的气息。\n恐吓");
+	}
+
 	public WraithBreath() { super(2, .75f, 1f, 4, 7, 11, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override public int min(int level) { return 7 + Math.max(0, level) * 2; }
 	@Override public int max(int level) { return 11 + Math.max(0, level) * 3; }

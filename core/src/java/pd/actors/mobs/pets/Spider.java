@@ -12,7 +12,15 @@ import pd.items.consum.food.meatfood.MeatFood;
 import pd.scenes.GameScene;
 import pd.sprites.NewSpinnerSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 public class Spider extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Spider.class)
+			.t("name", "植蛛")
+			.t("desc", "一只小小的、毛茸茸的植物，似乎喜欢藏在你的盔甲下。然而，尽管它顽固地害羞，它已经准备好了。");
+	}
+
 	{ spriteClass=NewSpinnerSprite.class;cooldown=50;properties.add(Property.PLANT);updateStats(true); }
 	@Override protected Kind kind(){return Kind.SPIDER;}
 	@Override public boolean lovefood(Item item){return item instanceof PetFood||item instanceof MeatFood;}

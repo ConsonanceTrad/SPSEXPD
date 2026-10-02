@@ -24,8 +24,20 @@ package pd.items.equipment.rings;
 import pd.actors.Char;
 import pd.messages.Messages;
 import pd.sprites.ItemIconSheet;
+import pd.messages.InlineText;
 
 public class RingOfEvasion extends Ring {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RingOfEvasion.class)
+			.t("name", "闪避戒指")
+			.t("stats", "佩戴这枚戒指时，你的闪避值会增加_%d_点，潜行会增加_%2$d_点。")
+			.t("typical_stats", "佩戴这枚戒指时，你的闪避属性通常会提升_%s%%_。")
+			.t("combined_stats", "你已装备的戒指正联结它们的力量，一共增加了_%s%%_的闪避。")
+			.t("upgrade_stat_name_1", "闪避加成")
+			.t("desc", "这枚戒指会混淆配戴者的真实位置，令其更难被敌人击中。该戒指每5级提供1点额外的潜行,但在30级时这枚戒指的潜行效果达到上限。");
+	}
+
 
 	{
 		icon = ItemIconSheet.RING_EVASION;

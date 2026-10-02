@@ -45,8 +45,25 @@ import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Dart extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Dart.class)
+			.t("name", "飞镖")
+			.t("ac_tip", "涂药")
+			.t("prompt", "选择一粒种子")
+			.t("tip_title", "为飞镖涂药")
+			.t("tip_desc", "一粒种子可以为1~2枚飞镖涂药。每种种子都能产生对应的，具有独特效果的一次性涂药飞镖。\n\n将这些种子涂抹在飞镖上能得到_%s_。")
+			.t("tip_all", "用%2$d粒种子为%1$d枚飞镖涂药")
+			.t("tip_two", "用1粒种子为2枚飞镖涂药")
+			.t("tip_one", "用1粒种子为1枚飞镖涂药")
+			.t("tip_cancel", "取消")
+			.t("desc", "由短木杆和金属尖头简易制成，手腕轻抖就会精准地飞向目标。使用种子可以为飞镖涂药，使其对目标造成额外效果。")
+			.t("unlimited_uses", "由于其极简的构造，飞镖可永久使用而不损坏。");
+	}
+
 
 	{
 		levelKnown = true;

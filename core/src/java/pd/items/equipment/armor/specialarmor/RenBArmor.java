@@ -11,8 +11,16 @@ import pd.items.equipment.armor.normalarmor.NormalArmor;
 import pd.items.consum.eggs.EasterEgg;
 import pd.sprites.HeroSprite;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class RenBArmor extends NormalArmor {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RenBArmor.class)
+			.t("name", "兔女郎制服")
+			.t("desc", "REN珍藏的服装之一。承受100次攻击后会破碎，并留下一颗复活节彩蛋。");
+	}
+
 	private static final String CHARGE = "charge";
 	private int charge = 100;
 

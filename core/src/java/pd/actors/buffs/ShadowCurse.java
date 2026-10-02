@@ -4,8 +4,16 @@ package pd.actors.buffs;
 import pd.effects.particles.ShadowParticle;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class ShadowCurse extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ShadowCurse.class)
+			.t("name", "暗影诅咒")
+			.t("desc", "诅咒会立即造成基于生命上限的伤害，并在四次发作后再次爆发。");
+	}
+
 	private static final String TICKS = "ticks";
 	private static final String FIRST = "first";
 	private int ticks;

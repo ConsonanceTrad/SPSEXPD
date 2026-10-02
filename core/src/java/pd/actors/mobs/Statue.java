@@ -39,8 +39,19 @@ import pd.sprites.StatueSprite;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Statue extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Statue.class)
+			.t("name", "活化持剑石像")
+			.t("def_verb", "格挡")
+			.t("desc", "你以为这只是地牢里的另一个丑陋雕像，但它发出红光的眼睛让你放弃了刚才的想法。 尽管雕像本身是用石头做的，但它手上握着_%s_，看起来像是真的。")
+			.t("desc_weapon", "虽然雕像本身是石制的，但它装备着的_%s_看起来是真家伙。")
+			.t("discover_hint", "你可在任何地牢区域中遇到该敌人。");
+	}
+
 	
 	{
 		spriteClass = StatueSprite.class;

@@ -31,8 +31,16 @@ import pd.actors.mobs.Mob;
 import pd.effects.Flare;
 import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class ScrollOfDread extends ExoticScroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfDread.class)
+			.t("name", "梦魇秘卷")
+			.t("desc", "诵读的时候，梦魇秘卷会爆射出一道极度可怖的红色闪光，其中的杀气仿佛已经凝成实体。这足以令你视野中所有的敌人吓得魂飞魄散，不顾一切地想要逃离这座地牢，永远也不回来了！\n\n与恐惧效果一样，逃命的敌人也会随着时间流逝逐渐冷静下来，来自外界的伤害更能加速这一过程。\n\n意志坚定的敌人，比如Boss们，将能抵抗逃命的冲动，但仍会感到恐惧。");
+	}
+
 	
 	{
 		icon = ItemIconSheet.SCROLL_DREAD;

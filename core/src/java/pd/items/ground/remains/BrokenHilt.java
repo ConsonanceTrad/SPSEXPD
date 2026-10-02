@@ -28,8 +28,16 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.PhysicalEmpower;
 import pd.actors.hero.Hero;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class BrokenHilt extends RemainsItem {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(BrokenHilt.class)
+			.t("name", "断折剑柄")
+			.t("desc", "这把断折剑柄曾经应是一名败于此地的决斗者随身武器。即使如今你仍可感受到剑柄其上残留的武道气息，你可以运起这股气息，在接下来使用近战武器两次命中时造成些许额外伤害。但这意味着剑柄会随着武者气息的流失而烟消云散。");
+	}
+
 
 	{
 		image = ConsumUsefulCorpseRelicsDict.BROKEN_HILT_0;

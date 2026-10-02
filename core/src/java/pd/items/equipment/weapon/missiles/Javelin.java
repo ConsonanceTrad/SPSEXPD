@@ -24,8 +24,16 @@ package pd.items.equipment.weapon.missiles;
 import pd.atlas.items.ConsumThrowsDict;
 
 import pd.Assets;
+import pd.messages.InlineText;
 
 public class Javelin extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Javelin.class)
+			.t("name", "标枪")
+			.t("desc", "这些大号投掷用长枪上的配重保证它们会以尖端为首飞向目标。");
+	}
+
 
 	{
 		image = ConsumThrowsDict.JAVELIN_0;

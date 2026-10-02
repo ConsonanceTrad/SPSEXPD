@@ -11,8 +11,16 @@ import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.scenes.GameScene;
+import pd.messages.InlineText;
 
 public class GlassFruit extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(GlassFruit.class)
+			.t("name", "水晶果")
+			.t("desc", "硅花人工培育出的水晶果。直接命中会使目标严重流血；未命中时，果实会破裂并释放一小团腐蚀气体。");
+	}
+
 	{
 		image = ConsumPotionSeedSeedDict.SEED_BLINDWEED_0;
 		hitSound = Assets.Sounds.HIT_STAB;

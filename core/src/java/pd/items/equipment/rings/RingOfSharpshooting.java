@@ -25,8 +25,21 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.messages.Messages;
 import pd.sprites.ItemIconSheet;
+import pd.messages.InlineText;
 
 public class RingOfSharpshooting extends Ring {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RingOfSharpshooting.class)
+			.t("name", "神射之戒")
+			.t("stats", "佩戴这枚戒指时，你的投掷武器伤害会获得_%1$d_级的提升，耐久度则会提升_%2$s%%_。")
+			.t("typical_stats", "佩戴这枚戒指时，你的投掷武器伤害通常会获得_%1$d_级的提升，耐久度则会提升_%2$s%%_。")
+			.t("combined_stats", "你已装备的戒指正联结它们的力量，一共提高了_%1$d_级投掷武器等级，并且增加了其_%2$s%%_耐久。")
+			.t("upgrade_stat_name_1", "等级伤害加成")
+			.t("upgrade_stat_name_2", "耐久度加成")
+			.t("desc", "这枚戒指会加强佩戴者的瞄准能力，使投掷武器变得更加致命且耐用。被诅咒的戒指则会起反作用。");
+	}
+
 
 	{
 		icon = ItemIconSheet.RING_SHARPSHOOT;

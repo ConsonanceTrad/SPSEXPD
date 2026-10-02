@@ -48,8 +48,19 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class SacrificialFire extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SacrificialFire.class)
+			.t("name", "献祭之火")
+			.t("desc", "这是一个承载着献祭之火的祭坛。在此殒命的生物都将成为献给地牢幽魂的祭品。\n\n或许献祭够多，就能得到回报？")
+			.t("worthy", "火焰吞噬了你的祭品，燃烧得愈加旺盛。")
+			.t("unworthy", "火焰吞噬了你的祭品，然而没有任何变化。")
+			.t("reward", "火焰骤然升腾，继而消散，并留下一份奖励！");
+	}
+
 
 	BlobEmitter curEmitter;
 

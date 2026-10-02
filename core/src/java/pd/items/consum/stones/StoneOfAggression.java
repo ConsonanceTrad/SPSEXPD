@@ -34,8 +34,18 @@ import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.ui.BuffIndicator;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class StoneOfAggression extends Runestone {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(StoneOfAggression.class)
+			.t("name", "敌意符石")
+			.t("desc", "当把这颗符石丢向一个盟友或敌人时，附近所有敌人都会在短时间内优先攻击该单位。\n\n敌意符石无法直接以boss为目标，但可对其随从正常发挥效果。")
+			.t("aggression.name", "众矢之的")
+			.t("aggression.desc", "支配魔法正使附近所有敌人优先攻击该单位。\n\n剩余回合数：%s");
+	}
+
 	
 	{
 		image = ConsumScrollAmuletAmuletDict.STONE_AGGRESSION;

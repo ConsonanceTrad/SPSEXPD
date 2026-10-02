@@ -35,8 +35,16 @@ import render.noosa.audio.Sample;
 import render.utils.data.BArray;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class StoneOfFlock extends Runestone {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(StoneOfFlock.class)
+			.t("name", "羊群符石")
+			.t("desc", "这颗符石被扔出后会在目的地召唤一群魔法绵羊。");
+	}
+
 	
 	{
 		image = ConsumScrollAmuletAmuletDict.STONE_FLOCK_0;

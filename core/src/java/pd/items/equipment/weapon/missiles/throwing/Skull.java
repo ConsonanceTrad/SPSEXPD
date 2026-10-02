@@ -9,8 +9,16 @@ import pd.actors.buffs.SoulMark;
 import pd.items.Item;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Skull extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Skull.class)
+			.t("name", "鬼骨镖")
+			.t("desc", "一种邪恶的投掷武器，能够标记目标的灵魂，使英雄从它身上汲取生命。");
+	}
+
 
 	{
 		image = ConsumThrowsDict.SKULL;

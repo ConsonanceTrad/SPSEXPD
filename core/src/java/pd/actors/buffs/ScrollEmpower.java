@@ -26,8 +26,16 @@ import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class ScrollEmpower extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ScrollEmpower.class)
+			.t("name", "卷轴赋能")
+			.t("desc", "法师阅读卷轴时产生的能量会暂时强化他的法杖！\n\n法杖强化：+%1$d级\n剩余有效施法次数：%2$d");
+	}
+
 
 	{
 		type = buffType.POSITIVE;

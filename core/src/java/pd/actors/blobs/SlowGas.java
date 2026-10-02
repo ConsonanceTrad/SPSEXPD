@@ -11,8 +11,15 @@ import pd.effects.BlobEmitter;
 import pd.effects.particles.SnowParticle;
 import pd.items.Heap;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class SlowGas extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SlowGas.class)
+			.t("desc", "这里盘绕着一片极寒雪雾，会持续拖慢身处其中的生物。");
+	}
+
 
 	@Override
 	protected void evolve() {

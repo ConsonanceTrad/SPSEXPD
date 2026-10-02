@@ -11,8 +11,16 @@ import pd.mechanics.Ballistica;
 import pd.sprites.VaultProtectorSprite;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class VaultProtector extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(VaultProtector.class)
+			.t("name", "赏金猎人")
+			.t("desc", "只要目标足够有名，赏金猎人就会闻讯而来。");
+	}
+
 
 	private boolean skillUsed;
 

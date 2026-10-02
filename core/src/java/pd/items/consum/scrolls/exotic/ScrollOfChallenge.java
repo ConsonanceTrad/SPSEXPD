@@ -41,8 +41,18 @@ import render.utils.geom.Point;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class ScrollOfChallenge extends ExoticScroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfChallenge.class)
+			.t("name", "决斗秘卷")
+			.t("desc", "大声诵读此卷轴时，它将发出巨大的吼声，将敌人吸引到诵读者身边，同时在它们周围创建一个小型的竞技场。\n\n只要使用者在这个竞技场里，就将获得33%的伤害减免(在其它所有伤害减免计算之前)，并且不会损失饱食度。\n\n竞技场的大小将随着诵读者所在区域的大小而改变。在一些Boss战区域，竞技场会格外的小。")
+			.t("challengearena.name", "决斗区域")
+			.t("challengearena.desc", "一个由魔力构筑的竞技场在你周围浮现，其中翻腾着一阵猩红血雾。\n\n当你站在雾中时，饥饿值不会增加，并且受到的任何伤害都会减少33%%。如果你有任何其他减伤手段(例如护甲)，它们都会在33%%伤害减免之后生效。\n\n剩余回合数：%d回合");
+	}
+
 	
 	{
 		icon = ItemIconSheet.SCROLL_CHALLENGE;

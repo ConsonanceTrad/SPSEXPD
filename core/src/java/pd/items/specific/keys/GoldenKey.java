@@ -22,9 +22,17 @@
 package pd.items.specific.keys;
 
 import pd.atlas.items.SpecificKeyDict;
+import pd.messages.InlineText;
 
 
 public class GoldenKey extends Key {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(GoldenKey.class)
+			.t("name", "金钥匙")
+			.t("desc", "这把黄金钥匙的齿纹精妙而复杂。或许可以用它来打开某个上锁的宝箱？");
+	}
+
 	
 	{
 		image = SpecificKeyDict.GOLDEN_KEY;

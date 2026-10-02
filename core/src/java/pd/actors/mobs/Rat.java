@@ -32,8 +32,16 @@ import pd.scenes.GameScene;
 import pd.sprites.RatSprite;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Rat extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Rat.class)
+			.t("name", "棕毛鼠")
+			.t("desc", "虽说棕毛鼠们具有攻击性，可它们依旧是下水道居民里的弱者。它们成群结队非常烦人，但只有一只时对你够不上什么威胁。");
+	}
+
 	private static final float SPAWN_DELAY = 2f;
 
 	{

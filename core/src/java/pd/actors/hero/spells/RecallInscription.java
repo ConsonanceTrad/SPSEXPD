@@ -44,8 +44,19 @@ import pd.ui.HeroIcon;
 import render.utils.data.Callback;
 import render.utils.serialize.Bundle;
 import render.utils.serialize.Reflection;
+import pd.messages.InlineText;
 
 public class RecallInscription extends ClericSpell {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(RecallInscription.class)
+			.t("name", "卷藏咒言")
+			.t("short_desc", "重复最近使用的符石或卷轴效果。")
+			.t("desc", "牧师使用神圣魔法复制最近使用的符文以再次触发%s回合前使用的卷轴或符石的魔法效果。\n\n卷藏咒言不能复制升级卷轴，充能消耗根据最近一次使用的物品变化而变化：符石2点充能、卷轴3点充能、秘卷4点充能。复制嬗变卷轴或嬗变/升级卷轴的符石/秘卷时，充能消耗还会翻倍。")
+			.t("useditemtracker.name", "近期已使用符文")
+			.t("useditemtracker.desc", "牧师近期已使用一个兼容卷藏咒言法术效果的物品，可以通过施法再次触发物品效果。\n\n已使用物品：%1$s\n\n剩余回合数：%2$s");
+	}
+
 
 	public static RecallInscription INSTANCE = new RecallInscription();
 

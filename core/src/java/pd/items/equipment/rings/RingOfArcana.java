@@ -25,8 +25,20 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.messages.Messages;
 import pd.sprites.ItemIconSheet;
+import pd.messages.InlineText;
 
 public class RingOfArcana extends Ring {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RingOfArcana.class)
+			.t("name", "奥术之戒")
+			.t("stats", "佩戴这枚戒指时，你的附魔和刻印效果会提升_%s%%_。")
+			.t("typical_stats", "佩戴这枚戒指时，你的附魔和刻印效果通常会提升_%s%%_。")
+			.t("combined_stats", "你已装备的戒指正联结它们的力量，一共增强了_%s%%_的附魔与刻印效果。")
+			.t("upgrade_stat_name_1", "奥术加成")
+			.t("desc", "这枚戒指增强了武器上的附魔和护甲上的刻印，也包括诅咒！戒指会先提高它们的触发概率，当触发概率达到100%时，会转而增加它们效果的强度。被诅咒的戒指则会反过来削弱附魔、刻印以及诅咒。");
+	}
+
 
 	{
 		icon = ItemIconSheet.RING_ARCANA;

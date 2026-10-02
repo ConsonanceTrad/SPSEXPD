@@ -20,9 +20,18 @@ import pd.sprites.CharSprite;
 import pd.sprites.OtilukeSprite;
 import pd.utils.GLog;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** Corrupted Otiluke mirror which powers the energy-core defenses. */
 public class Otiluke extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Otiluke.class)
+			.t("name", "被腐化的Otiluke镜像")
+			.t("desc", "Otiluke的镜像，但是已经被Zot腐化。看起来它在为石像提供能源。")
+			.t("bolt_kill", "腐化镜像的暗影箭杀死了你……");
+	}
+
 
 	private static final int LEGACY_DEPTH = 67;
 	private static final float TIME_TO_ZAP = 1f;

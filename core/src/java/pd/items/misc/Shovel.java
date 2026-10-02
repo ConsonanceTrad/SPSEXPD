@@ -23,8 +23,21 @@ import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Shovel extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Shovel.class)
+			.t("name", "铁铲")
+			.t("ac_use", "破坏")
+			.t("ac_build", "造墙")
+			.t("not_wall", "身边没有可以破坏的墙。")
+			.t("break", "铁铲的耐久不足。")
+			.t("charge", "耐久：%1$d / %2$d。")
+			.t("desc", "在大逃狱事件中，演员发现了这把铲子。它能破坏相邻墙壁或建造新墙，耐久会随时间恢复。");
+	}
+
 	public static final String AC_USE = "USE";
 	public static final String AC_BUILD = "BUILD";
 	public static final int FULL_CHARGE = 120;

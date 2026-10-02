@@ -30,8 +30,16 @@ import pd.effects.particles.WebParticle;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class Web extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Web.class)
+			.t("name", "蛛网")
+			.t("desc", "这里所有东西都被厚厚的蜘蛛网覆盖着。任何接触或丢向蛛网的东西都会打破它，但也都会被固定在原地。");
+	}
+
 
 	{
 		//acts before the hero, to ensure terrain is adjusted correctly

@@ -8,9 +8,17 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.pets.LegacyPet;
 import pd.actors.mobs.pets.ShadowDragon;
 import pd.items.quest.AdventureJournal;
+import pd.messages.InlineText;
 
 /** Guaranteed shadow-dragon soul from the original dragon cave. */
 public class ShadowDragonEgg extends Egg {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ShadowDragonEgg.class)
+			.t("name", "暗之龙魂")
+			.t("desc", "光明所孕化、浸染暗影的龙之灵魂。");
+	}
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		lights = 20;

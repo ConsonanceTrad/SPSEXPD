@@ -20,9 +20,20 @@ import pd.windows.WndBag;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** SPS-PD's consumable weapon-refining runic blade. */
 public class RunicBlade extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RunicBlade.class)
+			.t("name", "符文之刃")
+			.t("ac_reforge", "重铸")
+			.t("choose", "选择要强化的武器")
+			.t("reforged", "你用符文之刃强化了你的武器。")
+			.t("desc", "来自失落之地的神秘武器，有着明亮的蓝色刀刃。——00-Evan\n精炼");
+	}
+
 
 	public static final String AC_REFORGE = "REFORGE";
 

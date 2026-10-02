@@ -17,8 +17,25 @@ import pd.utils.GLog;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class MapFragment extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MapFragment.class)
+			.t("missing_book", "你必须先从REN那里取得挑战日志，才能装订这张地图碎片。")
+			.t("ac_add", "加入日志")
+			.t("name_0", "下水道地图碎片")
+			.t("name_1", "监狱地图碎片")
+			.t("name_2", "洞窟地图碎片")
+			.t("name_3", "城市地图碎片")
+			.t("name_4", "寒霜地图碎片")
+			.t("desc", "这张附有魔力的碎片记录着通往_%s_的路线。将它加入挑战日志后，碎片会被永久消耗。")
+			.t("added", "%s已加入挑战日志。")
+			.t("already_added", "挑战日志中已经记录了这条路线。")
+			.t("no_room", "背包中没有容纳挑战日志的位置，请先腾出一个空位。");
+	}
+
 
 	public static final String AC_ADD = "ADD";
 	private int challenge;

@@ -6,9 +6,17 @@ import pd.actors.Char;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Legacy stationary parry which gains one stack per turn, or two after level 55. */
 public class ParyAttack extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ParyAttack.class)
+			.t("name", "原地格挡")
+			.t("desc", "保持原地会逐回合提高攻击并降低所受伤害；移动或金币不足时状态结束。当前强度：%s%%。");
+	}
+
 	private static final String LEVEL = "level";
 	private static final String POS = "pos";
 	private int level;

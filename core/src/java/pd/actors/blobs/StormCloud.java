@@ -27,8 +27,16 @@ import pd.actors.Char;
 import pd.effects.BlobEmitter;
 import pd.effects.Speck;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class StormCloud extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(StormCloud.class)
+			.t("name", "暴雨")
+			.t("desc", "这里盘绕着一片翻腾的水汽。");
+	}
+
 	
 	@Override
 	protected void evolve() {

@@ -45,8 +45,28 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public final class SpsHallsMobs {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SpsHallsMobs.class)
+			.t("demongoo.name", "暗黑黏咕")
+			.t("demongoo.desc", "恶魔黏咕通常由熔岩、黏液、暗能量与恶意构成，其中绝大部分都是黑暗。不要任其分裂，即使最弱的碎块也能再次变强。")
+			.t("demongoo.divide", "暗黑黏咕分裂了！")
+			.t("thiefimp.name", "强盗小鬼")
+			.t("thiefimp.desc", "小鬼是地狱中最底层的居民。它们没有固定收入，所以经常到其他地方偷窃。")
+			.t("thiefimp.stole", "小鬼偷走了%s！")
+			.t("thiefimp.carries", "\n\n这个小鬼携带着_%s_。明显是偷来的。")
+			.t("demonflower.name", "恶魔花")
+			.t("demonflower.desc", "生长在地狱中的花。它不仅能够移动，还能连续攻击并削弱目标的攻击与护甲。")
+			.t("demonflower.debuff", "恶魔花释放了虚弱孢子。")
+			.t("sufferer.name", "受难者")
+			.t("sufferer.desc", "这些高估自己的术士尝试控制高等恶魔，却反被腐化和奴役，永远留在了这里。")
+			.t("demonrabbit.name", "血兔射手")
+			.t("demonrabbit.desc", "被恶魔血转化的兔人射手，会使用流血弹射击，并在命中处留下腐化气体。");
+	}
+
 	private SpsHallsMobs() { }
 
 	public static class DemonGoo extends Mob {

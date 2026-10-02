@@ -39,8 +39,24 @@ import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class CapeOfThorns extends Artifact {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(CapeOfThorns.class)
+			.t("name", "荆棘斗篷")
+			.t("ac_needling", "耗竭-激发")
+			.t("desc", "矮人实验室里的研究反射魔法的副产物之一，这件由奇怪的金属片构成的坚硬斗篷能够从敌人的攻击中摄取能量，并将其反馈给攻击者。同时也会提升发现种子的几率")
+			.t("desc_inactive", "斗篷令人安心的沉重压在你的肩上，它似乎能从你受的伤里获得能量。")
+			.t("desc_active", "斗篷似乎在释放其存储的能量，并将其辐射出一种防护力场。")
+			.t("thorns.inert", "你的斗篷再次失效了。")
+			.t("thorns.radiating", "你的斗篷正在释放存储的能量，你感到自己正在被保护着！")
+			.t("thorns.levelup", "你的斗篷变得更强大了！")
+			.t("thorns.name", "荆棘")
+			.t("thorns.desc", "你的斗篷在你周围辐射能量，产生了一个偏斜力场！\n\n该效果下你受到的所有伤害都会被减少。此外，如果攻击者就在你旁边，被减少的伤害会反弹给攻击者。\n\n荆棘效果持续时间：%s回合");
+	}
+
 
 	public static final String AC_NEEDLING = "NEEDLING";
 

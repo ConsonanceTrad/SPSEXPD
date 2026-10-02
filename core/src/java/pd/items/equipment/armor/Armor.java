@@ -98,8 +98,42 @@ import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import pd.messages.InlineText;
 
 public class Armor extends EquipableItem {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Armor.class)
+			.t("ac_detach", "拆卸")
+			.t("detach_seal", "你将纹章从护甲上摘了下来。")
+			.t("equip_cursed", "这件护甲生疼地勒住了你。")
+			.t("identify", "你对你的护甲已经足够熟悉并且可以因此将其完全鉴定。")
+			.t("hardening_gone", "这件护甲上的硬化效果已被损耗！")
+			.t("incompatible", "不同属性的魔法相冲突，消除了护甲上的刻印！")
+			.t("curr_absorb", "这件_%1$d阶_护甲能抵挡_%2$d~%3$d点伤害_并且需要_%4$d点力量_来正常使用。")
+			.t("avg_absorb", "一般情况下这件_%1$d阶_护甲能抵挡_%2$d~%3$d点伤害_并且需要_%4$d点力量_来正常使用。")
+			.t("too_heavy", "由于你的力量不足，使用这件护甲会降低你的移动、闪避以及防御能力。")
+			.t("probably_too_heavy", "这套护甲对你来说或许太重了。")
+			.t("excess_str", "你的额外力量使你穿戴着这件护甲时_更易闪避_。")
+			.t("evasion", "这件护甲强化了_闪避_。")
+			.t("defense", "这件护甲强化了_防御_。")
+			.t("inscribed", "这件护甲刻有_%s_。")
+			.t("glyph_hardened", "它被_硬化_了。")
+			.t("hardened_no_glyph", "这件护甲已被_硬化_，但目前没有携带刻印。")
+			.t("cursed_worn", "这套护甲被诅咒了，你无法卸下它。")
+			.t("cursed", "你能感觉到这套护甲里潜伏着一股充满恶意的魔力。")
+			.t("weak_cursed", "虽然这件护甲有诅咒，但是你可以脱下它。")
+			.t("not_cursed", "这件护甲没有被诅咒。")
+			.t("seal_attached", "战士的破损纹章被贴附于这件护甲上，当战士将要受伤至生命值半数以下时，纹章会为战士提供_%d点护盾_。")
+			.t("seal_transfer", "战士的破损纹章必须贴附在他当前穿戴的护甲上方可生效。你是否愿意将破损纹章从卸下的护甲上自动剥离，并贴附到新装备的护甲上？")
+			.t("seal_transfer_yes", "是")
+			.t("seal_transfer_no", "否")
+			.t("glyph.glyph", "刻印")
+			.t("glyph.killed", "%s杀死了你...")
+			.t("glyph.rankings_desc", "死于刻印")
+			.t("glyph.discover_hint", "你可在地牢中概率找到带有该效果的物品，或尝试自行使物品获得该效果。");
+	}
+
 
 	protected static final String AC_DETACH       = "DETACH";
 	

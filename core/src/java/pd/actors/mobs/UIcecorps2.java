@@ -10,9 +10,17 @@ import pd.items.consum.eggs.EasterEgg;
 import pd.sprites.IceRabbit2Sprite;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** FrostNova's invulnerable opening phase and faster final form. */
 public class UIcecorps2 extends UIcecorps {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(UIcecorps2.class)
+			.t("name", "术士冬痕-终结形态")
+			.t("desc", "兔人术士燃烧仅存的生命力，准备完成最后一战。");
+	}
+
 	private int shieldTurns = 30;
 
 	{

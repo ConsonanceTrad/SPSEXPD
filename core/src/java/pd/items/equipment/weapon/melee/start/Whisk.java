@@ -15,8 +15,18 @@ import pd.items.equipment.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Whisk extends NormalMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Whisk.class)
+			.t("name", "拂尘和木剑")
+			.t("desc", "道士使用的拂尘与木剑。连续命中会积蓄风力：每第十一次命中会击退目标、使其眩晕并获得一点采撷充能；完成五次蓄风后，可从怪物身上取得一件特殊战利品。")
+			.t("charge", "蓄风充能：%1$d / %2$d。")
+			.t("chargeex", "采撷充能：%1$d / %2$d。");
+	}
+
 
 	private static final String CHARGE = "charge";
 	private static final String EXTRA_CHARGE = "extra_charge";

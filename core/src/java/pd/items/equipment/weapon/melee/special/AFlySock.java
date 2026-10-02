@@ -11,9 +11,17 @@ import pd.actors.buffs.Paralysis;
 import pd.actors.buffs.Terror;
 import pd.items.equipment.weapon.melee.MeleeWeapon;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** AFly's tier-one sock, applying one of four control effects on every hit. */
 public class AFlySock extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(AFlySock.class)
+			.t("name", "单只的袜子")
+			.t("desc", "不知道是谁的袜子，反正不是阿飞的。\n费洛蒙");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

@@ -34,9 +34,20 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** SPS-PD's slow prison tank boss with jumps, corrupt trails and rock walls. */
 public class Tank extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Tank.class)
+			.t("name", "TANK")
+			.t("desc", "一般来说，不死族给人的印象都是迟缓、脆弱而又源源不断。但是这只不死生物的体型、速度和力量都远超普通亡灵。")
+			.t("notice", "啊啊啊啊啊嗷嗷嗷嗷嗷嗷！！！")
+			.t("die", "啊啊啊啊啊嗷嗷嗷嗷嗷嗷……")
+			.t("rock", "TANK丢出了巨石！");
+	}
+
 
 	private static final int JUMP_DELAY = 20;
 	private int timeToJump = JUMP_DELAY;

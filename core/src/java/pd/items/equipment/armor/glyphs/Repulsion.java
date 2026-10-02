@@ -28,8 +28,16 @@ import pd.items.equipment.wands.WandOfBlastWave;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Repulsion extends Armor.Glyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Repulsion.class)
+			.t("name", "反斥%s")
+			.t("desc", "这个刻印会将敌人攻击的冲击力反弹回去，使攻击者飞至远处。");
+	}
+
 
 	private static ItemSprite.Glowing WHITE = new ItemSprite.Glowing( 0xFFFFFF );
 	

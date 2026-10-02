@@ -18,9 +18,19 @@ import pd.sprites.CharSprite;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Dormant SPS-PD mob retained with its original amulet-stealing behavior. */
 public class BlueCat extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(BlueCat.class)
+			.t("name", "布鲁凯特")
+			.t("desc", "一名觊觎护符的蓝衣怪盗。它会快速出手，偷走护符后立刻逃跑。")
+			.t("stole", "布鲁凯特从你身上偷走了%s！")
+			.t("carries", "\n\n布鲁凯特正带着_%s_。显然是偷来的。");
+	}
+
 
 	public Item item;
 

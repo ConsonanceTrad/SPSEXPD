@@ -34,8 +34,16 @@ import pd.items.consum.potions.PotionOfHealing;
 import pd.items.equipment.weapon.melee.normalweapon.Dagger;
 import pd.sprites.ScorpioSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Scorpio extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Scorpio.class)
+			.t("name", "巨型蝎子")
+			.t("desc", "这些巨大的节肢类生物会尽可能避免一切近距离接触，并且会在远处射出能够致残的尖刺。");
+	}
+
 	
 	{
 		spriteClass = ScorpioSprite.class;

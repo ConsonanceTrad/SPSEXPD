@@ -47,8 +47,35 @@ import pd.sprites.ItemSprite;
 import pd.windows.WndUseItem;
 import render.utils.serialize.Bundle;
 import render.utils.serialize.Reflection;
+import pd.messages.InlineText;
 
 public class Blandfruit extends Fruit {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Blandfruit.class)
+			.t("name", "无味果")
+			.t("cooked", "熟无味果")
+			.t("sunfruit", "阳光果")
+			.t("rotfruit", "腐朽果")
+			.t("earthfruit", "地缚果")
+			.t("blindfruit", "目盲果")
+			.t("firefruit", "火焰果")
+			.t("icefruit", "冰霜果")
+			.t("fadefruit", "渐隐果")
+			.t("sorrowfruit", "忧伤果")
+			.t("stormfruit", "暴风果")
+			.t("dreamfruit", "法皇果")
+			.t("starfruit", "星陨果")
+			.t("swiftfruit", "速行果")
+			.t("raw", "你没法忍受生吃这玩意儿。")
+			.t("desc", "干燥且脆弱，或许加点其他材料再煮能够增强它的效果。")
+			.t("desc_cooked", "这个果实已经因为吸收锅中的汤而鼓胀，并且吸收了其中种子的属性。它具有这粒种子对应的药剂效果。")
+			.t("desc_eat", "看起来已经可以吃了！")
+			.t("desc_throw", "它似乎性质很不稳定，最好作为武器丢出去。")
+			.t("chunks.name", "无味果块")
+			.t("chunks.desc", "无味果触地爆炸，碎成了一地的普通果块。\n\n尽管上面沾上了尘土，这些大块的熟制无味果应该可以安全食用。");
+	}
+
 
 	public Potion potionAttrib = null;
 	public ItemSprite.Glowing potionGlow = null;

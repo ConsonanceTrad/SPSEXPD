@@ -7,8 +7,16 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.MagicArmor;
 import pd.actors.buffs.ShieldArmor;
 import pd.actors.hero.Hero;
+import pd.messages.InlineText;
 
 public class MoonCake extends CompleteFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MoonCake.class)
+			.t("name", "月饼")
+			.t("desc", "中秋佳节赏月，是壁垒众多传统之一。\n使用_1份主食、2份坚果_炼制。");
+	}
+
 
 	{
 		image = ConsumFoodFoodDict.MOON_CAKE;

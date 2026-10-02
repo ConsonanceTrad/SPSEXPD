@@ -7,8 +7,16 @@ import pd.actors.buffs.FireImbue;
 import pd.actors.buffs.ToxicImbue;
 import pd.actors.hero.Hero;
 import pd.effects.Speck;
+import pd.messages.InlineText;
 
 public class RealgarWine extends Pill {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RealgarWine.class)
+			.t("name", "雄黄酒")
+			.t("desc", "提供火焰抗性和剧毒抗性。\n使用_1份水，1份烈焰花种子，1份地缚根种子_炼金");
+	}
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected void onUse(Hero hero) {
 		Buff.affect(hero, FireImbue.class).set(FireImbue.DURATION);

@@ -29,9 +29,20 @@ import pd.utils.GLog;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** SPS-PD's infinite-ammunition bow base. */
 public abstract class RangeWeapon extends SpsRangedWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RangeWeapon.class)
+			.t("ac_shoot", "射击")
+			.t("need_to_equip", "你需要先装备这件武器才能射击。")
+			.t("prompt", "选择射击目标")
+			.t("stats_known", "这件_%1$d阶_远程武器可以造成_%2$d～%3$d点伤害_，需要_%4$d点力量_来正常使用，攻击耗时为_%5$s回合_。")
+			.t("stats_unknown", "一般而言，这件_%1$d阶_远程武器可以造成_%2$d～%3$d点伤害_，并且需要_%4$d点力量_来正常使用。");
+	}
+
 	public static final String AC_SHOOT = "SHOOT";
 
 	public enum Variant {

@@ -40,9 +40,30 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** SPS-PD 0.9.8's final main-dungeon Yog encounter. */
 public class SpsYog extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SpsYog.class)
+			.t("name", "Yog-Dzewa")
+			.t("desc", "Yog-Dzewa是一位来自混沌领域的上古之神，在远古战争后被封印于矮人城市下方。")
+			.t("notice", "希望的存在只是一种幻觉……")
+			.t("die", "我……永生……")
+			.t("blink", "Yog消失了！")
+			.t("burningfist.name", "火焰之拳")
+			.t("burningfist.desc", "由活体火焰构成的巨拳。")
+			.t("rottingfist.name", "大地之拳")
+			.t("rottingfist.desc", "由大地与腐化物构成的巨拳。")
+			.t("infectingfist.name", "酸蚀之拳")
+			.t("infectingfist.desc", "会散播剧毒气体的腐蚀巨拳。")
+			.t("pinningfist.name", "剧毒之拳")
+			.t("pinningfist.desc", "能够远程攻击并束缚目标的巨拳。")
+			.t("larva.name", "古神幼虫")
+			.t("larva.desc", "从受伤古神体内脱落的幼虫。");
+	}
+
 	private int breaks;
 	private boolean fistsSpawned;
 

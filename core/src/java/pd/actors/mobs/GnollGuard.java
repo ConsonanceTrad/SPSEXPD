@@ -31,8 +31,20 @@ import pd.sprites.GnollGuardSprite;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class GnollGuard extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GnollGuard.class)
+			.t("name", "豺狼守卫")
+			.t("def_verb", "格挡")
+			.t("spear_warn", "豺狼人用矛尖打出残暴的一击！")
+			.t("desc", "这只高大健壮的豺狼人操使着长矛和盾牌，但没有戴头盔。这些守卫似乎在为晋升成暴徒而训练，并为保护矿洞不受野兽侵扰在此执勤。\n\n豺狼守卫身强力壮，单手就能挥舞长矛，不过使得不算太好。_它需要相当开阔的施展空间才能进行长距离攻击。一旦被人欺身而上，长矛施展不开便会威力大减。_")
+			.t("desc_armor", "_一旁的豺狼工兵正握持着一个看起来能赋予这个守卫大地护甲的装置，大幅减少它受到的伤害。_")
+			.t("discover_hint", "你可在某个任务中遇到该敌人。");
+	}
+
 
 	{
 		spriteClass = GnollGuardSprite.class;

@@ -38,8 +38,21 @@ import pd.sprites.ItemIconSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class ScrollOfSirensSong extends ExoticScroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfSirensSong.class)
+			.t("name", "魅音秘卷")
+			.t("prompt", "选择一个目标")
+			.t("no_target", "这张秘卷在没有目标的情况下激活了。")
+			.t("cancel", "你必须选择一个目标。")
+			.t("desc", "阅读此卷轴将播放出摄人心魄的音律，令目标敌人沉沦于你，永久地变成盟友！听到这歌声的其它敌人则是暂时被魅惑。\n\n特别强大的敌人可以抵抗沉沦效果，但同样会被魅惑。")
+			.t("enthralled.name", "沉沦")
+			.t("enthralled.desc", "这个生物已因魅音秘卷的效果而沉沦。\n\n沉沦的单位将永远忠心于你，并主动攻击其遇到的所有敌人。");
+	}
+
 	
 	{
 		icon = ItemIconSheet.SCROLL_SIREN;

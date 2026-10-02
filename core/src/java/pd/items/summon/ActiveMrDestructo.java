@@ -16,8 +16,21 @@ import pd.mechanics.Ballistica;
 import pd.sprites.MrDestructo2dot0Sprite;
 import pd.sprites.MrDestructoSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class ActiveMrDestructo extends SpsSummonItem {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ActiveMrDestructo.class)
+			.t("name", "毁灭无人引擎")
+			.t("ac_active", "使用")
+			.t("desc", "毁灭无人机是矮人科技和恶魔能量制作出来的一种自律型炮塔。这东西只能使用一次。")
+			.t("mrdestructo.name", "毁灭无人机")
+			.t("mrdestructo.desc", "你启动了这个装置。它会用射线攻击附近的生物，每次命中也会损耗自身。")
+			.t("mrdestructo2dot0.name", "毁灭无人机2.0")
+			.t("mrdestructo2dot0.desc", "领袖的力量强化了这个装置，使它更加耐用，射线也更强。");
+	}
+
 
 	private static boolean activate;
 

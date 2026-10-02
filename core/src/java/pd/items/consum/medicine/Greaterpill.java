@@ -9,8 +9,16 @@ import pd.actors.buffs.Cripple;
 import pd.actors.buffs.Poison;
 import pd.actors.buffs.STRDown;
 import pd.actors.hero.Hero;
+import pd.messages.InlineText;
 
 public class Greaterpill extends Pill {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Greaterpill.class)
+			.t("name", "生血丸")
+			.t("desc", "回血。\n使用_1份水果，2份药水_炼金");
+	}
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected void onUse(Hero hero) {
 		Buff.affect(hero, BerryRegeneration.class).level(Math.max(hero.HT / 2, 30));

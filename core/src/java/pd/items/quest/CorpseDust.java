@@ -43,8 +43,18 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class CorpseDust extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(CorpseDust.class)
+			.t("name", "尸尘")
+			.t("chill", "一股寒意穿透了你的脊背。")
+			.t("desc", "在外观上这团尸尘和普通灰尘差不多。而你却能够感受到其中潜伏着一股充满恶意的魔力。\n\n尽快脱手为好。")
+			.t("discover_hint", "你可在某个任务中找到该物品。");
+	}
+
 	
 	{
 		image = ConsumThrowsDict.RICE_BALL;

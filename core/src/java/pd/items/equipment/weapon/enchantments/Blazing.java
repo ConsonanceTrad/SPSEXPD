@@ -30,8 +30,17 @@ import pd.items.equipment.weapon.Weapon;
 import pd.sprites.ItemSprite.Glowing;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Blazing extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Blazing.class)
+			.t("name", "烈焰%s")
+			.t("desc", "这个附魔会使火焰从武器中喷薄而出，能够点燃敌人并对正在燃烧的敌人造成额外伤害。")
+			.t("elestrike_desc", "武器拥有烈焰附魔时，元素打击会将火焰扩散到范围内全部地块，持续8回合。");
+	}
+
 
 	private static ItemSprite.Glowing ORANGE = new ItemSprite.Glowing( 0xFF4400 );
 	

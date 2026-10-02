@@ -14,8 +14,16 @@ import pd.plants.Dewcatcher;
 import pd.plants.Plant;
 import pd.sprites.DaturaSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Datura extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Datura.class)
+			.t("name", "曼陀罗")
+			.t("desc", "通过浇灌牛奶使其获得活动能力的植物类魔法生物，喜欢跟随着体积大的生物身后奔跑，但同时又非常害怕牲畜，所以一般会选择跟在人类的身后。与记载中不同，它是一种非常安静的生物。");
+	}
+
 	{
 		spriteClass = DaturaSprite.class;
 		cooldown = 50;

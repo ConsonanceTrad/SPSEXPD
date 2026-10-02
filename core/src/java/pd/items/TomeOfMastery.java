@@ -10,9 +10,20 @@ import pd.messages.Messages;
 import pd.utils.GLog;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** The SPS leather tome which offers the reader's two original subclasses. */
 public class TomeOfMastery extends TengusMask {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(TomeOfMastery.class)
+			.t("name", "精通之书")
+			.t("ac_read", "阅读")
+			.t("blind", "在失明的时候你没法阅读它。")
+			.t("way", "你选择了走上%s的道路！")
+			.t("desc", "这本皮封典籍不算厚，但你隐约感觉能从中学到不少东西。阅读这本典籍需要一些时间。");
+	}
+
 	public static final String AC_READ = "READ";
 	public static final float TIME_TO_READ = 10f;
 	private Hero reader;

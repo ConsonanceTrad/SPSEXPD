@@ -11,8 +11,20 @@ import pd.utils.GLog;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class SacrificeBook extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SacrificeBook.class)
+			.t("name", "献祭之书")
+			.t("desc", "附带一种宇宙香料的书籍。配合这种香料进行仪式能极大提升使用者的能力，但过多使用会带来不可预知的副作用。")
+			.t("ac_use", "使用")
+			.t("use_1", "+5生命上限")
+			.t("use_2", "+1力量")
+			.t("use_lot", "你感觉不太舒服。");
+	}
+
 	public static final String AC_USE = "USE";
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

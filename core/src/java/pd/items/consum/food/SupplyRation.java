@@ -31,8 +31,17 @@ import pd.effects.FloatingText;
 import pd.items.equipment.artifacts.CloakOfShadows;
 import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.sprites.CharSprite;
+import pd.messages.InlineText;
 
 public class SupplyRation extends Food {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SupplyRation.class)
+			.t("name", "备用口粮")
+			.t("desc", "这是一包由盗贼公会存放，供其成员取用的口粮。这包口粮专门被设计成可快速食用的样式，并且能为成员的隐秘行动提供诸多帮助。\n\n尽管不能像正常口粮一样填饱你，它却能被快速食用，恢复少量生命，并且回复盗贼的暗影斗篷一点神器充能。")
+			.t("discover_hint", "你可使用某项特定的英雄天赋找到该物品。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

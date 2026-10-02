@@ -45,8 +45,17 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class VaultSentry extends NPC {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(VaultSentry.class)
+			.t("name", "扫描哨卫")
+			.t("ondeath", "你死于闪电...")
+			.t("desc", "这种哨卫会以固定的模式扫描区域。它们看起来很危险，要是被扫描到你肯定会遭受电击。哨卫的扫描模式往往易于识别并回避，而它们能够侦测到你的前提也在于能够看到你，因此_能够遮蔽视野的物品对它们同样会很有效_。");
+	}
+
 
 	{
 		spriteClass = SentrySprite.VaultScan.class;

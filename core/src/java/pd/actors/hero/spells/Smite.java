@@ -40,8 +40,17 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Smite extends TargetedClericSpell {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Smite.class)
+			.t("name", "至圣斩击")
+			.t("short_desc", "一次带有额外伤害与附魔强化的必中攻击。")
+			.t("desc", "圣骑士为一次致命的近战攻击注入正义之力。\n\n在造成正常近战伤害的基础上，至圣斩使不超力的攻击必定命中，附有300%%的附魔强化并造成%1$d~%2$d点额外魔法伤害。\n\n至圣斩的额外魔法伤害随圣骑士的等级成长而成长，并且至圣斩必定对恶魔和亡灵敌人造成最大额外魔法伤害。");
+	}
+
 
 	public static Smite INSTANCE = new Smite();
 

@@ -8,8 +8,17 @@ import pd.actors.buffs.Hunger;
 import pd.actors.hero.Hero;
 import pd.items.consum.food.Food;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Nut extends Food {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Nut.class)
+			.t("name", "节庆坚果")
+			.t("eat_msg", "坚果虽小，吃起来却很扎实。")
+			.t("desc", "从异界保存下来的节庆零食。食用后可恢复少量饱食度与生命，并有小概率获得短暂的树肤保护。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

@@ -41,8 +41,21 @@ import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.geom.PointF;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class WandOfFrost extends DamageWand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfFrost.class)
+			.t("name", "冰霜法杖")
+			.t("staff_name", "冰霜魔杖")
+			.t("desc", "这根法杖似乎由某种魔法冰块制成。它的圆顶闪着亮光。握起来很冰，但不知为何你的手仍保持着温暖。")
+			.t("stats_desc", "这根法杖能向你的敌人射击冰霜能量，造成_%1$d~%2$d点伤害_并冻伤目标，在水中的作用似乎更强。冻伤或冻结的敌人将受到更少该法杖的伤害。")
+			.t("upgrade_stat_name_2", "冻伤持续时间")
+			.t("bmage_desc", "当_战斗法师_以冰霜魔杖近战攻击目标时，有概率将其直接冻结。目标冻伤越严重，被冻结的概率就越高。")
+			.t("eleblast_desc", "冰霜魔杖的元素风暴造成100%伤害，冻结敌人并熄灭火焰。");
+	}
+
 
 	{
 		image = EquipmentWandBasicWandDict.WAND_FROST;

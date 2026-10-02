@@ -23,9 +23,19 @@ import pd.sprites.HeroSprite;
 import pd.ui.AttackIndicator;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Virtual SPS inventory control which swaps both primary and secondary equipment. */
 public class ChangeEquip extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ChangeEquip.class)
+			.t("name", "装备切换")
+			.t("desc", "将主副武器与主副护甲对换。")
+			.t("ac_change", "交换")
+			.t("change", "装备切换");
+	}
+
 
 	public static final String AC_CHANGE = "CHANGE";
 

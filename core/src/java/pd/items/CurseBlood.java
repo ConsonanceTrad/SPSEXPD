@@ -6,9 +6,17 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.actors.hero.Hero;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** One of the original Shadow Eater crafting materials. */
 public class CurseBlood extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(CurseBlood.class)
+			.t("name", "诅咒之液")
+			.t("desc", "一瓶被诅咒的浑浊液体。暗噬1/3。");
+	}
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = false;

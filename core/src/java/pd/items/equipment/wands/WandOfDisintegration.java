@@ -18,9 +18,22 @@ import render.utils.data.Callback;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** The short-range, obstacle-piercing disintegration wand from SPS-PD 0.9.8. */
 public class WandOfDisintegration extends DamageWand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfDisintegration.class)
+			.t("name", "解离法杖")
+			.t("staff_name", "解离魔杖")
+			.t("desc", "这根_无属性_法杖由一整块光滑的黑曜石制成，深紫色的光自其边缘流向法杖顶端。它闪烁着破坏性能量，准备着向前迸射。")
+			.t("stats_desc", "这根法杖射出的光束能穿透任何障碍物，并将随着法杖等级的提升而射得更远。光束会造成_%1$d~%2$d点伤害_，并且会根据穿透的地形和敌人数量造成额外伤害。")
+			.t("upgrade_stat_name_2", "射程上限")
+			.t("bmage_desc", "当_战斗法师_以解离魔杖作为近战武器时，魔杖会像索敌附魔一样获得额外的攻击距离。")
+			.t("eleblast_desc", "解离魔杖的元素风暴无视墙壁并对所有目标造成100%的伤害。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

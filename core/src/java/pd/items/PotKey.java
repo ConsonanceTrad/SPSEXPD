@@ -17,9 +17,18 @@ import render.noosa.Game;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Honey Poooot's one-use invitation to the honey refuge. */
 public class PotKey extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotKey.class)
+			.t("name", "罐罐的挑战函")
+			.t("ac_port", "使用")
+			.t("desc", "蜜蜂罐罐给出的传送道具。没准它通往哪个地方。");
+	}
+
 	public static final int BRANCH = AdventureJournal.FIRST_BRANCH + 15;
 	public static final String AC_PORT = "PORT";
 	private static final float TIME_TO_USE = 1f;

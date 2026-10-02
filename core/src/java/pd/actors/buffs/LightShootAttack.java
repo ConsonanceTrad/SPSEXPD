@@ -7,8 +7,16 @@ import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class LightShootAttack extends Buff implements Hero.Doom, Buff.DOTbuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(LightShootAttack.class)
+			.t("name", "圣光打击")
+			.t("desc", "强力光芒持续打击这个地点，远离这个区域可以回避后续伤害。剩余打击时长：%s回合。");
+	}
+
 
 	private static final String LEFT = "left";
 	private static final String POS = "pos";

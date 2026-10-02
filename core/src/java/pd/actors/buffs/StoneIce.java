@@ -9,9 +9,19 @@ import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Crystalline ice which punishes movement, matching FrostNova's old attack. */
 public class StoneIce extends Buff implements Hero.Doom {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(StoneIce.class)
+			.t("name", "石化冰冻")
+			.t("desc", "坚硬的结晶冰附着在你的身体上。在它融化前移动会受到重创。\n\n剩余回合：%s")
+			.t("rankings_desc", "被结晶冰撕裂")
+			.t("ondeath", "结晶冰撕裂了你的身体……");
+	}
+
 	private int lastPos;
 	private float left;
 	{

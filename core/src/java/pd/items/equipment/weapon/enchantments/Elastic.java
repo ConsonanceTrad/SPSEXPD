@@ -29,8 +29,17 @@ import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Elastic extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Elastic.class)
+			.t("name", "弹性%s")
+			.t("desc", "弹性武器在攻击时有几率把敌人击退较短的距离。")
+			.t("elestrike_desc", "武器拥有弹性附魔时，元素打击会将范围内的所有敌人都击退5格。");
+	}
+
 	
 	private static ItemSprite.Glowing PINK = new ItemSprite.Glowing( 0xFF00FF );
 	

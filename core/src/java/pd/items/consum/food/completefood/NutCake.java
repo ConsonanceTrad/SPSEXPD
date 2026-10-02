@@ -8,8 +8,16 @@ import pd.actors.buffs.ShieldArmor;
 import pd.actors.hero.Hero;
 import pd.effects.Speck;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class NutCake extends CompleteFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(NutCake.class)
+			.t("name", "坚果布丁")
+			.t("desc", "浓郁的坚果甜点，能永久提高生命力、治疗伤势并提供物理护盾。");
+	}
+
 	{
 		image = ConsumFoodFoodDict.NUT_CAKE;
 		energy = 450f;

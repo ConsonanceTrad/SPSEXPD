@@ -16,8 +16,19 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class BeastKnive extends NormalMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(BeastKnive.class)
+			.t("name", "兽性匕首")
+			.t("ac_zap", "狂怒")
+			.t("no", "匕首需要10点充能。")
+			.t("charge", "充能：%1$d / %2$d。")
+			.t("desc", "浸润兽血的小刀。命中会造成额外伤害、可能施加流血并积蓄充能；“狂怒”消耗10点充能，暂时提高30%%攻击伤害。");
+	}
+
 
 	public static final String AC_ZAP = "ZAP";
 	public static final int ZAP_COST = 10;

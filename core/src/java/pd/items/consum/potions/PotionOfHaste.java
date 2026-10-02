@@ -28,8 +28,17 @@ import pd.effects.SpellSprite;
 import pd.messages.Messages;
 import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 public class PotionOfHaste extends Potion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfHaste.class)
+			.t("name", "极速药剂")
+			.t("energetic", "你感觉充满了活力！")
+			.t("desc", "喝下这甜到掉牙的奇怪液体后，体内会爆发一股巨大的能量，让你可以短时间内飞速奔跑。");
+	}
+
 	
 	{
 		icon = ItemIconSheet.POTION_HASTE;

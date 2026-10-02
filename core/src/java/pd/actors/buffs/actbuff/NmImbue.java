@@ -24,8 +24,17 @@ import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class NmImbue extends Buff implements Hero.Doom {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(NmImbue.class)
+			.t("name", "纳米环绕")
+			.t("burnsup", "%s被同化了！")
+			.t("desc", "纳米机器人环绕着你。它们形成的云雾会伤害敌人，但也会定期同化携带的装备以继续增殖。");
+	}
+
 
 	{ immunities.add(NmGas.class); }
 

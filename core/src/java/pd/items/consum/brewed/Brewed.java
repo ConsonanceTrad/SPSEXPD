@@ -26,9 +26,41 @@ import render.utils.serialize.Bundle;
 import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** SPS-PD's cooked blandfruit, whose effects intentionally differ from Shattered's. */
 public class Brewed extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Brewed.class)
+			.t("name", "酿制无味果")
+			.t("ac_eat", "食用")
+			.t("raw", "这个果实还需要和一颗种子一起烹煮。")
+			.t("sunfruit", "阳光果")
+			.t("rotfruit", "鲜美果")
+			.t("earthfruit", "大地果")
+			.t("blindfruit", "目盲果")
+			.t("firefruit", "火焰果")
+			.t("icefruit", "冰霜果")
+			.t("fadefruit", "渐隐果")
+			.t("sorrowfruit", "忧伤果")
+			.t("stormfruit", "暴风果")
+			.t("dreamfruit", "梦乡果")
+			.t("starfruit", "星陨果")
+			.t("mightfruit", "决心果")
+			.t("heartfruit", "生命果")
+			.t("nutfruit", "坚果果")
+			.t("mixfruit", "混合果")
+			.t("strfruit", "力量果")
+			.t("glassfruit", "水晶玻璃果")
+			.t("ice_msg", "这个冰霜果尝起来有点冰冻生肉片的感觉。")
+			.t("fire_msg", "你感觉到体内有一股烈焰在熊熊燃烧！")
+			.t("toxic_msg", "你被灌注了强大的毒素力量！")
+			.t("para_msg", "你感到大地的力量在体内奔腾！")
+			.t("desc", "尚未烹制的无味果。")
+			.t("desc_cooked", "这个果实已经因为吸收锅中的汤而鼓胀，并且吸收了其中种子的属性。\n\n看起来已经可以吃了！");
+	}
+
 
 	public static final String AC_EAT = "EAT";
 	private static final float TIME_TO_EAT = 2f;

@@ -22,8 +22,20 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class JumpF extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(JumpF.class)
+			.t("name", "信徒之鞋")
+			.t("ac_jump", "跳跃")
+			.t("prompt", "选择跳跃的目的地点")
+			.t("rest", "信徒之鞋的充能不足。")
+			.t("charge", "充能：%1$d / %2$d。")
+			.t("desc", "信徒可以跳跃至多三格。除楼梯、炼金台和基座外，起跳处会变成高草；落地时有10%%概率长出一株特殊植物。");
+	}
+
 	public static final String AC_JUMP = "JUMP";
 	public static final int FULL_CHARGE = 25;
 	public static final int JUMP_COST = 8;

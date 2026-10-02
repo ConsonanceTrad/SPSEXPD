@@ -65,8 +65,28 @@ import render.utils.serialize.Reflection;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import pd.messages.InlineText;
 
 public class YogDzewa extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(YogDzewa.class)
+			.t("name", "Yog-Dzewa")
+			.t("notice", "我  看  见  你  了")
+			.t("darkness", "黑暗正在逼近...")
+			.t("hope", "汝 之 希 望 皆 为 虚 妄")
+			.t("defeated", "...")
+			.t("rankings_desc", "被Yog-Dzewa吞噬")
+			.t("desc", "Yog-Dzewa是一个古老的神；一个将自己的力量延伸向凡间世界并吞噬它们、以为自身无尽的成长提供养分的巨大怪物。矮人一定是在玩弄黑暗魔法的时候引起了这个巨大恐怖的注意，并且从那以后就一直试图控制祂，使之无法侵吞外界。\n\n这位古神起源于一个原始的、充满魔法与混沌的维度，且无法将祂的真实形态带入这个世界。因此，祂创造了自己的化身并召唤了恶魔们作为祂的仆从来完成它的命令。\n\n这只巨眼是古神在这个世界上力量的焦点。虽然这只眼睛本身是不可移动的，但祂能够射出强大的魔能光束，并召唤各种恶魔仆从来帮助它。")
+			.t("desc_spawners", "你感觉到恶魔能量正从上层涌向古神之眼。你在上面活着留下的什么东西正在给古神回馈着能量。_古神会使用这股能量召唤更强大的手下！_")
+			.t("larva.name", "古神幼虫")
+			.t("larva.rankings_desc", "被Yog-Dzewa吞噬")
+			.t("larva.desc", "这些古神的小小造物是一种易于制造的简陋生物。虽然单个幼虫十分脆弱，但它们能够被迅速地制造出来，并会在形成一个大数目后变得难以抵挡。")
+			.t("yogripper.rankings_desc", "被Yog-Dzewa吞噬")
+			.t("yogeye.rankings_desc", "被Yog-Dzewa吞噬")
+			.t("yogscorpio.rankings_desc", "被Yog-Dzewa吞噬");
+	}
+
 
 	{
 		spriteClass = YogSprite.class;

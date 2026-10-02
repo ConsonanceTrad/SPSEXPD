@@ -10,8 +10,19 @@ import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class MitBottle extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MitBottle.class)
+			.t("name", "根骨之瓶")
+			.t("ac_use", "使用")
+			.t("msg_1", "+1力量")
+			.t("msg_2", "+10生命上限")
+			.t("desc", "使用后永久获得一点力量和十点生命上限。");
+	}
+
 	public static final String AC_USE = "USE";
 	private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing(0xFFFF44);
 	{

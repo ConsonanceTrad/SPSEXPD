@@ -8,8 +8,16 @@ import pd.items.consum.potions.PotionOfMending;
 import pd.items.consum.scrolls.ScrollOfRage;
 import pd.sprites.LitDemonSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class LitDemon extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(LitDemon.class)
+			.t("name", "链锯魔")
+			.t("desc", "这个长着电锯的恶魔好可爱啊。它能用电锯连续切割敌人。");
+	}
+
 	{
 		spriteClass = LitDemonSprite.class; cooldown = 50; properties.add(Property.DEMONIC); updateStats(true);
 	}

@@ -23,8 +23,20 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class JumpW extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(JumpW.class)
+			.t("name", "战士之鞋")
+			.t("ac_jump", "跳跃")
+			.t("prompt", "选择跳跃的目的地点")
+			.t("rest", "战士之鞋的充能不足。")
+			.t("charge", "充能：%1$d / %2$d。")
+			.t("desc", "战士的冲锋训练使其可以跳跃至多五格。落点周围的每个单位都有70%%概率被麻痹。");
+	}
+
 	public static final String AC_JUMP = "JUMP";
 	public static final int FULL_CHARGE = 55;
 	public static final int JUMP_COST = 25;

@@ -31,8 +31,16 @@ import pd.items.equipment.wands.Wand;
 import pd.items.equipment.weapon.Weapon;
 import pd.journal.Notes.Landmark;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class WaterOfTransmutation extends WellWater {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(WaterOfTransmutation.class)
+			.t("name", "嬗变之泉")
+			.t("desc", "变化的力量正在从这口井的水里涌出。\n扔进一个物品以将其转化为其他物品。");
+	}
+
 
 	private static final int MAX_REROLLS = 40;
 

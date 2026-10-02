@@ -27,8 +27,16 @@ import pd.Assets;
 import pd.actors.hero.Hero;
 import pd.items.consum.scrolls.ScrollOfRecharging;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class BrokenStaff extends RemainsItem {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(BrokenStaff.class)
+			.t("name", "横断魔杖")
+			.t("desc", "这把法师魔杖在其主死后也断做两截。你仍可以感受到魔杖中残余的魔力波动，你可以用它来给你的法杖提供一些充能。但是，这样也会使得魔杖随着魔力的流失而烟消云散。");
+	}
+
 
 	{
 		image = ConsumUsefulCorpseRelicsDict.BROKEN_STAFF_0;

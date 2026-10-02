@@ -27,8 +27,20 @@ import pd.Assets;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class Katana extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Katana.class)
+			.t("name", "武士刀")
+			.t("stats_desc", "这件武器可以格挡0~3点伤害。")
+			.t("ability_name", "弓步刺")
+			.t("typical_ability_desc", "决斗家可用武士刀对相距1格的敌人使出_弓步刺_。这一击会向敌人突进，一般造成_%1$d~%2$d点伤害_，且必定命中。")
+			.t("ability_desc", "决斗家可用武士刀对相距1格的敌人使出_弓步刺_。这一击会向敌人突进，造成_%1$d~%2$d点伤害_，且必定命中。")
+			.t("desc", "一把在握柄上方带有巨大金属护手的修长刀刃。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

@@ -26,8 +26,20 @@ import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 import pd.Assets;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class Gauntlet extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Gauntlet.class)
+			.t("name", "魔岩拳套")
+			.t("stats_desc", "这是一件非常快的武器。")
+			.t("ability_name", "连击")
+			.t("typical_ability_desc", "决斗家可以使用魔岩拳套进行_连击_。这次攻击必定命中，并且决斗家每使用近战或者投掷武器成功命中一次，这次攻击的伤害一般就_增加%d点_。连续5回合(击杀后为15回合)未成功命中会重置连击。")
+			.t("ability_desc", "决斗家可以使用魔岩拳套进行_连击_。这次攻击必定命中，并且决斗家每使用近战或者投掷武器成功命中一次，这次攻击的伤害就_增加%d点_。连续5回合(击杀后为15回合)未成功命中会重置连击。")
+			.t("desc", "这个巨大的拳套由一匹红布和层层覆盖在布上的魔法岩石交织而成。戴上后，布料紧紧裹住你的整个前臂，让厚重的岩板变得像一层坚硬的皮肤。要有足够的力量才能将如此沉重的武器自如挥舞，但正是这种力量和重量的结合让这件武器发挥出可怕的威力。");
+	}
+
 	
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.GAUNTLETS_0;

@@ -52,8 +52,23 @@ import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Alchemize extends Spell {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Alchemize.class)
+			.t("name", "炼金菱晶")
+			.t("prompt", "炼化一个物品")
+			.t("desc", "这个菱晶包含的转化能力与炼金釜类似。允许使用者将一件物品(或一堆物品)转化为金币或炼金能量。将药剂、卷轴炼化为能量甚至可以鉴定它们！\n\n你可以在商店中中买到少许炼金菱晶，但也可以通过炼金术用种子、符石与少量炼金能量合成更多的炼金菱晶。")
+			.t("wndalchemizeitem.sell", "转化为%d个金币")
+			.t("wndalchemizeitem.sell_1", "转化一个为%d个金币")
+			.t("wndalchemizeitem.sell_all", "转化全部为%d个金币")
+			.t("wndalchemizeitem.energize", "转化为%d点能量")
+			.t("wndalchemizeitem.energize_1", "转化一个为%d点能量")
+			.t("wndalchemizeitem.energize_all", "转化全部为%d点能量");
+	}
+
 	
 	{
 		image = ConsumScrollAmuletCrystalDict.ALCHEMIZE_0;

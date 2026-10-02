@@ -3,8 +3,16 @@ package pd.actors.buffs;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class BerryRegeneration extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(BerryRegeneration.class)
+			.t("name", "浆果再生")
+			.t("desc", "自然能量每回合恢复少量生命。\n\n剩余时间：%s回合。");
+	}
+
 
 	private static final String REGEN_LEFT = "regen_left";
 	private static final String LEGACY_REGEN_LEFT = "regenleft";

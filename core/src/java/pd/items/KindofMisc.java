@@ -33,9 +33,17 @@ import pd.sprites.ItemSprite;
 import pd.utils.GLog;
 import pd.windows.WndOptions;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 
 public abstract class KindofMisc extends EquipableItem {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(KindofMisc.class)
+			.t("unequip_title", "卸下一件装备")
+			.t("unequip_message", "你必须先取下一件装备。请选择要替换的物品。");
+	}
+
 
 	@Override
 	public boolean doEquip(final Hero hero) {

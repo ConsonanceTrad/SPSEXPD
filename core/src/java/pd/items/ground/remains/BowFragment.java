@@ -36,8 +36,16 @@ import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class BowFragment extends RemainsItem {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(BowFragment.class)
+			.t("name", "灵弓残件")
+			.t("desc", "这块枯木曾经是一位殒落于此的女猎手所持灵能弓的一部分。你仍可以感受到枯木中残留的一点自然能量，你可以激发这最后的能量，令周身长出一片高草。但是当你这样做之后，这块枯木会由于自然能量耗尽而烟消云散。");
+	}
+
 
 	{
 		image = ConsumUsefulCorpseRelicsDict.BOW_FRAGMENT_0;

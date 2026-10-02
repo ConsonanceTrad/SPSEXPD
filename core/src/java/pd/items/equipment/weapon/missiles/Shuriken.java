@@ -28,8 +28,19 @@ import pd.actors.Char;
 import pd.actors.buffs.FlavourBuff;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
+import pd.messages.InlineText;
 
 public class Shuriken extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Shuriken.class)
+			.t("name", "手里剑")
+			.t("stats_desc", "手里剑每经20回合可以不消耗回合地投掷一次。")
+			.t("desc", "一些轻便到可以在移动时快速掷出的锋利星形金属刃片。")
+			.t("shurikeninstanttracker.name", "手里剑冷却")
+			.t("shurikeninstanttracker.desc", "你近期不消耗回合地投掷了一个手里剑，必须等待冷却结束才能再次瞬间投掷手里剑。在此期间，手里剑仅能以武器攻速投掷。\n\n剩余回合数：%s");
+	}
+
 
 	{
 		image = ConsumThrowsDict.SHURIKEN_0;

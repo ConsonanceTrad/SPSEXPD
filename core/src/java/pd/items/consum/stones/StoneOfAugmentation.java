@@ -38,8 +38,26 @@ import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import pd.windows.IconTitle;
+import pd.messages.InlineText;
 
 public class StoneOfAugmentation extends InventoryStone {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(StoneOfAugmentation.class)
+			.t("name", "强化符石")
+			.t("inv_title", "强化一件物品")
+			.t("desc", "这颗符石内的强力魔法可以用于强化装备的一种属性，代价是会减弱另一种属性。\n\n用于武器可以强化伤害或者速度。投掷武器的耐久度也会随着速度的增减而增减。\n\n用于护甲可以强化防御或者闪避。")
+			.t("discover_hint", "你可在商店中中购买该物品，或通过炼金合成该物品。")
+			.t("wndaugment.choice", "强化一项属性也会弱化另一项属性。你想强化哪个属性？")
+			.t("wndaugment.already", "这个物品已经被强化过了，你可以调换被强化的属性，或是直接移除强化。")
+			.t("wndaugment.speed", "攻速上升 伤害下降")
+			.t("wndaugment.damage", "伤害上升 攻速下降")
+			.t("wndaugment.evasion", "闪避上升 防御下降")
+			.t("wndaugment.defense", "防御上升 闪避下降")
+			.t("wndaugment.none", "移除强化")
+			.t("wndaugment.cancel", "算了");
+	}
+
 	
 	{
 		preferredBag = Belongings.Backpack.class;

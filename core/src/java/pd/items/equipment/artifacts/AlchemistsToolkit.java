@@ -39,9 +39,34 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** SPS-PD 0.9.8's potion-order toolkit. */
 public class AlchemistsToolkit extends Artifact {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(AlchemistsToolkit.class)
+			.t("name", "炼金工具箱")
+			.t("ac_brew", "组合")
+			.t("ac_cooking", "炼金")
+			.t("ac_create", "耗竭-造物")
+			.t("prompt", "选择置入的药水")
+			.t("waste", "你加入的药水不完全对。")
+			.t("prefect", "完美的组合，这正是这个箱子所需要的。")
+			.t("bestbrew", "这次组合比之前好。")
+			.t("bdorder", "瓶药剂反应成功，")
+			.t("right", "瓶药剂反应得很正确。")
+			.t("desc", "这个工具箱是由一位伟大的炼金术士所制作的。它用于减少炼金的材料消耗，以及提升锅子的容量。你移动时，工具箱里的各种工具互相碰撞，发出轻微的叮当声。")
+			.t("desc_cursed", "这个工具箱被诅咒了，会大幅增加你合成药水所需的材料。")
+			.t("level_zero", "看起来这个工具箱还需要一种混合试剂。你需要找到3瓶不同的药剂并将它们按照正确的顺序排列，从而合成这种试剂。")
+			.t("level_ten", "完美的组合使工具箱的效果达到了最大。")
+			.t("make_from", "目前为止你最好的测试结果是：")
+			.t("need_fix", "工具箱中的混合试剂并不完整，需要重新测试。")
+			.t("addpotion", "你将药水倒入工具箱中。")
+			.t("have_add", "这种药水已经被倒入工具箱中了。")
+			.t("know_first", "你需要先鉴定这瓶药水。");
+	}
+
 
 	public static final String AC_BREW = "BREW";
 	public static final String AC_CREATE = "CREATE";

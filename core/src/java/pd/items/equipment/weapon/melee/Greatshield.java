@@ -26,8 +26,22 @@ import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class Greatshield extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Greatshield.class)
+			.t("name", "巨型方盾")
+			.t("typical_stats_desc", "这件武器通常能格挡0~%d点伤害。格挡量随升级而增长。")
+			.t("stats_desc", "这件武器能格挡0~%d点伤害。格挡量随升级而增长。")
+			.t("ability_name", "护卫")
+			.t("typical_ability_desc", "决斗家可以用巨型方盾_护卫_自己，一般会在_%d回合_内完全抵挡针对自己的物理或魔法攻击。一旦决斗家抵挡过攻击，再行还击或施法，都会终止护卫状态。")
+			.t("ability_desc", "决斗家可以用巨型方盾_护卫_自己，在_%d回合_内完全抵挡针对自己的物理或魔法攻击。一旦决斗家抵挡过攻击，再行还击或施法，都会终止护卫状态。")
+			.t("upgrade_ability_stat_name", "武技持续时间")
+			.t("desc", "与其说它是一面盾，不如说它是一堵能移动的墙。这一大块金属对于防御十分有效，但没有在攻击方面留下多少余地。");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.GREATSHIELD_0;

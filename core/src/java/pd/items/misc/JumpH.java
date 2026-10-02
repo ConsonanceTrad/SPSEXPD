@@ -19,8 +19,20 @@ import pd.utils.GLog;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class JumpH extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(JumpH.class)
+			.t("name", "猎手之鞋")
+			.t("ac_jump", "跳跃")
+			.t("prompt", "选择跳跃的目的地点")
+			.t("rest", "猎手之鞋的充能不足。")
+			.t("charge", "充能：%1$d / %2$d。")
+			.t("desc", "在自然母亲的指引下，女猎手可以跳跃至多三格，同时攻击落点七格内所有视野中的敌人。");
+	}
+
 	public static final String AC_JUMP = "JUMP";
 	public static final int FULL_CHARGE = 50;
 	public static final int JUMP_COST = 15;

@@ -43,8 +43,37 @@ import pd.sprites.CharSprite;
 import pd.ui.TargetHealthIndicator;
 import pd.utils.Holiday;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class Pasty extends Food {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Pasty.class)
+			.t("name", "馅饼")
+			.t("fish_name", "清蒸荷叶鱼")
+			.t("amulet_name", "Yendor护符？")
+			.t("egg_name", "复活节彩蛋")
+			.t("rainbow_name", "虹色药剂")
+			.t("shattered_name", "绿色蛋糕")
+			.t("pie_name", "南瓜派")
+			.t("vanilla_name", "蓝色蛋糕")
+			.t("cane_name", "拐杖糖")
+			.t("sparkling_name", "气泡药剂")
+			.t("desc", "这是份正宗康郡肉馅饼，内含牛肉加土豆的传统馅料。美味十足！")
+			.t("fish_desc", "被荷叶包裹，以法术贮藏的清蒸鲈鱼。逢此年月，有将鱼剩下的习俗，取年年有余之意，于是你也决定不将这条蒸鱼一次吃完。\n\n新年快乐！")
+			.t("amulet_desc", "你终于找到它了，神奇的护...噢不，这只是一块以箔纸包装的巧克力而已，它只是看起来像护符！它带不来无限的力量，但却能让你完全吃饱，还能提供短暂的神器充能效果。\n\n愚人节快乐！")
+			.t("egg_desc", "一个硕大的巧克力蛋，被五彩斑斓的箔纸包装着。这种体量的巧克力可以轻松将你填饱，其中的糖分还能为神器提供短暂的额外充能效果。\n\n复活节快乐！")
+			.t("rainbow_desc", "这瓶多彩的药剂是一种液态食物。它不仅可以充饥，其中还蕴含着能魅惑一名相邻非boss敌人的小型法术，能令其暂时不愿与你交战。\n\n节日快乐！")
+			.t("shattered_desc", "这一大块香草蛋糕上裹上了一层绿色糖霜，其上洒满各色糖碎。这样的蛋糕被用于庆祝某人事物积累若干年履历的时刻，而这份履历也会在你吃下时作为经验分得一部分。\n\n破碎的像素地牢于2014年8月5日问世。祝破碎地牢生日快乐！")
+			.t("pie_desc", "好大的一块南瓜派！甘甜又微辣，它会填饱你的肚子并让你恢复少量生命。\n\n万圣节快乐！")
+			.t("vanilla_desc", "这一大块香草蛋糕上裹上了一层蓝色糖霜，其上洒满各色糖碎。这样的蛋糕被用于庆祝某人事物积累若干年履历的时刻，而这份履历也会在你吃下时作为经验分得一部分。\n\n原版像素地牢于2012年12月4日问世。祝像素地牢生日快乐！")
+			.t("cane_desc", "甜度爆表的巨型拐杖糖！大到够你一次吃饱，其中的糖分或许还能让你的法杖获得少量额外充能。\n\n假日快乐！")
+			.t("sparkling_desc", "这瓶起泡的药剂是一种液态食物。这种果腹之物尝起来和气泡酒别无二致，但实际上并不含酒精。这股流经腹部的暖流能为你提供少量护盾。\n\n元旦快乐！")
+			.t("fishleftover.name", "余鱼")
+			.t("fishleftover.eat_msg", "吃起来还行。")
+			.t("fishleftover.desc", "你上一顿吃剩的鱼。你可以随时把它吃完，这能恢复你少量的饱食度。");
+	}
+
 
 	{
 		reset();

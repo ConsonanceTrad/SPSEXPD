@@ -32,8 +32,16 @@ import render.noosa.Game;
 import render.utils.data.Callback;
 
 import java.io.IOException;
+import pd.messages.InlineText;
 
 public class WornKey extends Key {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WornKey.class)
+			.t("name", "磨损钥匙")
+			.t("desc", "这把磨损而褪色的钥匙看起来非同寻常。大概它可以打开附近某道非同寻常的门。");
+	}
+
 	
 	{
 		image = SpecificKeyDict.WORN_KEY;

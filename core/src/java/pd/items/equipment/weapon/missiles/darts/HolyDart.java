@@ -32,8 +32,16 @@ import pd.actors.hero.Hero;
 import pd.effects.particles.ShadowParticle;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class HolyDart extends TippedDart {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(HolyDart.class)
+			.t("name", "神圣飞镖")
+			.t("desc", "这些飞镖上涂着一种由星陨花制成的药物，能向目标体内注入神圣能量。友方或常规敌人将因此进入赐福状态，而亡灵或恶魔类敌人则会受到大量伤害。这只飞镖仍能对敌人造成伤害，但不会伤及盟友。");
+	}
+
 
 	{
 		image = ConsumThrowsDict.HOLY_DART_0;

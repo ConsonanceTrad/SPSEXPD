@@ -30,8 +30,16 @@ import pd.items.equipment.armor.Armor;
 import pd.sprites.ItemSprite.Glowing;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Affection extends Glyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Affection.class)
+			.t("name", "魅惑%s")
+			.t("desc", "这个强力的刻印能够操控攻击者的心智，暂时地魅惑他们。");
+	}
+
 	
 	private static ItemSprite.Glowing PINK = new ItemSprite.Glowing( 0xFF4488 );
 	

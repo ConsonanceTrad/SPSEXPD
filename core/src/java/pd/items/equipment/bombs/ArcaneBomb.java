@@ -37,8 +37,17 @@ import render.utils.data.BArray;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class ArcaneBomb extends Bomb {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ArcaneBomb.class)
+			.t("name", "奥术炸弹")
+			.t("desc", "这枚炸弹里灌注了奥术能量，当其爆炸时会释放出类似于粘咕蓄力攻击的强力冲击，在2格范围内对所有单位造成_%1$d~%2$d点魔法伤害_。")
+			.t("discover_hint", "你可通过炼金合成该物品。");
+	}
+
 	
 	{
 		image = EquipmentEquipWeaponBombDict.ARCANE_BOMB_0;

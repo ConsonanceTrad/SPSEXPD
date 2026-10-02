@@ -8,8 +8,17 @@ import pd.actors.hero.Hero;
 import pd.effects.Speck;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Vialupdater extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Vialupdater.class)
+			.t("name", "露珠强化器")
+			.t("ac_use", "使用")
+			.t("desc", "扩容，然后解锁露珠瓶的最终能力。");
+	}
+
 	public static final String AC_USE = "USE";
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

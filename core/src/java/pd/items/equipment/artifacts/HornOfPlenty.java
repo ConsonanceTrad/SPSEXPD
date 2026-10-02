@@ -37,9 +37,31 @@ import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** SPS-PD 0.9.8's thirty-level, time-recharging Horn of Plenty. */
 public class HornOfPlenty extends Artifact {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(HornOfPlenty.class)
+			.t("name", "丰饶之角")
+			.t("ac_snack", "小吃一口")
+			.t("ac_eat", "食用")
+			.t("ac_store", "贮存")
+			.t("ac_feed", "耗竭-盛宴")
+			.t("eat", "你吃光了号角中的食物。")
+			.t("prompt", "选择一个食物")
+			.t("no_food", "你的号角里没有食物可供食用！")
+			.t("full", "你的号角装满了食物！")
+			.t("reject", "你的号角并不接受未经烹煮的无味果。")
+			.t("maxlevel", "你的号角已经吞噬了尽可能多的食物！")
+			.t("levelup", "号角吞噬了你提供的食物，变得更加强大了。")
+			.t("feed", "号角吞噬了你提供的食物。")
+			.t("desc", "这个号角不能被用来吹奏，不过装备时它似乎会随时间流逝逐渐填充食物。")
+			.t("desc_hint", "也许可以通过给予它食物的能量来增加号角的力量。")
+			.t("desc_cursed", "被诅咒的号角把自己绑在了你的身边，它似乎在渴望得到食物而不是制造食物。");
+	}
+
 
 	private static final float TIME_TO_EAT = 3f;
 	private static final float ENERGY_PER_CHARGE = 40f;

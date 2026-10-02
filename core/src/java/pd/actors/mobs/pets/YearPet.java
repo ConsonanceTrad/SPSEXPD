@@ -5,9 +5,17 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.sprites.BeastYearSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The original slow, durable year-beast companion. */
 public class YearPet extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(YearPet.class)
+			.t("name", "年兽宝宝")
+			.t("desc", "一只年兽宝宝，没什么战斗力。");
+	}
+
 
 	{
 		spriteClass = BeastYearSprite.class;

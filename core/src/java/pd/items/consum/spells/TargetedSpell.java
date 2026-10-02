@@ -36,8 +36,16 @@ import pd.ui.QuickSlotButton;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public abstract class TargetedSpell extends Spell {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(TargetedSpell.class)
+			.t("prompt", "选择一个目标")
+			.t("inv_title", "灌注一件物品");
+	}
+
 	
 	protected int collisionProperties = Ballistica.PROJECTILE;
 	

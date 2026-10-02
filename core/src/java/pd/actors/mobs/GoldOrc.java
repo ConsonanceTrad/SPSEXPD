@@ -10,8 +10,17 @@ import pd.actors.buffs.Vertigo;
 import pd.scenes.GameScene;
 import pd.sprites.GoldOrcSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class GoldOrc extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GoldOrc.class)
+			.t("name", "金眼猪人")
+			.t("def_verb", "格挡")
+			.t("desc", "黑暗能量腐蚀了猪人，使纯洁的猪人变成了危险的怪物。");
+	}
+
 
 	{
 		spriteClass = GoldOrcSprite.class;

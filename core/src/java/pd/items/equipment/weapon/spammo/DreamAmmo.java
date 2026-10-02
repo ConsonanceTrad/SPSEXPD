@@ -7,8 +7,16 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Slow;
 import pd.actors.damagetype.DamageType;
 import pd.sprites.ItemSprite;
+import pd.messages.InlineText;
 
 public class DreamAmmo extends SpAmmo {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(DreamAmmo.class)
+			.t("name", "催眠弹")
+			.t("desc", "将原石和睡眠种锻造而成的特殊子弹，能使目标破甲并减速。");
+	}
+
 	private static final ItemSprite.Glowing GREEN = new ItemSprite.Glowing(0x22CC44);
 	@Override public ItemSprite.Glowing glowing() { return GREEN; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {

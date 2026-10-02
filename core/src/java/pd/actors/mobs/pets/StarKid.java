@@ -10,7 +10,15 @@ import pd.items.consum.food.completefood.PetFood;
 import pd.items.consum.potions.PotionOfExperience;
 import pd.sprites.StarKidSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 public class StarKid extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(StarKid.class)
+			.t("name", "星芒")
+			.t("desc", "星之子，能够用光属性力量攻击敌人。");
+	}
+
 	{ spriteClass=StarKidSprite.class;cooldown=50;properties.add(Property.ALIEN);updateStats(true); }
 	@Override protected Kind kind(){return Kind.STAR_KID;}
 	@Override public boolean lovefood(Item item){return item instanceof PetFood||item instanceof StoneOre;}

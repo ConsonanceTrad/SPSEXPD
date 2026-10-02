@@ -5,9 +5,17 @@ import pd.actors.Char;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 /** Invisibility which is not removed by ordinary attacks. */
 public class ForeverShadow extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ForeverShadow.class)
+			.t("name", "永影")
+			.t("desc", "斗篷将它与你结合，短时间内使你无法被任何人察觉，即使你做出惊动他人的动作。\n\n剩余的效果时长：%s回合。");
+	}
+
 
 	public static final float DURATION = 30f;
 

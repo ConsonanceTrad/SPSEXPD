@@ -9,8 +9,16 @@ import pd.sprites.ItemSprite;
 import render.utils.math.Random;
 
 import static pd.actors.damagetype.DamageType.LIGHT_DAMAGE;
+import pd.messages.InlineText;
 
 public class EnchantmentLight extends SpsEnchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(EnchantmentLight.class)
+			.t("name", "闪耀%s")
+			.t("desc", "闪耀附魔将造成大量的光属性伤害，并有几率致盲。");
+	}
+
 	private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing(0xFFFF44);
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		elementalDamage(weapon, attacker, defender, 0.75f, LIGHT_DAMAGE);

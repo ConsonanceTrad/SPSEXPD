@@ -9,9 +9,16 @@ import pd.actors.buffs.Slow;
 import pd.effects.BlobEmitter;
 import pd.effects.particles.WebParticle;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 /** Persistent SPS web which slows occupants each turn. */
 public class SlowWeb extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SlowWeb.class)
+			.t("desc", "这里覆盖着粘稠的蛛网，会持续拖慢身处其中的生物。");
+	}
+
 	@Override
 	protected void evolve() {
 		for (int x = area.left; x < area.right; x++) {

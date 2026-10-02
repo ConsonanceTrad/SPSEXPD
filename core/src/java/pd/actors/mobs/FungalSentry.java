@@ -28,8 +28,16 @@ import pd.actors.buffs.Poison;
 import pd.mechanics.Ballistica;
 import pd.sprites.FungalSentrySprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class FungalSentry extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(FungalSentry.class)
+			.t("name", "蘑菇哨卫")
+			.t("desc", "屹立于此的高大蘑菇是整个洞穴中更大的菌丝网络的防御节孢。\n\n它无法移动，但会精准地向任何进入视线的物体喷射毒液。虽然毒液喷射的力道相当弱，_但却可以快速地叠加毒量_。虽然可以被杀死，但最好还是远离它。");
+	}
+
 
 	{
 		spriteClass = FungalSentrySprite.class;

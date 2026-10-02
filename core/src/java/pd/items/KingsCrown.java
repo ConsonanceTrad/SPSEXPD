@@ -41,8 +41,21 @@ import pd.windows.WndChooseAbility;
 import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class KingsCrown extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(KingsCrown.class)
+			.t("name", "矮人国王的皇冠")
+			.t("ac_wear", "加冕")
+			.t("naked", "非常遗憾，皇冠的魔力无法强化你的内衣。")
+			.t("upgraded", "皇冠熔为曜日般的金光，而你的护甲在照耀下开始逐渐变形！")
+			.t("ratgraded", "鼠王挥爪便召出了万丈光芒，而你的护甲在照耀下开始逐渐变形！")
+			.t("desc", "末代矮人国王的皇冠，至强的魔法能量以光芒的形式从中辐射而出。\n\n如果你有决心将其戴上，皇冠的魔力会涌入你正在装备的护甲，将其改造为_拥有特殊技能的独特英雄护甲_。新的护甲会保留原护甲的所有属性与刻印。")
+			.t("discover_hint", "你可从某种敌人的掉落物中获得该物品。");
+	}
+
 	
 	private static final String AC_WEAR = "WEAR";
 	

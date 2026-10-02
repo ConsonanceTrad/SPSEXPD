@@ -26,8 +26,17 @@ import pd.actors.mobs.Skeleton;
 import pd.items.Item;
 import pd.items.quest.DwarfToken;
 import pd.sprites.SkeletonSprite;
+import pd.messages.InlineText;
 
 public class VaultSkeleton extends Skeleton {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(VaultSkeleton.class)
+			.t("name", "矮人骷髅")
+			.t("discover_hint", "你可在某个任务中遇到该敌人。")
+			.t("desc", "如果不是那浓密得惊人的胡须，这些骷髅看起来和你在监狱里见过的那些差不多。看来即使是在新王掌权之前，也早就有一些矮人在钻研死灵法术了。\n\n它们的行动和普通骷髅无异，包括死亡时造成的骨头爆炸。诡异的是，它们的大胡子似乎能为它们提供些许保护。");
+	}
+
 
 	{
 		activateSteathGameplayBehaviour();

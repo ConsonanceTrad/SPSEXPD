@@ -53,8 +53,24 @@ import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.geom.PointF;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class WandOfBlastWave extends DamageWand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfBlastWave.class)
+			.t("name", "冲击波法杖")
+			.t("staff_name", "冲击波魔杖")
+			.t("ondeath", "你用冲击波法杖炸碎了自己...")
+			.t("knockback_ondeath", "你死于撞击...")
+			.t("desc", "这根法杖由一种大理石石材制成，嵌有金饰并在顶部镶着一个浑圆的黑宝石。它在你手中的感觉非常沉重。")
+			.t("typical_stats_desc", "这根法杖能射出在目标地点剧烈爆炸的魔法飞弹。爆炸的威力通常会造成_%1$d~%2$d点伤害_，并强到足以炸飞大多数敌人。")
+			.t("stats_desc", "这根法杖能射出一股能量，在目标位置引发强烈的爆炸。爆炸的力量会造成_%1$d~%2$d点伤害_并强到足以击飞大多数敌人。")
+			.t("upgrade_stat_name_2", "击退")
+			.t("bmage_desc", "当_战斗法师_以冲击波魔杖近战攻击已经被麻痹的目标时，将消耗目标身上剩余的麻痹回合数造成大量魔法伤害。此效果对每个目标均有短暂的冷却。")
+			.t("eleblast_desc", "冲击波魔杖的元素风暴造成67%伤害，并将所有目标弹出影响区域。");
+	}
+
 
 	{
 		image = EquipmentWandBasicWandDict.WAND_BLAST_WAVE_0;

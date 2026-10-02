@@ -28,8 +28,16 @@ import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Dread extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Dread.class)
+			.t("name", "魂飞魄散")
+			.t("desc", "令人魂飞魄散的恐慌正在驱使目标尝试逃出这座地牢！\n\n魂飞魄散状态下的生物将快速逃离它们的敌人，并且会在脱离敌人视野后立即消失在整座地牢中。逃离的敌人不会掉落道具，只会给予玩家减半的经验值奖励。伤害所造成的痛楚将促使其镇定下来。\n\n魂飞魄散效果剩余时长：%d回合");
+	}
+
 
 	protected int left = (int)DURATION;
 	public int object = 0;

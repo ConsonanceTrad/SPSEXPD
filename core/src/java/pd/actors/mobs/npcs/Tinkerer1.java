@@ -12,8 +12,18 @@ import pd.sprites.TinkererSprite;
 import pd.windows.WndQuest;
 import pd.windows.WndTinkerer;
 import render.noosa.Game;
+import pd.messages.InlineText;
 
 public class Tinkerer1 extends NPC {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Tinkerer1.class)
+			.t("name", "露珠研究者")
+			.t("desc", "一名来自多利亚的研究者。他似乎在等待什么东西上门。")
+			.t("tell1", "我想找一个特殊的蘑菇做研究，但是我不敢继续往下走。")
+			.t("tell2", "你需要先带来水袋，我才能改进它。");
+	}
+
 
 	{
 		spriteClass = TinkererSprite.class;

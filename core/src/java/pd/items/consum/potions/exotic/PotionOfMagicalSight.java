@@ -27,8 +27,16 @@ import pd.actors.buffs.MagicalSight;
 import pd.actors.hero.Hero;
 import pd.effects.SpellSprite;
 import pd.sprites.ItemIconSheet;
+import pd.messages.InlineText;
 
 public class PotionOfMagicalSight extends ExoticPotion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfMagicalSight.class)
+			.t("name", "魔能透视合剂")
+			.t("desc", "饮用这瓶合剂后，你的五感将被提高到一种无法想象的地步，使你能看穿12格以内的墙壁，洞察藏在墙后的事物！");
+	}
+
 	
 	{
 		icon = ItemIconSheet.POTION_MAGISIGHT;

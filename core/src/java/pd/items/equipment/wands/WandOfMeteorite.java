@@ -23,9 +23,18 @@ import pd.scenes.PixelScene;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The direct-hit plus 3x3 meteor explosion from SPS-PD 0.9.8. */
 public class WandOfMeteorite extends DamageWand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfMeteorite.class)
+			.t("name", "陨星法杖")
+			.t("desc", "这根火属性法杖由一种陨石制成，嵌有金饰并在顶部镶着一颗浑圆的黑陨石。它在你手中的感觉非常沉重。")
+			.t("stats_desc", "该法杖会在目标位置召唤陨石，撞击造成_%1$d~%2$d点伤害_，随后对3×3范围再造成一次较低伤害。撞击可能使目标麻痹，并烧焦可燃地形。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

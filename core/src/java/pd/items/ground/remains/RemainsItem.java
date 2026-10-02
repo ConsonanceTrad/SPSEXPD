@@ -28,8 +28,16 @@ import pd.items.Item;
 import pd.journal.Catalog;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public abstract class RemainsItem extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RemainsItem.class)
+			.t("ac_use", "使用")
+			.t("discover_hint", "你可从上一局某位英雄的遗骸中找到该物品。");
+	}
+
 
 	{
 		bones = false;

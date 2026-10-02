@@ -4,9 +4,17 @@ package pd.actors.buffs;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Permanent stacking 10% damage bonus purchased with maximum HP. */
 public class Blasphemy extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Blasphemy.class)
+			.t("name", "亵渎")
+			.t("desc", "每层永久使全部攻击伤害提高10%%。当前层数：%s。");
+	}
+
 	private static final String LEVEL = "level";
 	private int level;
 	{ type = buffType.POSITIVE; announced = true; }

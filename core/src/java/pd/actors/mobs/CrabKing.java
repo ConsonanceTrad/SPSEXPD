@@ -21,7 +21,18 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 public class CrabKing extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(CrabKing.class)
+			.t("name", "远古巨蟹")
+			.t("desc", "远古巨蟹收集保护类魔法和物品，以保护它的子民免受黑暗或贪婪者的袭击。它藏在一副强大的甲壳中。")
+			.t("notice", "请离开这里，否则我就对你不客气了！")
+			.t("die", "抱歉……我的子民……")
+			.t("heal", "远古巨蟹从高压电壳中吸取了能量！");
+	}
+
 	private static final int JUMP_DELAY = 5;
 	private int timeToJump = JUMP_DELAY;
 	{ spriteClass = CrabKingSprite.class; baseSpeed = 2f; HP = HT = 1300; EXP = 20; defenseSkill = 30; properties.add(Property.FISHER); properties.add(Property.BOSS); resistances.add(ToxicGas.class); resistances.add(Poison.class); }

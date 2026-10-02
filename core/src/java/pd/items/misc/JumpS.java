@@ -20,8 +20,20 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class JumpS extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(JumpS.class)
+			.t("name", "星兵之鞋")
+			.t("ac_jump", "跳跃")
+			.t("prompt", "选择跳跃的目的地点")
+			.t("rest", "星兵之鞋的充能不足。")
+			.t("charge", "充能：%1$d / %2$d。")
+			.t("desc", "星兵可以跳跃至多三格。起跳时会为持有的每把枪装填1发，并有60%%概率再装填1发并获得10回合瞄准。");
+	}
+
 	public static final String AC_JUMP = "JUMP";
 	public static final int FULL_CHARGE = 30;
 	public static final int JUMP_COST = 10;

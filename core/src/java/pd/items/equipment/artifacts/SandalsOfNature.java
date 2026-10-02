@@ -62,8 +62,33 @@ import render.utils.serialize.Reflection;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import pd.messages.InlineText;
 
 public class SandalsOfNature extends Artifact {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SandalsOfNature.class)
+			.t("name", "自然之鞋")
+			.t("ac_feed", "喂食")
+			.t("ac_root", "扎根")
+			.t("ac_sprout", "耗竭-发芽")
+			.t("no_charge", "它们现在还没有能量。")
+			.t("prompt", "选择一个种子")
+			.t("already_fed", "你的鞋子已经从这种种子里中获取过营养了。")
+			.t("levelup", "你的鞋子尺寸变大了！")
+			.t("absorb_seed", "鞋子吸收了种子，看起来更健康了。")
+			.t("prompt_target", "选择一个位置")
+			.t("out_of_range", "那个位置超出了范围。")
+			.t("desc_0", "初看像是用麻绳编成的凉鞋实际上是两株植物！它们看上去既虚弱又苍白，也许它们需要一点营养？")
+			.t("desc_1", "这双鞋子已经长大了，现在更像是一双合脚的鞋。它们已经没那么苍白了，也许还可以进一步成长？")
+			.t("desc_2", "这两株植物又长大了。像是一双树皮制成的厚靴子。植物似乎已经恢复了它们的力量，但也许仍能进一步成长？")
+			.t("desc_3", "植物们似乎已长到最大，就像是一对装甲护胫。这对深棕色护腿看上去仿如一棵非常坚毅的树。")
+			.t("desc_hint", "穿上这件神器时你感到更加亲近自然了。")
+			.t("desc_cursed", "被诅咒的鞋子切断了一切你与自然的联系。")
+			.t("desc_ability", "这双鞋已经获得了形成一种固定的天然装甲的能力，但它们需要充能。")
+			.t("desc_seeds", "你已经给鞋子喂过了%d种种子。");
+	}
+
 
 	{
 		image = EquipmentJewelleryArtifactDict.ARTIFACT_SANDALS;

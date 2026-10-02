@@ -21,12 +21,32 @@ import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /**
  * SPS-PD's alternate chains. Pulling uses Shattered's hardened chain implementation,
  * while charge, levelling and the exhausting seal retain the 0.9.8 rules.
  */
 public class FlyChains extends EtherealChains {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(FlyChains.class)
+			.t("name", "翔虫")
+			.t("ac_cast", "施放")
+			.t("ac_locked", "耗竭-封印")
+			.t("no_charge", "你的翔虫充能不足。")
+			.t("cursed", "你不能使用受诅咒的翔虫。")
+			.t("does_nothing", "这样并没有用。")
+			.t("cant_pull", "你的翔虫不能拉动那个目标。")
+			.t("inside_wall", "你的翔虫只能带你越过墙壁，不能把你拉进墙里。")
+			.t("nothing_to_grab", "目标区域没有可供抓取的物件。")
+			.t("prompt", "选择要瞄准的地方")
+			.t("desc", "这些翔虫可以用来把你拉向一些地形，或将敌人拉向你。其飞行高度甚至可以允许你越过墙壁！")
+			.t("desc_cursed", "被诅咒的翔虫将自己锁在了你的身边，不断地在周围晃动，试图绊倒或绑住你。")
+			.t("desc_equipped", "翔虫围绕在你的身边，缓慢地收集被你击败者的精神能量。")
+			.t("chainsrecharge2.levelup", "你的翔虫变得更强大了！");
+	}
+
 
 	public static final String AC_LOCKED = "LOCKED";
 

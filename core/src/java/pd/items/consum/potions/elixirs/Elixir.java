@@ -23,8 +23,15 @@ package pd.items.consum.potions.elixirs;
 
 import pd.actors.hero.Hero;
 import pd.items.consum.potions.Potion;
+import pd.messages.InlineText;
 
 public abstract class Elixir extends Potion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Elixir.class)
+			.t("discover_hint", "你可通过炼金合成该物品。");
+	}
+
 	
 	public abstract void apply( Hero hero );
 	

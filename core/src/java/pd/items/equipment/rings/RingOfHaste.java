@@ -24,8 +24,20 @@ package pd.items.equipment.rings;
 import pd.actors.Char;
 import pd.messages.Messages;
 import pd.sprites.ItemIconSheet;
+import pd.messages.InlineText;
 
 public class RingOfHaste extends Ring {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RingOfHaste.class)
+			.t("name", "疾速戒指")
+			.t("stats", "佩戴这枚戒指时，你的移动速度会提升_%s%%_。")
+			.t("typical_stats", "佩戴这枚戒指时，你的移动速度通常会提升_%s%%_。")
+			.t("combined_stats", "你已装备的戒指正联结它们的力量，一共增加了_%s%%_的移动速度。")
+			.t("upgrade_stat_name_1", "移速加成")
+			.t("desc", "这枚戒指减轻了配戴者在移动时的负担，使其能够飞速奔跑。在30级时这枚戒指效果达到上限。");
+	}
+
 
 	{
 		icon = ItemIconSheet.RING_HASTE;

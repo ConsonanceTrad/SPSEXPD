@@ -41,8 +41,19 @@ import render.noosa.audio.Sample;
 import render.noosa.particles.Emitter;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class TengusMask extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(TengusMask.class)
+			.t("name", "天狗的面具")
+			.t("ac_wear", "佩戴")
+			.t("used", "面具瓦解了，它所蕴含的能量涌入了你的身体。")
+			.t("desc", "天狗死时，这幅面具像褪皮般从他的脸上失落地滑下。你能感受它在波动着一股神妙的魔力，仿佛在极力劝你成为它的新主人。难道天狗戴上它时也是被其力量吸引？\n\n如果你有勇气将其戴上，面具的庞大力量会转嫁到你体内，供你为英雄_选择一种职业专精_。\n\n你会选择哪条道路？")
+			.t("discover_hint", "你可从某种敌人的掉落物中获得该物品。");
+	}
+
 	
 	private static final String AC_WEAR	= "WEAR";
 	

@@ -9,9 +9,18 @@ import pd.messages.Messages;
 import pd.utils.GLog;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** The original SPS journal reader, backed by the migrated adventure journal. */
 public class KnowledgeBook extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(KnowledgeBook.class)
+			.t("name", "知识之书")
+			.t("desc", "记录了许多异常地点的书。阅读后会打开异界日志。")
+			.t("ac_read", "阅读");
+	}
+
 	public static final String AC_READ = "READ";
 
 	{

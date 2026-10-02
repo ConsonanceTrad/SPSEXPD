@@ -23,9 +23,17 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.utils.data.BArray;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** SPS two-tile blast bomb, including its intended wall-breaking behavior. */
 public class HugeBomb extends Bomb {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(HugeBomb.class)
+			.t("name", "巨大炸弹")
+			.t("desc", "造成大范围伤害，并摧毁附近的墙壁。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

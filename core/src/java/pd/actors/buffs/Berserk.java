@@ -43,8 +43,26 @@ import render.noosa.audio.Sample;
 import render.utils.math.GameMath;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Berserk extends ShieldBuff implements ActionIndicator.Action {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Berserk.class)
+			.t("angered", "愤怒")
+			.t("berserk", "狂暴")
+			.t("exhausted", "力竭")
+			.t("recovering", "恢复")
+			.t("angered_desc", "狂战士受伤的严重程度会增强他的攻击。每当狂战士受到物理伤害时，他会积累怒气并获得额外伤害，被护甲格挡的伤害仍可作为怒气积累。\n\n怒气会随时间消逝，狂战士生命值越低，怒气留存时间越长。\n\n狂战士可以100%%的怒气进入狂暴，使他获得基于护甲等级与已损生命值的护盾。狂暴时，他的护盾会随时间衰减，而且其一旦耗尽则他必须稍作休息之后才能再次积累怒气。\n\n当前怒气：_%1$.0f%%_\n_+%2$.0f%%_伤害\n\n当前护甲与生命值的狂暴护盾：_%3$d_")
+			.t("berserk_desc", "恐惧与疑虑已然随流出的鲜血一齐消散，此身惟余满腔怒火。在这种狂暴状态下，狂战士将无比强大，_造成50%%额外伤害并获得额外护盾_，但每回合都会损失部分护盾。\n\n当其所有护盾归零时，狂暴将会结束。\n\n狂暴过后，狂战士需要稍作休息才能再次积累怒气。\n\n剩余护盾值：%d")
+			.t("recovering_desc", "内在潜力是有限的。狂战士必须充分休息才能再次释放他的怒火。\n\n恢复状态下的狂战士无法从伤痛中积累怒气。")
+			.t("recovering_desc_turns", "恢复所需回合数：%d")
+			.t("recovering_desc_levels", "恢复所需等级：%.2f")
+			.t("rankings_desc", "暴走至死")
+			.t("action_name", "狂暴")
+			.t("no_seal", "你需要破损纹章才能进入狂暴！");
+	}
+
 
 	{
 		type = buffType.POSITIVE;

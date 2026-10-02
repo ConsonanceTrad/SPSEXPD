@@ -28,8 +28,17 @@ import pd.actors.hero.Hero;
 import pd.items.equipment.weapon.Weapon;
 import pd.sprites.ItemSprite.Glowing;
 import pd.sprites.ItemSprite;
+import pd.messages.InlineText;
 
 public class Grim extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Grim.class)
+			.t("name", "死神%s")
+			.t("desc", "这个强力的附魔拥有瞬间斩杀敌人的力量。敌人越弱，附魔的触发几率越大。")
+			.t("elestrike_desc", "武器拥有死神附魔时，元素打击范围内除主要目标外的每个敌人都有6~30%的几率被秒杀。(概率基于该敌人已损失的生命值)");
+	}
+
 	
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 	

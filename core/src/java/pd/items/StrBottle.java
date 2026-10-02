@@ -9,8 +9,18 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class StrBottle extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(StrBottle.class)
+			.t("name", "力量之瓶")
+			.t("ac_use", "使用")
+			.t("msg_1", "+1力量")
+			.t("desc", "饮用后永久获得一点力量，并完全恢复生命。");
+	}
+
 	public static final String AC_USE = "USE";
 
 	{

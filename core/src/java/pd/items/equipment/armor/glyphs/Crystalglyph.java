@@ -7,8 +7,16 @@ import pd.actors.buffs.DelayProtect;
 import pd.items.equipment.armor.Armor;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Crystalglyph extends SpsGlyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Crystalglyph.class)
+			.t("name", "晶化%s")
+			.t("desc", "晶化刻印有几率在遭受重击后为使用者提供玻璃保护。");
+	}
+
 	private static final ItemSprite.Glowing COLOR = new ItemSprite.Glowing(0xCCAA88);
 	@Override public int proc(Armor armor, Char attacker, Char defender, int damage) {
 		clearElementalMarker(defender);

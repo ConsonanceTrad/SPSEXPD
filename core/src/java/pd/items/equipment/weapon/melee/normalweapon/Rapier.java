@@ -8,8 +8,16 @@ import pd.actors.Char;
 import pd.effects.Pushing;
 import pd.mechanics.Ballistica;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Rapier extends NormalMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Rapier.class)
+			.t("name", "刺剑")
+			.t("desc", "一件又细又长又尖的武器。——Snof33 \n高级穿刺");
+	}
+
 	public Rapier() { super(3, 1f, 1f, 2, 18, 25, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) { s.max += 4; }
 	@Override public int proc(Char attacker, Char defender, int damage) {

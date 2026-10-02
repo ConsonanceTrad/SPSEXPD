@@ -22,9 +22,17 @@
 package pd.items.equipment.armor;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.messages.InlineText;
 
 
 public class WarriorArmor extends ClassArmor {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WarriorArmor.class)
+			.t("name", "英雄板甲")
+			.t("desc", "装备这套重型板甲时，战士能够施展一项特殊技能。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

@@ -28,8 +28,16 @@ import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class RevealedArea extends FlavourBuff{
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(RevealedArea.class)
+			.t("name", "区域揭示")
+			.t("desc", "揭示地牢中一片区域的视野，无论你身处这层中的何处都能对那里一览无遗。\n\n效果剩余时长：%s回合");
+	}
+
 
 	{
 		type = Buff.buffType.POSITIVE;

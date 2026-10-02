@@ -75,8 +75,32 @@ import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import pd.messages.InlineText;
 
 public class DwarfKing extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(DwarfKing.class)
+			.t("name", "矮人国王")
+			.t("notice", "汝竟敢进犯皇家重地！不知天高地厚！")
+			.t("lifelink_1", "献身护驾，奴隶们！")
+			.t("lifelink_2", "为了朕的大业，光荣牺牲吧！")
+			.t("teleport_1", "汝等，给朕拿下此人！")
+			.t("teleport_2", "汝等，拖住此人！")
+			.t("wave_1", "够了！为朕复生而战吧，汝等奴虏！")
+			.t("wave_2", "继续上！为了朕的江山而战！")
+			.t("wave_3", "废物！朕命汝等速速解决此人！")
+			.t("enraged", "汝休想得逞，%s。朕 即 不 朽！")
+			.t("losing", "不！汝不得如此...汝不知晓朕的王国之下埋藏着什么...")
+			.t("defeated", "汝会...毁了一切的...")
+			.t("rankings_desc", "屈服在矮人国王御前")
+			.t("desc", "许多年前，矮人议会中一名最强的巫师洞察了凌驾于生死之上的秘术。很快他就借助这种强大的力量，控制、腐化了王室与整个议会，并将魔爪伸向王国中的每一名矮人。现在他成为了矮人国的国王，统领着数量庞大的死灵。\n\n矮人国王是极具进攻性的强敌，会尝试利用他手下的死灵大军压制入侵者。")
+			.t("dkghoul.rankings_desc", "屈服在矮人国王御前")
+			.t("dkmonk.rankings_desc", "屈服在矮人国王御前")
+			.t("dkwarlock.rankings_desc", "屈服在矮人国王御前")
+			.t("dkgolem.rankings_desc", "屈服在矮人国王御前");
+	}
+
 
 	{
 		spriteClass = KingSprite.class;

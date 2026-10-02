@@ -11,8 +11,16 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.HeroClass;
 import pd.actors.hero.HeroSubClass;
 import pd.effects.Speck;
+import pd.messages.InlineText;
 
 public class Musicpill extends Pill {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Musicpill.class)
+			.t("name", "节奏药丸")
+			.t("desc", "在一段时间内提升自信。\n使用_2份肉，1份种子，1份原石_炼金");
+	}
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected void onUse(Hero hero) {
 		Buff.affect(hero, Rhythm.class, 800f);

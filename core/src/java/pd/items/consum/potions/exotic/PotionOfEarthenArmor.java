@@ -24,8 +24,16 @@ package pd.items.consum.potions.exotic;
 import pd.actors.buffs.Barkskin;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemIconSheet;
+import pd.messages.InlineText;
 
 public class PotionOfEarthenArmor extends ExoticPotion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfEarthenArmor.class)
+			.t("name", "大地护甲合剂")
+			.t("desc", "与麻痹药剂不同的是，饮用这瓶合剂能够使使用者的皮肤硬化，在一段时间内形成一道天然护甲。");
+	}
+
 	
 	{
 		icon = ItemIconSheet.POTION_EARTHARMR;

@@ -16,9 +16,17 @@ import pd.effects.particles.SmokeParticle;
 import pd.items.equipment.weapon.melee.MeleeWeapon;
 import pd.mechanics.pathfind.PathFinder;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The original 2018 firecracker weapon. */
 public class FireCracker extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(FireCracker.class)
+			.t("name", "鞭炮")
+			.t("desc", "传统的800响鞭炮。2018春节快乐！\n爆裂，引燃，喧闹，恐吓");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.FIRE_CRACKER_0;

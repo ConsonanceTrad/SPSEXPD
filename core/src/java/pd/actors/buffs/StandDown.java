@@ -4,9 +4,17 @@ package pd.actors.buffs;
 import pd.actors.Char;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 /** SPS-PD's stacking-slow stun. Taking actual damage ends it early. */
 public class StandDown extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(StandDown.class)
+			.t("name", "僵直")
+			.t("desc", "僵直效果类似于麻痹，使目标不能行动。与麻痹不同的是，僵直会在目标受到伤害时立即消失。\n\n剩余效果时长：%s回合");
+	}
+
 
 	public static final float DURATION = 5f;
 

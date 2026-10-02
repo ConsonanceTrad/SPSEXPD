@@ -29,8 +29,16 @@ import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.FungalSpinnerSprite;
+import pd.messages.InlineText;
 
 public class FungalSpinner extends Spinner {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(FungalSpinner.class)
+			.t("name", "菌生蜘蛛")
+			.t("desc", "这只矿洞蜘蛛似乎被一种寄生真菌控制。真菌改变了宿主的能力，以真菌生长替换了宿主的蛛网和猛毒。\n\n菌生蜘蛛会喷吐孢子，而非蛛网。孢子不仅会传播真菌，还可能将你缠绕在原地。这种蜘蛛虽然无毒，但却可以在邻近任何蘑菇的时候获得高额伤害抗性。");
+	}
+
 
 	{
 		spriteClass = FungalSpinnerSprite.class;

@@ -23,8 +23,16 @@ package pd.actors.buffs;
 
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
+import pd.messages.InlineText;
 
 public class Haste extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Haste.class)
+			.t("name", "极速")
+			.t("desc", "强大的能量灌入到你的双腿肌肉上，允许你以不可思议的速度移动！\n\n在极速状态下，你将拥有3倍的移动速度，但是其他行动速度仍然和原来一样。\n\n极速效果剩余时长：%s回合");
+	}
+
 	
 	{
 		type = buffType.POSITIVE;

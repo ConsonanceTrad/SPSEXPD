@@ -38,8 +38,21 @@ import pd.windows.WndBag;
 import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Stylus extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Stylus.class)
+			.t("name", "奥术刻笔")
+			.t("ac_inscribe", "蚀刻")
+			.t("prompt", "选择一件护甲")
+			.t("identify", "你需要先鉴定那件护甲有无诅咒。")
+			.t("cursed", "奥术刻笔的力量无法作用在被诅咒的护甲上。")
+			.t("inscribed", "你用刻笔雕刻了盔甲。")
+			.t("desc", "这支奥术刻笔由一种暗黑色的坚硬石料制成。你能用它在护甲上刻下魔法刻印，不过你无法自主选择，刻笔会替你做出决定。");
+	}
+
 	
 	private static final float TIME_TO_INSCRIBE = 2;
 	

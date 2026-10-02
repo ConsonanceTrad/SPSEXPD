@@ -44,9 +44,18 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 
 public class CeremonialCandle extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(CeremonialCandle.class)
+			.t("name", "仪式蜡烛")
+			.t("desc", "一套配套的蜡烛，在使用中融化在了一起。\n\n单独看来它们毫无价值，但与其它蜡烛按特定排布共用时却能为召唤仪式聚集能量。")
+			.t("discover_hint", "你可在某个任务中找到该物品。");
+	}
+
 
 	//generated with the wandmaker quest
 	public static int ritualPos;

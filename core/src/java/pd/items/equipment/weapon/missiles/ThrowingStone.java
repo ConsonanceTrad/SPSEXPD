@@ -24,8 +24,17 @@ package pd.items.equipment.weapon.missiles;
 import pd.atlas.items.ConsumThrowsDict;
 
 import pd.Assets;
+import pd.messages.InlineText;
 
 public class ThrowingStone extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ThrowingStone.class)
+			.t("name", "投石")
+			.t("desc", "这些石头被人用砂纸打磨成趁手的形状，比普通石头更适合大力投向目标。")
+			.t("discover_hint", "某位英雄初始携带该物品。");
+	}
+
 	
 	{
 		image = ConsumThrowsDict.THROWING_STONE_0;

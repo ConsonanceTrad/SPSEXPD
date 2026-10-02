@@ -56,8 +56,36 @@ import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.GameMath;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class MonkEnergy extends Buff implements ActionIndicator.Action {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(MonkEnergy.class)
+			.t("name", "内力")
+			.t("action", "武功")
+			.t("desc", "每当武僧击败一个敌人，她都会获得可用于施展多门武功的内力。击败大多数种类的敌人时只会获得1点内力，并且武僧不会随时间流失内力。\n\n现有内力：%1$d/%2$d")
+			.t("desc_cooldown", "武僧刚刚才施展过一次武功，再次施展前必须等待。\n\n剩余冷却时间：%d回合")
+			.t("monkability$flurry.name", "空振")
+			.t("monkability$flurry.desc", "两次不耗回合的攻击，每次造成%1$d~%2$d点伤害并且忽略护甲。这门武功不能被重复使用。")
+			.t("monkability$flurry.empower_desc", "两次不耗回合的攻击，每次造成%1$d~%2$d点伤害，_可触发武器上的附魔_并且忽略护甲。如果武僧刚刚成功命中过敌人，这门武功不能被重复使用。")
+			.t("monkability$focus.name", "凝神")
+			.t("monkability$focus.desc", "武僧消耗一回合来进入凝神状态，招架下一次受到的攻击。")
+			.t("monkability$focus.empower_desc", "武僧_立即进入凝神状态_，招架下一次受到的攻击。")
+			.t("monkability$focus$focusbuff.name", "凝神")
+			.t("monkability$focus$focusbuff.desc", "武僧正专注于她周遭的一切，可以预料到对她发起的下一次攻击。当处于凝神状态时，她将必定招架下一次来袭的攻击。")
+			.t("monkability$dash.name", "登云")
+			.t("monkability$dash.prompt", "选择一个地点")
+			.t("monkability$dash.desc", "立刻冲向一个最多4格远的位置。这一武功可以越过危险地形，但不能穿过敌人或者坚实墙壁。")
+			.t("monkability$dash.empower_desc", "立刻冲向一个最多_8格_远的位置。这一武功可以越过危险地形，但不能穿过敌人或者坚实墙壁。")
+			.t("monkability$dragonkick.name", "盘龙")
+			.t("monkability$dragonkick.desc", "一次致命的踢击，造成%1$d~%2$d点伤害，无视护甲，并将敌人击退，还会对敌人施加与击退距离相等回合数的麻痹。")
+			.t("monkability$dragonkick.empower_desc", "一次致命的踢击，造成_%1$d~%2$d点伤害_，无视护甲，并将_所有邻近目标_击退，还会对敌人施加与击退距离相等回合数的麻痹。")
+			.t("monkability$meditate.name", "冥思")
+			.t("monkability$meditate.desc", "武僧消耗5回合来运转内力，将大部分的负面效果逼出体外，并获得8回合的法杖和神器充能。")
+			.t("monkability$meditate.empower_desc", "武僧消耗5回合来运转内力，将大部分的负面效果逼出体外，并获得8回合的法杖和神器充能。_冥思期间还会获得80%伤害抗性，并缓慢恢复共20%已损失生命值。_");
+	}
+
 
 	{
 		type = buffType.POSITIVE;

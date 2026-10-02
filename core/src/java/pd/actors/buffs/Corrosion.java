@@ -30,8 +30,19 @@ import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.Image;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Corrosion extends Buff implements Hero.Doom, Buff.DOTbuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Corrosion.class)
+			.t("name", "酸蚀")
+			.t("heromsg", "你正在被强酸溶解！")
+			.t("ondeath", "你被彻底溶解掉了...")
+			.t("rankings_desc", "被溶解")
+			.t("desc", "强酸能以惊人的速度腐蚀掉血肉、金属和骨头。\n\n目标被腐蚀的时间越长，酸蚀伤害越高。\n\n酸蚀效果剩余时长：%1$s回合\n当前酸蚀伤害：%2$d");
+	}
+
 
 	private float damage = 1;
 	protected float left;

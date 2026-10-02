@@ -34,8 +34,17 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class ScrollOfRetribution extends Scroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfRetribution.class)
+			.t("name", "复仇卷轴")
+			.t("blast", "强大的魔力从卷轴中爆发！")
+			.t("desc", "这张卷轴可以将使用者的所受的伤痛转化为能量释放而出。使用者的伤势越重，所释放的能量越大。使用者处于低血量的情况下所释放的这种能量足以杀死大部分敌人。\n\n即便如此，这张卷轴依然会影响使用者，使其短时间目盲并虚弱无比。");
+	}
+
 
 	{
 		icon = ItemIconSheet.SCROLL_RETRIB;

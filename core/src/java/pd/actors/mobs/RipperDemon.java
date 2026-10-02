@@ -42,8 +42,17 @@ import render.utils.data.Callback;
 import render.utils.math.GameMath;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class RipperDemon extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(RipperDemon.class)
+			.t("name", "恶魔撕裂者")
+			.t("leap", "恶魔撕裂者正准备扑杀！")
+			.t("desc", "这种恐怖的生物是恶魔利用这里残留的众多矮人尸骸组成的。恶魔撕裂者外观类似瘦弱的矮人尸鬼，尽管它躯体残缺，骨爪却异常尖利。\n\n恶魔撕裂者算不上耐打，但其仍然敏捷而致命。它能从远处飞扑而至，并用骨爪给目标撕开流血的伤口。");
+	}
+
 
 	{
 		spriteClass = RipperSprite.class;

@@ -7,8 +7,17 @@ import pd.actors.Char;
 import pd.items.Item;
 import pd.messages.Messages;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class HolyWater extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(HolyWater.class)
+			.t("name", "圣水")
+			.t("desc", "被祝福过的水制成的奇特武器。每次命中都会积蓄力量；满充后的下一击造成五倍伤害，并按基础伤害恢复生命。")
+			.t("charge", "充能：%1$d / %2$d。");
+	}
+
 	public static final int FULL_CHARGE = 14;
 	private static final String CHARGE = "charge";
 	private int charge;

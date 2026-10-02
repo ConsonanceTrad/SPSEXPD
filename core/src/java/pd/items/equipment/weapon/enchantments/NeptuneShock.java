@@ -12,9 +12,17 @@ import pd.sprites.ItemSprite;
 import render.utils.math.Random;
 
 import java.util.HashSet;
+import pd.messages.InlineText;
 
 /** Spends ten relic charge to shock a random chain of adjacent creatures. */
 public class NeptuneShock extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(NeptuneShock.class)
+			.t("name", "休克%s")
+			.t("desc", "休克附魔能连锁电击多个相邻目标。");
+	}
+
 	public static final int CHARGE_COST = 10;
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		if (!(weapon instanceof SpsRelicWeapon)) return damage;

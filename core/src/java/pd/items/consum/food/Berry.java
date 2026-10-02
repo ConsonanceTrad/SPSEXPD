@@ -30,8 +30,18 @@ import pd.actors.buffs.Hunger;
 import pd.actors.hero.Hero;
 import pd.actors.hero.Talent;
 import pd.items.Generator;
+import pd.messages.InlineText;
 
 public class Berry extends Food {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Berry.class)
+			.t("name", "地牢浆果")
+			.t("eat_msg", "酸甜可口，真棒！")
+			.t("desc", "这颗小浆果是女猎手在地牢的植被里找到的，它可以被快速食用以获得少量饱腹感，还可能有实用的种子包含其中！")
+			.t("discover_hint", "你可使用某项英雄天赋找到该物品。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

@@ -5,9 +5,17 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.sprites.CellmobSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The stationary life-cell produced by legacy evolve ammunition. */
 public class NormalCell extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(NormalCell.class)
+			.t("name", "普通细胞")
+			.t("desc", "由不稳定的退化弹转变而成的奇异活细胞。");
+	}
+
 	{
 		spriteClass = CellmobSprite.class;
 		HP = HT = 1;

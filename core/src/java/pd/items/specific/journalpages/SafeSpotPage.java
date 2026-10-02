@@ -3,9 +3,19 @@ package pd.items.specific.journalpages;
 
 import pd.Statistics;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 /** The housing contract generated when Otiluke's journal is first acquired. */
 public class SafeSpotPage extends JournalPage {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SafeSpotPage.class)
+			.t("name", "房契")
+			.t("grassroom_desc", "森林小屋的地址。")
+			.t("forestroom_desc", "荒废草场的地址。")
+			.t("cityroom_desc", "城市公寓的地址。");
+	}
+
 	public SafeSpotPage() {
 		super(0);
 	}

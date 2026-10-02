@@ -28,8 +28,18 @@ import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Paralysis extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Paralysis.class)
+			.t("name", "麻痹")
+			.t("heromsg", "你被麻痹了！")
+			.t("out", "解脱麻痹")
+			.t("desc", "通常最坏的事就是什么事都做不出来。\n\n麻痹会制止目标的一切行动，迫使目标静等到效果消失。受伤导致的疼痛也有助于目标摆脱麻痹。\n\n麻痹效果剩余时长：%s回合");
+	}
+
 
 	public static final float DURATION	= 10f;
 

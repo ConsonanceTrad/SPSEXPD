@@ -28,8 +28,17 @@ import pd.actors.hero.Talent;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class LifeLink extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(LifeLink.class)
+			.t("name", "生命联结")
+			.t("ondeath", "你因生命联结的共享伤害而亡...")
+			.t("desc", "该单位的生命力与附近的另一个单位相连。双方会共同承担所有所受伤害。\n\n每当该单位受伤时，半数伤害会转移到与该单位有生命联结的单位上。\n\n生命联结剩余回合数：%s");
+	}
+
 
 	public int object = 0;
 

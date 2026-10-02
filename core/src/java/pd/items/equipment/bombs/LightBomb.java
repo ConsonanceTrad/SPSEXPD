@@ -13,8 +13,16 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.SmokeParticle;
 import pd.mechanics.pathfind.PathFinder;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class LightBomb extends Bomb {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(LightBomb.class)
+			.t("name", "圣光炸弹")
+			.t("desc", "这枚炸弹会释放灼目的圣光，使附近的一切陷入盲目，并对亡灵、恶魔与无机造物造成额外伤害。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

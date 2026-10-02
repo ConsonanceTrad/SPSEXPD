@@ -104,8 +104,31 @@ import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import pd.messages.InlineText;
 
 abstract public class Weapon extends KindOfWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Weapon.class)
+			.t("identify", "你对手中的武器已经足够熟悉并将其完全鉴定。")
+			.t("too_heavy", "因为你的力量不足，该武器会降低你的攻速和精准，并让你无法偷袭。")
+			.t("excess_str", "你的额外力量会使你在使用这件武器时造成_0~%d点额外伤害_。")
+			.t("hardening_gone", "你武器上的硬化效果被损耗掉了！")
+			.t("incompatible", "不同属性的魔法相冲突，消除了武器上的附魔！")
+			.t("cursed_worn", "由于这件武器被诅咒，你无法将其放下。")
+			.t("cursed", "你能感觉到这件武器里潜伏着一股充满恶意的魔力。")
+			.t("weak_cursed", "虽然这件武器有诅咒，但是你可以脱下它。")
+			.t("not_cursed", "这件武器没有被诅咒。")
+			.t("faster", "这件武器强化了_攻速_。")
+			.t("stronger", "这件武器强化了_伤害_。")
+			.t("enchanted", "这件武器附有_%s_。")
+			.t("enchant_hardened", "它被_硬化_了。")
+			.t("hardened_no_enchant", "这件武器已被_硬化_，但目前没有携带附魔。")
+			.t("enchantment.enchant", "附魔")
+			.t("enchantment.rankings_desc", "死于附魔")
+			.t("enchantment.discover_hint", "你可在地牢中概率找到带有该效果的物品，或尝试自行使物品获得该效果。");
+	}
+
 
 	public float    ACC = 1f;	// Accuracy modifier
 	public float	DLY	= 1f;	// Speed modifier

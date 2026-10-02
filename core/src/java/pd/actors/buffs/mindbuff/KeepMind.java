@@ -13,9 +13,17 @@ import pd.actors.buffs.Hot;
 import pd.actors.buffs.Wet;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 /** Persistent positive mental state which blocks weather and web ailments. */
 public class KeepMind extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(KeepMind.class)
+			.t("name", "疯狂-坚定")
+			.t("desc", "免疫蛛网和有害天气效果。");
+	}
+
 	{
 		type = buffType.POSITIVE;
 		announced = true;

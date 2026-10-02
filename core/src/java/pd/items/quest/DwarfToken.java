@@ -28,8 +28,19 @@ import pd.actors.mobs.npcs.Imp;
 import pd.items.Item;
 import pd.messages.Messages;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 public class DwarfToken extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(DwarfToken.class)
+			.t("name", "矮人徽记")
+			.t("discard", "你弃置了多余的徽记。")
+			.t("desc", "一块形状奇特的金属片，被宝库中的矮人守卫随身携带。或许这徽记也是将守卫禁锢于这座宝库的魔法的一部分？最好先带着它，或许还会有用。")
+			.t("desc_old", "很多矮人和他们的造物都携带着这种小块金属，理由不详。兴许它是装饰物或什么身份识别牌。矮人都挺奇怪的。")
+			.t("discover_hint", "你可在某个任务中找到该物品。");
+	}
+
 	
 	{
 		image = SpecificTaskDict.TOKEN_0;

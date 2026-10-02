@@ -10,8 +10,16 @@ import pd.items.consum.food.vegetable.Vegetable;
 import pd.items.consum.potions.PotionOfShield;
 import pd.sprites.GentleCrabSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class GentleCrab extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GentleCrab.class)
+			.t("name", "绅士蟹")
+			.t("desc", "为什么这只螃蟹和你那么好？因为对你而言，它很熟。它的钳击还能破坏护甲。");
+	}
+
 	{
 		spriteClass = GentleCrabSprite.class; cooldown = 50; baseSpeed = 1.5f; properties.add(Property.FISHER); updateStats(true);
 	}

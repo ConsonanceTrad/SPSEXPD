@@ -43,8 +43,17 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class VaultLaser extends NPC {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(VaultLaser.class)
+			.t("name", "解离哨卫")
+			.t("ondeath", "你被解离光束射穿了...")
+			.t("desc", "这些哨卫会以固定或者半随机的周期发射解离光束。尽管解离光束看起来很危险，不过至少其扫描路径有迹可循。这些解离光束足够强大，凭你的力量极难抵御，也许_你该试着想办法躲开它们_。");
+	}
+
 
 	{
 		spriteClass = SentrySprite.VaultLaser.class;

@@ -12,8 +12,21 @@ import pd.sprites.CharSprite;
 import pd.sprites.FairySprite;
 import pd.sprites.SugarplumFairySprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class FairyCard extends SpsSummonItem {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(FairyCard.class)
+			.t("name", "仙女卡片")
+			.t("ac_active", "使用")
+			.t("desc", "进行一次抽卡，并召唤一只仙女。")
+			.t("fairy.name", "生命仙女")
+			.t("fairy.desc", "一只寿命短暂的仙女，会跟随你并治疗附近的伤口。")
+			.t("sugarplumfairy.name", "术士仙女")
+			.t("sugarplumfairy.desc", "被领袖之力强化的仙女，既能治疗主人，也能攻击附近的敌人。");
+	}
+
 
 	private static boolean activate;
 

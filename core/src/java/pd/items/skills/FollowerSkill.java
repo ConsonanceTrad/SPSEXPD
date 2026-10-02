@@ -14,9 +14,21 @@ import pd.items.equipment.bags.Bag;
 import pd.scenes.GameScene;
 import pd.windows.WndBag;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The four follower class skills from SPS-PD 0.9.8. */
 public class FollowerSkill extends ClassSkill {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(FollowerSkill.class)
+			.t("name", "信徒技能")
+			.t("ac_special", "祈祷")
+			.t("ac_special_two", "资金募集")
+			.t("ac_special_three", "渎神")
+			.t("ac_special_four", "祝福术")
+			.t("desc", "_祈祷：_保持原地会逐回合提高攻击与伤害减免，强度过高后消耗金币。达到56级后蓄力速度翻倍。\n\n_资金募集（21级）：_召集全部生物，并根据其数量获得随机施舍。达到56级后同时获得金币。\n\n_渎神（31级）：_消耗40点永久生命上限，换取力量、攻击、闪避、魔力和永久伤害提升。达到56级后获得两层伤害提升。\n\n_祝福术（41级）：_强化一件选中的装备。达到56级后同时解除其诅咒。");
+	}
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 
 	@Override public void doSpecial() {

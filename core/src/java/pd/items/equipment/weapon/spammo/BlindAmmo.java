@@ -9,8 +9,16 @@ import pd.actors.damagetype.DamageType;
 import pd.effects.Speck;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class BlindAmmo extends SpAmmo {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(BlindAmmo.class)
+			.t("name", "闪光弹")
+			.t("desc", "将原石和致盲种锻造而成的特殊子弹，能使武器附带致盲效果。");
+	}
+
 	private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing(0xFFFF44);
 	@Override public ItemSprite.Glowing glowing() { return YELLOW; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {

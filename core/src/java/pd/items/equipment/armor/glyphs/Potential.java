@@ -29,8 +29,16 @@ import pd.items.equipment.armor.Armor;
 import pd.sprites.ItemSprite.Glowing;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Potential extends Glyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Potential.class)
+			.t("name", "电势%s")
+			.t("desc", "这个刻印在被击中时会积蓄能量，在生效时为使用者的法杖充能。");
+	}
+
 	
 	private static ItemSprite.Glowing WHITE = new ItemSprite.Glowing( 0xFFFFFF, 0.6f );
 	

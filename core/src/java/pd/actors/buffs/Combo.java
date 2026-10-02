@@ -51,8 +51,35 @@ import render.noosa.audio.Sample;
 import render.utils.data.BArray;
 import render.utils.data.Callback;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Combo extends Buff implements ActionIndicator.Action {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Combo.class)
+			.t("name", "连击")
+			.t("action_name", "连击")
+			.t("combo", "%d连击！")
+			.t("bad_target", "你的目标必须是攻击距离以内的敌人。")
+			.t("prompt", "选择一个攻击目标")
+			.t("desc", "角斗士在成功击中对手时会积累战斗气势。每次攻击命中都会增加1次连击，但长时间不进行攻击，连击数就会归零。只要角斗士仍在积攒连击，其破碎纹章提供的护盾就不会衰减。\n积攒连击可以激活必定命中的连击战技！当连击数到达2、4、6、8、10时可分别激活不同的连击战技。部分连击战技会重置连击数，部分则不会，但每种连击战技在每次连击中只能使用一次。\n\n当前连击：%1$d\n\n连击归零剩余回合：%2$s")
+			.t("combomove.clobber.name", "冲击")
+			.t("combomove.clobber.desc", "将一名敌人击退2格，但不造成伤害，也不能将其击落深渊。提升1点连击数。")
+			.t("combomove.clobber.empower_desc", "将一名敌人_击退3格，施加眩晕，并且可以将其击落深渊_，但不造成伤害。提升1点连击数。")
+			.t("combomove.slam.name", "撞击")
+			.t("combomove.slam.desc", "造成等同于自身防御%d%%(连击数x20%%)的额外伤害。使用后重置连击数。")
+			.t("combomove.slam.empower_desc", "_跳跃最多%1$d格以接近目标_，并对其造成等同于自身防御%2$d%%(连击数x20%%)的额外伤害。使用后重置连击数。")
+			.t("combomove.parry.name", "招架")
+			.t("combomove.parry.desc", "使用后，招架下一回合内受到的首次攻击，并立即进行反击。若未触发招架，则重置连击数。")
+			.t("combomove.parry.empower_desc", "使用后，招架下一回合内受到的_所有攻击_，并立即进行反击。若未触发招架，则重置连击数。")
+			.t("combomove.crush.name", "横扫")
+			.t("combomove.crush.desc", "对目标造成%d%%(连击数x25%%)的伤害，并对7x7范围内的其它敌人造成一半伤害。使用后重置连击数。")
+			.t("combomove.crush.empower_desc", "_跳跃最多%1$d格以接近目标_，对主要目标造成%2$d%%（连击数x25%%）的伤害，并对7x7范围内的其它敌人造成一半伤害。使用后重置连击数。")
+			.t("combomove.fury.name", "暴雨")
+			.t("combomove.fury.desc", "你每有1点连击数便对一个敌人攻击一次，每次攻击造成60%伤害，并可触发武器附魔。使用后重置连击数。")
+			.t("combomove.fury.empower_desc", "_跳跃最多%d格以接近目标_，并根据你当前的连击数对敌人发动同等次数的攻击，每次攻击造成60%%的伤害并可触发附魔效果。使用后重置连击数。");
+	}
+
 
 	{
 		type = buffType.POSITIVE;

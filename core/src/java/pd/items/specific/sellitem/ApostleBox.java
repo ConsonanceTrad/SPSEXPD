@@ -18,9 +18,22 @@ import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Apostle's single-use chaos box with the original four equiprobable outcomes. */
 public class ApostleBox extends SellItem {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ApostleBox.class)
+			.t("name", "Apostle混沌之盒")
+			.t("ac_apply", "摇晃")
+			.t("desc", "从混沌中归来的盒子，摇一下就会有事情发生。")
+			.t("red", "盒子发出了红色的光。")
+			.t("green", "盒子发出了绿色的光。")
+			.t("blue", "盒子发出了蓝色的光。")
+			.t("violet", "盒子发出了紫色的光。");
+	}
+
 
 	public static final String AC_APPLY = "APPLY";
 

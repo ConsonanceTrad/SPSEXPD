@@ -8,8 +8,16 @@ import pd.actors.blobs.damageblobs.IceEffectDamage;
 import pd.actors.blobs.effectblobs.FrostCloud;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.FrostIce;
+import pd.messages.InlineText;
 
 public class IceFruit extends SpsFruit {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(IceFruit.class)
+			.t("name", "冰霜果")
+			.t("desc", "人工种植的冰冠花结出的果实。直接命中会冻伤目标，落地则会释放寒霜雾气。");
+	}
+
 	public IceFruit() { this(1); }
 	public IceFruit(int number) { super(ConsumPotionSeedSeedDict.SEED_ICECAP, 10, 10); quantity(number); }
 	@Override protected void onThrow(int cell) {

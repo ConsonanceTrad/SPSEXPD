@@ -4,9 +4,17 @@ package pd.actors.buffs;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Persistent shield which only absorbs damage whose source is another character. */
 public class ShieldArmor extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ShieldArmor.class)
+			.t("name", "物理护盾")
+			.t("desc", "物理护盾会吸收由其他角色直接造成的伤害。剩余护盾：%s。");
+	}
+
 	private static final String LEVEL = "level";
 	private int level;
 

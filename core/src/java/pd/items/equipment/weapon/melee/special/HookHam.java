@@ -8,8 +8,16 @@ import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
 import pd.effects.Speck;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class HookHam extends SpsSpecialMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(HookHam.class)
+			.t("name", "钩子和火腿")
+			.t("desc", "是时候来cos海盗了。2018暑假快乐！\n礼物，恢复，割裂");
+	}
+
 	public HookHam() { super(1, 1f, 1f, 1, 1, 5, SpecificPlaceHolderDict.SOMETHING_0); usesTargeting = true; }
 
 	@Override public int proc(Char attacker, Char defender, int damage) {

@@ -36,8 +36,22 @@ import pd.sprites.GnollKingSprite;
 import pd.ui.BossHealthBar;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class GnollKing extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GnollKing.class)
+			.t("name", "哈格")
+			.t("desc", "哈格是豺狼人的头领，守着大量财宝，还会召唤亲卫协助战斗。")
+			.t("angry", "你惹火我了！")
+			.t("notice", "谁敢擅闯我的宝库？！")
+			.t("die", "我的……财宝……")
+			.t("gnollkeeper.name", "豺狼卫士")
+			.t("gnollkeeper.desc", "豺狼王的亲卫队，绝大多数时间都在看守宝库。")
+			.t("gnollkeeper.safe", "放弃抵抗！");
+	}
+
 	private int breaks;
 
 	{

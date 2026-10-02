@@ -8,9 +8,17 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Leaves delayed fire beneath the affected character for thirty turns. */
 public class FireFollower extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(FireFollower.class)
+			.t("name", "火焰跟随")
+			.t("desc", "你的脚下冒着蒸汽。\n\n剩余时间：%s。");
+	}
+
 
 	public static final float DURATION = 30f;
 	private float left;

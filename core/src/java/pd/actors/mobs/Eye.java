@@ -46,8 +46,17 @@ import pd.utils.GLog;
 import render.noosa.tweeners.AlphaTweener;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Eye extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Eye.class)
+			.t("name", "邪恶之眼")
+			.t("deathgaze_kill", "你死于死亡凝视...")
+			.t("desc", "这种恶魔还有一个名字叫做“憎恶之球”，因为它在看到敌人时会毫无顾忌地使用它的死亡射线，而根本不顾及队友的存在。");
+	}
+
 	
 	{
 		spriteClass = EyeSprite.class;

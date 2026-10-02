@@ -11,8 +11,16 @@ import pd.items.consum.food.completefood.PetFood;
 import pd.items.consum.food.meatfood.MeatFood;
 import pd.sprites.DogPetSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class DogPet extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(DogPet.class)
+			.t("name", "忠犬")
+			.t("desc", "在地表世界追随你旅行的大狗，无论是在何处，哪怕是怪物丛生的地下，它依旧会尽忠尽责地守护你的安全。");
+	}
+
 	{
 		spriteClass = DogPetSprite.class;
 		cooldown = 50;

@@ -46,8 +46,16 @@ import render.utils.serialize.Reflection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import pd.messages.InlineText;
 
 public class UnstableSpell extends Spell {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(UnstableSpell.class)
+			.t("name", "无序结晶")
+			.t("desc", "这块黑色方形小水晶的每个面都浮动着变幻莫测的符文。\n\n激活时，它将随机触发一种卷轴效果，若视野内存在敌人，则必定触发战斗类卷轴效果，反之则必定触发非战斗类卷轴效果。");
+	}
+
 
 	{
 		image = ConsumScrollAmuletCrystalDict.UNSTABLE_SPELL_0;

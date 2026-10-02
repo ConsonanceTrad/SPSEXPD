@@ -36,8 +36,16 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class SpectralNecromancer extends Necromancer {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SpectralNecromancer.class)
+			.t("name", "幽魂法师")
+			.t("desc", "死灵法师们通常对召唤骷髅欲罢不能，但其中某些个体却偏爱使唤更为缥缈无形的造物。幽魂法师们便选择了怨灵作为他们的爪牙！\n\n怨灵的个体战斗力或许不如骷髅，但这帮幽魂法师无论召唤出多少手下都不嫌多！");
+	}
+
 
 	{
 		spriteClass = SpectralNecromancerSprite.class;

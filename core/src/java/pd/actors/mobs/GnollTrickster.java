@@ -37,8 +37,18 @@ import pd.scenes.GameScene;
 import pd.sprites.GnollTricksterSprite;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class GnollTrickster extends Gnoll {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GnollTrickster.class)
+			.t("name", "豺狼猎手")
+			.t("rankings_desc", "被豺狼诡术师智取")
+			.t("desc", "即使以豺狼人的标准来看，这个生物也非常的诡异。它鬼鬼祟祟地弯着腰向前移动，脸上挂着咧着嘴的邪恶笑容，肩上挂着的挎包鼓得同摇篮一般。它的瞳孔中诡异地混合着恐惧与兴奋。\n\n它的挎包里有一大批粗制滥造的飞镖，它们似乎包含着各种有害物质。")
+			.t("discover_hint", "你可在某个任务中遇到该敌人。");
+	}
+
 
 	{
 		spriteClass = GnollTricksterSprite.class;

@@ -42,8 +42,18 @@ import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import pd.messages.InlineText;
 
 public class ScrollOfDivination extends ExoticScroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfDivination.class)
+			.t("name", "预知秘卷")
+			.t("nothing_left", "没有可以鉴定的道具了！")
+			.t("desc", "这张秘卷会随机鉴定四种你尚未明确的道具。它可能帮你鉴定出某药剂的颜色，某卷轴的符文，或是某戒指的宝石。不过被鉴定的道具未必是你包裹中有的。")
+			.t("wnddivination.desc", "你的预知秘卷鉴定了下列道具：");
+	}
+
 	
 	{
 		icon = ItemIconSheet.SCROLL_DIVINATE;

@@ -43,9 +43,23 @@ import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** The non-equippable Lloyd's beacon from SPS-PD 0.9.8. */
 public class LloydsBeacon extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(LloydsBeacon.class)
+			.t("name", "时空道标")
+			.t("ac_set", "设置")
+			.t("ac_return", "返回")
+			.t("preventing", "这里强大的魔力流使你无法使用时空道标！")
+			.t("creatures", "邻近生物的心灵信号正在干扰你的时空道标并使其无法被使用。")
+			.t("return", "时空道标被成功设置在了你的当前位置，现在你可以随时返回这里。")
+			.t("desc", "时空道标是一种结构精巧的魔法装置，可以让你返回曾经到过的地方。")
+			.t("desc_set", "信标被设置在了像素地牢第%d层的某处。");
+	}
+
 
 	public static final float TIME_TO_USE = 1f;
 

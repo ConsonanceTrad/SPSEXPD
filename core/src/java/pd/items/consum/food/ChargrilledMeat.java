@@ -24,8 +24,17 @@ package pd.items.consum.food;
 import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.actors.buffs.Hunger;
+import pd.messages.InlineText;
 
 public class ChargrilledMeat extends Food {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ChargrilledMeat.class)
+			.t("name", "烤肉")
+			.t("desc", "看起来像块好肉排。")
+			.t("discover_hint", "你可使用另一种食物制作该物品。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

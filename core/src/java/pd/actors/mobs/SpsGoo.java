@@ -53,9 +53,24 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Original 350 HP SPS sewer Goo and its splitting poison offspring. */
 public class SpsGoo extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SpsGoo.class)
+			.t("name", "黏咕")
+			.t("desc", "我们对黏咕所知甚少。它甚至可能不是生物，而是下水道中的污秽物质在黑暗魔法作用下获得了基本智能。它的凝胶躯体储存着大量黑暗能量，蓄满力量的一击极其危险。")
+			.t("atk", "黏咕正在不断地抽动！")
+			.t("notice", "咕-咕！")
+			.t("die", "咕……咕……")
+			.t("poisongoo.name", "毒性黏咕")
+			.t("poisongoo.desc", "从黏咕身上分裂出的迅捷有毒碎块。只要本体还活着，它就能继续分裂。")
+			.t("poisongoo.notice", "咕-咕！")
+			.t("poisongoo.die", "咕……咕……");
+	}
+
 
 	private int pumpedUp;
 	private boolean spawnedMini;

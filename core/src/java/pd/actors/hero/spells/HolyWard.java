@@ -34,8 +34,23 @@ import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class HolyWard extends ClericSpell {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(HolyWard.class)
+			.t("name", "神圣护甲")
+			.t("glyph_name", "神圣%s")
+			.t("glyph_desc", "这个刻印略微增加了护甲可防御的伤害量。")
+			.t("short_desc", "临时覆盖刻印以强化护甲防御。")
+			.t("desc", "牧师赋予其身穿护甲神圣刻印，增加护甲1点防御。该法术施法不耗时。\n\n该刻印持续50回合，并会在持续时间内覆盖任何护甲已有的正面刻印。牧师即使没有护甲也能触发神圣刻印效果。")
+			.t("desc_paladin", "_圣骑士施放该法术时效果更强。_神圣护甲的额外伤害防御提升至3点并不再覆盖已有的附魔，而在神圣护甲生效时施放其他法术所使用的每点充能都会延长10回合的法术效果。")
+			.t("holyarmbuff.name", "神圣护甲")
+			.t("holyarmbuff.desc", "牧师已赋予其身穿护甲神圣刻印，临时覆盖任何已有刻印并使护甲额外防御1点伤害。\n\n剩余回合数：%s")
+			.t("holyarmbuff.desc_paladin", "圣骑士已赋予其身穿护甲神圣刻印，使护甲额外防御3点伤害。\n\n神圣护甲生效时施放其他法术所消耗的每点充能都会延长法术效果10回合。\n\n剩余回合数：%s");
+	}
+
 
 	public static final HolyWard INSTANCE = new HolyWard();
 

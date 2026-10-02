@@ -20,8 +20,20 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class JumpM extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(JumpM.class)
+			.t("name", "法师之鞋")
+			.t("ac_jump", "闪烁")
+			.t("prompt", "选择闪烁的目的地点")
+			.t("rest", "法师之鞋的充能不足。")
+			.t("charge", "充能：%1$d / %2$d。")
+			.t("desc", "法师的训练使其可以闪烁至多三格，并有60%%概率获得短暂的奥术专注，使法杖伤害翻倍。");
+	}
+
 	public static final String AC_JUMP = "JUMP";
 	public static final int FULL_CHARGE = 50;
 	public static final int JUMP_COST = 15;

@@ -23,8 +23,17 @@ package pd.actors.buffs;
 
 import pd.actors.Char;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class Roots extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Roots.class)
+			.t("name", "缠绕")
+			.t("heromsg", "你不能移动了！")
+			.t("desc", "一些根系(不论是自然或魔法产生)缠到了脚上，牢牢将其缚在地面。\n\n根系会让目标被困在当前区域，使其不能移动或使用大部分移动技能。其他行动不受干扰，包括传送效果。\n\n缠绕效果剩余时长：%s回合");
+	}
+
 
 	public static final float DURATION = 5f;
 

@@ -14,8 +14,16 @@ import pd.actors.buffs.Vertigo;
 import pd.actors.hero.Hero;
 import pd.items.consum.food.Food;
 import pd.sprites.ItemSprite;
+import pd.messages.InlineText;
 
 public class ShockMeat extends MeatFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ShockMeat.class)
+			.t("name", "炸里脊")
+			.t("desc", "经过强电流加工的肉，香酥可口，食用后令人神清气爽。");
+	}
+
 	private static final ItemSprite.Glowing GREEN = new ItemSprite.Glowing(0x00FF00);
 	{
 		image = ConsumFoodFoodDict.MEAT;

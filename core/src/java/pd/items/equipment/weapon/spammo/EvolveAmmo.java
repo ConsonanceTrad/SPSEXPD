@@ -11,8 +11,16 @@ import pd.effects.Speck;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class EvolveAmmo extends SpAmmo {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(EvolveAmmo.class)
+			.t("name", "退化弹")
+			.t("desc", "将原石和转换种锻造而成的特殊子弹，能将普通目标退化为生命细胞。");
+	}
+
 	private static final ItemSprite.Glowing DEEP_GREEN = new ItemSprite.Glowing(0x006633);
 	@Override public ItemSprite.Glowing glowing() { return DEEP_GREEN; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {

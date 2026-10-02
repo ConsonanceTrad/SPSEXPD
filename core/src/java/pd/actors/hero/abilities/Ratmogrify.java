@@ -55,8 +55,22 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import pd.messages.InlineText;
 
 public class Ratmogrify extends ArmorAbility {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Ratmogrify.class)
+			.t("name", "鼠化术")
+			.t("cant_transform", "这个目标无法被鼠化！")
+			.t("too_strong", "这名敌人过于强大，鼠化术无效！")
+			.t("short_desc", "你可以施展_鼠化术_将目标敌人变形！敌人会暂时变为失去所有特殊能力的老鼠。")
+			.t("desc", "你能将敌人变为老鼠6回合！不过你无法变形Boss，盟友或是老鼠本身。\n\n鼠化的敌人会继承原属性值，但失去所有特殊能力。")
+			.t("transmograt.name", "鼠化%s")
+			.t("transmograt.desc", "这名敌人被变成了一只老鼠。对我来说的话，都是好事！——鼠王")
+			.t("transmograt.rankings_desc", "死于：鼠化敌人");
+	}
+
 
 	{
 		baseChargeUse = 50f;

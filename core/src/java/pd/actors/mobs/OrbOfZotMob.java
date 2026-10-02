@@ -20,9 +20,18 @@ import render.noosa.particles.Emitter;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Immobile allied beam turret produced by a fully charged Orb of Zot. */
 public class OrbOfZotMob extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(OrbOfZotMob.class)
+			.t("name", "zot牌能源球")
+			.t("desc", "你启动了zot牌能源球。它在攻击附近的怪物！")
+			.t("die", "机体过热，关闭...");
+	}
+
 
 	private static final float SPAWN_DELAY = 1f;
 	private Ballistica beam;

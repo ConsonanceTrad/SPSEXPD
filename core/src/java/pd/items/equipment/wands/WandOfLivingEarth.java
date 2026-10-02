@@ -53,8 +53,29 @@ import render.utils.data.Callback;
 import render.utils.math.ColorMath;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class WandOfLivingEarth extends DamageWand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfLivingEarth.class)
+			.t("name", "灵壤法杖")
+			.t("staff_name", "灵壤魔杖")
+			.t("desc", "这根法杖由一种奇妙的石头组成，你能从几道微微发光的黄色条纹中感受到能量波动。握住法杖时石头好像会稍稍转动，仿佛在迎合你的手。")
+			.t("stats_desc", "这根法杖能向敌人发射魔法泥石，造成_%1$d~%2$d点伤害_。泥石随后会回归使用者身边，根据造成的伤害重组成灵壤护甲。灵壤护甲积累到一定程度后，下次使用法杖时会成型为一尊灵壤守卫。")
+			.t("upgrade_stat_name_2", "守卫最大生命值")
+			.t("upgrade_stat_name_3", "守卫防御")
+			.t("bmage_desc", "当_战斗法师_以灵壤魔杖近战攻击目标时，能将部分近战伤害转化为灵壤护甲。")
+			.t("eleblast_desc", "灵壤魔杖的元素风暴造成50%伤害，每击中一个目标，治疗已激活的灵壤守卫一次。")
+			.t("rockarmor.name", "灵壤护甲")
+			.t("rockarmor.desc", "魔法泥石环绕在你身边，当你被攻击时泥石会尽其所能进行格挡，从而为你抵消50%%所受伤害。不过，抵消伤害会消除一定量的泥石。\n\n剩余护甲量：%1$d\n\n当积攒的泥石达到一定程度时，下一次发动灵壤法杖会使泥石成型为一尊灵壤守卫为你而战。\n\n守卫成型所需护甲量：%2$d")
+			.t("rockarmor.desc_many", "该灵壤守卫已被万物一心强化。剩余回合数：%d")
+			.t("earthguardian.name", "灵壤守卫")
+			.t("earthguardian.desc", "灵壤法杖发射的魔法泥石组成了一尊灵壤守卫！这个有棱有角的大块头会攻击附近的敌人，迫使他们去攻击守卫。当附近没有危险时，守卫会重组为你身边的灵壤护甲，等待你下次使用法杖召唤它。")
+			.t("earthguardian.wand_info", "守卫的防御力与你的法杖等级相关。它当前能抵挡_%1$d~%2$d点伤害_。")
+			.t("earthguardian.discover_hint", "你可通过某根法杖遇到该单位。");
+	}
+
 	
 	{
 		image = EquipmentWandBasicWandDict.WAND_LIVING_EARTH_0;

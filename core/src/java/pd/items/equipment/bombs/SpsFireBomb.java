@@ -15,8 +15,16 @@ import pd.items.Item;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class SpsFireBomb extends Bomb {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SpsFireBomb.class)
+			.t("name", "火焰炸弹")
+			.t("desc", "在爆炸范围内制造火焰和焦油雾。");
+	}
+
 	{ image = EquipmentEquipWeaponBombDict.FIRE_BOMB_0; }
 	@Override public void explode(int cell) {
 		super.explode(cell);

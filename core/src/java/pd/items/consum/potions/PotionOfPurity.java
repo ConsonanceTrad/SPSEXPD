@@ -38,8 +38,18 @@ import render.noosa.audio.Sample;
 import render.utils.data.BArray;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class PotionOfPurity extends Potion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfPurity.class)
+			.t("name", "净化药剂")
+			.t("freshness", "你闻到了空气中不寻常的清新气息。")
+			.t("protected", "你被一层薄薄的魔法屏障包裹住了！")
+			.t("desc", "这种魔法试剂能迅速中和掉大范围内的各种有害环境。饮用它将使你暂时免疫这种环境。");
+	}
+
 	
 	private static final int DISTANCE	= 3;
 	

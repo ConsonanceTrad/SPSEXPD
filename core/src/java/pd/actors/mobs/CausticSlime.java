@@ -29,8 +29,17 @@ import pd.items.quest.GooBlob;
 import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.CausticSlimeSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class CausticSlime extends Slime {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(CausticSlime.class)
+			.t("name", "蚀化史莱姆")
+			.t("desc", "这个史莱姆似乎已经被下方渗透的黑暗能量完全侵蚀了。它已经失去了体表原有的绿色光泽，并且在不断滴落腐蚀淤泥。")
+			.t("discover_hint", "你可在某个地牢区域中中碰巧遇到该敌人。");
+	}
+
 	
 	{
 		spriteClass = CausticSlimeSprite.class;

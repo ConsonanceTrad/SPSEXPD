@@ -36,8 +36,17 @@ import pd.sprites.DM100Sprite;
 import pd.utils.GLog;
 import render.utils.data.Callback;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class DM100 extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(DM100.class)
+			.t("name", "DM-100")
+			.t("zap_kill", "你死于闪电...")
+			.t("desc", "DM-100是一种矮人“防卫机械”的早期机型，用来保护下层矿洞中的矮人矿工。然而由于电击威力不足，它们之后被送给上层的人类城市。尽管典狱长起初仍然认为DM-100太过残忍，但在闲置数年后，它们最终还是被用于监狱。然而随着时间推移，囚犯变得越来越难以控制，这使得DM-100成为了监狱的必备品。");
+	}
+
 
 	private static final float TIME_TO_ZAP	= 1f;
 	

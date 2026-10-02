@@ -10,8 +10,17 @@ import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Trush extends RockCode {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Trush.class)
+			.t("name", "墓石冲击")
+			.t("desc", "来自坦克的技能芯片，投出沉重墓碑并破坏目标地面。")
+			.t("stats_desc", "消耗4点能量中的1点，造成四倍等级伤害，并将普通地形变为装饰地面。");
+	}
+
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "T.r"; }
 	@Override protected int missileType() { return MagicMissile.EARTH; }
 	@Override protected void onZap(Ballistica bolt) {

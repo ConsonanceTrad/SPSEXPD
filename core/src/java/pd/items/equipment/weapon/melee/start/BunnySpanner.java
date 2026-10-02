@@ -8,8 +8,16 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Paralysis;
 import pd.items.equipment.weapon.melee.normalweapon.NormalMeleeWeapon;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class BunnySpanner extends NormalMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(BunnySpanner.class)
+			.t("name", "兔人扳手")
+			.t("desc", "兔人战士使用的巨大扳手。每次命中有30%%概率使目标麻痹。");
+	}
+
 	public BunnySpanner() {
 		super(1, 1.2f, 1.5f, 2, 8, 15, SpecificPlaceHolderDict.SOMETHING_0);
 		unique = true;

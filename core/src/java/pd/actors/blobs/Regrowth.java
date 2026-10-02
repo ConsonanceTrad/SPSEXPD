@@ -31,8 +31,15 @@ import pd.effects.particles.LeafParticle;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
+import pd.messages.InlineText;
 
 public class Regrowth extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Regrowth.class)
+			.t("name", "草木再生");
+	}
+
 	
 	@Override
 	protected void evolve() {

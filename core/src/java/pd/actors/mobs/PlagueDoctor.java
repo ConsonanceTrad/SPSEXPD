@@ -45,8 +45,22 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class PlagueDoctor extends LegacyDualLootMob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(PlagueDoctor.class)
+			.t("name", "瘟疫医生")
+			.t("desc", "这是一个不被认可的研究者。在被带到这个世界后，他彻底疯了，并会随着战斗进行变得愈发危险。")
+			.t("notice", "所以……你是来帮我做研究的吗？")
+			.t("yell", "放心，这不会痛的……我会证明给你看……")
+			.t("yell2", "老鼠……它们到处都是……我们完了……")
+			.t("crazy", "瘟疫医生的信念正在经受考验……狂乱！")
+			.t("shadowrat.name", "瘟疫之影")
+			.t("shadowrat.desc", "一种奇怪的影子，外形和老鼠差不多。");
+	}
+
 	private static final String BREAKS = "breaks";
 	private static final String SPAWNED_SHADOW = "spawned_shadow";
 	private int breaks;

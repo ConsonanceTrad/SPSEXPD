@@ -4,9 +4,17 @@ package pd.actors.buffs;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** SPS fatigue: taking sixteen hits before it expires triggers backlash damage. */
 public class BeTired extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(BeTired.class)
+			.t("name", "疲劳")
+			.t("desc", "每次受到攻击都会累积一层疲劳。在状态结束前累积十六层时，会受到最大生命值10%%的伤害。\n\n剩余回合：%1$s。还需受击：%2$d。");
+	}
+
 
 	private static final String LEVEL = "level";
 	private static final String LEFT = "left";

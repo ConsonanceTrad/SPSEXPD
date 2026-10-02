@@ -27,9 +27,18 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import pd.messages.InlineText;
 
 /** SFB's expanding fire-wave wand from SPS-PD 0.9.8. */
 public class WandOfShatteredFireblast extends DamageWand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfShatteredFireblast.class)
+			.t("name", "破碎暴风火杖")
+			.t("desc", "这根火属性法杖是工会法师的武器，它能释放大范围的火焰波。")
+			.t("stats_desc", "该法杖会消耗%1$d点充能，造成_%2$d~%3$d点伤害_，并使敌人困在火焰中。");
+	}
+
 
 	private static final ItemSprite.Glowing WHITE = new ItemSprite.Glowing(0xFFFFFF);
 	private Set<Integer> affectedCells = new HashSet<>();

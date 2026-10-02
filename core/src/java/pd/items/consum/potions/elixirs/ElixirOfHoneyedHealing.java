@@ -35,8 +35,16 @@ import pd.actors.mobs.Bee;
 import pd.items.Honeypot;
 import pd.items.consum.potions.PotionOfHealing;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class ElixirOfHoneyedHealing extends Elixir {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ElixirOfHoneyedHealing.class)
+			.t("name", "圣愈蜜药")
+			.t("desc", "这瓶秘药不仅有着治愈效果，还混杂了蜂蜜的甜香。饮用后，它会触发与治疗药剂一样的效果并回复少量饥饿，它也能被丢出去用来治疗盟友。\n\n对喜爱蜂蜜的生物使用此物也可能安抚住它们。");
+	}
+
 	
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

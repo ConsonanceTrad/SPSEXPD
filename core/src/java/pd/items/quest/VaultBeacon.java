@@ -29,8 +29,17 @@ import pd.items.consum.scrolls.ScrollOfTeleportation;
 import pd.items.consum.spells.Spell;
 import pd.journal.Catalog;
 import pd.sprites.ItemSprite;
+import pd.messages.InlineText;
 
 public class VaultBeacon extends Spell {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(VaultBeacon.class)
+			.t("name", "宝库信标")
+			.t("desc", "这个信标内含的魔法似乎能带你回到一个特定的位置，目的地很可能就是你找到它的那个房间。\n\n你可以用它节省一点探索的时间，若是身处险境也可以用它逃出生天。")
+			.t("discover_hint", "你可在某个任务中找到该物品。");
+	}
+
 
 	{
 		image = ConsumScrollAmuletCrystalDict.RETURN_BEACON_0;

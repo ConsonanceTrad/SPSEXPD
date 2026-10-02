@@ -24,8 +24,17 @@ package pd.items.quest;
 import pd.atlas.items.ConsumGoodsMaterialsMaterialsDict;
 
 import pd.items.Item;
+import pd.messages.InlineText;
 
 public class ImpStatue extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ImpStatue.class)
+			.t("name", "黑曜石雕像")
+			.t("desc", "一块小小的漆黑雕塑，由黑曜石雕成。它的外表与委托你进入宝库的那位小恶魔神似，连那闪亮的绿眼睛也颇为相像。雕像的底座上用你没有见过的语言刻着一串铭文。")
+			.t("discover_hint", "你可在某个任务中找到该物品。");
+	}
+
 
 	{
 		image = ConsumGoodsMaterialsMaterialsDict.STATUE_0;

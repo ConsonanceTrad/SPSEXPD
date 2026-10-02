@@ -37,8 +37,20 @@ import pd.ui.AttackIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
+import pd.messages.InlineText;
 
 public class Mace extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Mace.class)
+			.t("name", "硬头锤")
+			.t("stats_desc", "这是一件比较精准的武器。")
+			.t("ability_name", "重击")
+			.t("typical_ability_desc", "决斗家可以用硬头锤使出_重击_。这用尽全力的一击如果是在伏击敌人，则一般会造成_%1$d~%2$d点伤害_并施加5回合的恍惚，使其精准与闪避均降低50%%。重击必定命中，但若非伏击则只会造成普通的伤害。")
+			.t("ability_desc", "决斗家可以用硬头锤使出_重击_。这用尽全力的一击如果是在伏击敌人，则会造成_%1$d~%2$d点伤害_并施加5回合的恍惚，使其精准与闪避均降低50%%。重击必定命中，但若非伏击则只会造成普通的伤害。")
+			.t("desc", "这把武器前端的大型铁头能够造成可观的伤害。");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.MACE_0;

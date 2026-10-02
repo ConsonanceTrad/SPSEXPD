@@ -10,8 +10,16 @@ import pd.actors.buffs.Charm;
 import pd.items.Item;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Wave extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Wave.class)
+			.t("name", "声波诱饵")
+			.t("desc", "这种投掷武器会魅惑目标、使其狂乱，并撕去其四分之一的剩余生命。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

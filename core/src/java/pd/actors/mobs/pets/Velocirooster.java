@@ -8,8 +8,18 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.VelociroosterSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Velocirooster extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Velocirooster.class)
+			.t("name", "公鸡")
+			.t("desc", "这只公鸡比同类更加凶猛。它在地牢中穿行，并用尖锐的爪子和喙攻击。")
+			.t("yell1", "鸡你太美！！！")
+			.t("yell2", "你~干~嘛~");
+	}
+
 	{
 		spriteClass = VelociroosterSprite.class;
 		baseSpeed = 1.5f;

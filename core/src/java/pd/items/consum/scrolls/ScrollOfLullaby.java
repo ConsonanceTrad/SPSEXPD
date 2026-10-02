@@ -33,8 +33,17 @@ import pd.messages.Messages;
 import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class ScrollOfLullaby extends Scroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfLullaby.class)
+			.t("name", "催眠卷轴")
+			.t("sooth", "卷轴发出了某种舒缓的旋律。你觉得非常困倦。")
+			.t("desc", "阅读这张卷轴会释放出一段舒缓的旋律，让所有听到它的生物深陷魔法睡眠。这种睡眠有益于阅读者及友方单位的健康。");
+	}
+
 
 	{
 		icon = ItemIconSheet.SCROLL_LULLABY;

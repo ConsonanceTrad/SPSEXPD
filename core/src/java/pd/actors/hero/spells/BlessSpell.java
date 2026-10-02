@@ -40,8 +40,17 @@ import pd.sprites.CharSprite;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class BlessSpell extends TargetedClericSpell {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(BlessSpell.class)
+			.t("name", "神圣祝福")
+			.t("short_desc", "使牧师获得祝福和护盾，使其他单位获得祝福和治疗。")
+			.t("desc", "牧师赐自身或视野内一个单位神圣祝福。\n\n当神圣祝福以牧师自身为目标时效果更弱，使其获得%1$d回合赐福与%2$d点护盾。\n\n当神圣祝福以其他单位为目标时效果更强，使其获得%3$d回合赐福与%4$d点治疗。溢出治疗将被转化为护盾。");
+	}
+
 
 	public static final BlessSpell INSTANCE = new BlessSpell();
 

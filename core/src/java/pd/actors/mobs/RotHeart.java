@@ -33,8 +33,17 @@ import pd.plants.Rotberry;
 import pd.scenes.GameScene;
 import pd.sprites.RotHeartSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class RotHeart extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(RotHeart.class)
+			.t("name", "腐莓核心")
+			.t("desc", "腐莓的果实与众不同。一般的果实会腐败并化作养分，但腐莓果实会生长、硬化，并包裹住种子。果实为长在其内的器官提供保护。这种巨大球体被视为成熟腐莓植株的核心。")
+			.t("discover_hint", "你可在某个任务中遇到该敌人。");
+	}
+
 
 	{
 		spriteClass = RotHeartSprite.class;

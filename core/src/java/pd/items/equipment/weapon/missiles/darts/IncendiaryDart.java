@@ -31,8 +31,16 @@ import pd.actors.blobs.Fire;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Burning;
 import pd.scenes.GameScene;
+import pd.messages.InlineText;
 
 public class IncendiaryDart extends TippedDart {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(IncendiaryDart.class)
+			.t("name", "燃烧飞镖")
+			.t("desc", "这些飞镖上涂着一种由烈焰花制成的药物，命中后会燃起烈焰。");
+	}
+
 
 	{
 		image = ConsumThrowsDict.INCENDIARY_DART_0;

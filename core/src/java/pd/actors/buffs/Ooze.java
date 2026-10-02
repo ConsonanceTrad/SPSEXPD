@@ -26,8 +26,19 @@ import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Ooze extends Buff implements Buff.DOTbuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Ooze.class)
+			.t("name", "腐蚀淤泥")
+			.t("heromsg", "淤泥在腐蚀你的身体。洗掉它！")
+			.t("ondeath", "你被彻底融化掉了...")
+			.t("rankings_desc", "被溶解")
+			.t("desc", "这种粘稠的酸性淤泥正在紧贴你的骨肉，并缓慢地将它们腐蚀融化。\n\n腐蚀淤泥会对受害者持续造成伤害，不过能够立刻在水中洗掉。\n\n腐蚀淤泥剩余时长：%s回合");
+	}
+
 
 	public static final float DURATION = 20f;
 

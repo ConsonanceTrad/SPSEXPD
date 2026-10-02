@@ -8,8 +8,16 @@ import pd.actors.buffs.HolyStun;
 import pd.actors.buffs.Recharging;
 import pd.sprites.HaroSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Haro extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Haro.class)
+			.t("name", "哈罗")
+			.t("desc", "阿萨修好的机器。");
+	}
+
 	{
 		spriteClass = HaroSprite.class;
 		cooldown = 10;

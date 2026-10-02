@@ -45,8 +45,22 @@ import render.utils.serialize.Bundle;
 import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class LinkSword extends NormalMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(LinkSword.class)
+			.t("name", "海拉鲁传奇")
+			.t("ac_wisdom", "智慧守护")
+			.t("ac_power", "力量压制")
+			.t("ac_courage", "勇气回旋")
+			.t("charge", "积蓄：%1$d / %2$d。")
+			.t("prompt", "选择目标")
+			.t("no", "无法在那里使用这项能力。")
+			.t("desc", "海拉鲁大陆上的传奇装备，拥有力量、智慧和勇气三种能力。");
+	}
+
 	public static final String AC_POWER="POWER", AC_WISDOM="WISDOM", AC_COURAGE="COURAGE";
 	public static final int FULL_CHARGE=30;
 	private static final String CHARGE="charge", UPTIME="uptime";

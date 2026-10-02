@@ -32,9 +32,20 @@ import render.utils.serialize.Bundle;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import pd.messages.InlineText;
 
 /** The original Spring Festival year beast and its turn-scaled combat rules. */
 public class YearBeast2 extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(YearBeast2.class)
+			.t("name", "年兽")
+			.t("disarm", "年兽解除了你的武装！")
+			.t("desc", "传说中的生物，有着人类的智慧，虎的敏捷，熊的力量，凤的魅力。当然，这一切都是传说而已。")
+			.t("notice", "谁把我吵醒了？！")
+			.t("die", "啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊！！！");
+	}
+
 
 	private static final String TIMES = "times";
 	private static final String GLASS_HITS = "glass_hits";

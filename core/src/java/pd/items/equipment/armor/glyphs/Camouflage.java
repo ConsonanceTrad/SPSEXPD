@@ -29,8 +29,16 @@ import pd.actors.buffs.Invisibility;
 import pd.items.equipment.armor.Armor;
 import pd.sprites.ItemSprite;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class Camouflage extends Armor.Glyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Camouflage.class)
+			.t("name", "迷彩%s")
+			.t("desc", "这个刻印能让使用者与高草融为一体，得到短暂的隐形效果。");
+	}
+
 
 	private static ItemSprite.Glowing GREEN = new ItemSprite.Glowing( 0x448822 );
 

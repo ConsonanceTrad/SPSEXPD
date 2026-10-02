@@ -26,9 +26,17 @@ import pd.atlas.items.ConsumThrowsDict;
 import pd.actors.Char;
 import pd.actors.buffs.Blindness;
 import pd.actors.buffs.Buff;
+import pd.messages.InlineText;
 
 
 public class BlindingDart extends TippedDart {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(BlindingDart.class)
+			.t("name", "致盲飞镖")
+			.t("desc", "这些飞镖上涂着一种由致盲草制成的药物，能让目标失明一小段时间。药效比新鲜的致盲草弱，不会让目标迷失方向，所以目标会记住你之前在的位置。");
+	}
+
 	
 	{
 		image = ConsumThrowsDict.BLINDING_DART_0;

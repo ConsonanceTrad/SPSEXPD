@@ -23,9 +23,17 @@ import pd.actors.blobs.StormCloud;
 import pd.actors.blobs.ToxicGas;
 import pd.actors.blobs.Web;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 /** Protection granted while the hero spends food energy resting in an SPS tent. */
 public class TentSleep extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(TentSleep.class)
+			.t("name", "帐篷睡眠")
+			.t("desc", "你正在帐篷中休息，期间处于隐蔽状态并免疫有害地形。\n\n剩余时间：%s回合");
+	}
+
 
 	{
 		type = buffType.NEUTRAL;

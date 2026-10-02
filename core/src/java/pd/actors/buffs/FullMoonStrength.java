@@ -5,8 +5,17 @@ import pd.Statistics;
 import render.utils.serialize.Bundle;
 
 import java.util.Calendar;
+import pd.messages.InlineText;
 
 public class FullMoonStrength extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(FullMoonStrength.class)
+			.t("name", "满月之力")
+			.t("desc", "你变得非常强大，获得2.5倍的伤害加成。")
+			.t("heromsg", "你变强了！");
+	}
+
 
 	private static final String HITS = "hits";
 

@@ -40,8 +40,17 @@ import pd.ui.HeroIcon;
 import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Cleanse extends ClericSpell {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Cleanse.class)
+			.t("name", "神圣净化")
+			.t("short_desc", "清除减益并获得护盾。")
+			.t("desc", "牧师清除自身和视野内盟友的所有负面状态效果。此后所有受影响的单位还将获得%1$d回合的全面净化和%2$d点护盾。");
+	}
+
 
 	public static Cleanse INSTANCE = new Cleanse();
 

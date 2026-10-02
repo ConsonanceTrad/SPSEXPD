@@ -18,8 +18,19 @@ import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Ankhshield extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Ankhshield.class)
+			.t("name", "神圣护盾")
+			.t("ac_defence", "防卫")
+			.t("rest", "护盾充能不足。")
+			.t("charge", "充能：%1$d / %2$d。")
+			.t("desc", "这个世界的缔造者为英雄准备的神圣道具。释放冲击时，近处敌人会受到伤害和神圣眩晕，视野内较远的敌人则会陷入时间警戒。");
+	}
+
 
 	public static final String AC_DEFENCE = "DEFENCE";
 	public static final int FULL_CHARGE = 100;

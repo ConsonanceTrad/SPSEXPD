@@ -8,8 +8,16 @@ import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.effects.particles.ShadowParticle;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class TekkoKagi extends SpsSpecialMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(TekkoKagi.class)
+			.t("name", "攻击之爪")
+			.t("desc", "看起来像金刚狼爪子的忍者武器。——Typedscroll\n致死");
+	}
+
 	public TekkoKagi() { super(1, 1f, 1f, 1, 6, 12, EquipmentEquipWeaponBasicWeaponDict.SPS_TEKKO_KAGI_0); }
 
 	@Override public int proc(Char attacker, Char defender, int damage) {

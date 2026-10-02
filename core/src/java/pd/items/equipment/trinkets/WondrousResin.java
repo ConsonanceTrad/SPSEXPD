@@ -24,8 +24,18 @@ package pd.items.equipment.trinkets;
 import pd.atlas.items.EquipmentNonEquipDict;
 
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class WondrousResin extends Trinket {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WondrousResin.class)
+			.t("name", "奇迹树脂")
+			.t("desc", "这团泛着微光的蓝色树脂看起来附有某根诅咒法杖魔法的纯化精华。炼金釜中的魔力似乎在一定程度上稳定了树脂的诅咒魔法，而这种魔法现在正影响着你的法杖。")
+			.t("typical_stats_desc", "这件饰物通常会有_%1$s%%_的概率迫使诅咒法杖效果变得无害或有益，还会有_%2$s%%_的概率使无诅咒的法杖施放一次额外的无害或有益的诅咒法杖效果。\n\n这件饰物升级所消耗的炼金能量较多。")
+			.t("stats_desc", "在当前等级下，这件饰物会有_%1$s%%_的概率迫使诅咒法杖效果变得无害或有益，还会有_%2$s%%_的概率使无诅咒的法杖施放一次额外的无害或有益的诅咒法杖效果。\n\n这件饰物升级所消耗的炼金能量较多。");
+	}
+
 
 	{
 		image = EquipmentNonEquipDict.WONDROUS_RESIN_0;

@@ -31,8 +31,16 @@ import pd.items.equipment.armor.Armor;
 import pd.plants.Plant;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Overgrowth extends Armor.Glyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Overgrowth.class)
+			.t("name", "丛生%s")
+			.t("desc", "丛生诅咒的护甲上生长着各种植物。从美学的角度来讲颇为有趣，但这些花花草草对防御力没有任何贡献，只会在战斗中随机发动效果！");
+	}
+
 	
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 	

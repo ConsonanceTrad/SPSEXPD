@@ -64,8 +64,25 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class GnollGeomancer extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GnollGeomancer.class)
+			.t("name", "豺狼地卜师")
+			.t("warning", "地卜师快醒了，先确保你已准备万全再继续！")
+			.t("alert", "地卜师已被惊醒！整个矿洞的结构似乎都随着它癫狂尖啸着的跃离改变了！")
+			.t("rock_kill", "你死于飞来的岩砾...")
+			.t("rockfall_kill", "你死于落石...")
+			.t("rankings_desc", "被豺狼地卜师活埋")
+			.t("desc", "这只身形魁梧的老豺狼人必定是此处豺狼人的领袖，还是此处土灵魔法的根源。与豺狼工兵不同的是，地卜师精通土灵魔法，因此不会被飞岩落石伤到。不过它大概没办法直接攻击近身的敌人。")
+			.t("desc_armor", "地卜师周身环绕着一层磐岩护盾。_你必须用镐子近身破坏岩盾才能进一步伤害地卜师本体。_")
+			.t("desc_armor_sapper", "_一旁的豺狼工兵正握持着一个看起来能强化地卜师磐岩护盾的装置，现在的地卜师免疫一切伤害！_")
+			.t("desc_sleeping", "这只身形魁梧的豺狼萨满周身环绕着一层磐岩，看似一尊雕像。然而仔细观察才发现，这些磐岩是随着老豺狼人的呼吸而律动的流形护盾。它能凭借这种防护不会受到任何伤害，因而在这乱石林立之处悠然休憩。\n\n手中的镐子应该可以击破他的磐岩护盾，但是_此战必须做好充足准备_。地卜师必定是此处豺狼人的领袖，还是此处土灵魔法的根源。_最好能在挑战他前先击败周围散布的其他豺狼人。_")
+			.t("discover_hint", "你可在某个任务中遇到该敌人。");
+	}
+
 
 	{
 		HP = HT = 150;

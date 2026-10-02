@@ -15,9 +15,17 @@ import pd.sprites.NewDragon02Sprite;
 import pd.ui.BossHealthBar;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** The exact opening gatekeeper of the SPS 0.9.8 boss rush. */
 public class Dragonking extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Dragonking.class)
+			.t("name", "异界龙王")
+			.t("desc", "一只普通的巨龙。它身上的魔法十分不稳定，击败它后可能打开通往异界首领的通道。");
+	}
+
 
 	{
 		spriteClass = NewDragon02Sprite.class;

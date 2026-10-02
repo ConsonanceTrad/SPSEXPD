@@ -46,8 +46,17 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Shockwave extends ArmorAbility {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Shockwave.class)
+			.t("name", "震地冲击")
+			.t("short_desc", "战士大力锤击地面，向一个锥形区域施以_震地冲击_。被冲击波击中的敌人会受到一定伤害并陷入残废。")
+			.t("desc", "战士大力锤击地面产生冲击波，震击前方60度扇形范围5格距离内的区域。\n\n被冲击波击中的敌人会陷入5回合残废并受到5~10点伤害。战士每点超过10的力量会使得该伤害增加1~2点。");
+	}
+
 
 	{
 		baseChargeUse = 35f;

@@ -47,8 +47,23 @@ import pd.utils.GLog;
 import render.utils.math.GameMath;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Goo extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Goo.class)
+			.t("name", "粘咕")
+			.t("notice", "咕-咕！")
+			.t("defeated", "咕...咕...")
+			.t("!!!", "!!!")
+			.t("pumpup", "粘咕正在不断地抽动！")
+			.t("enraged", "激怒")
+			.t("gluuurp", "咕————！")
+			.t("rankings_desc", "被粘咕消化")
+			.t("desc", "我们对粘咕所知甚少。它甚至很有可能不是一个生物，而是下水道表面聚集的邪恶物质得到基本智能而产生的实体。不管怎样，很明显是黑暗魔法造就了这个生物。\n\n其凝胶性质让它吸收了很多黑暗能量，你光是靠近就感受到了一股寒意。如果粘咕使用这种能量对你进行攻击那你肯定支撑不了多久。");
+	}
+
 
 	{
 		HP = HT = Dungeon.isChallenged(Challenges.STRONGER_BOSSES) ? 120 : 100;

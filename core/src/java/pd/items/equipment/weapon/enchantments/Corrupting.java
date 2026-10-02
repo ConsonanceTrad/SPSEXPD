@@ -32,8 +32,17 @@ import pd.items.equipment.weapon.Weapon;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Corrupting extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Corrupting.class)
+			.t("name", "腐化%s")
+			.t("desc", "这种强力的附魔拥有将敌人扭曲为你的奴仆的能力。使用腐化附魔的武器击杀敌人时有概率将其腐化。")
+			.t("elestrike_desc", "武器拥有腐化附魔时，元素打击范围内除主要目标外的每个敌人都有5~25%的几率被腐化。(概率基于该敌人已损失的生命值)");
+	}
+
 	
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x440066 );
 	

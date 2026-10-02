@@ -36,8 +36,22 @@ import pd.sprites.ItemSprite;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Explosive extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Explosive.class)
+			.t("name", "易爆%s")
+			.t("warm", "温热起来了...")
+			.t("hot", "好烫！")
+			.t("desc", "易爆诅咒的武器会缓缓积累能量并最终爆炸，爆炸会对所有邻近单位造成伤害。")
+			.t("desc_cool", "你的武器目前触感冰凉，尚属正常。")
+			.t("desc_warm", "你的武器正在积累能量，变得温热起来了...")
+			.t("desc_hot", "你的武器已灼热烫手！要爆炸了！")
+			.t("elestrike_desc", "武器拥有易爆诅咒时，元素打击有着50%的概率在范围内随机一个敌人身上产生爆炸。");
+	}
+
 
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 	private static ItemSprite.Glowing WARM = new ItemSprite.Glowing( 0x000000, 0.5f );

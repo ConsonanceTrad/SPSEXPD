@@ -22,9 +22,18 @@
 package pd.items.equipment.armor;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.messages.InlineText;
 
 
 public class HuntressArmor extends ClassArmor {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(HuntressArmor.class)
+			.t("name", "英雄披风")
+			.t("no_enemies", "视野内未发现敌人。")
+			.t("desc", "披着这件朴实无华的披风，女猎手能够使出一个华丽的招式。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

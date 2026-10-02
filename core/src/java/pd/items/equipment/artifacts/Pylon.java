@@ -31,9 +31,31 @@ import render.utils.data.Callback;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** The follower's original portable teleportation pylon. */
 public class Pylon extends Artifact {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Pylon.class)
+			.t("name", "便携式水晶塔")
+			.t("ac_zap", "释放")
+			.t("ac_set", "设置")
+			.t("ac_return", "返回")
+			.t("ac_rankup", "耗竭-升阶")
+			.t("no_charge", "你的水晶塔现在没有足够的能量释放传送魔法。")
+			.t("no_tele", "传送魔法失败了。")
+			.t("tele_fail", "这个目标无法被传送。")
+			.t("prompt", "选择要释放传送魔法的位置")
+			.t("levelup", "你的水晶塔变得更强大了！")
+			.t("rankup", "晋升！")
+			.t("preventing", "这里强大的魔力流使水晶塔无法锚定空间！")
+			.t("creatures", "邻近生物的心灵信号正在干扰水晶塔的空间锚点。")
+			.t("return", "水晶塔已锚定在当前位置，现在你可以随时折跃到这里。")
+			.t("desc", "一座能够控制传送魔法的复杂水晶建筑。它可以锚定返回地点，也能消耗一点能量将自己或指定目标随机传送。达到最高等级后，可以耗竭水晶塔使持有者永久晋升。")
+			.t("desc_set", "水晶塔被设置在像素地牢第%d层的某处。");
+	}
+
 
 	public static final String AC_ZAP = "ZAP";
 	public static final String AC_SET = "SET";

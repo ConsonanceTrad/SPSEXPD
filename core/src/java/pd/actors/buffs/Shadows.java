@@ -29,8 +29,16 @@ import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Shadows extends Invisibility {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Shadows.class)
+			.t("name", "暗影融合")
+			.t("desc", "你和周围的阴影融为一体，使你隐形并减缓你的新陈代谢。\n\n当你在隐形时敌人无法追踪或攻击你。大部分物理攻击和魔法(比如卷轴和法杖)会立即解除隐形效果。此外，当你处于暗影融合状态下时，饥饿值增加的速率会降低。\n\n暗影融合状态会一直持续直到你离开阴影或与敌人直接接触。");
+	}
+
 	
 	protected float left;
 	

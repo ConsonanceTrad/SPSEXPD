@@ -9,8 +9,16 @@ import pd.actors.buffs.Vertigo;
 import pd.items.Generator;
 import pd.sprites.BlueWraithSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class BlueWraith extends Wraith {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(BlueWraith.class)
+			.t("name", "怨灵战士")
+			.t("desc", "相较其他怨灵而言，怨灵战士更喜欢近距离作战而不是远程打击。它们的行动速度也比其他怨灵快。");
+	}
+
 
 	{
 		spriteClass = BlueWraithSprite.class;

@@ -15,8 +15,16 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Drowsy;
 import pd.actors.mobs.npcs.NPC;
 import pd.effects.Speck;
+import pd.messages.InlineText;
 
 public class RiceBall extends Arrows {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RiceBall.class)
+			.t("name", "糯米团")
+			.t("desc", "用于投食的食物，由于其量大份足，任何食用它的有生命的怪物都会去寻找一个安全的地方来美美睡上一觉。");
+	}
+
 
 	public static final float DURATION = 10f;
 

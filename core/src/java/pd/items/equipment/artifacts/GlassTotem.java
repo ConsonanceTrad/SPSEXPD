@@ -17,9 +17,19 @@ import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** SPS-PD 0.9.8's self-charging glass blessing artifact. */
 public class GlassTotem extends Artifact {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(GlassTotem.class)
+			.t("name", "玻璃图腾")
+			.t("ac_atk", "进攻祝福")
+			.t("ac_def", "耗竭-保护祝福")
+			.t("desc", "由玻璃女神的信徒所制作的一件……图腾？可以用它来和玻璃女神沟通并乞求她的祝福。");
+	}
+
 
 	public static final String AC_ATK = "ATK";
 	public static final String AC_DEF = "DEF";

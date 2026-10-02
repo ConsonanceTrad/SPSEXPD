@@ -50,8 +50,23 @@ import render.noosa.Image;
 import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class StoneOfIntuition extends InventoryStone {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(StoneOfIntuition.class)
+			.t("name", "感知符石")
+			.t("inv_title", "选择一件物品")
+			.t("desc", "这块符石含有的魔法就像一个弱化版的鉴定卷轴。和鉴定卷轴那种直接识别物品的魔法不一样，它会加强你的直觉，让你通过猜测来试图鉴定一种药水、卷轴或者戒指的种类。")
+			.t("break_info", "你可以在其粉碎前使用两次感知符石，_你的下次使用不会消耗符石_。")
+			.t("break_warn", "你之前已经使用了一次感知符石，所以_你的下次使用将会消耗符石_。")
+			.t("wndguess.text", "猜猜这件未鉴定道具是什么。猜对了的话就会鉴定物品种类！")
+			.t("wndguess.correct", "猜测正确，此类物品已被鉴定！")
+			.t("wndguess.incorrect", "你猜错了。")
+			.t("wndguess.break", "你的感知符石化为了尘土...");
+	}
+
 	
 	{
 		image = ConsumScrollAmuletAmuletDict.STONE_INTUITION_0;

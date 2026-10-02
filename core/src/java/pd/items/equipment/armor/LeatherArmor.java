@@ -22,9 +22,17 @@
 package pd.items.equipment.armor;
 
 import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
+import pd.messages.InlineText;
 
 
 public class LeatherArmor extends Armor {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(LeatherArmor.class)
+			.t("name", "皮甲")
+			.t("desc", "用鞣制的兽皮制成的护甲。没有布甲轻，但提供更好的防御。");
+	}
+
 
 	{
 		image = EquipmentEquipArmorBasicArmorDict.ARMOR_LEATHER_0;

@@ -12,8 +12,16 @@ import pd.items.equipment.weapon.melee.Whip;
 import pd.plants.Plant;
 import pd.sprites.FrogPetSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class FrogPet extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(FrogPet.class)
+			.t("name", "呆头蛙")
+			.t("desc", "这只绿色的青蛙能攻击较远的敌人，并可能在完成致命一击时找到物品。");
+	}
+
 	{
 		spriteClass = FrogPetSprite.class; cooldown = 50; properties.add(Property.BEAST); updateStats(true);
 	}

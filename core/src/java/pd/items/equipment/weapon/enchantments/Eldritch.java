@@ -31,8 +31,17 @@ import pd.effects.Flare;
 import pd.items.equipment.weapon.Weapon;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Eldritch extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Eldritch.class)
+			.t("name", "异质%s")
+			.t("desc", "异质附魔的武器会使目睹其攻击的附近敌人心生恐惧，使其狂乱逃离攻击者。")
+			.t("elestrike_desc", "武器拥有异质附魔时，元素打击会为范围内包括主目标的所有敌人施加更为持久的恐惧效果。");
+	}
+
 
 	private static ItemSprite.Glowing GREY = new ItemSprite.Glowing( 0x222222 );
 

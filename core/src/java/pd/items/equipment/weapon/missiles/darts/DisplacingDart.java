@@ -34,8 +34,16 @@ import pd.scenes.GameScene;
 import render.utils.data.BArray;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class DisplacingDart extends TippedDart {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(DisplacingDart.class)
+			.t("name", "传送飞镖")
+			.t("desc", "这些飞镖上涂着一种由消逝草制成的药物，能把目标传送走一小段距离。");
+	}
+
 	
 	{
 		image = ConsumThrowsDict.DISPLACING_DART_0;

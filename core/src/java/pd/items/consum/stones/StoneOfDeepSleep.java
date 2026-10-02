@@ -31,8 +31,16 @@ import pd.actors.buffs.MagicalSleep;
 import pd.actors.mobs.Mob;
 import pd.effects.Speck;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class StoneOfDeepSleep extends Runestone {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(StoneOfDeepSleep.class)
+			.t("name", "沉睡符石")
+			.t("desc", "当把这颗符石掷向一个敌人时，被命中的敌人会陷入魔法睡眠。陷入魔法睡眠的敌人会永远沉睡下去，除非受到外界打扰。");
+	}
+
 	
 	{
 		image = ConsumScrollAmuletAmuletDict.STONE_SLEEP_0;

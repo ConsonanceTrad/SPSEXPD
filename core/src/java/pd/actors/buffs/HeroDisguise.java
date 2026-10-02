@@ -28,8 +28,16 @@ import pd.sprites.HeroSprite;
 import pd.ui.BuffIndicator;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class HeroDisguise extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(HeroDisguise.class)
+			.t("name", "伪装")
+			.t("desc", "幻术魔法改变了你的外貌！虽然此效果是完全装饰性的，但无论如何感觉起来还是很奇怪。\n\n伪装效果剩余时长：%s回合");
+	}
+
 
 	{
 		announced = true;

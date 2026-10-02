@@ -24,8 +24,17 @@ package pd.items.equipment.weapon.missiles;
 import pd.atlas.items.ConsumThrowsDict;
 
 import pd.Assets;
+import pd.messages.InlineText;
 
 public class ThrowingHammer extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ThrowingHammer.class)
+			.t("name", "投掷锤")
+			.t("stats_desc", "这件武器不会卡在敌人身上并可被立即收回。")
+			.t("desc", "这些重锤是用来扔向敌人的。其光滑的全金属构造让它们非常耐用。");
+	}
+
 	
 	{
 		image = ConsumThrowsDict.THROWING_HAMMER_0;

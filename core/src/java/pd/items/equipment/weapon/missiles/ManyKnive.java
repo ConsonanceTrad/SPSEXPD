@@ -32,9 +32,26 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Izayoi's reusable knife set from SPS-PD. */
 public class ManyKnive extends Weapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ManyKnive.class)
+			.t("name", "十六夜的千支刀")
+			.t("ac_shoot", "投掷")
+			.t("ac_ammo", "涂油")
+			.t("prompt", "选择用于涂抹的强化弹药")
+			.t("shoot_prompt", "选择投掷目标")
+			.t("desc", "由大量普通飞刀组成的飞刀组。此外，这个飞刀组可以使用强化弹药涂油。")
+			.t("damage", "这件高攻速武器可以造成_%1$d～%2$d点伤害_。")
+			.t("ammo", "当前强化弹药：%s")
+			.t("replace", "千支刀当前涂有%1$s。是否改用%2$s？原有涂层将会消失。")
+			.t("yes", "是")
+			.t("no", "否");
+	}
+
 	public static final String AC_SHOOT = "SHOOT";
 	public static final String AC_AMMO = "AMMO";
 	private static final String SP_AMMO = "sp_ammo";

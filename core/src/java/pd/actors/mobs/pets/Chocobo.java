@@ -11,8 +11,16 @@ import pd.items.consum.food.completefood.PetFood;
 import pd.items.consum.food.vegetable.Vegetable;
 import pd.sprites.ChocoboSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Chocobo extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Chocobo.class)
+			.t("name", "陆行鸟")
+			.t("desc", "在地表世界常见的一种鸟类，成年后的个体甚至能载人飞奔，有力的双足和温和的个性是它们的特点，为了保护主人有时也会展现出好战的一面。");
+	}
+
 	{
 		spriteClass = ChocoboSprite.class;
 		cooldown = 50;

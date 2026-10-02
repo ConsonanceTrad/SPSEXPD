@@ -9,8 +9,15 @@ import pd.effects.BlobEmitter;
 import pd.effects.particles.WebParticle;
 import pd.levels.Level;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class CurseWeb extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(CurseWeb.class)
+			.t("desc", "这里布置着暗影咒丝。咒丝会诅咒踏入其中的生物。");
+	}
+
 
 	@Override
 	protected void evolve() {

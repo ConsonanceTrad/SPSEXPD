@@ -56,8 +56,19 @@ import render.utils.data.BArray;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class HallowedGround extends TargetedClericSpell {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(HallowedGround.class)
+			.t("name", "神圣领域")
+			.t("prompt", "选择一个位置")
+			.t("short_desc", "治疗盟友，减速敌人并在范围内扩散植被。")
+			.t("desc", "祭司将其神圣魔法聚集在附近的地面上，创造一片%1$dx%1$d范围，持续20回合的神圣领域。\n\n施法时，法术会立即治疗所有盟友15点生命值(未受伤的的盟友和祭司会获得护盾)，短暂缠绕敌人并扩散矮草。\n\n神圣领域每回合会治疗盟友1点生命值(未受伤的的盟友和祭司会获得护盾)，残疾敌人并随机催生高草。\n\n神圣领域会被火焰摧毁。并且如果被动恢复效果被禁用或祭司长时间未获得经验值，神圣领域将只会产生枯草。")
+			.t("hallowedterrain.desc", "此处已经化为神圣领域。神圣领域会减速敌人、治疗盟友并扩散植被。");
+	}
+
 
 	public static final HallowedGround INSTANCE = new HallowedGround();
 

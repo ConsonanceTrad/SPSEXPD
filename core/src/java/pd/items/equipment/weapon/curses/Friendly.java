@@ -28,8 +28,17 @@ import pd.effects.Speck;
 import pd.items.equipment.weapon.Weapon;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Friendly extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Friendly.class)
+			.t("name", "友善%s")
+			.t("desc", "友善诅咒的武器会偶尔触发让战斗无法进行的魔法，非常适合和平主义者。")
+			.t("elestrike_desc", "武器拥有友善诅咒时，元素打击对范围内的每个敌人都有50%概率造成持续6回合的魅惑。");
+	}
+
 	
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 	

@@ -36,8 +36,16 @@ import pd.journal.Notes;
 import pd.scenes.GameScene;
 import pd.sprites.HeroSprite;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class LostBackpack extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(LostBackpack.class)
+			.t("name", "遗物")
+			.t("desc", "你的遗物，包含你遗留在此的所有物品。快快重新拥有它们吧！");
+	}
+
 
 	{
 		image = EquipmentBagsDict.BACKPACK_0;

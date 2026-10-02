@@ -11,8 +11,16 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class NutFruit extends SpsFruit {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(NutFruit.class)
+			.t("name", "硬壳果")
+			.t("desc", "人工种植的坚果藤结出的果实。直接命中能造成扎实伤害，落地则会长出高草。");
+	}
+
 	public NutFruit() { this(1); }
 	public NutFruit(int number) { super(SpecificPlaceHolderDict.SOMETHING_0, 10, 10); quantity(number); }
 	@Override protected void onThrow(int cell) {

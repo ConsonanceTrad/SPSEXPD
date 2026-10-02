@@ -6,9 +6,16 @@ import pd.effects.Speck;
 import pd.levels.Level;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
+import pd.messages.InlineText;
 
 /** Three-turn steam warning which ignites as its strength falls from four to one. */
 public class SteamWarn extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SteamWarn.class)
+			.t("desc", "蒸汽在这产生，随后就有火焰生成。");
+	}
+
 
 	@Override
 	protected void evolve() {

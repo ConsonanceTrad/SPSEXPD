@@ -37,8 +37,18 @@ import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class ScrollOfIdentify extends InventoryScroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfIdentify.class)
+			.t("name", "鉴定卷轴")
+			.t("inv_title", "选择一样要鉴定的物品")
+			.t("it_is", "你的物品已被鉴定为：%s。")
+			.t("desc", "该卷轴能永久揭示一件物品的所有秘密。");
+	}
+
 
 	{
 		icon = ItemIconSheet.SCROLL_IDENTIFY;

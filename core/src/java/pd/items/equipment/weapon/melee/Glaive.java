@@ -26,8 +26,20 @@ import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 import pd.Assets;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class Glaive extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Glaive.class)
+			.t("name", "关刀")
+			.t("stats_desc", "这是一件相当慢的武器。\n这件武器有额外的攻击距离。")
+			.t("ability_name", "刺退")
+			.t("typical_ability_desc", "决斗家用关刀刀尖_刺退_在射程内但不与决斗家相邻的敌人，一般造成_%1$d~%2$d点伤害_，将敌人击退且必定命中。")
+			.t("ability_desc", "决斗家用关刀刀尖_刺退_在射程内但不与决斗家相邻的敌人，造成_%1$d~%2$d点伤害_，将敌人击退且必定命中。")
+			.t("desc", "一支在末端装有剑刃的重型长柄武器。");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.GLAIVE_0;

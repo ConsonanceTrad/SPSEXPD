@@ -16,9 +16,18 @@ import pd.mechanics.Ballistica;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The direct-damage acid wand from SPS-PD 0.9.8. */
 public class WandOfAcid extends DamageWand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfAcid.class)
+			.t("name", "酸蚀法杖")
+			.t("desc", "这根地属性法杖的紫色主干半包住顶端一颗亮绿色宝石。")
+			.t("stats_desc", "被使用时，这根法杖会释放出翠绿的强酸，造成_%1$d~%2$d点伤害_并有概率使被命中的敌人持续受到酸蚀伤害。");
+	}
+
 
 	{
 		image = EquipmentWandBasicWandDict.WAND_ACID;

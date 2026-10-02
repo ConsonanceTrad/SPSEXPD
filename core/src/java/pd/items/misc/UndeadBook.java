@@ -28,8 +28,23 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class UndeadBook extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(UndeadBook.class)
+			.t("name", "亡灵圣经")
+			.t("ac_read", "神圣庇佑")
+			.t("ac_read2", "灵魂献祭")
+			.t("ac_bless", "祈祷")
+			.t("desc", "一本用死灵语书写的圣经。受击会为圣经积蓄能量；神圣庇佑会消耗10点能量并随机赐予一种祝福。灵魂献祭会消耗50点能量，能量不足时则永久失去5点生命上限，并获得露珠爆破。每提升一级还可额外祈祷一次，获得一个复活十字架。")
+			.t("bless", "圣经以露珠回应你的阅读，但你感觉自己的身体失去了什么。")
+			.t("1up", "圣经以复活十字架回应你的祈祷。")
+			.t("charge", "能量：%d。")
+			.t("charge2", "已祈祷次数：%d。");
+	}
+
 	public static final String AC_READ = "READ";
 	public static final String AC_READ2 = "READ2";
 	public static final String AC_BLESS = "BLESS";

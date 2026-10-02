@@ -8,8 +8,16 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.MagicArmor;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSprite;
+import pd.messages.InlineText;
 
 public class Vegetablekebab extends CompleteFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Vegetablekebab.class)
+			.t("name", "大菜串")
+			.t("desc", "素食主义者最喜欢的。\n使用_2份蔬菜、1份肉_炼制。");
+	}
+
 
 	private static final ItemSprite.Glowing GREEN = new ItemSprite.Glowing(0x22CC44);
 

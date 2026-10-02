@@ -17,9 +17,18 @@ import render.noosa.Game;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Legacy portal-shaped prototype of Shadow Eater, retained for save/content parity. */
 public class ShadowEaterKey extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ShadowEaterKey.class)
+			.t("name", "暗噬")
+			.t("ac_port", "装备")
+			.t("desc", "由测试者们共同制作的受诅咒武器原型。\n休眠、双刃、低语。\n\n它实际上是一件通往暗噬领域的一次性传送道具。");
+	}
+
 	public static final int BRANCH = AdventureJournal.FIRST_BRANCH + 16;
 	public static final String AC_PORT = "PORT";
 	private static final float TIME_TO_USE = 1f;

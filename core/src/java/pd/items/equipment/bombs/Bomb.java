@@ -64,8 +64,24 @@ import render.utils.serialize.Reflection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import pd.messages.InlineText;
 
 public class Bomb extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Bomb.class)
+			.t("name", "炸弹")
+			.t("ac_lightthrow", "点燃并扔出")
+			.t("snuff_fuse", "你迅速掐灭了炸弹引线。")
+			.t("ondeath", "你被炸得粉碎...")
+			.t("rankings_desc", "死于爆炸")
+			.t("desc", "一枚颇大的黑火药炸弹。爆炸时，这枚炸弹会对所有临近单位造成_%1$d~%2$d点伤害_并摧毁某些地形或物品。")
+			.t("desc_fuse", "看起来引信在点燃后还能烧几回合。")
+			.t("desc_burning", "引信快烧完了，保持距离或者赶紧掐灭！")
+			.t("doublebomb.name", "一对炸弹")
+			.t("doublebomb.desc", "两枚装的黑火药重装炸弹，看起来多出来的那个是免费送你的！");
+	}
+
 	
 	{
 		image = EquipmentEquipWeaponBombDict.BOMB_0;

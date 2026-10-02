@@ -41,8 +41,19 @@ import pd.ui.HeroIcon;
 import render.noosa.Image;
 import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Endure extends ArmorAbility {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Endure.class)
+			.t("name", "苦痛坚忍")
+			.t("enduretracker.name", "苦痛之怒")
+			.t("enduretracker.desc", "战士将忍受的原始伤害织成愤怒，将大量的额外伤害倾泻给敌人。\n\n额外伤害：%1$d\n剩余攻击次数：%2$d")
+			.t("short_desc", "战士_苦痛坚忍_，跳过若干回合并大幅抵抗伤害。接下来战士会根据忍受的原始伤害造成额外伤害。")
+			.t("desc", "战士首先忍耐3回合，将任何受到的伤害减少一半。此减伤效果优先于其它减伤计算。\n\n在此之后，战士在10回合内的下一次攻击将造成额外伤害。额外伤害等同于在忍耐期间所有受到的原始伤害的一半。\n\n如果战士处于连击状态，此能力将补偿3回合连击时间。");
+	}
+
 
 	{
 		baseChargeUse = 50f;

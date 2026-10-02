@@ -14,8 +14,21 @@ import pd.items.equipment.bombs.BuildBomb;
 import pd.scenes.GameScene;
 import pd.sprites.CocoCatSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class CallCoconut extends SpsSummonItem {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(CallCoconut.class)
+			.t("name", "召唤钥匙")
+			.t("ac_active", "使用")
+			.t("desc", "使用后，一只强大的椰子猫会伴随爆炸被召唤到目标位置。")
+			.t("scococat.name", "椰子猫")
+			.t("scococat.desc", "来，炸个痛快。它会逐回合失去生命，并偶尔在目标身边引爆炸弹。")
+			.t("excococat.name", "EX椰子猫")
+			.t("excococat.desc", "尝尝它的炸弹吧。领袖之力令它更坚韧、更精准，也更频繁地引爆炸弹。");
+	}
+
 	private boolean summonOnThrow;
 
 	{

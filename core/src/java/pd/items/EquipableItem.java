@@ -35,8 +35,18 @@ import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public abstract class EquipableItem extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(EquipableItem.class)
+			.t("curse_detected", "在你装备上这件物品前，你感知到了物品的诅咒！")
+			.t("unequip_cursed", "你无法移除一件被诅咒的物品！")
+			.t("ac_equip", "装备")
+			.t("ac_unequip", "取下");
+	}
+
 
 	public static final String AC_EQUIP		= "EQUIP";
 	public static final String AC_UNEQUIP	= "UNEQUIP";

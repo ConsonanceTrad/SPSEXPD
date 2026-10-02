@@ -9,8 +9,16 @@ import pd.actors.buffs.HasteBuff;
 import pd.actors.buffs.Slow;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
+import pd.messages.InlineText;
 
 public class BlueMilk extends Pill {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(BlueMilk.class)
+			.t("name", "蓝奶伞")
+			.t("desc", "这种蘑菇像浆果一样鲜嫩多汁，食用它可以大幅度加快你的行动速度和恢复速度。而它对其他生物的效果是降低。\n使用_1份水，1份蔬菜，1份阳春草种子_炼金");
+	}
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	public BlueMilk() { this(1); }
 	public BlueMilk(int value) { quantity = value; }

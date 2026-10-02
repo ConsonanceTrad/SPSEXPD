@@ -13,9 +13,17 @@ import pd.items.consum.scrolls.ScrollOfPsionicBlast;
 import pd.scenes.GameScene;
 import pd.sprites.ErrorSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The hostile body produced by the legacy Nightmare Virus challenge. */
 public class Virus extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Virus.class)
+			.t("name", "---!!!数据删除!!!---\n未知\n感染")
+			.t("desc", "梦魇病毒体。它会复制英雄的力量，并在每回合自行衰亡。");
+	}
+
 
 	{
 		spriteClass = ErrorSprite.class;

@@ -10,9 +10,17 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** A thrown construction block which creates a plantable flower pot. */
 public class PlantPotBlock extends BuildBlock {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PlantPotBlock.class)
+			.t("name", "种植盆")
+			.t("desc", "将方块投向无人占据的格子，可在那里放置一个能够栽种植物的花盆。水井、楼梯、炼金釜与精金制造器无法被覆盖。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

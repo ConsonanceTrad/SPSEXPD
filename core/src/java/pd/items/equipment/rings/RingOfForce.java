@@ -38,8 +38,27 @@ import pd.utils.GLog;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class RingOfForce extends Ring {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RingOfForce.class)
+			.t("name", "武力之戒")
+			.t("stats", "赤手空拳时，以你目前的力量，佩戴这枚戒指能够造成_%1$d~%2$d伤害_。当装备一件武器时，这枚戒指会为其增加_%3$d_点伤害。")
+			.t("typical_stats", "赤手空拳时，以你目前的力量，佩戴这枚戒指通常能够造成_%1$d~%2$d伤害_。当装备一件武器时，这枚戒指通常会为其增加_%3$d_点伤害。")
+			.t("combined_stats", "你已装备的戒指正联结它们的力量，在不使用武器时一共造成_%1$d~%2$d点伤害_，在使用武器时则可提升_%3$d_点伤害。")
+			.t("upgrade_stat_name_1", "徒手伤害")
+			.t("upgrade_stat_name_2", "武器伤害加成")
+			.t("upgrade_stat_name_3", "武技伤害")
+			.t("ability_name", "拳击架势")
+			.t("typical_ability_desc", "决斗家可通过这枚戒指进入_拳击架势_，使得决斗家哪怕装备了其它武器也会用这枚戒指发动普通攻击。每次攻击一般会造成_%1$d~%2$d点伤害_，并继承武器的附魔与强化效果。在这种架势下，武器的充能速度会减慢50%%。")
+			.t("ability_desc", "决斗家可通过这枚戒指进入_拳击架势_，使得决斗家哪怕装备了其它武器也会用这枚戒指发动普通攻击。每次攻击会造成_%1$d~%2$d点伤害_，并继承武器的附魔与强化效果。在这种架势下，武器的充能速度会减慢50%%。")
+			.t("desc", "这枚戒指能够增强佩戴者的打击力度。这份额外的力量在挥舞武器时相当有限，而徒手攻击则会被大幅增强。被诅咒的戒指会导致佩戴者的攻击变得软弱无力。")
+			.t("brawlersstance.name", "拳击架势")
+			.t("brawlersstance.desc", "在这种架势下，决斗家将使用装备着的武力戒指进行普通攻击，哪怕她已经装备了其他武器。这种攻击会使用武器的强化与附魔效果，还会造成额外伤害。\n\n不过，维持这个架势需要耗费精力，导致决斗家的武技充能速度降低50%。\n\n这个架势可以用武力戒指来进入和退出，不过进出这个架势会导致武技充能的减缓效果持续一小会儿。");
+	}
+
 
 	{
 		icon = ItemIconSheet.RING_FORCE;

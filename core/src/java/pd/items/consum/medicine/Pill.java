@@ -29,9 +29,18 @@ import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Shared Shattered 4.0 action and persistence behavior for SPS medicines. */
 public class Pill extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Pill.class)
+			.t("name", "药丸")
+			.t("ac_eat", "服用")
+			.t("desc", "一种来自特别惊喜像素地牢的调制药物。");
+	}
+
 
 	public static final String AC_EAT = "EAT";
 

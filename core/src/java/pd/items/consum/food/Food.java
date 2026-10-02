@@ -42,8 +42,19 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Food extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Food.class)
+			.t("name", "口粮")
+			.t("ac_eat", "食用")
+			.t("eat_msg", "吃起来不错！")
+			.t("locked", "锁闭魔法阻止了你进食。")
+			.t("desc", "里面都是些寻常玩意：一片肉干，几块饼干——诸如此类。");
+	}
+
 
 	public static final float TIME_TO_EAT	= 3f;
 	

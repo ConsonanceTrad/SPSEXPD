@@ -29,8 +29,16 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class PotionOfFrost extends Potion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfFrost.class)
+			.t("name", "冰霜药剂")
+			.t("desc", "一旦暴露在空气里，这种化学药剂会挥发成为一片冰冷的气雾。");
+	}
+
 
 	{
 		icon = ItemIconSheet.POTION_FROST;

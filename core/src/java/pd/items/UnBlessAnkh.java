@@ -13,8 +13,18 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class UnBlessAnkh extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(UnBlessAnkh.class)
+			.t("name", "十字架")
+			.t("ac_bless", "祝福")
+			.t("bless", "你用清水祝福了这个十字架。")
+			.t("desc", "这枚象征不朽的古老饰品尚不能起死回生。");
+	}
+
 	public static final String AC_BLESS = "BLESS";
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

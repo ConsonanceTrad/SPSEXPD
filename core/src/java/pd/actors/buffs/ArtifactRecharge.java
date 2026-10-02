@@ -28,8 +28,16 @@ import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class ArtifactRecharge extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ArtifactRecharge.class)
+			.t("name", "神器充能")
+			.t("desc", "魔力在你体内奔腾而过，提高你手中神器的充能速率。\n\n每件神器受到的影响都不尽相同，但它们的充能速率都会大幅提升。\n\n神器充能剩余时长：%s回合");
+	}
+
 
 	public static final float DURATION = 30f;
 

@@ -14,9 +14,18 @@ import pd.items.equipment.wands.WandOfAcid;
 import pd.items.equipment.wands.WandOfSwamp;
 import pd.sprites.DustElementSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** Original SPS-PD runtime and save identity for the dust elemental. */
 public class DustElement extends SpsSewerMobs.DustElement {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(DustElement.class)
+			.t("name", "尘埃元素")
+			.t("blind", "灰尘阻碍了你的视线。")
+			.t("desc", "年久失修的下水道里面的尘埃和向外扩散的黑暗力量融合，生成了这一种羸弱的元素。");
+	}
+
 
 	{
 		spriteClass = DustElementSprite.class;

@@ -4,9 +4,17 @@ package pd.actors.buffs;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Percentage physical attack reduction used by legacy SPS enemies and equipment. */
 public class AttackDown extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(AttackDown.class)
+			.t("name", "乏力")
+			.t("desc", "剩余%1$s回合，物理攻击伤害降低%2$s%%。");
+	}
+
 
 	private static final String LEVEL = "level";
 	private static final String LEGACY_LEFT = "left";

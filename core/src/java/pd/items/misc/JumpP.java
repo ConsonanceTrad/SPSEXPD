@@ -21,8 +21,20 @@ import pd.utils.GLog;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class JumpP extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(JumpP.class)
+			.t("name", "演员之鞋")
+			.t("ac_jump", "跳跃")
+			.t("prompt", "选择跳跃的目的地点")
+			.t("rest", "演员之鞋的充能不足。")
+			.t("charge", "充能：%1$d / %2$d。")
+			.t("desc", "演员可跳跃至多三格，并获得1次玻璃护盾和5回合律动；超级明星还会进入更强的节奏。");
+	}
+
 	public static final String AC_JUMP = "JUMP";
 	public static final int FULL_CHARGE = 20;
 	public static final int JUMP_COST = 10;

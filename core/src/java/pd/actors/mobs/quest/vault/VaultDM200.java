@@ -26,8 +26,17 @@ import pd.actors.mobs.DM200;
 import pd.items.Item;
 import pd.items.quest.DwarfToken;
 import pd.sprites.DM200Sprite;
+import pd.messages.InlineText;
 
 public class VaultDM200 extends DM200 {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(VaultDM200.class)
+			.t("name", "DM-200改")
+			.t("discover_hint", "你可在某个任务中遇到该敌人。")
+			.t("desc", "这些DM-200看起来和你在矿洞里见过的那些差不多，但它们的眼睛闪着明亮的青光，很可能搭载了更先进的矮人科技能源。\n\n和它们在矿洞的同型号机体一样，这些DM-200因体型太大无法穿过狭小空间，而且也能喷射毒气。");
+	}
+
 
 	{
 		activateSteathGameplayBehaviour();

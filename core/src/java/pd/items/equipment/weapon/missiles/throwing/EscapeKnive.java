@@ -9,8 +9,16 @@ import pd.actors.buffs.HolyStun;
 import pd.items.Item;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class EscapeKnive extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(EscapeKnive.class)
+			.t("name", "逃脱小刀")
+			.t("desc", "简单的金属片，但可以击晕猎物，帮你从困境中逃脱。");
+	}
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		tier = 1;

@@ -37,8 +37,17 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class DemonSpawner extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(DemonSpawner.class)
+			.t("name", "恶魔血巢")
+			.t("on_death", "此处的恶魔能量似乎随着血巢的毁灭而有所减弱。")
+			.t("desc", "这一团蠕动着的矮人血肉在利用惨死于这一区域的矮人源源不断地制造恶魔撕裂者。看来恶魔们为了对付敌人可以不择手段。\n\n恶魔血巢虽然看上去非常恐怖，但它本身不具备移动能力和直接的自卫手段。不过它庞大的体积使得它难以被迅速破坏，而且它在受到威胁时会加速产出恶魔撕裂者。\n\n_恶魔血巢似乎与某个恶魔能量的源头相连。破坏掉血巢或许能够弱化那个源头。_");
+	}
+
 
 	{
 		spriteClass = SpawnerSprite.class;

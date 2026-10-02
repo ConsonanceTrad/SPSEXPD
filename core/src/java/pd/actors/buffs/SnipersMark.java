@@ -32,8 +32,19 @@ import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import pd.ui.QuickSlotButton;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class SnipersMark extends FlavourBuff implements ActionIndicator.Action {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SnipersMark.class)
+			.t("name", "狙击标记")
+			.t("action_name_snapshot", "速射")
+			.t("action_name_volley", "连射")
+			.t("action_name_sniper", "狙杀")
+			.t("desc", "狙击手专注于最近射击的目标。她能够用灵能弓进行一次特殊攻击，攻击方式取决于弓的强化方式。\n\n未被强化的弓可以施展_速射_，进行一次低伤害但不消耗回合的射击。\n\n强化速度的弓可以施展三箭_连射_。每支箭矢伤害虽低，但仍能触发附魔效果。连射消耗1回合。\n\n强化伤害的弓可以施展_狙杀_。这支箭矢必定命中，根据目标距离造成额外伤害。狙杀消耗2回合。\n\n效果剩余时长：%s回合");
+	}
+
 
 	public int object = 0;
 	public float percentDmgBonus = 0;

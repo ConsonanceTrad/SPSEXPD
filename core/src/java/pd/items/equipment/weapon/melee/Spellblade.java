@@ -13,9 +13,17 @@ package pd.items.equipment.weapon.melee;
 import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.Assets;
+import pd.messages.InlineText;
 
 /** A deliberately modest starter weapon for the Spellsword. */
 public class Spellblade extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Spellblade.class)
+			.t("name", "魔剑")
+			.t("desc", "一柄刻有基础聚能符文的轻剑。它精准且容易使用，但牺牲了一部分直接伤害。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

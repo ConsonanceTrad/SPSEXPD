@@ -32,8 +32,16 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.items.consum.potions.exotic.PotionOfCleansing;
 import pd.items.equipment.weapon.melee.Crossbow;
+import pd.messages.InlineText;
 
 public class CleansingDart extends TippedDart {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(CleansingDart.class)
+			.t("name", "净化飞镖")
+			.t("desc", "这些飞镖上涂着一种由魔皇草制成的药物，能使友军暂时对所有负面效果免疫，也可以清除敌人身上的增益效果。敌人甚至会暂时忘记它正在攻击或逃离你。这只飞镖仍能对敌人造成伤害，但不会伤及盟友。");
+	}
+
 	
 	{
 		image = ConsumThrowsDict.CLEANSING_DART_0;

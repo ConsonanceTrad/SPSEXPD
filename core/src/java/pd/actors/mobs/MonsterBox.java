@@ -14,9 +14,17 @@ import render.utils.math.Random;
 import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** A living copy-box which fights like the hero and drops one copied equipment type. */
 public class MonsterBox extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(MonsterBox.class)
+			.t("name", "怪物盒")
+			.t("desc", "一个会模仿你战斗能力的活盒子。被摧毁时，它可能生成一件与你当前所穿戴装备同类型的全新物品。");
+	}
+
 
 	{
 		spriteClass = MonsterBoxSprite.class;

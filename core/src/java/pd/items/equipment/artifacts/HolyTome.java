@@ -46,8 +46,21 @@ import pd.windows.WndClericSpells;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class HolyTome extends Artifact {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(HolyTome.class)
+			.t("name", "神圣法典")
+			.t("ac_cast", "施放")
+			.t("no_spell", "你现在不足以施放该法术。")
+			.t("cursed", "你不能使用被诅咒的圣典。")
+			.t("levelup", "你的圣典变得更强大了！")
+			.t("desc", "这本圣典能够帮助牧师引导、聚焦自身的神圣魔法，从而使牧师能够施放一系列的法术。\n\n圣典会随着牧师的使用逐步变强，给予牧师更高的最大充能数并略微提升充能速度。")
+			.t("discover_hint", "某位英雄初始携带该物品。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

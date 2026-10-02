@@ -15,8 +15,16 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 import static pd.actors.damagetype.DamageType.SHOCK_DAMAGE;
+import pd.messages.InlineText;
 
 public class EnchantmentShock extends SpsEnchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(EnchantmentShock.class)
+			.t("name", "乱流%s")
+			.t("desc", "乱流附魔将造成大量的雷属性伤害，并对多个目标造成伤害。");
+	}
+
 	private static final ItemSprite.Glowing GREEN = new ItemSprite.Glowing(0x00FF00);
 	private final ArrayList<Char> affected = new ArrayList<>();
 

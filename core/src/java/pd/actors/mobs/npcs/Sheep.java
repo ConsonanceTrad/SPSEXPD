@@ -34,8 +34,22 @@ import pd.sprites.SheepSprite;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Sheep extends NPC {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Sheep.class)
+			.t("name", "绵羊")
+			.t("baa!", "咩！")
+			.t("baa?", "咩？")
+			.t("baa.", "咩。")
+			.t("baa...", "咩...")
+			.t("def_verb", "格挡")
+			.t("desc", "这是一只魔法绵羊。为什么叫它魔法绵羊？因为你杀不死它。它只会站在那里直到它消失，它会做的事情只有边反刍边对你翻白眼。")
+			.t("discover_hint", "你可通过某个物品或陷阱遇到该单位。");
+	}
+
 
 	@Override public Item SupercreateLoot() { return new SheepFur(); }
 

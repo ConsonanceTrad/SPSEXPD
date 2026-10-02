@@ -30,8 +30,16 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class WellFed extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(WellFed.class)
+			.t("name", "饱腹")
+			.t("desc", "你感觉自己吃的非常饱。\n\n当你处于饱腹状态时，你的饥饿值不会增加，并且会随着时间的推移恢复额外的生命值。\n\n状态剩余时长：%d回合");
+	}
+
 
 	{
 		type = buffType.POSITIVE;

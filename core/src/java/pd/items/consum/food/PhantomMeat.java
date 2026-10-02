@@ -31,8 +31,17 @@ import pd.actors.hero.Hero;
 import pd.effects.FloatingText;
 import pd.items.consum.potions.PotionOfHealing;
 import pd.sprites.CharSprite;
+import pd.messages.InlineText;
 
 public class PhantomMeat extends Food {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PhantomMeat.class)
+			.t("name", "幻影鱼肉")
+			.t("desc", "这块从幻影食人鱼身上切下的大块鱼肉呈半透明状，闪烁着奇光。这块充满魔力的肉无须烹饪即可食用，不但能完全填饱你的肚子，而且能赋予多种防御性增益。食用后，它会为你提供隐形、树肤和少量治疗，并净化大部分有害效果。")
+			.t("discover_hint", "你可从某种敌人的掉落物中获得该物品。");
+	}
+
 
 	{
 		image = ConsumFoodFoodDict.PHANTOM_MEAT;

@@ -8,8 +8,16 @@ import pd.actors.hero.Hero;
 import pd.effects.particles.ShadowParticle;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class StarAmmo extends SpAmmo {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(StarAmmo.class)
+			.t("name", "陨星弹")
+			.t("desc", "将原石和星陨种锻造而成的特殊子弹，能使武器附带更高的暗属性伤害。");
+	}
+
 	private static final ItemSprite.Glowing BLACK = new ItemSprite.Glowing(0x000000);
 	@Override public ItemSprite.Glowing glowing() { return BLACK; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {

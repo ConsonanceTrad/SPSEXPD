@@ -25,8 +25,16 @@ import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class WandEmpower extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(WandEmpower.class)
+			.t("name", "盈能法杖")
+			.t("desc", "你的伤害型法杖已被强化，接下来的几次攻击会造成额外伤害。\n\n额外伤害：%1$d\n剩余攻击次数：%2$d");
+	}
+
 
 	{
 		type = buffType.POSITIVE;

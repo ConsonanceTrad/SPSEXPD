@@ -32,9 +32,32 @@ import render.utils.serialize.Bundle;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** SPS-PD's self-charging mechanical determination core. */
 public class RobotDMT extends Artifact {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RobotDMT.class)
+			.t("name", "机械核心")
+			.t("ac_heart", "使用")
+			.t("ac_memory", "耗竭-决心")
+			.t("ac_error", "错误")
+			.t("no_charge", "机械核心尚未充能完毕。")
+			.t("full_charge", "机械核心已完全充能。")
+			.t("patience", "尝试解析:耐心")
+			.t("bravery", "尝试解析:勇气")
+			.t("integrity", "尝试解析:诚实")
+			.t("preseverance", "尝试解析:坚毅")
+			.t("kindness", "尝试解析:慷慨")
+			.t("justice", "尝试解析:公正")
+			.t("soul", "尝试解析:灵魂")
+			.t("friendship", "尝试解析:友谊")
+			.t("chaos", "尝试解析:混沌...解析失败")
+			.t("determination", "尝试解析:决心...解析失败")
+			.t("desc", "一位疯狂的科学家为了研究人类的毅力所制造的机器。它不需要任何能源来驱动，并且能够每隔一段时间返回解析结果。");
+	}
+
 
 	public static final String AC_HEART = "HEART";
 	public static final String AC_MEMORY = "MEMORY";

@@ -19,9 +19,18 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The original sound-wave club awarded by the velocirooster. */
 public class SJRBMusic extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SJRBMusic.class)
+			.t("name", "S-J-R-B音乐套装")
+			.t("desc", "这是一个知名的虚拟表演者的服装。2019暑假快乐！\n共振，高级穿刺，迷人，喧闹")
+			.t("rap", "鸡你太美!!!");
+	}
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		tier = 1;

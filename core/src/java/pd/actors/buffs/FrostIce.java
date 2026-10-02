@@ -5,9 +5,17 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** SPS frostbite: slows movement and deals percentage damage when the target moves. */
 public class FrostIce extends Buff implements Buff.DOTbuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(FrostIce.class)
+			.t("name", "霜冻")
+			.t("desc", "结晶寒霜会在附着时及目标每次移动后撕裂身体。剩余回合：%s。");
+	}
+
 
 	private static final String LEFT = "left";
 	private static final String POS = "pos";

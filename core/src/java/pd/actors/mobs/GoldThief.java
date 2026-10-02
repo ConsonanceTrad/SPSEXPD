@@ -14,8 +14,18 @@ import pd.sprites.GoldThiefSprite;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class GoldThief extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GoldThief.class)
+			.t("name", "黄金小盗")
+			.t("desc", "不同于其他小偷，它只关心闪闪发光的金币，并会在得手后立刻逃跑。")
+			.t("stole", "黄金小盗从你那里偷走了%d枚金币！")
+			.t("killcount", "已击败黄金小盗：%d");
+	}
+
 
 	public Item item;
 	private int goldToDrop;

@@ -9,9 +9,16 @@ import pd.actors.buffs.Buff;
 import pd.effects.BlobEmitter;
 import pd.effects.particles.DarkLightParticle;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 /** SPS darkness cloud which repeatedly blinds occupants. */
 public class DarkGas extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(DarkGas.class)
+			.t("desc", "这里盘绕着黑色浓烟，会使烟雾中的生物暂时失明。");
+	}
+
 	@Override
 	protected void evolve() {
 		for (int x = area.left; x < area.right; x++) {

@@ -22,9 +22,17 @@
 package pd.items.equipment.armor;
 
 import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
+import pd.messages.InlineText;
 
 
 public class PlateArmor extends Armor {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PlateArmor.class)
+			.t("name", "板甲")
+			.t("desc", "厚重的金属板拼接到一起，为能承受其骇人重量的冒险家提供无与伦比的防御。");
+	}
+
 
 	{
 		image = EquipmentEquipArmorBasicArmorDict.ARMOR_PLATE_0;

@@ -12,8 +12,16 @@ import pd.actors.buffs.Shocked;
 import pd.items.Item;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class EmpBola extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(EmpBola.class)
+			.t("name", "电磁套索")
+			.t("desc", "用于抓捕或狩猎的工具，会致残并电击目标、移除能量护盾，并对机械生物造成重创。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

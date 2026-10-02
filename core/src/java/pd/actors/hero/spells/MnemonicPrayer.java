@@ -62,8 +62,17 @@ import pd.ui.HeroIcon;
 import pd.ui.QuickSlotButton;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class MnemonicPrayer extends TargetedClericSpell {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(MnemonicPrayer.class)
+			.t("name", "祈愿诗篇")
+			.t("short_desc", "延长盟友/敌人的增益/减益效果， 并重新施加光耀。")
+			.t("desc", "祭司念诵出延长%1$d回合特定目标所有增益或减益效果的经文。该法术施法不耗时。增益对盟友(包括祭司自身)持续时间更久，减益对敌人持续时间更久。\n\n祈愿诗篇只能延长一次特定目标的增益或减益效果，并且不能延长来自护甲技能的增益效果。");
+	}
+
 
 	public static MnemonicPrayer INSTANCE = new MnemonicPrayer();
 

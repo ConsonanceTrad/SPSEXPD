@@ -26,8 +26,16 @@ import pd.atlas.items.ConsumThrowsDict;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Paralysis;
+import pd.messages.InlineText;
 
 public class ParalyticDart extends TippedDart {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ParalyticDart.class)
+			.t("name", "麻痹飞镖")
+			.t("desc", "这些飞镖上涂着一种由地缚根制成的药物，能让目标无助地麻痹一小段时间。");
+	}
+
 	
 	{
 		image = ConsumThrowsDict.PARALYTIC_DART_0;

@@ -9,9 +9,17 @@ import pd.actors.hero.HeroClass;
 import pd.actors.hero.HeroSubClass;
 import pd.items.Item;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The shared implementation of the three legacy SPS luck bonuses. */
 public class LuckyBadge extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(LuckyBadge.class)
+			.t("name", "幸运胸章")
+			.t("desc", "购买房产后商人老板送你的纪念品之一，据说可以小幅提升佩戴者的运气，并且可以被强化。");
+	}
+
 
 	public static final int MAX_ITEM_LUCK = 10;
 	public static final int MAX_EXTRA_ITEMS = 64;

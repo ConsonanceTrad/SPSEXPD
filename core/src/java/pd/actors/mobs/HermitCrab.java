@@ -24,8 +24,17 @@ package pd.actors.mobs;
 import pd.Dungeon;
 import pd.items.Generator;
 import pd.sprites.HermitCrabSprite;
+import pd.messages.InlineText;
 
 public class HermitCrab extends Crab {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(HermitCrab.class)
+			.t("name", "寄居蟹")
+			.t("def_verb", "格挡")
+			.t("desc", "出于某种原因，这只下水道螃蟹决定把一个破桶戴在头上！额外的负重使其移速降到了一般水平，但也使其获得了更多防御。你感觉你听到了有什么东西在桶中碰撞作响...");
+	}
+
 
 	{
 		spriteClass = HermitCrabSprite.class;

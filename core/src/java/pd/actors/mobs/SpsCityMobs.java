@@ -62,8 +62,31 @@ import render.utils.serialize.Bundle;
 import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public final class SpsCityMobs {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SpsCityMobs.class)
+			.t("dragonrider.name", "龙骑兵")
+			.t("dragonrider.desc", "与龙一起战斗的士兵。龙死亡后，骑兵仍会留下继续作战。")
+			.t("spiderbot.name", "贪食者")
+			.t("spiderbot.desc", "战争后期出现在城区内的生物。它们以尸体为食，并将幼体射到敌对生物身上。死亡时，体内的幼体还会洒落一地。")
+			.t("spiderbot.yell", "奇怪的虫子爬进了你的背包。")
+			.t("musketeer.name", "矮人射手")
+			.t("musketeer.desc", "与矮人国王不同，矮人将军认为火器才是正确的研究方向，于是这些射手加入了矮人王国的巡逻队。")
+			.t("manyskeleton.name", "骷髅球")
+			.t("manyskeleton.desc", "由一大堆骷髅组成的球，每次受到有力攻击都会掉出一只骷髅。")
+			.t("summonedskeleton.name", "被召唤的亡灵")
+			.t("summonedskeleton.desc", "这不过是一个被魔法召唤来的亡灵。")
+			.t("levelchecker.name", "裁决者")
+			.t("levelchecker.desc", "外形如同天平的巨型机械裁决者，会依据受害者的阅历作出裁决。")
+			.t("greatmoss.name", "孢子巨人")
+			.t("greatmoss.desc", "植物与元素生命的巨大混合物，受击时会释放危险孢子。")
+			.t("redwraith.name", "混沌幽灵")
+			.t("redwraith.desc", "蕴含强烈混沌能量的红色幽灵。相传有些戒指的魔力就来源于它。");
+	}
+
 	private SpsCityMobs() { }
 
 	private abstract static class DualLootMob extends LegacyDualLootMob {

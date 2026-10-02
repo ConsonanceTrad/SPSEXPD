@@ -24,8 +24,16 @@ package pd.actors.buffs;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class Foresight extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Foresight.class)
+			.t("name", "危险预知")
+			.t("desc", "不知为何，你的脑海中映射出了周遭的地形。\n\n危险预知状态持续时，你周遭大范围的地格都会被揭示，包括隐藏门与陷阱。\n\n危险预知效果剩余时长：%s回合");
+	}
+
 
 	public static final float DURATION = 400f;
 

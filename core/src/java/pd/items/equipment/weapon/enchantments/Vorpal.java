@@ -28,8 +28,17 @@ import pd.actors.buffs.Buff;
 import pd.items.equipment.weapon.Weapon;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Vorpal extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Vorpal.class)
+			.t("name", "锋锐%s")
+			.t("desc", "锋锐附魔的武器极其致命，其干净利落的攻击有概率对可流血的敌人施加流血效果而非造成直接伤害。")
+			.t("elestrike_desc", "武器拥有斩杀附魔时，元素打击会对范围内出主目标外的所有敌人施加额外的流血效果。");
+	}
+
 
 	private static ItemSprite.Glowing RED = new ItemSprite.Glowing( 0xAA6666 );
 

@@ -26,8 +26,20 @@ import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 import pd.Assets;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class HandAxe extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(HandAxe.class)
+			.t("name", "手斧")
+			.t("stats_desc", "这是一件比较精准的武器。")
+			.t("ability_name", "重击")
+			.t("typical_ability_desc", "决斗家可以用手斧使出_重击_。这用尽全力的一击如果是在伏击敌人，则一般会造成_%1$d~%2$d点伤害_并施加5回合的恍惚，使其精准与闪避均降低50%%。重击必定命中，但若非伏击则只会造成普通的伤害。")
+			.t("ability_desc", "决斗家可以用手斧使出_重击_。这用尽全力的一击如果是在伏击敌人，则会造成_%1$d~%2$d点伤害_并施加5回合的恍惚，使其精准与闪避均降低50%%。重击必定命中，但若非伏击则只会造成普通的伤害。")
+			.t("desc", "一把轻斧头，通常用来砍树。当然，它的宽刃对敌人来说同样有效。");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.HAND_AXE_0;

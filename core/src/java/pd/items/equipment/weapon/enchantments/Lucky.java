@@ -30,8 +30,17 @@ import pd.sprites.ItemSprite.Glowing;
 import pd.sprites.ItemSprite;
 import render.noosa.Visual;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Lucky extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Lucky.class)
+			.t("name", "幸运%s")
+			.t("desc", "被幸运附魔武器击杀的敌人有几率掉落额外的宝物。")
+			.t("elestrike_desc", "武器拥有幸运附魔时，对于范围内的每个敌人，元素打击都有12.5%概率在其脚下生成物品。每个敌人只能触发这个效果一次。");
+	}
+
 
 	private static ItemSprite.Glowing GREEN = new ItemSprite.Glowing( 0x00FF00 );
 	

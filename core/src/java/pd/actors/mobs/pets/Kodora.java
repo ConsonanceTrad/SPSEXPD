@@ -11,8 +11,16 @@ import pd.items.consum.potions.PotionOfLiquidFlame;
 import pd.items.equipment.wands.WandOfMagicMissile;
 import pd.sprites.KodoraSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Kodora extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Kodora.class)
+			.t("name", "柯多拉")
+			.t("desc", "希望成为出色巨龙的幼龙，懂得很多知识但依旧还是个菜鸟，甚至不能自如地吐出火焰，但是只要得到鼓励就会充满干劲。");
+	}
+
 	{
 		spriteClass = KodoraSprite.class; cooldown = 50; properties.add(Property.DRAGON); updateStats(true);
 	}

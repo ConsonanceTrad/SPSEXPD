@@ -21,8 +21,16 @@ import pd.scenes.GameScene;
 import pd.sprites.FiendSprite;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Fiend extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Fiend.class)
+			.t("name", "邪魔")
+			.t("desc", "邪魔本身由暗影能量组成...但它的斗篷是哪来的?");
+	}
+
 
 	private static final float TIME_TO_ZAP = 2f;
 	private static final float SPAWN_DELAY = 6f;

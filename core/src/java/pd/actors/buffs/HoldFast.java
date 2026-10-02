@@ -32,8 +32,16 @@ import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class HoldFast extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(HoldFast.class)
+			.t("name", "不动如山")
+			.t("desc", "战士正在据守此处，提升其%1$d~%2$d点护甲并将连击与护盾的衰减速度减缓%3$d%%，直至他移动为止。");
+	}
+
 
 	{
 		type = buffType.POSITIVE;

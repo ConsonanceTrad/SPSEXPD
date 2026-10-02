@@ -11,8 +11,16 @@ import pd.actors.buffs.Notice;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class FruitCandy extends CompleteFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(FruitCandy.class)
+			.t("name", "水果硬糖")
+			.t("desc", "制作糖丸需要好多步骤，但是在这里只要这么简单就能做了。\n使用_1份水、1份水果、1份原石_锻造。");
+	}
+
 
 	{
 		image = ConsumFoodFoodDict.FRUIT_CANDY;

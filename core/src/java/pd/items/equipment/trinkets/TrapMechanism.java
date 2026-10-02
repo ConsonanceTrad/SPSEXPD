@@ -30,8 +30,18 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class TrapMechanism extends Trinket {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(TrapMechanism.class)
+			.t("name", "陷阱元件")
+			.t("desc", "地牢中某个塌方陷阱的核心元件，被小心地从地面中挖掘而出以便携带。它似乎通过魔法与地牢本身形成链接，促使险恶地形频繁出现，并增强了你对陷阱的探查能力。")
+			.t("typical_stats_desc", "这件饰物通常会使_%1$d%%_的无氛围楼层获得陷阱或深渊氛围。此外，地牢中_%2$d%%_的隐藏陷阱会变得可见。")
+			.t("stats_desc", "在当前等级下，这件饰物会使_%1$d%%_的无氛围楼层获得陷阱或深渊氛围。此外，地牢中_%2$d%%_的隐藏陷阱会变得可见。");
+	}
+
 
 	{
 		image = EquipmentNonEquipDict.TRAP_MECHANISM_0;

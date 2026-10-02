@@ -23,9 +23,25 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** The eight sequential coconut guides used by the original tutorial. */
 public class Leadercn extends TownNpc {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Leadercn.class)
+			.t("name", "领航椰子")
+			.t("desc", "跟着这只猫完成这个教程吧。")
+			.t("yell1", "欢迎，欢迎来到测试，拿起这把钥匙，然后打开前面的门。")
+			.t("yell2", "你现在啥都没有，捡起周围的装备，打开右下角的背包，点击物品然后装备吧。之后可以直接击败前面的家伙。")
+			.t("yell3", "找不到路了？看左下角的按钮，有一个放大镜，双击放大镜可以进行搜索，在周围的墙边找找，没准会有发现。")
+			.t("yell4", "哦，你踩到了一个陷阱。看吧，左上角，你的生命已经很差了，找找周围的宝箱，或者土堆，里面可能有好东西。")
+			.t("yell5", "不出所料，你有些饿了，那几个张网里面可能会有吃的，但我不建议你直接开。看到中间的那个奇怪的空地吗，把这个扔过去。")
+			.t("yell6", "一个法杖，你已经可以造成魔法伤害了，前面的那家伙可不吃物理伤害，找到合适的属性来击败它吧。")
+			.t("yell7", "好了，你已经了解到这个程序基本的运行方法了，那么，靠你自己完成接下来的内容吧。这是一枚可以破坏墙壁的炸弹。")
+			.t("yell8", "恭喜你，你找到了最后一个分身。捡起这个布丁，教程就结束了。再见了，期待之后和你见面。");
+	}
+
 
 	private static final String LESSON = "lesson";
 	private int lesson;

@@ -48,8 +48,20 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Burning extends Buff implements Hero.Doom, Buff.DOTbuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Burning.class)
+			.t("name", "燃烧")
+			.t("heromsg", "你着火了！")
+			.t("burnsup", "%s被烧毁了！")
+			.t("ondeath", "你被燃烧至死...")
+			.t("rankings_desc", "燃烧殆尽")
+			.t("desc", "没什么比被火焰吞没更痛苦了。\n\n火焰每回合都会造成伤害，直到它被液体扑灭或者自行消散。火会在你进入水中时熄灭，打碎药瓶产生的水花也具有同样的效果。\n\n此外，火焰还会点燃所有接触到的可燃地形与可燃物。\n\n燃烧效果剩余时长：%s回合");
+	}
+
 	
 	private static final float DURATION = 8f;
 	

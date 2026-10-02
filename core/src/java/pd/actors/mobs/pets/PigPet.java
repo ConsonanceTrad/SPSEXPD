@@ -7,8 +7,16 @@ import pd.items.Generator;
 import pd.items.consum.food.SmallMeat;
 import pd.sprites.PigPetSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class PigPet extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(PigPet.class)
+			.t("name", "像素猪")
+			.t("desc", "半大不小的粉红猪，山区居民会训练它寻找地下黑色珍蘑。只要对它好，它也会努力做出回报。");
+	}
+
 	{
 		spriteClass = PigPetSprite.class;
 		cooldown = 50;

@@ -17,7 +17,17 @@ import pd.scenes.GameScene;
 import pd.sprites.ThiefKingSprite;
 import pd.ui.BossHealthBar;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 public class ThiefKing extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ThiefKing.class)
+			.t("name", "金城领主")
+			.t("desc", "传说中最神秘的盗贼，同时也是这个城市的领主。")
+			.t("notice", "你就是让我们组织吃瘪的那个人，%s？那么现在，受死吧。")
+			.t("die", "你的生命，我买不起……");
+	}
+
 	{spriteClass=ThiefKingSprite.class;HP=HT=2000;defenseSkill=28;EXP=60;flying=true;loot=Generator.Category.SCROLL;lootChance=1f;properties.add(Property.ELF);properties.add(Property.BOSS);resistances.add(Electricity.class);}
 	@Override public int damageRoll(){return Random.NormalIntRange(20,70);}
 	@Override public int attackSkill(Char target){return 25;}

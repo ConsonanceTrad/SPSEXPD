@@ -25,8 +25,16 @@ import pd.actors.Char;
 import pd.effects.particles.SnowParticle;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
+import pd.messages.InlineText;
 
 public class FrostImbue extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(FrostImbue.class)
+			.t("name", "寒霜之力")
+			.t("desc", "你被灌注了寒霜的力量！\n\n所有的物理攻击都会在敌人身上累加冻伤效果。与此同时你对寒冷完全免疫。\n\n寒霜之力剩余时长：%s回合");
+	}
+
 	
 	{
 		type = buffType.POSITIVE;

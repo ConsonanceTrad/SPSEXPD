@@ -39,8 +39,19 @@ import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class AscendedForm extends ArmorAbility {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(AscendedForm.class)
+			.t("name", "超凡升天")
+			.t("short_desc", "牧师_超凡升天_而进入神格，可获得全新法术、攻击距离与护盾。")
+			.t("desc", "牧师释放神圣能量，进入持续10回合的神格。在此形态下，牧师可施放全新法术，增加2格攻击距离与30点护盾。且每消耗1点圣典充能进行施法都能使牧师获得10点护盾。\n\n通过超凡升天及其法术赋予的护盾不会自然衰减，但在超凡升天结束时这种护盾会立即消失。重新使用该技能可刷新超凡升天的持续时间。")
+			.t("ascendbuff.name", "超凡升天")
+			.t("ascendbuff.desc", "神圣能量自牧师周身流转。进入神格时，牧师可通过其神圣能量索敌以获得2格攻击距离，并且每使用一点圣书充能牧师都能获得10点护盾。此外，牧师还可以施放通过超凡升天相关天赋解锁的法术。\n\n通过超凡升天及其法术获得的护盾不会正常衰减，但在超凡升天结束时这种护盾会立即消失。\n\n当前护盾值: %1$d\n剩余回合数: %2$d");
+	}
+
 
 	{
 		baseChargeUse = 50;

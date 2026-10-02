@@ -23,8 +23,16 @@ package pd.actors.buffs;
 
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class Doom extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Doom.class)
+			.t("name", "定命")
+			.t("desc", "当整个宇宙都看起来想置你于死地时，继续斗争还有什么意义呢？\n\n被定命的角色受到的任何伤害都会提升67%。\n\n定命是永久性的，死后才能解脱。");
+	}
+
 	
 	{
 		type = buffType.NEGATIVE;

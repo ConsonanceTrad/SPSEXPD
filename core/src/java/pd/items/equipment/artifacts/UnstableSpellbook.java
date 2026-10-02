@@ -73,8 +73,32 @@ import render.utils.serialize.Bundle;
 import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class UnstableSpellbook extends Artifact {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(UnstableSpellbook.class)
+			.t("name", "无序魔典")
+			.t("ac_read", "阅读")
+			.t("ac_add", "加入")
+			.t("ac_song", "耗竭-圣歌")
+			.t("blinded", "你不能在失明的时候阅读书籍。")
+			.t("no_charge", "你的咒语书耗尽了能量。")
+			.t("cursed", "被诅咒的魔典锁死了书页，你无法阅读它。")
+			.t("update", "魔法书变得更加强大。")
+			.t("dew_empty", "高能露珠不足。")
+			.t("prompt", "选择一个卷轴")
+			.t("infuse_scroll", "你将卷轴的能量注入了书中。")
+			.t("unable_scroll", "你无法将这个卷轴添加到书中。")
+			.t("unknown_scroll", "你仍然不清楚这个卷轴的种类。")
+			.t("desc", "这本魔典就其年岁而言被保养得异常好。当你翻动页面时它不断地噼啪作响并发出嘶嘶声，涌动着不稳定的能量。一旦诵读这本书，没人能笃定你会释放出什么咒语。")
+			.t("desc_cursed", "被诅咒的魔典将自己绑在了你身上，并在抑制你使用大部分卷轴的能力。")
+			.t("desc_index", "下次升级该物品所需要的露珠为%s。")
+			.t("desc_empowered", "被你放进书中的卷轴闪耀着魔力的微光。你能够利用魔典进一步激发卷轴能力，展现出秘卷效果，但这样也会消耗你额外的充能。")
+			.t("read_empowered", "被你放入魔典的卷轴都充满了魔法能量。你可以自主选择导引出该卷轴的正常或秘卷能力。\n\n如果选择释放秘卷能力，则会消耗2点魔典充能。");
+	}
+
 
 	{
 		image = ConsumUsefulProcessEnhanceDict.ARTIFACT_SPELLBOOK;

@@ -17,9 +17,17 @@ import pd.sprites.CharSprite;
 import pd.sprites.MagicEyeSprite;
 import pd.utils.GLog;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** Zot's original eye minion. Its beam behavior comes from the modern evil eye. */
 public class MagicEye extends Eye {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(MagicEye.class)
+			.t("name", "青色邪眼")
+			.t("desc", "这种邪眼似乎完全由Zot的魔力构成。");
+	}
+
 	{
 		spriteClass = MagicEyeSprite.class;
 		properties.add(Property.ELEMENT);

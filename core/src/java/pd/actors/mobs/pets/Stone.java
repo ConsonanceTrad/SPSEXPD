@@ -10,7 +10,15 @@ import pd.items.consum.food.completefood.PetFood;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.sprites.StoneSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 public class Stone extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Stone.class)
+			.t("name", "石拳石")
+			.t("desc", "破碎中的一把武器是它的亲戚，但是它的父母来自精灵宝可梦。");
+	}
+
 	{ spriteClass=StoneSprite.class;cooldown=50;properties.add(Property.ELEMENT);updateStats(true); }
 	@Override protected Kind kind(){return Kind.STONE;}
 	@Override public boolean lovefood(Item item){return item instanceof PetFood||item instanceof MissileWeapon;}

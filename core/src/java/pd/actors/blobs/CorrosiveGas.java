@@ -30,8 +30,16 @@ import pd.effects.BlobEmitter;
 import pd.effects.Speck;
 import pd.messages.Messages;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class CorrosiveGas extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(CorrosiveGas.class)
+			.t("name", "腐蚀酸雾")
+			.t("desc", "这里盘绕着一片致命的腐蚀酸雾。");
+	}
+
 
 	//FIXME should have strength per-cell
 	private int strength = 0;

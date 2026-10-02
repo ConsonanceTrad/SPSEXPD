@@ -22,8 +22,17 @@
 package pd.actors.buffs;
 
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class Vulnerable extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Vulnerable.class)
+			.t("name", "易伤")
+			.t("heromsg", "你感到外界的伤害愈加疼痛！")
+			.t("desc", "易伤魔法会使得目标受到所有被护甲减免过的物理伤害增加33%%。\n\n易伤效果剩余时长：%s回合");
+	}
+
 	
 	public static final float DURATION = 20f;
 	

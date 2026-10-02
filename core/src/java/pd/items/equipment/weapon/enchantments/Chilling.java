@@ -29,8 +29,17 @@ import pd.items.equipment.weapon.Weapon;
 import pd.sprites.ItemSprite.Glowing;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Chilling extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Chilling.class)
+			.t("name", "寒霜%s")
+			.t("desc", "受该附魔成功影响的敌人会被冻伤，导致移动和攻击速度降低。")
+			.t("elestrike_desc", "武器拥有寒霜附魔时，元素打击会将寒气扩散到范围的全部地块，持续8个回合。");
+	}
+
 
 	private static ItemSprite.Glowing TEAL = new ItemSprite.Glowing( 0x00FFFF );
 	

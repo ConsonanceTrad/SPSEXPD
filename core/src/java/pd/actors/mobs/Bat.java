@@ -31,8 +31,16 @@ import pd.items.consum.potions.PotionOfHealing;
 import pd.sprites.BatSprite;
 import pd.sprites.CharSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Bat extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Bat.class)
+			.t("name", "吸血蝙蝠")
+			.t("desc", "这些敏捷且坚韧的洞穴穹顶生物比看上去可怕地多。它们会通过每次成功的攻击来恢复生命，从而击败比它们大得多的对手。");
+	}
+
 
 	{
 		spriteClass = BatSprite.class;

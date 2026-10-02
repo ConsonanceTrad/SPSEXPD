@@ -19,9 +19,21 @@ import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Bone Star's secondary vial, charged whenever the main waterskin is used. */
 public class CrystalVial extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(CrystalVial.class)
+			.t("name", "水晶瓶")
+			.t("ac_drink", "恢复")
+			.t("value", "+%d点生命")
+			.t("ac_bless", "强化")
+			.t("select", "选择一项要升级的物品")
+			.t("desc", "星辰制作的仿制品，可以收集露珠瓶的能量。");
+	}
+
 
 	private static final String AC_DRINK = "DRINK";
 	private static final String AC_BLESS = "BLESS";

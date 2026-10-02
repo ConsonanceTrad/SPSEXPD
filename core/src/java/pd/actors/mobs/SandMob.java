@@ -6,9 +6,19 @@ import pd.items.Generator;
 import pd.items.Item;
 import pd.items.equipment.wands.WandOfLightning;
 import pd.sprites.SandmobSprite;
+import pd.messages.InlineText;
 
 /** Original SPS-PD runtime and save identity for the sand creature. */
 public class SandMob extends SpsCaveMobs.SandMob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SandMob.class)
+			.t("name", "沙怪")
+			.t("desc", "一种由沙子组成的怪物，死亡后会分裂。\n元素")
+			.t("minisand.name", "迷你沙怪")
+			.t("minisand.desc", "迷你沙怪");
+	}
+
 
 	{
 		spriteClass = SandmobSprite.class;

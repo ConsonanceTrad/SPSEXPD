@@ -9,8 +9,16 @@ import pd.actors.buffs.Terror;
 import pd.items.consum.potions.PotionOfLiquidFlame;
 import pd.sprites.SkeletonHand1Sprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class SkeletonHand1 extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SkeletonHand1.class)
+			.t("name", "王之右手")
+			.t("desc", "骷髅王的右手，王者的右手。");
+	}
+
 	{
 		spriteClass = SkeletonHand1Sprite.class; HP = HT = 1000; defenseSkill = 30;
 		EXP = 10; maxLvl = 20; flying = true; loot = PotionOfLiquidFlame.class; lootChance = 0.1f;

@@ -29,8 +29,16 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class PotionOfCorrosiveGas extends ExoticPotion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfCorrosiveGas.class)
+			.t("name", "腐蚀酸雾合剂")
+			.t("desc", "打开或摔碎这个密封的药瓶将导致内容物爆发成一团强腐蚀性的锈色酸雾。这种酸雾的扩散速度与致命性都远超毒气。不过稳定性较差，不能在空气中存留太久。");
+	}
+
 	
 	{
 		icon = ItemIconSheet.POTION_CORROGAS;

@@ -39,8 +39,18 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class GravityChaosTracker extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GravityChaosTracker.class)
+			.t("name", "重力混乱")
+			.t("desc_intro", "每经几回合，当前楼层的所有单位都会被抛向某个随机方向。")
+			.t("desc_positive", "然而你和你的盟友似乎对此免疫。")
+			.t("desc_duration", "重力混乱会持续多久不得而知，但其不会一直持续下去。");
+	}
+
 
 	{
 		actPriority = BUFF_PRIO-10; //acts after other buffs

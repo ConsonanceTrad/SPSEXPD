@@ -14,9 +14,18 @@ import pd.mechanics.pathfind.PathFinder;
 import render.utils.data.BArray;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** FruitCat's disposable blank ledger. */
 public class MoneyBook extends TossWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MoneyBook.class)
+			.t("name", "空白账本")
+			.t("ac_cast", "撕碎")
+			.t("desc", "菜猫工作所用的账本，但是上面一片空白。");
+	}
+
 
 	public static final String AC_CAST = "CAST";
 

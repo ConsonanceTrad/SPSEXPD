@@ -14,8 +14,22 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class DiceTower extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(DiceTower.class)
+			.t("name", "骰子塔")
+			.t("ac_choose", "选择")
+			.t("ac_roll", "重掷")
+			.t("ac_reroll", "出千")
+			.t("ac_allin", "乾坤一掷")
+			.t("need_charge", "充能不足。")
+			.t("charge", "充能：%d/%d")
+			.t("desc", "一个操纵天命点数的道具。重掷会生成新的数值；出千消耗60点充能并把天命点数设为100；乾坤一掷会耗尽金币，每5000金币转化为1点天命。");
+	}
+
 
 	public static final String AC_CHOOSE = "CHOOSE";
 	public static final String AC_ROLL = "ROLL";

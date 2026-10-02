@@ -28,8 +28,16 @@ import pd.actors.buffs.Adrenaline;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Cripple;
 import pd.actors.hero.Hero;
+import pd.messages.InlineText;
 
 public class AdrenalineDart extends TippedDart {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(AdrenalineDart.class)
+			.t("name", "激素飞镖")
+			.t("desc", "这些飞镖上涂着一种由速行蓟制成的药物。当目标为友方时，其移动速度和攻击速度都会有所提升，若为敌方则会短暂降低其移动速度。这只飞镖仍能对敌人造成伤害，但不会伤及盟友。");
+	}
+
 	
 	{
 		image = ConsumThrowsDict.ADRENALINE_DART_0;

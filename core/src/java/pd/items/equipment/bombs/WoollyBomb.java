@@ -35,8 +35,17 @@ import render.noosa.audio.Sample;
 import render.utils.data.BArray;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class WoollyBomb extends Bomb {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WoollyBomb.class)
+			.t("name", "绵绵炸弹")
+			.t("desc", "这枚改造过的炸弹会在爆炸后创造出魔法羊群。爆炸会对2格范围内的所有单位造成_%1$d~%2$d点伤害_。羊群会阻挡单位的移动，并会存在相当长一段时间！然而，羊群无法在强敌面前存在太久，而且羊群也可以通过与之互动被人为地提前消除。")
+			.t("discover_hint", "你可通过炼金合成该物品。");
+	}
+
 	
 	{
 		image = EquipmentEquipWeaponBombDict.WOOLY_BOMB_0;

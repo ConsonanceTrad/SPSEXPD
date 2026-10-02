@@ -31,8 +31,16 @@ import pd.actors.buffs.Roots;
 import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class PotionOfSnapFreeze extends ExoticPotion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfSnapFreeze.class)
+			.t("name", "极速冰冻合剂")
+			.t("desc", "一旦暴露在空气里，这种化学混合物会瞬间冻结并缠绕范围内一切对象。");
+	}
+
 	
 	{
 		icon = ItemIconSheet.POTION_SNAPFREEZ;

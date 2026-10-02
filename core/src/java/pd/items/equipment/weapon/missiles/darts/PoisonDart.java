@@ -27,8 +27,16 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Poison;
+import pd.messages.InlineText;
 
 public class PoisonDart extends TippedDart {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PoisonDart.class)
+			.t("name", "毒液飞镖")
+			.t("desc", "这些飞镖上涂着一种由断肠苔制成的药物，能使目标中毒。");
+	}
+
 	
 	{
 		image = ConsumThrowsDict.POISON_DART_0;

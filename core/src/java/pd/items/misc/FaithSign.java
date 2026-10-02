@@ -16,8 +16,21 @@ import pd.scenes.GameScene;
 import pd.windows.WndUseItem;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class FaithSign extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(FaithSign.class)
+			.t("name", "信标盒")
+			.t("ac_demon", "恶魔派系")
+			.t("ac_human", "神圣派系")
+			.t("ac_mech", "机械派系")
+			.t("ac_life", "自然派系")
+			.t("ac_balance", "平衡派系")
+			.t("desc", "装有五种派系标志的盒子。选择新信仰会替换当前信仰，并改变你对敌人造成和承受的伤害。");
+	}
+
 
 	public static final String AC_CHOOSE = "CHOOSE";
 	public static final String AC_DEMON = "DEMON";

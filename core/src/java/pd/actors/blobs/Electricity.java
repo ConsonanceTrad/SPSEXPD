@@ -36,8 +36,18 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.utils.GLog;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Electricity extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Electricity.class)
+			.t("name", "电场")
+			.t("desc", "火花在这片电场中不断闪烁着。")
+			.t("rankings_desc", "触电")
+			.t("ondeath", "你因触电而亡...");
+	}
+
 	
 	{
 		//acts after mobs, to give them a chance to resist paralysis

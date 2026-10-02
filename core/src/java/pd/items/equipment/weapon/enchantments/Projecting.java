@@ -24,8 +24,17 @@ package pd.items.equipment.weapon.enchantments;
 import pd.actors.Char;
 import pd.items.equipment.weapon.Weapon;
 import pd.sprites.ItemSprite;
+import pd.messages.InlineText;
 
 public class Projecting extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Projecting.class)
+			.t("name", "索敌%s")
+			.t("desc", "这个附魔会使近战武器获得额外的攻击距离。远程武器则能够在瞄准附近目标时穿透墙壁。")
+			.t("elestrike_desc", "武器拥有索敌附魔时，元素打击对范围内除主要目标外的每个敌人都造成30%的伤害。");
+	}
+
 
 	private static ItemSprite.Glowing PURPLE = new ItemSprite.Glowing( 0x8844CC );
 

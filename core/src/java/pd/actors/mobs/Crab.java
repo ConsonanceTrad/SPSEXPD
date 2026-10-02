@@ -27,8 +27,16 @@ import pd.items.Item;
 import pd.items.consum.food.MysteryMeat;
 import pd.sprites.CrabSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Crab extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Crab.class)
+			.t("name", "下水道螃蟹")
+			.t("desc", "这些巨型的螃蟹位居下水道食物链的顶端。它们行动极其迅速且其厚重的甲壳能承受沉重的打击。");
+	}
+
 
 	{
 		spriteClass = CrabSprite.class;

@@ -30,8 +30,23 @@ import pd.actors.buffs.FlavourBuff;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class Quarterstaff extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Quarterstaff.class)
+			.t("name", "铁头棍")
+			.t("stats_desc", "这件武器可以格挡0~2点伤害。")
+			.t("ability_name", "防御架势")
+			.t("typical_ability_desc", "决斗家可通过铁头棍进入_防御架势_。进入这一架势不消耗时间，且一般将在_%d回合_内使她的闪避变为3倍。")
+			.t("ability_desc", "决斗家可通过铁头棍进入_防御架势_。进入这一架势不消耗时间，且将在_%d回合_内使她的闪避变为3倍。")
+			.t("upgrade_ability_stat_name", "武技持续时间")
+			.t("desc", "这是两端以铁包覆的硬木棍。")
+			.t("defensivestance.name", "防御架势")
+			.t("defensivestance.desc", "决斗家正在使用她的铁头棍偏斜来袭的攻击和投射物。只要她还处于这个架势下，她对一切攻击的闪避能力都会变为3倍。\n\n剩余回合数：%s");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.QUARTERSTAFF_0;

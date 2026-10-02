@@ -41,8 +41,23 @@ import pd.windows.WndBag;
 import pd.windows.WndOptions;
 import pd.windows.WndTitledMessage;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class ScrollOfEnchantment extends ExoticScroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfEnchantment.class)
+			.t("name", "注魔秘卷")
+			.t("inv_title", "附魔一件物品")
+			.t("weapon", "为你的武器选择附魔。")
+			.t("armor", "为你的防具选择刻印。")
+			.t("cancel", "取消")
+			.t("cancel_warn", "取消该行动仍然会消耗你的注魔秘卷，你确定吗？")
+			.t("cancel_warn_yes", "是的，我确定")
+			.t("cancel_warn_no", "不，我改主意了")
+			.t("desc", "这张秘卷可以为武器或护甲注入强大的魔力。使用者甚至可以在一定程度上选择注入哪种魔力。");
+	}
+
 	
 	{
 		icon = ItemIconSheet.SCROLL_ENCHANT;

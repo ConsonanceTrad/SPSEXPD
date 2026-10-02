@@ -26,8 +26,35 @@ import pd.sprites.SpinnerSprite;
 import pd.sprites.WraithSprite;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class FusionPet extends DirectableAlly {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(FusionPet.class)
+			.t("name_0", "缎带鼠")
+			.t("name_1", "月兔")
+			.t("name_2", "温顺蟹")
+			.t("name_3", "沼泽蛙")
+			.t("name_4", "猎犬")
+			.t("name_5", "蓝猫")
+			.t("name_6", "灵猴")
+			.t("name_7", "陆行鸟")
+			.t("name_8", "蝶灵")
+			.t("name_9", "幼蛛")
+			.t("name_10", "灵蛇")
+			.t("name_11", "迅猛鸡")
+			.t("name_12", "幼龙")
+			.t("name_13", "星之子")
+			.t("name_14", "灯魔")
+			.t("name_15", "哈罗精灵")
+			.t("role_0", "护卫型：生命与防御较高，但伤害较低。")
+			.t("role_1", "突击型：近战伤害较高，但生命较低。")
+			.t("role_2", "远射型：可以隔着直线攻击，远射伤害降至四分之三。")
+			.t("role_3", "支援型：基础能力均衡，偶尔使敌人中毒。")
+			.t("desc", "来自特别惊喜宠物谱系的同行伙伴。%s伙伴数值只随英雄等级有限成长，不会生成物品或经验。");
+	}
+
 
 	public static final int TYPE_COUNT = 16;
 

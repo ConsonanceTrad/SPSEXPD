@@ -13,8 +13,18 @@ import render.noosa.Game;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class PuddingCup extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PuddingCup.class)
+			.t("name", "巧克力布丁")
+			.t("ac_save", "记忆")
+			.t("saved", "这一刻已经被保存。")
+			.t("desc", "美味的布丁可以使你记住这一美好的瞬间，但仅仅是这一瞬间而已。");
+	}
+
 
 	private static final String AC_SAVE = "SAVE";
 

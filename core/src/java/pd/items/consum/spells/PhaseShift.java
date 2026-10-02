@@ -34,8 +34,17 @@ import pd.items.consum.scrolls.ScrollOfTeleportation;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 public class PhaseShift extends TargetedSpell {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PhaseShift.class)
+			.t("name", "转移结晶")
+			.t("no_target", "那里没什么可传送的东西。")
+			.t("desc", "这个充满混沌能量的结晶会将目标单位传送到本层随机位置。被传送的角色会被麻痹相当长的一段时间，而足够强大的敌人则可抵抗该效果。这个结晶可以对目标单位或施法者自身使用。");
+	}
+
 	
 	{
 		image = ConsumScrollAmuletCrystalDict.PHASE_SHIFT_0;

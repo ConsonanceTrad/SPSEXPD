@@ -25,8 +25,16 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class Light extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Light.class)
+			.t("name", "发光")
+			.t("desc", "即使是在最黑暗的地牢中，身边有一个稳定的光源也总是令人欣慰。 \n\n光照能驱散黑暗，使你能够无视周遭的黑暗环境并拥有一个合理的视野范围。 \n\n发光效果剩余时长：%s回合");
+	}
+
 	
 	{
 		type = buffType.POSITIVE;

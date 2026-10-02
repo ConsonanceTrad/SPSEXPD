@@ -39,8 +39,18 @@ import pd.messages.Messages;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
+import pd.messages.InlineText;
 
 public class TelekineticGrab extends TargetedSpell {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(TelekineticGrab.class)
+			.t("name", "念力结晶")
+			.t("cant_grab", "你无法抓取它。")
+			.t("no_target", "这里没什么可抓取的东西。")
+			.t("desc", "这个结晶允许使用者远程抓取一格所有的物体，或从敌人身上取回卡住的投掷武器！\n\n结晶无法用于抓取其他角色拥有的物品，也无法抓取诸如箱子这般的容器。");
+	}
+
 
 	{
 		image = ConsumScrollAmuletCrystalDict.TELE_GRAB_0;

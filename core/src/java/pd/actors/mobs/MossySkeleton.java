@@ -11,8 +11,17 @@ import pd.messages.Messages;
 import pd.sprites.MossySkeletonSprite;
 import pd.utils.GLog;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class MossySkeleton extends LegacyDualLootMob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(MossySkeleton.class)
+			.t("name", "青苔骷髅")
+			.t("desc", "青苔覆盖了这具骷髅，并由此支配着骷髅的行动。")
+			.t("killcount", "已击败青苔骷髅：%d");
+	}
+
 
 	{
 		spriteClass = MossySkeletonSprite.class;

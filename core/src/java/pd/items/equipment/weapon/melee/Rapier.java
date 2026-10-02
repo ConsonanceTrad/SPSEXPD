@@ -39,8 +39,21 @@ import pd.ui.AttackIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
+import pd.messages.InlineText;
 
 public class Rapier extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Rapier.class)
+			.t("name", "刺剑")
+			.t("stats_desc", "这件武器可以格挡0~1点伤害。")
+			.t("ability_name", "弓步刺")
+			.t("typical_ability_desc", "决斗家可用刺剑对相距1格的敌人使出_弓步刺_。这一击会向敌人突进，一般造成_%1$d~%2$d点伤害_，且必定命中。")
+			.t("ability_desc", "决斗家可用刺剑对相距1格的敌人使出_弓步刺_。这一击会向敌人突进，造成_%1$d~%2$d点伤害_，且必定命中。")
+			.t("desc", "一柄修长而笔直的利器，牺牲了部分劈砍能力而获得一定的保护效果。")
+			.t("discover_hint", "某位英雄初始携带该物品。");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.RAPIER_0;

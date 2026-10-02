@@ -1,4 +1,12 @@
 package pd.items.equipment.weapon.ranges;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
-public class MetalBowR extends RangeWeapon { public MetalBowR() { super(3, Variant.HEAVY, SpecificPlaceHolderDict.SOMETHING_0); } }
+import pd.messages.InlineText;
+public class MetalBowR extends RangeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MetalBowR.class)
+			.t("name", "沉重的金属弓")
+			.t("desc", "使用金属浇筑而成的弓，但是有些沉重。");
+	}
+ public MetalBowR() { super(3, Variant.HEAVY, SpecificPlaceHolderDict.SOMETHING_0); } }

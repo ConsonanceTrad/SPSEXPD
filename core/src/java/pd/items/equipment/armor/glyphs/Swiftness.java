@@ -29,8 +29,16 @@ import pd.items.equipment.armor.Armor;
 import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Swiftness extends Armor.Glyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Swiftness.class)
+			.t("name", "迅捷%s")
+			.t("desc", "这个刻印会在近范围内没有敌人时提高使用者的移动速度。");
+	}
+
 
 	private static ItemSprite.Glowing YELLOW = new ItemSprite.Glowing( 0xFFFF00 );
 

@@ -22,8 +22,17 @@
 package pd.actors.buffs;
 
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class Cripple extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Cripple.class)
+			.t("name", "残废")
+			.t("heromsg", "你残废了！")
+			.t("desc", "你很确定自己的腿不该折成那样。\n\n残废会减半移动速度，移动一格会消耗二回合而不是正常情况下的一回合。\n\n残废效果剩余时长：%s回合");
+	}
+
 
 	public static final float DURATION	= 10f;
 

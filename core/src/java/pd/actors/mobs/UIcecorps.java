@@ -22,9 +22,18 @@ import pd.sprites.IceRabbitSprite;
 import pd.sprites.SpsFireRabbitSprite;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** FrostNova's first form. */
 public class UIcecorps extends BossRushBoss {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(UIcecorps.class)
+			.t("name", "术士冬痕")
+			.t("desc", "一只兔人族的术士，向四周散发着寒气。")
+			.t("firerabbit.name", "烈焰兔人");
+	}
+
 	protected int timeToIce;
 
 	{

@@ -9,8 +9,17 @@ import pd.actors.buffs.Ooze;
 import pd.effects.MagicMissile;
 import pd.mechanics.Ballistica;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Obubble extends RockCode {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Obubble.class)
+			.t("name", "淤泥泡沫")
+			.t("desc", "来自黏咕的技能芯片，发射可能使目标沾满淤泥的自然泡泡。")
+			.t("stats_desc", "消耗4点能量中的1点，造成随英雄等级提高的自然伤害，并有50%%概率施加淤泥。");
+	}
+
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "O.b"; }
 	@Override protected int missileType() { return MagicMissile.FOLIAGE; }
 	@Override protected void onZap(Ballistica bolt) {

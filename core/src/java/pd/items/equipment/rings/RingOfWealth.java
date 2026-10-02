@@ -52,8 +52,20 @@ import render.utils.serialize.Bundle;
 import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class RingOfWealth extends Ring {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RingOfWealth.class)
+			.t("name", "财富之戒")
+			.t("stats", "佩戴这枚戒指时，你的整体幸运程度会提升_%s%%_。")
+			.t("typical_stats", "佩戴这枚戒指时，你的整体幸运程度通常会提升_%s%%_。")
+			.t("combined_stats", "你已装备的戒指正联结它们的力量，一共增加了你_%s%%_的幸运。")
+			.t("upgrade_stat_name_1", "幸运加成")
+			.t("desc", "这枚戒指有如磁石般的招财功效，佩戴者有更大的机率从敌人身上或各类宝箱中取得较有价值的道具。被诅咒的戒指反而会降低发现宝物的可能性。");
+	}
+
 
 	{
 		icon = ItemIconSheet.RING_WEALTH;

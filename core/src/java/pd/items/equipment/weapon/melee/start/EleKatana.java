@@ -26,8 +26,22 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class EleKatana extends NormalMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(EleKatana.class)
+			.t("name", "武士雷刀")
+			.t("ac_zap", "一闪")
+			.t("silent", "沉默状态下无法释放雷刀。")
+			.t("prompt", "选择目标地点")
+			.t("no", "雷刀需要10点充能。")
+			.t("blocked", "这条直线上没有安全的落脚点。")
+			.t("charge", "充能：%1$d / %2$d。")
+			.t("desc", "附有雷电的武士刀。每次命中都会积蓄充能，并在目标身上留下不稳定电流；“一闪”消耗10点充能，斩过直线上的目标并瞬移到末端。");
+	}
+
 
 	public static final String AC_ZAP = "ZAP";
 	public static final int ZAP_COST = 10;

@@ -38,8 +38,23 @@ import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class PPC2 extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PPC2.class)
+			.t("name", "深渊调查仪")
+			.t("ac_try", "探索")
+			.t("ac_heal", "实验")
+			.t("ac_mind", "丰收")
+			.t("no_thing", "附近没有可调查的地形。")
+			.t("break", "你太饿了，无法继续调查。")
+			.t("need_spp", "天命点数必须高于%d点。")
+			.t("clear", "目前没有可以收割的有害精神状态。")
+			.t("desc", "用于调查深渊的仪器。它能拆取附近地形，消耗天命点数触发随机精神效果，或收割一种有害精神状态来恢复生命并取得天命点数。");
+	}
+
 
 	public static final String AC_TRY = "TRY";
 	public static final String AC_HEAL = "HEAL";

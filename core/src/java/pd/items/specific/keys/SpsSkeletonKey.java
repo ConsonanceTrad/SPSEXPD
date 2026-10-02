@@ -16,9 +16,17 @@ package pd.items.specific.keys;
 import pd.atlas.items.SpecificKeyDict;
 
 import pd.items.Item;
+import pd.messages.InlineText;
 
 /** The chapter-exit key awarded by SPS quest givers. */
 public class SpsSkeletonKey extends Key {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SpsSkeletonKey.class)
+			.t("name", "骷髅钥匙")
+			.t("desc", "一把形似骷髅的钥匙，可以解锁本章过渡层的出口。");
+	}
+
 
 	{
 		image = SpecificKeyDict.WORN_KEY;

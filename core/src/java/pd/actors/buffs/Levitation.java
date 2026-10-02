@@ -30,8 +30,16 @@ import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
+import pd.messages.InlineText;
 
 public class Levitation extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Levitation.class)
+			.t("name", "飘浮")
+			.t("desc", "一股魔力把你从地面托起，让你觉得自己身轻如燕。\n\n飘浮中的角色能够悄无声息地移动，并会无视所有以地面为基础的效果。陷阱不会被触发、火焰不会被水扑灭、植物不会被踩踏、根系无法缠绕你、并且深渊能被跨越。小心，在效果结束时上述效果都会失效！\n\n飘浮效果剩余时长：%s回合");
+	}
+
 	
 	{
 		type = buffType.POSITIVE;

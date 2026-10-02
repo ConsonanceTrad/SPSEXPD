@@ -15,9 +15,19 @@ import render.noosa.Game;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** The original SPS energy core and gateway to Zot's prison. */
 public class Palantir extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Palantir.class)
+			.t("name", "能源核心")
+			.t("ac_port", "使用")
+			.t("desc", "由Otiluke创建的虚空-能源转化装置。它可以把强大的灵魂保存下来作为能源。")
+			.t("boss_first", "你必须先击败Zot才能返回。");
+	}
+
 
 	public static final int BRANCH = 48;
 	public static final String AC_PORT = "PORT";

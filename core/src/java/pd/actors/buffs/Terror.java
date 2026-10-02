@@ -23,8 +23,16 @@ package pd.actors.buffs;
 
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Terror extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Terror.class)
+			.t("name", "恐惧")
+			.t("desc", "恐惧是使敌人陷入不可控制的恐慌的操纵性魔法。\n\n恐惧中的角色会远离自己的敌人，试图和敌人隔开尽可能多的门或墙。然而疼痛的刺激会减少恐惧的持续时间。\n\n恐惧效果剩余时长：%s");
+	}
+
 
 	public int object = 0;
 

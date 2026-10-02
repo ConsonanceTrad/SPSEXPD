@@ -30,8 +30,16 @@ import pd.effects.FloatingText;
 import pd.items.consum.potions.PotionOfHealing;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemIconSheet;
+import pd.messages.InlineText;
 
 public class PotionOfShielding extends ExoticPotion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfShielding.class)
+			.t("name", "奥术护盾合剂")
+			.t("desc", "与治疗药剂不同的是，饮用这瓶合剂能够使周身被护盾环绕，抵挡所受到的伤害。");
+	}
+
 	
 	{
 		icon = ItemIconSheet.POTION_SHIELDING;

@@ -7,9 +7,17 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.items.Item;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The original 2020 red packet, converting carried gold directly into damage. */
 public class MoneyPack extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MoneyPack.class)
+			.t("name", "红包")
+			.t("desc", "只要准备好钱，在春节就能解决好多问题。2020春节快乐！");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.MONEY_PACK;

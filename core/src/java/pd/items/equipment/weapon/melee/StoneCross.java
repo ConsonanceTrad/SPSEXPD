@@ -7,8 +7,17 @@ import pd.actors.Char;
 import pd.items.equipment.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.messages.Messages;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class StoneCross extends NormalMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(StoneCross.class)
+			.t("name", "十碑")
+			.t("desc", "一个由Coconut制作的巨大石头十字碑。每次命中都会积蓄力量；命中二十次后，下一击造成五倍伤害。")
+			.t("charge", "积蓄：%1$d / %2$d。");
+	}
+
 	public static final int FULL_CHARGE = 20;
 	private static final String CHARGE = "charge";
 	private int charge;

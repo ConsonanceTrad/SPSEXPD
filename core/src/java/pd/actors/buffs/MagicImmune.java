@@ -26,8 +26,16 @@ import pd.actors.hero.Hero;
 import pd.items.equipment.armor.glyphs.AntiMagic;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
+import pd.messages.InlineText;
 
 public class MagicImmune extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(MagicImmune.class)
+			.t("name", "魔法免疫")
+			.t("desc", "任何魔法都奈何不了你，你对魔法完全免疫。\n\n在魔法免疫状态下，所有魔法效果无论益害都无法影响你，包括但不限于诅咒、附魔、刻印、法杖、卷轴、戒指、神器等。但英雄护甲的能力足够强大，能够不受这种效果影响，正常发挥作用。\n\n魔法免疫剩余时长：%s回合");
+	}
+
 
 	public static final float DURATION = 20f;
 	

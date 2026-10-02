@@ -26,8 +26,16 @@ import pd.atlas.items.ConsumThrowsDict;
 import pd.Assets;
 import pd.actors.Char;
 import pd.actors.mobs.Piranha;
+import pd.messages.InlineText;
 
 public class FishingSpear extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(FishingSpear.class)
+			.t("name", "捕鱼矛")
+			.t("desc", "本用于捕鱼，但作为武器也相当趁手的短投矛。");
+	}
+
 	
 	{
 		image = ConsumThrowsDict.FISHING_SPEAR_0;

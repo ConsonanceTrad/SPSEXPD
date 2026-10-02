@@ -10,8 +10,16 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class MiniBomb extends Bomb {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MiniBomb.class)
+			.t("name", "迷你炸弹")
+			.t("desc", "一枚紧凑的小型炸弹，会在爆炸中心额外造成集中伤害。");
+	}
+
 	{ image = EquipmentEquipWeaponBombDict.SPS_MINI_BOMB; }
 
 	@Override public void explode(int cell) {

@@ -10,9 +10,17 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** A thrown construction block which turns its landing tile into a door. */
 public class DoorBlock extends BuildBlock {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(DoorBlock.class)
+			.t("name", "造门方块")
+			.t("desc", "将方块投向无人占据的格子，可在那里建造一扇门。水井、楼梯、炼金釜与精金制造器无法被覆盖。");
+	}
+
 
 	{
 		image = ConsumThrowsDict.DOOR_BLOCK_PLACER;

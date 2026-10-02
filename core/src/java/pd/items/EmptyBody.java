@@ -6,9 +6,17 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.actors.hero.Hero;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** The unmodified weapon blank used to forge Shadow Eater. */
 public class EmptyBody extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(EmptyBody.class)
+			.t("name", "虚无之体")
+			.t("desc", "一把没有经过任何改造的武器坯料。暗噬1/3。");
+	}
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = false;

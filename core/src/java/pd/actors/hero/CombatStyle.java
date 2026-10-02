@@ -9,6 +9,7 @@
 package pd.actors.hero;
 
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public enum CombatStyle {
 
@@ -20,6 +21,27 @@ public enum CombatStyle {
 	ENDURING(1f, 0.94f, 1f, 1f, 1.08f, false),
 	TACTICAL(0.95f, 1f, 1.06f, 1f, 1f, false),
 	RECKLESS(1.05f, 1.05f, 1f, 1f, 0.90f, false);
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(CombatStyle.class)
+			.t("balanced", "平衡")
+			.t("balanced_summary", "无额外修正")
+			.t("assault", "猛攻")
+			.t("assault_summary", "伤害+8%，闪避-8%")
+			.t("guardian", "守御")
+			.t("guardian_summary", "获得少量护甲，伤害-8%")
+			.t("agile", "灵动")
+			.t("agile_summary", "速度+8%，生命-6%")
+			.t("precise", "专注")
+			.t("precise_summary", "命中+8%，速度-6%")
+			.t("enduring", "坚韧")
+			.t("enduring_summary", "生命+8%，命中-6%")
+			.t("tactical", "战术")
+			.t("tactical_summary", "闪避+6%，伤害-5%")
+			.t("reckless", "冒险")
+			.t("reckless_summary", "伤害和命中+5%，生命-10%");
+	}
+
 
 	private final float damage;
 	private final float accuracy;

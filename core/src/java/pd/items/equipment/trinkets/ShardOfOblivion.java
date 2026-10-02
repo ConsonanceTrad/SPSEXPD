@@ -44,8 +44,28 @@ import render.noosa.Image;
 import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class ShardOfOblivion extends Trinket {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ShardOfOblivion.class)
+			.t("name", "遗忘碎片")
+			.t("desc", "经过炼金釜的烹煮，这一小块邪能碎片已经化为了...一片虚空？光线似乎在碎片边缘发生了弯曲，而只要你不握住它，它就会悬停在原地。碎片似乎通过魔法从你的无知中获得力量，所以对此最好不要想太多。")
+			.t("typical_stats_desc", "这件饰物通常会使你每装备或使用一件未鉴定装备就提升20%%敌人掉落战利品的概率，效益上限为_%d_件未鉴定装备。碎片还会阻止你自动鉴定装备，但能用于手动鉴定已就绪的物品。")
+			.t("stats_desc", "在当前等级下，这件饰物会使你每装备或使用一件未鉴定装备就提升20%%敌人掉落战利品的概率，效益上限为_%d_件未鉴定装备。碎片还会阻止你自动鉴定装备，但能用于手动鉴定已就绪的物品。")
+			.t("ac_identify", "鉴定")
+			.t("identify_prompt", "鉴定一件物品")
+			.t("identify_ready", "一件物品的鉴定已就绪：%s。可使用遗忘碎片将其鉴定。")
+			.t("identify_ready_worn", "你所装备的物品的鉴定已就绪。可使用遗忘碎片将其鉴定。")
+			.t("identify_not_yet", "这个物品的鉴定尚未就绪。")
+			.t("identify", "你鉴定了这个物品！")
+			.t("wandusetracker.name", "已使用未鉴定法杖")
+			.t("wandusetracker.desc", "你近期已使用一根未鉴定法杖，短期内遗忘碎片将其视为一件已使用的未鉴定装备。\n\n剩余回合数：%s")
+			.t("thrownusetracker.name", "已使用未鉴定投武")
+			.t("thrownusetracker.desc", "你近期已使用一件未鉴定投掷武器，短期内遗忘碎片将其视为一件已使用的未鉴定装备。\n\n剩余回合数：%s");
+	}
+
 
 	{
 		image = EquipmentNonEquipDict.OBLIVION_SHARD_0;

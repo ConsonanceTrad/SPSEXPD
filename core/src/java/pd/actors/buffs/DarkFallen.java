@@ -12,8 +12,17 @@ import pd.scenes.GameScene;
 import pd.sprites.ShadowRatSprite;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class DarkFallen extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(DarkFallen.class)
+			.t("name", "暗影降临")
+			.t("darkliver.name", "夜影")
+			.t("darkliver.desc", "和时间相关，只在晚上攻击。");
+	}
+
 
 	@Override
 	public boolean act() {

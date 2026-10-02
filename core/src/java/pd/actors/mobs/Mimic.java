@@ -51,8 +51,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import pd.messages.InlineText;
 
 public class Mimic extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Mimic.class)
+			.t("name", "宝箱怪")
+			.t("reveal", "这是一个宝箱怪！")
+			.t("hidden_hint", "这个宝箱看上去有些不对劲...上前直接打开似乎不太合适。")
+			.t("desc", "宝箱怪是一种能随意改变外形的生物。在地牢里它们几乎一直以宝箱形态出现，因为它们明白怎么去吸引冒险者。")
+			.t("discover_hint", "你可在任何地牢区域中遇到该敌人。");
+	}
+
 	
 	private int level;
 	

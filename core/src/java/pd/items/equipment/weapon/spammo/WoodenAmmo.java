@@ -6,8 +6,16 @@ import pd.actors.buffs.Paralysis;
 import pd.actors.buffs.Vertigo;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class WoodenAmmo extends SpAmmo {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WoodenAmmo.class)
+			.t("name", "软木弹")
+			.t("desc", "将原石和坚果锻造而成的特殊子弹，能使目标眩晕并有概率将其麻痹。");
+	}
+
 	private static final ItemSprite.Glowing BLACK = new ItemSprite.Glowing(0x000000);
 	@Override public ItemSprite.Glowing glowing() { return BLACK; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {

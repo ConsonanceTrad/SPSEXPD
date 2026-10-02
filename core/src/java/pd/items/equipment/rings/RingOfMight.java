@@ -28,8 +28,21 @@ import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.messages.Messages;
 import pd.sprites.ItemIconSheet;
+import pd.messages.InlineText;
 
 public class RingOfMight extends Ring {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RingOfMight.class)
+			.t("name", "根骨之戒")
+			.t("stats", "佩戴这枚戒指时，你的力量会增加_%1$d_，你的最大生命值会增加_%2$s%%_。")
+			.t("typical_stats", "佩戴这枚戒指时，你的力量通常会提升_%1$d_点，并且最大生命值通常会增加_%2$s%%_。")
+			.t("combined_stats", "你已装备的戒指正联结它们的力量，一共提高了你_%1$d_点力量与_%2$s%%_点最大生命值。")
+			.t("upgrade_stat_name_1", "力量加成")
+			.t("upgrade_stat_name_2", "生命上限加成")
+			.t("desc", "这枚戒指会增强佩戴者的体质，使其拥有更强的力量与体格。被诅咒的戒指则会使人虚弱。");
+	}
+
 
 	{
 		icon = ItemIconSheet.RING_MIGHT;

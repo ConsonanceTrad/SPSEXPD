@@ -29,8 +29,17 @@ import pd.actors.blobs.SmokeScreen;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.utils.data.BArray;
+import pd.messages.InlineText;
 
 public class SmokeBomb extends Bomb {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SmokeBomb.class)
+			.t("name", "烟雾弹")
+			.t("desc", "这枚改造过的炸弹会在爆炸时释放出一阵浓厚的气体烟云。炸弹会在2格范围内造成_%1$d~%2$d点伤害_并释放暗夜迷雾。")
+			.t("discover_hint", "你可通过炼金合成该物品。");
+	}
+
 	
 	{
 		image = EquipmentEquipWeaponBombDict.SMOKE_BOMB_0;

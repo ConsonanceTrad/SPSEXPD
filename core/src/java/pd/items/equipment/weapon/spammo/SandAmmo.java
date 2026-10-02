@@ -9,8 +9,16 @@ import pd.actors.buffs.Dry;
 import pd.effects.Speck;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class SandAmmo extends SpAmmo {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SandAmmo.class)
+			.t("name", "烟尘弹")
+			.t("desc", "将原石和消逝种锻造而成的特殊子弹，能使武器附带削弱效果。");
+	}
+
 	private static final ItemSprite.Glowing GREY = new ItemSprite.Glowing(0xCCCCCC);
 	@Override public ItemSprite.Glowing glowing() { return GREY; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {

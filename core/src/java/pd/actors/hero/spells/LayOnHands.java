@@ -37,8 +37,17 @@ import pd.sprites.CharSprite;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class LayOnHands extends TargetedClericSpell {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(LayOnHands.class)
+			.t("name", "圣疗之触")
+			.t("short_desc", "立即治疗附近一个单位或使圣骑士获得护盾。")
+			.t("desc", "圣骑士以其双手引导出神圣能量，治疗或保护其所触的任何单位。\n\n圣骑士可施放该法术使附近任何单位获得%1$d点治疗，或使自身获得%1$d点护盾。该法术的溢出治疗将被转化为护盾。\n\n该法术可被立即施放、重复施放，但无法立即施加超过三次施法数值的护盾。");
+	}
+
 
 	public static LayOnHands INSTANCE = new LayOnHands();
 

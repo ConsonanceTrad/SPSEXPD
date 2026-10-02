@@ -24,8 +24,16 @@ package pd.actors.buffs;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
+import pd.messages.InlineText;
 
 public class SoulMark extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SoulMark.class)
+			.t("name", "灵魂标记")
+			.t("desc", "术士已经击穿了目标的灵魂。其在受到物理伤害时将会恢复术士的生命。\n\n灵魂标记剩余时长：%s回合");
+	}
+
 
 	public static final float DURATION	= 10f;
 

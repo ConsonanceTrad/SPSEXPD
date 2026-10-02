@@ -15,9 +15,21 @@ import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The four mage class skills from SPS-PD 0.9.8. */
 public class MageSkill extends ClassSkill {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MageSkill.class)
+			.t("name", "法师技能")
+			.t("ac_special", "混沌风暴")
+			.t("ac_special_two", "灵魂虹吸")
+			.t("ac_special_three", "时空之门")
+			.t("ac_special_four", "引雷")
+			.t("desc", "_混沌风暴：_对附近视野内的所有敌人造成七种元素之一的伤害并施加对应状态。达到56级后同时烧毁自身四角的墙壁。\n\n_灵魂虹吸（21级）：_击杀敌人会永久增加生命上限，同时暂时提高20%%生命上限。达到56级后冷却减半。\n\n_时空之门（31级）：_传送并失去1级和10点永久生命上限。达到56级后不再损失生命上限。\n\n_引雷（41级）：_生成一根已鉴定的+5法杖并获得充能。达到56级后法杖同时破阶。");
+	}
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 
 	@Override public void doSpecial() {

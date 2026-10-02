@@ -12,9 +12,18 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import pd.messages.InlineText;
 
 /** Opens into the current month's pet soul pack, with the original Easter and VIP chances. */
 public class RandomEgg extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RandomEgg.class)
+			.t("name", "随机灵魂")
+			.t("ac_use", "使用")
+			.t("desc", "获得一个对应月份的基础宠物包，有几率获得彩蛋宠物包。");
+	}
+
 
 	public static final String AC_USE = "USE";
 

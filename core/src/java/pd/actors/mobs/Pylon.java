@@ -46,8 +46,17 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Pylon extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Pylon.class)
+			.t("name", "能量塔")
+			.t("desc_inactive", "这是一座用于分配区域内机械用电的能量塔。\n\n这座能量塔未被激活，目前无法受到任何伤害。")
+			.t("desc_active", "这是一座用于分配区域内机械用电的能量塔。此刻能量塔电能涌动，定是它在支持DM-300的超载状态！\n\n这时的能量塔可被摧毁，但也会顺时针向四周释放电弧。厚重的金属结构使其难以被迅速摧毁。");
+	}
+
 
 	{
 		spriteClass = PylonSprite.class;

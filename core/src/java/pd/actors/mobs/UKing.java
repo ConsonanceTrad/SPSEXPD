@@ -15,9 +15,17 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.PlantKingSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** Plant king, with the old terrain-growing rage phase and its indexing bug fixed. */
 public class UKing extends BossRushBoss {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(UKing.class)
+			.t("name", "植物领主")
+			.t("desc", "这个家伙是植物的王者。");
+	}
+
 	{
 		spriteClass = PlantKingSprite.class;
 		baseSpeed = 1f;

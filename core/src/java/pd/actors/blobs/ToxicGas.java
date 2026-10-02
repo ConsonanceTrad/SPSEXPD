@@ -31,8 +31,18 @@ import pd.effects.Speck;
 import pd.messages.Messages;
 import pd.utils.GLog;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class ToxicGas extends Blob implements Hero.Doom {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ToxicGas.class)
+			.t("name", "毒气")
+			.t("desc", "这里盘绕着一片发绿的毒气。")
+			.t("rankings_desc", "窒息而死")
+			.t("ondeath", "你被毒气毒死了...");
+	}
+
 
 	@Override
 	protected void evolve() {

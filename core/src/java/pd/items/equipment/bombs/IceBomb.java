@@ -15,8 +15,16 @@ import pd.effects.particles.SmokeParticle;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class IceBomb extends Bomb {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(IceBomb.class)
+			.t("name", "寒霜炸弹")
+			.t("desc", "在爆炸范围内制造极寒雪雾并造成冻伤。");
+	}
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public void explode(int cell) {
 		super.explode(cell);

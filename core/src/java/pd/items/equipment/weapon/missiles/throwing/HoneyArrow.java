@@ -22,9 +22,17 @@ import render.noosa.tweeners.AlphaTweener;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Honey Poooot's disposable needle, which summons bees around its target. */
 public class HoneyArrow extends TossWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(HoneyArrow.class)
+			.t("name", "蜜蜂针头")
+			.t("desc", "罐罐开发的新型飞镖，可以呼唤一群蜜蜂。");
+	}
+
 
 	{
 		image = ConsumThrowsDict.HONEY_ARROW;

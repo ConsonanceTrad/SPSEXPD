@@ -12,8 +12,17 @@ import pd.messages.Messages;
 import pd.sprites.GnollArcherSprite;
 import pd.utils.GLog;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class GnollArcher extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GnollArcher.class)
+			.t("name", "豺狼弓箭手")
+			.t("desc", "这个豺狼隐藏在树叶后。你的出现让它很烦躁。")
+			.t("killcount", "已击败豺狼弓箭手：%d");
+	}
+
 	{
 		spriteClass = GnollArcherSprite.class;
 		HP = HT = 25 + Statistics.gnollArchersKilled;

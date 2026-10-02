@@ -7,8 +7,16 @@ import pd.actors.buffs.AttackUp;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.MagicArmor;
 import pd.actors.hero.Hero;
+import pd.messages.InlineText;
 
 public class Hamburger extends CompleteFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Hamburger.class)
+			.t("name", "巨无霸汉堡")
+			.t("desc", "啊！好大！\n使用_2份主食、1份蔬菜、2份肉_炼金。");
+	}
+
 	{ image = ConsumFoodFoodDict.HAMBURGER; energy = 770f; }
 	@Override protected void doEat(Hero hero) {
 		heal(hero, hero.HT / 5);

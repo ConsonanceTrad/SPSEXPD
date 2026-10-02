@@ -24,8 +24,20 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class HealBag extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(HealBag.class)
+			.t("name", "医疗箱")
+			.t("ac_heal", "群体治疗")
+			.t("ac_cook", "随机调制")
+			.t("need_charge", "医疗箱的充能不足。")
+			.t("charge", "充能：%1$d / %2$d。")
+			.t("desc", "为狩猎年兽专门准备的医疗箱。命中敌人会为其充能；消耗15点可治疗周围伤势严重的单位并清除多种负面状态，消耗40点可随机调制药水、高级食物、药材或药丸。");
+	}
+
 
 	public static final String AC_HEAL = "HEAL";
 	public static final String AC_COOK = "COOK";

@@ -24,8 +24,24 @@ package pd.items.specific.journal;
 import pd.atlas.items.SpecificPagesDict;
 
 import pd.journal.Document;
+import pd.messages.InlineText;
 
 public class RegionLorePage {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RegionLorePage.class)
+			.t("sewers.name", "磨旧的信笺")
+			.t("sewers.desc", "看起来像是一封信，写在一张沾满灰尘的纸上。你需要把它捡起来才能看清上面写着什么。")
+			.t("prison.name", "磨损的日志条目")
+			.t("prison.desc", "写在老旧纸张上的日记条目或其他记录。这似乎比你在下水道里找到的信看起来好一些，但你仍然需要捡起它才能阅读上面的内容。")
+			.t("caves.name", "老旧的日志条目")
+			.t("caves.desc", "看起来是探险家日志中的一个条目，尽管它肯定很旧，但保存得出奇得好。捡起它来阅读上面的内容。")
+			.t("city.name", "锈蚀的便签")
+			.t("city.desc", "一块生锈的小金属板，上面神奇地刻着一条信息。尽管它年代久远，可字母仍然清晰，但你必须捡起它才能阅读上面的内容。")
+			.t("halls.name", "发光的便签")
+			.t("halls.desc", "一块黑色的小板，上面刻有发光的绿色字母。发光的字母在远处模糊成一团薄雾，你必须捡起它才能阅读上面的内容。");
+	}
+
 
 	public static DocumentPage pageForDoc( Document doc ){
 		switch (doc){

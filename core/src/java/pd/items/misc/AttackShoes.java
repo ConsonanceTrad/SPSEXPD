@@ -19,8 +19,18 @@ import pd.scenes.GameScene;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class AttackShoes extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(AttackShoes.class)
+			.t("name", "水管工皮鞋")
+			.t("ac_jump", "跳跃")
+			.t("prompt", "选择落点")
+			.t("desc", "这双鞋可以跳跃至多三格，并在落地时伤害周围的敌人。");
+	}
+
 	public static final String AC_JUMP = "JUMP";
 	{ image = EquipmentNonEquipDict.JUMP_BOOTS; defaultAction = AC_JUMP; unique = true; usesTargeting = true; }
 	@Override public ArrayList<String> actions(Hero hero) { ArrayList<String> a=super.actions(hero); a.add(AC_JUMP); a.remove(AC_DROP); a.remove(AC_THROW); return a; }

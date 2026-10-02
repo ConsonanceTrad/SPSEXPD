@@ -62,8 +62,58 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Waterskin extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Waterskin.class)
+			.t("name", "露珠瓶")
+			.t("ac_drink", "饮用")
+			.t("ac_light", "照明")
+			.t("ac_detect", "侦测")
+			.t("ac_cleanse", "清洗")
+			.t("ac_haste", "加速")
+			.t("collected", "你将一滴露珠收集到了水袋里。")
+			.t("full", "你的水袋装满了！")
+			.t("empty", "你的水袋一滴也不剩了！")
+			.t("not_enough", "水袋中的露珠不足以施展这项能力。")
+			.t("lit", "露珠化作稳定的微光，照亮了你的周围。")
+			.t("detected", "露珠短暂揭示了本层所有生物的位置。")
+			.t("cleansed", "露珠洗去了有害效果，并为你提供了片刻净化保护。")
+			.t("hastened", "露珠令你的脚步短暂加快。")
+			.t("desc", "牛皮缝制的液体容器，被软木塞牢牢密封着。在激烈的搏斗中也不会漏出一滴内容。")
+			.t("desc_water", "你的水袋里只有普普通通的饮用水，地牢中肯定会有更值得装的东西。")
+			.t("desc_heal", "水袋里现在装着有治愈魔力的露水。每滴露珠恢复最大生命值的2.5%%，每次只会喝掉你需要的量。")
+			.t("desc_full", "装满了的水袋散发着一股能量，也许能够用来祝福其他的生存道具？")
+			.t("desc_utility", "露珠瓶可以恢复生命、侦测生物并持续照明，后续还可解锁种植、强化、清洗、加速和提纯功能。")
+			.t("discover_hint", "某位英雄初始携带该物品。")
+			.t("mode_random", "露珠研究者已将水袋调整为_祝福强化_模式。")
+			.t("mode_accurate", "露珠研究者已将水袋调整为_精确强化_模式。")
+			.t("ac_water", "种植")
+			.t("ac_splash", "加速")
+			.t("ac_bless", "强化")
+			.t("ac_pour", "清洗")
+			.t("ac_peek", "侦测")
+			.t("ac_refine", "提纯")
+			.t("peeked", "露珠短暂揭示了本层的所有生物。")
+			.t("watered", "植物在你周围生长。")
+			.t("blessed", "神秘的能量强化了你的装备。")
+			.t("select", "选择一件要强化的物品")
+			.t("upgraded", "你的%1$s获得了%2$d级强化。")
+			.t("fly", "你漂浮到了空中！")
+			.t("no_charge", "你的露珠瓶空了！")
+			.t("fast", "你的移动速度大幅提升了！")
+			.t("poured", "你用露水清洗了身躯，驱散了多种负面效果。")
+			.t("refined", "露珠被提纯成了洁净的水。")
+			.t("desc_ex", "露珠瓶的无限溢出池中额外储存了_%d点露珠_。这些露珠可用于侦测、种植、强化和提纯。")
+			.t("desc_v1", "露珠瓶v1提供强化和种植功能。")
+			.t("desc_v2", "露珠瓶v2提供清洗和加速功能。")
+			.t("desc_v3", "露珠瓶v3将基础容量提升至200，并使加速附带漂浮。")
+			.t("dewlight.name", "露珠微光")
+			.t("dewlight.desc", "每20回合将1点普通露珠转化为光亮，保护你免受黑暗侵袭。");
+	}
+
 
 	private static final int BASE_MAX_VOLUME = 100;
 	private static final int WING_MAX_VOLUME = 200;

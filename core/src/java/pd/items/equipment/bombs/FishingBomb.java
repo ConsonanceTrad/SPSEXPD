@@ -16,8 +16,18 @@ import pd.messages.Messages;
 import pd.utils.GLog;
 import render.utils.data.BArray;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class FishingBomb extends Bomb {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(FishingBomb.class)
+			.t("name", "鱼饵炸弹")
+			.t("desc", "这枚炸弹会把附近的敌对生物转移到干燥地面。")
+			.t("no_tp", "这里已经没有可用的干燥地面了。")
+			.t("tp", "有什么东西被拉到了干燥地面。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

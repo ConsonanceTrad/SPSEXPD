@@ -18,9 +18,18 @@ import render.noosa.Game;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Completed SPS Triforce, used to travel to and return from the infestation arena. */
 public class Triforce extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Triforce.class)
+			.t("ac_port", "使用")
+			.t("name", "起源三角")
+			.t("desc", "你已经通过了三种试炼，现在可以前去与古神之影战斗了。");
+	}
+
 	public static final String AC_PORT = "PORT";
 	private static final int DESTINATION = 9;
 	private static final float TIME_TO_USE = 1f;

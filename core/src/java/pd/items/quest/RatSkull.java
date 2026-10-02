@@ -13,9 +13,17 @@ package pd.items.quest;
 import pd.atlas.items.ConsumThrowsDict;
 
 import pd.items.Item;
+import pd.messages.InlineText;
 
 /** Retained solely for quest items present in pre-0.2.1 SPS-PD saves. */
 public class RatSkull extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RatSkull.class)
+			.t("name", "巨鼠头骨")
+			.t("desc", "一颗大得吓人的老鼠头骨。如果你能找到一面合适的墙来挂，它会是件不错的狩猎纪念品。");
+	}
+
 
 	{
 		image = ConsumThrowsDict.SKULL;

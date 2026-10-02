@@ -8,9 +8,17 @@ import pd.actors.buffs.Poison;
 import pd.actors.buffs.Roots;
 import pd.sprites.WarTreeSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** Huntress war tree summoned by the fourth legacy class skill. */
 public class Mtree extends DirectableAlly {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Mtree.class)
+			.t("name", "战争古树")
+			.t("desc", "由猎手召来的远古守卫，沉重攻击会将敌人缠绕在原地。");
+	}
+
 	{
 			spriteClass = WarTreeSprite.class;
 		HP = HT = 1000;

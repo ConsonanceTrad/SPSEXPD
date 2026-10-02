@@ -40,8 +40,19 @@ import pd.windows.WndOptions;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class PotionOfDivineInspiration extends ExoticPotion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfDivineInspiration.class)
+			.t("name", "神意启发合剂")
+			.t("no_more_points", "你无法再获得更多的额外天赋点了。")
+			.t("select_tier", "选择一个天赋以获得两个额外点数。该天赋所在的层阶必须已被解锁。")
+			.t("bonus", "天赋点+2！")
+			.t("desc", "这股神圣的力量会化作液态，灌注进饮用者的身体，赋予其钟意的天赋两个额外天赋点。\n\n这种药剂对每一层天赋只能生效一次。");
+	}
+
 	
 	{
 		icon = ItemIconSheet.POTION_DIVINE;

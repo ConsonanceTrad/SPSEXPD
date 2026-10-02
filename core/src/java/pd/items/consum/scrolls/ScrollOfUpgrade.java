@@ -41,8 +41,19 @@ import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndUpgrade;
+import pd.messages.InlineText;
 
 public class ScrollOfUpgrade extends InventoryScroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfUpgrade.class)
+			.t("name", "升级卷轴")
+			.t("inv_title", "选择一件要升级的物品")
+			.t("weaken_curse", "升级卷轴减弱了物品上的诅咒。")
+			.t("remove_curse", "升级卷轴净化了物品上的诅咒！")
+			.t("desc", "这张卷轴可以升级一件物品或一组投掷武器。法杖可获得更高的效能与更多的充能，武器与护甲可获得更强的攻防属性，投掷武器组的耐久度可获得重置与提升，而戒指的效能可获得强化。\n\n这张卷轴能弱化诅咒甚至可能将其完全净化，但是效果不如祛邪卷轴稳定。不幸地，升级魔法也可能消除高级装备的附魔或刻印。");
+	}
+
 
 	@Override
 	public void empoweredRead() {

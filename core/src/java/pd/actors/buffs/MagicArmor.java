@@ -4,9 +4,17 @@ package pd.actors.buffs;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Persistent shield consumed only by magic and status damage. */
 public class MagicArmor extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(MagicArmor.class)
+			.t("name", "魔法护盾")
+			.t("desc", "护盾会吸收魔法与状态效果造成的伤害。剩余护盾：%s。");
+	}
+
 	private static final String LEVEL = "level";
 	private int level;
 	{ type = buffType.POSITIVE; announced = true; }

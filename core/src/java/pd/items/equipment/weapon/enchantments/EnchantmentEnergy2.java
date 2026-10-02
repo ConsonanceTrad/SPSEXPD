@@ -10,8 +10,16 @@ import pd.items.equipment.weapon.Weapon;
 import pd.sprites.ItemSprite;
 
 import static pd.actors.damagetype.DamageType.ENERGY_DAMAGE;
+import pd.messages.InlineText;
 
 public class EnchantmentEnergy2 extends SpsEnchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(EnchantmentEnergy2.class)
+			.t("name", "剑舞%s")
+			.t("desc", "剑舞附魔将造成大量的无属性伤害，并给使用者提供物理护盾。");
+	}
+
 	private static final ItemSprite.Glowing GRAY = new ItemSprite.Glowing(0x888888);
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		elementalDamage(weapon, attacker, defender, 0.75f, ENERGY_DAMAGE);

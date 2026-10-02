@@ -16,8 +16,16 @@ package pd.items.consum.food;
 import pd.atlas.items.GroundFunctionalFallingDict;
 
 import pd.items.Item;
+import pd.messages.InlineText;
 
 public class WaterItem extends Food {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WaterItem.class)
+			.t("name", "水")
+			.t("desc", "通过露珠瓶净化后的水，可以用于烹饪。");
+	}
+
 
 	{
 		image = GroundFunctionalFallingDict.DEWDROP_0;

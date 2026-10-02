@@ -14,8 +14,17 @@ import pd.sprites.ShellSprite;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Shell extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Shell.class)
+			.t("name", "高压电壳")
+			.t("desc", "高压电壳中涌动着从巨蟹王随从所受攻击里吸收的能量。")
+			.t("zap", "高压电壳释放了电能！");
+	}
+
 
 	private static final float TIME_TO_ZAP = 2f;
 	private int shellCharge;

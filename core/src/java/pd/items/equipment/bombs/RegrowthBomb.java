@@ -42,8 +42,17 @@ import render.utils.data.BArray;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class RegrowthBomb extends Bomb {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RegrowthBomb.class)
+			.t("name", "再生炸弹")
+			.t("desc", "这枚改造过的炸弹不会爆炸，而会在3格范围内四处溅射再生药液。被药液影响的区域会迅速生长出草木与植物，而你自己和爆炸范围内的所有盟友都会受到如同饮用治疗药剂般的治疗效果。")
+			.t("discover_hint", "你可通过炼金合成该物品。");
+	}
+
 	
 	{
 		image = EquipmentEquipWeaponBombDict.REGROWTH_BOMB_0;

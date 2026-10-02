@@ -33,8 +33,16 @@ import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
+import pd.messages.InlineText;
 
 public class Foliage extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Foliage.class)
+			.t("name", "落叶")
+			.t("desc", "光柱刺破了地下花园中的黑暗。");
+	}
+
 
 	@Override
 	public Notes.Landmark landmark() {

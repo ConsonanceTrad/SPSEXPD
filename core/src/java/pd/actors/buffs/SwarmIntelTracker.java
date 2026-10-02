@@ -27,8 +27,16 @@ import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class SwarmIntelTracker extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SwarmIntelTracker.class)
+			.t("name", "集群智能")
+			.t("desc", "集群智能会使敌人在发现你或你的盟友时吸引其他敌人至你所在的位置。\n\n集群智能的吸引距离是有限的，但你暴露于敌方视野中越久，此吸引距离成长的就越多，直到达到12格的上限。即使是一瞬的视野阻断也可以重置吸引范围。\n\n当前最大吸引距离：%d格");
+	}
+
 
 	private int alertRange = 0;
 	private float leftAtZero;

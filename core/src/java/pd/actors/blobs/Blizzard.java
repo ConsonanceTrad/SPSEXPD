@@ -25,8 +25,16 @@ import pd.Dungeon;
 import pd.effects.BlobEmitter;
 import pd.effects.Speck;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class Blizzard extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Blizzard.class)
+			.t("name", "暴雪")
+			.t("desc", "这里刮起了一阵暴风雪。");
+	}
+
 	
 	@Override
 	protected void evolve() {

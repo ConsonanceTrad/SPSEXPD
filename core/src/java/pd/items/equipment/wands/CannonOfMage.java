@@ -22,8 +22,17 @@ import pd.mechanics.Ballistica;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class CannonOfMage extends DamageWand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(CannonOfMage.class)
+			.t("name", "雷诺的七彩大炮")
+			.t("desc", "一件古老遗物，会在主要炮击前随机释放七种魔法效果之一。")
+			.t("stats_desc", "这根法杖造成_%1$d-%2$d点伤害_，并获得法强带来的额外伤害。");
+	}
+
 	{
 		image = EquipmentWandUniqueWandDict.LEGACY_CANNON_OF_MAGE;
 		collisionProperties = Ballistica.MAGIC_BOLT;

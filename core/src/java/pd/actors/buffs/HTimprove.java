@@ -5,9 +5,17 @@ import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 /** Temporarily raises the hero's unmodified maximum HP by 20%. */
 public class HTimprove extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(HTimprove.class)
+			.t("name", "生命强化")
+			.t("desc", "未经装备修正的生命上限暂时提高20%%。\n\n剩余效果时长：%s回合。");
+	}
+
 	{ type = buffType.NEUTRAL; announced = true; }
 	@Override public boolean attachTo(Char target) {
 		if (!super.attachTo(target)) return false;

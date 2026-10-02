@@ -19,8 +19,19 @@ import pd.windows.WndBag;
 import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Weightstone extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Weightstone.class)
+			.t("name", "磨刀石")
+			.t("ac_apply", "改制")
+			.t("select", "选择一件要附魔的武器")
+			.t("apply", "你用磨刀石为武器施加了附魔。")
+			.t("desc", "这块磨刀石可以为武器施加随机附魔，同时鉴定武器并解除其诅咒。");
+	}
+
 
 	public static final String AC_APPLY = "APPLY";
 	public static final float TIME_TO_APPLY = 2f;

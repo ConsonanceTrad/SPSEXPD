@@ -24,8 +24,17 @@ package pd.items.quest;
 import pd.atlas.items.ConsumGoodsMaterialsMaterialsDict;
 
 import pd.items.Item;
+import pd.messages.InlineText;
 
 public class GooBlob extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(GooBlob.class)
+			.t("name", "粘咕球")
+			.t("desc", "一团晃动着的黏糊糊球体，是从粘咕尸体上崩解下的一部分。看起来像是一个大果冻球，不过大概不能食用。\n\n该物品自身并没有什么实际用途，不过它在与特定药剂或炸弹共炼后可能有妙用。再不济，它也能提供相当的炼金能量。")
+			.t("discover_hint", "你可从某种敌人的掉落物中获得该物品。");
+	}
+
 	
 	{
 		image = ConsumGoodsMaterialsMaterialsDict.BLOB_0;

@@ -35,9 +35,20 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Zot, the optional prison boss reached through the Palantir. */
 public class Zot extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Zot.class)
+			.t("name", "Zot")
+			.t("desc", "Zot是虚空中强大的领主之一，可以自由操控黑暗与邪能。如果不是Otiluke将它拉到这个位面，你可能根本无法伤到它。")
+			.t("notice", "你这是自寻死路！")
+			.t("pain", "感受这被囚禁的愤怒吧！")
+			.t("die", "……");
+	}
+
 
 	public static final int LEGACY_DEPTH = 99;
 	private static final int JUMP_DELAY = 10;

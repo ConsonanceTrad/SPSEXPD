@@ -9,8 +9,16 @@ import pd.actors.buffs.HasteBuff;
 import pd.actors.buffs.Levitation;
 import pd.actors.buffs.Light;
 import pd.actors.hero.Hero;
+import pd.messages.InlineText;
 
 public class PerfectFood extends CompleteFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PerfectFood.class)
+			.t("name", "完美便当")
+			.t("desc", "这是烹饪的最高杰作，完美便当。\n使用_蔬菜、原石、主食、水、水果各1份_炼金；或使用_1份鱼饼_炼金。");
+	}
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; energy = 600f; }
 	@Override protected void doEat(Hero hero) {
 		increaseMaxHealth(hero, 3, 7);

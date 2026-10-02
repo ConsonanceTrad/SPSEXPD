@@ -13,8 +13,16 @@ import pd.actors.buffs.Recharging;
 import pd.items.equipment.armor.Armor;
 import pd.levels.Terrain;
 import pd.sprites.ItemSprite;
+import pd.messages.InlineText;
 
 public class AdaptGlyph extends SpsGlyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(AdaptGlyph.class)
+			.t("name", "适应%s")
+			.t("desc", "适应刻印有几率根据使用者脚下的地形给予不同的增益效果。");
+	}
+
 	private static final ItemSprite.Glowing COLOR = new ItemSprite.Glowing(0x006633);
 	@Override public int proc(Armor armor, Char attacker, Char defender, int damage) {
 		clearElementalMarker(defender);

@@ -13,8 +13,17 @@ import pd.items.equipment.weapon.melee.normalweapon.NormalMeleeWeapon;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class PixelTorch extends NormalMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PixelTorch.class)
+			.t("name", "像素火把")
+			.t("ac_tlight", "照明")
+			.t("desc", "一支结实的火把，命中敌人会积蓄力量，并可消耗力量制造长时间照明。");
+	}
+
 	public static final String AC_TLIGHT = "TLIGHT";
 	public PixelTorch(){super(2,1f,1f,1,3,15,SpecificPlaceHolderDict.SOMETHING_0); unique=true; reinforced=true; defaultAction=AC_TLIGHT;}
 	@Override public ArrayList<String> actions(Hero hero){ArrayList<String>a=super.actions(hero);a.add(AC_TLIGHT);return a;}

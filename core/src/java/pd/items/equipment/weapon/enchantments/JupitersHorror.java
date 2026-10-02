@@ -9,9 +9,17 @@ import pd.actors.buffs.Vertigo;
 import pd.items.equipment.weapon.Weapon;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** Threatens ordinary targets and disorients a hero target. */
 public class JupitersHorror extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(JupitersHorror.class)
+			.t("name", "威慑%s")
+			.t("desc", "威慑附魔能够恐吓目标。");
+	}
+
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		int level = Math.max(0, weapon.level());
 		if (Random.Int(level + 5) >= 4) {

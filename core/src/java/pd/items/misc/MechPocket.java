@@ -13,8 +13,17 @@ import pd.items.Item;
 import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class MechPocket extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MechPocket.class)
+			.t("name", "机械口袋")
+			.t("ac_use", "使用")
+			.t("desc", "一个充满神秘感的未来口袋。使用后会一次性倒出20件随机物品，随后消失。");
+	}
+
 	public static final String AC_USE = "USE";
 	public static final int ITEM_COUNT = 20;
 

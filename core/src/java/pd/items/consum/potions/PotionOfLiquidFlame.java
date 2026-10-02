@@ -29,8 +29,16 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class PotionOfLiquidFlame extends Potion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfLiquidFlame.class)
+			.t("name", "液火药剂")
+			.t("desc", "该药瓶里装着一种不稳定的化合物，一旦暴露在空气中就会猛烈地燃烧起来。");
+	}
+
 
 	{
 		icon = ItemIconSheet.POTION_LIQFLAME;

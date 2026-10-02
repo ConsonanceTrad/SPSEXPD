@@ -22,8 +22,17 @@
 package pd.actors.buffs;
 
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class Weakness extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Weakness.class)
+			.t("name", "虚弱")
+			.t("heromsg", "你感到力量正在被抽走！")
+			.t("desc", "你感觉自己的装备突然变得沉重起来。\n\n虚弱魔法会减弱角色的肉体力量，使其造成的伤害减少33%%。\n\n虚弱效果剩余时长：%s回合");
+	}
+
 
 	public static final float DURATION = 20f;
 

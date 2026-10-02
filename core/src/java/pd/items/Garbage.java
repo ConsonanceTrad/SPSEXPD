@@ -6,9 +6,17 @@
 package pd.items;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.messages.InlineText;
 
 
 public class Garbage extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Garbage.class)
+			.t("name", "垃圾")
+			.t("desc", "锻造失败留下的废料。五份垃圾可以在铁砧上重新锻造。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

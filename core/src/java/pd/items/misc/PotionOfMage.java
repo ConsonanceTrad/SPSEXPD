@@ -44,8 +44,22 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class PotionOfMage extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfMage.class)
+			.t("name", "奇迹烧瓶")
+			.t("ac_use", "施放")
+			.t("ac_drink", "饮用")
+			.t("ac_shattered", "泼洒")
+			.t("prompt", "选择要瞄准的地方")
+			.t("break", "现在烧瓶里什么都没有。")
+			.t("charge", "质量%d / %d。")
+			.t("desc", "法师多年研究成果之一，可以对自身使用来施加增益效果，也可以泼洒出去造成减益效果。");
+	}
+
 	public static final String AC_USE = "USE";
 	public static final String AC_DRINK = "DRINK";
 	public static final String AC_SHATTERED = "SHATTERED";

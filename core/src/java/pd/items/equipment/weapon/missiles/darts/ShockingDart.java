@@ -34,8 +34,16 @@ import render.utils.geom.PointF;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class ShockingDart extends TippedDart {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ShockingDart.class)
+			.t("name", "电击飞镖")
+			.t("desc", "这些飞镖上涂着一种由风暴藤制成的药物，能让目标受到强烈的电击。");
+	}
+
 	
 	{
 		image = ConsumThrowsDict.SHOCKING_DART_0;

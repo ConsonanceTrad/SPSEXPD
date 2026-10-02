@@ -10,9 +10,18 @@ import pd.effects.particles.PoisonParticle;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Original SPS ageing damage-over-time effect used by the town guardian dragon. */
 public class BeOld extends Buff implements Hero.Doom, Buff.DOTbuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(BeOld.class)
+			.t("name", "老化")
+			.t("desc", "你的躯体老化了。 \n\n老化每回合造成少量伤害，但会阻止正常生命恢复。 \n\n剩余的老化效果时长：%s回合")
+			.t("heromsg", "你老化了！");
+	}
+
 
 	private static final String LEFT = "left";
 	private float left;

@@ -13,8 +13,16 @@ import pd.utils.GLog;
 import pd.windows.WndBag;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public abstract class UpgradeBlob extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(UpgradeBlob.class)
+			.t("prompt", "选择一件未装备的物品进行强化")
+			.t("applied", "你的%s吸收了%d级强化精华。");
+	}
+
 
 	private static final String AC_APPLY = "APPLY";
 

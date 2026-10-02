@@ -10,9 +10,16 @@ import pd.items.equipment.weapon.curses.Wayward;
 import pd.items.equipment.weapon.melee.MeleeWeapon;
 import pd.messages.Messages;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** Shared implementation of SPS-PD 0.9.8's mutable melee-weapon statistics. */
 public abstract class NormalMeleeWeapon extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(NormalMeleeWeapon.class)
+			.t("sps_stats", "这件武器的命中倍率为_%1$s_，攻击延迟为_%2$s_，攻击距离为_%3$d_。");
+	}
+
 
 	private final int baseMin;
 	private final int baseMax;

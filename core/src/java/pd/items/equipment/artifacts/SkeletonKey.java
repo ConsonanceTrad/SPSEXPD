@@ -61,8 +61,34 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import pd.messages.InlineText;
 
 public class SkeletonKey extends Artifact {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SkeletonKey.class)
+			.t("name", "骷髅钥匙")
+			.t("ac_insert", "插入")
+			.t("cursed", "你不能使用被诅咒的骷髅钥匙。")
+			.t("prompt", "选择一个目标")
+			.t("invalid_target", "那里没有东西可上锁或解锁。")
+			.t("lock_no_space", "你不能将一个单位锁在门内！")
+			.t("iron_charges", "解开一把锁需要消耗1点充能。")
+			.t("gold_charges", "解开一把金锁需要消耗2点充能。")
+			.t("lock_charges", "上锁一道门需要消耗2点充能。")
+			.t("wall_charges", "创造一面临时墙壁需要消耗2点充能。")
+			.t("crystal_charges", "解开一把水晶锁需要消耗5点充能。")
+			.t("wont_open", "钥匙出于某种原因拒绝适配这把锁。")
+			.t("locked_with_key", "这扇门已被你的骷髅钥匙上锁。")
+			.t("force_lock", "骷髅钥匙不在你身上，你用力把这把锁掰开了。")
+			.t("discard", "你弃置了多余的钥匙。")
+			.t("levelup", "你的骷髅钥匙变得更强了！")
+			.t("desc", "一把匙柄处塑有头骨，与众不同的钥匙。你每次观察匙齿时其外形似乎都有不同。")
+			.t("desc_worn", "不同于地牢中的其他钥匙，这把魔法钥匙似乎能随着你不断使用它而获得力量。它几乎可被插到地牢的任何锁中并将其上锁或解锁，即便是先前从未被锁住的门也可由此上锁。\n\n钥匙还可用于“锁定”你面前正向或斜向空间的空气，以创造一面持续10回合，3格宽的坚固墙壁。如果有空间可施展，锁定还会将敌人击退。")
+			.t("desc_cursed", "被诅咒的钥匙似乎在全力避免适配任何一把锁，并使你更难以使用其他钥匙（但并非不能使用）。")
+			.t("keywall.desc", "一面被骷髅钥匙创造的临时魔法墙壁。");
+	}
+
 
 	{
 		image = EquipmentJewelleryArtifactDict.ARTIFACT_KEY_0;

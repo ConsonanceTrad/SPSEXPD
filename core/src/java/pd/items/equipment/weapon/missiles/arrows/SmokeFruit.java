@@ -7,8 +7,16 @@ import pd.actors.Char;
 import pd.actors.blobs.DarkGas;
 import pd.actors.buffs.Blindness;
 import pd.actors.buffs.Buff;
+import pd.messages.InlineText;
 
 public class SmokeFruit extends SpsFruit {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SmokeFruit.class)
+			.t("name", "烟雾果")
+			.t("desc", "人工种植的消逝草结出的果实。直接命中会致盲目标，落地则会令周围陷入黑暗。");
+	}
+
 	public SmokeFruit() { this(1); }
 	public SmokeFruit(int number) { super(ConsumPotionSeedSeedDict.SEED_FADELEAF_0, 10, 10); quantity(number); }
 	@Override protected void onThrow(int cell) {

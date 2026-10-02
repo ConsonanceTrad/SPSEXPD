@@ -34,8 +34,17 @@ import pd.sprites.DM200Sprite;
 import render.utils.data.BArray;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class DM200 extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(DM200.class)
+			.t("name", "DM-200")
+			.t("vent", "DM-200喷射了一团有毒的废气！")
+			.t("desc", "DM-200是矮人研发的第二代“防卫机械”，最初用来保护矿洞中的矮人矿工与下方的都城。比起第一代它们相当庞大笨重，并改为用强力的液压锤攻击。\n\n臃肿的体型是它们的一大缺陷——它们无法进入狭窄的门与过道。为了弥补灵活性的缺陷，矮人设计了另一种功能：DM-200能向远处的或无法触及的敌人喷射有毒的废气。");
+	}
+
 
 	{
 		spriteClass = DM200Sprite.class;

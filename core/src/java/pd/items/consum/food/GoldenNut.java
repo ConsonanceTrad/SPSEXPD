@@ -9,8 +9,18 @@ import pd.items.consum.food.fruit.Fruit;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class GoldenNut extends Fruit {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(GoldenNut.class)
+			.t("name", "受hmdzl001祝福的金色坚果")
+			.t("desc", "由hmdzl001亲自种植的秘密坚果，食用后会获得永久祝福。")
+			.t("effect_1", "全技能+1，力量+1，生命上限+40")
+			.t("effect_2", "力量+3，生命上限+10");
+	}
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; energy = 100f; hornValue = 2; }
 
 	@Override protected void onEat(Hero hero) {

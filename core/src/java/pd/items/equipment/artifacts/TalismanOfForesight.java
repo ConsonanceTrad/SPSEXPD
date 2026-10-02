@@ -55,8 +55,31 @@ import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class TalismanOfForesight extends Artifact {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(TalismanOfForesight.class)
+			.t("name", "先见护符")
+			.t("ac_scry", "探查")
+			.t("ac_notice", "耗竭-预知")
+			.t("no_charge", "你的护符尚未被完全充能。")
+			.t("scry", "护符将关于本层的知识填满了你的脑海。")
+			.t("low_charge", "护符至少要充能5%才能探查。")
+			.t("prompt", "选择要探查的位置")
+			.t("levelup", "你的护符变得更强大了！")
+			.t("full_charge", "你的护符充满了能量！")
+			.t("desc", "一块奇怪的有着光滑雕刻的石头。你觉得它在关注着你周围的一切，留意任何不寻常的东西。")
+			.t("desc_worn", "当你拿着护符时你感觉你的感知力提高了。")
+			.t("desc_cursed", "被诅咒的护符目不转睛地瞪着你，使你无法集中精力。")
+			.t("foresight.name", "先见")
+			.t("foresight.levelup", "你的护符变得更强大了！你似乎预见到了某些危险。")
+			.t("foresight.full_charge", "你的护符充能满了！")
+			.t("foresight.uneasy", "你感到很不安。")
+			.t("foresight.desc", "你感到非常焦虑，仿佛周遭有未被发现的危险。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

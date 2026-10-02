@@ -4,8 +4,16 @@ package pd.items.equipment.weapon.spammo;
 import pd.actors.Char;
 import pd.actors.damagetype.DamageType;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class DewAmmo extends SpAmmo {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(DewAmmo.class)
+			.t("name", "碎片弹")
+			.t("desc", "将原石和露珠种锻造而成的特殊子弹，能使武器附带多段元素伤害。");
+	}
+
 	@Override public void onHit(Char attacker, Char defender, int damage) {
 		int bound = (int)(0.20f * Math.max(0, damage));
 		defender.damage(elementRoll(bound), DamageType.ENERGY_DAMAGE);

@@ -25,8 +25,16 @@ import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class AdrenalineSurge extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(AdrenalineSurge.class)
+			.t("name", "力量激发")
+			.t("desc", "一股强大的力量，不过很可惜不是永久的。\n\n力量加成：+%d\n距离效果衰减还有：%s回合");
+	}
+
 
 	public static float DURATION = 200f;
 	

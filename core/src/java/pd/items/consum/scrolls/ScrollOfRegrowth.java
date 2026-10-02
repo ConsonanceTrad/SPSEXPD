@@ -27,8 +27,16 @@ import render.utils.data.BArray;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class ScrollOfRegrowth extends Scroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfRegrowth.class)
+			.t("name", "再生卷轴")
+			.t("desc", "这张卷轴会用富有生机的水覆盖周围地面，并催生出多株植物。");
+	}
+
 	{
 		icon = ItemIconSheet.SCROLL_RECHARGE;
 	}

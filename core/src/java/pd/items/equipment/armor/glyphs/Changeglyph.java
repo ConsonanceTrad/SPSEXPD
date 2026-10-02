@@ -18,8 +18,16 @@ import pd.sprites.ItemSprite;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Changeglyph extends SpsGlyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Changeglyph.class)
+			.t("name", "变幻%s")
+			.t("desc", "变幻刻印有几率创造一个诱饵，并使使用者远离危险。");
+	}
+
 	private static final ItemSprite.Glowing COLOR = new ItemSprite.Glowing(0x8844CC);
 	@Override public int proc(Armor armor, Char attacker, Char defender, int damage) {
 		clearElementalMarker(defender);

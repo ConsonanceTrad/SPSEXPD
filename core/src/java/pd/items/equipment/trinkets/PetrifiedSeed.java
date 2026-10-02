@@ -24,8 +24,18 @@ package pd.items.equipment.trinkets;
 import pd.atlas.items.EquipmentNonEquipDict;
 
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class PetrifiedSeed extends Trinket {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PetrifiedSeed.class)
+			.t("name", "石化种子")
+			.t("desc", "这粒种子在缓慢的地质作用或法术作用的影响下石化了。它似乎通过魔法影响着地牢的植物群系，时不时使种子转化为符石。")
+			.t("typical_stats_desc", "这件饰物通常会有_%1$s%%_的概率使被践踏的高草掉落符石而非种子，还会使高草掉落物品的概率提升_%2$s%%_。")
+			.t("stats_desc", "在当前等级下，这件饰物会有_%1$s%%_的概率使被践踏的高草掉落符石而非种子，还会使高草掉落物品的概率提升_%2$s%%_。");
+	}
+
 
 	{
 		image = EquipmentNonEquipDict.PETRIFIED_SEED_0;

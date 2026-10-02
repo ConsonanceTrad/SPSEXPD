@@ -26,8 +26,18 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class TenguDen extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(TenguDen.class)
+			.t("name", "匿藏的天狗")
+			.t("desc", "逃离监牢的著名刺客。他以诡诈的身法和精准攻击消灭所有找到隐匿处的人。")
+			.t("notice", "你是怎么找到我的？！")
+			.t("die", "诅咒你永世不得好死！");
+	}
+
 
 	private static final int JUMP_DELAY = 5;
 	private int timeToJump = JUMP_DELAY;

@@ -46,8 +46,16 @@ import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import pd.messages.InlineText;
 
 public class UnstableBrew extends Brew {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(UnstableBrew.class)
+			.t("name", "紊乱魔药")
+			.t("desc", "这瓶魔药泛着不断流转变化的彩虹光芒。\n\n饮用它将随机获得一种有益的药剂效果，而将其投掷出去则必定释放一种有害的药剂效果。");
+	}
+
 
 	{
 		image = ConsumPotionSeedBasicPotionDict.BREW_UNSTABLE_0;

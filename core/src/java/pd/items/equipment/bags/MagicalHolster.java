@@ -33,8 +33,16 @@ import pd.items.equipment.wands.Wand;
 import pd.items.equipment.weapon.guns.GunWeapon;
 import pd.items.equipment.weapon.rockcode.RockCode;
 import pd.items.equipment.weapon.spammo.SpAmmo;
+import pd.messages.InlineText;
 
 public class MagicalHolster extends Bag {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MagicalHolster.class)
+			.t("name", "魔法筒袋")
+			.t("desc", "（已合并法杖套）这款细长的皮制筒袋由某种异域动物的毛皮制成。强大的附魔使其拥有收纳法杖、枪械与爆炸物等道具的能力。\n\n只需伸手一探，想要的道具就会出现在你的手上。\n\n筒袋中涌动的魔力流还能小幅强化其中法杖的充能速度。投掷武器（暗器）请存放于暗器袋。");
+	}
+
 
 	{
 		image = EquipmentBagsDict.HOLSTER;

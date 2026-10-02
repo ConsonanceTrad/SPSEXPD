@@ -8,9 +8,17 @@ import pd.items.Generator;
 import pd.mechanics.Ballistica;
 import pd.sprites.ZotPhaseSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** Ranged phase split off from Zot. */
 public class ZotPhase extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ZotPhase.class)
+			.t("name", "Zot的虚像")
+			.t("desc", "Zot的虚像，看上去与本体一样真实。");
+	}
+
 	{
 		spriteClass = ZotPhaseSprite.class;
 		HP = HT = 200;

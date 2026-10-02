@@ -14,9 +14,17 @@ import pd.actors.buffs.FireFollower;
 import pd.actors.hero.Hero;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
+import pd.messages.InlineText;
 
 /** Lery's bottled flame, which leaves a thirty-turn trail of delayed fire. */
 public class BottleFire extends TossWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(BottleFire.class)
+			.t("name", "瓶装火焰")
+			.t("desc", "奇怪的火焰，装在瓶子里面。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

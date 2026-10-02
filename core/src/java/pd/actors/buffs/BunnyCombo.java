@@ -16,8 +16,27 @@ import pd.ui.HeroIcon;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class BunnyCombo extends Buff implements ActionIndicator.Action {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(BunnyCombo.class)
+			.t("name", "兔兔连击")
+			.t("bad_target", "目标必须是攻击距离以内的敌人。")
+			.t("a_prompt", "选择一个要击残的目标")
+			.t("a_desc", "_击残_已经就绪。这一击会使目标致残5回合。")
+			.t("b_prompt", "选择一个要致盲的目标")
+			.t("b_desc", "_抛沙_已经就绪。这一击会使目标致盲5回合。")
+			.t("c_prompt", "选择一个要割裂的目标")
+			.t("c_desc", "_割裂_已经就绪。这一击会使目标流血。")
+			.t("d_prompt", "选择一个要击退的目标")
+			.t("d_desc", "_冲击_已经就绪。这一击会击退目标并使其眩晕。")
+			.t("e_prompt", "选择一个要终结的目标")
+			.t("e_desc", "_终结_已经就绪。这一击会按照累积连击数倍增伤害，并重置连击。")
+			.t("desc", "成功攻击会积累连击。连续两次攻击落空或4回合内没有继续攻击都会重置连击。在2、4、6、8、10连击时会解锁不同的必中处决技，只有最高级处决技会重置连击。");
+	}
+
 
 	private static final String COUNT = "count", TIME = "combotime", MISSES = "misses";
 	private int count;

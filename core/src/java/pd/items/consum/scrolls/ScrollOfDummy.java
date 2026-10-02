@@ -16,9 +16,19 @@ import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Summons the original stationary, noisy training doll. */
 public class ScrollOfDummy extends Scroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfDummy.class)
+			.t("name", "玩偶卷轴")
+			.t("desc", "召唤一个会吸引攻击的吵闹玩偶。")
+			.t("minidummy.name", "吵闹玩偶")
+			.t("minidummy.desc", "这个吵闹的玩偶会吸引攻击，生命也会慢慢消逝。");
+	}
+
 	@Override public void doRead() {
 		detach(curUser.belongings.backpack);
 		spawnDummy(curUser.pos, 30);

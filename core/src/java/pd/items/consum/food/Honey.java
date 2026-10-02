@@ -6,8 +6,16 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Honey extends Food {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Honey.class)
+			.t("name", "蜂蜜")
+			.t("desc", "浓稠甘甜的蜂蜜，食用后能永久增强生命力。");
+	}
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 50f;

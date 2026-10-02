@@ -14,9 +14,25 @@ import pd.messages.Messages;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** A 99-charge tester wand with seven selectable elemental damage types. */
 public class WandOfTest extends DamageWand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfTest.class)
+			.t("name", "测试法杖")
+			.t("ac_0", "能量")
+			.t("ac_1", "火焰")
+			.t("ac_2", "寒冰")
+			.t("ac_3", "雷电")
+			.t("ac_4", "大地")
+			.t("ac_5", "光明")
+			.t("ac_6", "黑暗")
+			.t("desc", "这根法杖是测试用的，可以改变造成伤害的属性。")
+			.t("stats_desc", "这根法杖射出的飞弹能造成_%1$d~%2$d点伤害_。");
+	}
+
 
 	public static final String AC_ENERGY = "0";
 	public static final String AC_FIRE = "1";

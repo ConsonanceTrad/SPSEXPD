@@ -33,8 +33,17 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class PotionOfLevitation extends Potion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfLevitation.class)
+			.t("name", "浮空药剂")
+			.t("float", "你漂浮到了空中！")
+			.t("desc", "饮用这种古怪的药剂能让你漂浮到空中，从而轻易地越过陷阱和深渊。扔出它会产生一片未被提纯的气体云雾，让其中的所有生物迷失方向。");
+	}
+
 
 	{
 		icon = ItemIconSheet.POTION_LEVITATE;

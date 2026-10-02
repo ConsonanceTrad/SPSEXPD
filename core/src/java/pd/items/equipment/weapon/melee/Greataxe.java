@@ -34,8 +34,20 @@ import pd.ui.AttackIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
+import pd.messages.InlineText;
 
 public class Greataxe extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Greataxe.class)
+			.t("name", "巨斧")
+			.t("stats_desc", "这件武器非常沉重。")
+			.t("ability_name", "报复")
+			.t("typical_ability_desc", "决斗家在血量低于50%%时可以使用巨斧进行_报复_攻击。这种毁灭性的攻击必定命中，且一般造成_%1$d~%2$d点伤害_，若是击杀了一名敌人，这一击将不消耗时间。")
+			.t("ability_desc", "决斗家在血量低于50%%时可以使用巨斧进行_报复_攻击。这种毁灭性的攻击必定命中，且造成_%1$d~%2$d点伤害_，若是击杀了一名敌人，这一击将不消耗时间。")
+			.t("desc", "这个巨型的战斧无坚不摧，重如泰山，举过肩才有空间挥舞。");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.GREATAXE_0;

@@ -21,8 +21,18 @@ import pd.sprites.ScorpioSprite;
 import pd.sprites.SkeletonSprite;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class ChallengeGuardian extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ChallengeGuardian.class)
+			.t("guardian_name", "挑战守卫")
+			.t("echo_name", "挑战回响")
+			.t("guardian_desc", "由挑战日志的魔力塑造而成的守卫，保护着这处目的地唯一的奖励。它的强度与发现路线时所处的章节相符，击败它不会获得经验。")
+			.t("echo_desc", "由挑战日志的魔力凝成的弱小回响。它不会携带宝物，击败它也不会获得经验。");
+	}
+
 
 	private int challenge;
 	private boolean guardian;

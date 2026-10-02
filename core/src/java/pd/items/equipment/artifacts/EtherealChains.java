@@ -59,8 +59,30 @@ import render.utils.data.Callback;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class EtherealChains extends Artifact {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(EtherealChains.class)
+			.t("name", "虚空锁链")
+			.t("ac_cast", "施放")
+			.t("ac_locked", "耗竭-封印")
+			.t("rooted", "锁链无法拉动被缠绕的你。")
+			.t("no_charge", "你的锁链充能不足。")
+			.t("cursed", "你不能使用被诅咒的锁链。")
+			.t("does_nothing", "这样并没有用。")
+			.t("cant_pull", "你的锁链不能拉动那个目标。")
+			.t("cant_reach", "你的锁链无法触及那里。")
+			.t("inside_wall", "你的锁链仅能带你穿过墙壁，而非穿入墙壁。")
+			.t("nothing_to_grab", "目标区域没有可供抓取的物件。")
+			.t("prompt", "选择要瞄准的地方")
+			.t("desc", "这些巨大但轻盈的锁链散发着灵魂能量。它们可以用来把你拉向一些地形，或将敌人拉向你。无实体的天然特质甚至可以允许其穿透墙壁！")
+			.t("desc_cursed", "被诅咒的锁链将自己锁在了你的身边，不断地在周围晃动，试图绊倒或绑住你。")
+			.t("desc_equipped", "锁链围绕在你的身边，缓慢地收集被你击败者的精神能量。每一发充能都是锁链中的一环，每一个环节都能正好延长一格。")
+			.t("chainsrecharge.levelup", "你的锁链变得更强大了！");
+	}
+
 
 	public static final String AC_CAST       = "CAST";
 	public static final String AC_LOCKED     = "LOCKED";

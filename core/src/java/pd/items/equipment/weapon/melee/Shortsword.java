@@ -27,8 +27,19 @@ import pd.Assets;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class Shortsword extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Shortsword.class)
+			.t("name", "短剑")
+			.t("ability_name", "顺劈")
+			.t("typical_ability_desc", "决斗家可以用短剑_顺劈_敌人。这一般会造成_%1$d~%2$d点伤害_且必定命中。如果顺劈击杀了一名敌人，这一击将不消耗时间，并且决斗家可在5回合内额外使用一次不消耗充能数的顺劈。")
+			.t("ability_desc", "决斗家可以用短剑_顺劈_敌人，造成_%1$d~%2$d点伤害_且必定命中。如果顺劈击杀了一名敌人，这一击将不消耗时间，并且决斗家可在5回合内额外使用一次不消耗充能数的顺劈。")
+			.t("desc", "它确实相当短，只比一把匕首长出几厘米。");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.SHORTSWORD_0;

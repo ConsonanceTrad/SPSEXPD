@@ -40,8 +40,31 @@ import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import pd.messages.InlineText;
 
 public class ExoticPotion extends Potion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ExoticPotion.class)
+			.t("turquoise", "青绿合剂")
+			.t("crimson", "猩红合剂")
+			.t("azure", "湛蓝合剂")
+			.t("jade", "碧绿合剂")
+			.t("golden", "金黄合剂")
+			.t("magenta", "品红合剂")
+			.t("charcoal", "煤黑合剂")
+			.t("ivory", "乳白合剂")
+			.t("amber", "琥珀合剂")
+			.t("bistre", "深褐合剂")
+			.t("indigo", "靛紫合剂")
+			.t("silver", "银灰合剂")
+			.t("unknown_desc", "这口圆底瓶里装着些有沉淀物的彩色液体。它似乎并不属于这个世界，谁知道饮用或投掷它时会有什么效果呢？")
+			.t("warning", "你真的想终止这瓶药剂的使用？它仍会被消耗掉。")
+			.t("yes", "是的，我确定")
+			.t("no", "不，我改变主意了")
+			.t("discover_hint", "你可通过炼金合成该物品。");
+	}
+
 	
 	{
 		//sprite = equivalent potion sprite but one row down

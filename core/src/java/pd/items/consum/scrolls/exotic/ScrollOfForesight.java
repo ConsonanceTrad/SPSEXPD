@@ -26,8 +26,16 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Foresight;
 import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class ScrollOfForesight extends ExoticScroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfForesight.class)
+			.t("name", "先见秘卷")
+			.t("desc", "在阅读了这幅卷轴后，附近地形的细节将自发不断地映入阅读者的脑海。这种效果会持续相当长的一段时间，并且会揭示所有的隐藏门与陷阱，不再需要主动搜索。");
+	}
+
 	
 	{
 		icon = ItemIconSheet.SCROLL_FORESIGHT;

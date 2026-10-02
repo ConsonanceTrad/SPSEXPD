@@ -3,9 +3,17 @@ package pd.actors.buffs;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** SPS-PD's percentage-based incoming damage vulnerability. */
 public class ArmorBreak extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ArmorBreak.class)
+			.t("name", "护甲破坏")
+			.t("desc", "受到的所有伤害增加_%2$d%%_。\n\n剩余时间：%1$s回合。");
+	}
+
 
 	private static final String LEVEL = "level";
 	private static final String LEGACY_LEFT = "left";

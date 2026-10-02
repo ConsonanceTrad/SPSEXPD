@@ -37,8 +37,20 @@ import pd.ui.AttackIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
+import pd.messages.InlineText;
 
 public class Spear extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Spear.class)
+			.t("name", "长矛")
+			.t("stats_desc", "这是一件相当慢的武器。\n这件武器有额外的攻击距离。")
+			.t("ability_name", "刺退")
+			.t("typical_ability_desc", "决斗家用矛尖_刺退_在射程内但不与决斗家相邻的敌人，一般会造成_%1$d~%2$d点伤害_，将敌人击退且必定命中。")
+			.t("ability_desc", "决斗家用矛尖_刺退_在射程内但不与决斗家相邻的敌人，造成_%1$d~%2$d点伤害_，将敌人击退且必定命中。")
+			.t("desc", "这是一根装着锋锐铁刺的细长木杆。");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.SPEAR_0;

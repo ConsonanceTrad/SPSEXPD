@@ -33,8 +33,16 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.ShieldedSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class ArmoredBrute extends Brute {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ArmoredBrute.class)
+			.t("name", "装甲暴徒")
+			.t("desc", "这些最顶级的豺狼暴徒通常靠装备强力的护甲来彰显其身份。暴徒身上的护甲会倍增它们的物理防御力，坚强的意志会大幅提升它们在弥留之际的狂暴时长。");
+	}
+
 
 	{
 		spriteClass = ShieldedSprite.class;

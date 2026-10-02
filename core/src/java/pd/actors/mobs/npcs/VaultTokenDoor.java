@@ -41,8 +41,23 @@ import pd.windows.WndOptions;
 import pd.windows.WndTitledMessage;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
+import pd.messages.InlineText;
 
 public class VaultTokenDoor extends NPC {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(VaultTokenDoor.class)
+			.t("name", "奇怪的门")
+			.t("def_verb", "格挡")
+			.t("desc", "这扇门看似没有上锁，凭你的力量却难以移动分毫。门的表面有一道不同寻常的机关，其上的十个凹槽看起来可以用某种扁平的菱形物体填补上去。")
+			.t("no_tokens", "_也许你能在宝库里找到什么可以契合进凹槽的东西？_")
+			.t("too_few_tokens", "_你的矮人徽记与凹槽完美契合_，但徽记的数量还不够。")
+			.t("enough_tokens", "_你有足够的矮人徽记以填入所有凹槽_，要把它们放进去吗？")
+			.t("open", "开门")
+			.t("not_yet", "算了")
+			.t("unlocked", "徽记渐渐与门融为一体，与此同时你听到了远处门锁打开的声音。");
+	}
+
 
 	{
 		spriteClass = VaultTokenDoorSprite.class;

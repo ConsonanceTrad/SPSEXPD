@@ -11,9 +11,17 @@ import pd.mechanics.Ballistica;
 import pd.sprites.AbiSprite;
 import pd.sprites.CharSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The original Abbey companion summoned by Alfred's whistle. */
 public class Abi extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Abi.class)
+			.t("name", "阿比")
+			.t("desc", "由阿飞制作的哨子召唤出的精灵。");
+	}
+
 	{
 		spriteClass = AbiSprite.class;
 		properties.add(Property.BEAST);

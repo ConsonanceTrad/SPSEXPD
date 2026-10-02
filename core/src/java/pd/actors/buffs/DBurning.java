@@ -9,9 +9,17 @@ import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** SPS percentage-burning effect used by the senior exit guard. */
 public class DBurning extends Buff implements Hero.Doom, Buff.DOTbuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(DBurning.class)
+			.t("name", "深度燃烧")
+			.t("desc", "猛烈的魔法火焰会按照目标的生命上限持续造成伤害。\n\n剩余时间：%s回合。");
+	}
+
 	private static final String LEFT = "left";
 	private float left;
 

@@ -11,8 +11,16 @@ import pd.actors.buffs.Dry;
 import pd.actors.buffs.Hot;
 import pd.mechanics.pathfind.PathFinder;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Tree extends MeleeThrowWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Tree.class)
+			.t("name", "圣诞树")
+			.t("desc", "一个简单的圣诞树装饰物。圣诞节快乐！\n飞掷，溅射，虚弱，礼物");
+	}
+
 	public Tree() { super(1, 1, 5, SpecificPlaceHolderDict.SOMETHING_0); }
 
 	@Override public int proc(Char attacker, Char defender, int damage) {

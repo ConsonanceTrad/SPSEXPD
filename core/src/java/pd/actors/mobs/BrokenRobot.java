@@ -15,9 +15,19 @@ import pd.items.equipment.weapon.melee.normalweapon.ShortSword;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** Original SPS-PD runtime and save identity for the damaged cave robot. */
 public class BrokenRobot extends SpsDM300.BrokenRobot {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(BrokenRobot.class)
+			.t("name", "破损机械")
+			.t("broken", "系统...关闭...")
+			.t("desc", "虽然这个机器人的程序没有老化，但它的身躯抵抗不住时间的侵蚀。")
+			.t("explode", "自毁启动！");
+	}
+
 
 	{
 		viewDistance = Light.DISTANCE;

@@ -34,8 +34,19 @@ import pd.items.equipment.weapon.Weapon;
 import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 public class StoneOfEnchantment extends InventoryStone {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(StoneOfEnchantment.class)
+			.t("name", "附魔符石")
+			.t("inv_title", "附魔一件物品")
+			.t("weapon", "你的武器在暗中微微发光！")
+			.t("armor", "你的护甲在暗中微微发光！")
+			.t("desc", "这颗符石拥有施加附魔的能力。和升级卷轴不同，它不会直接加强一个道具的能力，但能给武器或者护甲施加附魔，使其拥有新的特性。");
+	}
+
 	
 	{
 		preferredBag = Belongings.Backpack.class;

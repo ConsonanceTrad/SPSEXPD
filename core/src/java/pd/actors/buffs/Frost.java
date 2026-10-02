@@ -38,8 +38,17 @@ import render.noosa.Image;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Frost extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Frost.class)
+			.t("name", "冻结")
+			.t("freezes", "%s冻住了！")
+			.t("desc", "不要与冻成冰雕混淆，这种温和的冰冻只是把目标包裹在冰里。\n\n冻结效果类似于麻痹，使目标不能行动。与麻痹不同的是，冻结效果会在目标受到伤害时立即消失，因为冰会碎。\n\n剩余的冻结效果时长：%s回合");
+	}
+
 
 	public static final float DURATION	= 10f;
 

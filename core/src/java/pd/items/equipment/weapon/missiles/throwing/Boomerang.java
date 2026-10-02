@@ -22,9 +22,24 @@ import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** The SPS-PD boomerang, which returns immediately and never loses durability. */
 public class Boomerang extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Boomerang.class)
+			.t("name", "回旋镖")
+			.t("ac_ammo", "涂油")
+			.t("prompt", "选择用于涂抹的强化子弹")
+			.t("replace", "这把回旋镖当前涂有%1$s。是否改用%2$s？原有涂层将会消失。")
+			.t("yes", "是")
+			.t("no", "否")
+			.t("ammo", "当前强化子弹：%s")
+			.t("stats_desc", "这件武器会立即回到投掷者手中，并且永远不会损耗。")
+			.t("desc", "被投向敌人后，这具扁平的曲状木制投掷物能够自动回到投掷者手中。此外，这个回旋镖可以使用强化子弹强化。");
+	}
+
 	public static final String AC_AMMO = "AMMO";
 	private static final String SP_AMMO = "sp_ammo";
 

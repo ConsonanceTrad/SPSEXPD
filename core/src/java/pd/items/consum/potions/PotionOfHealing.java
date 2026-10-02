@@ -39,8 +39,17 @@ import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 public class PotionOfHealing extends Potion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfHealing.class)
+			.t("name", "治疗药剂")
+			.t("heal", "你的伤口开始愈合。")
+			.t("desc", "一支让你快速回满生命值并清除毒素的万能药剂。");
+	}
+
 
 	{
 		icon = ItemIconSheet.POTION_HEALING;

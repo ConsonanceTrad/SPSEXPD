@@ -35,8 +35,17 @@ import pd.messages.Messages;
 import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class ScrollOfRage extends Scroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfRage.class)
+			.t("name", "盛怒卷轴")
+			.t("roar", "卷轴产生的激怒咆哮在地牢中回荡！")
+			.t("desc", "大声诵读内容时，卷轴将释放出一声轰响的咆哮，将所有敌人引向你并激怒附近的单位。");
+	}
+
 
 	{
 		icon = ItemIconSheet.SCROLL_RAGE;

@@ -66,8 +66,31 @@ import render.noosa.Image;
 import render.utils.serialize.Bundle;
 
 import java.util.HashMap;
+import pd.messages.InlineText;
 
 public class AscensionChallenge extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(AscensionChallenge.class)
+			.t("name", "护符诡咒")
+			.t("desc", "不知为何古神仍能借护符维系自己对这个世界的影响，祂正借此设法阻止你向上返程！\n\n古神运用祂的力量使你的敌人变得更为众多、强大，整座地牢也因此变得更危险了！所幸你可以通过击败古神所加强过的敌人来削弱他的力量，若是置之不理则只会使古神之力愈发强大。")
+			.t("desc_clear", "护符中散发出的黑暗能量现今已被最大程度的削弱了。")
+			.t("desc_beckon", "护符正在_呼唤远处的敌人_，向它们通告你的位置。")
+			.t("desc_haste", "护符正在_为远处的敌人加速_，令它们得以更快接近你！")
+			.t("desc_slow", "护符正在_使你减速_，并阻止了一切加速效果！")
+			.t("desc_damage", "护符中涌动的黑暗能量已极为强大，它正在_直接对你造成伤害_！")
+			.t("beckon", "护符开始呼唤远处的敌人前来。")
+			.t("haste", "护符开始为周遭的敌人提升移速！")
+			.t("slow", "你背包中的护符此刻恍如重逾千钧！")
+			.t("damage", "护符开始释放黑暗能量。此物灼烫难忍！")
+			.t("weaken_info", "护符的诅咒可通过击败更多敌人来削弱。")
+			.t("weaken_info_no_kills", "如果你击败敌人，护符的诅咒就会被削弱！")
+			.t("weaken", "你能感受到护符上的诅咒正缓慢地消退。")
+			.t("break", "你稍作喘息，感受到身上的伤口开始愈合！")
+			.t("almost", "你能感觉到古神对护符的掌控愈发微弱了起来，胜利的曙光已然在你面前！")
+			.t("on_kill", "黑暗能量吞噬了你...");
+	}
+
 
 	private static HashMap<Class<?extends Mob>, Float> modifiers = new HashMap<>();
 	static {

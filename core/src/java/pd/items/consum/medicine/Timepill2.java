@@ -9,8 +9,16 @@ import pd.actors.hero.Hero;
 import pd.effects.Speck;
 import pd.items.Heap;
 import pd.items.equipment.artifacts.TimeOclock;
+import pd.messages.InlineText;
 
 public class Timepill2 extends Pill {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Timepill2.class)
+			.t("name", "时之块-发条型")
+			.t("desc", "提供加速和时之发条。\n使用_1份水，4份原石_锻造");
+	}
+
 	{ image = GroundFunctionalFallingDict.SANDBAG_0; }
 	@Override protected void onUse(Hero hero) {
 		Buff.affect(hero, HasteBuff.class, 400f);

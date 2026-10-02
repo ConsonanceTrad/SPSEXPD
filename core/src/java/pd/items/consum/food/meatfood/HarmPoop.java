@@ -7,8 +7,16 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Poison;
 import pd.actors.buffs.Slow;
 import pd.actors.hero.Hero;
+import pd.messages.InlineText;
 
 public class HarmPoop extends MeatFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(HarmPoop.class)
+			.t("name", "有害秽物")
+			.t("desc", "勉强可以吃，但会导致中毒和迟缓。");
+	}
+
 	{
 		image = ConsumFoodFoodDict.MEAT;
 		energy = 10f;

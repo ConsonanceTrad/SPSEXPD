@@ -4,9 +4,17 @@ package pd.actors.buffs;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Percentage damage reduction used by SPS legacy effects. */
 public class DefenceUp extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(DefenceUp.class)
+			.t("name", "防御提升")
+			.t("desc", "剩余%1$s回合，受到的伤害降低%2$s%%。");
+	}
+
 	private static final String LEVEL = "level";
 	private static final String LEGACY_LEFT = "left";
 	private int level;

@@ -8,8 +8,17 @@ import pd.actors.damagetype.DamageType;
 import pd.effects.MagicMissile;
 import pd.mechanics.Ballistica;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Mlaser extends RockCode {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Mlaser.class)
+			.t("name", "混合射线")
+			.t("desc", "来自混源体的技能芯片，释放七元素混合射线。")
+			.t("stats_desc", "消耗4点能量中的1点，分别造成能量、自然、火焰、寒冰、雷电、光明和黑暗伤害。");
+	}
+
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "M.l"; }
 	@Override protected int missileType() { return MagicMissile.RAINBOW; }
 	@Override protected void onZap(Ballistica bolt) {

@@ -29,8 +29,17 @@ import pd.effects.particles.PoisonParticle;
 import pd.items.equipment.weapon.Weapon;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Venomous extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Venomous.class)
+			.t("name", "猛毒%s")
+			.t("desc", "猛毒附魔的武器可以施加延迟却致命的中毒效果，其每次触发都会使毒性更猛烈。")
+			.t("elestrike_desc", "武器拥有猛毒附魔时，元素打击会对范围内除主目标外的敌人会施加额外的延迟中毒效果。");
+	}
+
 
 	private static ItemSprite.Glowing PURPLE = new ItemSprite.Glowing( 0x4400AA );
 

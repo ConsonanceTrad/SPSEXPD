@@ -13,9 +13,17 @@ import pd.items.equipment.weapon.enchantments.EnchantmentIce;
 import pd.plants.Icecap;
 import pd.scenes.GameScene;
 import pd.sprites.IceBugSprite;
+import pd.messages.InlineText;
 
 /** Original SPS-PD runtime and save identity for the ice climber. */
 public class IceBug extends SpsCaveMobs.IceBug {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(IceBug.class)
+			.t("name", "冰足虫")
+			.t("desc", "冰冷环境下生存的虫子。");
+	}
+
 
 	{
 		spriteClass = IceBugSprite.class;

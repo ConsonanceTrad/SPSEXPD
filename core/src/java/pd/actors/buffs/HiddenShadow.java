@@ -4,9 +4,17 @@ package pd.actors.buffs;
 import pd.actors.Char;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 /** Timed marker applied by the clockwork scarecrow after it attacks. */
 public class HiddenShadow extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(HiddenShadow.class)
+			.t("name", "潜行")
+			.t("desc", "无法被近战攻击。\n\n剩余时间：%s。");
+	}
+
 	private boolean applied;
 	{
 		type = buffType.NEGATIVE;

@@ -11,8 +11,18 @@ import pd.actors.hero.Hero;
 import pd.items.equipment.weapon.enchantments.NeptuneShock;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
+import pd.messages.InlineText;
 
 public class NeptunusTrident extends RelicMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(NeptunusTrident.class)
+			.t("name", "三叉水戟")
+			.t("desc", "前端装有三根尖刃的长柄武器。\n借由蓝色魔法石的能量，它能连锁电击多个目标，并在充能完毕后淹没附近地面。")
+			.t("ac_flood", "潮汐涌动")
+			.t("stats_desc", "");
+	}
+
 
 	public static final String AC_FLOOD = "FLOOD";
 

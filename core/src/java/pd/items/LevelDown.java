@@ -8,8 +8,17 @@ import pd.actors.hero.Hero;
 import pd.effects.Speck;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class LevelDown extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(LevelDown.class)
+			.t("name", "成长核心")
+			.t("ac_use", "使用")
+			.t("desc", "使用后立刻降低一级，但不会使等级低于1级。");
+	}
+
 
 	public static final String AC_USE = "USE";
 	{

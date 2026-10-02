@@ -55,8 +55,36 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class TimekeepersHourglass extends Artifact {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(TimekeepersHourglass.class)
+			.t("name", "时光沙漏")
+			.t("ac_activate", "激活")
+			.t("ac_restart", "耗竭-重置")
+			.t("in_use", "你的沙漏正在使用中。")
+			.t("deactivate", "你取消了时间冻结。")
+			.t("no_charge", "你的沙漏充能还不足以用来激活。")
+			.t("cursed", "你不能使用被诅咒的沙漏。")
+			.t("onstasis", "你周遭的世界似乎就在这一瞬间变化了。")
+			.t("onfreeze", "你周围的一切突然都彻底静止下来。")
+			.t("stasis", "使我彻底停滞")
+			.t("freeze", "冻结周围时间")
+			.t("prompt", "你想怎样使用沙漏的魔法？\n\n当你被静止，周围的时间会正常流动，而你则会冻结并变得无敌。\n\n当时间被冻结，你的行动仿佛不需要任何时间。注意，进行攻击将打破该效果。")
+			.t("desc", "这只大型的华贵沙漏看起来却并不怎么起眼，但你仍觉得它精雕细刻的框架内蕴含着某种强大的力量。在翻转沙漏、在看着沙子流下的同时，你能感受到一种魔法正在拉扯着你，使用这种魔法肯定能给你一些控制时间的方法。")
+			.t("desc_hint", "沙漏似乎失去了一些沙子，如果你能再找到一些...")
+			.t("desc_cursed", "被诅咒的沙漏把它自己锁在了你的身边，你可以感觉它试图操纵你的时间流动。")
+			.t("timefreeze.name", "时间冻结")
+			.t("timefreeze.desc", "外界的时间已被冻结，现在你可以在一瞬间完成任何行动。该状态会一直持续下去，除非你主动取消了它，或者你的沙漏用尽了充能。实施攻击或使用魔法同样会取消该效果。\n\n距离下次消耗充能还有：%s回合")
+			.t("sandbag.name", "一包魔力流沙")
+			.t("sandbag.levelup", "你将沙子填入到你的沙漏中。")
+			.t("sandbag.maxlevel", "你的沙漏填满了魔法沙子！")
+			.t("sandbag.no_hourglass", "你没有沙漏来存放这些沙子。")
+			.t("sandbag.desc", "这一小包细沙应该能够在你的沙漏上完美使用。\n\n每次当你需要这种东西时，店主刚好都有摆上店面的存货，这相当奇怪...");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

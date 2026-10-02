@@ -19,8 +19,17 @@ import pd.sprites.AlbinoPiranhaSprite;
 import pd.utils.GLog;
 import render.utils.data.BArray;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class AlbinoPiranha extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(AlbinoPiranha.class)
+			.t("name", "原生肉食鱼")
+			.t("desc", "生活在这里的肉食鱼经过数百年演变，视觉早已退化，其他感官却异常灵敏，能察觉周围水流最细微的变化。")
+			.t("killcount", "已击败原生肉食鱼：%d");
+	}
+
 
 	{
 		spriteClass = AlbinoPiranhaSprite.class;

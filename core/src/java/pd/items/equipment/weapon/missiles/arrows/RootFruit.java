@@ -8,8 +8,16 @@ import pd.actors.blobs.Web;
 import pd.actors.blobs.damageblobs.EarthEffectDamage;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Roots;
+import pd.messages.InlineText;
 
 public class RootFruit extends SpsFruit {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RootFruit.class)
+			.t("name", "缠绕果")
+			.t("desc", "人工种植的地缚根结出的果实。直接命中会缠绕目标，落地则会散布根须与蛛网。");
+	}
+
 	public RootFruit() { this(1); }
 	public RootFruit(int number) { super(ConsumPotionSeedSeedDict.SEED_EARTHROOT_0, 20, 20); quantity(number); }
 	@Override protected void onThrow(int cell) {

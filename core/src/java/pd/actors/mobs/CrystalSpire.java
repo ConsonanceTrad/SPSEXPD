@@ -57,8 +57,20 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class CrystalSpire extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(CrystalSpire.class)
+			.t("name", "水晶尖塔")
+			.t("warning", "你感受到了被敲打的水晶上传来的颤动。再继续敲下去肯定会引祸上身...")
+			.t("alert", "水晶的颤动愈演愈烈，隆隆声响彻整个矿洞！")
+			.t("rankings_desc", "被水晶尖塔的尖刺贯穿身体")
+			.t("desc", "这座巨型尖塔由无比坚硬的水晶构成，很可能是矿洞中所有奇怪水晶生物的来源。常规武器无法对它造成伤害，所以你得用镐子来拆毁它。\n\n_动手破拆之前，要为硬仗做好准备。_拆除如此硕大的一块水晶可需要花费不少时间，而且很难不被打扰。尖塔本身也可能拥有防御机制。_或许尖塔的攻击可被利用于对付它的爪牙。_")
+			.t("discover_hint", "你可在某个任务中遇到该敌人。");
+	}
+
 
 	{
 		//this translates to roughly 33/27/23/20/18/16 pickaxe hits at +0/1/2/3/4/5

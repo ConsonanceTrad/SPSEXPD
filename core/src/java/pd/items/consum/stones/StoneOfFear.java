@@ -32,8 +32,16 @@ import pd.actors.buffs.Terror;
 import pd.effects.Flare;
 import pd.tiles.DungeonTilemap;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class StoneOfFear extends Runestone {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(StoneOfFear.class)
+			.t("name", "恐惧符石")
+			.t("desc", "当把这颗符石掷向一个盟友或敌人时，被命中的角色会陷入深深的恐惧中，无法克制地逃离。攻击会刺激其从恐惧中更快恢复。");
+	}
+
 	
 	{
 		image = ConsumScrollAmuletAmuletDict.STONE_FEAR_0;

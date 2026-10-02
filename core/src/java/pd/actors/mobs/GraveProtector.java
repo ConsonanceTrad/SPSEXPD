@@ -13,8 +13,16 @@ import pd.items.VioletDewdrop;
 import pd.mechanics.Ballistica;
 import pd.sprites.GraveProtectorSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class GraveProtector extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GraveProtector.class)
+			.t("name", "独眼士官")
+			.t("desc", "巨魔中的独眼巨人，拥有强大的远程战力，但不擅长近战。");
+	}
+
 
 	{
 		spriteClass = GraveProtectorSprite.class;

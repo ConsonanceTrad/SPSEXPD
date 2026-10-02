@@ -88,8 +88,38 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import pd.messages.InlineText;
 
 public class Potion extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Potion.class)
+			.t("ac_drink", "饮用")
+			.t("turquoise", "青绿药剂")
+			.t("crimson", "猩红药剂")
+			.t("azure", "湛蓝药剂")
+			.t("jade", "碧绿药剂")
+			.t("golden", "金黄药剂")
+			.t("magenta", "品红药剂")
+			.t("charcoal", "煤黑药剂")
+			.t("ivory", "乳白药剂")
+			.t("amber", "琥珀药剂")
+			.t("bistre", "深褐药剂")
+			.t("indigo", "靛紫药剂")
+			.t("silver", "银灰药剂")
+			.t("unknown_desc", "瓶子里装着些不断打旋的彩色液体。谁知道饮用或投掷它时会有什么效果呢？")
+			.t("harmful", "有害药剂！")
+			.t("beneficial", "有益药剂")
+			.t("yes", "是的，我知道我在做什么")
+			.t("no", "不，我改变主意了")
+			.t("sure_drink", "你确定要饮用它吗？大多数情况下你该把它扔向敌人的。")
+			.t("sure_throw", "你确定要投掷它吗？大多数情况下把它喝下去会更有用。")
+			.t("shatter", "药瓶碎裂开，溅出了无害的液体。")
+			.t("discover_hint", "你可在地牢中概率找到该物品，或通过炼金合成该物品。")
+			.t("placeholder.name", "药剂")
+			.t("seedtopotion.name", "随机药剂");
+	}
+
 
 	public static final String AC_DRINK = "DRINK";
 	

@@ -13,8 +13,16 @@ import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.plants.Plant;
 import pd.sprites.FoxHelperSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class FoxHelper extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(FoxHelper.class)
+			.t("name", "狐女仆")
+			.t("desc", "有事她会干，没事嘛……她会定期给你带来升级卷轴。");
+	}
+
 	{
 		spriteClass = FoxHelperSprite.class; cooldown = 50; properties.add(Property.ORC); updateStats(true);
 	}

@@ -224,6 +224,7 @@ import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.plants.Dewcatcher;
 import render.utils.platform.DeviceCompat;
+import pd.messages.InlineText;
 
 public enum HeroClass {
 
@@ -239,6 +240,59 @@ public enum HeroClass {
 	FOLLOWER( HeroSubClass.ARTISAN, HeroSubClass.PASTOR ),
 	ASCETIC( HeroSubClass.ASCETIC_MONK, HeroSubClass.HACKER ),
 	NEWPLAYER( HeroSubClass.NONE );
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(HeroClass.class)
+			.t("warrior", "战士")
+			.t("warrior_desc_short", "战士用他的_破损纹章_生成护盾以额外减免伤害。纹章可以在护甲之间转移，并且可以_携带一级升级_。")
+			.t("warrior_desc", "战士初始携带一枚_独特的破损纹章_，可使他在生命值半数以下时获得爆发性护盾。纹章可以在护甲之间转移，并且可以携带一级升级。\n\n同时，战士初始携带一柄_破旧的短剑_，_三块投石_，布甲，水袋与绒布包。\n\n战士开局鉴定的物品有：\n_-_鉴定卷轴\n_-_治疗药剂\n_-_盛怒卷轴")
+			.t("warrior_unlock", "战士开局即解锁。")
+			.t("mage", "法师")
+			.t("mage_desc_short", "法师是一位奥术专家，开局持有一根强于法杖的_魔杖_。魔杖可以灌注法师找到的_任何魔杖_。")
+			.t("mage_desc", "法师初始携带一根_独特的魔杖_。魔杖的自动充能速度显著快于一般法杖，并且有1点额外最大充能数。法师可以将地牢中找到的各式法杖灌注到魔杖中。\n\n同时，法师初始携带一根已灌注于魔杖中的_魔弹法杖_、布甲、水袋与绒布包。\n\n法师开局鉴定的物品有：\n_-_鉴定卷轴\n_-_液火药剂\n_-_升级卷轴")
+			.t("mage_unlock", "_使用一张升级卷轴强化一个物品_以解锁法师。")
+			.t("rogue", "盗贼")
+			.t("rogue_desc_short", "盗贼能借助他的_暗影斗篷_来躲避和偷袭敌人。他还可以从更远的距离_探测秘密与陷阱_。")
+			.t("rogue_desc", "盗贼初始携带一件_独特的暗影斗篷_。披上后，盗贼可以随时隐形。\n\n盗贼能从更远的距离_探测秘密与陷阱_。\n\n同时，盗贼初始携带_一柄匕首_，_三把飞刀_，布甲，水袋与绒布包。\n\n盗贼开局鉴定的物品有：\n_-_鉴定卷轴\n_-_隐形药剂\n_-_探地卷轴")
+			.t("rogue_unlock", "_在一场游戏中进行十次伏击_以解锁盗贼。")
+			.t("huntress", "女猎手")
+			.t("huntress_desc_short", "女猎手精通投掷武器，并且具有一把能无限射击的_灵能弓_。女猎手可以穿过高草丛而_不将其践踏成草地_。")
+			.t("huntress_desc", "女猎手初始携带一把_独特的灵能弓_，可以无限发射魔法箭矢。\n\n女猎手可以穿过高草而_不会践踏高草_。\n\n同时，女猎手初始携带一副_镶钉手套_，布甲，水袋与绒布包。\n\n女猎手开局鉴定的道具有：\n_-_鉴定卷轴\n_-_灵视药剂\n_-_催眠卷轴")
+			.t("huntress_unlock", "_在一场游戏中使用投掷武器命中十次敌人_以解锁女猎手。")
+			.t("duelist", "决斗家")
+			.t("duelist_desc_short", "决斗家是一名武器大师，她能够用武器使出_独特的武技_。使出的武技_依不同武器而异_。")
+			.t("duelist_desc", "决斗家初始携带一柄_独特的刺剑_，拥有随时间自然充能的特殊武技。\n\n决斗家持有地牢中的任何武器时都将拥有_不同的武技_。\n\n决斗家初始还携带有_两根飞刺_、布甲、水袋以及绒布袋。\n\n决斗家开局鉴定的物品有：\n_-_鉴定卷轴\n_-_力量药剂\n_-_镜像卷轴")
+			.t("duelist_unlock", "_在力量达到需求的情况下装备一把2阶或更高阶的武器_以解锁决斗家。")
+			.t("cleric", "牧师")
+			.t("cleric_desc_short", "牧师是一名使用其独特的_神圣法典_引导神圣魔法的神圣施法者。其能通过天赋_学习并升级法术_。")
+			.t("cleric_desc", "牧师初始携带一本_独特的神圣法典_，可以使其施放各种各样的法术。\n\n牧师的大多数天赋专注于学习或升级法术上。\n\n牧师初始还携带有_一柄权杖_、布甲、水袋以及绒布袋。\n\n牧师开局鉴定的物品有：\n_-_鉴定卷轴\n_-_净化药剂\n_-_祛邪卷轴")
+			.t("cleric_unlock", "_完全净化任何一件被诅咒装备的诅咒_以解锁牧师")
+			.t("spellsword", "魔剑士")
+			.t("spellsword_desc_short", "魔剑士将_法杖魔法与近身战斗_结合，以较低的单项强度换取每回合灵活选择。")
+			.t("spellsword_desc", "魔剑士初始携带一柄_独特的魔剑_和一根_魔弹法杖_。魔剑较为精准，但伤害低于破旧短剑，因此需要在近战与魔法之间合理切换。\n\n在使用专精之书时，魔剑士可以选择_术士_或_武僧_路线。\n\n魔剑士还初始携带布甲、水袋与绒布包。\n\n魔剑士开局鉴定的物品有：\n_-_鉴定卷轴\n_-_升级卷轴\n_-_力量药剂")
+			.t("spellsword_unlock", "融合版中魔剑士开局即解锁。")
+			.t("performer", "演员")
+			.t("performer_desc_short", "演员在获得经验后进入短暂的_节奏_，以长距离武器和战斗技巧灵活周旋。")
+			.t("performer_desc", "演员每次获得经验时都会得到短暂的_节奏祝福_，升级时还会获得少量护盾。初始装备为匕首和芦苇管；芦苇管需要达到力量要求后，才能作为长距离武器正常发挥。\n\n演员可转职为_巨星_或_戏法师_。\n\n演员开局鉴定的物品有：\n_-_催眠卷轴\n_-_净化药剂")
+			.t("performer_unlock", "融合版中演员开局即解锁。")
+			.t("soldier", "星兵")
+			.t("soldier_desc_short", "星兵拥有略高的_命中、闪避与生命成长_，但不会突破破碎装备的正常强度。")
+			.t("soldier_desc", "星兵初始携带一柄刺剑和三枚投掷尖刺。训练使其命中与闪避提高5%，初始生命上限提高2点，每次升级额外提高1点生命上限。\n\n星兵可转职为_特工_或_领袖_。\n\n星兵开局鉴定的物品有：\n_-_盛怒卷轴\n_-_治疗药剂")
+			.t("soldier_unlock", "融合版中星兵开局即解锁。")
+			.t("follower", "信徒")
+			.t("follower_desc_short", "信徒依靠_稳健的补给和更合理的价格_冒险，开局带有治疗物资和少量旅费。")
+			.t("follower_desc", "信徒初始携带短棍、一瓶治疗药剂和50金币。商店购入价格降低10%，卖出价格与随机掉落不受影响。\n\n信徒可转职为_工匠_或_牧者_。\n\n信徒开局鉴定的物品有：\n_-_恐惧卷轴\n_-_治疗药剂")
+			.t("follower_unlock", "融合版中信徒开局即解锁。")
+			.t("ascetic", "苦修者")
+			.t("ascetic_desc_short", "苦修者在_近身格斗与受控施法_之间切换，不依靠免费的高额强化。")
+			.t("ascetic_desc", "苦修者初始携带拳套和魔弹法杖。两件装备均没有免费升级，因此开局强度与破碎的其他职业保持同一预算。\n\n苦修者可转职为_戒律者_或_黑客_。\n\n苦修者开局鉴定的物品有：\n_-_充能卷轴\n_-_镜像卷轴")
+			.t("ascetic_unlock", "融合版中苦修者开局即解锁。")
+			.t("newplayer", "新手")
+			.t("newplayer_desc_short", "仅供 SPS-PD 新手教程使用的隐藏职业。")
+			.t("newplayer_desc", "新手不携带任何装备进入教程，生命上限为50点，当前生命为10点。")
+			.t("newplayer_unlock", "该职业只能通过新手教程进入。");
+	}
+
 
 	private static final HeroClass[] SPS_PLAYABLE = {
 			WARRIOR, MAGE, ROGUE, HUNTRESS,

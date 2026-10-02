@@ -5,9 +5,17 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.ShieldArmor;
+import pd.messages.InlineText;
 
 /** Rain's training shield converts missing health into a physical shield each turn. */
 public class RainShield extends MiscEquippable {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RainShield.class)
+			.t("name", "Rain盾")
+			.t("desc", "Rain训练用的护盾，会将损失的生命值转化为护盾，但是会阻止生命恢复。");
+	}
+
 
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 

@@ -17,8 +17,16 @@ import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import pd.sprites.FishProtectorSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class FishProtector extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(FishProtector.class)
+			.t("name", "冰霜巨人")
+			.t("desc", "从时间缝隙中幸存的元素生物，死亡时会改变脚下的地形。");
+	}
+
 
 	{
 		spriteClass = FishProtectorSprite.class;

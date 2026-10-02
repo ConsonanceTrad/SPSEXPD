@@ -76,8 +76,27 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class DM300 extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(DM300.class)
+			.t("name", "DM-300")
+			.t("notice", "侦 测 到 未 授 权 单 位 ！")
+			.t("shield", "DM-300从地表导线汲取电力并生成护盾！")
+			.t("charging", "受 到 伤 害 ！正 在 启 动 能 量 塔 ！")
+			.t("charging_hint", "DM-300在接受能量塔供电时无法受到伤害！")
+			.t("supercharged", "毁 灭 ！毁 灭 ！毁 灭 ！")
+			.t("charge_lost", "能 量 塔 损 坏 ！切 换 至 本 地 供 能 模 式 ！")
+			.t("pylons_destroyed", "警 告 ！检 测 到 电 网 故 障 ！")
+			.t("rankings_desc", "被DM-300碾压致死")
+			.t("def_verb", "格挡")
+			.t("defeated", "受 到 严 重 损 伤 ！正 在 尝 试 关-")
+			.t("desc", "DM-300是矮人有史以来发明的最强大的“防卫机械”。这般强大的机械极难量产，所以矮人们仅仅造出了几台来守护他们地下都城的入口。\n\n它配备了可以喷出剧毒废气的通风口和一个可以用来攻击和破坏土石的高功率钻头。DM-300还可以接通电网，进一步增强它的力量。")
+			.t("desc_supercharged", "DM-300电力盈满，功率全开。此形态下的DM-300能免疫一切伤害，并具有两倍移动速度！此外，它的钻头功率现在足以_凿通墙壁_，不过它凿墙时的移速要慢很多。\n\n直接攻击超载的DM-300毫无意义，不过_这附近一定有为它提供能量的装置_，摧毁了的话也许能削弱它。");
+	}
+
 
 	{
 		spriteClass = DM300Sprite.class;

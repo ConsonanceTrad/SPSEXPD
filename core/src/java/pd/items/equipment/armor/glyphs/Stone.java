@@ -34,8 +34,16 @@ import pd.items.equipment.armor.Armor;
 import pd.items.equipment.trinkets.FerretTuft;
 import pd.sprites.ItemSprite;
 import render.utils.math.GameMath;
+import pd.messages.InlineText;
 
 public class Stone extends Armor.Glyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Stone.class)
+			.t("name", "磐岩%s")
+			.t("desc", "这个刻印使用沉重的魔法石包裹了整个铠甲让使用者无法闪避，但会根据原有的闪避能力吸收伤害。");
+	}
+
 
 	private static ItemSprite.Glowing GREY = new ItemSprite.Glowing( 0x222222 );
 

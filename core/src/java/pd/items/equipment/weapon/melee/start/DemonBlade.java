@@ -10,8 +10,16 @@ import pd.actors.buffs.Burning;
 import pd.actors.hero.Hero;
 import pd.items.equipment.weapon.melee.normalweapon.NormalMeleeWeapon;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class DemonBlade extends NormalMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(DemonBlade.class)
+			.t("name", "恶魔刀锋")
+			.t("desc", "暗夜短弓被其中的泉水腐化，如今环绕着恶魔的灼热气息。");
+	}
+
 
 	public DemonBlade() {
 		super(2, 1f, 1f, 1, 7, 14, EquipmentEquipWeaponUniqueWeaponDict.DEMON_BLADE);

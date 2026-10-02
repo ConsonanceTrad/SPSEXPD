@@ -46,8 +46,22 @@ import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.ColorMath;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class WandOfCorrosion extends Wand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfCorrosion.class)
+			.t("name", "酸蚀法杖")
+			.t("staff_name", "酸蚀魔杖")
+			.t("desc", "这根法杖的灰色主干顶端镶嵌着一颗明亮的橙色宝石。")
+			.t("stats_desc", "这根法杖能射出一颗会在目标位置爆炸成一团腐蚀酸雾的法球。进入酸雾的任何单位都会持续受到起始为_%d点_的持续递增伤害。")
+			.t("upgrade_stat_name_1", "酸蚀伤害")
+			.t("upgrade_stat_name_2", "气体总量")
+			.t("bmage_desc", "当_战斗法师_以酸蚀魔杖近战攻击目标时，有概率使其沾染腐蚀淤泥。")
+			.t("eleblast_desc", "酸蚀魔杖的元素风暴对所有目标造成起始伤害为6点的4回合酸蚀。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

@@ -19,9 +19,22 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import pd.messages.InlineText;
 
 /** Rustyblade's pager, which summons one of two Zero butter cats. */
 public class RustybladeCat extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RustybladeCat.class)
+			.t("name", "零式呼机")
+			.t("ac_active", "使用")
+			.t("desc", "呼叫无聊的猫。")
+			.t("buttercat.name", "零式永动机")
+			.t("buttercat.desc", "一只背着黄油的猫。")
+			.t("buttercat2.name", "零式永动机2.0")
+			.t("buttercat2.desc", "一只背着大型黄油的猫。");
+	}
+
 
 	private static final String AC_ACTIVE = "ACTIVE";
 	private boolean summonOnThrow;

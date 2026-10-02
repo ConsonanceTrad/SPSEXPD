@@ -16,8 +16,18 @@ import pd.windows.WndBag;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class UpgradeEatBall extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(UpgradeEatBall.class)
+			.t("name", "吞星花果实")
+			.t("ac_use", "使用")
+			.t("prompt", "选择一件未装备的物品进行提炼")
+			.t("desc", "吞星花结出的果实。它会摧毁一件物品，并尝试将其中的强化提炼为精华。");
+	}
+
 
 	private static final String AC_USE = "USE";
 

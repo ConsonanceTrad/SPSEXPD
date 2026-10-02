@@ -29,8 +29,17 @@ import pd.messages.Messages;
 import pd.utils.GLog;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public abstract class Spell extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Spell.class)
+			.t("ac_cast", "施放")
+			.t("no_magic", "你无法在魔法免疫的情况下使用法术结晶。")
+			.t("discover_hint", "你可通过炼金合成该物品。");
+	}
+
 	
 	public static final String AC_CAST = "CAST";
 

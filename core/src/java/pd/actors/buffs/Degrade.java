@@ -26,8 +26,17 @@ import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class Degrade extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Degrade.class)
+			.t("name", "降级")
+			.t("heromsg", "你的装备被暂时弱化了！")
+			.t("desc", "强大的黑暗魔法正在吞噬升级卷轴注入你装备的魔力！\n\n降级状态下的装备会被视作比起原有等级更低的状态。_超过3级的每次升级都会遭受愈加严重的反噬。_物品的描述也会根据降级的影响而改变。\n\n不过，降级不会影响装备的力量需求，法杖充能，投武耐久以及神器。\n\n降级效果剩余时长：%s回合\n\n使用一张升级卷轴或祛邪卷轴可以立即驱散这种黑暗魔法。");
+	}
+
 
 	public static final float DURATION = 30f;
 	

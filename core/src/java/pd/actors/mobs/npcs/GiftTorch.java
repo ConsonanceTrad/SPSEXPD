@@ -12,8 +12,24 @@ import pd.items.nornstone.OrangeNornStone;
 import pd.items.nornstone.PurpleNornStone;
 import pd.items.nornstone.YellowNornStone;
 import pd.items.consum.scrolls.Scroll;
+import pd.messages.InlineText;
 
 public class GiftTorch extends GiftNpc {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GiftTorch.class)
+			.t("desc", "普通的火堆。")
+			.t("name", "燃烧的火堆")
+			.t("normal", "（火星炸裂的声音）")
+			.t("yell1", "（火苗普通地燃烧）")
+			.t("yell2", "（火苗猛烈地燃烧）")
+			.t("yell3", "（火堆普通地燃烧）")
+			.t("yell4", "（火苗猛烈地燃烧）")
+			.t("thank1", "（火焰稍微旺了点，你获得了火把）")
+			.t("reward1", "（火苗猛烈地燃烧，一块碳块掉了出来）")
+			.t("reward2", "（火苗猛烈地燃烧，一堆宝石掉了出来）");
+	}
+
 	{ properties.add(Property.HUMAN); }
 	@Override public Visual visual() { return Visual.TORCH; }
 	@Override public boolean acceptsGift(Item item) {

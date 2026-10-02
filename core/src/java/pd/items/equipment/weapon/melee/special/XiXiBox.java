@@ -16,9 +16,17 @@ import pd.messages.Messages;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** XixiZero's box, which breaks into four equipment rewards after 101 strong hits. */
 public class XiXiBox extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(XiXiBox.class)
+			.t("name", "牢固的箱子")
+			.t("desc", "来自黑暗地牢的箱子，因为传送过程出了问题，Egoal放弃了将它给你。\n钝器，牢固？");
+	}
+
 
 	static final Generator.Category[] REWARD_CATEGORIES = {
 			Generator.Category.OLDWEAPON,

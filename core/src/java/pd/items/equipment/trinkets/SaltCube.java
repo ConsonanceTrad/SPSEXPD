@@ -24,8 +24,18 @@ package pd.items.equipment.trinkets;
 import pd.atlas.items.EquipmentNonEquipDict;
 
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class SaltCube extends Trinket {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SaltCube.class)
+			.t("name", "盐晶立方")
+			.t("desc", "这块巨大的盐晶被切割成近乎完美的立方体，而不知为何盐晶成功吸收了炼金釜中一半的水分而非溶解于其中。它似乎通过魔法脱水并保存了你所吃的食物，延长了你所得的饱腹感，但也减少了你不空腹时的生命回复。")
+			.t("typical_stats_desc", "这件饰物通常会增加你_%1$s%%_的饥饿所需时间，但也会降低你_%2$s%%_的生命回复速率，若楼层已被封锁则上述效果无效。")
+			.t("stats_desc", "在当前等级下，这件饰物会增加你_%1$s%%_的饥饿所需时间，但也会降低你_%2$s%%_的生命回复速率，若楼层已被封锁则上述效果无效。");
+	}
+
 
 	{
 		image = EquipmentNonEquipDict.SALT_CUBE_0;

@@ -28,8 +28,19 @@ import pd.utils.GLog;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import pd.messages.InlineText;
 
 public class DimensionalSundial extends Trinket {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(DimensionalSundial.class)
+			.t("name", "位面日晷")
+			.t("warning", "你的日晷不再显影，这使你倍感不安。")
+			.t("desc", "不知为何，这块小型手持式日晷能在地牢深处显影，甚至你不将其摆正也是如此。更奇怪的是，晷影的方位似乎与这个世界的太阳无关。当晷影不再显现时，日晷似乎会招致危险。")
+			.t("typical_stats_desc", "这件饰物通常会在昼间(8:00~20:00)降低_%1$d%%_的敌人生成速率并在夜间(20:00~8:00)提升_%2$d%%_的敌人生成速率。")
+			.t("stats_desc", "在当前等级下，这件饰物会在昼间(8:00~20:00)降低_%1$d%%_的敌人生成速率并在夜间(20:00~8:00)提升_%2$d%%_的敌人生成速率。");
+	}
+
 
 	{
 		image = EquipmentNonEquipDict.SUNDIAL_0;

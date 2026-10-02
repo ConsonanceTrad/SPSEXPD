@@ -14,8 +14,16 @@ import pd.actors.mobs.Mob;
 import pd.items.Heap;
 import pd.items.Item;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class MagicHand extends Arrows {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MagicHand.class)
+			.t("name", "魔术手")
+			.t("desc", "偷窃一个目标。\n箭头");
+	}
+
 
 	{
 		image = ConsumThrowsDict.MAGIC_HAND;

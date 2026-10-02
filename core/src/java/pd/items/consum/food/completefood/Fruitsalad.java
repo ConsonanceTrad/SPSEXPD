@@ -6,8 +6,16 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.actors.buffs.BerryRegeneration;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
+import pd.messages.InlineText;
 
 public class Fruitsalad extends CompleteFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Fruitsalad.class)
+			.t("name", "水果沙拉")
+			.t("desc", "事实上制作这种食物并不需要沙拉。\n使用_2份水果、1份水_炼金。");
+	}
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; energy = 130f; }
 	@Override protected void doEat(Hero hero) {
 		heal(hero, hero.HT / 3);

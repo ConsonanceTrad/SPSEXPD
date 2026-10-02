@@ -36,8 +36,19 @@ import pd.messages.Messages;
 import pd.ui.HeroIcon;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public abstract class ClericSpell {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ClericSpell.class)
+			.t("prompt", "选择一个目标")
+			.t("no_target", "那里没有任何目标。")
+			.t("invalid_target", "你无法以那个位置为目标。")
+			.t("invalid_enemy", "你无法以那个敌人为目标。")
+			.t("charge_cost", "充能消耗：%d");
+	}
+
 
 	public abstract void onCast(HolyTome tome, Hero hero);
 

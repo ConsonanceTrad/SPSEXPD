@@ -14,8 +14,18 @@ import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class DungeonBomb extends Bomb {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(DungeonBomb.class)
+			.t("name", "地牢炸弹")
+			.t("desc", "装填大量黑火药的炸弹，会伤害附近所有目标并摧毁相邻墙壁。")
+			.t("doublebomb.name", "一对地牢炸弹")
+			.t("doublebomb.desc", "两枚重型地牢炸弹，看起来第二枚是免费赠送的。");
+	}
+
 
 	{ image = EquipmentEquipWeaponBombDict.BOMB_0; }
 

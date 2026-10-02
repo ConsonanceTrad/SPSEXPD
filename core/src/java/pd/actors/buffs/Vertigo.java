@@ -22,8 +22,16 @@
 package pd.actors.buffs;
 
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class Vertigo extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Vertigo.class)
+			.t("name", "眩晕")
+			.t("desc", "如果整个世界都在旋转的话，想走直线会变得十分困难。 \n\n眩晕效果持续时，目标的移动将会向一个随机区域进行，而不是目标原本想到达的地方。\n\n眩晕效果剩余时长：%s回合");
+	}
+
 
 	public static final float DURATION	= 10f;
 

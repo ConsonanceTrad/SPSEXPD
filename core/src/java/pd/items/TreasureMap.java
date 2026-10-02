@@ -16,9 +16,19 @@ import render.noosa.Game;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Teleports to the Gnoll King's field and returns after the boss is defeated. */
 public class TreasureMap extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(TreasureMap.class)
+			.t("name", "密藏宝图")
+			.t("ac_port", "使用")
+			.t("desc", "这张地图散发着诡异的力量，阅读它会将你带到豺狼王面前。")
+			.t("boss_first", "必须先击败豺狼王才能返回。");
+	}
+
 	public static final int BRANCH = 46;
 	public static final String AC_PORT = "PORT";
 	private static final float TIME_TO_USE = 1f;

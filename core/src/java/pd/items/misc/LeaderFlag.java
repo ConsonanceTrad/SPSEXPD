@@ -23,8 +23,23 @@ import pd.utils.GLog;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class LeaderFlag extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(LeaderFlag.class)
+			.t("name", "领主之旗")
+			.t("ac_remove", "拆卸")
+			.t("ac_recruit", "招募")
+			.t("ac_exile", "流放")
+			.t("ac_levy", "征收")
+			.t("need_charge", "人气不足。")
+			.t("need_time", "内政时间不足。")
+			.t("time", "内政值：%d")
+			.t("desc", "领主用于号令群体的道具。拆卸会回收周围的地形，招募会增加人气，流放会把超额人气折算成金币，征收则按人气取得物品。每天可用的内政时间有限。");
+	}
+
 
 	public static final String AC_REMOVE = "REMOVE";
 	public static final String AC_RECRUIT = "RECRUIT";

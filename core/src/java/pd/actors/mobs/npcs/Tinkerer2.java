@@ -10,8 +10,17 @@ import pd.sprites.LynnSprite;
 import pd.windows.WndQuest;
 import pd.windows.WndTinkerer2;
 import render.noosa.Game;
+import pd.messages.InlineText;
 
 public class Tinkerer2 extends NPC {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Tinkerer2.class)
+			.t("name", "符文学者-莲恩")
+			.t("desc", "居住在多利亚的研究者之一，对不同魔法之间的联系有着强烈兴趣。")
+			.t("tell1", "我想不同种类的魔法之间肯定有什么联系……没准某种东西可以帮助我。");
+	}
+
 
 	{
 		spriteClass = LynnSprite.class;

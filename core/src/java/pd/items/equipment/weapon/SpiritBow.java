@@ -56,8 +56,20 @@ import render.utils.math.Random;
 import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class SpiritBow extends Weapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SpiritBow.class)
+			.t("name", "灵能弓")
+			.t("ac_shoot", "射击")
+			.t("prompt", "选择一个目标")
+			.t("stats", "这把弓不能直接升级，但是会随着你等级提升而逐渐增强。以你目前的等级，这把弓射出的每支箭可以造成_%1$d~%2$d点伤害_并且需要_%3$d点力量_来正常使用。")
+			.t("desc", "一把由远古灵木制成的弓，弓弦和弓身的刻纹散发着苍蓝色的幽光。拉开弓弦时，一发魔法箭矢会生成在弓身一侧向目标飞去。")
+			.t("discover_hint", "某位英雄初始携带该物品。");
+	}
+
 	
 	public static final String AC_SHOOT		= "SHOOT";
 	

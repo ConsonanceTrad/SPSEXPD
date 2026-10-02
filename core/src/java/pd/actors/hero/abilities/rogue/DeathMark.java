@@ -45,8 +45,20 @@ import render.noosa.Image;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class DeathMark extends ArmorAbility {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(DeathMark.class)
+			.t("name", "夺命印记")
+			.t("ally_target", "你只能标记敌人")
+			.t("short_desc", "盗贼向选中的敌人施加_夺命印记_。被标记的敌人将受到额外伤害，但不会在标记期间死亡。")
+			.t("desc", "盗贼标记选中的敌人，使其受到额外25%的伤害。标记不耗费时间且持续5回合。\n\n被标记的敌人受到额外伤害，但并不会在标记期间死亡。当标记结束时，生命值为0的敌人会立即死亡。")
+			.t("deathmarktracker.name", "夺命印记")
+			.t("deathmarktracker.desc", "这名被标记的敌人受到25%%的额外伤害，但不会在标记期间死亡。\n\n标记剩余时长：%s回合");
+	}
+
 
 	{
 		baseChargeUse = 25f;

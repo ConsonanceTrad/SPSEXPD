@@ -28,8 +28,16 @@ import pd.actors.buffs.ToxicImbue;
 import pd.actors.hero.Hero;
 import pd.effects.particles.PoisonParticle;
 import pd.items.consum.potions.exotic.PotionOfCorrosiveGas;
+import pd.messages.InlineText;
 
 public class ElixirOfToxicEssence extends Elixir {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ElixirOfToxicEssence.class)
+			.t("name", "毒粹秘药")
+			.t("desc", "这瓶秘药能够向使用者注入强大的毒素之力，饮用者在持续时间内将会在周身不断释放出致命的毒雾，此外还会在更长的一段时间内免疫毒气和毒素。");
+	}
+
 	
 	{
 		image = ConsumPotionSeedBasicPotionDict.ELIXIR_TOXIC_0;

@@ -25,8 +25,23 @@ import pd.windows.WndUseItem;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class GnollMark extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(GnollMark.class)
+			.t("name", "仪式面具")
+			.t("ac_choose", "选择仪式")
+			.t("ac_light", "光明仪式")
+			.t("ac_dark", "黑暗仪式")
+			.t("ac_earth", "自然仪式")
+			.t("ac_life", "生命献祭")
+			.t("break", "仪式面具尚未准备妥当。")
+			.t("charge", "准备完成度：%1$d / %2$d。")
+			.t("desc", "豺狼人萨满所佩戴的仪式面具，释放法杖可以提高准备度。光明仪式会大幅提升物理力量，但暂时无法使用法杖；黑暗仪式会使法杖伤害翻倍，但令使用者虚弱且无法攻击；自然仪式会提供护盾与再生。也可以献祭生命使面具完全准备就绪。");
+	}
+
 	public static final String AC_LIGHT = "LIGHT";
 	public static final String AC_DARK = "DARK";
 	public static final String AC_EARTH = "EARTH";

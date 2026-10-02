@@ -6,9 +6,17 @@ import pd.actors.mobs.Mob;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 /** Keeps an SPS exit guard asleep until its first incoming hit is absorbed. */
 public class ExProtect extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ExProtect.class)
+			.t("name", "精英保护")
+			.t("desc", "免疫受到的第一次伤害。在这层保护被打破前，守卫会保持沉睡。");
+	}
+
 
 	{
 		type = buffType.POSITIVE;

@@ -33,8 +33,18 @@ import pd.items.Generator;
 import pd.sprites.CharSprite;
 import pd.sprites.RotLasherSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class RotLasher extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(RotLasher.class)
+			.t("name", "腐莓触手")
+			.t("rankings_desc", "被腐莓触手鞭杀")
+			.t("desc", "腐莓触手是成熟腐莓根系的一部分，也是其主要自卫手段。触手没有视力，且固扎土中不能移动。但是当周边出现威胁时，只需先花费片刻感知到目标，随后便会发动猛攻。当附近没有敌人时，它们将静止不动，试图将自己融入周遭植被中。")
+			.t("discover_hint", "你可在某个任务中遇到该敌人。");
+	}
+
 
 	{
 		spriteClass = RotLasherSprite.class;

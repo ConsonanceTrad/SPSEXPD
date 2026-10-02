@@ -36,8 +36,19 @@ import pd.utils.GLog;
 import render.input.ControllerHandler;
 import render.input.KeyBindings;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class Guidebook extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Guidebook.class)
+			.t("name", "地牢探索指南")
+			.t("hint_mobile", "你的指南有新的建议要告诉你！点击屏幕右上角闪烁的日志按钮进行阅读。")
+			.t("hint_desktop", "你的指南有新的建议要告诉你！选择屏幕右上角闪烁的日志按钮(%s)进行阅读。")
+			.t("hint_status", "指南")
+			.t("desc", "一本静静躺在地上的地牢探索指南，不知被谁遗弃在此。看来冒险不是很适合它的旧主人！\n\n这本精致而独特的书附有魔法，会在需要的时候主动提醒冒险家去翻阅它。\n\n除去强大的功能，这本书走红的原因还有一点：它的封面上用友好而亲切的大字写着“不 要 恐 慌 ！”");
+	}
+
 
 	{
 		image = ConsumUsefulProcessEnhanceDict.MASTERY_0;

@@ -36,8 +36,21 @@ import pd.ui.AttackIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
+import pd.messages.InlineText;
 
 public class RunicBlade extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RunicBlade.class)
+			.t("name", "符文之刃")
+			.t("stats_desc", "这件武器从升级中获得更多伤害。")
+			.t("ability_name", "符文挥砍")
+			.t("typical_ability_desc", "决斗家可以用符文之刃使出_符文挥砍_。这一击必定命中且通常附带_%d%%的附魔强化_。")
+			.t("ability_desc", "决斗家可以用符文之刃使出_符文挥砍_。这一击必定命中且有_%d%%的附魔强化_。")
+			.t("upgrade_ability_stat_name", "武技强化")
+			.t("desc", "来自失落之地的神秘武器，有着明亮的蓝色刀刃。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

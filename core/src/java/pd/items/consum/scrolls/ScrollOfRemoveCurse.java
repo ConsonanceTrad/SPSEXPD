@@ -46,8 +46,20 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class ScrollOfRemoveCurse extends InventoryScroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfRemoveCurse.class)
+			.t("name", "祛邪卷轴")
+			.t("inv_title", "选择一件要净化的物品")
+			.t("cleansed", "你的道具闪耀着净化的光芒，一股恶毒的能量从中消散。")
+			.t("not_cleansed", "你的道具闪耀着净化的光芒，不过什么也没发生。")
+			.t("spirit", "你的卷轴让咒缚灵得以解脱！")
+			.t("desc", "卷轴上的咒语能够瞬间清除指定的一件武器、护甲、法杖、戒指或神器上的诅咒。");
+	}
+
 
 	{
 		icon = ItemIconSheet.SCROLL_REMCURSE;

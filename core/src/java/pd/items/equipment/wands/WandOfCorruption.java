@@ -76,8 +76,23 @@ import render.utils.data.Callback;
 import render.utils.math.Random;
 
 import java.util.HashMap;
+import pd.messages.InlineText;
 
 public class WandOfCorruption extends Wand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfCorruption.class)
+			.t("name", "腐化法杖")
+			.t("staff_name", "腐化魔杖")
+			.t("already_corrupted", "这个角色已经被你腐化。")
+			.t("desc", "这根法杖能发射混乱的黑暗能量，法杖尖端的那个小头骨装饰很是应景。")
+			.t("stats_desc", "这根法杖会释放腐坏的能量，能削弱敌人并最终将他们扭曲为你的奴仆。敌人能抵抗腐化，但虚弱的敌人明显地更容易被腐化。")
+			.t("upgrade_stat_name_1", "腐化强度")
+			.t("upgrade_stat_name_2", "减益持续时间")
+			.t("bmage_desc", "当_战斗法师_以腐化魔杖近战攻击目标时，有概率使其陷入狂乱。")
+			.t("eleblast_desc", "腐化魔杖的元素风暴对所有目标造成5回合狂乱。");
+	}
+
 
 	{
 		image = EquipmentWandBasicWandDict.WAND_CORRUPTION_0;

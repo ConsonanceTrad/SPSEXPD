@@ -7,8 +7,16 @@ import pd.items.consum.food.BugMeat;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class BugSlow extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(BugSlow.class)
+			.t("name", "稽生")
+			.t("desc", "宿主会被寄生虫周期性减速。清空背包中的寄生虫即可解除此效果。");
+	}
+
 
 	private static final String DELAY = "slow_delay";
 	private int slowDelay;

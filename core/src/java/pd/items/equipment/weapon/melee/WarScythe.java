@@ -26,8 +26,20 @@ import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 import pd.Assets;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class WarScythe extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WarScythe.class)
+			.t("name", "战镰")
+			.t("stats_desc", "这是一件不太精准的武器。")
+			.t("ability_name", "收割")
+			.t("typical_ability_desc", "决斗家可以用战镰来_收割_敌人，这破坏性的一击必定命中，一般会造成_%d点伤害_。若敌人不免疫流血，则造成的伤害会转化为等值流血效果。")
+			.t("ability_desc", "决斗家可以用战镰来_收割_敌人，这破坏性的一击必定命中，并会造成_%d点伤害_。若敌人不免疫流血，则造成的伤害会转化为等值流血效果。")
+			.t("desc", "这件巨大又笨重的农具被加固了。现在比起收割庄稼，它更适宜于收割敌人。");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.WAR_SCYTHE_0;

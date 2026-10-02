@@ -12,8 +12,16 @@ import pd.actors.buffs.ShieldArmor;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class NutCookie extends CompleteFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(NutCookie.class)
+			.t("name", "坚果饼干")
+			.t("desc", "6个一组，最强的效果能抵挡6次重击。\n使用_5份坚果_锻造。");
+	}
+
 
 	{
 		image = ConsumFoodFoodDict.NUT_COOKIE;

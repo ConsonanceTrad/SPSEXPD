@@ -53,8 +53,19 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.HashMap;
+import pd.messages.InlineText;
 
 public class ChaoticCenser extends Trinket {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ChaoticCenser.class)
+			.t("name", "混沌香炉")
+			.t("spew", "你的香炉将要喷出：%s。")
+			.t("desc", "在炼金釜内炼制一段时间后，这只香炉竟开始自行生烟！这些气体会在炉内不断积聚，并间歇性随机地向敌人喷去。香炉似乎能产生各类气体，但在气体释放前你会得到片刻的预警。")
+			.t("typical_stats_desc", "这件饰物通常会每经_%d_±回合在敌人附近生成一团有害气体。气体只会在敌人存在时生成。饰物的等级越高，稀有而强力的气体生成的可能性越高。")
+			.t("stats_desc", "在当前等级下，这件饰物会每经_%d_±回合在敌人附近生成一团有害气体。气体只会在敌人存在时生成。饰物的等级越高，稀有而强力的气体生成的可能性越高。");
+	}
+
 
 	{
 		image = EquipmentNonEquipDict.CHAOTIC_CENSER_0;

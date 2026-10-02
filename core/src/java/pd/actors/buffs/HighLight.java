@@ -5,8 +5,16 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class HighLight extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(HighLight.class)
+			.t("name", "强光")
+			.t("desc", "明亮光线将视野扩大到10格。\n\n剩余回合：%s。");
+	}
+
 	public static final float DURATION = 500f;
 	public static final int DISTANCE = 10;
 	{ type = buffType.NEUTRAL; announced = true; }

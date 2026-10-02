@@ -25,8 +25,17 @@ import pd.actors.Char;
 import pd.actors.mobs.DM100;
 import pd.items.quest.DwarfToken;
 import pd.sprites.DM100Sprite;
+import pd.messages.InlineText;
 
 public class VaultDM100 extends DM100 {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(VaultDM100.class)
+			.t("name", "DM-100改")
+			.t("discover_hint", "你可在某个任务中遇到该敌人。")
+			.t("desc", "这些DM-100看起来和你在监狱里见过的那些差不多，但它们的眼睛闪着明亮的青光，很可能搭载了更先进的矮人科技能源。\n\n它们的行动和普通的DM-100无异，尽管其能源有变，其使用闪电远程攻击的能力却没有变，而且其更好的运行状况也使它们更加耐用。");
+	}
+
 
 	{
 		activateSteathGameplayBehaviour();

@@ -11,8 +11,16 @@ import pd.actors.buffs.Light;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class MixPizza extends CompleteFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MixPizza.class)
+			.t("name", "混合披萨")
+			.t("desc", "这玩意如果让部落的某些人看到，你就要小心他们了。\n使用_1份主食、1份原石、1份水果、1份肉、1份蔬菜_锻造。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

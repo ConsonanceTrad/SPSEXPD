@@ -9,8 +9,16 @@ import pd.actors.buffs.MagicArmor;
 import pd.actors.buffs.Slow;
 import pd.actors.buffs.Tar;
 import pd.actors.hero.Hero;
+import pd.messages.InlineText;
 
 public class ZongZi extends CompleteFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ZongZi.class)
+			.t("name", "粽子")
+			.t("desc", "厚重的糯米粽，能提高攻击并提供魔法护盾，但会使食用者沾满焦油并变得迟缓。");
+	}
+
 	{
 		image = ConsumFoodFoodDict.ZONGZI;
 		energy = 600f;

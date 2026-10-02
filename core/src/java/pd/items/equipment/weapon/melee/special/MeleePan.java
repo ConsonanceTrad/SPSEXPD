@@ -13,9 +13,18 @@ import pd.items.equipment.weapon.ranges.RangePan;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Coconut2's pan in its fixed-damage melee form. */
 public class MeleePan extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MeleePan.class)
+			.t("name", "平底煎锅")
+			.t("ac_change", "切换")
+			.t("desc", "用于烹饪的煎锅。\n高级钝器");
+	}
+
 
 	public static final String AC_CHANGE = "CHANGE";
 

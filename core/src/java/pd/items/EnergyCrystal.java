@@ -33,8 +33,16 @@ import pd.scenes.GameScene;
 import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class EnergyCrystal extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(EnergyCrystal.class)
+			.t("name", "能量晶体")
+			.t("desc", "一些小巧玲珑的能量晶体，充盈着炼金能量。\n\n这些晶体是炼金配方中最常见的原料，可借助炼金釜从消耗品中提炼获得。");
+	}
+
 
 	{
 		image = SpecificCurrencyDict.ENERGY_0;

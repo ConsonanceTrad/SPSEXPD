@@ -6,9 +6,18 @@ import pd.actors.Actor;
 import pd.effects.particles.ShadowParticle;
 import pd.scenes.GameScene;
 import pd.sprites.RedWraithSprite;
+import pd.messages.InlineText;
 
 /** Original SPS-PD runtime and save identity for the chaos wraith. */
 public class RedWraith extends SpsCityMobs.RedWraith {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(RedWraith.class)
+			.t("name", "混沌幽灵")
+			.t("desc", "蕴含强烈混沌能量的红色幽灵。相传有些戒指的魔力就来源于它。")
+			.t("def_verb", "躲避");
+	}
+
 
 	{
 		spriteClass = RedWraithSprite.class;

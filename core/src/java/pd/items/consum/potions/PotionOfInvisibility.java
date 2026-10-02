@@ -29,8 +29,17 @@ import pd.messages.Messages;
 import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class PotionOfInvisibility extends Potion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfInvisibility.class)
+			.t("name", "隐形药剂")
+			.t("invisible", "你看到你的手隐形了！")
+			.t("desc", "饮用这种药剂会使你暂时隐形。隐形期间，敌人将无法看见你。使用物理攻击或魔法效果(例如使用卷轴或法杖)，会立即解除隐形效果。");
+	}
+
 
 	{
 		icon = ItemIconSheet.POTION_INVIS;

@@ -26,8 +26,16 @@ import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
 import pd.items.consum.potions.exotic.PotionOfStormClouds;
 import pd.levels.traps.GeyserTrap;
 import pd.mechanics.Ballistica;
+import pd.messages.InlineText;
 
 public class AquaBrew extends Brew {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(AquaBrew.class)
+			.t("name", "水爆魔药")
+			.t("desc", "当这瓶药剂破裂时，会在原地迸发高压水浪。水浪仅对火属性敌人造成有效伤害，但同时会让水流向附近的地形扩散，可浸湿陷阱使其失效、扑灭火焰，并击退水浪附近的角色。");
+	}
+
 
 	{
 		image = ConsumPotionSeedBasicPotionDict.BREW_AQUA_0;

@@ -27,8 +27,16 @@ import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Barrier extends ShieldBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Barrier.class)
+			.t("name", "奥术屏障")
+			.t("desc", "一团可以抵挡全部伤害的能量屏障。\n\n只要奥术屏障的能量仍然存在，它将完全抵挡单位所受到的任何伤害。同时这种能量会随时间逐渐衰减。\n\n护盾能量剩余：%d");
+	}
+
 	
 	{
 		type = buffType.POSITIVE;

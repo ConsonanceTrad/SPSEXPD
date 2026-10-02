@@ -8,8 +8,16 @@ import pd.actors.hero.Hero;
 import pd.items.consum.food.Food;
 import pd.items.consum.food.SmallMeat;
 import pd.sprites.ItemSprite;
+import pd.messages.InlineText;
 
 public class LightMeat extends MeatFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(LightMeat.class)
+			.t("name", "腊肉条")
+			.t("desc", "经过风干和暴晒，保质时间很长，而且总会剩下一小块。");
+	}
+
 	private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing(0xFFFF44);
 	{
 		image = ConsumFoodFoodDict.MEAT;

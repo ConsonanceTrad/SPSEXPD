@@ -33,8 +33,16 @@ import pd.items.consum.spells.BeaconOfReturning;
 import pd.items.consum.spells.Spell;
 import pd.items.summon.CallCoconut;
 import pd.journal.Notes;
+import pd.messages.InlineText;
 
 public class ScrollHolder extends Bag {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollHolder.class)
+			.t("name", "卷轴筒")
+			.t("desc", "这个管状的容器看起来可以装下一整份天文学家的手书，不过你的卷轴也刚好能放在里面。里面甚至有一些能用来放置法术结晶、奥术刻笔和奥术树脂的小隔间。\n\n这个容器看起来并不是很可燃，所以你的卷轴在里面一定很安全。");
+	}
+
 
 	{
 		image = EquipmentBagsDict.HOLDER;

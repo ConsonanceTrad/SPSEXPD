@@ -32,8 +32,18 @@ import pd.items.quest.DwarfToken;
 import pd.sprites.ShamanSprite;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class VaultShaman extends Shaman {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(VaultShaman.class)
+			.t("name", "受俘萨满")
+			.t("discover_hint", "你可在某个任务中遇到该敌人。")
+			.t("desc", "这些面覆着矮人一样的怪异金属面具的豺狼萨满显然是从洞穴被抓来的。面具紧勒在萨满们的脸上，而萨满们的动作也异常僵硬。面具是用来控制它们的吗？")
+			.t("spell_desc", "这些豺狼萨满肯定还是会用魔法飞弹攻击你，但由于面具没有涂装，无法分辨它们会使用什么魔法类型。相比原版的木质面具，金属面具似乎还为它们提供了些许防护，而且它们的攻击相比一般的豺狼萨满也更强了。");
+	}
+
 
 	{
 		activateSteathGameplayBehaviour();

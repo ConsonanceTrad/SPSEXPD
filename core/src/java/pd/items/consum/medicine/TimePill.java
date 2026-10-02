@@ -9,9 +9,17 @@ import pd.actors.hero.Hero;
 import pd.effects.Speck;
 import pd.items.Heap;
 import pd.items.equipment.artifacts.TimekeepersHourglass;
+import pd.messages.InlineText;
 
 /** The alchemy-made time block from SPS-PD 0.9.8. */
 public class TimePill extends Pill {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(TimePill.class)
+			.t("name", "时之块")
+			.t("desc", "提供加速和时之沙。\n使用_1份水，4份原石_炼金");
+	}
+
 
 	{
 		image = GroundFunctionalFallingDict.SANDBAG_0;

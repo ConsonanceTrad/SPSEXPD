@@ -15,8 +15,17 @@ import pd.scenes.GameScene;
 import pd.sprites.OrcSprite;
 import pd.utils.GLog;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Orc extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Orc.class)
+			.t("name", "猪人")
+			.t("desc", "凶悍的猪面战士，受到重创时会释放腐化气体。")
+			.t("killcount", "已击败猪人：%d");
+	}
+
 
 	{
 		spriteClass = OrcSprite.class;

@@ -28,8 +28,16 @@ import pd.items.equipment.artifacts.TimekeepersHourglass;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class Invisibility extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Invisibility.class)
+			.t("name", "隐形")
+			.t("desc", "你和周围的地形完全融为一体，使你不可能被看到。\n\n当你在隐形时敌人无法追踪或攻击你。大部分物理攻击和魔法(比如卷轴和法杖)会立即解除隐形效果。\n\n隐形效果剩余时长：%s回合");
+	}
+
 
 	public static final float DURATION = 15f;
 

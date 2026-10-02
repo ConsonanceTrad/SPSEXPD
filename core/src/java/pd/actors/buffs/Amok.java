@@ -25,8 +25,16 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.mobs.Mob;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class Amok extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Amok.class)
+			.t("name", "狂乱")
+			.t("desc", "狂乱会导致目标陷入极度愤怒和混乱的状态。\n\n狂乱的生物会不分敌我地攻击任何靠近它们的人。\n\n狂乱效果的剩余时长：%s回合");
+	}
+
 
 	{
 		type = buffType.NEGATIVE;

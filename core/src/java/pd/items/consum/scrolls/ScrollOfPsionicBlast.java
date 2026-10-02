@@ -11,9 +11,18 @@ import pd.actors.mobs.npcs.NPC;
 import pd.scenes.GameScene;
 import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 /** The ordinary SPS psionic-draw scroll, distinct from Shattered's exotic scroll. */
 public class ScrollOfPsionicBlast extends Scroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfPsionicBlast.class)
+			.t("name", "灵能汲取卷轴")
+			.t("ondeath", "灵能震爆撕碎了你的意识……")
+			.t("desc", "这张卷轴蕴含神秘的能量，一旦引导出来将吸取视野内所有生物的心灵，并提升使用者的灵能。");
+	}
+
 
 	{
 		icon = ItemIconSheet.SCROLL_PSIBLAST;

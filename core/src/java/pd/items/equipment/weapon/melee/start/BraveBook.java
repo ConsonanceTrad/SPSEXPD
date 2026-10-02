@@ -14,7 +14,19 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.windows.WndBag;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 public class BraveBook extends NormalMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(BraveBook.class)
+			.t("name", "勇者之书")
+			.t("ac_add", "灌注")
+			.t("ac_improve", "强化")
+			.t("ac_heal", "圣疗")
+			.t("prompt", "选择力量药剂或强力药丸")
+			.t("desc", "一本被封印的书，可以把战斗积蓄转化为强化或治疗。");
+	}
+
 	public static final String AC_ADD="ADD",AC_IMPROVE="IMPROVE",AC_HEAL="HEAL";private static final String CHARGE="charge",UP1="uptime1",UP2="uptime2";private int charge,uptime1=1,uptime2=1;
 	public BraveBook(){super(2,1.2f,.5f,1,4,14,SpecificPlaceHolderDict.SOMETHING_0);unique=true;reinforced=true;cursed=true;defaultAction=AC_ADD;}
 	@Override protected void applyLegacyUpgrade(Stats stats){stats.min++;stats.max++;}@Override public Item uncurse(){return this;}

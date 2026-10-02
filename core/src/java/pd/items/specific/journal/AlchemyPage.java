@@ -25,8 +25,16 @@ import pd.atlas.items.SpecificPagesDict;
 
 import pd.journal.Document;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class AlchemyPage extends DocumentPage {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(AlchemyPage.class)
+			.t("name", "被撕下的炼金指南书页")
+			.t("desc", "从一本炼金指南书上撕下来的一页。\n\n在远处你只能看到一行行密密麻麻的小字，不过你仍然可以看清书页上的标题\n\n_\"%s\"_");
+	}
+
 	
 	{
 		image = SpecificPagesDict.ALCH_PAGE_0;

@@ -34,8 +34,20 @@ import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Ankh extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Ankh.class)
+			.t("name", "重生十字架")
+			.t("ac_bless", "祝福")
+			.t("bless", "你用散发着治愈魔力的清水祝福了这枚重生十字架。")
+			.t("desc", "这枚象征不朽的古老饰物能使人起死回生。不过大部分物品将会被遗落在死亡的地点，等待你去拾回。装满的水袋可用于对重生十字架进行赐福，赋予它更强的力量。")
+			.t("desc_blessed", "这枚象征不朽的古老饰品能够让人起死回生。这枚十字架已被祝福而变得更加强大。它会在危急关头牺牲自己来救你一命。")
+			.t("discover_hint", "你可在商店中购买该物品。");
+	}
+
 
 	public static final String AC_BLESS = "BLESS";
 

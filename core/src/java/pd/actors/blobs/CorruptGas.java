@@ -14,9 +14,19 @@ import pd.effects.particles.ShadowParticle;
 import pd.messages.Messages;
 import pd.utils.GLog;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** SPS corruption cloud: percentage damage, bleeding, and crippling. */
 public class CorruptGas extends Blob implements Hero.Doom {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(CorruptGas.class)
+			.t("name", "腐化气体")
+			.t("desc", "一团黑紫色的腐化气体盘绕在这里。它会造成流血、减缓移动，并按生命上限造成伤害。")
+			.t("rankings_desc", "被腐化气体吞噬")
+			.t("ondeath", "你被腐化气体吞噬了……");
+	}
+
 	@Override
 	protected void evolve() {
 		super.evolve();

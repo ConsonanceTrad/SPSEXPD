@@ -4,9 +4,17 @@ package pd.actors.buffs;
 import pd.actors.Char;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 /** A paralysis effect which is not shortened by incoming damage. */
 public class HolyStun extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(HolyStun.class)
+			.t("name", "护盾打击")
+			.t("desc", "无法被伤害提前解除的超强控制效果。\n\n剩余效果时长：%s回合");
+	}
+
 	{
 		type = buffType.NEGATIVE;
 		announced = true;

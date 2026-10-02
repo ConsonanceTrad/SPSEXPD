@@ -13,8 +13,17 @@ import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Gleaf extends RockCode {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Gleaf.class)
+			.t("name", "缠绕触须")
+			.t("desc", "来自下水道之心的能力，向一个地方释放缠绕触须。")
+			.t("stats_desc", "消耗4点能量中的1点，造成随英雄等级提高的自然伤害，并有概率使目标中毒、缠绕，在落点长出枯草。");
+	}
+
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "G.l"; }
 	@Override protected int missileType() { return MagicMissile.FOLIAGE; }
 

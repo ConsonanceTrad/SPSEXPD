@@ -27,8 +27,19 @@ import pd.Assets;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class Greatsword extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Greatsword.class)
+			.t("name", "巨剑")
+			.t("ability_name", "顺劈")
+			.t("typical_ability_desc", "决斗家可以用巨剑_顺劈_敌人。这一般会造成_%1$d~%2$d点伤害_且必定命中。如果顺劈击杀了一名敌人，这一击将不消耗时间，并且决斗家可在5回合内额外使用一次不消耗充能数的顺劈。")
+			.t("ability_desc", "决斗家可以用巨剑_顺劈_敌人，造成_%1$d~%2$d点伤害_且必定命中。如果顺劈击杀了一名敌人，这一击将不消耗时间，并且决斗家可在5回合内额外使用一次不消耗充能数的顺劈。")
+			.t("desc", "这把大剑进行的每次沉重挥舞都能造成大量伤害。");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.GREATSWORD_0;

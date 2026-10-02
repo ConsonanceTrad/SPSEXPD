@@ -34,8 +34,19 @@ import pd.utils.GLog;
 import render.utils.geom.PointF;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Bleeding extends Buff implements Buff.DOTbuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Bleeding.class)
+			.t("name", "流血")
+			.t("ondeath", "你因失血过多而死...")
+			.t("heromsg", "你正在流血！")
+			.t("rankings_desc", "流血致死")
+			.t("desc", "伤口正在令人不安地涌出大量血液。\n\n流血每回合都会造成伤害。每回合这个伤害数值都会随机减少，直到出血最终停止。\n\n当前流血伤害：%d");
+	}
+
 
 	{
 		type = buffType.NEGATIVE;

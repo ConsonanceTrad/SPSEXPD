@@ -79,9 +79,19 @@ import pd.messages.Messages;
 import pd.sprites.ItemIconSheet;
 
 import java.util.HashSet;
+import pd.messages.InlineText;
 
 /** SPS 0.9.8's duration-changing and magic-resistant ring. */
 public class RingOfElements extends Ring {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RingOfElements.class)
+			.t("name", "元素戒指")
+			.t("stats", "当佩戴这枚戒指时，增益效果提升至_%1$s%%_倍，负面效果降低至_%2$s%%_倍，承受的法术伤害降低_%3$s%%_。。")
+			.t("upgrade_stat_name_1", "法术抗性")
+			.t("desc", "这枚戒指能为你提供多种法术抗性，降低了受到的法术伤害，并改变状态效果的持续时间。在30级时这个效果达到上限。");
+	}
+
 
 	{
 		icon = ItemIconSheet.RING_ELEMENTS;

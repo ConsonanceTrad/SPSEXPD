@@ -28,8 +28,21 @@ import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class AssassinsBlade extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(AssassinsBlade.class)
+			.t("name", "暗杀之刃")
+			.t("stats_desc", "这件武器对未察觉你的敌人更有效。")
+			.t("ability_name", "潜行")
+			.t("typical_ability_desc", "决斗家握持暗杀之刃时可以_潜行_。这个武技能够使决斗家立即闪现最多3格远，并一般会给予_%d回合隐形_。")
+			.t("ability_desc", "决斗家握持暗杀之刃时可以_潜行_。这个武技能够使决斗家立即闪现最多3格远，并给予_%d回合隐形_。")
+			.t("upgrade_ability_stat_name", "武技持续时间")
+			.t("desc", "黑曜石制的波浪形短刃，虽轻便但不易用，如果能击中要害足以致命。");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.ASSASSINS_BLADE_0;

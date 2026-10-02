@@ -39,8 +39,17 @@ import pd.scenes.GameScene;
 import pd.tiles.DungeonTilemap;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class WaterOfAwareness extends WellWater {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(WaterOfAwareness.class)
+			.t("name", "觉察之泉")
+			.t("procced", "在你小酌一口时，你感觉到知识涌入了你的头脑。")
+			.t("desc", "知识的力量正在从这口井的水里涌出。饮下井中的水将会鉴定所有已装备的物品、探测背包中所有物品的诅咒并揭示本层所有物品的位置。");
+	}
+
 
 	@Override
 	protected boolean affectHero( Hero hero ) {

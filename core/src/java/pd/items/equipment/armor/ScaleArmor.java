@@ -22,9 +22,17 @@
 package pd.items.equipment.armor;
 
 import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
+import pd.messages.InlineText;
 
 
 public class ScaleArmor extends Armor {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScaleArmor.class)
+			.t("name", "鳞甲")
+			.t("desc", "在厚实的皮背心中缝入金属鳞片，形成了灵活而高防御的护甲。");
+	}
+
 
 	{
 		image = EquipmentEquipArmorBasicArmorDict.ARMOR_SCALE_0;

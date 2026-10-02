@@ -43,8 +43,17 @@ import pd.utils.GLog;
 import render.utils.data.Callback;
 import render.utils.math.Random;
 import render.utils.serialize.Bundlable;
+import pd.messages.InlineText;
 
 public class MindForm extends ClericSpell {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(MindForm.class)
+			.t("name", "智之位格")
+			.t("short_desc", "为三位一体选择法杖或投武。")
+			.t("desc", "牧师选择一个本局已鉴定的法杖或投武并使三位一体模拟其效果。\n\n使用三位一体时，牧师会使用所选物品单次攻击的%d级效果。该次攻击触发正常使用该物品本应触发的所有效果。\n\n该法术会刷新三位一体当前已有的任何智之位格效果。");
+	}
+
 
 	public static MindForm INSTANCE = new MindForm();
 

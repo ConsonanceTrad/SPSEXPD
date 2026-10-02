@@ -11,8 +11,16 @@ import pd.sprites.ItemSprite;
 import render.utils.math.Random;
 
 import static pd.actors.damagetype.DamageType.FIRE_DAMAGE;
+import pd.messages.InlineText;
 
 public class EnchantmentFire2 extends SpsEnchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(EnchantmentFire2.class)
+			.t("name", "焦油%s")
+			.t("desc", "焦油附魔将造成大量的火属性伤害，并有几率给目标泼油。");
+	}
+
 	private static final ItemSprite.Glowing RED = new ItemSprite.Glowing(0xCC0000);
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		elementalDamage(weapon, attacker, defender, 0.75f, FIRE_DAMAGE);

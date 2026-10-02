@@ -20,9 +20,16 @@ import pd.items.equipment.armor.specialarmor.SoldierArmor;
 import pd.items.equipment.armor.specialarmor.WarriorArmor;
 import pd.items.equipment.rings.RingOfEvasion;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 /** Shared implementation of SPS-PD's defense, dexterity, stealth and energy armor stats. */
 public class NormalArmor extends Armor {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(NormalArmor.class)
+			.t("sps_stats", "这件防具的闪避倍率为_%1$s_，潜行为_%2$s_，技能能量为_%3$d_。");
+	}
+
 
 	public final float DEX;
 	public final float STE;

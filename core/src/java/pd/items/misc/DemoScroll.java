@@ -15,8 +15,25 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class DemoScroll extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(DemoScroll.class)
+			.t("name", "恶魔契约")
+			.t("ac_read", "鲜血交易")
+			.t("ac_read2", "灵魂转换")
+			.t("desc", "一张以鲜血达成的契约，可以用生命上限换取永久力量。英雄每升一级便可额外交易一次，击败敌人可以收集灵魂。")
+			.t("hitup", "你感觉自己的命中能力提升了。")
+			.t("evaup", "你感觉自己的闪避能力提升了。")
+			.t("migup", "你感觉自己的魔法能力提升了。")
+			.t("htdown", "你感觉自己的生命上限降低了。")
+			.t("htup", "你感觉自己的生命上限提升了。")
+			.t("charge", "灵魂数量：%d。")
+			.t("charge2", "已使用鲜血交易次数：%d。");
+	}
+
 	public static final String AC_READ = "READ";
 	public static final String AC_READ2 = "READ2";
 	private static final String SOULS = "souls";

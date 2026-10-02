@@ -8,8 +8,16 @@ import pd.actors.buffs.Buff;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.SnowballSprite;
+import pd.messages.InlineText;
 
 public class IceBall extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(IceBall.class)
+			.t("name", "大雪球")
+			.t("desc", "巨大的冰球滚过来了。");
+	}
+
 
 	{
 		spriteClass = SnowballSprite.class;

@@ -33,8 +33,17 @@ import pd.sprites.GnollSapperSprite;
 import render.utils.math.GameMath;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class GnollSapper extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GnollSapper.class)
+			.t("name", "豺狼工兵")
+			.t("desc", "这只豺狼人矮小虚弱但机智。它长有浅色皮毛，携带着装满各种小工具的挎包。它们似乎在此协助勘探和开采暗金矿，并配有豺狼守卫贴身保护。它们虽然能够近战，但是攻击力弱得可怜，不比豺狼巡查强。\n\n相比于直接搏斗，豺狼工兵更喜欢用它们携带的各类装置操纵周遭岩石来攻击。它们只是依靠工具抛掷岩石，而不掌握有土灵魔法。_应该有很多方式可以利用它们的攻击来反击它们和其余的守卫。_")
+			.t("discover_hint", "你可在某个任务中遇到该敌人。");
+	}
+
 
 	{
 		//always acts after guards, makes it easier to kite them into attacks

@@ -34,8 +34,20 @@ import pd.messages.Messages;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class HolyIntuition extends InventoryClericSpell {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(HolyIntuition.class)
+			.t("name", "神圣预知")
+			.t("prompt", "选择一个物品")
+			.t("cursed", "你感觉到这件物品里潜伏着一股充满恶意的魔力。")
+			.t("uncursed", "这个物品没有被诅咒。")
+			.t("short_desc", "鉴定一个物品有无诅咒。")
+			.t("desc", "牧师将其感知集中在一个物品上，不必装备物品就能判断其诅咒有无。");
+	}
+
 
 	public static final HolyIntuition INSTANCE = new HolyIntuition();
 

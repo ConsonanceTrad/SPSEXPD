@@ -48,8 +48,17 @@ import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class MirrorImage extends NPC {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(MirrorImage.class)
+			.t("name", "镜像")
+			.t("desc", "这个幻像和你非常相似，甚至还装备着你当前的武器和护甲。\n\n镜像会猎寻敌人，并用它们的镜像武器对其发动攻击。镜像武器的使用方式与特性和你手中的一样，但造成的伤害会低些。镜像刚生成时几乎是隐形的，但攻击后会显形。\n\n镜像有一定的攻击能力，但本身非常脆弱，受到伤害就会瞬间消散。")
+			.t("discover_hint", "你可通过某张卷轴遇到该单位。");
+	}
+
 
 	@Override public Item SupercreateLoot() { return new Mirror2(); }
 	

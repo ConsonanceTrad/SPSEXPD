@@ -25,8 +25,18 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Charm extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Charm.class)
+			.t("name", "魅惑")
+			.t("heromsg", "你被魅惑了！")
+			.t("cant_attack", "你被目标敌人魅惑了，因此无法对其发起攻击。")
+			.t("desc", "魅惑是一种能让一对夙敌暂时陷入互相倾慕的控制类魔法。\n\n被魅惑的单位将无法对魅惑施行者进行直接攻击，但依然可以攻击其他敌人。伤痛会激醒被魅惑单位，减少魅惑状态的持续时间。\n\n魅惑效果剩余时间：%s回合");
+	}
+
 
 	public int object = 0;
 	public boolean ignoreHeroAllies = false;

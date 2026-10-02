@@ -31,8 +31,16 @@ import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class FireImbue extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(FireImbue.class)
+			.t("name", "烈焰之力")
+			.t("desc", "你被灌注了烈焰的力量！\n\n所有物理攻击都有机会使敌人燃烧。与此同时你对火焰完全免疫。\n\n烈焰之力剩余时长：%s回合");
+	}
+
 	
 	{
 		type = buffType.POSITIVE;

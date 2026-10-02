@@ -39,8 +39,16 @@ import pd.actors.blobs.Web;
 import pd.actors.mobs.Tengu;
 import pd.levels.rooms.special.MagicalFireRoom;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class BlobImmunity extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(BlobImmunity.class)
+			.t("name", "净化屏障")
+			.t("desc", "一种奇怪的能量环绕在你的周围，为你阻挡有害的环境效果。\n\n在净化屏障的持续时间内，你将免疫所有负面环境效果。\n\n免疫效果剩余时长：%s回合");
+	}
+
 	
 	{
 		type = buffType.POSITIVE;

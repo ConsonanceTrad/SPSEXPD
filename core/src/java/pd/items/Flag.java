@@ -13,9 +13,17 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.actors.hero.Hero;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Commemorative flag awarded by HBB after Otiluke is rescued. */
 public class Flag extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Flag.class)
+			.t("name", "军旗")
+			.t("desc", "祝贺中华人民共和国成立70周年。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

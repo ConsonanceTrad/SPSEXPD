@@ -9,7 +9,15 @@ import pd.items.consum.food.meatfood.MeatFood;
 import pd.items.consum.potions.PotionOfToxicGas;
 import pd.sprites.NewSnakeSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 public class Snake extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Snake.class)
+			.t("name", "毒蛇")
+			.t("desc", "这条蛇过去常常和它的兄弟在月光的柔和光辉下享受生活，直到它决定跟随流浪的欲望进入伟大的未知世界。");
+	}
+
 	{ spriteClass=NewSnakeSprite.class;cooldown=50;properties.add(Property.BEAST);updateStats(true); }
 	@Override protected Kind kind(){return Kind.SNAKE;}
 	@Override public boolean lovefood(Item item){return item instanceof PetFood||item instanceof MeatFood;}

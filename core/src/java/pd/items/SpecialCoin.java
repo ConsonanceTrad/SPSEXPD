@@ -11,9 +11,17 @@ import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Preserves the unfinished SPS S-coin pickup behavior: feedback only, with no persistent wallet. */
 public class SpecialCoin extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SpecialCoin.class)
+			.t("name", "S币")
+			.t("desc", "特别惊喜像素地牢中尚未完成的一种特殊货币。");
+	}
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = true;

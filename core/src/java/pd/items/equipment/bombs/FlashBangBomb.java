@@ -44,8 +44,17 @@ import render.utils.data.BArray;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class FlashBangBomb extends Bomb {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(FlashBangBomb.class)
+			.t("name", "闪光弹")
+			.t("desc", "这枚改造过的炸弹在爆炸时会爆发出一阵电闪雷鸣。在2格范围内的所有单位不仅会受到爆炸的_%1$d~%2$d点伤害_和电击的额外25%%伤害，还会被麻痹10回合。")
+			.t("discover_hint", "你可通过炼金合成该物品。");
+	}
+
 	
 	{
 		image = EquipmentEquipWeaponBombDict.FLASHBANG_0;

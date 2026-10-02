@@ -40,8 +40,20 @@ import pd.sprites.ShamanSprite;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public abstract class Shaman extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Shaman.class)
+			.t("name", "豺狼萨满")
+			.t("bolt_kill", "你死于魔能射弹...")
+			.t("desc", "豺狼萨满比大多数豺狼人更具智慧，它们会用战斗法术来弥补力量上的不足。尽管豺狼萨满的力量相对较弱，它们仍在部落中享有崇高地位。")
+			.t("redshaman.spell_desc", "佩戴红色面具的萨满会利用魔法_弱化你的攻击力_。")
+			.t("blueshaman.spell_desc", "佩戴蓝色面具的萨满会利用魔法_增加你受到的伤害_。")
+			.t("purpleshaman.spell_desc", "佩戴紫色面具的萨满会利用魔法_削减你的精准与闪避_。");
+	}
+
 	
 	{
 		HP = HT = 35;

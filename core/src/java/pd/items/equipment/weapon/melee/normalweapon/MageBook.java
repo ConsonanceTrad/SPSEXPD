@@ -6,8 +6,16 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Paralysis;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class MageBook extends NormalMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MageBook.class)
+			.t("name", "魔典")
+			.t("desc", "一本法师高塔里的厚重魔典。内容十分难懂。——Coconut \n钝器");
+	}
+
 	public MageBook() { super(1, 1f, 1f, 1, 1, 10, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) {
 		if (s.strength > 1) s.strength--;

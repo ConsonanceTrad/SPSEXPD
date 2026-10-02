@@ -27,8 +27,16 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.Talent;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
+import pd.messages.InlineText;
 
 public class EnhancedRings extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(EnhancedRings.class)
+			.t("name", "戒指强化")
+			.t("desc", "盗贼在使用神器时强化了他的戒指，使它们获得+1升级。\n\n剩余回合数：%s");
+	}
+
 
 	{
 		type = Buff.buffType.POSITIVE;

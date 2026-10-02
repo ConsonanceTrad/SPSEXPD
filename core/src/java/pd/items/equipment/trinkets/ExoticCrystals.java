@@ -24,8 +24,18 @@ package pd.items.equipment.trinkets;
 import pd.atlas.items.EquipmentNonEquipDict;
 
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class ExoticCrystals extends Trinket {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ExoticCrystals.class)
+			.t("name", "奇异能晶")
+			.t("desc", "这些小型粉色晶体有着和炼金能量晶体一样的几何外形。尽管它们不能直接为炼金实验供能，但不知为何似乎能影响你找到的药剂和卷轴。")
+			.t("typical_stats_desc", "这件饰物通常会使_%s%%_的药剂、卷轴转化为其对应的合剂、秘卷。转化不会影响力量药剂，升级卷轴与为解决特殊房间提供帮助而生成的物品。")
+			.t("stats_desc", "在当前等级下，这件饰物会使_%s%%_的药剂、卷轴转化为其对应的合剂、秘卷。转化不会影响力量药剂，升级卷轴与为解决特殊房间提供帮助而生成的物品。");
+	}
+
 
 	{
 		image = EquipmentNonEquipDict.EXOTIC_CRYSTALS_0;

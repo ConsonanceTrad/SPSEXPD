@@ -6,9 +6,17 @@ import pd.actors.Actor;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ManySkeletonSprite;
+import pd.messages.InlineText;
 
 /** Original SPS-PD runtime and save identity for the huge skull. */
 public class ManySkeleton extends SpsCityMobs.ManySkeleton {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ManySkeleton.class)
+			.t("name", "骷髅球")
+			.t("desc", "由一大堆骷髅组成的球，每次受到有力攻击都会掉出一只骷髅。");
+	}
+
 
 	{
 		spriteClass = ManySkeletonSprite.class;

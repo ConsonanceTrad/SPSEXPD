@@ -35,8 +35,23 @@ import pd.items.Item;
 import pd.messages.Messages;
 import pd.utils.GLog;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class MysteryMeat extends Food {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MysteryMeat.class)
+			.t("name", "神秘的肉")
+			.t("eat_msg", "这玩意儿吃起来很...奇怪。")
+			.t("hot", "嗷！好烫！")
+			.t("legs", "你的腿没有知觉了！")
+			.t("not_well", "你感觉...不太好。")
+			.t("stuffed", "你吃撑了。")
+			.t("desc", "想吃可以，后果自腹！")
+			.t("discover_hint", "你可从某种敌人的掉落物中获得该物品。")
+			.t("placeholder.name", "肉");
+	}
+
 
 	{
 		image = ConsumFoodFoodDict.MEAT;

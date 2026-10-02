@@ -40,8 +40,22 @@ import pd.windows.WndOptions;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 abstract public class KindOfWeapon extends EquipableItem {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(KindOfWeapon.class)
+			.t("swift_equip", "你迅速地装备上了武器。")
+			.t("equip_cursed", "你的手不受控制地握紧了这件武器。")
+			.t("which_equip_msg", "你想将这把武器装备至哪个武器栏位？\n\n勇士仅会使用主武器进行攻击，但主、副武器都能发动武技，且共用同一个充能数。\n\n勇士还能瞬间切换主、副武器。")
+			.t("which_equip_primary", "主手(%s)")
+			.t("which_equip_secondary", "副手(%s)")
+			.t("empty", "空栏位")
+			.t("destory", "你的武器坏掉了。")
+			.t("almost_destory", "你的武器快要坏了。");
+	}
+
 
 	protected String hitSound = Assets.Sounds.HIT;
 	protected float hitSoundPitch = 1f;

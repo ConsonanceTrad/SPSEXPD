@@ -45,8 +45,18 @@ import render.utils.data.Callback;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class WildMagic extends ArmorAbility {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(WildMagic.class)
+			.t("name", "狂野魔法")
+			.t("no_wands", "你没有法杖可供施法！")
+			.t("short_desc", "法师引导出法杖中的_狂野魔法_，在单回合内对指定目标随机释放这些法杖多次。")
+			.t("desc", "法师引导出法杖的魔力，在一回合内随机释放法杖至多4次。该能力不会释放法师魔杖。\n\n以这个能力使用法杖时，法杖视为上升2级，最高可至+3。用该能力释放法术只消耗一半的充能，每根法杖最多随机释放两次。");
+	}
+
 
 	{
 		baseChargeUse = 25f;

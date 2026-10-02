@@ -5,8 +5,16 @@ import pd.actors.Char;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class BloodImbue extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(BloodImbue.class)
+			.t("name", "鲜血灌注")
+			.t("desc", "成功攻击时可能使目标残废、缠绕或麻痹，并免疫多种妨碍状态。\n\n剩余效果时长：%s回合。");
+	}
+
 	{
 		type = buffType.POSITIVE;
 		announced = true;

@@ -29,10 +29,17 @@ import pd.actors.hero.Hero;
 import pd.items.equipment.rings.fusion.RingOfKnowledge;
 import pd.messages.Messages;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 //for wands that directly damage a target
 //wands with AOE or circumstantial direct damage count here (e.g. fireblast, transfusion), but wands with indirect damage do not (e.g. corrosion)
 public abstract class DamageWand extends Wand{
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(DamageWand.class)
+			.t("upgrade_stat_name_1", "魔法伤害");
+	}
+
 
 	public int min(){
 		return min(buffedLvl());

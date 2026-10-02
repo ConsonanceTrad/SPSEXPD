@@ -24,8 +24,18 @@ package pd.items.equipment.trinkets;
 import pd.atlas.items.EquipmentNonEquipDict;
 
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class ParchmentScrap extends Trinket {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ParchmentScrap.class)
+			.t("name", "残魔余卷")
+			.t("desc", "这块小小的羊皮纸残片看起来来自一张卷轴。它仍附有一丝残存的魔力，并且似乎能影响在地牢中找到的武器和护甲。")
+			.t("typical_stats_desc", "这件饰物通常会使附魔与刻印的出现频率变为原频率的_%d倍_，而武器与护甲的诅咒的出现频率变为原频率的_%s倍_。法杖、戒指与神器的诅咒不受影响。\n\n这件饰物升级所消耗的炼金能量较多。")
+			.t("stats_desc", "在当前等级下，这件饰物会使附魔与刻印的出现频率变为原频率的_%d倍_，而武器与护甲的诅咒的出现频率变为原频率的_%s倍_。法杖、戒指与神器的诅咒不受影响。\n\n这件饰物升级所消耗的炼金能量较多。");
+	}
+
 
 	{
 		image = EquipmentNonEquipDict.PARCHMENT_SCRAP_0;

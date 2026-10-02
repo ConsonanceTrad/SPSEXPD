@@ -24,8 +24,18 @@ package pd.items.equipment.trinkets;
 import pd.atlas.items.EquipmentNonEquipDict;
 
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class EyeOfNewt extends Trinket {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(EyeOfNewt.class)
+			.t("name", "蝾螈魔眼")
+			.t("desc", "这颗黑金色的蝾螈之眼是一种常见的炼金原料，而现在已被附魔强化为一件饰物。魔眼似乎降低了你的视力，以为你换取其他形式的视觉。")
+			.t("typical_stats_desc", "这件饰物通常会降低你_%1$s%%_的视距，但也会使你获得对_%2$d_格范围内敌人的灵视感知。")
+			.t("stats_desc", "在当前等级下，这件饰物会降低你_%1$s%%_的视距，但也会使你获得对_%2$d_格范围内敌人的灵视感知。");
+	}
+
 
 	{
 		image = EquipmentNonEquipDict.EYE_OF_NEWT_0;

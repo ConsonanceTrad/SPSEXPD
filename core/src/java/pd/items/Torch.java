@@ -36,8 +36,18 @@ import render.noosa.audio.Sample;
 import render.noosa.particles.Emitter;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Torch extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Torch.class)
+			.t("name", "火把")
+			.t("ac_light", "点燃")
+			.t("ac_set", "放置")
+			.t("desc", "冒险必备物品，每当地牢陷入黑暗之时，火把能让你走上正确的道路。");
+	}
+
 
 	public static final String AC_LIGHT	= "LIGHT";
 	public static final String AC_SET = "SET";

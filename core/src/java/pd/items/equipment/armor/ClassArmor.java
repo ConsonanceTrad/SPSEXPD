@@ -48,8 +48,26 @@ import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 abstract public class ClassArmor extends Armor {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ClassArmor.class)
+			.t("ac_ability", "选择技能")
+			.t("ac_transfer", "转移")
+			.t("no_ability", "你的护甲当前没有技能，快去选一个吧！")
+			.t("not_equipped", "你需要穿戴这套护甲才能使用它的特技！")
+			.t("low_charge", "此护甲没有足够的能量来释放特技！")
+			.t("charge_use", "现在使用该能力将消耗_%s_的充能。")
+			.t("transfer_title", "转移护甲")
+			.t("transfer_desc", "矮人王冠中蕴藏的魔法可以被转移到另一件护甲中去。注意，此过程中原先的护甲会被销毁。")
+			.t("transfer_prompt", "选择一件护甲")
+			.t("transfer_cancel", "取消")
+			.t("transfer_complete", "你的英雄铠甲的特殊技能已被转移！")
+			.t("discover_hint", "你可通过某位英雄击败20层的boss之后找到该物品。");
+	}
+
 
 	private static final String AC_ABILITY = "ABILITY";
 	private static final String AC_TRANSFER = "TRANSFER";

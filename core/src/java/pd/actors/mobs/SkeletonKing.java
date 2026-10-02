@@ -16,8 +16,18 @@ import pd.scenes.GameScene;
 import pd.sprites.SkeletonKingSprite;
 import pd.ui.BossHealthBar;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class SkeletonKing extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SkeletonKing.class)
+			.t("name", "奥瑞克莱")
+			.t("desc", "骷髅王是一个十分强大的存在。")
+			.t("notice", "你会被亡灵的怒火吞没，%s！")
+			.t("die", "魔法不够了……");
+	}
+
 	{
 		spriteClass = SkeletonKingSprite.class;
 		HP = HT = 2000;

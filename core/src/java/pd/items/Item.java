@@ -59,8 +59,25 @@ import render.utils.serialize.Reflection;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import pd.messages.InlineText;
 
 public class Item implements Bundlable {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Item.class)
+			.t("prompt", "选择丢出的方位")
+			.t("ac_drop", "放下")
+			.t("ac_throw", "扔出")
+			.t("rankings_desc", "死于：%s")
+			.t("curse", "诅咒")
+			.t("custom_note_type", "你为这类物品写下了备注：“_%s_”")
+			.t("custom_note", "你为这件物品写下了备注：“_%s_”")
+			.t("discover_hint", "你可在地牢中概率找到该物品。")
+			.t("not_here", "你不能在这里使用它。")
+			.t("boss_first", "你必须先击败首领。")
+			.t("reinforced", "这件物品已用精金破阶，可以突破通常的强化上限。");
+	}
+
 
 	protected static final String TXT_TO_STRING_LVL		= "%s %+d";
 	protected static final String TXT_TO_STRING_X		= "%s x%d";

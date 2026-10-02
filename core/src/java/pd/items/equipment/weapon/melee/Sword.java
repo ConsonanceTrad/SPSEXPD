@@ -37,8 +37,21 @@ import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
+import pd.messages.InlineText;
 
 public class Sword extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Sword.class)
+			.t("name", "单手剑")
+			.t("ability_name", "顺劈")
+			.t("typical_ability_desc", "决斗家可以用单手剑_顺劈_敌人。这一般会造成_%1$d~%2$d点伤害_且必定命中。如果顺劈击杀了一名敌人，这一击将不消耗时间，并且决斗家可在5回合内额外使用一次不消耗充能数的顺劈。")
+			.t("ability_desc", "决斗家可以用单手剑_顺劈_敌人，造成_%1$d~%2$d点伤害_且必定命中。如果顺劈击杀了一名敌人，这一击将不消耗时间，并且决斗家可在5回合内额外使用一次不消耗充能数的顺劈。")
+			.t("desc", "平衡性良好的剑。不算太大，但是依然比短剑长上不少。")
+			.t("cleavetracker.name", "顺劈")
+			.t("cleavetracker.desc", "决斗家已经准备好进行连续的顺劈。这一次顺劈将不会消耗武技充能。\n\n剩余回合数：%s。");
+	}
+
 	
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.SWORD_0;

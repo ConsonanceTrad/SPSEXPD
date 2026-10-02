@@ -37,8 +37,24 @@ import render.noosa.Game;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Amulet extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Amulet.class)
+			.t("name", "Yendor护符")
+			.t("ac_end", "结束游戏")
+			.t("desc", "Yendor护符是人类与矮人所知的最强大的神器。其上镶嵌的晶石奇光辉映、气象非常，蕴含着不可思议的神奇力量。")
+			.t("desc_origins", "护符的起源与种种过去无人知晓。据历史记载，矮人国王曾夸口说他在矮人文明与外界切断一切联系之前不久就发现了这件神器。那么，他是如何找到的？古神又是怎样从他那里夺走了护符？也许这些问题不需要现在解答，真正重要的是：护符正属于你！")
+			.t("desc_ascent", "护符的起源与种种过去无人知晓，但显然它已在古神的力量下受到了极大的侵蚀。你在地牢中踏经的每一寸土地似乎都已在古神意志的掌控之下，面前的敌人也变得众多强势、更甚以往！你也无力使用或抛下护符了——此时它与被诅咒已几无差别。")
+			.t("ascent_title", "踏返登临")
+			.t("ascent_desc", "你开始感受到古神强大可怖的力量自护符中泛溢而出。凭凡人的区区肉身自这地牢之底向上攀登至地面将远比你想象中的更难！\n\n如果你继续在持有护符的情况下向上返回，地牢将会变得更加险恶重重。跨层传送将会被抑制，而击杀沿途敌人返回地面则将成为你赢得这局游戏的唯一方式！\n\n如果你想要在不开始护符挑战的情况下返回上层，你可以把护符暂时留在这里，也可以选择在这里直接用护符以正常结束游戏。")
+			.t("ascent_yes", "继续前进！")
+			.t("ascent_no", "稍等片刻")
+			.t("discover_hint", "你可在地牢底层找到该物品...");
+	}
+
 	
 	private static final String AC_END = "END";
 	

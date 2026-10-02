@@ -50,8 +50,22 @@ import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.geom.PointF;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class WandOfPrismaticLight extends DamageWand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfPrismaticLight.class)
+			.t("name", "棱光法杖")
+			.t("staff_name", "棱光魔杖")
+			.t("desc", "这根法杖由一块实心半透明水晶构成，就像一块厚长光滑的玻璃。一粒粒彩色的光点在法杖顶端跳跃，随时准备迸射而出。")
+			.t("stats_desc", "这根法杖射出的光线能刺破地牢的黑暗，揭露隐藏的区域和陷阱。光线能致盲敌人并造成_%1$d~%2$d点伤害_。恶魔与亡灵生物会在法杖的强光下被灼烧而受到额外伤害。")
+			.t("upgrade_stat_name_2", "致盲概率")
+			.t("upgrade_stat_name_3", "照明持续时间")
+			.t("bmage_desc", "当_战斗法师_以棱光魔杖近战攻击目标时，能使目标陷入随魔杖等级提升而延长的残废效果。")
+			.t("eleblast_desc", "棱光魔杖的元素风暴造成67%伤害，揭示区域内所有地形，致盲所有目标5回合。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

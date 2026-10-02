@@ -31,9 +31,19 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** SPS-PD's Tengu implementation, independent of Shattered's two-room arena. */
 public class SpsTengu extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SpsTengu.class)
+			.t("name", "天狗")
+			.t("desc", "一位以面具为名、行踪诡秘的著名刺客。")
+			.t("notice", "你是怎么找到我的？！")
+			.t("die", "诅咒你！");
+	}
+
 
 	private static final int JUMP_DELAY = 5;
 	private int timeToJump = JUMP_DELAY;

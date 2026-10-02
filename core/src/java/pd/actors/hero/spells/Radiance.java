@@ -35,8 +35,17 @@ import pd.items.equipment.artifacts.HolyTome;
 import pd.scenes.GameScene;
 import pd.ui.HeroIcon;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class Radiance extends ClericSpell {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Radiance.class)
+			.t("name", "破晓辐光")
+			.t("short_desc", "为视野内敌人触发并施加光耀而将其暂时击晕。")
+			.t("desc", "祭司通体迸出圣光，击晕所有视野内敌人3回合。若敌人已获得光耀，法术会触发光耀的额外伤害并在此之后施加光耀。若本层视野较暗，法术还会使祭司发光100回合。");
+	}
+
 
 	public static final Radiance INSTANCE = new Radiance();
 

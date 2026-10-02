@@ -43,8 +43,17 @@ import pd.ui.QuickSlotButton;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Sunray extends TargetedClericSpell {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Sunray.class)
+			.t("name", "阳炎射线")
+			.t("short_desc", "造成远程魔法伤害并致盲目标一次。")
+			.t("desc", "牧师向目标发射致盲光束，造成%1$d~%2$d伤害并使其失明%3$d回合。阳炎射线必定对亡灵和恶魔目标造成最大伤害。\n\n被该法术击中后敌人会调节其视觉，以防被射线再次致盲。然而，如果在被该法术致盲后再次被该法术击中，那么压倒性的强光会将其麻痹而非致盲。");
+	}
+
 
 	public static final Sunray INSTANCE = new Sunray();
 

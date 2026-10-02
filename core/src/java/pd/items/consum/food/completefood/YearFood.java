@@ -11,8 +11,16 @@ import pd.scenes.GameScene;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class YearFood extends CompleteFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(YearFood.class)
+			.t("name", "年糕")
+			.t("desc", "能永久提高生命力的节庆食物。在最终层食用还会召来年兽。");
+	}
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 150f;

@@ -33,9 +33,26 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** SPS-PD 0.9.8's ore-fed ice artifact. */
 public class EyeOfSkadi extends Artifact {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(EyeOfSkadi.class)
+			.t("name", "斯嘉蒂之眼")
+			.t("ac_add", "献祭")
+			.t("ac_blast", "耗竭-冰暴")
+			.t("ac_curse", "诅咒")
+			.t("no_charge", "冰眼尚未充能完毕。")
+			.t("prompt", "选择原石作为献祭素材")
+			.t("need_charge", "冰眼还没有准备好。")
+			.t("full_charge", "冰眼已经准备完毕。")
+			.t("exp", "目前能量%s。")
+			.t("infuse_ore", "冰眼熔化了原石。")
+			.t("desc", "极度罕见的古物，原由苍空之龙看管，因时空乱流流落至此。这只眼睛仿佛有生命一般，散发出可怕的气息。");
+	}
+
 
 	public static final String AC_BLAST = "BLAST";
 	public static final String AC_ADD = "ADD";

@@ -12,9 +12,17 @@ import pd.effects.Speck;
 import pd.effects.particles.FlameParticle;
 import pd.items.equipment.weapon.melee.MeleeWeapon;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The original Halloween pumpkin lamp weapon. */
 public class Pumpkin extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Pumpkin.class)
+			.t("name", "南瓜灯")
+			.t("desc", "已经被点燃的南瓜灯。万圣节快乐！\n引燃，照明，恐吓，甜食。");
+	}
+
 
 	public static final int EFFECT_CHANCE = 20;
 	public static final int HEALING = 10;

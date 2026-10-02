@@ -30,8 +30,18 @@ import pd.items.consum.scrolls.ScrollOfTeleportation;
 import pd.messages.Messages;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 public class Flash extends TargetedClericSpell {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Flash.class)
+			.t("name", "天堂阶梯")
+			.t("prompt", "选择一个位置")
+			.t("short_desc", "传送至附近一个位置。")
+			.t("desc", "牧师在附近的位置引导出超凡升天的神力并传送到那里。天堂阶梯可以将牧师传送至任何在范围内且未被占据的已探索区域。在同次超凡升天中，每次使用该法术时都会消耗更多的圣典充能。");
+	}
+
 
 	public static Flash INSTANCE = new Flash();
 

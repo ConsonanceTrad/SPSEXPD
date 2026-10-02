@@ -22,9 +22,17 @@
 package pd.items.equipment.armor;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.messages.InlineText;
 
 
 public class ClericArmor extends ClassArmor {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ClericArmor.class)
+			.t("name", "英雄祭服")
+			.t("desc", "穿着这套内着重甲的祭服时，牧师能够施展一项特殊技能。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

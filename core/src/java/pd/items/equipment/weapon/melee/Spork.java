@@ -6,8 +6,16 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.actors.Char;
 import pd.effects.Speck;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Spork extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Spork.class)
+			.t("name", "皇家叉勺")
+			.t("desc", "鼠王遗失的宝物。它那荒唐却锋利的边缘会在命中时为持有者恢复少量生命。");
+	}
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; tier = 3; ACC = 1f; DLY = 0.8f; }
 	@Override public int min(int lvl) { return 8 + 2 * lvl; }
 	@Override public int max(int lvl) { return 14 + 2 * lvl; }

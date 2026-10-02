@@ -24,8 +24,16 @@ package pd.items.equipment.armor.glyphs;
 import pd.actors.Char;
 import pd.items.equipment.armor.Armor;
 import pd.sprites.ItemSprite;
+import pd.messages.InlineText;
 
 public class Brimstone extends Armor.Glyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Brimstone.class)
+			.t("name", "狱火%s")
+			.t("desc", "这个刻印会保护穿戴者和其所有物免受火焰的伤害及其他影响。");
+	}
+
 
 	private static ItemSprite.Glowing ORANGE = new ItemSprite.Glowing( 0xFF4400 );
 

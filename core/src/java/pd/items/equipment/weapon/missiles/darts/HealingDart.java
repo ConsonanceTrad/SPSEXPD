@@ -28,8 +28,16 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Healing;
 import pd.actors.hero.Hero;
 import pd.items.consum.potions.PotionOfHealing;
+import pd.messages.InlineText;
 
 public class HealingDart extends TippedDart {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(HealingDart.class)
+			.t("name", "治疗飞镖")
+			.t("desc", "这些飞镖上涂着一种由阳春草制成的药物，能强效治疗目标的伤势。这只飞镖仍能对敌人造成伤害，但不会伤及盟友 。");
+	}
+
 	
 	{
 		image = ConsumThrowsDict.HEALING_DART_0;

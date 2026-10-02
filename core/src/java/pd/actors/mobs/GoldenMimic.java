@@ -40,8 +40,16 @@ import pd.sprites.MimicSprite;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class GoldenMimic extends Mimic {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GoldenMimic.class)
+			.t("name", "黄金宝箱怪")
+			.t("desc", "宝箱怪是一种能随意改变外形的魔法生物。在地牢里它们几乎一直以宝箱形态出现，因为这样总能吸引疏于防备的冒险家。\n\n黄金宝箱怪是试图吸引顶尖冒险家的强大宝箱怪。它们拥有更丰厚的财宝，但比起普通的宝箱怪也更为强大。");
+	}
+
 
 	{
 		spriteClass = MimicSprite.Golden.class;

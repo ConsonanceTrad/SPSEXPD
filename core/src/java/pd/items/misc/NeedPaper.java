@@ -23,8 +23,20 @@ import pd.windows.WndUseItem;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class NeedPaper extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(NeedPaper.class)
+			.t("name", "通缉令")
+			.t("ac_choose", "选择")
+			.t("ac_shop", "黑市")
+			.t("ac_help", "黑帮")
+			.t("need_charge", "点数不足。")
+			.t("desc", "越知名，越危险。消耗500点数可以治疗并隐蔽自身；消耗3000点数可以获得随机装备。");
+	}
+
 
 	public static final String AC_CHOOSE = "CHOOSE";
 	public static final String AC_HELP = "HELP";

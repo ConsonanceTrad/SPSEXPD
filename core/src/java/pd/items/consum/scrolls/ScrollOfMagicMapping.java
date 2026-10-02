@@ -33,8 +33,17 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class ScrollOfMagicMapping extends Scroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfMagicMapping.class)
+			.t("name", "探地卷轴")
+			.t("layout", "你熟悉了这层的地形。")
+			.t("desc", "阅读这张卷轴时，一副明晰的景象会刻入你的记忆中，告知你整个楼层的精确布局并揭开所有隐藏的秘密。不过道具位置和生物分布依旧是未知状态。");
+	}
+
 
 	{
 		icon = ItemIconSheet.SCROLL_MAGICMAP;

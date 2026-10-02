@@ -24,8 +24,20 @@ package pd.items.equipment.rings;
 import pd.actors.Char;
 import pd.messages.Messages;
 import pd.sprites.ItemIconSheet;
+import pd.messages.InlineText;
 
 public class RingOfAccuracy extends Ring {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RingOfAccuracy.class)
+			.t("name", "精准戒指")
+			.t("stats", "佩戴这枚戒指时，你的精准度会增加_%1$d_点，攻击距离会增加_%2$d_格。")
+			.t("typical_stats", "佩戴这枚戒指时，你的精准属性通常会增加_%s%%_。")
+			.t("combined_stats", "你已装备的戒指正联结它们的力量，一共增加了你_%s%%_的精准。")
+			.t("upgrade_stat_name_1", "精准加成")
+			.t("desc", "这枚戒指提高了你的专注力，使敌人难以躲闪你的攻击。该戒指每10级提供1格额外的攻击距离，但在30级效果达到上限。");
+	}
+
 
 	{
 		icon = ItemIconSheet.RING_ACCURACY;

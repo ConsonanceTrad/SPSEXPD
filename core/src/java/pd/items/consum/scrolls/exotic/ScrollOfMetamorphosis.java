@@ -45,8 +45,20 @@ import render.utils.math.Random;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Set;
+import pd.messages.InlineText;
 
 public class ScrollOfMetamorphosis extends ExoticScroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfMetamorphosis.class)
+			.t("name", "蜕变秘卷")
+			.t("choose_desc", "选择一个天赋以进行蜕变")
+			.t("replace_desc", "选择你希望蜕变出的天赋")
+			.t("cancel_warn", "取消该行动仍然会消耗你的蜕变秘卷，你确定吗？")
+			.t("metamorphose_talent", "蜕变天赋")
+			.t("desc", "这张秘卷充满了嬗变的魔力，不过与一般的嬗变卷轴不同。这股魔力将作用于释放者本身而不是一个物品。秘卷的魔力将允许你蜕变一个自身的天赋，使其转化为来自其他英雄的五个同层天赋之一！\n\n这个效果只适用于英雄自身的天赋，对专精天赋与护甲天赋无效。那些你无法使用的天赋将不会出现在蜕变选项里。");
+	}
+
 	
 	{
 		icon = ItemIconSheet.SCROLL_METAMORPH;

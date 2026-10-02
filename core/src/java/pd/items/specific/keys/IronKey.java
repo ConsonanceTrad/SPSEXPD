@@ -22,9 +22,17 @@
 package pd.items.specific.keys;
 
 import pd.atlas.items.SpecificKeyDict;
+import pd.messages.InlineText;
 
 
 public class IronKey extends Key {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(IronKey.class)
+			.t("name", "铁钥匙")
+			.t("desc", "这个铁钥匙的匙齿已经严重磨损；皮制系带也久经年岁摧残。它对应的是哪扇门呢?");
+	}
+
 	
 	{
 		image = SpecificKeyDict.IRON_KEY;

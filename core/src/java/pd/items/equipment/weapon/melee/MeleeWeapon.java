@@ -59,8 +59,30 @@ import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class MeleeWeapon extends Weapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MeleeWeapon.class)
+			.t("ac_ability", "武技")
+			.t("stats_known", "这件_%1$d阶_近战武器可以造成_%2$d~%3$d点伤害_，并且需要_%4$d点力量_来正常使用。")
+			.t("stats_unknown", "一般情况下这件_%1$d阶_近战武器可以造成_%2$d~%3$d点伤害_，并且需要_%4$d点力量_来正常使用。")
+			.t("probably_too_heavy", "这件武器对你来说或许太重了。")
+			.t("stats_desc", "")
+			.t("ability_need_equip", "你必须装备那把武器才能使用它的武技。")
+			.t("ability_low_str", "你的力量不足以使用这把武器的武技。")
+			.t("ability_no_charge", "你没有足够的能量来发动那个武技。")
+			.t("ability_cant_use", "你现在不能使用那个武技。")
+			.t("ability_no_target", "那里没有任何目标。")
+			.t("ability_target_range", "那个目标不在范围内。")
+			.t("ability_occupied", "那个位置已被占据。")
+			.t("upgrade_ability_stat_name", "武技伤害")
+			.t("prompt", "选择一个目标")
+			.t("swap", "切换武器")
+			.t("swap_full", "你无法在背包已满的情况下这么做。");
+	}
+
 
 	public static String AC_ABILITY = "ABILITY";
 

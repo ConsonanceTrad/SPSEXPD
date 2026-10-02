@@ -24,8 +24,15 @@ package pd.actors.mobs.npcs;
 import pd.Dungeon;
 import pd.actors.mobs.Mob;
 import pd.journal.Bestiary;
+import pd.messages.InlineText;
 
 public abstract class NPC extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(NPC.class)
+			.t("discover_hint", "你可在某个地牢区域中遇到该单位。");
+	}
+
 
 	{
 		HP = HT = 1;

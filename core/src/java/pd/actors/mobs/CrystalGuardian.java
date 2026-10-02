@@ -42,8 +42,18 @@ import pd.sprites.CrystalGuardianSprite;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class CrystalGuardian extends Mob{
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(CrystalGuardian.class)
+			.t("name", "水晶守卫")
+			.t("def_verb", "格挡")
+			.t("desc", "这种巨大的水晶守卫若不是眼中泛着明光，看起来和雕像几乎没有区别。因为身体由硬化的水晶构成，它们行动不便但异常坚固。所以_最好别打扰它们在水晶洞窟中的酣眠_。\n\n由于水晶守卫体型庞大，其在狭隘的地形移动时，速度会非常慢。它们还无比坚韧，无法被彻底杀死。它们被击败后会暂时失能，但不一会便会卷土重来。")
+			.t("discover_hint", "你可在某个的任务中遇到该敌人。");
+	}
+
 
 	{
 		spriteClass = CrystalGuardianSprite.class;

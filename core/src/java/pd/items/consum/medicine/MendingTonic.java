@@ -15,8 +15,18 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class MendingTonic extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MendingTonic.class)
+			.t("name", "修复补剂")
+			.t("ac_drink", "饮用")
+			.t("mend", "补剂持续修复着你的伤口。")
+			.t("desc", "一种经过谨慎稀释的异界恢复药剂。它的即时治疗能力弱于治疗药剂，能提供实用补给，但不会取代主地牢原有的核心治疗资源。");
+	}
+
 
 	public static final String AC_DRINK = "DRINK";
 

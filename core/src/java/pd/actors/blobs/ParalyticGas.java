@@ -29,8 +29,16 @@ import pd.actors.buffs.Paralysis;
 import pd.effects.BlobEmitter;
 import pd.effects.Speck;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class ParalyticGas extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ParalyticGas.class)
+			.t("name", "麻痹气体")
+			.t("desc", "这里盘绕着一片麻痹气体。");
+	}
+
 	
 	{
 		//acts after mobs, to give them a chance to resist paralysis

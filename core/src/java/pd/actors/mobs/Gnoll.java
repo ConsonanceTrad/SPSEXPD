@@ -32,8 +32,16 @@ import pd.items.equipment.weapon.melee.normalweapon.Club;
 import pd.items.equipment.weapon.missiles.throwing.EscapeKnive;
 import pd.sprites.GnollSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Gnoll extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Gnoll.class)
+			.t("name", "豺狼巡查")
+			.t("desc", "豺狼人是鬣狗状的类人生物。它们在下水道和地牢里游荡，不时向上行动试图向地表发起进攻。豺狼巡查是它们种群里最普通的一员，它们既没有暴徒强壮，也赶不上萨满聪明。");
+	}
+
 	
 	{
 		spriteClass = GnollSprite.class;

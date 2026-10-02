@@ -28,8 +28,16 @@ import pd.actors.blobs.ToxicGas;
 import pd.scenes.GameScene;
 import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class PotionOfToxicGas extends Potion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfToxicGas.class)
+			.t("name", "毒气药剂")
+			.t("desc", "打开或摔碎这个密封的药瓶将导致内容物爆发成一团剧毒的绿色云雾。你应该选择从远处将这瓶药剂扔向敌人，而不是手动开封。");
+	}
+
 
 	{
 		icon = ItemIconSheet.POTION_TOXICGAS;

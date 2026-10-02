@@ -21,9 +21,25 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** The original tester-forged cursed blade and its kill-charge awakening. */
 public class ShadowEater extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ShadowEater.class)
+			.t("name", "暗噬")
+			.t("desc", "由测试者们合作制成的受诅咒武器，净化会压制它的力量。\n休眠、双刃、低语。")
+			.t("charge", "暗影：%1$d / %2$d")
+			.t("ac_awake", "唤醒")
+			.t("ac_uncurse", "驱逐")
+			.t("awake", "血……")
+			.t("bleeding", "无需血肉……")
+			.t("silent", "无需言语……")
+			.t("locked", "无需帮助……")
+			.t("stand", "无需移动……");
+	}
+
 	public static final String AC_AWAKE = "AWAKE";
 	public static final String AC_UNCURSE = "UNCURSE";
 	public static final int MAX_CHARGE = 20;

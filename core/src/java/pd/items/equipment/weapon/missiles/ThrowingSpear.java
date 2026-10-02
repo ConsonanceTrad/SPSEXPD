@@ -24,8 +24,16 @@ package pd.items.equipment.weapon.missiles;
 import pd.atlas.items.ConsumThrowsDict;
 
 import pd.Assets;
+import pd.messages.InlineText;
 
 public class ThrowingSpear extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ThrowingSpear.class)
+			.t("name", "投矛")
+			.t("desc", "这些有着非常纤细的木杆的轻便短矛是一种投掷武器，不适合用于近战。");
+	}
+
 	
 	{
 		image = ConsumThrowsDict.THROWING_SPEAR_0;

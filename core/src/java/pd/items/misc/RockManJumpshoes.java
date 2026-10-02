@@ -13,8 +13,18 @@ import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class RockManJumpshoes extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RockManJumpshoes.class)
+			.t("name", "洛克之鞋")
+			.t("ac_jump", "跳跃")
+			.t("prompt", "选择三格范围内的目的地")
+			.t("desc", "这双鞋允许穿戴者跳跃最多三格，消耗的时间等于实际跳跃距离。");
+	}
+
 	public static final String AC_JUMP = "JUMP";
 	public static final int RANGE = 3;
 	{

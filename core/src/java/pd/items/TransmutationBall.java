@@ -29,8 +29,18 @@ import pd.scenes.GameScene;
 import pd.windows.WndBag;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class TransmutationBall extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(TransmutationBall.class)
+			.t("name", "转换笼果实")
+			.t("ac_use", "使用")
+			.t("prompt", "选择一件未装备的物品进行转换")
+			.t("desc", "转换笼结出的果实。它无需消耗卷轴，就能转换一件未装备的物品。");
+	}
+
 
 	private static final String AC_USE = "USE";
 

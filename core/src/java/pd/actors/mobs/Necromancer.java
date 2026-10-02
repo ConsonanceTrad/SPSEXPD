@@ -46,8 +46,18 @@ import render.utils.data.BArray;
 import render.utils.data.Callback;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Necromancer extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Necromancer.class)
+			.t("name", "死灵法师")
+			.t("desc", "这些黑暗魔法的学徒大量涌入监狱，因为这里是它们磨练死灵法术的最佳地点。\n\n死灵法师通过召唤并加强骷髅作战。死灵法师被击杀后，其召唤的骷髅也会消散。")
+			.t("necroskeleton.name", "死灵法师的骷髅")
+			.t("necroskeleton.desc", "这个骷髅是被死灵法师召唤出来的。它的能力与习性和普通的骷髅一样，只是会在召唤者被击杀时跟着消逝。");
+	}
+
 	
 	{
 		spriteClass = NecromancerSprite.class;

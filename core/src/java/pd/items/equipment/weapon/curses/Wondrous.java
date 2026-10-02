@@ -29,8 +29,17 @@ import pd.items.equipment.weapon.Weapon;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Wondrous extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Wondrous.class)
+			.t("name", "奇迹%s")
+			.t("desc", "奇迹诅咒的武器内含与诅咒法杖同源的混沌魔力。没人知道这个诅咒触发时到底会发生些什么！")
+			.t("elestrike_desc", "武器拥有奇迹诅咒时，元素打击有概率对范围内的所有敌人施放一种不同的诅咒法杖效果。");
+	}
+
 
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 

@@ -51,8 +51,20 @@ import render.utils.geom.Point;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class ScrollOfTeleportation extends Scroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfTeleportation.class)
+			.t("name", "传送卷轴")
+			.t("tele", "眨眼之间你就被传送到本层的另外一个位置。")
+			.t("no_tele", "传送魔法失败了。")
+			.t("cant_reach", "你不能传送到那个位置。")
+			.t("prompt", "选择想要传送的地点")
+			.t("desc", "羊皮纸上的咒语能立刻让阅读者传送到本层的另一处。卷轴会优先选择阅读者还未探索的地方，但无法将人传送到门被锁或被路障堵住入口的密室中。不过，它能帮助发现通向未知区域的隐藏门。");
+	}
+
 
 	{
 		icon = ItemIconSheet.SCROLL_TELEPORT;

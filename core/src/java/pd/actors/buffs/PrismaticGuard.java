@@ -34,8 +34,17 @@ import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class PrismaticGuard extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(PrismaticGuard.class)
+			.t("name", "虹光守卫")
+			.t("desc", "你正在被一个目前看不见的虹光守卫所保护。当有敌人出现时这个虹光守卫将出现并为你战斗！\n\n当虹光守卫未激活时，它将逐渐恢复所有所受到的伤害。\n\n当前生命值：%d/%d")
+			.t("desc_many", "该虹光幻像已被万物一心强化。剩余回合数：%d");
+	}
+
 	
 	{
 		type = buffType.POSITIVE;

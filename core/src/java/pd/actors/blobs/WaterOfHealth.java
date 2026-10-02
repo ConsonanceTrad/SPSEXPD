@@ -44,8 +44,17 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class WaterOfHealth extends WellWater {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(WaterOfHealth.class)
+			.t("name", "生命之泉")
+			.t("procced", "你小酌一口后，立刻感到所有伤口都痊愈了。")
+			.t("desc", "生命的力量正在从这口井的水里涌出。饮下井中的水可以治疗伤口、解除饥饿并净化所有已装备物品的诅咒。");
+	}
+
 	
 	@Override
 	protected boolean affectHero( Hero hero ) {

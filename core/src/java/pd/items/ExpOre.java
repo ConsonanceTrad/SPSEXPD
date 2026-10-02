@@ -8,8 +8,17 @@ import pd.actors.hero.Hero;
 import pd.effects.Speck;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class ExpOre extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ExpOre.class)
+			.t("name", "经验之石")
+			.t("ac_use", "使用")
+			.t("desc", "使用后立刻获得足以提升一级的经验，并使宠物等级提高一级。");
+	}
+
 
 	public static final String AC_USE = "USE";
 	{

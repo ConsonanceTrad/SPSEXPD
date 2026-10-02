@@ -14,8 +14,16 @@ import pd.actors.blobs.weather.WeatherOfSnow;
 import pd.actors.blobs.weather.WeatherOfSun;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class GasesImmunity extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GasesImmunity.class)
+			.t("name", "气体免疫")
+			.t("desc", "一种奇特的力量正在过滤你周边的空气。效果持续时，你免疫有害气体和天气。\n\n剩余时间：%s回合。");
+	}
+
 	public static final float DURATION = 20f;
 	{
 		type = buffType.POSITIVE;

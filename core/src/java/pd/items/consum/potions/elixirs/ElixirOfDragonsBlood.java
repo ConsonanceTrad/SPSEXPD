@@ -30,8 +30,16 @@ import pd.actors.hero.Hero;
 import pd.effects.particles.FlameParticle;
 import pd.items.consum.potions.exotic.PotionOfDragonsBreath;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class ElixirOfDragonsBlood extends Elixir {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ElixirOfDragonsBlood.class)
+			.t("name", "龙血秘药")
+			.t("desc", "饮用后，这瓶秘药会使饮用者的血管里充斥着烈焰的力量。这个效果能让饮用者对火焰完全免疫，并且还能通过物理攻击点燃敌人。");
+	}
+
 	
 	{
 		image = ConsumPotionSeedBasicPotionDict.ELIXIR_DRAGON_0;

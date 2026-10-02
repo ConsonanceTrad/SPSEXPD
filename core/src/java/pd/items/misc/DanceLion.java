@@ -24,8 +24,24 @@ import pd.windows.WndUseItem;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class DanceLion extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(DanceLion.class)
+			.t("name", "舞狮手册")
+			.t("ac_choose", "选择舞步")
+			.t("ac_spin", "旋身")
+			.t("ac_stand", "力定")
+			.t("ac_back", "退守")
+			.t("ac_rush", "猛冲")
+			.t("ac_jump", "腾跃")
+			.t("need_charge", "舞狮手册需要40点充能。")
+			.t("charge", "充能：%1$d / %2$d。")
+			.t("desc", "为狩猎年兽专门准备的手册。英雄每次行动获得1点充能，最多100点；消耗40点可从律动、防御、充能、攻击和漂浮五种舞步中选择一种。超级明星还会获得额外效果。");
+	}
+
 
 	public static final String AC_CHOOSE = "CHOOSE";
 	public static final String AC_SPIN = "SPIN";

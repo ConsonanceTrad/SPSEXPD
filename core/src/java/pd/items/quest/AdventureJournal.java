@@ -59,8 +59,66 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import pd.messages.InlineText;
 
 public class AdventureJournal extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(AdventureJournal.class)
+			.t("name", "异界日志")
+			.t("ac_read", "传送")
+			.t("ac_return", "返回")
+			.t("ac_reset", "重置谜题")
+			.t("cannot_enter", "异界日志无法在这里打开稳定的传送通道。")
+			.t("no_destinations", "异界日志中还没有记录任何目的地。")
+			.t("choose_category", "选择一组目的地。")
+			.t("category_journal", "日志地图")
+			.t("category_expedition", "远征地图")
+			.t("category_endgame", "终局地图")
+			.t("category_empty", "这一组中还没有解锁的目的地。")
+			.t("choose_destination", "选择一处已经记录的目的地。只有在主地牢到达相应深度后，通往该地的路线才会稳定。")
+			.t("completed_marker", "（已完成）")
+			.t("too_early", "这条路线要到主地牢第%d层后才能稳定。")
+			.t("amulet_required", "取得Yendor护符后，终局路线才会开启。")
+			.t("enter", "异界日志打开了通往%s的传送通道。")
+			.t("cannot_return", "返回主地牢的路线已经消失。")
+			.t("leave", "异界日志重新描绘出返回主地牢的路线。")
+			.t("destination_unlocked", "%s已经出现在异界日志中！")
+			.t("destination_complete", "%s已完成！")
+			.t("reward", "异界日志保存了一件独特奖励：%s。")
+			.t("desc", "根据特别惊喜像素地牢重制的第二本旅行日志，记录安全区域、推箱子谜题、远征和终局世界，与挑战日志分开管理。所有目的地都会保存在存档中，不能用于反复刷取经验或随机物资。\n\n已记录：_%1$d/%3$d_　已完成：_%2$d/%3$d_")
+			.t("destination_0", "安全居所")
+			.t("destination_1", "推箱练习场")
+			.t("destination_2", "推箱城堡")
+			.t("destination_3", "传送迷阵")
+			.t("destination_4", "推箱谜城")
+			.t("destination_5", "多利亚镇")
+			.t("destination_6", "春节庭院")
+			.t("destination_7", "矿区核心")
+			.t("destination_8", "新居")
+			.t("destination_9", "寄生虫巢")
+			.t("destination_10", "天狗隐匿处")
+			.t("destination_11", "骷髅王陵")
+			.t("destination_12", "巨蟹王巢")
+			.t("destination_13", "盗贼王据点")
+			.t("destination_14", "原野霸主竞技场")
+			.t("destination_15", "陶罐迷宫")
+			.t("destination_16", "暗影吞噬者领域")
+			.t("destination_17", "龙之洞窟")
+			.t("destination_18", "盗贼追捕")
+			.t("destination_19", "深层矿区")
+			.t("destination_20", "Zot前厅")
+			.t("destination_21", "首领连续战")
+			.t("destination_22", "混沌领域")
+			.t("destination_23", "Zot神殿")
+			.t("destination_24", "Zot王座")
+			.t("ac_add", "添加")
+			.t("prompt", "选择一张要加入冒险日志的地点纸片。")
+			.t("add_page", "地点记录成功。")
+			.t("already_added", "这个地点已经记录在日志中。")
+			.t("missing", "你还没有取得Otiluck的旅行日志。");
+	}
+
 
 	public static final int DESTINATION_COUNT = 25;
 	public static final int FIRST_BRANCH = 20;

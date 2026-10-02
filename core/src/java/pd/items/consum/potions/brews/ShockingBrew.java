@@ -32,8 +32,16 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
+import pd.messages.InlineText;
 
 public class ShockingBrew extends Brew {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ShockingBrew.class)
+			.t("name", "雷鸣魔药")
+			.t("desc", "当瓶子破裂时，这瓶魔药会向周围释放一阵闪电风暴。");
+	}
+
 	
 	{
 		image = ConsumPotionSeedBasicPotionDict.BREW_SHOCKING_0;

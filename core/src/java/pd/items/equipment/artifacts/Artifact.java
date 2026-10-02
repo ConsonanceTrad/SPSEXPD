@@ -37,8 +37,19 @@ import pd.messages.Messages;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Artifact extends KindofMisc {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Artifact.class)
+			.t("cannot_wear_two", "你不能装备两件相同的神器。")
+			.t("equip_cursed", "这件神器令人痛苦地缠住了你的灵魂。")
+			.t("curse_known", "你能感觉到在这个神器上潜伏着一股充满恶意的魔力。")
+			.t("not_cursed", "这件神器没有被诅咒。")
+			.t("need_to_equip", "你需要装备神器才能进行该操作。");
+	}
+
 
 	protected Buff passiveBuff;
 	protected Buff activeBuff;

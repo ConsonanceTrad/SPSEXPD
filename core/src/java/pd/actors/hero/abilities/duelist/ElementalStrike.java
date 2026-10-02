@@ -110,8 +110,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import pd.messages.InlineText;
 
 public class ElementalStrike extends ArmorAbility {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ElementalStrike.class)
+			.t("name", "元素打击")
+			.t("short_desc", "决斗家施展一次_元素打击_，基于所持武器的附魔在扇形范围内施加效果。")
+			.t("desc", "决斗家打击一名敌人或一个地点，进行一次必定命中的普通攻击，并在65度角4格半径的扇形范围内制造一次魔法效果。魔法的具体效果取决于决斗家主武器的附魔。")
+			.t("generic_desc", "不带有附魔的元素打击将会造成一次小型的魔力爆发，对范围内的所有敌人造成6~12点伤害。");
+	}
+
 
 	//TODO a few duplicates here (curse duplicates are fine)
 	private static final HashMap<Class<?extends Weapon.Enchantment>, Integer> effectTypes = new HashMap<>();

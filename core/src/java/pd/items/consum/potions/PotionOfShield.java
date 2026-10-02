@@ -11,8 +11,16 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Paralysis;
 import pd.actors.hero.Hero;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class PotionOfShield extends SpsPotion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfShield.class)
+			.t("name", "护盾药水")
+			.t("desc", "以硅花种子酿成的防御药水。饮用后获得物理护盾与奥术护甲，溅出的药液还能使生物短暂麻痹。");
+	}
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public void apply(Hero hero) {
 		Buff.affect(hero, Barrier.class).incShield(Math.max(1, hero.HT / 3));

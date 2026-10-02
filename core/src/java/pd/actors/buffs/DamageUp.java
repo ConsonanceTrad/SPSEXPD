@@ -4,9 +4,17 @@ package pd.actors.buffs;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Legacy SPS flat damage bonus, consumed by the next successful attack. */
 public class DamageUp extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(DamageUp.class)
+			.t("name", "伤害积蓄")
+			.t("desc", "你提升了下一次攻击所造成的伤害。\n\n伤害提升值：%s。");
+	}
+
 
 	private static final String LEVEL = "level";
 	private int level;

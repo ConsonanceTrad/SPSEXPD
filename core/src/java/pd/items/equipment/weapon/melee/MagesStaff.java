@@ -59,8 +59,33 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class MagesStaff extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MagesStaff.class)
+			.t("name", "法师魔杖")
+			.t("ac_imbue", "灌注")
+			.t("ac_zap", "释放")
+			.t("prompt", "选择一根要吸收的法杖")
+			.t("imbue", "你将%s注入魔杖。")
+			.t("preserved", "你保留了之前灌注的法杖！")
+			.t("imbue_desc", "你确定要将该法杖注入魔杖？\n\n若所注法杖的等级不小于魔杖的等级，魔杖会在继承该法杖等级的基础上再加上魔杖自身的一级升级。")
+			.t("imbue_level", "在这次灌注后，魔杖会变为_%d级_。")
+			.t("imbue_unknown", "你并不知道这根法杖的等级是多少，但在这次灌注后，魔杖至少会变为_%d级_。")
+			.t("imbue_cursed", "_如果你灌注了诅咒法杖，连你的魔杖也会被诅咒！_")
+			.t("imbue_lost", "当前魔杖内被灌注的法杖_将会消失_。")
+			.t("imbue_talent", "当前魔杖内被灌注的法杖_将被回收为0级法杖_。")
+			.t("yes", "是的，我确定")
+			.t("no", "不，我改主意了")
+			.t("desc", "这根魔杖是件独一无二的魔法武器，由法师亲自雕琢而成，能注入其它法杖的魔力以获取新的力量。")
+			.t("no_wand", "这根魔杖并没有任何魔力，它必须先被_注入进另一根法杖的魔力_才能用于施放法术。")
+			.t("has_wand", "魔杖目前被灌注了_%s_的力量。")
+			.t("cursed_wand", "这根魔杖受到了诅咒，导致它的魔法混乱而随机。")
+			.t("discover_hint", "某位英雄初始携带该物品。");
+	}
+
 
 	private Wand wand;
 

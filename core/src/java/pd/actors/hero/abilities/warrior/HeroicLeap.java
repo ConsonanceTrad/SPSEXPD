@@ -41,8 +41,18 @@ import pd.scenes.PixelScene;
 import pd.ui.HeroIcon;
 import render.utils.data.Callback;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class HeroicLeap extends ArmorAbility {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(HeroicLeap.class)
+			.t("name", "英勇之跃")
+			.t("prompt", "选择要飞跃到的地方")
+			.t("short_desc", "战士能向指定地点使用_英勇之跃_，越过所有的敌人与危险地形。")
+			.t("desc", "战士向指定地点跳跃，越过路径上的所有敌人与危险地形。不过战士无法越过墙壁或是其它实体地形。");
+	}
+
 
 	{
 		baseChargeUse = 35f;

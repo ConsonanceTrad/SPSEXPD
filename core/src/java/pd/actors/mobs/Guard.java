@@ -44,8 +44,18 @@ import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Guard extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Guard.class)
+			.t("name", "监狱守卫")
+			.t("scorpion", "给我过来！")
+			.t("def_verb", "格挡")
+			.t("desc", "作为曾经监狱的管理者，这些守卫和那些罪犯已经没什么区别了。它们蹒跚的步伐如同僵尸一般，毫无思绪地四处寻找不属于这片区域的生物，比如你！\n\n它的铁链缠在自己的胯部，也许可以用来将敌人拉扯到非常近的距离。");
+	}
+
 
 	//they can only use their chains once
 	private boolean chainsUsed = false;

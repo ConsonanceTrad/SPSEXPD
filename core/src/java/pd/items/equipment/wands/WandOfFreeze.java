@@ -17,9 +17,18 @@ import pd.mechanics.Ballistica;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The freeze wand from SPS-PD 0.9.8, distinct from Shattered's frost wand. */
 public class WandOfFreeze extends DamageWand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfFreeze.class)
+			.t("name", "霜冻法杖")
+			.t("desc", "这根冰属性法杖似乎由某种魔法冰块制成。它的圆顶闪着亮光。握起来很冰，但不知为何你的手仍保持着温暖。")
+			.t("stats_desc", "该法杖能向敌人射击冰霜能量，造成_%1$d~%2$d点伤害_并施加冻伤；目标位于水中时有概率被彻底冻结，已经冻结的目标不受影响。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

@@ -10,8 +10,16 @@ import pd.items.consum.food.completefood.PetFood;
 import pd.items.consum.food.staplefood.NormalRation;
 import pd.sprites.DwarfBoySprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class DwarfBoy extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(DwarfBoy.class)
+			.t("name", "矮人学徒")
+			.t("desc", "一个勇敢的矮人，但不知为何打扮成羊的样子。");
+	}
+
 	{
 		spriteClass = DwarfBoySprite.class;
 		cooldown = 50;

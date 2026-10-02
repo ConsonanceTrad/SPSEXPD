@@ -23,8 +23,20 @@ import pd.windows.WndUseItem;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class BigBattery extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(BigBattery.class)
+			.t("name", "蓄电池")
+			.t("ac_use", "充能")
+			.t("ac_add", "过载")
+			.t("break", "蓄电池的能量不足。")
+			.t("charge", "能量：%1$d / %2$d。")
+			.t("desc", "一块活着的电池，会缓慢收集静电。它可以强化使用者并为法杖充能，也可以使视野内的所有敌人陷入疲劳。");
+	}
+
 
 	public static final String AC_CHOOSE = "CHOOSE";
 	public static final String AC_USE = "USE";

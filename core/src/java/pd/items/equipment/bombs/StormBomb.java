@@ -19,8 +19,16 @@ import pd.scenes.GameScene;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class StormBomb extends Bomb {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(StormBomb.class)
+			.t("name", "风暴炸弹")
+			.t("desc", "在爆炸范围内制造迟缓雪雾和雷电能量。");
+	}
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public void explode(int cell) {
 		super.explode(cell);

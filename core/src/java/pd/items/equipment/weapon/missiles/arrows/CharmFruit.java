@@ -8,8 +8,16 @@ import pd.actors.blobs.ParalyticGas;
 import pd.actors.buffs.Amok;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Charm;
+import pd.messages.InlineText;
 
 public class CharmFruit extends SpsFruit {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(CharmFruit.class)
+			.t("name", "魅惑果")
+			.t("desc", "人工种植的梦夜花结出的果实。直接命中会魅惑目标，落地则会释放致乱气体。");
+	}
+
 	public CharmFruit() { this(1); }
 	public CharmFruit(int number) { super(SpecificPlaceHolderDict.SOMETHING_0, 10, 10); quantity(number); }
 	@Override protected void onThrow(int cell) {

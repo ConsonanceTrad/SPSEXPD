@@ -14,9 +14,17 @@
 package pd.actors.buffs;
 
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 /** While active, ordinary enemies killed by the hero can release SPS dew. */
 public class Dewcharge extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Dewcharge.class)
+			.t("name", "露珠爆炸")
+			.t("desc", "当你击杀任何目标时，在它周围生成任意数量的露珠。\n\n剩余的露珠爆破效果时长：%s回合");
+	}
+
 
 	public static final float DURATION = 240f;
 

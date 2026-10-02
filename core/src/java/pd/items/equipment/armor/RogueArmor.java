@@ -22,9 +22,17 @@
 package pd.items.equipment.armor;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.messages.InlineText;
 
 
 public class RogueArmor extends ClassArmor {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RogueArmor.class)
+			.t("name", "英雄风衣")
+			.t("desc", "裹着这身与黑暗融为一体的斗篷时，盗贼能够施展一项特殊技能。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

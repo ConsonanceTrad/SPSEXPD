@@ -52,8 +52,20 @@ import render.noosa.audio.Sample;
 import render.noosa.tweeners.AlphaTweener;
 import render.noosa.tweeners.Delayer;
 import render.utils.data.Callback;
+import pd.messages.InlineText;
 
 public class Feint extends ArmorAbility {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Feint.class)
+			.t("name", "虚晃一招")
+			.t("prompt", "选择要冲到的位置")
+			.t("too_far", "那个位置不与你相邻。")
+			.t("bad_location", "你无法移动到那个位置。")
+			.t("short_desc", "决斗家_虚晃一招_，在假装进行攻击的同时冲向一个邻近位置。诱导敌人攻击她的残影，致使敌人露出破绽。")
+			.t("desc", "决斗家在假装进行攻击的同时冲向一个邻近位置，在原位留下一个残影。正在攻击决斗家的敌人会攻击到残影。\n\n攻击了残影的敌人会被迷惑，取消原本的下一个动作，并且可以被伏击。");
+	}
+
 
 	{
 		baseChargeUse = 35;

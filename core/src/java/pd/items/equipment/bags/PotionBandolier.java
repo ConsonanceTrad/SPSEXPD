@@ -27,8 +27,16 @@ import pd.items.Item;
 import pd.items.LiquidMetal;
 import pd.items.Waterskin;
 import pd.items.consum.potions.Potion;
+import pd.messages.InlineText;
 
 public class PotionBandolier extends Bag {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionBandolier.class)
+			.t("name", "药剂挎带")
+			.t("desc", "这副厚实的挎带能像肩带一样缠在身上，上面有许多用来放药剂、水袋和液金的隔热皮带。\n\n挎带应该能为存放其中的药剂抵御寒冷。");
+	}
+
 
 	{
 		image = EquipmentBagsDict.BANDOLIER;

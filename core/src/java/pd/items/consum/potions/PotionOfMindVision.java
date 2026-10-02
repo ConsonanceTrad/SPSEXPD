@@ -29,8 +29,18 @@ import pd.effects.SpellSprite;
 import pd.messages.Messages;
 import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 public class PotionOfMindVision extends Potion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfMindVision.class)
+			.t("name", "灵视药剂")
+			.t("see_mobs", "你可以感受到其他生物的存在！")
+			.t("see_none", "你能判定现在本层内就只有你一个人。")
+			.t("desc", "喝下这个，你的心智将与大范围内的生物精神同调，让你能感受到围墙背后的生体所在。该药剂还能够让你的视野无视身边门墙的阻挡。");
+	}
+
 
 	{
 		icon = ItemIconSheet.POTION_MINDVIS;

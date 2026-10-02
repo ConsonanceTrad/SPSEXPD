@@ -27,9 +27,18 @@ import pd.plants.Plant;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** The chaos shield sold by the goblin tester after Otiluke is rescued. */
 public class GoblinShield extends NormalMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(GoblinShield.class)
+			.t("name", "哥布林神盾")
+			.t("desc", "一面来自哥布林部落的萨满盾牌。\n奇迹，招架。")
+			.t("charge", "能量：%d / 10。");
+	}
+
 
 	private static final String CHARGE = "charge";
 	public static final int FULL_CHARGE = 11;

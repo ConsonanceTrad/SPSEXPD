@@ -50,8 +50,35 @@ import render.utils.serialize.Bundle;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import pd.messages.InlineText;
 
 public class Ring extends KindofMisc {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Ring.class)
+			.t("diamond", "钻石戒指")
+			.t("opal", "蛋白石戒指")
+			.t("garnet", "石榴石戒指")
+			.t("ruby", "红宝石戒指")
+			.t("amethyst", "紫水晶戒指")
+			.t("topaz", "黄玉戒指")
+			.t("onyx", "黑曜石戒指")
+			.t("tourmaline", "碧玺戒指")
+			.t("emerald", "绿宝石戒指")
+			.t("sapphire", "蓝宝石戒指")
+			.t("quartz", "石英戒指")
+			.t("agate", "玛瑙戒指")
+			.t("equip_cursed", "这枚戒指突然紧缩，箍住了你的手指！")
+			.t("unknown_desc", "这枚金属环镶嵌着一颗在黑暗中闪烁光芒的大块宝石。谁知道戴上后会有什么效果？")
+			.t("known", "这是一枚%s。")
+			.t("identify", "你对你的戒指已经足够熟悉并且可以因此将其完全鉴定。")
+			.t("cursed_worn", "由于这个戒指被诅咒，你无力将其除下。")
+			.t("curse_known", "你能感觉到这件戒指里潜伏着一股充满恶意的魔力。")
+			.t("not_cursed", "这枚戒指没有被诅咒。")
+			.t("starstone", "星石戒指")
+			.t("moonstone", "月石戒指");
+	}
+
 	
 	protected Buff buff;
 	protected Class<? extends RingBuff> buffClass;

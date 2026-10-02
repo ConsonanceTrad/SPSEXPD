@@ -31,8 +31,16 @@ import pd.items.consum.potions.PotionOfFrost;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class BlizzardBrew extends Brew {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(BlizzardBrew.class)
+			.t("name", "冰暴魔药")
+			.t("desc", "当瓶子破裂时，这瓶魔药会释放出一阵像气体一样扩散的旋流冰暴。");
+	}
+
 	
 	{
 		image = ConsumPotionSeedBasicPotionDict.BREW_BLIZZARD_0;

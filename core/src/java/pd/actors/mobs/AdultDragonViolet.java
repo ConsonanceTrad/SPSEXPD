@@ -14,9 +14,19 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.NewDragon01Sprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The original fixed guardian dragon in Dolya town. */
 public class AdultDragonViolet extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(AdultDragonViolet.class)
+			.t("name", "守卫巨龙")
+			.t("atk", "离这远点!入侵者!")
+			.t("desc", "守卫巨龙通常是被召唤而来，但是对普通人来说它和野生巨龙没什么两样。")
+			.t("die", "为了...Otiluke大人!!");
+	}
+
 
 	private static final float TIME_TO_ZAP = 1f;
 

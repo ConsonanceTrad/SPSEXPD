@@ -11,9 +11,16 @@ import pd.effects.BlobEmitter;
 import pd.effects.Speck;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
+import pd.messages.InlineText;
 
 /** Flammable SPS oil mist which coats occupants in tar. */
 public class TarGas extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(TarGas.class)
+			.t("desc", "这里盘绕着粘稠油雾，会在接触到的生物身上凝结出焦油。");
+	}
+
 	@Override
 	protected void evolve() {
 		super.evolve();

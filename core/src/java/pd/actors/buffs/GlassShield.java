@@ -5,9 +5,17 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** The legacy SPS shield which caps a limited number of substantial hits at 10 damage. */
 public class GlassShield extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GlassShield.class)
+			.t("name", "玻璃保护")
+			.t("desc", "来自玻璃之神的祝福。当你受到不少于10点的伤害时，将伤害改为10。剩余保护次数：%s次。");
+	}
+
 
 	private static final String TURNS = "turns";
 	private int turns;

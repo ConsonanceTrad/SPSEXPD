@@ -32,8 +32,39 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import pd.messages.InlineText;
 
 public class ChallengeJournal extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ChallengeJournal.class)
+			.t("name", "挑战日志")
+			.t("ac_read", "传送")
+			.t("ac_return", "返回")
+			.t("ac_add", "添加")
+			.t("cannot_enter", "挑战日志无法在这里打开稳定的传送通道。")
+			.t("no_destinations", "挑战日志中还没有可用的地图碎片。")
+			.t("completed_marker", "（已完成）")
+			.t("choose", "选择一处已经记录的挑战地点。")
+			.t("enter", "挑战日志打开了通往%s的传送通道。")
+			.t("cannot_return", "返回主地牢的路线已经消失。")
+			.t("leave", "挑战日志重新描绘出返回主地牢的路线。")
+			.t("trial_unlocked", "%s已经出现在挑战日志中！")
+			.t("challenge_complete", "%s已完成！")
+			.t("prompt", "选择一张要加入日志的挑战纸片。")
+			.t("add_page", "挑战记录成功。")
+			.t("already_added", "这项挑战已经记录在日志中。")
+			.t("desc", "一本普通的记事本，来自异世界的魔法使它可以记录特殊地点并开启传送。把挑战纸片夹进日志后，就能自由前往对应地点并返回。\n\n已记录：_%1$d/%2$d_")
+			.t("challenge_0", "下水道挑战")
+			.t("challenge_1", "监狱挑战")
+			.t("challenge_2", "洞窟挑战")
+			.t("challenge_3", "城市挑战")
+			.t("challenge_4", "蜜雪冰城")
+			.t("challenge_5", "勇气试炼")
+			.t("challenge_6", "力量试炼")
+			.t("challenge_7", "智慧试炼");
+	}
+
 
 	public static final int CHALLENGE_COUNT = 8;
 	public static final int REGION_CHALLENGE_COUNT = 5;

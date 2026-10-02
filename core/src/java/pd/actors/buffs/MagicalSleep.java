@@ -28,8 +28,19 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 public class MagicalSleep extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(MagicalSleep.class)
+			.t("name", "魔法睡眠")
+			.t("toohealthy", "你十分健康，因此抵抗住了强烈的嗜睡感。")
+			.t("fallasleep", "你深深地陷入了魔法睡眠。")
+			.t("wakeup", "你醒来后，感觉浑身清爽并且十分健康。")
+			.t("desc", "目标已深深陷入了魔法睡眠，不会自然醒来。\n\n魔法睡眠与一般的睡眠基本一样，但只有受伤会致使目标醒来。\n\n对于英雄和他们的盟友，魔法睡眠有一些恢复性的效果，使他们能够在睡眠中迅速愈合伤口。");
+	}
+
 
 	private static final float STEP = 1f;
 

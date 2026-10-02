@@ -16,9 +16,16 @@ import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
 
 import java.io.IOException;
+import pd.messages.InlineText;
 
 /** A stationary fire which opens the legacy multi-slot memory save screen. */
 public class MemoryFire extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(MemoryFire.class)
+			.t("desc", "翠绿色的火焰保存着此刻的完整记忆。踏入其中，可以把当前冒险复制到另一个存档位。");
+	}
+
 
 	private int pos = -1;
 

@@ -16,8 +16,26 @@ import pd.ui.HeroIcon;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class NewCombo extends Buff implements ActionIndicator.Action {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(NewCombo.class)
+			.t("name", "隆拳连击")
+			.t("combo", "%d连！")
+			.t("bad_target", "目标必须是攻击距离内的敌人。")
+			.t("clobber_prompt", "选择要击垮的目标")
+			.t("clobber_desc", "_击垮_造成1.6倍伤害，将目标击退并使其晕向。")
+			.t("cleave_prompt", "选择要劈斩的目标")
+			.t("cleave_desc", "_劈斩_造成2.5倍伤害。若成功杀敌，连击会保留并增加。")
+			.t("slam_prompt", "选择要重击的目标")
+			.t("slam_desc", "_重击_取两次伤害中的较高值，造成2.6倍伤害并获得物理护盾。")
+			.t("crush_prompt", "选择要粉碎的目标")
+			.t("crush_desc", "_粉碎_取四次伤害中的最高值并造成3.5倍伤害。")
+			.t("desc", "徒手攻击命中会积累连击。超过四回合未命中或连续两次落空会中断连击；2、4、6、8连时会解锁对应终结技。");
+	}
+
 
 	private static final String COUNT = "count", TIME = "combotime", MISSES = "misses";
 	private int count;

@@ -31,9 +31,27 @@ import render.noosa.tweeners.AlphaTweener;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** SPS-PD 0.9.8's charge-based invisibility cloak. */
 public class CloakOfShadows extends Artifact {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(CloakOfShadows.class)
+			.t("name", "暗影斗篷")
+			.t("ac_stealth", "潜行")
+			.t("ac_shadow", "耗竭-永影")
+			.t("cooldown", "你的斗篷还需要%d回合来重新激活。")
+			.t("cursed", "你不能使用被诅咒的斗篷。")
+			.t("no_charge", "你的斗篷充能不足无法使用。")
+			.t("desc", "这是盗贼多年前从皇家军械库窃取的一件无价的魔法披风。穿上时，能够使你在短时间内完全隐身。\n\n被使用得越频繁，披风就会变得越强，使盗贼更频繁地隐身，持续时间也更长。")
+			.t("discover_hint", "某位英雄初始携带该物品。")
+			.t("cloakstealth.no_charge", "你的斗篷耗尽了能量。")
+			.t("cloakstealth.levelup", "你的斗篷变得更强大了！")
+			.t("cloakstealth.name", "披风之下")
+			.t("cloakstealth.desc", "你身上的暗影披风正给予你隐形效果。\n\n当你在隐形时敌人无法追踪或攻击你。大部分物理攻击和魔法(比如卷轴和法杖)会不可避免地消除隐形效果。\n\n你会一直拥有该状态，直到你自行取消或披风耗尽能量。");
+	}
+
 
 	public static final String AC_STEALTH = "STEALTH";
 	public static final String AC_SHADOW = "SHADOW";

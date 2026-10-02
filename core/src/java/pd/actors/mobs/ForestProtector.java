@@ -11,8 +11,16 @@ import pd.mechanics.Ballistica;
 import pd.sprites.CharSprite;
 import pd.sprites.ForestProtectorSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class ForestProtector extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ForestProtector.class)
+			.t("name", "森林巫医")
+			.t("desc", "一株打扮得像豺狼巫医的植物，会使用些许法术，但更擅长近战。");
+	}
+
 
 	private static final float TIME_TO_ZAP = 1f;
 

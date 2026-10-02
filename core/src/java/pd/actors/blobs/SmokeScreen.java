@@ -24,8 +24,16 @@ package pd.actors.blobs;
 import pd.effects.BlobEmitter;
 import pd.effects.Speck;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class SmokeScreen extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SmokeScreen.class)
+			.t("name", "烟幕")
+			.t("desc", "这里翻腾着一团浓密的黑烟。");
+	}
+
 	
 	@Override
 	public void use( BlobEmitter emitter ) {

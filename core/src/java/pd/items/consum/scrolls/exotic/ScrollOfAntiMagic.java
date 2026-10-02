@@ -25,8 +25,16 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.MagicImmune;
 import pd.effects.Flare;
 import pd.sprites.ItemIconSheet;
+import pd.messages.InlineText;
 
 public class ScrollOfAntiMagic extends ExoticScroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfAntiMagic.class)
+			.t("name", "驱魔秘卷")
+			.t("desc", "使用这张秘卷会让你被包裹在一个能够屏蔽所有魔法效果的魔力结界中，无论它是有利或是有害。屏蔽效果包括大多数魔法物品效果，例如法杖、卷轴、戒指、神器、附魔与诅咒。特别地，英雄护甲技能足够强大，因而能够不受该秘卷的限制。");
+	}
+
 	
 	{
 		icon = ItemIconSheet.SCROLL_ANTIMAGIC;

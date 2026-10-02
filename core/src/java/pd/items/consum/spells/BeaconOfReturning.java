@@ -51,8 +51,23 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class BeaconOfReturning extends Spell {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(BeaconOfReturning.class)
+			.t("name", "返回晶柱")
+			.t("preventing", "这里强大的魔力流阻止了你的晶柱效果！")
+			.t("creatures", "临近生物的心灵信号干扰不允许你在此刻进行传送。")
+			.t("set", "信标设置在了你现在的位置。")
+			.t("wnd_body", "新的设置会覆盖原来的信标设置的位置。\n\n返回将会让你回到上一个设置的位置并且消耗一个菱晶。")
+			.t("wnd_set", "设置")
+			.t("wnd_return", "返回")
+			.t("desc_set", "信标被设置在了第%d层的某处")
+			.t("desc", "这个复杂的晶柱给予了使用者无视距离返回到设定地点的能力。该晶柱只会在返回时消耗。你可以随时改变它的设定位置，但该晶柱只能记忆最近一次设置的位置。");
+	}
+
 	
 	{
 		image = ConsumScrollAmuletCrystalDict.RETURN_BEACON_0;

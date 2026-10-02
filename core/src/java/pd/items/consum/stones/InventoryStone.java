@@ -33,8 +33,15 @@ import pd.windows.WndBag;
 import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public abstract class InventoryStone extends Runestone {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(InventoryStone.class)
+			.t("ac_use", "使用");
+	}
+
 	
 	{
 		defaultAction = AC_USE;

@@ -36,8 +36,17 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.HeroIcon;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class DivineIntervention extends ClericSpell {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(DivineIntervention.class)
+			.t("name", "神圣干预")
+			.t("short_desc", "大幅强化牧师与盟友的护盾。")
+			.t("desc", "牧师借助圣典向自身与盟友体内注入无懈可击的神力，提升全体护盾至%1$d点并延长%2$d回合超凡升天。该法术无可匹敌的防御力与其极高的充能消耗相匹配。\n\n与超凡升天提供的其他护盾一样，这种护盾不会正常衰减，但在超凡升天结束时会立即消失。");
+	}
+
 
 	public static DivineIntervention INSTANCE = new DivineIntervention();
 

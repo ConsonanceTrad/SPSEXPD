@@ -41,8 +41,17 @@ import pd.utils.GLog;
 import render.utils.data.Callback;
 
 import java.util.HashSet;
+import pd.messages.InlineText;
 
 public class SpectralBlades extends ArmorAbility {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SpectralBlades.class)
+			.t("name", "灵魂飞刃")
+			.t("short_desc", "女猎手向一个目标掷出_灵魂飞刃_，根据装备的近战武器造成伤害。")
+			.t("desc", "女猎手向一名敌人掷出灵能飞刃，就像用近战武器进行远程攻击。该攻击保留包括附魔的所有近战攻击效果。");
+	}
+
 
 	{
 		baseChargeUse = 25f;

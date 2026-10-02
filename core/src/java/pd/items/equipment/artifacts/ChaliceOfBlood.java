@@ -45,8 +45,27 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class ChaliceOfBlood extends Artifact {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ChaliceOfBlood.class)
+			.t("name", "蓄血圣杯")
+			.t("ac_prick", "血祭")
+			.t("ac_bloodangry", "耗竭-血怒")
+			.t("yes", "是的，我知道我在做什么")
+			.t("no", "不，我改主意了")
+			.t("prick_warn", "每次使用圣杯都会消耗更多的生命能量，要是不够小心，这种行为可以轻易地杀死你。\n\n你确定要给它更多的生命能量吗？")
+			.t("onprick", "你刺破了自己的手指，使你的生命精华流入了圣杯。")
+			.t("ondeath", "圣杯将你的生命精华吸噬殆尽了...")
+			.t("desc", "这个闪闪发光的银质圣杯在边沿突兀地装饰着几颗造型尖锐的宝石。")
+			.t("desc_cursed", "被诅咒的圣杯将自己固定在你手上，抑制着你回复生命的能力。")
+			.t("desc_1", "握住圣杯的那一刻，你涌起一股想在那些尖锐宝石上刺伤自己的奇特冲动。")
+			.t("desc_2", "你的一些血液汇集到圣杯里，你可以隐约感受到杯子在为你送来生命能量。你还想用圣杯继续割伤自己，即便你知道那很疼。")
+			.t("desc_3", "圣杯已经被你的生命精华填满。你可以感觉到圣杯正将生命能量倾泻般回馈给你。");
+	}
+
 
 	{
 		image = EquipmentJewelleryArtifactDict.ARTIFACT_CHALICE1;

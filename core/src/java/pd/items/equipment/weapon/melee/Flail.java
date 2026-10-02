@@ -36,8 +36,23 @@ import pd.utils.GLog;
 import render.noosa.Image;
 import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Flail extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Flail.class)
+			.t("name", "链枷")
+			.t("stats_desc", "这是一件不太精准的武器。\n这件武器不能用来伏击。")
+			.t("ability_name", "甩动")
+			.t("spin_warn", "你不能再继续甩动链枷了。")
+			.t("typical_ability_desc", "决斗家可以_甩动_链枷以在短时间内积蓄力量。每甩动一次，链枷一般就会造成_%d点额外伤害_，最多3次。甩动的链枷必定命中。只有开始甩动链枷消耗1点充能。")
+			.t("ability_desc", "决斗家可以_甩动_链枷以在短时间内积蓄力量。每甩动一次，链枷就会造成_%d点额外伤害_，最多3次。甩动的链枷必定命中。只有开始甩动链枷消耗1点充能。")
+			.t("desc", "铁链上附着的一个带刺的钢球。笨重难用，能命中的话威力极强。")
+			.t("spinabilitytracker.name", "蓄势")
+			.t("spinabilitytracker.desc", "决斗家正在甩动链枷，为下一击积蓄力量。每次甩动消耗一回合但会增加伤害，最多甩动三次。只要在甩动中，链枷的攻击就必定命中。\n\n当前甩动次数：%1$d%%。\n剩余回合数：%2$s。");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.FLAIL_0;

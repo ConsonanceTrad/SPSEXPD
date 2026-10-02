@@ -34,8 +34,20 @@ import pd.utils.GLog;
 import render.utils.data.Callback;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Whip extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Whip.class)
+			.t("name", "长鞭")
+			.t("stats_desc", "这件武器有惊人的攻击距离。")
+			.t("ability_name", "狠抽")
+			.t("typical_ability_desc", "决斗家可以用长鞭_狠抽_她周围的所有敌人。这一武技一般会对当前每个处于攻击距离内的敌人都造成_%1$d~%2$d点伤害_，并且必定命中。")
+			.t("ability_desc", "决斗家可以用长鞭_狠抽_她周围的所有敌人。这一武技对当前每个处于攻击距离内的敌人都造成_%1$d~%2$d点伤害_，并且必定命中。")
+			.t("desc", "虽然这把武器另一端带倒刺的绳子伤害不高，但它的攻击范围是数一数二的。");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.WHIP_0;

@@ -15,8 +15,16 @@ import pd.actors.buffs.STRDown;
 import pd.actors.buffs.ToxicImbue;
 import pd.actors.hero.Hero;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Foamedbeverage extends Pill {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Foamedbeverage.class)
+			.t("name", "发泡饮料")
+			.t("desc", "一起哈啤！\n使用_2份水，1份蔬菜，1份种子，1份水果_炼金");
+	}
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	public Foamedbeverage() {}
 	public Foamedbeverage(int number) { quantity = number; }

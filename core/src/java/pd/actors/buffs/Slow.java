@@ -23,8 +23,16 @@ package pd.actors.buffs;
 
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
+import pd.messages.InlineText;
 
 public class Slow extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Slow.class)
+			.t("name", "迟缓")
+			.t("desc", "减速魔法影响了目标的时间流速，在目标眼中所有的事物都移动得飞快。\n\n迟缓下的角色执行所有行动花费的时间是正常状态下的两倍。\n\n迟缓效果剩余时长：%s回合");
+	}
+
 
 	{
 		type = buffType.NEGATIVE;

@@ -22,8 +22,16 @@
 package pd.actors.buffs;
 
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class Bless extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Bless.class)
+			.t("name", "赐福")
+			.t("desc", "你的集中力正在喷薄而出，有人说这是神赐的礼物。\n\n赐福状态能够提高自己25%%的精准与闪避属性，使被赐福者在战斗中势如破竹。\n\n赐福效果剩余时长：%s回合");
+	}
+
 	
 	public static final float DURATION	= 30f;
 	

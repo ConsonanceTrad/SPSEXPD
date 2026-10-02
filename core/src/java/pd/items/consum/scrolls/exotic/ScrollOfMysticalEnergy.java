@@ -28,8 +28,16 @@ import pd.effects.SpellSprite;
 import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class ScrollOfMysticalEnergy extends ExoticScroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfMysticalEnergy.class)
+			.t("name", "魔能秘卷")
+			.t("desc", "奇异的魔法能量被禁锢在秘卷羊皮纸内，当这股能量被释放时会在短时间内持续为阅读者的所有神器充能。");
+	}
+
 	
 	{
 		icon = ItemIconSheet.SCROLL_MYSTENRG;

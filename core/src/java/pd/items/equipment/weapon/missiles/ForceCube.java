@@ -40,8 +40,18 @@ import render.noosa.audio.Sample;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import pd.messages.InlineText;
 
 public class ForceCube extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ForceCube.class)
+			.t("name", "震爆方石")
+			.t("ondeath", "你用震爆方石害死了自己...")
+			.t("stats_desc", "这件武器释放出一阵小范围的能量，冲击邻近的所有单位。")
+			.t("desc", "这些奇形怪状的魔力方块小到可以握在你的手里，但出乎意料地非常重。");
+	}
+
 	
 	{
 		image = ConsumThrowsDict.FORCE_CUBE_0;

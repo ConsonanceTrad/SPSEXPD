@@ -30,8 +30,16 @@ import pd.actors.hero.Hero;
 import pd.effects.FloatingText;
 import pd.sprites.CharSprite;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class SealShard extends RemainsItem {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SealShard.class)
+			.t("name", "纹章残蜡")
+			.t("desc", "这些细碎的红色蜡块似是源于一名葬身于此战士的纹章。你可以感受到其上仍残留的一缕执念，你可以用它来给自己提供一些护盾。但是，伴随着这缕执念转化为护盾，这些蜡块也会烟消云散。");
+	}
+
 
 	{
 		image = ConsumUsefulCorpseRelicsDict.SEAL_SHARD_0;

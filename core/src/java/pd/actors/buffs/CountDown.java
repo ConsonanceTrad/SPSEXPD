@@ -7,8 +7,16 @@ import pd.effects.particles.ShadowParticle;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class CountDown extends Buff implements Hero.Doom, Buff.DOTbuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(CountDown.class)
+			.t("name", "死亡倒计时")
+			.t("desc", "倒计时归零时，目标会失去最大生命值四分之一的生命。剩余回合：%s。");
+	}
+
 	private static final String TICKS = "ticks";
 	private int ticks;
 	{ type = buffType.NEGATIVE; announced = true; }

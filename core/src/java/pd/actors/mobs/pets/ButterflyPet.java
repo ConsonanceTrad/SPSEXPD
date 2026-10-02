@@ -12,8 +12,16 @@ import pd.items.consum.food.fruit.Fruit;
 import pd.sprites.ButterflyPetSprite;
 import pd.sprites.CharSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class ButterflyPet extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ButterflyPet.class)
+			.t("name", "萤石粉蝶")
+			.t("desc", "翅膀能够散发微光的蝴蝶，少数在地下世界生存的品种，对于温度非常敏锐，也因此它们经常会追随人类的冒险者一起行动。");
+	}
+
 	{
 		spriteClass = ButterflyPetSprite.class;
 		cooldown = 50;

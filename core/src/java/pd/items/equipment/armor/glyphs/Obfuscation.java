@@ -24,8 +24,16 @@ package pd.items.equipment.armor.glyphs;
 import pd.actors.Char;
 import pd.items.equipment.armor.Armor;
 import pd.sprites.ItemSprite;
+import pd.messages.InlineText;
 
 public class Obfuscation extends Armor.Glyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Obfuscation.class)
+			.t("name", "晦暗%s")
+			.t("desc", "这个刻印会掩盖使用者的气息，让使用者更难以被发现。");
+	}
+
 
 	private static ItemSprite.Glowing GREY = new ItemSprite.Glowing( 0x888888 );
 

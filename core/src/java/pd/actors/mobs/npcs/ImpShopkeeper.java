@@ -25,8 +25,20 @@ import pd.Dungeon;
 import pd.actors.buffs.AscensionChallenge;
 import pd.messages.Messages;
 import pd.sprites.ImpSprite;
+import pd.messages.InlineText;
 
 public class ImpShopkeeper extends Shopkeeper {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ImpShopkeeper.class)
+			.t("name", "野心勃勃的小恶魔")
+			.t("greetings", "你好，%s！")
+			.t("greetings_ascent", "%s你都做了些什么？要做买卖就快点，我可不想在这里久留！")
+			.t("thief", "我本以为我可以相信你！")
+			.t("buyback", "小恶魔爽快地退还了你的物品。")
+			.t("desc", "小恶魔在恶魔大厅的入口前摆了个小摊。在这能看到一张友好的面孔是挺不错的，但它商品的标价看起来可一点儿也不友好。");
+	}
+
 
 	{
 		spriteClass = ImpSprite.class;

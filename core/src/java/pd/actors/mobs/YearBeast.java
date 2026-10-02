@@ -43,9 +43,21 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.Calendar;
+import pd.messages.InlineText;
 
 /** The roaming year beast summoned by YearFood on depth 25. */
 public class YearBeast extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(YearBeast.class)
+			.t("name", "年兽")
+			.t("disarm", "年兽解除了你的武装！")
+			.t("desc", "传说中的生物，有着人类的智慧，虎的敏捷，熊的力量，凤的魅力。当然，这一切都是传说而已。")
+			.t("notice", "我自由啦！")
+			.t("die", "居然能战胜我！这是给你的奖励。")
+			.t("escape", "现在时候不对，我先溜了。");
+	}
+
 
 	private static final float SPAWN_DELAY = 1f;
 	private static final String TIMES = "times";

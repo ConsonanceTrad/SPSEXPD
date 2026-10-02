@@ -28,8 +28,16 @@ import pd.actors.hero.Hero;
 import pd.effects.FloatingText;
 import pd.sprites.CharSprite;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class TornPage extends RemainsItem {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(TornPage.class)
+			.t("name", "圣典残页")
+			.t("desc", "这片书页看起来是从一位已安息主怀的牧师的圣典上撕扯下来的。其上依旧残存有一丝神力，你可以使用它恢复少许生命值。但若如此书页也会随之烟消云散。");
+	}
+
 
 	{
 		image = ConsumUsefulCorpseRelicsDict.TORN_PAGE_0;

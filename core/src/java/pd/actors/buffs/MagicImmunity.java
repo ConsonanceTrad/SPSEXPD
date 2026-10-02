@@ -12,8 +12,16 @@ import pd.actors.mobs.Eye;
 import pd.actors.mobs.Warlock;
 import pd.actors.mobs.YogFist;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class MagicImmunity extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(MagicImmunity.class)
+			.t("name", "奥术护盾")
+			.t("desc", "奥术护盾可以为目标提供一定抗性。\n\n剩余的护盾效果时长：%s回合");
+	}
+
 
 	public static final float DURATION = 10f;
 

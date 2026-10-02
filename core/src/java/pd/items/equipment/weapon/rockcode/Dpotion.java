@@ -9,8 +9,17 @@ import pd.actors.buffs.ShadowCurse;
 import pd.effects.MagicMissile;
 import pd.mechanics.Ballistica;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Dpotion extends RockCode {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Dpotion.class)
+			.t("name", "暗黑药水")
+			.t("desc", "来自瘟疫医生的能力，向一个地方投掷黑暗药水。")
+			.t("stats_desc", "消耗4点能量中的1点，造成随英雄等级提高的黑暗伤害，并有概率施加延迟爆发的暗影诅咒。");
+	}
+
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "D.p"; }
 	@Override protected int missileType() { return MagicMissile.SHADOW; }
 

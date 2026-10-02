@@ -11,9 +11,18 @@ import render.noosa.Game;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Test-mode emergency device which opens the legacy memory save slots. */
 public class SaveYourLife extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SaveYourLife.class)
+			.t("name", "紧急离线装置")
+			.t("ac_save", "离线")
+			.t("desc", "这是什么，这不应该在非测试模式下出现。");
+	}
+
 
 	private static final String AC_SAVE = "SAVE";
 

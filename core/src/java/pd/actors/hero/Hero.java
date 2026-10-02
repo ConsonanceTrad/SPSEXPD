@@ -276,8 +276,33 @@ import render.utils.serialize.Bundle;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
+import pd.messages.InlineText;
 
 public class Hero extends Char {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Hero.class)
+			.t("name", "你")
+			.t("leave", "从没有人愿意这么轻易地离开像素地牢。")
+			.t("level_up", "升级！")
+			.t("new_level", "升级！精准+，闪避+，最大生命值+5！")
+			.t("new_talent", "天赋点+1！")
+			.t("unspent", "你还有尚未使用的天赋点！")
+			.t("level_cap", "你不能变得更强了，不过你的经验给了你一股力量！")
+			.t("you_now_have", "你获得了：%s。")
+			.t("you_cant_have", "你无法携带：%s。")
+			.t("locked_chest", "箱子锁着而你没有对应的钥匙。")
+			.t("locked_door", "你没有对应的钥匙。")
+			.t("noticed_smth", "你注意到了些什么。")
+			.t("wait", "...")
+			.t("fuurai_change", "你的武器变化成了另一种形态！")
+			.t("search", "搜索")
+			.t("search_distracted", "你没办法集中精力，探索周边异常费力。")
+			.t("key_distracted", "你没能打开这把锁，还得再试试。")
+			.t("pain_resist", "疼痛使你得以抵抗睡意。")
+			.t("revive", "重生十字章迸裂出苏生的能量！");
+	}
+
 
 	{
 		actPriority = HERO_PRIO;

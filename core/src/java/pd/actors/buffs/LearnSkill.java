@@ -5,9 +5,17 @@ import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Grants permanent combat growth after the requested number of hostile kills. */
 public class LearnSkill extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(LearnSkill.class)
+			.t("name", "学习技能")
+			.t("desc", "再击杀%s个敌对单位后，攻击、闪避、魔力与生命上限将永久提高。");
+	}
+
 	private static final String LEFT = "left";
 	private int left;
 	{ type = buffType.POSITIVE; announced = true; }

@@ -13,8 +13,18 @@ import pd.utils.GLog;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class RangeBag extends MiscEquippable {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RangeBag.class)
+			.t("name", "飞镖袋")
+			.t("ac_buy", "购买")
+			.t("need_gold", "你需要500金币才能购买一件投掷武器。")
+			.t("desc", "为狩猎年兽专门准备的袋子。花费500金币可以购买一件旧版投掷物；装备后，致命一击有六分之一概率额外掉落一件。");
+	}
+
 
 	public static final String AC_BUY = "BUY";
 	public static final int PRICE = 500;

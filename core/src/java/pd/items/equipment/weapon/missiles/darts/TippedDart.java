@@ -54,8 +54,25 @@ import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import pd.messages.InlineText;
 
 public abstract class TippedDart extends Dart {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(TippedDart.class)
+			.t("ac_clean", "清洗")
+			.t("clean_title", "清洗飞镖")
+			.t("clean_desc", "这项操作会去除飞镖上的涂药，将其变回普通飞镖。")
+			.t("clean_all", "清洗全部")
+			.t("clean_one", "清洗一枚")
+			.t("cancel", "取消")
+			.t("uses_left", "这些涂药飞镖再使用_%d/%d_次就会有一个失去药效。")
+			.t("unlimited_uses", "_但精良的做工令其经久耐用，不会因为使用过度而损坏。_")
+			.t("about_to_break", "你飞镖上的涂药快要失效了。")
+			.t("has_broken", "你飞镖上的涂药已经失效了。")
+			.t("discover_hint", "你可在商店中中购买或用种子制作该物品。");
+	}
+
 	
 	{
 		tier = 2;

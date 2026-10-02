@@ -13,9 +13,17 @@ import pd.actors.buffs.Vertigo;
 import pd.items.equipment.bags.HeartOfScarecrow;
 import pd.sprites.ScarecrowSprite;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** The original passive damage-test scarecrow. */
 public class TestMob extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(TestMob.class)
+			.t("desc", "试试看，你能打多少伤害。")
+			.t("name", "稻草人");
+	}
+
 
 	private static final String SKILL = "skill";
 	private boolean skill;

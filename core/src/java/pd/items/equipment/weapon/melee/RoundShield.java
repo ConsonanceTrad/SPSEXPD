@@ -33,8 +33,25 @@ import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class RoundShield extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RoundShield.class)
+			.t("name", "圆盾")
+			.t("typical_stats_desc", "这件武器通常能格挡0~%d点伤害。格挡量随升级而增长。")
+			.t("stats_desc", "这件武器能格挡0~%d点伤害。格挡量随升级而增长。")
+			.t("ability_name", "护卫")
+			.t("typical_ability_desc", "决斗家可以用圆盾_护卫_自己，一般会在_%d回合_内完全抵挡针对自己的物理或魔法攻击。一旦决斗家抵挡过攻击，再行还击或施法，都会终止护卫状态。")
+			.t("ability_desc", "决斗家可以用圆盾_护卫_自己，在_%d回合_内完全抵挡针对自己的所有物理或魔法攻击。一旦决斗家抵挡过攻击，再行还击或施法，都会终止护卫状态。")
+			.t("upgrade_ability_stat_name", "武技持续时间")
+			.t("desc", "这个大盾可以有效格挡攻击，在危机时刻也可以作为不错的武器使用。")
+			.t("guardtracker.name", "护卫中")
+			.t("guardtracker.guarded", "被护卫")
+			.t("guardtracker.desc", "决斗家已经准备好她的盾牌以应对即将到来的攻击。针对她的物理或魔法攻击将被完全抵挡。\n\n剩余回合数：%s。");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.ROUND_SHIELD_0;

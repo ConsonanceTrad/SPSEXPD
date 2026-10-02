@@ -31,8 +31,18 @@ import pd.actors.buffs.Buff;
 import pd.items.equipment.rings.RingOfSharpshooting;
 import pd.messages.Messages;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Tomahawk extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Tomahawk.class)
+			.t("name", "飞斧")
+			.t("stats_desc", "这件武器对其目标施加_%1$d~%2$d点流血_。")
+			.t("typical_stats_desc", "这件武器通常对其目标施加_%1$d~%2$d点流血_。")
+			.t("desc", "这些飞斧的锯刃只要卡在敌人身上就能造成流血的撕裂伤口。");
+	}
+
 
 	{
 		image = ConsumThrowsDict.TOMAHAWK_0;

@@ -13,8 +13,18 @@ import pd.effects.Speck;
 import pd.items.equipment.weapon.enchantments.JupitersHorror;
 import render.noosa.Camera;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class JupitersWraith extends RelicMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(JupitersWraith.class)
+			.t("name", "落岩圆刃")
+			.t("desc", "这件刃缘锋利的圆形武器，只要熟练使用便能在命中后返回手中。\n借由黄色魔法石的能量，它可以威慑目标，并在充能完毕后震击大范围内的敌人。")
+			.t("ac_explode", "落岩震击")
+			.t("stats_desc", "");
+	}
+
 
 	public static final String AC_EXPLODE = "EXPLODE";
 

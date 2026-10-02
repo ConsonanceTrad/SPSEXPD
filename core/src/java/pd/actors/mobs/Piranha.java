@@ -38,8 +38,17 @@ import pd.levels.FieldOfView;
 import pd.sprites.PiranhaSprite;
 import render.utils.data.BArray;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Piranha extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Piranha.class)
+			.t("name", "巨型肉食鱼")
+			.t("desc", "这些肉食性鱼类不是地下水池中的天然生物。它们被专门培育用来保护被水淹没的储藏室。")
+			.t("discover_hint", "你可在任何地牢区域中遇到该敌人。");
+	}
+
 	@Override public Item SupercreateLoot() { return new HugeShuriken(); }
 	
 	{

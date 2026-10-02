@@ -21,9 +21,18 @@ import pd.tiles.DungeonTilemap;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The wall-piercing light wand from SPS-PD 0.9.8. */
 public class WandOfLight extends DamageWand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfLight.class)
+			.t("name", "强光法杖")
+			.t("desc", "这根光属性法杖由一块实心半透明水晶构成，就像一块厚长光滑的玻璃。细小的彩光在法杖尖端跃动。")
+			.t("stats_desc", "该法杖会发射一道穿墙光线，造成_%1$d~%2$d点伤害_并可能致盲目标，对亡灵与恶魔造成更高伤害。");
+	}
+
 
 	{
 		image = EquipmentWandBasicWandDict.WAND_LIGHT;

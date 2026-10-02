@@ -20,8 +20,18 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class GrassBook extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(GrassBook.class)
+			.t("name", "自然之书")
+			.t("ac_read", "自然转换")
+			.t("ac_read2", "枯枝护佑")
+			.t("desc", "树灵携带的智慧之书，每次使用消耗500金币。它可以创造一件自然物品，也可以提供漂浮与物理护盾，并使周围长出旧式高草。");
+	}
+
 	public static final String AC_READ = "READ";
 	public static final String AC_READ2 = "READ2";
 	public static final int GOLD_COST = 500;

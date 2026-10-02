@@ -33,9 +33,19 @@ import pd.messages.Messages;
 import pd.sprites.BeeSprite;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 //FIXME the AI for these things is becoming a complete mess, should refactor
 public class Bee extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Bee.class)
+			.t("name", "金色蜜蜂")
+			.t("desc_honey", "尽管金色蜜蜂体型不大，但它们也会尽全力守卫自己的家园。这只蜜蜂受过你的安抚，似乎愿意追随你。")
+			.t("desc", "尽管金色蜜蜂体型不大，但它们也会尽全力守卫自己的家园。这只蜜蜂非常疯狂，你最好和它保持距离。")
+			.t("discover_hint", "你可通过某个道具遇到该单位。");
+	}
+
 	
 	{
 		spriteClass = BeeSprite.class;

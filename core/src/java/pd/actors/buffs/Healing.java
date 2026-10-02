@@ -29,8 +29,16 @@ import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
 import render.utils.math.GameMath;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Healing extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Healing.class)
+			.t("name", "治疗")
+			.t("desc", "一股治愈魔力让你的伤口开始愈合。\n\n你的生命将逐回合稳定回复，直到治疗效果终止。治疗量将随着时间逐渐减少。\n\n下一回合治疗量：%d\n\n剩余治疗量：%d。");
+	}
+
 
 	private int healingLeft;
 	

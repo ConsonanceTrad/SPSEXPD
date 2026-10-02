@@ -28,8 +28,33 @@ import render.noosa.Game;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class TimeOclock extends Artifact {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(TimeOclock.class)
+			.t("name", "时间怀表")
+			.t("ac_activate", "激活")
+			.t("ac_restart", "耗竭-重置")
+			.t("in_use", "你的怀表正在使用中。")
+			.t("no_charge", "怀表的充能不足。")
+			.t("cursed", "受诅咒的怀表无法使用。")
+			.t("onstasis", "你周遭的世界似乎就在这一瞬间变化了。")
+			.t("onfreeze", "你周围的一切突然缓慢下来。")
+			.t("prompt", "你想怎样使用怀表的魔法？\n\n当你被静止，周围的时间会正常流动，而你则会冻结并变得无敌。\n\n当时间被减缓，你的行动会被加快。")
+			.t("stasis", "使我彻底静止")
+			.t("freeze", "延缓周围时间")
+			.t("desc", "这只小型的华贵怀表看起来却并不怎么起眼，但你仍觉得它精雕细刻的框架内蕴含着某种强大的力量。在看着秒针转动的同时，你能感受到一种魔法正在拉扯着你，使用这种魔法肯定能给你一些控制时间的方法。")
+			.t("desc_hint", "怀表指针有些僵硬，如果你能找到一些发条……")
+			.t("desc_cursed", "被诅咒的怀表把它自己锁在了你的身边，你可以感觉它试图操纵你的时间流动。")
+			.t("clock.name", "魔法发条")
+			.t("clock.levelup", "你给你的怀表上了发条。")
+			.t("clock.maxlevel", "你的怀表已经拧不动了！")
+			.t("clock.no_hourglass", "你没有需要这个发条的时间怀表。")
+			.t("clock.desc", "这一发条应该能够在你的怀表上完美使用。");
+	}
+
 	public static final String AC_ACTIVATE="ACTIVATE",AC_RESTART="RESTART";
 	private static final String SANDBAGS="sandbags",STASIS="stasis",LEGACY_BUFF="buff";
 	private int sandBags;

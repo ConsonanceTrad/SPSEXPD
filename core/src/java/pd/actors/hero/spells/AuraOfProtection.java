@@ -34,8 +34,19 @@ import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import render.noosa.audio.Sample;
 import render.noosa.particles.Emitter;
+import pd.messages.InlineText;
 
 public class AuraOfProtection extends ClericSpell {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(AuraOfProtection.class)
+			.t("name", "守御灵光")
+			.t("short_desc", "强化圣骑士与附近盟友的防御。")
+			.t("desc", "圣骑士开始辐射出保护性能量，在自身周围形成一片持续20回合的守御灵光。在圣骑士2格范围内的任何盟友(包括圣骑士自身)都会获得%1$d%%的伤害减免与%2$d%%的圣骑士护甲刻印强化。\n\n该伤害减免优先于其他减伤效果(例如护甲)生效。刻印强化会始终生效，但如果某单位(例如圣骑士自身、虹卫)已从圣骑士的刻印中获得效益，则该法术无法使其再次从中获得效益。")
+			.t("aurabuff.name", "守御灵光")
+			.t("aurabuff.desc", "圣骑士正在自身周围辐射出保护性能量。\n\n附近的任何盟友(包括圣骑士自身)都会获得伤害减免与圣骑士护甲刻印强化。\n\n剩余回合数：%s");
+	}
+
 
 	public static AuraOfProtection INSTANCE = new AuraOfProtection();
 

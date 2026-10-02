@@ -20,8 +20,19 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class MegaCannon extends SpsRangedWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MegaCannon.class)
+			.t("name", "洛克手炮")
+			.t("ac_shoot", "射击")
+			.t("prompt", "选择一个目标")
+			.t("damage", "每点能量造成_%1$d-%2$d点伤害_，最多储存3点能量。")
+			.t("desc", "洛克人的手炮。近战攻击不造成伤害，而是为远程射击积蓄能量。");
+	}
+
 	public static final String AC_SHOOT = "SHOOT";
 	public static final int FULL_CHARGE = 3;
 	private static final String CHARGE = "charge";

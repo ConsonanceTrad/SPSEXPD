@@ -15,9 +15,24 @@ import pd.windows.WndUseItem;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Tester mission pad for spending experiment points on permanent item upgrades. */
 public class RewardPaper extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RewardPaper.class)
+			.t("name", "报酬清单")
+			.t("ac_choose", "选择")
+			.t("ac_doup", "强化")
+			.t("ac_dore", "破阶")
+			.t("ac_dosp", "锁定")
+			.t("ac_need", "购买")
+			.t("ac_rankup", "提升")
+			.t("prompt", "选择一件物品")
+			.t("desc", "用试验获得的点数兑换奖励。锁定与提升需要50点；强化与破阶需要100点；购买奖励需要1000金币。");
+	}
+
 
 	public static final String AC_CHOOSE = "CHOOSE";
 	public static final String AC_DOSP = "DOSP";

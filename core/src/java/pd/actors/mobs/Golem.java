@@ -39,8 +39,17 @@ import pd.items.equipment.weapon.guns.GunE;
 import pd.scenes.GameScene;
 import pd.sprites.GolemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Golem extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Golem.class)
+			.t("name", "魔像")
+			.t("def_verb", "格挡")
+			.t("desc", "矮人们尝试将他们关于机械的知识与新发现的元素力量结合起来。土地之灵作为公认的最容易掌控的元素之灵，被用来当作机械的\"灵魂\"。尽管如此，仪式中最细微的失误都会造成严重的爆炸。");
+	}
+
 	
 	{
 		spriteClass = GolemSprite.class;

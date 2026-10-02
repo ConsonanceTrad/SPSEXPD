@@ -30,8 +30,18 @@ import pd.actors.hero.Hero;
 import pd.items.Item;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class MeatPie extends Food {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MeatPie.class)
+			.t("name", "全肉大饼")
+			.t("eat_msg", "这食物味道真棒！")
+			.t("desc", "一份填满了美味肉馅的诱人大饼。吃下它后你会获得远高于其他食物的饱足感。")
+			.t("discover_hint", "你可通过炼金合成该物品。");
+	}
+
 	
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

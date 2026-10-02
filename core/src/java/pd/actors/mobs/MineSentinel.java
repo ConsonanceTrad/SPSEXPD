@@ -22,9 +22,17 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Steel guardian from the SPS energy-core arena. */
 public class MineSentinel extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(MineSentinel.class)
+			.t("name", "钢铁守卫")
+			.t("desc", "钢铁守卫和普通活化石像的区别就是材质不同。它手上握着_%s_，看起来非常危险。");
+	}
+
 
 	private static final int LEGACY_DEPTH = 67;
 	private static final int REGENERATION = 100;

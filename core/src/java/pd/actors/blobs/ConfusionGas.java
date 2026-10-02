@@ -29,8 +29,16 @@ import pd.actors.buffs.Vertigo;
 import pd.effects.BlobEmitter;
 import pd.effects.Speck;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class ConfusionGas extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ConfusionGas.class)
+			.t("name", "致眩气体")
+			.t("desc", "这里盘绕着一片致眩气体。");
+	}
+
 
 	@Override
 	protected void evolve() {

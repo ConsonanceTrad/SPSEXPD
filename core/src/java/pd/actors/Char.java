@@ -232,8 +232,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import pd.messages.InlineText;
 
 public abstract class Char extends Actor {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Char.class)
+			.t("kill", "%s杀害了你....")
+			.t("defeat", "你击败了%s。")
+			.t("def_verb", "闪避")
+			.t("invulnerable", "无敌")
+			.t("immune", "免疫");
+	}
+
 	
 	public int pos = 0;
 	

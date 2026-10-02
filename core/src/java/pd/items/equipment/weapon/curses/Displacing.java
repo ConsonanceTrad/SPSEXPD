@@ -30,8 +30,17 @@ import pd.items.consum.scrolls.ScrollOfTeleportation;
 import pd.items.equipment.weapon.Weapon;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Displacing extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Displacing.class)
+			.t("name", "转移%s")
+			.t("desc", "转移诅咒的武器被灌注了混乱的传送魔法，会将敌人传送到当前层的随机位置。")
+			.t("elestrike_desc", "武器拥有转移诅咒时，元素打击对范围内的每个敌人都有50%概率进行传送。");
+	}
+
 
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 

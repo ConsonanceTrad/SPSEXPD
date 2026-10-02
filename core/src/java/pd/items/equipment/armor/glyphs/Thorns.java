@@ -27,8 +27,16 @@ import pd.actors.buffs.Buff;
 import pd.items.equipment.armor.Armor;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Thorns extends Armor.Glyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Thorns.class)
+			.t("name", "荆棘%s")
+			.t("desc", "这个强力的刻印会伤害那些攻击穿戴者的敌人，使它们缓慢流血。");
+	}
+
 
 	private static ItemSprite.Glowing RED = new ItemSprite.Glowing( 0x660022 );
 

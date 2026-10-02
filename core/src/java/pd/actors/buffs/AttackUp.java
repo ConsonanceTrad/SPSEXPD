@@ -4,8 +4,16 @@ package pd.actors.buffs;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class AttackUp extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(AttackUp.class)
+			.t("name", "攻击提升")
+			.t("desc", "剩余%1$s回合，物理攻击伤害提高%2$s%%。");
+	}
+
 	private static final String LEVEL = "level";
 	private static final String LEGACY_LEFT = "left";
 	private int level;

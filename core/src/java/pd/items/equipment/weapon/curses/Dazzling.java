@@ -32,8 +32,17 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Dazzling extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Dazzling.class)
+			.t("name", "炫目%s")
+			.t("desc", "炫目武器会不时释放刺目的强光，致盲所有视野范围内的单位。")
+			.t("elestrike_desc", "武器拥有炫目诅咒时，元素打击对范围内的每个敌人都有50%概率造成持续6回合的失明。");
+	}
+
 
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 

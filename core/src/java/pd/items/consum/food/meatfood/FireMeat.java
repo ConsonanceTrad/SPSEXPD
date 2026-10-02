@@ -5,8 +5,16 @@ import pd.atlas.items.ConsumFoodFoodDict;
 
 import pd.items.consum.food.Food;
 import pd.sprites.ItemSprite;
+import pd.messages.InlineText;
 
 public class FireMeat extends MeatFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(FireMeat.class)
+			.t("name", "烤肉排")
+			.t("desc", "烧烤是最基础的处理方式，可以延长保存时间并提供更多能量。");
+	}
+
 	private static final ItemSprite.Glowing RED = new ItemSprite.Glowing(0xCC0000);
 	{
 		image = ConsumFoodFoodDict.MEAT;

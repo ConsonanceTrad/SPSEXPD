@@ -15,9 +15,19 @@ import render.noosa.Game;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** The original unique Boss Rush invitation. Its destination is restored separately. */
 public class BossRush extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(BossRush.class)
+			.t("name", "BossRush挑战")
+			.t("ac_read", "使用")
+			.t("desc", "坚果制作的终极挑战，使用它将会带你前往全新Boss面前。")
+			.t("ac_return", "返回");
+	}
+
 	public static final int BRANCH = 45;
 	private static final float TIME_TO_USE = 1f;
 

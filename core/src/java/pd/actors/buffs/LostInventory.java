@@ -24,8 +24,16 @@ package pd.actors.buffs;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class LostInventory extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(LostInventory.class)
+			.t("name", "遗落行囊")
+			.t("desc", "你的行囊被遗落在了地牢中的某处！\n在找回你的行囊之前，你将无法拾起或使用绝大多数道具。");
+	}
+
 
 	{
 		type = buffType.NEGATIVE;

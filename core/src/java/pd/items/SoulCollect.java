@@ -10,9 +10,19 @@ import pd.messages.Messages;
 import pd.utils.GLog;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Zot's soul, used outside the prison to finish Otiluke's rescue. */
 public class SoulCollect extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SoulCollect.class)
+			.t("name", "灵魂囚禁石")
+			.t("desc", "难以想象Otiluke竟会被这种东西困住。破坏它就能救出他。")
+			.t("ac_break", "破坏")
+			.t("win", "谢谢你。虽然还不知道你是谁，但我们小镇见吧。");
+	}
+
 
 	public static final String AC_BREAK = "BREAK";
 

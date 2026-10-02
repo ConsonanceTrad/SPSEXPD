@@ -46,8 +46,18 @@ import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class CrystalMimic extends Mimic {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(CrystalMimic.class)
+			.t("name", "水晶宝箱怪")
+			.t("ate", "水晶宝箱怪吃掉了你的%s！")
+			.t("escaped", "水晶宝箱怪逃跑了！")
+			.t("desc", "宝箱怪是一种能随意改变外形的魔法生物。在地牢里它们几乎总会以宝箱形态出现，因为这样更能吸引疏于防备的冒险家。\n\n水晶宝箱怪相比于它们的近亲更为狡猾，会偷取物品并尽量避免争斗。它们会在被发现后迅速逃离，还能通过攻击将敌人移位。");
+	}
+
 
 	{
 		spriteClass = MimicSprite.Crystal.class;

@@ -36,8 +36,18 @@ import pd.sprites.ItemIconSheet;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class PotionOfCleansing extends ExoticPotion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfCleansing.class)
+			.t("name", "全面净化合剂")
+			.t("desc", "当这种合剂被饮用时，它可以令饮用者短时间内对所有负面状态效果的免疫。它同样可以被扔向某个单位以清除该单位的负面状态效果。")
+			.t("cleanse.name", "全面净化")
+			.t("cleanse.desc", "这个角色暂时免疫所有的负面状态效果！\n\n剩余时长：%s");
+	}
+
 	
 	{
 		icon = ItemIconSheet.POTION_CLEANSE;

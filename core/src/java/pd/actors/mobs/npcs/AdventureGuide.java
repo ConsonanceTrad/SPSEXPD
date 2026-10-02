@@ -29,8 +29,39 @@ import pd.windows.WndBag;
 import pd.windows.WndMessage;
 import pd.windows.WndOptions;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class AdventureGuide extends NPC {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(AdventureGuide.class)
+			.t("name_0", "居所记录员")
+			.t("desc_0", "记录员负责维持返回主地牢的稳定路线。安全居所不会生成可反复获取的补给。")
+			.t("dialogue_0", "异界日志已经与居所路标同步，推箱练习场的路线已被记录。")
+			.t("name_5", "多利亚镇委托人")
+			.t("desc_5", "委托人负责登记城镇远征。完成这次交谈后，春节庭院与矿区路线会依次开放。")
+			.t("dialogue_5", "城镇档案已经认可你的异界日志，春节庭院被登记为下一项委托。")
+			.t("name_8", "新居看守者")
+			.t("desc_8", "看守者守护着从和平地图通往危险远征链的路线。")
+			.t("dialogue_8", "准备已经完成，寄生虫巢被登记为第一项战斗远征。")
+			.t("town_shop", "查看有限补给")
+			.t("town_leave", "暂时离开")
+			.t("shop_title", "多利亚镇补给")
+			.t("shop_desc", "这些货物每局各有一件，售出后不会补货。信徒职业享受九折价格。")
+			.t("stock_0", "治疗药剂 - %d金币")
+			.t("stock_1", "食物 - %d金币")
+			.t("stock_2", "魔法地图卷轴 - %d金币")
+			.t("stock_3", "鉴定卷轴 - %d金币")
+			.t("sold", "（已售出）")
+			.t("not_enough", "你的金币不够。")
+			.t("bought", "你用%2$d金币购买了%1$s。")
+			.t("forge", "异界锻造 - %d金币")
+			.t("forge_spent", "异界锻造（本局已使用）")
+			.t("forge_prompt", "选择一件未强化的融合武器")
+			.t("forge_already", "这件武器已经强化过，无法接受这次有限锻造。")
+			.t("forged", "%s被稳定强化到+1。异界锻炉在本局中已经熄灭。");
+	}
+
 
 	private int destination;
 	private int purchasedMask;

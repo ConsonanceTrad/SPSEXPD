@@ -19,8 +19,22 @@ import pd.windows.WndBag;
 import pd.windows.WndOptions;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class GreatRune extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(GreatRune.class)
+			.t("name", "附魔符文")
+			.t("ac_inscribe", "附魔")
+			.t("prompt", "选择一件要附魔的装备")
+			.t("weapon", "为这件武器选择一个附魔。")
+			.t("armor", "为这件护甲选择一个刻印。")
+			.t("cancel", "放弃附魔")
+			.t("item", "你完成了附魔。")
+			.t("desc", "为武器或护甲随机提供三种附魔供你选择。它可以用磨刀石和奥术刻笔锻造而成。");
+	}
+
 
 	public static final String AC_INSCRIBE = "INSCRIBE";
 

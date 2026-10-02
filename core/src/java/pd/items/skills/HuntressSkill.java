@@ -17,9 +17,21 @@ import pd.scenes.GameScene;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** The four huntress class skills from SPS-PD 0.9.8. */
 public class HuntressSkill extends ClassSkill {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(HuntressSkill.class)
+			.t("name", "猎手技能")
+			.t("ac_special", "狩猎本能")
+			.t("ac_special_two", "遗迹之光")
+			.t("ac_special_three", "自然之助")
+			.t("ac_special_four", "战争古树")
+			.t("desc", "_狩猎本能：_获得瞄准射击、针刺和一种随机元素灌注。达到56级后同时获得全部元素灌注。\n\n_遗迹之光（21级）：_获得一个露珠奖励包。达到56级后破阶首件符合条件的装备。\n\n_自然之助（31级）：_获得三件投射武器并召唤一只精灵。达到56级后召唤更强的糖梅精灵。\n\n_战争古树（41级）：_缠绕附近视野内的敌人并使其寄生，随后召唤战争古树。");
+	}
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 
 	@Override public void doSpecial() {

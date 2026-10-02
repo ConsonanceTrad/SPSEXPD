@@ -6,8 +6,16 @@ import pd.actors.Char;
 import pd.items.equipment.bombs.BuildBomb;
 import pd.sprites.CocoCatSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class CocoCat extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(CocoCat.class)
+			.t("name", "椰子猫")
+			.t("desc", "椰子所培养的宠物猫。它和椰子一样携带着大量的炸弹。");
+	}
+
 	{
 		spriteClass = CocoCatSprite.class;
 		cooldown = 50;

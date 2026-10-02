@@ -4,9 +4,17 @@ package pd.actors.buffs;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Soldier armor which absorbs all damage and also decays by one point per turn. */
 public class MechArmor extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(MechArmor.class)
+			.t("name", "机械护甲")
+			.t("desc", "机械护甲会吸收全部伤害，但每回合也会损失1点。剩余护甲：%s。");
+	}
+
 	private static final String LEVEL = "level";
 	private int level;
 	{ type = buffType.POSITIVE; announced = true; }

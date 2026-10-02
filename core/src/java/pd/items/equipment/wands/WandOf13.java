@@ -24,9 +24,18 @@ import render.utils.data.Callback;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Ice13's Blood Moon wand from SPS-PD 0.9.8. */
 public class WandOf13 extends DamageWand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOf13.class)
+			.t("name", "血色月华")
+			.t("desc", "这根暗属性法杖是佣兵十三根据血月设计的，它能释放毁灭性的月蚀。")
+			.t("stats_desc", "这根法杖射出的光束能穿透任何障碍物，造成_%1$d~%2$d点伤害_，并使目标流血和破甲。");
+	}
+
 
 	private static final ItemSprite.Glowing RED = new ItemSprite.Glowing(0xCC0000);
 

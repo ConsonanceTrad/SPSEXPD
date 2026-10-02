@@ -12,9 +12,16 @@ import pd.effects.BlobEmitter;
 import pd.effects.Speck;
 import pd.messages.Messages;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** SPS-PD's stacking slow and vulnerability cloud. */
 public class SwampGas extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SwampGas.class)
+			.t("desc", "这里盘绕着棕色的沼泽气体。它会使其中的生物易伤且越来越迟缓，并且非常易燃。");
+	}
+
 
 	@Override
 	protected void evolve() {

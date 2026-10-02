@@ -24,8 +24,17 @@ package pd.items.equipment.weapon.missiles;
 import pd.atlas.items.ConsumThrowsDict;
 
 import pd.Assets;
+import pd.messages.InlineText;
 
 public class ThrowingSpike extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ThrowingSpike.class)
+			.t("name", "飞刺")
+			.t("desc", "这些尖尖的金属箭是用来扔向远处的敌人的。")
+			.t("discover_hint", "某位英雄初始携带该物品。");
+	}
+
 
 	{
 		image = ConsumThrowsDict.THROWING_SPIKE_0;

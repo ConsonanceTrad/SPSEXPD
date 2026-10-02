@@ -128,8 +128,20 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
+import pd.messages.InlineText;
 
 public abstract class Mob extends Char {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Mob.class)
+			.t("died", "你依稀听到远处有什么东西死掉了。")
+			.t("sps_clear", "本层已清理，规定时间还剩%d回合。露珠奖励已掉落。")
+			.t("sps_clear_late", "本层已清理，但已超过规定时间，没有获得清层奖励。")
+			.t("rage", "#$%^")
+			.t("rankings_desc", "死于：%s")
+			.t("discover_hint", "你可在某个地牢区域中遇到该敌人。");
+	}
+
 	public boolean firstItem = true;
 
 	{

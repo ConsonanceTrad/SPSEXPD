@@ -24,9 +24,19 @@ package pd.items.equipment.trinkets;
 import pd.atlas.items.EquipmentNonEquipDict;
 
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 //🍋‍🟩
 public class FerretTuft extends Trinket {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(FerretTuft.class)
+			.t("name", "雪貂绒束")
+			.t("desc", "一簇银白色的雪貂丝绒，以黄绿色的蝴蝶结捆为一束。雪貂因其敏捷、顽皮与狡黠而闻名。这种力量似乎从这件饰物散发而出，加强了附近任何单位的闪避能力。")
+			.t("typical_stats_desc", "这件饰物通常会提升所有单位_%1$s%%_的闪避。")
+			.t("stats_desc", "在当前等级下，这件饰物会提升所有单位 _%1$s%%_的闪避。");
+	}
+
 
 	{
 		image = EquipmentNonEquipDict.FERRET_TUFT_0;

@@ -28,8 +28,21 @@ import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class Dirk extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Dirk.class)
+			.t("name", "长匕首")
+			.t("stats_desc", "这件武器对未察觉你的敌人更有效。")
+			.t("ability_name", "潜行")
+			.t("typical_ability_desc", "决斗家握持长匕首时可以_潜行_。这个武技能够使决斗家立即闪现最多4格远，并一般给予_%d回合隐形_。")
+			.t("ability_desc", "决斗家握持长匕首时可以_潜行_。这个武技能够使决斗家立即闪现最多4格远，并给予_%d回合隐形_。")
+			.t("upgrade_ability_stat_name", "武技持续时间")
+			.t("desc", "一个长一些的刺击型匕首，可以往敌人身体里捅得更深一点。");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.DIRK_0;

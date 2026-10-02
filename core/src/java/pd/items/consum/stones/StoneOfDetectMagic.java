@@ -34,8 +34,21 @@ import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 public class StoneOfDetectMagic extends InventoryStone {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(StoneOfDetectMagic.class)
+			.t("name", "探魔符石")
+			.t("inv_title", "探测一件物品")
+			.t("detected_none", "你探测出这件物品并不附有任何魔咒。")
+			.t("detected_both", "你探测出这件物品附有附魔/升级与诅咒！")
+			.t("detected_good", "你探测出这件物品附有附魔/升级！")
+			.t("detected_bad", "你探测出这件物品附有诅咒！")
+			.t("desc", "这颗符石能够侦测物品上的魔咒。对一件未鉴定物品使用此符石，可探测其是否附有诅咒，以及是否具有附魔或升级。");
+	}
+
 
 	{
 		preferredBag = Belongings.Backpack.class;

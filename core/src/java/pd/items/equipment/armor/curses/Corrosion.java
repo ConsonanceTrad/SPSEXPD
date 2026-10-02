@@ -30,8 +30,16 @@ import pd.items.equipment.armor.Armor;
 import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Corrosion extends Armor.Glyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Corrosion.class)
+			.t("name", "腐蚀%s")
+			.t("desc", "腐蚀诅咒的护甲会喷溅出腐蚀性液体，为区域内的所有东西盖上一层黏糊糊的酸性淤泥。");
+	}
+
 
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 

@@ -10,7 +10,15 @@ import pd.items.consum.food.fusion.Nut;
 import pd.plants.Plant;
 import pd.sprites.MonkeySprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 public class Monkey extends PET {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Monkey.class)
+			.t("name", "绿皮猴")
+			.t("desc", "严格意义上它并不是猴子，它只是名字上带猴而已。");
+	}
+
 	{ spriteClass = MonkeySprite.class; cooldown = 50; properties.add(Property.HUMAN); updateStats(true); }
 	@Override protected Kind kind() { return Kind.MONKEY; }
 	@Override public boolean lovefood(Item item) { return item instanceof PetFood || item instanceof Fruit || item instanceof Nut; }

@@ -28,9 +28,21 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.UGooSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The four-element lord goo and its original elemental projections. */
 public class UGoo extends BossRushBoss {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(UGoo.class)
+			.t("name", "领主黏咕")
+			.t("desc", "虚空中的一只黏咕投影。它可比这个世界的任何一只黏咕都要强。")
+			.t("earthgoo.name", "黏土黏咕")
+			.t("firegoo.name", "火焰黏咕")
+			.t("icegoo.name", "冰霜黏咕")
+			.t("shockgoo.name", "雷云黏咕");
+	}
+
 
 	{
 		spriteClass = UGooSprite.class;

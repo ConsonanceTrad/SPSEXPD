@@ -40,8 +40,20 @@ import pd.messages.Messages;
 import pd.sprites.MimicSprite;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class EbonyMimic extends Mimic {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(EbonyMimic.class)
+			.t("name", "黑檀宝箱怪")
+			.t("reveal", "那里有一个宝箱怪！")
+			.t("hidden_name", "可疑的轮廓")
+			.t("hidden_desc", "那里似乎有什么东西，但它几乎是完全透明的。")
+			.t("desc", "宝箱怪是一种能随意改变外形的魔法生物。在地牢里它们几乎一直以宝箱形态出现，因为这样总能吸引疏于防备的冒险家。\n\n黑檀宝箱怪凭借其隐匿能力使自身近乎隐形。它们会在冒险家可能交互的事物之上设伏诱敌，攻其不备。与此同时，它们体内也含有其专属的战利品。若能识破其伪装，其攻防能力与普通宝箱怪无异。但若稍有不慎，其出其不意的伏击足以致命。")
+			.t("discover_hint", "你可通过某件饰物遇到该敌人。");
+	}
+
 
 	{
 		spriteClass = MimicSprite.Ebony.class;

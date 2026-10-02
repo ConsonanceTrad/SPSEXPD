@@ -27,8 +27,18 @@ import pd.Assets;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
+import pd.messages.InlineText;
 
 public class ThrowingKnife extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ThrowingKnife.class)
+			.t("name", "飞刀")
+			.t("stats_desc", "这件武器对未察觉你的敌人更有效。")
+			.t("desc", "这些轻便的小刀不同于普通的匕首，平衡的配重使其能在飞行后准确地刺穿目标。")
+			.t("discover_hint", "某位英雄初始携带该物品。");
+	}
+
 	
 	{
 		image = ConsumThrowsDict.THROWING_KNIFE_0;

@@ -61,8 +61,31 @@ import pd.sprites.FistSprite;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public abstract class YogFist extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(YogFist.class)
+			.t("invuln_warn", "拳头邻接古神之眼时无法受到伤害！")
+			.t("rankings_desc", "被Yog-Dzewa吞噬")
+			.t("desc", "这个拳头是古神力量的部分体现。这些拳头与古神的力量相互联系，并且当它们靠近古神之眼时会免疫所有受到的伤害。")
+			.t("burningfist.name", "燃烧之拳")
+			.t("burningfist.desc", "燃烧之拳是由混沌的炽热魔法形成的。它在移动时会不断地引燃周围的环境。它还可以发射火焰能量形成魔法冲击，使目标地陷入一片熊熊烈火。\n\n燃烧之拳引燃环境的能力在靠近水的时候会被抑制，但是其热量实在太大，以至于周围的水很快就会蒸发掉！")
+			.t("soiledfist.name", "大地之拳")
+			.t("soiledfist.desc", "大地之拳是由混沌的大地魔法形成的。当它移动时，它会不断地使周围生出植物。它还可以发射精准的大地冲击，将它的目标困在迅速生长的藤蔓和根系间！\n\n大地之拳能从植物的生命中获得力量，并能根据其周围的植被数量来抵挡伤害！")
+			.t("rottingfist.name", "腐烂之拳")
+			.t("rottingfist.desc", "腐烂之拳是由一团活的腐肉形成的。它是一团高塔般庞大的腐烂血肉，可以在近战中喷溅腐蚀淤泥，并喷射毒气作为远程攻击。更糟糕的是，腐烂之拳的巨大质量导致它受到攻击时只会进入流血状态，而不会直接受到伤害。\n\n腐蚀淤泥可以被水洗去，但腐烂之拳也可以通过吸收水来治愈自己！此外，在其流血时对腐烂之拳造成伤害只会刷新其流血状态而不会加重效果！")
+			.t("rustedfist.name", "锈蚀之拳")
+			.t("rustedfist.desc", "锈蚀之拳是由一块活性金属形成的。它是一块高塔般庞大的活性金属，具有强大的近战能力，并有在远距离使目标残废的能力。由于其巨大的质量，锈蚀之拳所受到的伤害都会被延缓，而非立即作用在其身上。\n\n尽管如此，锈蚀之拳那并不灵活的特性使得它无法通过较窄的走道。另外，虽然锈蚀之拳只会缓慢地受到伤害，但是延缓伤害还会在它受到多次攻击时继续叠加。")
+			.t("brightfist.name", "辉耀之拳")
+			.t("brightfist.teleport", "辉耀之拳在一道使你重度盲目的爆闪中传送到了别处！")
+			.t("brightfist.desc", "辉耀之拳是由纯粹的光能量形成的。它能在每回合射出一道强烈的灼目光束！这些光束除了造成大量伤害外，还会暂时使你失明。辉耀之拳为了逃脱还能发出覆盖全场的刺眼爆闪！\n辉耀之拳在近战中并没有特殊能力。")
+			.t("darkfist.name", "暗影之拳")
+			.t("darkfist.teleport", "暗影之拳在一片使你光源熄灭的漆黑中传送到了别处！")
+			.t("darkfist.desc", "暗影之拳是由纯粹的暗能量形成的。它能在每回合射出强大的暗黑法术！这些法术除了造成大量伤害外，还会削弱你的光源。暗影之拳为了逃脱还能瞬间使全场陷入一片漆黑！\n\n暗影之拳在近战中并没有特殊能力。");
+	}
+
 
 	{
 		HP = HT = 300;

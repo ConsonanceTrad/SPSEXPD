@@ -22,9 +22,17 @@
 package pd.items.equipment.armor;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.messages.InlineText;
 
 
 public class MageArmor extends ClassArmor {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MageArmor.class)
+			.t("name", "英雄法袍")
+			.t("desc", "穿着这件华贵的法袍时，法师可以释放一项特殊的技能。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

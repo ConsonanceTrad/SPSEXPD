@@ -38,8 +38,17 @@ import pd.sprites.CharSprite;
 import pd.sprites.WarlockSprite;
 import pd.utils.GLog;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Warlock extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Warlock.class)
+			.t("name", "矮人术士")
+			.t("bolt_kill", "你死于暗影射弹...")
+			.t("desc", "当矮人的兴趣从工程建设转向奥秘学术时，术士们开始在城市中掌权。它们从元素魔法起步，但很快就开始研究恶魔学和死灵术。");
+	}
+
 	
 	private static final float TIME_TO_ZAP	= 1f;
 	

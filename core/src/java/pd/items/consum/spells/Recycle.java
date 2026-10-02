@@ -42,8 +42,18 @@ import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.utils.GLog;
 import render.utils.serialize.Reflection;
+import pd.messages.InlineText;
 
 public class Recycle extends InventorySpell {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Recycle.class)
+			.t("name", "转换菱晶")
+			.t("inv_title", "转换一件物品")
+			.t("recycled", "你的物品被转换为%s。")
+			.t("desc", "这个菱晶蕴含着弱化的嬗变魔力。虽然不能对装备使用，但它能将卷轴、药剂、种子、符石或涂药飞镖转换为一个随机的同类物品。");
+	}
+
 	
 	{
 		image = ConsumScrollAmuletCrystalDict.RECYCLE_0;

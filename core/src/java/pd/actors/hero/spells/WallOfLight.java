@@ -43,8 +43,19 @@ import pd.scenes.GameScene;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class WallOfLight extends TargetedClericSpell {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(WallOfLight.class)
+			.t("name", "神圣屏障")
+			.t("short_desc", "创造一面阻挡敌人的屏障。")
+			.t("desc", "圣骑士将圣光凝聚为墙壁，在自身面前创造一面1格厚，%1$d格宽，持续20回合的神圣屏障。\n\n神圣屏障除不遮挡视野外与正常墙壁无异。在屏障被创造时，屏障所困住的敌人会被短暂击晕并在条件允许的情况下被击退。屏障所卡住的任何东西都可被取出。\n\n神圣屏障可被正向或斜向施放。如果已有屏障存在，则该法术可被免费再次使用以立即驱散屏障。")
+			.t("early_end", "你驱散了神圣屏障。")
+			.t("lightwall.desc", "神圣屏障阻挡了此处的通路。");
+	}
+
 
 	public static WallOfLight INSTANCE = new WallOfLight();
 

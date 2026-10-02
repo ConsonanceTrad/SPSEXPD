@@ -6,9 +6,18 @@ import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.items.equipment.wands.Wand;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 /** Legacy SPS weakening magic: -3 effective strength and one charge drained from every wand. */
 public class STRDown extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(STRDown.class)
+			.t("name", "虚弱")
+			.t("desc", "你感觉自己的装备突然变得沉重起来。虚弱魔法使你的有效力量降低3点。\n\n剩余时间：%s回合。")
+			.t("heromsg", "你感到力量正在被抽走！");
+	}
+
 
 	{
 		type = buffType.NEGATIVE;

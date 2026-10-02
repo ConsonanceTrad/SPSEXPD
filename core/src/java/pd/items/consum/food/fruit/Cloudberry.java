@@ -9,8 +9,16 @@ import pd.actors.buffs.HasteBuff;
 import pd.actors.buffs.Levitation;
 import pd.actors.hero.Hero;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Cloudberry extends Fruit {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Cloudberry.class)
+			.t("name", "红色浆果")
+			.t("desc", "充满风之能量的轻盈浆果。食用后可加速并恢复生命，还有几率获得漂浮效果。");
+	}
+
 	{ image = ConsumFoodFoodDict.CLOUDBERRY; }
 	@Override protected void onEat(Hero hero) {
 		int roll = Random.Int(10);

@@ -6,8 +6,16 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.Dungeon;
 import pd.items.Heap;
 import pd.items.Item;
+import pd.messages.InlineText;
 
 public class JournalPage extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(JournalPage.class)
+			.t("name", "坐标")
+			.t("desc", "可以收录进冒险日志的地点坐标。");
+	}
+
 	private final int destination;
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

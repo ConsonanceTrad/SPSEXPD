@@ -23,9 +23,21 @@ import pd.items.Generator;
 import pd.items.Item;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The four rogue class skills from SPS-PD 0.9.8. */
 public class RogueSkill extends ClassSkill {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RogueSkill.class)
+			.t("name", "盗贼技能")
+			.t("ac_special", "暗影刺杀")
+			.t("ac_special_two", "探云手")
+			.t("ac_special_three", "宝石打磨")
+			.t("ac_special_four", "信仰之跃")
+			.t("desc", "盗贼可以施展四项职业技能。\n\n_暗影刺杀：_进入隐身，随机获得一项伤害增益，并压制附近视野内的敌人。达到56级后同时获得所有伤害增益。\n\n_探云手（21级）：_从敌人身上夺取特殊物品，并通过近战攻击获得金币。达到56级后两种效果的持续时间翻倍。\n\n_宝石打磨（31级）：_制作一枚已鉴定的+5戒指。达到56级后戒指同时破阶。\n\n_信仰之跃（41级）：_在障碍物旁为下一次攻击蓄力。达到56级后蓄力期间同时隐身。");
+	}
+
 
 	private static final float SKILL_TIME = 1f;
 

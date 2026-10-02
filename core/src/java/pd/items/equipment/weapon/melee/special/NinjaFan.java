@@ -12,8 +12,17 @@ import pd.items.equipment.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class NinjaFan extends NormalMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(NinjaFan.class)
+			.t("name", "忍者蒲扇")
+			.t("desc", "能够施展强风的巨型忍者蒲扇。每第七次命中会击退目标并使其眩晕。")
+			.t("charge", "蓄风：_%1$d/%2$d_。");
+	}
+
 	private static final String CHARGE = "charge";
 	private int charge;
 

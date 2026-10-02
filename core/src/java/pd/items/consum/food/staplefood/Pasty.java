@@ -25,9 +25,34 @@ import pd.messages.Messages;
 import pd.utils.GLog;
 
 import java.util.Calendar;
+import pd.messages.InlineText;
 
 /** SPS-PD's date-sensitive staple food. */
 public class Pasty extends StapleFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Pasty.class)
+			.t("pasty", "肉馅饼")
+			.t("pasty_desc", "这是份正宗康郡肉烘饼，内含土豆加牛肉的传统馅料。")
+			.t("assorted", "春什锦")
+			.t("assorted_desc", "年糕、汤圆和饺子塞满了这个蒸笼。作为新春佳节的传统食物，它能完全消除你的饥饿感并让你充满决心。\n\n春节快乐！")
+			.t("book", "暑假作业")
+			.t("book_desc", "这是一份暑假作业，注意劳逸结合。\n\n暑假快乐！")
+			.t("egg", "七彩蛋")
+			.t("egg_desc", "虽然这个东西看起来不大，但吃下它能够完全消除你的饥饿感，并让你精神抖擞。\n\n复活节快乐！")
+			.t("pie", "南瓜派")
+			.t("pie_desc", "好大的一块南瓜派！甘甜又微辣，它会填饱你的肚子并让你恢复少量生命。\n\n万圣节快乐！")
+			.t("turkey", "烤火鸡")
+			.t("turkey_desc", "刚烤好的一只感恩节火鸡。吃下它可以恢复你的饥饿值并加快你的速度。\n\n感恩节快乐！")
+			.t("cane", "拐杖糖")
+			.t("cane_desc", "甜度爆表的巨型拐杖糖！大到够你一次吃饱，其中的糖分还能让你的法杖获得一点额外充能。\n\n节日快乐！")
+			.t("bread", "砖头糕")
+			.t("bread_desc", "由面粉和奶油烧制成的砖头形糕点。没准里面有金子呢。\n\n劳动节快乐！")
+			.t("jelly", "软糖剑")
+			.t("jelly_desc", "一个做成剑形状的软糖，估计只有小孩才喜欢这种味道。\n\n儿童节快乐！")
+			.t("worker", "辛苦了，这是报酬。");
+	}
+
 
 	enum Holiday {
 		NONE, SPRING, STUDENT, EASTER, HWEEN, THANK, XMAS, CHILD, WORKER

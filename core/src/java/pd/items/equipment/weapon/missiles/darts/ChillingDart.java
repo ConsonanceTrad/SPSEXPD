@@ -27,8 +27,16 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Chill;
+import pd.messages.InlineText;
 
 public class ChillingDart extends TippedDart {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ChillingDart.class)
+			.t("name", "寒霜飞镖")
+			.t("desc", "这些飞镖上涂着一种由冰冠花制成的药物，能显著地冻伤目标。");
+	}
+
 	
 	{
 		image = ConsumThrowsDict.CHILLING_DART_0;

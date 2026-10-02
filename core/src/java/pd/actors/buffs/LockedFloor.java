@@ -25,8 +25,16 @@ import pd.Challenges;
 import pd.Dungeon;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class LockedFloor extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(LockedFloor.class)
+			.t("name", "背水一战")
+			.t("desc", "当前楼层被彻底封锁，你无法离开这里！\n\n封锁持续期间，你不会更加饥饿，或因极度饥饿减少生命值。此外，如果你没有在与Boss战斗，所有的被动回复都会停止。\n\n另外，如果你在楼层封锁时被未祝福的重生十字架复活了，封锁效果将被重置。\n\n击杀本层Boss以解除封锁。");
+	}
+
 
 	//the amount of turns remaining before beneficial passive effects turn off
 	//starts at 50 turns normally, 20 with badder bosses

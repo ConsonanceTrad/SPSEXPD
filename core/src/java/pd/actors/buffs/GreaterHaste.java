@@ -27,9 +27,17 @@ import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 //currently only applies to the hero
 public class GreaterHaste extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GreaterHaste.class)
+			.t("name", "飞影")
+			.t("desc", "惊人的速度加成效果使得一切都好像在此刻静止了。\n\n在飞影的效果下，移动完全不消耗回合，但其它行动的速度仍旧。每一格移动都会消耗一回合飞影。\n\n飞影剩余回合数：%d");
+	}
+
 
 	{
 		type = buffType.POSITIVE;

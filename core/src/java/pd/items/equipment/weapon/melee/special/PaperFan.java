@@ -10,8 +10,16 @@ import pd.actors.buffs.Vertigo;
 import pd.items.equipment.wands.fusion.WandOfFlow;
 import pd.mechanics.Ballistica;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class PaperFan extends SpsSpecialMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PaperFan.class)
+			.t("name", "折叠纸扇")
+			.t("desc", "优雅的折叠扇子，可以施展强风，来自某个壁垒城市。——千秋\n蓄风");
+	}
+
 	private static final String CHARGE = "charge";
 	private int charge;
 

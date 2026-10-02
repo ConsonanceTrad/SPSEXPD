@@ -61,8 +61,22 @@ import render.utils.data.Callback;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Pickaxe extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Pickaxe.class)
+			.t("name", "镐子")
+			.t("ac_mine", "采掘")
+			.t("no_vein", "附近没有可供采掘的暗金矿脉。")
+			.t("ability_name", "穿刺")
+			.t("ability_desc", "决斗家可使用镐子_穿刺_一个敌人。穿刺必定命中，同时施加3回合的易伤效果，且会对有硬质表皮的敌人造成_%1$d~%2$d点伤害_。")
+			.t("upgrade_ability_stat_name", "武技伤害")
+			.t("desc", "这是一件巨大且耐用的凿岩工具。也许能当武器用。")
+			.t("discover_hint", "你可在某个任务中找到该物品。");
+	}
+
 
 	public static final String AC_MINE = "MINE";
 	public static final float TIME_TO_MINE = 2f;

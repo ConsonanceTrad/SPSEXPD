@@ -22,8 +22,17 @@
 package pd.actors.buffs;
 
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class Fury extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Fury.class)
+			.t("name", "愤怒")
+			.t("heromsg", "你陷入了暴怒之中！")
+			.t("desc", "你非常暴怒，很明显敌人并不喜欢这样的你。\n\n一股猛烈的怒火在你体内燃烧，增加你50%%的物理攻击伤害。\n\n只要你的生命还低于上限的50%%，该效果就会存在。");
+	}
+
 	
 	public static float LEVEL	= 0.5f;
 

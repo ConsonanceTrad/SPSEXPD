@@ -36,8 +36,17 @@ import render.utils.data.BArray;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class HolyBomb extends Bomb {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(HolyBomb.class)
+			.t("name", "神圣炸弹")
+			.t("desc", "这枚改造过的炸弹会在爆炸时在大范围内闪耀出圣光。在2格范围内的所有单位会受到爆炸的_%1$d~%2$d点伤害_，并且亡灵和恶魔敌人还会受到圣光的50%%额外伤害。")
+			.t("discover_hint", "你可通过炼金合成该物品。");
+	}
+
 	
 	{
 		image = EquipmentEquipWeaponBombDict.HOLY_BOMB_0;

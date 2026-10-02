@@ -19,9 +19,20 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Legacy soul lantern. It preserves a pet's species, health, and reward cooldown. */
 public class PocketBallFull extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PocketBallFull.class)
+			.t("name", "容魂灯")
+			.t("ac_use", "使用")
+			.t("no_place", "这里无法召回宠物。")
+			.t("no_pet", "其中没有能够召唤的宠物灵魂。")
+			.t("desc", "一只宠物的灵魂被保存在里面。当前没有宠物时使用，可以按保存的生命与奖励冷却将它释放出来。");
+	}
+
 	public static final String AC_USE = "USE";
 	private static final String PET_TYPE = "pet_type";
 	private static final String PET_HP = "pet_hp";

@@ -12,8 +12,16 @@ import pd.messages.Messages;
 import pd.sprites.SentinelSprite;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class SokobanSentinel extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SokobanSentinel.class)
+			.t("name", "推箱关守卫")
+			.t("desc", "一种没有思维、行动缓慢的幻影，手持幻影_%s_，会攻击进入守卫区域的生物。");
+	}
+
 	private Weapon weapon;
 
 	{

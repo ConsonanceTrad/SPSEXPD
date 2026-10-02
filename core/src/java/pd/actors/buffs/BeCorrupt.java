@@ -5,8 +5,16 @@ import pd.actors.Char;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class BeCorrupt extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(BeCorrupt.class)
+			.t("name", "侵蚀")
+			.t("desc", "你被侵蚀了。侵蚀会阻止生命恢复，并将生命变化转化为额外伤害。剩余侵蚀效果：%s。");
+	}
+
 	private static final String LEVEL = "level";
 	private static final String LAST_HP = "last_hp";
 	private int level;

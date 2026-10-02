@@ -27,8 +27,16 @@ import pd.effects.Speck;
 import pd.levels.CellFlags;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
+import pd.messages.InlineText;
 
 public class Inferno extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Inferno.class)
+			.t("name", "狱火")
+			.t("desc", "一阵狱火正在这里肆虐。");
+	}
+
 	
 	@Override
 	protected void evolve() {

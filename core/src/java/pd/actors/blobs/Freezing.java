@@ -33,8 +33,16 @@ import pd.effects.particles.SnowParticle;
 import pd.items.Heap;
 import pd.levels.rooms.special.MagicalFireRoom;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class Freezing extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Freezing.class)
+			.t("name", "冰霜")
+			.t("desc", "这里的空气寒冷刺骨，很不寻常。");
+	}
+
 	
 	@Override
 	protected void evolve() {

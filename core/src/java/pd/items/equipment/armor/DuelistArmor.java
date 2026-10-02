@@ -22,9 +22,17 @@
 package pd.items.equipment.armor;
 
 import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
+import pd.messages.InlineText;
 
 
 public class DuelistArmor extends ClassArmor {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(DuelistArmor.class)
+			.t("name", "英雄胸铠")
+			.t("desc", "装备这套护胸甲与披风时，决斗家能够施展一项特殊技能。");
+	}
+
 
 	{
 		image = EquipmentEquipArmorBasicArmorDict.ARMOR_DUELIST_0;

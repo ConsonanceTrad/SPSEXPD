@@ -9,8 +9,16 @@ import pd.items.equipment.armor.Armor;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Testglyph extends SpsGlyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Testglyph.class)
+			.t("name", "试验%s")
+			.t("desc", "试验刻印有几率在攻击者周围制造危险气体，同时保护使用者免受气体影响。");
+	}
+
 	private static final ItemSprite.Glowing COLOR = new ItemSprite.Glowing(0x22CC44);
 	@Override public int proc(Armor armor, Char attacker, Char defender, int damage) {
 		clearElementalMarker(defender);

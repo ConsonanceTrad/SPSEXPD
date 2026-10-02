@@ -40,8 +40,28 @@ import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import pd.messages.InlineText;
 
 public abstract class ExoticScroll extends Scroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ExoticScroll.class)
+			.t("kaunan", "KAUNAN秘卷")
+			.t("sowilo", "SOWILO秘卷")
+			.t("laguz", "LAGUZ秘卷")
+			.t("yngvi", "YNGVI秘卷")
+			.t("gyfu", "GYFU秘卷")
+			.t("raido", "RAIDO秘卷")
+			.t("isaz", "ISAZ秘卷")
+			.t("mannaz", "MANNAZ秘卷")
+			.t("naudiz", "NAUDIZ秘卷")
+			.t("berkanan", "BERKANAN秘卷")
+			.t("odal", "ODAL秘卷")
+			.t("tiwaz", "TIWAZ秘卷")
+			.t("unknown_desc", "这张漆黑的羊皮纸上刻满了闪耀着魔力光芒的晦涩符文。看起来这不是这个世界的物品。大声念出来会发生什么？")
+			.t("discover_hint", "你可通过炼金合成该物品。");
+	}
+
 	
 	
 	public static final LinkedHashMap<Class<?extends Scroll>, Class<?extends ExoticScroll>> regToExo = new LinkedHashMap<>();

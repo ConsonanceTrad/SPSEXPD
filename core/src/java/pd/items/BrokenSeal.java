@@ -50,8 +50,29 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import pd.messages.InlineText;
 
 public class BrokenSeal extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(BrokenSeal.class)
+			.t("name", "破损纹章")
+			.t("ac_affix", "贴附")
+			.t("prompt", "选择一件护甲。")
+			.t("unknown_armor", "你需要先鉴定那件护甲有无诅咒。")
+			.t("cursed_armor", "纹章不能贴附于被诅咒的盔甲。")
+			.t("affix", "你将纹章佩挂在了护甲上！")
+			.t("desc", "一枚蜡制纹章，作为勇气的象征而贴附在护甲之上。纹章上刻有磨损的防御符咒，并从中碎裂为两半。\n\n这是一件来自家乡的纪念物，在纹章的支持下战士会变得不屈不挠。佩戴着纹章，战士会在将要受伤至生命值半数以下时立即获得护盾。\n\n纹章可以被_贴附在护甲上_并能在护甲间转移。它能够携带一次升级，前提是升级时纹章需已贴附在护甲上。")
+			.t("inscribed", "纹章刻有_%s_。")
+			.t("choose_title", "选择一个刻印")
+			.t("choose_desc", "这件护甲与破损纹章均刻有刻印。请选择一个想保留的刻印。\n\n护甲刻印：%1$s\n破损纹章刻印：%2$s\n\n注意，如果选择保留护甲的刻印，纹章将无法转移该刻印。")
+			.t("discover_hint", "某位英雄初始携带该物品。")
+			.t("warriorshield.name", "战士护盾")
+			.t("warriorshield.desc_active", "战士的破损纹章正使他变得不屈不挠，使其获得在生命值之上的护盾。在护盾首次触发后其可被再次使用之前护盾需要进行冷却。\n\n这种护盾并不会随时间衰减，但如果附近持续几回合没有敌人则护盾会结束。当其结束时，任何未使用的护盾都会降低护盾冷却，最多降低50%%。\n\n剩余护盾：%1$d\n\n当前冷却：%2$d")
+			.t("warriorshield.desc_cooldown", "战士近期已经从他的破碎纹章获得了护盾，而他必须等待直至他可从其护盾效果中再次获益。\n\n剩余回合数：%d")
+			.t("warriorshield.desc_negative_cooldown", "战士护盾的冷却时间当前为负值，意味着当他的护盾生效时，冷却时间会比通常的150回合更低。护盾冷却可被减至最低-150回合，意味着护盾可在生效后立刻冷却完毕，以便再次激活护盾。\n\n当前冷却时间：%d");
+	}
+
 
 	public static final String AC_AFFIX = "AFFIX";
 

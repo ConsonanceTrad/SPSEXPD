@@ -27,8 +27,16 @@ import pd.effects.Speck;
 import pd.items.equipment.armor.Armor;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Flow extends Armor.Glyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Flow.class)
+			.t("name", "涌流%s")
+			.t("desc", "这个刻印能操控使用者周身的水流，让使用者在水中移动时速度大大加快。");
+	}
+
 
 	private static ItemSprite.Glowing BLUE = new ItemSprite.Glowing( 0x0000FF );
 

@@ -27,8 +27,16 @@ import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class PhysicalEmpower extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(PhysicalEmpower.class)
+			.t("name", "体能增幅")
+			.t("desc", "你的攻击已被强化，接下来的几次物理攻击击中敌人时将会造成额外伤害。\n\n额外伤害：%1$d\n剩余次数：%2$d");
+	}
+
 
 	{
 		type = buffType.POSITIVE;

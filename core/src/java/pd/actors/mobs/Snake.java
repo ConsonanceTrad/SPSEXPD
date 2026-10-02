@@ -29,8 +29,17 @@ import pd.journal.Document;
 import pd.scenes.GameScene;
 import pd.sprites.SnakeSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Snake extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Snake.class)
+			.t("name", "下水道巨蛇")
+			.t("hint", "试试点击检查按钮再选择蛇，以了解如何击败它们。")
+			.t("desc", "这些大号的蛇能通过快速滑行以闪避攻击，所以很难命中。不过伏击与魔法攻击能打它们个措手不及。\n\n在蛇的视野外攻击它，这次攻击就是伏击。有一种伏击方法是，在蛇追你时躲去门后，再_在蛇进门的瞬间发动攻击_。");
+	}
+
 	
 	{
 		spriteClass = SnakeSprite.class;

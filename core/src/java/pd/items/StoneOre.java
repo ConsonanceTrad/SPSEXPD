@@ -6,9 +6,17 @@
 package pd.items;
 
 import pd.atlas.items.SpecificTaskDict;
+import pd.messages.InlineText;
 
 
 public class StoneOre extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(StoneOre.class)
+			.t("name", "原石")
+			.t("desc", "很普通的石头，可以用于烹饪和锻造，也可以拿去卖钱。");
+	}
+
 
 	{
 		image = SpecificTaskDict.ORE_0;

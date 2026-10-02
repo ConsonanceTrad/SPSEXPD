@@ -36,8 +36,17 @@ import pd.items.equipment.wands.Wand;
 import pd.scenes.GameScene;
 import pd.sprites.AlbinoSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Albino extends Rat {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Albino.class)
+			.t("name", "白化老鼠")
+			.t("desc", "这是一只稀有品种的白色的老鼠，它有一身纯白色的皮毛和锯齿状的牙齿。邪恶污染使它周围布满了血雾。")
+			.t("discover_hint", "你可在某个地牢区域中中碰巧遇到该敌人。");
+	}
+
 
 	{
 		spriteClass = AlbinoSprite.class;

@@ -33,8 +33,18 @@ import pd.sprites.CrystalWispSprite;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class CrystalWisp extends Mob{
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(CrystalWisp.class)
+			.t("name", "水晶灵簇")
+			.t("beam_kill", "你死于光束...")
+			.t("desc", "一小块愤怒的硬化水晶飘浮在空中，泛着明亮的光。它虽然不算强，但只要有机会，就会射出光束伤害你。\n\n这种灵簇足够小巧，故而可以轻松飞越水晶尖刺，但其射出的光束不可以。")
+			.t("discover_hint", "你可在某个任务中遇到该敌人。");
+	}
+
 
 	{
 		spriteClass = CrystalWispSprite.class;

@@ -27,8 +27,16 @@ import pd.effects.particles.ShadowParticle;
 import pd.items.equipment.armor.Armor;
 import pd.levels.Terrain;
 import pd.sprites.ItemSprite;
+import pd.messages.InlineText;
 
 public class Bulk extends Armor.Glyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Bulk.class)
+			.t("name", "臃肿%s")
+			.t("desc", "臃肿诅咒的护甲看上去更加厚重，但实际上防御力并没有增强。硕大的体积反而让使用者难以挤入门道。");
+	}
+
 	
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 	

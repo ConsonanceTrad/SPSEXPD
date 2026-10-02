@@ -16,8 +16,20 @@ import pd.utils.GLog;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class GunOfSoldier extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(GunOfSoldier.class)
+			.t("name", "脉冲手枪")
+			.t("ac_use", "射击")
+			.t("prompt", "选择一个目标。")
+			.t("break", "脉冲手枪的充能不足。")
+			.t("charge", "充能：%1$d / %2$d。")
+			.t("desc", "来自未来的先进脉冲手枪，会根据目标已损失的生命造成额外伤害。");
+	}
+
 	public static final String AC_USE = "USE";
 	public static final int FULL_CHARGE = 225;
 	public static final int SHOT_COST = 75;

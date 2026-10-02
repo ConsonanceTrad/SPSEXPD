@@ -9,8 +9,16 @@ import pd.actors.buffs.Recharging;
 import pd.actors.buffs.SuperArcane;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSprite;
+import pd.messages.InlineText;
 
 public class Meatroll extends CompleteFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Meatroll.class)
+			.t("name", "肉卷")
+			.t("desc", "这意味着可以吃书了。\n使用_1份卷轴、1份肉_炼制。");
+	}
+
 
 	private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0xCC6600);
 

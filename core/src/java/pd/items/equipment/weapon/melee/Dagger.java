@@ -40,8 +40,22 @@ import pd.scenes.PixelScene;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
+import pd.messages.InlineText;
 
 public class Dagger extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Dagger.class)
+			.t("name", "匕首")
+			.t("stats_desc", "这件武器对未察觉你的敌人更有效。")
+			.t("ability_name", "潜行")
+			.t("typical_ability_desc", "决斗家握持匕首时可以_潜行_。这个武技能够使决斗家立即闪现最多5格远，并一般给予_%d回合隐形_。")
+			.t("ability_desc", "决斗家握持匕首时可以_潜行_。这个武技能够使决斗家立即闪现最多5格远，并给予_%d回合隐形_。")
+			.t("upgrade_ability_stat_name", "武技持续时间")
+			.t("desc", "木柄被磨损的简易铁质匕首。")
+			.t("discover_hint", "某位英雄初始携带该物品。");
+	}
+
 	
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.DAGGER_0;

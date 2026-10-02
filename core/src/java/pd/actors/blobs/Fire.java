@@ -33,8 +33,16 @@ import pd.levels.CellFlags;
 import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.scenes.GameScene;
+import pd.messages.InlineText;
 
 public class Fire extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Fire.class)
+			.t("name", "火焰")
+			.t("desc", "一团火焰正在这里肆虐。");
+	}
+
 
 	@Override
 	protected void evolve() {

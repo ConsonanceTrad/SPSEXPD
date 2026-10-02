@@ -29,8 +29,19 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class ShadowYog extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ShadowYog.class)
+			.t("name", "Yog-Dzewa之影")
+			.t("desc", "Yog之影是Yog在另一世界的投影。击败它或许可以知晓穿越世界的秘密。")
+			.t("blink", "Yog之影转移了！")
+			.t("die", "……")
+			.t("illusion", "光明已逝，暗影降临……");
+	}
+
 
 	private int breaks;
 

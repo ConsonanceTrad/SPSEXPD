@@ -17,9 +17,17 @@ import pd.actors.hero.Hero;
 import pd.effects.Speck;
 import pd.effects.particles.ShadowParticle;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The zero-defense armor produced when RobotDMT's chaos analysis fails. */
 public class ErrorArmor extends NormalArmor {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ErrorArmor.class)
+			.t("name", "错误护甲")
+			.t("desc", "这是个错误。\n???");
+	}
+
 	public ErrorArmor() {
 		super(0, 1f, 1f, 10, 0, 0, -8, 0, 0, SpecificPlaceHolderDict.SOMETHING_0);
 	}

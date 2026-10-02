@@ -30,8 +30,25 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class TaurcenBow extends Weapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(TaurcenBow.class)
+			.t("name", "马人长弓")
+			.t("ac_shoot", "射击")
+			.t("ac_break", "破甲箭头")
+			.t("ac_fire", "燃烧箭头")
+			.t("ac_ice", "霜冻箭头")
+			.t("ac_poison", "腐蚀箭头")
+			.t("ac_ele", "电磁箭头")
+			.t("prompt", "选择射击目标")
+			.t("desc", "一把结实的复合弓，在马人族中也是上等品。可以随时切换特殊箭头，每积蓄8次命中，下一次命中会附加所选箭头的效果。")
+			.t("damage", "这件武器可以造成 %1$d - %2$d 点伤害。")
+			.t("charge", "充能：%1$d / %2$d。");
+	}
+
 	public static final String AC_SHOOT = "SHOOT";
 	public static final String AC_BREAK = "BREAK";
 	public static final String AC_FIRE = "FIRE";

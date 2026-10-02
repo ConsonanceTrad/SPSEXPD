@@ -9,9 +9,18 @@ import pd.messages.Messages;
 import pd.sprites.OtiluckStoneSprite;
 import render.noosa.Camera;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** Invulnerable lightning statue powered by the corrupted Otiluke mirror. */
 public class LitTower extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(LitTower.class)
+			.t("name", "Otiluke守护石像")
+			.t("desc", "Otiluke用他的石像代替他来守护核心。石像是无敌的，但是切断魔力来源可以使它停止。")
+			.t("zap", "远离核心，这不是你该来的地方！");
+	}
+
 
 	public static class LightningBolt {
 	}

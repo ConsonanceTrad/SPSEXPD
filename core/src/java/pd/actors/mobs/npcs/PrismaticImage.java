@@ -43,8 +43,17 @@ import pd.sprites.PrismaticSprite;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class PrismaticImage extends NPC {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(PrismaticImage.class)
+			.t("name", "虹光幻像")
+			.t("desc", "这个闪烁着虹光的幻像和你非常相似，甚至还装备着你当前的武器和护甲。\n\n虹光守卫会追击敌人并吸引仇恨，进而用其强化的防御力和生命值分担火力。虽然它不似镜像那般有攻击性，但它生命值更高，还具有基于你护甲的防御增益。\n\n当幻像生命降至0时，它将保持一段时间的存在，在此期间仍能被治愈。当周围没有敌人时，幻像会消散并依附其主人身上。")
+			.t("discover_hint", "你可通过某张卷轴遇到该单位。");
+	}
+
 	
 	{
 		spriteClass = PrismaticSprite.class;

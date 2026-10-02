@@ -28,8 +28,16 @@ import pd.items.equipment.armor.Armor;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Stench extends Armor.Glyph {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Stench.class)
+			.t("name", "恶臭%s")
+			.t("desc", "带有恶臭诅咒的防具会释放出团团毒雾，对一切来不及逃离的对象造成伤害。");
+	}
+
 
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 

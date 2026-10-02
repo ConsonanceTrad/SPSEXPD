@@ -41,8 +41,22 @@ import pd.windows.WndBag;
 import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class ArcaneResin extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ArcaneResin.class)
+			.t("name", "奥术树脂")
+			.t("prompt", "选择一根要强化的法杖")
+			.t("ac_apply", "强化")
+			.t("level_too_high", "这根法杖过于强大，树脂已经不足以对其进行进一步强化了。")
+			.t("not_enough", "你的树脂不够了！")
+			.t("apply", "你将树脂包被于法杖的表面。法杖的能量愈发凝练了！")
+			.t("desc", "这团细腻的粉末闪烁着紫与白的微光。奥术树脂可用于增强法杖魔能，提升法杖等级！\n\n基于法杖初始等级，升级一根法杖分别需要消耗1、2、3个树脂。树脂最多可以升级法杖至+3。\n\n然而，树脂的升级效果不但会_被其他升级来源覆盖_(例如升级卷轴)，而且无法通过灌注法杖转移到法师的魔杖。")
+			.t("discover_hint", "你可通过炼金合成该物品。");
+	}
+
 
 	{
 		image = ConsumScrollAmuletScrollDict.ARCANE_RESIN;

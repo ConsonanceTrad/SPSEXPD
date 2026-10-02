@@ -32,8 +32,16 @@ import pd.mechanics.ShadowCaster;
 import pd.scenes.GameScene;
 import render.noosa.audio.Sample;
 import render.utils.geom.Point;
+import pd.messages.InlineText;
 
 public class StoneOfClairvoyance extends Runestone {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(StoneOfClairvoyance.class)
+			.t("name", "明示符石")
+			.t("desc", "这颗符石被扔出后会瞬间搜索以目的地为中心的巨大范围内的所有地格。该搜索能力甚至不受墙壁的阻隔。");
+	}
+
 	
 	private static final int DIST = 20;
 	

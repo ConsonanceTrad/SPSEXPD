@@ -23,8 +23,21 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class ElfBow extends Weapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ElfBow.class)
+			.t("name", "暗夜短弓")
+			.t("ac_shoot", "射击")
+			.t("ac_drink", "饮用")
+			.t("need_equip", "需要先装备这把弓。")
+			.t("prompt", "选择一个目标")
+			.t("desc", "暗夜精灵所使用的短弓，伤害会随法强提升。弓中还带有少量泉水，但饮用过量会腐化短弓。")
+			.t("damage", "这件武器在法强加成前可以造成_%d~%d点伤害_。");
+	}
+
 
 	public static final String AC_SHOOT = "SHOOT";
 	public static final String AC_DRINK = "DRINK";

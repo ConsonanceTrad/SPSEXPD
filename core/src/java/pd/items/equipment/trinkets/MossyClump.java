@@ -30,8 +30,18 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class MossyClump extends Trinket {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MossyClump.class)
+			.t("name", "苔藓丛簇")
+			.t("desc", "无论你如何用力挤压它，这团潮湿的苔藓似乎都能保持其水分。它似乎通过魔法与地牢本身形成链接，促使草木流水频繁出现。")
+			.t("typical_stats_desc", "这件饰物通常会使_%d%%_的无氛围楼层获得流水或草木氛围。\n\n这件饰物升级所消耗的炼金能量较多。")
+			.t("stats_desc", "在当前等级下，这件饰物会使_%d%%_的无氛围楼层获得流水或草木氛围。\n\n这件饰物升级所消耗的炼金能量较多。");
+	}
+
 
 	{
 		image = EquipmentNonEquipDict.MOSSY_CLUMP_0;

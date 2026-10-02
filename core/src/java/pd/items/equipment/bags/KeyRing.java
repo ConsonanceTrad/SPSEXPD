@@ -18,9 +18,17 @@ import pd.items.specific.keys.Key;
 import pd.items.quest.AdventureJournal;
 import pd.items.quest.ChallengeJournal;
 import pd.items.equipment.rings.Ring;
+import pd.messages.InlineText;
 
 /** SPS-PD's thirty-slot key ring and route-item container. */
 public class KeyRing extends Bag {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(KeyRing.class)
+			.t("name", "钥匙环")
+			.t("desc", "这个钥匙环有三十格空间，可以收纳钥匙、戒指、路线日志和其他传送道具。");
+	}
+
 
 	{
 		image = EquipmentBagsDict.SPS_KEY_RING;

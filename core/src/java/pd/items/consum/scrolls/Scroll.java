@@ -70,8 +70,35 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import pd.messages.InlineText;
 
 public abstract class Scroll extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Scroll.class)
+			.t("ac_read", "阅读")
+			.t("kaunan", "KAUNAN卷轴")
+			.t("sowilo", "SOWILO卷轴")
+			.t("laguz", "LAGUZ卷轴")
+			.t("yngvi", "YNGVI卷轴")
+			.t("gyfu", "GYFU卷轴")
+			.t("raido", "RAIDO卷轴")
+			.t("isaz", "ISAZ卷轴")
+			.t("mannaz", "MANNAZ卷轴")
+			.t("naudiz", "NAUDIZ卷轴")
+			.t("berkanan", "BERKANAN卷轴")
+			.t("ncosrane", "NCOSRANE卷轴")
+			.t("odal", "ODAL卷轴")
+			.t("tiwaz", "TIWAZ卷轴")
+			.t("nendil", "NENDIL卷轴")
+			.t("libra", "LIBRA卷轴")
+			.t("unknown_desc", "这张羊皮纸上写满了难以破译的魔法符文。大声念出来会发生什么？")
+			.t("blinded", "你不能在失明时阅读卷轴。")
+			.t("no_magic", "你不能在魔法免疫时阅读卷轴。")
+			.t("cursed", "被诅咒的法典抑制了卷轴中法术的启动！也许祛邪卷轴足够强大还能被使用.....")
+			.t("placeholder.name", "卷轴");
+	}
+
 	
 	public static final String AC_READ	= "READ";
 	

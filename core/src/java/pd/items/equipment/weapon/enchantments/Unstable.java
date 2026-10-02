@@ -26,8 +26,17 @@ import pd.items.equipment.weapon.Weapon;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
 import render.utils.serialize.Reflection;
+import pd.messages.InlineText;
 
 public class Unstable extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Unstable.class)
+			.t("name", "紊乱%s")
+			.t("desc", "紊乱附魔的武器散发着混乱能量，每一击都视作具有另一种随机附魔。")
+			.t("elestrike_desc", "武器拥有紊乱附魔时，元素打击会对范围内除主要目标以外的其他敌人都造成一种随机附魔效果。");
+	}
+
 
 	private static ItemSprite.Glowing GREY = new ItemSprite.Glowing( 0x999999 );
 

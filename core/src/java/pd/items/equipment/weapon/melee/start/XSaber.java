@@ -16,8 +16,19 @@ import pd.windows.WndBag;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class XSaber extends NormalMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(XSaber.class)
+			.t("name", "X能量剑")
+			.t("ac_add", "学习")
+			.t("prompt", "选择要安装的技能芯片")
+			.t("learned", "已安装技能芯片：_%s_。")
+			.t("desc", "高科技能量剑，可以永久消耗并学习一枚洛克技能芯片。");
+	}
+
 	public static final String AC_ADD = "ADD";
 	private static final String ROCK_CODE = "rock_code";
 	private RockCode rockCode;

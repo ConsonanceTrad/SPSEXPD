@@ -40,8 +40,17 @@ import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class Dewdrop extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Dewdrop.class)
+			.t("name", "露珠")
+			.t("already_full", "你的生命值已满。")
+			.t("desc", "一颗晶莹剔透的露珠。\n\n受这片区域的魔力影响，净水有着少量的治疗效果。");
+	}
+
 	
 	{
 		image = GroundFunctionalFallingDict.DEWDROP_0;

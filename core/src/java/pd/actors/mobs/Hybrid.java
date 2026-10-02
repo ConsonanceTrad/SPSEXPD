@@ -30,9 +30,22 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** SPS-PD's three-phase mixed creature boss. */
 public class Hybrid extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Hybrid.class)
+			.t("name", "混源体")
+			.t("desc", "由异能者、虫群、亡灵和机械等不同生命形态混合而成的未知生物。")
+			.t("notice", "我是埃蒙忠实的仆从。")
+			.t("die", "为了……虚空……")
+			.t("shield", "埃蒙的力量保护着我。")
+			.t("mixers.name", "混源体分裂物")
+			.t("mixers.desc", "混源体在最终阶段受创后脱落的危险组织。");
+	}
+
 
 	private int breaks;
 

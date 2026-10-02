@@ -40,8 +40,21 @@ import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.Image;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Monk extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Monk.class)
+			.t("name", "矮人武僧")
+			.t("def_verb", "格挡")
+			.t("parried", "招架")
+			.t("disarm", "武僧将你手中的武器击飞了！")
+			.t("desc", "这些僧侣皆是狂热的信徒，倾其所能从一切异族手中保护他们城市的秘密。他们既不披甲亦不执械，仅仅依靠他们的徒手格斗技巧退敌。")
+			.t("focus.name", "凝神")
+			.t("focus.desc", "这个武僧已经完全集中于目标的一举一动，似乎能预料到目标的下一步动作。\n\n处于凝神状态的角色必定会招架下一次物理攻击，哪怕是必中的攻击。招架攻击会消耗掉武僧的凝神，他们需要重新凝神以招架下次攻击。武僧在移动时可以更快地凝神。");
+	}
+
 	/** Kept for subclasses and save compatibility; SPS monks do not use focus. */
 	protected float focusCooldown;
 	

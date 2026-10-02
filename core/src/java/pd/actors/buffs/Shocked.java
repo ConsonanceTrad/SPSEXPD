@@ -3,9 +3,17 @@ package pd.actors.buffs;
 
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** SPS shock: delayed percentage damage with a bounded saved duration. */
 public class Shocked extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Shocked.class)
+			.t("name", "电击")
+			.t("desc", "电击首次发作时会造成基于生命上限的伤害。");
+	}
+
 	private static final String LEFT = "left";
 	private static final String FIRST = "first";
 	private float left;

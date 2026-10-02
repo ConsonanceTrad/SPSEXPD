@@ -42,8 +42,18 @@ import pd.windows.WndBag;
 import pd.windows.WndUpgrade;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class MagicalInfusion extends InventorySpell {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MagicalInfusion.class)
+			.t("name", "注魔菱晶")
+			.t("inv_title", "灌注一件物品")
+			.t("infuse", "你的物品充满了奥术能量！")
+			.t("desc", "这个菱晶蕴含着和升级卷轴同样强大的魔力，不过这种魔力更为稳定。\n\n这个菱晶在升级物品的同时不会消除上面的附魔、刻印或诅咒。");
+	}
+
 	
 	{
 		image = ConsumScrollAmuletCrystalDict.MAGIC_INFUSE_0;

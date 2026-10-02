@@ -59,8 +59,23 @@ import render.utils.serialize.Bundle;
 import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class SummonElemental extends Spell {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SummonElemental.class)
+			.t("name", "唤魔晶柱")
+			.t("ac_imbue", "灌注")
+			.t("imbue_prompt", "灌注一件物品")
+			.t("desc", "这个晶柱联系着用于制造它的元素余烬的能量，能够召唤出一个友好的元素助你战斗！同一时间只能召唤一个元素，但是重新释放该元素不需要消耗额外能量。")
+			.t("desc_newborn", "这个晶柱尚未被灌注，只能召唤一个不会远程攻击的_新生元素_。你可以用已鉴定的液火药剂、冰霜药剂、充能卷轴或嬗变卷轴为其充能，使其之后召唤出的都是完全体元素！")
+			.t("desc_fire", "这个晶柱触感灼热，可用来召唤出一个_火焰元素_。你可以通过灌注的方法覆盖当前的充能类型。")
+			.t("desc_frost", "这个晶柱触感冰冷，可用来召唤出一个_冰霜元素_。你可以通过灌注的方法覆盖当前的充能类型。")
+			.t("desc_shock", "这个晶柱散发着静电能量，可用来召唤出一个_电光元素_。你可以通过灌注的方法覆盖当前的充能类型。")
+			.t("desc_chaos", "这个晶柱散发着混沌能量，可用来召唤出一个_混沌元素_。你可以通过灌注的方法覆盖当前的充能类型。");
+	}
+
 
 	public static final String AC_IMBUE = "IMBUE";
 

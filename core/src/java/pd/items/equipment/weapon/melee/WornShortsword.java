@@ -27,8 +27,20 @@ import pd.Assets;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class WornShortsword extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WornShortsword.class)
+			.t("name", "破旧的短剑")
+			.t("ability_name", "顺劈")
+			.t("typical_ability_desc", "决斗家可以用破旧的短剑_顺劈_敌人。这一般会造成_%1$d~%2$d点伤害_并且必定命中。如果顺劈击杀了一名敌人，决斗家可在5回合内额外使用一次无消耗顺劈。")
+			.t("ability_desc", "决斗家可以用破旧的短剑_顺劈_敌人。造成_%1$d~%2$d点伤害_并且必定命中。如果顺劈击杀了一名敌人，决斗家可在5回合内额外使用一次无消耗顺劈。")
+			.t("desc", "一把十分短的剑，在大量使用后有一定的磨损。它比正常情况的短剑更轻，也更弱。")
+			.t("discover_hint", "某位英雄初始携带该物品。");
+	}
+
 
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.WORN_SHORTSWORD_0;

@@ -21,9 +21,17 @@ import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The basic SPS crafted bomb and ingredient for the elemental bomb recipes. */
 public class BuildBomb extends Bomb {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(BuildBomb.class)
+			.t("name", "土制炸弹")
+			.t("desc", "造成范围伤害，可用于制作其他炸弹。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

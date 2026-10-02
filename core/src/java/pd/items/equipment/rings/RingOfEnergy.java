@@ -28,8 +28,20 @@ import pd.actors.hero.HeroClass;
 import pd.actors.hero.Talent;
 import pd.messages.Messages;
 import pd.sprites.ItemIconSheet;
+import pd.messages.InlineText;
 
 public class RingOfEnergy extends Ring {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RingOfEnergy.class)
+			.t("name", "能量之戒")
+			.t("stats", "佩戴这枚戒指时，你持有的法杖，神器及英雄护甲充能速度将提高_%s%%_。")
+			.t("typical_stats", "佩戴这枚戒指时，通常情况下，你持有的法杖，神器及英雄护甲充能速度将提高_%s%%_。")
+			.t("combined_stats", "你已装备的戒指正联结它们的力量，一共增加了_%s%%_的充能速度。")
+			.t("upgrade_stat_name_1", "充能加成")
+			.t("desc", "在戒指的奥术领域笼罩下，你持有的所有魔法装备充能速度都会得到提升。被诅咒的戒指反而会减慢充能速度。");
+	}
+
 
 	{
 		icon = ItemIconSheet.RING_ENERGY;

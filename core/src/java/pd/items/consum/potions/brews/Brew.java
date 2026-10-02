@@ -26,8 +26,15 @@ import pd.items.consum.potions.Potion;
 import pd.scenes.GameScene;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public abstract class Brew extends Potion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Brew.class)
+			.t("discover_hint", "你可通过炼金合成该物品。");
+	}
+
 	
 	@Override
 	public ArrayList<String> actions(Hero hero) {

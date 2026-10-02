@@ -31,8 +31,16 @@ import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class ToxicImbue extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ToxicImbue.class)
+			.t("name", "毒素之力")
+			.t("desc", "你被灌注了毒素的力量！\n\n在你移动时毒气会从你的身体中翻腾而出，伤害你的敌人。持续期间，甚至直到效果结束后的数回合内，你都免疫毒气和中毒效果。\n\n毒素之力剩余时长：%s回合");
+	}
+
 	
 	{
 		type = buffType.POSITIVE;

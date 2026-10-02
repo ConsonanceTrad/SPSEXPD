@@ -18,9 +18,21 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Yog's rechargeable energy core, restored from SPS-PD 0.9.8. */
 public class OrbOfZot extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(OrbOfZot.class)
+			.t("name", "储能装置")
+			.t("ac_activatethrow", "释放能量")
+			.t("ac_break", "提取")
+			.t("rest", "储能装置尚未完成充能。")
+			.t("desc", "一种储能装置，使用后会向外发射能量。不知为这个半透明的装置里面有一张纸片，想取出就要把这个装置破坏。")
+			.t("charge", "储能装置当前充能数%d，充能上限为%d。");
+	}
+
 
 	public static final int FULL_CHARGE = 500;
 	public static final String AC_ACTIVATETHROW = "ACTIVATETHROW";

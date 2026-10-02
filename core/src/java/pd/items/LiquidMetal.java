@@ -43,10 +43,23 @@ import pd.windows.WndBag;
 import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 //these aren't considered potions internally as most potion effects shouldn't apply to them
 //mainly due to their high quantity
 public class LiquidMetal extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(LiquidMetal.class)
+			.t("name", "液金")
+			.t("ac_apply", "修复")
+			.t("prompt", "选择一个投掷武器")
+			.t("already_fixed", "这件投掷武器已经完好无损了！")
+			.t("apply", "你为修复该投掷武器消耗了%d滴液金。")
+			.t("desc", "这种神奇的液体可以修补投掷武器的破损之处，使之焕然一新！若有一组武器完好无损但缺失其一，液金甚至可用于替换那件缺失的武器！\n\n完全修复一件1阶武器需要10瓶液金，而一件5阶武器需要30瓶液金。武器的每级升级还会增加35%的液金需求量。\n\n液金无法用于修复涂药飞镖的耐久度。")
+			.t("discover_hint", "你可通过炼金合成该物品。");
+	}
+
 
 	{
 		image = ConsumPotionSeedBasicPotionDict.LIQUID_METAL_0;

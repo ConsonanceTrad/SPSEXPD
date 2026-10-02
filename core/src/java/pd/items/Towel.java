@@ -21,8 +21,19 @@ import pd.messages.Messages;
 import pd.utils.GLog;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Towel extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Towel.class)
+			.t("name", "湿巾")
+			.t("desc", "湿巾是一项十分便利的发明。它虽然使用次数有限，但可以清除多种异常状态。")
+			.t("ac_towel", "使用")
+			.t("apply", "你使用了湿巾。")
+			.t("end", "这块湿巾没法再用了。");
+	}
+
 
 	public static final String AC_TOWEL = "TOWEL";
 

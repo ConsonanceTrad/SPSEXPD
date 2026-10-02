@@ -10,8 +10,18 @@ import pd.items.equipment.weapon.Weapon;
 import pd.messages.Messages;
 import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 public class ScrollOfMagicalInfusion extends InventoryScroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfMagicalInfusion.class)
+			.t("name", "魔力灌注卷轴")
+			.t("desc", "这张卷轴能在保留并强化附魔的同时升级一件武器或护甲。")
+			.t("inv_title", "选择要灌注的物品")
+			.t("infuse", "你的%s充满了魔力。");
+	}
+
 	@Override
 	public void empoweredRead() {
 		//The SPS-PD 0.9.8 empowered infusion branch intentionally has no effect.

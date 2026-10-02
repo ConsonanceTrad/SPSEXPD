@@ -18,8 +18,16 @@ import pd.actors.buffs.Vertigo;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
+import pd.messages.InlineText;
 
 public class BlindFruit extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(BlindFruit.class)
+			.t("name", "闪耀果")
+			.t("desc", "人工种植的致盲草结出的果实。直接命中会使目标眩晕、沉默、锁定并缴械；落地则会释放混乱气体和伤害性的光芒。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

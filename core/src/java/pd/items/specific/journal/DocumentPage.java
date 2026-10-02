@@ -31,8 +31,16 @@ import pd.scenes.GameScene;
 import pd.windows.WndJournal;
 import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public abstract class DocumentPage extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(DocumentPage.class)
+			.t("name", "被撕下的书页")
+			.t("desc", "一张被遗弃的书页，似乎是从一本书上撕下来的。你需要捡起它才能阅读上面的内容。");
+	}
+
 	
 	{
 		image = ConsumUsefulProcessEnhanceDict.MASTERY_0;

@@ -37,8 +37,16 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Swarm extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Swarm.class)
+			.t("name", "蝇群")
+			.t("desc", "致命的飞蝇群愤怒地发出嗡嗡声。每次非魔法攻击都会把它分割成两群更小但同样危险的飞蝇群。");
+	}
+
 
 	{
 		spriteClass = SwarmSprite.class;

@@ -26,9 +26,17 @@ import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 //A magical version of barkskin, essentially
 public class ArcaneArmor extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ArcaneArmor.class)
+			.t("name", "奥术护甲")
+			.t("desc", "一层淡薄的护盾环绕着你，可为你抵挡一定的魔法伤害。\n\n当前你的魔法护甲为：0~%d\n\n距离奥术护甲衰减还有：%s回合");
+	}
+
 	
 	{
 		type = buffType.POSITIVE;

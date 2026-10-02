@@ -9,8 +9,16 @@ import pd.actors.buffs.Light;
 import pd.actors.buffs.MoonFury;
 import pd.actors.hero.Hero;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class FullMoonberry extends Fruit {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(FullMoonberry.class)
+			.t("name", "满月浆果")
+			.t("desc", "野生浆果的一种，富含大量维生素和矿物质，这种浆果由于受到了月亮女神的祝福，食用后将给你提供十分强大的效果。");
+	}
+
 	{ image = ConsumFoodFoodDict.FULLMOONBERRY; }
 	@Override protected void onEat(Hero hero) {
 		Buff.affect(hero, MoonFury.class);

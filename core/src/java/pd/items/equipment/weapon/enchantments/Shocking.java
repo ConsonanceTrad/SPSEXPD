@@ -35,8 +35,17 @@ import render.utils.data.BArray;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Shocking extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Shocking.class)
+			.t("name", "电击%s")
+			.t("desc", "电弧在这个武器上不断地闪烁震荡，能够对邻近所有敌人造成额外伤害。")
+			.t("elestrike_desc", "武器拥有电击附魔时，元素打击会将电火花扩散到范围的全部地块，持续8个回合。");
+	}
+
 
 	private static ItemSprite.Glowing WHITE = new ItemSprite.Glowing( 0xFFFFFF, 0.5f );
 

@@ -29,8 +29,17 @@ import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite.Glowing;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Vampiric extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Vampiric.class)
+			.t("name", "血饮%s")
+			.t("desc", "这个强力的附魔能在攻击敌人时吸取其生命能量并恢复使用者的生命。当使用者生命较少时效果更强。")
+			.t("elestrike_desc", "武器拥有血饮附魔时，元素打击范围内每有一个敌人，决斗家就会恢复2.5点生命值。");
+	}
+
 
 	private static ItemSprite.Glowing RED = new ItemSprite.Glowing( 0x660022 );
 	

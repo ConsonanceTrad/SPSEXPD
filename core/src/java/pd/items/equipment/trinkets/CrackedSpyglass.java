@@ -24,8 +24,19 @@ package pd.items.equipment.trinkets;
 import pd.atlas.items.EquipmentNonEquipDict;
 
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class CrackedSpyglass extends Trinket{
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(CrackedSpyglass.class)
+			.t("name", "幻象裂镜")
+			.t("desc", "若是其前镜头完好无损，则这柄手持式望远镜可称得上一件能工巧匠的伟大之作了。望远镜似乎在为你揭示地牢中的新物品，但由于其本身的缺陷，这些被揭示的物品并不容易被看清。")
+			.t("typical_stats_desc", "这件饰物通常会有_%1$s%%_的概率在除Boss层以外的每层额外生成一件隐藏物品。")
+			.t("stats_desc", "在当前等级下，这件饰物会有_%1$s%%_的概率在除Boss层以外的每层额外生成一件隐藏物品。")
+			.t("stats_desc_upgraded", "在当前等级下，这件饰物会有_100%%_的概率在除Boss层以外的每层额外生成一件隐藏物品，并有_%1$s%%_的概率再额外生成一件隐藏物品。");
+	}
+
 
 	{
 		image = EquipmentNonEquipDict.SPYGLASS_0;

@@ -10,9 +10,17 @@ import pd.items.equipment.bags.HeartOfScarecrow;
 import pd.mechanics.Ballistica;
 import pd.sprites.ScarecrowSprite;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** The original clockwork scarecrow, dormant until struck and capable of ranged attacks. */
 public class TestMob2 extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(TestMob2.class)
+			.t("desc", "这个稻草人很危险，千万不要触动它。")
+			.t("name", "发条稻草人");
+	}
+
 
 	private static final String SKILL = "skill";
 	private boolean skill;

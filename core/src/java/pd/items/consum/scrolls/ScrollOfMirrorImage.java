@@ -39,8 +39,18 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class ScrollOfMirrorImage extends Scroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfMirrorImage.class)
+			.t("name", "镜像卷轴")
+			.t("copies", "卷轴生成了你的镜像。")
+			.t("no_copies", "卷轴尝试创造你的镜像，但是它们没有空间出现。")
+			.t("desc", "卷轴上的咒文会创造使用者的两个镜像。这些像使用者的弱化版克隆体的镜像会对敌人展开追杀。不过镜像非常脆弱，受到伤害就会瞬间消散。");
+	}
+
 
 	{
 		icon = ItemIconSheet.SCROLL_MIRRORIMG;

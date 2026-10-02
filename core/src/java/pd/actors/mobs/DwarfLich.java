@@ -13,8 +13,16 @@ import pd.scenes.GameScene;
 import pd.sprites.DwarfLichSprite;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class DwarfLich extends LegacyDualLootMob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(DwarfLich.class)
+			.t("name", "不朽矮人")
+			.t("desc", "为维系亡灵国王而牺牲的强大巫师，能够调用死亡之力伤害敌人。");
+	}
+
 	int tombId = -1;
 	{ spriteClass = DwarfLichSprite.class; HP = HT = 120 + legacyDepthAdjustment(0) * Random.NormalIntRange(5, 7); defenseSkill = 24 + legacyDepthAdjustment(1); EXP = 14; maxLvl = 30; setupLegacyDualLoot(PotionOfHealing.class, 0.3f, Blackberry.class, 0.3f); properties.add(Property.UNDEAD); properties.add(Property.DWARF); properties.add(Property.MAGICER); resistances.add(Poison.class); }
 	@Override public int damageRoll() { return Random.NormalIntRange(20, 32); }

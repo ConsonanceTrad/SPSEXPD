@@ -12,8 +12,16 @@ import pd.sprites.ItemSprite;
 import render.utils.math.Random;
 
 import static pd.actors.damagetype.DamageType.ICE_DAMAGE;
+import pd.messages.InlineText;
 
 public class EnchantmentIce extends SpsEnchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(EnchantmentIce.class)
+			.t("name", "寒潮%s")
+			.t("desc", "寒潮将造成大量的冰属性伤害，并有几率给目标施加寒冷和潮湿效果。");
+	}
+
 	private static final ItemSprite.Glowing BLUE = new ItemSprite.Glowing(0x0044FF);
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		elementalDamage(weapon, attacker, defender, 0.75f, ICE_DAMAGE);

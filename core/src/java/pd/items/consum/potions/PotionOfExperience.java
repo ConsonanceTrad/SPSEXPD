@@ -26,8 +26,16 @@ import pd.effects.Flare;
 import pd.effects.FloatingText;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemIconSheet;
+import pd.messages.InlineText;
 
 public class PotionOfExperience extends Potion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfExperience.class)
+			.t("name", "经验药剂")
+			.t("desc", "众多战斗积累而来的经验被浓缩为液态，这种药剂能够瞬间提升你的等级。");
+	}
+
 
 	{
 		icon = ItemIconSheet.POTION_EXP;

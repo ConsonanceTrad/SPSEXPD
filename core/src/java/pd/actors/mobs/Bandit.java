@@ -36,8 +36,16 @@ import pd.scenes.GameScene;
 import pd.sprites.BanditSprite;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Bandit extends Thief {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Bandit.class)
+			.t("name", "紫衣大盗")
+			.t("desc", "较普通绿衣小贼而言，紫衣大盗在偷窃同时，会狠狠伤害被偷窃者，以方便自己逃跑。");
+	}
+
 
 	private static final String BREAKS = "breaks";
 	private static final String SKILL_USED = "skill_used";

@@ -24,9 +24,20 @@ import render.utils.data.BArray;
 import render.utils.data.Callback;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Black Meow's single-cat obstruction wand from SPS-PD 0.9.8. */
 public class WandOfBlackMeow extends Wand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfBlackMeow.class)
+			.t("name", "灵猫法杖")
+			.t("desc", "这根光属性法杖是黑喵的物品，它能将黑喵的随从召唤出来。")
+			.t("stats_desc", "该法杖能召唤一只灵猫。")
+			.t("magicmeow.name", "灵猫")
+			.t("magicmeow.desc", "短暂存在且不会受伤的灵猫，受到攻击时会用光属性伤害反击。");
+	}
+
 
 	private static final ItemSprite.Glowing WHITE = new ItemSprite.Glowing(0xFFFFFF);
 

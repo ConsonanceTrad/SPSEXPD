@@ -38,9 +38,30 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** SPS-PD's magazine-fed firearm base. */
 public class GunWeapon extends SpsRangedWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(GunWeapon.class)
+			.t("ac_shoot", "射击")
+			.t("ac_reload", "填弹")
+			.t("ac_ammo", "切换子弹")
+			.t("reloading", "填弹中……")
+			.t("need_to_equip", "你需要先装备这件武器才能射击。")
+			.t("prompt2", "选择加载的强化弹药")
+			.t("full", "弹匣已满。")
+			.t("empty", "弹药不足。")
+			.t("ammo_add", "当前强化弹药：%s")
+			.t("warning", "这把枪当前装有%1$s。是否改用%2$s？原有强化弹药将会消失。")
+			.t("yes", "是")
+			.t("no", "否")
+			.t("prompt", "选择射击目标")
+			.t("stats_known", "这件_%1$d阶_枪械可以造成_%2$d～%3$d点伤害_，并且需要_%4$d点力量_来正常使用。")
+			.t("charge", "弹匣：%1$d/%2$d");
+	}
+
 	public static final String AC_SHOOT = "SHOOT";
 	public static final String AC_RELOAD = "RELOAD";
 	public static final String AC_AMMO = "AMMO";

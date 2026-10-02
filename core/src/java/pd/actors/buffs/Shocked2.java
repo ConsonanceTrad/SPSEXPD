@@ -5,9 +5,17 @@ import pd.actors.Char;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Damages and roots the target if it moves before this charge expires. */
 public class Shocked2 extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Shocked2.class)
+			.t("name", "环绕乱流")
+			.t("desc", "电流消散前移动会受到伤害并被缠绕。剩余回合：%d。");
+	}
+
 
 	public static final float DURATION = 5f;
 	private static final String START_POS = "start_pos";

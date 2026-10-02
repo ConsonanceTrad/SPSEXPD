@@ -23,8 +23,16 @@ package pd.actors.mobs;
 
 import pd.actors.mobs.npcs.Blacksmith;
 import pd.sprites.FungalCoreSprite;
+import pd.messages.InlineText;
 
 public class FungalCore extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(FungalCore.class)
+			.t("name", "蘑菇菌核")
+			.t("desc", "这株硕大无比的蘑菇想必就是洞穴中异常蘑菇活性的源头了。");
+	}
+
 
 	{
 		HP = HT = 300;

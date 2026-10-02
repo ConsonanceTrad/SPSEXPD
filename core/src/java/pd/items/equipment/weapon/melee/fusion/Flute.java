@@ -7,8 +7,16 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.items.equipment.weapon.melee.Mace;
 import pd.mechanics.pathfind.PathFinder;
+import pd.messages.InlineText;
 
 public class Flute extends Mace implements FusionWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Flute.class)
+			.t("name", "战斗长笛")
+			.t("desc", "一件命中略高的二阶乐器。每次命中都会对目标周围的敌对单位造成五分之一的伤害。");
+	}
+
 	{ image = EquipmentWandBasicWandDict.WAND_REGROWTH; tier = 2; ACC = 1.05f; }
 	@Override public int min(int lvl) { return 3 + lvl; }
 	@Override public int max(int lvl) { return 12 + 3 * lvl; }

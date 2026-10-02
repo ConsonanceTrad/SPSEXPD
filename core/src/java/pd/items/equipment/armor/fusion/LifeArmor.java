@@ -4,8 +4,16 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.items.equipment.armor.ScaleArmor;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class LifeArmor extends ScaleArmor {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(LifeArmor.class)
+			.t("name", "生命护甲")
+			.t("desc", "特别惊喜中的生命护甲经重新平衡后成为四阶护甲。它的最大格挡比鳞甲低1点，但每次真正受伤时有十二分之一概率恢复1点生命。");
+	}
+
 
 	@Override
 	public int DRMax(int lvl) {

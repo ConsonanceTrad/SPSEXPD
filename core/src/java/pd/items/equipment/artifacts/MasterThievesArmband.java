@@ -36,8 +36,24 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class MasterThievesArmband extends Artifact {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MasterThievesArmband.class)
+			.t("name", "神偷袖章")
+			.t("ac_steal", "偷窃")
+			.t("ac_goldtouch", "耗竭-点金")
+			.t("no_charge", "充能不足")
+			.t("cursed", "它被诅咒了，正在吞食你的金币。")
+			.t("no_target", "没有找到目标")
+			.t("level_up", "神偷袖章升级了")
+			.t("prompt", "选择偷窃的目标")
+			.t("desc", "这个紫色的天鹅绒袖标是盗贼大师的标志。它不属于你，但它也不属于你拿到这个袖标时击败的人。")
+			.t("desc_worn", "让它戴在你的手腕上，你可以明目张胆的拿取目标身上的物品，只要它充能完成。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

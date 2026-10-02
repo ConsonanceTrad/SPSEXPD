@@ -13,9 +13,22 @@ import pd.utils.GLog;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** The five-shot, dew-fuelled hand cannon dropped by the void goo. */
 public class Handcannon extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Handcannon.class)
+			.t("name", "奥能火炮")
+			.t("ac_onoff", "启动/关闭")
+			.t("fuel", "低能源警告！")
+			.t("off", "过载关闭！")
+			.t("power_on", "过载模式启动！")
+			.t("power_off", "过载模式关闭。")
+			.t("desc", "人类发明了火器，矮人强化并改进了它。作为这个世界为数不多的火器之一，这件巨炮可以从很远的地方打击目标。——Consideredhamster \n???");
+	}
+
 	public static final String AC_ONOFF = "ONOFF";
 	private boolean turnedOn;
 

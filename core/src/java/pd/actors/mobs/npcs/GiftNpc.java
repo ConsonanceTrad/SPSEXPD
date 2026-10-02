@@ -20,9 +20,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import pd.messages.InlineText;
 
 /** Original SPS tent resident gift and friendship loop. */
 public abstract class GiftNpc extends NPC {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GiftNpc.class)
+			.t("talk", "对话")
+			.t("gift", "送礼")
+			.t("gift_prompt", "选择一件礼物")
+			.t("npc_item", "对方很喜欢%s。")
+			.t("npc_not_item", "看起来对方不喜欢这个礼物。");
+	}
+
 
 	public enum Visual {
 		REN("sprites/npcs/sps_town_ren.png", 16, 16,

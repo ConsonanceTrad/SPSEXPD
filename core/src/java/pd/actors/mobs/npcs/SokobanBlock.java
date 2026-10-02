@@ -17,8 +17,16 @@ import pd.levels.AdventureLevel;
 import pd.messages.Messages;
 import pd.sprites.GolemSprite;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class SokobanBlock extends NPC {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SokobanBlock.class)
+			.t("name", "推箱石块")
+			.t("desc", "沉重的谜题石块。从上下左右与其交互，可以将它向前推动一格。把所有石块推到有标记的基座上即可完成地图。");
+	}
+
 
 	private int homePos = -1;
 

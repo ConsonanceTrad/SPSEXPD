@@ -27,8 +27,17 @@ import pd.Assets;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Cripple;
+import pd.messages.InlineText;
 
 public class Bolas extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Bolas.class)
+			.t("name", "流星索")
+			.t("stats_desc", "这件武器能使目标残废。")
+			.t("desc", "这种造型特殊的远程武器造成的伤害不高，但能够有效迟滞目标的移动。");
+	}
+
 	
 	{
 		image = ConsumThrowsDict.BOLAS_0;

@@ -10,8 +10,16 @@ import pd.items.equipment.weapon.Weapon;
 import pd.sprites.ItemSprite;
 
 import static pd.actors.damagetype.DamageType.ENERGY_DAMAGE;
+import pd.messages.InlineText;
 
 public class EnchantmentEnergy extends SpsEnchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(EnchantmentEnergy.class)
+			.t("name", "战意%s")
+			.t("desc", "战意附魔将造成少量的无属性伤害，并提升使用者的攻击力。");
+	}
+
 	private static final ItemSprite.Glowing GRAY = new ItemSprite.Glowing(0x888888);
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		elementalDamage(weapon, attacker, defender, 0.25f, ENERGY_DAMAGE);

@@ -54,8 +54,43 @@ import render.utils.data.Callback;
 import render.utils.geom.PointF;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class WandOfWarding extends Wand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfWarding.class)
+			.t("name", "哨卫法杖")
+			.t("staff_name", "哨卫魔杖")
+			.t("no_more_wards", "你的法杖无法维持更多的哨卫。")
+			.t("bad_location", "你不能在那里设置一个哨卫。")
+			.t("desc", "这根短小的金属法杖尖端上有一颗亮紫色宝石悬空浮动。")
+			.t("stats_desc", "这根法杖并不能直接攻击敌人，但可以召唤出哨卫元素与哨卫结晶。你可以在视野中的任何地方召唤哨卫，即使是隔着一堵墙。这根法杖最多能提供_%d点能量_以维持哨卫。")
+			.t("upgrade_stat_name_1", "哨卫伤害")
+			.t("upgrade_stat_name_2", "哨卫能量")
+			.t("bmage_desc", "当_战斗法师_以哨卫魔杖近战攻击目标时，有概率为所有哨卫元素和哨卫结晶恢复一定生命值。")
+			.t("eleblast_desc", "哨卫魔杖的元素风暴会治疗范围内的所有哨卫元素和结晶。")
+			.t("ward.desc_generic_ward", "这个哨卫元素会自动攻击进入视野的目标。\n\n使用哨卫法杖向该哨卫施法能使其升级。\n\n哨卫能发动攻击的次数有限，次数耗尽后它们便会消散。")
+			.t("ward.desc_generic_sentry", "这个哨卫结晶攻击力与哨卫元素相同，但以生命值取代了有限的发动次数。它的样子有点像哨卫法杖顶端的宝石。\n\n使用哨卫法杖向该哨卫施法能使其升级并治疗它。\n\n这个哨卫每次发动攻击时会消耗一定的生命值，但你可以用哨卫法杖治疗它。")
+			.t("ward.name_1", "小哨卫元素")
+			.t("ward.desc_1", "这个最基本的哨卫元素会自动攻击进入视野的目标，造成_%1$d~%2$d点伤害。_\n\n使用哨卫法杖向该哨卫施法能使其升级。\n\n这个哨卫在仅发动1次攻击之后就会消散。\n\n你的哨卫法杖在使用_%3$d点能量_维持这个哨卫。")
+			.t("ward.name_2", "哨卫元素")
+			.t("ward.desc_2", "这个升级过的哨卫元素结构更精致，而且在攻击数次后才会消散。它每次发动攻击能造成_%1$d~%2$d点伤害_。\n\n使用哨卫法杖向该哨卫施法能使其升级。\n\n这个哨卫在发动3次攻击之后才会消散。\n\n你的哨卫法杖在使用_%3$d点能量_维持这个哨卫。")
+			.t("ward.name_3", "大哨卫元素")
+			.t("ward.desc_3", "这个满级的哨卫元素能发动更多次攻击，而且攻击速度更快。它每次发动攻击能造成_%1$d~%2$d点伤害_。\n\n使用哨卫法杖向该哨卫施法能使其进化。\n\n这个哨卫在发动5次攻击之后才会消散。\n\n你的哨卫法杖在使用_%3$d点能量_维持这个哨卫。")
+			.t("ward.name_4", "小哨卫结晶")
+			.t("ward.desc_4", "这个小小的哨卫结晶攻击力与大哨卫元素相同，但以生命值取代了有限的发动次数。它的样子有点像哨卫法杖顶端的宝石。它每次发动攻击能造成_%1$d~%2$d点伤害_。\n\n使用哨卫法杖向该哨卫施法能使其升级并治疗它。\n\n这个哨卫每次发动攻击时会消耗一定的生命值，但你可以用哨卫法杖治疗它。\n\n你的哨卫法杖在使用_%3$d点能量_维持这个哨卫。")
+			.t("ward.name_5", "哨卫结晶")
+			.t("ward.desc_5", "这个升级过的哨卫结晶比小哨卫结晶体积更大，形体也更结实。它每次发动攻击能造成_%1$d~%2$d点伤害_。\n\n使用哨卫法杖向该哨卫施法能使其升级并治疗它。\n\n这个哨卫每次发动攻击时会消耗一定的生命值，但你可以用哨卫法杖治疗它。\n\n你的哨卫法杖在使用_%3$d点能量_维持这个哨卫。")
+			.t("ward.name_6", "大哨卫结晶")
+			.t("ward.desc_6", "这个满级的哨卫结晶比之前的坚固了不少。它每次发动攻击能造成_%1$d~%2$d点伤害_。\n\n使用哨卫法杖向该哨卫施法能治疗它。\n\n这个哨卫每次发动攻击时会消耗一定的生命值，但你可以用哨卫法杖治疗它。\n\n你的哨卫法杖在使用_%3$d点能量_维持这个哨卫。")
+			.t("ward.discover_hint", "你可通过某根法杖遇到该单位。")
+			.t("ward.dismiss_title", "要驱散这个哨卫吗？")
+			.t("ward.dismiss_body", "不想让法杖继续维持这个哨卫的话，你可以选择驱散它立即将其破坏移除。\n\n要驱散这个哨卫吗？")
+			.t("ward.dismiss_confirm", "是")
+			.t("ward.dismiss_cancel", "否");
+	}
+
 
 	{
 		image = EquipmentWandBasicWandDict.WAND_WARDING_0;

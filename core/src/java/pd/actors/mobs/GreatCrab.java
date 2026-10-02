@@ -31,8 +31,21 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.GreatCrabSprite;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 public class GreatCrab extends Crab {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GreatCrab.class)
+			.t("name", "巨钳螃蟹")
+			.t("noticed", "这只螃蟹留意到了你的进攻并用它的巨大钳子格挡了这次攻击。")
+			.t("blocked", "格挡")
+			.t("def_verb", "格挡")
+			.t("rankings_desc", "被巨钳螃蟹碾碎")
+			.t("desc", "就算是和其他的下水道螃蟹相比较，这只螃蟹也是如此巨大。它的蓝色甲壳上有着一条条裂缝和几只藤壶，证明其经历的无数岁月。它缓慢地在周围爬行，用它那只巨大的钳子勉强保持平衡。\n\n尽管这螃蟹只有一只蟹钳，但钳子的大小完全补偿了这一不足。螃蟹只要发现危险就会把爪子举在自己身前，让自己获得坚不可摧的甲壳防护。")
+			.t("discover_hint", "你可在某个任务中遇到该敌人。");
+	}
+
 
 	{
 		spriteClass = GreatCrabSprite.class;

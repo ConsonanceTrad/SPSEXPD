@@ -28,8 +28,16 @@ import pd.actors.blobs.ParalyticGas;
 import pd.scenes.GameScene;
 import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class PotionOfParalyticGas extends Potion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfParalyticGas.class)
+			.t("name", "麻痹药剂")
+			.t("desc", "暴露于空气时，烧瓶里的液体会气化成一片令人失去知觉的黄色云雾。任何吸入气体的生物都可能立即麻痹，直到气体消散后一段时间才能行动。可以把该物件扔到远处的敌群中，让气体覆盖影响它们。");
+	}
+
 
 	{
 		icon = ItemIconSheet.POTION_PARAGAS;

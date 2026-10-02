@@ -24,8 +24,17 @@ package pd.items.equipment.weapon.missiles;
 import pd.atlas.items.ConsumThrowsDict;
 
 import pd.Assets;
+import pd.messages.InlineText;
 
 public class ThrowingClub extends MissileWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ThrowingClub.class)
+			.t("name", "飞槌")
+			.t("stats_desc", "这件武器不会卡在敌人身上并可被立即收回。")
+			.t("desc", "简单粗暴但耐用的投掷武器，实际上就是一块插着根木棍的大石头。");
+	}
+
 	
 	{
 		image = ConsumThrowsDict.THROWING_CLUB_0;

@@ -33,8 +33,18 @@ import pd.effects.Speck;
 import pd.items.Heap;
 import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Noisemaker extends Bomb {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Noisemaker.class)
+			.t("name", "噪音地雷")
+			.t("desc", "这枚改造过的炸弹会周而复始地发出噪音，直到其引信燃烧殆尽。当有什么东西碰到炸弹时，炸弹会爆炸并在2格范围内对所有单位造成_%1$d~%2$d点伤害_！")
+			.t("desc_burning", "噪音地雷引信已点燃，有东西接近就会爆炸！")
+			.t("discover_hint", "你可通过炼金合成该物品。");
+	}
+
 	
 	{
 		image = EquipmentEquipWeaponBombDict.NOISEMAKER_0;

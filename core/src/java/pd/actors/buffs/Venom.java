@@ -4,8 +4,16 @@ import pd.Dungeon;
 import pd.messages.Messages;
 import render.noosa.Image;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Venom extends Poison {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Venom.class)
+			.t("name", "剧毒")
+			.t("desc", "剧毒在体内滞留得越久，造成的伤害就越高。\n\n剧毒效果剩余：%1$s回合。\n当前剧毒伤害：%2$d。");
+	}
+
 	private static final String DAMAGE = "damage";
 
 	private int damage = 1;

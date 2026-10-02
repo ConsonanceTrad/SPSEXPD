@@ -15,9 +15,17 @@ import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The original SPS green dew, whose healing and stored value are randomized per pickup. */
 public class GreenDewdrop extends Dewdrop {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(GreenDewdrop.class)
+			.t("name", "绿色露珠")
+			.t("desc", "绿色的露珠。没有水袋时恢复10至39点生命，否则可储存10至29点露水能量。");
+	}
+
 	{
 		image = GroundFunctionalFallingDict.DEWDROP_0;
 	}

@@ -10,8 +10,17 @@ import pd.actors.buffs.Paralysis;
 import pd.effects.MagicMissile;
 import pd.mechanics.Ballistica;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Ichain extends RockCode {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Ichain.class)
+			.t("name", "钢铁锁链")
+			.t("desc", "来自典狱长的技能芯片，以钢铁锁链束缚一个目标。")
+			.t("stats_desc", "消耗4点能量中的1点，造成双倍等级伤害，并有25%%概率击晕目标。");
+	}
+
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "I.c"; }
 	@Override protected int missileType() { return MagicMissile.WOOL; }
 	@Override protected void onZap(Ballistica bolt) {

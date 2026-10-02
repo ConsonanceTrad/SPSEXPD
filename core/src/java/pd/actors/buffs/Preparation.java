@@ -50,8 +50,26 @@ import render.utils.serialize.Bundle;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import pd.messages.InlineText;
 
 public class Preparation extends Buff implements ActionIndicator.Action {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Preparation.class)
+			.t("name", "准备阶段")
+			.t("action_name", "蓄意打击")
+			.t("desc", "刺客正耐心地等待着，准备从暗影中给出致命一击。")
+			.t("desc_dmg", "他的下一次攻击会造成_%1$d%%的额外伤害_，并斩杀生命低于_%2$d%%_的普通敌人，或生命低于_%3$d%%_的Boss。")
+			.t("desc_dmg_likely", "这一击也更有可能造成偏高的伤害。")
+			.t("desc_blink", "他可以瞬间冲刺到敌人身边再攻击，最大冲刺距离为%d格。")
+			.t("desc_invis_time", "刺客已经隐形了_%d_回合。")
+			.t("desc_invis_next", "这一击在_%d_回合后会变得更强。")
+			.t("prompt", "选择一个攻击的目标！\n最大冲刺距离：%d格")
+			.t("no_target", "这里没有可攻击的目标。")
+			.t("out_of_reach", "你无法冲刺到目标距离。")
+			.t("assassinated", "斩杀");
+	}
+
 	
 	{
 		//always acts after other buffs, so invisibility effects can process first

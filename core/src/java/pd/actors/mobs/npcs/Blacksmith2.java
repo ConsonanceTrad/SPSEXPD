@@ -25,9 +25,27 @@ import pd.windows.WndBlacksmith2;
 import pd.windows.WndQuest;
 import render.noosa.Game;
 import render.utils.data.Callback;
+import pd.messages.InlineText;
 
 /** SPS troll welder, who combines equipment with matching adamant components. */
 public class Blacksmith2 extends NPC {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Blacksmith2.class)
+			.t("name", "巨魔焊工")
+			.t("desc", "这个巨魔焊工又高又瘦，皮肤的色泽和纹理都像石头。他正拿着一把与体形极不相称的电焊枪焊接着什么。")
+			.t("himself", "和你看到的一样，我是那个顽固铁匠的弟弟。我认为科学技术也能帮巨魔谋生。带来对应的_精金组件_和_50枚暗金_，我就能给你一个惊喜。")
+			.t("adamantite", "这种精金组件能让物品承受任意次数的强化。给我_50枚暗金_，我就能把它们焊接起来。")
+			.t("same_item", "同一件东西可没法焊接！")
+			.t("un_ided", "未知的东西我可没法处理！")
+			.t("cursed", "诅咒的东西我可没法处理！")
+			.t("already_reforge", "这件物品已经焊接过组件了！")
+			.t("degraded", "负等级的东西我可没法处理！")
+			.t("cant_reforge", "没法升级的东西我可没法处理！")
+			.t("cant_work", "组件和物品不匹配，我可没法处理！")
+			.t("looks_better", "你的%s现在可以承受任意次数的强化了。");
+	}
+
 
 	{
 		spriteClass = ElectricwelderSprite.class;

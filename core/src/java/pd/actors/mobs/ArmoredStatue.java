@@ -31,8 +31,17 @@ import pd.sprites.CharSprite;
 import pd.sprites.StatueSprite;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class ArmoredStatue extends Statue {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ArmoredStatue.class)
+			.t("name", "装甲石像")
+			.t("desc", "你本以为这只是地牢里又一尊静伫的石像，但它泛着红光的眼睛出卖了它。\n\n石像装备着精良的护甲，看上去相当坚硬，估计会很难对付。")
+			.t("desc_arm_wep", "虽然雕像本身是石制的，但它装备着的_%1$s_和_%2$s_看起来是真家伙。");
+	}
+
 
 	{
 		spriteClass = StatueSprite.class;

@@ -32,8 +32,18 @@ import pd.scenes.GameScene;
 import pd.ui.HeroIcon;
 import render.utils.serialize.Bundlable;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public abstract class ArmorAbility implements Bundlable {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(ArmorAbility.class)
+			.t("self_target", "你不能瞄准你自己！")
+			.t("no_target", "这里没有任何目标！")
+			.t("prompt", "选择释放能力的位置")
+			.t("cost", "充能消耗：_%d_");
+	}
+
 
 	protected float baseChargeUse = 35;
 

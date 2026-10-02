@@ -22,9 +22,17 @@
 package pd.items.specific.keys;
 
 import pd.atlas.items.SpecificKeyDict;
+import pd.messages.InlineText;
 
 
 public class CrystalKey extends Key {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(CrystalKey.class)
+			.t("name", "水晶钥匙")
+			.t("desc", "这把水晶钥匙在黑暗中反射着光芒。或许可以用它来打开某样水晶制品？");
+	}
+
 	
 	{
 		image = SpecificKeyDict.CRYSTAL_KEY;

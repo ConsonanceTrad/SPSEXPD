@@ -22,8 +22,21 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class PPC extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PPC.class)
+			.t("name", "电子放大镜")
+			.t("ac_try", "试探")
+			.t("ac_heal", "疗养")
+			.t("ac_mind", "追忆")
+			.t("need_charge", "记录数不足。")
+			.t("charge", "记录数：%d")
+			.t("desc", "每当有生物死亡，它都会留下一条记录。消耗记录可以获得灵感、摆脱一种精神异常，或制造意识之矢。");
+	}
+
 
 	public static final String AC_TRY = "TRY";
 	public static final String AC_HEAL = "HEAL";

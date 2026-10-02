@@ -12,6 +12,7 @@ import pd.actors.mobs.Mob;
 import pd.items.Generator;
 import pd.items.equipment.weapon.missiles.fusion.RocketMissile;
 import pd.sprites.PatrolUAVSprite;
+import pd.messages.InlineText;
 
 /**
  * SPS 0.9.9 壁垒支援用无人机：使用后投掷到目标点生成 HW大疆号支援无人机（对照 0.9.9 ChinaMech）。
@@ -19,6 +20,16 @@ import pd.sprites.PatrolUAVSprite;
  * 礼物商店 DEF_ROBOT 解锁的开局奖励。
  */
 public class ChinaMech extends SpsSummonItem {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ChinaMech.class)
+			.t("name", "壁垒支援用无人机")
+			.t("ac_active", "使用")
+			.t("desc", "呼叫支援，呼叫支援。")
+			.t("huaweidajiang.name", "HW大疆号")
+			.t("huaweidajiang.desc", "壁垒用于支援开拓者的无人机，内含高级食物及若干火箭。");
+	}
+
 
 	private static boolean activate;
 

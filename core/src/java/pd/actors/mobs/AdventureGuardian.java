@@ -42,8 +42,60 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class AdventureGuardian extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(AdventureGuardian.class)
+			.t("guardian_name", "%s守卫")
+			.t("echo_name", "%s回响")
+			.t("guardian_desc", "%s的主要敌人。每个目的地会选用近战或远程模式，并具有五类异常攻击之一；生命降至两个阶段门槛时，它会短暂加速并获得有上限的护盾。它不会提供经验或随机战利品。")
+			.t("echo_desc", "栖息在%s的弱小敌人回响，会使用较弱的目的地异常攻击，不会提供经验或随机战利品。")
+			.t("boss_desc", "%s的核心首领。%s首领的生命阶段能力最多触发两次，召唤物没有经验与随机掉落。")
+			.t("boss_name_6", "年兽")
+			.t("boss_name_7", "矿区核心哨兵")
+			.t("boss_name_9", "寄生核心")
+			.t("boss_name_10", "隐匿天狗")
+			.t("boss_name_11", "骷髅王")
+			.t("boss_name_12", "巨蟹王")
+			.t("boss_name_13", "盗贼王")
+			.t("boss_name_14", "原野霸主")
+			.t("boss_name_15", "陶罐守卫")
+			.t("boss_name_16", "暗影吞噬者")
+			.t("boss_name_17", "龙王")
+			.t("boss_name_18", "逃亡首领")
+			.t("boss_name_19", "深层矿山哨兵")
+			.t("boss_name_20", "Zot先驱")
+			.t("boss_name_21", "连续战主持者")
+			.t("boss_name_21_wave_0", "黏液霸主回响")
+			.t("boss_name_21_wave_1", "隐匿天狗回响")
+			.t("boss_name_21_wave_2", "矮人国王回响")
+			.t("boss_name_21_wave_3", "暗影之神回响")
+			.t("rush_next", "%s加入了连续战！")
+			.t("boss_name_22", "混沌化身")
+			.t("boss_name_23", "Zot投影")
+			.t("boss_name_24", "Zot")
+			.t("tactic_6", "它以火焰攻击压迫走位，并在阶段转换时加速。")
+			.t("tactic_7", "它从远处射击，重型外壳会在阶段转换时产生护盾。")
+			.t("tactic_9", "它会施加毒素，并在每次阶段转换时孵化一只回响。")
+			.t("tactic_10", "它以致盲飞镖牵制，并在阶段转换时转移位置。")
+			.t("tactic_11", "它会削弱近身者，并两次召来陵墓回响。")
+			.t("tactic_12", "它擅长迟滞敌人，并依靠比其他首领更厚的阶段护盾作战。")
+			.t("tactic_13", "它从远处致盲目标，并在受创后呼叫一名同党。")
+			.t("tactic_14", "它会削弱敌人，并在阶段转换时召集原野回响。")
+			.t("tactic_15", "它能扰乱移动方向，陶片护盾会在阶段转换时重组。")
+			.t("tactic_16", "它从远处散播毒素，并在阶段转换时遁入地图另一处。")
+			.t("tactic_17", "它会发动远程火焰攻击，并在每个阶段唤来幼龙回响。")
+			.t("tactic_18", "它以致盲攻击拖延追兵，并会两次改变逃亡位置。")
+			.t("tactic_19", "它使用远程迟滞攻击，阶段护盾比一般首领更厚。")
+			.t("tactic_20", "它会从远处暴露目标弱点，并在阶段转换时传送。")
+			.t("tactic_21", "四名首领回响会依次接战，分别使用残废、致盲、虚弱与减速攻击；总生命受到终局预算限制。")
+			.t("tactic_22", "它的异常效果会变化，并在阶段转换时随机换位。")
+			.t("tactic_23", "它从远处暴露弱点，并在阶段转换时制造Zot回响。")
+			.t("tactic_24", "它交替使用毒素与寒冷，并同时具有召唤和传送能力。");
+	}
+
 
 	private int destination;
 	private boolean guardian;

@@ -30,8 +30,17 @@ import pd.items.quest.GooBlob;
 import pd.items.quest.MetalShard;
 import pd.items.consum.stones.Runestone;
 import pd.plants.Plant;
+import pd.messages.InlineText;
 
 public class VelvetPouch extends Bag {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(VelvetPouch.class)
+			.t("name", "绒布袋")
+			.t("desc", "这个小锦囊能装下许多诸如种子、符石与炼金原材料此类的小物件。")
+			.t("discover_hint", "某位英雄初始携带该物品。");
+	}
+
 
 	{
 		image = EquipmentBagsDict.POUCH;

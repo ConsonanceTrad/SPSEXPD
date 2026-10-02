@@ -54,8 +54,25 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class WarpBeacon extends ArmorAbility {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(WarpBeacon.class)
+			.t("name", "空间信标")
+			.t("depths", "你无法传送到其它楼层！")
+			.t("locked_floor", "楼层被封锁了，你无法离开！")
+			.t("too_far", "这个位置太远了！")
+			.t("invalid_beacon", "你不能将信标放在那里！")
+			.t("window_desc", "你的信标目前设置在了第%d层。")
+			.t("window_tele", "返回信标位置")
+			.t("window_clear", "移除信标")
+			.t("window_cancel", "取消")
+			.t("short_desc", "法师在当前位置设置了一个_空间信标_，他能瞬间传送回信标所在位置。")
+			.t("desc", "法师设置了一个可以随时返回的信标。信标设置需要1回合，但传送回不消耗时间。\n\n法师在初始条件下无法传送至别的楼层，不能将其放入不可达的区域如上锁的房间。法师返回时若是目标地点有敌人，则会将其弹开。");
+	}
+
 
 	{
 		baseChargeUse = 35f;

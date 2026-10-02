@@ -10,9 +10,18 @@ import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** A short SPS damage-over-time growth which feeds nearby living characters. */
 public class GrowSeed extends Buff implements Hero.Doom {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GrowSeed.class)
+			.t("name", "寄生生长")
+			.t("heromsg", "带刺的植物从你的身体里钻了出来！")
+			.t("desc", "一颗魔法种子正在受害者体内生长，持续造成伤害，并为附近的生物恢复生命。");
+	}
+
 
 	private static final String LEFT = "left";
 	private float left;

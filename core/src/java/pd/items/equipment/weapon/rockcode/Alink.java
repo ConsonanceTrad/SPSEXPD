@@ -12,8 +12,17 @@ import pd.scenes.GameScene;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Alink extends RockCode {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Alink.class)
+			.t("name", "长老链接")
+			.t("desc", "来自星灵长老的技能芯片，在目标附近制造强力镜像。")
+			.t("stats_desc", "消耗4点能量中的1点，最多召唤两个镜像。");
+	}
+
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "A.l"; }
 	@Override protected int missileType() { return MagicMissile.WOOL; }
 	@Override protected void onZap(Ballistica bolt) {

@@ -92,8 +92,32 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
+import pd.messages.InlineText;
 
 public class Heap implements Bundlable {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Heap.class)
+			.t("for_sale", "%2$s：%1$d金币")
+			.t("for_life", "%2$s：%1$d点永久生命")
+			.t("mimic", "这是一个宝箱怪！")
+			.t("chest", "宝箱")
+			.t("chest_desc", "打开前你是看不见里面有什么的！")
+			.t("locked_chest", "上锁的宝箱")
+			.t("locked_chest_desc", "打开前你是看不见里面有什么的！你需要一枚金钥匙才能打开它。")
+			.t("crystal_chest", "水晶宝箱")
+			.t("crystal_chest_desc", "你看得见里面的_%s_，但你需要一枚水晶钥匙才能打开它。")
+			.t("artifact", "一件神器")
+			.t("wand", "一根法杖")
+			.t("ring", "一枚戒指")
+			.t("tomb", "坟墓")
+			.t("tomb_desc", "这个坟墓里或许埋葬着一些有用的东西，但墓主肯定是不会让你拿走的。")
+			.t("skeleton", "遗骸")
+			.t("skeleton_desc", "某个不幸的冒险家存在过的唯一证明。或许可以找找里面有什么值钱的东西。")
+			.t("remains", "英雄遗骸")
+			.t("remains_desc", "你的某个先辈存在过的唯一证明。或许能找到点什么值钱的东西。");
+	}
+
 	
 	public enum Type {
 		HEAP,

@@ -6,8 +6,16 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.EarthParticle;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class EarthImbue extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(EarthImbue.class)
+			.t("name", "大地之力")
+			.t("desc", "你被灌注了大地的力量！\n\n直到该效果结束前，你所有的物理攻击都会使敌人脚下的地面发生变化，使它们残废一段时间。\n\n大地之力剩余时长：%s回合");
+	}
+
 	{
 		type = buffType.POSITIVE;
 		announced = true;

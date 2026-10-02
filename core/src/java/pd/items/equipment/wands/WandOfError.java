@@ -35,9 +35,21 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** SPS-PD's deliberately unpredictable, zero-generation-weight wand. */
 public class WandOfError extends Wand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfError.class)
+			.t("name", "错误法杖")
+			.t("desc", "这是个错误。")
+			.t("stats_desc", "？？？")
+			.t("no_teleport", "传送效果找不到可用的落点。")
+			.t("teleported", "%1$s把%2$s传送到了别处。")
+			.t("nothing", "什么也没有发生。");
+	}
+
 
 	public static final int EFFECT_COUNT = 10;
 	private static final float SPS_FROST_DURATION = 5f;

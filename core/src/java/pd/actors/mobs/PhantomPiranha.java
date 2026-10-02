@@ -36,8 +36,17 @@ import pd.utils.GLog;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class PhantomPiranha extends Piranha {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(PhantomPiranha.class)
+			.t("name", "幻影食人鱼")
+			.t("teleport_away", "幻影食人鱼传送走了...")
+			.t("desc", "幻影食人鱼是巨型食人鱼的一个罕见变种，具有诡异的半透明身体和魔法能力。它能够在受到攻击时传送，依此能力进可攻、退可逃！\n\n虽然很难对付，但它们的肉也因具有魔力而备受珍视。");
+	}
+
 
 	{
 		spriteClass = PhantomPiranhaSprite.class;

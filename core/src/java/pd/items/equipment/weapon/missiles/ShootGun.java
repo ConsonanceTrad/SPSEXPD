@@ -26,8 +26,24 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class ShootGun extends SpsRangedWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ShootGun.class)
+			.t("name", "科技霰弹枪")
+			.t("ac_shoot", "射击")
+			.t("ac_endshoot", "终结射击")
+			.t("ac_reload", "装填")
+			.t("reloading", "正在装填……")
+			.t("full", "霰弹枪已经装满。")
+			.t("prompt", "选择一个目标")
+			.t("damage", "这件武器可以造成_%1$d~%2$d点伤害_。")
+			.t("charge", "弹药：%1$d / %2$d。")
+			.t("desc", "经过外星科技改装的霰弹枪。普通射击会破甲并击退目标；终结射击会清空弹仓，对目标及其周围生物造成伤害。");
+	}
+
 
 	public static final String AC_SHOOT = "SHOOT";
 	public static final String AC_ENDSHOOT = "ENDSHOOT";

@@ -37,8 +37,16 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import pd.messages.InlineText;
 
 public class Bag extends Item implements Iterable<Item> {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Bag.class)
+			.t("name", "背包")
+			.t("discover_hint", "你可在商店中购买该物品。");
+	}
+
 
 	public static final String AC_OPEN	= "OPEN";
 	

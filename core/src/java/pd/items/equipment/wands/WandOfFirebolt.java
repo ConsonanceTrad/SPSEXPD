@@ -19,9 +19,18 @@ import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
+import pd.messages.InlineText;
 
 /** The single-target firebolt wand from SPS-PD 0.9.8. */
 public class WandOfFirebolt extends DamageWand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfFirebolt.class)
+			.t("name", "火球法杖")
+			.t("desc", "这根火属性法杖由红漆木制成，饰以金叶，这使它看起来相当庄严。它的顶端噼啪作响、嘶嘶而鸣，渴望释放强大的魔法。")
+			.t("stats_desc", "该法杖会发射一枚火球，造成_%1$d~%2$d点伤害_，使目标燃烧5回合并点燃落点。");
+	}
+
 
 	{
 		image = EquipmentWandBasicWandDict.WAND_SPS_FIREBOLT;

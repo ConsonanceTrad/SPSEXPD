@@ -30,8 +30,16 @@ import pd.actors.buffs.MagicImmune;
 import pd.actors.hero.Talent;
 import pd.items.Item;
 import pd.journal.Catalog;
+import pd.messages.InlineText;
 
 public abstract class Runestone extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Runestone.class)
+			.t("placeholder.name", "符石")
+			.t("discover_hint", "你可在地牢中概率找到该物品，或通过炼金合成该物品。");
+	}
+
 	
 	{
 		stackable = true;

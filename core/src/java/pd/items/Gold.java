@@ -36,8 +36,17 @@ import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Gold extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Gold.class)
+			.t("name", "金币")
+			.t("desc", "一堆金币。收集金币以在随后的商店中消费。")
+			.t("ac_makebag", "装袋");
+	}
+
 	public static final String AC_MAKEBAG = "MAKEBAG";
 
 	{

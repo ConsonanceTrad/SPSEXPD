@@ -21,9 +21,17 @@ import pd.items.Item;
 import pd.items.equipment.weapon.melee.MeleeWeapon;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** The unstable zero-tier weapon produced by RobotDMT. */
 public class ErrorW extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ErrorW.class)
+			.t("name", "错误武器")
+			.t("desc", "这是个错误。——??? \n混沌");
+	}
+
 	private float legacyAccuracy = 1f;
 	private float legacyDelay = 1f;
 

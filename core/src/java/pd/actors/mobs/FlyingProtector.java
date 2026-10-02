@@ -15,8 +15,17 @@ import pd.utils.GLog;
 import render.utils.data.Callback;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class FlyingProtector extends Mob implements Callback {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(FlyingProtector.class)
+			.t("name", "智慧守卫")
+			.t("desc", "智慧试炼的守护者。")
+			.t("zap_kill", "智慧守卫的闪电击杀了你……");
+	}
+
 
 	private static final float TIME_TO_ZAP = 2f;
 	private static final String LEGACY_DEPTH = "legacy_depth";

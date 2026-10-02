@@ -3,8 +3,16 @@ package pd.items.nornstone;
 import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.items.Item;
+import pd.messages.InlineText;
 
 public class NornStone extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(NornStone.class)
+			.t("name", "魔法矿石")
+			.t("desc", "多利亚哈芬的特产，富有能量的魔法矿石。");
+	}
+
 
 	public int type;
 

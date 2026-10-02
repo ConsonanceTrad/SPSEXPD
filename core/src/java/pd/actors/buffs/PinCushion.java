@@ -32,8 +32,16 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import pd.messages.InlineText;
 
 public class PinCushion extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(PinCushion.class)
+			.t("name", "中矢")
+			.t("desc", "你击中这个角色的投掷武器正卡在他们身上，打败他们后投掷武器将会掉在地上。\n\n被卡住的物品如下：");
+	}
+
 
 	private ArrayList<MissileWeapon> items = new ArrayList<>();
 

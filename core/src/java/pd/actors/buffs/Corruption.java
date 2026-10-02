@@ -26,8 +26,16 @@ import pd.effects.FloatingText;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Corruption extends AllyBuff implements Buff.DOTbuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Corruption.class)
+			.t("name", "腐化")
+			.t("desc", "腐化魔法会侵入生物体的生命本质，扭转他们原有的天性。\n\n被腐化的生物会攻击他们的盟友，还会忽视其原先的敌人。腐化效果同时也是有伤害性的，会导致其目标缓慢走向死亡。\n\n腐化是永久性的，死后才能解脱。");
+	}
+
 
 	{
 		type = buffType.NEGATIVE;

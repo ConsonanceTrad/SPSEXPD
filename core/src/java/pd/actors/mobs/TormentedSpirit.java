@@ -34,8 +34,17 @@ import pd.messages.Messages;
 import pd.sprites.TormentedSpiritSprite;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class TormentedSpirit extends Wraith {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(TormentedSpirit.class)
+			.t("name", "咒缚灵")
+			.t("desc", "咒缚灵是本性善良却受诅咒折磨的魂灵。只要诅咒仍在，它们就会像更强的怨灵一样攻击你！\n\n或许可以在与之相邻时使用祛邪卷轴净化魂灵的诅咒。如果诅咒被净化，它们一定会报答你的...")
+			.t("thank_you", "谢谢你...");
+	}
+
 
 	{
 		spriteClass = TormentedSpiritSprite.class;

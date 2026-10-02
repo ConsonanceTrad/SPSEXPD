@@ -83,8 +83,30 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import pd.messages.InlineText;
 
 public class Tengu extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Tengu.class)
+			.t("name", "天狗")
+			.t("notice_gotcha", "抓到你了，%s！")
+			.t("interesting", "是时候让这场战斗变得更有意思了...")
+			.t("notice_have", "你的命归我了，%s！")
+			.t("defeated", "终于...解脱了...")
+			.t("rankings_desc", "被天狗暗杀")
+			.t("desc", "一位著名的神秘刺客，其名源于紧贴在他脸上的面具。\n\n天狗的手腕和膝下都带着镣铐，但他似乎很久以前就摆脱掉了锁链的束缚。\n\n他将利用陷阱、欺骗性的魔法、精准致命的攻击，来消灭唯一能阻止他逃脱的人：你。")
+			.t("bombability$bombblob.desc", "这里翻滚着一片过热的烟尘。当心，要爆炸了！")
+			.t("bombability$bombitem.name", "烟尘炸弹")
+			.t("bombability$bombitem.cant_pickup", "它固定在地面上，你无法搬动它！")
+			.t("bombability$bombitem.desc", "天狗往这里扔了一个奇形怪状的，不断鼓出滚烫浓烟的炸弹。它在滴答作响，似乎是爆炸的倒计时！\n\n炸弹嵌入了地面，你无法拾取它。")
+			.t("fireability$fireblob.desc", "天狗往这里洒了一把开始起烟的细腻粉末，要烧起来了！")
+			.t("shockerability$shockerblob.desc", "这里正积蓄着电能，站在这里的任何单位都会在下回合受到电击！")
+			.t("shockerability$shockeritem.name", "电击装置")
+			.t("shockerability$shockeritem.cant_pickup", "它放出电能太强了，你无法触碰它！")
+			.t("shockerability$shockeritem.desc", "天狗往这里扔了一个奇怪的装置，好像是用DM-100的零件拼凑出来的。装置在持续地向周围放出电弧，但是范围好像有规律可循。\n\n有这么密集的高压电弧环绕着，你无从下手去拾取它。");
+	}
+
 	
 	{
 		spriteClass = TenguSprite.class;

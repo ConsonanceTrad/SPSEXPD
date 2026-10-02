@@ -24,8 +24,18 @@ package pd.items.consum.food;
 import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.actors.buffs.Hunger;
+import pd.messages.InlineText;
 
 public class SmallRation extends Food {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SmallRation.class)
+			.t("name", "小包口粮")
+			.t("eat_msg", "吃起来还行。")
+			.t("desc", "它看起来和普通口粮一样，就是小了点。")
+			.t("discover_hint", "你可在商店中购买该物品。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

@@ -30,8 +30,16 @@ import pd.journal.Catalog;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public abstract class Trinket extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Trinket.class)
+			.t("discover_hint", "该物品在你通过炼金合成饰物时有概率作为选项。")
+			.t("placeholder.name", "饰物");
+	}
+
 
 	{
 		levelKnown = true;

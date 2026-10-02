@@ -31,8 +31,16 @@ import pd.items.equipment.wands.WandOfAcid;
 import pd.scenes.GameScene;
 import pd.sprites.AcidicSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Acidic extends Scorpio {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Acidic.class)
+			.t("name", "酸液蝎子")
+			.t("desc", "酸液蝎子较普通蝎子更强，也更加危险。它体内的酸液会在遇到危险时释放，从而保护自己免受天敌的袭击。");
+	}
+
 
 	{
 		spriteClass = AcidicSprite.class;

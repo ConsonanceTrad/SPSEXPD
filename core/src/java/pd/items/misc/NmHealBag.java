@@ -22,8 +22,21 @@ import pd.windows.WndUseItem;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class NmHealBag extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(NmHealBag.class)
+			.t("name", "纳米维生包")
+			.t("ac_choose", "选择")
+			.t("ac_heal", "纳米医疗")
+			.t("ac_cook", "纳米重组")
+			.t("ac_add", "纳米增值")
+			.t("need_charge", "纳米点数不足。")
+			.t("desc", "纳米维生包可以帮助你控制纳米点数。纳米医疗会把全部纳米点数转化为生命并清除数种有害状态；纳米重组消耗10点制造食物或召唤物；纳米增值会把大部分生命转化为纳米点数。");
+	}
+
 
 	public static final String AC_CHOOSE = "CHOOSE";
 	public static final String AC_HEAL = "HEAL";

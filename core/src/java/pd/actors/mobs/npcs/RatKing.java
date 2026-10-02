@@ -39,8 +39,31 @@ import pd.windows.WndInfoArmorAbility;
 import pd.windows.WndOptions;
 import render.noosa.Game;
 import render.utils.data.Callback;
+import pd.messages.InlineText;
 
 public class RatKing extends NPC {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(RatKing.class)
+			.t("name", "鼠王")
+			.t("not_sleeping", "我可不是在睡觉！")
+			.t("what_is_it", "你这是想干什么？我可没时间管这些破事。我的王国可不会自己运转下去！")
+			.t("confused", "这...我这是在哪？我的王国需要我！")
+			.t("crown_clothes", "把衣服穿上！会见皇室的礼仪都不懂吗！")
+			.t("crown_desc", "哇，那个皇冠是要给本王的吗！？它看上去比我的皇冠更闪更亮，那我就好心好意地接受了！\n\n当然，我堂堂鼠王也不会白拿的。作为交换，本王能赐你一项配得上“英雄”之称的强大能力！怎么样？要不要？")
+			.t("crown_yes", "当然了！")
+			.t("crown_info", "我愿闻其详。")
+			.t("crown_no", "还是算了...")
+			.t("crown_thankyou", "嘿嘿嘿嘿，多谢了！不要让本王失望了，去宣扬我的威名吧！")
+			.t("crown_fine", "行吧！反正我也不怎么想要那个闪闪发光的皇冠...")
+			.t("crown_after", "新衣服穿着合身吗？诚信交易，概不退换！")
+			.t("desc_crown", "这只老鼠比普通的啮齿小鼠大一点。它戴着矮人国王的皇冠。")
+			.t("desc_birthday", "这只老鼠比普通的啮齿小鼠大一点。它戴着一顶小小的绿色派对帽，而不是它常戴的皇冠。祝鼠王生日快乐！")
+			.t("desc_winter", "这只老鼠比普通的啮齿小鼠大一点。它戴着一顶小小的节日帽，而不是常戴的皇冠。假日快乐！")
+			.t("desc", "这只老鼠比普通的啮齿小鼠大一点。它戴着一顶小小的皇冠。")
+			.t("discover_hint", "你可在某个地牢区域中的终点遇到该单位。");
+	}
+
 
 	{
 		spriteClass = RatKingSprite.class;

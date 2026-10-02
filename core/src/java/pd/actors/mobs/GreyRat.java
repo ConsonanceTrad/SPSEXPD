@@ -22,9 +22,17 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.GreyRatSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** Original SPS-PD runtime and save identity for the grey rat. */
 public class GreyRat extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GreyRat.class)
+			.t("name", "灰毛鼠")
+			.t("desc", "灰毛鼠是棕毛鼠的变种，它可以免疫大量负面状态。");
+	}
+
 
 	private static final float SPAWN_DELAY = 2f;
 

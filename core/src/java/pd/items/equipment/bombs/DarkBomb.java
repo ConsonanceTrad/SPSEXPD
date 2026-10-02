@@ -13,8 +13,16 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.SmokeParticle;
 import pd.mechanics.pathfind.PathFinder;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class DarkBomb extends Bomb {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(DarkBomb.class)
+			.t("name", "暗黑炸弹")
+			.t("desc", "这枚炸弹会散布恐惧与暗影诅咒，并对生命体造成巨额伤害。");
+	}
+
 
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 

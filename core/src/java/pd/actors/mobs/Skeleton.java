@@ -46,8 +46,18 @@ import pd.ui.TargetHealthIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Skeleton extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Skeleton.class)
+			.t("name", "骷髅")
+			.t("explo_kill", "你死于迸溅的碎骨...")
+			.t("def_verb", "格挡")
+			.t("desc", "骷髅本是倒霉的冒险家和监狱原住民的尸骨，因地牢深处邪恶魔力的影响而苏醒。骷髅被摧毁后，它的骨头会炸成碎片。迸溅的碎骨会伤害邻近的所有角色，而护甲能显著减免这种伤害。");
+	}
+
 	@Override public Item SupercreateLoot() { return new StoneCross(); }
 	
 	{

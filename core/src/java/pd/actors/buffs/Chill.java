@@ -25,8 +25,17 @@ import pd.actors.Char;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class Chill extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Chill.class)
+			.t("name", "冻伤")
+			.t("freezes", "%s冻住了！")
+			.t("desc", "还没有完全冻住，不过已经非常冷了。\n\n冻伤的目标所有行动都会更加缓慢，减速程度取决于剩余的冻伤效果时间。最严重的冻伤情况等同于迟缓效果。\n\n冻伤效果剩余时长：%1$s回合\n当前减少的速度：%2$s%%");
+	}
+
 
 	public static final float DURATION = 10f;
 

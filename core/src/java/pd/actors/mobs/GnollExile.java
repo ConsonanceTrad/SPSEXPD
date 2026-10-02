@@ -37,8 +37,20 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class GnollExile extends Gnoll {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(GnollExile.class)
+			.t("name", "豺狼流寇")
+			.t("desc", "这只灰毛豺狼人在其肩处刺有一个显眼的标记，作为其被已流放的标志。豺狼人通常会因无视纪律或违反法律而被流放驱逐出豺狼人社会。强大与精明是流寇生存的看家本领，而这一只看起来善使其所持的长矛。")
+			.t("desc_passive", "_豺狼流寇目前暂无攻击意图。_它似乎并不像此处的其他豺狼人那样好斗，也许它认为与你战斗并不划算。你可以选择饶它一命，但它所携带的包裹也许装满了有用的物品...")
+			.t("desc_aggro", "_豺狼流寇虎视眈眈地环顾四周。_看来终究还是有什么使它下定决心出手进攻了。小心那根长矛！")
+			.t("seen_passive", "持矛的豺狼人警戒地看着你，但其并无攻击意图。")
+			.t("seen_aggro", "持矛的豺狼人准备进行攻击！");
+	}
+
 
 	//has 2x HP, +50% other stats, and +1 reach vs. a regular gnoll scout
 	//in exchange, they do not aggro automatically, and drop extra loot

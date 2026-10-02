@@ -51,8 +51,23 @@ import render.utils.data.Callback;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 import render.utils.serialize.Reflection;
+import pd.messages.InlineText;
 
 public class Ghost extends NPC {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Ghost.class)
+			.t("name", "悲伤幽灵")
+			.t("rat_1", "你好，%s...曾几何时，我也如你这般——既强大又自信...直到被一只邪恶的野兽所害...我不能离开这个地方...除非完成复仇...杀死_腐臭老鼠_，就是它夺走了我的生命...\n\n它就在这一层游荡...四处散播污秽..._小心它的周边的恶臭云雾和腐蚀性的撕咬，它产生的酸性粘液可溶于水..._")
+			.t("rat_2", "请帮助我...杀了那个令人憎恶的东西...\n\n_在水附近与它战斗...躲开它的臭气..._")
+			.t("gnoll_1", "你好，%s...曾几何时，我也如你这般——既强大又自信...但我被一个狡猾的敌人杀死了...我不能离开这个地方...除非完成复仇...杀死_豺狼诡术师_，就是它夺走了我的生命...\n\n它与其他豺狼人不同...它会隐匿自身，还会使用投掷武器..._小心它的毒镖和火镖，尽量靠近它..._")
+			.t("gnoll_2", "请帮助我...杀了那个诡诈的家伙...\n\n_别让它打到你...离它越近越好..._")
+			.t("crab_1", "你好，%s...曾几何时，我也如你这般——既强大又自信...但我被一个古老的生物杀死了...我不能离开这个地方...除非完成复仇...杀死_巨钳螃蟹_，就是它夺走了我的生命...\n\n它经历了无数岁月的洗礼...有一个巨大的蟹钳和非常厚重的蟹壳..._小心它的蟹钳，你必须偷袭这只巨蟹，否则它会用钳子格挡你的攻击..._")
+			.t("crab_2", "请帮助我...杀了那个甲壳类...\n\n_如果它发现你...就会挡住你所有的攻击..._")
+			.t("find_me", "谢谢你...来找我吧...")
+			.t("desc", "这个幽灵几乎不可见。它看起来像是由一片无定形的昏暗光斑和一张悲痛的面孔所组成的。");
+	}
+
 
 	{
 		spriteClass = GhostSprite.class;

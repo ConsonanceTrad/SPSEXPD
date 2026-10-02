@@ -34,8 +34,24 @@ import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 public class Crossbow extends MeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Crossbow.class)
+			.t("name", "十字弩")
+			.t("typical_stats_desc", "通常，这件武器在被装备时会强化飞镖以造成_%1$d~%2$d_点伤害，甚至能将其附魔赋予飞镖。")
+			.t("stats_desc", "这件武器在被装备时会强化飞镖以造成_%1$d~%2$d_点伤害，甚至能将其附魔赋予飞镖。")
+			.t("ability_name", "蓄势射击")
+			.t("typical_ability_desc", "决斗家可以为十字弩_蓄势_。这个武技能使下一次攻击必定命中，并将视情况触发以下三种效果之一：近战攻击将会击退敌人；未涂药飞镖一般会造成_%1$d点额外伤害_，而涂药飞镖将会在7x7的范围内触发效果，还一般会增加_%2$d次可用次数_。")
+			.t("ability_desc", "决斗家可以为十字弩_蓄势_。这个武技能使下一次攻击必定命中，并将视情况触发以下三种效果之一：近战攻击将会击退敌人；未涂药飞镖将会造成_%1$d点额外伤害_，而涂药飞镖将会在7x7的范围内触发效果，还会增加_%2$d次可用次数_。")
+			.t("desc", "这是一件看起来相当精密复杂的装置，能够将飞镖一样的小型箭矢以极高的速度射出。这把十字弩掂在手里沉甸甸的，比想象中结实很多，虽然完全违背了设计初衷，不过也能够在肉搏战中起到作用。")
+			.t("upgrade_ability_stat_name", "武技加成")
+			.t("chargedshot.name", "蓄势待发")
+			.t("chargedshot.desc", "决斗家正将能量集中于她的十字弩。这个武技能使她的下一次攻击必定命中，并将视情况触发以下三种效果之一：\n-近战攻击将会击退敌人数格。\n-未涂药飞镖将会造成额外伤害。\n-涂药飞镖将会增加可用次数，在7x7的范围内触发效果。正面效果只对盟友生效，负面效果也只对敌人生效。决斗家不能使用此武技使正面飞镖效果对她自己生效。");
+	}
+
 	
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.CROSSBOW_0;

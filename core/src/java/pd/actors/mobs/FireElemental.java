@@ -20,9 +20,17 @@ import pd.items.equipment.weapon.enchantments.EnchantmentFire;
 import pd.plants.Firebloom;
 import pd.sprites.FireElementalSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** Original SPS-PD runtime and save identity for the city fire elemental. */
 public class FireElemental extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(FireElemental.class)
+			.t("name", "火元素")
+			.t("desc", "这些游荡的火元素是在召唤某种更强大存在时产生的副产品。其特性太过紊乱，以至于最强大的恶魔学者都无法驱使。");
+	}
+
 
 	{
 		spriteClass = FireElementalSprite.class;

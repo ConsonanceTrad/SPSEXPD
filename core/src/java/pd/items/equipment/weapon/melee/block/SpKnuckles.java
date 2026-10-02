@@ -9,9 +9,17 @@ import pd.actors.buffs.Paralysis;
 import pd.actors.buffs.ShieldArmor;
 import pd.items.equipment.weapon.melee.normalweapon.NormalMeleeWeapon;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The knuckle-sect weapon sold by Shower after Otiluke is rescued. */
 public class SpKnuckles extends NormalMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SpKnuckles.class)
+			.t("name", "特制指虎")
+			.t("desc", "指虎教徒所崇拜的指虎。\n钝器，招架。");
+	}
+
 
 	public SpKnuckles() {
 		super(1, 2f, 0.5f, 2, 1, 10, SpecificPlaceHolderDict.SOMETHING_0);

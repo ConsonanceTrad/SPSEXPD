@@ -25,8 +25,20 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.messages.Messages;
 import pd.sprites.ItemIconSheet;
+import pd.messages.InlineText;
 
 public class RingOfTenacity extends Ring {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(RingOfTenacity.class)
+			.t("name", "韧性之戒")
+			.t("stats", "佩戴这枚戒指时，你受到的伤害至多减少_%s%%_。")
+			.t("typical_stats", "佩戴这枚戒指时，你受到的伤害通常至多减少_%s%%_。")
+			.t("combined_stats", "你已装备的戒指正联结它们的力量，一共减少了你受到伤害的最多_%s%%_。")
+			.t("upgrade_stat_name_1", "伤害抗性上限")
+			.t("desc", "这枚戒指使佩戴者能够抵御本应致命的打击。佩戴者受伤越重，对伤害的抗性就越高。被诅咒的戒指则会让敌人更容易杀死佩戴者。");
+	}
+
 
 	{
 		icon = ItemIconSheet.RING_TENACITY;

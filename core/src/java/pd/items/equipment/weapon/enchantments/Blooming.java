@@ -35,8 +35,17 @@ import pd.sprites.ItemSprite;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Blooming extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Blooming.class)
+			.t("name", "繁茂%s")
+			.t("desc", "繁茂武器具有催生植物的魔力，在攻击目标时能使目标或周围的植被发芽生长。")
+			.t("elestrike_desc", "武器拥有繁茂附魔时，元素打击会在范围内最多8个地块上生成高草，并使范围内所有敌人缠绕6回合。");
+	}
+
 	
 	private static ItemSprite.Glowing DARK_GREEN = new ItemSprite.Glowing( 0x008800 );
 	

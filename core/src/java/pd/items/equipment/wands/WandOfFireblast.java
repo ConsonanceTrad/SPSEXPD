@@ -54,8 +54,23 @@ import render.utils.math.GameMath;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class WandOfFireblast extends DamageWand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfFireblast.class)
+			.t("name", "焰浪法杖")
+			.t("staff_name", "焰浪魔杖")
+			.t("desc", "这根法杖由红漆木制成，饰以金叶，这使它看起来相当庄严。它的顶端噼啪作响嘶嘶而鸣，渴望着释放其强大的魔法。")
+			.t("stats_desc", "这根法杖在使用时会产生一股强大的焰浪，延伸出一个锥形区域。下一次使用它将消耗_%1$d点充能_并造成_%2$d~%3$d点伤害_。法杖一次消耗的充能数越多，其范围与威力就越大、越强。")
+			.t("upgrade_stat_name_1", "1点充能伤害")
+			.t("upgrade_stat_name_2", "2点充能伤害")
+			.t("upgrade_stat_name_3", "3点充能伤害")
+			.t("bmage_desc", "当_战斗法师_以焰浪魔杖近战攻击目标时，有概率吸收所有邻近的火焰并制造出一场爆炸！与敌人相邻的火焰越多，触发该效果的概率越高。")
+			.t("eleblast_desc", "焰浪魔杖的元素风暴造成100%伤害，冲开范围内的门，并使目标与地形起火。");
+	}
+
 
 	{
 		image = EquipmentWandBasicWandDict.WAND_FIREBOLT_0;

@@ -46,8 +46,16 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Succubus extends Mob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Succubus.class)
+			.t("name", "魅魔")
+			.t("desc", "魅魔是一种善于操纵敌人的精神的变形恶魔。这一只化为了哥特风的苍白人形，或许是为了吸引矮人术士？\n\n在攻击时，魅魔能够暂时魅惑目标，使其无法直接攻击魅魔本身。魅魔在攻击被魅惑的目标时能吸取其生命精华。");
+	}
+
 	private static final int BLINK_DELAY = 5;
 
 	private int blinkCooldown = 0;

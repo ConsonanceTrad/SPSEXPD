@@ -6,8 +6,16 @@ import pd.actors.buffs.ArcaneArmor;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Healing;
 import pd.actors.hero.Hero;
+import pd.messages.InlineText;
 
 public class HealGrass extends Vegetable {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(HealGrass.class)
+			.t("name", "治疗草")
+			.t("desc", "阳春草的一部分，可以食用。它能恢复生命并提供暂时的奥术防护。");
+	}
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected void onEat(Hero hero) {
 		Buff.affect(hero, Healing.class).setHeal(20, 0.25f, 0);

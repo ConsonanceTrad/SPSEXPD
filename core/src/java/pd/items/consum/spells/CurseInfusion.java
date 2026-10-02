@@ -41,8 +41,17 @@ import pd.journal.Catalog;
 import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class CurseInfusion extends InventorySpell {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(CurseInfusion.class)
+			.t("name", "诅咒菱晶")
+			.t("inv_title", "诅咒一件物品")
+			.t("desc", "这个菱晶可以向一件装备注入和DM-300内部相同的的邪恶魔法。目标物品会立刻被诅咒，且原有的附魔与刻印会被覆盖。\n\n对武器、护甲和法杖使用时，诅咒菱晶在诅咒的基础上还会升级目标物品。诅咒菱晶造成的升级不会叠加，而且去除诅咒后升级也随之消失。\n\n对武器护甲的重复诅咒可以更换其上的诅咒种类。");
+	}
+
 	
 	{
 		image = ConsumScrollAmuletCrystalDict.CURSE_INFUSE_0;

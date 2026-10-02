@@ -8,8 +8,16 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Daze;
 import pd.items.equipment.weapon.melee.Sai;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Nunchaku extends Sai implements FusionWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Nunchaku.class)
+			.t("name", "双节棍")
+			.t("desc", "攻击迅速但单次伤害较低的三阶武器。每次命中有八分之一概率使目标短暂恍惚。");
+	}
+
 	{ image = EquipmentEquipWeaponBasicWeaponDict.SAI_0; tier = 3; DLY = 0.8f; }
 	@Override public int min(int lvl) { return 4 + lvl; }
 	@Override public int max(int lvl) { return 15 + 3 * lvl; }

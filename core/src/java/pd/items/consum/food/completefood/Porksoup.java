@@ -12,8 +12,16 @@ import pd.actors.buffs.Poison;
 import pd.actors.buffs.STRDown;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSprite;
+import pd.messages.InlineText;
 
 public class Porksoup extends CompleteFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Porksoup.class)
+			.t("name", "排骨汤")
+			.t("desc", "你可以看到浮在上面的油水。\n使用_1份蔬菜、1份肉、1份水_炼制。");
+	}
+
 
 	private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0xCC6600);
 

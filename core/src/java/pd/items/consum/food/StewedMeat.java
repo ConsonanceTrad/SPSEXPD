@@ -25,8 +25,18 @@ import pd.atlas.items.ConsumFoodFoodDict;
 
 import pd.actors.buffs.Hunger;
 import pd.items.Recipe;
+import pd.messages.InlineText;
 
 public class StewedMeat extends Food {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(StewedMeat.class)
+			.t("name", "炖肉")
+			.t("eat_msg", "吃起来还行。")
+			.t("desc", "烹煮的过程中杀死了肉上面可能携带的任何病菌或是寄生虫。现在应该可以安全的食用它了。")
+			.t("discover_hint", "你可通过炼金合成该物品。");
+	}
+
 	
 	{
 		image = ConsumFoodFoodDict.STEWED_MEAT;

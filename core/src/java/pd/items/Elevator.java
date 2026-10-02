@@ -9,9 +9,19 @@ import pd.scenes.InterlevelScene;
 import render.noosa.Game;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** The legacy SPS portable elevator, usable on the first 25 dungeon floors. */
 public class Elevator extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Elevator.class)
+			.t("name", "社会升降器")
+			.t("desc", "曾经有一位疯狂的古神信徒。他得到了古神的奖励，被封印在这件上流社会的服装中。\n这件道具可以使你自由穿梭于主地牢的第0至25层。")
+			.t("ac_up", "上楼")
+			.t("ac_down", "下楼");
+	}
+
 	public static final String AC_UP = "UP";
 	public static final String AC_DOWN = "DOWN";
 

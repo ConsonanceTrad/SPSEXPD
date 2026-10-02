@@ -24,8 +24,22 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class MissileShield extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(MissileShield.class)
+			.t("name", "神木圆盾")
+			.t("ac_cast", "扔出")
+			.t("ac_shield", "防御")
+			.t("rest", "体力不足。")
+			.t("prompt", "选择要瞄准的地方")
+			.t("desc", "一块普通的木质盾牌，上面有一些刮痕。\n这块盾牌被打磨得十分光滑，可以将其投掷出去，消耗体力并击晕敌人。\n也可以将其举起，以减少受到的伤害。")
+			.t("damage", "这块盾牌可以造成_%d-%d点伤害_，并对首领再次造成等量伤害。")
+			.t("charge", "剩余体力%d / %d。");
+	}
+
 	public static final String AC_CAST = "CAST";
 	public static final String AC_SHIELD = "SHIELD";
 	private static final String CHARGE = "charge";

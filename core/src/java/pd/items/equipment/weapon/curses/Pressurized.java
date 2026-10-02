@@ -28,8 +28,17 @@ import pd.levels.traps.GeyserTrap;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Pressurized extends Weapon.Enchantment {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Pressurized.class)
+			.t("name", "激流%s")
+			.t("desc", "激流诅咒的武器可以喷流出强劲的水爆，击退包括你在内的一切事物。")
+			.t("elestrike_desc", "武器拥有激流诅咒时，元素打击会创造破坏地形并击退范围内所有敌人的巨浪。");
+	}
+
 
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 

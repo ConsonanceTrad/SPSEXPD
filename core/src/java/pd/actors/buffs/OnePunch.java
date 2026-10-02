@@ -4,9 +4,17 @@ package pd.actors.buffs;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Stores SeriousPunch's multiplier until the hero's next successful attack. */
 public class OnePunch extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(OnePunch.class)
+			.t("name", "认真一拳")
+			.t("desc", "下一次成功攻击额外造成%d%%伤害。");
+	}
+
 
 	private static final String LEVEL = "level";
 	private int level;

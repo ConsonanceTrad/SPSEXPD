@@ -11,9 +11,16 @@ import pd.effects.particles.SandParticle;
 import pd.items.Heap;
 import pd.levels.Level;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 /** Short-lived SPS sand cloud which dries actors and earth-hits floor items. */
 public class SandStorm extends Blob {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(SandStorm.class)
+			.t("desc", "这里盘绕着干燥的沙尘暴，会使生物陷入干燥，并以土元素影响地上的物品。");
+	}
+
 	@Override
 	protected void evolve() {
 		int width = Dungeon.level.width();

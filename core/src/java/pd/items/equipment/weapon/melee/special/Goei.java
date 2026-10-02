@@ -5,8 +5,16 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.actors.Char;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Goei extends SpsSpecialMeleeWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Goei.class)
+			.t("name", "驱魔御币")
+			.t("desc", "一把驱魔御币，博丽的巫女常用它来治退妖魔鬼怪。——REN\n除秽，积蓄");
+	}
+
 	private static final String CHARGE = "charge";
 	private int charge;
 

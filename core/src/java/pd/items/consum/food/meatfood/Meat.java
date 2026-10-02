@@ -7,8 +7,16 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Poison;
 import pd.actors.hero.Hero;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Meat extends MeatFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Meat.class)
+			.t("name", "生肉")
+			.t("desc", "集市里常见的肉，最好加工后再吃。");
+	}
+
 	{
 		image = ConsumFoodFoodDict.MEAT;
 		energy = 100f;

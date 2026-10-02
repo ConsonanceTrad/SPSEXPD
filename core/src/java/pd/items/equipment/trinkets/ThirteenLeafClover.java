@@ -25,8 +25,18 @@ import pd.atlas.items.EquipmentNonEquipDict;
 
 import pd.messages.Messages;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class ThirteenLeafClover extends Trinket {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ThirteenLeafClover.class)
+			.t("name", "十三叶草")
+			.t("desc", "不知为何，在炼金釜中烹煮竟让这株三叶草长出了许多额外的叶子！目前尚不清楚这件饰物会带来好运还是厄运，或许它会让你的运气变得更加混沌无常？")
+			.t("typical_stats_desc", "这件饰物通常会使你有_%1$d%%_的概率造成最大伤害，而有_%2$d%%_的概率造成最小伤害。")
+			.t("stats_desc", "在当前等级下，这件饰物会使你有_%1$d%%_的概率造成最大伤害，而有_%2$d%%_的概率造成最小伤害。");
+	}
+
 
 	{
 		image = EquipmentNonEquipDict.CLOVER_0;

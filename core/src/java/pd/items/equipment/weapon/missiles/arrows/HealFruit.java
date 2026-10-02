@@ -8,8 +8,16 @@ import pd.actors.blobs.HealLight;
 import pd.effects.Speck;
 import pd.sprites.CharSprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class HealFruit extends SpsFruit {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(HealFruit.class)
+			.t("name", "疗伤果")
+			.t("desc", "人工种植的阳春草结出的果实。直接命中会治疗目标，落地则会释放治疗光芒。");
+	}
+
 	public HealFruit() { this(1); }
 	public HealFruit(int number) { super(ConsumPotionSeedSeedDict.SEED_SUNGRASS, 20, 20); quantity(number); }
 

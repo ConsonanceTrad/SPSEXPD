@@ -31,8 +31,17 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.DM201Sprite;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class DM201 extends DM200 {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(DM201.class)
+			.t("name", "DM-201")
+			.t("vent", "DM-201投出了一枚酸蚀榴弹！")
+			.t("desc", "矮人曾做过一些围绕DM-200的机动性缺陷展开的实验，并据此设计制造了一批完全固定的DM系列机器。DM-201是经过改装的DM-200，其作为哨戒炮塔完全没有移动能力。作为交换，DM-201们的坚固程度与攻击能力都得到了显著的提升。\n\n由于DM-201并没有用于排放废气的引擎，矮人给它们装备了酸蚀气体榴弹！不过，DM-201对榴弹的使用很谨慎，只有在受到来自远处的攻击时才会向敌人投掷榴弹。");
+	}
+
 
 	{
 		spriteClass = DM201Sprite.class;

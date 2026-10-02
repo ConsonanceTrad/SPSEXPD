@@ -8,8 +8,17 @@ import pd.actors.hero.Hero;
 import pd.effects.particles.FlameParticle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class GoldBag extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(GoldBag.class)
+			.t("name", "一袋金币")
+			.t("ac_use", "提现")
+			.t("desc", "装有10000枚金币的袋子。");
+	}
+
 	public static final String AC_USE = "USE";
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

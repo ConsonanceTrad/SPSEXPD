@@ -8,9 +8,17 @@ import pd.levels.Terrain;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Accumulates an attack multiplier while the target remains next to a wall. */
 public class HighAttack extends Buff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(HighAttack.class)
+			.t("name", "攀墙伏击")
+			.t("desc", "在障碍物旁蓄力，获得少量闪避提升和下次攻击伤害加成；离开障碍物会失去效果。\n\n下次伤害加成倍率：%s。");
+	}
+
 
 	public static final float DURATION = 30f;
 	private static final String LEVEL = "level";

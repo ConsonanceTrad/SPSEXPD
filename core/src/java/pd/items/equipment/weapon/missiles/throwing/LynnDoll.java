@@ -22,9 +22,19 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Lynn's cursed throwing doll and its remote hunter. */
 public class LynnDoll extends TossWeapon {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(LynnDoll.class)
+			.t("name", "梦瑶娃娃")
+			.t("desc", "奇怪的玩偶，好像有不好的东西附在上面。")
+			.t("cursedoll.name", "诡异少女")
+			.t("cursedoll.desc", "和娃娃差不多的少女。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

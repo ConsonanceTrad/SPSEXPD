@@ -22,8 +22,17 @@
 package pd.actors.buffs;
 
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class Daze extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Daze.class)
+			.t("name", "恍惚")
+			.t("heromsg", "你感到头晕目眩！")
+			.t("desc", "耳畔嗡鸣，视野模糊，战斗因此变得十分困难。\n\n在恍惚状态下，精准和闪避都会减少50%%，使得命中和躲避都变得更加困难。\n\n剩余回合数：%s");
+	}
+
 
 	public static final float DURATION	= 5f;
 

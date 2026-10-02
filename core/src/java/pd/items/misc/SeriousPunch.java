@@ -11,8 +11,18 @@ import pd.messages.Messages;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class SeriousPunch extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(SeriousPunch.class)
+			.t("name", "认真拳套")
+			.t("ac_cast", "使用")
+			.t("desc", "一副看似普通的拳套。每次成功攻击都会积蓄力量；使用后会把全部积蓄灌注到下一次攻击中。")
+			.t("charge", "积蓄力量：%d。");
+	}
+
 
 	public static final String AC_CAST = "CAST";
 	private static final String CHARGE = "charge";

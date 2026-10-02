@@ -36,8 +36,17 @@ import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.noosa.particles.Emitter;
+import pd.messages.InlineText;
 
 public class ScrollOfRecharging extends Scroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfRecharging.class)
+			.t("name", "充能卷轴")
+			.t("surge", "一股能量在体内奔腾而过，使你的法杖力量充沛！")
+			.t("desc", "纯正的魔法能量被禁锢在羊皮纸内，当这股能量被释放时会在短时间内持续为阅读者的所有法杖充能。");
+	}
+
 
 	{
 		icon = ItemIconSheet.SCROLL_RECHARGE;

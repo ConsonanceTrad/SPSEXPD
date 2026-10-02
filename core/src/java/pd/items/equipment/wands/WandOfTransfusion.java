@@ -50,8 +50,25 @@ import render.utils.data.Callback;
 import render.utils.geom.PointF;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class WandOfTransfusion extends DamageWand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfTransfusion.class)
+			.t("name", "注魂法杖")
+			.t("staff_name", "注魂魔杖")
+			.t("ondeath", "你用注魂法杖耗尽了自己的生命...")
+			.t("charged", "敌人的生命能量流进了你的魔杖！")
+			.t("desc", "这根法杖形状很普通，是那暗红的色泽和镶在顶端的漆黑宝石让它显眼起来。")
+			.t("stats_desc", "这根法杖对盟友或被魅惑的敌人释放时会消耗你_%1$d点生命_并赋予目标_%2$d点生命或护盾_；对敌人释放时会短暂魅惑敌人并回馈给你_%3$d点护盾_。敌对亡灵生物会受到_%4$d~%5$d点伤害_而不是被魅惑。")
+			.t("upgrade_stat_name_1", "盟友治疗")
+			.t("upgrade_stat_name_2", "自身护盾")
+			.t("upgrade_stat_name_3", "亡灵伤害")
+			.t("bmage_desc", "当_战斗法师_以注魂魔杖近战攻击被魅惑的目标时，能获取一定的护盾且下次释放不消耗生命。")
+			.t("eleblast_desc", "注魂魔杖的元素风暴会在范围内魅惑所有敌人、治疗所有友军，对敌对亡灵生物造成100%伤害。");
+	}
+
 
 	{
 		image = EquipmentWandBasicWandDict.WAND_TRANSFUSION_0;

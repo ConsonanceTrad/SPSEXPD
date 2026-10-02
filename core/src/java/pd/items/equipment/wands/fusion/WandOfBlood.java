@@ -14,9 +14,26 @@ import pd.mechanics.Ballistica;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** The original SPS-PD blood wand, kept in the fusion package for save compatibility. */
 public class WandOfBlood extends DamageWand {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(WandOfBlood.class)
+			.t("name", "鲜血法杖")
+			.t("staff_name", "血契魔杖")
+			.t("ondeath", "你在血契中耗尽了自己的生命...")
+			.t("charged", "敌人的生命能量流入血契魔杖！")
+			.t("desc", "这根_暗属性_法杖能发射黑暗能量，如果法杖头上装饰用的小骷髅还不够直白地揭示这一点的话。")
+			.t("stats_desc", "该法杖会释放腐坏能量，造成_%1$d~%2$d点伤害_并用于治愈自身。")
+			.t("upgrade_stat_name_1", "盟友治疗")
+			.t("upgrade_stat_name_2", "自身护盾")
+			.t("upgrade_stat_name_3", "亡灵伤害")
+			.t("bmage_desc", "战斗法师攻击被魅惑的目标时会获得护盾，并免除下一次血契的生命消耗。")
+			.t("eleblast_desc", "血契魔杖的元素风暴会魅惑敌人、治疗盟友并伤害敌对亡灵。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

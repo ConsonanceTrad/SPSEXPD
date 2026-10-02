@@ -38,8 +38,21 @@ import render.noosa.Visual;
 import render.noosa.audio.Sample;
 import render.utils.math.GameMath;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Momentum extends Buff implements ActionIndicator.Action {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Momentum.class)
+			.t("momentum", "动量积蓄")
+			.t("running", "逸动")
+			.t("resting", "恢复")
+			.t("action_name", "逸动")
+			.t("momentum_desc", "移动的时候，疾行者会逐渐积蓄动量。疾行者可以消耗动量以开启逸动状态。\n\n每一点动量可以支持两个回合的逸动，最多可以储存10点动量。当疾行者停止移动时动量会快速消散。\n\n现存的动量：%d")
+			.t("running_desc", "移动的时候，疾行者会逐渐积蓄动量。疾行者可以消耗动量以开启逸动状态。\n\n处于逸动状态时，疾行者能够以两倍速移动，并且基于自身等级获得额外的闪避属性。\n\n效果剩余时长：%d回合")
+			.t("resting_desc", "移动的时候，疾行者会逐渐积蓄动量。疾行者可以消耗动量以开启逸动状态。\n\n疾行者现在需要休息一会恢复体力才能重新积蓄动量。\n\n还需要休息%d回合。");
+	}
+
 	
 	{
 		type = buffType.POSITIVE;

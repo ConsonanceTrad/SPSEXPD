@@ -21,8 +21,23 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class AttackShield extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(AttackShield.class)
+			.t("name", "隆的波动拳")
+			.t("ac_cast", "释放")
+			.t("ac_blast", "爆发")
+			.t("rest", "积蓄不足。")
+			.t("prompt", "选择目标")
+			.t("not", "无法命中该目标。")
+			.t("damage", "这门武技造成_%1$d-%2$d点伤害_，并根据目标剩余生命追加伤害。")
+			.t("charge", "积蓄：%1$d / %2$d。")
+			.t("desc", "一种在攻击命中时积蓄力量的古老武技，可以释放波动拳或强化使用者。");
+	}
+
 	public static final String AC_CAST = "CAST";
 	public static final String AC_BLAST = "BLAST";
 	public static final int FULL_CHARGE = 20;

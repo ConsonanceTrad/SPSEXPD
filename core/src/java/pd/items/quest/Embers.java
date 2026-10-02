@@ -25,8 +25,17 @@ import pd.atlas.items.SpecificTaskDict;
 
 import pd.items.Item;
 import pd.sprites.ItemSprite;
+import pd.messages.InlineText;
 
 public class Embers extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Embers.class)
+			.t("name", "元素余烬")
+			.t("desc", "只能从新生火焰元素身上采集到的特殊余烬.。它们散发着温暖的能量。")
+			.t("discover_hint", "你可在某个任务中找到该物品。");
+	}
+
 
 	{
 		image = SpecificTaskDict.EMBER_0;

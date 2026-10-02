@@ -11,9 +11,17 @@ import pd.actors.buffs.SkillRecharge;
 import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** REN's cursed phone reproduces its original one-in-ten periodic status burst. */
 public class CursePhone extends MiscEquippable {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(CursePhone.class)
+			.t("name", "被诅咒的电话")
+			.t("desc", "来自ren的世界的东西，说真的我不太懂，但据说只有诅咒的时候才有效果。");
+	}
+
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

@@ -6,8 +6,16 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.FunnyBuff;
 import pd.actors.hero.Hero;
+import pd.messages.InlineText;
 
 public class FunnyFood extends MeatFood {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(FunnyFood.class)
+			.t("name", "吮指原味稽")
+			.t("desc", "奇怪的料理，会让一切在很长时间里都显得十分滑稽。");
+	}
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 500f;

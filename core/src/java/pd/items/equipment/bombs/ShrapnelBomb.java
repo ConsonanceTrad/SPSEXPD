@@ -33,8 +33,17 @@ import render.utils.geom.Point;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class ShrapnelBomb extends Bomb {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ShrapnelBomb.class)
+			.t("name", "破片炸弹")
+			.t("desc", "这枚改造过的炸弹的外壳由DM-300的金属残骸制成，当其爆炸时外壳会碎裂为破片并向四周迸发，在炸弹周围的巨大范围内造成_%1$d~%2$d点伤害_。使用时你最好躲在某处掩体后面...")
+			.t("discover_hint", "你可通过炼金合成该物品。");
+	}
+
 	
 	{
 		image = EquipmentEquipWeaponBombDict.SHRAPNEL_BOMB_0;

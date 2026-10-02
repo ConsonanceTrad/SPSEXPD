@@ -30,8 +30,16 @@ import pd.scenes.InterlevelScene;
 import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.Game;
+import pd.messages.InlineText;
 
 public class ScrollOfPassage extends ExoticScroll {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ScrollOfPassage.class)
+			.t("name", "归返秘卷")
+			.t("desc", "这张羊皮纸上的咒语能瞬间将读者传送到楼上与之距离最近的区域首层。想去商店的话，用这张秘卷会非常方便。");
+	}
+
 	
 	{
 		icon = ItemIconSheet.SCROLL_PASSAGE;

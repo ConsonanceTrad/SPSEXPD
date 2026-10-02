@@ -8,9 +8,17 @@ import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.items.equipment.armor.normalarmor.NormalArmor;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** Zero-defense test armor which converts every received hit into an experiment point. */
 public class TestArmor extends NormalArmor {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(TestArmor.class)
+			.t("name", "测试护甲")
+			.t("desc", "测试用的护甲，每次承受攻击都会记录为一点试验点数。");
+	}
+
 
 	private static final String TYPE = "type";
 	private int type;

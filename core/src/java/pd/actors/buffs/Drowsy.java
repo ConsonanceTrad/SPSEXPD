@@ -23,8 +23,16 @@ package pd.actors.buffs;
 
 import pd.actors.Char;
 import pd.ui.BuffIndicator;
+import pd.messages.InlineText;
 
 public class Drowsy extends FlavourBuff {
+	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
+	static {
+		InlineText.of(Drowsy.class)
+			.t("name", "催眠")
+			.t("desc", "一股魔法力量使目标很难保持清醒，几个回合后，目标将会深陷魔法睡眠。\n\n对于英雄，若在本应睡着的那一回合为满生命值或在这个过程中受到了伤害，魔法睡眠则不会生效。\n\n入睡所需回合数：%s回合");
+	}
+
 
 	public static final float DURATION = 5f;
 

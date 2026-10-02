@@ -32,8 +32,16 @@ import pd.items.quest.GooBlob;
 import pd.journal.Catalog;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class ElixirOfArcaneArmor extends Elixir {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(ElixirOfArcaneArmor.class)
+			.t("name", "抗魔秘药")
+			.t("desc", "这瓶秘药会赋予饮用者持续时间很长的魔法抗性。");
+	}
+
 	
 	{
 		image = ConsumPotionSeedBasicPotionDict.ELIXIR_ARCANE_0;

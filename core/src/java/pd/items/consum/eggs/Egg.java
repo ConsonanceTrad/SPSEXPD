@@ -32,9 +32,31 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import pd.messages.InlineText;
 
 /** The original SPS mob soul, whose absorbed energies determine its hatchling. */
 public class Egg extends Item {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(Egg.class)
+			.t("name", "魔物之魂")
+			.t("desc", "一个怪物的灵魂。根据吸收能量的不同，产生的结果也会不同。")
+			.t("ac_break", "召唤")
+			.t("prevent", "这里不是尝试召唤它的最佳地点。")
+			.t("notready", "你的宠物还没有准备好和其他宠物相处。")
+			.t("yolk", "一些能量四下流散。")
+			.t("hatch", "新的宠物诞生！")
+			.t("warmhome", "这个灵魂在你温暖的背包里吸收能量。")
+			.t("onlyone", "只有一个灵魂能在背包里面吸收能量。")
+			.t("moves", "无属性：%d")
+			.t("burns", "火属性：%d")
+			.t("freezes", "冰属性：%d")
+			.t("poisons", "地属性：%d")
+			.t("lits", "雷属性：%d")
+			.t("darks", "暗属性：%d")
+			.t("lights", "光属性：%d");
+	}
+
 
 	public static final String AC_BREAK = "BREAK";
 	public static final int VIP_DROP_DENOMINATOR = 10;

@@ -38,8 +38,19 @@ import pd.windows.WndBag;
 import pd.windows.WndOptions;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class PotionOfMastery extends ExoticPotion {
+	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+	static {
+		InlineText.of(PotionOfMastery.class)
+			.t("name", "肌肉记忆合剂")
+			.t("prompt", "精通一件物品")
+			.t("weapon_easier", "你的武器变得前所未有的顺手！")
+			.t("armor_easier", "你的护甲变得前所未有的合身！")
+			.t("desc", "这个合剂不会直接增强你的力量，但却会为你建立使用特定物品的肌肉记忆。使你对其的运用更加得心应手，仿佛已经练习了千百遍。\n\n所选武器或护甲所需要的力量减少2点。此合剂在每个物品上只能使用一次。");
+	}
+
 	
 	{
 		icon = ItemIconSheet.POTION_MASTERY;
