@@ -127,7 +127,18 @@ public class Messages {
 		} else
 			key = k;
 
-		String value = getFromBundle(key.toLowerCase(Locale.ENGLISH));
+		String lowered = key.toLowerCase(Locale.ENGLISH);
+
+		//SPSXPD: 中文原文内联在使用它的类里，优先命中；未命中再查 properties
+		String value = InlineText.get(lowered);
+		if (value == null && c != null){
+			//光有 .class 字面量不会触发类初始化，这里补一次，让类内静态块注册生效
+			InlineText.ensureLoaded(c);
+			value = InlineText.get(lowered);
+		}
+		if (value == null){
+			value = getFromBundle(lowered);
+		}
 		if (value != null){
 			if (args.length > 0) return format(value, args);
 			else return value;
