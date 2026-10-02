@@ -24,6 +24,10 @@ public enum SpsCatalog {
 	// 目录即语义：候选包以 items / plants 包自身为锚点写成相对子路径，不出现任何根包名
 	private static final String ITEMS_PACKAGE = Item.class.getPackage().getName() + ".";
 	private static final String PLANTS_PACKAGE = Plant.class.getPackage().getName() + ".";
+	//SPSXPD: pd/items 已按图集四大类重分组。这里按「大类根 × 原相对子包」组合查找，
+	//物品在四类之下移动/新增时无需再改本文件；空串根保留以兼容未分组的顶层类。
+	private static final String[] GROUP_ROOTS = { "equipment.", "consum.", "ground.", "specific.", "" };
+
 	private static final String[] ITEM_SUBPACKAGES = {
 			"weapon.melee.normalweapon.", "weapon.melee.fusion.",
 			"weapon.melee.block.", "weapon.melee.relic.",
@@ -36,7 +40,13 @@ public enum SpsCatalog {
 			"food.fruit.", "food.meatfood.", "food.staplefood.", "food.fusion.",
 			"food.vegetable.", "food.", "medicine.", "misc.",
 			"rings.fusion.", "rings.", "sellitem.", "skills.", "summon.",
-			"wands.fusion.", "wands.", ""
+			"wands.fusion.", "wands.",
+			"potions.exotic.", "potions.", "scrolls.exotic.", "scrolls.",
+			"stones.", "spells.", "brewed.", "seeds.",
+			"bags.", "bombs.", "trinkets.", "wands.",
+			"keys.", "journalpages.", "journal.", "challengelists.",
+			"reward.", "remains.", "quest.", "nornstone.",
+			""
 	};
 
 	private final String classNames;
@@ -91,12 +101,14 @@ public enum SpsCatalog {
 		if (oldName.equals("Wardrum")) currentName = "WarDrum";
 		if (oldName.equals("Magicpill")) currentName = "MagicPill";
 		if (oldName.equals("Timepill")) currentName = "TimePill";
-		for (String subPackage : ITEM_SUBPACKAGES) {
-			try {
-				Class<?> type = Class.forName(ITEMS_PACKAGE + subPackage + currentName);
-				if (Item.class.isAssignableFrom(type)) return (Class<? extends Item>)type;
-			} catch (ClassNotFoundException ignored) {
-				// Continue through the finite legacy package list.
+		for (String root : GROUP_ROOTS) {
+			for (String subPackage : ITEM_SUBPACKAGES) {
+				try {
+					Class<?> type = Class.forName(ITEMS_PACKAGE + root + subPackage + currentName);
+					if (Item.class.isAssignableFrom(type)) return (Class<? extends Item>)type;
+				} catch (ClassNotFoundException ignored) {
+					// Continue through the finite package list.
+				}
 			}
 		}
 		throw new ExceptionInInitializerError("Missing SPS catalog item: " + oldName);

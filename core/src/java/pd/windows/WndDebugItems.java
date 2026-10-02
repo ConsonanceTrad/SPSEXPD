@@ -77,50 +77,23 @@ public class WndDebugItems extends Window {
 	//功能域 → 组标签（键 = 功能域包名段，与根包名无关；顺序即组菜单顺序）
 	private static final LinkedHashMap<String, String> GROUP_LABELS = new LinkedHashMap<>();
 	static {
-		GROUP_LABELS.put("weapon", "武器");
-		GROUP_LABELS.put("armor", "护甲");
-		GROUP_LABELS.put("wands", "法杖");
-		GROUP_LABELS.put("rings", "戒指");
-		GROUP_LABELS.put("artifacts", "神器");
-		GROUP_LABELS.put("trinkets", "饰品");
-		GROUP_LABELS.put("bags", "包裹袋");
-		GROUP_LABELS.put("potions", "药水");
-		GROUP_LABELS.put("brewed", "酿造");
-		GROUP_LABELS.put("scrolls", "卷轴");
-		GROUP_LABELS.put("stones", "符石");
-		GROUP_LABELS.put("nornstone", "诺恩石");
-		GROUP_LABELS.put("medicine", "药品");
-		GROUP_LABELS.put("food", "食物");
-		GROUP_LABELS.put("bombs", "炸弹");
-		GROUP_LABELS.put("spells", "法术");
-		GROUP_LABELS.put("skills", "技能书");
-		GROUP_LABELS.put("summon", "召唤物");
-		GROUP_LABELS.put("eggs", "宠物蛋");
-		GROUP_LABELS.put("keys", "钥匙");
-		GROUP_LABELS.put("quest", "任务物品");
-		GROUP_LABELS.put("remains", "遗物");
-		GROUP_LABELS.put("reward", "奖励");
-		GROUP_LABELS.put("sellitem", "出售品");
-		GROUP_LABELS.put("challengelists", "挑战书");
-		GROUP_LABELS.put("journalpages", "书页");
-		GROUP_LABELS.put("journal", "日志");
-		GROUP_LABELS.put("misc", "杂物");
+		GROUP_LABELS.put("consum",    "消耗品");
+		GROUP_LABELS.put("equipment", "装备");
+		GROUP_LABELS.put("ground",    "地面");
+		GROUP_LABELS.put("specific",  "特殊");
 	}
 
-	//分组键 = 类所在包中自内向外第一个命中的功能域段（如 items.weapon.melee.fusion.Flute → weapon）
+	//SPSXPD: 分组键 = pd/items 下的大类段（consum/equipment/ground/specific），
+	//与图集目录结构一致；未分组的（misc/summon/顶层类）归入「其他」。
 	private static String groupKeyOf(Class<?> type) {
 		Package pkg = type.getPackage();
 		if (pkg == null) return null;
 		String name = pkg.getName();
-		int end = name.length();
-		while (end > 0) {
-			int dot = name.lastIndexOf('.', end - 1);
-			String segment = dot < 0 ? name.substring(0, end) : name.substring(dot + 1, end);
-			if (GROUP_LABELS.containsKey(segment)) return segment;
-			if (dot < 0) break;
-			end = dot;
-		}
-		return null;
+		if (!name.startsWith("pd.items.")) return null;
+		String rest = name.substring("pd.items.".length());
+		int dot = rest.indexOf('.');
+		String segment = dot < 0 ? rest : rest.substring(0, dot);
+		return GROUP_LABELS.containsKey(segment) ? segment : null;
 	}
 
 	private static LinkedHashMap<String, ArrayList<Class<? extends Item>>> groups() {
