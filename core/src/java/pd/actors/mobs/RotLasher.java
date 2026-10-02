@@ -46,6 +46,8 @@ public class RotLasher extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = RotLasherSprite.class;
 

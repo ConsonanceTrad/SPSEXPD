@@ -55,6 +55,8 @@ public class EbonyMimic extends Mimic {
 	}
 
 
+
+
 	{
 		spriteClass = MimicSprite.Ebony.class;
 	}

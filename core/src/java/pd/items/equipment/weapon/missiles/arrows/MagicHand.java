@@ -25,6 +25,8 @@ public class MagicHand extends Arrows {
 	}
 
 
+
+
 	{
 		image = ConsumThrowsDict.MAGIC_HAND;
 	}

@@ -20,6 +20,8 @@ public class IceAmmo extends SpAmmo {
 			.t("desc", "将原石和寒冰种锻造而成的特殊子弹，能使武器附带寒冰伤害。");
 	}
 
+
+
 	private static final ItemSprite.Glowing BLUE = new ItemSprite.Glowing(0x0000FF);
 	@Override public ItemSprite.Glowing glowing() { return BLUE; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {

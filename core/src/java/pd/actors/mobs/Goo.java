@@ -65,6 +65,8 @@ public class Goo extends Mob {
 	}
 
 
+
+
 	{
 		HP = HT = Dungeon.isChallenged(Challenges.STRONGER_BOSSES) ? 120 : 100;
 		EXP = 10;

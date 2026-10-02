@@ -37,6 +37,8 @@ public class Embers extends Item {
 	}
 
 
+
+
 	{
 		image = SpecificTaskDict.EMBER_0;
 

@@ -16,6 +16,8 @@ public class Shootpill extends Pill {
 			.t("desc", "在一段时间内提升射击力。\n使用_3份肉，1份种子_炼金");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected void onUse(Hero hero) {
 		Buff.affect(hero, TargetShoot.class, 800f);

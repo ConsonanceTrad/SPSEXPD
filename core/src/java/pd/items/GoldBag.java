@@ -19,6 +19,8 @@ public class GoldBag extends Item {
 			.t("desc", "装有10000枚金币的袋子。");
 	}
 
+
+
 	public static final String AC_USE = "USE";
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

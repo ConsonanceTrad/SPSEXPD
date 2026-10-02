@@ -14,6 +14,8 @@ public class DarkBuffTrap extends Trap {
 			.t("desc", "这个可见陷阱会释放短暂的SPS暗影场。");
 	}
 
+
+
 	{ color = VIOLET; shape = DOTS; canBeHidden = false; }
 	@Override public void activate() { GameScene.add(Blob.seed(pos, 3, ShadowGas.class)); }
 }

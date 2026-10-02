@@ -50,10 +50,12 @@ public class Swiftthistle extends Plant {
 			.t("name", "速行蓟")
 			.t("desc", "被踩踏后，速行蓟会加速周围的时间流动，让踩踏者可以瞬间行动数次")
 			.t("warden_desc", "_守望者_踩踏速行蓟不仅能获得瞬时行动的机会，还能在短时间内极速奔跑。")
-			.t("seed.name", "速行蓟之种")
-			.t("timebubble.name", "时间气泡")
-			.t("timebubble.desc", "这是一个加速时间运行的气泡。\n\n你可以在气泡中瞬间进行多次行动，但是攻击或施法都会打断这个效果。\n\n剩余时长：%s回合");
+			.t("$seed.name", "速行蓟之种")
+			.t("$timebubble.name", "时间气泡")
+			.t("$timebubble.desc", "这是一个加速时间运行的气泡。\n\n你可以在气泡中瞬间进行多次行动，但是攻击或施法都会打断这个效果。\n\n剩余时长：%s回合");
 	}
+
+
 
 	
 	{

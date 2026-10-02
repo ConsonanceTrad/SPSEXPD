@@ -51,6 +51,8 @@ public class Artifact extends KindofMisc {
 	}
 
 
+
+
 	protected Buff passiveBuff;
 	protected Buff activeBuff;
 

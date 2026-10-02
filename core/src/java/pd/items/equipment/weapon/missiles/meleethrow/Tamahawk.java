@@ -13,5 +13,7 @@ public class Tamahawk extends MeleeThrowWeapon {
 			.t("desc", "这种沉重的投掷斧也可以装备用于近战。——Watabou");
 	}
 
+
+
 	public Tamahawk() { super(5, 53, 68, SpecificPlaceHolderDict.SOMETHING_0); }
 }

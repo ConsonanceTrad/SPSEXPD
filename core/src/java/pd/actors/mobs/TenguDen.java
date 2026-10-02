@@ -39,6 +39,8 @@ public class TenguDen extends Mob {
 	}
 
 
+
+
 	private static final int JUMP_DELAY = 5;
 	private int timeToJump = JUMP_DELAY;
 

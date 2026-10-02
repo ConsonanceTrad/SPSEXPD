@@ -55,6 +55,8 @@ public class MasterThievesArmband extends Artifact {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		levelCap = 5;

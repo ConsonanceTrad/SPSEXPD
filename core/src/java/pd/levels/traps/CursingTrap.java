@@ -36,6 +36,8 @@ public class CursingTrap extends Trap {
 	}
 
 
+
+
 	{
 		color = VIOLET;
 		shape = LARGE_DOT;

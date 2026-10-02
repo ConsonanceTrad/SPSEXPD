@@ -16,6 +16,8 @@ public class CaveReward extends ChallengeReward {
 			.t("ac_use", "使用");
 	}
 
+
+
 	public CaveReward() { super(0xFFFFFF); }
 	@Override protected Item[] contents() {
 		return new Item[]{new Moonberry().quantity(10), new Cloudberry().quantity(10),

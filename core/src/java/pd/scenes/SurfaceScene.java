@@ -72,6 +72,8 @@ public class SurfaceScene extends PixelScene {
 	}
 
 
+
+
 	private static final int FRAME_WIDTH    = 88;
 	private static final int FRAME_HEIGHT    = 125;
 

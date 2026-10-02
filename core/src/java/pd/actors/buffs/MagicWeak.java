@@ -14,6 +14,8 @@ public class MagicWeak extends FlavourBuff {
 			.t("desc", "受到的魔法与状态伤害提高50%%。\n\n剩余效果时长：%s回合。");
 	}
 
+
+
 	{ type = buffType.NEGATIVE; announced = true; }
 	@Override public int icon() { return BuffIndicator.VULNERABLE; }
 	@Override public String desc() { return Messages.get(this, "desc", dispTurns()); }

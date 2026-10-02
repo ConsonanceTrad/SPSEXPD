@@ -14,6 +14,8 @@ public class MemoryOfSand extends TownNpc {
 			.t("yell2", "原来我也是个冒险者，直到我试了试发芽改...");
 	}
 
+
+
 	public MemoryOfSand() {
 		configure(Spec.MEMORY_OF_SAND);
 		spriteClass = pd.sprites.MemoryOfSandSprite.class;

@@ -14,6 +14,8 @@ public class BlackMeow extends TownNpc {
 			.t("desc", "黑喵地牢的领袖");
 	}
 
+
+
 	public BlackMeow() {
 		configure(Spec.BLACK_MEOW);
 		spriteClass = pd.sprites.BlackMeowSprite.class;

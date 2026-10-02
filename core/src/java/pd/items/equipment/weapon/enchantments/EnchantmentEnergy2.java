@@ -20,6 +20,8 @@ public class EnchantmentEnergy2 extends SpsEnchantment {
 			.t("desc", "剑舞附魔将造成大量的无属性伤害，并给使用者提供物理护盾。");
 	}
 
+
+
 	private static final ItemSprite.Glowing GRAY = new ItemSprite.Glowing(0x888888);
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		elementalDamage(weapon, attacker, defender, 0.75f, ENERGY_DAMAGE);

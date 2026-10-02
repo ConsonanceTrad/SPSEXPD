@@ -97,6 +97,8 @@ public class AdventureGuardian extends Mob {
 	}
 
 
+
+
 	private int destination;
 	private boolean guardian;
 	private int phase;

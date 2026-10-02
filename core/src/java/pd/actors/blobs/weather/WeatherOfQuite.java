@@ -12,6 +12,8 @@ public class WeatherOfQuite extends SpsWeather {
 			.t("desc", "这里异常安静，让人更容易集中精神。");
 	}
 
+
+
 	@Override protected void affectHero(){ Buff.prolong(Dungeon.hero, Bless.class, 5f); }
 	@Override protected Emitter.Factory particle(){ return ShaftParticle.FACTORY; }
 	@Override protected float interval(){ return 0.8f; }

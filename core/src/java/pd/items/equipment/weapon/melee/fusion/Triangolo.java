@@ -17,6 +17,8 @@ public class Triangolo extends Shortsword implements FusionWeapon {
 			.t("desc", "由舞台乐器重制而成的一阶轻武器。威力不高，但每次命中都会对目标周围的敌对单位造成四分之一的脉冲伤害，不会误伤友军。");
 	}
 
+
+
 	{ image = EquipmentEquipWeaponBasicWeaponDict.SAI_0; tier = 1; }
 	@Override public int min(int lvl) { return 2 + lvl; }
 	@Override public int max(int lvl) { return 7 + 2 * lvl; }

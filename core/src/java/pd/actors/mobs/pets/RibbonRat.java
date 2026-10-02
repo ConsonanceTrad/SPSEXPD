@@ -28,9 +28,11 @@ public class RibbonRat extends PET {
 		InlineText.of(RibbonRat.class)
 			.t("name", "缎带鼠")
 			.t("desc", "这个可爱的小老鼠戴着一条它非常珍惜的丝带。它似乎随时准备召来同伴，向你展示它的骄傲。")
-			.t("ribbonrattwo.name", "缎带鼠群")
-			.t("ribbonrattwo.desc", "由缎带鼠叫来的帮手。");
+			.t("$ribbonrattwo.name", "缎带鼠群")
+			.t("$ribbonrattwo.desc", "由缎带鼠叫来的帮手。");
 	}
+
+
 
 	{spriteClass=RibbonRatSprite.class;cooldown=50;properties.add(Property.BEAST);updateStats(true);}
 	@Override protected Kind kind(){return Kind.RIBBON_RAT;}

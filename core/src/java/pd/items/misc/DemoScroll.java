@@ -34,6 +34,8 @@ public class DemoScroll extends Item {
 			.t("charge2", "已使用鲜血交易次数：%d。");
 	}
 
+
+
 	public static final String AC_READ = "READ";
 	public static final String AC_READ2 = "READ2";
 	private static final String SOULS = "souls";

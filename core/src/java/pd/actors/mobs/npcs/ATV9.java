@@ -15,6 +15,8 @@ public class ATV9 extends TownNpc {
 			.t("yell3", "蜂蜜罐罐是我妈！");
 	}
 
+
+
 	public ATV9() {
 		configure(Spec.ATV9);
 		spriteClass = pd.sprites.ATV9Sprite.class;

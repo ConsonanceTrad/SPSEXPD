@@ -27,6 +27,8 @@ public class CorruptGas extends Blob implements Hero.Doom {
 			.t("ondeath", "你被腐化气体吞噬了……");
 	}
 
+
+
 	@Override
 	protected void evolve() {
 		super.evolve();

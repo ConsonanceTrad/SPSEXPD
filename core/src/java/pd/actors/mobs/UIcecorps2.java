@@ -21,6 +21,8 @@ public class UIcecorps2 extends UIcecorps {
 			.t("desc", "兔人术士燃烧仅存的生命力，准备完成最后一战。");
 	}
 
+
+
 	private int shieldTurns = 30;
 
 	{

@@ -48,6 +48,8 @@ public class DivineIntervention extends ClericSpell {
 	}
 
 
+
+
 	public static DivineIntervention INSTANCE = new DivineIntervention();
 
 	@Override

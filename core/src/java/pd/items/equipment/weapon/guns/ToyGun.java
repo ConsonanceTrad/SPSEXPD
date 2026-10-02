@@ -15,6 +15,8 @@ public class ToyGun extends GunWeapon {
 			.t("ac_reload", "填弹");
 	}
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		reinforced = true;

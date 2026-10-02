@@ -21,6 +21,8 @@ public class TimePill extends Pill {
 	}
 
 
+
+
 	{
 		image = GroundFunctionalFallingDict.SANDBAG_0;
 	}

@@ -55,6 +55,8 @@ public class VaultLaser extends NPC {
 	}
 
 
+
+
 	{
 		spriteClass = SentrySprite.VaultLaser.class;
 

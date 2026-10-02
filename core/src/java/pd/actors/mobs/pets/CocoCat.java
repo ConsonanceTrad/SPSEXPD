@@ -16,6 +16,8 @@ public class CocoCat extends PET {
 			.t("desc", "椰子所培养的宠物猫。它和椰子一样携带着大量的炸弹。");
 	}
 
+
+
 	{
 		spriteClass = CocoCatSprite.class;
 		cooldown = 50;

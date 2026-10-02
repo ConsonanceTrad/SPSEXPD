@@ -19,6 +19,8 @@ public class Mtree extends DirectableAlly {
 			.t("desc", "由猎手召来的远古守卫，沉重攻击会将敌人缠绕在原地。");
 	}
 
+
+
 	{
 			spriteClass = WarTreeSprite.class;
 		HP = HT = 1000;

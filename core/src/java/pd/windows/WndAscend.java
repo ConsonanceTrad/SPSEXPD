@@ -21,6 +21,8 @@ public class WndAscend extends Window {
 			.t("ok", "当然");
 	}
 
+
+
 	private static final int WIDTH = 120;
 
 	public WndAscend() {

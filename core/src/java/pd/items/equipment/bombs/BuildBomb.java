@@ -33,6 +33,8 @@ public class BuildBomb extends Bomb {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}

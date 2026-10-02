@@ -28,6 +28,8 @@ public class XiXiBox extends MeleeWeapon {
 	}
 
 
+
+
 	static final Generator.Category[] REWARD_CATEGORIES = {
 			Generator.Category.OLDWEAPON,
 			Generator.Category.ARMOR,

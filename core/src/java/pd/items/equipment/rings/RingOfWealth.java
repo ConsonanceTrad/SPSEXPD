@@ -67,6 +67,8 @@ public class RingOfWealth extends Ring {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.RING_WEALTH;
 		buffClass = Wealth.class;

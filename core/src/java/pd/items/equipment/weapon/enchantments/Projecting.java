@@ -36,6 +36,8 @@ public class Projecting extends Weapon.Enchantment {
 	}
 
 
+
+
 	private static ItemSprite.Glowing PURPLE = new ItemSprite.Glowing( 0x8844CC );
 
 	@Override

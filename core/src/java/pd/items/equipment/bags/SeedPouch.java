@@ -18,6 +18,8 @@ public class SeedPouch extends Bag {
 			.t("desc", "这个丝绒制作的小袋子有三十格空间，可以收纳种子、矿石和诺恩石。");
 	}
 
+
+
 	{
 		image = EquipmentBagsDict.POUCH;
 	}

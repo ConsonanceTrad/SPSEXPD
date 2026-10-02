@@ -11,6 +11,8 @@ public class LeryFire extends PET {
 			.t("desc", "早期破碎翻译组的修齐所制作的元素。它十分不稳定。");
 	}
 
+
+
 	{ spriteClass = LerySprite.class; properties.add(Property.ELEMENT); updateStats(true); }
 	@Override protected Kind kind() { return Kind.LERY_FIRE; }
 }

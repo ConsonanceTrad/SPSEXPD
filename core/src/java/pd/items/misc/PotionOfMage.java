@@ -60,6 +60,8 @@ public class PotionOfMage extends Item {
 			.t("desc", "法师多年研究成果之一，可以对自身使用来施加增益效果，也可以泼洒出去造成减益效果。");
 	}
 
+
+
 	public static final String AC_USE = "USE";
 	public static final String AC_DRINK = "DRINK";
 	public static final String AC_SHATTERED = "SHATTERED";

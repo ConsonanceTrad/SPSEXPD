@@ -8,4 +8,6 @@ public class DarkBuff2Trap extends ElementalBuffTrap {
 			.t("name", "暗种中陷阱")
 			.t("desc", "会释放中等范围暗影场的陷阱。");
 	}
+
+
  public DarkBuff2Trap(){ super(VIOLET, WAVES, ShadowGas.class, 1, 6, false); } }

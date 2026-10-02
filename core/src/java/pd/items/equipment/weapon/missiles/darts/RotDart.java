@@ -39,6 +39,8 @@ public class RotDart extends TippedDart {
 			.t("discover_hint", "你可使用某个任务中的种子制作该物品。");
 	}
 
+
+
 	
 	{
 		image = ConsumThrowsDict.ROT_DART_0;

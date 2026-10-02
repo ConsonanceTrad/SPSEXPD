@@ -42,6 +42,8 @@ public class Gloves extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.GLOVES;
 		hitSound = Assets.Sounds.HIT;

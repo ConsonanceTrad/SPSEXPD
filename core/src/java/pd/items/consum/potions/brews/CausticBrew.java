@@ -49,6 +49,8 @@ public class CausticBrew extends Brew {
 			.t("desc", "这瓶魔药在打碎时会大范围地溅出腐蚀淤泥。被腐蚀淤泥影响的单位将会缓慢融化，除非他们能及时在水中冲洗掉淤泥。");
 	}
 
+
+
 	
 	{
 		image = ConsumPotionSeedBasicPotionDict.BREW_CAUSTIC_0;

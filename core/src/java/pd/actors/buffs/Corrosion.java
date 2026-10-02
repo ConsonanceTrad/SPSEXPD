@@ -44,6 +44,8 @@ public class Corrosion extends Buff implements Hero.Doom, Buff.DOTbuff {
 	}
 
 
+
+
 	private float damage = 1;
 	protected float left;
 

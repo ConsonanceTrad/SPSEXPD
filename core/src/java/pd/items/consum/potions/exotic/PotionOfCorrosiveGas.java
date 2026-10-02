@@ -39,6 +39,8 @@ public class PotionOfCorrosiveGas extends ExoticPotion {
 			.t("desc", "打开或摔碎这个密封的药瓶将导致内容物爆发成一团强腐蚀性的锈色酸雾。这种酸雾的扩散速度与致命性都远超毒气。不过稳定性较差，不能在空气中存留太久。");
 	}
 
+
+
 	
 	{
 		icon = ItemIconSheet.POTION_CORROGAS;

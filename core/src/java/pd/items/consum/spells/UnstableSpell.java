@@ -57,6 +57,8 @@ public class UnstableSpell extends Spell {
 	}
 
 
+
+
 	{
 		image = ConsumScrollAmuletCrystalDict.UNSTABLE_SPELL_0;
 	}

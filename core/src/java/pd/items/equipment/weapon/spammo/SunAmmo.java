@@ -18,6 +18,8 @@ public class SunAmmo extends SpAmmo {
 			.t("desc", "将原石和恢复种锻造而成的特殊子弹，能使目标长出吸取生命的寄生种子。");
 	}
 
+
+
 	private static final ItemSprite.Glowing PINK = new ItemSprite.Glowing(0xCCAA88);
 	@Override public ItemSprite.Glowing glowing() { return PINK; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {

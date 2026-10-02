@@ -39,6 +39,8 @@ public class PotionOfStormClouds extends ExoticPotion {
 			.t("desc", "这瓶合剂被丢出后会形成一团快速膨胀的浓厚水汽，并迅速凝结为雨水降下。受雨水覆盖的大部分地形都会变为水潭，火焰会熄灭，火属性敌人会受到伤害，陷阱也会淹毁。");
 	}
 
+
+
 	
 	{
 		icon = ItemIconSheet.POTION_STRMCLOUD;

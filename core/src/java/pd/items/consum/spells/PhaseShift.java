@@ -45,6 +45,8 @@ public class PhaseShift extends TargetedSpell {
 			.t("desc", "这个充满混沌能量的结晶会将目标单位传送到本层随机位置。被传送的角色会被麻痹相当长的一段时间，而足够强大的敌人则可抵抗该效果。这个结晶可以对目标单位或施法者自身使用。");
 	}
 
+
+
 	
 	{
 		image = ConsumScrollAmuletCrystalDict.PHASE_SHIFT_0;

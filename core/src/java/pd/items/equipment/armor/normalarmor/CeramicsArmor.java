@@ -9,4 +9,6 @@ public class CeramicsArmor extends NormalArmor {
 			.t("name", "陶甲")
 			.t("desc", "粘土火中烧，结实又可靠。\n重型护甲");
 	}
+
+
  public CeramicsArmor(){ super(2,.8f,.5f,3,4,18,1,2,3,EquipmentEquipArmorBasicArmorDict.CERAMICS_ARMOR); } }

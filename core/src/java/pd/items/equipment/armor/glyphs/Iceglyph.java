@@ -20,9 +20,11 @@ public class Iceglyph extends SpsGlyph {
 		InlineText.of(Iceglyph.class)
 			.t("name", "雪屋%s")
 			.t("desc", "雪屋刻印可以增加使用者的冰冻抗性，并有几率冰冻攻击者或延缓所受的物理伤害。")
-			.t("defereddamage.name", "延缓伤害")
-			.t("defereddamage.desc", "伤害会随时间缓慢结算，而不是立即扣除。\n\n剩余延缓伤害：%d点。");
+			.t("$defereddamage.name", "延缓伤害")
+			.t("$defereddamage.desc", "伤害会随时间缓慢结算，而不是立即扣除。\n\n剩余延缓伤害：%d点。");
 	}
+
+
 
 	private static final ItemSprite.Glowing COLOR = new ItemSprite.Glowing(0x0000FF);
 	@Override public int proc(Armor armor, Char attacker, Char defender, int damage) {

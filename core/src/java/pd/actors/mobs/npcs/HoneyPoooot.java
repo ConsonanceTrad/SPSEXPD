@@ -14,6 +14,8 @@ public class HoneyPoooot extends TownNpc {
 			.t("yell2", "这件蜂蜜袍子很好看?拜托这是兜帽唉。");
 	}
 
+
+
 	public HoneyPoooot() {
 		configure(Spec.HONEY_POOOOT);
 		spriteClass = pd.sprites.HoneyPooootSprite.class;

@@ -18,6 +18,8 @@ public class Sentinel extends Statue {
 			.t("desc", "手持_%s_的附魔守卫。它会静止不动，受到惊扰后便用所守护的武器攻击。");
 	}
 
+
+
 	private static final int LEGACY_DEPTH = 33;
 
 	public Sentinel() {

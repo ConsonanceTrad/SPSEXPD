@@ -49,9 +49,11 @@ public class ElixirOfAquaticRejuvenation extends Elixir {
 		InlineText.of(ElixirOfAquaticRejuvenation.class)
 			.t("name", "水灵秘药")
 			.t("desc", "这瓶秘药中包含着被粘咕力量强化的治疗液体。它不会为你提供立即的治疗效果，而会当你站在水中时逐渐为你恢复总量更大的生命值。")
-			.t("aquahealing.name", "水灵治疗")
-			.t("aquahealing.desc", "你暂时获得了如同粘咕一样的恢复能力。\n\n当站在水面上时，你每回合都能够恢复少量生命值。生命值全满或离开水面时会暂停该效果。\n\n剩余的恢复量：%d");
+			.t("$aquahealing.name", "水灵治疗")
+			.t("$aquahealing.desc", "你暂时获得了如同粘咕一样的恢复能力。\n\n当站在水面上时，你每回合都能够恢复少量生命值。生命值全满或离开水面时会暂停该效果。\n\n剩余的恢复量：%d");
 	}
+
+
 
 	
 	{

@@ -110,9 +110,11 @@ public class Waterskin extends Item {
 			.t("desc_v1", "露珠瓶v1提供强化和种植功能。")
 			.t("desc_v2", "露珠瓶v2提供清洗和加速功能。")
 			.t("desc_v3", "露珠瓶v3将基础容量提升至200，并使加速附带漂浮。")
-			.t("dewlight.name", "露珠微光")
-			.t("dewlight.desc", "每20回合将1点普通露珠转化为光亮，保护你免受黑暗侵袭。");
+			.t("$dewlight.name", "露珠微光")
+			.t("$dewlight.desc", "每20回合将1点普通露珠转化为光亮，保护你免受黑暗侵袭。");
 	}
+
+
 
 
 	private static final int BASE_MAX_VOLUME = 100;

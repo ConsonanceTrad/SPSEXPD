@@ -33,6 +33,8 @@ public class IronKey extends Key {
 			.t("desc", "这个铁钥匙的匙齿已经严重磨损；皮制系带也久经年岁摧残。它对应的是哪扇门呢?");
 	}
 
+
+
 	
 	{
 		image = SpecificKeyDict.IRON_KEY;

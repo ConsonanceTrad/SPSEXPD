@@ -18,6 +18,8 @@ public class Rapier extends NormalMeleeWeapon {
 			.t("desc", "一件又细又长又尖的武器。——Snof33 \n高级穿刺");
 	}
 
+
+
 	public Rapier() { super(3, 1f, 1f, 2, 18, 25, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) { s.max += 4; }
 	@Override public int proc(Char attacker, Char defender, int damage) {

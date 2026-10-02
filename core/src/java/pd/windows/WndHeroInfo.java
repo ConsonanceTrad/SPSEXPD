@@ -62,6 +62,8 @@ public class WndHeroInfo extends WndTabbed {
 	}
 
 
+
+
 	private HeroInfoTab heroInfo;
 	private TalentInfoTab talentInfo;
 	private SubclassInfoTab subclassInfo;

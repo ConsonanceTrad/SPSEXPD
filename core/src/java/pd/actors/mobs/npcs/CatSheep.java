@@ -14,6 +14,8 @@ public class CatSheep extends TownNpc {
 			.t("desc", "彩虹猫");
 	}
 
+
+
 	public CatSheep() {
 		configure(Spec.CAT_SHEEP);
 		spriteClass = pd.sprites.CatSheepSprite.class;

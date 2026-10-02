@@ -20,6 +20,8 @@ public class Nut extends Food {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = Hunger.HUNGRY / 6f;

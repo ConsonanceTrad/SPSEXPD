@@ -15,6 +15,8 @@ public class Tinkerer5 extends TownNpc {
 			.t("tell3", "你该不会饿了吧，拿上这块肉，伙计。");
 	}
 
+
+
 	public Tinkerer5() {
 		configure(Spec.GEOLOGIST);
 		spriteClass = pd.sprites.Xavier251998Sprite.class;

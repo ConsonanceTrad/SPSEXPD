@@ -50,6 +50,8 @@ public class Guidebook extends Item {
 	}
 
 
+
+
 	{
 		image = ConsumUsefulProcessEnhanceDict.MASTERY_0;
 	}

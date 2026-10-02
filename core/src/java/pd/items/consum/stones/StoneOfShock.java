@@ -48,6 +48,8 @@ public class StoneOfShock extends Runestone {
 			.t("desc", "这颗符石被扔出后会爆出一阵电能量，短暂麻痹范围内所有目标并根据电到的目标数量恢复使用者的法杖充能。");
 	}
 
+
+
 	
 	{
 		image = ConsumScrollAmuletAmuletDict.STONE_SHOCK_0;

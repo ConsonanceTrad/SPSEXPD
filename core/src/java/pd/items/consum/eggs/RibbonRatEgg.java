@@ -9,4 +9,6 @@ public class RibbonRatEgg extends Egg {
 			.t("name", "缎带鼠之魂")
 			.t("desc", "召唤缎带鼠。");
 	}
+
+
 {image=ConsumSummorDict.RIBBON_RAT_EGG_0;}@Override protected LegacyPet hatchling(){return new RibbonRat();}@Override public int value(){return 500*quantity;}}

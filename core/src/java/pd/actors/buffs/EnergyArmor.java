@@ -15,6 +15,8 @@ public class EnergyArmor extends ShieldBuff {
 			.t("desc", "能量护盾会吸收所有类型的伤害。剩余护盾：%s。");
 	}
 
+
+
 	private static final String LEGACY_LEVEL = "level";
 	private static final String SHIELDING = "shielding";
 	{

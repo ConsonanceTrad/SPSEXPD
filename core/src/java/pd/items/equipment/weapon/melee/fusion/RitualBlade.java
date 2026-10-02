@@ -25,6 +25,8 @@ public class RitualBlade extends Sword implements FusionWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.SICKLE_0;
 		hitSound = Assets.Sounds.HIT_SLASH;

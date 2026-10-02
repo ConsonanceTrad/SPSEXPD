@@ -18,6 +18,8 @@ public class RandomEasterEgg extends Egg {
 			.t("desc", "随机召唤三种复活节宠物之一。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected LegacyPet hatchling() {
 		switch (Random.Int(3)) {

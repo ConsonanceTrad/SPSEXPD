@@ -44,6 +44,8 @@ public class AssassinsBlade extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.ASSASSINS_BLADE_0;
 		hitSound = Assets.Sounds.HIT_STAB;

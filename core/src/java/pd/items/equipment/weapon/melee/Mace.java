@@ -52,6 +52,8 @@ public class Mace extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.MACE_0;
 		hitSound = Assets.Sounds.HIT_CRUSH;

@@ -36,6 +36,8 @@ public class ThrowingSpike extends MissileWeapon {
 	}
 
 
+
+
 	{
 		image = ConsumThrowsDict.THROWING_SPIKE_0;
 		hitSound = Assets.Sounds.HIT_STAB;

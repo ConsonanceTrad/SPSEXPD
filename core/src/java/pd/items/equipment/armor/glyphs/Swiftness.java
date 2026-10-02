@@ -40,6 +40,8 @@ public class Swiftness extends Armor.Glyph {
 	}
 
 
+
+
 	private static ItemSprite.Glowing YELLOW = new ItemSprite.Glowing( 0xFFFF00 );
 
 	@Override

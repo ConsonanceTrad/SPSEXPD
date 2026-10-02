@@ -35,6 +35,8 @@ public class Blizzard extends Blob {
 			.t("desc", "这里刮起了一阵暴风雪。");
 	}
 
+
+
 	
 	@Override
 	protected void evolve() {

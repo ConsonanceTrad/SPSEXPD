@@ -16,6 +16,8 @@ public class Chocolate extends CompleteFood {
 			.t("desc", "超纯的巧克力，超苦的。\n使用_5份坚果_炼金。");
 	}
 
+
+
 	{ image = ConsumFoodFoodDict.CHOCOLATE; energy = 300f; }
 	@Override protected void doEat(Hero hero) { Buff.affect(hero, ShieldArmor.class).level(hero.HT); }
 	@Override public int value() { return 60 * quantity; }

@@ -23,6 +23,8 @@ public class CursePhone extends MiscEquippable {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		cursed = true;

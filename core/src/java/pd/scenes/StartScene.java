@@ -64,6 +64,8 @@ public class StartScene extends PixelScene {
 			.t("sort_recent", "排序：按时间");
 	}
 
+
+
 	
 	private static final int SLOT_WIDTH = 120;
 	private static final int SLOT_HEIGHT = 22;

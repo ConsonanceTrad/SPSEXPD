@@ -11,6 +11,8 @@ public class ShadowDragon extends PET {
 			.t("desc", "暗影龙属于黑暗，但需要光明才能将它召唤。");
 	}
 
+
+
 	{ spriteClass = ShadowDragonSprite.class; properties.add(Property.DRAGON); updateStats(true); }
 	@Override protected Kind kind() { return Kind.SHADOW_DRAGON; }
 }

@@ -9,4 +9,6 @@ public class MonkeyEgg extends Egg {
 			.t("name", "绿皮猴之魂")
 			.t("desc", "召唤绿皮猴。");
 	}
+
+
 {image=ConsumSummorDict.MONKEY_EGG_0;}@Override protected LegacyPet hatchling(){return new Monkey();}@Override public int value(){return 500*quantity;}}

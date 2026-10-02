@@ -16,6 +16,8 @@ public class FunnyFood extends MeatFood {
 			.t("desc", "奇怪的料理，会让一切在很长时间里都显得十分滑稽。");
 	}
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 500f;

@@ -49,6 +49,8 @@ public class Piranha extends Mob {
 			.t("discover_hint", "你可在任何地牢区域中遇到该敌人。");
 	}
 
+
+
 	@Override public Item SupercreateLoot() { return new HugeShuriken(); }
 	
 	{

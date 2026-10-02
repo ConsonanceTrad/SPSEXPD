@@ -15,6 +15,8 @@ public class ScorpionEgg extends Egg {
 			.t("desc", "召唤一只巨大的血蝎。");
 	}
 
+
+
 	{ image = ConsumSummorDict.SCORPION_EGG_0; moves = 2000; }
 	@Override protected LegacyPet hatchling() { return new Scorpion(); }
 	@Override public int value() { return 500 * quantity; }

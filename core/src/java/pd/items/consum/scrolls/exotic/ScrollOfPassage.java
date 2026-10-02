@@ -40,6 +40,8 @@ public class ScrollOfPassage extends ExoticScroll {
 			.t("desc", "这张羊皮纸上的咒语能瞬间将读者传送到楼上与之距离最近的区域首层。想去商店的话，用这张秘卷会非常方便。");
 	}
 
+
+
 	
 	{
 		icon = ItemIconSheet.SCROLL_PASSAGE;

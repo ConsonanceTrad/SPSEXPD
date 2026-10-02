@@ -33,6 +33,8 @@ public class JumpH extends Item {
 			.t("desc", "在自然母亲的指引下，女猎手可以跳跃至多三格，同时攻击落点七格内所有视野中的敌人。");
 	}
 
+
+
 	public static final String AC_JUMP = "JUMP";
 	public static final int FULL_CHARGE = 50;
 	public static final int JUMP_COST = 15;

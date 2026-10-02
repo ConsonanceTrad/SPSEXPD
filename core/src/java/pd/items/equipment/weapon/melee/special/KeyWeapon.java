@@ -20,6 +20,8 @@ public class KeyWeapon extends SpsSpecialMeleeWeapon {
 			.t("desc", "奇怪的钥匙武器。共战2020疫情纪念！\n钝器，穿刺，警示");
 	}
 
+
+
 	public KeyWeapon() { super(1, 1f, 1f, 1, 1, 10, SpecificPlaceHolderDict.SOMETHING_0); }
 
 	@Override public int proc(Char attacker, Char defender, int damage) {

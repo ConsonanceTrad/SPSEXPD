@@ -24,6 +24,8 @@ public class SoulCollect extends Item {
 	}
 
 
+
+
 	public static final String AC_BREAK = "BREAK";
 
 	{

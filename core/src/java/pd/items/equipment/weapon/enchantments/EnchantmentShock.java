@@ -25,6 +25,8 @@ public class EnchantmentShock extends SpsEnchantment {
 			.t("desc", "乱流附魔将造成大量的雷属性伤害，并对多个目标造成伤害。");
 	}
 
+
+
 	private static final ItemSprite.Glowing GREEN = new ItemSprite.Glowing(0x00FF00);
 	private final ArrayList<Char> affected = new ArrayList<>();
 

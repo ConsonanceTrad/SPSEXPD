@@ -19,6 +19,8 @@ public class Greaterpill extends Pill {
 			.t("desc", "回血。\n使用_1份水果，2份药水_炼金");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected void onUse(Hero hero) {
 		Buff.affect(hero, BerryRegeneration.class).level(Math.max(hero.HT / 2, 30));

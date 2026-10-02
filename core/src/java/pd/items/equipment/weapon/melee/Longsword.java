@@ -40,6 +40,8 @@ public class Longsword extends MeleeWeapon {
 			.t("desc", "这柄剑的厚长利刃闪烁着令人宽心的寒光，不过这长度也确实让它非常沉重。");
 	}
 
+
+
 	
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.LONGSWORD_0;

@@ -28,6 +28,8 @@ public class WarriorSkill extends ClassSkill {
 			.t("desc", "_武装：_生成一件+5武器或防具，并暂时提高2点力量。达到56级后同时生成两件并将其破阶。\n\n_决斗（21级）：_削弱附近敌人，并缴械、沉默视野内的远处敌人。达到56级后大幅强化自身攻防。\n\n_圣盾术（31级）：_治疗伙伴，获得物理护盾，伤害相邻敌人并清除部分负面状态。达到56级后额外获得魔法与能量护盾。\n\n_奇袭战术（41级）：_获得鲜血灌注，并对满血或濒死敌人造成额外伤害。达到56级后永久获得1点生命上限，并暂时提高20%%生命上限。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 
 	@Override public void doSpecial() {

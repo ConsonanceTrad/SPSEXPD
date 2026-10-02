@@ -41,6 +41,8 @@ public class Web extends Blob {
 	}
 
 
+
+
 	{
 		//acts before the hero, to ensure terrain is adjusted correctly
 		actPriority = HERO_PRIO+1;

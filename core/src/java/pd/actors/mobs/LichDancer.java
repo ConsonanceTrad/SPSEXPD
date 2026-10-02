@@ -46,11 +46,13 @@ public class LichDancer extends Mob {
 			.t("desc", "舞者，24岁，是个艺人。自愿接受亡灵的交易，成为了一个巫妖。")
 			.t("notice", "在我表演的一生中，我明白一个道理：作为人类而言，我们演员是有极限的。所以……我不做人啦！")
 			.t("die", "演出……结束了……")
-			.t("batterytomb.name", "死灵电池")
-			.t("batterytomb.desc", "一个奇怪的电池，不断释放着死灵能量。")
-			.t("linkbomb.name", "炸弹")
-			.t("linkbomb.desc", "小心，它要炸了！");
+			.t("$batterytomb.name", "死灵电池")
+			.t("$batterytomb.desc", "一个奇怪的电池，不断释放着死灵能量。")
+			.t("$linkbomb.name", "炸弹")
+			.t("$linkbomb.desc", "小心，它要炸了！");
 	}
+
+
 
 	private int breaks;
 

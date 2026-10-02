@@ -27,6 +27,8 @@ public class SkillBook extends Item {
 	}
 
 
+
+
 	private static final float TIME_TO_APPLY = 2f;
 	private static final String AC_APPLY = "APPLY";
 

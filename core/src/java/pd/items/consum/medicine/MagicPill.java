@@ -18,6 +18,8 @@ public class MagicPill extends Pill {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}

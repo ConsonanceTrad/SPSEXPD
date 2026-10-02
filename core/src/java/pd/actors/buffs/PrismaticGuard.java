@@ -45,6 +45,8 @@ public class PrismaticGuard extends Buff {
 			.t("desc_many", "该虹光幻像已被万物一心强化。剩余回合数：%d");
 	}
 
+
+
 	
 	{
 		type = buffType.POSITIVE;

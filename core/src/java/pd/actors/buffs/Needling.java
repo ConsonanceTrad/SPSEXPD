@@ -15,6 +15,8 @@ public class Needling extends FlavourBuff {
 			.t("desc", "成功攻击会使目标护甲降低50%%或严重流血。\n\n剩余效果时长：%s回合。");
 	}
 
+
+
 	{ type = buffType.POSITIVE; announced = true; }
 	public void proc(Char enemy) {
 		if (Random.Int(2) == 0) Buff.prolong(enemy, ArmorBreak.class, 5f).level(50);

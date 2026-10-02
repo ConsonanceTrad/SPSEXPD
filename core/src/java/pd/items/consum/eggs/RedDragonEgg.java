@@ -15,6 +15,8 @@ public class RedDragonEgg extends Egg {
 			.t("desc", "烈焰所孕化的龙之灵魂。");
 	}
 
+
+
 	{ image = ConsumSummorDict.RED_DRAGON_EGG_0; burns = 20; }
 	@Override protected LegacyPet hatchling() { return new RedDragon(); }
 	@Override public int value() { return 500 * quantity; }

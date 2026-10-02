@@ -9,6 +9,8 @@ public class CityChallenge extends ChallengeList {
 			.t("name", "城市挑战");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public int challenge() { return 3; }
 }

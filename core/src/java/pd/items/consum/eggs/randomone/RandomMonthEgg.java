@@ -17,6 +17,8 @@ public class RandomMonthEgg extends RandomEgg {
 			.t("desc", "获得一个随机月份的基础宠物包，有几率获得彩蛋宠物包。");
 	}
 
+
+
 	@Override
 	public void execute(Hero hero, String action) {
 		if (!AC_USE.equals(action)) {

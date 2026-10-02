@@ -14,6 +14,8 @@ public class WarGroove extends Buff {
 			.t("desc", "下一次成功的物理攻击造成50%%额外伤害。");
 	}
 
+
+
 	{
 		type = buffType.POSITIVE;
 		announced = true;

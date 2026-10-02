@@ -37,6 +37,8 @@ public class Barkskin extends Buff {
 			.t("desc", "你的皮肤硬化了，摸起来如同树皮般粗糙而坚固。\n\n硬化的皮肤增强了你的护甲，使你能更好地抵御物理攻击。\n\n当前增加的护甲：0~%d\n距离效果衰减还有：%s回合\n\n从多个来源获得树肤效果时，只有效果最强的那一个会起效。");
 	}
 
+
+
 	
 	{
 		type = buffType.POSITIVE;

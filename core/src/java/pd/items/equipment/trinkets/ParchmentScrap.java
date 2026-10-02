@@ -37,6 +37,8 @@ public class ParchmentScrap extends Trinket {
 	}
 
 
+
+
 	{
 		image = EquipmentNonEquipDict.PARCHMENT_SCRAP_0;
 	}

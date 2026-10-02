@@ -17,6 +17,8 @@ public class FireFruit extends SpsFruit {
 			.t("desc", "人工种植的烈焰花结出的果实。直接命中会点燃目标，落地则会释放火焰。");
 	}
 
+
+
 	public FireFruit() { this(1); }
 	public FireFruit(int number) { super(ConsumPotionSeedSeedDict.SEED_FIREBLOOM, 10, 10); quantity(number); }
 	@Override protected void onThrow(int cell) {

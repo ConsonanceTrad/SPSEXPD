@@ -12,6 +12,8 @@ public class RedDewdrop extends ColoredDewdrop {
 			.t("desc", "红色的露珠。如果水袋无法继续收集，它会立即恢复中等量的生命。");
 	}
 
+
+
 	{ image = GroundFunctionalFallingDict.DEWDROP_0; }
 	@Override protected int baseHealing() { return 10; }
 	@Override public int dewValue() { return 15 * quantity; }

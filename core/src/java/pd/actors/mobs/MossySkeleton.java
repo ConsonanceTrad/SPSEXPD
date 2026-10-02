@@ -23,6 +23,8 @@ public class MossySkeleton extends LegacyDualLootMob {
 	}
 
 
+
+
 	{
 		spriteClass = MossySkeletonSprite.class;
 		HP = HT = 90 + 10 * Random.NormalIntRange(7, 10);

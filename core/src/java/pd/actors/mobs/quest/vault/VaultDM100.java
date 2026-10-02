@@ -37,6 +37,8 @@ public class VaultDM100 extends DM100 {
 	}
 
 
+
+
 	{
 		activateSteathGameplayBehaviour();
 		spriteClass = DM100Sprite.Vault.class;

@@ -75,9 +75,11 @@ public class SpiritForm extends ClericSpell {
 			.t("name", "魂之位格")
 			.t("short_desc", "为三位一体选择戒指或神器。")
 			.t("desc", "牧师选择本局已鉴定的戒指或神器(神圣法典除外)并使三位一体模拟其效果。\n\n如果所选物品为戒指，三位一体会获得所选戒指的%1$d级效果20回合。\n\n如果所选物品为神器，三位一体会复制所选神器的%2$d级效果。三位一体使用神器时的具体效果与护甲充能消耗因神器而异。\n\n该法术会刷新三位一体当前已模拟的任何魂之位格效果。")
-			.t("spiritformbuff.name", "魂之位格")
-			.t("spiritformbuff.desc", "位格法术魂之位格正使你获得物品的效果，仿佛你已将其装备于装备栏。\n\n注意，魂之位格无法复制你已经装备的装备效果。\n\n当前的效果：%1$s\n\n剩余回合数：%2$s");
+			.t("$spiritformbuff.name", "魂之位格")
+			.t("$spiritformbuff.desc", "位格法术魂之位格正使你获得物品的效果，仿佛你已将其装备于装备栏。\n\n注意，魂之位格无法复制你已经装备的装备效果。\n\n当前的效果：%1$s\n\n剩余回合数：%2$s");
 	}
+
+
 
 
 	public static SpiritForm INSTANCE = new SpiritForm();

@@ -17,6 +17,8 @@ public class FrostIce extends Buff implements Buff.DOTbuff {
 	}
 
 
+
+
 	private static final String LEFT = "left";
 	private static final String POS = "pos";
 

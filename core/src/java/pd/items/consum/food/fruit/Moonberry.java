@@ -17,6 +17,8 @@ public class Moonberry extends Fruit {
 			.t("desc", "充满力量的青蓝色浆果。食用后可暂时增强力量，还有几率使皮肤硬化。");
 	}
 
+
+
 	{ image = ConsumFoodFoodDict.MOONBERRY; }
 	@Override protected void onEat(Hero hero) {
 		Buff.affect(hero, AdrenalineSurge.class).reset(1, 40f);

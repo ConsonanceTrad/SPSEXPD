@@ -50,6 +50,8 @@ public class GnollTrickster extends Gnoll {
 	}
 
 
+
+
 	{
 		spriteClass = GnollTricksterSprite.class;
 

@@ -10,4 +10,6 @@ public class RandomEgg2 extends RandomPetEgg {
 			.t("name", "随机二月灵魂")
 			.t("desc", "召唤一个随机的二月宠物，包括绅士蟹、石拳石、狐女仆。");
 	}
+
+
  public RandomEgg2() { super(GentleCrab.class, Stone.class, FoxHelper.class); } }

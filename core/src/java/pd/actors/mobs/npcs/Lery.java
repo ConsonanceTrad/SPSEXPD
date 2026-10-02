@@ -14,6 +14,8 @@ public class Lery extends TownNpc {
 			.t("yell2", "我这里出售各种蛋。如果你是一个出色的训练家的话，你也可以训练出像我那么强大的怪物的。");
 	}
 
+
+
 	public Lery() {
 		configure(Spec.LERY);
 		spriteClass = pd.sprites.LerySprite.class;

@@ -50,6 +50,8 @@ public class Spinner extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = SpinnerSprite.class;
 

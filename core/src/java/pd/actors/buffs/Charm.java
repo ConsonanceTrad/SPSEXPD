@@ -38,6 +38,8 @@ public class Charm extends FlavourBuff {
 	}
 
 
+
+
 	public int object = 0;
 	public boolean ignoreHeroAllies = false;
 

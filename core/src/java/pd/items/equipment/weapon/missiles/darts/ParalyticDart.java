@@ -36,6 +36,8 @@ public class ParalyticDart extends TippedDart {
 			.t("desc", "这些飞镖上涂着一种由地缚根制成的药物，能让目标无助地麻痹一小段时间。");
 	}
 
+
+
 	
 	{
 		image = ConsumThrowsDict.PARALYTIC_DART_0;

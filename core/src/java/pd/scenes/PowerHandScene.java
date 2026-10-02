@@ -28,6 +28,8 @@ public class PowerHandScene extends PixelScene {
 	}
 
 
+
+
 	private static final int WIDTH = 120;
 	private static final int BUTTON_HEIGHT = 20;
 	private StyledButton exitButton;

@@ -39,6 +39,8 @@ public class PotionOfParalyticGas extends Potion {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.POTION_PARAGAS;
 	}

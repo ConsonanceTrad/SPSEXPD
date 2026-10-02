@@ -42,10 +42,12 @@ public class Sorrowmoss extends Plant {
 			.t("name", "断肠苔")
 			.t("desc", "断肠苔（实为花卉而非苔藓）是一种花瓣利如刀片，表面覆有致命毒液的植物。")
 			.t("warden_desc", "_守望者_能将有害的毒素转化为短时的毒素之力。")
-			.t("seed.name", "断肠苔之种")
-			.t("exsorrowmoss.name", "断肠苔果丛")
-			.t("exsorrowmoss.desc", "生长毒液果的果丛。");
+			.t("$seed.name", "断肠苔之种")
+			.t("$exsorrowmoss.name", "断肠苔果丛")
+			.t("$exsorrowmoss.desc", "生长毒液果的果丛。");
 	}
+
+
 
 
 	{

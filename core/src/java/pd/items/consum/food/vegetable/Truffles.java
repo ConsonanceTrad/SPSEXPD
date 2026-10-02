@@ -14,6 +14,8 @@ public class Truffles extends Vegetable {
 			.t("desc", "生长在地下的稀有甜味菌类。食用后可永久提高生命上限。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected void onEat(Hero hero) {
 		hero.HTBoost += Random.IntRange(1, 2);

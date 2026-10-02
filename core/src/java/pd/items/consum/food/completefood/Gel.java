@@ -14,6 +14,8 @@ public class Gel extends CompleteFood {
 			.t("desc", "一团凝胶。\n使用_1份原石、1份水_炼金。");
 	}
 
+
+
 	private static final ItemSprite.Glowing BLUE = new ItemSprite.Glowing(0x0000FF);
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; energy = 10f; }
 	@Override public ItemSprite.Glowing glowing() { return BLUE; }

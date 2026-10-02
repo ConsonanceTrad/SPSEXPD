@@ -55,6 +55,8 @@ public class AmuletScene extends PixelScene {
 			.t("text", "你终于将它握在手中——Yendor护符！凭借它的力量，没有什么能够阻挡你前进的步伐！你征服了这个地牢，完成了自己的使命！\n\n或许，你尚未准备好？你也可以选择就这么带着护符，以凡人之躯在此多停留片刻，抑或以一种最经典的方式离开地牢...");
 	}
 
+
+
 	
 	private static final int WIDTH			= 120;
 	private static final int BTN_HEIGHT		= 20;

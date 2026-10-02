@@ -37,6 +37,8 @@ public class PoisonDart extends TippedDart {
 			.t("desc", "这些飞镖上涂着一种由断肠苔制成的药物，能使目标中毒。");
 	}
 
+
+
 	
 	{
 		image = ConsumThrowsDict.POISON_DART_0;

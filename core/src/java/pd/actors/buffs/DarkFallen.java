@@ -19,9 +19,11 @@ public class DarkFallen extends Buff {
 	static {
 		InlineText.of(DarkFallen.class)
 			.t("name", "暗影降临")
-			.t("darkliver.name", "夜影")
-			.t("darkliver.desc", "和时间相关，只在晚上攻击。");
+			.t("$darkliver.name", "夜影")
+			.t("$darkliver.desc", "和时间相关，只在晚上攻击。");
 	}
+
+
 
 
 	@Override

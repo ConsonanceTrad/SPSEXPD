@@ -17,6 +17,8 @@ public class ErrorAmmo extends MissileWeapon {
 			.t("desc", "这个是个错误");
 	}
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		tier = 0;

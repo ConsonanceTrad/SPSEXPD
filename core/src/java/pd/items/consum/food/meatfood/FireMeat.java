@@ -15,6 +15,8 @@ public class FireMeat extends MeatFood {
 			.t("desc", "烧烤是最基础的处理方式，可以延长保存时间并提供更多能量。");
 	}
 
+
+
 	private static final ItemSprite.Glowing RED = new ItemSprite.Glowing(0xCC0000);
 	{
 		image = ConsumFoodFoodDict.MEAT;

@@ -43,9 +43,11 @@ public class NaturesPower extends ArmorAbility {
 			.t("name", "自然之力")
 			.t("short_desc", "女猎手呼唤_自然之力_的协助，在短时间内增加其移动速度与灵能弓射击速度。")
 			.t("desc", "女猎手与她的弓注入了自然的力量！这种力量持续8回合。\n\n在自然之力的加持下，女猎手拥有双倍的移动速度与+33%的灵能弓射击速度。这种力量不影响狙击手专精的追加攻击。")
-			.t("naturespowertracker.name", "自然之力")
-			.t("naturespowertracker.desc", "女猎手拥有了暂时的自然之力，增加其移动速度与灵能弓射击速度。\n\n剩余回合数：%s");
+			.t("$naturespowertracker.name", "自然之力")
+			.t("$naturespowertracker.desc", "女猎手拥有了暂时的自然之力，增加其移动速度与灵能弓射击速度。\n\n剩余回合数：%s");
 	}
+
+
 
 
 	{

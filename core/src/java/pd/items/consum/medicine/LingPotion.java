@@ -16,6 +16,8 @@ public class LingPotion extends Pill {
 			.t("desc", "一瓶来自澪的圣水，能极大提升使用者的能力。\n来自澪的回礼");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected void onUse(Hero hero) {
 		Buff.affect(hero, LingBless.class, 200f);

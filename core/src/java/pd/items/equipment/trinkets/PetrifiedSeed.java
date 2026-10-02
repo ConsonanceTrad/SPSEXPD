@@ -37,6 +37,8 @@ public class PetrifiedSeed extends Trinket {
 	}
 
 
+
+
 	{
 		image = EquipmentNonEquipDict.PETRIFIED_SEED_0;
 	}

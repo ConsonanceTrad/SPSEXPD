@@ -44,6 +44,8 @@ public class Scorpio extends Mob {
 			.t("desc", "这些巨大的节肢类生物会尽可能避免一切近距离接触，并且会在远处射出能够致残的尖刺。");
 	}
 
+
+
 	
 	{
 		spriteClass = ScorpioSprite.class;

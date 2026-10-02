@@ -53,6 +53,8 @@ public class WndChooseSubclass extends Window {
 			.t("random_sure", "你确定要选择随机一个专精吗？");
 	}
 
+
+
 	
 	private static final int WIDTH		= 130;
 	private static final float GAP		= 2;

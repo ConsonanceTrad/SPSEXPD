@@ -45,6 +45,8 @@ public class Stone extends Armor.Glyph {
 	}
 
 
+
+
 	private static ItemSprite.Glowing GREY = new ItemSprite.Glowing( 0x222222 );
 
 	@Override

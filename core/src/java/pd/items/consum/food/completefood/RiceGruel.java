@@ -14,6 +14,8 @@ public class RiceGruel extends CompleteFood {
 	}
 
 
+
+
 	{
 		image = ConsumFoodFoodDict.RICE_GRUEL;
 		energy = 250f;

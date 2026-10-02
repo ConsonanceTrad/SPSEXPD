@@ -35,6 +35,8 @@ public class Foresight extends FlavourBuff {
 	}
 
 
+
+
 	public static final float DURATION = 400f;
 
 	public static final int DISTANCE = 8;

@@ -44,6 +44,8 @@ public class Tomahawk extends MissileWeapon {
 	}
 
 
+
+
 	{
 		image = ConsumThrowsDict.TOMAHAWK_0;
 		hitSound = Assets.Sounds.HIT_SLASH;

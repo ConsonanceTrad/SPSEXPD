@@ -52,6 +52,8 @@ public class Cleanse extends ClericSpell {
 	}
 
 
+
+
 	public static Cleanse INSTANCE = new Cleanse();
 
 	@Override

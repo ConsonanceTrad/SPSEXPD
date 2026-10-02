@@ -44,6 +44,8 @@ public class Dirk extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.DIRK_0;
 		hitSound = Assets.Sounds.HIT_STAB;

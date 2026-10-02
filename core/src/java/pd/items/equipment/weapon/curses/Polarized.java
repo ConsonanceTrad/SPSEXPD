@@ -36,6 +36,8 @@ public class Polarized extends Weapon.Enchantment {
 			.t("elestrike_desc", "武器拥有极化诅咒时，元素打击对范围内的每个敌人都有50%概率造成24~36点伤害。");
 	}
 
+
+
 	
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 	

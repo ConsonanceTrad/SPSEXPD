@@ -57,6 +57,8 @@ public class Eye extends Mob {
 			.t("desc", "这种恶魔还有一个名字叫做“憎恶之球”，因为它在看到敌人时会毫无顾忌地使用它的死亡射线，而根本不顾及队友的存在。");
 	}
 
+
+
 	
 	{
 		spriteClass = EyeSprite.class;

@@ -42,6 +42,8 @@ public class Bat extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = BatSprite.class;
 		

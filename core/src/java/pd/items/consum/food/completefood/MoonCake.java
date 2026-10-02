@@ -18,6 +18,8 @@ public class MoonCake extends CompleteFood {
 	}
 
 
+
+
 	{
 		image = ConsumFoodFoodDict.MOON_CAKE;
 		energy = 360f;

@@ -14,6 +14,8 @@ public class EarthBuffTrap extends Trap {
 			.t("desc", "这个可见陷阱会释放短暂的SPS酸蚀场。");
 	}
 
+
+
 	{ color = GREEN; shape = DOTS; canBeHidden = false; }
 	@Override public void activate() { GameScene.add(Blob.seed(pos, 3, AcidWater.class)); }
 }

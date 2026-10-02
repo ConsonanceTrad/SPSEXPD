@@ -23,6 +23,8 @@ public class AFlySock extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		tier = 1;

@@ -35,6 +35,8 @@ public class LostInventory extends Buff {
 	}
 
 
+
+
 	{
 		type = buffType.NEGATIVE;
 	}

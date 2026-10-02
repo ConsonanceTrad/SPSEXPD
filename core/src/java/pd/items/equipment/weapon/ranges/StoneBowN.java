@@ -9,4 +9,6 @@ public class StoneBowN extends RangeWeapon {
 			.t("name", "普通的绑石弓")
 			.t("desc", "将化石绑在弓背上的木弓，可以发射箭矢。");
 	}
+
+
  public StoneBowN() { super(2, Variant.NORMAL, SpecificPlaceHolderDict.SOMETHING_0); } }

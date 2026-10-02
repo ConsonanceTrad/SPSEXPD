@@ -27,6 +27,8 @@ public class GiftShopScene extends PixelScene {
 	}
 
 
+
+
 	private static final int MAX_PANE_WIDTH = 160;
 
 	private RenderedTextBlock balance;

@@ -20,6 +20,8 @@ public class EnchantmentIce2 extends SpsEnchantment {
 			.t("desc", "冰霜附魔将造成少量的冰属性伤害，并几率冻伤目标。");
 	}
 
+
+
 	private static final ItemSprite.Glowing BLUE = new ItemSprite.Glowing(0x0044FF);
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		elementalDamage(weapon, attacker, defender, 0.25f, ICE_DAMAGE);

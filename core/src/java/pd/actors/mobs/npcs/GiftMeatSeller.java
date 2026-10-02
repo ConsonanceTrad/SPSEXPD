@@ -24,6 +24,8 @@ public class GiftMeatSeller extends GiftNpc {
 			.t("reward2", "肉的制作方法很多，我最喜欢的是蜂蜜肉。这些蜜蜂肉就免费给你了。");
 	}
 
+
+
 	{ properties.add(Property.MECH); }
 	@Override public Visual visual() { return Visual.MEAT_SELLER; }
 	@Override public boolean acceptsGift(Item item) { return item != null && !item.unique && item.value() > 100; }

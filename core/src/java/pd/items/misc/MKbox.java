@@ -30,6 +30,8 @@ public class MKbox extends Item {
 			.t("desc", "一个装着各种奖励的问号箱，每次使用消耗100金币。");
 	}
 
+
+
 	public static final String AC_USE = "USE";
 	{ image=SpecificPlaceHolderDict.SOMETHING_0; defaultAction=AC_USE; unique=true; }
 	@Override public ArrayList<String> actions(Hero hero) { ArrayList<String>a=super.actions(hero); a.add(AC_USE); return a; }

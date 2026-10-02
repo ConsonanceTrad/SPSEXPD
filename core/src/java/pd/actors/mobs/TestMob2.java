@@ -22,6 +22,8 @@ public class TestMob2 extends Mob {
 	}
 
 
+
+
 	private static final String SKILL = "skill";
 	private boolean skill;
 

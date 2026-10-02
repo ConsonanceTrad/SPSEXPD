@@ -23,6 +23,8 @@ public class BeOld extends Buff implements Hero.Doom, Buff.DOTbuff {
 	}
 
 
+
+
 	private static final String LEFT = "left";
 	private float left;
 

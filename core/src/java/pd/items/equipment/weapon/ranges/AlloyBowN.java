@@ -9,4 +9,6 @@ public class AlloyBowN extends RangeWeapon {
 			.t("name", "普通的合金弩")
 			.t("desc", "使用多种金属打造而成的弩，可以发射箭矢。");
 	}
+
+
  public AlloyBowN() { super(4, Variant.NORMAL, SpecificPlaceHolderDict.SOMETHING_0); } }

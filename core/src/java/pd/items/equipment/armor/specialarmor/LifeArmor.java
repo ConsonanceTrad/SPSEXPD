@@ -19,6 +19,8 @@ public class LifeArmor extends NormalArmor {
 			.t("desc", "一株被塑造成护甲的活体植物。它会积蓄近期受到的伤害，并调整厚度以格挡至多等量伤害；20回合没有受到新伤害后，会把积蓄值转化为治疗。");
 	}
 
+
+
 	private static final String CHARGE = "charge";
 	private static final String TIME = "time";
 	private static final String ADAPTIVE_MAX = "adaptive_max";

@@ -65,6 +65,8 @@ public class ExoticPotion extends Potion {
 			.t("discover_hint", "你可通过炼金合成该物品。");
 	}
 
+
+
 	
 	{
 		//sprite = equivalent potion sprite but one row down

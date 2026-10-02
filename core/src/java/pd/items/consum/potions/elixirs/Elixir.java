@@ -32,6 +32,8 @@ public abstract class Elixir extends Potion {
 			.t("discover_hint", "你可通过炼金合成该物品。");
 	}
 
+
+
 	
 	public abstract void apply( Hero hero );
 	

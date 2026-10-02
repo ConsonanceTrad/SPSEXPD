@@ -41,6 +41,8 @@ public class MemorySaveScene extends PixelScene {
 	}
 
 
+
+
 	private static final int SLOT_WIDTH = 124;
 	private static final int SLOT_HEIGHT = 22;
 

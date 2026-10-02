@@ -15,6 +15,8 @@ public class Energyglyph extends SpsGlyph {
 			.t("desc", "缓冲刻印将提升使用者的能量伤害抗性。");
 	}
 
+
+
 	private static final ItemSprite.Glowing COLOR = new ItemSprite.Glowing(0x330033);
 	@Override public int proc(Armor armor, Char attacker, Char defender, int damage) {
 		setElementalMarker(defender, GlyphEnergy.class);

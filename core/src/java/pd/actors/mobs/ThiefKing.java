@@ -28,6 +28,8 @@ public class ThiefKing extends Mob {
 			.t("die", "你的生命，我买不起……");
 	}
 
+
+
 	{spriteClass=ThiefKingSprite.class;HP=HT=2000;defenseSkill=28;EXP=60;flying=true;loot=Generator.Category.SCROLL;lootChance=1f;properties.add(Property.ELF);properties.add(Property.BOSS);resistances.add(Electricity.class);}
 	@Override public int damageRoll(){return Random.NormalIntRange(20,70);}
 	@Override public int attackSkill(Char target){return 25;}

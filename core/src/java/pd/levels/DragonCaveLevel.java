@@ -36,6 +36,8 @@ public class DragonCaveLevel extends Level {
 	}
 
 
+
+
 	public static final int WIDTH = 48;
 	public static final int HEIGHT = 48;
 	public static final int ENTRANCE = 5 + WIDTH * 37;

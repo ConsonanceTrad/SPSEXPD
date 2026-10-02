@@ -58,6 +58,8 @@ public class WildMagic extends ArmorAbility {
 	}
 
 
+
+
 	{
 		baseChargeUse = 25f;
 	}

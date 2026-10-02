@@ -304,6 +304,8 @@ public class Hero extends Char {
 	}
 
 
+
+
 	{
 		actPriority = HERO_PRIO;
 		

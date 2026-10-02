@@ -49,6 +49,8 @@ public class HolyIntuition extends InventoryClericSpell {
 	}
 
 
+
+
 	public static final HolyIntuition INSTANCE = new HolyIntuition();
 
 	@Override

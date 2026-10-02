@@ -15,6 +15,8 @@ public class Apostle extends TownNpc {
 			.t("yell3", "看来你通过了这轮测试。和其他测试者聊聊吧，没准能得到什么。");
 	}
 
+
+
 	public Apostle() {
 		configure(Spec.APOSTLE);
 		spriteClass = pd.sprites.ApostleSprite.class;

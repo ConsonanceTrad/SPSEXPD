@@ -58,6 +58,8 @@ public class Egg extends Item {
 	}
 
 
+
+
 	public static final String AC_BREAK = "BREAK";
 	public static final int VIP_DROP_DENOMINATOR = 10;
 	private static final float TIME_TO_USE = 1f;

@@ -16,6 +16,8 @@ public class Honey extends Food {
 			.t("desc", "浓稠甘甜的蜂蜜，食用后能永久增强生命力。");
 	}
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 50f;

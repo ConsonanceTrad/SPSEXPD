@@ -37,6 +37,8 @@ public class MimicTooth extends Trinket {
 	}
 
 
+
+
 	{
 		image = EquipmentNonEquipDict.MIMIC_TOOTH_0;
 	}

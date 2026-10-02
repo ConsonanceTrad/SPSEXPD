@@ -40,6 +40,8 @@ public class PotionOfFrost extends Potion {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.POTION_FROST;
 	}

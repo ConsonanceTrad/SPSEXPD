@@ -16,6 +16,8 @@ public class Tar extends Buff {
 			.t("heromsg", "你身上覆盖满了粘稠的油脂。");
 	}
 
+
+
 	{
 		type = buffType.NEGATIVE;
 		announced = true;

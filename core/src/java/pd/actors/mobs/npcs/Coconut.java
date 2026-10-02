@@ -15,6 +15,8 @@ public class Coconut extends TownNpc {
 			.t("yell3", "你找坚果，那个hmdzl001?他在训练各种boss。短时间内你是找不到他了。");
 	}
 
+
+
 	public Coconut() {
 		configure(Spec.COCONUT);
 		spriteClass = pd.sprites.CoconutSprite.class;

@@ -13,6 +13,8 @@ public class DelayProtect extends Buff {
 			.t("desc", "效果结束时获得一层玻璃保护。\n\n剩余时间：%s回合。");
 	}
 
+
+
 	@Override
 	public boolean attachTo(pd.actors.Char target) {
 		if (!super.attachTo(target)) return false;

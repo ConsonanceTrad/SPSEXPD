@@ -14,6 +14,8 @@ public class DewAmmo extends SpAmmo {
 			.t("desc", "将原石和露珠种锻造而成的特殊子弹，能使武器附带多段元素伤害。");
 	}
 
+
+
 	@Override public void onHit(Char attacker, Char defender, int damage) {
 		int bound = (int)(0.20f * Math.max(0, damage));
 		defender.damage(elementRoll(bound), DamageType.ENERGY_DAMAGE);

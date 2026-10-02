@@ -44,6 +44,8 @@ public class ScrollHolder extends Bag {
 	}
 
 
+
+
 	{
 		image = EquipmentBagsDict.HOLDER;
 	}

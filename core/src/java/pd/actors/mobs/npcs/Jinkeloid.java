@@ -15,6 +15,8 @@ public class Jinkeloid extends TownNpc {
 			.t("yell3", "听说你完成了所有挑战目标，那么这个你有资格前往这个地方。");
 	}
 
+
+
 	public Jinkeloid() {
 		configure(Spec.JINKELOID);
 		spriteClass = pd.sprites.JinkeloidSprite.class;

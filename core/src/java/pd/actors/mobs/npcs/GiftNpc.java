@@ -35,6 +35,8 @@ public abstract class GiftNpc extends NPC {
 	}
 
 
+
+
 	public enum Visual {
 		REN("sprites/npcs/sps_town_ren.png", 16, 16,
 				15, new int[]{0,0,0,1,1,1,2,2,2,3,3,3}, 20, new int[]{0}, 12, new int[]{0,2,3}, 20, new int[]{0}),

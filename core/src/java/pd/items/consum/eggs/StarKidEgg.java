@@ -9,4 +9,6 @@ public class StarKidEgg extends Egg {
 			.t("name", "星芒之魂")
 			.t("desc", "召唤星芒。");
 	}
+
+
 {image=ConsumSummorDict.STAR_KID_EGG_0;}@Override protected LegacyPet hatchling(){return new StarKid();}@Override public int value(){return 500*quantity;}}

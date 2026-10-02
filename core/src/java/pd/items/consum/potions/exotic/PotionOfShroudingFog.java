@@ -39,6 +39,8 @@ public class PotionOfShroudingFog extends ExoticPotion {
 			.t("desc", "瓶中的液体遇到空气就会迅速爆发出一团能完全阻挡敌人视线的浓雾。");
 	}
 
+
+
 	
 	{
 		icon = ItemIconSheet.POTION_SHROUDFOG;

@@ -15,9 +15,11 @@ public class SandMob extends SpsCaveMobs.SandMob {
 		InlineText.of(SandMob.class)
 			.t("name", "沙怪")
 			.t("desc", "一种由沙子组成的怪物，死亡后会分裂。\n元素")
-			.t("minisand.name", "迷你沙怪")
-			.t("minisand.desc", "迷你沙怪");
+			.t("$minisand.name", "迷你沙怪")
+			.t("$minisand.desc", "迷你沙怪");
 	}
+
+
 
 
 	{

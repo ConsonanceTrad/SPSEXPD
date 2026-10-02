@@ -47,6 +47,8 @@ public class Radiance extends ClericSpell {
 	}
 
 
+
+
 	public static final Radiance INSTANCE = new Radiance();
 
 	@Override

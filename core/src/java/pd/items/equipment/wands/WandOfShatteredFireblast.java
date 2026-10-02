@@ -40,6 +40,8 @@ public class WandOfShatteredFireblast extends DamageWand {
 	}
 
 
+
+
 	private static final ItemSprite.Glowing WHITE = new ItemSprite.Glowing(0xFFFFFF);
 	private Set<Integer> affectedCells = new HashSet<>();
 	private Set<Integer> visualCells = new HashSet<>();

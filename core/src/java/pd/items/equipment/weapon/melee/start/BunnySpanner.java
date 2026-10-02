@@ -18,6 +18,8 @@ public class BunnySpanner extends NormalMeleeWeapon {
 			.t("desc", "兔人战士使用的巨大扳手。每次命中有30%%概率使目标麻痹。");
 	}
 
+
+
 	public BunnySpanner() {
 		super(1, 1.2f, 1.5f, 2, 8, 15, SpecificPlaceHolderDict.SOMETHING_0);
 		unique = true;

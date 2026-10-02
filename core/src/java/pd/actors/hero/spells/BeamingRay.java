@@ -58,9 +58,11 @@ public class BeamingRay extends TargetedClericSpell {
 			.t("out_of_range", "那个位置超出了范围。")
 			.t("short_desc", "传送你的盟友并使其获得伤害加成。")
 			.t("desc", "牧师引导其盟友的力量为可将传送盟友至某个位置的光束。若光束投射到敌人上，传送光束会将盟友传送至敌人附近并将其作为攻击目标。\n\n传送光束的最大传送距离为%1$d格，并使万物一心对4格范围内最近敌人的伤害加成提升至%2$d%%，持续10回合。该法术还可以传送通常情况下无法移动的盟友，但若如此则传送光束最大传送距离减半。")
-			.t("beamingrayboost.name", "光灵召唤")
-			.t("beamingrayboost.desc", "该盟友近期被光灵召唤的传送光束传送，获得对传送后最近敌人的伤害加成。万物一心不会在该增益的效果期间内结束。\n\n剩余回合数：%s");
+			.t("$beamingrayboost.name", "光灵召唤")
+			.t("$beamingrayboost.desc", "该盟友近期被光灵召唤的传送光束传送，获得对传送后最近敌人的伤害加成。万物一心不会在该增益的效果期间内结束。\n\n剩余回合数：%s");
 	}
+
+
 
 
 	public static BeamingRay INSTANCE = new BeamingRay();

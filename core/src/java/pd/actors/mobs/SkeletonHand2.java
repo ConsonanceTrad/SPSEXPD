@@ -20,6 +20,8 @@ public class SkeletonHand2 extends Mob {
 			.t("desc", "骷髅王的左手，亡者的左手。");
 	}
 
+
+
 	{
 		spriteClass = SkeletonHand2Sprite.class; HP = HT = 1000; defenseSkill = 30;
 		EXP = 10; maxLvl = 20; flying = true; loot = PotionOfLiquidFlame.class; lootChance = 0.1f;

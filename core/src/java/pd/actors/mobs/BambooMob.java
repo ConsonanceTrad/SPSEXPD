@@ -13,5 +13,7 @@ public class BambooMob extends SpsPrisonMobs.BambooMob {
 			.t("desc", "监狱长养的奇怪植物。");
 	}
 
+
+
 	{ spriteClass = MobBambooSprite.class; }
 }

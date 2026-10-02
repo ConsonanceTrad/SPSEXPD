@@ -19,6 +19,8 @@ public class CurseWeb extends Blob {
 	}
 
 
+
+
 	@Override
 	protected void evolve() {
 		for (int cell = 0; cell < cur.length; cell++) {

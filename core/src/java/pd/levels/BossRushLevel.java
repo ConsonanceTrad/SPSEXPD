@@ -45,6 +45,8 @@ public class BossRushLevel extends Level {
 			.t("water_desc", "十分奇怪的水滩。");
 	}
 
+
+
 	public static final Class<?>[] BOSS_SEQUENCE = {
 			Dragonking.class, UGoo.class, UTengu.class, UDM300.class, UKing.class,
 			UIcecorps.class, UIcecorps2.class, UYog.class, UAmulet.class

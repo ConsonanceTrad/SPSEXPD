@@ -17,6 +17,8 @@ public class EmptyBody extends Item {
 			.t("desc", "一把没有经过任何改造的武器坯料。暗噬1/3。");
 	}
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = false;

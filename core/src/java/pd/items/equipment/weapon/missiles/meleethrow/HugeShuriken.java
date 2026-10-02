@@ -13,5 +13,7 @@ public class HugeShuriken extends MeleeThrowWeapon {
 			.t("desc", "锋锐的巨大星形金属刃片既能近战，也能投掷并回收。——Dachhack");
 	}
 
+
+
 	public HugeShuriken() { super(4, 38, 52, SpecificPlaceHolderDict.SOMETHING_0); }
 }

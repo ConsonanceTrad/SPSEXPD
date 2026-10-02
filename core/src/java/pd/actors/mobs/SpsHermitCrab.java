@@ -20,6 +20,8 @@ public class SpsHermitCrab extends Mob {
 			.t("absorb", "寄居蟹将攻击的能量传入了高压电壳。");
 	}
 
+
+
 	private static final float TIME_TO_ZAP = 2f;
 	{ spriteClass = SpsHermitCrabSprite.class; HP = HT = 200; defenseSkill = 22; EXP = 60; loot = Generator.Category.BERRY; lootChance = 0.33f; properties.add(Property.BEAST); properties.add(Property.BOSS); properties.add(Property.BOSS_MINION); resistances.add(pd.actors.blobs.Electricity.class); }
 	@Override public int damageRoll() { return Random.NormalIntRange(25, 50); }

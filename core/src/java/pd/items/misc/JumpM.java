@@ -34,6 +34,8 @@ public class JumpM extends Item {
 			.t("desc", "法师的训练使其可以闪烁至多三格，并有60%%概率获得短暂的奥术专注，使法杖伤害翻倍。");
 	}
 
+
+
 	public static final String AC_JUMP = "JUMP";
 	public static final int FULL_CHARGE = 50;
 	public static final int JUMP_COST = 15;

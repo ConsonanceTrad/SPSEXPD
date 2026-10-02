@@ -40,6 +40,8 @@ public class Ooze extends Buff implements Buff.DOTbuff {
 	}
 
 
+
+
 	public static final float DURATION = 20f;
 
 	{

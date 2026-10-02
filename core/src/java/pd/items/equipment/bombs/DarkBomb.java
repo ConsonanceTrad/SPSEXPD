@@ -24,6 +24,8 @@ public class DarkBomb extends Bomb {
 	}
 
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 
 	@Override

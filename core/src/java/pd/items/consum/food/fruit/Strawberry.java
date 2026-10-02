@@ -16,6 +16,8 @@ public class Strawberry extends Fruit {
 			.t("desc", "据说生长在宫殿境内最高山峰的稀有果实。食用后身体会轻盈到足以漂浮。");
 	}
 
+
+
 	{ image = ConsumFoodFoodDict.STRAWBERRY; energy = Hunger.HUNGRY / 10f; }
 	@Override protected void onEat(Hero hero) {
 		Buff.prolong(hero, Levitation.class, 20f);

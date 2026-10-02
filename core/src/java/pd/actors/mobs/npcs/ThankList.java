@@ -13,6 +13,8 @@ public class ThankList extends TownNpc {
 			.t("desc", "朴实无华的感谢列表。");
 	}
 
+
+
 	public ThankList() {
 		configure(Spec.THANK_LIST);
 		spriteClass = pd.sprites.ThankListSprite.class;

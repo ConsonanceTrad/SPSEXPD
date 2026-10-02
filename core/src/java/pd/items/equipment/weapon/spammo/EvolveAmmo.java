@@ -21,6 +21,8 @@ public class EvolveAmmo extends SpAmmo {
 			.t("desc", "将原石和转换种锻造而成的特殊子弹，能将普通目标退化为生命细胞。");
 	}
 
+
+
 	private static final ItemSprite.Glowing DEEP_GREEN = new ItemSprite.Glowing(0x006633);
 	@Override public ItemSprite.Glowing glowing() { return DEEP_GREEN; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {

@@ -38,6 +38,8 @@ public class Kunai extends MissileWeapon {
 			.t("desc", "技巧高深者能用这种小刀造成可观的伤害。");
 	}
 
+
+
 	
 	{
 		image = ConsumThrowsDict.KUNAI_0;

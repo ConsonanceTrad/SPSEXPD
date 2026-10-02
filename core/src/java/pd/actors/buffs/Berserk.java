@@ -64,6 +64,8 @@ public class Berserk extends ShieldBuff implements ActionIndicator.Action {
 	}
 
 
+
+
 	{
 		type = buffType.POSITIVE;
 

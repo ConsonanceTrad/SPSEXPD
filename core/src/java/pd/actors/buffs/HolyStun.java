@@ -15,6 +15,8 @@ public class HolyStun extends FlavourBuff {
 			.t("desc", "无法被伤害提前解除的超强控制效果。\n\n剩余效果时长：%s回合");
 	}
 
+
+
 	{
 		type = buffType.NEGATIVE;
 		announced = true;

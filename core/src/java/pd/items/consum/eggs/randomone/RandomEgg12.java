@@ -10,4 +10,6 @@ public class RandomEgg12 extends RandomPetEgg {
 			.t("name", "随机十二月灵魂")
 			.t("desc", "召唤一个随机的十二月宠物，包括链锯魔、植蛛、绿皮猴。");
 	}
+
+
  public RandomEgg12() { super(LitDemon.class, Spider.class, Monkey.class); } }

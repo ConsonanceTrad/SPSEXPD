@@ -52,6 +52,8 @@ public class WndQuickBag extends Window {
 	}
 
 
+
+
 	private static Item bag;
 
 	public WndQuickBag(Bag bag){

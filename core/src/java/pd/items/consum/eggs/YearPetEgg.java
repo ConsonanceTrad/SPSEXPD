@@ -17,6 +17,8 @@ public class YearPetEgg extends Egg {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}

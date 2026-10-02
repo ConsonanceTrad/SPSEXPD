@@ -15,6 +15,8 @@ public class HiddenShadow extends FlavourBuff {
 			.t("desc", "无法被近战攻击。\n\n剩余时间：%s。");
 	}
 
+
+
 	private boolean applied;
 	{
 		type = buffType.NEGATIVE;

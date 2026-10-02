@@ -42,6 +42,8 @@ public class ShockingBrew extends Brew {
 			.t("desc", "当瓶子破裂时，这瓶魔药会向周围释放一阵闪电风暴。");
 	}
 
+
+
 	
 	{
 		image = ConsumPotionSeedBasicPotionDict.BREW_SHOCKING_0;

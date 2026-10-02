@@ -294,6 +294,8 @@ public enum HeroClass {
 	}
 
 
+
+
 	private static final HeroClass[] SPS_PLAYABLE = {
 			WARRIOR, MAGE, ROGUE, HUNTRESS,
 			DUELIST,

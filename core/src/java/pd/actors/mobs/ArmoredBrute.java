@@ -44,6 +44,8 @@ public class ArmoredBrute extends Brute {
 	}
 
 
+
+
 	{
 		spriteClass = ShieldedSprite.class;
 		HP = HT = 40;

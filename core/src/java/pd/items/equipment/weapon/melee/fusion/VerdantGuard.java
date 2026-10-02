@@ -26,6 +26,8 @@ public class VerdantGuard extends Quarterstaff implements FusionWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.ROUND_SHIELD_0;
 		hitSound = Assets.Sounds.HIT_CRUSH;

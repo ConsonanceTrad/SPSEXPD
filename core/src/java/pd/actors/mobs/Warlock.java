@@ -49,6 +49,8 @@ public class Warlock extends Mob {
 			.t("desc", "当矮人的兴趣从工程建设转向奥秘学术时，术士们开始在城市中掌权。它们从元素魔法起步，但很快就开始研究恶魔学和死灵术。");
 	}
 
+
+
 	
 	private static final float TIME_TO_ZAP	= 1f;
 	

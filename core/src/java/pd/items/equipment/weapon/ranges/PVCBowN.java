@@ -9,4 +9,6 @@ public class PVCBowN extends RangeWeapon {
 			.t("name", "普通的复合纤维弩")
 			.t("desc", "经过复杂工序加工而成的弩，可以发射箭矢。");
 	}
+
+
  public PVCBowN() { super(5, Variant.NORMAL, SpecificPlaceHolderDict.SOMETHING_0); } }

@@ -43,6 +43,8 @@ public class RingOfEnergy extends Ring {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.RING_ENERGY;
 		buffClass = Energy.class;

@@ -66,6 +66,8 @@ public class ScrollOfTeleportation extends Scroll {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.SCROLL_TELEPORT;
 	}

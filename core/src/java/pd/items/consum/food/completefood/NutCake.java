@@ -18,6 +18,8 @@ public class NutCake extends CompleteFood {
 			.t("desc", "浓郁的坚果甜点，能永久提高生命力、治疗伤势并提供物理护盾。");
 	}
 
+
+
 	{
 		image = ConsumFoodFoodDict.NUT_CAKE;
 		energy = 450f;

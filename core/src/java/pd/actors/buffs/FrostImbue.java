@@ -35,6 +35,8 @@ public class FrostImbue extends FlavourBuff {
 			.t("desc", "你被灌注了寒霜的力量！\n\n所有的物理攻击都会在敌人身上累加冻伤效果。与此同时你对寒冷完全免疫。\n\n寒霜之力剩余时长：%s回合");
 	}
 
+
+
 	
 	{
 		type = buffType.POSITIVE;

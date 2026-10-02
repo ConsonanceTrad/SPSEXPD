@@ -35,6 +35,8 @@ public class Towel extends Item {
 	}
 
 
+
+
 	public static final String AC_TOWEL = "TOWEL";
 
 	{

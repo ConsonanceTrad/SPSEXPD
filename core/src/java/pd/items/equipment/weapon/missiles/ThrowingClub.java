@@ -35,6 +35,8 @@ public class ThrowingClub extends MissileWeapon {
 			.t("desc", "简单粗暴但耐用的投掷武器，实际上就是一块插着根木棍的大石头。");
 	}
 
+
+
 	
 	{
 		image = ConsumThrowsDict.THROWING_CLUB_0;

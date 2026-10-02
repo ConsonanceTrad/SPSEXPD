@@ -22,6 +22,8 @@ public class EarthBomb extends Bomb {
 	}
 
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 
 	@Override

@@ -35,6 +35,8 @@ public class HugeBomb extends Bomb {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}

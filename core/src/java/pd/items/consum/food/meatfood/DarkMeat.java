@@ -16,6 +16,8 @@ public class DarkMeat extends MeatFood {
 			.t("desc", "在黑暗中放置很久的肉，吃下后居然能够恢复生命。");
 	}
 
+
+
 	private static final ItemSprite.Glowing BLACK = new ItemSprite.Glowing(0x000000);
 	{
 		image = ConsumFoodFoodDict.MEAT;

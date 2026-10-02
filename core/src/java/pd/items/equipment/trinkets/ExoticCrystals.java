@@ -37,6 +37,8 @@ public class ExoticCrystals extends Trinket {
 	}
 
 
+
+
 	{
 		image = EquipmentNonEquipDict.EXOTIC_CRYSTALS_0;
 	}

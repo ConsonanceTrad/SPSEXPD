@@ -42,6 +42,8 @@ public class WornShortsword extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.WORN_SHORTSWORD_0;
 		hitSound = Assets.Sounds.HIT_SLASH;

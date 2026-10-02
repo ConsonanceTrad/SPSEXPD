@@ -26,6 +26,8 @@ public class Lollipop extends SpsSpecialMeleeWeapon {
 			.t("desc", "很难想象这样的食物是一把武器。儿童节快乐！\n粘滞，迷人，易碎-失落");
 	}
 
+
+
 	public Lollipop() { super(1, 1f, 1f, 1, 50, 50, EquipmentEquipWeaponBasicWeaponDict.LOLLIPOP); usesTargeting = true; }
 
 	@Override public int proc(Char attacker, Char defender, int damage) {

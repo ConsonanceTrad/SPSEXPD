@@ -13,6 +13,8 @@ public class BombBug extends SpsExitMobs.GuardBombBug {
 			.t("desc", "包裹着冰石的虫子。");
 	}
 
+
+
 	{
 		spriteClass = BombBugSprite.class;
 		properties.remove(Property.ICY);

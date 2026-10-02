@@ -50,6 +50,8 @@ public abstract class ClericSpell {
 	}
 
 
+
+
 	public abstract void onCast(HolyTome tome, Hero hero);
 
 	public float chargeUse( Hero hero ){

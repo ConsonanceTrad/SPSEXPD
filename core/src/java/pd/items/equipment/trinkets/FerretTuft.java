@@ -38,6 +38,8 @@ public class FerretTuft extends Trinket {
 	}
 
 
+
+
 	{
 		image = EquipmentNonEquipDict.FERRET_TUFT_0;
 	}

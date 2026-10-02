@@ -34,6 +34,8 @@ public class MageArmor extends ClassArmor {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}

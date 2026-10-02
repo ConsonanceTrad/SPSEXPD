@@ -60,11 +60,13 @@ public class ShardOfOblivion extends Trinket {
 			.t("identify_ready_worn", "你所装备的物品的鉴定已就绪。可使用遗忘碎片将其鉴定。")
 			.t("identify_not_yet", "这个物品的鉴定尚未就绪。")
 			.t("identify", "你鉴定了这个物品！")
-			.t("wandusetracker.name", "已使用未鉴定法杖")
-			.t("wandusetracker.desc", "你近期已使用一根未鉴定法杖，短期内遗忘碎片将其视为一件已使用的未鉴定装备。\n\n剩余回合数：%s")
-			.t("thrownusetracker.name", "已使用未鉴定投武")
-			.t("thrownusetracker.desc", "你近期已使用一件未鉴定投掷武器，短期内遗忘碎片将其视为一件已使用的未鉴定装备。\n\n剩余回合数：%s");
+			.t("$wandusetracker.name", "已使用未鉴定法杖")
+			.t("$wandusetracker.desc", "你近期已使用一根未鉴定法杖，短期内遗忘碎片将其视为一件已使用的未鉴定装备。\n\n剩余回合数：%s")
+			.t("$thrownusetracker.name", "已使用未鉴定投武")
+			.t("$thrownusetracker.desc", "你近期已使用一件未鉴定投掷武器，短期内遗忘碎片将其视为一件已使用的未鉴定装备。\n\n剩余回合数：%s");
 	}
+
+
 
 
 	{

@@ -59,6 +59,8 @@ public class YearBeast extends Mob {
 	}
 
 
+
+
 	private static final float SPAWN_DELAY = 1f;
 	private static final String TIMES = "times";
 	private int times;

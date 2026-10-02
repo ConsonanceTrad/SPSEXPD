@@ -41,6 +41,8 @@ public class Venomous extends Weapon.Enchantment {
 	}
 
 
+
+
 	private static ItemSprite.Glowing PURPLE = new ItemSprite.Glowing( 0x4400AA );
 
 	@Override

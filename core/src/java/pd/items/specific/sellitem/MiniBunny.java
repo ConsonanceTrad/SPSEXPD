@@ -13,6 +13,8 @@ public class MiniBunny extends SellItem {
 			.t("desc", "将两只兔子赶到一起就能获得一个小兔子。但这种兔子实在是太小了。");
 	}
 
+
+
 	{
 		image = ConsumSummorDict.RABBIT_PET_EGG_0;
 		stackable = true;

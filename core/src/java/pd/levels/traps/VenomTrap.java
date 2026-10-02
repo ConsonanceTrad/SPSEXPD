@@ -15,6 +15,8 @@ public class VenomTrap extends Trap {
 			.t("desc", "触发这个陷阱将在附近释放出一片致命的猛毒气体。");
 	}
 
+
+
 	{ color = VIOLET; shape = GRILL; }
 	@Override public void activate() {
 		int legacyDepth = Dungeon.legacyDepth();

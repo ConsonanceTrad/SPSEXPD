@@ -70,22 +70,24 @@ public abstract class Elemental extends Mob {
 	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
 	static {
 		InlineText.of(Elemental.class)
-			.t("fireelemental.name", "火焰元素")
-			.t("fireelemental.desc", "元素是一类狂暴的生物，通常诞生于失控的强力魔法仪式当中。元素生物智力极低，它们通常与一种特定的魔法密切相关。\n\n火焰元素是一种常见的借助火焰之力攻击的元素生物。它的近战攻击能点燃目标，有时也会向远处目标发射火焰弹。")
-			.t("newbornfireelemental.name", "新生火焰元素")
-			.t("newbornfireelemental.charging", "新生元素正在蓄能！")
-			.t("newbornfireelemental.desc", "元素是一类狂暴的生物，通常诞生于失控的强力魔法仪式当中。元素生物智力极低，它们通常与一种特定的魔法密切相关。\n\n这只火焰元素刚刚被召唤出来，但同样很危险！")
-			.t("newbornfireelemental.rankings_desc", "被新生火焰元素烤焦")
-			.t("newbornfireelemental.desc_boss", "由于其本质是狂暴的召唤物，这个元素的火攻方式只有通过1回合的蓄能喷出不精准的焰浪。")
-			.t("newbornfireelemental.desc_ally", "由于这个元素是由晶柱召唤而来，故而对火焰有更好的控制。它没法施展远距离攻击，但仍然可以通过近战攻击引燃敌人。")
-			.t("newbornfireelemental.discover_hint", "你可在某个任务中遇到该敌人。")
-			.t("frostelemental.name", "冰霜元素")
-			.t("frostelemental.desc", "元素是一类狂暴的生物，通常诞生于失控的强力魔法仪式当中。元素生物智力极低，它们通常与一种特定的魔法密切相关。\n\n冰霜元素是一种常见的借助冰霜之力弱化敌人的元素生物。它的近战攻击和不常用的远程攻击都会使敌人陷入冻伤。它的冰霜之力对水上的敌人效果更强。")
-			.t("shockelemental.name", "电光元素")
-			.t("shockelemental.desc", "元素是一类狂暴的生物，通常诞生于失控的强力魔法仪式当中。元素生物智力极低，它们通常与一种特定的魔法密切相关。\n\n电光元素是一种较为少见的借助电能与闪光干扰敌人的元素生物。近战时它会向周遭敌人释放电弧，还能对水上的主要目标造成额外伤害。它有时也会聚焦向远处的敌人以释放致盲的强烈闪光。")
-			.t("chaoselemental.name", "混沌元素")
-			.t("chaoselemental.desc", "元素是一类狂暴的生物，通常诞生于失控的强力魔法仪式当中。元素生物智力极低，它们通常与一种特定的魔法密切相关。\n\n混沌元素是一种极其稀有的元素生物。它并不局限于某一种特定的魔法，而是会借助攻击向敌人倾泻变幻莫测的狂野魔法。");
+			.t("$fireelemental.name", "火焰元素")
+			.t("$fireelemental.desc", "元素是一类狂暴的生物，通常诞生于失控的强力魔法仪式当中。元素生物智力极低，它们通常与一种特定的魔法密切相关。\n\n火焰元素是一种常见的借助火焰之力攻击的元素生物。它的近战攻击能点燃目标，有时也会向远处目标发射火焰弹。")
+			.t("$newbornfireelemental.name", "新生火焰元素")
+			.t("$newbornfireelemental.charging", "新生元素正在蓄能！")
+			.t("$newbornfireelemental.desc", "元素是一类狂暴的生物，通常诞生于失控的强力魔法仪式当中。元素生物智力极低，它们通常与一种特定的魔法密切相关。\n\n这只火焰元素刚刚被召唤出来，但同样很危险！")
+			.t("$newbornfireelemental.rankings_desc", "被新生火焰元素烤焦")
+			.t("$newbornfireelemental.desc_boss", "由于其本质是狂暴的召唤物，这个元素的火攻方式只有通过1回合的蓄能喷出不精准的焰浪。")
+			.t("$newbornfireelemental.desc_ally", "由于这个元素是由晶柱召唤而来，故而对火焰有更好的控制。它没法施展远距离攻击，但仍然可以通过近战攻击引燃敌人。")
+			.t("$newbornfireelemental.discover_hint", "你可在某个任务中遇到该敌人。")
+			.t("$frostelemental.name", "冰霜元素")
+			.t("$frostelemental.desc", "元素是一类狂暴的生物，通常诞生于失控的强力魔法仪式当中。元素生物智力极低，它们通常与一种特定的魔法密切相关。\n\n冰霜元素是一种常见的借助冰霜之力弱化敌人的元素生物。它的近战攻击和不常用的远程攻击都会使敌人陷入冻伤。它的冰霜之力对水上的敌人效果更强。")
+			.t("$shockelemental.name", "电光元素")
+			.t("$shockelemental.desc", "元素是一类狂暴的生物，通常诞生于失控的强力魔法仪式当中。元素生物智力极低，它们通常与一种特定的魔法密切相关。\n\n电光元素是一种较为少见的借助电能与闪光干扰敌人的元素生物。近战时它会向周遭敌人释放电弧，还能对水上的主要目标造成额外伤害。它有时也会聚焦向远处的敌人以释放致盲的强烈闪光。")
+			.t("$chaoselemental.name", "混沌元素")
+			.t("$chaoselemental.desc", "元素是一类狂暴的生物，通常诞生于失控的强力魔法仪式当中。元素生物智力极低，它们通常与一种特定的魔法密切相关。\n\n混沌元素是一种极其稀有的元素生物。它并不局限于某一种特定的魔法，而是会借助攻击向敌人倾泻变幻莫测的狂野魔法。");
 	}
+
+
 
 
 	{

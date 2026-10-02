@@ -17,6 +17,8 @@ public class Crystalglyph extends SpsGlyph {
 			.t("desc", "晶化刻印有几率在遭受重击后为使用者提供玻璃保护。");
 	}
 
+
+
 	private static final ItemSprite.Glowing COLOR = new ItemSprite.Glowing(0xCCAA88);
 	@Override public int proc(Armor armor, Char attacker, Char defender, int damage) {
 		clearElementalMarker(defender);

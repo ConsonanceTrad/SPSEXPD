@@ -44,6 +44,8 @@ public class SummoningTrap extends Trap {
 	}
 
 
+
+
 	private static final float DELAY = 2f;
 
 	{

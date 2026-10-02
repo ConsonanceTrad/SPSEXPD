@@ -14,6 +14,8 @@ public class Watabou extends TownNpc {
 			.t("yell2", "像素地牢现在停止更新了......");
 	}
 
+
+
 	public Watabou() {
 		configure(Spec.WATABOU);
 		spriteClass = pd.sprites.WatabouSprite.class;

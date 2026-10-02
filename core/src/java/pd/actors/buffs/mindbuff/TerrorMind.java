@@ -8,4 +8,6 @@ public class TerrorMind extends MindBuff {
 			.t("name", "疯狂-恐惧")
 			.t("desc", "闪避率降低。");
 	}
+
+
  }

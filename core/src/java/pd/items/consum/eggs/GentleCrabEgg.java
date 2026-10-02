@@ -12,4 +12,6 @@ public class GentleCrabEgg extends Egg {
 			.t("name", "绅士蟹之魂")
 			.t("desc", "召唤绅士蟹。");
 	}
+
+
  { image = ConsumSummorDict.GENTLE_CRAB_EGG_0; } @Override protected LegacyPet hatchling() { return new GentleCrab(); } @Override public int value() { return 500 * quantity; } }

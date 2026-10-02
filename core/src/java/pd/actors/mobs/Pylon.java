@@ -58,6 +58,8 @@ public class Pylon extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = PylonSprite.class;
 

@@ -9,5 +9,7 @@ public class TriforceOfPower extends TriforcePiece {
 			.t("desc", "起源三角的一部分，代表着力量。");
 	}
 
+
+
 	@Override protected void collected() { Dungeon.triforceOfPower = true; }
 }

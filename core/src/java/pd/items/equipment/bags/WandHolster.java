@@ -22,6 +22,8 @@ public class WandHolster extends Bag {
 			.t("desc", "这个修长的异兽皮套有三十格空间，可以紧密收纳法杖和其他SPS魔法武器。");
 	}
 
+
+
 	{
 		image = EquipmentBagsDict.HOLSTER;
 	}

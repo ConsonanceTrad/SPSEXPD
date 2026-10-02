@@ -66,6 +66,8 @@ public class WndDebugItems extends Window {
 	}
 
 
+
+
 	private static final int COLS       = 5;   //SPS: 窄窗适配移动端（调试器）
 	private static final int CELL       = 18;
 	private static final int WIDTH      = COLS * CELL + 4;

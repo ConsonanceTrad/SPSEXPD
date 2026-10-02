@@ -45,6 +45,8 @@ public abstract class KindofMisc extends EquipableItem {
 	}
 
 
+
+
 	@Override
 	public boolean doEquip(final Hero hero) {
 

@@ -14,6 +14,8 @@ public class FunnyBuff extends FlavourBuff {
 	}
 
 
+
+
 	public static final float DURATION = 30f;
 
 	{

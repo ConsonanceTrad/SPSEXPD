@@ -20,6 +20,8 @@ public class EnchantmentDark extends SpsEnchantment {
 			.t("desc", "暗影附魔将造成大量的暗属性伤害，并有几率恐吓目标。");
 	}
 
+
+
 	private static final ItemSprite.Glowing BLACK = new ItemSprite.Glowing(0x000000);
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		elementalDamage(weapon, attacker, defender, 0.75f, DARK_DAMAGE);

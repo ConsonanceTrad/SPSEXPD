@@ -21,6 +21,8 @@ public class DogPet extends PET {
 			.t("desc", "在地表世界追随你旅行的大狗，无论是在何处，哪怕是怪物丛生的地下，它依旧会尽忠尽责地守护你的安全。");
 	}
 
+
+
 	{
 		spriteClass = DogPetSprite.class;
 		cooldown = 50;

@@ -17,6 +17,8 @@ public class LiveMoss extends SpsSewerMobs.LiveMoss {
 	}
 
 
+
+
 	{
 		spriteClass = LiveMossSprite.class;
 		loot = Generator.Category.MUSHROOM;

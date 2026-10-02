@@ -24,6 +24,8 @@ public class Pumpkin extends MeleeWeapon {
 	}
 
 
+
+
 	public static final int EFFECT_CHANCE = 20;
 	public static final int HEALING = 10;
 	public static final float LIGHT_DURATION = 50f;

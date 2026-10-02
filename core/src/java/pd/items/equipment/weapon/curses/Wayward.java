@@ -38,9 +38,11 @@ public class Wayward extends Weapon.Enchantment {
 			.t("name", "妄为%s")
 			.t("desc", "妄为诅咒的武器会时常变得极其不精准。触发时这种魔法会持续一小会，但会在成功使用妄为武器造成伤害后立刻消散。")
 			.t("elestrike_desc", "武器拥有妄为诅咒时，元素打击对范围内的每个敌人都有50%概率造成持续6回合的幻惑。")
-			.t("waywardbuff.name", "妄为")
-			.t("waywardbuff.desc", "你的妄为武器上的魔法已被触发，现在它已变得极度不精准。这个魔法无法影响如伏击等必定命中的攻击行为，且成功使用妄为武器造成伤害会立刻驱散此效果。\n\n效果剩余回合：%s");
+			.t("$waywardbuff.name", "妄为")
+			.t("$waywardbuff.desc", "你的妄为武器上的魔法已被触发，现在它已变得极度不精准。这个魔法无法影响如伏击等必定命中的攻击行为，且成功使用妄为武器造成伤害会立刻驱散此效果。\n\n效果剩余回合：%s");
 	}
+
+
 
 
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );

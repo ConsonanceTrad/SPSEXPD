@@ -18,6 +18,8 @@ public class TekkoKagi extends SpsSpecialMeleeWeapon {
 			.t("desc", "看起来像金刚狼爪子的忍者武器。——Typedscroll\n致死");
 	}
 
+
+
 	public TekkoKagi() { super(1, 1f, 1f, 1, 6, 12, EquipmentEquipWeaponBasicWeaponDict.SPS_TEKKO_KAGI_0); }
 
 	@Override public int proc(Char attacker, Char defender, int damage) {

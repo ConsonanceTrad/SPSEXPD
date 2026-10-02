@@ -20,6 +20,8 @@ public class PatrolUAV extends SpsSewerMobs.PatrolUAV {
 	}
 
 
+
+
 	{
 		spriteClass = PatrolUAVSprite.class;
 		properties.remove(Property.INORGANIC);

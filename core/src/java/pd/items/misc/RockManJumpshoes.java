@@ -25,6 +25,8 @@ public class RockManJumpshoes extends Item {
 			.t("desc", "这双鞋允许穿戴者跳跃最多三格，消耗的时间等于实际跳跃距离。");
 	}
 
+
+
 	public static final String AC_JUMP = "JUMP";
 	public static final int RANGE = 3;
 	{

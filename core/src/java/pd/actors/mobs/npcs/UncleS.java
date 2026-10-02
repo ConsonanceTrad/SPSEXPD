@@ -13,6 +13,8 @@ public class UncleS extends TownNpc {
 			.t("desc", "工会里的力士，是个猛男。");
 	}
 
+
+
 	public UncleS() {
 		configure(Spec.UNCLE_S);
 		spriteClass = pd.sprites.UncleSSprite.class;

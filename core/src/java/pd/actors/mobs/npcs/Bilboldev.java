@@ -15,6 +15,8 @@ public class Bilboldev extends TownNpc {
 			.t("yell3", "Hatsune的牺牲会被人所铭记!");
 	}
 
+
+
 	public Bilboldev() {
 		configure(Spec.BILBOLDEV);
 		spriteClass = pd.sprites.BilboldevSprite.class;

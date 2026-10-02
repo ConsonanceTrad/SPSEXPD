@@ -50,6 +50,8 @@ public class StoneOfDetectMagic extends InventoryStone {
 	}
 
 
+
+
 	{
 		preferredBag = Belongings.Backpack.class;
 		image = ConsumScrollAmuletAmuletDict.STONE_DETECT_0;

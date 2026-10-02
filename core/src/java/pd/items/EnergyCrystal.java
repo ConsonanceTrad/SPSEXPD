@@ -44,6 +44,8 @@ public class EnergyCrystal extends Item {
 	}
 
 
+
+
 	{
 		image = SpecificCurrencyDict.ENERGY_0;
 		stackable = true;

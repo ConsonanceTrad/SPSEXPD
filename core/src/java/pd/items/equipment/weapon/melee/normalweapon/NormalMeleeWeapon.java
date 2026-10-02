@@ -21,6 +21,8 @@ public abstract class NormalMeleeWeapon extends MeleeWeapon {
 	}
 
 
+
+
 	private final int baseMin;
 	private final int baseMax;
 	private final float baseAccuracy;

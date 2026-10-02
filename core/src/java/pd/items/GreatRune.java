@@ -36,6 +36,8 @@ public class GreatRune extends Item {
 	}
 
 
+
+
 	public static final String AC_INSCRIBE = "INSCRIBE";
 
 	{

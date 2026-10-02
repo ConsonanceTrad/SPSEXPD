@@ -28,6 +28,8 @@ public class SokobanBlock extends NPC {
 	}
 
 
+
+
 	private int homePos = -1;
 
 	{

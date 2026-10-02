@@ -37,6 +37,8 @@ public class ArcaneArmor extends Buff {
 			.t("desc", "一层淡薄的护盾环绕着你，可为你抵挡一定的魔法伤害。\n\n当前你的魔法护甲为：0~%d\n\n距离奥术护甲衰减还有：%s回合");
 	}
 
+
+
 	
 	{
 		type = buffType.POSITIVE;

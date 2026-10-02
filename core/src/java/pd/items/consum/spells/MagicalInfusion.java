@@ -54,6 +54,8 @@ public class MagicalInfusion extends InventorySpell {
 			.t("desc", "这个菱晶蕴含着和升级卷轴同样强大的魔力，不过这种魔力更为稳定。\n\n这个菱晶在升级物品的同时不会消除上面的附魔、刻印或诅咒。");
 	}
 
+
+
 	
 	{
 		image = ConsumScrollAmuletCrystalDict.MAGIC_INFUSE_0;

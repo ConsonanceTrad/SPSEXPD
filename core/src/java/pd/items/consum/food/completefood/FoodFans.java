@@ -17,6 +17,8 @@ public class FoodFans extends CompleteFood {
 			.t("desc", "注意煮熟后食用。\n使用_1份药水、2份坚果_炼金。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; energy = 150f; }
 	@Override protected void doEat(Hero hero) {
 		Buff.affect(hero, ShieldArmor.class).level(hero.HT / 2);

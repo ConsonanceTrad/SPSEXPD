@@ -19,6 +19,8 @@ public class Vegetableroll extends CompleteFood {
 			.t("desc", "肉卷的兄弟。\n使用_1份卷轴、1份蔬菜_炼金。");
 	}
 
+
+
 	private static final ItemSprite.Glowing GREEN = new ItemSprite.Glowing(0x22CC44);
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; energy = 170f; }
 	@Override protected void doEat(Hero hero) {

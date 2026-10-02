@@ -43,6 +43,8 @@ public class Leadercn extends TownNpc {
 	}
 
 
+
+
 	private static final String LESSON = "lesson";
 	private int lesson;
 

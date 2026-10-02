@@ -13,6 +13,8 @@ public class Dualknive extends NormalMeleeWeapon {
 			.t("desc", "成对的刀片带来更高的伤害。——Bilboldev \n穿刺");
 	}
 
+
+
 	public Dualknive() { super(2, 1f, 1f, 1, 11, 17, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) {
 		if (s.accuracy < 1.2f) s.accuracy += .05f;

@@ -19,6 +19,8 @@ public class FullMoonberry extends Fruit {
 			.t("desc", "野生浆果的一种，富含大量维生素和矿物质，这种浆果由于受到了月亮女神的祝福，食用后将给你提供十分强大的效果。");
 	}
 
+
+
 	{ image = ConsumFoodFoodDict.FULLMOONBERRY; }
 	@Override protected void onEat(Hero hero) {
 		Buff.affect(hero, MoonFury.class);

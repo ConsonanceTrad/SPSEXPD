@@ -198,6 +198,8 @@ public enum Bestiary {
 	}
 
 
+
+
 	//tracks whether an entity has been encountered
 	private final LinkedHashMap<Class<?>, Boolean> seen = new LinkedHashMap<>();
 	//tracks enemy kills, trap activations, plant tramples, or just sets to 1 for seen on allies

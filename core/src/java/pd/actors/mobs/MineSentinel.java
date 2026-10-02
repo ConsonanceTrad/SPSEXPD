@@ -34,6 +34,8 @@ public class MineSentinel extends Mob {
 	}
 
 
+
+
 	private static final int LEGACY_DEPTH = 67;
 	private static final int REGENERATION = 100;
 	private Weapon weapon;

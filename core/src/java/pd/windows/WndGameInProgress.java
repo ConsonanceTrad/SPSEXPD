@@ -65,6 +65,8 @@ public class WndGameInProgress extends Window {
 			.t("erase_warn_no", "不，我要接着玩");
 	}
 
+
+
 	
 	private static final int WIDTH    = 120;
 	

@@ -93,6 +93,8 @@ public class RingOfElements extends Ring {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.RING_ELEMENTS;
 		buffClass = RingElements.class;

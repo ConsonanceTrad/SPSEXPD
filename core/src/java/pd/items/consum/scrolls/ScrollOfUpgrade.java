@@ -55,6 +55,8 @@ public class ScrollOfUpgrade extends InventoryScroll {
 	}
 
 
+
+
 	@Override
 	public void empoweredRead() {
 		//The SPS-PD 0.9.8 empowered upgrade branch intentionally has no effect.

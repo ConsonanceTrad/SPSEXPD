@@ -51,6 +51,8 @@ public class Dewdrop extends Item {
 			.t("desc", "一颗晶莹剔透的露珠。\n\n受这片区域的魔力影响，净水有着少量的治疗效果。");
 	}
 
+
+
 	
 	{
 		image = GroundFunctionalFallingDict.DEWDROP_0;

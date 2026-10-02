@@ -14,6 +14,8 @@ public class NewHome extends JournalPage {
 			.t("desc", "推荐房源，现场看房。");
 	}
 
+
+
 	public NewHome() {
 		super(8);
 		image = SpecificPlaceHolderDict.SOMETHING_0;

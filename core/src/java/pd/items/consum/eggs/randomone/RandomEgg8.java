@@ -10,4 +10,6 @@ public class RandomEgg8 extends RandomPetEgg {
 			.t("name", "随机八月灵魂")
 			.t("desc", "召唤一个随机的八月宠物，包括星芒、忠犬、狐女仆。");
 	}
+
+
  public RandomEgg8() { super(StarKid.class, DogPet.class, FoxHelper.class); } }

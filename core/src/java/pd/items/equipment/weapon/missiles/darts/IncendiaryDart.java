@@ -42,6 +42,8 @@ public class IncendiaryDart extends TippedDart {
 	}
 
 
+
+
 	{
 		image = ConsumThrowsDict.INCENDIARY_DART_0;
 	}

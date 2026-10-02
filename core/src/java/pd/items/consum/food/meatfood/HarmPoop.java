@@ -17,6 +17,8 @@ public class HarmPoop extends MeatFood {
 			.t("desc", "勉强可以吃，但会导致中毒和迟缓。");
 	}
 
+
+
 	{
 		image = ConsumFoodFoodDict.MEAT;
 		energy = 10f;

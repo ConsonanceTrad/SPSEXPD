@@ -22,6 +22,8 @@ public class LitTower extends Mob {
 	}
 
 
+
+
 	public static class LightningBolt {
 	}
 

@@ -19,6 +19,8 @@ public class OldNewStwist extends TownNpc {
 			.t("yell6", "哦，我这里卖各种特殊武器。它们来自于其他时间。");
 	}
 
+
+
 	public OldNewStwist() {
 		configure(Spec.OLD_NEW_STWIST);
 		spriteClass = pd.sprites.OldNewStwistSprite.class;

@@ -17,6 +17,8 @@ public class BattleFlower extends Vegetable {
 			.t("desc", "星陨花的一部分，可以食用。它能强化物理攻击，并提供祝福与奥术防护。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected void onEat(Hero hero) {
 		Buff.prolong(hero, Bless.class, 30f);

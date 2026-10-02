@@ -53,8 +53,10 @@ public class MagicalFireRoom extends SpecialRoom {
 	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
 	static {
 		InlineText.of(MagicalFireRoom.class)
-			.t("eternalfire.desc", "这里竖立着一面似乎由魔法生成的亮绿色致密火墙。这面火墙足够致密以至于你无法通过，它还会点燃任何过于靠近的物体。火墙没有任何会自然熄灭的迹象，你得用点什么东西才能熄灭它。");
+			.t("$eternalfire.desc", "这里竖立着一面似乎由魔法生成的亮绿色致密火墙。这面火墙足够致密以至于你无法通过，它还会点燃任何过于靠近的物体。火墙没有任何会自然熄灭的迹象，你得用点什么东西才能熄灭它。");
 	}
+
+
 
 
 	@Override

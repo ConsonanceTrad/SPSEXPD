@@ -24,6 +24,8 @@ public class PixelTorch extends NormalMeleeWeapon {
 			.t("desc", "一支结实的火把，命中敌人会积蓄力量，并可消耗力量制造长时间照明。");
 	}
 
+
+
 	public static final String AC_TLIGHT = "TLIGHT";
 	public PixelTorch(){super(2,1f,1f,1,3,15,SpecificPlaceHolderDict.SOMETHING_0); unique=true; reinforced=true; defaultAction=AC_TLIGHT;}
 	@Override public ArrayList<String> actions(Hero hero){ArrayList<String>a=super.actions(hero);a.add(AC_TLIGHT);return a;}

@@ -14,6 +14,8 @@ public class ShadowCurse extends Buff {
 			.t("desc", "诅咒会立即造成基于生命上限的伤害，并在四次发作后再次爆发。");
 	}
 
+
+
 	private static final String TICKS = "ticks";
 	private static final String FIRST = "first";
 	private int ticks;

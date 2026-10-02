@@ -53,6 +53,8 @@ public class WndDailies extends Window {
 	}
 
 
+
+
 	private static final int WIDTH			= 115;
 	private static final int HEIGHT			= 144;
 

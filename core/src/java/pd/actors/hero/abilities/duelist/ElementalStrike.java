@@ -123,6 +123,8 @@ public class ElementalStrike extends ArmorAbility {
 	}
 
 
+
+
 	//TODO a few duplicates here (curse duplicates are fine)
 	private static final HashMap<Class<?extends Weapon.Enchantment>, Integer> effectTypes = new HashMap<>();
 	static {

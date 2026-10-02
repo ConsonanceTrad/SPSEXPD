@@ -37,6 +37,8 @@ public class RatSkull extends Trinket {
 	}
 
 
+
+
 	{
 		image = ConsumGoodsMaterialsGoodsDict.RAT_SKULL_0;
 	}

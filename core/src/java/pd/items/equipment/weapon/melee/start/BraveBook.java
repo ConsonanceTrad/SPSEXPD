@@ -27,6 +27,8 @@ public class BraveBook extends NormalMeleeWeapon {
 			.t("desc", "一本被封印的书，可以把战斗积蓄转化为强化或治疗。");
 	}
 
+
+
 	public static final String AC_ADD="ADD",AC_IMPROVE="IMPROVE",AC_HEAL="HEAL";private static final String CHARGE="charge",UP1="uptime1",UP2="uptime2";private int charge,uptime1=1,uptime2=1;
 	public BraveBook(){super(2,1.2f,.5f,1,4,14,SpecificPlaceHolderDict.SOMETHING_0);unique=true;reinforced=true;cursed=true;defaultAction=AC_ADD;}
 	@Override protected void applyLegacyUpgrade(Stats stats){stats.min++;stats.max++;}@Override public Item uncurse(){return this;}

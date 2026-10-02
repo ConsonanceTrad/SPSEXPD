@@ -13,6 +13,8 @@ public class UYog extends BossRushBoss {
 			.t("desc", "一只叫作始祖的眼睛……它看上去很眼熟。");
 	}
 
+
+
 	{
 		spriteClass = ErrorSprite.class;
 		baseSpeed = 0.75f;

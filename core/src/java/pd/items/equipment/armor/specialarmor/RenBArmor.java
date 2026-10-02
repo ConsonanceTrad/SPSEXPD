@@ -21,6 +21,8 @@ public class RenBArmor extends NormalArmor {
 			.t("desc", "REN珍藏的服装之一。承受100次攻击后会破碎，并留下一颗复活节彩蛋。");
 	}
 
+
+
 	private static final String CHARGE = "charge";
 	private int charge = 100;
 

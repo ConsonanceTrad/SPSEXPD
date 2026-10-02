@@ -11,5 +11,7 @@ public class WaterBlock extends LegacyBuildBlock {
 			.t("desc", "一种回收方块，投掷后会在目标位置生成水面。");
 	}
 
+
+
 	public WaterBlock() { super(Terrain.WATER, ConsumThrowsDict.WATER_BLOCK_PLACER); }
 }

@@ -41,6 +41,8 @@ public class Corrosion extends Armor.Glyph {
 	}
 
 
+
+
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 
 	@Override

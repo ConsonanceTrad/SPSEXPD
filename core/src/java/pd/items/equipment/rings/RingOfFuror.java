@@ -39,6 +39,8 @@ public class RingOfFuror extends Ring {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.RING_FUROR;
 		buffClass = Furor.class;

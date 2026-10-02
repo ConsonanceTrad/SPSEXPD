@@ -74,6 +74,8 @@ public class WarpBeacon extends ArmorAbility {
 	}
 
 
+
+
 	{
 		baseChargeUse = 35f;
 	}

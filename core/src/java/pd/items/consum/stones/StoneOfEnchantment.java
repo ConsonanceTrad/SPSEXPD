@@ -47,6 +47,8 @@ public class StoneOfEnchantment extends InventoryStone {
 			.t("desc", "这颗符石拥有施加附魔的能力。和升级卷轴不同，它不会直接加强一个道具的能力，但能给武器或者护甲施加附魔，使其拥有新的特性。");
 	}
 
+
+
 	
 	{
 		preferredBag = Belongings.Backpack.class;

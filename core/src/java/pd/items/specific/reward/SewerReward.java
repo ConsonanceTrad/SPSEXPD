@@ -13,6 +13,8 @@ public class SewerReward extends ChallengeReward {
 			.t("ac_use", "使用");
 	}
 
+
+
 	public SewerReward() { super(0x000000); }
 	@Override protected Item[] contents() { return new Item[]{new StoneOre(20)}; }
 }

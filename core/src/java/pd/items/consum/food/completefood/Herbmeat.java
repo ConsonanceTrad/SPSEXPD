@@ -16,6 +16,8 @@ public class Herbmeat extends CompleteFood {
 			.t("desc", "沾草后口味更佳。\n使用_1份种子、1份肉_炼金。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; energy = 180f; }
 	@Override protected void doEat(Hero hero) { Buff.affect(hero, AttackUp.class, 70f).level(30); }
 	@Override public int value() { return 2 * quantity; }

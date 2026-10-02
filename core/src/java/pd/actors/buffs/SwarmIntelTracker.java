@@ -38,6 +38,8 @@ public class SwarmIntelTracker extends Buff {
 	}
 
 
+
+
 	private int alertRange = 0;
 	private float leftAtZero;
 

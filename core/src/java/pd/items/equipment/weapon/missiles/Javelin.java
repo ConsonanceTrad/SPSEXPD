@@ -35,6 +35,8 @@ public class Javelin extends MissileWeapon {
 	}
 
 
+
+
 	{
 		image = ConsumThrowsDict.JAVELIN_0;
 		hitSound = Assets.Sounds.HIT_STAB;

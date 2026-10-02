@@ -33,6 +33,8 @@ public class Vertigo extends FlavourBuff {
 	}
 
 
+
+
 	public static final float DURATION	= 10f;
 
 	{

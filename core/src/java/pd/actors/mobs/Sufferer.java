@@ -19,6 +19,8 @@ public class Sufferer extends SpsHallsMobs.Sufferer {
 	}
 
 
+
+
 	{
 		spriteClass = SuffererSprite.class;
 	}

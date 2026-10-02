@@ -45,6 +45,8 @@ public class ScrollOfLullaby extends Scroll {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.SCROLL_LULLABY;
 	}

@@ -17,6 +17,8 @@ public class ChaosPack extends Item {
 			.t("desc", "一张充满混沌之力的契约。暗噬1/3。");
 	}
 
+
+
 	{
 		image = EquipmentNonEquipDict.CHAOS_PACK;
 		stackable = false;

@@ -32,6 +32,8 @@ public class ErrorW extends MeleeWeapon {
 			.t("desc", "这是个错误。——??? \n混沌");
 	}
 
+
+
 	private float legacyAccuracy = 1f;
 	private float legacyDelay = 1f;
 

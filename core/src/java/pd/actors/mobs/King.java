@@ -41,12 +41,14 @@ public class King extends Mob {
 			.t("liches", "巫师们，起来吧！")
 			.t("meeting", "何人来此喧哗？！")
 			.t("desc", "最后的矮人国王精通生死之道。他通过可怕的仪式获得了永生，以及一支亡灵军队。")
-			.t("undead.name", "矮人亡灵")
-			.t("undead.desc", "由矮人国王的意志唤醒的昔日议会成员，外形如同长着浓密胡须的骷髅。")
-			.t("dwarfkingtomb.name", "永恒之墓")
-			.t("dwarfkingtomb.desc", "由骨骼和未知材料制成的墓碑，与矮人国王联系密切。")
-			.t("dwarfkingtomb.impossible", "那毫无作用。");
+			.t("$undead.name", "矮人亡灵")
+			.t("$undead.desc", "由矮人国王的意志唤醒的昔日议会成员，外形如同长着浓密胡须的骷髅。")
+			.t("$dwarfkingtomb.name", "永恒之墓")
+			.t("$dwarfkingtomb.desc", "由骨骼和未知材料制成的墓碑，与矮人国王联系密切。")
+			.t("$dwarfkingtomb.impossible", "那毫无作用。");
 	}
+
+
 
 	private static final int MAX_ARMY_SIZE = 5;
 	private boolean nextPedestal = true;

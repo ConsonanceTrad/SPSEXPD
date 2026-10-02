@@ -39,6 +39,8 @@ public class Buff extends Actor {
 			.t("heromsg", "");
 	}
 
+
+
 	
 	public Char target;
 

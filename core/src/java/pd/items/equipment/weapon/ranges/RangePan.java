@@ -24,6 +24,8 @@ public class RangePan extends RangeWeapon {
 	}
 
 
+
+
 	public static final String AC_CHANGE = "CHANGE";
 
 	public RangePan() {

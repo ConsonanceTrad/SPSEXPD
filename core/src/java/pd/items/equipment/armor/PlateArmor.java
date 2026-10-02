@@ -34,6 +34,8 @@ public class PlateArmor extends Armor {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipArmorBasicArmorDict.ARMOR_PLATE_0;
 	}

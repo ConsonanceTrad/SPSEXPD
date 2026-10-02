@@ -13,6 +13,8 @@ public class NormalRation extends StapleFood {
 			.t("desc", "里面没什么稀奇的：肉干、饼干，以及类似的旅行食物。");
 	}
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 300f;

@@ -18,6 +18,8 @@ public class WoodenStaff extends NormalMeleeWeapon {
 	}
 
 
+
+
 	private static final String CHARGE = "charge";
 	private static final int FULL_CHARGE = 8;
 	private int charge;

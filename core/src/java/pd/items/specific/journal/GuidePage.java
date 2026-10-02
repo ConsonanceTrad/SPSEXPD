@@ -35,6 +35,8 @@ public class GuidePage extends DocumentPage {
 			.t("desc", "从一本冒险指南书上撕下来的一页。\n\n在远处你只能看见一行行密密麻麻的小字，不过你可以看清书页上的标题：\n\n_\"%s\"_");
 	}
 
+
+
 	
 	{
 		image = SpecificPagesDict.GUIDE_PAGE_0;

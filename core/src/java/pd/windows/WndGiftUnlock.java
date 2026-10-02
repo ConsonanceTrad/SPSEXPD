@@ -25,6 +25,8 @@ public class WndGiftUnlock extends Window {
 	}
 
 
+
+
 	private static final int WIDTH = 120;
 	private static final int MARGIN = 2;
 

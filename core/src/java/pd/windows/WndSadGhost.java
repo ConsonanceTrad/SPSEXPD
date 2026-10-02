@@ -54,6 +54,8 @@ public class WndSadGhost extends Window {
 	}
 
 
+
+
 	private static final int WIDTH		= 120;
 	private static final int BTN_HEIGHT	= 20;
 	private static final int GAP		= 2;

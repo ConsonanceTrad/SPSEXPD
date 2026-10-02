@@ -21,6 +21,8 @@ public class SpearTrap extends Trap {
 			.t("ondeath", "你被长矛陷阱刺穿了……");
 	}
 
+
+
 	{
 		color = GREY;
 		shape = DOTS;

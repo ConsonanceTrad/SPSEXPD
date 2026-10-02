@@ -17,17 +17,19 @@ public class Yog extends SpsYog {
 			.t("notice", "希望的存在只是一种幻觉…")
 			.t("die", "我...永生...")
 			.t("blink", "Yog消失了！")
-			.t("burningfist.name", "火焰之拳")
-			.t("burningfist.desc", "火焰之拳")
-			.t("infectingfist.name", "酸蚀之拳")
-			.t("infectingfist.desc", "酸蚀之拳")
-			.t("larva.name", "古神幼虫")
-			.t("larva.desc", "古神幼虫")
-			.t("pinningfist.name", "剧毒之拳")
-			.t("pinningfist.desc", "剧毒之拳")
-			.t("rottingfist.name", "大地之拳")
-			.t("rottingfist.desc", "大地之拳");
+			.t("$burningfist.name", "火焰之拳")
+			.t("$burningfist.desc", "火焰之拳")
+			.t("$infectingfist.name", "酸蚀之拳")
+			.t("$infectingfist.desc", "酸蚀之拳")
+			.t("$larva.name", "古神幼虫")
+			.t("$larva.desc", "古神幼虫")
+			.t("$pinningfist.name", "剧毒之拳")
+			.t("$pinningfist.desc", "剧毒之拳")
+			.t("$rottingfist.name", "大地之拳")
+			.t("$rottingfist.desc", "大地之拳");
 	}
+
+
 
 
 	@Override

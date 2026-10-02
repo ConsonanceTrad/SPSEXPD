@@ -54,6 +54,8 @@ public class PrismaticImage extends NPC {
 			.t("discover_hint", "你可通过某张卷轴遇到该单位。");
 	}
 
+
+
 	
 	{
 		spriteClass = PrismaticSprite.class;

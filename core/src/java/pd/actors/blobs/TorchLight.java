@@ -15,6 +15,8 @@ public class TorchLight extends Blob {
 			.t("desc", "火把的光芒照亮了周围的环境。");
 	}
 
+
+
 	@Override protected void evolve() {
 		int width = Dungeon.level.width();
 		for (int cell = width + 1; cell < Dungeon.level.length() - width - 1; cell++) {

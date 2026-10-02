@@ -15,6 +15,8 @@ public class DwarfBoyEgg extends Egg {
 			.t("desc", "召唤矮人学徒。");
 	}
 
+
+
 	{ image = ConsumSummorDict.DWARF_BOY_EGG_0; }
 	@Override protected LegacyPet hatchling() { return new DwarfBoy(); }
 	@Override public int value() { return 500 * quantity; }

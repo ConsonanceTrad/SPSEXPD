@@ -9,4 +9,6 @@ public class BulletArmor extends NormalArmor {
 			.t("name", "防弹衣")
 			.t("desc", "基本上就是常规的防弹衣。\n重型护甲");
 	}
+
+
  public BulletArmor(){ super(5,.2f,-1f,2,10,46,1,2,5,SpecificPlaceHolderDict.SOMETHING_0); } }

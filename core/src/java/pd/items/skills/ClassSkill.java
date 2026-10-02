@@ -33,6 +33,8 @@ public abstract class ClassSkill extends Item {
 	}
 
 
+
+
 	public static final String AC_SPECIAL = "SPECIAL";
 	public static final String AC_SPECIAL_TWO = "SPECIAL_TWO";
 	public static final String AC_SPECIAL_THREE = "SPECIAL_THREE";

@@ -37,11 +37,13 @@ public class SoldierSkill extends ClassSkill {
 			.t("ac_special_three", "战斗号召")
 			.t("ac_special_four", "空投补给")
 			.t("desc", "_自爆幻影：_生成两个会在被摧毁时爆炸的战斗幻影。达到56级后同时清除部分负面状态。\n\n_召唤机甲（21级）：_获得机械护甲和物理护盾。达到56级后两者翻倍。\n\n_战斗号召（31级）：_获得随机物品或召唤物。达到56级后必定获得召唤物。\n\n_空投补给（41级）：_向自身四角投放投射武器和食物。达到56级后食物品质提高。")
-			.t("seekingbomb.name", "砰砰机器人")
-			.t("seekingbomb.desc", "携带炸药的战斗幻影，被摧毁时会发生爆炸。")
-			.t("seekinghugebomb.name", "砰砰砰砰机器人")
-			.t("seekinghugebomb.desc", "领袖强化过的自爆幻影，被摧毁时会连续爆炸两次。");
+			.t("$seekingbomb.name", "砰砰机器人")
+			.t("$seekingbomb.desc", "携带炸药的战斗幻影，被摧毁时会发生爆炸。")
+			.t("$seekinghugebomb.name", "砰砰砰砰机器人")
+			.t("$seekinghugebomb.desc", "领袖强化过的自爆幻影，被摧毁时会连续爆炸两次。");
 	}
+
+
 
 	{ image = EquipmentEquipWeaponBombDict.BOMB_0; }
 

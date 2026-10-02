@@ -42,6 +42,8 @@ public class GnollMark extends Item {
 			.t("desc", "豺狼人萨满所佩戴的仪式面具，释放法杖可以提高准备度。光明仪式会大幅提升物理力量，但暂时无法使用法杖；黑暗仪式会使法杖伤害翻倍，但令使用者虚弱且无法攻击；自然仪式会提供护盾与再生。也可以献祭生命使面具完全准备就绪。");
 	}
 
+
+
 	public static final String AC_LIGHT = "LIGHT";
 	public static final String AC_DARK = "DARK";
 	public static final String AC_EARTH = "EARTH";

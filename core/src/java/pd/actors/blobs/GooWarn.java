@@ -37,6 +37,8 @@ public class GooWarn extends Blob {
 	}
 
 
+
+
 	//cosmetic blob, previously used for Goo's pump up attack (that's now handled by Goo's sprite)
 	// as of v3.3.4 it's not longer used by arcane bomb either
 

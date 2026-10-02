@@ -120,6 +120,8 @@ public class AdventureJournal extends Item {
 	}
 
 
+
+
 	public static final int DESTINATION_COUNT = 25;
 	public static final int FIRST_BRANCH = 20;
 	public static final int FIRST_VERSION = 914;

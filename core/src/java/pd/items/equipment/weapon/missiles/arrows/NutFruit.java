@@ -21,6 +21,8 @@ public class NutFruit extends SpsFruit {
 			.t("desc", "人工种植的坚果藤结出的果实。直接命中能造成扎实伤害，落地则会长出高草。");
 	}
 
+
+
 	public NutFruit() { this(1); }
 	public NutFruit(int number) { super(SpecificPlaceHolderDict.SOMETHING_0, 10, 10); quantity(number); }
 	@Override protected void onThrow(int cell) {

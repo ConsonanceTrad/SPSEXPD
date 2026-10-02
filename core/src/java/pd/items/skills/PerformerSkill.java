@@ -35,6 +35,8 @@ public class PerformerSkill extends ClassSkill {
 			.t("desc", "_奇异舞步：_魅惑并狂乱视野内的全部敌人，同时强化自身。达到56级后冷却减半。\n\n_谢幕礼花（21级）：_伤害、致盲并减速视野内的全部敌人，在其脚下种下种子。达到56级后额外获得一枚炸弹。\n\n_魔术手法（31级）：_转换一件选中的装备。达到56级后额外获得一个转换球。\n\n_市场研习（41级）：_击杀50个敌对单位后，永久提高攻击、闪避、魔力和生命上限。达到56级后提升翻倍。");
 	}
 
+
+
 	{ image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN1; }
 
 	@Override public void doSpecial() {

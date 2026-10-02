@@ -94,6 +94,8 @@ public class WandOfCorruption extends Wand {
 	}
 
 
+
+
 	{
 		image = EquipmentWandBasicWandDict.WAND_CORRUPTION_0;
 	}

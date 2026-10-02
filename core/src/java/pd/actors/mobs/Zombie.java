@@ -17,6 +17,8 @@ public class Zombie extends SpsPrisonMobs.Zombie {
 	}
 
 
+
+
 	{
 		spriteClass = ZombieSprite.class;
 		weaknesses.add(Burning.class);

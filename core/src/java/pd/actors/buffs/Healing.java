@@ -40,6 +40,8 @@ public class Healing extends Buff {
 	}
 
 
+
+
 	private int healingLeft;
 	
 	private float percentHealPerTick;

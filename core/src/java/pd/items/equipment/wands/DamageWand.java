@@ -41,6 +41,8 @@ public abstract class DamageWand extends Wand{
 	}
 
 
+
+
 	public int min(){
 		return min(buffedLvl());
 	}

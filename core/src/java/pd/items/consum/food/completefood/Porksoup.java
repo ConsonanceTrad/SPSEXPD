@@ -23,6 +23,8 @@ public class Porksoup extends CompleteFood {
 	}
 
 
+
+
 	private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0xCC6600);
 
 	{

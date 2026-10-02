@@ -9,4 +9,6 @@ public class AlloyBowR extends RangeWeapon {
 			.t("name", "沉重的合金弩")
 			.t("desc", "使用多种金属打造而成的弩，但是有些沉重。");
 	}
+
+
  public AlloyBowR() { super(4, Variant.HEAVY, SpecificPlaceHolderDict.SOMETHING_0); } }

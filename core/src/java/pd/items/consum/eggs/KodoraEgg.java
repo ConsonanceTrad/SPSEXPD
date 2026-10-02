@@ -12,4 +12,6 @@ public class KodoraEgg extends Egg {
 			.t("name", "柯多拉之魂")
 			.t("desc", "召唤柯多拉。");
 	}
+
+
  { image = ConsumSummorDict.KODORA_EGG_0; } @Override protected LegacyPet hatchling() { return new Kodora(); } @Override public int value() { return 500 * quantity; } }

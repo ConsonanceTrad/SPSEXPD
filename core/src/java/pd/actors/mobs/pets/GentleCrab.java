@@ -20,6 +20,8 @@ public class GentleCrab extends PET {
 			.t("desc", "为什么这只螃蟹和你那么好？因为对你而言，它很熟。它的钳击还能破坏护甲。");
 	}
 
+
+
 	{
 		spriteClass = GentleCrabSprite.class; cooldown = 50; baseSpeed = 1.5f; properties.add(Property.FISHER); updateStats(true);
 	}

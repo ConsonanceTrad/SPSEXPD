@@ -19,6 +19,8 @@ public class IceBall extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = SnowballSprite.class;
 		baseSpeed = 0.5f;

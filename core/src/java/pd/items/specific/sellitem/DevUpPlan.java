@@ -15,6 +15,8 @@ public class DevUpPlan extends SellItem {
 	}
 
 
+
+
 	{
 		image = SpecificPagesDict.GUIDE_PAGE_0;
 		stackable = true;

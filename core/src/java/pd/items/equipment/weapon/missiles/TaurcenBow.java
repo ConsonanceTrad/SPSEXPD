@@ -49,6 +49,8 @@ public class TaurcenBow extends Weapon {
 			.t("charge", "充能：%1$d / %2$d。");
 	}
 
+
+
 	public static final String AC_SHOOT = "SHOOT";
 	public static final String AC_BREAK = "BREAK";
 	public static final String AC_FIRE = "FIRE";

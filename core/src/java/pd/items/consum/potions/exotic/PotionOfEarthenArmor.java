@@ -34,6 +34,8 @@ public class PotionOfEarthenArmor extends ExoticPotion {
 			.t("desc", "与麻痹药剂不同的是，饮用这瓶合剂能够使使用者的皮肤硬化，在一段时间内形成一道天然护甲。");
 	}
 
+
+
 	
 	{
 		icon = ItemIconSheet.POTION_EARTHARMR;

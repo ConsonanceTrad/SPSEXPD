@@ -18,6 +18,8 @@ public class Earthstar extends Pill {
 			.t("desc", "这种菌类并不属于地球。它可能来自虚空...或死星什么的...反正不会是小马国。食用它会撕裂这片区域所有人的身体。\n使用_1份水，1份蔬菜，1份地缚根种子_炼金");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	public Earthstar() { this(1); }
 	public Earthstar(int value) { quantity = value; }

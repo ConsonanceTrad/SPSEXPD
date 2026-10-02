@@ -19,6 +19,8 @@ public class Stone extends PET {
 			.t("desc", "破碎中的一把武器是它的亲戚，但是它的父母来自精灵宝可梦。");
 	}
 
+
+
 	{ spriteClass=StoneSprite.class;cooldown=50;properties.add(Property.ELEMENT);updateStats(true); }
 	@Override protected Kind kind(){return Kind.STONE;}
 	@Override public boolean lovefood(Item item){return item instanceof PetFood||item instanceof MissileWeapon;}

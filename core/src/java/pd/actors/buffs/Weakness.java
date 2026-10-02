@@ -34,6 +34,8 @@ public class Weakness extends FlavourBuff {
 	}
 
 
+
+
 	public static final float DURATION = 20f;
 
 	{

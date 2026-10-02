@@ -56,6 +56,8 @@ public class Dagger extends MeleeWeapon {
 			.t("discover_hint", "某位英雄初始携带该物品。");
 	}
 
+
+
 	
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.DAGGER_0;

@@ -28,6 +28,8 @@ public class Whisk extends NormalMeleeWeapon {
 	}
 
 
+
+
 	private static final String CHARGE = "charge";
 	private static final String EXTRA_CHARGE = "extra_charge";
 	private int charge;

@@ -20,6 +20,8 @@ public class TimeKeeper extends SpsCaveMobs.TimeKeeper {
 	}
 
 
+
+
 	{
 		spriteClass = TimeKeeperSprite.class;
 		properties.add(Property.UNKNOW);

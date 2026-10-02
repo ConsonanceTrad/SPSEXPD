@@ -15,6 +15,8 @@ public class UAmulet extends BossRushBoss {
 			.t("desc", "BossRush的最后一战。");
 	}
 
+
+
 	{
 		spriteClass = ErrorSprite.class;
 		baseSpeed = 0.75f;

@@ -8,4 +8,6 @@ public class ShockDamageTrap extends ElementalDamageTrap {
 			.t("name", "雷伤陷阱")
 			.t("desc", "会释放雷属性伤害的陷阱。");
 	}
+
+
  public ShockDamageTrap(){ super(YELLOW, LARGE_DOT, ShockEffectDamage.class, 1, 10); } }

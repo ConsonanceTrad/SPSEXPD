@@ -65,12 +65,14 @@ public class SmokeBomb extends ArmorAbility {
 			.t("name", "烟幕爆炸")
 			.t("fov", "你只能跳到视野范围内的空格子里。")
 			.t("prompt", "选择要跳到的位置")
-			.t("ninjalog.name", "木桩替身")
-			.t("ninjalog.desc", "不知为何敌人坚信这就是盗贼本身。")
-			.t("ninjalog.discover_hint", "你可通过某个英雄护甲技能遇到该单位。")
+			.t("$ninjalog.name", "木桩替身")
+			.t("$ninjalog.desc", "不知为何敌人坚信这就是盗贼本身。")
+			.t("$ninjalog.discover_hint", "你可通过某个英雄护甲技能遇到该单位。")
 			.t("short_desc", "盗贼在原地制造一场_烟幕爆炸_后闪现离去，并使原点周围的敌人失明。")
 			.t("desc", "盗贼在原地制造一场烟幕爆炸，并闪现最多6格的距离。闪现无视敌人与危险地形，但仍会被实体地形如墙壁阻挡。\n\n邻近盗贼原位置的敌人将失明5回合。");
 	}
+
+
 
 
 	{

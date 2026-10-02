@@ -35,6 +35,8 @@ public class Brimstone extends Armor.Glyph {
 	}
 
 
+
+
 	private static ItemSprite.Glowing ORANGE = new ItemSprite.Glowing( 0xFF4400 );
 
 	@Override

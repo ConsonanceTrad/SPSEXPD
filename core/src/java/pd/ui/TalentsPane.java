@@ -58,6 +58,8 @@ public class TalentsPane extends ScrollPane {
 	}
 
 
+
+
 	ArrayList<TalentTierPane> panes = new ArrayList<>();
 	ArrayList<ColorBlock> separators = new ArrayList<>();
 

@@ -48,6 +48,8 @@ public class Swarm extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = SwarmSprite.class;
 		

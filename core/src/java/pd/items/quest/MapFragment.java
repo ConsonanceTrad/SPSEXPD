@@ -37,6 +37,8 @@ public class MapFragment extends Item {
 	}
 
 
+
+
 	public static final String AC_ADD = "ADD";
 	private int challenge;
 

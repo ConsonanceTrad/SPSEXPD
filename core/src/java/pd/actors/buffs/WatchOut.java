@@ -13,6 +13,8 @@ public class WatchOut extends FlavourBuff {
 			.t("desc", "这个生物周围的时间变得不稳定。剩余回合：%s。");
 	}
 
+
+
 	public static final float DURATION = 30f;
 	{ type = buffType.NEGATIVE; announced = true; }
 	@Override public int icon() { return BuffIndicator.LIGHT; }

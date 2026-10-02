@@ -21,6 +21,8 @@ public class WndHate extends Window {
 			.t("buy", "拜托了");
 	}
 
+
+
 	private static final int WIDTH = 120;
 
 	public WndHate() {

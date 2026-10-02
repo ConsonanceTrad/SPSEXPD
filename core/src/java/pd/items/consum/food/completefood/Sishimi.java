@@ -16,6 +16,8 @@ public class Sishimi extends CompleteFood {
 			.t("desc", "新鲜的鱼片，食用后会获得魔法护盾。");
 	}
 
+
+
 	{
 		image = ConsumFoodFoodDict.MEAT;
 		energy = 180f;

@@ -58,6 +58,8 @@ public class ScrollOfEnchantment extends ExoticScroll {
 			.t("desc", "这张秘卷可以为武器或护甲注入强大的魔力。使用者甚至可以在一定程度上选择注入哪种魔力。");
 	}
 
+
+
 	
 	{
 		icon = ItemIconSheet.SCROLL_ENCHANT;

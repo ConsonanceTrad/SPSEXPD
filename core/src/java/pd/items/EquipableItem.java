@@ -48,6 +48,8 @@ public abstract class EquipableItem extends Item {
 	}
 
 
+
+
 	public static final String AC_EQUIP		= "EQUIP";
 	public static final String AC_UNEQUIP	= "UNEQUIP";
 

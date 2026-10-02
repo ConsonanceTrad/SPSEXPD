@@ -18,6 +18,8 @@ public class Kebab extends CompleteFood {
 			.t("desc", "就是大肉串。\n使用_1份蔬菜、2份肉_炼金。");
 	}
 
+
+
 	private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0xCC6600);
 	{ image = ConsumFoodFoodDict.KEBAB; energy = 330f; }
 	@Override protected void doEat(Hero hero) {

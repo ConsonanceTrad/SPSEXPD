@@ -30,6 +30,8 @@ public class WarpingTrap extends Trap {
 	}
 
 
+
+
 	{
 		color = TEAL;
 		shape = LARGE_DOT;

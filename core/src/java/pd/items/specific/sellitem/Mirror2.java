@@ -10,6 +10,8 @@ public class Mirror2 extends SellItem {
 			.t("desc", "看上去像镜子的碎片，但是背后写着mirror2和蒸汽。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public int value() { return 112 * quantity; }
 }

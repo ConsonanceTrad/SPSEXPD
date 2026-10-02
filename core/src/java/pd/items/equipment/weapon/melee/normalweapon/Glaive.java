@@ -16,6 +16,8 @@ public class Glaive extends NormalMeleeWeapon {
 			.t("desc", "由一支长木杆和末端接上的利刃组成。——Watabou \n致残");
 	}
 
+
+
 	public Glaive() { super(4, 1f, 1.75f, 2, 42, 60, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) { if (s.delay > 1.4f) s.delay -= .05f; s.min++; s.max += 6; }
 	@Override public int proc(Char attacker, Char defender, int damage) {

@@ -36,6 +36,8 @@ public class JumpF extends Item {
 			.t("desc", "信徒可以跳跃至多三格。除楼梯、炼金台和基座外，起跳处会变成高草；落地时有10%%概率长出一株特殊植物。");
 	}
 
+
+
 	public static final String AC_JUMP = "JUMP";
 	public static final int FULL_CHARGE = 25;
 	public static final int JUMP_COST = 8;

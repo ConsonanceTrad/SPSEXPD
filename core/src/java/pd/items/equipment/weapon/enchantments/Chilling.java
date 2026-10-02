@@ -41,6 +41,8 @@ public class Chilling extends Weapon.Enchantment {
 	}
 
 
+
+
 	private static ItemSprite.Glowing TEAL = new ItemSprite.Glowing( 0x00FFFF );
 	
 	@Override

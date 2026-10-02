@@ -29,6 +29,8 @@ public class XSaber extends NormalMeleeWeapon {
 			.t("desc", "高科技能量剑，可以永久消耗并学习一枚洛克技能芯片。");
 	}
 
+
+
 	public static final String AC_ADD = "ADD";
 	private static final String ROCK_CODE = "rock_code";
 	private RockCode rockCode;

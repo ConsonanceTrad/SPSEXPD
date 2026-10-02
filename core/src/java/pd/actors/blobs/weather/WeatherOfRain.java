@@ -13,6 +13,8 @@ public class WeatherOfRain extends SpsWeather {
 			.t("desc", "这里下着小雨，会降低生物的命中和闪避。");
 	}
 
+
+
 	@Override protected void affectHero(){ Buff.prolong(Dungeon.hero, Wet.class, Wet.DURATION); Buff.detach(Dungeon.hero, Dry.class); }
 	@Override protected Emitter.Factory particle(){ return RainParticle.FACTORY; }
 	@Override protected float interval(){ return 0.8f; }

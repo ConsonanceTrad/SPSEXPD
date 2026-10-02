@@ -64,18 +64,20 @@ public class ElderAvatar extends Mob {
 			.t("die", "就算我死了，也有其他人接替我的位置……")
 			.t("shield", "尖碑给予我生命的力量。")
 			.t("desc", "异能者的领袖与指挥者。他正四处寻找可以延续自身寿命的基因组。")
-			.t("obelisk.name", "三角尖碑")
-			.t("obelisk.impossible", "检测到长老生命信号，伤害吸收。")
-			.t("obelisk.desc", "一种生命储存装置。")
-			.t("thehunter.name", "猎手")
-			.t("thehunter.desc", "异能者的迅捷猎手。")
-			.t("thewarlock.name", "术士")
-			.t("thewarlock.desc", "侍奉长老的异能术士。")
-			.t("themonk.name", "圣堂")
-			.t("themonk.desc", "异能者的迅捷圣堂武士。")
-			.t("themech.name", "裁决")
-			.t("themech.desc", "异能者的重装裁决者。");
+			.t("$obelisk.name", "三角尖碑")
+			.t("$obelisk.impossible", "检测到长老生命信号，伤害吸收。")
+			.t("$obelisk.desc", "一种生命储存装置。")
+			.t("$thehunter.name", "猎手")
+			.t("$thehunter.desc", "异能者的迅捷猎手。")
+			.t("$thewarlock.name", "术士")
+			.t("$thewarlock.desc", "侍奉长老的异能术士。")
+			.t("$themonk.name", "圣堂")
+			.t("$themonk.desc", "异能者的迅捷圣堂武士。")
+			.t("$themech.name", "裁决")
+			.t("$themech.desc", "异能者的重装裁决者。");
 	}
+
+
 
 	private int waves;
 	private int obeliskId = -1;

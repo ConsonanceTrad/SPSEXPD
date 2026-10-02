@@ -14,6 +14,8 @@ public class Shocked extends Buff {
 			.t("desc", "电击首次发作时会造成基于生命上限的伤害。");
 	}
 
+
+
 	private static final String LEFT = "left";
 	private static final String FIRST = "first";
 	private float left;

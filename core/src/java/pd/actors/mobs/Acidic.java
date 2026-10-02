@@ -42,6 +42,8 @@ public class Acidic extends Scorpio {
 	}
 
 
+
+
 	{
 		spriteClass = AcidicSprite.class;
 		

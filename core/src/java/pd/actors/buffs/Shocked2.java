@@ -17,6 +17,8 @@ public class Shocked2 extends Buff {
 	}
 
 
+
+
 	public static final float DURATION = 5f;
 	private static final String START_POS = "start_pos";
 	private static final String LEFT = "left";

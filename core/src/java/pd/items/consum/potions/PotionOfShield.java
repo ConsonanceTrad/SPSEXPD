@@ -21,6 +21,8 @@ public class PotionOfShield extends SpsPotion {
 			.t("desc", "以硅花种子酿成的防御药水。饮用后获得物理护盾与奥术护甲，溅出的药液还能使生物短暂麻痹。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public void apply(Hero hero) {
 		Buff.affect(hero, Barrier.class).incShield(Math.max(1, hero.HT / 3));

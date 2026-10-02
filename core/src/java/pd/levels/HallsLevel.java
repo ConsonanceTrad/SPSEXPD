@@ -90,6 +90,8 @@ public class HallsLevel extends SpsRegularLevel {
 	}
 
 
+
+
 	@Override
 	protected float legacyWaterFill() {
 		return feeling == Feeling.WATER ? 0.55f : 0.40f;

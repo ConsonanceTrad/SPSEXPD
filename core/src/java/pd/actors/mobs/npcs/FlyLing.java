@@ -15,6 +15,8 @@ public class FlyLing extends TownNpc {
 			.t("yell3", "你会获得救赎吗？愿世界祝福你……");
 	}
 
+
+
 	public FlyLing() {
 		configure(Spec.FLY_LING);
 		spriteClass = pd.sprites.WhiteLingSprite.class;

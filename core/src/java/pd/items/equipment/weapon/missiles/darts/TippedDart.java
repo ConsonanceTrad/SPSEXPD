@@ -73,6 +73,8 @@ public abstract class TippedDart extends Dart {
 			.t("discover_hint", "你可在商店中中购买或用种子制作该物品。");
 	}
 
+
+
 	
 	{
 		tier = 2;

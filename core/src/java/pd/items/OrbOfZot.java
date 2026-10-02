@@ -34,6 +34,8 @@ public class OrbOfZot extends Item {
 	}
 
 
+
+
 	public static final int FULL_CHARGE = 500;
 	public static final String AC_ACTIVATETHROW = "ACTIVATETHROW";
 	public static final String AC_BREAK = "BREAK";

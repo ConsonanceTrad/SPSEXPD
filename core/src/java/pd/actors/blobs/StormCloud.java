@@ -37,6 +37,8 @@ public class StormCloud extends Blob {
 			.t("desc", "这里盘绕着一片翻腾的水汽。");
 	}
 
+
+
 	
 	@Override
 	protected void evolve() {

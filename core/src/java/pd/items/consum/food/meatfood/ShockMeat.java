@@ -24,6 +24,8 @@ public class ShockMeat extends MeatFood {
 			.t("desc", "经过强电流加工的肉，香酥可口，食用后令人神清气爽。");
 	}
 
+
+
 	private static final ItemSprite.Glowing GREEN = new ItemSprite.Glowing(0x00FF00);
 	{
 		image = ConsumFoodFoodDict.MEAT;

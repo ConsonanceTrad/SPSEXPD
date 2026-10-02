@@ -40,6 +40,8 @@ public class ShadowEater extends MeleeWeapon {
 			.t("stand", "无需移动……");
 	}
 
+
+
 	public static final String AC_AWAKE = "AWAKE";
 	public static final String AC_UNCURSE = "UNCURSE";
 	public static final int MAX_CHARGE = 20;

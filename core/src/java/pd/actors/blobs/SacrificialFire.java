@@ -62,6 +62,8 @@ public class SacrificialFire extends Blob {
 	}
 
 
+
+
 	BlobEmitter curEmitter;
 
 	{

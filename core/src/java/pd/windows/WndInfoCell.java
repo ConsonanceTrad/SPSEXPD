@@ -41,6 +41,8 @@ public class WndInfoCell extends Window {
 			.t("nothing", "这里没什么有趣的东西。");
 	}
 
+
+
 	
 	private static final float GAP	= 2;
 	

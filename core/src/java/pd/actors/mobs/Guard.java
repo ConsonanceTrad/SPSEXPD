@@ -57,6 +57,8 @@ public class Guard extends Mob {
 	}
 
 
+
+
 	//they can only use their chains once
 	private boolean chainsUsed = false;
 

@@ -17,6 +17,8 @@ public class LokisPoison extends Weapon.Enchantment {
 			.t("desc", "猛毒附魔能给目标施加更强的毒素。");
 	}
 
+
+
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		int level = Math.max(0, weapon.level());
 		if (Random.Int(level + 3) >= 2) {

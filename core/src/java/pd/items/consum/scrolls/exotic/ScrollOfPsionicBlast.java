@@ -47,6 +47,8 @@ public class ScrollOfPsionicBlast extends ExoticScroll {
 			.t("desc", "这张秘卷封存着惊人的毁灭性能量，一旦被释放出来可摧毁视野内所有生物的心智。\n\n然而，使用者也会遭受灵爆的严重反噬，使其身受重创，双目失明，力量虚弱。灵爆秘卷击中的目标越多，其对使用者造成的伤害越低。");
 	}
 
+
+
 	
 	{
 		icon = ItemIconSheet.SCROLL_PSIBLAST;

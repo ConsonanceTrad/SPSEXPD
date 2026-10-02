@@ -40,6 +40,8 @@ public class Vorpal extends Weapon.Enchantment {
 	}
 
 
+
+
 	private static ItemSprite.Glowing RED = new ItemSprite.Glowing( 0xAA6666 );
 
 	@Override

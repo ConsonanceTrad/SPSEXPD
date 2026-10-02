@@ -49,6 +49,8 @@ public class DemonSpawner extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = SpawnerSprite.class;
 

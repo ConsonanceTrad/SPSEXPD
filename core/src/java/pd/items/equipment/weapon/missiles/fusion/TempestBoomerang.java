@@ -16,6 +16,8 @@ public class TempestBoomerang extends HeavyBoomerang {
 	}
 
 
+
+
 	@Override
 	public int max(int lvl) {
 		return Math.max(min(lvl), super.max(lvl) - 2);

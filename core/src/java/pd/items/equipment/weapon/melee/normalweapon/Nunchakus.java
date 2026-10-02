@@ -16,6 +16,8 @@ public class Nunchakus extends NormalMeleeWeapon {
 			.t("desc", "两根粗短的木棍被结实的绳索连接，形成了这么一件武器。——Hmdzl001 \n高级钝器");
 	}
 
+
+
 	public Nunchakus() { super(3, 1f, 1f, 1, 18, 27, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) { if (s.delay > .75f) s.delay -= .05f; s.min += 2; s.max++; }
 	@Override public int proc(Char attacker, Char defender, int damage) {

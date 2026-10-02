@@ -45,6 +45,8 @@ public class GnollSapper extends Mob {
 	}
 
 
+
+
 	{
 		//always acts after guards, makes it easier to kite them into attacks
 		actPriority = Actor.MOB_PRIO-1;

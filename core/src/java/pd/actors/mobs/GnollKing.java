@@ -47,10 +47,12 @@ public class GnollKing extends Mob {
 			.t("angry", "你惹火我了！")
 			.t("notice", "谁敢擅闯我的宝库？！")
 			.t("die", "我的……财宝……")
-			.t("gnollkeeper.name", "豺狼卫士")
-			.t("gnollkeeper.desc", "豺狼王的亲卫队，绝大多数时间都在看守宝库。")
-			.t("gnollkeeper.safe", "放弃抵抗！");
+			.t("$gnollkeeper.name", "豺狼卫士")
+			.t("$gnollkeeper.desc", "豺狼王的亲卫队，绝大多数时间都在看守宝库。")
+			.t("$gnollkeeper.safe", "放弃抵抗！");
 	}
+
+
 
 	private int breaks;
 

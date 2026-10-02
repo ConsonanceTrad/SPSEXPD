@@ -15,6 +15,8 @@ public class Dachhack extends TownNpc {
 			.t("yell3", "最新的发芽你可以在我的谷歌硬盘上找到，虽然还是预览版，但是基本框架我是已经弄好了的。");
 	}
 
+
+
 	public Dachhack() {
 		configure(Spec.DACHHACK);
 		spriteClass = pd.sprites.DachhackSprite.class;

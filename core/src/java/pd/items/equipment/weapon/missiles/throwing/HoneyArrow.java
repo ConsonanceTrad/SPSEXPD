@@ -34,6 +34,8 @@ public class HoneyArrow extends TossWeapon {
 	}
 
 
+
+
 	{
 		image = ConsumThrowsDict.HONEY_ARROW;
 		tier = 1;

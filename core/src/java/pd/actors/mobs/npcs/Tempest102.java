@@ -14,6 +14,8 @@ public class Tempest102 extends TownNpc {
 			.t("yell2", "欢迎光临我的乐器工作室。想买点什么吗?");
 	}
 
+
+
 	public Tempest102() {
 		configure(Spec.TEMPEST102);
 		spriteClass = pd.sprites.Tempest102Sprite.class;

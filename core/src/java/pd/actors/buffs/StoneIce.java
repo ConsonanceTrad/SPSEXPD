@@ -22,6 +22,8 @@ public class StoneIce extends Buff implements Hero.Doom {
 			.t("ondeath", "结晶冰撕裂了你的身体……");
 	}
 
+
+
 	private int lastPos;
 	private float left;
 	{

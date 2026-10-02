@@ -16,6 +16,8 @@ public class ChallengeBook extends ChallengeJournal {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = true;

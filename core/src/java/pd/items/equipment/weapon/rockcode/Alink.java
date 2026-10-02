@@ -23,6 +23,8 @@ public class Alink extends RockCode {
 			.t("stats_desc", "消耗4点能量中的1点，最多召唤两个镜像。");
 	}
 
+
+
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "A.l"; }
 	@Override protected int missileType() { return MagicMissile.WOOL; }
 	@Override protected void onZap(Ballistica bolt) {

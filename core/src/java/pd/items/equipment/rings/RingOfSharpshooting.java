@@ -41,6 +41,8 @@ public class RingOfSharpshooting extends Ring {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.RING_SHARPSHOOT;
 		buffClass = Aim.class;

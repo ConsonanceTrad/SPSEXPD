@@ -100,6 +100,8 @@ public class UnstableSpellbook extends Artifact {
 	}
 
 
+
+
 	{
 		image = ConsumUsefulProcessEnhanceDict.ARTIFACT_SPELLBOOK;
 

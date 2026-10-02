@@ -21,6 +21,8 @@ public class GoldenNut extends Fruit {
 			.t("effect_2", "力量+3，生命上限+10");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; energy = 100f; hornValue = 2; }
 
 	@Override protected void onEat(Hero hero) {

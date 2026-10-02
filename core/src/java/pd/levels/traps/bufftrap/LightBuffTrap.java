@@ -14,6 +14,8 @@ public class LightBuffTrap extends Trap {
 			.t("desc", "这个可见陷阱会释放短暂的SPS圣光场。");
 	}
 
+
+
 	{ color = WHITE; shape = DOTS; canBeHidden = false; }
 	@Override public void activate() { GameScene.add(Blob.seed(pos, 3, HolyLight.class)); }
 }

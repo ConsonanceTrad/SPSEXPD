@@ -41,6 +41,8 @@ public class WndInfoTalent extends Window {
 	}
 
 
+
+
 	private static final float GAP	= 2;
 
 	private static final int WIDTH_MIN = 120;

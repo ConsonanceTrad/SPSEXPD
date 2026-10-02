@@ -82,6 +82,8 @@ public class MiningLevel extends CavesLevel {
 	}
 
 
+
+
 	@Override
 	public String tilesTex() {
 		switch (Blacksmith.Quest.Type()){

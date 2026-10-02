@@ -38,6 +38,8 @@ public class VialOfBlood extends Trinket {
 	}
 
 
+
+
 	{
 		image = EquipmentNonEquipDict.BLOOD_VIAL_0;
 	}

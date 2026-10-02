@@ -21,6 +21,8 @@ public class LokisFlail extends RelicMeleeWeapon {
 	}
 
 
+
+
 	public static final String AC_STEALTH = "STEALTH";
 
 	public LokisFlail() {

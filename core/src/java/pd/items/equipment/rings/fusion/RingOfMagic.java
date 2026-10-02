@@ -18,6 +18,8 @@ public class RingOfMagic extends Ring {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.RING_ARCANA;
 		buffClass = RingMagic.class;

@@ -15,6 +15,8 @@ public class VioletDragonEgg extends Egg {
 			.t("desc", "大地所孕化的龙之灵魂。");
 	}
 
+
+
 	{ image = ConsumSummorDict.VIOLET_DRAGON_EGG_0; poisons = 20; }
 	@Override protected LegacyPet hatchling() { return new VioletDragon(); }
 	@Override public int value() { return 500 * quantity; }

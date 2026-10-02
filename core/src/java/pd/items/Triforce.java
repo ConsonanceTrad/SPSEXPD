@@ -30,6 +30,8 @@ public class Triforce extends Item {
 			.t("desc", "你已经通过了三种试炼，现在可以前去与古神之影战斗了。");
 	}
 
+
+
 	public static final String AC_PORT = "PORT";
 	private static final int DESTINATION = 9;
 	private static final float TIME_TO_USE = 1f;

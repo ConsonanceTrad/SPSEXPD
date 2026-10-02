@@ -53,6 +53,8 @@ public class Momentum extends Buff implements ActionIndicator.Action {
 			.t("resting_desc", "移动的时候，疾行者会逐渐积蓄动量。疾行者可以消耗动量以开启逸动状态。\n\n疾行者现在需要休息一会恢复体力才能重新积蓄动量。\n\n还需要休息%d回合。");
 	}
 
+
+
 	
 	{
 		type = buffType.POSITIVE;

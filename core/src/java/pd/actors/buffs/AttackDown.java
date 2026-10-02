@@ -16,6 +16,8 @@ public class AttackDown extends FlavourBuff {
 	}
 
 
+
+
 	private static final String LEVEL = "level";
 	private static final String LEGACY_LEFT = "left";
 	private int level;

@@ -48,6 +48,8 @@ public class Bag extends Item implements Iterable<Item> {
 	}
 
 
+
+
 	public static final String AC_OPEN	= "OPEN";
 	
 	{

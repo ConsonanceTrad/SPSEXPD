@@ -36,6 +36,8 @@ public class NmImbue extends Buff implements Hero.Doom {
 	}
 
 
+
+
 	{ immunities.add(NmGas.class); }
 
 	@Override

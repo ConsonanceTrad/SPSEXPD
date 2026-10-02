@@ -50,6 +50,8 @@ public class Frost extends FlavourBuff {
 	}
 
 
+
+
 	public static final float DURATION	= 10f;
 
 	{

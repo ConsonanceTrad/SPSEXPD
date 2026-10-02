@@ -15,6 +15,8 @@ public class Blasphemy extends Buff {
 			.t("desc", "每层永久使全部攻击伤害提高10%%。当前层数：%s。");
 	}
 
+
+
 	private static final String LEVEL = "level";
 	private int level;
 	{ type = buffType.POSITIVE; announced = true; }

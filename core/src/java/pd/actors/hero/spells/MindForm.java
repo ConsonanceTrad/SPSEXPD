@@ -55,6 +55,8 @@ public class MindForm extends ClericSpell {
 	}
 
 
+
+
 	public static MindForm INSTANCE = new MindForm();
 
 	@Override

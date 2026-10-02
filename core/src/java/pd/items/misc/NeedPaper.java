@@ -38,6 +38,8 @@ public class NeedPaper extends Item {
 	}
 
 
+
+
 	public static final String AC_CHOOSE = "CHOOSE";
 	public static final String AC_HELP = "HELP";
 	public static final String AC_SHOP = "SHOP";

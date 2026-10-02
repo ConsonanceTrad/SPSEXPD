@@ -49,6 +49,8 @@ public class Judgement extends ClericSpell {
 	}
 
 
+
+
 	public static Judgement INSTANCE = new Judgement();
 
 	@Override

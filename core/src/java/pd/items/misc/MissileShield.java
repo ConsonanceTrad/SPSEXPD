@@ -40,6 +40,8 @@ public class MissileShield extends Item {
 			.t("charge", "剩余体力%d / %d。");
 	}
 
+
+
 	public static final String AC_CAST = "CAST";
 	public static final String AC_SHIELD = "SHIELD";
 	private static final String CHARGE = "charge";

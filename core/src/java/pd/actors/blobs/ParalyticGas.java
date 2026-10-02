@@ -39,6 +39,8 @@ public class ParalyticGas extends Blob {
 			.t("desc", "这里盘绕着一片麻痹气体。");
 	}
 
+
+
 	
 	{
 		//acts after mobs, to give them a chance to resist paralysis

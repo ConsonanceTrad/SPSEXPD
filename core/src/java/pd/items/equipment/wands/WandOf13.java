@@ -37,6 +37,8 @@ public class WandOf13 extends DamageWand {
 	}
 
 
+
+
 	private static final ItemSprite.Glowing RED = new ItemSprite.Glowing(0xCC0000);
 
 	{

@@ -13,6 +13,8 @@ public class XixiZero extends TownNpc {
 			.t("yell1", "你好啊，我是黑暗地牢的制作者。你也可以叫我Egoal。");
 	}
 
+
+
 	public XixiZero() {
 		configure(Spec.XIXI_ZERO);
 		spriteClass = pd.sprites.XixiZeroSprite.class;

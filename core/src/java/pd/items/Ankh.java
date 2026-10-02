@@ -49,6 +49,8 @@ public class Ankh extends Item {
 	}
 
 
+
+
 	public static final String AC_BLESS = "BLESS";
 
 	{

@@ -15,6 +15,8 @@ public class BlueDragonEgg extends Egg {
 			.t("desc", "冰霜所孕化的龙之灵魂。");
 	}
 
+
+
 	{ image = ConsumSummorDict.BLUE_DRAGON_EGG_0; freezes = 20; }
 	@Override protected LegacyPet hatchling() { return new BlueDragon(); }
 	@Override public int value() { return 500 * quantity; }

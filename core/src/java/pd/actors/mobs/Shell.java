@@ -26,6 +26,8 @@ public class Shell extends Mob {
 	}
 
 
+
+
 	private static final float TIME_TO_ZAP = 2f;
 	private int shellCharge;
 

@@ -23,6 +23,8 @@ public class GnollArcher extends Mob {
 			.t("killcount", "已击败豺狼弓箭手：%d");
 	}
 
+
+
 	{
 		spriteClass = GnollArcherSprite.class;
 		HP = HT = 25 + Statistics.gnollArchersKilled;

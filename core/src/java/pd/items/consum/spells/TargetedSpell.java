@@ -46,6 +46,8 @@ public abstract class TargetedSpell extends Spell {
 			.t("inv_title", "灌注一件物品");
 	}
 
+
+
 	
 	protected int collisionProperties = Ballistica.PROJECTILE;
 	

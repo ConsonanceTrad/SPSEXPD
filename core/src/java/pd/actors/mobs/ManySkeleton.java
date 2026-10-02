@@ -18,6 +18,8 @@ public class ManySkeleton extends SpsCityMobs.ManySkeleton {
 	}
 
 
+
+
 	{
 		spriteClass = ManySkeletonSprite.class;
 	}

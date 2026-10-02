@@ -35,6 +35,8 @@ public class WandOfBlood extends DamageWand {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		collisionProperties = Ballistica.PROJECTILE;

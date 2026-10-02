@@ -16,6 +16,8 @@ public class SuperArcane extends FlavourBuff {
 	}
 
 
+
+
 	public static final float DURATION = 30f;
 	private static final String LEVEL = "level";
 

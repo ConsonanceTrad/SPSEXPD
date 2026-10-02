@@ -35,6 +35,8 @@ public class Firebomb extends Bomb {
 			.t("discover_hint", "你可通过炼金合成该物品。");
 	}
 
+
+
 	{ image = EquipmentEquipWeaponBombDict.FIRE_BOMB_0; }
 	@Override protected int explosionRange() { return 2; }
 	@Override public void explode(int cell) {

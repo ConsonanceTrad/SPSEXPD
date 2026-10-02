@@ -34,6 +34,8 @@ public class MailArmor extends Armor {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipArmorBasicArmorDict.ARMOR_MAIL_0;
 	}

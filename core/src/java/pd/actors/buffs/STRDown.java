@@ -19,6 +19,8 @@ public class STRDown extends FlavourBuff {
 	}
 
 
+
+
 	{
 		type = buffType.NEGATIVE;
 		announced = true;

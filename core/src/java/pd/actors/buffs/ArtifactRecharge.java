@@ -39,6 +39,8 @@ public class ArtifactRecharge extends Buff {
 	}
 
 
+
+
 	public static final float DURATION = 30f;
 
 	{

@@ -36,6 +36,8 @@ public class FishingSpear extends MissileWeapon {
 			.t("desc", "本用于捕鱼，但作为武器也相当趁手的短投矛。");
 	}
 
+
+
 	
 	{
 		image = ConsumThrowsDict.FISHING_SPEAR_0;

@@ -14,6 +14,8 @@ public class IceBuffTrap extends Trap {
 			.t("desc", "这个可见陷阱会释放短暂的SPS寒冰场。");
 	}
 
+
+
 	{ color = TEAL; shape = DOTS; canBeHidden = false; }
 	@Override public void activate() { GameScene.add(Blob.seed(pos, 3, FrostCloud.class)); }
 }

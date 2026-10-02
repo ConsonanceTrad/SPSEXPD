@@ -9,4 +9,6 @@ public class PVCBowR extends RangeWeapon {
 			.t("name", "沉重的复合纤维弩")
 			.t("desc", "经过复杂工序加工而成的弩，但是有些沉重。");
 	}
+
+
  public PVCBowR() { super(5, Variant.HEAVY, SpecificPlaceHolderDict.SOMETHING_0); } }

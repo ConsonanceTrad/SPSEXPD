@@ -182,6 +182,8 @@ public enum Catalog {
 	}
 
 
+
+
 	//tracks whether an item has been collected while identified
 	private final LinkedHashMap<Class<?>, Boolean> seen = new LinkedHashMap<>();
 	//tracks upgrades spent for equipment, uses for consumables

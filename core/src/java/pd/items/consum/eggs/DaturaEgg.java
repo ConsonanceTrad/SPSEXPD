@@ -15,6 +15,8 @@ public class DaturaEgg extends Egg {
 			.t("desc", "召唤曼陀罗。");
 	}
 
+
+
 	{ image = ConsumSummorDict.DATURA_EGG_0; }
 	@Override protected LegacyPet hatchling() { return new Datura(); }
 	@Override public int value() { return 500 * quantity; }

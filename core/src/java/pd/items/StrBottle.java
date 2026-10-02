@@ -21,6 +21,8 @@ public class StrBottle extends Item {
 			.t("desc", "饮用后永久获得一点力量，并完全恢复生命。");
 	}
 
+
+
 	public static final String AC_USE = "USE";
 
 	{

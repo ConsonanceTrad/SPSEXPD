@@ -16,6 +16,8 @@ public class ShortSword extends NormalMeleeWeapon {
 			.t("desc", "它确实相当短，不比一把匕首长出几英寸。——Watabou \n割裂");
 	}
 
+
+
 	public ShortSword() { super(1, 1f, 1f, 1, 1, 10, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) { s.min += 3; s.max += 3; }
 	@Override public int proc(Char attacker, Char defender, int damage) {

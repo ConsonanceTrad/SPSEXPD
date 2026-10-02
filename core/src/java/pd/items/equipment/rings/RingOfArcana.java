@@ -40,6 +40,8 @@ public class RingOfArcana extends Ring {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.RING_ARCANA;
 		buffClass = Arcana.class;

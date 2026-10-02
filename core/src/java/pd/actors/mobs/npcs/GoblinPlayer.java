@@ -14,6 +14,8 @@ public class GoblinPlayer extends TownNpc {
 			.t("yell2", "看见这块盾牌了吗，这是神盾。我们教派的支柱。");
 	}
 
+
+
 	public GoblinPlayer() {
 		configure(Spec.GOBLIN_PLAYER);
 		spriteClass = pd.sprites.GoblinPlayerSprite.class;

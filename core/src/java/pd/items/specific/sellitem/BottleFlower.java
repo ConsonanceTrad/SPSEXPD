@@ -10,6 +10,8 @@ public class BottleFlower extends SellItem {
 			.t("desc", "冰杖最喜欢的物品之一。");
 	}
 
+
+
 	{ image = ConsumGoodsMaterialsGoodsDict.BOTTLE_FLOWER; }
 	@Override public int value() { return 1000 * quantity; }
 }

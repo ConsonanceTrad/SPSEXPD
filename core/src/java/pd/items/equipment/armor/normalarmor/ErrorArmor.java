@@ -28,6 +28,8 @@ public class ErrorArmor extends NormalArmor {
 			.t("desc", "这是个错误。\n???");
 	}
 
+
+
 	public ErrorArmor() {
 		super(0, 1f, 1f, 10, 0, 0, -8, 0, 0, SpecificPlaceHolderDict.SOMETHING_0);
 	}

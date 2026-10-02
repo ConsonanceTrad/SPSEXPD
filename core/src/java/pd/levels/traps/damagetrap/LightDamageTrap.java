@@ -8,4 +8,6 @@ public class LightDamageTrap extends ElementalDamageTrap {
 			.t("name", "光伤陷阱")
 			.t("desc", "会释放光属性伤害的陷阱。");
 	}
+
+
  public LightDamageTrap(){ super(WHITE, LARGE_DOT, LightEffectDamage.class, 1, 10); } }

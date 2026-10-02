@@ -36,6 +36,8 @@ public class PotionOfStamina extends ExoticPotion {
 			.t("desc", "喝下这甜到掉牙的奇怪液体后，体内会爆发一股巨大的能量，让你可以在长时间内飞速奔跑。");
 	}
 
+
+
 	
 	{
 		icon = ItemIconSheet.POTION_STAMINA;

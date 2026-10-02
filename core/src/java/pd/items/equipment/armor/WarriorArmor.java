@@ -34,6 +34,8 @@ public class WarriorArmor extends ClassArmor {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}

@@ -48,6 +48,8 @@ public class PhantomPiranha extends Piranha {
 	}
 
 
+
+
 	{
 		spriteClass = PhantomPiranhaSprite.class;
 

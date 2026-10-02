@@ -52,17 +52,19 @@ public class SpsYog extends Mob {
 			.t("notice", "希望的存在只是一种幻觉……")
 			.t("die", "我……永生……")
 			.t("blink", "Yog消失了！")
-			.t("burningfist.name", "火焰之拳")
-			.t("burningfist.desc", "由活体火焰构成的巨拳。")
-			.t("rottingfist.name", "大地之拳")
-			.t("rottingfist.desc", "由大地与腐化物构成的巨拳。")
-			.t("infectingfist.name", "酸蚀之拳")
-			.t("infectingfist.desc", "会散播剧毒气体的腐蚀巨拳。")
-			.t("pinningfist.name", "剧毒之拳")
-			.t("pinningfist.desc", "能够远程攻击并束缚目标的巨拳。")
-			.t("larva.name", "古神幼虫")
-			.t("larva.desc", "从受伤古神体内脱落的幼虫。");
+			.t("$burningfist.name", "火焰之拳")
+			.t("$burningfist.desc", "由活体火焰构成的巨拳。")
+			.t("$rottingfist.name", "大地之拳")
+			.t("$rottingfist.desc", "由大地与腐化物构成的巨拳。")
+			.t("$infectingfist.name", "酸蚀之拳")
+			.t("$infectingfist.desc", "会散播剧毒气体的腐蚀巨拳。")
+			.t("$pinningfist.name", "剧毒之拳")
+			.t("$pinningfist.desc", "能够远程攻击并束缚目标的巨拳。")
+			.t("$larva.name", "古神幼虫")
+			.t("$larva.desc", "从受伤古神体内脱落的幼虫。");
 	}
+
+
 
 	private int breaks;
 	private boolean fistsSpawned;

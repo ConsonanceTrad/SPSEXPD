@@ -34,6 +34,8 @@ public class WandOfTest extends DamageWand {
 	}
 
 
+
+
 	public static final String AC_ENERGY = "0";
 	public static final String AC_FIRE = "1";
 	public static final String AC_ICE = "2";

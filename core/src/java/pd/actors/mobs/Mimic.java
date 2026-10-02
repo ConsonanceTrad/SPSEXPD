@@ -64,6 +64,8 @@ public class Mimic extends Mob {
 			.t("discover_hint", "你可在任何地牢区域中遇到该敌人。");
 	}
 
+
+
 	
 	private int level;
 	

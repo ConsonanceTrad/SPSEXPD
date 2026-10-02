@@ -14,6 +14,8 @@ public class Silent extends FlavourBuff {
 			.t("desc", "沉默使人安静，并且让他无法诵读卷轴或释放咒语。持续%s回合。");
 	}
 
+
+
 	{
 		type = buffType.NEGATIVE;
 	}

@@ -13,6 +13,8 @@ public class VelociroosterEgg extends Egg {
 			.t("desc", "召唤坤坤。");
 	}
 
+
+
 	{ image = ConsumSummorDict.VELOCIROOSTER_EGG_0; }
 	@Override protected LegacyPet hatchling() { return new Velocirooster(); }
 	@Override public int value() { return 500 * quantity; }

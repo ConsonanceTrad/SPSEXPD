@@ -44,6 +44,8 @@ public class BurningTrap extends Trap {
 	}
 
 
+
+
 	{
 		color = ORANGE;
 		shape = DOTS;

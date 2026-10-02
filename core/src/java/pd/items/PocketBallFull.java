@@ -33,6 +33,8 @@ public class PocketBallFull extends Item {
 			.t("desc", "一只宠物的灵魂被保存在里面。当前没有宠物时使用，可以按保存的生命与奖励冷却将它释放出来。");
 	}
 
+
+
 	public static final String AC_USE = "USE";
 	private static final String PET_TYPE = "pet_type";
 	private static final String PET_HP = "pet_hp";

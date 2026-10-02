@@ -53,6 +53,8 @@ public class Stylus extends Item {
 			.t("desc", "这支奥术刻笔由一种暗黑色的坚硬石料制成。你能用它在护甲上刻下魔法刻印，不过你无法自主选择，刻笔会替你做出决定。");
 	}
 
+
+
 	
 	private static final float TIME_TO_INSCRIBE = 2;
 	

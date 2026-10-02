@@ -14,6 +14,8 @@ public class SpeedImbue extends FlavourBuff {
 			.t("desc", "速度提高到两倍，攻击伤害提高50%%，但受到的伤害提高10%%。\n\n剩余效果时长：%s回合。");
 	}
 
+
+
 	{ type = buffType.NEUTRAL; announced = true; }
 	@Override public int icon() { return BuffIndicator.HASTE; }
 	@Override public String desc() { return Messages.get(this, "desc", dispTurns()); }

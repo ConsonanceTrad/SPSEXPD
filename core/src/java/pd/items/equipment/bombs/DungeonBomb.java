@@ -22,9 +22,11 @@ public class DungeonBomb extends Bomb {
 		InlineText.of(DungeonBomb.class)
 			.t("name", "地牢炸弹")
 			.t("desc", "装填大量黑火药的炸弹，会伤害附近所有目标并摧毁相邻墙壁。")
-			.t("doublebomb.name", "一对地牢炸弹")
-			.t("doublebomb.desc", "两枚重型地牢炸弹，看起来第二枚是免费赠送的。");
+			.t("$doublebomb.name", "一对地牢炸弹")
+			.t("$doublebomb.desc", "两枚重型地牢炸弹，看起来第二枚是免费赠送的。");
 	}
+
+
 
 
 	{ image = EquipmentEquipWeaponBombDict.BOMB_0; }

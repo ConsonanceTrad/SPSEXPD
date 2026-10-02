@@ -36,6 +36,8 @@ public class ScrollOfForesight extends ExoticScroll {
 			.t("desc", "在阅读了这幅卷轴后，附近地形的细节将自发不断地映入阅读者的脑海。这种效果会持续相当长的一段时间，并且会揭示所有的隐藏门与陷阱，不再需要主动搜索。");
 	}
 
+
+
 	
 	{
 		icon = ItemIconSheet.SCROLL_FORESIGHT;

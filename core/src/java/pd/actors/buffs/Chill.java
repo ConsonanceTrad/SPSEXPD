@@ -37,6 +37,8 @@ public class Chill extends FlavourBuff {
 	}
 
 
+
+
 	public static final float DURATION = 10f;
 
 	{

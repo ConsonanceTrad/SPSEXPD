@@ -13,5 +13,7 @@ public class ExBambooMob extends SpsExitMobs.GuardBamboo {
 			.t("desc", "竹子的进化体，向四周吸取其他生命能量。");
 	}
 
+
+
 	{ spriteClass = ExBambooSprite.class; }
 }

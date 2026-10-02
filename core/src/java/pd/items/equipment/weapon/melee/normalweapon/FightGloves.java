@@ -16,6 +16,8 @@ public class FightGloves extends NormalMeleeWeapon {
 			.t("desc", "简单的皮革加上金属尖块形成了这样一件武器。——Juh9870 \n钝器");
 	}
 
+
+
 	public FightGloves() { super(2, 1f, 1f, 1, 11, 17, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) {
 		if (s.accuracy < 1.5f) s.accuracy += .1f;

@@ -41,6 +41,8 @@ public class BattleAxe extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.BATTLE_AXE_0;
 		hitSound = Assets.Sounds.HIT_SLASH;

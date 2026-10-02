@@ -30,6 +30,8 @@ public class GiftTorch extends GiftNpc {
 			.t("reward2", "（火苗猛烈地燃烧，一堆宝石掉了出来）");
 	}
 
+
+
 	{ properties.add(Property.HUMAN); }
 	@Override public Visual visual() { return Visual.TORCH; }
 	@Override public boolean acceptsGift(Item item) {

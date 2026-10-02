@@ -58,6 +58,8 @@ public class PetCompendium extends Item {
 	}
 
 
+
+
 	public static final String AC_CALL = "CALL";
 	public static final String AC_CHOOSE = "CHOOSE";
 	public static final String AC_FEED = "FEED";

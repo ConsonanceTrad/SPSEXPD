@@ -32,6 +32,8 @@ public class GrassBook extends Item {
 			.t("desc", "树灵携带的智慧之书，每次使用消耗500金币。它可以创造一件自然物品，也可以提供漂浮与物理护盾，并使周围长出旧式高草。");
 	}
 
+
+
 	public static final String AC_READ = "READ";
 	public static final String AC_READ2 = "READ2";
 	public static final int GOLD_COST = 500;

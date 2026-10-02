@@ -58,9 +58,11 @@ public class PrisonWander extends Mob {
 			.t("notice", "我看到你了！")
 			.t("die", "我还会回来的！")
 			.t("scorpion", "没人能从我手上逃离！！！")
-			.t("seekbombp.name", "追猎炸弹")
-			.t("seekbombp.desc", "会追踪目标，并在倒计时结束后爆炸的炸弹。");
+			.t("$seekbombp.name", "追猎炸弹")
+			.t("$seekbombp.desc", "会追踪目标，并在倒计时结束后爆炸的炸弹。");
 	}
+
+
 
 
 	private boolean chainsUsed;

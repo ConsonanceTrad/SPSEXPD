@@ -29,6 +29,8 @@ public class ReedPipe extends Whip implements FusionWeapon {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		hitSound = Assets.Sounds.HIT_SLASH;

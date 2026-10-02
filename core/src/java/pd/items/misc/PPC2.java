@@ -56,6 +56,8 @@ public class PPC2 extends Item {
 	}
 
 
+
+
 	public static final String AC_TRY = "TRY";
 	public static final String AC_HEAL = "HEAL";
 	public static final String AC_MIND = "MIND";

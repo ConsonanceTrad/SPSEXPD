@@ -19,6 +19,8 @@ public class DarkGas extends Blob {
 			.t("desc", "这里盘绕着黑色浓烟，会使烟雾中的生物暂时失明。");
 	}
 
+
+
 	@Override
 	protected void evolve() {
 		for (int x = area.left; x < area.right; x++) {

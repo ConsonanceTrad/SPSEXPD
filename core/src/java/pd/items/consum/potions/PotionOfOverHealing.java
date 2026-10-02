@@ -17,6 +17,8 @@ public class PotionOfOverHealing extends SpsPotion {
 			.t("desc", "以吞星花种子酿成的强效药水。它能清除异常、回满生命并持续治疗，将溢出的活力转化为护盾。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public void apply(Hero hero) {
 		PotionOfHealing.cure(hero);

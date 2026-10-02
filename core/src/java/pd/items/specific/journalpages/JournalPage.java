@@ -16,6 +16,8 @@ public class JournalPage extends Item {
 			.t("desc", "可以收录进冒险日志的地点坐标。");
 	}
 
+
+
 	private final int destination;
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

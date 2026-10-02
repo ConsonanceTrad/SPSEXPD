@@ -14,10 +14,12 @@ public class Freshberry extends Plant {
 			.t("name", "鲜莓丛")
 			.t("desc", "腐莓丛新鲜可口的近亲。它会结出鲜莓，并保留另一株植物的一颗种子。")
 			.t("warden_desc", "_守望者_可以毫无额外风险地收获两种产物。")
-			.t("seed.name", "鲜莓果之种")
-			.t("exfreshberry.name", "鲜莓果丛")
-			.t("exfreshberry.desc", "生长鲜莓的果丛。");
+			.t("$seed.name", "鲜莓果之种")
+			.t("$exfreshberry.name", "鲜莓果丛")
+			.t("$exfreshberry.desc", "生长鲜莓的果丛。");
 	}
+
+
 
 	{ image = 7; seedClass = Seed.class; }
 	@Override public void activate(Char ch) {

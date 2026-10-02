@@ -16,6 +16,8 @@ public class Spear extends NormalMeleeWeapon {
 			.t("desc", "这是一根装着锋锐铁刺的细长木杆。——Watabou \n致残");
 	}
 
+
+
 	public Spear() { super(2, 1f, 1.5f, 2, 14, 30, EquipmentEquipWeaponBasicWeaponDict.SPS_WEP_SPEAR_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) {
 		if (s.delay > 1.2f) s.delay -= .05f;

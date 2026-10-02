@@ -14,6 +14,8 @@ public class Rustyblade extends TownNpc {
 			.t("yell2", "攻击提升，攻击下降，防御提升，防御下降，你见过这些buff吗?");
 	}
 
+
+
 	public Rustyblade() {
 		configure(Spec.RUSTYBLADE);
 		spriteClass = pd.sprites.RustybladeSprite.class;

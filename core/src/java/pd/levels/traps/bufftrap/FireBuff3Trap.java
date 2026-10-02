@@ -8,4 +8,6 @@ public class FireBuff3Trap extends ElementalBuffTrap {
 			.t("name", "火种大陷阱")
 			.t("desc", "会释放大范围火焰场的陷阱。");
 	}
+
+
  public FireBuff3Trap(){ super(ORANGE, STARS, Fire.class, 2, 9, false); } }

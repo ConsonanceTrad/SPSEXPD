@@ -14,6 +14,8 @@ public class DreamLeaf extends Vegetable {
 			.t("desc", "夜梦草的一部分，可以食用。它能清除中毒等常见负面状态。");
 	}
 
+
+
 	{ image = ConsumPotionSeedSeedDict.DREAM_LEAF; }
 	@Override protected void onEat(Hero hero) {
 		PotionOfHealing.cure(hero);

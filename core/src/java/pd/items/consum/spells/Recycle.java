@@ -54,6 +54,8 @@ public class Recycle extends InventorySpell {
 			.t("desc", "这个菱晶蕴含着弱化的嬗变魔力。虽然不能对装备使用，但它能将卷轴、药剂、种子、符石或涂药飞镖转换为一个随机的同类物品。");
 	}
 
+
+
 	
 	{
 		image = ConsumScrollAmuletCrystalDict.RECYCLE_0;

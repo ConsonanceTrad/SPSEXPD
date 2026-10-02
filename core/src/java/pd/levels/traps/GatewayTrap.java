@@ -50,6 +50,8 @@ public class GatewayTrap extends Trap {
 	}
 
 
+
+
 	{
 		color = TEAL;
 		shape = CROSSHAIR;

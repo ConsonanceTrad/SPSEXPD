@@ -23,6 +23,8 @@ public class EmpBola extends MissileWeapon {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		hitSound = Assets.Sounds.HIT_CRUSH;

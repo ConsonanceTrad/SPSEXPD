@@ -10,6 +10,8 @@ public class CourageChallenge extends ChallengeList {
 			.t("desc", "三大试炼之一。它会带你前往漆黑之地，让你直面原始的恐惧。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public int challenge() { return 5; }
 }

@@ -41,6 +41,8 @@ public class Vampiric extends Weapon.Enchantment {
 	}
 
 
+
+
 	private static ItemSprite.Glowing RED = new ItemSprite.Glowing( 0x660022 );
 	
 	@Override

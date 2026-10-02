@@ -15,6 +15,8 @@ public class OtilukeNPC extends TownNpc {
 			.t("yell3", "好吧，我知道你要什么。Amulet护符现在被封印在高塔里面，没法拿出来了。但是我可以给你一个仿制品，它和Amulet护符功能一样。");
 	}
 
+
+
 	public OtilukeNPC() {
 		configure(Spec.OTILUKE_NPC);
 		spriteClass = pd.sprites.OtilukeNPCSprite.class;

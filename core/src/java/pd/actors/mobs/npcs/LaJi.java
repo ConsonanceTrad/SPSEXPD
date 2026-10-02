@@ -15,6 +15,8 @@ public class LaJi extends TownNpc {
 			.t("yell3", "另外...维护这个小镇很累的......");
 	}
 
+
+
 	public LaJi() {
 		configure(Spec.LAJI);
 		spriteClass = pd.sprites.LaJiSprite.class;

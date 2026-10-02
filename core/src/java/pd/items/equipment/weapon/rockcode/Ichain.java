@@ -21,6 +21,8 @@ public class Ichain extends RockCode {
 			.t("stats_desc", "消耗4点能量中的1点，造成双倍等级伤害，并有25%%概率击晕目标。");
 	}
 
+
+
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "I.c"; }
 	@Override protected int missileType() { return MagicMissile.WOOL; }
 	@Override protected void onZap(Ballistica bolt) {

@@ -41,6 +41,8 @@ public class Paralysis extends FlavourBuff {
 	}
 
 
+
+
 	public static final float DURATION	= 10f;
 
 	{

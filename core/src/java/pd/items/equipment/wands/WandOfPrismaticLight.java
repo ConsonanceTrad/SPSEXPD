@@ -67,6 +67,8 @@ public class WandOfPrismaticLight extends DamageWand {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 

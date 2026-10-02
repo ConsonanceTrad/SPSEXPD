@@ -42,6 +42,8 @@ public class Displacing extends Weapon.Enchantment {
 	}
 
 
+
+
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 
 	@Override

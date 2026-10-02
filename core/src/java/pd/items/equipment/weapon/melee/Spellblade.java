@@ -25,6 +25,8 @@ public class Spellblade extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		hitSound = Assets.Sounds.HIT_SLASH;

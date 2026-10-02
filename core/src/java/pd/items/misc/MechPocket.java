@@ -24,6 +24,8 @@ public class MechPocket extends Item {
 			.t("desc", "一个充满神秘感的未来口袋。使用后会一次性倒出20件随机物品，随后消失。");
 	}
 
+
+
 	public static final String AC_USE = "USE";
 	public static final int ITEM_COUNT = 20;
 

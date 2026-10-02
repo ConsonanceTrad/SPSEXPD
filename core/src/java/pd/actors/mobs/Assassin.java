@@ -16,6 +16,8 @@ public class Assassin extends SpsPrisonMobs.Assassin {
 			.t("desc", "由天狗所训练出来的忍者之一，极其擅长远程攻击。");
 	}
 
+
+
 	{ spriteClass = AssassinSprite.class; }
 
 	public static Assassin spawnAt(int cell) {

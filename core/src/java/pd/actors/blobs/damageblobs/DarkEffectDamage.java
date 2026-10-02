@@ -15,6 +15,8 @@ public class DarkEffectDamage extends SpsElementalDamage {
 			.t("desc", "这片区域会持续造成黑暗伤害。");
 	}
 
+
+
 	@Override protected Object damageSource() { return DamageType.DARK_DAMAGE; }
 	@Override protected void affectHeap(Heap heap) { heap.darkhit(); }
 	@Override public void use(BlobEmitter emitter) {

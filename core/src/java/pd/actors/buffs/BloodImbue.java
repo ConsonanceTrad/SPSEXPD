@@ -15,6 +15,8 @@ public class BloodImbue extends FlavourBuff {
 			.t("desc", "成功攻击时可能使目标残废、缠绕或麻痹，并免疫多种妨碍状态。\n\n剩余效果时长：%s回合。");
 	}
 
+
+
 	{
 		type = buffType.POSITIVE;
 		announced = true;

@@ -74,6 +74,8 @@ public class MnemonicPrayer extends TargetedClericSpell {
 	}
 
 
+
+
 	public static MnemonicPrayer INSTANCE = new MnemonicPrayer();
 
 	@Override

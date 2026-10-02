@@ -40,6 +40,8 @@ public class Boomerang extends MissileWeapon {
 			.t("desc", "被投向敌人后，这具扁平的曲状木制投掷物能够自动回到投掷者手中。此外，这个回旋镖可以使用强化子弹强化。");
 	}
 
+
+
 	public static final String AC_AMMO = "AMMO";
 	private static final String SP_AMMO = "sp_ammo";
 

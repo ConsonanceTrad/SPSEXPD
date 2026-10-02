@@ -78,15 +78,17 @@ public class TitleScene extends PixelScene {
 			.t("settings", "设置")
 			.t("about", "关于")
 			.t("support", "加入交流群")
-			.t("changesbutton.title", "检测到新版本！")
-			.t("changesbutton.versioned_title", "最新版本：%s")
-			.t("changesbutton.desc", "破碎的像素地牢会时常更新以变更既有内容，或是加入新东西！\n\n游戏平衡也会经常得到调整，维持物品、英雄、敌人强度的大致均衡。\n\n更新还包含漏洞修复与各种稳定性提升。")
-			.t("changesbutton.update", "前往更新详情页")
-			.t("changesbutton.changes", "近期更新界面")
+			.t("$changesbutton.title", "检测到新版本！")
+			.t("$changesbutton.versioned_title", "最新版本：%s")
+			.t("$changesbutton.desc", "破碎的像素地牢会时常更新以变更既有内容，或是加入新东西！\n\n游戏平衡也会经常得到调整，维持物品、英雄、敌人强度的大致均衡。\n\n更新还包含漏洞修复与各种稳定性提升。")
+			.t("$changesbutton.update", "前往更新详情页")
+			.t("$changesbutton.changes", "近期更新界面")
 			.t("patreon_body", "《破碎像素地牢》是一款完全免费的游戏，有玩家的大方捐献支持我才能一直坚持开发。\n\n如果想支持我，最好的方法是使用Patreon平台。Patreon能提供一个稳定的收入源，也让我有方法回馈我的支持者！\n\nPatreon支持者每周都可以看一篇独家文章，抢先于其他所有人了解我的下一步开发想法！\n\n你可以访问我的Patreon页面获悉最新的回馈详情。感谢你的支持！\n\n(Patreon奖励只能提供英语内容，请见谅)")
 			.t("patreon_button", "Patreon赞助页面")
 			.t("giftshop", "礼物商店");
 	}
+
+
 
 
 	private Image title;

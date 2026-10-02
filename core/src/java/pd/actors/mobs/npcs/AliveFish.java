@@ -14,6 +14,8 @@ public class AliveFish extends TownNpc {
 			.t("yell2", "涌流法杖...水泡声...水泡声...");
 	}
 
+
+
 	public AliveFish() {
 		configure(Spec.ALIVE_FISH);
 		spriteClass = pd.sprites.PiranhaSprite.class;

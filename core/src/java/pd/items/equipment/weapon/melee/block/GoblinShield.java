@@ -40,6 +40,8 @@ public class GoblinShield extends NormalMeleeWeapon {
 	}
 
 
+
+
 	private static final String CHARGE = "charge";
 	public static final int FULL_CHARGE = 11;
 	private int charge;

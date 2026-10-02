@@ -14,6 +14,8 @@ public class Tinkerer4 extends TownNpc {
 			.t("tell2", "东边的那幢屋子是一个私人工会，东南方是鱼塘和墓地，西南方是矿洞遗址，西方是武器商店，西北方是杂货店，西方是酒馆，东北方是一间在建旅馆，正中心是教堂。如果你想问居民睡哪里的话，我只能说无可奉告。");
 	}
 
+
+
 	public Tinkerer4() {
 		configure(Spec.MAYOR);
 		spriteClass = pd.sprites.NoodlemireSprite.class;

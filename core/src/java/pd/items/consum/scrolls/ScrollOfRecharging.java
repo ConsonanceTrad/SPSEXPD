@@ -48,6 +48,8 @@ public class ScrollOfRecharging extends Scroll {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.SCROLL_RECHARGE;
 	}

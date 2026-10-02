@@ -56,6 +56,8 @@ public class KingsCrown extends Item {
 			.t("discover_hint", "你可从某种敌人的掉落物中获得该物品。");
 	}
 
+
+
 	
 	private static final String AC_WEAR = "WEAR";
 	

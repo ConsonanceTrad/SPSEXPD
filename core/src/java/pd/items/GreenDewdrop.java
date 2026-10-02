@@ -26,6 +26,8 @@ public class GreenDewdrop extends Dewdrop {
 			.t("desc", "绿色的露珠。没有水袋时恢复10至39点生命，否则可储存10至29点露水能量。");
 	}
 
+
+
 	{
 		image = GroundFunctionalFallingDict.DEWDROP_0;
 	}

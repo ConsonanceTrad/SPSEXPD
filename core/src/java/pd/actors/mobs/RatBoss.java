@@ -16,6 +16,8 @@ public class RatBoss extends SpsSewerMobs.RatBoss {
 	}
 
 
+
+
 	{
 		spriteClass = RatBossSprite.class;
 	}

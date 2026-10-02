@@ -18,6 +18,8 @@ public class BugSlow extends Buff {
 	}
 
 
+
+
 	private static final String DELAY = "slow_delay";
 	private int slowDelay;
 

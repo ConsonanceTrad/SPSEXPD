@@ -35,6 +35,8 @@ public class RunicBlade extends MeleeWeapon {
 	}
 
 
+
+
 	public static final String AC_REFORGE = "REFORGE";
 
 	{

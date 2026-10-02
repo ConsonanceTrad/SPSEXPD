@@ -31,8 +31,10 @@ public class UIcecorps extends BossRushBoss {
 		InlineText.of(UIcecorps.class)
 			.t("name", "术士冬痕")
 			.t("desc", "一只兔人族的术士，向四周散发着寒气。")
-			.t("firerabbit.name", "烈焰兔人");
+			.t("$firerabbit.name", "烈焰兔人");
 	}
+
+
 
 	protected int timeToIce;
 

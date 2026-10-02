@@ -15,6 +15,8 @@ public class SadSaltan extends TownNpc {
 			.t("yell3", "收下我的名片，以后你到那里的时候没准我可以请你喝一杯。");
 	}
 
+
+
 	public SadSaltan() {
 		configure(Spec.SAD_SALTAN);
 		spriteClass = pd.sprites.SadSaltanSprite.class;

@@ -45,6 +45,8 @@ public class VaultShaman extends Shaman {
 	}
 
 
+
+
 	{
 		activateSteathGameplayBehaviour();
 		spriteClass = ShamanSprite.Vault.class;

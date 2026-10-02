@@ -20,6 +20,8 @@ public class HighAttack extends Buff {
 	}
 
 
+
+
 	public static final float DURATION = 30f;
 	private static final String LEVEL = "level";
 

@@ -15,6 +15,8 @@ public class LeryFireEgg extends Egg {
 			.t("desc", "由多种元素能量混合而成的灵魂。");
 	}
 
+
+
 	{ image = ConsumSummorDict.LERY_FIRE_EGG_0; moves = 50; burns = freezes = poisons = lits = 5; }
 	@Override protected LegacyPet hatchling() { return new LeryFire(); }
 	@Override public int value() { return 500 * quantity; }

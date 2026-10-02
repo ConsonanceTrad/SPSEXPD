@@ -14,6 +14,8 @@ public class ParalyticTrap extends Trap {
 			.t("desc", "触发这个陷阱将在附近释放出一片麻痹气体。");
 	}
 
+
+
 	{
 		color = YELLOW;
 		shape = DIAMOND;

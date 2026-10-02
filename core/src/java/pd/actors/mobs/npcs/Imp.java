@@ -79,6 +79,8 @@ public class Imp extends NPC {
 	}
 
 
+
+
 	{
 		spriteClass = ImpSprite.class;
 

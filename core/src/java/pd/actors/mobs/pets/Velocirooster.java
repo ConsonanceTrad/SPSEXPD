@@ -20,6 +20,8 @@ public class Velocirooster extends PET {
 			.t("yell2", "你~干~嘛~");
 	}
 
+
+
 	{
 		spriteClass = VelociroosterSprite.class;
 		baseSpeed = 1.5f;

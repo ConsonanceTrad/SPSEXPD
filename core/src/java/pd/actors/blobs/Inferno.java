@@ -37,6 +37,8 @@ public class Inferno extends Blob {
 			.t("desc", "一阵狱火正在这里肆虐。");
 	}
 
+
+
 	
 	@Override
 	protected void evolve() {

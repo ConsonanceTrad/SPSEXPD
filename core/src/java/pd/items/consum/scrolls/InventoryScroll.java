@@ -42,6 +42,8 @@ public abstract class InventoryScroll extends Scroll {
 	}
 
 
+
+
 	protected static boolean identifiedByUse = false;
 
 	@Override

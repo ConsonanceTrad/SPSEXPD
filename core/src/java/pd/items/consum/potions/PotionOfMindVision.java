@@ -42,6 +42,8 @@ public class PotionOfMindVision extends Potion {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.POTION_MINDVIS;
 	}

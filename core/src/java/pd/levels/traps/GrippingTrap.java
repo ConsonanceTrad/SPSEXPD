@@ -40,6 +40,8 @@ public class GrippingTrap extends Trap {
 	}
 
 
+
+
 	{
 		color = GREY;
 		shape = DIAMOND;

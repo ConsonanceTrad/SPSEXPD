@@ -55,6 +55,8 @@ public class Amulet extends Item {
 			.t("discover_hint", "你可在地牢底层找到该物品...");
 	}
 
+
+
 	
 	private static final String AC_END = "END";
 	

@@ -68,6 +68,8 @@ public class AlchemistsToolkit extends Artifact {
 	}
 
 
+
+
 	public static final String AC_BREW = "BREW";
 	public static final String AC_CREATE = "CREATE";
 	public static final String AC_COOKING = "COOKING";

@@ -22,6 +22,8 @@ public class EnchantmentIce extends SpsEnchantment {
 			.t("desc", "寒潮将造成大量的冰属性伤害，并有几率给目标施加寒冷和潮湿效果。");
 	}
 
+
+
 	private static final ItemSprite.Glowing BLUE = new ItemSprite.Glowing(0x0044FF);
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		elementalDamage(weapon, attacker, defender, 0.75f, ICE_DAMAGE);

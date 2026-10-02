@@ -13,6 +13,8 @@ public class SkillOfDef extends SkillBook {
 			.t("skillup", "你感觉你的闪避能力提升了。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override void apply(Hero hero) { hero.improveDefenseSkill(1); }
 	@Override public int value() { return 100 * quantity; }

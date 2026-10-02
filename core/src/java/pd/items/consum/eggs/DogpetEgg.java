@@ -15,6 +15,8 @@ public class DogpetEgg extends Egg {
 			.t("desc", "召唤忠犬。");
 	}
 
+
+
 	{ image = ConsumSummorDict.DOG_PET_EGG_0; }
 	@Override protected LegacyPet hatchling() { return new DogPet(); }
 	@Override public int value() { return 500 * quantity; }

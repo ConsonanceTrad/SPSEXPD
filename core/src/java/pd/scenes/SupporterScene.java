@@ -64,6 +64,8 @@ public class SupporterScene extends PixelScene {
 	}
 
 
+
+
 	private static final int BTN_HEIGHT = 22;
 	private static final int GAP = 2;
 

@@ -25,6 +25,8 @@ public class GiftAFly extends GiftNpc {
 			.t("reward2", "多亏了你，野营顺利结束了。这3个饭团带有属于我们的专属祝福。");
 	}
 
+
+
 	{ properties.add(Property.ELF); }
 	@Override public Visual visual() { return Visual.A_FLY; }
 	@Override public boolean acceptsGift(Item item) { return item instanceof CompleteFood; }

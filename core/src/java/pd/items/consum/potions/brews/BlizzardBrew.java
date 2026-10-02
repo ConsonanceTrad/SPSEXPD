@@ -41,6 +41,8 @@ public class BlizzardBrew extends Brew {
 			.t("desc", "当瓶子破裂时，这瓶魔药会释放出一阵像气体一样扩散的旋流冰暴。");
 	}
 
+
+
 	
 	{
 		image = ConsumPotionSeedBasicPotionDict.BREW_BLIZZARD_0;

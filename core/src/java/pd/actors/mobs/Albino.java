@@ -48,6 +48,8 @@ public class Albino extends Rat {
 	}
 
 
+
+
 	{
 		spriteClass = AlbinoSprite.class;
 		

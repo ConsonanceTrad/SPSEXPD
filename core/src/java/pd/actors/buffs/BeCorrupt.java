@@ -15,6 +15,8 @@ public class BeCorrupt extends Buff {
 			.t("desc", "你被侵蚀了。侵蚀会阻止生命恢复，并将生命变化转化为额外伤害。剩余侵蚀效果：%s。");
 	}
 
+
+
 	private static final String LEVEL = "level";
 	private static final String LAST_HP = "last_hp";
 	private int level;

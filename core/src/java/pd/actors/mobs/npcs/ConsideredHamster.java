@@ -14,6 +14,8 @@ public class ConsideredHamster extends TownNpc {
 			.t("yell2", "Pineapples!");
 	}
 
+
+
 	public ConsideredHamster() {
 		configure(Spec.CONSIDERED_HAMSTER);
 		spriteClass = pd.sprites.MimicSprite.class;

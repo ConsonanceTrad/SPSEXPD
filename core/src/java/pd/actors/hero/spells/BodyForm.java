@@ -45,9 +45,11 @@ public class BodyForm extends ClericSpell {
 			.t("name", "体之位格")
 			.t("short_desc", "为三位一体选择附魔或刻印。")
 			.t("desc", "牧师选择一个本局已鉴定的附魔或刻印并使三位一体模拟其效果。\n\n使用三位一体时，牧师会获得所选附魔或刻印的效果%d回合。该临时附魔或刻印具有正常附魔或刻印本应具有的任何效果。\n\n该法术会刷新三位一体当前已模拟的任何体之位格效果。")
-			.t("bodyformbuff.name", "体之位格")
-			.t("bodyformbuff.desc", "位格法术体之位格正使你获得附魔或刻印的效果，仿佛你已将其装备于当前的武器或护甲。\n\n注意，体之位格无法复制你已经装备的装备效果。\n\n当前的效果：%1$s\n\n剩余回合数：%2$s");
+			.t("$bodyformbuff.name", "体之位格")
+			.t("$bodyformbuff.desc", "位格法术体之位格正使你获得附魔或刻印的效果，仿佛你已将其装备于当前的武器或护甲。\n\n注意，体之位格无法复制你已经装备的装备效果。\n\n当前的效果：%1$s\n\n剩余回合数：%2$s");
 	}
+
+
 
 
 	public static BodyForm INSTANCE = new BodyForm();

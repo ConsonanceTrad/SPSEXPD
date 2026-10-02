@@ -51,6 +51,8 @@ public class PotionOfHealing extends Potion {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.POTION_HEALING;
 

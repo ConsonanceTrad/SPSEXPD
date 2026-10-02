@@ -43,6 +43,8 @@ public class Flash extends TargetedClericSpell {
 	}
 
 
+
+
 	public static Flash INSTANCE = new Flash();
 
 	@Override

@@ -49,6 +49,8 @@ public class Torch extends Item {
 	}
 
 
+
+
 	public static final String AC_LIGHT	= "LIGHT";
 	public static final String AC_SET = "SET";
 	

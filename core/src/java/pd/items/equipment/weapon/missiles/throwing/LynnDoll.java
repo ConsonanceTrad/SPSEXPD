@@ -31,9 +31,11 @@ public class LynnDoll extends TossWeapon {
 		InlineText.of(LynnDoll.class)
 			.t("name", "梦瑶娃娃")
 			.t("desc", "奇怪的玩偶，好像有不好的东西附在上面。")
-			.t("cursedoll.name", "诡异少女")
-			.t("cursedoll.desc", "和娃娃差不多的少女。");
+			.t("$cursedoll.name", "诡异少女")
+			.t("$cursedoll.desc", "和娃娃差不多的少女。");
 	}
+
+
 
 
 	{

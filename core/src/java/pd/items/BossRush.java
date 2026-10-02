@@ -28,6 +28,8 @@ public class BossRush extends Item {
 			.t("ac_return", "返回");
 	}
 
+
+
 	public static final int BRANCH = 45;
 	private static final float TIME_TO_USE = 1f;
 

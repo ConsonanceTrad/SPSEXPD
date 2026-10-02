@@ -19,6 +19,8 @@ public class StarKid extends PET {
 			.t("desc", "星之子，能够用光属性力量攻击敌人。");
 	}
 
+
+
 	{ spriteClass=StarKidSprite.class;cooldown=50;properties.add(Property.ALIEN);updateStats(true); }
 	@Override protected Kind kind(){return Kind.STAR_KID;}
 	@Override public boolean lovefood(Item item){return item instanceof PetFood||item instanceof StoneOre;}

@@ -116,9 +116,11 @@ public class Potion extends Item {
 			.t("sure_throw", "你确定要投掷它吗？大多数情况下把它喝下去会更有用。")
 			.t("shatter", "药瓶碎裂开，溅出了无害的液体。")
 			.t("discover_hint", "你可在地牢中概率找到该物品，或通过炼金合成该物品。")
-			.t("placeholder.name", "药剂")
-			.t("seedtopotion.name", "随机药剂");
+			.t("$placeholder.name", "药剂")
+			.t("$seedtopotion.name", "随机药剂");
 	}
+
+
 
 
 	public static final String AC_DRINK = "DRINK";

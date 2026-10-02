@@ -13,6 +13,8 @@ public class WeatherOfSnow extends SpsWeather {
 			.t("desc", "这里降着小雪，会使生物寒冷并减缓移动。");
 	}
 
+
+
 	@Override protected void affectHero(){ Buff.prolong(Dungeon.hero, Cold.class, Cold.DURATION); Buff.detach(Dungeon.hero, Hot.class); }
 	@Override protected Emitter.Factory particle(){ return SnowParticle.FACTORY; }
 	@Override protected float interval(){ return 0.5f; }

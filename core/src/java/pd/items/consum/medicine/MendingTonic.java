@@ -28,6 +28,8 @@ public class MendingTonic extends Item {
 	}
 
 
+
+
 	public static final String AC_DRINK = "DRINK";
 
 	{

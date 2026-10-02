@@ -18,6 +18,8 @@ public class LightMeat extends MeatFood {
 			.t("desc", "经过风干和暴晒，保质时间很长，而且总会剩下一小块。");
 	}
 
+
+
 	private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing(0xFFFF44);
 	{
 		image = ConsumFoodFoodDict.MEAT;

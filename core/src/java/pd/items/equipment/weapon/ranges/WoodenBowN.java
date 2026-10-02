@@ -9,4 +9,6 @@ public class WoodenBowN extends RangeWeapon {
 			.t("name", "普通的木弓")
 			.t("desc", "普通的木制弓，可以发射箭矢。");
 	}
+
+
  public WoodenBowN() { super(1, Variant.NORMAL, EquipmentEquipWeaponBasicWeaponDict.WOODEN_BOW); } }

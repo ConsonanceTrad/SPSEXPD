@@ -12,6 +12,8 @@ public class GunE extends GunWeapon {
 			.t("desc", "伤害巨大且能击退敌人的重型迫击炮，被投入恶魔大厅进行测试。");
 	}
 
+
+
 	{ image = EquipmentEquipWeaponBasicWeaponDict.GUN_4; }
 	public GunE() { super(5, 6); }
 }

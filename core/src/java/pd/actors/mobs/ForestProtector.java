@@ -22,6 +22,8 @@ public class ForestProtector extends Mob {
 	}
 
 
+
+
 	private static final float TIME_TO_ZAP = 1f;
 
 	{

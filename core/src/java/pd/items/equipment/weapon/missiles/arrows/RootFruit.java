@@ -18,6 +18,8 @@ public class RootFruit extends SpsFruit {
 			.t("desc", "人工种植的地缚根结出的果实。直接命中会缠绕目标，落地则会散布根须与蛛网。");
 	}
 
+
+
 	public RootFruit() { this(1); }
 	public RootFruit(int number) { super(ConsumPotionSeedSeedDict.SEED_EARTHROOT_0, 20, 20); quantity(number); }
 	@Override protected void onThrow(int cell) {

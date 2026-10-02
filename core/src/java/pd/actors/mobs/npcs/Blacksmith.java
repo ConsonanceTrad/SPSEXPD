@@ -120,6 +120,8 @@ public class Blacksmith extends NPC {
 	}
 
 
+
+
 	@Override public Item SupercreateLoot() { return new BrokenHammer(); }
 	
 	{

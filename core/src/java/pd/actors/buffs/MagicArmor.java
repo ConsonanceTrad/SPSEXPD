@@ -15,6 +15,8 @@ public class MagicArmor extends Buff {
 			.t("desc", "护盾会吸收魔法与状态效果造成的伤害。剩余护盾：%s。");
 	}
 
+
+
 	private static final String LEVEL = "level";
 	private int level;
 	{ type = buffType.POSITIVE; announced = true; }

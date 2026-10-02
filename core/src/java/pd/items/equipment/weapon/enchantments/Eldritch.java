@@ -43,6 +43,8 @@ public class Eldritch extends Weapon.Enchantment {
 	}
 
 
+
+
 	private static ItemSprite.Glowing GREY = new ItemSprite.Glowing( 0x222222 );
 
 	@Override

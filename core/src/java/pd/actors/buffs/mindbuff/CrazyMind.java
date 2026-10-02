@@ -8,4 +8,6 @@ public class CrazyMind extends MindBuff {
 			.t("name", "疯狂-绝望")
 			.t("desc", "攻击变得不稳定。");
 	}
+
+
  }

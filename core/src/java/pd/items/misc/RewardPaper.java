@@ -34,6 +34,8 @@ public class RewardPaper extends Item {
 	}
 
 
+
+
 	public static final String AC_CHOOSE = "CHOOSE";
 	public static final String AC_DOSP = "DOSP";
 	public static final String AC_DOUP = "DOUP";

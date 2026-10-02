@@ -13,6 +13,8 @@ public class WhiteGhost extends TownNpc {
 			.t("desc", "由于高塔的实验，她已经失去了原有的形体。");
 	}
 
+
+
 	public WhiteGhost() {
 		configure(Spec.WHITE_GHOST);
 		spriteClass = pd.sprites.WhiteGhostSprite.class;

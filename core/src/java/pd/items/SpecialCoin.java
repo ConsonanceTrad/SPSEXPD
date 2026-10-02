@@ -22,6 +22,8 @@ public class SpecialCoin extends Item {
 			.t("desc", "特别惊喜像素地牢中尚未完成的一种特殊货币。");
 	}
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = true;

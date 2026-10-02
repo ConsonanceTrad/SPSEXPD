@@ -88,6 +88,8 @@ public class Shopkeeper extends NPC {
 	}
 
 
+
+
 	@Override public Item SupercreateLoot() { return new SellPermit(); }
 
 	{

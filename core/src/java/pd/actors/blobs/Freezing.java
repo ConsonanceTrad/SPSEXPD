@@ -43,6 +43,8 @@ public class Freezing extends Blob {
 			.t("desc", "这里的空气寒冷刺骨，很不寻常。");
 	}
 
+
+
 	
 	@Override
 	protected void evolve() {

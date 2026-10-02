@@ -34,6 +34,8 @@ public class Drowsy extends FlavourBuff {
 	}
 
 
+
+
 	public static final float DURATION = 5f;
 
 	{

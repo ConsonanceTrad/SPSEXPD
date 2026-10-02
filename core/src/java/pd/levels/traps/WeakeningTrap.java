@@ -41,6 +41,8 @@ public class WeakeningTrap extends Trap{
 	}
 
 
+
+
 	{
 		color = WHITE;
 		shape = DIAMOND;

@@ -40,6 +40,8 @@ public class OozeTrap extends Trap {
 	}
 
 
+
+
 	{
 		color = GREEN;
 		shape = DOTS;

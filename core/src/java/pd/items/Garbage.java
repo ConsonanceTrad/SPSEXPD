@@ -18,6 +18,8 @@ public class Garbage extends Item {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = true;

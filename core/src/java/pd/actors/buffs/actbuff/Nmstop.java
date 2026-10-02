@@ -13,6 +13,8 @@ public class Nmstop extends FlavourBuff {
 			.t("desc", "纳米机器人停止增殖并逐步分解。\n\n剩余时长：%s回合");
 	}
 
+
+
 	public static final float DURATION = 10f;
 	{ type = buffType.NEUTRAL; }
 	@Override public int icon() { return BuffIndicator.FROST; }

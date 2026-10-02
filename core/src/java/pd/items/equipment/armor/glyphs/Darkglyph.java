@@ -17,6 +17,8 @@ public class Darkglyph extends SpsGlyph {
 			.t("desc", "暗契刻印可以增加使用者的黑暗抗性，并有几率吸取攻击者的生命。");
 	}
 
+
+
 	private static final ItemSprite.Glowing COLOR = new ItemSprite.Glowing(0x000000);
 	@Override public int proc(Armor armor, Char attacker, Char defender, int damage) {
 		setElementalMarker(defender, GlyphDark.class);

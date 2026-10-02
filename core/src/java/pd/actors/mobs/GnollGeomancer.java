@@ -84,6 +84,8 @@ public class GnollGeomancer extends Mob {
 	}
 
 
+
+
 	{
 		HP = HT = 150;
 		spriteClass = GnollGeomancerSprite.class;

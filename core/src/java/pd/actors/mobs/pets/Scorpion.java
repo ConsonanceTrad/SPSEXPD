@@ -11,6 +11,8 @@ public class Scorpion extends PET {
 			.t("desc", "一个大号嗜血的蝎子。它的尾巴镶嵌着一个危险的蜇刺。");
 	}
 
+
+
 	{ spriteClass = ScorpionSprite.class; properties.add(Property.BEAST); updateStats(true); }
 	@Override protected Kind kind() { return Kind.SCORPION; }
 }

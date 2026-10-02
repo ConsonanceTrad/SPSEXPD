@@ -19,6 +19,8 @@ public class Timepill2 extends Pill {
 			.t("desc", "提供加速和时之发条。\n使用_1份水，4份原石_锻造");
 	}
 
+
+
 	{ image = GroundFunctionalFallingDict.SANDBAG_0; }
 	@Override protected void onUse(Hero hero) {
 		Buff.affect(hero, HasteBuff.class, 400f);

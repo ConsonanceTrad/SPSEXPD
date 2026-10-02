@@ -13,6 +13,8 @@ public class LingHeart extends SellItem {
 			.t("desc", "_物理防御总量提升30%，治疗效果提升1.2倍，携带背包内生效，可抵挡一次死亡_，Ling如是说");
 	}
 
+
+
 	{
 		image = EquipmentJewelleryArtifactDict.LING_HEART_0;
 		stackable = true;

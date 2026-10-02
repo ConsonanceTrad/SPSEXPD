@@ -41,6 +41,8 @@ public abstract class DocumentPage extends Item {
 			.t("desc", "一张被遗弃的书页，似乎是从一本书上撕下来的。你需要捡起它才能阅读上面的内容。");
 	}
 
+
+
 	
 	{
 		image = ConsumUsefulProcessEnhanceDict.MASTERY_0;

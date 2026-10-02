@@ -54,6 +54,8 @@ public class WndResurrect extends Window {
 			.t("warn_no", "不，我改主意了");
 	}
 
+
+
 	
 	private static final int WIDTH		= 120;
 	private static final int BTN_HEIGHT	= 20;

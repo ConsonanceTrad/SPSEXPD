@@ -20,6 +20,8 @@ public class MiniBomb extends Bomb {
 			.t("desc", "一枚紧凑的小型炸弹，会在爆炸中心额外造成集中伤害。");
 	}
 
+
+
 	{ image = EquipmentEquipWeaponBombDict.SPS_MINI_BOMB; }
 
 	@Override public void explode(int cell) {

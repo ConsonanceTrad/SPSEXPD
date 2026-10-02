@@ -24,6 +24,8 @@ public class ShitBall extends MissileWeapon {
 			.t("desc", "这个东西装满了污物。扔到空地上会发出巨响，使视野内附近的怪物失明并将其引来；直接命中还会造成衰老与焦油效果。");
 	}
 
+
+
 	private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0xCC6600);
 
 	{

@@ -13,6 +13,8 @@ public class HumanFaith extends FaithBuff {
 			.t("desc", "来自神圣派系的伤害降低25%%，对恶魔派系造成的伤害提高50%%。");
 	}
 
+
+
 	@Override public int icon() { return BuffIndicator.BLESS; }
 	@Override public String desc() { return Messages.get(this, "desc"); }
 }

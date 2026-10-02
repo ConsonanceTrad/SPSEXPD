@@ -39,9 +39,11 @@ public class Kinetic extends Weapon.Enchantment {
 			.t("name", "恒动%s")
 			.t("desc", "使用恒动附魔的武器击杀敌人时，武器会储存溢出的威力并在下一次成功攻击时释放。")
 			.t("elestrike_desc", "武器拥有恒动附魔时，元素打击会对范围内除主要目标外的每个敌人都造成伤害，数值为储存伤害的40%。")
-			.t("conserveddamage.name", "伤害储存")
-			.t("conserveddamage.desc", "你的武器储存了上个杀敌一击的过剩能量，用来加强你的下次攻击以造成额外伤害。这份能量会慢慢随时间减弱。\n\n储存伤害：%d");
+			.t("$conserveddamage.name", "伤害储存")
+			.t("$conserveddamage.desc", "你的武器储存了上个杀敌一击的过剩能量，用来加强你的下次攻击以造成额外伤害。这份能量会慢慢随时间减弱。\n\n储存伤害：%d");
 	}
+
+
 
 	
 	private static ItemSprite.Glowing YELLOW = new ItemSprite.Glowing( 0xFFFF00 );

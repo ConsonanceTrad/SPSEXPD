@@ -13,6 +13,8 @@ public class Crystalnucleus extends Item {
 			.t("desc", "这种晶核的味道并不好，但它能卖很多钱。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; stackable = true; }
 	@Override public boolean isIdentified() { return true; }
 	@Override public boolean isUpgradable() { return false; }

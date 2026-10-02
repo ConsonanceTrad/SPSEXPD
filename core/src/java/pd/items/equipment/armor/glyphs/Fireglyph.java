@@ -19,6 +19,8 @@ public class Fireglyph extends SpsGlyph {
 			.t("desc", "火罩刻印可以增加使用者的火焰抗性，并有几率点燃攻击者或提升使用者的攻击力。");
 	}
 
+
+
 	private static final ItemSprite.Glowing COLOR = new ItemSprite.Glowing(0xFF4400);
 	@Override public int proc(Armor armor, Char attacker, Char defender, int damage) {
 		setElementalMarker(defender, GlyphFire.class);

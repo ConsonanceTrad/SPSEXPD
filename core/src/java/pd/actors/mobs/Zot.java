@@ -50,6 +50,8 @@ public class Zot extends Mob {
 	}
 
 
+
+
 	public static final int LEGACY_DEPTH = 99;
 	private static final int JUMP_DELAY = 10;
 	private int timeToJump = JUMP_DELAY;

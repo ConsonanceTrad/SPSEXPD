@@ -58,9 +58,11 @@ public class HolyLance extends TargetedClericSpell {
 			.t("name", "神圣标枪")
 			.t("short_desc", "造成高额远程魔法伤害。")
 			.t("desc", "祭司将大量能量聚集为一柄致命的投掷用圣枪。圣枪造成%1$d~%2$d点伤害，并且必定对亡灵和恶魔目标造成最大伤害。\n\n该法术充能消耗极高，还有30回合的冷却。")
-			.t("lancecooldown.name", "神圣标枪-冷却")
-			.t("lancecooldown.desc", "祭司近期施放了神圣标枪，必须等待一段时间才能再次施放。\n\n剩余回合数：%s");
+			.t("$lancecooldown.name", "神圣标枪-冷却")
+			.t("$lancecooldown.desc", "祭司近期施放了神圣标枪，必须等待一段时间才能再次施放。\n\n剩余回合数：%s");
 	}
+
+
 
 
 	public static final HolyLance INSTANCE = new HolyLance();

@@ -34,6 +34,8 @@ public class ChallengeGuardian extends Mob {
 	}
 
 
+
+
 	private int challenge;
 	private boolean guardian;
 

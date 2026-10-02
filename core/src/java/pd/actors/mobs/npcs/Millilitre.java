@@ -14,6 +14,8 @@ public class Millilitre extends TownNpc {
 			.t("yell2", "这个世界太可怕了...妈妈...我想回家...");
 	}
 
+
+
 	public Millilitre() {
 		configure(Spec.MILLILITRE);
 		spriteClass = pd.sprites.MillilitreSprite.class;

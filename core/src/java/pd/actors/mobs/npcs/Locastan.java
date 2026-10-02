@@ -15,6 +15,8 @@ public class Locastan extends TownNpc {
 			.t("yell3", "只要我能释放这个神灯的力量，我的世界就会更加精彩纷呈。");
 	}
 
+
+
 	public Locastan() {
 		configure(Spec.LOCASTAN);
 		spriteClass = pd.sprites.LocastanSprite.class;

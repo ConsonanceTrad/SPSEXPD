@@ -21,6 +21,8 @@ public class ThiefImp extends SpsHallsMobs.ThiefImp {
 	}
 
 
+
+
 	{
 		spriteClass = ThiefImpSprite.class;
 	}

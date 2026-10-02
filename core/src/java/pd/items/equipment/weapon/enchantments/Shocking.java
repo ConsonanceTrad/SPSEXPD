@@ -47,6 +47,8 @@ public class Shocking extends Weapon.Enchantment {
 	}
 
 
+
+
 	private static ItemSprite.Glowing WHITE = new ItemSprite.Glowing( 0xFFFFFF, 0.5f );
 
 	@Override

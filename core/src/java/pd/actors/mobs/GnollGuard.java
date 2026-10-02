@@ -46,6 +46,8 @@ public class GnollGuard extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = GnollGuardSprite.class;
 

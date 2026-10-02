@@ -62,13 +62,15 @@ public class ShadowClone extends ArmorAbility {
 			.t("name", "暗影映像")
 			.t("short_desc", "盗贼召唤一个_暗影映像_，并能使唤其帮助自己战斗。")
 			.t("desc", "盗贼召唤一个暗影映像，并可以指使它作战。指使映像不会消耗充能。\n\n映像拥有80点生命与10~20点近战伤害，没有护甲。在激活天赋后这些属性可受到其主人武器与护甲的增益。")
-			.t("shadowally.name", "暗影映像")
-			.t("shadowally.direct_defend", "你的映像去了那个位置。")
-			.t("shadowally.direct_follow", "你的映像正在跟随你。")
-			.t("shadowally.direct_attack", "你的映像正在发动攻击！")
-			.t("shadowally.desc", "一具无形暗影塑造出的盗贼复制体，它一动不动双目空空，烟雾般的黑暗在周围缓缓升腾。\n\n它虽说不上是个完美的复制体，但也是个合格的杀手，并且在特定天赋加持下能从其主人的装备中获益。")
-			.t("shadowally.discover_hint", "你可通过某个英雄护甲技能遇到该单位。");
+			.t("$shadowally.name", "暗影映像")
+			.t("$shadowally.direct_defend", "你的映像去了那个位置。")
+			.t("$shadowally.direct_follow", "你的映像正在跟随你。")
+			.t("$shadowally.direct_attack", "你的映像正在发动攻击！")
+			.t("$shadowally.desc", "一具无形暗影塑造出的盗贼复制体，它一动不动双目空空，烟雾般的黑暗在周围缓缓升腾。\n\n它虽说不上是个完美的复制体，但也是个合格的杀手，并且在特定天赋加持下能从其主人的装备中获益。")
+			.t("$shadowally.discover_hint", "你可通过某个英雄护甲技能遇到该单位。");
 	}
+
+
 
 
 	@Override

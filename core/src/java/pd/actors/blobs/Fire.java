@@ -44,6 +44,8 @@ public class Fire extends Blob {
 	}
 
 
+
+
 	@Override
 	protected void evolve() {
 

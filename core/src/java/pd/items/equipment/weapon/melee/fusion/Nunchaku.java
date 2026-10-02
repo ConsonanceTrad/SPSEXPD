@@ -18,6 +18,8 @@ public class Nunchaku extends Sai implements FusionWeapon {
 			.t("desc", "攻击迅速但单次伤害较低的三阶武器。每次命中有八分之一概率使目标短暂恍惚。");
 	}
 
+
+
 	{ image = EquipmentEquipWeaponBasicWeaponDict.SAI_0; tier = 3; DLY = 0.8f; }
 	@Override public int min(int lvl) { return 4 + lvl; }
 	@Override public int max(int lvl) { return 15 + 3 * lvl; }

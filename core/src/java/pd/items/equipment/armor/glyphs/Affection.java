@@ -40,6 +40,8 @@ public class Affection extends Glyph {
 			.t("desc", "这个强力的刻印能够操控攻击者的心智，暂时地魅惑他们。");
 	}
 
+
+
 	
 	private static ItemSprite.Glowing PINK = new ItemSprite.Glowing( 0xFF4488 );
 	

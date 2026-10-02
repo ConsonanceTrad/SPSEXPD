@@ -14,6 +14,8 @@ public class Sling extends GunWeapon {
 			.t("desc", "由数条皮带制成的简单武器，能够把普通弹丸变成致命的投射物。");
 	}
 
+
+
 	{ image = EquipmentEquipWeaponBasicWeaponDict.SLING; }
 	public Sling() { super(0, 1); }
 	@Override public int min(int lvl) { return 3 + 2 * lvl; }

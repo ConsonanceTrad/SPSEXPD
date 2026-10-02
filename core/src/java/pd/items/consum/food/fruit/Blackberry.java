@@ -18,6 +18,8 @@ public class Blackberry extends Fruit {
 			.t("desc", "野生浆果的一种，富含生命能量。食用后会快速恢复生命，还有几率短暂感知本层所有生物。");
 	}
 
+
+
 	{ image = ConsumFoodFoodDict.BLACKBERRY; }
 	@Override protected void onEat(Hero hero) {
 		int healing = Math.max(hero.HT / (Random.Int(5) == 0 ? 8 : 10), 15);

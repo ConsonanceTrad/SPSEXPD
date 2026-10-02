@@ -27,6 +27,8 @@ public class Dragonking extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = NewDragon02Sprite.class;
 		baseSpeed = 1f;

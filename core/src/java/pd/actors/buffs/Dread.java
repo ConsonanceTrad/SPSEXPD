@@ -39,6 +39,8 @@ public class Dread extends Buff {
 	}
 
 
+
+
 	protected int left = (int)DURATION;
 	public int object = 0;
 

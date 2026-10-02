@@ -52,6 +52,8 @@ public class TelekineticGrab extends TargetedSpell {
 	}
 
 
+
+
 	{
 		image = ConsumScrollAmuletCrystalDict.TELE_GRAB_0;
 

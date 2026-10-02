@@ -71,6 +71,8 @@ public class VaultMirror extends NPC {
 	}
 
 
+
+
 	{
 		spriteClass = VaultMirrorSprite.class;
 

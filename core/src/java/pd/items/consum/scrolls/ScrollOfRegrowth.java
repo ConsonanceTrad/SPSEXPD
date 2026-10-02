@@ -37,6 +37,8 @@ public class ScrollOfRegrowth extends Scroll {
 			.t("desc", "这张卷轴会用富有生机的水覆盖周围地面，并催生出多株植物。");
 	}
 
+
+
 	{
 		icon = ItemIconSheet.SCROLL_RECHARGE;
 	}

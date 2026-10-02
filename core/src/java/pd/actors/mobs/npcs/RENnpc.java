@@ -18,6 +18,8 @@ public class RENnpc extends TownNpc {
 			.t("yell6", "你不会想要带着这玩意的。");
 	}
 
+
+
 	public RENnpc() {
 		configure(Spec.RENNPC);
 		spriteClass = pd.sprites.RENSprite.class;

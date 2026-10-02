@@ -17,6 +17,8 @@ public class RotAmmo extends SpAmmo {
 			.t("desc", "将原石和腐梅种或鲜莓种锻造而成的特殊子弹，能使武器附带腐败效果。");
 	}
 
+
+
 	private static final ItemSprite.Glowing RED = new ItemSprite.Glowing(0xCC0000);
 	@Override public ItemSprite.Glowing glowing() { return RED; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {

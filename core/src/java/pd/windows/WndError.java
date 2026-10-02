@@ -33,6 +33,8 @@ public class WndError extends WndTitledMessage {
 	}
 
 
+
+
 	public WndError( String message ) {
 		super( Icons.WARNING.get(), Messages.get(WndError.class, "title"), message );
 	}

@@ -27,6 +27,8 @@ public class MemoryFire extends Blob {
 	}
 
 
+
+
 	private int pos = -1;
 
 	@Override

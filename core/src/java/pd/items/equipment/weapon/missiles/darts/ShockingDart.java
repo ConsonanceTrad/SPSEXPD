@@ -44,6 +44,8 @@ public class ShockingDart extends TippedDart {
 			.t("desc", "这些飞镖上涂着一种由风暴藤制成的药物，能让目标受到强烈的电击。");
 	}
 
+
+
 	
 	{
 		image = ConsumThrowsDict.SHOCKING_DART_0;

@@ -15,6 +15,8 @@ public class EarthEffectDamage extends SpsElementalDamage {
 			.t("desc", "这片区域会持续造成大地伤害。");
 	}
 
+
+
 	@Override protected Object damageSource() { return DamageType.EARTH_DAMAGE; }
 	@Override protected void affectHeap(Heap heap) { heap.earthhit(); }
 	@Override public void use(BlobEmitter emitter) {

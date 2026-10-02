@@ -13,6 +13,8 @@ public class Dry extends FlavourBuff {
 			.t("desc", "你的身体严重缺水。剩余回合：%s。");
 	}
 
+
+
 	public static final float DURATION = 10f;
 	{ type = buffType.NEGATIVE; announced = true; }
 	@Override public int icon() { return BuffIndicator.OOZE; }

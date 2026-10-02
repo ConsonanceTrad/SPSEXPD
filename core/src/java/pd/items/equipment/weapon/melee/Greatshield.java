@@ -43,6 +43,8 @@ public class Greatshield extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.GREATSHIELD_0;
 

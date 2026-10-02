@@ -39,6 +39,8 @@ public class FungalSentry extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = FungalSentrySprite.class;
 

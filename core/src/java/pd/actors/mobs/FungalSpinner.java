@@ -40,6 +40,8 @@ public class FungalSpinner extends Spinner {
 	}
 
 
+
+
 	{
 		spriteClass = FungalSpinnerSprite.class;
 

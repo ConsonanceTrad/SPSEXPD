@@ -28,6 +28,8 @@ public class SpsSkeletonKey extends Key {
 	}
 
 
+
+
 	{
 		image = SpecificKeyDict.WORN_KEY;
 		stackable = false;

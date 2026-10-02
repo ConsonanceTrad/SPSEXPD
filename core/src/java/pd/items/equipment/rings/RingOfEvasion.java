@@ -39,6 +39,8 @@ public class RingOfEvasion extends Ring {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.RING_EVASION;
 		buffClass = Evasion.class;

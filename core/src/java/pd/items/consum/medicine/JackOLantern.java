@@ -19,6 +19,8 @@ public class JackOLantern extends Pill {
 			.t("desc", "这种菌类含有大量的磷。当它受到外界挤压时它会将会把体内的磷成分以白磷的形式释放，从而引起大火甚至使其变成炼狱。\n使用_1份水，1份蔬菜，1份火焰花种子_炼金");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	public JackOLantern() { this(1); }
 	public JackOLantern(int value) { quantity = value; }

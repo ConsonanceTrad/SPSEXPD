@@ -21,6 +21,8 @@ public class SandStorm extends Blob {
 			.t("desc", "这里盘绕着干燥的沙尘暴，会使生物陷入干燥，并以土元素影响地上的物品。");
 	}
 
+
+
 	@Override
 	protected void evolve() {
 		int width = Dungeon.level.width();

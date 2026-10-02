@@ -16,6 +16,8 @@ public class GhostPhoto extends SpsPrisonMobs.GhostPhoto {
 	}
 
 
+
+
 	{
 		spriteClass = LivePhotoSprite.class;
 		properties.add(Property.UNKNOW);

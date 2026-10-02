@@ -17,6 +17,8 @@ public class SpiderBot extends SpsCityMobs.SpiderBot {
 	}
 
 
+
+
 	{
 		spriteClass = SpiderBotSprite.class;
 	}

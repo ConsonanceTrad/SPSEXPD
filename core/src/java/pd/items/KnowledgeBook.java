@@ -21,6 +21,8 @@ public class KnowledgeBook extends Item {
 			.t("ac_read", "阅读");
 	}
 
+
+
 	public static final String AC_READ = "READ";
 
 	{

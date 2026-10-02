@@ -66,6 +66,8 @@ public class WndClericSpells extends Window {
 	}
 
 
+
+
 	protected static final int WIDTH    = 120;
 
 	public static int BTN_SIZE = 20;

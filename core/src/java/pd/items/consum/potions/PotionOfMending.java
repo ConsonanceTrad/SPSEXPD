@@ -16,6 +16,8 @@ public class PotionOfMending extends SpsPotion {
 			.t("desc", "以坚果藤种子酿成的恢复药水。它能清除常见异常状态，并持续修复大量生命。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public void apply(Hero hero) {
 		PotionOfHealing.cure(hero);

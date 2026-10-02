@@ -62,6 +62,8 @@ public class HolyTome extends Artifact {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 

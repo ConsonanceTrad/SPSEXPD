@@ -20,6 +20,8 @@ public class Lbox extends RockCode {
 			.t("stats_desc", "消耗4点能量中的1点，造成等级寒冰伤害，并施加5回合冻伤。");
 	}
 
+
+
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "L.b"; }
 	@Override protected int missileType() { return MagicMissile.FROST; }
 	@Override protected void onZap(Ballistica bolt) {

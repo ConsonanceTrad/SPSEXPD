@@ -25,6 +25,8 @@ public class TeleportationTrap extends Trap {
 	}
 
 
+
+
 	{
 		color = GREY;
 		shape = GRILL;

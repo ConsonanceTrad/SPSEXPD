@@ -8,4 +8,6 @@ public class EarthDamageTrap extends ElementalDamageTrap {
 			.t("name", "地伤陷阱")
 			.t("desc", "会释放地属性伤害的陷阱。");
 	}
+
+
  public EarthDamageTrap(){ super(GREEN, LARGE_DOT, EarthEffectDamage.class, 1, 10); } }

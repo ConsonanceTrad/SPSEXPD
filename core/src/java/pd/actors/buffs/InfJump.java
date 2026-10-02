@@ -13,6 +13,8 @@ public class InfJump extends FlavourBuff {
 			.t("desc", "跳跃不会消耗鞋子的充能。\n\n剩余效果时长：%s回合。");
 	}
 
+
+
 	public static final float DURATION = 30f;
 
 	{

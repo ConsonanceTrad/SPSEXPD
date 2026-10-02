@@ -57,6 +57,8 @@ public class GnollRockfallTrap extends RockfallTrap {
 	}
 
 
+
+
 	@Override
 	public void activate() {
 

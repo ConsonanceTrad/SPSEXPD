@@ -39,6 +39,8 @@ public class TornPage extends RemainsItem {
 	}
 
 
+
+
 	{
 		image = ConsumUsefulCorpseRelicsDict.TORN_PAGE_0;
 	}

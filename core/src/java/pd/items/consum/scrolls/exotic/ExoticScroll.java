@@ -62,6 +62,8 @@ public abstract class ExoticScroll extends Scroll {
 			.t("discover_hint", "你可通过炼金合成该物品。");
 	}
 
+
+
 	
 	
 	public static final LinkedHashMap<Class<?extends Scroll>, Class<?extends ExoticScroll>> regToExo = new LinkedHashMap<>();

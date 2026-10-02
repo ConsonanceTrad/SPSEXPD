@@ -38,6 +38,8 @@ public class Crab extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = CrabSprite.class;
 		

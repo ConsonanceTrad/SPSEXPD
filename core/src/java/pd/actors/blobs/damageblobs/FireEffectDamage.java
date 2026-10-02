@@ -15,6 +15,8 @@ public class FireEffectDamage extends SpsElementalDamage {
 			.t("desc", "这片区域会持续造成火焰伤害。");
 	}
 
+
+
 	@Override protected Object damageSource() { return DamageType.FIRE_DAMAGE; }
 	@Override protected void affectHeap(Heap heap) { heap.firehit(); }
 	@Override public void use(BlobEmitter emitter) {

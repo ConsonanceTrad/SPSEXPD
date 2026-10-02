@@ -41,6 +41,8 @@ public class CorrosionTrap extends Trap {
 	}
 
 
+
+
 	{
 		color = GREY;
 		shape = GRILL;

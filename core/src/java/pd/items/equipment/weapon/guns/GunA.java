@@ -12,6 +12,8 @@ public class GunA extends GunWeapon {
 			.t("desc", "高塔利用枪械零件制作的轻型实验手枪，被投入下水道环境进行测试。");
 	}
 
+
+
 	{ image = EquipmentEquipWeaponBasicWeaponDict.GUN_4; }
 	public GunA() { super(1, 4); }
 }

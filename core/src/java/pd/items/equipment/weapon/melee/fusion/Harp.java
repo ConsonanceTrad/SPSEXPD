@@ -29,6 +29,8 @@ public class Harp extends Scimitar implements FusionWeapon {
 	}
 
 
+
+
 	private static final String HITS = "hits";
 	private int hits;
 

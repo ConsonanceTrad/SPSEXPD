@@ -43,6 +43,8 @@ public class DisintegrationTrap extends Trap {
 	}
 
 
+
+
 	{
 		color = RED;
 		shape = LARGE_DOT;

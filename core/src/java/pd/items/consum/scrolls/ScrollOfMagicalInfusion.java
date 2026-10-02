@@ -22,6 +22,8 @@ public class ScrollOfMagicalInfusion extends InventoryScroll {
 			.t("infuse", "你的%s充满了魔力。");
 	}
 
+
+
 	@Override
 	public void empoweredRead() {
 		//The SPS-PD 0.9.8 empowered infusion branch intentionally has no effect.

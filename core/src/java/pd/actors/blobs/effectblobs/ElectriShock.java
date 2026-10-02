@@ -16,6 +16,8 @@ public class ElectriShock extends SpsEffectBlob {
 			.t("desc", "SPS雷电场会在三回合内电击生物与物品。");
 	}
 
+
+
 	@Override protected void affect(Char target) { Buff.affect(target, Shocked.class).set(10f); }
 	@Override protected void affect(Heap heap) { heap.shockhit(); }
 	@Override public void use(BlobEmitter emitter) { super.use(emitter); emitter.start(EnergyParticle.FACTORY, 0.05f, 0); }

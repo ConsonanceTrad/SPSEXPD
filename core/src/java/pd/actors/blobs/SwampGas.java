@@ -23,6 +23,8 @@ public class SwampGas extends Blob {
 	}
 
 
+
+
 	@Override
 	protected void evolve() {
 		super.evolve();

@@ -17,6 +17,8 @@ public class RogueArmor extends NormalArmor {
 			.t("desc", "来自盗贼自身经验的总结，即使受伤也可以偷窃金币。\n英雄护甲");
 	}
 
+
+
 	public RogueArmor() { super(1, 5f, 13f, 2, 0, 2, -1, 1, 3, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override public int proc(Char attacker, Char defender, int damage) {
 		if (Random.Int(8) == 0) Dungeon.gold = Math.max(0, Dungeon.gold + Math.max(0, damage));

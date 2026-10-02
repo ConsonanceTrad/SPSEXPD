@@ -53,6 +53,8 @@ public class Explosive extends Weapon.Enchantment {
 	}
 
 
+
+
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 	private static ItemSprite.Glowing WARM = new ItemSprite.Glowing( 0x000000, 0.5f );
 	private static ItemSprite.Glowing HOT = new ItemSprite.Glowing( 0x000000, 0.25f );

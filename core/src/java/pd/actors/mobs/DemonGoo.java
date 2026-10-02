@@ -17,6 +17,8 @@ public class DemonGoo extends SpsHallsMobs.DemonGoo {
 	}
 
 
+
+
 	{
 		spriteClass = DemonGooSprite.class;
 		properties.add(Property.ELEMENT);

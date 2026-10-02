@@ -29,6 +29,8 @@ public class WandOfAcid extends DamageWand {
 	}
 
 
+
+
 	{
 		image = EquipmentWandBasicWandDict.WAND_ACID;
 		collisionProperties = Ballistica.PROJECTILE;

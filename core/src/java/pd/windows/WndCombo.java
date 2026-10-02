@@ -44,6 +44,8 @@ public class WndCombo extends Window {
 	}
 
 
+
+
 	private static final int WIDTH_P = 120;
 	private static final int WIDTH_L = 180;
 

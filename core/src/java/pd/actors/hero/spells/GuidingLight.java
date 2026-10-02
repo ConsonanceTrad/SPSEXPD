@@ -55,13 +55,15 @@ public class GuidingLight extends TargetedClericSpell {
 			.t("short_desc", "造成远程魔法必中伤害。")
 			.t("desc", "牧师发射一束魔能光矢攻击目标，造成2~8点伤害并施加光耀。对光耀敌人的下一次不超力的物理攻击必定命中。")
 			.t("desc_priest", "_祭司施放该法术时效果更强。_ 每50回合首次施放该法术不消耗圣典充能，并且光耀可以被辐光、法杖、其他单位和直接作用于敌人的神器消耗。如此使用光耀时，可造成等同于祭司等级+5的额外魔法伤害。")
-			.t("guidinglightpriestcooldown.name", "神导之光")
-			.t("guidinglightpriestcooldown.desc", "祭司每经50回合可以免费施放一次神导之光。\n\n剩余回合数：%s")
-			.t("illuminated.name", "光耀")
-			.t("illuminated.desc", "该单位因被神导之光击中而获得光耀。光耀的照度不足以照亮周围区域，但其魔法会使牧师对敌人的攻击更容易命中。")
-			.t("illuminated.desc_priest", "祭司可通过破晓辐光、法杖施法、盟友攻击或某些神器效果触发消耗光耀。如此使用光耀可造成等同于祭司等级+5的额外魔法伤害。")
-			.t("illuminated.desc_generic", "其他英雄仍可通过炽热之光天赋对敌人造成额外伤害，但无法从中获得任何精准加成。");
+			.t("$guidinglightpriestcooldown.name", "神导之光")
+			.t("$guidinglightpriestcooldown.desc", "祭司每经50回合可以免费施放一次神导之光。\n\n剩余回合数：%s")
+			.t("$illuminated.name", "光耀")
+			.t("$illuminated.desc", "该单位因被神导之光击中而获得光耀。光耀的照度不足以照亮周围区域，但其魔法会使牧师对敌人的攻击更容易命中。")
+			.t("$illuminated.desc_priest", "祭司可通过破晓辐光、法杖施法、盟友攻击或某些神器效果触发消耗光耀。如此使用光耀可造成等同于祭司等级+5的额外魔法伤害。")
+			.t("$illuminated.desc_generic", "其他英雄仍可通过炽热之光天赋对敌人造成额外伤害，但无法从中获得任何精准加成。");
 	}
+
+
 
 
 	public static final GuidingLight INSTANCE = new GuidingLight();

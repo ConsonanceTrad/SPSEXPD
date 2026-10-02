@@ -8,4 +8,6 @@ public class WeakMind extends MindBuff {
 			.t("name", "疯狂-脆弱")
 			.t("desc", "受到的伤害提升。");
 	}
+
+
  }

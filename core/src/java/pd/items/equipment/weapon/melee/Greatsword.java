@@ -41,6 +41,8 @@ public class Greatsword extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.GREATSWORD_0;
 		hitSound = Assets.Sounds.HIT_SLASH;

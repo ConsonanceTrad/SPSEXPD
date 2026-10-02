@@ -35,6 +35,8 @@ public class JumpP extends Item {
 			.t("desc", "演员可跳跃至多三格，并获得1次玻璃护盾和5回合律动；超级明星还会进入更强的节奏。");
 	}
 
+
+
 	public static final String AC_JUMP = "JUMP";
 	public static final int FULL_CHARGE = 20;
 	public static final int JUMP_COST = 10;

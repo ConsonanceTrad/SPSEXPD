@@ -51,6 +51,8 @@ public class GoldenMimic extends Mimic {
 	}
 
 
+
+
 	{
 		spriteClass = MimicSprite.Golden.class;
 	}

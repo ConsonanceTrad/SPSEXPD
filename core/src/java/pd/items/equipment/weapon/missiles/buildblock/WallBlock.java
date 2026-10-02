@@ -10,4 +10,6 @@ public class WallBlock extends LegacyBuildBlock {
 			.t("name", "墙壁方块")
 			.t("desc", "投掷后会筑起墙壁的回收方块。");
 	}
+
+
  public WallBlock(){super(Terrain.WALL,SpecificTaskDict.ORE_0);} }

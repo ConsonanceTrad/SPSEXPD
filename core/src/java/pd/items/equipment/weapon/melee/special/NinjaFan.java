@@ -23,6 +23,8 @@ public class NinjaFan extends NormalMeleeWeapon {
 			.t("charge", "蓄风：_%1$d/%2$d_。");
 	}
 
+
+
 	private static final String CHARGE = "charge";
 	private int charge;
 

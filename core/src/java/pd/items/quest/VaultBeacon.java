@@ -41,6 +41,8 @@ public class VaultBeacon extends Spell {
 	}
 
 
+
+
 	{
 		image = ConsumScrollAmuletCrystalDict.RETURN_BEACON_0;
 

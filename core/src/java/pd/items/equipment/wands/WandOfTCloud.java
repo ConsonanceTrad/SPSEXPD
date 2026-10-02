@@ -46,11 +46,13 @@ public class WandOfTCloud extends Wand {
 			.t("desc", "这根_电属性_法杖由一种导电金属制成，法杖顶端有一朵迷你乌云。很庆幸的是，握在手上并不会令人难受。")
 			.t("stats_desc", "这根法杖能在目标地点制造电流。充能达到十点时，则会召唤一朵自动攻击的雷云。")
 			.t("more_charge", "目前的充能数无法召唤雷云。")
-			.t("tcloud.name", "雷云")
-			.t("tcloud.desc", "一朵噼啪放电、会自动攻击敌人的雷云。")
-			.t("stcloud.name", "KEKE")
-			.t("stcloud.desc", "KEKE_IS_MOVE，MOB_WILL_DEAD。");
+			.t("$tcloud.name", "雷云")
+			.t("$tcloud.desc", "一朵噼啪放电、会自动攻击敌人的雷云。")
+			.t("$stcloud.name", "KEKE")
+			.t("$stcloud.desc", "KEKE_IS_MOVE，MOB_WILL_DEAD。");
 	}
+
+
 
 
 	public static final int SUMMON_CHARGE = 10;

@@ -18,6 +18,8 @@ public class Bmech extends RockCode {
 			.t("stats_desc", "消耗4点能量中的1点，在目标位置引爆一枚地城炸弹。");
 	}
 
+
+
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "B.m"; }
 	@Override protected int missileType() { return MagicMissile.FIRE; }
 	@Override protected void onZap(Ballistica bolt) { new DungeonBomb().explode(bolt.collisionPos); }

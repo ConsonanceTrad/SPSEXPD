@@ -73,13 +73,15 @@ public class WndBlacksmith extends Window {
 			.t("cashout_verify", "行，这是%d金币。之后你就别再来找我干活了！")
 			.t("cashout_yes", "给我金币。")
 			.t("cashout_no", "算了。")
-			.t("wndreforge.message", "行，我可以重铸两件鉴定过的同种物品。较差的那件会报废以升级更好的那件。要是它们等级都一样，我会保留左侧槽位那件。")
-			.t("wndreforge.prompt", "选择要重铸的物品")
-			.t("wndreforge.reforge", "重铸物品")
-			.t("hardenselector.prompt", "选择要硬化的物品")
-			.t("upgradeselector.prompt", "选择要升级的物品")
-			.t("wndsmith.prompt", "行，这些就是我能锻造的装备了。锻炉已经烧热了，所以你赶紧给我选。");
+			.t("$wndreforge.message", "行，我可以重铸两件鉴定过的同种物品。较差的那件会报废以升级更好的那件。要是它们等级都一样，我会保留左侧槽位那件。")
+			.t("$wndreforge.prompt", "选择要重铸的物品")
+			.t("$wndreforge.reforge", "重铸物品")
+			.t("$hardenselector.prompt", "选择要硬化的物品")
+			.t("$upgradeselector.prompt", "选择要升级的物品")
+			.t("$wndsmith.prompt", "行，这些就是我能锻造的装备了。锻炉已经烧热了，所以你赶紧给我选。");
 	}
+
+
 
 
 	private static final int WIDTH_P = 120;

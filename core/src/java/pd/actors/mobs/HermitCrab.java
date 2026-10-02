@@ -36,6 +36,8 @@ public class HermitCrab extends Crab {
 	}
 
 
+
+
 	{
 		spriteClass = HermitCrabSprite.class;
 

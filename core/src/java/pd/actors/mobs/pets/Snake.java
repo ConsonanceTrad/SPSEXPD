@@ -18,6 +18,8 @@ public class Snake extends PET {
 			.t("desc", "这条蛇过去常常和它的兄弟在月光的柔和光辉下享受生活，直到它决定跟随流浪的欲望进入伟大的未知世界。");
 	}
 
+
+
 	{ spriteClass=NewSnakeSprite.class;cooldown=50;properties.add(Property.BEAST);updateStats(true); }
 	@Override protected Kind kind(){return Kind.SNAKE;}
 	@Override public boolean lovefood(Item item){return item instanceof PetFood||item instanceof MeatFood;}

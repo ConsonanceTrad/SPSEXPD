@@ -22,6 +22,8 @@ public class SokobanSentinel extends Mob {
 			.t("desc", "一种没有思维、行动缓慢的幻影，手持幻影_%s_，会攻击进入守卫区域的生物。");
 	}
 
+
+
 	private Weapon weapon;
 
 	{

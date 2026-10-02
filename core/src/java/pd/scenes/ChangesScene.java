@@ -89,6 +89,8 @@ public class ChangesScene extends PixelScene {
 			.t("spsex_body2", "- _背包与装备重构_：主背包 35 格（5x7）、装备区两排（主/副武器、主/副护甲、5 通用饰品槽、徽章槽）；\n- _包裹袋_：容量统一 34（打开 9 行满格）、重复拾取折算暗金；\n- _三区快捷栏_：18 槽固定段 + 左右侧栏数量可调；\n- _融合职业原创立绘_与新主菜单（恶魔刀锋继续按钮、三来源标签页）；\n- _BUG 修复_：钥匙拾取崩溃、水边缘渲染错位、UI 线程崩溃等。");
 	}
 
+
+
 	
 	public static int changesSelected = 0;
 	//SPS: 三来源标签页（0=PD 破碎 1=SPS 特别惊喜 2=SPSEX 移植版）；默认展示 SPSEX

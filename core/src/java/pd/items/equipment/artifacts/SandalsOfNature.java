@@ -90,6 +90,8 @@ public class SandalsOfNature extends Artifact {
 	}
 
 
+
+
 	{
 		image = EquipmentJewelleryArtifactDict.ARTIFACT_SANDALS;
 		levelCap = 10;

@@ -14,6 +14,8 @@ public class FruitCat extends TownNpc {
 			.t("yell2", "信不信由你，在椰子离开之前，他没有带任何东西，只是把它们堆起来让它们吔尘！无论如何，你可能比我更需要它们。");
 	}
 
+
+
 	public FruitCat() {
 		configure(Spec.FRUIT_CAT);
 		spriteClass = pd.sprites.FruitCatSprite.class;

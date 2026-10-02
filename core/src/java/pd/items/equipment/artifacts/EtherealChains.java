@@ -80,8 +80,10 @@ public class EtherealChains extends Artifact {
 			.t("desc", "这些巨大但轻盈的锁链散发着灵魂能量。它们可以用来把你拉向一些地形，或将敌人拉向你。无实体的天然特质甚至可以允许其穿透墙壁！")
 			.t("desc_cursed", "被诅咒的锁链将自己锁在了你的身边，不断地在周围晃动，试图绊倒或绑住你。")
 			.t("desc_equipped", "锁链围绕在你的身边，缓慢地收集被你击败者的精神能量。每一发充能都是锁链中的一环，每一个环节都能正好延长一格。")
-			.t("chainsrecharge.levelup", "你的锁链变得更强大了！");
+			.t("$chainsrecharge.levelup", "你的锁链变得更强大了！");
 	}
+
+
 
 
 	public static final String AC_CAST       = "CAST";

@@ -17,6 +17,8 @@ public class FireMeat extends Food {
 	}
 
 
+
+
 	private static final ItemSprite.Glowing RED = new ItemSprite.Glowing(0xCC0000);
 
 	{

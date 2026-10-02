@@ -15,6 +15,8 @@ public class Evan extends TownNpc {
 			.t("yell3", "我需要尽我全力来使破碎地牢更加好玩，更加有趣，更加合理，更加有挑战性。");
 	}
 
+
+
 	public Evan() {
 		configure(Spec.EVAN);
 		spriteClass = pd.sprites.EvanSprite.class;

@@ -98,6 +98,8 @@ public class DM300 extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = DM300Sprite.class;
 

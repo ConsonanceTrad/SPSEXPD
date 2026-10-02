@@ -19,6 +19,8 @@ public class MossAmmo extends SpAmmo {
 			.t("desc", "将原石和毒药种锻造而成的特殊子弹，能使武器附带毒液伤害。");
 	}
 
+
+
 	private static final ItemSprite.Glowing PURPLE = new ItemSprite.Glowing(0x8844CC);
 	@Override public ItemSprite.Glowing glowing() { return PURPLE; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {

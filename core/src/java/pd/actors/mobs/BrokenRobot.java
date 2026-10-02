@@ -29,6 +29,8 @@ public class BrokenRobot extends SpsDM300.BrokenRobot {
 	}
 
 
+
+
 	{
 		viewDistance = Light.DISTANCE;
 		loot = ScrollOfRecharging.class;

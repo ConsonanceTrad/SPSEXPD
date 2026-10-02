@@ -14,6 +14,8 @@ public class RainTrainer extends TownNpc {
 			.t("yell2", "你可以用那个稻草人练手,不用担心,它很结实。");
 	}
 
+
+
 	public RainTrainer() {
 		configure(Spec.RAIN_TRAINER);
 		spriteClass = pd.sprites.RainSprite.class;

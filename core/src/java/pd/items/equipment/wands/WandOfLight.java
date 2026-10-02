@@ -34,6 +34,8 @@ public class WandOfLight extends DamageWand {
 	}
 
 
+
+
 	{
 		image = EquipmentWandBasicWandDict.WAND_LIGHT;
 		collisionProperties = Ballistica.STOP_CHARS;

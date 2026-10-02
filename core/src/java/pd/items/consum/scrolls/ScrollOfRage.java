@@ -47,6 +47,8 @@ public class ScrollOfRage extends Scroll {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.SCROLL_RAGE;
 	}

@@ -62,6 +62,8 @@ public class Burning extends Buff implements Hero.Doom, Buff.DOTbuff {
 			.t("desc", "没什么比被火焰吞没更痛苦了。\n\n火焰每回合都会造成伤害，直到它被液体扑灭或者自行消散。火会在你进入水中时熄灭，打碎药瓶产生的水花也具有同样的效果。\n\n此外，火焰还会点燃所有接触到的可燃地形与可燃物。\n\n燃烧效果剩余时长：%s回合");
 	}
 
+
+
 	
 	private static final float DURATION = 8f;
 	

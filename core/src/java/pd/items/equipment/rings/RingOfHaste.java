@@ -39,6 +39,8 @@ public class RingOfHaste extends Ring {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.RING_HASTE;
 		buffClass = Haste.class;

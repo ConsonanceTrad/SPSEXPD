@@ -34,6 +34,8 @@ public class ScaleArmor extends Armor {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipArmorBasicArmorDict.ARMOR_SCALE_0;
 	}

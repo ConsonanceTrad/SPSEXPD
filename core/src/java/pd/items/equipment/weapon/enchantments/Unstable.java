@@ -38,6 +38,8 @@ public class Unstable extends Weapon.Enchantment {
 	}
 
 
+
+
 	private static ItemSprite.Glowing GREY = new ItemSprite.Glowing( 0x999999 );
 
 	private static Class<?extends Weapon.Enchantment>[] randomEnchants = new Class[]{

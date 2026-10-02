@@ -39,6 +39,8 @@ public class PotionOfToxicGas extends Potion {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.POTION_TOXICGAS;
 	}

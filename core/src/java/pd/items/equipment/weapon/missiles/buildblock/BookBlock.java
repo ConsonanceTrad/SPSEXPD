@@ -10,4 +10,6 @@ public class BookBlock extends LegacyBuildBlock {
 			.t("name", "书架方块")
 			.t("desc", "投掷后会筑起书架的回收方块。");
 	}
+
+
  public BookBlock(){super(Terrain.BOOKSHELF,SpecificPlaceHolderDict.SCROLL_HOLDER_0);} }

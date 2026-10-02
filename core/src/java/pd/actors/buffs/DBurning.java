@@ -20,6 +20,8 @@ public class DBurning extends Buff implements Hero.Doom, Buff.DOTbuff {
 			.t("desc", "猛烈的魔法火焰会按照目标的生命上限持续造成伤害。\n\n剩余时间：%s回合。");
 	}
 
+
+
 	private static final String LEFT = "left";
 	private float left;
 

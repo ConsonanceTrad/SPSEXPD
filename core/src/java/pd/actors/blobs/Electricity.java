@@ -48,6 +48,8 @@ public class Electricity extends Blob {
 			.t("ondeath", "你因触电而亡...");
 	}
 
+
+
 	
 	{
 		//acts after mobs, to give them a chance to resist paralysis

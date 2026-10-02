@@ -10,6 +10,8 @@ public class PowerChallenge extends ChallengeList {
 			.t("desc", "三大试炼之一。它将测试你的力量，让你在源源不断的大军中存活下来。");
 	}
 
+
+
 	{ image = SpecificTaskDict.POWER_CHALLENGE; }
 	@Override public int challenge() { return 6; }
 }

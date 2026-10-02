@@ -79,6 +79,8 @@ public class Ring extends KindofMisc {
 			.t("moonstone", "月石戒指");
 	}
 
+
+
 	
 	protected Buff buff;
 	protected Class<? extends RingBuff> buffClass;

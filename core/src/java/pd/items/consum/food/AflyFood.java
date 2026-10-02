@@ -17,6 +17,8 @@ public class AflyFood extends Food {
 			.t("desc", "阿飞特制的不思议饭团，拥有另一个世界的力量。\n让阿飞制作。");
 	}
 
+
+
 	{
 		image = ConsumFoodFoodDict.AFLY_FOOD;
 		energy = 200f;

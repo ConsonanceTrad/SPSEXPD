@@ -18,6 +18,8 @@ public class StoneOre extends Item {
 	}
 
 
+
+
 	{
 		image = SpecificTaskDict.ORE_0;
 		stackable = true;

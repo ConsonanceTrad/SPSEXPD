@@ -21,6 +21,8 @@ public class TarGas extends Blob {
 			.t("desc", "这里盘绕着粘稠油雾，会在接触到的生物身上凝结出焦油。");
 	}
 
+
+
 	@Override
 	protected void evolve() {
 		super.evolve();

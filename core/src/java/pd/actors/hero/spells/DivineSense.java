@@ -45,9 +45,11 @@ public class DivineSense extends ClericSpell {
 			.t("name", "神圣感知")
 			.t("short_desc", "短时间内获得大范围的灵视感知。")
 			.t("desc", "牧师将其感知集中在周遭环境上，获得持续50回合，%d格范围的灵视感知。该法术施法不耗时。")
-			.t("divinesensetracker.name", "神圣感知")
-			.t("divinesensetracker.desc", "该单位暂时能以其灵视感知看到附近其他生物！\n\n剩余回合数：%s");
+			.t("$divinesensetracker.name", "神圣感知")
+			.t("$divinesensetracker.desc", "该单位暂时能以其灵视感知看到附近其他生物！\n\n剩余回合数：%s");
 	}
+
+
 
 
 	public static final DivineSense INSTANCE = new DivineSense();

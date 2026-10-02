@@ -16,6 +16,8 @@ public class DemonRabbit extends SpsHallsMobs.DemonRabbit {
 	}
 
 
+
+
 	{
 		spriteClass = DemonRabbitSprite.class;
 		properties.add(Property.ORC);

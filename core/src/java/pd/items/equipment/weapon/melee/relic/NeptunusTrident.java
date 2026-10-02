@@ -24,6 +24,8 @@ public class NeptunusTrident extends RelicMeleeWeapon {
 	}
 
 
+
+
 	public static final String AC_FLOOD = "FLOOD";
 
 	public NeptunusTrident() {

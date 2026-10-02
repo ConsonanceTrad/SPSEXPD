@@ -41,6 +41,8 @@ public class WarScythe extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.WAR_SCYTHE_0;
 		hitSound = Assets.Sounds.HIT_SLASH;

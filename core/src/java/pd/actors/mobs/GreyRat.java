@@ -34,6 +34,8 @@ public class GreyRat extends Mob {
 	}
 
 
+
+
 	private static final float SPAWN_DELAY = 2f;
 
 	{

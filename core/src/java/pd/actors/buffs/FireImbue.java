@@ -41,6 +41,8 @@ public class FireImbue extends Buff {
 			.t("desc", "你被灌注了烈焰的力量！\n\n所有物理攻击都有机会使敌人燃烧。与此同时你对火焰完全免疫。\n\n烈焰之力剩余时长：%s回合");
 	}
 
+
+
 	
 	{
 		type = buffType.POSITIVE;

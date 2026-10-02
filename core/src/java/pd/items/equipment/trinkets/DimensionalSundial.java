@@ -42,6 +42,8 @@ public class DimensionalSundial extends Trinket {
 	}
 
 
+
+
 	{
 		image = EquipmentNonEquipDict.SUNDIAL_0;
 	}

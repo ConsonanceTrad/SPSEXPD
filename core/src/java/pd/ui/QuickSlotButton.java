@@ -52,6 +52,8 @@ public class QuickSlotButton extends Button {
 			.t("select_item", "选择放入快捷栏的物品");
 	}
 
+
+
 	
 	private static QuickSlotButton[] instance = new QuickSlotButton[QuickSlot.SIZE];
 	private int slotNum;

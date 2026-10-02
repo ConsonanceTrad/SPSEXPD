@@ -31,6 +31,8 @@ public class WndAflyInfo extends WndSpsRecipe {
 			.t("cancel", "取消");
 	}
 
+
+
 	public WndAflyInfo() { super(new AflyFood(), 0); }
 	@Override protected int goldCost() { return 0; }
 	@Override protected boolean accepts(Item item) {

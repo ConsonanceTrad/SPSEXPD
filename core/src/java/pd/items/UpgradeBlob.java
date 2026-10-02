@@ -24,6 +24,8 @@ public abstract class UpgradeBlob extends Item {
 	}
 
 
+
+
 	private static final String AC_APPLY = "APPLY";
 
 	{

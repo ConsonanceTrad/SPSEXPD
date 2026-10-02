@@ -76,6 +76,8 @@ public class WelcomeScene extends PixelScene {
 	}
 
 
+
+
 	private static final int LATEST_UPDATE = ShatteredPixelDungeon.v4_0_0;
 
 	//used so that the game does not keep showing the window forever if cleaning fails

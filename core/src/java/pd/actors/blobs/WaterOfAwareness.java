@@ -51,6 +51,8 @@ public class WaterOfAwareness extends WellWater {
 	}
 
 
+
+
 	@Override
 	protected boolean affectHero( Hero hero ) {
 		

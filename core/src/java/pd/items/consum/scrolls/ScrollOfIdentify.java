@@ -50,6 +50,8 @@ public class ScrollOfIdentify extends InventoryScroll {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.SCROLL_IDENTIFY;
 

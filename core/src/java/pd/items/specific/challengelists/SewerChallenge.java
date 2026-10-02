@@ -9,6 +9,8 @@ public class SewerChallenge extends ChallengeList {
 			.t("name", "下水道挑战");
 	}
 
+
+
 	{ image = SpecificTaskDict.SEWER_CHALLENGE_0; }
 	@Override public int challenge() { return 0; }
 }

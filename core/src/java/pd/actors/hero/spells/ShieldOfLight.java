@@ -50,9 +50,11 @@ public class ShieldOfLight extends TargetedClericSpell {
 			.t("name", "神圣护盾")
 			.t("short_desc", "获得仅对单个目标生效的临时护甲。")
 			.t("desc", "牧师在自身与敌人间创造了一面薄弱的圣盾，增加其护甲对该敌人持续5回合的%1$d~%2$d点防御。\n\n该法术施法不耗时，但不能同时对多个目标使用。")
-			.t("shieldoflighttracker.name", "神圣护盾")
-			.t("shieldoflighttracker.desc", "一面薄弱的圣盾立于该单位与敌人之间。圣盾的强度不足以完全防御攻击，但能将其减弱。\n\n剩余回合数：%s");
+			.t("$shieldoflighttracker.name", "神圣护盾")
+			.t("$shieldoflighttracker.desc", "一面薄弱的圣盾立于该单位与敌人之间。圣盾的强度不足以完全防御攻击，但能将其减弱。\n\n剩余回合数：%s");
 	}
+
+
 
 
 	public static ShieldOfLight INSTANCE = new ShieldOfLight();

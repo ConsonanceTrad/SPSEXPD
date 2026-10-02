@@ -20,6 +20,8 @@ public class MindArrow extends MissileWeapon {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		tier = 1;

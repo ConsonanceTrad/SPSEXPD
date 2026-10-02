@@ -14,6 +14,8 @@ public class Muscle extends FlavourBuff {
 			.t("desc", "力量提高2点。\n\n剩余效果时长：%s回合。");
 	}
 
+
+
 	{ type = buffType.POSITIVE; announced = true; }
 	@Override public int icon() { return BuffIndicator.FURY; }
 	@Override public String desc() { return Messages.get(this, "desc", dispTurns()); }

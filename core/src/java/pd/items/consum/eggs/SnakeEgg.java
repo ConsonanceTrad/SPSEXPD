@@ -9,4 +9,6 @@ public class SnakeEgg extends Egg {
 			.t("name", "毒蛇之魂")
 			.t("desc", "召唤毒蛇。");
 	}
+
+
 {image=ConsumSummorDict.SNAKE_PET_EGG_0;}@Override protected LegacyPet hatchling(){return new Snake();}@Override public int value(){return 500*quantity;}}

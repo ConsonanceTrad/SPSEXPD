@@ -51,6 +51,8 @@ public class Sheep extends NPC {
 	}
 
 
+
+
 	@Override public Item SupercreateLoot() { return new SheepFur(); }
 
 	private static final String[] LINE_KEYS = {"Baa!", "Baa?", "Baa.", "Baa..."};

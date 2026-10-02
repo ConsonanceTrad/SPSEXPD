@@ -13,5 +13,7 @@ public class BrewLeft extends Vegetable {
 			.t("desc", "酿造后留下的可食用残渣。营养不多，但浪费食物更加可惜。");
 	}
 
+
+
 	{ image = ConsumPotionSeedBasicPotionDict.BREW_LEFT; energy = Hunger.HUNGRY / 10f; hornValue = 0; }
 }

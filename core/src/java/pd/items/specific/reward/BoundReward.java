@@ -37,6 +37,8 @@ public class BoundReward extends Item {
 	}
 
 
+
+
 	public static final String AC_WEAPON = "WEAPON";
 	public static final String AC_FOOD = "FOOD";
 	public static final String AC_POTION = "POTION";

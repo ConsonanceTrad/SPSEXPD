@@ -14,6 +14,8 @@ public class Lance extends NormalMeleeWeapon {
 			.t("desc", "结实的铁棒连接着巨大圆锥，形成了这么一件武器。——Hmdzl001 \n穿刺");
 	}
 
+
+
 	public Lance() { super(5, 1f, 1f, 1, 35, 44, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) { s.min++; s.max += 3; }
 	@Override public int proc(Char attacker, Char defender, int damage) {

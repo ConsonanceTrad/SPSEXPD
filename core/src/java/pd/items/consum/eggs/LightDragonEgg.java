@@ -15,6 +15,8 @@ public class LightDragonEgg extends Egg {
 			.t("desc", "黑暗所孕化的龙之灵魂。");
 	}
 
+
+
 	{ image = ConsumSummorDict.LIGHT_DRAGON_EGG_0; darks = 20; }
 	@Override protected LegacyPet hatchling() { return new LightDragon(); }
 	@Override public int value() { return 500 * quantity; }

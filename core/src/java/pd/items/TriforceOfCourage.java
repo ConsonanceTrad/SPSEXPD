@@ -9,5 +9,7 @@ public class TriforceOfCourage extends TriforcePiece {
 			.t("desc", "起源三角的一部分，代表着勇气。");
 	}
 
+
+
 	@Override protected void collected() { Dungeon.triforceOfCourage = true; }
 }

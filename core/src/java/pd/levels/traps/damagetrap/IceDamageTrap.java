@@ -8,4 +8,6 @@ public class IceDamageTrap extends ElementalDamageTrap {
 			.t("name", "冰伤陷阱")
 			.t("desc", "会释放冰属性伤害的陷阱。");
 	}
+
+
  public IceDamageTrap(){ super(TEAL, LARGE_DOT, IceEffectDamage.class, 1, 10); } }

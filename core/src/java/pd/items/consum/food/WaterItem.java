@@ -27,6 +27,8 @@ public class WaterItem extends Food {
 	}
 
 
+
+
 	{
 		image = GroundFunctionalFallingDict.DEWDROP_0;
 		energy = 1f;

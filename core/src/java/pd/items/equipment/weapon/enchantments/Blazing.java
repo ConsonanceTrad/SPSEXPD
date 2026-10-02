@@ -42,6 +42,8 @@ public class Blazing extends Weapon.Enchantment {
 	}
 
 
+
+
 	private static ItemSprite.Glowing ORANGE = new ItemSprite.Glowing( 0xFF4400 );
 	
 	@Override

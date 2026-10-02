@@ -16,6 +16,8 @@ public class AcidWater extends SpsEffectBlob {
 			.t("desc", "SPS酸蚀场会在三回合内让生物与物品沾上淤泥。");
 	}
 
+
+
 	@Override protected void affect(Char target) { Buff.affect(target, Ooze.class).set(3f); }
 	@Override protected void affect(Heap heap) { heap.earthhit(); }
 	@Override public void use(BlobEmitter emitter) { super.use(emitter); emitter.pour(AcidPoolParticle.FACTORY, 0.1f); }

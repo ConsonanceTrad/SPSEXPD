@@ -13,6 +13,8 @@ public class Ricefood extends CompleteFood {
 			.t("desc", "有些时候精制米饭味道更好。\n使用_1份主食、1份水_炼金。");
 	}
 
+
+
 	{ image = ConsumFoodFoodDict.RICE_FOOD; energy = 450f; }
 	@Override public int value() { return 3 * quantity; }
 }

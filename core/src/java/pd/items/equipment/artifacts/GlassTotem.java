@@ -31,6 +31,8 @@ public class GlassTotem extends Artifact {
 	}
 
 
+
+
 	public static final String AC_ATK = "ATK";
 	public static final String AC_DEF = "DEF";
 	public static final int FULL_CHARGE = 100;

@@ -55,6 +55,8 @@ public class CorpseDust extends Item {
 			.t("discover_hint", "你可在某个任务中找到该物品。");
 	}
 
+
+
 	
 	{
 		image = ConsumThrowsDict.RICE_BALL;

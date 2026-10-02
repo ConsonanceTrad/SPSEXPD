@@ -45,9 +45,11 @@ public class Blocking extends Weapon.Enchantment {
 			.t("name", "招架%s")
 			.t("desc", "招架附魔的武器在攻击后有几率短暂为你提供保护。")
 			.t("elestrike_desc", "武器拥有招架附魔时，元素打击范围内每有一个敌人，决斗家就会获得6点护盾。")
-			.t("blockbuff.name", "招架")
-			.t("blockbuff.desc", "你的武器的招架附魔短时间内增强了你的防御能力！\n\n护盾剩余：%d\n\n剩余时间：%s");
+			.t("$blockbuff.name", "招架")
+			.t("$blockbuff.desc", "你的武器的招架附魔短时间内增强了你的防御能力！\n\n护盾剩余：%d\n\n剩余时间：%s");
 	}
+
+
 
 	
 	private static ItemSprite.Glowing BLUE = new ItemSprite.Glowing( 0x0000FF );

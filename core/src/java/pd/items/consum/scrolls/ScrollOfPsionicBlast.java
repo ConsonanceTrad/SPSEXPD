@@ -24,6 +24,8 @@ public class ScrollOfPsionicBlast extends Scroll {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.SCROLL_PSIBLAST;
 		consumedValue = 10;

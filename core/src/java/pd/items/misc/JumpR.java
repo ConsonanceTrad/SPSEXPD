@@ -34,6 +34,8 @@ public class JumpR extends Item {
 			.t("desc", "盗贼缺乏跳跃训练，只能跳跃至多两格，但会获得短暂漂浮，并有60%%概率隐身5回合。");
 	}
 
+
+
 	public static final String AC_JUMP = "JUMP";
 	public static final int FULL_CHARGE = 40;
 	public static final int JUMP_COST = 10;

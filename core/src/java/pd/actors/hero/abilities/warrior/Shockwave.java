@@ -58,6 +58,8 @@ public class Shockwave extends ArmorAbility {
 	}
 
 
+
+
 	{
 		baseChargeUse = 35f;
 	}

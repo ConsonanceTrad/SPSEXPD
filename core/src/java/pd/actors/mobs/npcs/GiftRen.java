@@ -29,6 +29,8 @@ public class GiftRen extends GiftNpc {
 			.t("reward5", "嚄……谢谢你一直以来的礼物。穿上这件衣服之后，能够“防止”你被其他世界的REN袭击。");
 	}
 
+
+
 	{
 		properties.add(Property.ELF);
 	}

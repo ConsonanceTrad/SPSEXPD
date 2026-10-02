@@ -25,6 +25,8 @@ public class Virus extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = ErrorSprite.class;
 		Hero hero = Dungeon.hero;

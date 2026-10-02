@@ -26,6 +26,8 @@ public class RiceBall extends Arrows {
 	}
 
 
+
+
 	public static final float DURATION = 10f;
 
 	{

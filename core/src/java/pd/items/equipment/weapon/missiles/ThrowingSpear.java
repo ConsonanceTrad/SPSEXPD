@@ -34,6 +34,8 @@ public class ThrowingSpear extends MissileWeapon {
 			.t("desc", "这些有着非常纤细的木杆的轻便短矛是一种投掷武器，不适合用于近战。");
 	}
 
+
+
 	
 	{
 		image = ConsumThrowsDict.THROWING_SPEAR_0;

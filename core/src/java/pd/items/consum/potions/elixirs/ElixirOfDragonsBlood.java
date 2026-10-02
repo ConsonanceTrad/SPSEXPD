@@ -40,6 +40,8 @@ public class ElixirOfDragonsBlood extends Elixir {
 			.t("desc", "饮用后，这瓶秘药会使饮用者的血管里充斥着烈焰的力量。这个效果能让饮用者对火焰完全免疫，并且还能通过物理攻击点燃敌人。");
 	}
 
+
+
 	
 	{
 		image = ConsumPotionSeedBasicPotionDict.ELIXIR_DRAGON_0;

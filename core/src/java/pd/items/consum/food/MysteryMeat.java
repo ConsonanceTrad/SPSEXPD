@@ -49,8 +49,10 @@ public class MysteryMeat extends Food {
 			.t("stuffed", "你吃撑了。")
 			.t("desc", "想吃可以，后果自腹！")
 			.t("discover_hint", "你可从某种敌人的掉落物中获得该物品。")
-			.t("placeholder.name", "肉");
+			.t("$placeholder.name", "肉");
 	}
+
+
 
 
 	{

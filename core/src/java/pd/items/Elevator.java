@@ -22,6 +22,8 @@ public class Elevator extends Item {
 			.t("ac_down", "下楼");
 	}
 
+
+
 	public static final String AC_UP = "UP";
 	public static final String AC_DOWN = "DOWN";
 

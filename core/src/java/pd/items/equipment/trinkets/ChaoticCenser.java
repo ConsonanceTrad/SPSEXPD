@@ -67,6 +67,8 @@ public class ChaoticCenser extends Trinket {
 	}
 
 
+
+
 	{
 		image = EquipmentNonEquipDict.CHAOTIC_CENSER_0;
 	}

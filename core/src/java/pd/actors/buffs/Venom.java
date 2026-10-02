@@ -14,6 +14,8 @@ public class Venom extends Poison {
 			.t("desc", "剧毒在体内滞留得越久，造成的伤害就越高。\n\n剧毒效果剩余：%1$s回合。\n当前剧毒伤害：%2$d。");
 	}
 
+
+
 	private static final String DAMAGE = "damage";
 
 	private int damage = 1;

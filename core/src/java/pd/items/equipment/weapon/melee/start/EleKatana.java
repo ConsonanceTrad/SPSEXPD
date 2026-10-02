@@ -43,6 +43,8 @@ public class EleKatana extends NormalMeleeWeapon {
 	}
 
 
+
+
 	public static final String AC_ZAP = "ZAP";
 	public static final int ZAP_COST = 10;
 	private static final String CHARGE = "charge";

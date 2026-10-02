@@ -57,6 +57,8 @@ public class VaultSentry extends NPC {
 	}
 
 
+
+
 	{
 		spriteClass = SentrySprite.VaultScan.class;
 

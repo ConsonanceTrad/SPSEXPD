@@ -15,6 +15,8 @@ public class Goei extends SpsSpecialMeleeWeapon {
 			.t("desc", "一把驱魔御币，博丽的巫女常用它来治退妖魔鬼怪。——REN\n除秽，积蓄");
 	}
 
+
+
 	private static final String CHARGE = "charge";
 	private int charge;
 

@@ -14,6 +14,8 @@ public class Juh9870 extends TownNpc {
 			.t("yell2", "所以...我希望我能在这找到更多有意义的东西。");
 	}
 
+
+
 	public Juh9870() {
 		configure(Spec.JUH9870);
 		spriteClass = pd.sprites.Juh9870Sprite.class;

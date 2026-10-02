@@ -18,6 +18,8 @@ public class Playericon extends Item {
 			.t("desc", "通过尚未完成的BossRush后得到的奖励，看起来和这场挑战一样粗糙。");
 	}
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = true;

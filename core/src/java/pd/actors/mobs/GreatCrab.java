@@ -47,6 +47,8 @@ public class GreatCrab extends Crab {
 	}
 
 
+
+
 	{
 		spriteClass = GreatCrabSprite.class;
 

@@ -37,6 +37,8 @@ public class ChillingDart extends TippedDart {
 			.t("desc", "这些飞镖上涂着一种由冰冠花制成的药物，能显著地冻伤目标。");
 	}
 
+
+
 	
 	{
 		image = ConsumThrowsDict.CHILLING_DART_0;

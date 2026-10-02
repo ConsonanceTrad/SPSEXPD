@@ -17,6 +17,8 @@ public class RealgarWine extends Pill {
 			.t("desc", "提供火焰抗性和剧毒抗性。\n使用_1份水，1份烈焰花种子，1份地缚根种子_炼金");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected void onUse(Hero hero) {
 		Buff.affect(hero, FireImbue.class).set(FireImbue.DURATION);

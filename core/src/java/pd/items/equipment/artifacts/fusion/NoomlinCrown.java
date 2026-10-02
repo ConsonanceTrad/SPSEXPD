@@ -16,6 +16,8 @@ public class NoomlinCrown extends Artifact {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		levelCap = 1;

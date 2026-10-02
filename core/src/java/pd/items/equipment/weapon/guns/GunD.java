@@ -12,6 +12,8 @@ public class GunD extends GunWeapon {
 			.t("desc", "出自皇家工坊的精准滑膛枪械，被投入矮人城区的战争环境进行测试。");
 	}
 
+
+
 	{ image = EquipmentEquipWeaponBasicWeaponDict.GUN_4; }
 	public GunD() { super(4, 5); }
 }

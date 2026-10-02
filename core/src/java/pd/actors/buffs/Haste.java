@@ -33,6 +33,8 @@ public class Haste extends FlavourBuff {
 			.t("desc", "强大的能量灌入到你的双腿肌肉上，允许你以不可思议的速度移动！\n\n在极速状态下，你将拥有3倍的移动速度，但是其他行动速度仍然和原来一样。\n\n极速效果剩余时长：%s回合");
 	}
 
+
+
 	
 	{
 		type = buffType.POSITIVE;

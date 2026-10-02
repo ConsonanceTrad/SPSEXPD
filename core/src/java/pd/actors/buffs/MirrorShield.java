@@ -14,6 +14,8 @@ public class MirrorShield extends FlavourBuff {
 			.t("desc", "接下来%s回合内免疫所受伤害，并将其中一部分反射给攻击者。");
 	}
 
+
+
 	{ type = buffType.POSITIVE; announced = true; }
 	@Override public int icon(){ return BuffIndicator.ARMOR; }
 	@Override public String desc(){ return Messages.get(this,"desc",dispTurns()); }

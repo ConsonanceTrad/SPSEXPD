@@ -20,6 +20,8 @@ public class Zshield extends RockCode {
 			.t("stats_desc", "消耗4点能量中的1点，造成等级黑暗伤害，并获得英雄等级5倍的护盾。");
 	}
 
+
+
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "Z.s"; }
 	@Override protected int missileType() { return MagicMissile.SHADOW; }
 	@Override protected void onZap(Ballistica bolt) {

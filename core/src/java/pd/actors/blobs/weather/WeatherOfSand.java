@@ -13,6 +13,8 @@ public class WeatherOfSand extends SpsWeather {
 			.t("desc", "这里飞扬着沙尘，会使生物干燥并降低伤害。");
 	}
 
+
+
 	@Override protected void affectHero(){ Buff.prolong(Dungeon.hero, Dry.class, Dry.DURATION); Buff.detach(Dungeon.hero, Wet.class); }
 	@Override protected Emitter.Factory particle(){ return SandParticle.FACTORY; }
 	@Override protected float interval(){ return 0.5f; }

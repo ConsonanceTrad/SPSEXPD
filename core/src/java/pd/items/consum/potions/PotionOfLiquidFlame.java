@@ -40,6 +40,8 @@ public class PotionOfLiquidFlame extends Potion {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.POTION_LIQFLAME;
 	}

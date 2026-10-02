@@ -34,6 +34,8 @@ public class SmokeScreen extends Blob {
 			.t("desc", "这里翻腾着一团浓密的黑烟。");
 	}
 
+
+
 	
 	@Override
 	public void use( BlobEmitter emitter ) {

@@ -84,8 +84,10 @@ abstract public class MissileWeapon extends Weapon {
 			.t("break_upgraded_warn_desc", "如果一组投掷武器的最后一件损坏，这组投掷武器就会永远消失。你确定还要投掷这件武器吗？")
 			.t("break_upgraded_warn_yes", "确定")
 			.t("break_upgraded_warn_no", "算了")
-			.t("placeholder.name", "投掷武器");
+			.t("$placeholder.name", "投掷武器");
 	}
+
+
 
 
 	{

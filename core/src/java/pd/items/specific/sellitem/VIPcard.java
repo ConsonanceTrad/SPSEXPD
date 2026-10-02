@@ -13,6 +13,8 @@ public class VIPcard extends SellItem {
 			.t("desc", "来自另一个时空的卡片，上面印着一位导师的名字。");
 	}
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = true;

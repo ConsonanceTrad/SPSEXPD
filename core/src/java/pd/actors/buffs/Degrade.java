@@ -38,6 +38,8 @@ public class Degrade extends FlavourBuff {
 	}
 
 
+
+
 	public static final float DURATION = 30f;
 	
 	{

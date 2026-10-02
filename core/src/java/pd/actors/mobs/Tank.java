@@ -49,6 +49,8 @@ public class Tank extends Mob {
 	}
 
 
+
+
 	private static final int JUMP_DELAY = 20;
 	private int timeToJump = JUMP_DELAY;
 	private boolean rock = true;

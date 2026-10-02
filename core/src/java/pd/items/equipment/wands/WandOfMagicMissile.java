@@ -29,9 +29,11 @@ public class WandOfMagicMissile extends DamageWand {
 			.t("bmage_desc", "当_战斗法师_以魔弹魔杖近战攻击目标时，魔杖外的所有的法杖都会恢复一定的充能。")
 			.t("eleblast_desc", "魔弹魔杖的元素风暴造成50%伤害，并使法师获得15回合的法杖充能效果。")
 			.t("discover_hint", "某位英雄初始携带该物品。")
-			.t("magiccharge.name", "魔力强化")
-			.t("magiccharge.desc", "你的魔弹法杖向其他法杖回馈了一股能量，提升着下一次施法的有效等级。\n\n其他法杖被强化至：+%d\n\n剩余的魔力强化时长：%s回合");
+			.t("$magiccharge.name", "魔力强化")
+			.t("$magiccharge.desc", "你的魔弹法杖向其他法杖回馈了一股能量，提升着下一次施法的有效等级。\n\n其他法杖被强化至：+%d\n\n剩余的魔力强化时长：%s回合");
 	}
+
+
 
 
 	{

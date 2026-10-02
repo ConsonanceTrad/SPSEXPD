@@ -45,6 +45,8 @@ public class ScrollOfMagicMapping extends Scroll {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.SCROLL_MAGICMAP;
 	}

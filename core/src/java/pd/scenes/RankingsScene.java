@@ -64,6 +64,8 @@ public class RankingsScene extends PixelScene {
 			.t("no_info", "没有额外信息");
 	}
 
+
+
 	
 	private static final float ROW_HEIGHT_MAX	= 20;
 	private static final float ROW_HEIGHT_MIN	= 12;

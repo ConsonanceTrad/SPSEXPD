@@ -51,6 +51,8 @@ public class PotionOfMastery extends ExoticPotion {
 			.t("desc", "这个合剂不会直接增强你的力量，但却会为你建立使用特定物品的肌肉记忆。使你对其的运用更加得心应手，仿佛已经练习了千百遍。\n\n所选武器或护甲所需要的力量减少2点。此合剂在每个物品上只能使用一次。");
 	}
 
+
+
 	
 	{
 		icon = ItemIconSheet.POTION_MASTERY;

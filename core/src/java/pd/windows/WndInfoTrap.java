@@ -35,6 +35,8 @@ public class WndInfoTrap extends WndTitledMessage {
 	}
 
 
+
+
 	public WndInfoTrap(Trap trap) {
 
 		super(TerrainFeaturesTilemap.tile( trap.pos, Dungeon.level.map[trap.pos]),

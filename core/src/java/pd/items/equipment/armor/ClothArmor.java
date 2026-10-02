@@ -35,6 +35,8 @@ public class ClothArmor extends Armor {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipArmorBasicArmorDict.ARMOR_CLOTH_0;
 

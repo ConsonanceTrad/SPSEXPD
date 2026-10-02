@@ -52,6 +52,8 @@ public class GnollExile extends Gnoll {
 	}
 
 
+
+
 	//has 2x HP, +50% other stats, and +1 reach vs. a regular gnoll scout
 	//in exchange, they do not aggro automatically, and drop extra loot
 

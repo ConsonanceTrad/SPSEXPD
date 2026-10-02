@@ -37,6 +37,8 @@ public class JumpW extends Item {
 			.t("desc", "战士的冲锋训练使其可以跳跃至多五格。落点周围的每个单位都有70%%概率被麻痹。");
 	}
 
+
+
 	public static final String AC_JUMP = "JUMP";
 	public static final int FULL_CHARGE = 55;
 	public static final int JUMP_COST = 25;

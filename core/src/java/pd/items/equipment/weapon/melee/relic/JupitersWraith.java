@@ -26,6 +26,8 @@ public class JupitersWraith extends RelicMeleeWeapon {
 	}
 
 
+
+
 	public static final String AC_EXPLODE = "EXPLODE";
 
 	public JupitersWraith() {

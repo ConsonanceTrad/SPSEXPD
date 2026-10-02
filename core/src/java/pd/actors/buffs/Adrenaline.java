@@ -33,6 +33,8 @@ public class Adrenaline extends FlavourBuff {
 			.t("desc", "由肾上腺素带来的纯粹的潜能爆发，激素涌动能够增强一名角色的移动和攻击速度。\n\n激素涌动允许角色拥有2倍的移动速度和1.5倍的攻击速度。\n\n激素涌动持续时间：%s回合");
 	}
 
+
+
 	
 	{
 		type = buffType.POSITIVE;

@@ -58,6 +58,8 @@ public class ArcaneResin extends Item {
 	}
 
 
+
+
 	{
 		image = ConsumScrollAmuletScrollDict.ARCANE_RESIN;
 

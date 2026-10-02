@@ -19,6 +19,8 @@ public class GreenSpore extends Pill {
 			.t("desc", "露珠研究者培育出来的新品种蘑菇，相比其他蘑菇这个完全没有副作用，并且可以让露珠产出更加频繁。\n使用_1份水，1份蔬菜，1份集露草种子_炼金");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected void onUse(Hero hero) {
 		if (!Dungeon.dewWater && !Dungeon.dewDraw) {

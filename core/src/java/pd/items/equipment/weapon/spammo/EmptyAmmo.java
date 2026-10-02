@@ -11,6 +11,8 @@ public class EmptyAmmo extends SpAmmo {
 			.t("desc", "将原石和无味种锻造而成的特殊子弹……这有什么用？");
 	}
 
+
+
 	@Override public void onHit(Char attacker, Char defender, int damage) {
 		if (Char.hasProp(defender, Char.Property.BOSS)) {
 			defender.damage(Math.min(defender.HT / 20, 3000), this);

@@ -44,6 +44,8 @@ public class ShrapnelBomb extends Bomb {
 			.t("discover_hint", "你可通过炼金合成该物品。");
 	}
 
+
+
 	
 	{
 		image = EquipmentEquipWeaponBombDict.SHRAPNEL_BOMB_0;

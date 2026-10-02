@@ -19,6 +19,8 @@ public class SandAmmo extends SpAmmo {
 			.t("desc", "将原石和消逝种锻造而成的特殊子弹，能使武器附带削弱效果。");
 	}
 
+
+
 	private static final ItemSprite.Glowing GREY = new ItemSprite.Glowing(0xCCCCCC);
 	@Override public ItemSprite.Glowing glowing() { return GREY; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {

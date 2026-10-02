@@ -47,6 +47,8 @@ public class Blacksmith2 extends NPC {
 	}
 
 
+
+
 	{
 		spriteClass = ElectricwelderSprite.class;
 		properties.add(Property.TROLL);

@@ -62,6 +62,8 @@ public class GunWeapon extends SpsRangedWeapon {
 			.t("charge", "弹匣：%1$d/%2$d");
 	}
 
+
+
 	public static final String AC_SHOOT = "SHOOT";
 	public static final String AC_RELOAD = "RELOAD";
 	public static final String AC_AMMO = "AMMO";

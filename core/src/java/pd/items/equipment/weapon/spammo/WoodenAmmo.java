@@ -16,6 +16,8 @@ public class WoodenAmmo extends SpAmmo {
 			.t("desc", "将原石和坚果锻造而成的特殊子弹，能使目标眩晕并有概率将其麻痹。");
 	}
 
+
+
 	private static final ItemSprite.Glowing BLACK = new ItemSprite.Glowing(0x000000);
 	@Override public ItemSprite.Glowing glowing() { return BLACK; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {

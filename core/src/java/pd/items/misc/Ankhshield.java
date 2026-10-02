@@ -32,6 +32,8 @@ public class Ankhshield extends Item {
 	}
 
 
+
+
 	public static final String AC_DEFENCE = "DEFENCE";
 	public static final int FULL_CHARGE = 100;
 	public static final int DEFENCE_COST = 30;

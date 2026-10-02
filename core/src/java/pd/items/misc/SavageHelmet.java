@@ -18,6 +18,8 @@ public class SavageHelmet extends MiscEquippable {
 	}
 
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; unique = true; }
 
 	@Override protected MiscBuff createBuff() { return new SavageHelmetBless(); }

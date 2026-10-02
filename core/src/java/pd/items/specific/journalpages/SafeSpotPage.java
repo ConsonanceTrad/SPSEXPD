@@ -16,6 +16,8 @@ public class SafeSpotPage extends JournalPage {
 			.t("cityroom_desc", "城市公寓的地址。");
 	}
 
+
+
 	public SafeSpotPage() {
 		super(0);
 	}

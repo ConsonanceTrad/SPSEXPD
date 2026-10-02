@@ -15,6 +15,8 @@ public class MechArmor extends Buff {
 			.t("desc", "机械护甲会吸收全部伤害，但每回合也会损失1点。剩余护甲：%s。");
 	}
 
+
+
 	private static final String LEVEL = "level";
 	private int level;
 	{ type = buffType.POSITIVE; announced = true; }

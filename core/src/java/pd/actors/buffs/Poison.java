@@ -45,6 +45,8 @@ public class Poison extends Buff implements Hero.Doom, Buff.DOTbuff {
 			.t("desc", "毒素传遍全身，缓慢地损伤着各个脏器。\n\n毒素每回合造成的伤害与其剩余的回合数成正比。\n\n中毒效果剩余时长：%s回合");
 	}
 
+
+
 	
 	protected float left;
 	

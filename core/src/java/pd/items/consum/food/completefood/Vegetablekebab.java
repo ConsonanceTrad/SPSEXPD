@@ -19,6 +19,8 @@ public class Vegetablekebab extends CompleteFood {
 	}
 
 
+
+
 	private static final ItemSprite.Glowing GREEN = new ItemSprite.Glowing(0x22CC44);
 
 	{

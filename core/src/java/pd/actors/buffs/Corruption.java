@@ -37,6 +37,8 @@ public class Corruption extends AllyBuff implements Buff.DOTbuff {
 	}
 
 
+
+
 	{
 		type = buffType.NEGATIVE;
 		announced = true;

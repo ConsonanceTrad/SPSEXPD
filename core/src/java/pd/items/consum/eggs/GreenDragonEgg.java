@@ -15,6 +15,8 @@ public class GreenDragonEgg extends Egg {
 			.t("desc", "雷电所孕化的龙之灵魂。");
 	}
 
+
+
 	{ image = ConsumSummorDict.GREEN_DRAGON_EGG_0; lits = 20; }
 	@Override protected LegacyPet hatchling() { return new GreenDragon(); }
 	@Override public int value() { return 500 * quantity; }

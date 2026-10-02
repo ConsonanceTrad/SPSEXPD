@@ -28,6 +28,8 @@ public class SkeletonKing extends Mob {
 			.t("die", "魔法不够了……");
 	}
 
+
+
 	{
 		spriteClass = SkeletonKingSprite.class;
 		HP = HT = 2000;

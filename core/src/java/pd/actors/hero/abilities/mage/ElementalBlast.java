@@ -101,6 +101,8 @@ public class ElementalBlast extends ArmorAbility {
 	}
 
 
+
+
 	private static final HashMap<Class<?extends Wand>, Integer> effectTypes = new HashMap<>();
 	static {
 		effectTypes.put(WandOfMagicMissile.class,   MagicMissile.MAGIC_MISS_CONE);

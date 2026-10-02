@@ -52,6 +52,8 @@ public class ScrollOfMirrorImage extends Scroll {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.SCROLL_MIRRORIMG;
 	}

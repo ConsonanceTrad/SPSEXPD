@@ -28,6 +28,8 @@ public class WndTinkerer extends WndOptions {
 	}
 
 
+
+
 	private final Tinkerer1 tinkerer;
 
 	public WndTinkerer(Tinkerer1 tinkerer) {

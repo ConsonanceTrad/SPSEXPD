@@ -27,6 +27,8 @@ public class GoldThief extends Mob {
 	}
 
 
+
+
 	public Item item;
 	private int goldToDrop;
 

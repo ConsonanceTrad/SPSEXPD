@@ -14,6 +14,8 @@ public class FireBuffTrap extends Trap {
 			.t("desc", "这个可见陷阱会释放短暂的SPS火焰场。");
 	}
 
+
+
 	{ color = ORANGE; shape = DOTS; canBeHidden = false; }
 	@Override public void activate() { GameScene.add(Blob.seed(pos, 3, Fire.class)); }
 }

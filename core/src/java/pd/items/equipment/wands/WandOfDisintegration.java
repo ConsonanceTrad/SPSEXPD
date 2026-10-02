@@ -35,6 +35,8 @@ public class WandOfDisintegration extends DamageWand {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		collisionProperties = Ballistica.WONT_STOP;

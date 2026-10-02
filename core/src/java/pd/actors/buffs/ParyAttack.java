@@ -17,6 +17,8 @@ public class ParyAttack extends Buff {
 			.t("desc", "保持原地会逐回合提高攻击并降低所受伤害；移动或金币不足时状态结束。当前强度：%s%%。");
 	}
 
+
+
 	private static final String LEVEL = "level";
 	private static final String POS = "pos";
 	private int level;

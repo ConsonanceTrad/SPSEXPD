@@ -54,10 +54,12 @@ public class SentryRoom extends SpecialRoom {
 	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
 	static {
 		InlineText.of(SentryRoom.class)
-			.t("sentry.name", "血色哨卫")
-			.t("sentry.desc", "这红似鲜血的哨卫结晶像是被刻意安置在此，守卫着房间另一端的宝藏。如果你进入警戒区域，它就会向你发射解离光束。\n\n它对所有的负面效果都免疫，能一眼看穿隐形效果，但似乎需要充能一段时间才能开火。\n\n不知何故，哨卫只会向你开火，就好像它知道地牢里的居民对宝藏没有威胁一样。")
-			.t("sentry.discover_hint", "你可在任何地牢区域中遇到该敌人。");
+			.t("$sentry.name", "血色哨卫")
+			.t("$sentry.desc", "这红似鲜血的哨卫结晶像是被刻意安置在此，守卫着房间另一端的宝藏。如果你进入警戒区域，它就会向你发射解离光束。\n\n它对所有的负面效果都免疫，能一眼看穿隐形效果，但似乎需要充能一段时间才能开火。\n\n不知何故，哨卫只会向你开火，就好像它知道地牢里的居民对宝藏没有威胁一样。")
+			.t("$sentry.discover_hint", "你可在任何地牢区域中遇到该敌人。");
 	}
+
+
 
 
 	@Override

@@ -42,6 +42,8 @@ public class VelvetPouch extends Bag {
 	}
 
 
+
+
 	{
 		image = EquipmentBagsDict.POUCH;
 	}

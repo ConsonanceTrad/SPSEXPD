@@ -34,6 +34,8 @@ public class DiamondPickaxe extends NormalMeleeWeapon {
 			.t("desc", "一把具有时运、耐久、效率、锋利、精准和杀手能力的钻石镐。");
 	}
 
+
+
 	public static final String AC_MINE="MINE"; public DiamondPickaxe(){super(3,2f,.5f,2,2,8,SpecificPlaceHolderDict.SOMETHING_0);unique=true;reinforced=true;defaultAction=AC_MINE;}
 	@Override protected void applyLegacyUpgrade(Stats stats){stats.min++;stats.max++;}
 	@Override public ArrayList<String> actions(Hero h){ArrayList<String>a=super.actions(h);a.add(AC_MINE);return a;}

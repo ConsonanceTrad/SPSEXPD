@@ -15,6 +15,8 @@ public class Spectacles extends Ring {
 			.t("desc", "十分普通的眼镜，但是能够强化使用者的灵能。");
 	}
 
+
+
 	public Spectacles() {
 		anonymize();
 		image = EquipmentEquipArmorUniqueArmorDict.SPECTACLES;

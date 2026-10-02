@@ -37,6 +37,8 @@ public class ScrollEmpower extends Buff {
 	}
 
 
+
+
 	{
 		type = buffType.POSITIVE;
 	}

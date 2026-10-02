@@ -37,6 +37,8 @@ public class SaltCube extends Trinket {
 	}
 
 
+
+
 	{
 		image = EquipmentNonEquipDict.SALT_CUBE_0;
 	}

@@ -21,6 +21,8 @@ public class SoldierArmor extends NormalArmor {
 			.t("desc", "制式星兵服装，装载了大量便携弹夹和瞄准系统。\n英雄护甲");
 	}
 
+
+
 	public SoldierArmor() { super(5, 1f, 1f, 2, 20, 40, 1, 0, 3, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override public int proc(Char attacker, Char defender, int damage) {
 		if (Random.Int(8) == 0) {

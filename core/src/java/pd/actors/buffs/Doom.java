@@ -33,6 +33,8 @@ public class Doom extends Buff {
 			.t("desc", "当整个宇宙都看起来想置你于死地时，继续斗争还有什么意义呢？\n\n被定命的角色受到的任何伤害都会提升67%。\n\n定命是永久性的，死后才能解脱。");
 	}
 
+
+
 	
 	{
 		type = buffType.NEGATIVE;

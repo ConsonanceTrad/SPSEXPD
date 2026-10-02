@@ -10,4 +10,6 @@ public class RandomEgg9 extends RandomPetEgg {
 			.t("name", "随机九月灵魂")
 			.t("desc", "召唤一个随机的九月宠物，包括缎带鼠、陆行鸟、曼陀罗。");
 	}
+
+
  public RandomEgg9() { super(RibbonRat.class, Chocobo.class, Datura.class); } }

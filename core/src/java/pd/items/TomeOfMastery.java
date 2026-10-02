@@ -24,6 +24,8 @@ public class TomeOfMastery extends TengusMask {
 			.t("desc", "这本皮封典籍不算厚，但你隐约感觉能从中学到不少东西。阅读这本典籍需要一些时间。");
 	}
 
+
+
 	public static final String AC_READ = "READ";
 	public static final float TIME_TO_READ = 10f;
 	private Hero reader;

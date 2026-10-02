@@ -24,6 +24,8 @@ public class LightBomb extends Bomb {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}

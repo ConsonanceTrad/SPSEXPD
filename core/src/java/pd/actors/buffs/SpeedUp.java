@@ -13,6 +13,8 @@ public class SpeedUp extends FlavourBuff {
 	}
 
 
+
+
 	public static final float DURATION = 10f;
 	public static final float SPEED_FACTOR = 1.5f;
 

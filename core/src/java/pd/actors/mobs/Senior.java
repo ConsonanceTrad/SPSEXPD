@@ -13,6 +13,8 @@ public class Senior extends SpsExitMobs.GuardSenior {
 			.t("desc", "相较普通武僧而言，武僧大师变秃了，也变强了!");
 	}
 
+
+
 	{
 		spriteClass = SeniorSprite.class;
 	}

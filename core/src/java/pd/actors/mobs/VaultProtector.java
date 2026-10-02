@@ -22,6 +22,8 @@ public class VaultProtector extends Mob {
 	}
 
 
+
+
 	private boolean skillUsed;
 
 	{

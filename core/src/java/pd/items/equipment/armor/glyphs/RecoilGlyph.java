@@ -20,6 +20,8 @@ public class RecoilGlyph extends SpsGlyph {
 			.t("desc", "反冲刻印有几率击退攻击者，并根据伤害使其流血。");
 	}
 
+
+
 	private static final ItemSprite.Glowing COLOR = new ItemSprite.Glowing(0xCC6600);
 	@Override public int proc(Armor armor, Char attacker, Char defender, int damage) {
 		clearElementalMarker(defender);

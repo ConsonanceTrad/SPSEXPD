@@ -49,6 +49,8 @@ public class Whip extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.WHIP_0;
 		hitSound = Assets.Sounds.HIT;

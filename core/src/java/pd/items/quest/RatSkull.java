@@ -25,6 +25,8 @@ public class RatSkull extends Item {
 	}
 
 
+
+
 	{
 		image = ConsumThrowsDict.SKULL;
 		unique = true;

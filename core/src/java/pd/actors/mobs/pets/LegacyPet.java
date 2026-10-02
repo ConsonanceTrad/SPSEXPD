@@ -32,6 +32,8 @@ public abstract class LegacyPet extends DirectableAlly {
 	}
 
 
+
+
 	public enum Kind {
 		BLUE_DRAGON(501), GREEN_DRAGON(502), LIGHT_DRAGON(503), RED_DRAGON(504),
 		SHADOW_DRAGON(505), VIOLET_DRAGON(506), SCORPION(507), LERY_FIRE(508),

@@ -70,6 +70,8 @@ public class WandOfTransfusion extends DamageWand {
 	}
 
 
+
+
 	{
 		image = EquipmentWandBasicWandDict.WAND_TRANSFUSION_0;
 

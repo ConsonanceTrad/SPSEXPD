@@ -45,6 +45,8 @@ public class BlazingTrap extends Trap {
 	}
 
 
+
+
 	{
 		color = ORANGE;
 		shape = STARS;

@@ -40,6 +40,8 @@ public class MinesBossLevel extends Level {
 	}
 
 
+
+
 	public static final int WIDTH = 48;
 	public static final int HEIGHT = 48;
 	public static final int ENTRANCE = 17 + WIDTH * 44;

@@ -36,6 +36,8 @@ public class MagicalSight extends FlavourBuff {
 			.t("desc", "不知为何，即使闭上眼睛你也可以用心灵洞察到周围发生的一切。\n\n当处于魔能透视状态时，你的视线将透过墙体与地形，并且视距的半径也会扩展为 12 格。\n\n魔能透视剩余时长：%s 回合");
 	}
 
+
+
 	
 	public static final float DURATION = 50f;
 	

@@ -70,6 +70,8 @@ public class ScrollOfTransmutation extends InventoryScroll {
 			.t("desc", "卷轴内存着强力的嬗变魔法，用在可行的物品上会将其转变成同类型的另一样物品。嬗变魔法还会保留原物品上的升级、附魔和刻印。卷轴或药剂将被转化为秘卷或合剂，反之亦然。");
 	}
 
+
+
 	
 	{
 		icon = ItemIconSheet.SCROLL_TRANSMUTE;

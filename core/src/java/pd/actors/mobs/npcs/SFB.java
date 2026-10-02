@@ -15,6 +15,8 @@ public class SFB extends TownNpc {
 			.t("hello", "看我!");
 	}
 
+
+
 	public SFB() {
 		configure(Spec.SFB);
 		spriteClass = pd.sprites.SFBSprite.class;

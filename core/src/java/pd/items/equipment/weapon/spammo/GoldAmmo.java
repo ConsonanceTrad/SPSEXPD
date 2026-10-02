@@ -14,6 +14,8 @@ public class GoldAmmo extends SpAmmo {
 			.t("desc", "将原石和种子荚锻造而成的特殊子弹，能消耗金币造成额外伤害。");
 	}
 
+
+
 	private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing(0xFFFF44);
 	@Override public ItemSprite.Glowing glowing() { return YELLOW; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {

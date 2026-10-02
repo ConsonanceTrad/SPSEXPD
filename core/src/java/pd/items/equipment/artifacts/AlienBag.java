@@ -47,8 +47,10 @@ public class AlienBag extends Artifact {
 			.t("no_charge", "肩包的充能不足。")
 			.t("full_charge", "充能完毕")
 			.t("desc", "由异星科技制造的肩包，会吸收被击败敌人的残骸，并制造防护、补给和建筑。")
-			.t("bagrecharge.levelup", "你的异星肩包升级了。");
+			.t("$bagrecharge.levelup", "你的异星肩包升级了。");
 	}
+
+
 
 
 	public static final String AC_SHIELD = "SHIELD", AC_BOMB = "BOMB", AC_BUILD = "BUILD";

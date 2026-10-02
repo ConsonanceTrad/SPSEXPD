@@ -12,6 +12,8 @@ public class GreenNornStone extends NornStone {
 			.t("desc", "多利亚哈芬的特产，富有能量的魔法矿石。两块以上可在祭坛祝圣为_猛毒重型链枷_。");
 	}
 
+
+
 	{
 		type = 1;
 		image = SpecificPlaceHolderDict.SOMETHING_0;

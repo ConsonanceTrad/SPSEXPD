@@ -88,25 +88,27 @@ public final class SpsExitMobs {
 	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
 	static {
 		InlineText.of(SpsExitMobs.class)
-			.t("guardalbino.name", "白化老鼠")
-			.t("guardalbino.desc", "这是一只罕见的白色老鼠，会在身边散布腐化气体和干燥沙尘。")
-			.t("guardvagrant.name", "感染流浪者")
-			.t("guardvagrant.desc", "被源石感染的流浪者，有着极强的恢复能力和生命偷取能力。")
-			.t("guardbandit.name", "紫衣大盗")
-			.t("guardbandit.desc", "紫衣大盗会偷走金币、散布黑暗气体，并使被害者中毒。")
-			.t("guardbamboo.name", "竹子精")
-			.t("guardbamboo.desc", "竹子的进化体，会吸取周围的生命能量并缠绕附近的生物。")
-			.t("guardbombbug.name", "霜石虫")
-			.t("guardbombbug.desc", "包裹着冰石的虫子，会冻结附近的生物，并在重伤时分裂。")
-			.t("guardshielded.name", "持盾豺狼")
-			.t("guardshielded.desc", "这个豺狼人带着一块沉重的盾牌，会反击攻击并多次恢复防护。")
-			.t("guardsenior.name", "武僧大师")
-			.t("guardsenior.desc", "相较普通武僧而言，武僧大师变秃了，也变强了！")
-			.t("guardfiresuccubus.name", "烈焰魅魔")
-			.t("guardfiresuccubus.desc", "被火焰环绕的强大魅魔，受到攻击后会进一步增强攻势。")
-			.t("guardacidic.name", "酸液蝎子")
-			.t("guardacidic.desc", "酸液蝎子更加危险，会释放恶臭气体，并在受击时喷溅腐蚀性液体。");
+			.t("$guardalbino.name", "白化老鼠")
+			.t("$guardalbino.desc", "这是一只罕见的白色老鼠，会在身边散布腐化气体和干燥沙尘。")
+			.t("$guardvagrant.name", "感染流浪者")
+			.t("$guardvagrant.desc", "被源石感染的流浪者，有着极强的恢复能力和生命偷取能力。")
+			.t("$guardbandit.name", "紫衣大盗")
+			.t("$guardbandit.desc", "紫衣大盗会偷走金币、散布黑暗气体，并使被害者中毒。")
+			.t("$guardbamboo.name", "竹子精")
+			.t("$guardbamboo.desc", "竹子的进化体，会吸取周围的生命能量并缠绕附近的生物。")
+			.t("$guardbombbug.name", "霜石虫")
+			.t("$guardbombbug.desc", "包裹着冰石的虫子，会冻结附近的生物，并在重伤时分裂。")
+			.t("$guardshielded.name", "持盾豺狼")
+			.t("$guardshielded.desc", "这个豺狼人带着一块沉重的盾牌，会反击攻击并多次恢复防护。")
+			.t("$guardsenior.name", "武僧大师")
+			.t("$guardsenior.desc", "相较普通武僧而言，武僧大师变秃了，也变强了！")
+			.t("$guardfiresuccubus.name", "烈焰魅魔")
+			.t("$guardfiresuccubus.desc", "被火焰环绕的强大魅魔，受到攻击后会进一步增强攻势。")
+			.t("$guardacidic.name", "酸液蝎子")
+			.t("$guardacidic.desc", "酸液蝎子更加危险，会释放恶臭气体，并在受击时喷溅腐蚀性液体。");
 	}
+
+
 
 	private SpsExitMobs() { }
 

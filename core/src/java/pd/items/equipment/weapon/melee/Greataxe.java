@@ -49,6 +49,8 @@ public class Greataxe extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.GREATAXE_0;
 		hitSound = Assets.Sounds.HIT_SLASH;

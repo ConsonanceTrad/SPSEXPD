@@ -15,10 +15,12 @@ public class StarEater extends Plant {
 			.t("name", "吞星花")
 			.t("desc", "形如巨口的植物。果实会以附魔石保留一丝装备精华，并结出一颗鲜莓。")
 			.t("warden_desc", "_守望者_可以安全收取其中保存的装备精华。")
-			.t("seed.name", "吞星花之种")
-			.t("exstareater.name", "吞星花果丛")
-			.t("exstareater.desc", "生长吞星果的果丛。");
+			.t("$seed.name", "吞星花之种")
+			.t("$exstareater.name", "吞星花果丛")
+			.t("$exstareater.desc", "生长吞星果的果丛。");
 	}
+
+
 
 	{ image = 15; seedClass = Seed.class; }
 	@Override public void activate(Char ch) {

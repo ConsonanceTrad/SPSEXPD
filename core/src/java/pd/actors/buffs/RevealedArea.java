@@ -39,6 +39,8 @@ public class RevealedArea extends FlavourBuff{
 	}
 
 
+
+
 	{
 		type = Buff.buffType.POSITIVE;
 	}

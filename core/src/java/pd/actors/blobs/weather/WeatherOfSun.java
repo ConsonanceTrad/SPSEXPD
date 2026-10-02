@@ -13,6 +13,8 @@ public class WeatherOfSun extends SpsWeather {
 			.t("desc", "这里阳光灼热，会使生物陷入炎热状态。");
 	}
 
+
+
 	@Override protected void affectHero(){ Buff.prolong(Dungeon.hero, Hot.class, Hot.DURATION); Buff.detach(Dungeon.hero, Cold.class); }
 	@Override protected Emitter.Factory particle(){ return ShaftParticle.FACTORY; }
 	@Override protected float interval(){ return 0.9f; }

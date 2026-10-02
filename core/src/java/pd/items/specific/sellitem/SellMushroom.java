@@ -18,6 +18,8 @@ public class SellMushroom extends Pill {
 			.t("desc", "地狱三头犬喜欢的蘑菇。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected void onUse(Hero hero) { GLog.w(Messages.get(this, "no")); }
 	@Override public int value() { return 100 * quantity; }

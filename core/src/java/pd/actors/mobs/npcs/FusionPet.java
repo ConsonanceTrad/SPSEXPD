@@ -56,6 +56,8 @@ public class FusionPet extends DirectableAlly {
 	}
 
 
+
+
 	public static final int TYPE_COUNT = 16;
 
 	private int type;

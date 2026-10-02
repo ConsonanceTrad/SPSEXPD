@@ -43,6 +43,8 @@ public class Berry extends Food {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = Hunger.HUNGRY/3f; //100 food value

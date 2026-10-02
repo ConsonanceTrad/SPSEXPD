@@ -80,6 +80,8 @@ public class Toolbar extends Component {
 	}
 
 
+
+
 	private Tool btnWait;
 	private Tool btnSearch;
 	private Tool btnInventory;

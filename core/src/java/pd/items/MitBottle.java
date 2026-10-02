@@ -23,6 +23,8 @@ public class MitBottle extends Item {
 			.t("desc", "使用后永久获得一点力量和十点生命上限。");
 	}
 
+
+
 	public static final String AC_USE = "USE";
 	private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing(0xFFFF44);
 	{

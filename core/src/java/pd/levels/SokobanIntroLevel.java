@@ -51,6 +51,8 @@ public class SokobanIntroLevel extends Level implements SpsSokobanLevel {
 	}
 
 
+
+
 	public static final int WIDTH = 48;
 	public static final int HEIGHT = 48;
 	public static final int ENTRANCE = 7 + WIDTH * 3;

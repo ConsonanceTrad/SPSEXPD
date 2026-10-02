@@ -30,6 +30,8 @@ public class AsceticSkill extends ClassSkill {
 			.t("desc", "_超频：_速度翻倍并提高攻击伤害，但受到的伤害略微增加。达到56级后没有冷却。\n\n_能量灌注（21级）：_生成一个高级符文。达到56级后额外生成随机物品。\n\n_重编程（31级）：_消耗1点攻击和闪避，换取2点魔力。达到56级后额外随机获得1点战斗属性。\n\n_地震（41级）：_摧毁附近墙壁、伤害敌人，并在自身周围建造门。达到56级后额外致盲并扰乱敌人。");
 	}
 
+
+
 	{ image = ConsumScrollAmuletAmuletDict.STONE_ENCHANT_0; }
 
 	@Override public void doSpecial() {

@@ -18,6 +18,8 @@ public class IceMeat extends MeatFood {
 			.t("desc", "被魔法冻住的生肉薄片。提供的能量不多，却带有一种有用的祝福。");
 	}
 
+
+
 	private static final ItemSprite.Glowing BLUE = new ItemSprite.Glowing(0x0044FF);
 	{
 		image = ConsumFoodFoodDict.MEAT;

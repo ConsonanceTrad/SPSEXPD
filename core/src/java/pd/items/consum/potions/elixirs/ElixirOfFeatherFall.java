@@ -41,9 +41,11 @@ public class ElixirOfFeatherFall extends Elixir {
 			.t("name", "羽落秘药")
 			.t("light", "你觉得自己身轻如燕！")
 			.t("desc", "这瓶秘药可为你提供更弱但更可控的悬浮效果，在短时间内使你身轻如燕，即便跳下悬崖深渊也能毫发无损。饮用这瓶秘药可以为你提供短时间内免除坠落伤害的效果。")
-			.t("featherbuff.name", "羽落")
-			.t("featherbuff.desc", "你正处于羽落秘药的作用效果之下，可以跳进深渊并坠落至下一层而不受到任何伤害！\n\n效果剩余时长：%s回合");
+			.t("$featherbuff.name", "羽落")
+			.t("$featherbuff.desc", "你正处于羽落秘药的作用效果之下，可以跳进深渊并坠落至下一层而不受到任何伤害！\n\n效果剩余时长：%s回合");
 	}
+
+
 
 
 	{

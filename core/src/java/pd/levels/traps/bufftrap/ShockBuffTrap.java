@@ -14,6 +14,8 @@ public class ShockBuffTrap extends Trap {
 			.t("desc", "这个可见陷阱会释放短暂的SPS雷电场。");
 	}
 
+
+
 	{ color = YELLOW; shape = DOTS; canBeHidden = false; }
 	@Override public void activate() { GameScene.add(Blob.seed(pos, 3, ElectriShock.class)); }
 }

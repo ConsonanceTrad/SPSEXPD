@@ -28,6 +28,8 @@ public class MagicEye extends Eye {
 			.t("desc", "这种邪眼似乎完全由Zot的魔力构成。");
 	}
 
+
+
 	{
 		spriteClass = MagicEyeSprite.class;
 		properties.add(Property.ELEMENT);

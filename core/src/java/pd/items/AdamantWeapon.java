@@ -10,6 +10,8 @@ public class AdamantWeapon extends Item {
 			.t("desc", "用于焊接武器的组件。");
 	}
 
+
+
 	{ image = ConsumGoodsMaterialsMaterialsDict.WEAPON_WELD_PART; unique = true; }
 	@Override public boolean isUpgradable() { return false; }
 	@Override public boolean isIdentified() { return true; }

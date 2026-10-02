@@ -19,6 +19,8 @@ public class Mlaser extends RockCode {
 			.t("stats_desc", "消耗4点能量中的1点，分别造成能量、自然、火焰、寒冰、雷电、光明和黑暗伤害。");
 	}
 
+
+
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "M.l"; }
 	@Override protected int missileType() { return MagicMissile.RAINBOW; }
 	@Override protected void onZap(Ballistica bolt) {

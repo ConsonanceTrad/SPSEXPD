@@ -70,6 +70,8 @@ public class SpiritBow extends Weapon {
 			.t("discover_hint", "某位英雄初始携带该物品。");
 	}
 
+
+
 	
 	public static final String AC_SHOOT		= "SHOOT";
 	

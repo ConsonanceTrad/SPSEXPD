@@ -67,6 +67,8 @@ public class ChaliceOfBlood extends Artifact {
 	}
 
 
+
+
 	{
 		image = EquipmentJewelleryArtifactDict.ARTIFACT_CHALICE1;
 

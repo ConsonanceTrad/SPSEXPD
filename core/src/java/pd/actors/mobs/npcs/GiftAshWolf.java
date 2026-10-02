@@ -25,6 +25,8 @@ public class GiftAshWolf extends GiftNpc {
 			.t("reward2", "这个小家伙很粘人，相信它更愿意陪你出去冒险。");
 	}
 
+
+
 	{ properties.add(Property.ORC); }
 	@Override public Visual visual() { return Visual.ASH_WOLF; }
 	@Override public boolean acceptsGift(Item item) {

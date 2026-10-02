@@ -43,6 +43,8 @@ public class SupplyRation extends Food {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 2*Hunger.HUNGRY/3f; //200 food value

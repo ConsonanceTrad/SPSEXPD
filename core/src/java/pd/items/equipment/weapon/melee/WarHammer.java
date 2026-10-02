@@ -41,6 +41,8 @@ public class WarHammer extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.WAR_HAMMER_0;
 		hitSound = Assets.Sounds.HIT_CRUSH;

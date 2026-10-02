@@ -17,6 +17,8 @@ public class Meat extends MeatFood {
 			.t("desc", "集市里常见的肉，最好加工后再吃。");
 	}
 
+
+
 	{
 		image = ConsumFoodFoodDict.MEAT;
 		energy = 100f;

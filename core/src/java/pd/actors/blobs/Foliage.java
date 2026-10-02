@@ -44,6 +44,8 @@ public class Foliage extends Blob {
 	}
 
 
+
+
 	@Override
 	public Notes.Landmark landmark() {
 		return Notes.Landmark.GARDEN;

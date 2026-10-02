@@ -41,6 +41,8 @@ public class Glaive extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.GLAIVE_0;
 		hitSound = Assets.Sounds.HIT_SLASH;

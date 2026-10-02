@@ -47,6 +47,8 @@ public class Gold extends Item {
 			.t("ac_makebag", "装袋");
 	}
 
+
+
 	public static final String AC_MAKEBAG = "MAKEBAG";
 
 	{

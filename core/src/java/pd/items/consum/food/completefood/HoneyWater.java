@@ -19,6 +19,8 @@ public class HoneyWater extends CompleteFood {
 			.t("desc", "稀释后的蜂蜜。\n使用_2份水、1份蜂蜜_炼金。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; energy = 10f; }
 	@Override protected void doEat(Hero hero) {
 		increaseMaxHealth(hero, 3, 6);

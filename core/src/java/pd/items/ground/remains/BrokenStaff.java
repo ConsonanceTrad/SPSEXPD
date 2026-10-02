@@ -38,6 +38,8 @@ public class BrokenStaff extends RemainsItem {
 	}
 
 
+
+
 	{
 		image = ConsumUsefulCorpseRelicsDict.BROKEN_STAFF_0;
 	}

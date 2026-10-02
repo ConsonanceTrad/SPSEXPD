@@ -52,6 +52,8 @@ public class WndVictoryCongrats extends Window {
 	}
 
 
+
+
 	public WndVictoryCongrats(){
 		int width = PixelScene.landscape() ? 180 : 120;
 		int height = 0;

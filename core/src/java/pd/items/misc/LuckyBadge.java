@@ -21,6 +21,8 @@ public class LuckyBadge extends Item {
 	}
 
 
+
+
 	public static final int MAX_ITEM_LUCK = 10;
 	public static final int MAX_EXTRA_ITEMS = 64;
 

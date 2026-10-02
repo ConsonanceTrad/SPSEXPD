@@ -40,6 +40,8 @@ public class WandOfFlow extends DamageWand {
 	}
 
 
+
+
 	{
 		image = EquipmentWandBasicWandDict.WAND_FLOW;
 		collisionProperties = Ballistica.PROJECTILE;

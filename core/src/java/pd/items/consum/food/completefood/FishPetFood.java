@@ -13,6 +13,8 @@ public class FishPetFood extends PetFood {
 			.t("desc", "鱼味的伙伴食物，提供的能量远多于普通宠物口粮。");
 	}
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 100f;

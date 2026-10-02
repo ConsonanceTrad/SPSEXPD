@@ -37,8 +37,10 @@ public abstract class Trinket extends Item {
 	static {
 		InlineText.of(Trinket.class)
 			.t("discover_hint", "该物品在你通过炼金合成饰物时有概率作为选项。")
-			.t("placeholder.name", "饰物");
+			.t("$placeholder.name", "饰物");
 	}
+
+
 
 
 	{

@@ -69,6 +69,8 @@ abstract public class ClassArmor extends Armor {
 	}
 
 
+
+
 	private static final String AC_ABILITY = "ABILITY";
 	private static final String AC_TRANSFER = "TRANSFER";
 	

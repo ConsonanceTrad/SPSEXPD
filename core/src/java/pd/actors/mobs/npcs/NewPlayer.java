@@ -14,6 +14,8 @@ public class NewPlayer extends TownNpc {
 			.t("yell2", "这就是你。");
 	}
 
+
+
 	public NewPlayer() {
 		configure(Spec.NEW_PLAYER);
 		spriteClass = pd.sprites.NewPlayerSprite.class;

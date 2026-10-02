@@ -14,6 +14,8 @@ public class DreamPlayer extends TownNpc {
 			.t("yell2", "圆润地滑稽走。");
 	}
 
+
+
 	public DreamPlayer() {
 		configure(Spec.DREAM_PLAYER);
 		spriteClass = pd.sprites.DreamPlayerSprite.class;

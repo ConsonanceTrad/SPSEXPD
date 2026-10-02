@@ -47,6 +47,8 @@ public class LostBackpack extends Item {
 	}
 
 
+
+
 	{
 		image = EquipmentBagsDict.BACKPACK_0;
 

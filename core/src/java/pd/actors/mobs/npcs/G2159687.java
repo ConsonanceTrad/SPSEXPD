@@ -14,6 +14,8 @@ public class G2159687 extends TownNpc {
 			.t("yell2", "我想应该有一些玩家会认为地牢类游戏比较难，所以我弄了几个简单版本。");
 	}
 
+
+
 	public G2159687() {
 		configure(Spec.G2159687);
 		spriteClass = pd.sprites.G2159687Sprite.class;

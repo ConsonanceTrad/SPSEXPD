@@ -38,6 +38,8 @@ public class VaultDM200 extends DM200 {
 	}
 
 
+
+
 	{
 		activateSteathGameplayBehaviour();
 		spriteClass = DM200Sprite.Vault.class;

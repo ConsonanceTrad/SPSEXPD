@@ -17,6 +17,8 @@ public class StormAmmo extends SpAmmo {
 			.t("desc", "将原石和风暴种锻造而成的特殊子弹，能使武器附带雷电伤害。");
 	}
 
+
+
 	private static final ItemSprite.Glowing WHITE = new ItemSprite.Glowing(0xFFFFFF);
 	@Override public ItemSprite.Glowing glowing() { return WHITE; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {

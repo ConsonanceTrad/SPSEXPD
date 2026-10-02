@@ -37,6 +37,8 @@ public class StoneOfBlink extends Runestone {
 			.t("desc", "这颗符石被扔出后会把使用者传送到目的地。");
 	}
 
+
+
 	
 	{
 		image = ConsumScrollAmuletAmuletDict.STONE_BLINK_0;

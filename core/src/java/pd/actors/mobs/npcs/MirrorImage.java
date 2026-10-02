@@ -60,6 +60,8 @@ public class MirrorImage extends NPC {
 	}
 
 
+
+
 	@Override public Item SupercreateLoot() { return new Mirror2(); }
 	
 	{

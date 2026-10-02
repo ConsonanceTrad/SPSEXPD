@@ -128,11 +128,13 @@ public class Armor extends EquipableItem {
 			.t("seal_transfer", "战士的破损纹章必须贴附在他当前穿戴的护甲上方可生效。你是否愿意将破损纹章从卸下的护甲上自动剥离，并贴附到新装备的护甲上？")
 			.t("seal_transfer_yes", "是")
 			.t("seal_transfer_no", "否")
-			.t("glyph.glyph", "刻印")
-			.t("glyph.killed", "%s杀死了你...")
-			.t("glyph.rankings_desc", "死于刻印")
-			.t("glyph.discover_hint", "你可在地牢中概率找到带有该效果的物品，或尝试自行使物品获得该效果。");
+			.t("$glyph.glyph", "刻印")
+			.t("$glyph.killed", "%s杀死了你...")
+			.t("$glyph.rankings_desc", "死于刻印")
+			.t("$glyph.discover_hint", "你可在地牢中概率找到带有该效果的物品，或尝试自行使物品获得该效果。");
 	}
+
+
 
 
 	protected static final String AC_DETACH       = "DETACH";

@@ -54,28 +54,30 @@ public final class SpsPrisonMobs {
 	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
 	static {
 		InlineText.of(SpsPrisonMobs.class)
-			.t("ghostphoto.name", "霉画")
-			.t("ghostphoto.desc", "用于装饰监狱办公室的油画，被黑魔法污染后开始四处游荡。")
-			.t("assassin.name", "暗杀者")
-			.t("assassin.desc", "由天狗训练出的忍者之一，极其擅长快速远程攻击。")
-			.t("trollwarrior.name", "巨魔战士")
-			.t("trollwarrior.desc", "监狱沦陷前，巨魔是其中最强大的势力之一，就连守卫也不愿招惹他们。")
-			.t("trollwarrior.angry", "你竟敢攻击我？！")
-			.t("firerabbit.name", "堕天使")
-			.t("firerabbit.desc", "兔人火焰兵，训练方便且造价低廉，被派遣至此清剿亡灵。")
-			.t("firerabbit.yell", "ko~ko~da~yo")
-			.t("bamboomob.name", "竹子")
-			.t("bamboomob.desc", "监狱长饲养的奇怪植物，能够反弹物理伤害。")
-			.t("goldcollector.name", "税收官")
-			.t("goldcollector.desc", "背着巨大口袋的哥布林税收官，会偷走你的金币并将其转化为护盾。")
-			.t("zombie.name", "丧尸")
-			.t("zombie.desc", "这并不是行动迟缓、毫无思维的普通尸体，而是一名感染者。")
-			.t("banditking.name", "蓝衣神偷")
-			.t("banditking.desc", "会在受害者身上留下致命倒计时，随后迅速逃离的蓝衣神偷。")
-			.t("banditking.die", "算了，这次先放过你。")
-			.t("banditking.dis", "蓝衣神偷消失了。")
-			.t("banditking.spork", "啊！我偷到的叉勺呢！");
+			.t("$ghostphoto.name", "霉画")
+			.t("$ghostphoto.desc", "用于装饰监狱办公室的油画，被黑魔法污染后开始四处游荡。")
+			.t("$assassin.name", "暗杀者")
+			.t("$assassin.desc", "由天狗训练出的忍者之一，极其擅长快速远程攻击。")
+			.t("$trollwarrior.name", "巨魔战士")
+			.t("$trollwarrior.desc", "监狱沦陷前，巨魔是其中最强大的势力之一，就连守卫也不愿招惹他们。")
+			.t("$trollwarrior.angry", "你竟敢攻击我？！")
+			.t("$firerabbit.name", "堕天使")
+			.t("$firerabbit.desc", "兔人火焰兵，训练方便且造价低廉，被派遣至此清剿亡灵。")
+			.t("$firerabbit.yell", "ko~ko~da~yo")
+			.t("$bamboomob.name", "竹子")
+			.t("$bamboomob.desc", "监狱长饲养的奇怪植物，能够反弹物理伤害。")
+			.t("$goldcollector.name", "税收官")
+			.t("$goldcollector.desc", "背着巨大口袋的哥布林税收官，会偷走你的金币并将其转化为护盾。")
+			.t("$zombie.name", "丧尸")
+			.t("$zombie.desc", "这并不是行动迟缓、毫无思维的普通尸体，而是一名感染者。")
+			.t("$banditking.name", "蓝衣神偷")
+			.t("$banditking.desc", "会在受害者身上留下致命倒计时，随后迅速逃离的蓝衣神偷。")
+			.t("$banditking.die", "算了，这次先放过你。")
+			.t("$banditking.dis", "蓝衣神偷消失了。")
+			.t("$banditking.spork", "啊！我偷到的叉勺呢！");
 	}
+
+
 
 	private SpsPrisonMobs() { }
 

@@ -38,6 +38,8 @@ public class PotionBandolier extends Bag {
 	}
 
 
+
+
 	{
 		image = EquipmentBagsDict.BANDOLIER;
 	}

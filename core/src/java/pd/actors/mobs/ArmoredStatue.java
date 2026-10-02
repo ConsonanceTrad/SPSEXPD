@@ -43,6 +43,8 @@ public class ArmoredStatue extends Statue {
 	}
 
 
+
+
 	{
 		spriteClass = StatueSprite.class;
 	}

@@ -42,6 +42,8 @@ public class StormTrap extends Trap {
 			.t("desc", "一种储存着庞大电能的机关。触发这个陷阱会让它把能量释放出来形成大范围的雷电风暴。");
 	}
 
+
+
 	
 	{
 		color = YELLOW;

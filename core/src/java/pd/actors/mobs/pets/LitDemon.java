@@ -18,6 +18,8 @@ public class LitDemon extends PET {
 			.t("desc", "这个长着电锯的恶魔好可爱啊。它能用电锯连续切割敌人。");
 	}
 
+
+
 	{
 		spriteClass = LitDemonSprite.class; cooldown = 50; properties.add(Property.DEMONIC); updateStats(true);
 	}

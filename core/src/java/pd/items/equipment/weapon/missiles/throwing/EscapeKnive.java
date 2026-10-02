@@ -19,6 +19,8 @@ public class EscapeKnive extends MissileWeapon {
 			.t("desc", "简单的金属片，但可以击晕猎物，帮你从困境中逃脱。");
 	}
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		tier = 1;

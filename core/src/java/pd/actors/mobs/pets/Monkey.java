@@ -19,6 +19,8 @@ public class Monkey extends PET {
 			.t("desc", "严格意义上它并不是猴子，它只是名字上带猴而已。");
 	}
 
+
+
 	{ spriteClass = MonkeySprite.class; cooldown = 50; properties.add(Property.HUMAN); updateStats(true); }
 	@Override protected Kind kind() { return Kind.MONKEY; }
 	@Override public boolean lovefood(Item item) { return item instanceof PetFood || item instanceof Fruit || item instanceof Nut; }

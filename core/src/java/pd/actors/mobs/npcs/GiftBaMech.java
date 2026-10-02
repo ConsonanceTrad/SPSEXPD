@@ -26,6 +26,8 @@ public class GiftBaMech extends GiftNpc {
 			.t("reward2", "开.拓.完.成.点.数.传.输.中");
 	}
 
+
+
 	{ properties.add(Property.MECH); }
 	@Override public Visual visual() { return Visual.BA_MECH; }
 	@Override public boolean acceptsGift(Item item) { return item instanceof Plant.Seed || item instanceof WaterItem; }

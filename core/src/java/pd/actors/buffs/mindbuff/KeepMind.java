@@ -24,6 +24,8 @@ public class KeepMind extends Buff {
 			.t("desc", "免疫蛛网和有害天气效果。");
 	}
 
+
+
 	{
 		type = buffType.POSITIVE;
 		announced = true;

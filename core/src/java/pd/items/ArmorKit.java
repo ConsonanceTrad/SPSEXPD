@@ -19,6 +19,8 @@ public class ArmorKit extends Item {
 			.t("desc", "使用这套工具和材料，可以无需裁缝材料制作对应职业的专属护甲。");
 	}
 
+
+
 	public static final String AC_APPLY = "APPLY";
 	{ image = ConsumUsefulProcessEnhanceDict.KIT_0; unique = true; defaultAction = AC_APPLY; }
 	@Override public ArrayList<String> actions(Hero hero) {

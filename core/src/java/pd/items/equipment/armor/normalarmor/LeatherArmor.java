@@ -9,4 +9,6 @@ public class LeatherArmor extends NormalArmor {
 			.t("name", "皮甲")
 			.t("desc", "用鞣制的兽皮制成的护甲。没有布甲轻，但提供更好的防御。\n常规护甲");
 	}
+
+
  public LeatherArmor(){ super(2,1.8f,5f,3,0,12,0,1,3,EquipmentEquipArmorBasicArmorDict.ARMOR_LEATHER_0); } }

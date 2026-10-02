@@ -33,6 +33,8 @@ public class MegaCannon extends SpsRangedWeapon {
 			.t("desc", "洛克人的手炮。近战攻击不造成伤害，而是为远程射击积蓄能量。");
 	}
 
+
+
 	public static final String AC_SHOOT = "SHOOT";
 	public static final int FULL_CHARGE = 3;
 	private static final String CHARGE = "charge";

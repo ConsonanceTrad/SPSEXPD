@@ -18,6 +18,8 @@ public class PerformerArmor extends NormalArmor {
 			.t("desc", "大受欢迎的演员套装，能够迷倒万千粉丝。\n英雄护甲");
 	}
 
+
+
 	public PerformerArmor() { super(2, 4f, 12f, 3, 0, 10, -1, 1, 3, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override public int proc(Char attacker, Char defender, int damage) {
 		if (attacker != null && Random.Int(8) == 0) Buff.affect(attacker, Charm.class, 3f).object = defender.id();

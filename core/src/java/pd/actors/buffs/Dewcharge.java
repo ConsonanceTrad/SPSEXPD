@@ -26,6 +26,8 @@ public class Dewcharge extends FlavourBuff {
 	}
 
 
+
+
 	public static final float DURATION = 240f;
 
 	{

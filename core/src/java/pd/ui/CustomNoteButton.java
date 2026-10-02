@@ -67,14 +67,16 @@ public class CustomNoteButton extends IconButton {
 			.t("new_item_title", "为物品_%s_的备注拟题：")
 			.t("new_type", "新建物品类别备注")
 			.t("new_type_prompt", "选择要备注的物品类别")
-			.t("customnotewindow.edit_title", "编辑标题")
-			.t("customnotewindow.add_text", "添加文本")
-			.t("customnotewindow.edit_text", "编辑文本")
-			.t("customnotewindow.delete", "删除")
-			.t("customnotewindow.delete_warn", "你确定要删除这个备注吗？")
-			.t("customnotewindow.confirm", "确定")
-			.t("customnotewindow.cancel", "取消");
+			.t("$customnotewindow.edit_title", "编辑标题")
+			.t("$customnotewindow.add_text", "添加文本")
+			.t("$customnotewindow.edit_text", "编辑文本")
+			.t("$customnotewindow.delete", "删除")
+			.t("$customnotewindow.delete_warn", "你确定要删除这个备注吗？")
+			.t("$customnotewindow.confirm", "确定")
+			.t("$customnotewindow.cancel", "取消");
 	}
+
+
 
 
 	public CustomNoteButton () {

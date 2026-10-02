@@ -13,6 +13,8 @@ public abstract class ChallengeList extends Item {
 			.t("desc", "原先的传送道具，但已经丧失了它原有的魔力。把它加入挑战日志即可恢复对应地点的记录。");
 	}
 
+
+
 	{
 		stackable = false;
 		unique = true;

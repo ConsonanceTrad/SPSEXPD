@@ -24,6 +24,8 @@ public class GraveProtector extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = GraveProtectorSprite.class;
 		HP = HT = 350;

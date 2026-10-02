@@ -26,9 +26,11 @@ public class ChinaMech extends SpsSummonItem {
 			.t("name", "壁垒支援用无人机")
 			.t("ac_active", "使用")
 			.t("desc", "呼叫支援，呼叫支援。")
-			.t("huaweidajiang.name", "HW大疆号")
-			.t("huaweidajiang.desc", "壁垒用于支援开拓者的无人机，内含高级食物及若干火箭。");
+			.t("$huaweidajiang.name", "HW大疆号")
+			.t("$huaweidajiang.desc", "壁垒用于支援开拓者的无人机，内含高级食物及若干火箭。");
 	}
+
+
 
 
 	private static boolean activate;

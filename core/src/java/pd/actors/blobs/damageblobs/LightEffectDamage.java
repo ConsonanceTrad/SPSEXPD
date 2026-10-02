@@ -15,6 +15,8 @@ public class LightEffectDamage extends SpsElementalDamage {
 			.t("desc", "这片区域会持续造成光明伤害。");
 	}
 
+
+
 	@Override protected Object damageSource() { return DamageType.LIGHT_DAMAGE; }
 	@Override protected void affectHeap(Heap heap) { heap.lighthit(); }
 	@Override public void use(BlobEmitter emitter) {

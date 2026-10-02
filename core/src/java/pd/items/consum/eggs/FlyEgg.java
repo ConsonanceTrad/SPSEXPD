@@ -9,4 +9,6 @@ public class FlyEgg extends Egg {
 			.t("name", "飞蝇之魂")
 			.t("desc", "召唤飞蝇。");
 	}
+
+
 {image=ConsumSummorDict.FLY_EGG_0;}@Override protected LegacyPet hatchling(){return new Fly();}@Override public int value(){return 500*quantity;}}

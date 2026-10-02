@@ -36,9 +36,11 @@ public abstract class Runestone extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Runestone.class)
-			.t("placeholder.name", "符石")
+			.t("$placeholder.name", "符石")
 			.t("discover_hint", "你可在地牢中概率找到该物品，或通过炼金合成该物品。");
 	}
+
+
 
 	
 	{

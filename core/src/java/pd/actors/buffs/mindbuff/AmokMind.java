@@ -8,4 +8,6 @@ public class AmokMind extends MindBuff {
 			.t("name", "疯狂-混乱")
 			.t("desc", "命中率降低。");
 	}
+
+
  }

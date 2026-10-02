@@ -40,6 +40,8 @@ public class ImpShopkeeper extends Shopkeeper {
 	}
 
 
+
+
 	{
 		spriteClass = ImpSprite.class;
 		properties.add(Property.DEMONIC);

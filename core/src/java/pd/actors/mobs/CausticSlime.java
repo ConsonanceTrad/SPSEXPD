@@ -40,6 +40,8 @@ public class CausticSlime extends Slime {
 			.t("discover_hint", "你可在某个地牢区域中中碰巧遇到该敌人。");
 	}
 
+
+
 	
 	{
 		spriteClass = CausticSlimeSprite.class;

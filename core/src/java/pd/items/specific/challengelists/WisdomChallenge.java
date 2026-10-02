@@ -10,6 +10,8 @@ public class WisdomChallenge extends ChallengeList {
 			.t("desc", "三大试炼之一。它建立在天空之中，稍有差池就会失去一切。");
 	}
 
+
+
 	{ image = SpecificTaskDict.WISDOM_CHALLENGE; }
 	@Override public int challenge() { return 7; }
 }

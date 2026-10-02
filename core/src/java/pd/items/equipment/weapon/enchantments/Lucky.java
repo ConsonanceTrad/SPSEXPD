@@ -42,6 +42,8 @@ public class Lucky extends Weapon.Enchantment {
 	}
 
 
+
+
 	private static ItemSprite.Glowing GREEN = new ItemSprite.Glowing( 0x00FF00 );
 	
 	@Override

@@ -12,4 +12,6 @@ public class LitDemonEgg extends Egg {
 			.t("name", "链锯魔之魂")
 			.t("desc", "召唤链锯魔。");
 	}
+
+
  { image = ConsumSummorDict.LIT_DEMON_EGG_0; } @Override protected LegacyPet hatchling() { return new LitDemon(); } @Override public int value() { return 500 * quantity; } }

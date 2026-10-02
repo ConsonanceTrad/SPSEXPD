@@ -57,6 +57,8 @@ public class UnstableBrew extends Brew {
 	}
 
 
+
+
 	{
 		image = ConsumPotionSeedBasicPotionDict.BREW_UNSTABLE_0;
 	}

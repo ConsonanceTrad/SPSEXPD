@@ -20,6 +20,8 @@ public class EnchantmentFire extends SpsEnchantment {
 			.t("desc", "烈焰附魔将造成少量的火属性伤害，并有几率点燃目标。");
 	}
 
+
+
 	private static final ItemSprite.Glowing RED = new ItemSprite.Glowing(0xCC0000);
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		elementalDamage(weapon, attacker, defender, 0.25f, FIRE_DAMAGE);

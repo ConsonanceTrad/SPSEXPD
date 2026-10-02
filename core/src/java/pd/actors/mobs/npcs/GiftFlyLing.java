@@ -31,6 +31,8 @@ public class GiftFlyLing extends GiftNpc {
 			.t("reward3", "我将为你祷告并祝福你，这个水晶项链你也拿去。");
 	}
 
+
+
 	{ properties.add(Property.ELF); }
 	@Override public Visual visual() { return Visual.FLY_LING; }
 	@Override public boolean acceptsGift(Item item) {

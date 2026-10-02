@@ -25,6 +25,8 @@ public class IceBug extends SpsCaveMobs.IceBug {
 	}
 
 
+
+
 	{
 		spriteClass = IceBugSprite.class;
 		properties.remove(Property.ICY);

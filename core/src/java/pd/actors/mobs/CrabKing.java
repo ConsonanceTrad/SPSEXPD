@@ -33,6 +33,8 @@ public class CrabKing extends Mob {
 			.t("heal", "远古巨蟹从高压电壳中吸取了能量！");
 	}
 
+
+
 	private static final int JUMP_DELAY = 5;
 	private int timeToJump = JUMP_DELAY;
 	{ spriteClass = CrabKingSprite.class; baseSpeed = 2f; HP = HT = 1300; EXP = 20; defenseSkill = 30; properties.add(Property.FISHER); properties.add(Property.BOSS); resistances.add(ToxicGas.class); resistances.add(Poison.class); }

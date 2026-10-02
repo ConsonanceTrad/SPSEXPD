@@ -25,6 +25,8 @@ public class IceBomb extends Bomb {
 			.t("desc", "在爆炸范围内制造极寒雪雾并造成冻伤。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public void explode(int cell) {
 		super.explode(cell);

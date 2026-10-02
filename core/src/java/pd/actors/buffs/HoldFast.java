@@ -43,6 +43,8 @@ public class HoldFast extends Buff {
 	}
 
 
+
+
 	{
 		type = buffType.POSITIVE;
 	}

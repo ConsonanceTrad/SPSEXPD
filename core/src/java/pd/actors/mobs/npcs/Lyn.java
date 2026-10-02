@@ -14,6 +14,8 @@ public class Lyn extends TownNpc {
 			.t("yell2", "来杯魔能饮料吗?哦，你想知道宠物吃什么吗?想想它们是什么，是常规生物还是奇幻事物，是素食还是肉食。当然，没有宠物可以拒绝口粮，那是特制的。");
 	}
 
+
+
 	public Lyn() {
 		configure(Spec.LYN);
 		spriteClass = pd.sprites.LynSprite.class;

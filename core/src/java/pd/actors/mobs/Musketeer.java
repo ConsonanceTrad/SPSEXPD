@@ -16,6 +16,8 @@ public class Musketeer extends SpsCityMobs.Musketeer {
 	}
 
 
+
+
 	{
 		spriteClass = MusketeerSprite.class;
 	}

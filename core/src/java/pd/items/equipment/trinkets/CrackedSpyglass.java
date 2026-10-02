@@ -38,6 +38,8 @@ public class CrackedSpyglass extends Trinket{
 	}
 
 
+
+
 	{
 		image = EquipmentNonEquipDict.SPYGLASS_0;
 	}

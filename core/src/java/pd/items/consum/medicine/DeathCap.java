@@ -18,6 +18,8 @@ public class DeathCap extends Pill {
 			.t("desc", "这种头上布满白斑的红色菌类肯定是具有致命效果的东西。希望它也会对其他生物有效。\n使用_1份水，1份蔬菜，1份毒草种子_炼金");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	public DeathCap() { this(1); }
 	public DeathCap(int value) { quantity = value; }

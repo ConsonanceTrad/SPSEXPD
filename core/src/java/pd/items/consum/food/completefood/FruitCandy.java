@@ -22,6 +22,8 @@ public class FruitCandy extends CompleteFood {
 	}
 
 
+
+
 	{
 		image = ConsumFoodFoodDict.FRUIT_CANDY;
 		energy = 20f;

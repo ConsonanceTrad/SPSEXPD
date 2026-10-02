@@ -24,6 +24,8 @@ public class GasesImmunity extends FlavourBuff {
 			.t("desc", "一种奇特的力量正在过滤你周边的空气。效果持续时，你免疫有害气体和天气。\n\n剩余时间：%s回合。");
 	}
 
+
+
 	public static final float DURATION = 20f;
 	{
 		type = buffType.POSITIVE;

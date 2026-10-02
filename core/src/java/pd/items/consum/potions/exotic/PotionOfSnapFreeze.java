@@ -41,6 +41,8 @@ public class PotionOfSnapFreeze extends ExoticPotion {
 			.t("desc", "一旦暴露在空气里，这种化学混合物会瞬间冻结并缠绕范围内一切对象。");
 	}
 
+
+
 	
 	{
 		icon = ItemIconSheet.POTION_SNAPFREEZ;

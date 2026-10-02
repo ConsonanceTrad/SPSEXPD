@@ -9,6 +9,8 @@ public class PrisonChallenge extends ChallengeList {
 			.t("name", "监狱挑战");
 	}
 
+
+
 	{ image = SpecificTaskDict.PRISON_CHALLENGE; }
 	@Override public int challenge() { return 1; }
 }

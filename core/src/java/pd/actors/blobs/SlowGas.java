@@ -21,6 +21,8 @@ public class SlowGas extends Blob {
 	}
 
 
+
+
 	@Override
 	protected void evolve() {
 		int width = Dungeon.level.width();

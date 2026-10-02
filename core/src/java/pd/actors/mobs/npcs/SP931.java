@@ -14,6 +14,8 @@ public class SP931 extends TownNpc {
 			.t("yell2", "人生如果不装B的话还有什么意思呢?");
 	}
 
+
+
 	public SP931() {
 		configure(Spec.SP931);
 		spriteClass = pd.sprites.SP931Sprite.class;

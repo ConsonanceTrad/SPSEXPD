@@ -17,6 +17,8 @@ public class CountDown extends Buff implements Hero.Doom, Buff.DOTbuff {
 			.t("desc", "倒计时归零时，目标会失去最大生命值四分之一的生命。剩余回合：%s。");
 	}
 
+
+
 	private static final String TICKS = "ticks";
 	private int ticks;
 	{ type = buffType.NEGATIVE; announced = true; }

@@ -16,6 +16,8 @@ public class MageBook extends NormalMeleeWeapon {
 			.t("desc", "一本法师高塔里的厚重魔典。内容十分难懂。——Coconut \n钝器");
 	}
 
+
+
 	public MageBook() { super(1, 1f, 1f, 1, 1, 10, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) {
 		if (s.strength > 1) s.strength--;

@@ -17,6 +17,8 @@ public class BrownBat extends SpsSewerMobs.BrownBat {
 	}
 
 
+
+
 	{
 		spriteClass = BrownBatSprite.class;
 		properties.add(Property.BEAST);

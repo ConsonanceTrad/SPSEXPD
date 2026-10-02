@@ -19,6 +19,8 @@ public class DewTrap extends Trap {
 			.t("desc", "触发后会在周围九格洒落紫色露珠。");
 	}
 
+
+
 	{ color = RED; shape = CROSSHAIR; }
 
 	@Override

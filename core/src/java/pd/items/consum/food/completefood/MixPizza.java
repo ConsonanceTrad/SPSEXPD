@@ -22,6 +22,8 @@ public class MixPizza extends CompleteFood {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 50f;

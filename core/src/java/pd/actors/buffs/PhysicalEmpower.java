@@ -38,6 +38,8 @@ public class PhysicalEmpower extends Buff {
 	}
 
 
+
+
 	{
 		type = buffType.POSITIVE;
 	}

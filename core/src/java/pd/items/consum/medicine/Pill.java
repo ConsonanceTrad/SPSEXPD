@@ -42,6 +42,8 @@ public class Pill extends Item {
 	}
 
 
+
+
 	public static final String AC_EAT = "EAT";
 
 	{

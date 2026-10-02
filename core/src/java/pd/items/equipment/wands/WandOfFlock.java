@@ -42,11 +42,13 @@ public class WandOfFlock extends Wand {
 			.t("desc", "这根暗属性法杖看起来就像普通木棍一样，但两头的金色饰物使它看起来并不普通。")
 			.t("stats_desc", "该法杖会在目标地点召唤一只持续_2加法杖等级_回合的魔法绵羊。它能阻挡移动，并会在受到攻击时以暗属性伤害反击。")
 			.t("guard", "魔法引起了智慧守卫的注意。")
-			.t("magicsheep.name", "魔法绵羊")
-			.t("magicsheep.desc", "这是一只杀不死的魔法绵羊。它只会站在那里直到消失，并在受到攻击时反击。")
-			.t("magicbombsheep.name", "BABA")
-			.t("magicbombsheep.desc", "LEVEL_TOO_HARD，BABA_IS_DONE。BETTER_LOOK_OUT，BABA_HAS_GUN。");
+			.t("$magicsheep.name", "魔法绵羊")
+			.t("$magicsheep.desc", "这是一只杀不死的魔法绵羊。它只会站在那里直到消失，并在受到攻击时反击。")
+			.t("$magicbombsheep.name", "BABA")
+			.t("$magicbombsheep.desc", "LEVEL_TOO_HARD，BABA_IS_DONE。BETTER_LOOK_OUT，BABA_HAS_GUN。");
 	}
+
+
 
 
 	{

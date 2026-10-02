@@ -22,6 +22,8 @@ public class Abi extends PET {
 			.t("desc", "由阿飞制作的哨子召唤出的精灵。");
 	}
 
+
+
 	{
 		spriteClass = AbiSprite.class;
 		properties.add(Property.BEAST);

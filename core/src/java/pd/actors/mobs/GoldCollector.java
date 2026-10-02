@@ -19,6 +19,8 @@ public class GoldCollector extends SpsPrisonMobs.GoldCollector {
 	}
 
 
+
+
 	{
 		spriteClass = GoldCollectorSprite.class;
 		properties.add(Property.GOBLIN);

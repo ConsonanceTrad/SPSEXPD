@@ -19,6 +19,8 @@ public class HeartOfScarecrow extends Bag {
 	}
 
 
+
+
 	{
 		image = EquipmentBagsDict.HEART_OF_SCARECROW_0;
 	}

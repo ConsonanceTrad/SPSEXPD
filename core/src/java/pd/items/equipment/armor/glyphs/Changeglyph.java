@@ -28,6 +28,8 @@ public class Changeglyph extends SpsGlyph {
 			.t("desc", "变幻刻印有几率创造一个诱饵，并使使用者远离危险。");
 	}
 
+
+
 	private static final ItemSprite.Glowing COLOR = new ItemSprite.Glowing(0x8844CC);
 	@Override public int proc(Armor armor, Char attacker, Char defender, int damage) {
 		clearElementalMarker(defender);

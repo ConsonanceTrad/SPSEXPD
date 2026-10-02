@@ -15,5 +15,7 @@ public class RandomColEgg extends RandomPetEgg {
 			.t("desc", "召唤一个随机的资源宠物。");
 	}
 
+
+
 	public RandomColEgg() { super(ButterflyPet.class, Monkey.class, PigPet.class, Datura.class); }
 }

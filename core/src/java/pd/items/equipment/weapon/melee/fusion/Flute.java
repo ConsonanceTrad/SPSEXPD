@@ -17,6 +17,8 @@ public class Flute extends Mace implements FusionWeapon {
 			.t("desc", "一件命中略高的二阶乐器。每次命中都会对目标周围的敌对单位造成五分之一的伤害。");
 	}
 
+
+
 	{ image = EquipmentWandBasicWandDict.WAND_REGROWTH; tier = 2; ACC = 1.05f; }
 	@Override public int min(int lvl) { return 3 + lvl; }
 	@Override public int max(int lvl) { return 12 + 3 * lvl; }

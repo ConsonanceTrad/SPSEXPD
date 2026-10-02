@@ -34,6 +34,8 @@ public class Daze extends FlavourBuff {
 	}
 
 
+
+
 	public static final float DURATION	= 5f;
 
 	{

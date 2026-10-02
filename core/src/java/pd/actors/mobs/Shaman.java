@@ -49,10 +49,12 @@ public abstract class Shaman extends Mob {
 			.t("name", "豺狼萨满")
 			.t("bolt_kill", "你死于魔能射弹...")
 			.t("desc", "豺狼萨满比大多数豺狼人更具智慧，它们会用战斗法术来弥补力量上的不足。尽管豺狼萨满的力量相对较弱，它们仍在部落中享有崇高地位。")
-			.t("redshaman.spell_desc", "佩戴红色面具的萨满会利用魔法_弱化你的攻击力_。")
-			.t("blueshaman.spell_desc", "佩戴蓝色面具的萨满会利用魔法_增加你受到的伤害_。")
-			.t("purpleshaman.spell_desc", "佩戴紫色面具的萨满会利用魔法_削减你的精准与闪避_。");
+			.t("$redshaman.spell_desc", "佩戴红色面具的萨满会利用魔法_弱化你的攻击力_。")
+			.t("$blueshaman.spell_desc", "佩戴蓝色面具的萨满会利用魔法_增加你受到的伤害_。")
+			.t("$purpleshaman.spell_desc", "佩戴紫色面具的萨满会利用魔法_削减你的精准与闪避_。");
 	}
+
+
 
 	
 	{

@@ -19,6 +19,8 @@ public class BlindAmmo extends SpAmmo {
 			.t("desc", "将原石和致盲种锻造而成的特殊子弹，能使武器附带致盲效果。");
 	}
 
+
+
 	private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing(0xFFFF44);
 	@Override public ItemSprite.Glowing glowing() { return YELLOW; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {

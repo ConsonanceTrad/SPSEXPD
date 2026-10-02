@@ -13,6 +13,8 @@ public class LingBless extends FlavourBuff {
 	}
 
 
+
+
 	public static final float DURATION = 200f;
 
 	{

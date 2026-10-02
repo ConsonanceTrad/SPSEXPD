@@ -16,6 +16,8 @@ public class NormalCell extends Mob {
 			.t("desc", "由不稳定的退化弹转变而成的奇异活细胞。");
 	}
 
+
+
 	{
 		spriteClass = CellmobSprite.class;
 		HP = HT = 1;

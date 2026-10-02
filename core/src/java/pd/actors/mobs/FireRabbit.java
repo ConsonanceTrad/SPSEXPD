@@ -21,6 +21,8 @@ public class FireRabbit extends SpsPrisonMobs.FireRabbit {
 	}
 
 
+
+
 	{
 		spriteClass = FireRabbitSprite.class;
 		properties.remove(Property.FIERY);

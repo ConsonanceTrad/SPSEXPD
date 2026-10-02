@@ -35,6 +35,8 @@ public class Obfuscation extends Armor.Glyph {
 	}
 
 
+
+
 	private static ItemSprite.Glowing GREY = new ItemSprite.Glowing( 0x888888 );
 
 	@Override

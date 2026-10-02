@@ -16,6 +16,8 @@ public class DamageUp extends Buff {
 	}
 
 
+
+
 	private static final String LEVEL = "level";
 	private int level;
 

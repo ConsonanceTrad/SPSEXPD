@@ -50,6 +50,8 @@ public class PotionOfPurity extends Potion {
 			.t("desc", "这种魔法试剂能迅速中和掉大范围内的各种有害环境。饮用它将使你暂时免疫这种环境。");
 	}
 
+
+
 	
 	private static final int DISTANCE	= 3;
 	

@@ -50,6 +50,8 @@ public class WornDartTrap extends Trap {
 	}
 
 
+
+
 	{
 		color = GREY;
 		shape = CROSSHAIR;

@@ -10,6 +10,8 @@ public class NouthSouth extends SellItem {
 			.t("desc", "矮人所使用的手柄，用于尝试体感类的掌机游戏。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public int value() { return 500 * quantity; }
 }

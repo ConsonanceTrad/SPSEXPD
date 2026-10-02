@@ -36,6 +36,8 @@ public class LockedFloor extends Buff {
 	}
 
 
+
+
 	//the amount of turns remaining before beneficial passive effects turn off
 	//starts at 50 turns normally, 20 with badder bosses
 	private float left = Dungeon.isChallenged(Challenges.STRONGER_BOSSES) ? 20 : 50;

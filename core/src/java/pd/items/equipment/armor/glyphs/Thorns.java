@@ -38,6 +38,8 @@ public class Thorns extends Armor.Glyph {
 	}
 
 
+
+
 	private static ItemSprite.Glowing RED = new ItemSprite.Glowing( 0x660022 );
 
 	@Override

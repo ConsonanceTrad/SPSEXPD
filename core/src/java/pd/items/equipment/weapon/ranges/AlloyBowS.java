@@ -9,4 +9,6 @@ public class AlloyBowS extends RangeWeapon {
 			.t("name", "轻巧的合金弩")
 			.t("desc", "使用多种金属打造而成的弩，但是比较轻巧。");
 	}
+
+
  public AlloyBowS() { super(4, Variant.LIGHT, SpecificPlaceHolderDict.SOMETHING_0); } }

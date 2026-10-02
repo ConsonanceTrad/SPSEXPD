@@ -16,6 +16,8 @@ public class PrayerWheel extends Mace implements FusionWeapon {
 			.t("desc", "一件稳重的四阶武器，会在攻击中积蓄动能。每第八次攻击造成50%额外伤害，随后清空蓄力。");
 	}
 
+
+
 	private int charge;
 	{ image = EquipmentEquipWeaponBasicWeaponDict.ROUND_SHIELD_0; tier = 4; ACC = 0.9f; }
 	@Override public int min(int lvl) { return 6 + lvl; }

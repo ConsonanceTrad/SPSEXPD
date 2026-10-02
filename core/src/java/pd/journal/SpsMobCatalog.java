@@ -72,6 +72,8 @@ public enum SpsMobCatalog {
 	}
 
 
+
+
 	private final LinkedHashSet<Class<? extends Mob>> mobs = new LinkedHashSet<>();
 
 	SpsMobCatalog(String classNames) {

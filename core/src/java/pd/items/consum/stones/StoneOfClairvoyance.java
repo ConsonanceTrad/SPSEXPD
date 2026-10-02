@@ -42,6 +42,8 @@ public class StoneOfClairvoyance extends Runestone {
 			.t("desc", "这颗符石被扔出后会瞬间搜索以目的地为中心的巨大范围内的所有地格。该搜索能力甚至不受墙壁的阻隔。");
 	}
 
+
+
 	
 	private static final int DIST = 20;
 	

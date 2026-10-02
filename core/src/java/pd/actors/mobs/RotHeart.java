@@ -45,6 +45,8 @@ public class RotHeart extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = RotHeartSprite.class;
 

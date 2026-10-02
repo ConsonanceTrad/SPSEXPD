@@ -14,6 +14,8 @@ public class NutPainter extends TownNpc {
 			.t("yell2", "坚果万岁!!");
 	}
 
+
+
 	public NutPainter() {
 		configure(Spec.NUT_PAINTER);
 		spriteClass = pd.sprites.PainterSprite.class;

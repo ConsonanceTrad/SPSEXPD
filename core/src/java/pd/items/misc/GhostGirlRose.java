@@ -16,6 +16,8 @@ public class GhostGirlRose extends MiscEquippable {
 	}
 
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 
 	@Override protected GhostGirlBless createBuff() { return new GhostGirlBless(); }

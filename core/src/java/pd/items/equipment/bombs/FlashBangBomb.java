@@ -55,6 +55,8 @@ public class FlashBangBomb extends Bomb {
 			.t("discover_hint", "你可通过炼金合成该物品。");
 	}
 
+
+
 	
 	{
 		image = EquipmentEquipWeaponBombDict.FLASHBANG_0;

@@ -33,6 +33,8 @@ public class HolyMace extends NormalMeleeWeapon {
 			.t("desc", "一把受祝福的钉锤，可以吸收火把和强力符石来提升能力。");
 	}
 
+
+
 	public static final String AC_ADD="ADD",AC_LIGHT="LIGHT",AC_TRIAL="TRIAL";private static final String CHARGE="charge",UP1="uptime1",UP2="uptime2";private int charge,uptime1=1,uptime2=1;
 	public HolyMace(){super(3,1.2f,1f,2,8,20,EquipmentEquipWeaponUniqueWeaponDict.HOLY_HAMMER);unique=true;reinforced=true;cursed=true;defaultAction=AC_ADD;usesTargeting=true;}
 	@Override protected void applyLegacyUpgrade(Stats stats){stats.min++;stats.max+=3;}@Override public Item uncurse(){return this;}

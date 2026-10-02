@@ -40,6 +40,8 @@ public class Regrowth extends Blob {
 			.t("name", "草木再生");
 	}
 
+
+
 	
 	@Override
 	protected void evolve() {

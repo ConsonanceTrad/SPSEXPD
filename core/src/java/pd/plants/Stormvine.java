@@ -42,10 +42,12 @@ public class Stormvine extends Plant {
 			.t("name", "风暴藤")
 			.t("desc", "引力似乎并不能正常地作用在风暴藤上，它蓝色的藤蔓能够\"挂\"在空中。任何被风暴藤缠到的生物也被这种奇怪的引力影响，并失去方向感。")
 			.t("warden_desc", "守望者能够操纵风暴藤的魔力，因而在踩踏之后可以获得短暂飘浮的能力。")
-			.t("seed.name", "风暴藤之种")
-			.t("exstormvine.name", "风暴藤果丛")
-			.t("exstormvine.desc", "生长乱流果的果丛。");
+			.t("$seed.name", "风暴藤之种")
+			.t("$exstormvine.name", "风暴藤果丛")
+			.t("$exstormvine.desc", "生长乱流果的果丛。");
 	}
+
+
 
 
 	{

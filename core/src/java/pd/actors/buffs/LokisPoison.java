@@ -13,6 +13,8 @@ public class LokisPoison extends Poison {
 			.t("heromsg", "你中毒了！");
 	}
 
+
+
 	@Override public void set(float duration) {
 		left = duration;
 		if (target != null) target.needsIncomingDOTUpdate = true;

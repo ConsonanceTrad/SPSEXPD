@@ -245,6 +245,8 @@ public abstract class Char extends Actor {
 			.t("immune", "免疫");
 	}
 
+
+
 	
 	public int pos = 0;
 	

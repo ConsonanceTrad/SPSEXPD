@@ -41,18 +41,20 @@ public final class SpsCaveMobs {
 	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
 	static {
 		InlineText.of(SpsCaveMobs.class)
-			.t("gnollshaman.name", "豺狼萨满")
-			.t("gnollshaman.desc", "最具智慧的豺狼能够掌握战斗魔法，用法术弥补力量上的不足。")
-			.t("sandmob.name", "沙怪")
-			.t("sandmob.desc", "一种由沙子组成的元素生物，死亡后会分裂成更小的个体。")
-			.t("sandmob$minisand.name", "小型沙怪")
-			.t("sandmob$minisand.desc", "沙怪死亡后分裂出的较小个体。")
-			.t("icebug.name", "冰足虫")
-			.t("icebug.desc", "生活在冰冷环境中的虫子，咬伤会造成结晶霜冻。")
-			.t("timekeeper.name", "时序守卫")
-			.t("timekeeper.desc", "守护时间线的卫士，能够挪移生物并逃过致命攻击。")
-			.t("timekeeper.yell", "愚蠢！");
+			.t("$gnollshaman.name", "豺狼萨满")
+			.t("$gnollshaman.desc", "最具智慧的豺狼能够掌握战斗魔法，用法术弥补力量上的不足。")
+			.t("$sandmob.name", "沙怪")
+			.t("$sandmob.desc", "一种由沙子组成的元素生物，死亡后会分裂成更小的个体。")
+			.t("$sandmob$minisand.name", "小型沙怪")
+			.t("$sandmob$minisand.desc", "沙怪死亡后分裂出的较小个体。")
+			.t("$icebug.name", "冰足虫")
+			.t("$icebug.desc", "生活在冰冷环境中的虫子，咬伤会造成结晶霜冻。")
+			.t("$timekeeper.name", "时序守卫")
+			.t("$timekeeper.desc", "守护时间线的卫士，能够挪移生物并逃过致命攻击。")
+			.t("$timekeeper.yell", "愚蠢！");
 	}
+
+
 
 	private SpsCaveMobs() { }
 

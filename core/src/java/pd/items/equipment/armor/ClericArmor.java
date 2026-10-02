@@ -34,6 +34,8 @@ public class ClericArmor extends ClassArmor {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}

@@ -8,4 +8,6 @@ public class DarkDamageTrap extends ElementalDamageTrap {
 			.t("name", "暗伤陷阱")
 			.t("desc", "会释放暗属性伤害的陷阱。");
 	}
+
+
  public DarkDamageTrap(){ super(VIOLET, LARGE_DOT, DarkEffectDamage.class, 1, 10); } }

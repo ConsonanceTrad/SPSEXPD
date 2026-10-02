@@ -17,6 +17,8 @@ public class CurseBlood extends Item {
 			.t("desc", "一瓶被诅咒的浑浊液体。暗噬1/3。");
 	}
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = false;

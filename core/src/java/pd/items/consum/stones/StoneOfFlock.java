@@ -45,6 +45,8 @@ public class StoneOfFlock extends Runestone {
 			.t("desc", "这颗符石被扔出后会在目的地召唤一群魔法绵羊。");
 	}
 
+
+
 	
 	{
 		image = ConsumScrollAmuletAmuletDict.STONE_FLOCK_0;

@@ -27,6 +27,8 @@ public class BloodAngry extends Buff {
 	}
 
 
+
+
 	private static final String LEFT = "left";
 
 	private float left;

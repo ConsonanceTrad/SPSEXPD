@@ -22,6 +22,8 @@ public class DoorBlock extends BuildBlock {
 	}
 
 
+
+
 	{
 		image = ConsumThrowsDict.DOOR_BLOCK_PLACER;
 	}

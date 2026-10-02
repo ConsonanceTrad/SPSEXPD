@@ -9,4 +9,6 @@ public class VestArmor extends NormalArmor {
 			.t("name", "背心")
 			.t("desc", "一件工厂生产的普通商品，虽然没法抵御伤害，但是十分适合运动。\n轻型护甲");
 	}
+
+
  public VestArmor(){ super(1,4f,12f,1,0,2,-1,0,1,SpecificPlaceHolderDict.SOMETHING_0); } }

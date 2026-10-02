@@ -43,6 +43,8 @@ public class MossyClump extends Trinket {
 	}
 
 
+
+
 	{
 		image = EquipmentNonEquipDict.MOSSY_CLUMP_0;
 	}

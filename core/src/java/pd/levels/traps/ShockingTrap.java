@@ -42,6 +42,8 @@ public class ShockingTrap extends Trap {
 	}
 
 
+
+
 	{
 		color = YELLOW;
 		shape = DOTS;

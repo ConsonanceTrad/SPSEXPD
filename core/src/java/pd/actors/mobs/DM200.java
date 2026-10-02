@@ -46,6 +46,8 @@ public class DM200 extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = DM200Sprite.class;
 

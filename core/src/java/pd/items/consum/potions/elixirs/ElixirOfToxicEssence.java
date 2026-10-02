@@ -38,6 +38,8 @@ public class ElixirOfToxicEssence extends Elixir {
 			.t("desc", "这瓶秘药能够向使用者注入强大的毒素之力，饮用者在持续时间内将会在周身不断释放出致命的毒雾，此外还会在更长的一段时间内免疫毒气和毒素。");
 	}
 
+
+
 	
 	{
 		image = ConsumPotionSeedBasicPotionDict.ELIXIR_TOXIC_0;

@@ -19,10 +19,12 @@ public class Dreamfoil extends Plant {
 			.t("name", "梦夜花")
 			.t("desc", "梦夜花含有强力中和成分。它会净化英雄、令其他生物陷入魔法睡眠，并结出一颗鲜莓。")
 			.t("warden_desc", "_守望者_同样会被完全净化，而不会因此沉睡。")
-			.t("seed.name", "梦夜花之种")
-			.t("exdreamfoil.name", "梦夜花果丛")
-			.t("exdreamfoil.desc", "生长魅惑果的果丛。");
+			.t("$seed.name", "梦夜花之种")
+			.t("$exdreamfoil.name", "梦夜花果丛")
+			.t("$exdreamfoil.desc", "生长魅惑果的果丛。");
 	}
+
+
 
 	{ image = 10; seedClass = Seed.class; }
 	@Override public void activate(Char ch) {

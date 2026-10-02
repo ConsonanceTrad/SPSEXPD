@@ -10,6 +10,8 @@ public class AdamantWand extends Item {
 			.t("desc", "用于焊接法杖的组件。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; unique = true; }
 	@Override public boolean isUpgradable() { return false; }
 	@Override public boolean isIdentified() { return true; }

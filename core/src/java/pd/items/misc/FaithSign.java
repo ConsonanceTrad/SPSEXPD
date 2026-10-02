@@ -32,6 +32,8 @@ public class FaithSign extends Item {
 	}
 
 
+
+
 	public static final String AC_CHOOSE = "CHOOSE";
 	public static final String AC_DEMON = "DEMON";
 	public static final String AC_HUMAN = "HUMAN";

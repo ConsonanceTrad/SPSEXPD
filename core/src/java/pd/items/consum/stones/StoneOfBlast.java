@@ -34,6 +34,8 @@ public class StoneOfBlast extends Runestone {
 			.t("desc", "这颗符石被扔出后会在目的地立即爆炸。和炸弹一样，爆炸会对范围内的所有东西造成伤害。");
 	}
 
+
+
 	
 	{
 		image = ConsumScrollAmuletAmuletDict.STONE_BLAST_0;

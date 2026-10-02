@@ -24,6 +24,8 @@ public class Sweb extends RockCode {
 			.t("stats_desc", "消耗4点能量中的1点，造成等级伤害，并在相邻可通行地面生成蛛网。");
 	}
 
+
+
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "S.w"; }
 	@Override protected int missileType() { return MagicMissile.LIGHT_MISSILE; }
 	@Override protected void onZap(Ballistica bolt) {

@@ -42,6 +42,8 @@ public class WornKey extends Key {
 			.t("desc", "这把磨损而褪色的钥匙看起来非同寻常。大概它可以打开附近某道非同寻常的门。");
 	}
 
+
+
 	
 	{
 		image = SpecificKeyDict.WORN_KEY;

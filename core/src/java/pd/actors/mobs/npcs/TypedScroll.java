@@ -14,6 +14,8 @@ public class TypedScroll extends TownNpc {
 			.t("yell2", "LCPD已经上架谷歌商店啦，快去下载吧！");
 	}
 
+
+
 	public TypedScroll() {
 		configure(Spec.TYPED_SCROLL);
 		spriteClass = pd.sprites.TypedScrollSprite.class;

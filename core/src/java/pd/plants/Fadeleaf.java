@@ -47,10 +47,12 @@ public class Fadeleaf extends Plant {
 			.t("name", "消逝草")
 			.t("desc", "任何触碰到消逝草的生物都会被传送到当前层的一个随机地点。")
 			.t("warden_desc", "_守望者_能进一步发挥消逝草的空间魔力，直接回到上一层的下楼梯处。")
-			.t("seed.name", "消逝草之种")
-			.t("exfadeleaf.name", "消逝草果丛")
-			.t("exfadeleaf.desc", "生长烟雾果的果丛。");
+			.t("$seed.name", "消逝草之种")
+			.t("$exfadeleaf.name", "消逝草果丛")
+			.t("$exfadeleaf.desc", "生长烟雾果的果丛。");
 	}
+
+
 
 	
 	{

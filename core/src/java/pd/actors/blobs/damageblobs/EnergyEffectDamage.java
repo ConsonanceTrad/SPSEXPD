@@ -14,6 +14,8 @@ public class EnergyEffectDamage extends SpsElementalDamage {
 			.t("desc", "这片区域会持续造成能量伤害。");
 	}
 
+
+
 	@Override protected Object damageSource() { return DamageType.ENERGY_DAMAGE; }
 	@Override public void use(BlobEmitter emitter) {
 		super.use(emitter);

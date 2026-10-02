@@ -10,4 +10,6 @@ public class RandomEgg1 extends RandomPetEgg {
 			.t("name", "随机一月灵魂")
 			.t("desc", "召唤一个随机的一月宠物，包括柯多拉、忠犬、曼陀罗。");
 	}
+
+
  public RandomEgg1() { super(Kodora.class, DogPet.class, Datura.class); } }

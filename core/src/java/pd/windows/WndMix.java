@@ -26,6 +26,8 @@ public class WndMix extends WndSpsRecipe {
 			.t("cancel", "取消");
 	}
 
+
+
 	private static final int COST = 1000;
 	public WndMix() { super(new WandOfMagicMissile(), COST); }
 	@Override protected boolean accepts(Item item) { return item instanceof Ring || item instanceof Wand; }

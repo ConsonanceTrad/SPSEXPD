@@ -33,6 +33,8 @@ public class GoldenKey extends Key {
 			.t("desc", "这把黄金钥匙的齿纹精妙而复杂。或许可以用它来打开某个上锁的宝箱？");
 	}
 
+
+
 	
 	{
 		image = SpecificKeyDict.GOLDEN_KEY;

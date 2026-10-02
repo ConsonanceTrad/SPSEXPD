@@ -34,6 +34,8 @@ public enum SpsCatalog {
 	}
 
 
+
+
 	// 目录即语义：候选包以 items / plants 包自身为锚点写成相对子路径，不出现任何根包名
 	private static final String ITEMS_PACKAGE = Item.class.getPackage().getName() + ".";
 	private static final String PLANTS_PACKAGE = Plant.class.getPackage().getName() + ".";

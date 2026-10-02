@@ -55,6 +55,8 @@ public class Rapier extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.RAPIER_0;
 		hitSound = Assets.Sounds.HIT_SLASH;

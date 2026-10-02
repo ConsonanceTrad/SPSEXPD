@@ -21,6 +21,8 @@ public class YearFood extends CompleteFood {
 			.t("desc", "能永久提高生命力的节庆食物。在最终层食用还会召来年兽。");
 	}
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 150f;

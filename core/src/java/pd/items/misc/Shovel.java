@@ -38,6 +38,8 @@ public class Shovel extends Item {
 			.t("desc", "在大逃狱事件中，演员发现了这把铲子。它能破坏相邻墙壁或建造新墙，耐久会随时间恢复。");
 	}
 
+
+
 	public static final String AC_USE = "USE";
 	public static final String AC_BUILD = "BUILD";
 	public static final int FULL_CHARGE = 120;

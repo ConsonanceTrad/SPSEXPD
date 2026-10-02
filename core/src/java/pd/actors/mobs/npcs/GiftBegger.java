@@ -22,6 +22,8 @@ public class GiftBegger extends GiftNpc {
 			.t("reward1", "我不知道该怎么谢你。这只鸡本来是午饭，现在就作为回礼给你吧。");
 	}
 
+
+
 	{ properties.add(Property.HUMAN); }
 	@Override public Visual visual() { return Visual.BEGGER; }
 	@Override public boolean acceptsGift(Item item) { return item != null && !item.unique; }

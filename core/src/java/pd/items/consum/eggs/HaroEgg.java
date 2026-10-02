@@ -13,6 +13,8 @@ public class HaroEgg extends Egg {
 			.t("desc", "阿萨修好的不知名机械。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected LegacyPet hatchling() { return new Haro(); }
 	@Override public int value() { return 500 * quantity; }

@@ -20,6 +20,8 @@ public class EnchantmentEnergy extends SpsEnchantment {
 			.t("desc", "战意附魔将造成少量的无属性伤害，并提升使用者的攻击力。");
 	}
 
+
+
 	private static final ItemSprite.Glowing GRAY = new ItemSprite.Glowing(0x888888);
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		elementalDamage(weapon, attacker, defender, 0.25f, ENERGY_DAMAGE);

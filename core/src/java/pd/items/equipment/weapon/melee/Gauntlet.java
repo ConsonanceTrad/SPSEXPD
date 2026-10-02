@@ -40,6 +40,8 @@ public class Gauntlet extends MeleeWeapon {
 			.t("desc", "这个巨大的拳套由一匹红布和层层覆盖在布上的魔法岩石交织而成。戴上后，布料紧紧裹住你的整个前臂，让厚重的岩板变得像一层坚硬的皮肤。要有足够的力量才能将如此沉重的武器自如挥舞，但正是这种力量和重量的结合让这件武器发挥出可怕的威力。");
 	}
 
+
+
 	
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.GAUNTLETS_0;

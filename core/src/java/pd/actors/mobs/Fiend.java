@@ -32,6 +32,8 @@ public class Fiend extends Mob {
 	}
 
 
+
+
 	private static final float TIME_TO_ZAP = 2f;
 	private static final float SPAWN_DELAY = 6f;
 	private static final String LEGACY_DEPTH = "legacy_depth";

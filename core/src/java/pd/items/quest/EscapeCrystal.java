@@ -88,6 +88,8 @@ public class EscapeCrystal extends Item {
 	}
 
 
+
+
 	{
 		image = ConsumGoodsMaterialsMaterialsDict.ESCAPE_0;
 

@@ -23,6 +23,8 @@ public class WndGoblin extends Window {
 			.t("more_gold", "你的金币不够。");
 	}
 
+
+
 	private static final int WIDTH = 120;
 	public static final int PRICE = 3000;
 

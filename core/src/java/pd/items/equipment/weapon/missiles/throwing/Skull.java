@@ -20,6 +20,8 @@ public class Skull extends MissileWeapon {
 	}
 
 
+
+
 	{
 		image = ConsumThrowsDict.SKULL;
 		tier = 1;

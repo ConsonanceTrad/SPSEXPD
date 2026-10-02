@@ -12,6 +12,8 @@ public class GunB extends GunWeapon {
 			.t("desc", "高塔基于下水道试验结果制作的可靠双管手枪，被投入监狱环境进行测试。");
 	}
 
+
+
 	{ image = EquipmentEquipWeaponBasicWeaponDict.GUN_4; }
 	public GunB() { super(2, 4); }
 }

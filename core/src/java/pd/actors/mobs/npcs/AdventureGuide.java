@@ -63,6 +63,8 @@ public class AdventureGuide extends NPC {
 	}
 
 
+
+
 	private int destination;
 	private int purchasedMask;
 	private boolean crafted;

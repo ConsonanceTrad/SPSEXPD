@@ -11,5 +11,7 @@ public class Vault extends JournalPage {
 			.t("desc", "一个字迹潦草的地点坐标，旁边有2020.1.25的字样。");
 	}
 
+
+
 	public Vault() { super(6); }
 }

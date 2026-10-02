@@ -43,6 +43,8 @@ public class Entanglement extends Glyph {
 			.t("desc", "这个刻印会在使用者周围生出能吸收伤害的地根护甲。这种地根护甲会在使用者移动后散落失效。");
 	}
 
+
+
 	
 	private static ItemSprite.Glowing BROWN = new ItemSprite.Glowing( 0x663300 );
 	

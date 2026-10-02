@@ -62,6 +62,8 @@ public class Brewed extends Item {
 	}
 
 
+
+
 	public static final String AC_EAT = "EAT";
 	private static final float TIME_TO_EAT = 2f;
 	private static final String POTION_ATTRIB = "potionattrib";

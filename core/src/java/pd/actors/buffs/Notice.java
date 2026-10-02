@@ -15,6 +15,8 @@ public class Notice extends FlavourBuff {
 	}
 
 
+
+
 	public static final float DURATION = 30f;
 
 	{

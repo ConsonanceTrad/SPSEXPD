@@ -39,6 +39,8 @@ public class Grim extends Weapon.Enchantment {
 			.t("elestrike_desc", "武器拥有死神附魔时，元素打击范围内除主要目标外的每个敌人都有6~30%的几率被秒杀。(概率基于该敌人已损失的生命值)");
 	}
 
+
+
 	
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 	

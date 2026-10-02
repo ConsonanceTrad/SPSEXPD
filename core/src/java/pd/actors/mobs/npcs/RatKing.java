@@ -65,6 +65,8 @@ public class RatKing extends NPC {
 	}
 
 
+
+
 	{
 		spriteClass = RatKingSprite.class;
 		

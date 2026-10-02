@@ -15,6 +15,8 @@ public class IceEffectDamage extends SpsElementalDamage {
 			.t("desc", "这片区域会持续造成寒冰伤害。");
 	}
 
+
+
 	@Override protected Object damageSource() { return DamageType.ICE_DAMAGE; }
 	@Override protected void affectHeap(Heap heap) { heap.icehit(); }
 	@Override public void use(BlobEmitter emitter) {

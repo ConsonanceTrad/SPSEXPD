@@ -63,6 +63,8 @@ public class HornOfPlenty extends Artifact {
 	}
 
 
+
+
 	private static final float TIME_TO_EAT = 3f;
 	private static final float ENERGY_PER_CHARGE = 40f;
 	private static final String OBSOLETE_STORED_ENERGY = "stored";

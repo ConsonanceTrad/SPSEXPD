@@ -18,6 +18,8 @@ public class HolyWater extends MeleeWeapon {
 			.t("charge", "充能：%1$d / %2$d。");
 	}
 
+
+
 	public static final int FULL_CHARGE = 14;
 	private static final String CHARGE = "charge";
 	private int charge;

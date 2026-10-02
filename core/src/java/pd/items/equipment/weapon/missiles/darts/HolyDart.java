@@ -43,6 +43,8 @@ public class HolyDart extends TippedDart {
 	}
 
 
+
+
 	{
 		image = ConsumThrowsDict.HOLY_DART_0;
 	}

@@ -55,6 +55,8 @@ public class CrystalGuardian extends Mob{
 	}
 
 
+
+
 	{
 		spriteClass = CrystalGuardianSprite.class;
 

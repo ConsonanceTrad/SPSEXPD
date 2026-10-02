@@ -19,6 +19,8 @@ public class PotionOfMixing extends SpsPotion {
 			.t("desc", "以种荚种子酿成的稀有药水。它能永久提升命中与闪避，并暂时加快魔法充能。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public void apply(Hero hero) {
 		hero.improveCombatSkills(1);

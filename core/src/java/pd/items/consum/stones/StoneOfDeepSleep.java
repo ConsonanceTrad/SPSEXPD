@@ -41,6 +41,8 @@ public class StoneOfDeepSleep extends Runestone {
 			.t("desc", "当把这颗符石掷向一个敌人时，被命中的敌人会陷入魔法睡眠。陷入魔法睡眠的敌人会永远沉睡下去，除非受到外界打扰。");
 	}
 
+
+
 	
 	{
 		image = ConsumScrollAmuletAmuletDict.STONE_SLEEP_0;

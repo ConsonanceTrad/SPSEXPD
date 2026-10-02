@@ -43,6 +43,8 @@ public class PhantomMeat extends Food {
 	}
 
 
+
+
 	{
 		image = ConsumFoodFoodDict.PHANTOM_MEAT;
 		energy = Hunger.STARVING;

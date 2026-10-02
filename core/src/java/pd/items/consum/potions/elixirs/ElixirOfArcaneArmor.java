@@ -42,6 +42,8 @@ public class ElixirOfArcaneArmor extends Elixir {
 			.t("desc", "这瓶秘药会赋予饮用者持续时间很长的魔法抗性。");
 	}
 
+
+
 	
 	{
 		image = ConsumPotionSeedBasicPotionDict.ELIXIR_ARCANE_0;

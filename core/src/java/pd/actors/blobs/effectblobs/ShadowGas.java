@@ -16,6 +16,8 @@ public class ShadowGas extends SpsEffectBlob {
 			.t("desc", "SPS暗影场会在三回合内诅咒生物与物品。");
 	}
 
+
+
 	@Override protected void affect(Char target) {
 		if (target.buff(ShadowCurse.class) == null) Buff.affect(target, ShadowCurse.class);
 	}

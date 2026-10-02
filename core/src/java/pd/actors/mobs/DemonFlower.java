@@ -17,6 +17,8 @@ public class DemonFlower extends SpsHallsMobs.DemonFlower {
 	}
 
 
+
+
 	{
 		spriteClass = DemonflowerSprite.class;
 		properties.add(Property.PLANT);

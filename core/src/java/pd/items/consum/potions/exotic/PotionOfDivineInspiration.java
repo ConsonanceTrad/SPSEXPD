@@ -53,6 +53,8 @@ public class PotionOfDivineInspiration extends ExoticPotion {
 			.t("desc", "这股神圣的力量会化作液态，灌注进饮用者的身体，赋予其钟意的天赋两个额外天赋点。\n\n这种药剂对每一层天赋只能生效一次。");
 	}
 
+
+
 	
 	{
 		icon = ItemIconSheet.POTION_DIVINE;

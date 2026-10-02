@@ -34,6 +34,8 @@ public class FungalCore extends Mob {
 	}
 
 
+
+
 	{
 		HP = HT = 300;
 		spriteClass = FungalCoreSprite.class;

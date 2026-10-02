@@ -14,6 +14,8 @@ public class Udawos extends TownNpc {
 			.t("yell2", "先锋不同于传统地牢游戏，它是一个rpg游戏，和塞尔达传说1类似。");
 	}
 
+
+
 	public Udawos() {
 		configure(Spec.UDAWOS);
 		spriteClass = pd.sprites.UdawosSprite.class;

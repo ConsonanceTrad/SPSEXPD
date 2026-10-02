@@ -54,6 +54,8 @@ public class RipperDemon extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = RipperSprite.class;
 

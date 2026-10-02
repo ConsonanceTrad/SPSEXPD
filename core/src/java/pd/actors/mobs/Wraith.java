@@ -61,6 +61,8 @@ public class Wraith extends LegacyDualLootMob {
 	}
 
 
+
+
 	private static final float SPAWN_DELAY	= 2f;
 	
 	protected int level;

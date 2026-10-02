@@ -72,6 +72,8 @@ public class WandOfBlastWave extends DamageWand {
 	}
 
 
+
+
 	{
 		image = EquipmentWandBasicWandDict.WAND_BLAST_WAVE_0;
 

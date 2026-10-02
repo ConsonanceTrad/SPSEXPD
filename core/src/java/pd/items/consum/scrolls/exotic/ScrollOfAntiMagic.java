@@ -35,6 +35,8 @@ public class ScrollOfAntiMagic extends ExoticScroll {
 			.t("desc", "使用这张秘卷会让你被包裹在一个能够屏蔽所有魔法效果的魔力结界中，无论它是有利或是有害。屏蔽效果包括大多数魔法物品效果，例如法杖、卷轴、戒指、神器、附魔与诅咒。特别地，英雄护甲技能足够强大，因而能够不受该秘卷的限制。");
 	}
 
+
+
 	
 	{
 		icon = ItemIconSheet.SCROLL_ANTIMAGIC;

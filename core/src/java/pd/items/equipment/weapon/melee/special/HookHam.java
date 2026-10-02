@@ -18,6 +18,8 @@ public class HookHam extends SpsSpecialMeleeWeapon {
 			.t("desc", "是时候来cos海盗了。2018暑假快乐！\n礼物，恢复，割裂");
 	}
 
+
+
 	public HookHam() { super(1, 1f, 1f, 1, 1, 5, SpecificPlaceHolderDict.SOMETHING_0); usesTargeting = true; }
 
 	@Override public int proc(Char attacker, Char defender, int damage) {

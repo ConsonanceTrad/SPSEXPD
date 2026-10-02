@@ -142,6 +142,8 @@ public abstract class Mob extends Char {
 			.t("discover_hint", "你可在某个地牢区域中遇到该敌人。");
 	}
 
+
+
 	public boolean firstItem = true;
 
 	{

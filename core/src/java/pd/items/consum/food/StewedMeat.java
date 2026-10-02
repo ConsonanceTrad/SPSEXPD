@@ -37,6 +37,8 @@ public class StewedMeat extends Food {
 			.t("discover_hint", "你可通过炼金合成该物品。");
 	}
 
+
+
 	
 	{
 		image = ConsumFoodFoodDict.STEWED_MEAT;

@@ -27,6 +27,8 @@ public class MoneyBook extends TossWeapon {
 	}
 
 
+
+
 	public static final String AC_CAST = "CAST";
 
 	{

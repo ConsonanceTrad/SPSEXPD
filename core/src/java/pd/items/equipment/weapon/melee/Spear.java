@@ -52,6 +52,8 @@ public class Spear extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.SPEAR_0;
 		hitSound = Assets.Sounds.HIT_STAB;

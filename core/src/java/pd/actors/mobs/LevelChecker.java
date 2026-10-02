@@ -16,6 +16,8 @@ public class LevelChecker extends SpsCityMobs.LevelChecker {
 	}
 
 
+
+
 	{
 		spriteClass = LevelCheckerSprite.class;
 	}

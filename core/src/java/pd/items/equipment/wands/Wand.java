@@ -93,9 +93,11 @@ public abstract class Wand extends Item {
 			.t("not_cursed", "这根法杖没有被诅咒。")
 			.t("curse_discover", "这根%s是诅咒的！")
 			.t("prompt", "选择要释放魔法的位置")
-			.t("placeholder.name", "法杖")
+			.t("$placeholder.name", "法杖")
 			.t("silent", "沉默状态下无法使用法杖。");
 	}
+
+
 
 
 	public static final String AC_ZAP	= "ZAP";

@@ -73,12 +73,14 @@ public class TalismanOfForesight extends Artifact {
 			.t("desc", "一块奇怪的有着光滑雕刻的石头。你觉得它在关注着你周围的一切，留意任何不寻常的东西。")
 			.t("desc_worn", "当你拿着护符时你感觉你的感知力提高了。")
 			.t("desc_cursed", "被诅咒的护符目不转睛地瞪着你，使你无法集中精力。")
-			.t("foresight.name", "先见")
-			.t("foresight.levelup", "你的护符变得更强大了！你似乎预见到了某些危险。")
-			.t("foresight.full_charge", "你的护符充能满了！")
-			.t("foresight.uneasy", "你感到很不安。")
-			.t("foresight.desc", "你感到非常焦虑，仿佛周遭有未被发现的危险。");
+			.t("$foresight.name", "先见")
+			.t("$foresight.levelup", "你的护符变得更强大了！你似乎预见到了某些危险。")
+			.t("$foresight.full_charge", "你的护符充能满了！")
+			.t("$foresight.uneasy", "你感到很不安。")
+			.t("$foresight.desc", "你感到非常焦虑，仿佛周遭有未被发现的危险。");
 	}
+
+
 
 
 	{

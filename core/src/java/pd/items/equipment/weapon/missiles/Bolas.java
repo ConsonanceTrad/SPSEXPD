@@ -38,6 +38,8 @@ public class Bolas extends MissileWeapon {
 			.t("desc", "这种造型特殊的远程武器造成的伤害不高，但能够有效迟滞目标的移动。");
 	}
 
+
+
 	
 	{
 		image = ConsumThrowsDict.BOLAS_0;

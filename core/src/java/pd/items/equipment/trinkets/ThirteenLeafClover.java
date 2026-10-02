@@ -38,6 +38,8 @@ public class ThirteenLeafClover extends Trinket {
 	}
 
 
+
+
 	{
 		image = EquipmentNonEquipDict.CLOVER_0;
 	}

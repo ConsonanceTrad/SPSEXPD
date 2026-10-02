@@ -41,6 +41,8 @@ public class WellFed extends Buff {
 	}
 
 
+
+
 	{
 		type = buffType.POSITIVE;
 		announced = true;

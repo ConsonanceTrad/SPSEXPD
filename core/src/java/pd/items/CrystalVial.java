@@ -35,6 +35,8 @@ public class CrystalVial extends Item {
 	}
 
 
+
+
 	private static final String AC_DRINK = "DRINK";
 	private static final String AC_BLESS = "BLESS";
 	private static final String AC_CHOOSE = "CHOOSE";

@@ -19,6 +19,8 @@ public class RedWraith extends SpsCityMobs.RedWraith {
 	}
 
 
+
+
 	{
 		spriteClass = RedWraithSprite.class;
 	}

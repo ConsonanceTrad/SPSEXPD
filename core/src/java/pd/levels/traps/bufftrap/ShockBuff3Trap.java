@@ -8,4 +8,6 @@ public class ShockBuff3Trap extends ElementalBuffTrap {
 			.t("name", "雷种大陷阱")
 			.t("desc", "会释放大范围雷电场的陷阱。");
 	}
+
+
  public ShockBuff3Trap(){ super(YELLOW, STARS, ElectriShock.class, 2, 9, false); } }

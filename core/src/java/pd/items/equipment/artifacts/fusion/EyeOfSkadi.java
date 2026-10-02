@@ -54,6 +54,8 @@ public class EyeOfSkadi extends Artifact {
 	}
 
 
+
+
 	public static final String AC_BLAST = "BLAST";
 	public static final String AC_ADD = "ADD";
 	public static final String AC_CURSE = "CURSE";

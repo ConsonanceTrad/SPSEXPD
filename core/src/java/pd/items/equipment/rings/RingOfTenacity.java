@@ -40,6 +40,8 @@ public class RingOfTenacity extends Ring {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.RING_TENACITY;
 		buffClass = Tenacity.class;

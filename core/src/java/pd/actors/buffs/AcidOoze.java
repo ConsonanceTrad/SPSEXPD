@@ -17,6 +17,8 @@ public class AcidOoze extends Buff {
 	}
 
 
+
+
 	{
 		type = buffType.NEGATIVE;
 	}

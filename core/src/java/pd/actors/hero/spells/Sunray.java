@@ -55,6 +55,8 @@ public class Sunray extends TargetedClericSpell {
 	}
 
 
+
+
 	public static final Sunray INSTANCE = new Sunray();
 
 	@Override

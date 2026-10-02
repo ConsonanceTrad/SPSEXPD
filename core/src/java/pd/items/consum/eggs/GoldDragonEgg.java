@@ -19,6 +19,8 @@ public class GoldDragonEgg extends Egg {
 			.t("desc", "万物合为一体的龙之灵魂。");
 	}
 
+
+
 	{
 		image = ConsumSummorDict.GOLD_DRAGON_EGG_0;
 		moves = 2000; burns = freezes = poisons = lits = darks = lights = 20;

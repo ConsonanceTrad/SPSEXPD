@@ -23,6 +23,8 @@ public class LightningTrap extends Trap {
 	}
 
 
+
+
 	{
 		color = TEAL;
 		shape = DIAMOND;

@@ -19,6 +19,8 @@ public class DolyaSlate extends AdventureJournal {
 	}
 
 
+
+
 	{
 		image = SpecificTaskDict.DOLYA_SLATE;
 		stackable = true;

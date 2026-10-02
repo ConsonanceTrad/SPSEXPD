@@ -32,6 +32,8 @@ public class WndTent extends WndOptions {
 	}
 
 
+
+
 	public WndTent() {
 		super(new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
 				Messages.get(WndTent.class, "title"),

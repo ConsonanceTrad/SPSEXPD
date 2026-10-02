@@ -35,6 +35,8 @@ public class TentSleep extends FlavourBuff {
 	}
 
 
+
+
 	{
 		type = buffType.NEUTRAL;
 		immunities.add(Blizzard.class);

@@ -25,6 +25,8 @@ public class SacrificeBook extends Item {
 			.t("use_lot", "你感觉不太舒服。");
 	}
 
+
+
 	public static final String AC_USE = "USE";
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

@@ -18,6 +18,8 @@ public class EarthMeat extends MeatFood {
 			.t("desc", "利用大地力量腌制的肉块，充满了自然的庇护。");
 	}
 
+
+
 	private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0x996600);
 	{
 		image = ConsumFoodFoodDict.MEAT;

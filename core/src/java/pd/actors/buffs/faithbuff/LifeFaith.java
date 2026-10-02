@@ -13,6 +13,8 @@ public class LifeFaith extends FaithBuff {
 			.t("desc", "来自自然派系的伤害降低25%%，对机械派系造成的伤害提高50%%。");
 	}
 
+
+
 	@Override public int icon() { return BuffIndicator.HERB_HEALING; }
 	@Override public String desc() { return Messages.get(this, "desc"); }
 }

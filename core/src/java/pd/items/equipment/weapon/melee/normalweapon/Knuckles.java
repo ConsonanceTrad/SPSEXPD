@@ -16,6 +16,8 @@ public class Knuckles extends NormalMeleeWeapon {
 			.t("desc", "基本上就是带有钢刃的指节套。——Watabou \n致残");
 	}
 
+
+
 	public Knuckles() { super(1, 1f, 1f, 1, 1, 10, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) {
 		if (s.delay > .30f) s.delay -= .05f;

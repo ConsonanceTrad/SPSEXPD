@@ -9,5 +9,7 @@ public class TriforceOfWisdom extends TriforcePiece {
 			.t("desc", "起源三角的一部分，代表着智慧。");
 	}
 
+
+
 	@Override protected void collected() { Dungeon.triforceOfWisdom = true; }
 }

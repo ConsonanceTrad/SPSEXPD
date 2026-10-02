@@ -18,6 +18,8 @@ public class BanditKing extends SpsPrisonMobs.BanditKing {
 	}
 
 
+
+
 	{
 		spriteClass = BanditKingSprite.class;
 		properties.add(Property.ELF);

@@ -45,6 +45,8 @@ public class ShootGun extends SpsRangedWeapon {
 	}
 
 
+
+
 	public static final String AC_SHOOT = "SHOOT";
 	public static final String AC_ENDSHOOT = "ENDSHOOT";
 	public static final String AC_RELOAD = "RELOAD";

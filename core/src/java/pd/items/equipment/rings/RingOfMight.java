@@ -44,6 +44,8 @@ public class RingOfMight extends Ring {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.RING_MIGHT;
 		buffClass = Might.class;

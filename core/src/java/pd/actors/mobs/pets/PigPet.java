@@ -17,6 +17,8 @@ public class PigPet extends PET {
 			.t("desc", "半大不小的粉红猪，山区居民会训练它寻找地下黑色珍蘑。只要对它好，它也会努力做出回报。");
 	}
 
+
+
 	{
 		spriteClass = PigPetSprite.class;
 		cooldown = 50;

@@ -18,6 +18,8 @@ public class WindBottle extends Sword implements FusionWeapon {
 			.t("desc", "能够释放受控气流的三阶容器。每次命中有五分之一概率把可移动的目标击退一格。");
 	}
 
+
+
 	{ image = EquipmentWandBasicWandDict.WAND_BLAST_WAVE_0; tier = 3; }
 	@Override public int min(int lvl) { return 4 + lvl; }
 	@Override public int max(int lvl) { return 17 + 4 * lvl; }

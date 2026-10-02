@@ -36,6 +36,8 @@ public class AdrenalineSurge extends Buff {
 	}
 
 
+
+
 	public static float DURATION = 200f;
 	
 	{

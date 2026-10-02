@@ -44,6 +44,8 @@ public class MagicalHolster extends Bag {
 	}
 
 
+
+
 	{
 		image = EquipmentBagsDict.HOLSTER;
 	}

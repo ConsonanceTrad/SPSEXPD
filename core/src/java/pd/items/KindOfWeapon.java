@@ -57,6 +57,8 @@ abstract public class KindOfWeapon extends EquipableItem {
 	}
 
 
+
+
 	protected String hitSound = Assets.Sounds.HIT;
 	protected float hitSoundPitch = 1f;
 	

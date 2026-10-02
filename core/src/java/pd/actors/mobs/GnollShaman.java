@@ -20,6 +20,8 @@ public class GnollShaman extends SpsCaveMobs.GnollShaman {
 	}
 
 
+
+
 	{
 		spriteClass = GnollShamanSprite.class;
 		properties.add(Property.ORC);

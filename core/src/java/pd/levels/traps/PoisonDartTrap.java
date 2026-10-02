@@ -52,6 +52,8 @@ public class PoisonDartTrap extends Trap {
 	}
 
 
+
+
 	{
 		color = GREEN;
 		shape = CROSSHAIR;

@@ -22,6 +22,8 @@ public class Tinkerer2 extends NPC {
 	}
 
 
+
+
 	{
 		spriteClass = LynnSprite.class;
 		properties.add(Property.IMMOVABLE);

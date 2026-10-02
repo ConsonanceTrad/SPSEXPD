@@ -21,6 +21,8 @@ public class Musicpill extends Pill {
 			.t("desc", "在一段时间内提升自信。\n使用_2份肉，1份种子，1份原石_炼金");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected void onUse(Hero hero) {
 		Buff.affect(hero, Rhythm.class, 800f);

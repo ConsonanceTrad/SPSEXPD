@@ -13,6 +13,8 @@ public class OverpricedRation extends StapleFood {
 			.t("desc", "容量比干粮包更小，很受年轻冒险者欢迎。");
 	}
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 200f;

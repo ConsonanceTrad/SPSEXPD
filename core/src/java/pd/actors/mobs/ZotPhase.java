@@ -19,6 +19,8 @@ public class ZotPhase extends Mob {
 			.t("desc", "Zot的虚像，看上去与本体一样真实。");
 	}
 
+
+
 	{
 		spriteClass = ZotPhaseSprite.class;
 		HP = HT = 200;

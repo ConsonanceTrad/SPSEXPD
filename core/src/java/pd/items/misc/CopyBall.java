@@ -46,9 +46,11 @@ public class CopyBall extends Item {
 			.t("break", "精华不足。")
 			.t("charge", "精华：%1$d / %2$d。")
 			.t("desc", "史莱姆可以在行动中吸收精华，并利用10点精华向目标发射核心。命中会造成额外伤害并创造一个免疫大部分状态的分身；无处生成分身时核心会爆炸。")
-			.t("slimes.name", "精华分身")
-			.t("slimes.desc", "由侵蚀核心制造的飞行分身，会跟随并协助英雄。");
+			.t("$slimes.name", "精华分身")
+			.t("$slimes.desc", "由侵蚀核心制造的飞行分身，会跟随并协助英雄。");
 	}
+
+
 
 	public static final String AC_USE = "USE";
 	public static final int FULL_CHARGE = 50;

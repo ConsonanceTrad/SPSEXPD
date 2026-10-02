@@ -17,6 +17,8 @@ public class FullMoonStrength extends Buff {
 	}
 
 
+
+
 	private static final String HITS = "hits";
 
 	private int hits = hitsFor(isNightNow(), Statistics.deepestFloor);

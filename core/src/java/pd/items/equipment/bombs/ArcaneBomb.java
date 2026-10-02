@@ -48,6 +48,8 @@ public class ArcaneBomb extends Bomb {
 			.t("discover_hint", "你可通过炼金合成该物品。");
 	}
 
+
+
 	
 	{
 		image = EquipmentEquipWeaponBombDict.ARCANE_BOMB_0;

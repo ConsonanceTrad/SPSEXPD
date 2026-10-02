@@ -16,6 +16,8 @@ public class Halberd extends NormalMeleeWeapon {
 			.t("desc", "长枪和战斧组合而成的武器。——Consideredhamster \n致残");
 	}
 
+
+
 	public Halberd() { super(5, 1f, 2f, 2, 62, 82, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) { if (s.delay > 1.5f) s.delay -= .05f; s.max += 5; }
 	@Override public int proc(Char attacker, Char defender, int damage) {

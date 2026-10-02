@@ -33,6 +33,8 @@ public class Weightstone extends Item {
 	}
 
 
+
+
 	public static final String AC_APPLY = "APPLY";
 	public static final float TIME_TO_APPLY = 2f;
 

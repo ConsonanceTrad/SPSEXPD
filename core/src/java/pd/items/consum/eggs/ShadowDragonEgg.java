@@ -19,6 +19,8 @@ public class ShadowDragonEgg extends Egg {
 			.t("desc", "光明所孕化、浸染暗影的龙之灵魂。");
 	}
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		lights = 20;

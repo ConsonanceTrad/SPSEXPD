@@ -52,6 +52,8 @@ public class Smite extends TargetedClericSpell {
 	}
 
 
+
+
 	public static Smite INSTANCE = new Smite();
 
 	@Override

@@ -60,6 +60,8 @@ public class AdventureLevel extends RegularLevel {
 	}
 
 
+
+
 	private int goalCell;
 	private int[] puzzleStartPositions = new int[0];
 	private int puzzleSwitch = -1;

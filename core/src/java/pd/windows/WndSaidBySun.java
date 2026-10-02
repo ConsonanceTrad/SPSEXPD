@@ -22,6 +22,8 @@ public class WndSaidBySun extends Window {
 			.t("more_gold", "你的金币不够。");
 	}
 
+
+
 	private static final int WIDTH = 120;
 	public WndSaidBySun() {
 		CurseBlood reward = new CurseBlood();

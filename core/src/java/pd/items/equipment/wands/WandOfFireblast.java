@@ -72,6 +72,8 @@ public class WandOfFireblast extends DamageWand {
 	}
 
 
+
+
 	{
 		image = EquipmentWandBasicWandDict.WAND_FIREBOLT_0;
 

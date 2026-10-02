@@ -57,17 +57,19 @@ public class SpiderQueen extends Mob {
 			.t("notice", "谁在撕扯我的网？！")
 			.t("die", "我……输了……")
 			.t("egg", "蛛后孵化了新的巢穴。")
-			.t("spideregg.name", "巢穴")
-			.t("spideregg.desc", "蛛卵存活越久，孵化出的蜘蛛就越强。")
-			.t("spiderworker.name", "蜘蛛工人")
-			.t("spiderworker.desc", "蜘蛛大军中最常见的工蛛。")
-			.t("spidermind.name", "灵能蜘蛛")
-			.t("spidermind.desc", "会散播致盲黑雾，并通过攻击恢复生命的灵能蜘蛛。")
-			.t("spiderjumper.name", "跳蛛卫士")
-			.t("spiderjumper.desc", "能够沿直线跃迁接近猎物的迅捷卫士。")
-			.t("spidergold.name", "禁卫金蛛")
-			.t("spidergold.desc", "孵化最久才能出现的强大金蛛，会散播混乱气体并强化防御。");
+			.t("$spideregg.name", "巢穴")
+			.t("$spideregg.desc", "蛛卵存活越久，孵化出的蜘蛛就越强。")
+			.t("$spiderworker.name", "蜘蛛工人")
+			.t("$spiderworker.desc", "蜘蛛大军中最常见的工蛛。")
+			.t("$spidermind.name", "灵能蜘蛛")
+			.t("$spidermind.desc", "会散播致盲黑雾，并通过攻击恢复生命的灵能蜘蛛。")
+			.t("$spiderjumper.name", "跳蛛卫士")
+			.t("$spiderjumper.desc", "能够沿直线跃迁接近猎物的迅捷卫士。")
+			.t("$spidergold.name", "禁卫金蛛")
+			.t("$spidergold.desc", "孵化最久才能出现的强大金蛛，会散播混乱气体并强化防御。");
 	}
+
+
 
 	{
 		spriteClass = SpiderQueenSprite.class;

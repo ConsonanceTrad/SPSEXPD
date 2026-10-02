@@ -28,6 +28,8 @@ public class WarDrum extends Mace implements FusionWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.WAR_HAMMER_0;
 		hitSound = Assets.Sounds.HIT_CRUSH;

@@ -17,10 +17,12 @@ public class SiOtwoFlower extends Plant {
 			.t("name", "石英花")
 			.t("desc", "富含玻璃成分的沙漠花朵，会为接触者提供护盾，并留下一颗可食用坚果。")
 			.t("warden_desc", "_守望者_会获得石英花完整的玻璃护盾。")
-			.t("seed.name", "石英花之种")
-			.t("exsiotwoflower.name", "石英花果丛")
-			.t("exsiotwoflower.desc", "生长水晶果的果丛。");
+			.t("$seed.name", "石英花之种")
+			.t("$exsiotwoflower.name", "石英花果丛")
+			.t("$exsiotwoflower.desc", "生长水晶果的果丛。");
 	}
+
+
 
 	{ image = 18; seedClass = Seed.class; }
 	@Override public void activate(Char ch) {

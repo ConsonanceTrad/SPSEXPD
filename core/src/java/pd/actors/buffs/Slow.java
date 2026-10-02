@@ -34,6 +34,8 @@ public class Slow extends FlavourBuff {
 	}
 
 
+
+
 	{
 		type = buffType.NEGATIVE;
 		announced = true;

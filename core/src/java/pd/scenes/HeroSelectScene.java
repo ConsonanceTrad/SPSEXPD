@@ -124,6 +124,8 @@ public class HeroSelectScene extends PixelScene {
 	}
 
 
+
+
 	private Image background;
 	private Image fadeLeft, fadeRight;
 	private IconButton btnFade; //only on landscape

@@ -36,6 +36,8 @@ public class RingOfKnowledge extends Ring {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.RING_WEALTH;
 		buffClass = RingKnowledge.class;

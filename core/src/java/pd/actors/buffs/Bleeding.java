@@ -48,6 +48,8 @@ public class Bleeding extends Buff implements Buff.DOTbuff {
 	}
 
 
+
+
 	{
 		type = buffType.NEGATIVE;
 		announced = true;

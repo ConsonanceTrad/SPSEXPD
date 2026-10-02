@@ -33,6 +33,8 @@ public class Hex extends FlavourBuff {
 			.t("desc", "干扰集中力的黑暗魔法，使目标无法准确地判断方位。\n\n幻惑状态会降低目标20%%的精准与闪避属性，使其在战斗中更容易处于下风。\n\n幻惑效果剩余时长：%s回合");
 	}
 
+
+
 	
 	public static final float DURATION	= 30f;
 	

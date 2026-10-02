@@ -40,6 +40,8 @@ public class Camouflage extends Armor.Glyph {
 	}
 
 
+
+
 	private static ItemSprite.Glowing GREEN = new ItemSprite.Glowing( 0x448822 );
 
 	@Override

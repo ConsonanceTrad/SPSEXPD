@@ -26,6 +26,8 @@ public class WndBlacksmithLegacy extends Window {
 	}
 
 
+
+
 	private static final int WIDTH = 116;
 	private static final int BTN_SIZE = 32;
 	private static final int BTN_GAP = 8;

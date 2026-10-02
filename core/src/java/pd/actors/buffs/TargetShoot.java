@@ -14,6 +14,8 @@ public class TargetShoot extends FlavourBuff {
 			.t("desc", "投射武器伤害提高50%%。\n\n剩余效果时长：%s回合。");
 	}
 
+
+
 	{ type = buffType.POSITIVE; announced = true; }
 	@Override public int icon() { return BuffIndicator.MARK; }
 	@Override public String desc() { return Messages.get(this, "desc", dispTurns()); }

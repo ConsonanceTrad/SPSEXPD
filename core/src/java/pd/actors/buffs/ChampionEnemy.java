@@ -47,19 +47,21 @@ public abstract class ChampionEnemy extends Buff {
 	static {
 		InlineText.of(ChampionEnemy.class)
 			.t("warn", "你感受到了强敌的气场。")
-			.t("blazing.name", "烈焰精英")
-			.t("blazing.desc", "烈焰精英造成25%额外近战伤害，会点燃攻击目标，免疫火焰，且会在死亡时引燃周遭。不过，它们的火焰无法向水上蔓延。")
-			.t("projecting.name", "索敌精英")
-			.t("projecting.desc", "索敌精英拥有25%额外近战伤害，且拥有额外的3格近战攻击距离。")
-			.t("antimagic.name", "敌法精英")
-			.t("antimagic.desc", "敌法精英拥有50%的伤害减免，且完全免疫所有魔法效果。")
-			.t("giant.name", "巨型精英")
-			.t("giant.desc", "巨型精英拥有80%的伤害减免与额外的1格近战攻击距离，但无法进入狭窄的空间。")
-			.t("blessed.name", "天佑精英")
-			.t("blessed.desc", "天佑精英拥有4倍精准与闪避。")
-			.t("growing.name", "成长精英")
-			.t("growing.desc", "成长精英可额外获得稳定增长的精准、闪避、物理伤害与伤害减免。\n\n当前精准/闪避/伤害加成：%1$d%%\n当前伤害减免：%2$d%%");
+			.t("$blazing.name", "烈焰精英")
+			.t("$blazing.desc", "烈焰精英造成25%额外近战伤害，会点燃攻击目标，免疫火焰，且会在死亡时引燃周遭。不过，它们的火焰无法向水上蔓延。")
+			.t("$projecting.name", "索敌精英")
+			.t("$projecting.desc", "索敌精英拥有25%额外近战伤害，且拥有额外的3格近战攻击距离。")
+			.t("$antimagic.name", "敌法精英")
+			.t("$antimagic.desc", "敌法精英拥有50%的伤害减免，且完全免疫所有魔法效果。")
+			.t("$giant.name", "巨型精英")
+			.t("$giant.desc", "巨型精英拥有80%的伤害减免与额外的1格近战攻击距离，但无法进入狭窄的空间。")
+			.t("$blessed.name", "天佑精英")
+			.t("$blessed.desc", "天佑精英拥有4倍精准与闪避。")
+			.t("$growing.name", "成长精英")
+			.t("$growing.desc", "成长精英可额外获得稳定增长的精准、闪避、物理伤害与伤害减免。\n\n当前精准/闪避/伤害加成：%1$d%%\n当前伤害减免：%2$d%%");
 	}
+
+
 
 
 	{

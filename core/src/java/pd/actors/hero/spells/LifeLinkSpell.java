@@ -47,9 +47,11 @@ public class LifeLinkSpell extends ClericSpell {
 			.t("name", "血色羁绊")
 			.t("short_desc", "与盟友共享所受伤害，并使其获得伤害减免。")
 			.t("desc", "牧师强化自身与其强化盟友之间的生命联结。该强化版生命联结持续%1$d回合，会使英雄与其盟友共享任何所受伤害，并使万物一心的伤害减免提升至%2$d%%。注意，伤害共享的优先级低于护甲，但高于万物一心的伤害减免。\n\n生命联结效果生效时，对任何一方施放3阶及以下的增益型牧师法术对双方均有效果。")
-			.t("lifelinkspellbuff.name", "血色羁绊")
-			.t("lifelinkspellbuff.desc", "牧师近期对该盟友施放了血色羁绊以建立生命联结。\n\n除生命联结的通常效果外，该单位还会获得伤害减免，任何增益型牧师法术对牧师与该盟友施放时对双方均生效，并且万物一心不会在该增益的效果期间内结束。\n\n\n剩余回合数：%s");
+			.t("$lifelinkspellbuff.name", "血色羁绊")
+			.t("$lifelinkspellbuff.desc", "牧师近期对该盟友施放了血色羁绊以建立生命联结。\n\n除生命联结的通常效果外，该单位还会获得伤害减免，任何增益型牧师法术对牧师与该盟友施放时对双方均生效，并且万物一心不会在该增益的效果期间内结束。\n\n\n剩余回合数：%s");
 	}
+
+
 
 
 	public static LifeLinkSpell INSTANCE = new LifeLinkSpell();

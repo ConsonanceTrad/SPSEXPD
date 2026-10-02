@@ -17,6 +17,8 @@ public class DreamAmmo extends SpAmmo {
 			.t("desc", "将原石和睡眠种锻造而成的特殊子弹，能使目标破甲并减速。");
 	}
 
+
+
 	private static final ItemSprite.Glowing GREEN = new ItemSprite.Glowing(0x22CC44);
 	@Override public ItemSprite.Glowing glowing() { return GREEN; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {

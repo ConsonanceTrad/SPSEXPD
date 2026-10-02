@@ -36,6 +36,8 @@ public class DarkGold extends Item {
 			.t("discover_hint", "你可在某个任务中找到该物品。");
 	}
 
+
+
 	
 	{
 		image = SpecificTaskDict.ORE_0;

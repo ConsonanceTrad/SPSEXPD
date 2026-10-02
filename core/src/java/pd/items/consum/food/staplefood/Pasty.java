@@ -54,6 +54,8 @@ public class Pasty extends StapleFood {
 	}
 
 
+
+
 	enum Holiday {
 		NONE, SPRING, STUDENT, EASTER, HWEEN, THANK, XMAS, CHILD, WORKER
 	}

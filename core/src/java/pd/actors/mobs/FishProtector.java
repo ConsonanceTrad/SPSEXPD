@@ -28,6 +28,8 @@ public class FishProtector extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = FishProtectorSprite.class;
 		HP = HT = 300;

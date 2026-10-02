@@ -55,6 +55,8 @@ public class WaterOfHealth extends WellWater {
 			.t("desc", "生命的力量正在从这口井的水里涌出。饮下井中的水可以治疗伤口、解除饥饿并净化所有已装备物品的诅咒。");
 	}
 
+
+
 	
 	@Override
 	protected boolean affectHero( Hero hero ) {

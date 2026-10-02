@@ -44,6 +44,8 @@ public class HeavyBoomerang extends MissileWeapon {
 			.t("desc", "这把大号回旋镖笨重难用，但能造成可观的伤害。");
 	}
 
+
+
 	
 	{
 		image = ConsumThrowsDict.BOOMERANG_0;

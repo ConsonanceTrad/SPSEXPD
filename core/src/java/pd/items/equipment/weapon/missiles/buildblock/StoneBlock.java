@@ -10,4 +10,6 @@ public class StoneBlock extends LegacyBuildBlock {
 			.t("name", "石制方块")
 			.t("desc", "投掷后会筑起雕像的回收方块。");
 	}
+
+
  public StoneBlock(){super(Terrain.STATUE,SpecificTaskDict.ORE_0);} }

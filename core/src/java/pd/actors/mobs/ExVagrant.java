@@ -16,6 +16,8 @@ public class ExVagrant extends SpsSewerMobs.ExVagrant {
 	}
 
 
+
+
 	{
 		spriteClass = ExVagrantSprite.class;
 		properties.add(Property.HUMAN);

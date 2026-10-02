@@ -21,6 +21,8 @@ public class Spider extends PET {
 			.t("desc", "一只小小的、毛茸茸的植物，似乎喜欢藏在你的盔甲下。然而，尽管它顽固地害羞，它已经准备好了。");
 	}
 
+
+
 	{ spriteClass=NewSpinnerSprite.class;cooldown=50;properties.add(Property.PLANT);updateStats(true); }
 	@Override protected Kind kind(){return Kind.SPIDER;}
 	@Override public boolean lovefood(Item item){return item instanceof PetFood||item instanceof MeatFood;}

@@ -68,6 +68,8 @@ public class Crystal extends Weapon.Enchantment {
 	}
 
 
+
+
 	private static ItemSprite.Glowing LIGHT_BLUE = new ItemSprite.Glowing( 0x0088FF );
 	private static ItemSprite.Glowing FLAW = new ItemSprite.Glowing( 0x0088FF, 0.5f );
 	private static ItemSprite.Glowing CRACK = new ItemSprite.Glowing( 0x0088FF, 0.25f );

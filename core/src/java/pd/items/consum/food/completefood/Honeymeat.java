@@ -16,6 +16,8 @@ public class Honeymeat extends CompleteFood {
 			.t("desc", "把蜂蜜浇在肉排上……很甜。\n使用_1份蜂蜜、1份肉_炼金。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; energy = 150f; }
 	@Override protected void doEat(Hero hero) {
 		increaseMaxHealth(hero, 3, 6);

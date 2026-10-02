@@ -39,6 +39,8 @@ public class RogueSkill extends ClassSkill {
 	}
 
 
+
+
 	private static final float SKILL_TIME = 1f;
 
 	{

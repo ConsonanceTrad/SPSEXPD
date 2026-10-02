@@ -25,6 +25,8 @@ public class UTengu extends BossRushBoss {
 			.t("desc", "年轻时的天狗，既擅长远程攻击也擅长近战攻击。");
 	}
 
+
+
 	private static final int JUMP_DELAY = 10;
 	private int timeToJump = JUMP_DELAY;
 

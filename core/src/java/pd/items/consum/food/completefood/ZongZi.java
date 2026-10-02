@@ -19,6 +19,8 @@ public class ZongZi extends CompleteFood {
 			.t("desc", "厚重的糯米粽，能提高攻击并提供魔法护盾，但会使食用者沾满焦油并变得迟缓。");
 	}
 
+
+
 	{
 		image = ConsumFoodFoodDict.ZONGZI;
 		energy = 600f;

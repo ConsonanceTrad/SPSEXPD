@@ -27,6 +27,8 @@ public class FlyingProtector extends Mob implements Callback {
 	}
 
 
+
+
 	private static final float TIME_TO_ZAP = 2f;
 	private static final String LEGACY_DEPTH = "legacy_depth";
 	private int legacyDepth = AdventureJournal.destinationForBranch(Dungeon.branch) == 22

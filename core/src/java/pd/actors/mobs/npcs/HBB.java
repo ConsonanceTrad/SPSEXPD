@@ -15,6 +15,8 @@ public class HBB extends TownNpc {
 			.t("yell3", "\"I-am-a-magical-princess-from-another-dimension.\"");
 	}
 
+
+
 	public HBB() {
 		configure(Spec.HBB);
 		spriteClass = pd.sprites.HBBSprite.class;

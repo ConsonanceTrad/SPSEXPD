@@ -10,4 +10,6 @@ public class RandomEgg10 extends RandomPetEgg {
 			.t("name", "随机十月灵魂")
 			.t("desc", "召唤一个随机的十月宠物，包括星芒、石拳石、像素猪。");
 	}
+
+
  public RandomEgg10() { super(StarKid.class, Stone.class, PigPet.class); } }

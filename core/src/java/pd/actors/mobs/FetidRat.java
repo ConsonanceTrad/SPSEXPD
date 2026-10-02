@@ -43,6 +43,8 @@ public class FetidRat extends Rat {
 	}
 
 
+
+
 	{
 		spriteClass = FetidRatSprite.class;
 

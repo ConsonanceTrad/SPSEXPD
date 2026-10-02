@@ -26,6 +26,8 @@ public class BottleFire extends TossWeapon {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		tier = 1;

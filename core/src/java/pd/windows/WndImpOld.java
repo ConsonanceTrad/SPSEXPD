@@ -42,6 +42,8 @@ public class WndImpOld extends Window {
 			.t("reward", "接受戒指");
 	}
 
+
+
 	
 	private static final int WIDTH      = 120;
 	private static final int BTN_HEIGHT = 20;

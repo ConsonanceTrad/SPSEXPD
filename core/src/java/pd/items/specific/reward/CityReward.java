@@ -13,6 +13,8 @@ public class CityReward extends ChallengeReward {
 			.t("ac_use", "使用");
 	}
 
+
+
 	public CityReward() { super(0xFFFF44); }
 	@Override protected Item[] contents() {
 		return new Item[]{new Crystalnucleus(), new Crystalnucleus(), new Crystalnucleus(),

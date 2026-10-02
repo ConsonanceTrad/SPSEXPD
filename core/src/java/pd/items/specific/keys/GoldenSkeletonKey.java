@@ -21,6 +21,8 @@ public class GoldenSkeletonKey extends Key {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}

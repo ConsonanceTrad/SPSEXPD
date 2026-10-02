@@ -16,6 +16,8 @@ public class KnowledgeTrap extends Trap {
 			.t("desc", "触发后会鉴定你携带的装备。");
 	}
 
+
+
 	{ color = RED; shape = STARS; }
 
 	@Override

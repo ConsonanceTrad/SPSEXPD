@@ -14,6 +14,8 @@ public class Kostis12345 extends TownNpc {
 			.t("yell2", "如果你对这一切有疑问的话，你可以在pixeldungeon.wikia.com寻找SpeciaSurprisePixelDungeon.还等什么，赶紧上船吧!");
 	}
 
+
+
 	public Kostis12345() {
 		configure(Spec.KOSTIS12345);
 		spriteClass = pd.sprites.Kostis12345Sprite.class;

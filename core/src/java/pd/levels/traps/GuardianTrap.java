@@ -44,11 +44,13 @@ public class GuardianTrap extends Trap {
 			.t("name", "守卫陷阱")
 			.t("alarm", "陷阱产生的尖锐的警报声在地牢里回荡！")
 			.t("desc", "这个陷阱有着奇怪的魔法机制，它将召唤守卫并向将使本层所有生物对这里产生警觉。")
-			.t("guardian.name", "召唤守卫")
-			.t("guardian.desc", "这个蓝色的幻影似乎是地牢中石像守卫的一个召唤映像。")
-			.t("guardian.desc_weapon", "虽然雕像本身是几乎无形的，但它装备着的_%s_看起来是真家伙。")
-			.t("guardian.discover_hint", "你可通过某个陷阱遇到该敌人。");
+			.t("$guardian.name", "召唤守卫")
+			.t("$guardian.desc", "这个蓝色的幻影似乎是地牢中石像守卫的一个召唤映像。")
+			.t("$guardian.desc_weapon", "虽然雕像本身是几乎无形的，但它装备着的_%s_看起来是真家伙。")
+			.t("$guardian.discover_hint", "你可通过某个陷阱遇到该敌人。");
 	}
+
+
 
 
 	{

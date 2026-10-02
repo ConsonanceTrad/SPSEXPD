@@ -19,6 +19,8 @@ public class GrimTrap extends Trap {
 			.t("desc", "非常强大的破坏魔法储存在这个陷阱里，足以瞬间杀死除了状态最佳的英雄外的所有生物。触发它将向最近的生物发送一个致命的远程冲击魔法。\n\n幸好的是，触发机关并没有被隐藏起来。");
 	}
 
+
+
 	{
 		color = GREY;
 		shape = LARGE_DOT;

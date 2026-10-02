@@ -38,6 +38,8 @@ public class NmHealBag extends Item {
 	}
 
 
+
+
 	public static final String AC_CHOOSE = "CHOOSE";
 	public static final String AC_HEAL = "HEAL";
 	public static final String AC_COOK = "COOK";

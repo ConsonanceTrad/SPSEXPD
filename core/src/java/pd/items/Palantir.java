@@ -29,6 +29,8 @@ public class Palantir extends Item {
 	}
 
 
+
+
 	public static final int BRANCH = 48;
 	public static final String AC_PORT = "PORT";
 	private static final float TIME_TO_USE = 1f;

@@ -65,11 +65,13 @@ public class SpsGoo extends Mob {
 			.t("atk", "黏咕正在不断地抽动！")
 			.t("notice", "咕-咕！")
 			.t("die", "咕……咕……")
-			.t("poisongoo.name", "毒性黏咕")
-			.t("poisongoo.desc", "从黏咕身上分裂出的迅捷有毒碎块。只要本体还活着，它就能继续分裂。")
-			.t("poisongoo.notice", "咕-咕！")
-			.t("poisongoo.die", "咕……咕……");
+			.t("$poisongoo.name", "毒性黏咕")
+			.t("$poisongoo.desc", "从黏咕身上分裂出的迅捷有毒碎块。只要本体还活着，它就能继续分裂。")
+			.t("$poisongoo.notice", "咕-咕！")
+			.t("$poisongoo.die", "咕……咕……");
 	}
+
+
 
 
 	private int pumpedUp;

@@ -13,6 +13,8 @@ public class AFly extends TownNpc {
 			.t("desc", "不思议地牢的制作者");
 	}
 
+
+
 	public AFly() {
 		configure(Spec.A_FLY);
 		spriteClass = pd.sprites.AFlySprite.class;

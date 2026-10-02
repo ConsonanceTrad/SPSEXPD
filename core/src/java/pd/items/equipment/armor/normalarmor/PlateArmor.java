@@ -9,4 +9,6 @@ public class PlateArmor extends NormalArmor {
 			.t("name", "板甲")
 			.t("desc", "厚重的金属板拼接到一起，为能承受其骇人重量的冒险者提供无与伦比的防御。\n常规护甲");
 	}
+
+
  public PlateArmor(){ super(6,1.2f,1f,3,0,44,0,1,3,EquipmentEquipArmorBasicArmorDict.ARMOR_PLATE_0); } }

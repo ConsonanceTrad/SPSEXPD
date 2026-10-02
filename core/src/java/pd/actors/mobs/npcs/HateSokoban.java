@@ -14,6 +14,8 @@ public class HateSokoban extends TownNpc {
 			.t("yell2", "关于招羊法杖，虽然绝大部分时候没什么用，但是它能很好解决推箱关的难题。");
 	}
 
+
+
 	public HateSokoban() {
 		configure(Spec.HATE_SOKOBAN);
 		spriteClass = pd.sprites.HateSokobanSprite.class;

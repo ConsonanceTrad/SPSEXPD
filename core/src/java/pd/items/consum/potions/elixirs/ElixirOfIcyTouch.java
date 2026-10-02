@@ -38,6 +38,8 @@ public class ElixirOfIcyTouch extends Elixir {
 			.t("desc", "饮用后，这瓶秘药会使饮用者获得从敌人身上抽取热量的能力。这样的效果让使用者能够在药效持续期间免疫冻伤，同时他的物理攻击也能对敌人造成冻伤效果。");
 	}
 
+
+
 	
 	{
 		image = ConsumPotionSeedBasicPotionDict.ELIXIR_ICY_0;

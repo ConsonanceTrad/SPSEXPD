@@ -31,6 +31,8 @@ public class NormalArmor extends Armor {
 	}
 
 
+
+
 	public final float DEX;
 	public final float STE;
 	public final int ENG;

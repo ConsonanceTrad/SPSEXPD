@@ -118,6 +118,8 @@ public class Heap implements Bundlable {
 			.t("remains_desc", "你的某个先辈存在过的唯一证明。或许能找到点什么值钱的东西。");
 	}
 
+
+
 	
 	public enum Type {
 		HEAP,

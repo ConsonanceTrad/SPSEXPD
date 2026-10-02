@@ -25,6 +25,8 @@ public class Tinkerer1 extends NPC {
 	}
 
 
+
+
 	{
 		spriteClass = TinkererSprite.class;
 		properties.add(Property.IMMOVABLE);

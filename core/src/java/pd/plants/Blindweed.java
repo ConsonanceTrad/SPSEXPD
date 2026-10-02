@@ -45,10 +45,12 @@ public class Blindweed extends Plant {
 			.t("name", "致盲草")
 			.t("desc", "在被碰到后，致盲草会瞬间枯萎并释放一道强光。这道光足以刺伤受害者双眼，使其暂时失明。")
 			.t("warden_desc", "_守望者_能将致盲草的能量化为一层短时间的隐形迷雾，而不会被致盲。")
-			.t("seed.name", "致盲草之种")
-			.t("exblindweed.name", "致盲草果丛")
-			.t("exblindweed.desc", "生长闪耀果的果丛。");
+			.t("$seed.name", "致盲草之种")
+			.t("$exblindweed.name", "致盲草果丛")
+			.t("$exblindweed.desc", "生长闪耀果的果丛。");
 	}
+
+
 
 	
 	{

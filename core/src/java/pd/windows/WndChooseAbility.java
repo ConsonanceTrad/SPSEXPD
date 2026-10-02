@@ -56,6 +56,8 @@ public class WndChooseAbility extends Window {
 	}
 
 
+
+
 	private static final int WIDTH		= 130;
 	private static final float GAP		= 2;
 

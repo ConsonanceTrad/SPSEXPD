@@ -107,6 +107,8 @@ public class AlchemyScene extends PixelScene {
 	}
 
 
+
+
 	//SPS-PD expands the pot from 3 to 5 inputs at toolkit levels 5 and 10.
 	private static final InputButton[] inputs = new InputButton[5];
 	private static final CombineButton[] combines = new CombineButton[3];

@@ -45,6 +45,8 @@ public class UndeadBook extends Item {
 			.t("charge2", "已祈祷次数：%d。");
 	}
 
+
+
 	public static final String AC_READ = "READ";
 	public static final String AC_READ2 = "READ2";
 	public static final String AC_BLESS = "BLESS";

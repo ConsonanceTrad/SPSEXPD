@@ -45,6 +45,8 @@ public class PotionOfLevitation extends Potion {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.POTION_LEVITATE;
 	}

@@ -26,6 +26,8 @@ public class RangeBag extends MiscEquippable {
 	}
 
 
+
+
 	public static final String AC_BUY = "BUY";
 	public static final int PRICE = 500;
 

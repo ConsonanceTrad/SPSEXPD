@@ -16,6 +16,8 @@ public class AflyEgg extends Egg {
 			.t("desc", "召唤阿比。\n使用1个复活十字架和1个不思议饭团在阿飞处合成。");
 	}
 
+
+
 	{ image = ConsumSummorDict.AFLY_EGG_0; }
 	@Override protected LegacyPet hatchling() { return new Abi(); }
 	@Override public int value() { return 500 * quantity; }

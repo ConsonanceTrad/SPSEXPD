@@ -20,6 +20,8 @@ public class HandLight extends NormalMeleeWeapon {
 			.t("desc", "挖出来，擦一下，数个三，上勾拳。它能沉默目标，并对魔法护盾造成额外打击。——Coconut");
 	}
 
+
+
 	public HandLight() { super(4, 1f, 1f, 2, 29, 38, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats stats) { stats.min++; stats.max++; }
 	@Override public int proc(Char attacker, Char defender, int damage) {

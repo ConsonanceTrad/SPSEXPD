@@ -10,6 +10,8 @@ public class AdamantArmor extends Item {
 			.t("desc", "用于焊接护甲的组件。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; unique = true; }
 	@Override public boolean isUpgradable() { return false; }
 	@Override public boolean isIdentified() { return true; }

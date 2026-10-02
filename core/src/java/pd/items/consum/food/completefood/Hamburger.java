@@ -17,6 +17,8 @@ public class Hamburger extends CompleteFood {
 			.t("desc", "啊！好大！\n使用_2份主食、1份蔬菜、2份肉_炼金。");
 	}
 
+
+
 	{ image = ConsumFoodFoodDict.HAMBURGER; energy = 770f; }
 	@Override protected void doEat(Hero hero) {
 		heal(hero, hero.HT / 5);

@@ -46,6 +46,8 @@ public class TormentedSpirit extends Wraith {
 	}
 
 
+
+
 	{
 		spriteClass = TormentedSpiritSprite.class;
 	}

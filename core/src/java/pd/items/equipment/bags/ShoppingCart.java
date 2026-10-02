@@ -20,6 +20,8 @@ public class ShoppingCart extends Bag {
 	}
 
 
+
+
 	{
 		image = EquipmentBagsDict.SHOPPING_CART_0;
 	}

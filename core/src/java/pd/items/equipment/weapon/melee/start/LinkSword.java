@@ -61,6 +61,8 @@ public class LinkSword extends NormalMeleeWeapon {
 			.t("desc", "海拉鲁大陆上的传奇装备，拥有力量、智慧和勇气三种能力。");
 	}
 
+
+
 	public static final String AC_POWER="POWER", AC_WISDOM="WISDOM", AC_COURAGE="COURAGE";
 	public static final int FULL_CHARGE=30;
 	private static final String CHARGE="charge", UPTIME="uptime";

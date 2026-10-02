@@ -15,6 +15,8 @@ public class Bone extends SpsBossKey {
 			.t("ac_port", "使用");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected int destination() { return 11; }
 	@Override protected boolean bossKilled() { return Dungeon.skeletonKingKilled; }

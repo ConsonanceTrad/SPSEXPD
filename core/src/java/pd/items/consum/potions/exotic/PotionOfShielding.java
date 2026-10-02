@@ -40,6 +40,8 @@ public class PotionOfShielding extends ExoticPotion {
 			.t("desc", "与治疗药剂不同的是，饮用这瓶合剂能够使周身被护盾环绕，抵挡所受到的伤害。");
 	}
 
+
+
 	
 	{
 		icon = ItemIconSheet.POTION_SHIELDING;

@@ -26,6 +26,8 @@ public class UKing extends BossRushBoss {
 			.t("desc", "这个家伙是植物的王者。");
 	}
 
+
+
 	{
 		spriteClass = PlantKingSprite.class;
 		baseSpeed = 1f;

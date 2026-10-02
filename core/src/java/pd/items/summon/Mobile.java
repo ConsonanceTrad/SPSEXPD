@@ -19,11 +19,13 @@ public class Mobile extends SpsSummonItem {
 			.t("name", "遥控卫星")
 			.t("ac_active", "使用")
 			.t("desc", "用于呼叫一个小型闪电卫星。")
-			.t("mobilesatellite.name", "蓝色卫星")
-			.t("mobilesatellite.desc", "这个东西貌似出现在外星飞船中，速度很快但寿命有限。")
-			.t("exmobilesatellite.name", "红色卫星")
-			.t("exmobilesatellite.desc", "由领袖改制的蓝色卫星，有更强的耐久、更高的射速和伤害。");
+			.t("$mobilesatellite.name", "蓝色卫星")
+			.t("$mobilesatellite.desc", "这个东西貌似出现在外星飞船中，速度很快但寿命有限。")
+			.t("$exmobilesatellite.name", "红色卫星")
+			.t("$exmobilesatellite.desc", "由领袖改制的蓝色卫星，有更强的耐久、更高的射速和伤害。");
 	}
+
+
 
 
 	private static boolean activate;

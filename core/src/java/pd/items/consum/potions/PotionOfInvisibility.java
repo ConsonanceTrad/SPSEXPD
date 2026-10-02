@@ -41,6 +41,8 @@ public class PotionOfInvisibility extends Potion {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.POTION_INVIS;
 	}

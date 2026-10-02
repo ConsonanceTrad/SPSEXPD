@@ -49,6 +49,8 @@ public class LayOnHands extends TargetedClericSpell {
 	}
 
 
+
+
 	public static LayOnHands INSTANCE = new LayOnHands();
 
 	@Override

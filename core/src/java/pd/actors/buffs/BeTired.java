@@ -16,6 +16,8 @@ public class BeTired extends Buff {
 	}
 
 
+
+
 	private static final String LEVEL = "level";
 	private static final String LEFT = "left";
 	private static final int TRIGGER_HITS = 16;

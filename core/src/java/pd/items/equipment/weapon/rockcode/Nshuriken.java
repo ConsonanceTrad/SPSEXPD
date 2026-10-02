@@ -19,6 +19,8 @@ public class Nshuriken extends RockCode {
 			.t("stats_desc", "消耗4点能量中的1点，造成三倍等级伤害。");
 	}
 
+
+
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "N.s"; }
 	@Override protected int missileType() { return MagicMissile.LIGHT_MISSILE; }
 	@Override protected void onZap(Ballistica bolt) {

@@ -19,6 +19,8 @@ public class MoneyPack extends MissileWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.MONEY_PACK;
 		tier = 1;

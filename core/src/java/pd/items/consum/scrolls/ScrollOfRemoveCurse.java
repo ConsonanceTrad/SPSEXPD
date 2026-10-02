@@ -61,6 +61,8 @@ public class ScrollOfRemoveCurse extends InventoryScroll {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.SCROLL_REMCURSE;
 		preferredBag = Belongings.Backpack.class;

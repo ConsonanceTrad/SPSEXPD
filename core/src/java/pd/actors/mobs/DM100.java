@@ -48,6 +48,8 @@ public class DM100 extends Mob {
 	}
 
 
+
+
 	private static final float TIME_TO_ZAP	= 1f;
 	
 	{

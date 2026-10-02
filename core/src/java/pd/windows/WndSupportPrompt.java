@@ -43,6 +43,8 @@ public class WndSupportPrompt extends Window {
 	}
 
 
+
+
 	protected static final int WIDTH_P    = 120;
 	protected static final int WIDTH_L    = 200;
 

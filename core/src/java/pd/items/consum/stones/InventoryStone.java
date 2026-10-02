@@ -42,6 +42,8 @@ public abstract class InventoryStone extends Runestone {
 			.t("ac_use", "使用");
 	}
 
+
+
 	
 	{
 		defaultAction = AC_USE;

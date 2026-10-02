@@ -16,6 +16,8 @@ public class HealGrass extends Vegetable {
 			.t("desc", "阳春草的一部分，可以食用。它能恢复生命并提供暂时的奥术防护。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected void onEat(Hero hero) {
 		Buff.affect(hero, Healing.class).setHeal(20, 0.25f, 0);

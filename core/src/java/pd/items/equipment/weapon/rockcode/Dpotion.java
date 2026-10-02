@@ -20,6 +20,8 @@ public class Dpotion extends RockCode {
 			.t("stats_desc", "消耗4点能量中的1点，造成随英雄等级提高的黑暗伤害，并有概率施加延迟爆发的暗影诅咒。");
 	}
 
+
+
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "D.p"; }
 	@Override protected int missileType() { return MagicMissile.SHADOW; }
 

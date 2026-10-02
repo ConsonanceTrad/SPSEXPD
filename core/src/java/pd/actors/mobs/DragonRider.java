@@ -16,6 +16,8 @@ public class DragonRider extends SpsCityMobs.DragonRider {
 	}
 
 
+
+
 	{
 		spriteClass = DragonRiderSprite.class;
 	}

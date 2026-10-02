@@ -16,6 +16,8 @@ public class Powerpill extends Pill {
 			.t("desc", "在一段时间内提升力量。\n使用_3份肉，1份蔬菜_炼金");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected void onUse(Hero hero) {
 		Buff.affect(hero, Muscle.class, 1440f);

@@ -24,6 +24,8 @@ public class WndEgoalInfo extends Window {
 			.t("tell2", "喵呜，你听说过_黑暗的像素地牢_吗？如果有机会，希望你也能去那里继续你的冒险，喵，你会去的对吧，以一个冒险者的身份。");
 	}
 
+
+
 	private static final int WIDTH = 120;
 
 	public WndEgoalInfo() {

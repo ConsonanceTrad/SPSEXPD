@@ -12,6 +12,8 @@ public class OrangeNornStone extends NornStone {
 			.t("desc", "多利亚哈芬的特产，富有能量的魔法矿石。两块以上可在祭坛祝圣为_碎骨锯肉巨斧_。");
 	}
 
+
+
 	{
 		type = 3;
 		image = SpecificPlaceHolderDict.SOMETHING_0;

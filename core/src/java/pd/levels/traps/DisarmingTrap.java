@@ -41,6 +41,8 @@ public class DisarmingTrap extends Trap {
 	}
 
 
+
+
 	{
 		color = ORANGE;
 		shape = LARGE_DOT;

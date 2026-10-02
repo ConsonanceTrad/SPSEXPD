@@ -13,6 +13,8 @@ public class Dagger extends NormalMeleeWeapon {
 			.t("desc", "配以磨损木柄的简单钢匕首。——Watabou \n穿刺");
 	}
 
+
+
 	public Dagger() { super(1, 1f, 1f, 1, 1, 10, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) { if (s.accuracy < 4f) s.accuracy += .2f; s.min++; s.max++; }
 	@Override public int proc(Char attacker, Char defender, int damage) {

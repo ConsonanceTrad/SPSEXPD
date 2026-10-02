@@ -56,11 +56,13 @@ public class Honeypot extends Item {
 			.t("name", "蜂蜜罐")
 			.t("ac_shatter", "击碎")
 			.t("desc", "这个巨型蜜罐只是薄薄地涂了一圈蜂蜜，作为替代里头住着一只巨型蜜蜂！这种大型蜜蜂一般只待在蜂巢里，也许罐子本身就是某种特殊陷阱屋？蜜蜂看起来对罐子很满意，当你看向它时它非常警惕地对你回以嗡鸣。")
-			.t("shatteredpot.name", "破碎蜂蜜罐")
-			.t("shatteredpot.desc", "这个罐子已经被打碎，仅靠罐沿的粘稠蜂蜜勉强维持形状，而且正在缓缓解体。\n\n尽管蜜罐碎了，看来蜜蜂依然想捍卫它的住所。")
-			.t("steelbee.name", "钢铁蜜蜂")
-			.t("steelbee.desc", "由领袖之力强化的钢铁蜜蜂，强大且忠诚。");
+			.t("$shatteredpot.name", "破碎蜂蜜罐")
+			.t("$shatteredpot.desc", "这个罐子已经被打碎，仅靠罐沿的粘稠蜂蜜勉强维持形状，而且正在缓缓解体。\n\n尽管蜜罐碎了，看来蜜蜂依然想捍卫它的住所。")
+			.t("$steelbee.name", "钢铁蜜蜂")
+			.t("$steelbee.desc", "由领袖之力强化的钢铁蜜蜂，强大且忠诚。");
 	}
+
+
 
 	
 	public static final String AC_SHATTER	= "SHATTER";

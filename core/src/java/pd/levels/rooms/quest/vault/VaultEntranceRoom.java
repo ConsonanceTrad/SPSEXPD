@@ -46,9 +46,11 @@ public class VaultEntranceRoom extends VaultRoom {
 	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
 	static {
 		InlineText.of(VaultEntranceRoom.class)
-			.t("questentranceinternal.name", "平台")
-			.t("questentranceinternal.desc", "这个平台和你上方的洞口一样大，或许是在之前用于正常出入宝库的某种升降装置。");
+			.t("$questentranceinternal.name", "平台")
+			.t("$questentranceinternal.desc", "这个平台和你上方的洞口一样大，或许是在之前用于正常出入宝库的某种升降装置。");
 	}
+
+
 
 
 	@Override

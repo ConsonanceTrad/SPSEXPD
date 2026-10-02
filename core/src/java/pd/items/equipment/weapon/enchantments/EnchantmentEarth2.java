@@ -22,6 +22,8 @@ public class EnchantmentEarth2 extends SpsEnchantment {
 			.t("desc", "酸蚀附魔将造成少量的地属性伤害，并有几率给目标上腐酸。");
 	}
 
+
+
 	private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0x996600);
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		elementalDamage(weapon, attacker, defender, 0.25f, EARTH_DAMAGE);

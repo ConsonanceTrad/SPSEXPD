@@ -52,6 +52,8 @@ public class ForceCube extends MissileWeapon {
 			.t("desc", "这些奇形怪状的魔力方块小到可以握在你的手里，但出乎意料地非常重。");
 	}
 
+
+
 	
 	{
 		image = ConsumThrowsDict.FORCE_CUBE_0;

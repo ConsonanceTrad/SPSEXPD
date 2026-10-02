@@ -47,6 +47,8 @@ public class SpectralNecromancer extends Necromancer {
 	}
 
 
+
+
 	{
 		spriteClass = SpectralNecromancerSprite.class;
 	}

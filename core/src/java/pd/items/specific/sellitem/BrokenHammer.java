@@ -10,6 +10,8 @@ public class BrokenHammer extends SellItem {
 			.t("desc", "虽然已经坏了，但还能换成钱。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public int value() { return 30 * quantity; }
 }

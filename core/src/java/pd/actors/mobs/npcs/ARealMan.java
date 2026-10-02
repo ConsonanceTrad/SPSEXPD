@@ -12,6 +12,8 @@ public class ARealMan extends TownNpc {
 			.t("desc", "工会中的一个奇特的存在，擅长炼金术和收藏独立游戏。");
 	}
 
+
+
 	public ARealMan() {
 		configure(Spec.A_REAL_MAN);
 		spriteClass = pd.sprites.ARealManSprite.class;

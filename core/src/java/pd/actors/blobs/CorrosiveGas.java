@@ -41,6 +41,8 @@ public class CorrosiveGas extends Blob {
 	}
 
 
+
+
 	//FIXME should have strength per-cell
 	private int strength = 0;
 

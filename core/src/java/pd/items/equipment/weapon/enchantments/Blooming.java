@@ -46,6 +46,8 @@ public class Blooming extends Weapon.Enchantment {
 			.t("elestrike_desc", "武器拥有繁茂附魔时，元素打击会在范围内最多8个地块上生成高草，并使范围内所有敌人缠绕6回合。");
 	}
 
+
+
 	
 	private static ItemSprite.Glowing DARK_GREEN = new ItemSprite.Glowing( 0x008800 );
 	

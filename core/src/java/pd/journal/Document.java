@@ -223,6 +223,8 @@ public enum Document {
 			.t("halls_king.attrition.body", "朕已有一计可应对此孽。诚然其力量几近无限，然其蚕食本位面的能力受限颇多。祂仍需其恶魔爪牙与化身的协助才能积蓄力量，一举夺走护符。\n\n护符虽不在身旁，但其神力仍寄宿于朕。掌控矮人都城本身也意味着朕有压倒性的人数优势。将兵力源源不断地送入大厅，朕就能阻止其攫取护符，通过消耗战赢得胜利！\n\nYog-Dzewa！朕，Rodney，矮人之王，才 会 笑 到 最 后！");
 	}
 
+
+
 	
 	Document( IconEntry sprite, boolean lore ){
 		pageIcon = null;

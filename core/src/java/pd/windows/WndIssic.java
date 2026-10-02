@@ -22,6 +22,8 @@ public class WndIssic extends Window {
 			.t("buy", "拥抱……卖血机？");
 	}
 
+
+
 	private static final int WIDTH = 120;
 
 	public WndIssic() {

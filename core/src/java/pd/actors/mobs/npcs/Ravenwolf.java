@@ -14,6 +14,8 @@ public class Ravenwolf extends TownNpc {
 			.t("desc", "无名地牢的作者");
 	}
 
+
+
 	public Ravenwolf() {
 		configure(Spec.RAVENWOLF);
 		spriteClass = pd.sprites.RavenwolfSprite.class;

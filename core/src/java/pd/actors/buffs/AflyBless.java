@@ -13,6 +13,8 @@ public class AflyBless extends FlavourBuff {
 			.t("desc", "不思议的智慧带给你启发，少量提升你的当前力量和幸运。\n\n持续时间：%s回合。");
 	}
 
+
+
 	{
 		type = buffType.POSITIVE;
 		announced = true;

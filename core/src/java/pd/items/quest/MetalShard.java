@@ -35,6 +35,8 @@ public class MetalShard extends Item {
 			.t("discover_hint", "你可从某种敌人的掉落物中获得该物品。");
 	}
 
+
+
 	
 	{
 		image = ConsumGoodsMaterialsMaterialsDict.SHARD_0;

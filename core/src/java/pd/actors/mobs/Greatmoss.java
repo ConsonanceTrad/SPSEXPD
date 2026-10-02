@@ -14,6 +14,8 @@ public class Greatmoss extends SpsCityMobs.GreatMoss {
 	}
 
 
+
+
 	{
 		spriteClass = GreatMossSprite.class;
 	}

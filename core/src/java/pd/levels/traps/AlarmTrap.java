@@ -41,6 +41,8 @@ public class AlarmTrap extends Trap {
 	}
 
 
+
+
 	{
 		color = RED;
 		shape = DOTS;

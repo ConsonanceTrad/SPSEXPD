@@ -15,6 +15,8 @@ public class CromLuck extends Weapon.Enchantment {
 			.t("desc", "锯骨附魔会反复尝试更高的伤害，并无视防御补上差值。");
 	}
 
+
+
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		int best = damage;
 		for (int i = 0; i <= Math.max(0, weapon.level()); i++) best = Math.max(best, attacker.damageRoll());

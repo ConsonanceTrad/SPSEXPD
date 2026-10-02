@@ -13,6 +13,8 @@ public class WeatherOfDead extends SpsWeather {
 			.t("desc", "这里怨念很重，小心亡灵出现！");
 	}
 
+
+
 	@Override protected void affectHero(){ Buff.prolong(Dungeon.hero, DeadRaise.class, 2f); Buff.detach(Dungeon.hero, Hot.class); }
 	@Override protected Emitter.Factory particle(){ return DeadParticle.FACTORY; }
 	@Override protected float interval(){ return 0.3f; }

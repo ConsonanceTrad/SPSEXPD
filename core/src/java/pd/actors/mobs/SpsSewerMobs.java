@@ -52,26 +52,28 @@ public final class SpsSewerMobs {
 	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
 	static {
 		InlineText.of(SpsSewerMobs.class)
-			.t("brownbat.name", "小蝙蝠")
-			.t("brownbat.desc", "小蝙蝠呈棕色，是一种没什么威胁的生物。不过杀死它时，它有几率发出很大的响声。")
-			.t("brownbat.die", "凄惨的叫声惊醒了附近的敌人！")
-			.t("dustelement.name", "尘埃元素")
-			.t("dustelement.desc", "年久失修的下水道中的尘埃与向外扩散的黑暗力量融合，生成了这种羸弱的元素。")
-			.t("dustelement.blind", "灰尘阻碍了你的视线。")
-			.t("ratboss.name", "领头鼠")
-			.t("ratboss.desc", "领头鼠是鼠群的头领。虽然它不像鼠王一样有威信，但依然可以叫来鼠群。")
-			.t("ratboss.spawn", "这里出现了一群老鼠！")
-			.t("shit.name", "马桶精灵")
-			.t("shit.desc", "住在下水道的精灵，与腐坏和垃圾一起生活。")
-			.t("livemoss.name", "寄生苔藓")
-			.t("livemoss.desc", "扭曲的植物占据了死去老鼠的躯体，并向外抛洒寄生孢子。")
-			.t("patroluav.name", "巡逻无人机")
-			.t("patroluav.desc", "一种高科技无人机，曾被用于清理下水道垃圾。")
-			.t("vagrant.name", "流浪者")
-			.t("vagrant.desc", "住在下水道的流浪者，有着极强的恢复能力。")
-			.t("exvagrant.name", "感染流浪者")
-			.t("exvagrant.desc", "被源石感染的流浪者，有着极强的恢复能力和生命偷取能力，并会在死亡时污染周围环境。");
+			.t("$brownbat.name", "小蝙蝠")
+			.t("$brownbat.desc", "小蝙蝠呈棕色，是一种没什么威胁的生物。不过杀死它时，它有几率发出很大的响声。")
+			.t("$brownbat.die", "凄惨的叫声惊醒了附近的敌人！")
+			.t("$dustelement.name", "尘埃元素")
+			.t("$dustelement.desc", "年久失修的下水道中的尘埃与向外扩散的黑暗力量融合，生成了这种羸弱的元素。")
+			.t("$dustelement.blind", "灰尘阻碍了你的视线。")
+			.t("$ratboss.name", "领头鼠")
+			.t("$ratboss.desc", "领头鼠是鼠群的头领。虽然它不像鼠王一样有威信，但依然可以叫来鼠群。")
+			.t("$ratboss.spawn", "这里出现了一群老鼠！")
+			.t("$shit.name", "马桶精灵")
+			.t("$shit.desc", "住在下水道的精灵，与腐坏和垃圾一起生活。")
+			.t("$livemoss.name", "寄生苔藓")
+			.t("$livemoss.desc", "扭曲的植物占据了死去老鼠的躯体，并向外抛洒寄生孢子。")
+			.t("$patroluav.name", "巡逻无人机")
+			.t("$patroluav.desc", "一种高科技无人机，曾被用于清理下水道垃圾。")
+			.t("$vagrant.name", "流浪者")
+			.t("$vagrant.desc", "住在下水道的流浪者，有着极强的恢复能力。")
+			.t("$exvagrant.name", "感染流浪者")
+			.t("$exvagrant.desc", "被源石感染的流浪者，有着极强的恢复能力和生命偷取能力，并会在死亡时污染周围环境。");
 	}
+
+
 
 	private SpsSewerMobs() { }
 

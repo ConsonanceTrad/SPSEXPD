@@ -20,6 +20,8 @@ public class DwarfBoy extends PET {
 			.t("desc", "一个勇敢的矮人，但不知为何打扮成羊的样子。");
 	}
 
+
+
 	{
 		spriteClass = DwarfBoySprite.class;
 		cooldown = 50;

@@ -53,6 +53,8 @@ public class WndEnergizeItem extends WndInfoItem {
 	}
 
 
+
+
 	private static final float GAP		= 2;
 	private static final int BTN_HEIGHT	= 18;
 

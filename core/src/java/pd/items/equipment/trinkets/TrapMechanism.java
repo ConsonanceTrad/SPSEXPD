@@ -43,6 +43,8 @@ public class TrapMechanism extends Trinket {
 	}
 
 
+
+
 	{
 		image = EquipmentNonEquipDict.TRAP_MECHANISM_0;
 	}

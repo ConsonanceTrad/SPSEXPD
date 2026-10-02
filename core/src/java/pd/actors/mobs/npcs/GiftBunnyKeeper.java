@@ -25,6 +25,8 @@ public class GiftBunnyKeeper extends GiftNpc {
 			.t("reward2", "看，大兔兔。");
 	}
 
+
+
 	{ properties.add(Property.MECH); }
 	@Override public Visual visual() { return Visual.BUNNY_KEEPER; }
 	@Override public boolean acceptsGift(Item item) { return item instanceof Egg || item instanceof Weapon; }

@@ -27,6 +27,8 @@ public class DustElement extends SpsSewerMobs.DustElement {
 	}
 
 
+
+
 	{
 		spriteClass = DustElementSprite.class;
 		properties.remove(Property.INORGANIC);

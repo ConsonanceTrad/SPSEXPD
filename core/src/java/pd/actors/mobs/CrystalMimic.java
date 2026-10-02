@@ -59,6 +59,8 @@ public class CrystalMimic extends Mimic {
 	}
 
 
+
+
 	{
 		spriteClass = MimicSprite.Crystal.class;
 

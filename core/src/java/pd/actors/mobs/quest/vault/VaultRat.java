@@ -38,6 +38,8 @@ public class VaultRat extends Rat {
 	}
 
 
+
+
 	{
 		activateSteathGameplayBehaviour();
 

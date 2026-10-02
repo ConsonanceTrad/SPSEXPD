@@ -34,6 +34,8 @@ public class Terror extends FlavourBuff {
 	}
 
 
+
+
 	public int object = 0;
 
 	private static final String OBJECT    = "object";

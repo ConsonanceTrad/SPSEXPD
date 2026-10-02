@@ -42,6 +42,8 @@ public class Cudgel extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		hitSound = Assets.Sounds.HIT_CRUSH;

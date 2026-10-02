@@ -43,6 +43,8 @@ public class Corrupting extends Weapon.Enchantment {
 			.t("elestrike_desc", "武器拥有腐化附魔时，元素打击范围内除主要目标外的每个敌人都有5~25%的几率被腐化。(概率基于该敌人已损失的生命值)");
 	}
 
+
+
 	
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x440066 );
 	

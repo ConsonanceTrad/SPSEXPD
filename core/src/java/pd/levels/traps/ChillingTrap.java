@@ -43,6 +43,8 @@ public class ChillingTrap extends Trap{
 	}
 
 
+
+
 	{
 		color = WHITE;
 		shape = DOTS;

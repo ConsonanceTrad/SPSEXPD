@@ -16,6 +16,8 @@ public class FollowerArmor extends NormalArmor {
 			.t("desc", "看上去普通的信徒服装，能够从他人身上汲取力量。\n英雄护甲");
 	}
 
+
+
 	public FollowerArmor() { super(4, 3.5f, 10f, 5, 0, 20, -1, 1, 3, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override public int proc(Char attacker, Char defender, int damage) {
 		if (Random.Int(8) == 0) defender.HP = Math.min(defender.HT, defender.HP + Math.max(0, damage / 4));

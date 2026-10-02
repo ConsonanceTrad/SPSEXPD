@@ -29,11 +29,13 @@ public class RustybladeCat extends Item {
 			.t("name", "零式呼机")
 			.t("ac_active", "使用")
 			.t("desc", "呼叫无聊的猫。")
-			.t("buttercat.name", "零式永动机")
-			.t("buttercat.desc", "一只背着黄油的猫。")
-			.t("buttercat2.name", "零式永动机2.0")
-			.t("buttercat2.desc", "一只背着大型黄油的猫。");
+			.t("$buttercat.name", "零式永动机")
+			.t("$buttercat.desc", "一只背着黄油的猫。")
+			.t("$buttercat2.name", "零式永动机2.0")
+			.t("$buttercat2.desc", "一只背着大型黄油的猫。");
 	}
+
+
 
 
 	private static final String AC_ACTIVE = "ACTIVE";

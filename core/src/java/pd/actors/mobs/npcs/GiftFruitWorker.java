@@ -27,6 +27,8 @@ public class GiftFruitWorker extends GiftNpc {
 			.t("reward2", "算下来你也送了我好多东西了。这些是稀有的种子，都给你了。");
 	}
 
+
+
 	{ properties.add(Property.MECH); }
 	@Override public Visual visual() { return Visual.FRUIT_WORKER; }
 	@Override public boolean acceptsGift(Item item) { return item instanceof Vegetable || item instanceof Fruit; }

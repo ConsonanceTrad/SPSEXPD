@@ -14,6 +14,8 @@ public class Feed extends FlavourBuff {
 			.t("desc", "每杀死一个敌对单位，永久获得1点生命上限。\n\n剩余效果时长：%s回合。");
 	}
 
+
+
 	{ type = buffType.POSITIVE; announced = true; }
 	@Override public int icon() { return BuffIndicator.WELL_FED; }
 	@Override public String desc() { return Messages.get(this, "desc", dispTurns()); }

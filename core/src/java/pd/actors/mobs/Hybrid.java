@@ -42,9 +42,11 @@ public class Hybrid extends Mob {
 			.t("notice", "我是埃蒙忠实的仆从。")
 			.t("die", "为了……虚空……")
 			.t("shield", "埃蒙的力量保护着我。")
-			.t("mixers.name", "混源体分裂物")
-			.t("mixers.desc", "混源体在最终阶段受创后脱落的危险组织。");
+			.t("$mixers.name", "混源体分裂物")
+			.t("$mixers.desc", "混源体在最终阶段受创后脱落的危险组织。");
 	}
+
+
 
 
 	private int breaks;

@@ -19,6 +19,8 @@ public class EnchantmentLight extends SpsEnchantment {
 			.t("desc", "闪耀附魔将造成大量的光属性伤害，并有几率致盲。");
 	}
 
+
+
 	private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing(0xFFFF44);
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		elementalDamage(weapon, attacker, defender, 0.75f, LIGHT_DAMAGE);

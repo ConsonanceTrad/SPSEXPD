@@ -12,6 +12,8 @@ public class Cold extends FlavourBuff {
 			.t("desc", "寒冷会减缓你的移动。\n\n剩余效果时长：%s回合。");
 	}
 
+
+
 	public static final float DURATION = 10f;
 	{ type = buffType.NEGATIVE; announced = true; }
 	@Override public int icon() { return BuffIndicator.FROST; }

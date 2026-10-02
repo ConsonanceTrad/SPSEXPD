@@ -52,6 +52,8 @@ public class ManyKnive extends Weapon {
 			.t("no", "否");
 	}
 
+
+
 	public static final String AC_SHOOT = "SHOOT";
 	public static final String AC_AMMO = "AMMO";
 	private static final String SP_AMMO = "sp_ammo";

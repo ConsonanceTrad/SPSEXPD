@@ -21,6 +21,8 @@ public class Brick extends MeleeThrowWeapon {
 			.t("desc", "一块由泥土烧成的普通砖头。劳动节辛苦了。\n高级钝器，飞掷，易碎-报酬");
 	}
 
+
+
 	public Brick() { super(1, 8, 8, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override public int proc(Char attacker, Char defender, int damage) {
 		if (Random.Int(100) < 40) Buff.prolong(defender, HolyStun.class, 2f);

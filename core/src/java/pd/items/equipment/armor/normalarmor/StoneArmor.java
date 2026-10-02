@@ -9,4 +9,6 @@ public class StoneArmor extends NormalArmor {
 			.t("name", "石甲")
 			.t("desc", "利用大地的魔法制作而成的护甲，坚硬而沉重。\n重型护甲");
 	}
+
+
  public StoneArmor(){ super(3,.6f,0f,4,6,26,1,2,4,EquipmentEquipArmorBasicArmorDict.STONE_ARMOR); } }

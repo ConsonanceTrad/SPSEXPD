@@ -37,6 +37,8 @@ public class JumpA extends Item {
 			.t("desc", "修士可以闪烁至多四格，并有40%%概率获得4回合的双倍移动速度。");
 	}
 
+
+
 	public static final String AC_JUMP = "JUMP";
 	public static final int FULL_CHARGE = 40;
 	public static final int JUMP_COST = 20;

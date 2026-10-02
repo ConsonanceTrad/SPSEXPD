@@ -49,6 +49,8 @@ public class WildEnergy extends TargetedSpell {
 			.t("desc", "这个结晶中含有部分驱动DM-300的诅咒之力。当施放时，它会为你的法杖与佩戴着的神器充能，但同时也会随机触发一种诅咒法杖效果。幸运的是你可以指定这种诅咒魔法的施放方向。");
 	}
 
+
+
 	
 	{
 		image = ConsumScrollAmuletCrystalDict.WILD_ENERGY_0;

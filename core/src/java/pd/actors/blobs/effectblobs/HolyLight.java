@@ -16,6 +16,8 @@ public class HolyLight extends SpsEffectBlob {
 			.t("desc", "SPS圣光场会在三回合内标记生物与物品。");
 	}
 
+
+
 	@Override protected void affect(Char target) { Buff.affect(target, LightShootAttack.class).level(5); }
 	@Override protected void affect(Heap heap) { heap.lighthit(); }
 	@Override public void use(BlobEmitter emitter) { super.use(emitter); emitter.start(ShaftParticle.FACTORY, 1f, 0); }

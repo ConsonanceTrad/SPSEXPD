@@ -31,6 +31,8 @@ public class AttackShoes extends Item {
 			.t("desc", "这双鞋可以跳跃至多三格，并在落地时伤害周围的敌人。");
 	}
 
+
+
 	public static final String AC_JUMP = "JUMP";
 	{ image = EquipmentNonEquipDict.JUMP_BOOTS; defaultAction = AC_JUMP; unique = true; usesTargeting = true; }
 	@Override public ArrayList<String> actions(Hero hero) { ArrayList<String> a=super.actions(hero); a.add(AC_JUMP); a.remove(AC_DROP); a.remove(AC_THROW); return a; }

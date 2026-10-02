@@ -20,6 +20,8 @@ public class BlueWraith extends Wraith {
 	}
 
 
+
+
 	{
 		spriteClass = BlueWraithSprite.class;
 		HP = HT = 250;

@@ -25,6 +25,8 @@ public class GiftCoconut extends GiftNpc {
 			.t("reward5", "这是杠铃，这是火堆，来，举重吧。");
 	}
 
+
+
 	{ properties.add(Property.MECH); properties.add(Property.BEAST); }
 	@Override public Visual visual() { return Visual.COCONUT; }
 	@Override public boolean acceptsGift(Item item) {

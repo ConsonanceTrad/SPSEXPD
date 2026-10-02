@@ -92,6 +92,8 @@ public class AscensionChallenge extends Buff {
 	}
 
 
+
+
 	private static HashMap<Class<?extends Mob>, Float> modifiers = new HashMap<>();
 	static {
 		modifiers.put(Rat.class,            10f);

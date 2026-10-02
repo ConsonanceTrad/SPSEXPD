@@ -12,4 +12,6 @@ public class FoxHelperEgg extends Egg {
 			.t("name", "狐女仆之魂")
 			.t("desc", "召唤狐女仆。");
 	}
+
+
  { image = ConsumSummorDict.FOX_HELPER_EGG_0; } @Override protected LegacyPet hatchling() { return new FoxHelper(); } @Override public int value() { return 500 * quantity; } }

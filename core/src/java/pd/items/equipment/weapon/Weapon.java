@@ -124,10 +124,12 @@ abstract public class Weapon extends KindOfWeapon {
 			.t("enchanted", "这件武器附有_%s_。")
 			.t("enchant_hardened", "它被_硬化_了。")
 			.t("hardened_no_enchant", "这件武器已被_硬化_，但目前没有携带附魔。")
-			.t("enchantment.enchant", "附魔")
-			.t("enchantment.rankings_desc", "死于附魔")
-			.t("enchantment.discover_hint", "你可在地牢中概率找到带有该效果的物品，或尝试自行使物品获得该效果。");
+			.t("$enchantment.enchant", "附魔")
+			.t("$enchantment.rankings_desc", "死于附魔")
+			.t("$enchantment.discover_hint", "你可在地牢中概率找到带有该效果的物品，或尝试自行使物品获得该效果。");
 	}
+
+
 
 
 	public float    ACC = 1f;	// Accuracy modifier

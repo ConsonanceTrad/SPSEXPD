@@ -11,6 +11,8 @@ public class GoldDragon extends PET {
 			.t("desc", "图鉴里面并没有这条龙的信息。");
 	}
 
+
+
 	{ spriteClass = GoldDragonSprite.class; properties.add(Property.DRAGON); updateStats(true); }
 	@Override protected Kind kind() { return Kind.GOLD_DRAGON; }
 }

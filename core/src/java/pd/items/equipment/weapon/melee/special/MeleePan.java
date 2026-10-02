@@ -26,6 +26,8 @@ public class MeleePan extends MeleeWeapon {
 	}
 
 
+
+
 	public static final String AC_CHANGE = "CHANGE";
 
 	{

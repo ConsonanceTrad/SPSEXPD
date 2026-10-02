@@ -22,6 +22,8 @@ public class FrogPet extends PET {
 			.t("desc", "这只绿色的青蛙能攻击较远的敌人，并可能在完成致命一击时找到物品。");
 	}
 
+
+
 	{
 		spriteClass = FrogPetSprite.class; cooldown = 50; properties.add(Property.BEAST); updateStats(true);
 	}

@@ -37,6 +37,8 @@ public class PotionOfExperience extends Potion {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.POTION_EXP;
 

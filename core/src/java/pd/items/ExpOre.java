@@ -20,6 +20,8 @@ public class ExpOre extends Item {
 	}
 
 
+
+
 	public static final String AC_USE = "USE";
 	{
 		image = SpecificTaskDict.ORE_0;

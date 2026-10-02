@@ -14,6 +14,8 @@ public class HeXA extends TownNpc {
 			.t("yell2", "目前我只在韩国发布了这个地牢mod。");
 	}
 
+
+
 	public HeXA() {
 		configure(Spec.HEXA);
 		spriteClass = pd.sprites.HeXASprite.class;

@@ -20,6 +20,8 @@ public class TrickSand extends NormalMeleeWeapon {
 	}
 
 
+
+
 	public TrickSand() {
 		super(1, 1f, 1f, 2, 1, 10, SpecificPlaceHolderDict.SOMETHING_0);
 	}

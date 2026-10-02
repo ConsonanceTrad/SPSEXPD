@@ -13,6 +13,8 @@ public class GnollClothes extends Item {
 			.t("desc", "一件短小精致的风衣，看起来不像是人类应该有的尺寸。");
 	}
 
+
+
 	{
 		image = SpecificTaskDict.GNOLL_CLOTHES;
 		stackable = true;

@@ -36,6 +36,8 @@ public class BShovel extends Item {
 			.t("desc", "一个奇怪的按钮，会把四周的墙变成门，并随机赋予一种效果。");
 	}
 
+
+
 	public static final String AC_USE = "USE";
 	public static final int FULL_CHARGE = 150;
 	public static final int USE_COST = 65;

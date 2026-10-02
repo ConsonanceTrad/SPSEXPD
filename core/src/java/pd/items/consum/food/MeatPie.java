@@ -42,6 +42,8 @@ public class MeatPie extends Food {
 			.t("discover_hint", "你可通过炼金合成该物品。");
 	}
 
+
+
 	
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

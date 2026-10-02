@@ -57,6 +57,8 @@ public class JournalScene extends PixelScene {
 	}
 
 
+
+
 	public static final int WIDTH_P     = 126;
 	public static final int WIDTH_L     = 216;
 

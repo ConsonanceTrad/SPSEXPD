@@ -18,6 +18,8 @@ public class ArrowCollecter extends Bag {
 	}
 
 
+
+
 	{
 		image = EquipmentBagsDict.SPS_ARROW_COLLECTER;
 	}

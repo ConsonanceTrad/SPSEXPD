@@ -57,6 +57,8 @@ public class WndScoreBreakdown extends Window {
 	}
 
 
+
+
 	private static final int WIDTH			= 115;
 
 	private int GAP	= 4;

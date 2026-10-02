@@ -46,6 +46,8 @@ public class CrystalWisp extends Mob{
 	}
 
 
+
+
 	{
 		spriteClass = CrystalWispSprite.class;
 

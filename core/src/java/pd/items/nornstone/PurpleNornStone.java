@@ -12,6 +12,8 @@ public class PurpleNornStone extends NornStone {
 			.t("desc", "多利亚哈芬的特产，富有能量的魔法矿石。两块以上可在祭坛祝圣为_抽灵萃魂长剑_。");
 	}
 
+
+
 	{
 		type = 4;
 		image = SpecificPlaceHolderDict.SOMETHING_0;

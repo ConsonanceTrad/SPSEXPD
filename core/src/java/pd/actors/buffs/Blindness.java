@@ -35,6 +35,8 @@ public class Blindness extends FlavourBuff {
 	}
 
 
+
+
 	public static final float DURATION = 10f;
 
 	{

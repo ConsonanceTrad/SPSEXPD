@@ -17,6 +17,8 @@ public class YearPet extends PET {
 	}
 
 
+
+
 	{
 		spriteClass = BeastYearSprite.class;
 		properties.add(Property.BEAST);

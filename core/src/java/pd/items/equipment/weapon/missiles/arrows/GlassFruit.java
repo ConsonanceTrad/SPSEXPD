@@ -21,6 +21,8 @@ public class GlassFruit extends MissileWeapon {
 			.t("desc", "硅花人工培育出的水晶果。直接命中会使目标严重流血；未命中时，果实会破裂并释放一小团腐蚀气体。");
 	}
 
+
+
 	{
 		image = ConsumPotionSeedSeedDict.SEED_BLINDWEED_0;
 		hitSound = Assets.Sounds.HIT_STAB;

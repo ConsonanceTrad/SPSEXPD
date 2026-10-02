@@ -44,6 +44,8 @@ public class DisplacingDart extends TippedDart {
 			.t("desc", "这些飞镖上涂着一种由消逝草制成的药物，能把目标传送走一小段距离。");
 	}
 
+
+
 	
 	{
 		image = ConsumThrowsDict.DISPLACING_DART_0;

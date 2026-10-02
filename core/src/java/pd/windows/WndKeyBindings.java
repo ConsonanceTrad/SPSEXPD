@@ -100,18 +100,20 @@ public class WndKeyBindings extends Window {
 			.t("sw", "左下")
 			.t("nw", "左上")
 			.t("wait_or_pickup", "等待/捡起物品")
-			.t("wndchangebinding.desc_first", "按下一个按键以替代_%s_的第一键位。")
-			.t("wndchangebinding.desc_second", "按下一个按键以替代_%s_的第二键位。")
-			.t("wndchangebinding.desc_third", "按下一个按键以替代_%s_的第三键位。")
-			.t("wndchangebinding.desc_current", "当前键位：_%s_")
-			.t("wndchangebinding.changed_bind", "新的键位：_%s_")
-			.t("wndchangebinding.warning", "这个按键将不再应用于_%s_。")
-			.t("wndchangebinding.error", "这个按键已经应用于该行动。")
-			.t("wndchangebinding.unbind", "无按键")
-			.t("wndchangebinding.cant_unbind", "至少要有一个键位对应此行动。")
-			.t("wndchangebinding.confirm", "确定")
-			.t("wndchangebinding.cancel", "取消");
+			.t("$wndchangebinding.desc_first", "按下一个按键以替代_%s_的第一键位。")
+			.t("$wndchangebinding.desc_second", "按下一个按键以替代_%s_的第二键位。")
+			.t("$wndchangebinding.desc_third", "按下一个按键以替代_%s_的第三键位。")
+			.t("$wndchangebinding.desc_current", "当前键位：_%s_")
+			.t("$wndchangebinding.changed_bind", "新的键位：_%s_")
+			.t("$wndchangebinding.warning", "这个按键将不再应用于_%s_。")
+			.t("$wndchangebinding.error", "这个按键已经应用于该行动。")
+			.t("$wndchangebinding.unbind", "无按键")
+			.t("$wndchangebinding.cant_unbind", "至少要有一个键位对应此行动。")
+			.t("$wndchangebinding.confirm", "确定")
+			.t("$wndchangebinding.cancel", "取消");
 	}
+
+
 
 
 	private static final int WIDTH = 135;

@@ -125,6 +125,8 @@ public enum HeroSubClass {
 	}
 
 
+
+
 	int icon;
 
 	HeroSubClass(int icon){

@@ -62,15 +62,17 @@ public class SpiritHawk extends ArmorAbility {
 			.t("no_space", "你附近没有可用于召唤的空地。")
 			.t("short_desc", "女猎手召唤一只_灵能飞鹰_使魔，协助侦查并吸引敌人注意。")
 			.t("desc", "女猎手召唤一只灵能飞鹰，飞鹰存在时使用此能力可指引其行动。飞鹰将存在100回合，指引飞鹰不消耗任何充能。\n\n灵能飞鹰脆弱且缺乏攻击力，但其迅捷的移动、灵敏的躲避与精准的攻击对这些缺点有所弥补。飞鹰与女猎手共享视野，免疫所有环境效果，例如火焰、毒气等。飞鹰只在女猎手指引下发起攻击。")
-			.t("hawkally.name", "灵能飞鹰")
-			.t("hawkally.direct_defend", "你的灵能飞鹰移动到了那个位置。")
-			.t("hawkally.direct_follow", "你的飞鹰正在跟随你。")
-			.t("hawkally.direct_attack", "你的飞鹰正在发动攻击！")
-			.t("hawkally.desc", "一只女猎手召唤的灵能飞鹰，全身散发着明亮而空灵的蓝光。它不断扭头探查着周围环境。\n\n飞鹰并不适合武力战斗，但其速度与视距使其能够胜任高效的侦查与危险的诱敌任务。")
-			.t("hawkally.desc_remaining", "剩余回合数：%d回合")
-			.t("hawkally.desc_dodges", "飞鹰将必定闪避接下来的%d次攻击。")
-			.t("hawkally.discover_hint", "你可通过某个英雄护甲技能遇到该单位。");
+			.t("$hawkally.name", "灵能飞鹰")
+			.t("$hawkally.direct_defend", "你的灵能飞鹰移动到了那个位置。")
+			.t("$hawkally.direct_follow", "你的飞鹰正在跟随你。")
+			.t("$hawkally.direct_attack", "你的飞鹰正在发动攻击！")
+			.t("$hawkally.desc", "一只女猎手召唤的灵能飞鹰，全身散发着明亮而空灵的蓝光。它不断扭头探查着周围环境。\n\n飞鹰并不适合武力战斗，但其速度与视距使其能够胜任高效的侦查与危险的诱敌任务。")
+			.t("$hawkally.desc_remaining", "剩余回合数：%d回合")
+			.t("$hawkally.desc_dodges", "飞鹰将必定闪避接下来的%d次攻击。")
+			.t("$hawkally.discover_hint", "你可通过某个英雄护甲技能遇到该单位。");
 	}
+
+
 
 
 	@Override

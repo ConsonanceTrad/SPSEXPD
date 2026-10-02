@@ -15,6 +15,8 @@ public class Shower extends TownNpc {
 			.t("yell3", "这是个很棒的小镇，有很多很好的人，我想我会在这玩上一段时间。没准会碰上熟人呢。");
 	}
 
+
+
 	public Shower() {
 		configure(Spec.SHOWER);
 		spriteClass = pd.sprites.ShowerSprite.class;

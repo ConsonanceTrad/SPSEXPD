@@ -21,6 +21,8 @@ public class Trush extends RockCode {
 			.t("stats_desc", "消耗4点能量中的1点，造成四倍等级伤害，并将普通地形变为装饰地面。");
 	}
 
+
+
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "T.r"; }
 	@Override protected int missileType() { return MagicMissile.EARTH; }
 	@Override protected void onZap(Ballistica bolt) {

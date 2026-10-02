@@ -34,6 +34,8 @@ public class DuelistArmor extends ClassArmor {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipArmorBasicArmorDict.ARMOR_DUELIST_0;
 	}

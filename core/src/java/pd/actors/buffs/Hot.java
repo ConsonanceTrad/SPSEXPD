@@ -12,6 +12,8 @@ public class Hot extends FlavourBuff {
 			.t("desc", "灼热状态会使受到的所有伤害提高20%%。\n\n剩余回合：%s。");
 	}
 
+
+
 	public static final float DURATION = 10f;
 	{ type = buffType.NEGATIVE; announced = true; }
 	@Override public int icon() { return BuffIndicator.FIRE; }

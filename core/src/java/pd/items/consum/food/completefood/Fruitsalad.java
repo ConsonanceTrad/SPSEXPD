@@ -16,6 +16,8 @@ public class Fruitsalad extends CompleteFood {
 			.t("desc", "事实上制作这种食物并不需要沙拉。\n使用_2份水果、1份水_炼金。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; energy = 130f; }
 	@Override protected void doEat(Hero hero) {
 		heal(hero, hero.HT / 3);

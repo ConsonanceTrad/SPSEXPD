@@ -38,6 +38,8 @@ public class VaultSkeleton extends Skeleton {
 	}
 
 
+
+
 	{
 		activateSteathGameplayBehaviour();
 		spriteClass = SkeletonSprite.Vault.class;

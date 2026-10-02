@@ -12,6 +12,8 @@ public class BlueNornStone extends NornStone {
 			.t("desc", "多利亚哈芬的特产，富有能量的魔法矿石。两块以上可在祭坛祝圣为_休克三叉水戟_。");
 	}
 
+
+
 	{
 		type = 2;
 		image = SpecificPlaceHolderDict.SOMETHING_0;

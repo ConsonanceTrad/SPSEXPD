@@ -56,6 +56,8 @@ public class ReclaimTrap extends TargetedSpell {
 			.t("desc", "这个晶柱蕴含着DM-300残余的机械能量。当对一个未触发的陷阱使用时，陷阱的力量会附着在你身上，使你能再次使用晶柱以释放这股力量并在你指定的任何位置触发此陷阱的效果。\n\n不过，有的陷阱并不能在任何位置都生效，而且晶柱一次只能储存一个陷阱。");
 	}
 
+
+
 	
 	{
 		image = ConsumScrollAmuletCrystalDict.RECLAIM_TRAP_0;

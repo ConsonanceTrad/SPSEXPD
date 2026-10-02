@@ -15,6 +15,8 @@ public class SkillRecharge extends FlavourBuff {
 	}
 
 
+
+
 	public static final float DURATION = 40f;
 
 	{

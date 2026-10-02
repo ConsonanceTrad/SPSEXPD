@@ -18,6 +18,8 @@ public class BoundTrap extends Trap {
 			.t("desc", "触发后会释放一件随机物品。");
 	}
 
+
+
 	{ color = ORANGE; shape = GRILL; }
 
 	@Override

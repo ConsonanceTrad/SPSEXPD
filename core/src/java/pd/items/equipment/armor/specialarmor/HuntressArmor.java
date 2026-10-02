@@ -16,6 +16,8 @@ public class HuntressArmor extends NormalArmor {
 			.t("desc", "自然之神给予猎手的祝福，可以利用其力量反击。\n英雄护甲");
 	}
 
+
+
 	public HuntressArmor() { super(2, 2.4f, 6f, 4, 0, 12, 0, 1, 3, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override public int proc(Char attacker, Char defender, int damage) {
 		if (attacker != null && Random.Int(8) == 0) attacker.damage(Math.max(0, damage), defender);

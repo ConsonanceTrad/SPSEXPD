@@ -31,6 +31,8 @@ public class SJRBMusic extends MeleeWeapon {
 			.t("rap", "鸡你太美!!!");
 	}
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		tier = 1;

@@ -33,6 +33,8 @@ public class CrystalKey extends Key {
 			.t("desc", "这把水晶钥匙在黑暗中反射着光芒。或许可以用它来打开某样水晶制品？");
 	}
 
+
+
 	
 	{
 		image = SpecificKeyDict.CRYSTAL_KEY;

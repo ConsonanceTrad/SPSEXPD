@@ -36,6 +36,8 @@ public class ImpStatue extends Item {
 	}
 
 
+
+
 	{
 		image = ConsumGoodsMaterialsMaterialsDict.STATUE_0;
 

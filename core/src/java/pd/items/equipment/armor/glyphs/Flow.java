@@ -38,6 +38,8 @@ public class Flow extends Armor.Glyph {
 	}
 
 
+
+
 	private static ItemSprite.Glowing BLUE = new ItemSprite.Glowing( 0x0000FF );
 
 	@Override

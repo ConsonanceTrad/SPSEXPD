@@ -9,4 +9,6 @@ public class WoodenBowR extends RangeWeapon {
 			.t("name", "沉重的木弓")
 			.t("desc", "普通的木制弓，但是有些沉重。");
 	}
+
+
  public WoodenBowR() { super(1, Variant.HEAVY, EquipmentEquipWeaponBasicWeaponDict.WOODEN_BOW); } }

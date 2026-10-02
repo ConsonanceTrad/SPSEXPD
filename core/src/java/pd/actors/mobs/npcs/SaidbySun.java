@@ -14,6 +14,8 @@ public class SaidbySun extends TownNpc {
 			.t("desc", "一只猫，用不安的眼神盯着旁边的炼金设备。没准那里有它讨厌的食物。");
 	}
 
+
+
 	public SaidbySun() {
 		configure(Spec.SAID_BY_SUN);
 		spriteClass = pd.sprites.SaidbySunSprite.class;

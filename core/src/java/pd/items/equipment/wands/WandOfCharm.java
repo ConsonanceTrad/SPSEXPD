@@ -32,6 +32,8 @@ public class WandOfCharm extends Wand {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		collisionProperties = Ballistica.PROJECTILE;

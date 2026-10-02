@@ -20,6 +20,8 @@ public class TestWeapon extends NormalMeleeWeapon {
 	}
 
 
+
+
 	public TestWeapon() {
 		super(1, 1f, 1f, 1, 10, 10, SpecificPlaceHolderDict.SOMETHING_0);
 	}

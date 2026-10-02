@@ -10,6 +10,8 @@ public class SellPermit extends SellItem {
 			.t("desc", "经营商店的许可证的复印件，并不值钱。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public int value() { return 50 * quantity; }
 }

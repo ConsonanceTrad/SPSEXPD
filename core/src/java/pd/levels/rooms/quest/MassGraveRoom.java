@@ -50,9 +50,11 @@ public class MassGraveRoom extends SpecialRoom {
 	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
 	static {
 		InlineText.of(MassGraveRoom.class)
-			.t("massgravedeco.name", "乱冢")
-			.t("massgravedeco.desc", "遍地都是尸骨，这里到底发生过什么？");
+			.t("$massgravedeco.name", "乱冢")
+			.t("$massgravedeco.desc", "遍地都是尸骨，这里到底发生过什么？");
 	}
+
+
 
 
 	@Override

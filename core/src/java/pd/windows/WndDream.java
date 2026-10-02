@@ -21,6 +21,8 @@ public class WndDream extends Window {
 			.t("buy", "滑稽");
 	}
 
+
+
 	private static final int WIDTH = 120;
 
 	public WndDream() {

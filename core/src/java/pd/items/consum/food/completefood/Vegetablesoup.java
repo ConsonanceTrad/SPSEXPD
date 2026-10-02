@@ -20,6 +20,8 @@ public class Vegetablesoup extends CompleteFood {
 			.t("desc", "把杂七杂八的蔬菜放到一起煮出来的汤。\n使用_1份水、2份蔬菜_炼金。");
 	}
 
+
+
 	{ image = ConsumFoodFoodDict.VEGETABLE_SOUP; energy = 90f; }
 	@Override protected void doEat(Hero hero) {
 		Buff.detach(hero, Poison.class);

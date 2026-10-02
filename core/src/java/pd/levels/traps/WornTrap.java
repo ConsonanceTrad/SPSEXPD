@@ -16,6 +16,8 @@ public class WornTrap extends Trap {
 			.t("desc", "这个古老的陷阱已经彻底失效，触发时什么都不会发生。");
 	}
 
+
+
 	{ color = BLACK; shape = DOTS; canBeHidden = false; }
 	@Override public void activate() {
 		if (Game.instance != null && Game.scene() != null) CellEmitter.get(pos).burst(Speck.factory(Speck.STEAM), 6);

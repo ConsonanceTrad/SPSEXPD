@@ -10,6 +10,8 @@ public class Apk931 extends SellItem {
 			.t("desc", "一个测试组模。说实在的在测试中的测试是无法使用的。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public int value() { return 150 * quantity; }
 }

@@ -51,6 +51,8 @@ public class Sickle extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.SICKLE_0;
 		hitSound = Assets.Sounds.HIT_SLASH;

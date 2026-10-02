@@ -18,6 +18,8 @@ public class Frenchfries extends CompleteFood {
 			.t("desc", "过量淀粉警告。\n使用_1份卷轴、2份坚果_炼金。");
 	}
 
+
+
 	{ image = ConsumFoodFoodDict.FRENCH_FRIES; energy = 150f; }
 	@Override protected void doEat(Hero hero) {
 		Buff.affect(hero, ShieldArmor.class).level(hero.HT / 2);

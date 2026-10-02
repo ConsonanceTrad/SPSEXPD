@@ -18,6 +18,8 @@ public class StoneCross extends NormalMeleeWeapon {
 			.t("charge", "积蓄：%1$d / %2$d。");
 	}
 
+
+
 	public static final int FULL_CHARGE = 20;
 	private static final String CHARGE = "charge";
 	private int charge;

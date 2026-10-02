@@ -19,6 +19,8 @@ public class EnchantmentDark2 extends SpsEnchantment {
 			.t("desc", "咒术附魔将造成少量的暗属性伤害，并有几率咒杀目标。");
 	}
 
+
+
 	private static final ItemSprite.Glowing BLACK = new ItemSprite.Glowing(0x000000);
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		Buff.affect(defender, ShadowCurse.class);

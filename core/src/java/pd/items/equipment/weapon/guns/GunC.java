@@ -12,6 +12,8 @@ public class GunC extends GunWeapon {
 			.t("desc", "适合狭窄空间的霰弹枪械，被投入洞穴环境进行压力测试。");
 	}
 
+
+
 	{ image = EquipmentEquipWeaponBasicWeaponDict.GUN_4; }
 	public GunC() { super(3, 5); }
 }

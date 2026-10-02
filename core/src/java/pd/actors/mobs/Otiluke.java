@@ -33,6 +33,8 @@ public class Otiluke extends Mob {
 	}
 
 
+
+
 	private static final int LEGACY_DEPTH = 67;
 	private static final float TIME_TO_ZAP = 1f;
 

@@ -21,6 +21,8 @@ public class DemonBlade extends NormalMeleeWeapon {
 	}
 
 
+
+
 	public DemonBlade() {
 		super(2, 1f, 1f, 1, 7, 14, EquipmentEquipWeaponUniqueWeaponDict.DEMON_BLADE);
 	}

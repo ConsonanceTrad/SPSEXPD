@@ -43,6 +43,8 @@ public class StenchGas extends Blob {
 	}
 
 
+
+
 	@Override
 	protected void evolve() {
 		super.evolve();

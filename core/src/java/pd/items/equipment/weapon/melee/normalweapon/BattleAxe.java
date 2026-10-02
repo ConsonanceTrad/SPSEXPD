@@ -16,6 +16,8 @@ public class BattleAxe extends NormalMeleeWeapon {
 			.t("desc", "这把有着硕大钢制头部的战斧能将庞大的力量倾注在每次挥舞之中。——Watabou \n割裂");
 	}
 
+
+
 	public BattleAxe() { super(4, 1f, 1f, 1, 36, 49, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) {
 		if (s.accuracy < 1.2f) s.accuracy += .05f;

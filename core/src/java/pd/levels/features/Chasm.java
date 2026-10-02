@@ -69,6 +69,8 @@ public class Chasm implements Hero.Doom {
 	}
 
 
+
+
 	public static boolean jumpConfirmed = false;
 	private static int heroPos;
 	

@@ -35,6 +35,8 @@ public class HuntressArmor extends ClassArmor {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}

@@ -13,4 +13,6 @@ public class Shielded extends SpsExitMobs.GuardShielded {
 			.t("def_verb", "格挡");
 	}
 
+
+
 }

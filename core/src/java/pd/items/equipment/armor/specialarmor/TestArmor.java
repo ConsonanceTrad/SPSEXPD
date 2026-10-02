@@ -20,6 +20,8 @@ public class TestArmor extends NormalArmor {
 	}
 
 
+
+
 	private static final String TYPE = "type";
 	private int type;
 	private TestCharge passiveBuff;

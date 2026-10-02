@@ -51,6 +51,8 @@ public class GeyserTrap extends Trap {
 	}
 
 
+
+
 	{
 		color = TEAL;
 		shape = DIAMOND;

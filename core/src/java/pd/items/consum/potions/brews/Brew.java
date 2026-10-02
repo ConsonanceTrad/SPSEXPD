@@ -35,6 +35,8 @@ public abstract class Brew extends Potion {
 			.t("discover_hint", "你可通过炼金合成该物品。");
 	}
 
+
+
 	
 	@Override
 	public ArrayList<String> actions(Hero hero) {

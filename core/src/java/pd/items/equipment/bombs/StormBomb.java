@@ -29,6 +29,8 @@ public class StormBomb extends Bomb {
 			.t("desc", "在爆炸范围内制造迟缓雪雾和雷电能量。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public void explode(int cell) {
 		super.explode(cell);

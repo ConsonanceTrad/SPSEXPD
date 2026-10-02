@@ -143,6 +143,8 @@ public class CursedWand {
 	}
 
 
+
+
 	public static void cursedZap(final Item origin, final Char user, final Ballistica bolt, final Callback afterZap){
 
 		boolean positiveOnly = user == Dungeon.hero && Random.Float() < WondrousResin.positiveCurseEffectChance();

@@ -39,6 +39,8 @@ public abstract class RemainsItem extends Item {
 	}
 
 
+
+
 	{
 		bones = false;
 

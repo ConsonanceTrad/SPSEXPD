@@ -16,6 +16,8 @@ public class Mediummeat extends CompleteFood {
 			.t("desc", "精心烹制的肉排，能在一段时间内大幅提高攻击力。");
 	}
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 180f;

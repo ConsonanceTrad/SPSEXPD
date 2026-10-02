@@ -42,6 +42,8 @@ public class ScrollOfPrismaticImage extends ExoticScroll {
 			.t("desc", "这张秘卷上的咒文会创造使用者的一个虹光守卫。这个像使用者的弱化版克隆体的幻像有着相同的防御，但生命值和造成的伤害更低。\n\n虹光守卫将吸引敌人的火力从而保护使用者。\n\n当虹光守卫存在时阅读这张秘卷将会为其恢复所有生命。");
 	}
 
+
+
 	
 	{
 		icon = ItemIconSheet.SCROLL_PRISIMG;

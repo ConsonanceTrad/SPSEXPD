@@ -16,6 +16,8 @@ public class LearnSkill extends Buff {
 			.t("desc", "再击杀%s个敌对单位后，攻击、闪避、魔力与生命上限将永久提高。");
 	}
 
+
+
 	private static final String LEFT = "left";
 	private int left;
 	{ type = buffType.POSITIVE; announced = true; }

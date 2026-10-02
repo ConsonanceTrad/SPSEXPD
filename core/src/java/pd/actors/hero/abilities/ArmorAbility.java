@@ -45,6 +45,8 @@ public abstract class ArmorAbility implements Bundlable {
 	}
 
 
+
+
 	protected float baseChargeUse = 35;
 
 	public void use( ClassArmor armor, Hero hero ){

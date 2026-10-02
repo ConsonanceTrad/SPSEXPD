@@ -19,6 +19,8 @@ public class AresSword extends RelicMeleeWeapon {
 	}
 
 
+
+
 	public static final String AC_REGEN = "REGEN";
 
 	public AresSword() {

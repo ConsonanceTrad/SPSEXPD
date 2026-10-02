@@ -13,6 +13,8 @@ public class PetFood extends CompleteFood {
 			.t("desc", "为地牢伙伴准备的基础食物。");
 	}
 
+
+
 	{
 		image = ConsumUsefulUsefulDict.PET_FOOD;
 		energy = 10f;

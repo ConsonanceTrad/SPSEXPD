@@ -39,6 +39,8 @@ public class HealBag extends Item {
 	}
 
 
+
+
 	public static final String AC_HEAL = "HEAL";
 	public static final String AC_COOK = "COOK";
 	public static final int FULL_CHARGE = 40;

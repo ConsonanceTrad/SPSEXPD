@@ -18,6 +18,8 @@ public class BugMeat extends Food {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 50;

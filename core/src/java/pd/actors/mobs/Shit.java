@@ -18,6 +18,8 @@ public class Shit extends SpsSewerMobs.Shit {
 	}
 
 
+
+
 	{
 		spriteClass = ShitSprite.class;
 		properties.add(Property.ELF);

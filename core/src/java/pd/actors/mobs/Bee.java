@@ -46,6 +46,8 @@ public class Bee extends Mob {
 			.t("discover_hint", "你可通过某个道具遇到该单位。");
 	}
 
+
+
 	
 	{
 		spriteClass = BeeSprite.class;

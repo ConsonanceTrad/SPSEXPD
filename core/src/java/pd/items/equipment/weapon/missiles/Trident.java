@@ -34,6 +34,8 @@ public class Trident extends MissileWeapon {
 			.t("desc", "一把尖端有着三根致命尖叉的特大号投掷用长枪。威力极大，但也很重。");
 	}
 
+
+
 	
 	{
 		image = ConsumThrowsDict.TRIDENT_0;

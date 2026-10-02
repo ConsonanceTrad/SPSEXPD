@@ -68,6 +68,8 @@ public class BeaconOfReturning extends Spell {
 			.t("desc", "这个复杂的晶柱给予了使用者无视距离返回到设定地点的能力。该晶柱只会在返回时消耗。你可以随时改变它的设定位置，但该晶柱只能记忆最近一次设置的位置。");
 	}
 
+
+
 	
 	{
 		image = ConsumScrollAmuletCrystalDict.RETURN_BEACON_0;

@@ -17,6 +17,8 @@ public class PotionOfMight extends SpsPotion {
 			.t("desc", "以转换笼种子酿成的强身药水。它能暂时提高生命上限，并提供持久的物理防护。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public void apply(Hero hero) {
 		Buff.affect(hero, Barkskin.class).set(8 + hero.lvl / 2, 360);

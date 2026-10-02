@@ -15,6 +15,8 @@ public class BlueGirlEgg extends Egg {
 			.t("desc", "召唤蓝色人偶。");
 	}
 
+
+
 	{ image = ConsumSummorDict.BLUE_GIRL_EGG_0; poisons = 30; lights = 66; }
 	@Override protected LegacyPet hatchling() { return new BlueGirl(); }
 	@Override public int value() { return 500 * quantity; }

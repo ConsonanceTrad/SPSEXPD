@@ -21,6 +21,8 @@ public class SpKnuckles extends NormalMeleeWeapon {
 	}
 
 
+
+
 	public SpKnuckles() {
 		super(1, 2f, 0.5f, 2, 1, 10, SpecificPlaceHolderDict.SOMETHING_0);
 	}

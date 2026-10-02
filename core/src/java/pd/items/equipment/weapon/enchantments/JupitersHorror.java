@@ -20,6 +20,8 @@ public class JupitersHorror extends Weapon.Enchantment {
 			.t("desc", "威慑附魔能够恐吓目标。");
 	}
 
+
+
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		int level = Math.max(0, weapon.level());
 		if (Random.Int(level + 5) >= 4) {

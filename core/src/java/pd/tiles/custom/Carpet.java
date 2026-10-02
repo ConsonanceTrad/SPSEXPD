@@ -42,6 +42,8 @@ public class Carpet extends CustomTilemap {
 	}
 
 
+
+
 	{
 		texture = Assets.Environment.CARPET;
 	}

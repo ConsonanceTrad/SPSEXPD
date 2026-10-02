@@ -40,6 +40,8 @@ public class PowerHand extends Item {
 	}
 
 
+
+
 	public static final int CHAOS_BRANCH = 47;
 	public static final String AC_ADD = "ADD";
 	public static final String AC_USE = "USE";

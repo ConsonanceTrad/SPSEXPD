@@ -18,6 +18,8 @@ public class LightShootAttack extends Buff implements Hero.Doom, Buff.DOTbuff {
 	}
 
 
+
+
 	private static final String LEFT = "left";
 	private static final String POS = "pos";
 	private float left;

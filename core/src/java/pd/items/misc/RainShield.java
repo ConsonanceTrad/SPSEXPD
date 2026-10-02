@@ -17,6 +17,8 @@ public class RainShield extends MiscEquippable {
 	}
 
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 
 	@Override protected RainShieldBuff createBuff() { return new RainShieldBuff(); }

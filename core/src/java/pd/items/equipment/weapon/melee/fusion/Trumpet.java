@@ -17,6 +17,8 @@ public class Trumpet extends WarHammer implements FusionWeapon {
 			.t("desc", "一件沉重的四阶铜管武器。每次命中都会对目标周围的敌对单位造成六分之一的伤害，代价是命中略低。");
 	}
 
+
+
 	{ image = EquipmentEquipWeaponBasicWeaponDict.WAR_HAMMER_0; tier = 4; ACC = 0.95f; }
 	@Override public int min(int lvl) { return 5 + lvl; }
 	@Override public int max(int lvl) { return 22 + 5 * lvl; }

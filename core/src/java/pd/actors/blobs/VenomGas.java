@@ -18,6 +18,8 @@ public class VenomGas extends Blob {
 			.t("desc", "这里盘绕着一片鲜彩毒雾。它具有强烈的腐蚀性，会不断侵蚀其中的生物。");
 	}
 
+
+
 	private static final String STRENGTH = "strength";
 
 	private int strength;

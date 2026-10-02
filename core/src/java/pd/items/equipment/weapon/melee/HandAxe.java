@@ -41,6 +41,8 @@ public class HandAxe extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.HAND_AXE_0;
 		hitSound = Assets.Sounds.HIT_SLASH;

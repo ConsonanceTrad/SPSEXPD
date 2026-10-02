@@ -32,6 +32,8 @@ public class BlueCat extends Mob {
 	}
 
 
+
+
 	public Item item;
 
 	{

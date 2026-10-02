@@ -29,6 +29,8 @@ public class TreasureMap extends Item {
 			.t("boss_first", "必须先击败豺狼王才能返回。");
 	}
 
+
+
 	public static final int BRANCH = 46;
 	public static final String AC_PORT = "PORT";
 	private static final float TIME_TO_USE = 1f;

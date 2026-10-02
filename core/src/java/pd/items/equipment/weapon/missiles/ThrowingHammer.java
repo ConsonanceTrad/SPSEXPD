@@ -35,6 +35,8 @@ public class ThrowingHammer extends MissileWeapon {
 			.t("desc", "这些重锤是用来扔向敌人的。其光滑的全金属构造让它们非常耐用。");
 	}
 
+
+
 	
 	{
 		image = ConsumThrowsDict.THROWING_HAMMER_0;

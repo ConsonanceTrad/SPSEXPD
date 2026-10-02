@@ -40,6 +40,8 @@ public class Elastic extends Weapon.Enchantment {
 			.t("elestrike_desc", "武器拥有弹性附魔时，元素打击会将范围内的所有敌人都击退5格。");
 	}
 
+
+
 	
 	private static ItemSprite.Glowing PINK = new ItemSprite.Glowing( 0xFF00FF );
 	

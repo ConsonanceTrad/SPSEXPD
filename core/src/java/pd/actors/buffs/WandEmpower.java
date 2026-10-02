@@ -36,6 +36,8 @@ public class WandEmpower extends Buff {
 	}
 
 
+
+
 	{
 		type = buffType.POSITIVE;
 	}

@@ -28,6 +28,8 @@ public class FireCracker extends MeleeWeapon {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipWeaponBasicWeaponDict.FIRE_CRACKER_0;
 		tier = 1;

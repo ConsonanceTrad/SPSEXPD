@@ -47,6 +47,8 @@ public class HolyBomb extends Bomb {
 			.t("discover_hint", "你可通过炼金合成该物品。");
 	}
 
+
+
 	
 	{
 		image = EquipmentEquipWeaponBombDict.HOLY_BOMB_0;

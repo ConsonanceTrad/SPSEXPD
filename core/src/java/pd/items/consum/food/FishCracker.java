@@ -13,6 +13,8 @@ public class FishCracker extends Food {
 			.t("desc", "价格高昂的鱼形饼干，体积虽小却很顶饱。");
 	}
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 200f;

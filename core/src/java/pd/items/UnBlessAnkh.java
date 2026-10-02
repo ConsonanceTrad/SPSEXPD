@@ -25,6 +25,8 @@ public class UnBlessAnkh extends Item {
 			.t("desc", "这枚象征不朽的古老饰品尚不能起死回生。");
 	}
 
+
+
 	public static final String AC_BLESS = "BLESS";
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;

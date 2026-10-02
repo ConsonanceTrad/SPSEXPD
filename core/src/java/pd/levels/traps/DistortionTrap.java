@@ -18,6 +18,8 @@ public class DistortionTrap extends Trap {
 	}
 
 
+
+
 	{
 		color = WHITE;
 		shape = LARGE_DOT;

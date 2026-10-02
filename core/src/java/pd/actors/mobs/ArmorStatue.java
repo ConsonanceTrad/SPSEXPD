@@ -41,6 +41,8 @@ public class ArmorStatue extends Mob {
 	}
 
 
+
+
 	private Armor armor;
 
 	{

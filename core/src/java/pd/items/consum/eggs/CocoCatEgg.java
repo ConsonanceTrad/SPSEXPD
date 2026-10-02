@@ -13,6 +13,8 @@ public class CocoCatEgg extends Egg {
 			.t("desc", "炸弹，炸弹，炸弹！召唤椰子培养的爆破猫。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected LegacyPet hatchling() { return new CocoCat(); }
 	@Override public int value() { return 500 * quantity; }

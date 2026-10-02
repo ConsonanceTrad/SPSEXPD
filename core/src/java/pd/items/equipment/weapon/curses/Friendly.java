@@ -39,6 +39,8 @@ public class Friendly extends Weapon.Enchantment {
 			.t("elestrike_desc", "武器拥有友善诅咒时，元素打击对范围内的每个敌人都有50%概率造成持续6回合的魅惑。");
 	}
 
+
+
 	
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 	

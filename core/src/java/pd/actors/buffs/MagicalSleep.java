@@ -42,6 +42,8 @@ public class MagicalSleep extends Buff {
 	}
 
 
+
+
 	private static final float STEP = 1f;
 
 	@Override

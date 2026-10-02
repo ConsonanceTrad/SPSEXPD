@@ -15,6 +15,8 @@ public class ShieldArmor extends Buff {
 			.t("desc", "物理护盾会吸收由其他角色直接造成的伤害。剩余护盾：%s。");
 	}
 
+
+
 	private static final String LEVEL = "level";
 	private int level;
 

@@ -20,6 +20,8 @@ public class PaperFan extends SpsSpecialMeleeWeapon {
 			.t("desc", "优雅的折叠扇子，可以施展强风，来自某个壁垒城市。——千秋\n蓄风");
 	}
 
+
+
 	private static final String CHARGE = "charge";
 	private int charge;
 

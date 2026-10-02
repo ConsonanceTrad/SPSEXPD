@@ -38,6 +38,8 @@ public class AttackShield extends Item {
 			.t("desc", "一种在攻击命中时积蓄力量的古老武技，可以释放波动拳或强化使用者。");
 	}
 
+
+
 	public static final String AC_CAST = "CAST";
 	public static final String AC_BLAST = "BLAST";
 	public static final int FULL_CHARGE = 20;

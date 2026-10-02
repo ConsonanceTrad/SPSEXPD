@@ -66,6 +66,8 @@ public class ChallengeJournal extends Item {
 	}
 
 
+
+
 	public static final int CHALLENGE_COUNT = 8;
 	public static final int REGION_CHALLENGE_COUNT = 5;
 	public static final int FIRST_BRANCH = 10;

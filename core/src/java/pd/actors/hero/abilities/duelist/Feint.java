@@ -67,6 +67,8 @@ public class Feint extends ArmorAbility {
 	}
 
 
+
+
 	{
 		baseChargeUse = 35;
 	}

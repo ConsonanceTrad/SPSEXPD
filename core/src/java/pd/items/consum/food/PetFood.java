@@ -10,6 +10,8 @@ public class PetFood extends Food {
 			.t("desc", "为宠物专门设计的食物。\n使用2份坚果和1份水炼金。");
 	}
 
+
+
 	{ image = ConsumUsefulUsefulDict.PET_FOOD; energy = 10f; }
 	@Override public int value() { return quantity; }
 }

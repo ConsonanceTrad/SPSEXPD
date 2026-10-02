@@ -31,6 +31,8 @@ public class AlbinoPiranha extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = AlbinoPiranhaSprite.class;
 		baseSpeed = 1f;

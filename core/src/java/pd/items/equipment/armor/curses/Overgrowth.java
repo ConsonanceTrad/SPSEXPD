@@ -41,6 +41,8 @@ public class Overgrowth extends Armor.Glyph {
 			.t("desc", "丛生诅咒的护甲上生长着各种植物。从美学的角度来讲颇为有趣，但这些花花草草对防御力没有任何贡献，只会在战斗中随机发动效果！");
 	}
 
+
+
 	
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 	

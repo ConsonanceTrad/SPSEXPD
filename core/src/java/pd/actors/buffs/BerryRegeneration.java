@@ -14,6 +14,8 @@ public class BerryRegeneration extends Buff {
 	}
 
 
+
+
 	private static final String REGEN_LEFT = "regen_left";
 	private static final String LEGACY_REGEN_LEFT = "regenleft";
 	private int regenLeft;

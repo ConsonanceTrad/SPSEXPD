@@ -39,6 +39,8 @@ public class HeroDisguise extends FlavourBuff {
 	}
 
 
+
+
 	{
 		announced = true;
 	}

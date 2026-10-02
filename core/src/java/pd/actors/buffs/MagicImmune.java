@@ -37,6 +37,8 @@ public class MagicImmune extends FlavourBuff {
 	}
 
 
+
+
 	public static final float DURATION = 20f;
 	
 	{

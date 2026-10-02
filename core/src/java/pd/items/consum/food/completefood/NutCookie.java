@@ -23,6 +23,8 @@ public class NutCookie extends CompleteFood {
 	}
 
 
+
+
 	{
 		image = ConsumFoodFoodDict.NUT_COOKIE;
 		energy = 10f;

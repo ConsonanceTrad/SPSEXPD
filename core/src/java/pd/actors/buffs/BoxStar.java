@@ -14,6 +14,8 @@ public class BoxStar extends FlavourBuff {
 			.t("desc", "接下来%s回合内免疫所有伤害。");
 	}
 
+
+
 	public static final float DURATION = 30f;
 	{ type = buffType.POSITIVE; announced = true; }
 	@Override public int icon() { return BuffIndicator.IMMUNITY; }

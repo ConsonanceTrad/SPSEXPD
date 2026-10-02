@@ -59,6 +59,8 @@ public class VaultTokenDoor extends NPC {
 	}
 
 
+
+
 	{
 		spriteClass = VaultTokenDoorSprite.class;
 

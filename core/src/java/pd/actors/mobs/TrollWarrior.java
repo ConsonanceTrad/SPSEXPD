@@ -18,6 +18,8 @@ public class TrollWarrior extends SpsPrisonMobs.TrollWarrior {
 	}
 
 
+
+
 	{
 		spriteClass = TrollWarriorSprite.class;
 		properties.add(Property.TROLL);

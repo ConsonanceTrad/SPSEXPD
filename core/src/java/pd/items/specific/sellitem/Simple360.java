@@ -10,6 +10,8 @@ public class Simple360 extends SellItem {
 			.t("desc", "一段可以让游戏变简单的代码，其作者离开了它们所在的世界。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public int value() { return 80 * quantity; }
 }

@@ -15,6 +15,8 @@ public class Hmdzl001 extends TownNpc {
 			.t("yell3", "2022春节...操蛋极了，我一天都没好好休息。现在就算不是春节这里也会持续开放。");
 	}
 
+
+
 	public Hmdzl001() {
 		configure(Spec.HMDZL001);
 		spriteClass = pd.sprites.Hmdzl001Sprite.class;

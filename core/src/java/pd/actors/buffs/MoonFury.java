@@ -15,6 +15,8 @@ public class MoonFury extends Buff {
 	}
 
 
+
+
 	{
 		type = buffType.POSITIVE;
 		announced = true;

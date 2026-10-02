@@ -18,6 +18,8 @@ public class CharmFruit extends SpsFruit {
 			.t("desc", "人工种植的梦夜花结出的果实。直接命中会魅惑目标，落地则会释放致乱气体。");
 	}
 
+
+
 	public CharmFruit() { this(1); }
 	public CharmFruit(int number) { super(SpecificPlaceHolderDict.SOMETHING_0, 10, 10); quantity(number); }
 	@Override protected void onThrow(int cell) {

@@ -18,6 +18,8 @@ public class ShockFruit extends SpsFruit {
 			.t("desc", "人工种植的风暴藤结出的果实。直接命中会电击目标，落地则会释放电流。");
 	}
 
+
+
 	public ShockFruit() { this(1); }
 	public ShockFruit(int number) { super(ConsumPotionSeedSeedDict.SEED_STORMVINE, 10, 10); quantity(number); }
 	@Override protected void onThrow(int cell) {

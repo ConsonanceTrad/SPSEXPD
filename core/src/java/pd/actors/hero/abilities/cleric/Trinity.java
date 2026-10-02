@@ -107,15 +107,17 @@ public class Trinity extends ArmorAbility {
 			.t("cost", "该护甲技能充能消耗不定，但通常为_%d_。")
 			.t("short_desc", "牧师获得_三位一体_的技能，可模拟其已鉴定的装备并通过使用全新法术进行装备分配。")
 			.t("desc", "牧师获得一套_三位一体_的护甲技能，通过使用三种全新法术选择并使用各式各样的物品效果。每种位格法术都专用于模拟牧师本局已鉴定的不同种类装备效果：体之位格(武器与护甲)、智之位格(法杖与投武)、魂之位格(戒指与神器)。\n\n每种位格法术同时只能模拟一种效果，而牧师使用三位一体时可以选择所使用的位格法术的种类。三位一体无法复制你已装备的装备效果。")
-			.t("wndusetrinity.text", "选择三位一体所使用的位格法术。不同位格的效果可同时生效。")
-			.t("wndusetrinity.body", "_体之位格：%s_")
-			.t("wndusetrinity.mind", "_智之位格：%s_")
-			.t("wndusetrinity.spirit", "_魂之位格：%s_")
-			.t("wnditemtypeselect.text", "选择三位一体所模拟的物品效果。附加信息将在确认之前显示。")
-			.t("wnditemconfirm.body", "选择体之位格效果")
-			.t("wnditemconfirm.mind", "选择智之位格效果")
-			.t("wnditemconfirm.spirit", "选择魂之位格效果");
+			.t("$wndusetrinity.text", "选择三位一体所使用的位格法术。不同位格的效果可同时生效。")
+			.t("$wndusetrinity.body", "_体之位格：%s_")
+			.t("$wndusetrinity.mind", "_智之位格：%s_")
+			.t("$wndusetrinity.spirit", "_魂之位格：%s_")
+			.t("$wnditemtypeselect.text", "选择三位一体所模拟的物品效果。附加信息将在确认之前显示。")
+			.t("$wnditemconfirm.body", "选择体之位格效果")
+			.t("$wnditemconfirm.mind", "选择智之位格效果")
+			.t("$wnditemconfirm.spirit", "选择魂之位格效果");
 	}
+
+
 
 
 	{

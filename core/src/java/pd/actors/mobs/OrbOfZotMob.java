@@ -33,6 +33,8 @@ public class OrbOfZotMob extends Mob {
 	}
 
 
+
+
 	private static final float SPAWN_DELAY = 1f;
 	private Ballistica beam;
 

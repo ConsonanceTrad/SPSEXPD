@@ -39,6 +39,8 @@ public class CloakScrap extends RemainsItem {
 	}
 
 
+
+
 	{
 		image = ConsumUsefulCorpseRelicsDict.CLOAK_SCRAP_0;
 	}

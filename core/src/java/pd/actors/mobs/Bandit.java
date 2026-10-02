@@ -47,6 +47,8 @@ public class Bandit extends Thief {
 	}
 
 
+
+
 	private static final String BREAKS = "breaks";
 	private static final String SKILL_USED = "skill_used";
 

@@ -15,5 +15,7 @@ public class RandomAtkEgg extends RandomPetEgg {
 			.t("desc", "召唤一个随机的战斗宠物。");
 	}
 
+
+
 	public RandomAtkEgg() { super(Kodora.class, Snake.class, RibbonRat.class, GentleCrab.class); }
 }

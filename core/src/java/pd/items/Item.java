@@ -79,6 +79,8 @@ public class Item implements Bundlable {
 	}
 
 
+
+
 	protected static final String TXT_TO_STRING_LVL		= "%s %+d";
 	protected static final String TXT_TO_STRING_X		= "%s x%d";
 	

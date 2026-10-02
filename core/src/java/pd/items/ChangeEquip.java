@@ -37,6 +37,8 @@ public class ChangeEquip extends Item {
 	}
 
 
+
+
 	public static final String AC_CHANGE = "CHANGE";
 
 	{

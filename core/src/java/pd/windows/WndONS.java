@@ -19,6 +19,8 @@ public class WndONS extends Window {
 	}
 
 
+
+
 	private static final int WIDTH = 120;
 
 	public WndONS(final GnollClothes clothes) {

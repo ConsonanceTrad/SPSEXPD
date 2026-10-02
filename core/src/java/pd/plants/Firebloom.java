@@ -46,10 +46,12 @@ public class Firebloom extends Plant {
 			.t("name", "烈焰花")
 			.t("desc", "烈焰花被任何物品触碰到时，都会化为一团火焰。")
 			.t("warden_desc", "_守望者_能将有害的火焰转化为短时的烈焰之力。")
-			.t("seed.name", "烈焰花之种")
-			.t("exfirebloom.name", "烈焰花果丛")
-			.t("exfirebloom.desc", "生长火焰果的果丛。");
+			.t("$seed.name", "烈焰花之种")
+			.t("$exfirebloom.name", "烈焰花果丛")
+			.t("$exfirebloom.desc", "生长火焰果的果丛。");
 	}
+
+
 
 	
 	{

@@ -14,6 +14,8 @@ public class Locked extends FlavourBuff {
 			.t("desc", "一把无形的锁锁死了你的背包，是你无法使用消耗类道具，持续%s回合。");
 	}
 
+
+
 	{
 		type = buffType.NEGATIVE;
 	}

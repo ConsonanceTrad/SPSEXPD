@@ -46,6 +46,8 @@ public class FlashingTrap extends Trap {
 	}
 
 
+
+
 	{
 		color = GREY;
 		shape = ONE_DOT;

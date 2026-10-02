@@ -20,6 +20,8 @@ public class FireFollower extends Buff {
 	}
 
 
+
+
 	public static final float DURATION = 30f;
 	private float left;
 

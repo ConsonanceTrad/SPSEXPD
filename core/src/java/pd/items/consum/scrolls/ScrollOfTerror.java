@@ -50,6 +50,8 @@ public class ScrollOfTerror extends Scroll {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.SCROLL_TERROR;
 	}

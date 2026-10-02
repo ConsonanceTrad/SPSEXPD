@@ -39,6 +39,8 @@ public class RingOfAccuracy extends Ring {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.RING_ACCURACY;
 		buffClass = Accuracy.class;

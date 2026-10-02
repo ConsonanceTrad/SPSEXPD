@@ -47,6 +47,8 @@ public class YearBeast2 extends Mob {
 	}
 
 
+
+
 	private static final String TIMES = "times";
 	private static final String GLASS_HITS = "glass_hits";
 	private int times;

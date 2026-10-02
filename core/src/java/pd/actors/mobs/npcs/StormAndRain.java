@@ -14,6 +14,8 @@ public class StormAndRain extends TownNpc {
 			.t("yell2", "严格意义上我并不属于人类...但没人规定只有人类才能当财宝猎人。");
 	}
 
+
+
 	public StormAndRain() {
 		configure(Spec.STORM_AND_RAIN);
 		spriteClass = pd.sprites.StormAndRainSprite.class;

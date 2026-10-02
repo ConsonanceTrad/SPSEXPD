@@ -95,11 +95,13 @@ public class DwarfKing extends Mob {
 			.t("defeated", "汝会...毁了一切的...")
 			.t("rankings_desc", "屈服在矮人国王御前")
 			.t("desc", "许多年前，矮人议会中一名最强的巫师洞察了凌驾于生死之上的秘术。很快他就借助这种强大的力量，控制、腐化了王室与整个议会，并将魔爪伸向王国中的每一名矮人。现在他成为了矮人国的国王，统领着数量庞大的死灵。\n\n矮人国王是极具进攻性的强敌，会尝试利用他手下的死灵大军压制入侵者。")
-			.t("dkghoul.rankings_desc", "屈服在矮人国王御前")
-			.t("dkmonk.rankings_desc", "屈服在矮人国王御前")
-			.t("dkwarlock.rankings_desc", "屈服在矮人国王御前")
-			.t("dkgolem.rankings_desc", "屈服在矮人国王御前");
+			.t("$dkghoul.rankings_desc", "屈服在矮人国王御前")
+			.t("$dkmonk.rankings_desc", "屈服在矮人国王御前")
+			.t("$dkwarlock.rankings_desc", "屈服在矮人国王御前")
+			.t("$dkgolem.rankings_desc", "屈服在矮人国王御前");
 	}
+
+
 
 
 	{

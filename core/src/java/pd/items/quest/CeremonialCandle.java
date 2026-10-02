@@ -57,6 +57,8 @@ public class CeremonialCandle extends Item {
 	}
 
 
+
+
 	//generated with the wandmaker quest
 	public static int ritualPos;
 

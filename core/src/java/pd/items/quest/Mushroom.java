@@ -14,6 +14,8 @@ public class Mushroom extends Item {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		unique = true;

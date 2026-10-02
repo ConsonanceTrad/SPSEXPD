@@ -16,6 +16,8 @@ public class JumperDancer extends SellItem {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}

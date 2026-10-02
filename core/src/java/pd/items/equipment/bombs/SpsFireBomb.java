@@ -25,6 +25,8 @@ public class SpsFireBomb extends Bomb {
 			.t("desc", "在爆炸范围内制造火焰和焦油雾。");
 	}
 
+
+
 	{ image = EquipmentEquipWeaponBombDict.FIRE_BOMB_0; }
 	@Override public void explode(int cell) {
 		super.explode(cell);

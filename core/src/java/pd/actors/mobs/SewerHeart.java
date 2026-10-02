@@ -50,9 +50,11 @@ public class SewerHeart extends LegacyDualLootMob {
 			.t("name", "下水道之心")
 			.t("desc", "监狱典狱长曾培育过许多奇怪植物，其中一种莓果逃到这里自由生长。如今它坚硬的果实包裹着巨大器官，还能驱使根须并发射致命光束。")
 			.t("blink", "下水道之心逃走了！")
-			.t("sewerlasher.name", "藤鞭")
-			.t("sewerlasher.desc", "这东西应该是成熟莓果的一段根茎。它不能移动，却会猛烈攻击任何靠近的生物。");
+			.t("$sewerlasher.name", "藤鞭")
+			.t("$sewerlasher.desc", "这东西应该是成熟莓果的一段根茎。它不能移动，却会猛烈攻击任何靠近的生物。");
 	}
+
+
 
 	private static final String BEAM_TARGET = "beam_target";
 	private static final String BEAM_COOLDOWN = "beam_cooldown";

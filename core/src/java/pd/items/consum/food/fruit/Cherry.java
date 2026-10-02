@@ -16,6 +16,8 @@ public class Cherry extends Fruit {
 			.t("desc", "遗迹附近守卫植物结出的果实。它的果核极不稳定，食用后会化为一枚已点燃的炸弹。");
 	}
 
+
+
 	{ image = ConsumFoodFoodDict.CHERRY; energy = Hunger.HUNGRY / 10f; }
 	@Override protected void onEat(Hero hero) {
 		Dungeon.level.drop(new Bomb(), hero.pos).sprite.drop();

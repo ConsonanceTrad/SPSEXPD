@@ -65,10 +65,12 @@ public enum Rankings {
 	//SPSEXPD: inline Chinese text (generated from messages/misc/zh)
 	static {
 		InlineText.of(Rankings.class)
-			.t("record.something", "在黑暗中被击杀")
-			.t("record.won", "获得Yendor护符")
-			.t("record.ascended", "成功携带护符回到地面！");
+			.t("$record.something", "在黑暗中被击杀")
+			.t("$record.won", "获得Yendor护符")
+			.t("$record.ascended", "成功携带护符回到地面！");
 	}
+
+
 
 	
 	public static final int TABLE_SIZE	= 11;

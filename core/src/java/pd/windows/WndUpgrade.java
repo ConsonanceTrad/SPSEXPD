@@ -90,6 +90,8 @@ public class WndUpgrade extends Window {
 	}
 
 
+
+
 	private static final int WIDTH = 120;
 
 	private static final float COL_1 = WIDTH/4f;

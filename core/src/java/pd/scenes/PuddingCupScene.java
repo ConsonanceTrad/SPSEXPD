@@ -24,6 +24,8 @@ public class PuddingCupScene extends PixelScene {
 	}
 
 
+
+
 	private static final int WIDTH = 120;
 	private static final int BUTTON_HEIGHT = 20;
 	private static final float SMALL_GAP = 2;

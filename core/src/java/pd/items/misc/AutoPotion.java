@@ -15,6 +15,8 @@ public class AutoPotion extends Ring {
 			.t("desc", "一瓶可以装备的奇特药剂。原版中自动治疗的附魔并没有实际生效。");
 	}
 
+
+
 	public AutoPotion() {
 		anonymize();
 		image = SpecificPlaceHolderDict.SOMETHING_0;

@@ -53,9 +53,11 @@ public class Brute extends Mob {
 			.t("enraged", "激怒")
 			.t("def_verb", "格挡")
 			.t("desc", "暴徒是体型最大，力量最强且生命力最坚韧的一种豺狼人。受到致命伤时，他们会狂暴化，获得暂时的护盾和极高的伤害加成。")
-			.t("bruterage.name", "豺狼狂暴")
-			.t("bruterage.desc", "这个豺狼暴徒已经濒临死亡，但它想拉你作为陪葬品！\n\n时间的推移和外界的伤害都会消磨护盾，盾破便是暴徒的丧命之时。然而，一定要小心，在这一阶段暴徒会造成巨额伤害！\n\n剩余的护盾：%d");
+			.t("$bruterage.name", "豺狼狂暴")
+			.t("$bruterage.desc", "这个豺狼暴徒已经濒临死亡，但它想拉你作为陪葬品！\n\n时间的推移和外界的伤害都会消磨护盾，盾破便是暴徒的丧命之时。然而，一定要小心，在这一阶段暴徒会造成巨额伤害！\n\n剩余的护盾：%d");
 	}
+
+
 
 	@Override public Item SupercreateLoot() { return new Tamahawk(); }
 

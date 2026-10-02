@@ -33,6 +33,8 @@ public class CannonOfMage extends DamageWand {
 			.t("stats_desc", "这根法杖造成_%1$d-%2$d点伤害_，并获得法强带来的额外伤害。");
 	}
 
+
+
 	{
 		image = EquipmentWandUniqueWandDict.LEGACY_CANNON_OF_MAGE;
 		collisionProperties = Ballistica.MAGIC_BOLT;

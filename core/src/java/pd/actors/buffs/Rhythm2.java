@@ -13,6 +13,8 @@ public class Rhythm2 extends FlavourBuff {
 			.t("desc", "你的速度与伤害提高20%%，受到的伤害降低10%%。\n\n剩余：%s回合。");
 	}
 
+
+
 	public static final float DURATION = 10f;
 	{ type = buffType.POSITIVE; announced = true; }
 	@Override public int icon() { return BuffIndicator.COMBO; }

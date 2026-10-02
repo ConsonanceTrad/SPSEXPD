@@ -18,6 +18,8 @@ public class Ice13 extends TownNpc {
 			.t("yell6", "这个世界依旧存在一些差错，但它至少不会搞出一只黑色的野兽。");
 	}
 
+
+
 	public Ice13() {
 		configure(Spec.ICE13);
 		spriteClass = pd.sprites.Ice13Sprite.class;

@@ -26,6 +26,8 @@ public class MonsterBox extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = MonsterBoxSprite.class;
 		EXP = 1;

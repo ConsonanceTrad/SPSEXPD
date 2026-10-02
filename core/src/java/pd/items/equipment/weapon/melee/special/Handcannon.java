@@ -29,6 +29,8 @@ public class Handcannon extends MeleeWeapon {
 			.t("desc", "人类发明了火器，矮人强化并改进了它。作为这个世界为数不多的火器之一，这件巨炮可以从很远的地方打击目标。——Consideredhamster \n???");
 	}
 
+
+
 	public static final String AC_ONOFF = "ONOFF";
 	private boolean turnedOn;
 

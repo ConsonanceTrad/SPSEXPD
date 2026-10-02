@@ -39,6 +39,8 @@ public class GreaterHaste extends Buff {
 	}
 
 
+
+
 	{
 		type = buffType.POSITIVE;
 	}

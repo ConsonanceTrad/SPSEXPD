@@ -15,6 +15,8 @@ public class ButterflypetEgg extends Egg {
 			.t("desc", "召唤萤石粉蝶。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected LegacyPet hatchling() { return new ButterflyPet(); }
 	@Override public int value() { return 500 * quantity; }

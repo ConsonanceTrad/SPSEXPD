@@ -37,6 +37,8 @@ public class Barrier extends ShieldBuff {
 			.t("desc", "一团可以抵挡全部伤害的能量屏障。\n\n只要奥术屏障的能量仍然存在，它将完全抵挡单位所受到的任何伤害。同时这种能量会随时间逐渐衰减。\n\n护盾能量剩余：%d");
 	}
 
+
+
 	
 	{
 		type = buffType.POSITIVE;

@@ -13,6 +13,8 @@ public class BoneStar extends TownNpc {
 			.t("yell1", "嘿，又来了一个新家伙！看起来你准备的非常充分，祝你一路顺风！");
 	}
 
+
+
 	public BoneStar() {
 		configure(Spec.BONE_STAR);
 		spriteClass = pd.sprites.BoneStarSprite.class;

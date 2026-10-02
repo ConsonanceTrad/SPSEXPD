@@ -17,6 +17,8 @@ public class GlassShield extends Buff {
 	}
 
 
+
+
 	private static final String TURNS = "turns";
 	private int turns;
 

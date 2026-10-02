@@ -30,6 +30,8 @@ public class KeyRing extends Bag {
 	}
 
 
+
+
 	{
 		image = EquipmentBagsDict.SPS_KEY_RING;
 	}

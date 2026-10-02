@@ -15,6 +15,8 @@ public class DefenceUp extends FlavourBuff {
 			.t("desc", "剩余%1$s回合，受到的伤害降低%2$s%%。");
 	}
 
+
+
 	private static final String LEVEL = "level";
 	private static final String LEGACY_LEFT = "left";
 	private int level;

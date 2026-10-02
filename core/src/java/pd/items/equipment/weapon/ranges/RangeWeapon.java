@@ -43,6 +43,8 @@ public abstract class RangeWeapon extends SpsRangedWeapon {
 			.t("stats_unknown", "一般而言，这件_%1$d阶_远程武器可以造成_%2$d～%3$d点伤害_，并且需要_%4$d点力量_来正常使用。");
 	}
 
+
+
 	public static final String AC_SHOOT = "SHOOT";
 
 	public enum Variant {

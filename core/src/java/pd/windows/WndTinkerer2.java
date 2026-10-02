@@ -22,6 +22,8 @@ public class WndTinkerer2 extends WndOptions {
 	}
 
 
+
+
 	private final Tinkerer2 tinkerer;
 
 	public WndTinkerer2(Tinkerer2 tinkerer) {

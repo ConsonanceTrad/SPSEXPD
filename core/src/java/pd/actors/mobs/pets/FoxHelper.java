@@ -23,6 +23,8 @@ public class FoxHelper extends PET {
 			.t("desc", "有事她会干，没事嘛……她会定期给你带来升级卷轴。");
 	}
 
+
+
 	{
 		spriteClass = FoxHelperSprite.class; cooldown = 50; properties.add(Property.ORC); updateStats(true);
 	}

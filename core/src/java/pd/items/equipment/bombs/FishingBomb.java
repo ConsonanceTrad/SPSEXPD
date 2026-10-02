@@ -29,6 +29,8 @@ public class FishingBomb extends Bomb {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}

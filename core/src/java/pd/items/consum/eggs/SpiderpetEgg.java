@@ -9,4 +9,6 @@ public class SpiderpetEgg extends Egg {
 			.t("name", "植蛛之魂")
 			.t("desc", "召唤植蛛。");
 	}
+
+
 {image=ConsumSummorDict.SPIDER_PET_EGG_0;}@Override protected LegacyPet hatchling(){return new Spider();}@Override public int value(){return 500*quantity;}}

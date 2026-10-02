@@ -32,6 +32,8 @@ public class FireElemental extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = FireElementalSprite.class;
 		HP = HT = 120 + legacyDepthAdjustment(0) * Random.NormalIntRange(4, 7);

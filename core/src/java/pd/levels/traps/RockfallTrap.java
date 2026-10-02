@@ -40,6 +40,8 @@ public class RockfallTrap extends Trap {
 	}
 
 
+
+
 	{
 		color = YELLOW;
 		shape = LARGE_DOT;

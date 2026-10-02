@@ -37,6 +37,8 @@ public class WondrousResin extends Trinket {
 	}
 
 
+
+
 	{
 		image = EquipmentNonEquipDict.WONDROUS_RESIN_0;
 	}

@@ -23,6 +23,8 @@ public class WndIce13 extends Window {
 			.t("missing_hand", "你没有力量之手。");
 	}
 
+
+
 	private static final int WIDTH = 120;
 
 	public WndIce13() {

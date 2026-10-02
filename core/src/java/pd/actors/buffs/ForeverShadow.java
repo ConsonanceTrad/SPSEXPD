@@ -17,6 +17,8 @@ public class ForeverShadow extends FlavourBuff {
 	}
 
 
+
+
 	public static final float DURATION = 30f;
 
 	{ type = buffType.POSITIVE; }

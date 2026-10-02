@@ -51,6 +51,8 @@ public class WandOfError extends Wand {
 	}
 
 
+
+
 	public static final int EFFECT_COUNT = 10;
 	private static final float SPS_FROST_DURATION = 5f;
 

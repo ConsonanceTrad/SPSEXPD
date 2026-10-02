@@ -33,6 +33,8 @@ public class Vulnerable extends FlavourBuff {
 			.t("desc", "易伤魔法会使得目标受到所有被护甲减免过的物理伤害增加33%%。\n\n易伤效果剩余时长：%s回合");
 	}
 
+
+
 	
 	public static final float DURATION = 20f;
 	

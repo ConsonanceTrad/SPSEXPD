@@ -13,6 +13,8 @@ public class PrisonReward extends ChallengeReward {
 			.t("ac_use", "使用");
 	}
 
+
+
 	public PrisonReward() { super(0x0000FF); }
 	@Override protected Item[] contents() { return new Item[]{new FullMoonberry()}; }
 }

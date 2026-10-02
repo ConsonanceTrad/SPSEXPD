@@ -8,4 +8,6 @@ public class LightBuff2Trap extends ElementalBuffTrap {
 			.t("name", "光种中陷阱")
 			.t("desc", "会释放中等范围圣光场的陷阱。");
 	}
+
+
  public LightBuff2Trap(){ super(WHITE, WAVES, HolyLight.class, 1, 6, false); } }

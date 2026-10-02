@@ -23,6 +23,8 @@ public class NeptuneShock extends Weapon.Enchantment {
 			.t("desc", "休克附魔能连锁电击多个相邻目标。");
 	}
 
+
+
 	public static final int CHARGE_COST = 10;
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		if (!(weapon instanceof SpsRelicWeapon)) return damage;

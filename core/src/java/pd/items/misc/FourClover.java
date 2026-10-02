@@ -15,6 +15,8 @@ public class FourClover extends Ring {
 			.t("desc", "这个四叶草形状的项链能提升佩戴者升级时的增益，并强化附魔装备的效果。");
 	}
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		buffClass = FourCloverBless.class;

@@ -69,6 +69,8 @@ public class Ghost extends NPC {
 	}
 
 
+
+
 	{
 		spriteClass = GhostSprite.class;
 		

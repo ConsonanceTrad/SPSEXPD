@@ -27,15 +27,17 @@ public class SpsSokobanSheep extends NPC {
 		InlineText.of(SpsSokobanSheep.class)
 			.t("name", "推箱绵羊")
 			.t("desc", "这只特殊的绵羊可以被推过地板，用于解开机关。")
-			.t("corner.name", "斜推绵羊")
-			.t("corner.desc", "这只绵羊也可以沿斜线推动。")
-			.t("switch.name", "换位绵羊")
-			.t("switch.desc", "与这只绵羊互动会交换你们的位置。")
-			.t("black.name", "黑色绵羊")
-			.t("black.desc", "这只绵羊会跳向附近的剪毛陷阱。")
-			.t("stop.name", "停驻绵羊")
-			.t("stop.desc", "这只绵羊已经无法推动。");
+			.t("$corner.name", "斜推绵羊")
+			.t("$corner.desc", "这只绵羊也可以沿斜线推动。")
+			.t("$switch.name", "换位绵羊")
+			.t("$switch.desc", "与这只绵羊互动会交换你们的位置。")
+			.t("$black.name", "黑色绵羊")
+			.t("$black.desc", "这只绵羊会跳向附近的剪毛陷阱。")
+			.t("$stop.name", "停驻绵羊")
+			.t("$stop.desc", "这只绵羊已经无法推动。");
 	}
+
+
 
 
 	@Override public Item SupercreateLoot() { return new SheepFur(); }

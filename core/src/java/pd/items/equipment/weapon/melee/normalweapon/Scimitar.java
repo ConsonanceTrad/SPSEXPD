@@ -17,6 +17,8 @@ public class Scimitar extends NormalMeleeWeapon {
 			.t("desc", "一把厚重的弯刀。它的形状能让它进行更快但不甚强力的攻击。——00-Evan \n高级割裂");
 	}
 
+
+
 	public Scimitar() { super(3, 1f, 1f, 1, 23, 35, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) {
 		if (s.accuracy < 1.5f) s.accuracy += .025f;

@@ -14,6 +14,8 @@ public class NornStone extends Item {
 	}
 
 
+
+
 	public int type;
 
 	{

@@ -10,6 +10,8 @@ public class SheepFur extends SellItem {
 			.t("desc", "奇怪又普通的毛发。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public int value() { return 50 * quantity; }
 }

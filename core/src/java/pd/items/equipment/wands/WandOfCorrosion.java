@@ -63,6 +63,8 @@ public class WandOfCorrosion extends Wand {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 

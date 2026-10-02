@@ -30,6 +30,8 @@ public class GunOfSoldier extends Item {
 			.t("desc", "来自未来的先进脉冲手枪，会根据目标已损失的生命造成额外伤害。");
 	}
 
+
+
 	public static final String AC_USE = "USE";
 	public static final int FULL_CHARGE = 225;
 	public static final int SHOT_COST = 75;

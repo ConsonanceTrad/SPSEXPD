@@ -19,6 +19,8 @@ public class Testglyph extends SpsGlyph {
 			.t("desc", "试验刻印有几率在攻击者周围制造危险气体，同时保护使用者免受气体影响。");
 	}
 
+
+
 	private static final ItemSprite.Glowing COLOR = new ItemSprite.Glowing(0x22CC44);
 	@Override public int proc(Armor armor, Char attacker, Char defender, int damage) {
 		clearElementalMarker(defender);

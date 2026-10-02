@@ -25,6 +25,8 @@ public class Flag extends Item {
 	}
 
 
+
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = false;

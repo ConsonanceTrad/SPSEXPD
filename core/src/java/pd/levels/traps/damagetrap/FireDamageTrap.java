@@ -8,4 +8,6 @@ public class FireDamageTrap extends ElementalDamageTrap {
 			.t("name", "火伤陷阱")
 			.t("desc", "会释放火属性伤害的陷阱。");
 	}
+
+
  public FireDamageTrap(){ super(ORANGE, LARGE_DOT, FireEffectDamage.class, 1, 10); } }

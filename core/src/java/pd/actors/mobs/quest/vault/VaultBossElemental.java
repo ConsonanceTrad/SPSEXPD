@@ -99,6 +99,8 @@ public class VaultBossElemental extends Mob {
 	}
 
 
+
+
 	{
 		HP = HT = 600;
 		spriteClass = VaultBossElementalSprite.class;

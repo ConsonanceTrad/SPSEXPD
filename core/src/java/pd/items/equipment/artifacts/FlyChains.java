@@ -44,8 +44,10 @@ public class FlyChains extends EtherealChains {
 			.t("desc", "这些翔虫可以用来把你拉向一些地形，或将敌人拉向你。其飞行高度甚至可以允许你越过墙壁！")
 			.t("desc_cursed", "被诅咒的翔虫将自己锁在了你的身边，不断地在周围晃动，试图绊倒或绑住你。")
 			.t("desc_equipped", "翔虫围绕在你的身边，缓慢地收集被你击败者的精神能量。")
-			.t("chainsrecharge2.levelup", "你的翔虫变得更强大了！");
+			.t("$chainsrecharge2.levelup", "你的翔虫变得更强大了！");
 	}
+
+
 
 
 	public static final String AC_LOCKED = "LOCKED";

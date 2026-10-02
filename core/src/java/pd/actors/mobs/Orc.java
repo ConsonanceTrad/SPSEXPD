@@ -27,6 +27,8 @@ public class Orc extends Mob {
 	}
 
 
+
+
 	{
 		spriteClass = OrcSprite.class;
 		state = SLEEPING;

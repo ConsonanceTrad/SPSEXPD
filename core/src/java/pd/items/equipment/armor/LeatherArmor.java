@@ -34,6 +34,8 @@ public class LeatherArmor extends Armor {
 	}
 
 
+
+
 	{
 		image = EquipmentEquipArmorBasicArmorDict.ARMOR_LEATHER_0;
 	}

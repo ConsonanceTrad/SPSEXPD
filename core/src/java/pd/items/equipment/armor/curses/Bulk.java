@@ -37,6 +37,8 @@ public class Bulk extends Armor.Glyph {
 			.t("desc", "臃肿诅咒的护甲看上去更加厚重，但实际上防御力并没有增强。硕大的体积反而让使用者难以挤入门道。");
 	}
 
+
+
 	
 	private static ItemSprite.Glowing BLACK = new ItemSprite.Glowing( 0x000000 );
 	

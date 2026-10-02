@@ -24,6 +24,8 @@ public class SeriousPunch extends Item {
 	}
 
 
+
+
 	public static final String AC_CAST = "CAST";
 	private static final String CHARGE = "charge";
 	private int charge;

@@ -39,6 +39,8 @@ public class Repulsion extends Armor.Glyph {
 	}
 
 
+
+
 	private static ItemSprite.Glowing WHITE = new ItemSprite.Glowing( 0xFFFFFF );
 	
 	@Override

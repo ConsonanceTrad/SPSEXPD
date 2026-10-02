@@ -16,6 +16,8 @@ public class BugDragonEGG extends Egg {
 			.t("desc", "召唤缺失编号之龙。");
 	}
 
+
+
 	{
 		image = ConsumSummorDict.BUG_DRAGON_EGG_0;
 		moves = 2000; burns = freezes = poisons = lits = darks = lights = 20;

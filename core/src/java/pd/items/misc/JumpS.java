@@ -34,6 +34,8 @@ public class JumpS extends Item {
 			.t("desc", "星兵可以跳跃至多三格。起跳时会为持有的每把枪装填1发，并有60%%概率再装填1发并获得10回合瞄准。");
 	}
 
+
+
 	public static final String AC_JUMP = "JUMP";
 	public static final int FULL_CHARGE = 30;
 	public static final int JUMP_COST = 10;

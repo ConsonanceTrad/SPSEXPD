@@ -8,4 +8,6 @@ public class LoseMind extends MindBuff {
 			.t("name", "疯狂-失神")
 			.t("desc", "法强降低。");
 	}
+
+
  }

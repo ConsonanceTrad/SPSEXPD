@@ -13,6 +13,8 @@ public class UpgradeBlobViolet extends UpgradeBlob {
 			.t("desc", "吞星花产生的罕见紫色残余物。将其用于物品可提升五个等级。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected int upgrades() { return 5; }
 }

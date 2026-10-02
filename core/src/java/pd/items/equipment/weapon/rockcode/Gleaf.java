@@ -24,6 +24,8 @@ public class Gleaf extends RockCode {
 			.t("stats_desc", "消耗4点能量中的1点，造成随英雄等级提高的自然伤害，并有概率使目标中毒、缠绕，在落点长出枯草。");
 	}
 
+
+
 	{ collisionProperties = Ballistica.PROJECTILE; sname = "G.l"; }
 	@Override protected int missileType() { return MagicMissile.FOLIAGE; }
 

@@ -18,6 +18,8 @@ public class Haro extends PET {
 			.t("desc", "阿萨修好的机器。");
 	}
 
+
+
 	{
 		spriteClass = HaroSprite.class;
 		cooldown = 10;

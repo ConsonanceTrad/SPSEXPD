@@ -19,6 +19,8 @@ public class SlowWeb extends Blob {
 			.t("desc", "这里覆盖着粘稠的蛛网，会持续拖慢身处其中的生物。");
 	}
 
+
+
 	@Override
 	protected void evolve() {
 		for (int x = area.left; x < area.right; x++) {

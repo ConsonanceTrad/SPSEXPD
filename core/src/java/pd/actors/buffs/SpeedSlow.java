@@ -17,6 +17,8 @@ public class SpeedSlow extends FlavourBuff {
 	}
 
 
+
+
 	{
 		type = buffType.NEGATIVE;
 	}

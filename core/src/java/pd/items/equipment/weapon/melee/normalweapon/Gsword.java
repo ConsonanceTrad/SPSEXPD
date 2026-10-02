@@ -16,6 +16,8 @@ public class Gsword extends NormalMeleeWeapon {
 			.t("desc", "这把大剑进行的每次沉重挥舞都能造成大量伤害。——00-Evan \n割裂");
 	}
 
+
+
 	public Gsword() { super(5, 1f, 1f, 1, 50, 64, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) { s.min += 3; s.max++; }
 	@Override public int proc(Char attacker, Char defender, int damage) {

@@ -42,6 +42,8 @@ public class StoneOfFear extends Runestone {
 			.t("desc", "当把这颗符石掷向一个盟友或敌人时，被命中的角色会陷入深深的恐惧中，无法克制地逃离。攻击会刺激其从恐惧中更快恢复。");
 	}
 
+
+
 	
 	{
 		image = ConsumScrollAmuletAmuletDict.STONE_FEAR_0;

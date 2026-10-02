@@ -203,25 +203,27 @@ public abstract class Level implements Bundlable {
 			.t("statue_desc", "有人想装饰一下这里，很显然，它没能成功...")
 			.t("alchemy_desc", "这口炼金釜中充满了魔力之水。物品可以在里面共炼以制造新的物品。")
 			.t("empty_well_desc", "这座井已经枯竭了。")
-			.t("feeling.chasm_title", "深渊层")
-			.t("feeling.water_title", "流水层")
-			.t("feeling.grass_title", "草木层")
-			.t("feeling.dark_title", "黑暗层")
-			.t("feeling.large_title", "广阔层")
-			.t("feeling.traps_title", "陷阱层")
-			.t("feeling.secrets_title", "隐秘层")
-			.t("feeling.trap_title", "陷阱层")
-			.t("feeling.special_floor_title", "琉璃层")
-			.t("feeling.chasm_desc", "你的脚步声在地牢中回荡不绝。")
-			.t("feeling.water_desc", "你听到周围水花四处飞溅的声音。")
-			.t("feeling.grass_desc", "浓郁的草木气息弥漫在空气中。")
-			.t("feeling.dark_desc", "你能听到敌人在暗中潜伏的声音。")
-			.t("feeling.large_desc", "这层地牢的规模似乎不同寻常的广阔。")
-			.t("feeling.traps_desc", "这层地牢的地面陷阱密布，暗藏杀机。")
-			.t("feeling.secrets_desc", "这层地牢的气氛暗示着潜藏其中的秘密。")
-			.t("feeling.trap_desc", "脚下的地面本身就显得危险而不稳定。")
-			.t("feeling.special_floor_desc", "四周的墙壁变成了诡异的琉璃。");
+			.t("$feeling.chasm_title", "深渊层")
+			.t("$feeling.water_title", "流水层")
+			.t("$feeling.grass_title", "草木层")
+			.t("$feeling.dark_title", "黑暗层")
+			.t("$feeling.large_title", "广阔层")
+			.t("$feeling.traps_title", "陷阱层")
+			.t("$feeling.secrets_title", "隐秘层")
+			.t("$feeling.trap_title", "陷阱层")
+			.t("$feeling.special_floor_title", "琉璃层")
+			.t("$feeling.chasm_desc", "你的脚步声在地牢中回荡不绝。")
+			.t("$feeling.water_desc", "你听到周围水花四处飞溅的声音。")
+			.t("$feeling.grass_desc", "浓郁的草木气息弥漫在空气中。")
+			.t("$feeling.dark_desc", "你能听到敌人在暗中潜伏的声音。")
+			.t("$feeling.large_desc", "这层地牢的规模似乎不同寻常的广阔。")
+			.t("$feeling.traps_desc", "这层地牢的地面陷阱密布，暗藏杀机。")
+			.t("$feeling.secrets_desc", "这层地牢的气氛暗示着潜藏其中的秘密。")
+			.t("$feeling.trap_desc", "脚下的地面本身就显得危险而不稳定。")
+			.t("$feeling.special_floor_desc", "四周的墙壁变成了诡异的琉璃。");
 	}
+
+
 
 	
 	public static enum Feeling {

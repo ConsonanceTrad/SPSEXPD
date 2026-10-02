@@ -44,10 +44,12 @@ public class Icecap extends Plant {
 			.t("name", "冰冠花")
 			.t("desc", "冰冠花在被接触到时会喷射出一团能冻结周遭的花粉。冻结效果会在潮湿环境中大幅增强。")
 			.t("warden_desc", "_守望者_能将有害的冰冻转化为短时的寒霜之力。")
-			.t("seed.name", "冰冠花之种")
-			.t("exicecap.name", "冰冠花果丛")
-			.t("exicecap.desc", "生长冰霜果的果丛。");
+			.t("$seed.name", "冰冠花之种")
+			.t("$exicecap.name", "冰冠花果丛")
+			.t("$exicecap.desc", "生长冰霜果的果丛。");
 	}
+
+
 
 	
 	{

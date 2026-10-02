@@ -9,4 +9,6 @@ public class MetalBowR extends RangeWeapon {
 			.t("name", "沉重的金属弓")
 			.t("desc", "使用金属浇筑而成的弓，但是有些沉重。");
 	}
+
+
  public MetalBowR() { super(3, Variant.HEAVY, SpecificPlaceHolderDict.SOMETHING_0); } }

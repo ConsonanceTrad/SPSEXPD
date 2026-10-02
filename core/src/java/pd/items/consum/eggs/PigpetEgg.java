@@ -13,6 +13,8 @@ public class PigpetEgg extends Egg {
 			.t("desc", "召唤像素猪。");
 	}
 
+
+
 	{ image = ConsumSummorDict.PIG_PET_EGG_0; }
 	@Override protected LegacyPet hatchling() { return new PigPet(); }
 	@Override public int value() { return 500 * quantity; }

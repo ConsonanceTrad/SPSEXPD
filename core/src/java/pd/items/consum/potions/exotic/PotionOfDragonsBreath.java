@@ -62,6 +62,8 @@ public class PotionOfDragonsBreath extends ExoticPotion {
 			.t("desc", "瓶子内奇特的化合物会在接触口腔后爆燃。迅速吐出液体就能让使用者从口中喷射火焰！");
 	}
 
+
+
 	
 	{
 		icon = ItemIconSheet.POTION_DRGBREATH;

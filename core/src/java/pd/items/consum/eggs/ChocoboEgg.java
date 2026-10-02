@@ -15,6 +15,8 @@ public class ChocoboEgg extends Egg {
 			.t("desc", "召唤陆行鸟。");
 	}
 
+
+
 	{ image = ConsumSummorDict.CHOCOBO_EGG_0; }
 	@Override protected LegacyPet hatchling() { return new Chocobo(); }
 	@Override public int value() { return 500 * quantity; }

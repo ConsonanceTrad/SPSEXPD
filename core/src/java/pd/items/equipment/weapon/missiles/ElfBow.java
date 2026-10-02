@@ -39,6 +39,8 @@ public class ElfBow extends Weapon {
 	}
 
 
+
+
 	public static final String AC_SHOOT = "SHOOT";
 	public static final String AC_DRINK = "DRINK";
 	private static final String CHARGE = "charge";

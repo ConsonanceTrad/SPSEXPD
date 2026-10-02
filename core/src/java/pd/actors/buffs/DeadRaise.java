@@ -12,6 +12,8 @@ public class DeadRaise extends FlavourBuff {
 			.t("desc", "你感觉身边充满了强烈的怨念，仿佛有什么东西即将出现。\n\n剩余效果时长：%s回合。");
 	}
 
+
+
 	public static final float DURATION = 5f;
 	{ type = buffType.NEGATIVE; announced = true; }
 	@Override public int icon() { return BuffIndicator.TERROR; }

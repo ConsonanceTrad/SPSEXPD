@@ -79,9 +79,21 @@ public final class InlineText {
 			this.owner = owner;
 		}
 
-		/** 注册一条中文原文。 */
+		/**
+		 * 注册一条中文原文。
+		 *
+		 * <p>k 以内层类 key（如 {@code $ghosthero.dialogue_1}）开头时直接拼接，
+		 * 不再插入分隔点 —— 否则会得到 {@code outer.$ghosthero...}，与运行时
+		 * {@code getClass().getName()} 产生的 {@code outer$ghosthero...} 对不上。</p>
+		 */
 		public Builder t(String k, String value) {
-			TABLE.put(key(owner, k), value);
+			String full;
+			if (k.startsWith("$")) {
+				full = (owner.getName().replace("pd.", "") + k).toLowerCase(Locale.ENGLISH);
+			} else {
+				full = key(owner, k);
+			}
+			TABLE.put(full, value);
 			return this;
 		}
 	}

@@ -15,6 +15,8 @@ public class ShockEffectDamage extends SpsElementalDamage {
 			.t("desc", "这片区域会持续造成雷电伤害。");
 	}
 
+
+
 	@Override protected Object damageSource() { return DamageType.SHOCK_DAMAGE; }
 	@Override protected void affectHeap(Heap heap) { heap.shockhit(); }
 	@Override public void use(BlobEmitter emitter) {

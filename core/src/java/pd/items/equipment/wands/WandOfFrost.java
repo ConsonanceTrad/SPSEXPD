@@ -57,6 +57,8 @@ public class WandOfFrost extends DamageWand {
 	}
 
 
+
+
 	{
 		image = EquipmentWandBasicWandDict.WAND_FROST;
 	}

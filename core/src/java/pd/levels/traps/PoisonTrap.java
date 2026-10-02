@@ -19,6 +19,8 @@ public class PoisonTrap extends Trap {
 			.t("desc", "触发这个陷阱会使站在上面的生物中毒。");
 	}
 
+
+
 	{ color = VIOLET; shape = DIAMOND; }
 	@Override public void activate() {
 		Char target = Actor.findChar(pos);

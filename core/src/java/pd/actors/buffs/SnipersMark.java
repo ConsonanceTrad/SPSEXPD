@@ -46,6 +46,8 @@ public class SnipersMark extends FlavourBuff implements ActionIndicator.Action {
 	}
 
 
+
+
 	public int object = 0;
 	public float percentDmgBonus = 0;
 

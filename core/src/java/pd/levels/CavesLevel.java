@@ -105,6 +105,8 @@ public class CavesLevel extends SpsRegularLevel {
 			.t("region_deco_desc", "一个大型全金属架构，可能是过去的矮人们在采矿时建造的。架构上层似乎有废弃了许久的矿车轨道。");
 	}
 
+
+
 	private boolean legacyBlacksmithThisBuild;
 
 	@Override

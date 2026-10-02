@@ -10,6 +10,8 @@ public class HunterLens extends SellItem {
 			.t("desc", "可以用来制作召唤物或护目镜，但不是在这个世界。");
 	}
 
+
+
 	{ image = GroundFunctionalFallingDict.DEWDROP_0; }
 	@Override public int value() { return 500 * quantity; }
 }

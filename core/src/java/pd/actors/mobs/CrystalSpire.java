@@ -72,6 +72,8 @@ public class CrystalSpire extends Mob {
 	}
 
 
+
+
 	{
 		//this translates to roughly 33/27/23/20/18/16 pickaxe hits at +0/1/2/3/4/5
 		HP = HT = 300;

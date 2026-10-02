@@ -47,6 +47,8 @@ public class BowFragment extends RemainsItem {
 	}
 
 
+
+
 	{
 		image = ConsumUsefulCorpseRelicsDict.BOW_FRAGMENT_0;
 	}

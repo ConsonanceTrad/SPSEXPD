@@ -41,6 +41,8 @@ public class SealShard extends RemainsItem {
 	}
 
 
+
+
 	{
 		image = ConsumUsefulCorpseRelicsDict.SEAL_SHARD_0;
 	}

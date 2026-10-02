@@ -13,6 +13,8 @@ public class SkillOfMig extends SkillBook {
 			.t("skillup", "你感觉你的魔法能力提升了。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override void apply(Hero hero) { hero.improveMagicSkill(1); }
 	@Override public int value() { return 200 * quantity; }

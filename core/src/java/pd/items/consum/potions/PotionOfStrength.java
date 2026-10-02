@@ -40,6 +40,8 @@ public class PotionOfStrength extends Potion {
 	}
 
 
+
+
 	{
 		icon = ItemIconSheet.POTION_STRENGTH;
 

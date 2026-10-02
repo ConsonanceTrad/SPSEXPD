@@ -20,6 +20,8 @@ public class CurseBox extends NormalMeleeWeapon {
 			.t("desc", "这个家伙喜欢涂满番茄酱的排骨。它能沉默目标，并对魔法护盾造成额外打击。——Coconut");
 	}
 
+
+
 	public CurseBox() { super(5, 1f, 1f, 2, 40, 50, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats stats) { stats.min++; stats.max++; }
 	@Override public int proc(Char attacker, Char defender, int damage) {

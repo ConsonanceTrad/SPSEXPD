@@ -39,6 +39,8 @@ public class BrokenHilt extends RemainsItem {
 	}
 
 
+
+
 	{
 		image = ConsumUsefulCorpseRelicsDict.BROKEN_HILT_0;
 	}

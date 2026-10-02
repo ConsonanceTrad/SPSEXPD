@@ -14,6 +14,8 @@ public class AttackUp extends FlavourBuff {
 			.t("desc", "剩余%1$s回合，物理攻击伤害提高%2$s%%。");
 	}
 
+
+
 	private static final String LEVEL = "level";
 	private static final String LEGACY_LEFT = "left";
 	private int level;

@@ -21,6 +21,8 @@ public class EnchantmentFire2 extends SpsEnchantment {
 			.t("desc", "焦油附魔将造成大量的火属性伤害，并有几率给目标泼油。");
 	}
 
+
+
 	private static final ItemSprite.Glowing RED = new ItemSprite.Glowing(0xCC0000);
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		elementalDamage(weapon, attacker, defender, 0.75f, FIRE_DAMAGE);

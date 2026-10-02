@@ -52,6 +52,8 @@ public class BlessSpell extends TargetedClericSpell {
 	}
 
 
+
+
 	public static final BlessSpell INSTANCE = new BlessSpell();
 
 	@Override

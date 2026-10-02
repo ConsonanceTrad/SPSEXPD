@@ -13,6 +13,8 @@ public class Arcane extends FlavourBuff {
 			.t("desc", "魔法力量暂时得到强化。\n\n剩余回合：%s。");
 	}
 
+
+
 	public static final float DURATION = 30f;
 	{ type = buffType.POSITIVE; announced = true; }
 	@Override public int icon() { return BuffIndicator.IMMUNITY; }

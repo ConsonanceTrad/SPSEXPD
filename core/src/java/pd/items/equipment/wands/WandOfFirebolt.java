@@ -32,6 +32,8 @@ public class WandOfFirebolt extends DamageWand {
 	}
 
 
+
+
 	{
 		image = EquipmentWandBasicWandDict.WAND_SPS_FIREBOLT;
 		collisionProperties = Ballistica.PROJECTILE;

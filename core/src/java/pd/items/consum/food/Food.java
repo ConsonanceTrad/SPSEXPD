@@ -56,6 +56,8 @@ public class Food extends Item {
 	}
 
 
+
+
 	public static final float TIME_TO_EAT	= 3f;
 	
 	public static final String AC_EAT	= "EAT";

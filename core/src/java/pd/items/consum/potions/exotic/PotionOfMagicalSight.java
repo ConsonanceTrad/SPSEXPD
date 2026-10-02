@@ -37,6 +37,8 @@ public class PotionOfMagicalSight extends ExoticPotion {
 			.t("desc", "饮用这瓶合剂后，你的五感将被提高到一种无法想象的地步，使你能看穿12格以内的墙壁，洞察藏在墙后的事物！");
 	}
 
+
+
 	
 	{
 		icon = ItemIconSheet.POTION_MAGISIGHT;

@@ -17,6 +17,8 @@ public class FishBone extends MiscEquippable {
 	}
 
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 
 	@Override protected FishFriend createBuff() { return new FishFriend(); }

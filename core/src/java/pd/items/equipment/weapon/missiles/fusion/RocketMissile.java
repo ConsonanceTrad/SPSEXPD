@@ -16,6 +16,8 @@ public class RocketMissile extends Javelin {
 	}
 
 
+
+
 	@Override
 	public int max(int lvl) {
 		return Math.max(min(lvl), super.max(lvl) - 3 - lvl);

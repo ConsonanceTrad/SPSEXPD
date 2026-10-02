@@ -23,6 +23,8 @@ public class GrowSeed extends Buff implements Hero.Doom {
 	}
 
 
+
+
 	private static final String LEFT = "left";
 	private float left;
 

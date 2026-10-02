@@ -16,6 +16,8 @@ public class AshWolf extends TownNpc {
 			.t("yell4", "看看新的房屋，转换一下心态。");
 	}
 
+
+
 	public AshWolf() {
 		configure(Spec.ASH_WOLF);
 		spriteClass = pd.sprites.AshWolfSprite.class;

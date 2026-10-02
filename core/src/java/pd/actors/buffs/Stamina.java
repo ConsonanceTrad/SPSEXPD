@@ -34,6 +34,8 @@ public class Stamina extends FlavourBuff {
 	}
 
 
+
+
 	public static final float DURATION = 100f;
 	
 	{

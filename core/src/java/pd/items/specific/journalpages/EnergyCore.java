@@ -12,6 +12,8 @@ public class EnergyCore extends JournalPage {
 			.t("desc", "能源核心的地址。\n\n说明：这是一个自动攻击的生物。它由zot创造，在我打败zot后我控制了这个生物。");
 	}
 
+
+
 	public EnergyCore() {
 		super(7);
 	}

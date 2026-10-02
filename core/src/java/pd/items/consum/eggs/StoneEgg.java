@@ -9,4 +9,6 @@ public class StoneEgg extends Egg {
 			.t("name", "石拳石之魂")
 			.t("desc", "召唤石拳石。");
 	}
+
+
 {image=ConsumSummorDict.STONE_PET_EGG_0;}@Override protected LegacyPet hatchling(){return new Stone();}@Override public int value(){return 500*quantity;}}

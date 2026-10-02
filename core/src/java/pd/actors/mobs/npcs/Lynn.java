@@ -15,6 +15,8 @@ public class Lynn extends TownNpc {
 			.t("yell3", "这不是你该有的东西~~~");
 	}
 
+
+
 	public Lynn() {
 		configure(Spec.LYNN);
 		spriteClass = pd.sprites.LynnSprite.class;

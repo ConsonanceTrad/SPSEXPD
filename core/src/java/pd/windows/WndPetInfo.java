@@ -32,6 +32,8 @@ public class WndPetInfo extends WndOptions {
 	}
 
 
+
+
 	private final LegacyPet pet;
 
 	public WndPetInfo(LegacyPet pet) {

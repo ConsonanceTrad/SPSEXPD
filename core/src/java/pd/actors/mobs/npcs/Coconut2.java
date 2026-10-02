@@ -15,6 +15,8 @@ public class Coconut2 extends TownNpc {
 			.t("yell3", "之后的计划???谁知道之后会发生什么呢。");
 	}
 
+
+
 	public Coconut2() {
 		configure(Spec.COCONUT2);
 		spriteClass = pd.sprites.CoconutSprite.class;

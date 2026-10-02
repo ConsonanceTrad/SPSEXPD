@@ -42,6 +42,8 @@ public class WaterOfTransmutation extends WellWater {
 	}
 
 
+
+
 	private static final int MAX_REROLLS = 40;
 
 	@Override

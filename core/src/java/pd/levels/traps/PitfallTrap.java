@@ -32,6 +32,8 @@ public class PitfallTrap extends Trap {
 			.t("desc", "这种陷阱与一种大型活板门装置相连，在激活后会使周围的地板迅速崩塌！不过这类陷阱在坚实的地面上会失效。");
 	}
 
+
+
 	{
 		color = RED;
 		shape = DIAMOND;

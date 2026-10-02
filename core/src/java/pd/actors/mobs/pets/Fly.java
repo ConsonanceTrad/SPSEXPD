@@ -30,9 +30,11 @@ public class Fly extends PET {
 		InlineText.of(Fly.class)
 			.t("name", "飞蝇")
 			.t("desc", "这只苍蝇嗡嗡作响，雄心勃勃，梦想有一天变成一只美丽的蝴蝶。受到攻击时还会招来同伴。")
-			.t("flytwo.name", "离群飞蝇")
-			.t("flytwo.desc", "由飞蝇吸引来的家伙。");
+			.t("$flytwo.name", "离群飞蝇")
+			.t("$flytwo.desc", "由飞蝇吸引来的家伙。");
 	}
+
+
 
 	{ spriteClass=FlySprite.class;cooldown=50;properties.add(Property.BEAST);updateStats(true); }
 	@Override protected Kind kind(){return Kind.FLY;}

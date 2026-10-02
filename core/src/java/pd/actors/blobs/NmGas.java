@@ -23,6 +23,8 @@ public class NmGas extends Blob implements Hero.Doom {
 	}
 
 
+
+
 	@Override
 	protected void evolve() {
 		super.evolve();

@@ -16,6 +16,8 @@ public class Whip extends NormalMeleeWeapon {
 			.t("desc", "虽然这把武器另一端带倒刺的绳子伤害不高，但它的攻击范围是数一数二的。——00-Evan \n高级致残");
 	}
 
+
+
 	public Whip() { super(3, 1f, 1f, 2, 24, 35, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) {
 		if (s.accuracy < 1.3f) s.accuracy += .05f;

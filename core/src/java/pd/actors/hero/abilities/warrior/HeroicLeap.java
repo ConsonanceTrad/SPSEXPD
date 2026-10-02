@@ -54,6 +54,8 @@ public class HeroicLeap extends ArmorAbility {
 	}
 
 
+
+
 	{
 		baseChargeUse = 35f;
 	}

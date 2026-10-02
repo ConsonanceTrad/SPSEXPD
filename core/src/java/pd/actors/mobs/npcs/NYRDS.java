@@ -14,6 +14,8 @@ public class NYRDS extends TownNpc {
 			.t("yell2", "美牙建议:不要忘了每天早上刷牙哦!");
 	}
 
+
+
 	public NYRDS() {
 		configure(Spec.NYRDS);
 		spriteClass = pd.sprites.NYRDSSprite.class;

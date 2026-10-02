@@ -19,6 +19,8 @@ public class PerfectFood extends CompleteFood {
 			.t("desc", "这是烹饪的最高杰作，完美便当。\n使用_蔬菜、原石、主食、水、水果各1份_炼金；或使用_1份鱼饼_炼金。");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; energy = 600f; }
 	@Override protected void doEat(Hero hero) {
 		increaseMaxHealth(hero, 3, 7);

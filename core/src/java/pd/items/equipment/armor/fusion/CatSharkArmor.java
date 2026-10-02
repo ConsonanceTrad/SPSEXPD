@@ -13,6 +13,8 @@ public class CatSharkArmor extends MailArmor {
 	}
 
 
+
+
 	@Override
 	public int DRMax(int lvl) {
 		return Math.max(0, super.DRMax(lvl) - 1);

@@ -21,9 +21,11 @@ public class AresLeech extends Weapon.Enchantment {
 		InlineText.of(AresLeech.class)
 			.t("name", "抽灵%s")
 			.t("desc", "抽灵附魔能将造成的伤害转为能量，缓慢输送回你的身体。")
-			.t("healdamage.name", "萃取")
-			.t("healdamage.desc", "你的武器正在缓慢将吸收到的灵魂回馈给你。\n\n剩余生命恢复：%d点");
+			.t("$healdamage.name", "萃取")
+			.t("$healdamage.desc", "你的武器正在缓慢将吸收到的灵魂回馈给你。\n\n剩余生命恢复：%d点");
 	}
+
+
 
 	@Override public int proc(Weapon weapon, Char attacker, Char defender, int damage) {
 		if (!(weapon instanceof SpsRelicWeapon) || Dungeon.level == null) return damage;

@@ -43,6 +43,8 @@ public enum CombatStyle {
 	}
 
 
+
+
 	private final float damage;
 	private final float accuracy;
 	private final float evasion;

@@ -16,6 +16,8 @@ public class HTimprove extends FlavourBuff {
 			.t("desc", "未经装备修正的生命上限暂时提高20%%。\n\n剩余效果时长：%s回合。");
 	}
 
+
+
 	{ type = buffType.NEUTRAL; announced = true; }
 	@Override public boolean attachTo(Char target) {
 		if (!super.attachTo(target)) return false;

@@ -78,6 +78,8 @@ public class Pickaxe extends MeleeWeapon {
 	}
 
 
+
+
 	public static final String AC_MINE = "MINE";
 	public static final float TIME_TO_MINE = 2f;
 	

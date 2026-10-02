@@ -46,11 +46,13 @@ public class CloakOfShadows extends Artifact {
 			.t("no_charge", "你的斗篷充能不足无法使用。")
 			.t("desc", "这是盗贼多年前从皇家军械库窃取的一件无价的魔法披风。穿上时，能够使你在短时间内完全隐身。\n\n被使用得越频繁，披风就会变得越强，使盗贼更频繁地隐身，持续时间也更长。")
 			.t("discover_hint", "某位英雄初始携带该物品。")
-			.t("cloakstealth.no_charge", "你的斗篷耗尽了能量。")
-			.t("cloakstealth.levelup", "你的斗篷变得更强大了！")
-			.t("cloakstealth.name", "披风之下")
-			.t("cloakstealth.desc", "你身上的暗影披风正给予你隐形效果。\n\n当你在隐形时敌人无法追踪或攻击你。大部分物理攻击和魔法(比如卷轴和法杖)会不可避免地消除隐形效果。\n\n你会一直拥有该状态，直到你自行取消或披风耗尽能量。");
+			.t("$cloakstealth.no_charge", "你的斗篷耗尽了能量。")
+			.t("$cloakstealth.levelup", "你的斗篷变得更强大了！")
+			.t("$cloakstealth.name", "披风之下")
+			.t("$cloakstealth.desc", "你身上的暗影披风正给予你隐形效果。\n\n当你在隐形时敌人无法追踪或攻击你。大部分物理攻击和魔法(比如卷轴和法杖)会不可避免地消除隐形效果。\n\n你会一直拥有该状态，直到你自行取消或披风耗尽能量。");
 	}
+
+
 
 
 	public static final String AC_STEALTH = "STEALTH";

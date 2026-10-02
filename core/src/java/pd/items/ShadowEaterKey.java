@@ -29,6 +29,8 @@ public class ShadowEaterKey extends Item {
 			.t("desc", "由测试者们共同制作的受诅咒武器原型。\n休眠、双刃、低语。\n\n它实际上是一件通往暗噬领域的一次性传送道具。");
 	}
 
+
+
 	public static final int BRANCH = AdventureJournal.FIRST_BRANCH + 16;
 	public static final String AC_PORT = "PORT";
 	private static final float TIME_TO_USE = 1f;

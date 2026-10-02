@@ -9,6 +9,8 @@ public class IceChallenge extends ChallengeList {
 			.t("name", "蜜雪冰城");
 	}
 
+
+
 	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public int challenge() { return 4; }
 }

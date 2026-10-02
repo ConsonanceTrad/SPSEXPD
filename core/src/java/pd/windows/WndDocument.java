@@ -36,6 +36,8 @@ public class WndDocument extends Window {
 	}
 
 
+
+
 	private ScrollingListPane list;
 
 	public WndDocument(Document doc){

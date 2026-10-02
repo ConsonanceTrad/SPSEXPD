@@ -42,6 +42,8 @@ public class CurrencyIndicator extends Component {
 	}
 
 
+
+
 	private static final float TIME	= 2f;
 
 	//SPS: 金币兑 S金比例（用户裁决 2026-09-30）：2333 金币兑换 1 S金，整除后余数留在金币。

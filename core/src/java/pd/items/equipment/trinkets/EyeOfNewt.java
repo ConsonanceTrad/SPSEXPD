@@ -37,6 +37,8 @@ public class EyeOfNewt extends Trinket {
 	}
 
 
+
+
 	{
 		image = EquipmentNonEquipDict.EYE_OF_NEWT_0;
 	}

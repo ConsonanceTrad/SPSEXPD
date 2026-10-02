@@ -48,12 +48,14 @@ public class TimeOclock extends Artifact {
 			.t("desc", "这只小型的华贵怀表看起来却并不怎么起眼，但你仍觉得它精雕细刻的框架内蕴含着某种强大的力量。在看着秒针转动的同时，你能感受到一种魔法正在拉扯着你，使用这种魔法肯定能给你一些控制时间的方法。")
 			.t("desc_hint", "怀表指针有些僵硬，如果你能找到一些发条……")
 			.t("desc_cursed", "被诅咒的怀表把它自己锁在了你的身边，你可以感觉它试图操纵你的时间流动。")
-			.t("clock.name", "魔法发条")
-			.t("clock.levelup", "你给你的怀表上了发条。")
-			.t("clock.maxlevel", "你的怀表已经拧不动了！")
-			.t("clock.no_hourglass", "你没有需要这个发条的时间怀表。")
-			.t("clock.desc", "这一发条应该能够在你的怀表上完美使用。");
+			.t("$clock.name", "魔法发条")
+			.t("$clock.levelup", "你给你的怀表上了发条。")
+			.t("$clock.maxlevel", "你的怀表已经拧不动了！")
+			.t("$clock.no_hourglass", "你没有需要这个发条的时间怀表。")
+			.t("$clock.desc", "这一发条应该能够在你的怀表上完美使用。");
 	}
+
+
 
 	public static final String AC_ACTIVATE="ACTIVATE",AC_RESTART="RESTART";
 	private static final String SANDBAGS="sandbags",STASIS="stasis",LEGACY_BUFF="buff";

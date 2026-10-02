@@ -18,6 +18,8 @@ public class Icecream extends CompleteFood {
 			.t("desc", "一个浇满蜂蜜的超大冰淇淋，吃了肯定很爽。\n使用_1份蜂蜜、1份水、1份冰冠花种子_炼金。");
 	}
 
+
+
 	{ image = ConsumFoodFoodDict.ICECREAM; energy = 90f; }
 	@Override protected void doEat(Hero hero) {
 		increaseMaxHealth(hero, 3, 6);

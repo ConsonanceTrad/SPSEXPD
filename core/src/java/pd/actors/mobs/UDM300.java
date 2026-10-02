@@ -29,8 +29,10 @@ public class UDM300 extends BossRushBoss {
 		InlineText.of(UDM300.class)
 			.t("name", "杀人巨械")
 			.t("desc", "这种机器人专为攻城和杀戮制造，内部装有许多致命装置。")
-			.t("seekbomb.name", "追猎炸弹");
+			.t("$seekbomb.name", "追猎炸弹");
 	}
+
+
 
 	{
 		spriteClass = UDM300Sprite.class;

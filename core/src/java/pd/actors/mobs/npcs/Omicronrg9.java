@@ -18,6 +18,8 @@ public class Omicronrg9 extends TownNpc {
 			.t("yell6", "这个世界包容了超过9个不同世界的不同产物，真出乎我的意料!");
 	}
 
+
+
 	public Omicronrg9() {
 		configure(Spec.OMICRONRG9);
 		spriteClass = pd.sprites.Omicronrg9Sprite.class;

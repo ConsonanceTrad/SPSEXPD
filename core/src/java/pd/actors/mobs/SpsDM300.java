@@ -60,14 +60,16 @@ public class SpsDM300 extends Mob {
 			.t("notice", "检测到未经授权的人员。")
 			.t("die", "任务失败。系统关闭。")
 			.t("heal", "DM-300修复了它自己！")
-			.t("tower.name", "老旧的生产器")
-			.t("tower.desc", "这套矮人生产设备早已失于维护，但仍能制造防御机器人并为DM-300提供动力。")
-			.t("tower.alert", "生产线遭受攻击！应急保护措施启动！")
-			.t("tower.robots", "自动防御……自动防御……")
-			.t("brokenrobot.name", "破损机械")
-			.t("brokenrobot.desc", "虽然机器人的程序没有老化，它的躯体却抵抗不住时间的侵蚀。")
-			.t("brokenrobot.explode", "自毁启动！");
+			.t("$tower.name", "老旧的生产器")
+			.t("$tower.desc", "这套矮人生产设备早已失于维护，但仍能制造防御机器人并为DM-300提供动力。")
+			.t("$tower.alert", "生产线遭受攻击！应急保护措施启动！")
+			.t("$tower.robots", "自动防御……自动防御……")
+			.t("$brokenrobot.name", "破损机械")
+			.t("$brokenrobot.desc", "虽然机器人的程序没有老化，它的躯体却抵抗不住时间的侵蚀。")
+			.t("$brokenrobot.explode", "自毁启动！");
 	}
+
+
 
 
 	private boolean towersSpawned;
