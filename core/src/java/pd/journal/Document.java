@@ -34,7 +34,7 @@ import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
 import pd.atlas.items.EquipmentWandBasicWandDict;
 
 import pd.Badges;
-import pd.items.scrolls.ScrollOfIdentify;
+import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.messages.Messages;
 import pd.sprites.ItemSprite;
 import pd.ui.Icons;

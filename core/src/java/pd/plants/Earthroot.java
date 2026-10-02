@@ -31,7 +31,7 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.effects.CellEmitter;
 import pd.effects.particles.EarthParticle;
-import pd.items.weapon.missiles.arrows.RootFruit;
+import pd.items.equipment.weapon.missiles.arrows.RootFruit;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.ui.BuffIndicator;

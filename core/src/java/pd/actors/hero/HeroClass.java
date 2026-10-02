@@ -60,51 +60,51 @@ import pd.items.TransmutationBall;
 import pd.items.UnBlessAnkh;
 import pd.items.Waterskin;
 import pd.items.Weightstone;
-import pd.items.armor.ClothArmor;
-import pd.items.armor.normalarmor.BaseArmor;
-import pd.items.armor.normalarmor.DiscArmor;
-import pd.items.armor.normalarmor.StyrofoamArmor;
-import pd.items.armor.normalarmor.VestArmor;
-import pd.items.armor.normalarmor.WoodenArmor;
-import pd.items.armor.specialarmor.LifeArmor;
-import pd.items.armor.specialarmor.PerformerArmor;
-import pd.items.armor.specialarmor.RenBArmor;
-import pd.items.armor.specialarmor.RogueArmor;
-import pd.items.armor.specialarmor.TestArmor;
-import pd.items.artifacts.AlienBag;
-import pd.items.artifacts.Artifact;
-import pd.items.artifacts.CloakOfShadows;
-import pd.items.artifacts.DriedRose;
-import pd.items.artifacts.EtherealChains;
-import pd.items.artifacts.FlyChains;
-import pd.items.artifacts.HolyTome;
-import pd.items.artifacts.Pylon;
-import pd.items.artifacts.TimeOclock;
-import pd.items.artifacts.UnstableSpellbook;
-import pd.items.bags.ArrowCollecter;
-import pd.items.bags.KeyRing;
-import pd.items.bags.VelvetPouch;
-import pd.items.bombs.DungeonBomb;
-import pd.items.bombs.IceBomb;
-import pd.items.bombs.SpsFireBomb;
-import pd.items.bombs.StormBomb;
-import pd.items.eggs.AflyEgg;
-import pd.items.food.AflyFood;
-import pd.items.food.Honey;
-import pd.items.food.completefood.FruitCandy;
-import pd.items.food.completefood.Meatroll;
-import pd.items.food.completefood.MixPizza;
-import pd.items.food.completefood.MoonCake;
-import pd.items.food.completefood.NutCake;
-import pd.items.food.completefood.NutCookie;
-import pd.items.food.completefood.Porksoup;
-import pd.items.food.completefood.RiceGruel;
-import pd.items.food.completefood.Vegetablekebab;
-import pd.items.food.completefood.YearFood;
-import pd.items.food.staplefood.Pasty;
-import pd.items.medicine.Hardpill;
-import pd.items.medicine.Powerpill;
-import pd.items.medicine.Smashpill;
+import pd.items.equipment.armor.ClothArmor;
+import pd.items.equipment.armor.normalarmor.BaseArmor;
+import pd.items.equipment.armor.normalarmor.DiscArmor;
+import pd.items.equipment.armor.normalarmor.StyrofoamArmor;
+import pd.items.equipment.armor.normalarmor.VestArmor;
+import pd.items.equipment.armor.normalarmor.WoodenArmor;
+import pd.items.equipment.armor.specialarmor.LifeArmor;
+import pd.items.equipment.armor.specialarmor.PerformerArmor;
+import pd.items.equipment.armor.specialarmor.RenBArmor;
+import pd.items.equipment.armor.specialarmor.RogueArmor;
+import pd.items.equipment.armor.specialarmor.TestArmor;
+import pd.items.equipment.artifacts.AlienBag;
+import pd.items.equipment.artifacts.Artifact;
+import pd.items.equipment.artifacts.CloakOfShadows;
+import pd.items.equipment.artifacts.DriedRose;
+import pd.items.equipment.artifacts.EtherealChains;
+import pd.items.equipment.artifacts.FlyChains;
+import pd.items.equipment.artifacts.HolyTome;
+import pd.items.equipment.artifacts.Pylon;
+import pd.items.equipment.artifacts.TimeOclock;
+import pd.items.equipment.artifacts.UnstableSpellbook;
+import pd.items.equipment.bags.ArrowCollecter;
+import pd.items.equipment.bags.KeyRing;
+import pd.items.equipment.bags.VelvetPouch;
+import pd.items.equipment.bombs.DungeonBomb;
+import pd.items.equipment.bombs.IceBomb;
+import pd.items.equipment.bombs.SpsFireBomb;
+import pd.items.equipment.bombs.StormBomb;
+import pd.items.consum.eggs.AflyEgg;
+import pd.items.consum.food.AflyFood;
+import pd.items.consum.food.Honey;
+import pd.items.consum.food.completefood.FruitCandy;
+import pd.items.consum.food.completefood.Meatroll;
+import pd.items.consum.food.completefood.MixPizza;
+import pd.items.consum.food.completefood.MoonCake;
+import pd.items.consum.food.completefood.NutCake;
+import pd.items.consum.food.completefood.NutCookie;
+import pd.items.consum.food.completefood.Porksoup;
+import pd.items.consum.food.completefood.RiceGruel;
+import pd.items.consum.food.completefood.Vegetablekebab;
+import pd.items.consum.food.completefood.YearFood;
+import pd.items.consum.food.staplefood.Pasty;
+import pd.items.consum.medicine.Hardpill;
+import pd.items.consum.medicine.Powerpill;
+import pd.items.consum.medicine.Smashpill;
 import pd.items.misc.Ankhshield;
 import pd.items.misc.AttackShield;
 import pd.items.misc.AttackShoes;
@@ -143,83 +143,83 @@ import pd.items.misc.SavageHelmet;
 import pd.items.misc.SeriousPunch;
 import pd.items.misc.Shovel;
 import pd.items.misc.UndeadBook;
-import pd.items.potions.PotionOfHealing;
-import pd.items.potions.PotionOfInvisibility;
-import pd.items.potions.PotionOfLiquidFlame;
-import pd.items.potions.PotionOfMending;
-import pd.items.potions.PotionOfMight;
-import pd.items.potions.PotionOfMindVision;
-import pd.items.potions.PotionOfPurity;
-import pd.items.potions.PotionOfShield;
-import pd.items.potions.PotionOfStrength;
-import pd.items.rings.Ring;
-import pd.items.scrolls.ScrollOfIdentify;
-import pd.items.scrolls.ScrollOfLullaby;
-import pd.items.scrolls.ScrollOfMagicMapping;
-import pd.items.scrolls.ScrollOfMagicalInfusion;
-import pd.items.scrolls.ScrollOfMirrorImage;
-import pd.items.scrolls.ScrollOfPsionicBlast;
-import pd.items.scrolls.ScrollOfRage;
-import pd.items.scrolls.ScrollOfRecharging;
-import pd.items.scrolls.ScrollOfRemoveCurse;
-import pd.items.scrolls.ScrollOfTerror;
-import pd.items.scrolls.ScrollOfUpgrade;
+import pd.items.consum.potions.PotionOfHealing;
+import pd.items.consum.potions.PotionOfInvisibility;
+import pd.items.consum.potions.PotionOfLiquidFlame;
+import pd.items.consum.potions.PotionOfMending;
+import pd.items.consum.potions.PotionOfMight;
+import pd.items.consum.potions.PotionOfMindVision;
+import pd.items.consum.potions.PotionOfPurity;
+import pd.items.consum.potions.PotionOfShield;
+import pd.items.consum.potions.PotionOfStrength;
+import pd.items.equipment.rings.Ring;
+import pd.items.consum.scrolls.ScrollOfIdentify;
+import pd.items.consum.scrolls.ScrollOfLullaby;
+import pd.items.consum.scrolls.ScrollOfMagicMapping;
+import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
+import pd.items.consum.scrolls.ScrollOfMirrorImage;
+import pd.items.consum.scrolls.ScrollOfPsionicBlast;
+import pd.items.consum.scrolls.ScrollOfRage;
+import pd.items.consum.scrolls.ScrollOfRecharging;
+import pd.items.consum.scrolls.ScrollOfRemoveCurse;
+import pd.items.consum.scrolls.ScrollOfTerror;
+import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.items.skills.ClassSkill;
 import pd.items.summon.ActiveMrDestructo;
-import pd.items.wands.CannonOfMage;
-import pd.items.wands.WandOfDisintegration;
-import pd.items.wands.WandOfFirebolt;
-import pd.items.wands.WandOfFreeze;
-import pd.items.wands.WandOfLight;
-import pd.items.wands.WandOfLightning;
-import pd.items.wands.WandOfMagicMissile;
-import pd.items.wands.WandOfTest;
-import pd.items.weapon.SpiritBow;
-import pd.items.weapon.Weapon;
-import pd.items.weapon.guns.GunA;
-import pd.items.weapon.guns.GunB;
-import pd.items.weapon.guns.GunC;
-import pd.items.weapon.guns.Sling;
-import pd.items.weapon.melee.Cudgel;
-import pd.items.weapon.melee.Dagger;
-import pd.items.weapon.melee.Gloves;
-import pd.items.weapon.melee.HolyWater;
-import pd.items.weapon.melee.MagesStaff;
-import pd.items.weapon.melee.Rapier;
-import pd.items.weapon.melee.Spellblade;
-import pd.items.weapon.melee.WornShortsword;
-import pd.items.weapon.melee.fusion.ReedPipe;
-import pd.items.weapon.melee.fusion.Triangolo;
-import pd.items.weapon.melee.normalweapon.MageBook;
-import pd.items.weapon.melee.normalweapon.ShortSword;
-import pd.items.weapon.melee.normalweapon.TrickSand;
-import pd.items.weapon.melee.normalweapon.WoodenStaff;
-import pd.items.weapon.melee.special.TestWeapon;
-import pd.items.weapon.melee.start.BeastKnive;
-import pd.items.weapon.melee.start.BraveBook;
-import pd.items.weapon.melee.start.DiamondPickaxe;
-import pd.items.weapon.melee.start.EleKatana;
-import pd.items.weapon.melee.start.HolyMace;
-import pd.items.weapon.melee.start.LinkSword;
-import pd.items.weapon.melee.start.PixelTorch;
-import pd.items.weapon.melee.start.Whisk;
-import pd.items.weapon.missiles.ElfBow;
-import pd.items.weapon.missiles.ManyKnive;
-import pd.items.weapon.missiles.ShootGun;
-import pd.items.weapon.missiles.TaurcenBow;
-import pd.items.weapon.missiles.ThrowingKnife;
-import pd.items.weapon.missiles.ThrowingSpike;
-import pd.items.weapon.missiles.ThrowingStone;
-import pd.items.weapon.missiles.arrows.BlindFruit;
-import pd.items.weapon.missiles.darts.PoisonDart;
-import pd.items.weapon.missiles.throwing.Boomerang;
-import pd.items.weapon.missiles.throwing.EmpBola;
-import pd.items.weapon.missiles.throwing.EscapeKnive;
-import pd.items.weapon.missiles.throwing.Skull;
-import pd.items.weapon.spammo.BattleAmmo;
-import pd.items.weapon.spammo.GoldAmmo;
-import pd.items.weapon.spammo.HeavyAmmo;
-import pd.items.weapon.spammo.WoodenAmmo;
+import pd.items.equipment.wands.CannonOfMage;
+import pd.items.equipment.wands.WandOfDisintegration;
+import pd.items.equipment.wands.WandOfFirebolt;
+import pd.items.equipment.wands.WandOfFreeze;
+import pd.items.equipment.wands.WandOfLight;
+import pd.items.equipment.wands.WandOfLightning;
+import pd.items.equipment.wands.WandOfMagicMissile;
+import pd.items.equipment.wands.WandOfTest;
+import pd.items.equipment.weapon.SpiritBow;
+import pd.items.equipment.weapon.Weapon;
+import pd.items.equipment.weapon.guns.GunA;
+import pd.items.equipment.weapon.guns.GunB;
+import pd.items.equipment.weapon.guns.GunC;
+import pd.items.equipment.weapon.guns.Sling;
+import pd.items.equipment.weapon.melee.Cudgel;
+import pd.items.equipment.weapon.melee.Dagger;
+import pd.items.equipment.weapon.melee.Gloves;
+import pd.items.equipment.weapon.melee.HolyWater;
+import pd.items.equipment.weapon.melee.MagesStaff;
+import pd.items.equipment.weapon.melee.Rapier;
+import pd.items.equipment.weapon.melee.Spellblade;
+import pd.items.equipment.weapon.melee.WornShortsword;
+import pd.items.equipment.weapon.melee.fusion.ReedPipe;
+import pd.items.equipment.weapon.melee.fusion.Triangolo;
+import pd.items.equipment.weapon.melee.normalweapon.MageBook;
+import pd.items.equipment.weapon.melee.normalweapon.ShortSword;
+import pd.items.equipment.weapon.melee.normalweapon.TrickSand;
+import pd.items.equipment.weapon.melee.normalweapon.WoodenStaff;
+import pd.items.equipment.weapon.melee.special.TestWeapon;
+import pd.items.equipment.weapon.melee.start.BeastKnive;
+import pd.items.equipment.weapon.melee.start.BraveBook;
+import pd.items.equipment.weapon.melee.start.DiamondPickaxe;
+import pd.items.equipment.weapon.melee.start.EleKatana;
+import pd.items.equipment.weapon.melee.start.HolyMace;
+import pd.items.equipment.weapon.melee.start.LinkSword;
+import pd.items.equipment.weapon.melee.start.PixelTorch;
+import pd.items.equipment.weapon.melee.start.Whisk;
+import pd.items.equipment.weapon.missiles.ElfBow;
+import pd.items.equipment.weapon.missiles.ManyKnive;
+import pd.items.equipment.weapon.missiles.ShootGun;
+import pd.items.equipment.weapon.missiles.TaurcenBow;
+import pd.items.equipment.weapon.missiles.ThrowingKnife;
+import pd.items.equipment.weapon.missiles.ThrowingSpike;
+import pd.items.equipment.weapon.missiles.ThrowingStone;
+import pd.items.equipment.weapon.missiles.arrows.BlindFruit;
+import pd.items.equipment.weapon.missiles.darts.PoisonDart;
+import pd.items.equipment.weapon.missiles.throwing.Boomerang;
+import pd.items.equipment.weapon.missiles.throwing.EmpBola;
+import pd.items.equipment.weapon.missiles.throwing.EscapeKnive;
+import pd.items.equipment.weapon.missiles.throwing.Skull;
+import pd.items.equipment.weapon.spammo.BattleAmmo;
+import pd.items.equipment.weapon.spammo.GoldAmmo;
+import pd.items.equipment.weapon.spammo.HeavyAmmo;
+import pd.items.equipment.weapon.spammo.WoodenAmmo;
 import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.plants.Dewcatcher;
@@ -380,7 +380,7 @@ public enum HeroClass {
 			Generator.random( Generator.Category.SEED ).collect();
 		}
 		if (GiftUnlocks.plantGiftCount() > 0) {
-			new pd.items.weapon.missiles.buildblock.PlantPotBlock( 1 ).identify().collect();
+			new pd.items.equipment.weapon.missiles.buildblock.PlantPotBlock( 1 ).identify().collect();
 		}
 		if (GiftUnlocks.weaponGiftCount() > 0) {
 			Generator.random( Generator.Category.MELEEWEAPON ).uncurse().identify().upgrade( 1 ).collect();
@@ -389,13 +389,13 @@ public enum HeroClass {
 			Generator.random( Generator.Category.ARMOR ).uncurse().identify().upgrade( 1 ).collect();
 		}
 		if (GiftUnlocks.rocketGiftCount() > 0) {
-			new pd.items.weapon.missiles.fusion.RocketMissile().identify().collect();
+			new pd.items.equipment.weapon.missiles.fusion.RocketMissile().identify().collect();
 		}
 		if (GiftUnlocks.ringGiftCount() > 0) {
 			Generator.random( Generator.Category.RING ).uncurse().identify().degrade( 10 ).collect();
 		}
 		if (GiftUnlocks.artifactGiftCount() > 0) {
-			new pd.items.artifacts.fusion.NoomlinCrown().identify().collect();
+			new pd.items.equipment.artifacts.fusion.NoomlinCrown().identify().collect();
 		}
 		if (GiftUnlocks.wandGiftCount() > 0) {
 			new WandOfTest().identify().collect();
@@ -404,7 +404,7 @@ public enum HeroClass {
 			new pd.items.summon.ChinaMech().identify().collect();
 		}
 		if (GiftUnlocks.artItemGiftCount() > 0) {
-			new pd.items.sellitem.JumperDancer().identify().collect();
+			new pd.items.specific.sellitem.JumperDancer().identify().collect();
 		}
 		for (int i = 0; i < GiftUnlocks.upgradeGiftCount(); i++) {
 			new ScrollOfUpgrade().collect();
@@ -506,9 +506,9 @@ public enum HeroClass {
 	private static void initWarrior( Hero hero ) {
 		if (hero.skin == 1) {
 			(hero.belongings.armor = new VestArmor()).identify().upgrade(1);
-			pd.items.rings.RingOfForce force = new pd.items.rings.RingOfForce();
+			pd.items.equipment.rings.RingOfForce force = new pd.items.equipment.rings.RingOfForce();
 			(hero.belongings.misc = force).identify().upgrade(1); force.activate(hero);
-			pd.items.rings.RingOfMight might = new pd.items.rings.RingOfMight();
+			pd.items.equipment.rings.RingOfMight might = new pd.items.equipment.rings.RingOfMight();
 			(hero.belongings.ring = might).identify().upgrade(1); might.activate(hero);
 			AttackShield shield = new AttackShield(); shield.identify().collect(); Dungeon.quickslot.setSlot(0, shield);
 			new Porksoup().identify().collect(); new PotionOfStrength().identify(); new ScrollOfUpgrade().identify();
@@ -535,7 +535,7 @@ public enum HeroClass {
 		if (hero.skin == 3) {
 			hero.STR += 2;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 2;
-			(hero.belongings.weapon = new pd.items.weapon.melee.normalweapon.Spear()).identify();
+			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Spear()).identify();
 			(hero.belongings.armor = new DiscArmor()).identify();
 			new MissileShield().identify().collect();
 			new SavageHelmet().identify().collect();
@@ -568,9 +568,9 @@ public enum HeroClass {
 		}
 		if (hero.skin == 6) {
 			(hero.belongings.armor = new VestArmor()).identify().upgrade(1);
-			pd.items.rings.RingOfForce force = new pd.items.rings.RingOfForce();
+			pd.items.equipment.rings.RingOfForce force = new pd.items.equipment.rings.RingOfForce();
 			(hero.belongings.misc = force).identify().upgrade(1); force.activate(hero);
-			pd.items.rings.RingOfMight might = new pd.items.rings.RingOfMight();
+			pd.items.equipment.rings.RingOfMight might = new pd.items.equipment.rings.RingOfMight();
 			(hero.belongings.ring = might).identify().upgrade(1); might.activate(hero);
 			SeriousPunch punch = new SeriousPunch(); punch.identify().collect();
 			Ankhshield shield = new Ankhshield(); shield.identify().collect();
@@ -596,8 +596,8 @@ public enum HeroClass {
 	private static void initMage( Hero hero ) {
 		if (hero.skin == 1) {
 			hero.STR += 4; Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 4;
-			(hero.belongings.weapon = new pd.items.weapon.melee.normalweapon.Whip()).identify().upgrade(2);
-			(hero.belongings.armor = new pd.items.armor.normalarmor.LeatherArmor()).identify().upgrade(1);
+			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Whip()).identify().upgrade(2);
+			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.LeatherArmor()).identify().upgrade(1);
 			CannonOfMage cannon = new CannonOfMage(); cannon.identify().collect(); Dungeon.quickslot.setSlot(0, cannon);
 			new Meatroll().identify().collect(); hero.improveMagicSkill(3); new ScrollOfIdentify().identify(); new PotionOfLiquidFlame().identify();
 			return;
@@ -637,7 +637,7 @@ public enum HeroClass {
 			(hero.belongings.weapon = new ElfBow()).identify();
 			(hero.belongings.armor = new VestArmor()).identify();
 			new JumpM().collect();
-			new pd.items.scrolls.ScrollOfRegrowth().identify().collect();
+			new pd.items.consum.scrolls.ScrollOfRegrowth().identify().collect();
 			hero.improveMagicSkill(3);
 			new Meatroll().identify().collect();
 			new ScrollOfIdentify().identify();
@@ -653,7 +653,7 @@ public enum HeroClass {
 		}
 		if (hero.skin == 6) {
 			(hero.belongings.weapon = new ShortSword()).identify();
-			(hero.belongings.armor = new pd.items.armor.normalarmor.ClothArmor()).identify();
+			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.ClothArmor()).identify();
 			new GnollMark().collect();
 			new WandOfLight().identify().collect();
 			new Powerpill().identify().collect();
@@ -696,8 +696,8 @@ public enum HeroClass {
 			hero.updateHT(false);
 			hero.improveDefenseSkill(3);
 			hero.improveMagicSkill(3);
-			(hero.belongings.weapon = new pd.items.weapon.melee.normalweapon.Dagger()).identify();
-			(hero.belongings.armor = new pd.items.armor.normalarmor.ClothArmor()).identify();
+			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Dagger()).identify();
+			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.ClothArmor()).identify();
 			new UndeadBook().collect();
 			new Skull(5).collect();
 			new JumpR().collect();
@@ -709,7 +709,7 @@ public enum HeroClass {
 		if (hero.skin == 3) {
 			hero.STR += 4;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 4;
-			(hero.belongings.weapon = new pd.items.weapon.melee.normalweapon.Glaive()).identify();
+			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Glaive()).identify();
 			(hero.belongings.armor = new DiscArmor()).identify();
 			CloakOfShadows cloak = new CloakOfShadows();
 			(hero.belongings.artifact = cloak).identify();
@@ -722,8 +722,8 @@ public enum HeroClass {
 			return;
 		}
 		if (hero.skin == 4) {
-			(hero.belongings.weapon = new pd.items.weapon.melee.normalweapon.Dagger()).identify();
-			(hero.belongings.armor = new pd.items.armor.normalarmor.ClothArmor()).identify();
+			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Dagger()).identify();
+			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.ClothArmor()).identify();
 			new JumpR().collect();
 			new NeedPaper().identify().collect();
 			new RiceGruel().identify().collect();
@@ -740,7 +740,7 @@ public enum HeroClass {
 		if (hero.skin == 6) {
 			EleKatana katana = new EleKatana();
 			(hero.belongings.weapon = katana).identify();
-			(hero.belongings.armor = new pd.items.armor.normalarmor.ClothArmor()).identify();
+			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.ClothArmor()).identify();
 			BeastKnive knife = new BeastKnive();
 			(hero.belongings.secondWep = knife).identify(); knife.activate(hero);
 			CloakOfShadows cloak = new CloakOfShadows();
@@ -764,7 +764,7 @@ public enum HeroClass {
 			return;
 		}
 		if (hero.skin == 7) {
-			(hero.belongings.weapon = new pd.items.weapon.melee.normalweapon.Dagger()).identify();
+			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Dagger()).identify();
 			(hero.belongings.armor = new VestArmor()).identify();
 			new JumpR().collect();
 			new AflyFood().quantity(3).identify().collect();
@@ -776,7 +776,7 @@ public enum HeroClass {
 			new PotionOfInvisibility().identify();
 			return;
 		}
-		(hero.belongings.weapon = new pd.items.weapon.melee.normalweapon.Dagger()).identify();
+		(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Dagger()).identify();
 		(hero.belongings.armor = new VestArmor()).identify();
 
 		CloakOfShadows cloak = new CloakOfShadows();
@@ -798,10 +798,10 @@ public enum HeroClass {
 		if (hero.skin == 1) {
 			hero.STR++;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count++;
-			pd.items.weapon.melee.normalweapon.Dagger dagger = new pd.items.weapon.melee.normalweapon.Dagger();
+			pd.items.equipment.weapon.melee.normalweapon.Dagger dagger = new pd.items.equipment.weapon.melee.normalweapon.Dagger();
 			dagger.upgrade();
 			(hero.belongings.weapon = dagger).identify();
-			(hero.belongings.armor = new pd.items.armor.normalarmor.RubberArmor()).identify().upgrade(1);
+			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.RubberArmor()).identify().upgrade(1);
 			TimeOclock clock = new TimeOclock(); clock.upgrade(5); (hero.belongings.artifact = clock).identify(); clock.activate(hero);
 			ManyKnive knives = (ManyKnive)new ManyKnive().upgrade();
 			knives.identify().collect();
@@ -814,18 +814,18 @@ public enum HeroClass {
 			hero.updateHT(false);
 			hero.improveAttackSkill(5);
 			hero.improveDefenseSkill(3);
-			(hero.belongings.weapon = new pd.items.weapon.melee.normalweapon.Knuckles()).identify();
-			(hero.belongings.armor = new pd.items.armor.normalarmor.ClothArmor()).identify();
+			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Knuckles()).identify();
+			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.ClothArmor()).identify();
 			new TaurcenBow().identify().collect();
 			new JumpH().collect();
 		} else if (hero.skin == 3) {
-			(hero.belongings.weapon = new pd.items.weapon.melee.normalweapon.Knuckles()).identify();
-			(hero.belongings.armor = new pd.items.armor.normalarmor.ClothArmor()).identify();
+			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Knuckles()).identify();
+			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.ClothArmor()).identify();
 			new TaurcenBow().identify().collect();
 			new RangeBag().identify().collect();
 		} else if (hero.skin == 4) {
 			(hero.belongings.weapon = new WoodenStaff()).identify();
-			(hero.belongings.armor = new pd.items.armor.normalarmor.ClothArmor()).identify();
+			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.ClothArmor()).identify();
 			new PPC().identify().collect();
 			new JumpH().collect();
 		} else if (hero.skin == 5) {
@@ -841,7 +841,7 @@ public enum HeroClass {
 			hero.improveDefenseSkill(2);
 			Dungeon.quickslot.setSlot(0, shootGun);
 		} else {
-			(hero.belongings.weapon = new pd.items.weapon.melee.normalweapon.Knuckles()).identify();
+			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Knuckles()).identify();
 			(hero.belongings.armor = new ClothArmor()).identify();
 			Boomerang boomerang = new Boomerang();
 			boomerang.identify().collect();
@@ -932,7 +932,7 @@ public enum HeroClass {
 		}
 		if (hero.skin == 3) {
 			(hero.belongings.weapon = new Triangolo()).identify();
-			(hero.belongings.armor = new pd.items.armor.normalarmor.ClothArmor()).identify();
+			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.ClothArmor()).identify();
 			Shovel shovel = new Shovel();
 			shovel.identify().collect();
 			DanceLion danceLion = new DanceLion();
@@ -953,8 +953,8 @@ public enum HeroClass {
 		if (hero.skin == 4) {
 			hero.STR += 2;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 2;
-			(hero.belongings.weapon = new pd.items.weapon.melee.Mace()).identify();
-			(hero.belongings.armor = new pd.items.armor.normalarmor.LeatherArmor()).identify();
+			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.Mace()).identify();
+			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.LeatherArmor()).identify();
 			new LeaderFlag().identify().collect();
 			new JumpP().collect();
 			Dungeon.gold += 1000;
@@ -974,8 +974,8 @@ public enum HeroClass {
 		if (hero.skin == 6) {
 			hero.STR += 2;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 2;
-			(hero.belongings.weapon = new pd.items.weapon.melee.Mace()).identify();
-			(hero.belongings.armor = new pd.items.armor.normalarmor.LeatherArmor()).identify();
+			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.Mace()).identify();
+			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.LeatherArmor()).identify();
 			PPC2 computer = new PPC2(); computer.identify().collect();
 			new JumpP().collect();
 			new NutCookie(6).identify().collect();
@@ -986,11 +986,11 @@ public enum HeroClass {
 			return;
 		}
 		if (hero.skin == 7) {
-			pd.items.weapon.missiles.MegaCannon cannon =
-					new pd.items.weapon.missiles.MegaCannon();
+			pd.items.equipment.weapon.missiles.MegaCannon cannon =
+					new pd.items.equipment.weapon.missiles.MegaCannon();
 			(hero.belongings.weapon = cannon).identify();
 			(hero.belongings.armor = new PerformerArmor()).identify();
-			(hero.belongings.secondWep = new pd.items.weapon.melee.start.XSaber()).identify();
+			(hero.belongings.secondWep = new pd.items.equipment.weapon.melee.start.XSaber()).identify();
 			new pd.plants.Dewcatcher.Seed().quantity(2).collect();
 			new pd.items.misc.RockManJumpshoes().collect();
 			hero.STR += 2;
@@ -1022,7 +1022,7 @@ public enum HeroClass {
 	private static void initSoldier(Hero hero) {
 		if (hero.skin == 1) {
 			hero.STR += 2; Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 2;
-			(hero.belongings.armor = new pd.items.armor.normalarmor.LeatherArmor()).identify().upgrade(3);
+			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.LeatherArmor()).identify().upgrade(3);
 			AttackShoes shoes = new AttackShoes(); shoes.identify().collect(); MKbox box = new MKbox(); box.identify().collect();
 			Dungeon.quickslot.setSlot(0, shoes); Dungeon.quickslot.setSlot(1, box);
 			new MixPizza(4).identify().collect(); new ScrollOfRage().identify(); new PotionOfMending().identify(); hero.improveAttackSkill(4); hero.improveDefenseSkill(2);
@@ -1106,8 +1106,8 @@ public enum HeroClass {
 			return;
 		}
 		if (hero.skin == 7) {
-			(hero.belongings.weapon = new pd.items.weapon.melee.start.BunnyDagger()).identify();
-			(hero.belongings.secondWep = new pd.items.weapon.melee.start.BunnySpanner()).identify();
+			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.start.BunnyDagger()).identify();
+			(hero.belongings.secondWep = new pd.items.equipment.weapon.melee.start.BunnySpanner()).identify();
 			(hero.belongings.armor = new RogueArmor()).identify();
 			new JumpR().collect();
 			AlienBag alienBag = new AlienBag();
@@ -1141,14 +1141,14 @@ public enum HeroClass {
 	private static void initFollower(Hero hero) {
 		if (hero.skin == 1) {
 			(hero.belongings.weapon = new DiamondPickaxe()).identify();
-			(hero.belongings.armor = new pd.items.armor.normalarmor.LeatherArmor()).identify();
+			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.LeatherArmor()).identify();
 			(hero.belongings.secondWep = new PixelTorch()).identify(); hero.belongings.secondWep.activate(hero);
 			hero.STR += 4; Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 4;
 			new MoonCake().identify().collect(); new ScrollOfTerror().identify(); new PotionOfHealing().identify();
 			Dungeon.quickslot.setSlot(0, hero.belongings.weapon); Dungeon.quickslot.setSlot(1, hero.belongings.secondWep); return;
 		}
 		if (hero.skin == 2) {
-			(hero.belongings.weapon = new pd.items.weapon.melee.normalweapon.Dagger()).identify().upgrade(2);
+			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Dagger()).identify().upgrade(2);
 			(hero.belongings.armor = new VestArmor()).identify();
 			Pylon pylon = new Pylon();
 			pylon.identify().upgrade(2);
@@ -1165,7 +1165,7 @@ public enum HeroClass {
 		if (hero.skin == 3) {
 			hero.STR += 4;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 4;
-			(hero.belongings.weapon = new pd.items.weapon.melee.normalweapon.Rapier()).identify();
+			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Rapier()).identify();
 			(hero.belongings.armor = new VestArmor()).identify();
 			new FaithSign().identify().collect();
 			Pylon pylon = new Pylon();
@@ -1179,7 +1179,7 @@ public enum HeroClass {
 			return;
 		}
 		if (hero.skin == 4) {
-			(hero.belongings.weapon = new pd.items.weapon.melee.normalweapon.Knuckles()).identify();
+			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Knuckles()).identify();
 			(hero.belongings.armor = new VestArmor()).identify();
 			new DiceTower().identify().collect();
 			new JumpF().collect();
@@ -1221,7 +1221,7 @@ public enum HeroClass {
 		if (hero.skin == 1) {
 			hero.STR += 4; Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 4;
 			(hero.belongings.weapon = new HolyMace()).identify().upgrade(1);
-			(hero.belongings.armor = new pd.items.armor.normalarmor.LeatherArmor()).identify().upgrade(1);
+			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.LeatherArmor()).identify().upgrade(1);
 			(hero.belongings.secondWep = new BraveBook()).identify().upgrade(1); hero.belongings.secondWep.activate(hero);
 			hero.improveMagicSkill(3); new FruitCandy(3).identify().collect(); new ScrollOfMirrorImage().identify(); new PotionOfShield().identify();
 			Dungeon.quickslot.setSlot(0, hero.belongings.weapon); Dungeon.quickslot.setSlot(1, hero.belongings.secondWep); return;
@@ -1248,7 +1248,7 @@ public enum HeroClass {
 			hero.STR += 4;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 4;
 			(hero.belongings.weapon = new Whisk()).identify();
-			(hero.belongings.armor = new pd.items.armor.normalarmor.LeatherArmor()).identify();
+			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.LeatherArmor()).identify();
 			BigBattery battery = new BigBattery();
 			battery.identify().collect();
 			UnstableSpellbook spellbook = new UnstableSpellbook();
@@ -1270,7 +1270,7 @@ public enum HeroClass {
 			return;
 		}
 		if (hero.skin == 7) {
-			(hero.belongings.weapon = new pd.items.weapon.melee.special.NinjaFan()).identify();
+			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.special.NinjaFan()).identify();
 			(hero.belongings.armor = new RenBArmor()).identify();
 			DriedRose rose = new DriedRose();
 			(hero.belongings.artifact = rose).identify();

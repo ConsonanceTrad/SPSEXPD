@@ -31,7 +31,7 @@ import pd.actors.buffs.Locked;
 import pd.actors.buffs.Poison;
 import pd.actors.mobs.npcs.Ghost;
 import pd.items.Generator;
-import pd.items.weapon.missiles.darts.PoisonDart;
+import pd.items.equipment.weapon.missiles.darts.PoisonDart;
 import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
 import pd.sprites.GnollTricksterSprite;

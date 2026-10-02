@@ -34,7 +34,7 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.Talent;
 import pd.actors.hero.abilities.ArmorAbility;
 import pd.effects.FloatingText;
-import pd.items.armor.ClassArmor;
+import pd.items.equipment.armor.ClassArmor;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;

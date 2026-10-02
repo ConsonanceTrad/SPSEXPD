@@ -9,7 +9,7 @@ import pd.actors.buffs.STRDown;
 import pd.actors.buffs.Terror;
 import pd.items.AdamantWeapon;
 import pd.items.Gold;
-import pd.items.potions.PotionOfLiquidFlame;
+import pd.items.consum.potions.PotionOfLiquidFlame;
 import pd.items.quest.AdventureJournal;
 import pd.messages.Messages;
 import pd.scenes.GameScene;

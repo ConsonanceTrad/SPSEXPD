@@ -9,11 +9,11 @@ import pd.actors.buffs.Burning;
 import pd.actors.buffs.Frost;
 import pd.actors.buffs.Paralysis;
 import pd.actors.buffs.Roots;
-import pd.items.food.meatfood.Meat;
+import pd.items.consum.food.meatfood.Meat;
 
 import pd.items.Item;
-import pd.items.bombs.FishingBomb;
-import pd.items.food.vegetable.NutVegetable;
+import pd.items.equipment.bombs.FishingBomb;
+import pd.items.consum.food.vegetable.NutVegetable;
 import pd.messages.Messages;
 import pd.sprites.AlbinoPiranhaSprite;
 import pd.utils.GLog;

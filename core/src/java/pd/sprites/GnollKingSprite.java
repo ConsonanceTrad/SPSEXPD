@@ -3,7 +3,7 @@ package pd.sprites;
 
 import pd.Assets;
 import pd.Dungeon;
-import pd.items.weapon.missiles.ThrowingKnife;
+import pd.items.equipment.weapon.missiles.ThrowingKnife;
 import render.noosa.TextureFilm;
 import render.utils.data.Callback;
 

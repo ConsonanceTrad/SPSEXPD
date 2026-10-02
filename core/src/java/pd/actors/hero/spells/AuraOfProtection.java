@@ -28,7 +28,7 @@ import pd.actors.buffs.FlavourBuff;
 import pd.actors.hero.Hero;
 import pd.actors.hero.Talent;
 import pd.effects.Speck;
-import pd.items.artifacts.HolyTome;
+import pd.items.equipment.artifacts.HolyTome;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;

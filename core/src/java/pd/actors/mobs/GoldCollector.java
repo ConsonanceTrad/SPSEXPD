@@ -3,8 +3,8 @@ package pd.actors.mobs;
 
 import pd.items.Gold;
 import pd.items.Item;
-import pd.items.artifacts.MasterThievesArmband;
-import pd.items.sellitem.VIPcard;
+import pd.items.equipment.artifacts.MasterThievesArmband;
+import pd.items.specific.sellitem.VIPcard;
 import pd.sprites.GoldCollectorSprite;
 import render.utils.math.Random;
 

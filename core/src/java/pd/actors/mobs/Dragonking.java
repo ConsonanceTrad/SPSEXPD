@@ -8,7 +8,7 @@ import pd.actors.blobs.ShockWeb;
 import pd.actors.blobs.ToxicGas;
 import pd.actors.buffs.Poison;
 import pd.items.Heap;
-import pd.items.keys.GoldenSkeletonKey;
+import pd.items.specific.keys.GoldenSkeletonKey;
 import pd.levels.BossRushLevel;
 import pd.scenes.GameScene;
 import pd.sprites.NewDragon02Sprite;

@@ -4,9 +4,9 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Poison;
 import pd.items.Item;
-import pd.items.food.completefood.PetFood;
-import pd.items.food.meatfood.MeatFood;
-import pd.items.potions.PotionOfToxicGas;
+import pd.items.consum.food.completefood.PetFood;
+import pd.items.consum.food.meatfood.MeatFood;
+import pd.items.consum.potions.PotionOfToxicGas;
 import pd.sprites.NewSnakeSprite;
 import render.utils.math.Random;
 public class Snake extends PET {

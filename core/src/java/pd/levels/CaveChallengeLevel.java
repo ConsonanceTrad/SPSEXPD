@@ -5,7 +5,7 @@ import pd.Assets;
 import pd.actors.mobs.Mob;
 import pd.actors.mobs.SpsChallengeMobPool;
 import pd.items.Heap;
-import pd.items.bombs.FishingBomb;
+import pd.items.equipment.bombs.FishingBomb;
 import render.utils.math.Random;
 
 /** SPS-PD 0.9.8 flooded beach arena (challenge-book room 3). */

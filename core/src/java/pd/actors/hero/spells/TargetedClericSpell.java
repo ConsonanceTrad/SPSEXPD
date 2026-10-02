@@ -22,7 +22,7 @@
 package pd.actors.hero.spells;
 
 import pd.actors.hero.Hero;
-import pd.items.artifacts.HolyTome;
+import pd.items.equipment.artifacts.HolyTome;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;

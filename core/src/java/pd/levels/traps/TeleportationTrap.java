@@ -9,7 +9,7 @@ import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.scrolls.ScrollOfTeleportation;
+import pd.items.consum.scrolls.ScrollOfTeleportation;
 import pd.messages.Messages;
 import pd.plants.Fadeleaf;
 import pd.utils.GLog;

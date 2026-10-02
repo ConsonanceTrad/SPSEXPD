@@ -7,7 +7,7 @@ import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.weapon.melee.start.LinkSword;
+import pd.items.equipment.weapon.melee.start.LinkSword;
 import pd.messages.Messages;
 import pd.utils.GLog;
 import render.utils.math.Random;

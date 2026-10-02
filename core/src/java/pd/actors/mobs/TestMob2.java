@@ -6,7 +6,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.HiddenShadow;
 import pd.actors.buffs.Locked;
-import pd.items.bags.HeartOfScarecrow;
+import pd.items.equipment.bags.HeartOfScarecrow;
 import pd.mechanics.Ballistica;
 import pd.sprites.ScarecrowSprite;
 import render.utils.serialize.Bundle;

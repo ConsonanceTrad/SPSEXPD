@@ -8,7 +8,7 @@ import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.effects.Splash;
 import pd.items.Item;
-import pd.items.weapon.missiles.MissileWeapon;
+import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;

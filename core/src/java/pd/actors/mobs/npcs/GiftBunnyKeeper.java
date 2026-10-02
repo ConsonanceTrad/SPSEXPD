@@ -3,10 +3,10 @@ package pd.actors.mobs.npcs;
 
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.items.eggs.EasterEgg;
-import pd.items.eggs.Egg;
-import pd.items.sellitem.MiniBunny;
-import pd.items.weapon.Weapon;
+import pd.items.consum.eggs.EasterEgg;
+import pd.items.consum.eggs.Egg;
+import pd.items.specific.sellitem.MiniBunny;
+import pd.items.equipment.weapon.Weapon;
 
 public class GiftBunnyKeeper extends GiftNpc {
 	{ properties.add(Property.MECH); }

@@ -10,7 +10,7 @@ import pd.actors.buffs.ShieldArmor;
 import pd.actors.buffs.Sleep;
 import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
-import pd.items.bags.HeartOfScarecrow;
+import pd.items.equipment.bags.HeartOfScarecrow;
 import pd.sprites.ScarecrowSprite;
 import render.utils.serialize.Bundle;
 

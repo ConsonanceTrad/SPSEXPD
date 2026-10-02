@@ -2,7 +2,7 @@
 package pd.actors.mobs;
 
 import pd.items.Playericon;
-import pd.items.weapon.enchantments.EnchantmentDark;
+import pd.items.equipment.weapon.enchantments.EnchantmentDark;
 import pd.sprites.ErrorSprite;
 
 /** Final shadow of the Amulet. Its death completes and unlocks the arena. */

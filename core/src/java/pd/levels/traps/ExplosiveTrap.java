@@ -21,7 +21,7 @@
 
 package pd.levels.traps;
 
-import pd.items.bombs.DungeonBomb;
+import pd.items.equipment.bombs.DungeonBomb;
 
 public class ExplosiveTrap extends Trap {
 

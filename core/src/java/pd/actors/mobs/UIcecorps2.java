@@ -6,7 +6,7 @@ import pd.actors.buffs.BoxStar;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Frost;
 import pd.actors.buffs.StoneIce;
-import pd.items.eggs.EasterEgg;
+import pd.items.consum.eggs.EasterEgg;
 import pd.sprites.IceRabbit2Sprite;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;

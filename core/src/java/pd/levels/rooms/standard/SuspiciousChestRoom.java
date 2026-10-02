@@ -25,7 +25,7 @@ import pd.actors.mobs.Mimic;
 import pd.items.Gold;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.trinkets.MimicTooth;
+import pd.items.equipment.trinkets.MimicTooth;
 import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;

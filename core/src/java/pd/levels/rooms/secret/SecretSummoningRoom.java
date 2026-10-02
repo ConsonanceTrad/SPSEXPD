@@ -23,7 +23,7 @@ package pd.levels.rooms.secret;
 
 import pd.items.Generator;
 import pd.items.Heap;
-import pd.items.trinkets.TrapMechanism;
+import pd.items.equipment.trinkets.TrapMechanism;
 import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;

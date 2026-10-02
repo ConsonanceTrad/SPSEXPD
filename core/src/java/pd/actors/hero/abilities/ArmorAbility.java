@@ -24,7 +24,7 @@ package pd.actors.hero.abilities;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.actors.hero.Talent;
-import pd.items.armor.ClassArmor;
+import pd.items.equipment.armor.ClassArmor;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;

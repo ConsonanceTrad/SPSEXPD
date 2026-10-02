@@ -22,8 +22,8 @@
 package pd.actors.buffs;
 
 import pd.actors.hero.Hero;
-import pd.items.artifacts.Artifact;
-import pd.items.artifacts.HornOfPlenty;
+import pd.items.equipment.artifacts.Artifact;
+import pd.items.equipment.artifacts.HornOfPlenty;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;

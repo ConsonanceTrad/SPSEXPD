@@ -22,8 +22,8 @@
 package pd.levels.rooms.secret;
 
 import pd.items.Generator;
-import pd.items.potions.PotionOfLiquidFlame;
-import pd.items.stones.StoneOfEnchantment;
+import pd.items.consum.potions.PotionOfLiquidFlame;
+import pd.items.consum.stones.StoneOfEnchantment;
 import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;

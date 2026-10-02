@@ -22,7 +22,7 @@
 package pd.levels.rooms.secret;
 
 import pd.items.Generator;
-import pd.items.bombs.Bomb;
+import pd.items.equipment.bombs.Bomb;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;

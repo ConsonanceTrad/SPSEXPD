@@ -55,48 +55,48 @@ public abstract class LegacyPet extends DirectableAlly {
 
 	public boolean lovefood(Item item) {
 		if (kind() == Kind.BUG_DRAGON) return false;
-		if (item instanceof pd.items.food.completefood.PetFood) return true;
+		if (item instanceof pd.items.consum.food.completefood.PetFood) return true;
 		switch (kind()) {
 			case BLUE_DRAGON:
-				return item instanceof pd.items.potions.PotionOfFrost
+				return item instanceof pd.items.consum.potions.PotionOfFrost
 						|| item instanceof pd.plants.Icecap.Seed;
 			case GREEN_DRAGON:
-				return item instanceof pd.items.scrolls.ScrollOfRecharging
-						|| item instanceof pd.items.potions.PotionOfLevitation;
+				return item instanceof pd.items.consum.scrolls.ScrollOfRecharging
+						|| item instanceof pd.items.consum.potions.PotionOfLevitation;
 			case LIGHT_DRAGON:
-				return item instanceof pd.items.scrolls.ScrollOfRemoveCurse
-						|| item instanceof pd.items.potions.PotionOfMindVision;
+				return item instanceof pd.items.consum.scrolls.ScrollOfRemoveCurse
+						|| item instanceof pd.items.consum.potions.PotionOfMindVision;
 			case RED_DRAGON:
-				return item instanceof pd.items.potions.PotionOfLiquidFlame
-						|| item instanceof pd.items.scrolls.ScrollOfRage;
+				return item instanceof pd.items.consum.potions.PotionOfLiquidFlame
+						|| item instanceof pd.items.consum.scrolls.ScrollOfRage;
 			case SHADOW_DRAGON:
-				return item instanceof pd.items.scrolls.ScrollOfTerror
-						|| item instanceof pd.items.potions.PotionOfInvisibility;
+				return item instanceof pd.items.consum.scrolls.ScrollOfTerror
+						|| item instanceof pd.items.consum.potions.PotionOfInvisibility;
 			case VIOLET_DRAGON:
-				return item instanceof pd.items.potions.PotionOfToxicGas
-						|| item instanceof pd.items.scrolls.ScrollOfRegrowth;
+				return item instanceof pd.items.consum.potions.PotionOfToxicGas
+						|| item instanceof pd.items.consum.scrolls.ScrollOfRegrowth;
 			case GOLD_DRAGON: case HARO:
-				return item instanceof pd.items.food.completefood.CompleteFood;
+				return item instanceof pd.items.consum.food.completefood.CompleteFood;
 			case BLUE_GIRL: case SCORPION:
-				return item instanceof pd.items.food.meatfood.MeatFood
-						|| kind() == Kind.SCORPION && item instanceof pd.items.food.fruit.Fruit;
+				return item instanceof pd.items.consum.food.meatfood.MeatFood
+						|| kind() == Kind.SCORPION && item instanceof pd.items.consum.food.fruit.Fruit;
 			case LERY_FIRE:
-				return item instanceof pd.items.scrolls.Scroll
-						|| item instanceof pd.items.potions.Potion;
+				return item instanceof pd.items.consum.scrolls.Scroll
+						|| item instanceof pd.items.consum.potions.Potion;
 			case YEAR:
-				return item instanceof pd.items.weapon.missiles.MoneyPack;
+				return item instanceof pd.items.equipment.weapon.missiles.MoneyPack;
 			case BUNNY:
-				return item instanceof pd.items.food.vegetable.Vegetable
-						|| item instanceof pd.items.food.fruit.Fruit;
+				return item instanceof pd.items.consum.food.vegetable.Vegetable
+						|| item instanceof pd.items.consum.food.fruit.Fruit;
 			case COCO_CAT:
-				return item instanceof pd.items.food.fusion.Nut;
+				return item instanceof pd.items.consum.food.fusion.Nut;
 			case VELOCIROOSTER:
 				return item instanceof pd.plants.Plant.Seed
-						|| item instanceof pd.items.food.vegetable.Vegetable;
+						|| item instanceof pd.items.consum.food.vegetable.Vegetable;
 			case PIG: case ABI:
 				return item instanceof pd.plants.Plant.Seed
-						|| item instanceof pd.items.food.vegetable.Vegetable
-						|| item instanceof pd.items.food.fruit.Fruit;
+						|| item instanceof pd.items.consum.food.vegetable.Vegetable
+						|| item instanceof pd.items.consum.food.fruit.Fruit;
 			default:
 				return false;
 		}
@@ -106,51 +106,51 @@ public abstract class LegacyPet extends DirectableAlly {
 	public Item SupercreateLoot() {
 		switch (kind()) {
 			case BLUE_DRAGON:
-				return Random.oneOf(new pd.items.wands.WandOfFreeze(),
-						new pd.items.wands.fusion.WandOfFlow());
+				return Random.oneOf(new pd.items.equipment.wands.WandOfFreeze(),
+						new pd.items.equipment.wands.fusion.WandOfFlow());
 			case GREEN_DRAGON:
-				return Random.oneOf(new pd.items.wands.WandOfLightning(),
-						new pd.items.wands.WandOfTCloud());
+				return Random.oneOf(new pd.items.equipment.wands.WandOfLightning(),
+						new pd.items.equipment.wands.WandOfTCloud());
 			case LIGHT_DRAGON:
-				return Random.oneOf(new pd.items.wands.WandOfLight(),
-						new pd.items.wands.WandOfCharm());
+				return Random.oneOf(new pd.items.equipment.wands.WandOfLight(),
+						new pd.items.equipment.wands.WandOfCharm());
 			case RED_DRAGON:
-				return Random.oneOf(new pd.items.wands.WandOfFirebolt(),
-						new pd.items.wands.WandOfMeteorite());
+				return Random.oneOf(new pd.items.equipment.wands.WandOfFirebolt(),
+						new pd.items.equipment.wands.WandOfMeteorite());
 			case SHADOW_DRAGON:
-				return Random.oneOf(new pd.items.wands.WandOfFlock(),
-						new pd.items.wands.fusion.WandOfBlood());
+				return Random.oneOf(new pd.items.equipment.wands.WandOfFlock(),
+						new pd.items.equipment.wands.fusion.WandOfBlood());
 			case VIOLET_DRAGON:
-				return Random.oneOf(new pd.items.wands.WandOfSwamp(),
-						new pd.items.wands.WandOfAcid());
+				return Random.oneOf(new pd.items.equipment.wands.WandOfSwamp(),
+						new pd.items.equipment.wands.WandOfAcid());
 			case GOLD_DRAGON:
-				return Random.oneOf(new pd.items.wands.WandOfMagicMissile(),
-						new pd.items.wands.WandOfDisintegration());
+				return Random.oneOf(new pd.items.equipment.wands.WandOfMagicMissile(),
+						new pd.items.equipment.wands.WandOfDisintegration());
 			case BUG_DRAGON:
-				return Random.oneOf(new pd.items.weapon.missiles.throwing.ErrorAmmo(1),
-						new pd.items.armor.normalarmor.ErrorArmor(),
-						new pd.items.weapon.melee.special.ErrorW(),
-						new pd.items.wands.WandOfError());
+				return Random.oneOf(new pd.items.equipment.weapon.missiles.throwing.ErrorAmmo(1),
+						new pd.items.equipment.armor.normalarmor.ErrorArmor(),
+						new pd.items.equipment.weapon.melee.special.ErrorW(),
+						new pd.items.equipment.wands.WandOfError());
 			case BLUE_GIRL:
-				return new pd.items.armor.normalarmor.StoneArmor();
+				return new pd.items.equipment.armor.normalarmor.StoneArmor();
 			case LERY_FIRE:
-				return new pd.items.weapon.missiles.throwing.BottleFire();
+				return new pd.items.equipment.weapon.missiles.throwing.BottleFire();
 			case SCORPION:
-				return new pd.items.potions.PotionOfToxicGas();
+				return new pd.items.consum.potions.PotionOfToxicGas();
 			case YEAR:
-				return new pd.items.weapon.missiles.MoneyPack(5);
+				return new pd.items.equipment.weapon.missiles.MoneyPack(5);
 			case BUNNY:
-				return new pd.items.eggs.EasterEgg();
+				return new pd.items.consum.eggs.EasterEgg();
 			case COCO_CAT:
-				return new pd.items.bombs.DungeonBomb();
+				return new pd.items.equipment.bombs.DungeonBomb();
 			case VELOCIROOSTER:
-				return new pd.items.weapon.melee.special.SJRBMusic();
+				return new pd.items.equipment.weapon.melee.special.SJRBMusic();
 			case HARO:
-				return new pd.items.scrolls.ScrollOfRecharging();
+				return new pd.items.consum.scrolls.ScrollOfRecharging();
 			case PIG:
-				return new pd.items.food.completefood.Honeymeat();
+				return new pd.items.consum.food.completefood.Honeymeat();
 			case ABI:
-				return new pd.items.wands.WandOfLight();
+				return new pd.items.equipment.wands.WandOfLight();
 			default:
 				return null;
 		}

@@ -25,7 +25,7 @@ import pd.actors.mobs.Piranha;
 import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.potions.PotionOfInvisibility;
+import pd.items.consum.potions.PotionOfInvisibility;
 import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;

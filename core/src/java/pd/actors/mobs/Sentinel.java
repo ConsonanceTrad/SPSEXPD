@@ -3,7 +3,7 @@ package pd.actors.mobs;
 
 import pd.Dungeon;
 import pd.actors.Char;
-import pd.items.weapon.Weapon;
+import pd.items.equipment.weapon.Weapon;
 import pd.messages.Messages;
 import pd.sprites.SentinelSprite;
 import render.utils.math.Random;

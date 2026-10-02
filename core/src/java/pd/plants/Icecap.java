@@ -32,7 +32,7 @@ import pd.actors.buffs.FrostImbue;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.actors.mobs.Mob;
-import pd.items.weapon.missiles.arrows.IceFruit;
+import pd.items.equipment.weapon.missiles.arrows.IceFruit;
 import pd.levels.traps.Trap;
 import pd.mechanics.pathfind.PathFinder;
 

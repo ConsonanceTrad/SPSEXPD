@@ -3,7 +3,7 @@ package pd.actors.mobs.npcs;
 
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.items.bombs.DungeonBomb;
+import pd.items.equipment.bombs.DungeonBomb;
 
 public class GiftCoconut extends GiftNpc {
 	{ properties.add(Property.MECH); properties.add(Property.BEAST); }

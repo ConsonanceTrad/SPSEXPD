@@ -25,8 +25,8 @@ import pd.atlas.items.ConsumScrollAmuletCrystalDict;
 
 import pd.Dungeon;
 import pd.actors.hero.Hero;
-import pd.items.scrolls.ScrollOfTeleportation;
-import pd.items.spells.Spell;
+import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.items.consum.spells.Spell;
 import pd.journal.Catalog;
 import pd.sprites.ItemSprite;
 

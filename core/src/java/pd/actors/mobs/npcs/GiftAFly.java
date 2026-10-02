@@ -3,10 +3,10 @@ package pd.actors.mobs.npcs;
 
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.items.food.AflyFood;
-import pd.items.food.completefood.CompleteFood;
-import pd.items.potions.PotionOfMindVision;
-import pd.items.scrolls.ScrollOfPsionicBlast;
+import pd.items.consum.food.AflyFood;
+import pd.items.consum.food.completefood.CompleteFood;
+import pd.items.consum.potions.PotionOfMindVision;
+import pd.items.consum.scrolls.ScrollOfPsionicBlast;
 
 public class GiftAFly extends GiftNpc {
 	{ properties.add(Property.ELF); }

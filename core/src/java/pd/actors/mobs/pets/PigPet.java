@@ -4,7 +4,7 @@ package pd.actors.mobs.pets;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.items.Generator;
-import pd.items.food.SmallMeat;
+import pd.items.consum.food.SmallMeat;
 import pd.sprites.PigPetSprite;
 import render.utils.math.Random;
 

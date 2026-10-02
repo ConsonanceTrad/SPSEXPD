@@ -2,7 +2,7 @@
 package pd.actors.mobs;
 
 import pd.items.Item;
-import pd.items.eggs.randomone.RandomMonthEgg;
+import pd.items.consum.eggs.randomone.RandomMonthEgg;
 import pd.sprites.DragonRiderSprite;
 
 /** Original SPS-PD runtime and save identity for the dragon rider. */

@@ -26,7 +26,7 @@ import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroClass;
 import pd.actors.hero.Talent;
-import pd.items.armor.Armor;
+import pd.items.equipment.armor.Armor;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;

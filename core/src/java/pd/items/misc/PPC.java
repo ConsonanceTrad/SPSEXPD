@@ -15,7 +15,7 @@ import pd.actors.buffs.mindbuff.WeakMind;
 import pd.actors.hero.Hero;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.weapon.missiles.throwing.MindArrow;
+import pd.items.equipment.weapon.missiles.throwing.MindArrow;
 import pd.messages.Messages;
 import pd.utils.GLog;
 import render.utils.math.Random;

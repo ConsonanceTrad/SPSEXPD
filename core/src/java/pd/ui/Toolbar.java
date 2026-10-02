@@ -33,7 +33,7 @@ import pd.actors.buffs.HoldFast;
 import pd.actors.hero.Belongings;
 import pd.actors.hero.Talent;
 import pd.items.Item;
-import pd.items.bags.Bag;
+import pd.items.equipment.bags.Bag;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;

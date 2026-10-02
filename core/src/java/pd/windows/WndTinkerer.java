@@ -6,7 +6,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Dewcharge;
 import pd.actors.mobs.npcs.Tinkerer1;
 import pd.items.Waterskin;
-import pd.items.keys.SpsSkeletonKey;
+import pd.items.specific.keys.SpsSkeletonKey;
 import pd.items.quest.Mushroom;
 import pd.messages.Messages;
 import pd.scenes.GameScene;

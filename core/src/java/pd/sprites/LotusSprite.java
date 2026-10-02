@@ -26,7 +26,7 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.effects.CellEmitter;
 import pd.effects.particles.LeafParticle;
-import pd.items.wands.WandOfRegrowth;
+import pd.items.equipment.wands.WandOfRegrowth;
 import render.noosa.MovieClip;
 import render.noosa.TextureFilm;
 import render.noosa.particles.Emitter;

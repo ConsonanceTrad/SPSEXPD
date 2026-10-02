@@ -4,7 +4,7 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.items.Generator;
 import pd.items.Heap;
-import pd.items.keys.GoldenSkeletonKey;
+import pd.items.specific.keys.GoldenSkeletonKey;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.sprites.SpsHermitCrabSprite;

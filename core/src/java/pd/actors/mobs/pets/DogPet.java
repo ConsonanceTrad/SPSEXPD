@@ -6,9 +6,9 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.ShieldArmor;
 import pd.items.Item;
-import pd.items.food.completefood.MoonCake;
-import pd.items.food.completefood.PetFood;
-import pd.items.food.meatfood.MeatFood;
+import pd.items.consum.food.completefood.MoonCake;
+import pd.items.consum.food.completefood.PetFood;
+import pd.items.consum.food.meatfood.MeatFood;
 import pd.sprites.DogPetSprite;
 import render.utils.math.Random;
 

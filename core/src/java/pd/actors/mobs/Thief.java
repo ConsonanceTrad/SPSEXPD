@@ -33,7 +33,7 @@ import pd.items.Generator;
 import pd.items.Gold;
 import pd.items.Honeypot;
 import pd.items.Item;
-import pd.items.food.vegetable.NutVegetable;
+import pd.items.consum.food.vegetable.NutVegetable;
 import pd.messages.Messages;
 import pd.sprites.ThiefSprite;
 import pd.utils.GLog;

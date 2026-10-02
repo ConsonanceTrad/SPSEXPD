@@ -10,7 +10,7 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.HeroClass;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.bags.Bag;
+import pd.items.equipment.bags.Bag;
 import pd.messages.Messages;
 import pd.utils.GLog;
 import render.utils.serialize.Bundle;

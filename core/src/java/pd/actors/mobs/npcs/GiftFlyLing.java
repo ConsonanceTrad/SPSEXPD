@@ -4,10 +4,10 @@ package pd.actors.mobs.npcs;
 import pd.actors.hero.Hero;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.food.fruit.Fruit;
-import pd.items.medicine.LingPotion;
-import pd.items.potions.PotionOfMending;
-import pd.items.sellitem.LingHeart;
+import pd.items.consum.food.fruit.Fruit;
+import pd.items.consum.medicine.LingPotion;
+import pd.items.consum.potions.PotionOfMending;
+import pd.items.specific.sellitem.LingHeart;
 import pd.plants.Plant;
 import render.utils.math.Random;
 

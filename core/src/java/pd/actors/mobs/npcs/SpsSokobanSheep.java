@@ -13,7 +13,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.items.sellitem.SheepFur;
+import pd.items.specific.sellitem.SheepFur;
 import pd.levels.SpsSokobanLevel;
 import pd.messages.Messages;
 import pd.sprites.SheepSprite;

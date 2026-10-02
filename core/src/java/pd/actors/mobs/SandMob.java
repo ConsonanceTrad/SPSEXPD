@@ -4,7 +4,7 @@ package pd.actors.mobs;
 import pd.actors.damagetype.DamageType;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.wands.WandOfLightning;
+import pd.items.equipment.wands.WandOfLightning;
 import pd.sprites.SandmobSprite;
 
 /** Original SPS-PD runtime and save identity for the sand creature. */

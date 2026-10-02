@@ -9,7 +9,7 @@ import pd.actors.blobs.ToxicGas;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Burning;
 import pd.actors.hero.Hero;
-import pd.items.scrolls.ScrollOfPsionicBlast;
+import pd.items.consum.scrolls.ScrollOfPsionicBlast;
 import pd.scenes.GameScene;
 import pd.sprites.ErrorSprite;
 import render.utils.math.Random;

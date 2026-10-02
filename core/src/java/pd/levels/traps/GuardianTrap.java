@@ -29,7 +29,7 @@ import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.items.Generator;
 import pd.items.Heap;
-import pd.items.weapon.Weapon;
+import pd.items.equipment.weapon.Weapon;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.StatueSprite;

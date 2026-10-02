@@ -32,7 +32,7 @@ import pd.actors.buffs.Healing;
 import pd.actors.hero.Hero;
 import pd.actors.hero.Talent;
 import pd.effects.FloatingText;
-import pd.items.trinkets.VialOfBlood;
+import pd.items.equipment.trinkets.VialOfBlood;
 import pd.journal.Catalog;
 import pd.levels.Terrain;
 import pd.messages.Messages;

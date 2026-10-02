@@ -26,7 +26,7 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.items.Item;
-import pd.items.sellitem.SheepFur;
+import pd.items.specific.sellitem.SheepFur;
 import pd.journal.Bestiary;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;

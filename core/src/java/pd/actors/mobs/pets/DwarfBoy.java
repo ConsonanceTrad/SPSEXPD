@@ -5,9 +5,9 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Vertigo;
 import pd.items.Item;
-import pd.items.food.completefood.CompleteFood;
-import pd.items.food.completefood.PetFood;
-import pd.items.food.staplefood.NormalRation;
+import pd.items.consum.food.completefood.CompleteFood;
+import pd.items.consum.food.completefood.PetFood;
+import pd.items.consum.food.staplefood.NormalRation;
 import pd.sprites.DwarfBoySprite;
 import render.utils.math.Random;
 

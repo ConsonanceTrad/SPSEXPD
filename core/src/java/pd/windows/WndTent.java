@@ -15,7 +15,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Hunger;
 import pd.actors.buffs.TentSleep;
 import pd.items.Item;
-import pd.items.food.Food;
+import pd.items.consum.food.Food;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;

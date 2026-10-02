@@ -11,7 +11,7 @@ import pd.items.Gold;
 import pd.items.Heap;
 import pd.items.misc.LuckyBadge;
 import pd.items.quest.AdventureJournal;
-import pd.items.scrolls.ScrollOfUpgrade;
+import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.levels.features.LevelTransition;
 import pd.tiles.custom.SpsLegacyLevelVisual;
 import render.utils.math.Random;

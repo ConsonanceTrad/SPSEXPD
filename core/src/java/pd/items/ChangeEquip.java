@@ -16,7 +16,7 @@ package pd.items;
 import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.actors.hero.Hero;
-import pd.items.armor.Armor;
+import pd.items.equipment.armor.Armor;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.HeroSprite;

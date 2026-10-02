@@ -2,9 +2,9 @@
 package pd.actors.mobs;
 
 import pd.items.Item;
-import pd.items.artifacts.TimekeepersHourglass;
-import pd.items.medicine.Timepill2;
-import pd.items.potions.PotionOfMindVision;
+import pd.items.equipment.artifacts.TimekeepersHourglass;
+import pd.items.consum.medicine.Timepill2;
+import pd.items.consum.potions.PotionOfMindVision;
 import pd.sprites.TimeKeeperSprite;
 import render.utils.math.Random;
 

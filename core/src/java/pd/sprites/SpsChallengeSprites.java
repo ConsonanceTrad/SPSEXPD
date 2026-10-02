@@ -7,7 +7,7 @@ import pd.effects.Beam;
 import pd.effects.MagicMissile;
 import pd.effects.Speck;
 import pd.items.StoneOre;
-import pd.items.weapon.missiles.Bolas;
+import pd.items.equipment.weapon.missiles.Bolas;
 import pd.tiles.DungeonTilemap;
 import render.noosa.TextureFilm;
 import render.noosa.audio.Sample;

@@ -23,7 +23,7 @@ package pd.actors.buffs;
 
 import pd.actors.Char;
 import pd.actors.hero.Hero;
-import pd.items.armor.glyphs.AntiMagic;
+import pd.items.equipment.armor.glyphs.AntiMagic;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 

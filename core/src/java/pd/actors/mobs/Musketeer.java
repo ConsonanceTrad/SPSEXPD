@@ -2,7 +2,7 @@
 package pd.actors.mobs;
 
 import pd.items.Item;
-import pd.items.weapon.guns.ToyGun;
+import pd.items.equipment.weapon.guns.ToyGun;
 import pd.sprites.MusketeerSprite;
 
 /** Original SPS-PD runtime and save identity for the dwarf musketeer. */

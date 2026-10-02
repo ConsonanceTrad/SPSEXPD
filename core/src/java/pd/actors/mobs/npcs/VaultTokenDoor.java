@@ -30,7 +30,7 @@ import pd.actors.hero.Hero;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.quest.DwarfToken;
-import pd.items.scrolls.ScrollOfMagicMapping;
+import pd.items.consum.scrolls.ScrollOfMagicMapping;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.messages.Messages;

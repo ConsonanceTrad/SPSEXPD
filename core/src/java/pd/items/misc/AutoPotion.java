@@ -3,7 +3,7 @@ package pd.items.misc;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
 
-import pd.items.rings.Ring;
+import pd.items.equipment.rings.Ring;
 
 /** Original SPS auto-potion; its legacy AutoHealPotion buff contains no active logic. */
 public class AutoPotion extends Ring {

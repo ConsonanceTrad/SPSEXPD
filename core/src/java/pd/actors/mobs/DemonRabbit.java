@@ -2,7 +2,7 @@
 package pd.actors.mobs;
 
 import pd.items.Item;
-import pd.items.weapon.guns.GunD;
+import pd.items.equipment.weapon.guns.GunD;
 import pd.sprites.DemonRabbitSprite;
 
 /** Original SPS-PD runtime and save identity for the demon-blood shooter. */

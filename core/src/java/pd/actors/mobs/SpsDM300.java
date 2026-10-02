@@ -25,7 +25,7 @@ import pd.items.Gold;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.StoneOre;
-import pd.items.artifacts.CapeOfThorns;
+import pd.items.equipment.artifacts.CapeOfThorns;
 import pd.items.nornstone.BlueNornStone;
 import pd.items.nornstone.GreenNornStone;
 import pd.items.nornstone.OrangeNornStone;
@@ -156,8 +156,8 @@ public class SpsDM300 extends Mob {
 	@Override
 	public void die(Object cause) {
 		super.die(cause);
-		pd.items.weapon.rockcode.RockCode.dropForPerformer(
-				new pd.items.weapon.rockcode.Bmech());
+		pd.items.equipment.weapon.rockcode.RockCode.dropForPerformer(
+				new pd.items.equipment.weapon.rockcode.Bmech());
 		finishFight(pos, false);
 		yell(Messages.get(this, "die"));
 	}

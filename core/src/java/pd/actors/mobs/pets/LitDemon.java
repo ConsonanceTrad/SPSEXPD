@@ -3,9 +3,9 @@ package pd.actors.mobs.pets;
 
 import pd.actors.Char;
 import pd.items.Item;
-import pd.items.food.completefood.PetFood;
-import pd.items.potions.PotionOfMending;
-import pd.items.scrolls.ScrollOfRage;
+import pd.items.consum.food.completefood.PetFood;
+import pd.items.consum.potions.PotionOfMending;
+import pd.items.consum.scrolls.ScrollOfRage;
 import pd.sprites.LitDemonSprite;
 import render.utils.math.Random;
 

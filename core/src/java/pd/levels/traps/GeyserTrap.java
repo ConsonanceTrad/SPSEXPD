@@ -30,7 +30,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Burning;
 import pd.actors.mobs.Mob;
 import pd.effects.Splash;
-import pd.items.wands.WandOfBlastWave;
+import pd.items.equipment.wands.WandOfBlastWave;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.tiles.DungeonTilemap;

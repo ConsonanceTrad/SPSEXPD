@@ -4,7 +4,7 @@ import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.items.Item;
-import pd.items.keys.Key;
+import pd.items.specific.keys.Key;
 import pd.scenes.InterlevelScene;
 import render.noosa.Game;
 

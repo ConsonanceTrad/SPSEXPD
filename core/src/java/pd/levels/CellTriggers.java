@@ -32,7 +32,7 @@ import pd.actors.mobs.Piranha;
 import pd.actors.mobs.npcs.Sheep;
 import pd.effects.CellEmitter;
 import pd.effects.particles.SacrificialParticle;
-import pd.items.artifacts.TimekeepersHourglass;
+import pd.items.equipment.artifacts.TimekeepersHourglass;
 import pd.levels.features.Chasm;
 import pd.levels.features.DewBlessRoom;
 import pd.levels.features.Door;

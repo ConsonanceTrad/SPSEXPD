@@ -22,7 +22,7 @@
 package pd.actors.hero;
 
 import pd.Dungeon;
-import pd.items.weapon.melee.MagesStaff;
+import pd.items.equipment.weapon.melee.MagesStaff;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.ui.HeroIcon;

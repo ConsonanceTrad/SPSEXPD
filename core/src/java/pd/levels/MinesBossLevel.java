@@ -21,7 +21,7 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.Otiluke;
 import pd.items.Heap;
 import pd.items.Palantir;
-import pd.items.keys.IronKey;
+import pd.items.specific.keys.IronKey;
 import pd.levels.features.LevelTransition;
 import pd.messages.Messages;
 import pd.scenes.GameScene;

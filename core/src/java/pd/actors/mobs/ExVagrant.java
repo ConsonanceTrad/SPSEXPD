@@ -2,7 +2,7 @@
 package pd.actors.mobs;
 
 import pd.items.Item;
-import pd.items.weapon.melee.special.SJRBMusic;
+import pd.items.equipment.weapon.melee.special.SJRBMusic;
 import pd.sprites.ExVagrantSprite;
 
 /** Original SPS-PD runtime and save identity for the infected vagrant. */

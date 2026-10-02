@@ -27,7 +27,7 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.abilities.cleric.PowerOfMany;
 import pd.actors.mobs.Mob;
 import pd.actors.mobs.npcs.PrismaticImage;
-import pd.items.scrolls.ScrollOfTeleportation;
+import pd.items.consum.scrolls.ScrollOfTeleportation;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;

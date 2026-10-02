@@ -30,7 +30,7 @@ import pd.effects.BlobEmitter;
 import pd.effects.Identification;
 import pd.effects.Speck;
 import pd.items.Item;
-import pd.items.scrolls.ScrollOfIdentify;
+import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.journal.Notes.Landmark;
 import pd.levels.CellFlags;
 import pd.levels.Terrain;

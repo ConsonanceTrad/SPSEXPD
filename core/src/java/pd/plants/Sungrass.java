@@ -32,7 +32,7 @@ import pd.actors.hero.HeroSubClass;
 import pd.effects.CellEmitter;
 import pd.effects.FloatingText;
 import pd.effects.particles.ShaftParticle;
-import pd.items.weapon.missiles.arrows.HealFruit;
+import pd.items.equipment.weapon.missiles.arrows.HealFruit;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;

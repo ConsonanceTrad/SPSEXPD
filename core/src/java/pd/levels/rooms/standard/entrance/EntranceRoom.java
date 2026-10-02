@@ -23,8 +23,8 @@ package pd.levels.rooms.standard.entrance;
 
 import pd.Dungeon;
 import pd.SPDSettings;
-import pd.items.journal.GuidePage;
-import pd.items.journal.Guidebook;
+import pd.items.specific.journal.GuidePage;
+import pd.items.specific.journal.Guidebook;
 import pd.journal.Document;
 import pd.levels.Level;
 import pd.levels.Terrain;

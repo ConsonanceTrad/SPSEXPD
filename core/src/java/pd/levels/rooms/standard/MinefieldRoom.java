@@ -21,7 +21,7 @@
 
 package pd.levels.rooms.standard;
 
-import pd.items.trinkets.TrapMechanism;
+import pd.items.equipment.trinkets.TrapMechanism;
 import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;

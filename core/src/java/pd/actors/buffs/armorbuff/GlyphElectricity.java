@@ -7,7 +7,7 @@ import pd.actors.buffs.Locked;
 import pd.actors.buffs.Shocked;
 import pd.actors.damagetype.DamageType;
 import pd.actors.mobs.Shell;
-import pd.items.wands.WandOfLightning;
+import pd.items.equipment.wands.WandOfLightning;
 
 public class GlyphElectricity extends ArmorGlyphBuff {
 	{

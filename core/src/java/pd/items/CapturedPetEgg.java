@@ -1,7 +1,7 @@
 package pd.items;
 
 import pd.actors.mobs.pets.LegacyPet;
-import pd.items.eggs.Egg;
+import pd.items.consum.eggs.Egg;
 import render.utils.serialize.Bundle;
 
 /** Save-compatible soul produced when an empty pocket ball captures a migrated pet. */

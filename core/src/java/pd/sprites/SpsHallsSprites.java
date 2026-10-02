@@ -4,7 +4,7 @@ package pd.sprites;
 import pd.Assets;
 import pd.Dungeon;
 import pd.effects.particles.ElmoParticle;
-import pd.items.weapon.missiles.arrows.GlassFruit;
+import pd.items.equipment.weapon.missiles.arrows.GlassFruit;
 import render.noosa.TextureFilm;
 
 public final class SpsHallsSprites {

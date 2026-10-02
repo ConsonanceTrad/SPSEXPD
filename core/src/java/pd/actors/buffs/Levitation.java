@@ -24,7 +24,7 @@ package pd.actors.buffs;
 import pd.Dungeon;
 import pd.ShatteredPixelDungeon;
 import pd.actors.Char;
-import pd.items.artifacts.TimekeepersHourglass;
+import pd.items.equipment.artifacts.TimekeepersHourglass;
 import pd.plants.Swiftthistle;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;

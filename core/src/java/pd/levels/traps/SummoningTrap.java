@@ -26,7 +26,7 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.mobs.Mob;
 import pd.items.Heap;
-import pd.items.scrolls.ScrollOfTeleportation;
+import pd.items.consum.scrolls.ScrollOfTeleportation;
 import pd.journal.Bestiary;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;

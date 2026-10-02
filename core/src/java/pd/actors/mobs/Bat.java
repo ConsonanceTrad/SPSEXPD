@@ -27,7 +27,7 @@ import pd.actors.buffs.BeOld;
 import pd.effects.FloatingText;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.potions.PotionOfHealing;
+import pd.items.consum.potions.PotionOfHealing;
 import pd.sprites.BatSprite;
 import pd.sprites.CharSprite;
 import render.utils.math.Random;
@@ -92,7 +92,7 @@ public class Bat extends Mob {
 		super.rollToDropLoot();
 		if (Dungeon.hero != null && Dungeon.level != null && legacyLootLevelEligible()
 				&& Random.Float() < legacySecondaryLootChance(0.3f)) {
-			Dungeon.level.drop(new pd.items.food.meatfood.Meat(), pos).sprite.drop();
+			Dungeon.level.drop(new pd.items.consum.food.meatfood.Meat(), pos).sprite.drop();
 		}
 	}
 

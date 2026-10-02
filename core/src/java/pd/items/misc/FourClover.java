@@ -3,7 +3,7 @@ package pd.items.misc;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
 
-import pd.items.rings.Ring;
+import pd.items.equipment.rings.Ring;
 
 /** The old three-slot luck charm, represented in the modern misc equipment slot. */
 public class FourClover extends Ring {

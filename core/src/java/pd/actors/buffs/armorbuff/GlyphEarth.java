@@ -8,8 +8,8 @@ import pd.actors.buffs.GrowSeed;
 import pd.actors.buffs.Poison;
 import pd.actors.buffs.Roots;
 import pd.actors.damagetype.DamageType;
-import pd.items.weapon.enchantments.EnchantmentEarth2;
-import pd.items.weapon.enchantments.EnchantmentEarth;
+import pd.items.equipment.weapon.enchantments.EnchantmentEarth2;
+import pd.items.equipment.weapon.enchantments.EnchantmentEarth;
 
 public class GlyphEarth extends ArmorGlyphBuff {
 	{

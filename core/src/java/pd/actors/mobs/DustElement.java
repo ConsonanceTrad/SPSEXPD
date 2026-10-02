@@ -10,8 +10,8 @@ import pd.actors.buffs.Wet;
 import pd.actors.damagetype.DamageType;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.wands.WandOfAcid;
-import pd.items.wands.WandOfSwamp;
+import pd.items.equipment.wands.WandOfAcid;
+import pd.items.equipment.wands.WandOfSwamp;
 import pd.sprites.DustElementSprite;
 import render.utils.math.Random;
 

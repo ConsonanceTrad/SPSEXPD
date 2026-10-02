@@ -23,8 +23,8 @@ package pd.actors.buffs;
 
 import pd.Dungeon;
 import pd.actors.Char;
-import pd.items.artifacts.CloakOfShadows;
-import pd.items.artifacts.TimekeepersHourglass;
+import pd.items.equipment.artifacts.CloakOfShadows;
+import pd.items.equipment.artifacts.TimekeepersHourglass;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;

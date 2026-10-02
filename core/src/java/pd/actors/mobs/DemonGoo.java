@@ -2,7 +2,7 @@
 package pd.actors.mobs;
 
 import pd.items.Item;
-import pd.items.weapon.missiles.throwing.Skull;
+import pd.items.equipment.weapon.missiles.throwing.Skull;
 import pd.sprites.DemonGooSprite;
 
 /** Original SPS-PD runtime and save identity for demon goo. */

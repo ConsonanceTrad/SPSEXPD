@@ -2,9 +2,9 @@
 package pd.actors.mobs;
 
 import pd.items.Item;
-import pd.items.artifacts.ChaliceOfBlood;
-import pd.items.potions.PotionOfInvisibility;
-import pd.items.scrolls.ScrollOfRage;
+import pd.items.equipment.artifacts.ChaliceOfBlood;
+import pd.items.consum.potions.PotionOfInvisibility;
+import pd.items.consum.scrolls.ScrollOfRage;
 import pd.sprites.ThiefImpSprite;
 import render.utils.math.Random;
 

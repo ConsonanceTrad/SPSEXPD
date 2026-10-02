@@ -23,7 +23,7 @@ package pd.sprites;
 
 import pd.Assets;
 import pd.Dungeon;
-import pd.items.weapon.missiles.darts.ParalyticDart;
+import pd.items.equipment.weapon.missiles.darts.ParalyticDart;
 import render.noosa.MovieClip;
 import render.noosa.TextureFilm;
 import render.utils.data.Callback;

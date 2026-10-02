@@ -32,7 +32,7 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.Talent;
 import pd.actors.hero.abilities.cleric.PowerOfMany;
 import pd.effects.Beam;
-import pd.items.artifacts.HolyTome;
+import pd.items.equipment.artifacts.HolyTome;
 import pd.messages.Messages;
 import pd.tiles.DungeonTilemap;
 import pd.ui.BuffIndicator;

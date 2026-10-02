@@ -6,8 +6,8 @@ import pd.actors.buffs.LightShootAttack;
 import pd.actors.damagetype.DamageType;
 import pd.items.Item;
 import pd.items.StoneOre;
-import pd.items.food.completefood.PetFood;
-import pd.items.potions.PotionOfExperience;
+import pd.items.consum.food.completefood.PetFood;
+import pd.items.consum.potions.PotionOfExperience;
 import pd.sprites.StarKidSprite;
 import render.utils.math.Random;
 public class StarKid extends PET {

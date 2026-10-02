@@ -5,7 +5,7 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
-import pd.items.trinkets.RatSkull;
+import pd.items.equipment.trinkets.RatSkull;
 import pd.levels.CellFlags;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;

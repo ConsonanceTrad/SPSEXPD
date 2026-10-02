@@ -21,10 +21,10 @@ import pd.effects.particles.PurpleParticle;
 import pd.items.Generator;
 import pd.items.Gold;
 import pd.items.Item;
-import pd.items.keys.SpsSkeletonKey;
+import pd.items.specific.keys.SpsSkeletonKey;
 import pd.items.misc.MissileShield;
-import pd.items.scrolls.ScrollOfTeleportation;
-import pd.items.weapon.rockcode.Gleaf;
+import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.items.equipment.weapon.rockcode.Gleaf;
 import pd.levels.CellFlags;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
@@ -202,8 +202,8 @@ public class SewerHeart extends LegacyDualLootMob {
 		if (Dungeon.hero != null) {
 			Buff.detach(Dungeon.hero, LasherSpawner.class);
 		}
-		pd.items.journalpages.JournalPage.dropAt(
-				new pd.items.journalpages.Sokoban1(), pos);
+		pd.items.specific.journalpages.JournalPage.dropAt(
+				new pd.items.specific.journalpages.Sokoban1(), pos);
 		Dungeon.level.drop(new Gold(1500), pos).sprite.drop();
 		Dungeon.level.drop(new SpsSkeletonKey(Dungeon.depth), pos).sprite.drop();
 		RatKing king = new RatKing();

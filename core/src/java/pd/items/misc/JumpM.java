@@ -10,7 +10,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.InfJump;
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.items.scrolls.ScrollOfTeleportation;
+import pd.items.consum.scrolls.ScrollOfTeleportation;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;

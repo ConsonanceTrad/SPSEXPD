@@ -3,8 +3,8 @@ package pd.levels;
 
 import pd.items.Item;
 import pd.items.misc.AutoPotion;
-import pd.items.scrolls.ScrollOfMagicalInfusion;
-import pd.items.scrolls.ScrollOfRegrowth;
+import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
+import pd.items.consum.scrolls.ScrollOfRegrowth;
 import pd.plants.ReNepenth;
 import pd.plants.Starflower;
 

@@ -26,7 +26,7 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.effects.Beam;
 import pd.effects.MagicMissile;
-import pd.items.wands.WandOfWarding;
+import pd.items.equipment.wands.WandOfWarding;
 import pd.tiles.DungeonTilemap;
 import render.noosa.Game;
 import render.noosa.audio.Sample;

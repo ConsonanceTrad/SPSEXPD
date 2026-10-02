@@ -19,7 +19,7 @@ import pd.actors.mobs.Mob;
 import pd.items.Gold;
 import pd.items.Heap;
 import pd.items.YellowDewdrop;
-import pd.items.food.SmallMeat;
+import pd.items.consum.food.SmallMeat;
 import pd.items.quest.AdventureJournal;
 import pd.levels.features.LevelTransition;
 import pd.tiles.custom.SpsLegacyLevelVisual;

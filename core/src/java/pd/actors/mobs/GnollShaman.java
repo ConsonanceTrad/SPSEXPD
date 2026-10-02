@@ -3,9 +3,9 @@ package pd.actors.mobs;
 
 import pd.actors.blobs.Electricity;
 import pd.items.Item;
-import pd.items.artifacts.SandalsOfNature;
-import pd.items.potions.PotionOfLevitation;
-import pd.items.scrolls.ScrollOfRegrowth;
+import pd.items.equipment.artifacts.SandalsOfNature;
+import pd.items.consum.potions.PotionOfLevitation;
+import pd.items.consum.scrolls.ScrollOfRegrowth;
 import pd.sprites.GnollShamanSprite;
 import render.utils.math.Random;
 

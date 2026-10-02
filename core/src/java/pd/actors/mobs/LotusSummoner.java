@@ -1,7 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.actors.mobs;
 
-import pd.items.potions.PotionOfHealing;
+import pd.items.consum.potions.PotionOfHealing;
 import pd.sprites.ErrorSprite;
 import render.utils.math.Random;
 

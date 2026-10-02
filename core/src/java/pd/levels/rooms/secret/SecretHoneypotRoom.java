@@ -25,7 +25,7 @@ import pd.Dungeon;
 import pd.actors.mobs.Bee;
 import pd.items.Honeypot;
 import pd.items.Item;
-import pd.items.bombs.Bomb;
+import pd.items.equipment.bombs.Bomb;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;

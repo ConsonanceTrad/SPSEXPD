@@ -35,7 +35,7 @@ import pd.effects.particles.ElmoParticle;
 import pd.items.Generator;
 import pd.items.Honeypot;
 import pd.items.Item;
-import pd.items.potions.PotionOfFrost;
+import pd.items.consum.potions.PotionOfFrost;
 import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;

@@ -3,7 +3,7 @@ package pd.actors.mobs;
 
 import pd.actors.buffs.Burning;
 import pd.items.UnBlessAnkh;
-import pd.items.wands.WandOfFirebolt;
+import pd.items.equipment.wands.WandOfFirebolt;
 import pd.sprites.ZombieSprite;
 
 /** Original SPS-PD runtime and save identity for the infected zombie. */

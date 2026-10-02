@@ -46,7 +46,7 @@ import pd.actors.mobs.Swarm;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.items.Heap;
-import pd.items.weapon.melee.MeleeWeapon;
+import pd.items.equipment.weapon.melee.MeleeWeapon;
 import pd.levels.Level;
 import pd.levels.MiningLevel;
 import pd.levels.Terrain;

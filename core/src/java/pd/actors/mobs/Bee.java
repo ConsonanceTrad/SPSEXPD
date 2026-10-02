@@ -28,7 +28,7 @@ import pd.actors.Char;
 import pd.actors.buffs.AllyBuff;
 import pd.actors.buffs.Amok;
 import pd.actors.buffs.Buff;
-import pd.items.stones.StoneOfAggression;
+import pd.items.consum.stones.StoneOfAggression;
 import pd.messages.Messages;
 import pd.sprites.BeeSprite;
 import render.utils.math.Random;

@@ -27,7 +27,7 @@ import pd.ShatteredPixelDungeon;
 import pd.Statistics;
 import pd.actors.hero.Talent;
 import pd.effects.Speck;
-import pd.items.scrolls.exotic.ScrollOfMetamorphosis;
+import pd.items.consum.scrolls.exotic.ScrollOfMetamorphosis;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;

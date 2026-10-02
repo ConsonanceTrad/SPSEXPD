@@ -26,7 +26,7 @@ import pd.Statistics;
 import pd.actors.Actor;
 import pd.actors.buffs.AscensionChallenge;
 import pd.effects.Pushing;
-import pd.items.potions.PotionOfHealing;
+import pd.items.consum.potions.PotionOfHealing;
 import pd.journal.Notes;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;

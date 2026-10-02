@@ -5,9 +5,9 @@ import pd.actors.Char;
 import pd.actors.buffs.ArmorBreak;
 import pd.actors.buffs.Buff;
 import pd.items.Item;
-import pd.items.food.completefood.PetFood;
-import pd.items.food.vegetable.Vegetable;
-import pd.items.potions.PotionOfShield;
+import pd.items.consum.food.completefood.PetFood;
+import pd.items.consum.food.vegetable.Vegetable;
+import pd.items.consum.potions.PotionOfShield;
 import pd.sprites.GentleCrabSprite;
 import render.utils.math.Random;
 

@@ -30,7 +30,7 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.Talent;
 import pd.actors.mobs.DwarfKing;
 import pd.items.BrokenSeal;
-import pd.items.wands.WandOfBlastWave;
+import pd.items.equipment.wands.WandOfBlastWave;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;

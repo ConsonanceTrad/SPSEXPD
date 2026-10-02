@@ -10,7 +10,7 @@ import pd.actors.buffs.HiddenShadow;
 import pd.actors.buffs.WatchOut;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.pets.*;
-import pd.items.eggs.*;
+import pd.items.consum.eggs.*;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;

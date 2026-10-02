@@ -25,7 +25,7 @@ import pd.Dungeon;
 import pd.actors.mobs.Mob;
 import pd.actors.mobs.RotHeart;
 import pd.actors.mobs.RotLasher;
-import pd.items.keys.IronKey;
+import pd.items.specific.keys.IronKey;
 import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;

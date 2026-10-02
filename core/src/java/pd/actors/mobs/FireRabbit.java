@@ -6,7 +6,7 @@ import pd.actors.blobs.effectblobs.Fire;
 import pd.actors.damagetype.DamageType;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.wands.WandOfFirebolt;
+import pd.items.equipment.wands.WandOfFirebolt;
 import pd.sprites.FireRabbitSprite;
 
 /** Original SPS-PD runtime and save identity for the prison fire trooper. */

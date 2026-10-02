@@ -26,7 +26,7 @@ import pd.Statistics;
 import pd.actors.hero.Hero;
 import pd.actors.hero.abilities.ArmorAbility;
 import pd.items.KingsCrown;
-import pd.items.armor.Armor;
+import pd.items.equipment.armor.Armor;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;

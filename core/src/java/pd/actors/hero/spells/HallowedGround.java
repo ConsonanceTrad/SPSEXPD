@@ -41,7 +41,7 @@ import pd.effects.CellEmitter;
 import pd.effects.FloatingText;
 import pd.effects.particles.LeafParticle;
 import pd.effects.particles.ShaftParticle;
-import pd.items.artifacts.HolyTome;
+import pd.items.equipment.artifacts.HolyTome;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.Ballistica;

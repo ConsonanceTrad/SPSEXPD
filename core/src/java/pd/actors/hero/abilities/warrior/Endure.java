@@ -34,7 +34,7 @@ import pd.actors.hero.Talent;
 import pd.actors.hero.abilities.ArmorAbility;
 import pd.effects.Speck;
 import pd.effects.SpellSprite;
-import pd.items.armor.ClassArmor;
+import pd.items.equipment.armor.ClassArmor;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;

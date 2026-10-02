@@ -14,12 +14,12 @@ import pd.actors.buffs.Poison;
 import pd.actors.buffs.Vertigo;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
-import pd.items.artifacts.DriedRose;
-import pd.items.potions.PotionOfToxicGas;
-import pd.items.wands.WandOfBlastWave;
-import pd.items.wands.WandOfLight;
-import pd.items.weapon.enchantments.EnchantmentDark;
-import pd.items.weapon.enchantments.EnchantmentLight;
+import pd.items.equipment.artifacts.DriedRose;
+import pd.items.consum.potions.PotionOfToxicGas;
+import pd.items.equipment.wands.WandOfBlastWave;
+import pd.items.equipment.wands.WandOfLight;
+import pd.items.equipment.weapon.enchantments.EnchantmentDark;
+import pd.items.equipment.weapon.enchantments.EnchantmentLight;
 import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
@@ -173,8 +173,8 @@ public class Tank extends Mob {
 	@Override
 	public void die(Object cause) {
 		super.die(cause);
-		pd.items.weapon.rockcode.RockCode.dropForPerformer(
-				new pd.items.weapon.rockcode.Trush());
+		pd.items.equipment.weapon.rockcode.RockCode.dropForPerformer(
+				new pd.items.equipment.weapon.rockcode.Trush());
 		SpsPrisonBossRewards.grant(pos, new DriedRose().identify(), new PotionOfToxicGas());
 		yell(Messages.get(this, "die"));
 	}

@@ -25,7 +25,7 @@ import pd.Dungeon;
 import pd.actors.blobs.Foliage;
 import pd.items.Honeypot;
 import pd.items.Item;
-import pd.items.eggs.EasterEgg;
+import pd.items.consum.eggs.EasterEgg;
 import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;

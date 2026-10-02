@@ -10,7 +10,7 @@ import pd.actors.buffs.InfJump;
 import pd.actors.buffs.TargetShoot;
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.items.weapon.guns.GunWeapon;
+import pd.items.equipment.weapon.guns.GunWeapon;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;

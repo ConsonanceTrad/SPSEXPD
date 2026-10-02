@@ -4,13 +4,13 @@ package pd.windows;
 import pd.items.Garbage;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.eggs.Egg;
-import pd.items.rings.Ring;
+import pd.items.consum.eggs.Egg;
+import pd.items.equipment.rings.Ring;
 import pd.items.summon.ActiveMrDestructo;
 import pd.items.summon.FairyCard;
 import pd.items.summon.Mobile;
-import pd.items.wands.Wand;
-import pd.items.wands.WandOfMagicMissile;
+import pd.items.equipment.wands.Wand;
+import pd.items.equipment.wands.WandOfMagicMissile;
 import render.utils.math.Random;
 
 /** ARealMan's original ring-and-wand experiment. */

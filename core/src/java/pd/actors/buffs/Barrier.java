@@ -21,7 +21,7 @@
 
 package pd.actors.buffs;
 
-import pd.items.weapon.enchantments.Blocking;
+import pd.items.equipment.weapon.enchantments.Blocking;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;

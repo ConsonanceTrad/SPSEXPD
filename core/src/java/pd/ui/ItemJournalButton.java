@@ -23,8 +23,8 @@ package pd.ui;
 
 import pd.items.EquipableItem;
 import pd.items.Item;
-import pd.items.trinkets.Trinket;
-import pd.items.wands.Wand;
+import pd.items.equipment.trinkets.Trinket;
+import pd.items.equipment.wands.Wand;
 import pd.journal.Notes;
 import pd.messages.Messages;
 import pd.scenes.GameScene;

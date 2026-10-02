@@ -29,13 +29,13 @@ import pd.effects.Speck;
 import pd.items.Generator;
 import pd.items.Item;
 import pd.items.StoneOre;
-import pd.items.armor.Armor;
-import pd.items.armor.normalarmor.BaseArmor;
-import pd.items.armor.normalarmor.RubberArmor;
-import pd.items.armor.normalarmor.WoodenArmor;
-import pd.items.artifacts.AlienBag;
-import pd.items.bombs.MiniBomb;
-import pd.items.wands.WandOfDisintegration;
+import pd.items.equipment.armor.Armor;
+import pd.items.equipment.armor.normalarmor.BaseArmor;
+import pd.items.equipment.armor.normalarmor.RubberArmor;
+import pd.items.equipment.armor.normalarmor.WoodenArmor;
+import pd.items.equipment.artifacts.AlienBag;
+import pd.items.equipment.bombs.MiniBomb;
+import pd.items.equipment.wands.WandOfDisintegration;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
@@ -179,8 +179,8 @@ public class ElderAvatar extends Mob {
 	@Override public void notice() { super.notice(); BossHealthBar.assignBoss(this); yell(Messages.get(this, "notice")); }
 	@Override public void die(Object cause) {
 		super.die(cause);
-		pd.items.weapon.rockcode.RockCode.dropForPerformer(
-				new pd.items.weapon.rockcode.Alink());
+		pd.items.equipment.weapon.rockcode.RockCode.dropForPerformer(
+				new pd.items.equipment.weapon.rockcode.Alink());
 		SpsCityBossRewards.grant(pos, 4900, 10000, rareLoot(), commonLoot());
 		yell(Messages.get(this, "die"));
 	}

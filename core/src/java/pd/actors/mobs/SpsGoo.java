@@ -27,16 +27,16 @@ import pd.items.Gold;
 import pd.items.Item;
 import pd.items.StoneOre;
 import pd.items.UpgradeBlobViolet;
-import pd.items.keys.SpsSkeletonKey;
+import pd.items.specific.keys.SpsSkeletonKey;
 import pd.items.misc.CopyBall;
 import pd.items.misc.LuckyBadge;
-import pd.items.scrolls.ScrollOfTeleportation;
+import pd.items.consum.scrolls.ScrollOfTeleportation;
 import pd.items.summon.ActiveMrDestructo;
-import pd.items.wands.WandOfFirebolt;
-import pd.items.weapon.enchantments.EnchantmentDark2;
-import pd.items.weapon.enchantments.EnchantmentDark;
-import pd.items.weapon.enchantments.EnchantmentFire2;
-import pd.items.weapon.enchantments.EnchantmentFire;
+import pd.items.equipment.wands.WandOfFirebolt;
+import pd.items.equipment.weapon.enchantments.EnchantmentDark2;
+import pd.items.equipment.weapon.enchantments.EnchantmentDark;
+import pd.items.equipment.weapon.enchantments.EnchantmentFire2;
+import pd.items.equipment.weapon.enchantments.EnchantmentFire;
 import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
@@ -207,15 +207,15 @@ public class SpsGoo extends Mob {
 	@Override
 	public void die(Object cause) {
 		super.die(cause);
-		pd.items.weapon.rockcode.RockCode.dropForPerformer(
-				new pd.items.weapon.rockcode.Obubble());
+		pd.items.equipment.weapon.rockcode.RockCode.dropForPerformer(
+				new pd.items.equipment.weapon.rockcode.Obubble());
 		float rareChance = LegacyDualLootMob.primaryShare(0.2f, 1f,
 				LuckyBadge.luckBonus(Dungeon.hero));
 		Item bossLoot = Random.Float() < rareChance ? new UpgradeBlobViolet() : new ActiveMrDestructo();
 		Dungeon.level.drop(bossLoot, pos).sprite.drop();
 		Dungeon.level.drop(new Gold(1500), pos).sprite.drop();
-		pd.items.journalpages.JournalPage.dropAt(
-				new pd.items.journalpages.Sokoban1(), pos);
+		pd.items.specific.journalpages.JournalPage.dropAt(
+				new pd.items.specific.journalpages.Sokoban1(), pos);
 
 		RatKing king = new RatKing();
 		king.state = king.WANDERING;

@@ -25,7 +25,7 @@ import pd.Challenges;
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.effects.FloatingText;
-import pd.items.trinkets.SaltCube;
+import pd.items.equipment.trinkets.SaltCube;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;

@@ -32,7 +32,7 @@ import pd.effects.Speck;
 import pd.items.Heap;
 import pd.items.Honeypot;
 import pd.items.Item;
-import pd.items.scrolls.ScrollOfTeleportation;
+import pd.items.consum.scrolls.ScrollOfTeleportation;
 import pd.mechanics.pathfind.PathFinder;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;

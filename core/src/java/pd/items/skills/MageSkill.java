@@ -9,7 +9,7 @@ import pd.actors.damagetype.SpsMagicDamage;
 import pd.actors.mobs.Mob;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.scrolls.ScrollOfTeleportation;
+import pd.items.consum.scrolls.ScrollOfTeleportation;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;

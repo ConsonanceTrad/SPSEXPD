@@ -56,7 +56,7 @@ import pd.actors.mobs.Thief;
 import pd.actors.mobs.Warlock;
 import pd.actors.mobs.npcs.Shopkeeper;
 import pd.items.Amulet;
-import pd.items.artifacts.DriedRose;
+import pd.items.equipment.artifacts.DriedRose;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.messages.Messages;

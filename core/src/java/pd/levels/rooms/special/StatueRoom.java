@@ -26,7 +26,7 @@ import pd.actors.mobs.ArmorStatue;
 import pd.actors.mobs.Statue;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.keys.IronKey;
+import pd.items.specific.keys.IronKey;
 import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;

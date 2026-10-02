@@ -31,7 +31,7 @@ import pd.actors.buffs.Paralysis;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.actors.mobs.Mob;
-import pd.items.artifacts.HolyTome;
+import pd.items.equipment.artifacts.HolyTome;
 import pd.scenes.GameScene;
 import pd.ui.HeroIcon;
 import render.noosa.audio.Sample;

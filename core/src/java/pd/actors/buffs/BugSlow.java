@@ -3,7 +3,7 @@ package pd.actors.buffs;
 
 import pd.Dungeon;
 import pd.actors.hero.Hero;
-import pd.items.food.BugMeat;
+import pd.items.consum.food.BugMeat;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;

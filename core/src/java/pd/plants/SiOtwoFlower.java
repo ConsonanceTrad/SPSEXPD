@@ -6,8 +6,8 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Barrier;
 import pd.actors.buffs.Buff;
-import pd.items.food.vegetable.NutVegetable;
-import pd.items.weapon.missiles.arrows.GlassFruit;
+import pd.items.consum.food.vegetable.NutVegetable;
+import pd.items.equipment.weapon.missiles.arrows.GlassFruit;
 
 public class SiOtwoFlower extends Plant {
 	{ image = 18; seedClass = Seed.class; }

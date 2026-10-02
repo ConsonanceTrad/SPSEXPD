@@ -4,7 +4,7 @@ package pd.actors.mobs.npcs;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.items.YellowDewdrop;
-import pd.items.eggs.VelociroosterEgg;
+import pd.items.consum.eggs.VelociroosterEgg;
 
 public class GiftBegger extends GiftNpc {
 	{ properties.add(Property.HUMAN); }

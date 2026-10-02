@@ -5,10 +5,10 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.MagicWeak;
 import pd.items.Item;
-import pd.items.food.completefood.PetFood;
-import pd.items.food.meatfood.MeatFood;
-import pd.items.potions.PotionOfLiquidFlame;
-import pd.items.wands.WandOfMagicMissile;
+import pd.items.consum.food.completefood.PetFood;
+import pd.items.consum.food.meatfood.MeatFood;
+import pd.items.consum.potions.PotionOfLiquidFlame;
+import pd.items.equipment.wands.WandOfMagicMissile;
 import pd.sprites.KodoraSprite;
 import render.utils.math.Random;
 

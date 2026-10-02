@@ -27,12 +27,12 @@ import pd.items.Generator;
 import pd.items.Gold;
 import pd.items.Item;
 import pd.items.StoneOre;
-import pd.items.artifacts.AlchemistsToolkit;
-import pd.items.keys.SpsSkeletonKey;
+import pd.items.equipment.artifacts.AlchemistsToolkit;
+import pd.items.specific.keys.SpsSkeletonKey;
 import pd.items.misc.PotionOfMage;
-import pd.items.scrolls.ScrollOfTeleportation;
-import pd.items.wands.WandOfLight;
-import pd.items.weapon.rockcode.Dpotion;
+import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.items.equipment.wands.WandOfLight;
+import pd.items.equipment.weapon.rockcode.Dpotion;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -150,8 +150,8 @@ public class PlagueDoctor extends LegacyDualLootMob {
 		if (Dungeon.hero != null) {
 			Buff.detach(Dungeon.hero, ShadowRatSummon.class);
 		}
-		pd.items.journalpages.JournalPage.dropAt(
-				new pd.items.journalpages.Sokoban1(), pos);
+		pd.items.specific.journalpages.JournalPage.dropAt(
+				new pd.items.specific.journalpages.Sokoban1(), pos);
 		Dungeon.level.drop(new Gold(1500), pos).sprite.drop();
 		Dungeon.level.drop(new SpsSkeletonKey(Dungeon.depth), pos).sprite.drop();
 		RatKing king = new RatKing();

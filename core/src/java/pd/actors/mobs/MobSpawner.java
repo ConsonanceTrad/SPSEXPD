@@ -23,7 +23,7 @@ package pd.actors.mobs;
 
 import pd.Dungeon;
 import pd.actors.Actor;
-import pd.items.trinkets.RatSkull;
+import pd.items.equipment.trinkets.RatSkull;
 import render.utils.math.Random;
 
 import java.util.ArrayList;

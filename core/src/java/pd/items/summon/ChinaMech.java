@@ -10,7 +10,7 @@ import pd.actors.buffs.MindVision;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.items.Generator;
-import pd.items.weapon.missiles.fusion.RocketMissile;
+import pd.items.equipment.weapon.missiles.fusion.RocketMissile;
 import pd.sprites.PatrolUAVSprite;
 
 /**

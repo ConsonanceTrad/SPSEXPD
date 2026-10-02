@@ -18,7 +18,7 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.npcs.AdventureGuide;
 import pd.actors.mobs.npcs.SokobanBlock;
 import pd.items.quest.AdventureJournal;
-import pd.items.scrolls.ScrollOfTeleportation;
+import pd.items.consum.scrolls.ScrollOfTeleportation;
 import pd.levels.builders.Builder;
 import pd.levels.builders.LineBuilder;
 import pd.levels.features.LevelTransition;

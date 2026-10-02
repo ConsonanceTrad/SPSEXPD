@@ -16,7 +16,7 @@ import pd.actors.hero.Hero;
 import pd.items.ChallengeBook;
 import pd.items.Item;
 import pd.items.PocketBallFull;
-import pd.items.challengelists.ChallengeList;
+import pd.items.specific.challengelists.ChallengeList;
 import pd.levels.Level;
 import pd.levels.Transitions;
 import pd.messages.Messages;

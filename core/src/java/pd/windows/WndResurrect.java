@@ -25,7 +25,7 @@ import pd.Dungeon;
 import pd.Statistics;
 import pd.items.Ankh;
 import pd.items.Item;
-import pd.items.bags.Bag;
+import pd.items.equipment.bags.Bag;
 import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.scenes.GameScene;

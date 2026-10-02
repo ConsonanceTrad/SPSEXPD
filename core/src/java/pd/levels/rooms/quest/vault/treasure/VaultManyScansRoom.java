@@ -24,7 +24,7 @@ package pd.levels.rooms.quest.vault.treasure;
 import pd.actors.mobs.npcs.VaultSentry;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.potions.PotionOfInvisibility;
+import pd.items.consum.potions.PotionOfInvisibility;
 import pd.items.quest.DwarfToken;
 import pd.levels.GroundItems;
 import pd.levels.Level;

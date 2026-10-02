@@ -27,7 +27,7 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.effects.Pushing;
-import pd.items.scrolls.ScrollOfRemoveCurse;
+import pd.items.consum.scrolls.ScrollOfRemoveCurse;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.SpectralNecromancerSprite;

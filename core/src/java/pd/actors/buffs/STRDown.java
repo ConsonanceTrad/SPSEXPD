@@ -4,7 +4,7 @@ package pd.actors.buffs;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.items.wands.Wand;
+import pd.items.equipment.wands.Wand;
 import pd.ui.BuffIndicator;
 
 /** Legacy SPS weakening magic: -3 effective strength and one charge drained from every wand. */

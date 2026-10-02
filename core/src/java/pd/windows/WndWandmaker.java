@@ -16,7 +16,7 @@ package pd.windows;
 import pd.Dungeon;
 import pd.actors.mobs.npcs.Wandmaker;
 import pd.items.Item;
-import pd.items.wands.Wand;
+import pd.items.equipment.wands.Wand;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;

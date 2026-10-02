@@ -6,7 +6,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Burning;
 import pd.actors.buffs.Terror;
-import pd.items.potions.PotionOfLiquidFlame;
+import pd.items.consum.potions.PotionOfLiquidFlame;
 import pd.sprites.SkeletonHand1Sprite;
 import render.utils.math.Random;
 

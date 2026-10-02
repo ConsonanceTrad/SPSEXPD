@@ -30,7 +30,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
-import pd.items.weapon.missiles.darts.Dart;
+import pd.items.equipment.weapon.missiles.darts.Dart;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.sprites.MissileSprite;

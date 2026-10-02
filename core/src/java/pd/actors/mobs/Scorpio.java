@@ -29,9 +29,9 @@ import pd.actors.buffs.Light;
 import pd.actors.buffs.Locked;
 import pd.actors.buffs.Poison;
 import pd.items.Item;
-import pd.items.food.MysteryMeat;
-import pd.items.potions.PotionOfHealing;
-import pd.items.weapon.melee.normalweapon.Dagger;
+import pd.items.consum.food.MysteryMeat;
+import pd.items.consum.potions.PotionOfHealing;
+import pd.items.equipment.weapon.melee.normalweapon.Dagger;
 import pd.sprites.ScorpioSprite;
 import render.utils.math.Random;
 

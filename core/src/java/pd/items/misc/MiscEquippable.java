@@ -3,7 +3,7 @@ package pd.items.misc;
 
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
-import pd.items.artifacts.Artifact;
+import pd.items.equipment.artifacts.Artifact;
 
 import java.util.ArrayList;
 

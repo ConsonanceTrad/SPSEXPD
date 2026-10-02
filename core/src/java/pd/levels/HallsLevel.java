@@ -25,7 +25,7 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.Statistics;
 import pd.items.Torch;
-import pd.items.keys.SpsSkeletonKey;
+import pd.items.specific.keys.SpsSkeletonKey;
 import pd.levels.painters.HallsPainter;
 import pd.levels.painters.Painter;
 import pd.levels.rooms.Room;

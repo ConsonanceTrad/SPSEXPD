@@ -34,7 +34,7 @@ import pd.actors.mobs.Mob;
 import pd.effects.ShadowBox;
 import pd.items.Item;
 import pd.items.LostBackpack;
-import pd.items.artifacts.SkeletonKey;
+import pd.items.equipment.artifacts.SkeletonKey;
 import pd.journal.Document;
 import pd.journal.Notes;
 import pd.levels.Level;

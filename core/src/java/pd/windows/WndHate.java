@@ -2,7 +2,7 @@
 package pd.windows;
 
 import pd.Dungeon;
-import pd.items.wands.WandOfFlock;
+import pd.items.equipment.wands.WandOfFlock;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;

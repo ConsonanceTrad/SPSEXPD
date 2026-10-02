@@ -9,9 +9,9 @@ import pd.atlas.items.ConsumScrollAmuletAmuletDict;
 
 import pd.Dungeon;
 import pd.actors.hero.Hero;
-import pd.items.armor.Armor;
-import pd.items.scrolls.ScrollOfRemoveCurse;
-import pd.items.weapon.Weapon;
+import pd.items.equipment.armor.Armor;
+import pd.items.consum.scrolls.ScrollOfRemoveCurse;
+import pd.items.equipment.weapon.Weapon;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.utils.GLog;

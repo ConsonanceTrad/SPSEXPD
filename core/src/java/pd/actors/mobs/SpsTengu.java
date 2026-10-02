@@ -13,11 +13,11 @@ import pd.actors.buffs.Poison;
 import pd.actors.buffs.Silent;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
-import pd.items.artifacts.MasterThievesArmband;
-import pd.items.wands.WandOfLight;
-import pd.items.weapon.enchantments.EnchantmentDark;
-import pd.items.weapon.enchantments.EnchantmentLight;
-import pd.items.weapon.missiles.meleethrow.HugeShuriken;
+import pd.items.equipment.artifacts.MasterThievesArmband;
+import pd.items.equipment.wands.WandOfLight;
+import pd.items.equipment.weapon.enchantments.EnchantmentDark;
+import pd.items.equipment.weapon.enchantments.EnchantmentLight;
+import pd.items.equipment.weapon.missiles.meleethrow.HugeShuriken;
 import pd.levels.GroundItems;
 import pd.levels.Terrain;
 import pd.levels.traps.PoisonDartTrap;
@@ -142,8 +142,8 @@ public class SpsTengu extends Mob {
 	@Override
 	public void die(Object cause) {
 		super.die(cause);
-		pd.items.weapon.rockcode.RockCode.dropForPerformer(
-				new pd.items.weapon.rockcode.Nshuriken());
+		pd.items.equipment.weapon.rockcode.RockCode.dropForPerformer(
+				new pd.items.equipment.weapon.rockcode.Nshuriken());
 		SpsPrisonBossRewards.grant(pos, new MasterThievesArmband().identify(), new HugeShuriken());
 		yell(Messages.get(this, "die"));
 	}

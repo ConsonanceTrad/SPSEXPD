@@ -4,7 +4,7 @@ package pd.actors.mobs;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.items.Item;
-import pd.items.potions.PotionOfToxicGas;
+import pd.items.consum.potions.PotionOfToxicGas;
 import pd.sprites.ShitSprite;
 
 /** Original SPS-PD runtime and save identity for the toilet elf. */

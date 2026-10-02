@@ -12,7 +12,7 @@ import pd.actors.hero.Hero;
 import pd.items.Ankh;
 import pd.items.Item;
 import pd.items.quest.Mushroom;
-import pd.items.weapon.melee.WarHammer;
+import pd.items.equipment.weapon.melee.WarHammer;
 import pd.messages.Messages;
 import pd.utils.GLog;
 import render.utils.math.Random;

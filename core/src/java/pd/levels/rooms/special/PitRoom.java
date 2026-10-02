@@ -26,7 +26,7 @@ import pd.Dungeon;
 import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.keys.CrystalKey;
+import pd.items.specific.keys.CrystalKey;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;

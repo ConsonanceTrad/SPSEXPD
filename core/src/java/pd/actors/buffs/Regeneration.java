@@ -25,9 +25,9 @@ import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.actors.hero.spells.SpiritForm;
-import pd.items.artifacts.ChaliceOfBlood;
-import pd.items.trinkets.ChaoticCenser;
-import pd.items.trinkets.SaltCube;
+import pd.items.equipment.artifacts.ChaliceOfBlood;
+import pd.items.equipment.trinkets.ChaoticCenser;
+import pd.items.equipment.trinkets.SaltCube;
 import pd.levels.VaultLevel;
 import render.utils.serialize.Bundle;
 

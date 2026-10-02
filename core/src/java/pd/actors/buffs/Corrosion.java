@@ -24,7 +24,7 @@ package pd.actors.buffs;
 import pd.Badges;
 import pd.Dungeon;
 import pd.actors.hero.Hero;
-import pd.items.wands.WandOfCorrosion;
+import pd.items.equipment.wands.WandOfCorrosion;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;

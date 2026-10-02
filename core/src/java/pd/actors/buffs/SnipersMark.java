@@ -25,7 +25,7 @@ import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
-import pd.items.weapon.SpiritBow;
+import pd.items.equipment.weapon.SpiritBow;
 import pd.messages.Messages;
 import pd.ui.ActionIndicator;
 import pd.ui.BuffIndicator;

@@ -32,7 +32,7 @@ import pd.actors.hero.Talent;
 import pd.actors.hero.abilities.ArmorAbility;
 import pd.actors.hero.spells.DivineIntervention;
 import pd.effects.Flare;
-import pd.items.armor.ClassArmor;
+import pd.items.equipment.armor.ClassArmor;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;

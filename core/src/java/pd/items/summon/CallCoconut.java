@@ -10,7 +10,7 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.actors.mobs.Mob;
 import pd.items.Heap;
-import pd.items.bombs.BuildBomb;
+import pd.items.equipment.bombs.BuildBomb;
 import pd.scenes.GameScene;
 import pd.sprites.CocoCatSprite;
 import render.utils.math.Random;

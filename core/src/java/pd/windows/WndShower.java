@@ -3,7 +3,7 @@ package pd.windows;
 
 import pd.Dungeon;
 import pd.items.Heap;
-import pd.items.weapon.melee.block.SpKnuckles;
+import pd.items.equipment.weapon.melee.block.SpKnuckles;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;

@@ -5,7 +5,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.items.Waterskin;
 import pd.items.quest.Mushroom;
-import pd.items.sellitem.SellMushroom;
+import pd.items.specific.sellitem.SellMushroom;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.TinkererSprite;

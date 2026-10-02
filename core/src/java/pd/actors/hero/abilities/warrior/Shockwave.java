@@ -36,7 +36,7 @@ import pd.actors.hero.abilities.ArmorAbility;
 import pd.actors.mobs.Mimic;
 import pd.effects.MagicMissile;
 import pd.items.Item;
-import pd.items.armor.ClassArmor;
+import pd.items.equipment.armor.ClassArmor;
 import pd.mechanics.Ballistica;
 import pd.mechanics.ConeAOE;
 import pd.messages.Messages;

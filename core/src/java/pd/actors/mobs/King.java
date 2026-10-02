@@ -12,9 +12,9 @@ import pd.actors.buffs.Vertigo;
 import pd.effects.Speck;
 import pd.items.Item;
 import pd.items.StoneOre;
-import pd.items.artifacts.ChaliceOfBlood;
-import pd.items.wands.WandOfDisintegration;
-import pd.items.weapon.missiles.throwing.Skull;
+import pd.items.equipment.artifacts.ChaliceOfBlood;
+import pd.items.equipment.wands.WandOfDisintegration;
+import pd.items.equipment.weapon.missiles.throwing.Skull;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -116,7 +116,7 @@ public class King extends Mob {
 		int amount = Math.min(maxArmySize() - undeadCount(), cells.size());
 		for (int i = 0; i < amount; i++) {
 			Undead undead = new Undead(); undead.ownerId = id(); undead.pos = cells.get(i); undead.state = undead.HUNTING; GameScene.add(undead);
-			pd.items.scrolls.ScrollOfTeleportation.appear(undead, undead.pos);
+			pd.items.consum.scrolls.ScrollOfTeleportation.appear(undead, undead.pos);
 		}
 		yell(Messages.get(this, "arise"));
 		if (HP < HT) HP += Random.Int(1, HT - HP);
@@ -129,8 +129,8 @@ public class King extends Mob {
 		int targetTombId = tomb == null ? -1 : tomb.id();
 		yell(Messages.get(this, "cannot"));
 		super.die(cause);
-		pd.items.weapon.rockcode.RockCode.dropForPerformer(
-				new pd.items.weapon.rockcode.Zshield());
+		pd.items.equipment.weapon.rockcode.RockCode.dropForPerformer(
+				new pd.items.equipment.weapon.rockcode.Zshield());
 		if (tomb != null) { BossHealthBar.assignBoss(tomb); DwarfLich.spawnAround(center, targetTombId); }
 		else SpsCityBossRewards.grant(center, 1000, 2000, rareLoot(), commonLoot());
 	}

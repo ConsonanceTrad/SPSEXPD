@@ -30,7 +30,7 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.Talent;
 import pd.actors.hero.abilities.ArmorAbility;
 import pd.effects.particles.LeafParticle;
-import pd.items.armor.ClassArmor;
+import pd.items.equipment.armor.ClassArmor;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
 import render.noosa.audio.Sample;

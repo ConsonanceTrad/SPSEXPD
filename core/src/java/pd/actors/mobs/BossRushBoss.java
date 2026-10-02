@@ -16,7 +16,7 @@ import pd.actors.buffs.Poison;
 import pd.actors.buffs.Sleep;
 import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
-import pd.items.scrolls.ScrollOfPsionicBlast;
+import pd.items.consum.scrolls.ScrollOfPsionicBlast;
 import pd.levels.BossRushLevel;
 import pd.scenes.GameScene;
 import pd.ui.BossHealthBar;

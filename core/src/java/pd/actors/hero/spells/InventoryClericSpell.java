@@ -23,8 +23,8 @@ package pd.actors.hero.spells;
 
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.items.artifacts.HolyTome;
-import pd.items.bags.Bag;
+import pd.items.equipment.artifacts.HolyTome;
+import pd.items.equipment.bags.Bag;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.windows.WndBag;

@@ -35,7 +35,7 @@ import pd.actors.hero.Talent;
 import pd.effects.CellEmitter;
 import pd.effects.particles.LeafParticle;
 import pd.items.Item;
-import pd.items.wands.WandOfRegrowth;
+import pd.items.equipment.wands.WandOfRegrowth;
 import pd.journal.Bestiary;
 import pd.journal.Catalog;
 import pd.levels.GroundItems;

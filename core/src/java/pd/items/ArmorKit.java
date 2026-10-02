@@ -4,7 +4,7 @@ import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
 
 import pd.Dungeon;
 import pd.actors.hero.Hero;
-import pd.items.armor.normalarmor.NormalArmor;
+import pd.items.equipment.armor.normalarmor.NormalArmor;
 
 import java.util.ArrayList;
 

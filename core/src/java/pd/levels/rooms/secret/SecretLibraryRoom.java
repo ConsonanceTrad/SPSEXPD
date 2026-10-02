@@ -21,20 +21,20 @@
 
 package pd.levels.rooms.secret;
 
-import pd.items.scrolls.Scroll;
-import pd.items.scrolls.ScrollOfIdentify;
-import pd.items.scrolls.ScrollOfLullaby;
-import pd.items.scrolls.ScrollOfMagicMapping;
-import pd.items.scrolls.ScrollOfMirrorImage;
-import pd.items.scrolls.ScrollOfRage;
-import pd.items.scrolls.ScrollOfRecharging;
-import pd.items.scrolls.ScrollOfRemoveCurse;
-import pd.items.scrolls.ScrollOfRetribution;
-import pd.items.scrolls.ScrollOfTeleportation;
-import pd.items.scrolls.ScrollOfTerror;
-import pd.items.scrolls.ScrollOfTransmutation;
-import pd.items.scrolls.exotic.ExoticScroll;
-import pd.items.trinkets.ExoticCrystals;
+import pd.items.consum.scrolls.Scroll;
+import pd.items.consum.scrolls.ScrollOfIdentify;
+import pd.items.consum.scrolls.ScrollOfLullaby;
+import pd.items.consum.scrolls.ScrollOfMagicMapping;
+import pd.items.consum.scrolls.ScrollOfMirrorImage;
+import pd.items.consum.scrolls.ScrollOfRage;
+import pd.items.consum.scrolls.ScrollOfRecharging;
+import pd.items.consum.scrolls.ScrollOfRemoveCurse;
+import pd.items.consum.scrolls.ScrollOfRetribution;
+import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.items.consum.scrolls.ScrollOfTerror;
+import pd.items.consum.scrolls.ScrollOfTransmutation;
+import pd.items.consum.scrolls.exotic.ExoticScroll;
+import pd.items.equipment.trinkets.ExoticCrystals;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;

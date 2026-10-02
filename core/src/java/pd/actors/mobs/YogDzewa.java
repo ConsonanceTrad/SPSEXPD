@@ -38,7 +38,7 @@ import pd.effects.Pushing;
 import pd.effects.TargetedCell;
 import pd.effects.particles.PurpleParticle;
 import pd.effects.particles.ShadowParticle;
-import pd.items.artifacts.DriedRose;
+import pd.items.equipment.artifacts.DriedRose;
 import pd.journal.Bestiary;
 import pd.levels.CellFlags;
 import pd.levels.FieldOfView;

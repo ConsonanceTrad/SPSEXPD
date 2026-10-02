@@ -9,7 +9,7 @@ import pd.actors.Actor;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.OrbOfZotMob;
 import pd.effects.particles.ElmoParticle;
-import pd.items.journalpages.EnergyCore;
+import pd.items.specific.journalpages.EnergyCore;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.utils.GLog;

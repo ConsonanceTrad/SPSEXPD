@@ -3,9 +3,9 @@ package pd.actors.mobs;
 
 import pd.actors.blobs.effectblobs.ElectriShock;
 import pd.items.Item;
-import pd.items.scrolls.ScrollOfRecharging;
-import pd.items.wands.WandOfLightning;
-import pd.items.wands.WandOfTCloud;
+import pd.items.consum.scrolls.ScrollOfRecharging;
+import pd.items.equipment.wands.WandOfLightning;
+import pd.items.equipment.wands.WandOfTCloud;
 import pd.sprites.PatrolUAVSprite;
 import render.utils.math.Random;
 

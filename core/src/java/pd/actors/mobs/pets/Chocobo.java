@@ -6,9 +6,9 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.HasteBuff;
 import pd.items.Item;
-import pd.items.eggs.RandomEasterEgg;
-import pd.items.food.completefood.PetFood;
-import pd.items.food.vegetable.Vegetable;
+import pd.items.consum.eggs.RandomEasterEgg;
+import pd.items.consum.food.completefood.PetFood;
+import pd.items.consum.food.vegetable.Vegetable;
 import pd.sprites.ChocoboSprite;
 import render.utils.math.Random;
 

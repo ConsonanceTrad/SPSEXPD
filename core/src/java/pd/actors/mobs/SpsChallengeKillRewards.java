@@ -10,15 +10,15 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.items.SacrificeBook;
 import pd.items.TreasureMap;
-import pd.items.challengelists.ChallengePageDrops;
-import pd.items.challengelists.CityChallenge;
-import pd.items.challengelists.PrisonChallenge;
-import pd.items.challengelists.SewerChallenge;
-import pd.items.food.GoldenNut;
-import pd.items.reward.CaveReward;
-import pd.items.reward.CityReward;
-import pd.items.reward.PrisonReward;
-import pd.items.reward.SewerReward;
+import pd.items.specific.challengelists.ChallengePageDrops;
+import pd.items.specific.challengelists.CityChallenge;
+import pd.items.specific.challengelists.PrisonChallenge;
+import pd.items.specific.challengelists.SewerChallenge;
+import pd.items.consum.food.GoldenNut;
+import pd.items.specific.reward.CaveReward;
+import pd.items.specific.reward.CityReward;
+import pd.items.specific.reward.PrisonReward;
+import pd.items.specific.reward.SewerReward;
 
 public final class SpsChallengeKillRewards {
 	private SpsChallengeKillRewards() { }

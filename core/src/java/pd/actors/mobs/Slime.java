@@ -26,7 +26,7 @@ import pd.actors.Char;
 import pd.actors.buffs.AscensionChallenge;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.weapon.melee.MeleeWeapon;
+import pd.items.equipment.weapon.melee.MeleeWeapon;
 import pd.sprites.SlimeSprite;
 import render.utils.math.Random;
 

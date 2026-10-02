@@ -8,7 +8,7 @@ import pd.items.Dewdrop;
 import pd.items.RedDewdrop;
 import pd.items.VioletDewdrop;
 import pd.items.YellowDewdrop;
-import pd.items.medicine.GreenSpore;
+import pd.items.consum.medicine.GreenSpore;
 import pd.mechanics.pathfind.PathFinder;
 import render.utils.math.Random;
 

@@ -2,7 +2,7 @@
 package pd.actors.mobs;
 
 import pd.items.Item;
-import pd.items.food.BugMeat;
+import pd.items.consum.food.BugMeat;
 import pd.sprites.SpiderBotSprite;
 
 /** Original SPS-PD runtime and save identity for the scavenger. */

@@ -3,7 +3,7 @@ package pd.sprites;
 
 import pd.Assets;
 import pd.Dungeon;
-import pd.items.weapon.missiles.darts.PoisonDart;
+import pd.items.equipment.weapon.missiles.darts.PoisonDart;
 import render.noosa.TextureFilm;
 
 /** Original SPS scarecrow animation and ranged dart presentation. */

@@ -4,7 +4,7 @@ import pd.actors.hero.Belongings;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.npcs.Blacksmith;
 import pd.items.Item;
-import pd.items.bags.Bag;
+import pd.items.equipment.bags.Bag;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;

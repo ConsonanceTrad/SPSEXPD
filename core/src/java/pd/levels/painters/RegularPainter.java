@@ -24,7 +24,7 @@ package pd.levels.painters;
 import pd.Dungeon;
 import pd.SPDSettings;
 import pd.ShatteredPixelDungeon;
-import pd.items.trinkets.TrapMechanism;
+import pd.items.equipment.trinkets.TrapMechanism;
 import pd.journal.Document;
 import pd.levels.GroundItems;
 import pd.levels.Level;

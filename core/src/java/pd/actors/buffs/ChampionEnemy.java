@@ -203,7 +203,7 @@ public abstract class ChampionEnemy extends Buff {
 		}
 
 		{
-			immunities.addAll(pd.items.armor.glyphs.AntiMagic.RESISTS);
+			immunities.addAll(pd.items.equipment.armor.glyphs.AntiMagic.RESISTS);
 		}
 
 	}

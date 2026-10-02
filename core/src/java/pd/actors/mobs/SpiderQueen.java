@@ -24,9 +24,9 @@ import pd.effects.Speck;
 import pd.effects.particles.ElmoParticle;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.artifacts.RobotDMT;
-import pd.items.food.MysteryMeat;
-import pd.items.scrolls.ScrollOfTeleportation;
+import pd.items.equipment.artifacts.RobotDMT;
+import pd.items.consum.food.MysteryMeat;
+import pd.items.consum.scrolls.ScrollOfTeleportation;
 import pd.levels.Terrain;
 import pd.levels.features.Door;
 import pd.mechanics.Ballistica;
@@ -109,8 +109,8 @@ public class SpiderQueen extends Mob {
 	@Override
 	public void die(Object cause) {
 		super.die(cause);
-		pd.items.weapon.rockcode.RockCode.dropForPerformer(
-				new pd.items.weapon.rockcode.Sweb());
+		pd.items.equipment.weapon.rockcode.RockCode.dropForPerformer(
+				new pd.items.equipment.weapon.rockcode.Sweb());
 		Item common = Generator.random(Generator.Category.ARMOR);
 		SpsCavesBossRewards.grant(pos, rareLoot(), common);
 		yell(Messages.get(this, "die"));

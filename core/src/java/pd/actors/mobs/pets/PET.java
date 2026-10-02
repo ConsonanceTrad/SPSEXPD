@@ -17,8 +17,8 @@ import pd.actors.buffs.SpeedUp;
 import pd.actors.buffs.WatchOut;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
-import pd.items.scrolls.ScrollOfPsionicBlast;
-import pd.items.wands.Wand;
+import pd.items.consum.scrolls.ScrollOfPsionicBlast;
+import pd.items.equipment.wands.Wand;
 
 /** SPS-PD 0.9.8's common pet rules, kept above the merged pet runtime. */
 public abstract class PET extends LegacyPet {

@@ -27,9 +27,9 @@ import pd.actors.buffs.Locked;
 import pd.items.Generator;
 import pd.items.Gold;
 import pd.items.Item;
-import pd.items.artifacts.GlassTotem;
-import pd.items.weapon.melee.normalweapon.Club;
-import pd.items.weapon.missiles.throwing.EscapeKnive;
+import pd.items.equipment.artifacts.GlassTotem;
+import pd.items.equipment.weapon.melee.normalweapon.Club;
+import pd.items.equipment.weapon.missiles.throwing.EscapeKnive;
 import pd.sprites.GnollSprite;
 import render.utils.math.Random;
 

@@ -9,7 +9,7 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.GnollKing;
 import pd.actors.mobs.Mob;
 import pd.items.TreasureMap;
-import pd.items.potions.PotionOfLiquidFlame;
+import pd.items.consum.potions.PotionOfLiquidFlame;
 import pd.items.quest.AdventureJournal;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;

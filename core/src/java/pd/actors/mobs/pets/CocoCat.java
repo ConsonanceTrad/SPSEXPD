@@ -3,7 +3,7 @@ package pd.actors.mobs.pets;
 
 import pd.Dungeon;
 import pd.actors.Char;
-import pd.items.bombs.BuildBomb;
+import pd.items.equipment.bombs.BuildBomb;
 import pd.sprites.CocoCatSprite;
 import render.utils.math.Random;
 

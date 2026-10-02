@@ -10,7 +10,7 @@ import pd.items.Generator;
 import pd.items.Gold;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.artifacts.MasterThievesArmband;
+import pd.items.equipment.artifacts.MasterThievesArmband;
 import pd.items.misc.LuckyBadge;
 import pd.messages.Messages;
 import pd.sprites.BanditKingSprite;

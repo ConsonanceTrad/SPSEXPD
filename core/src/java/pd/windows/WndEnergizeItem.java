@@ -29,7 +29,7 @@ import pd.actors.hero.Hero;
 import pd.items.EnergyCrystal;
 import pd.items.EquipableItem;
 import pd.items.Item;
-import pd.items.trinkets.Trinket;
+import pd.items.equipment.trinkets.Trinket;
 import pd.messages.Messages;
 import pd.scenes.AlchemyScene;
 import pd.scenes.GameScene;

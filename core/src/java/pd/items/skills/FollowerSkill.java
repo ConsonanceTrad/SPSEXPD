@@ -10,7 +10,7 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.npcs.NPC;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.bags.Bag;
+import pd.items.equipment.bags.Bag;
 import pd.scenes.GameScene;
 import pd.windows.WndBag;
 import render.utils.math.Random;

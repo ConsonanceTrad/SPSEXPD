@@ -3,10 +3,10 @@ package pd.actors.mobs.npcs;
 
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.items.armor.normalarmor.MachineArmor;
-import pd.items.food.WaterItem;
-import pd.items.food.staplefood.OverpricedRation;
-import pd.items.weapon.guns.GunE;
+import pd.items.equipment.armor.normalarmor.MachineArmor;
+import pd.items.consum.food.WaterItem;
+import pd.items.consum.food.staplefood.OverpricedRation;
+import pd.items.equipment.weapon.guns.GunE;
 import pd.plants.Plant;
 
 public class GiftBaMech extends GiftNpc {

@@ -26,7 +26,7 @@ import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.effects.FloatingText;
-import pd.items.bombs.Bomb;
+import pd.items.equipment.bombs.Bomb;
 import pd.levels.CellFlags;
 import pd.mechanics.ShadowCaster;
 import pd.scenes.GameScene;

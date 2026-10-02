@@ -3,8 +3,8 @@ package pd.actors.mobs;
 
 import pd.items.Item;
 import pd.items.RedDewdrop;
-import pd.items.artifacts.UnstableSpellbook;
-import pd.items.scrolls.ScrollOfUpgrade;
+import pd.items.equipment.artifacts.UnstableSpellbook;
+import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.sprites.SuffererSprite;
 import render.utils.math.Random;
 

@@ -24,7 +24,7 @@ package pd.actors.mobs;
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
-import pd.items.weapon.melee.Spear;
+import pd.items.equipment.weapon.melee.Spear;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.sprites.GnollGuardSprite;

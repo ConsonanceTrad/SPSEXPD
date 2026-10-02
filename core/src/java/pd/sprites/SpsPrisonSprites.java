@@ -4,7 +4,7 @@ package pd.sprites;
 import pd.Assets;
 import pd.Dungeon;
 import pd.effects.MagicMissile;
-import pd.items.weapon.missiles.Shuriken;
+import pd.items.equipment.weapon.missiles.Shuriken;
 import render.noosa.TextureFilm;
 
 public final class SpsPrisonSprites {

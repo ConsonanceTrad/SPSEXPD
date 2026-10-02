@@ -5,7 +5,7 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.items.bags.Bag;
+import pd.items.equipment.bags.Bag;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.GiftNpcSprite;

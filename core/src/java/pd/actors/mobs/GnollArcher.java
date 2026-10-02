@@ -5,7 +5,7 @@ import pd.Dungeon;
 import pd.Statistics;
 import pd.actors.Char;
 import pd.items.Heap;
-import pd.items.weapon.missiles.arrows.NutFruit;
+import pd.items.equipment.weapon.missiles.arrows.NutFruit;
 
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;

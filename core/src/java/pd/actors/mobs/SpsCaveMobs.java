@@ -21,8 +21,8 @@ import pd.effects.particles.SparkParticle;
 import pd.items.Generator;
 import pd.items.Item;
 import pd.items.StoneOre;
-import pd.items.food.WaterItem;
-import pd.items.scrolls.ScrollOfTeleportation;
+import pd.items.consum.food.WaterItem;
+import pd.items.consum.scrolls.ScrollOfTeleportation;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
@@ -47,7 +47,7 @@ public final class SpsCaveMobs {
 
 	public static class GnollShaman extends DualLootMob {
 		private static final float ZAP_TIME = 2f;
-		{ spriteClass = SpsCaveSprites.GnollShaman.class; HP = HT = 80 + legacyDepthAdjustment(0) * Random.NormalIntRange(2, 5); defenseSkill = 15 + legacyDepthAdjustment(0); EXP = 10; maxLvl = 25; setupDualLoot(Generator.Category.SCROLL, 0.15f, pd.items.wands.WandOfLightning.class, 0.02f); }
+		{ spriteClass = SpsCaveSprites.GnollShaman.class; HP = HT = 80 + legacyDepthAdjustment(0) * Random.NormalIntRange(2, 5); defenseSkill = 15 + legacyDepthAdjustment(0); EXP = 10; maxLvl = 25; setupDualLoot(Generator.Category.SCROLL, 0.15f, pd.items.equipment.wands.WandOfLightning.class, 0.02f); }
 		@Override public int damageRoll() { return Random.NormalIntRange(14, 20 + legacyDepthAdjustment(0)); }
 		@Override public int attackSkill(Char target) { return 16 + legacyDepthAdjustment(0); }
 		@Override public int drRoll() { return Random.NormalIntRange(0, 4); }

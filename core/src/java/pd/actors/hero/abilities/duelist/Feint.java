@@ -37,7 +37,7 @@ import pd.actors.hero.Talent;
 import pd.actors.hero.abilities.ArmorAbility;
 import pd.actors.mobs.Mob;
 import pd.items.Item;
-import pd.items.armor.ClassArmor;
+import pd.items.equipment.armor.ClassArmor;
 import pd.levels.Terrain;
 import pd.levels.features.Door;
 import pd.messages.Messages;

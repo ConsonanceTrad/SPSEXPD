@@ -28,7 +28,7 @@ import pd.actors.buffs.BlobImmunity;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
-import pd.items.potions.PotionOfHealing;
+import pd.items.consum.potions.PotionOfHealing;
 import pd.messages.Messages;
 import pd.utils.GLog;
 

@@ -6,8 +6,8 @@ import pd.actors.buffs.HolyStun;
 import pd.actors.buffs.Paralysis;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.food.completefood.PetFood;
-import pd.items.weapon.missiles.MissileWeapon;
+import pd.items.consum.food.completefood.PetFood;
+import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.sprites.StoneSprite;
 import render.utils.math.Random;
 public class Stone extends PET {

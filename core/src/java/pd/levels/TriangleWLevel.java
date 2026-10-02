@@ -12,7 +12,7 @@ import pd.actors.mobs.PatrolUAV;
 import pd.actors.mobs.Sentinel;
 import pd.items.Item;
 import pd.items.TriforceOfWisdom;
-import pd.items.potions.PotionOfLevitation;
+import pd.items.consum.potions.PotionOfLevitation;
 import pd.levels.builders.SpsBspLayout.Room;
 import pd.levels.builders.SpsBspLayout.Type;
 import pd.mechanics.pathfind.PathFinder;

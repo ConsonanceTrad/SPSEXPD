@@ -24,7 +24,7 @@ import pd.actors.buffs.Vertigo;
 import pd.actors.buffs.Vulnerable;
 import pd.actors.buffs.Weakness;
 import pd.items.quest.AdventureJournal;
-import pd.items.scrolls.ScrollOfTeleportation;
+import pd.items.consum.scrolls.ScrollOfTeleportation;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;

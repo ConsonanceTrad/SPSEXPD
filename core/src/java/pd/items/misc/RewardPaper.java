@@ -7,7 +7,7 @@ import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.items.EquipableItem;
 import pd.items.Item;
-import pd.items.reward.BoundReward;
+import pd.items.specific.reward.BoundReward;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.windows.WndBag;

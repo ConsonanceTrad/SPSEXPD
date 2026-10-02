@@ -30,7 +30,7 @@ import pd.actors.buffs.Poison;
 import pd.effects.Pushing;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.scrolls.ScrollOfMagicalInfusion;
+import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.scenes.GameScene;
 import pd.sprites.SwarmSprite;
 import render.utils.math.Random;

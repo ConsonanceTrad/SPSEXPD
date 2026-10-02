@@ -31,7 +31,7 @@ import pd.actors.buffs.Vertigo;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.actors.mobs.Mob;
-import pd.items.weapon.missiles.arrows.ShockFruit;
+import pd.items.equipment.weapon.missiles.arrows.ShockFruit;
 import pd.levels.traps.Trap;
 
 public class Stormvine extends Plant {

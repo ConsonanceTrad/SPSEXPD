@@ -1,7 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.windows;
 
-import pd.items.weapon.melee.special.ErrorW;
+import pd.items.equipment.weapon.melee.special.ErrorW;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;

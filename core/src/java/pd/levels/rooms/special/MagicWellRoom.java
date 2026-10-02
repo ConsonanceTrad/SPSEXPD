@@ -26,7 +26,7 @@ import pd.actors.blobs.WaterOfAwareness;
 import pd.actors.blobs.WaterOfHealth;
 import pd.actors.blobs.WaterOfTransmutation;
 import pd.actors.blobs.WellWater;
-import pd.items.keys.IronKey;
+import pd.items.specific.keys.IronKey;
 import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;

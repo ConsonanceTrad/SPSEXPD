@@ -23,7 +23,7 @@ package pd.levels.rooms.quest.vault.treasure;
 
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.potions.PotionOfLiquidFlame;
+import pd.items.consum.potions.PotionOfLiquidFlame;
 import pd.items.quest.DwarfToken;
 import pd.levels.GroundItems;
 import pd.levels.Level;

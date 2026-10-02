@@ -30,7 +30,7 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.GoldThief;
 import pd.actors.mobs.npcs.Imp;
 import pd.effects.particles.ElmoParticle;
-import pd.items.armor.ClothArmor;
+import pd.items.equipment.armor.ClothArmor;
 import pd.items.quest.EscapeCrystal;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.CityPainter;

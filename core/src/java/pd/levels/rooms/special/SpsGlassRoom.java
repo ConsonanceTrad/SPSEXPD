@@ -3,7 +3,7 @@ package pd.levels.rooms.special;
 
 import pd.items.Item;
 import pd.items.StoneOre;
-import pd.items.bombs.DungeonBomb;
+import pd.items.equipment.bombs.DungeonBomb;
 import pd.items.nornstone.BlueNornStone;
 import pd.items.nornstone.GreenNornStone;
 import pd.items.nornstone.OrangeNornStone;

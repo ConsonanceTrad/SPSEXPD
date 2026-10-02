@@ -30,7 +30,7 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.actors.hero.Talent;
 import pd.actors.hero.abilities.cleric.AscendedForm;
-import pd.items.artifacts.HolyTome;
+import pd.items.equipment.artifacts.HolyTome;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.ui.HeroIcon;

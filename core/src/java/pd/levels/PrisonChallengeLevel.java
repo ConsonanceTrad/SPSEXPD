@@ -5,7 +5,7 @@ import pd.Assets;
 import pd.actors.mobs.Mob;
 import pd.actors.mobs.SpsChallengeMobPool;
 import pd.items.Heap;
-import pd.items.bombs.LightBomb;
+import pd.items.equipment.bombs.LightBomb;
 import render.utils.math.Random;
 
 /** SPS-PD 0.9.8 overgrown prison arena (challenge-book room 2). */

@@ -28,7 +28,7 @@ import pd.actors.blobs.SacrificialFire;
 import pd.items.Generator;
 import pd.items.Gold;
 import pd.items.Item;
-import pd.items.weapon.Weapon;
+import pd.items.equipment.weapon.Weapon;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;

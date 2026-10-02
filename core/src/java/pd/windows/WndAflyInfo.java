@@ -4,19 +4,19 @@ package pd.windows;
 import pd.items.Ankh;
 import pd.items.Garbage;
 import pd.items.Item;
-import pd.items.armor.fusion.LifeArmor;
-import pd.items.eggs.AflyEgg;
-import pd.items.food.AflyFood;
-import pd.items.food.ChargrilledMeat;
-import pd.items.food.Food;
-import pd.items.food.FrozenCarpaccio;
-import pd.items.food.MeatPie;
-import pd.items.food.MysteryMeat;
-import pd.items.food.PhantomMeat;
-import pd.items.food.SmallMeat;
-import pd.items.food.StewedMeat;
-import pd.items.food.fruit.Fruit;
-import pd.items.food.vegetable.Vegetable;
+import pd.items.equipment.armor.fusion.LifeArmor;
+import pd.items.consum.eggs.AflyEgg;
+import pd.items.consum.food.AflyFood;
+import pd.items.consum.food.ChargrilledMeat;
+import pd.items.consum.food.Food;
+import pd.items.consum.food.FrozenCarpaccio;
+import pd.items.consum.food.MeatPie;
+import pd.items.consum.food.MysteryMeat;
+import pd.items.consum.food.PhantomMeat;
+import pd.items.consum.food.SmallMeat;
+import pd.items.consum.food.StewedMeat;
+import pd.items.consum.food.fruit.Fruit;
+import pd.items.consum.food.vegetable.Vegetable;
 
 /** Alfred's original three-ingredient cooking interface. */
 public class WndAflyInfo extends WndSpsRecipe {

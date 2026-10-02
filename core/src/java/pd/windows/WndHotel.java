@@ -2,7 +2,7 @@
 package pd.windows;
 
 import pd.Dungeon;
-import pd.items.keys.IronKey;
+import pd.items.specific.keys.IronKey;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;

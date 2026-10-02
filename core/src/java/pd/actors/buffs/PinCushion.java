@@ -23,9 +23,9 @@ package pd.actors.buffs;
 
 import pd.Dungeon;
 import pd.items.Item;
-import pd.items.weapon.missiles.MissileWeapon;
-import pd.items.weapon.missiles.darts.Dart;
-import pd.items.weapon.missiles.darts.TippedDart;
+import pd.items.equipment.weapon.missiles.MissileWeapon;
+import pd.items.equipment.weapon.missiles.darts.Dart;
+import pd.items.equipment.weapon.missiles.darts.TippedDart;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;

@@ -27,7 +27,7 @@ import pd.items.Generator;
 import pd.items.Gold;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.keys.IronKey;
+import pd.items.specific.keys.IronKey;
 import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;

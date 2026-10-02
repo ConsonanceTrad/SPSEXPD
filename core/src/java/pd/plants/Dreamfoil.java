@@ -7,9 +7,9 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.MagicalSleep;
 import pd.actors.hero.Hero;
-import pd.items.food.vegetable.DreamLeaf;
-import pd.items.potions.PotionOfHealing;
-import pd.items.weapon.missiles.arrows.CharmFruit;
+import pd.items.consum.food.vegetable.DreamLeaf;
+import pd.items.consum.potions.PotionOfHealing;
+import pd.items.equipment.weapon.missiles.arrows.CharmFruit;
 
 public class Dreamfoil extends Plant {
 	{ image = 10; seedClass = Seed.class; }

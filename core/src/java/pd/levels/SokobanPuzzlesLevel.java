@@ -3,9 +3,9 @@ package pd.levels;
 
 import pd.items.Item;
 import pd.items.KnowledgeBook;
-import pd.items.eggs.Egg;
-import pd.items.potions.PotionOfLiquidFlame;
-import pd.items.scrolls.ScrollOfMagicalInfusion;
+import pd.items.consum.eggs.Egg;
+import pd.items.consum.potions.PotionOfLiquidFlame;
+import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.plants.ReNepenth;
 import pd.plants.StarEater;
 import pd.plants.Starflower;

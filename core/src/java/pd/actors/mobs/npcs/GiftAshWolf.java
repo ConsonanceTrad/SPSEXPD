@@ -3,8 +3,8 @@ package pd.actors.mobs.npcs;
 
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.items.eggs.PigpetEgg;
-import pd.items.food.vegetable.Truffles;
+import pd.items.consum.eggs.PigpetEgg;
+import pd.items.consum.food.vegetable.Truffles;
 import render.utils.math.Random;
 
 public class GiftAshWolf extends GiftNpc {

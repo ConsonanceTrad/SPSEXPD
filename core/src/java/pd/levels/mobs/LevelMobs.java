@@ -28,7 +28,7 @@ import pd.actors.Char;
 import pd.actors.buffs.ChampionEnemy;
 import pd.actors.mobs.Mob;
 import pd.actors.mobs.MobSpawner;
-import pd.items.trinkets.DimensionalSundial;
+import pd.items.equipment.trinkets.DimensionalSundial;
 import pd.levels.Level;
 import pd.messages.Messages;
 import pd.mechanics.pathfind.PathFinder;

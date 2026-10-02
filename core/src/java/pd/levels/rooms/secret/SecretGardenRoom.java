@@ -22,7 +22,7 @@
 package pd.levels.rooms.secret;
 
 import pd.actors.blobs.Foliage;
-import pd.items.wands.WandOfRegrowth;
+import pd.items.equipment.wands.WandOfRegrowth;
 import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Patch;

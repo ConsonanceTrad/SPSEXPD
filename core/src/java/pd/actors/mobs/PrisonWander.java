@@ -21,11 +21,11 @@ import pd.effects.Effects;
 import pd.effects.Pushing;
 import pd.effects.Speck;
 import pd.items.Item;
-import pd.items.artifacts.EtherealChains;
-import pd.items.bombs.DungeonBomb;
-import pd.items.wands.WandOfBlastWave;
-import pd.items.wands.WandOfLight;
-import pd.items.weapon.enchantments.EnchantmentLight;
+import pd.items.equipment.artifacts.EtherealChains;
+import pd.items.equipment.bombs.DungeonBomb;
+import pd.items.equipment.wands.WandOfBlastWave;
+import pd.items.equipment.wands.WandOfLight;
+import pd.items.equipment.weapon.enchantments.EnchantmentLight;
 import pd.levels.GroundItems;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
@@ -249,8 +249,8 @@ public class PrisonWander extends Mob {
 	@Override
 	public void die(Object cause) {
 		super.die(cause);
-		pd.items.weapon.rockcode.RockCode.dropForPerformer(
-				new pd.items.weapon.rockcode.Ichain());
+		pd.items.equipment.weapon.rockcode.RockCode.dropForPerformer(
+				new pd.items.equipment.weapon.rockcode.Ichain());
 		SpsPrisonBossRewards.grant(pos, rareLoot(), commonLoot());
 		yell(Messages.get(this, "die"));
 	}

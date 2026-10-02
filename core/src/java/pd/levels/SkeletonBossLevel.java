@@ -9,7 +9,7 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.SkeletonHand1;
 import pd.actors.mobs.SkeletonHand2;
 import pd.actors.mobs.SkeletonKing;
-import pd.items.potions.PotionOfLiquidFlame;
+import pd.items.consum.potions.PotionOfLiquidFlame;
 import pd.items.quest.AdventureJournal;
 import pd.levels.features.LevelTransition;
 import pd.levels.painters.Painter;

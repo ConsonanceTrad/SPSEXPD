@@ -4,7 +4,7 @@ import pd.Dungeon;
 import pd.effects.BlobEmitter;
 import pd.effects.Speck;
 import pd.items.Heap;
-import pd.items.weapon.Weapon;
+import pd.items.equipment.weapon.Weapon;
 
 public class Alter extends Blob {
 

@@ -8,7 +8,7 @@
 package pd.levels.traps;
 
 import pd.actors.hero.Hero;
-import pd.items.armor.Armor;
+import pd.items.equipment.armor.Armor;
 
 /** Shared runtime behavior for the armor-destroying SPS puzzle trap. */
 public final class FleecingTrap {

@@ -4,8 +4,8 @@ package pd.actors.mobs.npcs;
 import pd.actors.hero.Hero;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.food.completefood.Honeymeat;
-import pd.items.food.meatfood.Meat;
+import pd.items.consum.food.completefood.Honeymeat;
+import pd.items.consum.food.meatfood.Meat;
 
 public class GiftMeatSeller extends GiftNpc {
 	{ properties.add(Property.MECH); }

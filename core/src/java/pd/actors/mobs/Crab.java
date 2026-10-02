@@ -24,7 +24,7 @@ package pd.actors.mobs;
 import pd.actors.Char;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.food.MysteryMeat;
+import pd.items.consum.food.MysteryMeat;
 import pd.sprites.CrabSprite;
 import render.utils.math.Random;
 

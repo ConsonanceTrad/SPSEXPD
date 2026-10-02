@@ -23,7 +23,7 @@ package pd.actors.buffs;
 
 import pd.actors.hero.Hero;
 import pd.effects.FloatingText;
-import pd.items.trinkets.VialOfBlood;
+import pd.items.equipment.trinkets.VialOfBlood;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;

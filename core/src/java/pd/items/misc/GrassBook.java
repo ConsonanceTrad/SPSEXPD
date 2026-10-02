@@ -11,7 +11,7 @@ import pd.actors.hero.Hero;
 import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.scrolls.ScrollOfRegrowth;
+import pd.items.consum.scrolls.ScrollOfRegrowth;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;

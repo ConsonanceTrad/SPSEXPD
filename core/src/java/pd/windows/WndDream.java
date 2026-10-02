@@ -3,7 +3,7 @@ package pd.windows;
 
 import pd.Dungeon;
 import pd.actors.hero.Hero;
-import pd.items.food.meatfood.FunnyFood;
+import pd.items.consum.food.meatfood.FunnyFood;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;

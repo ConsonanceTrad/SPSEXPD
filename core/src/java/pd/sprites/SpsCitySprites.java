@@ -2,8 +2,8 @@
 package pd.sprites;
 
 import pd.Assets;
-import pd.items.weapon.missiles.throwing.EmpBola;
-import pd.items.weapon.missiles.throwing.Wave;
+import pd.items.equipment.weapon.missiles.throwing.EmpBola;
+import pd.items.equipment.weapon.missiles.throwing.Wave;
 import render.noosa.TextureFilm;
 
 public final class SpsCitySprites {

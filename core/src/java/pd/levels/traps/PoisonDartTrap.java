@@ -32,7 +32,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Poison;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
-import pd.items.weapon.missiles.darts.PoisonDart;
+import pd.items.equipment.weapon.missiles.darts.PoisonDart;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.sprites.MissileSprite;

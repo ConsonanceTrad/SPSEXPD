@@ -3,7 +3,7 @@ package pd.actors.mobs;
 
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.weapon.enchantments.EnchantmentDark;
+import pd.items.equipment.weapon.enchantments.EnchantmentDark;
 import pd.sprites.TrollWarriorSprite;
 
 /** Original SPS-PD runtime and save identity for the troll warrior. */

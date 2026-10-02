@@ -17,8 +17,8 @@ import pd.actors.buffs.Tar;
 import pd.effects.Pushing;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.bombs.DangerousBomb;
-import pd.items.potions.PotionOfExperience;
+import pd.items.equipment.bombs.DangerousBomb;
+import pd.items.consum.potions.PotionOfExperience;
 import pd.levels.Terrain;
 import pd.levels.features.Door;
 import pd.mechanics.pathfind.PathFinder;
@@ -135,8 +135,8 @@ public class Hybrid extends Mob {
 	@Override
 	public void die(Object cause) {
 		super.die(cause);
-		pd.items.weapon.rockcode.RockCode.dropForPerformer(
-				new pd.items.weapon.rockcode.Mlaser());
+		pd.items.equipment.weapon.rockcode.RockCode.dropForPerformer(
+				new pd.items.equipment.weapon.rockcode.Mlaser());
 		SpsCavesBossRewards.grant(pos, rareLoot(), new PotionOfExperience());
 		yell(Messages.get(this, "die"));
 	}

@@ -2,7 +2,7 @@ package pd.sprites;
 
 import pd.Assets;
 import pd.Dungeon;
-import pd.items.weapon.missiles.ShitBall;
+import pd.items.equipment.weapon.missiles.ShitBall;
 import render.noosa.MovieClip.Animation;
 import render.noosa.TextureFilm;
 import render.utils.data.Callback;

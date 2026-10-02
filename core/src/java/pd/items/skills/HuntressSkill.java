@@ -10,7 +10,7 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.npcs.Mtree;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.reward.BoundReward;
+import pd.items.specific.reward.BoundReward;
 import pd.items.summon.FairyCard;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;

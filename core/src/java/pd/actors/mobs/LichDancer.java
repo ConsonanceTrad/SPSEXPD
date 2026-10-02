@@ -14,14 +14,14 @@ import pd.effects.Speck;
 import pd.items.Generator;
 import pd.items.Item;
 import pd.items.StoneOre;
-import pd.items.artifacts.GlassTotem;
-import pd.items.bombs.DungeonBomb;
-import pd.items.scrolls.ScrollOfTeleportation;
-import pd.items.wands.WandOfDisintegration;
-import pd.items.weapon.enchantments.EnchantmentDark;
-import pd.items.weapon.melee.fusion.Harp;
-import pd.items.weapon.melee.fusion.ReedPipe;
-import pd.items.weapon.melee.fusion.WarDrum;
+import pd.items.equipment.artifacts.GlassTotem;
+import pd.items.equipment.bombs.DungeonBomb;
+import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.items.equipment.wands.WandOfDisintegration;
+import pd.items.equipment.weapon.enchantments.EnchantmentDark;
+import pd.items.equipment.weapon.melee.fusion.Harp;
+import pd.items.equipment.weapon.melee.fusion.ReedPipe;
+import pd.items.equipment.weapon.melee.fusion.WarDrum;
 import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
@@ -148,8 +148,8 @@ public class LichDancer extends Mob {
 
 	@Override public void die(Object cause) {
 		super.die(cause);
-		pd.items.weapon.rockcode.RockCode.dropForPerformer(
-				new pd.items.weapon.rockcode.Lbox());
+		pd.items.equipment.weapon.rockcode.RockCode.dropForPerformer(
+				new pd.items.equipment.weapon.rockcode.Lbox());
 		SpsCityBossRewards.grant(pos, 1000, 2000, rareLoot(), commonLoot());
 		yell(Messages.get(this, "die"));
 	}

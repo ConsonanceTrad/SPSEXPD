@@ -21,15 +21,15 @@ import pd.items.Stylus;
 import pd.items.Torch;
 import pd.items.Weightstone;
 import pd.items.misc.LuckyBadge;
-import pd.items.potions.PotionOfOverHealing;
-import pd.items.potions.PotionOfStrength;
-import pd.items.scrolls.ScrollOfMagicalInfusion;
-import pd.items.scrolls.ScrollOfUpgrade;
-import pd.items.stones.StoneOfEnchantment;
-import pd.items.stones.StoneOfIntuition;
-import pd.items.trinkets.MossyClump;
-import pd.items.trinkets.TrapMechanism;
-import pd.items.trinkets.TrinketCatalyst;
+import pd.items.consum.potions.PotionOfOverHealing;
+import pd.items.consum.potions.PotionOfStrength;
+import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
+import pd.items.consum.scrolls.ScrollOfUpgrade;
+import pd.items.consum.stones.StoneOfEnchantment;
+import pd.items.consum.stones.StoneOfIntuition;
+import pd.items.equipment.trinkets.MossyClump;
+import pd.items.equipment.trinkets.TrapMechanism;
+import pd.items.equipment.trinkets.TrinketCatalyst;
 import render.utils.math.Random;
 
 /**
