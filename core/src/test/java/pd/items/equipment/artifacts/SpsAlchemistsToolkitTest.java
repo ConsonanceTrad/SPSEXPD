@@ -161,14 +161,14 @@ public final class SpsAlchemistsToolkitTest {
 		for (String file : new String[]{"en/items.properties", "zh/items.properties",
 				"zh-hant/items.properties", "ru/items.properties"}) {
 			Properties items = load("messages/items/" + file);
-			for (String key : keys) required(items, "items.artifacts.alchemiststoolkit." + key, file);
-			check(!items.containsKey("items.artifacts.alchemiststoolkit.ac_energize")
-					&& !items.containsKey("items.artifacts.alchemiststoolkit.desc_warming"),
+			for (String key : keys) required(items, "items.equipment.artifacts.alchemiststoolkit." + key, file);
+			check(!items.containsKey("items.equipment.artifacts.alchemiststoolkit.ac_energize")
+					&& !items.containsKey("items.equipment.artifacts.alchemiststoolkit.desc_warming"),
 					file + "仍含破碎版供能或预热文本");
 		}
 		Properties zh = load("messages/items/zh/items.properties");
-		check("组合".equals(zh.getProperty("items.artifacts.alchemiststoolkit.ac_brew"))
-				&& "耗竭-造物".equals(zh.getProperty("items.artifacts.alchemiststoolkit.ac_create")),
+		check("组合".equals(zh.getProperty("items.equipment.artifacts.alchemiststoolkit.ac_brew"))
+				&& "耗竭-造物".equals(zh.getProperty("items.equipment.artifacts.alchemiststoolkit.ac_create")),
 				"炼金工具箱简体中文动作乱码或错误");
 		try (java.util.stream.Stream<Path> paths = java.nio.file.Files.walk(Path.of("messages"))) {
 			for (Path path : (Iterable<Path>) paths.filter(p -> p.toString().endsWith(".properties"))::iterator) {

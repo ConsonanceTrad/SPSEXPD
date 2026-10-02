@@ -39,6 +39,7 @@ import java.security.MessageDigest;
 import java.util.Arrays;
 
 import javax.imageio.ImageIO;
+import pd.atlas.IconEntry;
 
 public final class SpsGlassTotemTest {
 
@@ -133,8 +134,8 @@ public final class SpsGlassTotemTest {
 	private static void testResourcesAndExactSprites() throws Exception {
 		String zh = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
 		String en = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
-		String[] keys = {"items.artifacts.glasstotem.name=", "items.artifacts.glasstotem.ac_atk=",
-				"items.artifacts.glasstotem.ac_def=", "items.artifacts.glasstotem.desc="};
+		String[] keys = {"items.equipment.artifacts.glasstotem.name=", "items.equipment.artifacts.glasstotem.ac_atk=",
+				"items.equipment.artifacts.glasstotem.ac_def=", "items.equipment.artifacts.glasstotem.desc="};
 		for (String key : keys) check(zh.contains(key) && en.contains(key), "中英文资源缺少键：" + key);
 		check(zh.contains("玻璃图腾") && zh.contains("耗竭-保护祝福") && !zh.contains("�"),
 				"玻璃图腾中文乱码或缺失");

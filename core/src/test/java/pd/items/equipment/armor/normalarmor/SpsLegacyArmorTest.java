@@ -106,7 +106,7 @@ public final class SpsLegacyArmorTest {
 			int expectedStrength = 8 + TIERS[i] * 2 + STR_OFFSET[i];
 			check(armor.STRReq(0) == expectedStrength && armor.STRReq(10) == expectedStrength,
 					armor.getClass().getSimpleName() + "固定力量需求错误");
-			check(armor.image == IMAGES[i], armor.getClass().getSimpleName() + "图标槽错误");
+			check(armor.image == images[i], armor.getClass().getSimpleName() + "图标槽错误");
 		}
 	}
 

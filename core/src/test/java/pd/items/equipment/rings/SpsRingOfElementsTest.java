@@ -109,7 +109,7 @@ public final class SpsRingOfElementsTest {
 	private static void testResources() throws Exception {
 		String zh = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
 		String en = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
-		check(zh.contains("items.rings.ringofelements.name=元素戒指")
+		check(zh.contains("items.equipment.rings.ringofelements.name=元素戒指")
 				&& zh.contains("增益效果提升至_%1$s%%_倍，负面效果降低至_%2$s%%_倍")
 				&& zh.contains("在30级时这个效果达到上限") && !zh.contains("�"), "元素戒指中文原文缺失或乱码");
 		check(en.contains("Gain element resistance, improve buff by %1$s%%, and reduce debuff by %2$s%%.")

@@ -200,7 +200,7 @@ public final class SpsOrbOfZotTest {
 			check(!text.contains("\uFFFD"), "储能装置双语资源含UTF-8替换字符");
 		}
 		check(zhItems.contains("items.orbofzot.name=储能装置")
-				&& zhItems.contains("items.journalpages.energycore.name=Otiluck的旅行日志之能源核心")
+				&& zhItems.contains("items.specific.journalpages.energycore.name=Otiluck的旅行日志之能源核心")
 				&& enItems.contains("items.orbofzot.ac_activatethrow=USE")
 				&& zhActors.contains("actors.mobs.orbofzotmob.name=zot牌能源球")
 				&& enActors.contains("actors.mobs.orbofzotmob.die=Energy down, waiting for charge."),

@@ -236,14 +236,14 @@ public final class SpsUnstableSpellbookTest {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_read", "ac_add", "ac_song", "blinded",
 					"no_charge", "cursed", "update", "dew_empty", "desc", "desc_cursed", "desc_index"}) {
-				required(items, "items.artifacts.unstablespellbook." + key, file);
+				required(items, "items.equipment.artifacts.unstablespellbook." + key, file);
 			}
-			check(items.getProperty("items.artifacts.unstablespellbook.desc_index").contains("%s"),
+			check(items.getProperty("items.equipment.artifacts.unstablespellbook.desc_index").contains("%s"),
 					file + "的露珠升级说明缺少数量占位符");
 		}
 		Properties zh = load("messages/items/zh/items.properties");
-		check("耗竭-圣歌".equals(zh.getProperty("items.artifacts.unstablespellbook.ac_song"))
-				&& zh.getProperty("items.artifacts.unstablespellbook.desc_index").contains("露珠"),
+		check("耗竭-圣歌".equals(zh.getProperty("items.equipment.artifacts.unstablespellbook.ac_song"))
+				&& zh.getProperty("items.equipment.artifacts.unstablespellbook.desc_index").contains("露珠"),
 				"不稳定魔典简体中文不是旧版文案或出现乱码");
 
 		String book = Files.readString(Path.of("../java/pd/items/artifacts/UnstableSpellbook.java"));

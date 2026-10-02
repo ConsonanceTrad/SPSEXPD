@@ -31,6 +31,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 import javax.imageio.ImageIO;
+import pd.atlas.IconEntry;
 
 public final class SpsCallCoconutTest {
 	private static final String ITEM_HASH = "B7AED8C96A421E90AE14D7809FE8B5E9D0766EBEBBA624E6807E1D9E3EB640D2";

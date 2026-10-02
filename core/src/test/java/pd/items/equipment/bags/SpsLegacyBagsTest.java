@@ -127,8 +127,8 @@ public final class SpsLegacyBagsTest {
 	private static void testBilingualResources() throws Exception {
 		String zh = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
 		String en = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
-		String[] keys = {"items.bags.arrowcollecter.name=", "items.bags.arrowcollecter.desc=",
-				"items.bags.keyring.name=", "items.bags.keyring.desc="};
+		String[] keys = {"items.equipment.bags.arrowcollecter.name=", "items.equipment.bags.arrowcollecter.desc=",
+				"items.equipment.bags.keyring.name=", "items.equipment.bags.keyring.desc="};
 		for (String key : keys) check(zh.contains(key) && en.contains(key), "中英文资源缺少键：" + key);
 		check(zh.contains("暗器袋") && zh.contains("钥匙环") && !zh.contains("�"), "收纳袋中文乱码或缺失");
 	}

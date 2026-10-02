@@ -182,9 +182,9 @@ public final class SpsMagicKnowledgeRingsTest {
 	private static void testResources() throws Exception {
 		String zh = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
 		String en = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
-		check(zh.contains("items.rings.fusion.ringofmagic.name=奥术戒指")
+		check(zh.contains("items.equipment.rings.fusion.ringofmagic.name=奥术戒指")
 				&& zh.contains("你的法强值会提升_%d_点")
-				&& zh.contains("items.rings.fusion.ringofknowledge.name=学识戒指")
+				&& zh.contains("items.equipment.rings.fusion.ringofknowledge.name=学识戒指")
 				&& zh.contains("施法时有25%%的几率造成_%1$s_倍伤害")
 				&& !zh.contains("�"), "奥术或学识戒指中文原文缺失或乱码");
 		check(en.contains("MIG improve _%d_ .")

@@ -190,10 +190,10 @@ public final class SpsSpecialArrowsTest {
 	private static void testResourcesAndIcons() throws Exception {
 		String en = java.nio.file.Files.readString(Path.of("messages", "items", "en", "items.properties"), StandardCharsets.UTF_8);
 		String zh = java.nio.file.Files.readString(Path.of("messages", "items", "zh", "items.properties"), StandardCharsets.UTF_8);
-		for (String key : new String[]{"items.weapon.missiles.arrows.magichand.name=",
-				"items.weapon.missiles.arrows.magichand.desc=",
-				"items.weapon.missiles.arrows.riceball.name=",
-				"items.weapon.missiles.arrows.riceball.desc="}) {
+		for (String key : new String[]{"items.equipment.weapon.missiles.arrows.magichand.name=",
+				"items.equipment.weapon.missiles.arrows.magichand.desc=",
+				"items.equipment.weapon.missiles.arrows.riceball.name=",
+				"items.equipment.weapon.missiles.arrows.riceball.desc="}) {
 			check(en.contains(key) && zh.contains(key), "特殊箭矢缺少中英文资源键：" + key);
 		}
 		check(zh.contains("魔术手") && zh.contains("糯米团") && !zh.contains("�"), "特殊箭矢中文资源乱码");

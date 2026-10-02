@@ -149,9 +149,9 @@ public final class SpsPetEggsTest {
 
 	private static void testChineseResources() throws Exception {
 		String text = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
-		check(text.contains("items.eggs.randomone.randomegg12.name=随机十二月灵魂")
-				&& text.contains("items.eggs.bugdragonegg.name=BUG龙之魂")
-				&& text.contains("items.sellitem.vipcard.name=VIP卡"), "宠物灵魂中文资源缺失或乱码");
+		check(text.contains("items.consum.eggs.randomone.randomegg12.name=随机十二月灵魂")
+				&& text.contains("items.consum.eggs.bugdragonegg.name=BUG龙之魂")
+				&& text.contains("items.specific.sellitem.vipcard.name=VIP卡"), "宠物灵魂中文资源缺失或乱码");
 	}
 
 	private static void assertEgg(Egg egg, IconEntry image, Class<? extends LegacyPet> type) {

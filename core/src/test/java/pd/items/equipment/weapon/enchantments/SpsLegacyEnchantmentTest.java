@@ -216,11 +216,11 @@ public final class SpsLegacyEnchantmentTest {
 		String chinese = new String(Files.readAllBytes(Paths.get("messages/items/zh/items.properties")), StandardCharsets.UTF_8);
 		check(!english.contains("\uFFFD") && !chinese.contains("\uFFFD"), "附魔文本含有UTF-8替换字符");
 		for (Class<?> type : CLASSES) {
-			String key = "items.weapon.enchantments." + type.getSimpleName().toLowerCase() + ".";
+			String key = "items.equipment.weapon.enchantments." + type.getSimpleName().toLowerCase() + ".";
 			check(english.contains(key + "name=") && english.contains(key + "desc="), type.getSimpleName() + "缺少英文文本");
 			check(chinese.contains(key + "name=") && chinese.contains(key + "desc="), type.getSimpleName() + "缺少中文文本");
 		}
-		check(chinese.contains("items.weapon.enchantments.enchantmentshock.name=乱流%s"), "中文附魔文本读取异常");
+		check(chinese.contains("items.equipment.weapon.enchantments.enchantmentshock.name=乱流%s"), "中文附魔文本读取异常");
 	}
 
 	private static void checkDamage(Weapon.Enchantment enchantment, Dagger weapon, TestMob attacker, int expected) {

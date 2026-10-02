@@ -160,15 +160,15 @@ public final class SpsTimekeepersHourglassTest {
 			for (String key : new String[]{"name", "ac_activate", "ac_restart", "in_use", "no_charge",
 					"cursed", "onstasis", "onfreeze", "stasis", "freeze", "prompt", "desc",
 					"desc_hint", "desc_cursed"}) {
-				required(items, "items.artifacts.timekeepershourglass." + key, file);
+				required(items, "items.equipment.artifacts.timekeepershourglass." + key, file);
 			}
 			for (String key : new String[]{"name", "levelup", "maxlevel", "no_hourglass", "desc"}) {
-				required(items, "items.artifacts.timekeepershourglass$sandbag." + key, file);
+				required(items, "items.equipment.artifacts.timekeepershourglass$sandbag." + key, file);
 			}
 		}
 		Properties zh = load("messages/items/zh/items.properties");
-		check("耗竭-重置".equals(zh.getProperty("items.artifacts.timekeepershourglass.ac_restart"))
-				&& !zh.getProperty("items.artifacts.timekeepershourglass.prompt").contains("两点能量"),
+		check("耗竭-重置".equals(zh.getProperty("items.equipment.artifacts.timekeepershourglass.ac_restart"))
+				&& !zh.getProperty("items.equipment.artifacts.timekeepershourglass.prompt").contains("两点能量"),
 				"时光沙漏简体中文仍是破碎版说明或出现乱码");
 	}
 

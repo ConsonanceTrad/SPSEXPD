@@ -190,12 +190,12 @@ public final class SpsSpecialRewardWeaponsTest {
 		String en = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
 		check(!zh.contains("\uFFFD") && !en.contains("\uFFFD"), "特殊奖励武器文本含UTF-8替换字符");
 		for (String key : Arrays.asList("goei.name", "tekkokagi.name", "wraithbreath.name")) {
-			check(zh.contains("items.weapon.melee.special." + key + "=")
-					&& en.contains("items.weapon.melee.special." + key + "="), "特殊奖励武器缺少双语键：" + key);
+			check(zh.contains("items.equipment.weapon.melee.special." + key + "=")
+					&& en.contains("items.equipment.weapon.melee.special." + key + "="), "特殊奖励武器缺少双语键：" + key);
 		}
-		check(zh.contains("items.weapon.melee.special.goei.name=驱魔御币")
-				&& zh.contains("items.weapon.melee.special.tekkokagi.name=攻击之爪")
-				&& zh.contains("items.weapon.melee.special.wraithbreath.name=幽灵之息"),
+		check(zh.contains("items.equipment.weapon.melee.special.goei.name=驱魔御币")
+				&& zh.contains("items.equipment.weapon.melee.special.tekkokagi.name=攻击之爪")
+				&& zh.contains("items.equipment.weapon.melee.special.wraithbreath.name=幽灵之息"),
 				"特殊奖励武器中文文本乱码或名称错误");
 	}
 

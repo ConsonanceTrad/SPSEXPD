@@ -42,6 +42,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Properties;
 import javax.imageio.ImageIO;
+import pd.atlas.IconEntry;
 
 /** Runtime parity checks for the ordinary SPS-PD 0.9.8 psionic-draw scroll. */
 public final class SpsPsionicBlastTest {
@@ -178,7 +179,7 @@ public final class SpsPsionicBlastTest {
 		Scroll.clearLabels();
 		Scroll.restore(old);
 		ScrollOfIdentify migrated = new ScrollOfIdentify();
-		check(migrated.isKnown() && !"ODAL".equals(migrated.rune) && migrated.image != 0,
+		check(migrated.isKnown() && !"ODAL".equals(migrated.rune) && migrated.image != null,
 				"旧ODAL标签没有安全迁移，可能在载入物品图标时崩溃");
 
 		Bundle itemBundle = new Bundle();
@@ -214,10 +215,10 @@ public final class SpsPsionicBlastTest {
 				"zh-hant/items.properties", "ru/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ondeath", "desc"}) {
-				required(items, "items.scrolls.scrollofpsionicblast." + key, file);
+				required(items, "items.consum.scrolls.scrollofpsionicblast." + key, file);
 			}
 			for (String rune : new String[]{"ncosrane", "nendil", "libra"}) {
-				required(items, "items.scrolls.scroll." + rune, file);
+				required(items, "items.consum.scrolls.scroll." + rune, file);
 			}
 		}
 		try (java.util.stream.Stream<Path> paths = java.nio.file.Files.walk(Path.of("messages"))) {

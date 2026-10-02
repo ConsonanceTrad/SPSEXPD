@@ -283,12 +283,12 @@ public final class SpsExtendedLegacyWeaponsTest {
 		String en = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
 		check(!zh.contains("\uFFFD") && !en.contains("\uFFFD"), "扩展旧版武器文本含UTF-8替换字符");
 		for (String key : Arrays.asList("stonecross", "mirrordoll", "handlight", "cursebox")) {
-			check(zh.contains("items.weapon.melee." + key + ".name=")
-					&& en.contains("items.weapon.melee." + key + ".name="), "破法武器缺少双语键：" + key);
+			check(zh.contains("items.equipment.weapon.melee." + key + ".name=")
+					&& en.contains("items.equipment.weapon.melee." + key + ".name="), "破法武器缺少双语键：" + key);
 		}
 		for (String key : Arrays.asList("smallchakram", "hugeshuriken", "tamahawk")) {
-			check(zh.contains("items.weapon.missiles.meleethrow." + key + ".name=")
-					&& en.contains("items.weapon.missiles.meleethrow." + key + ".name="), "近战投掷武器缺少双语键：" + key);
+			check(zh.contains("items.equipment.weapon.missiles.meleethrow." + key + ".name=")
+					&& en.contains("items.equipment.weapon.missiles.meleethrow." + key + ".name="), "近战投掷武器缺少双语键：" + key);
 		}
 	}
 

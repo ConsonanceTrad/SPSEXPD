@@ -88,7 +88,7 @@ public final class SpsSpecialArmorTest {
 			int strength = 8 + TIERS[i] * 2 + STR_OFFSET[i];
 			check(armor.STRReq(0) == strength && armor.STRReq(10) == strength,
 					armor.getClass().getSimpleName() + "力量需求错误");
-			check(armor.image == IMAGES[i], armor.getClass().getSimpleName() + "图标槽错误");
+			check(armor.image == images[i], armor.getClass().getSimpleName() + "图标槽错误");
 		}
 	}
 

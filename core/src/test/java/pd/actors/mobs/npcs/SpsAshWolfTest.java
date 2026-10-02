@@ -178,8 +178,8 @@ public final class SpsAshWolfTest {
 				"样板房地点纸片不是SPS-PD 0.9.8原始图标");
 		String itemsZh = Files.readString(new File("messages/items/zh/items.properties").toPath(), StandardCharsets.UTF_8);
 		String miscZh = Files.readString(new File("messages/misc/zh/misc.properties").toPath(), StandardCharsets.UTF_8);
-		check(itemsZh.contains("items.weapon.melee.special.pumpkin.name=南瓜灯")
-				&& itemsZh.contains("items.journalpages.newhome.name=样板房坐标")
+		check(itemsZh.contains("items.equipment.weapon.melee.special.pumpkin.name=南瓜灯")
+				&& itemsZh.contains("items.specific.journalpages.newhome.name=样板房坐标")
 				&& miscZh.contains("challenges.test_time=测试时间"), "阿萨相关中文资源缺失");
 		check(itemsZh.indexOf('\uFFFD') < 0 && miscZh.indexOf('\uFFFD') < 0, "阿萨相关中文资源出现乱码替代字符");
 	}

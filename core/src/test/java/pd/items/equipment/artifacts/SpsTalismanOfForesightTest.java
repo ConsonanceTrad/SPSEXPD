@@ -33,6 +33,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Properties;
+import pd.atlas.IconEntry;
 
 /** Runtime parity checks for SPS-PD 0.9.8's Talisman of Foresight. */
 public final class SpsTalismanOfForesightTest {
@@ -186,16 +187,16 @@ public final class SpsTalismanOfForesightTest {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_scry", "ac_notice", "no_charge", "scry",
 					"desc", "desc_worn", "desc_cursed"}) {
-				required(items, "items.artifacts.talismanofforesight." + key, file);
+				required(items, "items.equipment.artifacts.talismanofforesight." + key, file);
 			}
 			for (String key : new String[]{"name", "levelup", "full_charge", "uneasy", "desc"}) {
-				required(items, "items.artifacts.talismanofforesight$foresight." + key, file);
+				required(items, "items.equipment.artifacts.talismanofforesight$foresight." + key, file);
 			}
 		}
 		Properties zh = load("messages/items/zh/items.properties");
-		check("耗竭-预知".equals(zh.getProperty("items.artifacts.talismanofforesight.ac_notice"))
+		check("耗竭-预知".equals(zh.getProperty("items.equipment.artifacts.talismanofforesight.ac_notice"))
 				&& "护符将关于本层的知识填满了你的脑海。".equals(
-				zh.getProperty("items.artifacts.talismanofforesight.scry")),
+				zh.getProperty("items.equipment.artifacts.talismanofforesight.scry")),
 				"先见护符简体中文旧版动作或提示乱码");
 	}
 
@@ -242,7 +243,7 @@ public final class SpsTalismanOfForesightTest {
 		int chargeValue() { return charge; }
 		float partialValue() { return partialCharge; }
 		int expValue() { return exp; }
-		int imageValue() { return image; }
+		IconEntry imageValue() { return image; }
 		void setCharge(int value) { charge = value; }
 		void setPartial(float value) { partialCharge = value; }
 		void setExp(int value) { exp = value; }

@@ -152,11 +152,11 @@ public final class SpsChaliceOfBloodTest {
 		String zhItems = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
 		String enActors = Files.readString(Paths.get("messages/actors/en/actors.properties"), StandardCharsets.UTF_8);
 		String zhActors = Files.readString(Paths.get("messages/actors/zh/actors.properties"), StandardCharsets.UTF_8);
-		check(enItems.contains("items.artifacts.chaliceofblood.ac_bloodangry=S-BLOODANGRY")
+		check(enItems.contains("items.equipment.artifacts.chaliceofblood.ac_bloodangry=S-BLOODANGRY")
 				&& enItems.contains("Each time you use the chalice it will drain more life energy")
 				&& enItems.contains("you can subtly feel the chalice feeding life energy into you. You still want"),
 				"英文圣杯资源不是0.9.8原文");
-		check(zhItems.contains("items.artifacts.chaliceofblood.ac_bloodangry=耗竭-血怒")
+		check(zhItems.contains("items.equipment.artifacts.chaliceofblood.ac_bloodangry=耗竭-血怒")
 				&& zhItems.contains("要是不够小心，这种行为可以轻易地杀死你")
 				&& zhItems.contains("你可以隐约感受到杯子在为你送来生命能量。你还想"),
 				"中文圣杯资源不是0.9.8原文");

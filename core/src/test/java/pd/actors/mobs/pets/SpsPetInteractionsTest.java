@@ -151,9 +151,9 @@ public final class SpsPetInteractionsTest {
 				&& zhWindows.contains("windows.wndpetinfo.recover=收获")
 				&& enWindows.contains("windows.wndpetinfo.recover=Get reward, cooldown less than 5"),
 				"宠物五项交互窗口资源缺失或与0.9.8不一致");
-		check(zhItems.contains("items.weapon.melee.special.sjrbmusic.name=S-J-R-B音乐套装")
+		check(zhItems.contains("items.equipment.weapon.melee.special.sjrbmusic.name=S-J-R-B音乐套装")
 				&& zhItems.contains("2019暑假快乐！\\n共振，高级穿刺，迷人，喧闹")
-				&& zhItems.contains("items.weapon.melee.special.sjrbmusic.rap=鸡你太美!!!"),
+				&& zhItems.contains("items.equipment.weapon.melee.special.sjrbmusic.rap=鸡你太美!!!"),
 				"S-J-R-B音乐套装中文资源缺失、被改写或乱码");
 		SJRBMusic music = new SJRBMusic();
 		check(music.image == SpecificPlaceHolderDict.SOMETHING_0 && music.tier == 1

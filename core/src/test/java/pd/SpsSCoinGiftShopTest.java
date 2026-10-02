@@ -32,6 +32,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Properties;
+import pd.atlas.IconEntry;
 
 /**
  * SPS S金与礼物商店门禁：金币兑 S金（2333:1）、S金钱包持久化、
@@ -312,7 +313,7 @@ public final class SpsSCoinGiftShopTest {
 			for (String key : new String[]{"items.summon.chinamech.name", "items.summon.chinamech.ac_active",
 					"items.summon.chinamech.desc", "items.summon.chinamech$huaweidajiang.name",
 					"items.summon.chinamech$huaweidajiang.desc",
-					"items.sellitem.jumperdancer.name", "items.sellitem.jumperdancer.desc"}) {
+					"items.specific.sellitem.jumperdancer.name", "items.specific.sellitem.jumperdancer.desc"}) {
 				required(items, key, lang);
 			}
 
@@ -395,9 +396,9 @@ public final class SpsSCoinGiftShopTest {
 				"跳舞人偶图标不是 0.9.9 原始像素");
 	}
 
-	private static String iconHash(java.awt.image.BufferedImage image, int index) throws Exception {
-		int left = (index % 16) * 16;
-		int top = (index / 16) * 16;
+	private static String iconHash(java.awt.image.BufferedImage image, IconEntry index) throws Exception {
+		int left = index.x(0);
+		int top = index.y(0);
 		java.nio.ByteBuffer pixels = java.nio.ByteBuffer.allocate(16 * 16 * 4).order(java.nio.ByteOrder.LITTLE_ENDIAN);
 		for (int y = top; y < top + 16; y++) {
 			for (int x = left; x < left + 16; x++) pixels.putInt(image.getRGB(x, y));

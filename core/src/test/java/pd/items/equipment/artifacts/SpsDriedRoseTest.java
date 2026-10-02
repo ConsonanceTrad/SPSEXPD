@@ -139,13 +139,13 @@ public final class SpsDriedRoseTest {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_summon", "ac_outfit", "ac_soulbless",
 					"no_charge", "cursed", "no_space", "charged", "desc"}) {
-				required(items, "items.artifacts.driedrose." + key, file);
+				required(items, "items.equipment.artifacts.driedrose." + key, file);
 			}
-			required(items, "items.artifacts.driedrose$superghosthero.name", file);
-			required(items, "items.artifacts.driedrose$superghosthero.desc", file);
+			required(items, "items.equipment.artifacts.driedrose$superghosthero.name", file);
+			required(items, "items.equipment.artifacts.driedrose$superghosthero.desc", file);
 		}
 		Properties zh = load("messages/items/zh/items.properties");
-		check("耗竭-超度".equals(zh.getProperty("items.artifacts.driedrose.ac_soulbless")),
+		check("耗竭-超度".equals(zh.getProperty("items.equipment.artifacts.driedrose.ac_soulbless")),
 				"干花玫瑰简体中文超度动作乱码或错误");
 		try (java.util.stream.Stream<Path> paths = java.nio.file.Files.walk(Path.of("messages"))) {
 			for (Path path : (Iterable<Path>) paths.filter(p -> p.toString().endsWith(".properties"))::iterator) {

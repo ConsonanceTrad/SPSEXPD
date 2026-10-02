@@ -254,8 +254,8 @@ public final class SpsJournalPagesTest {
 		String en = Files.readString(Path.of("messages", "items", "en", "items.properties"), StandardCharsets.UTF_8);
 		String zh = Files.readString(Path.of("messages", "items", "zh", "items.properties"), StandardCharsets.UTF_8);
 		for (String key : Arrays.asList("safespotpage", "sokoban1", "sokoban2", "sokoban3", "sokoban4", "town")) {
-			check(en.contains("items.journalpages." + key + ".name=")
-					&& zh.contains("items.journalpages." + key + ".name="), key + "缺少英文或简体中文文本");
+			check(en.contains("items.specific.journalpages." + key + ".name=")
+					&& zh.contains("items.specific.journalpages." + key + ".name="), key + "缺少英文或简体中文文本");
 		}
 		check(en.contains("items.dolyaslate.name=") && en.contains("items.dolyaslate.charge=")
 				&& zh.contains("items.dolyaslate.name=") && zh.contains("items.dolyaslate.charge="),

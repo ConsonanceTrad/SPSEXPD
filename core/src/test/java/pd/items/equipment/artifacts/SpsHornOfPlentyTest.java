@@ -213,11 +213,11 @@ public final class SpsHornOfPlentyTest {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_eat", "ac_store", "ac_feed", "eat", "prompt",
 					"no_food", "full", "maxlevel", "levelup", "desc", "desc_hint", "desc_cursed"}) {
-				required(items, "items.artifacts.hornofplenty." + key, file);
+				required(items, "items.equipment.artifacts.hornofplenty." + key, file);
 			}
 		}
 		Properties zh = load("messages/items/zh/items.properties");
-		check("耗竭-盛宴".equals(zh.getProperty("items.artifacts.hornofplenty.ac_feed")),
+		check("耗竭-盛宴".equals(zh.getProperty("items.equipment.artifacts.hornofplenty.ac_feed")),
 				"丰饶之角简体中文盛宴动作乱码或错误");
 		try (java.util.stream.Stream<Path> paths = java.nio.file.Files.walk(Path.of("messages"))) {
 			for (Path path : (Iterable<Path>) paths.filter(p -> p.toString().endsWith(".properties"))::iterator) {

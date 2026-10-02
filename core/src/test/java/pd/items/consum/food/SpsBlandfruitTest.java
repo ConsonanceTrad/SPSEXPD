@@ -141,15 +141,15 @@ public final class SpsBlandfruitTest {
 		for (String file : new String[]{"en/items.properties", "zh/items.properties",
 				"zh-hant/items.properties", "ru/items.properties"}) {
 			Properties items = load("messages/items/" + file);
-			required(items, "items.food.blandfruit.name", file);
-			required(items, "items.food.blandfruit.desc", file);
-			required(items, "items.brewed.brewed.name", file);
-			required(items, "items.brewed.brewed.desc_cooked", file);
+			required(items, "items.consum.food.blandfruit.name", file);
+			required(items, "items.consum.food.blandfruit.desc", file);
+			required(items, "items.consum.brewed.brewed.name", file);
+			required(items, "items.consum.brewed.brewed.desc_cooked", file);
 		}
 		Properties simplified = load("messages/items/zh/items.properties");
 		Properties traditional = load("messages/items/zh-hant/items.properties");
-		check("无味果".equals(simplified.getProperty("items.food.blandfruit.name")), "简体中文无味果文本乱码");
-		check("無味果".equals(traditional.getProperty("items.food.blandfruit.name")), "繁体中文无味果文本乱码");
+		check("无味果".equals(simplified.getProperty("items.consum.food.blandfruit.name")), "简体中文无味果文本乱码");
+		check("無味果".equals(traditional.getProperty("items.consum.food.blandfruit.name")), "繁体中文无味果文本乱码");
 
 		try (java.util.stream.Stream<Path> paths = java.nio.file.Files.walk(Path.of("messages"))) {
 			for (Path path : (Iterable<Path>) paths.filter(p -> p.toString().endsWith(".properties"))::iterator) {

@@ -199,10 +199,10 @@ public final class SpsCloakOfShadowsTest {
 				"zh-hant/items.properties", "ru/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_stealth", "ac_shadow", "cooldown", "no_charge", "desc"}) {
-				required(items, "items.artifacts.cloakofshadows." + key, file);
+				required(items, "items.equipment.artifacts.cloakofshadows." + key, file);
 			}
 			for (String key : new String[]{"no_charge", "levelup", "name", "desc"}) {
-				required(items, "items.artifacts.cloakofshadows$cloakstealth." + key, file);
+				required(items, "items.equipment.artifacts.cloakofshadows$cloakstealth." + key, file);
 			}
 		}
 		for (String file : new String[]{"en/actors.properties", "zh/actors.properties",
@@ -212,7 +212,7 @@ public final class SpsCloakOfShadowsTest {
 			required(actors, "actors.buffs.forevershadow.desc", file);
 		}
 		Properties zh = load("messages/items/zh/items.properties");
-		check("耗竭-永影".equals(zh.getProperty("items.artifacts.cloakofshadows.ac_shadow")),
+		check("耗竭-永影".equals(zh.getProperty("items.equipment.artifacts.cloakofshadows.ac_shadow")),
 				"暗影斗篷简体中文永影动作乱码或错误");
 		try (java.util.stream.Stream<Path> paths = java.nio.file.Files.walk(Path.of("messages"))) {
 			for (Path path : (Iterable<Path>) paths.filter(p -> p.toString().endsWith(".properties"))::iterator) {

@@ -42,6 +42,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 import javax.imageio.ImageIO;
+import pd.atlas.IconEntry;
 
 public final class SpsPocketBallFullTest {
 	private static final int[] TYPES = {

@@ -24,6 +24,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.Properties;
+import pd.atlas.IconEntry;
 
 /** Runtime parity checks for SPS-PD 0.9.8's Sandals of Nature. */
 public final class SpsSandalsOfNatureTest {
@@ -150,7 +151,7 @@ public final class SpsSandalsOfNatureTest {
 		TestSandals images = new TestSandals();
 		for (int level = 1; level <= 10; level++) {
 			images.upgrade();
-			int expected = level <= 3 ? EquipmentJewelleryArtifactDict.ARTIFACT_SANDALS
+			IconEntry expected = level <= 3 ? EquipmentJewelleryArtifactDict.ARTIFACT_SANDALS
 					: level <= 6 ? EquipmentJewelleryArtifactDict.ARTIFACT_SHOES
 					: level <= 9 ? EquipmentJewelleryArtifactDict.ARTIFACT_BOOTS : EquipmentJewelleryArtifactDict.ARTIFACT_GREAVES;
 			check(images.imageValue() == expected, "自然凉鞋在" + level + "级使用了错误形态");
@@ -202,7 +203,7 @@ public final class SpsSandalsOfNatureTest {
 			for (String key : new String[]{"name", "ac_feed", "ac_root", "ac_sprout", "no_charge",
 					"prompt", "already_fed", "levelup", "absorb_seed", "desc_0", "desc_1",
 					"desc_2", "desc_3", "desc_hint", "desc_cursed", "desc_ability", "desc_seeds"}) {
-				required(items, "items.artifacts.sandalsofnature." + key, file);
+				required(items, "items.equipment.artifacts.sandalsofnature." + key, file);
 			}
 		}
 		for (String file : new String[]{"en/plants.properties", "zh/plants.properties",
@@ -212,7 +213,7 @@ public final class SpsSandalsOfNatureTest {
 			required(plants, "plants.earthroot$magicplantarmor.desc", file);
 		}
 		Properties zh = load("messages/items/zh/items.properties");
-		check("耗竭-发芽".equals(zh.getProperty("items.artifacts.sandalsofnature.ac_sprout")),
+		check("耗竭-发芽".equals(zh.getProperty("items.equipment.artifacts.sandalsofnature.ac_sprout")),
 				"自然凉鞋简体中文发芽动作乱码或错误");
 	}
 
@@ -257,7 +258,7 @@ public final class SpsSandalsOfNatureTest {
 		int seededCells;
 		int seededAmount;
 		int chargeValue() { return charge; }
-		int imageValue() { return image; }
+		IconEntry imageValue() { return image; }
 		int seedCount() { return seeds.size(); }
 		void setCharge(int value) { charge = value; }
 		void setCursed(boolean value) { cursed = value; }

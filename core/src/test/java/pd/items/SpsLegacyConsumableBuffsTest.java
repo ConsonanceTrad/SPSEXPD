@@ -46,6 +46,7 @@ import java.security.MessageDigest;
 import java.util.Arrays;
 
 import javax.imageio.ImageIO;
+import pd.atlas.IconEntry;
 
 public final class SpsLegacyConsumableBuffsTest {
 
@@ -152,9 +153,9 @@ public final class SpsLegacyConsumableBuffsTest {
 		String zhItems = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
 		String zhActors = Files.readString(Paths.get("messages/actors/zh/actors.properties"), StandardCharsets.UTF_8);
 		String enItems = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
-		check(zhItems.contains("items.medicine.lingpotion.name=澪祷星瓶")
+		check(zhItems.contains("items.consum.medicine.lingpotion.name=澪祷星瓶")
 				&& zhItems.contains("一瓶来自澪的圣水，能极大提升使用者的能力")
-				&& zhItems.contains("items.food.fruit.fullmoonberry.name=满月浆果"), "消耗品中文原文缺失");
+				&& zhItems.contains("items.consum.food.fruit.fullmoonberry.name=满月浆果"), "消耗品中文原文缺失");
 		check(zhActors.contains("actors.buffs.fullmoonstrength.name=满月之力")
 				&& zhActors.contains("actors.buffs.lingbless.name=澪祷之愿")
 				&& !zhItems.contains("�") && !zhActors.contains("�"), "独有状态中文乱码或缺失");

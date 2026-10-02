@@ -213,9 +213,9 @@ public final class SpsTestTimeLoadoutTest {
 	private static void testBilingualResources() throws Exception {
 		String zh = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
 		String en = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
-		String[] keys = {"items.bags.wandholster.name=",
-				"items.tomeofmastery.name=", "items.scrolls.scrollofdummy.name=",
-				"items.scrolls.scrollofdummy$minidummy.name="};
+		String[] keys = {"items.equipment.bags.wandholster.name=",
+				"items.tomeofmastery.name=", "items.consum.scrolls.scrollofdummy.name=",
+				"items.consum.scrolls.scrollofdummy$minidummy.name="};
 		for (String key : keys) check(zh.contains(key) && en.contains(key), "中英文资源缺少键：" + key);
 		check(zh.contains("精通之书") && zh.contains("吵闹玩偶") && !zh.contains("�"), "测试物品中文乱码或缺失");
 	}

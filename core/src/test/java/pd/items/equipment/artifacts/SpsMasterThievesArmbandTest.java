@@ -177,14 +177,14 @@ public final class SpsMasterThievesArmbandTest {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_steal", "ac_goldtouch", "no_charge",
 					"cursed", "no_target", "level_up", "prompt", "desc", "desc_worn"}) {
-				required(items, "items.artifacts.masterthievesarmband." + key, file);
+				required(items, "items.equipment.artifacts.masterthievesarmband." + key, file);
 			}
 			for (Object value : items.values()) {
 				check(!String.valueOf(value).contains("\uFFFD"), file + "包含Unicode替换字符");
 			}
 		}
 		Properties zh = load("messages/items/zh/items.properties");
-		check("耗竭-点金".equals(zh.getProperty("items.artifacts.masterthievesarmband.ac_goldtouch")),
+		check("耗竭-点金".equals(zh.getProperty("items.equipment.artifacts.masterthievesarmband.ac_goldtouch")),
 				"神偷袖章简体中文点金动作乱码或错误");
 	}
 

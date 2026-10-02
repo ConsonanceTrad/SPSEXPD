@@ -40,6 +40,7 @@ import java.util.HashSet;
 import java.util.Properties;
 
 import javax.imageio.ImageIO;
+import pd.atlas.IconEntry;
 
 /** Runtime parity checks for SPS-PD 0.9.8's Noomlin Crown. */
 public final class SpsNoomlinCrownTest {
@@ -97,8 +98,8 @@ public final class SpsNoomlinCrownTest {
 		String source = Files.readString(Path.of("../java/pd/items/artifacts/fusion/NoomlinCrown.java"));
 		check(shop.contains("new NoomlinCrown()"), "旧版特殊商店没有出售诺姆林王冠");
 		check(journal.contains("case 23: reward = new NoomlinCrown();"), "冒险日志第23项奖励不是诺姆林王冠");
-		check(game.contains("com.hmdzl.spspd.items.artifacts.NoomlinCrown\"")
-				&& game.contains("com.hmdzl.spspd.items.artifacts.NoomlinCrown$crown"),
+		check(game.contains("com.hmdzl.spspd.items.equipment.artifacts.NoomlinCrown\"")
+				&& game.contains("com.hmdzl.spspd.items.equipment.artifacts.NoomlinCrown$crown"),
 				"缺少0.9.8王冠或空被动旧类名存档别名");
 		check(source.contains("levelCap = 1") && source.contains("return new Crown()")
 				&& !source.contains("MasterThievesArmband"), "王冠一级上限、空被动或独立实现发生偏移");
@@ -106,14 +107,14 @@ public final class SpsNoomlinCrownTest {
 		for (String file : new String[]{"en/items.properties", "zh/items.properties",
 				"zh-hant/items.properties", "ru/items.properties"}) {
 			Properties items = load("messages/items/" + file);
-			required(items, "items.artifacts.fusion.noomlincrown.name", file);
-			required(items, "items.artifacts.fusion.noomlincrown.desc", file);
-			check(items.getProperty("items.artifacts.fusion.noomlincrown.ac_steal") == null,
+			required(items, "items.equipment.artifacts.fusion.noomlincrown.name", file);
+			required(items, "items.equipment.artifacts.fusion.noomlincrown.desc", file);
+			check(items.getProperty("items.equipment.artifacts.fusion.noomlincrown.ac_steal") == null,
 					file + "仍保留错误的征收动作文本");
 		}
 		Properties zh = load("messages/items/zh/items.properties");
-		check("诺姆林王冠".equals(zh.getProperty("items.artifacts.fusion.noomlincrown.name"))
-				&& zh.getProperty("items.artifacts.fusion.noomlincrown.desc").contains("没有力量"),
+		check("诺姆林王冠".equals(zh.getProperty("items.equipment.artifacts.fusion.noomlincrown.name"))
+				&& zh.getProperty("items.equipment.artifacts.fusion.noomlincrown.desc").contains("没有力量"),
 				"诺姆林王冠简体中文不是旧版文本或出现乱码");
 
 		BufferedImage current = ImageIO.read(Path.of("sprites/items", "items.png").toFile());

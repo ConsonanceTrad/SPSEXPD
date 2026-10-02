@@ -170,17 +170,17 @@ public final class SpsCapeOfThornsTest {
 				"zh-hant/items.properties", "ru/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_needling", "desc", "desc_inactive", "desc_active"}) {
-				required(items, "items.artifacts.capeofthorns." + key, file);
+				required(items, "items.equipment.artifacts.capeofthorns." + key, file);
 			}
 			for (String key : new String[]{"inert", "radiating", "levelup", "name", "desc"}) {
-				required(items, "items.artifacts.capeofthorns$thorns." + key, file);
+				required(items, "items.equipment.artifacts.capeofthorns$thorns." + key, file);
 			}
 		}
 		Properties zh = load("messages/items/zh/items.properties");
 		Properties zhHant = load("messages/items/zh-hant/items.properties");
-		check("耗竭-激发".equals(zh.getProperty("items.artifacts.capeofthorns.ac_needling")),
+		check("耗竭-激发".equals(zh.getProperty("items.equipment.artifacts.capeofthorns.ac_needling")),
 				"荆棘斗篷简体中文动作乱码或错误");
-		check("耗竭-激發".equals(zhHant.getProperty("items.artifacts.capeofthorns.ac_needling")),
+		check("耗竭-激發".equals(zhHant.getProperty("items.equipment.artifacts.capeofthorns.ac_needling")),
 				"荆棘斗篷繁体中文动作乱码或错误");
 		try (java.util.stream.Stream<Path> paths = java.nio.file.Files.walk(Path.of("messages"))) {
 			for (Path path : (Iterable<Path>) paths.filter(p -> p.toString().endsWith(".properties"))::iterator) {

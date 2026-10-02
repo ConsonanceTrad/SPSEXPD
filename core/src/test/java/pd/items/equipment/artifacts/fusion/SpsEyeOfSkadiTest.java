@@ -51,6 +51,7 @@ import java.util.HashSet;
 import java.util.Properties;
 
 import javax.imageio.ImageIO;
+import pd.atlas.IconEntry;
 
 /** Runtime parity checks for SPS-PD 0.9.8's Eye of Skadi. */
 public final class SpsEyeOfSkadiTest {
@@ -197,8 +198,8 @@ public final class SpsEyeOfSkadiTest {
 		String journal = Files.readString(Path.of("../java/pd/items/quest/AdventureJournal.java"));
 		check(journal.contains("case 20: reward = new EyeOfSkadi();"), "冒险日志第20项奖励不是斯嘉蒂之眼");
 		String game = Files.readString(Path.of("../java/pd/ShatteredPixelDungeon.java"));
-		check(game.contains("com.hmdzl.spspd.items.artifacts.EyeOfSkadi\"")
-				&& game.contains("com.hmdzl.spspd.items.artifacts.EyeOfSkadi$eyeRecharge"),
+		check(game.contains("com.hmdzl.spspd.items.equipment.artifacts.EyeOfSkadi\"")
+				&& game.contains("com.hmdzl.spspd.items.equipment.artifacts.EyeOfSkadi$eyeRecharge"),
 				"缺少0.9.8冰眼或充能被动旧类名存档别名");
 		String source = Files.readString(Path.of("../java/pd/items/artifacts/fusion/EyeOfSkadi.java"));
 		check(source.contains("partialCharge += 1 + level()")
@@ -212,14 +213,14 @@ public final class SpsEyeOfSkadiTest {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_add", "ac_blast", "ac_curse", "no_charge",
 					"prompt", "need_charge", "full_charge", "exp", "infuse_ore", "desc"}) {
-				required(items, "items.artifacts.fusion.eyeofskadi." + key, file);
+				required(items, "items.equipment.artifacts.fusion.eyeofskadi." + key, file);
 			}
-			check(items.getProperty("items.artifacts.fusion.eyeofskadi.exp").contains("%s"),
+			check(items.getProperty("items.equipment.artifacts.fusion.eyeofskadi.exp").contains("%s"),
 					file + "的献祭经验文本缺少占位符");
 		}
 		Properties zh = load("messages/items/zh/items.properties");
-		check("斯嘉蒂之眼".equals(zh.getProperty("items.artifacts.fusion.eyeofskadi.name"))
-				&& "耗竭-冰暴".equals(zh.getProperty("items.artifacts.fusion.eyeofskadi.ac_blast")),
+		check("斯嘉蒂之眼".equals(zh.getProperty("items.equipment.artifacts.fusion.eyeofskadi.name"))
+				&& "耗竭-冰暴".equals(zh.getProperty("items.equipment.artifacts.fusion.eyeofskadi.ac_blast")),
 				"斯嘉蒂之眼简体中文不是旧版文本或出现乱码");
 
 		BufferedImage current = ImageIO.read(Path.of("sprites/items", "items.png").toFile());

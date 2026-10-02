@@ -208,8 +208,8 @@ public final class SpsRelicWeaponTest {
 	private static void testResources() throws Exception {
 		String zhItems = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
 		String zhActors = Files.readString(Paths.get("messages/actors/zh/actors.properties"), StandardCharsets.UTF_8);
-		check(zhItems.contains("items.weapon.enchantments.aresleech.name=抽灵%s")
-				&& zhItems.contains("items.weapon.melee.relic.aressword.name=萃魂长剑")
+		check(zhItems.contains("items.equipment.weapon.enchantments.aresleech.name=抽灵%s")
+				&& zhItems.contains("items.equipment.weapon.melee.relic.aressword.name=萃魂长剑")
 				&& zhActors.contains("actors.buffs.lokispoison.name=猛毒")
 				&& zhActors.contains("actors.buffs.magicimmunity.name=奥术护盾")
 				&& zhActors.contains("剩余的护盾效果时长：%s回合"), "遗物武器中文资源缺失");

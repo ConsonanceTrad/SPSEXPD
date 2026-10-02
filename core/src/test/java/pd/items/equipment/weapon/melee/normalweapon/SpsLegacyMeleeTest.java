@@ -105,7 +105,7 @@ public final class SpsLegacyMeleeTest {
 			check(weapon.tier == TIERS[i], weapon.getClass().getSimpleName() + "阶级错误");
 			check(weapon.min(0) == BASE_MIN[i] && weapon.max(0) == BASE_MAX[i], weapon.getClass().getSimpleName() + "基础伤害错误");
 			check(weapon.STRReq(0) == 8 + 2 * TIERS[i], weapon.getClass().getSimpleName() + "基础力量错误");
-			check(weapon.image == IMAGES[i], weapon.getClass().getSimpleName() + "图标槽错误");
+			check(weapon.image == images[i], weapon.getClass().getSimpleName() + "图标槽错误");
 		}
 		for (int i = 0; i < 10_000; i++) generated.add(Generator.randomWeaponForStrength(14).getClass());
 		for (Class<?> weaponClass : CLASSES) {

@@ -182,10 +182,10 @@ public final class SpsLloydsBeaconTest {
 		for (String file : files) {
 			Properties items = load("messages/items/" + file);
 			for (String key : requiredKeys) {
-				required(items, "items.artifacts.lloydsbeacon." + key, file);
+				required(items, "items.equipment.artifacts.lloydsbeacon." + key, file);
 			}
 			for (String key : new String[]{"ac_zap", "no_charge", "tele_fail", "prompt", "levelup"}) {
-				check(!items.containsKey("items.artifacts.lloydsbeacon." + key),
+				check(!items.containsKey("items.equipment.artifacts.lloydsbeacon." + key),
 						file + "仍含破碎版道标键：" + key);
 			}
 		}

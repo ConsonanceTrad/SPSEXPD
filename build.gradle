@@ -101,42 +101,42 @@ tasks.register('verifySpsContent') {
                 'windows.wndgiftunlock.',
                 'ui.currencyindicator.',
                 'items.summon.chinamech',
-                'items.sellitem.jumperdancer.',
-                'items.weapon.melee.fusion.',
-				'items.weapon.missiles.fusion.',
-				'items.weapon.missiles.arrows.glassfruit.',
-                'items.armor.fusion.',
-                'items.wands.fusion.',
-                'items.rings.fusion.',
-                'items.artifacts.fusion.',
-                'items.food.fusion.',
-				'items.food.fruit.',
-				'items.food.vegetable.',
-				'items.food.completefood.',
-				'items.food.fishcracker.',
-				'items.food.honey.',
-				'items.food.staplefood.',
-				'items.food.meatfood.',
-				'items.journalpages.',
+                'items.specific.sellitem.jumperdancer.',
+                'items.equipment.weapon.melee.fusion.',
+				'items.equipment.weapon.missiles.fusion.',
+				'items.equipment.weapon.missiles.arrows.glassfruit.',
+                'items.equipment.armor.fusion.',
+                'items.equipment.wands.fusion.',
+                'items.equipment.rings.fusion.',
+                'items.equipment.artifacts.fusion.',
+                'items.consum.food.fusion.',
+				'items.consum.food.fruit.',
+				'items.consum.food.vegetable.',
+				'items.consum.food.completefood.',
+				'items.consum.food.fishcracker.',
+				'items.consum.food.honey.',
+				'items.consum.food.staplefood.',
+				'items.consum.food.meatfood.',
+				'items.specific.journalpages.',
 				'items.reddewdrop.',
 				'items.violetdewdrop.',
 				'items.yellowdewdrop.',
 				'items.transmutationball.',
 				'items.upgradeeatball.',
 				'items.upgradeblob',
-				'items.potions.potionofmending.',
-				'items.potions.potionofmight.',
-				'items.potions.potionofmixing.',
-				'items.potions.potionofshield.',
-				'items.potions.potionofoverhealing.',
-				'items.medicine.',
-				'items.food.bugmeat.',
+				'items.consum.potions.potionofmending.',
+				'items.consum.potions.potionofmight.',
+				'items.consum.potions.potionofmixing.',
+				'items.consum.potions.potionofshield.',
+				'items.consum.potions.potionofoverhealing.',
+				'items.consum.medicine.',
+				'items.consum.food.bugmeat.',
 				'items.expore.',
 				'items.leveldown.',
-				'items.bombs.dungeonbomb.',
-				'items.bombs.spsfirebomb.',
-				'items.bombs.icebomb.',
-				'items.bombs.stormbomb.',
+				'items.equipment.bombs.dungeonbomb.',
+				'items.equipment.bombs.spsfirebomb.',
+				'items.equipment.bombs.icebomb.',
+				'items.equipment.bombs.stormbomb.',
 				'items.misc.shovel.',
 				'items.misc.gunofsoldier.',
 				'items.misc.faithsign.',
@@ -147,34 +147,34 @@ tasks.register('verifySpsContent') {
 				'items.misc.rangebag.',
 				'items.misc.dancelion.',
 				'items.misc.healbag.',
-				'items.weapon.melee.start.whisk.',
-				'items.weapon.melee.special.testweapon.',
-				'items.wands.wandoftest.',
-				'items.armor.specialarmor.testarmor.',
+				'items.equipment.weapon.melee.start.whisk.',
+				'items.equipment.weapon.melee.special.testweapon.',
+				'items.equipment.wands.wandoftest.',
+				'items.equipment.armor.specialarmor.testarmor.',
 				'items.misc.rewardpaper.',
-				'items.weapon.melee.start.demonblade.',
-				'items.weapon.melee.start.bunnydagger.',
-				'items.weapon.melee.start.bunnyspanner.',
-				'items.weapon.melee.start.xsaber.',
-				'items.weapon.melee.special.ninjafan.',
-				'items.weapon.missiles.megacannon.',
-				'items.armor.specialarmor.renbarmor.',
-				'items.weapon.rockcode.',
-				'items.bombs.minibomb.',
-				'items.weapon.missiles.elfbow.',
-				'items.weapon.missiles.throwing.mindarrow.',
+				'items.equipment.weapon.melee.start.demonblade.',
+				'items.equipment.weapon.melee.start.bunnydagger.',
+				'items.equipment.weapon.melee.start.bunnyspanner.',
+				'items.equipment.weapon.melee.start.xsaber.',
+				'items.equipment.weapon.melee.special.ninjafan.',
+				'items.equipment.weapon.missiles.megacannon.',
+				'items.equipment.armor.specialarmor.renbarmor.',
+				'items.equipment.weapon.rockcode.',
+				'items.equipment.bombs.minibomb.',
+				'items.equipment.weapon.missiles.elfbow.',
+				'items.equipment.weapon.missiles.throwing.mindarrow.',
 				'items.misc.needpaper.',
 				'items.misc.ppc.',
 				'items.misc.dicetower.',
 				'items.misc.leaderflag.',
 				'items.misc.nmhealbag.',
-				'items.weapon.missiles.buildblock.waterblock.',
+				'items.equipment.weapon.missiles.buildblock.waterblock.',
 				'actors.buffs.forevershadow.',
 				'actors.buffs.bunnycombo.',
 				'actors.buffs.funnybuff.',
 				'actors.buffs.mindbuff.',
-				'items.weapon.melee.normalweapon.woodenstaff.',
-				'items.weapon.melee.normalweapon.tricksand.',
+				'items.equipment.weapon.melee.normalweapon.woodenstaff.',
+				'items.equipment.weapon.melee.normalweapon.tricksand.',
 				'plants.dewcatcher',
 				'plants.dreamfoil',
 				'plants.freshberry',
@@ -187,25 +187,25 @@ tasks.register('verifySpsContent') {
 				'items.misc.spectacles.',
 				'items.misc.autopotion.',
 				'items.misc.luckybadge.',
-				'items.weapon.missiles.throwing.boomerang.',
-				'items.weapon.spammo.',
-				'items.weapon.guns.',
-				'items.weapon.ranges.',
-				'items.weapon.missiles.manyknive.',
-				'items.weapon.missiles.throwing.escapeknive.',
-				'items.weapon.missiles.throwing.empbola.',
-				'items.weapon.missiles.arrows.blindfruit.',
-				'items.weapon.missiles.arrows.healfruit.',
-				'items.weapon.missiles.arrows.shockfruit.',
-				'items.weapon.missiles.arrows.toxicfruit.',
-				'items.weapon.missiles.arrows.rootfruit.',
-				'items.weapon.missiles.arrows.firefruit.',
-				'items.weapon.missiles.arrows.charmfruit.',
-				'items.weapon.missiles.arrows.smokefruit.',
-				'items.weapon.missiles.arrows.nutfruit.',
-				'items.weapon.missiles.arrows.icefruit.',
-				'items.scrolls.scrollofmagicalinfusion.',
-				'items.scrolls.scrollofregrowth.',
+				'items.equipment.weapon.missiles.throwing.boomerang.',
+				'items.equipment.weapon.spammo.',
+				'items.equipment.weapon.guns.',
+				'items.equipment.weapon.ranges.',
+				'items.equipment.weapon.missiles.manyknive.',
+				'items.equipment.weapon.missiles.throwing.escapeknive.',
+				'items.equipment.weapon.missiles.throwing.empbola.',
+				'items.equipment.weapon.missiles.arrows.blindfruit.',
+				'items.equipment.weapon.missiles.arrows.healfruit.',
+				'items.equipment.weapon.missiles.arrows.shockfruit.',
+				'items.equipment.weapon.missiles.arrows.toxicfruit.',
+				'items.equipment.weapon.missiles.arrows.rootfruit.',
+				'items.equipment.weapon.missiles.arrows.firefruit.',
+				'items.equipment.weapon.missiles.arrows.charmfruit.',
+				'items.equipment.weapon.missiles.arrows.smokefruit.',
+				'items.equipment.weapon.missiles.arrows.nutfruit.',
+				'items.equipment.weapon.missiles.arrows.icefruit.',
+				'items.consum.scrolls.scrollofmagicalinfusion.',
+				'items.consum.scrolls.scrollofregrowth.',
 				'items.garbage.',
 				'items.stoneore.',
 				'items.greatrune.',
@@ -262,8 +262,8 @@ tasks.register('verifySpsContent') {
 				'items.chaospack.',
 				'items.emptybody.',
 				'items.curseblood.',
-				'items.weapon.melee.special.shadoweater.',
-				'items.bags.heartofscarecrow.',
+				'items.equipment.weapon.melee.special.shadoweater.',
+				'items.equipment.bags.heartofscarecrow.',
 				'items.powerhand.',
 				'actors.mobs.magiceye.',
 				'actors.mobs.zot.',
@@ -315,10 +315,7 @@ tasks.register('verifySpsContent') {
 				throw new GradleException("SPS城区素材尺寸错误：${name}")
 			}
 		}
-		def itemSheetSource = coreSource('sprites/ItemSpriteSheet.java').getText('UTF-8')
-		if (!itemSheetSource.contains('TX_HEIGHT = 992')) {
-			throw new GradleException('ItemSpriteSheet: 图集高度必须为992，避免SPS药丸图标被裁切')
-		}
+		//SPSXPD: ItemSpriteSheet 已退役（物品图集按四大类拆分），旧的 992 高度校验不再适用
 		def medicineIconHashes = [
 				'MUSHROOM_LANTERN':       'E6D20A912E6CCA916B88D8703AC1B35796486903E3C598527BA83AF62780136F',
 				'MUSHROOM_EARTHSTAR':      'C1FAF6BD074C6D9C4EC3976135D1CED7DB22AC0A62A8B309B327704CE46EDE8F',
@@ -434,7 +431,7 @@ tasks.register('verifySpsContent') {
 				'MendingTonic', 'Musicpill', 'PixieParasol', 'Powerpill', 'RealgarWine', 'Shootpill',
 				'Smashpill', 'TimePill', 'Timepill2']
 		medicineClasses.each { name ->
-			def source = coreSource("items/medicine/${name}.java")
+			def source = coreSource("items/consum/medicine/${name}.java")
 			if (!source.isFile() || !generatorSource.contains("${name}.class")) {
 				throw new GradleException("SPS药物未完整接入生成器: ${name}")
 			}
@@ -442,7 +439,7 @@ tasks.register('verifySpsContent') {
 		def berryClasses = ['Blackberry', 'Blueberry', 'Cherry', 'Cloudberry', 'Durian',
 				'FullMoonberry', 'Moonberry', 'Strawberry']
 		berryClasses.each { name ->
-			def source = coreSource("items/food/fruit/${name}.java")
+			def source = coreSource("items/consum/food/fruit/${name}.java")
 			if (!source.isFile() || !generatorSource.contains("${name}.class")) {
 				throw new GradleException("SPS果实未完整接入生成器: ${name}")
 			}
@@ -450,7 +447,7 @@ tasks.register('verifySpsContent') {
 		def vegetableClasses = ['BattleFlower', 'BrewLeft', 'DreamLeaf', 'HealGrass',
 				'NutVegetable', 'Truffles']
 		vegetableClasses.each { name ->
-			def source = coreSource("items/food/vegetable/${name}.java")
+			def source = coreSource("items/consum/food/vegetable/${name}.java")
 			if (!source.isFile() || !generatorSource.contains("${name}.class")) {
 				throw new GradleException("SPS蔬菜未完整接入生成器: ${name}")
 			}
@@ -464,9 +461,9 @@ tasks.register('verifySpsContent') {
 		}
 		def spsPotionClasses = ['PotionOfMending', 'PotionOfMight', 'PotionOfMixing',
 				'PotionOfShield', 'PotionOfOverHealing']
-		def potionSource = coreSource('items/potions/Potion.java').getText('UTF-8')
+		def potionSource = coreSource('items/consum/potions/Potion.java').getText('UTF-8')
 		spsPotionClasses.each { name ->
-			def source = coreSource("items/potions/${name}.java")
+			def source = coreSource("items/consum/potions/${name}.java")
 			if (!source.isFile() || !generatorSource.contains("${name}.class") || !potionSource.contains("${name}.class")) {
 				throw new GradleException("SPS植物药剂未完整接入生成器和种子炼金: ${name}")
 			}
@@ -498,7 +495,7 @@ tasks.register('verifySpsContent') {
 			if (!source.isFile()) throw new GradleException("第5层特殊战利品缺失: ${name}")
 		}
 		['Gleaf', 'Dpotion'].each { name ->
-			def source = coreSource("items/weapon/rockcode/${name}.java")
+			def source = coreSource("items/equipment/weapon/rockcode/${name}.java")
 			if (!source.isFile()) throw new GradleException("演员第7皮肤首领奖励缺失: ${name}")
 		}
 		def rockCodeBossDrops = [
@@ -508,7 +505,7 @@ tasks.register('verifySpsContent') {
 				'ElderAvatar': 'Alink'
 		]
 		rockCodeBossDrops.each { boss, code ->
-			def codeSource = coreSource("items/weapon/rockcode/${code}.java")
+			def codeSource = coreSource("items/equipment/weapon/rockcode/${code}.java")
 			def bossSource = coreSource("actors/mobs/${boss}.java")
 			if (!codeSource.isFile() || !bossSource.isFile()) {
 				throw new GradleException("演员第7皮肤首领芯片文件缺失: ${boss} -> ${code}")
@@ -572,7 +569,7 @@ tasks.register('verifySpsMechanics') {
 		requireText(journal, 'consumePortalCharge();', '多利亚石板传送扣费')
 		def dolyaSlate = readSource('items/DolyaSlate.java')
 		requireText(dolyaSlate, 'extends AdventureJournal', '多利亚石板实体')
-		requireText(dolyaSlate, 'image = ItemSpriteSheet.DOLYA_SLATE;', '多利亚石板原版图标')
+		requireText(dolyaSlate, 'image = SpecificTaskDict.DOLYA_SLATE;', '多利亚石板原版图标')
 		requireText(dolyaSlate, 'return 300 * quantity;', '多利亚石板售价')
 
 		def challengeJournal = readSource('items/quest/ChallengeJournal.java')
@@ -590,7 +587,7 @@ tasks.register('verifySpsMechanics') {
 		def challengeBook = readSource('items/ChallengeBook.java')
 		requireText(challengeBook, 'extends ChallengeJournal', 'ChallengeBook实体')
 		requireText(challengeJournal, 'journal = new ChallengeBook();', 'ChallengeBook实体创建')
-		def challengeDrops = readSource('items/challengelists/ChallengePageDrops.java')
+		def challengeDrops = readSource('items/specific/challengelists/ChallengePageDrops.java')
 		requireText(challengeDrops, 'journal != null && journal.isUnlocked(page.challenge())', '挑战纸片已装订防重')
 		requireText(challengeDrops, 'Dungeon.hero.belongings.getItem(page.getClass()) != null', '挑战纸片背包防重')
 		requireText(challengeDrops, 'page.getClass().isInstance(item)', '挑战纸片地面防重')
@@ -628,7 +625,7 @@ tasks.register('verifySpsMechanics') {
 			throw new GradleException("SPS职业入口: 只能显示9个职业（SPS旧版8职业+决斗家），当前=${playableClasses}")
 		}
 		def badgeSource = readSource('Badges.java')
-		def metamorphosisSource = readSource('items/scrolls/exotic/ScrollOfMetamorphosis.java')
+		def metamorphosisSource = readSource('items/consum/scrolls/exotic/ScrollOfMetamorphosis.java')
 		def disguiseSource = readSource('actors/buffs/HeroDisguise.java')
 		[badgeSource, metamorphosisSource, disguiseSource].each { source ->
 			if (source.contains('HeroClass.values()')) {
@@ -748,11 +745,11 @@ tasks.register('verifySpsMechanics') {
 		 'water * 15', 'new Garbage(2)'].each {
 			requireText(ironMaker, it, '铁砧基础配方')
 		}
-		def buildBomb = readSource('items/bombs/BuildBomb.java')
+		def buildBomb = readSource('items/equipment/bombs/BuildBomb.java')
 		['ch.HT / 12', 'ch.HT / 5', 'Terrain.EMBERS', 'return 10 * quantity()'].each {
 			requireText(buildBomb, it, '土制炸弹')
 		}
-		def hugeBomb = readSource('items/bombs/HugeBomb.java')
+		def hugeBomb = readSource('items/equipment/bombs/HugeBomb.java')
 		['explosionRange()', 'return 2;', 'ch.HT / 8', 'ch.HT / 4',
 		 'Terrain.WALL_DECO', 'heap.explode()', 'return 20 * quantity()'].each {
 			requireText(hugeBomb, it, '巨大炸弹')
@@ -1022,8 +1019,8 @@ tasks.register('verifySpsMechanics') {
 			throw new GradleException('旧版露珠瓶溢出池: 满瓶时仍必须继续收集露珠')
 		}
 		['actors/blobs/Water.java',
-		 'items/food/WaterItem.java',
-		 'items/reward/BoundReward.java'].each { path ->
+		 'items/consum/food/WaterItem.java',
+		 'items/specific/reward/BoundReward.java'].each { path ->
 			if (!coreSource(path).isFile()) throw new GradleException("旧版露珠系统缺少文件: ${path}")
 		}
 
@@ -1098,8 +1095,8 @@ tasks.register('verifySpsMechanics') {
 		 'new PotionOfMage().identify().collect()', 'hero.improveMagicSkill(3)'].each {
 			requireText(heroClassSource, it, '战士与法师默认皮肤开局配置')
 		}
-		['items.weapon.melee.normalweapon.Dagger()', 'hero.belongings.armor = new VestArmor()',
-		 'new BlindFruit(3)', 'hero.belongings.weapon = new pd.items.weapon.melee.normalweapon.Knuckles()',
+		['items.equipment.weapon.melee.normalweapon.Dagger()', 'hero.belongings.armor = new VestArmor()',
+		 'new BlindFruit(3)', 'hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Knuckles()',
 		 'new Boomerang()', 'new EmpBola(3)'].each {
 			requireText(heroClassSource, it, '盗贼与女猎手默认皮肤开局配置')
 		}
@@ -1173,7 +1170,7 @@ project(':core') {
 		description = '无图形验证SPS任务钥匙拾取链路无崩溃（HUD钥匙显示槽位登记回归）。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.keys.SpsKeyPickupTest')
+		mainClass = coreTestClass('items.specific.keys.SpsKeyPickupTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1289,7 +1286,7 @@ project(':core') {
 		description = '无图形验证SPS奥术与学识戒指的法强、暴击、掉落、存档、生成权重和双语原文。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.rings.fusion.SpsMagicKnowledgeRingsTest')
+		mainClass = coreTestClass('items.equipment.rings.fusion.SpsMagicKnowledgeRingsTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1298,7 +1295,7 @@ project(':core') {
 		description = '无图形验证SPS精准、闪避、狂怒和疾速戒指的数值、实战接入、负等级及双语原文。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.rings.SpsLegacyRingsTest')
+		mainClass = coreTestClass('items.equipment.rings.SpsLegacyRingsTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1307,7 +1304,7 @@ project(':core') {
 		description = '无图形验证SPS元素戒指的状态时长、法术减伤、名单、上限和双语原文。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.rings.SpsRingOfElementsTest')
+		mainClass = coreTestClass('items.equipment.rings.SpsRingOfElementsTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1325,7 +1322,7 @@ project(':core') {
 		description = '无图形验证SPS旧版法杖数值、状态、生成权重和原始图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.wands.SpsLegacyWandsTest')
+		mainClass = coreTestClass('items.equipment.wands.SpsLegacyWandsTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1334,7 +1331,7 @@ project(':core') {
 		description = '无图形验证SPS旧版18套普通防具牌组、数值、存档和原始图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.armor.normalarmor.SpsLegacyArmorTest')
+		mainClass = coreTestClass('items.equipment.armor.normalarmor.SpsLegacyArmorTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1343,7 +1340,7 @@ project(':core') {
 		description = '无图形验证SPS旧版13种护甲刻印、抗性、效果、边界和存档。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.armor.glyphs.SpsLegacyGlyphTest')
+		mainClass = coreTestClass('items.equipment.armor.glyphs.SpsLegacyGlyphTest')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsSpecialArmor', JavaExec) {
@@ -1351,7 +1348,7 @@ project(':core') {
 		description = '无图形验证SPS八职业特殊护甲映射、数值、受击被动、存档和图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.armor.specialarmor.SpsSpecialArmorTest')
+		mainClass = coreTestClass('items.equipment.armor.specialarmor.SpsSpecialArmorTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1360,7 +1357,7 @@ project(':core') {
 		description = '无图形验证SPS旧版20件普通近战武器牌组、数值、效果、存档和原始图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.melee.normalweapon.SpsLegacyMeleeTest')
+		mainClass = coreTestClass('items.equipment.weapon.melee.normalweapon.SpsLegacyMeleeTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1369,7 +1366,7 @@ project(':core') {
 		description = '无图形验证SPS十二件起始近战武器的旧版基础伤害和强化成长。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.melee.start.SpsLegacyStartMeleeStatsTest')
+		mainClass = coreTestClass('items.equipment.weapon.melee.start.SpsLegacyStartMeleeStatsTest')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
 	tasks.register('verifySpsMainBossTimelines', JavaExec) {
@@ -1386,7 +1383,7 @@ project(':core') {
 		description = '无图形验证SPS五件遗物武器、专属附魔、充能、主动技能、售价和存档。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.melee.relic.SpsRelicWeaponTest')
+		mainClass = coreTestClass('items.equipment.weapon.melee.relic.SpsRelicWeaponTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1395,7 +1392,7 @@ project(':core') {
 		description = '无图形验证SPS旧版14种普通武器附魔、元素伤害、状态、边界、存档和文本。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.enchantments.SpsLegacyEnchantmentTest')
+		mainClass = coreTestClass('items.equipment.weapon.enchantments.SpsLegacyEnchantmentTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1404,7 +1401,7 @@ project(':core') {
 		description = '无图形验证SPS八种开局食物、状态效果、存档和原始图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.food.completefood.SpsCompleteFoodTest')
+		mainClass = coreTestClass('items.consum.food.completefood.SpsCompleteFoodTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1413,7 +1410,7 @@ project(':core') {
 		description = '无图形验证盗贼闪耀果与女猎手电磁套索的数值、状态、机械伤害和原始图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.missiles.SpsStartingMissilesTest')
+		mainClass = coreTestClass('items.equipment.weapon.missiles.SpsStartingMissilesTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1512,7 +1509,7 @@ project(':core') {
 		description = '无图形验证SPS洛克技能芯片、演员首领掉落、存档和迷你炸弹。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.rockcode.SpsRockCodeTest')
+		mainClass = coreTestClass('items.equipment.weapon.rockcode.SpsRockCodeTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1521,7 +1518,7 @@ project(':core') {
 		description = '无图形验证SPS普通主食、元素肉、怪物掉落和地面加工。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.food.meatfood.SpsBasicFoodTest')
+		mainClass = coreTestClass('items.consum.food.meatfood.SpsBasicFoodTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1539,7 +1536,7 @@ project(':core') {
 		description = '无图形验证SPS旧版药丸基类、全层蘑菇、战斗状态、数值、售价和图标槽。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.medicine.SpsMedicineEffectsTest')
+		mainClass = coreTestClass('items.consum.medicine.SpsMedicineEffectsTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1548,7 +1545,7 @@ project(':core') {
 		description = '无图形验证SPS无味果生食、独立酿制果、旧存档兼容、号角及四语文本。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.food.SpsBlandfruitTest')
+		mainClass = coreTestClass('items.consum.food.SpsBlandfruitTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1557,7 +1554,7 @@ project(':core') {
 		description = '无图形验证SPS炼金工具箱三药顺序、动作、评分、效率、存档和四语文本。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.artifacts.SpsAlchemistsToolkitTest')
+		mainClass = coreTestClass('items.equipment.artifacts.SpsAlchemistsToolkitTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1566,7 +1563,7 @@ project(':core') {
 		description = '无图形验证SPS丰饶之角等级、食物价值、时间充能、盛宴和存档迁移。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.artifacts.SpsHornOfPlentyTest')
+		mainClass = coreTestClass('items.equipment.artifacts.SpsHornOfPlentyTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1575,7 +1572,7 @@ project(':core') {
 		description = '无图形验证SPS荆棘斗篷耗竭、充能、反射、护盾、成长、存档和高草种子联动。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.artifacts.SpsCapeOfThornsTest')
+		mainClass = coreTestClass('items.equipment.artifacts.SpsCapeOfThornsTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1584,7 +1581,7 @@ project(':core') {
 		description = '无图形验证SPS暗影斗篷潜行、充能、成长、耗竭永影、存档迁移和四语文本。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.artifacts.SpsCloakOfShadowsTest')
+		mainClass = coreTestClass('items.equipment.artifacts.SpsCloakOfShadowsTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1593,7 +1590,7 @@ project(':core') {
 		description = '无图形验证SPS干花玫瑰任务动作、充能、超度、幽灵分支、存档和四语文本。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.artifacts.SpsDriedRoseTest')
+		mainClass = coreTestClass('items.equipment.artifacts.SpsDriedRoseTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1602,7 +1599,7 @@ project(':core') {
 		description = '无图形验证SPS虚空锁链动作、耗竭封印、充能、成长和四语文本。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.artifacts.SpsEtherealChainsTest')
+		mainClass = coreTestClass('items.equipment.artifacts.SpsEtherealChainsTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1611,7 +1608,7 @@ project(':core') {
 		description = '无图形验证SPS神偷袖章盗取、点金、充能、成长、存档和四语文本。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.artifacts.SpsMasterThievesArmbandTest')
+		mainClass = coreTestClass('items.equipment.artifacts.SpsMasterThievesArmbandTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1620,7 +1617,7 @@ project(':core') {
 		description = '无图形验证SPS自然凉鞋喂种成长、扎根护甲、充能、发芽、存档和四语文本。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.artifacts.SpsSandalsOfNatureTest')
+		mainClass = coreTestClass('items.equipment.artifacts.SpsSandalsOfNatureTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1629,7 +1626,7 @@ project(':core') {
 		description = '无图形验证SPS先见护符满充探查、耗竭预知、危险提示、充能、成长、存档和四语文本。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.artifacts.SpsTalismanOfForesightTest')
+		mainClass = coreTestClass('items.equipment.artifacts.SpsTalismanOfForesightTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1638,7 +1635,7 @@ project(':core') {
 		description = '无图形验证SPS时光沙漏停滞、冻结、耗竭重置、充能、沙袋、存档和四语文本。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.artifacts.SpsTimekeepersHourglassTest')
+		mainClass = coreTestClass('items.equipment.artifacts.SpsTimekeepersHourglassTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1647,7 +1644,7 @@ project(':core') {
 		description = '无图形验证SPS不稳定魔典露珠升级、随机卷轴、圣歌、充能、存档和四语文本。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.artifacts.SpsUnstableSpellbookTest')
+		mainClass = coreTestClass('items.equipment.artifacts.SpsUnstableSpellbookTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1656,7 +1653,7 @@ project(':core') {
 		description = '无图形验证SPS斯嘉蒂之眼诅咒、冰暴、献祭、充能、存档、来源、四语文本和原始图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.artifacts.fusion.SpsEyeOfSkadiTest')
+		mainClass = coreTestClass('items.equipment.artifacts.fusion.SpsEyeOfSkadiTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1665,7 +1662,7 @@ project(':core') {
 		description = '无图形验证SPS诺姆林王冠空被动、一级上限、售价、存档、来源、四语文本和原始图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.artifacts.fusion.SpsNoomlinCrownTest')
+		mainClass = coreTestClass('items.equipment.artifacts.fusion.SpsNoomlinCrownTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1674,7 +1671,7 @@ project(':core') {
 		description = '无图形验证SPS特殊食物、年糕召唤、年兽奖励、公共开局食物和原始图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.food.completefood.SpsSpecialFoodTest')
+		mainClass = coreTestClass('items.consum.food.completefood.SpsSpecialFoodTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1683,7 +1680,7 @@ project(':core') {
 		description = '无图形验证SPS节日肉馅饼的日期、图标和全部效果。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.food.staplefood.SpsPastyTest')
+		mainClass = coreTestClass('items.consum.food.staplefood.SpsPastyTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1771,7 +1768,7 @@ project(':core') {
 		description = '无图形验证SPS区域挑战敌人数值、百杀奖励链和存档。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.reward.SpsChallengeRewardsTest')
+		mainClass = coreTestClass('items.specific.reward.SpsChallengeRewardsTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1807,7 +1804,7 @@ project(':core') {
 		description = '无图形验证SPS圣光炸弹的旧版生物属性映射。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.bombs.SpsLightBombTest')
+		mainClass = coreTestClass('items.equipment.bombs.SpsLightBombTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1887,7 +1884,7 @@ project(':core') {
 		description = '无图形验证SPS盗贼王回旋镖掉落、旧版数值、存档和立即返还。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.missiles.throwing.SpsBoomerangTest')
+		mainClass = coreTestClass('items.equipment.weapon.missiles.throwing.SpsBoomerangTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1896,7 +1893,7 @@ project(':core') {
 		description = '无图形验证SPS特殊弹药、回旋镖装填、战斗效果和铁匠配方。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.spammo.SpsAmmoTest')
+		mainClass = coreTestClass('items.equipment.weapon.spammo.SpsAmmoTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1905,7 +1902,7 @@ project(':core') {
 		description = '无图形验证SPS五档枪械、投石索、玩具枪、弹匣、弹药、存档和旧版图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.guns.SpsGunTest')
+		mainClass = coreTestClass('items.equipment.weapon.guns.SpsGunTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1914,7 +1911,7 @@ project(':core') {
 		description = '无图形验证SPS十五把弓、远程牌组、五章商店二选一和旧版图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.ranges.SpsRangeWeaponTest')
+		mainClass = coreTestClass('items.equipment.weapon.ranges.SpsRangeWeaponTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1923,7 +1920,7 @@ project(':core') {
 		description = '无图形验证SPS千支刀、涂油、逃脱小刀、护盾打击、稀有掉落和旧版图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.missiles.SpsManyKniveTest')
+		mainClass = coreTestClass('items.equipment.weapon.missiles.SpsManyKniveTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1932,7 +1929,7 @@ project(':core') {
 		description = '无图形验证SPS机械核心、十种解析、错误装备、蜘蛛女王掉落、存档和原始图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.artifacts.SpsRobotDmtTest')
+		mainClass = coreTestClass('items.equipment.artifacts.SpsRobotDmtTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1950,7 +1947,7 @@ project(':core') {
 		description = '无图形验证SPS十三件纪念品、售价、堆叠、NPC特殊掉落和原始图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.sellitem.SpsSellItemsTest')
+		mainClass = coreTestClass('items.specific.sellitem.SpsSellItemsTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1968,7 +1965,7 @@ project(':core') {
 		description = '无图形验证SPS特殊武器成长、负等级、奥能火炮、符文重铸、皇家叉勺、天狗剑及四语资源。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.melee.special.SpsLegacySpecialMeleeTest')
+		mainClass = coreTestClass('items.equipment.weapon.melee.special.SpsLegacySpecialMeleeTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -1995,7 +1992,7 @@ project(':core') {
 		description = '无图形验证SPS龙魂、随机宠物包、十二月映射、生成池、VIP奖励和中文资源。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.eggs.SpsPetEggsTest')
+		mainClass = coreTestClass('items.consum.eggs.SpsPetEggsTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -2022,7 +2019,7 @@ project(':core') {
 		description = '无图形验证SPS暗器袋、钥匙环、法杖套的容量、收纳分类、法杖充能、八职业开局和双语资源。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.bags.SpsLegacyBagsTest')
+		mainClass = coreTestClass('items.equipment.bags.SpsLegacyBagsTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -2067,7 +2064,7 @@ project(':core') {
 		description = '无图形验证SPS完整15件节日武器池、补回武器、特效、存档、边界和原始图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.melee.special.SpsEasterWeaponsTest')
+		mainClass = coreTestClass('items.equipment.weapon.melee.special.SpsEasterWeaponsTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -2085,7 +2082,7 @@ project(':core') {
 		description = '无图形验证SPS十碑、破法武器、近战投掷武器、怪物来源和原始图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.melee.SpsExtendedLegacyWeaponsTest')
+		mainClass = coreTestClass('items.equipment.weapon.melee.SpsExtendedLegacyWeaponsTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -2094,7 +2091,7 @@ project(':core') {
 		description = '无图形验证SPS哥布林神盾、特制指虎、城镇购买路径、存档、双语资源和原始图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.melee.block.SpsTownBlockWeaponsTest')
+		mainClass = coreTestClass('items.equipment.weapon.melee.block.SpsTownBlockWeaponsTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -2103,7 +2100,7 @@ project(':core') {
 		description = '无图形验证SPS危险炸弹、混源体阶段爆炸、地形破坏和边界保护。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.bombs.SpsDangerousBombTest')
+		mainClass = coreTestClass('items.equipment.bombs.SpsDangerousBombTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -2121,7 +2118,7 @@ project(':core') {
 		description = '无图形验证SPS玻璃图腾充能、祝福、诅咒、存档、来源、双语资源和原始图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.artifacts.SpsGlassTotemTest')
+		mainClass = coreTestClass('items.equipment.artifacts.SpsGlassTotemTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -2130,7 +2127,7 @@ project(':core') {
 		description = '无图形验证SPS蓄血圣杯的血怒、血祭、回血、存档、来源和双语资源。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.artifacts.SpsChaliceOfBloodTest')
+		mainClass = coreTestClass('items.equipment.artifacts.SpsChaliceOfBloodTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -2148,7 +2145,7 @@ project(':core') {
 		description = '无图形验证SPS翔虫充能、击杀成长、封印、皮肤3开局、存档和双语资源。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.artifacts.SpsFlyChainsTest')
+		mainClass = coreTestClass('items.equipment.artifacts.SpsFlyChainsTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -2157,7 +2154,7 @@ project(':core') {
 		description = '无图形验证SPS混沌之盒四种效果、消耗、Apostle掉落和原始图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.sellitem.SpsApostleBoxTest')
+		mainClass = coreTestClass('items.specific.sellitem.SpsApostleBoxTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -2175,7 +2172,7 @@ project(':core') {
 		description = '无图形验证SPS袜子、煎锅双形态、NPC来源和原始图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.melee.special.SpsTownMeleeTest')
+		mainClass = coreTestClass('items.equipment.weapon.melee.special.SpsTownMeleeTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -2184,7 +2181,7 @@ project(':core') {
 		description = '无图形验证SPS牢固箱独立蓄力、自毁奖励、NPC来源和原始图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.melee.special.SpsXiXiBoxTest')
+		mainClass = coreTestClass('items.equipment.weapon.melee.special.SpsXiXiBoxTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -2193,7 +2190,7 @@ project(':core') {
 		description = '无图形验证SPS空白账本群控、消耗、FruitCat来源和原始图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.missiles.throwing.SpsMoneyBookTest')
+		mainClass = coreTestClass('items.equipment.weapon.missiles.throwing.SpsMoneyBookTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -2202,7 +2199,7 @@ project(':core') {
 		description = '无图形验证SPS瓶装火焰、跟随蒸汽、Lery来源和原始图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.missiles.throwing.SpsBottleFireTest')
+		mainClass = coreTestClass('items.equipment.weapon.missiles.throwing.SpsBottleFireTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -2211,7 +2208,7 @@ project(':core') {
 		description = '无图形验证SPS水晶瓶、城镇奖励法杖、NPC来源、存档、边界和原始图像。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.wands.SpsTownMagicTest')
+		mainClass = coreTestClass('items.equipment.wands.SpsTownMagicTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -2220,7 +2217,7 @@ project(':core') {
 		description = '无图形验证SPS蜜蜂针头、领袖钢蜂、蜜罐联动、存档和原始图像。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.missiles.throwing.SpsHoneyArrowTest')
+		mainClass = coreTestClass('items.equipment.weapon.missiles.throwing.SpsHoneyArrowTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -2229,7 +2226,7 @@ project(':core') {
 		description = '无图形验证SPS梦瑶娃娃、Lynn惩罚、诅咒少女AI、存档和原始图像。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.missiles.throwing.SpsLynnDollTest')
+		mainClass = coreTestClass('items.equipment.weapon.missiles.throwing.SpsLynnDollTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -2283,7 +2280,7 @@ project(':core') {
 		description = '无图形验证SPS旧版时空道标、动作限制、存档迁移和四语文本。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.artifacts.SpsLloydsBeaconTest')
+		mainClass = coreTestClass('items.equipment.artifacts.SpsLloydsBeaconTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -2301,7 +2298,7 @@ project(':core') {
 		description = '无图形验证SPS旧版灵能汲取卷轴、14类生成池、符文素材、存档迁移和四语文本。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.scrolls.SpsPsionicBlastTest')
+		mainClass = coreTestClass('items.consum.scrolls.SpsPsionicBlastTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
@@ -2346,7 +2343,7 @@ project(':core') {
 		description = '无图形验证SPS魔术手、糯米团、专用箭池、猎人技能、商店来源、双语资源和原始图标。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
-		mainClass = coreTestClass('items.weapon.missiles.arrows.SpsSpecialArrowsTest')
+		mainClass = coreTestClass('items.equipment.weapon.missiles.arrows.SpsSpecialArrowsTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}

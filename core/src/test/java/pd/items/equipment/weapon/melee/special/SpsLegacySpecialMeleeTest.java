@@ -29,6 +29,7 @@ import java.nio.file.Paths;
 import java.security.MessageDigest;
 
 import javax.imageio.ImageIO;
+import pd.atlas.IconEntry;
 
 public final class SpsLegacySpecialMeleeTest {
 
@@ -127,14 +128,14 @@ public final class SpsLegacySpecialMeleeTest {
 	private static void testResources() throws Exception {
 		String en = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
 		String zh = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
-		String key = "items.weapon.melee.special.runicblade.";
+		String key = "items.equipment.weapon.melee.special.runicblade.";
 		for (String suffix : new String[]{"name=", "ac_reforge=", "choose=", "reforged=", "desc="}) {
 			check(en.contains(key + suffix) && zh.contains(key + suffix), "符文之刃缺少双语文本：" + suffix);
 		}
 		for (String path : new String[]{"messages/items/en/items.properties", "messages/items/zh/items.properties",
 				"messages/items/zh-hant/items.properties", "messages/items/ru/items.properties"}) {
 			String text = Files.readString(Paths.get(path), StandardCharsets.UTF_8);
-			String cannon = "items.weapon.melee.special.handcannon.";
+			String cannon = "items.equipment.weapon.melee.special.handcannon.";
 			for (String suffix : new String[]{"name=", "ac_onoff=", "fuel=", "power_on=", "power_off=", "desc="}) {
 				check(text.contains(cannon + suffix), "奥能火炮四语文本缺少键：" + path + " / " + suffix);
 			}

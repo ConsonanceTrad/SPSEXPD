@@ -158,11 +158,11 @@ public final class SpsLegacyRingsTest {
 	private static void testResources() throws Exception {
 		String zh = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
 		String en = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
-		check(zh.contains("items.rings.ringofaccuracy.name=精准戒指")
+		check(zh.contains("items.equipment.rings.ringofaccuracy.name=精准戒指")
 				&& zh.contains("攻击距离会增加_%2$d_格")
 				&& zh.contains("闪避值会增加_%d_点，潜行会增加_%2$d_点")
 				&& zh.contains("基础伤害提升_%2$s_点")
-				&& zh.contains("items.rings.ringofhaste.name=疾速戒指")
+				&& zh.contains("items.equipment.rings.ringofhaste.name=疾速戒指")
 				&& !zh.contains("�"), "四枚普通戒指中文原文缺失或乱码");
 		check(en.contains("ACU improve _ %1$d _ , Attack range improve _%2$d_ .")
 				&& en.contains("Dex improve _%d_ , steath improve _%2$d_ .")
