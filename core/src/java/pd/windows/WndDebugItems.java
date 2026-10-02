@@ -68,11 +68,8 @@ public class WndDebugItems extends Window {
 
 	public WndDebugItems() {
 		super();
-		if (DeviceCompat.isDebug()) {
-			showGroups(0);
-		} else {
-			hide();
-		}
+		//SPS: 与构建类型无关，窗口只由暂停菜单的「测试时间」挑战入口控制
+		showGroups(0);
 	}
 
 	//SPS: 调试器分组按功能域划分（武器/护甲/…/包裹袋 28 组，见 GROUP_LABELS），

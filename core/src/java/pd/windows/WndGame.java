@@ -63,8 +63,8 @@ public class WndGame extends Window {
 		});
 		curBtn.icon(Icons.get(Icons.PREFS));
 
-		//SPS: 调试物品工具（原创缺口）。仅在 INDEV 构建且开启「测试时间」挑战时显示（用户裁决）
-		if (DeviceCompat.isDebug() && Dungeon.isChallenged(Challenges.TEST_TIME)) {
+		//SPS: 调试物品工具（原创缺口）。只要开启「测试时间」挑战就显示，与构建类型无关
+		if (Dungeon.isChallenged(Challenges.TEST_TIME)) {
 			addButton( curBtn = new RedButton( Messages.get(this, "debug_items") ) {
 				@Override
 				protected void onClick() {
