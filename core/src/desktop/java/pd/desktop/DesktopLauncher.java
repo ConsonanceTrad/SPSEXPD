@@ -126,7 +126,9 @@ public class DesktopLauncher {
 		try {
 			Game.versionCode = Integer.parseInt(implementationVersion);
 		} catch (NumberFormatException e) {
-			Game.versionCode = 0;
+			//SPSXPD: run 任务不打包 jar，拿不到 manifest 版本号。以前回退到 0，
+			//会让写出的存档被 GamesInProgress.check() 判为旧版本而拒绝显示。
+			Game.versionCode = ShatteredPixelDungeon.v3_1_1;
 		}
 
 		if (UpdateImpl.supportsUpdates()){
