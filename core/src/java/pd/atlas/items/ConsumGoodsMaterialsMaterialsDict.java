@@ -12,24 +12,34 @@ public final class ConsumGoodsMaterialsMaterialsDict {
 
 	private ConsumGoodsMaterialsMaterialsDict() { }
 
-	/** armor/ADAMANT_ARMOR */
-	public static final IconEntry ARMOR_ADAMANT_ARMOR = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{16, 16, 16, 16});
-	/** misc/ADAMANT_WEAPON */
-	public static final IconEntry MISC_ADAMANT_WEAPON = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{0, 16, 16, 16});
-	/** misc/BLOB */
-	public static final IconEntry MISC_BLOB = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{16, 48, 10, 9});
-	/** misc/ESCAPE */
-	public static final IconEntry MISC_ESCAPE = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{48, 48, 8, 16});
-	/** misc/SPS_GARBAGE */
-	public static final IconEntry MISC_SPS_GARBAGE = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{0, 48, 16, 16});
-	/** misc/STATUE */
-	public static final IconEntry MISC_STATUE = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{64, 48, 10, 16});
-	/** rings/ADAMANT_RING */
-	public static final IconEntry RINGS_ADAMANT_RING = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{48, 16, 16, 16});
-	/** stones/CRYSTAL_NUCLEUS */
-	public static final IconEntry STONES_CRYSTAL_NUCLEUS = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{48, 0, 16, 16});
-	/** stones/SHARD */
-	public static final IconEntry STONES_SHARD = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{32, 48, 8, 10});
-	/** wands/ADAMANT_WAND */
-	public static final IconEntry WANDS_ADAMANT_WAND = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{32, 16, 16, 16});
+	/** COLORLESS_ORE */
+	public static final IconEntry COLORLESS_ORE = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{4, 3, 8, 10});
+	/** GREEN_NORN_ORE */
+	public static final IconEntry GREEN_NORN_ORE = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{19, 3, 10, 10});
+	/** BLUE_NORN_ORE */
+	public static final IconEntry BLUE_NORN_ORE = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{36, 3, 8, 10});
+	/** ORANGE_NORN_ORE */
+	public static final IconEntry ORANGE_NORN_ORE = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{51, 3, 10, 10});
+	/** PURPLE_NORN_ORE */
+	public static final IconEntry PURPLE_NORN_ORE = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{68, 3, 8, 10});
+	/** YELLOW_NORN_ORE */
+	public static final IconEntry YELLOW_NORN_ORE = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{82, 4, 11, 9});
+	/** WEAPON_WELD_PART */
+	public static final IconEntry WEAPON_WELD_PART = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{0, 16, 16, 16});
+	/** ARMOR_WELD_PART */
+	public static final IconEntry ARMOR_WELD_PART = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{16, 17, 16, 14});
+	/** WAND_WELD_PART */
+	public static final IconEntry WAND_WELD_PART = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{33, 17, 14, 14});
+	/** RING_WELD_PART */
+	public static final IconEntry RING_WELD_PART = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{52, 19, 8, 10});
+	/** SCRAP */
+	public static final IconEntry SCRAP = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{2, 49, 12, 14});
+	/** BLOB#0 */
+	public static final IconEntry BLOB_0 = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{16, 48, 10, 9});
+	/** SHARD#0 */
+	public static final IconEntry SHARD_0 = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{32, 48, 8, 10});
+	/** ESCAPE#0 */
+	public static final IconEntry ESCAPE_0 = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{48, 48, 8, 16});
+	/** STATUE#0 */
+	public static final IconEntry STATUE_0 = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{64, 48, 10, 16});
 }

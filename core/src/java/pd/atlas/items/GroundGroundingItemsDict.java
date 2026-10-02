@@ -12,14 +12,30 @@ public final class GroundGroundingItemsDict {
 
 	private GroundGroundingItemsDict() { }
 
-	/** misc/CHEST */
-	public static final IconEntry MISC_CHEST = new IconEntry("sprites/items/ground/grounding_items.png", new int[]{96, 1, 16, 14});
-	/** misc/E_DUST */
-	public static final IconEntry MISC_E_DUST = new IconEntry("sprites/items/ground/grounding_items.png", new int[]{0, 48, 16, 16});
-	/** misc/EBONY_CHEST */
-	public static final IconEntry MISC_EBONY_CHEST = new IconEntry("sprites/items/ground/grounding_items.png", new int[]{144, 1, 16, 14});
-	/** misc/LOCKED_CHEST */
-	public static final IconEntry MISC_LOCKED_CHEST = new IconEntry("sprites/items/ground/grounding_items.png", new int[]{112, 1, 16, 14});
-	/** stones/CRYSTAL_CHEST */
-	public static final IconEntry STONES_CRYSTAL_CHEST = new IconEntry("sprites/items/ground/grounding_items.png", new int[]{128, 1, 16, 14});
+	/** NORMAL_REMAINS */
+	public static final IconEntry NORMAL_REMAINS = new IconEntry("sprites/items/ground/grounding_items.png", new int[]{0, 1, 15, 14});
+	/** HERO_BONES */
+	public static final IconEntry HERO_BONES = new IconEntry("sprites/items/ground/grounding_items.png", new int[]{16, 1, 15, 14});
+	/** CHEST#0 */
+	public static final IconEntry CHEST_0 = new IconEntry("sprites/items/ground/grounding_items.png", new int[]{48, 1, 16, 15});
+	/** LOCKED_CHEST#0 */
+	public static final IconEntry LOCKED_CHEST_0 = new IconEntry("sprites/items/ground/grounding_items.png", new int[]{64, 1, 16, 15});
+	/** CRYSTAL_CHEST#0 */
+	public static final IconEntry CRYSTAL_CHEST_0 = new IconEntry("sprites/items/ground/grounding_items.png", new int[]{80, 1, 16, 15});
+	/** EBONY_CHEST#0 */
+	public static final IconEntry EBONY_CHEST_0 = new IconEntry("sprites/items/ground/grounding_items.png", new int[]{144, 1, 16, 14});
+	/** NORMAL_GRAVESTONE */
+	public static final IconEntry NORMAL_GRAVESTONE = new IconEntry("sprites/items/ground/grounding_items.png", new int[]{1, 16, 14, 15});
+	/** MARBLE_GRAVESTONE */
+	public static final IconEntry MARBLE_GRAVESTONE = new IconEntry("sprites/items/ground/grounding_items.png", new int[]{17, 16, 14, 15});
+	/** TREASURE_SPOT */
+	public static final IconEntry TREASURE_SPOT = new IconEntry("sprites/items/ground/grounding_items.png", new int[]{1, 33, 14, 15});
+	/** TREASURE_SPOT_2 */
+	public static final IconEntry TREASURE_SPOT_2 = new IconEntry("sprites/items/ground/grounding_items.png", new int[]{17, 33, 14, 15});
+	/** FLOWER_POT */
+	public static final IconEntry FLOWER_POT = new IconEntry("sprites/items/ground/grounding_items.png", new int[]{33, 48, 14, 15});
+	/** ALCHEMY_CAULDRON */
+	public static final IconEntry ALCHEMY_CAULDRON = new IconEntry("sprites/items/ground/grounding_items.png", new int[]{48, 48, 16, 15});
+	/** ANVIL */
+	public static final IconEntry ANVIL = new IconEntry("sprites/items/ground/grounding_items.png", new int[]{64, 49, 16, 14});
 }

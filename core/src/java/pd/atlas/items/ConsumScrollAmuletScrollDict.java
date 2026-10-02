@@ -12,48 +12,68 @@ public final class ConsumScrollAmuletScrollDict {
 
 	private ConsumScrollAmuletScrollDict() { }
 
-	/** documents/SCROLL_CHALLENGE */
-	public static final IconEntry DOCUMENTS_SCROLL_CHALLENGE = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{128, 16, 15, 14});
-	/** documents/SCROLL_DREAD */
-	public static final IconEntry DOCUMENTS_SCROLL_DREAD = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{160, 16, 15, 14});
-	/** documents/SCROLL_ENCHANT */
-	public static final IconEntry DOCUMENTS_SCROLL_ENCHANT = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{0, 16, 15, 14});
-	/** documents/SCROLL_FORESIGHT */
-	public static final IconEntry DOCUMENTS_SCROLL_FORESIGHT = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{112, 16, 15, 14});
-	/** documents/SCROLL_KAUNAN */
-	public static final IconEntry DOCUMENTS_SCROLL_KAUNAN = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{0, 0, 15, 14});
-	/** documents/SCROLL_LULLABY */
-	public static final IconEntry DOCUMENTS_SCROLL_LULLABY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{96, 0, 15, 14});
-	/** documents/SCROLL_MANNAZ */
-	public static final IconEntry DOCUMENTS_SCROLL_MANNAZ = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{112, 0, 15, 14});
-	/** documents/SCROLL_METAMORPH */
-	public static final IconEntry DOCUMENTS_SCROLL_METAMORPH = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{176, 16, 15, 14});
-	/** documents/SCROLL_MIRRORIMG */
-	public static final IconEntry DOCUMENTS_SCROLL_MIRRORIMG = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{48, 0, 15, 14});
-	/** documents/SCROLL_MYSTENRG */
-	public static final IconEntry DOCUMENTS_SCROLL_MYSTENRG = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{64, 16, 15, 14});
-	/** documents/SCROLL_RECHARGE */
-	public static final IconEntry DOCUMENTS_SCROLL_RECHARGE = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{64, 0, 15, 14});
-	/** documents/SCROLL_REMCURSE */
-	public static final IconEntry DOCUMENTS_SCROLL_REMCURSE = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{32, 0, 15, 14});
-	/** documents/SCROLL_SIREN */
-	public static final IconEntry DOCUMENTS_SCROLL_SIREN = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{96, 16, 15, 14});
-	/** documents/SCROLL_SOWILO */
-	public static final IconEntry DOCUMENTS_SCROLL_SOWILO = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{16, 0, 15, 14});
-	/** documents/SCROLL_TELEPORT */
-	public static final IconEntry DOCUMENTS_SCROLL_TELEPORT = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{80, 0, 15, 14});
-	/** misc/ARCANE_RESIN */
-	public static final IconEntry MISC_ARCANE_RESIN = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{226, 51, 12, 11});
-	/** misc/EXOTIC_BERKANAN */
-	public static final IconEntry MISC_EXOTIC_BERKANAN = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{144, 16, 15, 14});
-	/** misc/EXOTIC_LAGUZ */
-	public static final IconEntry MISC_EXOTIC_LAGUZ = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{32, 16, 15, 14});
-	/** misc/EXOTIC_RAIDO */
-	public static final IconEntry MISC_EXOTIC_RAIDO = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{80, 16, 15, 14});
-	/** misc/EXOTIC_SOWILO */
-	public static final IconEntry MISC_EXOTIC_SOWILO = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{16, 16, 15, 14});
-	/** misc/EXOTIC_YNGVI */
-	public static final IconEntry MISC_EXOTIC_YNGVI = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{48, 16, 15, 14});
-	/** misc/PLAYER_ICON */
-	public static final IconEntry MISC_PLAYER_ICON = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{0, 0, 16, 16});
+	/** SCROLL_ENCHANT_LEGACY */
+	public static final IconEntry SCROLL_ENCHANT_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{1, 1, 15, 14});
+	/** EXOTIC_SOWILO_LEGACY */
+	public static final IconEntry EXOTIC_SOWILO_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{17, 1, 15, 14});
+	/** EXOTIC_LAGUZ_LEGACY */
+	public static final IconEntry EXOTIC_LAGUZ_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{33, 1, 15, 14});
+	/** EXOTIC_YNGVI_LEGACY */
+	public static final IconEntry EXOTIC_YNGVI_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{49, 1, 15, 14});
+	/** SCROLL_MYSTENRG_LEGACY */
+	public static final IconEntry SCROLL_MYSTENRG_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{65, 1, 15, 14});
+	/** EXOTIC_RAIDO_LEGACY */
+	public static final IconEntry EXOTIC_RAIDO_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{81, 1, 15, 14});
+	/** SCROLL_SIREN_LEGACY */
+	public static final IconEntry SCROLL_SIREN_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{97, 1, 15, 14});
+	/** SCROLL_FORESIGHT_LEGACY */
+	public static final IconEntry SCROLL_FORESIGHT_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{113, 1, 15, 14});
+	/** SCROLL_CHALLENGE_LEGACY */
+	public static final IconEntry SCROLL_CHALLENGE_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{129, 1, 15, 14});
+	/** EXOTIC_BERKANAN_LEGACY */
+	public static final IconEntry EXOTIC_BERKANAN_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{145, 1, 15, 14});
+	/** SCROLL_DREAD_LEGACY */
+	public static final IconEntry SCROLL_DREAD_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{161, 1, 15, 14});
+	/** SCROLL_METAMORPH_LEGACY */
+	public static final IconEntry SCROLL_METAMORPH_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{177, 1, 15, 14});
+	/** SPS_SCROLL_A */
+	public static final IconEntry SPS_SCROLL_A = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{193, 1, 15, 14});
+	/** SPS_SCROLL_B */
+	public static final IconEntry SPS_SCROLL_B = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{209, 1, 15, 14});
+	/** SPS_SCROLL_C */
+	public static final IconEntry SPS_SCROLL_C = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{225, 1, 15, 14});
+	/** SCROLL_ENCHANT#0 */
+	public static final IconEntry SCROLL_ENCHANT_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{0, 16, 15, 14});
+	/** EXOTIC_SOWILO#0 */
+	public static final IconEntry EXOTIC_SOWILO_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{16, 16, 15, 14});
+	/** EXOTIC_LAGUZ#0 */
+	public static final IconEntry EXOTIC_LAGUZ_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{32, 16, 15, 14});
+	/** EXOTIC_YNGVI#0 */
+	public static final IconEntry EXOTIC_YNGVI_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{48, 16, 15, 14});
+	/** SCROLL_MYSTENRG#0 */
+	public static final IconEntry SCROLL_MYSTENRG_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{64, 16, 15, 14});
+	/** EXOTIC_RAIDO#0 */
+	public static final IconEntry EXOTIC_RAIDO_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{80, 16, 15, 14});
+	/** SCROLL_SIREN#0 */
+	public static final IconEntry SCROLL_SIREN_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{96, 16, 15, 14});
+	/** SCROLL_FORESIGHT#0 */
+	public static final IconEntry SCROLL_FORESIGHT_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{112, 16, 15, 14});
+	/** SCROLL_CHALLENGE#0 */
+	public static final IconEntry SCROLL_CHALLENGE_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{128, 16, 15, 14});
+	/** EXOTIC_BERKANAN#0 */
+	public static final IconEntry EXOTIC_BERKANAN_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{144, 16, 15, 14});
+	/** SCROLL_DREAD#0 */
+	public static final IconEntry SCROLL_DREAD_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{160, 16, 15, 14});
+	/** SCROLL_METAMORPH#0 */
+	public static final IconEntry SCROLL_METAMORPH_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{176, 16, 15, 14});
+	/** SCROLL_OF_PRECISION */
+	public static final IconEntry SCROLL_OF_PRECISION = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{193, 17, 15, 14});
+	/** SCROLL_OF_PROTECTION */
+	public static final IconEntry SCROLL_OF_PROTECTION = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{209, 17, 15, 14});
+	/** SCROLL_OF_MAGIC */
+	public static final IconEntry SCROLL_OF_MAGIC = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{225, 17, 15, 14});
+	/** ENCHANT_CUBE */
+	public static final IconEntry ENCHANT_CUBE = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{210, 50, 12, 13});
+	/** ARCANE_RESIN */
+	public static final IconEntry ARCANE_RESIN = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{226, 51, 12, 11});
 }

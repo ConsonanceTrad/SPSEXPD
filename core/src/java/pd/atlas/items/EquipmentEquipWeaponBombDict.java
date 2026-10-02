@@ -12,30 +12,38 @@ public final class EquipmentEquipWeaponBombDict {
 
 	private EquipmentEquipWeaponBombDict() { }
 
-	/** misc/FLASHBANG */
-	public static final IconEntry MISC_FLASHBANG = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{3, 17, 10, 13});
-	/** misc/NOISEMAKER */
-	public static final IconEntry MISC_NOISEMAKER = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{51, 17, 10, 13});
-	/** weapons/ARCANE_BOMB */
-	public static final IconEntry WEAPONS_ARCANE_BOMB = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{67, 17, 10, 13});
-	/** weapons/BOMB */
-	public static final IconEntry WEAPONS_BOMB = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{3, 1, 10, 13});
-	/** weapons/DBL_BOMB */
-	public static final IconEntry WEAPONS_DBL_BOMB = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{17, 1, 14, 13});
-	/** weapons/FIRE_BOMB */
-	public static final IconEntry WEAPONS_FIRE_BOMB = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{66, 34, 13, 12});
-	/** weapons/FROST_BOMB */
-	public static final IconEntry WEAPONS_FROST_BOMB = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{82, 34, 13, 12});
-	/** weapons/HOLY_BOMB */
-	public static final IconEntry WEAPONS_HOLY_BOMB = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{19, 17, 10, 13});
-	/** weapons/LIGHT_BOMB */
-	public static final IconEntry WEAPONS_LIGHT_BOMB = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{96, 15, 16, 16});
-	/** weapons/REGROWTH_BOMB */
-	public static final IconEntry WEAPONS_REGROWTH_BOMB = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{98, 34, 13, 12});
-	/** weapons/SHRAPNEL_BOMB */
-	public static final IconEntry WEAPONS_SHRAPNEL_BOMB = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{83, 17, 10, 13});
-	/** weapons/SMOKE_BOMB */
-	public static final IconEntry WEAPONS_SMOKE_BOMB = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{114, 34, 13, 12});
-	/** weapons/WOOLY_BOMB */
-	public static final IconEntry WEAPONS_WOOLY_BOMB = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{35, 17, 10, 13});
+	/** BOMB#0 */
+	public static final IconEntry BOMB_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{3, 1, 10, 13});
+	/** DBL_BOMB#0 */
+	public static final IconEntry DBL_BOMB_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{17, 1, 14, 13});
+	/** FLASHBANG#0 */
+	public static final IconEntry FLASHBANG_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{3, 17, 10, 13});
+	/** HOLY_BOMB#0 */
+	public static final IconEntry HOLY_BOMB_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{19, 17, 10, 13});
+	/** WOOLY_BOMB#0 */
+	public static final IconEntry WOOLY_BOMB_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{35, 17, 10, 13});
+	/** NOISEMAKER#0 */
+	public static final IconEntry NOISEMAKER_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{51, 17, 10, 13});
+	/** ARCANE_BOMB#0 */
+	public static final IconEntry ARCANE_BOMB_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{67, 17, 10, 13});
+	/** SHRAPNEL_BOMB#0 */
+	public static final IconEntry SHRAPNEL_BOMB_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{83, 17, 10, 13});
+	/** SPS_FISHING_BOMB */
+	public static final IconEntry SPS_FISHING_BOMB = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{112, 18, 15, 13});
+	/** SPS_MINI_BOMB */
+	public static final IconEntry SPS_MINI_BOMB = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{3, 36, 10, 9});
+	/** DUD_DUNGEON_BOMB */
+	public static final IconEntry DUD_DUNGEON_BOMB = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{18, 35, 12, 11});
+	/** DUNGEON_BOMB */
+	public static final IconEntry DUNGEON_BOMB = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{34, 35, 12, 11});
+	/** DUNGEON_BOMB_BUNDLE */
+	public static final IconEntry DUNGEON_BOMB_BUNDLE = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{48, 33, 15, 14});
+	/** FIRE_BOMB#0 */
+	public static final IconEntry FIRE_BOMB_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{66, 34, 13, 12});
+	/** FROST_BOMB#0 */
+	public static final IconEntry FROST_BOMB_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{82, 34, 13, 12});
+	/** REGROWTH_BOMB#0 */
+	public static final IconEntry REGROWTH_BOMB_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{98, 34, 13, 12});
+	/** SMOKE_BOMB#0 */
+	public static final IconEntry SMOKE_BOMB_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{114, 34, 13, 12});
 }

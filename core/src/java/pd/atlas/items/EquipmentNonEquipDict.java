@@ -12,88 +12,166 @@ public final class EquipmentNonEquipDict {
 
 	private EquipmentNonEquipDict() { }
 
-	/** armor/SPS_LIFE_ARMOR */
-	public static final IconEntry ARMOR_SPS_LIFE_ARMOR = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{112, 96, 16, 16});
-	/** artifacts/LEGACY_ATTACK_SHOES */
-	public static final IconEntry ARTIFACTS_LEGACY_ATTACK_SHOES = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{0, 0, 16, 16});
-	/** documents/SPS_NEED_PAPER */
-	public static final IconEntry DOCUMENTS_SPS_NEED_PAPER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{144, 32, 16, 16});
-	/** documents/SPS_REWARD_PAPER */
-	public static final IconEntry DOCUMENTS_SPS_REWARD_PAPER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{48, 79, 16, 16});
-	/** documents/SPS_UNDEAD_BOOK */
-	public static final IconEntry DOCUMENTS_SPS_UNDEAD_BOOK = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{16, 80, 16, 16});
-	/** foods/GEL */
-	public static final IconEntry FOODS_GEL = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{176, 0, 16, 16});
-	/** foods/HONEY_GEL */
-	public static final IconEntry FOODS_HONEY_GEL = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{144, 0, 16, 16});
-	/** foods/MUSHROOM */
-	public static final IconEntry FOODS_MUSHROOM = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{32, 0, 16, 16});
-	/** misc/BLOOD_VIAL */
-	public static final IconEntry MISC_BLOOD_VIAL = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{192, 112, 6, 15});
-	/** misc/CHAOTIC_CENSER */
-	public static final IconEntry MISC_CHAOTIC_CENSER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{224, 112, 13, 15});
-	/** misc/CLOVER */
-	public static final IconEntry MISC_CLOVER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{96, 112, 11, 15});
-	/** misc/CURSE_BLOOD */
-	public static final IconEntry MISC_CURSE_BLOOD = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{224, 16, 16, 16});
-	/** misc/ELEVATOR */
-	public static final IconEntry MISC_ELEVATOR = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{240, 80, 16, 16});
-	/** misc/EYE_OF_NEWT */
-	public static final IconEntry MISC_EYE_OF_NEWT = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{160, 112, 12, 12});
-	/** misc/FERRET_TUFT */
-	public static final IconEntry MISC_FERRET_TUFT = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{240, 112, 16, 15});
-	/** misc/LEGACY_ATTACK_SHIELD */
-	public static final IconEntry MISC_LEGACY_ATTACK_SHIELD = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{80, 16, 16, 16});
-	/** misc/LEGACY_B_SHOVEL */
-	public static final IconEntry MISC_LEGACY_B_SHOVEL = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{128, 16, 16, 16});
-	/** misc/LEGACY_BIG_BATTERY */
-	public static final IconEntry MISC_LEGACY_BIG_BATTERY = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{112, 16, 16, 16});
-	/** misc/LEGACY_SHOVEL */
-	public static final IconEntry MISC_LEGACY_SHOVEL = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{32, 16, 16, 16});
-	/** misc/MIMIC_TOOTH */
-	public static final IconEntry MISC_MIMIC_TOOTH = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{128, 112, 8, 15});
-	/** misc/MIX_BOTTLE */
-	public static final IconEntry MISC_MIX_BOTTLE = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{16, 16, 16, 16});
-	/** misc/MOSSY_CLUMP */
-	public static final IconEntry MISC_MOSSY_CLUMP = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{64, 112, 12, 11});
-	/** misc/PARCHMENT_SCRAP */
-	public static final IconEntry MISC_PARCHMENT_SCRAP = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{16, 112, 10, 14});
-	/** misc/SALT_CUBE */
-	public static final IconEntry MISC_SALT_CUBE = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{176, 112, 12, 13});
-	/** misc/SPS_ANKH_SHIELD */
-	public static final IconEntry MISC_SPS_ANKH_SHIELD = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{16, 0, 16, 16});
-	/** misc/SPS_DICE_TOWER */
-	public static final IconEntry MISC_SPS_DICE_TOWER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{32, 32, 16, 16});
-	/** misc/SPS_FLAG */
-	public static final IconEntry MISC_SPS_FLAG = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{16, 32, 16, 16});
-	/** misc/SPS_GNOLL_MARK */
-	public static final IconEntry MISC_SPS_GNOLL_MARK = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{240, 16, 16, 16});
-	/** misc/SPS_MECH_POCKET */
-	public static final IconEntry MISC_SPS_MECH_POCKET = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{48, 32, 16, 16});
-	/** misc/SPS_POCKET_BALL_FULL */
-	public static final IconEntry MISC_SPS_POCKET_BALL_FULL = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{224, 0, 16, 16});
-	/** misc/SPS_PPC */
-	public static final IconEntry MISC_SPS_PPC = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{64, 32, 16, 16});
-	/** misc/SPS_PPC2 */
-	public static final IconEntry MISC_SPS_PPC2 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{160, 32, 16, 16});
-	/** misc/SPS_SERIOUS_PUNCH */
-	public static final IconEntry MISC_SPS_SERIOUS_PUNCH = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{128, 32, 16, 16});
-	/** misc/SPYGLASS */
-	public static final IconEntry MISC_SPYGLASS = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{240, 96, 15, 15});
-	/** misc/SUNDIAL */
-	public static final IconEntry MISC_SUNDIAL = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{80, 112, 16, 12});
-	/** misc/TRAP_MECHANISM */
-	public static final IconEntry MISC_TRAP_MECHANISM = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{112, 112, 13, 15});
-	/** misc/WONDROUS_RESIN */
-	public static final IconEntry MISC_WONDROUS_RESIN = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{144, 112, 12, 11});
-	/** misc/WOODEN_SHIELD */
-	public static final IconEntry MISC_WOODEN_SHIELD = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{0, 16, 16, 16});
-	/** seeds/PETRIFIED_SEED */
-	public static final IconEntry SEEDS_PETRIFIED_SEED = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{32, 112, 9, 9});
-	/** stones/EXOTIC_CRYSTALS */
-	public static final IconEntry STONES_EXOTIC_CRYSTALS = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{48, 112, 15, 13});
-	/** stones/OBLIVION_SHARD */
-	public static final IconEntry STONES_OBLIVION_SHARD = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{208, 112, 7, 14});
-	/** weapons/LEGACY_SOLDIER_GUN */
-	public static final IconEntry WEAPONS_LEGACY_SOLDIER_GUN = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{48, 16, 16, 16});
+	/** JUMP_BOOTS */
+	public static final IconEntry JUMP_BOOTS = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{0, 0, 16, 16});
+	/** HOLY_SHIELD */
+	public static final IconEntry HOLY_SHIELD = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{19, 1, 10, 14});
+	/** DEWDROP_MUSHROOM */
+	public static final IconEntry DEWDROP_MUSHROOM = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{33, 1, 13, 14});
+	/** WATERSKIN */
+	public static final IconEntry WATERSKIN = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{50, 2, 12, 12});
+	/** DEWDROP */
+	public static final IconEntry DEWDROP = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{67, 3, 10, 10});
+	/** YELLOW_DEWDROP */
+	public static final IconEntry YELLOW_DEWDROP = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{83, 3, 10, 10});
+	/** RED_DEWDROP */
+	public static final IconEntry RED_DEWDROP = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{99, 3, 10, 13});
+	/** VIOLET_DEWDROP */
+	public static final IconEntry VIOLET_DEWDROP = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{115, 3, 10, 10});
+	/** GREEN_DEWDROP */
+	public static final IconEntry GREEN_DEWDROP = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{131, 3, 10, 10});
+	/** YELLOW_UPGRADE_BLOB */
+	public static final IconEntry YELLOW_UPGRADE_BLOB = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{145, 3, 14, 11});
+	/** RED_UPGRADE_BLOB */
+	public static final IconEntry RED_UPGRADE_BLOB = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{161, 3, 14, 11});
+	/** VIOLET_UPGRADE_BLOB */
+	public static final IconEntry VIOLET_UPGRADE_BLOB = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{177, 3, 14, 11});
+	/** PURE_DEWDROP_WATER */
+	public static final IconEntry PURE_DEWDROP_WATER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{197, 2, 6, 12});
+	/** EMPTY_POCKET_BALL */
+	public static final IconEntry EMPTY_POCKET_BALL = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{211, 1, 10, 14});
+	/** FULL_POCKET_BALL */
+	public static final IconEntry FULL_POCKET_BALL = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{227, 1, 10, 14});
+	/** SAVE_YOUR_LIFE */
+	public static final IconEntry SAVE_YOUR_LIFE = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{240, 0, 16, 16});
+	/** DIVINE_WOOD_SHIELD */
+	public static final IconEntry DIVINE_WOOD_SHIELD = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{3, 19, 10, 10});
+	/** MIRACLE_FLASK */
+	public static final IconEntry MIRACLE_FLASK = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{18, 17, 12, 14});
+	/** LEGACY_SHOVEL#0 */
+	public static final IconEntry LEGACY_SHOVEL_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{32, 16, 16, 16});
+	/** ELECTROMAGNETIC_PISTOL */
+	public static final IconEntry ELECTROMAGNETIC_PISTOL = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{48, 19, 16, 12});
+	/** ELECTROMAGNETIC_BULLET */
+	public static final IconEntry ELECTROMAGNETIC_BULLET = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{67, 21, 10, 7});
+	/** RYU_HADOKEN */
+	public static final IconEntry RYU_HADOKEN = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{81, 18, 12, 12});
+	/** FAITH_BOX */
+	public static final IconEntry FAITH_BOX = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{97, 17, 14, 14});
+	/** BATTERY */
+	public static final IconEntry BATTERY = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{112, 19, 15, 11});
+	/** CHEAT_CODE */
+	public static final IconEntry CHEAT_CODE = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{130, 17, 13, 15});
+	/** MUSHROOM_QUESTION_BOX */
+	public static final IconEntry MUSHROOM_QUESTION_BOX = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{146, 19, 11, 11});
+	/** SMALL_HAMMER */
+	public static final IconEntry SMALL_HAMMER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{163, 18, 11, 11});
+	/** CARD_BOX */
+	public static final IconEntry CARD_BOX = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{178, 17, 11, 14});
+	/** DEMON_CONTRACT */
+	public static final IconEntry DEMON_CONTRACT = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{193, 16, 13, 16});
+	/** CHAOS_PACK */
+	public static final IconEntry CHAOS_PACK = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{210, 16, 13, 16});
+	/** CHAOS_BLOOD */
+	public static final IconEntry CHAOS_BLOOD = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{227, 16, 11, 14});
+	/** RITUAL_MASK */
+	public static final IconEntry RITUAL_MASK = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{241, 17, 15, 15});
+	/** RUNE_DICE */
+	public static final IconEntry RUNE_DICE = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{2, 33, 12, 13});
+	/** FORTRESS_BANNER */
+	public static final IconEntry FORTRESS_BANNER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{18, 32, 12, 16});
+	/** SPS_DICE_TOWER#0 */
+	public static final IconEntry SPS_DICE_TOWER_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{32, 32, 16, 16});
+	/** DORAEMON_POCKET */
+	public static final IconEntry DORAEMON_POCKET = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{48, 35, 16, 11});
+	/** DETECTIVE_SUIT */
+	public static final IconEntry DETECTIVE_SUIT = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{65, 32, 14, 16});
+	/** LORD_BANNER */
+	public static final IconEntry LORD_BANNER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{81, 32, 14, 16});
+	/** MEDKIT */
+	public static final IconEntry MEDKIT = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{98, 35, 11, 11});
+	/** QUIVER */
+	public static final IconEntry QUIVER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{113, 34, 13, 12});
+	/** SPS_SERIOUS_PUNCH#0 */
+	public static final IconEntry SPS_SERIOUS_PUNCH_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{128, 32, 16, 16});
+	/** WANTED_LIST */
+	public static final IconEntry WANTED_LIST = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{144, 32, 15, 16});
+	/** DETECTOR */
+	public static final IconEntry DETECTOR = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{160, 32, 16, 15});
+	/** EROSION_CORE */
+	public static final IconEntry EROSION_CORE = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{177, 34, 13, 13});
+	/** BARBARIAN_HELMET */
+	public static final IconEntry BARBARIAN_HELMET = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{193, 33, 14, 14});
+	/** DEMON_HELMET */
+	public static final IconEntry DEMON_HELMET = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{208, 33, 16, 15});
+	/** RED_HARE_TOTEM */
+	public static final IconEntry RED_HARE_TOTEM = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{225, 33, 14, 15});
+	/** FAKE_DEWDROP_VIAL */
+	public static final IconEntry FAKE_DEWDROP_VIAL = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{242, 33, 12, 14});
+	/** DEMON_BOOK */
+	public static final IconEntry DEMON_BOOK = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{3, 83, 10, 12});
+	/** UNDEAD_BIBLE */
+	public static final IconEntry UNDEAD_BIBLE = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{17, 80, 13, 16});
+	/** COLLECTION_BOOK */
+	public static final IconEntry COLLECTION_BOOK = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{33, 80, 13, 16});
+	/** REWARD_LIST */
+	public static final IconEntry REWARD_LIST = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{50, 82, 12, 12});
+	/** FOREST_GUIDE */
+	public static final IconEntry FOREST_GUIDE = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{65, 80, 13, 16});
+	/** ANIMAL_GUIDE */
+	public static final IconEntry ANIMAL_GUIDE = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{81, 80, 14, 16});
+	/** ELEVATOR */
+	public static final IconEntry ELEVATOR = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{240, 81, 15, 14});
+	/** HERO_SKILL_WARRIOR */
+	public static final IconEntry HERO_SKILL_WARRIOR = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{0, 96, 16, 16});
+	/** HERO_SKILL_MAGE */
+	public static final IconEntry HERO_SKILL_MAGE = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{16, 96, 16, 16});
+	/** HERO_SKILL_ROGUE */
+	public static final IconEntry HERO_SKILL_ROGUE = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{32, 96, 16, 16});
+	/** HERO_SKILL_HUNTRESS */
+	public static final IconEntry HERO_SKILL_HUNTRESS = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{48, 96, 16, 16});
+	/** HERO_SKILL_PERFORMER */
+	public static final IconEntry HERO_SKILL_PERFORMER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{64, 96, 16, 16});
+	/** HERO_SKILL_STAR_SOLDIER */
+	public static final IconEntry HERO_SKILL_STAR_SOLDIER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{80, 96, 16, 16});
+	/** HERO_SKILL_CLERIC */
+	public static final IconEntry HERO_SKILL_CLERIC = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{96, 96, 16, 16});
+	/** SPS_LIFE_ARMOR#0 */
+	public static final IconEntry SPS_LIFE_ARMOR_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{112, 96, 16, 16});
+	/** TASTY_PUDDING */
+	public static final IconEntry TASTY_PUDDING = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{225, 98, 14, 13});
+	/** SPYGLASS#0 */
+	public static final IconEntry SPYGLASS_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{240, 96, 15, 15});
+	/** RAT_SKULL#0 */
+	public static final IconEntry RAT_SKULL_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{0, 112, 16, 11});
+	/** PARCHMENT_SCRAP#0 */
+	public static final IconEntry PARCHMENT_SCRAP_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{16, 112, 10, 14});
+	/** PETRIFIED_SEED#0 */
+	public static final IconEntry PETRIFIED_SEED_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{32, 112, 9, 9});
+	/** EXOTIC_CRYSTALS#0 */
+	public static final IconEntry EXOTIC_CRYSTALS_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{48, 112, 15, 13});
+	/** MOSSY_CLUMP#0 */
+	public static final IconEntry MOSSY_CLUMP_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{64, 112, 12, 11});
+	/** SUNDIAL#0 */
+	public static final IconEntry SUNDIAL_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{80, 112, 16, 12});
+	/** CLOVER#0 */
+	public static final IconEntry CLOVER_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{96, 112, 11, 15});
+	/** TRAP_MECHANISM#0 */
+	public static final IconEntry TRAP_MECHANISM_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{112, 112, 13, 15});
+	/** MIMIC_TOOTH#0 */
+	public static final IconEntry MIMIC_TOOTH_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{128, 112, 8, 15});
+	/** WONDROUS_RESIN#0 */
+	public static final IconEntry WONDROUS_RESIN_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{144, 112, 12, 11});
+	/** EYE_OF_NEWT#0 */
+	public static final IconEntry EYE_OF_NEWT_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{160, 112, 12, 12});
+	/** SALT_CUBE#0 */
+	public static final IconEntry SALT_CUBE_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{176, 112, 12, 13});
+	/** BLOOD_VIAL#0 */
+	public static final IconEntry BLOOD_VIAL_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{192, 112, 6, 15});
+	/** OBLIVION_SHARD#0 */
+	public static final IconEntry OBLIVION_SHARD_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{208, 112, 7, 14});
+	/** CHAOTIC_CENSER#0 */
+	public static final IconEntry CHAOTIC_CENSER_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{224, 112, 13, 15});
+	/** FERRET_TUFT#0 */
+	public static final IconEntry FERRET_TUFT_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{240, 112, 16, 15});
 }

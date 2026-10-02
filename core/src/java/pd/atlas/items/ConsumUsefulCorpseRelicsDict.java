@@ -12,18 +12,18 @@ public final class ConsumUsefulCorpseRelicsDict {
 
 	private ConsumUsefulCorpseRelicsDict() { }
 
-	/** documents/TORN_PAGE */
-	public static final IconEntry DOCUMENTS_TORN_PAGE = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{80, 0, 11, 13});
-	/** misc/BROKEN_HILT */
-	public static final IconEntry MISC_BROKEN_HILT = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{64, 0, 9, 9});
-	/** misc/CLOAK_SCRAP */
-	public static final IconEntry MISC_CLOAK_SCRAP = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{32, 0, 9, 9});
-	/** misc/TRINKET_CATA */
-	public static final IconEntry MISC_TRINKET_CATA = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{96, 0, 12, 11});
-	/** stones/SEAL_SHARD */
-	public static final IconEntry STONES_SEAL_SHARD = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{0, 0, 12, 12});
-	/** weapons/BOW_FRAGMENT */
-	public static final IconEntry WEAPONS_BOW_FRAGMENT = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{48, 0, 12, 9});
-	/** weapons/BROKEN_STAFF */
-	public static final IconEntry WEAPONS_BROKEN_STAFF = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{16, 0, 14, 10});
+	/** SEAL_SHARD#0 */
+	public static final IconEntry SEAL_SHARD_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{0, 0, 12, 12});
+	/** BROKEN_STAFF#0 */
+	public static final IconEntry BROKEN_STAFF_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{16, 0, 14, 10});
+	/** CLOAK_SCRAP#0 */
+	public static final IconEntry CLOAK_SCRAP_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{32, 0, 9, 9});
+	/** BOW_FRAGMENT#0 */
+	public static final IconEntry BOW_FRAGMENT_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{48, 0, 12, 9});
+	/** BROKEN_HILT#0 */
+	public static final IconEntry BROKEN_HILT_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{64, 0, 9, 9});
+	/** TORN_PAGE#0 */
+	public static final IconEntry TORN_PAGE_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{80, 0, 11, 13});
+	/** TRINKET_CATA#0 */
+	public static final IconEntry TRINKET_CATA_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{96, 0, 12, 11});
 }

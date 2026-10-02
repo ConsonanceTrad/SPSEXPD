@@ -12,20 +12,18 @@ public final class SpecificPagesDict {
 
 	private SpecificPagesDict() { }
 
-	/** documents/ALCH_PAGE */
-	public static final IconEntry DOCUMENTS_ALCH_PAGE = new IconEntry("sprites/items/specific/pages.png", new int[]{19, 2, 10, 11});
-	/** documents/CAVES_PAGE */
-	public static final IconEntry DOCUMENTS_CAVES_PAGE = new IconEntry("sprites/items/specific/pages.png", new int[]{67, 2, 10, 11});
-	/** documents/CITY_PAGE */
-	public static final IconEntry DOCUMENTS_CITY_PAGE = new IconEntry("sprites/items/specific/pages.png", new int[]{83, 2, 10, 11});
-	/** documents/GUIDE_PAGE */
-	public static final IconEntry DOCUMENTS_GUIDE_PAGE = new IconEntry("sprites/items/specific/pages.png", new int[]{3, 2, 10, 11});
-	/** documents/HALLS_PAGE */
-	public static final IconEntry DOCUMENTS_HALLS_PAGE = new IconEntry("sprites/items/specific/pages.png", new int[]{99, 2, 10, 11});
-	/** documents/PRISON_PAGE */
-	public static final IconEntry DOCUMENTS_PRISON_PAGE = new IconEntry("sprites/items/specific/pages.png", new int[]{51, 2, 10, 11});
-	/** documents/SEWER_PAGE */
-	public static final IconEntry DOCUMENTS_SEWER_PAGE = new IconEntry("sprites/items/specific/pages.png", new int[]{35, 2, 10, 11});
-	/** misc/ITEM_687 */
-	public static final IconEntry MISC_ITEM_687 = new IconEntry("sprites/items/specific/pages.png", new int[]{0, 0, 16, 16});
+	/** GUIDE_PAGE#0 */
+	public static final IconEntry GUIDE_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{3, 2, 10, 11});
+	/** ALCH_PAGE#0 */
+	public static final IconEntry ALCH_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{19, 2, 10, 11});
+	/** SEWER_PAGE#0 */
+	public static final IconEntry SEWER_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{35, 2, 10, 11});
+	/** PRISON_PAGE#0 */
+	public static final IconEntry PRISON_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{51, 2, 10, 11});
+	/** CAVES_PAGE#0 */
+	public static final IconEntry CAVES_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{67, 2, 10, 11});
+	/** CITY_PAGE#0 */
+	public static final IconEntry CITY_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{83, 2, 10, 11});
+	/** HALLS_PAGE#0 */
+	public static final IconEntry HALLS_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{99, 2, 10, 11});
 }

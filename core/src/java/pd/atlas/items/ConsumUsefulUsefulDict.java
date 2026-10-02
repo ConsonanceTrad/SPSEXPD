@@ -12,6 +12,20 @@ public final class ConsumUsefulUsefulDict {
 
 	private ConsumUsefulUsefulDict() { }
 
-	/** foods/PET_FOOD */
-	public static final IconEntry FOODS_PET_FOOD = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{64, 16, 16, 16});
+	/** STYLUS */
+	public static final IconEntry STYLUS = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{18, 1, 12, 13});
+	/** TORCH#0 */
+	public static final IconEntry TORCH_0 = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{32, 0, 12, 15});
+	/** BEACON#0 */
+	public static final IconEntry BEACON_0 = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{48, 0, 16, 15});
+	/** HONEYPOT#0 */
+	public static final IconEntry HONEYPOT_0 = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{65, 2, 14, 12});
+	/** SHATTPOT */
+	public static final IconEntry SHATTPOT = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{81, 2, 14, 12});
+	/** ANKH */
+	public static final IconEntry ANKH = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{3, 16, 10, 16});
+	/** PET_FOOD */
+	public static final IconEntry PET_FOOD = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{65, 17, 13, 14});
+	/** SP_AMMO */
+	public static final IconEntry SP_AMMO = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{85, 18, 6, 13});
 }

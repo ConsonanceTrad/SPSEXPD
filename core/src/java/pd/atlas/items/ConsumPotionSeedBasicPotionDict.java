@@ -12,96 +12,102 @@ public final class ConsumPotionSeedBasicPotionDict {
 
 	private ConsumPotionSeedBasicPotionDict() { }
 
-	/** foods/MUSHROOM_DEATHCAP */
-	public static final IconEntry FOODS_MUSHROOM_DEATHCAP = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{48, 32, 16, 16});
-	/** foods/MUSHROOM_EARTHSTAR */
-	public static final IconEntry FOODS_MUSHROOM_EARTHSTAR = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{16, 32, 16, 16});
-	/** foods/MUSHROOM_GREEN_SPORE */
-	public static final IconEntry FOODS_MUSHROOM_GREEN_SPORE = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{32, 32, 16, 16});
-	/** foods/MUSHROOM_LANTERN */
-	public static final IconEntry FOODS_MUSHROOM_LANTERN = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{0, 32, 16, 16});
-	/** foods/MUSHROOM_PIXIEPARASOL */
-	public static final IconEntry FOODS_MUSHROOM_PIXIEPARASOL = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{64, 32, 16, 16});
-	/** misc/EXOTIC_BISTRE */
-	public static final IconEntry MISC_EXOTIC_BISTRE = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{128, 16, 12, 13});
-	/** misc/EXOTIC_IVORY */
-	public static final IconEntry MISC_EXOTIC_IVORY = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{176, 16, 12, 13});
-	/** misc/EXOTIC_TURQUOISE */
-	public static final IconEntry MISC_EXOTIC_TURQUOISE = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{64, 16, 12, 13});
-	/** misc/GREAT_PILL */
-	public static final IconEntry MISC_GREAT_PILL = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{112, 32, 16, 16});
-	/** misc/LIQUID_METAL */
-	public static final IconEntry MISC_LIQUID_METAL = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{192, 0, 8, 15});
-	/** misc/POCKET_BALL */
-	public static final IconEntry MISC_POCKET_BALL = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{96, 32, 16, 16});
-	/** misc/POCKET_BALL_EMPTY */
-	public static final IconEntry MISC_POCKET_BALL_EMPTY = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{80, 32, 16, 16});
-	/** potions/BREW_AQUA */
-	public static final IconEntry POTIONS_BREW_AQUA = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{112, 48, 9, 11});
-	/** potions/BREW_BLIZZARD */
-	public static final IconEntry POTIONS_BREW_BLIZZARD = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{64, 48, 11, 13});
-	/** potions/BREW_CAUSTIC */
-	public static final IconEntry POTIONS_BREW_CAUSTIC = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{96, 48, 12, 14});
-	/** potions/BREW_INFERNAL */
-	public static final IconEntry POTIONS_BREW_INFERNAL = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{48, 48, 11, 13});
-	/** potions/BREW_SHOCKING */
-	public static final IconEntry POTIONS_BREW_SHOCKING = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{80, 48, 12, 14});
-	/** potions/BREW_UNSTABLE */
-	public static final IconEntry POTIONS_BREW_UNSTABLE = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{192, 16, 11, 13});
-	/** potions/ELIXIR_AQUA */
-	public static final IconEntry POTIONS_ELIXIR_AQUA = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{144, 48, 12, 14});
-	/** potions/ELIXIR_ARCANE */
-	public static final IconEntry POTIONS_ELIXIR_ARCANE = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{224, 48, 12, 14});
-	/** potions/ELIXIR_DRAGON */
-	public static final IconEntry POTIONS_ELIXIR_DRAGON = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{176, 48, 12, 14});
-	/** potions/ELIXIR_FEATHER */
-	public static final IconEntry POTIONS_ELIXIR_FEATHER = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{240, 48, 12, 14});
-	/** potions/ELIXIR_ICY */
-	public static final IconEntry POTIONS_ELIXIR_ICY = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{208, 48, 12, 14});
-	/** potions/ELIXIR_MIGHT */
-	public static final IconEntry POTIONS_ELIXIR_MIGHT = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{160, 48, 12, 14});
-	/** potions/ELIXIR_TOXIC */
-	public static final IconEntry POTIONS_ELIXIR_TOXIC = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{192, 48, 12, 14});
-	/** potions/POTION_AZURE */
-	public static final IconEntry POTIONS_POTION_AZURE = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{80, 0, 12, 14});
-	/** potions/POTION_BISTRE */
-	public static final IconEntry POTIONS_POTION_BISTRE = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{128, 0, 12, 14});
-	/** potions/POTION_CHARCOAL */
-	public static final IconEntry POTIONS_POTION_CHARCOAL = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{144, 0, 12, 14});
-	/** potions/POTION_CLEANSE */
-	public static final IconEntry POTIONS_POTION_CLEANSE = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{160, 16, 12, 13});
-	/** potions/POTION_CORROGAS */
-	public static final IconEntry POTIONS_POTION_CORROGAS = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{80, 16, 12, 13});
-	/** potions/POTION_CRIMSON */
-	public static final IconEntry POTIONS_POTION_CRIMSON = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{0, 0, 12, 14});
-	/** potions/POTION_EARTHARMR */
-	public static final IconEntry POTIONS_POTION_EARTHARMR = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{144, 16, 12, 13});
-	/** potions/POTION_EXP */
-	public static final IconEntry POTIONS_POTION_EXP = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{176, 0, 12, 14});
-	/** potions/POTION_HEALING */
-	public static final IconEntry POTIONS_POTION_HEALING = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{16, 0, 12, 14});
-	/** potions/POTION_INDIGO */
-	public static final IconEntry POTIONS_POTION_INDIGO = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{96, 0, 12, 14});
-	/** potions/POTION_INVIS */
-	public static final IconEntry POTIONS_POTION_INVIS = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{112, 0, 12, 14});
-	/** potions/POTION_JADE */
-	public static final IconEntry POTIONS_POTION_JADE = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{48, 0, 12, 14});
-	/** potions/POTION_MAGISIGHT */
-	public static final IconEntry POTIONS_POTION_MAGISIGHT = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{32, 16, 12, 13});
-	/** potions/POTION_MASTERY */
-	public static final IconEntry POTIONS_POTION_MASTERY = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{0, 16, 12, 13});
-	/** potions/POTION_MINDVIS */
-	public static final IconEntry POTIONS_POTION_MINDVIS = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{32, 0, 12, 14});
-	/** potions/POTION_SHIELDING */
-	public static final IconEntry POTIONS_POTION_SHIELDING = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{16, 16, 12, 13});
-	/** potions/POTION_SHROUDFOG */
-	public static final IconEntry POTIONS_POTION_SHROUDFOG = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{112, 16, 12, 13});
-	/** potions/POTION_SILVER */
-	public static final IconEntry POTIONS_POTION_SILVER = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{160, 0, 12, 14});
-	/** potions/POTION_SNAPFREEZ */
-	public static final IconEntry POTIONS_POTION_SNAPFREEZ = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{48, 16, 12, 13});
-	/** potions/POTION_STAMINA */
-	public static final IconEntry POTIONS_POTION_STAMINA = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{96, 16, 12, 13});
-	/** potions/POTION_TURQUOISE */
-	public static final IconEntry POTIONS_POTION_TURQUOISE = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{64, 0, 12, 14});
+	/** POTION_CRIMSON#0 */
+	public static final IconEntry POTION_CRIMSON_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{0, 0, 12, 14});
+	/** POTION_HEALING#0 */
+	public static final IconEntry POTION_HEALING_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{16, 0, 12, 14});
+	/** POTION_MINDVIS#0 */
+	public static final IconEntry POTION_MINDVIS_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{32, 0, 12, 14});
+	/** POTION_JADE#0 */
+	public static final IconEntry POTION_JADE_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{48, 0, 12, 14});
+	/** POTION_TURQUOISE#0 */
+	public static final IconEntry POTION_TURQUOISE_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{64, 0, 12, 14});
+	/** POTION_AZURE#0 */
+	public static final IconEntry POTION_AZURE_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{80, 0, 12, 14});
+	/** POTION_INDIGO#0 */
+	public static final IconEntry POTION_INDIGO_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{96, 0, 12, 14});
+	/** POTION_INVIS#0 */
+	public static final IconEntry POTION_INVIS_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{112, 0, 12, 14});
+	/** POTION_BISTRE#0 */
+	public static final IconEntry POTION_BISTRE_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{128, 0, 12, 14});
+	/** POTION_CHARCOAL#0 */
+	public static final IconEntry POTION_CHARCOAL_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{144, 0, 12, 14});
+	/** POTION_SILVER#0 */
+	public static final IconEntry POTION_SILVER_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{160, 0, 12, 14});
+	/** POTION_EXP#0 */
+	public static final IconEntry POTION_EXP_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{176, 0, 12, 14});
+	/** LIQUID_METAL#0 */
+	public static final IconEntry LIQUID_METAL_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{192, 0, 8, 15});
+	/** STRENGTH_BOTTLE */
+	public static final IconEntry STRENGTH_BOTTLE = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{244, 2, 9, 12});
+	/** POTION_MASTERY#0 */
+	public static final IconEntry POTION_MASTERY_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{0, 16, 12, 13});
+	/** POTION_SHIELDING#0 */
+	public static final IconEntry POTION_SHIELDING_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{16, 16, 12, 13});
+	/** POTION_MAGISIGHT#0 */
+	public static final IconEntry POTION_MAGISIGHT_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{32, 16, 12, 13});
+	/** POTION_SNAPFREEZ#0 */
+	public static final IconEntry POTION_SNAPFREEZ_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{48, 16, 12, 13});
+	/** EXOTIC_TURQUOISE#0 */
+	public static final IconEntry EXOTIC_TURQUOISE_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{64, 16, 12, 13});
+	/** POTION_CORROGAS#0 */
+	public static final IconEntry POTION_CORROGAS_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{80, 16, 12, 13});
+	/** POTION_STAMINA#0 */
+	public static final IconEntry POTION_STAMINA_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{96, 16, 12, 13});
+	/** POTION_SHROUDFOG#0 */
+	public static final IconEntry POTION_SHROUDFOG_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{112, 16, 12, 13});
+	/** EXOTIC_BISTRE#0 */
+	public static final IconEntry EXOTIC_BISTRE_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{128, 16, 12, 13});
+	/** POTION_EARTHARMR#0 */
+	public static final IconEntry POTION_EARTHARMR_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{144, 16, 12, 13});
+	/** POTION_CLEANSE#0 */
+	public static final IconEntry POTION_CLEANSE_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{160, 16, 12, 13});
+	/** EXOTIC_IVORY#0 */
+	public static final IconEntry EXOTIC_IVORY_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{176, 16, 12, 13});
+	/** BREW_UNSTABLE#0 */
+	public static final IconEntry BREW_UNSTABLE_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{192, 16, 11, 13});
+	/** ALCHEMY_FLUX */
+	public static final IconEntry ALCHEMY_FLUX = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{245, 17, 6, 15});
+	/** FIRE_PHOSPHORUS_FRUIT */
+	public static final IconEntry FIRE_PHOSPHORUS_FRUIT = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{2, 34, 12, 13});
+	/** EARTH_RIFT_FRUIT */
+	public static final IconEntry EARTH_RIFT_FRUIT = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{16, 33, 16, 15});
+	/** DEW_FUNGUS_SPORE */
+	public static final IconEntry DEW_FUNGUS_SPORE = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{35, 37, 12, 9});
+	/** POISON_MUSHROOM */
+	public static final IconEntry POISON_MUSHROOM = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{50, 35, 11, 12});
+	/** MONOCHROME_BLOCK */
+	public static final IconEntry MONOCHROME_BLOCK = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{67, 35, 11, 12});
+	/** LETHAL_FUNGUS */
+	public static final IconEntry LETHAL_FUNGUS = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{82, 36, 12, 11});
+	/** BLUE_CAP_MUSHROOM */
+	public static final IconEntry BLUE_CAP_MUSHROOM = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{97, 35, 12, 12});
+	/** PILL */
+	public static final IconEntry PILL = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{115, 34, 11, 11});
+	/** BREW_INFERNAL#0 */
+	public static final IconEntry BREW_INFERNAL_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{48, 48, 11, 13});
+	/** BREW_BLIZZARD#0 */
+	public static final IconEntry BREW_BLIZZARD_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{64, 48, 11, 13});
+	/** BREW_SHOCKING#0 */
+	public static final IconEntry BREW_SHOCKING_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{80, 48, 12, 14});
+	/** BREW_CAUSTIC#0 */
+	public static final IconEntry BREW_CAUSTIC_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{96, 48, 12, 14});
+	/** BREW_AQUA#0 */
+	public static final IconEntry BREW_AQUA_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{112, 48, 9, 11});
+	/** BREW_LEFT */
+	public static final IconEntry BREW_LEFT = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{128, 48, 12, 14});
+	/** ELIXIR_AQUA#0 */
+	public static final IconEntry ELIXIR_AQUA_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{144, 48, 12, 14});
+	/** ELIXIR_MIGHT#0 */
+	public static final IconEntry ELIXIR_MIGHT_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{160, 48, 12, 14});
+	/** ELIXIR_DRAGON#0 */
+	public static final IconEntry ELIXIR_DRAGON_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{176, 48, 12, 14});
+	/** ELIXIR_TOXIC#0 */
+	public static final IconEntry ELIXIR_TOXIC_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{192, 48, 12, 14});
+	/** ELIXIR_ICY#0 */
+	public static final IconEntry ELIXIR_ICY_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{208, 48, 12, 14});
+	/** ELIXIR_ARCANE#0 */
+	public static final IconEntry ELIXIR_ARCANE_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{224, 48, 12, 14});
+	/** ELIXIR_FEATHER#0 */
+	public static final IconEntry ELIXIR_FEATHER_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{240, 48, 12, 14});
 }

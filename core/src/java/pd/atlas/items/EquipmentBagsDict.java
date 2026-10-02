@@ -12,14 +12,22 @@ public final class EquipmentBagsDict {
 
 	private EquipmentBagsDict() { }
 
-	/** bags/HEART_OF_SCARECROW */
-	public static final IconEntry BAGS_HEART_OF_SCARECROW = new IconEntry("sprites/items/equipment/bags.png", new int[]{112, 0, 16, 16});
-	/** bags/SHOPPING_CART */
-	public static final IconEntry BAGS_SHOPPING_CART = new IconEntry("sprites/items/equipment/bags.png", new int[]{80, 0, 16, 16});
-	/** bags/SPS_ARROW_COLLECTER */
-	public static final IconEntry BAGS_SPS_ARROW_COLLECTER = new IconEntry("sprites/items/equipment/bags.png", new int[]{96, 0, 16, 16});
-	/** bags/SPS_KEY_RING */
-	public static final IconEntry BAGS_SPS_KEY_RING = new IconEntry("sprites/items/equipment/bags.png", new int[]{64, 0, 16, 16});
-	/** misc/BACKPACK */
-	public static final IconEntry MISC_BACKPACK = new IconEntry("sprites/items/equipment/bags.png", new int[]{240, 0, 16, 16});
+	/** POUCH */
+	public static final IconEntry POUCH = new IconEntry("sprites/items/equipment/bags.png", new int[]{1, 0, 14, 15});
+	/** HOLDER */
+	public static final IconEntry HOLDER = new IconEntry("sprites/items/equipment/bags.png", new int[]{16, 0, 16, 16});
+	/** BANDOLIER */
+	public static final IconEntry BANDOLIER = new IconEntry("sprites/items/equipment/bags.png", new int[]{32, 0, 15, 16});
+	/** HOLSTER */
+	public static final IconEntry HOLSTER = new IconEntry("sprites/items/equipment/bags.png", new int[]{48, 0, 15, 16});
+	/** SPS_KEY_RING */
+	public static final IconEntry SPS_KEY_RING = new IconEntry("sprites/items/equipment/bags.png", new int[]{67, 1, 11, 14});
+	/** SHOPPING_CART#0 */
+	public static final IconEntry SHOPPING_CART_0 = new IconEntry("sprites/items/equipment/bags.png", new int[]{80, 0, 16, 16});
+	/** SPS_ARROW_COLLECTER */
+	public static final IconEntry SPS_ARROW_COLLECTER = new IconEntry("sprites/items/equipment/bags.png", new int[]{97, 1, 14, 14});
+	/** HEART_OF_SCARECROW#0 */
+	public static final IconEntry HEART_OF_SCARECROW_0 = new IconEntry("sprites/items/equipment/bags.png", new int[]{112, 0, 16, 16});
+	/** BACKPACK#0 */
+	public static final IconEntry BACKPACK_0 = new IconEntry("sprites/items/equipment/bags.png", new int[]{240, 0, 16, 16});
 }

@@ -12,8 +12,14 @@ public final class EquipmentEquipArmorUniqueArmorDict {
 
 	private EquipmentEquipArmorUniqueArmorDict() { }
 
-	/** armor/SPS_BUNNY_ARMOR */
-	public static final IconEntry ARMOR_SPS_BUNNY_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{64, 0, 16, 16});
-	/** misc/SPECTACLES */
-	public static final IconEntry MISC_SPECTACLES = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{16, 0, 16, 16});
+	/** TOWEL */
+	public static final IconEntry TOWEL = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{1, 0, 14, 16});
+	/** SPECTACLES */
+	public static final IconEntry SPECTACLES = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{16, 4, 15, 8});
+	/** SHARK_PAJAMAS */
+	public static final IconEntry SHARK_PAJAMAS = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{34, 1, 10, 14});
+	/** LIVING_ARMOR */
+	public static final IconEntry LIVING_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{49, 2, 14, 13});
+	/** SPS_BUNNY_ARMOR#0 */
+	public static final IconEntry SPS_BUNNY_ARMOR_0 = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{64, 0, 16, 16});
 }

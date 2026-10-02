@@ -12,6 +12,6 @@ public final class GroundRockDict {
 
 	private GroundRockDict() { }
 
-	/** misc/GEO_BOULDER */
-	public static final IconEntry MISC_GEO_BOULDER = new IconEntry("sprites/items/ground/rock.png", new int[]{0, 0, 16, 15});
+	/** GEO_BOULDER#0 */
+	public static final IconEntry GEO_BOULDER_0 = new IconEntry("sprites/items/ground/rock.png", new int[]{0, 0, 16, 15});
 }

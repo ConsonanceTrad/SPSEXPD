@@ -12,14 +12,24 @@ public final class GroundFunctionalFallingDict {
 
 	private GroundFunctionalFallingDict() { }
 
-	/** misc/PETAL */
-	public static final IconEntry MISC_PETAL = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{4, 20, 8, 8});
-	/** misc/SANDBAG */
-	public static final IconEntry MISC_SANDBAG = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{19, 19, 10, 10});
-	/** misc/TENGU_SHOCKER */
-	public static final IconEntry MISC_TENGU_SHOCKER = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{67, 19, 10, 10});
-	/** weapons/SPIRIT_ARROW */
-	public static final IconEntry WEAPONS_SPIRIT_ARROW = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{35, 19, 11, 11});
-	/** weapons/TENGU_BOMB */
-	public static final IconEntry WEAPONS_TENGU_BOMB = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{51, 19, 10, 10});
+	/** dewdrop#0 */
+	public static final IconEntry DEWDROP_0 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{3, 3, 10, 10});
+	/** dewdrop#1 */
+	public static final IconEntry DEWDROP_1 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{19, 3, 10, 10});
+	/** dewdrop#2 */
+	public static final IconEntry DEWDROP_2 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{35, 3, 10, 13});
+	/** dewdrop#3 */
+	public static final IconEntry DEWDROP_3 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{51, 3, 10, 10});
+	/** dewdrop#4 */
+	public static final IconEntry DEWDROP_4 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{67, 3, 10, 10});
+	/** PETAL#0 */
+	public static final IconEntry PETAL_0 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{4, 20, 8, 8});
+	/** SANDBAG#0 */
+	public static final IconEntry SANDBAG_0 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{19, 19, 10, 10});
+	/** SPIRIT_ARROW#0 */
+	public static final IconEntry SPIRIT_ARROW_0 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{35, 19, 11, 11});
+	/** TENGU_BOMB#0 */
+	public static final IconEntry TENGU_BOMB_0 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{51, 19, 10, 10});
+	/** TENGU_SHOCKER#0 */
+	public static final IconEntry TENGU_SHOCKER_0 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{67, 19, 10, 10});
 }

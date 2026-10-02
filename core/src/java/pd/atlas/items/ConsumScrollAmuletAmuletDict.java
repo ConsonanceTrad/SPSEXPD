@@ -12,26 +12,28 @@ public final class ConsumScrollAmuletAmuletDict {
 
 	private ConsumScrollAmuletAmuletDict() { }
 
-	/** stones/STONE_AUGMENTATION */
-	public static final IconEntry STONES_STONE_AUGMENTATION = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{16, 0, 14, 12});
-	/** stones/STONE_BLAST */
-	public static final IconEntry STONES_STONE_BLAST = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{48, 0, 14, 12});
-	/** stones/STONE_BLINK */
-	public static final IconEntry STONES_STONE_BLINK = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{64, 0, 14, 12});
-	/** stones/STONE_CLAIRVOYANCE */
-	public static final IconEntry STONES_STONE_CLAIRVOYANCE = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{80, 0, 14, 12});
-	/** stones/STONE_DETECT */
-	public static final IconEntry STONES_STONE_DETECT = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{112, 0, 14, 12});
-	/** stones/STONE_ENCHANT */
-	public static final IconEntry STONES_STONE_ENCHANT = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{128, 0, 14, 12});
-	/** stones/STONE_FEAR */
-	public static final IconEntry STONES_STONE_FEAR = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{32, 0, 14, 12});
-	/** stones/STONE_FLOCK */
-	public static final IconEntry STONES_STONE_FLOCK = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{144, 0, 14, 12});
-	/** stones/STONE_INTUITION */
-	public static final IconEntry STONES_STONE_INTUITION = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{160, 0, 14, 12});
-	/** stones/STONE_SHOCK */
-	public static final IconEntry STONES_STONE_SHOCK = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{176, 0, 14, 12});
-	/** stones/STONE_SLEEP */
-	public static final IconEntry STONES_STONE_SLEEP = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{96, 0, 14, 12});
+	/** STONE_AGGRESSION */
+	public static final IconEntry STONE_AGGRESSION = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{0, 0, 14, 12});
+	/** STONE_AUGMENTATION#0 */
+	public static final IconEntry STONE_AUGMENTATION_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{16, 0, 14, 12});
+	/** STONE_FEAR#0 */
+	public static final IconEntry STONE_FEAR_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{32, 0, 14, 12});
+	/** STONE_BLAST#0 */
+	public static final IconEntry STONE_BLAST_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{48, 0, 14, 12});
+	/** STONE_BLINK#0 */
+	public static final IconEntry STONE_BLINK_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{64, 0, 14, 12});
+	/** STONE_CLAIRVOYANCE#0 */
+	public static final IconEntry STONE_CLAIRVOYANCE_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{80, 0, 14, 12});
+	/** STONE_SLEEP#0 */
+	public static final IconEntry STONE_SLEEP_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{96, 0, 14, 12});
+	/** STONE_DETECT#0 */
+	public static final IconEntry STONE_DETECT_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{112, 0, 14, 12});
+	/** STONE_ENCHANT#0 */
+	public static final IconEntry STONE_ENCHANT_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{128, 0, 14, 12});
+	/** STONE_FLOCK#0 */
+	public static final IconEntry STONE_FLOCK_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{144, 0, 14, 12});
+	/** STONE_INTUITION#0 */
+	public static final IconEntry STONE_INTUITION_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{160, 0, 14, 12});
+	/** STONE_SHOCK#0 */
+	public static final IconEntry STONE_SHOCK_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{176, 0, 14, 12});
 }

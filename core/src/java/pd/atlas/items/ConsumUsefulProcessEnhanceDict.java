@@ -12,14 +12,16 @@ public final class ConsumUsefulProcessEnhanceDict {
 
 	private ConsumUsefulProcessEnhanceDict() { }
 
-	/** documents/LEGACY_BRAVE_BOOK */
-	public static final IconEntry DOCUMENTS_LEGACY_BRAVE_BOOK = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{16, 16, 16, 16});
-	/** misc/CROWN */
-	public static final IconEntry MISC_CROWN = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{0, 16, 13, 7});
-	/** misc/KIT */
-	public static final IconEntry MISC_KIT = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{32, 0, 16, 15});
-	/** misc/MASK */
-	public static final IconEntry MISC_MASK = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{0, 0, 11, 9});
-	/** misc/MASTERY */
-	public static final IconEntry MISC_MASTERY = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{17, 0, 13, 16});
+	/** MASK#0 */
+	public static final IconEntry MASK_0 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{0, 0, 11, 9});
+	/** MASTERY#0 */
+	public static final IconEntry MASTERY_0 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{17, 0, 13, 16});
+	/** KIT#0 */
+	public static final IconEntry KIT_0 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{32, 0, 16, 15});
+	/** CROWN#0 */
+	public static final IconEntry CROWN_0 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{0, 16, 13, 7});
+	/** ARTIFACT_SPELLBOOK */
+	public static final IconEntry ARTIFACT_SPELLBOOK = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{17, 16, 13, 16});
+	/** ARMORKIT */
+	public static final IconEntry ARMORKIT = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{34, 18, 12, 12});
 }

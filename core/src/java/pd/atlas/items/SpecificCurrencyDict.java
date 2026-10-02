@@ -12,8 +12,8 @@ public final class SpecificCurrencyDict {
 
 	private SpecificCurrencyDict() { }
 
-	/** misc/ENERGY */
-	public static final IconEntry MISC_ENERGY = new IconEntry("sprites/items/specific/currency.png", new int[]{16, 0, 16, 16});
-	/** misc/GOLD */
-	public static final IconEntry MISC_GOLD = new IconEntry("sprites/items/specific/currency.png", new int[]{0, 0, 15, 13});
+	/** GOLD#0 */
+	public static final IconEntry GOLD_0 = new IconEntry("sprites/items/specific/currency.png", new int[]{0, 0, 15, 13});
+	/** ENERGY#0 */
+	public static final IconEntry ENERGY_0 = new IconEntry("sprites/items/specific/currency.png", new int[]{16, 0, 16, 16});
 }

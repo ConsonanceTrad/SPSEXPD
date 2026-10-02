@@ -12,28 +12,68 @@ public final class EquipmentEquipArmorBasicArmorDict {
 
 	private EquipmentEquipArmorBasicArmorDict() { }
 
-	/** armor/ARMOR_CLOTH */
-	public static final IconEntry ARMOR_ARMOR_CLOTH = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{0, 2, 15, 12});
-	/** armor/ARMOR_DUELIST */
-	public static final IconEntry ARMOR_ARMOR_DUELIST = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{178, 1, 12, 13});
-	/** armor/ARMOR_LEATHER */
-	public static final IconEntry ARMOR_ARMOR_LEATHER = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{17, 2, 14, 13});
-	/** armor/ARMOR_MAIL */
-	public static final IconEntry ARMOR_ARMOR_MAIL = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{33, 2, 14, 12});
-	/** armor/ARMOR_PLATE */
-	public static final IconEntry ARMOR_ARMOR_PLATE = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{66, 2, 12, 12});
-	/** armor/ARMOR_SCALE */
-	public static final IconEntry ARMOR_ARMOR_SCALE = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{49, 2, 14, 11});
-	/** armor/SPS_CD_ARMOR */
-	public static final IconEntry ARMOR_SPS_CD_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{32, 32, 16, 16});
-	/** armor/SPS_PHANTOM_ARMOR */
-	public static final IconEntry ARMOR_SPS_PHANTOM_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{80, 32, 16, 16});
-	/** armor/SPS_PROTECTIVE_ARMOR */
-	public static final IconEntry ARMOR_SPS_PROTECTIVE_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{64, 32, 16, 16});
-	/** armor/SPS_RUBBER_ARMOR */
-	public static final IconEntry ARMOR_SPS_RUBBER_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{16, 32, 16, 16});
-	/** armor/SPS_STYROFOAM_ARMOR */
-	public static final IconEntry ARMOR_SPS_STYROFOAM_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{48, 32, 16, 16});
-	/** armor/SPS_VEST_ARMOR */
-	public static final IconEntry ARMOR_SPS_VEST_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{0, 32, 16, 16});
+	/** ARMOR_CLOTH#0 */
+	public static final IconEntry ARMOR_CLOTH_0 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{0, 2, 15, 12});
+	/** ARMOR_LEATHER#0 */
+	public static final IconEntry ARMOR_LEATHER_0 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{17, 2, 14, 13});
+	/** ARMOR_MAIL#0 */
+	public static final IconEntry ARMOR_MAIL_0 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{33, 2, 14, 12});
+	/** ARMOR_SCALE#0 */
+	public static final IconEntry ARMOR_SCALE_0 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{49, 2, 14, 11});
+	/** ARMOR_PLATE#0 */
+	public static final IconEntry ARMOR_PLATE_0 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{66, 2, 12, 12});
+	/** HERO_ARMOR_WARRIOR */
+	public static final IconEntry HERO_ARMOR_WARRIOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{112, 2, 16, 13});
+	/** HERO_ARMOR_MAGE */
+	public static final IconEntry HERO_ARMOR_MAGE = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{128, 0, 15, 16});
+	/** HERO_ARMOR_ROGUE */
+	public static final IconEntry HERO_ARMOR_ROGUE = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{145, 2, 14, 13});
+	/** HERO_ARMOR_HUNTRESS */
+	public static final IconEntry HERO_ARMOR_HUNTRESS = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{161, 1, 13, 15});
+	/** ARMOR_DUELIST#0 */
+	public static final IconEntry ARMOR_DUELIST_0 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{178, 1, 12, 13});
+	/** HERO_ARMOR_PERFORMER */
+	public static final IconEntry HERO_ARMOR_PERFORMER = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{193, 2, 14, 13});
+	/** HERO_ARMOR_STAR_SOLDIER */
+	public static final IconEntry HERO_ARMOR_STAR_SOLDIER = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{211, 2, 10, 12});
+	/** HERO_ARMOR_CLERIC */
+	public static final IconEntry HERO_ARMOR_CLERIC = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{224, 2, 15, 13});
+	/** HERO_ARMOR_ASCETIC */
+	public static final IconEntry HERO_ARMOR_ASCETIC = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{241, 2, 13, 14});
+	/** VEST */
+	public static final IconEntry VEST = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{3, 34, 11, 12});
+	/** RUBBER_SUIT */
+	public static final IconEntry RUBBER_SUIT = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{17, 34, 14, 13});
+	/** CD_ARMOR */
+	public static final IconEntry CD_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{33, 34, 14, 13});
+	/** STYROFOAM_ARMOR */
+	public static final IconEntry STYROFOAM_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{49, 34, 14, 12});
+	/** THICK_RUBBER_SUIT */
+	public static final IconEntry THICK_RUBBER_SUIT = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{65, 34, 14, 11});
+	/** PHANTOM_ARMOR */
+	public static final IconEntry PHANTOM_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{84, 34, 8, 12});
+	/** WOODEN_ARMOR */
+	public static final IconEntry WOODEN_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{1, 50, 15, 12});
+	/** CERAMICS_ARMOR */
+	public static final IconEntry CERAMICS_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{17, 50, 14, 13});
+	/** STONE_ARMOR */
+	public static final IconEntry STONE_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{33, 50, 14, 13});
+	/** HEAVY_CHAIN_ARMOR */
+	public static final IconEntry HEAVY_CHAIN_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{49, 50, 14, 12});
+	/** HEAVY_SCALE_ARMOR */
+	public static final IconEntry HEAVY_SCALE_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{65, 50, 14, 11});
+	/** EXOSKELETON_ARMOR */
+	public static final IconEntry EXOSKELETON_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{80, 49, 16, 13});
+	/** ROBE */
+	public static final IconEntry ROBE = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{1, 66, 15, 13});
+	/** HIDE_ROBE */
+	public static final IconEntry HIDE_ROBE = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{17, 66, 14, 13});
+	/** MAGIC_CORE_ROBE */
+	public static final IconEntry MAGIC_CORE_ROBE = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{33, 66, 14, 13});
+	/** CHAIN_ROBE */
+	public static final IconEntry CHAIN_ROBE = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{49, 66, 14, 13});
+	/** DRAGON_HIDE_ROBE */
+	public static final IconEntry DRAGON_HIDE_ROBE = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{65, 66, 14, 13});
+	/** WING_ARMOR */
+	public static final IconEntry WING_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{81, 67, 14, 12});
 }

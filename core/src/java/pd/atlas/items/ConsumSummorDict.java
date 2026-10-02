@@ -12,74 +12,84 @@ public final class ConsumSummorDict {
 
 	private ConsumSummorDict() { }
 
-	/** foods/AFLY_EGG */
-	public static final IconEntry FOODS_AFLY_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{208, 16, 16, 16});
-	/** foods/BLUE_DRAGON_EGG */
-	public static final IconEntry FOODS_BLUE_DRAGON_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{64, 16, 16, 16});
-	/** foods/BLUE_GIRL_EGG */
-	public static final IconEntry FOODS_BLUE_GIRL_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{16, 16, 16, 16});
-	/** foods/BUG_DRAGON_EGG */
-	public static final IconEntry FOODS_BUG_DRAGON_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{160, 16, 16, 16});
-	/** foods/CHOCOBO_EGG */
-	public static final IconEntry FOODS_CHOCOBO_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{224, 32, 16, 16});
-	/** foods/DATURA_EGG */
-	public static final IconEntry FOODS_DATURA_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{0, 32, 16, 16});
-	/** foods/DOG_PET_EGG */
-	public static final IconEntry FOODS_DOG_PET_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{16, 32, 16, 16});
-	/** foods/DWARF_BOY_EGG */
-	public static final IconEntry FOODS_DWARF_BOY_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{32, 32, 16, 16});
-	/** foods/FLY_EGG */
-	public static final IconEntry FOODS_FLY_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{48, 32, 16, 16});
-	/** foods/FOX_HELPER_EGG */
-	public static final IconEntry FOODS_FOX_HELPER_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{64, 32, 16, 16});
-	/** foods/FROG_PET_EGG */
-	public static final IconEntry FOODS_FROG_PET_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{80, 32, 16, 16});
-	/** foods/GENTLE_CRAB_EGG */
-	public static final IconEntry FOODS_GENTLE_CRAB_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{96, 32, 16, 16});
-	/** foods/GOLD_DRAGON_EGG */
-	public static final IconEntry FOODS_GOLD_DRAGON_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{192, 16, 16, 16});
-	/** foods/GREEN_DRAGON_EGG */
-	public static final IconEntry FOODS_GREEN_DRAGON_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{96, 16, 16, 16});
-	/** foods/KODORA_EGG */
-	public static final IconEntry FOODS_KODORA_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{112, 32, 16, 16});
-	/** foods/LERY_FIRE_EGG */
-	public static final IconEntry FOODS_LERY_FIRE_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{32, 16, 16, 16});
-	/** foods/LIGHT_DRAGON_EGG */
-	public static final IconEntry FOODS_LIGHT_DRAGON_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{176, 16, 16, 16});
-	/** foods/LIT_DEMON_EGG */
-	public static final IconEntry FOODS_LIT_DEMON_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{128, 32, 16, 16});
-	/** foods/MONKEY_EGG */
-	public static final IconEntry FOODS_MONKEY_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{144, 32, 16, 16});
-	/** foods/PIG_PET_EGG */
-	public static final IconEntry FOODS_PIG_PET_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{160, 32, 16, 16});
-	/** foods/RABBIT_PET_EGG */
-	public static final IconEntry FOODS_RABBIT_PET_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{128, 16, 16, 16});
-	/** foods/RED_DRAGON_EGG */
-	public static final IconEntry FOODS_RED_DRAGON_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{48, 16, 16, 16});
-	/** foods/RIBBON_RAT_EGG */
-	public static final IconEntry FOODS_RIBBON_RAT_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{176, 32, 16, 16});
-	/** foods/SCORPION_EGG */
-	public static final IconEntry FOODS_SCORPION_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{0, 16, 16, 16});
-	/** foods/SNAKE_PET_EGG */
-	public static final IconEntry FOODS_SNAKE_PET_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{192, 32, 16, 16});
-	/** foods/SPIDER_PET_EGG */
-	public static final IconEntry FOODS_SPIDER_PET_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{208, 32, 16, 16});
-	/** foods/SPS_PET_EGG */
-	public static final IconEntry FOODS_SPS_PET_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{0, 0, 16, 16});
-	/** foods/STAR_KID_EGG */
-	public static final IconEntry FOODS_STAR_KID_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{224, 16, 16, 16});
-	/** foods/VELOCIROOSTER_EGG */
-	public static final IconEntry FOODS_VELOCIROOSTER_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{144, 16, 16, 16});
-	/** foods/VIOLET_DRAGON_EGG */
-	public static final IconEntry FOODS_VIOLET_DRAGON_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{80, 16, 16, 16});
-	/** misc/ACTIVE_MR_DESTRUCTO */
-	public static final IconEntry MISC_ACTIVE_MR_DESTRUCTO = new IconEntry("sprites/items/consum/summor.png", new int[]{64, 48, 16, 16});
-	/** misc/FAIRY_CARD */
-	public static final IconEntry MISC_FAIRY_CARD = new IconEntry("sprites/items/consum/summor.png", new int[]{32, 48, 16, 16});
-	/** misc/LYNN_DOLL */
-	public static final IconEntry MISC_LYNN_DOLL = new IconEntry("sprites/items/consum/summor.png", new int[]{16, 48, 16, 16});
-	/** misc/RUSTY_CAT */
-	public static final IconEntry MISC_RUSTY_CAT = new IconEntry("sprites/items/consum/summor.png", new int[]{80, 48, 16, 16});
-	/** stones/STONE_PET_EGG */
-	public static final IconEntry STONES_STONE_PET_EGG = new IconEntry("sprites/items/consum/summor.png", new int[]{240, 16, 16, 16});
+	/** RANDOM_INITIAL_SOUL */
+	public static final IconEntry RANDOM_INITIAL_SOUL = new IconEntry("sprites/items/consum/summor.png", new int[]{2, 2, 11, 12});
+	/** RANDOM_SOUL */
+	public static final IconEntry RANDOM_SOUL = new IconEntry("sprites/items/consum/summor.png", new int[]{16, 0, 16, 16});
+	/** SUMMON_TEMPLATE_1 */
+	public static final IconEntry SUMMON_TEMPLATE_1 = new IconEntry("sprites/items/consum/summor.png", new int[]{32, 0, 16, 16});
+	/** SUMMON_TEMPLATE_2 */
+	public static final IconEntry SUMMON_TEMPLATE_2 = new IconEntry("sprites/items/consum/summor.png", new int[]{48, 0, 16, 16});
+	/** SCORPION_EGG#0 */
+	public static final IconEntry SCORPION_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{0, 16, 16, 16});
+	/** BLUE_GIRL_EGG#0 */
+	public static final IconEntry BLUE_GIRL_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{16, 16, 16, 16});
+	/** LERY_FIRE_EGG#0 */
+	public static final IconEntry LERY_FIRE_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{32, 16, 16, 16});
+	/** RED_DRAGON_EGG#0 */
+	public static final IconEntry RED_DRAGON_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{48, 16, 16, 16});
+	/** BLUE_DRAGON_EGG#0 */
+	public static final IconEntry BLUE_DRAGON_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{64, 16, 16, 16});
+	/** VIOLET_DRAGON_EGG#0 */
+	public static final IconEntry VIOLET_DRAGON_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{80, 16, 16, 16});
+	/** GREEN_DRAGON_EGG#0 */
+	public static final IconEntry GREEN_DRAGON_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{96, 16, 16, 16});
+	/** RABBIT_PET_EGG#0 */
+	public static final IconEntry RABBIT_PET_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{128, 16, 16, 16});
+	/** VELOCIROOSTER_EGG#0 */
+	public static final IconEntry VELOCIROOSTER_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{144, 16, 16, 16});
+	/** BUG_DRAGON_EGG#0 */
+	public static final IconEntry BUG_DRAGON_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{160, 16, 16, 16});
+	/** LIGHT_DRAGON_EGG#0 */
+	public static final IconEntry LIGHT_DRAGON_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{176, 16, 16, 16});
+	/** GOLD_DRAGON_EGG#0 */
+	public static final IconEntry GOLD_DRAGON_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{192, 16, 16, 16});
+	/** AFLY_EGG#0 */
+	public static final IconEntry AFLY_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{208, 16, 16, 16});
+	/** STAR_KID_EGG#0 */
+	public static final IconEntry STAR_KID_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{224, 16, 16, 16});
+	/** STONE_PET_EGG#0 */
+	public static final IconEntry STONE_PET_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{240, 16, 16, 16});
+	/** DATURA_EGG#0 */
+	public static final IconEntry DATURA_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{0, 32, 16, 16});
+	/** DOG_PET_EGG#0 */
+	public static final IconEntry DOG_PET_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{16, 32, 16, 16});
+	/** DWARF_BOY_EGG#0 */
+	public static final IconEntry DWARF_BOY_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{32, 32, 16, 16});
+	/** FLY_EGG#0 */
+	public static final IconEntry FLY_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{48, 32, 16, 16});
+	/** FOX_HELPER_EGG#0 */
+	public static final IconEntry FOX_HELPER_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{64, 32, 16, 16});
+	/** FROG_PET_EGG#0 */
+	public static final IconEntry FROG_PET_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{80, 32, 16, 16});
+	/** GENTLE_CRAB_EGG#0 */
+	public static final IconEntry GENTLE_CRAB_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{96, 32, 16, 16});
+	/** KODORA_EGG#0 */
+	public static final IconEntry KODORA_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{112, 32, 16, 16});
+	/** LIT_DEMON_EGG#0 */
+	public static final IconEntry LIT_DEMON_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{128, 32, 16, 16});
+	/** MONKEY_EGG#0 */
+	public static final IconEntry MONKEY_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{144, 32, 16, 16});
+	/** PIG_PET_EGG#0 */
+	public static final IconEntry PIG_PET_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{160, 32, 16, 16});
+	/** RIBBON_RAT_EGG#0 */
+	public static final IconEntry RIBBON_RAT_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{176, 32, 16, 16});
+	/** SNAKE_PET_EGG#0 */
+	public static final IconEntry SNAKE_PET_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{192, 32, 16, 16});
+	/** SPIDER_PET_EGG#0 */
+	public static final IconEntry SPIDER_PET_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{208, 32, 16, 16});
+	/** CHOCOBO_EGG#0 */
+	public static final IconEntry CHOCOBO_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{224, 32, 16, 16});
+	/** SOLDIER_SUMMON */
+	public static final IconEntry SOLDIER_SUMMON = new IconEntry("sprites/items/consum/summor.png", new int[]{2, 48, 12, 16});
+	/** FAIRY_DOLL */
+	public static final IconEntry FAIRY_DOLL = new IconEntry("sprites/items/consum/summor.png", new int[]{18, 49, 12, 15});
+	/** FAIRY_CARD#0 */
+	public static final IconEntry FAIRY_CARD_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{32, 48, 16, 16});
+	/** DESTRUCTION_DRONE */
+	public static final IconEntry DESTRUCTION_DRONE = new IconEntry("sprites/items/consum/summor.png", new int[]{48, 48, 15, 16});
+	/** LASER_TURRET */
+	public static final IconEntry LASER_TURRET = new IconEntry("sprites/items/consum/summor.png", new int[]{64, 49, 15, 14});
+	/** CAT_EAR_BOX */
+	public static final IconEntry CAT_EAR_BOX = new IconEntry("sprites/items/consum/summor.png", new int[]{83, 54, 11, 9});
 }

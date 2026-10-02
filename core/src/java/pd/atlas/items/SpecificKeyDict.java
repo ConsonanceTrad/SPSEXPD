@@ -12,12 +12,12 @@ public final class SpecificKeyDict {
 
 	private SpecificKeyDict() { }
 
-	/** keys/GOLDEN_KEY */
-	public static final IconEntry KEYS_GOLDEN_KEY = new IconEntry("sprites/items/specific/key.png", new int[]{20, 17, 8, 14});
-	/** keys/IRON_KEY */
-	public static final IconEntry KEYS_IRON_KEY = new IconEntry("sprites/items/specific/key.png", new int[]{4, 17, 8, 14});
-	/** keys/WORN_KEY */
-	public static final IconEntry KEYS_WORN_KEY = new IconEntry("sprites/items/specific/key.png", new int[]{36, 17, 8, 14});
-	/** stones/CRYSTAL_KEY */
-	public static final IconEntry STONES_CRYSTAL_KEY = new IconEntry("sprites/items/specific/key.png", new int[]{52, 17, 8, 14});
+	/** IRON_KEY */
+	public static final IconEntry IRON_KEY = new IconEntry("sprites/items/specific/key.png", new int[]{4, 1, 8, 14});
+	/** GOLDEN_KEY */
+	public static final IconEntry GOLDEN_KEY = new IconEntry("sprites/items/specific/key.png", new int[]{20, 1, 8, 14});
+	/** WORN_KEY */
+	public static final IconEntry WORN_KEY = new IconEntry("sprites/items/specific/key.png", new int[]{36, 1, 8, 14});
+	/** CRYSTAL_KEY */
+	public static final IconEntry CRYSTAL_KEY = new IconEntry("sprites/items/specific/key.png", new int[]{52, 1, 8, 14});
 }

@@ -12,16 +12,60 @@ public final class ConsumGoodsMaterialsGoodsDict {
 
 	private ConsumGoodsMaterialsGoodsDict() { }
 
-	/** artifacts/GHOST_GIRL_ROSE */
-	public static final IconEntry ARTIFACTS_GHOST_GIRL_ROSE = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{48, 16, 16, 16});
-	/** misc/AFLY_SOCK */
-	public static final IconEntry MISC_AFLY_SOCK = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{32, 0, 16, 16});
-	/** misc/BOTTLE_FLOWER */
-	public static final IconEntry MISC_BOTTLE_FLOWER = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{16, 0, 16, 16});
-	/** misc/RAT_SKULL */
-	public static final IconEntry MISC_RAT_SKULL = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{0, 2, 16, 11});
-	/** misc/SIMPLE_360 */
-	public static final IconEntry MISC_SIMPLE_360 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{144, 0, 16, 16});
-	/** misc/VIP_CARD */
-	public static final IconEntry MISC_VIP_CARD = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{112, 16, 16, 16});
+	/** RAT_SKULL#0 */
+	public static final IconEntry RAT_SKULL_0 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{0, 2, 16, 11});
+	/** BOTTLE_FLOWER */
+	public static final IconEntry BOTTLE_FLOWER = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{17, 0, 15, 15});
+	/** WHITE_SOCK */
+	public static final IconEntry WHITE_SOCK = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{33, 2, 14, 12});
+	/** TEST_SUBJECT */
+	public static final IconEntry TEST_SUBJECT = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{49, 1, 14, 14});
+	/** FLYER */
+	public static final IconEntry FLYER = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{68, 1, 9, 12});
+	/** BROKEN_CROSSBOW */
+	public static final IconEntry BROKEN_CROSSBOW = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{82, 3, 12, 12});
+	/** SWITCH_CONSOLE */
+	public static final IconEntry SWITCH_CONSOLE = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{98, 3, 12, 9});
+	/** EXTERNAL_TEST_CODE */
+	public static final IconEntry EXTERNAL_TEST_CODE = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{114, 2, 12, 13});
+	/** ERROR_IMAGE */
+	public static final IconEntry ERROR_IMAGE = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{128, 2, 16, 14});
+	/** SPROUTING_TROPHY */
+	public static final IconEntry SPROUTING_TROPHY = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{147, 1, 10, 14});
+	/** EXCLUSIVE_COLLECTION */
+	public static final IconEntry EXCLUSIVE_COLLECTION = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{160, 1, 16, 13});
+	/** BROKEN_REAGENT */
+	public static final IconEntry BROKEN_REAGENT = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{178, 2, 12, 12});
+	/** FLAME_IN_BOTTLE */
+	public static final IconEntry FLAME_IN_BOTTLE = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{194, 2, 12, 13});
+	/** UNCLE_DUMBBELL */
+	public static final IconEntry UNCLE_DUMBBELL = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{209, 3, 14, 10});
+	/** HUMMINGBIRD_OPENER */
+	public static final IconEntry HUMMINGBIRD_OPENER = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{226, 0, 12, 15});
+	/** MOLDY_DONUT */
+	public static final IconEntry MOLDY_DONUT = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{242, 2, 12, 12});
+	/** WOODEN_FISH */
+	public static final IconEntry WOODEN_FISH = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{2, 18, 12, 13});
+	/** EARTH_CRYSTAL */
+	public static final IconEntry EARTH_CRYSTAL = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{18, 18, 12, 11});
+	/** BLUE_CAT_TEST_CODE */
+	public static final IconEntry BLUE_CAT_TEST_CODE = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{32, 16, 16, 14});
+	/** RED_GHOST */
+	public static final IconEntry RED_GHOST = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{49, 17, 12, 12});
+	/** RAINBOW_AXE_BLADE */
+	public static final IconEntry RAINBOW_AXE_BLADE = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{65, 17, 14, 14});
+	/** RABBIT_HEAD_DOLL */
+	public static final IconEntry RABBIT_HEAD_DOLL = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{81, 17, 15, 15});
+	/** RAINBOW_BOUQUET */
+	public static final IconEntry RAINBOW_BOUQUET = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{96, 17, 16, 15});
+	/** TV_GHOST */
+	public static final IconEntry TV_GHOST = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{112, 18, 16, 12});
+	/** DANCING_FIGURE#0 */
+	public static final IconEntry DANCING_FIGURE_0 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{0, 80, 16, 16});
+	/** DANCING_FIGURE#1 */
+	public static final IconEntry DANCING_FIGURE_1 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{16, 80, 16, 16});
+	/** DANCING_FIGURE#2 */
+	public static final IconEntry DANCING_FIGURE_2 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{32, 80, 16, 16});
+	/** DANCING_FIGURE#3 */
+	public static final IconEntry DANCING_FIGURE_3 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{48, 80, 16, 16});
 }

@@ -12,26 +12,44 @@ public final class ConsumScrollAmuletCrystalDict {
 
 	private ConsumScrollAmuletCrystalDict() { }
 
-	/** misc/ALCHEMIZE */
-	public static final IconEntry MISC_ALCHEMIZE = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{96, 0, 12, 12});
-	/** misc/CURSE_INFUSE */
-	public static final IconEntry MISC_CURSE_INFUSE = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{64, 0, 10, 16});
-	/** misc/MAGIC_INFUSE */
-	public static final IconEntry MISC_MAGIC_INFUSE = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{80, 0, 10, 14});
-	/** misc/PHASE_SHIFT */
-	public static final IconEntry MISC_PHASE_SHIFT = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{16, 0, 12, 10});
-	/** misc/RECLAIM_TRAP */
-	public static final IconEntry MISC_RECLAIM_TRAP = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{128, 0, 14, 11});
-	/** misc/RECYCLE */
-	public static final IconEntry MISC_RECYCLE = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{112, 0, 12, 13});
-	/** misc/RETURN_BEACON */
-	public static final IconEntry MISC_RETURN_BEACON = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{144, 0, 8, 16});
-	/** misc/TELE_GRAB */
-	public static final IconEntry MISC_TELE_GRAB = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{32, 0, 10, 10});
-	/** misc/UNSTABLE_SPELL */
-	public static final IconEntry MISC_UNSTABLE_SPELL = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{48, 0, 12, 13});
-	/** misc/WILD_ENERGY */
-	public static final IconEntry MISC_WILD_ENERGY = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{0, 0, 6, 15});
-	/** stones/summon_ele */
-	public static final IconEntry STONES_SUMMON_ELE = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{160, 0, 8, 16, 176, 0, 8, 16, 192, 0, 8, 16, 208, 0, 8, 16, 224, 0, 8, 16});
+	/** WILD_ENERGY#0 */
+	public static final IconEntry WILD_ENERGY_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{0, 0, 6, 15});
+	/** PHASE_SHIFT#0 */
+	public static final IconEntry PHASE_SHIFT_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{16, 0, 12, 10});
+	/** TELE_GRAB#0 */
+	public static final IconEntry TELE_GRAB_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{32, 0, 10, 10});
+	/** UNSTABLE_SPELL#0 */
+	public static final IconEntry UNSTABLE_SPELL_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{48, 0, 12, 13});
+	/** CURSE_INFUSE#0 */
+	public static final IconEntry CURSE_INFUSE_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{64, 0, 10, 16});
+	/** MAGIC_INFUSE#0 */
+	public static final IconEntry MAGIC_INFUSE_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{80, 0, 10, 14});
+	/** ALCHEMIZE#0 */
+	public static final IconEntry ALCHEMIZE_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{96, 0, 12, 12});
+	/** RECYCLE#0 */
+	public static final IconEntry RECYCLE_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{112, 0, 12, 13});
+	/** RECLAIM_TRAP#0 */
+	public static final IconEntry RECLAIM_TRAP_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{128, 0, 14, 11});
+	/** RETURN_BEACON#0 */
+	public static final IconEntry RETURN_BEACON_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{144, 0, 8, 16});
+	/** summon_ele#0 */
+	public static final IconEntry SUMMON_ELE_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{160, 0, 8, 16});
+	/** legacy alias for SUMMON_ELE_0 */
+	public static final IconEntry SUMMON_ELE = SUMMON_ELE_0;
+	/** summon_ele#1 */
+	public static final IconEntry SUMMON_ELE_1 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{176, 0, 8, 16});
+	/** legacy alias for SUMMON_ELE_1 */
+	public static final IconEntry SUMMON_ELE_FIRE = SUMMON_ELE_1;
+	/** summon_ele#2 */
+	public static final IconEntry SUMMON_ELE_2 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{192, 0, 8, 16});
+	/** legacy alias for SUMMON_ELE_2 */
+	public static final IconEntry SUMMON_ELE_FROST = SUMMON_ELE_2;
+	/** summon_ele#3 */
+	public static final IconEntry SUMMON_ELE_3 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{208, 0, 8, 16});
+	/** legacy alias for SUMMON_ELE_3 */
+	public static final IconEntry SUMMON_ELE_SHOCK = SUMMON_ELE_3;
+	/** summon_ele#4 */
+	public static final IconEntry SUMMON_ELE_4 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{224, 0, 8, 16});
+	/** legacy alias for SUMMON_ELE_4 */
+	public static final IconEntry SUMMON_ELE_CHAOS = SUMMON_ELE_4;
 }
