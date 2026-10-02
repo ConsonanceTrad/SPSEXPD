@@ -36,6 +36,13 @@ public class Reflection {
 	}
 	
 	public static <T> T newInstance( Class<T> cls ){
+		//SPSXPD: 非静态内部类（如 RangeWeapon$NormalArrow）依赖外部实例，没有无参构造器，
+		//图鉴(Notes/Catalog)等按类反射构造时必然抛 NoSuchMethodException。
+		//这里直接返回 null，避免每个引用它的条目都刷一条异常。
+		if (cls != null && cls.getEnclosingClass() != null
+				&& !java.lang.reflect.Modifier.isStatic(cls.getModifiers())) {
+			return null;
+		}
 		try {
 			return ClassReflection.newInstance(cls);
 		} catch (Exception e) {
