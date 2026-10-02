@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.armor.specialarmor;
 
+import pd.atlas.items.EquipmentEquipArmorUniqueArmorDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
@@ -8,14 +10,13 @@ import pd.items.Heap;
 import pd.items.armor.normalarmor.NormalArmor;
 import pd.items.eggs.EasterEgg;
 import pd.sprites.HeroSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.serialize.Bundle;
 
 public class RenBArmor extends NormalArmor {
 	private static final String CHARGE = "charge";
 	private int charge = 100;
 
-	public RenBArmor() { super(1, 1f, 1f, 1, 0, 0, 0, 0, 0, ItemSpriteSheet.SPS_BUNNY_ARMOR); }
+	public RenBArmor() { super(1, 1f, 1f, 1, 0, 0, 0, 0, 0, EquipmentEquipArmorUniqueArmorDict.SPS_BUNNY_ARMOR_0); }
 	@Override public int proc(Char attacker, Char defender, int damage) {
 		charge--;
 		if (charge < 1 && defender instanceof Hero) {

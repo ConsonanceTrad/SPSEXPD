@@ -21,6 +21,8 @@
 
 package pd.plants;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -33,7 +35,6 @@ import pd.actors.mobs.Mob;
 import pd.items.weapon.missiles.arrows.IceFruit;
 import pd.levels.traps.Trap;
 import pd.mechanics.pathfind.PathFinder;
-import pd.sprites.ItemSpriteSheet;
 
 public class Icecap extends Plant {
 	
@@ -61,7 +62,7 @@ public class Icecap extends Plant {
 	
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SPS_SEED_ICECAP;
+			image = ConsumPotionSeedSeedDict.SEED_ICECAP;
 
 			plantClass = Icecap.class;
 			explantClass = ExIcecap.class;

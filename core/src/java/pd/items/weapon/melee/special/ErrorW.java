@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.special;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Badges;
 import pd.actors.Char;
 import pd.actors.buffs.Bleeding;
@@ -17,7 +19,6 @@ import pd.effects.Speck;
 import pd.effects.particles.ShadowParticle;
 import pd.items.Item;
 import pd.items.weapon.melee.MeleeWeapon;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
@@ -28,7 +29,7 @@ public class ErrorW extends MeleeWeapon {
 
 	{
 		tier = 0;
-		image = ItemSpriteSheet.SPS_ERROR_WEAPON;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 	@Override public int min(int level) { return 0; }

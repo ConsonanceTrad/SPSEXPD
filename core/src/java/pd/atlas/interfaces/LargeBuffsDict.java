@@ -13,259 +13,259 @@ public final class LargeBuffsDict {
 	private LargeBuffsDict() { }
 
 	/** buff_000 */
-	public static final IconEntry BUFF_000 = new IconEntry("interfaces/large_buffs.png", new int[]{0, 0, 16, 16});
+	public static final IconEntry BUFF_000 = new IconEntry("interfaces/large_buffs.png", new int[]{0, 0, 16, 16}, 5922);
 	/** buff_001 */
-	public static final IconEntry BUFF_001 = new IconEntry("interfaces/large_buffs.png", new int[]{16, 0, 16, 16});
+	public static final IconEntry BUFF_001 = new IconEntry("interfaces/large_buffs.png", new int[]{16, 0, 16, 16}, 5923);
 	/** buff_002 */
-	public static final IconEntry BUFF_002 = new IconEntry("interfaces/large_buffs.png", new int[]{32, 0, 16, 16});
+	public static final IconEntry BUFF_002 = new IconEntry("interfaces/large_buffs.png", new int[]{32, 0, 16, 16}, 5924);
 	/** buff_003 */
-	public static final IconEntry BUFF_003 = new IconEntry("interfaces/large_buffs.png", new int[]{48, 0, 16, 16});
+	public static final IconEntry BUFF_003 = new IconEntry("interfaces/large_buffs.png", new int[]{48, 0, 16, 16}, 5925);
 	/** buff_004 */
-	public static final IconEntry BUFF_004 = new IconEntry("interfaces/large_buffs.png", new int[]{64, 0, 16, 16});
+	public static final IconEntry BUFF_004 = new IconEntry("interfaces/large_buffs.png", new int[]{64, 0, 16, 16}, 5926);
 	/** buff_005 */
-	public static final IconEntry BUFF_005 = new IconEntry("interfaces/large_buffs.png", new int[]{80, 0, 16, 16});
+	public static final IconEntry BUFF_005 = new IconEntry("interfaces/large_buffs.png", new int[]{80, 0, 16, 16}, 5927);
 	/** buff_006 */
-	public static final IconEntry BUFF_006 = new IconEntry("interfaces/large_buffs.png", new int[]{96, 0, 16, 16});
+	public static final IconEntry BUFF_006 = new IconEntry("interfaces/large_buffs.png", new int[]{96, 0, 16, 16}, 5928);
 	/** buff_007 */
-	public static final IconEntry BUFF_007 = new IconEntry("interfaces/large_buffs.png", new int[]{112, 0, 16, 16});
+	public static final IconEntry BUFF_007 = new IconEntry("interfaces/large_buffs.png", new int[]{112, 0, 16, 16}, 5929);
 	/** buff_008 */
-	public static final IconEntry BUFF_008 = new IconEntry("interfaces/large_buffs.png", new int[]{128, 0, 16, 16});
+	public static final IconEntry BUFF_008 = new IconEntry("interfaces/large_buffs.png", new int[]{128, 0, 16, 16}, 5930);
 	/** buff_009 */
-	public static final IconEntry BUFF_009 = new IconEntry("interfaces/large_buffs.png", new int[]{144, 0, 16, 16});
+	public static final IconEntry BUFF_009 = new IconEntry("interfaces/large_buffs.png", new int[]{144, 0, 16, 16}, 5931);
 	/** buff_010 */
-	public static final IconEntry BUFF_010 = new IconEntry("interfaces/large_buffs.png", new int[]{160, 0, 16, 16});
+	public static final IconEntry BUFF_010 = new IconEntry("interfaces/large_buffs.png", new int[]{160, 0, 16, 16}, 5932);
 	/** buff_011 */
-	public static final IconEntry BUFF_011 = new IconEntry("interfaces/large_buffs.png", new int[]{176, 0, 16, 16});
+	public static final IconEntry BUFF_011 = new IconEntry("interfaces/large_buffs.png", new int[]{176, 0, 16, 16}, 5933);
 	/** buff_012 */
-	public static final IconEntry BUFF_012 = new IconEntry("interfaces/large_buffs.png", new int[]{192, 0, 16, 16});
+	public static final IconEntry BUFF_012 = new IconEntry("interfaces/large_buffs.png", new int[]{192, 0, 16, 16}, 5934);
 	/** buff_013 */
-	public static final IconEntry BUFF_013 = new IconEntry("interfaces/large_buffs.png", new int[]{208, 0, 16, 16});
+	public static final IconEntry BUFF_013 = new IconEntry("interfaces/large_buffs.png", new int[]{208, 0, 16, 16}, 5935);
 	/** buff_014 */
-	public static final IconEntry BUFF_014 = new IconEntry("interfaces/large_buffs.png", new int[]{224, 0, 16, 16});
+	public static final IconEntry BUFF_014 = new IconEntry("interfaces/large_buffs.png", new int[]{224, 0, 16, 16}, 5936);
 	/** buff_015 */
-	public static final IconEntry BUFF_015 = new IconEntry("interfaces/large_buffs.png", new int[]{240, 0, 16, 16});
+	public static final IconEntry BUFF_015 = new IconEntry("interfaces/large_buffs.png", new int[]{240, 0, 16, 16}, 5937);
 	/** buff_016 */
-	public static final IconEntry BUFF_016 = new IconEntry("interfaces/large_buffs.png", new int[]{0, 16, 16, 16});
+	public static final IconEntry BUFF_016 = new IconEntry("interfaces/large_buffs.png", new int[]{0, 16, 16, 16}, 5938);
 	/** buff_017 */
-	public static final IconEntry BUFF_017 = new IconEntry("interfaces/large_buffs.png", new int[]{16, 16, 16, 16});
+	public static final IconEntry BUFF_017 = new IconEntry("interfaces/large_buffs.png", new int[]{16, 16, 16, 16}, 5939);
 	/** buff_018 */
-	public static final IconEntry BUFF_018 = new IconEntry("interfaces/large_buffs.png", new int[]{32, 16, 16, 16});
+	public static final IconEntry BUFF_018 = new IconEntry("interfaces/large_buffs.png", new int[]{32, 16, 16, 16}, 5940);
 	/** buff_019 */
-	public static final IconEntry BUFF_019 = new IconEntry("interfaces/large_buffs.png", new int[]{48, 16, 16, 16});
+	public static final IconEntry BUFF_019 = new IconEntry("interfaces/large_buffs.png", new int[]{48, 16, 16, 16}, 5941);
 	/** buff_020 */
-	public static final IconEntry BUFF_020 = new IconEntry("interfaces/large_buffs.png", new int[]{64, 16, 16, 16});
+	public static final IconEntry BUFF_020 = new IconEntry("interfaces/large_buffs.png", new int[]{64, 16, 16, 16}, 5942);
 	/** buff_021 */
-	public static final IconEntry BUFF_021 = new IconEntry("interfaces/large_buffs.png", new int[]{80, 16, 16, 16});
+	public static final IconEntry BUFF_021 = new IconEntry("interfaces/large_buffs.png", new int[]{80, 16, 16, 16}, 5943);
 	/** buff_022 */
-	public static final IconEntry BUFF_022 = new IconEntry("interfaces/large_buffs.png", new int[]{96, 16, 16, 16});
+	public static final IconEntry BUFF_022 = new IconEntry("interfaces/large_buffs.png", new int[]{96, 16, 16, 16}, 5944);
 	/** buff_023 */
-	public static final IconEntry BUFF_023 = new IconEntry("interfaces/large_buffs.png", new int[]{112, 16, 16, 16});
+	public static final IconEntry BUFF_023 = new IconEntry("interfaces/large_buffs.png", new int[]{112, 16, 16, 16}, 5945);
 	/** buff_024 */
-	public static final IconEntry BUFF_024 = new IconEntry("interfaces/large_buffs.png", new int[]{128, 16, 16, 16});
+	public static final IconEntry BUFF_024 = new IconEntry("interfaces/large_buffs.png", new int[]{128, 16, 16, 16}, 5946);
 	/** buff_025 */
-	public static final IconEntry BUFF_025 = new IconEntry("interfaces/large_buffs.png", new int[]{144, 16, 16, 16});
+	public static final IconEntry BUFF_025 = new IconEntry("interfaces/large_buffs.png", new int[]{144, 16, 16, 16}, 5947);
 	/** buff_026 */
-	public static final IconEntry BUFF_026 = new IconEntry("interfaces/large_buffs.png", new int[]{160, 16, 16, 16});
+	public static final IconEntry BUFF_026 = new IconEntry("interfaces/large_buffs.png", new int[]{160, 16, 16, 16}, 5948);
 	/** buff_027 */
-	public static final IconEntry BUFF_027 = new IconEntry("interfaces/large_buffs.png", new int[]{176, 16, 16, 16});
+	public static final IconEntry BUFF_027 = new IconEntry("interfaces/large_buffs.png", new int[]{176, 16, 16, 16}, 5949);
 	/** buff_028 */
-	public static final IconEntry BUFF_028 = new IconEntry("interfaces/large_buffs.png", new int[]{192, 16, 16, 16});
+	public static final IconEntry BUFF_028 = new IconEntry("interfaces/large_buffs.png", new int[]{192, 16, 16, 16}, 5950);
 	/** buff_029 */
-	public static final IconEntry BUFF_029 = new IconEntry("interfaces/large_buffs.png", new int[]{208, 16, 16, 16});
+	public static final IconEntry BUFF_029 = new IconEntry("interfaces/large_buffs.png", new int[]{208, 16, 16, 16}, 5951);
 	/** buff_030 */
-	public static final IconEntry BUFF_030 = new IconEntry("interfaces/large_buffs.png", new int[]{224, 16, 16, 16});
+	public static final IconEntry BUFF_030 = new IconEntry("interfaces/large_buffs.png", new int[]{224, 16, 16, 16}, 5952);
 	/** buff_031 */
-	public static final IconEntry BUFF_031 = new IconEntry("interfaces/large_buffs.png", new int[]{240, 16, 16, 16});
+	public static final IconEntry BUFF_031 = new IconEntry("interfaces/large_buffs.png", new int[]{240, 16, 16, 16}, 5953);
 	/** buff_032 */
-	public static final IconEntry BUFF_032 = new IconEntry("interfaces/large_buffs.png", new int[]{0, 32, 16, 16});
+	public static final IconEntry BUFF_032 = new IconEntry("interfaces/large_buffs.png", new int[]{0, 32, 16, 16}, 5954);
 	/** buff_033 */
-	public static final IconEntry BUFF_033 = new IconEntry("interfaces/large_buffs.png", new int[]{16, 32, 16, 16});
+	public static final IconEntry BUFF_033 = new IconEntry("interfaces/large_buffs.png", new int[]{16, 32, 16, 16}, 5955);
 	/** buff_034 */
-	public static final IconEntry BUFF_034 = new IconEntry("interfaces/large_buffs.png", new int[]{32, 32, 16, 16});
+	public static final IconEntry BUFF_034 = new IconEntry("interfaces/large_buffs.png", new int[]{32, 32, 16, 16}, 5956);
 	/** buff_035 */
-	public static final IconEntry BUFF_035 = new IconEntry("interfaces/large_buffs.png", new int[]{48, 32, 16, 16});
+	public static final IconEntry BUFF_035 = new IconEntry("interfaces/large_buffs.png", new int[]{48, 32, 16, 16}, 5957);
 	/** buff_036 */
-	public static final IconEntry BUFF_036 = new IconEntry("interfaces/large_buffs.png", new int[]{64, 32, 16, 16});
+	public static final IconEntry BUFF_036 = new IconEntry("interfaces/large_buffs.png", new int[]{64, 32, 16, 16}, 5958);
 	/** buff_037 */
-	public static final IconEntry BUFF_037 = new IconEntry("interfaces/large_buffs.png", new int[]{80, 32, 16, 16});
+	public static final IconEntry BUFF_037 = new IconEntry("interfaces/large_buffs.png", new int[]{80, 32, 16, 16}, 5959);
 	/** buff_038 */
-	public static final IconEntry BUFF_038 = new IconEntry("interfaces/large_buffs.png", new int[]{96, 32, 16, 16});
+	public static final IconEntry BUFF_038 = new IconEntry("interfaces/large_buffs.png", new int[]{96, 32, 16, 16}, 5960);
 	/** buff_039 */
-	public static final IconEntry BUFF_039 = new IconEntry("interfaces/large_buffs.png", new int[]{112, 32, 16, 16});
+	public static final IconEntry BUFF_039 = new IconEntry("interfaces/large_buffs.png", new int[]{112, 32, 16, 16}, 5961);
 	/** buff_040 */
-	public static final IconEntry BUFF_040 = new IconEntry("interfaces/large_buffs.png", new int[]{128, 32, 16, 16});
+	public static final IconEntry BUFF_040 = new IconEntry("interfaces/large_buffs.png", new int[]{128, 32, 16, 16}, 5962);
 	/** buff_041 */
-	public static final IconEntry BUFF_041 = new IconEntry("interfaces/large_buffs.png", new int[]{144, 32, 16, 16});
+	public static final IconEntry BUFF_041 = new IconEntry("interfaces/large_buffs.png", new int[]{144, 32, 16, 16}, 5963);
 	/** buff_042 */
-	public static final IconEntry BUFF_042 = new IconEntry("interfaces/large_buffs.png", new int[]{160, 32, 16, 16});
+	public static final IconEntry BUFF_042 = new IconEntry("interfaces/large_buffs.png", new int[]{160, 32, 16, 16}, 5964);
 	/** buff_043 */
-	public static final IconEntry BUFF_043 = new IconEntry("interfaces/large_buffs.png", new int[]{176, 32, 16, 16});
+	public static final IconEntry BUFF_043 = new IconEntry("interfaces/large_buffs.png", new int[]{176, 32, 16, 16}, 5965);
 	/** buff_044 */
-	public static final IconEntry BUFF_044 = new IconEntry("interfaces/large_buffs.png", new int[]{192, 32, 16, 16});
+	public static final IconEntry BUFF_044 = new IconEntry("interfaces/large_buffs.png", new int[]{192, 32, 16, 16}, 5966);
 	/** buff_045 */
-	public static final IconEntry BUFF_045 = new IconEntry("interfaces/large_buffs.png", new int[]{208, 32, 16, 16});
+	public static final IconEntry BUFF_045 = new IconEntry("interfaces/large_buffs.png", new int[]{208, 32, 16, 16}, 5967);
 	/** buff_046 */
-	public static final IconEntry BUFF_046 = new IconEntry("interfaces/large_buffs.png", new int[]{224, 32, 16, 16});
+	public static final IconEntry BUFF_046 = new IconEntry("interfaces/large_buffs.png", new int[]{224, 32, 16, 16}, 5968);
 	/** buff_047 */
-	public static final IconEntry BUFF_047 = new IconEntry("interfaces/large_buffs.png", new int[]{240, 32, 16, 16});
+	public static final IconEntry BUFF_047 = new IconEntry("interfaces/large_buffs.png", new int[]{240, 32, 16, 16}, 5969);
 	/** buff_048 */
-	public static final IconEntry BUFF_048 = new IconEntry("interfaces/large_buffs.png", new int[]{0, 48, 16, 16});
+	public static final IconEntry BUFF_048 = new IconEntry("interfaces/large_buffs.png", new int[]{0, 48, 16, 16}, 5970);
 	/** buff_049 */
-	public static final IconEntry BUFF_049 = new IconEntry("interfaces/large_buffs.png", new int[]{16, 48, 16, 16});
+	public static final IconEntry BUFF_049 = new IconEntry("interfaces/large_buffs.png", new int[]{16, 48, 16, 16}, 5971);
 	/** buff_050 */
-	public static final IconEntry BUFF_050 = new IconEntry("interfaces/large_buffs.png", new int[]{32, 48, 16, 16});
+	public static final IconEntry BUFF_050 = new IconEntry("interfaces/large_buffs.png", new int[]{32, 48, 16, 16}, 5972);
 	/** buff_051 */
-	public static final IconEntry BUFF_051 = new IconEntry("interfaces/large_buffs.png", new int[]{48, 48, 16, 16});
+	public static final IconEntry BUFF_051 = new IconEntry("interfaces/large_buffs.png", new int[]{48, 48, 16, 16}, 5973);
 	/** buff_052 */
-	public static final IconEntry BUFF_052 = new IconEntry("interfaces/large_buffs.png", new int[]{64, 48, 16, 16});
+	public static final IconEntry BUFF_052 = new IconEntry("interfaces/large_buffs.png", new int[]{64, 48, 16, 16}, 5974);
 	/** buff_053 */
-	public static final IconEntry BUFF_053 = new IconEntry("interfaces/large_buffs.png", new int[]{80, 48, 16, 16});
+	public static final IconEntry BUFF_053 = new IconEntry("interfaces/large_buffs.png", new int[]{80, 48, 16, 16}, 5975);
 	/** buff_054 */
-	public static final IconEntry BUFF_054 = new IconEntry("interfaces/large_buffs.png", new int[]{96, 48, 16, 16});
+	public static final IconEntry BUFF_054 = new IconEntry("interfaces/large_buffs.png", new int[]{96, 48, 16, 16}, 5976);
 	/** buff_055 */
-	public static final IconEntry BUFF_055 = new IconEntry("interfaces/large_buffs.png", new int[]{112, 48, 16, 16});
+	public static final IconEntry BUFF_055 = new IconEntry("interfaces/large_buffs.png", new int[]{112, 48, 16, 16}, 5977);
 	/** buff_056 */
-	public static final IconEntry BUFF_056 = new IconEntry("interfaces/large_buffs.png", new int[]{128, 48, 16, 16});
+	public static final IconEntry BUFF_056 = new IconEntry("interfaces/large_buffs.png", new int[]{128, 48, 16, 16}, 5978);
 	/** buff_057 */
-	public static final IconEntry BUFF_057 = new IconEntry("interfaces/large_buffs.png", new int[]{144, 48, 16, 16});
+	public static final IconEntry BUFF_057 = new IconEntry("interfaces/large_buffs.png", new int[]{144, 48, 16, 16}, 5979);
 	/** buff_058 */
-	public static final IconEntry BUFF_058 = new IconEntry("interfaces/large_buffs.png", new int[]{160, 48, 16, 16});
+	public static final IconEntry BUFF_058 = new IconEntry("interfaces/large_buffs.png", new int[]{160, 48, 16, 16}, 5980);
 	/** buff_059 */
-	public static final IconEntry BUFF_059 = new IconEntry("interfaces/large_buffs.png", new int[]{176, 48, 16, 16});
+	public static final IconEntry BUFF_059 = new IconEntry("interfaces/large_buffs.png", new int[]{176, 48, 16, 16}, 5981);
 	/** buff_060 */
-	public static final IconEntry BUFF_060 = new IconEntry("interfaces/large_buffs.png", new int[]{192, 48, 16, 16});
+	public static final IconEntry BUFF_060 = new IconEntry("interfaces/large_buffs.png", new int[]{192, 48, 16, 16}, 5982);
 	/** buff_061 */
-	public static final IconEntry BUFF_061 = new IconEntry("interfaces/large_buffs.png", new int[]{208, 48, 16, 16});
+	public static final IconEntry BUFF_061 = new IconEntry("interfaces/large_buffs.png", new int[]{208, 48, 16, 16}, 5983);
 	/** buff_062 */
-	public static final IconEntry BUFF_062 = new IconEntry("interfaces/large_buffs.png", new int[]{224, 48, 16, 16});
+	public static final IconEntry BUFF_062 = new IconEntry("interfaces/large_buffs.png", new int[]{224, 48, 16, 16}, 5984);
 	/** buff_063 */
-	public static final IconEntry BUFF_063 = new IconEntry("interfaces/large_buffs.png", new int[]{240, 48, 16, 16});
+	public static final IconEntry BUFF_063 = new IconEntry("interfaces/large_buffs.png", new int[]{240, 48, 16, 16}, 5985);
 	/** buff_064 */
-	public static final IconEntry BUFF_064 = new IconEntry("interfaces/large_buffs.png", new int[]{0, 64, 16, 16});
+	public static final IconEntry BUFF_064 = new IconEntry("interfaces/large_buffs.png", new int[]{0, 64, 16, 16}, 5986);
 	/** buff_065 */
-	public static final IconEntry BUFF_065 = new IconEntry("interfaces/large_buffs.png", new int[]{16, 64, 16, 16});
+	public static final IconEntry BUFF_065 = new IconEntry("interfaces/large_buffs.png", new int[]{16, 64, 16, 16}, 5987);
 	/** buff_066 */
-	public static final IconEntry BUFF_066 = new IconEntry("interfaces/large_buffs.png", new int[]{32, 64, 16, 16});
+	public static final IconEntry BUFF_066 = new IconEntry("interfaces/large_buffs.png", new int[]{32, 64, 16, 16}, 5988);
 	/** buff_067 */
-	public static final IconEntry BUFF_067 = new IconEntry("interfaces/large_buffs.png", new int[]{48, 64, 16, 16});
+	public static final IconEntry BUFF_067 = new IconEntry("interfaces/large_buffs.png", new int[]{48, 64, 16, 16}, 5989);
 	/** buff_068 */
-	public static final IconEntry BUFF_068 = new IconEntry("interfaces/large_buffs.png", new int[]{64, 64, 16, 16});
+	public static final IconEntry BUFF_068 = new IconEntry("interfaces/large_buffs.png", new int[]{64, 64, 16, 16}, 5990);
 	/** buff_069 */
-	public static final IconEntry BUFF_069 = new IconEntry("interfaces/large_buffs.png", new int[]{80, 64, 16, 16});
+	public static final IconEntry BUFF_069 = new IconEntry("interfaces/large_buffs.png", new int[]{80, 64, 16, 16}, 5991);
 	/** buff_070 */
-	public static final IconEntry BUFF_070 = new IconEntry("interfaces/large_buffs.png", new int[]{96, 64, 16, 16});
+	public static final IconEntry BUFF_070 = new IconEntry("interfaces/large_buffs.png", new int[]{96, 64, 16, 16}, 5992);
 	/** buff_071 */
-	public static final IconEntry BUFF_071 = new IconEntry("interfaces/large_buffs.png", new int[]{112, 64, 16, 16});
+	public static final IconEntry BUFF_071 = new IconEntry("interfaces/large_buffs.png", new int[]{112, 64, 16, 16}, 5993);
 	/** buff_072 */
-	public static final IconEntry BUFF_072 = new IconEntry("interfaces/large_buffs.png", new int[]{128, 64, 16, 16});
+	public static final IconEntry BUFF_072 = new IconEntry("interfaces/large_buffs.png", new int[]{128, 64, 16, 16}, 5994);
 	/** buff_073 */
-	public static final IconEntry BUFF_073 = new IconEntry("interfaces/large_buffs.png", new int[]{144, 64, 16, 16});
+	public static final IconEntry BUFF_073 = new IconEntry("interfaces/large_buffs.png", new int[]{144, 64, 16, 16}, 5995);
 	/** buff_074 */
-	public static final IconEntry BUFF_074 = new IconEntry("interfaces/large_buffs.png", new int[]{160, 64, 16, 16});
+	public static final IconEntry BUFF_074 = new IconEntry("interfaces/large_buffs.png", new int[]{160, 64, 16, 16}, 5996);
 	/** buff_075 */
-	public static final IconEntry BUFF_075 = new IconEntry("interfaces/large_buffs.png", new int[]{176, 64, 16, 16});
+	public static final IconEntry BUFF_075 = new IconEntry("interfaces/large_buffs.png", new int[]{176, 64, 16, 16}, 5997);
 	/** buff_076 */
-	public static final IconEntry BUFF_076 = new IconEntry("interfaces/large_buffs.png", new int[]{192, 64, 16, 16});
+	public static final IconEntry BUFF_076 = new IconEntry("interfaces/large_buffs.png", new int[]{192, 64, 16, 16}, 5998);
 	/** buff_077 */
-	public static final IconEntry BUFF_077 = new IconEntry("interfaces/large_buffs.png", new int[]{208, 64, 16, 16});
+	public static final IconEntry BUFF_077 = new IconEntry("interfaces/large_buffs.png", new int[]{208, 64, 16, 16}, 5999);
 	/** buff_078 */
-	public static final IconEntry BUFF_078 = new IconEntry("interfaces/large_buffs.png", new int[]{224, 64, 16, 16});
+	public static final IconEntry BUFF_078 = new IconEntry("interfaces/large_buffs.png", new int[]{224, 64, 16, 16}, 6000);
 	/** buff_079 */
-	public static final IconEntry BUFF_079 = new IconEntry("interfaces/large_buffs.png", new int[]{240, 64, 16, 16});
+	public static final IconEntry BUFF_079 = new IconEntry("interfaces/large_buffs.png", new int[]{240, 64, 16, 16}, 6001);
 	/** buff_080 */
-	public static final IconEntry BUFF_080 = new IconEntry("interfaces/large_buffs.png", new int[]{0, 80, 16, 16});
+	public static final IconEntry BUFF_080 = new IconEntry("interfaces/large_buffs.png", new int[]{0, 80, 16, 16}, 6002);
 	/** buff_081 */
-	public static final IconEntry BUFF_081 = new IconEntry("interfaces/large_buffs.png", new int[]{16, 80, 16, 16});
+	public static final IconEntry BUFF_081 = new IconEntry("interfaces/large_buffs.png", new int[]{16, 80, 16, 16}, 6003);
 	/** buff_082 */
-	public static final IconEntry BUFF_082 = new IconEntry("interfaces/large_buffs.png", new int[]{32, 80, 16, 16});
+	public static final IconEntry BUFF_082 = new IconEntry("interfaces/large_buffs.png", new int[]{32, 80, 16, 16}, 6004);
 	/** buff_083 */
-	public static final IconEntry BUFF_083 = new IconEntry("interfaces/large_buffs.png", new int[]{48, 80, 16, 16});
+	public static final IconEntry BUFF_083 = new IconEntry("interfaces/large_buffs.png", new int[]{48, 80, 16, 16}, 6005);
 	/** buff_084 */
-	public static final IconEntry BUFF_084 = new IconEntry("interfaces/large_buffs.png", new int[]{64, 80, 16, 16});
+	public static final IconEntry BUFF_084 = new IconEntry("interfaces/large_buffs.png", new int[]{64, 80, 16, 16}, 6006);
 	/** buff_085 */
-	public static final IconEntry BUFF_085 = new IconEntry("interfaces/large_buffs.png", new int[]{80, 80, 16, 16});
+	public static final IconEntry BUFF_085 = new IconEntry("interfaces/large_buffs.png", new int[]{80, 80, 16, 16}, 6007);
 	/** buff_086 */
-	public static final IconEntry BUFF_086 = new IconEntry("interfaces/large_buffs.png", new int[]{96, 80, 16, 16});
+	public static final IconEntry BUFF_086 = new IconEntry("interfaces/large_buffs.png", new int[]{96, 80, 16, 16}, 6008);
 	/** buff_087 */
-	public static final IconEntry BUFF_087 = new IconEntry("interfaces/large_buffs.png", new int[]{112, 80, 16, 16});
+	public static final IconEntry BUFF_087 = new IconEntry("interfaces/large_buffs.png", new int[]{112, 80, 16, 16}, 6009);
 	/** buff_088 */
-	public static final IconEntry BUFF_088 = new IconEntry("interfaces/large_buffs.png", new int[]{128, 80, 16, 16});
+	public static final IconEntry BUFF_088 = new IconEntry("interfaces/large_buffs.png", new int[]{128, 80, 16, 16}, 6010);
 	/** buff_089 */
-	public static final IconEntry BUFF_089 = new IconEntry("interfaces/large_buffs.png", new int[]{144, 80, 16, 16});
+	public static final IconEntry BUFF_089 = new IconEntry("interfaces/large_buffs.png", new int[]{144, 80, 16, 16}, 6011);
 	/** buff_090 */
-	public static final IconEntry BUFF_090 = new IconEntry("interfaces/large_buffs.png", new int[]{160, 80, 16, 16});
+	public static final IconEntry BUFF_090 = new IconEntry("interfaces/large_buffs.png", new int[]{160, 80, 16, 16}, 6012);
 	/** buff_091 */
-	public static final IconEntry BUFF_091 = new IconEntry("interfaces/large_buffs.png", new int[]{176, 80, 16, 16});
+	public static final IconEntry BUFF_091 = new IconEntry("interfaces/large_buffs.png", new int[]{176, 80, 16, 16}, 6013);
 	/** buff_092 */
-	public static final IconEntry BUFF_092 = new IconEntry("interfaces/large_buffs.png", new int[]{192, 80, 16, 16});
+	public static final IconEntry BUFF_092 = new IconEntry("interfaces/large_buffs.png", new int[]{192, 80, 16, 16}, 6014);
 	/** buff_093 */
-	public static final IconEntry BUFF_093 = new IconEntry("interfaces/large_buffs.png", new int[]{208, 80, 16, 16});
+	public static final IconEntry BUFF_093 = new IconEntry("interfaces/large_buffs.png", new int[]{208, 80, 16, 16}, 6015);
 	/** buff_094 */
-	public static final IconEntry BUFF_094 = new IconEntry("interfaces/large_buffs.png", new int[]{224, 80, 16, 16});
+	public static final IconEntry BUFF_094 = new IconEntry("interfaces/large_buffs.png", new int[]{224, 80, 16, 16}, 6016);
 	/** buff_095 */
-	public static final IconEntry BUFF_095 = new IconEntry("interfaces/large_buffs.png", new int[]{240, 80, 16, 16});
+	public static final IconEntry BUFF_095 = new IconEntry("interfaces/large_buffs.png", new int[]{240, 80, 16, 16}, 6017);
 	/** buff_096 */
-	public static final IconEntry BUFF_096 = new IconEntry("interfaces/large_buffs.png", new int[]{0, 96, 16, 16});
+	public static final IconEntry BUFF_096 = new IconEntry("interfaces/large_buffs.png", new int[]{0, 96, 16, 16}, 6018);
 	/** buff_097 */
-	public static final IconEntry BUFF_097 = new IconEntry("interfaces/large_buffs.png", new int[]{16, 96, 16, 16});
+	public static final IconEntry BUFF_097 = new IconEntry("interfaces/large_buffs.png", new int[]{16, 96, 16, 16}, 6019);
 	/** buff_098 */
-	public static final IconEntry BUFF_098 = new IconEntry("interfaces/large_buffs.png", new int[]{32, 96, 16, 16});
+	public static final IconEntry BUFF_098 = new IconEntry("interfaces/large_buffs.png", new int[]{32, 96, 16, 16}, 6020);
 	/** buff_099 */
-	public static final IconEntry BUFF_099 = new IconEntry("interfaces/large_buffs.png", new int[]{48, 96, 16, 16});
+	public static final IconEntry BUFF_099 = new IconEntry("interfaces/large_buffs.png", new int[]{48, 96, 16, 16}, 6021);
 	/** buff_100 */
-	public static final IconEntry BUFF_100 = new IconEntry("interfaces/large_buffs.png", new int[]{64, 96, 16, 16});
+	public static final IconEntry BUFF_100 = new IconEntry("interfaces/large_buffs.png", new int[]{64, 96, 16, 16}, 6022);
 	/** buff_101 */
-	public static final IconEntry BUFF_101 = new IconEntry("interfaces/large_buffs.png", new int[]{80, 96, 16, 16});
+	public static final IconEntry BUFF_101 = new IconEntry("interfaces/large_buffs.png", new int[]{80, 96, 16, 16}, 6023);
 	/** buff_102 */
-	public static final IconEntry BUFF_102 = new IconEntry("interfaces/large_buffs.png", new int[]{96, 96, 16, 16});
+	public static final IconEntry BUFF_102 = new IconEntry("interfaces/large_buffs.png", new int[]{96, 96, 16, 16}, 6024);
 	/** buff_103 */
-	public static final IconEntry BUFF_103 = new IconEntry("interfaces/large_buffs.png", new int[]{112, 96, 16, 16});
+	public static final IconEntry BUFF_103 = new IconEntry("interfaces/large_buffs.png", new int[]{112, 96, 16, 16}, 6025);
 	/** buff_104 */
-	public static final IconEntry BUFF_104 = new IconEntry("interfaces/large_buffs.png", new int[]{128, 96, 16, 16});
+	public static final IconEntry BUFF_104 = new IconEntry("interfaces/large_buffs.png", new int[]{128, 96, 16, 16}, 6026);
 	/** buff_105 */
-	public static final IconEntry BUFF_105 = new IconEntry("interfaces/large_buffs.png", new int[]{144, 96, 16, 16});
+	public static final IconEntry BUFF_105 = new IconEntry("interfaces/large_buffs.png", new int[]{144, 96, 16, 16}, 6027);
 	/** buff_106 */
-	public static final IconEntry BUFF_106 = new IconEntry("interfaces/large_buffs.png", new int[]{160, 96, 16, 16});
+	public static final IconEntry BUFF_106 = new IconEntry("interfaces/large_buffs.png", new int[]{160, 96, 16, 16}, 6028);
 	/** buff_107 */
-	public static final IconEntry BUFF_107 = new IconEntry("interfaces/large_buffs.png", new int[]{176, 96, 16, 16});
+	public static final IconEntry BUFF_107 = new IconEntry("interfaces/large_buffs.png", new int[]{176, 96, 16, 16}, 6029);
 	/** buff_108 */
-	public static final IconEntry BUFF_108 = new IconEntry("interfaces/large_buffs.png", new int[]{192, 96, 16, 16});
+	public static final IconEntry BUFF_108 = new IconEntry("interfaces/large_buffs.png", new int[]{192, 96, 16, 16}, 6030);
 	/** buff_109 */
-	public static final IconEntry BUFF_109 = new IconEntry("interfaces/large_buffs.png", new int[]{208, 96, 16, 16});
+	public static final IconEntry BUFF_109 = new IconEntry("interfaces/large_buffs.png", new int[]{208, 96, 16, 16}, 6031);
 	/** buff_110 */
-	public static final IconEntry BUFF_110 = new IconEntry("interfaces/large_buffs.png", new int[]{224, 96, 16, 16});
+	public static final IconEntry BUFF_110 = new IconEntry("interfaces/large_buffs.png", new int[]{224, 96, 16, 16}, 6032);
 	/** buff_111 */
-	public static final IconEntry BUFF_111 = new IconEntry("interfaces/large_buffs.png", new int[]{240, 96, 16, 16});
+	public static final IconEntry BUFF_111 = new IconEntry("interfaces/large_buffs.png", new int[]{240, 96, 16, 16}, 6033);
 	/** buff_112 */
-	public static final IconEntry BUFF_112 = new IconEntry("interfaces/large_buffs.png", new int[]{0, 112, 16, 16});
+	public static final IconEntry BUFF_112 = new IconEntry("interfaces/large_buffs.png", new int[]{0, 112, 16, 16}, 6034);
 	/** buff_113 */
-	public static final IconEntry BUFF_113 = new IconEntry("interfaces/large_buffs.png", new int[]{16, 112, 16, 16});
+	public static final IconEntry BUFF_113 = new IconEntry("interfaces/large_buffs.png", new int[]{16, 112, 16, 16}, 6035);
 	/** buff_114 */
-	public static final IconEntry BUFF_114 = new IconEntry("interfaces/large_buffs.png", new int[]{32, 112, 16, 16});
+	public static final IconEntry BUFF_114 = new IconEntry("interfaces/large_buffs.png", new int[]{32, 112, 16, 16}, 6036);
 	/** buff_115 */
-	public static final IconEntry BUFF_115 = new IconEntry("interfaces/large_buffs.png", new int[]{48, 112, 16, 16});
+	public static final IconEntry BUFF_115 = new IconEntry("interfaces/large_buffs.png", new int[]{48, 112, 16, 16}, 6037);
 	/** buff_116 */
-	public static final IconEntry BUFF_116 = new IconEntry("interfaces/large_buffs.png", new int[]{64, 112, 16, 16});
+	public static final IconEntry BUFF_116 = new IconEntry("interfaces/large_buffs.png", new int[]{64, 112, 16, 16}, 6038);
 	/** buff_117 */
-	public static final IconEntry BUFF_117 = new IconEntry("interfaces/large_buffs.png", new int[]{80, 112, 16, 16});
+	public static final IconEntry BUFF_117 = new IconEntry("interfaces/large_buffs.png", new int[]{80, 112, 16, 16}, 6039);
 	/** buff_118 */
-	public static final IconEntry BUFF_118 = new IconEntry("interfaces/large_buffs.png", new int[]{96, 112, 16, 16});
+	public static final IconEntry BUFF_118 = new IconEntry("interfaces/large_buffs.png", new int[]{96, 112, 16, 16}, 6040);
 	/** buff_119 */
-	public static final IconEntry BUFF_119 = new IconEntry("interfaces/large_buffs.png", new int[]{112, 112, 16, 16});
+	public static final IconEntry BUFF_119 = new IconEntry("interfaces/large_buffs.png", new int[]{112, 112, 16, 16}, 6041);
 	/** buff_120 */
-	public static final IconEntry BUFF_120 = new IconEntry("interfaces/large_buffs.png", new int[]{128, 112, 16, 16});
+	public static final IconEntry BUFF_120 = new IconEntry("interfaces/large_buffs.png", new int[]{128, 112, 16, 16}, 6042);
 	/** buff_121 */
-	public static final IconEntry BUFF_121 = new IconEntry("interfaces/large_buffs.png", new int[]{144, 112, 16, 16});
+	public static final IconEntry BUFF_121 = new IconEntry("interfaces/large_buffs.png", new int[]{144, 112, 16, 16}, 6043);
 	/** buff_122 */
-	public static final IconEntry BUFF_122 = new IconEntry("interfaces/large_buffs.png", new int[]{160, 112, 16, 16});
+	public static final IconEntry BUFF_122 = new IconEntry("interfaces/large_buffs.png", new int[]{160, 112, 16, 16}, 6044);
 	/** buff_123 */
-	public static final IconEntry BUFF_123 = new IconEntry("interfaces/large_buffs.png", new int[]{176, 112, 16, 16});
+	public static final IconEntry BUFF_123 = new IconEntry("interfaces/large_buffs.png", new int[]{176, 112, 16, 16}, 6045);
 	/** buff_124 */
-	public static final IconEntry BUFF_124 = new IconEntry("interfaces/large_buffs.png", new int[]{192, 112, 16, 16});
+	public static final IconEntry BUFF_124 = new IconEntry("interfaces/large_buffs.png", new int[]{192, 112, 16, 16}, 6046);
 	/** buff_125 */
-	public static final IconEntry BUFF_125 = new IconEntry("interfaces/large_buffs.png", new int[]{208, 112, 16, 16});
+	public static final IconEntry BUFF_125 = new IconEntry("interfaces/large_buffs.png", new int[]{208, 112, 16, 16}, 6047);
 	/** buff_126 */
-	public static final IconEntry BUFF_126 = new IconEntry("interfaces/large_buffs.png", new int[]{224, 112, 16, 16});
+	public static final IconEntry BUFF_126 = new IconEntry("interfaces/large_buffs.png", new int[]{224, 112, 16, 16}, 6048);
 	/** buff_127 */
-	public static final IconEntry BUFF_127 = new IconEntry("interfaces/large_buffs.png", new int[]{240, 112, 16, 16});
+	public static final IconEntry BUFF_127 = new IconEntry("interfaces/large_buffs.png", new int[]{240, 112, 16, 16}, 6049);
 }

@@ -1,16 +1,17 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.start;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Paralysis;
 import pd.items.weapon.melee.normalweapon.NormalMeleeWeapon;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class BunnySpanner extends NormalMeleeWeapon {
 	public BunnySpanner() {
-		super(1, 1.2f, 1.5f, 2, 8, 15, ItemSpriteSheet.SPS_WEP_WAR_HAMMER);
+		super(1, 1.2f, 1.5f, 2, 8, 15, SpecificPlaceHolderDict.SOMETHING_0);
 		unique = true;
 		reinforced = true;
 		cursed = true;

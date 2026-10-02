@@ -1,5 +1,7 @@
 package pd.items.medicine;
 
+import pd.atlas.items.GroundFunctionalFallingDict;
+
 import pd.Dungeon;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.HasteBuff;
@@ -7,13 +9,12 @@ import pd.actors.hero.Hero;
 import pd.effects.Speck;
 import pd.items.Heap;
 import pd.items.artifacts.TimekeepersHourglass;
-import pd.sprites.ItemSpriteSheet;
 
 /** The alchemy-made time block from SPS-PD 0.9.8. */
 public class TimePill extends Pill {
 
 	{
-		image = ItemSpriteSheet.SANDBAG;
+		image = GroundFunctionalFallingDict.SANDBAG_0;
 	}
 
 	@Override

@@ -1,16 +1,17 @@
 package pd.items.food.fruit;
 
+import pd.atlas.items.ConsumFoodFoodDict;
+
 import pd.actors.buffs.Barkskin;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.FullMoonStrength;
 import pd.actors.buffs.Light;
 import pd.actors.buffs.MoonFury;
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class FullMoonberry extends Fruit {
-	{ image = ItemSpriteSheet.FULLMOONBERRY; }
+	{ image = ConsumFoodFoodDict.FULLMOONBERRY; }
 	@Override protected void onEat(Hero hero) {
 		Buff.affect(hero, MoonFury.class);
 		Buff.affect(hero, FullMoonStrength.class);

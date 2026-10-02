@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.buffs.BoxStar;
 import pd.actors.buffs.Buff;
@@ -12,7 +14,6 @@ import pd.items.Item;
 import pd.items.quest.Mushroom;
 import pd.items.weapon.melee.WarHammer;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.math.Random;
 
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 
 public class MKbox extends Item {
 	public static final String AC_USE = "USE";
-	{ image=ItemSpriteSheet.LEGACY_MK_BOX; defaultAction=AC_USE; unique=true; }
+	{ image=SpecificPlaceHolderDict.SOMETHING_0; defaultAction=AC_USE; unique=true; }
 	@Override public ArrayList<String> actions(Hero hero) { ArrayList<String>a=super.actions(hero); a.add(AC_USE); return a; }
 	@Override public void execute(Hero hero, String action) {
 		if (AC_USE.equals(action)) { if (!use(hero)) GLog.i(Messages.get(this, "need_gold")); }

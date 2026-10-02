@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.start;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -37,7 +39,6 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -56,7 +57,7 @@ public class LinkSword extends NormalMeleeWeapon {
 			Skull.class,Wave.class,ShitBall.class};
 	private static final float[] LINK_DROP_WEIGHTS={3,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2};
 	private int charge, uptime;
-	public LinkSword(){super(1,1f,1f,1,1,5,ItemSpriteSheet.LEGACY_LINK_SWORD);unique=true;reinforced=true;defaultAction=AC_COURAGE;usesTargeting=true;}
+	public LinkSword(){super(1,1f,1f,1,1,5,SpecificPlaceHolderDict.SOMETHING_0);unique=true;reinforced=true;defaultAction=AC_COURAGE;usesTargeting=true;}
 	@Override protected void applyLegacyUpgrade(Stats stats){stats.min++;stats.max+=3;}
 	@Override public int STRReq(int lvl){return uptime>0?10+2*uptime:10;}
 	@Override public float accuracyFactor(Char owner,Char target){return uptime>0?Math.min(1.6f,1f+.1f*uptime):1f;}

@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.buffs.Bless;
@@ -30,7 +32,6 @@ import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
@@ -46,7 +47,7 @@ public class PPC2 extends Item {
 	public static final float TIME_TO_MINE = 3f;
 
 	{
-		image = ItemSpriteSheet.SPS_PPC2;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		defaultAction = AC_TRY;
 		unique = true;
 	}

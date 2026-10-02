@@ -1,6 +1,7 @@
 package pd.items.sellitem;
-import pd.sprites.ItemSpriteSheet;
+
+import pd.atlas.items.SpecificPlaceHolderDict;
 public class SellPermit extends SellItem {
-	{ image = ItemSpriteSheet.SELL_PERMIT; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public int value() { return 50 * quantity; }
 }

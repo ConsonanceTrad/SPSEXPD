@@ -21,14 +21,15 @@
 
 package pd.items.quest;
 
+import pd.atlas.items.SpecificTaskDict;
+
 import pd.items.Item;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 
 public class Embers extends Item {
 
 	{
-		image = ItemSpriteSheet.EMBER;
+		image = SpecificTaskDict.EMBER_0;
 
 		unique = true;
 	}

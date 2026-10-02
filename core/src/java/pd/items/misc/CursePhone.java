@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Arcane;
 import pd.actors.buffs.ArmorBreak;
@@ -8,14 +10,13 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.SkillRecharge;
 import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 /** REN's cursed phone reproduces its original one-in-ten periodic status burst. */
 public class CursePhone extends MiscEquippable {
 
 	{
-		image = ItemSpriteSheet.CURSE_PHONE;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		cursed = true;
 	}
 

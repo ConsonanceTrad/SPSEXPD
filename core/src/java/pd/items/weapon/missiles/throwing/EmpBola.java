@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles.throwing;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
@@ -9,13 +11,12 @@ import pd.actors.buffs.EnergyArmor;
 import pd.actors.buffs.Shocked;
 import pd.items.Item;
 import pd.items.weapon.missiles.MissileWeapon;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class EmpBola extends MissileWeapon {
 
 	{
-		image = ItemSpriteSheet.LEGACY_EMP_BOLA;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		hitSound = Assets.Sounds.HIT_CRUSH;
 		baseUses = 1;
 		tier = 1;

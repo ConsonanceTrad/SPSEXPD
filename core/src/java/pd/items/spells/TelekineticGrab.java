@@ -21,6 +21,8 @@
 
 package pd.items.spells;
 
+import pd.atlas.items.ConsumScrollAmuletCrystalDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -34,7 +36,6 @@ import pd.items.Item;
 import pd.items.LiquidMetal;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
@@ -42,7 +43,7 @@ import render.utils.data.Callback;
 public class TelekineticGrab extends TargetedSpell {
 
 	{
-		image = ItemSpriteSheet.TELE_GRAB;
+		image = ConsumScrollAmuletCrystalDict.TELE_GRAB_0;
 
 		talentChance = 1/(float)Recipe.OUT_QUANTITY;
 	}

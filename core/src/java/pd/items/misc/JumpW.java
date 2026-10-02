@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -16,7 +18,6 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -33,7 +34,7 @@ public class JumpW extends Item {
 	private int charge;
 
 	{
-		image = ItemSpriteSheet.LEGACY_ATTACK_SHOES;
+		image = EquipmentNonEquipDict.JUMP_BOOTS;
 		defaultAction = AC_JUMP;
 		unique = true;
 		usesTargeting = true;

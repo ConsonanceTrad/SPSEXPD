@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.wands;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -10,7 +12,6 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.PurpleParticle;
 import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
-import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTilemap;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 public class WandOfDisintegration extends DamageWand {
 
 	{
-		image = ItemSpriteSheet.WAND_SPS_DISINTEGRATION;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		collisionProperties = Ballistica.WONT_STOP;
 	}
 

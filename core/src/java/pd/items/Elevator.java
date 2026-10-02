@@ -1,10 +1,11 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.scenes.InterlevelScene;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class Elevator extends Item {
 	private static final int MAX_DEPTH = 25;
 
 	{
-		image = ItemSpriteSheet.ELEVATOR;
+		image = EquipmentNonEquipDict.ELEVATOR;
 		stackable = true;
 		unique = true;
 	}

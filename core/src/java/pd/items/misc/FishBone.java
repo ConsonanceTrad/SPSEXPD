@@ -1,14 +1,15 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 
 /** AliveFish's charm: swift movement in water and protection from fisher creatures. */
 public class FishBone extends MiscEquippable {
 
-	{ image = ItemSpriteSheet.FISH_BONE; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 
 	@Override protected FishFriend createBuff() { return new FishFriend(); }
 

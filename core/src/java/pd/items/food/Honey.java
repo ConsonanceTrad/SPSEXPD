@@ -1,14 +1,15 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class Honey extends Food {
 	{
-		image = ItemSpriteSheet.SPS_HONEY;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 50f;
 		hornValue = 0;
 	}

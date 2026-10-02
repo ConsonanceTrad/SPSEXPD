@@ -21,6 +21,8 @@
 
 package pd.items;
 
+import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
+
 import pd.Assets;
 import pd.actors.Actor;
 import pd.actors.hero.Hero;
@@ -34,7 +36,6 @@ import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.HeroSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndChooseAbility;
 import render.noosa.audio.Sample;
@@ -46,7 +47,7 @@ public class KingsCrown extends Item {
 	private static final String AC_WEAR = "WEAR";
 	
 	{
-		image = ItemSpriteSheet.CROWN;
+		image = ConsumUsefulProcessEnhanceDict.CROWN_0;
 
 		defaultAction = AC_WEAR;
 

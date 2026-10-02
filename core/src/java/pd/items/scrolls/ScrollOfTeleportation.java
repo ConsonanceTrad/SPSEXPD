@@ -41,7 +41,7 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.Camera;
 import render.noosa.audio.Sample;
@@ -55,7 +55,7 @@ import java.util.ArrayList;
 public class ScrollOfTeleportation extends Scroll {
 
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_TELEPORT;
+		icon = ItemIconSheet.SCROLL_TELEPORT;
 	}
 
 	@Override

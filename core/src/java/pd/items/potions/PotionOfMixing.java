@@ -1,15 +1,16 @@
 package pd.items.potions;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Recharging;
 import pd.actors.hero.Hero;
 import pd.effects.Speck;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 
 public class PotionOfMixing extends SpsPotion {
-	{ image = ItemSpriteSheet.SPS_POTION_MIXING; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public void apply(Hero hero) {
 		hero.improveCombatSkills(1);
 		Buff.prolong(hero, Recharging.class, 30f);

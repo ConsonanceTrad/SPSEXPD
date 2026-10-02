@@ -21,12 +21,13 @@
 
 package pd.items.keys;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.SpecificKeyDict;
+
 
 public class GoldenKey extends Key {
 	
 	{
-		image = ItemSpriteSheet.GOLDEN_KEY;
+		image = SpecificKeyDict.GOLDEN_KEY;
 	}
 
 	public GoldenKey() {

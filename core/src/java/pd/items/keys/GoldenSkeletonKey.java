@@ -6,14 +6,15 @@
  */
 package pd.items.keys;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 
 /** A one-use legacy master key for locked or crystal chests on any depth. */
 public class GoldenSkeletonKey extends Key {
 
 	{
-		image = ItemSpriteSheet.GOLDEN_SKELETON_KEY;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 	public GoldenSkeletonKey() {

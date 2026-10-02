@@ -13,1027 +13,1027 @@ public final class PrisonExitDict {
 	private PrisonExitDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 0, 16, 16});
+	public static final IconEntry TILE_000 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 0, 16, 16}, 908);
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 0, 16, 16});
+	public static final IconEntry TILE_001 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 0, 16, 16}, 909);
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 0, 16, 16});
+	public static final IconEntry TILE_002 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 0, 16, 16}, 910);
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 0, 16, 16});
+	public static final IconEntry TILE_003 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 0, 16, 16}, 911);
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 0, 16, 16});
+	public static final IconEntry TILE_004 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 0, 16, 16}, 912);
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 0, 16, 16});
+	public static final IconEntry TILE_005 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 0, 16, 16}, 913);
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 0, 16, 16});
+	public static final IconEntry TILE_006 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 0, 16, 16}, 914);
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 0, 16, 16});
+	public static final IconEntry TILE_007 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 0, 16, 16}, 915);
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 0, 16, 16});
+	public static final IconEntry TILE_008 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 0, 16, 16}, 916);
 	/** tile_009 */
-	public static final IconEntry TILE_009 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 0, 16, 16});
+	public static final IconEntry TILE_009 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 0, 16, 16}, 917);
 	/** tile_010 */
-	public static final IconEntry TILE_010 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 0, 16, 16});
+	public static final IconEntry TILE_010 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 0, 16, 16}, 918);
 	/** tile_011 */
-	public static final IconEntry TILE_011 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 0, 16, 16});
+	public static final IconEntry TILE_011 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 0, 16, 16}, 919);
 	/** tile_012 */
-	public static final IconEntry TILE_012 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 0, 16, 16});
+	public static final IconEntry TILE_012 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 0, 16, 16}, 920);
 	/** tile_013 */
-	public static final IconEntry TILE_013 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 0, 16, 16});
+	public static final IconEntry TILE_013 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 0, 16, 16}, 921);
 	/** tile_014 */
-	public static final IconEntry TILE_014 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 0, 16, 16});
+	public static final IconEntry TILE_014 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 0, 16, 16}, 922);
 	/** tile_015 */
-	public static final IconEntry TILE_015 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 0, 16, 16});
+	public static final IconEntry TILE_015 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 0, 16, 16}, 923);
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 16, 16, 16});
+	public static final IconEntry TILE_016 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 16, 16, 16}, 924);
 	/** tile_017 */
-	public static final IconEntry TILE_017 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 16, 16, 16});
+	public static final IconEntry TILE_017 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 16, 16, 16}, 925);
 	/** tile_018 */
-	public static final IconEntry TILE_018 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 16, 16, 16});
+	public static final IconEntry TILE_018 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 16, 16, 16}, 926);
 	/** tile_019 */
-	public static final IconEntry TILE_019 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 16, 16, 16});
+	public static final IconEntry TILE_019 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 16, 16, 16}, 927);
 	/** tile_020 */
-	public static final IconEntry TILE_020 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 16, 16, 16});
+	public static final IconEntry TILE_020 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 16, 16, 16}, 928);
 	/** tile_021 */
-	public static final IconEntry TILE_021 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 16, 16, 16});
+	public static final IconEntry TILE_021 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 16, 16, 16}, 929);
 	/** tile_022 */
-	public static final IconEntry TILE_022 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 16, 16, 16});
+	public static final IconEntry TILE_022 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 16, 16, 16}, 930);
 	/** tile_023 */
-	public static final IconEntry TILE_023 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 16, 16, 16});
+	public static final IconEntry TILE_023 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 16, 16, 16}, 931);
 	/** tile_024 */
-	public static final IconEntry TILE_024 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 16, 16, 16});
+	public static final IconEntry TILE_024 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 16, 16, 16}, 932);
 	/** tile_025 */
-	public static final IconEntry TILE_025 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 16, 16, 16});
+	public static final IconEntry TILE_025 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 16, 16, 16}, 933);
 	/** tile_026 */
-	public static final IconEntry TILE_026 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 16, 16, 16});
+	public static final IconEntry TILE_026 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 16, 16, 16}, 934);
 	/** tile_027 */
-	public static final IconEntry TILE_027 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 16, 16, 16});
+	public static final IconEntry TILE_027 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 16, 16, 16}, 935);
 	/** tile_028 */
-	public static final IconEntry TILE_028 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 16, 16, 16});
+	public static final IconEntry TILE_028 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 16, 16, 16}, 936);
 	/** tile_029 */
-	public static final IconEntry TILE_029 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 16, 16, 16});
+	public static final IconEntry TILE_029 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 16, 16, 16}, 937);
 	/** tile_030 */
-	public static final IconEntry TILE_030 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 16, 16, 16});
+	public static final IconEntry TILE_030 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 16, 16, 16}, 938);
 	/** tile_031 */
-	public static final IconEntry TILE_031 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 16, 16, 16});
+	public static final IconEntry TILE_031 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 16, 16, 16}, 939);
 	/** tile_032 */
-	public static final IconEntry TILE_032 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 32, 16, 16});
+	public static final IconEntry TILE_032 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 32, 16, 16}, 940);
 	/** tile_033 */
-	public static final IconEntry TILE_033 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 32, 16, 16});
+	public static final IconEntry TILE_033 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 32, 16, 16}, 941);
 	/** tile_034 */
-	public static final IconEntry TILE_034 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 32, 16, 16});
+	public static final IconEntry TILE_034 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 32, 16, 16}, 942);
 	/** tile_035 */
-	public static final IconEntry TILE_035 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 32, 16, 16});
+	public static final IconEntry TILE_035 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 32, 16, 16}, 943);
 	/** tile_036 */
-	public static final IconEntry TILE_036 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 32, 16, 16});
+	public static final IconEntry TILE_036 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 32, 16, 16}, 944);
 	/** tile_037 */
-	public static final IconEntry TILE_037 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 32, 16, 16});
+	public static final IconEntry TILE_037 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 32, 16, 16}, 945);
 	/** tile_038 */
-	public static final IconEntry TILE_038 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 32, 16, 16});
+	public static final IconEntry TILE_038 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 32, 16, 16}, 946);
 	/** tile_039 */
-	public static final IconEntry TILE_039 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 32, 16, 16});
+	public static final IconEntry TILE_039 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 32, 16, 16}, 947);
 	/** tile_040 */
-	public static final IconEntry TILE_040 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 32, 16, 16});
+	public static final IconEntry TILE_040 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 32, 16, 16}, 948);
 	/** tile_041 */
-	public static final IconEntry TILE_041 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 32, 16, 16});
+	public static final IconEntry TILE_041 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 32, 16, 16}, 949);
 	/** tile_042 */
-	public static final IconEntry TILE_042 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 32, 16, 16});
+	public static final IconEntry TILE_042 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 32, 16, 16}, 950);
 	/** tile_043 */
-	public static final IconEntry TILE_043 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 32, 16, 16});
+	public static final IconEntry TILE_043 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 32, 16, 16}, 951);
 	/** tile_044 */
-	public static final IconEntry TILE_044 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 32, 16, 16});
+	public static final IconEntry TILE_044 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 32, 16, 16}, 952);
 	/** tile_045 */
-	public static final IconEntry TILE_045 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 32, 16, 16});
+	public static final IconEntry TILE_045 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 32, 16, 16}, 953);
 	/** tile_046 */
-	public static final IconEntry TILE_046 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 32, 16, 16});
+	public static final IconEntry TILE_046 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 32, 16, 16}, 954);
 	/** tile_047 */
-	public static final IconEntry TILE_047 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 32, 16, 16});
+	public static final IconEntry TILE_047 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 32, 16, 16}, 955);
 	/** tile_048 */
-	public static final IconEntry TILE_048 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 48, 16, 16});
+	public static final IconEntry TILE_048 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 48, 16, 16}, 956);
 	/** tile_049 */
-	public static final IconEntry TILE_049 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 48, 16, 16});
+	public static final IconEntry TILE_049 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 48, 16, 16}, 957);
 	/** tile_050 */
-	public static final IconEntry TILE_050 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 48, 16, 16});
+	public static final IconEntry TILE_050 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 48, 16, 16}, 958);
 	/** tile_051 */
-	public static final IconEntry TILE_051 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 48, 16, 16});
+	public static final IconEntry TILE_051 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 48, 16, 16}, 959);
 	/** tile_052 */
-	public static final IconEntry TILE_052 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 48, 16, 16});
+	public static final IconEntry TILE_052 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 48, 16, 16}, 960);
 	/** tile_053 */
-	public static final IconEntry TILE_053 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 48, 16, 16});
+	public static final IconEntry TILE_053 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 48, 16, 16}, 961);
 	/** tile_054 */
-	public static final IconEntry TILE_054 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 48, 16, 16});
+	public static final IconEntry TILE_054 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 48, 16, 16}, 962);
 	/** tile_055 */
-	public static final IconEntry TILE_055 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 48, 16, 16});
+	public static final IconEntry TILE_055 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 48, 16, 16}, 963);
 	/** tile_056 */
-	public static final IconEntry TILE_056 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 48, 16, 16});
+	public static final IconEntry TILE_056 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 48, 16, 16}, 964);
 	/** tile_057 */
-	public static final IconEntry TILE_057 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 48, 16, 16});
+	public static final IconEntry TILE_057 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 48, 16, 16}, 965);
 	/** tile_058 */
-	public static final IconEntry TILE_058 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 48, 16, 16});
+	public static final IconEntry TILE_058 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 48, 16, 16}, 966);
 	/** tile_059 */
-	public static final IconEntry TILE_059 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 48, 16, 16});
+	public static final IconEntry TILE_059 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 48, 16, 16}, 967);
 	/** tile_060 */
-	public static final IconEntry TILE_060 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 48, 16, 16});
+	public static final IconEntry TILE_060 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 48, 16, 16}, 968);
 	/** tile_061 */
-	public static final IconEntry TILE_061 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 48, 16, 16});
+	public static final IconEntry TILE_061 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 48, 16, 16}, 969);
 	/** tile_062 */
-	public static final IconEntry TILE_062 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 48, 16, 16});
+	public static final IconEntry TILE_062 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 48, 16, 16}, 970);
 	/** tile_063 */
-	public static final IconEntry TILE_063 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 48, 16, 16});
+	public static final IconEntry TILE_063 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 48, 16, 16}, 971);
 	/** tile_064 */
-	public static final IconEntry TILE_064 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 64, 16, 16});
+	public static final IconEntry TILE_064 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 64, 16, 16}, 972);
 	/** tile_065 */
-	public static final IconEntry TILE_065 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 64, 16, 16});
+	public static final IconEntry TILE_065 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 64, 16, 16}, 973);
 	/** tile_066 */
-	public static final IconEntry TILE_066 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 64, 16, 16});
+	public static final IconEntry TILE_066 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 64, 16, 16}, 974);
 	/** tile_067 */
-	public static final IconEntry TILE_067 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 64, 16, 16});
+	public static final IconEntry TILE_067 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 64, 16, 16}, 975);
 	/** tile_068 */
-	public static final IconEntry TILE_068 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 64, 16, 16});
+	public static final IconEntry TILE_068 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 64, 16, 16}, 976);
 	/** tile_069 */
-	public static final IconEntry TILE_069 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 64, 16, 16});
+	public static final IconEntry TILE_069 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 64, 16, 16}, 977);
 	/** tile_070 */
-	public static final IconEntry TILE_070 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 64, 16, 16});
+	public static final IconEntry TILE_070 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 64, 16, 16}, 978);
 	/** tile_071 */
-	public static final IconEntry TILE_071 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 64, 16, 16});
+	public static final IconEntry TILE_071 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 64, 16, 16}, 979);
 	/** tile_072 */
-	public static final IconEntry TILE_072 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 64, 16, 16});
+	public static final IconEntry TILE_072 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 64, 16, 16}, 980);
 	/** tile_073 */
-	public static final IconEntry TILE_073 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 64, 16, 16});
+	public static final IconEntry TILE_073 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 64, 16, 16}, 981);
 	/** tile_074 */
-	public static final IconEntry TILE_074 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 64, 16, 16});
+	public static final IconEntry TILE_074 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 64, 16, 16}, 982);
 	/** tile_075 */
-	public static final IconEntry TILE_075 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 64, 16, 16});
+	public static final IconEntry TILE_075 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 64, 16, 16}, 983);
 	/** tile_076 */
-	public static final IconEntry TILE_076 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 64, 16, 16});
+	public static final IconEntry TILE_076 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 64, 16, 16}, 984);
 	/** tile_077 */
-	public static final IconEntry TILE_077 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 64, 16, 16});
+	public static final IconEntry TILE_077 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 64, 16, 16}, 985);
 	/** tile_078 */
-	public static final IconEntry TILE_078 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 64, 16, 16});
+	public static final IconEntry TILE_078 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 64, 16, 16}, 986);
 	/** tile_079 */
-	public static final IconEntry TILE_079 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 64, 16, 16});
+	public static final IconEntry TILE_079 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 64, 16, 16}, 987);
 	/** tile_080 */
-	public static final IconEntry TILE_080 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 80, 16, 16});
+	public static final IconEntry TILE_080 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 80, 16, 16}, 988);
 	/** tile_081 */
-	public static final IconEntry TILE_081 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 80, 16, 16});
+	public static final IconEntry TILE_081 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 80, 16, 16}, 989);
 	/** tile_082 */
-	public static final IconEntry TILE_082 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 80, 16, 16});
+	public static final IconEntry TILE_082 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 80, 16, 16}, 990);
 	/** tile_083 */
-	public static final IconEntry TILE_083 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 80, 16, 16});
+	public static final IconEntry TILE_083 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 80, 16, 16}, 991);
 	/** tile_084 */
-	public static final IconEntry TILE_084 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 80, 16, 16});
+	public static final IconEntry TILE_084 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 80, 16, 16}, 992);
 	/** tile_085 */
-	public static final IconEntry TILE_085 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 80, 16, 16});
+	public static final IconEntry TILE_085 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 80, 16, 16}, 993);
 	/** tile_086 */
-	public static final IconEntry TILE_086 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 80, 16, 16});
+	public static final IconEntry TILE_086 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 80, 16, 16}, 994);
 	/** tile_087 */
-	public static final IconEntry TILE_087 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 80, 16, 16});
+	public static final IconEntry TILE_087 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 80, 16, 16}, 995);
 	/** tile_088 */
-	public static final IconEntry TILE_088 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 80, 16, 16});
+	public static final IconEntry TILE_088 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 80, 16, 16}, 996);
 	/** tile_089 */
-	public static final IconEntry TILE_089 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 80, 16, 16});
+	public static final IconEntry TILE_089 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 80, 16, 16}, 997);
 	/** tile_090 */
-	public static final IconEntry TILE_090 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 80, 16, 16});
+	public static final IconEntry TILE_090 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 80, 16, 16}, 998);
 	/** tile_091 */
-	public static final IconEntry TILE_091 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 80, 16, 16});
+	public static final IconEntry TILE_091 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 80, 16, 16}, 999);
 	/** tile_092 */
-	public static final IconEntry TILE_092 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 80, 16, 16});
+	public static final IconEntry TILE_092 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 80, 16, 16}, 1000);
 	/** tile_093 */
-	public static final IconEntry TILE_093 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 80, 16, 16});
+	public static final IconEntry TILE_093 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 80, 16, 16}, 1001);
 	/** tile_094 */
-	public static final IconEntry TILE_094 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 80, 16, 16});
+	public static final IconEntry TILE_094 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 80, 16, 16}, 1002);
 	/** tile_095 */
-	public static final IconEntry TILE_095 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 80, 16, 16});
+	public static final IconEntry TILE_095 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 80, 16, 16}, 1003);
 	/** tile_096 */
-	public static final IconEntry TILE_096 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 96, 16, 16});
+	public static final IconEntry TILE_096 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 96, 16, 16}, 1004);
 	/** tile_097 */
-	public static final IconEntry TILE_097 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 96, 16, 16});
+	public static final IconEntry TILE_097 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 96, 16, 16}, 1005);
 	/** tile_098 */
-	public static final IconEntry TILE_098 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 96, 16, 16});
+	public static final IconEntry TILE_098 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 96, 16, 16}, 1006);
 	/** tile_099 */
-	public static final IconEntry TILE_099 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 96, 16, 16});
+	public static final IconEntry TILE_099 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 96, 16, 16}, 1007);
 	/** tile_100 */
-	public static final IconEntry TILE_100 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 96, 16, 16});
+	public static final IconEntry TILE_100 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 96, 16, 16}, 1008);
 	/** tile_101 */
-	public static final IconEntry TILE_101 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 96, 16, 16});
+	public static final IconEntry TILE_101 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 96, 16, 16}, 1009);
 	/** tile_102 */
-	public static final IconEntry TILE_102 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 96, 16, 16});
+	public static final IconEntry TILE_102 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 96, 16, 16}, 1010);
 	/** tile_103 */
-	public static final IconEntry TILE_103 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 96, 16, 16});
+	public static final IconEntry TILE_103 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 96, 16, 16}, 1011);
 	/** tile_104 */
-	public static final IconEntry TILE_104 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 96, 16, 16});
+	public static final IconEntry TILE_104 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 96, 16, 16}, 1012);
 	/** tile_105 */
-	public static final IconEntry TILE_105 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 96, 16, 16});
+	public static final IconEntry TILE_105 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 96, 16, 16}, 1013);
 	/** tile_106 */
-	public static final IconEntry TILE_106 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 96, 16, 16});
+	public static final IconEntry TILE_106 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 96, 16, 16}, 1014);
 	/** tile_107 */
-	public static final IconEntry TILE_107 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 96, 16, 16});
+	public static final IconEntry TILE_107 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 96, 16, 16}, 1015);
 	/** tile_108 */
-	public static final IconEntry TILE_108 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 96, 16, 16});
+	public static final IconEntry TILE_108 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 96, 16, 16}, 1016);
 	/** tile_109 */
-	public static final IconEntry TILE_109 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 96, 16, 16});
+	public static final IconEntry TILE_109 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 96, 16, 16}, 1017);
 	/** tile_110 */
-	public static final IconEntry TILE_110 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 96, 16, 16});
+	public static final IconEntry TILE_110 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 96, 16, 16}, 1018);
 	/** tile_111 */
-	public static final IconEntry TILE_111 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 96, 16, 16});
+	public static final IconEntry TILE_111 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 96, 16, 16}, 1019);
 	/** tile_112 */
-	public static final IconEntry TILE_112 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 112, 16, 16});
+	public static final IconEntry TILE_112 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 112, 16, 16}, 1020);
 	/** tile_113 */
-	public static final IconEntry TILE_113 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 112, 16, 16});
+	public static final IconEntry TILE_113 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 112, 16, 16}, 1021);
 	/** tile_114 */
-	public static final IconEntry TILE_114 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 112, 16, 16});
+	public static final IconEntry TILE_114 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 112, 16, 16}, 1022);
 	/** tile_115 */
-	public static final IconEntry TILE_115 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 112, 16, 16});
+	public static final IconEntry TILE_115 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 112, 16, 16}, 1023);
 	/** tile_116 */
-	public static final IconEntry TILE_116 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 112, 16, 16});
+	public static final IconEntry TILE_116 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 112, 16, 16}, 1024);
 	/** tile_117 */
-	public static final IconEntry TILE_117 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 112, 16, 16});
+	public static final IconEntry TILE_117 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 112, 16, 16}, 1025);
 	/** tile_118 */
-	public static final IconEntry TILE_118 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 112, 16, 16});
+	public static final IconEntry TILE_118 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 112, 16, 16}, 1026);
 	/** tile_119 */
-	public static final IconEntry TILE_119 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 112, 16, 16});
+	public static final IconEntry TILE_119 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 112, 16, 16}, 1027);
 	/** tile_120 */
-	public static final IconEntry TILE_120 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 112, 16, 16});
+	public static final IconEntry TILE_120 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 112, 16, 16}, 1028);
 	/** tile_121 */
-	public static final IconEntry TILE_121 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 112, 16, 16});
+	public static final IconEntry TILE_121 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 112, 16, 16}, 1029);
 	/** tile_122 */
-	public static final IconEntry TILE_122 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 112, 16, 16});
+	public static final IconEntry TILE_122 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 112, 16, 16}, 1030);
 	/** tile_123 */
-	public static final IconEntry TILE_123 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 112, 16, 16});
+	public static final IconEntry TILE_123 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 112, 16, 16}, 1031);
 	/** tile_124 */
-	public static final IconEntry TILE_124 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 112, 16, 16});
+	public static final IconEntry TILE_124 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 112, 16, 16}, 1032);
 	/** tile_125 */
-	public static final IconEntry TILE_125 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 112, 16, 16});
+	public static final IconEntry TILE_125 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 112, 16, 16}, 1033);
 	/** tile_126 */
-	public static final IconEntry TILE_126 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 112, 16, 16});
+	public static final IconEntry TILE_126 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 112, 16, 16}, 1034);
 	/** tile_127 */
-	public static final IconEntry TILE_127 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 112, 16, 16});
+	public static final IconEntry TILE_127 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 112, 16, 16}, 1035);
 	/** tile_128 */
-	public static final IconEntry TILE_128 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 128, 16, 16});
+	public static final IconEntry TILE_128 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 128, 16, 16}, 1036);
 	/** tile_129 */
-	public static final IconEntry TILE_129 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 128, 16, 16});
+	public static final IconEntry TILE_129 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 128, 16, 16}, 1037);
 	/** tile_130 */
-	public static final IconEntry TILE_130 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 128, 16, 16});
+	public static final IconEntry TILE_130 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 128, 16, 16}, 1038);
 	/** tile_131 */
-	public static final IconEntry TILE_131 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 128, 16, 16});
+	public static final IconEntry TILE_131 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 128, 16, 16}, 1039);
 	/** tile_132 */
-	public static final IconEntry TILE_132 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 128, 16, 16});
+	public static final IconEntry TILE_132 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 128, 16, 16}, 1040);
 	/** tile_133 */
-	public static final IconEntry TILE_133 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 128, 16, 16});
+	public static final IconEntry TILE_133 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 128, 16, 16}, 1041);
 	/** tile_134 */
-	public static final IconEntry TILE_134 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 128, 16, 16});
+	public static final IconEntry TILE_134 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 128, 16, 16}, 1042);
 	/** tile_135 */
-	public static final IconEntry TILE_135 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 128, 16, 16});
+	public static final IconEntry TILE_135 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 128, 16, 16}, 1043);
 	/** tile_136 */
-	public static final IconEntry TILE_136 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 128, 16, 16});
+	public static final IconEntry TILE_136 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 128, 16, 16}, 1044);
 	/** tile_137 */
-	public static final IconEntry TILE_137 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 128, 16, 16});
+	public static final IconEntry TILE_137 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 128, 16, 16}, 1045);
 	/** tile_138 */
-	public static final IconEntry TILE_138 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 128, 16, 16});
+	public static final IconEntry TILE_138 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 128, 16, 16}, 1046);
 	/** tile_139 */
-	public static final IconEntry TILE_139 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 128, 16, 16});
+	public static final IconEntry TILE_139 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 128, 16, 16}, 1047);
 	/** tile_140 */
-	public static final IconEntry TILE_140 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 128, 16, 16});
+	public static final IconEntry TILE_140 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 128, 16, 16}, 1048);
 	/** tile_141 */
-	public static final IconEntry TILE_141 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 128, 16, 16});
+	public static final IconEntry TILE_141 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 128, 16, 16}, 1049);
 	/** tile_142 */
-	public static final IconEntry TILE_142 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 128, 16, 16});
+	public static final IconEntry TILE_142 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 128, 16, 16}, 1050);
 	/** tile_143 */
-	public static final IconEntry TILE_143 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 128, 16, 16});
+	public static final IconEntry TILE_143 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 128, 16, 16}, 1051);
 	/** tile_144 */
-	public static final IconEntry TILE_144 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 144, 16, 16});
+	public static final IconEntry TILE_144 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 144, 16, 16}, 1052);
 	/** tile_145 */
-	public static final IconEntry TILE_145 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 144, 16, 16});
+	public static final IconEntry TILE_145 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 144, 16, 16}, 1053);
 	/** tile_146 */
-	public static final IconEntry TILE_146 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 144, 16, 16});
+	public static final IconEntry TILE_146 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 144, 16, 16}, 1054);
 	/** tile_147 */
-	public static final IconEntry TILE_147 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 144, 16, 16});
+	public static final IconEntry TILE_147 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 144, 16, 16}, 1055);
 	/** tile_148 */
-	public static final IconEntry TILE_148 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 144, 16, 16});
+	public static final IconEntry TILE_148 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 144, 16, 16}, 1056);
 	/** tile_149 */
-	public static final IconEntry TILE_149 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 144, 16, 16});
+	public static final IconEntry TILE_149 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 144, 16, 16}, 1057);
 	/** tile_150 */
-	public static final IconEntry TILE_150 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 144, 16, 16});
+	public static final IconEntry TILE_150 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 144, 16, 16}, 1058);
 	/** tile_151 */
-	public static final IconEntry TILE_151 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 144, 16, 16});
+	public static final IconEntry TILE_151 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 144, 16, 16}, 1059);
 	/** tile_152 */
-	public static final IconEntry TILE_152 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 144, 16, 16});
+	public static final IconEntry TILE_152 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 144, 16, 16}, 1060);
 	/** tile_153 */
-	public static final IconEntry TILE_153 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 144, 16, 16});
+	public static final IconEntry TILE_153 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 144, 16, 16}, 1061);
 	/** tile_154 */
-	public static final IconEntry TILE_154 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 144, 16, 16});
+	public static final IconEntry TILE_154 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 144, 16, 16}, 1062);
 	/** tile_155 */
-	public static final IconEntry TILE_155 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 144, 16, 16});
+	public static final IconEntry TILE_155 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 144, 16, 16}, 1063);
 	/** tile_156 */
-	public static final IconEntry TILE_156 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 144, 16, 16});
+	public static final IconEntry TILE_156 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 144, 16, 16}, 1064);
 	/** tile_157 */
-	public static final IconEntry TILE_157 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 144, 16, 16});
+	public static final IconEntry TILE_157 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 144, 16, 16}, 1065);
 	/** tile_158 */
-	public static final IconEntry TILE_158 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 144, 16, 16});
+	public static final IconEntry TILE_158 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 144, 16, 16}, 1066);
 	/** tile_159 */
-	public static final IconEntry TILE_159 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 144, 16, 16});
+	public static final IconEntry TILE_159 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 144, 16, 16}, 1067);
 	/** tile_160 */
-	public static final IconEntry TILE_160 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 160, 16, 16});
+	public static final IconEntry TILE_160 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 160, 16, 16}, 1068);
 	/** tile_161 */
-	public static final IconEntry TILE_161 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 160, 16, 16});
+	public static final IconEntry TILE_161 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 160, 16, 16}, 1069);
 	/** tile_162 */
-	public static final IconEntry TILE_162 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 160, 16, 16});
+	public static final IconEntry TILE_162 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 160, 16, 16}, 1070);
 	/** tile_163 */
-	public static final IconEntry TILE_163 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 160, 16, 16});
+	public static final IconEntry TILE_163 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 160, 16, 16}, 1071);
 	/** tile_164 */
-	public static final IconEntry TILE_164 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 160, 16, 16});
+	public static final IconEntry TILE_164 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 160, 16, 16}, 1072);
 	/** tile_165 */
-	public static final IconEntry TILE_165 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 160, 16, 16});
+	public static final IconEntry TILE_165 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 160, 16, 16}, 1073);
 	/** tile_166 */
-	public static final IconEntry TILE_166 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 160, 16, 16});
+	public static final IconEntry TILE_166 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 160, 16, 16}, 1074);
 	/** tile_167 */
-	public static final IconEntry TILE_167 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 160, 16, 16});
+	public static final IconEntry TILE_167 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 160, 16, 16}, 1075);
 	/** tile_168 */
-	public static final IconEntry TILE_168 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 160, 16, 16});
+	public static final IconEntry TILE_168 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 160, 16, 16}, 1076);
 	/** tile_169 */
-	public static final IconEntry TILE_169 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 160, 16, 16});
+	public static final IconEntry TILE_169 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 160, 16, 16}, 1077);
 	/** tile_170 */
-	public static final IconEntry TILE_170 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 160, 16, 16});
+	public static final IconEntry TILE_170 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 160, 16, 16}, 1078);
 	/** tile_171 */
-	public static final IconEntry TILE_171 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 160, 16, 16});
+	public static final IconEntry TILE_171 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 160, 16, 16}, 1079);
 	/** tile_172 */
-	public static final IconEntry TILE_172 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 160, 16, 16});
+	public static final IconEntry TILE_172 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 160, 16, 16}, 1080);
 	/** tile_173 */
-	public static final IconEntry TILE_173 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 160, 16, 16});
+	public static final IconEntry TILE_173 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 160, 16, 16}, 1081);
 	/** tile_174 */
-	public static final IconEntry TILE_174 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 160, 16, 16});
+	public static final IconEntry TILE_174 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 160, 16, 16}, 1082);
 	/** tile_175 */
-	public static final IconEntry TILE_175 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 160, 16, 16});
+	public static final IconEntry TILE_175 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 160, 16, 16}, 1083);
 	/** tile_176 */
-	public static final IconEntry TILE_176 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 176, 16, 16});
+	public static final IconEntry TILE_176 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 176, 16, 16}, 1084);
 	/** tile_177 */
-	public static final IconEntry TILE_177 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 176, 16, 16});
+	public static final IconEntry TILE_177 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 176, 16, 16}, 1085);
 	/** tile_178 */
-	public static final IconEntry TILE_178 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 176, 16, 16});
+	public static final IconEntry TILE_178 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 176, 16, 16}, 1086);
 	/** tile_179 */
-	public static final IconEntry TILE_179 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 176, 16, 16});
+	public static final IconEntry TILE_179 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 176, 16, 16}, 1087);
 	/** tile_180 */
-	public static final IconEntry TILE_180 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 176, 16, 16});
+	public static final IconEntry TILE_180 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 176, 16, 16}, 1088);
 	/** tile_181 */
-	public static final IconEntry TILE_181 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 176, 16, 16});
+	public static final IconEntry TILE_181 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 176, 16, 16}, 1089);
 	/** tile_182 */
-	public static final IconEntry TILE_182 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 176, 16, 16});
+	public static final IconEntry TILE_182 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 176, 16, 16}, 1090);
 	/** tile_183 */
-	public static final IconEntry TILE_183 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 176, 16, 16});
+	public static final IconEntry TILE_183 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 176, 16, 16}, 1091);
 	/** tile_184 */
-	public static final IconEntry TILE_184 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 176, 16, 16});
+	public static final IconEntry TILE_184 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 176, 16, 16}, 1092);
 	/** tile_185 */
-	public static final IconEntry TILE_185 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 176, 16, 16});
+	public static final IconEntry TILE_185 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 176, 16, 16}, 1093);
 	/** tile_186 */
-	public static final IconEntry TILE_186 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 176, 16, 16});
+	public static final IconEntry TILE_186 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 176, 16, 16}, 1094);
 	/** tile_187 */
-	public static final IconEntry TILE_187 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 176, 16, 16});
+	public static final IconEntry TILE_187 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 176, 16, 16}, 1095);
 	/** tile_188 */
-	public static final IconEntry TILE_188 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 176, 16, 16});
+	public static final IconEntry TILE_188 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 176, 16, 16}, 1096);
 	/** tile_189 */
-	public static final IconEntry TILE_189 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 176, 16, 16});
+	public static final IconEntry TILE_189 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 176, 16, 16}, 1097);
 	/** tile_190 */
-	public static final IconEntry TILE_190 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 176, 16, 16});
+	public static final IconEntry TILE_190 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 176, 16, 16}, 1098);
 	/** tile_191 */
-	public static final IconEntry TILE_191 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 176, 16, 16});
+	public static final IconEntry TILE_191 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 176, 16, 16}, 1099);
 	/** tile_192 */
-	public static final IconEntry TILE_192 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 192, 16, 16});
+	public static final IconEntry TILE_192 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 192, 16, 16}, 1100);
 	/** tile_193 */
-	public static final IconEntry TILE_193 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 192, 16, 16});
+	public static final IconEntry TILE_193 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 192, 16, 16}, 1101);
 	/** tile_194 */
-	public static final IconEntry TILE_194 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 192, 16, 16});
+	public static final IconEntry TILE_194 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 192, 16, 16}, 1102);
 	/** tile_195 */
-	public static final IconEntry TILE_195 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 192, 16, 16});
+	public static final IconEntry TILE_195 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 192, 16, 16}, 1103);
 	/** tile_196 */
-	public static final IconEntry TILE_196 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 192, 16, 16});
+	public static final IconEntry TILE_196 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 192, 16, 16}, 1104);
 	/** tile_197 */
-	public static final IconEntry TILE_197 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 192, 16, 16});
+	public static final IconEntry TILE_197 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 192, 16, 16}, 1105);
 	/** tile_198 */
-	public static final IconEntry TILE_198 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 192, 16, 16});
+	public static final IconEntry TILE_198 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 192, 16, 16}, 1106);
 	/** tile_199 */
-	public static final IconEntry TILE_199 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 192, 16, 16});
+	public static final IconEntry TILE_199 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 192, 16, 16}, 1107);
 	/** tile_200 */
-	public static final IconEntry TILE_200 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 192, 16, 16});
+	public static final IconEntry TILE_200 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 192, 16, 16}, 1108);
 	/** tile_201 */
-	public static final IconEntry TILE_201 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 192, 16, 16});
+	public static final IconEntry TILE_201 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 192, 16, 16}, 1109);
 	/** tile_202 */
-	public static final IconEntry TILE_202 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 192, 16, 16});
+	public static final IconEntry TILE_202 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 192, 16, 16}, 1110);
 	/** tile_203 */
-	public static final IconEntry TILE_203 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 192, 16, 16});
+	public static final IconEntry TILE_203 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 192, 16, 16}, 1111);
 	/** tile_204 */
-	public static final IconEntry TILE_204 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 192, 16, 16});
+	public static final IconEntry TILE_204 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 192, 16, 16}, 1112);
 	/** tile_205 */
-	public static final IconEntry TILE_205 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 192, 16, 16});
+	public static final IconEntry TILE_205 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 192, 16, 16}, 1113);
 	/** tile_206 */
-	public static final IconEntry TILE_206 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 192, 16, 16});
+	public static final IconEntry TILE_206 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 192, 16, 16}, 1114);
 	/** tile_207 */
-	public static final IconEntry TILE_207 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 192, 16, 16});
+	public static final IconEntry TILE_207 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 192, 16, 16}, 1115);
 	/** tile_208 */
-	public static final IconEntry TILE_208 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 208, 16, 16});
+	public static final IconEntry TILE_208 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 208, 16, 16}, 1116);
 	/** tile_209 */
-	public static final IconEntry TILE_209 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 208, 16, 16});
+	public static final IconEntry TILE_209 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 208, 16, 16}, 1117);
 	/** tile_210 */
-	public static final IconEntry TILE_210 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 208, 16, 16});
+	public static final IconEntry TILE_210 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 208, 16, 16}, 1118);
 	/** tile_211 */
-	public static final IconEntry TILE_211 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 208, 16, 16});
+	public static final IconEntry TILE_211 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 208, 16, 16}, 1119);
 	/** tile_212 */
-	public static final IconEntry TILE_212 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 208, 16, 16});
+	public static final IconEntry TILE_212 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 208, 16, 16}, 1120);
 	/** tile_213 */
-	public static final IconEntry TILE_213 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 208, 16, 16});
+	public static final IconEntry TILE_213 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 208, 16, 16}, 1121);
 	/** tile_214 */
-	public static final IconEntry TILE_214 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 208, 16, 16});
+	public static final IconEntry TILE_214 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 208, 16, 16}, 1122);
 	/** tile_215 */
-	public static final IconEntry TILE_215 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 208, 16, 16});
+	public static final IconEntry TILE_215 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 208, 16, 16}, 1123);
 	/** tile_216 */
-	public static final IconEntry TILE_216 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 208, 16, 16});
+	public static final IconEntry TILE_216 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 208, 16, 16}, 1124);
 	/** tile_217 */
-	public static final IconEntry TILE_217 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 208, 16, 16});
+	public static final IconEntry TILE_217 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 208, 16, 16}, 1125);
 	/** tile_218 */
-	public static final IconEntry TILE_218 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 208, 16, 16});
+	public static final IconEntry TILE_218 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 208, 16, 16}, 1126);
 	/** tile_219 */
-	public static final IconEntry TILE_219 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 208, 16, 16});
+	public static final IconEntry TILE_219 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 208, 16, 16}, 1127);
 	/** tile_220 */
-	public static final IconEntry TILE_220 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 208, 16, 16});
+	public static final IconEntry TILE_220 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 208, 16, 16}, 1128);
 	/** tile_221 */
-	public static final IconEntry TILE_221 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 208, 16, 16});
+	public static final IconEntry TILE_221 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 208, 16, 16}, 1129);
 	/** tile_222 */
-	public static final IconEntry TILE_222 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 208, 16, 16});
+	public static final IconEntry TILE_222 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 208, 16, 16}, 1130);
 	/** tile_223 */
-	public static final IconEntry TILE_223 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 208, 16, 16});
+	public static final IconEntry TILE_223 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 208, 16, 16}, 1131);
 	/** tile_224 */
-	public static final IconEntry TILE_224 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 224, 16, 16});
+	public static final IconEntry TILE_224 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 224, 16, 16}, 1132);
 	/** tile_225 */
-	public static final IconEntry TILE_225 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 224, 16, 16});
+	public static final IconEntry TILE_225 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 224, 16, 16}, 1133);
 	/** tile_226 */
-	public static final IconEntry TILE_226 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 224, 16, 16});
+	public static final IconEntry TILE_226 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 224, 16, 16}, 1134);
 	/** tile_227 */
-	public static final IconEntry TILE_227 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 224, 16, 16});
+	public static final IconEntry TILE_227 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 224, 16, 16}, 1135);
 	/** tile_228 */
-	public static final IconEntry TILE_228 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 224, 16, 16});
+	public static final IconEntry TILE_228 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 224, 16, 16}, 1136);
 	/** tile_229 */
-	public static final IconEntry TILE_229 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 224, 16, 16});
+	public static final IconEntry TILE_229 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 224, 16, 16}, 1137);
 	/** tile_230 */
-	public static final IconEntry TILE_230 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 224, 16, 16});
+	public static final IconEntry TILE_230 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 224, 16, 16}, 1138);
 	/** tile_231 */
-	public static final IconEntry TILE_231 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 224, 16, 16});
+	public static final IconEntry TILE_231 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 224, 16, 16}, 1139);
 	/** tile_232 */
-	public static final IconEntry TILE_232 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 224, 16, 16});
+	public static final IconEntry TILE_232 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 224, 16, 16}, 1140);
 	/** tile_233 */
-	public static final IconEntry TILE_233 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 224, 16, 16});
+	public static final IconEntry TILE_233 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 224, 16, 16}, 1141);
 	/** tile_234 */
-	public static final IconEntry TILE_234 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 224, 16, 16});
+	public static final IconEntry TILE_234 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 224, 16, 16}, 1142);
 	/** tile_235 */
-	public static final IconEntry TILE_235 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 224, 16, 16});
+	public static final IconEntry TILE_235 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 224, 16, 16}, 1143);
 	/** tile_236 */
-	public static final IconEntry TILE_236 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 224, 16, 16});
+	public static final IconEntry TILE_236 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 224, 16, 16}, 1144);
 	/** tile_237 */
-	public static final IconEntry TILE_237 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 224, 16, 16});
+	public static final IconEntry TILE_237 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 224, 16, 16}, 1145);
 	/** tile_238 */
-	public static final IconEntry TILE_238 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 224, 16, 16});
+	public static final IconEntry TILE_238 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 224, 16, 16}, 1146);
 	/** tile_239 */
-	public static final IconEntry TILE_239 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 224, 16, 16});
+	public static final IconEntry TILE_239 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 224, 16, 16}, 1147);
 	/** tile_240 */
-	public static final IconEntry TILE_240 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 240, 16, 16});
+	public static final IconEntry TILE_240 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 240, 16, 16}, 1148);
 	/** tile_241 */
-	public static final IconEntry TILE_241 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 240, 16, 16});
+	public static final IconEntry TILE_241 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 240, 16, 16}, 1149);
 	/** tile_242 */
-	public static final IconEntry TILE_242 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 240, 16, 16});
+	public static final IconEntry TILE_242 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 240, 16, 16}, 1150);
 	/** tile_243 */
-	public static final IconEntry TILE_243 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 240, 16, 16});
+	public static final IconEntry TILE_243 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 240, 16, 16}, 1151);
 	/** tile_244 */
-	public static final IconEntry TILE_244 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 240, 16, 16});
+	public static final IconEntry TILE_244 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 240, 16, 16}, 1152);
 	/** tile_245 */
-	public static final IconEntry TILE_245 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 240, 16, 16});
+	public static final IconEntry TILE_245 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 240, 16, 16}, 1153);
 	/** tile_246 */
-	public static final IconEntry TILE_246 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 240, 16, 16});
+	public static final IconEntry TILE_246 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 240, 16, 16}, 1154);
 	/** tile_247 */
-	public static final IconEntry TILE_247 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 240, 16, 16});
+	public static final IconEntry TILE_247 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 240, 16, 16}, 1155);
 	/** tile_248 */
-	public static final IconEntry TILE_248 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 240, 16, 16});
+	public static final IconEntry TILE_248 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 240, 16, 16}, 1156);
 	/** tile_249 */
-	public static final IconEntry TILE_249 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 240, 16, 16});
+	public static final IconEntry TILE_249 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 240, 16, 16}, 1157);
 	/** tile_250 */
-	public static final IconEntry TILE_250 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 240, 16, 16});
+	public static final IconEntry TILE_250 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 240, 16, 16}, 1158);
 	/** tile_251 */
-	public static final IconEntry TILE_251 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 240, 16, 16});
+	public static final IconEntry TILE_251 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 240, 16, 16}, 1159);
 	/** tile_252 */
-	public static final IconEntry TILE_252 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 240, 16, 16});
+	public static final IconEntry TILE_252 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 240, 16, 16}, 1160);
 	/** tile_253 */
-	public static final IconEntry TILE_253 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 240, 16, 16});
+	public static final IconEntry TILE_253 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 240, 16, 16}, 1161);
 	/** tile_254 */
-	public static final IconEntry TILE_254 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 240, 16, 16});
+	public static final IconEntry TILE_254 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 240, 16, 16}, 1162);
 	/** tile_255 */
-	public static final IconEntry TILE_255 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 240, 16, 16});
+	public static final IconEntry TILE_255 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 240, 16, 16}, 1163);
 	/** tile_256 */
-	public static final IconEntry TILE_256 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 256, 16, 16});
+	public static final IconEntry TILE_256 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 256, 16, 16}, 1164);
 	/** tile_257 */
-	public static final IconEntry TILE_257 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 256, 16, 16});
+	public static final IconEntry TILE_257 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 256, 16, 16}, 1165);
 	/** tile_258 */
-	public static final IconEntry TILE_258 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 256, 16, 16});
+	public static final IconEntry TILE_258 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 256, 16, 16}, 1166);
 	/** tile_259 */
-	public static final IconEntry TILE_259 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 256, 16, 16});
+	public static final IconEntry TILE_259 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 256, 16, 16}, 1167);
 	/** tile_260 */
-	public static final IconEntry TILE_260 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 256, 16, 16});
+	public static final IconEntry TILE_260 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 256, 16, 16}, 1168);
 	/** tile_261 */
-	public static final IconEntry TILE_261 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 256, 16, 16});
+	public static final IconEntry TILE_261 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 256, 16, 16}, 1169);
 	/** tile_262 */
-	public static final IconEntry TILE_262 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 256, 16, 16});
+	public static final IconEntry TILE_262 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 256, 16, 16}, 1170);
 	/** tile_263 */
-	public static final IconEntry TILE_263 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 256, 16, 16});
+	public static final IconEntry TILE_263 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 256, 16, 16}, 1171);
 	/** tile_264 */
-	public static final IconEntry TILE_264 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 256, 16, 16});
+	public static final IconEntry TILE_264 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 256, 16, 16}, 1172);
 	/** tile_265 */
-	public static final IconEntry TILE_265 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 256, 16, 16});
+	public static final IconEntry TILE_265 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 256, 16, 16}, 1173);
 	/** tile_266 */
-	public static final IconEntry TILE_266 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 256, 16, 16});
+	public static final IconEntry TILE_266 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 256, 16, 16}, 1174);
 	/** tile_267 */
-	public static final IconEntry TILE_267 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 256, 16, 16});
+	public static final IconEntry TILE_267 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 256, 16, 16}, 1175);
 	/** tile_268 */
-	public static final IconEntry TILE_268 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 256, 16, 16});
+	public static final IconEntry TILE_268 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 256, 16, 16}, 1176);
 	/** tile_269 */
-	public static final IconEntry TILE_269 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 256, 16, 16});
+	public static final IconEntry TILE_269 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 256, 16, 16}, 1177);
 	/** tile_270 */
-	public static final IconEntry TILE_270 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 256, 16, 16});
+	public static final IconEntry TILE_270 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 256, 16, 16}, 1178);
 	/** tile_271 */
-	public static final IconEntry TILE_271 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 256, 16, 16});
+	public static final IconEntry TILE_271 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 256, 16, 16}, 1179);
 	/** tile_272 */
-	public static final IconEntry TILE_272 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 272, 16, 16});
+	public static final IconEntry TILE_272 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 272, 16, 16}, 1180);
 	/** tile_273 */
-	public static final IconEntry TILE_273 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 272, 16, 16});
+	public static final IconEntry TILE_273 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 272, 16, 16}, 1181);
 	/** tile_274 */
-	public static final IconEntry TILE_274 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 272, 16, 16});
+	public static final IconEntry TILE_274 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 272, 16, 16}, 1182);
 	/** tile_275 */
-	public static final IconEntry TILE_275 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 272, 16, 16});
+	public static final IconEntry TILE_275 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 272, 16, 16}, 1183);
 	/** tile_276 */
-	public static final IconEntry TILE_276 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 272, 16, 16});
+	public static final IconEntry TILE_276 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 272, 16, 16}, 1184);
 	/** tile_277 */
-	public static final IconEntry TILE_277 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 272, 16, 16});
+	public static final IconEntry TILE_277 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 272, 16, 16}, 1185);
 	/** tile_278 */
-	public static final IconEntry TILE_278 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 272, 16, 16});
+	public static final IconEntry TILE_278 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 272, 16, 16}, 1186);
 	/** tile_279 */
-	public static final IconEntry TILE_279 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 272, 16, 16});
+	public static final IconEntry TILE_279 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 272, 16, 16}, 1187);
 	/** tile_280 */
-	public static final IconEntry TILE_280 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 272, 16, 16});
+	public static final IconEntry TILE_280 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 272, 16, 16}, 1188);
 	/** tile_281 */
-	public static final IconEntry TILE_281 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 272, 16, 16});
+	public static final IconEntry TILE_281 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 272, 16, 16}, 1189);
 	/** tile_282 */
-	public static final IconEntry TILE_282 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 272, 16, 16});
+	public static final IconEntry TILE_282 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 272, 16, 16}, 1190);
 	/** tile_283 */
-	public static final IconEntry TILE_283 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 272, 16, 16});
+	public static final IconEntry TILE_283 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 272, 16, 16}, 1191);
 	/** tile_284 */
-	public static final IconEntry TILE_284 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 272, 16, 16});
+	public static final IconEntry TILE_284 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 272, 16, 16}, 1192);
 	/** tile_285 */
-	public static final IconEntry TILE_285 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 272, 16, 16});
+	public static final IconEntry TILE_285 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 272, 16, 16}, 1193);
 	/** tile_286 */
-	public static final IconEntry TILE_286 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 272, 16, 16});
+	public static final IconEntry TILE_286 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 272, 16, 16}, 1194);
 	/** tile_287 */
-	public static final IconEntry TILE_287 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 272, 16, 16});
+	public static final IconEntry TILE_287 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 272, 16, 16}, 1195);
 	/** tile_288 */
-	public static final IconEntry TILE_288 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 288, 16, 16});
+	public static final IconEntry TILE_288 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 288, 16, 16}, 1196);
 	/** tile_289 */
-	public static final IconEntry TILE_289 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 288, 16, 16});
+	public static final IconEntry TILE_289 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 288, 16, 16}, 1197);
 	/** tile_290 */
-	public static final IconEntry TILE_290 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 288, 16, 16});
+	public static final IconEntry TILE_290 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 288, 16, 16}, 1198);
 	/** tile_291 */
-	public static final IconEntry TILE_291 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 288, 16, 16});
+	public static final IconEntry TILE_291 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 288, 16, 16}, 1199);
 	/** tile_292 */
-	public static final IconEntry TILE_292 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 288, 16, 16});
+	public static final IconEntry TILE_292 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 288, 16, 16}, 1200);
 	/** tile_293 */
-	public static final IconEntry TILE_293 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 288, 16, 16});
+	public static final IconEntry TILE_293 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 288, 16, 16}, 1201);
 	/** tile_294 */
-	public static final IconEntry TILE_294 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 288, 16, 16});
+	public static final IconEntry TILE_294 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 288, 16, 16}, 1202);
 	/** tile_295 */
-	public static final IconEntry TILE_295 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 288, 16, 16});
+	public static final IconEntry TILE_295 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 288, 16, 16}, 1203);
 	/** tile_296 */
-	public static final IconEntry TILE_296 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 288, 16, 16});
+	public static final IconEntry TILE_296 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 288, 16, 16}, 1204);
 	/** tile_297 */
-	public static final IconEntry TILE_297 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 288, 16, 16});
+	public static final IconEntry TILE_297 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 288, 16, 16}, 1205);
 	/** tile_298 */
-	public static final IconEntry TILE_298 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 288, 16, 16});
+	public static final IconEntry TILE_298 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 288, 16, 16}, 1206);
 	/** tile_299 */
-	public static final IconEntry TILE_299 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 288, 16, 16});
+	public static final IconEntry TILE_299 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 288, 16, 16}, 1207);
 	/** tile_300 */
-	public static final IconEntry TILE_300 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 288, 16, 16});
+	public static final IconEntry TILE_300 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 288, 16, 16}, 1208);
 	/** tile_301 */
-	public static final IconEntry TILE_301 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 288, 16, 16});
+	public static final IconEntry TILE_301 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 288, 16, 16}, 1209);
 	/** tile_302 */
-	public static final IconEntry TILE_302 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 288, 16, 16});
+	public static final IconEntry TILE_302 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 288, 16, 16}, 1210);
 	/** tile_303 */
-	public static final IconEntry TILE_303 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 288, 16, 16});
+	public static final IconEntry TILE_303 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 288, 16, 16}, 1211);
 	/** tile_304 */
-	public static final IconEntry TILE_304 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 304, 16, 16});
+	public static final IconEntry TILE_304 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 304, 16, 16}, 1212);
 	/** tile_305 */
-	public static final IconEntry TILE_305 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 304, 16, 16});
+	public static final IconEntry TILE_305 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 304, 16, 16}, 1213);
 	/** tile_306 */
-	public static final IconEntry TILE_306 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 304, 16, 16});
+	public static final IconEntry TILE_306 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 304, 16, 16}, 1214);
 	/** tile_307 */
-	public static final IconEntry TILE_307 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 304, 16, 16});
+	public static final IconEntry TILE_307 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 304, 16, 16}, 1215);
 	/** tile_308 */
-	public static final IconEntry TILE_308 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 304, 16, 16});
+	public static final IconEntry TILE_308 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 304, 16, 16}, 1216);
 	/** tile_309 */
-	public static final IconEntry TILE_309 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 304, 16, 16});
+	public static final IconEntry TILE_309 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 304, 16, 16}, 1217);
 	/** tile_310 */
-	public static final IconEntry TILE_310 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 304, 16, 16});
+	public static final IconEntry TILE_310 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 304, 16, 16}, 1218);
 	/** tile_311 */
-	public static final IconEntry TILE_311 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 304, 16, 16});
+	public static final IconEntry TILE_311 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 304, 16, 16}, 1219);
 	/** tile_312 */
-	public static final IconEntry TILE_312 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 304, 16, 16});
+	public static final IconEntry TILE_312 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 304, 16, 16}, 1220);
 	/** tile_313 */
-	public static final IconEntry TILE_313 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 304, 16, 16});
+	public static final IconEntry TILE_313 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 304, 16, 16}, 1221);
 	/** tile_314 */
-	public static final IconEntry TILE_314 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 304, 16, 16});
+	public static final IconEntry TILE_314 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 304, 16, 16}, 1222);
 	/** tile_315 */
-	public static final IconEntry TILE_315 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 304, 16, 16});
+	public static final IconEntry TILE_315 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 304, 16, 16}, 1223);
 	/** tile_316 */
-	public static final IconEntry TILE_316 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 304, 16, 16});
+	public static final IconEntry TILE_316 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 304, 16, 16}, 1224);
 	/** tile_317 */
-	public static final IconEntry TILE_317 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 304, 16, 16});
+	public static final IconEntry TILE_317 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 304, 16, 16}, 1225);
 	/** tile_318 */
-	public static final IconEntry TILE_318 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 304, 16, 16});
+	public static final IconEntry TILE_318 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 304, 16, 16}, 1226);
 	/** tile_319 */
-	public static final IconEntry TILE_319 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 304, 16, 16});
+	public static final IconEntry TILE_319 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 304, 16, 16}, 1227);
 	/** tile_320 */
-	public static final IconEntry TILE_320 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 320, 16, 16});
+	public static final IconEntry TILE_320 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 320, 16, 16}, 1228);
 	/** tile_321 */
-	public static final IconEntry TILE_321 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 320, 16, 16});
+	public static final IconEntry TILE_321 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 320, 16, 16}, 1229);
 	/** tile_322 */
-	public static final IconEntry TILE_322 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 320, 16, 16});
+	public static final IconEntry TILE_322 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 320, 16, 16}, 1230);
 	/** tile_323 */
-	public static final IconEntry TILE_323 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 320, 16, 16});
+	public static final IconEntry TILE_323 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 320, 16, 16}, 1231);
 	/** tile_324 */
-	public static final IconEntry TILE_324 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 320, 16, 16});
+	public static final IconEntry TILE_324 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 320, 16, 16}, 1232);
 	/** tile_325 */
-	public static final IconEntry TILE_325 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 320, 16, 16});
+	public static final IconEntry TILE_325 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 320, 16, 16}, 1233);
 	/** tile_326 */
-	public static final IconEntry TILE_326 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 320, 16, 16});
+	public static final IconEntry TILE_326 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 320, 16, 16}, 1234);
 	/** tile_327 */
-	public static final IconEntry TILE_327 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 320, 16, 16});
+	public static final IconEntry TILE_327 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 320, 16, 16}, 1235);
 	/** tile_328 */
-	public static final IconEntry TILE_328 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 320, 16, 16});
+	public static final IconEntry TILE_328 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 320, 16, 16}, 1236);
 	/** tile_329 */
-	public static final IconEntry TILE_329 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 320, 16, 16});
+	public static final IconEntry TILE_329 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 320, 16, 16}, 1237);
 	/** tile_330 */
-	public static final IconEntry TILE_330 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 320, 16, 16});
+	public static final IconEntry TILE_330 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 320, 16, 16}, 1238);
 	/** tile_331 */
-	public static final IconEntry TILE_331 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 320, 16, 16});
+	public static final IconEntry TILE_331 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 320, 16, 16}, 1239);
 	/** tile_332 */
-	public static final IconEntry TILE_332 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 320, 16, 16});
+	public static final IconEntry TILE_332 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 320, 16, 16}, 1240);
 	/** tile_333 */
-	public static final IconEntry TILE_333 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 320, 16, 16});
+	public static final IconEntry TILE_333 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 320, 16, 16}, 1241);
 	/** tile_334 */
-	public static final IconEntry TILE_334 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 320, 16, 16});
+	public static final IconEntry TILE_334 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 320, 16, 16}, 1242);
 	/** tile_335 */
-	public static final IconEntry TILE_335 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 320, 16, 16});
+	public static final IconEntry TILE_335 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 320, 16, 16}, 1243);
 	/** tile_336 */
-	public static final IconEntry TILE_336 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 336, 16, 16});
+	public static final IconEntry TILE_336 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 336, 16, 16}, 1244);
 	/** tile_337 */
-	public static final IconEntry TILE_337 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 336, 16, 16});
+	public static final IconEntry TILE_337 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 336, 16, 16}, 1245);
 	/** tile_338 */
-	public static final IconEntry TILE_338 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 336, 16, 16});
+	public static final IconEntry TILE_338 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 336, 16, 16}, 1246);
 	/** tile_339 */
-	public static final IconEntry TILE_339 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 336, 16, 16});
+	public static final IconEntry TILE_339 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 336, 16, 16}, 1247);
 	/** tile_340 */
-	public static final IconEntry TILE_340 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 336, 16, 16});
+	public static final IconEntry TILE_340 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 336, 16, 16}, 1248);
 	/** tile_341 */
-	public static final IconEntry TILE_341 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 336, 16, 16});
+	public static final IconEntry TILE_341 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 336, 16, 16}, 1249);
 	/** tile_342 */
-	public static final IconEntry TILE_342 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 336, 16, 16});
+	public static final IconEntry TILE_342 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 336, 16, 16}, 1250);
 	/** tile_343 */
-	public static final IconEntry TILE_343 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 336, 16, 16});
+	public static final IconEntry TILE_343 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 336, 16, 16}, 1251);
 	/** tile_344 */
-	public static final IconEntry TILE_344 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 336, 16, 16});
+	public static final IconEntry TILE_344 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 336, 16, 16}, 1252);
 	/** tile_345 */
-	public static final IconEntry TILE_345 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 336, 16, 16});
+	public static final IconEntry TILE_345 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 336, 16, 16}, 1253);
 	/** tile_346 */
-	public static final IconEntry TILE_346 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 336, 16, 16});
+	public static final IconEntry TILE_346 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 336, 16, 16}, 1254);
 	/** tile_347 */
-	public static final IconEntry TILE_347 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 336, 16, 16});
+	public static final IconEntry TILE_347 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 336, 16, 16}, 1255);
 	/** tile_348 */
-	public static final IconEntry TILE_348 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 336, 16, 16});
+	public static final IconEntry TILE_348 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 336, 16, 16}, 1256);
 	/** tile_349 */
-	public static final IconEntry TILE_349 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 336, 16, 16});
+	public static final IconEntry TILE_349 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 336, 16, 16}, 1257);
 	/** tile_350 */
-	public static final IconEntry TILE_350 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 336, 16, 16});
+	public static final IconEntry TILE_350 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 336, 16, 16}, 1258);
 	/** tile_351 */
-	public static final IconEntry TILE_351 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 336, 16, 16});
+	public static final IconEntry TILE_351 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 336, 16, 16}, 1259);
 	/** tile_352 */
-	public static final IconEntry TILE_352 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 352, 16, 16});
+	public static final IconEntry TILE_352 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 352, 16, 16}, 1260);
 	/** tile_353 */
-	public static final IconEntry TILE_353 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 352, 16, 16});
+	public static final IconEntry TILE_353 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 352, 16, 16}, 1261);
 	/** tile_354 */
-	public static final IconEntry TILE_354 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 352, 16, 16});
+	public static final IconEntry TILE_354 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 352, 16, 16}, 1262);
 	/** tile_355 */
-	public static final IconEntry TILE_355 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 352, 16, 16});
+	public static final IconEntry TILE_355 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 352, 16, 16}, 1263);
 	/** tile_356 */
-	public static final IconEntry TILE_356 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 352, 16, 16});
+	public static final IconEntry TILE_356 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 352, 16, 16}, 1264);
 	/** tile_357 */
-	public static final IconEntry TILE_357 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 352, 16, 16});
+	public static final IconEntry TILE_357 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 352, 16, 16}, 1265);
 	/** tile_358 */
-	public static final IconEntry TILE_358 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 352, 16, 16});
+	public static final IconEntry TILE_358 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 352, 16, 16}, 1266);
 	/** tile_359 */
-	public static final IconEntry TILE_359 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 352, 16, 16});
+	public static final IconEntry TILE_359 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 352, 16, 16}, 1267);
 	/** tile_360 */
-	public static final IconEntry TILE_360 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 352, 16, 16});
+	public static final IconEntry TILE_360 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 352, 16, 16}, 1268);
 	/** tile_361 */
-	public static final IconEntry TILE_361 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 352, 16, 16});
+	public static final IconEntry TILE_361 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 352, 16, 16}, 1269);
 	/** tile_362 */
-	public static final IconEntry TILE_362 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 352, 16, 16});
+	public static final IconEntry TILE_362 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 352, 16, 16}, 1270);
 	/** tile_363 */
-	public static final IconEntry TILE_363 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 352, 16, 16});
+	public static final IconEntry TILE_363 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 352, 16, 16}, 1271);
 	/** tile_364 */
-	public static final IconEntry TILE_364 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 352, 16, 16});
+	public static final IconEntry TILE_364 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 352, 16, 16}, 1272);
 	/** tile_365 */
-	public static final IconEntry TILE_365 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 352, 16, 16});
+	public static final IconEntry TILE_365 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 352, 16, 16}, 1273);
 	/** tile_366 */
-	public static final IconEntry TILE_366 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 352, 16, 16});
+	public static final IconEntry TILE_366 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 352, 16, 16}, 1274);
 	/** tile_367 */
-	public static final IconEntry TILE_367 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 352, 16, 16});
+	public static final IconEntry TILE_367 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 352, 16, 16}, 1275);
 	/** tile_368 */
-	public static final IconEntry TILE_368 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 368, 16, 16});
+	public static final IconEntry TILE_368 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 368, 16, 16}, 1276);
 	/** tile_369 */
-	public static final IconEntry TILE_369 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 368, 16, 16});
+	public static final IconEntry TILE_369 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 368, 16, 16}, 1277);
 	/** tile_370 */
-	public static final IconEntry TILE_370 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 368, 16, 16});
+	public static final IconEntry TILE_370 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 368, 16, 16}, 1278);
 	/** tile_371 */
-	public static final IconEntry TILE_371 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 368, 16, 16});
+	public static final IconEntry TILE_371 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 368, 16, 16}, 1279);
 	/** tile_372 */
-	public static final IconEntry TILE_372 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 368, 16, 16});
+	public static final IconEntry TILE_372 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 368, 16, 16}, 1280);
 	/** tile_373 */
-	public static final IconEntry TILE_373 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 368, 16, 16});
+	public static final IconEntry TILE_373 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 368, 16, 16}, 1281);
 	/** tile_374 */
-	public static final IconEntry TILE_374 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 368, 16, 16});
+	public static final IconEntry TILE_374 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 368, 16, 16}, 1282);
 	/** tile_375 */
-	public static final IconEntry TILE_375 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 368, 16, 16});
+	public static final IconEntry TILE_375 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 368, 16, 16}, 1283);
 	/** tile_376 */
-	public static final IconEntry TILE_376 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 368, 16, 16});
+	public static final IconEntry TILE_376 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 368, 16, 16}, 1284);
 	/** tile_377 */
-	public static final IconEntry TILE_377 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 368, 16, 16});
+	public static final IconEntry TILE_377 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 368, 16, 16}, 1285);
 	/** tile_378 */
-	public static final IconEntry TILE_378 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 368, 16, 16});
+	public static final IconEntry TILE_378 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 368, 16, 16}, 1286);
 	/** tile_379 */
-	public static final IconEntry TILE_379 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 368, 16, 16});
+	public static final IconEntry TILE_379 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 368, 16, 16}, 1287);
 	/** tile_380 */
-	public static final IconEntry TILE_380 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 368, 16, 16});
+	public static final IconEntry TILE_380 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 368, 16, 16}, 1288);
 	/** tile_381 */
-	public static final IconEntry TILE_381 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 368, 16, 16});
+	public static final IconEntry TILE_381 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 368, 16, 16}, 1289);
 	/** tile_382 */
-	public static final IconEntry TILE_382 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 368, 16, 16});
+	public static final IconEntry TILE_382 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 368, 16, 16}, 1290);
 	/** tile_383 */
-	public static final IconEntry TILE_383 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 368, 16, 16});
+	public static final IconEntry TILE_383 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 368, 16, 16}, 1291);
 	/** tile_384 */
-	public static final IconEntry TILE_384 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 384, 16, 16});
+	public static final IconEntry TILE_384 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 384, 16, 16}, 1292);
 	/** tile_385 */
-	public static final IconEntry TILE_385 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 384, 16, 16});
+	public static final IconEntry TILE_385 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 384, 16, 16}, 1293);
 	/** tile_386 */
-	public static final IconEntry TILE_386 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 384, 16, 16});
+	public static final IconEntry TILE_386 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 384, 16, 16}, 1294);
 	/** tile_387 */
-	public static final IconEntry TILE_387 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 384, 16, 16});
+	public static final IconEntry TILE_387 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 384, 16, 16}, 1295);
 	/** tile_388 */
-	public static final IconEntry TILE_388 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 384, 16, 16});
+	public static final IconEntry TILE_388 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 384, 16, 16}, 1296);
 	/** tile_389 */
-	public static final IconEntry TILE_389 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 384, 16, 16});
+	public static final IconEntry TILE_389 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 384, 16, 16}, 1297);
 	/** tile_390 */
-	public static final IconEntry TILE_390 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 384, 16, 16});
+	public static final IconEntry TILE_390 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 384, 16, 16}, 1298);
 	/** tile_391 */
-	public static final IconEntry TILE_391 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 384, 16, 16});
+	public static final IconEntry TILE_391 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 384, 16, 16}, 1299);
 	/** tile_392 */
-	public static final IconEntry TILE_392 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 384, 16, 16});
+	public static final IconEntry TILE_392 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 384, 16, 16}, 1300);
 	/** tile_393 */
-	public static final IconEntry TILE_393 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 384, 16, 16});
+	public static final IconEntry TILE_393 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 384, 16, 16}, 1301);
 	/** tile_394 */
-	public static final IconEntry TILE_394 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 384, 16, 16});
+	public static final IconEntry TILE_394 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 384, 16, 16}, 1302);
 	/** tile_395 */
-	public static final IconEntry TILE_395 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 384, 16, 16});
+	public static final IconEntry TILE_395 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 384, 16, 16}, 1303);
 	/** tile_396 */
-	public static final IconEntry TILE_396 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 384, 16, 16});
+	public static final IconEntry TILE_396 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 384, 16, 16}, 1304);
 	/** tile_397 */
-	public static final IconEntry TILE_397 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 384, 16, 16});
+	public static final IconEntry TILE_397 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 384, 16, 16}, 1305);
 	/** tile_398 */
-	public static final IconEntry TILE_398 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 384, 16, 16});
+	public static final IconEntry TILE_398 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 384, 16, 16}, 1306);
 	/** tile_399 */
-	public static final IconEntry TILE_399 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 384, 16, 16});
+	public static final IconEntry TILE_399 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 384, 16, 16}, 1307);
 	/** tile_400 */
-	public static final IconEntry TILE_400 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 400, 16, 16});
+	public static final IconEntry TILE_400 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 400, 16, 16}, 1308);
 	/** tile_401 */
-	public static final IconEntry TILE_401 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 400, 16, 16});
+	public static final IconEntry TILE_401 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 400, 16, 16}, 1309);
 	/** tile_402 */
-	public static final IconEntry TILE_402 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 400, 16, 16});
+	public static final IconEntry TILE_402 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 400, 16, 16}, 1310);
 	/** tile_403 */
-	public static final IconEntry TILE_403 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 400, 16, 16});
+	public static final IconEntry TILE_403 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 400, 16, 16}, 1311);
 	/** tile_404 */
-	public static final IconEntry TILE_404 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 400, 16, 16});
+	public static final IconEntry TILE_404 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 400, 16, 16}, 1312);
 	/** tile_405 */
-	public static final IconEntry TILE_405 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 400, 16, 16});
+	public static final IconEntry TILE_405 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 400, 16, 16}, 1313);
 	/** tile_406 */
-	public static final IconEntry TILE_406 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 400, 16, 16});
+	public static final IconEntry TILE_406 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 400, 16, 16}, 1314);
 	/** tile_407 */
-	public static final IconEntry TILE_407 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 400, 16, 16});
+	public static final IconEntry TILE_407 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 400, 16, 16}, 1315);
 	/** tile_408 */
-	public static final IconEntry TILE_408 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 400, 16, 16});
+	public static final IconEntry TILE_408 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 400, 16, 16}, 1316);
 	/** tile_409 */
-	public static final IconEntry TILE_409 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 400, 16, 16});
+	public static final IconEntry TILE_409 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 400, 16, 16}, 1317);
 	/** tile_410 */
-	public static final IconEntry TILE_410 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 400, 16, 16});
+	public static final IconEntry TILE_410 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 400, 16, 16}, 1318);
 	/** tile_411 */
-	public static final IconEntry TILE_411 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 400, 16, 16});
+	public static final IconEntry TILE_411 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 400, 16, 16}, 1319);
 	/** tile_412 */
-	public static final IconEntry TILE_412 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 400, 16, 16});
+	public static final IconEntry TILE_412 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 400, 16, 16}, 1320);
 	/** tile_413 */
-	public static final IconEntry TILE_413 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 400, 16, 16});
+	public static final IconEntry TILE_413 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 400, 16, 16}, 1321);
 	/** tile_414 */
-	public static final IconEntry TILE_414 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 400, 16, 16});
+	public static final IconEntry TILE_414 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 400, 16, 16}, 1322);
 	/** tile_415 */
-	public static final IconEntry TILE_415 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 400, 16, 16});
+	public static final IconEntry TILE_415 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 400, 16, 16}, 1323);
 	/** tile_416 */
-	public static final IconEntry TILE_416 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 416, 16, 16});
+	public static final IconEntry TILE_416 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 416, 16, 16}, 1324);
 	/** tile_417 */
-	public static final IconEntry TILE_417 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 416, 16, 16});
+	public static final IconEntry TILE_417 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 416, 16, 16}, 1325);
 	/** tile_418 */
-	public static final IconEntry TILE_418 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 416, 16, 16});
+	public static final IconEntry TILE_418 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 416, 16, 16}, 1326);
 	/** tile_419 */
-	public static final IconEntry TILE_419 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 416, 16, 16});
+	public static final IconEntry TILE_419 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 416, 16, 16}, 1327);
 	/** tile_420 */
-	public static final IconEntry TILE_420 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 416, 16, 16});
+	public static final IconEntry TILE_420 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 416, 16, 16}, 1328);
 	/** tile_421 */
-	public static final IconEntry TILE_421 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 416, 16, 16});
+	public static final IconEntry TILE_421 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 416, 16, 16}, 1329);
 	/** tile_422 */
-	public static final IconEntry TILE_422 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 416, 16, 16});
+	public static final IconEntry TILE_422 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 416, 16, 16}, 1330);
 	/** tile_423 */
-	public static final IconEntry TILE_423 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 416, 16, 16});
+	public static final IconEntry TILE_423 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 416, 16, 16}, 1331);
 	/** tile_424 */
-	public static final IconEntry TILE_424 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 416, 16, 16});
+	public static final IconEntry TILE_424 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 416, 16, 16}, 1332);
 	/** tile_425 */
-	public static final IconEntry TILE_425 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 416, 16, 16});
+	public static final IconEntry TILE_425 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 416, 16, 16}, 1333);
 	/** tile_426 */
-	public static final IconEntry TILE_426 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 416, 16, 16});
+	public static final IconEntry TILE_426 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 416, 16, 16}, 1334);
 	/** tile_427 */
-	public static final IconEntry TILE_427 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 416, 16, 16});
+	public static final IconEntry TILE_427 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 416, 16, 16}, 1335);
 	/** tile_428 */
-	public static final IconEntry TILE_428 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 416, 16, 16});
+	public static final IconEntry TILE_428 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 416, 16, 16}, 1336);
 	/** tile_429 */
-	public static final IconEntry TILE_429 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 416, 16, 16});
+	public static final IconEntry TILE_429 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 416, 16, 16}, 1337);
 	/** tile_430 */
-	public static final IconEntry TILE_430 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 416, 16, 16});
+	public static final IconEntry TILE_430 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 416, 16, 16}, 1338);
 	/** tile_431 */
-	public static final IconEntry TILE_431 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 416, 16, 16});
+	public static final IconEntry TILE_431 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 416, 16, 16}, 1339);
 	/** tile_432 */
-	public static final IconEntry TILE_432 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 432, 16, 16});
+	public static final IconEntry TILE_432 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 432, 16, 16}, 1340);
 	/** tile_433 */
-	public static final IconEntry TILE_433 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 432, 16, 16});
+	public static final IconEntry TILE_433 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 432, 16, 16}, 1341);
 	/** tile_434 */
-	public static final IconEntry TILE_434 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 432, 16, 16});
+	public static final IconEntry TILE_434 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 432, 16, 16}, 1342);
 	/** tile_435 */
-	public static final IconEntry TILE_435 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 432, 16, 16});
+	public static final IconEntry TILE_435 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 432, 16, 16}, 1343);
 	/** tile_436 */
-	public static final IconEntry TILE_436 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 432, 16, 16});
+	public static final IconEntry TILE_436 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 432, 16, 16}, 1344);
 	/** tile_437 */
-	public static final IconEntry TILE_437 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 432, 16, 16});
+	public static final IconEntry TILE_437 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 432, 16, 16}, 1345);
 	/** tile_438 */
-	public static final IconEntry TILE_438 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 432, 16, 16});
+	public static final IconEntry TILE_438 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 432, 16, 16}, 1346);
 	/** tile_439 */
-	public static final IconEntry TILE_439 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 432, 16, 16});
+	public static final IconEntry TILE_439 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 432, 16, 16}, 1347);
 	/** tile_440 */
-	public static final IconEntry TILE_440 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 432, 16, 16});
+	public static final IconEntry TILE_440 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 432, 16, 16}, 1348);
 	/** tile_441 */
-	public static final IconEntry TILE_441 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 432, 16, 16});
+	public static final IconEntry TILE_441 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 432, 16, 16}, 1349);
 	/** tile_442 */
-	public static final IconEntry TILE_442 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 432, 16, 16});
+	public static final IconEntry TILE_442 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 432, 16, 16}, 1350);
 	/** tile_443 */
-	public static final IconEntry TILE_443 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 432, 16, 16});
+	public static final IconEntry TILE_443 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 432, 16, 16}, 1351);
 	/** tile_444 */
-	public static final IconEntry TILE_444 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 432, 16, 16});
+	public static final IconEntry TILE_444 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 432, 16, 16}, 1352);
 	/** tile_445 */
-	public static final IconEntry TILE_445 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 432, 16, 16});
+	public static final IconEntry TILE_445 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 432, 16, 16}, 1353);
 	/** tile_446 */
-	public static final IconEntry TILE_446 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 432, 16, 16});
+	public static final IconEntry TILE_446 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 432, 16, 16}, 1354);
 	/** tile_447 */
-	public static final IconEntry TILE_447 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 432, 16, 16});
+	public static final IconEntry TILE_447 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 432, 16, 16}, 1355);
 	/** tile_448 */
-	public static final IconEntry TILE_448 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 448, 16, 16});
+	public static final IconEntry TILE_448 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 448, 16, 16}, 1356);
 	/** tile_449 */
-	public static final IconEntry TILE_449 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 448, 16, 16});
+	public static final IconEntry TILE_449 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 448, 16, 16}, 1357);
 	/** tile_450 */
-	public static final IconEntry TILE_450 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 448, 16, 16});
+	public static final IconEntry TILE_450 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 448, 16, 16}, 1358);
 	/** tile_451 */
-	public static final IconEntry TILE_451 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 448, 16, 16});
+	public static final IconEntry TILE_451 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 448, 16, 16}, 1359);
 	/** tile_452 */
-	public static final IconEntry TILE_452 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 448, 16, 16});
+	public static final IconEntry TILE_452 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 448, 16, 16}, 1360);
 	/** tile_453 */
-	public static final IconEntry TILE_453 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 448, 16, 16});
+	public static final IconEntry TILE_453 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 448, 16, 16}, 1361);
 	/** tile_454 */
-	public static final IconEntry TILE_454 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 448, 16, 16});
+	public static final IconEntry TILE_454 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 448, 16, 16}, 1362);
 	/** tile_455 */
-	public static final IconEntry TILE_455 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 448, 16, 16});
+	public static final IconEntry TILE_455 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 448, 16, 16}, 1363);
 	/** tile_456 */
-	public static final IconEntry TILE_456 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 448, 16, 16});
+	public static final IconEntry TILE_456 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 448, 16, 16}, 1364);
 	/** tile_457 */
-	public static final IconEntry TILE_457 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 448, 16, 16});
+	public static final IconEntry TILE_457 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 448, 16, 16}, 1365);
 	/** tile_458 */
-	public static final IconEntry TILE_458 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 448, 16, 16});
+	public static final IconEntry TILE_458 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 448, 16, 16}, 1366);
 	/** tile_459 */
-	public static final IconEntry TILE_459 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 448, 16, 16});
+	public static final IconEntry TILE_459 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 448, 16, 16}, 1367);
 	/** tile_460 */
-	public static final IconEntry TILE_460 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 448, 16, 16});
+	public static final IconEntry TILE_460 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 448, 16, 16}, 1368);
 	/** tile_461 */
-	public static final IconEntry TILE_461 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 448, 16, 16});
+	public static final IconEntry TILE_461 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 448, 16, 16}, 1369);
 	/** tile_462 */
-	public static final IconEntry TILE_462 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 448, 16, 16});
+	public static final IconEntry TILE_462 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 448, 16, 16}, 1370);
 	/** tile_463 */
-	public static final IconEntry TILE_463 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 448, 16, 16});
+	public static final IconEntry TILE_463 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 448, 16, 16}, 1371);
 	/** tile_464 */
-	public static final IconEntry TILE_464 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 464, 16, 16});
+	public static final IconEntry TILE_464 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 464, 16, 16}, 1372);
 	/** tile_465 */
-	public static final IconEntry TILE_465 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 464, 16, 16});
+	public static final IconEntry TILE_465 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 464, 16, 16}, 1373);
 	/** tile_466 */
-	public static final IconEntry TILE_466 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 464, 16, 16});
+	public static final IconEntry TILE_466 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 464, 16, 16}, 1374);
 	/** tile_467 */
-	public static final IconEntry TILE_467 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 464, 16, 16});
+	public static final IconEntry TILE_467 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 464, 16, 16}, 1375);
 	/** tile_468 */
-	public static final IconEntry TILE_468 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 464, 16, 16});
+	public static final IconEntry TILE_468 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 464, 16, 16}, 1376);
 	/** tile_469 */
-	public static final IconEntry TILE_469 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 464, 16, 16});
+	public static final IconEntry TILE_469 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 464, 16, 16}, 1377);
 	/** tile_470 */
-	public static final IconEntry TILE_470 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 464, 16, 16});
+	public static final IconEntry TILE_470 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 464, 16, 16}, 1378);
 	/** tile_471 */
-	public static final IconEntry TILE_471 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 464, 16, 16});
+	public static final IconEntry TILE_471 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 464, 16, 16}, 1379);
 	/** tile_472 */
-	public static final IconEntry TILE_472 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 464, 16, 16});
+	public static final IconEntry TILE_472 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 464, 16, 16}, 1380);
 	/** tile_473 */
-	public static final IconEntry TILE_473 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 464, 16, 16});
+	public static final IconEntry TILE_473 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 464, 16, 16}, 1381);
 	/** tile_474 */
-	public static final IconEntry TILE_474 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 464, 16, 16});
+	public static final IconEntry TILE_474 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 464, 16, 16}, 1382);
 	/** tile_475 */
-	public static final IconEntry TILE_475 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 464, 16, 16});
+	public static final IconEntry TILE_475 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 464, 16, 16}, 1383);
 	/** tile_476 */
-	public static final IconEntry TILE_476 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 464, 16, 16});
+	public static final IconEntry TILE_476 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 464, 16, 16}, 1384);
 	/** tile_477 */
-	public static final IconEntry TILE_477 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 464, 16, 16});
+	public static final IconEntry TILE_477 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 464, 16, 16}, 1385);
 	/** tile_478 */
-	public static final IconEntry TILE_478 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 464, 16, 16});
+	public static final IconEntry TILE_478 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 464, 16, 16}, 1386);
 	/** tile_479 */
-	public static final IconEntry TILE_479 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 464, 16, 16});
+	public static final IconEntry TILE_479 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 464, 16, 16}, 1387);
 	/** tile_480 */
-	public static final IconEntry TILE_480 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 480, 16, 16});
+	public static final IconEntry TILE_480 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 480, 16, 16}, 1388);
 	/** tile_481 */
-	public static final IconEntry TILE_481 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 480, 16, 16});
+	public static final IconEntry TILE_481 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 480, 16, 16}, 1389);
 	/** tile_482 */
-	public static final IconEntry TILE_482 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 480, 16, 16});
+	public static final IconEntry TILE_482 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 480, 16, 16}, 1390);
 	/** tile_483 */
-	public static final IconEntry TILE_483 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 480, 16, 16});
+	public static final IconEntry TILE_483 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 480, 16, 16}, 1391);
 	/** tile_484 */
-	public static final IconEntry TILE_484 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 480, 16, 16});
+	public static final IconEntry TILE_484 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 480, 16, 16}, 1392);
 	/** tile_485 */
-	public static final IconEntry TILE_485 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 480, 16, 16});
+	public static final IconEntry TILE_485 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 480, 16, 16}, 1393);
 	/** tile_486 */
-	public static final IconEntry TILE_486 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 480, 16, 16});
+	public static final IconEntry TILE_486 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 480, 16, 16}, 1394);
 	/** tile_487 */
-	public static final IconEntry TILE_487 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 480, 16, 16});
+	public static final IconEntry TILE_487 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 480, 16, 16}, 1395);
 	/** tile_488 */
-	public static final IconEntry TILE_488 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 480, 16, 16});
+	public static final IconEntry TILE_488 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 480, 16, 16}, 1396);
 	/** tile_489 */
-	public static final IconEntry TILE_489 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 480, 16, 16});
+	public static final IconEntry TILE_489 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 480, 16, 16}, 1397);
 	/** tile_490 */
-	public static final IconEntry TILE_490 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 480, 16, 16});
+	public static final IconEntry TILE_490 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 480, 16, 16}, 1398);
 	/** tile_491 */
-	public static final IconEntry TILE_491 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 480, 16, 16});
+	public static final IconEntry TILE_491 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 480, 16, 16}, 1399);
 	/** tile_492 */
-	public static final IconEntry TILE_492 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 480, 16, 16});
+	public static final IconEntry TILE_492 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 480, 16, 16}, 1400);
 	/** tile_493 */
-	public static final IconEntry TILE_493 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 480, 16, 16});
+	public static final IconEntry TILE_493 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 480, 16, 16}, 1401);
 	/** tile_494 */
-	public static final IconEntry TILE_494 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 480, 16, 16});
+	public static final IconEntry TILE_494 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 480, 16, 16}, 1402);
 	/** tile_495 */
-	public static final IconEntry TILE_495 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 480, 16, 16});
+	public static final IconEntry TILE_495 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 480, 16, 16}, 1403);
 	/** tile_496 */
-	public static final IconEntry TILE_496 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 496, 16, 16});
+	public static final IconEntry TILE_496 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 496, 16, 16}, 1404);
 	/** tile_497 */
-	public static final IconEntry TILE_497 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 496, 16, 16});
+	public static final IconEntry TILE_497 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 496, 16, 16}, 1405);
 	/** tile_498 */
-	public static final IconEntry TILE_498 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 496, 16, 16});
+	public static final IconEntry TILE_498 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 496, 16, 16}, 1406);
 	/** tile_499 */
-	public static final IconEntry TILE_499 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 496, 16, 16});
+	public static final IconEntry TILE_499 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 496, 16, 16}, 1407);
 	/** tile_500 */
-	public static final IconEntry TILE_500 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 496, 16, 16});
+	public static final IconEntry TILE_500 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 496, 16, 16}, 1408);
 	/** tile_501 */
-	public static final IconEntry TILE_501 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 496, 16, 16});
+	public static final IconEntry TILE_501 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 496, 16, 16}, 1409);
 	/** tile_502 */
-	public static final IconEntry TILE_502 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 496, 16, 16});
+	public static final IconEntry TILE_502 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 496, 16, 16}, 1410);
 	/** tile_503 */
-	public static final IconEntry TILE_503 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 496, 16, 16});
+	public static final IconEntry TILE_503 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 496, 16, 16}, 1411);
 	/** tile_504 */
-	public static final IconEntry TILE_504 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 496, 16, 16});
+	public static final IconEntry TILE_504 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 496, 16, 16}, 1412);
 	/** tile_505 */
-	public static final IconEntry TILE_505 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 496, 16, 16});
+	public static final IconEntry TILE_505 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 496, 16, 16}, 1413);
 	/** tile_506 */
-	public static final IconEntry TILE_506 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 496, 16, 16});
+	public static final IconEntry TILE_506 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 496, 16, 16}, 1414);
 	/** tile_507 */
-	public static final IconEntry TILE_507 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 496, 16, 16});
+	public static final IconEntry TILE_507 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 496, 16, 16}, 1415);
 	/** tile_508 */
-	public static final IconEntry TILE_508 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 496, 16, 16});
+	public static final IconEntry TILE_508 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 496, 16, 16}, 1416);
 	/** tile_509 */
-	public static final IconEntry TILE_509 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 496, 16, 16});
+	public static final IconEntry TILE_509 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 496, 16, 16}, 1417);
 	/** tile_510 */
-	public static final IconEntry TILE_510 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 496, 16, 16});
+	public static final IconEntry TILE_510 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 496, 16, 16}, 1418);
 	/** tile_511 */
-	public static final IconEntry TILE_511 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 496, 16, 16});
+	public static final IconEntry TILE_511 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 496, 16, 16}, 1419);
 }

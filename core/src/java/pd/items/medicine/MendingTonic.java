@@ -1,5 +1,7 @@
 package pd.items.medicine;
 
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
+
 import pd.Assets;
 import pd.Challenges;
 import pd.Dungeon;
@@ -9,7 +11,6 @@ import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.items.potions.PotionOfHealing;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 
@@ -20,7 +21,7 @@ public class MendingTonic extends Item {
 	public static final String AC_DRINK = "DRINK";
 
 	{
-		image = ItemSpriteSheet.POTION_CRIMSON;
+		image = ConsumPotionSeedBasicPotionDict.POTION_CRIMSON_0;
 		stackable = true;
 		defaultAction = AC_DRINK;
 	}

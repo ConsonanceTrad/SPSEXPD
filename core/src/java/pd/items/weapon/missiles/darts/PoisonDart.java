@@ -21,16 +21,17 @@
 
 package pd.items.weapon.missiles.darts;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Poison;
-import pd.sprites.ItemSpriteSheet;
 
 public class PoisonDart extends TippedDart {
 	
 	{
-		image = ItemSpriteSheet.POISON_DART;
+		image = ConsumThrowsDict.POISON_DART_0;
 	}
 	
 	@Override

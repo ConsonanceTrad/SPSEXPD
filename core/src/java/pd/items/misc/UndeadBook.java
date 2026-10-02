@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -20,7 +22,6 @@ import pd.items.summon.FairyCard;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
@@ -41,7 +42,7 @@ public class UndeadBook extends Item {
 	private int prayers;
 
 	{
-		image = ItemSpriteSheet.SPS_UNDEAD_BOOK;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		unique = true;
 	}
 

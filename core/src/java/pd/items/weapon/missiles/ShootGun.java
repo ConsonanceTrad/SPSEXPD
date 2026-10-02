@@ -1,6 +1,10 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles;
 
+import pd.atlas.IconEntry;
+
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -17,7 +21,6 @@ import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -34,7 +37,7 @@ public class ShootGun extends SpsRangedWeapon {
 	private int charge;
 
 	{
-		image = ItemSpriteSheet.SPS_SHOOT_GUN;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = false;
 		unique = true;
 		defaultAction = AC_SHOOT;
@@ -107,7 +110,7 @@ public class ShootGun extends SpsRangedWeapon {
 	public ShootEndAmmo endAmmo() { return new ShootEndAmmo(); }
 
 	private abstract class BaseShootAmmo extends MissileWeapon {
-		BaseShootAmmo(int image) {
+		BaseShootAmmo(IconEntry image) {
 			this.image = image;
 			tier = 1;
 			spawnedForEffect = true;
@@ -126,7 +129,7 @@ public class ShootGun extends SpsRangedWeapon {
 	}
 
 	public class ShootAmmo extends BaseShootAmmo {
-		ShootAmmo() { super(ItemSpriteSheet.SPS_SHOOT_AMMO); }
+		ShootAmmo() { super(SpecificPlaceHolderDict.SOMETHING_0); }
 		@Override public int proc(Char attacker, Char defender, int damage) {
 			Buff.affect(defender, ArmorBreak.class, 5f).level(30);
 			damage = ShootGun.this.proc(attacker, defender, damage);
@@ -141,7 +144,7 @@ public class ShootGun extends SpsRangedWeapon {
 	}
 
 	public class ShootEndAmmo extends BaseShootAmmo {
-		ShootEndAmmo() { super(ItemSpriteSheet.SPS_SHOOT_END_AMMO); ACC = 1000f; }
+		ShootEndAmmo() { super(SpecificPlaceHolderDict.SOMETHING_0); ACC = 1000f; }
 		@Override public int proc(Char attacker, Char defender, int damage) {
 			if (Dungeon.level != null) for (int offset : PathFinder.NEIGHBOURS8) {
 				int cell = defender.pos + offset;

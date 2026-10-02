@@ -13,515 +13,515 @@ public final class TilesCityDict {
 	private TilesCityDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 0, 16, 16});
+	public static final IconEntry TILE_000 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 0, 16, 16}, 3844);
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 0, 16, 16});
+	public static final IconEntry TILE_001 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 0, 16, 16}, 3845);
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 0, 16, 16});
+	public static final IconEntry TILE_002 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 0, 16, 16}, 3846);
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 0, 16, 16});
+	public static final IconEntry TILE_003 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 0, 16, 16}, 3847);
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 0, 16, 16});
+	public static final IconEntry TILE_004 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 0, 16, 16}, 3848);
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 0, 16, 16});
+	public static final IconEntry TILE_005 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 0, 16, 16}, 3849);
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 0, 16, 16});
+	public static final IconEntry TILE_006 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 0, 16, 16}, 3850);
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 0, 16, 16});
+	public static final IconEntry TILE_007 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 0, 16, 16}, 3851);
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 0, 16, 16});
+	public static final IconEntry TILE_008 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 0, 16, 16}, 3852);
 	/** tile_009 */
-	public static final IconEntry TILE_009 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 0, 16, 16});
+	public static final IconEntry TILE_009 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 0, 16, 16}, 3853);
 	/** tile_010 */
-	public static final IconEntry TILE_010 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 0, 16, 16});
+	public static final IconEntry TILE_010 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 0, 16, 16}, 3854);
 	/** tile_011 */
-	public static final IconEntry TILE_011 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 0, 16, 16});
+	public static final IconEntry TILE_011 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 0, 16, 16}, 3855);
 	/** tile_012 */
-	public static final IconEntry TILE_012 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 0, 16, 16});
+	public static final IconEntry TILE_012 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 0, 16, 16}, 3856);
 	/** tile_013 */
-	public static final IconEntry TILE_013 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 0, 16, 16});
+	public static final IconEntry TILE_013 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 0, 16, 16}, 3857);
 	/** tile_014 */
-	public static final IconEntry TILE_014 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 0, 16, 16});
+	public static final IconEntry TILE_014 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 0, 16, 16}, 3858);
 	/** tile_015 */
-	public static final IconEntry TILE_015 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 0, 16, 16});
+	public static final IconEntry TILE_015 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 0, 16, 16}, 3859);
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 16, 16, 16});
+	public static final IconEntry TILE_016 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 16, 16, 16}, 3860);
 	/** tile_017 */
-	public static final IconEntry TILE_017 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 16, 16, 16});
+	public static final IconEntry TILE_017 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 16, 16, 16}, 3861);
 	/** tile_018 */
-	public static final IconEntry TILE_018 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 16, 16, 16});
+	public static final IconEntry TILE_018 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 16, 16, 16}, 3862);
 	/** tile_019 */
-	public static final IconEntry TILE_019 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 16, 16, 16});
+	public static final IconEntry TILE_019 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 16, 16, 16}, 3863);
 	/** tile_020 */
-	public static final IconEntry TILE_020 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 16, 16, 16});
+	public static final IconEntry TILE_020 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 16, 16, 16}, 3864);
 	/** tile_021 */
-	public static final IconEntry TILE_021 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 16, 16, 16});
+	public static final IconEntry TILE_021 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 16, 16, 16}, 3865);
 	/** tile_022 */
-	public static final IconEntry TILE_022 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 16, 16, 16});
+	public static final IconEntry TILE_022 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 16, 16, 16}, 3866);
 	/** tile_023 */
-	public static final IconEntry TILE_023 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 16, 16, 16});
+	public static final IconEntry TILE_023 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 16, 16, 16}, 3867);
 	/** tile_024 */
-	public static final IconEntry TILE_024 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 16, 16, 16});
+	public static final IconEntry TILE_024 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 16, 16, 16}, 3868);
 	/** tile_025 */
-	public static final IconEntry TILE_025 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 16, 16, 16});
+	public static final IconEntry TILE_025 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 16, 16, 16}, 3869);
 	/** tile_026 */
-	public static final IconEntry TILE_026 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 16, 16, 16});
+	public static final IconEntry TILE_026 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 16, 16, 16}, 3870);
 	/** tile_027 */
-	public static final IconEntry TILE_027 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 16, 16, 16});
+	public static final IconEntry TILE_027 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 16, 16, 16}, 3871);
 	/** tile_028 */
-	public static final IconEntry TILE_028 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 16, 16, 16});
+	public static final IconEntry TILE_028 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 16, 16, 16}, 3872);
 	/** tile_029 */
-	public static final IconEntry TILE_029 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 16, 16, 16});
+	public static final IconEntry TILE_029 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 16, 16, 16}, 3873);
 	/** tile_030 */
-	public static final IconEntry TILE_030 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 16, 16, 16});
+	public static final IconEntry TILE_030 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 16, 16, 16}, 3874);
 	/** tile_031 */
-	public static final IconEntry TILE_031 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 16, 16, 16});
+	public static final IconEntry TILE_031 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 16, 16, 16}, 3875);
 	/** tile_032 */
-	public static final IconEntry TILE_032 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 32, 16, 16});
+	public static final IconEntry TILE_032 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 32, 16, 16}, 3876);
 	/** tile_033 */
-	public static final IconEntry TILE_033 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 32, 16, 16});
+	public static final IconEntry TILE_033 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 32, 16, 16}, 3877);
 	/** tile_034 */
-	public static final IconEntry TILE_034 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 32, 16, 16});
+	public static final IconEntry TILE_034 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 32, 16, 16}, 3878);
 	/** tile_035 */
-	public static final IconEntry TILE_035 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 32, 16, 16});
+	public static final IconEntry TILE_035 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 32, 16, 16}, 3879);
 	/** tile_036 */
-	public static final IconEntry TILE_036 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 32, 16, 16});
+	public static final IconEntry TILE_036 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 32, 16, 16}, 3880);
 	/** tile_037 */
-	public static final IconEntry TILE_037 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 32, 16, 16});
+	public static final IconEntry TILE_037 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 32, 16, 16}, 3881);
 	/** tile_038 */
-	public static final IconEntry TILE_038 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 32, 16, 16});
+	public static final IconEntry TILE_038 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 32, 16, 16}, 3882);
 	/** tile_039 */
-	public static final IconEntry TILE_039 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 32, 16, 16});
+	public static final IconEntry TILE_039 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 32, 16, 16}, 3883);
 	/** tile_040 */
-	public static final IconEntry TILE_040 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 32, 16, 16});
+	public static final IconEntry TILE_040 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 32, 16, 16}, 3884);
 	/** tile_041 */
-	public static final IconEntry TILE_041 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 32, 16, 16});
+	public static final IconEntry TILE_041 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 32, 16, 16}, 3885);
 	/** tile_042 */
-	public static final IconEntry TILE_042 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 32, 16, 16});
+	public static final IconEntry TILE_042 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 32, 16, 16}, 3886);
 	/** tile_043 */
-	public static final IconEntry TILE_043 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 32, 16, 16});
+	public static final IconEntry TILE_043 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 32, 16, 16}, 3887);
 	/** tile_044 */
-	public static final IconEntry TILE_044 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 32, 16, 16});
+	public static final IconEntry TILE_044 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 32, 16, 16}, 3888);
 	/** tile_045 */
-	public static final IconEntry TILE_045 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 32, 16, 16});
+	public static final IconEntry TILE_045 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 32, 16, 16}, 3889);
 	/** tile_046 */
-	public static final IconEntry TILE_046 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 32, 16, 16});
+	public static final IconEntry TILE_046 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 32, 16, 16}, 3890);
 	/** tile_047 */
-	public static final IconEntry TILE_047 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 32, 16, 16});
+	public static final IconEntry TILE_047 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 32, 16, 16}, 3891);
 	/** tile_048 */
-	public static final IconEntry TILE_048 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 48, 16, 16});
+	public static final IconEntry TILE_048 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 48, 16, 16}, 3892);
 	/** tile_049 */
-	public static final IconEntry TILE_049 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 48, 16, 16});
+	public static final IconEntry TILE_049 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 48, 16, 16}, 3893);
 	/** tile_050 */
-	public static final IconEntry TILE_050 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 48, 16, 16});
+	public static final IconEntry TILE_050 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 48, 16, 16}, 3894);
 	/** tile_051 */
-	public static final IconEntry TILE_051 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 48, 16, 16});
+	public static final IconEntry TILE_051 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 48, 16, 16}, 3895);
 	/** tile_052 */
-	public static final IconEntry TILE_052 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 48, 16, 16});
+	public static final IconEntry TILE_052 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 48, 16, 16}, 3896);
 	/** tile_053 */
-	public static final IconEntry TILE_053 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 48, 16, 16});
+	public static final IconEntry TILE_053 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 48, 16, 16}, 3897);
 	/** tile_054 */
-	public static final IconEntry TILE_054 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 48, 16, 16});
+	public static final IconEntry TILE_054 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 48, 16, 16}, 3898);
 	/** tile_055 */
-	public static final IconEntry TILE_055 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 48, 16, 16});
+	public static final IconEntry TILE_055 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 48, 16, 16}, 3899);
 	/** tile_056 */
-	public static final IconEntry TILE_056 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 48, 16, 16});
+	public static final IconEntry TILE_056 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 48, 16, 16}, 3900);
 	/** tile_057 */
-	public static final IconEntry TILE_057 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 48, 16, 16});
+	public static final IconEntry TILE_057 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 48, 16, 16}, 3901);
 	/** tile_058 */
-	public static final IconEntry TILE_058 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 48, 16, 16});
+	public static final IconEntry TILE_058 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 48, 16, 16}, 3902);
 	/** tile_059 */
-	public static final IconEntry TILE_059 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 48, 16, 16});
+	public static final IconEntry TILE_059 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 48, 16, 16}, 3903);
 	/** tile_060 */
-	public static final IconEntry TILE_060 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 48, 16, 16});
+	public static final IconEntry TILE_060 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 48, 16, 16}, 3904);
 	/** tile_061 */
-	public static final IconEntry TILE_061 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 48, 16, 16});
+	public static final IconEntry TILE_061 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 48, 16, 16}, 3905);
 	/** tile_062 */
-	public static final IconEntry TILE_062 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 48, 16, 16});
+	public static final IconEntry TILE_062 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 48, 16, 16}, 3906);
 	/** tile_063 */
-	public static final IconEntry TILE_063 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 48, 16, 16});
+	public static final IconEntry TILE_063 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 48, 16, 16}, 3907);
 	/** tile_064 */
-	public static final IconEntry TILE_064 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 64, 16, 16});
+	public static final IconEntry TILE_064 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 64, 16, 16}, 3908);
 	/** tile_065 */
-	public static final IconEntry TILE_065 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 64, 16, 16});
+	public static final IconEntry TILE_065 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 64, 16, 16}, 3909);
 	/** tile_066 */
-	public static final IconEntry TILE_066 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 64, 16, 16});
+	public static final IconEntry TILE_066 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 64, 16, 16}, 3910);
 	/** tile_067 */
-	public static final IconEntry TILE_067 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 64, 16, 16});
+	public static final IconEntry TILE_067 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 64, 16, 16}, 3911);
 	/** tile_068 */
-	public static final IconEntry TILE_068 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 64, 16, 16});
+	public static final IconEntry TILE_068 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 64, 16, 16}, 3912);
 	/** tile_069 */
-	public static final IconEntry TILE_069 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 64, 16, 16});
+	public static final IconEntry TILE_069 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 64, 16, 16}, 3913);
 	/** tile_070 */
-	public static final IconEntry TILE_070 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 64, 16, 16});
+	public static final IconEntry TILE_070 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 64, 16, 16}, 3914);
 	/** tile_071 */
-	public static final IconEntry TILE_071 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 64, 16, 16});
+	public static final IconEntry TILE_071 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 64, 16, 16}, 3915);
 	/** tile_072 */
-	public static final IconEntry TILE_072 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 64, 16, 16});
+	public static final IconEntry TILE_072 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 64, 16, 16}, 3916);
 	/** tile_073 */
-	public static final IconEntry TILE_073 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 64, 16, 16});
+	public static final IconEntry TILE_073 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 64, 16, 16}, 3917);
 	/** tile_074 */
-	public static final IconEntry TILE_074 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 64, 16, 16});
+	public static final IconEntry TILE_074 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 64, 16, 16}, 3918);
 	/** tile_075 */
-	public static final IconEntry TILE_075 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 64, 16, 16});
+	public static final IconEntry TILE_075 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 64, 16, 16}, 3919);
 	/** tile_076 */
-	public static final IconEntry TILE_076 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 64, 16, 16});
+	public static final IconEntry TILE_076 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 64, 16, 16}, 3920);
 	/** tile_077 */
-	public static final IconEntry TILE_077 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 64, 16, 16});
+	public static final IconEntry TILE_077 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 64, 16, 16}, 3921);
 	/** tile_078 */
-	public static final IconEntry TILE_078 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 64, 16, 16});
+	public static final IconEntry TILE_078 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 64, 16, 16}, 3922);
 	/** tile_079 */
-	public static final IconEntry TILE_079 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 64, 16, 16});
+	public static final IconEntry TILE_079 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 64, 16, 16}, 3923);
 	/** tile_080 */
-	public static final IconEntry TILE_080 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 80, 16, 16});
+	public static final IconEntry TILE_080 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 80, 16, 16}, 3924);
 	/** tile_081 */
-	public static final IconEntry TILE_081 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 80, 16, 16});
+	public static final IconEntry TILE_081 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 80, 16, 16}, 3925);
 	/** tile_082 */
-	public static final IconEntry TILE_082 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 80, 16, 16});
+	public static final IconEntry TILE_082 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 80, 16, 16}, 3926);
 	/** tile_083 */
-	public static final IconEntry TILE_083 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 80, 16, 16});
+	public static final IconEntry TILE_083 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 80, 16, 16}, 3927);
 	/** tile_084 */
-	public static final IconEntry TILE_084 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 80, 16, 16});
+	public static final IconEntry TILE_084 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 80, 16, 16}, 3928);
 	/** tile_085 */
-	public static final IconEntry TILE_085 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 80, 16, 16});
+	public static final IconEntry TILE_085 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 80, 16, 16}, 3929);
 	/** tile_086 */
-	public static final IconEntry TILE_086 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 80, 16, 16});
+	public static final IconEntry TILE_086 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 80, 16, 16}, 3930);
 	/** tile_087 */
-	public static final IconEntry TILE_087 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 80, 16, 16});
+	public static final IconEntry TILE_087 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 80, 16, 16}, 3931);
 	/** tile_088 */
-	public static final IconEntry TILE_088 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 80, 16, 16});
+	public static final IconEntry TILE_088 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 80, 16, 16}, 3932);
 	/** tile_089 */
-	public static final IconEntry TILE_089 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 80, 16, 16});
+	public static final IconEntry TILE_089 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 80, 16, 16}, 3933);
 	/** tile_090 */
-	public static final IconEntry TILE_090 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 80, 16, 16});
+	public static final IconEntry TILE_090 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 80, 16, 16}, 3934);
 	/** tile_091 */
-	public static final IconEntry TILE_091 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 80, 16, 16});
+	public static final IconEntry TILE_091 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 80, 16, 16}, 3935);
 	/** tile_092 */
-	public static final IconEntry TILE_092 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 80, 16, 16});
+	public static final IconEntry TILE_092 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 80, 16, 16}, 3936);
 	/** tile_093 */
-	public static final IconEntry TILE_093 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 80, 16, 16});
+	public static final IconEntry TILE_093 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 80, 16, 16}, 3937);
 	/** tile_094 */
-	public static final IconEntry TILE_094 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 80, 16, 16});
+	public static final IconEntry TILE_094 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 80, 16, 16}, 3938);
 	/** tile_095 */
-	public static final IconEntry TILE_095 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 80, 16, 16});
+	public static final IconEntry TILE_095 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 80, 16, 16}, 3939);
 	/** tile_096 */
-	public static final IconEntry TILE_096 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 96, 16, 16});
+	public static final IconEntry TILE_096 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 96, 16, 16}, 3940);
 	/** tile_097 */
-	public static final IconEntry TILE_097 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 96, 16, 16});
+	public static final IconEntry TILE_097 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 96, 16, 16}, 3941);
 	/** tile_098 */
-	public static final IconEntry TILE_098 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 96, 16, 16});
+	public static final IconEntry TILE_098 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 96, 16, 16}, 3942);
 	/** tile_099 */
-	public static final IconEntry TILE_099 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 96, 16, 16});
+	public static final IconEntry TILE_099 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 96, 16, 16}, 3943);
 	/** tile_100 */
-	public static final IconEntry TILE_100 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 96, 16, 16});
+	public static final IconEntry TILE_100 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 96, 16, 16}, 3944);
 	/** tile_101 */
-	public static final IconEntry TILE_101 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 96, 16, 16});
+	public static final IconEntry TILE_101 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 96, 16, 16}, 3945);
 	/** tile_102 */
-	public static final IconEntry TILE_102 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 96, 16, 16});
+	public static final IconEntry TILE_102 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 96, 16, 16}, 3946);
 	/** tile_103 */
-	public static final IconEntry TILE_103 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 96, 16, 16});
+	public static final IconEntry TILE_103 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 96, 16, 16}, 3947);
 	/** tile_104 */
-	public static final IconEntry TILE_104 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 96, 16, 16});
+	public static final IconEntry TILE_104 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 96, 16, 16}, 3948);
 	/** tile_105 */
-	public static final IconEntry TILE_105 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 96, 16, 16});
+	public static final IconEntry TILE_105 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 96, 16, 16}, 3949);
 	/** tile_106 */
-	public static final IconEntry TILE_106 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 96, 16, 16});
+	public static final IconEntry TILE_106 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 96, 16, 16}, 3950);
 	/** tile_107 */
-	public static final IconEntry TILE_107 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 96, 16, 16});
+	public static final IconEntry TILE_107 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 96, 16, 16}, 3951);
 	/** tile_108 */
-	public static final IconEntry TILE_108 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 96, 16, 16});
+	public static final IconEntry TILE_108 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 96, 16, 16}, 3952);
 	/** tile_109 */
-	public static final IconEntry TILE_109 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 96, 16, 16});
+	public static final IconEntry TILE_109 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 96, 16, 16}, 3953);
 	/** tile_110 */
-	public static final IconEntry TILE_110 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 96, 16, 16});
+	public static final IconEntry TILE_110 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 96, 16, 16}, 3954);
 	/** tile_111 */
-	public static final IconEntry TILE_111 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 96, 16, 16});
+	public static final IconEntry TILE_111 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 96, 16, 16}, 3955);
 	/** tile_112 */
-	public static final IconEntry TILE_112 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 112, 16, 16});
+	public static final IconEntry TILE_112 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 112, 16, 16}, 3956);
 	/** tile_113 */
-	public static final IconEntry TILE_113 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 112, 16, 16});
+	public static final IconEntry TILE_113 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 112, 16, 16}, 3957);
 	/** tile_114 */
-	public static final IconEntry TILE_114 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 112, 16, 16});
+	public static final IconEntry TILE_114 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 112, 16, 16}, 3958);
 	/** tile_115 */
-	public static final IconEntry TILE_115 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 112, 16, 16});
+	public static final IconEntry TILE_115 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 112, 16, 16}, 3959);
 	/** tile_116 */
-	public static final IconEntry TILE_116 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 112, 16, 16});
+	public static final IconEntry TILE_116 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 112, 16, 16}, 3960);
 	/** tile_117 */
-	public static final IconEntry TILE_117 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 112, 16, 16});
+	public static final IconEntry TILE_117 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 112, 16, 16}, 3961);
 	/** tile_118 */
-	public static final IconEntry TILE_118 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 112, 16, 16});
+	public static final IconEntry TILE_118 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 112, 16, 16}, 3962);
 	/** tile_119 */
-	public static final IconEntry TILE_119 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 112, 16, 16});
+	public static final IconEntry TILE_119 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 112, 16, 16}, 3963);
 	/** tile_120 */
-	public static final IconEntry TILE_120 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 112, 16, 16});
+	public static final IconEntry TILE_120 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 112, 16, 16}, 3964);
 	/** tile_121 */
-	public static final IconEntry TILE_121 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 112, 16, 16});
+	public static final IconEntry TILE_121 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 112, 16, 16}, 3965);
 	/** tile_122 */
-	public static final IconEntry TILE_122 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 112, 16, 16});
+	public static final IconEntry TILE_122 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 112, 16, 16}, 3966);
 	/** tile_123 */
-	public static final IconEntry TILE_123 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 112, 16, 16});
+	public static final IconEntry TILE_123 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 112, 16, 16}, 3967);
 	/** tile_124 */
-	public static final IconEntry TILE_124 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 112, 16, 16});
+	public static final IconEntry TILE_124 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 112, 16, 16}, 3968);
 	/** tile_125 */
-	public static final IconEntry TILE_125 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 112, 16, 16});
+	public static final IconEntry TILE_125 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 112, 16, 16}, 3969);
 	/** tile_126 */
-	public static final IconEntry TILE_126 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 112, 16, 16});
+	public static final IconEntry TILE_126 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 112, 16, 16}, 3970);
 	/** tile_127 */
-	public static final IconEntry TILE_127 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 112, 16, 16});
+	public static final IconEntry TILE_127 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 112, 16, 16}, 3971);
 	/** tile_128 */
-	public static final IconEntry TILE_128 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 128, 16, 16});
+	public static final IconEntry TILE_128 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 128, 16, 16}, 3972);
 	/** tile_129 */
-	public static final IconEntry TILE_129 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 128, 16, 16});
+	public static final IconEntry TILE_129 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 128, 16, 16}, 3973);
 	/** tile_130 */
-	public static final IconEntry TILE_130 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 128, 16, 16});
+	public static final IconEntry TILE_130 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 128, 16, 16}, 3974);
 	/** tile_131 */
-	public static final IconEntry TILE_131 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 128, 16, 16});
+	public static final IconEntry TILE_131 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 128, 16, 16}, 3975);
 	/** tile_132 */
-	public static final IconEntry TILE_132 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 128, 16, 16});
+	public static final IconEntry TILE_132 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 128, 16, 16}, 3976);
 	/** tile_133 */
-	public static final IconEntry TILE_133 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 128, 16, 16});
+	public static final IconEntry TILE_133 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 128, 16, 16}, 3977);
 	/** tile_134 */
-	public static final IconEntry TILE_134 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 128, 16, 16});
+	public static final IconEntry TILE_134 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 128, 16, 16}, 3978);
 	/** tile_135 */
-	public static final IconEntry TILE_135 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 128, 16, 16});
+	public static final IconEntry TILE_135 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 128, 16, 16}, 3979);
 	/** tile_136 */
-	public static final IconEntry TILE_136 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 128, 16, 16});
+	public static final IconEntry TILE_136 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 128, 16, 16}, 3980);
 	/** tile_137 */
-	public static final IconEntry TILE_137 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 128, 16, 16});
+	public static final IconEntry TILE_137 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 128, 16, 16}, 3981);
 	/** tile_138 */
-	public static final IconEntry TILE_138 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 128, 16, 16});
+	public static final IconEntry TILE_138 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 128, 16, 16}, 3982);
 	/** tile_139 */
-	public static final IconEntry TILE_139 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 128, 16, 16});
+	public static final IconEntry TILE_139 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 128, 16, 16}, 3983);
 	/** tile_140 */
-	public static final IconEntry TILE_140 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 128, 16, 16});
+	public static final IconEntry TILE_140 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 128, 16, 16}, 3984);
 	/** tile_141 */
-	public static final IconEntry TILE_141 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 128, 16, 16});
+	public static final IconEntry TILE_141 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 128, 16, 16}, 3985);
 	/** tile_142 */
-	public static final IconEntry TILE_142 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 128, 16, 16});
+	public static final IconEntry TILE_142 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 128, 16, 16}, 3986);
 	/** tile_143 */
-	public static final IconEntry TILE_143 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 128, 16, 16});
+	public static final IconEntry TILE_143 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 128, 16, 16}, 3987);
 	/** tile_144 */
-	public static final IconEntry TILE_144 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 144, 16, 16});
+	public static final IconEntry TILE_144 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 144, 16, 16}, 3988);
 	/** tile_145 */
-	public static final IconEntry TILE_145 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 144, 16, 16});
+	public static final IconEntry TILE_145 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 144, 16, 16}, 3989);
 	/** tile_146 */
-	public static final IconEntry TILE_146 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 144, 16, 16});
+	public static final IconEntry TILE_146 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 144, 16, 16}, 3990);
 	/** tile_147 */
-	public static final IconEntry TILE_147 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 144, 16, 16});
+	public static final IconEntry TILE_147 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 144, 16, 16}, 3991);
 	/** tile_148 */
-	public static final IconEntry TILE_148 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 144, 16, 16});
+	public static final IconEntry TILE_148 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 144, 16, 16}, 3992);
 	/** tile_149 */
-	public static final IconEntry TILE_149 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 144, 16, 16});
+	public static final IconEntry TILE_149 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 144, 16, 16}, 3993);
 	/** tile_150 */
-	public static final IconEntry TILE_150 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 144, 16, 16});
+	public static final IconEntry TILE_150 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 144, 16, 16}, 3994);
 	/** tile_151 */
-	public static final IconEntry TILE_151 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 144, 16, 16});
+	public static final IconEntry TILE_151 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 144, 16, 16}, 3995);
 	/** tile_152 */
-	public static final IconEntry TILE_152 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 144, 16, 16});
+	public static final IconEntry TILE_152 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 144, 16, 16}, 3996);
 	/** tile_153 */
-	public static final IconEntry TILE_153 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 144, 16, 16});
+	public static final IconEntry TILE_153 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 144, 16, 16}, 3997);
 	/** tile_154 */
-	public static final IconEntry TILE_154 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 144, 16, 16});
+	public static final IconEntry TILE_154 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 144, 16, 16}, 3998);
 	/** tile_155 */
-	public static final IconEntry TILE_155 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 144, 16, 16});
+	public static final IconEntry TILE_155 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 144, 16, 16}, 3999);
 	/** tile_156 */
-	public static final IconEntry TILE_156 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 144, 16, 16});
+	public static final IconEntry TILE_156 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 144, 16, 16}, 4000);
 	/** tile_157 */
-	public static final IconEntry TILE_157 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 144, 16, 16});
+	public static final IconEntry TILE_157 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 144, 16, 16}, 4001);
 	/** tile_158 */
-	public static final IconEntry TILE_158 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 144, 16, 16});
+	public static final IconEntry TILE_158 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 144, 16, 16}, 4002);
 	/** tile_159 */
-	public static final IconEntry TILE_159 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 144, 16, 16});
+	public static final IconEntry TILE_159 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 144, 16, 16}, 4003);
 	/** tile_160 */
-	public static final IconEntry TILE_160 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 160, 16, 16});
+	public static final IconEntry TILE_160 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 160, 16, 16}, 4004);
 	/** tile_161 */
-	public static final IconEntry TILE_161 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 160, 16, 16});
+	public static final IconEntry TILE_161 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 160, 16, 16}, 4005);
 	/** tile_162 */
-	public static final IconEntry TILE_162 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 160, 16, 16});
+	public static final IconEntry TILE_162 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 160, 16, 16}, 4006);
 	/** tile_163 */
-	public static final IconEntry TILE_163 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 160, 16, 16});
+	public static final IconEntry TILE_163 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 160, 16, 16}, 4007);
 	/** tile_164 */
-	public static final IconEntry TILE_164 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 160, 16, 16});
+	public static final IconEntry TILE_164 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 160, 16, 16}, 4008);
 	/** tile_165 */
-	public static final IconEntry TILE_165 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 160, 16, 16});
+	public static final IconEntry TILE_165 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 160, 16, 16}, 4009);
 	/** tile_166 */
-	public static final IconEntry TILE_166 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 160, 16, 16});
+	public static final IconEntry TILE_166 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 160, 16, 16}, 4010);
 	/** tile_167 */
-	public static final IconEntry TILE_167 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 160, 16, 16});
+	public static final IconEntry TILE_167 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 160, 16, 16}, 4011);
 	/** tile_168 */
-	public static final IconEntry TILE_168 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 160, 16, 16});
+	public static final IconEntry TILE_168 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 160, 16, 16}, 4012);
 	/** tile_169 */
-	public static final IconEntry TILE_169 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 160, 16, 16});
+	public static final IconEntry TILE_169 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 160, 16, 16}, 4013);
 	/** tile_170 */
-	public static final IconEntry TILE_170 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 160, 16, 16});
+	public static final IconEntry TILE_170 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 160, 16, 16}, 4014);
 	/** tile_171 */
-	public static final IconEntry TILE_171 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 160, 16, 16});
+	public static final IconEntry TILE_171 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 160, 16, 16}, 4015);
 	/** tile_172 */
-	public static final IconEntry TILE_172 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 160, 16, 16});
+	public static final IconEntry TILE_172 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 160, 16, 16}, 4016);
 	/** tile_173 */
-	public static final IconEntry TILE_173 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 160, 16, 16});
+	public static final IconEntry TILE_173 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 160, 16, 16}, 4017);
 	/** tile_174 */
-	public static final IconEntry TILE_174 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 160, 16, 16});
+	public static final IconEntry TILE_174 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 160, 16, 16}, 4018);
 	/** tile_175 */
-	public static final IconEntry TILE_175 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 160, 16, 16});
+	public static final IconEntry TILE_175 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 160, 16, 16}, 4019);
 	/** tile_176 */
-	public static final IconEntry TILE_176 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 176, 16, 16});
+	public static final IconEntry TILE_176 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 176, 16, 16}, 4020);
 	/** tile_177 */
-	public static final IconEntry TILE_177 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 176, 16, 16});
+	public static final IconEntry TILE_177 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 176, 16, 16}, 4021);
 	/** tile_178 */
-	public static final IconEntry TILE_178 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 176, 16, 16});
+	public static final IconEntry TILE_178 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 176, 16, 16}, 4022);
 	/** tile_179 */
-	public static final IconEntry TILE_179 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 176, 16, 16});
+	public static final IconEntry TILE_179 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 176, 16, 16}, 4023);
 	/** tile_180 */
-	public static final IconEntry TILE_180 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 176, 16, 16});
+	public static final IconEntry TILE_180 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 176, 16, 16}, 4024);
 	/** tile_181 */
-	public static final IconEntry TILE_181 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 176, 16, 16});
+	public static final IconEntry TILE_181 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 176, 16, 16}, 4025);
 	/** tile_182 */
-	public static final IconEntry TILE_182 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 176, 16, 16});
+	public static final IconEntry TILE_182 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 176, 16, 16}, 4026);
 	/** tile_183 */
-	public static final IconEntry TILE_183 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 176, 16, 16});
+	public static final IconEntry TILE_183 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 176, 16, 16}, 4027);
 	/** tile_184 */
-	public static final IconEntry TILE_184 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 176, 16, 16});
+	public static final IconEntry TILE_184 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 176, 16, 16}, 4028);
 	/** tile_185 */
-	public static final IconEntry TILE_185 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 176, 16, 16});
+	public static final IconEntry TILE_185 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 176, 16, 16}, 4029);
 	/** tile_186 */
-	public static final IconEntry TILE_186 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 176, 16, 16});
+	public static final IconEntry TILE_186 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 176, 16, 16}, 4030);
 	/** tile_187 */
-	public static final IconEntry TILE_187 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 176, 16, 16});
+	public static final IconEntry TILE_187 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 176, 16, 16}, 4031);
 	/** tile_188 */
-	public static final IconEntry TILE_188 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 176, 16, 16});
+	public static final IconEntry TILE_188 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 176, 16, 16}, 4032);
 	/** tile_189 */
-	public static final IconEntry TILE_189 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 176, 16, 16});
+	public static final IconEntry TILE_189 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 176, 16, 16}, 4033);
 	/** tile_190 */
-	public static final IconEntry TILE_190 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 176, 16, 16});
+	public static final IconEntry TILE_190 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 176, 16, 16}, 4034);
 	/** tile_191 */
-	public static final IconEntry TILE_191 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 176, 16, 16});
+	public static final IconEntry TILE_191 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 176, 16, 16}, 4035);
 	/** tile_192 */
-	public static final IconEntry TILE_192 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 192, 16, 16});
+	public static final IconEntry TILE_192 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 192, 16, 16}, 4036);
 	/** tile_193 */
-	public static final IconEntry TILE_193 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 192, 16, 16});
+	public static final IconEntry TILE_193 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 192, 16, 16}, 4037);
 	/** tile_194 */
-	public static final IconEntry TILE_194 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 192, 16, 16});
+	public static final IconEntry TILE_194 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 192, 16, 16}, 4038);
 	/** tile_195 */
-	public static final IconEntry TILE_195 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 192, 16, 16});
+	public static final IconEntry TILE_195 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 192, 16, 16}, 4039);
 	/** tile_196 */
-	public static final IconEntry TILE_196 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 192, 16, 16});
+	public static final IconEntry TILE_196 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 192, 16, 16}, 4040);
 	/** tile_197 */
-	public static final IconEntry TILE_197 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 192, 16, 16});
+	public static final IconEntry TILE_197 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 192, 16, 16}, 4041);
 	/** tile_198 */
-	public static final IconEntry TILE_198 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 192, 16, 16});
+	public static final IconEntry TILE_198 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 192, 16, 16}, 4042);
 	/** tile_199 */
-	public static final IconEntry TILE_199 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 192, 16, 16});
+	public static final IconEntry TILE_199 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 192, 16, 16}, 4043);
 	/** tile_200 */
-	public static final IconEntry TILE_200 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 192, 16, 16});
+	public static final IconEntry TILE_200 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 192, 16, 16}, 4044);
 	/** tile_201 */
-	public static final IconEntry TILE_201 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 192, 16, 16});
+	public static final IconEntry TILE_201 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 192, 16, 16}, 4045);
 	/** tile_202 */
-	public static final IconEntry TILE_202 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 192, 16, 16});
+	public static final IconEntry TILE_202 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 192, 16, 16}, 4046);
 	/** tile_203 */
-	public static final IconEntry TILE_203 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 192, 16, 16});
+	public static final IconEntry TILE_203 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 192, 16, 16}, 4047);
 	/** tile_204 */
-	public static final IconEntry TILE_204 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 192, 16, 16});
+	public static final IconEntry TILE_204 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 192, 16, 16}, 4048);
 	/** tile_205 */
-	public static final IconEntry TILE_205 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 192, 16, 16});
+	public static final IconEntry TILE_205 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 192, 16, 16}, 4049);
 	/** tile_206 */
-	public static final IconEntry TILE_206 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 192, 16, 16});
+	public static final IconEntry TILE_206 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 192, 16, 16}, 4050);
 	/** tile_207 */
-	public static final IconEntry TILE_207 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 192, 16, 16});
+	public static final IconEntry TILE_207 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 192, 16, 16}, 4051);
 	/** tile_208 */
-	public static final IconEntry TILE_208 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 208, 16, 16});
+	public static final IconEntry TILE_208 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 208, 16, 16}, 4052);
 	/** tile_209 */
-	public static final IconEntry TILE_209 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 208, 16, 16});
+	public static final IconEntry TILE_209 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 208, 16, 16}, 4053);
 	/** tile_210 */
-	public static final IconEntry TILE_210 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 208, 16, 16});
+	public static final IconEntry TILE_210 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 208, 16, 16}, 4054);
 	/** tile_211 */
-	public static final IconEntry TILE_211 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 208, 16, 16});
+	public static final IconEntry TILE_211 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 208, 16, 16}, 4055);
 	/** tile_212 */
-	public static final IconEntry TILE_212 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 208, 16, 16});
+	public static final IconEntry TILE_212 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 208, 16, 16}, 4056);
 	/** tile_213 */
-	public static final IconEntry TILE_213 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 208, 16, 16});
+	public static final IconEntry TILE_213 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 208, 16, 16}, 4057);
 	/** tile_214 */
-	public static final IconEntry TILE_214 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 208, 16, 16});
+	public static final IconEntry TILE_214 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 208, 16, 16}, 4058);
 	/** tile_215 */
-	public static final IconEntry TILE_215 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 208, 16, 16});
+	public static final IconEntry TILE_215 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 208, 16, 16}, 4059);
 	/** tile_216 */
-	public static final IconEntry TILE_216 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 208, 16, 16});
+	public static final IconEntry TILE_216 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 208, 16, 16}, 4060);
 	/** tile_217 */
-	public static final IconEntry TILE_217 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 208, 16, 16});
+	public static final IconEntry TILE_217 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 208, 16, 16}, 4061);
 	/** tile_218 */
-	public static final IconEntry TILE_218 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 208, 16, 16});
+	public static final IconEntry TILE_218 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 208, 16, 16}, 4062);
 	/** tile_219 */
-	public static final IconEntry TILE_219 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 208, 16, 16});
+	public static final IconEntry TILE_219 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 208, 16, 16}, 4063);
 	/** tile_220 */
-	public static final IconEntry TILE_220 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 208, 16, 16});
+	public static final IconEntry TILE_220 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 208, 16, 16}, 4064);
 	/** tile_221 */
-	public static final IconEntry TILE_221 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 208, 16, 16});
+	public static final IconEntry TILE_221 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 208, 16, 16}, 4065);
 	/** tile_222 */
-	public static final IconEntry TILE_222 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 208, 16, 16});
+	public static final IconEntry TILE_222 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 208, 16, 16}, 4066);
 	/** tile_223 */
-	public static final IconEntry TILE_223 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 208, 16, 16});
+	public static final IconEntry TILE_223 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 208, 16, 16}, 4067);
 	/** tile_224 */
-	public static final IconEntry TILE_224 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 224, 16, 16});
+	public static final IconEntry TILE_224 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 224, 16, 16}, 4068);
 	/** tile_225 */
-	public static final IconEntry TILE_225 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 224, 16, 16});
+	public static final IconEntry TILE_225 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 224, 16, 16}, 4069);
 	/** tile_226 */
-	public static final IconEntry TILE_226 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 224, 16, 16});
+	public static final IconEntry TILE_226 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 224, 16, 16}, 4070);
 	/** tile_227 */
-	public static final IconEntry TILE_227 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 224, 16, 16});
+	public static final IconEntry TILE_227 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 224, 16, 16}, 4071);
 	/** tile_228 */
-	public static final IconEntry TILE_228 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 224, 16, 16});
+	public static final IconEntry TILE_228 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 224, 16, 16}, 4072);
 	/** tile_229 */
-	public static final IconEntry TILE_229 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 224, 16, 16});
+	public static final IconEntry TILE_229 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 224, 16, 16}, 4073);
 	/** tile_230 */
-	public static final IconEntry TILE_230 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 224, 16, 16});
+	public static final IconEntry TILE_230 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 224, 16, 16}, 4074);
 	/** tile_231 */
-	public static final IconEntry TILE_231 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 224, 16, 16});
+	public static final IconEntry TILE_231 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 224, 16, 16}, 4075);
 	/** tile_232 */
-	public static final IconEntry TILE_232 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 224, 16, 16});
+	public static final IconEntry TILE_232 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 224, 16, 16}, 4076);
 	/** tile_233 */
-	public static final IconEntry TILE_233 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 224, 16, 16});
+	public static final IconEntry TILE_233 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 224, 16, 16}, 4077);
 	/** tile_234 */
-	public static final IconEntry TILE_234 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 224, 16, 16});
+	public static final IconEntry TILE_234 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 224, 16, 16}, 4078);
 	/** tile_235 */
-	public static final IconEntry TILE_235 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 224, 16, 16});
+	public static final IconEntry TILE_235 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 224, 16, 16}, 4079);
 	/** tile_236 */
-	public static final IconEntry TILE_236 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 224, 16, 16});
+	public static final IconEntry TILE_236 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 224, 16, 16}, 4080);
 	/** tile_237 */
-	public static final IconEntry TILE_237 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 224, 16, 16});
+	public static final IconEntry TILE_237 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 224, 16, 16}, 4081);
 	/** tile_238 */
-	public static final IconEntry TILE_238 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 224, 16, 16});
+	public static final IconEntry TILE_238 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 224, 16, 16}, 4082);
 	/** tile_239 */
-	public static final IconEntry TILE_239 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 224, 16, 16});
+	public static final IconEntry TILE_239 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 224, 16, 16}, 4083);
 	/** tile_240 */
-	public static final IconEntry TILE_240 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 240, 16, 16});
+	public static final IconEntry TILE_240 = new IconEntry("environment/tiles/tiles_city.png", new int[]{0, 240, 16, 16}, 4084);
 	/** tile_241 */
-	public static final IconEntry TILE_241 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 240, 16, 16});
+	public static final IconEntry TILE_241 = new IconEntry("environment/tiles/tiles_city.png", new int[]{16, 240, 16, 16}, 4085);
 	/** tile_242 */
-	public static final IconEntry TILE_242 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 240, 16, 16});
+	public static final IconEntry TILE_242 = new IconEntry("environment/tiles/tiles_city.png", new int[]{32, 240, 16, 16}, 4086);
 	/** tile_243 */
-	public static final IconEntry TILE_243 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 240, 16, 16});
+	public static final IconEntry TILE_243 = new IconEntry("environment/tiles/tiles_city.png", new int[]{48, 240, 16, 16}, 4087);
 	/** tile_244 */
-	public static final IconEntry TILE_244 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 240, 16, 16});
+	public static final IconEntry TILE_244 = new IconEntry("environment/tiles/tiles_city.png", new int[]{64, 240, 16, 16}, 4088);
 	/** tile_245 */
-	public static final IconEntry TILE_245 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 240, 16, 16});
+	public static final IconEntry TILE_245 = new IconEntry("environment/tiles/tiles_city.png", new int[]{80, 240, 16, 16}, 4089);
 	/** tile_246 */
-	public static final IconEntry TILE_246 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 240, 16, 16});
+	public static final IconEntry TILE_246 = new IconEntry("environment/tiles/tiles_city.png", new int[]{96, 240, 16, 16}, 4090);
 	/** tile_247 */
-	public static final IconEntry TILE_247 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 240, 16, 16});
+	public static final IconEntry TILE_247 = new IconEntry("environment/tiles/tiles_city.png", new int[]{112, 240, 16, 16}, 4091);
 	/** tile_248 */
-	public static final IconEntry TILE_248 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 240, 16, 16});
+	public static final IconEntry TILE_248 = new IconEntry("environment/tiles/tiles_city.png", new int[]{128, 240, 16, 16}, 4092);
 	/** tile_249 */
-	public static final IconEntry TILE_249 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 240, 16, 16});
+	public static final IconEntry TILE_249 = new IconEntry("environment/tiles/tiles_city.png", new int[]{144, 240, 16, 16}, 4093);
 	/** tile_250 */
-	public static final IconEntry TILE_250 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 240, 16, 16});
+	public static final IconEntry TILE_250 = new IconEntry("environment/tiles/tiles_city.png", new int[]{160, 240, 16, 16}, 4094);
 	/** tile_251 */
-	public static final IconEntry TILE_251 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 240, 16, 16});
+	public static final IconEntry TILE_251 = new IconEntry("environment/tiles/tiles_city.png", new int[]{176, 240, 16, 16}, 4095);
 	/** tile_252 */
-	public static final IconEntry TILE_252 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 240, 16, 16});
+	public static final IconEntry TILE_252 = new IconEntry("environment/tiles/tiles_city.png", new int[]{192, 240, 16, 16}, 4096);
 	/** tile_253 */
-	public static final IconEntry TILE_253 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 240, 16, 16});
+	public static final IconEntry TILE_253 = new IconEntry("environment/tiles/tiles_city.png", new int[]{208, 240, 16, 16}, 4097);
 	/** tile_254 */
-	public static final IconEntry TILE_254 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 240, 16, 16});
+	public static final IconEntry TILE_254 = new IconEntry("environment/tiles/tiles_city.png", new int[]{224, 240, 16, 16}, 4098);
 	/** tile_255 */
-	public static final IconEntry TILE_255 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 240, 16, 16});
+	public static final IconEntry TILE_255 = new IconEntry("environment/tiles/tiles_city.png", new int[]{240, 240, 16, 16}, 4099);
 }

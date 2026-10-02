@@ -21,7 +21,7 @@ import pd.plants.Plant;
 import pd.plants.Starflower;
 import pd.plants.Sungrass;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
 import render.utils.math.Random;
@@ -30,7 +30,7 @@ import java.util.ArrayList;
 
 public class ScrollOfRegrowth extends Scroll {
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_RECHARGE;
+		icon = ItemIconSheet.SCROLL_RECHARGE;
 	}
 
 	@Override

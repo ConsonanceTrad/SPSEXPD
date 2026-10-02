@@ -21,16 +21,17 @@
 
 package pd.items.weapon.missiles.darts;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Chill;
-import pd.sprites.ItemSpriteSheet;
 
 public class ChillingDart extends TippedDart {
 	
 	{
-		image = ItemSpriteSheet.CHILLING_DART;
+		image = ConsumThrowsDict.CHILLING_DART_0;
 	}
 	
 	@Override

@@ -44,7 +44,7 @@ import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.windows.WndOptions;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
@@ -55,7 +55,7 @@ import java.util.ArrayList;
 public class PotionOfDragonsBreath extends ExoticPotion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_DRGBREATH;
+		icon = ItemIconSheet.POTION_DRGBREATH;
 	}
 
 	protected static boolean identifiedByUse = false;

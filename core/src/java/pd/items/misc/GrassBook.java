@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Levitation;
@@ -14,7 +16,6 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
@@ -28,7 +29,7 @@ public class GrassBook extends Item {
 	private int charge;
 
 	{
-		image = ItemSpriteSheet.SPS_GRASS_BOOK;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		unique = true;
 	}
 

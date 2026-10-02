@@ -21,6 +21,8 @@
 
 package pd.sprites;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.items.Item;
@@ -127,7 +129,7 @@ public class TenguSprite extends MobSprite {
 	
 	public static class TenguShuriken extends Item {
 		{
-			image = ItemSpriteSheet.SHURIKEN;
+			image = ConsumThrowsDict.SHURIKEN_0;
 		}
 	}
 }

@@ -21,13 +21,14 @@
 
 package pd.items;
 
+import pd.atlas.items.ConsumUsefulUsefulDict;
+
 import pd.Assets;
 import pd.actors.hero.Hero;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.messages.Messages;
 import pd.sprites.ItemSprite.Glowing;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
@@ -39,7 +40,7 @@ public class Ankh extends Item {
 	public static final String AC_BLESS = "BLESS";
 
 	{
-		image = ItemSpriteSheet.ANKH;
+		image = ConsumUsefulUsefulDict.ANKH;
 
 		//You tell the ankh no, don't revive me, and then it comes back to revive you again in another run.
 		//I'm not sure if that's enthusiasm or passive-aggression.

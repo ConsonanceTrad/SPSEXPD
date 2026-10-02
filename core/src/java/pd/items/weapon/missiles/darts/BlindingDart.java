@@ -21,16 +21,17 @@
 
 package pd.items.weapon.missiles.darts;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Blindness;
 import pd.actors.buffs.Buff;
-import pd.sprites.ItemSpriteSheet;
 
 
 public class BlindingDart extends TippedDart {
 	
 	{
-		image = ItemSpriteSheet.BLINDING_DART;
+		image = ConsumThrowsDict.BLINDING_DART_0;
 	}
 	
 	@Override

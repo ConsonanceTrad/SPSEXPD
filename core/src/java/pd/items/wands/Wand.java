@@ -21,6 +21,8 @@
 
 package pd.items.wands;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Challenges;
@@ -65,7 +67,6 @@ import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.QuickSlotButton;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
@@ -653,7 +654,7 @@ public abstract class Wand extends Item {
 	public static class PlaceHolder extends Wand {
 
 		{
-			image = ItemSpriteSheet.WAND_HOLDER;
+			image = SpecificPlaceHolderDict.WAND_HOLDER_0;
 		}
 
 		@Override

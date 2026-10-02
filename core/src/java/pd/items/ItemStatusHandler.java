@@ -21,6 +21,8 @@
 
 package pd.items;
 
+import pd.atlas.IconEntry;
+
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
@@ -36,10 +38,10 @@ public class ItemStatusHandler<T extends Item> {
 
 	private Class<? extends T>[] items;
 	private LinkedHashMap<Class<? extends T>, String> itemLabels;
-	private LinkedHashMap<String, Integer> labelImages;
+	private LinkedHashMap<String, IconEntry> labelImages;
 	private LinkedHashSet<Class<? extends T>> known;
 
-	public ItemStatusHandler( Class<? extends T>[] items, HashMap<String, Integer> labelImages ) {
+	public ItemStatusHandler( Class<? extends T>[] items, HashMap<String, IconEntry> labelImages ) {
 
 		this.items = items;
 
@@ -61,7 +63,7 @@ public class ItemStatusHandler<T extends Item> {
 		}
 	}
 
-	public ItemStatusHandler( Class<? extends T>[] items, HashMap<String, Integer> labelImages, Bundle bundle ) {
+	public ItemStatusHandler( Class<? extends T>[] items, HashMap<String, IconEntry> labelImages, Bundle bundle ) {
 
 		this.items = items;
 
@@ -174,11 +176,11 @@ public class ItemStatusHandler<T extends Item> {
 		return false;
 	}
 	
-	public int image( T item ) {
+	public IconEntry image( T item ) {
 		return labelImages.get(label(item));
 	}
 	
-	public int image( Class<?extends T> itemCls ) {
+	public IconEntry image( Class<?extends T> itemCls ) {
 		return labelImages.get(label(itemCls));
 	}
 	

@@ -1,20 +1,21 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.special;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Vertigo;
 import pd.items.wands.fusion.WandOfFlow;
 import pd.mechanics.Ballistica;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.serialize.Bundle;
 
 public class PaperFan extends SpsSpecialMeleeWeapon {
 	private static final String CHARGE = "charge";
 	private int charge;
 
-	public PaperFan() { super(2, 1f, 1f, 2, 1, 15, ItemSpriteSheet.SPS_PAPER_FAN); }
+	public PaperFan() { super(2, 1f, 1f, 2, 1, 15, SpecificPlaceHolderDict.SOMETHING_0); }
 
 	@Override public int proc(Char attacker, Char defender, int damage) {
 		charge++;

@@ -76,7 +76,7 @@ import pd.actors.mobs.YogFist;
 import pd.items.wands.Wand;
 import pd.levels.traps.SpearTrap;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 
 import java.util.HashSet;
 
@@ -84,7 +84,7 @@ import java.util.HashSet;
 public class RingOfElements extends Ring {
 
 	{
-		icon = ItemSpriteSheet.Icons.RING_ELEMENTS;
+		icon = ItemIconSheet.RING_ELEMENTS;
 		buffClass = RingElements.class;
 	}
 

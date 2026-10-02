@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.rockcode;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -14,7 +16,6 @@ import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.QuickSlotButton;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
@@ -41,7 +42,7 @@ public abstract class RockCode extends Item {
 	}
 
 	{
-		image = ItemSpriteSheet.POCKET_BALL_EMPTY;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		defaultAction = AC_ZAP;
 		usesTargeting = true;
 	}

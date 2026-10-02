@@ -21,6 +21,8 @@
 
 package pd.items.wands;
 
+import pd.atlas.items.EquipmentWandBasicWandDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Dungeon;
@@ -41,7 +43,6 @@ import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTilemap;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
@@ -53,7 +54,7 @@ import render.utils.serialize.Bundle;
 public class WandOfTransfusion extends DamageWand {
 
 	{
-		image = ItemSpriteSheet.WAND_TRANSFUSION;
+		image = EquipmentWandBasicWandDict.WAND_TRANSFUSION_0;
 
 		collisionProperties = Ballistica.PROJECTILE;
 	}

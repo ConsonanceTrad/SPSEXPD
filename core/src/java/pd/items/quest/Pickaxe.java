@@ -21,6 +21,8 @@
 
 package pd.items.quest;
 
+import pd.atlas.items.SpecificTaskDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -51,7 +53,6 @@ import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.AttackIndicator;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
@@ -67,7 +68,7 @@ public class Pickaxe extends MeleeWeapon {
 	public static final float TIME_TO_MINE = 2f;
 	
 	{
-		image = ItemSpriteSheet.PICKAXE;
+		image = SpecificTaskDict.PICKAXE_0;
 
 		levelKnown = true;
 		

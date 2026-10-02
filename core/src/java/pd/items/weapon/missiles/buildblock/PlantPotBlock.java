@@ -1,20 +1,21 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles.buildblock;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.items.Item;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 /** A thrown construction block which creates a plantable flower pot. */
 public class PlantPotBlock extends BuildBlock {
 
 	{
-		image = ItemSpriteSheet.PLANT_POT_BLOCK;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 	public PlantPotBlock() { this(1); }

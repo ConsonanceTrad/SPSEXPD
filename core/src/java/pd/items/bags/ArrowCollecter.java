@@ -1,16 +1,17 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.bags;
 
+import pd.atlas.items.EquipmentBagsDict;
+
 import pd.items.Item;
 import pd.items.weapon.missiles.MissileWeapon;
 import pd.items.weapon.ranges.RangeWeapon;
-import pd.sprites.ItemSpriteSheet;
 
 /** SPS-PD's thirty-slot container for ranged and thrown weapons. */
 public class ArrowCollecter extends Bag {
 
 	{
-		image = ItemSpriteSheet.SPS_ARROW_COLLECTER;
+		image = EquipmentBagsDict.SPS_ARROW_COLLECTER;
 	}
 
 	@Override

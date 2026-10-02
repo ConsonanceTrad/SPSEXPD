@@ -21,6 +21,8 @@
 
 package pd.actors.mobs;
 
+import pd.atlas.items.GroundFunctionalFallingDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Challenges;
@@ -65,7 +67,6 @@ import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.sprites.MissileSprite;
 import pd.sprites.TenguSprite;
 import pd.tiles.DungeonTilemap;
@@ -708,7 +709,7 @@ public class Tengu extends Mob {
 				dropsDownHeap = true;
 				unique = true;
 				
-				image = ItemSpriteSheet.TENGU_BOMB;
+				image = GroundFunctionalFallingDict.TENGU_BOMB_0;
 			}
 			
 			@Override
@@ -1102,7 +1103,7 @@ public class Tengu extends Mob {
 				dropsDownHeap = true;
 				unique = true;
 				
-				image = ItemSpriteSheet.TENGU_SHOCKER;
+				image = GroundFunctionalFallingDict.TENGU_SHOCKER_0;
 			}
 			
 			@Override

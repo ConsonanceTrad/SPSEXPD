@@ -21,15 +21,16 @@
 
 package pd.items.weapon.missiles;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Assets;
 import pd.actors.Char;
 import pd.actors.mobs.Piranha;
-import pd.sprites.ItemSpriteSheet;
 
 public class FishingSpear extends MissileWeapon {
 	
 	{
-		image = ItemSpriteSheet.FISHING_SPEAR;
+		image = ConsumThrowsDict.FISHING_SPEAR_0;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 1.1f;
 		

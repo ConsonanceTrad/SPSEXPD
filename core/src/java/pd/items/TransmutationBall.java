@@ -1,5 +1,7 @@
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.hero.Belongings;
@@ -24,7 +26,6 @@ import pd.items.weapon.missiles.darts.TippedDart;
 import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class TransmutationBall extends Item {
 	private static final String AC_USE = "USE";
 
 	{
-		image = ItemSpriteSheet.TRANSMUTATION_BALL;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = true;
 		defaultAction = AC_USE;
 	}

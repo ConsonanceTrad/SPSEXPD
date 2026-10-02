@@ -1,10 +1,11 @@
 package pd.plants;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.items.Generator;
 import pd.mechanics.pathfind.PathFinder;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class Seedpod extends Plant {
 		}
 	}
 	public static class Seed extends Plant.Seed {
-		{ image = ItemSpriteSheet.SPS_SEED_SEEDPOD; plantClass = Seedpod.class; explantClass = ExSeedpod.class; }
+		{ image = SpecificPlaceHolderDict.SOMETHING_0; plantClass = Seedpod.class; explantClass = ExSeedpod.class; }
 	}
 	public static class ExSeedpod extends SpsFruitBush {
 		{ image = 13; harvestCount = 3; harvestCategory = Generator.Category.SPS_BERRY; }

@@ -21,6 +21,12 @@
 
 package pd.windows;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.ConsumThrowsDict;
+import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
+
 import pd.Badges;
 import pd.actors.hero.HeroClass;
 import pd.actors.hero.HeroSubClass;
@@ -29,7 +35,6 @@ import pd.actors.hero.abilities.ArmorAbility;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.IconButton;
 import pd.ui.Icons;
 import pd.ui.RenderedTextBlock;
@@ -59,37 +64,37 @@ public class WndHeroInfo extends WndTabbed {
 		Image tabIcon;
 		switch (cl){
 			case WARRIOR: default:
-				tabIcon = new ItemSprite(ItemSpriteSheet.SEAL, null);
+				tabIcon = new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0, null);
 				break;
 			case MAGE:
-				tabIcon = new ItemSprite(ItemSpriteSheet.MAGES_STAFF, null);
+				tabIcon = new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0, null);
 				break;
 			case ROGUE:
-				tabIcon = new ItemSprite(ItemSpriteSheet.ARTIFACT_CLOAK, null);
+				tabIcon = new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0, null);
 				break;
 			case HUNTRESS:
-				tabIcon = new ItemSprite(ItemSpriteSheet.SPIRIT_BOW, null);
+				tabIcon = new ItemSprite(EquipmentEquipWeaponUniqueWeaponDict.SPIRIT_BOW_0, null);
 				break;
 			case DUELIST:
-				tabIcon = new ItemSprite(ItemSpriteSheet.RAPIER, null);
+				tabIcon = new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.RAPIER_0, null);
 				break;
 			case CLERIC:
-				tabIcon = new ItemSprite(ItemSpriteSheet.ARTIFACT_TOME, null);
+				tabIcon = new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0, null);
 				break;
 			case SPELLSWORD:
-				tabIcon = new ItemSprite(ItemSpriteSheet.RUNIC_BLADE, null);
+				tabIcon = new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0, null);
 				break;
 			case PERFORMER:
-				tabIcon = new ItemSprite(ItemSpriteSheet.WAND_MAGIC_MISSILE, null);
+				tabIcon = new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0, null);
 				break;
 			case SOLDIER:
-				tabIcon = new ItemSprite(ItemSpriteSheet.THROWING_SPIKE, null);
+				tabIcon = new ItemSprite(ConsumThrowsDict.THROWING_SPIKE_0, null);
 				break;
 			case FOLLOWER:
-				tabIcon = new ItemSprite(ItemSpriteSheet.CUDGEL, null);
+				tabIcon = new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0, null);
 				break;
 			case ASCETIC:
-				tabIcon = new ItemSprite(ItemSpriteSheet.GLOVES, null);
+				tabIcon = new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.GLOVES, null);
 				break;
 		}
 
@@ -127,7 +132,7 @@ public class WndHeroInfo extends WndTabbed {
 			subclassInfo.setSize(WIDTH, MIN_HEIGHT);
 			finalHeight = (int)Math.max(finalHeight, subclassInfo.height());
 
-			add(new IconTab(new ItemSprite(ItemSpriteSheet.MASK, null)) {
+			add(new IconTab(new ItemSprite(ConsumUsefulProcessEnhanceDict.MASK_0, null)) {
 				@Override
 				protected void select(boolean value) {
 					super.select(value);
@@ -142,7 +147,7 @@ public class WndHeroInfo extends WndTabbed {
 			abilityInfo.setSize(WIDTH, MIN_HEIGHT);
 			finalHeight = (int)Math.max(finalHeight, abilityInfo.height());
 
-			add(new IconTab(new ItemSprite(ItemSpriteSheet.CROWN, null)) {
+			add(new IconTab(new ItemSprite(ConsumUsefulProcessEnhanceDict.CROWN_0, null)) {
 				@Override
 				protected void select(boolean value) {
 					super.select(value);
@@ -189,60 +194,60 @@ public class WndHeroInfo extends WndTabbed {
 
 			switch (cls){
 				case WARRIOR: default:
-					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.SEAL),
-							new ItemSprite(ItemSpriteSheet.WORN_SHORTSWORD),
-							new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
+					icons = new Image[]{ new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
+							new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.WORN_SHORTSWORD_0),
+							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
 					break;
 				case MAGE:
-					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.MAGES_STAFF),
-							new ItemSprite(ItemSpriteSheet.WAND_MAGIC_MISSILE),
-							new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
+					icons = new Image[]{ new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
+							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
+							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
 					break;
 				case ROGUE:
-					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.ARTIFACT_CLOAK),
+					icons = new Image[]{ new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
 							Icons.get(Icons.STAIRS),
-							new ItemSprite(ItemSpriteSheet.DAGGER),
-							new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
+							new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.DAGGER_0),
+							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
 					break;
 				case HUNTRESS:
-					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.SPIRIT_BOW),
+					icons = new Image[]{ new ItemSprite(EquipmentEquipWeaponUniqueWeaponDict.SPIRIT_BOW_0),
 							Icons.GRASS.get(),
-							new ItemSprite(ItemSpriteSheet.GLOVES),
-							new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
+							new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.GLOVES),
+							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
 					break;
 				case DUELIST:
-					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.RAPIER),
-							new ItemSprite(ItemSpriteSheet.WAR_HAMMER),
-							new ItemSprite(ItemSpriteSheet.THROWING_SPIKE),
-							new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
+					icons = new Image[]{ new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.RAPIER_0),
+							new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.WAR_HAMMER_0),
+							new ItemSprite(ConsumThrowsDict.THROWING_SPIKE_0),
+							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
 					break;
 				case CLERIC:
-					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.ARTIFACT_TOME),
+					icons = new Image[]{ new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
 							Icons.TALENT.get(),
-							new ItemSprite(ItemSpriteSheet.CUDGEL),
-							new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
+							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
+							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
 					break;
 				case SPELLSWORD:
-					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.RUNIC_BLADE),
-							new ItemSprite(ItemSpriteSheet.WAND_MAGIC_MISSILE),
-							new ItemSprite(ItemSpriteSheet.MAGES_STAFF),
-							new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
+					icons = new Image[]{ new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
+							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
+							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
+							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
 					break;
 				case PERFORMER:
-					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.WAND_MAGIC_MISSILE), Icons.BUFFS.get(),
-							new ItemSprite(ItemSpriteSheet.DAGGER), new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
+					icons = new Image[]{ new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0), Icons.BUFFS.get(),
+							new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.DAGGER_0), new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
 					break;
 				case SOLDIER:
-					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.THROWING_SPIKE), Icons.TARGET.get(),
-							new ItemSprite(ItemSpriteSheet.RAPIER), new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
+					icons = new Image[]{ new ItemSprite(ConsumThrowsDict.THROWING_SPIKE_0), Icons.TARGET.get(),
+							new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.RAPIER_0), new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
 					break;
 				case FOLLOWER:
-					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.CUDGEL), Icons.GOLD.get(),
-							new ItemSprite(ItemSpriteSheet.CUDGEL), new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
+					icons = new Image[]{ new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0), Icons.GOLD.get(),
+							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0), new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
 					break;
 				case ASCETIC:
-					icons = new Image[]{ new ItemSprite(ItemSpriteSheet.GLOVES), new ItemSprite(ItemSpriteSheet.WAND_MAGIC_MISSILE),
-							new ItemSprite(ItemSpriteSheet.GLOVES), new ItemSprite(ItemSpriteSheet.SCROLL_ISAZ)};
+					icons = new Image[]{ new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.GLOVES), new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
+							new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.GLOVES), new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
 					break;
 			}
 			for (Image im : icons) {

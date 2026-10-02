@@ -21,17 +21,18 @@
 
 package pd.items.weapon.missiles.darts;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Healing;
 import pd.actors.hero.Hero;
 import pd.items.potions.PotionOfHealing;
-import pd.sprites.ItemSpriteSheet;
 
 public class HealingDart extends TippedDart {
 	
 	{
-		image = ItemSpriteSheet.HEALING_DART;
+		image = ConsumThrowsDict.HEALING_DART_0;
 		usesTargeting = false; //you never want to throw this at an enemy
 	}
 

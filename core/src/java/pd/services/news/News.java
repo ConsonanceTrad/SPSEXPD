@@ -21,6 +21,8 @@
 
 package pd.services.news;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
@@ -105,7 +107,7 @@ public class News {
 				return Icons.get(Icons.valueOf(article.icon.replace("ICON: ", "")));
 			//"ITEM: <integer constant corresponding to values in ItemSpriteSheet.java>"
 			} else if (article.icon.startsWith("ITEM: ")){
-				return new ItemSprite(Integer.parseInt(article.icon.replace("ITEM: ", "")));
+				return new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0);
 			//"<asset filename>, <tx left>, <tx top>, <width>, <height>"
 			} else {
 				String[] split = article.icon.split(", ");

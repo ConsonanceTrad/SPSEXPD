@@ -21,13 +21,14 @@
 
 package pd.items.trinkets;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 
 public class SaltCube extends Trinket {
 
 	{
-		image = ItemSpriteSheet.SALT_CUBE;
+		image = EquipmentNonEquipDict.SALT_CUBE_0;
 	}
 
 	@Override

@@ -24,12 +24,12 @@ package pd.items.rings;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 
 public class RingOfSharpshooting extends Ring {
 
 	{
-		icon = ItemSpriteSheet.Icons.RING_SHARPSHOOT;
+		icon = ItemIconSheet.RING_SHARPSHOOT;
 		buffClass = Aim.class;
 	}
 

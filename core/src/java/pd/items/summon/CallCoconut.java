@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.summon;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
@@ -11,14 +13,13 @@ import pd.items.Heap;
 import pd.items.bombs.BuildBomb;
 import pd.scenes.GameScene;
 import pd.sprites.CocoCatSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class CallCoconut extends SpsSummonItem {
 	private boolean summonOnThrow;
 
 	{
-		image = ItemSpriteSheet.SPS_CALL_COCONUT;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 	@Override

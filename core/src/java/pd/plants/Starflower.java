@@ -21,6 +21,8 @@
 
 package pd.plants;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Bless;
@@ -31,7 +33,6 @@ import pd.actors.hero.HeroSubClass;
 import pd.effects.Flare;
 import pd.effects.SpellSprite;
 import pd.items.Generator;
-import pd.sprites.ItemSpriteSheet;
 
 public class Starflower extends Plant {
 
@@ -59,7 +60,7 @@ public class Starflower extends Plant {
 	public static class Seed extends Plant.Seed{
 
 		{
-			image = ItemSpriteSheet.SPS_SEED_STARFLOWER;
+			image = ConsumPotionSeedSeedDict.SEED_STARFLOWER_0;
 
 			plantClass = Starflower.class;
 			explantClass = ExStarflower.class;

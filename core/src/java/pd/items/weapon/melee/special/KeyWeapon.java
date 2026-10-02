@@ -1,17 +1,18 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.special;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Amok;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Charm;
 import pd.actors.buffs.Paralysis;
 import pd.actors.buffs.Terror;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class KeyWeapon extends SpsSpecialMeleeWeapon {
-	public KeyWeapon() { super(1, 1f, 1f, 1, 1, 10, ItemSpriteSheet.SPS_KEY_WEAPON); }
+	public KeyWeapon() { super(1, 1f, 1f, 1, 1, 10, SpecificPlaceHolderDict.SOMETHING_0); }
 
 	@Override public int proc(Char attacker, Char defender, int damage) {
 		int roll = Math.max(0, attacker.damageRoll());

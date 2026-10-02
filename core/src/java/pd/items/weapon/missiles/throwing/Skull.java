@@ -1,18 +1,19 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles.throwing;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.SoulMark;
 import pd.items.Item;
 import pd.items.weapon.missiles.MissileWeapon;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class Skull extends MissileWeapon {
 
 	{
-		image = ItemSpriteSheet.LEGACY_SKULL;
+		image = ConsumThrowsDict.SKULL;
 		tier = 1;
 		baseUses = 1;
 		DLY = 0.1f;

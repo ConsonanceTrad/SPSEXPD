@@ -1,16 +1,17 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food.completefood;
 
+import pd.atlas.items.ConsumFoodFoodDict;
+
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.ShieldArmor;
 import pd.actors.hero.Hero;
 import pd.effects.Speck;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class NutCake extends CompleteFood {
 	{
-		image = ItemSpriteSheet.SPS_NUT_CAKE;
+		image = ConsumFoodFoodDict.NUT_CAKE;
 		energy = 450f;
 	}
 	@Override protected void doEat(Hero hero) {

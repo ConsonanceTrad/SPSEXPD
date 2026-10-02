@@ -32,7 +32,7 @@ import pd.actors.buffs.Hunger;
 import pd.actors.buffs.LostInventory;
 import pd.actors.hero.Hero;
 import pd.effects.Flare;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.noosa.audio.Sample;
@@ -40,7 +40,7 @@ import render.noosa.audio.Sample;
 public class PotionOfCleansing extends ExoticPotion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_CLEANSE;
+		icon = ItemIconSheet.POTION_CLEANSE;
 	}
 	
 	@Override

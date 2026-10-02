@@ -1,14 +1,15 @@
 /* Special Surprise content rebuilt for Shattered Pixel Dungeon 4.0. GPLv3+. */
 package pd.items.weapon.melee.fusion;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.actors.Char;
 import pd.items.weapon.melee.Mace;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.serialize.Bundle;
 
 public class PrayerWheel extends Mace implements FusionWeapon {
 	private int charge;
-	{ image = ItemSpriteSheet.ROUND_SHIELD; tier = 4; ACC = 0.9f; }
+	{ image = EquipmentEquipWeaponBasicWeaponDict.ROUND_SHIELD_0; tier = 4; ACC = 0.9f; }
 	@Override public int min(int lvl) { return 6 + lvl; }
 	@Override public int max(int lvl) { return 23 + 5 * lvl; }
 	@Override public int damageRoll(Char owner) {

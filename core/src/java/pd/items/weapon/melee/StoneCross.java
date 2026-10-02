@@ -1,10 +1,11 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.items.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.serialize.Bundle;
 
 public class StoneCross extends NormalMeleeWeapon {
@@ -13,7 +14,7 @@ public class StoneCross extends NormalMeleeWeapon {
 	private int charge;
 
 	public StoneCross() {
-		super(5, .8f, 1.2f, 1, 50, 66, ItemSpriteSheet.SPS_STONE_CROSS);
+		super(5, .8f, 1.2f, 1, 50, 66, SpecificPlaceHolderDict.SOMETHING_0);
 	}
 
 	@Override protected void applyLegacyUpgrade(Stats stats) {

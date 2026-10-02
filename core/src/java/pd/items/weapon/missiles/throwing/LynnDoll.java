@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles.throwing;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -12,7 +14,6 @@ import pd.effects.Pushing;
 import pd.effects.Splash;
 import pd.items.Item;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.sprites.LynnSprite;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
@@ -26,7 +27,7 @@ import java.util.ArrayList;
 public class LynnDoll extends TossWeapon {
 
 	{
-		image = ItemSpriteSheet.LYNN_DOLL;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		tier = 1;
 		baseUses = 1;
 		bones = false;

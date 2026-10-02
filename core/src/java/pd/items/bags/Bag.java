@@ -21,6 +21,8 @@
 
 package pd.items.bags;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Badges;
 import pd.Dungeon;
 import pd.actors.Char;
@@ -41,7 +43,7 @@ public class Bag extends Item implements Iterable<Item> {
 	public static final String AC_OPEN	= "OPEN";
 	
 	{
-		image = 11;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		
 		defaultAction = AC_OPEN;
 

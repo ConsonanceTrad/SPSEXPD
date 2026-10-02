@@ -13,12 +13,13 @@
 
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.hero.Hero;
 import pd.items.armor.Armor;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.HeroSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.AttackIndicator;
 
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class ChangeEquip extends Item {
 	public static final String AC_CHANGE = "CHANGE";
 
 	{
-		image = ItemSpriteSheet.SPS_EQUIP_CHANGE;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		defaultAction = AC_CHANGE;
 	}
 

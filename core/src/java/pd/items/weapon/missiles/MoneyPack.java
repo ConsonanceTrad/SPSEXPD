@@ -1,17 +1,18 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 /** The original 2020 red packet, converting carried gold directly into damage. */
 public class MoneyPack extends MissileWeapon {
 
 	{
-		image = ItemSpriteSheet.MONEY_PACK;
+		image = EquipmentEquipWeaponBasicWeaponDict.MONEY_PACK;
 		tier = 1;
 		baseUses = 1;
 		sticky = false;

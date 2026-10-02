@@ -21,12 +21,13 @@
 
 package pd.items.armor;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 
 public class ClericArmor extends ClassArmor {
 
 	{
-		image = ItemSpriteSheet.ARMOR_CLERIC;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 }

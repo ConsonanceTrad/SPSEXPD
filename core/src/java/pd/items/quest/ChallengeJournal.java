@@ -8,6 +8,8 @@
 
 package pd.items.quest;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
@@ -21,7 +23,6 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.InterlevelScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndMessage;
@@ -54,7 +55,7 @@ public class ChallengeJournal extends Item {
 	private boolean legacyMigrationApplied;
 
 	{
-		image = ItemSpriteSheet.CHALLENGE_BOOK;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		defaultAction = AC_READ;
 		unique = true;
 		keptThoughLostInvent = true;

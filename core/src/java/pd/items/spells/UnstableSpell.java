@@ -21,6 +21,8 @@
 
 package pd.items.spells;
 
+import pd.atlas.items.ConsumScrollAmuletCrystalDict;
+
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.items.scrolls.Scroll;
@@ -38,7 +40,6 @@ import pd.items.scrolls.ScrollOfTransmutation;
 import pd.items.scrolls.exotic.ExoticScroll;
 import pd.items.stones.Runestone;
 import pd.journal.Catalog;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 import render.utils.serialize.Reflection;
 
@@ -49,7 +50,7 @@ import java.util.HashSet;
 public class UnstableSpell extends Spell {
 
 	{
-		image = ItemSpriteSheet.UNSTABLE_SPELL;
+		image = ConsumScrollAmuletCrystalDict.UNSTABLE_SPELL_0;
 	}
 	
 	private static HashMap<Class<? extends Scroll>, Float> scrollChances = new HashMap<>();

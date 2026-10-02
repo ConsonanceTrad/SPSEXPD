@@ -21,14 +21,15 @@
 
 package pd.items.trinkets;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 
 //🍋‍🟩
 public class FerretTuft extends Trinket {
 
 	{
-		image = ItemSpriteSheet.FERRET_TUFT;
+		image = EquipmentNonEquipDict.FERRET_TUFT_0;
 	}
 
 	@Override

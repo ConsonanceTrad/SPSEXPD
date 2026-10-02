@@ -21,6 +21,8 @@
 
 package pd.plants;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.blobs.Blob;
@@ -35,7 +37,6 @@ import pd.effects.particles.FlameParticle;
 import pd.items.weapon.missiles.arrows.FireFruit;
 import pd.levels.traps.Trap;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 
 public class Firebloom extends Plant {
 	
@@ -64,7 +65,7 @@ public class Firebloom extends Plant {
 	
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SPS_SEED_FIREBLOOM;
+			image = ConsumPotionSeedSeedDict.SEED_FIREBLOOM;
 
 			plantClass = Firebloom.class;
 			explantClass = ExFirebloom.class;

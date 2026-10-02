@@ -1,5 +1,7 @@
 package pd.items.weapon.melee.relic;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -9,7 +11,6 @@ import pd.actors.hero.Hero;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.items.weapon.enchantments.JupitersHorror;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.Camera;
 import render.utils.math.Random;
 
@@ -19,7 +20,7 @@ public class JupitersWraith extends RelicMeleeWeapon {
 
 	public JupitersWraith() {
 		super(1f, 1f, 4);
-		image = ItemSpriteSheet.JUPITERS_WRAITH;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		enchant(new JupitersHorror());
 	}
 

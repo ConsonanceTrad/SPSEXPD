@@ -21,19 +21,20 @@
 
 package pd.items.remains;
 
+import pd.atlas.items.ConsumUsefulCorpseRelicsDict;
+
 import pd.Assets;
 import pd.actors.buffs.Barrier;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.effects.FloatingText;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 
 public class SealShard extends RemainsItem {
 
 	{
-		image = ItemSpriteSheet.SEAL_SHARD;
+		image = ConsumUsefulCorpseRelicsDict.SEAL_SHARD_0;
 	}
 
 	@Override

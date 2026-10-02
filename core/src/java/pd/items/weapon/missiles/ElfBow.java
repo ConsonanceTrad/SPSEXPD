@@ -1,6 +1,9 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles;
 
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -15,7 +18,6 @@ import pd.items.weapon.melee.start.DemonBlade;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -30,7 +32,7 @@ public class ElfBow extends Weapon {
 	private int charge;
 
 	{
-		image = ItemSpriteSheet.SPS_ELF_BOW;
+		image = EquipmentEquipWeaponUniqueWeaponDict.SPS_ELF_BOW_0;
 		stackable = false;
 		unique = true;
 		defaultAction = AC_SHOOT;
@@ -101,7 +103,7 @@ public class ElfBow extends Weapon {
 	public int charge() { return charge; }
 
 	public class ElfBowAmmo extends MissileWeapon {
-		{ image = ItemSpriteSheet.DART; tier = 1; baseUses = 100f; }
+		{ image = SpecificPlaceHolderDict.SOMETHING_0; tier = 1; baseUses = 100f; }
 		@Override public int min(int lvl) { return ElfBow.this.min(); }
 		@Override public int max(int lvl) { return ElfBow.this.max(); }
 		@Override public int STRReq(int lvl) { return ElfBow.this.STRReq(); }

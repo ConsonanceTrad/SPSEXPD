@@ -21,6 +21,8 @@
 
 package pd.items.wands;
 
+import pd.atlas.items.EquipmentWandBasicWandDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.Statistics;
@@ -68,7 +70,6 @@ import pd.effects.MagicMissile;
 import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
@@ -79,7 +80,7 @@ import java.util.HashMap;
 public class WandOfCorruption extends Wand {
 
 	{
-		image = ItemSpriteSheet.WAND_CORRUPTION;
+		image = EquipmentWandBasicWandDict.WAND_CORRUPTION_0;
 	}
 	
 	//Note that some debuffs here have a 0% chance to be applied.

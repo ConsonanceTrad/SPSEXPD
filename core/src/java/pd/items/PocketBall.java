@@ -1,18 +1,19 @@
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.mobs.pets.LegacyPet;
 import pd.effects.particles.ShadowParticle;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 
 /** The original empty pocket ball, thrown directly at a companion to recover its soul. */
 public class PocketBall extends Item {
 	{
-		image = ItemSpriteSheet.POCKET_BALL;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = true;
 	}
 	public PocketBall() { this(1); }

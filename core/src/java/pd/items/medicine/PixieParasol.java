@@ -1,5 +1,7 @@
 package pd.items.medicine;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.ArmorBreak;
 import pd.actors.buffs.Bless;
 import pd.actors.buffs.Buff;
@@ -8,11 +10,10 @@ import pd.actors.buffs.Paralysis;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.effects.Speck;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class PixieParasol extends Pill {
-	{ image = ItemSpriteSheet.MUSHROOM_PIXIEPARASOL; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	public PixieParasol() { this(1); }
 	public PixieParasol(int value) { quantity = value; }
 	@Override protected void onUse(Hero hero) {

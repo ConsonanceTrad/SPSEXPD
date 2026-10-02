@@ -27,14 +27,14 @@ import pd.levels.Level;
 import pd.levels.Transitions;
 import pd.messages.Messages;
 import pd.scenes.InterlevelScene;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.Game;
 
 public class ScrollOfPassage extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_PASSAGE;
+		icon = ItemIconSheet.SCROLL_PASSAGE;
 	}
 	
 	@Override

@@ -21,16 +21,17 @@
 
 package pd.items.stones;
 
+import pd.atlas.items.ConsumScrollAmuletAmuletDict;
+
 import pd.actors.Actor;
 import pd.actors.hero.Hero;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.mechanics.Ballistica;
-import pd.sprites.ItemSpriteSheet;
 
 public class StoneOfBlink extends Runestone {
 	
 	{
-		image = ItemSpriteSheet.STONE_BLINK;
+		image = ConsumScrollAmuletAmuletDict.STONE_BLINK_0;
 	}
 	
 	private static Ballistica throwPath;

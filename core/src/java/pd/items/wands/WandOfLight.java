@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.wands;
 
+import pd.atlas.items.EquipmentWandBasicWandDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -15,7 +17,6 @@ import pd.effects.particles.ShadowParticle;
 import pd.items.Heap;
 import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
-import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTilemap;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
@@ -25,7 +26,7 @@ import render.utils.math.Random;
 public class WandOfLight extends DamageWand {
 
 	{
-		image = ItemSpriteSheet.WAND_LIGHT;
+		image = EquipmentWandBasicWandDict.WAND_LIGHT;
 		collisionProperties = Ballistica.STOP_CHARS;
 	}
 

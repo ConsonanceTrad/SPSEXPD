@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.wands;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -18,7 +20,6 @@ import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
@@ -27,7 +28,7 @@ import render.utils.math.Random;
 public class WandOfMeteorite extends DamageWand {
 
 	{
-		image = ItemSpriteSheet.WAND_METEORITE;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		collisionProperties = Ballistica.PROJECTILE;
 	}
 

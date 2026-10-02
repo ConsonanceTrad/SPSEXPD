@@ -1,11 +1,12 @@
 package pd.items.weapon.melee.relic;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Shadows;
 import pd.actors.hero.Hero;
 import pd.items.weapon.enchantments.LokisPoison;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 
 public class LokisFlail extends RelicMeleeWeapon {
@@ -14,7 +15,7 @@ public class LokisFlail extends RelicMeleeWeapon {
 
 	public LokisFlail() {
 		super(0.8f, 1.2f, 2);
-		image = ItemSpriteSheet.LOKIS_FLAIL;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		hitSound = Assets.Sounds.HIT_CRUSH;
 		enchant(new LokisPoison());
 	}

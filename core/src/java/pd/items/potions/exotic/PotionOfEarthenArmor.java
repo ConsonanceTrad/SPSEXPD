@@ -23,12 +23,12 @@ package pd.items.potions.exotic;
 
 import pd.actors.buffs.Barkskin;
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 
 public class PotionOfEarthenArmor extends ExoticPotion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_EARTHARMR;
+		icon = ItemIconSheet.POTION_EARTHARMR;
 	}
 	
 	@Override

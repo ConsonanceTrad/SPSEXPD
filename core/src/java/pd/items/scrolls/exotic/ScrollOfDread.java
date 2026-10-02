@@ -29,13 +29,13 @@ import pd.actors.buffs.Dread;
 import pd.actors.buffs.Terror;
 import pd.actors.mobs.Mob;
 import pd.effects.Flare;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
 
 public class ScrollOfDread extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_DREAD;
+		icon = ItemIconSheet.SCROLL_DREAD;
 	}
 	
 	@Override

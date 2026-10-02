@@ -21,6 +21,8 @@
 
 package pd.sprites;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.items.Item;
@@ -93,7 +95,7 @@ public class ScorpioSprite extends MobSprite {
 	
 	public class ScorpioShot extends Item {
 		{
-			image = ItemSpriteSheet.FISHING_SPEAR;
+			image = ConsumThrowsDict.FISHING_SPEAR_0;
 		}
 	}
 }

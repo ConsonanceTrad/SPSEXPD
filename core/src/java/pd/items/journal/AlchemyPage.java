@@ -21,14 +21,15 @@
 
 package pd.items.journal;
 
+import pd.atlas.items.SpecificPagesDict;
+
 import pd.journal.Document;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 
 public class AlchemyPage extends DocumentPage {
 	
 	{
-		image = ItemSpriteSheet.ALCH_PAGE;
+		image = SpecificPagesDict.ALCH_PAGE_0;
 	}
 	
 	@Override

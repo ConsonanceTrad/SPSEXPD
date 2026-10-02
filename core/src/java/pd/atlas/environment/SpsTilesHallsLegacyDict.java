@@ -13,131 +13,131 @@ public final class SpsTilesHallsLegacyDict {
 	private SpsTilesHallsLegacyDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{0, 0, 16, 16});
+	public static final IconEntry TILE_000 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{0, 0, 16, 16}, 2068);
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{16, 0, 16, 16});
+	public static final IconEntry TILE_001 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{16, 0, 16, 16}, 2069);
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{32, 0, 16, 16});
+	public static final IconEntry TILE_002 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{32, 0, 16, 16}, 2070);
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{48, 0, 16, 16});
+	public static final IconEntry TILE_003 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{48, 0, 16, 16}, 2071);
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{64, 0, 16, 16});
+	public static final IconEntry TILE_004 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{64, 0, 16, 16}, 2072);
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{80, 0, 16, 16});
+	public static final IconEntry TILE_005 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{80, 0, 16, 16}, 2073);
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{96, 0, 16, 16});
+	public static final IconEntry TILE_006 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{96, 0, 16, 16}, 2074);
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{112, 0, 16, 16});
+	public static final IconEntry TILE_007 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{112, 0, 16, 16}, 2075);
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{128, 0, 16, 16});
+	public static final IconEntry TILE_008 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{128, 0, 16, 16}, 2076);
 	/** tile_009 */
-	public static final IconEntry TILE_009 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{144, 0, 16, 16});
+	public static final IconEntry TILE_009 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{144, 0, 16, 16}, 2077);
 	/** tile_010 */
-	public static final IconEntry TILE_010 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{160, 0, 16, 16});
+	public static final IconEntry TILE_010 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{160, 0, 16, 16}, 2078);
 	/** tile_011 */
-	public static final IconEntry TILE_011 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{176, 0, 16, 16});
+	public static final IconEntry TILE_011 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{176, 0, 16, 16}, 2079);
 	/** tile_012 */
-	public static final IconEntry TILE_012 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{192, 0, 16, 16});
+	public static final IconEntry TILE_012 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{192, 0, 16, 16}, 2080);
 	/** tile_013 */
-	public static final IconEntry TILE_013 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{208, 0, 16, 16});
+	public static final IconEntry TILE_013 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{208, 0, 16, 16}, 2081);
 	/** tile_014 */
-	public static final IconEntry TILE_014 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{224, 0, 16, 16});
+	public static final IconEntry TILE_014 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{224, 0, 16, 16}, 2082);
 	/** tile_015 */
-	public static final IconEntry TILE_015 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{240, 0, 16, 16});
+	public static final IconEntry TILE_015 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{240, 0, 16, 16}, 2083);
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{0, 16, 16, 16});
+	public static final IconEntry TILE_016 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{0, 16, 16, 16}, 2084);
 	/** tile_017 */
-	public static final IconEntry TILE_017 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{16, 16, 16, 16});
+	public static final IconEntry TILE_017 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{16, 16, 16, 16}, 2085);
 	/** tile_018 */
-	public static final IconEntry TILE_018 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{32, 16, 16, 16});
+	public static final IconEntry TILE_018 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{32, 16, 16, 16}, 2086);
 	/** tile_019 */
-	public static final IconEntry TILE_019 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{48, 16, 16, 16});
+	public static final IconEntry TILE_019 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{48, 16, 16, 16}, 2087);
 	/** tile_020 */
-	public static final IconEntry TILE_020 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{64, 16, 16, 16});
+	public static final IconEntry TILE_020 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{64, 16, 16, 16}, 2088);
 	/** tile_021 */
-	public static final IconEntry TILE_021 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{80, 16, 16, 16});
+	public static final IconEntry TILE_021 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{80, 16, 16, 16}, 2089);
 	/** tile_022 */
-	public static final IconEntry TILE_022 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{96, 16, 16, 16});
+	public static final IconEntry TILE_022 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{96, 16, 16, 16}, 2090);
 	/** tile_023 */
-	public static final IconEntry TILE_023 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{112, 16, 16, 16});
+	public static final IconEntry TILE_023 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{112, 16, 16, 16}, 2091);
 	/** tile_024 */
-	public static final IconEntry TILE_024 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{128, 16, 16, 16});
+	public static final IconEntry TILE_024 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{128, 16, 16, 16}, 2092);
 	/** tile_025 */
-	public static final IconEntry TILE_025 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{144, 16, 16, 16});
+	public static final IconEntry TILE_025 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{144, 16, 16, 16}, 2093);
 	/** tile_026 */
-	public static final IconEntry TILE_026 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{160, 16, 16, 16});
+	public static final IconEntry TILE_026 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{160, 16, 16, 16}, 2094);
 	/** tile_027 */
-	public static final IconEntry TILE_027 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{176, 16, 16, 16});
+	public static final IconEntry TILE_027 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{176, 16, 16, 16}, 2095);
 	/** tile_028 */
-	public static final IconEntry TILE_028 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{192, 16, 16, 16});
+	public static final IconEntry TILE_028 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{192, 16, 16, 16}, 2096);
 	/** tile_029 */
-	public static final IconEntry TILE_029 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{208, 16, 16, 16});
+	public static final IconEntry TILE_029 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{208, 16, 16, 16}, 2097);
 	/** tile_030 */
-	public static final IconEntry TILE_030 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{224, 16, 16, 16});
+	public static final IconEntry TILE_030 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{224, 16, 16, 16}, 2098);
 	/** tile_031 */
-	public static final IconEntry TILE_031 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{240, 16, 16, 16});
+	public static final IconEntry TILE_031 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{240, 16, 16, 16}, 2099);
 	/** tile_032 */
-	public static final IconEntry TILE_032 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{0, 32, 16, 16});
+	public static final IconEntry TILE_032 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{0, 32, 16, 16}, 2100);
 	/** tile_033 */
-	public static final IconEntry TILE_033 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{16, 32, 16, 16});
+	public static final IconEntry TILE_033 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{16, 32, 16, 16}, 2101);
 	/** tile_034 */
-	public static final IconEntry TILE_034 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{32, 32, 16, 16});
+	public static final IconEntry TILE_034 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{32, 32, 16, 16}, 2102);
 	/** tile_035 */
-	public static final IconEntry TILE_035 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{48, 32, 16, 16});
+	public static final IconEntry TILE_035 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{48, 32, 16, 16}, 2103);
 	/** tile_036 */
-	public static final IconEntry TILE_036 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{64, 32, 16, 16});
+	public static final IconEntry TILE_036 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{64, 32, 16, 16}, 2104);
 	/** tile_037 */
-	public static final IconEntry TILE_037 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{80, 32, 16, 16});
+	public static final IconEntry TILE_037 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{80, 32, 16, 16}, 2105);
 	/** tile_038 */
-	public static final IconEntry TILE_038 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{96, 32, 16, 16});
+	public static final IconEntry TILE_038 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{96, 32, 16, 16}, 2106);
 	/** tile_039 */
-	public static final IconEntry TILE_039 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{112, 32, 16, 16});
+	public static final IconEntry TILE_039 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{112, 32, 16, 16}, 2107);
 	/** tile_040 */
-	public static final IconEntry TILE_040 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{128, 32, 16, 16});
+	public static final IconEntry TILE_040 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{128, 32, 16, 16}, 2108);
 	/** tile_041 */
-	public static final IconEntry TILE_041 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{144, 32, 16, 16});
+	public static final IconEntry TILE_041 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{144, 32, 16, 16}, 2109);
 	/** tile_042 */
-	public static final IconEntry TILE_042 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{160, 32, 16, 16});
+	public static final IconEntry TILE_042 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{160, 32, 16, 16}, 2110);
 	/** tile_043 */
-	public static final IconEntry TILE_043 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{176, 32, 16, 16});
+	public static final IconEntry TILE_043 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{176, 32, 16, 16}, 2111);
 	/** tile_044 */
-	public static final IconEntry TILE_044 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{192, 32, 16, 16});
+	public static final IconEntry TILE_044 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{192, 32, 16, 16}, 2112);
 	/** tile_045 */
-	public static final IconEntry TILE_045 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{208, 32, 16, 16});
+	public static final IconEntry TILE_045 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{208, 32, 16, 16}, 2113);
 	/** tile_046 */
-	public static final IconEntry TILE_046 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{224, 32, 16, 16});
+	public static final IconEntry TILE_046 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{224, 32, 16, 16}, 2114);
 	/** tile_047 */
-	public static final IconEntry TILE_047 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{240, 32, 16, 16});
+	public static final IconEntry TILE_047 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{240, 32, 16, 16}, 2115);
 	/** tile_048 */
-	public static final IconEntry TILE_048 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{0, 48, 16, 16});
+	public static final IconEntry TILE_048 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{0, 48, 16, 16}, 2116);
 	/** tile_049 */
-	public static final IconEntry TILE_049 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{16, 48, 16, 16});
+	public static final IconEntry TILE_049 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{16, 48, 16, 16}, 2117);
 	/** tile_050 */
-	public static final IconEntry TILE_050 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{32, 48, 16, 16});
+	public static final IconEntry TILE_050 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{32, 48, 16, 16}, 2118);
 	/** tile_051 */
-	public static final IconEntry TILE_051 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{48, 48, 16, 16});
+	public static final IconEntry TILE_051 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{48, 48, 16, 16}, 2119);
 	/** tile_052 */
-	public static final IconEntry TILE_052 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{64, 48, 16, 16});
+	public static final IconEntry TILE_052 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{64, 48, 16, 16}, 2120);
 	/** tile_053 */
-	public static final IconEntry TILE_053 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{80, 48, 16, 16});
+	public static final IconEntry TILE_053 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{80, 48, 16, 16}, 2121);
 	/** tile_054 */
-	public static final IconEntry TILE_054 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{96, 48, 16, 16});
+	public static final IconEntry TILE_054 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{96, 48, 16, 16}, 2122);
 	/** tile_055 */
-	public static final IconEntry TILE_055 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{112, 48, 16, 16});
+	public static final IconEntry TILE_055 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{112, 48, 16, 16}, 2123);
 	/** tile_056 */
-	public static final IconEntry TILE_056 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{128, 48, 16, 16});
+	public static final IconEntry TILE_056 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{128, 48, 16, 16}, 2124);
 	/** tile_057 */
-	public static final IconEntry TILE_057 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{144, 48, 16, 16});
+	public static final IconEntry TILE_057 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{144, 48, 16, 16}, 2125);
 	/** tile_058 */
-	public static final IconEntry TILE_058 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{160, 48, 16, 16});
+	public static final IconEntry TILE_058 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{160, 48, 16, 16}, 2126);
 	/** tile_059 */
-	public static final IconEntry TILE_059 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{176, 48, 16, 16});
+	public static final IconEntry TILE_059 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{176, 48, 16, 16}, 2127);
 	/** tile_060 */
-	public static final IconEntry TILE_060 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{192, 48, 16, 16});
+	public static final IconEntry TILE_060 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{192, 48, 16, 16}, 2128);
 	/** tile_061 */
-	public static final IconEntry TILE_061 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{208, 48, 16, 16});
+	public static final IconEntry TILE_061 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{208, 48, 16, 16}, 2129);
 	/** tile_062 */
-	public static final IconEntry TILE_062 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{224, 48, 16, 16});
+	public static final IconEntry TILE_062 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{224, 48, 16, 16}, 2130);
 	/** tile_063 */
-	public static final IconEntry TILE_063 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{240, 48, 16, 16});
+	public static final IconEntry TILE_063 = new IconEntry("environment/tiles/sps_tiles_halls_legacy.png", new int[]{240, 48, 16, 16}, 2131);
 }

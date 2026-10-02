@@ -21,6 +21,8 @@
 
 package pd.items.artifacts;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Char;
@@ -31,7 +33,6 @@ import pd.actors.hero.Hero;
 import pd.effects.particles.ElmoParticle;
 import pd.journal.Catalog;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
@@ -44,7 +45,7 @@ public class CapeOfThorns extends Artifact {
 	public static final String AC_NEEDLING = "NEEDLING";
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_CAPE;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 
 		levelCap = 10;
 

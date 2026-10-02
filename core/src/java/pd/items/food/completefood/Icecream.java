@@ -1,15 +1,16 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food.completefood;
 
+import pd.atlas.items.ConsumFoodFoodDict;
+
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Burning;
 import pd.actors.buffs.Poison;
 import pd.actors.buffs.STRDown;
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 
 public class Icecream extends CompleteFood {
-	{ image = ItemSpriteSheet.ICECREAM; energy = 90f; }
+	{ image = ConsumFoodFoodDict.ICECREAM; energy = 90f; }
 	@Override protected void doEat(Hero hero) {
 		increaseMaxHealth(hero, 3, 6);
 		heal(hero, (hero.HT - hero.HP) / 2);

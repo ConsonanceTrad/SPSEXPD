@@ -32,7 +32,7 @@ import pd.actors.mobs.npcs.MirrorImage;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
@@ -43,7 +43,7 @@ import java.util.ArrayList;
 public class ScrollOfMirrorImage extends Scroll {
 
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_MIRRORIMG;
+		icon = ItemIconSheet.SCROLL_MIRRORIMG;
 	}
 
 	private static final int NIMAGES	= 3;

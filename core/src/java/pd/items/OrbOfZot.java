@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -10,7 +12,6 @@ import pd.effects.particles.ElmoParticle;
 import pd.items.journalpages.EnergyCore;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
@@ -31,7 +32,7 @@ public class OrbOfZot extends Item {
 	private transient boolean activatedThrow;
 
 	{
-		image = ItemSpriteSheet.ORB_OF_ZOT;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		defaultAction = AC_ACTIVATETHROW;
 		unique = true;
 		usesTargeting = true;

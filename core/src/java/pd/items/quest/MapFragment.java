@@ -8,10 +8,11 @@
 
 package pd.items.quest;
 
+import pd.atlas.items.SpecificPagesDict;
+
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.serialize.Bundle;
 
@@ -37,11 +38,11 @@ public class MapFragment extends Item {
 
 	private void updateImage() {
 		switch (challenge) {
-			case 0: image = ItemSpriteSheet.SEWER_PAGE; break;
-			case 1: image = ItemSpriteSheet.PRISON_PAGE; break;
-			case 2: image = ItemSpriteSheet.CAVES_PAGE; break;
-			case 3: image = ItemSpriteSheet.CITY_PAGE; break;
-			case 4: image = ItemSpriteSheet.HALLS_PAGE; break;
+			case 0: image = SpecificPagesDict.SEWER_PAGE_0; break;
+			case 1: image = SpecificPagesDict.PRISON_PAGE_0; break;
+			case 2: image = SpecificPagesDict.CAVES_PAGE_0; break;
+			case 3: image = SpecificPagesDict.CITY_PAGE_0; break;
+			case 4: image = SpecificPagesDict.HALLS_PAGE_0; break;
 		}
 	}
 

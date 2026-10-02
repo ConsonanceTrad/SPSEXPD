@@ -8,6 +8,8 @@
 
 package pd.windows;
 
+import pd.atlas.items.SpecificTaskDict;
+
 import pd.Dungeon;
 import pd.items.EquipableItem;
 import pd.items.Garbage;
@@ -81,7 +83,6 @@ import pd.plants.Stormvine;
 import pd.plants.Sungrass;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
@@ -95,7 +96,7 @@ public class WndIronMaker extends WndOptions {
 	}
 
 	private WndIronMaker(Session session) {
-		super(new ItemSprite(ItemSpriteSheet.ORE),
+		super(new ItemSprite(SpecificTaskDict.ORE_0),
 				Messages.get(WndIronMaker.class, "title"),
 				description(session),
 				Messages.get(WndIronMaker.class, "add"),

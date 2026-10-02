@@ -21,6 +21,8 @@
 
 package pd.ui;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.QuickSlot;
@@ -37,7 +39,6 @@ import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTerrainTilemap;
 import pd.windows.WndBag;
 import pd.windows.WndKeyBindings;
@@ -140,7 +141,7 @@ public class Toolbar extends Component {
 							slotIcons[s] = new ItemSprite(item);
 						} else {
 							slotNames[s] = Messages.get(Toolbar.class, "quickslot_assign");
-							slotIcons[s] = new ItemSprite(ItemSpriteSheet.SOMETHING);
+							slotIcons[s] = new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0);
 						}
 					}
 

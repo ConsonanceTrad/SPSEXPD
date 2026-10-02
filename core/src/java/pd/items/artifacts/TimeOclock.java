@@ -1,6 +1,9 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.artifacts;
 
+import pd.atlas.items.GroundFunctionalFallingDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import java.util.ArrayList;
 import pd.Assets;
 import pd.Dungeon;
@@ -19,7 +22,6 @@ import pd.items.keys.Key;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.InterlevelScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndOptions;
 import render.noosa.Game;
@@ -31,7 +33,7 @@ public class TimeOclock extends Artifact {
 	public static final String AC_ACTIVATE="ACTIVATE",AC_RESTART="RESTART";
 	private static final String SANDBAGS="sandbags",STASIS="stasis",LEGACY_BUFF="buff";
 	private int sandBags;
-	{image=ItemSpriteSheet.LEGACY_TIME_OCLOCK;levelCap=5;chargeCap=5;charge=5;defaultAction=AC_ACTIVATE;}
+	{image=SpecificPlaceHolderDict.SOMETHING_0;levelCap=5;chargeCap=5;charge=5;defaultAction=AC_ACTIVATE;}
 	@Override public ArrayList<String> actions(Hero h){ArrayList<String>a=super.actions(h);if(isEquipped(h)&&charge>0&&!cursed)a.add(AC_ACTIVATE);if(!isEquipped(h)&&level()>4&&!cursed)a.add(AC_RESTART);return a;}
 	@Override public void execute(final Hero h,String action){
 		if(AC_ACTIVATE.equals(action)){if(!isEquipped(h))GLog.i(Messages.get(Artifact.class,"need_to_equip"));else if(activeBuff!=null)GLog.i(Messages.get(this,"in_use"));else if(charge<=1)GLog.i(Messages.get(this,"no_charge"));else if(cursed)GLog.i(Messages.get(this,"cursed"));else GameScene.show(new WndOptions(Messages.titleCase(name()),Messages.get(this,"prompt"),Messages.get(this,"stasis"),Messages.get(this,"freeze")){@Override protected void onSelect(int i){if(i==0)useStasis(h);else if(i==1)useFreeze(h);}});
@@ -55,5 +57,5 @@ public class TimeOclock extends Artifact {
 	}
 	@Override public void storeInBundle(Bundle b){super.storeInBundle(b);b.put(SANDBAGS,sandBags);b.put(STASIS,activeBuff!=null);if(activeBuff!=null)b.put(LEGACY_BUFF,activeBuff);}
 	@Override public void restoreFromBundle(Bundle b){super.restoreFromBundle(b);chargeCap=5+level();sandBags=b.getInt(SANDBAGS);if(b.contains(LEGACY_BUFF)){activeBuff=new TimeStasis();activeBuff.restoreFromBundle(b.getBundle(LEGACY_BUFF));}else if(b.getBoolean(STASIS))activeBuff=new TimeStasis();}
-	public static class Clock extends Item{{image=ItemSpriteSheet.SANDBAG;}@Override public boolean doPickUp(Hero h,int pos){TimeOclock o=h.belongings.getItem(TimeOclock.class);if(o!=null&&!o.cursed&&o.level()<o.levelCap){o.upgrade();Sample.INSTANCE.play(Assets.Sounds.DEWDROP);GameScene.pickUp(this,pos);h.spendAndNext(pickupDelay());return true;}GLog.w(Messages.get(this,"no_hourglass"));return false;}@Override public int value(){return 30;}@Override public boolean isUpgradable(){return false;}@Override public boolean isIdentified(){return true;}}
+	public static class Clock extends Item{{image=GroundFunctionalFallingDict.SANDBAG_0;}@Override public boolean doPickUp(Hero h,int pos){TimeOclock o=h.belongings.getItem(TimeOclock.class);if(o!=null&&!o.cursed&&o.level()<o.levelCap){o.upgrade();Sample.INSTANCE.play(Assets.Sounds.DEWDROP);GameScene.pickUp(this,pos);h.spendAndNext(pickupDelay());return true;}GLog.w(Messages.get(this,"no_hourglass"));return false;}@Override public int value(){return 30;}@Override public boolean isUpgradable(){return false;}@Override public boolean isIdentified(){return true;}}
 }

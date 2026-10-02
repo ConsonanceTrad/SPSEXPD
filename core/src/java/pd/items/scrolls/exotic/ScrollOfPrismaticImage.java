@@ -30,13 +30,13 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.npcs.PrismaticImage;
 import pd.effects.FloatingText;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
 
 public class ScrollOfPrismaticImage extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_PRISIMG;
+		icon = ItemIconSheet.SCROLL_PRISIMG;
 	}
 	
 	@Override

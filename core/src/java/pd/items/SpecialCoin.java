@@ -1,11 +1,12 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.actors.hero.Hero;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 /** Preserves the unfinished SPS S-coin pickup behavior: feedback only, with no persistent wallet. */
 public class SpecialCoin extends Item {
 	{
-		image = ItemSpriteSheet.SPS_SPECIAL_COIN;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = true;
 	}
 	public SpecialCoin() { this(1); }

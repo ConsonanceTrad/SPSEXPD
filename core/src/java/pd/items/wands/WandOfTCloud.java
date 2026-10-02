@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.wands;
 
+import pd.atlas.items.EquipmentWandBasicWandDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -23,7 +25,6 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.sprites.KeKeSprite;
 import pd.sprites.TCloudSprite;
 import pd.utils.GLog;
@@ -43,7 +44,7 @@ public class WandOfTCloud extends Wand {
 	public static final int STCLOUD_LIFETIME = 40;
 
 	{
-		image = ItemSpriteSheet.WAND_TCLOUD;
+		image = EquipmentWandBasicWandDict.WAND_TCLOUD;
 		collisionProperties = Ballistica.PROJECTILE;
 	}
 

@@ -1,5 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.start;
+
+import pd.atlas.items.SpecificPlaceHolderDict;
 import java.util.ArrayList;
 import pd.actors.Char;
 import pd.actors.buffs.*;
@@ -10,12 +12,11 @@ import pd.items.potions.PotionOfStrength;
 import pd.items.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
 import render.utils.serialize.Bundle;
 public class BraveBook extends NormalMeleeWeapon {
 	public static final String AC_ADD="ADD",AC_IMPROVE="IMPROVE",AC_HEAL="HEAL";private static final String CHARGE="charge",UP1="uptime1",UP2="uptime2";private int charge,uptime1=1,uptime2=1;
-	public BraveBook(){super(2,1.2f,.5f,1,4,14,ItemSpriteSheet.LEGACY_BRAVE_BOOK);unique=true;reinforced=true;cursed=true;defaultAction=AC_ADD;}
+	public BraveBook(){super(2,1.2f,.5f,1,4,14,SpecificPlaceHolderDict.SOMETHING_0);unique=true;reinforced=true;cursed=true;defaultAction=AC_ADD;}
 	@Override protected void applyLegacyUpgrade(Stats stats){stats.min++;stats.max++;}@Override public Item uncurse(){return this;}
 	@Override public ArrayList<String> actions(Hero h){ArrayList<String>a=super.actions(h);a.add(AC_ADD);if(charge>4)a.add(AC_IMPROVE);if(charge>9)a.add(AC_HEAL);return a;}
 	@Override public void execute(Hero h,String a){if(AC_ADD.equals(a)){curUser=h;GameScene.selectItem(selector);}else if(AC_IMPROVE.equals(a))improve(h);else if(AC_HEAL.equals(a))heal(h);else super.execute(h,a);}

@@ -21,13 +21,14 @@
 
 package pd.items.trinkets;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 
 public class ExoticCrystals extends Trinket {
 
 	{
-		image = ItemSpriteSheet.EXOTIC_CRYSTALS;
+		image = EquipmentNonEquipDict.EXOTIC_CRYSTALS_0;
 	}
 
 	@Override

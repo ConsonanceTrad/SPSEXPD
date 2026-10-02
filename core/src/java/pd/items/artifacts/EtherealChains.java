@@ -21,6 +21,8 @@
 
 package pd.items.artifacts;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -49,7 +51,6 @@ import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTilemap;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
@@ -65,7 +66,7 @@ public class EtherealChains extends Artifact {
 	public static final String AC_LOCKED     = "LOCKED";
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_CHAINS;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 
 		levelCap = 5;
 		exp = 0;

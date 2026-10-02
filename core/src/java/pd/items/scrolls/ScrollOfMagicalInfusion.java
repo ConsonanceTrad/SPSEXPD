@@ -8,7 +8,7 @@ import pd.items.Item;
 import pd.items.armor.Armor;
 import pd.items.weapon.Weapon;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 
 public class ScrollOfMagicalInfusion extends InventoryScroll {
@@ -17,7 +17,7 @@ public class ScrollOfMagicalInfusion extends InventoryScroll {
 		//The SPS-PD 0.9.8 empowered infusion branch intentionally has no effect.
 	}
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_UPGRADE;
+		icon = ItemIconSheet.SCROLL_UPGRADE;
 		preferredBag = Belongings.Backpack.class;
 	}
 

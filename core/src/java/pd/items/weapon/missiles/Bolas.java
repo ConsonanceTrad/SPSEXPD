@@ -21,16 +21,17 @@
 
 package pd.items.weapon.missiles;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Assets;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Cripple;
-import pd.sprites.ItemSpriteSheet;
 
 public class Bolas extends MissileWeapon {
 	
 	{
-		image = ItemSpriteSheet.BOLAS;
+		image = ConsumThrowsDict.BOLAS_0;
 		hitSound = Assets.Sounds.HIT;
 		hitSoundPitch = 1f;
 		

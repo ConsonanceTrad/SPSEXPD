@@ -37,13 +37,13 @@ import pd.actors.buffs.Vulnerable;
 import pd.actors.buffs.Weakness;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 
 public class PotionOfHealing extends Potion {
 
 	{
-		icon = ItemSpriteSheet.Icons.POTION_HEALING;
+		icon = ItemIconSheet.POTION_HEALING;
 
 		bones = true;
 	}

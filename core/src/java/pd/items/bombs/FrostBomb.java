@@ -21,6 +21,8 @@
 
 package pd.items.bombs;
 
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -30,13 +32,12 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Frost;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.data.BArray;
 
 public class FrostBomb extends Bomb {
 	
 	{
-		image = ItemSpriteSheet.FROST_BOMB;
+		image = EquipmentEquipWeaponBombDict.FROST_BOMB_0;
 	}
 
 	@Override

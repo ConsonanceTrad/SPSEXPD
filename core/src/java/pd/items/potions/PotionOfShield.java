@@ -1,5 +1,7 @@
 package pd.items.potions;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -8,11 +10,10 @@ import pd.actors.buffs.Barrier;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Paralysis;
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 
 public class PotionOfShield extends SpsPotion {
-	{ image = ItemSpriteSheet.SPS_POTION_SHIELD; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public void apply(Hero hero) {
 		Buff.affect(hero, Barrier.class).incShield(Math.max(1, hero.HT / 3));
 		Buff.affect(hero, ArcaneArmor.class).set(Math.max(1, hero.HT / 3), 30);

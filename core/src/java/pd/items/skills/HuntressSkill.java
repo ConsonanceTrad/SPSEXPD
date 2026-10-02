@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.skills;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.buffs.*;
@@ -12,14 +14,13 @@ import pd.items.reward.BoundReward;
 import pd.items.summon.FairyCard;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
 
 /** The four huntress class skills from SPS-PD 0.9.8. */
 public class HuntressSkill extends ClassSkill {
-	{ image = ItemSpriteSheet.ARMOR_HUNTRESS; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 
 	@Override public void doSpecial() {
 		Buff.prolong(curUser, TargetShoot.class, 50f);

@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles.meleethrow;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -8,11 +10,10 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Dry;
 import pd.actors.buffs.Hot;
 import pd.mechanics.pathfind.PathFinder;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class Tree extends MeleeThrowWeapon {
-	public Tree() { super(1, 1, 5, ItemSpriteSheet.SPS_EASTER_TREE); }
+	public Tree() { super(1, 1, 5, SpecificPlaceHolderDict.SOMETHING_0); }
 
 	@Override public int proc(Char attacker, Char defender, int damage) {
 		if (Random.Int(100) > 40) Buff.affect(defender, Dry.class, 10f);

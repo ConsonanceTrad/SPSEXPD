@@ -21,16 +21,17 @@
 
 package pd.items.weapon.missiles;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Assets;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
-import pd.sprites.ItemSpriteSheet;
 
 public class ThrowingKnife extends MissileWeapon {
 	
 	{
-		image = ItemSpriteSheet.THROWING_KNIFE;
+		image = ConsumThrowsDict.THROWING_KNIFE_0;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1.2f;
 		

@@ -26,12 +26,12 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.MagicalSight;
 import pd.actors.hero.Hero;
 import pd.effects.SpellSprite;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 
 public class PotionOfMagicalSight extends ExoticPotion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_MAGISIGHT;
+		icon = ItemIconSheet.POTION_MAGISIGHT;
 	}
 	
 	@Override

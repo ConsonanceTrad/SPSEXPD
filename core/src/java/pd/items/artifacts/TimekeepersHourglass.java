@@ -21,6 +21,9 @@
 
 package pd.items.artifacts;
 
+import pd.atlas.items.GroundFunctionalFallingDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.Gdx;
 import pd.Assets;
 import pd.Dungeon;
@@ -43,7 +46,6 @@ import pd.scenes.GameScene;
 import pd.scenes.InterlevelScene;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndOptions;
 import render.noosa.Game;
@@ -57,7 +59,7 @@ import java.util.ArrayList;
 public class TimekeepersHourglass extends Artifact {
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_HOURGLASS;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 
 		levelCap = 5;
 
@@ -468,7 +470,7 @@ public class TimekeepersHourglass extends Artifact {
 	public static class sandBag extends Item {
 
 		{
-			image = ItemSpriteSheet.SANDBAG;
+			image = GroundFunctionalFallingDict.SANDBAG_0;
 		}
 
 		@Override

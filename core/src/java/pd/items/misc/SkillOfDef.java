@@ -1,8 +1,9 @@
 package pd.items.misc;
+
+import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 public class SkillOfDef extends SkillBook {
-	{ image = ItemSpriteSheet.SKILL_DEF; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override void apply(Hero hero) { hero.improveDefenseSkill(1); }
 	@Override public int value() { return 100 * quantity; }
 }

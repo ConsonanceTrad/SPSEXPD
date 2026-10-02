@@ -21,6 +21,8 @@
 
 package pd.items.wands;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Challenges;
 import pd.Dungeon;
@@ -43,7 +45,6 @@ import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTilemap;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
@@ -53,7 +54,7 @@ import render.utils.math.Random;
 public class WandOfPrismaticLight extends DamageWand {
 
 	{
-		image = ItemSpriteSheet.WAND_PRISMATIC_LIGHT;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 
 		collisionProperties = Ballistica.MAGIC_BOLT;
 	}

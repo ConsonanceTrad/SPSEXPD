@@ -21,18 +21,19 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.FlavourBuff;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 
 public class Scimitar extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.SCIMITAR;
+		image = EquipmentEquipWeaponBasicWeaponDict.SCIMITAR;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1.2f;
 

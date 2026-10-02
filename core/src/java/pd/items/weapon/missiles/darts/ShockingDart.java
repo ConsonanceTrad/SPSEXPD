@@ -21,13 +21,14 @@
 
 package pd.items.weapon.missiles.darts;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.blobs.Electricity;
 import pd.effects.Lightning;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.geom.PointF;
 import render.utils.math.Random;
@@ -37,7 +38,7 @@ import java.util.ArrayList;
 public class ShockingDart extends TippedDart {
 	
 	{
-		image = ItemSpriteSheet.SHOCKING_DART;
+		image = ConsumThrowsDict.SHOCKING_DART_0;
 	}
 	
 	@Override

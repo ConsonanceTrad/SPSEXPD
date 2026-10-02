@@ -1,6 +1,7 @@
 package pd.items.sellitem;
-import pd.sprites.ItemSpriteSheet;
+
+import pd.atlas.items.ConsumGoodsMaterialsGoodsDict;
 public class UncleDumbbell extends SellItem {
-	{ image = ItemSpriteSheet.UNCLE_DUMBBELL; }
+	{ image = ConsumGoodsMaterialsGoodsDict.UNCLE_DUMBBELL; }
 	@Override public int value() { return 100 * quantity; }
 }

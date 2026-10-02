@@ -21,6 +21,8 @@
 
 package pd.ui;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.ShatteredPixelDungeon;
 import pd.items.ArcaneResin;
@@ -73,7 +75,6 @@ import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.scenes.AlchemyScene;
 import pd.scenes.PixelScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
 import pd.windows.WndInfoItem;
 import render.noosa.BitmapText;
@@ -269,7 +270,7 @@ public class QuickRecipe extends Component {
 		ArrayList<QuickRecipe> result = new ArrayList<>();
 		switch (pageIdx){
 			case 0: default:
-				result.add(new QuickRecipe( new Potion.SeedToPotion(), new ArrayList<>(Arrays.asList(new Plant.Seed.PlaceHolder().quantity(3))), new WndBag.Placeholder(ItemSpriteSheet.POTION_HOLDER){
+				result.add(new QuickRecipe( new Potion.SeedToPotion(), new ArrayList<>(Arrays.asList(new Plant.Seed.PlaceHolder().quantity(3))), new WndBag.Placeholder(SpecificPlaceHolderDict.POTION_HOLDER_0){
 					@Override
 					public String name() {
 						return Messages.get(Potion.SeedToPotion.class, "name");

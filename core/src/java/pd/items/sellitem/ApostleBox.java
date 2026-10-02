@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.sellitem;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.actors.buffs.Arcane;
 import pd.actors.buffs.AttackUp;
@@ -11,7 +13,6 @@ import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
 import pd.effects.Speck;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
@@ -24,7 +25,7 @@ public class ApostleBox extends SellItem {
 	public static final String AC_APPLY = "APPLY";
 
 	{
-		image = ItemSpriteSheet.APOSTLE_BOX;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		defaultAction = AC_APPLY;
 	}
 

@@ -21,6 +21,8 @@
 
 package pd.items;
 
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.buffs.Buff;
@@ -36,7 +38,6 @@ import pd.journal.Catalog;
 import pd.levels.Terrain;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import render.noosa.audio.Sample;
@@ -48,7 +49,7 @@ import java.util.ArrayList;
 public class LiquidMetal extends Item {
 
 	{
-		image = ItemSpriteSheet.LIQUID_METAL;
+		image = ConsumPotionSeedBasicPotionDict.LIQUID_METAL_0;
 
 		stackable = true;
 

@@ -1,11 +1,12 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food.staplefood;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 
 public class OverpricedRation extends StapleFood {
 	{
-		image = ItemSpriteSheet.OVERPRICED;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 200f;
 		hornValue = 2;
 	}

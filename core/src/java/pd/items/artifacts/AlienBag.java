@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.artifacts;
 
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
+
 import pd.Dungeon;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.DefenceUp;
@@ -25,7 +27,6 @@ import pd.items.bombs.StormBomb;
 import pd.items.weapon.missiles.fusion.RocketMissile;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndIronMaker;
 import render.utils.math.Random;
@@ -43,7 +44,7 @@ public class AlienBag extends Artifact {
 	private static final float[] BOMB_SUPPLY_WEIGHTS = {0, 3, 0, 1, 1, 1, 1, 1, 1, 1, 1};
 
 	{
-		image = ItemSpriteSheet.LEGACY_ALIEN_BAG;
+		image = EquipmentJewelleryArtifactDict.LEGACY_ALIEN_BAG_0;
 		levelCap = 10;
 		chargeCap = 100;
 		charge = 0;

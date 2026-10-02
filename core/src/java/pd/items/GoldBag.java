@@ -1,17 +1,18 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.effects.particles.FlameParticle;
-import pd.sprites.ItemSpriteSheet;
 
 import java.util.ArrayList;
 
 public class GoldBag extends Item {
 	public static final String AC_USE = "USE";
 	{
-		image = ItemSpriteSheet.SPS_GOLD_BAG;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = true;
 		defaultAction = AC_USE;
 	}

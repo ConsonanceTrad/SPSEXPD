@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.wands;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -17,7 +19,6 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.CatSheepSprite;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
 import render.utils.data.Callback;
@@ -30,7 +31,7 @@ public class WandOfBlackMeow extends Wand {
 	private static final ItemSprite.Glowing WHITE = new ItemSprite.Glowing(0xFFFFFF);
 
 	{
-		image = ItemSpriteSheet.WAND_FLOCK;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		collisionProperties = Ballistica.PROJECTILE;
 	}
 

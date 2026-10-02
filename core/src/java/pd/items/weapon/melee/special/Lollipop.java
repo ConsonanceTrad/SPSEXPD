@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.special;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import com.badlogic.gdx.Gdx;
 import pd.Dungeon;
 import pd.actors.Char;
@@ -12,12 +14,11 @@ import pd.actors.buffs.Tar;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.math.Random;
 
 public class Lollipop extends SpsSpecialMeleeWeapon {
-	public Lollipop() { super(1, 1f, 1f, 1, 50, 50, ItemSpriteSheet.SPS_LOLLIPOP); usesTargeting = true; }
+	public Lollipop() { super(1, 1f, 1f, 1, 50, 50, EquipmentEquipWeaponBasicWeaponDict.LOLLIPOP); usesTargeting = true; }
 
 	@Override public int proc(Char attacker, Char defender, int damage) {
 		if (Random.Int(100) < 40) Buff.affect(defender, Tar.class);

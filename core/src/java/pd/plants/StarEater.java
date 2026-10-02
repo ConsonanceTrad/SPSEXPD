@@ -1,10 +1,11 @@
 package pd.plants;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.items.Generator;
 import pd.items.UpgradeEatBall;
-import pd.sprites.ItemSpriteSheet;
 
 public class StarEater extends Plant {
 	{ image = 15; seedClass = Seed.class; }
@@ -13,7 +14,7 @@ public class StarEater extends Plant {
 		Dungeon.level.drop(Generator.random(Generator.Category.BERRY), pos).sprite.drop();
 	}
 	public static class Seed extends Plant.Seed {
-		{ image = ItemSpriteSheet.SPS_SEED_STAREATER; plantClass = StarEater.class; explantClass = ExStarEater.class; }
+		{ image = ConsumPotionSeedSeedDict.SEED_STAREATER; plantClass = StarEater.class; explantClass = ExStarEater.class; }
 	}
 	public static class ExStarEater extends SpsFruitBush {
 		{ image = 15; harvestCount = 2; harvestClass = UpgradeEatBall.class; }

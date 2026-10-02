@@ -1,6 +1,7 @@
 package pd.items.food;
-import pd.sprites.ItemSpriteSheet;
+
+import pd.atlas.items.ConsumUsefulUsefulDict;
 public class PetFood extends Food {
-	{ image = ItemSpriteSheet.PET_FOOD; energy = 10f; }
+	{ image = ConsumUsefulUsefulDict.PET_FOOD; energy = 10f; }
 	@Override public int value() { return quantity; }
 }

@@ -21,6 +21,8 @@
 
 package pd.items.food;
 
+import pd.atlas.items.ConsumFoodFoodDict;
+
 import pd.actors.buffs.Hunger;
 import pd.actors.hero.Hero;
 import pd.items.Item;
@@ -42,7 +44,6 @@ import pd.messages.Messages;
 import pd.plants.Plant.Seed;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndUseItem;
 import render.utils.serialize.Bundle;
 import render.utils.serialize.Reflection;
@@ -54,7 +55,7 @@ public class Blandfruit extends Fruit {
 
 	{
 		stackable = true;
-		image = ItemSpriteSheet.BLANDFRUIT;
+		image = ConsumFoodFoodDict.BLANDFRUIT;
 
 		energy = 100f;
 		hornValue = 2;
@@ -163,7 +164,7 @@ public class Blandfruit extends Fruit {
 		energy = Hunger.STARVING;
 		potionAttrib.anonymize();
 
-		potionAttrib.image = ItemSpriteSheet.BLANDFRUIT;
+		potionAttrib.image = ConsumFoodFoodDict.BLANDFRUIT;
 
 		if (potionAttrib instanceof PotionOfHealing)        potionGlow = new ItemSprite.Glowing( 0x2EE62E );
 		if (potionAttrib instanceof PotionOfStrength)       potionGlow = new ItemSprite.Glowing( 0xCC0022 );
@@ -216,7 +217,7 @@ public class Blandfruit extends Fruit {
 
 		{
 			stackable = true;
-			image = ItemSpriteSheet.BLAND_CHUNKS;
+			image = ConsumFoodFoodDict.BLAND_CHUNKS;
 
 			energy = Hunger.STARVING;
 

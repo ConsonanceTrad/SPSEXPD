@@ -21,15 +21,16 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 
 public class Greatshield extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.GREATSHIELD;
+		image = EquipmentEquipWeaponBasicWeaponDict.GREATSHIELD_0;
 
 		tier = 5;
 	}

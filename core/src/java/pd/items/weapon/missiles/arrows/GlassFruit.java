@@ -1,5 +1,7 @@
 package pd.items.weapon.missiles.arrows;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+
 import pd.Assets;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -9,11 +11,10 @@ import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
 import pd.items.weapon.missiles.MissileWeapon;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 
 public class GlassFruit extends MissileWeapon {
 	{
-		image = ItemSpriteSheet.SEED_BLINDWEED;
+		image = ConsumPotionSeedSeedDict.SEED_BLINDWEED_0;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 1.2f;
 		baseUses = 1;

@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.special;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -13,14 +15,13 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.SmokeParticle;
 import pd.items.weapon.melee.MeleeWeapon;
 import pd.mechanics.pathfind.PathFinder;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 /** The original 2018 firecracker weapon. */
 public class FireCracker extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.FIRE_CRACKER;
+		image = EquipmentEquipWeaponBasicWeaponDict.FIRE_CRACKER_0;
 		tier = 1;
 		usesTargeting = true;
 	}

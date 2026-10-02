@@ -24,12 +24,12 @@ package pd.items.scrolls.exotic;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.MagicImmune;
 import pd.effects.Flare;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 
 public class ScrollOfAntiMagic extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_ANTIMAGIC;
+		icon = ItemIconSheet.SCROLL_ANTIMAGIC;
 	}
 	
 	@Override

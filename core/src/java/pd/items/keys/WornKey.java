@@ -21,11 +21,12 @@
 
 package pd.items.keys;
 
+import pd.atlas.items.SpecificKeyDict;
+
 import pd.Dungeon;
 import pd.SPDSettings;
 import pd.ShatteredPixelDungeon;
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndSupportPrompt;
 import render.noosa.Game;
 import render.utils.data.Callback;
@@ -35,7 +36,7 @@ import java.io.IOException;
 public class WornKey extends Key {
 	
 	{
-		image = ItemSpriteSheet.WORN_KEY;
+		image = SpecificKeyDict.WORN_KEY;
 	}
 	
 	public WornKey() {

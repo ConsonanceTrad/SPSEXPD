@@ -1,11 +1,12 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
+
 import pd.actors.buffs.Blindness;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class TomeOfMastery extends TengusMask {
 	public static final float TIME_TO_READ = 10f;
 	private Hero reader;
 	{
-		image = ItemSpriteSheet.MASTERY;
+		image = ConsumUsefulProcessEnhanceDict.MASTERY_0;
 		defaultAction = AC_READ;
 	}
 	@Override public ArrayList<String> actions(Hero hero) {

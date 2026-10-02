@@ -21,6 +21,9 @@
 
 package pd.items.food;
 
+import pd.atlas.items.ConsumFoodFoodDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Burning;
 import pd.actors.buffs.Hunger;
@@ -30,14 +33,13 @@ import pd.actors.buffs.Slow;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.math.Random;
 
 public class MysteryMeat extends Food {
 
 	{
-		image = ItemSpriteSheet.MEAT;
+		image = ConsumFoodFoodDict.MEAT;
 		energy = Hunger.HUNGRY/2f;
 		hornValue = 1;
 	}
@@ -76,7 +78,7 @@ public class MysteryMeat extends Food {
 	public static class PlaceHolder extends MysteryMeat {
 		
 		{
-			image = ItemSpriteSheet.FOOD_HOLDER;
+			image = SpecificPlaceHolderDict.FOOD_HOLDER_0;
 		}
 		
 		@Override

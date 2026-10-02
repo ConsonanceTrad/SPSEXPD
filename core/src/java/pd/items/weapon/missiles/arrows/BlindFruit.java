@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles.arrows;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -16,12 +18,11 @@ import pd.actors.buffs.Vertigo;
 import pd.items.weapon.missiles.MissileWeapon;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 
 public class BlindFruit extends MissileWeapon {
 
 	{
-		image = ItemSpriteSheet.LEGACY_BLIND_FRUIT;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 1.2f;
 		baseUses = 1;

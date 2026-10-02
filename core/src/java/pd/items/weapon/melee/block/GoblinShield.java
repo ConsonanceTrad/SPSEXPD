@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.block;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.blobs.Blob;
@@ -23,7 +25,6 @@ import pd.items.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.levels.GroundItems;
 import pd.plants.Plant;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
@@ -35,7 +36,7 @@ public class GoblinShield extends NormalMeleeWeapon {
 	private int charge;
 
 	public GoblinShield() {
-		super(3, 1f, 1f, 1, 8, 18, ItemSpriteSheet.SPS_GOBLIN_SHIELD);
+		super(3, 1f, 1f, 1, 8, 18, SpecificPlaceHolderDict.SOMETHING_0);
 	}
 
 	@Override

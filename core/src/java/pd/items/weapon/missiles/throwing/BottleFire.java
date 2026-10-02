@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles.throwing;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -12,13 +14,12 @@ import pd.actors.buffs.FireFollower;
 import pd.actors.hero.Hero;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 
 /** Lery's bottled flame, which leaves a thirty-turn trail of delayed fire. */
 public class BottleFire extends TossWeapon {
 
 	{
-		image = ItemSpriteSheet.BOTTLE_FIRE;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		tier = 1;
 		baseUses = 1;
 		bones = false;

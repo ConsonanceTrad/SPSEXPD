@@ -1,14 +1,15 @@
 /* Special Surprise content rebuilt for Shattered Pixel Dungeon 4.0. GPLv3+. */
 package pd.items.weapon.melee.fusion;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.items.weapon.melee.WarHammer;
 import pd.mechanics.pathfind.PathFinder;
-import pd.sprites.ItemSpriteSheet;
 
 public class Trumpet extends WarHammer implements FusionWeapon {
-	{ image = ItemSpriteSheet.WAR_HAMMER; tier = 4; ACC = 0.95f; }
+	{ image = EquipmentEquipWeaponBasicWeaponDict.WAR_HAMMER_0; tier = 4; ACC = 0.95f; }
 	@Override public int min(int lvl) { return 5 + lvl; }
 	@Override public int max(int lvl) { return 22 + 5 * lvl; }
 	@Override public int proc(Char attacker, Char defender, int damage) {

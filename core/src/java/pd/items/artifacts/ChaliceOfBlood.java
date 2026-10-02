@@ -21,6 +21,8 @@
 
 package pd.items.artifacts;
 
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Dungeon;
@@ -36,7 +38,6 @@ import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.plants.Earthroot;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndOptions;
 import render.noosa.audio.Sample;
@@ -48,7 +49,7 @@ import java.util.ArrayList;
 public class ChaliceOfBlood extends Artifact {
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_CHALICE1;
+		image = EquipmentJewelleryArtifactDict.ARTIFACT_CHALICE1;
 
 		levelCap = 10;
 		defaultAction = AC_BLOODANGRY;
@@ -150,17 +151,17 @@ public class ChaliceOfBlood extends Artifact {
 	@Override
 	public Item upgrade() {
 		if (level() >= 6)
-			image = ItemSpriteSheet.ARTIFACT_CHALICE3;
+			image = EquipmentJewelleryArtifactDict.ARTIFACT_CHALICE3;
 		else if (level() >= 2)
-			image = ItemSpriteSheet.ARTIFACT_CHALICE2;
+			image = EquipmentJewelleryArtifactDict.ARTIFACT_CHALICE2;
 		return super.upgrade();
 	}
 
 	@Override
 	public void restoreFromBundle(Bundle bundle) {
 		super.restoreFromBundle(bundle);
-		if (level() >= 7) image = ItemSpriteSheet.ARTIFACT_CHALICE3;
-		else if (level() >= 3) image = ItemSpriteSheet.ARTIFACT_CHALICE2;
+		if (level() >= 7) image = EquipmentJewelleryArtifactDict.ARTIFACT_CHALICE3;
+		else if (level() >= 3) image = EquipmentJewelleryArtifactDict.ARTIFACT_CHALICE2;
 	}
 
 	@Override

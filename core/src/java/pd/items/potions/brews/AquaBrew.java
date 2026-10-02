@@ -21,15 +21,16 @@
 
 package pd.items.potions.brews;
 
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
+
 import pd.items.potions.exotic.PotionOfStormClouds;
 import pd.levels.traps.GeyserTrap;
 import pd.mechanics.Ballistica;
-import pd.sprites.ItemSpriteSheet;
 
 public class AquaBrew extends Brew {
 
 	{
-		image = ItemSpriteSheet.BREW_AQUA;
+		image = ConsumPotionSeedBasicPotionDict.BREW_AQUA_0;
 
 		talentChance = 1/(float)Recipe.OUT_QUANTITY;
 	}

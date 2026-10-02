@@ -5,6 +5,8 @@
 
 package pd.items;
 
+import pd.atlas.items.ConsumScrollAmuletAmuletDict;
+
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.items.armor.Armor;
@@ -12,7 +14,6 @@ import pd.items.scrolls.ScrollOfRemoveCurse;
 import pd.items.weapon.Weapon;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
@@ -24,7 +25,7 @@ public class GreatRune extends Item {
 	public static final String AC_INSCRIBE = "INSCRIBE";
 
 	{
-		image = ItemSpriteSheet.STONE_ENCHANT;
+		image = ConsumScrollAmuletAmuletDict.STONE_ENCHANT_0;
 		stackable = true;
 		defaultAction = AC_INSCRIBE;
 	}

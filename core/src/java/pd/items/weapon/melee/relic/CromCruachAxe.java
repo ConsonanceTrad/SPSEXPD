@@ -1,10 +1,11 @@
 package pd.items.weapon.melee.relic;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.MagicImmunity;
 import pd.actors.hero.Hero;
 import pd.items.weapon.enchantments.CromLuck;
-import pd.sprites.ItemSpriteSheet;
 
 public class CromCruachAxe extends RelicMeleeWeapon {
 
@@ -12,7 +13,7 @@ public class CromCruachAxe extends RelicMeleeWeapon {
 
 	public CromCruachAxe() {
 		super(1.2f, 1f, 1);
-		image = ItemSpriteSheet.CROM_CRUACH_AXE;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		enchant(new CromLuck());
 	}
 

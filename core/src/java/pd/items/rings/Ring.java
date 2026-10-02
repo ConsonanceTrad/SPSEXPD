@@ -21,6 +21,11 @@
 
 package pd.items.rings;
 
+import pd.atlas.IconEntry;
+
+import pd.atlas.items.EquipmentJewelleryRingDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Badges;
 import pd.Dungeon;
 import pd.Statistics;
@@ -38,7 +43,6 @@ import pd.items.KindofMisc;
 import pd.items.trinkets.ShardOfOblivion;
 import pd.journal.Catalog;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -52,22 +56,22 @@ public class Ring extends KindofMisc {
 	protected Buff buff;
 	protected Class<? extends RingBuff> buffClass;
 
-	private static final LinkedHashMap<String, Integer> gems = new LinkedHashMap<String, Integer>() {
+	private static final LinkedHashMap<String, IconEntry> gems = new LinkedHashMap<String, IconEntry>() {
 		{
-			put("garnet",ItemSpriteSheet.RING_GARNET);
-			put("ruby",ItemSpriteSheet.RING_RUBY);
-			put("topaz",ItemSpriteSheet.RING_TOPAZ);
-			put("emerald",ItemSpriteSheet.RING_EMERALD);
-			put("onyx",ItemSpriteSheet.RING_ONYX);
-			put("opal",ItemSpriteSheet.RING_OPAL);
-			put("tourmaline",ItemSpriteSheet.RING_TOURMALINE);
-			put("sapphire",ItemSpriteSheet.RING_SAPPHIRE);
-			put("amethyst",ItemSpriteSheet.RING_AMETHYST);
-			put("quartz",ItemSpriteSheet.RING_QUARTZ);
-			put("agate",ItemSpriteSheet.RING_AGATE);
-			put("diamond",ItemSpriteSheet.RING_DIAMOND);
-			put("starstone",ItemSpriteSheet.RING_AMETHYST);
-			put("moonstone",ItemSpriteSheet.RING_OPAL);
+			put("garnet",SpecificPlaceHolderDict.SOMETHING_0);
+			put("ruby",EquipmentJewelleryRingDict.RING_RUBY_0);
+			put("topaz",EquipmentJewelleryRingDict.RING_ELEMENTS_0);
+			put("emerald",EquipmentJewelleryRingDict.RING_ENERGY_0);
+			put("onyx",EquipmentJewelleryRingDict.RING_ONYX_0);
+			put("opal",EquipmentJewelleryRingDict.RING_FORCE_0);
+			put("tourmaline",EquipmentJewelleryRingDict.RING_FUROR_0);
+			put("sapphire",EquipmentJewelleryRingDict.RING_SAPPHIRE_0);
+			put("amethyst",EquipmentJewelleryRingDict.RING_MIGHT_0);
+			put("quartz",EquipmentJewelleryRingDict.RING_SHARPSHOOT_0);
+			put("agate",EquipmentJewelleryRingDict.RING_TENACITY_0);
+			put("diamond",EquipmentJewelleryRingDict.RING_DIAMOND_0);
+			put("starstone",EquipmentJewelleryRingDict.RING_MIGHT_0);
+			put("moonstone",EquipmentJewelleryRingDict.RING_FORCE_0);
 		}
 	};
 	
@@ -110,7 +114,7 @@ public class Ring extends KindofMisc {
 	//useful for items that appear in UIs, or which are only spawned for their effects
 	protected boolean anonymous = false;
 	public void anonymize(){
-		if (!isKnown()) image = ItemSpriteSheet.RING_HOLDER;
+		if (!isKnown()) image = EquipmentJewelleryRingDict.RING_HOLDER;
 		anonymous = true;
 	}
 	
@@ -121,7 +125,7 @@ public class Ring extends KindofMisc {
 			image = handler.image(this);
 			gem = handler.label(this);
 		} else {
-			image = ItemSpriteSheet.RING_GARNET;
+			image = SpecificPlaceHolderDict.SOMETHING_0;
 			gem = "garnet";
 		}
 	}

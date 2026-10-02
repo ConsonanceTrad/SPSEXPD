@@ -21,6 +21,8 @@
 
 package pd.items.bags;
 
+import pd.atlas.items.EquipmentBagsDict;
+
 import pd.items.ArcaneResin;
 import pd.items.Item;
 import pd.items.OrbOfZot;
@@ -31,12 +33,11 @@ import pd.items.spells.BeaconOfReturning;
 import pd.items.spells.Spell;
 import pd.items.summon.CallCoconut;
 import pd.journal.Notes;
-import pd.sprites.ItemSpriteSheet;
 
 public class ScrollHolder extends Bag {
 
 	{
-		image = ItemSpriteSheet.HOLDER;
+		image = EquipmentBagsDict.HOLDER;
 	}
 
 	@Override

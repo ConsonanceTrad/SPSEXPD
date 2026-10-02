@@ -21,12 +21,13 @@
 
 package pd.items.journal;
 
+import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
+
 import pd.Assets;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.journal.Document;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndJournal;
 import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
@@ -34,7 +35,7 @@ import render.utils.serialize.Bundle;
 public abstract class DocumentPage extends Item {
 	
 	{
-		image = ItemSpriteSheet.MASTERY;
+		image = ConsumUsefulProcessEnhanceDict.MASTERY_0;
 	}
 
 	public abstract Document document();

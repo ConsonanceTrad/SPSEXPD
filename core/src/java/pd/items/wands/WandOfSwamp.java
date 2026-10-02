@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.wands;
 
+import pd.atlas.items.EquipmentWandBasicWandDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -12,7 +14,6 @@ import pd.items.Heap;
 import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 
@@ -20,7 +21,7 @@ import render.utils.data.Callback;
 public class WandOfSwamp extends DamageWand {
 
 	{
-		image = ItemSpriteSheet.WAND_POISON;
+		image = EquipmentWandBasicWandDict.WAND_POISON;
 		collisionProperties = Ballistica.PROJECTILE;
 	}
 

@@ -21,6 +21,8 @@
 
 package pd.items.weapon.missiles;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Dungeon;
@@ -32,7 +34,6 @@ import pd.items.wands.WandOfBlastWave;
 import pd.levels.traps.TenguDartTrap;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 
@@ -43,7 +44,7 @@ import java.util.Comparator;
 public class ForceCube extends MissileWeapon {
 	
 	{
-		image = ItemSpriteSheet.FORCE_CUBE;
+		image = ConsumThrowsDict.FORCE_CUBE_0;
 		
 		tier = 5;
 		baseUses = 5;

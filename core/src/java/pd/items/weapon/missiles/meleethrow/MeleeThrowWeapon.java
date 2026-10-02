@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles.meleethrow;
 
+import pd.atlas.IconEntry;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
@@ -19,7 +21,7 @@ public abstract class MeleeThrowWeapon extends MissileWeapon {
 	private final int baseMax;
 	private boolean destroyed;
 
-	protected MeleeThrowWeapon(int tier, int min, int max, int image) {
+	protected MeleeThrowWeapon(int tier, int min, int max, IconEntry image) {
 		this.tier = tier;
 		this.baseMin = min;
 		this.baseMax = max;

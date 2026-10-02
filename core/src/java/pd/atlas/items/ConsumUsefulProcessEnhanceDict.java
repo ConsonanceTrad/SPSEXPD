@@ -13,15 +13,15 @@ public final class ConsumUsefulProcessEnhanceDict {
 	private ConsumUsefulProcessEnhanceDict() { }
 
 	/** MASK#0 */
-	public static final IconEntry MASK_0 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{0, 0, 11, 9});
+	public static final IconEntry MASK_0 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{0, 0, 11, 9}, 6659);
 	/** MASTERY#0 */
-	public static final IconEntry MASTERY_0 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{17, 0, 13, 16});
+	public static final IconEntry MASTERY_0 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{17, 0, 13, 16}, 6660);
 	/** KIT#0 */
-	public static final IconEntry KIT_0 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{32, 0, 16, 15});
+	public static final IconEntry KIT_0 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{32, 0, 16, 15}, 6661);
 	/** CROWN#0 */
-	public static final IconEntry CROWN_0 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{0, 16, 13, 7});
+	public static final IconEntry CROWN_0 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{0, 16, 13, 7}, 6662);
 	/** ARTIFACT_SPELLBOOK */
-	public static final IconEntry ARTIFACT_SPELLBOOK = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{17, 16, 13, 16});
+	public static final IconEntry ARTIFACT_SPELLBOOK = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{17, 16, 13, 16}, 6663);
 	/** ARMORKIT */
-	public static final IconEntry ARMORKIT = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{34, 18, 12, 12});
+	public static final IconEntry ARMORKIT = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{34, 18, 12, 12}, 6664);
 }

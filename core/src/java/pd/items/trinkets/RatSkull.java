@@ -21,13 +21,14 @@
 
 package pd.items.trinkets;
 
+import pd.atlas.items.ConsumGoodsMaterialsGoodsDict;
+
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 
 public class RatSkull extends Trinket {
 
 	{
-		image = ItemSpriteSheet.RAT_SKULL;
+		image = ConsumGoodsMaterialsGoodsDict.RAT_SKULL_0;
 	}
 
 	@Override

@@ -21,13 +21,14 @@
 
 package pd.items.bombs;
 
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.effects.CellEmitter;
 import pd.effects.particles.BlastParticle;
 import pd.mechanics.ShadowCaster;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.geom.Point;
 import render.utils.math.Random;
 
@@ -36,7 +37,7 @@ import java.util.ArrayList;
 public class ShrapnelBomb extends Bomb {
 	
 	{
-		image = ItemSpriteSheet.SHRAPNEL_BOMB;
+		image = EquipmentEquipWeaponBombDict.SHRAPNEL_BOMB_0;
 	}
 	
 	@Override

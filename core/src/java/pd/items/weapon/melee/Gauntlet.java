@@ -21,15 +21,16 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 
 public class Gauntlet extends MeleeWeapon {
 	
 	{
-		image = ItemSpriteSheet.GAUNTLETS;
+		image = EquipmentEquipWeaponBasicWeaponDict.GAUNTLETS_0;
 		hitSound = Assets.Sounds.HIT_CRUSH;
 		hitSoundPitch = 1.2f;
 		

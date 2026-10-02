@@ -21,6 +21,8 @@
 
 package pd.items.artifacts;
 
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -51,7 +53,6 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
@@ -64,7 +65,7 @@ import java.util.Arrays;
 public class SkeletonKey extends Artifact {
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_KEY;
+		image = EquipmentJewelleryArtifactDict.ARTIFACT_KEY_0;
 
 		levelCap = 10;
 

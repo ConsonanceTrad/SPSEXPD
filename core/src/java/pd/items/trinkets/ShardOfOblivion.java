@@ -21,6 +21,8 @@
 
 package pd.items.trinkets;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Dungeon;
@@ -35,7 +37,6 @@ import pd.items.wands.Wand;
 import pd.items.weapon.Weapon;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import pd.windows.WndBag;
@@ -47,7 +48,7 @@ import java.util.ArrayList;
 public class ShardOfOblivion extends Trinket {
 
 	{
-		image = ItemSpriteSheet.OBLIVION_SHARD;
+		image = EquipmentNonEquipDict.OBLIVION_SHARD_0;
 	}
 
 	public static final String AC_IDENTIFY = "IDENTIFY";

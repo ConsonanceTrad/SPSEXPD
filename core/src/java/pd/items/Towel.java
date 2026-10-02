@@ -7,6 +7,8 @@
 
 package pd.items;
 
+import pd.atlas.items.EquipmentEquipArmorUniqueArmorDict;
+
 import pd.Dungeon;
 import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
@@ -16,7 +18,6 @@ import pd.actors.buffs.Frost;
 import pd.actors.buffs.Ooze;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class Towel extends Item {
 	public static final String AC_TOWEL = "TOWEL";
 
 	{
-		image = ItemSpriteSheet.TOWEL;
+		image = EquipmentEquipArmorUniqueArmorDict.TOWEL;
 		level(20);
 		defaultAction = AC_TOWEL;
 	}

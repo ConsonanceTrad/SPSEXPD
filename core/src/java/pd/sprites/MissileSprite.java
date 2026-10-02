@@ -21,6 +21,8 @@
 
 package pd.sprites;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.hero.spells.HolyLance;
 import pd.actors.mobs.GnollGeomancer;
@@ -78,7 +80,7 @@ public class MissileSprite extends ItemSprite implements Tweener.Listener {
 	public void reset( PointF from, PointF to, Item item, Callback listener) {
 		revive();
 
-		if (item == null)   view(0, null);
+		if (item == null)   view(SpecificPlaceHolderDict.SOMETHING_0, null);
 		else                view( item );
 
 		setup( from,

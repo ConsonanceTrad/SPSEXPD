@@ -21,10 +21,11 @@
 
 package pd.items.trinkets;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.Dungeon;
 import pd.levels.Level;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
@@ -33,7 +34,7 @@ import java.util.ArrayList;
 public class TrapMechanism extends Trinket {
 
 	{
-		image = ItemSpriteSheet.TRAP_MECHANISM;
+		image = EquipmentNonEquipDict.TRAP_MECHANISM_0;
 	}
 
 	@Override

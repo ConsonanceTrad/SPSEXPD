@@ -21,17 +21,18 @@
 
 package pd.items.remains;
 
+import pd.atlas.items.ConsumUsefulCorpseRelicsDict;
+
 import pd.Assets;
 import pd.actors.buffs.ArtifactRecharge;
 import pd.actors.hero.Hero;
 import pd.items.scrolls.ScrollOfRecharging;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 
 public class CloakScrap extends RemainsItem {
 
 	{
-		image = ItemSpriteSheet.CLOAK_SCRAP;
+		image = ConsumUsefulCorpseRelicsDict.CLOAK_SCRAP_0;
 	}
 
 	@Override

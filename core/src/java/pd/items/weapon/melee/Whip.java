@@ -21,6 +21,8 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -28,7 +30,6 @@ import pd.actors.Char;
 import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.data.Callback;
 
@@ -37,7 +38,7 @@ import java.util.ArrayList;
 public class Whip extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.WHIP;
+		image = EquipmentEquipWeaponBasicWeaponDict.WHIP_0;
 		hitSound = Assets.Sounds.HIT;
 		hitSoundPitch = 1.1f;
 

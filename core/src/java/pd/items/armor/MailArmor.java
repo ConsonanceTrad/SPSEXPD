@@ -21,12 +21,13 @@
 
 package pd.items.armor;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
+
 
 public class MailArmor extends Armor {
 
 	{
-		image = ItemSpriteSheet.ARMOR_MAIL;
+		image = EquipmentEquipArmorBasicArmorDict.ARMOR_MAIL_0;
 	}
 	
 	public MailArmor() {

@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.wands;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -29,7 +31,6 @@ import pd.levels.traps.LightningTrap;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
@@ -42,7 +43,7 @@ public class WandOfError extends Wand {
 	private static final float SPS_FROST_DURATION = 5f;
 
 	{
-		image = ItemSpriteSheet.WAND_ERROR;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 	@Override

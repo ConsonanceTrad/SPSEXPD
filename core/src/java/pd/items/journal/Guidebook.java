@@ -21,6 +21,8 @@
 
 package pd.items.journal;
 
+import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
+
 import pd.Assets;
 import pd.SPDAction;
 import pd.SPDSettings;
@@ -29,7 +31,6 @@ import pd.items.Item;
 import pd.journal.Document;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.GameLog;
 import pd.utils.GLog;
 import render.input.ControllerHandler;
@@ -39,7 +40,7 @@ import render.noosa.audio.Sample;
 public class Guidebook extends Item {
 
 	{
-		image = ItemSpriteSheet.MASTERY;
+		image = ConsumUsefulProcessEnhanceDict.MASTERY_0;
 	}
 
 	@Override

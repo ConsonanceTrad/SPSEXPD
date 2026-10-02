@@ -23,12 +23,12 @@ package pd.items.rings;
 
 import pd.actors.Char;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 
 public class RingOfFuror extends Ring {
 
 	{
-		icon = ItemSpriteSheet.Icons.RING_FUROR;
+		icon = ItemIconSheet.RING_FUROR;
 		buffClass = Furor.class;
 	}
 

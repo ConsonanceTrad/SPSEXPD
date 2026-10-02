@@ -1,18 +1,19 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.normalweapon;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.EnergyArmor;
 import pd.actors.buffs.MagicArmor;
 import pd.actors.buffs.ShieldArmor;
 import pd.actors.buffs.Silent;
-import pd.sprites.ItemSpriteSheet;
 
 public class TrickSand extends NormalMeleeWeapon {
 
 	public TrickSand() {
-		super(1, 1f, 1f, 2, 1, 10, ItemSpriteSheet.LEGACY_TRICK_SAND);
+		super(1, 1f, 1f, 2, 1, 10, SpecificPlaceHolderDict.SOMETHING_0);
 	}
 
 	@Override

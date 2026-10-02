@@ -1,11 +1,12 @@
 package pd.items.quest;
 
+import pd.atlas.items.SpecificTaskDict;
+
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 
 public class GnollClothes extends Item {
 	{
-		image = ItemSpriteSheet.GNOLL_CLOTHES;
+		image = SpecificTaskDict.GNOLL_CLOTHES;
 		stackable = true;
 		unique = true;
 	}

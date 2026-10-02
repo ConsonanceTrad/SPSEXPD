@@ -1,9 +1,10 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.normalweapon;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.actors.Char;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.serialize.Bundle;
 
 public class WoodenStaff extends NormalMeleeWeapon {
@@ -13,7 +14,7 @@ public class WoodenStaff extends NormalMeleeWeapon {
 	private int charge;
 
 	public WoodenStaff() {
-		super(1, .8f, 1f, 1, 1, 10, ItemSpriteSheet.LEGACY_WOODEN_STAFF);
+		super(1, .8f, 1f, 1, 1, 10, EquipmentEquipWeaponBasicWeaponDict.LEGACY_WOODEN_STAFF_0);
 	}
 
 	@Override

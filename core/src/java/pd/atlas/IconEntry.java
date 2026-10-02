@@ -14,12 +14,23 @@ package pd.atlas;
  */
 public final class IconEntry {
 
+	private static int nextId = 0;
+
 	public final String atlas;
+
+	/** 全项目内稳定的整数身份，供需要 int 的旧代码使用（排序、去重等）。 */
+	public final int id;
+
 	private final int[] rects;
 
 	public IconEntry(String atlas, int[] rects) {
+		this(atlas, rects, nextId++);
+	}
+
+	public IconEntry(String atlas, int[] rects, int id) {
 		this.atlas = atlas;
 		this.rects = rects;
+		this.id = id;
 	}
 
 	/** 帧数（至少 1） */

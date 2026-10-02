@@ -21,15 +21,16 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 
 public class WarScythe extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.WAR_SCYTHE;
+		image = EquipmentEquipWeaponBasicWeaponDict.WAR_SCYTHE_0;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 0.9f;
 

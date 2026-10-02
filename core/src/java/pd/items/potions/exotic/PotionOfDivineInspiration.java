@@ -31,7 +31,7 @@ import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.ui.StatusPane;
 import pd.ui.TalentsPane;
 import pd.utils.GLog;
@@ -44,7 +44,7 @@ import render.utils.serialize.Bundle;
 public class PotionOfDivineInspiration extends ExoticPotion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_DIVINE;
+		icon = ItemIconSheet.POTION_DIVINE;
 
 		talentFactor = 2f;
 	}

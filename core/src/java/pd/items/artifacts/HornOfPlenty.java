@@ -13,6 +13,8 @@
 
 package pd.items.artifacts;
 
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Dungeon;
@@ -29,7 +31,6 @@ import pd.items.bags.Bag;
 import pd.items.food.Food;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import render.noosa.audio.Sample;
@@ -49,7 +50,7 @@ public class HornOfPlenty extends Artifact {
 	public static final String AC_FEED = "FEED";
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_HORN1;
+		image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN1;
 		levelCap = 30;
 		charge = 0;
 		partialCharge = 0;
@@ -173,10 +174,10 @@ public class HornOfPlenty extends Artifact {
 	}
 
 	private void updateImage() {
-		if (charge == chargeCap) image = ItemSpriteSheet.ARTIFACT_HORN4;
-		else if (charge >= 7) image = ItemSpriteSheet.ARTIFACT_HORN3;
-		else if (charge >= 3) image = ItemSpriteSheet.ARTIFACT_HORN2;
-		else image = ItemSpriteSheet.ARTIFACT_HORN1;
+		if (charge == chargeCap) image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN4;
+		else if (charge >= 7) image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN3;
+		else if (charge >= 3) image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN2;
+		else image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN1;
 	}
 
 	public class hornRecharge extends ArtifactBuff {

@@ -4,12 +4,12 @@ package pd.items.rings.fusion;
 import pd.actors.Char;
 import pd.items.rings.Ring;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 
 public class RingOfMagic extends Ring {
 
 	{
-		icon = ItemSpriteSheet.Icons.RING_ARCANA;
+		icon = ItemIconSheet.RING_ARCANA;
 		buffClass = RingMagic.class;
 	}
 

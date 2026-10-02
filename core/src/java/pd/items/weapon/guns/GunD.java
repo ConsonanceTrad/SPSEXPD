@@ -1,8 +1,9 @@
 package pd.items.weapon.guns;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 
 public class GunD extends GunWeapon {
-	{ image = ItemSpriteSheet.GUN_D; }
+	{ image = EquipmentEquipWeaponBasicWeaponDict.GUN_4; }
 	public GunD() { super(4, 5); }
 }

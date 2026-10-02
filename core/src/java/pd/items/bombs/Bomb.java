@@ -21,6 +21,8 @@
 
 package pd.items.bombs;
 
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Dungeon;
@@ -52,7 +54,6 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
@@ -67,7 +68,7 @@ import java.util.LinkedHashMap;
 public class Bomb extends Item {
 	
 	{
-		image = ItemSpriteSheet.BOMB;
+		image = EquipmentEquipWeaponBombDict.BOMB_0;
 
 		defaultAction = AC_LIGHTTHROW;
 		usesTargeting = true;
@@ -334,7 +335,7 @@ public class Bomb extends Item {
 	public static class DoubleBomb extends Bomb{
 
 		{
-			image = ItemSpriteSheet.DBL_BOMB;
+			image = EquipmentEquipWeaponBombDict.DBL_BOMB_0;
 			stackable = false;
 		}
 

@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.hero.Hero;
@@ -8,7 +10,6 @@ import pd.effects.particles.ElmoParticle;
 import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class MechPocket extends Item {
 	public static final int ITEM_COUNT = 20;
 
 	{
-		image = ItemSpriteSheet.SPS_MECH_POCKET;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		defaultAction = AC_USE;
 		unique = true;
 		stackable = false;

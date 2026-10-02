@@ -21,6 +21,9 @@
 
 package pd.items.trinkets;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.ConsumUsefulCorpseRelicsDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Dungeon;
@@ -36,7 +39,6 @@ import pd.scenes.AlchemyScene;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.ItemButton;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
@@ -55,7 +57,7 @@ import java.util.Collection;
 public class TrinketCatalyst extends Item {
 
 	{
-		image = ItemSpriteSheet.TRINKET_CATA;
+		image = ConsumUsefulCorpseRelicsDict.TRINKET_CATA_0;
 
 		unique = true;
 	}
@@ -146,7 +148,7 @@ public class TrinketCatalyst extends Item {
 	public static class RandomTrinket extends Item {
 
 		{
-			image = ItemSpriteSheet.SOMETHING;
+			image = SpecificPlaceHolderDict.SOMETHING_0;
 		}
 
 	}

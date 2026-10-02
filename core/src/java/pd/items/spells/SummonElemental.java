@@ -21,6 +21,8 @@
 
 package pd.items.spells;
 
+import pd.atlas.items.ConsumScrollAmuletCrystalDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -49,7 +51,6 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import render.noosa.audio.Sample;
@@ -64,7 +65,7 @@ public class SummonElemental extends Spell {
 	public static final String AC_IMBUE = "IMBUE";
 
 	{
-		image = ItemSpriteSheet.SUMMON_ELE;
+		image = ConsumScrollAmuletCrystalDict.SUMMON_ELE_0;
 
 		talentChance = 1/(float)Recipe.OUT_QUANTITY;
 	}
@@ -169,11 +170,11 @@ public class SummonElemental extends Spell {
 		super.restoreFromBundle(bundle);
 		if (bundle.contains(SUMMON_CLASS)) summonClass = bundle.getClass(SUMMON_CLASS);
 
-		if (summonClass == Elemental.AllyNewBornElemental.class)    image = ItemSpriteSheet.SUMMON_ELE;
-		if (summonClass == Elemental.FireElemental.class)           image = ItemSpriteSheet.SUMMON_ELE_FIRE;
-		if (summonClass == Elemental.FrostElemental.class)          image = ItemSpriteSheet.SUMMON_ELE_FROST;
-		if (summonClass == Elemental.ShockElemental.class)          image = ItemSpriteSheet.SUMMON_ELE_SHOCK;
-		if (summonClass == Elemental.ChaosElemental.class)          image = ItemSpriteSheet.SUMMON_ELE_CHAOS;
+		if (summonClass == Elemental.AllyNewBornElemental.class)    image = ConsumScrollAmuletCrystalDict.SUMMON_ELE_0;
+		if (summonClass == Elemental.FireElemental.class)           image = ConsumScrollAmuletCrystalDict.SUMMON_ELE_0;
+		if (summonClass == Elemental.FrostElemental.class)          image = ConsumScrollAmuletCrystalDict.SUMMON_ELE_0;
+		if (summonClass == Elemental.ShockElemental.class)          image = ConsumScrollAmuletCrystalDict.SUMMON_ELE_0;
+		if (summonClass == Elemental.ChaosElemental.class)          image = ConsumScrollAmuletCrystalDict.SUMMON_ELE_0;
 	}
 
 	public WndBag.ItemSelector selector = new WndBag.ItemSelector() {
@@ -202,25 +203,25 @@ public class SummonElemental extends Spell {
 				Sample.INSTANCE.play(Assets.Sounds.BURNING);
 				curUser.sprite.emitter().burst( FlameParticle.FACTORY, 12 );
 				summonClass = Elemental.FireElemental.class;
-				image = ItemSpriteSheet.SUMMON_ELE_FIRE;
+				image = ConsumScrollAmuletCrystalDict.SUMMON_ELE_0;
 
 			} else if (item instanceof PotionOfFrost){
 				Sample.INSTANCE.play(Assets.Sounds.SHATTER);
 				curUser.sprite.emitter().burst( MagicMissile.MagicParticle.FACTORY, 12 );
 				summonClass = Elemental.FrostElemental.class;
-				image = ItemSpriteSheet.SUMMON_ELE_FROST;
+				image = ConsumScrollAmuletCrystalDict.SUMMON_ELE_0;
 
 			} else if (item instanceof ScrollOfRecharging){
 				Sample.INSTANCE.play(Assets.Sounds.ZAP);
 				curUser.sprite.emitter().burst( ShaftParticle.FACTORY, 12 );
 				summonClass = Elemental.ShockElemental.class;
-				image = ItemSpriteSheet.SUMMON_ELE_SHOCK;
+				image = ConsumScrollAmuletCrystalDict.SUMMON_ELE_0;
 
 			} else if (item instanceof ScrollOfTransmutation){
 				Sample.INSTANCE.play(Assets.Sounds.READ);
 				curUser.sprite.emitter().burst( RainbowParticle.BURST, 12 );
 				summonClass = Elemental.ChaosElemental.class;
-				image = ItemSpriteSheet.SUMMON_ELE_CHAOS;
+				image = ConsumScrollAmuletCrystalDict.SUMMON_ELE_0;
 			}
 
 			curUser.sprite.operate(curUser.pos);

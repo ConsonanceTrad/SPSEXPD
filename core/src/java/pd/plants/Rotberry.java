@@ -21,6 +21,8 @@
 
 package pd.plants;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.blobs.Blob;
@@ -34,7 +36,6 @@ import pd.effects.particles.LeafParticle;
 import pd.items.Gold;
 import pd.levels.GroundItems;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 
 public class Rotberry extends Plant {
 
@@ -66,7 +67,7 @@ public class Rotberry extends Plant {
 
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SPS_SEED_ROTBERRY;
+			image = SpecificPlaceHolderDict.SOMETHING_0;
 
 			plantClass = Rotberry.class;
 			explantClass = ExRotberry.class;

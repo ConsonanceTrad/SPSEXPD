@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.normalweapon;
 
+import pd.atlas.IconEntry;
+
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.items.Item;
@@ -20,7 +22,7 @@ public abstract class NormalMeleeWeapon extends MeleeWeapon {
 	private final int baseStrength;
 
 	protected NormalMeleeWeapon(int tier, float accuracy, float delay, int reach,
-			int min, int max, int image) {
+			int min, int max, IconEntry image) {
 		this.tier = tier;
 		baseAccuracy = ACC = accuracy;
 		baseDelay = DLY = delay;

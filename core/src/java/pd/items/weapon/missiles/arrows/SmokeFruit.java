@@ -1,15 +1,16 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles.arrows;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+
 import pd.actors.Char;
 import pd.actors.blobs.DarkGas;
 import pd.actors.buffs.Blindness;
 import pd.actors.buffs.Buff;
-import pd.sprites.ItemSpriteSheet;
 
 public class SmokeFruit extends SpsFruit {
 	public SmokeFruit() { this(1); }
-	public SmokeFruit(int number) { super(ItemSpriteSheet.SPS_SEED_FADELEAF, 10, 10); quantity(number); }
+	public SmokeFruit(int number) { super(ConsumPotionSeedSeedDict.SEED_FADELEAF_0, 10, 10); quantity(number); }
 	@Override protected void onThrow(int cell) {
 		if (landsAt(cell)) seedAround(cell, 8, DarkGas.class);
 		else super.onThrow(cell);

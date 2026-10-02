@@ -13,23 +13,23 @@ public final class EffectsDict {
 	private EffectsDict() { }
 
 	/** effect_000 */
-	public static final IconEntry EFFECT_000 = new IconEntry("effects/effects.png", new int[]{0, 0, 16, 16});
+	public static final IconEntry EFFECT_000 = new IconEntry("effects/effects.png", new int[]{0, 0, 16, 16}, 10);
 	/** effect_001 */
-	public static final IconEntry EFFECT_001 = new IconEntry("effects/effects.png", new int[]{16, 0, 16, 8});
+	public static final IconEntry EFFECT_001 = new IconEntry("effects/effects.png", new int[]{16, 0, 16, 8}, 11);
 	/** effect_002 */
-	public static final IconEntry EFFECT_002 = new IconEntry("effects/effects.png", new int[]{16, 8, 16, 8});
+	public static final IconEntry EFFECT_002 = new IconEntry("effects/effects.png", new int[]{16, 8, 16, 8}, 12);
 	/** effect_003 */
-	public static final IconEntry EFFECT_003 = new IconEntry("effects/effects.png", new int[]{0, 16, 6, 9});
+	public static final IconEntry EFFECT_003 = new IconEntry("effects/effects.png", new int[]{0, 16, 6, 9}, 13);
 	/** effect_004 */
-	public static final IconEntry EFFECT_004 = new IconEntry("effects/effects.png", new int[]{6, 16, 5, 6});
+	public static final IconEntry EFFECT_004 = new IconEntry("effects/effects.png", new int[]{6, 16, 5, 6}, 14);
 	/** effect_005 */
-	public static final IconEntry EFFECT_005 = new IconEntry("effects/effects.png", new int[]{11, 16, 5, 6});
+	public static final IconEntry EFFECT_005 = new IconEntry("effects/effects.png", new int[]{11, 16, 5, 6}, 15);
 	/** effect_006 */
-	public static final IconEntry EFFECT_006 = new IconEntry("effects/effects.png", new int[]{16, 16, 16, 8});
+	public static final IconEntry EFFECT_006 = new IconEntry("effects/effects.png", new int[]{16, 16, 16, 8}, 16);
 	/** effect_007 */
-	public static final IconEntry EFFECT_007 = new IconEntry("effects/effects.png", new int[]{16, 23, 16, 8});
+	public static final IconEntry EFFECT_007 = new IconEntry("effects/effects.png", new int[]{16, 23, 16, 8}, 17);
 	/** effect_008 */
-	public static final IconEntry EFFECT_008 = new IconEntry("effects/effects.png", new int[]{16, 30, 16, 8});
+	public static final IconEntry EFFECT_008 = new IconEntry("effects/effects.png", new int[]{16, 30, 16, 8}, 18);
 	/** effect_009 */
-	public static final IconEntry EFFECT_009 = new IconEntry("effects/effects.png", new int[]{16, 45, 16, 8});
+	public static final IconEntry EFFECT_009 = new IconEntry("effects/effects.png", new int[]{16, 45, 16, 8}, 19);
 }

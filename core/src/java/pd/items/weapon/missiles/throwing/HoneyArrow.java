@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles.throwing;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -14,7 +16,6 @@ import pd.items.Honeypot;
 import pd.items.Item;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
 import render.noosa.tweeners.AlphaTweener;
@@ -26,7 +27,7 @@ import java.util.ArrayList;
 public class HoneyArrow extends TossWeapon {
 
 	{
-		image = ItemSpriteSheet.HONEY_ARROW;
+		image = ConsumThrowsDict.HONEY_ARROW;
 		tier = 1;
 		baseUses = 1;
 		bones = false;

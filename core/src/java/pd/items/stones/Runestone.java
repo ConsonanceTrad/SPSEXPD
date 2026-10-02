@@ -21,6 +21,8 @@
 
 package pd.items.stones;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.buffs.Invisibility;
@@ -28,7 +30,6 @@ import pd.actors.buffs.MagicImmune;
 import pd.actors.hero.Talent;
 import pd.items.Item;
 import pd.journal.Catalog;
-import pd.sprites.ItemSpriteSheet;
 
 public abstract class Runestone extends Item {
 	
@@ -41,7 +42,7 @@ public abstract class Runestone extends Item {
 	//useful for stones which are only spawned for their effects
 	protected boolean anonymous = false;
 	public void anonymize(){
-		image = ItemSpriteSheet.STONE_HOLDER;
+		image = SpecificPlaceHolderDict.STONE_HOLDER_0;
 		anonymous = true;
 	}
 
@@ -88,7 +89,7 @@ public abstract class Runestone extends Item {
 	public static class PlaceHolder extends Runestone {
 		
 		{
-			image = ItemSpriteSheet.STONE_HOLDER;
+			image = SpecificPlaceHolderDict.STONE_HOLDER_0;
 		}
 		
 		@Override

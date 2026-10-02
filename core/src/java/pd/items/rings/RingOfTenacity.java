@@ -24,12 +24,12 @@ package pd.items.rings;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 
 public class RingOfTenacity extends Ring {
 
 	{
-		icon = ItemSpriteSheet.Icons.RING_TENACITY;
+		icon = ItemIconSheet.RING_TENACITY;
 		buffClass = Tenacity.class;
 	}
 

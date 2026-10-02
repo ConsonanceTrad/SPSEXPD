@@ -1,14 +1,15 @@
 package pd.items.weapon.melee.normalweapon;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.ArmorBreak;
 import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class Scimitar extends NormalMeleeWeapon {
-	public Scimitar() { super(3, 1f, 1f, 1, 23, 35, ItemSpriteSheet.SPS_WEP_SCIMITAR); }
+	public Scimitar() { super(3, 1f, 1f, 1, 23, 35, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) {
 		if (s.accuracy < 1.5f) s.accuracy += .025f;
 		if (s.delay > .8f) s.delay -= .05f;

@@ -1,10 +1,11 @@
 package pd.items.weapon.melee.normalweapon;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
-import pd.sprites.ItemSpriteSheet;
 
 public class Dualknive extends NormalMeleeWeapon {
-	public Dualknive() { super(2, 1f, 1f, 1, 11, 17, ItemSpriteSheet.SPS_WEP_DUAL_KNIVE); }
+	public Dualknive() { super(2, 1f, 1f, 1, 11, 17, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) {
 		if (s.accuracy < 1.2f) s.accuracy += .05f;
 		if (s.accuracy > 1.2f && s.delay > .8f) s.delay -= .05f;

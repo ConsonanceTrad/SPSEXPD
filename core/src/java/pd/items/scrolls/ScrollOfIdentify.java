@@ -31,7 +31,7 @@ import pd.items.trinkets.ShardOfOblivion;
 import pd.items.wands.Wand;
 import pd.items.weapon.Weapon;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
@@ -41,7 +41,7 @@ import java.util.ArrayList;
 public class ScrollOfIdentify extends InventoryScroll {
 
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_IDENTIFY;
+		icon = ItemIconSheet.SCROLL_IDENTIFY;
 
 		bones = true;
 	}

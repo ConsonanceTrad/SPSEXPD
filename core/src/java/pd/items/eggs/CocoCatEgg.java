@@ -1,10 +1,11 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.eggs;
+
+import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.actors.mobs.pets.CocoCat;
 import pd.actors.mobs.pets.LegacyPet;
-import pd.sprites.ItemSpriteSheet;
 public class CocoCatEgg extends Egg {
-	{ image = ItemSpriteSheet.COCO_CAT_EGG; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected LegacyPet hatchling() { return new CocoCat(); }
 	@Override public int value() { return 500 * quantity; }
 }

@@ -21,6 +21,8 @@
 
 package pd.items.wands;
 
+import pd.atlas.items.EquipmentWandBasicWandDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Dungeon;
@@ -42,7 +44,6 @@ import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTilemap;
 import pd.utils.GLog;
 import render.noosa.Game;
@@ -56,7 +57,7 @@ import render.utils.math.Random;
 public class WandOfBlastWave extends DamageWand {
 
 	{
-		image = ItemSpriteSheet.WAND_BLAST_WAVE;
+		image = EquipmentWandBasicWandDict.WAND_BLAST_WAVE_0;
 
 		collisionProperties = Ballistica.PROJECTILE;
 	}

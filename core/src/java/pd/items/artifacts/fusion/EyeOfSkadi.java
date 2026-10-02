@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.artifacts.fusion;
 
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -24,7 +26,6 @@ import pd.items.nornstone.NornStone;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import render.noosa.audio.Sample;
@@ -45,7 +46,7 @@ public class EyeOfSkadi extends Artifact {
 	private int consumedPoints;
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_ICE_EYE;
+		image = EquipmentJewelleryArtifactDict.ARTIFACT_ICE_EYE_0;
 		levelCap = MAX_LEVEL;
 		chargeCap = FULL_CHARGE;
 		defaultAction = AC_CURSE;

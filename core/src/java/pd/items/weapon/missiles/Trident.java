@@ -21,13 +21,14 @@
 
 package pd.items.weapon.missiles;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Assets;
-import pd.sprites.ItemSpriteSheet;
 
 public class Trident extends MissileWeapon {
 	
 	{
-		image = ItemSpriteSheet.TRIDENT;
+		image = ConsumThrowsDict.TRIDENT_0;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 0.9f;
 		

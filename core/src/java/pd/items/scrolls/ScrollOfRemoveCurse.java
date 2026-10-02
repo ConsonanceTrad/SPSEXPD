@@ -41,7 +41,7 @@ import pd.items.bags.Bag;
 import pd.items.wands.Wand;
 import pd.items.weapon.Weapon;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 
@@ -50,7 +50,7 @@ import java.util.ArrayList;
 public class ScrollOfRemoveCurse extends InventoryScroll {
 
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_REMCURSE;
+		icon = ItemIconSheet.SCROLL_REMCURSE;
 		preferredBag = Belongings.Backpack.class;
 	}
 

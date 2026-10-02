@@ -1,6 +1,7 @@
 package pd.items.sellitem;
-import pd.sprites.ItemSpriteSheet;
+
+import pd.atlas.items.SpecificPlaceHolderDict;
 public class HummingTool extends SellItem {
-	{ image = ItemSpriteSheet.HUMMING_TOOL; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public int value() { return 120 * quantity; }
 }

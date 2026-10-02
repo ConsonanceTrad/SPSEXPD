@@ -21,6 +21,8 @@
 
 package pd.items.spells;
 
+import pd.atlas.items.ConsumScrollAmuletCrystalDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Statistics;
@@ -35,7 +37,6 @@ import pd.items.weapon.Weapon;
 import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndUpgrade;
@@ -45,7 +46,7 @@ import render.utils.math.Random;
 public class MagicalInfusion extends InventorySpell {
 	
 	{
-		image = ItemSpriteSheet.MAGIC_INFUSE;
+		image = ConsumScrollAmuletCrystalDict.MAGIC_INFUSE_0;
 
 		unique = true;
 

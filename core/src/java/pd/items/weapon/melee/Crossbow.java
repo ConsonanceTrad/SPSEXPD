@@ -21,6 +21,8 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -30,14 +32,13 @@ import pd.actors.hero.Hero;
 import pd.items.wands.WandOfBlastWave;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 
 public class Crossbow extends MeleeWeapon {
 	
 	{
-		image = ItemSpriteSheet.CROSSBOW;
+		image = EquipmentEquipWeaponBasicWeaponDict.CROSSBOW_0;
 		hitSound = Assets.Sounds.HIT;
 		hitSoundPitch = 1f;
 		

@@ -1,11 +1,12 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.sellitem;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
+
 
 public class LingHeart extends SellItem {
 	{
-		image = ItemSpriteSheet.LING_HEART;
+		image = EquipmentJewelleryArtifactDict.LING_HEART_0;
 		stackable = true;
 	}
 	@Override public int value() { return 100000 * quantity; }

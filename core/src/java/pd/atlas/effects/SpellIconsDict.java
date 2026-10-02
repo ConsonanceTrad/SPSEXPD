@@ -13,19 +13,19 @@ public final class SpellIconsDict {
 	private SpellIconsDict() { }
 
 	/** spell_000 */
-	public static final IconEntry SPELL_000 = new IconEntry("effects/spell_icons.png", new int[]{0, 0, 16, 16});
+	public static final IconEntry SPELL_000 = new IconEntry("effects/spell_icons.png", new int[]{0, 0, 16, 16}, 20);
 	/** spell_001 */
-	public static final IconEntry SPELL_001 = new IconEntry("effects/spell_icons.png", new int[]{16, 0, 16, 16});
+	public static final IconEntry SPELL_001 = new IconEntry("effects/spell_icons.png", new int[]{16, 0, 16, 16}, 21);
 	/** spell_002 */
-	public static final IconEntry SPELL_002 = new IconEntry("effects/spell_icons.png", new int[]{32, 0, 16, 16});
+	public static final IconEntry SPELL_002 = new IconEntry("effects/spell_icons.png", new int[]{32, 0, 16, 16}, 22);
 	/** spell_003 */
-	public static final IconEntry SPELL_003 = new IconEntry("effects/spell_icons.png", new int[]{48, 0, 16, 16});
+	public static final IconEntry SPELL_003 = new IconEntry("effects/spell_icons.png", new int[]{48, 0, 16, 16}, 23);
 	/** spell_004 */
-	public static final IconEntry SPELL_004 = new IconEntry("effects/spell_icons.png", new int[]{64, 0, 16, 16});
+	public static final IconEntry SPELL_004 = new IconEntry("effects/spell_icons.png", new int[]{64, 0, 16, 16}, 24);
 	/** spell_005 */
-	public static final IconEntry SPELL_005 = new IconEntry("effects/spell_icons.png", new int[]{80, 0, 16, 16});
+	public static final IconEntry SPELL_005 = new IconEntry("effects/spell_icons.png", new int[]{80, 0, 16, 16}, 25);
 	/** spell_006 */
-	public static final IconEntry SPELL_006 = new IconEntry("effects/spell_icons.png", new int[]{96, 0, 16, 16});
+	public static final IconEntry SPELL_006 = new IconEntry("effects/spell_icons.png", new int[]{96, 0, 16, 16}, 26);
 	/** spell_007 */
-	public static final IconEntry SPELL_007 = new IconEntry("effects/spell_icons.png", new int[]{112, 0, 16, 16});
+	public static final IconEntry SPELL_007 = new IconEntry("effects/spell_icons.png", new int[]{112, 0, 16, 16}, 27);
 }

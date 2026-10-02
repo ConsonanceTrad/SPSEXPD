@@ -13,17 +13,17 @@ public final class SpecificPagesDict {
 	private SpecificPagesDict() { }
 
 	/** GUIDE_PAGE#0 */
-	public static final IconEntry GUIDE_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{3, 2, 10, 11});
+	public static final IconEntry GUIDE_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{3, 2, 10, 11}, 7048);
 	/** ALCH_PAGE#0 */
-	public static final IconEntry ALCH_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{19, 2, 10, 11});
+	public static final IconEntry ALCH_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{19, 2, 10, 11}, 7049);
 	/** SEWER_PAGE#0 */
-	public static final IconEntry SEWER_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{35, 2, 10, 11});
+	public static final IconEntry SEWER_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{35, 2, 10, 11}, 7050);
 	/** PRISON_PAGE#0 */
-	public static final IconEntry PRISON_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{51, 2, 10, 11});
+	public static final IconEntry PRISON_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{51, 2, 10, 11}, 7051);
 	/** CAVES_PAGE#0 */
-	public static final IconEntry CAVES_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{67, 2, 10, 11});
+	public static final IconEntry CAVES_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{67, 2, 10, 11}, 7052);
 	/** CITY_PAGE#0 */
-	public static final IconEntry CITY_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{83, 2, 10, 11});
+	public static final IconEntry CITY_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{83, 2, 10, 11}, 7053);
 	/** HALLS_PAGE#0 */
-	public static final IconEntry HALLS_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{99, 2, 10, 11});
+	public static final IconEntry HALLS_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{99, 2, 10, 11}, 7054);
 }

@@ -12,6 +12,8 @@
  */
 package pd.items.bombs;
 
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.blobs.Blob;
@@ -20,12 +22,11 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.FlameParticle;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
 
 public class Firebomb extends Bomb {
-	{ image = ItemSpriteSheet.FIRE_BOMB; }
+	{ image = EquipmentEquipWeaponBombDict.FIRE_BOMB_0; }
 	@Override protected int explosionRange() { return 2; }
 	@Override public void explode(int cell) {
 		super.explode(cell);

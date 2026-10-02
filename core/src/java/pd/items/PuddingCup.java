@@ -1,5 +1,7 @@
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Badges;
 import pd.Dungeon;
 import pd.ShatteredPixelDungeon;
@@ -7,7 +9,6 @@ import pd.actors.Actor;
 import pd.actors.hero.Hero;
 import pd.scenes.MemorySaveScene;
 import pd.scenes.PuddingCupScene;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
 
 import java.io.IOException;
@@ -18,7 +19,7 @@ public class PuddingCup extends Item {
 	private static final String AC_SAVE = "SAVE";
 
 	{
-		image = ItemSpriteSheet.PUDDING_CUP;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		unique = true;
 	}
 

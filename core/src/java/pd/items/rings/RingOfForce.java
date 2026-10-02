@@ -31,7 +31,7 @@ import pd.actors.hero.spells.SpiritForm;
 import pd.items.weapon.melee.MeleeWeapon;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.ui.AttackIndicator;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
@@ -42,7 +42,7 @@ import java.util.ArrayList;
 public class RingOfForce extends Ring {
 
 	{
-		icon = ItemSpriteSheet.Icons.RING_FORCE;
+		icon = ItemIconSheet.RING_FORCE;
 		buffClass = Force.class;
 	}
 

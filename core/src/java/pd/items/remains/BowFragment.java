@@ -21,6 +21,8 @@
 
 package pd.items.remains;
 
+import pd.atlas.items.ConsumUsefulCorpseRelicsDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.hero.Hero;
@@ -30,7 +32,6 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
@@ -39,7 +40,7 @@ import java.util.ArrayList;
 public class BowFragment extends RemainsItem {
 
 	{
-		image = ItemSpriteSheet.BOW_FRAGMENT;
+		image = ConsumUsefulCorpseRelicsDict.BOW_FRAGMENT_0;
 	}
 
 	@Override

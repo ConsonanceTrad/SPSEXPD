@@ -1,9 +1,10 @@
 package pd.plants;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.items.Generator;
-import pd.sprites.ItemSpriteSheet;
 
 public class Freshberry extends Plant {
 	{ image = 7; seedClass = Seed.class; }
@@ -12,7 +13,7 @@ public class Freshberry extends Plant {
 		Dungeon.level.drop(Generator.random(Generator.Category.BERRY), pos).sprite.drop();
 	}
 	public static class Seed extends Plant.Seed {
-		{ image = ItemSpriteSheet.SPS_SEED_ROTBERRY; plantClass = Freshberry.class; explantClass = ExFreshberry.class; }
+		{ image = SpecificPlaceHolderDict.SOMETHING_0; plantClass = Freshberry.class; explantClass = ExFreshberry.class; }
 	}
 	public static class ExFreshberry extends SpsFruitBush {
 		{ image = 7; harvestCount = 3; harvestCategory = Generator.Category.SPS_BERRY; }

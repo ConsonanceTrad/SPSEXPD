@@ -30,14 +30,14 @@ import pd.actors.buffs.Levitation;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 
 public class PotionOfLevitation extends Potion {
 
 	{
-		icon = ItemSpriteSheet.Icons.POTION_LEVITATE;
+		icon = ItemIconSheet.POTION_LEVITATE;
 	}
 
 	@Override

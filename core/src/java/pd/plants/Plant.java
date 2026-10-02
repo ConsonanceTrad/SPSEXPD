@@ -21,6 +21,8 @@
 
 package pd.plants;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Challenges;
 import pd.Dungeon;
@@ -42,7 +44,6 @@ import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 import render.utils.serialize.Bundlable;
@@ -248,7 +249,7 @@ public abstract class Plant implements Bundlable {
 		public static class PlaceHolder extends Seed {
 			
 			{
-				image = ItemSpriteSheet.SEED_HOLDER;
+				image = SpecificPlaceHolderDict.SEED_HOLDER_0;
 			}
 			
 			@Override

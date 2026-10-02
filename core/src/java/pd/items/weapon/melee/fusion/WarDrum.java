@@ -5,17 +5,18 @@
 
 package pd.items.weapon.melee.fusion;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.items.weapon.melee.Mace;
 import pd.mechanics.pathfind.PathFinder;
-import pd.sprites.ItemSpriteSheet;
 
 public class WarDrum extends Mace implements FusionWeapon {
 
 	{
-		image = ItemSpriteSheet.WAR_HAMMER;
+		image = EquipmentEquipWeaponBasicWeaponDict.WAR_HAMMER_0;
 		hitSound = Assets.Sounds.HIT_CRUSH;
 		hitSoundPitch = 0.8f;
 		tier = 4;

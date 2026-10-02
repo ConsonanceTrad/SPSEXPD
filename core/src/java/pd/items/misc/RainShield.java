@@ -1,14 +1,15 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.ShieldArmor;
-import pd.sprites.ItemSpriteSheet;
 
 /** Rain's training shield converts missing health into a physical shield each turn. */
 public class RainShield extends MiscEquippable {
 
-	{ image = ItemSpriteSheet.RAIN_SHIELD; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 
 	@Override protected RainShieldBuff createBuff() { return new RainShieldBuff(); }
 

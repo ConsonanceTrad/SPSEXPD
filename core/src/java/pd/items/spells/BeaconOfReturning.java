@@ -21,6 +21,8 @@
 
 package pd.items.spells;
 
+import pd.atlas.items.ConsumScrollAmuletCrystalDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -41,7 +43,6 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.InterlevelScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndOptions;
 import render.noosa.Game;
@@ -54,7 +55,7 @@ import java.util.ArrayList;
 public class BeaconOfReturning extends Spell {
 	
 	{
-		image = ItemSpriteSheet.RETURN_BEACON;
+		image = ConsumScrollAmuletCrystalDict.RETURN_BEACON_0;
 
 		talentChance = 1/(float)Recipe.OUT_QUANTITY;
 	}

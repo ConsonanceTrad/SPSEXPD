@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.wands;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -22,7 +24,6 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.BaBaSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.sprites.SheepSprite;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
@@ -35,7 +36,7 @@ import render.utils.serialize.Bundle;
 public class WandOfFlock extends Wand {
 
 	{
-		image = ItemSpriteSheet.WAND_FLOCK;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		collisionProperties = Ballistica.PROJECTILE;
 	}
 

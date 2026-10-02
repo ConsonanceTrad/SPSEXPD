@@ -21,12 +21,13 @@
 
 package pd.items.armor;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
+
 
 public class PlateArmor extends Armor {
 
 	{
-		image = ItemSpriteSheet.ARMOR_PLATE;
+		image = EquipmentEquipArmorBasicArmorDict.ARMOR_PLATE_0;
 	}
 	
 	public PlateArmor() {

@@ -1,19 +1,20 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles.throwing;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Amok;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Charm;
 import pd.items.Item;
 import pd.items.weapon.missiles.MissileWeapon;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class Wave extends MissileWeapon {
 
 	{
-		image = ItemSpriteSheet.LEGACY_WAVE;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		tier = 1;
 		baseUses = 1;
 		DLY = 0.1f;

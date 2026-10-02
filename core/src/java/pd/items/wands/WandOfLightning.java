@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.wands;
 
+import pd.atlas.items.EquipmentWandBasicWandDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -12,7 +14,6 @@ import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.PixelScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.data.BArray;
 import render.utils.data.Callback;
 import render.utils.math.Random;
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 public class WandOfLightning extends DamageWand {
 
 	{
-		image = ItemSpriteSheet.WAND_SPS_LIGHTNING;
+		image = EquipmentWandBasicWandDict.WAND_SPS_LIGHTNING;
 		collisionProperties = Ballistica.PROJECTILE;
 	}
 

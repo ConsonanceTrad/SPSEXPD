@@ -21,6 +21,8 @@
 
 package pd.items.bags;
 
+import pd.atlas.items.EquipmentBagsDict;
+
 import pd.items.Item;
 import pd.items.StoneOre;
 import pd.items.nornstone.NornStone;
@@ -28,12 +30,11 @@ import pd.items.quest.GooBlob;
 import pd.items.quest.MetalShard;
 import pd.items.stones.Runestone;
 import pd.plants.Plant;
-import pd.sprites.ItemSpriteSheet;
 
 public class VelvetPouch extends Bag {
 
 	{
-		image = ItemSpriteSheet.POUCH;
+		image = EquipmentBagsDict.POUCH;
 	}
 
 	@Override

@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.summon;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
@@ -9,7 +11,6 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.items.Generator;
 import pd.items.weapon.missiles.fusion.RocketMissile;
-import pd.sprites.ItemSpriteSheet;
 import pd.sprites.PatrolUAVSprite;
 
 /**
@@ -22,7 +23,7 @@ public class ChinaMech extends SpsSummonItem {
 	private static boolean activate;
 
 	{
-		image = ItemSpriteSheet.SPS_CHINA_MECH;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 	@Override

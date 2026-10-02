@@ -31,7 +31,7 @@ import pd.effects.particles.ChallengeParticle;
 import pd.mechanics.ShadowCaster;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.noosa.audio.Sample;
@@ -45,7 +45,7 @@ import java.util.ArrayList;
 public class ScrollOfChallenge extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_CHALLENGE;
+		icon = ItemIconSheet.SCROLL_CHALLENGE;
 	}
 	
 	@Override

@@ -27,13 +27,13 @@ import pd.actors.buffs.MindVision;
 import pd.actors.hero.Hero;
 import pd.effects.SpellSprite;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 
 public class PotionOfMindVision extends Potion {
 
 	{
-		icon = ItemSpriteSheet.Icons.POTION_MINDVIS;
+		icon = ItemIconSheet.POTION_MINDVIS;
 	}
 
 	@Override

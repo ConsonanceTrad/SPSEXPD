@@ -21,16 +21,17 @@
 
 package pd.items.weapon.missiles;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Assets;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
-import pd.sprites.ItemSpriteSheet;
 
 public class Kunai extends MissileWeapon {
 	
 	{
-		image = ItemSpriteSheet.KUNAI;
+		image = ConsumThrowsDict.KUNAI_0;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 1.1f;
 		

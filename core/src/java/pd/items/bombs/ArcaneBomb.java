@@ -21,6 +21,8 @@
 
 package pd.items.bombs;
 
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
+
 import pd.Badges;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -30,7 +32,6 @@ import pd.effects.particles.ElmoParticle;
 import pd.items.Heap;
 import pd.mechanics.pathfind.PathFinder;
 import pd.sprites.GooSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.particles.Emitter;
 import render.utils.data.BArray;
 import render.utils.math.Random;
@@ -40,7 +41,7 @@ import java.util.ArrayList;
 public class ArcaneBomb extends Bomb {
 	
 	{
-		image = ItemSpriteSheet.ARCANE_BOMB;
+		image = EquipmentEquipWeaponBombDict.ARCANE_BOMB_0;
 	}
 
 	@Override

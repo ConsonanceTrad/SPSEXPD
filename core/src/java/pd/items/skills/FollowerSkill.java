@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.skills;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Badges;
 import pd.Dungeon;
 import pd.actors.buffs.*;
@@ -10,13 +12,12 @@ import pd.items.Generator;
 import pd.items.Item;
 import pd.items.bags.Bag;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
 import render.utils.math.Random;
 
 /** The four follower class skills from SPS-PD 0.9.8. */
 public class FollowerSkill extends ClassSkill {
-	{ image = ItemSpriteSheet.ARTIFACT_CLOAK; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 
 	@Override public void doSpecial() {
 		Buff.affect(curUser, ParyAttack.class);

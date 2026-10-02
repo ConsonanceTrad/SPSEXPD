@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.skills;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.buffs.*;
 import pd.actors.damagetype.SpsMagicDamage;
@@ -12,12 +14,11 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 /** The four mage class skills from SPS-PD 0.9.8. */
 public class MageSkill extends ClassSkill {
-	{ image = ItemSpriteSheet.ARMOR_MAGE; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 
 	@Override public void doSpecial() {
 		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {

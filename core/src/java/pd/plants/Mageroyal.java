@@ -21,6 +21,8 @@
 
 package pd.plants;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.BlobImmunity;
 import pd.actors.buffs.Buff;
@@ -28,7 +30,6 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.items.potions.PotionOfHealing;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 
 public class Mageroyal extends Plant {
@@ -56,7 +57,7 @@ public class Mageroyal extends Plant {
 
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SEED_MAGEROYAL;
+			image = ConsumPotionSeedSeedDict.SEED_MAGEROYAL_0;
 
 			plantClass = Mageroyal.class;
 		}

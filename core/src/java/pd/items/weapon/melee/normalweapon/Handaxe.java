@@ -1,13 +1,14 @@
 package pd.items.weapon.melee.normalweapon;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class Handaxe extends NormalMeleeWeapon {
-	public Handaxe() { super(2, 1f, 1f, 1, 11, 22, ItemSpriteSheet.SPS_WEP_HANDAXE); }
+	public Handaxe() { super(2, 1f, 1f, 1, 11, 22, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) {
 		if (s.accuracy < 1.5f) s.accuracy += .1f;
 		if (s.accuracy > 1.4f && s.strength > 10) s.strength--;

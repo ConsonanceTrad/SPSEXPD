@@ -21,6 +21,8 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -35,7 +37,6 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
@@ -43,7 +44,7 @@ import render.utils.data.BArray;
 public class Dagger extends MeleeWeapon {
 	
 	{
-		image = ItemSpriteSheet.DAGGER;
+		image = EquipmentEquipWeaponBasicWeaponDict.DAGGER_0;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 1.1f;
 

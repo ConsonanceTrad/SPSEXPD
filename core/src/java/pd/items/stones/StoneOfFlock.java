@@ -21,6 +21,8 @@
 
 package pd.items.stones;
 
+import pd.atlas.items.ConsumScrollAmuletAmuletDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -29,7 +31,6 @@ import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
 
@@ -38,7 +39,7 @@ import java.util.ArrayList;
 public class StoneOfFlock extends Runestone {
 	
 	{
-		image = ItemSpriteSheet.STONE_FLOCK;
+		image = ConsumScrollAmuletAmuletDict.STONE_FLOCK_0;
 	}
 	
 	@Override

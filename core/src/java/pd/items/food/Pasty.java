@@ -21,6 +21,9 @@
 
 package pd.items.food;
 
+import pd.atlas.items.ConsumFoodFoodDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -37,7 +40,6 @@ import pd.items.potions.PotionOfExperience;
 import pd.items.scrolls.ScrollOfRecharging;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.TargetHealthIndicator;
 import pd.utils.Holiday;
 import render.noosa.audio.Sample;
@@ -57,34 +59,34 @@ public class Pasty extends Food {
 		super.reset();
 		switch(Holiday.getCurrentHoliday()){
 			case NONE: default:
-				image = ItemSpriteSheet.PASTY;
+				image = SpecificPlaceHolderDict.SOMETHING_0;
 				break;
 			case LUNAR_NEW_YEAR:
-				image = ItemSpriteSheet.STEAMED_FISH;
+				image = ConsumFoodFoodDict.STEAMED_FISH_0;
 				break;
 			case APRIL_FOOLS:
-				image = ItemSpriteSheet.CHOC_AMULET;
+				image = SpecificPlaceHolderDict.SOMETHING_0;
 				break;
 			case EASTER:
-				image = ItemSpriteSheet.EASTER_EGG;
+				image = ConsumFoodFoodDict.EASTER_EGG_0;
 				break;
 			case PRIDE:
-				image = ItemSpriteSheet.RAINBOW_POTION;
+				image = ConsumFoodFoodDict.RAINBOW_POTION_0;
 				break;
 			case SHATTEREDPD_BIRTHDAY:
-				image = ItemSpriteSheet.SHATTERED_CAKE;
+				image = SpecificPlaceHolderDict.SOMETHING_0;
 				break;
 			case HALLOWEEN:
-				image = ItemSpriteSheet.PUMPKIN_PIE;
+				image = ConsumFoodFoodDict.PUMPKIN_PIE;
 				break;
 			case PD_BIRTHDAY:
-				image = ItemSpriteSheet.VANILLA_CAKE;
+				image = SpecificPlaceHolderDict.SOMETHING_0;
 				break;
 			case WINTER_HOLIDAYS:
-				image = ItemSpriteSheet.CANDY_CANE;
+				image = ConsumFoodFoodDict.CANDY_CANE_0;
 				break;
 			case NEW_YEARS:
-				image = ItemSpriteSheet.SPARKLING_POTION;
+				image = ConsumFoodFoodDict.SPARKLING_POTION_0;
 				break;
 		}
 	}
@@ -231,7 +233,7 @@ public class Pasty extends Food {
 	public static class FishLeftover extends Food {
 
 		{
-			image = ItemSpriteSheet.FISH_LEFTOVER;
+			image = ConsumFoodFoodDict.FISH_LEFTOVER_0;
 			energy = Hunger.HUNGRY/2;
 		}
 

@@ -26,13 +26,13 @@ import pd.actors.buffs.ArtifactRecharge;
 import pd.actors.buffs.Buff;
 import pd.effects.SpellSprite;
 import pd.items.scrolls.ScrollOfRecharging;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
 
 public class ScrollOfMysticalEnergy extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_MYSTENRG;
+		icon = ItemIconSheet.SCROLL_MYSTENRG;
 	}
 	
 	@Override

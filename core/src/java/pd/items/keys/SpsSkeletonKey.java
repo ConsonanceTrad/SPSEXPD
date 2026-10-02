@@ -13,14 +13,15 @@
 
 package pd.items.keys;
 
+import pd.atlas.items.SpecificKeyDict;
+
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 
 /** The chapter-exit key awarded by SPS quest givers. */
 public class SpsSkeletonKey extends Key {
 
 	{
-		image = ItemSpriteSheet.WORN_KEY;
+		image = SpecificKeyDict.WORN_KEY;
 		stackable = false;
 	}
 

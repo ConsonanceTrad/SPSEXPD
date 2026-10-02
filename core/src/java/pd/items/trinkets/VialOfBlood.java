@@ -21,14 +21,15 @@
 
 package pd.items.trinkets;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.Dungeon;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 
 public class VialOfBlood extends Trinket {
 
 	{
-		image = ItemSpriteSheet.BLOOD_VIAL;
+		image = EquipmentNonEquipDict.BLOOD_VIAL_0;
 	}
 
 	@Override

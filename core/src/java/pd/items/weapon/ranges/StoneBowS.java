@@ -1,3 +1,4 @@
 package pd.items.weapon.ranges;
-import pd.sprites.ItemSpriteSheet;
-public class StoneBowS extends RangeWeapon { public StoneBowS() { super(2, Variant.LIGHT, ItemSpriteSheet.STONE_BOW); } }
+
+import pd.atlas.items.SpecificPlaceHolderDict;
+public class StoneBowS extends RangeWeapon { public StoneBowS() { super(2, Variant.LIGHT, SpecificPlaceHolderDict.SOMETHING_0); } }

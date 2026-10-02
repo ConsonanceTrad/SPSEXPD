@@ -21,6 +21,8 @@
 
 package pd.items;
 
+import pd.atlas.items.EquipmentBagsDict;
+
 import pd.Assets;
 import pd.actors.buffs.LostInventory;
 import pd.actors.hero.Hero;
@@ -33,13 +35,12 @@ import pd.items.weapon.melee.MagesStaff;
 import pd.journal.Notes;
 import pd.scenes.GameScene;
 import pd.sprites.HeroSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 
 public class LostBackpack extends Item {
 
 	{
-		image = ItemSpriteSheet.BACKPACK;
+		image = EquipmentBagsDict.BACKPACK_0;
 
 		unique = true;
 	}

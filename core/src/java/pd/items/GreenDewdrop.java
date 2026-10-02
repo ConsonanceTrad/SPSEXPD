@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import pd.atlas.items.GroundFunctionalFallingDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.Statistics;
@@ -11,14 +13,13 @@ import pd.journal.Catalog;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
 /** The original SPS green dew, whose healing and stored value are randomized per pickup. */
 public class GreenDewdrop extends Dewdrop {
 	{
-		image = ItemSpriteSheet.SPS_GREEN_DEWDROP;
+		image = GroundFunctionalFallingDict.DEWDROP_0;
 	}
 
 	@Override

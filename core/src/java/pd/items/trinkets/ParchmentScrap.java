@@ -21,13 +21,14 @@
 
 package pd.items.trinkets;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 
 public class ParchmentScrap extends Trinket {
 
 	{
-		image = ItemSpriteSheet.PARCHMENT_SCRAP;
+		image = EquipmentNonEquipDict.PARCHMENT_SCRAP_0;
 	}
 
 	@Override

@@ -21,6 +21,9 @@
 
 package pd.scenes;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.SpecificTaskDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Dungeon;
@@ -31,7 +34,6 @@ import pd.actors.hero.HeroClass;
 import pd.effects.Flare;
 import pd.messages.Messages;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.Button;
 import pd.ui.ExitButton;
 import pd.ui.IconButton;
@@ -233,7 +235,7 @@ public class RankingsScene extends PixelScene {
 			int odd = pos % 2;
 			
 			if (rec.win) {
-				shield.copy( new ItemSprite(ItemSpriteSheet.AMULET, null) );
+				shield.copy( new ItemSprite(SpecificTaskDict.AMULET_0, null) );
 				position.hardlight( TEXT_WIN[odd] );
 				desc.hardlight( TEXT_WIN[odd] );
 				depth.hardlight( TEXT_WIN[odd] );
@@ -254,7 +256,7 @@ public class RankingsScene extends PixelScene {
 				}
 
 				if (rec.ascending){
-					shield.copy( new ItemSprite(ItemSpriteSheet.AMULET, null) );
+					shield.copy( new ItemSprite(SpecificTaskDict.AMULET_0, null) );
 					shield.hardlight(0.4f, 0.4f, 0.7f);
 				}
 
@@ -286,7 +288,7 @@ public class RankingsScene extends PixelScene {
 			
 			super.createChildren();
 			
-			shield = new Image(new ItemSprite( ItemSpriteSheet.TOMB, null ));
+			shield = new Image(new ItemSprite( SpecificPlaceHolderDict.SOMETHING_0, null ));
 			add( shield );
 			
 			position = new BitmapText( PixelScene.pixelFont);

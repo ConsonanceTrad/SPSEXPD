@@ -21,19 +21,20 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.FlavourBuff;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 
 public class Quarterstaff extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.QUARTERSTAFF;
+		image = EquipmentEquipWeaponBasicWeaponDict.QUARTERSTAFF_0;
 		hitSound = Assets.Sounds.HIT_CRUSH;
 		hitSoundPitch = 1f;
 

@@ -1,13 +1,14 @@
 package pd.items.potions;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Healing;
 import pd.actors.hero.Hero;
 import pd.effects.Speck;
-import pd.sprites.ItemSpriteSheet;
 
 public class PotionOfMending extends SpsPotion {
-	{ image = ItemSpriteSheet.SPS_POTION_MENDING; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public void apply(Hero hero) {
 		PotionOfHealing.cure(hero);
 		Buff.affect(hero, Healing.class).setHeal(Math.max(hero.HT / 4, 30), 0.25f, 0, true);

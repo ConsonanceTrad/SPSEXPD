@@ -13,63 +13,63 @@ public final class ConsumPotionSeedSeedDict {
 	private ConsumPotionSeedSeedDict() { }
 
 	/** SEED_ROT_BERRY */
-	public static final IconEntry SEED_ROT_BERRY = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{3, 3, 10, 10});
+	public static final IconEntry SEED_ROT_BERRY = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{3, 3, 10, 10}, 6473);
 	/** SEED_FIREBLOOM */
-	public static final IconEntry SEED_FIREBLOOM = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{19, 3, 10, 10});
+	public static final IconEntry SEED_FIREBLOOM = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{19, 3, 10, 10}, 6474);
 	/** SEED_SWIFTTHISTLE */
-	public static final IconEntry SEED_SWIFTTHISTLE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{35, 3, 10, 10});
+	public static final IconEntry SEED_SWIFTTHISTLE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{35, 3, 10, 10}, 6475);
 	/** SEED_SUNGRASS */
-	public static final IconEntry SEED_SUNGRASS = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{51, 3, 10, 10});
+	public static final IconEntry SEED_SUNGRASS = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{51, 3, 10, 10}, 6476);
 	/** SEED_ICECAP */
-	public static final IconEntry SEED_ICECAP = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{67, 3, 10, 10});
+	public static final IconEntry SEED_ICECAP = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{67, 3, 10, 10}, 6477);
 	/** SEED_STORMVINE */
-	public static final IconEntry SEED_STORMVINE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{83, 3, 10, 10});
+	public static final IconEntry SEED_STORMVINE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{83, 3, 10, 10}, 6478);
 	/** SEED_SORROWMOSS#0 */
-	public static final IconEntry SEED_SORROWMOSS_0 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{99, 3, 10, 10});
+	public static final IconEntry SEED_SORROWMOSS_0 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{99, 3, 10, 10}, 6479);
 	/** SEED_MAGEROYAL#0 */
-	public static final IconEntry SEED_MAGEROYAL_0 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{115, 3, 10, 10});
+	public static final IconEntry SEED_MAGEROYAL_0 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{115, 3, 10, 10}, 6480);
 	/** SEED_EARTHROOT#0 */
-	public static final IconEntry SEED_EARTHROOT_0 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{131, 3, 10, 10});
+	public static final IconEntry SEED_EARTHROOT_0 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{131, 3, 10, 10}, 6481);
 	/** SEED_BLINDWEED#0 */
-	public static final IconEntry SEED_BLINDWEED_0 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{147, 3, 10, 10});
+	public static final IconEntry SEED_BLINDWEED_0 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{147, 3, 10, 10}, 6482);
 	/** SEED_FADELEAF#0 */
-	public static final IconEntry SEED_FADELEAF_0 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{163, 3, 10, 10});
+	public static final IconEntry SEED_FADELEAF_0 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{163, 3, 10, 10}, 6483);
 	/** SEED_STARFLOWER#0 */
-	public static final IconEntry SEED_STARFLOWER_0 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{179, 3, 10, 10});
+	public static final IconEntry SEED_STARFLOWER_0 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{179, 3, 10, 10}, 6484);
 	/** SEED_NUTVINE */
-	public static final IconEntry SEED_NUTVINE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{195, 3, 10, 10});
+	public static final IconEntry SEED_NUTVINE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{195, 3, 10, 10}, 6485);
 	/** SEED_STAREATER */
-	public static final IconEntry SEED_STAREATER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{211, 3, 10, 10});
+	public static final IconEntry SEED_STAREATER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{211, 3, 10, 10}, 6486);
 	/** SEED_TRANSMUTE_CAGE */
-	public static final IconEntry SEED_TRANSMUTE_CAGE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{227, 3, 10, 10});
+	public static final IconEntry SEED_TRANSMUTE_CAGE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{227, 3, 10, 10}, 6487);
 	/** SEED_QUARTZFLOWER */
-	public static final IconEntry SEED_QUARTZFLOWER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{243, 3, 10, 10});
+	public static final IconEntry SEED_QUARTZFLOWER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{243, 3, 10, 10}, 6488);
 	/** SEED_POD */
-	public static final IconEntry SEED_POD = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{275, 3, 10, 10});
+	public static final IconEntry SEED_POD = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{275, 3, 10, 10}, 6489);
 	/** DURIAN */
-	public static final IconEntry DURIAN = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{2, 35, 12, 9});
+	public static final IconEntry DURIAN = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{2, 35, 12, 9}, 6490);
 	/** FIRE_PEPPER */
-	public static final IconEntry FIRE_PEPPER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{17, 34, 14, 12});
+	public static final IconEntry FIRE_PEPPER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{17, 34, 14, 12}, 6491);
 	/** MARIGOLD */
-	public static final IconEntry MARIGOLD = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{33, 33, 14, 14});
+	public static final IconEntry MARIGOLD = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{33, 33, 14, 14}, 6492);
 	/** SUNFLOWER */
-	public static final IconEntry SUNFLOWER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{49, 32, 14, 16});
+	public static final IconEntry SUNFLOWER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{49, 32, 14, 16}, 6493);
 	/** ICE_MINT */
-	public static final IconEntry ICE_MINT = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{66, 35, 12, 12});
+	public static final IconEntry ICE_MINT = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{66, 35, 12, 12}, 6494);
 	/** TULIP */
-	public static final IconEntry TULIP = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{83, 32, 10, 16});
+	public static final IconEntry TULIP = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{83, 32, 10, 16}, 6495);
 	/** TOXIC_EGGPLANT */
-	public static final IconEntry TOXIC_EGGPLANT = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{97, 33, 14, 14});
+	public static final IconEntry TOXIC_EGGPLANT = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{97, 33, 14, 14}, 6496);
 	/** DREAM_LEAF */
-	public static final IconEntry DREAM_LEAF = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{114, 34, 13, 13});
+	public static final IconEntry DREAM_LEAF = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{114, 34, 13, 13}, 6497);
 	/** YAM_FLOWER */
-	public static final IconEntry YAM_FLOWER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{178, 33, 13, 14});
+	public static final IconEntry YAM_FLOWER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{178, 33, 13, 14}, 6498);
 	/** NUT_VEGETABLE */
-	public static final IconEntry NUT_VEGETABLE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{194, 34, 11, 12});
+	public static final IconEntry NUT_VEGETABLE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{194, 34, 11, 12}, 6499);
 	/** STAREATER_FLOWER */
-	public static final IconEntry STAREATER_FLOWER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{210, 36, 13, 10});
+	public static final IconEntry STAREATER_FLOWER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{210, 36, 13, 10}, 6500);
 	/** TRANSMUTE_CAGE */
-	public static final IconEntry TRANSMUTE_CAGE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{228, 36, 10, 9});
+	public static final IconEntry TRANSMUTE_CAGE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{228, 36, 10, 9}, 6501);
 	/** RED_ROSE */
-	public static final IconEntry RED_ROSE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{193, 49, 13, 15});
+	public static final IconEntry RED_ROSE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{193, 49, 13, 15}, 6502);
 }

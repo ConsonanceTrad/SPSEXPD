@@ -21,6 +21,10 @@
 
 package pd.items.artifacts;
 
+import pd.atlas.items.GroundFunctionalFallingDict;
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.ShatteredPixelDungeon;
@@ -72,7 +76,6 @@ import pd.scenes.PixelScene;
 import pd.sprites.CharSprite;
 import pd.sprites.GhostSprite;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.sprites.NewGhostSprite;
 import pd.ui.BossHealthBar;
 import pd.ui.ItemButton;
@@ -95,7 +98,7 @@ import java.util.ArrayList;
 public class DriedRose extends Artifact {
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_ROSE1;
+		image = EquipmentJewelleryArtifactDict.ARTIFACT_ROSE1;
 
 		levelCap = 10;
 
@@ -281,9 +284,9 @@ public class DriedRose extends Artifact {
 	@Override
 	public Item upgrade() {
 		if (level() >= 9)
-			image = ItemSpriteSheet.ARTIFACT_ROSE3;
+			image = EquipmentJewelleryArtifactDict.ARTIFACT_ROSE3;
 		else if (level() >= 4)
-			image = ItemSpriteSheet.ARTIFACT_ROSE2;
+			image = EquipmentJewelleryArtifactDict.ARTIFACT_ROSE2;
 
 		//For upgrade transferring via well of transmutation
 		droppedPetals = Math.max( level(), droppedPetals );
@@ -399,7 +402,7 @@ public class DriedRose extends Artifact {
 			stackable = true;
 			dropsDownHeap = true;
 			
-			image = ItemSpriteSheet.PETAL;
+			image = GroundFunctionalFallingDict.PETAL_0;
 		}
 
 		@Override
@@ -801,7 +804,7 @@ public class DriedRose extends Artifact {
 				@Override
 				protected void onClick() {
 					if (rose.weapon != null){
-						item(new WndBag.Placeholder(ItemSpriteSheet.WEAPON_HOLDER));
+						item(new WndBag.Placeholder(SpecificPlaceHolderDict.SOMETHING_0));
 						if (!rose.weapon.doPickUp(Dungeon.hero)){
 							Dungeon.level.drop( rose.weapon, Dungeon.hero.pos);
 						}
@@ -868,7 +871,7 @@ public class DriedRose extends Artifact {
 			if (rose.weapon != null) {
 				btnWeapon.item(rose.weapon);
 			} else {
-				btnWeapon.item(new WndBag.Placeholder(ItemSpriteSheet.WEAPON_HOLDER));
+				btnWeapon.item(new WndBag.Placeholder(SpecificPlaceHolderDict.SOMETHING_0));
 			}
 			add( btnWeapon );
 			
@@ -876,7 +879,7 @@ public class DriedRose extends Artifact {
 				@Override
 				protected void onClick() {
 					if (rose.armor != null){
-						item(new WndBag.Placeholder(ItemSpriteSheet.ARMOR_HOLDER));
+						item(new WndBag.Placeholder(SpecificPlaceHolderDict.SOMETHING_0));
 						if (!rose.armor.doPickUp(Dungeon.hero)){
 							Dungeon.level.drop( rose.armor, Dungeon.hero.pos);
 						}
@@ -943,7 +946,7 @@ public class DriedRose extends Artifact {
 			if (rose.armor != null) {
 				btnArmor.item(rose.armor);
 			} else {
-				btnArmor.item(new WndBag.Placeholder(ItemSpriteSheet.ARMOR_HOLDER));
+				btnArmor.item(new WndBag.Placeholder(SpecificPlaceHolderDict.SOMETHING_0));
 			}
 			add( btnArmor );
 			

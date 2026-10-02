@@ -21,16 +21,17 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 
 public class Katana extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.KATANA;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1.1f;
 

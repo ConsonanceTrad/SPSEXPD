@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.artifacts;
 
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
+
 import pd.Assets;
 import pd.actors.buffs.ArmorBreak;
 import pd.actors.buffs.AttackUp;
@@ -10,7 +12,6 @@ import pd.actors.buffs.GlassShield;
 import pd.actors.hero.Hero;
 import pd.effects.particles.ElmoParticle;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
@@ -26,7 +27,7 @@ public class GlassTotem extends Artifact {
 	public static final int MAX_LEVEL = 10;
 
 	{
-		image = ItemSpriteSheet.SPS_GLASS_TOTEM;
+		image = EquipmentJewelleryArtifactDict.GLASS_TOTEM;
 		levelCap = MAX_LEVEL;
 		chargeCap = FULL_CHARGE;
 		defaultAction = AC_ATK;

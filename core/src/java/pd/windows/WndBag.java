@@ -21,6 +21,13 @@
 
 package pd.windows;
 
+import pd.atlas.IconEntry;
+
+import pd.atlas.items.SpecificCurrencyDict;
+import pd.atlas.items.EquipmentJewelleryRingDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.SPDAction;
@@ -44,7 +51,6 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.CurrencyIndicator;
 import pd.ui.IconButton;
 import pd.ui.Icons;
@@ -344,7 +350,7 @@ public class WndBag extends WndTabbed {
 		//SPS: 标签已移到窗框外，标题行右对齐基准即内容区右缘
 		float titleWidth;
 		if (Dungeon.energy == 0) {
-			ItemSprite gold = new ItemSprite(ItemSpriteSheet.GOLD, null);
+			ItemSprite gold = new ItemSprite(SpecificCurrencyDict.GOLD_0, null);
 			gold.x = width - gold.width();
 			gold.y = (TITLE_HEIGHT - gold.height()) / 2f;
 			PixelScene.align(gold);
@@ -412,7 +418,7 @@ public class WndBag extends WndTabbed {
 	//SPS: 金币数量左侧的 S金兑换按钮。图标取自主副手转换道具（SPS_EQUIP_CHANGE），
 	//返回按钮左缘供标题避让
 	private float placeSGoldExchangeButton( float right ) {
-		IconButton btn = new IconButton( new ItemSprite( ItemSpriteSheet.SPS_EQUIP_CHANGE, null ) ) {
+		IconButton btn = new IconButton( new ItemSprite( SpecificPlaceHolderDict.SOMETHING_0, null ) ) {
 			@Override
 			protected void onClick() {
 				askSGoldExchange();
@@ -487,17 +493,17 @@ public class WndBag extends WndTabbed {
 		// SPS: 装备区固定两排 10 格
 		// 第一行：主武器 / 主护甲 / 饰品1 / 饰品2 / 饰品3
 		Belongings stuff = Dungeon.hero.belongings;
-		placeItem( stuff.weapon != null ? stuff.weapon : new Placeholder( ItemSpriteSheet.WEAPON_HOLDER ) );
-		placeItem( stuff.armor != null ? stuff.armor : new Placeholder( ItemSpriteSheet.ARMOR_HOLDER ) );
-		placeItem( stuff.artifact != null ? stuff.artifact : new Placeholder( ItemSpriteSheet.ARTIFACT_HOLDER ) );
-		placeItem( stuff.misc != null ? stuff.misc : new Placeholder( ItemSpriteSheet.ARTIFACT_HOLDER ) );
-		placeItem( stuff.ring != null ? stuff.ring : new Placeholder( ItemSpriteSheet.ARTIFACT_HOLDER ) );
+		placeItem( stuff.weapon != null ? stuff.weapon : new Placeholder( SpecificPlaceHolderDict.SOMETHING_0 ) );
+		placeItem( stuff.armor != null ? stuff.armor : new Placeholder( SpecificPlaceHolderDict.SOMETHING_0 ) );
+		placeItem( stuff.artifact != null ? stuff.artifact : new Placeholder( SpecificPlaceHolderDict.ARTIFACT_HOLDER_0 ) );
+		placeItem( stuff.misc != null ? stuff.misc : new Placeholder( SpecificPlaceHolderDict.ARTIFACT_HOLDER_0 ) );
+		placeItem( stuff.ring != null ? stuff.ring : new Placeholder( SpecificPlaceHolderDict.ARTIFACT_HOLDER_0 ) );
 		// 第二行：副武器 / 副护甲 / 饰品4 / 饰品5 / 徽章
-		placeItem( stuff.secondWep != null ? stuff.secondWep : new Placeholder( ItemSpriteSheet.WEAPON_HOLDER ) );
-		placeItem( stuff.secondArmor != null ? stuff.secondArmor : new Placeholder( ItemSpriteSheet.ARMOR_HOLDER ) );
-		placeItem( stuff.accessory4 != null ? stuff.accessory4 : new Placeholder( ItemSpriteSheet.RING_HOLDER ) );
-		placeItem( stuff.accessory5 != null ? stuff.accessory5 : new Placeholder( ItemSpriteSheet.RING_HOLDER ) );
-		placeItem( stuff.badge != null ? stuff.badge : new Placeholder( ItemSpriteSheet.ACCESSORY_HOLDER ) );
+		placeItem( stuff.secondWep != null ? stuff.secondWep : new Placeholder( SpecificPlaceHolderDict.SOMETHING_0 ) );
+		placeItem( stuff.secondArmor != null ? stuff.secondArmor : new Placeholder( SpecificPlaceHolderDict.SOMETHING_0 ) );
+		placeItem( stuff.accessory4 != null ? stuff.accessory4 : new Placeholder( EquipmentJewelleryRingDict.RING_HOLDER ) );
+		placeItem( stuff.accessory5 != null ? stuff.accessory5 : new Placeholder( EquipmentJewelleryRingDict.RING_HOLDER ) );
+		placeItem( stuff.badge != null ? stuff.badge : new Placeholder( SpecificPlaceHolderDict.SOMETHING_0 ) );
 
 		int equipped = EQUIP_ROWS * nCols;
 
@@ -795,7 +801,7 @@ public class WndBag extends WndTabbed {
 	
 	public static class Placeholder extends Item {
 
-		public Placeholder(int image ) {
+		public Placeholder(IconEntry image ) {
 			this.image = image;
 		}
 

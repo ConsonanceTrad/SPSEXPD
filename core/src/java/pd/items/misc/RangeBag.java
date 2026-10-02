@@ -1,13 +1,14 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.weapon.melee.start.LinkSword;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.math.Random;
 
@@ -18,7 +19,7 @@ public class RangeBag extends MiscEquippable {
 	public static final String AC_BUY = "BUY";
 	public static final int PRICE = 500;
 
-	{ image = ItemSpriteSheet.SPS_RANGE_BAG; unique = true; defaultAction = AC_BUY; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; unique = true; defaultAction = AC_BUY; }
 
 	@Override
 	public ArrayList<String> actions(Hero hero) {

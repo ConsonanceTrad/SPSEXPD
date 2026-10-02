@@ -1,16 +1,17 @@
 package pd.items;
 
+import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
+
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.items.armor.normalarmor.NormalArmor;
-import pd.sprites.ItemSpriteSheet;
 
 import java.util.ArrayList;
 
 /** The original no-material class armor kit. */
 public class ArmorKit extends Item {
 	public static final String AC_APPLY = "APPLY";
-	{ image = ItemSpriteSheet.KIT; unique = true; defaultAction = AC_APPLY; }
+	{ image = ConsumUsefulProcessEnhanceDict.KIT_0; unique = true; defaultAction = AC_APPLY; }
 	@Override public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero); actions.add(AC_APPLY); return actions;
 	}

@@ -21,6 +21,8 @@
 
 package pd.items.food;
 
+import pd.atlas.items.ConsumFoodFoodDict;
+
 import pd.actors.buffs.Barkskin;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Hunger;
@@ -29,12 +31,11 @@ import pd.actors.hero.Hero;
 import pd.effects.FloatingText;
 import pd.items.potions.PotionOfHealing;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 
 public class PhantomMeat extends Food {
 
 	{
-		image = ItemSpriteSheet.PHANTOM_MEAT;
+		image = ConsumFoodFoodDict.PHANTOM_MEAT;
 		energy = Hunger.STARVING;
 	}
 

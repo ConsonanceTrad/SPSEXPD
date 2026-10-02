@@ -1,5 +1,7 @@
 package pd.items.medicine;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.BerryRegeneration;
 import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Bless;
@@ -12,11 +14,10 @@ import pd.actors.buffs.Poison;
 import pd.actors.buffs.STRDown;
 import pd.actors.buffs.ToxicImbue;
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class Foamedbeverage extends Pill {
-	{ image = ItemSpriteSheet.FOAMED; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	public Foamedbeverage() {}
 	public Foamedbeverage(int number) { quantity = number; }
 	@Override protected void onUse(Hero hero) {

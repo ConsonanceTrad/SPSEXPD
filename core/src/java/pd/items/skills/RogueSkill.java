@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.skills;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.buffs.ArmorBreak;
@@ -19,7 +21,6 @@ import pd.actors.mobs.Mob;
 import pd.effects.particles.ElmoParticle;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
@@ -29,7 +30,7 @@ public class RogueSkill extends ClassSkill {
 	private static final float SKILL_TIME = 1f;
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_CLOAK;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 	@Override

@@ -21,19 +21,20 @@
 
 package pd.items.potions.elixirs;
 
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
+
 import pd.Assets;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.FireImbue;
 import pd.actors.hero.Hero;
 import pd.effects.particles.FlameParticle;
 import pd.items.potions.exotic.PotionOfDragonsBreath;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 
 public class ElixirOfDragonsBlood extends Elixir {
 	
 	{
-		image = ItemSpriteSheet.ELIXIR_DRAGON;
+		image = ConsumPotionSeedBasicPotionDict.ELIXIR_DRAGON_0;
 	}
 	
 	@Override

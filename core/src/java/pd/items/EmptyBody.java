@@ -1,15 +1,16 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 
 import java.util.ArrayList;
 
 /** The unmodified weapon blank used to forge Shadow Eater. */
 public class EmptyBody extends Item {
 	{
-		image = ItemSpriteSheet.EMPTY_BODY;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = false;
 		unique = true;
 	}

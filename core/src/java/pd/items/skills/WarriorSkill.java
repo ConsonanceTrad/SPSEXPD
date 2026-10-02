@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.skills;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -10,12 +12,11 @@ import pd.actors.mobs.pets.LegacyPet;
 import pd.items.Generator;
 import pd.items.Item;
 import pd.mechanics.pathfind.PathFinder;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 /** The four warrior class skills from SPS-PD 0.9.8. */
 public class WarriorSkill extends ClassSkill {
-	{ image = ItemSpriteSheet.ARMOR_WARRIOR; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 
 	@Override public void doSpecial() {
 		Buff.prolong(curUser, Muscle.class, 160f);

@@ -21,6 +21,11 @@
 
 package pd.scenes;
 
+import pd.atlas.items.SpecificCurrencyDict;
+import pd.atlas.items.SpecificPagesDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Chrome;
@@ -44,7 +49,6 @@ import pd.journal.Document;
 import pd.journal.Journal;
 import pd.messages.Messages;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.Button;
 import pd.ui.ExitButton;
 import pd.ui.IconButton;
@@ -442,7 +446,7 @@ public class AlchemyScene extends PixelScene {
 		energyLeft.hardlight(0x44CCFF);
 		add(energyLeft);
 
-		energyIcon = new ItemSprite( toolkit != null ? ItemSpriteSheet.ARTIFACT_TOOLKIT : ItemSpriteSheet.ENERGY);
+		energyIcon = new ItemSprite( toolkit != null ? SpecificPlaceHolderDict.SOMETHING_0 : SpecificCurrencyDict.ENERGY_0);
 		energyIcon.x = energyLeft.left() - energyIcon.width();
 		energyIcon.y = energyLeft.top() - (energyIcon.height() - energyLeft.height())/2;
 		align(energyIcon);
@@ -530,7 +534,7 @@ public class AlchemyScene extends PixelScene {
 				return Messages.titleCase(Document.ALCHEMY_GUIDE.title());
 			}
 		};
-		btnGuide.icon(new ItemSprite(ItemSpriteSheet.ALCH_PAGE));
+		btnGuide.icon(new ItemSprite(SpecificPagesDict.ALCH_PAGE_0));
 		btnGuide.setSize(btnGuide.reqWidth()+4, 18);
 		btnGuide.setPos(centerW - btnGuide.width()/2f, energyAdd.top()- btnGuide.height()-2);
 		align(btnGuide);
@@ -1072,7 +1076,7 @@ public class AlchemyScene extends PixelScene {
 		public void item( Item item ) {
 			if (item == null){
 				this.item = null;
-				slot.item(new WndBag.Placeholder(ItemSpriteSheet.SOMETHING));
+				slot.item(new WndBag.Placeholder(SpecificPlaceHolderDict.SOMETHING_0));
 			} else {
 				slot.item(this.item = item);
 			}

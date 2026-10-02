@@ -21,12 +21,13 @@
 
 package pd.items.armor;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
+
 
 public class ScaleArmor extends Armor {
 
 	{
-		image = ItemSpriteSheet.ARMOR_SCALE;
+		image = EquipmentEquipArmorBasicArmorDict.ARMOR_SCALE_0;
 	}
 	
 	public ScaleArmor() {

@@ -31,7 +31,7 @@ import pd.actors.mobs.Mob;
 import pd.items.scrolls.ScrollOfRetribution;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 public class ScrollOfPsionicBlast extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_PSIBLAST;
+		icon = ItemIconSheet.SCROLL_PSIBLAST;
 	}
 	
 	@Override

@@ -21,13 +21,14 @@
 
 package pd.items.weapon.missiles;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Assets;
-import pd.sprites.ItemSpriteSheet;
 
 public class Javelin extends MissileWeapon {
 
 	{
-		image = ItemSpriteSheet.JAVELIN;
+		image = ConsumThrowsDict.JAVELIN_0;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 1f;
 		

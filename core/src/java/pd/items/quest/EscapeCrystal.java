@@ -21,6 +21,8 @@
 
 package pd.items.quest;
 
+import pd.atlas.items.ConsumGoodsMaterialsMaterialsDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Char;
@@ -44,7 +46,6 @@ import pd.scenes.GameScene;
 import pd.scenes.InterlevelScene;
 import pd.sprites.ImpSprite;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.QuickSlotButton;
 import pd.windows.WndBag;
 import pd.windows.WndError;
@@ -60,7 +61,7 @@ import java.util.ArrayList;
 public class EscapeCrystal extends Item {
 
 	{
-		image = ItemSpriteSheet.ESCAPE;
+		image = ConsumGoodsMaterialsMaterialsDict.ESCAPE_0;
 
 		unique = true;
 

@@ -1,20 +1,21 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food.completefood;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.AttackUp;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Recharging;
 import pd.actors.buffs.SuperArcane;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 
 public class Meatroll extends CompleteFood {
 
 	private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0xCC6600);
 
 	{
-		image = ItemSpriteSheet.HOTDOG;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 250f;
 	}
 

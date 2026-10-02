@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import pd.atlas.items.SpecificTaskDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.ShatteredPixelDungeon;
@@ -9,7 +11,6 @@ import pd.items.nornstone.NornStone;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PowerHandScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import render.noosa.Game;
@@ -31,7 +32,7 @@ public class PowerHand extends Item {
 	private final HashSet<Integer> stoneTypes = new HashSet<>();
 
 	{
-		image = ItemSpriteSheet.POWER_HAND;
+		image = SpecificTaskDict.POWER_HAND;
 		unique = true;
 		defaultAction = AC_ADD;
 		keptThoughLostInvent = true;

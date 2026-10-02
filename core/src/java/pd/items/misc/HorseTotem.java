@@ -1,15 +1,16 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.HasteBuff;
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class HorseTotem extends MiscEquippable {
 
-	{ image = ItemSpriteSheet.SPS_HORSE_TOTEM; unique = true; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; unique = true; }
 
 	@Override protected MiscBuff createBuff() { return new HorseTotemBless(); }
 

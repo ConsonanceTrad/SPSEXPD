@@ -21,6 +21,8 @@
 
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.buffs.Combo;
@@ -36,7 +38,6 @@ import pd.items.bags.Bag;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import pd.windows.WndBag;
@@ -58,7 +59,7 @@ public class BrokenSeal extends Item {
 	public static final String AC_INFO = "INFO_WINDOW";
 
 	{
-		image = ItemSpriteSheet.SEAL;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 
 		cursedKnown = levelKnown = true;
 		unique = true;
@@ -135,7 +136,7 @@ public class BrokenSeal extends Item {
 					(canTransferGlyph() || outgoing instanceof BrokenSeal) //if glyph is on the seal in isolation, always allow xfer
 					&& armor.glyph.getClass() != getGlyph().getClass()) {
 
-				GameScene.show(new WndOptions(new ItemSprite(ItemSpriteSheet.SEAL),
+				GameScene.show(new WndOptions(new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
 						Messages.get(BrokenSeal.class, "choose_title"),
 						Messages.get(BrokenSeal.class, "choose_desc", armor.glyph.name(), getGlyph().name()),
 						armor.glyph.name(),

@@ -21,14 +21,15 @@
 
 package pd.items.food;
 
+import pd.atlas.items.ConsumFoodFoodDict;
+
 import pd.actors.buffs.Hunger;
 import pd.items.Recipe;
-import pd.sprites.ItemSpriteSheet;
 
 public class StewedMeat extends Food {
 	
 	{
-		image = ItemSpriteSheet.STEWED;
+		image = ConsumFoodFoodDict.STEWED_MEAT;
 		energy = Hunger.HUNGRY/2f;
 	}
 	

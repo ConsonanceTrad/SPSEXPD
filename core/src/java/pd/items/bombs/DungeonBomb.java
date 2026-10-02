@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.bombs;
 
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -11,12 +13,11 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class DungeonBomb extends Bomb {
 
-	{ image = ItemSpriteSheet.BOMB; }
+	{ image = EquipmentEquipWeaponBombDict.BOMB_0; }
 
 	@Override
 	public void explode(int cell) {
@@ -50,7 +51,7 @@ public class DungeonBomb extends Bomb {
 	@Override public int value() { return 10 * quantity; }
 
 	public static class DoubleBomb extends DungeonBomb {
-		{ image = ItemSpriteSheet.DBL_BOMB; stackable = false; }
+		{ image = EquipmentEquipWeaponBombDict.DBL_BOMB_0; stackable = false; }
 		@Override public boolean doPickUp(pd.actors.hero.Hero hero, int pos) {
 			DungeonBomb bomb = new DungeonBomb();
 			bomb.quantity(2);

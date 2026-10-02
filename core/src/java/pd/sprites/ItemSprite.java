@@ -21,6 +21,13 @@
 
 package pd.sprites;
 
+import pd.atlas.IconEntry;
+import pd.atlas.items.GroundGroundingItemsDict;
+import pd.atlas.IconEntry;
+import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.IconEntry;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.effects.CellEmitter;
@@ -76,25 +83,25 @@ public class ItemSprite extends MovieClip {
 	protected float shadowOffset    = 0.5f;
 	
 	public ItemSprite() {
-		this( ItemSpriteSheet.SOMETHING, null );
+		this( SpecificPlaceHolderDict.SOMETHING_0, null );
 	}
 	
 	public ItemSprite( Heap heap ){
-		super(Assets.Sprites.ITEMS);
+		super();
 		view( heap );
 	}
 	
 	public ItemSprite( Item item ) {
-		super(Assets.Sprites.ITEMS);
+		super();
 		view( item );
 	}
 	
-	public ItemSprite( int image ){
+	public ItemSprite( IconEntry image ){
 		this( image, null );
 	}
 	
-	public ItemSprite( int image, Glowing glowing ) {
-		super( Assets.Sprites.ITEMS );
+	public ItemSprite( IconEntry image, Glowing glowing ) {
+		super();
 		
 		view(image, glowing);
 	}
@@ -211,31 +218,31 @@ public class ItemSprite extends MovieClip {
 	
 	public ItemSprite view( Heap heap ){
 		if (heap.size() <= 0 || heap.items == null){
-			return view( 0, null );
+			return view( SpecificPlaceHolderDict.SOMETHING_0, null );
 		}
 
 		switch (heap.type) {
 			case HEAP: case FOR_SALE: case FOR_LIFE:
 				view( heap.peek() ); break;
 			case CHEST: case MIMIC:
-				view( ItemSpriteSheet.CHEST, null ); break;
+				view( GroundGroundingItemsDict.CHEST_0, null ); break;
 			case LOCKED_CHEST:
 			case G_MIMIC:
-				view( ItemSpriteSheet.LOCKED_CHEST, null ); break;
+				view( GroundGroundingItemsDict.LOCKED_CHEST_0, null ); break;
 			case CRYSTAL_CHEST:
-				view( ItemSpriteSheet.CRYSTAL_CHEST, null ); break;
+				view( GroundGroundingItemsDict.CRYSTAL_CHEST_0, null ); break;
 			case TOMB:
-				view( ItemSpriteSheet.TOMB, null ); break;
+				view( SpecificPlaceHolderDict.SOMETHING_0, null ); break;
 			case SKELETON:
-				view( ItemSpriteSheet.BONES, null ); break;
+				view( SpecificPlaceHolderDict.SOMETHING_0, null ); break;
 			case REMAINS:
-				view( ItemSpriteSheet.REMAINS, null ); break;
+				view( SpecificPlaceHolderDict.SOMETHING_0, null ); break;
 			case E_DUST:
-				view( ItemSpriteSheet.E_DUST, null ); break;
+				view( GroundGroundingItemsDict.TREASURE_SPOT, null ); break;
 			case M_WEB:
-				view( ItemSpriteSheet.M_WEB, null ); break;
+				view( SpecificPlaceHolderDict.SOMETHING_0, null ); break;
 			default:
-				view( 0, null );
+				view( SpecificPlaceHolderDict.SOMETHING_0, null );
 		}
 
 		alpha( heap.hidden ? 0.1f : 1f);
@@ -243,7 +250,7 @@ public class ItemSprite extends MovieClip {
 		return this;
 	}
 	
-	public ItemSprite view( int image, Glowing glowing ) {
+	public ItemSprite view( IconEntry image, Glowing glowing ) {
 		if (this.emitter != null) this.emitter.killAndErase();
 		emitter = null;
 		frame( image );
@@ -251,10 +258,14 @@ public class ItemSprite extends MovieClip {
 		return this;
 	}
 
-	public void frame( int image ){
-		frame( ItemSpriteSheet.film.get( image ));
+	public void frame( IconEntry entry ){
+		if (entry == null) entry = SpecificPlaceHolderDict.SOMETHING_0;
 
-		float height = ItemSpriteSheet.film.height( image );
+		SmartTexture tex = TextureCache.get( entry.atlas );
+		this.texture = tex;
+		frame( tex.uvRectBySize( entry.x(0), entry.y(0), entry.w(0), entry.h(0) ) );
+
+		float height = entry.h(0);
 		//adds extra raise to very short items, so they are visible
 		if (height < 8f){
 			perspectiveRaise =   0f;
@@ -389,12 +400,9 @@ public class ItemSprite extends MovieClip {
 		}
 	}
 
-	public static int pick( int index, int x, int y ) {
-		SmartTexture tx = TextureCache.get( Assets.Sprites.ITEMS );
-		int rows = tx.width / SIZE;
-		int row = index / rows;
-		int col = index % rows;
-		return tx.getPixel( col * SIZE + x, row * SIZE + y );
+	public static int pick( IconEntry entry, int x, int y ) {
+		SmartTexture tx = TextureCache.get( entry.atlas );
+		return tx.getPixel( entry.x(0) + x, entry.y(0) + y );
 	}
 	
 	public static class Glowing {

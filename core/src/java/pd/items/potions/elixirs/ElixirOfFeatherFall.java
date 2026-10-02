@@ -21,13 +21,14 @@
 
 package pd.items.potions.elixirs;
 
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
+
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.FlavourBuff;
 import pd.actors.hero.Hero;
 import pd.effects.Speck;
 import pd.items.potions.PotionOfLevitation;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.Image;
@@ -35,7 +36,7 @@ import render.noosa.Image;
 public class ElixirOfFeatherFall extends Elixir {
 
 	{
-		image = ItemSpriteSheet.ELIXIR_FEATHER;
+		image = ConsumPotionSeedBasicPotionDict.ELIXIR_FEATHER_0;
 
 		talentChance = 1/(float)Recipe.OUT_QUANTITY;
 	}

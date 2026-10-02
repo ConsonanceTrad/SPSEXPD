@@ -1,6 +1,10 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.ranges;
 
+import pd.atlas.IconEntry;
+
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -21,7 +25,6 @@ import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.math.Random;
 
@@ -44,7 +47,7 @@ public abstract class RangeWeapon extends SpsRangedWeapon {
 	protected final int bowTier;
 	protected final Variant variant;
 
-	protected RangeWeapon(int tier, Variant variant, int image) {
+	protected RangeWeapon(int tier, Variant variant, IconEntry image) {
 		this.bowTier = tier;
 		this.variant = variant;
 		this.image = image;
@@ -157,7 +160,7 @@ public abstract class RangeWeapon extends SpsRangedWeapon {
 
 	public class NormalArrow extends MissileWeapon {
 		{
-			image = ItemSpriteSheet.LEGACY_ARROW;
+			image = SpecificPlaceHolderDict.SOMETHING_0;
 			tier = bowTier;
 			spawnedForEffect = true;
 		}

@@ -21,13 +21,14 @@
 
 package pd.items.trinkets;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 
 public class CrackedSpyglass extends Trinket{
 
 	{
-		image = ItemSpriteSheet.SPYGLASS;
+		image = EquipmentNonEquipDict.SPYGLASS_0;
 	}
 
 	@Override

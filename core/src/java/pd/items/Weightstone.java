@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.hero.Belongings;
@@ -12,7 +14,6 @@ import pd.items.scrolls.ScrollOfRemoveCurse;
 import pd.items.weapon.Weapon;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import render.noosa.audio.Sample;
@@ -25,7 +26,7 @@ public class Weightstone extends Item {
 	public static final float TIME_TO_APPLY = 2f;
 
 	{
-		image = ItemSpriteSheet.SPS_WEIGHTSTONE;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = true;
 		defaultAction = AC_APPLY;
 	}

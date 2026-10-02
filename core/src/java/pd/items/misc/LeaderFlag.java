@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.items.Generator;
@@ -17,7 +19,6 @@ import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.serialize.Bundle;
 
@@ -35,7 +36,7 @@ public class LeaderFlag extends Item {
 	private int charge = 1000;
 	private float dayProgress;
 
-	{ image = ItemSpriteSheet.SPS_LEADER_FLAG; unique = true; defaultAction = AC_REMOVE; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; unique = true; defaultAction = AC_REMOVE; }
 
 	@Override
 	public ArrayList<String> actions(Hero hero) {

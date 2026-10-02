@@ -1,15 +1,16 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles.throwing;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.items.Item;
 import pd.items.weapon.missiles.MissileWeapon;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 /** SPS-PD's deliberately overpowered error projectile. */
 public class ErrorAmmo extends MissileWeapon {
 	{
-		image = ItemSpriteSheet.SPS_ERROR_AMMO;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		tier = 0;
 		baseUses = 1;
 	}

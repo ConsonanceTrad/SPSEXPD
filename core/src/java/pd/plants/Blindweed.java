@@ -21,6 +21,8 @@
 
 package pd.plants;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Blindness;
@@ -34,7 +36,6 @@ import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.items.weapon.missiles.arrows.BlindFruit;
 import pd.levels.traps.Trap;
-import pd.sprites.ItemSpriteSheet;
 
 public class Blindweed extends Plant {
 	
@@ -68,7 +69,7 @@ public class Blindweed extends Plant {
 	
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SPS_SEED_BLINDWEED;
+			image = ConsumPotionSeedSeedDict.SEED_BLINDWEED_0;
 
 			plantClass = Blindweed.class;
 			explantClass = ExBlindweed.class;

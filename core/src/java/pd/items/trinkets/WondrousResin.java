@@ -21,13 +21,14 @@
 
 package pd.items.trinkets;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 
 public class WondrousResin extends Trinket {
 
 	{
-		image = ItemSpriteSheet.WONDROUS_RESIN;
+		image = EquipmentNonEquipDict.WONDROUS_RESIN_0;
 	}
 
 	@Override

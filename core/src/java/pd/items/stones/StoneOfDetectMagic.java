@@ -21,6 +21,8 @@
 
 package pd.items.stones;
 
+import pd.atlas.items.ConsumScrollAmuletAmuletDict;
+
 import pd.actors.hero.Belongings;
 import pd.actors.hero.Talent;
 import pd.items.EquipableItem;
@@ -31,14 +33,13 @@ import pd.items.weapon.Weapon;
 import pd.items.weapon.missiles.MissileWeapon;
 import pd.journal.Catalog;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 
 public class StoneOfDetectMagic extends InventoryStone {
 
 	{
 		preferredBag = Belongings.Backpack.class;
-		image = ItemSpriteSheet.STONE_DETECT;
+		image = ConsumScrollAmuletAmuletDict.STONE_DETECT_0;
 	}
 
 	@Override

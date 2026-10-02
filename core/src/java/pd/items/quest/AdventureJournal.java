@@ -8,6 +8,8 @@
 
 package pd.items.quest;
 
+import pd.atlas.items.SpecificPagesDict;
+
 import pd.Badges;
 import pd.Dungeon;
 import pd.Statistics;
@@ -47,7 +49,6 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.InterlevelScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndMessage;
@@ -93,7 +94,7 @@ public class AdventureJournal extends Item {
 	private int charge;
 
 	{
-		image = ItemSpriteSheet.GUIDE_PAGE;
+		image = SpecificPagesDict.GUIDE_PAGE_0;
 		defaultAction = AC_READ;
 		unique = true;
 		keptThoughLostInvent = true;

@@ -21,6 +21,11 @@
 
 package pd.items.potions;
 
+import pd.atlas.IconEntry;
+
+import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
+
 import pd.Assets;
 import pd.Challenges;
 import pd.Dungeon;
@@ -70,7 +75,6 @@ import pd.plants.Sungrass;
 import pd.plants.Swiftthistle;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
@@ -94,20 +98,20 @@ public class Potion extends Item {
 
 	private static final float TIME_TO_DRINK = 1f;
 
-	private static final LinkedHashMap<String, Integer> colors = new LinkedHashMap<String, Integer>() {
+	private static final LinkedHashMap<String, IconEntry> colors = new LinkedHashMap<String, IconEntry>() {
 		{
-			put("crimson",ItemSpriteSheet.POTION_CRIMSON);
-			put("amber",ItemSpriteSheet.POTION_AMBER);
-			put("golden",ItemSpriteSheet.POTION_GOLDEN);
-			put("jade",ItemSpriteSheet.POTION_JADE);
-			put("turquoise",ItemSpriteSheet.POTION_TURQUOISE);
-			put("azure",ItemSpriteSheet.POTION_AZURE);
-			put("indigo",ItemSpriteSheet.POTION_INDIGO);
-			put("magenta",ItemSpriteSheet.POTION_MAGENTA);
-			put("bistre",ItemSpriteSheet.POTION_BISTRE);
-			put("charcoal",ItemSpriteSheet.POTION_CHARCOAL);
-			put("silver",ItemSpriteSheet.POTION_SILVER);
-			put("ivory",ItemSpriteSheet.POTION_IVORY);
+			put("crimson",ConsumPotionSeedBasicPotionDict.POTION_CRIMSON_0);
+			put("amber",ConsumPotionSeedBasicPotionDict.POTION_HEALING_0);
+			put("golden",ConsumPotionSeedBasicPotionDict.POTION_MINDVIS_0);
+			put("jade",ConsumPotionSeedBasicPotionDict.POTION_JADE_0);
+			put("turquoise",ConsumPotionSeedBasicPotionDict.POTION_TURQUOISE_0);
+			put("azure",ConsumPotionSeedBasicPotionDict.POTION_AZURE_0);
+			put("indigo",ConsumPotionSeedBasicPotionDict.POTION_INDIGO_0);
+			put("magenta",ConsumPotionSeedBasicPotionDict.POTION_INVIS_0);
+			put("bistre",ConsumPotionSeedBasicPotionDict.POTION_BISTRE_0);
+			put("charcoal",ConsumPotionSeedBasicPotionDict.POTION_CHARCOAL_0);
+			put("silver",ConsumPotionSeedBasicPotionDict.POTION_SILVER_0);
+			put("ivory",ConsumPotionSeedBasicPotionDict.POTION_EXP_0);
 		}
 	};
 
@@ -197,7 +201,7 @@ public class Potion extends Item {
 	//useful for items that appear in UIs, or which are only spawned for their effects
 	protected boolean anonymous = false;
 	public void anonymize(){
-		if (!isKnown()) image = ItemSpriteSheet.POTION_HOLDER;
+		if (!isKnown()) image = SpecificPlaceHolderDict.POTION_HOLDER_0;
 		anonymous = true;
 	}
 
@@ -208,7 +212,7 @@ public class Potion extends Item {
 			image = handler.image(this);
 			color = handler.label(this);
 		} else {
-			image = ItemSpriteSheet.POTION_CRIMSON;
+			image = ConsumPotionSeedBasicPotionDict.POTION_CRIMSON_0;
 			color = "crimson";
 		}
 	}
@@ -460,7 +464,7 @@ public class Potion extends Item {
 	public static class PlaceHolder extends Potion {
 		
 		{
-			image = ItemSpriteSheet.POTION_HOLDER;
+			image = SpecificPlaceHolderDict.POTION_HOLDER_0;
 		}
 		
 		@Override
@@ -565,7 +569,7 @@ public class Potion extends Item {
 		
 		@Override
 		public Item sampleOutput(ArrayList<Item> ingredients) {
-			return new WndBag.Placeholder(ItemSpriteSheet.POTION_HOLDER){
+			return new WndBag.Placeholder(SpecificPlaceHolderDict.POTION_HOLDER_0){
 
 				@Override
 				public String name() {

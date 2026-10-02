@@ -21,6 +21,8 @@
 
 package pd.items.bombs;
 
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Dungeon;
@@ -35,7 +37,6 @@ import pd.effects.particles.SparkParticle;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTilemap;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
@@ -47,7 +48,7 @@ import java.util.ArrayList;
 public class FlashBangBomb extends Bomb {
 	
 	{
-		image = ItemSpriteSheet.FLASHBANG;
+		image = EquipmentEquipWeaponBombDict.FLASHBANG_0;
 	}
 
 	@Override

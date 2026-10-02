@@ -1,6 +1,9 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles;
 
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -22,7 +25,6 @@ import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
 import render.noosa.audio.Sample;
@@ -40,7 +42,7 @@ public class ManyKnive extends Weapon {
 	private SpAmmo ammo;
 
 	{
-		image = ItemSpriteSheet.MANY_KNIVE;
+		image = EquipmentEquipWeaponUniqueWeaponDict.MANY_KNIVE_0;
 		stackable = false;
 		unique = true;
 		bones = false;
@@ -169,7 +171,7 @@ public class ManyKnive extends Weapon {
 
 	public class KniveAmmo extends MissileWeapon {
 		{
-			image = ItemSpriteSheet.LEGACY_KNIFE;
+			image = SpecificPlaceHolderDict.SOMETHING_0;
 			tier = 1;
 			DLY = 0.25f;
 			spawnedForEffect = true;

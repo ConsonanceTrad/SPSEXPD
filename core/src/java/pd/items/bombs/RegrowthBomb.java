@@ -21,6 +21,8 @@
 
 package pd.items.bombs;
 
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -36,7 +38,6 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.plants.Plant;
 import pd.plants.Starflower;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.data.BArray;
 import render.utils.math.Random;
 
@@ -45,7 +46,7 @@ import java.util.ArrayList;
 public class RegrowthBomb extends Bomb {
 	
 	{
-		image = ItemSpriteSheet.REGROWTH_BOMB;
+		image = EquipmentEquipWeaponBombDict.REGROWTH_BOMB_0;
 	}
 	
 	@Override

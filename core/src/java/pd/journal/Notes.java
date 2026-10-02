@@ -21,6 +21,8 @@
 
 package pd.journal;
 
+import pd.atlas.items.ConsumScrollAmuletCrystalDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.blobs.Foliage;
@@ -51,7 +53,7 @@ import pd.sprites.BlacksmithSprite;
 import pd.sprites.GhostSprite;
 import pd.sprites.ImpSprite;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.sprites.RatKingSprite;
 import pd.sprites.ShopkeeperSprite;
 import pd.sprites.SpawnerSprite;
@@ -199,7 +201,7 @@ public class Notes {
 				case LOST_PACK:
 					return Icons.get(Icons.BACKPACK_LRG);
 				case BEACON_LOCATION:
-					return new ItemSprite(ItemSpriteSheet.RETURN_BEACON);
+					return new ItemSprite(ConsumScrollAmuletCrystalDict.RETURN_BEACON_0);
 
 				case GHOST:
 					return new Image(new GhostSprite());
@@ -471,7 +473,7 @@ public class Notes {
 					Item item = (Item) Reflection.newInstance(itemClass);
 					if (item.isIdentified() && item.icon != -1) {
 						Image secondIcon = new Image(Assets.Sprites.ITEM_ICONS);
-						secondIcon.frame(ItemSpriteSheet.Icons.film.get(item.icon));
+						secondIcon.frame(ItemIconSheet.film.get(item.icon));
 						return secondIcon;
 					}
 					return null;

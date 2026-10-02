@@ -21,12 +21,13 @@
 
 package pd.items.armor;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 
 public class HuntressArmor extends ClassArmor {
 
 	{
-		image = ItemSpriteSheet.ARMOR_HUNTRESS;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 }

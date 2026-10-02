@@ -21,6 +21,8 @@
 
 package pd.items;
 
+import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.actors.Actor;
@@ -33,7 +35,6 @@ import pd.effects.Speck;
 import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndChooseSubclass;
 import render.noosa.audio.Sample;
@@ -47,7 +48,7 @@ public class TengusMask extends Item {
 	
 	{
 		stackable = false;
-		image = ItemSpriteSheet.MASK;
+		image = ConsumUsefulProcessEnhanceDict.MASK_0;
 
 		defaultAction = AC_WEAR;
 

@@ -21,6 +21,8 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -28,7 +30,6 @@ import pd.actors.Char;
 import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.AttackIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
@@ -37,7 +38,7 @@ import render.utils.data.Callback;
 public class Greataxe extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.GREATAXE;
+		image = EquipmentEquipWeaponBasicWeaponDict.GREATAXE_0;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1f;
 

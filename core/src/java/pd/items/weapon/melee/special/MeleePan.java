@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.special;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.HolyStun;
@@ -8,7 +10,6 @@ import pd.actors.hero.Hero;
 import pd.items.weapon.Weapon;
 import pd.items.weapon.melee.MeleeWeapon;
 import pd.items.weapon.ranges.RangePan;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class MeleePan extends MeleeWeapon {
 	public static final String AC_CHANGE = "CHANGE";
 
 	{
-		image = ItemSpriteSheet.MELEE_PAN;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		tier = 1;
 		usesTargeting = true;
 	}

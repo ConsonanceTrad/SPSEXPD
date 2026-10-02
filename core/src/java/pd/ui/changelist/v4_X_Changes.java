@@ -21,11 +21,13 @@
 
 package pd.ui.changelist;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
+
 import pd.messages.Messages;
 import pd.scenes.ChangesScene;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.Icons;
 import pd.ui.Window;
 import render.utils.platform.DeviceCompat;
@@ -53,12 +55,12 @@ public class v4_X_Changes {
 				"\n" +
 				"However, I would like to do another update in 2026, so you'll probably hear from me in another blog post with more details in the coming months."));
 
-		changes.addButton( new ChangeButton( new ItemSprite(ItemSpriteSheet.ARTIFACT_KEY), "New Items",
+		changes.addButton( new ChangeButton( new ItemSprite(EquipmentJewelleryArtifactDict.ARTIFACT_KEY_0), "New Items",
 				"In terms of new gameplay content, I expect v4.1 will focus mainly on some new additions to various item categories! I've been developing a few promising ideas on the side, and I think it's time to start implementing some of them.\n" +
 				"\n" +
 				"I've been inclined to do this since the success of the Skeleton Key, and realizing it was the first artifact I added in about 10 years!"));
 
-		changes.addButton( new ChangeButton( new ItemSprite(ItemSpriteSheet.SCIMITAR), "More New Visuals",
+		changes.addButton( new ChangeButton( new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.SCIMITAR), "More New Visuals",
 				"Now that the in-game art overhaul project has started that will also be a focus moving forward. I can't give any garuntees, especially as the work is dependant on artists who have other projects too, but v4.1 will definitely include various new artwork. In particular I'd like to focus on general environment art, treasure rooms, and various equipment item sprites."));
 
 		changes.addButton( new ChangeButton( ChangeIcons.V081_MISC, "Misc. Changes",

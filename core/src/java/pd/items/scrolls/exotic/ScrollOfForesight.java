@@ -24,13 +24,13 @@ package pd.items.scrolls.exotic;
 import pd.Assets;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Foresight;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
 
 public class ScrollOfForesight extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_FORESIGHT;
+		icon = ItemIconSheet.SCROLL_FORESIGHT;
 	}
 	
 	@Override

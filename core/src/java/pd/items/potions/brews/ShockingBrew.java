@@ -21,6 +21,8 @@
 
 package pd.items.potions.brews;
 
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.blobs.Blob;
@@ -28,14 +30,13 @@ import pd.actors.blobs.Electricity;
 import pd.items.potions.PotionOfParalyticGas;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
 
 public class ShockingBrew extends Brew {
 	
 	{
-		image = ItemSpriteSheet.BREW_SHOCKING;
+		image = ConsumPotionSeedBasicPotionDict.BREW_SHOCKING_0;
 	}
 	
 	@Override

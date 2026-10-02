@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.start;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.actors.hero.Belongings;
 import pd.actors.hero.Hero;
@@ -10,7 +12,6 @@ import pd.items.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.items.weapon.rockcode.RockCode;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
 import render.utils.serialize.Bundle;
 
@@ -22,7 +23,7 @@ public class XSaber extends NormalMeleeWeapon {
 	private RockCode rockCode;
 
 	public XSaber() {
-		super(1, 1.2f, 0.5f, 1, 6, 10, ItemSpriteSheet.RUNIC_BLADE);
+		super(1, 1.2f, 0.5f, 1, 6, 10, SpecificPlaceHolderDict.SOMETHING_0);
 		unique = true;
 		reinforced = true;
 		cursed = true;

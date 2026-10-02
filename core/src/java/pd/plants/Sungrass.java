@@ -21,6 +21,8 @@
 
 package pd.plants;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
@@ -33,7 +35,6 @@ import pd.effects.particles.ShaftParticle;
 import pd.items.weapon.missiles.arrows.HealFruit;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
 
@@ -62,7 +63,7 @@ public class Sungrass extends Plant {
 	
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SPS_SEED_SUNGRASS;
+			image = ConsumPotionSeedSeedDict.SEED_SUNGRASS;
 
 			plantClass = Sungrass.class;
 			explantClass = ExSungrass.class;

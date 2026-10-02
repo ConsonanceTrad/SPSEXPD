@@ -1,15 +1,16 @@
 package pd.items.medicine;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.Arcane;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.effects.Speck;
-import pd.sprites.ItemSpriteSheet;
 
 public class MagicPill extends Pill {
 
 	{
-		image = ItemSpriteSheet.GREAT_PILL;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 	@Override

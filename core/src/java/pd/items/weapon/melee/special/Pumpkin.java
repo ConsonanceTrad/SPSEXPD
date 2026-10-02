@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.special;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Burning;
@@ -9,7 +11,6 @@ import pd.actors.buffs.Terror;
 import pd.effects.Speck;
 import pd.effects.particles.FlameParticle;
 import pd.items.weapon.melee.MeleeWeapon;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 /** The original Halloween pumpkin lamp weapon. */
@@ -20,7 +21,7 @@ public class Pumpkin extends MeleeWeapon {
 	public static final float LIGHT_DURATION = 50f;
 
 	{
-		image = ItemSpriteSheet.SPS_PUMPKIN;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		tier = 1;
 		usesTargeting = true;
 	}

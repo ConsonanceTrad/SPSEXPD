@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food.completefood;
 
+import pd.atlas.items.ConsumFoodFoodDict;
+
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.EnergyArmor;
 import pd.actors.buffs.GlassShield;
@@ -9,13 +11,12 @@ import pd.actors.buffs.MechArmor;
 import pd.actors.buffs.ShieldArmor;
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class NutCookie extends CompleteFood {
 
 	{
-		image = ItemSpriteSheet.NUT_COOKIE;
+		image = ConsumFoodFoodDict.NUT_COOKIE;
 		energy = 10f;
 	}
 

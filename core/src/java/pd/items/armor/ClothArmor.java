@@ -21,12 +21,13 @@
 
 package pd.items.armor;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
+
 
 public class ClothArmor extends Armor {
 
 	{
-		image = ItemSpriteSheet.ARMOR_CLOTH;
+		image = EquipmentEquipArmorBasicArmorDict.ARMOR_CLOTH_0;
 
 		bones = false; //Finding them in bones would be semi-frequent and disappointing.
 	}

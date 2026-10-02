@@ -1,13 +1,14 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.special;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.items.Waterskin;
 import pd.items.weapon.melee.MeleeWeapon;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.serialize.Bundle;
 
@@ -19,7 +20,7 @@ public class Handcannon extends MeleeWeapon {
 	private boolean turnedOn;
 
 	{
-		image = ItemSpriteSheet.HAND_CANNON;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		defaultAction = AC_ONOFF;
 		tier = 4;
 		ACC = 0.7f;

@@ -29,13 +29,13 @@ import pd.actors.blobs.Freezing;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Roots;
 import pd.mechanics.pathfind.PathFinder;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
 
 public class PotionOfSnapFreeze extends ExoticPotion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_SNAPFREEZ;
+		icon = ItemIconSheet.POTION_SNAPFREEZ;
 	}
 	
 	@Override

@@ -21,6 +21,8 @@
 
 package pd.items.spells;
 
+import pd.atlas.items.ConsumScrollAmuletCrystalDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -31,13 +33,12 @@ import pd.actors.mobs.Mob;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 
 public class PhaseShift extends TargetedSpell {
 	
 	{
-		image = ItemSpriteSheet.PHASE_SHIFT;
+		image = ConsumScrollAmuletCrystalDict.PHASE_SHIFT_0;
 
 		usesTargeting = true;
 

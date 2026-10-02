@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.bags;
 
+import pd.atlas.items.EquipmentBagsDict;
+
 import pd.items.Item;
 import pd.items.TriforceOfCourage;
 import pd.items.TriforceOfPower;
@@ -9,12 +11,11 @@ import pd.items.wands.Wand;
 import pd.items.weapon.guns.GunWeapon;
 import pd.items.weapon.rockcode.RockCode;
 import pd.items.weapon.spammo.SpAmmo;
-import pd.sprites.ItemSpriteSheet;
 
 /** The original thirty-slot SPS magic-weapon holster. */
 public class WandHolster extends Bag {
 	{
-		image = ItemSpriteSheet.HOLSTER;
+		image = EquipmentBagsDict.HOLSTER;
 	}
 	@Override public boolean canHold(Item item) {
 		return (item instanceof Wand || item instanceof TriforceOfCourage

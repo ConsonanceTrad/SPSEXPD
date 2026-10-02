@@ -1,5 +1,7 @@
 package pd.items.wands.fusion;
 
+import pd.atlas.items.EquipmentWandBasicWandDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -15,7 +17,6 @@ import pd.items.wands.DamageWand;
 import pd.items.weapon.melee.MagesStaff;
 import pd.levels.SpsSokobanLevel;
 import pd.mechanics.Ballistica;
-import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTilemap;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
@@ -25,7 +26,7 @@ import render.utils.math.Random;
 public class WandOfFlow extends DamageWand {
 
 	{
-		image = ItemSpriteSheet.WAND_FLOW;
+		image = EquipmentWandBasicWandDict.WAND_FLOW;
 		collisionProperties = Ballistica.PROJECTILE;
 	}
 

@@ -21,10 +21,11 @@
 
 package pd.plants;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.items.food.Blandfruit;
-import pd.sprites.ItemSpriteSheet;
 
 public class BlandfruitBush extends Plant {
 
@@ -41,7 +42,7 @@ public class BlandfruitBush extends Plant {
 	//seed is never dropped
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SPS_SEED_BLANDFRUIT;
+			image = SpecificPlaceHolderDict.SOMETHING_0;
 			plantClass = BlandfruitBush.class;
 			explantClass = ExBlandfruitBush.class;
 		}

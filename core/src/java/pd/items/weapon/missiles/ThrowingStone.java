@@ -21,13 +21,14 @@
 
 package pd.items.weapon.missiles;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Assets;
-import pd.sprites.ItemSpriteSheet;
 
 public class ThrowingStone extends MissileWeapon {
 	
 	{
-		image = ItemSpriteSheet.THROWING_STONE;
+		image = ConsumThrowsDict.THROWING_STONE_0;
 		hitSound = Assets.Sounds.HIT;
 		hitSoundPitch = 1.1f;
 		

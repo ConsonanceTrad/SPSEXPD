@@ -21,6 +21,8 @@
 
 package pd.items.potions.brews;
 
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.blobs.Blizzard;
@@ -28,13 +30,12 @@ import pd.actors.blobs.Blob;
 import pd.items.potions.PotionOfFrost;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 
 public class BlizzardBrew extends Brew {
 	
 	{
-		image = ItemSpriteSheet.BREW_BLIZZARD;
+		image = ConsumPotionSeedBasicPotionDict.BREW_BLIZZARD_0;
 	}
 	
 	@Override

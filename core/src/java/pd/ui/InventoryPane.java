@@ -21,6 +21,10 @@
 
 package pd.ui;
 
+import pd.atlas.items.EquipmentJewelleryRingDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Chrome;
 import pd.Dungeon;
 import pd.SPDAction;
@@ -42,7 +46,6 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
 import pd.windows.WndInfoItem;
 import pd.windows.WndUseItem;
@@ -302,11 +305,11 @@ public class InventoryPane extends Component {
 			lastBag = stuff.backpack;
 		}
 
-		equipped.get(0).item(stuff.weapon == null ? new WndBag.Placeholder( ItemSpriteSheet.WEAPON_HOLDER ) : stuff.weapon);
-		equipped.get(1).item(stuff.armor == null ? new WndBag.Placeholder( ItemSpriteSheet.ARMOR_HOLDER ) : stuff.armor);
-		equipped.get(2).item(stuff.artifact == null ? new WndBag.Placeholder( ItemSpriteSheet.ARTIFACT_HOLDER ) : stuff.artifact);
-		equipped.get(3).item(stuff.misc == null ? new WndBag.Placeholder( ItemSpriteSheet.SOMETHING ) : stuff.misc);
-		equipped.get(4).item(stuff.ring == null ? new WndBag.Placeholder( ItemSpriteSheet.RING_HOLDER ) : stuff.ring);
+		equipped.get(0).item(stuff.weapon == null ? new WndBag.Placeholder( SpecificPlaceHolderDict.SOMETHING_0 ) : stuff.weapon);
+		equipped.get(1).item(stuff.armor == null ? new WndBag.Placeholder( SpecificPlaceHolderDict.SOMETHING_0 ) : stuff.armor);
+		equipped.get(2).item(stuff.artifact == null ? new WndBag.Placeholder( SpecificPlaceHolderDict.ARTIFACT_HOLDER_0 ) : stuff.artifact);
+		equipped.get(3).item(stuff.misc == null ? new WndBag.Placeholder( SpecificPlaceHolderDict.SOMETHING_0 ) : stuff.misc);
+		equipped.get(4).item(stuff.ring == null ? new WndBag.Placeholder( EquipmentJewelleryRingDict.RING_HOLDER ) : stuff.ring);
 
 		ArrayList<Item> items = (ArrayList<Item>) lastBag.items.clone();
 

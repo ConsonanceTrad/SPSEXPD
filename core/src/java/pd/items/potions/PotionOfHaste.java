@@ -26,13 +26,13 @@ import pd.actors.buffs.Haste;
 import pd.actors.hero.Hero;
 import pd.effects.SpellSprite;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 
 public class PotionOfHaste extends Potion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_HASTE;
+		icon = ItemIconSheet.POTION_HASTE;
 	}
 	
 	@Override

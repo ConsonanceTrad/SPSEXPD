@@ -257,8 +257,8 @@ public class CustomNoteButton extends IconButton {
 	private static Comparator<Item> itemVisualcomparator = new Comparator<Item>() {
 		@Override
 		public int compare(Item i1, Item i2) {
-			int i1Idx = i1.image();
-			int i2Idx = i2.image();
+			int i1Idx = i1.image().id;
+			int i2Idx = i2.image().id;
 
 			if (i1 instanceof Scroll)   i1Idx += 1000;
 			if (i1 instanceof Ring)     i1Idx += 2000;

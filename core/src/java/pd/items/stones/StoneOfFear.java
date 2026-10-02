@@ -21,6 +21,8 @@
 
 package pd.items.stones;
 
+import pd.atlas.items.ConsumScrollAmuletAmuletDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -28,14 +30,13 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Terror;
 import pd.effects.Flare;
-import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTilemap;
 import render.noosa.audio.Sample;
 
 public class StoneOfFear extends Runestone {
 	
 	{
-		image = ItemSpriteSheet.STONE_FEAR;
+		image = ConsumScrollAmuletAmuletDict.STONE_FEAR_0;
 	}
 	
 	@Override

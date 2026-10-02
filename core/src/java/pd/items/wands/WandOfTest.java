@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.wands;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -9,7 +11,6 @@ import pd.actors.hero.Hero;
 import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class WandOfTest extends DamageWand {
 	private int type;
 
 	{
-		image = ItemSpriteSheet.SPS_TEST_WAND;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		collisionProperties = Ballistica.MAGIC_BOLT;
 	}
 

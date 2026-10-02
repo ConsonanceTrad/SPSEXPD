@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food.completefood;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.AttackUp;
 import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
@@ -10,14 +12,13 @@ import pd.actors.buffs.Poison;
 import pd.actors.buffs.STRDown;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 
 public class Porksoup extends CompleteFood {
 
 	private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0xCC6600);
 
 	{
-		image = ItemSpriteSheet.MEAT_SOUP;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 200f;
 	}
 

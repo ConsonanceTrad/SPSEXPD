@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.hero.Hero;
@@ -9,7 +11,6 @@ import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ public class RockManJumpshoes extends Item {
 	public static final String AC_JUMP = "JUMP";
 	public static final int RANGE = 3;
 	{
-		image = ItemSpriteSheet.SPS_ROCKMAN_JUMP;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		defaultAction = AC_JUMP;
 		unique = true;
 		usesTargeting = true;

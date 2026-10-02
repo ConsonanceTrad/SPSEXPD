@@ -1,11 +1,12 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import pd.atlas.items.SpecificTaskDict;
+
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.items.quest.AdventureJournal;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class SoulCollect extends Item {
 	public static final String AC_BREAK = "BREAK";
 
 	{
-		image = ItemSpriteSheet.SOUL_COLLECT;
+		image = SpecificTaskDict.SOUL_COLLECT;
 		stackable = false;
 		unique = true;
 	}

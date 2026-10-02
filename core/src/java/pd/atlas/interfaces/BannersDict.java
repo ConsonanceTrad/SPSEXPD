@@ -13,15 +13,15 @@ public final class BannersDict {
 	private BannersDict() { }
 
 	/** banner_000 */
-	public static final IconEntry BANNER_000 = new IconEntry("interfaces/banners.png", new int[]{0, 0, 139, 100});
+	public static final IconEntry BANNER_000 = new IconEntry("interfaces/banners.png", new int[]{0, 0, 139, 100}, 5024);
 	/** banner_001 */
-	public static final IconEntry BANNER_001 = new IconEntry("interfaces/banners.png", new int[]{139, 0, 139, 100});
+	public static final IconEntry BANNER_001 = new IconEntry("interfaces/banners.png", new int[]{139, 0, 139, 100}, 5025);
 	/** banner_002 */
-	public static final IconEntry BANNER_002 = new IconEntry("interfaces/banners.png", new int[]{0, 100, 240, 57});
+	public static final IconEntry BANNER_002 = new IconEntry("interfaces/banners.png", new int[]{0, 100, 240, 57}, 5026);
 	/** banner_003 */
-	public static final IconEntry BANNER_003 = new IconEntry("interfaces/banners.png", new int[]{240, 100, 240, 57});
+	public static final IconEntry BANNER_003 = new IconEntry("interfaces/banners.png", new int[]{240, 100, 240, 57}, 5027);
 	/** banner_004 */
-	public static final IconEntry BANNER_004 = new IconEntry("interfaces/banners.png", new int[]{0, 157, 127, 68});
+	public static final IconEntry BANNER_004 = new IconEntry("interfaces/banners.png", new int[]{0, 157, 127, 68}, 5028);
 	/** banner_005 */
-	public static final IconEntry BANNER_005 = new IconEntry("interfaces/banners.png", new int[]{128, 157, 128, 35});
+	public static final IconEntry BANNER_005 = new IconEntry("interfaces/banners.png", new int[]{128, 157, 128, 35}, 5029);
 }

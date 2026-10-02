@@ -1,6 +1,11 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food.staplefood;
 
+import pd.atlas.IconEntry;
+
+import pd.atlas.items.ConsumFoodFoodDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.buffs.BerryRegeneration;
 import pd.actors.buffs.Bless;
@@ -17,7 +22,6 @@ import pd.effects.Speck;
 import pd.effects.particles.FlameParticle;
 import pd.items.scrolls.ScrollOfRecharging;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 
 import java.util.Calendar;
@@ -76,18 +80,18 @@ public class Pasty extends StapleFood {
 		return result;
 	}
 
-	static int imageFor(Holiday value) {
+	static IconEntry imageFor(Holiday value) {
 		switch (value) {
-			case SPRING: return ItemSpriteSheet.SPS_SPRING_ASSORTED;
-			case STUDENT: return ItemSpriteSheet.SPS_KNOWLEDGE_FOOD;
-			case EASTER: return ItemSpriteSheet.SPS_PASTY_EASTER_EGG;
-			case HWEEN: return ItemSpriteSheet.SPS_PUMPKIN_PIE;
-			case THANK: return ItemSpriteSheet.SPS_TURKEY_MEAT;
-			case XMAS: return ItemSpriteSheet.SPS_CANDY_CANE;
-			case CHILD: return ItemSpriteSheet.SPS_JELLY_SWORD;
-			case WORKER: return ItemSpriteSheet.SPS_BRICK_FOOD;
+			case SPRING: return SpecificPlaceHolderDict.SOMETHING_0;
+			case STUDENT: return SpecificPlaceHolderDict.SOMETHING_0;
+			case EASTER: return SpecificPlaceHolderDict.SOMETHING_0;
+			case HWEEN: return ConsumFoodFoodDict.PUMPKIN_PIE;
+			case THANK: return ConsumFoodFoodDict.SPS_TURKEY_MEAT_0;
+			case XMAS: return ConsumFoodFoodDict.CANDY_CANE_0;
+			case CHILD: return SpecificPlaceHolderDict.SOMETHING_0;
+			case WORKER: return SpecificPlaceHolderDict.SOMETHING_0;
 			case NONE:
-			default: return ItemSpriteSheet.SPS_PASTY;
+			default: return SpecificPlaceHolderDict.SOMETHING_0;
 		}
 	}
 

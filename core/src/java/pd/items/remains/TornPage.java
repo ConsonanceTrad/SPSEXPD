@@ -21,17 +21,18 @@
 
 package pd.items.remains;
 
+import pd.atlas.items.ConsumUsefulCorpseRelicsDict;
+
 import pd.Assets;
 import pd.actors.hero.Hero;
 import pd.effects.FloatingText;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 
 public class TornPage extends RemainsItem {
 
 	{
-		image = ItemSpriteSheet.TORN_PAGE;
+		image = ConsumUsefulCorpseRelicsDict.TORN_PAGE_0;
 	}
 
 	@Override

@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.buffs.Awareness;
 import pd.actors.buffs.Buff;
@@ -15,7 +17,6 @@ import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.utils.math.Random;
@@ -29,7 +30,7 @@ public class BShovel extends Item {
 	public static final int USE_COST = 65;
 	private static final String CHARGE = "charge";
 	private int charge;
-	{ image = ItemSpriteSheet.LEGACY_B_SHOVEL; defaultAction = AC_USE; unique = true; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; defaultAction = AC_USE; unique = true; }
 
 	@Override public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);

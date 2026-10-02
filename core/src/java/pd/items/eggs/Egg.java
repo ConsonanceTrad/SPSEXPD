@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.eggs;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.Statistics;
 import pd.actors.Actor;
@@ -24,7 +26,6 @@ import pd.items.sellitem.VIPcard;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -48,7 +49,7 @@ public class Egg extends Item {
 	public int lights;
 
 	{
-		image = ItemSpriteSheet.SPS_PET_EGG;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = false;
 		defaultAction = AC_BREAK;
 	}

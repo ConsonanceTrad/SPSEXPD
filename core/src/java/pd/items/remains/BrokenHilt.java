@@ -21,17 +21,18 @@
 
 package pd.items.remains;
 
+import pd.atlas.items.ConsumUsefulCorpseRelicsDict;
+
 import pd.Assets;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.PhysicalEmpower;
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 
 public class BrokenHilt extends RemainsItem {
 
 	{
-		image = ItemSpriteSheet.BROKEN_HILT;
+		image = ConsumUsefulCorpseRelicsDict.BROKEN_HILT_0;
 	}
 
 	@Override

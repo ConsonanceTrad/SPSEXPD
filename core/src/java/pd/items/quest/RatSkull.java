@@ -10,14 +10,15 @@
 
 package pd.items.quest;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 
 /** Retained solely for quest items present in pre-0.2.1 SPS-PD saves. */
 public class RatSkull extends Item {
 
 	{
-		image = ItemSpriteSheet.LEGACY_SKULL;
+		image = ConsumThrowsDict.SKULL;
 		unique = true;
 	}
 

@@ -1,5 +1,7 @@
 package pd.items;
 
+import pd.atlas.items.SpecificTaskDict;
+
 import pd.Dungeon;
 import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
@@ -11,7 +13,6 @@ import pd.levels.Transitions;
 import pd.messages.Messages;
 import pd.scenes.InterlevelScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.Game;
 import render.utils.serialize.Bundle;
@@ -29,7 +30,7 @@ public class Triforce extends Item {
 	private int returnPos = -1;
 
 	{
-		image = ItemSpriteSheet.SPS_TRIFORCE;
+		image = SpecificTaskDict.TRIFORCE;
 		stackable = false;
 		unique = true;
 		keptThoughLostInvent = true;

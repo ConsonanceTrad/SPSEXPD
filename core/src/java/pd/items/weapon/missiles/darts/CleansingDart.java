@@ -21,6 +21,8 @@
 
 package pd.items.weapon.missiles.darts;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
@@ -30,12 +32,11 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.items.potions.exotic.PotionOfCleansing;
 import pd.items.weapon.melee.Crossbow;
-import pd.sprites.ItemSpriteSheet;
 
 public class CleansingDart extends TippedDart {
 	
 	{
-		image = ItemSpriteSheet.CLEANSING_DART;
+		image = ConsumThrowsDict.CLEANSING_DART_0;
 	}
 
 	@Override

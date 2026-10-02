@@ -13,11 +13,12 @@
 
 package pd.items.reward;
 
+import pd.atlas.items.EquipmentBagsDict;
+
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class BoundReward extends Item {
 	private static final float TIME_TO_USE = 1f;
 
 	{
-		image = ItemSpriteSheet.BACKPACK;
+		image = EquipmentBagsDict.BACKPACK_0;
 		stackable = false;
 	}
 

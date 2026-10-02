@@ -13,515 +13,515 @@ public final class TalentIconsDict {
 	private TalentIconsDict() { }
 
 	/** talent_000 */
-	public static final IconEntry TALENT_000 = new IconEntry("interfaces/talent_icons.png", new int[]{0, 0, 16, 16});
+	public static final IconEntry TALENT_000 = new IconEntry("interfaces/talent_icons.png", new int[]{0, 0, 16, 16}, 6050);
 	/** talent_001 */
-	public static final IconEntry TALENT_001 = new IconEntry("interfaces/talent_icons.png", new int[]{16, 0, 16, 16});
+	public static final IconEntry TALENT_001 = new IconEntry("interfaces/talent_icons.png", new int[]{16, 0, 16, 16}, 6051);
 	/** talent_002 */
-	public static final IconEntry TALENT_002 = new IconEntry("interfaces/talent_icons.png", new int[]{32, 0, 16, 16});
+	public static final IconEntry TALENT_002 = new IconEntry("interfaces/talent_icons.png", new int[]{32, 0, 16, 16}, 6052);
 	/** talent_003 */
-	public static final IconEntry TALENT_003 = new IconEntry("interfaces/talent_icons.png", new int[]{48, 0, 16, 16});
+	public static final IconEntry TALENT_003 = new IconEntry("interfaces/talent_icons.png", new int[]{48, 0, 16, 16}, 6053);
 	/** talent_004 */
-	public static final IconEntry TALENT_004 = new IconEntry("interfaces/talent_icons.png", new int[]{64, 0, 16, 16});
+	public static final IconEntry TALENT_004 = new IconEntry("interfaces/talent_icons.png", new int[]{64, 0, 16, 16}, 6054);
 	/** talent_005 */
-	public static final IconEntry TALENT_005 = new IconEntry("interfaces/talent_icons.png", new int[]{80, 0, 16, 16});
+	public static final IconEntry TALENT_005 = new IconEntry("interfaces/talent_icons.png", new int[]{80, 0, 16, 16}, 6055);
 	/** talent_006 */
-	public static final IconEntry TALENT_006 = new IconEntry("interfaces/talent_icons.png", new int[]{96, 0, 16, 16});
+	public static final IconEntry TALENT_006 = new IconEntry("interfaces/talent_icons.png", new int[]{96, 0, 16, 16}, 6056);
 	/** talent_007 */
-	public static final IconEntry TALENT_007 = new IconEntry("interfaces/talent_icons.png", new int[]{112, 0, 16, 16});
+	public static final IconEntry TALENT_007 = new IconEntry("interfaces/talent_icons.png", new int[]{112, 0, 16, 16}, 6057);
 	/** talent_008 */
-	public static final IconEntry TALENT_008 = new IconEntry("interfaces/talent_icons.png", new int[]{128, 0, 16, 16});
+	public static final IconEntry TALENT_008 = new IconEntry("interfaces/talent_icons.png", new int[]{128, 0, 16, 16}, 6058);
 	/** talent_009 */
-	public static final IconEntry TALENT_009 = new IconEntry("interfaces/talent_icons.png", new int[]{144, 0, 16, 16});
+	public static final IconEntry TALENT_009 = new IconEntry("interfaces/talent_icons.png", new int[]{144, 0, 16, 16}, 6059);
 	/** talent_010 */
-	public static final IconEntry TALENT_010 = new IconEntry("interfaces/talent_icons.png", new int[]{160, 0, 16, 16});
+	public static final IconEntry TALENT_010 = new IconEntry("interfaces/talent_icons.png", new int[]{160, 0, 16, 16}, 6060);
 	/** talent_011 */
-	public static final IconEntry TALENT_011 = new IconEntry("interfaces/talent_icons.png", new int[]{176, 0, 16, 16});
+	public static final IconEntry TALENT_011 = new IconEntry("interfaces/talent_icons.png", new int[]{176, 0, 16, 16}, 6061);
 	/** talent_012 */
-	public static final IconEntry TALENT_012 = new IconEntry("interfaces/talent_icons.png", new int[]{192, 0, 16, 16});
+	public static final IconEntry TALENT_012 = new IconEntry("interfaces/talent_icons.png", new int[]{192, 0, 16, 16}, 6062);
 	/** talent_013 */
-	public static final IconEntry TALENT_013 = new IconEntry("interfaces/talent_icons.png", new int[]{208, 0, 16, 16});
+	public static final IconEntry TALENT_013 = new IconEntry("interfaces/talent_icons.png", new int[]{208, 0, 16, 16}, 6063);
 	/** talent_014 */
-	public static final IconEntry TALENT_014 = new IconEntry("interfaces/talent_icons.png", new int[]{224, 0, 16, 16});
+	public static final IconEntry TALENT_014 = new IconEntry("interfaces/talent_icons.png", new int[]{224, 0, 16, 16}, 6064);
 	/** talent_015 */
-	public static final IconEntry TALENT_015 = new IconEntry("interfaces/talent_icons.png", new int[]{240, 0, 16, 16});
+	public static final IconEntry TALENT_015 = new IconEntry("interfaces/talent_icons.png", new int[]{240, 0, 16, 16}, 6065);
 	/** talent_016 */
-	public static final IconEntry TALENT_016 = new IconEntry("interfaces/talent_icons.png", new int[]{256, 0, 16, 16});
+	public static final IconEntry TALENT_016 = new IconEntry("interfaces/talent_icons.png", new int[]{256, 0, 16, 16}, 6066);
 	/** talent_017 */
-	public static final IconEntry TALENT_017 = new IconEntry("interfaces/talent_icons.png", new int[]{272, 0, 16, 16});
+	public static final IconEntry TALENT_017 = new IconEntry("interfaces/talent_icons.png", new int[]{272, 0, 16, 16}, 6067);
 	/** talent_018 */
-	public static final IconEntry TALENT_018 = new IconEntry("interfaces/talent_icons.png", new int[]{288, 0, 16, 16});
+	public static final IconEntry TALENT_018 = new IconEntry("interfaces/talent_icons.png", new int[]{288, 0, 16, 16}, 6068);
 	/** talent_019 */
-	public static final IconEntry TALENT_019 = new IconEntry("interfaces/talent_icons.png", new int[]{304, 0, 16, 16});
+	public static final IconEntry TALENT_019 = new IconEntry("interfaces/talent_icons.png", new int[]{304, 0, 16, 16}, 6069);
 	/** talent_020 */
-	public static final IconEntry TALENT_020 = new IconEntry("interfaces/talent_icons.png", new int[]{320, 0, 16, 16});
+	public static final IconEntry TALENT_020 = new IconEntry("interfaces/talent_icons.png", new int[]{320, 0, 16, 16}, 6070);
 	/** talent_021 */
-	public static final IconEntry TALENT_021 = new IconEntry("interfaces/talent_icons.png", new int[]{336, 0, 16, 16});
+	public static final IconEntry TALENT_021 = new IconEntry("interfaces/talent_icons.png", new int[]{336, 0, 16, 16}, 6071);
 	/** talent_022 */
-	public static final IconEntry TALENT_022 = new IconEntry("interfaces/talent_icons.png", new int[]{352, 0, 16, 16});
+	public static final IconEntry TALENT_022 = new IconEntry("interfaces/talent_icons.png", new int[]{352, 0, 16, 16}, 6072);
 	/** talent_023 */
-	public static final IconEntry TALENT_023 = new IconEntry("interfaces/talent_icons.png", new int[]{368, 0, 16, 16});
+	public static final IconEntry TALENT_023 = new IconEntry("interfaces/talent_icons.png", new int[]{368, 0, 16, 16}, 6073);
 	/** talent_024 */
-	public static final IconEntry TALENT_024 = new IconEntry("interfaces/talent_icons.png", new int[]{384, 0, 16, 16});
+	public static final IconEntry TALENT_024 = new IconEntry("interfaces/talent_icons.png", new int[]{384, 0, 16, 16}, 6074);
 	/** talent_025 */
-	public static final IconEntry TALENT_025 = new IconEntry("interfaces/talent_icons.png", new int[]{400, 0, 16, 16});
+	public static final IconEntry TALENT_025 = new IconEntry("interfaces/talent_icons.png", new int[]{400, 0, 16, 16}, 6075);
 	/** talent_026 */
-	public static final IconEntry TALENT_026 = new IconEntry("interfaces/talent_icons.png", new int[]{416, 0, 16, 16});
+	public static final IconEntry TALENT_026 = new IconEntry("interfaces/talent_icons.png", new int[]{416, 0, 16, 16}, 6076);
 	/** talent_027 */
-	public static final IconEntry TALENT_027 = new IconEntry("interfaces/talent_icons.png", new int[]{432, 0, 16, 16});
+	public static final IconEntry TALENT_027 = new IconEntry("interfaces/talent_icons.png", new int[]{432, 0, 16, 16}, 6077);
 	/** talent_028 */
-	public static final IconEntry TALENT_028 = new IconEntry("interfaces/talent_icons.png", new int[]{448, 0, 16, 16});
+	public static final IconEntry TALENT_028 = new IconEntry("interfaces/talent_icons.png", new int[]{448, 0, 16, 16}, 6078);
 	/** talent_029 */
-	public static final IconEntry TALENT_029 = new IconEntry("interfaces/talent_icons.png", new int[]{464, 0, 16, 16});
+	public static final IconEntry TALENT_029 = new IconEntry("interfaces/talent_icons.png", new int[]{464, 0, 16, 16}, 6079);
 	/** talent_030 */
-	public static final IconEntry TALENT_030 = new IconEntry("interfaces/talent_icons.png", new int[]{480, 0, 16, 16});
+	public static final IconEntry TALENT_030 = new IconEntry("interfaces/talent_icons.png", new int[]{480, 0, 16, 16}, 6080);
 	/** talent_031 */
-	public static final IconEntry TALENT_031 = new IconEntry("interfaces/talent_icons.png", new int[]{496, 0, 16, 16});
+	public static final IconEntry TALENT_031 = new IconEntry("interfaces/talent_icons.png", new int[]{496, 0, 16, 16}, 6081);
 	/** talent_032 */
-	public static final IconEntry TALENT_032 = new IconEntry("interfaces/talent_icons.png", new int[]{0, 16, 16, 16});
+	public static final IconEntry TALENT_032 = new IconEntry("interfaces/talent_icons.png", new int[]{0, 16, 16, 16}, 6082);
 	/** talent_033 */
-	public static final IconEntry TALENT_033 = new IconEntry("interfaces/talent_icons.png", new int[]{16, 16, 16, 16});
+	public static final IconEntry TALENT_033 = new IconEntry("interfaces/talent_icons.png", new int[]{16, 16, 16, 16}, 6083);
 	/** talent_034 */
-	public static final IconEntry TALENT_034 = new IconEntry("interfaces/talent_icons.png", new int[]{32, 16, 16, 16});
+	public static final IconEntry TALENT_034 = new IconEntry("interfaces/talent_icons.png", new int[]{32, 16, 16, 16}, 6084);
 	/** talent_035 */
-	public static final IconEntry TALENT_035 = new IconEntry("interfaces/talent_icons.png", new int[]{48, 16, 16, 16});
+	public static final IconEntry TALENT_035 = new IconEntry("interfaces/talent_icons.png", new int[]{48, 16, 16, 16}, 6085);
 	/** talent_036 */
-	public static final IconEntry TALENT_036 = new IconEntry("interfaces/talent_icons.png", new int[]{64, 16, 16, 16});
+	public static final IconEntry TALENT_036 = new IconEntry("interfaces/talent_icons.png", new int[]{64, 16, 16, 16}, 6086);
 	/** talent_037 */
-	public static final IconEntry TALENT_037 = new IconEntry("interfaces/talent_icons.png", new int[]{80, 16, 16, 16});
+	public static final IconEntry TALENT_037 = new IconEntry("interfaces/talent_icons.png", new int[]{80, 16, 16, 16}, 6087);
 	/** talent_038 */
-	public static final IconEntry TALENT_038 = new IconEntry("interfaces/talent_icons.png", new int[]{96, 16, 16, 16});
+	public static final IconEntry TALENT_038 = new IconEntry("interfaces/talent_icons.png", new int[]{96, 16, 16, 16}, 6088);
 	/** talent_039 */
-	public static final IconEntry TALENT_039 = new IconEntry("interfaces/talent_icons.png", new int[]{112, 16, 16, 16});
+	public static final IconEntry TALENT_039 = new IconEntry("interfaces/talent_icons.png", new int[]{112, 16, 16, 16}, 6089);
 	/** talent_040 */
-	public static final IconEntry TALENT_040 = new IconEntry("interfaces/talent_icons.png", new int[]{128, 16, 16, 16});
+	public static final IconEntry TALENT_040 = new IconEntry("interfaces/talent_icons.png", new int[]{128, 16, 16, 16}, 6090);
 	/** talent_041 */
-	public static final IconEntry TALENT_041 = new IconEntry("interfaces/talent_icons.png", new int[]{144, 16, 16, 16});
+	public static final IconEntry TALENT_041 = new IconEntry("interfaces/talent_icons.png", new int[]{144, 16, 16, 16}, 6091);
 	/** talent_042 */
-	public static final IconEntry TALENT_042 = new IconEntry("interfaces/talent_icons.png", new int[]{160, 16, 16, 16});
+	public static final IconEntry TALENT_042 = new IconEntry("interfaces/talent_icons.png", new int[]{160, 16, 16, 16}, 6092);
 	/** talent_043 */
-	public static final IconEntry TALENT_043 = new IconEntry("interfaces/talent_icons.png", new int[]{176, 16, 16, 16});
+	public static final IconEntry TALENT_043 = new IconEntry("interfaces/talent_icons.png", new int[]{176, 16, 16, 16}, 6093);
 	/** talent_044 */
-	public static final IconEntry TALENT_044 = new IconEntry("interfaces/talent_icons.png", new int[]{192, 16, 16, 16});
+	public static final IconEntry TALENT_044 = new IconEntry("interfaces/talent_icons.png", new int[]{192, 16, 16, 16}, 6094);
 	/** talent_045 */
-	public static final IconEntry TALENT_045 = new IconEntry("interfaces/talent_icons.png", new int[]{208, 16, 16, 16});
+	public static final IconEntry TALENT_045 = new IconEntry("interfaces/talent_icons.png", new int[]{208, 16, 16, 16}, 6095);
 	/** talent_046 */
-	public static final IconEntry TALENT_046 = new IconEntry("interfaces/talent_icons.png", new int[]{224, 16, 16, 16});
+	public static final IconEntry TALENT_046 = new IconEntry("interfaces/talent_icons.png", new int[]{224, 16, 16, 16}, 6096);
 	/** talent_047 */
-	public static final IconEntry TALENT_047 = new IconEntry("interfaces/talent_icons.png", new int[]{240, 16, 16, 16});
+	public static final IconEntry TALENT_047 = new IconEntry("interfaces/talent_icons.png", new int[]{240, 16, 16, 16}, 6097);
 	/** talent_048 */
-	public static final IconEntry TALENT_048 = new IconEntry("interfaces/talent_icons.png", new int[]{256, 16, 16, 16});
+	public static final IconEntry TALENT_048 = new IconEntry("interfaces/talent_icons.png", new int[]{256, 16, 16, 16}, 6098);
 	/** talent_049 */
-	public static final IconEntry TALENT_049 = new IconEntry("interfaces/talent_icons.png", new int[]{272, 16, 16, 16});
+	public static final IconEntry TALENT_049 = new IconEntry("interfaces/talent_icons.png", new int[]{272, 16, 16, 16}, 6099);
 	/** talent_050 */
-	public static final IconEntry TALENT_050 = new IconEntry("interfaces/talent_icons.png", new int[]{288, 16, 16, 16});
+	public static final IconEntry TALENT_050 = new IconEntry("interfaces/talent_icons.png", new int[]{288, 16, 16, 16}, 6100);
 	/** talent_051 */
-	public static final IconEntry TALENT_051 = new IconEntry("interfaces/talent_icons.png", new int[]{304, 16, 16, 16});
+	public static final IconEntry TALENT_051 = new IconEntry("interfaces/talent_icons.png", new int[]{304, 16, 16, 16}, 6101);
 	/** talent_052 */
-	public static final IconEntry TALENT_052 = new IconEntry("interfaces/talent_icons.png", new int[]{320, 16, 16, 16});
+	public static final IconEntry TALENT_052 = new IconEntry("interfaces/talent_icons.png", new int[]{320, 16, 16, 16}, 6102);
 	/** talent_053 */
-	public static final IconEntry TALENT_053 = new IconEntry("interfaces/talent_icons.png", new int[]{336, 16, 16, 16});
+	public static final IconEntry TALENT_053 = new IconEntry("interfaces/talent_icons.png", new int[]{336, 16, 16, 16}, 6103);
 	/** talent_054 */
-	public static final IconEntry TALENT_054 = new IconEntry("interfaces/talent_icons.png", new int[]{352, 16, 16, 16});
+	public static final IconEntry TALENT_054 = new IconEntry("interfaces/talent_icons.png", new int[]{352, 16, 16, 16}, 6104);
 	/** talent_055 */
-	public static final IconEntry TALENT_055 = new IconEntry("interfaces/talent_icons.png", new int[]{368, 16, 16, 16});
+	public static final IconEntry TALENT_055 = new IconEntry("interfaces/talent_icons.png", new int[]{368, 16, 16, 16}, 6105);
 	/** talent_056 */
-	public static final IconEntry TALENT_056 = new IconEntry("interfaces/talent_icons.png", new int[]{384, 16, 16, 16});
+	public static final IconEntry TALENT_056 = new IconEntry("interfaces/talent_icons.png", new int[]{384, 16, 16, 16}, 6106);
 	/** talent_057 */
-	public static final IconEntry TALENT_057 = new IconEntry("interfaces/talent_icons.png", new int[]{400, 16, 16, 16});
+	public static final IconEntry TALENT_057 = new IconEntry("interfaces/talent_icons.png", new int[]{400, 16, 16, 16}, 6107);
 	/** talent_058 */
-	public static final IconEntry TALENT_058 = new IconEntry("interfaces/talent_icons.png", new int[]{416, 16, 16, 16});
+	public static final IconEntry TALENT_058 = new IconEntry("interfaces/talent_icons.png", new int[]{416, 16, 16, 16}, 6108);
 	/** talent_059 */
-	public static final IconEntry TALENT_059 = new IconEntry("interfaces/talent_icons.png", new int[]{432, 16, 16, 16});
+	public static final IconEntry TALENT_059 = new IconEntry("interfaces/talent_icons.png", new int[]{432, 16, 16, 16}, 6109);
 	/** talent_060 */
-	public static final IconEntry TALENT_060 = new IconEntry("interfaces/talent_icons.png", new int[]{448, 16, 16, 16});
+	public static final IconEntry TALENT_060 = new IconEntry("interfaces/talent_icons.png", new int[]{448, 16, 16, 16}, 6110);
 	/** talent_061 */
-	public static final IconEntry TALENT_061 = new IconEntry("interfaces/talent_icons.png", new int[]{464, 16, 16, 16});
+	public static final IconEntry TALENT_061 = new IconEntry("interfaces/talent_icons.png", new int[]{464, 16, 16, 16}, 6111);
 	/** talent_062 */
-	public static final IconEntry TALENT_062 = new IconEntry("interfaces/talent_icons.png", new int[]{480, 16, 16, 16});
+	public static final IconEntry TALENT_062 = new IconEntry("interfaces/talent_icons.png", new int[]{480, 16, 16, 16}, 6112);
 	/** talent_063 */
-	public static final IconEntry TALENT_063 = new IconEntry("interfaces/talent_icons.png", new int[]{496, 16, 16, 16});
+	public static final IconEntry TALENT_063 = new IconEntry("interfaces/talent_icons.png", new int[]{496, 16, 16, 16}, 6113);
 	/** talent_064 */
-	public static final IconEntry TALENT_064 = new IconEntry("interfaces/talent_icons.png", new int[]{0, 32, 16, 16});
+	public static final IconEntry TALENT_064 = new IconEntry("interfaces/talent_icons.png", new int[]{0, 32, 16, 16}, 6114);
 	/** talent_065 */
-	public static final IconEntry TALENT_065 = new IconEntry("interfaces/talent_icons.png", new int[]{16, 32, 16, 16});
+	public static final IconEntry TALENT_065 = new IconEntry("interfaces/talent_icons.png", new int[]{16, 32, 16, 16}, 6115);
 	/** talent_066 */
-	public static final IconEntry TALENT_066 = new IconEntry("interfaces/talent_icons.png", new int[]{32, 32, 16, 16});
+	public static final IconEntry TALENT_066 = new IconEntry("interfaces/talent_icons.png", new int[]{32, 32, 16, 16}, 6116);
 	/** talent_067 */
-	public static final IconEntry TALENT_067 = new IconEntry("interfaces/talent_icons.png", new int[]{48, 32, 16, 16});
+	public static final IconEntry TALENT_067 = new IconEntry("interfaces/talent_icons.png", new int[]{48, 32, 16, 16}, 6117);
 	/** talent_068 */
-	public static final IconEntry TALENT_068 = new IconEntry("interfaces/talent_icons.png", new int[]{64, 32, 16, 16});
+	public static final IconEntry TALENT_068 = new IconEntry("interfaces/talent_icons.png", new int[]{64, 32, 16, 16}, 6118);
 	/** talent_069 */
-	public static final IconEntry TALENT_069 = new IconEntry("interfaces/talent_icons.png", new int[]{80, 32, 16, 16});
+	public static final IconEntry TALENT_069 = new IconEntry("interfaces/talent_icons.png", new int[]{80, 32, 16, 16}, 6119);
 	/** talent_070 */
-	public static final IconEntry TALENT_070 = new IconEntry("interfaces/talent_icons.png", new int[]{96, 32, 16, 16});
+	public static final IconEntry TALENT_070 = new IconEntry("interfaces/talent_icons.png", new int[]{96, 32, 16, 16}, 6120);
 	/** talent_071 */
-	public static final IconEntry TALENT_071 = new IconEntry("interfaces/talent_icons.png", new int[]{112, 32, 16, 16});
+	public static final IconEntry TALENT_071 = new IconEntry("interfaces/talent_icons.png", new int[]{112, 32, 16, 16}, 6121);
 	/** talent_072 */
-	public static final IconEntry TALENT_072 = new IconEntry("interfaces/talent_icons.png", new int[]{128, 32, 16, 16});
+	public static final IconEntry TALENT_072 = new IconEntry("interfaces/talent_icons.png", new int[]{128, 32, 16, 16}, 6122);
 	/** talent_073 */
-	public static final IconEntry TALENT_073 = new IconEntry("interfaces/talent_icons.png", new int[]{144, 32, 16, 16});
+	public static final IconEntry TALENT_073 = new IconEntry("interfaces/talent_icons.png", new int[]{144, 32, 16, 16}, 6123);
 	/** talent_074 */
-	public static final IconEntry TALENT_074 = new IconEntry("interfaces/talent_icons.png", new int[]{160, 32, 16, 16});
+	public static final IconEntry TALENT_074 = new IconEntry("interfaces/talent_icons.png", new int[]{160, 32, 16, 16}, 6124);
 	/** talent_075 */
-	public static final IconEntry TALENT_075 = new IconEntry("interfaces/talent_icons.png", new int[]{176, 32, 16, 16});
+	public static final IconEntry TALENT_075 = new IconEntry("interfaces/talent_icons.png", new int[]{176, 32, 16, 16}, 6125);
 	/** talent_076 */
-	public static final IconEntry TALENT_076 = new IconEntry("interfaces/talent_icons.png", new int[]{192, 32, 16, 16});
+	public static final IconEntry TALENT_076 = new IconEntry("interfaces/talent_icons.png", new int[]{192, 32, 16, 16}, 6126);
 	/** talent_077 */
-	public static final IconEntry TALENT_077 = new IconEntry("interfaces/talent_icons.png", new int[]{208, 32, 16, 16});
+	public static final IconEntry TALENT_077 = new IconEntry("interfaces/talent_icons.png", new int[]{208, 32, 16, 16}, 6127);
 	/** talent_078 */
-	public static final IconEntry TALENT_078 = new IconEntry("interfaces/talent_icons.png", new int[]{224, 32, 16, 16});
+	public static final IconEntry TALENT_078 = new IconEntry("interfaces/talent_icons.png", new int[]{224, 32, 16, 16}, 6128);
 	/** talent_079 */
-	public static final IconEntry TALENT_079 = new IconEntry("interfaces/talent_icons.png", new int[]{240, 32, 16, 16});
+	public static final IconEntry TALENT_079 = new IconEntry("interfaces/talent_icons.png", new int[]{240, 32, 16, 16}, 6129);
 	/** talent_080 */
-	public static final IconEntry TALENT_080 = new IconEntry("interfaces/talent_icons.png", new int[]{256, 32, 16, 16});
+	public static final IconEntry TALENT_080 = new IconEntry("interfaces/talent_icons.png", new int[]{256, 32, 16, 16}, 6130);
 	/** talent_081 */
-	public static final IconEntry TALENT_081 = new IconEntry("interfaces/talent_icons.png", new int[]{272, 32, 16, 16});
+	public static final IconEntry TALENT_081 = new IconEntry("interfaces/talent_icons.png", new int[]{272, 32, 16, 16}, 6131);
 	/** talent_082 */
-	public static final IconEntry TALENT_082 = new IconEntry("interfaces/talent_icons.png", new int[]{288, 32, 16, 16});
+	public static final IconEntry TALENT_082 = new IconEntry("interfaces/talent_icons.png", new int[]{288, 32, 16, 16}, 6132);
 	/** talent_083 */
-	public static final IconEntry TALENT_083 = new IconEntry("interfaces/talent_icons.png", new int[]{304, 32, 16, 16});
+	public static final IconEntry TALENT_083 = new IconEntry("interfaces/talent_icons.png", new int[]{304, 32, 16, 16}, 6133);
 	/** talent_084 */
-	public static final IconEntry TALENT_084 = new IconEntry("interfaces/talent_icons.png", new int[]{320, 32, 16, 16});
+	public static final IconEntry TALENT_084 = new IconEntry("interfaces/talent_icons.png", new int[]{320, 32, 16, 16}, 6134);
 	/** talent_085 */
-	public static final IconEntry TALENT_085 = new IconEntry("interfaces/talent_icons.png", new int[]{336, 32, 16, 16});
+	public static final IconEntry TALENT_085 = new IconEntry("interfaces/talent_icons.png", new int[]{336, 32, 16, 16}, 6135);
 	/** talent_086 */
-	public static final IconEntry TALENT_086 = new IconEntry("interfaces/talent_icons.png", new int[]{352, 32, 16, 16});
+	public static final IconEntry TALENT_086 = new IconEntry("interfaces/talent_icons.png", new int[]{352, 32, 16, 16}, 6136);
 	/** talent_087 */
-	public static final IconEntry TALENT_087 = new IconEntry("interfaces/talent_icons.png", new int[]{368, 32, 16, 16});
+	public static final IconEntry TALENT_087 = new IconEntry("interfaces/talent_icons.png", new int[]{368, 32, 16, 16}, 6137);
 	/** talent_088 */
-	public static final IconEntry TALENT_088 = new IconEntry("interfaces/talent_icons.png", new int[]{384, 32, 16, 16});
+	public static final IconEntry TALENT_088 = new IconEntry("interfaces/talent_icons.png", new int[]{384, 32, 16, 16}, 6138);
 	/** talent_089 */
-	public static final IconEntry TALENT_089 = new IconEntry("interfaces/talent_icons.png", new int[]{400, 32, 16, 16});
+	public static final IconEntry TALENT_089 = new IconEntry("interfaces/talent_icons.png", new int[]{400, 32, 16, 16}, 6139);
 	/** talent_090 */
-	public static final IconEntry TALENT_090 = new IconEntry("interfaces/talent_icons.png", new int[]{416, 32, 16, 16});
+	public static final IconEntry TALENT_090 = new IconEntry("interfaces/talent_icons.png", new int[]{416, 32, 16, 16}, 6140);
 	/** talent_091 */
-	public static final IconEntry TALENT_091 = new IconEntry("interfaces/talent_icons.png", new int[]{432, 32, 16, 16});
+	public static final IconEntry TALENT_091 = new IconEntry("interfaces/talent_icons.png", new int[]{432, 32, 16, 16}, 6141);
 	/** talent_092 */
-	public static final IconEntry TALENT_092 = new IconEntry("interfaces/talent_icons.png", new int[]{448, 32, 16, 16});
+	public static final IconEntry TALENT_092 = new IconEntry("interfaces/talent_icons.png", new int[]{448, 32, 16, 16}, 6142);
 	/** talent_093 */
-	public static final IconEntry TALENT_093 = new IconEntry("interfaces/talent_icons.png", new int[]{464, 32, 16, 16});
+	public static final IconEntry TALENT_093 = new IconEntry("interfaces/talent_icons.png", new int[]{464, 32, 16, 16}, 6143);
 	/** talent_094 */
-	public static final IconEntry TALENT_094 = new IconEntry("interfaces/talent_icons.png", new int[]{480, 32, 16, 16});
+	public static final IconEntry TALENT_094 = new IconEntry("interfaces/talent_icons.png", new int[]{480, 32, 16, 16}, 6144);
 	/** talent_095 */
-	public static final IconEntry TALENT_095 = new IconEntry("interfaces/talent_icons.png", new int[]{496, 32, 16, 16});
+	public static final IconEntry TALENT_095 = new IconEntry("interfaces/talent_icons.png", new int[]{496, 32, 16, 16}, 6145);
 	/** talent_096 */
-	public static final IconEntry TALENT_096 = new IconEntry("interfaces/talent_icons.png", new int[]{0, 48, 16, 16});
+	public static final IconEntry TALENT_096 = new IconEntry("interfaces/talent_icons.png", new int[]{0, 48, 16, 16}, 6146);
 	/** talent_097 */
-	public static final IconEntry TALENT_097 = new IconEntry("interfaces/talent_icons.png", new int[]{16, 48, 16, 16});
+	public static final IconEntry TALENT_097 = new IconEntry("interfaces/talent_icons.png", new int[]{16, 48, 16, 16}, 6147);
 	/** talent_098 */
-	public static final IconEntry TALENT_098 = new IconEntry("interfaces/talent_icons.png", new int[]{32, 48, 16, 16});
+	public static final IconEntry TALENT_098 = new IconEntry("interfaces/talent_icons.png", new int[]{32, 48, 16, 16}, 6148);
 	/** talent_099 */
-	public static final IconEntry TALENT_099 = new IconEntry("interfaces/talent_icons.png", new int[]{48, 48, 16, 16});
+	public static final IconEntry TALENT_099 = new IconEntry("interfaces/talent_icons.png", new int[]{48, 48, 16, 16}, 6149);
 	/** talent_100 */
-	public static final IconEntry TALENT_100 = new IconEntry("interfaces/talent_icons.png", new int[]{64, 48, 16, 16});
+	public static final IconEntry TALENT_100 = new IconEntry("interfaces/talent_icons.png", new int[]{64, 48, 16, 16}, 6150);
 	/** talent_101 */
-	public static final IconEntry TALENT_101 = new IconEntry("interfaces/talent_icons.png", new int[]{80, 48, 16, 16});
+	public static final IconEntry TALENT_101 = new IconEntry("interfaces/talent_icons.png", new int[]{80, 48, 16, 16}, 6151);
 	/** talent_102 */
-	public static final IconEntry TALENT_102 = new IconEntry("interfaces/talent_icons.png", new int[]{96, 48, 16, 16});
+	public static final IconEntry TALENT_102 = new IconEntry("interfaces/talent_icons.png", new int[]{96, 48, 16, 16}, 6152);
 	/** talent_103 */
-	public static final IconEntry TALENT_103 = new IconEntry("interfaces/talent_icons.png", new int[]{112, 48, 16, 16});
+	public static final IconEntry TALENT_103 = new IconEntry("interfaces/talent_icons.png", new int[]{112, 48, 16, 16}, 6153);
 	/** talent_104 */
-	public static final IconEntry TALENT_104 = new IconEntry("interfaces/talent_icons.png", new int[]{128, 48, 16, 16});
+	public static final IconEntry TALENT_104 = new IconEntry("interfaces/talent_icons.png", new int[]{128, 48, 16, 16}, 6154);
 	/** talent_105 */
-	public static final IconEntry TALENT_105 = new IconEntry("interfaces/talent_icons.png", new int[]{144, 48, 16, 16});
+	public static final IconEntry TALENT_105 = new IconEntry("interfaces/talent_icons.png", new int[]{144, 48, 16, 16}, 6155);
 	/** talent_106 */
-	public static final IconEntry TALENT_106 = new IconEntry("interfaces/talent_icons.png", new int[]{160, 48, 16, 16});
+	public static final IconEntry TALENT_106 = new IconEntry("interfaces/talent_icons.png", new int[]{160, 48, 16, 16}, 6156);
 	/** talent_107 */
-	public static final IconEntry TALENT_107 = new IconEntry("interfaces/talent_icons.png", new int[]{176, 48, 16, 16});
+	public static final IconEntry TALENT_107 = new IconEntry("interfaces/talent_icons.png", new int[]{176, 48, 16, 16}, 6157);
 	/** talent_108 */
-	public static final IconEntry TALENT_108 = new IconEntry("interfaces/talent_icons.png", new int[]{192, 48, 16, 16});
+	public static final IconEntry TALENT_108 = new IconEntry("interfaces/talent_icons.png", new int[]{192, 48, 16, 16}, 6158);
 	/** talent_109 */
-	public static final IconEntry TALENT_109 = new IconEntry("interfaces/talent_icons.png", new int[]{208, 48, 16, 16});
+	public static final IconEntry TALENT_109 = new IconEntry("interfaces/talent_icons.png", new int[]{208, 48, 16, 16}, 6159);
 	/** talent_110 */
-	public static final IconEntry TALENT_110 = new IconEntry("interfaces/talent_icons.png", new int[]{224, 48, 16, 16});
+	public static final IconEntry TALENT_110 = new IconEntry("interfaces/talent_icons.png", new int[]{224, 48, 16, 16}, 6160);
 	/** talent_111 */
-	public static final IconEntry TALENT_111 = new IconEntry("interfaces/talent_icons.png", new int[]{240, 48, 16, 16});
+	public static final IconEntry TALENT_111 = new IconEntry("interfaces/talent_icons.png", new int[]{240, 48, 16, 16}, 6161);
 	/** talent_112 */
-	public static final IconEntry TALENT_112 = new IconEntry("interfaces/talent_icons.png", new int[]{256, 48, 16, 16});
+	public static final IconEntry TALENT_112 = new IconEntry("interfaces/talent_icons.png", new int[]{256, 48, 16, 16}, 6162);
 	/** talent_113 */
-	public static final IconEntry TALENT_113 = new IconEntry("interfaces/talent_icons.png", new int[]{272, 48, 16, 16});
+	public static final IconEntry TALENT_113 = new IconEntry("interfaces/talent_icons.png", new int[]{272, 48, 16, 16}, 6163);
 	/** talent_114 */
-	public static final IconEntry TALENT_114 = new IconEntry("interfaces/talent_icons.png", new int[]{288, 48, 16, 16});
+	public static final IconEntry TALENT_114 = new IconEntry("interfaces/talent_icons.png", new int[]{288, 48, 16, 16}, 6164);
 	/** talent_115 */
-	public static final IconEntry TALENT_115 = new IconEntry("interfaces/talent_icons.png", new int[]{304, 48, 16, 16});
+	public static final IconEntry TALENT_115 = new IconEntry("interfaces/talent_icons.png", new int[]{304, 48, 16, 16}, 6165);
 	/** talent_116 */
-	public static final IconEntry TALENT_116 = new IconEntry("interfaces/talent_icons.png", new int[]{320, 48, 16, 16});
+	public static final IconEntry TALENT_116 = new IconEntry("interfaces/talent_icons.png", new int[]{320, 48, 16, 16}, 6166);
 	/** talent_117 */
-	public static final IconEntry TALENT_117 = new IconEntry("interfaces/talent_icons.png", new int[]{336, 48, 16, 16});
+	public static final IconEntry TALENT_117 = new IconEntry("interfaces/talent_icons.png", new int[]{336, 48, 16, 16}, 6167);
 	/** talent_118 */
-	public static final IconEntry TALENT_118 = new IconEntry("interfaces/talent_icons.png", new int[]{352, 48, 16, 16});
+	public static final IconEntry TALENT_118 = new IconEntry("interfaces/talent_icons.png", new int[]{352, 48, 16, 16}, 6168);
 	/** talent_119 */
-	public static final IconEntry TALENT_119 = new IconEntry("interfaces/talent_icons.png", new int[]{368, 48, 16, 16});
+	public static final IconEntry TALENT_119 = new IconEntry("interfaces/talent_icons.png", new int[]{368, 48, 16, 16}, 6169);
 	/** talent_120 */
-	public static final IconEntry TALENT_120 = new IconEntry("interfaces/talent_icons.png", new int[]{384, 48, 16, 16});
+	public static final IconEntry TALENT_120 = new IconEntry("interfaces/talent_icons.png", new int[]{384, 48, 16, 16}, 6170);
 	/** talent_121 */
-	public static final IconEntry TALENT_121 = new IconEntry("interfaces/talent_icons.png", new int[]{400, 48, 16, 16});
+	public static final IconEntry TALENT_121 = new IconEntry("interfaces/talent_icons.png", new int[]{400, 48, 16, 16}, 6171);
 	/** talent_122 */
-	public static final IconEntry TALENT_122 = new IconEntry("interfaces/talent_icons.png", new int[]{416, 48, 16, 16});
+	public static final IconEntry TALENT_122 = new IconEntry("interfaces/talent_icons.png", new int[]{416, 48, 16, 16}, 6172);
 	/** talent_123 */
-	public static final IconEntry TALENT_123 = new IconEntry("interfaces/talent_icons.png", new int[]{432, 48, 16, 16});
+	public static final IconEntry TALENT_123 = new IconEntry("interfaces/talent_icons.png", new int[]{432, 48, 16, 16}, 6173);
 	/** talent_124 */
-	public static final IconEntry TALENT_124 = new IconEntry("interfaces/talent_icons.png", new int[]{448, 48, 16, 16});
+	public static final IconEntry TALENT_124 = new IconEntry("interfaces/talent_icons.png", new int[]{448, 48, 16, 16}, 6174);
 	/** talent_125 */
-	public static final IconEntry TALENT_125 = new IconEntry("interfaces/talent_icons.png", new int[]{464, 48, 16, 16});
+	public static final IconEntry TALENT_125 = new IconEntry("interfaces/talent_icons.png", new int[]{464, 48, 16, 16}, 6175);
 	/** talent_126 */
-	public static final IconEntry TALENT_126 = new IconEntry("interfaces/talent_icons.png", new int[]{480, 48, 16, 16});
+	public static final IconEntry TALENT_126 = new IconEntry("interfaces/talent_icons.png", new int[]{480, 48, 16, 16}, 6176);
 	/** talent_127 */
-	public static final IconEntry TALENT_127 = new IconEntry("interfaces/talent_icons.png", new int[]{496, 48, 16, 16});
+	public static final IconEntry TALENT_127 = new IconEntry("interfaces/talent_icons.png", new int[]{496, 48, 16, 16}, 6177);
 	/** talent_128 */
-	public static final IconEntry TALENT_128 = new IconEntry("interfaces/talent_icons.png", new int[]{0, 64, 16, 16});
+	public static final IconEntry TALENT_128 = new IconEntry("interfaces/talent_icons.png", new int[]{0, 64, 16, 16}, 6178);
 	/** talent_129 */
-	public static final IconEntry TALENT_129 = new IconEntry("interfaces/talent_icons.png", new int[]{16, 64, 16, 16});
+	public static final IconEntry TALENT_129 = new IconEntry("interfaces/talent_icons.png", new int[]{16, 64, 16, 16}, 6179);
 	/** talent_130 */
-	public static final IconEntry TALENT_130 = new IconEntry("interfaces/talent_icons.png", new int[]{32, 64, 16, 16});
+	public static final IconEntry TALENT_130 = new IconEntry("interfaces/talent_icons.png", new int[]{32, 64, 16, 16}, 6180);
 	/** talent_131 */
-	public static final IconEntry TALENT_131 = new IconEntry("interfaces/talent_icons.png", new int[]{48, 64, 16, 16});
+	public static final IconEntry TALENT_131 = new IconEntry("interfaces/talent_icons.png", new int[]{48, 64, 16, 16}, 6181);
 	/** talent_132 */
-	public static final IconEntry TALENT_132 = new IconEntry("interfaces/talent_icons.png", new int[]{64, 64, 16, 16});
+	public static final IconEntry TALENT_132 = new IconEntry("interfaces/talent_icons.png", new int[]{64, 64, 16, 16}, 6182);
 	/** talent_133 */
-	public static final IconEntry TALENT_133 = new IconEntry("interfaces/talent_icons.png", new int[]{80, 64, 16, 16});
+	public static final IconEntry TALENT_133 = new IconEntry("interfaces/talent_icons.png", new int[]{80, 64, 16, 16}, 6183);
 	/** talent_134 */
-	public static final IconEntry TALENT_134 = new IconEntry("interfaces/talent_icons.png", new int[]{96, 64, 16, 16});
+	public static final IconEntry TALENT_134 = new IconEntry("interfaces/talent_icons.png", new int[]{96, 64, 16, 16}, 6184);
 	/** talent_135 */
-	public static final IconEntry TALENT_135 = new IconEntry("interfaces/talent_icons.png", new int[]{112, 64, 16, 16});
+	public static final IconEntry TALENT_135 = new IconEntry("interfaces/talent_icons.png", new int[]{112, 64, 16, 16}, 6185);
 	/** talent_136 */
-	public static final IconEntry TALENT_136 = new IconEntry("interfaces/talent_icons.png", new int[]{128, 64, 16, 16});
+	public static final IconEntry TALENT_136 = new IconEntry("interfaces/talent_icons.png", new int[]{128, 64, 16, 16}, 6186);
 	/** talent_137 */
-	public static final IconEntry TALENT_137 = new IconEntry("interfaces/talent_icons.png", new int[]{144, 64, 16, 16});
+	public static final IconEntry TALENT_137 = new IconEntry("interfaces/talent_icons.png", new int[]{144, 64, 16, 16}, 6187);
 	/** talent_138 */
-	public static final IconEntry TALENT_138 = new IconEntry("interfaces/talent_icons.png", new int[]{160, 64, 16, 16});
+	public static final IconEntry TALENT_138 = new IconEntry("interfaces/talent_icons.png", new int[]{160, 64, 16, 16}, 6188);
 	/** talent_139 */
-	public static final IconEntry TALENT_139 = new IconEntry("interfaces/talent_icons.png", new int[]{176, 64, 16, 16});
+	public static final IconEntry TALENT_139 = new IconEntry("interfaces/talent_icons.png", new int[]{176, 64, 16, 16}, 6189);
 	/** talent_140 */
-	public static final IconEntry TALENT_140 = new IconEntry("interfaces/talent_icons.png", new int[]{192, 64, 16, 16});
+	public static final IconEntry TALENT_140 = new IconEntry("interfaces/talent_icons.png", new int[]{192, 64, 16, 16}, 6190);
 	/** talent_141 */
-	public static final IconEntry TALENT_141 = new IconEntry("interfaces/talent_icons.png", new int[]{208, 64, 16, 16});
+	public static final IconEntry TALENT_141 = new IconEntry("interfaces/talent_icons.png", new int[]{208, 64, 16, 16}, 6191);
 	/** talent_142 */
-	public static final IconEntry TALENT_142 = new IconEntry("interfaces/talent_icons.png", new int[]{224, 64, 16, 16});
+	public static final IconEntry TALENT_142 = new IconEntry("interfaces/talent_icons.png", new int[]{224, 64, 16, 16}, 6192);
 	/** talent_143 */
-	public static final IconEntry TALENT_143 = new IconEntry("interfaces/talent_icons.png", new int[]{240, 64, 16, 16});
+	public static final IconEntry TALENT_143 = new IconEntry("interfaces/talent_icons.png", new int[]{240, 64, 16, 16}, 6193);
 	/** talent_144 */
-	public static final IconEntry TALENT_144 = new IconEntry("interfaces/talent_icons.png", new int[]{256, 64, 16, 16});
+	public static final IconEntry TALENT_144 = new IconEntry("interfaces/talent_icons.png", new int[]{256, 64, 16, 16}, 6194);
 	/** talent_145 */
-	public static final IconEntry TALENT_145 = new IconEntry("interfaces/talent_icons.png", new int[]{272, 64, 16, 16});
+	public static final IconEntry TALENT_145 = new IconEntry("interfaces/talent_icons.png", new int[]{272, 64, 16, 16}, 6195);
 	/** talent_146 */
-	public static final IconEntry TALENT_146 = new IconEntry("interfaces/talent_icons.png", new int[]{288, 64, 16, 16});
+	public static final IconEntry TALENT_146 = new IconEntry("interfaces/talent_icons.png", new int[]{288, 64, 16, 16}, 6196);
 	/** talent_147 */
-	public static final IconEntry TALENT_147 = new IconEntry("interfaces/talent_icons.png", new int[]{304, 64, 16, 16});
+	public static final IconEntry TALENT_147 = new IconEntry("interfaces/talent_icons.png", new int[]{304, 64, 16, 16}, 6197);
 	/** talent_148 */
-	public static final IconEntry TALENT_148 = new IconEntry("interfaces/talent_icons.png", new int[]{320, 64, 16, 16});
+	public static final IconEntry TALENT_148 = new IconEntry("interfaces/talent_icons.png", new int[]{320, 64, 16, 16}, 6198);
 	/** talent_149 */
-	public static final IconEntry TALENT_149 = new IconEntry("interfaces/talent_icons.png", new int[]{336, 64, 16, 16});
+	public static final IconEntry TALENT_149 = new IconEntry("interfaces/talent_icons.png", new int[]{336, 64, 16, 16}, 6199);
 	/** talent_150 */
-	public static final IconEntry TALENT_150 = new IconEntry("interfaces/talent_icons.png", new int[]{352, 64, 16, 16});
+	public static final IconEntry TALENT_150 = new IconEntry("interfaces/talent_icons.png", new int[]{352, 64, 16, 16}, 6200);
 	/** talent_151 */
-	public static final IconEntry TALENT_151 = new IconEntry("interfaces/talent_icons.png", new int[]{368, 64, 16, 16});
+	public static final IconEntry TALENT_151 = new IconEntry("interfaces/talent_icons.png", new int[]{368, 64, 16, 16}, 6201);
 	/** talent_152 */
-	public static final IconEntry TALENT_152 = new IconEntry("interfaces/talent_icons.png", new int[]{384, 64, 16, 16});
+	public static final IconEntry TALENT_152 = new IconEntry("interfaces/talent_icons.png", new int[]{384, 64, 16, 16}, 6202);
 	/** talent_153 */
-	public static final IconEntry TALENT_153 = new IconEntry("interfaces/talent_icons.png", new int[]{400, 64, 16, 16});
+	public static final IconEntry TALENT_153 = new IconEntry("interfaces/talent_icons.png", new int[]{400, 64, 16, 16}, 6203);
 	/** talent_154 */
-	public static final IconEntry TALENT_154 = new IconEntry("interfaces/talent_icons.png", new int[]{416, 64, 16, 16});
+	public static final IconEntry TALENT_154 = new IconEntry("interfaces/talent_icons.png", new int[]{416, 64, 16, 16}, 6204);
 	/** talent_155 */
-	public static final IconEntry TALENT_155 = new IconEntry("interfaces/talent_icons.png", new int[]{432, 64, 16, 16});
+	public static final IconEntry TALENT_155 = new IconEntry("interfaces/talent_icons.png", new int[]{432, 64, 16, 16}, 6205);
 	/** talent_156 */
-	public static final IconEntry TALENT_156 = new IconEntry("interfaces/talent_icons.png", new int[]{448, 64, 16, 16});
+	public static final IconEntry TALENT_156 = new IconEntry("interfaces/talent_icons.png", new int[]{448, 64, 16, 16}, 6206);
 	/** talent_157 */
-	public static final IconEntry TALENT_157 = new IconEntry("interfaces/talent_icons.png", new int[]{464, 64, 16, 16});
+	public static final IconEntry TALENT_157 = new IconEntry("interfaces/talent_icons.png", new int[]{464, 64, 16, 16}, 6207);
 	/** talent_158 */
-	public static final IconEntry TALENT_158 = new IconEntry("interfaces/talent_icons.png", new int[]{480, 64, 16, 16});
+	public static final IconEntry TALENT_158 = new IconEntry("interfaces/talent_icons.png", new int[]{480, 64, 16, 16}, 6208);
 	/** talent_159 */
-	public static final IconEntry TALENT_159 = new IconEntry("interfaces/talent_icons.png", new int[]{496, 64, 16, 16});
+	public static final IconEntry TALENT_159 = new IconEntry("interfaces/talent_icons.png", new int[]{496, 64, 16, 16}, 6209);
 	/** talent_160 */
-	public static final IconEntry TALENT_160 = new IconEntry("interfaces/talent_icons.png", new int[]{0, 80, 16, 16});
+	public static final IconEntry TALENT_160 = new IconEntry("interfaces/talent_icons.png", new int[]{0, 80, 16, 16}, 6210);
 	/** talent_161 */
-	public static final IconEntry TALENT_161 = new IconEntry("interfaces/talent_icons.png", new int[]{16, 80, 16, 16});
+	public static final IconEntry TALENT_161 = new IconEntry("interfaces/talent_icons.png", new int[]{16, 80, 16, 16}, 6211);
 	/** talent_162 */
-	public static final IconEntry TALENT_162 = new IconEntry("interfaces/talent_icons.png", new int[]{32, 80, 16, 16});
+	public static final IconEntry TALENT_162 = new IconEntry("interfaces/talent_icons.png", new int[]{32, 80, 16, 16}, 6212);
 	/** talent_163 */
-	public static final IconEntry TALENT_163 = new IconEntry("interfaces/talent_icons.png", new int[]{48, 80, 16, 16});
+	public static final IconEntry TALENT_163 = new IconEntry("interfaces/talent_icons.png", new int[]{48, 80, 16, 16}, 6213);
 	/** talent_164 */
-	public static final IconEntry TALENT_164 = new IconEntry("interfaces/talent_icons.png", new int[]{64, 80, 16, 16});
+	public static final IconEntry TALENT_164 = new IconEntry("interfaces/talent_icons.png", new int[]{64, 80, 16, 16}, 6214);
 	/** talent_165 */
-	public static final IconEntry TALENT_165 = new IconEntry("interfaces/talent_icons.png", new int[]{80, 80, 16, 16});
+	public static final IconEntry TALENT_165 = new IconEntry("interfaces/talent_icons.png", new int[]{80, 80, 16, 16}, 6215);
 	/** talent_166 */
-	public static final IconEntry TALENT_166 = new IconEntry("interfaces/talent_icons.png", new int[]{96, 80, 16, 16});
+	public static final IconEntry TALENT_166 = new IconEntry("interfaces/talent_icons.png", new int[]{96, 80, 16, 16}, 6216);
 	/** talent_167 */
-	public static final IconEntry TALENT_167 = new IconEntry("interfaces/talent_icons.png", new int[]{112, 80, 16, 16});
+	public static final IconEntry TALENT_167 = new IconEntry("interfaces/talent_icons.png", new int[]{112, 80, 16, 16}, 6217);
 	/** talent_168 */
-	public static final IconEntry TALENT_168 = new IconEntry("interfaces/talent_icons.png", new int[]{128, 80, 16, 16});
+	public static final IconEntry TALENT_168 = new IconEntry("interfaces/talent_icons.png", new int[]{128, 80, 16, 16}, 6218);
 	/** talent_169 */
-	public static final IconEntry TALENT_169 = new IconEntry("interfaces/talent_icons.png", new int[]{144, 80, 16, 16});
+	public static final IconEntry TALENT_169 = new IconEntry("interfaces/talent_icons.png", new int[]{144, 80, 16, 16}, 6219);
 	/** talent_170 */
-	public static final IconEntry TALENT_170 = new IconEntry("interfaces/talent_icons.png", new int[]{160, 80, 16, 16});
+	public static final IconEntry TALENT_170 = new IconEntry("interfaces/talent_icons.png", new int[]{160, 80, 16, 16}, 6220);
 	/** talent_171 */
-	public static final IconEntry TALENT_171 = new IconEntry("interfaces/talent_icons.png", new int[]{176, 80, 16, 16});
+	public static final IconEntry TALENT_171 = new IconEntry("interfaces/talent_icons.png", new int[]{176, 80, 16, 16}, 6221);
 	/** talent_172 */
-	public static final IconEntry TALENT_172 = new IconEntry("interfaces/talent_icons.png", new int[]{192, 80, 16, 16});
+	public static final IconEntry TALENT_172 = new IconEntry("interfaces/talent_icons.png", new int[]{192, 80, 16, 16}, 6222);
 	/** talent_173 */
-	public static final IconEntry TALENT_173 = new IconEntry("interfaces/talent_icons.png", new int[]{208, 80, 16, 16});
+	public static final IconEntry TALENT_173 = new IconEntry("interfaces/talent_icons.png", new int[]{208, 80, 16, 16}, 6223);
 	/** talent_174 */
-	public static final IconEntry TALENT_174 = new IconEntry("interfaces/talent_icons.png", new int[]{224, 80, 16, 16});
+	public static final IconEntry TALENT_174 = new IconEntry("interfaces/talent_icons.png", new int[]{224, 80, 16, 16}, 6224);
 	/** talent_175 */
-	public static final IconEntry TALENT_175 = new IconEntry("interfaces/talent_icons.png", new int[]{240, 80, 16, 16});
+	public static final IconEntry TALENT_175 = new IconEntry("interfaces/talent_icons.png", new int[]{240, 80, 16, 16}, 6225);
 	/** talent_176 */
-	public static final IconEntry TALENT_176 = new IconEntry("interfaces/talent_icons.png", new int[]{256, 80, 16, 16});
+	public static final IconEntry TALENT_176 = new IconEntry("interfaces/talent_icons.png", new int[]{256, 80, 16, 16}, 6226);
 	/** talent_177 */
-	public static final IconEntry TALENT_177 = new IconEntry("interfaces/talent_icons.png", new int[]{272, 80, 16, 16});
+	public static final IconEntry TALENT_177 = new IconEntry("interfaces/talent_icons.png", new int[]{272, 80, 16, 16}, 6227);
 	/** talent_178 */
-	public static final IconEntry TALENT_178 = new IconEntry("interfaces/talent_icons.png", new int[]{288, 80, 16, 16});
+	public static final IconEntry TALENT_178 = new IconEntry("interfaces/talent_icons.png", new int[]{288, 80, 16, 16}, 6228);
 	/** talent_179 */
-	public static final IconEntry TALENT_179 = new IconEntry("interfaces/talent_icons.png", new int[]{304, 80, 16, 16});
+	public static final IconEntry TALENT_179 = new IconEntry("interfaces/talent_icons.png", new int[]{304, 80, 16, 16}, 6229);
 	/** talent_180 */
-	public static final IconEntry TALENT_180 = new IconEntry("interfaces/talent_icons.png", new int[]{320, 80, 16, 16});
+	public static final IconEntry TALENT_180 = new IconEntry("interfaces/talent_icons.png", new int[]{320, 80, 16, 16}, 6230);
 	/** talent_181 */
-	public static final IconEntry TALENT_181 = new IconEntry("interfaces/talent_icons.png", new int[]{336, 80, 16, 16});
+	public static final IconEntry TALENT_181 = new IconEntry("interfaces/talent_icons.png", new int[]{336, 80, 16, 16}, 6231);
 	/** talent_182 */
-	public static final IconEntry TALENT_182 = new IconEntry("interfaces/talent_icons.png", new int[]{352, 80, 16, 16});
+	public static final IconEntry TALENT_182 = new IconEntry("interfaces/talent_icons.png", new int[]{352, 80, 16, 16}, 6232);
 	/** talent_183 */
-	public static final IconEntry TALENT_183 = new IconEntry("interfaces/talent_icons.png", new int[]{368, 80, 16, 16});
+	public static final IconEntry TALENT_183 = new IconEntry("interfaces/talent_icons.png", new int[]{368, 80, 16, 16}, 6233);
 	/** talent_184 */
-	public static final IconEntry TALENT_184 = new IconEntry("interfaces/talent_icons.png", new int[]{384, 80, 16, 16});
+	public static final IconEntry TALENT_184 = new IconEntry("interfaces/talent_icons.png", new int[]{384, 80, 16, 16}, 6234);
 	/** talent_185 */
-	public static final IconEntry TALENT_185 = new IconEntry("interfaces/talent_icons.png", new int[]{400, 80, 16, 16});
+	public static final IconEntry TALENT_185 = new IconEntry("interfaces/talent_icons.png", new int[]{400, 80, 16, 16}, 6235);
 	/** talent_186 */
-	public static final IconEntry TALENT_186 = new IconEntry("interfaces/talent_icons.png", new int[]{416, 80, 16, 16});
+	public static final IconEntry TALENT_186 = new IconEntry("interfaces/talent_icons.png", new int[]{416, 80, 16, 16}, 6236);
 	/** talent_187 */
-	public static final IconEntry TALENT_187 = new IconEntry("interfaces/talent_icons.png", new int[]{432, 80, 16, 16});
+	public static final IconEntry TALENT_187 = new IconEntry("interfaces/talent_icons.png", new int[]{432, 80, 16, 16}, 6237);
 	/** talent_188 */
-	public static final IconEntry TALENT_188 = new IconEntry("interfaces/talent_icons.png", new int[]{448, 80, 16, 16});
+	public static final IconEntry TALENT_188 = new IconEntry("interfaces/talent_icons.png", new int[]{448, 80, 16, 16}, 6238);
 	/** talent_189 */
-	public static final IconEntry TALENT_189 = new IconEntry("interfaces/talent_icons.png", new int[]{464, 80, 16, 16});
+	public static final IconEntry TALENT_189 = new IconEntry("interfaces/talent_icons.png", new int[]{464, 80, 16, 16}, 6239);
 	/** talent_190 */
-	public static final IconEntry TALENT_190 = new IconEntry("interfaces/talent_icons.png", new int[]{480, 80, 16, 16});
+	public static final IconEntry TALENT_190 = new IconEntry("interfaces/talent_icons.png", new int[]{480, 80, 16, 16}, 6240);
 	/** talent_191 */
-	public static final IconEntry TALENT_191 = new IconEntry("interfaces/talent_icons.png", new int[]{496, 80, 16, 16});
+	public static final IconEntry TALENT_191 = new IconEntry("interfaces/talent_icons.png", new int[]{496, 80, 16, 16}, 6241);
 	/** talent_192 */
-	public static final IconEntry TALENT_192 = new IconEntry("interfaces/talent_icons.png", new int[]{0, 96, 16, 16});
+	public static final IconEntry TALENT_192 = new IconEntry("interfaces/talent_icons.png", new int[]{0, 96, 16, 16}, 6242);
 	/** talent_193 */
-	public static final IconEntry TALENT_193 = new IconEntry("interfaces/talent_icons.png", new int[]{16, 96, 16, 16});
+	public static final IconEntry TALENT_193 = new IconEntry("interfaces/talent_icons.png", new int[]{16, 96, 16, 16}, 6243);
 	/** talent_194 */
-	public static final IconEntry TALENT_194 = new IconEntry("interfaces/talent_icons.png", new int[]{32, 96, 16, 16});
+	public static final IconEntry TALENT_194 = new IconEntry("interfaces/talent_icons.png", new int[]{32, 96, 16, 16}, 6244);
 	/** talent_195 */
-	public static final IconEntry TALENT_195 = new IconEntry("interfaces/talent_icons.png", new int[]{48, 96, 16, 16});
+	public static final IconEntry TALENT_195 = new IconEntry("interfaces/talent_icons.png", new int[]{48, 96, 16, 16}, 6245);
 	/** talent_196 */
-	public static final IconEntry TALENT_196 = new IconEntry("interfaces/talent_icons.png", new int[]{64, 96, 16, 16});
+	public static final IconEntry TALENT_196 = new IconEntry("interfaces/talent_icons.png", new int[]{64, 96, 16, 16}, 6246);
 	/** talent_197 */
-	public static final IconEntry TALENT_197 = new IconEntry("interfaces/talent_icons.png", new int[]{80, 96, 16, 16});
+	public static final IconEntry TALENT_197 = new IconEntry("interfaces/talent_icons.png", new int[]{80, 96, 16, 16}, 6247);
 	/** talent_198 */
-	public static final IconEntry TALENT_198 = new IconEntry("interfaces/talent_icons.png", new int[]{96, 96, 16, 16});
+	public static final IconEntry TALENT_198 = new IconEntry("interfaces/talent_icons.png", new int[]{96, 96, 16, 16}, 6248);
 	/** talent_199 */
-	public static final IconEntry TALENT_199 = new IconEntry("interfaces/talent_icons.png", new int[]{112, 96, 16, 16});
+	public static final IconEntry TALENT_199 = new IconEntry("interfaces/talent_icons.png", new int[]{112, 96, 16, 16}, 6249);
 	/** talent_200 */
-	public static final IconEntry TALENT_200 = new IconEntry("interfaces/talent_icons.png", new int[]{128, 96, 16, 16});
+	public static final IconEntry TALENT_200 = new IconEntry("interfaces/talent_icons.png", new int[]{128, 96, 16, 16}, 6250);
 	/** talent_201 */
-	public static final IconEntry TALENT_201 = new IconEntry("interfaces/talent_icons.png", new int[]{144, 96, 16, 16});
+	public static final IconEntry TALENT_201 = new IconEntry("interfaces/talent_icons.png", new int[]{144, 96, 16, 16}, 6251);
 	/** talent_202 */
-	public static final IconEntry TALENT_202 = new IconEntry("interfaces/talent_icons.png", new int[]{160, 96, 16, 16});
+	public static final IconEntry TALENT_202 = new IconEntry("interfaces/talent_icons.png", new int[]{160, 96, 16, 16}, 6252);
 	/** talent_203 */
-	public static final IconEntry TALENT_203 = new IconEntry("interfaces/talent_icons.png", new int[]{176, 96, 16, 16});
+	public static final IconEntry TALENT_203 = new IconEntry("interfaces/talent_icons.png", new int[]{176, 96, 16, 16}, 6253);
 	/** talent_204 */
-	public static final IconEntry TALENT_204 = new IconEntry("interfaces/talent_icons.png", new int[]{192, 96, 16, 16});
+	public static final IconEntry TALENT_204 = new IconEntry("interfaces/talent_icons.png", new int[]{192, 96, 16, 16}, 6254);
 	/** talent_205 */
-	public static final IconEntry TALENT_205 = new IconEntry("interfaces/talent_icons.png", new int[]{208, 96, 16, 16});
+	public static final IconEntry TALENT_205 = new IconEntry("interfaces/talent_icons.png", new int[]{208, 96, 16, 16}, 6255);
 	/** talent_206 */
-	public static final IconEntry TALENT_206 = new IconEntry("interfaces/talent_icons.png", new int[]{224, 96, 16, 16});
+	public static final IconEntry TALENT_206 = new IconEntry("interfaces/talent_icons.png", new int[]{224, 96, 16, 16}, 6256);
 	/** talent_207 */
-	public static final IconEntry TALENT_207 = new IconEntry("interfaces/talent_icons.png", new int[]{240, 96, 16, 16});
+	public static final IconEntry TALENT_207 = new IconEntry("interfaces/talent_icons.png", new int[]{240, 96, 16, 16}, 6257);
 	/** talent_208 */
-	public static final IconEntry TALENT_208 = new IconEntry("interfaces/talent_icons.png", new int[]{256, 96, 16, 16});
+	public static final IconEntry TALENT_208 = new IconEntry("interfaces/talent_icons.png", new int[]{256, 96, 16, 16}, 6258);
 	/** talent_209 */
-	public static final IconEntry TALENT_209 = new IconEntry("interfaces/talent_icons.png", new int[]{272, 96, 16, 16});
+	public static final IconEntry TALENT_209 = new IconEntry("interfaces/talent_icons.png", new int[]{272, 96, 16, 16}, 6259);
 	/** talent_210 */
-	public static final IconEntry TALENT_210 = new IconEntry("interfaces/talent_icons.png", new int[]{288, 96, 16, 16});
+	public static final IconEntry TALENT_210 = new IconEntry("interfaces/talent_icons.png", new int[]{288, 96, 16, 16}, 6260);
 	/** talent_211 */
-	public static final IconEntry TALENT_211 = new IconEntry("interfaces/talent_icons.png", new int[]{304, 96, 16, 16});
+	public static final IconEntry TALENT_211 = new IconEntry("interfaces/talent_icons.png", new int[]{304, 96, 16, 16}, 6261);
 	/** talent_212 */
-	public static final IconEntry TALENT_212 = new IconEntry("interfaces/talent_icons.png", new int[]{320, 96, 16, 16});
+	public static final IconEntry TALENT_212 = new IconEntry("interfaces/talent_icons.png", new int[]{320, 96, 16, 16}, 6262);
 	/** talent_213 */
-	public static final IconEntry TALENT_213 = new IconEntry("interfaces/talent_icons.png", new int[]{336, 96, 16, 16});
+	public static final IconEntry TALENT_213 = new IconEntry("interfaces/talent_icons.png", new int[]{336, 96, 16, 16}, 6263);
 	/** talent_214 */
-	public static final IconEntry TALENT_214 = new IconEntry("interfaces/talent_icons.png", new int[]{352, 96, 16, 16});
+	public static final IconEntry TALENT_214 = new IconEntry("interfaces/talent_icons.png", new int[]{352, 96, 16, 16}, 6264);
 	/** talent_215 */
-	public static final IconEntry TALENT_215 = new IconEntry("interfaces/talent_icons.png", new int[]{368, 96, 16, 16});
+	public static final IconEntry TALENT_215 = new IconEntry("interfaces/talent_icons.png", new int[]{368, 96, 16, 16}, 6265);
 	/** talent_216 */
-	public static final IconEntry TALENT_216 = new IconEntry("interfaces/talent_icons.png", new int[]{384, 96, 16, 16});
+	public static final IconEntry TALENT_216 = new IconEntry("interfaces/talent_icons.png", new int[]{384, 96, 16, 16}, 6266);
 	/** talent_217 */
-	public static final IconEntry TALENT_217 = new IconEntry("interfaces/talent_icons.png", new int[]{400, 96, 16, 16});
+	public static final IconEntry TALENT_217 = new IconEntry("interfaces/talent_icons.png", new int[]{400, 96, 16, 16}, 6267);
 	/** talent_218 */
-	public static final IconEntry TALENT_218 = new IconEntry("interfaces/talent_icons.png", new int[]{416, 96, 16, 16});
+	public static final IconEntry TALENT_218 = new IconEntry("interfaces/talent_icons.png", new int[]{416, 96, 16, 16}, 6268);
 	/** talent_219 */
-	public static final IconEntry TALENT_219 = new IconEntry("interfaces/talent_icons.png", new int[]{432, 96, 16, 16});
+	public static final IconEntry TALENT_219 = new IconEntry("interfaces/talent_icons.png", new int[]{432, 96, 16, 16}, 6269);
 	/** talent_220 */
-	public static final IconEntry TALENT_220 = new IconEntry("interfaces/talent_icons.png", new int[]{448, 96, 16, 16});
+	public static final IconEntry TALENT_220 = new IconEntry("interfaces/talent_icons.png", new int[]{448, 96, 16, 16}, 6270);
 	/** talent_221 */
-	public static final IconEntry TALENT_221 = new IconEntry("interfaces/talent_icons.png", new int[]{464, 96, 16, 16});
+	public static final IconEntry TALENT_221 = new IconEntry("interfaces/talent_icons.png", new int[]{464, 96, 16, 16}, 6271);
 	/** talent_222 */
-	public static final IconEntry TALENT_222 = new IconEntry("interfaces/talent_icons.png", new int[]{480, 96, 16, 16});
+	public static final IconEntry TALENT_222 = new IconEntry("interfaces/talent_icons.png", new int[]{480, 96, 16, 16}, 6272);
 	/** talent_223 */
-	public static final IconEntry TALENT_223 = new IconEntry("interfaces/talent_icons.png", new int[]{496, 96, 16, 16});
+	public static final IconEntry TALENT_223 = new IconEntry("interfaces/talent_icons.png", new int[]{496, 96, 16, 16}, 6273);
 	/** talent_224 */
-	public static final IconEntry TALENT_224 = new IconEntry("interfaces/talent_icons.png", new int[]{0, 112, 16, 16});
+	public static final IconEntry TALENT_224 = new IconEntry("interfaces/talent_icons.png", new int[]{0, 112, 16, 16}, 6274);
 	/** talent_225 */
-	public static final IconEntry TALENT_225 = new IconEntry("interfaces/talent_icons.png", new int[]{16, 112, 16, 16});
+	public static final IconEntry TALENT_225 = new IconEntry("interfaces/talent_icons.png", new int[]{16, 112, 16, 16}, 6275);
 	/** talent_226 */
-	public static final IconEntry TALENT_226 = new IconEntry("interfaces/talent_icons.png", new int[]{32, 112, 16, 16});
+	public static final IconEntry TALENT_226 = new IconEntry("interfaces/talent_icons.png", new int[]{32, 112, 16, 16}, 6276);
 	/** talent_227 */
-	public static final IconEntry TALENT_227 = new IconEntry("interfaces/talent_icons.png", new int[]{48, 112, 16, 16});
+	public static final IconEntry TALENT_227 = new IconEntry("interfaces/talent_icons.png", new int[]{48, 112, 16, 16}, 6277);
 	/** talent_228 */
-	public static final IconEntry TALENT_228 = new IconEntry("interfaces/talent_icons.png", new int[]{64, 112, 16, 16});
+	public static final IconEntry TALENT_228 = new IconEntry("interfaces/talent_icons.png", new int[]{64, 112, 16, 16}, 6278);
 	/** talent_229 */
-	public static final IconEntry TALENT_229 = new IconEntry("interfaces/talent_icons.png", new int[]{80, 112, 16, 16});
+	public static final IconEntry TALENT_229 = new IconEntry("interfaces/talent_icons.png", new int[]{80, 112, 16, 16}, 6279);
 	/** talent_230 */
-	public static final IconEntry TALENT_230 = new IconEntry("interfaces/talent_icons.png", new int[]{96, 112, 16, 16});
+	public static final IconEntry TALENT_230 = new IconEntry("interfaces/talent_icons.png", new int[]{96, 112, 16, 16}, 6280);
 	/** talent_231 */
-	public static final IconEntry TALENT_231 = new IconEntry("interfaces/talent_icons.png", new int[]{112, 112, 16, 16});
+	public static final IconEntry TALENT_231 = new IconEntry("interfaces/talent_icons.png", new int[]{112, 112, 16, 16}, 6281);
 	/** talent_232 */
-	public static final IconEntry TALENT_232 = new IconEntry("interfaces/talent_icons.png", new int[]{128, 112, 16, 16});
+	public static final IconEntry TALENT_232 = new IconEntry("interfaces/talent_icons.png", new int[]{128, 112, 16, 16}, 6282);
 	/** talent_233 */
-	public static final IconEntry TALENT_233 = new IconEntry("interfaces/talent_icons.png", new int[]{144, 112, 16, 16});
+	public static final IconEntry TALENT_233 = new IconEntry("interfaces/talent_icons.png", new int[]{144, 112, 16, 16}, 6283);
 	/** talent_234 */
-	public static final IconEntry TALENT_234 = new IconEntry("interfaces/talent_icons.png", new int[]{160, 112, 16, 16});
+	public static final IconEntry TALENT_234 = new IconEntry("interfaces/talent_icons.png", new int[]{160, 112, 16, 16}, 6284);
 	/** talent_235 */
-	public static final IconEntry TALENT_235 = new IconEntry("interfaces/talent_icons.png", new int[]{176, 112, 16, 16});
+	public static final IconEntry TALENT_235 = new IconEntry("interfaces/talent_icons.png", new int[]{176, 112, 16, 16}, 6285);
 	/** talent_236 */
-	public static final IconEntry TALENT_236 = new IconEntry("interfaces/talent_icons.png", new int[]{192, 112, 16, 16});
+	public static final IconEntry TALENT_236 = new IconEntry("interfaces/talent_icons.png", new int[]{192, 112, 16, 16}, 6286);
 	/** talent_237 */
-	public static final IconEntry TALENT_237 = new IconEntry("interfaces/talent_icons.png", new int[]{208, 112, 16, 16});
+	public static final IconEntry TALENT_237 = new IconEntry("interfaces/talent_icons.png", new int[]{208, 112, 16, 16}, 6287);
 	/** talent_238 */
-	public static final IconEntry TALENT_238 = new IconEntry("interfaces/talent_icons.png", new int[]{224, 112, 16, 16});
+	public static final IconEntry TALENT_238 = new IconEntry("interfaces/talent_icons.png", new int[]{224, 112, 16, 16}, 6288);
 	/** talent_239 */
-	public static final IconEntry TALENT_239 = new IconEntry("interfaces/talent_icons.png", new int[]{240, 112, 16, 16});
+	public static final IconEntry TALENT_239 = new IconEntry("interfaces/talent_icons.png", new int[]{240, 112, 16, 16}, 6289);
 	/** talent_240 */
-	public static final IconEntry TALENT_240 = new IconEntry("interfaces/talent_icons.png", new int[]{256, 112, 16, 16});
+	public static final IconEntry TALENT_240 = new IconEntry("interfaces/talent_icons.png", new int[]{256, 112, 16, 16}, 6290);
 	/** talent_241 */
-	public static final IconEntry TALENT_241 = new IconEntry("interfaces/talent_icons.png", new int[]{272, 112, 16, 16});
+	public static final IconEntry TALENT_241 = new IconEntry("interfaces/talent_icons.png", new int[]{272, 112, 16, 16}, 6291);
 	/** talent_242 */
-	public static final IconEntry TALENT_242 = new IconEntry("interfaces/talent_icons.png", new int[]{288, 112, 16, 16});
+	public static final IconEntry TALENT_242 = new IconEntry("interfaces/talent_icons.png", new int[]{288, 112, 16, 16}, 6292);
 	/** talent_243 */
-	public static final IconEntry TALENT_243 = new IconEntry("interfaces/talent_icons.png", new int[]{304, 112, 16, 16});
+	public static final IconEntry TALENT_243 = new IconEntry("interfaces/talent_icons.png", new int[]{304, 112, 16, 16}, 6293);
 	/** talent_244 */
-	public static final IconEntry TALENT_244 = new IconEntry("interfaces/talent_icons.png", new int[]{320, 112, 16, 16});
+	public static final IconEntry TALENT_244 = new IconEntry("interfaces/talent_icons.png", new int[]{320, 112, 16, 16}, 6294);
 	/** talent_245 */
-	public static final IconEntry TALENT_245 = new IconEntry("interfaces/talent_icons.png", new int[]{336, 112, 16, 16});
+	public static final IconEntry TALENT_245 = new IconEntry("interfaces/talent_icons.png", new int[]{336, 112, 16, 16}, 6295);
 	/** talent_246 */
-	public static final IconEntry TALENT_246 = new IconEntry("interfaces/talent_icons.png", new int[]{352, 112, 16, 16});
+	public static final IconEntry TALENT_246 = new IconEntry("interfaces/talent_icons.png", new int[]{352, 112, 16, 16}, 6296);
 	/** talent_247 */
-	public static final IconEntry TALENT_247 = new IconEntry("interfaces/talent_icons.png", new int[]{368, 112, 16, 16});
+	public static final IconEntry TALENT_247 = new IconEntry("interfaces/talent_icons.png", new int[]{368, 112, 16, 16}, 6297);
 	/** talent_248 */
-	public static final IconEntry TALENT_248 = new IconEntry("interfaces/talent_icons.png", new int[]{384, 112, 16, 16});
+	public static final IconEntry TALENT_248 = new IconEntry("interfaces/talent_icons.png", new int[]{384, 112, 16, 16}, 6298);
 	/** talent_249 */
-	public static final IconEntry TALENT_249 = new IconEntry("interfaces/talent_icons.png", new int[]{400, 112, 16, 16});
+	public static final IconEntry TALENT_249 = new IconEntry("interfaces/talent_icons.png", new int[]{400, 112, 16, 16}, 6299);
 	/** talent_250 */
-	public static final IconEntry TALENT_250 = new IconEntry("interfaces/talent_icons.png", new int[]{416, 112, 16, 16});
+	public static final IconEntry TALENT_250 = new IconEntry("interfaces/talent_icons.png", new int[]{416, 112, 16, 16}, 6300);
 	/** talent_251 */
-	public static final IconEntry TALENT_251 = new IconEntry("interfaces/talent_icons.png", new int[]{432, 112, 16, 16});
+	public static final IconEntry TALENT_251 = new IconEntry("interfaces/talent_icons.png", new int[]{432, 112, 16, 16}, 6301);
 	/** talent_252 */
-	public static final IconEntry TALENT_252 = new IconEntry("interfaces/talent_icons.png", new int[]{448, 112, 16, 16});
+	public static final IconEntry TALENT_252 = new IconEntry("interfaces/talent_icons.png", new int[]{448, 112, 16, 16}, 6302);
 	/** talent_253 */
-	public static final IconEntry TALENT_253 = new IconEntry("interfaces/talent_icons.png", new int[]{464, 112, 16, 16});
+	public static final IconEntry TALENT_253 = new IconEntry("interfaces/talent_icons.png", new int[]{464, 112, 16, 16}, 6303);
 	/** talent_254 */
-	public static final IconEntry TALENT_254 = new IconEntry("interfaces/talent_icons.png", new int[]{480, 112, 16, 16});
+	public static final IconEntry TALENT_254 = new IconEntry("interfaces/talent_icons.png", new int[]{480, 112, 16, 16}, 6304);
 	/** talent_255 */
-	public static final IconEntry TALENT_255 = new IconEntry("interfaces/talent_icons.png", new int[]{496, 112, 16, 16});
+	public static final IconEntry TALENT_255 = new IconEntry("interfaces/talent_icons.png", new int[]{496, 112, 16, 16}, 6305);
 }

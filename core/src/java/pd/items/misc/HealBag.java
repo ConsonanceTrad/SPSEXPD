@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -17,7 +19,6 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -35,7 +36,7 @@ public class HealBag extends Item {
 
 	private int charge;
 
-	{ image = ItemSpriteSheet.SPS_HEAL_BAG; unique = true; defaultAction = AC_HEAL; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; unique = true; defaultAction = AC_HEAL; }
 
 	@Override
 	public ArrayList<String> actions(Hero hero) {

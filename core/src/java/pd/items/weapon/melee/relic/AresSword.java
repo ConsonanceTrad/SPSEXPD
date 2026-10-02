@@ -1,10 +1,11 @@
 package pd.items.weapon.melee.relic;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.BerryRegeneration;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.items.weapon.enchantments.AresLeech;
-import pd.sprites.ItemSpriteSheet;
 
 public class AresSword extends RelicMeleeWeapon {
 
@@ -12,7 +13,7 @@ public class AresSword extends RelicMeleeWeapon {
 
 	public AresSword() {
 		 super(1f, 1f, 1);
-		image = ItemSpriteSheet.ARES_SWORD;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		enchant(new AresLeech());
 	}
 

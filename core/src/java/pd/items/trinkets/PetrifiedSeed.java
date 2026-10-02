@@ -21,13 +21,14 @@
 
 package pd.items.trinkets;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 
 public class PetrifiedSeed extends Trinket {
 
 	{
-		image = ItemSpriteSheet.PETRIFIED_SEED;
+		image = EquipmentNonEquipDict.PETRIFIED_SEED_0;
 	}
 
 	@Override

@@ -1,11 +1,12 @@
 package pd.items.weapon.guns;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 
 public class ToyGun extends GunWeapon {
 	{
-		image = ItemSpriteSheet.TOY_GUN;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		reinforced = true;
 	}
 	public ToyGun() { super(1, 10); }

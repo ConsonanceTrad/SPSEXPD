@@ -1,17 +1,18 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food.meatfood;
 
+import pd.atlas.items.ConsumFoodFoodDict;
+
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
 import pd.items.food.Food;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 
 public class IceMeat extends MeatFood {
 	private static final ItemSprite.Glowing BLUE = new ItemSprite.Glowing(0x0044FF);
 	{
-		image = ItemSpriteSheet.MEAT;
+		image = ConsumFoodFoodDict.MEAT;
 		energy = 100f;
 	}
 	public static Food cook(int quantity) { IceMeat result = new IceMeat(); result.quantity(quantity); return result; }

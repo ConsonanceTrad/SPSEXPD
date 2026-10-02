@@ -26,14 +26,14 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 
 public class PotionOfInvisibility extends Potion {
 
 	{
-		icon = ItemSpriteSheet.Icons.POTION_INVIS;
+		icon = ItemIconSheet.POTION_INVIS;
 	}
 
 	@Override

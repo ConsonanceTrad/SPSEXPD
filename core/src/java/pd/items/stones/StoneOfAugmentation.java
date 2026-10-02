@@ -21,6 +21,8 @@
 
 package pd.items.stones;
 
+import pd.atlas.items.ConsumScrollAmuletAmuletDict;
+
 import pd.actors.hero.Belongings;
 import pd.actors.hero.Talent;
 import pd.items.Item;
@@ -32,7 +34,6 @@ import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
@@ -42,7 +43,7 @@ public class StoneOfAugmentation extends InventoryStone {
 	
 	{
 		preferredBag = Belongings.Backpack.class;
-		image = ItemSpriteSheet.STONE_AUGMENTATION;
+		image = ConsumScrollAmuletAmuletDict.STONE_AUGMENTATION_0;
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package pd.items.challengelists;
-import pd.sprites.ItemSpriteSheet;
+
+import pd.atlas.items.SpecificTaskDict;
 public class CaveChallenge extends ChallengeList {
-	{ image = ItemSpriteSheet.CAVE_CHALLENGE; }
+	{ image = SpecificTaskDict.CAVE_CHALLENGE_0; }
 	@Override public int challenge() { return 2; }
 }

@@ -1,13 +1,14 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.items.rings.Ring;
-import pd.sprites.ItemSpriteSheet;
 
 /** The old three-slot luck charm, represented in the modern misc equipment slot. */
 public class FourClover extends Ring {
 	{
-		image = ItemSpriteSheet.FOUR_CLOVER;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		buffClass = FourCloverBless.class;
 		anonymous = true;
 	}

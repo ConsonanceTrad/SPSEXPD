@@ -21,6 +21,8 @@
 
 package pd.items.stones;
 
+import pd.atlas.items.ConsumScrollAmuletAmuletDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.effects.CheckedCell;
@@ -28,7 +30,6 @@ import pd.items.scrolls.ScrollOfMagicMapping;
 import pd.levels.CellFlags;
 import pd.mechanics.ShadowCaster;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.geom.Point;
 
@@ -37,7 +38,7 @@ public class StoneOfClairvoyance extends Runestone {
 	private static final int DIST = 20;
 	
 	{
-		image = ItemSpriteSheet.STONE_CLAIRVOYANCE;
+		image = ConsumScrollAmuletAmuletDict.STONE_CLAIRVOYANCE_0;
 	}
 	
 	@Override

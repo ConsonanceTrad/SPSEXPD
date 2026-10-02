@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.wands;
 
+import pd.atlas.items.EquipmentWandUniqueWandDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -17,14 +19,13 @@ import pd.effects.MagicMissile;
 import pd.items.Item;
 import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
 
 public class CannonOfMage extends DamageWand {
 	{
-		image = ItemSpriteSheet.LEGACY_CANNON_OF_MAGE;
+		image = EquipmentWandUniqueWandDict.LEGACY_CANNON_OF_MAGE;
 		collisionProperties = Ballistica.MAGIC_BOLT;
 		reinforced = true;
 	}

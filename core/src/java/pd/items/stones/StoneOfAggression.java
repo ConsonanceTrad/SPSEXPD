@@ -21,6 +21,8 @@
 
 package pd.items.stones;
 
+import pd.atlas.items.ConsumScrollAmuletAmuletDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -30,14 +32,13 @@ import pd.actors.buffs.FlavourBuff;
 import pd.actors.mobs.Mob;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import render.noosa.audio.Sample;
 
 public class StoneOfAggression extends Runestone {
 	
 	{
-		image = ItemSpriteSheet.STONE_AGGRESSION;
+		image = ConsumScrollAmuletAmuletDict.STONE_AGGRESSION;
 	}
 	
 	@Override

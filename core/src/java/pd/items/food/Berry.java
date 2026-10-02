@@ -21,6 +21,8 @@
 
 package pd.items.food;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.CounterBuff;
@@ -28,12 +30,11 @@ import pd.actors.buffs.Hunger;
 import pd.actors.hero.Hero;
 import pd.actors.hero.Talent;
 import pd.items.Generator;
-import pd.sprites.ItemSpriteSheet;
 
 public class Berry extends Food {
 
 	{
-		image = ItemSpriteSheet.BERRY;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = Hunger.HUNGRY/3f; //100 food value
 
 		bones = false;

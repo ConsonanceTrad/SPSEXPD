@@ -5,15 +5,16 @@
 
 package pd.items.weapon.melee.fusion;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.actors.Char;
 import pd.items.weapon.melee.Quarterstaff;
-import pd.sprites.ItemSpriteSheet;
 
 public class VerdantGuard extends Quarterstaff implements FusionWeapon {
 
 	{
-		image = ItemSpriteSheet.ROUND_SHIELD;
+		image = EquipmentEquipWeaponBasicWeaponDict.ROUND_SHIELD_0;
 		hitSound = Assets.Sounds.HIT_CRUSH;
 		tier = 3;
 	}

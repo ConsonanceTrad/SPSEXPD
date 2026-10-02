@@ -21,6 +21,8 @@
 
 package pd.items.weapon.missiles.darts;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -29,12 +31,11 @@ import pd.actors.blobs.Fire;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Burning;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 
 public class IncendiaryDart extends TippedDart {
 
 	{
-		image = ItemSpriteSheet.INCENDIARY_DART;
+		image = ConsumThrowsDict.INCENDIARY_DART_0;
 	}
 	
 	@Override

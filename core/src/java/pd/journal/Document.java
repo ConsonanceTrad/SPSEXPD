@@ -21,11 +21,22 @@
 
 package pd.journal;
 
+import pd.atlas.IconEntry;
+
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
+import pd.atlas.items.EquipmentJewelleryRingDict;
+import pd.atlas.items.SpecificKeyDict;
+import pd.atlas.items.SpecificPagesDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.ConsumUsefulCorpseRelicsDict;
+import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
+import pd.atlas.items.EquipmentWandBasicWandDict;
+
 import pd.Badges;
 import pd.items.scrolls.ScrollOfIdentify;
 import pd.messages.Messages;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.Icons;
 import render.noosa.Image;
 import render.utils.platform.DeviceCompat;
@@ -36,18 +47,18 @@ import java.util.LinkedHashMap;
 
 public enum Document {
 
-	STORY_GUIDE(ItemSpriteSheet.GUIDE_PAGE, false),
-	ADVENTURERS_GUIDE(ItemSpriteSheet.GUIDE_PAGE, false),
-	ALCHEMY_GUIDE(ItemSpriteSheet.ALCH_PAGE, false),
+	STORY_GUIDE(SpecificPagesDict.GUIDE_PAGE_0, false),
+	ADVENTURERS_GUIDE(SpecificPagesDict.GUIDE_PAGE_0, false),
+	ALCHEMY_GUIDE(SpecificPagesDict.ALCH_PAGE_0, false),
 
 	INTROS(Icons.STAIRS, true),
-	SEWERS_GUARD(ItemSpriteSheet.SEWER_PAGE, true),
-	PRISON_WARDEN(ItemSpriteSheet.PRISON_PAGE, true),
-	CAVES_EXPLORER(ItemSpriteSheet.CAVES_PAGE, true),
-	CITY_WARLOCK(ItemSpriteSheet.CITY_PAGE, true),
-	HALLS_KING(ItemSpriteSheet.HALLS_PAGE, true);
+	SEWERS_GUARD(SpecificPagesDict.SEWER_PAGE_0, true),
+	PRISON_WARDEN(SpecificPagesDict.PRISON_PAGE_0, true),
+	CAVES_EXPLORER(SpecificPagesDict.CAVES_PAGE_0, true),
+	CITY_WARLOCK(SpecificPagesDict.CITY_PAGE_0, true),
+	HALLS_KING(SpecificPagesDict.HALLS_PAGE_0, true);
 	
-	Document( int sprite, boolean lore ){
+	Document( IconEntry sprite, boolean lore ){
 		pageIcon = null;
 		pageSprite = sprite;
 		loreDocument = lore;
@@ -55,7 +66,7 @@ public enum Document {
 
 	Document( Icons icon, boolean lore ){
 		pageIcon = icon;
-		pageSprite = 0;
+		pageSprite = null;
 		loreDocument = lore;
 	}
 
@@ -167,7 +178,7 @@ public enum Document {
 		return -1;
 	}
 
-	private int pageSprite;
+	private IconEntry pageSprite;
 	private Icons pageIcon;
 	public Image pageSprite(){
 		return pageSprite("");
@@ -184,7 +195,7 @@ public enum Document {
 			//special per-page visuals for guidebook
 			switch (page){
 				case Document.GUIDE_INTRO: default:
-					return new ItemSprite(ItemSpriteSheet.MASTERY);
+					return new ItemSprite(ConsumUsefulProcessEnhanceDict.MASTERY_0);
 				case "Examining":
 					return Icons.get(Icons.MAGNIFY);
 				case "Surprise_Attacks":
@@ -192,25 +203,25 @@ public enum Document {
 				case "Identifying":
 					return new ItemSprite( new ScrollOfIdentify() );
 				case "Food":
-					return new ItemSprite( ItemSpriteSheet.PASTY );
+					return new ItemSprite( SpecificPlaceHolderDict.SOMETHING_0 );
 				case "Alchemy":
-					return new ItemSprite( ItemSpriteSheet.TRINKET_CATA );
+					return new ItemSprite( ConsumUsefulCorpseRelicsDict.TRINKET_CATA_0 );
 				case "Dieing":
-					return new ItemSprite( ItemSpriteSheet.TOMB );
+					return new ItemSprite( SpecificPlaceHolderDict.SOMETHING_0 );
 				case Document.GUIDE_SEARCHING:
 					return Icons.get(Icons.MAGNIFY);
 				case "Strength":
-					return new ItemSprite( ItemSpriteSheet.GREATAXE );
+					return new ItemSprite( EquipmentEquipWeaponBasicWeaponDict.GREATAXE_0 );
 				case "Upgrades":
-					return new ItemSprite( ItemSpriteSheet.RING_EMERALD );
+					return new ItemSprite( EquipmentJewelleryRingDict.RING_ENERGY_0 );
 				case "Looting":
-					return new ItemSprite( ItemSpriteSheet.CRYSTAL_KEY );
+					return new ItemSprite( SpecificKeyDict.CRYSTAL_KEY );
 				case "Levelling":
 					return Icons.get(Icons.TALENT);
 				case "Positioning":
-					return new ItemSprite( ItemSpriteSheet.SPIRIT_BOW );
+					return new ItemSprite( EquipmentEquipWeaponUniqueWeaponDict.SPIRIT_BOW_0 );
 				case "Magic":
-					return new ItemSprite( ItemSpriteSheet.WAND_FIREBOLT );
+					return new ItemSprite( EquipmentWandBasicWandDict.WAND_FIREBOLT_0 );
 			}
 		}
 	}

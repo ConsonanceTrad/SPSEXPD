@@ -1,5 +1,7 @@
 package pd.items.medicine;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.blobs.Blob;
 import pd.actors.blobs.effectblobs.Fire;
 import pd.actors.buffs.Buff;
@@ -7,10 +9,9 @@ import pd.actors.buffs.DBurning;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 
 public class JackOLantern extends Pill {
-	{ image = ItemSpriteSheet.MUSHROOM_LANTERN; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	public JackOLantern() { this(1); }
 	public JackOLantern(int value) { quantity = value; }
 	@Override protected void onUse(Hero hero) {

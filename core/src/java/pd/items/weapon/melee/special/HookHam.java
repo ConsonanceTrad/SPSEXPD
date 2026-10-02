@@ -1,15 +1,16 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.special;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
 import pd.effects.Speck;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class HookHam extends SpsSpecialMeleeWeapon {
-	public HookHam() { super(1, 1f, 1f, 1, 1, 5, ItemSpriteSheet.SPS_HOOK_HAM); usesTargeting = true; }
+	public HookHam() { super(1, 1f, 1f, 1, 1, 5, SpecificPlaceHolderDict.SOMETHING_0); usesTargeting = true; }
 
 	@Override public int proc(Char attacker, Char defender, int damage) {
 		if (Random.Int(100) > 40) Buff.affect(defender, Bleeding.class).set(safeRandom(5, damage));

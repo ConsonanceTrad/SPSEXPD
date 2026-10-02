@@ -23,12 +23,12 @@ package pd.items.rings;
 
 import pd.actors.Char;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 
 public class RingOfAccuracy extends Ring {
 
 	{
-		icon = ItemSpriteSheet.Icons.RING_ACCURACY;
+		icon = ItemIconSheet.RING_ACCURACY;
 		buffClass = Accuracy.class;
 	}
 	

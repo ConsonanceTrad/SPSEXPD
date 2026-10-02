@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles.throwing;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -9,7 +11,6 @@ import pd.actors.buffs.HolyStun;
 import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
 import pd.mechanics.pathfind.PathFinder;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.data.BArray;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class MoneyBook extends TossWeapon {
 	public static final String AC_CAST = "CAST";
 
 	{
-		image = ItemSpriteSheet.MONEY_BOOK;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		tier = 1;
 		baseUses = 1;
 		bones = false;

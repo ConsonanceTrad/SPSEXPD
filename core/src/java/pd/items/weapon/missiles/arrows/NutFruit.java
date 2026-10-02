@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles.arrows;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.items.Heap;
@@ -8,12 +10,11 @@ import pd.items.food.fruit.Durian;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class NutFruit extends SpsFruit {
 	public NutFruit() { this(1); }
-	public NutFruit(int number) { super(ItemSpriteSheet.SPS_SEED_DUNGEONNUT, 10, 10); quantity(number); }
+	public NutFruit(int number) { super(SpecificPlaceHolderDict.SOMETHING_0, 10, 10); quantity(number); }
 	@Override protected void onThrow(int cell) {
 		if (landsAt(cell)) {
 			if (Dungeon.level != null && Dungeon.level.insideMap(cell)) {

@@ -1,11 +1,12 @@
 package pd.items.food.vegetable;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+
 import pd.actors.hero.Hero;
 import pd.items.potions.PotionOfHealing;
-import pd.sprites.ItemSpriteSheet;
 
 public class DreamLeaf extends Vegetable {
-	{ image = ItemSpriteSheet.DREAM_LEAF; }
+	{ image = ConsumPotionSeedSeedDict.DREAM_LEAF; }
 	@Override protected void onEat(Hero hero) {
 		PotionOfHealing.cure(hero);
 	}

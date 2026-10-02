@@ -21,6 +21,8 @@
 
 package pd.actors.hero.spells;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -37,7 +39,6 @@ import pd.items.wands.Wand;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.sprites.MissileSprite;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
@@ -156,7 +157,7 @@ public class HolyLance extends TargetedClericSpell {
 	public static class HolyLanceVFX extends Item {
 
 		{
-			image = ItemSpriteSheet.THROWING_SPIKE;
+			image = ConsumThrowsDict.THROWING_SPIKE_0;
 		}
 
 		@Override

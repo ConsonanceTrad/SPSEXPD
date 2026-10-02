@@ -1,5 +1,7 @@
 package pd.plants;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
@@ -8,7 +10,6 @@ import pd.actors.hero.Hero;
 import pd.items.food.vegetable.DreamLeaf;
 import pd.items.potions.PotionOfHealing;
 import pd.items.weapon.missiles.arrows.CharmFruit;
-import pd.sprites.ItemSpriteSheet;
 
 public class Dreamfoil extends Plant {
 	{ image = 10; seedClass = Seed.class; }
@@ -18,7 +19,7 @@ public class Dreamfoil extends Plant {
 		else if (ch != null) Buff.affect(ch, MagicalSleep.class);
 	}
 	public static class Seed extends Plant.Seed {
-		{ image = ItemSpriteSheet.SPS_SEED_DREAMFOIL; plantClass = Dreamfoil.class; explantClass = ExDreamfoil.class; }
+		{ image = SpecificPlaceHolderDict.SOMETHING_0; plantClass = Dreamfoil.class; explantClass = ExDreamfoil.class; }
 	}
 	public static class ExDreamfoil extends SpsFruitBush {
 		{ image = 10; harvestCount = 3; harvestClass = CharmFruit.class; }

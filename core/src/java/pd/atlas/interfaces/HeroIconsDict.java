@@ -13,259 +13,259 @@ public final class HeroIconsDict {
 	private HeroIconsDict() { }
 
 	/** hicon_000 */
-	public static final IconEntry HICON_000 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 0, 16, 16});
+	public static final IconEntry HICON_000 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 0, 16, 16}, 5704);
 	/** hicon_001 */
-	public static final IconEntry HICON_001 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 0, 16, 16});
+	public static final IconEntry HICON_001 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 0, 16, 16}, 5705);
 	/** hicon_002 */
-	public static final IconEntry HICON_002 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 0, 16, 16});
+	public static final IconEntry HICON_002 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 0, 16, 16}, 5706);
 	/** hicon_003 */
-	public static final IconEntry HICON_003 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 0, 16, 16});
+	public static final IconEntry HICON_003 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 0, 16, 16}, 5707);
 	/** hicon_004 */
-	public static final IconEntry HICON_004 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 0, 16, 16});
+	public static final IconEntry HICON_004 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 0, 16, 16}, 5708);
 	/** hicon_005 */
-	public static final IconEntry HICON_005 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 0, 16, 16});
+	public static final IconEntry HICON_005 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 0, 16, 16}, 5709);
 	/** hicon_006 */
-	public static final IconEntry HICON_006 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 0, 16, 16});
+	public static final IconEntry HICON_006 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 0, 16, 16}, 5710);
 	/** hicon_007 */
-	public static final IconEntry HICON_007 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 0, 16, 16});
+	public static final IconEntry HICON_007 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 0, 16, 16}, 5711);
 	/** hicon_008 */
-	public static final IconEntry HICON_008 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 16, 16, 16});
+	public static final IconEntry HICON_008 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 16, 16, 16}, 5712);
 	/** hicon_009 */
-	public static final IconEntry HICON_009 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 16, 16, 16});
+	public static final IconEntry HICON_009 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 16, 16, 16}, 5713);
 	/** hicon_010 */
-	public static final IconEntry HICON_010 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 16, 16, 16});
+	public static final IconEntry HICON_010 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 16, 16, 16}, 5714);
 	/** hicon_011 */
-	public static final IconEntry HICON_011 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 16, 16, 16});
+	public static final IconEntry HICON_011 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 16, 16, 16}, 5715);
 	/** hicon_012 */
-	public static final IconEntry HICON_012 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 16, 16, 16});
+	public static final IconEntry HICON_012 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 16, 16, 16}, 5716);
 	/** hicon_013 */
-	public static final IconEntry HICON_013 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 16, 16, 16});
+	public static final IconEntry HICON_013 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 16, 16, 16}, 5717);
 	/** hicon_014 */
-	public static final IconEntry HICON_014 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 16, 16, 16});
+	public static final IconEntry HICON_014 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 16, 16, 16}, 5718);
 	/** hicon_015 */
-	public static final IconEntry HICON_015 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 16, 16, 16});
+	public static final IconEntry HICON_015 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 16, 16, 16}, 5719);
 	/** hicon_016 */
-	public static final IconEntry HICON_016 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 32, 16, 16});
+	public static final IconEntry HICON_016 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 32, 16, 16}, 5720);
 	/** hicon_017 */
-	public static final IconEntry HICON_017 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 32, 16, 16});
+	public static final IconEntry HICON_017 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 32, 16, 16}, 5721);
 	/** hicon_018 */
-	public static final IconEntry HICON_018 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 32, 16, 16});
+	public static final IconEntry HICON_018 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 32, 16, 16}, 5722);
 	/** hicon_019 */
-	public static final IconEntry HICON_019 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 32, 16, 16});
+	public static final IconEntry HICON_019 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 32, 16, 16}, 5723);
 	/** hicon_020 */
-	public static final IconEntry HICON_020 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 32, 16, 16});
+	public static final IconEntry HICON_020 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 32, 16, 16}, 5724);
 	/** hicon_021 */
-	public static final IconEntry HICON_021 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 32, 16, 16});
+	public static final IconEntry HICON_021 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 32, 16, 16}, 5725);
 	/** hicon_022 */
-	public static final IconEntry HICON_022 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 32, 16, 16});
+	public static final IconEntry HICON_022 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 32, 16, 16}, 5726);
 	/** hicon_023 */
-	public static final IconEntry HICON_023 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 32, 16, 16});
+	public static final IconEntry HICON_023 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 32, 16, 16}, 5727);
 	/** hicon_024 */
-	public static final IconEntry HICON_024 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 48, 16, 16});
+	public static final IconEntry HICON_024 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 48, 16, 16}, 5728);
 	/** hicon_025 */
-	public static final IconEntry HICON_025 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 48, 16, 16});
+	public static final IconEntry HICON_025 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 48, 16, 16}, 5729);
 	/** hicon_026 */
-	public static final IconEntry HICON_026 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 48, 16, 16});
+	public static final IconEntry HICON_026 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 48, 16, 16}, 5730);
 	/** hicon_027 */
-	public static final IconEntry HICON_027 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 48, 16, 16});
+	public static final IconEntry HICON_027 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 48, 16, 16}, 5731);
 	/** hicon_028 */
-	public static final IconEntry HICON_028 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 48, 16, 16});
+	public static final IconEntry HICON_028 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 48, 16, 16}, 5732);
 	/** hicon_029 */
-	public static final IconEntry HICON_029 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 48, 16, 16});
+	public static final IconEntry HICON_029 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 48, 16, 16}, 5733);
 	/** hicon_030 */
-	public static final IconEntry HICON_030 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 48, 16, 16});
+	public static final IconEntry HICON_030 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 48, 16, 16}, 5734);
 	/** hicon_031 */
-	public static final IconEntry HICON_031 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 48, 16, 16});
+	public static final IconEntry HICON_031 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 48, 16, 16}, 5735);
 	/** hicon_032 */
-	public static final IconEntry HICON_032 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 64, 16, 16});
+	public static final IconEntry HICON_032 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 64, 16, 16}, 5736);
 	/** hicon_033 */
-	public static final IconEntry HICON_033 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 64, 16, 16});
+	public static final IconEntry HICON_033 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 64, 16, 16}, 5737);
 	/** hicon_034 */
-	public static final IconEntry HICON_034 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 64, 16, 16});
+	public static final IconEntry HICON_034 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 64, 16, 16}, 5738);
 	/** hicon_035 */
-	public static final IconEntry HICON_035 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 64, 16, 16});
+	public static final IconEntry HICON_035 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 64, 16, 16}, 5739);
 	/** hicon_036 */
-	public static final IconEntry HICON_036 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 64, 16, 16});
+	public static final IconEntry HICON_036 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 64, 16, 16}, 5740);
 	/** hicon_037 */
-	public static final IconEntry HICON_037 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 64, 16, 16});
+	public static final IconEntry HICON_037 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 64, 16, 16}, 5741);
 	/** hicon_038 */
-	public static final IconEntry HICON_038 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 64, 16, 16});
+	public static final IconEntry HICON_038 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 64, 16, 16}, 5742);
 	/** hicon_039 */
-	public static final IconEntry HICON_039 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 64, 16, 16});
+	public static final IconEntry HICON_039 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 64, 16, 16}, 5743);
 	/** hicon_040 */
-	public static final IconEntry HICON_040 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 80, 16, 16});
+	public static final IconEntry HICON_040 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 80, 16, 16}, 5744);
 	/** hicon_041 */
-	public static final IconEntry HICON_041 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 80, 16, 16});
+	public static final IconEntry HICON_041 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 80, 16, 16}, 5745);
 	/** hicon_042 */
-	public static final IconEntry HICON_042 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 80, 16, 16});
+	public static final IconEntry HICON_042 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 80, 16, 16}, 5746);
 	/** hicon_043 */
-	public static final IconEntry HICON_043 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 80, 16, 16});
+	public static final IconEntry HICON_043 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 80, 16, 16}, 5747);
 	/** hicon_044 */
-	public static final IconEntry HICON_044 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 80, 16, 16});
+	public static final IconEntry HICON_044 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 80, 16, 16}, 5748);
 	/** hicon_045 */
-	public static final IconEntry HICON_045 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 80, 16, 16});
+	public static final IconEntry HICON_045 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 80, 16, 16}, 5749);
 	/** hicon_046 */
-	public static final IconEntry HICON_046 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 80, 16, 16});
+	public static final IconEntry HICON_046 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 80, 16, 16}, 5750);
 	/** hicon_047 */
-	public static final IconEntry HICON_047 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 80, 16, 16});
+	public static final IconEntry HICON_047 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 80, 16, 16}, 5751);
 	/** hicon_048 */
-	public static final IconEntry HICON_048 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 96, 16, 16});
+	public static final IconEntry HICON_048 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 96, 16, 16}, 5752);
 	/** hicon_049 */
-	public static final IconEntry HICON_049 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 96, 16, 16});
+	public static final IconEntry HICON_049 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 96, 16, 16}, 5753);
 	/** hicon_050 */
-	public static final IconEntry HICON_050 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 96, 16, 16});
+	public static final IconEntry HICON_050 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 96, 16, 16}, 5754);
 	/** hicon_051 */
-	public static final IconEntry HICON_051 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 96, 16, 16});
+	public static final IconEntry HICON_051 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 96, 16, 16}, 5755);
 	/** hicon_052 */
-	public static final IconEntry HICON_052 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 96, 16, 16});
+	public static final IconEntry HICON_052 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 96, 16, 16}, 5756);
 	/** hicon_053 */
-	public static final IconEntry HICON_053 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 96, 16, 16});
+	public static final IconEntry HICON_053 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 96, 16, 16}, 5757);
 	/** hicon_054 */
-	public static final IconEntry HICON_054 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 96, 16, 16});
+	public static final IconEntry HICON_054 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 96, 16, 16}, 5758);
 	/** hicon_055 */
-	public static final IconEntry HICON_055 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 96, 16, 16});
+	public static final IconEntry HICON_055 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 96, 16, 16}, 5759);
 	/** hicon_056 */
-	public static final IconEntry HICON_056 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 112, 16, 16});
+	public static final IconEntry HICON_056 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 112, 16, 16}, 5760);
 	/** hicon_057 */
-	public static final IconEntry HICON_057 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 112, 16, 16});
+	public static final IconEntry HICON_057 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 112, 16, 16}, 5761);
 	/** hicon_058 */
-	public static final IconEntry HICON_058 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 112, 16, 16});
+	public static final IconEntry HICON_058 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 112, 16, 16}, 5762);
 	/** hicon_059 */
-	public static final IconEntry HICON_059 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 112, 16, 16});
+	public static final IconEntry HICON_059 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 112, 16, 16}, 5763);
 	/** hicon_060 */
-	public static final IconEntry HICON_060 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 112, 16, 16});
+	public static final IconEntry HICON_060 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 112, 16, 16}, 5764);
 	/** hicon_061 */
-	public static final IconEntry HICON_061 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 112, 16, 16});
+	public static final IconEntry HICON_061 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 112, 16, 16}, 5765);
 	/** hicon_062 */
-	public static final IconEntry HICON_062 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 112, 16, 16});
+	public static final IconEntry HICON_062 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 112, 16, 16}, 5766);
 	/** hicon_063 */
-	public static final IconEntry HICON_063 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 112, 16, 16});
+	public static final IconEntry HICON_063 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 112, 16, 16}, 5767);
 	/** hicon_064 */
-	public static final IconEntry HICON_064 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 128, 16, 16});
+	public static final IconEntry HICON_064 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 128, 16, 16}, 5768);
 	/** hicon_065 */
-	public static final IconEntry HICON_065 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 128, 16, 16});
+	public static final IconEntry HICON_065 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 128, 16, 16}, 5769);
 	/** hicon_066 */
-	public static final IconEntry HICON_066 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 128, 16, 16});
+	public static final IconEntry HICON_066 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 128, 16, 16}, 5770);
 	/** hicon_067 */
-	public static final IconEntry HICON_067 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 128, 16, 16});
+	public static final IconEntry HICON_067 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 128, 16, 16}, 5771);
 	/** hicon_068 */
-	public static final IconEntry HICON_068 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 128, 16, 16});
+	public static final IconEntry HICON_068 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 128, 16, 16}, 5772);
 	/** hicon_069 */
-	public static final IconEntry HICON_069 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 128, 16, 16});
+	public static final IconEntry HICON_069 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 128, 16, 16}, 5773);
 	/** hicon_070 */
-	public static final IconEntry HICON_070 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 128, 16, 16});
+	public static final IconEntry HICON_070 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 128, 16, 16}, 5774);
 	/** hicon_071 */
-	public static final IconEntry HICON_071 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 128, 16, 16});
+	public static final IconEntry HICON_071 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 128, 16, 16}, 5775);
 	/** hicon_072 */
-	public static final IconEntry HICON_072 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 144, 16, 16});
+	public static final IconEntry HICON_072 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 144, 16, 16}, 5776);
 	/** hicon_073 */
-	public static final IconEntry HICON_073 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 144, 16, 16});
+	public static final IconEntry HICON_073 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 144, 16, 16}, 5777);
 	/** hicon_074 */
-	public static final IconEntry HICON_074 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 144, 16, 16});
+	public static final IconEntry HICON_074 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 144, 16, 16}, 5778);
 	/** hicon_075 */
-	public static final IconEntry HICON_075 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 144, 16, 16});
+	public static final IconEntry HICON_075 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 144, 16, 16}, 5779);
 	/** hicon_076 */
-	public static final IconEntry HICON_076 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 144, 16, 16});
+	public static final IconEntry HICON_076 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 144, 16, 16}, 5780);
 	/** hicon_077 */
-	public static final IconEntry HICON_077 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 144, 16, 16});
+	public static final IconEntry HICON_077 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 144, 16, 16}, 5781);
 	/** hicon_078 */
-	public static final IconEntry HICON_078 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 144, 16, 16});
+	public static final IconEntry HICON_078 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 144, 16, 16}, 5782);
 	/** hicon_079 */
-	public static final IconEntry HICON_079 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 144, 16, 16});
+	public static final IconEntry HICON_079 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 144, 16, 16}, 5783);
 	/** hicon_080 */
-	public static final IconEntry HICON_080 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 160, 16, 16});
+	public static final IconEntry HICON_080 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 160, 16, 16}, 5784);
 	/** hicon_081 */
-	public static final IconEntry HICON_081 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 160, 16, 16});
+	public static final IconEntry HICON_081 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 160, 16, 16}, 5785);
 	/** hicon_082 */
-	public static final IconEntry HICON_082 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 160, 16, 16});
+	public static final IconEntry HICON_082 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 160, 16, 16}, 5786);
 	/** hicon_083 */
-	public static final IconEntry HICON_083 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 160, 16, 16});
+	public static final IconEntry HICON_083 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 160, 16, 16}, 5787);
 	/** hicon_084 */
-	public static final IconEntry HICON_084 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 160, 16, 16});
+	public static final IconEntry HICON_084 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 160, 16, 16}, 5788);
 	/** hicon_085 */
-	public static final IconEntry HICON_085 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 160, 16, 16});
+	public static final IconEntry HICON_085 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 160, 16, 16}, 5789);
 	/** hicon_086 */
-	public static final IconEntry HICON_086 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 160, 16, 16});
+	public static final IconEntry HICON_086 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 160, 16, 16}, 5790);
 	/** hicon_087 */
-	public static final IconEntry HICON_087 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 160, 16, 16});
+	public static final IconEntry HICON_087 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 160, 16, 16}, 5791);
 	/** hicon_088 */
-	public static final IconEntry HICON_088 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 176, 16, 16});
+	public static final IconEntry HICON_088 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 176, 16, 16}, 5792);
 	/** hicon_089 */
-	public static final IconEntry HICON_089 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 176, 16, 16});
+	public static final IconEntry HICON_089 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 176, 16, 16}, 5793);
 	/** hicon_090 */
-	public static final IconEntry HICON_090 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 176, 16, 16});
+	public static final IconEntry HICON_090 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 176, 16, 16}, 5794);
 	/** hicon_091 */
-	public static final IconEntry HICON_091 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 176, 16, 16});
+	public static final IconEntry HICON_091 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 176, 16, 16}, 5795);
 	/** hicon_092 */
-	public static final IconEntry HICON_092 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 176, 16, 16});
+	public static final IconEntry HICON_092 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 176, 16, 16}, 5796);
 	/** hicon_093 */
-	public static final IconEntry HICON_093 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 176, 16, 16});
+	public static final IconEntry HICON_093 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 176, 16, 16}, 5797);
 	/** hicon_094 */
-	public static final IconEntry HICON_094 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 176, 16, 16});
+	public static final IconEntry HICON_094 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 176, 16, 16}, 5798);
 	/** hicon_095 */
-	public static final IconEntry HICON_095 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 176, 16, 16});
+	public static final IconEntry HICON_095 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 176, 16, 16}, 5799);
 	/** hicon_096 */
-	public static final IconEntry HICON_096 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 192, 16, 16});
+	public static final IconEntry HICON_096 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 192, 16, 16}, 5800);
 	/** hicon_097 */
-	public static final IconEntry HICON_097 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 192, 16, 16});
+	public static final IconEntry HICON_097 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 192, 16, 16}, 5801);
 	/** hicon_098 */
-	public static final IconEntry HICON_098 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 192, 16, 16});
+	public static final IconEntry HICON_098 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 192, 16, 16}, 5802);
 	/** hicon_099 */
-	public static final IconEntry HICON_099 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 192, 16, 16});
+	public static final IconEntry HICON_099 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 192, 16, 16}, 5803);
 	/** hicon_100 */
-	public static final IconEntry HICON_100 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 192, 16, 16});
+	public static final IconEntry HICON_100 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 192, 16, 16}, 5804);
 	/** hicon_101 */
-	public static final IconEntry HICON_101 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 192, 16, 16});
+	public static final IconEntry HICON_101 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 192, 16, 16}, 5805);
 	/** hicon_102 */
-	public static final IconEntry HICON_102 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 192, 16, 16});
+	public static final IconEntry HICON_102 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 192, 16, 16}, 5806);
 	/** hicon_103 */
-	public static final IconEntry HICON_103 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 192, 16, 16});
+	public static final IconEntry HICON_103 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 192, 16, 16}, 5807);
 	/** hicon_104 */
-	public static final IconEntry HICON_104 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 208, 16, 16});
+	public static final IconEntry HICON_104 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 208, 16, 16}, 5808);
 	/** hicon_105 */
-	public static final IconEntry HICON_105 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 208, 16, 16});
+	public static final IconEntry HICON_105 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 208, 16, 16}, 5809);
 	/** hicon_106 */
-	public static final IconEntry HICON_106 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 208, 16, 16});
+	public static final IconEntry HICON_106 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 208, 16, 16}, 5810);
 	/** hicon_107 */
-	public static final IconEntry HICON_107 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 208, 16, 16});
+	public static final IconEntry HICON_107 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 208, 16, 16}, 5811);
 	/** hicon_108 */
-	public static final IconEntry HICON_108 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 208, 16, 16});
+	public static final IconEntry HICON_108 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 208, 16, 16}, 5812);
 	/** hicon_109 */
-	public static final IconEntry HICON_109 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 208, 16, 16});
+	public static final IconEntry HICON_109 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 208, 16, 16}, 5813);
 	/** hicon_110 */
-	public static final IconEntry HICON_110 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 208, 16, 16});
+	public static final IconEntry HICON_110 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 208, 16, 16}, 5814);
 	/** hicon_111 */
-	public static final IconEntry HICON_111 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 208, 16, 16});
+	public static final IconEntry HICON_111 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 208, 16, 16}, 5815);
 	/** hicon_112 */
-	public static final IconEntry HICON_112 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 224, 16, 16});
+	public static final IconEntry HICON_112 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 224, 16, 16}, 5816);
 	/** hicon_113 */
-	public static final IconEntry HICON_113 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 224, 16, 16});
+	public static final IconEntry HICON_113 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 224, 16, 16}, 5817);
 	/** hicon_114 */
-	public static final IconEntry HICON_114 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 224, 16, 16});
+	public static final IconEntry HICON_114 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 224, 16, 16}, 5818);
 	/** hicon_115 */
-	public static final IconEntry HICON_115 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 224, 16, 16});
+	public static final IconEntry HICON_115 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 224, 16, 16}, 5819);
 	/** hicon_116 */
-	public static final IconEntry HICON_116 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 224, 16, 16});
+	public static final IconEntry HICON_116 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 224, 16, 16}, 5820);
 	/** hicon_117 */
-	public static final IconEntry HICON_117 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 224, 16, 16});
+	public static final IconEntry HICON_117 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 224, 16, 16}, 5821);
 	/** hicon_118 */
-	public static final IconEntry HICON_118 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 224, 16, 16});
+	public static final IconEntry HICON_118 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 224, 16, 16}, 5822);
 	/** hicon_119 */
-	public static final IconEntry HICON_119 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 224, 16, 16});
+	public static final IconEntry HICON_119 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 224, 16, 16}, 5823);
 	/** hicon_120 */
-	public static final IconEntry HICON_120 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 240, 16, 16});
+	public static final IconEntry HICON_120 = new IconEntry("interfaces/hero_icons.png", new int[]{0, 240, 16, 16}, 5824);
 	/** hicon_121 */
-	public static final IconEntry HICON_121 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 240, 16, 16});
+	public static final IconEntry HICON_121 = new IconEntry("interfaces/hero_icons.png", new int[]{16, 240, 16, 16}, 5825);
 	/** hicon_122 */
-	public static final IconEntry HICON_122 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 240, 16, 16});
+	public static final IconEntry HICON_122 = new IconEntry("interfaces/hero_icons.png", new int[]{32, 240, 16, 16}, 5826);
 	/** hicon_123 */
-	public static final IconEntry HICON_123 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 240, 16, 16});
+	public static final IconEntry HICON_123 = new IconEntry("interfaces/hero_icons.png", new int[]{48, 240, 16, 16}, 5827);
 	/** hicon_124 */
-	public static final IconEntry HICON_124 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 240, 16, 16});
+	public static final IconEntry HICON_124 = new IconEntry("interfaces/hero_icons.png", new int[]{64, 240, 16, 16}, 5828);
 	/** hicon_125 */
-	public static final IconEntry HICON_125 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 240, 16, 16});
+	public static final IconEntry HICON_125 = new IconEntry("interfaces/hero_icons.png", new int[]{80, 240, 16, 16}, 5829);
 	/** hicon_126 */
-	public static final IconEntry HICON_126 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 240, 16, 16});
+	public static final IconEntry HICON_126 = new IconEntry("interfaces/hero_icons.png", new int[]{96, 240, 16, 16}, 5830);
 	/** hicon_127 */
-	public static final IconEntry HICON_127 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 240, 16, 16});
+	public static final IconEntry HICON_127 = new IconEntry("interfaces/hero_icons.png", new int[]{112, 240, 16, 16}, 5831);
 }

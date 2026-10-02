@@ -1,12 +1,13 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.eggs.randomone;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.items.eggs.RandomEasterEgg;
 import pd.items.sellitem.VIPcard;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class RandomEgg extends Item {
 	public static final String AC_USE = "USE";
 
 	{
-		image = ItemSpriteSheet.SPS_PET_EGG;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = true;
 		defaultAction = AC_USE;
 	}

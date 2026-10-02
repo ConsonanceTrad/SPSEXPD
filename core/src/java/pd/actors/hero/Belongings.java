@@ -21,6 +21,8 @@
 
 package pd.actors.hero;
 
+import pd.atlas.items.EquipmentBagsDict;
+
 import pd.Badges;
 import pd.Dungeon;
 import pd.GamesInProgress;
@@ -42,7 +44,6 @@ import pd.items.weapon.Weapon;
 import pd.items.weapon.guns.GunWeapon;
 import pd.items.weapon.missiles.ShootGun;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -56,7 +57,7 @@ public class Belongings implements Iterable<Item> {
 
 	public static class Backpack extends Bag {
 		{
-			image = ItemSpriteSheet.BACKPACK;
+			image = EquipmentBagsDict.BACKPACK_0;
 		}
 		public int capacity(){
 			//SPS: 主背包 40 格（5 列 x 8 行，装备区两排不占背包格）

@@ -1,15 +1,16 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.DamageUp;
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class SavageHelmet extends MiscEquippable {
 
-	{ image = ItemSpriteSheet.SPS_SAVAGE_HELMET; unique = true; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; unique = true; }
 
 	@Override protected MiscBuff createBuff() { return new SavageHelmetBless(); }
 

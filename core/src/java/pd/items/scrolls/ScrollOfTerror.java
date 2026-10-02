@@ -33,14 +33,14 @@ import pd.actors.buffs.Terror;
 import pd.actors.mobs.Mob;
 import pd.effects.Flare;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 
 public class ScrollOfTerror extends Scroll {
 
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_TERROR;
+		icon = ItemIconSheet.SCROLL_TERROR;
 	}
 
 	@Override

@@ -21,6 +21,8 @@
 
 package pd.items.spells;
 
+import pd.atlas.items.ConsumScrollAmuletCrystalDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.effects.CellEmitter;
@@ -36,7 +38,6 @@ import pd.items.weapon.SpiritBow;
 import pd.items.weapon.Weapon;
 import pd.items.weapon.melee.MagesStaff;
 import pd.journal.Catalog;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ import java.util.ArrayList;
 public class CurseInfusion extends InventorySpell {
 	
 	{
-		image = ItemSpriteSheet.CURSE_INFUSE;
+		image = ConsumScrollAmuletCrystalDict.CURSE_INFUSE_0;
 
 		talentChance = 1/(float)Recipe.OUT_QUANTITY;
 	}

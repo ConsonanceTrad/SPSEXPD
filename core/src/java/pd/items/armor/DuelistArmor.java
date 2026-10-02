@@ -21,12 +21,13 @@
 
 package pd.items.armor;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
+
 
 public class DuelistArmor extends ClassArmor {
 
 	{
-		image = ItemSpriteSheet.ARMOR_DUELIST;
+		image = EquipmentEquipArmorBasicArmorDict.ARMOR_DUELIST_0;
 	}
 
 }

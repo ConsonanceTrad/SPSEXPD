@@ -21,12 +21,13 @@
 
 package pd.items.armor;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
+
 
 public class LeatherArmor extends Armor {
 
 	{
-		image = ItemSpriteSheet.ARMOR_LEATHER;
+		image = EquipmentEquipArmorBasicArmorDict.ARMOR_LEATHER_0;
 	}
 	
 	public LeatherArmor() {

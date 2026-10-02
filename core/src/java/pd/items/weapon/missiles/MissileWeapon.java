@@ -21,6 +21,8 @@
 
 package pd.items.weapon.missiles;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -49,7 +51,6 @@ import pd.items.weapon.missiles.darts.Dart;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.InventoryPane;
 import pd.ui.QuickSlotButton;
 import pd.utils.GLog;
@@ -795,7 +796,7 @@ abstract public class MissileWeapon extends Weapon {
 	public static class PlaceHolder extends MissileWeapon {
 
 		{
-			image = ItemSpriteSheet.MISSILE_HOLDER;
+			image = SpecificPlaceHolderDict.SOMETHING_0;
 		}
 
 		@Override

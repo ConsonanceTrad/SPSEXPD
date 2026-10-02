@@ -21,12 +21,13 @@
 
 package pd.items.keys;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.SpecificKeyDict;
+
 
 public class IronKey extends Key {
 	
 	{
-		image = ItemSpriteSheet.IRON_KEY;
+		image = SpecificKeyDict.IRON_KEY;
 	}
 
 	public IronKey() {

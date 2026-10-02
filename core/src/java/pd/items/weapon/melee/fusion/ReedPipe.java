@@ -5,18 +5,19 @@
 
 package pd.items.weapon.melee.fusion;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Daze;
 import pd.items.weapon.melee.Whip;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class ReedPipe extends Whip implements FusionWeapon {
 
 	{
-		image = ItemSpriteSheet.WAND_MAGIC_MISSILE;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1.35f;
 		tier = 2;

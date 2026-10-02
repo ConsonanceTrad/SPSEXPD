@@ -1,5 +1,7 @@
 package pd.items.weapon.melee.relic;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -9,7 +11,6 @@ import pd.actors.hero.Hero;
 import pd.items.weapon.enchantments.NeptuneShock;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 
 public class NeptunusTrident extends RelicMeleeWeapon {
 
@@ -17,7 +18,7 @@ public class NeptunusTrident extends RelicMeleeWeapon {
 
 	public NeptunusTrident() {
 		super(1f, 1f, 2);
-		image = ItemSpriteSheet.NEPTUNUS_TRIDENT;
+		image = EquipmentEquipWeaponBasicWeaponDict.SHOCK_TRIDENT;
 		enchant(new NeptuneShock());
 	}
 

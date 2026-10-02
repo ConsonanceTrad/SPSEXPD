@@ -21,18 +21,19 @@
 
 package pd.items.quest;
 
+import pd.atlas.items.ConsumScrollAmuletCrystalDict;
+
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.items.spells.Spell;
 import pd.journal.Catalog;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 
 public class VaultBeacon extends Spell {
 
 	{
-		image = ItemSpriteSheet.RETURN_BEACON;
+		image = ConsumScrollAmuletCrystalDict.RETURN_BEACON_0;
 
 		stackable = true;
 		unique = true;

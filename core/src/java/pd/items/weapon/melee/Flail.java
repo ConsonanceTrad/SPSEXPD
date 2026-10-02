@@ -21,6 +21,8 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -29,7 +31,6 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.FlavourBuff;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.Image;
@@ -39,7 +40,7 @@ import render.utils.serialize.Bundle;
 public class Flail extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.FLAIL;
+		image = EquipmentEquipWeaponBasicWeaponDict.FLAIL_0;
 		hitSound = Assets.Sounds.HIT_CRUSH;
 		hitSoundPitch = 0.8f;
 

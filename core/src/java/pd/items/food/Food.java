@@ -21,6 +21,8 @@
 
 package pd.items.food;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Challenges;
@@ -36,7 +38,6 @@ import pd.items.artifacts.Artifact;
 import pd.items.artifacts.HornOfPlenty;
 import pd.journal.Catalog;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 
@@ -53,7 +54,7 @@ public class Food extends Item {
 	
 	{
 		stackable = true;
-		image = ItemSpriteSheet.RATION;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 
 		defaultAction = AC_EAT;
 

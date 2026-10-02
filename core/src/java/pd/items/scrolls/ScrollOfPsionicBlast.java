@@ -9,14 +9,14 @@ import pd.actors.buffs.SuperArcane;
 import pd.actors.mobs.Mob;
 import pd.actors.mobs.npcs.NPC;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
 
 /** The ordinary SPS psionic-draw scroll, distinct from Shattered's exotic scroll. */
 public class ScrollOfPsionicBlast extends Scroll {
 
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_PSIBLAST;
+		icon = ItemIconSheet.SCROLL_PSIBLAST;
 		consumedValue = 10;
 		initials = 7;
 	}

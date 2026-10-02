@@ -5,12 +5,13 @@
 
 package pd.items.weapon.melee.fusion;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.items.weapon.melee.Scimitar;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.serialize.Bundle;
 
 public class Harp extends Scimitar implements FusionWeapon {
@@ -19,7 +20,7 @@ public class Harp extends Scimitar implements FusionWeapon {
 	private int hits;
 
 	{
-		image = ItemSpriteSheet.MAGES_STAFF;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1.4f;
 		tier = 5;

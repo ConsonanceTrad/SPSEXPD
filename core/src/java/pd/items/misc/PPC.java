@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.buffs.Bless;
 import pd.actors.buffs.Buff;
@@ -15,7 +17,6 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.items.weapon.missiles.throwing.MindArrow;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -32,7 +33,7 @@ public class PPC extends Item {
 	private static final String CHARGE = "charge";
 	private int charge;
 
-	{ image = ItemSpriteSheet.SPS_PPC; defaultAction = AC_TRY; unique = true; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; defaultAction = AC_TRY; unique = true; }
 
 	@Override
 	public ArrayList<String> actions(Hero hero) {

@@ -13,259 +13,259 @@ public final class CarpetDict {
 	private CarpetDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 0, 16, 16});
+	public static final IconEntry TILE_000 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 0, 16, 16}, 172);
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 0, 16, 16});
+	public static final IconEntry TILE_001 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 0, 16, 16}, 173);
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 0, 16, 16});
+	public static final IconEntry TILE_002 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 0, 16, 16}, 174);
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 0, 16, 16});
+	public static final IconEntry TILE_003 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 0, 16, 16}, 175);
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 0, 16, 16});
+	public static final IconEntry TILE_004 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 0, 16, 16}, 176);
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 0, 16, 16});
+	public static final IconEntry TILE_005 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 0, 16, 16}, 177);
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 0, 16, 16});
+	public static final IconEntry TILE_006 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 0, 16, 16}, 178);
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 0, 16, 16});
+	public static final IconEntry TILE_007 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 0, 16, 16}, 179);
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 0, 16, 16});
+	public static final IconEntry TILE_008 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 0, 16, 16}, 180);
 	/** tile_009 */
-	public static final IconEntry TILE_009 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 0, 16, 16});
+	public static final IconEntry TILE_009 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 0, 16, 16}, 181);
 	/** tile_010 */
-	public static final IconEntry TILE_010 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 0, 16, 16});
+	public static final IconEntry TILE_010 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 0, 16, 16}, 182);
 	/** tile_011 */
-	public static final IconEntry TILE_011 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 0, 16, 16});
+	public static final IconEntry TILE_011 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 0, 16, 16}, 183);
 	/** tile_012 */
-	public static final IconEntry TILE_012 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 0, 16, 16});
+	public static final IconEntry TILE_012 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 0, 16, 16}, 184);
 	/** tile_013 */
-	public static final IconEntry TILE_013 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 0, 16, 16});
+	public static final IconEntry TILE_013 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 0, 16, 16}, 185);
 	/** tile_014 */
-	public static final IconEntry TILE_014 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 0, 16, 16});
+	public static final IconEntry TILE_014 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 0, 16, 16}, 186);
 	/** tile_015 */
-	public static final IconEntry TILE_015 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 0, 16, 16});
+	public static final IconEntry TILE_015 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 0, 16, 16}, 187);
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 16, 16, 16});
+	public static final IconEntry TILE_016 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 16, 16, 16}, 188);
 	/** tile_017 */
-	public static final IconEntry TILE_017 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 16, 16, 16});
+	public static final IconEntry TILE_017 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 16, 16, 16}, 189);
 	/** tile_018 */
-	public static final IconEntry TILE_018 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 16, 16, 16});
+	public static final IconEntry TILE_018 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 16, 16, 16}, 190);
 	/** tile_019 */
-	public static final IconEntry TILE_019 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 16, 16, 16});
+	public static final IconEntry TILE_019 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 16, 16, 16}, 191);
 	/** tile_020 */
-	public static final IconEntry TILE_020 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 16, 16, 16});
+	public static final IconEntry TILE_020 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 16, 16, 16}, 192);
 	/** tile_021 */
-	public static final IconEntry TILE_021 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 16, 16, 16});
+	public static final IconEntry TILE_021 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 16, 16, 16}, 193);
 	/** tile_022 */
-	public static final IconEntry TILE_022 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 16, 16, 16});
+	public static final IconEntry TILE_022 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 16, 16, 16}, 194);
 	/** tile_023 */
-	public static final IconEntry TILE_023 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 16, 16, 16});
+	public static final IconEntry TILE_023 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 16, 16, 16}, 195);
 	/** tile_024 */
-	public static final IconEntry TILE_024 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 16, 16, 16});
+	public static final IconEntry TILE_024 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 16, 16, 16}, 196);
 	/** tile_025 */
-	public static final IconEntry TILE_025 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 16, 16, 16});
+	public static final IconEntry TILE_025 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 16, 16, 16}, 197);
 	/** tile_026 */
-	public static final IconEntry TILE_026 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 16, 16, 16});
+	public static final IconEntry TILE_026 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 16, 16, 16}, 198);
 	/** tile_027 */
-	public static final IconEntry TILE_027 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 16, 16, 16});
+	public static final IconEntry TILE_027 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 16, 16, 16}, 199);
 	/** tile_028 */
-	public static final IconEntry TILE_028 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 16, 16, 16});
+	public static final IconEntry TILE_028 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 16, 16, 16}, 200);
 	/** tile_029 */
-	public static final IconEntry TILE_029 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 16, 16, 16});
+	public static final IconEntry TILE_029 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 16, 16, 16}, 201);
 	/** tile_030 */
-	public static final IconEntry TILE_030 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 16, 16, 16});
+	public static final IconEntry TILE_030 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 16, 16, 16}, 202);
 	/** tile_031 */
-	public static final IconEntry TILE_031 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 16, 16, 16});
+	public static final IconEntry TILE_031 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 16, 16, 16}, 203);
 	/** tile_032 */
-	public static final IconEntry TILE_032 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 32, 16, 16});
+	public static final IconEntry TILE_032 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 32, 16, 16}, 204);
 	/** tile_033 */
-	public static final IconEntry TILE_033 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 32, 16, 16});
+	public static final IconEntry TILE_033 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 32, 16, 16}, 205);
 	/** tile_034 */
-	public static final IconEntry TILE_034 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 32, 16, 16});
+	public static final IconEntry TILE_034 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 32, 16, 16}, 206);
 	/** tile_035 */
-	public static final IconEntry TILE_035 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 32, 16, 16});
+	public static final IconEntry TILE_035 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 32, 16, 16}, 207);
 	/** tile_036 */
-	public static final IconEntry TILE_036 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 32, 16, 16});
+	public static final IconEntry TILE_036 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 32, 16, 16}, 208);
 	/** tile_037 */
-	public static final IconEntry TILE_037 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 32, 16, 16});
+	public static final IconEntry TILE_037 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 32, 16, 16}, 209);
 	/** tile_038 */
-	public static final IconEntry TILE_038 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 32, 16, 16});
+	public static final IconEntry TILE_038 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 32, 16, 16}, 210);
 	/** tile_039 */
-	public static final IconEntry TILE_039 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 32, 16, 16});
+	public static final IconEntry TILE_039 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 32, 16, 16}, 211);
 	/** tile_040 */
-	public static final IconEntry TILE_040 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 32, 16, 16});
+	public static final IconEntry TILE_040 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 32, 16, 16}, 212);
 	/** tile_041 */
-	public static final IconEntry TILE_041 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 32, 16, 16});
+	public static final IconEntry TILE_041 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 32, 16, 16}, 213);
 	/** tile_042 */
-	public static final IconEntry TILE_042 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 32, 16, 16});
+	public static final IconEntry TILE_042 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 32, 16, 16}, 214);
 	/** tile_043 */
-	public static final IconEntry TILE_043 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 32, 16, 16});
+	public static final IconEntry TILE_043 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 32, 16, 16}, 215);
 	/** tile_044 */
-	public static final IconEntry TILE_044 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 32, 16, 16});
+	public static final IconEntry TILE_044 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 32, 16, 16}, 216);
 	/** tile_045 */
-	public static final IconEntry TILE_045 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 32, 16, 16});
+	public static final IconEntry TILE_045 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 32, 16, 16}, 217);
 	/** tile_046 */
-	public static final IconEntry TILE_046 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 32, 16, 16});
+	public static final IconEntry TILE_046 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 32, 16, 16}, 218);
 	/** tile_047 */
-	public static final IconEntry TILE_047 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 32, 16, 16});
+	public static final IconEntry TILE_047 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 32, 16, 16}, 219);
 	/** tile_048 */
-	public static final IconEntry TILE_048 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 48, 16, 16});
+	public static final IconEntry TILE_048 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 48, 16, 16}, 220);
 	/** tile_049 */
-	public static final IconEntry TILE_049 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 48, 16, 16});
+	public static final IconEntry TILE_049 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 48, 16, 16}, 221);
 	/** tile_050 */
-	public static final IconEntry TILE_050 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 48, 16, 16});
+	public static final IconEntry TILE_050 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 48, 16, 16}, 222);
 	/** tile_051 */
-	public static final IconEntry TILE_051 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 48, 16, 16});
+	public static final IconEntry TILE_051 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 48, 16, 16}, 223);
 	/** tile_052 */
-	public static final IconEntry TILE_052 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 48, 16, 16});
+	public static final IconEntry TILE_052 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 48, 16, 16}, 224);
 	/** tile_053 */
-	public static final IconEntry TILE_053 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 48, 16, 16});
+	public static final IconEntry TILE_053 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 48, 16, 16}, 225);
 	/** tile_054 */
-	public static final IconEntry TILE_054 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 48, 16, 16});
+	public static final IconEntry TILE_054 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 48, 16, 16}, 226);
 	/** tile_055 */
-	public static final IconEntry TILE_055 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 48, 16, 16});
+	public static final IconEntry TILE_055 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 48, 16, 16}, 227);
 	/** tile_056 */
-	public static final IconEntry TILE_056 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 48, 16, 16});
+	public static final IconEntry TILE_056 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 48, 16, 16}, 228);
 	/** tile_057 */
-	public static final IconEntry TILE_057 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 48, 16, 16});
+	public static final IconEntry TILE_057 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 48, 16, 16}, 229);
 	/** tile_058 */
-	public static final IconEntry TILE_058 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 48, 16, 16});
+	public static final IconEntry TILE_058 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 48, 16, 16}, 230);
 	/** tile_059 */
-	public static final IconEntry TILE_059 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 48, 16, 16});
+	public static final IconEntry TILE_059 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 48, 16, 16}, 231);
 	/** tile_060 */
-	public static final IconEntry TILE_060 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 48, 16, 16});
+	public static final IconEntry TILE_060 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 48, 16, 16}, 232);
 	/** tile_061 */
-	public static final IconEntry TILE_061 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 48, 16, 16});
+	public static final IconEntry TILE_061 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 48, 16, 16}, 233);
 	/** tile_062 */
-	public static final IconEntry TILE_062 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 48, 16, 16});
+	public static final IconEntry TILE_062 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 48, 16, 16}, 234);
 	/** tile_063 */
-	public static final IconEntry TILE_063 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 48, 16, 16});
+	public static final IconEntry TILE_063 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 48, 16, 16}, 235);
 	/** tile_064 */
-	public static final IconEntry TILE_064 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 64, 16, 16});
+	public static final IconEntry TILE_064 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 64, 16, 16}, 236);
 	/** tile_065 */
-	public static final IconEntry TILE_065 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 64, 16, 16});
+	public static final IconEntry TILE_065 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 64, 16, 16}, 237);
 	/** tile_066 */
-	public static final IconEntry TILE_066 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 64, 16, 16});
+	public static final IconEntry TILE_066 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 64, 16, 16}, 238);
 	/** tile_067 */
-	public static final IconEntry TILE_067 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 64, 16, 16});
+	public static final IconEntry TILE_067 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 64, 16, 16}, 239);
 	/** tile_068 */
-	public static final IconEntry TILE_068 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 64, 16, 16});
+	public static final IconEntry TILE_068 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 64, 16, 16}, 240);
 	/** tile_069 */
-	public static final IconEntry TILE_069 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 64, 16, 16});
+	public static final IconEntry TILE_069 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 64, 16, 16}, 241);
 	/** tile_070 */
-	public static final IconEntry TILE_070 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 64, 16, 16});
+	public static final IconEntry TILE_070 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 64, 16, 16}, 242);
 	/** tile_071 */
-	public static final IconEntry TILE_071 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 64, 16, 16});
+	public static final IconEntry TILE_071 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 64, 16, 16}, 243);
 	/** tile_072 */
-	public static final IconEntry TILE_072 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 64, 16, 16});
+	public static final IconEntry TILE_072 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 64, 16, 16}, 244);
 	/** tile_073 */
-	public static final IconEntry TILE_073 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 64, 16, 16});
+	public static final IconEntry TILE_073 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 64, 16, 16}, 245);
 	/** tile_074 */
-	public static final IconEntry TILE_074 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 64, 16, 16});
+	public static final IconEntry TILE_074 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 64, 16, 16}, 246);
 	/** tile_075 */
-	public static final IconEntry TILE_075 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 64, 16, 16});
+	public static final IconEntry TILE_075 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 64, 16, 16}, 247);
 	/** tile_076 */
-	public static final IconEntry TILE_076 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 64, 16, 16});
+	public static final IconEntry TILE_076 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 64, 16, 16}, 248);
 	/** tile_077 */
-	public static final IconEntry TILE_077 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 64, 16, 16});
+	public static final IconEntry TILE_077 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 64, 16, 16}, 249);
 	/** tile_078 */
-	public static final IconEntry TILE_078 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 64, 16, 16});
+	public static final IconEntry TILE_078 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 64, 16, 16}, 250);
 	/** tile_079 */
-	public static final IconEntry TILE_079 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 64, 16, 16});
+	public static final IconEntry TILE_079 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 64, 16, 16}, 251);
 	/** tile_080 */
-	public static final IconEntry TILE_080 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 80, 16, 16});
+	public static final IconEntry TILE_080 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 80, 16, 16}, 252);
 	/** tile_081 */
-	public static final IconEntry TILE_081 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 80, 16, 16});
+	public static final IconEntry TILE_081 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 80, 16, 16}, 253);
 	/** tile_082 */
-	public static final IconEntry TILE_082 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 80, 16, 16});
+	public static final IconEntry TILE_082 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 80, 16, 16}, 254);
 	/** tile_083 */
-	public static final IconEntry TILE_083 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 80, 16, 16});
+	public static final IconEntry TILE_083 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 80, 16, 16}, 255);
 	/** tile_084 */
-	public static final IconEntry TILE_084 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 80, 16, 16});
+	public static final IconEntry TILE_084 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 80, 16, 16}, 256);
 	/** tile_085 */
-	public static final IconEntry TILE_085 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 80, 16, 16});
+	public static final IconEntry TILE_085 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 80, 16, 16}, 257);
 	/** tile_086 */
-	public static final IconEntry TILE_086 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 80, 16, 16});
+	public static final IconEntry TILE_086 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 80, 16, 16}, 258);
 	/** tile_087 */
-	public static final IconEntry TILE_087 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 80, 16, 16});
+	public static final IconEntry TILE_087 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 80, 16, 16}, 259);
 	/** tile_088 */
-	public static final IconEntry TILE_088 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 80, 16, 16});
+	public static final IconEntry TILE_088 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 80, 16, 16}, 260);
 	/** tile_089 */
-	public static final IconEntry TILE_089 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 80, 16, 16});
+	public static final IconEntry TILE_089 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 80, 16, 16}, 261);
 	/** tile_090 */
-	public static final IconEntry TILE_090 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 80, 16, 16});
+	public static final IconEntry TILE_090 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 80, 16, 16}, 262);
 	/** tile_091 */
-	public static final IconEntry TILE_091 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 80, 16, 16});
+	public static final IconEntry TILE_091 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 80, 16, 16}, 263);
 	/** tile_092 */
-	public static final IconEntry TILE_092 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 80, 16, 16});
+	public static final IconEntry TILE_092 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 80, 16, 16}, 264);
 	/** tile_093 */
-	public static final IconEntry TILE_093 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 80, 16, 16});
+	public static final IconEntry TILE_093 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 80, 16, 16}, 265);
 	/** tile_094 */
-	public static final IconEntry TILE_094 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 80, 16, 16});
+	public static final IconEntry TILE_094 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 80, 16, 16}, 266);
 	/** tile_095 */
-	public static final IconEntry TILE_095 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 80, 16, 16});
+	public static final IconEntry TILE_095 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 80, 16, 16}, 267);
 	/** tile_096 */
-	public static final IconEntry TILE_096 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 96, 16, 16});
+	public static final IconEntry TILE_096 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 96, 16, 16}, 268);
 	/** tile_097 */
-	public static final IconEntry TILE_097 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 96, 16, 16});
+	public static final IconEntry TILE_097 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 96, 16, 16}, 269);
 	/** tile_098 */
-	public static final IconEntry TILE_098 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 96, 16, 16});
+	public static final IconEntry TILE_098 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 96, 16, 16}, 270);
 	/** tile_099 */
-	public static final IconEntry TILE_099 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 96, 16, 16});
+	public static final IconEntry TILE_099 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 96, 16, 16}, 271);
 	/** tile_100 */
-	public static final IconEntry TILE_100 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 96, 16, 16});
+	public static final IconEntry TILE_100 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 96, 16, 16}, 272);
 	/** tile_101 */
-	public static final IconEntry TILE_101 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 96, 16, 16});
+	public static final IconEntry TILE_101 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 96, 16, 16}, 273);
 	/** tile_102 */
-	public static final IconEntry TILE_102 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 96, 16, 16});
+	public static final IconEntry TILE_102 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 96, 16, 16}, 274);
 	/** tile_103 */
-	public static final IconEntry TILE_103 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 96, 16, 16});
+	public static final IconEntry TILE_103 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 96, 16, 16}, 275);
 	/** tile_104 */
-	public static final IconEntry TILE_104 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 96, 16, 16});
+	public static final IconEntry TILE_104 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 96, 16, 16}, 276);
 	/** tile_105 */
-	public static final IconEntry TILE_105 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 96, 16, 16});
+	public static final IconEntry TILE_105 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 96, 16, 16}, 277);
 	/** tile_106 */
-	public static final IconEntry TILE_106 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 96, 16, 16});
+	public static final IconEntry TILE_106 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 96, 16, 16}, 278);
 	/** tile_107 */
-	public static final IconEntry TILE_107 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 96, 16, 16});
+	public static final IconEntry TILE_107 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 96, 16, 16}, 279);
 	/** tile_108 */
-	public static final IconEntry TILE_108 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 96, 16, 16});
+	public static final IconEntry TILE_108 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 96, 16, 16}, 280);
 	/** tile_109 */
-	public static final IconEntry TILE_109 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 96, 16, 16});
+	public static final IconEntry TILE_109 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 96, 16, 16}, 281);
 	/** tile_110 */
-	public static final IconEntry TILE_110 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 96, 16, 16});
+	public static final IconEntry TILE_110 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 96, 16, 16}, 282);
 	/** tile_111 */
-	public static final IconEntry TILE_111 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 96, 16, 16});
+	public static final IconEntry TILE_111 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 96, 16, 16}, 283);
 	/** tile_112 */
-	public static final IconEntry TILE_112 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 112, 16, 16});
+	public static final IconEntry TILE_112 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 112, 16, 16}, 284);
 	/** tile_113 */
-	public static final IconEntry TILE_113 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 112, 16, 16});
+	public static final IconEntry TILE_113 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 112, 16, 16}, 285);
 	/** tile_114 */
-	public static final IconEntry TILE_114 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 112, 16, 16});
+	public static final IconEntry TILE_114 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 112, 16, 16}, 286);
 	/** tile_115 */
-	public static final IconEntry TILE_115 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 112, 16, 16});
+	public static final IconEntry TILE_115 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 112, 16, 16}, 287);
 	/** tile_116 */
-	public static final IconEntry TILE_116 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 112, 16, 16});
+	public static final IconEntry TILE_116 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 112, 16, 16}, 288);
 	/** tile_117 */
-	public static final IconEntry TILE_117 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 112, 16, 16});
+	public static final IconEntry TILE_117 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 112, 16, 16}, 289);
 	/** tile_118 */
-	public static final IconEntry TILE_118 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 112, 16, 16});
+	public static final IconEntry TILE_118 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 112, 16, 16}, 290);
 	/** tile_119 */
-	public static final IconEntry TILE_119 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 112, 16, 16});
+	public static final IconEntry TILE_119 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 112, 16, 16}, 291);
 	/** tile_120 */
-	public static final IconEntry TILE_120 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 112, 16, 16});
+	public static final IconEntry TILE_120 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 112, 16, 16}, 292);
 	/** tile_121 */
-	public static final IconEntry TILE_121 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 112, 16, 16});
+	public static final IconEntry TILE_121 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 112, 16, 16}, 293);
 	/** tile_122 */
-	public static final IconEntry TILE_122 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 112, 16, 16});
+	public static final IconEntry TILE_122 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 112, 16, 16}, 294);
 	/** tile_123 */
-	public static final IconEntry TILE_123 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 112, 16, 16});
+	public static final IconEntry TILE_123 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 112, 16, 16}, 295);
 	/** tile_124 */
-	public static final IconEntry TILE_124 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 112, 16, 16});
+	public static final IconEntry TILE_124 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 112, 16, 16}, 296);
 	/** tile_125 */
-	public static final IconEntry TILE_125 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 112, 16, 16});
+	public static final IconEntry TILE_125 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 112, 16, 16}, 297);
 	/** tile_126 */
-	public static final IconEntry TILE_126 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 112, 16, 16});
+	public static final IconEntry TILE_126 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 112, 16, 16}, 298);
 	/** tile_127 */
-	public static final IconEntry TILE_127 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 112, 16, 16});
+	public static final IconEntry TILE_127 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 112, 16, 16}, 299);
 }

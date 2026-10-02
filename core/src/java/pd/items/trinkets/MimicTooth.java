@@ -21,13 +21,14 @@
 
 package pd.items.trinkets;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 
 public class MimicTooth extends Trinket {
 
 	{
-		image = ItemSpriteSheet.MIMIC_TOOTH;
+		image = EquipmentNonEquipDict.MIMIC_TOOTH_0;
 	}
 
 	@Override

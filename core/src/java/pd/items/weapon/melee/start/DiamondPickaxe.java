@@ -1,5 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.start;
+
+import pd.atlas.items.SpecificPlaceHolderDict;
 import java.util.ArrayList;
 import pd.Dungeon;
 import pd.actors.Char;
@@ -17,12 +19,11 @@ import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.utils.math.Random;
 public class DiamondPickaxe extends NormalMeleeWeapon {
-	public static final String AC_MINE="MINE"; public DiamondPickaxe(){super(3,2f,.5f,2,2,8,ItemSpriteSheet.LEGACY_DIAMOND_PICKAXE);unique=true;reinforced=true;defaultAction=AC_MINE;}
+	public static final String AC_MINE="MINE"; public DiamondPickaxe(){super(3,2f,.5f,2,2,8,SpecificPlaceHolderDict.SOMETHING_0);unique=true;reinforced=true;defaultAction=AC_MINE;}
 	@Override protected void applyLegacyUpgrade(Stats stats){stats.min++;stats.max++;}
 	@Override public ArrayList<String> actions(Hero h){ArrayList<String>a=super.actions(h);a.add(AC_MINE);return a;}
 	@Override public void execute(Hero h,String a){if(AC_MINE.equals(a)){if(!mine(h))GLog.i(Messages.get(this,isHungry(h)?"break":"no_thing"));}else super.execute(h,a);}

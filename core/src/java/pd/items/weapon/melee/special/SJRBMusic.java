@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.special;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -15,14 +17,13 @@ import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
 /** The original sound-wave club awarded by the velocirooster. */
 public class SJRBMusic extends MeleeWeapon {
 	{
-		image = ItemSpriteSheet.SJRB_MUSIC;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		tier = 1;
 	}
 

@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles.arrows;
 
+import pd.atlas.IconEntry;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -14,7 +16,7 @@ abstract class SpsFruit extends MissileWeapon {
 	private final int baseMin;
 	private final int baseMax;
 
-	SpsFruit(int image, int min, int max) {
+	SpsFruit(IconEntry image, int min, int max) {
 		this.image = image;
 		baseMin = min;
 		baseMax = max;

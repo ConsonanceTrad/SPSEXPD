@@ -21,17 +21,18 @@
 
 package pd.items.weapon.missiles.darts;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Adrenaline;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Cripple;
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 
 public class AdrenalineDart extends TippedDart {
 	
 	{
-		image = ItemSpriteSheet.ADRENALINE_DART;
+		image = ConsumThrowsDict.ADRENALINE_DART_0;
 	}
 
 	@Override

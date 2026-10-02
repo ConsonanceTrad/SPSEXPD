@@ -10,6 +10,8 @@
 
 package pd.items.artifacts;
 
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
+
 import com.badlogic.gdx.Gdx;
 import pd.Assets;
 import pd.Dungeon;
@@ -47,7 +49,6 @@ import pd.plants.Swiftthistle;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTilemap;
 import pd.utils.GLog;
 import pd.windows.WndBag;
@@ -65,7 +66,7 @@ import java.util.HashMap;
 public class SandalsOfNature extends Artifact {
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_SANDALS;
+		image = EquipmentJewelleryArtifactDict.ARTIFACT_SANDALS;
 		levelCap = 10;
 		charge = 0;
 		defaultAction = AC_ROOT;
@@ -155,18 +156,18 @@ public class SandalsOfNature extends Artifact {
 
 	@Override
 	public Item upgrade() {
-		if (level() < 3) image = ItemSpriteSheet.ARTIFACT_SANDALS;
-		else if (level() < 6) image = ItemSpriteSheet.ARTIFACT_SHOES;
-		else if (level() < 9) image = ItemSpriteSheet.ARTIFACT_BOOTS;
-		else image = ItemSpriteSheet.ARTIFACT_GREAVES;
+		if (level() < 3) image = EquipmentJewelleryArtifactDict.ARTIFACT_SANDALS;
+		else if (level() < 6) image = EquipmentJewelleryArtifactDict.ARTIFACT_SHOES;
+		else if (level() < 9) image = EquipmentJewelleryArtifactDict.ARTIFACT_BOOTS;
+		else image = EquipmentJewelleryArtifactDict.ARTIFACT_GREAVES;
 		return super.upgrade();
 	}
 
 	private void restoreImage() {
-		if (level() <= 3) image = ItemSpriteSheet.ARTIFACT_SANDALS;
-		else if (level() <= 6) image = ItemSpriteSheet.ARTIFACT_SHOES;
-		else if (level() <= 9) image = ItemSpriteSheet.ARTIFACT_BOOTS;
-		else image = ItemSpriteSheet.ARTIFACT_GREAVES;
+		if (level() <= 3) image = EquipmentJewelleryArtifactDict.ARTIFACT_SANDALS;
+		else if (level() <= 6) image = EquipmentJewelleryArtifactDict.ARTIFACT_SHOES;
+		else if (level() <= 9) image = EquipmentJewelleryArtifactDict.ARTIFACT_BOOTS;
+		else image = EquipmentJewelleryArtifactDict.ARTIFACT_GREAVES;
 	}
 
 	public boolean canUseSeed(Item item) {

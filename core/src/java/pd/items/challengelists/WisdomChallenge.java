@@ -1,6 +1,7 @@
 package pd.items.challengelists;
-import pd.sprites.ItemSpriteSheet;
+
+import pd.atlas.items.SpecificTaskDict;
 public class WisdomChallenge extends ChallengeList {
-	{ image = ItemSpriteSheet.WISDOM_CHALLENGE; }
+	{ image = SpecificTaskDict.WISDOM_CHALLENGE; }
 	@Override public int challenge() { return 7; }
 }

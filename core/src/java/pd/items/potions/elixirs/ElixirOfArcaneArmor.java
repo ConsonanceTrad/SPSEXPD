@@ -21,6 +21,8 @@
 
 package pd.items.potions.elixirs;
 
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
+
 import pd.actors.buffs.ArcaneArmor;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
@@ -28,14 +30,13 @@ import pd.items.Item;
 import pd.items.potions.exotic.PotionOfEarthenArmor;
 import pd.items.quest.GooBlob;
 import pd.journal.Catalog;
-import pd.sprites.ItemSpriteSheet;
 
 import java.util.ArrayList;
 
 public class ElixirOfArcaneArmor extends Elixir {
 	
 	{
-		image = ItemSpriteSheet.ELIXIR_ARCANE;
+		image = ConsumPotionSeedBasicPotionDict.ELIXIR_ARCANE_0;
 	}
 	
 	@Override

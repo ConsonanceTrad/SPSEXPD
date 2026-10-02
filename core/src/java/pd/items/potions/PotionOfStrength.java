@@ -26,13 +26,13 @@ import pd.actors.hero.Hero;
 import pd.effects.FloatingText;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 
 public class PotionOfStrength extends Potion {
 
 	{
-		icon = ItemSpriteSheet.Icons.POTION_STRENGTH;
+		icon = ItemIconSheet.POTION_STRENGTH;
 
 		unique = true;
 

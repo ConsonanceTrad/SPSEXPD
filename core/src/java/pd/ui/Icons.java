@@ -21,6 +21,11 @@
 
 package pd.ui;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.ConsumThrowsDict;
+
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +39,6 @@ import pd.atlas.interfaces.IconsDict;
 import pd.levels.Level;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.Image;
 import render.utils.geom.RectF;
 
@@ -337,32 +341,32 @@ public enum Icons {
 	public static Image get( HeroClass cl ) {
 		switch (cl) {
 			case WARRIOR:
-				return new ItemSprite(ItemSpriteSheet.SEAL);
+				return new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0);
 			case MAGE:
 				//mage's staff normally has 2 pixels extra at the top for particle effects, we chop that off here
-				Image result = new ItemSprite(ItemSpriteSheet.MAGES_STAFF);
+				Image result = new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0);
 				RectF frame = result.frame();
 				frame.top += frame.height()/8f;
 				result.frame(frame);
 				return result;
 			case ROGUE:
-				return new ItemSprite(ItemSpriteSheet.ARTIFACT_CLOAK);
+				return new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0);
 			case HUNTRESS:
-				return new ItemSprite(ItemSpriteSheet.SPIRIT_BOW);
+				return new ItemSprite(EquipmentEquipWeaponUniqueWeaponDict.SPIRIT_BOW_0);
 			case DUELIST:
-				return new ItemSprite(ItemSpriteSheet.RAPIER);
+				return new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.RAPIER_0);
 			case CLERIC:
-				return new ItemSprite(ItemSpriteSheet.ARTIFACT_TOME);
+				return new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0);
 			case SPELLSWORD:
-				return new ItemSprite(ItemSpriteSheet.RUNIC_BLADE);
+				return new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0);
 			case PERFORMER:
-				return new ItemSprite(ItemSpriteSheet.WAND_MAGIC_MISSILE);
+				return new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0);
 			case SOLDIER:
-				return new ItemSprite(ItemSpriteSheet.THROWING_SPIKE);
+				return new ItemSprite(ConsumThrowsDict.THROWING_SPIKE_0);
 			case FOLLOWER:
-				return new ItemSprite(ItemSpriteSheet.CUDGEL);
+				return new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0);
 			case ASCETIC:
-				return new ItemSprite(ItemSpriteSheet.GLOVES);
+				return new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.GLOVES);
 			default:
 				return null;
 		}

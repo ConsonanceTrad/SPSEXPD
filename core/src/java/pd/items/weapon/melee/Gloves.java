@@ -21,15 +21,16 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 
 public class Gloves extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.GLOVES;
+		image = EquipmentEquipWeaponBasicWeaponDict.GLOVES;
 		hitSound = Assets.Sounds.HIT;
 		hitSoundPitch = 1.3f;
 

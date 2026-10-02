@@ -13,6 +13,8 @@
 
 package pd.items.artifacts;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
@@ -22,7 +24,6 @@ import pd.effects.particles.ElmoParticle;
 import pd.items.Item;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
@@ -40,7 +41,7 @@ public class CloakOfShadows extends Artifact {
 	private boolean stealthed;
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_CLOAK;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		levelCap = 10;
 		charge = Math.min(level() + 3, 10);
 		partialCharge = 0;

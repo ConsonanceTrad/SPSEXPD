@@ -1,20 +1,21 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles.buildblock;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.items.Item;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 /** A thrown construction block which turns its landing tile into a door. */
 public class DoorBlock extends BuildBlock {
 
 	{
-		image = ItemSpriteSheet.DOOR_BLOCK;
+		image = ConsumThrowsDict.DOOR_BLOCK_PLACER;
 	}
 
 	public DoorBlock() { this(1); }

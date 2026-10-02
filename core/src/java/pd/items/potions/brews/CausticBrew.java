@@ -21,6 +21,8 @@
 
 package pd.items.potions.brews;
 
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -33,7 +35,6 @@ import pd.items.potions.PotionOfToxicGas;
 import pd.items.quest.GooBlob;
 import pd.journal.Catalog;
 import pd.mechanics.pathfind.PathFinder;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
 
@@ -42,7 +43,7 @@ import java.util.ArrayList;
 public class CausticBrew extends Brew {
 	
 	{
-		image = ItemSpriteSheet.BREW_CAUSTIC;
+		image = ConsumPotionSeedBasicPotionDict.BREW_CAUSTIC_0;
 	}
 	
 	@Override

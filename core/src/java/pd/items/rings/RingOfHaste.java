@@ -23,12 +23,12 @@ package pd.items.rings;
 
 import pd.actors.Char;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 
 public class RingOfHaste extends Ring {
 
 	{
-		icon = ItemSpriteSheet.Icons.RING_HASTE;
+		icon = ItemIconSheet.RING_HASTE;
 		buffClass = Haste.class;
 	}
 

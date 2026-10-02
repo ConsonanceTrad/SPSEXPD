@@ -1,13 +1,14 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.start;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.items.weapon.melee.normalweapon.NormalMeleeWeapon;
-import pd.sprites.ItemSpriteSheet;
 
 public class BunnyDagger extends NormalMeleeWeapon {
 	public BunnyDagger() {
-		super(1, 1.2f, 1f, 1, 5, 10, ItemSpriteSheet.SPS_BUNNY_DAGGER);
+		super(1, 1.2f, 1f, 1, 5, 10, SpecificPlaceHolderDict.SOMETHING_0);
 		unique = true;
 		reinforced = true;
 		cursed = true;

@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import pd.atlas.items.SpecificTaskDict;
+
 import pd.Dungeon;
 import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
@@ -10,7 +12,6 @@ import pd.levels.Transitions;
 import pd.messages.Messages;
 import pd.scenes.InterlevelScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.Game;
 import render.utils.serialize.Bundle;
@@ -28,7 +29,7 @@ public class PotKey extends Item {
 	private int returnPos = -1;
 
 	{
-		image = ItemSpriteSheet.POT_KEY;
+		image = SpecificTaskDict.POT_KEY_0;
 		stackable = false;
 		unique = true;
 		defaultAction = AC_PORT;

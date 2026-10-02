@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.wands;
 
+import pd.atlas.items.EquipmentWandBasicWandDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -18,7 +20,6 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 
@@ -37,7 +38,7 @@ public class WandOfShatteredFireblast extends DamageWand {
 	private int direction;
 
 	{
-		image = ItemSpriteSheet.WAND_SPS_FIREBOLT;
+		image = EquipmentWandBasicWandDict.WAND_SPS_FIREBOLT;
 		collisionProperties = Ballistica.STOP_SOLID;
 	}
 

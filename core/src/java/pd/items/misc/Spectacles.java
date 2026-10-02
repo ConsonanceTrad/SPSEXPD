@@ -1,14 +1,15 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.EquipmentEquipArmorUniqueArmorDict;
+
 import pd.items.rings.Ring;
-import pd.sprites.ItemSpriteSheet;
 
 /** Otiluke's spectacles. The original MagicSight buff is intentionally passive. */
 public class Spectacles extends Ring {
 	public Spectacles() {
 		anonymize();
-		image = ItemSpriteSheet.SPECTACLES;
+		image = EquipmentEquipArmorUniqueArmorDict.SPECTACLES;
 	}
 
 	@Override

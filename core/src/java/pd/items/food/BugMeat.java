@@ -1,15 +1,16 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 
 import java.util.ArrayList;
 
 public class BugMeat extends Food {
 
 	{
-		image = ItemSpriteSheet.BUG_MEAT;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 50;
 		hornValue = 1;
 		stackable = false;

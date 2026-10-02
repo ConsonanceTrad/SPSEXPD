@@ -13,13 +13,14 @@
 
 package pd.items.food;
 
+import pd.atlas.items.GroundFunctionalFallingDict;
+
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 
 public class WaterItem extends Food {
 
 	{
-		image = ItemSpriteSheet.DEWDROP;
+		image = GroundFunctionalFallingDict.DEWDROP_0;
 		energy = 1f;
 		hornValue = 0;
 	}

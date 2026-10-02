@@ -13,11 +13,11 @@ public final class WallBlockingDict {
 	private WallBlockingDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/legacy-2.5d/wall_blocking.png", new int[]{0, 0, 16, 16});
+	public static final IconEntry TILE_000 = new IconEntry("environment/legacy-2.5d/wall_blocking.png", new int[]{0, 0, 16, 16}, 4884);
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/legacy-2.5d/wall_blocking.png", new int[]{16, 0, 16, 16});
+	public static final IconEntry TILE_001 = new IconEntry("environment/legacy-2.5d/wall_blocking.png", new int[]{16, 0, 16, 16}, 4885);
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/legacy-2.5d/wall_blocking.png", new int[]{32, 0, 16, 16});
+	public static final IconEntry TILE_002 = new IconEntry("environment/legacy-2.5d/wall_blocking.png", new int[]{32, 0, 16, 16}, 4886);
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/legacy-2.5d/wall_blocking.png", new int[]{48, 0, 16, 16});
+	public static final IconEntry TILE_003 = new IconEntry("environment/legacy-2.5d/wall_blocking.png", new int[]{48, 0, 16, 16}, 4887);
 }

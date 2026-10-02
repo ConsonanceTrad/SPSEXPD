@@ -21,6 +21,8 @@
 
 package pd.items.potions.elixirs;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -32,13 +34,12 @@ import pd.actors.hero.Talent;
 import pd.actors.mobs.Bee;
 import pd.items.Honeypot;
 import pd.items.potions.PotionOfHealing;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 
 public class ElixirOfHoneyedHealing extends Elixir {
 	
 	{
-		image = ItemSpriteSheet.ELIXIR_HONEY;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 	
 	@Override

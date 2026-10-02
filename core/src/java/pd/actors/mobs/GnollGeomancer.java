@@ -21,6 +21,8 @@
 
 package pd.actors.mobs;
 
+import pd.atlas.items.GroundRockDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Dungeon;
@@ -50,7 +52,6 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.GnollGeomancerSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.sprites.MissileSprite;
 import pd.ui.BossHealthBar;
 import pd.utils.GLog;
@@ -764,7 +765,7 @@ public class GnollGeomancer extends Mob {
 
 	public static class Boulder extends Item {
 		{
-			image = ItemSpriteSheet.GEO_BOULDER;
+			image = GroundRockDict.GEO_BOULDER_0;
 		}
 	}
 

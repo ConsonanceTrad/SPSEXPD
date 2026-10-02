@@ -10,6 +10,8 @@
  */
 package pd.items.medicine;
 
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Dungeon;
@@ -22,7 +24,6 @@ import pd.effects.SpellSprite;
 import pd.items.Item;
 import pd.items.food.Food;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
@@ -35,7 +36,7 @@ public class Pill extends Item {
 	public static final String AC_EAT = "EAT";
 
 	{
-		image = ItemSpriteSheet.POTION_IVORY;
+		image = ConsumPotionSeedBasicPotionDict.POTION_EXP_0;
 		stackable = true;
 		defaultAction = AC_EAT;
 	}

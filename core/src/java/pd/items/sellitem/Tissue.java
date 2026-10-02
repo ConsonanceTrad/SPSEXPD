@@ -1,6 +1,7 @@
 package pd.items.sellitem;
-import pd.sprites.ItemSpriteSheet;
+
+import pd.atlas.items.SpecificPlaceHolderDict;
 public class Tissue extends SellItem {
-	{ image = ItemSpriteSheet.TISSUE; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public int value() { return 120 * quantity; }
 }

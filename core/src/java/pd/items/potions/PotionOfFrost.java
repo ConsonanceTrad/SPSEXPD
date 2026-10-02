@@ -27,13 +27,13 @@ import pd.actors.blobs.Blob;
 import pd.actors.blobs.Freezing;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
 
 public class PotionOfFrost extends Potion {
 
 	{
-		icon = ItemSpriteSheet.Icons.POTION_FROST;
+		icon = ItemIconSheet.POTION_FROST;
 	}
 	
 	@Override

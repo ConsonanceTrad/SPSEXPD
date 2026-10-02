@@ -1,5 +1,7 @@
 package pd.items.summon;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -11,7 +13,6 @@ import pd.actors.hero.HeroSubClass;
 import pd.actors.mobs.npcs.DirectableAlly;
 import pd.items.Item;
 import pd.mechanics.Ballistica;
-import pd.sprites.ItemSpriteSheet;
 import pd.sprites.MrDestructo2dot0Sprite;
 import pd.sprites.MrDestructoSprite;
 import render.utils.math.Random;
@@ -21,7 +22,7 @@ public class ActiveMrDestructo extends SpsSummonItem {
 	private static boolean activate;
 
 	{
-		image = ItemSpriteSheet.ACTIVE_MR_DESTRUCTO;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 	@Override

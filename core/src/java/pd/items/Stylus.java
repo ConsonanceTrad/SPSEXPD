@@ -21,6 +21,8 @@
 
 package pd.items;
 
+import pd.atlas.items.ConsumUsefulUsefulDict;
+
 import pd.Assets;
 import pd.actors.hero.Belongings;
 import pd.actors.hero.Hero;
@@ -31,7 +33,6 @@ import pd.items.bags.Bag;
 import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import render.noosa.audio.Sample;
@@ -45,7 +46,7 @@ public class Stylus extends Item {
 	private static final String AC_INSCRIBE = "INSCRIBE";
 	
 	{
-		image = ItemSpriteSheet.STYLUS;
+		image = ConsumUsefulUsefulDict.STYLUS;
 		
 		stackable = true;
 

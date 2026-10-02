@@ -13,5 +13,5 @@ public final class EquipmentWandUniqueWandDict {
 	private EquipmentWandUniqueWandDict() { }
 
 	/** LEGACY_CANNON_OF_MAGE */
-	public static final IconEntry LEGACY_CANNON_OF_MAGE = new IconEntry("sprites/items/equipment/wand/unique_wand.png", new int[]{0, 1, 15, 15});
+	public static final IconEntry LEGACY_CANNON_OF_MAGE = new IconEntry("sprites/items/equipment/wand/unique_wand.png", new int[]{0, 1, 15, 15}, 7017);
 }

@@ -1,15 +1,16 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.special;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Badges;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.effects.particles.ShadowParticle;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class TekkoKagi extends SpsSpecialMeleeWeapon {
-	public TekkoKagi() { super(1, 1f, 1f, 1, 6, 12, ItemSpriteSheet.SPS_TEKKO_KAGI); }
+	public TekkoKagi() { super(1, 1f, 1f, 1, 6, 12, EquipmentEquipWeaponBasicWeaponDict.SPS_TEKKO_KAGI_0); }
 
 	@Override public int proc(Char attacker, Char defender, int damage) {
 		if (Random.Int(100) < 20) {

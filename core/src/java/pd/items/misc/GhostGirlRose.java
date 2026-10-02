@@ -1,13 +1,14 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 
 /** WhiteGhost's charm, granting two additional experience points per gain event. */
 public class GhostGirlRose extends MiscEquippable {
 
-	{ image = ItemSpriteSheet.GHOST_GIRL_ROSE; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 
 	@Override protected GhostGirlBless createBuff() { return new GhostGirlBless(); }
 

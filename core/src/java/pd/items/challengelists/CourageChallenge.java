@@ -1,6 +1,7 @@
 package pd.items.challengelists;
-import pd.sprites.ItemSpriteSheet;
+
+import pd.atlas.items.SpecificPlaceHolderDict;
 public class CourageChallenge extends ChallengeList {
-	{ image = ItemSpriteSheet.COURAGE_CHALLENGE; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public int challenge() { return 5; }
 }

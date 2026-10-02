@@ -1,16 +1,17 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food.completefood;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Cripple;
 import pd.actors.buffs.Poison;
 import pd.actors.buffs.STRDown;
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 
 public class HoneyWater extends CompleteFood {
-	{ image = ItemSpriteSheet.HONEY_WATER; energy = 10f; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; energy = 10f; }
 	@Override protected void doEat(Hero hero) {
 		increaseMaxHealth(hero, 3, 6);
 		Buff.detach(hero, Poison.class);

@@ -21,13 +21,14 @@
 
 package pd.items.weapon.missiles;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 import pd.sprites.MissileSprite;
 import render.noosa.tweeners.AlphaTweener;
 import render.utils.data.Callback;
@@ -36,7 +37,7 @@ import render.utils.serialize.Bundle;
 public class HeavyBoomerang extends MissileWeapon {
 	
 	{
-		image = ItemSpriteSheet.BOOMERANG;
+		image = ConsumThrowsDict.BOOMERANG_0;
 		hitSound = Assets.Sounds.HIT_CRUSH;
 		hitSoundPitch = 1f;
 		

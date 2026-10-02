@@ -25,12 +25,12 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Stamina;
 import pd.actors.hero.Hero;
 import pd.effects.SpellSprite;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 
 public class PotionOfStamina extends ExoticPotion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_STAMINA;
+		icon = ItemIconSheet.POTION_STAMINA;
 	}
 	
 	@Override

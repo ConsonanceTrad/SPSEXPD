@@ -7,12 +7,13 @@
 
 package pd.items.food;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 
 public class SmallMeat extends Food {
 
 	{
-		image = ItemSpriteSheet.STEAK;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 50;
 		hornValue = 0;
 		stackable = true;

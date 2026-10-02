@@ -15,7 +15,7 @@ import pd.items.armor.Armor;
 import pd.items.rings.Ring;
 import pd.items.weapon.Weapon;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import render.noosa.Visual;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -26,7 +26,7 @@ import java.util.HashSet;
 public class RingOfKnowledge extends Ring {
 
 	{
-		icon = ItemSpriteSheet.Icons.RING_WEALTH;
+		icon = ItemIconSheet.RING_WEALTH;
 		buffClass = RingKnowledge.class;
 	}
 

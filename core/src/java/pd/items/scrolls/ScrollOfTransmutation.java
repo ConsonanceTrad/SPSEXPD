@@ -54,14 +54,14 @@ import pd.journal.Catalog;
 import pd.levels.MiningLevel;
 import pd.messages.Messages;
 import pd.plants.Plant;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.utils.serialize.Reflection;
 
 public class ScrollOfTransmutation extends InventoryScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_TRANSMUTE;
+		icon = ItemIconSheet.SCROLL_TRANSMUTE;
 		
 		bones = true;
 

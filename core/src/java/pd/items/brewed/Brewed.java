@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.brewed;
 
+import pd.atlas.items.ConsumFoodFoodDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Dungeon;
@@ -17,7 +19,6 @@ import pd.items.scrolls.ScrollOfRecharging;
 import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
@@ -39,7 +40,7 @@ public class Brewed extends Item {
 
 	{
 		stackable = true;
-		image = ItemSpriteSheet.BLANDFRUIT;
+		image = ConsumFoodFoodDict.BLANDFRUIT;
 		defaultAction = AC_EAT;
 	}
 

@@ -1,12 +1,13 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.ranges;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Burning;
 import pd.actors.hero.Hero;
 import pd.items.weapon.melee.special.MeleePan;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class RangePan extends RangeWeapon {
 	public static final String AC_CHANGE = "CHANGE";
 
 	public RangePan() {
-		super(1, Variant.NORMAL, ItemSpriteSheet.MELEE_PAN);
+		super(1, Variant.NORMAL, SpecificPlaceHolderDict.SOMETHING_0);
 	}
 
 	@Override

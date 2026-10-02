@@ -21,6 +21,11 @@
 
 package pd.items.scrolls;
 
+import pd.atlas.IconEntry;
+
+import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Challenges;
 import pd.Dungeon;
 import pd.ShatteredPixelDungeon;
@@ -56,7 +61,6 @@ import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.scenes.AlchemyScene;
 import pd.sprites.HeroSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -73,22 +77,22 @@ public abstract class Scroll extends Item {
 	
 	protected static final float TIME_TO_READ	= 1f;
 
-	private static final LinkedHashMap<String, Integer> runes = new LinkedHashMap<String, Integer>() {
+	private static final LinkedHashMap<String, IconEntry> runes = new LinkedHashMap<String, IconEntry>() {
 		{
-			put("KAUNAN",ItemSpriteSheet.SCROLL_KAUNAN);
-			put("SOWILO",ItemSpriteSheet.SCROLL_SOWILO);
-			put("LAGUZ",ItemSpriteSheet.SCROLL_LAGUZ);
-			put("YNGVI",ItemSpriteSheet.SCROLL_YNGVI);
-			put("GYFU",ItemSpriteSheet.SCROLL_GYFU);
-			put("RAIDO",ItemSpriteSheet.SCROLL_RAIDO);
-			put("ISAZ",ItemSpriteSheet.SCROLL_ISAZ);
-			put("MANNAZ",ItemSpriteSheet.SCROLL_MANNAZ);
-			put("NAUDIZ",ItemSpriteSheet.SCROLL_NAUDIZ);
-			put("BERKANAN",ItemSpriteSheet.SCROLL_BERKANAN);
-			put("NCOSRANE",ItemSpriteSheet.SCROLL_NCOSRANE);
-			put("TIWAZ",ItemSpriteSheet.SCROLL_TIWAZ);
-			put("NENDIL",ItemSpriteSheet.SCROLL_NENDIL);
-			put("LIBRA",ItemSpriteSheet.SCROLL_LIBRA);
+			put("KAUNAN",SpecificPlaceHolderDict.SOMETHING_0);
+			put("SOWILO",SpecificPlaceHolderDict.SOMETHING_0);
+			put("LAGUZ",SpecificPlaceHolderDict.SOMETHING_0);
+			put("YNGVI",SpecificPlaceHolderDict.SOMETHING_0);
+			put("GYFU",SpecificPlaceHolderDict.SOMETHING_0);
+			put("RAIDO",SpecificPlaceHolderDict.SOMETHING_0);
+			put("ISAZ",SpecificPlaceHolderDict.SOMETHING_0);
+			put("MANNAZ",SpecificPlaceHolderDict.SOMETHING_0);
+			put("NAUDIZ",SpecificPlaceHolderDict.SOMETHING_0);
+			put("BERKANAN",SpecificPlaceHolderDict.SOMETHING_0);
+			put("NCOSRANE",SpecificPlaceHolderDict.SOMETHING_0);
+			put("TIWAZ",SpecificPlaceHolderDict.SOMETHING_0);
+			put("NENDIL",SpecificPlaceHolderDict.SOMETHING_0);
+			put("LIBRA",SpecificPlaceHolderDict.SOMETHING_0);
 		}
 	};
 	
@@ -153,7 +157,7 @@ public abstract class Scroll extends Item {
 	//useful for items that appear in UIs, or which are only spawned for their effects
 	protected boolean anonymous = false;
 	public void anonymize(){
-		if (!isKnown()) image = ItemSpriteSheet.SCROLL_HOLDER;
+		if (!isKnown()) image = SpecificPlaceHolderDict.SCROLL_HOLDER_0;
 		anonymous = true;
 	}
 	
@@ -165,7 +169,7 @@ public abstract class Scroll extends Item {
 			image = handler.image(this);
 			rune = handler.label(this);
 		} else {
-			image = ItemSpriteSheet.SCROLL_KAUNAN;
+			image = SpecificPlaceHolderDict.SOMETHING_0;
 			rune = "KAUNAN";
 		}
 	}
@@ -312,7 +316,7 @@ public abstract class Scroll extends Item {
 	public static class PlaceHolder extends Scroll {
 		
 		{
-			image = ItemSpriteSheet.SCROLL_HOLDER;
+			image = SpecificPlaceHolderDict.SCROLL_HOLDER_0;
 		}
 		
 		@Override

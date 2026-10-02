@@ -25,12 +25,12 @@ import pd.actors.hero.Hero;
 import pd.effects.Flare;
 import pd.effects.FloatingText;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 
 public class PotionOfExperience extends Potion {
 
 	{
-		icon = ItemSpriteSheet.Icons.POTION_EXP;
+		icon = ItemIconSheet.POTION_EXP;
 
 		bones = true;
 

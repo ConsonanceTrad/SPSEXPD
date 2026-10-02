@@ -21,18 +21,19 @@
 
 package pd.items.bombs;
 
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
+
 import pd.Dungeon;
 import pd.actors.blobs.Blob;
 import pd.actors.blobs.SmokeScreen;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.data.BArray;
 
 public class SmokeBomb extends Bomb {
 	
 	{
-		image = ItemSpriteSheet.SMOKE_BOMB;
+		image = EquipmentEquipWeaponBombDict.SMOKE_BOMB_0;
 	}
 
 	@Override

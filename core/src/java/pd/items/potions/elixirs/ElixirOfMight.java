@@ -21,6 +21,8 @@
 
 package pd.items.potions.elixirs;
 
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
+
 import pd.Badges;
 import pd.Dungeon;
 import pd.actors.buffs.Buff;
@@ -29,7 +31,6 @@ import pd.effects.FloatingText;
 import pd.items.potions.PotionOfStrength;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.Image;
@@ -38,7 +39,7 @@ import render.utils.serialize.Bundle;
 public class ElixirOfMight extends Elixir {
 
 	{
-		image = ItemSpriteSheet.ELIXIR_MIGHT;
+		image = ConsumPotionSeedBasicPotionDict.ELIXIR_MIGHT_0;
 
 		unique = true;
 

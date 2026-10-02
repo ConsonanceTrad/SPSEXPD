@@ -21,15 +21,16 @@
 
 package pd.items.weapon.missiles.darts;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Paralysis;
-import pd.sprites.ItemSpriteSheet;
 
 public class ParalyticDart extends TippedDart {
 	
 	{
-		image = ItemSpriteSheet.PARALYTIC_DART;
+		image = ConsumThrowsDict.PARALYTIC_DART_0;
 	}
 	
 	@Override

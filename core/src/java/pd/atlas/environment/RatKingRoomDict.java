@@ -13,19 +13,19 @@ public final class RatKingRoomDict {
 	private RatKingRoomDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{0, 0, 16, 16});
+	public static final IconEntry TILE_000 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{0, 0, 16, 16}, 1708);
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{16, 0, 16, 16});
+	public static final IconEntry TILE_001 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{16, 0, 16, 16}, 1709);
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{32, 0, 16, 16});
+	public static final IconEntry TILE_002 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{32, 0, 16, 16}, 1710);
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{48, 0, 16, 16});
+	public static final IconEntry TILE_003 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{48, 0, 16, 16}, 1711);
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{64, 0, 16, 16});
+	public static final IconEntry TILE_004 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{64, 0, 16, 16}, 1712);
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{80, 0, 16, 16});
+	public static final IconEntry TILE_005 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{80, 0, 16, 16}, 1713);
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{96, 0, 16, 16});
+	public static final IconEntry TILE_006 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{96, 0, 16, 16}, 1714);
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{112, 0, 16, 16});
+	public static final IconEntry TILE_007 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{112, 0, 16, 16}, 1715);
 }

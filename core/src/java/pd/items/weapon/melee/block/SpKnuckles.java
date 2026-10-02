@@ -1,19 +1,20 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.block;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Paralysis;
 import pd.actors.buffs.ShieldArmor;
 import pd.items.weapon.melee.normalweapon.NormalMeleeWeapon;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 /** The knuckle-sect weapon sold by Shower after Otiluke is rescued. */
 public class SpKnuckles extends NormalMeleeWeapon {
 
 	public SpKnuckles() {
-		super(1, 2f, 0.5f, 2, 1, 10, ItemSpriteSheet.SPS_SP_KNUCKLES);
+		super(1, 2f, 0.5f, 2, 1, 10, SpecificPlaceHolderDict.SOMETHING_0);
 	}
 
 	@Override

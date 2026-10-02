@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
@@ -10,7 +12,6 @@ import pd.items.weapon.missiles.MissileWeapon;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.serialize.Bundle;
 
@@ -25,7 +26,7 @@ public class GunOfSoldier extends Item {
 	private int charge;
 
 	{
-		image = ItemSpriteSheet.LEGACY_SOLDIER_GUN;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		defaultAction = AC_USE;
 		unique = true;
 		usesTargeting = true;
@@ -67,7 +68,7 @@ public class GunOfSoldier extends Item {
 
 	public class SoldierAmmo extends MissileWeapon {
 		{
-			image = ItemSpriteSheet.LEGACY_SOLDIER_AMMO;
+			image = SpecificPlaceHolderDict.SOMETHING_0;
 			ACC = 1000f;
 			baseUses = 1;
 			spawnedForEffect = true;

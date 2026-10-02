@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.items.EquipableItem;
@@ -8,7 +10,6 @@ import pd.items.Item;
 import pd.items.reward.BoundReward;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
 import pd.windows.WndUseItem;
 import render.utils.math.Random;
@@ -28,7 +29,7 @@ public class RewardPaper extends Item {
 	public static final int ITEM_COST = 100;
 	public static final int GOLD_COST = 1000;
 
-	{ image = ItemSpriteSheet.SPS_REWARD_PAPER; unique = true; defaultAction = AC_CHOOSE; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; unique = true; defaultAction = AC_CHOOSE; }
 
 	@Override
 	public ArrayList<String> actions(Hero hero) {

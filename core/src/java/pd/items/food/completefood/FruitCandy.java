@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food.completefood;
 
+import pd.atlas.items.ConsumFoodFoodDict;
+
 import pd.actors.buffs.BerryRegeneration;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.HasteBuff;
@@ -8,13 +10,12 @@ import pd.actors.buffs.Levitation;
 import pd.actors.buffs.Notice;
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class FruitCandy extends CompleteFood {
 
 	{
-		image = ItemSpriteSheet.FRUIT_CANDY;
+		image = ConsumFoodFoodDict.FRUIT_CANDY;
 		energy = 20f;
 	}
 

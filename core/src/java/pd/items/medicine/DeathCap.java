@@ -1,15 +1,16 @@
 package pd.items.medicine;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.BeCorrupt;
 import pd.actors.buffs.BeOld;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Cripple;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
-import pd.sprites.ItemSpriteSheet;
 
 public class DeathCap extends Pill {
-	{ image = ItemSpriteSheet.MUSHROOM_DEATHCAP; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	public DeathCap() { this(1); }
 	public DeathCap(int value) { quantity = value; }
 	@Override protected void onUse(Hero hero) {

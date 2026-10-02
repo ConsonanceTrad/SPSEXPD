@@ -21,6 +21,8 @@
 
 package pd.items.potions.elixirs;
 
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
+
 import pd.Challenges;
 import pd.Dungeon;
 import pd.actors.buffs.Buff;
@@ -32,7 +34,6 @@ import pd.items.quest.GooBlob;
 import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.math.GameMath;
@@ -44,7 +45,7 @@ import java.util.ArrayList;
 public class ElixirOfAquaticRejuvenation extends Elixir {
 	
 	{
-		image = ItemSpriteSheet.ELIXIR_AQUA;
+		image = ConsumPotionSeedBasicPotionDict.ELIXIR_AQUA_0;
 	}
 	
 	@Override

@@ -1,10 +1,11 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.eggs;
+
+import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.actors.mobs.pets.Haro;
 import pd.actors.mobs.pets.LegacyPet;
-import pd.sprites.ItemSpriteSheet;
 public class HaroEgg extends Egg {
-	{ image = ItemSpriteSheet.HARO_EGG; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected LegacyPet hatchling() { return new Haro(); }
 	@Override public int value() { return 500 * quantity; }
 }

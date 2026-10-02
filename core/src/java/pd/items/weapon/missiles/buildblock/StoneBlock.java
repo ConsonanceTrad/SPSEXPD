@@ -1,4 +1,5 @@
 package pd.items.weapon.missiles.buildblock;
+
+import pd.atlas.items.SpecificTaskDict;
 import pd.levels.Terrain;
-import pd.sprites.ItemSpriteSheet;
-public class StoneBlock extends LegacyBuildBlock { public StoneBlock(){super(Terrain.STATUE,ItemSpriteSheet.ORE);} }
+public class StoneBlock extends LegacyBuildBlock { public StoneBlock(){super(Terrain.STATUE,SpecificTaskDict.ORE_0);} }

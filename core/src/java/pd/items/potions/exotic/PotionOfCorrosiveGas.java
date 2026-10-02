@@ -27,13 +27,13 @@ import pd.actors.blobs.Blob;
 import pd.actors.blobs.CorrosiveGas;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
 
 public class PotionOfCorrosiveGas extends ExoticPotion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_CORROGAS;
+		icon = ItemIconSheet.POTION_CORROGAS;
 	}
 	
 	@Override

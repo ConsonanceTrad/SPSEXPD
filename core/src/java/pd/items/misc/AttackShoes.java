@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -14,14 +16,13 @@ import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
 
 public class AttackShoes extends Item {
 	public static final String AC_JUMP = "JUMP";
-	{ image = ItemSpriteSheet.LEGACY_ATTACK_SHOES; defaultAction = AC_JUMP; unique = true; usesTargeting = true; }
+	{ image = EquipmentNonEquipDict.JUMP_BOOTS; defaultAction = AC_JUMP; unique = true; usesTargeting = true; }
 	@Override public ArrayList<String> actions(Hero hero) { ArrayList<String> a=super.actions(hero); a.add(AC_JUMP); a.remove(AC_DROP); a.remove(AC_THROW); return a; }
 	@Override public void execute(Hero hero, String action) { if (AC_JUMP.equals(action)) { curUser=hero; GameScene.selectCell(jumper); } else super.execute(hero, action); }
 	public boolean jumpTo(Hero hero, int target) {

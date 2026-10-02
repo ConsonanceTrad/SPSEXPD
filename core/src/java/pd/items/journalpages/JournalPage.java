@@ -1,15 +1,16 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.journalpages;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 
 public class JournalPage extends Item {
 	private final int destination;
 	{
-		image = ItemSpriteSheet.SPS_JOURNAL_PAGE;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = false;
 		unique = true;
 	}

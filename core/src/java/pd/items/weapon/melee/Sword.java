@@ -21,6 +21,8 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -30,7 +32,6 @@ import pd.actors.buffs.FlavourBuff;
 import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.AttackIndicator;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
@@ -40,7 +41,7 @@ import render.utils.data.Callback;
 public class Sword extends MeleeWeapon {
 	
 	{
-		image = ItemSpriteSheet.SWORD;
+		image = EquipmentEquipWeaponBasicWeaponDict.SWORD_0;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1f;
 

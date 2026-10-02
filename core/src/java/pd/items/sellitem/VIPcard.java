@@ -1,11 +1,12 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.sellitem;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 
 public class VIPcard extends SellItem {
 	{
-		image = ItemSpriteSheet.VIP_CARD;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = true;
 	}
 	@Override public int value() { return 400 * quantity; }

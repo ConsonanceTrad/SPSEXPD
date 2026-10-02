@@ -26,13 +26,13 @@ import pd.Dungeon;
 import pd.actors.blobs.Blob;
 import pd.actors.blobs.ParalyticGas;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
 
 public class PotionOfParalyticGas extends Potion {
 
 	{
-		icon = ItemSpriteSheet.Icons.POTION_PARAGAS;
+		icon = ItemIconSheet.POTION_PARAGAS;
 	}
 
 	@Override

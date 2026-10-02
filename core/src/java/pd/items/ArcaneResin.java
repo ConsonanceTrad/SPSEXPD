@@ -21,6 +21,8 @@
 
 package pd.items;
 
+import pd.atlas.items.ConsumScrollAmuletScrollDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -34,7 +36,6 @@ import pd.items.wands.Wand;
 import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import render.noosa.audio.Sample;
@@ -44,7 +45,7 @@ import java.util.ArrayList;
 public class ArcaneResin extends Item {
 
 	{
-		image = ItemSpriteSheet.ARCANE_RESIN;
+		image = ConsumScrollAmuletScrollDict.ARCANE_RESIN;
 
 		stackable = true;
 

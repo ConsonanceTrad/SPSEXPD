@@ -34,7 +34,7 @@ import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
@@ -42,7 +42,7 @@ import render.noosa.audio.Sample;
 public class ScrollOfSirensSong extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_SIREN;
+		icon = ItemIconSheet.SCROLL_SIREN;
 	}
 
 	protected static boolean identifiedByUse = false;

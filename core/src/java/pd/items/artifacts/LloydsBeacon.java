@@ -21,6 +21,8 @@
 
 package pd.items.artifacts;
 
+import pd.atlas.items.ConsumUsefulUsefulDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -35,7 +37,6 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.InterlevelScene;
 import pd.sprites.ItemSprite.Glowing;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
@@ -55,7 +56,7 @@ public class LloydsBeacon extends Item {
 	private int returnPos;
 
 	{
-		image = ItemSpriteSheet.BEACON;
+		image = ConsumUsefulUsefulDict.BEACON_0;
 		unique = true;
 	}
 

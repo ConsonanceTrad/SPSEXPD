@@ -21,6 +21,8 @@
 
 package pd.plants;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
@@ -35,7 +37,6 @@ import pd.levels.Level;
 import pd.levels.Transitions;
 import pd.levels.traps.Trap;
 import pd.scenes.InterlevelScene;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
 
 public class Fadeleaf extends Plant {
@@ -79,7 +80,7 @@ public class Fadeleaf extends Plant {
 	
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SPS_SEED_FADELEAF;
+			image = ConsumPotionSeedSeedDict.SEED_FADELEAF_0;
 
 			plantClass = Fadeleaf.class;
 			explantClass = ExFadeleaf.class;

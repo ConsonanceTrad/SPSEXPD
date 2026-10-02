@@ -21,6 +21,8 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -31,7 +33,6 @@ import pd.actors.buffs.Corruption;
 import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.AttackIndicator;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
@@ -42,7 +43,7 @@ import render.utils.serialize.Bundle;
 public class Sai extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.SAI;
+		image = EquipmentEquipWeaponBasicWeaponDict.SAI_0;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 1.3f;
 

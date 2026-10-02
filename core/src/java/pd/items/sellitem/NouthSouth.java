@@ -1,6 +1,7 @@
 package pd.items.sellitem;
-import pd.sprites.ItemSpriteSheet;
+
+import pd.atlas.items.SpecificPlaceHolderDict;
 public class NouthSouth extends SellItem {
-	{ image = ItemSpriteSheet.NOUTH_SOUTH; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public int value() { return 500 * quantity; }
 }

@@ -21,6 +21,8 @@
 
 package pd.items;
 
+import pd.atlas.items.ConsumUsefulUsefulDict;
+
 import pd.Assets;
 import pd.actors.blobs.Blob;
 import pd.actors.blobs.TorchLight;
@@ -30,7 +32,6 @@ import pd.actors.hero.Hero;
 import pd.effects.particles.FlameParticle;
 import pd.journal.Catalog;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.noosa.particles.Emitter;
 
@@ -44,7 +45,7 @@ public class Torch extends Item {
 	public static final float TIME_TO_LIGHT = 1;
 	
 	{
-		image = ItemSpriteSheet.TORCH;
+		image = ConsumUsefulUsefulDict.TORCH_0;
 		
 		stackable = true;
 		

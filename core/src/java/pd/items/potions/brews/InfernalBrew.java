@@ -21,6 +21,8 @@
 
 package pd.items.potions.brews;
 
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.blobs.Blob;
@@ -28,13 +30,12 @@ import pd.actors.blobs.Inferno;
 import pd.items.potions.PotionOfLiquidFlame;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 
 public class InfernalBrew extends Brew {
 	
 	{
-		image = ItemSpriteSheet.BREW_INFERNAL;
+		image = ConsumPotionSeedBasicPotionDict.BREW_INFERNAL_0;
 	}
 	
 	@Override

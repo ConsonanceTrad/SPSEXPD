@@ -23,12 +23,12 @@ package pd.items.rings;
 
 import pd.actors.Char;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 
 public class RingOfEvasion extends Ring {
 
 	{
-		icon = ItemSpriteSheet.Icons.RING_EVASION;
+		icon = ItemIconSheet.RING_EVASION;
 		buffClass = Evasion.class;
 	}
 

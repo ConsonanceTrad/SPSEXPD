@@ -21,8 +21,9 @@
 
 package pd.items.trinkets;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 
 import java.util.Calendar;
@@ -31,7 +32,7 @@ import java.util.GregorianCalendar;
 public class DimensionalSundial extends Trinket {
 
 	{
-		image = ItemSpriteSheet.SUNDIAL;
+		image = EquipmentNonEquipDict.SUNDIAL_0;
 	}
 
 	@Override

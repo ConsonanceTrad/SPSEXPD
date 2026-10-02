@@ -1,5 +1,7 @@
 package pd.plants;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.items.Dewdrop;
@@ -8,7 +10,6 @@ import pd.items.VioletDewdrop;
 import pd.items.YellowDewdrop;
 import pd.items.medicine.GreenSpore;
 import pd.mechanics.pathfind.PathFinder;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class Dewcatcher extends Plant {
@@ -27,7 +28,7 @@ public class Dewcatcher extends Plant {
 		}
 	}
 	public static class Seed extends Plant.Seed {
-		{ image = ItemSpriteSheet.SPS_SEED_DEWCATCHER; plantClass = Dewcatcher.class; explantClass = ExDewcatcher.class; }
+		{ image = SpecificPlaceHolderDict.SOMETHING_0; plantClass = Dewcatcher.class; explantClass = ExDewcatcher.class; }
 	}
 	public static class ExDewcatcher extends SpsFruitBush {
 		{ image = 12; harvestCount = 3; harvestClass = GreenSpore.class; }

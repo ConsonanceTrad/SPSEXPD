@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.skills;
 
+import pd.atlas.items.ConsumScrollAmuletAmuletDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -12,12 +14,11 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 /** The four ascetic class skills from SPS-PD 0.9.8. */
 public class AsceticSkill extends ClassSkill {
-	{ image = ItemSpriteSheet.STONE_ENCHANT; }
+	{ image = ConsumScrollAmuletAmuletDict.STONE_ENCHANT_0; }
 
 	@Override public void doSpecial() {
 		Buff.prolong(curUser, SpeedImbue.class, 40f);

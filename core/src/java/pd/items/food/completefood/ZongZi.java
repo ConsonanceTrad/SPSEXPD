@@ -1,17 +1,18 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food.completefood;
 
+import pd.atlas.items.ConsumFoodFoodDict;
+
 import pd.actors.buffs.AttackUp;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.MagicArmor;
 import pd.actors.buffs.Slow;
 import pd.actors.buffs.Tar;
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 
 public class ZongZi extends CompleteFood {
 	{
-		image = ItemSpriteSheet.SPS_ZONGZI;
+		image = ConsumFoodFoodDict.ZONGZI;
 		energy = 600f;
 		stackable = false;
 	}

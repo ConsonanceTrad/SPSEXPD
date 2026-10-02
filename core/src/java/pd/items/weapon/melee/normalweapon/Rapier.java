@@ -1,15 +1,16 @@
 package pd.items.weapon.melee.normalweapon;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.effects.Pushing;
 import pd.mechanics.Ballistica;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class Rapier extends NormalMeleeWeapon {
-	public Rapier() { super(3, 1f, 1f, 2, 18, 25, ItemSpriteSheet.SPS_WEP_RAPIER); }
+	public Rapier() { super(3, 1f, 1f, 2, 18, 25, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) { s.max += 4; }
 	@Override public int proc(Char attacker, Char defender, int damage) {
 		int roll = attackerRoll(attacker);

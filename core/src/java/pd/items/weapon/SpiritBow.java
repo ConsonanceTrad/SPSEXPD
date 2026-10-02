@@ -21,6 +21,9 @@
 
 package pd.items.weapon;
 
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
+import pd.atlas.items.GroundFunctionalFallingDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -44,7 +47,6 @@ import pd.plants.Sorrowmoss;
 import pd.plants.Stormvine;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.sprites.MissileSprite;
 import pd.ui.QuickSlotButton;
 import render.noosa.audio.Sample;
@@ -60,7 +62,7 @@ public class SpiritBow extends Weapon {
 	public static final String AC_SHOOT		= "SHOOT";
 	
 	{
-		image = ItemSpriteSheet.SPIRIT_BOW;
+		image = EquipmentEquipWeaponUniqueWeaponDict.SPIRIT_BOW_0;
 		
 		defaultAction = AC_SHOOT;
 		usesTargeting = true;
@@ -293,7 +295,7 @@ public class SpiritBow extends Weapon {
 	public class SpiritArrow extends MissileWeapon {
 		
 		{
-			image = ItemSpriteSheet.SPIRIT_ARROW;
+			image = GroundFunctionalFallingDict.SPIRIT_ARROW_0;
 
 			hitSound = Assets.Sounds.HIT_ARROW;
 

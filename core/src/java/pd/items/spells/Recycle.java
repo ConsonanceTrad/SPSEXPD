@@ -21,6 +21,8 @@
 
 package pd.items.spells;
 
+import pd.atlas.items.ConsumScrollAmuletCrystalDict;
+
 import pd.Challenges;
 import pd.Dungeon;
 import pd.effects.Speck;
@@ -38,14 +40,13 @@ import pd.items.stones.Runestone;
 import pd.items.weapon.missiles.darts.TippedDart;
 import pd.messages.Messages;
 import pd.plants.Plant;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.serialize.Reflection;
 
 public class Recycle extends InventorySpell {
 	
 	{
-		image = ItemSpriteSheet.RECYCLE;
+		image = ConsumScrollAmuletCrystalDict.RECYCLE_0;
 
 		talentFactor = 2;
 		talentChance = 1/(float)Recipe.OUT_QUANTITY;

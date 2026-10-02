@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.Arcane;
 import pd.actors.buffs.AttackUp;
 import pd.actors.buffs.Buff;
@@ -17,7 +19,6 @@ import pd.actors.hero.HeroSubClass;
 import pd.items.Item;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndUseItem;
 import render.utils.serialize.Bundle;
@@ -38,7 +39,7 @@ public class DanceLion extends Item {
 
 	private int charge;
 
-	{ image = ItemSpriteSheet.SPS_DANCE_LION; unique = true; defaultAction = AC_CHOOSE; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; unique = true; defaultAction = AC_CHOOSE; }
 
 	@Override
 	public ArrayList<String> actions(Hero hero) {

@@ -34,7 +34,7 @@ import pd.items.weapon.Weapon;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.ui.Icons;
 import pd.utils.GLog;
 import pd.windows.WndBag;
@@ -45,7 +45,7 @@ import render.noosa.audio.Sample;
 public class ScrollOfEnchantment extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_ENCHANT;
+		icon = ItemIconSheet.SCROLL_ENCHANT;
 
 		unique = true;
 

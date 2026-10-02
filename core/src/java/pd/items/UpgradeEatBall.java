@@ -1,5 +1,7 @@
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.hero.Belongings;
@@ -10,7 +12,6 @@ import pd.items.scrolls.Scroll;
 import pd.messages.Messages;
 import pd.plants.Seedpod;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
 import render.utils.math.Random;
 
@@ -21,7 +22,7 @@ public class UpgradeEatBall extends Item {
 	private static final String AC_USE = "USE";
 
 	{
-		image = ItemSpriteSheet.UPGRADE_EATER;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = true;
 		defaultAction = AC_USE;
 	}

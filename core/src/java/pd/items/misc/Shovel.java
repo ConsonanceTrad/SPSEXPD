@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.buffs.Buff;
@@ -15,7 +17,6 @@ import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
@@ -34,7 +35,7 @@ public class Shovel extends Item {
 	private int charge;
 
 	{
-		image = ItemSpriteSheet.LEGACY_SHOVEL;
+		image = EquipmentNonEquipDict.LEGACY_SHOVEL_0;
 		defaultAction = AC_USE;
 		unique = true;
 	}

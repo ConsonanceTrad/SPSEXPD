@@ -1,11 +1,12 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 
 public class FishCracker extends Food {
 	{
-		image = ItemSpriteSheet.SPS_FISH_FOOD;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 200f;
 		hornValue = 0;
 	}

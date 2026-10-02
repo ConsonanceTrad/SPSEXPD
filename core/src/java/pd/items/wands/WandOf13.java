@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.wands;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -15,7 +17,6 @@ import pd.items.Heap;
 import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTilemap;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
@@ -30,7 +31,7 @@ public class WandOf13 extends DamageWand {
 	private static final ItemSprite.Glowing RED = new ItemSprite.Glowing(0xCC0000);
 
 	{
-		image = ItemSpriteSheet.WAND_SPS_DISINTEGRATION;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		collisionProperties = Ballistica.WONT_STOP;
 	}
 

@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.skills;
 
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
+
 import pd.Dungeon;
 import pd.actors.buffs.*;
 import pd.actors.damagetype.SpsMagicDamage;
@@ -17,12 +19,11 @@ import pd.items.weapon.Weapon;
 import pd.levels.GroundItems;
 import pd.plants.Plant;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
 
 /** The four performer class skills from SPS-PD 0.9.8. */
 public class PerformerSkill extends ClassSkill {
-	{ image = ItemSpriteSheet.ARTIFACT_HORN1; }
+	{ image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN1; }
 
 	@Override public void doSpecial() {
 		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {

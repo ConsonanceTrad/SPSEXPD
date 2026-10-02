@@ -1,18 +1,19 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.bags;
 
+import pd.atlas.items.EquipmentBagsDict;
+
 import pd.items.Item;
 import pd.items.brewed.Brewed;
 import pd.items.food.BugMeat;
 import pd.items.food.Food;
 import pd.items.potions.brews.Brew;
-import pd.sprites.ItemSpriteSheet;
 
 /** The thirty-slot SPS food and brew container. */
 public class ShoppingCart extends Bag {
 
 	{
-		image = ItemSpriteSheet.SHOPPING_CART;
+		image = EquipmentBagsDict.SHOPPING_CART_0;
 	}
 
 	@Override

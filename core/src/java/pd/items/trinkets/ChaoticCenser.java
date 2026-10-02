@@ -21,6 +21,8 @@
 
 package pd.items.trinkets;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Char;
@@ -43,7 +45,6 @@ import pd.effects.Speck;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.TargetHealthIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
@@ -56,7 +57,7 @@ import java.util.HashMap;
 public class ChaoticCenser extends Trinket {
 
 	{
-		image = ItemSpriteSheet.CHAOTIC_CENSER;
+		image = EquipmentNonEquipDict.CHAOTIC_CENSER_0;
 	}
 
 	@Override

@@ -21,6 +21,8 @@
 
 package pd.items.wands;
 
+import pd.atlas.items.EquipmentWandBasicWandDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -35,7 +37,6 @@ import pd.items.Heap;
 import pd.items.weapon.melee.MagesStaff;
 import pd.levels.rooms.special.MagicalFireRoom;
 import pd.mechanics.Ballistica;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.geom.PointF;
@@ -44,7 +45,7 @@ import render.utils.math.Random;
 public class WandOfFrost extends DamageWand {
 
 	{
-		image = ItemSpriteSheet.WAND_FROST;
+		image = EquipmentWandBasicWandDict.WAND_FROST;
 	}
 
 	public int min(int lvl){

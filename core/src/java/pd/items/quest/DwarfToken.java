@@ -21,17 +21,18 @@
 
 package pd.items.quest;
 
+import pd.atlas.items.SpecificTaskDict;
+
 import pd.actors.hero.Hero;
 import pd.actors.mobs.npcs.Imp;
 import pd.items.Item;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 
 public class DwarfToken extends Item {
 	
 	{
-		image = ItemSpriteSheet.TOKEN;
+		image = SpecificTaskDict.TOKEN_0;
 		
 		stackable = true;
 		unique = true;

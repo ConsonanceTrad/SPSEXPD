@@ -21,6 +21,16 @@
 
 package pd.windows;
 
+import pd.atlas.IconEntry;
+
+import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+import pd.atlas.items.SpecificPagesDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Dungeon;
@@ -61,7 +71,7 @@ import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.tiles.TerrainFeaturesTilemap;
 import pd.ui.BadgesGrid;
 import pd.ui.BadgesList;
@@ -155,7 +165,7 @@ public class WndJournal extends WndTabbed {
 						return Messages.get(notesTab, "title");
 					}
 				},
-				new IconTab( new ItemSprite(ItemSpriteSheet.MASTERY, null) ) {
+				new IconTab( new ItemSprite(ConsumUsefulProcessEnhanceDict.MASTERY_0, null) ) {
 					protected void select( boolean value ) {
 						super.select( value );
 						guideTab.active = guideTab.visible = value;
@@ -296,16 +306,16 @@ public class WndJournal extends WndTabbed {
 		private RedButton[] pageButtons;
 		private static final int NUM_BUTTONS = 9;
 		
-		private static final int[] sprites = {
-				ItemSpriteSheet.SEED_HOLDER,
-				ItemSpriteSheet.STONE_HOLDER,
-				ItemSpriteSheet.FOOD_HOLDER,
-				ItemSpriteSheet.POTION_HOLDER,
-				ItemSpriteSheet.SCROLL_HOLDER,
-				ItemSpriteSheet.BOMB_HOLDER,
-				ItemSpriteSheet.MISSILE_HOLDER,
-				ItemSpriteSheet.ELIXIR_HOLDER,
-				ItemSpriteSheet.SPELL_HOLDER
+		private static final IconEntry[] sprites = {
+				SpecificPlaceHolderDict.SEED_HOLDER_0,
+				SpecificPlaceHolderDict.STONE_HOLDER_0,
+				SpecificPlaceHolderDict.FOOD_HOLDER_0,
+				SpecificPlaceHolderDict.POTION_HOLDER_0,
+				SpecificPlaceHolderDict.SCROLL_HOLDER_0,
+				SpecificPlaceHolderDict.SOMETHING_0,
+				SpecificPlaceHolderDict.SOMETHING_0,
+				SpecificPlaceHolderDict.ELIXIR_HOLDER_0,
+				SpecificPlaceHolderDict.SPELL_HOLDER_0
 		};
 		
 		public static int currentPageIdx   = 0;
@@ -331,14 +341,14 @@ public class WndJournal extends WndTabbed {
 				if (Document.ALCHEMY_GUIDE.isPageFound(i)) {
 					pageButtons[i].icon(new ItemSprite(sprites[i], null));
 				} else {
-					pageButtons[i].icon(new ItemSprite(ItemSpriteSheet.SOMETHING, null));
+					pageButtons[i].icon(new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0, null));
 					pageButtons[i].enable(false);
 				}
 				add( pageButtons[i] );
 			}
 			
 			title = new IconTitle();
-			title.icon( new ItemSprite(ItemSpriteSheet.ALCH_PAGE));
+			title.icon( new ItemSprite(SpecificPagesDict.ALCH_PAGE_0));
 			title.visible = false;
 
 			body = PixelScene.renderTextBlock(6);
@@ -602,10 +612,10 @@ public class WndJournal extends WndTabbed {
 				};
 				add( itemButtons[i] );
 			}
-			itemButtons[EQUIP_IDX].icon(new ItemSprite(ItemSpriteSheet.WEAPON_HOLDER));
-			itemButtons[CONSUM_IDX].icon(new ItemSprite(ItemSpriteSheet.POTION_HOLDER));
-			itemButtons[BESTIARY_IDX].icon(new ItemSprite(ItemSpriteSheet.MOB_HOLDER));
-			itemButtons[LORE_IDX].icon(new ItemSprite(ItemSpriteSheet.DOCUMENT_HOLDER));
+			itemButtons[EQUIP_IDX].icon(new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0));
+			itemButtons[CONSUM_IDX].icon(new ItemSprite(SpecificPlaceHolderDict.POTION_HOLDER_0));
+			itemButtons[BESTIARY_IDX].icon(new ItemSprite(SpecificPlaceHolderDict.MOB_HOLDER_0));
+			itemButtons[LORE_IDX].icon(new ItemSprite(SpecificPlaceHolderDict.DOCUMENT_HOLDER_0));
 
 			grid = new ScrollingGridPane(){
 				@Override
@@ -776,7 +786,7 @@ public class WndJournal extends WndTabbed {
 				sprite = new ItemSprite(item.image, seen ? item.glowing() : null);
 				if (!seen)  {
 					if (item instanceof ExoticPotion){
-						sprite.frame(ItemSpriteSheet.POTION_CRIMSON);
+						sprite.frame(ConsumPotionSeedBasicPotionDict.POTION_CRIMSON_0);
 					}
 					sprite.lightness(0);
 					title = "???";
@@ -814,7 +824,7 @@ public class WndJournal extends WndTabbed {
 
 					if (item.icon != -1) {
 						secondIcon = new Image(Assets.Sprites.ITEM_ICONS);
-						secondIcon.frame(ItemSpriteSheet.Icons.film.get(item.icon));
+						secondIcon.frame(ItemIconSheet.film.get(item.icon));
 					}
 				}
 
@@ -823,11 +833,11 @@ public class WndJournal extends WndTabbed {
 				Weapon.Enchantment ench = (Weapon.Enchantment) Reflection.newInstance(itemClass);
 
 				if (seen){
-					sprite = new ItemSprite(ItemSpriteSheet.WORN_SHORTSWORD, ench.glowing());
+					sprite = new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.WORN_SHORTSWORD_0, ench.glowing());
 					title = Messages.titleCase(ench.name());
 					desc = ench.desc();
 				} else {
-					sprite = new ItemSprite(ItemSpriteSheet.WORN_SHORTSWORD);
+					sprite = new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.WORN_SHORTSWORD_0);
 					sprite.lightness(0f);
 					title = "???";
 					desc = Messages.get(CatalogTab.class, "not_seen_enchantment");
@@ -839,11 +849,11 @@ public class WndJournal extends WndTabbed {
 				Armor.Glyph glyph = (Armor.Glyph) Reflection.newInstance(itemClass);
 
 				if (seen){
-					sprite = new ItemSprite(ItemSpriteSheet.ARMOR_CLOTH, glyph.glowing());
+					sprite = new ItemSprite(EquipmentEquipArmorBasicArmorDict.ARMOR_CLOTH_0, glyph.glowing());
 					title = Messages.titleCase(glyph.name());
 					desc = glyph.desc();
 				} else {
-					sprite = new ItemSprite(ItemSpriteSheet.ARMOR_CLOTH);
+					sprite = new ItemSprite(EquipmentEquipArmorBasicArmorDict.ARMOR_CLOTH_0);
 					sprite.lightness(0f);
 					title = "???";
 					desc = Messages.get(CatalogTab.class, "not_seen_glyph");

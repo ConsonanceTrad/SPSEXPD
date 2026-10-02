@@ -1,10 +1,11 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.hero.Hero;
 import pd.items.quest.AdventureJournal;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class KnowledgeBook extends Item {
 	public static final String AC_READ = "READ";
 
 	{
-		image = ItemSpriteSheet.KNOWLEDGE_BOOK;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		defaultAction = AC_READ;
 		stackable = false;
 	}

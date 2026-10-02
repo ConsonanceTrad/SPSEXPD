@@ -21,6 +21,8 @@
 
 package pd.items.spells;
 
+import pd.atlas.items.ConsumScrollAmuletCrystalDict;
+
 import pd.Assets;
 import pd.actors.buffs.ArtifactRecharge;
 import pd.actors.buffs.Buff;
@@ -33,7 +35,6 @@ import pd.items.scrolls.ScrollOfRecharging;
 import pd.items.wands.CursedWand;
 import pd.journal.Catalog;
 import pd.mechanics.Ballistica;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 
@@ -42,7 +43,7 @@ import java.util.ArrayList;
 public class WildEnergy extends TargetedSpell {
 	
 	{
-		image = ItemSpriteSheet.WILD_ENERGY;
+		image = ConsumScrollAmuletCrystalDict.WILD_ENERGY_0;
 
 		usesTargeting = true;
 

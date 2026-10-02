@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.armor.normalarmor;
 
+import pd.atlas.IconEntry;
+
 import pd.Challenges;
 import pd.Dungeon;
 import pd.actors.Char;
@@ -32,7 +34,7 @@ public class NormalArmor extends Armor {
 	private final int maxGrowth;
 
 	protected NormalArmor(int tier, float dex, float stealth, int energy,
-			int baseMin, int baseMax, int strengthOffset, int minGrowth, int maxGrowth, int image) {
+			int baseMin, int baseMax, int strengthOffset, int minGrowth, int maxGrowth, IconEntry image) {
 		super(tier);
 		DEX = dex;
 		STE = stealth;

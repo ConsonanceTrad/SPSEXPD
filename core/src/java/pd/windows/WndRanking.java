@@ -21,6 +21,8 @@
 
 package pd.windows;
 
+import pd.atlas.items.ConsumGoodsMaterialsMaterialsDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Challenges;
@@ -41,7 +43,6 @@ import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.sprites.HeroSprite;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BadgesGrid;
 import pd.ui.BadgesList;
 import pd.ui.Button;
@@ -408,7 +409,7 @@ public class WndRanking extends WndTabbed {
 
 			EscapeCrystal crystal = Dungeon.hero.belongings.getItem(EscapeCrystal.class);
 			if (crystal != null){
-				IconButton vaultInv = new IconButton(new ItemSprite(ItemSpriteSheet.ESCAPE)){
+				IconButton vaultInv = new IconButton(new ItemSprite(ConsumGoodsMaterialsMaterialsDict.ESCAPE_0)){
 					@Override
 					protected void onClick() {
 						Bundle items = crystal.storedItems;

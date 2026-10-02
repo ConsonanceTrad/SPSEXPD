@@ -6,6 +6,8 @@
  */
 package pd.items.weapon.missiles.arrows;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -13,14 +15,13 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Drowsy;
 import pd.actors.mobs.npcs.NPC;
 import pd.effects.Speck;
-import pd.sprites.ItemSpriteSheet;
 
 public class RiceBall extends Arrows {
 
 	public static final float DURATION = 10f;
 
 	{
-		image = ItemSpriteSheet.RICE_BALL;
+		image = ConsumThrowsDict.RICE_BALL;
 	}
 
 	public RiceBall() { this(1); }

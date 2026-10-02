@@ -1,13 +1,14 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.sellitem;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.SpecificPagesDict;
+
 
 /** The unreadable development plan carried by the SPS author NPC. */
 public class DevUpPlan extends SellItem {
 
 	{
-		image = ItemSpriteSheet.GUIDE_PAGE;
+		image = SpecificPagesDict.GUIDE_PAGE_0;
 		stackable = true;
 	}
 

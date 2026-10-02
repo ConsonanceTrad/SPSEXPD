@@ -10,14 +10,15 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
-import pd.sprites.ItemSpriteSheet;
 
 /** A deliberately modest starter weapon for the Spellsword. */
 public class Spellblade extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.RUNIC_BLADE;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1.15f;
 		tier = 1;

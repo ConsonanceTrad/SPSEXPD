@@ -21,12 +21,14 @@
 
 package pd.windows;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+import pd.atlas.items.SpecificTaskDict;
+
 import pd.ShatteredPixelDungeon;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.scenes.SupporterScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.Icons;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
@@ -39,7 +41,7 @@ public class WndVictoryCongrats extends Window {
 		int width = PixelScene.landscape() ? 180 : 120;
 		int height = 0;
 
-		IconTitle title = new IconTitle( new ItemSprite(ItemSpriteSheet.AMULET), Messages.get(this, "title"));
+		IconTitle title = new IconTitle( new ItemSprite(SpecificTaskDict.AMULET_0), Messages.get(this, "title"));
 		title.setRect( 0, 0, width, 0 );
 		add(title);
 
@@ -68,7 +70,7 @@ public class WndVictoryCongrats extends Window {
 
 		height += Math.max(chalImg.height(), chalTxt.height()) + 6;
 
-		Image seedImg = new ItemSprite(ItemSpriteSheet.SEED_SUNGRASS);
+		Image seedImg = new ItemSprite(ConsumPotionSeedSeedDict.SEED_SUNGRASS);
 		seedImg.y = height;
 		seedImg.x = (16-seedImg.width())/2f;
 		PixelScene.align(seedImg);

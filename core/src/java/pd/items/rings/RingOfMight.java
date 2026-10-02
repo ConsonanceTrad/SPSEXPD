@@ -27,12 +27,12 @@ import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 
 public class RingOfMight extends Ring {
 
 	{
-		icon = ItemSpriteSheet.Icons.RING_MIGHT;
+		icon = ItemIconSheet.RING_MIGHT;
 		buffClass = Might.class;
 	}
 

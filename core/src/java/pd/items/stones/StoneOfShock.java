@@ -21,6 +21,8 @@
 
 package pd.items.stones;
 
+import pd.atlas.items.ConsumScrollAmuletAmuletDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -32,7 +34,6 @@ import pd.effects.Lightning;
 import pd.effects.particles.EnergyParticle;
 import pd.effects.particles.SparkParticle;
 import pd.mechanics.pathfind.PathFinder;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
 
@@ -41,7 +42,7 @@ import java.util.ArrayList;
 public class StoneOfShock extends Runestone {
 	
 	{
-		image = ItemSpriteSheet.STONE_SHOCK;
+		image = ConsumScrollAmuletAmuletDict.STONE_SHOCK_0;
 	}
 	
 	@Override

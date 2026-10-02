@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.bombs;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -11,7 +13,6 @@ import pd.effects.particles.SmokeParticle;
 import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.data.BArray;
 import render.utils.math.Random;
@@ -19,7 +20,7 @@ import render.utils.math.Random;
 public class FishingBomb extends Bomb {
 
 	{
-		image = ItemSpriteSheet.FISHING_BOMB;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 	public FishingBomb() { this(1); }

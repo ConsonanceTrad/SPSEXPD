@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.skills;
 
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -18,7 +20,6 @@ import pd.items.summon.Mobile;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.BMirrorSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
@@ -26,7 +27,7 @@ import java.util.ArrayList;
 
 /** The four soldier class skills from SPS-PD 0.9.8. */
 public class SoldierSkill extends ClassSkill {
-	{ image = ItemSpriteSheet.BOMB; }
+	{ image = EquipmentEquipWeaponBombDict.BOMB_0; }
 
 	@Override public void doSpecial() {
 		ArrayList<Integer> cells = new ArrayList<>();

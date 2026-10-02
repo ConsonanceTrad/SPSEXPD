@@ -1,13 +1,14 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.spammo;
 
+import pd.atlas.items.ConsumUsefulUsefulDict;
+
 import pd.actors.Char;
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 
 public abstract class SpAmmo extends Item {
 	{
-		image = ItemSpriteSheet.SP_AMMO;
+		image = ConsumUsefulUsefulDict.SP_AMMO;
 		stackable = false;
 	}
 

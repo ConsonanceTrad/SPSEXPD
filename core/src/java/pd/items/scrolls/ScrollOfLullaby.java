@@ -30,14 +30,14 @@ import pd.actors.buffs.Drowsy;
 import pd.actors.mobs.Mob;
 import pd.effects.Speck;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 
 public class ScrollOfLullaby extends Scroll {
 
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_LULLABY;
+		icon = ItemIconSheet.SCROLL_LULLABY;
 	}
 
 	@Override

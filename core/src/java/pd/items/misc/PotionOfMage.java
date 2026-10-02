@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -34,7 +36,6 @@ import pd.items.Item;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.sprites.MissileSprite;
 import pd.ui.QuickSlotButton;
 import pd.utils.GLog;
@@ -53,7 +54,7 @@ public class PotionOfMage extends Item {
 	private int charge;
 
 	{
-		image = ItemSpriteSheet.MIX_BOTTLE;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		defaultAction = AC_USE;
 		unique = true;
 		usesTargeting = true;
@@ -165,7 +166,7 @@ public class PotionOfMage extends Item {
 	}
 
 	private static class MageProjectile extends Item {
-		{ image = ItemSpriteSheet.SLIME_BALL; }
+		{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	}
 
 	@Override public String status() { return Integer.toString(charge / 70); }

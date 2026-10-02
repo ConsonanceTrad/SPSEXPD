@@ -8,8 +8,9 @@
 
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 public class Flag extends Item {
 
 	{
-		image = ItemSpriteSheet.SPS_FLAG;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = false;
 		unique = true;
 	}

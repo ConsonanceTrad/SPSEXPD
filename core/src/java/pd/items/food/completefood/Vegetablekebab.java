@@ -1,19 +1,20 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food.completefood;
 
+import pd.atlas.items.ConsumFoodFoodDict;
+
 import pd.actors.buffs.AttackUp;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.MagicArmor;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 
 public class Vegetablekebab extends CompleteFood {
 
 	private static final ItemSprite.Glowing GREEN = new ItemSprite.Glowing(0x22CC44);
 
 	{
-		image = ItemSpriteSheet.KEBAB;
+		image = ConsumFoodFoodDict.KEBAB;
 		energy = 150f;
 	}
 

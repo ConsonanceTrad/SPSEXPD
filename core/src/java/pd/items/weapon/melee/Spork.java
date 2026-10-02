@@ -1,13 +1,14 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.effects.Speck;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class Spork extends MeleeWeapon {
-	{ image = ItemSpriteSheet.SPORK; tier = 3; ACC = 1f; DLY = 0.8f; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; tier = 3; ACC = 1f; DLY = 0.8f; }
 	@Override public int min(int lvl) { return 8 + 2 * lvl; }
 	@Override public int max(int lvl) { return 14 + 2 * lvl; }
 	@Override public int STRReq(int lvl) { return 14; }

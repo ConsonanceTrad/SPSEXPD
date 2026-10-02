@@ -1,15 +1,16 @@
 /* Special Surprise content rebuilt for Shattered Pixel Dungeon 4.0. GPLv3+. */
 package pd.items.weapon.melee.fusion;
 
+import pd.atlas.items.EquipmentWandBasicWandDict;
+
 import pd.actors.Char;
 import pd.items.wands.WandOfBlastWave;
 import pd.items.weapon.melee.Sword;
 import pd.mechanics.Ballistica;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class WindBottle extends Sword implements FusionWeapon {
-	{ image = ItemSpriteSheet.WAND_BLAST_WAVE; tier = 3; }
+	{ image = EquipmentWandBasicWandDict.WAND_BLAST_WAVE_0; tier = 3; }
 	@Override public int min(int lvl) { return 4 + lvl; }
 	@Override public int max(int lvl) { return 17 + 4 * lvl; }
 	@Override public int proc(Char attacker, Char defender, int damage) {

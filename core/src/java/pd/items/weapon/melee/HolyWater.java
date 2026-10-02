@@ -1,10 +1,11 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.actors.Char;
 import pd.items.Item;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.serialize.Bundle;
 
 public class HolyWater extends MeleeWeapon {
@@ -13,7 +14,7 @@ public class HolyWater extends MeleeWeapon {
 	private int charge;
 
 	{
-		image = ItemSpriteSheet.SPS_HOLY_WATER;
+		image = EquipmentEquipWeaponBasicWeaponDict.HOLY_WATER;
 		tier = 3;
 		ACC = 0.8f;
 		DLY = 1.2f;

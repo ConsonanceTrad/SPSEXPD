@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.buffs.Arcane;
 import pd.actors.buffs.AttackUp;
@@ -16,7 +18,6 @@ import pd.actors.mobs.Mob;
 import pd.items.Item;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndUseItem;
 import render.utils.serialize.Bundle;
@@ -35,7 +36,7 @@ public class BigBattery extends Item {
 	private int charge;
 
 	{
-		image = ItemSpriteSheet.LEGACY_BIG_BATTERY;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		unique = true;
 		defaultAction = AC_CHOOSE;
 	}

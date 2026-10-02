@@ -32,7 +32,7 @@ import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
@@ -42,7 +42,7 @@ import render.utils.math.Random;
 public class PotionOfMastery extends ExoticPotion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_MASTERY;
+		icon = ItemIconSheet.POTION_MASTERY;
 
 		unique = true;
 

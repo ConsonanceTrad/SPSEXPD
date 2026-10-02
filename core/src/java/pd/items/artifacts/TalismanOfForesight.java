@@ -21,6 +21,8 @@
 
 package pd.items.artifacts;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.Gdx;
 import pd.Assets;
 import pd.Dungeon;
@@ -47,7 +49,6 @@ import pd.mechanics.ConeAOE;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
@@ -58,7 +59,7 @@ import java.util.ArrayList;
 public class TalismanOfForesight extends Artifact {
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_TALISMAN;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 
 		exp = 0;
 		levelCap = 10;

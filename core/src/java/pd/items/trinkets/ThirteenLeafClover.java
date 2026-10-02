@@ -21,14 +21,15 @@
 
 package pd.items.trinkets;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class ThirteenLeafClover extends Trinket {
 
 	{
-		image = ItemSpriteSheet.CLOVER;
+		image = EquipmentNonEquipDict.CLOVER_0;
 	}
 
 	@Override

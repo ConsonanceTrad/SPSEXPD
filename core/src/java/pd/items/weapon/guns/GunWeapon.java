@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.guns;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -28,7 +30,6 @@ import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
@@ -259,7 +260,7 @@ public class GunWeapon extends SpsRangedWeapon {
 
 	public class GunAmmo extends MissileWeapon {
 		{
-			image = ItemSpriteSheet.LEGACY_BULLET;
+			image = SpecificPlaceHolderDict.SOMETHING_0;
 			tier = Math.max(1, gunTier);
 			ACC = 1.3f;
 			spawnedForEffect = true;

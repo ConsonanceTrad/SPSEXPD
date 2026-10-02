@@ -1,17 +1,18 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.bombs;
 
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class MiniBomb extends Bomb {
-	{ image = ItemSpriteSheet.SPS_MINI_BOMB; }
+	{ image = EquipmentEquipWeaponBombDict.SPS_MINI_BOMB; }
 
 	@Override public void explode(int cell) {
 		super.explode(cell);

@@ -13,6 +13,8 @@
 
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Challenges;
@@ -50,7 +52,6 @@ import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import pd.windows.WndBag;
@@ -92,7 +93,7 @@ public class Waterskin extends Item {
 	private static final String TXT_STATUS2 = "%d/%d";
 
 	{
-		image = ItemSpriteSheet.VIAL;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		defaultAction = AC_CHOOSE;
 		unique = true;
 	}

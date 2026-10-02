@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.start;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -18,7 +20,6 @@ import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
@@ -34,7 +35,7 @@ public class EleKatana extends NormalMeleeWeapon {
 	private int charge;
 
 	public EleKatana() {
-		super(2, 2f, 1f, 1, 5, 20, ItemSpriteSheet.SPS_ELE_KATANA);
+		super(2, 2f, 1f, 1, 5, 20, SpecificPlaceHolderDict.SOMETHING_0);
 		unique = true;
 		reinforced = true;
 		cursed = true;

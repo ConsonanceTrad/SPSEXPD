@@ -1,5 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.start;
+
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 import java.util.ArrayList;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -15,12 +17,11 @@ import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
 import render.utils.serialize.Bundle;
 public class HolyMace extends NormalMeleeWeapon {
 	public static final String AC_ADD="ADD",AC_LIGHT="LIGHT",AC_TRIAL="TRIAL";private static final String CHARGE="charge",UP1="uptime1",UP2="uptime2";private int charge,uptime1=1,uptime2=1;
-	public HolyMace(){super(3,1.2f,1f,2,8,20,ItemSpriteSheet.LEGACY_HOLY_MACE);unique=true;reinforced=true;cursed=true;defaultAction=AC_ADD;usesTargeting=true;}
+	public HolyMace(){super(3,1.2f,1f,2,8,20,EquipmentEquipWeaponUniqueWeaponDict.HOLY_HAMMER);unique=true;reinforced=true;cursed=true;defaultAction=AC_ADD;usesTargeting=true;}
 	@Override protected void applyLegacyUpgrade(Stats stats){stats.min++;stats.max+=3;}@Override public Item uncurse(){return this;}
 	@Override public ArrayList<String> actions(Hero h){ArrayList<String>a=super.actions(h);a.add(AC_ADD);if(charge>4)a.add(AC_LIGHT);if(charge>9)a.add(AC_TRIAL);return a;}
 	@Override public void execute(Hero h,String a){if(AC_ADD.equals(a)){curUser=h;GameScene.selectItem(selector);}else if(AC_LIGHT.equals(a))light(h);else if(AC_TRIAL.equals(a)){curUser=h;GameScene.selectCell(shooter);}else super.execute(h,a);}

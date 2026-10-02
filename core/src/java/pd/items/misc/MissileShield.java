@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -15,7 +17,6 @@ import pd.items.weapon.missiles.MissileWeapon;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.sprites.MissileSprite;
 import pd.ui.QuickSlotButton;
 import pd.utils.GLog;
@@ -32,7 +33,7 @@ public class MissileShield extends Item {
 	private int charge;
 
 	{
-		image = ItemSpriteSheet.WOODEN_SHIELD;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		unique = true;
 		defaultAction = AC_CAST;
 		usesTargeting = true;
@@ -116,7 +117,7 @@ public class MissileShield extends Item {
 	};
 
 	private class MissileShieldAmmo extends MissileWeapon {
-		{ image = ItemSpriteSheet.WOODEN_SHIELD; tier = 1; spawnedForEffect = true; setID = 0; }
+		{ image = SpecificPlaceHolderDict.SOMETHING_0; tier = 1; spawnedForEffect = true; setID = 0; }
 		@Override public int defaultQuantity() { return 1; }
 		@Override public int damageRoll(Char owner) { return MissileShield.this.damageRoll(owner); }
 		@Override public float accuracyFactor(Char owner, Char target) { return 1000f; }

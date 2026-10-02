@@ -5,12 +5,13 @@
 
 package pd.items;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.SpecificTaskDict;
+
 
 public class StoneOre extends Item {
 
 	{
-		image = ItemSpriteSheet.ORE;
+		image = SpecificTaskDict.ORE_0;
 		stackable = true;
 	}
 

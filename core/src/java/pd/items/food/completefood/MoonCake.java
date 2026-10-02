@@ -1,16 +1,17 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food.completefood;
 
+import pd.atlas.items.ConsumFoodFoodDict;
+
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.MagicArmor;
 import pd.actors.buffs.ShieldArmor;
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 
 public class MoonCake extends CompleteFood {
 
 	{
-		image = ItemSpriteSheet.MOON_CAKE;
+		image = ConsumFoodFoodDict.MOON_CAKE;
 		energy = 360f;
 	}
 

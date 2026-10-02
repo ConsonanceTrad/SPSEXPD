@@ -1,12 +1,13 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Badges;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 
 import java.util.ArrayList;
 
@@ -14,7 +15,7 @@ public class MitBottle extends Item {
 	public static final String AC_USE = "USE";
 	private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing(0xFFFF44);
 	{
-		image = ItemSpriteSheet.SPS_MIT_BOTTLE;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = true;
 		defaultAction = AC_USE;
 	}

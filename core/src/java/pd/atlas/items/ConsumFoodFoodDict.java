@@ -13,153 +13,153 @@ public final class ConsumFoodFoodDict {
 	private ConsumFoodFoodDict() { }
 
 	/** SMALL_RATION_PACK */
-	public static final IconEntry SMALL_RATION_PACK = new IconEntry("sprites/items/consum/food/food.png", new int[]{1, 3, 14, 11});
+	public static final IconEntry SMALL_RATION_PACK = new IconEntry("sprites/items/consum/food/food.png", new int[]{1, 3, 14, 11}, 6306);
 	/** RATION_PACK */
-	public static final IconEntry RATION_PACK = new IconEntry("sprites/items/consum/food/food.png", new int[]{16, 2, 16, 12});
+	public static final IconEntry RATION_PACK = new IconEntry("sprites/items/consum/food/food.png", new int[]{16, 2, 16, 12}, 6307);
 	/** MEAR_PIE */
-	public static final IconEntry MEAR_PIE = new IconEntry("sprites/items/consum/food/food.png", new int[]{32, 3, 16, 11});
+	public static final IconEntry MEAR_PIE = new IconEntry("sprites/items/consum/food/food.png", new int[]{32, 3, 16, 11}, 6308);
 	/** WHOLE_MEAT_PANCAKE */
-	public static final IconEntry WHOLE_MEAT_PANCAKE = new IconEntry("sprites/items/consum/food/food.png", new int[]{48, 2, 16, 12});
+	public static final IconEntry WHOLE_MEAT_PANCAKE = new IconEntry("sprites/items/consum/food/food.png", new int[]{48, 2, 16, 12}, 6309);
 	/** RICE_FOOD */
-	public static final IconEntry RICE_FOOD = new IconEntry("sprites/items/consum/food/food.png", new int[]{65, 3, 14, 11});
+	public static final IconEntry RICE_FOOD = new IconEntry("sprites/items/consum/food/food.png", new int[]{65, 3, 14, 11}, 6310);
 	/** RICE_GRUEL */
-	public static final IconEntry RICE_GRUEL = new IconEntry("sprites/items/consum/food/food.png", new int[]{82, 3, 12, 11});
+	public static final IconEntry RICE_GRUEL = new IconEntry("sprites/items/consum/food/food.png", new int[]{82, 3, 12, 11}, 6311);
 	/** PUMPKIN_PIE */
-	public static final IconEntry PUMPKIN_PIE = new IconEntry("sprites/items/consum/food/food.png", new int[]{97, 3, 14, 11});
+	public static final IconEntry PUMPKIN_PIE = new IconEntry("sprites/items/consum/food/food.png", new int[]{97, 3, 14, 11}, 6312);
 	/** PIZZA */
-	public static final IconEntry PIZZA = new IconEntry("sprites/items/consum/food/food.png", new int[]{113, 2, 15, 12});
+	public static final IconEntry PIZZA = new IconEntry("sprites/items/consum/food/food.png", new int[]{113, 2, 15, 12}, 6313);
 	/** MOON_CAKE */
-	public static final IconEntry MOON_CAKE = new IconEntry("sprites/items/consum/food/food.png", new int[]{129, 2, 14, 12});
+	public static final IconEntry MOON_CAKE = new IconEntry("sprites/items/consum/food/food.png", new int[]{129, 2, 14, 12}, 6314);
 	/** HAMBURGER */
-	public static final IconEntry HAMBURGER = new IconEntry("sprites/items/consum/food/food.png", new int[]{144, 1, 16, 14});
+	public static final IconEntry HAMBURGER = new IconEntry("sprites/items/consum/food/food.png", new int[]{144, 1, 16, 14}, 6315);
 	/** HEARTY_MEAL */
-	public static final IconEntry HEARTY_MEAL = new IconEntry("sprites/items/consum/food/food.png", new int[]{161, 5, 14, 9});
+	public static final IconEntry HEARTY_MEAL = new IconEntry("sprites/items/consum/food/food.png", new int[]{161, 5, 14, 9}, 6316);
 	/** SOUP_DUMPLING */
-	public static final IconEntry SOUP_DUMPLING = new IconEntry("sprites/items/consum/food/food.png", new int[]{177, 0, 14, 16});
+	public static final IconEntry SOUP_DUMPLING = new IconEntry("sprites/items/consum/food/food.png", new int[]{177, 0, 14, 16}, 6317);
 	/** SLIME_RICE */
-	public static final IconEntry SLIME_RICE = new IconEntry("sprites/items/consum/food/food.png", new int[]{193, 3, 14, 11});
+	public static final IconEntry SLIME_RICE = new IconEntry("sprites/items/consum/food/food.png", new int[]{193, 3, 14, 11}, 6318);
 	/** PATCHOULI_PIE */
-	public static final IconEntry PATCHOULI_PIE = new IconEntry("sprites/items/consum/food/food.png", new int[]{209, 3, 14, 11});
+	public static final IconEntry PATCHOULI_PIE = new IconEntry("sprites/items/consum/food/food.png", new int[]{209, 3, 14, 11}, 6319);
 	/** SUMMER_HOMEWORK */
-	public static final IconEntry SUMMER_HOMEWORK = new IconEntry("sprites/items/consum/food/food.png", new int[]{225, 0, 14, 16});
+	public static final IconEntry SUMMER_HOMEWORK = new IconEntry("sprites/items/consum/food/food.png", new int[]{225, 0, 14, 16}, 6320);
 	/** SANDWICH */
-	public static final IconEntry SANDWICH = new IconEntry("sprites/items/consum/food/food.png", new int[]{240, 0, 16, 15});
+	public static final IconEntry SANDWICH = new IconEntry("sprites/items/consum/food/food.png", new int[]{240, 0, 16, 15}, 6321);
 	/** BONE_SOUP */
-	public static final IconEntry BONE_SOUP = new IconEntry("sprites/items/consum/food/food.png", new int[]{256, 2, 16, 11});
+	public static final IconEntry BONE_SOUP = new IconEntry("sprites/items/consum/food/food.png", new int[]{256, 2, 16, 11}, 6322);
 	/** VEGETABLE_SOUP */
-	public static final IconEntry VEGETABLE_SOUP = new IconEntry("sprites/items/consum/food/food.png", new int[]{272, 1, 16, 12});
+	public static final IconEntry VEGETABLE_SOUP = new IconEntry("sprites/items/consum/food/food.png", new int[]{272, 1, 16, 12}, 6323);
 	/** RAW_NUT */
-	public static final IconEntry RAW_NUT = new IconEntry("sprites/items/consum/food/food.png", new int[]{291, 3, 10, 10});
+	public static final IconEntry RAW_NUT = new IconEntry("sprites/items/consum/food/food.png", new int[]{291, 3, 10, 10}, 6324);
 	/** FRENCH_FRIES */
-	public static final IconEntry FRENCH_FRIES = new IconEntry("sprites/items/consum/food/food.png", new int[]{306, 2, 12, 13});
+	public static final IconEntry FRENCH_FRIES = new IconEntry("sprites/items/consum/food/food.png", new int[]{306, 2, 12, 13}, 6325);
 	/** AFLY_FOOD */
-	public static final IconEntry AFLY_FOOD = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 17, 16, 14});
+	public static final IconEntry AFLY_FOOD = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 17, 16, 14}, 6326);
 	/** PERFECT_MEAL */
-	public static final IconEntry PERFECT_MEAL = new IconEntry("sprites/items/consum/food/food.png", new int[]{17, 18, 14, 13});
+	public static final IconEntry PERFECT_MEAL = new IconEntry("sprites/items/consum/food/food.png", new int[]{17, 18, 14, 13}, 6327);
 	/** SPAGHETTI */
-	public static final IconEntry SPAGHETTI = new IconEntry("sprites/items/consum/food/food.png", new int[]{32, 17, 16, 15});
+	public static final IconEntry SPAGHETTI = new IconEntry("sprites/items/consum/food/food.png", new int[]{32, 17, 16, 15}, 6328);
 	/** ZONGZI */
-	public static final IconEntry ZONGZI = new IconEntry("sprites/items/consum/food/food.png", new int[]{49, 18, 14, 13});
+	public static final IconEntry ZONGZI = new IconEntry("sprites/items/consum/food/food.png", new int[]{49, 18, 14, 13}, 6329);
 	/** STEAMED_FISH#0 */
-	public static final IconEntry STEAMED_FISH_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{64, 18, 16, 12});
+	public static final IconEntry STEAMED_FISH_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{64, 18, 16, 12}, 6330);
 	/** FISH_LEFTOVER#0 */
-	public static final IconEntry FISH_LEFTOVER_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{80, 18, 16, 12});
+	public static final IconEntry FISH_LEFTOVER_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{80, 18, 16, 12}, 6331);
 	/** EASTER_EGG#0 */
-	public static final IconEntry EASTER_EGG_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{98, 17, 12, 14});
+	public static final IconEntry EASTER_EGG_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{98, 17, 12, 14}, 6332);
 	/** BIRTHDAY_CAKE */
-	public static final IconEntry BIRTHDAY_CAKE = new IconEntry("sprites/items/consum/food/food.png", new int[]{113, 18, 14, 13});
+	public static final IconEntry BIRTHDAY_CAKE = new IconEntry("sprites/items/consum/food/food.png", new int[]{113, 18, 14, 13}, 6333);
 	/** HOLIDAY_CAKE */
-	public static final IconEntry HOLIDAY_CAKE = new IconEntry("sprites/items/consum/food/food.png", new int[]{129, 18, 14, 13});
+	public static final IconEntry HOLIDAY_CAKE = new IconEntry("sprites/items/consum/food/food.png", new int[]{129, 18, 14, 13}, 6334);
 	/** BRAISED_CHICKEN */
-	public static final IconEntry BRAISED_CHICKEN = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 32, 16, 16});
+	public static final IconEntry BRAISED_CHICKEN = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 32, 16, 16}, 6335);
 	/** SPS_TURKEY_MEAT#0 */
-	public static final IconEntry SPS_TURKEY_MEAT_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{16, 32, 16, 16});
+	public static final IconEntry SPS_TURKEY_MEAT_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{16, 32, 16, 16}, 6336);
 	/** CHICKENNUGGET */
-	public static final IconEntry CHICKENNUGGET = new IconEntry("sprites/items/consum/food/food.png", new int[]{34, 33, 12, 15});
+	public static final IconEntry CHICKENNUGGET = new IconEntry("sprites/items/consum/food/food.png", new int[]{34, 33, 12, 15}, 6337);
 	/** CHICKEN_WRAP */
-	public static final IconEntry CHICKEN_WRAP = new IconEntry("sprites/items/consum/food/food.png", new int[]{49, 34, 14, 12});
+	public static final IconEntry CHICKEN_WRAP = new IconEntry("sprites/items/consum/food/food.png", new int[]{49, 34, 14, 12}, 6338);
 	/** KEBAB */
-	public static final IconEntry KEBAB = new IconEntry("sprites/items/consum/food/food.png", new int[]{66, 34, 12, 12});
+	public static final IconEntry KEBAB = new IconEntry("sprites/items/consum/food/food.png", new int[]{66, 34, 12, 12}, 6339);
 	/** NUT_COOKIE */
-	public static final IconEntry NUT_COOKIE = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 48, 16, 15});
+	public static final IconEntry NUT_COOKIE = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 48, 16, 15}, 6340);
 	/** EASTER_EGG_CANDY */
-	public static final IconEntry EASTER_EGG_CANDY = new IconEntry("sprites/items/consum/food/food.png", new int[]{18, 49, 11, 14});
+	public static final IconEntry EASTER_EGG_CANDY = new IconEntry("sprites/items/consum/food/food.png", new int[]{18, 49, 11, 14}, 6341);
 	/** CANDY_CANE#0 */
-	public static final IconEntry CANDY_CANE_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{34, 48, 13, 16});
+	public static final IconEntry CANDY_CANE_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{34, 48, 13, 16}, 6342);
 	/** FRUIT_CANDY */
-	public static final IconEntry FRUIT_CANDY = new IconEntry("sprites/items/consum/food/food.png", new int[]{48, 51, 15, 10});
+	public static final IconEntry FRUIT_CANDY = new IconEntry("sprites/items/consum/food/food.png", new int[]{48, 51, 15, 10}, 6343);
 	/** CHOCOLATE */
-	public static final IconEntry CHOCOLATE = new IconEntry("sprites/items/consum/food/food.png", new int[]{66, 51, 12, 12});
+	public static final IconEntry CHOCOLATE = new IconEntry("sprites/items/consum/food/food.png", new int[]{66, 51, 12, 12}, 6344);
 	/** FRUIT_SMOOTHIE */
-	public static final IconEntry FRUIT_SMOOTHIE = new IconEntry("sprites/items/consum/food/food.png", new int[]{82, 49, 13, 15});
+	public static final IconEntry FRUIT_SMOOTHIE = new IconEntry("sprites/items/consum/food/food.png", new int[]{82, 49, 13, 15}, 6345);
 	/** MIXED_SODA */
-	public static final IconEntry MIXED_SODA = new IconEntry("sprites/items/consum/food/food.png", new int[]{98, 49, 12, 14});
+	public static final IconEntry MIXED_SODA = new IconEntry("sprites/items/consum/food/food.png", new int[]{98, 49, 12, 14}, 6346);
 	/** SPARKLING_POTION#0 */
-	public static final IconEntry SPARKLING_POTION_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{116, 48, 7, 16});
+	public static final IconEntry SPARKLING_POTION_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{116, 48, 7, 16}, 6347);
 	/** RAINBOW_POTION#0 */
-	public static final IconEntry RAINBOW_POTION_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{130, 49, 12, 14});
+	public static final IconEntry RAINBOW_POTION_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{130, 49, 12, 14}, 6348);
 	/** COCKTAIL */
-	public static final IconEntry COCKTAIL = new IconEntry("sprites/items/consum/food/food.png", new int[]{3, 64, 12, 15});
+	public static final IconEntry COCKTAIL = new IconEntry("sprites/items/consum/food/food.png", new int[]{3, 64, 12, 15}, 6349);
 	/** LEMONADE */
-	public static final IconEntry LEMONADE = new IconEntry("sprites/items/consum/food/food.png", new int[]{20, 66, 9, 13});
+	public static final IconEntry LEMONADE = new IconEntry("sprites/items/consum/food/food.png", new int[]{20, 66, 9, 13}, 6350);
 	/** MINERAL_WATER */
-	public static final IconEntry MINERAL_WATER = new IconEntry("sprites/items/consum/food/food.png", new int[]{37, 65, 7, 14});
+	public static final IconEntry MINERAL_WATER = new IconEntry("sprites/items/consum/food/food.png", new int[]{37, 65, 7, 14}, 6351);
 	/** REALGAR_WINE */
-	public static final IconEntry REALGAR_WINE = new IconEntry("sprites/items/consum/food/food.png", new int[]{51, 68, 9, 9});
+	public static final IconEntry REALGAR_WINE = new IconEntry("sprites/items/consum/food/food.png", new int[]{51, 68, 9, 9}, 6352);
 	/** EFFERVESCENT_SODA */
-	public static final IconEntry EFFERVESCENT_SODA = new IconEntry("sprites/items/consum/food/food.png", new int[]{66, 65, 12, 14});
+	public static final IconEntry EFFERVESCENT_SODA = new IconEntry("sprites/items/consum/food/food.png", new int[]{66, 65, 12, 14}, 6353);
 	/** CANNED_HONEY */
-	public static final IconEntry CANNED_HONEY = new IconEntry("sprites/items/consum/food/food.png", new int[]{3, 82, 9, 13});
+	public static final IconEntry CANNED_HONEY = new IconEntry("sprites/items/consum/food/food.png", new int[]{3, 82, 9, 13}, 6354);
 	/** DILUTED_HONEY */
-	public static final IconEntry DILUTED_HONEY = new IconEntry("sprites/items/consum/food/food.png", new int[]{19, 82, 10, 12});
+	public static final IconEntry DILUTED_HONEY = new IconEntry("sprites/items/consum/food/food.png", new int[]{19, 82, 10, 12}, 6355);
 	/** HONEY_RICE */
-	public static final IconEntry HONEY_RICE = new IconEntry("sprites/items/consum/food/food.png", new int[]{33, 83, 14, 11});
+	public static final IconEntry HONEY_RICE = new IconEntry("sprites/items/consum/food/food.png", new int[]{33, 83, 14, 11}, 6356);
 	/** ICECREAM */
-	public static final IconEntry ICECREAM = new IconEntry("sprites/items/consum/food/food.png", new int[]{50, 80, 13, 16});
+	public static final IconEntry ICECREAM = new IconEntry("sprites/items/consum/food/food.png", new int[]{50, 80, 13, 16}, 6357);
 	/** HONEY_ROAST_MEAT */
-	public static final IconEntry HONEY_ROAST_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{64, 83, 15, 11});
+	public static final IconEntry HONEY_ROAST_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{64, 83, 15, 11}, 6358);
 	/** NUT_CAKE */
-	public static final IconEntry NUT_CAKE = new IconEntry("sprites/items/consum/food/food.png", new int[]{80, 81, 16, 14});
+	public static final IconEntry NUT_CAKE = new IconEntry("sprites/items/consum/food/food.png", new int[]{80, 81, 16, 14}, 6359);
 	/** MEAT */
-	public static final IconEntry MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 99, 15, 11});
+	public static final IconEntry MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 99, 15, 11}, 6360);
 	/** MONSTER_MEAT */
-	public static final IconEntry MONSTER_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{16, 99, 15, 11});
+	public static final IconEntry MONSTER_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{16, 99, 15, 11}, 6361);
 	/** FROZEN_MEAT */
-	public static final IconEntry FROZEN_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{32, 99, 15, 11});
+	public static final IconEntry FROZEN_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{32, 99, 15, 11}, 6362);
 	/** STEWED_MEAT */
-	public static final IconEntry STEWED_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{48, 99, 15, 11});
+	public static final IconEntry STEWED_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{48, 99, 15, 11}, 6363);
 	/** ROAST_MEAT */
-	public static final IconEntry ROAST_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{64, 99, 15, 11});
+	public static final IconEntry ROAST_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{64, 99, 15, 11}, 6364);
 	/** HERB_SAUCED_MEAT */
-	public static final IconEntry HERB_SAUCED_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{80, 99, 15, 11});
+	public static final IconEntry HERB_SAUCED_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{80, 99, 15, 11}, 6365);
 	/** PHANTOM_MEAT */
-	public static final IconEntry PHANTOM_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{96, 99, 15, 11});
+	public static final IconEntry PHANTOM_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{96, 99, 15, 11}, 6366);
 	/** BLACKBERRY */
-	public static final IconEntry BLACKBERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{2, 113, 12, 13});
+	public static final IconEntry BLACKBERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{2, 113, 12, 13}, 6367);
 	/** CLOUDBERRY */
-	public static final IconEntry CLOUDBERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{19, 113, 12, 13});
+	public static final IconEntry CLOUDBERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{19, 113, 12, 13}, 6368);
 	/** BLUEBERRY */
-	public static final IconEntry BLUEBERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{34, 113, 12, 13});
+	public static final IconEntry BLUEBERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{34, 113, 12, 13}, 6369);
 	/** MOONBERRY */
-	public static final IconEntry MOONBERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{51, 113, 12, 13});
+	public static final IconEntry MOONBERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{51, 113, 12, 13}, 6370);
 	/** FULLMOONBERRY */
-	public static final IconEntry FULLMOONBERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{67, 113, 12, 13});
+	public static final IconEntry FULLMOONBERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{67, 113, 12, 13}, 6371);
 	/** BLANDFRUIT */
-	public static final IconEntry BLANDFRUIT = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 128, 9, 12});
+	public static final IconEntry BLANDFRUIT = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 128, 9, 12}, 6372);
 	/** BLAND_CHUNKS */
-	public static final IconEntry BLAND_CHUNKS = new IconEntry("sprites/items/consum/food/food.png", new int[]{16, 128, 14, 6});
+	public static final IconEntry BLAND_CHUNKS = new IconEntry("sprites/items/consum/food/food.png", new int[]{16, 128, 14, 6}, 6373);
 	/** PINK_BRICK */
-	public static final IconEntry PINK_BRICK = new IconEntry("sprites/items/consum/food/food.png", new int[]{1, 164, 14, 9});
+	public static final IconEntry PINK_BRICK = new IconEntry("sprites/items/consum/food/food.png", new int[]{1, 164, 14, 9}, 6374);
 	/** PINK_FISH */
-	public static final IconEntry PINK_FISH = new IconEntry("sprites/items/consum/food/food.png", new int[]{18, 165, 12, 7});
+	public static final IconEntry PINK_FISH = new IconEntry("sprites/items/consum/food/food.png", new int[]{18, 165, 12, 7}, 6375);
 	/** BLUE_FISH */
-	public static final IconEntry BLUE_FISH = new IconEntry("sprites/items/consum/food/food.png", new int[]{34, 165, 12, 7});
+	public static final IconEntry BLUE_FISH = new IconEntry("sprites/items/consum/food/food.png", new int[]{34, 165, 12, 7}, 6376);
 	/** FUNNY_PARASITE */
-	public static final IconEntry FUNNY_PARASITE = new IconEntry("sprites/items/consum/food/food.png", new int[]{256, 161, 15, 15});
+	public static final IconEntry FUNNY_PARASITE = new IconEntry("sprites/items/consum/food/food.png", new int[]{256, 161, 15, 15}, 6377);
 	/** STRAWBERRY */
-	public static final IconEntry STRAWBERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{275, 162, 10, 13});
+	public static final IconEntry STRAWBERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{275, 162, 10, 13}, 6378);
 	/** CHERRY */
-	public static final IconEntry CHERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{289, 161, 14, 14});
+	public static final IconEntry CHERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{289, 161, 14, 14}, 6379);
 	/** AUTHOR_NUT */
-	public static final IconEntry AUTHOR_NUT = new IconEntry("sprites/items/consum/food/food.png", new int[]{306, 161, 13, 14});
+	public static final IconEntry AUTHOR_NUT = new IconEntry("sprites/items/consum/food/food.png", new int[]{306, 161, 13, 14}, 6380);
 }

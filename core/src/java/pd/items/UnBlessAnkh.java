@@ -1,13 +1,14 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 public class UnBlessAnkh extends Item {
 	public static final String AC_BLESS = "BLESS";
 	{
-		image = ItemSpriteSheet.SPS_UNBLESS_ANKH;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 	@Override public ArrayList<String> actions(Hero hero) {

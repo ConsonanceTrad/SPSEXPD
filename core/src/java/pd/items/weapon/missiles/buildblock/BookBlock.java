@@ -1,4 +1,5 @@
 package pd.items.weapon.missiles.buildblock;
+
+import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.levels.Terrain;
-import pd.sprites.ItemSpriteSheet;
-public class BookBlock extends LegacyBuildBlock { public BookBlock(){super(Terrain.BOOKSHELF,ItemSpriteSheet.SCROLL_HOLDER);} }
+public class BookBlock extends LegacyBuildBlock { public BookBlock(){super(Terrain.BOOKSHELF,SpecificPlaceHolderDict.SCROLL_HOLDER_0);} }

@@ -13,259 +13,259 @@ public final class BadgesDict {
 	private BadgesDict() { }
 
 	/** badge_000 */
-	public static final IconEntry BADGE_000 = new IconEntry("interfaces/badges.png", new int[]{0, 0, 16, 16});
+	public static final IconEntry BADGE_000 = new IconEntry("interfaces/badges.png", new int[]{0, 0, 16, 16}, 4896);
 	/** badge_001 */
-	public static final IconEntry BADGE_001 = new IconEntry("interfaces/badges.png", new int[]{16, 0, 16, 16});
+	public static final IconEntry BADGE_001 = new IconEntry("interfaces/badges.png", new int[]{16, 0, 16, 16}, 4897);
 	/** badge_002 */
-	public static final IconEntry BADGE_002 = new IconEntry("interfaces/badges.png", new int[]{32, 0, 16, 16});
+	public static final IconEntry BADGE_002 = new IconEntry("interfaces/badges.png", new int[]{32, 0, 16, 16}, 4898);
 	/** badge_003 */
-	public static final IconEntry BADGE_003 = new IconEntry("interfaces/badges.png", new int[]{48, 0, 16, 16});
+	public static final IconEntry BADGE_003 = new IconEntry("interfaces/badges.png", new int[]{48, 0, 16, 16}, 4899);
 	/** badge_004 */
-	public static final IconEntry BADGE_004 = new IconEntry("interfaces/badges.png", new int[]{64, 0, 16, 16});
+	public static final IconEntry BADGE_004 = new IconEntry("interfaces/badges.png", new int[]{64, 0, 16, 16}, 4900);
 	/** badge_005 */
-	public static final IconEntry BADGE_005 = new IconEntry("interfaces/badges.png", new int[]{80, 0, 16, 16});
+	public static final IconEntry BADGE_005 = new IconEntry("interfaces/badges.png", new int[]{80, 0, 16, 16}, 4901);
 	/** badge_006 */
-	public static final IconEntry BADGE_006 = new IconEntry("interfaces/badges.png", new int[]{96, 0, 16, 16});
+	public static final IconEntry BADGE_006 = new IconEntry("interfaces/badges.png", new int[]{96, 0, 16, 16}, 4902);
 	/** badge_007 */
-	public static final IconEntry BADGE_007 = new IconEntry("interfaces/badges.png", new int[]{112, 0, 16, 16});
+	public static final IconEntry BADGE_007 = new IconEntry("interfaces/badges.png", new int[]{112, 0, 16, 16}, 4903);
 	/** badge_008 */
-	public static final IconEntry BADGE_008 = new IconEntry("interfaces/badges.png", new int[]{0, 16, 16, 16});
+	public static final IconEntry BADGE_008 = new IconEntry("interfaces/badges.png", new int[]{0, 16, 16, 16}, 4904);
 	/** badge_009 */
-	public static final IconEntry BADGE_009 = new IconEntry("interfaces/badges.png", new int[]{16, 16, 16, 16});
+	public static final IconEntry BADGE_009 = new IconEntry("interfaces/badges.png", new int[]{16, 16, 16, 16}, 4905);
 	/** badge_010 */
-	public static final IconEntry BADGE_010 = new IconEntry("interfaces/badges.png", new int[]{32, 16, 16, 16});
+	public static final IconEntry BADGE_010 = new IconEntry("interfaces/badges.png", new int[]{32, 16, 16, 16}, 4906);
 	/** badge_011 */
-	public static final IconEntry BADGE_011 = new IconEntry("interfaces/badges.png", new int[]{48, 16, 16, 16});
+	public static final IconEntry BADGE_011 = new IconEntry("interfaces/badges.png", new int[]{48, 16, 16, 16}, 4907);
 	/** badge_012 */
-	public static final IconEntry BADGE_012 = new IconEntry("interfaces/badges.png", new int[]{64, 16, 16, 16});
+	public static final IconEntry BADGE_012 = new IconEntry("interfaces/badges.png", new int[]{64, 16, 16, 16}, 4908);
 	/** badge_013 */
-	public static final IconEntry BADGE_013 = new IconEntry("interfaces/badges.png", new int[]{80, 16, 16, 16});
+	public static final IconEntry BADGE_013 = new IconEntry("interfaces/badges.png", new int[]{80, 16, 16, 16}, 4909);
 	/** badge_014 */
-	public static final IconEntry BADGE_014 = new IconEntry("interfaces/badges.png", new int[]{96, 16, 16, 16});
+	public static final IconEntry BADGE_014 = new IconEntry("interfaces/badges.png", new int[]{96, 16, 16, 16}, 4910);
 	/** badge_015 */
-	public static final IconEntry BADGE_015 = new IconEntry("interfaces/badges.png", new int[]{112, 16, 16, 16});
+	public static final IconEntry BADGE_015 = new IconEntry("interfaces/badges.png", new int[]{112, 16, 16, 16}, 4911);
 	/** badge_016 */
-	public static final IconEntry BADGE_016 = new IconEntry("interfaces/badges.png", new int[]{0, 32, 16, 16});
+	public static final IconEntry BADGE_016 = new IconEntry("interfaces/badges.png", new int[]{0, 32, 16, 16}, 4912);
 	/** badge_017 */
-	public static final IconEntry BADGE_017 = new IconEntry("interfaces/badges.png", new int[]{16, 32, 16, 16});
+	public static final IconEntry BADGE_017 = new IconEntry("interfaces/badges.png", new int[]{16, 32, 16, 16}, 4913);
 	/** badge_018 */
-	public static final IconEntry BADGE_018 = new IconEntry("interfaces/badges.png", new int[]{32, 32, 16, 16});
+	public static final IconEntry BADGE_018 = new IconEntry("interfaces/badges.png", new int[]{32, 32, 16, 16}, 4914);
 	/** badge_019 */
-	public static final IconEntry BADGE_019 = new IconEntry("interfaces/badges.png", new int[]{48, 32, 16, 16});
+	public static final IconEntry BADGE_019 = new IconEntry("interfaces/badges.png", new int[]{48, 32, 16, 16}, 4915);
 	/** badge_020 */
-	public static final IconEntry BADGE_020 = new IconEntry("interfaces/badges.png", new int[]{64, 32, 16, 16});
+	public static final IconEntry BADGE_020 = new IconEntry("interfaces/badges.png", new int[]{64, 32, 16, 16}, 4916);
 	/** badge_021 */
-	public static final IconEntry BADGE_021 = new IconEntry("interfaces/badges.png", new int[]{80, 32, 16, 16});
+	public static final IconEntry BADGE_021 = new IconEntry("interfaces/badges.png", new int[]{80, 32, 16, 16}, 4917);
 	/** badge_022 */
-	public static final IconEntry BADGE_022 = new IconEntry("interfaces/badges.png", new int[]{96, 32, 16, 16});
+	public static final IconEntry BADGE_022 = new IconEntry("interfaces/badges.png", new int[]{96, 32, 16, 16}, 4918);
 	/** badge_023 */
-	public static final IconEntry BADGE_023 = new IconEntry("interfaces/badges.png", new int[]{112, 32, 16, 16});
+	public static final IconEntry BADGE_023 = new IconEntry("interfaces/badges.png", new int[]{112, 32, 16, 16}, 4919);
 	/** badge_024 */
-	public static final IconEntry BADGE_024 = new IconEntry("interfaces/badges.png", new int[]{0, 48, 16, 16});
+	public static final IconEntry BADGE_024 = new IconEntry("interfaces/badges.png", new int[]{0, 48, 16, 16}, 4920);
 	/** badge_025 */
-	public static final IconEntry BADGE_025 = new IconEntry("interfaces/badges.png", new int[]{16, 48, 16, 16});
+	public static final IconEntry BADGE_025 = new IconEntry("interfaces/badges.png", new int[]{16, 48, 16, 16}, 4921);
 	/** badge_026 */
-	public static final IconEntry BADGE_026 = new IconEntry("interfaces/badges.png", new int[]{32, 48, 16, 16});
+	public static final IconEntry BADGE_026 = new IconEntry("interfaces/badges.png", new int[]{32, 48, 16, 16}, 4922);
 	/** badge_027 */
-	public static final IconEntry BADGE_027 = new IconEntry("interfaces/badges.png", new int[]{48, 48, 16, 16});
+	public static final IconEntry BADGE_027 = new IconEntry("interfaces/badges.png", new int[]{48, 48, 16, 16}, 4923);
 	/** badge_028 */
-	public static final IconEntry BADGE_028 = new IconEntry("interfaces/badges.png", new int[]{64, 48, 16, 16});
+	public static final IconEntry BADGE_028 = new IconEntry("interfaces/badges.png", new int[]{64, 48, 16, 16}, 4924);
 	/** badge_029 */
-	public static final IconEntry BADGE_029 = new IconEntry("interfaces/badges.png", new int[]{80, 48, 16, 16});
+	public static final IconEntry BADGE_029 = new IconEntry("interfaces/badges.png", new int[]{80, 48, 16, 16}, 4925);
 	/** badge_030 */
-	public static final IconEntry BADGE_030 = new IconEntry("interfaces/badges.png", new int[]{96, 48, 16, 16});
+	public static final IconEntry BADGE_030 = new IconEntry("interfaces/badges.png", new int[]{96, 48, 16, 16}, 4926);
 	/** badge_031 */
-	public static final IconEntry BADGE_031 = new IconEntry("interfaces/badges.png", new int[]{112, 48, 16, 16});
+	public static final IconEntry BADGE_031 = new IconEntry("interfaces/badges.png", new int[]{112, 48, 16, 16}, 4927);
 	/** badge_032 */
-	public static final IconEntry BADGE_032 = new IconEntry("interfaces/badges.png", new int[]{0, 64, 16, 16});
+	public static final IconEntry BADGE_032 = new IconEntry("interfaces/badges.png", new int[]{0, 64, 16, 16}, 4928);
 	/** badge_033 */
-	public static final IconEntry BADGE_033 = new IconEntry("interfaces/badges.png", new int[]{16, 64, 16, 16});
+	public static final IconEntry BADGE_033 = new IconEntry("interfaces/badges.png", new int[]{16, 64, 16, 16}, 4929);
 	/** badge_034 */
-	public static final IconEntry BADGE_034 = new IconEntry("interfaces/badges.png", new int[]{32, 64, 16, 16});
+	public static final IconEntry BADGE_034 = new IconEntry("interfaces/badges.png", new int[]{32, 64, 16, 16}, 4930);
 	/** badge_035 */
-	public static final IconEntry BADGE_035 = new IconEntry("interfaces/badges.png", new int[]{48, 64, 16, 16});
+	public static final IconEntry BADGE_035 = new IconEntry("interfaces/badges.png", new int[]{48, 64, 16, 16}, 4931);
 	/** badge_036 */
-	public static final IconEntry BADGE_036 = new IconEntry("interfaces/badges.png", new int[]{64, 64, 16, 16});
+	public static final IconEntry BADGE_036 = new IconEntry("interfaces/badges.png", new int[]{64, 64, 16, 16}, 4932);
 	/** badge_037 */
-	public static final IconEntry BADGE_037 = new IconEntry("interfaces/badges.png", new int[]{80, 64, 16, 16});
+	public static final IconEntry BADGE_037 = new IconEntry("interfaces/badges.png", new int[]{80, 64, 16, 16}, 4933);
 	/** badge_038 */
-	public static final IconEntry BADGE_038 = new IconEntry("interfaces/badges.png", new int[]{96, 64, 16, 16});
+	public static final IconEntry BADGE_038 = new IconEntry("interfaces/badges.png", new int[]{96, 64, 16, 16}, 4934);
 	/** badge_039 */
-	public static final IconEntry BADGE_039 = new IconEntry("interfaces/badges.png", new int[]{112, 64, 16, 16});
+	public static final IconEntry BADGE_039 = new IconEntry("interfaces/badges.png", new int[]{112, 64, 16, 16}, 4935);
 	/** badge_040 */
-	public static final IconEntry BADGE_040 = new IconEntry("interfaces/badges.png", new int[]{0, 80, 16, 16});
+	public static final IconEntry BADGE_040 = new IconEntry("interfaces/badges.png", new int[]{0, 80, 16, 16}, 4936);
 	/** badge_041 */
-	public static final IconEntry BADGE_041 = new IconEntry("interfaces/badges.png", new int[]{16, 80, 16, 16});
+	public static final IconEntry BADGE_041 = new IconEntry("interfaces/badges.png", new int[]{16, 80, 16, 16}, 4937);
 	/** badge_042 */
-	public static final IconEntry BADGE_042 = new IconEntry("interfaces/badges.png", new int[]{32, 80, 16, 16});
+	public static final IconEntry BADGE_042 = new IconEntry("interfaces/badges.png", new int[]{32, 80, 16, 16}, 4938);
 	/** badge_043 */
-	public static final IconEntry BADGE_043 = new IconEntry("interfaces/badges.png", new int[]{48, 80, 16, 16});
+	public static final IconEntry BADGE_043 = new IconEntry("interfaces/badges.png", new int[]{48, 80, 16, 16}, 4939);
 	/** badge_044 */
-	public static final IconEntry BADGE_044 = new IconEntry("interfaces/badges.png", new int[]{64, 80, 16, 16});
+	public static final IconEntry BADGE_044 = new IconEntry("interfaces/badges.png", new int[]{64, 80, 16, 16}, 4940);
 	/** badge_045 */
-	public static final IconEntry BADGE_045 = new IconEntry("interfaces/badges.png", new int[]{80, 80, 16, 16});
+	public static final IconEntry BADGE_045 = new IconEntry("interfaces/badges.png", new int[]{80, 80, 16, 16}, 4941);
 	/** badge_046 */
-	public static final IconEntry BADGE_046 = new IconEntry("interfaces/badges.png", new int[]{96, 80, 16, 16});
+	public static final IconEntry BADGE_046 = new IconEntry("interfaces/badges.png", new int[]{96, 80, 16, 16}, 4942);
 	/** badge_047 */
-	public static final IconEntry BADGE_047 = new IconEntry("interfaces/badges.png", new int[]{112, 80, 16, 16});
+	public static final IconEntry BADGE_047 = new IconEntry("interfaces/badges.png", new int[]{112, 80, 16, 16}, 4943);
 	/** badge_048 */
-	public static final IconEntry BADGE_048 = new IconEntry("interfaces/badges.png", new int[]{0, 96, 16, 16});
+	public static final IconEntry BADGE_048 = new IconEntry("interfaces/badges.png", new int[]{0, 96, 16, 16}, 4944);
 	/** badge_049 */
-	public static final IconEntry BADGE_049 = new IconEntry("interfaces/badges.png", new int[]{16, 96, 16, 16});
+	public static final IconEntry BADGE_049 = new IconEntry("interfaces/badges.png", new int[]{16, 96, 16, 16}, 4945);
 	/** badge_050 */
-	public static final IconEntry BADGE_050 = new IconEntry("interfaces/badges.png", new int[]{32, 96, 16, 16});
+	public static final IconEntry BADGE_050 = new IconEntry("interfaces/badges.png", new int[]{32, 96, 16, 16}, 4946);
 	/** badge_051 */
-	public static final IconEntry BADGE_051 = new IconEntry("interfaces/badges.png", new int[]{48, 96, 16, 16});
+	public static final IconEntry BADGE_051 = new IconEntry("interfaces/badges.png", new int[]{48, 96, 16, 16}, 4947);
 	/** badge_052 */
-	public static final IconEntry BADGE_052 = new IconEntry("interfaces/badges.png", new int[]{64, 96, 16, 16});
+	public static final IconEntry BADGE_052 = new IconEntry("interfaces/badges.png", new int[]{64, 96, 16, 16}, 4948);
 	/** badge_053 */
-	public static final IconEntry BADGE_053 = new IconEntry("interfaces/badges.png", new int[]{80, 96, 16, 16});
+	public static final IconEntry BADGE_053 = new IconEntry("interfaces/badges.png", new int[]{80, 96, 16, 16}, 4949);
 	/** badge_054 */
-	public static final IconEntry BADGE_054 = new IconEntry("interfaces/badges.png", new int[]{96, 96, 16, 16});
+	public static final IconEntry BADGE_054 = new IconEntry("interfaces/badges.png", new int[]{96, 96, 16, 16}, 4950);
 	/** badge_055 */
-	public static final IconEntry BADGE_055 = new IconEntry("interfaces/badges.png", new int[]{112, 96, 16, 16});
+	public static final IconEntry BADGE_055 = new IconEntry("interfaces/badges.png", new int[]{112, 96, 16, 16}, 4951);
 	/** badge_056 */
-	public static final IconEntry BADGE_056 = new IconEntry("interfaces/badges.png", new int[]{0, 112, 16, 16});
+	public static final IconEntry BADGE_056 = new IconEntry("interfaces/badges.png", new int[]{0, 112, 16, 16}, 4952);
 	/** badge_057 */
-	public static final IconEntry BADGE_057 = new IconEntry("interfaces/badges.png", new int[]{16, 112, 16, 16});
+	public static final IconEntry BADGE_057 = new IconEntry("interfaces/badges.png", new int[]{16, 112, 16, 16}, 4953);
 	/** badge_058 */
-	public static final IconEntry BADGE_058 = new IconEntry("interfaces/badges.png", new int[]{32, 112, 16, 16});
+	public static final IconEntry BADGE_058 = new IconEntry("interfaces/badges.png", new int[]{32, 112, 16, 16}, 4954);
 	/** badge_059 */
-	public static final IconEntry BADGE_059 = new IconEntry("interfaces/badges.png", new int[]{48, 112, 16, 16});
+	public static final IconEntry BADGE_059 = new IconEntry("interfaces/badges.png", new int[]{48, 112, 16, 16}, 4955);
 	/** badge_060 */
-	public static final IconEntry BADGE_060 = new IconEntry("interfaces/badges.png", new int[]{64, 112, 16, 16});
+	public static final IconEntry BADGE_060 = new IconEntry("interfaces/badges.png", new int[]{64, 112, 16, 16}, 4956);
 	/** badge_061 */
-	public static final IconEntry BADGE_061 = new IconEntry("interfaces/badges.png", new int[]{80, 112, 16, 16});
+	public static final IconEntry BADGE_061 = new IconEntry("interfaces/badges.png", new int[]{80, 112, 16, 16}, 4957);
 	/** badge_062 */
-	public static final IconEntry BADGE_062 = new IconEntry("interfaces/badges.png", new int[]{96, 112, 16, 16});
+	public static final IconEntry BADGE_062 = new IconEntry("interfaces/badges.png", new int[]{96, 112, 16, 16}, 4958);
 	/** badge_063 */
-	public static final IconEntry BADGE_063 = new IconEntry("interfaces/badges.png", new int[]{112, 112, 16, 16});
+	public static final IconEntry BADGE_063 = new IconEntry("interfaces/badges.png", new int[]{112, 112, 16, 16}, 4959);
 	/** badge_064 */
-	public static final IconEntry BADGE_064 = new IconEntry("interfaces/badges.png", new int[]{0, 128, 16, 16});
+	public static final IconEntry BADGE_064 = new IconEntry("interfaces/badges.png", new int[]{0, 128, 16, 16}, 4960);
 	/** badge_065 */
-	public static final IconEntry BADGE_065 = new IconEntry("interfaces/badges.png", new int[]{16, 128, 16, 16});
+	public static final IconEntry BADGE_065 = new IconEntry("interfaces/badges.png", new int[]{16, 128, 16, 16}, 4961);
 	/** badge_066 */
-	public static final IconEntry BADGE_066 = new IconEntry("interfaces/badges.png", new int[]{32, 128, 16, 16});
+	public static final IconEntry BADGE_066 = new IconEntry("interfaces/badges.png", new int[]{32, 128, 16, 16}, 4962);
 	/** badge_067 */
-	public static final IconEntry BADGE_067 = new IconEntry("interfaces/badges.png", new int[]{48, 128, 16, 16});
+	public static final IconEntry BADGE_067 = new IconEntry("interfaces/badges.png", new int[]{48, 128, 16, 16}, 4963);
 	/** badge_068 */
-	public static final IconEntry BADGE_068 = new IconEntry("interfaces/badges.png", new int[]{64, 128, 16, 16});
+	public static final IconEntry BADGE_068 = new IconEntry("interfaces/badges.png", new int[]{64, 128, 16, 16}, 4964);
 	/** badge_069 */
-	public static final IconEntry BADGE_069 = new IconEntry("interfaces/badges.png", new int[]{80, 128, 16, 16});
+	public static final IconEntry BADGE_069 = new IconEntry("interfaces/badges.png", new int[]{80, 128, 16, 16}, 4965);
 	/** badge_070 */
-	public static final IconEntry BADGE_070 = new IconEntry("interfaces/badges.png", new int[]{96, 128, 16, 16});
+	public static final IconEntry BADGE_070 = new IconEntry("interfaces/badges.png", new int[]{96, 128, 16, 16}, 4966);
 	/** badge_071 */
-	public static final IconEntry BADGE_071 = new IconEntry("interfaces/badges.png", new int[]{112, 128, 16, 16});
+	public static final IconEntry BADGE_071 = new IconEntry("interfaces/badges.png", new int[]{112, 128, 16, 16}, 4967);
 	/** badge_072 */
-	public static final IconEntry BADGE_072 = new IconEntry("interfaces/badges.png", new int[]{0, 144, 16, 16});
+	public static final IconEntry BADGE_072 = new IconEntry("interfaces/badges.png", new int[]{0, 144, 16, 16}, 4968);
 	/** badge_073 */
-	public static final IconEntry BADGE_073 = new IconEntry("interfaces/badges.png", new int[]{16, 144, 16, 16});
+	public static final IconEntry BADGE_073 = new IconEntry("interfaces/badges.png", new int[]{16, 144, 16, 16}, 4969);
 	/** badge_074 */
-	public static final IconEntry BADGE_074 = new IconEntry("interfaces/badges.png", new int[]{32, 144, 16, 16});
+	public static final IconEntry BADGE_074 = new IconEntry("interfaces/badges.png", new int[]{32, 144, 16, 16}, 4970);
 	/** badge_075 */
-	public static final IconEntry BADGE_075 = new IconEntry("interfaces/badges.png", new int[]{48, 144, 16, 16});
+	public static final IconEntry BADGE_075 = new IconEntry("interfaces/badges.png", new int[]{48, 144, 16, 16}, 4971);
 	/** badge_076 */
-	public static final IconEntry BADGE_076 = new IconEntry("interfaces/badges.png", new int[]{64, 144, 16, 16});
+	public static final IconEntry BADGE_076 = new IconEntry("interfaces/badges.png", new int[]{64, 144, 16, 16}, 4972);
 	/** badge_077 */
-	public static final IconEntry BADGE_077 = new IconEntry("interfaces/badges.png", new int[]{80, 144, 16, 16});
+	public static final IconEntry BADGE_077 = new IconEntry("interfaces/badges.png", new int[]{80, 144, 16, 16}, 4973);
 	/** badge_078 */
-	public static final IconEntry BADGE_078 = new IconEntry("interfaces/badges.png", new int[]{96, 144, 16, 16});
+	public static final IconEntry BADGE_078 = new IconEntry("interfaces/badges.png", new int[]{96, 144, 16, 16}, 4974);
 	/** badge_079 */
-	public static final IconEntry BADGE_079 = new IconEntry("interfaces/badges.png", new int[]{112, 144, 16, 16});
+	public static final IconEntry BADGE_079 = new IconEntry("interfaces/badges.png", new int[]{112, 144, 16, 16}, 4975);
 	/** badge_080 */
-	public static final IconEntry BADGE_080 = new IconEntry("interfaces/badges.png", new int[]{0, 160, 16, 16});
+	public static final IconEntry BADGE_080 = new IconEntry("interfaces/badges.png", new int[]{0, 160, 16, 16}, 4976);
 	/** badge_081 */
-	public static final IconEntry BADGE_081 = new IconEntry("interfaces/badges.png", new int[]{16, 160, 16, 16});
+	public static final IconEntry BADGE_081 = new IconEntry("interfaces/badges.png", new int[]{16, 160, 16, 16}, 4977);
 	/** badge_082 */
-	public static final IconEntry BADGE_082 = new IconEntry("interfaces/badges.png", new int[]{32, 160, 16, 16});
+	public static final IconEntry BADGE_082 = new IconEntry("interfaces/badges.png", new int[]{32, 160, 16, 16}, 4978);
 	/** badge_083 */
-	public static final IconEntry BADGE_083 = new IconEntry("interfaces/badges.png", new int[]{48, 160, 16, 16});
+	public static final IconEntry BADGE_083 = new IconEntry("interfaces/badges.png", new int[]{48, 160, 16, 16}, 4979);
 	/** badge_084 */
-	public static final IconEntry BADGE_084 = new IconEntry("interfaces/badges.png", new int[]{64, 160, 16, 16});
+	public static final IconEntry BADGE_084 = new IconEntry("interfaces/badges.png", new int[]{64, 160, 16, 16}, 4980);
 	/** badge_085 */
-	public static final IconEntry BADGE_085 = new IconEntry("interfaces/badges.png", new int[]{80, 160, 16, 16});
+	public static final IconEntry BADGE_085 = new IconEntry("interfaces/badges.png", new int[]{80, 160, 16, 16}, 4981);
 	/** badge_086 */
-	public static final IconEntry BADGE_086 = new IconEntry("interfaces/badges.png", new int[]{96, 160, 16, 16});
+	public static final IconEntry BADGE_086 = new IconEntry("interfaces/badges.png", new int[]{96, 160, 16, 16}, 4982);
 	/** badge_087 */
-	public static final IconEntry BADGE_087 = new IconEntry("interfaces/badges.png", new int[]{112, 160, 16, 16});
+	public static final IconEntry BADGE_087 = new IconEntry("interfaces/badges.png", new int[]{112, 160, 16, 16}, 4983);
 	/** badge_088 */
-	public static final IconEntry BADGE_088 = new IconEntry("interfaces/badges.png", new int[]{0, 176, 16, 16});
+	public static final IconEntry BADGE_088 = new IconEntry("interfaces/badges.png", new int[]{0, 176, 16, 16}, 4984);
 	/** badge_089 */
-	public static final IconEntry BADGE_089 = new IconEntry("interfaces/badges.png", new int[]{16, 176, 16, 16});
+	public static final IconEntry BADGE_089 = new IconEntry("interfaces/badges.png", new int[]{16, 176, 16, 16}, 4985);
 	/** badge_090 */
-	public static final IconEntry BADGE_090 = new IconEntry("interfaces/badges.png", new int[]{32, 176, 16, 16});
+	public static final IconEntry BADGE_090 = new IconEntry("interfaces/badges.png", new int[]{32, 176, 16, 16}, 4986);
 	/** badge_091 */
-	public static final IconEntry BADGE_091 = new IconEntry("interfaces/badges.png", new int[]{48, 176, 16, 16});
+	public static final IconEntry BADGE_091 = new IconEntry("interfaces/badges.png", new int[]{48, 176, 16, 16}, 4987);
 	/** badge_092 */
-	public static final IconEntry BADGE_092 = new IconEntry("interfaces/badges.png", new int[]{64, 176, 16, 16});
+	public static final IconEntry BADGE_092 = new IconEntry("interfaces/badges.png", new int[]{64, 176, 16, 16}, 4988);
 	/** badge_093 */
-	public static final IconEntry BADGE_093 = new IconEntry("interfaces/badges.png", new int[]{80, 176, 16, 16});
+	public static final IconEntry BADGE_093 = new IconEntry("interfaces/badges.png", new int[]{80, 176, 16, 16}, 4989);
 	/** badge_094 */
-	public static final IconEntry BADGE_094 = new IconEntry("interfaces/badges.png", new int[]{96, 176, 16, 16});
+	public static final IconEntry BADGE_094 = new IconEntry("interfaces/badges.png", new int[]{96, 176, 16, 16}, 4990);
 	/** badge_095 */
-	public static final IconEntry BADGE_095 = new IconEntry("interfaces/badges.png", new int[]{112, 176, 16, 16});
+	public static final IconEntry BADGE_095 = new IconEntry("interfaces/badges.png", new int[]{112, 176, 16, 16}, 4991);
 	/** badge_096 */
-	public static final IconEntry BADGE_096 = new IconEntry("interfaces/badges.png", new int[]{0, 192, 16, 16});
+	public static final IconEntry BADGE_096 = new IconEntry("interfaces/badges.png", new int[]{0, 192, 16, 16}, 4992);
 	/** badge_097 */
-	public static final IconEntry BADGE_097 = new IconEntry("interfaces/badges.png", new int[]{16, 192, 16, 16});
+	public static final IconEntry BADGE_097 = new IconEntry("interfaces/badges.png", new int[]{16, 192, 16, 16}, 4993);
 	/** badge_098 */
-	public static final IconEntry BADGE_098 = new IconEntry("interfaces/badges.png", new int[]{32, 192, 16, 16});
+	public static final IconEntry BADGE_098 = new IconEntry("interfaces/badges.png", new int[]{32, 192, 16, 16}, 4994);
 	/** badge_099 */
-	public static final IconEntry BADGE_099 = new IconEntry("interfaces/badges.png", new int[]{48, 192, 16, 16});
+	public static final IconEntry BADGE_099 = new IconEntry("interfaces/badges.png", new int[]{48, 192, 16, 16}, 4995);
 	/** badge_100 */
-	public static final IconEntry BADGE_100 = new IconEntry("interfaces/badges.png", new int[]{64, 192, 16, 16});
+	public static final IconEntry BADGE_100 = new IconEntry("interfaces/badges.png", new int[]{64, 192, 16, 16}, 4996);
 	/** badge_101 */
-	public static final IconEntry BADGE_101 = new IconEntry("interfaces/badges.png", new int[]{80, 192, 16, 16});
+	public static final IconEntry BADGE_101 = new IconEntry("interfaces/badges.png", new int[]{80, 192, 16, 16}, 4997);
 	/** badge_102 */
-	public static final IconEntry BADGE_102 = new IconEntry("interfaces/badges.png", new int[]{96, 192, 16, 16});
+	public static final IconEntry BADGE_102 = new IconEntry("interfaces/badges.png", new int[]{96, 192, 16, 16}, 4998);
 	/** badge_103 */
-	public static final IconEntry BADGE_103 = new IconEntry("interfaces/badges.png", new int[]{112, 192, 16, 16});
+	public static final IconEntry BADGE_103 = new IconEntry("interfaces/badges.png", new int[]{112, 192, 16, 16}, 4999);
 	/** badge_104 */
-	public static final IconEntry BADGE_104 = new IconEntry("interfaces/badges.png", new int[]{0, 208, 16, 16});
+	public static final IconEntry BADGE_104 = new IconEntry("interfaces/badges.png", new int[]{0, 208, 16, 16}, 5000);
 	/** badge_105 */
-	public static final IconEntry BADGE_105 = new IconEntry("interfaces/badges.png", new int[]{16, 208, 16, 16});
+	public static final IconEntry BADGE_105 = new IconEntry("interfaces/badges.png", new int[]{16, 208, 16, 16}, 5001);
 	/** badge_106 */
-	public static final IconEntry BADGE_106 = new IconEntry("interfaces/badges.png", new int[]{32, 208, 16, 16});
+	public static final IconEntry BADGE_106 = new IconEntry("interfaces/badges.png", new int[]{32, 208, 16, 16}, 5002);
 	/** badge_107 */
-	public static final IconEntry BADGE_107 = new IconEntry("interfaces/badges.png", new int[]{48, 208, 16, 16});
+	public static final IconEntry BADGE_107 = new IconEntry("interfaces/badges.png", new int[]{48, 208, 16, 16}, 5003);
 	/** badge_108 */
-	public static final IconEntry BADGE_108 = new IconEntry("interfaces/badges.png", new int[]{64, 208, 16, 16});
+	public static final IconEntry BADGE_108 = new IconEntry("interfaces/badges.png", new int[]{64, 208, 16, 16}, 5004);
 	/** badge_109 */
-	public static final IconEntry BADGE_109 = new IconEntry("interfaces/badges.png", new int[]{80, 208, 16, 16});
+	public static final IconEntry BADGE_109 = new IconEntry("interfaces/badges.png", new int[]{80, 208, 16, 16}, 5005);
 	/** badge_110 */
-	public static final IconEntry BADGE_110 = new IconEntry("interfaces/badges.png", new int[]{96, 208, 16, 16});
+	public static final IconEntry BADGE_110 = new IconEntry("interfaces/badges.png", new int[]{96, 208, 16, 16}, 5006);
 	/** badge_111 */
-	public static final IconEntry BADGE_111 = new IconEntry("interfaces/badges.png", new int[]{112, 208, 16, 16});
+	public static final IconEntry BADGE_111 = new IconEntry("interfaces/badges.png", new int[]{112, 208, 16, 16}, 5007);
 	/** badge_112 */
-	public static final IconEntry BADGE_112 = new IconEntry("interfaces/badges.png", new int[]{0, 224, 16, 16});
+	public static final IconEntry BADGE_112 = new IconEntry("interfaces/badges.png", new int[]{0, 224, 16, 16}, 5008);
 	/** badge_113 */
-	public static final IconEntry BADGE_113 = new IconEntry("interfaces/badges.png", new int[]{16, 224, 16, 16});
+	public static final IconEntry BADGE_113 = new IconEntry("interfaces/badges.png", new int[]{16, 224, 16, 16}, 5009);
 	/** badge_114 */
-	public static final IconEntry BADGE_114 = new IconEntry("interfaces/badges.png", new int[]{32, 224, 16, 16});
+	public static final IconEntry BADGE_114 = new IconEntry("interfaces/badges.png", new int[]{32, 224, 16, 16}, 5010);
 	/** badge_115 */
-	public static final IconEntry BADGE_115 = new IconEntry("interfaces/badges.png", new int[]{48, 224, 16, 16});
+	public static final IconEntry BADGE_115 = new IconEntry("interfaces/badges.png", new int[]{48, 224, 16, 16}, 5011);
 	/** badge_116 */
-	public static final IconEntry BADGE_116 = new IconEntry("interfaces/badges.png", new int[]{64, 224, 16, 16});
+	public static final IconEntry BADGE_116 = new IconEntry("interfaces/badges.png", new int[]{64, 224, 16, 16}, 5012);
 	/** badge_117 */
-	public static final IconEntry BADGE_117 = new IconEntry("interfaces/badges.png", new int[]{80, 224, 16, 16});
+	public static final IconEntry BADGE_117 = new IconEntry("interfaces/badges.png", new int[]{80, 224, 16, 16}, 5013);
 	/** badge_118 */
-	public static final IconEntry BADGE_118 = new IconEntry("interfaces/badges.png", new int[]{96, 224, 16, 16});
+	public static final IconEntry BADGE_118 = new IconEntry("interfaces/badges.png", new int[]{96, 224, 16, 16}, 5014);
 	/** badge_119 */
-	public static final IconEntry BADGE_119 = new IconEntry("interfaces/badges.png", new int[]{112, 224, 16, 16});
+	public static final IconEntry BADGE_119 = new IconEntry("interfaces/badges.png", new int[]{112, 224, 16, 16}, 5015);
 	/** badge_120 */
-	public static final IconEntry BADGE_120 = new IconEntry("interfaces/badges.png", new int[]{0, 240, 16, 16});
+	public static final IconEntry BADGE_120 = new IconEntry("interfaces/badges.png", new int[]{0, 240, 16, 16}, 5016);
 	/** badge_121 */
-	public static final IconEntry BADGE_121 = new IconEntry("interfaces/badges.png", new int[]{16, 240, 16, 16});
+	public static final IconEntry BADGE_121 = new IconEntry("interfaces/badges.png", new int[]{16, 240, 16, 16}, 5017);
 	/** badge_122 */
-	public static final IconEntry BADGE_122 = new IconEntry("interfaces/badges.png", new int[]{32, 240, 16, 16});
+	public static final IconEntry BADGE_122 = new IconEntry("interfaces/badges.png", new int[]{32, 240, 16, 16}, 5018);
 	/** badge_123 */
-	public static final IconEntry BADGE_123 = new IconEntry("interfaces/badges.png", new int[]{48, 240, 16, 16});
+	public static final IconEntry BADGE_123 = new IconEntry("interfaces/badges.png", new int[]{48, 240, 16, 16}, 5019);
 	/** badge_124 */
-	public static final IconEntry BADGE_124 = new IconEntry("interfaces/badges.png", new int[]{64, 240, 16, 16});
+	public static final IconEntry BADGE_124 = new IconEntry("interfaces/badges.png", new int[]{64, 240, 16, 16}, 5020);
 	/** badge_125 */
-	public static final IconEntry BADGE_125 = new IconEntry("interfaces/badges.png", new int[]{80, 240, 16, 16});
+	public static final IconEntry BADGE_125 = new IconEntry("interfaces/badges.png", new int[]{80, 240, 16, 16}, 5021);
 	/** badge_126 */
-	public static final IconEntry BADGE_126 = new IconEntry("interfaces/badges.png", new int[]{96, 240, 16, 16});
+	public static final IconEntry BADGE_126 = new IconEntry("interfaces/badges.png", new int[]{96, 240, 16, 16}, 5022);
 	/** badge_127 */
-	public static final IconEntry BADGE_127 = new IconEntry("interfaces/badges.png", new int[]{112, 240, 16, 16});
+	public static final IconEntry BADGE_127 = new IconEntry("interfaces/badges.png", new int[]{112, 240, 16, 16}, 5023);
 }

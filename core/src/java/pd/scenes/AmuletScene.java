@@ -21,6 +21,8 @@
 
 package pd.scenes;
 
+import pd.atlas.items.SpecificTaskDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Chrome;
@@ -32,7 +34,6 @@ import pd.effects.Speck;
 import pd.items.Amulet;
 import pd.messages.Messages;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.Icons;
 import pd.ui.RenderedTextBlock;
 import pd.ui.StyledButton;
@@ -105,7 +106,7 @@ public class AmuletScene extends PixelScene {
 						false);
 			}
 		};
-		btnExit.icon(new ItemSprite(ItemSpriteSheet.AMULET));
+		btnExit.icon(new ItemSprite(SpecificTaskDict.AMULET_0));
 		btnExit.setSize( WIDTH, BTN_HEIGHT );
 		add( btnExit );
 		

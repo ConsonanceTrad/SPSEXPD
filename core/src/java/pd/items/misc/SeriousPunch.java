@@ -1,12 +1,13 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.OnePunch;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class SeriousPunch extends Item {
 	private int charge;
 
 	{
-		image = ItemSpriteSheet.SPS_SERIOUS_PUNCH;
+		image = EquipmentNonEquipDict.SPS_SERIOUS_PUNCH_0;
 		stackable = false;
 		unique = true;
 		defaultAction = AC_CAST;

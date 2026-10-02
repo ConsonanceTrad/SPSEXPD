@@ -1,12 +1,13 @@
 package pd.items.quest;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 
 public class Mushroom extends Item {
 
 	{
-		image = ItemSpriteSheet.MUSHROOM;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		unique = true;
 	}
 

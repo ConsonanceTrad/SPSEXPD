@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.faithbuff.BalanceFaith;
 import pd.actors.buffs.faithbuff.DemonFaith;
@@ -11,7 +13,6 @@ import pd.actors.buffs.faithbuff.MechFaith;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndUseItem;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class FaithSign extends Item {
 	public static final String AC_BALANCE = "BALANCE";
 
 	{
-		image = ItemSpriteSheet.LEGACY_FAITH_SIGN;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		unique = true;
 		defaultAction = AC_CHOOSE;
 	}

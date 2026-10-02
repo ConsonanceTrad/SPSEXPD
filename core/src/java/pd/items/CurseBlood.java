@@ -1,15 +1,16 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 
 import java.util.ArrayList;
 
 /** One of the original Shadow Eater crafting materials. */
 public class CurseBlood extends Item {
 	{
-		image = ItemSpriteSheet.CURSE_BLOOD;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = false;
 		unique = true;
 	}

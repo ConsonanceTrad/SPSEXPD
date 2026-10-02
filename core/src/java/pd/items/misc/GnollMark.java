@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.Arcane;
 import pd.actors.buffs.AttackUp;
 import pd.actors.buffs.BerryRegeneration;
@@ -18,7 +20,6 @@ import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndUseItem;
 import render.utils.serialize.Bundle;
@@ -38,7 +39,7 @@ public class GnollMark extends Item {
 	private int charge;
 
 	{
-		image = ItemSpriteSheet.SPS_GNOLL_MARK;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		defaultAction = AC_CHOOSE;
 		unique = true;
 	}

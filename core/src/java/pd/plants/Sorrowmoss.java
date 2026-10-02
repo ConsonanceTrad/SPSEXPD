@@ -21,6 +21,8 @@
 
 package pd.plants;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
@@ -31,7 +33,6 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.PoisonParticle;
 import pd.items.weapon.missiles.arrows.ToxicFruit;
 import pd.levels.traps.Trap;
-import pd.sprites.ItemSpriteSheet;
 
 public class Sorrowmoss extends Plant {
 
@@ -58,7 +59,7 @@ public class Sorrowmoss extends Plant {
 	
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SPS_SEED_SORROWMOSS;
+			image = ConsumPotionSeedSeedDict.SEED_SORROWMOSS_0;
 
 			plantClass = Sorrowmoss.class;
 			explantClass = ExSorrowmoss.class;

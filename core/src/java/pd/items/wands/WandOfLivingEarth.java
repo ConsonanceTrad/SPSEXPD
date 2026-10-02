@@ -21,6 +21,8 @@
 
 package pd.items.wands;
 
+import pd.atlas.items.EquipmentWandBasicWandDict;
+
 import pd.Assets;
 import pd.Challenges;
 import pd.Dungeon;
@@ -44,7 +46,6 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.sprites.EarthGuardianSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.noosa.audio.Sample;
@@ -56,7 +57,7 @@ import render.utils.serialize.Bundle;
 public class WandOfLivingEarth extends DamageWand {
 	
 	{
-		image = ItemSpriteSheet.WAND_LIVING_EARTH;
+		image = EquipmentWandBasicWandDict.WAND_LIVING_EARTH_0;
 	}
 	
 	@Override

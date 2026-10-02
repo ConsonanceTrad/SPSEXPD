@@ -21,6 +21,8 @@
 
 package pd.items.bags;
 
+import pd.atlas.items.EquipmentBagsDict;
+
 import pd.items.Item;
 import pd.items.StoneOre;
 import pd.items.TriforceOfCourage;
@@ -31,12 +33,11 @@ import pd.items.wands.Wand;
 import pd.items.weapon.guns.GunWeapon;
 import pd.items.weapon.rockcode.RockCode;
 import pd.items.weapon.spammo.SpAmmo;
-import pd.sprites.ItemSpriteSheet;
 
 public class MagicalHolster extends Bag {
 
 	{
-		image = ItemSpriteSheet.HOLSTER;
+		image = EquipmentBagsDict.HOLSTER;
 	}
 
 	public static final float HOLSTER_SCALE_FACTOR = 0.85f;

@@ -21,6 +21,8 @@
 
 package pd.items.stones;
 
+import pd.atlas.items.ConsumScrollAmuletAmuletDict;
+
 import pd.Assets;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -28,13 +30,12 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.MagicalSleep;
 import pd.actors.mobs.Mob;
 import pd.effects.Speck;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 
 public class StoneOfDeepSleep extends Runestone {
 	
 	{
-		image = ItemSpriteSheet.STONE_SLEEP;
+		image = ConsumScrollAmuletAmuletDict.STONE_SLEEP_0;
 	}
 	
 	@Override

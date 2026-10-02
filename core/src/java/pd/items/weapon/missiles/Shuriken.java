@@ -21,17 +21,18 @@
 
 package pd.items.weapon.missiles;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Assets;
 import pd.actors.Char;
 import pd.actors.buffs.FlavourBuff;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 
 public class Shuriken extends MissileWeapon {
 
 	{
-		image = ItemSpriteSheet.SHURIKEN;
+		image = ConsumThrowsDict.SHURIKEN_0;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 1.2f;
 		

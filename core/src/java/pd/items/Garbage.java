@@ -5,12 +5,13 @@
 
 package pd.items;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 
 public class Garbage extends Item {
 
 	{
-		image = ItemSpriteSheet.SPS_GARBAGE;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = true;
 	}
 

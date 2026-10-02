@@ -27,13 +27,13 @@ import pd.actors.blobs.Blob;
 import pd.actors.blobs.StormCloud;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
 
 public class PotionOfStormClouds extends ExoticPotion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_STRMCLOUD;
+		icon = ItemIconSheet.POTION_STRMCLOUD;
 	}
 	
 	@Override

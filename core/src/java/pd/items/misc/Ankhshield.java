@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.buffs.Buff;
@@ -11,7 +13,6 @@ import pd.actors.mobs.Mob;
 import pd.effects.Flare;
 import pd.items.Item;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
@@ -27,7 +28,7 @@ public class Ankhshield extends Item {
 	private int charge;
 
 	{
-		image = ItemSpriteSheet.SPS_ANKH_SHIELD;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		defaultAction = AC_DEFENCE;
 		unique = true;
 	}

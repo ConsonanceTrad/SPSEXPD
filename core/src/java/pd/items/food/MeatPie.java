@@ -21,19 +21,20 @@
 
 package pd.items.food;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Hunger;
 import pd.actors.buffs.WellFed;
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 
 import java.util.ArrayList;
 
 public class MeatPie extends Food {
 	
 	{
-		image = ItemSpriteSheet.MEAT_PIE;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = Hunger.STARVING*2f;
 	}
 	

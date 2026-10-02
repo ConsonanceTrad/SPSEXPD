@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.special;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Amok;
 import pd.actors.buffs.Buff;
@@ -8,14 +10,13 @@ import pd.actors.buffs.Charm;
 import pd.actors.buffs.Paralysis;
 import pd.actors.buffs.Terror;
 import pd.items.weapon.melee.MeleeWeapon;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 /** AFly's tier-one sock, applying one of four control effects on every hit. */
 public class AFlySock extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.AFLY_SOCK;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		tier = 1;
 	}
 

@@ -1,19 +1,20 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.start;
 
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Burning;
 import pd.actors.hero.Hero;
 import pd.items.weapon.melee.normalweapon.NormalMeleeWeapon;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class DemonBlade extends NormalMeleeWeapon {
 
 	public DemonBlade() {
-		super(2, 1f, 1f, 1, 7, 14, ItemSpriteSheet.SPS_DEMON_BLADE);
+		super(2, 1f, 1f, 1, 7, 14, EquipmentEquipWeaponUniqueWeaponDict.DEMON_BLADE);
 	}
 
 	@Override

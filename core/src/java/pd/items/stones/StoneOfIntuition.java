@@ -21,6 +21,8 @@
 
 package pd.items.stones;
 
+import pd.atlas.items.ConsumScrollAmuletAmuletDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.buffs.Buff;
@@ -37,7 +39,7 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.ui.IconButton;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
@@ -52,7 +54,7 @@ import java.util.ArrayList;
 public class StoneOfIntuition extends InventoryStone {
 	
 	{
-		image = ItemSpriteSheet.STONE_INTUITION;
+		image = ConsumScrollAmuletAmuletDict.STONE_INTUITION_0;
 	}
 
 	@Override
@@ -201,7 +203,7 @@ public class StoneOfIntuition extends InventoryStone {
 					}
 				};
 				Image im = new Image(Assets.Sprites.ITEM_ICONS);
-				im.frame(ItemSpriteSheet.Icons.film.get(Reflection.newInstance(i).icon));
+				im.frame(ItemIconSheet.film.get(Reflection.newInstance(i).icon));
 				im.scale.set(2f);
 				btn.icon(im);
 				btn.setRect(left + placed*BTN_SIZE, top, BTN_SIZE, BTN_SIZE);

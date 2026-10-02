@@ -21,12 +21,13 @@
 
 package pd.items.keys;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.SpecificKeyDict;
+
 
 public class CrystalKey extends Key {
 	
 	{
-		image = ItemSpriteSheet.CRYSTAL_KEY;
+		image = SpecificKeyDict.CRYSTAL_KEY;
 	}
 	
 	public CrystalKey() {

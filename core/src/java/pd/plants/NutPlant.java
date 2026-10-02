@@ -1,5 +1,7 @@
 package pd.plants;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.items.food.fruit.Cherry;
@@ -7,7 +9,6 @@ import pd.items.food.fruit.Strawberry;
 import pd.items.food.fusion.Nut;
 import pd.items.food.vegetable.NutVegetable;
 import pd.items.weapon.missiles.arrows.NutFruit;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class NutPlant extends Plant {
@@ -22,7 +23,7 @@ public class NutPlant extends Plant {
 		Dungeon.level.drop(new NutVegetable(), pos).sprite.drop();
 	}
 	public static class Seed extends Plant.Seed {
-		{ image = ItemSpriteSheet.SPS_SEED_DUNGEONNUT; plantClass = NutPlant.class; explantClass = ExNutPlant.class; }
+		{ image = SpecificPlaceHolderDict.SOMETHING_0; plantClass = NutPlant.class; explantClass = ExNutPlant.class; }
 	}
 	public static class ExNutPlant extends SpsFruitBush {
 		{ image = 17; harvestCount = 3; harvestClass = NutFruit.class; }

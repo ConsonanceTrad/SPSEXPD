@@ -21,6 +21,9 @@
 
 package pd.items.spells;
 
+import pd.atlas.items.SpecificCurrencyDict;
+import pd.atlas.items.ConsumScrollAmuletCrystalDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.hero.Hero;
@@ -37,7 +40,6 @@ import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.windows.WndBag;
@@ -54,7 +56,7 @@ import java.util.ArrayList;
 public class Alchemize extends Spell {
 	
 	{
-		image = ItemSpriteSheet.ALCHEMIZE;
+		image = ConsumScrollAmuletCrystalDict.ALCHEMIZE_0;
 
 		talentChance = 1/(float)Recipe.OUT_QUANTITY;
 	}
@@ -173,7 +175,7 @@ public class Alchemize extends Spell {
 						}
 					};
 					btnSell.setRect(0, pos + GAP, width, BTN_HEIGHT);
-					btnSell.icon(new ItemSprite(ItemSpriteSheet.GOLD));
+					btnSell.icon(new ItemSprite(SpecificCurrencyDict.GOLD_0));
 					add(btnSell);
 
 					pos = btnSell.bottom();
@@ -190,7 +192,7 @@ public class Alchemize extends Spell {
 						}
 					};
 					btnSell1.setRect(0, pos + GAP, width, BTN_HEIGHT);
-					btnSell1.icon(new ItemSprite(ItemSpriteSheet.GOLD));
+					btnSell1.icon(new ItemSprite(SpecificCurrencyDict.GOLD_0));
 					add(btnSell1);
 					RedButton btnSellAll = new RedButton(Messages.get(this, "sell_all", priceAll)) {
 						@Override
@@ -201,7 +203,7 @@ public class Alchemize extends Spell {
 						}
 					};
 					btnSellAll.setRect(0, btnSell1.bottom() + 1, width, BTN_HEIGHT);
-					btnSellAll.icon(new ItemSprite(ItemSpriteSheet.GOLD));
+					btnSellAll.icon(new ItemSprite(SpecificCurrencyDict.GOLD_0));
 					add(btnSellAll);
 
 					pos = btnSellAll.bottom();
@@ -242,7 +244,7 @@ public class Alchemize extends Spell {
 						}
 					};
 					btnEnergize.setRect(0, pos + GAP, width, BTN_HEIGHT);
-					btnEnergize.icon(new ItemSprite(ItemSpriteSheet.ENERGY));
+					btnEnergize.icon(new ItemSprite(SpecificCurrencyDict.ENERGY_0));
 					add(btnEnergize);
 
 					pos = btnEnergize.bottom();
@@ -259,7 +261,7 @@ public class Alchemize extends Spell {
 						}
 					};
 					btnEnergize1.setRect(0, pos + GAP, width, BTN_HEIGHT);
-					btnEnergize1.icon(new ItemSprite(ItemSpriteSheet.ENERGY));
+					btnEnergize1.icon(new ItemSprite(SpecificCurrencyDict.ENERGY_0));
 					add(btnEnergize1);
 					RedButton btnEnergizeAll = new RedButton(Messages.get(this, "energize_all", energyAll)) {
 						@Override
@@ -270,7 +272,7 @@ public class Alchemize extends Spell {
 						}
 					};
 					btnEnergizeAll.setRect(0, btnEnergize1.bottom() + 1, width, BTN_HEIGHT);
-					btnEnergizeAll.icon(new ItemSprite(ItemSpriteSheet.ENERGY));
+					btnEnergizeAll.icon(new ItemSprite(SpecificCurrencyDict.ENERGY_0));
 					add(btnEnergizeAll);
 
 					pos = btnEnergizeAll.bottom();

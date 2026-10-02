@@ -21,6 +21,8 @@
 
 package pd.plants;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Barkskin;
@@ -32,7 +34,6 @@ import pd.effects.particles.EarthParticle;
 import pd.items.weapon.missiles.arrows.RootFruit;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
 
@@ -63,7 +64,7 @@ public class Earthroot extends Plant {
 	
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SPS_SEED_EARTHROOT;
+			image = ConsumPotionSeedSeedDict.SEED_EARTHROOT_0;
 
 			plantClass = Earthroot.class;
 			explantClass = ExEarthroot.class;

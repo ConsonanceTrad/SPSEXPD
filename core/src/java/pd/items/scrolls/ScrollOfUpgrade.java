@@ -37,7 +37,7 @@ import pd.items.weapon.Weapon;
 import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndUpgrade;
@@ -50,7 +50,7 @@ public class ScrollOfUpgrade extends InventoryScroll {
 	}
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_UPGRADE;
+		icon = ItemIconSheet.SCROLL_UPGRADE;
 		preferredBag = Belongings.Backpack.class;
 
 		unique = true;

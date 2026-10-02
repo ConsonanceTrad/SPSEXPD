@@ -10,6 +10,8 @@
 
 package pd.items.artifacts;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import com.badlogic.gdx.Gdx;
 import pd.Assets;
 import pd.Dungeon;
@@ -27,7 +29,6 @@ import pd.items.StoneOre;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
@@ -39,7 +40,7 @@ import java.util.ArrayList;
 public class MasterThievesArmband extends Artifact {
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_ARMBAND;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		levelCap = 5;
 		charge = 0;
 		partialCharge = 0;

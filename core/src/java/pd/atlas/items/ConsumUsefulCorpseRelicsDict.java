@@ -13,17 +13,17 @@ public final class ConsumUsefulCorpseRelicsDict {
 	private ConsumUsefulCorpseRelicsDict() { }
 
 	/** SEAL_SHARD#0 */
-	public static final IconEntry SEAL_SHARD_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{0, 0, 12, 12});
+	public static final IconEntry SEAL_SHARD_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{0, 0, 12, 12}, 6652);
 	/** BROKEN_STAFF#0 */
-	public static final IconEntry BROKEN_STAFF_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{16, 0, 14, 10});
+	public static final IconEntry BROKEN_STAFF_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{16, 0, 14, 10}, 6653);
 	/** CLOAK_SCRAP#0 */
-	public static final IconEntry CLOAK_SCRAP_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{32, 0, 9, 9});
+	public static final IconEntry CLOAK_SCRAP_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{32, 0, 9, 9}, 6654);
 	/** BOW_FRAGMENT#0 */
-	public static final IconEntry BOW_FRAGMENT_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{48, 0, 12, 9});
+	public static final IconEntry BOW_FRAGMENT_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{48, 0, 12, 9}, 6655);
 	/** BROKEN_HILT#0 */
-	public static final IconEntry BROKEN_HILT_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{64, 0, 9, 9});
+	public static final IconEntry BROKEN_HILT_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{64, 0, 9, 9}, 6656);
 	/** TORN_PAGE#0 */
-	public static final IconEntry TORN_PAGE_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{80, 0, 11, 13});
+	public static final IconEntry TORN_PAGE_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{80, 0, 11, 13}, 6657);
 	/** TRINKET_CATA#0 */
-	public static final IconEntry TRINKET_CATA_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{96, 0, 12, 11});
+	public static final IconEntry TRINKET_CATA_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{96, 0, 12, 11}, 6658);
 }

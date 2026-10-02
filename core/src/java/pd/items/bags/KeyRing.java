@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.bags;
 
+import pd.atlas.items.EquipmentBagsDict;
+
 import pd.items.AncientCoin;
 import pd.items.Bone;
 import pd.items.ConchShell;
@@ -16,13 +18,12 @@ import pd.items.keys.Key;
 import pd.items.quest.AdventureJournal;
 import pd.items.quest.ChallengeJournal;
 import pd.items.rings.Ring;
-import pd.sprites.ItemSpriteSheet;
 
 /** SPS-PD's thirty-slot key ring and route-item container. */
 public class KeyRing extends Bag {
 
 	{
-		image = ItemSpriteSheet.SPS_KEY_RING;
+		image = EquipmentBagsDict.SPS_KEY_RING;
 	}
 
 	@Override

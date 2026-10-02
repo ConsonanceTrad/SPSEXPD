@@ -13,67 +13,67 @@ public final class SewerBossDict {
 	private SewerBossDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{0, 0, 16, 16});
+	public static final IconEntry TILE_000 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{0, 0, 16, 16}, 1716);
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{16, 0, 16, 16});
+	public static final IconEntry TILE_001 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{16, 0, 16, 16}, 1717);
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{32, 0, 16, 16});
+	public static final IconEntry TILE_002 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{32, 0, 16, 16}, 1718);
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{48, 0, 16, 16});
+	public static final IconEntry TILE_003 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{48, 0, 16, 16}, 1719);
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{64, 0, 16, 16});
+	public static final IconEntry TILE_004 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{64, 0, 16, 16}, 1720);
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{80, 0, 16, 16});
+	public static final IconEntry TILE_005 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{80, 0, 16, 16}, 1721);
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{96, 0, 16, 16});
+	public static final IconEntry TILE_006 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{96, 0, 16, 16}, 1722);
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{112, 0, 16, 16});
+	public static final IconEntry TILE_007 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{112, 0, 16, 16}, 1723);
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{128, 0, 16, 16});
+	public static final IconEntry TILE_008 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{128, 0, 16, 16}, 1724);
 	/** tile_009 */
-	public static final IconEntry TILE_009 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{144, 0, 16, 16});
+	public static final IconEntry TILE_009 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{144, 0, 16, 16}, 1725);
 	/** tile_010 */
-	public static final IconEntry TILE_010 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{160, 0, 16, 16});
+	public static final IconEntry TILE_010 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{160, 0, 16, 16}, 1726);
 	/** tile_011 */
-	public static final IconEntry TILE_011 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{176, 0, 16, 16});
+	public static final IconEntry TILE_011 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{176, 0, 16, 16}, 1727);
 	/** tile_012 */
-	public static final IconEntry TILE_012 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{192, 0, 16, 16});
+	public static final IconEntry TILE_012 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{192, 0, 16, 16}, 1728);
 	/** tile_013 */
-	public static final IconEntry TILE_013 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{208, 0, 16, 16});
+	public static final IconEntry TILE_013 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{208, 0, 16, 16}, 1729);
 	/** tile_014 */
-	public static final IconEntry TILE_014 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{224, 0, 16, 16});
+	public static final IconEntry TILE_014 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{224, 0, 16, 16}, 1730);
 	/** tile_015 */
-	public static final IconEntry TILE_015 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{240, 0, 16, 16});
+	public static final IconEntry TILE_015 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{240, 0, 16, 16}, 1731);
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{0, 16, 16, 16});
+	public static final IconEntry TILE_016 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{0, 16, 16, 16}, 1732);
 	/** tile_017 */
-	public static final IconEntry TILE_017 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{16, 16, 16, 16});
+	public static final IconEntry TILE_017 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{16, 16, 16, 16}, 1733);
 	/** tile_018 */
-	public static final IconEntry TILE_018 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{32, 16, 16, 16});
+	public static final IconEntry TILE_018 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{32, 16, 16, 16}, 1734);
 	/** tile_019 */
-	public static final IconEntry TILE_019 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{48, 16, 16, 16});
+	public static final IconEntry TILE_019 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{48, 16, 16, 16}, 1735);
 	/** tile_020 */
-	public static final IconEntry TILE_020 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{64, 16, 16, 16});
+	public static final IconEntry TILE_020 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{64, 16, 16, 16}, 1736);
 	/** tile_021 */
-	public static final IconEntry TILE_021 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{80, 16, 16, 16});
+	public static final IconEntry TILE_021 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{80, 16, 16, 16}, 1737);
 	/** tile_022 */
-	public static final IconEntry TILE_022 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{96, 16, 16, 16});
+	public static final IconEntry TILE_022 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{96, 16, 16, 16}, 1738);
 	/** tile_023 */
-	public static final IconEntry TILE_023 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{112, 16, 16, 16});
+	public static final IconEntry TILE_023 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{112, 16, 16, 16}, 1739);
 	/** tile_024 */
-	public static final IconEntry TILE_024 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{128, 16, 16, 16});
+	public static final IconEntry TILE_024 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{128, 16, 16, 16}, 1740);
 	/** tile_025 */
-	public static final IconEntry TILE_025 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{144, 16, 16, 16});
+	public static final IconEntry TILE_025 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{144, 16, 16, 16}, 1741);
 	/** tile_026 */
-	public static final IconEntry TILE_026 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{160, 16, 16, 16});
+	public static final IconEntry TILE_026 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{160, 16, 16, 16}, 1742);
 	/** tile_027 */
-	public static final IconEntry TILE_027 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{176, 16, 16, 16});
+	public static final IconEntry TILE_027 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{176, 16, 16, 16}, 1743);
 	/** tile_028 */
-	public static final IconEntry TILE_028 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{192, 16, 16, 16});
+	public static final IconEntry TILE_028 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{192, 16, 16, 16}, 1744);
 	/** tile_029 */
-	public static final IconEntry TILE_029 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{208, 16, 16, 16});
+	public static final IconEntry TILE_029 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{208, 16, 16, 16}, 1745);
 	/** tile_030 */
-	public static final IconEntry TILE_030 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{224, 16, 16, 16});
+	public static final IconEntry TILE_030 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{224, 16, 16, 16}, 1746);
 	/** tile_031 */
-	public static final IconEntry TILE_031 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{240, 16, 16, 16});
+	public static final IconEntry TILE_031 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{240, 16, 16, 16}, 1747);
 }

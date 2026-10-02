@@ -21,13 +21,14 @@
 
 package pd.items.quest;
 
+import pd.atlas.items.ConsumGoodsMaterialsMaterialsDict;
+
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 
 public class GooBlob extends Item {
 	
 	{
-		image = ItemSpriteSheet.BLOB;
+		image = ConsumGoodsMaterialsMaterialsDict.BLOB_0;
 		stackable = true;
 	}
 	

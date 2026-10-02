@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.bombs;
 
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -12,11 +14,10 @@ import pd.effects.particles.SmokeParticle;
 import pd.items.Item;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class SpsFireBomb extends Bomb {
-	{ image = ItemSpriteSheet.LEGACY_FIRE_BOMB; }
+	{ image = EquipmentEquipWeaponBombDict.FIRE_BOMB_0; }
 	@Override public void explode(int cell) {
 		super.explode(cell);
 		for (int offset : PathFinder.NEIGHBOURS9) {

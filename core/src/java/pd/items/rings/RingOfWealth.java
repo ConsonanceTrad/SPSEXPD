@@ -45,7 +45,7 @@ import pd.items.stones.StoneOfEnchantment;
 import pd.items.trinkets.ExoticCrystals;
 import pd.items.weapon.Weapon;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import render.noosa.Visual;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -56,7 +56,7 @@ import java.util.ArrayList;
 public class RingOfWealth extends Ring {
 
 	{
-		icon = ItemSpriteSheet.Icons.RING_WEALTH;
+		icon = ItemIconSheet.RING_WEALTH;
 		buffClass = Wealth.class;
 	}
 

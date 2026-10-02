@@ -21,6 +21,8 @@
 
 package pd.items.potions.brews;
 
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
+
 import pd.Challenges;
 import pd.Dungeon;
 import pd.actors.hero.Hero;
@@ -39,7 +41,6 @@ import pd.items.potions.PotionOfPurity;
 import pd.items.potions.PotionOfToxicGas;
 import pd.items.potions.exotic.ExoticPotion;
 import pd.plants.Plant;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 import render.utils.serialize.Reflection;
 
@@ -49,7 +50,7 @@ import java.util.HashMap;
 public class UnstableBrew extends Brew {
 
 	{
-		image = ItemSpriteSheet.BREW_UNSTABLE;
+		image = ConsumPotionSeedBasicPotionDict.BREW_UNSTABLE_0;
 	}
 
 	@Override

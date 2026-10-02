@@ -1,9 +1,10 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.eggs.randomone;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.mobs.pets.LegacyPet;
 import pd.items.eggs.Egg;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 import render.utils.serialize.Reflection;
 
@@ -15,7 +16,7 @@ public abstract class RandomPetEgg extends Egg {
 	@SafeVarargs
 	protected RandomPetEgg(Class<? extends LegacyPet>... candidates) {
 		this.candidates = candidates;
-		image = ItemSpriteSheet.SPS_PET_EGG;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 	@Override

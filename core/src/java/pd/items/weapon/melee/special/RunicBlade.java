@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.special;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Badges;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -13,7 +15,6 @@ import pd.items.weapon.melee.MeleeWeapon;
 import pd.items.weapon.missiles.throwing.Boomerang;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import render.utils.math.Random;
@@ -26,7 +27,7 @@ public class RunicBlade extends MeleeWeapon {
 	public static final String AC_REFORGE = "REFORGE";
 
 	{
-		image = ItemSpriteSheet.SPS_RUNIC_BLADE;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		tier = 5;
 		ACC = 1f;
 		DLY = 1f;

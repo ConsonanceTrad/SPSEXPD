@@ -21,13 +21,14 @@
 
 package pd.items.quest;
 
+import pd.atlas.items.ConsumGoodsMaterialsMaterialsDict;
+
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 
 public class ImpStatue extends Item {
 
 	{
-		image = ItemSpriteSheet.STATUE;
+		image = ConsumGoodsMaterialsMaterialsDict.STATUE_0;
 
 		stackable = true;
 		unique = true;

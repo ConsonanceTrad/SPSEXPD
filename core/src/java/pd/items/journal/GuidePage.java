@@ -21,14 +21,15 @@
 
 package pd.items.journal;
 
+import pd.atlas.items.SpecificPagesDict;
+
 import pd.journal.Document;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 
 public class GuidePage extends DocumentPage {
 	
 	{
-		image = ItemSpriteSheet.GUIDE_PAGE;
+		image = SpecificPagesDict.GUIDE_PAGE_0;
 	}
 	
 	@Override

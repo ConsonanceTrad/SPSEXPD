@@ -21,17 +21,18 @@
 
 package pd.items.potions.elixirs;
 
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
+
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.ToxicImbue;
 import pd.actors.hero.Hero;
 import pd.effects.particles.PoisonParticle;
 import pd.items.potions.exotic.PotionOfCorrosiveGas;
-import pd.sprites.ItemSpriteSheet;
 
 public class ElixirOfToxicEssence extends Elixir {
 	
 	{
-		image = ItemSpriteSheet.ELIXIR_TOXIC;
+		image = ConsumPotionSeedBasicPotionDict.ELIXIR_TOXIC_0;
 	}
 	
 	@Override

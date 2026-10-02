@@ -21,6 +21,8 @@
 
 package pd.items;
 
+import pd.atlas.items.SpecificCurrencyDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Dungeon;
@@ -30,7 +32,6 @@ import pd.effects.FloatingText;
 import pd.journal.Catalog;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
@@ -40,7 +41,7 @@ public class Gold extends Item {
 	public static final String AC_MAKEBAG = "MAKEBAG";
 
 	{
-		image = ItemSpriteSheet.GOLD;
+		image = SpecificCurrencyDict.GOLD_0;
 		stackable = true;
 	}
 	

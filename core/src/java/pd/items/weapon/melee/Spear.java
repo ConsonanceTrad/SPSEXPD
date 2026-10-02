@@ -21,6 +21,8 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -31,7 +33,6 @@ import pd.effects.Pushing;
 import pd.items.wands.WandOfBlastWave;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.AttackIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
@@ -40,7 +41,7 @@ import render.utils.data.Callback;
 public class Spear extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.SPEAR;
+		image = EquipmentEquipWeaponBasicWeaponDict.SPEAR_0;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 0.9f;
 

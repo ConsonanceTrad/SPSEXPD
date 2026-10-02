@@ -21,6 +21,8 @@
 
 package pd.items.spells;
 
+import pd.atlas.items.ConsumScrollAmuletCrystalDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.buffs.Buff;
@@ -36,7 +38,6 @@ import pd.levels.traps.Trap;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
@@ -47,7 +48,7 @@ import java.util.ArrayList;
 public class ReclaimTrap extends TargetedSpell {
 	
 	{
-		image = ItemSpriteSheet.RECLAIM_TRAP;
+		image = ConsumScrollAmuletCrystalDict.RECLAIM_TRAP_0;
 
 		talentChance = 1/(float)Recipe.OUT_QUANTITY;
 	}

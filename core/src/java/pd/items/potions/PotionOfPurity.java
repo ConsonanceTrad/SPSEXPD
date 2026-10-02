@@ -32,7 +32,7 @@ import pd.effects.Speck;
 import pd.effects.SpellSprite;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
@@ -46,7 +46,7 @@ public class PotionOfPurity extends Potion {
 	private static ArrayList<Class> affectedBlobs;
 
 	{
-		icon = ItemSpriteSheet.Icons.POTION_PURITY;
+		icon = ItemIconSheet.POTION_PURITY;
 		
 		affectedBlobs = new ArrayList<>(new BlobImmunity().immunities());
 	}

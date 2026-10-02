@@ -1,7 +1,8 @@
 package pd.items.nornstone;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 
 public class NornStone extends Item {
 
@@ -9,7 +10,7 @@ public class NornStone extends Item {
 
 	{
 		stackable = true;
-		image = ItemSpriteSheet.NORN_GREEN;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 	@Override

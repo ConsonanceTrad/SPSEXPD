@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.artifacts;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.ShatteredPixelDungeon;
@@ -22,7 +24,6 @@ import pd.items.weapon.melee.special.ErrorW;
 import pd.items.weapon.missiles.throwing.ErrorAmmo;
 import pd.messages.Messages;
 import pd.scenes.MemorySaveScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
@@ -44,7 +45,7 @@ public class RobotDMT extends Artifact {
 	private boolean error;
 
 	{
-		image = ItemSpriteSheet.SPS_ROBOT_HEART;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		levelCap = 10;
 		chargeCap = FULL_CHARGE;
 		defaultAction = AC_HEART;

@@ -8,6 +8,8 @@
 
 package pd.items.bombs;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -18,14 +20,13 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 /** The basic SPS crafted bomb and ingredient for the elemental bomb recipes. */
 public class BuildBomb extends Bomb {
 
 	{
-		image = ItemSpriteSheet.BUILD_BOMB;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 	@Override

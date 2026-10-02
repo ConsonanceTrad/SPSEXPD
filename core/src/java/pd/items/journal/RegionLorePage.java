@@ -21,8 +21,9 @@
 
 package pd.items.journal;
 
+import pd.atlas.items.SpecificPagesDict;
+
 import pd.journal.Document;
-import pd.sprites.ItemSpriteSheet;
 
 public class RegionLorePage {
 
@@ -38,7 +39,7 @@ public class RegionLorePage {
 
 	public static class Sewers extends DocumentPage {
 		{
-			image = ItemSpriteSheet.SEWER_PAGE;
+			image = SpecificPagesDict.SEWER_PAGE_0;
 		}
 
 		@Override
@@ -49,7 +50,7 @@ public class RegionLorePage {
 
 	public static class Prison extends DocumentPage {
 		{
-			image = ItemSpriteSheet.PRISON_PAGE;
+			image = SpecificPagesDict.PRISON_PAGE_0;
 		}
 
 		@Override
@@ -60,7 +61,7 @@ public class RegionLorePage {
 
 	public static class Caves extends DocumentPage {
 		{
-			image = ItemSpriteSheet.CAVES_PAGE;
+			image = SpecificPagesDict.CAVES_PAGE_0;
 		}
 
 		@Override
@@ -71,7 +72,7 @@ public class RegionLorePage {
 
 	public static class City extends DocumentPage {
 		{
-			image = ItemSpriteSheet.CITY_PAGE;
+			image = SpecificPagesDict.CITY_PAGE_0;
 		}
 
 		@Override
@@ -82,7 +83,7 @@ public class RegionLorePage {
 
 	public static class Halls extends DocumentPage {
 		{
-			image = ItemSpriteSheet.HALLS_PAGE;
+			image = SpecificPagesDict.HALLS_PAGE_0;
 		}
 
 		@Override

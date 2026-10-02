@@ -21,13 +21,14 @@
 
 package pd.windows;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.buffs.Combo;
 import pd.items.Item;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
@@ -58,7 +59,7 @@ public class WndCombo extends Window {
 		if (Dungeon.hero.belongings.weapon() != null){
 			icon = new ItemSprite(Dungeon.hero.belongings.weapon().image, null);
 		} else {
-			icon = new ItemSprite(new Item(){ {image = ItemSpriteSheet.WEAPON_HOLDER; }});
+			icon = new ItemSprite(new Item(){ {image = SpecificPlaceHolderDict.SOMETHING_0; }});
 		}
 
 		for (Combo.ComboMove move : Combo.ComboMove.values()) {

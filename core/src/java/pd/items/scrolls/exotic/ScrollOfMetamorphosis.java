@@ -32,7 +32,7 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.ui.RenderedTextBlock;
 import pd.ui.TalentButton;
 import pd.ui.TalentsPane;
@@ -49,7 +49,7 @@ import java.util.Set;
 public class ScrollOfMetamorphosis extends ExoticScroll {
 	
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_METAMORPH;
+		icon = ItemIconSheet.SCROLL_METAMORPH;
 
 		talentFactor = 2f;
 	}

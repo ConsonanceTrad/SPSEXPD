@@ -21,6 +21,8 @@
 
 package pd.items.food;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.buffs.Hunger;
 import pd.actors.hero.Hero;
@@ -29,12 +31,11 @@ import pd.effects.FloatingText;
 import pd.items.artifacts.CloakOfShadows;
 import pd.items.scrolls.ScrollOfRecharging;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 
 public class SupplyRation extends Food {
 
 	{
-		image = ItemSpriteSheet.SUPPLY_RATION;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 2*Hunger.HUNGRY/3f; //200 food value
 
 		bones = false;

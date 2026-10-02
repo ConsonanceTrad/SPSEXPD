@@ -1,13 +1,14 @@
 package pd.items;
 
+import pd.atlas.items.SpecificTaskDict;
+
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 
 import java.util.ArrayList;
 
 abstract class TriforcePiece extends Item {
 	{
-		image = ItemSpriteSheet.SPS_TRIFORCE;
+		image = SpecificTaskDict.TRIFORCE;
 		stackable = false;
 		unique = true;
 		keptThoughLostInvent = true;

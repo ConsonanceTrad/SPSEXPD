@@ -21,6 +21,8 @@
 
 package pd.items.weapon.missiles.darts;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Char;
@@ -28,14 +30,13 @@ import pd.actors.buffs.Bless;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.effects.particles.ShadowParticle;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
 public class HolyDart extends TippedDart {
 
 	{
-		image = ItemSpriteSheet.HOLY_DART;
+		image = ConsumThrowsDict.HOLY_DART_0;
 	}
 
 	@Override

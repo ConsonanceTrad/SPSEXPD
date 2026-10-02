@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -14,7 +16,6 @@ import pd.items.weapon.SpsRangedWeapon;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
@@ -26,7 +27,7 @@ public class MegaCannon extends SpsRangedWeapon {
 	private static final String CHARGE = "charge";
 	private int charge;
 	{
-		image = ItemSpriteSheet.SPS_MEGA_CANNON;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		ACC = 1f;
 		DLY = 0.75f;
 		RCH = 1;
@@ -81,8 +82,8 @@ public class MegaCannon extends SpsRangedWeapon {
 		private final int power;
 		MegaAmmo(int power) {
 			this.power = Math.max(0, Math.min(FULL_CHARGE, power));
-			image = power > 2 ? ItemSpriteSheet.SPS_MEGA_AMMO_LARGE
-					: power > 1 ? ItemSpriteSheet.SPS_MEGA_AMMO_MEDIUM : ItemSpriteSheet.SPS_MEGA_AMMO_SMALL;
+			image = power > 2 ? SpecificPlaceHolderDict.SOMETHING_0
+					: power > 1 ? SpecificPlaceHolderDict.SOMETHING_0 : SpecificPlaceHolderDict.SOMETHING_0;
 			tier = 1;
 			ACC = 100f;
 			spawnedForEffect = true;

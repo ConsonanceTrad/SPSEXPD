@@ -1,6 +1,9 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles;
 
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -23,7 +26,6 @@ import pd.items.weapon.Weapon;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
@@ -46,7 +48,7 @@ public class TaurcenBow extends Weapon {
 	private int charge;
 
 	{
-		image = ItemSpriteSheet.SPS_TAURCEN_BOW;
+		image = EquipmentEquipWeaponUniqueWeaponDict.SPS_TAURCEN_BOW_0;
 		stackable = false;
 		unique = true;
 		bones = false;
@@ -167,7 +169,7 @@ public class TaurcenBow extends Weapon {
 
 	public class TaurcenBowArrow extends MissileWeapon {
 		{
-			image = ItemSpriteSheet.POISON_DART;
+			image = ConsumThrowsDict.POISON_DART_0;
 			tier = 1;
 			spawnedForEffect = true;
 		}

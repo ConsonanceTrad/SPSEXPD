@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Dungeon;
@@ -11,7 +13,6 @@ import pd.items.bags.Bag;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
 import pd.windows.WndUseItem;
 import render.noosa.audio.Sample;
@@ -31,7 +32,7 @@ public class CrystalVial extends Item {
 	private int volume;
 
 	{
-		image = ItemSpriteSheet.CRYSTAL_VIAL;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		defaultAction = AC_CHOOSE;
 	}
 

@@ -29,12 +29,12 @@ import pd.actors.hero.Hero;
 import pd.effects.FloatingText;
 import pd.items.potions.PotionOfHealing;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 
 public class PotionOfShielding extends ExoticPotion {
 	
 	{
-		icon = ItemSpriteSheet.Icons.POTION_SHIELDING;
+		icon = ItemIconSheet.POTION_SHIELDING;
 	}
 	
 	@Override

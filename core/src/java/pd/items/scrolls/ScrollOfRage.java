@@ -32,14 +32,14 @@ import pd.actors.mobs.Mob;
 import pd.effects.Speck;
 import pd.items.Heap;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 
 public class ScrollOfRage extends Scroll {
 
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_RAGE;
+		icon = ItemIconSheet.SCROLL_RAGE;
 	}
 
 	@Override

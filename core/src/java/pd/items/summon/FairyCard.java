@@ -1,5 +1,7 @@
 package pd.items.summon;
 
+import pd.atlas.items.ConsumSummorDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
@@ -8,7 +10,6 @@ import pd.actors.mobs.npcs.DirectableAlly;
 import pd.effects.Speck;
 import pd.sprites.CharSprite;
 import pd.sprites.FairySprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.sprites.SugarplumFairySprite;
 import render.utils.math.Random;
 
@@ -17,7 +18,7 @@ public class FairyCard extends SpsSummonItem {
 	private static boolean activate;
 
 	{
-		image = ItemSpriteSheet.FAIRY_CARD;
+		image = ConsumSummorDict.FAIRY_CARD_0;
 	}
 
 	@Override

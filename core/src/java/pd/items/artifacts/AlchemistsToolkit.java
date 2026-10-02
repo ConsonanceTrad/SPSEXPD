@@ -13,6 +13,8 @@
 
 package pd.items.artifacts;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.hero.Hero;
@@ -29,7 +31,6 @@ import pd.items.potions.PotionOfStrength;
 import pd.messages.Messages;
 import pd.scenes.AlchemyScene;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import render.noosa.Game;
@@ -55,7 +56,7 @@ public class AlchemistsToolkit extends Artifact {
 	private int seedsToPotion;
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_TOOLKIT;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		level(0);
 		levelCap = 10;
 		defaultAction = AC_BREW;

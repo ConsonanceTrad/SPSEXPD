@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.special;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.AttackUp;
 import pd.actors.buffs.Bleeding;
@@ -14,7 +16,6 @@ import pd.items.Item;
 import pd.items.weapon.melee.MeleeWeapon;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -30,7 +31,7 @@ public class ShadowEater extends MeleeWeapon {
 	private int charge;
 
 	{
-		image = ItemSpriteSheet.SHADOW_EATER;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		tier = 4;
 		ACC = 1f;
 		DLY = 1f;

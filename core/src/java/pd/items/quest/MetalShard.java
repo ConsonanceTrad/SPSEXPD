@@ -21,13 +21,14 @@
 
 package pd.items.quest;
 
+import pd.atlas.items.ConsumGoodsMaterialsMaterialsDict;
+
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 
 public class MetalShard extends Item {
 	
 	{
-		image = ItemSpriteSheet.SHARD;
+		image = ConsumGoodsMaterialsMaterialsDict.SHARD_0;
 		stackable = true;
 	}
 	

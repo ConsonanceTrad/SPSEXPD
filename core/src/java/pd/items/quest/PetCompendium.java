@@ -8,6 +8,8 @@
 
 package pd.items.quest;
 
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.hero.Hero;
@@ -20,7 +22,6 @@ import pd.items.scrolls.ScrollOfTeleportation;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
@@ -41,7 +42,7 @@ public class PetCompendium extends Item {
 	private int lastSummonBranch = -1;
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_ROSE1;
+		image = EquipmentJewelleryArtifactDict.ARTIFACT_ROSE1;
 		defaultAction = AC_CALL;
 		unique = true;
 		keptThoughLostInvent = true;

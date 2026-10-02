@@ -1,11 +1,12 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.armor.specialarmor;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.items.armor.normalarmor.NormalArmor;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.serialize.Bundle;
 
 /** Living armor which stores recent damage as defense, then converts it to healing. */
@@ -20,7 +21,7 @@ public class LifeArmor extends NormalArmor {
 	private LifeCharge passiveBuff;
 
 	public LifeArmor() {
-		super(1, 2f, 6f, 3, 0, 0, 0, 0, 0, ItemSpriteSheet.SPS_LIFE_ARMOR);
+		super(1, 2f, 6f, 3, 0, 0, 0, 0, 0, EquipmentNonEquipDict.SPS_LIFE_ARMOR_0);
 	}
 
 	@Override public int DRMin(int level) { return 0; }

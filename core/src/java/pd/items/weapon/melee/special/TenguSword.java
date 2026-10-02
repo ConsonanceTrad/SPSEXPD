@@ -1,18 +1,19 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.special;
 
+import pd.atlas.items.SpecificTaskDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Barrier;
 import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
 import pd.items.weapon.melee.MeleeWeapon;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 /** Young Tengu's unusually fast sword. */
 public class TenguSword extends MeleeWeapon {
 	{
-		image = ItemSpriteSheet.TENGU_SWORD;
+		image = SpecificTaskDict.ROGUE_CHALLENGE;
 		tier = 2;
 		ACC = 1.2f;
 		DLY = 0.8f;

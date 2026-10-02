@@ -21,12 +21,13 @@
 
 package pd.items.armor;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 
 public class RogueArmor extends ClassArmor {
 
 	{
-		image = ItemSpriteSheet.ARMOR_ROGUE;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 }

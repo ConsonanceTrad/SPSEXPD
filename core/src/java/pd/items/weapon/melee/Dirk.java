@@ -21,17 +21,18 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 
 public class Dirk extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.DIRK;
+		image = EquipmentEquipWeaponBasicWeaponDict.DIRK_0;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 1f;
 

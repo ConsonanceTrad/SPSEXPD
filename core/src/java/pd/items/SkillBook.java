@@ -1,12 +1,13 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
+
 import pd.Assets;
 import pd.actors.hero.Hero;
 import pd.effects.Speck;
 import pd.items.skills.ClassSkill;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 
@@ -19,7 +20,7 @@ public class SkillBook extends Item {
 	private static final String AC_APPLY = "APPLY";
 
 	{
-		image = ItemSpriteSheet.MASTERY;
+		image = ConsumUsefulProcessEnhanceDict.MASTERY_0;
 		defaultAction = AC_APPLY;
 		unique = true;
 	}

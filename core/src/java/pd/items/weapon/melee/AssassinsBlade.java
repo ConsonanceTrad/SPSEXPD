@@ -21,17 +21,18 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 
 public class AssassinsBlade extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.ASSASSINS_BLADE;
+		image = EquipmentEquipWeaponBasicWeaponDict.ASSASSINS_BLADE_0;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 0.9f;
 

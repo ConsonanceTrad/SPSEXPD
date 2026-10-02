@@ -21,17 +21,18 @@
 
 package pd.items.potions.elixirs;
 
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
+
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.FrostImbue;
 import pd.actors.hero.Hero;
 import pd.effects.particles.SnowParticle;
 import pd.items.potions.exotic.PotionOfSnapFreeze;
-import pd.sprites.ItemSpriteSheet;
 
 public class ElixirOfIcyTouch extends Elixir {
 	
 	{
-		image = ItemSpriteSheet.ELIXIR_ICY;
+		image = ConsumPotionSeedBasicPotionDict.ELIXIR_ICY_0;
 	}
 	
 	@Override

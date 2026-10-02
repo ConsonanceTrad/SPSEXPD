@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.bombs;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -10,12 +12,11 @@ import pd.actors.buffs.Terror;
 import pd.effects.CellEmitter;
 import pd.effects.particles.SmokeParticle;
 import pd.mechanics.pathfind.PathFinder;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class DarkBomb extends Bomb {
 
-	{ image = ItemSpriteSheet.DARK_BOMB; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 
 	@Override
 	public void explode(int cell) {

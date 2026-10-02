@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.buffs.ArmorBreak;
 import pd.actors.buffs.AttackDown;
@@ -15,7 +17,6 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndUseItem;
 import render.utils.math.Random;
@@ -30,7 +31,7 @@ public class NmHealBag extends Item {
 	public static final String AC_ADD = "ADD";
 	public static final int COOK_COST = 10;
 
-	{ image = ItemSpriteSheet.SPS_NM_HEAL_BAG; unique = true; defaultAction = AC_CHOOSE; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; unique = true; defaultAction = AC_CHOOSE; }
 
 	@Override
 	public ArrayList<String> actions(Hero hero) {

@@ -8,6 +8,8 @@
 
 package pd.windows;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Hunger;
@@ -17,12 +19,11 @@ import pd.items.food.Food;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 
 public class WndTent extends WndOptions {
 
 	public WndTent() {
-		super(new ItemSprite(ItemSpriteSheet.RATION),
+		super(new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
 				Messages.get(WndTent.class, "title"),
 				Messages.get(WndTent.class, "text"),
 				Messages.get(WndTent.class, "select"),

@@ -21,6 +21,8 @@
 
 package pd.items.wands;
 
+import pd.atlas.items.EquipmentWandBasicWandDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Dungeon;
@@ -43,7 +45,6 @@ import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.sprites.WardSprite;
 import pd.utils.GLog;
 import pd.windows.WndOptions;
@@ -57,7 +58,7 @@ import render.utils.serialize.Bundle;
 public class WandOfWarding extends Wand {
 
 	{
-		image = ItemSpriteSheet.WAND_WARDING;
+		image = EquipmentWandBasicWandDict.WAND_WARDING_0;
 		usesTargeting = false; //player usually targets wards or spaces, not enemies
 	}
 

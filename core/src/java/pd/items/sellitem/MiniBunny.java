@@ -1,11 +1,12 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.sellitem;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.ConsumSummorDict;
+
 
 public class MiniBunny extends SellItem {
 	{
-		image = ItemSpriteSheet.RABBIT_PET_EGG;
+		image = ConsumSummorDict.RABBIT_PET_EGG_0;
 		stackable = true;
 	}
 	@Override public int value() { return 100 * quantity; }

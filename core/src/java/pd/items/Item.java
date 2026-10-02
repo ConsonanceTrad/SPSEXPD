@@ -22,6 +22,8 @@
 package pd.items;
 
 import pd.Assets;
+import pd.atlas.IconEntry;
+import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.Badges;
 import pd.Dungeon;
 import pd.Statistics;
@@ -74,7 +76,7 @@ public class Item implements Bundlable {
 	public boolean usesTargeting;
 
 	//TODO should these be private and accessed through methods?
-	public int image = 0;
+	public IconEntry image = SpecificPlaceHolderDict.SOMETHING_0;
 	public int icon = -1; //used as an identifier for items with randomized images
 	
 	public boolean stackable = false;
@@ -522,7 +524,7 @@ public class Item implements Bundlable {
 		return Messages.get(this, "name");
 	}
 	
-	public int image() {
+	public IconEntry image() {
 		return image;
 	}
 	

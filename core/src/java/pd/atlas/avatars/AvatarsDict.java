@@ -13,23 +13,23 @@ public final class AvatarsDict {
 	private AvatarsDict() { }
 
 	/** avatar_000 */
-	public static final IconEntry AVATAR_000 = new IconEntry("sprites/heroes/avatars.png", new int[]{0, 0, 24, 32});
+	public static final IconEntry AVATAR_000 = new IconEntry("sprites/heroes/avatars.png", new int[]{0, 0, 24, 32}, 0);
 	/** avatar_001 */
-	public static final IconEntry AVATAR_001 = new IconEntry("sprites/heroes/avatars.png", new int[]{24, 0, 24, 32});
+	public static final IconEntry AVATAR_001 = new IconEntry("sprites/heroes/avatars.png", new int[]{24, 0, 24, 32}, 1);
 	/** avatar_002 */
-	public static final IconEntry AVATAR_002 = new IconEntry("sprites/heroes/avatars.png", new int[]{48, 0, 24, 32});
+	public static final IconEntry AVATAR_002 = new IconEntry("sprites/heroes/avatars.png", new int[]{48, 0, 24, 32}, 2);
 	/** avatar_003 */
-	public static final IconEntry AVATAR_003 = new IconEntry("sprites/heroes/avatars.png", new int[]{72, 0, 24, 32});
+	public static final IconEntry AVATAR_003 = new IconEntry("sprites/heroes/avatars.png", new int[]{72, 0, 24, 32}, 3);
 	/** avatar_004 */
-	public static final IconEntry AVATAR_004 = new IconEntry("sprites/heroes/avatars.png", new int[]{96, 0, 24, 32});
+	public static final IconEntry AVATAR_004 = new IconEntry("sprites/heroes/avatars.png", new int[]{96, 0, 24, 32}, 4);
 	/** avatar_005 */
-	public static final IconEntry AVATAR_005 = new IconEntry("sprites/heroes/avatars.png", new int[]{120, 0, 24, 32});
+	public static final IconEntry AVATAR_005 = new IconEntry("sprites/heroes/avatars.png", new int[]{120, 0, 24, 32}, 5);
 	/** avatar_006 */
-	public static final IconEntry AVATAR_006 = new IconEntry("sprites/heroes/avatars.png", new int[]{144, 0, 24, 32});
+	public static final IconEntry AVATAR_006 = new IconEntry("sprites/heroes/avatars.png", new int[]{144, 0, 24, 32}, 6);
 	/** avatar_007 */
-	public static final IconEntry AVATAR_007 = new IconEntry("sprites/heroes/avatars.png", new int[]{168, 0, 24, 32});
+	public static final IconEntry AVATAR_007 = new IconEntry("sprites/heroes/avatars.png", new int[]{168, 0, 24, 32}, 7);
 	/** avatar_008 */
-	public static final IconEntry AVATAR_008 = new IconEntry("sprites/heroes/avatars.png", new int[]{192, 0, 24, 32});
+	public static final IconEntry AVATAR_008 = new IconEntry("sprites/heroes/avatars.png", new int[]{192, 0, 24, 32}, 8);
 	/** avatar_009 */
-	public static final IconEntry AVATAR_009 = new IconEntry("sprites/heroes/avatars.png", new int[]{216, 0, 24, 32});
+	public static final IconEntry AVATAR_009 = new IconEntry("sprites/heroes/avatars.png", new int[]{216, 0, 24, 32}, 9);
 }

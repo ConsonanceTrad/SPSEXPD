@@ -5,14 +5,15 @@
 
 package pd.items.weapon.melee.fusion;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.items.weapon.melee.Sword;
-import pd.sprites.ItemSpriteSheet;
 
 public class RitualBlade extends Sword implements FusionWeapon {
 
 	{
-		image = ItemSpriteSheet.SICKLE;
+		image = EquipmentEquipWeaponBasicWeaponDict.SICKLE_0;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1.15f;
 		tier = 2;

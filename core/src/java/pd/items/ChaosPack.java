@@ -1,15 +1,16 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 
 import java.util.ArrayList;
 
 /** The contract obtained from Ice13 and used to forge Shadow Eater. */
 public class ChaosPack extends Item {
 	{
-		image = ItemSpriteSheet.CHAOS_PACK;
+		image = EquipmentNonEquipDict.CHAOS_PACK;
 		stackable = false;
 		unique = true;
 	}

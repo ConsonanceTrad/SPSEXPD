@@ -32,7 +32,7 @@ import pd.actors.mobs.Mob;
 import pd.effects.SpellSprite;
 import pd.effects.particles.EnergyParticle;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.noosa.particles.Emitter;
@@ -40,7 +40,7 @@ import render.noosa.particles.Emitter;
 public class ScrollOfRecharging extends Scroll {
 
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_RECHARGE;
+		icon = ItemIconSheet.SCROLL_RECHARGE;
 	}
 
 	@Override

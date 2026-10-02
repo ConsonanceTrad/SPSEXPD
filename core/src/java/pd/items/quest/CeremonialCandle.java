@@ -21,6 +21,8 @@
 
 package pd.items.quest;
 
+import pd.atlas.items.SpecificTaskDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -36,7 +38,6 @@ import pd.levels.RegularLevel;
 import pd.levels.rooms.quest.RitualSiteRoom;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.noosa.particles.Emitter;
 import render.utils.math.Random;
@@ -51,7 +52,7 @@ public class CeremonialCandle extends Item {
 	public static int ritualPos;
 
 	{
-		image = ItemSpriteSheet.CANDLE;
+		image = SpecificTaskDict.CANDLE_0;
 
 		defaultAction = AC_THROW;
 

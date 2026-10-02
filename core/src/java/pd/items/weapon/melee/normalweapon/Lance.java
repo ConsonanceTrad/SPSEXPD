@@ -1,11 +1,12 @@
 package pd.items.weapon.melee.normalweapon;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class Lance extends NormalMeleeWeapon {
-	public Lance() { super(5, 1f, 1f, 1, 35, 44, ItemSpriteSheet.SPS_WEP_LANCE); }
+	public Lance() { super(5, 1f, 1f, 1, 35, 44, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) { s.min++; s.max += 3; }
 	@Override public int proc(Char attacker, Char defender, int damage) {
 		if (Random.Int(4) == 0) {

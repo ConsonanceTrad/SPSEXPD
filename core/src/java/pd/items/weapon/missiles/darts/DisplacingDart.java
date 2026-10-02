@@ -21,6 +21,8 @@
 
 package pd.items.weapon.missiles.darts;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -29,7 +31,6 @@ import pd.items.artifacts.TalismanOfForesight;
 import pd.items.scrolls.ScrollOfTeleportation;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.data.BArray;
 
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ import java.util.ArrayList;
 public class DisplacingDart extends TippedDart {
 	
 	{
-		image = ItemSpriteSheet.DISPLACING_DART;
+		image = ConsumThrowsDict.DISPLACING_DART_0;
 	}
 	
 	@Override

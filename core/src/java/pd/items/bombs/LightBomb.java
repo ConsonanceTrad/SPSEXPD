@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.bombs;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -10,13 +12,12 @@ import pd.actors.buffs.LightShootAttack;
 import pd.effects.CellEmitter;
 import pd.effects.particles.SmokeParticle;
 import pd.mechanics.pathfind.PathFinder;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class LightBomb extends Bomb {
 
 	{
-		image = ItemSpriteSheet.LIGHT_BOMB;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 	public LightBomb() { this(1); }

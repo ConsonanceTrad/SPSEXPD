@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Muscle;
 import pd.actors.buffs.Recharging;
@@ -8,7 +10,6 @@ import pd.actors.buffs.Rhythm;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -25,7 +26,7 @@ public class DemoScroll extends Item {
 	private int trades;
 
 	{
-		image = ItemSpriteSheet.SPS_DEMON_PAPER;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = false;
 	}
 

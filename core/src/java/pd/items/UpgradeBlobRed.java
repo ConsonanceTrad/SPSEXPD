@@ -1,8 +1,9 @@
 package pd.items;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 
 public class UpgradeBlobRed extends UpgradeBlob {
-	{ image = ItemSpriteSheet.UPGRADE_GOO_RED; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override protected int upgrades() { return 3; }
 }

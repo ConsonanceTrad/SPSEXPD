@@ -1,12 +1,13 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
+
 import pd.actors.buffs.AflyBless;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroClass;
 import pd.actors.hero.HeroSubClass;
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 /** The shared implementation of the three legacy SPS luck bonuses. */
@@ -16,7 +17,7 @@ public class LuckyBadge extends Item {
 	public static final int MAX_EXTRA_ITEMS = 64;
 
 	{
-		image = ItemSpriteSheet.LUCKY_BADGE;
+		image = EquipmentJewelleryArtifactDict.LUCKY_BADGE;
 		unique = true;
 	}
 

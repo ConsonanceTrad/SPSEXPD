@@ -1,17 +1,18 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.eggs;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.pets.LegacyPet;
 import pd.actors.mobs.pets.ShadowDragon;
 import pd.items.quest.AdventureJournal;
-import pd.sprites.ItemSpriteSheet;
 
 /** Guaranteed shadow-dragon soul from the original dragon cave. */
 public class ShadowDragonEgg extends Egg {
 	{
-		image = ItemSpriteSheet.SHADOW_DRAGON_EGG;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		lights = 20;
 	}
 

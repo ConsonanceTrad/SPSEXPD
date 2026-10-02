@@ -21,6 +21,8 @@
 
 package pd.items;
 
+import pd.atlas.items.SpecificTaskDict;
+
 import pd.Badges;
 import pd.Challenges;
 import pd.Dungeon;
@@ -31,7 +33,6 @@ import pd.actors.buffs.AscensionChallenge;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.scenes.AmuletScene;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.Game;
 
 import java.io.IOException;
@@ -42,7 +43,7 @@ public class Amulet extends Item {
 	private static final String AC_END = "END";
 	
 	{
-		image = ItemSpriteSheet.AMULET;
+		image = SpecificTaskDict.AMULET_0;
 		
 		unique = true;
 	}

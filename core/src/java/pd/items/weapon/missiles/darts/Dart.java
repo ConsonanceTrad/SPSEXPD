@@ -21,6 +21,8 @@
 
 package pd.items.weapon.missiles.darts;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -37,7 +39,6 @@ import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
 import render.noosa.audio.Sample;
@@ -50,7 +51,7 @@ public class Dart extends MissileWeapon {
 	{
 		levelKnown = true;
 
-		image = ItemSpriteSheet.DART;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		hitSound = Assets.Sounds.HIT_ARROW;
 		hitSoundPitch = 1.3f;
 		

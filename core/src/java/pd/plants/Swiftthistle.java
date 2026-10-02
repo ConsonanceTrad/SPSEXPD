@@ -21,6 +21,8 @@
 
 package pd.plants;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -33,7 +35,6 @@ import pd.levels.GroundItems;
 import pd.levels.traps.Trap;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.noosa.particles.Emitter;
@@ -60,7 +61,7 @@ public class Swiftthistle extends Plant {
 	
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SEED_SWIFTTHISTLE;
+			image = ConsumPotionSeedSeedDict.SEED_SWIFTTHISTLE;
 			
 			plantClass = Swiftthistle.class;
 		}

@@ -21,6 +21,8 @@
 
 package pd.items.food;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.Barkskin;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Hunger;
@@ -30,14 +32,13 @@ import pd.effects.FloatingText;
 import pd.items.potions.PotionOfHealing;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.math.Random;
 
 public class FrozenCarpaccio extends Food {
 
 	{
-		image = ItemSpriteSheet.CARPACCIO;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = Hunger.HUNGRY/2f;
 	}
 	

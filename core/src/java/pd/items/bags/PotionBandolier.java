@@ -21,16 +21,17 @@
 
 package pd.items.bags;
 
+import pd.atlas.items.EquipmentBagsDict;
+
 import pd.items.Item;
 import pd.items.LiquidMetal;
 import pd.items.Waterskin;
 import pd.items.potions.Potion;
-import pd.sprites.ItemSpriteSheet;
 
 public class PotionBandolier extends Bag {
 
 	{
-		image = ItemSpriteSheet.BANDOLIER;
+		image = EquipmentBagsDict.BANDOLIER;
 	}
 
 	@Override

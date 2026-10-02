@@ -1,16 +1,17 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Badges;
 import pd.actors.hero.Hero;
 import pd.items.food.fruit.Fruit;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class GoldenNut extends Fruit {
-	{ image = ItemSpriteSheet.GOLDEN_NUT; energy = 100f; hornValue = 2; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; energy = 100f; hornValue = 2; }
 
 	@Override protected void onEat(Hero hero) {
 		applyBlessing(hero, Random.Int(2));

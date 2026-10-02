@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -11,14 +13,13 @@ import pd.actors.buffs.Tar;
 import pd.actors.mobs.Mob;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class ShitBall extends MissileWeapon {
 	private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0xCC6600);
 
 	{
-		image = ItemSpriteSheet.SHIT_BALL;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		tier = 1;
 		baseUses = 1;
 		DLY = 0.5f;

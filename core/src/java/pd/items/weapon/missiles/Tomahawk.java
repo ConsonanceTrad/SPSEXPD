@@ -21,6 +21,8 @@
 
 package pd.items.weapon.missiles;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Char;
@@ -28,13 +30,12 @@ import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
 import pd.items.rings.RingOfSharpshooting;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class Tomahawk extends MissileWeapon {
 
 	{
-		image = ItemSpriteSheet.TOMAHAWK;
+		image = ConsumThrowsDict.TOMAHAWK_0;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 0.9f;
 

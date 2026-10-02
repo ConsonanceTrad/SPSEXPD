@@ -26,13 +26,13 @@ import pd.Dungeon;
 import pd.actors.blobs.Blob;
 import pd.actors.blobs.ToxicGas;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import render.noosa.audio.Sample;
 
 public class PotionOfToxicGas extends Potion {
 
 	{
-		icon = ItemSpriteSheet.Icons.POTION_TOXICGAS;
+		icon = ItemIconSheet.POTION_TOXICGAS;
 	}
 
 	@Override

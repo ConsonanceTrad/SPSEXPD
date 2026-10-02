@@ -21,16 +21,17 @@
 
 package pd.items.remains;
 
+import pd.atlas.items.ConsumUsefulCorpseRelicsDict;
+
 import pd.Assets;
 import pd.actors.hero.Hero;
 import pd.items.scrolls.ScrollOfRecharging;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 
 public class BrokenStaff extends RemainsItem {
 
 	{
-		image = ItemSpriteSheet.BROKEN_STAFF;
+		image = ConsumUsefulCorpseRelicsDict.BROKEN_STAFF_0;
 	}
 
 	@Override

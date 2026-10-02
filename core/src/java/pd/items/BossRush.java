@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
@@ -8,7 +10,6 @@ import pd.levels.Level;
 import pd.levels.Transitions;
 import pd.messages.Messages;
 import pd.scenes.InterlevelScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.Game;
 import render.utils.serialize.Bundle;
@@ -28,7 +29,7 @@ public class BossRush extends Item {
 	private int returnPos = -1;
 
 	{
-		image = ItemSpriteSheet.BOSS_RUSH;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		unique = true;
 		stackable = false;
 		defaultAction = AC_READ;

@@ -21,6 +21,8 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -28,7 +30,6 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.FlavourBuff;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.BuffIndicator;
 import render.noosa.Image;
 import render.utils.serialize.Bundle;
@@ -36,7 +37,7 @@ import render.utils.serialize.Bundle;
 public class RoundShield extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.ROUND_SHIELD;
+		image = EquipmentEquipWeaponBasicWeaponDict.ROUND_SHIELD_0;
 		hitSound = Assets.Sounds.HIT;
 		hitSoundPitch = 1f;
 

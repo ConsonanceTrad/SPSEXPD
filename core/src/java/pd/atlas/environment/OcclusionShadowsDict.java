@@ -13,131 +13,131 @@ public final class OcclusionShadowsDict {
 	private OcclusionShadowsDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{0, 0, 16, 16});
+	public static final IconEntry TILE_000 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{0, 0, 16, 16}, 844);
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{16, 0, 16, 16});
+	public static final IconEntry TILE_001 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{16, 0, 16, 16}, 845);
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{32, 0, 16, 16});
+	public static final IconEntry TILE_002 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{32, 0, 16, 16}, 846);
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{48, 0, 16, 16});
+	public static final IconEntry TILE_003 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{48, 0, 16, 16}, 847);
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{64, 0, 16, 16});
+	public static final IconEntry TILE_004 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{64, 0, 16, 16}, 848);
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{80, 0, 16, 16});
+	public static final IconEntry TILE_005 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{80, 0, 16, 16}, 849);
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{96, 0, 16, 16});
+	public static final IconEntry TILE_006 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{96, 0, 16, 16}, 850);
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{112, 0, 16, 16});
+	public static final IconEntry TILE_007 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{112, 0, 16, 16}, 851);
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{0, 16, 16, 16});
+	public static final IconEntry TILE_008 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{0, 16, 16, 16}, 852);
 	/** tile_009 */
-	public static final IconEntry TILE_009 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{16, 16, 16, 16});
+	public static final IconEntry TILE_009 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{16, 16, 16, 16}, 853);
 	/** tile_010 */
-	public static final IconEntry TILE_010 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{32, 16, 16, 16});
+	public static final IconEntry TILE_010 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{32, 16, 16, 16}, 854);
 	/** tile_011 */
-	public static final IconEntry TILE_011 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{48, 16, 16, 16});
+	public static final IconEntry TILE_011 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{48, 16, 16, 16}, 855);
 	/** tile_012 */
-	public static final IconEntry TILE_012 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{64, 16, 16, 16});
+	public static final IconEntry TILE_012 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{64, 16, 16, 16}, 856);
 	/** tile_013 */
-	public static final IconEntry TILE_013 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{80, 16, 16, 16});
+	public static final IconEntry TILE_013 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{80, 16, 16, 16}, 857);
 	/** tile_014 */
-	public static final IconEntry TILE_014 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{96, 16, 16, 16});
+	public static final IconEntry TILE_014 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{96, 16, 16, 16}, 858);
 	/** tile_015 */
-	public static final IconEntry TILE_015 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{112, 16, 16, 16});
+	public static final IconEntry TILE_015 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{112, 16, 16, 16}, 859);
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{0, 32, 16, 16});
+	public static final IconEntry TILE_016 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{0, 32, 16, 16}, 860);
 	/** tile_017 */
-	public static final IconEntry TILE_017 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{16, 32, 16, 16});
+	public static final IconEntry TILE_017 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{16, 32, 16, 16}, 861);
 	/** tile_018 */
-	public static final IconEntry TILE_018 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{32, 32, 16, 16});
+	public static final IconEntry TILE_018 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{32, 32, 16, 16}, 862);
 	/** tile_019 */
-	public static final IconEntry TILE_019 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{48, 32, 16, 16});
+	public static final IconEntry TILE_019 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{48, 32, 16, 16}, 863);
 	/** tile_020 */
-	public static final IconEntry TILE_020 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{64, 32, 16, 16});
+	public static final IconEntry TILE_020 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{64, 32, 16, 16}, 864);
 	/** tile_021 */
-	public static final IconEntry TILE_021 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{80, 32, 16, 16});
+	public static final IconEntry TILE_021 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{80, 32, 16, 16}, 865);
 	/** tile_022 */
-	public static final IconEntry TILE_022 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{96, 32, 16, 16});
+	public static final IconEntry TILE_022 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{96, 32, 16, 16}, 866);
 	/** tile_023 */
-	public static final IconEntry TILE_023 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{112, 32, 16, 16});
+	public static final IconEntry TILE_023 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{112, 32, 16, 16}, 867);
 	/** tile_024 */
-	public static final IconEntry TILE_024 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{0, 48, 16, 16});
+	public static final IconEntry TILE_024 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{0, 48, 16, 16}, 868);
 	/** tile_025 */
-	public static final IconEntry TILE_025 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{16, 48, 16, 16});
+	public static final IconEntry TILE_025 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{16, 48, 16, 16}, 869);
 	/** tile_026 */
-	public static final IconEntry TILE_026 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{32, 48, 16, 16});
+	public static final IconEntry TILE_026 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{32, 48, 16, 16}, 870);
 	/** tile_027 */
-	public static final IconEntry TILE_027 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{48, 48, 16, 16});
+	public static final IconEntry TILE_027 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{48, 48, 16, 16}, 871);
 	/** tile_028 */
-	public static final IconEntry TILE_028 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{64, 48, 16, 16});
+	public static final IconEntry TILE_028 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{64, 48, 16, 16}, 872);
 	/** tile_029 */
-	public static final IconEntry TILE_029 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{80, 48, 16, 16});
+	public static final IconEntry TILE_029 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{80, 48, 16, 16}, 873);
 	/** tile_030 */
-	public static final IconEntry TILE_030 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{96, 48, 16, 16});
+	public static final IconEntry TILE_030 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{96, 48, 16, 16}, 874);
 	/** tile_031 */
-	public static final IconEntry TILE_031 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{112, 48, 16, 16});
+	public static final IconEntry TILE_031 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{112, 48, 16, 16}, 875);
 	/** tile_032 */
-	public static final IconEntry TILE_032 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{0, 64, 16, 16});
+	public static final IconEntry TILE_032 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{0, 64, 16, 16}, 876);
 	/** tile_033 */
-	public static final IconEntry TILE_033 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{16, 64, 16, 16});
+	public static final IconEntry TILE_033 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{16, 64, 16, 16}, 877);
 	/** tile_034 */
-	public static final IconEntry TILE_034 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{32, 64, 16, 16});
+	public static final IconEntry TILE_034 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{32, 64, 16, 16}, 878);
 	/** tile_035 */
-	public static final IconEntry TILE_035 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{48, 64, 16, 16});
+	public static final IconEntry TILE_035 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{48, 64, 16, 16}, 879);
 	/** tile_036 */
-	public static final IconEntry TILE_036 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{64, 64, 16, 16});
+	public static final IconEntry TILE_036 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{64, 64, 16, 16}, 880);
 	/** tile_037 */
-	public static final IconEntry TILE_037 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{80, 64, 16, 16});
+	public static final IconEntry TILE_037 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{80, 64, 16, 16}, 881);
 	/** tile_038 */
-	public static final IconEntry TILE_038 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{96, 64, 16, 16});
+	public static final IconEntry TILE_038 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{96, 64, 16, 16}, 882);
 	/** tile_039 */
-	public static final IconEntry TILE_039 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{112, 64, 16, 16});
+	public static final IconEntry TILE_039 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{112, 64, 16, 16}, 883);
 	/** tile_040 */
-	public static final IconEntry TILE_040 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{0, 80, 16, 16});
+	public static final IconEntry TILE_040 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{0, 80, 16, 16}, 884);
 	/** tile_041 */
-	public static final IconEntry TILE_041 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{16, 80, 16, 16});
+	public static final IconEntry TILE_041 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{16, 80, 16, 16}, 885);
 	/** tile_042 */
-	public static final IconEntry TILE_042 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{32, 80, 16, 16});
+	public static final IconEntry TILE_042 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{32, 80, 16, 16}, 886);
 	/** tile_043 */
-	public static final IconEntry TILE_043 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{48, 80, 16, 16});
+	public static final IconEntry TILE_043 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{48, 80, 16, 16}, 887);
 	/** tile_044 */
-	public static final IconEntry TILE_044 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{64, 80, 16, 16});
+	public static final IconEntry TILE_044 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{64, 80, 16, 16}, 888);
 	/** tile_045 */
-	public static final IconEntry TILE_045 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{80, 80, 16, 16});
+	public static final IconEntry TILE_045 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{80, 80, 16, 16}, 889);
 	/** tile_046 */
-	public static final IconEntry TILE_046 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{96, 80, 16, 16});
+	public static final IconEntry TILE_046 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{96, 80, 16, 16}, 890);
 	/** tile_047 */
-	public static final IconEntry TILE_047 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{112, 80, 16, 16});
+	public static final IconEntry TILE_047 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{112, 80, 16, 16}, 891);
 	/** tile_048 */
-	public static final IconEntry TILE_048 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{0, 96, 16, 16});
+	public static final IconEntry TILE_048 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{0, 96, 16, 16}, 892);
 	/** tile_049 */
-	public static final IconEntry TILE_049 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{16, 96, 16, 16});
+	public static final IconEntry TILE_049 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{16, 96, 16, 16}, 893);
 	/** tile_050 */
-	public static final IconEntry TILE_050 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{32, 96, 16, 16});
+	public static final IconEntry TILE_050 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{32, 96, 16, 16}, 894);
 	/** tile_051 */
-	public static final IconEntry TILE_051 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{48, 96, 16, 16});
+	public static final IconEntry TILE_051 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{48, 96, 16, 16}, 895);
 	/** tile_052 */
-	public static final IconEntry TILE_052 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{64, 96, 16, 16});
+	public static final IconEntry TILE_052 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{64, 96, 16, 16}, 896);
 	/** tile_053 */
-	public static final IconEntry TILE_053 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{80, 96, 16, 16});
+	public static final IconEntry TILE_053 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{80, 96, 16, 16}, 897);
 	/** tile_054 */
-	public static final IconEntry TILE_054 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{96, 96, 16, 16});
+	public static final IconEntry TILE_054 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{96, 96, 16, 16}, 898);
 	/** tile_055 */
-	public static final IconEntry TILE_055 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{112, 96, 16, 16});
+	public static final IconEntry TILE_055 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{112, 96, 16, 16}, 899);
 	/** tile_056 */
-	public static final IconEntry TILE_056 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{0, 112, 16, 16});
+	public static final IconEntry TILE_056 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{0, 112, 16, 16}, 900);
 	/** tile_057 */
-	public static final IconEntry TILE_057 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{16, 112, 16, 16});
+	public static final IconEntry TILE_057 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{16, 112, 16, 16}, 901);
 	/** tile_058 */
-	public static final IconEntry TILE_058 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{32, 112, 16, 16});
+	public static final IconEntry TILE_058 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{32, 112, 16, 16}, 902);
 	/** tile_059 */
-	public static final IconEntry TILE_059 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{48, 112, 16, 16});
+	public static final IconEntry TILE_059 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{48, 112, 16, 16}, 903);
 	/** tile_060 */
-	public static final IconEntry TILE_060 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{64, 112, 16, 16});
+	public static final IconEntry TILE_060 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{64, 112, 16, 16}, 904);
 	/** tile_061 */
-	public static final IconEntry TILE_061 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{80, 112, 16, 16});
+	public static final IconEntry TILE_061 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{80, 112, 16, 16}, 905);
 	/** tile_062 */
-	public static final IconEntry TILE_062 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{96, 112, 16, 16});
+	public static final IconEntry TILE_062 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{96, 112, 16, 16}, 906);
 	/** tile_063 */
-	public static final IconEntry TILE_063 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{112, 112, 16, 16});
+	public static final IconEntry TILE_063 = new IconEntry("environment/legacy-2.5d/occlusion_shadows.png", new int[]{112, 112, 16, 16}, 907);
 }

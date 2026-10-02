@@ -1,12 +1,13 @@
 package pd.items.summon;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.actors.mobs.npcs.DirectableAlly;
 import pd.sprites.ExMobileSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.sprites.MobileSprite;
 import render.utils.math.Random;
 
@@ -15,7 +16,7 @@ public class Mobile extends SpsSummonItem {
 	private static boolean activate;
 
 	{
-		image = ItemSpriteSheet.MOBILE;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 	@Override

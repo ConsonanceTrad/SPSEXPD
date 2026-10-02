@@ -1,12 +1,13 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food.completefood;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.ConsumFoodFoodDict;
+
 
 public class RiceGruel extends CompleteFood {
 
 	{
-		image = ItemSpriteSheet.RICE_GRUEL;
+		image = ConsumFoodFoodDict.RICE_GRUEL;
 		energy = 250f;
 	}
 

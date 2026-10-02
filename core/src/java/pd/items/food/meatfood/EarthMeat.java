@@ -1,17 +1,18 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food.meatfood;
 
+import pd.atlas.items.ConsumFoodFoodDict;
+
 import pd.actors.buffs.Barkskin;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.items.food.Food;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 
 public class EarthMeat extends MeatFood {
 	private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0x996600);
 	{
-		image = ItemSpriteSheet.MEAT;
+		image = ConsumFoodFoodDict.MEAT;
 		energy = 100f;
 	}
 	public static Food cook(int quantity) { EarthMeat result = new EarthMeat(); result.quantity(quantity); return result; }

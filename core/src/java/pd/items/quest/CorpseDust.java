@@ -21,6 +21,8 @@
 
 package pd.items.quest;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.Statistics;
@@ -32,7 +34,6 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.Wraith;
 import pd.items.Item;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.Game;
 import render.noosa.audio.Music;
@@ -46,7 +47,7 @@ import java.util.ArrayList;
 public class CorpseDust extends Item {
 	
 	{
-		image = ItemSpriteSheet.DUST;
+		image = ConsumThrowsDict.RICE_BALL;
 		
 		cursed = true;
 		cursedKnown = true;

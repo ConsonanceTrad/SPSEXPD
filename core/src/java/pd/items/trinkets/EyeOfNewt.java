@@ -21,13 +21,14 @@
 
 package pd.items.trinkets;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 
 public class EyeOfNewt extends Trinket {
 
 	{
-		image = ItemSpriteSheet.EYE_OF_NEWT;
+		image = EquipmentNonEquipDict.EYE_OF_NEWT_0;
 	}
 
 	@Override

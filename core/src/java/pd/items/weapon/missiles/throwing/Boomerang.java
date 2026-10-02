@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles.throwing;
 
+import pd.atlas.items.ConsumThrowsDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Char;
@@ -13,7 +15,6 @@ import pd.items.weapon.spammo.SpAmmo;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.sprites.MissileSprite;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
@@ -30,7 +31,7 @@ public class Boomerang extends MissileWeapon {
 	private SpAmmo ammo;
 
 	{
-		image = ItemSpriteSheet.LEGACY_BOOMERANG;
+		image = ConsumThrowsDict.BOOMERANG_0;
 		hitSound = Assets.Sounds.HIT_CRUSH;
 		hitSoundPitch = 1f;
 		tier = 1;

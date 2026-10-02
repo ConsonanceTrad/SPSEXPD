@@ -21,13 +21,14 @@
 
 package pd.items.quest;
 
+import pd.atlas.items.SpecificTaskDict;
+
 import pd.items.Item;
-import pd.sprites.ItemSpriteSheet;
 
 public class DarkGold extends Item {
 	
 	{
-		image = ItemSpriteSheet.ORE;
+		image = SpecificTaskDict.ORE_0;
 		
 		stackable = true;
 		unique = true;

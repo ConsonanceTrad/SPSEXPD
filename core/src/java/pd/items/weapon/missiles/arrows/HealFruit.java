@@ -1,16 +1,17 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles.arrows;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+
 import pd.actors.Char;
 import pd.actors.blobs.HealLight;
 import pd.effects.Speck;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class HealFruit extends SpsFruit {
 	public HealFruit() { this(1); }
-	public HealFruit(int number) { super(ItemSpriteSheet.SPS_SEED_SUNGRASS, 20, 20); quantity(number); }
+	public HealFruit(int number) { super(ConsumPotionSeedSeedDict.SEED_SUNGRASS, 20, 20); quantity(number); }
 
 	@Override public int damageRoll(Char owner) { return 0; }
 

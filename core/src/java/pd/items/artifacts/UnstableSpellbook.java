@@ -21,6 +21,8 @@
 
 package pd.items.artifacts;
 
+import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
+
 import com.badlogic.gdx.Gdx;
 import pd.Assets;
 import pd.Dungeon;
@@ -60,7 +62,6 @@ import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
@@ -76,7 +77,7 @@ import java.util.ArrayList;
 public class UnstableSpellbook extends Artifact {
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_SPELLBOOK;
+		image = ConsumUsefulProcessEnhanceDict.ARTIFACT_SPELLBOOK;
 
 		levelCap = 10;
 

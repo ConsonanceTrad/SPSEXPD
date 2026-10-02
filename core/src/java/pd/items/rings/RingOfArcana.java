@@ -24,12 +24,12 @@ package pd.items.rings;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 
 public class RingOfArcana extends Ring {
 
 	{
-		icon = ItemSpriteSheet.Icons.RING_ARCANA;
+		icon = ItemIconSheet.RING_ARCANA;
 		buffClass = Arcana.class;
 	}
 

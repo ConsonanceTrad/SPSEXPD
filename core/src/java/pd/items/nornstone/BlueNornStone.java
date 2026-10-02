@@ -1,11 +1,12 @@
 package pd.items.nornstone;
 
-import pd.sprites.ItemSpriteSheet;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 
 public class BlueNornStone extends NornStone {
 	{
 		type = 2;
-		image = ItemSpriteSheet.NORN_BLUE;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 	@Override

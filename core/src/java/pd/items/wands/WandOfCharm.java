@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.wands;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -14,7 +16,6 @@ import pd.effects.Speck;
 import pd.items.Heap;
 import pd.items.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
-import pd.sprites.ItemSpriteSheet;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
@@ -23,7 +24,7 @@ import render.utils.math.Random;
 public class WandOfCharm extends Wand {
 
 	{
-		image = ItemSpriteSheet.WAND_CHARM;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		collisionProperties = Ballistica.PROJECTILE;
 	}
 

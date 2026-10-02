@@ -1,19 +1,20 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food.completefood;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.YearBeast;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
 
 public class YearFood extends CompleteFood {
 	{
-		image = ItemSpriteSheet.SPS_YEAR_FOOD;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 150f;
 	}
 	@Override protected void doEat(Hero hero) {

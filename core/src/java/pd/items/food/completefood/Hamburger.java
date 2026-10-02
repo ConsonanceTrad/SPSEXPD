@@ -1,14 +1,15 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.food.completefood;
 
+import pd.atlas.items.ConsumFoodFoodDict;
+
 import pd.actors.buffs.AttackUp;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.MagicArmor;
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSpriteSheet;
 
 public class Hamburger extends CompleteFood {
-	{ image = ItemSpriteSheet.HAMBURGER; energy = 770f; }
+	{ image = ConsumFoodFoodDict.HAMBURGER; energy = 770f; }
 	@Override protected void doEat(Hero hero) {
 		heal(hero, hero.HT / 5);
 		Buff.affect(hero, MagicArmor.class).level(hero.HT / 3);

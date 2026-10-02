@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.armor.normalarmor;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Badges;
 import pd.actors.Char;
 import pd.actors.buffs.ArmorBreak;
@@ -14,13 +16,12 @@ import pd.actors.buffs.Terror;
 import pd.actors.hero.Hero;
 import pd.effects.Speck;
 import pd.effects.particles.ShadowParticle;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 /** The zero-defense armor produced when RobotDMT's chaos analysis fails. */
 public class ErrorArmor extends NormalArmor {
 	public ErrorArmor() {
-		super(0, 1f, 1f, 10, 0, 0, -8, 0, 0, ItemSpriteSheet.SPS_ERROR_ARMOR);
+		super(0, 1f, 1f, 10, 0, 0, -8, 0, 0, SpecificPlaceHolderDict.SOMETHING_0);
 	}
 
 	@Override

@@ -21,6 +21,8 @@
 
 package pd.items;
 
+import pd.atlas.items.GroundFunctionalFallingDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.Statistics;
@@ -36,14 +38,13 @@ import pd.levels.Terrain;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 
 public class Dewdrop extends Item {
 	
 	{
-		image = ItemSpriteSheet.DEWDROP;
+		image = GroundFunctionalFallingDict.DEWDROP_0;
 		
 		stackable = true;
 		dropsDownHeap = true;

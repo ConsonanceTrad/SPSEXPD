@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.special;
 
+import pd.atlas.IconEntry;
+
 import pd.Dungeon;
 import pd.items.Generator;
 import pd.items.Heap;
@@ -15,7 +17,7 @@ abstract class SpsSpecialMeleeWeapon extends MeleeWeapon {
 	private final int baseMax;
 
 	SpsSpecialMeleeWeapon(int tier, float accuracy, float delay, int reach,
-			int min, int max, int image) {
+			int min, int max, IconEntry image) {
 		this.tier = tier;
 		this.ACC = accuracy;
 		this.DLY = delay;

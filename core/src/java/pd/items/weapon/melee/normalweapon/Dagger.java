@@ -1,10 +1,11 @@
 package pd.items.weapon.melee.normalweapon;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
-import pd.sprites.ItemSpriteSheet;
 
 public class Dagger extends NormalMeleeWeapon {
-	public Dagger() { super(1, 1f, 1f, 1, 1, 10, ItemSpriteSheet.SPS_WEP_DAGGER); }
+	public Dagger() { super(1, 1f, 1f, 1, 1, 10, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) { if (s.accuracy < 4f) s.accuracy += .2f; s.min++; s.max++; }
 	@Override public int proc(Char attacker, Char defender, int damage) {
 		int roll = attackerRoll(attacker);

@@ -1,13 +1,14 @@
 package pd.items.weapon.melee.normalweapon;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Roots;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class Whip extends NormalMeleeWeapon {
-	public Whip() { super(3, 1f, 1f, 2, 24, 35, ItemSpriteSheet.SPS_WEP_WHIP); }
+	public Whip() { super(3, 1f, 1f, 2, 24, 35, SpecificPlaceHolderDict.SOMETHING_0); }
 	@Override protected void applyLegacyUpgrade(Stats s) {
 		if (s.accuracy < 1.3f) s.accuracy += .05f;
 		if (s.reach < 3 && s.accuracy > 1.3f) s.reach++;

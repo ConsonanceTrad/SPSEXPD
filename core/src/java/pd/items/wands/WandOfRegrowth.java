@@ -21,6 +21,8 @@
 
 package pd.items.wands;
 
+import pd.atlas.items.EquipmentWandBasicWandDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.Statistics;
@@ -47,7 +49,6 @@ import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.plants.Sungrass;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.sprites.LotusSprite;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
@@ -62,7 +63,7 @@ import java.util.Iterator;
 public class WandOfRegrowth extends Wand {
 
 	{
-		image = ItemSpriteSheet.WAND_REGROWTH;
+		image = EquipmentWandBasicWandDict.WAND_REGROWTH;
 
 		//only used for targeting, actual projectile logic is Ballistica.STOP_SOLID
 		collisionProperties = Ballistica.WONT_STOP;

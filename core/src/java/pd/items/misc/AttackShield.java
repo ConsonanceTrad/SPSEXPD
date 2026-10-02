@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -14,7 +16,6 @@ import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -29,7 +30,7 @@ public class AttackShield extends Item {
 	private int charge;
 
 	{
-		image = ItemSpriteSheet.LEGACY_ATTACK_SHIELD;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		defaultAction = AC_CAST;
 		unique = true;
 		usesTargeting = true;

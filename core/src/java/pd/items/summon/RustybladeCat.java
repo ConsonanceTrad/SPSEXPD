@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.summon;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -13,7 +15,6 @@ import pd.actors.mobs.Mob;
 import pd.items.Item;
 import pd.scenes.GameScene;
 import pd.sprites.ErrorSprite;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class RustybladeCat extends Item {
 	private boolean summonOnThrow;
 
 	{
-		image = ItemSpriteSheet.RUSTY_CAT;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		defaultAction = AC_ACTIVE;
 		stackable = true;
 	}

@@ -21,6 +21,8 @@
 
 package pd.items.bombs;
 
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -28,7 +30,6 @@ import pd.actors.Char;
 import pd.effects.Flare;
 import pd.effects.particles.ShadowParticle;
 import pd.mechanics.pathfind.PathFinder;
-import pd.sprites.ItemSpriteSheet;
 import pd.tiles.DungeonTilemap;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
@@ -39,7 +40,7 @@ import java.util.ArrayList;
 public class HolyBomb extends Bomb {
 	
 	{
-		image = ItemSpriteSheet.HOLY_BOMB;
+		image = EquipmentEquipWeaponBombDict.HOLY_BOMB_0;
 	}
 
 	@Override

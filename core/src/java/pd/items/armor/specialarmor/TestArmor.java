@@ -1,11 +1,12 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.armor.specialarmor;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.items.armor.normalarmor.NormalArmor;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.serialize.Bundle;
 
 /** Zero-defense test armor which converts every received hit into an experiment point. */
@@ -16,7 +17,7 @@ public class TestArmor extends NormalArmor {
 	private TestCharge passiveBuff;
 
 	public TestArmor() {
-		super(1, 1f, 1f, 1, 0, 0, 0, 0, 0, ItemSpriteSheet.SPS_TEST_ARMOR);
+		super(1, 1f, 1f, 1, 0, 0, 0, 0, 0, SpecificPlaceHolderDict.SOMETHING_0);
 	}
 
 	@Override public int DRMin(int level) { return 0; }

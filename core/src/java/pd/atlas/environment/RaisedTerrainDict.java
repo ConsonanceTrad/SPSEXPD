@@ -13,67 +13,67 @@ public final class RaisedTerrainDict {
 	private RaisedTerrainDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 0, 16, 16});
+	public static final IconEntry TILE_000 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 0, 16, 16}, 1676);
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 0, 16, 16});
+	public static final IconEntry TILE_001 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 0, 16, 16}, 1677);
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 0, 16, 16});
+	public static final IconEntry TILE_002 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 0, 16, 16}, 1678);
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 0, 16, 16});
+	public static final IconEntry TILE_003 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 0, 16, 16}, 1679);
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 16, 16, 16});
+	public static final IconEntry TILE_004 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 16, 16, 16}, 1680);
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 16, 16, 16});
+	public static final IconEntry TILE_005 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 16, 16, 16}, 1681);
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 16, 16, 16});
+	public static final IconEntry TILE_006 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 16, 16, 16}, 1682);
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 16, 16, 16});
+	public static final IconEntry TILE_007 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 16, 16, 16}, 1683);
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 32, 16, 16});
+	public static final IconEntry TILE_008 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 32, 16, 16}, 1684);
 	/** tile_009 */
-	public static final IconEntry TILE_009 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 32, 16, 16});
+	public static final IconEntry TILE_009 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 32, 16, 16}, 1685);
 	/** tile_010 */
-	public static final IconEntry TILE_010 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 32, 16, 16});
+	public static final IconEntry TILE_010 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 32, 16, 16}, 1686);
 	/** tile_011 */
-	public static final IconEntry TILE_011 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 32, 16, 16});
+	public static final IconEntry TILE_011 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 32, 16, 16}, 1687);
 	/** tile_012 */
-	public static final IconEntry TILE_012 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 48, 16, 16});
+	public static final IconEntry TILE_012 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 48, 16, 16}, 1688);
 	/** tile_013 */
-	public static final IconEntry TILE_013 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 48, 16, 16});
+	public static final IconEntry TILE_013 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 48, 16, 16}, 1689);
 	/** tile_014 */
-	public static final IconEntry TILE_014 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 48, 16, 16});
+	public static final IconEntry TILE_014 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 48, 16, 16}, 1690);
 	/** tile_015 */
-	public static final IconEntry TILE_015 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 48, 16, 16});
+	public static final IconEntry TILE_015 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 48, 16, 16}, 1691);
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 64, 16, 16});
+	public static final IconEntry TILE_016 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 64, 16, 16}, 1692);
 	/** tile_017 */
-	public static final IconEntry TILE_017 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 64, 16, 16});
+	public static final IconEntry TILE_017 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 64, 16, 16}, 1693);
 	/** tile_018 */
-	public static final IconEntry TILE_018 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 64, 16, 16});
+	public static final IconEntry TILE_018 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 64, 16, 16}, 1694);
 	/** tile_019 */
-	public static final IconEntry TILE_019 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 64, 16, 16});
+	public static final IconEntry TILE_019 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 64, 16, 16}, 1695);
 	/** tile_020 */
-	public static final IconEntry TILE_020 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 80, 16, 16});
+	public static final IconEntry TILE_020 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 80, 16, 16}, 1696);
 	/** tile_021 */
-	public static final IconEntry TILE_021 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 80, 16, 16});
+	public static final IconEntry TILE_021 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 80, 16, 16}, 1697);
 	/** tile_022 */
-	public static final IconEntry TILE_022 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 80, 16, 16});
+	public static final IconEntry TILE_022 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 80, 16, 16}, 1698);
 	/** tile_023 */
-	public static final IconEntry TILE_023 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 80, 16, 16});
+	public static final IconEntry TILE_023 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 80, 16, 16}, 1699);
 	/** tile_024 */
-	public static final IconEntry TILE_024 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 96, 16, 16});
+	public static final IconEntry TILE_024 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 96, 16, 16}, 1700);
 	/** tile_025 */
-	public static final IconEntry TILE_025 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 96, 16, 16});
+	public static final IconEntry TILE_025 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 96, 16, 16}, 1701);
 	/** tile_026 */
-	public static final IconEntry TILE_026 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 96, 16, 16});
+	public static final IconEntry TILE_026 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 96, 16, 16}, 1702);
 	/** tile_027 */
-	public static final IconEntry TILE_027 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 96, 16, 16});
+	public static final IconEntry TILE_027 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 96, 16, 16}, 1703);
 	/** tile_028 */
-	public static final IconEntry TILE_028 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 112, 16, 16});
+	public static final IconEntry TILE_028 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 112, 16, 16}, 1704);
 	/** tile_029 */
-	public static final IconEntry TILE_029 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 112, 16, 16});
+	public static final IconEntry TILE_029 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 112, 16, 16}, 1705);
 	/** tile_030 */
-	public static final IconEntry TILE_030 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 112, 16, 16});
+	public static final IconEntry TILE_030 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 112, 16, 16}, 1706);
 	/** tile_031 */
-	public static final IconEntry TILE_031 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 112, 16, 16});
+	public static final IconEntry TILE_031 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 112, 16, 16}, 1707);
 }

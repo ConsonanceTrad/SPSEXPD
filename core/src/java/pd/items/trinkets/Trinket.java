@@ -21,11 +21,12 @@
 
 package pd.items.trinkets;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.items.Item;
 import pd.items.Recipe;
 import pd.journal.Catalog;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
@@ -81,7 +82,7 @@ public abstract class Trinket extends Item {
 	public static class PlaceHolder extends Trinket {
 
 		{
-			image = ItemSpriteSheet.TRINKET_HOLDER;
+			image = SpecificPlaceHolderDict.TRINKET_HOLDER_0;
 		}
 
 		@Override

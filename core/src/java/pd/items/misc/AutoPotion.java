@@ -1,14 +1,15 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.items.rings.Ring;
-import pd.sprites.ItemSpriteSheet;
 
 /** Original SPS auto-potion; its legacy AutoHealPotion buff contains no active logic. */
 public class AutoPotion extends Ring {
 	public AutoPotion() {
 		anonymize();
-		image = ItemSpriteSheet.AUTO_POTION;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 	@Override

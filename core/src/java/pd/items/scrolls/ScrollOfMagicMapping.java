@@ -30,14 +30,14 @@ import pd.levels.CellFlags;
 import pd.levels.Terrain;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 
 public class ScrollOfMagicMapping extends Scroll {
 
 	{
-		icon = ItemSpriteSheet.Icons.SCROLL_MAGICMAP;
+		icon = ItemIconSheet.SCROLL_MAGICMAP;
 	}
 
 	@Override

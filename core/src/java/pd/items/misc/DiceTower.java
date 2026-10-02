@@ -1,12 +1,13 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.EquipmentNonEquipDict;
+
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndUseItem;
 import render.utils.math.Random;
@@ -25,7 +26,7 @@ public class DiceTower extends Item {
 	private static final String CHARGE = "charge";
 	private int charge;
 
-	{ image = ItemSpriteSheet.SPS_DICE_TOWER; unique = true; defaultAction = AC_CHOOSE; }
+	{ image = EquipmentNonEquipDict.SPS_DICE_TOWER_0; unique = true; defaultAction = AC_CHOOSE; }
 
 	@Override
 	public ArrayList<String> actions(Hero hero) {

@@ -1,16 +1,17 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.missiles.arrows;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+
 import pd.actors.Char;
 import pd.actors.blobs.damageblobs.ShockEffectDamage;
 import pd.actors.blobs.effectblobs.ElectriShock;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Shocked;
-import pd.sprites.ItemSpriteSheet;
 
 public class ShockFruit extends SpsFruit {
 	public ShockFruit() { this(1); }
-	public ShockFruit(int number) { super(ItemSpriteSheet.SPS_SEED_STORMVINE, 10, 10); quantity(number); }
+	public ShockFruit(int number) { super(ConsumPotionSeedSeedDict.SEED_STORMVINE, 10, 10); quantity(number); }
 	@Override protected void onThrow(int cell) {
 		if (landsAt(cell)) {
 			seed(cell, 4, ElectriShock.class);

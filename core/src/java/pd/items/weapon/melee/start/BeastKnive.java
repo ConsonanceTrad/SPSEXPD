@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.weapon.melee.start;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.Char;
 import pd.actors.buffs.AttackUp;
 import pd.actors.buffs.Bleeding;
@@ -9,7 +11,6 @@ import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.items.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -24,7 +25,7 @@ public class BeastKnive extends NormalMeleeWeapon {
 	private int charge;
 
 	public BeastKnive() {
-		super(1, 1f, 0.5f, 1, 4, 10, ItemSpriteSheet.SPS_WEP_DAGGER);
+		super(1, 1f, 0.5f, 1, 4, 10, SpecificPlaceHolderDict.SOMETHING_0);
 		unique = true;
 		reinforced = true;
 		cursed = true;

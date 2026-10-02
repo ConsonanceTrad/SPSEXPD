@@ -1,12 +1,13 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.reward;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 
 import java.util.ArrayList;
 
@@ -16,7 +17,7 @@ abstract class ChallengeReward extends Item {
 
 	ChallengeReward(int glow) {
 		this.glow = glow;
-		image = ItemSpriteSheet.CHALLENGE_REWARD_BAG;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = false;
 		defaultAction = AC_USE;
 	}

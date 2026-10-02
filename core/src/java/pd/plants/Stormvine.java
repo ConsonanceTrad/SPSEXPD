@@ -21,6 +21,8 @@
 
 package pd.plants;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
@@ -31,7 +33,6 @@ import pd.actors.hero.HeroSubClass;
 import pd.actors.mobs.Mob;
 import pd.items.weapon.missiles.arrows.ShockFruit;
 import pd.levels.traps.Trap;
-import pd.sprites.ItemSpriteSheet;
 
 public class Stormvine extends Plant {
 
@@ -58,7 +59,7 @@ public class Stormvine extends Plant {
 
 	public static class Seed extends Plant.Seed {
 		{
-			image = ItemSpriteSheet.SPS_SEED_STORMVINE;
+			image = ConsumPotionSeedSeedDict.SEED_STORMVINE;
 
 			plantClass = Stormvine.class;
 			explantClass = ExStormvine.class;

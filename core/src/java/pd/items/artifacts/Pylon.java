@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.artifacts;
 
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -21,7 +23,6 @@ import pd.scenes.GameScene;
 import pd.scenes.InterlevelScene;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite.Glowing;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.QuickSlotButton;
 import pd.utils.GLog;
 import render.noosa.Game;
@@ -52,7 +53,7 @@ public class Pylon extends Artifact {
 	private int returnPos = -1;
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_BEACON;
+		image = EquipmentJewelleryArtifactDict.ARTIFACT_BEACON_0;
 		levelCap = MAX_LEVEL;
 		chargeCap = MAX_CHARGE;
 		defaultAction = AC_ZAP;

@@ -166,7 +166,7 @@ public class TownNpc extends NPC {
 
 		Spec(String id, int frameWidth, int frameHeight, int lineCount, int firstFrame) {
 			this.id = id;
-			this.asset = "sprites/sps_town_" + assetName(id);
+			this.asset = "sprites/npcs/sps_town_" + assetName(id);
 			this.frameWidth = frameWidth;
 			this.frameHeight = frameHeight;
 			this.lineCount = lineCount;

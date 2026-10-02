@@ -21,6 +21,8 @@
 
 package pd.levels;
 
+import pd.atlas.items.SpecificTaskDict;
+
 import pd.Assets;
 import pd.Bones;
 import pd.Dungeon;
@@ -45,7 +47,6 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.tiles.CustomTilemap;
 import pd.ui.BossHealthBar;
 import pd.windows.WndOptions;
@@ -340,7 +341,7 @@ public class HallsBossLevel extends Level {
 			Game.runOnRenderThread(new Callback() {
 				@Override
 				public void call() {
-					GameScene.show( new WndOptions( new ItemSprite(ItemSpriteSheet.AMULET),
+					GameScene.show( new WndOptions( new ItemSprite(SpecificTaskDict.AMULET_0),
 							Messages.get(Amulet.class, "ascent_title"),
 							Messages.get(Amulet.class, "ascent_desc"),
 							Messages.get(Amulet.class, "ascent_yes"),

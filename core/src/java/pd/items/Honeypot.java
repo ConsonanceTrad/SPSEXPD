@@ -21,6 +21,8 @@
 
 package pd.items;
 
+import pd.atlas.items.ConsumUsefulUsefulDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.Statistics;
@@ -37,7 +39,6 @@ import pd.effects.Splash;
 import pd.journal.Catalog;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.sprites.SteelBeeSprite;
 import render.noosa.audio.Sample;
 import render.noosa.tweeners.AlphaTweener;
@@ -52,7 +53,7 @@ public class Honeypot extends Item {
 	public static final String AC_SHATTER	= "SHATTER";
 	
 	{
-		image = ItemSpriteSheet.HONEYPOT;
+		image = ConsumUsefulUsefulDict.HONEYPOT_0;
 
 		defaultAction = AC_THROW;
 		usesTargeting = true;
@@ -247,7 +248,7 @@ public class Honeypot extends Item {
 	public static class ShatteredPot extends Item {
 
 		{
-			image = ItemSpriteSheet.SHATTPOT;
+			image = ConsumUsefulUsefulDict.SHATTPOT;
 			stackable = true;
 		}
 

@@ -21,6 +21,8 @@
 
 package pd.items.artifacts;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.MagicImmune;
@@ -36,7 +38,6 @@ import pd.journal.Catalog;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.ActionIndicator;
 import pd.ui.HeroIcon;
 import pd.ui.QuickSlotButton;
@@ -49,7 +50,7 @@ import java.util.ArrayList;
 public class HolyTome extends Artifact {
 
 	{
-		image = ItemSpriteSheet.ARTIFACT_TOME;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 
 		exp = 0;
 		levelCap = 10;

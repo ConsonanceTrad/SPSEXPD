@@ -21,6 +21,9 @@
 
 package pd.actors.hero.abilities.cleric;
 
+import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.Statistics;
@@ -62,7 +65,6 @@ import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.HeroIcon;
 import pd.ui.ItemButton;
 import pd.ui.QuickSlotButton;
@@ -156,7 +158,7 @@ public class Trinity extends ArmorAbility {
 					if (Dungeon.hero.belongings.weapon() != null) {
 						btnBody.icon(new ItemSprite(Dungeon.hero.belongings.weapon().image, ((Weapon.Enchantment) bodyForm).glowing()));
 					} else {
-						btnBody.icon(new ItemSprite(ItemSpriteSheet.WORN_SHORTSWORD, ((Weapon.Enchantment) bodyForm).glowing()));
+						btnBody.icon(new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.WORN_SHORTSWORD_0, ((Weapon.Enchantment) bodyForm).glowing()));
 					}
 				} else if (bodyForm instanceof Armor.Glyph){
 					btnBody = new RedButton(Messages.get(WndUseTrinity.class, "body",
@@ -190,7 +192,7 @@ public class Trinity extends ArmorAbility {
 					if (Dungeon.hero.belongings.armor() != null) {
 						btnBody.icon(new ItemSprite(Dungeon.hero.belongings.armor().image, ((Armor.Glyph) bodyForm).glowing()));
 					} else {
-						btnBody.icon(new ItemSprite(ItemSpriteSheet.ARMOR_CLOTH, ((Armor.Glyph) bodyForm).glowing()));
+						btnBody.icon(new ItemSprite(EquipmentEquipArmorBasicArmorDict.ARMOR_CLOTH_0, ((Armor.Glyph) bodyForm).glowing()));
 					}
 				}
 				btnBody.multiline = true;

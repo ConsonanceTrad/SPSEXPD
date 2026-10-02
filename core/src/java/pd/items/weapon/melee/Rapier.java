@@ -21,6 +21,8 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -33,7 +35,6 @@ import pd.levels.features.Door;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.AttackIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
@@ -42,7 +43,7 @@ import render.utils.data.Callback;
 public class Rapier extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.RAPIER;
+		image = EquipmentEquipWeaponBasicWeaponDict.RAPIER_0;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1.3f;
 

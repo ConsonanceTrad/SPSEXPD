@@ -27,12 +27,12 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.HeroClass;
 import pd.actors.hero.Talent;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 
 public class RingOfEnergy extends Ring {
 
 	{
-		icon = ItemSpriteSheet.Icons.RING_ENERGY;
+		icon = ItemIconSheet.RING_ENERGY;
 		buffClass = Energy.class;
 	}
 

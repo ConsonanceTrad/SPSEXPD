@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -26,7 +28,6 @@ import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.sprites.GooSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
@@ -42,7 +43,7 @@ public class CopyBall extends Item {
 	private int charge;
 
 	{
-		image = ItemSpriteSheet.SLIME_BALL;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		defaultAction = AC_USE;
 		unique = true;
 		usesTargeting = true;
@@ -111,7 +112,7 @@ public class CopyBall extends Item {
 
 	public class CopyBallAmmo extends MissileWeapon {
 		{
-			image = ItemSpriteSheet.SLIME_BALL;
+			image = SpecificPlaceHolderDict.SOMETHING_0;
 			tier = 1;
 			ACC = 1000f;
 			spawnedForEffect = true;

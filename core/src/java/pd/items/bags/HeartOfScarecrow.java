@@ -1,17 +1,18 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.bags;
 
+import pd.atlas.items.EquipmentBagsDict;
+
 import pd.items.Item;
 import pd.items.ShadowEaterKey;
 import pd.items.armor.Armor;
 import pd.items.weapon.melee.MeleeWeapon;
-import pd.sprites.ItemSpriteSheet;
 
 /** The original portable training target, used as a thirty-slot equipment bag. */
 public class HeartOfScarecrow extends Bag {
 
 	{
-		image = ItemSpriteSheet.HEART_OF_SCARECROW;
+		image = EquipmentBagsDict.HEART_OF_SCARECROW_0;
 	}
 
 	@Override

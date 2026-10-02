@@ -21,6 +21,8 @@
 
 package pd.scenes;
 
+import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
+
 import pd.Assets;
 import pd.Badges;
 import pd.Chrome;
@@ -32,7 +34,6 @@ import pd.items.scrolls.Scroll;
 import pd.journal.Journal;
 import pd.messages.Messages;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.tiles.TerrainFeaturesTilemap;
 import pd.ui.ExitButton;
 import pd.ui.IconButton;
@@ -201,7 +202,7 @@ public class JournalScene extends PixelScene {
 				return Messages.get(WndJournal.GuideTab.class, "title");
 			}
 		};
-		btnGuide.icon(new ItemSprite(ItemSpriteSheet.MASTERY));
+		btnGuide.icon(new ItemSprite(ConsumUsefulProcessEnhanceDict.MASTERY_0));
 		btnGuide.setRect(btnCatalog.right()-2, btnBadges.top(), pw/4f + 1.5f, lastIDX == 2 ? 25 : 20);
 		align(btnGuide);
 		if (lastIDX != 2) btnGuide.icon().brightness(0.6f);

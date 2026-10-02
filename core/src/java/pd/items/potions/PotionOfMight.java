@@ -1,14 +1,15 @@
 package pd.items.potions;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.Barkskin;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.effects.Speck;
 import pd.items.potions.elixirs.ElixirOfMight;
-import pd.sprites.ItemSpriteSheet;
 
 public class PotionOfMight extends SpsPotion {
-	{ image = ItemSpriteSheet.SPS_POTION_MIGHT; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	@Override public void apply(Hero hero) {
 		Buff.affect(hero, Barkskin.class).set(8 + hero.lvl / 2, 360);
 		Buff.affect(hero, ElixirOfMight.HTBoost.class).reset();

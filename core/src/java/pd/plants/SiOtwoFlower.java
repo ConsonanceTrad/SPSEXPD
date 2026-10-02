@@ -1,12 +1,13 @@
 package pd.plants;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Barrier;
 import pd.actors.buffs.Buff;
 import pd.items.food.vegetable.NutVegetable;
 import pd.items.weapon.missiles.arrows.GlassFruit;
-import pd.sprites.ItemSpriteSheet;
 
 public class SiOtwoFlower extends Plant {
 	{ image = 18; seedClass = Seed.class; }
@@ -16,7 +17,7 @@ public class SiOtwoFlower extends Plant {
 		Dungeon.level.drop(new GlassFruit(), pos).sprite.drop();
 	}
 	public static class Seed extends Plant.Seed {
-		{ image = ItemSpriteSheet.SPS_SEED_SIOFLOWER; plantClass = SiOtwoFlower.class; explantClass = ExSiOtwoFlower.class; }
+		{ image = SpecificPlaceHolderDict.SOMETHING_0; plantClass = SiOtwoFlower.class; explantClass = ExSiOtwoFlower.class; }
 	}
 	public static class ExSiOtwoFlower extends SpsFruitBush {
 		{ image = 18; harvestCount = 2; harvestClass = GlassFruit.class; }

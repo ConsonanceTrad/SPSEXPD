@@ -21,13 +21,14 @@
 
 package pd.items.stones;
 
+import pd.atlas.items.ConsumScrollAmuletAmuletDict;
+
 import pd.items.bombs.Bomb;
-import pd.sprites.ItemSpriteSheet;
 
 public class StoneOfBlast extends Runestone {
 	
 	{
-		image = ItemSpriteSheet.STONE_BLAST;
+		image = ConsumScrollAmuletAmuletDict.STONE_BLAST_0;
 	}
 	
 	@Override

@@ -8,6 +8,8 @@
 
 package pd.items.bombs;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -19,7 +21,6 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.data.BArray;
 import render.utils.math.Random;
 
@@ -27,7 +28,7 @@ import render.utils.math.Random;
 public class HugeBomb extends Bomb {
 
 	{
-		image = ItemSpriteSheet.HUGE_BOMB;
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
 	@Override

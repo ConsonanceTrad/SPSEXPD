@@ -1,15 +1,16 @@
 package pd.items.medicine;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Blindness;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
-import pd.sprites.ItemSpriteSheet;
 import render.utils.math.Random;
 
 public class Earthstar extends Pill {
-	{ image = ItemSpriteSheet.MUSHROOM_EARTHSTAR; }
+	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
 	public Earthstar() { this(1); }
 	public Earthstar(int value) { quantity = value; }
 	@Override protected void onUse(Hero hero) {

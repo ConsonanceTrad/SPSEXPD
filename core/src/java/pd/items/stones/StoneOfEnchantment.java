@@ -21,6 +21,8 @@
 
 package pd.items.stones;
 
+import pd.atlas.items.ConsumScrollAmuletAmuletDict;
+
 import pd.actors.hero.Belongings;
 import pd.actors.hero.Talent;
 import pd.effects.Enchanting;
@@ -31,14 +33,13 @@ import pd.items.scrolls.exotic.ScrollOfEnchantment;
 import pd.items.weapon.Weapon;
 import pd.journal.Catalog;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 
 public class StoneOfEnchantment extends InventoryStone {
 	
 	{
 		preferredBag = Belongings.Backpack.class;
-		image = ItemSpriteSheet.STONE_ENCHANT;
+		image = ConsumScrollAmuletAmuletDict.STONE_ENCHANT_0;
 
 		unique = true;
 	}

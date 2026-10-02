@@ -21,6 +21,12 @@
 
 package pd.ui;
 
+import pd.atlas.IconEntry;
+
+import pd.atlas.items.GroundGroundingItemsDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.items.Heap;
@@ -33,7 +39,7 @@ import pd.items.weapon.missiles.MissileWeapon;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
+import pd.sprites.ItemIconSheet;
 import render.noosa.BitmapText;
 import render.noosa.Image;
 import render.utils.geom.Rect;
@@ -67,27 +73,27 @@ public class ItemSlot extends Button {
 
 	// Special "virtual items"
 	public static final Item CHEST = new Item() {
-		public int image() { return ItemSpriteSheet.CHEST; }
+		public IconEntry image() { return GroundGroundingItemsDict.CHEST_0; }
 		public String name() { return Messages.get(Heap.class, "chest"); }
 	};
 	public static final Item LOCKED_CHEST = new Item() {
-		public int image() { return ItemSpriteSheet.LOCKED_CHEST; }
+		public IconEntry image() { return GroundGroundingItemsDict.LOCKED_CHEST_0; }
 		public String name() { return Messages.get(Heap.class, "locked_chest"); }
 	};
 	public static final Item CRYSTAL_CHEST = new Item() {
-		public int image() { return ItemSpriteSheet.CRYSTAL_CHEST; }
+		public IconEntry image() { return GroundGroundingItemsDict.CRYSTAL_CHEST_0; }
 		public String name() { return Messages.get(Heap.class, "crystal_chest"); }
 	};
 	public static final Item TOMB = new Item() {
-		public int image() { return ItemSpriteSheet.TOMB; }
+		public IconEntry image() { return SpecificPlaceHolderDict.SOMETHING_0; }
 		public String name() { return Messages.get(Heap.class, "tomb"); }
 	};
 	public static final Item SKELETON = new Item() {
-		public int image() { return ItemSpriteSheet.BONES; }
+		public IconEntry image() { return SpecificPlaceHolderDict.SOMETHING_0; }
 		public String name() { return Messages.get(Heap.class, "skeleton"); }
 	};
 	public static final Item REMAINS = new Item() {
-		public int image() { return ItemSpriteSheet.REMAINS; }
+		public IconEntry image() { return SpecificPlaceHolderDict.SOMETHING_0; }
 		public String name() { return Messages.get(Heap.class, "remains"); }
 	};
 	
@@ -164,8 +170,8 @@ public class ItemSlot extends Button {
 		if (itemIcon != null){
 			//center the icon slightly if there is enough room
 			if (width >= 24 || height >= 24) {
-				itemIcon.x = x + width - (ItemSpriteSheet.Icons.SIZE + itemIcon.width()) / 2f - margin.right;
-				itemIcon.y = y + (ItemSpriteSheet.Icons.SIZE - itemIcon.height) / 2f + margin.top;
+				itemIcon.x = x + width - (ItemIconSheet.SIZE + itemIcon.width()) / 2f - margin.right;
+				itemIcon.y = y + (ItemIconSheet.SIZE - itemIcon.height) / 2f + margin.top;
 			} else {
 				itemIcon.x = x + width - itemIcon.width() - margin.right;
 				itemIcon.y = y + margin.top;
@@ -194,7 +200,7 @@ public class ItemSlot extends Button {
 		item(null);
 		enable(true);
 		sprite.visible(true);
-		sprite.view(ItemSpriteSheet.SOMETHING, null);
+		sprite.view(SpecificPlaceHolderDict.SOMETHING_0, null);
 		layout();
 	}
 	
@@ -255,7 +261,7 @@ public class ItemSlot extends Button {
 			extra.text( null );
 
 			itemIcon = new Image(Assets.Sprites.ITEM_ICONS);
-			itemIcon.frame(ItemSpriteSheet.Icons.film.get(item.icon));
+			itemIcon.frame(ItemIconSheet.film.get(item.icon));
 			add(itemIcon);
 
 		} else if (item instanceof Weapon || item instanceof Armor) {

@@ -21,6 +21,9 @@
 
 package pd.windows;
 
+import pd.atlas.items.SpecificCurrencyDict;
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -40,7 +43,6 @@ import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.CurrencyIndicator;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
@@ -94,7 +96,7 @@ public class WndTradeItem extends WndInfoItem {
 				}
 			};
 			btnSell.setRect( 0, pos + GAP, width, BTN_HEIGHT );
-			btnSell.icon(new ItemSprite(ItemSpriteSheet.GOLD));
+			btnSell.icon(new ItemSprite(SpecificCurrencyDict.GOLD_0));
 			add( btnSell );
 
 			pos = btnSell.bottom();
@@ -110,7 +112,7 @@ public class WndTradeItem extends WndInfoItem {
 				}
 			};
 			btnSell1.setRect( 0, pos + GAP, width, BTN_HEIGHT );
-			btnSell1.icon(new ItemSprite(ItemSpriteSheet.GOLD));
+			btnSell1.icon(new ItemSprite(SpecificCurrencyDict.GOLD_0));
 			add( btnSell1 );
 			RedButton btnSellAll = new RedButton( Messages.get(this, "sell_all", priceAll ) ) {
 				@Override
@@ -120,7 +122,7 @@ public class WndTradeItem extends WndInfoItem {
 				}
 			};
 			btnSellAll.setRect( 0, btnSell1.bottom() + 1, width, BTN_HEIGHT );
-			btnSellAll.icon(new ItemSprite(ItemSpriteSheet.GOLD));
+			btnSellAll.icon(new ItemSprite(SpecificCurrencyDict.GOLD_0));
 			add( btnSellAll );
 
 			pos = btnSellAll.bottom();
@@ -152,7 +154,7 @@ public class WndTradeItem extends WndInfoItem {
 			}
 		};
 		btnBuy.setRect( 0, pos + GAP, width, BTN_HEIGHT );
-		btnBuy.icon(new ItemSprite(ItemSpriteSheet.GOLD));
+		btnBuy.icon(new ItemSprite(SpecificCurrencyDict.GOLD_0));
 		btnBuy.enable( price <= Dungeon.gold );
 		add( btnBuy );
 
@@ -175,7 +177,7 @@ public class WndTradeItem extends WndInfoItem {
 							Dungeon.level.drop(item, heap.pos).sprite.drop();
 						}
 					} else {
-						GameScene.show(new WndOptions(new ItemSprite(ItemSpriteSheet.ARTIFACT_ARMBAND),
+						GameScene.show(new WndOptions(new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
 								Messages.titleCase(Messages.get(MasterThievesArmband.class, "name")),
 								Messages.get(WndTradeItem.class, "steal_warn"),
 								Messages.get(WndTradeItem.class, "steal_warn_yes"),
@@ -209,7 +211,7 @@ public class WndTradeItem extends WndInfoItem {
 				}
 			};
 			btnSteal.setRect(0, pos + 1, width, BTN_HEIGHT);
-			btnSteal.icon(new ItemSprite(ItemSpriteSheet.ARTIFACT_ARMBAND));
+			btnSteal.icon(new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0));
 			add(btnSteal);
 
 			pos = btnSteal.bottom();

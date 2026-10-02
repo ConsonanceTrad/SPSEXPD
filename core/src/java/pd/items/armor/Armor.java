@@ -21,6 +21,8 @@
 
 package pd.items.armor;
 
+import pd.atlas.items.SpecificPlaceHolderDict;
+
 import pd.Badges;
 import pd.Challenges;
 import pd.Dungeon;
@@ -86,7 +88,6 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.HeroSprite;
 import pd.sprites.ItemSprite;
-import pd.sprites.ItemSpriteSheet;
 import pd.utils.GLog;
 import pd.windows.WndOptions;
 import render.noosa.particles.Emitter;
@@ -275,7 +276,7 @@ public class Armor extends EquipableItem {
 				BrokenSeal seal = oldArmor != null ? oldArmor.checkSeal() : null;
 				if (seal != null && (!cursed || (seal.getGlyph() != null && seal.getGlyph().curse()))){
 
-					GameScene.show(new WndOptions(new ItemSprite(ItemSpriteSheet.SEAL),
+					GameScene.show(new WndOptions(new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
 							Messages.titleCase(seal.trueName()),
 							Messages.get(Armor.class, "seal_transfer"),
 							Messages.get(Armor.class, "seal_transfer_yes"),
@@ -701,7 +702,7 @@ public class Armor extends EquipableItem {
 	public Emitter emitter() {
 		if (seal == null) return super.emitter();
 		Emitter emitter = new Emitter();
-		emitter.pos(ItemSpriteSheet.film.width(image)/2f + 2f, ItemSpriteSheet.film.height(image)/3f);
+		emitter.pos(image.w(0)/2f + 2f, image.h(0)/3f);
 		emitter.fillTarget = false;
 		emitter.pour(Speck.factory( Speck.RED_LIGHT ), 0.6f);
 		return emitter;

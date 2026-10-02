@@ -21,6 +21,8 @@
 
 package pd.items.weapon.melee;
 
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -31,7 +33,6 @@ import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.messages.Messages;
-import pd.sprites.ItemSpriteSheet;
 import pd.ui.AttackIndicator;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
@@ -40,7 +41,7 @@ import render.utils.data.Callback;
 public class Mace extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.MACE;
+		image = EquipmentEquipWeaponBasicWeaponDict.MACE_0;
 		hitSound = Assets.Sounds.HIT_CRUSH;
 		hitSoundPitch = 1f;
 
