@@ -52,13 +52,40 @@ public class Reflection {
 		try {
 			return ClassReflection.forName( name );
 		} catch (Exception e) {
+			//SPSEXPD: 老存档里可能还存着重分组前的旧包名，试一次迁移
+			Class migrated = forNameLegacy( name );
+			if (migrated != null) {
+				return migrated;
+			}
 			Game.reportException(e);
 			return null;
 		}
 	}
 	
 	public static Class forNameUnhandled( String name ) throws Exception {
-		return ClassReflection.forName( name );
+		try {
+			return ClassReflection.forName( name );
+		} catch (Exception e) {
+			//SPSEXPD: 同上
+			Class migrated = forNameLegacy( name );
+			if (migrated != null) {
+				return migrated;
+			}
+			throw e;
+		}
+	}
+	
+	//SPSEXPD: 把 pd/items 重分组前的旧类名映射到新包名
+	private static Class forNameLegacy( String name ){
+		String migrated = LegacyItemPackages.migrate( name );
+		if (migrated == null) {
+			return null;
+		}
+		try {
+			return ClassReflection.forName( migrated );
+		} catch (Exception e) {
+			return null;
+		}
 	}
 	
 }
