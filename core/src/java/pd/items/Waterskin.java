@@ -63,6 +63,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class Waterskin extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -145,7 +146,7 @@ public class Waterskin extends Item {
 	private static final String TXT_STATUS2 = "%d/%d";
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentNonEquipDict.WATERSKIN;
 		defaultAction = AC_CHOOSE;
 		unique = true;
 	}

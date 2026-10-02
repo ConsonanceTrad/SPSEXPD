@@ -18,6 +18,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 
 /** Legacy portal-shaped prototype of Shadow Eater, retained for save/content parity. */
 public class ShadowEaterKey extends Item {
@@ -40,7 +41,7 @@ public class ShadowEaterKey extends Item {
 	private int returnPos = -1;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponUniqueWeaponDict.CHAINSAW_SWORD;
 		stackable = false;
 		unique = true;
 		defaultAction = AC_PORT;

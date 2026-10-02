@@ -7,8 +7,12 @@ import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class BattleAxe extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.BATTLE_AXE_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(BattleAxe.class)

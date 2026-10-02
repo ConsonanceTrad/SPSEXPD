@@ -17,6 +17,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificTaskDict;
 
 /** Teleports to the Gnoll King's field and returns after the boss is defeated. */
 public class TreasureMap extends Item {
@@ -40,7 +41,7 @@ public class TreasureMap extends Item {
 	private int returnPos = -1;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificTaskDict.SECRET_TREASURE_SPOT;
 		unique = true;
 		defaultAction = AC_PORT;
 		keptThoughLostInvent = true;

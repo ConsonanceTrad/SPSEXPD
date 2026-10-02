@@ -7,6 +7,9 @@ import pd.messages.InlineText;
 
 /** Cosmetic armor used by the demon-contract warrior start. */
 public class BaseArmor extends NormalArmor {
+	{
+		image = SpecificPlaceHolderDict.SPS_PH_ARMOR_SPARE;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(BaseArmor.class)

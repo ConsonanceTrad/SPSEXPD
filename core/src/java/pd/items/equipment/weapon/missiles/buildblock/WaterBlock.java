@@ -4,6 +4,9 @@ import pd.atlas.items.ConsumThrowsDict;
 import pd.levels.Terrain;
 import pd.messages.InlineText;
 public class WaterBlock extends LegacyBuildBlock {
+	{
+		image = ConsumThrowsDict.WATER_BLOCK_PLACER;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(WaterBlock.class)

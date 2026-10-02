@@ -20,6 +20,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 /** Bone Star's secondary vial, charged whenever the main waterskin is used. */
 public class CrystalVial extends Item {
@@ -46,7 +47,7 @@ public class CrystalVial extends Item {
 	private int volume;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentNonEquipDict.FAKE_DEWDROP_VIAL;
 		defaultAction = AC_CHOOSE;
 	}
 

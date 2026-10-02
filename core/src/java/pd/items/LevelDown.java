@@ -9,6 +9,7 @@ import pd.effects.Speck;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumGoodsMaterialsMaterialsDict;
 
 public class LevelDown extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -24,7 +25,7 @@ public class LevelDown extends Item {
 
 	public static final String AC_USE = "USE";
 	{
-		image = SpecificTaskDict.ORE_0;
+		image = ConsumGoodsMaterialsMaterialsDict.COLORLESS_ORE;
 		stackable = true;
 		defaultAction = AC_USE;
 	}

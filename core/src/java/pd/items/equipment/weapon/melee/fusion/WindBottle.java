@@ -9,6 +9,7 @@ import pd.items.equipment.weapon.melee.Sword;
 import pd.mechanics.Ballistica;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class WindBottle extends Sword implements FusionWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -20,7 +21,7 @@ public class WindBottle extends Sword implements FusionWeapon {
 
 
 
-	{ image = EquipmentWandBasicWandDict.WAND_BLAST_WAVE_0; tier = 3; }
+	{ image = EquipmentEquipWeaponBasicWeaponDict.WIND_GOURD; tier = 3; }
 	@Override public int min(int lvl) { return 4 + lvl; }
 	@Override public int max(int lvl) { return 17 + 4 * lvl; }
 	@Override public int proc(Char attacker, Char defender, int damage) {

@@ -9,6 +9,9 @@ import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
 
 public class WoodenStaff extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.LEGACY_WOODEN_STAFF_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(WoodenStaff.class)

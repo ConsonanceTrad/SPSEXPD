@@ -14,6 +14,7 @@ import pd.actors.hero.Hero;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumSummorDict;
 
 /** Commemorative flag awarded by HBB after Otiluke is rescued. */
 public class Flag extends Item {
@@ -28,7 +29,7 @@ public class Flag extends Item {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumSummorDict.SOLDIER_SUMMON;
 		stackable = false;
 		unique = true;
 	}

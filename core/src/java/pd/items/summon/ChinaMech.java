@@ -13,6 +13,7 @@ import pd.items.Generator;
 import pd.items.equipment.weapon.missiles.fusion.RocketMissile;
 import pd.sprites.PatrolUAVSprite;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumSummorDict;
 
 /**
  * SPS 0.9.9 壁垒支援用无人机：使用后投掷到目标点生成 HW大疆号支援无人机（对照 0.9.9 ChinaMech）。
@@ -36,7 +37,7 @@ public class ChinaMech extends SpsSummonItem {
 	private static boolean activate;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumSummorDict.SOLDIER_SUMMON;
 	}
 
 	@Override

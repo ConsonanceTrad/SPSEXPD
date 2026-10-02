@@ -6,6 +6,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.Dungeon;
 import pd.items.quest.AdventureJournal;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificTaskDict;
 
 /** The prison boss's one-use portal to Tengu's hideout. */
 public class TenguKey extends SpsBossKey {
@@ -23,7 +24,7 @@ public class TenguKey extends SpsBossKey {
 	public static final String AC_PORT = SpsBossKey.AC_PORT;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificTaskDict.ROGUE_CHALLENGE;
 	}
 
 	@Override

@@ -7,8 +7,12 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Cripple;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class Glaive extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.GLAIVE_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Glaive.class)

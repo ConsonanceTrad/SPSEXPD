@@ -24,6 +24,7 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class NeedPaper extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -46,7 +47,7 @@ public class NeedPaper extends Item {
 	public static final int HELP_COST = 500;
 	public static final int SHOP_COST = 3000;
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; unique = true; defaultAction = AC_CHOOSE; }
+	{ image = EquipmentNonEquipDict.WANTED_LIST; unique = true; defaultAction = AC_CHOOSE; }
 
 	@Override
 	public ArrayList<String> actions(Hero hero) {

@@ -57,7 +57,7 @@ public class WandOfError extends Wand {
 	private static final float SPS_FROST_DURATION = 5f;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificPlaceHolderDict.SPS_PH_WAND_BAD;
 	}
 
 	@Override

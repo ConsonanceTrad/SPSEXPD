@@ -24,12 +24,13 @@ import pd.scenes.GameScene;
 import pd.utils.GLog;
 import render.utils.data.BArray;
 import render.utils.math.Random;
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
 
 /** Hybrid's phase-change bomb from SPS-PD 0.9.8. */
 public class DangerousBomb extends Bomb {
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponBombDict.DUD_DUNGEON_BOMB;
 	}
 
 	@Override

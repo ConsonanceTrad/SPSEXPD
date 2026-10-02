@@ -9,6 +9,7 @@ import pd.actors.mobs.pets.LegacyPet;
 import pd.actors.mobs.pets.Velocirooster;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumSummorDict;
 
 public class RandomEasterEgg extends Egg {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -20,7 +21,7 @@ public class RandomEasterEgg extends Egg {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = ConsumSummorDict.RANDOM_SOUL; }
 	@Override protected LegacyPet hatchling() {
 		switch (Random.Int(3)) {
 			case 0: return new Bunny();

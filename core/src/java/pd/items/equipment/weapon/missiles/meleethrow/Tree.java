@@ -12,8 +12,12 @@ import pd.actors.buffs.Hot;
 import pd.mechanics.pathfind.PathFinder;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class Tree extends MeleeThrowWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.CHRISTMAS_TREE;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Tree.class)

@@ -10,6 +10,7 @@ import pd.utils.GLog;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
 
 /** The original SPS journal reader, backed by the migrated adventure journal. */
 public class KnowledgeBook extends Item {
@@ -26,7 +27,7 @@ public class KnowledgeBook extends Item {
 	public static final String AC_READ = "READ";
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumUsefulProcessEnhanceDict.MASTERY_0;
 		defaultAction = AC_READ;
 		stackable = false;
 	}

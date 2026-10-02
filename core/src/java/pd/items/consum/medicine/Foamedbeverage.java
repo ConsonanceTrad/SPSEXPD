@@ -16,6 +16,7 @@ import pd.actors.buffs.ToxicImbue;
 import pd.actors.hero.Hero;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class Foamedbeverage extends Pill {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -27,7 +28,7 @@ public class Foamedbeverage extends Pill {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = ConsumFoodFoodDict.EFFERVESCENT_SODA; }
 	public Foamedbeverage() {}
 	public Foamedbeverage(int number) { quantity = number; }
 	@Override protected void onUse(Hero hero) {

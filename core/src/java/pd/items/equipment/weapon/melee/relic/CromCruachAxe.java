@@ -7,6 +7,7 @@ import pd.actors.buffs.MagicImmunity;
 import pd.actors.hero.Hero;
 import pd.items.equipment.weapon.enchantments.CromLuck;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class CromCruachAxe extends RelicMeleeWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -25,7 +26,7 @@ public class CromCruachAxe extends RelicMeleeWeapon {
 
 	public CromCruachAxe() {
 		super(1.2f, 1f, 1);
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponBasicWeaponDict.BONE_SAW_GREATAXE;
 		enchant(new CromLuck());
 	}
 

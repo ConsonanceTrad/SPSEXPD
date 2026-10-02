@@ -60,6 +60,7 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
 
 public class EtherealChains extends Artifact {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -90,7 +91,7 @@ public class EtherealChains extends Artifact {
 	public static final String AC_LOCKED     = "LOCKED";
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentJewelleryArtifactDict.ETHEREAL_CHAINS;
 
 		levelCap = 5;
 		exp = 0;

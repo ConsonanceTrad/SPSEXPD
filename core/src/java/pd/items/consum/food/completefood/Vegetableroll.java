@@ -10,6 +10,7 @@ import pd.actors.buffs.SuperArcane;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSprite;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class Vegetableroll extends CompleteFood {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -22,7 +23,7 @@ public class Vegetableroll extends CompleteFood {
 
 
 	private static final ItemSprite.Glowing GREEN = new ItemSprite.Glowing(0x22CC44);
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; energy = 170f; }
+	{ image = ConsumFoodFoodDict.CHICKEN_WRAP; energy = 170f; }
 	@Override protected void doEat(Hero hero) {
 		Buff.affect(hero, MagicArmor.class).level(hero.HT / 4);
 		Buff.affect(hero, Recharging.class, 20f);

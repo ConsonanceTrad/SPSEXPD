@@ -14,8 +14,12 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 
 public class PixelTorch extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponUniqueWeaponDict.STEVE_TORCH;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(PixelTorch.class)

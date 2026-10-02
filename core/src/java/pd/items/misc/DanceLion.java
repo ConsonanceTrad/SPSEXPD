@@ -25,6 +25,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class DanceLion extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -57,7 +58,7 @@ public class DanceLion extends Item {
 
 	private int charge;
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; unique = true; defaultAction = AC_CHOOSE; }
+	{ image = EquipmentNonEquipDict.ANIMAL_GUIDE; unique = true; defaultAction = AC_CHOOSE; }
 
 	@Override
 	public ArrayList<String> actions(Hero hero) {

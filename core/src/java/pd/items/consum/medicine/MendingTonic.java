@@ -16,6 +16,7 @@ import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificPlaceHolderDict;
 
 public class MendingTonic extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -33,7 +34,7 @@ public class MendingTonic extends Item {
 	public static final String AC_DRINK = "DRINK";
 
 	{
-		image = ConsumPotionSeedBasicPotionDict.POTION_CRIMSON_0;
+		image = SpecificPlaceHolderDict.POTION_HOLDER_0;
 		stackable = true;
 		defaultAction = AC_DRINK;
 	}

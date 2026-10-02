@@ -21,9 +21,13 @@ import pd.items.equipment.armor.specialarmor.WarriorArmor;
 import pd.items.equipment.rings.RingOfEvasion;
 import pd.messages.Messages;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificPlaceHolderDict;
 
 /** Shared implementation of SPS-PD's defense, dexterity, stealth and energy armor stats. */
 public class NormalArmor extends Armor {
+	{
+		image = SpecificPlaceHolderDict.SPS_PH_ARMOR_SPARE;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(NormalArmor.class)

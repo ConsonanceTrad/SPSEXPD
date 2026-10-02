@@ -9,8 +9,12 @@ import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumThrowsDict;
 
 public class WraithBreath extends SpsSpecialMeleeWeapon {
+	{
+		image = ConsumThrowsDict.SONIC_BAIT;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(WraithBreath.class)

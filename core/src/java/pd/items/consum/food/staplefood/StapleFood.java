@@ -4,10 +4,11 @@ package pd.items.consum.food.staplefood;
 import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.items.consum.food.Food;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class StapleFood extends Food {
 	{
 		stackable = true;
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumFoodFoodDict.SPARKLING_POTION_0;
 	}
 }

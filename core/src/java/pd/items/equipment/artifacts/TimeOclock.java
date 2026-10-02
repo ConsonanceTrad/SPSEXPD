@@ -29,6 +29,7 @@ import render.noosa.audio.Sample;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
 
 public class TimeOclock extends Artifact {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -60,7 +61,7 @@ public class TimeOclock extends Artifact {
 	public static final String AC_ACTIVATE="ACTIVATE",AC_RESTART="RESTART";
 	private static final String SANDBAGS="sandbags",STASIS="stasis",LEGACY_BUFF="buff";
 	private int sandBags;
-	{image=SpecificPlaceHolderDict.SOMETHING_0;levelCap=5;chargeCap=5;charge=5;defaultAction=AC_ACTIVATE;}
+	{image = EquipmentJewelleryArtifactDict.IZAYOI_WATCH;levelCap=5;chargeCap=5;charge=5;defaultAction=AC_ACTIVATE;}
 	@Override public ArrayList<String> actions(Hero h){ArrayList<String>a=super.actions(h);if(isEquipped(h)&&charge>0&&!cursed)a.add(AC_ACTIVATE);if(!isEquipped(h)&&level()>4&&!cursed)a.add(AC_RESTART);return a;}
 	@Override public void execute(final Hero h,String action){
 		if(AC_ACTIVATE.equals(action)){if(!isEquipped(h))GLog.i(Messages.get(Artifact.class,"need_to_equip"));else if(activeBuff!=null)GLog.i(Messages.get(this,"in_use"));else if(charge<=1)GLog.i(Messages.get(this,"no_charge"));else if(cursed)GLog.i(Messages.get(this,"cursed"));else GameScene.show(new WndOptions(Messages.titleCase(name()),Messages.get(this,"prompt"),Messages.get(this,"stasis"),Messages.get(this,"freeze")){@Override protected void onSelect(int i){if(i==0)useStasis(h);else if(i==1)useFreeze(h);}});

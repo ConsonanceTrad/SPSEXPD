@@ -11,6 +11,7 @@ import pd.actors.hero.Hero;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
 
 /** SaidbySun's single-use experimental cloak. */
 public class TestCloak extends Item {
@@ -28,7 +29,7 @@ public class TestCloak extends Item {
 	public static final String AC_USE = "USE";
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipArmorBasicArmorDict.WING_ARMOR;
 		stackable = true;
 		defaultAction = AC_USE;
 	}

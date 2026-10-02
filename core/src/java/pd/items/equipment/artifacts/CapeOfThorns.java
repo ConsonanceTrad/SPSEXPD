@@ -40,6 +40,7 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
 
 public class CapeOfThorns extends Artifact {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -63,7 +64,7 @@ public class CapeOfThorns extends Artifact {
 	public static final String AC_NEEDLING = "NEEDLING";
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentJewelleryArtifactDict.CAPE_OF_THORNS;
 
 		levelCap = 10;
 

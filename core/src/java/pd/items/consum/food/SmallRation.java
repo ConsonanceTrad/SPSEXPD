@@ -25,6 +25,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.actors.buffs.Hunger;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class SmallRation extends Food {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -40,7 +41,7 @@ public class SmallRation extends Food {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumFoodFoodDict.SMALL_RATION_PACK;
 		energy = Hunger.HUNGRY/2f;
 	}
 	

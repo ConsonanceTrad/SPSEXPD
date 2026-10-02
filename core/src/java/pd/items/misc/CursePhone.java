@@ -12,6 +12,7 @@ import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
 
 /** REN's cursed phone reproduces its original one-in-ten periodic status burst. */
 public class CursePhone extends MiscEquippable {
@@ -26,7 +27,7 @@ public class CursePhone extends MiscEquippable {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentJewelleryArtifactDict.CURSED_PHONE;
 		cursed = true;
 	}
 

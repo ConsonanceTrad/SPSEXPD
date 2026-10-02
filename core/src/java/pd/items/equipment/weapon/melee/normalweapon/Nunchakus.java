@@ -7,8 +7,12 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.HolyStun;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class Nunchakus extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.NUNCHAKU;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Nunchakus.class)

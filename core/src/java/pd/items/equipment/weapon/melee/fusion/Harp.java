@@ -14,6 +14,7 @@ import pd.items.Item;
 import pd.items.equipment.weapon.melee.Scimitar;
 import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class Harp extends Scimitar implements FusionWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -35,7 +36,7 @@ public class Harp extends Scimitar implements FusionWeapon {
 	private int hits;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponBasicWeaponDict.HARP;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1.4f;
 		tier = 5;

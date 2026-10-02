@@ -8,6 +8,7 @@ import pd.actors.Char;
 import pd.items.equipment.weapon.melee.Mace;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class Flute extends Mace implements FusionWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -19,7 +20,7 @@ public class Flute extends Mace implements FusionWeapon {
 
 
 
-	{ image = EquipmentWandBasicWandDict.WAND_REGROWTH; tier = 2; ACC = 1.05f; }
+	{ image = EquipmentEquipWeaponBasicWeaponDict.FLUTE; tier = 2; ACC = 1.05f; }
 	@Override public int min(int lvl) { return 3 + lvl; }
 	@Override public int max(int lvl) { return 12 + 3 * lvl; }
 	@Override public int proc(Char attacker, Char defender, int damage) {

@@ -3,6 +3,9 @@ package pd.items.equipment.armor.normalarmor;
 import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
 import pd.messages.InlineText;
 public class StyrofoamArmor extends NormalArmor {
+	{
+		image = EquipmentEquipArmorBasicArmorDict.STYROFOAM_ARMOR;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(StyrofoamArmor.class)

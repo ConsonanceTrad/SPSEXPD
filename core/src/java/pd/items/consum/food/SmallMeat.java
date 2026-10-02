@@ -9,6 +9,7 @@ package pd.items.consum.food;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 
 public class SmallMeat extends Food {
@@ -23,7 +24,7 @@ public class SmallMeat extends Food {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumFoodFoodDict.ROAST_MEAT;
 		energy = 50;
 		hornValue = 0;
 		stackable = true;

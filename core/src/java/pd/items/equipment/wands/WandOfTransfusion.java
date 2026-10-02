@@ -51,6 +51,7 @@ import render.utils.geom.PointF;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificPlaceHolderDict;
 
 public class WandOfTransfusion extends DamageWand {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -73,7 +74,7 @@ public class WandOfTransfusion extends DamageWand {
 
 
 	{
-		image = EquipmentWandBasicWandDict.WAND_TRANSFUSION_0;
+		image = SpecificPlaceHolderDict.SPS_UI_ICON_D;
 
 		collisionProperties = Ballistica.PROJECTILE;
 	}

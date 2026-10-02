@@ -19,6 +19,7 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class MKbox extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -33,7 +34,7 @@ public class MKbox extends Item {
 
 
 	public static final String AC_USE = "USE";
-	{ image=SpecificPlaceHolderDict.SOMETHING_0; defaultAction=AC_USE; unique=true; }
+	{ image = EquipmentNonEquipDict.MUSHROOM_QUESTION_BOX; defaultAction=AC_USE; unique=true; }
 	@Override public ArrayList<String> actions(Hero hero) { ArrayList<String>a=super.actions(hero); a.add(AC_USE); return a; }
 	@Override public void execute(Hero hero, String action) {
 		if (AC_USE.equals(action)) { if (!use(hero)) GLog.i(Messages.get(this, "need_gold")); }

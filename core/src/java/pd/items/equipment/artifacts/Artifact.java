@@ -38,8 +38,12 @@ import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificPlaceHolderDict;
 
 public class Artifact extends KindofMisc {
+	{
+		image = SpecificPlaceHolderDict.ARTIFACT_HOLDER_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Artifact.class)

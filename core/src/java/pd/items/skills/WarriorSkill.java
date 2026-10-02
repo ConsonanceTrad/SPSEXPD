@@ -14,6 +14,7 @@ import pd.items.Item;
 import pd.mechanics.pathfind.PathFinder;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 /** The four warrior class skills from SPS-PD 0.9.8. */
 public class WarriorSkill extends ClassSkill {
@@ -30,7 +31,7 @@ public class WarriorSkill extends ClassSkill {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = EquipmentNonEquipDict.HERO_SKILL_WARRIOR; }
 
 	@Override public void doSpecial() {
 		Buff.prolong(curUser, Muscle.class, 160f);

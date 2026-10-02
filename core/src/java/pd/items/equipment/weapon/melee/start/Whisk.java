@@ -16,8 +16,12 @@ import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class Whisk extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.MENTOR_SET;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Whisk.class)

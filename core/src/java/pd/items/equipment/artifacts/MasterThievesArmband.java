@@ -37,6 +37,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
 
 public class MasterThievesArmband extends Artifact {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -58,7 +59,7 @@ public class MasterThievesArmband extends Artifact {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentJewelleryArtifactDict.MASTER_THIEVES_ARMBAND;
 		levelCap = 5;
 		charge = 0;
 		partialCharge = 0;

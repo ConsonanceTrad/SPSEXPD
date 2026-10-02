@@ -12,6 +12,7 @@ import pd.actors.buffs.Buff;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.scenes.GameScene;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificPlaceHolderDict;
 
 public class GlassFruit extends MissileWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -24,7 +25,7 @@ public class GlassFruit extends MissileWeapon {
 
 
 	{
-		image = ConsumPotionSeedSeedDict.SEED_BLINDWEED_0;
+		image = SpecificPlaceHolderDict.SEED_HOLDER_0;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 1.2f;
 		baseUses = 1;

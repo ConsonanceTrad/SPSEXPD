@@ -12,6 +12,7 @@ import pd.actors.hero.Hero;
 import pd.items.Item;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class MixPizza extends CompleteFood {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -25,7 +26,7 @@ public class MixPizza extends CompleteFood {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumFoodFoodDict.PIZZA;
 		energy = 50f;
 	}
 

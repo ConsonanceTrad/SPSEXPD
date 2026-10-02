@@ -7,6 +7,7 @@ import pd.Dungeon;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificTaskDict;
 
 public class JournalPage extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -20,7 +21,7 @@ public class JournalPage extends Item {
 
 	private final int destination;
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificTaskDict.TELEPORT_COORDINATE;
 		stackable = false;
 		unique = true;
 	}

@@ -21,6 +21,9 @@ import pd.messages.InlineText;
 
 /** The zero-defense armor produced when RobotDMT's chaos analysis fails. */
 public class ErrorArmor extends NormalArmor {
+	{
+		image = SpecificPlaceHolderDict.SPS_PH_ARMOR_BAD;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(ErrorArmor.class)

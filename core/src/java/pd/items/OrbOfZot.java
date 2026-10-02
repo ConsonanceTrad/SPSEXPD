@@ -19,6 +19,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificTaskDict;
 
 /** Yog's rechargeable energy core, restored from SPS-PD 0.9.8. */
 public class OrbOfZot extends Item {
@@ -46,7 +47,7 @@ public class OrbOfZot extends Item {
 	private transient boolean activatedThrow;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificTaskDict.ENERGY_CORE;
 		defaultAction = AC_ACTIVATETHROW;
 		unique = true;
 		usesTargeting = true;

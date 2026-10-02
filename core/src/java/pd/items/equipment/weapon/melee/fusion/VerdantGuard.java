@@ -11,6 +11,7 @@ import pd.Assets;
 import pd.actors.Char;
 import pd.items.equipment.weapon.melee.Quarterstaff;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class VerdantGuard extends Quarterstaff implements FusionWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -29,7 +30,7 @@ public class VerdantGuard extends Quarterstaff implements FusionWeapon {
 
 
 	{
-		image = EquipmentEquipWeaponBasicWeaponDict.ROUND_SHIELD_0;
+		image = EquipmentNonEquipDict.FOREST_GUIDE;
 		hitSound = Assets.Sounds.HIT_CRUSH;
 		tier = 3;
 	}

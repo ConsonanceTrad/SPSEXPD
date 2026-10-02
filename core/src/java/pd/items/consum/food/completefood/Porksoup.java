@@ -13,6 +13,7 @@ import pd.actors.buffs.STRDown;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSprite;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class Porksoup extends CompleteFood {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -28,7 +29,7 @@ public class Porksoup extends CompleteFood {
 	private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0xCC6600);
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumFoodFoodDict.BONE_SOUP;
 		energy = 200f;
 	}
 

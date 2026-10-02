@@ -15,6 +15,7 @@ import render.utils.data.BArray;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumGoodsMaterialsGoodsDict;
 
 /** FruitCat's disposable blank ledger. */
 public class MoneyBook extends TossWeapon {
@@ -32,7 +33,7 @@ public class MoneyBook extends TossWeapon {
 	public static final String AC_CAST = "CAST";
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumGoodsMaterialsGoodsDict.FLYER;
 		tier = 1;
 		baseUses = 1;
 		bones = false;

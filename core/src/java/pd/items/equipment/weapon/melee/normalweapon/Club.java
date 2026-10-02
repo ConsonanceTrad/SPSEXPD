@@ -9,6 +9,9 @@ import render.utils.math.Random;
 import pd.messages.InlineText;
 
 public class Club extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.SPS_WEP_CLUB_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Club.class)

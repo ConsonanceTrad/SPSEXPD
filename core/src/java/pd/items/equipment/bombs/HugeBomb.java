@@ -24,6 +24,7 @@ import pd.scenes.GameScene;
 import render.utils.data.BArray;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
 
 /** SPS two-tile blast bomb, including its intended wall-breaking behavior. */
 public class HugeBomb extends Bomb {
@@ -38,7 +39,7 @@ public class HugeBomb extends Bomb {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponBombDict.SHRAPNEL_BOMB_0;
 	}
 
 	@Override

@@ -19,7 +19,7 @@ public class Trumpet extends WarHammer implements FusionWeapon {
 
 
 
-	{ image = EquipmentEquipWeaponBasicWeaponDict.WAR_HAMMER_0; tier = 4; ACC = 0.95f; }
+	{ image = EquipmentEquipWeaponBasicWeaponDict.HORN; tier = 4; ACC = 0.95f; }
 	@Override public int min(int lvl) { return 5 + lvl; }
 	@Override public int max(int lvl) { return 22 + 5 * lvl; }
 	@Override public int proc(Char attacker, Char defender, int damage) {

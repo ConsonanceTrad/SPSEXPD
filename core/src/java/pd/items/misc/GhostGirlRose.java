@@ -5,6 +5,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.actors.hero.Hero;
 import pd.messages.InlineText;
+import pd.atlas.items.GroundFunctionalFallingDict;
 
 /** WhiteGhost's charm, granting two additional experience points per gain event. */
 public class GhostGirlRose extends MiscEquippable {
@@ -18,7 +19,7 @@ public class GhostGirlRose extends MiscEquippable {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = GroundFunctionalFallingDict.PETAL_0; }
 
 	@Override protected GhostGirlBless createBuff() { return new GhostGirlBless(); }
 

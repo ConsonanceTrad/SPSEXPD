@@ -13,6 +13,7 @@ import pd.items.Item;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumThrowsDict;
 
 public class EmpBola extends MissileWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -26,7 +27,7 @@ public class EmpBola extends MissileWeapon {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumThrowsDict.TRAP_NET;
 		hitSound = Assets.Sounds.HIT_CRUSH;
 		baseUses = 1;
 		tier = 1;

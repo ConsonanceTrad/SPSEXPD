@@ -23,6 +23,7 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class NmHealBag extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -46,7 +47,7 @@ public class NmHealBag extends Item {
 	public static final String AC_ADD = "ADD";
 	public static final int COOK_COST = 10;
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; unique = true; defaultAction = AC_CHOOSE; }
+	{ image = EquipmentNonEquipDict.MEDKIT; unique = true; defaultAction = AC_CHOOSE; }
 
 	@Override
 	public ArrayList<String> actions(Hero hero) {

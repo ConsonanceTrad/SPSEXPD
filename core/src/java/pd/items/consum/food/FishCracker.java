@@ -3,6 +3,7 @@ package pd.items.consum.food;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 
 public class FishCracker extends Food {
@@ -16,7 +17,7 @@ public class FishCracker extends Food {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumFoodFoodDict.PUMPKIN_PIE;
 		energy = 200f;
 		hornValue = 0;
 	}

@@ -32,6 +32,7 @@ import pd.items.equipment.artifacts.CloakOfShadows;
 import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.sprites.CharSprite;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class SupplyRation extends Food {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -46,7 +47,7 @@ public class SupplyRation extends Food {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumFoodFoodDict.SMALL_RATION_PACK;
 		energy = 2*Hunger.HUNGRY/3f; //200 food value
 
 		bones = false;

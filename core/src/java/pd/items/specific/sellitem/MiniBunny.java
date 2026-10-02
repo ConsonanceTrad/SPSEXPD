@@ -3,6 +3,7 @@ package pd.items.specific.sellitem;
 
 import pd.atlas.items.ConsumSummorDict;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumGoodsMaterialsGoodsDict;
 
 
 public class MiniBunny extends SellItem {
@@ -16,7 +17,7 @@ public class MiniBunny extends SellItem {
 
 
 	{
-		image = ConsumSummorDict.RABBIT_PET_EGG_0;
+		image = ConsumGoodsMaterialsGoodsDict.RABBIT_HEAD_DOLL;
 		stackable = true;
 	}
 	@Override public int value() { return 100 * quantity; }

@@ -9,8 +9,12 @@ import pd.effects.Speck;
 import pd.sprites.CharSprite;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificPlaceHolderDict;
 
 public class HealFruit extends SpsFruit {
+	{
+		image = SpecificPlaceHolderDict.SEED_HOLDER_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(HealFruit.class)

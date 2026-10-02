@@ -33,6 +33,7 @@ import render.utils.serialize.Bundle;
 import java.util.ArrayList;
 import java.util.Collections;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificTaskDict;
 
 public class ChallengeJournal extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -88,7 +89,7 @@ public class ChallengeJournal extends Item {
 	private boolean legacyMigrationApplied;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificTaskDict.TRIAL_BOOK;
 		defaultAction = AC_READ;
 		unique = true;
 		keptThoughLostInvent = true;

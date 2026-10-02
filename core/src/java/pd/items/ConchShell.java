@@ -5,6 +5,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.Dungeon;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificTaskDict;
 
 public class ConchShell extends SpsBossKey {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -17,7 +18,7 @@ public class ConchShell extends SpsBossKey {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = SpecificTaskDict.CHARGED_CONCH; }
 	@Override protected int destination() { return 12; }
 	@Override protected boolean bossKilled() { return Dungeon.crabKingKilled; }
 }

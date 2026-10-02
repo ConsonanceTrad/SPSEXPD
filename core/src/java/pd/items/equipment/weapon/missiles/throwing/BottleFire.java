@@ -15,6 +15,7 @@ import pd.actors.hero.Hero;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumGoodsMaterialsGoodsDict;
 
 /** Lery's bottled flame, which leaves a thirty-turn trail of delayed fire. */
 public class BottleFire extends TossWeapon {
@@ -29,7 +30,7 @@ public class BottleFire extends TossWeapon {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumGoodsMaterialsGoodsDict.FLAME_IN_BOTTLE;
 		tier = 1;
 		baseUses = 1;
 		bones = false;

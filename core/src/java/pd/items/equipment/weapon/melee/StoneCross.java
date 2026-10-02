@@ -8,8 +8,12 @@ import pd.items.equipment.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.messages.Messages;
 import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class StoneCross extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.CROSS;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(StoneCross.class)

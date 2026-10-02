@@ -16,6 +16,7 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 /** The four mage class skills from SPS-PD 0.9.8. */
 public class MageSkill extends ClassSkill {
@@ -32,7 +33,7 @@ public class MageSkill extends ClassSkill {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = EquipmentNonEquipDict.HERO_SKILL_MAGE; }
 
 	@Override public void doSpecial() {
 		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {

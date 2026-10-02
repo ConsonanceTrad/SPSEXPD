@@ -30,6 +30,7 @@ import pd.windows.WndBag;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumPotionSeedSeedDict;
 
 public class TransmutationBall extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -47,7 +48,7 @@ public class TransmutationBall extends Item {
 	private static final String AC_USE = "USE";
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumPotionSeedSeedDict.SEED_TRANSMUTE_CAGE;
 		stackable = true;
 		defaultAction = AC_USE;
 	}

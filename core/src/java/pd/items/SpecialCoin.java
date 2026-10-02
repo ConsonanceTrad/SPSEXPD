@@ -12,6 +12,7 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.GroundFunctionalFallingDict;
 
 /** Preserves the unfinished SPS S-coin pickup behavior: feedback only, with no persistent wallet. */
 public class SpecialCoin extends Item {
@@ -25,7 +26,7 @@ public class SpecialCoin extends Item {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = GroundFunctionalFallingDict.TENGU_BOMB_0;
 		stackable = true;
 	}
 	public SpecialCoin() { this(1); }

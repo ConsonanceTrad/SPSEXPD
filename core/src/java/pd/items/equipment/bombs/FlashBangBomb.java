@@ -59,7 +59,7 @@ public class FlashBangBomb extends Bomb {
 
 	
 	{
-		image = EquipmentEquipWeaponBombDict.FLASHBANG_0;
+		image = EquipmentEquipWeaponBombDict.SPS_FISHING_BOMB;
 	}
 
 	@Override

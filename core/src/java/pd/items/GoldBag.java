@@ -9,6 +9,7 @@ import pd.effects.particles.FlameParticle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificCurrencyDict;
 
 public class GoldBag extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -23,7 +24,7 @@ public class GoldBag extends Item {
 
 	public static final String AC_USE = "USE";
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificCurrencyDict.GOLD_0;
 		stackable = true;
 		defaultAction = AC_USE;
 	}

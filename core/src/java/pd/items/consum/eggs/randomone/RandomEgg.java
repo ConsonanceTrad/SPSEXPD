@@ -13,6 +13,7 @@ import render.utils.math.Random;
 import java.util.ArrayList;
 import java.util.Calendar;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumSummorDict;
 
 /** Opens into the current month's pet soul pack, with the original Easter and VIP chances. */
 public class RandomEgg extends Item {
@@ -30,7 +31,7 @@ public class RandomEgg extends Item {
 	public static final String AC_USE = "USE";
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumSummorDict.RANDOM_INITIAL_SOUL;
 		stackable = true;
 		defaultAction = AC_USE;
 	}

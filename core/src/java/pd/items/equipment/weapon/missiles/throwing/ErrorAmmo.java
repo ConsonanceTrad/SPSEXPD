@@ -7,6 +7,7 @@ import pd.items.Item;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumUsefulUsefulDict;
 
 /** SPS-PD's deliberately overpowered error projectile. */
 public class ErrorAmmo extends MissileWeapon {
@@ -20,7 +21,7 @@ public class ErrorAmmo extends MissileWeapon {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumUsefulUsefulDict.SP_AMMO;
 		tier = 0;
 		baseUses = 1;
 	}

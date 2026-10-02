@@ -32,7 +32,7 @@ public class BlindFruit extends MissileWeapon {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificPlaceHolderDict.SEED_HOLDER_0;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 1.2f;
 		baseUses = 1;

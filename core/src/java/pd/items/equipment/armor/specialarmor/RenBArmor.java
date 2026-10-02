@@ -14,6 +14,9 @@ import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
 
 public class RenBArmor extends NormalArmor {
+	{
+		image = EquipmentEquipArmorUniqueArmorDict.SPS_BUNNY_ARMOR_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(RenBArmor.class)

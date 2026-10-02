@@ -14,6 +14,7 @@ import pd.actors.buffs.Daze;
 import pd.items.equipment.weapon.melee.Whip;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class ReedPipe extends Whip implements FusionWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -32,7 +33,7 @@ public class ReedPipe extends Whip implements FusionWeapon {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponBasicWeaponDict.FLUTE;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1.35f;
 		tier = 2;

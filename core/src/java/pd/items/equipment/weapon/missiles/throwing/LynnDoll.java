@@ -23,6 +23,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumSummorDict;
 
 /** Lynn's cursed throwing doll and its remote hunter. */
 public class LynnDoll extends TossWeapon {
@@ -39,7 +40,7 @@ public class LynnDoll extends TossWeapon {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumSummorDict.FAIRY_DOLL;
 		tier = 1;
 		baseUses = 1;
 		bones = false;

@@ -43,6 +43,7 @@ import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class Food extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -67,7 +68,7 @@ public class Food extends Item {
 	
 	{
 		stackable = true;
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumFoodFoodDict.RATION_PACK;
 
 		defaultAction = AC_EAT;
 

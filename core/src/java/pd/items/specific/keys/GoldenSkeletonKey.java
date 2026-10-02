@@ -10,6 +10,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.sprites.ItemSprite;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificKeyDict;
 
 /** A one-use legacy master key for locked or crystal chests on any depth. */
 public class GoldenSkeletonKey extends Key {
@@ -24,7 +25,7 @@ public class GoldenSkeletonKey extends Key {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificKeyDict.CRYSTAL_KEY;
 	}
 
 	public GoldenSkeletonKey() {

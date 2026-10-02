@@ -15,6 +15,9 @@ import pd.messages.InlineText;
 
 /** The pan's ranged form; it retains the original tier-one bow statistics. */
 public class RangePan extends RangeWeapon {
+	{
+		image = SpecificPlaceHolderDict.SPS_PH_WEAPON_BAD;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(RangePan.class)

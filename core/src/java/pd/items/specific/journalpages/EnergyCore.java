@@ -2,9 +2,13 @@
 package pd.items.specific.journalpages;
 
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificTaskDict;
 
 /** The energy-core page, which unlocks adventure destination 7. */
 public class EnergyCore extends JournalPage {
+	{
+		image = SpecificTaskDict.TELEPORT_COORDINATE;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(EnergyCore.class)

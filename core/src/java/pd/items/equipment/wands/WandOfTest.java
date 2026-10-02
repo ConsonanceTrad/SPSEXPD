@@ -48,7 +48,7 @@ public class WandOfTest extends DamageWand {
 	private int type;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificPlaceHolderDict.SPS_PH_WAND_TEST;
 		collisionProperties = Ballistica.MAGIC_BOLT;
 	}
 

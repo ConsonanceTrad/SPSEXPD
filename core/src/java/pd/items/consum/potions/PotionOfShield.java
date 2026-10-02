@@ -23,7 +23,7 @@ public class PotionOfShield extends SpsPotion {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = SpecificPlaceHolderDict.POTION_HOLDER_0; }
 	@Override public void apply(Hero hero) {
 		Buff.affect(hero, Barrier.class).incShield(Math.max(1, hero.HT / 3));
 		Buff.affect(hero, ArcaneArmor.class).set(Math.max(1, hero.HT / 3), 30);

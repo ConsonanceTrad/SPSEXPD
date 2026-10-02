@@ -2,6 +2,7 @@ package pd.items.nornstone;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumGoodsMaterialsMaterialsDict;
 
 
 public class PurpleNornStone extends NornStone {
@@ -16,7 +17,7 @@ public class PurpleNornStone extends NornStone {
 
 	{
 		type = 4;
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumGoodsMaterialsMaterialsDict.PURPLE_NORN_ORE;
 	}
 
 	@Override

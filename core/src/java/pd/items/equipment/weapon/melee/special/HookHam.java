@@ -9,8 +9,12 @@ import pd.actors.buffs.Buff;
 import pd.effects.Speck;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class HookHam extends SpsSpecialMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.HAM_AND_HOOK;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(HookHam.class)

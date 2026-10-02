@@ -30,10 +30,14 @@ import pd.items.equipment.rings.fusion.RingOfKnowledge;
 import pd.messages.Messages;
 import render.noosa.audio.Sample;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificPlaceHolderDict;
 
 //for wands that directly damage a target
 //wands with AOE or circumstantial direct damage count here (e.g. fireblast, transfusion), but wands with indirect damage do not (e.g. corrosion)
 public abstract class DamageWand extends Wand{
+	{
+		image = SpecificPlaceHolderDict.WAND_HOLDER_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(DamageWand.class)

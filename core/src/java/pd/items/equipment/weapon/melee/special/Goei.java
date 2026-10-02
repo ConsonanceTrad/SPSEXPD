@@ -6,8 +6,12 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.actors.Char;
 import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class Goei extends SpsSpecialMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.GOHEI;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Goei.class)

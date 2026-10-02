@@ -14,6 +14,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 /** The five-shot, dew-fuelled hand cannon dropped by the void goo. */
 public class Handcannon extends MeleeWeapon {
@@ -35,7 +36,7 @@ public class Handcannon extends MeleeWeapon {
 	private boolean turnedOn;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponBasicWeaponDict.POTION_GUN;
 		defaultAction = AC_ONOFF;
 		tier = 4;
 		ACC = 0.7f;

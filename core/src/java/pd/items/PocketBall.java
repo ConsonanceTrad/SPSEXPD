@@ -10,6 +10,7 @@ import pd.effects.particles.ShadowParticle;
 import pd.messages.Messages;
 import pd.utils.GLog;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 /** The original empty pocket ball, thrown directly at a companion to recover its soul. */
 public class PocketBall extends Item {
@@ -24,7 +25,7 @@ public class PocketBall extends Item {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentNonEquipDict.EMPTY_POCKET_BALL;
 		stackable = true;
 	}
 	public PocketBall() { this(1); }

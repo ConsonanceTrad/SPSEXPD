@@ -21,6 +21,7 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 /** SPS-PD's consumable weapon-refining runic blade. */
 public class RunicBlade extends MeleeWeapon {
@@ -40,7 +41,7 @@ public class RunicBlade extends MeleeWeapon {
 	public static final String AC_REFORGE = "REFORGE";
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponBasicWeaponDict.RUNE_SWORD;
 		tier = 5;
 		ACC = 1f;
 		DLY = 1f;

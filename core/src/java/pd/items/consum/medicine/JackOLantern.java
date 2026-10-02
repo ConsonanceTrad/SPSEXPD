@@ -10,6 +10,7 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.scenes.GameScene;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
 
 public class JackOLantern extends Pill {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -21,7 +22,7 @@ public class JackOLantern extends Pill {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = ConsumPotionSeedBasicPotionDict.FIRE_PHOSPHORUS_FRUIT; }
 	public JackOLantern() { this(1); }
 	public JackOLantern(int value) { quantity = value; }
 	@Override protected void onUse(Hero hero) {

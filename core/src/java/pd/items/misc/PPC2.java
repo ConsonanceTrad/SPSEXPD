@@ -39,6 +39,7 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class PPC2 extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -64,7 +65,7 @@ public class PPC2 extends Item {
 	public static final float TIME_TO_MINE = 3f;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentNonEquipDict.DETECTOR;
 		defaultAction = AC_TRY;
 		unique = true;
 	}

@@ -10,6 +10,7 @@ import pd.actors.buffs.Poison;
 import pd.actors.buffs.STRDown;
 import pd.actors.hero.Hero;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class HoneyWater extends CompleteFood {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -21,7 +22,7 @@ public class HoneyWater extends CompleteFood {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; energy = 10f; }
+	{ image = ConsumFoodFoodDict.DILUTED_HONEY; energy = 10f; }
 	@Override protected void doEat(Hero hero) {
 		increaseMaxHealth(hero, 3, 6);
 		Buff.detach(hero, Poison.class);

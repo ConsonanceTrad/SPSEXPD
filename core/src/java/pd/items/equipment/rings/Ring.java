@@ -143,7 +143,7 @@ public class Ring extends KindofMisc {
 	//useful for items that appear in UIs, or which are only spawned for their effects
 	protected boolean anonymous = false;
 	public void anonymize(){
-		if (!isKnown()) image = EquipmentJewelleryRingDict.RING_HOLDER;
+		if (!isKnown()) image = SpecificPlaceHolderDict.RING_HOLDER_0;
 		anonymous = true;
 	}
 	

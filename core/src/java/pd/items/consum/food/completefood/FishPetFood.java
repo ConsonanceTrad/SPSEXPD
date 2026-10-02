@@ -3,6 +3,7 @@ package pd.items.consum.food.completefood;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 
 public class FishPetFood extends PetFood {
@@ -16,7 +17,7 @@ public class FishPetFood extends PetFood {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumFoodFoodDict.PINK_FISH;
 		energy = 100f;
 	}
 }

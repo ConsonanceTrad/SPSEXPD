@@ -14,6 +14,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.Assets;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 /** A deliberately modest starter weapon for the Spellsword. */
 public class Spellblade extends MeleeWeapon {
@@ -28,7 +29,7 @@ public class Spellblade extends MeleeWeapon {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponBasicWeaponDict.COIN_SWORD;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1.15f;
 		tier = 1;

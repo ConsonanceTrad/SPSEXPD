@@ -6,8 +6,12 @@ import pd.actors.buffs.Cripple;
 import pd.items.equipment.weapon.missiles.HeavyBoomerang;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumThrowsDict;
 
 public class TempestBoomerang extends HeavyBoomerang {
+	{
+		image = ConsumThrowsDict.BOOMERANG_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(TempestBoomerang.class)

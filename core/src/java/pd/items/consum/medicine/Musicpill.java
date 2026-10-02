@@ -12,6 +12,7 @@ import pd.actors.hero.HeroClass;
 import pd.actors.hero.HeroSubClass;
 import pd.effects.Speck;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
 
 public class Musicpill extends Pill {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -23,7 +24,7 @@ public class Musicpill extends Pill {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = ConsumPotionSeedBasicPotionDict.PILL; }
 	@Override protected void onUse(Hero hero) {
 		Buff.affect(hero, Rhythm.class, 800f);
 		if (Dungeon.hero != null && Dungeon.hero.heroClass == HeroClass.PERFORMER) {

@@ -12,6 +12,9 @@ import pd.messages.InlineText;
 
 /** The tester loadout weapon, which awards experiment points on high damage rolls. */
 public class TestWeapon extends NormalMeleeWeapon {
+	{
+		image = SpecificPlaceHolderDict.SPS_PH_WEAPON_TEST;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(TestWeapon.class)

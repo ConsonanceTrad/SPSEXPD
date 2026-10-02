@@ -8,6 +8,7 @@ import pd.actors.buffs.DamageUp;
 import pd.actors.hero.Hero;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class SavageHelmet extends MiscEquippable {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -20,7 +21,7 @@ public class SavageHelmet extends MiscEquippable {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; unique = true; }
+	{ image = EquipmentNonEquipDict.BARBARIAN_HELMET; unique = true; }
 
 	@Override protected MiscBuff createBuff() { return new SavageHelmetBless(); }
 

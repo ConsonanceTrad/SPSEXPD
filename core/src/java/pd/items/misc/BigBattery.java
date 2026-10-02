@@ -24,6 +24,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class BigBattery extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -50,7 +51,7 @@ public class BigBattery extends Item {
 	private int charge;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentNonEquipDict.BATTERY;
 		unique = true;
 		defaultAction = AC_CHOOSE;
 	}

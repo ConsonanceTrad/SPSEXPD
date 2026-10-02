@@ -14,8 +14,12 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.GroundGroundingItemsDict;
 
 public class Sweb extends RockCode {
+	{
+		image = GroundGroundingItemsDict.TREASURE_SPOT_2;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Sweb.class)

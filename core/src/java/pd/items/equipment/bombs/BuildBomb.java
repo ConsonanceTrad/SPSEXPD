@@ -22,6 +22,7 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
 
 /** The basic SPS crafted bomb and ingredient for the elemental bomb recipes. */
 public class BuildBomb extends Bomb {
@@ -36,7 +37,7 @@ public class BuildBomb extends Bomb {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponBombDict.SPS_MINI_BOMB;
 	}
 
 	@Override

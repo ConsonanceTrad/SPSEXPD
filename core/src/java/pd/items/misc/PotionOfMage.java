@@ -45,6 +45,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class PotionOfMage extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -70,7 +71,7 @@ public class PotionOfMage extends Item {
 	private int charge;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentNonEquipDict.MIRACLE_FLASK;
 		defaultAction = AC_USE;
 		unique = true;
 		usesTargeting = true;

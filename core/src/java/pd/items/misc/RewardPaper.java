@@ -16,6 +16,7 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 /** Tester mission pad for spending experiment points on permanent item upgrades. */
 public class RewardPaper extends Item {
@@ -46,7 +47,7 @@ public class RewardPaper extends Item {
 	public static final int ITEM_COST = 100;
 	public static final int GOLD_COST = 1000;
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; unique = true; defaultAction = AC_CHOOSE; }
+	{ image = EquipmentNonEquipDict.REWARD_LIST; unique = true; defaultAction = AC_CHOOSE; }
 
 	@Override
 	public ArrayList<String> actions(Hero hero) {

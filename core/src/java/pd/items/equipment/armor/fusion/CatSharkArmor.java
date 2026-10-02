@@ -3,8 +3,12 @@ package pd.items.equipment.armor.fusion;
 import pd.actors.Char;
 import pd.items.equipment.armor.MailArmor;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipArmorUniqueArmorDict;
 
 public class CatSharkArmor extends MailArmor {
+	{
+		image = EquipmentEquipArmorUniqueArmorDict.SHARK_PAJAMAS;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(CatSharkArmor.class)

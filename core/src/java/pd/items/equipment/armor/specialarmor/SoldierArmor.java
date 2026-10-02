@@ -12,8 +12,12 @@ import pd.items.equipment.armor.normalarmor.NormalArmor;
 import pd.items.equipment.weapon.guns.GunWeapon;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
 
 public class SoldierArmor extends NormalArmor {
+	{
+		image = EquipmentEquipArmorBasicArmorDict.HERO_ARMOR_STAR_SOLDIER;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(SoldierArmor.class)

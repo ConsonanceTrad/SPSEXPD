@@ -8,8 +8,12 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Charm;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class MiniMoai extends MeleeThrowWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.EASTER_STATUE;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(MiniMoai.class)

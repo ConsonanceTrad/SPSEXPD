@@ -19,6 +19,7 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumGoodsMaterialsGoodsDict;
 
 /** Apostle's single-use chaos box with the original four equiprobable outcomes. */
 public class ApostleBox extends SellItem {
@@ -40,7 +41,7 @@ public class ApostleBox extends SellItem {
 	public static final String AC_APPLY = "APPLY";
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumGoodsMaterialsGoodsDict.EARTH_CRYSTAL;
 		defaultAction = AC_APPLY;
 	}
 

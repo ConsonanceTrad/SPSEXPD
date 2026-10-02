@@ -5,10 +5,11 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.actors.buffs.Hunger;
 import pd.actors.hero.Hero;
 import pd.items.consum.food.Food;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class Fruit extends Food {
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumFoodFoodDict.STRAWBERRY;
 		energy = Hunger.HUNGRY / 6f;
 		hornValue = 1;
 		bones = false;

@@ -19,6 +19,9 @@ import render.utils.math.Random;
 import pd.messages.InlineText;
 
 public class Lollipop extends SpsSpecialMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.LOLLIPOP;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Lollipop.class)

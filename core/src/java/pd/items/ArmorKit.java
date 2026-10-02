@@ -22,7 +22,7 @@ public class ArmorKit extends Item {
 
 
 	public static final String AC_APPLY = "APPLY";
-	{ image = ConsumUsefulProcessEnhanceDict.KIT_0; unique = true; defaultAction = AC_APPLY; }
+	{ image = ConsumUsefulProcessEnhanceDict.ARMORKIT; unique = true; defaultAction = AC_APPLY; }
 	@Override public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero); actions.add(AC_APPLY); return actions;
 	}

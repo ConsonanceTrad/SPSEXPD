@@ -2,7 +2,11 @@ package pd.items.equipment.armor.normalarmor;
 
 import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentBagsDict;
 public class MailArmor extends NormalArmor {
+	{
+		image = EquipmentBagsDict.HEART_OF_SCARECROW_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(MailArmor.class)

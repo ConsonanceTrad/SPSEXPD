@@ -10,9 +10,13 @@ import pd.actors.buffs.ShieldArmor;
 import pd.items.equipment.weapon.melee.normalweapon.NormalMeleeWeapon;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 /** The knuckle-sect weapon sold by Shower after Otiluke is rescued. */
 public class SpKnuckles extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.POWER_KNUCKLES;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(SpKnuckles.class)

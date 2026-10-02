@@ -20,6 +20,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 /** Legacy soul lantern. It preserves a pet's species, health, and reward cooldown. */
 public class PocketBallFull extends Item {
@@ -45,7 +46,7 @@ public class PocketBallFull extends Item {
 	public int pet_cooldown;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentNonEquipDict.FULL_POCKET_BALL;
 		defaultAction = AC_USE;
 	}
 

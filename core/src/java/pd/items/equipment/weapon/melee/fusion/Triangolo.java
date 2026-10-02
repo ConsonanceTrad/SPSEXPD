@@ -19,7 +19,7 @@ public class Triangolo extends Shortsword implements FusionWeapon {
 
 
 
-	{ image = EquipmentEquipWeaponBasicWeaponDict.SAI_0; tier = 1; }
+	{ image = EquipmentEquipWeaponBasicWeaponDict.TRIANGLE; tier = 1; }
 	@Override public int min(int lvl) { return 2 + lvl; }
 	@Override public int max(int lvl) { return 7 + 2 * lvl; }
 	@Override public int proc(Char attacker, Char defender, int damage) {

@@ -23,6 +23,7 @@ package pd.items.equipment.armor;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
 
 
 public class HuntressArmor extends ClassArmor {
@@ -38,7 +39,7 @@ public class HuntressArmor extends ClassArmor {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipArmorBasicArmorDict.HERO_ARMOR_HUNTRESS;
 	}
 
 }

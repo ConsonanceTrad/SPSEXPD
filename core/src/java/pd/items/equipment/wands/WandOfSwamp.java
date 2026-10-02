@@ -32,7 +32,7 @@ public class WandOfSwamp extends DamageWand {
 
 
 	{
-		image = EquipmentWandBasicWandDict.WAND_POISON;
+		image = EquipmentWandBasicWandDict.WAND_ACID;
 		collisionProperties = Ballistica.PROJECTILE;
 	}
 

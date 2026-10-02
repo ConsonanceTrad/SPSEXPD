@@ -3,7 +3,11 @@ package pd.items.equipment.weapon.missiles.buildblock;
 import pd.atlas.items.SpecificTaskDict;
 import pd.levels.Terrain;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumThrowsDict;
 public class WallBlock extends LegacyBuildBlock {
+	{
+		image = ConsumThrowsDict.BRICK_BLOCK_PLACER;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(WallBlock.class)

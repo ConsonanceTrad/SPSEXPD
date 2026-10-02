@@ -21,6 +21,9 @@ import pd.windows.WndBag;
 import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
 public class HolyMace extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponUniqueWeaponDict.HOLY_HAMMER;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(HolyMace.class)

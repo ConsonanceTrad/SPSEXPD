@@ -8,8 +8,12 @@ import pd.actors.blobs.damageblobs.FireEffectDamage;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Burning;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificPlaceHolderDict;
 
 public class FireFruit extends SpsFruit {
+	{
+		image = SpecificPlaceHolderDict.SEED_HOLDER_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(FireFruit.class)

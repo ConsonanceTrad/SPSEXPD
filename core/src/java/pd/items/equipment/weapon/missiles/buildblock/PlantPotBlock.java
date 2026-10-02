@@ -11,6 +11,7 @@ import pd.levels.Terrain;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumThrowsDict;
 
 /** A thrown construction block which creates a plantable flower pot. */
 public class PlantPotBlock extends BuildBlock {
@@ -25,7 +26,7 @@ public class PlantPotBlock extends BuildBlock {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumThrowsDict.FLOWER_POT_PLACER;
 	}
 
 	public PlantPotBlock() { this(1); }

@@ -20,7 +20,7 @@ public class Nunchaku extends Sai implements FusionWeapon {
 
 
 
-	{ image = EquipmentEquipWeaponBasicWeaponDict.SAI_0; tier = 3; DLY = 0.8f; }
+	{ image = EquipmentEquipWeaponBasicWeaponDict.NUNCHAKU; tier = 3; DLY = 0.8f; }
 	@Override public int min(int lvl) { return 4 + lvl; }
 	@Override public int max(int lvl) { return 15 + 3 * lvl; }
 	@Override public int proc(Char attacker, Char defender, int damage) {

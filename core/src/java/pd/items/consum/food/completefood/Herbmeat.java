@@ -7,6 +7,7 @@ import pd.actors.buffs.AttackUp;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class Herbmeat extends CompleteFood {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -18,7 +19,7 @@ public class Herbmeat extends CompleteFood {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; energy = 180f; }
+	{ image = ConsumFoodFoodDict.HERB_SAUCED_MEAT; energy = 180f; }
 	@Override protected void doEat(Hero hero) { Buff.affect(hero, AttackUp.class, 70f).level(30); }
 	@Override public int value() { return 2 * quantity; }
 }

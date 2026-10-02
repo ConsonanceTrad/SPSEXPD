@@ -33,6 +33,7 @@ import render.utils.serialize.Bundle;
 import java.io.IOException;
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
 
 /** SPS-PD's self-charging mechanical determination core. */
 public class RobotDMT extends Artifact {
@@ -70,7 +71,7 @@ public class RobotDMT extends Artifact {
 	private boolean error;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentJewelleryArtifactDict.MECHANICAL_HEART;
 		levelCap = 10;
 		chargeCap = FULL_CHARGE;
 		defaultAction = AC_HEART;

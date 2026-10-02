@@ -4,8 +4,12 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.actors.Char;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class Dualknive extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.DUAL_SWORDS;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Dualknive.class)

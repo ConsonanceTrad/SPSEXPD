@@ -22,6 +22,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 /** The original tester-forged cursed blade and its kill-charge awakening. */
 public class ShadowEater extends MeleeWeapon {
@@ -49,7 +50,7 @@ public class ShadowEater extends MeleeWeapon {
 	private int charge;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponBasicWeaponDict.BLOOD_BLADE;
 		tier = 4;
 		ACC = 1f;
 		DLY = 1f;

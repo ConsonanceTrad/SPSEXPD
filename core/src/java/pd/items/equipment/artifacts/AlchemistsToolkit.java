@@ -40,6 +40,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
 
 /** SPS-PD 0.9.8's potion-order toolkit. */
 public class AlchemistsToolkit extends Artifact {
@@ -83,7 +84,7 @@ public class AlchemistsToolkit extends Artifact {
 	private int seedsToPotion;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentJewelleryArtifactDict.ALCHEMISTS_TOOLKIT;
 		level(0);
 		levelCap = 10;
 		defaultAction = AC_BREW;

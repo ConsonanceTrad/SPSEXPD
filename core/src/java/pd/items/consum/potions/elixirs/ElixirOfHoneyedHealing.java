@@ -36,6 +36,7 @@ import pd.items.Honeypot;
 import pd.items.consum.potions.PotionOfHealing;
 import render.noosa.audio.Sample;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
 
 public class ElixirOfHoneyedHealing extends Elixir {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -49,7 +50,7 @@ public class ElixirOfHoneyedHealing extends Elixir {
 
 	
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumPotionSeedBasicPotionDict.BREW_SHOCKING_0;
 	}
 	
 	@Override

@@ -18,7 +18,7 @@ public class LingPotion extends Pill {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = SpecificPlaceHolderDict.POTION_HOLDER_0; }
 	@Override protected void onUse(Hero hero) {
 		Buff.affect(hero, LingBless.class, 200f);
 		if (hero.sprite != null) hero.sprite.emitter().start(Speck.factory(Speck.STAR), 0.2f, 3);

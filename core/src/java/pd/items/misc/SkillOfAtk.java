@@ -3,6 +3,7 @@ package pd.items.misc;
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.actors.hero.Hero;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumScrollAmuletScrollDict;
 public class SkillOfAtk extends SkillBook {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
@@ -15,7 +16,7 @@ public class SkillOfAtk extends SkillBook {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = ConsumScrollAmuletScrollDict.SCROLL_OF_PRECISION; }
 	@Override void apply(Hero hero) { hero.improveAttackSkill(1); }
 	@Override public int value() { return 50 * quantity; }
 }

@@ -4,6 +4,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.actors.hero.Hero;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 
 public class ToyGun extends GunWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -18,7 +19,7 @@ public class ToyGun extends GunWeapon {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponUniqueWeaponDict.PAINTBALL_GUN;
 		reinforced = true;
 	}
 	public ToyGun() { super(1, 10); }

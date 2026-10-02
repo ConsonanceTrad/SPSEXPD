@@ -3,6 +3,9 @@ package pd.items.equipment.weapon.ranges;
 import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 import pd.messages.InlineText;
 public class WoodenBowS extends RangeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.WOODEN_BOW;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(WoodenBowS.class)

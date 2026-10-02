@@ -11,6 +11,7 @@ import pd.sprites.ExMobileSprite;
 import pd.sprites.MobileSprite;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumSummorDict;
 
 public class Mobile extends SpsSummonItem {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -31,7 +32,7 @@ public class Mobile extends SpsSummonItem {
 	private static boolean activate;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumSummorDict.DESTRUCTION_DRONE;
 	}
 
 	@Override

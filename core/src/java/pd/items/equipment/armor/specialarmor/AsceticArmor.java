@@ -9,8 +9,12 @@ import pd.actors.buffs.HasteBuff;
 import pd.items.equipment.armor.normalarmor.NormalArmor;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
 
 public class AsceticArmor extends NormalArmor {
+	{
+		image = EquipmentEquipArmorBasicArmorDict.HERO_ARMOR_ASCETIC;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(AsceticArmor.class)

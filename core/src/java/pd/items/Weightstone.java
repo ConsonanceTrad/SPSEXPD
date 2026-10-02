@@ -20,6 +20,7 @@ import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumScrollAmuletAmuletDict;
 
 public class Weightstone extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -39,7 +40,7 @@ public class Weightstone extends Item {
 	public static final float TIME_TO_APPLY = 2f;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumScrollAmuletAmuletDict.STONE_AUGMENTATION_0;
 		stackable = true;
 		defaultAction = AC_APPLY;
 	}

@@ -14,6 +14,7 @@ import pd.scenes.GameScene;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class RockManJumpshoes extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -30,7 +31,7 @@ public class RockManJumpshoes extends Item {
 	public static final String AC_JUMP = "JUMP";
 	public static final int RANGE = 3;
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentNonEquipDict.JUMP_BOOTS;
 		defaultAction = AC_JUMP;
 		unique = true;
 		usesTargeting = true;

@@ -19,7 +19,7 @@ public class PotionOfMight extends SpsPotion {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = SpecificPlaceHolderDict.POTION_HOLDER_0; }
 	@Override public void apply(Hero hero) {
 		Buff.affect(hero, Barkskin.class).set(8 + hero.lvl / 2, 360);
 		Buff.affect(hero, ElixirOfMight.HTBoost.class).reset();

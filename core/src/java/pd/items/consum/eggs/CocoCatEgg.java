@@ -5,6 +5,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.actors.mobs.pets.CocoCat;
 import pd.actors.mobs.pets.LegacyPet;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumSummorDict;
 public class CocoCatEgg extends Egg {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
@@ -15,7 +16,7 @@ public class CocoCatEgg extends Egg {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = ConsumSummorDict.STONE_PET_EGG_0; }
 	@Override protected LegacyPet hatchling() { return new CocoCat(); }
 	@Override public int value() { return 500 * quantity; }
 }

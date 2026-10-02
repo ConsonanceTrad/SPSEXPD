@@ -56,6 +56,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
 
 public class TimekeepersHourglass extends Artifact {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -89,7 +90,7 @@ public class TimekeepersHourglass extends Artifact {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentJewelleryArtifactDict.TIMEKEEPERS_HOURGLASS;
 
 		levelCap = 5;
 

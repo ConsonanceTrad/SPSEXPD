@@ -39,6 +39,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 
 /** SPS-PD's magazine-fed firearm base. */
 public class GunWeapon extends SpsRangedWeapon {
@@ -283,7 +284,7 @@ public class GunWeapon extends SpsRangedWeapon {
 
 	public class GunAmmo extends MissileWeapon {
 		{
-			image = SpecificPlaceHolderDict.SOMETHING_0;
+			image = EquipmentEquipWeaponUniqueWeaponDict.PAINTBALL_GUN;
 			tier = Math.max(1, gunTier);
 			ACC = 1.3f;
 			spawnedForEffect = true;

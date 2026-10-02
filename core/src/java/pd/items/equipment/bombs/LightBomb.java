@@ -14,6 +14,7 @@ import pd.effects.particles.SmokeParticle;
 import pd.mechanics.pathfind.PathFinder;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
 
 public class LightBomb extends Bomb {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -27,7 +28,7 @@ public class LightBomb extends Bomb {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponBombDict.HOLY_BOMB_0;
 	}
 
 	public LightBomb() { this(1); }

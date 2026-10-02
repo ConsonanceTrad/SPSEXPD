@@ -9,8 +9,12 @@ import pd.effects.particles.ShadowParticle;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumUsefulUsefulDict;
 
 public class StarAmmo extends SpAmmo {
+	{
+		image = ConsumUsefulUsefulDict.SP_AMMO;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(StarAmmo.class)

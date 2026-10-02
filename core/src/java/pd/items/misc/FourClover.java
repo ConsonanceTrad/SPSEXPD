@@ -5,6 +5,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.items.equipment.rings.Ring;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
 
 /** The old three-slot luck charm, represented in the modern misc equipment slot. */
 public class FourClover extends Ring {
@@ -18,7 +19,7 @@ public class FourClover extends Ring {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentJewelleryArtifactDict.CLOVER_BADGE;
 		buffClass = FourCloverBless.class;
 		anonymous = true;
 	}

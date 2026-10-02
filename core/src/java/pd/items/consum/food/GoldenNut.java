@@ -10,6 +10,7 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class GoldenNut extends Fruit {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -23,7 +24,7 @@ public class GoldenNut extends Fruit {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; energy = 100f; hornValue = 2; }
+	{ image = ConsumFoodFoodDict.AUTHOR_NUT; energy = 100f; hornValue = 2; }
 
 	@Override protected void onEat(Hero hero) {
 		applyBlessing(hero, Random.Int(2));

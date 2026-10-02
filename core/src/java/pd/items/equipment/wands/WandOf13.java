@@ -25,6 +25,7 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentWandBasicWandDict;
 
 /** Ice13's Blood Moon wand from SPS-PD 0.9.8. */
 public class WandOf13 extends DamageWand {
@@ -42,7 +43,7 @@ public class WandOf13 extends DamageWand {
 	private static final ItemSprite.Glowing RED = new ItemSprite.Glowing(0xCC0000);
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentWandBasicWandDict.WAND_SPS_FIREBOLT;
 		collisionProperties = Ballistica.WONT_STOP;
 	}
 

@@ -22,6 +22,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class AttackShield extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -47,7 +48,7 @@ public class AttackShield extends Item {
 	private int charge;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentNonEquipDict.RYU_HADOKEN;
 		defaultAction = AC_CAST;
 		unique = true;
 		usesTargeting = true;

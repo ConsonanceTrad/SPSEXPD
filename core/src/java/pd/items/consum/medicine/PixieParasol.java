@@ -12,6 +12,7 @@ import pd.actors.mobs.Mob;
 import pd.effects.Speck;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
 
 public class PixieParasol extends Pill {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -23,7 +24,7 @@ public class PixieParasol extends Pill {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = ConsumPotionSeedBasicPotionDict.MONOCHROME_BLOCK; }
 	public PixieParasol() { this(1); }
 	public PixieParasol(int value) { quantity = value; }
 	@Override protected void onUse(Hero hero) {

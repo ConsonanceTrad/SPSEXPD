@@ -31,6 +31,7 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.Talent;
 import pd.items.Generator;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class Berry extends Food {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -46,7 +47,7 @@ public class Berry extends Food {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumFoodFoodDict.BLACKBERRY;
 		energy = Hunger.HUNGRY/3f; //100 food value
 
 		bones = false;

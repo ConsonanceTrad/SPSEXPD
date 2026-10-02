@@ -7,6 +7,7 @@ import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.utils.GLog;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificTaskDict;
 
 /** The original completion souvenir from the unfinished boss rush. */
 public class Playericon extends Item {
@@ -21,7 +22,7 @@ public class Playericon extends Item {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificTaskDict.FINAL_TROPHY;
 		stackable = true;
 	}
 	@Override public boolean doPickUp(Hero hero, int pos) {

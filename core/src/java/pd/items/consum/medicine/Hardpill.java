@@ -6,6 +6,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.DefenceUp;
 import pd.actors.hero.Hero;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
 
 public class Hardpill extends Pill {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -17,7 +18,7 @@ public class Hardpill extends Pill {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = ConsumPotionSeedBasicPotionDict.PILL; }
 	@Override protected void onUse(Hero hero) {
 		Buff.affect(hero, DefenceUp.class, 800f).level(50);
 	}

@@ -20,6 +20,7 @@ import render.noosa.audio.Sample;
 import render.utils.data.BArray;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
 
 public class StormBomb extends Bomb {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -31,7 +32,7 @@ public class StormBomb extends Bomb {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = EquipmentEquipWeaponBombDict.SHRAPNEL_BOMB_0; }
 	@Override public void explode(int cell) {
 		super.explode(cell);
 		PathFinder.buildDistanceMap(cell, BArray.not(Dungeon.level.solid, null), 2);

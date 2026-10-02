@@ -21,6 +21,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 
 public class MegaCannon extends SpsRangedWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -40,7 +41,7 @@ public class MegaCannon extends SpsRangedWeapon {
 	private static final String CHARGE = "charge";
 	private int charge;
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponUniqueWeaponDict.ROCK_CANNON;
 		ACC = 1f;
 		DLY = 0.75f;
 		RCH = 1;

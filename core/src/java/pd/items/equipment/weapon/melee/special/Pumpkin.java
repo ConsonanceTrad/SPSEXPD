@@ -13,6 +13,7 @@ import pd.effects.particles.FlameParticle;
 import pd.items.equipment.weapon.melee.MeleeWeapon;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 /** The original Halloween pumpkin lamp weapon. */
 public class Pumpkin extends MeleeWeapon {
@@ -31,7 +32,7 @@ public class Pumpkin extends MeleeWeapon {
 	public static final float LIGHT_DURATION = 50f;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponBasicWeaponDict.HALLOWEEN_PUMPKIN;
 		tier = 1;
 		usesTargeting = true;
 	}

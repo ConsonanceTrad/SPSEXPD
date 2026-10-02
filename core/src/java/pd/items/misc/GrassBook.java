@@ -21,6 +21,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class GrassBook extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -41,7 +42,7 @@ public class GrassBook extends Item {
 	private int charge;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentNonEquipDict.FOREST_GUIDE;
 		unique = true;
 	}
 

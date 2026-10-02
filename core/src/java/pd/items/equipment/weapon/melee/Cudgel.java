@@ -27,6 +27,7 @@ import pd.Assets;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class Cudgel extends MeleeWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -45,7 +46,7 @@ public class Cudgel extends MeleeWeapon {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponBasicWeaponDict.LEGACY_WOODEN_STAFF_0;
 		hitSound = Assets.Sounds.HIT_CRUSH;
 		hitSoundPitch = 1.2f;
 

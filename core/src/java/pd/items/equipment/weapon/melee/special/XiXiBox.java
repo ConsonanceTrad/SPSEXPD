@@ -17,6 +17,7 @@ import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumGoodsMaterialsGoodsDict;
 
 /** XixiZero's box, which breaks into four equipment rewards after 101 strong hits. */
 public class XiXiBox extends MeleeWeapon {
@@ -40,7 +41,7 @@ public class XiXiBox extends MeleeWeapon {
 	private int charge;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumGoodsMaterialsGoodsDict.SPROUTING_TROPHY;
 		tier = 1;
 		usesTargeting = true;
 	}

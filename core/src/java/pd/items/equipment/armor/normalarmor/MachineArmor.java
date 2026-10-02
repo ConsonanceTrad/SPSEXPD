@@ -2,7 +2,11 @@ package pd.items.equipment.armor.normalarmor;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
 public class MachineArmor extends NormalArmor {
+	{
+		image = EquipmentEquipArmorBasicArmorDict.EXOSKELETON_ARMOR;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(MachineArmor.class)

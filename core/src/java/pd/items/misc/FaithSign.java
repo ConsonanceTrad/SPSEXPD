@@ -17,6 +17,7 @@ import pd.windows.WndUseItem;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class FaithSign extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -42,7 +43,7 @@ public class FaithSign extends Item {
 	public static final String AC_BALANCE = "BALANCE";
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentNonEquipDict.FAITH_BOX;
 		unique = true;
 		defaultAction = AC_CHOOSE;
 	}

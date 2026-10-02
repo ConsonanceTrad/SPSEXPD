@@ -3,8 +3,12 @@ package pd.items.specific.reward;
 import pd.items.Crystalnucleus;
 import pd.items.Item;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentBagsDict;
 
 public class CityReward extends ChallengeReward {
+	{
+		image = EquipmentBagsDict.BACKPACK_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(CityReward.class)

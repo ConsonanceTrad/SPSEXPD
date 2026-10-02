@@ -6,6 +6,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.actors.mobs.pets.LegacyPet;
 import pd.actors.mobs.pets.YearPet;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumSummorDict;
 
 /** The guaranteed soul dropped by the Spring Festival year beast. */
 public class YearPetEgg extends Egg {
@@ -20,7 +21,7 @@ public class YearPetEgg extends Egg {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumSummorDict.RANDOM_SOUL;
 	}
 
 	@Override protected LegacyPet hatchling() { return new YearPet(); }

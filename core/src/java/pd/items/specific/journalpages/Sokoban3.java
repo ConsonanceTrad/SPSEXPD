@@ -2,8 +2,12 @@
 package pd.items.specific.journalpages;
 
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificTaskDict;
 
 public class Sokoban3 extends JournalPage {
+	{
+		image = SpecificTaskDict.TELEPORT_COORDINATE;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Sokoban3.class)

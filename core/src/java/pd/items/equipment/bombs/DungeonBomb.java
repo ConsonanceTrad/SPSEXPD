@@ -29,7 +29,7 @@ public class DungeonBomb extends Bomb {
 
 
 
-	{ image = EquipmentEquipWeaponBombDict.BOMB_0; }
+	{ image = EquipmentEquipWeaponBombDict.DUNGEON_BOMB; }
 
 	@Override
 	public void explode(int cell) {

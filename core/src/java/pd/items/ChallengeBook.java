@@ -5,6 +5,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.items.quest.ChallengeJournal;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificTaskDict;
 
 /** REN's physical challenge book, obtained in Dolya town. */
 public class ChallengeBook extends ChallengeJournal {
@@ -19,7 +20,7 @@ public class ChallengeBook extends ChallengeJournal {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificTaskDict.TRIAL_BOOK;
 		stackable = true;
 	}
 }

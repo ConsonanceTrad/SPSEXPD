@@ -15,7 +15,11 @@ import pd.scenes.GameScene;
 import pd.windows.WndBag;
 import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 public class BraveBook extends NormalMeleeWeapon {
+	{
+		image = EquipmentNonEquipDict.DEMON_BOOK;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(BraveBook.class)

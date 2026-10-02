@@ -44,6 +44,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificTaskDict;
 
 public class CorpseDust extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -59,7 +60,7 @@ public class CorpseDust extends Item {
 
 	
 	{
-		image = ConsumThrowsDict.RICE_BALL;
+		image = SpecificTaskDict.DUST_0;
 		
 		cursed = true;
 		cursedKnown = true;

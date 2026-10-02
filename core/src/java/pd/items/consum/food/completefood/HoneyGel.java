@@ -6,6 +6,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSprite;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class HoneyGel extends CompleteFood {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -18,7 +19,7 @@ public class HoneyGel extends CompleteFood {
 
 
 	private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing(0xFFFF44);
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; energy = 20f; }
+	{ image = EquipmentNonEquipDict.TASTY_PUDDING; energy = 20f; }
 	@Override protected void doEat(Hero hero) { increaseMaxHealth(hero, 3, 6); }
 	@Override public ItemSprite.Glowing glowing() { return YELLOW; }
 	@Override public int value() { return 400 * quantity; }

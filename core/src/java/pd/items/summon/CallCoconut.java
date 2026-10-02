@@ -15,6 +15,7 @@ import pd.scenes.GameScene;
 import pd.sprites.CocoCatSprite;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificKeyDict;
 
 public class CallCoconut extends SpsSummonItem {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -34,7 +35,7 @@ public class CallCoconut extends SpsSummonItem {
 	private boolean summonOnThrow;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificKeyDict.IRON_KEY;
 	}
 
 	@Override

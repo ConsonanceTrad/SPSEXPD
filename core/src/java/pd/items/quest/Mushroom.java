@@ -4,6 +4,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.items.Item;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
 
 public class Mushroom extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -17,7 +18,7 @@ public class Mushroom extends Item {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumPotionSeedBasicPotionDict.DEW_FUNGUS_SPORE;
 		unique = true;
 	}
 

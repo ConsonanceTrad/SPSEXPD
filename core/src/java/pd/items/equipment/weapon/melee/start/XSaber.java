@@ -17,8 +17,12 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 
 public class XSaber extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponUniqueWeaponDict.ENERGY_SWORD;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(XSaber.class)

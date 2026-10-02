@@ -15,6 +15,7 @@ import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumThrowsDict;
 
 public class ShitBall extends MissileWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -29,7 +30,7 @@ public class ShitBall extends MissileWeapon {
 	private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0xCC6600);
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumThrowsDict.FILTH_LUMP;
 		tier = 1;
 		baseUses = 1;
 		DLY = 0.5f;

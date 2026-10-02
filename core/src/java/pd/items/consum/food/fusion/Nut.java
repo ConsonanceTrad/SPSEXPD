@@ -9,6 +9,7 @@ import pd.actors.hero.Hero;
 import pd.items.consum.food.Food;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class Nut extends Food {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -23,7 +24,7 @@ public class Nut extends Food {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumFoodFoodDict.RAW_NUT;
 		energy = Hunger.HUNGRY / 6f;
 		hornValue = 1;
 	}

@@ -8,6 +8,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.PhysicalEmpower;
 import pd.actors.hero.Hero;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumPotionSeedSeedDict;
 
 public class BattleFlower extends Vegetable {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -19,7 +20,7 @@ public class BattleFlower extends Vegetable {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = ConsumPotionSeedSeedDict.YAM_FLOWER; }
 	@Override protected void onEat(Hero hero) {
 		Buff.prolong(hero, Bless.class, 30f);
 		Buff.affect(hero, ArcaneArmor.class).set(3 + hero.lvl / 4, 30);

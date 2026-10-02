@@ -5,6 +5,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.items.equipment.rings.Ring;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 /** Original SPS auto-potion; its legacy AutoHealPotion buff contains no active logic. */
 public class AutoPotion extends Ring {
@@ -19,7 +20,7 @@ public class AutoPotion extends Ring {
 
 	public AutoPotion() {
 		anonymize();
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentNonEquipDict.PURE_DEWDROP_WATER;
 	}
 
 	@Override

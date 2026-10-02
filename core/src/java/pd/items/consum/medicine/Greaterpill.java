@@ -10,6 +10,7 @@ import pd.actors.buffs.Poison;
 import pd.actors.buffs.STRDown;
 import pd.actors.hero.Hero;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
 
 public class Greaterpill extends Pill {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -21,7 +22,7 @@ public class Greaterpill extends Pill {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = ConsumPotionSeedBasicPotionDict.PILL; }
 	@Override protected void onUse(Hero hero) {
 		Buff.affect(hero, BerryRegeneration.class).level(Math.max(hero.HT / 2, 30));
 		hero.HP += Math.min(hero.HT, hero.HT * 2 - hero.HP);

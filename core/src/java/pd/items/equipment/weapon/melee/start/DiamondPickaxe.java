@@ -23,7 +23,11 @@ import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 public class DiamondPickaxe extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponUniqueWeaponDict.STEVE_DIAMOND_PICKAXE;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(DiamondPickaxe.class)

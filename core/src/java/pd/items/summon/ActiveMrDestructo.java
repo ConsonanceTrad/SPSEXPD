@@ -17,6 +17,7 @@ import pd.sprites.MrDestructo2dot0Sprite;
 import pd.sprites.MrDestructoSprite;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumSummorDict;
 
 public class ActiveMrDestructo extends SpsSummonItem {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -37,7 +38,7 @@ public class ActiveMrDestructo extends SpsSummonItem {
 	private static boolean activate;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumSummorDict.LASER_TURRET;
 	}
 
 	@Override

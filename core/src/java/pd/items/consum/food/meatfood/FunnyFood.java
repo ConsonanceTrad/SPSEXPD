@@ -7,6 +7,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.FunnyBuff;
 import pd.actors.hero.Hero;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class FunnyFood extends MeatFood {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -19,7 +20,7 @@ public class FunnyFood extends MeatFood {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumFoodFoodDict.FUNNY_PARASITE;
 		energy = 500f;
 	}
 	@Override protected void doEat(Hero hero) {

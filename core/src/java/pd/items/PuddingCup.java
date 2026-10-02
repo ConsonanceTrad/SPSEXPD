@@ -14,6 +14,7 @@ import render.noosa.Game;
 import java.io.IOException;
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificTaskDict;
 
 public class PuddingCup extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -31,7 +32,7 @@ public class PuddingCup extends Item {
 	private static final String AC_SAVE = "SAVE";
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificTaskDict.TASTY_PUDDING;
 		unique = true;
 	}
 

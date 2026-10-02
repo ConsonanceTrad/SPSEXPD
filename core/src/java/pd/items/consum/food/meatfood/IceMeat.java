@@ -22,7 +22,7 @@ public class IceMeat extends MeatFood {
 
 	private static final ItemSprite.Glowing BLUE = new ItemSprite.Glowing(0x0044FF);
 	{
-		image = ConsumFoodFoodDict.MEAT;
+		image = ConsumFoodFoodDict.FROZEN_MEAT;
 		energy = 100f;
 	}
 	public static Food cook(int quantity) { IceMeat result = new IceMeat(); result.quantity(quantity); return result; }

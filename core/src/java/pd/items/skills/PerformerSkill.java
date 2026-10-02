@@ -21,6 +21,7 @@ import pd.plants.Plant;
 import pd.scenes.GameScene;
 import pd.windows.WndBag;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 /** The four performer class skills from SPS-PD 0.9.8. */
 public class PerformerSkill extends ClassSkill {
@@ -37,7 +38,7 @@ public class PerformerSkill extends ClassSkill {
 
 
 
-	{ image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN1; }
+	{ image = EquipmentNonEquipDict.HERO_SKILL_PERFORMER; }
 
 	@Override public void doSpecial() {
 		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {

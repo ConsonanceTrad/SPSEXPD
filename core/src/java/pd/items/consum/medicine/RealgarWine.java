@@ -8,6 +8,7 @@ import pd.actors.buffs.ToxicImbue;
 import pd.actors.hero.Hero;
 import pd.effects.Speck;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class RealgarWine extends Pill {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -19,7 +20,7 @@ public class RealgarWine extends Pill {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = ConsumFoodFoodDict.REALGAR_WINE; }
 	@Override protected void onUse(Hero hero) {
 		Buff.affect(hero, FireImbue.class).set(FireImbue.DURATION);
 		Buff.affect(hero, ToxicImbue.class).set(ToxicImbue.DURATION);

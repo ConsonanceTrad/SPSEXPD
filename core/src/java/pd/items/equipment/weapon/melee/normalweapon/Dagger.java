@@ -4,8 +4,12 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.actors.Char;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class Dagger extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.DAGGER_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Dagger.class)

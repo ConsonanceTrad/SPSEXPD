@@ -11,6 +11,9 @@ import pd.actors.buffs.Charm;
 import pd.messages.InlineText;
 
 public class CharmFruit extends SpsFruit {
+	{
+		image = SpecificPlaceHolderDict.SEED_HOLDER_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(CharmFruit.class)

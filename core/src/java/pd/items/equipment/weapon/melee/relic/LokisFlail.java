@@ -9,6 +9,7 @@ import pd.actors.hero.Hero;
 import pd.items.equipment.weapon.enchantments.LokisPoison;
 import render.noosa.audio.Sample;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class LokisFlail extends RelicMeleeWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -27,7 +28,7 @@ public class LokisFlail extends RelicMeleeWeapon {
 
 	public LokisFlail() {
 		super(0.8f, 1.2f, 2);
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponBasicWeaponDict.VENOMOUS_HEAVY_FLAIL;
 		hitSound = Assets.Sounds.HIT_CRUSH;
 		enchant(new LokisPoison());
 	}

@@ -3,6 +3,7 @@ package pd.items.specific.journalpages;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificTaskDict;
 
 
 /** The original sample-house location page, which unlocks adventure destination 8. */
@@ -18,6 +19,6 @@ public class NewHome extends JournalPage {
 
 	public NewHome() {
 		super(8);
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificTaskDict.TELEPORT_COORDINATE;
 	}
 }

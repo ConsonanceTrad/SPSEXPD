@@ -12,6 +12,7 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class SacrificeBook extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -29,7 +30,7 @@ public class SacrificeBook extends Item {
 
 	public static final String AC_USE = "USE";
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentNonEquipDict.DEMON_BOOK;
 		stackable = true;
 		defaultAction = AC_USE;
 	}

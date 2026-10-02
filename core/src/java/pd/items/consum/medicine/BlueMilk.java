@@ -10,6 +10,7 @@ import pd.actors.buffs.Slow;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
 
 public class BlueMilk extends Pill {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -21,7 +22,7 @@ public class BlueMilk extends Pill {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = ConsumPotionSeedBasicPotionDict.BLUE_CAP_MUSHROOM; }
 	public BlueMilk() { this(1); }
 	public BlueMilk(int value) { quantity = value; }
 	@Override protected void onUse(Hero hero) {

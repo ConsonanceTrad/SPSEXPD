@@ -7,6 +7,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.items.equipment.weapon.enchantments.AresLeech;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class AresSword extends RelicMeleeWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -25,7 +26,7 @@ public class AresSword extends RelicMeleeWeapon {
 
 	public AresSword() {
 		 super(1f, 1f, 1);
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponBasicWeaponDict.SOUL_DRAIN_LONGSWORD;
 		enchant(new AresLeech());
 	}
 

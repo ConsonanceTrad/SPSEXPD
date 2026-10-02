@@ -17,6 +17,7 @@ import pd.utils.GLog;
 import render.utils.data.BArray;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
 
 public class FishingBomb extends Bomb {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -32,7 +33,7 @@ public class FishingBomb extends Bomb {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponBombDict.SPS_FISHING_BOMB;
 	}
 
 	public FishingBomb() { this(1); }

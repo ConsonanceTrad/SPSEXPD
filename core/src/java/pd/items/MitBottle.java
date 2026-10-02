@@ -11,6 +11,7 @@ import pd.sprites.ItemSprite;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
 
 public class MitBottle extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -28,7 +29,7 @@ public class MitBottle extends Item {
 	public static final String AC_USE = "USE";
 	private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing(0xFFFF44);
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumPotionSeedBasicPotionDict.POTION_MASTERY_0;
 		stackable = true;
 		defaultAction = AC_USE;
 	}

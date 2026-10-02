@@ -41,7 +41,7 @@ public class WandOfLightning extends DamageWand {
 
 
 	{
-		image = EquipmentWandBasicWandDict.WAND_SPS_LIGHTNING;
+		image = EquipmentWandBasicWandDict.WAND_LIGHTNING;
 		collisionProperties = Ballistica.PROJECTILE;
 	}
 

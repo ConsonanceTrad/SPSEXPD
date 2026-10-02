@@ -35,6 +35,7 @@ import pd.sprites.CharSprite;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class FrozenCarpaccio extends Food {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -53,7 +54,7 @@ public class FrozenCarpaccio extends Food {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumFoodFoodDict.FROZEN_MEAT;
 		energy = Hunger.HUNGRY/2f;
 	}
 	

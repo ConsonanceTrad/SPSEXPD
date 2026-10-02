@@ -15,6 +15,7 @@ import pd.scenes.GameScene;
 import pd.windows.WndBag;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 /** The four follower class skills from SPS-PD 0.9.8. */
 public class FollowerSkill extends ClassSkill {
@@ -31,7 +32,7 @@ public class FollowerSkill extends ClassSkill {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = EquipmentNonEquipDict.HERO_SKILL_CLERIC; }
 
 	@Override public void doSpecial() {
 		Buff.affect(curUser, ParyAttack.class);

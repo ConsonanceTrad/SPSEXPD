@@ -18,6 +18,7 @@ import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentWandBasicWandDict;
 
 /** The freeze wand from SPS-PD 0.9.8, distinct from Shattered's frost wand. */
 public class WandOfFreeze extends DamageWand {
@@ -33,7 +34,7 @@ public class WandOfFreeze extends DamageWand {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentWandBasicWandDict.WAND_FROST;
 		collisionProperties = Ballistica.PROJECTILE;
 	}
 

@@ -19,7 +19,7 @@ public class PotionOfOverHealing extends SpsPotion {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = SpecificPlaceHolderDict.POTION_HOLDER_0; }
 	@Override public void apply(Hero hero) {
 		PotionOfHealing.cure(hero);
 		hero.HP = hero.HT;

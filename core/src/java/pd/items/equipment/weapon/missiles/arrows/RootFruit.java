@@ -9,8 +9,12 @@ import pd.actors.blobs.damageblobs.EarthEffectDamage;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Roots;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificPlaceHolderDict;
 
 public class RootFruit extends SpsFruit {
+	{
+		image = SpecificPlaceHolderDict.SEED_HOLDER_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(RootFruit.class)

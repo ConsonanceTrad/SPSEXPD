@@ -7,8 +7,12 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Paralysis;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class MageBook extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.RUNE_DICTIONARY;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(MageBook.class)

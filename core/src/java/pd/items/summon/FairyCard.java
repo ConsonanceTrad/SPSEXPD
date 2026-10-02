@@ -33,7 +33,7 @@ public class FairyCard extends SpsSummonItem {
 	private static boolean activate;
 
 	{
-		image = ConsumSummorDict.FAIRY_CARD_0;
+		image = ConsumSummorDict.FAIRY_DOLL;
 	}
 
 	@Override

@@ -7,6 +7,7 @@ import pd.actors.hero.Hero;
 import pd.items.Item;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class Honey extends Food {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -19,7 +20,7 @@ public class Honey extends Food {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumFoodFoodDict.CANNED_HONEY;
 		energy = 50f;
 		hornValue = 0;
 	}

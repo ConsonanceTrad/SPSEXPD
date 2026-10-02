@@ -60,6 +60,7 @@ import render.utils.serialize.Bundle;
 import java.util.ArrayList;
 import java.util.Collections;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificTaskDict;
 
 public class AdventureJournal extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -154,7 +155,7 @@ public class AdventureJournal extends Item {
 	private int charge;
 
 	{
-		image = SpecificPagesDict.GUIDE_PAGE_0;
+		image = SpecificTaskDict.SOUL_BOOK;
 		defaultAction = AC_READ;
 		unique = true;
 		keptThoughLostInvent = true;

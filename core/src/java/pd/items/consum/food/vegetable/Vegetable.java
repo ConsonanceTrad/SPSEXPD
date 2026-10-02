@@ -8,7 +8,7 @@ import pd.items.consum.food.Food;
 
 public class Vegetable extends Food {
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificPlaceHolderDict.FOOD_HOLDER_0;
 		energy = Hunger.HUNGRY / 15f;
 		hornValue = 1;
 		bones = false;

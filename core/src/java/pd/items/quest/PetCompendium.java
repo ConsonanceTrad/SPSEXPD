@@ -30,6 +30,7 @@ import render.utils.serialize.Bundle;
 import java.util.ArrayList;
 import java.util.Collections;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumPotionSeedSeedDict;
 
 public class PetCompendium extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -70,7 +71,7 @@ public class PetCompendium extends Item {
 	private int lastSummonBranch = -1;
 
 	{
-		image = EquipmentJewelleryArtifactDict.ARTIFACT_ROSE1;
+		image = ConsumPotionSeedSeedDict.ICE_MINT;
 		defaultAction = AC_CALL;
 		unique = true;
 		keptThoughLostInvent = true;

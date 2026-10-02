@@ -49,7 +49,7 @@ public class WandOfShatteredFireblast extends DamageWand {
 	private int direction;
 
 	{
-		image = EquipmentWandBasicWandDict.WAND_SPS_FIREBOLT;
+		image = EquipmentWandBasicWandDict.WAND_FIREBOLT_0;
 		collisionProperties = Ballistica.STOP_SOLID;
 	}
 

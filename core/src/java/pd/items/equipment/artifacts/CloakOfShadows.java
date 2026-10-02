@@ -32,6 +32,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
 
 /** SPS-PD 0.9.8's charge-based invisibility cloak. */
 public class CloakOfShadows extends Artifact {
@@ -61,7 +62,7 @@ public class CloakOfShadows extends Artifact {
 	private boolean stealthed;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentJewelleryArtifactDict.CLOAK_OF_SHADOWS;
 		levelCap = 10;
 		charge = Math.min(level() + 3, 10);
 		partialCharge = 0;

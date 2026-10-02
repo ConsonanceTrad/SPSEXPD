@@ -27,8 +27,12 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 
 public class EleKatana extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponUniqueWeaponDict.RAIKIRI;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(EleKatana.class)

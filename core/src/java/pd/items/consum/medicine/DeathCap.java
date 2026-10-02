@@ -9,6 +9,7 @@ import pd.actors.buffs.Cripple;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
 
 public class DeathCap extends Pill {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -20,7 +21,7 @@ public class DeathCap extends Pill {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = ConsumPotionSeedBasicPotionDict.POISON_MUSHROOM; }
 	public DeathCap() { this(1); }
 	public DeathCap(int value) { quantity = value; }
 	@Override protected void onUse(Hero hero) {

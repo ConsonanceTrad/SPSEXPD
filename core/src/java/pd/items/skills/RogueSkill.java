@@ -24,6 +24,7 @@ import pd.items.Item;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 /** The four rogue class skills from SPS-PD 0.9.8. */
 public class RogueSkill extends ClassSkill {
@@ -44,7 +45,7 @@ public class RogueSkill extends ClassSkill {
 	private static final float SKILL_TIME = 1f;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentNonEquipDict.HERO_SKILL_ROGUE;
 	}
 
 	@Override

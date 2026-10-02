@@ -14,6 +14,7 @@ import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumUsefulUsefulDict;
 
 public class UnBlessAnkh extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -29,7 +30,7 @@ public class UnBlessAnkh extends Item {
 
 	public static final String AC_BLESS = "BLESS";
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumUsefulUsefulDict.ANKH;
 	}
 
 	@Override public ArrayList<String> actions(Hero hero) {

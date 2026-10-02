@@ -8,8 +8,12 @@ import pd.actors.blobs.ToxicGas;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Poison;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificPlaceHolderDict;
 
 public class ToxicFruit extends SpsFruit {
+	{
+		image = SpecificPlaceHolderDict.SEED_HOLDER_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(ToxicFruit.class)

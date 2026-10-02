@@ -51,6 +51,7 @@ import render.utils.data.Callback;
 import render.utils.geom.PointF;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentWandBasicWandDict;
 
 public class WandOfPrismaticLight extends DamageWand {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -70,7 +71,7 @@ public class WandOfPrismaticLight extends DamageWand {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentWandBasicWandDict.WAND_LIGHT;
 
 		collisionProperties = Ballistica.MAGIC_BOLT;
 	}

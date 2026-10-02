@@ -9,6 +9,7 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
 
 public class Earthstar extends Pill {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -20,7 +21,7 @@ public class Earthstar extends Pill {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = ConsumPotionSeedBasicPotionDict.EARTH_RIFT_FRUIT; }
 	public Earthstar() { this(1); }
 	public Earthstar(int value) { quantity = value; }
 	@Override protected void onUse(Hero hero) {

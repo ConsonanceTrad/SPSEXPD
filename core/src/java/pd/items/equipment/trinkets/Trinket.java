@@ -92,7 +92,7 @@ public abstract class Trinket extends Item {
 	public static class PlaceHolder extends Trinket {
 
 		{
-			image = SpecificPlaceHolderDict.TRINKET_HOLDER_0;
+			image = SpecificPlaceHolderDict.SPS_PH_TRINKET;
 		}
 
 		@Override

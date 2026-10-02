@@ -5,6 +5,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.Dungeon;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificTaskDict;
 
 public class Bone extends SpsBossKey {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -17,7 +18,7 @@ public class Bone extends SpsBossKey {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = SpecificTaskDict.MAGIC_SKULL; }
 	@Override protected int destination() { return 11; }
 	@Override protected boolean bossKilled() { return Dungeon.skeletonKingKilled; }
 }

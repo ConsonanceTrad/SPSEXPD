@@ -12,6 +12,7 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class YearFood extends CompleteFood {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -24,7 +25,7 @@ public class YearFood extends CompleteFood {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumFoodFoodDict.SANDWICH;
 		energy = 150f;
 	}
 	@Override protected void doEat(Hero hero) {

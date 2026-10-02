@@ -47,7 +47,7 @@ public class Pill extends Item {
 	public static final String AC_EAT = "EAT";
 
 	{
-		image = ConsumPotionSeedBasicPotionDict.POTION_EXP_0;
+		image = ConsumPotionSeedBasicPotionDict.PILL;
 		stackable = true;
 		defaultAction = AC_EAT;
 	}

@@ -18,7 +18,7 @@ public class AflyEgg extends Egg {
 
 
 
-	{ image = ConsumSummorDict.AFLY_EGG_0; }
+	{ image = ConsumSummorDict.CAT_EAR_BOX; }
 	@Override protected LegacyPet hatchling() { return new Abi(); }
 	@Override public int value() { return 500 * quantity; }
 }

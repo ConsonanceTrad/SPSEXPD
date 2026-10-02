@@ -90,7 +90,7 @@ public class Pasty extends Food {
 		super.reset();
 		switch(Holiday.getCurrentHoliday()){
 			case NONE: default:
-				image = SpecificPlaceHolderDict.SOMETHING_0;
+				image = ConsumFoodFoodDict.MEAR_PIE;
 				break;
 			case LUNAR_NEW_YEAR:
 				image = ConsumFoodFoodDict.STEAMED_FISH_0;

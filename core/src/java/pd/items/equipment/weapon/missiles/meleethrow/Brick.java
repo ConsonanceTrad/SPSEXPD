@@ -12,8 +12,12 @@ import pd.messages.Messages;
 import pd.utils.GLog;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumThrowsDict;
 
 public class Brick extends MeleeThrowWeapon {
+	{
+		image = ConsumThrowsDict.BRICK;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Brick.class)

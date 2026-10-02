@@ -20,6 +20,7 @@ import render.utils.math.Random;
 import java.util.ArrayList;
 import java.util.HashSet;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumSummorDict;
 
 /** Rustyblade's pager, which summons one of two Zero butter cats. */
 public class RustybladeCat extends Item {
@@ -42,7 +43,7 @@ public class RustybladeCat extends Item {
 	private boolean summonOnThrow;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumSummorDict.CAT_EAR_BOX;
 		defaultAction = AC_ACTIVE;
 		stackable = true;
 	}

@@ -14,6 +14,7 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class RangeBag extends MiscEquippable {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -31,7 +32,7 @@ public class RangeBag extends MiscEquippable {
 	public static final String AC_BUY = "BUY";
 	public static final int PRICE = 500;
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; unique = true; defaultAction = AC_BUY; }
+	{ image = EquipmentNonEquipDict.QUIVER; unique = true; defaultAction = AC_BUY; }
 
 	@Override
 	public ArrayList<String> actions(Hero hero) {

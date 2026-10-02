@@ -3,6 +3,7 @@ package pd.items;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumGoodsMaterialsMaterialsDict;
 
 
 public class Crystalnucleus extends Item {
@@ -15,7 +16,7 @@ public class Crystalnucleus extends Item {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; stackable = true; }
+	{ image = ConsumGoodsMaterialsMaterialsDict.COLORLESS_ORE; stackable = true; }
 	@Override public boolean isIdentified() { return true; }
 	@Override public boolean isUpgradable() { return false; }
 	@Override public int value() { return 1000 * quantity; }

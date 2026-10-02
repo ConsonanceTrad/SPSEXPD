@@ -11,6 +11,9 @@ import render.utils.math.Random;
 import pd.messages.InlineText;
 
 public class TekkoKagi extends SpsSpecialMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.SPS_TEKKO_KAGI_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(TekkoKagi.class)

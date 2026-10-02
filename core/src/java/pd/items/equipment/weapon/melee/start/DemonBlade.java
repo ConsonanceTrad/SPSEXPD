@@ -13,6 +13,9 @@ import render.utils.math.Random;
 import pd.messages.InlineText;
 
 public class DemonBlade extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponUniqueWeaponDict.DEMON_BLADE;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(DemonBlade.class)

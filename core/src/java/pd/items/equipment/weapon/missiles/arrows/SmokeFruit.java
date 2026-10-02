@@ -8,8 +8,12 @@ import pd.actors.blobs.DarkGas;
 import pd.actors.buffs.Blindness;
 import pd.actors.buffs.Buff;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificPlaceHolderDict;
 
 public class SmokeFruit extends SpsFruit {
+	{
+		image = SpecificPlaceHolderDict.SEED_HOLDER_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(SmokeFruit.class)

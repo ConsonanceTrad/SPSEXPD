@@ -26,6 +26,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class GnollMark extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -56,7 +57,7 @@ public class GnollMark extends Item {
 	private int charge;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentNonEquipDict.RITUAL_MASK;
 		defaultAction = AC_CHOOSE;
 		unique = true;
 	}

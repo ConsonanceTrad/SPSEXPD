@@ -12,6 +12,7 @@ import pd.actors.buffs.Terror;
 import pd.items.equipment.weapon.melee.MeleeWeapon;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumGoodsMaterialsGoodsDict;
 
 /** AFly's tier-one sock, applying one of four control effects on every hit. */
 public class AFlySock extends MeleeWeapon {
@@ -26,7 +27,7 @@ public class AFlySock extends MeleeWeapon {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumGoodsMaterialsGoodsDict.WHITE_SOCK;
 		tier = 1;
 	}
 

@@ -8,6 +8,7 @@ import pd.actors.buffs.Vertigo;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
 
 public class GoldenJelly extends Pill {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -19,7 +20,7 @@ public class GoldenJelly extends Pill {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = ConsumPotionSeedBasicPotionDict.LETHAL_FUNGUS; }
 	public GoldenJelly() { this(1); }
 	public GoldenJelly(int value) { quantity = value; }
 	@Override protected void onUse(Hero hero) {

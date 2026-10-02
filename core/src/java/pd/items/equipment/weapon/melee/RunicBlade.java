@@ -37,6 +37,7 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class RunicBlade extends MeleeWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -55,7 +56,7 @@ public class RunicBlade extends MeleeWeapon {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponBasicWeaponDict.RUNE_SWORD;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1f;
 

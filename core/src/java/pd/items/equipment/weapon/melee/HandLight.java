@@ -11,8 +11,12 @@ import pd.actors.buffs.ShieldArmor;
 import pd.actors.buffs.Silent;
 import pd.items.equipment.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class HandLight extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.LAMP_PUNCH;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(HandLight.class)

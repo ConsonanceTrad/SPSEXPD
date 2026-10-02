@@ -25,6 +25,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 /** The four soldier class skills from SPS-PD 0.9.8. */
 public class SoldierSkill extends ClassSkill {
@@ -45,7 +46,7 @@ public class SoldierSkill extends ClassSkill {
 
 
 
-	{ image = EquipmentEquipWeaponBombDict.BOMB_0; }
+	{ image = EquipmentNonEquipDict.HERO_SKILL_STAR_SOLDIER; }
 
 	@Override public void doSpecial() {
 		ArrayList<Integer> cells = new ArrayList<>();

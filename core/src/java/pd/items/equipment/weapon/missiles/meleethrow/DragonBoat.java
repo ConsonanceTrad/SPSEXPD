@@ -15,6 +15,9 @@ import render.utils.math.Random;
 import pd.messages.InlineText;
 
 public class DragonBoat extends MeleeThrowWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.DRAGON_BOAT;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(DragonBoat.class)

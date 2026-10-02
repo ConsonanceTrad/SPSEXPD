@@ -5,6 +5,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.items.equipment.artifacts.Artifact;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
 
 /** SPS-PD 0.9.8's powerless Noomlin keepsake. */
 public class NoomlinCrown extends Artifact {
@@ -19,7 +20,7 @@ public class NoomlinCrown extends Artifact {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentJewelleryArtifactDict.KINGS_CROWN;
 		levelCap = 1;
 	}
 

@@ -12,6 +12,9 @@ import pd.messages.InlineText;
 
 /** Zero-defense test armor which converts every received hit into an experiment point. */
 public class TestArmor extends NormalArmor {
+	{
+		image = SpecificPlaceHolderDict.SPS_PH_ARMOR_TEST;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(TestArmor.class)

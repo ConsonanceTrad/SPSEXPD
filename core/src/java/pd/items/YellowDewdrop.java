@@ -14,7 +14,7 @@ public class YellowDewdrop extends ColoredDewdrop {
 
 
 
-	{ image = GroundFunctionalFallingDict.DEWDROP_0; }
+	{ image = GroundFunctionalFallingDict.DEWDROP_1; }
 	@Override protected int baseHealing() { return 5; }
 	@Override public int dewValue() { return 5 * quantity; }
 }

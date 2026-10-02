@@ -9,6 +9,7 @@ import pd.effects.Speck;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
 
 public class Vialupdater extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -23,7 +24,7 @@ public class Vialupdater extends Item {
 
 	public static final String AC_USE = "USE";
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumUsefulProcessEnhanceDict.KIT_0;
 		stackable = false;
 		unique = true;
 		defaultAction = AC_USE;

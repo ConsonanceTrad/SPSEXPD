@@ -11,8 +11,12 @@ import pd.items.equipment.wands.fusion.WandOfFlow;
 import pd.mechanics.Ballistica;
 import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class PaperFan extends SpsSpecialMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.FAN;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(PaperFan.class)

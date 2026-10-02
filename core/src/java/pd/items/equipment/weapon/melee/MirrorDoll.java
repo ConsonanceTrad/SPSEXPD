@@ -13,6 +13,9 @@ import pd.items.equipment.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.messages.InlineText;
 
 public class MirrorDoll extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.MIRROR_DOLL;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(MirrorDoll.class)

@@ -13,6 +13,9 @@ import render.utils.math.Random;
 import pd.messages.InlineText;
 
 public class KeyWeapon extends SpsSpecialMeleeWeapon {
+	{
+		image = SpecificPlaceHolderDict.SPS_PH_WEAPON_BAD;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(KeyWeapon.class)

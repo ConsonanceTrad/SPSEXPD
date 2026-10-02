@@ -70,7 +70,7 @@ public class ChaliceOfBlood extends Artifact {
 
 
 	{
-		image = EquipmentJewelleryArtifactDict.ARTIFACT_CHALICE1;
+		image = EquipmentJewelleryArtifactDict.CHALICE_OF_BLOOD_0;
 
 		levelCap = 10;
 		defaultAction = AC_BLOODANGRY;

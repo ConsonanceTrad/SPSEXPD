@@ -12,6 +12,7 @@ import pd.actors.buffs.Roots;
 import pd.mechanics.pathfind.PathFinder;
 import render.utils.data.BArray;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
 
 public class EarthBomb extends Bomb {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -24,7 +25,7 @@ public class EarthBomb extends Bomb {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = EquipmentEquipWeaponBombDict.ARCANE_BOMB_0; }
 
 	@Override
 	public void explode(int cell) {

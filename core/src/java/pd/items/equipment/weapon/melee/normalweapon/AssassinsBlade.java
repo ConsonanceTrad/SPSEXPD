@@ -5,8 +5,12 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.actors.Char;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class AssassinsBlade extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.ASSASSINS_BLADE_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(AssassinsBlade.class)

@@ -33,6 +33,7 @@ import render.utils.serialize.Bundle;
 import java.util.ArrayList;
 import java.util.Calendar;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumSummorDict;
 
 /** The original SPS mob soul, whose absorbed energies determine its hatchling. */
 public class Egg extends Item {
@@ -73,7 +74,7 @@ public class Egg extends Item {
 	public int lights;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumSummorDict.RANDOM_SOUL;
 		stackable = false;
 		defaultAction = AC_BREAK;
 	}

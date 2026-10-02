@@ -16,6 +16,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificTaskDict;
 
 /** The original SPS energy core and gateway to Zot's prison. */
 public class Palantir extends Item {
@@ -40,7 +41,7 @@ public class Palantir extends Item {
 	private int returnPos = -1;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificTaskDict.SOUL_COLLECT;
 		unique = true;
 		stackable = false;
 		defaultAction = AC_PORT;

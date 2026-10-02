@@ -9,6 +9,7 @@ import pd.actors.mobs.pets.LegacyPet;
 import pd.actors.mobs.pets.ShadowDragon;
 import pd.items.quest.AdventureJournal;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumSummorDict;
 
 /** Guaranteed shadow-dragon soul from the original dragon cave. */
 public class ShadowDragonEgg extends Egg {
@@ -22,7 +23,7 @@ public class ShadowDragonEgg extends Egg {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumSummorDict.VIOLET_DRAGON_EGG_0;
 		lights = 20;
 	}
 

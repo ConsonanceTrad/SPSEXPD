@@ -17,6 +17,7 @@ import pd.atlas.items.GroundFunctionalFallingDict;
 
 import pd.items.Item;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class WaterItem extends Food {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -30,7 +31,7 @@ public class WaterItem extends Food {
 
 
 	{
-		image = GroundFunctionalFallingDict.DEWDROP_0;
+		image = EquipmentNonEquipDict.DIVINE_WOOD_SHIELD;
 		energy = 1f;
 		hornValue = 0;
 	}

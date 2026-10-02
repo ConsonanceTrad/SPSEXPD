@@ -7,6 +7,7 @@ import pd.actors.mobs.pets.LegacyPet;
 import pd.items.consum.eggs.Egg;
 import render.utils.math.Random;
 import render.utils.serialize.Reflection;
+import pd.atlas.items.ConsumSummorDict;
 
 /** Shared implementation for the original category and monthly random souls. */
 public abstract class RandomPetEgg extends Egg {
@@ -16,7 +17,7 @@ public abstract class RandomPetEgg extends Egg {
 	@SafeVarargs
 	protected RandomPetEgg(Class<? extends LegacyPet>... candidates) {
 		this.candidates = candidates;
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumSummorDict.RANDOM_SOUL;
 	}
 
 	@Override

@@ -65,7 +65,7 @@ public class HolyTome extends Artifact {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificPlaceHolderDict.ARTIFACT_HOLDER_0;
 
 		exp = 0;
 		levelCap = 10;

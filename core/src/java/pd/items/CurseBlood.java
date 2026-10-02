@@ -7,6 +7,7 @@ import pd.actors.hero.Hero;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 /** One of the original Shadow Eater crafting materials. */
 public class CurseBlood extends Item {
@@ -20,7 +21,7 @@ public class CurseBlood extends Item {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentNonEquipDict.CHAOS_BLOOD;
 		stackable = false;
 		unique = true;
 	}

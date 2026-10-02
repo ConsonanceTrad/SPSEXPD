@@ -15,6 +15,7 @@ import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentWandBasicWandDict;
 
 /** The original SPS-PD blood wand, kept in the fusion package for save compatibility. */
 public class WandOfBlood extends DamageWand {
@@ -38,7 +39,7 @@ public class WandOfBlood extends DamageWand {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentWandBasicWandDict.WAND_CORRUPTION_0;
 		collisionProperties = Ballistica.PROJECTILE;
 	}
 

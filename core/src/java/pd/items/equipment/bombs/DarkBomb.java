@@ -14,6 +14,7 @@ import pd.effects.particles.SmokeParticle;
 import pd.mechanics.pathfind.PathFinder;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
 
 public class DarkBomb extends Bomb {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -26,7 +27,7 @@ public class DarkBomb extends Bomb {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = EquipmentEquipWeaponBombDict.ARCANE_BOMB_0; }
 
 	@Override
 	public void explode(int cell) {

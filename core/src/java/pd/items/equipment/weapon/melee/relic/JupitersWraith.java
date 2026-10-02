@@ -14,6 +14,7 @@ import pd.items.equipment.weapon.enchantments.JupitersHorror;
 import render.noosa.Camera;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class JupitersWraith extends RelicMeleeWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -32,7 +33,7 @@ public class JupitersWraith extends RelicMeleeWeapon {
 
 	public JupitersWraith() {
 		super(1f, 1f, 4);
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponBasicWeaponDict.DETERRENT_ROCK_BLADE;
 		enchant(new JupitersHorror());
 	}
 

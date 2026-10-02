@@ -31,7 +31,7 @@ public class MeleePan extends MeleeWeapon {
 	public static final String AC_CHANGE = "CHANGE";
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificPlaceHolderDict.SPS_PH_WEAPON_BAD;
 		tier = 1;
 		usesTargeting = true;
 	}

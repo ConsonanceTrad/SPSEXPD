@@ -9,9 +9,13 @@ import pd.actors.hero.Hero;
 import pd.items.equipment.armor.normalarmor.NormalArmor;
 import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipArmorUniqueArmorDict;
 
 /** Living armor which stores recent damage as defense, then converts it to healing. */
 public class LifeArmor extends NormalArmor {
+	{
+		image = EquipmentEquipArmorUniqueArmorDict.LIVING_ARMOR;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(LifeArmor.class)

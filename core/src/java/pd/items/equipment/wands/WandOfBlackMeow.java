@@ -25,6 +25,7 @@ import render.utils.data.Callback;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentWandBasicWandDict;
 
 /** Black Meow's single-cat obstruction wand from SPS-PD 0.9.8. */
 public class WandOfBlackMeow extends Wand {
@@ -44,7 +45,7 @@ public class WandOfBlackMeow extends Wand {
 	private static final ItemSprite.Glowing WHITE = new ItemSprite.Glowing(0xFFFFFF);
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentWandBasicWandDict.WAND_SPS_DARK;
 		collisionProperties = Ballistica.PROJECTILE;
 	}
 

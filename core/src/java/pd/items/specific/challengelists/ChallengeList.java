@@ -4,8 +4,12 @@ package pd.items.specific.challengelists;
 import pd.Statistics;
 import pd.items.Item;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificTaskDict;
 
 public abstract class ChallengeList extends Item {
+	{
+		image = SpecificTaskDict.TELEPORT_COORDINATE;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(ChallengeList.class)

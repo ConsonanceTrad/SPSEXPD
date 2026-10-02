@@ -16,6 +16,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.SpecificTaskDict;
 
 /** The original unique Boss Rush invitation. Its destination is restored separately. */
 public class BossRush extends Item {
@@ -41,7 +42,7 @@ public class BossRush extends Item {
 	private int returnPos = -1;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificTaskDict.BOOK_OF_ALL;
 		unique = true;
 		stackable = false;
 		defaultAction = AC_READ;

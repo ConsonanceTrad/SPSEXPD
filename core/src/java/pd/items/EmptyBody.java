@@ -7,6 +7,7 @@ import pd.actors.hero.Hero;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 
 /** The unmodified weapon blank used to forge Shadow Eater. */
 public class EmptyBody extends Item {
@@ -20,7 +21,7 @@ public class EmptyBody extends Item {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponUniqueWeaponDict.MURAMASA;
 		stackable = false;
 		unique = true;
 	}

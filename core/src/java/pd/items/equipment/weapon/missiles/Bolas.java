@@ -28,6 +28,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Cripple;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class Bolas extends MissileWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -42,7 +43,7 @@ public class Bolas extends MissileWeapon {
 
 	
 	{
-		image = ConsumThrowsDict.BOLAS_0;
+		image = EquipmentEquipWeaponBasicWeaponDict.SLING;
 		hitSound = Assets.Sounds.HIT;
 		hitSoundPitch = 1f;
 		

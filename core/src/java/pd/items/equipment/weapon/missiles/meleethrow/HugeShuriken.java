@@ -3,9 +3,13 @@ package pd.items.equipment.weapon.missiles.meleethrow;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumThrowsDict;
 
 
 public class HugeShuriken extends MeleeThrowWeapon {
+	{
+		image = ConsumThrowsDict.GIANT_SHURIKEN;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(HugeShuriken.class)

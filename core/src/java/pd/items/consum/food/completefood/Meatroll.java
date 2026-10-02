@@ -10,6 +10,7 @@ import pd.actors.buffs.SuperArcane;
 import pd.actors.hero.Hero;
 import pd.sprites.ItemSprite;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class Meatroll extends CompleteFood {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -25,7 +26,7 @@ public class Meatroll extends CompleteFood {
 	private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0xCC6600);
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumFoodFoodDict.CHICKEN_WRAP;
 		energy = 250f;
 	}
 

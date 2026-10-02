@@ -47,6 +47,7 @@ import render.utils.data.Callback;
 import render.utils.math.ColorMath;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentWandBasicWandDict;
 
 public class WandOfCorrosion extends Wand {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -66,7 +67,7 @@ public class WandOfCorrosion extends Wand {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentWandBasicWandDict.WAND_TRANSFUSION_0;
 
 		collisionProperties = Ballistica.STOP_TARGET | Ballistica.STOP_SOLID;
 	}

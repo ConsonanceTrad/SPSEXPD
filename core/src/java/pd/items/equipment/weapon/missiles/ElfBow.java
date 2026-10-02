@@ -47,7 +47,7 @@ public class ElfBow extends Weapon {
 	private int charge;
 
 	{
-		image = EquipmentEquipWeaponUniqueWeaponDict.SPS_ELF_BOW_0;
+		image = EquipmentEquipWeaponUniqueWeaponDict.DEMON_BLADE;
 		stackable = false;
 		unique = true;
 		defaultAction = AC_SHOOT;

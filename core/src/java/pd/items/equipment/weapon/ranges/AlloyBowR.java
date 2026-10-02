@@ -2,7 +2,11 @@ package pd.items.equipment.weapon.ranges;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 public class AlloyBowR extends RangeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.CROSSBOW;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(AlloyBowR.class)

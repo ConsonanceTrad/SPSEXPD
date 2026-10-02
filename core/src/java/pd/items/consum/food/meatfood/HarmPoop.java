@@ -8,6 +8,7 @@ import pd.actors.buffs.Poison;
 import pd.actors.buffs.Slow;
 import pd.actors.hero.Hero;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumGoodsMaterialsMaterialsDict;
 
 public class HarmPoop extends MeatFood {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -20,7 +21,7 @@ public class HarmPoop extends MeatFood {
 
 
 	{
-		image = ConsumFoodFoodDict.MEAT;
+		image = ConsumGoodsMaterialsMaterialsDict.SCRAP;
 		energy = 10f;
 		hornValue = 0;
 	}

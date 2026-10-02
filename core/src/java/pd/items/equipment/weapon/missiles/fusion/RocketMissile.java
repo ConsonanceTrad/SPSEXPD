@@ -6,8 +6,12 @@ import pd.actors.buffs.Burning;
 import pd.items.equipment.weapon.missiles.Javelin;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class RocketMissile extends Javelin {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.ROCKET;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(RocketMissile.class)

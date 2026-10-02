@@ -7,6 +7,7 @@ import pd.actors.Char;
 import pd.effects.Speck;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class Spork extends MeleeWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -18,7 +19,7 @@ public class Spork extends MeleeWeapon {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; tier = 3; ACC = 1f; DLY = 0.8f; }
+	{ image = EquipmentEquipWeaponBasicWeaponDict.ROYAL_FORK; tier = 3; ACC = 1f; DLY = 0.8f; }
 	@Override public int min(int lvl) { return 8 + 2 * lvl; }
 	@Override public int max(int lvl) { return 14 + 2 * lvl; }
 	@Override public int STRReq(int lvl) { return 14; }

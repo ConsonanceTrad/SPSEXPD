@@ -38,6 +38,7 @@ import render.utils.serialize.Bundle;
 import java.util.ArrayList;
 import java.util.Iterator;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentBagsDict;
 
 public class Bag extends Item implements Iterable<Item> {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -53,7 +54,7 @@ public class Bag extends Item implements Iterable<Item> {
 	public static final String AC_OPEN	= "OPEN";
 	
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentBagsDict.BACKPACK_0;
 		
 		defaultAction = AC_OPEN;
 

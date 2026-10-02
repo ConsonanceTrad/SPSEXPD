@@ -3,6 +3,9 @@ package pd.items.equipment.armor.normalarmor;
 import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
 import pd.messages.InlineText;
 public class LeatherArmor extends NormalArmor {
+	{
+		image = EquipmentEquipArmorBasicArmorDict.ARMOR_LEATHER_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(LeatherArmor.class)

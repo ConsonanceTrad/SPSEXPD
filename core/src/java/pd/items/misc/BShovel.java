@@ -24,6 +24,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class BShovel extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -43,7 +44,7 @@ public class BShovel extends Item {
 	public static final int USE_COST = 65;
 	private static final String CHARGE = "charge";
 	private int charge;
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; defaultAction = AC_USE; unique = true; }
+	{ image = EquipmentNonEquipDict.CHEAT_CODE; defaultAction = AC_USE; unique = true; }
 
 	@Override public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);

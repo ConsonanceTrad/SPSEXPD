@@ -2,6 +2,7 @@ package pd.items.specific.sellitem;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumGoodsMaterialsGoodsDict;
 public class BrokenHammer extends SellItem {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
@@ -12,6 +13,6 @@ public class BrokenHammer extends SellItem {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = ConsumGoodsMaterialsGoodsDict.WOODEN_FISH; }
 	@Override public int value() { return 30 * quantity; }
 }

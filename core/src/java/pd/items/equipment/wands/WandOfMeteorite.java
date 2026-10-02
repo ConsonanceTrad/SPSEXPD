@@ -24,6 +24,7 @@ import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentWandBasicWandDict;
 
 /** The direct-hit plus 3x3 meteor explosion from SPS-PD 0.9.8. */
 public class WandOfMeteorite extends DamageWand {
@@ -39,7 +40,7 @@ public class WandOfMeteorite extends DamageWand {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentWandBasicWandDict.WAND_SPS_ENERGY;
 		collisionProperties = Ballistica.PROJECTILE;
 	}
 

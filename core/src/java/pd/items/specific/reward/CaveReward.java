@@ -6,8 +6,12 @@ import pd.items.consum.food.fruit.Blueberry;
 import pd.items.consum.food.fruit.Cloudberry;
 import pd.items.consum.food.fruit.Moonberry;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentBagsDict;
 
 public class CaveReward extends ChallengeReward {
+	{
+		image = EquipmentBagsDict.BACKPACK_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(CaveReward.class)

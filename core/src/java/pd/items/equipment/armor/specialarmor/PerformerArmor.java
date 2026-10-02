@@ -9,8 +9,12 @@ import pd.actors.buffs.Charm;
 import pd.items.equipment.armor.normalarmor.NormalArmor;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipArmorBasicArmorDict;
 
 public class PerformerArmor extends NormalArmor {
+	{
+		image = EquipmentEquipArmorBasicArmorDict.HERO_ARMOR_PERFORMER;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(PerformerArmor.class)

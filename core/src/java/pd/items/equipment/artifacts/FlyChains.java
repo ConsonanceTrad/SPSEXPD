@@ -22,12 +22,16 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
 
 /**
  * SPS-PD's alternate chains. Pulling uses Shattered's hardened chain implementation,
  * while charge, levelling and the exhausting seal retain the 0.9.8 rules.
  */
 public class FlyChains extends EtherealChains {
+	{
+		image = EquipmentJewelleryArtifactDict.WIREBUG;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(FlyChains.class)

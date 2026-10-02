@@ -22,6 +22,7 @@ import pd.items.equipment.weapon.melee.MeleeWeapon;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumGoodsMaterialsGoodsDict;
 
 /** The unstable zero-tier weapon produced by RobotDMT. */
 public class ErrorW extends MeleeWeapon {
@@ -39,7 +40,7 @@ public class ErrorW extends MeleeWeapon {
 
 	{
 		tier = 0;
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumGoodsMaterialsGoodsDict.TEST_SUBJECT;
 	}
 
 	@Override public int min(int level) { return 0; }

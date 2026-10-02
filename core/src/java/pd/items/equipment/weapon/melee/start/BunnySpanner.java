@@ -9,8 +9,12 @@ import pd.actors.buffs.Paralysis;
 import pd.items.equipment.weapon.melee.normalweapon.NormalMeleeWeapon;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 
 public class BunnySpanner extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponUniqueWeaponDict.RABBIT_WRENCH;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(BunnySpanner.class)

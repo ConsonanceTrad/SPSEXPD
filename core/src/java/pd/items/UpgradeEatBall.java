@@ -17,6 +17,7 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumPotionSeedSeedDict;
 
 public class UpgradeEatBall extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -34,7 +35,7 @@ public class UpgradeEatBall extends Item {
 	private static final String AC_USE = "USE";
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumPotionSeedSeedDict.STAREATER_FLOWER;
 		stackable = true;
 		defaultAction = AC_USE;
 	}

@@ -15,6 +15,9 @@ import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
 
 public class NinjaFan extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.SPS_NINJA_FAN_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(NinjaFan.class)

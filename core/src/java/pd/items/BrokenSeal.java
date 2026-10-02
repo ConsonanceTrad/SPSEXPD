@@ -51,6 +51,7 @@ import render.utils.serialize.Bundle;
 import java.util.ArrayList;
 import java.util.Arrays;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumUsefulCorpseRelicsDict;
 
 public class BrokenSeal extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -82,7 +83,7 @@ public class BrokenSeal extends Item {
 	public static final String AC_INFO = "INFO_WINDOW";
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumUsefulCorpseRelicsDict.SEAL_SHARD_0;
 
 		cursedKnown = levelKnown = true;
 		unique = true;

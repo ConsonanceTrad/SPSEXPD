@@ -6,8 +6,12 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.actors.Char;
 import pd.items.equipment.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 
 public class BunnyDagger extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponUniqueWeaponDict.RABBIT_SWORD;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(BunnyDagger.class)

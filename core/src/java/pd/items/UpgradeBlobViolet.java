@@ -2,6 +2,7 @@ package pd.items;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 
 public class UpgradeBlobViolet extends UpgradeBlob {
@@ -15,6 +16,6 @@ public class UpgradeBlobViolet extends UpgradeBlob {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = EquipmentNonEquipDict.VIOLET_UPGRADE_BLOB; }
 	@Override protected int upgrades() { return 5; }
 }

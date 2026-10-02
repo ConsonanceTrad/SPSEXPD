@@ -20,6 +20,7 @@ import pd.sprites.CharSprite;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 /** The original sound-wave club awarded by the velocirooster. */
 public class SJRBMusic extends MeleeWeapon {
@@ -34,7 +35,7 @@ public class SJRBMusic extends MeleeWeapon {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponBasicWeaponDict.SLAM_DUNK_SET;
 		tier = 1;
 	}
 

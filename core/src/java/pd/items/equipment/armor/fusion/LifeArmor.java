@@ -5,8 +5,12 @@ import pd.actors.Char;
 import pd.items.equipment.armor.ScaleArmor;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipArmorUniqueArmorDict;
 
 public class LifeArmor extends ScaleArmor {
+	{
+		image = EquipmentEquipArmorUniqueArmorDict.LIVING_ARMOR;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(LifeArmor.class)

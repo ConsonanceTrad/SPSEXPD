@@ -18,7 +18,7 @@ public class PotionOfMending extends SpsPotion {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = SpecificPlaceHolderDict.POTION_HOLDER_0; }
 	@Override public void apply(Hero hero) {
 		PotionOfHealing.cure(hero);
 		Buff.affect(hero, Healing.class).setHeal(Math.max(hero.HT / 4, 30), 0.25f, 0, true);

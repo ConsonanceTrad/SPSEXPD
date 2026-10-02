@@ -19,7 +19,7 @@ public class PrayerWheel extends Mace implements FusionWeapon {
 
 
 	private int charge;
-	{ image = EquipmentEquipWeaponBasicWeaponDict.ROUND_SHIELD_0; tier = 4; ACC = 0.9f; }
+	{ image = EquipmentEquipWeaponBasicWeaponDict.PRAYER_WHEEL; tier = 4; ACC = 0.9f; }
 	@Override public int min(int lvl) { return 6 + lvl; }
 	@Override public int max(int lvl) { return 23 + 5 * lvl; }
 	@Override public int damageRoll(Char owner) {

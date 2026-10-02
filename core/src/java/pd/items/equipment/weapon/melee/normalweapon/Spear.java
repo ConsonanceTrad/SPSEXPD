@@ -9,6 +9,9 @@ import render.utils.math.Random;
 import pd.messages.InlineText;
 
 public class Spear extends NormalMeleeWeapon {
+	{
+		image = EquipmentEquipWeaponBasicWeaponDict.SPEAR_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Spear.class)

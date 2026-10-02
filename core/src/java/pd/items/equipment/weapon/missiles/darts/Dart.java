@@ -46,6 +46,7 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumThrowsDict;
 
 public class Dart extends MissileWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -70,7 +71,7 @@ public class Dart extends MissileWeapon {
 	{
 		levelKnown = true;
 
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumThrowsDict.SMALL_POISON_DART;
 		hitSound = Assets.Sounds.HIT_ARROW;
 		hitSoundPitch = 1.3f;
 		

@@ -50,7 +50,7 @@ public class WoollyBomb extends Bomb {
 
 	
 	{
-		image = EquipmentEquipWeaponBombDict.WOOLY_BOMB_0;
+		image = EquipmentEquipWeaponBombDict.SHRAPNEL_BOMB_0;
 	}
 
 	@Override

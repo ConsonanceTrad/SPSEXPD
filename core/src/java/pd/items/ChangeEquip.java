@@ -42,7 +42,7 @@ public class ChangeEquip extends Item {
 	public static final String AC_CHANGE = "CHANGE";
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = SpecificPlaceHolderDict.SPS_GOLD_TO_SCOIN;
 		defaultAction = AC_CHANGE;
 	}
 

@@ -32,6 +32,7 @@ import render.utils.data.Callback;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentWandBasicWandDict;
 
 /** The single-sheep obstruction wand from SPS-PD 0.9.8. */
 public class WandOfFlock extends Wand {
@@ -52,7 +53,7 @@ public class WandOfFlock extends Wand {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentWandBasicWandDict.WAND_LIVING_EARTH_0;
 		collisionProperties = Ballistica.PROJECTILE;
 	}
 

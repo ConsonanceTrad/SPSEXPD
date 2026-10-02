@@ -27,6 +27,7 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 
 public class ShootGun extends SpsRangedWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -55,7 +56,7 @@ public class ShootGun extends SpsRangedWeapon {
 	private int charge;
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponUniqueWeaponDict.ELECTROMAGNETIC_SHOTGUN;
 		stackable = false;
 		unique = true;
 		defaultAction = AC_SHOOT;

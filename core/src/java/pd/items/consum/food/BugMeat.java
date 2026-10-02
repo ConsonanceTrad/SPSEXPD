@@ -7,6 +7,7 @@ import pd.actors.hero.Hero;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class BugMeat extends Food {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -21,7 +22,7 @@ public class BugMeat extends Food {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumFoodFoodDict.FUNNY_PARASITE;
 		energy = 50;
 		hornValue = 1;
 		stackable = false;

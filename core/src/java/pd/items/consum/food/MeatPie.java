@@ -31,6 +31,7 @@ import pd.items.Item;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 public class MeatPie extends Food {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -46,7 +47,7 @@ public class MeatPie extends Food {
 
 	
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumFoodFoodDict.WHOLE_MEAT_PANCAKE;
 		energy = Hunger.STARVING*2f;
 	}
 	

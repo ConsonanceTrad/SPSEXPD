@@ -10,6 +10,7 @@ import pd.actors.buffs.Buff;
 import pd.items.Item;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumThrowsDict;
 
 public class MindArrow extends MissileWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -23,7 +24,7 @@ public class MindArrow extends MissileWeapon {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumThrowsDict.PSYCHIC_ARROW;
 		tier = 1;
 		baseUses = 1;
 		DLY = 0.1f;

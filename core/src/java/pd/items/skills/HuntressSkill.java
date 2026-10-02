@@ -18,6 +18,7 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 /** The four huntress class skills from SPS-PD 0.9.8. */
 public class HuntressSkill extends ClassSkill {
@@ -34,7 +35,7 @@ public class HuntressSkill extends ClassSkill {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = EquipmentNonEquipDict.HERO_SKILL_HUNTRESS; }
 
 	@Override public void doSpecial() {
 		Buff.prolong(curUser, TargetShoot.class, 50f);

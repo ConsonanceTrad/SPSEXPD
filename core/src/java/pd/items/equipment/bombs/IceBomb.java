@@ -16,6 +16,7 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBombDict;
 
 public class IceBomb extends Bomb {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -27,7 +28,7 @@ public class IceBomb extends Bomb {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = EquipmentEquipWeaponBombDict.FLASHBANG_0; }
 	@Override public void explode(int cell) {
 		super.explode(cell);
 		for (int offset : PathFinder.NEIGHBOURS9) {

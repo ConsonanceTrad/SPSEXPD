@@ -28,6 +28,7 @@ import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
 public class Katana extends MeleeWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -45,7 +46,7 @@ public class Katana extends MeleeWeapon {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentEquipWeaponBasicWeaponDict.ODACHI;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1.1f;
 

@@ -7,6 +7,7 @@ package pd.items;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumGoodsMaterialsMaterialsDict;
 
 
 public class Garbage extends Item {
@@ -21,7 +22,7 @@ public class Garbage extends Item {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumGoodsMaterialsMaterialsDict.SCRAP;
 		stackable = true;
 	}
 

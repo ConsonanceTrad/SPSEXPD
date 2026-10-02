@@ -6,6 +6,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumFoodFoodDict;
 
 /** AliveFish's charm: swift movement in water and protection from fisher creatures. */
 public class FishBone extends MiscEquippable {
@@ -19,7 +20,7 @@ public class FishBone extends MiscEquippable {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = ConsumFoodFoodDict.FISH_LEFTOVER_0; }
 
 	@Override protected FishFriend createBuff() { return new FishFriend(); }
 

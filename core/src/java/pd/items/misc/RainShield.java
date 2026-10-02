@@ -6,6 +6,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.ShieldArmor;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
 
 /** Rain's training shield converts missing health into a physical shield each turn. */
 public class RainShield extends MiscEquippable {
@@ -19,7 +20,7 @@ public class RainShield extends MiscEquippable {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = EquipmentJewelleryArtifactDict.HERO_IRON_SHIELD; }
 
 	@Override protected RainShieldBuff createBuff() { return new RainShieldBuff(); }
 

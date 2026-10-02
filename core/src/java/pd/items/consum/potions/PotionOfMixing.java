@@ -21,7 +21,7 @@ public class PotionOfMixing extends SpsPotion {
 
 
 
-	{ image = SpecificPlaceHolderDict.SOMETHING_0; }
+	{ image = SpecificPlaceHolderDict.POTION_HOLDER_0; }
 	@Override public void apply(Hero hero) {
 		hero.improveCombatSkills(1);
 		Buff.prolong(hero, Recharging.class, 30f);

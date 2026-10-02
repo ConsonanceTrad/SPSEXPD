@@ -14,6 +14,9 @@ import render.utils.math.Random;
 import pd.messages.InlineText;
 
 public class NutFruit extends SpsFruit {
+	{
+		image = SpecificPlaceHolderDict.SEED_HOLDER_0;
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(NutFruit.class)

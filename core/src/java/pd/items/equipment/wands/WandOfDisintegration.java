@@ -19,6 +19,7 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.EquipmentWandBasicWandDict;
 
 /** The short-range, obstacle-piercing disintegration wand from SPS-PD 0.9.8. */
 public class WandOfDisintegration extends DamageWand {
@@ -38,7 +39,7 @@ public class WandOfDisintegration extends DamageWand {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = EquipmentWandBasicWandDict.WAND_DISINTEGRATION_0;
 		collisionProperties = Ballistica.WONT_STOP;
 	}
 
