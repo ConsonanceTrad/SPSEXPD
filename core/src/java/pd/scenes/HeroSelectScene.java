@@ -228,12 +228,6 @@ public class HeroSelectScene extends PixelScene {
 			add(btnOptions);
 		}
 
-		if (!Badges.isUnlocked(Badges.Badge.VICTORY) && !DeviceCompat.isDebug()){
-			Dungeon.challenges = 0;
-			SPDSettings.challenges(0);
-			SPDSettings.customSeed("");
-		}
-
 		if (landscape()){
 			float leftArea = Math.max(100, w/3f);
 			float uiHeight = Math.min(h-20, 300);
@@ -886,15 +880,6 @@ public class HeroSelectScene extends PixelScene {
 			challengeButton = new StyledButton(Chrome.Type.BLANK, Messages.get(WndChallenges.class, "title"), 6){
 				@Override
 				protected void onClick() {
-					if (!Badges.isUnlocked(Badges.Badge.VICTORY) && !DeviceCompat.isDebug()){
-						ShatteredPixelDungeon.scene().addToFront( new WndTitledMessage(
-								Icons.get(Icons.CHALLENGE_GREY),
-								Messages.get(WndChallenges.class, "title"),
-								Messages.get(HeroSelectScene.class, "challenges_nowin")
-						));
-						return;
-					}
-
 					ShatteredPixelDungeon.scene().addToFront(new WndChallenges(SPDSettings.challenges(), true) {
 						public void onBackPressed() {
 							super.onBackPressed();
@@ -919,7 +904,7 @@ public class HeroSelectScene extends PixelScene {
 					@Override
 					protected void onClick() {
 
-						if (Badges.isUnlocked(Badges.Badge.VICTORY) || DeviceCompat.isDebug()){
+						if (true){
 							ShatteredPixelDungeon.scene().addToFront(new WndRandomize());
 						} else {
 
