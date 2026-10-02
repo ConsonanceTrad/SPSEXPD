@@ -25,8 +25,15 @@ import pd.Challenges;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.mobs.Tengu;
+import pd.messages.InlineText;
 
 public class TenguDartTrap extends PoisonDartTrap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(TenguDartTrap.class)
+			.t("desc", "显然，天狗做了充分的战斗准备。这个陷阱会激活一个隐藏的飞镖发射器，向距离最近且不是天狗的单位发射一枚毒镖。\n\n陷阱的制造技巧极其高深，不使用魔法手段的话，触发装置完全无法找到。不过陷阱在刚被布置的短时间内是可以用肉眼观察到的。");
+	}
+
 	
 	{
 		canBeHidden = true;

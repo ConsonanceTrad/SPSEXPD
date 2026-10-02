@@ -11,9 +11,18 @@ import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 /** Shower's legacy 3,000-gold special-knuckles shop. */
 public class WndShower extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndShower.class)
+			.t("message", "我刚刚拿到了强化的指虎……你想买吗？3000金币一个。")
+			.t("buy", "指虎教我入了")
+			.t("more_gold", "你的金币不够。");
+	}
+
 	private static final int WIDTH = 120;
 	public static final int PRICE = 3000;
 

@@ -10,9 +10,18 @@ import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 /** G2159687's original 100-gold current-floor key sale. */
 public class WndHotel extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndHotel.class)
+			.t("message", "想住这个旅馆的VIP房间吗？一次100金币")
+			.t("buy", "我要住")
+			.t("more_gold", "你的金币不够啊，下次再来吧。");
+	}
+
 	private static final int WIDTH = 120;
 
 	public WndHotel() {

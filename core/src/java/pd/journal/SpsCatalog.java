@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import pd.messages.InlineText;
 
 /** The seven always-visible item groups from SPS-PD 0.9.8's NewCatalog. */
 public enum SpsCatalog {
@@ -20,6 +21,18 @@ public enum SpsCatalog {
 	ARTIFACTS("AlchemistsToolkit CapeOfThorns ChaliceOfBlood CloakOfShadows DriedRose EtherealChains HornOfPlenty GlassTotem MasterThievesArmband SandalsOfNature TalismanOfForesight TimekeepersHourglass UnstableSpellbook AlienBag EyeOfSkadi RobotDMT Pylon TimeOclock FlyChains NoomlinCrown RingOfAccuracy RingOfEnergy RingOfElements RingOfEvasion RingOfForce RingOfFuror RingOfHaste RingOfMight RingOfSharpshooting RingOfTenacity RingOfMagic RingOfKnowledge"),
 	FOODS("Honey Nut WaterItem OverpricedRation NormalRation Pasty BattleFlower DreamLeaf HealGrass NutVegetable Blackberry Blueberry Cloudberry Moonberry FullMoonberry Blandfruit Strawberry Durian Cherry Meat MysteryMeat FireMeat IceMeat EarthMeat ShockMeat LightMeat DarkMeat BugMeat AflyFood Chickennugget Chocolate Crystalnucleus Foamedbeverage FoodFans Frenchfries Fruitsalad Gel GoldenNut Hamburger Herbmeat HoneyGel Honeymeat Honeyrice HoneyWater Icecream Kebab Meatroll NutCake PerfectFood PetFood Porksoup Ricefood Vegetablekebab Vegetableroll Vegetablesoup ZongZi FruitCandy NutCookie MixPizza RiceGruel Sishimi Mediummeat"),
 	PILLS("plants/BlandfruitBush$Seed plants/Blindweed$Seed plants/Dewcatcher$Seed plants/Dreamfoil$Seed plants/Earthroot$Seed plants/Fadeleaf$Seed plants/Firebloom$Seed plants/Icecap$Seed plants/NutPlant$Seed plants/ReNepenth$Seed plants/Rotberry$Seed plants/Seedpod$Seed plants/SiOtwoFlower$Seed plants/Sorrowmoss$Seed plants/StarEater$Seed plants/Starflower$Seed plants/Stormvine$Seed plants/Sungrass$Seed Powerpill Magicpill Shootpill Smashpill Musicpill Hardpill BlueMilk DeathCap Earthstar GoldenJelly GreenSpore JackOLantern PixieParasol RealgarWine Greaterpill Timepill Timepill2 BlindFruit CharmFruit FireFruit GlassFruit HealFruit IceFruit MagicHand NutFruit RocketMissile RootFruit ShockFruit SmokeFruit ToxicFruit");
+	//SPSEXPD: inline Chinese text (generated from messages/journal/zh)
+	static {
+		InlineText.of(SpsCatalog.class)
+			.t("weapons.title", "武器")
+			.t("armor.title", "防具与职业技能")
+			.t("wands.title", "法杖与远程武器")
+			.t("specials.title", "特殊装备")
+			.t("artifacts.title", "神器与戒指")
+			.t("foods.title", "食物")
+			.t("pills.title", "种子、药物与特殊箭矢");
+	}
+
 
 	// 目录即语义：候选包以 items / plants 包自身为锚点写成相对子路径，不出现任何根包名
 	private static final String ITEMS_PACKAGE = Item.class.getPackage().getName() + ".";

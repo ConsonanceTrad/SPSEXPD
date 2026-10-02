@@ -40,9 +40,16 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Original 48x48 first SPS Sokoban journal map and its sheep mechanisms. */
 public class SokobanIntroLevel extends Level implements SpsSokobanLevel {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(SokobanIntroLevel.class)
+			.t("armor_destroyed", "破坏陷阱摧毁了你穿着的护甲！");
+	}
+
 
 	public static final int WIDTH = 48;
 	public static final int HEIGHT = 48;

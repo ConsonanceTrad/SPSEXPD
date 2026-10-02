@@ -22,8 +22,16 @@
 package pd.levels.traps;
 
 import pd.items.equipment.bombs.DungeonBomb;
+import pd.messages.InlineText;
 
 public class ExplosiveTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(ExplosiveTrap.class)
+			.t("name", "爆炸陷阱")
+			.t("desc", "这个陷阱包含一些粉状炸药和一个触发机制。激活它会导致一定范围的爆炸。");
+	}
+
 
 	{
 		color = ORANGE;

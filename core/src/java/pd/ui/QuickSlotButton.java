@@ -40,8 +40,18 @@ import pd.windows.WndKeyBindings;
 import render.input.GameAction;
 import render.noosa.Image;
 import render.utils.data.BArray;
+import pd.messages.InlineText;
 
 public class QuickSlotButton extends Button {
+	//SPSEXPD: inline Chinese text (generated from messages/ui/zh)
+	static {
+		InlineText.of(QuickSlotButton.class)
+			.t("slot_bottom", "下快捷栏")
+			.t("slot_left", "左快捷栏")
+			.t("slot_right", "右快捷栏")
+			.t("select_item", "选择放入快捷栏的物品");
+	}
+
 	
 	private static QuickSlotButton[] instance = new QuickSlotButton[QuickSlot.SIZE];
 	private int slotNum;

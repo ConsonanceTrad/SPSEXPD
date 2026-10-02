@@ -51,8 +51,20 @@ import render.utils.serialize.Bundle;
 import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public abstract class Plant implements Bundlable {
+	//SPSEXPD: inline Chinese text (generated from messages/plants/zh)
+	static {
+		InlineText.of(Plant.class)
+			.t("warden_desc", "守望者踩踏这株植物不会获得额外效果。")
+			.t("discover_hint", "你可在地牢各处直接找到该植物，使用对应的种子进行种植亦可。")
+			.t("seed.seed_of", "%s之种")
+			.t("seed.ac_plant", "种植")
+			.t("seed.info", "把这粒种子丢到你想长出一株植物的地方。\n\n%s")
+			.t("seed$placeholder.name", "种子");
+	}
+
 	
 	public int image;
 	public int pos;

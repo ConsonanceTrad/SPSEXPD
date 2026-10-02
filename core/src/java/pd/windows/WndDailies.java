@@ -41,8 +41,17 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
+import pd.messages.InlineText;
 
 public class WndDailies extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndDailies.class)
+			.t("title", "每日挑战历史")
+			.t("date", "日期")
+			.t("score", "得分");
+	}
+
 
 	private static final int WIDTH			= 115;
 	private static final int HEIGHT			= 144;

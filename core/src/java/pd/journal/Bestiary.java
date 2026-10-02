@@ -169,6 +169,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import pd.messages.InlineText;
 
 //contains all the game's various entities, mostly enemies, NPCS, and allies, but also traps and plants
 public enum Bestiary {
@@ -182,6 +183,20 @@ public enum Bestiary {
 	ALLY,
 	TRAP,
 	PLANT;
+	//SPSEXPD: inline Chinese text (generated from messages/journal/zh)
+	static {
+		InlineText.of(Bestiary.class)
+			.t("regional.title", "区域敌人")
+			.t("bosses.title", "区域Boss")
+			.t("universal.title", "全局敌人")
+			.t("rare.title", "稀有敌人")
+			.t("quest.title", "任务敌人与Boss")
+			.t("neutral.title", "中立角色")
+			.t("ally.title", "盟友")
+			.t("trap.title", "陷阱")
+			.t("plant.title", "植物");
+	}
+
 
 	//tracks whether an entity has been encountered
 	private final LinkedHashMap<Class<?>, Boolean> seen = new LinkedHashMap<>();

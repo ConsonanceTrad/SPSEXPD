@@ -11,9 +11,18 @@ import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 /** Ice13's original Power Hand exchange for the chaos contract. */
 public class WndIce13 extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndIce13.class)
+			.t("message", "混沌的力量……需要更多混沌的力量……")
+			.t("buy", "你指力量之手？")
+			.t("missing_hand", "你没有力量之手。");
+	}
+
 	private static final int WIDTH = 120;
 
 	public WndIce13() {

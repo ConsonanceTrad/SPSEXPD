@@ -51,8 +51,30 @@ import render.utils.geom.RectF;
 import render.utils.serialize.FileUtils;
 
 import java.util.Collections;
+import pd.messages.InlineText;
 
 public class WelcomeScene extends PixelScene {
+	//SPSEXPD: inline Chinese text (generated from messages/scenes/zh)
+	static {
+		InlineText.of(WelcomeScene.class)
+			.t("update_intro", "SPS-SPD 已经更新！")
+			.t("update_msg", "SPS-SPD 4.0.0-sps.1 已建立特别惊喜像素地牢基于破碎 4.0 的独立移植工程。现有异界路线、挑战、伙伴、装备、九格快捷栏和水袋操作均予保留，其余旧版系统将依据可核验的内容台账继续迁移。")
+			.t("patch_intro", "破碎的像素地牢补丁已经成功安装！")
+			.t("patch_bugfixes", "本次补丁包含少量Bug修复。")
+			.t("patch_translations", "本次补丁包含翻译文本更新。")
+			.t("patch_balance", "本次更新包含游戏平衡性改动。")
+			.t("patch_msg", "本次补丁同样包含少量微调和性能优化。")
+			.t("what_msg", "看起来你正使用的存档来自于新版本的破碎地牢！\n\n谨慎行事！你的存档可能包含一些这个版本中不存在的东西，这可能会导致一些非常奇怪的错误发生。")
+			.t("lang_warning_title", "翻译未完成")
+			.t("lang_warning_msg", "本次更新内容还未被完全翻译。\n\n部分词汇可能还是英语。\n\n翻译组正全力解决这个问题，完整翻译将在不久后放出。\n\n谢谢您的耐心等待。")
+			.t("continue", "继续")
+			.t("changelist", "变动列表")
+			.t("save_warning", "最近，破碎的像素地牢在进行存档时被打断了。\n\n本游戏内置有保护机制，所以你的游戏数据可能不会丢失。\n\n这通常发生在你的设备突然断电，或没有以合适方式关闭本游戏的时候。移动设备的省电功能通常会导致这种情况。\n\n如果你经常看见此提示，可以尝试通过重启设备的方法来解决。")
+			.t("controller_title", "手柄输入")
+			.t("controller_body", "正在使用手柄进行游玩吗？使用右摇杆来操纵屏幕上的光标。\n\n按下RT/R2键或右摇杆以进行点击。")
+			.t("controller_okay", "开启");
+	}
+
 
 	private static final int LATEST_UPDATE = ShatteredPixelDungeon.v4_0_0;
 

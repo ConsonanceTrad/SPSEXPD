@@ -50,8 +50,37 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class WndBlacksmith extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndBlacksmith.class)
+			.t("prompt", "好吧，按之前说好的，我得帮你做点事。我干活只收鉴定过还没诅咒的物品。\n\n_当前人情：%d_")
+			.t("pickaxe", "_镐子(%d人情)：_你想要的话，这镐子可以给你。毕竟我有的是。")
+			.t("pickaxe_verify", "你真想要这个破烂吗？这里的石头可不像矿井里的，你没法再拿它挖墙了。")
+			.t("pickaxe_free", "行，你干的不错，这个破烂白送你了。")
+			.t("pickaxe_yes", "是的，我想要它。")
+			.t("pickaxe_no", "算了。")
+			.t("reforge", "_重铸(%d人情)：_我可以重铸两件同种物品制成一件品质更好的。")
+			.t("harden", "_硬化(%d人情)：_我可以硬化你的武器护甲，上面的附魔刻印会更容易保留。")
+			.t("upgrade", "_升级(%d人情)：_如果你有+2以下的物品，我可以帮你给它升级一下。")
+			.t("smith", "_锻造(%d人情)：_我可以帮你锻造一件武器或护甲。锻造出来的装备不仅高阶还可能带有升级，你还可以挑选一下你想要的装备。")
+			.t("smith_verify", "行，我先把锻炉预热一下，然后你就能挑选你想要的装备了。")
+			.t("smith_yes", "行，预热锻炉吧。")
+			.t("smith_no", "算了。")
+			.t("cashout", "_折现(全部人情)：_我可以给你点我平时捡到的金币，一点人情一枚金币。")
+			.t("cashout_verify", "行，这是%d金币。之后你就别再来找我干活了！")
+			.t("cashout_yes", "给我金币。")
+			.t("cashout_no", "算了。")
+			.t("wndreforge.message", "行，我可以重铸两件鉴定过的同种物品。较差的那件会报废以升级更好的那件。要是它们等级都一样，我会保留左侧槽位那件。")
+			.t("wndreforge.prompt", "选择要重铸的物品")
+			.t("wndreforge.reforge", "重铸物品")
+			.t("hardenselector.prompt", "选择要硬化的物品")
+			.t("upgradeselector.prompt", "选择要升级的物品")
+			.t("wndsmith.prompt", "行，这些就是我能锻造的装备了。锻炉已经烧热了，所以你赶紧给我选。");
+	}
+
 
 	private static final int WIDTH_P = 120;
 	private static final int WIDTH_L = 180;

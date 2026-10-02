@@ -19,8 +19,19 @@ import render.noosa.Game;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class PitfallTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(PitfallTrap.class)
+			.t("name", "塌方陷阱")
+			.t("triggered_hero", "你周围的地板在迅速崩塌！")
+			.t("triggered", "陷阱附近的地板在迅速崩塌！")
+			.t("no_pit", "这里的地面太结实了，塌方陷阱在这里无效。")
+			.t("desc", "这种陷阱与一种大型活板门装置相连，在激活后会使周围的地板迅速崩塌！不过这类陷阱在坚实的地面上会失效。");
+	}
+
 	{
 		color = RED;
 		shape = DIAMOND;

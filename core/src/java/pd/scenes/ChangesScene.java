@@ -61,8 +61,34 @@ import render.noosa.ui.Component;
 import render.utils.geom.RectF;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class ChangesScene extends PixelScene {
+	//SPSEXPD: inline Chinese text (generated from messages/scenes/zh)
+	static {
+		InlineText.of(ChangesScene.class)
+			.t("title", "更新记录")
+			.t("new", "新内容")
+			.t("changes", "改动")
+			.t("buffs", "增强")
+			.t("nerfs", "削弱")
+			.t("bugfixes", "Bug修复")
+			.t("misc", "杂项改动")
+			.t("language", "语言更新")
+			.t("right_title", "改动详情")
+			.t("right_body", "从左侧选取一个图标以阅读此次更新包含的改动。")
+			.t("lang_warn", "改动详情由开发者亲自撰写，且仅提供英文版本。")
+			.t("tab_pd", "SPD")
+			.t("tab_sps", "SPS")
+			.t("tab_spsex", "SPSEX")
+			.t("sps_title", "特别惊喜（SPS 0.9.8）· 内容源头")
+			.t("sps_body", "由 hmdzl 在经典像素地牢基础上大幅扩展：\n_海量物品_：1000+ 物品、特殊武器与技能书、药蘑菇与料理、植物与药剂；\n_宠物与城镇_：宠物蛋与伙伴、城镇商人与收藏家、捐献与小游戏；\n_职业与挑战_：传承职业与战斗风格、异界路线与挑战、章节 Boss 与终局。")
+			.t("spsex_title", "SPSEXPD 0.1.0-alpha · 移植进度")
+			.t("spsex_body", "引擎与内容：\n_- 主线 0-26 层全部接入_（0 层特殊初始层：学者、任务蘑菇商店、开局金币）；\n_- 12 个职业_（含决斗家）与 1034+ 物品类；\n_- 固定层与 Boss 时间线_、异界路线、挑战奖励、教学层；\n_- SPS 物品系统_：药蘑菇、料理、植物、药剂、洛克芯片、宠物蛋等。")
+			.t("spsex_title2", "近期改动（0.1.0-alpha）")
+			.t("spsex_body2", "- _背包与装备重构_：主背包 35 格（5x7）、装备区两排（主/副武器、主/副护甲、5 通用饰品槽、徽章槽）；\n- _包裹袋_：容量统一 34（打开 9 行满格）、重复拾取折算暗金；\n- _三区快捷栏_：18 槽固定段 + 左右侧栏数量可调；\n- _融合职业原创立绘_与新主菜单（恶魔刀锋继续按钮、三来源标签页）；\n- _BUG 修复_：钥匙拾取崩溃、水边缘渲染错位、UI 线程崩溃等。");
+	}
+
 	
 	public static int changesSelected = 0;
 	//SPS: 三来源标签页（0=PD 破碎 1=SPS 特别惊喜 2=SPSEX 移植版）；默认展示 SPSEX

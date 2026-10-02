@@ -51,11 +51,20 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import pd.messages.InlineText;
 
 //SPS: 调试工具——获取物品弹窗（原创缺口：原版/SPS 均无，仅 INDEV 构建可用）
 //两级导航：组选择页 → 物品网格页；点击获得 1 个，长按获得 10 个。
 //物品全集 = SpsCatalog 七组（SPS 0.9.8 目录 371 条目）+ 破碎 Catalog 各组补集。
 public class WndDebugItems extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndDebugItems.class)
+			.t("title", "调试器")
+			.t("back", "返回")
+			.t("received", "获得 %1$s ×%2$d");
+	}
+
 
 	private static final int COLS       = 5;   //SPS: 窄窗适配移动端（调试器）
 	private static final int CELL       = 18;

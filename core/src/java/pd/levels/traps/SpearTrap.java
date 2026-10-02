@@ -10,8 +10,17 @@ import pd.messages.Messages;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class SpearTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(SpearTrap.class)
+			.t("name", "长矛陷阱")
+			.t("desc", "大量磨尖的长矛藏在这块压力板下。陷阱触发后仍会保持武装。")
+			.t("ondeath", "你被长矛陷阱刺穿了……");
+	}
+
 	{
 		color = GREY;
 		shape = DOTS;

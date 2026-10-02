@@ -38,8 +38,18 @@ import render.utils.geom.Point;
 import render.utils.math.Random;
 
 import java.util.Arrays;
+import pd.messages.InlineText;
 
 public class BlacksmithRoom extends StandardRoom {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(BlacksmithRoom.class)
+			.t("questentrance.name", "矿井入口")
+			.t("questentrance.desc", "这架梯子通往铁匠铺下方的一座旧矿井。")
+			.t("smithyvisuals.name", "铁匠铺")
+			.t("smithyvisuals.desc", "一间由巨魔铁匠搭建的小铁匠铺，配有煤盘，熔炉和一个光是看着都脏的水盆。");
+	}
+
 	
 	@Override
 	public int minWidth() {

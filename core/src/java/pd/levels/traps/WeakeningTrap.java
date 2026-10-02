@@ -30,8 +30,16 @@ import pd.actors.buffs.Slow;
 import pd.effects.CellEmitter;
 import pd.effects.particles.ShadowParticle;
 import pd.items.Heap;
+import pd.messages.InlineText;
 
 public class WeakeningTrap extends Trap{
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(WeakeningTrap.class)
+			.t("name", "虚弱陷阱")
+			.t("desc", "陷阱中的黑暗魔法能够吸取任何接触物里的能量，不过强大的敌人能抵抗这种效果。");
+	}
+
 
 	{
 		color = WHITE;

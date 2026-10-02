@@ -24,8 +24,17 @@ import pd.items.Item;
 import pd.messages.Messages;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class CursingTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(CursingTrap.class)
+			.t("name", "诅咒陷阱")
+			.t("curse", "你身上的装备被诅咒了！")
+			.t("desc", "这个陷阱充满了诅咒的力量。触发它会诅咒你身上的部分装备。");
+	}
+
 
 	{
 		color = VIOLET;

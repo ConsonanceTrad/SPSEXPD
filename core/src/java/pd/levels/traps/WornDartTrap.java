@@ -38,8 +38,17 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class WornDartTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(WornDartTrap.class)
+			.t("name", "老化飞镖陷阱")
+			.t("ondeath", "你被老化飞镖陷阱击杀...")
+			.t("desc", "附近一定藏着一个小型飞镖发射器，激活这个陷阱会导致它向最近的目标射出一个飞镖。\n\n年久失修导致它并不怎么危险，触发机关甚至没有被隐藏起来...");
+	}
+
 
 	{
 		color = GREY;

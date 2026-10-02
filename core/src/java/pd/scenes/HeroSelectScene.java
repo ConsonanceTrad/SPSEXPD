@@ -76,8 +76,53 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
+import pd.messages.InlineText;
 
 public class HeroSelectScene extends PixelScene {
+	//SPSEXPD: inline Chinese text (generated from messages/scenes/zh)
+	static {
+		InlineText.of(HeroSelectScene.class)
+			.t("title", "选择一位英雄")
+			.t("start", "开始")
+			.t("skin_title", "选择外观")
+			.t("skin_desc", "外观仅改变角色图像，不会影响战斗数值；所选外观会随本局存档保存。")
+			.t("skin_0", "经典")
+			.t("skin_1", "赤焰")
+			.t("skin_2", "苍穹")
+			.t("skin_3", "荒野")
+			.t("skin_4", "星辉")
+			.t("skin_5", "暗影")
+			.t("skin_6", "霜雪")
+			.t("skin_7", "异界")
+			.t("skin_back", "返回职业选择")
+			.t("style_title", "选择战斗风格")
+			.t("style_desc", "战斗风格与外观相互独立。除平衡外，每种风格都有数值接近的优势与代价，并会随本局存档保存。")
+			.t("style_back", "返回外观选择")
+			.t("options", "游戏选项")
+			.t("custom_seed", "自定义种子")
+			.t("daily", "每日挑战")
+			.t("daily_desc", "每天都会有一局对所有玩家都一样的新游戏可供游玩！“每日挑战”会为所有玩家生成相同的地牢(前提是他们所玩的游戏版本也相同)。\n\n你可以不受时限地完成每日挑战，但同时只能进行一局每日挑战。_每日挑战无法获得徽章，而享有独立的排行榜页面。_\n\n你想以当前选择的英雄与挑战开启今天的每日挑战吗？")
+			.t("daily_yes", "出发！")
+			.t("daily_no", "算了")
+			.t("daily_repeat", "你已经游玩过了今天的每日挑战。你当然可以反复游玩它，但仅有练习的意义，只有第一次游玩的数据能参与排位。\n\n当你再次完成今天的每日挑战之后，你依旧可以在排位界面查看其数据，只是该数据会很快被删除。\n\n你想要使用当前选中的英雄与挑战重玩今天的每日挑战吗？")
+			.t("daily_unavailable_long", "你似乎在未来开始了一场每日挑战！这种情况通常在你改变了时区的情况下发生，亦有可能是因为你篡改了系统时间。_你的下一场每日挑战将在%d天后可用。_")
+			.t("daily_existing", "你已有一场每日挑战在进行中。在开启下一场每日挑战之前，你必须先完成它。")
+			.t("daily_nowin", "每天都有一场新游戏，对每个人都是一样的！“每日挑战”会为每个玩家生成相同的地牢(前提是他们在游玩相同的游戏版本)。\n\n_你必须先正常通关至少一次，才能游玩每日挑战。_")
+			.t("custom_seed_title", "输入自定义种子")
+			.t("custom_seed_desc", "游戏通过使用种子来生成地牢，在版本不变的情况下，使用同一个种子将总是生成相同的地牢！_在应用自定义种子的游戏当中既无法获得徽章，也不计入已进行的游戏，仅会显示在排行榜界面的底部。_")
+			.t("custom_seed_duplicate", "你已有一场使用该种子的游戏在进行中。在使用该种子开始新游戏之前，你必须先结束先前的游戏。")
+			.t("custom_seed_nowin", "游戏通过使用种子来生成地牢，在版本不变的情况下，使用同一个种子将总是生成相同的地牢！\n\n_你必须先正常通关至少一次，才能使用自定义种子进行游玩。_")
+			.t("custom_seed_set", "设置")
+			.t("custom_seed_clear", "清除")
+			.t("challenges_nowin", "挑战是一类为游戏增添难度的设置选项，可自行选择开启与否。其中的一些会使地牢变得更加危险，另一些则会削弱角色本身或其他物品的力量。\n\n_你必须先正常通关至少一次，才能开启挑战进行游玩。_")
+			.t("randomize", "随机")
+			.t("randomize_hero", "随机英雄")
+			.t("randomize_chals", "随机挑战")
+			.t("randomize_chals_title", "挑战个数")
+			.t("randomize_confirm", "确定")
+			.t("randomize_cancel", "取消");
+	}
+
 
 	private Image background;
 	private Image fadeLeft, fadeRight;

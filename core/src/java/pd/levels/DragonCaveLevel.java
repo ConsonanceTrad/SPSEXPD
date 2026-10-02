@@ -25,9 +25,16 @@ import pd.tiles.CustomTilemap;
 import pd.tiles.custom.SpsLegacyLevelVisual;
 import pd.utils.GLog;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** Original fixed dragon-cave treasure map and its armor-eating traps. */
 public class DragonCaveLevel extends Level {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(DragonCaveLevel.class)
+			.t("armor_destroyed", "剥甲陷阱摧毁了你穿着的护甲！");
+	}
+
 
 	public static final int WIDTH = 48;
 	public static final int HEIGHT = 48;

@@ -26,8 +26,20 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.items.consum.food.Blandfruit;
+import pd.messages.InlineText;
 
 public class BlandfruitBush extends Plant {
+	//SPSEXPD: inline Chinese text (generated from messages/plants/zh)
+	static {
+		InlineText.of(BlandfruitBush.class)
+			.t("name", "无味果")
+			.t("desc", "腐莓的远亲，来自无味果树丛的梨状产物，尝起来犹如一团泥巴。果实粗糙且松软，但并没有毒性。也许可以煮食。")
+			.t("discover_hint", "你可在地牢各处找到该植物。")
+			.t("seed.name", "无味果之种")
+			.t("exblandfruitbush.name", "无味果果丛")
+			.t("exblandfruitbush.desc", "生长无味果的果丛。");
+	}
+
 
 	{
 		image = 8;

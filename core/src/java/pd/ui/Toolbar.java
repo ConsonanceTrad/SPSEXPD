@@ -58,8 +58,27 @@ import render.utils.geom.Point;
 import render.utils.geom.PointF;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Toolbar extends Component {
+	//SPSEXPD: inline Chinese text (generated from messages/ui/zh)
+	static {
+		InlineText.of(Toolbar.class)
+			.t("quickslot_prompt", "选择一个快捷栏")
+			.t("quickslot_select", "选择快捷栏")
+			.t("quickslot_assign", "分配快捷栏")
+			.t("quickslot_cancel", "取消")
+			.t("container_prompt", "选择一个容器")
+			.t("container_select", "选择容器")
+			.t("container_cancel", "取消")
+			.t("container_empty", "这个容器是空的！")
+			.t("item_prompt", "选择一件物品")
+			.t("item_select", "选择物品")
+			.t("item_use", "快速使用物品")
+			.t("item_cancel", "取消")
+			.t("examine_prompt", "再按一遍此按钮以搜索周边；\n点选一个地格以获得其信息。");
+	}
+
 
 	private Tool btnWait;
 	private Tool btnSearch;

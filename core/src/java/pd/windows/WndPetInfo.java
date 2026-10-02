@@ -7,9 +7,30 @@ import pd.items.Item;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 /** The five-action interaction window used by SPS-PD's summoned pets. */
 public class WndPetInfo extends WndOptions {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndPetInfo.class)
+			.t("title", "宠物信息")
+			.t("info", "生命值：%1$d / %2$d\n技能冷却：%3$d")
+			.t("change", "交换")
+			.t("stay", "留守")
+			.t("follow", "跟随")
+			.t("feed", "喂食")
+			.t("recover", "收获")
+			.t("staying", "%s会留守在这里。")
+			.t("following", "%s会继续跟随你。")
+			.t("choose_food", "选择喂给宠物的物品")
+			.t("refuses", "你的宠物不吃这个。")
+			.t("fed", "%1$s吃掉了%2$s，恢复%3$d点生命。")
+			.t("not_ready", "产物还没有准备好，当前冷却为%d。")
+			.t("no_reward", "这只宠物目前没有可收获的产物。")
+			.t("reward", "你的宠物产出了%s。");
+	}
+
 
 	private final LegacyPet pet;
 

@@ -36,8 +36,22 @@ import pd.effects.particles.LeafParticle;
 import pd.items.Gold;
 import pd.levels.GroundItems;
 import pd.scenes.GameScene;
+import pd.messages.InlineText;
 
 public class Rotberry extends Plant {
+	//SPSEXPD: inline Chinese text (generated from messages/plants/zh)
+	static {
+		InlineText.of(Rotberry.class)
+			.t("name", "腐莓")
+			.t("desc", "未成熟的腐莓丛结出的莓果尝起来更像是甜蜜的死亡。经过成年累月的生长，这株腐莓丛终会成熟为另一棵腐莓核心。被踩踏后，这株未成熟的腐莓会释放少量毒气。")
+			.t("warden_desc", "遭到践踏时腐莓丛通常只会喷出一小股毒气，但_守望者_却能联结其中的魔力，在短时间内提升力量！")
+			.t("discover_hint", "你可在某个任务中使用其种子种植该植物。")
+			.t("seed.name", "腐莓之种")
+			.t("seed.discover_hint", "你可在某个任务中找到该物品。")
+			.t("exrotberry.name", "腐莓果丛")
+			.t("exrotberry.desc", "生长腐莓种子和金币的果丛。");
+	}
+
 
 	{
 		image = 7;

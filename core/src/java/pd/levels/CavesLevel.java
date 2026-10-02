@@ -87,8 +87,24 @@ import render.utils.geom.PointF;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class CavesLevel extends SpsRegularLevel {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(CavesLevel.class)
+			.t("grass_name", "荧光苔藓")
+			.t("high_grass_name", "荧光蘑菇")
+			.t("water_name", "冰冷水潭")
+			.t("entrance_desc", "通向上一层的梯子。")
+			.t("exit_desc", "通向下一层的梯子。")
+			.t("high_grass_desc", "高耸的蘑菇群遮挡了你的视线。")
+			.t("wall_deco_desc", "岩壁上能隐约看见金属矿脉的纹路，难道是黄金？")
+			.t("bookshelf_desc", "到底会有谁需要在洞窟里摆上这么个书架？")
+			.t("region_deco_name", "金属架构")
+			.t("region_deco_desc", "一个大型全金属架构，可能是过去的矮人们在采矿时建造的。架构上层似乎有废弃了许久的矿车轨道。");
+	}
+
 	private boolean legacyBlacksmithThisBuild;
 
 	@Override

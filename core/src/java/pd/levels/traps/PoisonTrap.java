@@ -9,8 +9,16 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.PoisonParticle;
 import pd.items.Heap;
 import render.noosa.Game;
+import pd.messages.InlineText;
 
 public class PoisonTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(PoisonTrap.class)
+			.t("name", "毒素陷阱")
+			.t("desc", "触发这个陷阱会使站在上面的生物中毒。");
+	}
+
 	{ color = VIOLET; shape = DIAMOND; }
 	@Override public void activate() {
 		Char target = Actor.findChar(pos);

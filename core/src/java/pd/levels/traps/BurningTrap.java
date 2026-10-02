@@ -33,8 +33,16 @@ import pd.effects.particles.FlameParticle;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class BurningTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(BurningTrap.class)
+			.t("name", "烈焰陷阱")
+			.t("desc", "踩进这个陷阱会点燃某种化学混合物，导致附近一块区域起火。");
+	}
+
 
 	{
 		color = ORANGE;

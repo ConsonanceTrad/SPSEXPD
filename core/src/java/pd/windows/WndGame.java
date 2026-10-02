@@ -39,8 +39,22 @@ import render.noosa.Game;
 import render.utils.platform.DeviceCompat;
 
 import java.io.IOException;
+import pd.messages.InlineText;
 
 public class WndGame extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndGame.class)
+			.t("settings", "设置")
+			.t("challenges", "挑战")
+			.t("rankings", "排行榜")
+			.t("start", "踏上征途")
+			.t("menu", "主菜单")
+			.t("exit", "退出游戏")
+			.t("return", "继续冒险")
+			.t("debug_items", "调试器");
+	}
+
 
 	private static final int WIDTH		= 120;
 	private static final int BTN_HEIGHT	= 20;

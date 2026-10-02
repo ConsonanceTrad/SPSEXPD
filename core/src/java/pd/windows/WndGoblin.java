@@ -11,9 +11,18 @@ import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 /** Goblin Player's legacy 3,000-gold shield shop. */
 public class WndGoblin extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndGoblin.class)
+			.t("message", "看上这块盾牌了？这是哥布林一族通过试炼的标志。给我3000金币，我就卖一个仿制品给你。")
+			.t("buy", "买来瞧瞧")
+			.t("more_gold", "你的金币不够。");
+	}
+
 	private static final int WIDTH = 120;
 	public static final int PRICE = 3000;
 

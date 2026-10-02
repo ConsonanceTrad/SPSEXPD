@@ -33,8 +33,16 @@ import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import render.noosa.Image;
+import pd.messages.InlineText;
 
 public class WndCombo extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndCombo.class)
+			.t("title", "选择连击战技")
+			.t("combo_req", "(%d连击)");
+	}
+
 
 	private static final int WIDTH_P = 120;
 	private static final int WIDTH_L = 180;

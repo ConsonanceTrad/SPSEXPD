@@ -33,8 +33,20 @@ import pd.actors.hero.HeroSubClass;
 import pd.effects.Flare;
 import pd.effects.SpellSprite;
 import pd.items.Generator;
+import pd.messages.InlineText;
 
 public class Starflower extends Plant {
+	//SPSEXPD: inline Chinese text (generated from messages/plants/zh)
+	static {
+		InlineText.of(Starflower.class)
+			.t("name", "星陨花")
+			.t("desc", "星陨花较为罕见，据说其能够为任何接触它的人赋予神圣之力。")
+			.t("warden_desc", "_守望者_在踩踏星陨花时不仅能受到祝福，还能获得较长时间的法杖充能。")
+			.t("seed.name", "星陨花之种")
+			.t("exstarflower.name", "星陨花果丛")
+			.t("exstarflower.desc", "生长诺恩石的果丛。");
+	}
+
 
 	{
 		image = 11;

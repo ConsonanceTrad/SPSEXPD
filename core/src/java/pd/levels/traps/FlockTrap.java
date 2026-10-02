@@ -37,8 +37,16 @@ import render.noosa.audio.Sample;
 import render.utils.data.BArray;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class FlockTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(FlockTrap.class)
+			.t("name", "羊群陷阱")
+			.t("desc", "也许是个来自一些业余法师的玩笑，触发这个陷阱就会创造一群魔法绵羊。");
+	}
+
 
 	{
 		color = WHITE;

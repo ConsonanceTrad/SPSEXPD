@@ -31,8 +31,15 @@ import pd.ui.RenderedTextBlock;
 import pd.ui.TalentIcon;
 import pd.ui.Window;
 import render.utils.data.Callback;
+import pd.messages.InlineText;
 
 public class WndInfoTalent extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndInfoTalent.class)
+			.t("upgrade", "升级天赋");
+	}
+
 
 	private static final float GAP	= 2;
 

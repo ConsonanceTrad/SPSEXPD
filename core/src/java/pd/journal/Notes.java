@@ -70,8 +70,30 @@ import render.utils.serialize.Reflection;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import pd.messages.InlineText;
 
 public class Notes {
+	//SPSEXPD: inline Chinese text (generated from messages/journal/zh)
+	static {
+		InlineText.of(Notes.class)
+			.t("landmark.shop", "商店")
+			.t("landmark.alchemy", "炼金釜")
+			.t("landmark.garden", "静谧花圃")
+			.t("landmark.distant_well", "远处的井")
+			.t("landmark.well_of_health", "生命之泉")
+			.t("landmark.well_of_awareness", "觉察之泉")
+			.t("landmark.well_of_transmutation", "嬗变之泉")
+			.t("landmark.sacrificial_fire", "献祭之火")
+			.t("landmark.statue", "活化石像")
+			.t("landmark.memory_fire", "记忆之火")
+			.t("landmark.ghost", "悲伤幽灵")
+			.t("landmark.rat_king", "鼠王")
+			.t("landmark.wandmaker", "老杖匠")
+			.t("landmark.troll", "巨魔铁匠")
+			.t("landmark.imp", "野心勃勃的小恶魔")
+			.t("landmark.demon_spawner", "恶魔血巢");
+	}
+
 	
 	public static abstract class Record implements Comparable<Record>, Bundlable {
 

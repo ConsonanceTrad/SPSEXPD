@@ -60,8 +60,20 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class VaultFinalRoom extends SpecialRoom {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(VaultFinalRoom.class)
+			.t("imp_warning_unprepared", "当你踏进大房间时，时间的流逝似乎放缓了些，与此同时你听见了小恶魔的声音：\n\n“你现在应该在宝库最重要的保险室里，我猜我要的雕像就在门后！我敢肯定前面的陷阱和守卫绝非善类，所以现在_先好好搜集其他地方的装备和补给，准备好了再前进_！我可不希望你丢掉小命，你得活着才能帮我把雕像带出来！”")
+			.t("imp_warning_prepared", "当你踏进大房间时，时间的流逝似乎放缓了些，与此同时你听见了小恶魔的声音：\n\n“好了，你现在应该在宝库最重要的保险室里，我猜我要的雕像就在门后！我敢肯定前面陷阱和守卫绝非善类，所以现在_调整好状态准备大打一场吧！_我可不希望你丢掉小命，毕竟你得活着才能帮我把雕像带出来。”")
+			.t("final_warning", "你听到了法阵正在为某物蓄能的声音，只要再往前一步就肯定会触发些什么！")
+			.t("markertiles.name", "巨型标记")
+			.t("markertiles.desc", "地板上的魔法回路与监狱里的召唤法阵不无相似，但此处的法阵要宏伟得多。\n\n整个地面因蓄积着能量而鸣响震颤着，仿佛有一股磅礴的力量即将被释放。")
+			.t("vaulttreasure.desc", "这里堆满了金币，可惜你不能把它们带出宝库。");
+	}
+
 
 	@Override
 	public int minWidth() {

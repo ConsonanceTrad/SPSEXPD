@@ -54,8 +54,41 @@ import render.noosa.BitmapText;
 import render.noosa.ColorBlock;
 import render.noosa.audio.Sample;
 import render.utils.serialize.Reflection;
+import pd.messages.InlineText;
 
 public class WndUpgrade extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndUpgrade.class)
+			.t("title", "升级一件物品")
+			.t("desc", "升级这件物品会永久提升其如下属性：")
+			.t("remaining", "你还剩有_%d个_升级用物品。")
+			.t("unided", "你并不知道这件物品的属性，此处显示的是其未被升级的状态。")
+			.t("unknown_ring", "你并不知道这枚戒指的效果，因此无从得知升级对其有何作用。")
+			.t("cursed", "升级这件物品还有33%的概率净化其诅咒。")
+			.t("cursed_weaken", "升级这件物品不仅会弱化其诅咒，还有33%的概率完全净化其诅咒。")
+			.t("curse_infusion", "如果诅咒被净化，这件物品将会不再带有诅咒菱晶的升级效果！")
+			.t("enchant", "升级这件物品还有%d%%的概率消除其附魔！")
+			.t("glyph", "升级这件物品还有%d%%的概率消除其刻印！")
+			.t("harden", "升级这件物品还有%d%%的概率消除其硬化！")
+			.t("resin", "这根法杖已被奥术树脂强化，一般的升级效果将会覆盖树脂的升级效果！")
+			.t("thrown_dust", "这组武器不在你背包的部分将化为尘土。")
+			.t("damage", "伤害")
+			.t("dart_damage", "飞镖伤害")
+			.t("bleeding", "流血")
+			.t("blocking", "防御")
+			.t("weight", "重量")
+			.t("durability", "耐久度")
+			.t("quantity", "数量")
+			.t("zap_damage", "魔法伤害")
+			.t("corrosion_damage", "酸蚀伤害")
+			.t("ward_damage", "哨卫伤害")
+			.t("charges", "充能上限")
+			.t("ring_boost", "戒指加成")
+			.t("upgrade", "升级")
+			.t("back", "返回");
+	}
+
 
 	private static final int WIDTH = 120;
 

@@ -51,8 +51,27 @@ import render.noosa.ui.Component;
 
 import java.util.ArrayList;
 import java.util.Locale;
+import pd.messages.InlineText;
 
 public class WndHero extends WndTabbed {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndHero.class)
+			.t("stats", "属性")
+			.t("talents", "天赋")
+			.t("buffs", "状态")
+			.t("statstab.title", "%1$d级%2$s")
+			.t("statstab.exp", "经验")
+			.t("statstab.str", "力量")
+			.t("statstab.health", "生命")
+			.t("statstab.gold", "金币收集数")
+			.t("statstab.depth", "最高层数")
+			.t("statstab.dungeon_seed", "地牢种子")
+			.t("statstab.custom_seed", "_自定义种子_")
+			.t("statstab.daily_for", "_日常挑战于_")
+			.t("statstab.replay_for", "_重玩于_");
+	}
+
 	
 	private static final int WIDTH		= 120;
 	private static final int HEIGHT		= 120;

@@ -10,9 +10,17 @@ import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 /** HateSokoban's original 3,000-gold Wand of Flock sale. */
 public class WndHate extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndHate.class)
+			.t("message", "错过了推羊关的特殊奖励？给我3000我就卖你一个。")
+			.t("buy", "拜托了");
+	}
+
 	private static final int WIDTH = 120;
 
 	public WndHate() {

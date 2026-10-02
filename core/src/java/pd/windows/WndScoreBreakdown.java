@@ -32,8 +32,30 @@ import pd.ui.Window;
 import render.noosa.Group;
 
 import java.text.NumberFormat;
+import pd.messages.InlineText;
 
 public class WndScoreBreakdown extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndScoreBreakdown.class)
+			.t("title", "得分详情")
+			.t("progress_title", "游戏")
+			.t("progress_desc", "基于最深层数与英雄等级。")
+			.t("treasure_title", "寻宝")
+			.t("treasure_desc", "基于收集的金币与随身物品的价值。")
+			.t("treasure_desc_old", "基于收集的金币。")
+			.t("explore_title", "探索")
+			.t("explore_desc", "基于已探索的楼层。遗漏物品、隐藏门道与未解谜题会降低分数。")
+			.t("bosses_title", "Boss战")
+			.t("bosses_desc", "基于已击败的boss。在boss战中受到可规避的攻击会降低分数。")
+			.t("quests_title", "任务")
+			.t("quests_desc", "基于已完成的任务。受到可规避的攻击或未完成任务目标会降低分数。")
+			.t("win_multiplier", "通关倍率")
+			.t("challenge_multiplier", "挑战倍率")
+			.t("total", "总分")
+			.t("old_score_desc", "在v1.3版本之前开始的游戏得分项目较少，但来自进度项目的得分会增加约50%，并且来自寻宝项目的得分上限也会增加。");
+	}
+
 
 	private static final int WIDTH			= 115;
 

@@ -33,8 +33,16 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
+import pd.messages.InlineText;
 
 public class FrostTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(FrostTrap.class)
+			.t("name", "冰霜陷阱")
+			.t("desc", "被触发时，这个陷阱里的化学药剂会迅速冻结附近大范围的空气。");
+	}
+
 
 	{
 		color = WHITE;

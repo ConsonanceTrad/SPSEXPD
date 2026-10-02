@@ -32,8 +32,27 @@ import pd.sprites.GreatCrabSprite;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
+import pd.messages.InlineText;
 
 public class WndSadGhost extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndSadGhost.class)
+			.t("rat_title", "击败腐臭老鼠")
+			.t("gnoll_title", "击败豺狼诡术师")
+			.t("crab_title", "击败巨钳螃蟹")
+			.t("rat", "谢谢你，那个可怕的老鼠被杀，我也终于可以安息了...不知道究竟是什么样畸形的魔法才能创造这样一个肮脏的生物...")
+			.t("gnoll", "谢谢你，那个诡计多端的豺狼人被杀，我也终于可以安息了...不知道究竟是什么样畸形的魔法使它如此诡诈...")
+			.t("crab", "谢谢你，那只巨蟹被杀，我也终于可以安息了...不知道究竟是什么样畸形的魔法能让它活得那么长久...")
+			.t("give_item", "挑一个你喜欢的拿走吧，我再也用不着它们了...希望它们能帮助你继续走下去...\n\n还有...我在这地牢里弄丢了一件心爱之物...如果你能...找到那...玫瑰...")
+			.t("weapon", "幽灵的饰品")
+			.t("armor", "幽灵的信物")
+			.t("pet", "幽灵的玩伴")
+			.t("confirm", "确定")
+			.t("cancel", "取消")
+			.t("farewell", "一路顺风，冒险家！");
+	}
+
 
 	private static final int WIDTH		= 120;
 	private static final int BTN_HEIGHT	= 20;

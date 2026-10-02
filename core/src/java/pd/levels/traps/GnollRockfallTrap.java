@@ -46,8 +46,16 @@ import render.utils.data.BArray;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class GnollRockfallTrap extends RockfallTrap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(GnollRockfallTrap.class)
+			.t("name", "豺狼落石陷阱")
+			.t("desc", "这个落石陷阱在制作过程中注入了土石术法。触发时，该陷阱会导致在其周围5x5区域内的岩石松动并立即崩塌掉落。该处的岩石与寻常处相比更为松脆，因此其伤害性弱于常规的落石陷阱，但你的护甲却不能很好的抵御其伤害。此外，落石不会发生在支撑矿层结构的支架周边。\n\n_这个陷阱无法辨别敌友，因此对豺狼人和你都同样有效。_");
+	}
+
 
 	@Override
 	public void activate() {

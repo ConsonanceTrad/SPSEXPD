@@ -35,8 +35,16 @@ import pd.items.Heap;
 import pd.scenes.GameScene;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class FlashingTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(FlashingTrap.class)
+			.t("name", "闪光陷阱")
+			.t("desc", "被触发时，这个陷阱将点燃储存在里面的强效闪光粉，使受害者暂时失明，残废，并受到伤害。\n\n这个陷阱的闪光粉储备显然很多，可以多次触发而不损坏。");
+	}
+
 
 	{
 		color = GREY;

@@ -72,8 +72,23 @@ import render.utils.geom.PointF;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class HallsLevel extends SpsRegularLevel {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(HallsLevel.class)
+			.t("water_name", "低温岩浆")
+			.t("grass_name", "余烬苔藓")
+			.t("high_grass_name", "余烬蘑菇")
+			.t("statue_name", "台柱")
+			.t("water_desc", "看起来如同岩浆一般，不过没有感受到热度，应该可以碰触。")
+			.t("statue_desc", "这个柱子由货真价实的人形生物头骨垒成。酷毙了。")
+			.t("bookshelf_desc", "用远古语言写就的书籍堆积在书架里。")
+			.t("region_deco_name", "岩石瓦砾")
+			.t("region_deco_desc", "一块巨石，似乎是从天花板或附近的墙壁上掉下来的。");
+	}
+
 
 	@Override
 	protected float legacyWaterFill() {

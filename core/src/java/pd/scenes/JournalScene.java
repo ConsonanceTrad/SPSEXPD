@@ -47,8 +47,15 @@ import render.noosa.NinePatch;
 import render.noosa.audio.Music;
 import render.utils.data.SparseArray;
 import render.utils.geom.RectF;
+import pd.messages.InlineText;
 
 public class JournalScene extends PixelScene {
+	//SPSEXPD: inline Chinese text (generated from messages/scenes/zh)
+	static {
+		InlineText.of(JournalScene.class)
+			.t("title", "日志");
+	}
+
 
 	public static final int WIDTH_P     = 126;
 	public static final int WIDTH_L     = 216;

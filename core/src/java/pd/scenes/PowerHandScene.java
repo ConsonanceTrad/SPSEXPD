@@ -16,8 +16,17 @@ import render.noosa.Camera;
 import render.noosa.Game;
 import render.noosa.Image;
 import render.utils.geom.RectF;
+import pd.messages.InlineText;
 
 public class PowerHandScene extends PixelScene {
+	//SPSEXPD: inline Chinese text (generated from messages/scenes/zh)
+	static {
+		InlineText.of(PowerHandScene.class)
+			.t("exit", "结束游戏")
+			.t("stay", "向下探索")
+			.t("text", "你启动了这个手套，瞬间来到一个由1和0构成的世界。看起来你成功逃离了那个地牢，但前方已经没有路了。好好休息吧。");
+	}
+
 
 	private static final int WIDTH = 120;
 	private static final int BUTTON_HEIGHT = 20;

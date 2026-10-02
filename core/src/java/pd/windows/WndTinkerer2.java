@@ -8,8 +8,19 @@ import pd.items.summon.ActiveMrDestructo;
 import pd.items.summon.FairyCard;
 import pd.items.summon.Mobile;
 import pd.messages.Messages;
+import pd.messages.InlineText;
 
 public class WndTinkerer2 extends WndOptions {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndTinkerer2.class)
+			.t("info", "哦，你找到那个啦。万分感谢，我可以稍微改进一下你的露珠瓶。同时，选择一个奖励吧。")
+			.t("mr", "无人机")
+			.t("call", "仙女卡牌")
+			.t("mob", "遥控卫星")
+			.t("farewell", "小镇见，%s！");
+	}
+
 
 	private final Tinkerer2 tinkerer;
 

@@ -46,8 +46,22 @@ import render.noosa.ui.Component;
 import render.utils.geom.RectF;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class NewsScene extends PixelScene {
+	//SPSEXPD: inline Chinese text (generated from messages/scenes/zh)
+	static {
+		InlineText.of(NewsScene.class)
+			.t("title", "游戏新闻")
+			.t("read_more", "查阅更多")
+			.t("newsinfo.english_warn", "新闻仅能由开发者以英文撰写。")
+			.t("newsinfo.metered_network", "当连接到一个流量计费的网络，比如移动数据时，您无法浏览新闻。")
+			.t("newsinfo.enable_data", "请检查移动数据网络")
+			.t("newsinfo.no_internet", "无法查看新闻，请确认您已连接到互联网。")
+			.t("newsinfo.news_disabled", "您已禁用新闻功能，所以这里什么也不会显示。")
+			.t("newsinfo.enable_news", "启用新闻");
+	}
+
 
 	boolean displayingNoArticles = false;
 

@@ -28,8 +28,17 @@ import pd.utils.GLog;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class RockfallTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(RockfallTrap.class)
+			.t("name", "落石陷阱")
+			.t("ondeath", "你被落石砸扁了...")
+			.t("desc", "这个陷阱和头顶上一片松散的岩石相连，触发它会导致石块崩塌砸向整个房间！如果这种陷阱不是在某个房间内，石块会砸向陷阱周围的一定区域。\n\n幸运的是，触发机关并没有被隐藏起来。");
+	}
+
 
 	{
 		color = YELLOW;

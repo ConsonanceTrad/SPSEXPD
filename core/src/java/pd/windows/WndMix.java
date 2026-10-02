@@ -12,9 +12,20 @@ import pd.items.summon.Mobile;
 import pd.items.equipment.wands.Wand;
 import pd.items.equipment.wands.WandOfMagicMissile;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** ARealMan's original ring-and-wand experiment. */
 public class WndMix extends WndSpsRecipe {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndMix.class)
+			.t("title", "矮人的奇妙实验")
+			.t("text", "放入法杖或戒指，然后进行一次奇妙的实验吧。这会花费1000金币。")
+			.t("select", "选择一件道具")
+			.t("combine", "合成")
+			.t("cancel", "取消");
+	}
+
 	private static final int COST = 1000;
 	public WndMix() { super(new WandOfMagicMissile(), COST); }
 	@Override protected boolean accepts(Item item) { return item instanceof Ring || item instanceof Wand; }

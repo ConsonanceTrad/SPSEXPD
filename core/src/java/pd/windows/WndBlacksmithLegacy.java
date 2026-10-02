@@ -12,9 +12,19 @@ import pd.ui.ItemButton;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
+import pd.messages.InlineText;
 
 /** Single-use SPS 0.9.8 blacksmith reforge window. */
 public class WndBlacksmithLegacy extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndBlacksmithLegacy.class)
+			.t("prompt", "好吧，按之前说好的，我得帮你做点事：我可以重铸2件物品并将它们制成一个品质更好的。你携带的_暗金_越多，升级的损失也就越少。")
+			.t("select1", "选择要重铸的物品")
+			.t("select2", "选择作为素材的物品")
+			.t("reforge", "重铸物品");
+	}
+
 
 	private static final int WIDTH = 116;
 	private static final int BTN_SIZE = 32;

@@ -23,8 +23,21 @@ import pd.sprites.ItemSprite;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
+import pd.messages.InlineText;
 
 public class WndWandmaker extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndWandmaker.class)
+			.t("dust", "哦，我注意到你已经获得了尸尘！别担心那些怨灵，我能解决它们。就像我承诺的，你可以选择我制作的一根高品质法杖。")
+			.t("ember", "哦，我注意到你已经获得了余烬！希望那个火焰元素没有造成太多麻烦。就像我承诺的，你可以选择我制作的一根高品质法杖。")
+			.t("berry", "哦，我注意到你已经获得了腐莓！希望那株植物没有对你造成太多困扰。就像我承诺的，你可以选择我制作的一根高品质法杖。")
+			.t("message", "哦，你成功了，希望没给你带来太多麻烦。选择你的奖励吧。")
+			.t("battle", "战斗法杖")
+			.t("no_battle", "辅助法杖")
+			.t("farewell", "祝你在试炼中好运，%s！");
+	}
+
 
 	private static final int WIDTH = 120;
 	private static final int BTN_HEIGHT = 20;

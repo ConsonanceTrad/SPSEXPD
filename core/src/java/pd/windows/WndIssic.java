@@ -11,9 +11,17 @@ import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import pd.utils.GLog;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** Millilitre's original blood-for-gold trade. */
 public class WndIssic extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndIssic.class)
+			.t("message", "测试太可怕了……你能给我一些温暖吗？我会给东西作为回报的。")
+			.t("buy", "拥抱……卖血机？");
+	}
+
 	private static final int WIDTH = 120;
 
 	public WndIssic() {

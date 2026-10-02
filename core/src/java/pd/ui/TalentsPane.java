@@ -40,8 +40,23 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import pd.messages.InlineText;
 
 public class TalentsPane extends ScrollPane {
+	//SPSEXPD: inline Chinese text (generated from messages/ui/zh)
+	static {
+		InlineText.of(TalentsPane.class)
+			.t("tier", "%d层")
+			.t("unlock_tier2", "升到6级以解锁更多天赋")
+			.t("unlock_tier3", "升到12级并使用第二个Boss的掉落物以解锁更多天赋。")
+			.t("unlock_tier4", "升到20级并使用第四个Boss的掉落物以解锁更多天赋。")
+			.t("random_title", "随机天赋")
+			.t("random_sure", "你确定要随机消耗这些天赋点吗？")
+			.t("random_yes", "是，消耗全部天赋点")
+			.t("random_one", "只随机消耗1点天赋点")
+			.t("random_no", "我将稍后决定");
+	}
+
 
 	ArrayList<TalentTierPane> panes = new ArrayList<>();
 	ArrayList<ColorBlock> separators = new ArrayList<>();

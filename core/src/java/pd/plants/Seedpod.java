@@ -9,8 +9,20 @@ import pd.mechanics.pathfind.PathFinder;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class Seedpod extends Plant {
+	//SPSEXPD: inline Chinese text (generated from messages/plants/zh)
+	static {
+		InlineText.of(Seedpod.class)
+			.t("name", "种子荚")
+			.t("desc", "种子荚囤积从其他植物处夺来的种子，受到扰动时会把数颗种子撒向四周。")
+			.t("warden_desc", "_守望者_能充分利用种子荚偷藏的种子。")
+			.t("seed.name", "种子荚之种")
+			.t("exseedpod.name", "种子荚果丛")
+			.t("exseedpod.desc", "生长随机果实的果丛。");
+	}
+
 	{ image = 13; seedClass = Seed.class; }
 	@Override public void activate(Char ch) {
 		ArrayList<Integer> cells = new ArrayList<>();

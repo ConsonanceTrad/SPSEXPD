@@ -26,8 +26,21 @@ import pd.scenes.PixelScene;
 import render.noosa.BitmapText;
 import render.noosa.Game;
 import render.noosa.ui.Component;
+import pd.messages.InlineText;
 
 public class CurrencyIndicator extends Component {
+	//SPSEXPD: inline Chinese text (generated from messages/ui/zh)
+	static {
+		InlineText.of(CurrencyIndicator.class)
+			.t("exchange_title", "兑换S金")
+			.t("exchange_body", "用 %1$d 金币兑换 %2$d S金？\n（2333 金币兑换 1 S金）")
+			.t("exchange_confirm", "兑换")
+			.t("cancel", "取消")
+			.t("not_enough", "金币不足，需要 %d 金币才能兑换 1 S金。")
+			.t("exchange_ok", "花费 %1$d 金币兑换了 %2$d S金。")
+			.t("exchange_invalid", "请输入正整数数量的 S金。");
+	}
+
 
 	private static final float TIME	= 2f;
 

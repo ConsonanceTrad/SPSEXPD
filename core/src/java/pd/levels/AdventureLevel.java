@@ -50,8 +50,15 @@ import pd.utils.GLog;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class AdventureLevel extends RegularLevel {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(AdventureLevel.class)
+			.t("portal_activated", "石块压下机关，传送板亮了起来。");
+	}
+
 
 	private int goalCell;
 	private int[] puzzleStartPositions = new int[0];

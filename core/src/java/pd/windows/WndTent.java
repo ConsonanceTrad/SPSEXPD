@@ -19,8 +19,18 @@ import pd.items.consum.food.Food;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
+import pd.messages.InlineText;
 
 public class WndTent extends WndOptions {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndTent.class)
+			.t("title", "休息帐篷")
+			.t("text", "放入食物，以其提供的饱食时间在这里休息。")
+			.t("select", "选择一件食物")
+			.t("cancel", "取消");
+	}
+
 
 	public WndTent() {
 		super(new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),

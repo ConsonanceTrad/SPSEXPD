@@ -19,8 +19,16 @@ import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class WarpingTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(WarpingTrap.class)
+			.t("name", "扭曲陷阱")
+			.t("desc", "这种陷阱和传送陷阱颇为相似，不过它还会导致英雄忘却本层的地图与各种东西的方位！");
+	}
+
 
 	{
 		color = TEAL;

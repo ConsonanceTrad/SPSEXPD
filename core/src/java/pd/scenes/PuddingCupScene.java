@@ -12,8 +12,17 @@ import render.noosa.Camera;
 import render.noosa.Game;
 import render.noosa.Image;
 import render.utils.geom.RectF;
+import pd.messages.InlineText;
 
 public class PuddingCupScene extends PixelScene {
+	//SPSEXPD: inline Chinese text (generated from messages/scenes/zh)
+	static {
+		InlineText.of(PuddingCupScene.class)
+			.t("exit", "好的")
+			.t("stay", "这不是新手教程，给我回来")
+			.t("text", "恭喜你完成了新手教程，之后的冒险要由你自己掌控了。");
+	}
+
 
 	private static final int WIDTH = 120;
 	private static final int BUTTON_HEIGHT = 20;

@@ -32,8 +32,15 @@ import pd.tiles.DungeonTilemap;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import render.noosa.Image;
+import pd.messages.InlineText;
 
 public class WndInfoCell extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndInfoCell.class)
+			.t("nothing", "这里没什么有趣的东西。");
+	}
+
 	
 	private static final float GAP	= 2;
 	

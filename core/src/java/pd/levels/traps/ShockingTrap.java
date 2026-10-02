@@ -31,8 +31,16 @@ import pd.actors.mobs.Mob;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class ShockingTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(ShockingTrap.class)
+			.t("name", "电击陷阱")
+			.t("desc", "一种储存着大量电能的机关。触发这个陷阱会让它把能量释放出来在附近形成小范围的电能场。");
+	}
+
 
 	{
 		color = YELLOW;

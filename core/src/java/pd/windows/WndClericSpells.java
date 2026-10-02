@@ -49,8 +49,22 @@ import render.utils.geom.PointF;
 import render.utils.platform.DeviceCompat;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class WndClericSpells extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndClericSpells.class)
+			.t("cast_title", "施放一个法术")
+			.t("info_title", "法术信息")
+			.t("cast_desc_desktop", "选择一个要施放的法术，右键单击获取信息或为法术设置快捷施法。")
+			.t("cast_desc_mobile", "选择一个要施放的法术，长按为法术设置快捷施法，或按信息按钮切换为信息模式。")
+			.t("info_desc", "选择一个要了解的法术，或按圣典按钮切换为施法模式。")
+			.t("cast", "施法")
+			.t("info", "信息")
+			.t("quick_cast", "快捷施法");
+	}
+
 
 	protected static final int WIDTH    = 120;
 

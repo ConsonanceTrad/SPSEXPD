@@ -10,9 +10,17 @@ import pd.sprites.ItemSprite;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
+import pd.messages.InlineText;
 
 /** DreamPlayer's original reset-to-level-one offer. */
 public class WndDream extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndDream.class)
+			.t("message", "想要滑稽一下吗？")
+			.t("buy", "滑稽");
+	}
+
 	private static final int WIDTH = 120;
 
 	public WndDream() {

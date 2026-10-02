@@ -38,8 +38,21 @@ import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import render.noosa.Game;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class WndChooseSubclass extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndChooseSubclass.class)
+			.t("message", "面具激动地贴附到你的脸上。忽然，眼前的景象极速消逝，你什么都看不见了——不，是什么都看得见了，林林总总的新技巧和新能力灌入你的脑海，斑斓琳琅。您想要如何驾驭面具的魔力？")
+			.t("cancel", "我将稍后决定")
+			.t("are_you_sure", "您确定要选择这条专精道路吗？")
+			.t("yes", "是的，我决定好了。")
+			.t("no", "不了，我稍后决定。")
+			.t("random_title", "随机专精")
+			.t("random_sure", "你确定要选择随机一个专精吗？");
+	}
+
 	
 	private static final int WIDTH		= 130;
 	private static final float GAP		= 2;

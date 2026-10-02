@@ -68,8 +68,25 @@ import render.utils.platform.PlatformSupport;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class InterlevelScene extends PixelScene {
+	//SPSEXPD: inline Chinese text (generated from messages/scenes/zh)
+	static {
+		InlineText.of(InterlevelScene.class)
+			.t("mode.descend", "下楼中")
+			.t("mode.ascend", "上楼中")
+			.t("mode.continue", "读取中")
+			.t("mode.resurrect", "复活中")
+			.t("mode.return", "返回中")
+			.t("mode.fall", "跌落中！")
+			.t("mode.reset", "重置中")
+			.t("mode.learn", "正在准备新手教程")
+			.t("file_not_found", "未能找到存档文件。如果重启后问题依旧存在，那这个存档可能已经损坏。节哀顺变。")
+			.t("io_error", "未能读取存档文件。如果重启后问题依旧存在，那这个存档可能已经损坏。节哀顺变。")
+			.t("continue", "继续");
+	}
+
 	
 	//slow fade on entering a new region
 	private static final float SLOW_FADE = 1f; //.33 in, 1.33 steady, .33 out, 2 seconds total

@@ -12,9 +12,19 @@ import pd.ui.ItemButton;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
+import pd.messages.InlineText;
 
 /** SPS adamant welding window. */
 public class WndBlacksmith2 extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndBlacksmith2.class)
+			.t("prompt", "只要带着_50枚暗金_，我就能把装备和对应的精金组件焊接起来。")
+			.t("select1", "选择要强化的物品")
+			.t("select2", "选择精金组件")
+			.t("reforge", "焊接它们");
+	}
+
 
 	private static final int WIDTH = 116;
 	private static final int BTN_SIZE = 32;

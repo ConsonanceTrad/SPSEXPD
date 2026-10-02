@@ -21,8 +21,15 @@ import pd.levels.Terrain;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 public final class DewBlessRoom {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(DewBlessRoom.class)
+			.t("order", "露珠女神赐予了你祝福，本层的规定清理时间为%d回合。");
+	}
+
 
 	private DewBlessRoom() {
 	}

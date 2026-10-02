@@ -21,9 +21,25 @@ import render.utils.serialize.FileUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 /** Legacy memory-fire interface for copying the active run into an empty slot. */
 public class MemorySaveScene extends PixelScene {
+	//SPSEXPD: inline Chinese text (generated from messages/scenes/zh)
+	static {
+		InlineText.of(MemorySaveScene.class)
+			.t("title", "选择记忆存档位")
+			.t("new", "空存档位%d - 保存当前冒险")
+			.t("slot", "存档位%1$d - %2$s，深度%3$d，等级%4$d")
+			.t("existing_title", "记忆存档位%d")
+			.t("existing_body", "这个存档位已有一场冒险。你可以进入该冒险，或将其删除以腾出记忆空间。")
+			.t("load", "进入冒险")
+			.t("erase", "删除")
+			.t("cancel", "取消")
+			.t("error_title", "记忆失败")
+			.t("error", "无法复制当前冒险，未保留不完整的存档。");
+	}
+
 
 	private static final int SLOT_WIDTH = 124;
 	private static final int SLOT_HEIGHT = 22;

@@ -124,6 +124,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedHashMap;
+import pd.messages.InlineText;
 
 //For items, but includes a few item-like effects, such as enchantments
 public enum Catalog {
@@ -153,6 +154,33 @@ public enum Catalog {
 	BREWS_ELIXIRS,
 	SPELLS,
 	MISC_CONSUMABLES;
+	//SPSEXPD: inline Chinese text (generated from messages/journal/zh)
+	static {
+		InlineText.of(Catalog.class)
+			.t("melee_weapons.title", "近战武器")
+			.t("armor.title", "护甲")
+			.t("enchantments.title", "附魔与诅咒")
+			.t("glyphs.title", "刻印与诅咒")
+			.t("thrown_weapons.title", "投掷武器")
+			.t("wands.title", "法杖")
+			.t("rings.title", "戒指")
+			.t("artifacts.title", "神器")
+			.t("trinkets.title", "饰物")
+			.t("misc_equipment.title", "杂项装备")
+			.t("potions.title", "药剂")
+			.t("scrolls.title", "卷轴")
+			.t("seeds.title", "种子")
+			.t("stones.title", "符石")
+			.t("food.title", "食物")
+			.t("exotic_potions.title", "合剂")
+			.t("exotic_scrolls.title", "秘卷")
+			.t("bombs.title", "炸弹")
+			.t("tipped_darts.title", "涂药飞镖")
+			.t("brews_elixirs.title", "魔药与秘药")
+			.t("spells.title", "法术结晶")
+			.t("misc_consumables.title", "杂项消耗品");
+	}
+
 
 	//tracks whether an item has been collected while identified
 	private final LinkedHashMap<Class<?>, Boolean> seen = new LinkedHashMap<>();

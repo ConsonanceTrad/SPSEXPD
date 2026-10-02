@@ -33,8 +33,16 @@ import pd.windows.WndInfoTrap;
 import render.noosa.audio.Sample;
 import render.utils.serialize.Bundlable;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public abstract class Trap implements Bundlable {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(Trap.class)
+			.t("discover_hint", "你可在地牢中概率找到该陷阱，每个区域中都会生成不同的陷阱。")
+			.t("rankings_desc", "死于%s");
+	}
+
 
 	//trap colors
 	public static final int RED     = 0;

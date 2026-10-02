@@ -30,8 +30,16 @@ import pd.actors.mobs.Mob;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class CorrosionTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(CorrosionTrap.class)
+			.t("name", "腐蚀酸雾陷阱")
+			.t("desc", "触发这个陷阱将在附近释放出一片致命的强酸性雾气。");
+	}
+
 
 	{
 		color = GREY;

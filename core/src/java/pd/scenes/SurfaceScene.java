@@ -62,8 +62,15 @@ import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import pd.messages.InlineText;
 
 public class SurfaceScene extends PixelScene {
+	//SPSEXPD: inline Chinese text (generated from messages/scenes/zh)
+	static {
+		InlineText.of(SurfaceScene.class)
+			.t("exit", "游戏结束");
+	}
+
 
 	private static final int FRAME_WIDTH    = 88;
 	private static final int FRAME_HEIGHT    = 125;

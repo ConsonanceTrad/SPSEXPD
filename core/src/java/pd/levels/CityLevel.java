@@ -81,8 +81,23 @@ import render.utils.geom.PointF;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class CityLevel extends SpsRegularLevel {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(CityLevel.class)
+			.t("water_name", "异色水潭")
+			.t("high_grass_name", "茂盛花朵")
+			.t("entrance_desc", "通向上一层的斜坡。")
+			.t("exit_desc", "通向下一层的斜坡。")
+			.t("deco_desc", "这里少了一些地砖。")
+			.t("statue_desc", "这尊雕像刻画出了一位摆出英勇姿态的矮人。")
+			.t("bookshelf_desc", "不同学科的书排满了书架。")
+			.t("region_deco_name", "长明基座")
+			.t("region_deco_desc", "一个在其上燃有明亮的绿色魔法火焰的凸起基座。火焰是如此致密，好似固化了一般。");
+	}
+
 
 	@Override
 	protected float legacyWaterFill() {

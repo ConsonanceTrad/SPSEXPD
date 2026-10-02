@@ -32,8 +32,16 @@ import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 public class WndImpOld extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndImpOld.class)
+			.t("message", "哦太棒了！你简直就是我的英雄！\n关于你的奖励，我现在没带钱，但我这有个更好的东西。这个戒指是我们的传家宝物，是我爷爷从一个死掉的圣骑士手上摘下来的。")
+			.t("reward", "接受戒指");
+	}
+
 	
 	private static final int WIDTH      = 120;
 	private static final int BTN_HEIGHT = 20;

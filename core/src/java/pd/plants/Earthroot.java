@@ -36,8 +36,24 @@ import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Earthroot extends Plant {
+	//SPSEXPD: inline Chinese text (generated from messages/plants/zh)
+	static {
+		InlineText.of(Earthroot.class)
+			.t("name", "地缚根")
+			.t("desc", "碰到地缚根后，它的根系会在踩踏者周边形成某种无法移动的天然护甲。")
+			.t("warden_desc", "_守望者_能将这种护甲转化为可移动的树肤护甲。")
+			.t("seed.name", "地缚根之种")
+			.t("armor.name", "植被护甲")
+			.t("armor.desc", "这是一种由层层树皮和藤蔓盘结而成的，不可移动的天然护甲。\n\n每当你受到物理攻击时，植被护甲都会吸收%d点伤害，直到其耐久被耗尽并瓦解。\n\n该护甲是不可移动的，所以一旦你离开原位护甲便会被破坏，消失不见。\n\n剩余护甲量：%d点")
+			.t("magicplantarmor.name", "植被护甲")
+			.t("magicplantarmor.desc", "一种不可移动的天然护甲正在保护你。这个护甲由层层树皮和藤蔓盘结而成，紧密地缠绕在你的身体周围。\n\n这种护甲能够吸收你受到的50%%物理伤害，直到其耗尽耐久而瓦解。护甲是不可移动的，这意味着如果你想重新移动的话必须将其彻底破坏。\n\n护盾量剩余：%d点。")
+			.t("exearthroot.name", "地缚根果丛")
+			.t("exearthroot.desc", "生长缠绕果的果丛。");
+	}
+
 	
 	{
 		image = 5;

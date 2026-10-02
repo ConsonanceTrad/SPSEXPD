@@ -66,8 +66,21 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import pd.messages.InlineText;
 
 public class MiningLevel extends CavesLevel {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(MiningLevel.class)
+			.t("wall_desc", "不算太硬的平整岩壁。你可以用镐子挖过去，只是这样做很费力，会使你饿得更快。")
+			.t("gold_extra_desc", "你也许能用镐子把它挖出来。")
+			.t("crystal_name", "水晶尖刺")
+			.t("boulder_name", "岩砾")
+			.t("crystal_desc", "这里冒出了一个硕大的彩色水晶。这种水晶很脆弱，可以使用镐子轻易地破坏掉。挖掘其临近位置也可以将其破坏。")
+			.t("boulder_desc", "这里有一块巨大的岩砾阻挡了去路。用镐子应当可以轻易地破坏掉它。")
+			.t("barricade_desc", "此处的木栅栏稳当地嵌入了矿层中，充当着矿层顶部的支撑。\n\n这些设施大概是豺狼人为了防止落石做制的临时设施。_所有相邻的地格都不会受到落石攻击与陷阱的影响。_\n\n不过看起来和地牢各处见到的木栅栏一样，应该也是能烧起来的。");
+	}
+
 
 	@Override
 	public String tilesTex() {

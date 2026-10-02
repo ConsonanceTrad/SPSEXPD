@@ -38,8 +38,22 @@ import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import render.noosa.Game;
+import pd.messages.InlineText;
 
 public class WndResurrect extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndResurrect.class)
+			.t("title", "复活")
+			.t("message", "死亡正在降临，所幸重生十字架正努力引导你的灵魂回到这个世界。这给了你又一个征服地牢的机会！\n\n你可以保留两件物品，而其余物品将会留在你死去的地方。\n请做出选择吧。")
+			.t("prompt", "选择一件物品")
+			.t("confirm", "保留这些物品")
+			.t("warn_title", "缺少物品")
+			.t("warn_body", "你还没有选定两件物品。你确定要放弃保留两件物品并重生吗？")
+			.t("warn_yes", "是的，我确定")
+			.t("warn_no", "不，我改主意了");
+	}
+
 	
 	private static final int WIDTH		= 120;
 	private static final int BTN_HEIGHT	= 20;

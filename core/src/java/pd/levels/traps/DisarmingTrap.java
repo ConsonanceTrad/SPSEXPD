@@ -29,8 +29,17 @@ import pd.scenes.GameScene;
 import pd.utils.GLog;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class DisarmingTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(DisarmingTrap.class)
+			.t("name", "缴械陷阱")
+			.t("disarm", "你手中的武器被传送走了！")
+			.t("desc", "这个陷阱包含着非常有针对性的传送魔法，它会将触发陷阱的受害者的武器传送到其他位置。");
+	}
+
 
 	{
 		color = ORANGE;

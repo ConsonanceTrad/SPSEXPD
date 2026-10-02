@@ -52,8 +52,18 @@ import render.noosa.audio.Music;
 import render.utils.geom.RectF;
 import render.utils.math.GameMath;
 import render.utils.platform.DeviceCompat;
+import pd.messages.InlineText;
 
 public class RankingsScene extends PixelScene {
+	//SPSEXPD: inline Chinese text (generated from messages/scenes/zh)
+	static {
+		InlineText.of(RankingsScene.class)
+			.t("title", "排行榜")
+			.t("total", "游戏次数：")
+			.t("no_games", "目前为止还没有已经结束的游戏。")
+			.t("no_info", "没有额外信息");
+	}
+
 	
 	private static final float ROW_HEIGHT_MAX	= 20;
 	private static final float ROW_HEIGHT_MIN	= 12;

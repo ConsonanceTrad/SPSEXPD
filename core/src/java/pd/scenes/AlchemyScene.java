@@ -87,8 +87,25 @@ import render.utils.geom.RectF;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class AlchemyScene extends PixelScene {
+	//SPSEXPD: inline Chinese text (generated from messages/scenes/zh)
+	static {
+		InlineText.of(AlchemyScene.class)
+			.t("title", "炼金")
+			.t("text", "放入材料以制作新的道具！")
+			.t("select", "选择一件物品")
+			.t("energy", "能量：")
+			.t("add", "添加物品")
+			.t("no_items", "这个包里没有可炼金的物品。")
+			.t("craft", "合成")
+			.t("guide", "指南")
+			.t("energize", "提炼物品")
+			.t("cancel", "取消加料")
+			.t("repeat", "重复加料");
+	}
+
 
 	//SPS-PD expands the pot from 3 to 5 inputs at toolkit levels 5 and 10.
 	private static final InputButton[] inputs = new InputButton[5];

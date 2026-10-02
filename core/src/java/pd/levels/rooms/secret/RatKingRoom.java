@@ -37,8 +37,18 @@ import render.noosa.Image;
 import render.noosa.Tilemap;
 import render.utils.geom.Point;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class RatKingRoom extends SecretRoom {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(RatKingRoom.class)
+			.t("ratkingroomdeco.statue_name", "老鼠雕像")
+			.t("ratkingroomdeco.pillow_name", "皇家枕头")
+			.t("ratkingroomdeco.statue_desc", "一尊看着像鼠王的雕像。是谁建造的呢？")
+			.t("ratkingroomdeco.pillow_desc", "这个蓬松的紫色枕头作为你的床有点太小了，但对普天之下最尊贵的老鼠而言这正是完美的御榻。");
+	}
+
 	
 	@Override
 	public boolean canConnect(Room r) {

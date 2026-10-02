@@ -41,8 +41,16 @@ import render.utils.math.GameMath;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class MineEntrance extends CaveRoom {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(MineEntrance.class)
+			.t("questexit.name", "矿井出口")
+			.t("questexit.desc", "这架梯子通向矿井外，连通到铁匠铺。");
+	}
+
 
 	@Override
 	public float[] sizeCatProbs() {

@@ -14,8 +14,16 @@ import pd.messages.Messages;
 import pd.plants.Fadeleaf;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class TeleportationTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(TeleportationTrap.class)
+			.t("name", "传送陷阱")
+			.t("desc", "当这种陷阱被触发时，其周遭的所有东西都会被各自传送到本层的随机地点。");
+	}
+
 
 	{
 		color = GREY;

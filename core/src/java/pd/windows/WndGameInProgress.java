@@ -40,8 +40,31 @@ import pd.utils.DungeonSeed;
 import render.noosa.Game;
 
 import java.util.Locale;
+import pd.messages.InlineText;
 
 public class WndGameInProgress extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndGameInProgress.class)
+			.t("title", "%1$d级%2$s")
+			.t("challenges", "挑战")
+			.t("exp", "经验")
+			.t("str", "力量")
+			.t("health", "生命")
+			.t("gold", "金币收集数")
+			.t("depth", "最高层数")
+			.t("dungeon_seed", "地牢种子")
+			.t("custom_seed", "_自定义种子_")
+			.t("daily_for", "_日常挑战于_")
+			.t("replay_for", "_重玩于_")
+			.t("continue", "继续")
+			.t("erase", "删除")
+			.t("erase_warn_title", "你确定要删除这个存档吗？")
+			.t("erase_warn_body", "你将失去这局游戏的所有进度")
+			.t("erase_warn_yes", "是，删除这个存档")
+			.t("erase_warn_no", "不，我要接着玩");
+	}
+
 	
 	private static final int WIDTH    = 120;
 	

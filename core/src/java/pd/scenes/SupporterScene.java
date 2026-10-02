@@ -39,8 +39,30 @@ import render.noosa.NinePatch;
 import render.noosa.ui.Component;
 import render.utils.data.Callback;
 import render.utils.geom.RectF;
+import pd.messages.InlineText;
 
 public class SupporterScene extends PixelScene {
+	//SPSEXPD: inline Chinese text (generated from messages/scenes/zh)
+	static {
+		InlineText.of(SupporterScene.class)
+			.t("title", "支持游戏开发")
+			.t("intro", "我不希望破碎的像素地牢沾染任何广告或侵入性微交易要素。那些东西毁了不知多少免费游戏。相应地，我希望玩家们能对本游戏进行直接的支持！")
+			.t("patreon_msg", "如果您喜欢玩破碎的像素地牢并且想要帮助我持续地开发它，请考虑考虑在_Patreon_上支持我吧！Patreon可为您提供独占福利！\n_-抢先体验：_游玩包含未来更新的版本。\n_-每周开发小日志：_分享我正着力进行的工作。\n_-月度民意调查：_调查的结果会直接影响到我正开发的内容。\n_-实体胸针奖品：_进行1、2、3年的赞助之后。\n_-Discord社区：_包含开发日志以及聊天频道。\n_以及更多！_\n\n你可以通过访问在Patreon上的页面获得更多信息。感谢您百忙之中抽空拜访，祝地牢探险愉快！")
+			.t("patreon_english", "(请注意：Patreon回报仅提供英文内容)")
+			.t("supporter_link", "前往在Patreon上的主页。")
+			.t("tab_pd", "SPD")
+			.t("tab_sps", "SPS")
+			.t("tab_spsex", "SPSEX")
+			.t("sps_msg", "特别惊喜像素地牢 hmdzl 制作，是一款在经典像素地牢基础上大幅扩展的同人作品，是本移植项目的内容源头。\n\n交流群：QQ「特别坚果交流群」836879661")
+			.t("spsex_msg", "特别惊喜移植版（SPSEXPD）由协音Trad 维护：将 SPS 0.9.8 的内容移植到破碎像素地牢 4.0.0 引擎，并选取 SPS 的低压体验特性融入破碎基底。\n\n项目以 GPLv3 协议开源、持续开发中。若你喜欢这个项目，欢迎参与测试、反馈问题，或在 GitHub 上点个 Star——这就是最好的支持！")
+			.t("spsex_link", "项目仓库（GitHub）")
+			.t("spsex_url", "https://github.com/ConsonanceTrad/STSEXPD")
+			.t("pd_repo", "GitHub 仓库：00-Evan/shattered-pixel-dungeon")
+			.t("qq_group", "836879661")
+			.t("copy_qq", "复制群号")
+			.t("copy_qq_done", "已复制群号");
+	}
+
 
 	private static final int BTN_HEIGHT = 22;
 	private static final int GAP = 2;

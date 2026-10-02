@@ -39,8 +39,16 @@ import pd.scenes.GameScene;
 import render.utils.geom.Point;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class ToxicGasRoom extends SpecialRoom {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(ToxicGasRoom.class)
+			.t("toxicvent.name", "排毒气孔")
+			.t("toxicvent.desc", "一定是一个莽撞的冒险家在很久以前触发了这个陷阱。尽管处于不活跃状态，它仍在向房间中喷射有毒气体，而且没有停止的迹象。要想探索这个房间，你得想想办法避免毒气的伤害。");
+	}
+
 
 	@Override
 	public int minWidth() { return 7; }

@@ -31,8 +31,17 @@ import pd.ui.Icons;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
+import pd.messages.InlineText;
 
 public class WndSupportPrompt extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndSupportPrompt.class)
+			.t("title", "来自开发者的留言")
+			.t("intro", "欢迎~希望您能在破碎的像素地牢中玩得开心！")
+			.t("close", "关闭");
+	}
+
 
 	protected static final int WIDTH_P    = 120;
 	protected static final int WIDTH_L    = 200;

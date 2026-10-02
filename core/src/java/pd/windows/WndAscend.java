@@ -10,9 +10,17 @@ import pd.sprites.ItemSprite;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
+import pd.messages.InlineText;
 
 /** Original SPS confirmation shown before ending a run at the surface. */
 public class WndAscend extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndAscend.class)
+			.t("message", "你确定要离开吗？本次旅程将会结束。")
+			.t("ok", "当然");
+	}
+
 	private static final int WIDTH = 120;
 
 	public WndAscend() {

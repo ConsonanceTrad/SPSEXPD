@@ -33,8 +33,16 @@ import pd.scenes.GameScene;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class SummoningTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(SummoningTrap.class)
+			.t("name", "召唤陷阱")
+			.t("desc", "触发这个陷阱将召唤本区域的一些怪物到这里。");
+	}
+
 
 	private static final float DELAY = 2f;
 

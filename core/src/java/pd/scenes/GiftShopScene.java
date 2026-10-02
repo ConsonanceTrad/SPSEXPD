@@ -12,12 +12,20 @@ import pd.ui.GiftUnlockList;
 import pd.ui.RenderedTextBlock;
 import render.noosa.Camera;
 import render.noosa.NinePatch;
+import pd.messages.InlineText;
 
 /**
  * SPS 礼物商店：用 S金购买永久强化解锁（对照 SPS 0.9.9 GiftShopScene）。
  * 从标题画面进入，退出时把购买结果落盘到 giftunlocks.dat。
  */
 public class GiftShopScene extends PixelScene {
+	//SPSEXPD: inline Chinese text (generated from messages/scenes/zh)
+	static {
+		InlineText.of(GiftShopScene.class)
+			.t("title", "礼物商店")
+			.t("balance", "S金: %s");
+	}
+
 
 	private static final int MAX_PANE_WIDTH = 160;
 

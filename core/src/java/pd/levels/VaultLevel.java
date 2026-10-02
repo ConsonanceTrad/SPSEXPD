@@ -121,8 +121,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
+import pd.messages.InlineText;
 
 public class VaultLevel extends CityLevel {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(VaultLevel.class)
+			.t("vaultflametrap.name", "宝库地火")
+			.t("vaultflametrap.desc", "此处的火井似乎会以固定的周期喷射绿色火焰。在烈焰燃起之前你可以看到火势的积聚。通常来说你可以躲开这些喷出的火焰，不过_火焰抗性或是环境效果免疫也能使你安全地通过这里_。");
+	}
+
 
 	@Override
 	public void playLevelMusic() {

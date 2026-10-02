@@ -40,8 +40,17 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class PoisonDartTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(PoisonDartTrap.class)
+			.t("name", "毒镖陷阱")
+			.t("ondeath", "你被毒镖陷阱击杀...")
+			.t("desc", "附近一定藏着一个小型飞镖发射器，激活这个陷阱会导致它向最近的目标射出一个毒镖。\n\n幸好的是，触发机关并没有被隐藏起来。");
+	}
+
 
 	{
 		color = GREEN;

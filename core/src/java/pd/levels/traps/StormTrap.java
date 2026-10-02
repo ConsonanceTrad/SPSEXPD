@@ -32,8 +32,16 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
+import pd.messages.InlineText;
 
 public class StormTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(StormTrap.class)
+			.t("name", "雷暴陷阱")
+			.t("desc", "一种储存着庞大电能的机关。触发这个陷阱会让它把能量释放出来形成大范围的雷电风暴。");
+	}
+
 	
 	{
 		color = YELLOW;

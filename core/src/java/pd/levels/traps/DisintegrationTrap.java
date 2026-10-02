@@ -29,8 +29,19 @@ import pd.utils.GLog;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class DisintegrationTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(DisintegrationTrap.class)
+			.t("name", "解离陷阱")
+			.t("one", "陷阱解离了你的%s！")
+			.t("some", "陷阱解离了你一部分的%s！")
+			.t("ondeath", "你被解离陷阱击杀...")
+			.t("desc", "被触发时，这个陷阱将会用解离射线袭击离它最近的目标，造成显著伤害的同时破坏物品。\n\n幸运的是，触发机关并没有被隐藏起来。");
+	}
+
 
 	{
 		color = RED;

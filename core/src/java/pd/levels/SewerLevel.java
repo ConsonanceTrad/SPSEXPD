@@ -63,8 +63,19 @@ import render.noosa.particles.PixelParticle;
 import render.utils.geom.PointF;
 import render.utils.math.ColorMath;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class SewerLevel extends SpsRegularLevel {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(SewerLevel.class)
+			.t("water_name", "浑浊水潭")
+			.t("empty_deco_desc", "潮湿且发黄的苔藓覆盖其上。")
+			.t("bookshelf_desc", "这个书架塞满了没用的成功学书籍。烧掉怎么样？")
+			.t("region_deco_name", "储物木桶")
+			.t("region_deco_desc", "一个几乎和你差不多大的木桶。里面肯定装满了什么东西，重得搬不动。");
+	}
+
 
 	{
 		color1 = 0x48763c;

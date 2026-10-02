@@ -11,9 +11,16 @@ import pd.items.Item;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.ui.RedButton;
+import pd.messages.InlineText;
 
 /** Trade window for the hidden shop's permanent-health purchases. */
 public class WndLifeTradeItem extends WndInfoItem {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndLifeTradeItem.class)
+			.t("buy", "花费%d点永久生命购买");
+	}
+
 
 	private static final float GAP = 2;
 	private static final int BTN_HEIGHT = 18;

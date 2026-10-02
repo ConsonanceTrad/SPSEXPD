@@ -42,8 +42,15 @@ import render.noosa.Game;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import pd.messages.InlineText;
 
 public class WndQuickBag extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndQuickBag.class)
+			.t("title", "快速使用一件物品");
+	}
+
 
 	private static Item bag;
 

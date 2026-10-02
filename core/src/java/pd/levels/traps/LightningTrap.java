@@ -10,9 +10,18 @@ import pd.items.equipment.wands.Wand;
 import pd.messages.Messages;
 import pd.utils.GLog;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 /** Legacy teal diamond trap: percentage damage plus wand and heap electrification. */
 public class LightningTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(LightningTrap.class)
+			.t("name", "闪电陷阱")
+			.t("desc", "强大的电流会袭击站在这里的生物，并恢复此处法杖一部分缺失的充能。")
+			.t("ondeath", "你被闪电陷阱杀死了……");
+	}
+
 
 	{
 		color = TEAL;

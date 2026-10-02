@@ -9,8 +9,16 @@ import pd.items.VioletDewdrop;
 import pd.mechanics.pathfind.PathFinder;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class DewTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(DewTrap.class)
+			.t("name", "紫露陷阱")
+			.t("desc", "触发后会在周围九格洒落紫色露珠。");
+	}
+
 	{ color = RED; shape = CROSSHAIR; }
 
 	@Override

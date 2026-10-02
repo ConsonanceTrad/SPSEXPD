@@ -69,8 +69,21 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class CavesBossLevel extends Level {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(CavesBossLevel.class)
+			.t("wires_name", "地表导线")
+			.t("wires_desc", "被挖掘的地面上露出粗大的导线，这些导线连接着周围的电力装置。\n\n导线中一定有电流流过。DM-300经过时可能会从导线中汲取一些能量。")
+			.t("energy_desc", "这里的地面闪烁着电火花，直接踩上去会触电。_电火花似乎都在朝向某个位置..._也许它们指向电源？")
+			.t("gate_name", "金属城门")
+			.t("gate_desc", "一面高大的金属城门挡住了通往矮人都城的道路。门中间的金属盒嗡嗡作响，想必是与附近的电路与设备相连。也许击败DM-300能开启这扇大门？")
+			.t("gate_desc_broken", "这扇大门一定是以某种形式与DM-300相连，因为在DM-300损坏时它也随之爆炸。现在这扇门炸得只剩下零星的碎片。")
+			.t("water_desc", "周围奔涌着强大的电流，这里的水可能不太安全...");
+	}
+
 
 	{
 		color1 = 0x534f3e;

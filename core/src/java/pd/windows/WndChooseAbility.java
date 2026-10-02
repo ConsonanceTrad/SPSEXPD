@@ -39,8 +39,22 @@ import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import render.noosa.Game;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class WndChooseAbility extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndChooseAbility.class)
+			.t("message", "手指还未离开，头顶上的皇冠就开始与你的护甲共鸣，发光、发热，好像坐上你的颅骨就是它的创造使命。皇冠的魔力包覆起你的护甲，摩挲起你的意志，像等待帝王下旨的臣子。陛下，哪项护甲技能更合圣意？")
+			.t("message_no_crown", "请陛下选一项护甲技能！")
+			.t("cancel", "朕将稍后决断")
+			.t("are_you_sure", "陛下确定要选择这项技能吗？")
+			.t("yes", "正是，朕意已决。")
+			.t("no", "不了，朕稍候再断。")
+			.t("random_title", "随机护甲技能")
+			.t("random_sure", "你确定要选择随机一个护甲技能吗？");
+	}
+
 
 	private static final int WIDTH		= 130;
 	private static final float GAP		= 2;

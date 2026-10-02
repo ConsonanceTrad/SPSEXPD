@@ -37,8 +37,21 @@ import pd.sprites.ItemSprite;
 import pd.ui.RedButton;
 import pd.utils.GLog;
 import render.noosa.Game;
+import pd.messages.InlineText;
 
 public class WndEnergizeItem extends WndInfoItem {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndEnergizeItem.class)
+			.t("prompt", "提炼一件物品")
+			.t("energize", "转化为%d点能量")
+			.t("energize_1", "转化一个为%d点能量")
+			.t("energize_all", "转化全部为%d点能量")
+			.t("trinket_warn", "你确定要炼化你的饰物吗？你会获得5点炼金能量返还，但_饰物将会永远消失！_")
+			.t("trinket_yes", "是，将其炼化")
+			.t("trinket_no", "不，算了");
+	}
+
 
 	private static final float GAP		= 2;
 	private static final int BTN_HEIGHT	= 18;

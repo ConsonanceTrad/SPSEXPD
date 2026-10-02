@@ -32,8 +32,16 @@ import pd.effects.Splash;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class ChillingTrap extends Trap{
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(ChillingTrap.class)
+			.t("name", "寒气陷阱")
+			.t("desc", "被触发时，这个陷阱里的化学药剂会迅速冻结附近的空气。");
+	}
+
 
 	{
 		color = WHITE;

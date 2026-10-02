@@ -13,9 +13,17 @@ import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import render.noosa.Game;
 import render.noosa.Image;
+import pd.messages.InlineText;
 
 /** 礼物商店的单个解锁购买窗口（对照 SPS 0.9.9 WndGiftUnlock）。 */
 public class WndGiftUnlock extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndGiftUnlock.class)
+			.t("buy", "购买")
+			.t("more_gold", "你的S金不足。");
+	}
+
 
 	private static final int WIDTH = 120;
 	private static final int MARGIN = 2;

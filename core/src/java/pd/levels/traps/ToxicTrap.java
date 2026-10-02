@@ -26,8 +26,16 @@ import pd.actors.blobs.Blob;
 import pd.actors.blobs.ToxicGas;
 import pd.items.Heap;
 import pd.scenes.GameScene;
+import pd.messages.InlineText;
 
 public class ToxicTrap extends Trap{
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(ToxicTrap.class)
+			.t("name", "毒气陷阱")
+			.t("desc", "触发这个陷阱将放出一片有毒气体到这附近。");
+	}
+
 
 	{
 		color = GREEN;

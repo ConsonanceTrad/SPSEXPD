@@ -40,8 +40,16 @@ import render.utils.geom.PointF;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class GeyserTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(GeyserTrap.class)
+			.t("name", "激流陷阱")
+			.t("desc", "被触发时，大量的水会从中喷涌而出，对火属性敌人造成伤害，击退周围所有角色，熄灭火焰并覆盖周遭的地形。");
+	}
+
 
 	{
 		color = TEAL;

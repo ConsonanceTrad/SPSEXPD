@@ -30,8 +30,16 @@ import pd.scenes.PixelScene;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
+import pd.messages.InlineText;
 
 public class WndMonkAbilities extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndMonkAbilities.class)
+			.t("title", "选择一门武功")
+			.t("energycost", "(%d内力)");
+	}
+
 
 	private static final int WIDTH_P = 120;
 	private static final int WIDTH_L = 180;

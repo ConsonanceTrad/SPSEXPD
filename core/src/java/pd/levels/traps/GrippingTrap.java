@@ -29,8 +29,16 @@ import pd.actors.buffs.Cripple;
 import pd.actors.buffs.Roots;
 import pd.effects.Wound;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class GrippingTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(GrippingTrap.class)
+			.t("name", "捕猎陷阱")
+			.t("desc", "触发这个陷阱将使一对钳子合上，伤害受害者并将他们固定在这里。\n\n由于其简单的构造，这种陷阱可被多次激活而不损毁。");
+	}
+
 
 	{
 		color = GREY;

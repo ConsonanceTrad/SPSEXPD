@@ -46,9 +46,36 @@ import render.utils.serialize.Reflection;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import pd.messages.InlineText;
 
 //this is contained in its own class as custom notes have a lot of messy window UI logic
 public class CustomNoteButton extends IconButton {
+	//SPSEXPD: inline Chinese text (generated from messages/ui/zh)
+	static {
+		InlineText.of(CustomNoteButton.class)
+			.t("title", "添加自定义备注")
+			.t("limit_title", "备注已达上限")
+			.t("limit_text", "你可以删除已有的记录以为新的记录腾出空间。你当前所有的自定记录均可在日志窗口查看。")
+			.t("desc", "你可以在日志中记下任何你想记录的东西。\n\n自定义备注可以只是独立的文本，也可以是关联于地牢楼层、背包物品或是药剂/卷轴/戒指类别的文本。")
+			.t("new_text", "新建文本备注")
+			.t("new_text_title", "为自定义文本备注拟题：")
+			.t("new_floor", "新建地牢楼层备注")
+			.t("new_floor_prompt", "选择要备注的地牢楼层")
+			.t("new_floor_title", "为_第%d层_的自定义备注拟题：")
+			.t("new_inv", "新建背包物品备注")
+			.t("new_inv_prompt", "选择要备注的背包物品")
+			.t("new_item_title", "为物品_%s_的备注拟题：")
+			.t("new_type", "新建物品类别备注")
+			.t("new_type_prompt", "选择要备注的物品类别")
+			.t("customnotewindow.edit_title", "编辑标题")
+			.t("customnotewindow.add_text", "添加文本")
+			.t("customnotewindow.edit_text", "编辑文本")
+			.t("customnotewindow.delete", "删除")
+			.t("customnotewindow.delete_warn", "你确定要删除这个备注吗？")
+			.t("customnotewindow.confirm", "确定")
+			.t("customnotewindow.cancel", "取消");
+	}
+
 
 	public CustomNoteButton () {
 		super(Icons.PLUS.get());

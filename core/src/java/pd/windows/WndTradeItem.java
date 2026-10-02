@@ -46,8 +46,22 @@ import pd.sprites.ItemSprite;
 import pd.ui.CurrencyIndicator;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
+import pd.messages.InlineText;
 
 public class WndTradeItem extends WndInfoItem {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndTradeItem.class)
+			.t("buy", "花%d金币购买")
+			.t("steal", "以%1$d%%成功率偷窃\n消耗%2$d充能")
+			.t("steal_warn", "你的袖章充能无法保证稳妥地窃取这件道具。一旦失败，店主就会关店跑路。你确定要尝试继续窃取吗？")
+			.t("steal_warn_yes", "是的，我确定")
+			.t("steal_warn_no", "不，我改主意了")
+			.t("sell", "卖出以获得%d金币")
+			.t("sell_1", "卖出1个以获得%d金币")
+			.t("sell_all", "全部卖出以获得%d金币");
+	}
+
 
 	private static final float GAP		= 2;
 	private static final int BTN_HEIGHT	= 18;

@@ -162,8 +162,40 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Locale;
+import pd.messages.InlineText;
 
 public class GameScene extends PixelScene {
+	//SPSEXPD: inline Chinese text (generated from messages/scenes/zh)
+	static {
+		InlineText.of(GameScene.class)
+			.t("descend", "你降入了地牢的第%d层。")
+			.t("spawner_warn", "你感觉自己上方有一个恶魔能量的供给源...")
+			.t("spawner_warn_final", "你能感觉到恶魔能量从楼上辐射到了这里！")
+			.t("warp", "你四周的墙壁开始扭曲变换！")
+			.t("return", "你回到了地牢的第%d层。")
+			.t("resurrect", "你出现在了第%d层的某处。")
+			.t("secret_hint", "直觉告诉你这层的某处一定存在着一个隐藏的房间...")
+			.t("choose_examine", "选择检查目标")
+			.t("multiple_examine", "这里引人注意的东西不止一件，你想检查哪个？")
+			.t("dont_know", "你不清楚那里有什么。")
+			.t("multiple", "多重目标")
+			.t("go_here", "去那里")
+			.t("cancel", "取消")
+			.t("interact", "互动")
+			.t("attack", "攻击")
+			.t("pick_up", "拾取")
+			.t("purchase", "购买")
+			.t("trample", "践踏")
+			.t("examine", "检视")
+			.t("tutorial_move_mobile", "点击一个位置以进行移动或互动。")
+			.t("tutorial_move_desktop", "使用鼠标或方向键进行移动与互动。")
+			.t("tutorial_move_controller", "选择一个位置或使用左摇杆进行移动与互动。")
+			.t("tutorial_guidebook_mobile", "点击屏幕右上角闪光的日志按钮以阅读你刚刚拾起的书页。")
+			.t("tutorial_guidebook_desktop", "选取屏幕右上角闪光的日志按钮(%s)以阅读你刚刚拾起的书页。")
+			.t("tutorial_ui_mobile", "英雄的信息显示于界面的左上角。而物品栏、快捷栏以及一些行动按钮则位于界面下方。开始你的探索吧！")
+			.t("tutorial_ui_desktop", "英雄信息(%1$s)显示于界面的下方。而物品栏(%2$s)、快捷栏以及一些交互按钮则位于界面右侧。开始你的探索吧！");
+	}
+
 
 	static GameScene scene;
 

@@ -25,8 +25,16 @@ import pd.Dungeon;
 import pd.actors.blobs.Blob;
 import pd.actors.blobs.ConfusionGas;
 import pd.scenes.GameScene;
+import pd.messages.InlineText;
 
 public class ConfusionTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(ConfusionTrap.class)
+			.t("name", "致眩气体陷阱")
+			.t("desc", "触发这个陷阱将在附近释放出一片致眩气体。");
+	}
+
 
 	{
 		color = TEAL;

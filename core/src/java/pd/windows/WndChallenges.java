@@ -26,8 +26,15 @@ import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class WndChallenges extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndChallenges.class)
+			.t("title", "挑战");
+	}
+
 
 	private static final int WIDTH		= 120;
 	private static final int TTL_HEIGHT = 16;

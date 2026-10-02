@@ -55,8 +55,18 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import pd.messages.InlineText;
 
 public class CityBossLevel extends Level {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(CityBossLevel.class)
+			.t("throne_name", "王座")
+			.t("throne_desc", "这座醒目的高大王座曾是矮人国王的席位，但现在它已属于一位沉湎于力量的死灵法师。\n\n说不清是不是有什么魔法或是机械装置与王座相连，矮人国王在上面坐着时会拥有额外的能力。")
+			.t("summoning_name", "唤灵基座")
+			.t("summoning_desc", "唤灵基座的中央有一个巨大的开口，时不时涌出一些黑暗能量。\n\n矮人国王利用这些基座来聚焦死灵魔法，为其召唤奴仆。召唤物的生成需要一段时间的能量聚集，召唤物的类型取决于聚积于此的魔力。");
+	}
+
 
 	{
 		color1 = 0x4b6636;

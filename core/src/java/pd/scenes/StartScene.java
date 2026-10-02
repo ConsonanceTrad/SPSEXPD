@@ -47,8 +47,23 @@ import render.noosa.NinePatch;
 import render.utils.geom.RectF;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class StartScene extends PixelScene {
+	//SPSEXPD: inline Chinese text (generated from messages/scenes/zh)
+	static {
+		InlineText.of(StartScene.class)
+			.t("title", "进行中的游戏")
+			.t("one_minute_ago", "存档于1分钟前")
+			.t("minutes_ago", "存档于%d分钟前")
+			.t("hours_ago", "存档于%d小时前")
+			.t("days_ago", "存档于%d天前")
+			.t("months_ago", "存档于%d月前")
+			.t("new", "新游戏")
+			.t("sort_level", "排序：按等级")
+			.t("sort_recent", "排序：按时间");
+	}
+
 	
 	private static final int SLOT_WIDTH = 120;
 	private static final int SLOT_HEIGHT = 22;

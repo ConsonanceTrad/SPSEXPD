@@ -39,8 +39,16 @@ import render.noosa.TextureFilm;
 import render.noosa.Tilemap;
 import render.utils.geom.Point;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class AmbitiousImpRoom extends SpecialRoom {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(AmbitiousImpRoom.class)
+			.t("questentrance.name", "宝库入口")
+			.t("questentrance.desc", "这个不祥的巨坑似乎通向某个远古的矮人宝库。魔法屏障封印了入口，而你可以在其上行走自如，如同此处正是地面一般。");
+	}
+
 
 	@Override
 	public int maxWidth() { return 9; }

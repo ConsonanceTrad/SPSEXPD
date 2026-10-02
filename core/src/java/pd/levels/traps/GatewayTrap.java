@@ -39,8 +39,16 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class GatewayTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(GatewayTrap.class)
+			.t("name", "虫洞陷阱")
+			.t("desc", "这种特殊的传送陷阱可以被反复激活并且总是通向同样的目的地。");
+	}
+
 
 	{
 		color = TEAL;

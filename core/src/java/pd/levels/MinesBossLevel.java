@@ -29,9 +29,16 @@ import pd.tiles.custom.SpsLegacyLevelVisual;
 import pd.windows.WndMessage;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 /** The original SPS energy-core arena, journal destination 7. */
 public class MinesBossLevel extends Level {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(MinesBossLevel.class)
+			.t("intro", "后来者，我无法继续压制Zot。我所制造的保险方案正在逐渐失效。我把拯救这一切的希望交给你了。走右边，消灭我制作的法师像，进入核心并永远压制Zot！");
+	}
+
 
 	public static final int WIDTH = 48;
 	public static final int HEIGHT = 48;

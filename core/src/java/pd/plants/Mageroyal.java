@@ -31,8 +31,19 @@ import pd.actors.hero.HeroSubClass;
 import pd.items.consum.potions.PotionOfHealing;
 import pd.messages.Messages;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 public class Mageroyal extends Plant {
+	//SPSEXPD: inline Chinese text (generated from messages/plants/zh)
+	static {
+		InlineText.of(Mageroyal.class)
+			.t("name", "魔皇草")
+			.t("refreshed", "你感觉浑身清爽。")
+			.t("desc", "魔皇草的带刺花朵含有一种化学物质，因其强大的中和性质而闻名。任何踏入这株植物的东西将会被净化掉许多负面效果。")
+			.t("warden_desc", "当踩踏一株魔皇草时，_守望者_在获得中和效果以外，还能短暂地对所有环境影响免疫。")
+			.t("seed.name", "魔皇草之种");
+	}
+
 
 	{
 		image = 7;

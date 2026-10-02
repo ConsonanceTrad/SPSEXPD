@@ -32,9 +32,19 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.Arrays;
+import pd.messages.InlineText;
 
 /** The original randomized five-lane magic-cave boss-rush arena. */
 public class BossRushLevel extends Level {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(BossRushLevel.class)
+			.t("water_name", "奇怪的水")
+			.t("grass_name", "一些魔法粉尘")
+			.t("high_grass_name", "一些魔法晶簇")
+			.t("water_desc", "十分奇怪的水滩。");
+	}
+
 	public static final Class<?>[] BOSS_SEQUENCE = {
 			Dragonking.class, UGoo.class, UTengu.class, UDM300.class, UKing.class,
 			UIcecorps.class, UIcecorps2.class, UYog.class, UAmulet.class

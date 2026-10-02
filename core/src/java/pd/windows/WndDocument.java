@@ -26,8 +26,15 @@ import pd.journal.Document;
 import pd.messages.Messages;
 import pd.ui.ScrollingListPane;
 import pd.ui.Window;
+import pd.messages.InlineText;
 
 public class WndDocument extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndDocument.class)
+			.t("missing", "缺页");
+	}
+
 
 	private ScrollingListPane list;
 

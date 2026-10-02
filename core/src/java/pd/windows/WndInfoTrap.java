@@ -25,8 +25,15 @@ import pd.Dungeon;
 import pd.levels.traps.Trap;
 import pd.messages.Messages;
 import pd.tiles.TerrainFeaturesTilemap;
+import pd.messages.InlineText;
 
 public class WndInfoTrap extends WndTitledMessage {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndInfoTrap.class)
+			.t("inactive", "这个陷阱已经失效了，且不会被再次触发。");
+	}
+
 
 	public WndInfoTrap(Trap trap) {
 

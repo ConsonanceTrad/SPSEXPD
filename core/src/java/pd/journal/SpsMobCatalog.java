@@ -47,6 +47,7 @@ import pd.messages.Messages;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashSet;
+import pd.messages.InlineText;
 
 /** The seven always-visible creature groups from SPS-PD 0.9.8's NewMobCatalog. */
 public enum SpsMobCatalog {
@@ -58,6 +59,18 @@ public enum SpsMobCatalog {
 	HALL("Succubus Eye DemonGoo DemonFlower Sufferer ThiefImp DemonRabbit Scorpio Acidic FireSuccubus Yog"),
 	EX("GnollArcher MossySkeleton AlbinoPiranha GoldThief BlueWraith Orc GoldOrc Fiend Wraith Greatmoss Piranha Mimic TestMob"),
 	ETC("BlueDragon BugDragon Bunny ButterflyPet Chocobo CocoCat Datura DogPet Fly GentleCrab GoldDragon GreenDragon Haro Kodora LeryFire LightDragon Monkey PigPet RedDragon RibbonRat Scorpion ShadowDragon Snake Spider Stone Velocirooster VioletDragon YearPet FoxHelper DwarfBoy FrogPet StarKid LitDemon Abi");
+	//SPSEXPD: inline Chinese text (generated from messages/journal/zh)
+	static {
+		InlineText.of(SpsMobCatalog.class)
+			.t("sewer.title", "下水道")
+			.t("prison.title", "监狱")
+			.t("cave.title", "洞穴")
+			.t("city.title", "矮人都市")
+			.t("hall.title", "恶魔大厅")
+			.t("ex.title", "额外敌人")
+			.t("etc.title", "伙伴");
+	}
+
 
 	private final LinkedHashSet<Class<? extends Mob>> mobs = new LinkedHashSet<>();
 

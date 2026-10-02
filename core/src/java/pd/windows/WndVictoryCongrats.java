@@ -34,8 +34,23 @@ import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import render.noosa.Image;
+import pd.messages.InlineText;
 
 public class WndVictoryCongrats extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndVictoryCongrats.class)
+			.t("title", "获胜！")
+			.t("start_text", "恭喜您征服了这座地牢！新的游戏选项已经解锁，你可以在选择英雄时查看并设置：")
+			.t("challenges", "您现在可以开启_挑战_功能了！挑战是一类通过各种方式为游戏增添难度的设置选项。")
+			.t("custom_seeds", "您现在可以使用_自定义种子_进行游戏了！在版本不变的情况下，使用同一个种子将总是生成相同的地牢。")
+			.t("dailies", "您现在可以参与_每日挑战_了！每天都有一场新游戏，对每个人都是一样的！")
+			.t("thank_you", "万分感谢您能游玩破碎的像素地牢！")
+			.t("support_prompt", "_请考虑赞助这款游戏_，如果您还没有的话。忠实玩家的支持能让开发者不断对游戏进行打磨！")
+			.t("support", "赞助")
+			.t("close", "关闭");
+	}
+
 
 	public WndVictoryCongrats(){
 		int width = PixelScene.landscape() ? 180 : 120;

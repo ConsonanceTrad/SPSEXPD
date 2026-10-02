@@ -29,10 +29,18 @@ import pd.tiles.CustomTilemap;
 import render.noosa.Tilemap;
 import render.utils.data.SparseArray;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 //TODO currently carpets only have implemented visuals for the dwarven city,
 // and also only support being rectangular in shape
 public class Carpet extends CustomTilemap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(Carpet.class)
+			.t("name", "地毯")
+			.t("desc", "厚重的地毯铺在地面上。但显然经过特殊处理，它点不着。");
+	}
+
 
 	{
 		texture = Assets.Environment.CARPET;

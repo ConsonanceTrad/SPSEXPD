@@ -29,8 +29,16 @@ import pd.actors.buffs.Ooze;
 import pd.actors.mobs.Mob;
 import pd.effects.Splash;
 import pd.mechanics.pathfind.PathFinder;
+import pd.messages.InlineText;
 
 public class OozeTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(OozeTrap.class)
+			.t("name", "淤泥陷阱")
+			.t("desc", "这个陷阱将会洒出腐蚀性的淤泥，它将烧灼你的皮肤直到被洗掉。");
+	}
+
 
 	{
 		color = GREEN;

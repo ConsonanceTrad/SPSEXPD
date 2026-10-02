@@ -33,8 +33,16 @@ import pd.tiles.CustomTilemap;
 import render.noosa.Tilemap;
 import render.utils.geom.Point;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class WeakFloorRoom extends SpecialRoom {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(WeakFloorRoom.class)
+			.t("hiddenwell.name", "远处的井")
+			.t("hiddenwell.desc", "你隐约可以看到深处有一口井，也许这下面有些什么？");
+	}
+
 
 	public void paint( Level level ) {
 		

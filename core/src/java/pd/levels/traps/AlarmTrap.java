@@ -29,8 +29,17 @@ import pd.effects.Speck;
 import pd.messages.Messages;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class AlarmTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(AlarmTrap.class)
+			.t("name", "警报陷阱")
+			.t("alarm", "陷阱产生的尖锐的警报声在地牢里回荡！")
+			.t("desc", "这个陷阱看起来有着能造成很大响动的机制。触发它将使本层所有生物对这里产生警觉。");
+	}
+
 
 	{
 		color = RED;

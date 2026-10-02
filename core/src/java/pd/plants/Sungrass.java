@@ -37,8 +37,22 @@ import pd.messages.Messages;
 import pd.sprites.CharSprite;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
+import pd.messages.InlineText;
 
 public class Sungrass extends Plant {
+	//SPSEXPD: inline Chinese text (generated from messages/plants/zh)
+	static {
+		InlineText.of(Sungrass.class)
+			.t("name", "阳春草")
+			.t("desc", "阳春草因其汁液缓慢但显著的疗伤效果而家喻户晓。")
+			.t("warden_desc", "_守望者_能将阳春草的治疗魔力随身携带。")
+			.t("seed.name", "阳春草之种")
+			.t("health.name", "草药疗养")
+			.t("health.desc", "阳春草拥有优秀的治疗能力，尽管治疗速率比治疗药剂慢很多。\n\n脱离植株将会打断治疗效果。\n\n剩余治疗量：%d")
+			.t("exsungrass.name", "阳春草果丛")
+			.t("exsungrass.desc", "生长疗伤果的果丛。");
+	}
+
 	
 	{
 		image = 4;

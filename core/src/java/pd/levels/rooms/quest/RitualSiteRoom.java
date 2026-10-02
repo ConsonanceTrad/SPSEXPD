@@ -37,8 +37,18 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.Arrays;
+import pd.messages.InlineText;
 
 public class RitualSiteRoom extends StandardRoom {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(RitualSiteRoom.class)
+			.t("ritualmarker.name", "仪式标记")
+			.t("ritualmarker.desc", "为某种黑暗仪式而画下的标记。蜡烛通常摆在四个角上。")
+			.t("table.name", "不祥的桌子")
+			.t("table.desc", "这张沉重的桌子像是被粗暴地改造成了某种拷问刑架。");
+	}
+
 	
 	@Override
 	public int minWidth() {

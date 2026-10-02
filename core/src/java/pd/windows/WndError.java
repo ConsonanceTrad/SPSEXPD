@@ -23,8 +23,15 @@ package pd.windows;
 
 import pd.messages.Messages;
 import pd.ui.Icons;
+import pd.messages.InlineText;
 
 public class WndError extends WndTitledMessage {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndError.class)
+			.t("title", "错误");
+	}
+
 
 	public WndError( String message ) {
 		super( Icons.WARNING.get(), Messages.get(WndError.class, "title"), message );

@@ -47,8 +47,20 @@ import render.utils.platform.DeviceCompat;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import pd.messages.InlineText;
 
 public class WndHeroInfo extends WndTabbed {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndHeroInfo.class)
+			.t("talents", "天赋")
+			.t("talents_msg", "英雄在升级时会获得一点天赋点数。更高阶的天赋在击杀第二个Boss后才会解锁。")
+			.t("subclasses", "专精")
+			.t("subclasses_msg", "击杀第二个Boss后可以选择一种职业专精。")
+			.t("abilities", "护甲技能")
+			.t("abilities_msg", "击杀第四个Boss后可以选择一项护甲技能。");
+	}
+
 
 	private HeroInfoTab heroInfo;
 	private TalentInfoTab talentInfo;

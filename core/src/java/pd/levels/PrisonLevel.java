@@ -70,8 +70,21 @@ import render.utils.geom.PointF;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class PrisonLevel extends SpsRegularLevel {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(PrisonLevel.class)
+			.t("water_name", "阴冷水潭")
+			.t("empty_deco_desc", "其上仍残留着干涸的血迹。")
+			.t("bookshelf_desc", "这个书架可能是监狱图书馆的残留物。烧掉怎么样？")
+			.t("region_deco_name", "监狱牢笼")
+			.t("region_deco_desc", "恰好能装下一个人的金属牢笼。它似乎被某种方式锁在了地上，根本无法移动。")
+			.t("region_deco_alt_name", "悬吊牢笼")
+			.t("region_deco_alt_desc", "恰好能容纳一个人的金属牢笼，以铁索悬吊于深渊之上。");
+	}
+
 
 	@Override
 	protected float legacyWaterFill() {

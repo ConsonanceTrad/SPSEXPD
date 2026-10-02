@@ -54,8 +54,20 @@ import render.noosa.Image;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
+import pd.messages.InlineText;
 
 public class Chasm implements Hero.Doom {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(Chasm.class)
+			.t("chasm", "深渊")
+			.t("yes", "是的，我知道我在做什么")
+			.t("no", "不，我改主意了")
+			.t("jump", "你确定要跳入深渊中？从这么高的地方摔下去一定很疼。")
+			.t("ondeath", "你落地过猛摔死了...")
+			.t("rankings_desc", "死于撞击");
+	}
+
 
 	public static boolean jumpConfirmed = false;
 	private static int heroPos;

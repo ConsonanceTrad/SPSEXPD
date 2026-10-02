@@ -86,8 +86,22 @@ import pd.sprites.ItemSprite;
 import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
+import pd.messages.InlineText;
 
 public class WndIronMaker extends WndOptions {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndIronMaker.class)
+			.t("title", "铁砧")
+			.t("text", "可将两件同类装备合成、重铸五份废料或原石、分解装备，或组合锻造材料。")
+			.t("select", "选择装备或材料")
+			.t("add", "添加材料")
+			.t("combine", "锻造")
+			.t("cancel", "取消")
+			.t("empty", "尚未选择材料。")
+			.t("selected", "已选择：%s");
+	}
+
 
 	private final Session session;
 

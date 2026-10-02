@@ -8,8 +8,16 @@ import pd.sprites.ItemSprite;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
+import pd.messages.InlineText;
 
 public class WndONS extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndONS.class)
+			.t("message", "看起来这件衣服给这位豺狼先生穿十分合适，要给他吗？")
+			.t("give", "给他吧");
+	}
+
 
 	private static final int WIDTH = 120;
 

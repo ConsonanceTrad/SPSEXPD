@@ -6,8 +6,16 @@ import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
+import pd.messages.InlineText;
 
 public class KnowledgeTrap extends Trap {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(KnowledgeTrap.class)
+			.t("name", "知识陷阱")
+			.t("desc", "触发后会鉴定你携带的装备。");
+	}
+
 	{ color = RED; shape = STARS; }
 
 	@Override

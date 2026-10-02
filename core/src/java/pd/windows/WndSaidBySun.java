@@ -10,9 +10,18 @@ import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import pd.utils.GLog;
+import pd.messages.InlineText;
 
 /** SaidBySun's original 100,000-gold material purchase. */
 public class WndSaidBySun extends Window {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndSaidBySun.class)
+			.t("message", "测试结束后，许多材料将被丢弃。我这里正好有一些有用的废料，给我100000金币就给你。")
+			.t("buy", "我有钱")
+			.t("more_gold", "你的金币不够。");
+	}
+
 	private static final int WIDTH = 120;
 	public WndSaidBySun() {
 		CurseBlood reward = new CurseBlood();

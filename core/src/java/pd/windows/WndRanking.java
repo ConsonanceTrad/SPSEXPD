@@ -67,8 +67,38 @@ import render.utils.serialize.Bundle;
 
 import java.text.NumberFormat;
 import java.util.Locale;
+import pd.messages.InlineText;
 
 public class WndRanking extends WndTabbed {
+	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+	static {
+		InlineText.of(WndRanking.class)
+			.t("error", "无法载入更多信息。")
+			.t("stats", "属性")
+			.t("items", "物品")
+			.t("badges", "徽章")
+			.t("statstab.title", "%1$d级%2$s")
+			.t("statstab.talents", "天赋")
+			.t("statstab.challenges", "挑战")
+			.t("statstab.score", "得分")
+			.t("statstab.str", "力量")
+			.t("statstab.duration", "游戏时长")
+			.t("statstab.depth", "最高层数")
+			.t("statstab.ascent", "最远返程")
+			.t("statstab.seed", "地牢种子")
+			.t("statstab.custom_seed", "_自定义种子_")
+			.t("statstab.daily_for", "_日常挑战于_")
+			.t("statstab.replay_for", "_重玩于_")
+			.t("statstab.enemies", "怪物击杀数")
+			.t("statstab.gold", "金币收集数")
+			.t("statstab.food", "食物消耗量")
+			.t("statstab.alchemy", "制造完成")
+			.t("statstab.copy_seed", "复制种子")
+			.t("statstab.copy_seed_desc", "你确定要使用这条记录对应的地牢种子开始一场游戏吗？_注意，使用自定义种子的游戏不能获得徽章，不计入已进行的游戏，也不会出现在排行榜的底部。_\n\n如果这个排名来自较早的游戏，也要注意不同版本的《破碎的像素地牢》可能会生成不同的地牢，即使使用相同的种子。")
+			.t("statstab.copy_seed_copy", "使用这个种子")
+			.t("statstab.copy_seed_cancel", "取消");
+	}
+
 	
 	private static final int WIDTH			= 115;
 	private static final int HEIGHT			= 144;
