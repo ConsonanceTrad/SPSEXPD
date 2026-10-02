@@ -129,12 +129,16 @@ public class Messages {
 
 		String lowered = key.toLowerCase(Locale.ENGLISH);
 
-		//SPSXPD: 中文原文内联在使用它的类里，优先命中；未命中再查 properties
-		String value = InlineText.get(lowered);
-		if (value == null && c != null){
-			//光有 .class 字面量不会触发类初始化，这里补一次，让类内静态块注册生效
-			InlineText.ensureLoaded(c);
+		String value = null;
+		//SPSXPD: 内联中文只在简体中文本地化下生效；其他语言（含繁中）继续走 properties，
+		//否则内联的中文会覆盖掉已经翻译好的文本。
+		if (lang == Languages.CHI_SMPL){
 			value = InlineText.get(lowered);
+			if (value == null && c != null){
+				//光有 .class 字面量不会触发类初始化，这里补一次，让类内静态块注册生效
+				InlineText.ensureLoaded(c);
+				value = InlineText.get(lowered);
+			}
 		}
 		if (value == null){
 			value = getFromBundle(lowered);
