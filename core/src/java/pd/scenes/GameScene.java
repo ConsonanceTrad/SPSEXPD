@@ -345,10 +345,6 @@ public class GameScene extends PixelScene {
 		waterEdges = new SpsWaterEdgesTilemap();
 		terrain.add( waterEdges );
 
-		//SPS: 深渊缝合边独立层（恢复旧版 2.5D 立体边缘：深渊相邻陆地/墙/水时补画下沉帧）
-		chasmEdges = new SpsChasmEdgesTilemap();
-		terrain.add( chasmEdges );
-
 		//SPS: 移动路径提示改挂独立 Group（见 targetedCells），不再进 terrain 层
 		customTiles = new Group();
 		terrain.add(customTiles);
@@ -364,6 +360,12 @@ public class GameScene extends PixelScene {
 
 		customTerrain = new Group();
 		terrain.add(customTerrain);
+
+		//SPS: 深渊缝合边排在 customTiles/customTerrain 之后。过渡层（如 0 层 BetweenLevel）
+		//整张地图是靠 customTiles 里的 SpsLegacyLevelVisual 画的，若排在其前面会被整层盖住，
+		//表现就是"深渊没有邻接效果"（只在这些层出现，普通层没有 customTiles 所以正常）。
+		chasmEdges = new SpsChasmEdgesTilemap();
+		terrain.add( chasmEdges );
 
 		levelVisuals = Dungeon.level.addVisuals();
 		add(levelVisuals);

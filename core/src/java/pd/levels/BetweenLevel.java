@@ -118,13 +118,10 @@ public class BetweenLevel extends RegularLevel {
 
 	@Override
 	public String tilesTex() {
-		switch (Dungeon.depth) {
-			case 0:  return Assets.Environment.TILES_SEWERS;
-			case 6:  return Assets.Environment.TILES_PRISON;
-			case 11: return Assets.Environment.TILES_CAVES;
-			case 16: return Assets.Environment.TILES_CITY;
-			default: return Assets.Environment.TILES_HALLS;
-		}
+		//SPS: 过渡层（含 0 层）统一用 SPS 系图集 —— 与 1-5 层同一套。
+		//customTiles 里的 SpsLegacyLevelVisual 本来就用 legacyTilesTex() 渲染，
+		//两者必须一致，否则按 tilesTex() 取帧的层（深渊缝合边等）会对不上图。
+		return legacyTilesTex();
 	}
 
 	String legacyTilesTex() {
