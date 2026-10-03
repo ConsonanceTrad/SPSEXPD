@@ -70,7 +70,7 @@ public class Shopkeeper extends NPC {
 			.t("thief", "小偷，小偷！")
 			.t("warn", "小心！我不会警告你第二次了。")
 			.t("flee", "店主关店跑路了！")
-			.t("sell", "选择一件要出售的物品")
+			.t("sell", "出售")
 			.t("talk", "交谈")
 			.t("buyback", "店主不情不愿地退还了你的物品。")
 			.t("talk_prison_intro", "我这有你成功冒险所需的一切东西！")
