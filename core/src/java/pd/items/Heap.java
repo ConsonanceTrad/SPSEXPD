@@ -185,7 +185,7 @@ public class Heap implements Bundlable {
 		case M_WEB:
 			CellEmitter.center(pos).start(Speck.factory(Speck.WOOL), 0.1f, 3);
 			if (Random.Int(10) == 0) spawnSpinner(hero.pos);
-			Buff.affect(hero, Roots.class, 5f);
+			//SPSXPD: 清蛛网不再缠绕玩家（原版会施加 Roots）
 			Sample.INSTANCE.play(Assets.Sounds.SHATTER);
 			break;
 		default:

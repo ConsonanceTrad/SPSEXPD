@@ -41,6 +41,7 @@ import pd.items.Generator;
 import pd.items.Item;
 import pd.items.ItemStatusHandler;
 import pd.items.Recipe;
+import pd.atlas.items.ConsumScrollAmuletScrollDict;
 import pd.items.equipment.artifacts.UnstableSpellbook;
 import pd.items.consum.scrolls.exotic.ExoticScroll;
 import pd.items.consum.scrolls.exotic.ScrollOfAntiMagic;
@@ -108,20 +109,22 @@ public abstract class Scroll extends Item {
 
 	private static final LinkedHashMap<String, IconEntry> runes = new LinkedHashMap<String, IconEntry>() {
 		{
-			put("KAUNAN",SpecificPlaceHolderDict.SOMETHING_0);
-			put("SOWILO",SpecificPlaceHolderDict.SOMETHING_0);
-			put("LAGUZ",SpecificPlaceHolderDict.SOMETHING_0);
-			put("YNGVI",SpecificPlaceHolderDict.SOMETHING_0);
-			put("GYFU",SpecificPlaceHolderDict.SOMETHING_0);
-			put("RAIDO",SpecificPlaceHolderDict.SOMETHING_0);
-			put("ISAZ",SpecificPlaceHolderDict.SOMETHING_0);
-			put("MANNAZ",SpecificPlaceHolderDict.SOMETHING_0);
-			put("NAUDIZ",SpecificPlaceHolderDict.SOMETHING_0);
-			put("BERKANAN",SpecificPlaceHolderDict.SOMETHING_0);
-			put("NCOSRANE",SpecificPlaceHolderDict.SOMETHING_0);
-			put("TIWAZ",SpecificPlaceHolderDict.SOMETHING_0);
-			put("NENDIL",SpecificPlaceHolderDict.SOMETHING_0);
-			put("LIBRA",SpecificPlaceHolderDict.SOMETHING_0);
+			//SPS: 每局从这批图案里随机分配给各卷轴
+			//（6541=升级、6556=附魔密卷 是固定外观，不参与随机）
+			put("KAUNAN",  ConsumScrollAmuletScrollDict.SCROLL_ENCHANT_0);
+			put("SOWILO",  ConsumScrollAmuletScrollDict.EXOTIC_SOWILO_0);
+			put("LAGUZ",   ConsumScrollAmuletScrollDict.EXOTIC_LAGUZ_0);
+			put("YNGVI",   ConsumScrollAmuletScrollDict.EXOTIC_YNGVI_0);
+			put("GYFU",    ConsumScrollAmuletScrollDict.SCROLL_MYSTENRG_0);
+			put("RAIDO",   ConsumScrollAmuletScrollDict.EXOTIC_RAIDO_0);
+			put("ISAZ",    ConsumScrollAmuletScrollDict.SCROLL_SIREN_0);
+			put("MANNAZ",  ConsumScrollAmuletScrollDict.SCROLL_FORESIGHT_0);
+			put("NAUDIZ",  ConsumScrollAmuletScrollDict.SCROLL_CHALLENGE_0);
+			put("BERKANAN",ConsumScrollAmuletScrollDict.EXOTIC_BERKANAN_0);
+			put("NCOSRANE",ConsumScrollAmuletScrollDict.SCROLL_DREAD_0);
+			put("TIWAZ",   ConsumScrollAmuletScrollDict.SPS_SCROLL_A);
+			put("NENDIL",  ConsumScrollAmuletScrollDict.SPS_SCROLL_B);
+			put("LIBRA",   ConsumScrollAmuletScrollDict.SPS_SCROLL_C);
 		}
 	};
 	
