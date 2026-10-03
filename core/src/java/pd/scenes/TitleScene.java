@@ -434,7 +434,7 @@ public class TitleScene extends PixelScene {
 
 		public ChangesButton( Chrome.Type type, String label ){
 			super(type, label);
-			if (SPDSettings.updates()) Updates.checkForUpdate();
+			//SPS: 不再联网检查新版本 —— 按钮不会变成"更新"，也不会弹更新详情
 		}
 
 		boolean updateShown = false;

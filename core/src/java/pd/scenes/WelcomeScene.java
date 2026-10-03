@@ -105,7 +105,14 @@ public class WelcomeScene extends PixelScene {
 			return;
 		}
 
-		if (ShatteredPixelDungeon.versionCode == previousVersion && !SPDSettings.intro()) {
+		//SPS: 只要不需要首次安装的引导，就直接进标题界面。
+		//版本号变化时不再插入"进入 / 改动"界面，但仍执行一次老存档数据迁移。
+		if (!SPDSettings.intro()) {
+
+			if (previousVersion != 0 && previousVersion < ShatteredPixelDungeon.versionCode) {
+				updateVersion(previousVersion);
+			}
+
 			ShatteredPixelDungeon.switchNoFade(TitleScene.class);
 			return;
 		}
