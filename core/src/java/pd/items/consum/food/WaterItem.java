@@ -31,7 +31,7 @@ public class WaterItem extends Food {
 
 
 	{
-		image = EquipmentNonEquipDict.DIVINE_WOOD_SHIELD;
+		image = EquipmentNonEquipDict.PURE_DEWDROP_WATER;
 		energy = 1f;
 		hornValue = 0;
 	}

@@ -1,6 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.consum.food.staplefood;
 
+import pd.atlas.items.ConsumFoodFoodDict;
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.messages.InlineText;
 
@@ -16,7 +17,7 @@ public class NormalRation extends StapleFood {
 
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumFoodFoodDict.RATION_PACK;
 		energy = 300f;
 	}
 	@Override public int value() { return 5 * quantity; }

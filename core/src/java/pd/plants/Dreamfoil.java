@@ -1,5 +1,7 @@
 package pd.plants;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+
 import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.Dungeon;
@@ -33,7 +35,7 @@ public class Dreamfoil extends Plant {
 		else if (ch != null) Buff.affect(ch, MagicalSleep.class);
 	}
 	public static class Seed extends Plant.Seed {
-		{ image = SpecificPlaceHolderDict.SOMETHING_0; plantClass = Dreamfoil.class; explantClass = ExDreamfoil.class; }
+		{ image = ConsumPotionSeedSeedDict.SEED_MAGEROYAL_0; plantClass = Dreamfoil.class; explantClass = ExDreamfoil.class; }
 	}
 	public static class ExDreamfoil extends SpsFruitBush {
 		{ image = 10; harvestCount = 3; harvestClass = CharmFruit.class; }

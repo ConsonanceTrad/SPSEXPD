@@ -1,5 +1,7 @@
 package pd.plants;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+
 import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.Dungeon;
@@ -42,7 +44,7 @@ public class Dewcatcher extends Plant {
 		}
 	}
 	public static class Seed extends Plant.Seed {
-		{ image = SpecificPlaceHolderDict.SOMETHING_0; plantClass = Dewcatcher.class; explantClass = ExDewcatcher.class; }
+		{ image = ConsumPotionSeedSeedDict.SEED_POD; plantClass = Dewcatcher.class; explantClass = ExDewcatcher.class; }
 	}
 	public static class ExDewcatcher extends SpsFruitBush {
 		{ image = 12; harvestCount = 3; harvestClass = GreenSpore.class; }

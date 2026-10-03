@@ -21,6 +21,7 @@
 
 package pd.plants;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
 import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.Dungeon;
@@ -56,7 +57,7 @@ public class BlandfruitBush extends Plant {
 	//seed is never dropped
 	public static class Seed extends Plant.Seed {
 		{
-			image = SpecificPlaceHolderDict.SOMETHING_0;
+			image = ConsumPotionSeedSeedDict.SEED_FADELEAF_0;
 			plantClass = BlandfruitBush.class;
 			explantClass = ExBlandfruitBush.class;
 		}

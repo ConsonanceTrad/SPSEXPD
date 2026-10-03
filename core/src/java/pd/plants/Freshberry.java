@@ -1,5 +1,7 @@
 package pd.plants;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
+
 import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.Dungeon;
@@ -27,7 +29,7 @@ public class Freshberry extends Plant {
 		Dungeon.level.drop(Generator.random(Generator.Category.BERRY), pos).sprite.drop();
 	}
 	public static class Seed extends Plant.Seed {
-		{ image = SpecificPlaceHolderDict.SOMETHING_0; plantClass = Freshberry.class; explantClass = ExFreshberry.class; }
+		{ image = ConsumPotionSeedSeedDict.SEED_ROT_BERRY; plantClass = Freshberry.class; explantClass = ExFreshberry.class; }
 	}
 	public static class ExFreshberry extends SpsFruitBush {
 		{ image = 7; harvestCount = 3; harvestCategory = Generator.Category.SPS_BERRY; }
