@@ -96,7 +96,7 @@ public class Pasty extends Food {
 				image = ConsumFoodFoodDict.STEAMED_FISH_0;
 				break;
 			case APRIL_FOOLS:
-				image = SpecificPlaceHolderDict.SOMETHING_0;
+				image = ConsumFoodFoodDict.MEAR_PIE;
 				break;
 			case EASTER:
 				image = ConsumFoodFoodDict.EASTER_EGG_0;
@@ -105,13 +105,13 @@ public class Pasty extends Food {
 				image = ConsumFoodFoodDict.RAINBOW_POTION_0;
 				break;
 			case SHATTEREDPD_BIRTHDAY:
-				image = SpecificPlaceHolderDict.SOMETHING_0;
+				image = ConsumFoodFoodDict.MEAR_PIE;
 				break;
 			case HALLOWEEN:
 				image = ConsumFoodFoodDict.PUMPKIN_PIE;
 				break;
 			case PD_BIRTHDAY:
-				image = SpecificPlaceHolderDict.SOMETHING_0;
+				image = ConsumFoodFoodDict.MEAR_PIE;
 				break;
 			case WINTER_HOLIDAYS:
 				image = ConsumFoodFoodDict.CANDY_CANE_0;

@@ -109,16 +109,16 @@ public class Pasty extends StapleFood {
 
 	static IconEntry imageFor(Holiday value) {
 		switch (value) {
-			case SPRING: return SpecificPlaceHolderDict.SOMETHING_0;
-			case STUDENT: return SpecificPlaceHolderDict.SOMETHING_0;
-			case EASTER: return SpecificPlaceHolderDict.SOMETHING_0;
+			case SPRING: return ConsumFoodFoodDict.MEAR_PIE;
+			case STUDENT: return ConsumFoodFoodDict.MEAR_PIE;
+			case EASTER: return ConsumFoodFoodDict.MEAR_PIE;
 			case HWEEN: return ConsumFoodFoodDict.PUMPKIN_PIE;
 			case THANK: return ConsumFoodFoodDict.SPS_TURKEY_MEAT_0;
 			case XMAS: return ConsumFoodFoodDict.CANDY_CANE_0;
-			case CHILD: return SpecificPlaceHolderDict.SOMETHING_0;
-			case WORKER: return SpecificPlaceHolderDict.SOMETHING_0;
+			case CHILD: return ConsumFoodFoodDict.MEAR_PIE;
+			case WORKER: return ConsumFoodFoodDict.MEAR_PIE;
 			case NONE:
-			default: return SpecificPlaceHolderDict.SOMETHING_0;
+			default: return ConsumFoodFoodDict.MEAR_PIE;
 		}
 	}
 
