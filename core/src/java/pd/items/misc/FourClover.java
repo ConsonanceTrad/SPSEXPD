@@ -1,14 +1,13 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
-import pd.atlas.items.SpecificPlaceHolderDict;
-
-import pd.items.equipment.rings.Ring;
-import pd.messages.InlineText;
+import pd.actors.buffs.Buff;
 import pd.atlas.items.EquipmentJewelleryArtifactDict;
+import pd.items.Badge;
+import pd.messages.InlineText;
 
-/** The old three-slot luck charm, represented in the modern misc equipment slot. */
-public class FourClover extends Ring {
+/** The old three-slot luck charm, worn in the dedicated badge slot. */
+public class FourClover extends Badge {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(FourClover.class)
@@ -20,13 +19,10 @@ public class FourClover extends Ring {
 
 	{
 		image = EquipmentJewelleryArtifactDict.CLOVER_BADGE;
-		buffClass = FourCloverBless.class;
-		anonymous = true;
 	}
-	@Override protected RingBuff buff() { return new FourCloverBless(); }
-	public class FourCloverBless extends RingBuff { }
+	@Override protected Buff buff() { return new FourCloverBless(); }
+	public class FourCloverBless extends Buff { }
 	@Override public boolean isUpgradable() { return false; }
 	@Override public boolean isIdentified() { return true; }
-	@Override public boolean isKnown() { return true; }
 	@Override public int value() { return 500 * quantity; }
 }

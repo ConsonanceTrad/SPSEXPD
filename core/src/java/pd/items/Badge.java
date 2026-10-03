@@ -21,11 +21,47 @@
 
 package pd.items;
 
+import pd.actors.Char;
+import pd.actors.buffs.Buff;
+import pd.actors.hero.Hero;
+
 /**
  * SPS: 徽章 —— 特殊穿戴物，占用独立的徽章槽（与 5 个通用饰品槽互不通用）。
  *
- * 本基底尚无具体徽章物品，先立基类与槽位；后续按设计填充子类即可复用
- * KindofMisc 的装备/卸下/存档逻辑。
+ * 装备/卸下/存档复用 KindofMisc 的通用逻辑；佩戴期间要生效的 buff 由子类
+ * 覆写 {@link #buff()} 提供（不需要则返回 null），生命周期与 Ring 一致。
  */
 public abstract class Badge extends KindofMisc {
+
+	/** 当前挂到佩戴者身上的 buff，由 activate / doUnequip 维护。 */
+	private Buff buff;
+
+	/** 子类覆写：返回本徽章要挂到佩戴者身上的 buff；不需要则返回 null。 */
+	protected Buff buff() {
+		return null;
+	}
+
+	@Override
+	public void activate( Char ch ) {
+		if (buff != null) {
+			buff.detach();
+			buff = null;
+		}
+		buff = buff();
+		if (buff != null) {
+			buff.attachTo( ch );
+		}
+	}
+
+	@Override
+	public boolean doUnequip( Hero hero, boolean collect, boolean single ) {
+		if (super.doUnequip( hero, collect, single )) {
+			if (buff != null) {
+				buff.detach();
+				buff = null;
+			}
+			return true;
+		}
+		return false;
+	}
 }
