@@ -7,6 +7,7 @@ import pd.actors.Char;
 import pd.items.Generator;
 import pd.items.TransmutationBall;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumPotionSeedSeedDict;
 
 public class ReNepenth extends Plant {
 	//SPSEXPD: inline Chinese text (generated from messages/plants/zh)
@@ -28,7 +29,7 @@ public class ReNepenth extends Plant {
 		Dungeon.level.drop(Generator.random(Generator.Category.SPS_BERRY), pos).sprite.drop();
 	}
 	public static class Seed extends Plant.Seed {
-		{ image = SpecificPlaceHolderDict.SOMETHING_0; plantClass = ReNepenth.class; explantClass = ExReNepenth.class; }
+		{ image = ConsumPotionSeedSeedDict.SEED_TRANSMUTE_CAGE; plantClass = ReNepenth.class; explantClass = ExReNepenth.class; }
 	}
 	public static class ExReNepenth extends SpsFruitBush {
 		{ image = 14; harvestCount = 2; harvestClass = TransmutationBall.class; }

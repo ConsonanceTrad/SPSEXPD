@@ -11,6 +11,7 @@ import pd.items.consum.food.vegetable.NutVegetable;
 import pd.items.equipment.weapon.missiles.arrows.NutFruit;
 import render.utils.math.Random;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumPotionSeedSeedDict;
 
 public class NutPlant extends Plant {
 	//SPSEXPD: inline Chinese text (generated from messages/plants/zh)
@@ -37,7 +38,7 @@ public class NutPlant extends Plant {
 		Dungeon.level.drop(new NutVegetable(), pos).sprite.drop();
 	}
 	public static class Seed extends Plant.Seed {
-		{ image = SpecificPlaceHolderDict.SOMETHING_0; plantClass = NutPlant.class; explantClass = ExNutPlant.class; }
+		{ image = ConsumPotionSeedSeedDict.SEED_NUTVINE; plantClass = NutPlant.class; explantClass = ExNutPlant.class; }
 	}
 	public static class ExNutPlant extends SpsFruitBush {
 		{ image = 17; harvestCount = 3; harvestClass = NutFruit.class; }

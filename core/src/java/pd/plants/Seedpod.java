@@ -10,6 +10,7 @@ import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumPotionSeedSeedDict;
 
 public class Seedpod extends Plant {
 	//SPSEXPD: inline Chinese text (generated from messages/plants/zh)
@@ -40,7 +41,7 @@ public class Seedpod extends Plant {
 		}
 	}
 	public static class Seed extends Plant.Seed {
-		{ image = SpecificPlaceHolderDict.SOMETHING_0; plantClass = Seedpod.class; explantClass = ExSeedpod.class; }
+		{ image = ConsumPotionSeedSeedDict.SEED_POD; plantClass = Seedpod.class; explantClass = ExSeedpod.class; }
 	}
 	public static class ExSeedpod extends SpsFruitBush {
 		{ image = 13; harvestCount = 3; harvestCategory = Generator.Category.SPS_BERRY; }

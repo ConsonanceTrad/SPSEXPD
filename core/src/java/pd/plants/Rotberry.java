@@ -21,6 +21,7 @@
 
 package pd.plants;
 
+import pd.atlas.items.ConsumPotionSeedSeedDict;
 import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.Dungeon;
@@ -83,7 +84,7 @@ public class Rotberry extends Plant {
 
 	public static class Seed extends Plant.Seed {
 		{
-			image = SpecificPlaceHolderDict.SOMETHING_0;
+			image = ConsumPotionSeedSeedDict.SEED_ROT_BERRY;
 
 			plantClass = Rotberry.class;
 			explantClass = ExRotberry.class;

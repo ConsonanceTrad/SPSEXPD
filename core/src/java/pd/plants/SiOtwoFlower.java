@@ -9,6 +9,7 @@ import pd.actors.buffs.Buff;
 import pd.items.consum.food.vegetable.NutVegetable;
 import pd.items.equipment.weapon.missiles.arrows.GlassFruit;
 import pd.messages.InlineText;
+import pd.atlas.items.ConsumPotionSeedSeedDict;
 
 public class SiOtwoFlower extends Plant {
 	//SPSEXPD: inline Chinese text (generated from messages/plants/zh)
@@ -31,7 +32,7 @@ public class SiOtwoFlower extends Plant {
 		Dungeon.level.drop(new GlassFruit(), pos).sprite.drop();
 	}
 	public static class Seed extends Plant.Seed {
-		{ image = SpecificPlaceHolderDict.SOMETHING_0; plantClass = SiOtwoFlower.class; explantClass = ExSiOtwoFlower.class; }
+		{ image = ConsumPotionSeedSeedDict.SEED_QUARTZFLOWER; plantClass = SiOtwoFlower.class; explantClass = ExSiOtwoFlower.class; }
 	}
 	public static class ExSiOtwoFlower extends SpsFruitBush {
 		{ image = 18; harvestCount = 2; harvestClass = GlassFruit.class; }
