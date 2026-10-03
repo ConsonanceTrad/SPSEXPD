@@ -81,12 +81,20 @@ public class DungeonTileSheet {
 	//  SPS 系  sps_tiles_<region>_legacy.png (3 行 15 格) = xy(15,3) = 46
 	//注：早先这里写死 xy(16,3)=47，x=16 超出每行 16 格范围，落到了行尾杂物格
 	//（地下水道那张正好是"大树"，即玩家反馈的错图）。
-	public static final int CHASM           =                               xy(1, 1);
-	public static final int CHASM_FLOOR     =                               xy(12, 3);
-	public static final int CHASM_FLOOR_SP  =                               xy(13, 3);
-	public static final int CHASM_WALL      =                               xy(14, 3);
-	public static final int CHASM_WATER_BROKEN =                            xy(13, 2);
-	public static final int CHASM_WATER_SPS    =                            xy(15, 3);
+	//SPS: 深渊各帧按图集族分两套 —— 两套图集的深渊帧位置不同，混用会让破碎系关卡
+	//（如 0 层 BetweenLevel，用 tiles_sewers.png）取到 y=3 行的无关格子，
+	//表现就是"深渊没有邻接效果"。
+	//  破碎系 tiles_<region>.png             ：深渊 5 帧自 xy(9,2)=24 起连续（原版 SPS 布局）
+	//  SPS 系 sps_tiles_<region>_legacy.png  ：对应帧在 xy(12,3)=43 起
+	public static final int CHASM                    =                      xy(1, 1);
+	public static final int CHASM_FLOOR              =                      xy(12, 3);
+	public static final int CHASM_FLOOR_SP           =                      xy(13, 3);
+	public static final int CHASM_WALL               =                      xy(14, 3);
+	public static final int CHASM_WATER_SPS          =                      xy(15, 3);
+	public static final int CHASM_FLOOR_BROKEN       =                      xy(10, 2);
+	public static final int CHASM_FLOOR_SP_BROKEN    =                      xy(11, 2);
+	public static final int CHASM_WALL_BROKEN        =                      xy(12, 2);
+	public static final int CHASM_WATER_BROKEN       =                      xy(13, 2);
 
 	/** 当前关卡图集是否属于 SPS 系（sps_tiles_*_legacy.png）。 */
 	private static boolean isSpsTilesAtlas(){
@@ -95,9 +103,22 @@ public class DungeonTileSheet {
 		return tex != null && tex.contains("sps_tiles_");
 	}
 
+	/**
+	 * SPS: 把"SPS 系帧号"换算成当前图集族的等价帧。
+	 * 破碎系关卡曾因缺这一步而取到 y=3 行的无关格子（看起来没有邻接效果）。
+	 */
+	private static int chasmFrame(int spsFrame){
+		if (isSpsTilesAtlas()) return spsFrame;
+		if (spsFrame == CHASM_FLOOR)     return CHASM_FLOOR_BROKEN;
+		if (spsFrame == CHASM_FLOOR_SP)  return CHASM_FLOOR_SP_BROKEN;
+		if (spsFrame == CHASM_WALL)      return CHASM_WALL_BROKEN;
+		if (spsFrame == CHASM_WATER_SPS) return CHASM_WATER_BROKEN;
+		return spsFrame;
+	}
+
 	/** Terrain.WATER 位于深渊上方时应画的缝合帧（按图集族区分）。 */
 	public static int chasmWaterFrame(){
-		return isSpsTilesAtlas() ? CHASM_WATER_SPS : CHASM_WATER_BROKEN;
+		return chasmFrame( CHASM_WATER_SPS );
 	}
 
 	//tiles that can stitch with chasms (from above), and which visual represents the stitching
@@ -147,14 +168,14 @@ public class DungeonTileSheet {
 	public static int stitchChasmTile(int above){
 		//alt region deco has different visuals per region, but most commonly FLOOR_SP
 		if (above == Terrain.REGION_DECO_ALT){
-			if (Dungeon.depth <= 5)     return CHASM_FLOOR_SP;
+			if (Dungeon.depth <= 5)     return chasmFrame( CHASM_FLOOR_SP );
 			if (Dungeon.depth <= 10)    return CHASM;
-			if (Dungeon.depth <= 20)    return CHASM_FLOOR_SP;
-			else                        return CHASM_FLOOR;
+			if (Dungeon.depth <= 20)    return chasmFrame( CHASM_FLOOR_SP );
+			else                        return chasmFrame( CHASM_FLOOR );
 		}
 		//SPS: 水在深渊上方时的帧随图集族变化，不能进静态表
 		if (above == Terrain.WATER) return chasmWaterFrame();
-		return chasmStitcheable.get(above, CHASM);
+		return chasmFrame( chasmStitcheable.get(above, CHASM) );
 	}
 
 
