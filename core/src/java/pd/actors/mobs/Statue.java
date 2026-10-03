@@ -174,10 +174,14 @@ public class Statue extends Mob {
 		// Source statues ignore beckoning even after they are awakened.
 	}
 	
+	protected boolean dropsWeapon = true;
+
 	@Override
 	public void die( Object cause ) {
-		Heap heap = Dungeon.level == null ? null : Dungeon.level.drop(weapon, pos);
-		if (heap != null && heap.sprite != null) heap.sprite.drop();
+		if (dropsWeapon && weapon != null) {
+			Heap heap = Dungeon.level == null ? null : Dungeon.level.drop(weapon, pos);
+			if (heap != null && heap.sprite != null) heap.sprite.drop();
+		}
 		super.die( cause );
 	}
 

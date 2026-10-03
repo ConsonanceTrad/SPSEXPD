@@ -36,6 +36,7 @@ import pd.effects.Speck;
 import pd.effects.particles.ElmoParticle;
 import pd.items.Heap;
 import pd.items.Item;
+import pd.items.Gold;
 import pd.items.equipment.armor.Armor;
 import pd.items.specific.sellitem.SellPermit;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
@@ -75,10 +76,12 @@ public class Shopkeeper extends NPC {
 			.t("flee", "店主关店跑路了！")
 			//SPS: 商人被打不再跑路，改为召唤守卫并涨价
 			.t("guards", "守卫！守卫！")
-			.t("free_now", "守卫已被尽数击败，本店今日免费！")
+			.t("free_now", "该死的强盗！拿去！都拿去！别再来了！")
 			//SPS: 守卫被清光、以及免费拿货时商人的喊话
 			.t("guards_down", "我的守卫……我的金币……")
 			.t("free_buy", "金币……我的金币…")
+			//SPS: 被打超过 1 次后拒绝交谈
+			.t("no_talk", "我不想和强盗说话！")
 			.t("sell", "出售")
 			.t("talk", "交谈")
 			.t("buyback", "店主不情不愿地退还了你的物品。")
@@ -104,6 +107,9 @@ public class Shopkeeper extends NPC {
 	{
 		spriteClass = ShopkeeperSprite.class;
 
+		//SPS: 闪避钉死为 0，确保近战/投掷武器必定命中（否则打不中就不触发遇袭逻辑）
+		defenseSkill = 0;
+
 		properties.add(Property.IMMOVABLE);
 		properties.add(Property.HUMAN);
 	}
@@ -112,6 +118,12 @@ public class Shopkeeper extends NPC {
 	public ArrayList<Item> buybackItems = new ArrayList<>();
 
 	private int turnsSinceHarmed = -1;
+
+	//SPS: 上次触发 processHarm 的时间点，同一攻击内 damage()/add() 双入口去重用。不参与序列化。
+	private float lastHarmTime = -100;
+
+	//SPS: 被打超过 1 次（召唤过守卫）后，商人拒绝一切交谈。
+	private boolean angered = false;
 
 	@Override
 	public Notes.Landmark landmark() {
@@ -149,6 +161,13 @@ public class Shopkeeper extends NPC {
 		if (!Dungeon.level.heroFOV[pos]){
 			return;
 		}
+
+		//SPS: 同一时间点的重复触发（一次攻击里 damage() 和 add(负面buff) 都会进来）只算一次
+		if (Actor.now() == lastHarmTime) return;
+		lastHarmTime = Actor.now();
+
+		//SPS: 被击打时向商人周围散落 50~300 金币
+		scatterGold();
 
 		if (turnsSinceHarmed == -1){
 			turnsSinceHarmed = 0;
@@ -195,10 +214,9 @@ public class Shopkeeper extends NPC {
 				}
 			});
 
-		//There is a 1 turn buffer before more damage/debuffs make the shopkeeper flee
-		//This is mainly to prevent stacked effects from causing an instant flee
-		} else if (turnsSinceHarmed >= 1) {
-			//SPS: 店主不再跑路，改为召唤守卫（见 summonGuards）
+		//SPS: 店主不再跑路，改为召唤守卫（见 summonGuards）。
+		//第 2 次被攻击起每次召唤一批；同一次攻击的重复触发由上面的时间戳去重，不依赖商人行动节奏。
+		} else {
 			summonGuards();
 		}
 	}
@@ -227,9 +245,11 @@ public class Shopkeeper extends NPC {
 	 */
 	public void summonGuards() {
 		priceMultiplier *= PRICE_STEP;
+		//SPS: 打超过 1 次才会走到这里，商人从此拒绝交谈
+		angered = true;
 
 		GLog.newLine();
-		GLog.n( Messages.get(this, "guards") );
+		yell( Messages.get(this, "guards") );
 		if (sprite != null) {
 			CellEmitter.get(pos).burst(ElmoParticle.FACTORY, 6 );
 		}
@@ -275,6 +295,20 @@ public class Shopkeeper extends NPC {
 			HP = HT = 100 + GUARD_DEPTH * 5;
 			defenseSkill = 25 + GUARD_DEPTH * 2;
 			EXP = 50 + GUARD_DEPTH * 2;
+			//SPS: Statue 构造器不建武器，必须自己建，否则 canAttack()/attackSkill() 会 NPE
+			createWeapon( false );
+			//SPS: 召唤出的守卫死亡不掉落物品
+			dropsWeapon = false;
+		}
+
+		/** SPS: 武器固定为关刀，只影响命中/外观/死亡掉落；伤害仍走 {@link #damageRoll()}。 */
+		@Override
+		public void createWeapon( boolean useDecks ) {
+			weapon = new pd.items.equipment.weapon.melee.Glaive();
+			weapon.cursed = false;
+			weapon.identify();
+			weapon.enchant( null );
+			weapon.level( 0 );
 		}
 
 		@Override
@@ -300,6 +334,42 @@ public class Shopkeeper extends NPC {
 		public void restoreFromBundle( Bundle bundle ) {
 			super.restoreFromBundle( bundle );
 			owner = (Shopkeeper) bundle.get( OWNER );
+			//SPS: 旧存档的守卫没存武器，兜底补上
+			if (weapon == null) createWeapon( false );
+		}
+	}
+
+	/**
+	 * SPS: 被击打时向商人周围散落 50~300 金币，分 2~4 堆掉在一圈可行走格子上。
+	 * 周围没空地时掉在脚下。
+	 */
+	private void scatterGold() {
+		int amount = Random.IntRange( 50, 300 );
+
+		int w = Dungeon.level.width();
+		ArrayList<Integer> cells = new ArrayList<>();
+		for (int dy = -1; dy <= 1; dy++) {
+			for (int dx = -1; dx <= 1; dx++) {
+				if (dx == 0 && dy == 0) continue;
+
+				int c = pos + dx + dy * w;
+				if (c < 0 || c >= Dungeon.level.length()) continue;
+				//绕行时列坐标会串到隔壁行，跳过
+				if (Math.abs((c % w) - (pos % w)) > 1) continue;
+
+				if (Dungeon.level.passable[c] && !Dungeon.level.pit[c]) {
+					cells.add(c);
+				}
+			}
+		}
+		if (cells.isEmpty()) cells.add( pos );
+
+		int piles = Random.IntRange( 2, 4 );
+		for (int i = 0; i < piles && amount > 0; i++) {
+			int share = (i == piles - 1) ? amount : Random.IntRange( 1, amount );
+			amount -= share;
+			Heap heap = Dungeon.level.drop( new Gold( share ), cells.get( Random.Int( cells.size() ) ) );
+			if (heap.sprite != null) heap.sprite.drop();
 		}
 	}
 
@@ -408,6 +478,11 @@ public class Shopkeeper extends NPC {
 		if (c != Dungeon.hero) {
 			return true;
 		}
+		//SPS: 被打超过 1 次后，商人拒绝一切交谈（出售/交谈/回购都不再提供）
+		if (angered) {
+			yell( Messages.get(this, "no_talk") );
+			return true;
+		}
 		Game.runOnRenderThread(new Callback() {
 			@Override
 			public void call() {
@@ -496,12 +571,14 @@ public class Shopkeeper extends NPC {
 	public static String BUYBACK_ITEMS = "buyback_items";
 
 	public static String TURNS_SINCE_HARMED = "turns_since_harmed";
+	public static String ANGERED = "angered";
 
 	@Override
 	public void storeInBundle(Bundle bundle) {
 		super.storeInBundle(bundle);
 		bundle.put(BUYBACK_ITEMS, buybackItems);
 		bundle.put(TURNS_SINCE_HARMED, turnsSinceHarmed);
+		bundle.put(ANGERED, angered);
 	}
 
 	@Override
@@ -514,5 +591,6 @@ public class Shopkeeper extends NPC {
 			}
 		}
 		turnsSinceHarmed = bundle.contains(TURNS_SINCE_HARMED) ? bundle.getInt(TURNS_SINCE_HARMED) : -1;
+		angered = bundle.contains(ANGERED) && bundle.getBoolean(ANGERED);
 	}
 }
