@@ -53,11 +53,10 @@ public class SpsWaterEdgesTilemap extends DungeonTilemap {
 		if (unstitchable(pos + PathFinder.CIRCLE4[1])) t += 2;
 		if (unstitchable(pos + PathFinder.CIRCLE4[2])) t += 4;
 		if (unstitchable(pos + PathFinder.CIRCLE4[3])) t += 8;
-		//SPS: sps_water_edges_* 图集的帧序与位权【相反】——实测（tools/probe-water-edge-frames.ps1）：
-		//  f0 = 上右下左(全)   f1 = 右+下+左   f2 = 上+下+左   f8 = 上+右+下
-		//  f14 = 上            f15 = 无边缘(全透明)
-		//而位权 t 里"置位"表示该方向有边缘，故帧号 = 15 - t。
-		return 15 - t;
+		//SPS: 帧号直接等于位权 t。图集逐帧与原版 tiles0 第 4 行（帧 48-63）完全一致
+		//（见 tools/probe-water-edge-frames.ps1 实测）：f0 = 水铺满四边(四邻可缝合)，
+		//f15 = 全透明(四邻皆不可缝合)。位权里"置位"= 该方向相邻非水 -> 需要水边。
+		return t;
 	}
 
 	@Override
@@ -73,9 +72,9 @@ public class SpsWaterEdgesTilemap extends DungeonTilemap {
 	private boolean unstitchable(int pos) {
 		if (pos < 0 || pos >= map.length) return true;
 		int t = map[pos];
-		//SPS: 水与水之间不画边缘 —— 相邻水格可缝合。原版把 WATER 也标了 UNSTITCHABLE
-		//是因为它共用 48-63 段水位图集；本图集是独立的边缘层，水中心要留空。
-		if (t == Terrain.WATER) return false;
+		//SPS: 水也是不可缝合的 —— 与原版 Terrain.flags[WATER] |= UNSTITCHABLE 一致。
+		//水邻水时该方向置位，取到的帧是"水铺满该边"，正好无缝衔接。
+		if (t == Terrain.WATER) return true;
 		if ((Terrain.flags[t] & Terrain.SOLID) != 0) return true;
 		switch (t) {
 			case Terrain.CHASM:

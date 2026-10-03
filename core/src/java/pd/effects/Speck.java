@@ -73,6 +73,7 @@ public class Speck extends Image {
 	public static final int YELLOW_LIGHT= 120;
 	public static final int BLUE_LIGHT  = 121;
 	public static final int TARGAS      = 122;
+	public static final int BLOOD       = 123;   //SPS: 血色雾气（暗影场用）
 	
 	private static final int SIZE = 7;
 	
@@ -400,6 +401,14 @@ public class Speck extends Image {
 			angularSpeed = 30;
 			angle = Random.Float( 360 );
 			lifespan = Random.Float( 1f, 1.5f );
+			break;
+
+		//SPS: 血色雾气 —— 形态同毒气（TOXIC），颜色改血红
+		case BLOOD:
+			hardlight( 0xCC0000 );
+			angularSpeed = 30;
+			angle = Random.Float( 360 );
+			lifespan = Random.Float( 1f, 3f );
 			break;
 
 		case DUST:
