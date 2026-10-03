@@ -44,6 +44,8 @@ public final class ConsumPotionSeedSeedDict {
 	public static final IconEntry SEED_TRANSMUTE_CAGE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{227, 3, 10, 10}, 6487);
 	/** SEED_QUARTZFLOWER */
 	public static final IconEntry SEED_QUARTZFLOWER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{243, 3, 10, 10}, 6488);
+	/** SEED_DEWCATCHER */
+	public static final IconEntry SEED_DEWCATCHER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{259, 3, 10, 10}, 7129);
 	/** SEED_POD */
 	public static final IconEntry SEED_POD = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{275, 3, 10, 10}, 6489);
 	/** DURIAN */

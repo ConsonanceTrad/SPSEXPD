@@ -44,7 +44,7 @@ public class Dewcatcher extends Plant {
 		}
 	}
 	public static class Seed extends Plant.Seed {
-		{ image = ConsumPotionSeedSeedDict.SEED_POD; plantClass = Dewcatcher.class; explantClass = ExDewcatcher.class; }
+		{ image = ConsumPotionSeedSeedDict.SEED_DEWCATCHER; plantClass = Dewcatcher.class; explantClass = ExDewcatcher.class; }
 	}
 	public static class ExDewcatcher extends SpsFruitBush {
 		{ image = 12; harvestCount = 3; harvestClass = GreenSpore.class; }
