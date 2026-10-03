@@ -25,6 +25,8 @@ import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.mobs.Mob;
 import pd.actors.mobs.MobSpawner;
+import pd.actors.mobs.TestMob;
+import pd.actors.mobs.TestMob2;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.InlineText;
 import pd.messages.Messages;
@@ -53,6 +55,7 @@ public class WndDebugMobs extends Window {
 			.t("back", "返回")
 			.t("all", "全部")
 			.t("floor", "第 %1$d 层")
+			.t("dummies", "测试假人")
 			.t("spawned", "召唤 %1$s")
 			.t("failed", "附近没有空位");
 	}
@@ -94,6 +97,14 @@ public class WndDebugMobs extends Window {
 			map.put(Messages.get(WndDebugMobs.class, "floor", depth), list);
 			all.addAll(list);
 		}
+
+		//SPS: 测试假人不属于任何层的正常轮转，单独列一组（TestMob 不还手，便于测伤害）
+		ArrayList<Class<? extends Mob>> dummies = new ArrayList<>();
+		dummies.add(TestMob.class);
+		dummies.add(TestMob2.class);
+		map.put(Messages.get(WndDebugMobs.class, "dummies"), dummies);
+		all.addAll(dummies);
+
 		if (!all.isEmpty()) map.put(Messages.get(WndDebugMobs.class, "all"), new ArrayList<>(all));
 
 		groups = map;
