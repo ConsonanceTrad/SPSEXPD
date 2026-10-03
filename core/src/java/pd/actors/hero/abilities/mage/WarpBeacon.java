@@ -40,6 +40,11 @@ import pd.levels.Transitions;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
+import pd.ui.Window;
+import render.noosa.Game;
+import render.utils.data.Callback;
+
+import java.util.function.Supplier;
 import pd.scenes.InterlevelScene;
 import pd.ui.AttackIndicator;
 import pd.ui.HeroIcon;
@@ -57,6 +62,15 @@ import java.util.ArrayList;
 import pd.messages.InlineText;
 
 public class WarpBeacon extends ArmorAbility {
+
+	//SPSXPD: window construction measures text, which must happen on the render thread.
+	//Called from the actor thread it throws "Text measured from the actor thread!", so
+	//route every popup through here instead of calling the scene directly.
+	private static void showWindow(final Supplier<Window> factory){
+		Game.runOnRenderThread(new Callback(){
+			@Override public void call(){ GameScene.show(factory.get()); }
+		});
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
 	static {
 		InlineText.of(WarpBeacon.class)
@@ -103,7 +117,7 @@ public class WarpBeacon extends ArmorAbility {
 		if (hero.buff(WarpBeaconTracker.class) != null){
 			final WarpBeaconTracker tracker = hero.buff(WarpBeaconTracker.class);
 
-			GameScene.show( new WndOptions(
+			showWindow(() ->  new WndOptions(
 					new Image(hero.sprite),
 					Messages.titleCase(name()),
 					Messages.get(WarpBeacon.class, "window_desc", tracker.depth),

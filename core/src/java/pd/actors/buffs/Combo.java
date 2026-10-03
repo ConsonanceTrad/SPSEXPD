@@ -36,6 +36,11 @@ import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
+import pd.ui.Window;
+import render.noosa.Game;
+import render.utils.data.Callback;
+
+import java.util.function.Supplier;
 import pd.scenes.PixelScene;
 import pd.sprites.CharSprite;
 import pd.ui.ActionIndicator;
@@ -54,6 +59,15 @@ import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
 
 public class Combo extends Buff implements ActionIndicator.Action {
+
+	//SPSXPD: window construction measures text, which must happen on the render thread.
+	//Called from the actor thread it throws "Text measured from the actor thread!", so
+	//route every popup through here instead of calling the scene directly.
+	private static void showWindow(final Supplier<Window> factory){
+		Game.runOnRenderThread(new Callback(){
+			@Override public void call(){ GameScene.show(factory.get()); }
+		});
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
 	static {
 		InlineText.of(Combo.class)
@@ -234,7 +248,7 @@ public class Combo extends Buff implements ActionIndicator.Action {
 
 	@Override
 	public void doAction() {
-		GameScene.show(new WndCombo(this));
+		showWindow(() -> new WndCombo(this));
 	}
 
 	public enum ComboMove {

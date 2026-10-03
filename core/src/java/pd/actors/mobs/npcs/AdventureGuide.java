@@ -23,6 +23,8 @@ import pd.items.equipment.weapon.melee.MeleeWeapon;
 import pd.items.equipment.weapon.melee.fusion.FusionWeapon;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
+import render.noosa.Game;
+import render.utils.data.Callback;
 import pd.sprites.ShopkeeperSprite;
 import pd.utils.GLog;
 import pd.windows.WndBag;
@@ -110,18 +112,32 @@ public class AdventureGuide extends NPC {
 			AdventureJournal.complete(destination);
 			if (destination == 5) showTown((Hero)c);
 			else if (destination == 8) showWorkshop((Hero)c);
-			else GameScene.show(new WndMessage(Messages.get(this, "dialogue_" + destination)));
+			else {
+				//SPSXPD: 窗口构造会测量文字，必须在渲染线程执行（actor 线程直接 new 会崩）
+				final int d = destination;
+				Game.runOnRenderThread(new Callback() {
+					@Override public void call() {
+						GameScene.show(new WndMessage(Messages.get(AdventureGuide.this, "dialogue_" + d)));
+					}
+				});
+			}
 		}
 		return true;
 	}
 
 	private void showTown(final Hero hero) {
-		GameScene.show(new WndOptions(sprite(), Messages.titleCase(name()),
-				Messages.get(this, "dialogue_5"),
-				Messages.get(this, "town_shop"), Messages.get(this, "town_leave")) {
-			@Override
-			protected void onSelect(int index) {
-				if (index == 0) showStock(hero);
+		//SPSXPD: 窗口构造会测量文字，必须在渲染线程执行（actor 线程直接 new 会崩）
+		final String title = Messages.titleCase(name());
+		Game.runOnRenderThread(new Callback() {
+			@Override public void call() {
+				GameScene.show(new WndOptions(sprite(), title,
+						Messages.get(AdventureGuide.this, "dialogue_5"),
+						Messages.get(AdventureGuide.this, "town_shop"), Messages.get(AdventureGuide.this, "town_leave")) {
+					@Override
+					protected void onSelect(int index) {
+						if (index == 0) showStock(hero);
+					}
+				});
 			}
 		});
 	}

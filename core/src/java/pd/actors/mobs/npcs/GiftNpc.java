@@ -13,6 +13,8 @@ import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
 import pd.windows.WndQuest;
+import render.noosa.Game;
+import render.utils.data.Callback;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
@@ -136,11 +138,17 @@ public abstract class GiftNpc extends NPC {
 		if (!(c instanceof Hero)) return true;
 		Hero hero = (Hero)c;
 		if (sprite != null) sprite.turnTo(pos, hero.pos);
-		GameScene.show(new WndOptions(sprite(), Messages.titleCase(name()), Messages.get(this, "normal"),
-				Messages.get(GiftNpc.class, "talk"), Messages.get(GiftNpc.class, "gift")) {
-			@Override protected void onSelect(int index) {
-				if (index == 0) showDialogue(talkKey());
-				else if (index == 1) GameScene.selectItem(giftSelector);
+		//SPSXPD: 窗口构造会测量文字，必须在渲染线程执行
+		//（actor 线程里直接 new 会抛 "Text measured from the actor thread!"）
+		Game.runOnRenderThread(new Callback() {
+			@Override public void call() {
+				GameScene.show(new WndOptions(sprite(), Messages.titleCase(name()), Messages.get(GiftNpc.this, "normal"),
+						Messages.get(GiftNpc.class, "talk"), Messages.get(GiftNpc.class, "gift")) {
+					@Override protected void onSelect(int index) {
+						if (index == 0) showDialogue(talkKey());
+						else if (index == 1) GameScene.selectItem(giftSelector);
+					}
+				});
 			}
 		});
 		return true;

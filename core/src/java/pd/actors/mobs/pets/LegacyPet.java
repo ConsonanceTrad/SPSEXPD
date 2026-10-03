@@ -19,6 +19,8 @@ import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
 import pd.windows.WndPetInfo;
+import render.noosa.Game;
+import render.utils.data.Callback;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
@@ -230,7 +232,12 @@ public abstract class LegacyPet extends DirectableAlly {
 	public boolean interact(Char c) {
 		if (c != Dungeon.hero) return super.interact(c);
 		if (sprite != null) sprite.turnTo(pos, c.pos);
-		GameScene.show(new WndPetInfo(this));
+		//SPSXPD: 窗口构造会测量文字，必须在渲染线程执行（actor 线程直接 new 会崩）
+		Game.runOnRenderThread(new Callback() {
+			@Override public void call() {
+				GameScene.show(new WndPetInfo(LegacyPet.this));
+			}
+		});
 		return true;
 	}
 

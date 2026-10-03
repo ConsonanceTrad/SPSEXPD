@@ -69,6 +69,11 @@ import pd.levels.GroundItems;
 import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.scenes.GameScene;
+import pd.ui.Window;
+import render.noosa.Game;
+import render.utils.data.Callback;
+
+import java.util.function.Supplier;
 import pd.sprites.TownNpcSprite;
 import pd.windows.WndAflyInfo;
 import pd.windows.WndDream;
@@ -88,6 +93,15 @@ import render.utils.serialize.Bundle;
 
 /** Data-backed implementation of the original named residents of Dolya town. */
 public class TownNpc extends NPC {
+
+	//SPSXPD: window construction measures text, which must happen on the render thread.
+	//Called from the actor thread it throws "Text measured from the actor thread!", so
+	//route every popup through here instead of calling the scene directly.
+	private static void showWindow(final Supplier<Window> factory){
+		Game.runOnRenderThread(new Callback(){
+			@Override public void call(){ GameScene.show(factory.get()); }
+		});
+	}
 
 	public enum Spec {
 		UDAWOS("udawos", 14, 16, 2),
@@ -425,15 +439,15 @@ public class TownNpc extends NPC {
 		if (ch != Dungeon.hero) return super.interact(ch);
 		sprite.turnTo(pos, ch.pos);
 		if (spec == Spec.MAYOR) {
-			GameScene.show(new WndQuest(this, Messages.get(key(first ? "tell1" : "tell2"))));
+			showWindow(() -> new WndQuest(this, Messages.get(key(first ? "tell1" : "tell2"))));
 			first = false;
 		} else if (spec == Spec.GEOLOGIST) {
 			if (first) {
-				GameScene.show(new WndQuest(this, Messages.get(key("tell3"))));
+				showWindow(() -> new WndQuest(this, Messages.get(key("tell3"))));
 				Dungeon.level.drop(new FireMeat(), Dungeon.hero.pos).sprite.drop();
 				first = false;
 			} else {
-				GameScene.show(new WndQuest(this, Messages.get(key(Random.Int(2) == 0 ? "tell1" : "tell2"))));
+				showWindow(() -> new WndQuest(this, Messages.get(key(Random.Int(2) == 0 ? "tell1" : "tell2"))));
 			}
 		} else if (spec == Spec.RENNPC) {
 			if (first) {
@@ -474,16 +488,16 @@ public class TownNpc extends NPC {
 			if (index == 46) yell(Messages.get(key("yell1")));
 			else if (THANKS[index] != null) yell(THANKS[index]);
 		} else if (spec == Spec.A_REAL_MAN) {
-			GameScene.show(new WndMix());
+			showWindow(() -> new WndMix());
 		} else if (spec == Spec.A_FLY) {
 			if (Random.Int(2) == 0) yell(Messages.get(key("yell1")));
-			else GameScene.show(new WndAflyInfo());
+			else showWindow(() -> new WndAflyInfo());
 		} else if (spec == Spec.SAID_BY_SUN) {
 			switch (Random.Int(3)) {
 				case 0: yell(Messages.get(key("yell1"))); break;
 				case 1: yell(Messages.get(key("yell2"))); break;
 				default:
-					if (Badges.checkOtilukeRescued()) GameScene.show(new WndSaidBySun());
+					if (Badges.checkOtilukeRescued()) showWindow(() -> new WndSaidBySun());
 					break;
 			}
 		} else if (spec == Spec.DREAM_PLAYER) {
@@ -491,18 +505,18 @@ public class TownNpc extends NPC {
 				case 0: yell(Messages.get(key("yell1"))); break;
 				case 1: yell(Messages.get(key("yell2"))); break;
 				default:
-					if (Badges.checkOtilukeRescued()) GameScene.show(new WndDream());
+					if (Badges.checkOtilukeRescued()) showWindow(() -> new WndDream());
 					break;
 			}
 		} else if (spec == Spec.XIXI_ZERO) {
 			if (Random.Int(2) == 0) yell(Messages.get(key("yell1")));
-			else GameScene.show(new WndEgoalInfo());
+			else showWindow(() -> new WndEgoalInfo());
 		} else if (spec == Spec.HATE_SOKOBAN) {
 			switch (Random.Int(3)) {
 				case 0: yell(Messages.get(key("yell1"))); break;
 				case 1: yell(Messages.get(key("yell2"))); break;
 				default:
-					if (Badges.checkOtilukeRescued()) GameScene.show(new WndHate());
+					if (Badges.checkOtilukeRescued()) showWindow(() -> new WndHate());
 					break;
 			}
 		} else if (spec == Spec.MILLILITRE) {
@@ -510,14 +524,14 @@ public class TownNpc extends NPC {
 				case 0: yell(Messages.get(key("yell1"))); break;
 				case 1: yell(Messages.get(key("yell2"))); break;
 				default:
-					if (Badges.checkOtilukeRescued()) GameScene.show(new WndIssic());
+					if (Badges.checkOtilukeRescued()) showWindow(() -> new WndIssic());
 					break;
 			}
 		} else if (spec == Spec.G2159687) {
 			switch (Random.Int(3)) {
 				case 0: yell(Messages.get(key("yell1"))); break;
 				case 1: yell(Messages.get(key("yell2"))); break;
-				default: GameScene.show(new WndHotel()); break;
+				default: showWindow(() -> new WndHotel()); break;
 			}
 		} else if (spec == Spec.HONEY_POOOOT) {
 			switch (Random.Int(3)) {
@@ -544,7 +558,7 @@ public class TownNpc extends NPC {
 			if (line < 6) {
 				yell(Messages.get(key("yell" + (line + 1))));
 			} else if (Badges.checkOtilukeRescued()) {
-				GameScene.show(new WndIce13());
+				showWindow(() -> new WndIce13());
 			}
 		} else if (spec == Spec.OLD_NEW_STWIST) {
 			GnollClothes clothes = Dungeon.hero.belongings.getItem(GnollClothes.class);
@@ -556,7 +570,7 @@ public class TownNpc extends NPC {
 				yell(Messages.get(key("yell3")));
 			} else if (!Dungeon.gnollMission) {
 				yell(Messages.get(key("yell4")));
-				GameScene.show(new WndONS(clothes));
+				showWindow(() -> new WndONS(clothes));
 			} else {
 				yell(Messages.get(key(first ? "yell6" : "yell5")));
 				first = false;
@@ -564,11 +578,11 @@ public class TownNpc extends NPC {
 		} else if (spec == Spec.GOBLIN_PLAYER) {
 			int result = Random.Int(3);
 			if (result < 2) yell(Messages.get(key("yell" + (result + 1))));
-			else if (Badges.checkOtilukeRescued()) GameScene.show(new WndGoblin());
+			else if (Badges.checkOtilukeRescued()) showWindow(() -> new WndGoblin());
 		} else if (spec == Spec.SHOWER) {
 			int result = Random.Int(4);
 			if (result < 3) yell(Messages.get(key("yell" + (result + 1))));
-			else if (Badges.checkOtilukeRescued()) GameScene.show(new WndShower());
+			else if (Badges.checkOtilukeRescued()) showWindow(() -> new WndShower());
 		} else if (spec == Spec.HBB) {
 			int result = Random.Int(4);
 			if (result < 3) {

@@ -64,6 +64,11 @@ import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
+import pd.ui.Window;
+import render.noosa.Game;
+import render.utils.data.Callback;
+
+import java.util.function.Supplier;
 import pd.sprites.ItemSprite;
 import pd.ui.HeroIcon;
 import pd.ui.ItemButton;
@@ -81,6 +86,15 @@ import java.util.ArrayList;
 import pd.messages.InlineText;
 
 public class Trinity extends ArmorAbility {
+
+	//SPSXPD: window construction measures text, which must happen on the render thread.
+	//Called from the actor thread it throws "Text measured from the actor thread!", so
+	//route every popup through here instead of calling the scene directly.
+	private static void showWindow(final Supplier<Window> factory){
+		Game.runOnRenderThread(new Callback(){
+			@Override public void call(){ GameScene.show(factory.get()); }
+		});
+	}
 	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
 	static {
 		InlineText.of(Trinity.class)
@@ -134,7 +148,7 @@ public class Trinity extends ArmorAbility {
 		if (bodyForm == null && mindForm == null && spiritForm == null){
 			GLog.w(Messages.get(this, "no_imbue"));
 		} else {
-			GameScene.show(new WndUseTrinity(armor));
+			showWindow(() -> new WndUseTrinity(armor));
 		}
 
 	}
@@ -447,7 +461,7 @@ public class Trinity extends ArmorAbility {
 				ItemButton btn = new ItemButton(){
 					@Override
 					protected void onClick() {
-						GameScene.show(new WndItemConfirm(WndItemtypeSelect.this, item, tome, spell));
+						showWindow(() -> new WndItemConfirm(WndItemtypeSelect.this, item, tome, spell));
 					}
 				};
 				btn.item(item);
