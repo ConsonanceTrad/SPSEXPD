@@ -52,7 +52,8 @@ public class WndGame extends Window {
 			.t("menu", "主菜单")
 			.t("exit", "退出游戏")
 			.t("return", "继续冒险")
-			.t("debug_items", "调试器");
+			.t("debug_items", "调试物品")
+			.t("debug_mobs", "召唤怪物");
 	}
 
 
@@ -86,6 +87,16 @@ public class WndGame extends Window {
 				protected void onClick() {
 					hide();
 					GameScene.show( new WndDebugItems() );
+				}
+			} );
+			curBtn.icon(Icons.get(Icons.DATA));
+
+			//SPS: 调试怪物工具（原创缺口）。在英雄身旁召唤任意怪物，协助测试战斗/特效/新怪
+			addButton( curBtn = new RedButton( Messages.get(this, "debug_mobs") ) {
+				@Override
+				protected void onClick() {
+					hide();
+					GameScene.show( new WndDebugMobs() );
 				}
 			} );
 			curBtn.icon(Icons.get(Icons.DATA));
