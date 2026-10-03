@@ -1983,7 +1983,9 @@ public class GameScene extends PixelScene {
 		scene.heroPathCells.clear();
 		if (path == null || path.isEmpty()) return;
 
-		for (int i = 0; i < path.size(); i++){
+		//SPS: 跳过第 0 个点（英雄当前格）——它下一步就离开了，
+		//提前一格消失，避免标记跟不上英雄的脚步。
+		for (int i = 1; i < path.size(); i++){
 			HeroPathCell mark = (HeroPathCell) scene.heroPathCells.recycle( HeroPathCell.class );
 			mark.reset( path.get(i), i == path.size() - 1 );
 		}
