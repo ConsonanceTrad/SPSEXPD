@@ -40,6 +40,7 @@ import pd.items.equipment.armor.Armor;
 import pd.items.specific.sellitem.SellPermit;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.journal.Notes;
+import pd.levels.traps.GuardianTrap;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -56,6 +57,7 @@ import render.noosa.Game;
 import render.noosa.Image;
 import render.utils.data.BArray;
 import render.utils.data.Callback;
+import render.utils.math.Random;
 import render.utils.serialize.Bundlable;
 import render.utils.serialize.Bundle;
 
@@ -70,6 +72,8 @@ public class Shopkeeper extends NPC {
 			.t("thief", "小偷，小偷！")
 			.t("warn", "小心！我不会警告你第二次了。")
 			.t("flee", "店主关店跑路了！")
+			//SPS: 店主被打不再跑路，改为召唤守卫
+			.t("guards", "店主召唤了守卫！")
 			.t("sell", "出售")
 			.t("talk", "交谈")
 			.t("buyback", "店主不情不愿地退还了你的物品。")
@@ -189,8 +193,68 @@ public class Shopkeeper extends NPC {
 		//There is a 1 turn buffer before more damage/debuffs make the shopkeeper flee
 		//This is mainly to prevent stacked effects from causing an instant flee
 		} else if (turnsSinceHarmed >= 1) {
-			flee();
+			//SPS: 店主不再跑路，改为召唤守卫（见 summonGuards）
+			summonGuards();
 		}
+	}
+
+	//SPS: 店主被打时召唤的石像守卫：2 只，固定按第 30 层的强度，只召唤一次。
+	private static final int GUARD_COUNT = 2;
+	private static final int GUARD_DEPTH = 30;
+	private boolean guardsSummoned = false;
+
+	/**
+	 * SPS: 在店主附近召唤石像守卫（{@link GuardianTrap.Guardian}）。
+	 * 强度固定按第 {@link #GUARD_DEPTH} 层算，不随当前层浮动 ——
+	 * 石像的公式是 HP=15+depth*5、defenseSkill=4+depth*2。
+	 */
+	public void summonGuards() {
+		if (guardsSummoned) return;
+		guardsSummoned = true;
+
+		GLog.newLine();
+		GLog.n( Messages.get(this, "guards") );
+		if (sprite != null) {
+			CellEmitter.get(pos).burst(ElmoParticle.FACTORY, 6 );
+		}
+
+		for (int i = 0; i < GUARD_COUNT; i++) {
+			int cell = guardCell();
+			if (cell == -1) break;
+
+			GuardianTrap.Guardian guard = new GuardianTrap.Guardian();
+			guard.createWeapon( false );
+			guard.HP = guard.HT = 15 + GUARD_DEPTH * 5;
+			guard.defenseSkill = 4 + GUARD_DEPTH * 2;
+			guard.pos = cell;
+
+			GameScene.add( guard );
+			guard.beckon( Dungeon.hero.pos );
+			if (Dungeon.level.heroFOV[cell]) {
+				CellEmitter.get( cell ).burst( ElmoParticle.FACTORY, 8 );
+			}
+		}
+	}
+
+	/** SPS: 在店主周围一圈里找一个能站人的空位；没有则返回 -1。 */
+	private int guardCell() {
+		int w = Dungeon.level.width();
+		ArrayList<Integer> free = new ArrayList<>();
+		for (int dy = -2; dy <= 2; dy++) {
+			for (int dx = -2; dx <= 2; dx++) {
+				if (dx == 0 && dy == 0) continue;
+
+				int c = pos + dx + dy * w;
+				if (c < 0 || c >= Dungeon.level.length()) continue;
+				//绕行时列坐标会串到隔壁行，跳过
+				if (Math.abs((c % w) - (pos % w)) > 2) continue;
+
+				if (Dungeon.level.passable[c] && !Dungeon.level.pit[c] && Actor.findChar(c) == null) {
+					free.add(c);
+				}
+			}
+		}
+		return free.isEmpty() ? -1 : free.get( Random.Int( free.size() ) );
 	}
 	
 	public void flee() {
