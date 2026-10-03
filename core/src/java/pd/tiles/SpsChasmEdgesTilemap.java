@@ -7,7 +7,6 @@
 
 package pd.tiles;
 
-import pd.Assets;
 import pd.Dungeon;
 import pd.levels.Terrain;
 
@@ -29,21 +28,10 @@ import pd.levels.Terrain;
 public class SpsChasmEdgesTilemap extends DungeonTilemap {
 
 	public SpsChasmEdgesTilemap(){
-		super( chasmTex() );
+		//深渊各形态与地形同在一个 SPS 图集（sps_tiles_*_legacy.png）里，
+		//帧号见 DungeonTileSheet 的 CHASM 系列常量。
+		super( Dungeon.level.tilesTex() );
 		map( Dungeon.level.map, Dungeon.level.width() );
-	}
-
-	/**
-	 * 深渊各形态位于【破碎图集】tiles_*.png（帧号按 xy() 换算，见 DungeonTileSheet），
-	 * 而不是地形层用的 SPS 图集，所以这里单独按主题映射一次。
-	 */
-	private static String chasmTex(){
-		String t = Dungeon.level.tilesTex();
-		if (Assets.Environment.SPS_TILES_SEWERS_LEGACY.equals(t)) return Assets.Environment.TILES_SEWERS;
-		if (Assets.Environment.SPS_TILES_PRISON_LEGACY.equals(t)) return Assets.Environment.TILES_PRISON;
-		if (Assets.Environment.SPS_TILES_CAVES_LEGACY.equals(t))  return Assets.Environment.TILES_CAVES;
-		if (Assets.Environment.SPS_TILES_CITY_LEGACY.equals(t))   return Assets.Environment.TILES_CITY;
-		return Assets.Environment.TILES_HALLS;
 	}
 
 	@Override
