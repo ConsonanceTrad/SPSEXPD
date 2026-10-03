@@ -76,6 +76,9 @@ public class Shopkeeper extends NPC {
 			//SPS: 商人被打不再跑路，改为召唤守卫并涨价
 			.t("guards", "守卫！守卫！")
 			.t("free_now", "守卫已被尽数击败，本店今日免费！")
+			//SPS: 守卫被清光、以及免费拿货时商人的喊话
+			.t("guards_down", "我的守卫……我的金币……")
+			.t("free_buy", "金币……我的金币…")
 			.t("sell", "出售")
 			.t("talk", "交谈")
 			.t("buyback", "店主不情不愿地退还了你的物品。")
@@ -249,12 +252,13 @@ public class Shopkeeper extends NPC {
 		if (shopRoom != null) shopRoom.checkRestock();
 	}
 
-	/** SPS: 本店的一只守卫被击败。累计到阈值后本店免费并停止补货。 */
+	/** SPS: 本店的一只守卫被击败。累计到阈值后本店免费并停止补货，商人也会喊一句。 */
 	public void onGuardKilled() {
 		guardsKilled++;
 		if (!freeAndNoRestock && guardsKilled >= GUARDS_TO_FREE) {
 			freeAndNoRestock = true;
 			GLog.p( Messages.get(this, "free_now") );
+			yell( Messages.get(this, "guards_down") );
 		}
 	}
 

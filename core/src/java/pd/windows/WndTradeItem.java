@@ -320,10 +320,13 @@ public class WndTradeItem extends WndInfoItem {
 			Dungeon.level.drop( item, heap.pos ).sprite.drop();
 		}
 
-		//SPS: 买走东西后检查本层商店是否快卖光（剩余待售堆 < 4 就补货）
+		//SPS: 卖光检查；另外免费拿货时商人会心疼地喊一句
 		for (Mob mob : Dungeon.level.mobs()) {
 			if (mob instanceof Shopkeeper) {
 				Shopkeeper shop = (Shopkeeper) mob;
+				if (price == 0) {
+					shop.yell( Messages.get(Shopkeeper.class, "free_buy") );
+				}
 				if (shop.shopRoom != null) shop.shopRoom.checkRestock();
 			}
 		}
