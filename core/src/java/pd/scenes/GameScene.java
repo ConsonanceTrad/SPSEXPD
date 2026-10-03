@@ -92,6 +92,7 @@ import pd.tiles.DungeonWallsTilemap;
 import pd.tiles.FogOfWar;
 import pd.tiles.GridTileMap;
 import pd.tiles.RaisedTerrainTilemap;
+import pd.tiles.SpsChasmEdgesTilemap;
 import pd.tiles.SpsWaterEdgesTilemap;
 import pd.tiles.TerrainFeaturesTilemap;
 import pd.tiles.WallBlockingTilemap;
@@ -205,6 +206,7 @@ public class GameScene extends PixelScene {
 	private DungeonTerrainTilemap tiles;
 	//SPS: 水缝合边独立层（水脱离地形图集的 48-63 段语义）
 	private SpsWaterEdgesTilemap waterEdges;
+	private SpsChasmEdgesTilemap chasmEdges;
 	private GridTileMap visualGrid;
 	private WallOcclusionTilemap occlusion;
 	private TerrainFeaturesTilemap terrainFeatures;
@@ -329,6 +331,10 @@ public class GameScene extends PixelScene {
 		//避免破碎系地形图集关卡把水渲染成物件图标）
 		waterEdges = new SpsWaterEdgesTilemap();
 		terrain.add( waterEdges );
+
+		//SPS: 深渊缝合边独立层（恢复旧版 2.5D 立体边缘：深渊相邻陆地/墙/水时补画下沉帧）
+		chasmEdges = new SpsChasmEdgesTilemap();
+		terrain.add( chasmEdges );
 
 		customTiles = new Group();
 		terrain.add(customTiles);
@@ -1441,6 +1447,7 @@ public class GameScene extends PixelScene {
 			if (scene.visualGrid != null) scene.visualGrid.map(Dungeon.level.map, Dungeon.level.width() );
 			scene.terrainFeatures.map(Dungeon.level.map, Dungeon.level.width() );
 			if (scene.waterEdges != null) scene.waterEdges.map(Dungeon.level.map, Dungeon.level.width() );
+			if (scene.chasmEdges != null) scene.chasmEdges.map(Dungeon.level.map, Dungeon.level.width() );
 			if (scene.raisedTerrain != null) scene.raisedTerrain.map(Dungeon.level.map, Dungeon.level.width() );
 			if (scene.walls != null) scene.walls.map(Dungeon.level.map, Dungeon.level.width() );
 		}
@@ -1455,6 +1462,7 @@ public class GameScene extends PixelScene {
 			if (scene.visualGrid != null) scene.visualGrid.updateMap();
 			scene.terrainFeatures.updateMap();
 			if (scene.waterEdges != null) scene.waterEdges.updateMap();
+			if (scene.chasmEdges != null) scene.chasmEdges.updateMap();
 			if (scene.raisedTerrain != null) scene.raisedTerrain.updateMap();
 			if (scene.walls != null) scene.walls.updateMap();
 			updateFog();
@@ -1477,6 +1485,12 @@ public class GameScene extends PixelScene {
 					}
 				}
 			}
+			//深渊缝合边只看上方格：本格或上下邻格变化都要刷新
+			if (scene.chasmEdges != null) {
+				scene.chasmEdges.updateMapCell( cell );
+				scene.chasmEdges.updateMapCell( cell - Dungeon.level.width() );
+				scene.chasmEdges.updateMapCell( cell + Dungeon.level.width() );
+			}
 			if (scene.raisedTerrain != null) scene.raisedTerrain.updateMapCell( cell );
 			if (scene.walls != null) scene.walls.updateMapCell( cell );
 			//update adjacent cells too
@@ -1494,6 +1508,7 @@ public class GameScene extends PixelScene {
 		if (scene != null) {
 			scene.tiles.discover( pos, oldValue );
 			if (scene.waterEdges != null) scene.waterEdges.discover( pos, oldValue );
+			if (scene.chasmEdges != null) scene.chasmEdges.discover( pos, oldValue );
 		}
 	}
 	
