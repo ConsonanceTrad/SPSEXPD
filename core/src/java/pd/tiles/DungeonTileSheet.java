@@ -76,12 +76,14 @@ public class DungeonTileSheet {
 
 	public static final int ENTRANCE_SP     = GROUND +22;
 
-	public static final int CHASM           =                               xy(9, 2);   //8 slots
-	//chasm stitching visuals...
-	public static final int CHASM_FLOOR     = CHASM+1;
-	public static final int CHASM_FLOOR_SP  = CHASM+2;
-	public static final int CHASM_WALL      = CHASM+3;
-	public static final int CHASM_WATER     = CHASM+4;
+	//SPS: 深渊各形态在 tiles_*.png 里【不是连续段】，逐个指定（已核对）：
+	//  1,1=0   完整深渊        13,3=44 邻接地板
+	//  14,3=45 邻接墙          16,3=47 邻接水
+	public static final int CHASM           =                               xy(1, 1);
+	public static final int CHASM_FLOOR     =                               xy(13, 3);
+	public static final int CHASM_FLOOR_SP  =                               xy(13, 3);
+	public static final int CHASM_WALL      =                               xy(14, 3);
+	public static final int CHASM_WATER     =                               xy(16, 3);
 
 	//tiles that can stitch with chasms (from above), and which visual represents the stitching
 	public static SparseArray<Integer> chasmStitcheable = new SparseArray<>();
