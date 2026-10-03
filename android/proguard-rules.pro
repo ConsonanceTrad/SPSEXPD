@@ -5,7 +5,12 @@
 # keep classes that are instantiated via reflection
 -keep class * extends render.noosa.Gizmo { *; }
 -keep class * extends render.glscripts.Script { *; }
--keep class * implements render.utils.Bundlable { *; }
+# 注意 Bundlable 的实际包名是 render.utils.serialize（不是 render.utils）。
+# 之前这里写漏了 .serialize，导致这条规则从未匹配到任何类 ——
+# 而 Actor、Room、Item、Level 等全都 implements Bundlable，
+# 于是它们的子类被 R8 删掉了反射构造所需的成员，
+# 进入关卡时 Buff.affect()/房间创建 全部 NPE 闪退（release 包专属，debug 不混淆所以正常）。
+-keep class * implements render.utils.serialize.Bundlable { *; }
 
 # retained to support meaningful stack traces
 # note that the mapping file must be referenced in order to make sense of line numbers
