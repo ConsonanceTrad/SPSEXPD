@@ -15,10 +15,11 @@ import pd.actors.buffs.Burning;
 import pd.actors.buffs.Frost;
 import pd.actors.buffs.Ooze;
 import pd.actors.buffs.Shocked;
-import pd.effects.MagicMissile;
+import pd.effects.Beam;
 import pd.items.Item;
 import pd.items.equipment.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
+import pd.tiles.DungeonTilemap;
 import render.noosa.audio.Sample;
 import render.utils.data.Callback;
 import render.utils.math.Random;
@@ -70,8 +71,11 @@ public class CannonOfMage extends DamageWand {
 	}
 
 	@Override public void fx(Ballistica bolt, Callback callback) {
-		MagicMissile.boltFromChar(curUser.sprite.parent, MagicMissile.RAINBOW, curUser.sprite, bolt.collisionPos, callback);
-		Sample.INSTANCE.play(Assets.Sounds.ZAP);
+		//SPS: 七彩大炮改用棱光之杖的光线射线特效
+		curUser.sprite.parent.add(
+				new Beam.LightRay(curUser.sprite.center(), DungeonTilemap.raisedTileCenterToWorld(bolt.collisionPos)));
+		Sample.INSTANCE.play(Assets.Sounds.RAY);
+		callback.call();
 	}
 
 	@Override public void onHit(MagesStaff staff, Char attacker, Char defender, int damage) {
