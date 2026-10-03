@@ -80,10 +80,10 @@ public class DungeonTileSheet {
 	//  (1,1)=0  完整深渊     (12,2)=27 邻接陆地
 	//  (13,2)=28 邻接木桥    (14,2)=29 邻接墙体    (16,2)=31 邻接水
 	public static final int CHASM           =                               xy(1, 1);
-	public static final int CHASM_FLOOR     =                               xy(12, 2);
-	public static final int CHASM_FLOOR_SP  =                               xy(13, 2);
-	public static final int CHASM_WALL      =                               xy(14, 2);
-	public static final int CHASM_WATER     =                               xy(16, 2);
+	public static final int CHASM_FLOOR     =                               xy(12, 3);
+	public static final int CHASM_FLOOR_SP  =                               xy(13, 3);
+	public static final int CHASM_WALL      =                               xy(14, 3);
+	public static final int CHASM_WATER     =                               xy(16, 3);
 
 	//tiles that can stitch with chasms (from above), and which visual represents the stitching
 	public static SparseArray<Integer> chasmStitcheable = new SparseArray<>();
