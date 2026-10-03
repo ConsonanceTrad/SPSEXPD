@@ -252,13 +252,13 @@ public class Shopkeeper extends NPC {
 		if (shopRoom != null) shopRoom.checkRestock();
 	}
 
-	/** SPS: 本店的一只守卫被击败。累计到阈值后本店免费并停止补货，商人也会喊一句。 */
+	/** SPS: 本店的一只守卫被击败。累计到阈值后本店免费并停止补货（走系统日志，不用头顶喊话）。 */
 	public void onGuardKilled() {
 		guardsKilled++;
 		if (!freeAndNoRestock && guardsKilled >= GUARDS_TO_FREE) {
 			freeAndNoRestock = true;
 			GLog.p( Messages.get(this, "free_now") );
-			yell( Messages.get(this, "guards_down") );
+			GLog.n( Messages.get(this, "guards_down") );
 		}
 	}
 
