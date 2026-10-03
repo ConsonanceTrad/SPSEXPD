@@ -144,8 +144,8 @@ public class CurrencyIndicator extends Component {
 			layout();
 		}
 
-		//SPS: 金币可兑换 S金时保持显示（可发现性），其余维持 2 秒淡出
-		if (showGold || Dungeon.gold >= SC_EXCHANGE_RATE){
+		//SPS: 交易窗口打开时保持显示（方便看价格），其余维持 2 秒淡出
+		if (showGold){
 			if (!gold.visible){
 				gold.visible = true;
 				layout();
