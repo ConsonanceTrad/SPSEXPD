@@ -21,6 +21,7 @@
 
 package pd.items.consum.scrolls.exotic;
 
+import pd.atlas.IconEntry;
 import pd.items.Item;
 import pd.items.Recipe;
 import pd.items.consum.scrolls.Scroll;
@@ -123,8 +124,11 @@ public abstract class ExoticScroll extends Scroll {
 	public void reset() {
 		super.reset();
 		if (handler != null && handler.contains(exoToReg.get(this.getClass()))) {
-			image = handler.image(exoToReg.get(this.getClass()));
-			rune = handler.label(exoToReg.get(this.getClass()));
+			Class<? extends Scroll> reg = exoToReg.get(this.getClass());
+			rune = handler.label(reg);
+			//SPS: 密卷外观 = 同列第二行（普通卷轴图案的 y+16）；推不出就退回普通卷轴的外观
+			IconEntry exo = Scroll.exoticVariant( handler.image(reg) );
+			image = exo != null ? exo : handler.image(reg);
 		}
 	}
 	

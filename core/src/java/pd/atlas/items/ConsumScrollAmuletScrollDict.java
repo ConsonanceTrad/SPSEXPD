@@ -66,12 +66,18 @@ public final class ConsumScrollAmuletScrollDict {
 	public static final IconEntry SCROLL_DREAD_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{160, 16, 15, 14}, 6555);
 	/** SCROLL_METAMORPH#0 */
 	public static final IconEntry SCROLL_METAMORPH_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{176, 16, 15, 14}, 6556);
+	/** SPS_SCROLL_A#0 */
+	public static final IconEntry SPS_SCROLL_A_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{192, 16, 15, 14}, 7131);
+	/** SPS_SCROLL_B#0 */
+	public static final IconEntry SPS_SCROLL_B_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{208, 16, 15, 14}, 7132);
+	/** SPS_SCROLL_C#0 */
+	public static final IconEntry SPS_SCROLL_C_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{224, 16, 15, 14}, 7133);
 	/** SCROLL_OF_PRECISION */
-	public static final IconEntry SCROLL_OF_PRECISION = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{193, 17, 15, 14}, 6557);
+	public static final IconEntry SCROLL_OF_PRECISION = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{193, 33, 15, 14}, 6557);
 	/** SCROLL_OF_PROTECTION */
-	public static final IconEntry SCROLL_OF_PROTECTION = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{209, 17, 15, 14}, 6558);
+	public static final IconEntry SCROLL_OF_PROTECTION = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{209, 33, 15, 14}, 6558);
 	/** SCROLL_OF_MAGIC */
-	public static final IconEntry SCROLL_OF_MAGIC = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{225, 17, 15, 14}, 6559);
+	public static final IconEntry SCROLL_OF_MAGIC = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{225, 33, 15, 14}, 6559);
 	/** ENCHANT_CUBE */
 	public static final IconEntry ENCHANT_CUBE = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{210, 50, 12, 13}, 6560);
 	/** ARCANE_RESIN */

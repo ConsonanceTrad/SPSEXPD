@@ -109,19 +109,19 @@ public abstract class Scroll extends Item {
 
 	private static final LinkedHashMap<String, IconEntry> runes = new LinkedHashMap<String, IconEntry>() {
 		{
-			//SPS: 每局从这批图案里随机分配给各卷轴
-			//（6541=升级、6556=附魔密卷 是固定外观，不参与随机）
-			put("KAUNAN",  ConsumScrollAmuletScrollDict.SCROLL_ENCHANT_0);
-			put("SOWILO",  ConsumScrollAmuletScrollDict.EXOTIC_SOWILO_0);
-			put("LAGUZ",   ConsumScrollAmuletScrollDict.EXOTIC_LAGUZ_0);
-			put("YNGVI",   ConsumScrollAmuletScrollDict.EXOTIC_YNGVI_0);
-			put("GYFU",    ConsumScrollAmuletScrollDict.SCROLL_MYSTENRG_0);
-			put("RAIDO",   ConsumScrollAmuletScrollDict.EXOTIC_RAIDO_0);
-			put("ISAZ",    ConsumScrollAmuletScrollDict.SCROLL_SIREN_0);
-			put("MANNAZ",  ConsumScrollAmuletScrollDict.SCROLL_FORESIGHT_0);
-			put("NAUDIZ",  ConsumScrollAmuletScrollDict.SCROLL_CHALLENGE_0);
-			put("BERKANAN",ConsumScrollAmuletScrollDict.EXOTIC_BERKANAN_0);
-			put("NCOSRANE",ConsumScrollAmuletScrollDict.SCROLL_DREAD_0);
+			//SPS: 每局从这批图案里随机分配给各普通卷轴；这里全部取图集第一行（普通卷轴外观），
+			//密卷的第二行外观由 ExoticScroll.reset() 按同列 y+16 推导，不再随机。
+			put("KAUNAN",  ConsumScrollAmuletScrollDict.SCROLL_ENCHANT_LEGACY);
+			put("SOWILO",  ConsumScrollAmuletScrollDict.EXOTIC_SOWILO_LEGACY);
+			put("LAGUZ",   ConsumScrollAmuletScrollDict.EXOTIC_LAGUZ_LEGACY);
+			put("YNGVI",   ConsumScrollAmuletScrollDict.EXOTIC_YNGVI_LEGACY);
+			put("GYFU",    ConsumScrollAmuletScrollDict.SCROLL_MYSTENRG_LEGACY);
+			put("RAIDO",   ConsumScrollAmuletScrollDict.EXOTIC_RAIDO_LEGACY);
+			put("ISAZ",    ConsumScrollAmuletScrollDict.SCROLL_SIREN_LEGACY);
+			put("MANNAZ",  ConsumScrollAmuletScrollDict.SCROLL_FORESIGHT_LEGACY);
+			put("NAUDIZ",  ConsumScrollAmuletScrollDict.SCROLL_CHALLENGE_LEGACY);
+			put("BERKANAN",ConsumScrollAmuletScrollDict.EXOTIC_BERKANAN_LEGACY);
+			put("NCOSRANE",ConsumScrollAmuletScrollDict.SCROLL_DREAD_LEGACY);
 			put("TIWAZ",   ConsumScrollAmuletScrollDict.SPS_SCROLL_A);
 			put("NENDIL",  ConsumScrollAmuletScrollDict.SPS_SCROLL_B);
 			put("LIBRA",   ConsumScrollAmuletScrollDict.SPS_SCROLL_C);
@@ -145,6 +145,14 @@ public abstract class Scroll extends Item {
 		defaultAction = AC_READ;
 	}
 	
+	//SPS: 图集里普通卷轴在第一行、密卷在第二行，逐列相邻（y 相差一个格子）。
+	//密卷外观直接由普通卷轴的图案推出来，无需另立一份随机标签表。
+	public static IconEntry exoticVariant( IconEntry normal ) {
+		if (normal == null) return null;
+		return new IconEntry( normal.atlas,
+				new int[]{ normal.x(0), normal.y(0) + 16, normal.w(0), normal.h(0) } );
+	}
+
 	@SuppressWarnings("unchecked")
 	public static void initLabels() {
 		handler = new ItemStatusHandler<>( (Class<? extends Scroll>[])Generator.Category.SCROLL.classes, runes );
