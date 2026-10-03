@@ -1,7 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.skills;
 
-import pd.atlas.items.ConsumScrollAmuletAmuletDict;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -32,7 +32,7 @@ public class AsceticSkill extends ClassSkill {
 
 
 
-	{ image = ConsumScrollAmuletAmuletDict.STONE_ENCHANT_0; }
+	{ image = EquipmentNonEquipDict.HERO_SKILL_ASCETIC; }
 
 	@Override public void doSpecial() {
 		Buff.prolong(curUser, SpeedImbue.class, 40f);

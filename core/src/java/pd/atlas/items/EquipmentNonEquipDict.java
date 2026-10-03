@@ -136,6 +136,8 @@ public final class EquipmentNonEquipDict {
 	public static final IconEntry HERO_SKILL_STAR_SOLDIER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{80, 96, 16, 16}, 6973);
 	/** HERO_SKILL_CLERIC */
 	public static final IconEntry HERO_SKILL_CLERIC = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{96, 96, 16, 16}, 6974);
+	/** HERO_SKILL_ASCETIC */
+	public static final IconEntry HERO_SKILL_ASCETIC = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{112, 96, 16, 16}, 7130);
 	/** SPS_LIFE_ARMOR#0 */
 	public static final IconEntry SPS_LIFE_ARMOR_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{112, 96, 16, 16}, 6975);
 	/** TASTY_PUDDING */
