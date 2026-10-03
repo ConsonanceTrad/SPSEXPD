@@ -51,11 +51,13 @@ public final class HeroPath {
 
 		boolean exploredOnly = (flags & EXPLORED) != 0;
 		boolean[] visited = Dungeon.level.visited;
+		boolean[] mapped  = Dungeon.level.mapped;
 
 		boolean[] passable = new boolean[Dungeon.level.length()];
 		for (int i = 0; i < passable.length; i++){
 			passable[i] = Dungeon.level.passable[i] && Actor.findChar(i) == null;
-			if (exploredOnly && (visited == null || !visited[i])) passable[i] = false;
+			//SPS: "已知"既包括走过的，也包括探地卷轴等手段揭示过的（mapped）
+			if (exploredOnly && !known(visited, mapped, i)) passable[i] = false;
 		}
 		//起点与终点自身放行（终点可能是尚未踏进去的可见格）
 		passable[from] = true;
@@ -74,5 +76,13 @@ public final class HeroPath {
 		}
 
 		return cur == to ? path : null;
+	}
+
+	/**
+	 * SPS: 该格是否"已知"——英雄走过（visited）或被探地卷轴之类手段揭示过（mapped）。
+	 * 谨慎移动据此判断"知不知道怎么过去"，只有完全未知的格子才拒绝。
+	 */
+	private static boolean known( boolean[] visited, boolean[] mapped, int i ){
+		return (visited != null && visited[i]) || (mapped != null && mapped[i]);
 	}
 }
