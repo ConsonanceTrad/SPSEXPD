@@ -38,6 +38,7 @@ import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
+import pd.sprites.CharSprite;
 import pd.sprites.ItemSprite;
 import pd.tiles.DungeonTerrainTilemap;
 import pd.utils.GLog;
@@ -50,7 +51,6 @@ import render.input.ControllerHandler;
 import render.input.GameAction;
 import render.input.KeyBindings;
 import render.noosa.Camera;
-import render.noosa.ColorBlock;
 import render.noosa.Game;
 import render.noosa.Gizmo;
 import render.noosa.Image;
@@ -324,13 +324,17 @@ public class Toolbar extends Component {
 			private long lastClickAt = 0L;
 			private static final long DOUBLE_CLICK_MS = 350L;
 
-			//SPS: 谨慎移动开启时，在图标上叠一层金色半透明
-			private ColorBlock cautiousOverlay;
+			//SPS: 谨慎移动开启时，给放大镜图标叠一层金色。
+			//用同一帧的图标（而非方块），这样只覆盖放大镜的不透明像素，透明区域不受影响。
+			private Image cautiousOverlay;
 
 			@Override
 			protected void createChildren() {
 				super.createChildren();
-				cautiousOverlay = new ColorBlock( 16, 16, 0x66FFFF44 );
+				cautiousOverlay = new Image( Assets.Interfaces.TOOLBAR );
+				cautiousOverlay.frame( 192, 0, 16, 16 );
+				cautiousOverlay.hardlight( CharSprite.GOLD );
+				cautiousOverlay.alpha( 0.55f );
 				cautiousOverlay.visible = false;
 				add( cautiousOverlay );
 			}
@@ -345,7 +349,12 @@ public class Toolbar extends Component {
 			@Override
 			public void update() {
 				super.update();
-				cautiousOverlay.visible = GameScene.cautiousMove;
+				boolean on = GameScene.cautiousMove;
+				if (cautiousOverlay.visible != on) {
+					cautiousOverlay.visible = on;
+					//图标是构造之后才 icon() 加进来的，层级在后；显示时把它提到最前
+					if (on) bringToFront( cautiousOverlay );
+				}
 			}
 
 			@Override
