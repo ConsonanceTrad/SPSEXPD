@@ -518,7 +518,7 @@ public enum HeroClass {
 			artifact.activate(hero);
 		}
 		if (ring != null) {
-			(hero.belongings.ring = ring).identify();
+			(hero.belongings.accessory4 = ring).identify();
 			ring.activate(hero);
 		}
 		hero.STR += 10;
@@ -563,9 +563,9 @@ public enum HeroClass {
 		if (hero.skin == 1) {
 			(hero.belongings.armor = new VestArmor()).identify().upgrade(1);
 			pd.items.equipment.rings.RingOfForce force = new pd.items.equipment.rings.RingOfForce();
-			(hero.belongings.misc = force).identify().upgrade(1); force.activate(hero);
+			(hero.belongings.accessory4 = force).identify().upgrade(1); force.activate(hero);
 			pd.items.equipment.rings.RingOfMight might = new pd.items.equipment.rings.RingOfMight();
-			(hero.belongings.ring = might).identify().upgrade(1); might.activate(hero);
+			(hero.belongings.accessory5 = might).identify().upgrade(1); might.activate(hero);
 			AttackShield shield = new AttackShield(); shield.identify().collect(); Dungeon.quickslot.setSlot(0, shield);
 			new Porksoup().identify().collect(); new PotionOfStrength().identify(); new ScrollOfUpgrade().identify();
 			return;
@@ -625,9 +625,9 @@ public enum HeroClass {
 		if (hero.skin == 6) {
 			(hero.belongings.armor = new VestArmor()).identify().upgrade(1);
 			pd.items.equipment.rings.RingOfForce force = new pd.items.equipment.rings.RingOfForce();
-			(hero.belongings.misc = force).identify().upgrade(1); force.activate(hero);
+			(hero.belongings.accessory4 = force).identify().upgrade(1); force.activate(hero);
 			pd.items.equipment.rings.RingOfMight might = new pd.items.equipment.rings.RingOfMight();
-			(hero.belongings.ring = might).identify().upgrade(1); might.activate(hero);
+			(hero.belongings.accessory5 = might).identify().upgrade(1); might.activate(hero);
 			SeriousPunch punch = new SeriousPunch(); punch.identify().collect();
 			Ankhshield shield = new Ankhshield(); shield.identify().collect();
 			new JumpW().collect();

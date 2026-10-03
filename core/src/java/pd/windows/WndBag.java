@@ -24,8 +24,6 @@ package pd.windows;
 import pd.atlas.IconEntry;
 
 import pd.atlas.items.SpecificCurrencyDict;
-import pd.atlas.items.EquipmentJewelleryRingDict;
-import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.Assets;
@@ -490,20 +488,20 @@ public class WndBag extends WndTabbed {
 
 	protected void placeItems( Bag container ) {
 
-		// SPS: 装备区固定两排 10 格
+		// SPS: 装备区固定两排 10 格（饰品槽 1-3 只收非戒指，戒指槽 4-5 只收戒指）
 		// 第一行：主武器 / 主护甲 / 饰品1 / 饰品2 / 饰品3
 		Belongings stuff = Dungeon.hero.belongings;
-		placeItem( stuff.weapon != null ? stuff.weapon : new Placeholder( SpecificPlaceHolderDict.SOMETHING_0 ) );
-		placeItem( stuff.armor != null ? stuff.armor : new Placeholder( SpecificPlaceHolderDict.SOMETHING_0 ) );
+		placeItem( stuff.weapon != null ? stuff.weapon : new Placeholder( SpecificPlaceHolderDict.SPS_PH_WEAPON ) );
+		placeItem( stuff.armor != null ? stuff.armor : new Placeholder( SpecificPlaceHolderDict.SPS_PH_ARMOR ) );
 		placeItem( stuff.artifact != null ? stuff.artifact : new Placeholder( SpecificPlaceHolderDict.ARTIFACT_HOLDER_0 ) );
 		placeItem( stuff.misc != null ? stuff.misc : new Placeholder( SpecificPlaceHolderDict.ARTIFACT_HOLDER_0 ) );
 		placeItem( stuff.ring != null ? stuff.ring : new Placeholder( SpecificPlaceHolderDict.ARTIFACT_HOLDER_0 ) );
-		// 第二行：副武器 / 副护甲 / 饰品4 / 饰品5 / 徽章
-		placeItem( stuff.secondWep != null ? stuff.secondWep : new Placeholder( SpecificPlaceHolderDict.SOMETHING_0 ) );
-		placeItem( stuff.secondArmor != null ? stuff.secondArmor : new Placeholder( SpecificPlaceHolderDict.SOMETHING_0 ) );
-		placeItem( stuff.accessory4 != null ? stuff.accessory4 : new Placeholder( EquipmentJewelleryRingDict.RING_HOLDER ) );
-		placeItem( stuff.accessory5 != null ? stuff.accessory5 : new Placeholder( EquipmentJewelleryRingDict.RING_HOLDER ) );
-		placeItem( stuff.badge != null ? stuff.badge : new Placeholder( SpecificPlaceHolderDict.SOMETHING_0 ) );
+		// 第二行：副武器 / 副护甲 / 戒指1 / 戒指2 / 徽章
+		placeItem( stuff.secondWep != null ? stuff.secondWep : new Placeholder( SpecificPlaceHolderDict.SPS_PH_WEAPON_SPARE ) );
+		placeItem( stuff.secondArmor != null ? stuff.secondArmor : new Placeholder( SpecificPlaceHolderDict.SPS_PH_ARMOR_SPARE ) );
+		placeItem( stuff.accessory4 != null ? stuff.accessory4 : new Placeholder( SpecificPlaceHolderDict.RING_HOLDER_0 ) );
+		placeItem( stuff.accessory5 != null ? stuff.accessory5 : new Placeholder( SpecificPlaceHolderDict.RING_HOLDER_0 ) );
+		placeItem( stuff.badge != null ? stuff.badge : new Placeholder( SpecificPlaceHolderDict.SPS_PH_BADGE ) );
 
 		int equipped = EQUIP_ROWS * nCols;
 

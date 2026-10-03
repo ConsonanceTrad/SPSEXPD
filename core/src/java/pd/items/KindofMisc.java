@@ -72,7 +72,7 @@ public abstract class KindofMisc extends EquipableItem {
 			return true;
 		}
 
-		//SPS: 5 个完全通用饰品槽（神器和戒指已合并为「饰品」）
+		//SPS: 5 个饰品槽分两区——槽 0-2 归非戒指饰品，槽 3-4 归戒指
 		final KindofMisc[] miscs = new KindofMisc[5];
 		miscs[0] = hero.belongings.artifact;
 		miscs[1] = hero.belongings.misc;
@@ -80,9 +80,14 @@ public abstract class KindofMisc extends EquipableItem {
 		miscs[3] = hero.belongings.accessory4;
 		miscs[4] = hero.belongings.accessory5;
 
+		//SPS: 戒指只能用槽 3-4，其余饰品只能用槽 0-2
+		final boolean isRing = this instanceof Ring;
+		final int slotFrom = isRing ? 3 : 0;
+		final int slotTo   = isRing ? 5 : 3;
+
 		int emptySlot = -1;
 		int sameSlot = -1;
-		for (int i = 0; i < miscs.length; i++) {
+		for (int i = slotFrom; i < slotTo; i++) {
 			if (miscs[i] == null) {
 				if (emptySlot < 0) emptySlot = i;
 			} else if (miscs[i].getClass() == getClass()) {
@@ -100,18 +105,19 @@ public abstract class KindofMisc extends EquipableItem {
 
 		if (emptySlot < 0) {
 
+			//SPS: 只允许替换本区内的饰品槽（区外按钮禁用且显示 ---）
 			final boolean[] enabled = new boolean[5];
-			for (int i = 0; i < 5; i++) enabled[i] = miscs[i] != null;
+			for (int i = 0; i < 5; i++) enabled[i] = i >= slotFrom && i < slotTo && miscs[i] != null;
 
 			GameScene.show(
 					new WndOptions(new ItemSprite(this),
 							Messages.get(KindofMisc.class, "unequip_title"),
 							Messages.get(KindofMisc.class, "unequip_message"),
-							miscs[0] == null ? "---" : Messages.titleCase(miscs[0].title()),
-							miscs[1] == null ? "---" : Messages.titleCase(miscs[1].title()),
-							miscs[2] == null ? "---" : Messages.titleCase(miscs[2].title()),
-							miscs[3] == null ? "---" : Messages.titleCase(miscs[3].title()),
-							miscs[4] == null ? "---" : Messages.titleCase(miscs[4].title())) {
+							slotLabel(0, miscs, slotFrom, slotTo),
+							slotLabel(1, miscs, slotFrom, slotTo),
+							slotLabel(2, miscs, slotFrom, slotTo),
+							slotLabel(3, miscs, slotFrom, slotTo),
+							slotLabel(4, miscs, slotFrom, slotTo)) {
 
 						@Override
 						protected void onSelect(int index) {
@@ -181,6 +187,12 @@ public abstract class KindofMisc extends EquipableItem {
 
 		}
 
+	}
+
+	//SPS: 饰品替换窗口的槽标签——区外的格子不适用当前物品，显示 ---
+	private static String slotLabel( int index, KindofMisc[] slots, int from, int to ) {
+		if (index < from || index >= to) return "---";
+		return slots[index] == null ? "---" : Messages.titleCase(slots[index].title());
 	}
 
 	@Override
