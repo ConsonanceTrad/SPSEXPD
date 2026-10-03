@@ -115,7 +115,12 @@ public class Heap implements Bundlable {
 			.t("skeleton", "遗骸")
 			.t("skeleton_desc", "某个不幸的冒险家存在过的唯一证明。或许可以找找里面有什么值钱的东西。")
 			.t("remains", "英雄遗骸")
-			.t("remains_desc", "你的某个先辈存在过的唯一证明。或许能找到点什么值钱的东西。");
+			.t("remains_desc", "你的某个先辈存在过的唯一证明。或许能找到点什么值钱的东西。")
+			//SPS: 尘土堆 / 蛛网与遗骸同类——清开之前不能从观察描述里看出里面有什么
+			.t("dust", "尘土堆")
+			.t("dust_desc", "一堆经年的尘土，看不出里面埋着什么，得清开才知道。")
+			.t("web", "蛛网")
+			.t("web_desc", "厚厚的蜘蛛网缠成一团，看不清里面裹着什么，得扯开才知道。");
 	}
 
 
@@ -666,6 +671,11 @@ public class Heap implements Bundlable {
 				return Messages.get(this, "skeleton");
 			case REMAINS:
 				return Messages.get(this, "remains");
+			//SPS: 尘土堆 / 蛛网与遗骸同类——清开前不显示内部物品
+			case E_DUST:
+				return Messages.get(this, "dust");
+			case M_WEB:
+				return Messages.get(this, "web");
 			default:
 				return peek().title();
 		}
@@ -692,6 +702,11 @@ public class Heap implements Bundlable {
 				return Messages.get(this, "skeleton_desc");
 			case REMAINS:
 				return Messages.get(this, "remains_desc");
+			//SPS: 尘土堆 / 蛛网与遗骸同类——清开前不显示内部物品
+			case E_DUST:
+				return Messages.get(this, "dust_desc");
+			case M_WEB:
+				return Messages.get(this, "web_desc");
 			default:
 				return peek().info();
 		}
