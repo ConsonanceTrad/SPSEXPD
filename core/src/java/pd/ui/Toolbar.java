@@ -40,6 +40,7 @@ import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
 import pd.tiles.DungeonTerrainTilemap;
+import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndKeyBindings;
 import pd.windows.WndMessage;
@@ -73,6 +74,8 @@ public class Toolbar extends Component {
 			.t("container_cancel", "取消")
 			.t("container_empty", "这个容器是空的！")
 			.t("item_prompt", "选择一件物品")
+			.t("cautious_on", "谨慎移动：开")
+			.t("cautious_off", "谨慎移动：关")
 			.t("item_select", "选择物品")
 			.t("item_use", "快速使用物品")
 			.t("item_cancel", "取消")
@@ -316,16 +319,34 @@ public class Toolbar extends Component {
 		});
 		
 		add(btnSearch = new Tool(44, 0, 20, 26) {
+			//SPS: 用于区分单击（检视）与双击（搜寻）
+			private long lastClickAt = 0L;
+			private static final long DOUBLE_CLICK_MS = 350L;
+
 			@Override
 			protected void onClick() {
-				if (Dungeon.hero != null && Dungeon.hero.ready) {
-					if (!examining && !GameScene.cancel()) {
-						GameScene.selectCell(informer);
-						examining = true;
-					} else if (examining) {
+				if (Dungeon.hero == null || !Dungeon.hero.ready) return;
+
+				//SPS: 双击 = 搜寻（原长按功能）
+				long now = System.currentTimeMillis();
+				if (now - lastClickAt <= DOUBLE_CLICK_MS){
+					lastClickAt = 0L;
+					if (examining){
 						informer.onSelect(null);
-						Dungeon.hero.search(true);
+						examining = false;
 					}
+					GameScene.clearHeroPath();
+					Dungeon.hero.search(true);
+					return;
+				}
+				lastClickAt = now;
+
+				if (!examining && !GameScene.cancel()) {
+					GameScene.selectCell(informer);
+					examining = true;
+				} else if (examining) {
+					informer.onSelect(null);
+					examining = false;
 				}
 			}
 			
@@ -336,12 +357,22 @@ public class Toolbar extends Component {
 
 			@Override
 			protected String hoverText() {
-				return Messages.titleCase(Messages.get(WndKeyBindings.class, "examine"));
+				String base = Messages.titleCase(Messages.get(WndKeyBindings.class, "examine"));
+				if (GameScene.cautiousMove){
+					return base + " / " + Messages.get(Toolbar.class, "cautious_on");
+				}
+				return base;
 			}
 			
+			//SPS: 长按 = 开关谨慎移动（原搜寻移到双击）
 			@Override
 			protected boolean onLongClick() {
-				Dungeon.hero.search(true);
+				GameScene.cautiousMove = !GameScene.cautiousMove;
+				if (!GameScene.cautiousMove){
+					GameScene.clearHeroPath();
+				}
+				GLog.i(Messages.get(Toolbar.class,
+						GameScene.cautiousMove ? "cautious_on" : "cautious_off"));
 				return true;
 			}
 		});

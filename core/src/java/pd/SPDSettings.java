@@ -130,6 +130,7 @@ public class SPDSettings extends GameSettings {
 	public static final String KEY_FLIPTAGS 	= "flip_tags";
 	public static final String KEY_BARMODE		= "toolbar_mode";
 	public static final String KEY_SLOTWATERSKIN= "quickslot_waterskin";
+	public static final String KEY_HERO_PATH	= "hero_path";
 	public static final String KEY_SYSTEMFONT	= "system_font";
 	public static final String KEY_VIBRATION    = "vibration";
 
@@ -203,6 +204,15 @@ public class SPDSettings extends GameSettings {
 
 	public static boolean quickslotWaterskin(){
 		return getBoolean( KEY_SLOTWATERSKIN, true );
+	}
+
+	//SPS: 常态下是否显示英雄移动路径提示（谨慎移动的首次点击预览不受此开关影响）
+	public static void heroPath( boolean value ){
+		put( KEY_HERO_PATH, value );
+	}
+
+	public static boolean heroPath(){
+		return getBoolean( KEY_HERO_PATH, true );
 	}
 
 	public static void systemFont(boolean value){

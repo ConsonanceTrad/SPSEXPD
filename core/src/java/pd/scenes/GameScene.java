@@ -93,6 +93,8 @@ import pd.tiles.FogOfWar;
 import pd.tiles.GridTileMap;
 import pd.tiles.RaisedTerrainTilemap;
 import pd.tiles.SpsChasmEdgesTilemap;
+import pd.tiles.SpsHeroPathTilemap;
+import pd.mechanics.pathfind.HeroPath;
 import pd.tiles.SpsWaterEdgesTilemap;
 import pd.tiles.TerrainFeaturesTilemap;
 import pd.tiles.WallBlockingTilemap;
@@ -207,6 +209,14 @@ public class GameScene extends PixelScene {
 	//SPS: 水缝合边独立层（水脱离地形图集的 48-63 段语义）
 	private SpsWaterEdgesTilemap waterEdges;
 	private SpsChasmEdgesTilemap chasmEdges;
+	//SPS: 移动路径提示层
+	private SpsHeroPathTilemap heroPathLayer;
+	//SPS: 谨慎移动当前锁定的目标格（-1 = 未锁定）
+	private static int pathTarget = -1;
+	//SPS: 是否已进入「首次点击仅预览」的锁定状态
+	private static boolean lockedTarget = false;
+	//SPS: 谨慎移动开关（长按检视按钮切换）
+	public static boolean cautiousMove = false;
 	private GridTileMap visualGrid;
 	private WallOcclusionTilemap occlusion;
 	private TerrainFeaturesTilemap terrainFeatures;
@@ -335,6 +345,10 @@ public class GameScene extends PixelScene {
 		//SPS: 深渊缝合边独立层（恢复旧版 2.5D 立体边缘：深渊相邻陆地/墙/水时补画下沉帧）
 		chasmEdges = new SpsChasmEdgesTilemap();
 		terrain.add( chasmEdges );
+
+		//SPS: 移动路径提示层（路径点用 waypoint 第一帧、终点用第二帧）
+		heroPathLayer = new SpsHeroPathTilemap();
+		terrain.add( heroPathLayer );
 
 		customTiles = new Group();
 		terrain.add(customTiles);
@@ -1923,9 +1937,78 @@ public class GameScene extends PixelScene {
 	}
 
 	
+	/**
+	 * SPS: 刷新移动路径提示。
+	 * 起点固定为英雄当前格，因此走过的路径点会自然消失；到达目标后自动清除。
+	 * 谨慎移动锁定了目标时始终显示（不看设置），常态下由 SPDSettings.heroPath() 控制。
+	 */
+	public static void refreshHeroPath(){
+		if (scene == null || scene.heroPathLayer == null || Dungeon.hero == null) return;
+
+		if (pathTarget < 0){
+			scene.heroPathLayer.clear();
+			return;
+		}
+
+		//到达目标 -> 收起
+		if (Dungeon.hero.pos == pathTarget){
+			pathTarget = -1;
+			scene.heroPathLayer.clear();
+			return;
+		}
+
+		//谨慎移动锁定目标时始终显示；否则看设置开关
+		boolean forced = cautiousMove && lockedTarget;
+		if (!forced && !SPDSettings.heroPath()){
+			scene.heroPathLayer.clear();
+			return;
+		}
+
+		ArrayList<Integer> path = HeroPath.compute( Dungeon.hero.pos, pathTarget );
+		if (path == null){
+			scene.heroPathLayer.clear();
+			pathTarget = -1;
+			lockedTarget = false;
+			return;
+		}
+		scene.heroPathLayer.setPath( path );
+	}
+
+	/** SPS: 收起路径提示并解除锁定。 */
+	public static void clearHeroPath(){
+		pathTarget = -1;
+		lockedTarget = false;
+		if (scene != null && scene.heroPathLayer != null) scene.heroPathLayer.clear();
+	}
+
+	/** SPS: 当前是否已用谨慎移动锁定了目标（再次点击同一格才真正移动）。 */
+	public static boolean isCautiousLocked(){
+		return cautiousMove && lockedTarget && pathTarget >= 0;
+	}
+
 	private static final CellSelector.Listener defaultCellListener = new CellSelector.Listener() {
+
 		@Override
 		public void onSelect( Integer cell ) {
+			//SPS: 取消选择（Esc/右键取消）时收起路径提示
+			if (cell == null){
+				clearHeroPath();
+				return;
+			}
+
+			//SPS: 谨慎移动——首次点击只预览路径（相机不返回），再点同一格才真正移动
+			if (cautiousMove && !(lockedTarget && pathTarget == cell)){
+				pathTarget = cell;
+				lockedTarget = true;
+				refreshHeroPath();
+				return;
+			}
+
+			//正常移动：记录目标，边走边显示路径（是否显示由设置决定）
+			lockedTarget = false;
+			pathTarget = SPDSettings.heroPath() ? cell : -1;
+			refreshHeroPath();
+
 			if (Dungeon.hero.handle( cell )) {
 				Dungeon.hero.next();
 			}

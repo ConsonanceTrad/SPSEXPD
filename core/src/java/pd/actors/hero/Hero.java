@@ -2884,6 +2884,8 @@ public class Hero extends Char {
 	@Override
 	public void onMotionComplete() {
 		GameScene.checkKeyHold();
+		//SPS: 走完一步后刷新移动路径提示（起点=当前格，已过的点自然消失）
+		GameScene.refreshHeroPath();
 	}
 	
 	@Override

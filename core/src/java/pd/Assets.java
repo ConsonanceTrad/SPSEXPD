@@ -314,6 +314,8 @@ public class Assets {
 	public static class Sprites {
 		public static final String ITEMS        = "sprites/items/items.png";
 		public static final String ITEM_ICONS   = "sprites/items/item_icons.png";
+		//SPS: 移动路径提示的图集（第一行=路径点，第二行=终点）
+		public static final String WAYPOINT     = "sprites/items/ground/waypoint.png";
 
 		public static final String WARRIOR  = "sprites/heroes/warrior.png";
 		public static final String MAGE     = "sprites/heroes/mage.png";

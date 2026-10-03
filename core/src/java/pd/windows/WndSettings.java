@@ -69,6 +69,7 @@ public class WndSettings extends WndTabbed {
 			.t("$displaytab.dark", "暗")
 			.t("$displaytab.bright", "亮")
 			.t("$displaytab.visual_grid", "网格可视度")
+			.t("$displaytab.hero_path", "显示移动路径")
 			.t("$displaytab.off", "关闭")
 			.t("$displaytab.low", "低")
 			.t("$displaytab.high", "最高")
@@ -294,6 +295,8 @@ public class WndSettings extends WndTabbed {
 		CheckBox chkFullscreen;
 		CheckBox chkLandscape;
 		ColorBlock sep2;
+		CheckBox chkHeroPath;
+		ColorBlock sep3;
 		OptionSlider optBrightness;
 		OptionSlider optVisGrid;
 		OptionSlider optFollowIntensity;
@@ -343,6 +346,22 @@ public class WndSettings extends WndTabbed {
 
 			sep2 = new ColorBlock(1, 1, 0xFF000000);
 			add(sep2);
+
+			//SPS: 常态下是否显示英雄移动路径提示
+			chkHeroPath = new CheckBox(Messages.get(this, "hero_path")) {
+				@Override
+				protected void onClick() {
+					super.onClick();
+					SPDSettings.heroPath(checked());
+					GameScene.clearHeroPath();
+					GameScene.refreshHeroPath();
+				}
+			};
+			chkHeroPath.checked(SPDSettings.heroPath());
+			add(chkHeroPath);
+
+			sep3 = new ColorBlock(1, 1, 0xFF000000);
+			add(sep3);
 
 			optBrightness = new OptionSlider(Messages.get(this, "brightness"),
 					Messages.get(this, "dark"), Messages.get(this, "bright"), -1, 1) {
@@ -408,6 +427,13 @@ public class WndSettings extends WndTabbed {
 			sep2.size(width, 1);
 			sep2.y = bottom + GAP;
 			bottom = sep2.y + 1;
+
+			chkHeroPath.setRect(0, bottom + GAP, width, BTN_HEIGHT);
+			bottom = chkHeroPath.bottom();
+
+			sep3.size(width, 1);
+			sep3.y = bottom + GAP;
+			bottom = sep3.y + 1;
 
 			if (width > 200){
 				optBrightness.setRect(0, bottom + GAP, width/2-GAP/2, SLIDER_HEIGHT);
