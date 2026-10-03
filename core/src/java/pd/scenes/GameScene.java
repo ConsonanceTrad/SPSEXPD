@@ -190,6 +190,7 @@ public class GameScene extends PixelScene {
 			.t("purchase", "购买")
 			.t("trample", "践踏")
 			.t("examine", "检视")
+			.t("path_unknown", "你暂时不知道怎么到达那里。")
 			.t("tutorial_move_mobile", "点击一个位置以进行移动或互动。")
 			.t("tutorial_move_desktop", "使用鼠标或方向键进行移动与互动。")
 			.t("tutorial_move_controller", "选择一个位置或使用左摇杆进行移动与互动。")
@@ -1965,9 +1966,18 @@ public class GameScene extends PixelScene {
 			return;
 		}
 
-		ArrayList<Integer> path = HeroPath.compute( Dungeon.hero.pos, pathTarget );
+		//谨慎移动要求沿途都是走过的路；判定"知不知道怎么过去"
+		boolean cautious = cautiousMove && lockedTarget;
+		ArrayList<Integer> path = cautious
+				? HeroPath.computeExplored( Dungeon.hero.pos, pathTarget )
+				: HeroPath.compute( Dungeon.hero.pos, pathTarget );
+
 		if (path == null){
 			drawHeroPath( null );
+			if (cautious){
+				//需要在未探索区域里穿行 -> 不显示路径，只给提示
+				GLog.w( Messages.get(GameScene.class, "path_unknown") );
+			}
 			pathTarget = -1;
 			lockedTarget = false;
 			return;
