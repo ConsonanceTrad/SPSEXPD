@@ -418,7 +418,7 @@ public class WndBag extends WndTabbed {
 	//SPS: 金币数量左侧的 S金兑换按钮。图标取自主副手转换道具（SPS_EQUIP_CHANGE），
 	//返回按钮左缘供标题避让
 	private float placeSGoldExchangeButton( float right ) {
-		IconButton btn = new IconButton( new ItemSprite( SpecificPlaceHolderDict.SOMETHING_0, null ) ) {
+		IconButton btn = new IconButton( new ItemSprite( SpecificPlaceHolderDict.SPS_GOLD_TO_SCOIN, null ) ) {
 			@Override
 			protected void onClick() {
 				askSGoldExchange();
