@@ -93,7 +93,7 @@ import pd.tiles.FogOfWar;
 import pd.tiles.GridTileMap;
 import pd.tiles.RaisedTerrainTilemap;
 import pd.tiles.SpsChasmEdgesTilemap;
-import pd.tiles.SpsHeroPathTilemap;
+import pd.effects.HeroPathCell;
 import pd.mechanics.pathfind.HeroPath;
 import pd.tiles.SpsWaterEdgesTilemap;
 import pd.tiles.TerrainFeaturesTilemap;
@@ -210,7 +210,7 @@ public class GameScene extends PixelScene {
 	private SpsWaterEdgesTilemap waterEdges;
 	private SpsChasmEdgesTilemap chasmEdges;
 	//SPS: 移动路径提示层
-	private SpsHeroPathTilemap heroPathLayer;
+	private Group heroPathCells;
 	//SPS: 谨慎移动当前锁定的目标格（-1 = 未锁定）
 	private static int pathTarget = -1;
 	//SPS: 是否已进入「首次点击仅预览」的锁定状态
@@ -346,10 +346,7 @@ public class GameScene extends PixelScene {
 		chasmEdges = new SpsChasmEdgesTilemap();
 		terrain.add( chasmEdges );
 
-		//SPS: 移动路径提示层（路径点用 waypoint 第一帧、终点用第二帧）
-		heroPathLayer = new SpsHeroPathTilemap();
-		terrain.add( heroPathLayer );
-
+		//SPS: 移动路径提示改挂独立 Group（见 targetedCells），不再进 terrain 层
 		customTiles = new Group();
 		terrain.add(customTiles);
 
@@ -441,6 +438,10 @@ public class GameScene extends PixelScene {
 			cell.reset(cell.pos, cell.time);
 			targetedCells.add(cell);
 		}
+
+		//SPS: 移动路径提示也挂独立 Group，避免被后加入 terrain 的自定义层遮住
+		heroPathCells = new Group();
+		add( heroPathCells );
 
 		//set these up later so that they can influence previous tilemaps if needed
 		for( CustomTilemap visual : Dungeon.level.customTiles){
@@ -1943,42 +1944,56 @@ public class GameScene extends PixelScene {
 	 * 谨慎移动锁定了目标时始终显示（不看设置），常态下由 SPDSettings.heroPath() 控制。
 	 */
 	public static void refreshHeroPath(){
-		if (scene == null || scene.heroPathLayer == null || Dungeon.hero == null) return;
+		if (scene == null || scene.heroPathCells == null || Dungeon.hero == null) return;
 
 		if (pathTarget < 0){
-			scene.heroPathLayer.clear();
+			drawHeroPath( null );
 			return;
 		}
 
 		//到达目标 -> 收起
 		if (Dungeon.hero.pos == pathTarget){
 			pathTarget = -1;
-			scene.heroPathLayer.clear();
+			drawHeroPath( null );
 			return;
 		}
 
 		//谨慎移动锁定目标时始终显示；否则看设置开关
 		boolean forced = cautiousMove && lockedTarget;
 		if (!forced && !SPDSettings.heroPath()){
-			scene.heroPathLayer.clear();
+			drawHeroPath( null );
 			return;
 		}
 
 		ArrayList<Integer> path = HeroPath.compute( Dungeon.hero.pos, pathTarget );
 		if (path == null){
-			scene.heroPathLayer.clear();
+			drawHeroPath( null );
 			pathTarget = -1;
 			lockedTarget = false;
 			return;
 		}
-		scene.heroPathLayer.setPath( path );
+		drawHeroPath( path );
+	}
+
+	//SPS: 路径提示的实际绘制。标记挂独立 Group（与 targetedCells 同级），
+	//不进 terrain 层 —— 否则会被后加入的自定义层遮住而看不见。
+	private static void drawHeroPath( ArrayList<Integer> path ){
+		if (scene == null || scene.heroPathCells == null) return;
+
+		scene.heroPathCells.clear();
+		if (path == null || path.isEmpty()) return;
+
+		for (int i = 0; i < path.size(); i++){
+			HeroPathCell mark = (HeroPathCell) scene.heroPathCells.recycle( HeroPathCell.class );
+			mark.reset( path.get(i), i == path.size() - 1 );
+		}
 	}
 
 	/** SPS: 收起路径提示并解除锁定。 */
 	public static void clearHeroPath(){
 		pathTarget = -1;
 		lockedTarget = false;
-		if (scene != null && scene.heroPathLayer != null) scene.heroPathLayer.clear();
+		drawHeroPath( null );
 	}
 
 	/** SPS: 当前是否已用谨慎移动锁定了目标（再次点击同一格才真正移动）。 */
