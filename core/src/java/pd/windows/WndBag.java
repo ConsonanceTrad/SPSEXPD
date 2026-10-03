@@ -501,7 +501,7 @@ public class WndBag extends WndTabbed {
 		placeItem( stuff.secondArmor != null ? stuff.secondArmor : new Placeholder( SpecificPlaceHolderDict.SPS_PH_ARMOR_SPARE ) );
 		placeItem( stuff.accessory4 != null ? stuff.accessory4 : new Placeholder( SpecificPlaceHolderDict.RING_HOLDER_0 ) );
 		placeItem( stuff.accessory5 != null ? stuff.accessory5 : new Placeholder( SpecificPlaceHolderDict.RING_HOLDER_0 ) );
-		placeItem( stuff.badge != null ? stuff.badge : new Placeholder( SpecificPlaceHolderDict.SPS_PH_BADGE ) );
+		placeItem( stuff.badge != null ? stuff.badge : new Placeholder( SpecificPlaceHolderDict.SPS_PH_TRINKET ) );
 
 		int equipped = EQUIP_ROWS * nCols;
 
