@@ -55,6 +55,10 @@ public class ItemStatusHandler<T extends Item> {
 
 			Class<? extends T> item = items[i];
 
+			//SPS: 标签用尽就不再分配。items 比 labelImages 多时（如新增了物品类但没补对应标签），
+			//原来的 Random.Int(0)/labelsLeft.get(0) 会抛 IndexOutOfBoundsException。
+			if (labelsLeft.isEmpty()) break;
+
 			int index = Random.Int( labelsLeft.size() );
 
 			itemLabels.put( item, labelsLeft.get( index ) );
@@ -146,6 +150,9 @@ public class ItemStatusHandler<T extends Item> {
 		for (Class<? extends T> item : unlabelled){
 
 			String itemName = statusKey(item);
+
+			//SPS: 同上——标签用尽时跳过，不越界
+			if (labelsLeft.isEmpty()) break;
 
 			int index = Random.Int( labelsLeft.size() );
 

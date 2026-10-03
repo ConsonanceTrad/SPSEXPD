@@ -124,6 +124,7 @@ public abstract class Scroll extends Item {
 			put("NAUDIZ",  ConsumScrollAmuletScrollDict.SCROLL_CHALLENGE_LEGACY);
 			put("BERKANAN",ConsumScrollAmuletScrollDict.EXOTIC_BERKANAN_LEGACY);
 			put("NCOSRANE",ConsumScrollAmuletScrollDict.SCROLL_DREAD_LEGACY);
+			put("NENDIL",  ConsumScrollAmuletScrollDict.SCROLL_METAMORPH_LEGACY);
 			put("TRANSMUTE",ConsumScrollAmuletScrollDict.SCROLL_METAMORPH_LEGACY);
 			put("TIWAZ",   ConsumScrollAmuletScrollDict.SPS_SCROLL_A);
 			put("PSIBLAST",ConsumScrollAmuletScrollDict.SPS_SCROLL_B);
@@ -209,12 +210,15 @@ public abstract class Scroll extends Item {
 	@Override
 	public void reset(){
 		super.reset();
-		if (handler != null && handler.contains(this)) {
-			image = handler.image(this);
-			rune = handler.label(this);
-		} else {
+		IconEntry img = (handler != null && handler.contains(this)) ? handler.image(this) : null;
+		String lbl = (handler != null && handler.contains(this)) ? handler.label(this) : null;
+		//SPS: 符文标签用尽时（卷轴类多于符文）不再留一个空 image，退回通用占位符
+		if (img == null || lbl == null) {
 			image = SpecificPlaceHolderDict.SOMETHING_0;
 			rune = "KAUNAN";
+		} else {
+			image = img;
+			rune = lbl;
 		}
 	}
 	
