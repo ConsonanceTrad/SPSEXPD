@@ -26,7 +26,8 @@ public class TestWeapon extends NormalMeleeWeapon {
 
 
 	public TestWeapon() {
-		super(1, 1f, 1f, 1, 10, 10, SpecificPlaceHolderDict.SOMETHING_0);
+		//SPS: 测试武器把攻击力拉满（原 10-10），方便测试时间挑战里秒杀验证
+		super(1, 1f, 1f, 1, 9999, 9999, SpecificPlaceHolderDict.SOMETHING_0);
 	}
 
 	@Override
