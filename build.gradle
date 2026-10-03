@@ -20,8 +20,8 @@ allprojects {
 		appAndroidPackageName = 'com.hmdzl.spsexpd'
 
         //Full releases gets +2 on version code, needed for an F-Droid quirk
-		appVersionCode = 923
-		appVersionName = '0.1.1-alpha'
+		appVersionCode = 924
+		appVersionName = '0.1.2-alpha'
 
         appJavaCompatibility = JavaVersion.VERSION_11
 
@@ -2385,7 +2385,12 @@ tasks.register('collectOutputs', Copy) {
 	//同名冲突保留全部来源；重跑时 Copy 会覆盖 output/ 中的同名旧产物
 	duplicatesStrategy = DuplicatesStrategy.INCLUDE
 	//拉平目录层级：产物一律平铺在 output/ 下，便于查找
-	eachFile { details -> details.path = details.name }
+	//release APK 补上版本号（SPSEXPD-release.apk -> SPSEXPD-<版本>.apk），与桌面 jar 命名一致
+	eachFile { details ->
+		def name = details.name
+		if (name == 'SPSEXPD-release.apk') name = "SPSEXPD-${appVersionName}.apk"
+		details.path = name
+	}
 }
 
 //构建任务完成后自动汇总（assembleDebug / assembleRelease / desktop release）
