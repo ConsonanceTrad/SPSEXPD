@@ -76,14 +76,29 @@ public class DungeonTileSheet {
 
 	public static final int ENTRANCE_SP     = GROUND +22;
 
-	//SPS: 深渊各形态在 sps_tiles_*.png 里【不是连续段】，逐个指定（已核对坐标）：
-	//  (1,1)=0  完整深渊     (12,2)=27 邻接陆地
-	//  (13,2)=28 邻接木桥    (14,2)=29 邻接墙体    (16,2)=31 邻接水
+	//SPS: 深渊各形态在图集两族里布局不同，运行时按当前关卡实际用的图集族取帧：
+	//  破碎系  tiles_<region>.png            (2 行 13 格) = xy(13,2) = 28
+	//  SPS 系  sps_tiles_<region>_legacy.png (3 行 15 格) = xy(15,3) = 46
+	//注：早先这里写死 xy(16,3)=47，x=16 超出每行 16 格范围，落到了行尾杂物格
+	//（地下水道那张正好是"大树"，即玩家反馈的错图）。
 	public static final int CHASM           =                               xy(1, 1);
 	public static final int CHASM_FLOOR     =                               xy(12, 3);
 	public static final int CHASM_FLOOR_SP  =                               xy(13, 3);
 	public static final int CHASM_WALL      =                               xy(14, 3);
-	public static final int CHASM_WATER     =                               xy(16, 3);
+	public static final int CHASM_WATER_BROKEN =                            xy(13, 2);
+	public static final int CHASM_WATER_SPS    =                            xy(15, 3);
+
+	/** 当前关卡图集是否属于 SPS 系（sps_tiles_*_legacy.png）。 */
+	private static boolean isSpsTilesAtlas(){
+		if (Dungeon.level == null) return false;
+		String tex = Dungeon.level.tilesTex();
+		return tex != null && tex.contains("sps_tiles_");
+	}
+
+	/** Terrain.WATER 位于深渊上方时应画的缝合帧（按图集族区分）。 */
+	public static int chasmWaterFrame(){
+		return isSpsTilesAtlas() ? CHASM_WATER_SPS : CHASM_WATER_BROKEN;
+	}
 
 	//tiles that can stitch with chasms (from above), and which visual represents the stitching
 	public static SparseArray<Integer> chasmStitcheable = new SparseArray<>();
@@ -124,8 +139,7 @@ public class DungeonTileSheet {
 		chasmStitcheable.put( Terrain.SECRET_DOOR,  CHASM_WALL );
 		chasmStitcheable.put( Terrain.WALL_DECO,    CHASM_WALL );
 
-		//water
-		chasmStitcheable.put( Terrain.WATER,        CHASM_WATER );
+		//water: 帧号按图集族在运行时决定（见 chasmWaterFrame）
 	}
 
 	public static int stitchChasmTile(int above){
@@ -136,6 +150,8 @@ public class DungeonTileSheet {
 			if (Dungeon.depth <= 20)    return CHASM_FLOOR_SP;
 			else                        return CHASM_FLOOR;
 		}
+		//SPS: 水在深渊上方时的帧随图集族变化，不能进静态表
+		if (above == Terrain.WATER) return chasmWaterFrame();
 		return chasmStitcheable.get(above, CHASM);
 	}
 
