@@ -90,6 +90,8 @@ public final class TileTexts {
 			case Terrain.BARRICADE:
 				return Messages.get(Level.class, "barricade_name");
 			case Terrain.HIGH_GRASS:
+			//SPS: OLD_HIGH_GRASS 与 HIGH_GRASS 同视觉同 flags，文本也应一致
+			case Terrain.OLD_HIGH_GRASS:
 				return Messages.get(Level.class, "high_grass_name");
 			case Terrain.LOCKED_EXIT:
 				return Messages.get(Level.class, "locked_exit_name");
@@ -130,6 +132,8 @@ public final class TileTexts {
 				return Messages.get(Level.class, "embers_desc");
 			case Terrain.HIGH_GRASS:
 			case Terrain.FURROWED_GRASS:
+			//SPS: 同上，OLD_HIGH_GRASS 与高草一致
+			case Terrain.OLD_HIGH_GRASS:
 				return Messages.get(Level.class, "high_grass_desc");
 			case Terrain.LOCKED_DOOR:
 			case Terrain.HERO_LKD_DR:

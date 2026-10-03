@@ -110,6 +110,8 @@ public class DungeonTileSheet {
 		chasmStitcheable.put( Terrain.EMPTY_WELL,   CHASM_FLOOR );
 		chasmStitcheable.put( Terrain.HIGH_GRASS,   CHASM_FLOOR );
 		chasmStitcheable.put( Terrain.FURROWED_GRASS,CHASM_FLOOR );
+		//SPS: OLD_HIGH_GRASS 与高草同视觉，深渊邻它也要补普通地板的变体
+		chasmStitcheable.put( Terrain.OLD_HIGH_GRASS, CHASM_FLOOR );
 		chasmStitcheable.put( Terrain.EMPTY_DECO,   CHASM_FLOOR );
 		chasmStitcheable.put( Terrain.CUSTOM_DECO,  CHASM_FLOOR );
 		chasmStitcheable.put( Terrain.EMPTY_WELL,   CHASM_FLOOR );
@@ -168,6 +170,8 @@ public class DungeonTileSheet {
 			Terrain.EMPTY, Terrain.GRASS, Terrain.EMPTY_WELL,
 			Terrain.ENTRANCE, Terrain.EXIT, Terrain.EMBERS,
 			Terrain.BARRICADE, Terrain.HIGH_GRASS, Terrain.FURROWED_GRASS, Terrain.SECRET_TRAP,
+			//SPS: OLD_HIGH_GRASS 与高草同视觉，水也应能与它缝合
+			Terrain.OLD_HIGH_GRASS,
 			Terrain.TRAP, Terrain.INACTIVE_TRAP, Terrain.EMPTY_DECO,
 			Terrain.CUSTOM_DECO, Terrain.WELL, Terrain.STATUE, Terrain.REGION_DECO, Terrain.ALCHEMY,
 			Terrain.CUSTOM_DECO_EMPTY, Terrain.MINE_CRYSTAL, Terrain.MINE_BOULDER,
