@@ -40,6 +40,7 @@ import pd.items.equipment.armor.Armor;
 import pd.items.specific.sellitem.SellPermit;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.journal.Notes;
+import pd.levels.rooms.special.SpsShopRoom;
 import pd.levels.traps.GuardianTrap;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
@@ -72,8 +73,9 @@ public class Shopkeeper extends NPC {
 			.t("thief", "小偷，小偷！")
 			.t("warn", "小心！我不会警告你第二次了。")
 			.t("flee", "店主关店跑路了！")
-			//SPS: 店主被打不再跑路，改为召唤守卫
-			.t("guards", "店主召唤了守卫！")
+			//SPS: 商人被打不再跑路，改为召唤守卫并涨价
+			.t("guards", "守卫！守卫！")
+			.t("free_now", "守卫已被尽数击败，本店今日免费！")
 			.t("sell", "出售")
 			.t("talk", "交谈")
 			.t("buyback", "店主不情不愿地退还了你的物品。")
@@ -198,19 +200,30 @@ public class Shopkeeper extends NPC {
 		}
 	}
 
-	//SPS: 店主被打时召唤的石像守卫：2 只，固定按第 30 层的强度，只召唤一次。
+	//SPS: 商人被打时召唤的石像守卫：每次触发 2 只，固定按第 30 层强度（不随当前层浮动）。
 	private static final int GUARD_COUNT = 2;
 	private static final int GUARD_DEPTH = 30;
-	private boolean guardsSummoned = false;
+	//SPS: 每触发一次涨价 50%（叠乘）；击败 10 只守卫后本店免费并停止补货。
+	private static final float PRICE_STEP = 1.5f;
+	private static final int GUARDS_TO_FREE = 10;
+
+	/** SPS: 本层商人的涨价倍率（免费后恒为 0）。换层时由商店重置。 */
+	public static float priceMultiplier = 1f;
+	/** SPS: 击败足够守卫后，本层商店免费且停止补货。换层时由商店重置。 */
+	public static boolean freeAndNoRestock = false;
+
+	/** SPS: 本层商店房间，用于卖光后补货。不参与序列化。 */
+	public SpsShopRoom shopRoom = null;
+
+	/** SPS: 已被击败的、本商人召唤的守卫数。 */
+	private int guardsKilled = 0;
 
 	/**
-	 * SPS: 在店主附近召唤石像守卫（{@link GuardianTrap.Guardian}）。
-	 * 强度固定按第 {@link #GUARD_DEPTH} 层算，不随当前层浮动 ——
-	 * 石像的公式是 HP=15+depth*5、defenseSkill=4+depth*2。
+	 * SPS: 在店主附近召唤石像守卫（{@link ShopGuard}），并把本店价格永久提高 50%。
+	 * 可重复触发，倍率叠乘。
 	 */
 	public void summonGuards() {
-		if (guardsSummoned) return;
-		guardsSummoned = true;
+		priceMultiplier *= PRICE_STEP;
 
 		GLog.newLine();
 		GLog.n( Messages.get(this, "guards") );
@@ -222,10 +235,8 @@ public class Shopkeeper extends NPC {
 			int cell = guardCell();
 			if (cell == -1) break;
 
-			GuardianTrap.Guardian guard = new GuardianTrap.Guardian();
-			guard.createWeapon( false );
-			guard.HP = guard.HT = 15 + GUARD_DEPTH * 5;
-			guard.defenseSkill = 4 + GUARD_DEPTH * 2;
+			ShopGuard guard = new ShopGuard();
+			guard.owner = this;
 			guard.pos = cell;
 
 			GameScene.add( guard );
@@ -233,6 +244,58 @@ public class Shopkeeper extends NPC {
 			if (Dungeon.level.heroFOV[cell]) {
 				CellEmitter.get( cell ).burst( ElmoParticle.FACTORY, 8 );
 			}
+		}
+
+		if (shopRoom != null) shopRoom.checkRestock();
+	}
+
+	/** SPS: 本店的一只守卫被击败。累计到阈值后本店免费并停止补货。 */
+	public void onGuardKilled() {
+		guardsKilled++;
+		if (!freeAndNoRestock && guardsKilled >= GUARDS_TO_FREE) {
+			freeAndNoRestock = true;
+			GLog.p( Messages.get(this, "free_now") );
+		}
+	}
+
+	/**
+	 * SPS: 本商人召唤的石像守卫。属性固定按第 {@link #GUARD_DEPTH} 层算，
+	 * 伤害覆写为固定成长，不再依赖随机武器。
+	 *   HP = 100 + depth*5、defenseSkill = 25 + depth*2、EXP = 50 + depth*2
+	 */
+	public static class ShopGuard extends GuardianTrap.Guardian {
+
+		private Shopkeeper owner;
+
+		{
+			HP = HT = 100 + GUARD_DEPTH * 5;
+			defenseSkill = 25 + GUARD_DEPTH * 2;
+			EXP = 50 + GUARD_DEPTH * 2;
+		}
+
+		@Override
+		public int damageRoll() {
+			return Random.NormalIntRange( 20 + GUARD_DEPTH, 20 + GUARD_DEPTH * 3 );
+		}
+
+		@Override
+		public void die( Object cause ) {
+			super.die( cause );
+			if (owner != null) owner.onGuardKilled();
+		}
+
+		private static final String OWNER = "owner";
+
+		@Override
+		public void storeInBundle( Bundle bundle ) {
+			super.storeInBundle( bundle );
+			bundle.put( OWNER, owner );
+		}
+
+		@Override
+		public void restoreFromBundle( Bundle bundle ) {
+			super.restoreFromBundle( bundle );
+			owner = (Shopkeeper) bundle.get( OWNER );
 		}
 	}
 
@@ -298,7 +361,10 @@ public class Shopkeeper extends NPC {
 		boolean follower = Dungeon.hero != null && Dungeon.hero.heroClass == HeroClass.FOLLOWER;
 		int multiplier = follower ? 4 : 5;
 		int cap = follower ? 20 : 25;
-		return item.value() * Math.min(multiplier * (Dungeon.legacyDepth() / 5 + 1), cap);
+		int base = item.value() * Math.min(multiplier * (Dungeon.legacyDepth() / 5 + 1), cap);
+		//SPS: 被袭扰后涨价（每次触发 ×1.5，叠乘）；击败足够守卫后本店免费
+		if (freeAndNoRestock) return 0;
+		return Math.round( base * priceMultiplier );
 	}
 	
 	public static WndBag sell() {

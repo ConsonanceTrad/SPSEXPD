@@ -125,6 +125,16 @@ public class SpsShopRoom extends ShopRoom {
 				break;
 		}
 
+		//SPS: switch 里按 depth 固定列出的任务/特殊物品不参与补货（见 addCommonItems）
+		addCommonItems(itemsToSpawn);
+	}
+
+	/**
+	 * SPS: 通用货物（药水/卷轴/武器/护甲/稀有等）。
+	 * 首次铺货与补货共用同一段；补货只重跑这里，所以露珠菌孢这类固定任务物品不会被补出来。
+	 */
+	private void addCommonItems(ArrayList<Item> itemsToSpawn) {
+
 		itemsToSpawn.add(Generator.random(Generator.Category.POTION));
 		itemsToSpawn.add(Generator.random(Generator.Category.POTION));
 		itemsToSpawn.add(Generator.random(Generator.Category.SCROLL));
@@ -220,6 +230,13 @@ public class SpsShopRoom extends ShopRoom {
 		if (pos == -1) pos = level.pointToCell(center());
 		Mob shopkeeper = Dungeon.legacyDepth() > 20 ? new ImpShopkeeper() : new Shopkeeper();
 		shopkeeper.pos = pos;
+
+		//SPS: 新一层的商店要重置涨价倍率与免费开关（这两个是静态的，属于"本层这家店"），
+		//并把房间交给商人，卖光后由它触发补货。
+		Shopkeeper.priceMultiplier = 1f;
+		Shopkeeper.freeAndNoRestock = false;
+		((Shopkeeper) shopkeeper).shopRoom = this;
+
 		level.mobs().add(shopkeeper);
 
 		if (Dungeon.legacyDepth() > 20) {
@@ -229,6 +246,40 @@ public class SpsShopRoom extends ShopRoom {
 					level.map[cell] = Terrain.WATER;
 				}
 			}
+		}
+	}
+
+	/** SPS: 本层待售堆少于这个数就补货。 */
+	private static final int RESTOCK_THRESHOLD = 4;
+
+	/** SPS: 统计本层还剩几个待售堆，不足阈值就补货（免费后不再补）。商人被打时也会调一次。 */
+	public void checkRestock() {
+		if (Shopkeeper.freeAndNoRestock || Dungeon.level == null) return;
+
+		int forSale = 0;
+		for (Heap h : Dungeon.level.heaps.valueList()) {
+			if (h.type == Heap.Type.FOR_SALE) forSale++;
+		}
+		if (forSale >= RESTOCK_THRESHOLD) return;
+
+		restock();
+	}
+
+	/**
+	 * SPS: 补一批通用货物（不含固定任务/特殊物品），摆在店内空位上。
+	 * 等于把通用货补满一轮，位置重新随机。
+	 */
+	public void restock() {
+		if (Shopkeeper.freeAndNoRestock || Dungeon.level == null) return;
+
+		ArrayList<Item> fresh = new ArrayList<>();
+		addCommonItems(fresh);
+		if (fresh.isEmpty()) return;
+
+		for (Item item : fresh) {
+			int cell = randomFreeInterior(Dungeon.level);
+			if (cell == -1) break;
+			Dungeon.level.drop(item, cell).type = Heap.Type.FOR_SALE;
 		}
 	}
 
