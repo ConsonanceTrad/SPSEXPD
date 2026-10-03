@@ -1227,8 +1227,11 @@ public class Hero extends Char {
 		ready = true;
 		canSelfTrample = true;
 
-		//SPS: 移动彻底结束（含中途被打断、目标走不通）→ 收起路径提示
-		GameScene.clearHeroPath();
+		//SPS: 还能"继续行动"（右下角有继续按钮）时不收起路径预览；
+		//只有彻底停下（含被打断后再也接不上）才清掉。
+		if (lastAction == null) {
+			GameScene.clearHeroPath();
+		}
 
 		AttackIndicator.updateState();
 		

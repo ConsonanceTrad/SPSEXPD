@@ -33,6 +33,8 @@ public class GLog {
 	public static final String NEGATIVE		= "-- ";
 	public static final String WARNING		= "** ";
 	public static final String HIGHLIGHT	= "@@ ";
+	//SPS: 金色文本（谨慎移动开关等提示）
+	public static final String GOLD		= "$$ ";
 
 	public static final String NEW_LINE	    = "\n";
 	
@@ -66,5 +68,10 @@ public class GLog {
 	
 	public static void h( String text, Object... args ) {
 		i( HIGHLIGHT + text, args );
+	}
+
+	//SPS: 金色文本，用于谨慎移动开关等提示
+	public static void g( String text, Object... args ) {
+		i( GOLD + text, args );
 	}
 }

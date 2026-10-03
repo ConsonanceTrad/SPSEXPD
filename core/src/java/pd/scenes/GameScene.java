@@ -218,6 +218,8 @@ public class GameScene extends PixelScene {
 	private static boolean lockedTarget = false;
 	//SPS: 谨慎移动开关（长按检视按钮切换）
 	public static boolean cautiousMove = false;
+	//SPS: 目标格上站着生物时记下来，路径预览每帧跟随它的新位置
+	private static Mob pathTrackedMob = null;
 	private GridTileMap visualGrid;
 	private WallOcclusionTilemap occlusion;
 	private TerrainFeaturesTilemap terrainFeatures;
@@ -963,6 +965,16 @@ public class GameScene extends PixelScene {
 
 		if (Dungeon.hero == null || scene == null) {
 			return;
+		}
+
+		//SPS: 路径目标若是生物，每帧跟随它的新位置（生物死了就收起预览）
+		if (pathTrackedMob != null && pathTarget >= 0) {
+			if (!pathTrackedMob.isAlive()) {
+				clearHeroPath();
+			} else if (pathTrackedMob.pos != pathTarget) {
+				pathTarget = pathTrackedMob.pos;
+				refreshHeroPath();
+			}
 		}
 
 		super.update();
@@ -1980,8 +1992,16 @@ public class GameScene extends PixelScene {
 			}
 			pathTarget = -1;
 			lockedTarget = false;
+			pathTrackedMob = null;
 			return;
 		}
+
+		//SPS: 目标格上站着生物就记下来，之后每帧跟随它的新位置（见 update）
+		if (pathTrackedMob == null) {
+			Char atTarget = Actor.findChar( pathTarget );
+			pathTrackedMob = (atTarget instanceof Mob) ? (Mob) atTarget : null;
+		}
+
 		drawHeroPath( path );
 	}
 
@@ -2005,6 +2025,7 @@ public class GameScene extends PixelScene {
 	public static void clearHeroPath(){
 		pathTarget = -1;
 		lockedTarget = false;
+		pathTrackedMob = null;
 		drawHeroPath( null );
 	}
 

@@ -50,6 +50,7 @@ import render.input.ControllerHandler;
 import render.input.GameAction;
 import render.input.KeyBindings;
 import render.noosa.Camera;
+import render.noosa.ColorBlock;
 import render.noosa.Game;
 import render.noosa.Gizmo;
 import render.noosa.Image;
@@ -323,6 +324,30 @@ public class Toolbar extends Component {
 			private long lastClickAt = 0L;
 			private static final long DOUBLE_CLICK_MS = 350L;
 
+			//SPS: 谨慎移动开启时，在图标上叠一层金色半透明
+			private ColorBlock cautiousOverlay;
+
+			@Override
+			protected void createChildren() {
+				super.createChildren();
+				cautiousOverlay = new ColorBlock( 16, 16, 0x66FFFF44 );
+				cautiousOverlay.visible = false;
+				add( cautiousOverlay );
+			}
+
+			@Override
+			protected void layout() {
+				super.layout();
+				cautiousOverlay.x = x + (width() - cautiousOverlay.width()) / 2f;
+				cautiousOverlay.y = y + (height() - cautiousOverlay.height()) / 2f;
+			}
+
+			@Override
+			public void update() {
+				super.update();
+				cautiousOverlay.visible = GameScene.cautiousMove;
+			}
+
 			@Override
 			protected void onClick() {
 				if (Dungeon.hero == null || !Dungeon.hero.ready) return;
@@ -371,7 +396,7 @@ public class Toolbar extends Component {
 				if (!GameScene.cautiousMove){
 					GameScene.clearHeroPath();
 				}
-				GLog.i(Messages.get(Toolbar.class,
+				GLog.g(Messages.get(Toolbar.class,
 						GameScene.cautiousMove ? "cautious_on" : "cautious_off"));
 				return true;
 			}

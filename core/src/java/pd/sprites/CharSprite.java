@@ -68,6 +68,8 @@ public class CharSprite extends MovieClip implements Tweener.Listener, MovieClip
 	public static final int NEGATIVE	= 0xFF0000;
 	public static final int WARNING		= 0xFF8800;
 	public static final int NEUTRAL		= 0xFFFF00;
+	//SPS: 金色（谨慎移动开关等提示用）
+	public static final int GOLD		= 0xFFFF44;
 	
 	public static final float DEFAULT_MOVE_INTERVAL = 0.1f;
 	private static float moveInterval = DEFAULT_MOVE_INTERVAL;
