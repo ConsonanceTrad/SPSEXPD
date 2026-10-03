@@ -89,8 +89,10 @@ public abstract class Scroll extends Item {
 			.t("naudiz", "NAUDIZ卷轴")
 			.t("berkanan", "BERKANAN卷轴")
 			.t("ncosrane", "NCOSRANE卷轴")
+			.t("transmute", "TRANSMUTE卷轴")
 			.t("odal", "ODAL卷轴")
 			.t("tiwaz", "TIWAZ卷轴")
+			.t("psiblast", "PSIBLAST卷轴")
 			.t("nendil", "NENDIL卷轴")
 			.t("libra", "LIBRA卷轴")
 			.t("unknown_desc", "这张羊皮纸上写满了难以破译的魔法符文。大声念出来会发生什么？")
@@ -122,8 +124,9 @@ public abstract class Scroll extends Item {
 			put("NAUDIZ",  ConsumScrollAmuletScrollDict.SCROLL_CHALLENGE_LEGACY);
 			put("BERKANAN",ConsumScrollAmuletScrollDict.EXOTIC_BERKANAN_LEGACY);
 			put("NCOSRANE",ConsumScrollAmuletScrollDict.SCROLL_DREAD_LEGACY);
+			put("TRANSMUTE",ConsumScrollAmuletScrollDict.SCROLL_METAMORPH_LEGACY);
 			put("TIWAZ",   ConsumScrollAmuletScrollDict.SPS_SCROLL_A);
-			put("NENDIL",  ConsumScrollAmuletScrollDict.SPS_SCROLL_B);
+			put("PSIBLAST",ConsumScrollAmuletScrollDict.SPS_SCROLL_B);
 			put("LIBRA",   ConsumScrollAmuletScrollDict.SPS_SCROLL_C);
 		}
 	};
@@ -145,12 +148,13 @@ public abstract class Scroll extends Item {
 		defaultAction = AC_READ;
 	}
 	
-	//SPS: 图集里普通卷轴在第一行、密卷在第二行，逐列相邻（y 相差一个格子）。
-	//密卷外观直接由普通卷轴的图案推出来，无需另立一份随机标签表。
+	//SPS: 图集里普通卷轴在第一行、密卷在第二行，逐列相邻。
+	//两行并不共享同一 x/y 原点：第一行左上留了 1px（x=1+16i, y=1），第二行贴边（x=16i, y=16），
+	//所以偏移量是 (-1, +15) 而不是 (0, +16)。已对全表逐一核对过。
 	public static IconEntry exoticVariant( IconEntry normal ) {
 		if (normal == null) return null;
 		return new IconEntry( normal.atlas,
-				new int[]{ normal.x(0), normal.y(0) + 16, normal.w(0), normal.h(0) } );
+				new int[]{ normal.x(0) - 1, normal.y(0) + 15, normal.w(0), normal.h(0) } );
 	}
 
 	@SuppressWarnings("unchecked")

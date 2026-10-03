@@ -9,6 +9,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.ForeverShadow;
 import pd.actors.buffs.Invisibility;
 import pd.actors.mobs.Mob;
+import pd.atlas.items.ConsumScrollAmuletScrollEmptyDict;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.DummySprite;
@@ -27,6 +28,14 @@ public class ScrollOfDummy extends Scroll {
 			.t("desc", "召唤一个会吸引攻击的吵闹玩偶。")
 			.t("$minidummy.name", "吵闹玩偶")
 			.t("$minidummy.desc", "这个吵闹的玩偶会吸引攻击，生命也会慢慢消逝。");
+	}
+
+	//SPS: 测试卷轴不参与符文随机分配，固定用空白卷轴外观
+	@Override
+	public void reset() {
+		super.reset();
+		rune = "KAUNAN";
+		image = ConsumScrollAmuletScrollEmptyDict.SCROLL_EMPTY;
 	}
 
 

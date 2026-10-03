@@ -222,8 +222,10 @@ import pd.items.consum.scrolls.ScrollOfRage;
 import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.items.consum.scrolls.ScrollOfRegrowth;
 import pd.items.consum.scrolls.ScrollOfRemoveCurse;
+import pd.items.consum.scrolls.ScrollOfRetribution;
 import pd.items.consum.scrolls.ScrollOfTeleportation;
 import pd.items.consum.scrolls.ScrollOfTerror;
+import pd.items.consum.scrolls.ScrollOfTransmutation;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.items.consum.scrolls.exotic.ExoticScroll;
 import pd.items.specific.sellitem.SellMushroom;
@@ -707,9 +709,10 @@ public class Generator {
 					ScrollOfRage.class, ScrollOfTerror.class,
 					ScrollOfLullaby.class, ScrollOfMagicalInfusion.class,
 					ScrollOfPsionicBlast.class, ScrollOfMirrorImage.class,
-					ScrollOfRegrowth.class, ScrollOfDummy.class
+					ScrollOfRegrowth.class, ScrollOfDummy.class,
+					ScrollOfRetribution.class, ScrollOfTransmutation.class
 			};
-			SCROLL.defaultProbs = new float[]{30, 10, 15, 3, 10, 20, 10, 8, 8, 3, 3, 6, 6, 6};
+			SCROLL.defaultProbs = new float[]{30, 10, 15, 3, 10, 20, 10, 8, 8, 3, 3, 6, 6, 6, 3, 3};
 			SCROLL.defaultProbs2 = null;
 			SCROLL.probs = SCROLL.defaultProbs.clone();
 			
