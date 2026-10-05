@@ -26,6 +26,7 @@ import pd.Chrome;
 import pd.SPDSettings;
 import pd.ShatteredPixelDungeon;
 import pd.messages.Languages;
+import pd.messages.InlineText;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
@@ -37,6 +38,7 @@ import pd.ui.Icons;
 import pd.ui.OptionSlider;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
+import pd.ui.ScrollPane;
 import pd.ui.SideQuickBar;
 import pd.ui.Toolbar;
 import pd.ui.Window;
@@ -44,6 +46,7 @@ import render.input.ControllerHandler;
 import render.noosa.ColorBlock;
 import render.noosa.Game;
 import render.noosa.Image;
+import render.noosa.PointerArea;
 import render.noosa.audio.Sample;
 import render.noosa.ui.Component;
 import render.utils.math.Random;
@@ -96,6 +99,8 @@ public class WndSettings extends WndTabbed {
 			.t("$uitab.off", "关闭")
 			.t("$uitab.high", "最高")
 			.t("$uitab.vibration", "振动")
+			.t("$uitab.swap_aux_bar", "反转左侧按钮布局")      //SPSEXPD: 由「游戏辅助」页迁入
+			.t("$uitab.swap_wait_search", "翻转等待与检视")    //SPSEXPD: 由「游戏辅助」页迁入
 			.t("$inputtab.title", "输入设置")
 			.t("$inputtab.key_bindings", "键鼠键位")
 			.t("$inputtab.controller_bindings", "控制器键位")
@@ -103,11 +108,15 @@ public class WndSettings extends WndTabbed {
 			.t("$inputtab.movement_sensitivity", "控制器移动灵敏度")
 			.t("$inputtab.off", "关闭")
 			.t("$inputtab.high", "最高")
-			.t("$datatab.title", "网络设置")
-			.t("$datatab.news", "自动检查新闻")
-			.t("$datatab.updates", "自动检查更新")
-			.t("$datatab.betas", "包含Beta测试的内容")
-			.t("$datatab.wifi", "仅在WIFI环境下检查")
+			.t("$auxtab.title", "游戏辅助")
+			.t("unlock_alchemy_guide", "解锁炼金配方")   //SPSXPD: 由 AuxTab 使用，必须在主 static 注册，否则 AuxTab 构造早于 DisplayTab 类加载会取不到文本（顶层类 key 不带 $，规则同 Messages.get(WndSettings.class, ...)）
+			.t("$auxtab.hero_path", "显示移动路径")
+			.t("$auxtab.search_pickup", "搜索捡拾物品")
+			.t("$auxtab.quick_group", "快捷操作开关")   //SPSEXPD: 快捷操作分组的小标题
+			.t("$auxtab.quick_all", "启用快捷操作按钮")
+			.t("$auxtab.quick_light", "照明")
+			.t("$auxtab.quick_talent", "加点")
+			.t("$auxtab.quick_eat", "进食")
 			.t("$audiotab.title", "音频设置")
 			.t("$audiotab.music_vol", "音乐音量")
 			.t("$audiotab.music_mute", "关闭音乐")
@@ -138,7 +147,7 @@ public class WndSettings extends WndTabbed {
 	private DisplayTab  display;
 	private UITab       ui;
 	private InputTab    input;
-	private DataTab     data;
+	private AuxTab aux;   //SPSEXPD: 游戏辅助选项卡（替代原网络设置）
 	private AudioTab    audio;
 	private LangsTab    langs;
 
@@ -151,9 +160,24 @@ public class WndSettings extends WndTabbed {
 
 		int width = PixelScene.landscape() ? WIDTH_L : WIDTH_P;
 
+		//SPSEXPD: 游戏辅助选项卡（原「网络设置」已移除；用户要求放在第一个标签页）
+		aux = new AuxTab();
+		aux.setSize(width, AuxTab.paneHeight());   //SPSEXPD: 固定视口高度，否则窗口高度会算成 0
+		height = aux.height();
+		add( aux );
+
+		add( new IconTab(new Image("sprites/items/specific/player.png")){
+			@Override
+			protected void select(boolean value) {
+				super.select(value);
+				aux.visible = aux.active = value;
+				if (value) last_index = 0;
+			}
+		});
+
 		display = new DisplayTab();
 		display.setSize(width, 0);
-		height = display.height();
+		height = Math.max(height, display.height());   //SPSEXPD: 必须 max，否则会覆盖掉 aux 的高度导致窗口变矮、内容溢出
 		add( display );
 
 		add( new IconTab(Icons.get(Icons.DISPLAY)){
@@ -161,7 +185,7 @@ public class WndSettings extends WndTabbed {
 			protected void select(boolean value) {
 				super.select(value);
 				display.visible = display.active = value;
-				if (value) last_index = 0;
+				if (value) last_index = 1;
 			}
 		});
 
@@ -175,7 +199,7 @@ public class WndSettings extends WndTabbed {
 			protected void select(boolean value) {
 				super.select(value);
 				ui.visible = ui.active = value;
-				if (value) last_index = 1;
+				if (value) last_index = 2;
 			}
 		});
 
@@ -196,24 +220,10 @@ public class WndSettings extends WndTabbed {
 				protected void select(boolean value) {
 					super.select(value);
 					input.visible = input.active = value;
-					if (value) last_index = 2;
+					if (value) last_index = 3;
 				}
 			});
 		}
-
-		data = new DataTab();
-		data.setSize(width, 0);
-		height = Math.max(height, data.height());
-		add( data );
-
-		add( new IconTab(Icons.get(Icons.DATA)){
-			@Override
-			protected void select(boolean value) {
-				super.select(value);
-				data.visible = data.active = value;
-				if (value) last_index = 3;
-			}
-		});
 
 		audio = new AudioTab();
 		audio.setSize(width, 0);
@@ -263,7 +273,7 @@ public class WndSettings extends WndTabbed {
 
 		layoutTabs();
 
-		if (tabs.size() == 5 && last_index >= 3){
+		if (tabs.size() == 5 && last_index >= 4){
 			//input tab isn't visible
 			select(last_index-1);
 		} else {
@@ -295,7 +305,6 @@ public class WndSettings extends WndTabbed {
 		CheckBox chkFullscreen;
 		CheckBox chkLandscape;
 		ColorBlock sep2;
-		CheckBox chkHeroPath;
 		ColorBlock sep3;
 		OptionSlider optBrightness;
 		OptionSlider optVisGrid;
@@ -347,18 +356,8 @@ public class WndSettings extends WndTabbed {
 			sep2 = new ColorBlock(1, 1, 0xFF000000);
 			add(sep2);
 
-			//SPS: 常态下是否显示英雄移动路径提示
-			chkHeroPath = new CheckBox(Messages.get(this, "hero_path")) {
-				@Override
-				protected void onClick() {
-					super.onClick();
-					SPDSettings.heroPath(checked());
-					GameScene.clearHeroPath();
-					GameScene.refreshHeroPath();
-				}
-			};
-			chkHeroPath.checked(SPDSettings.heroPath());
-			add(chkHeroPath);
+
+			//SPSXPD: 「解锁炼金配方」已迁到「游戏辅助」页（用户要求集中放置）
 
 			sep3 = new ColorBlock(1, 1, 0xFF000000);
 			add(sep3);
@@ -428,9 +427,6 @@ public class WndSettings extends WndTabbed {
 			sep2.y = bottom + GAP;
 			bottom = sep2.y + 1;
 
-			chkHeroPath.setRect(0, bottom + GAP, width, BTN_HEIGHT);
-			bottom = chkHeroPath.bottom();
-
 			sep3.size(width, 1);
 			sep3.y = bottom + GAP;
 			bottom = sep3.y + 1;
@@ -465,6 +461,8 @@ public class WndSettings extends WndTabbed {
 		ColorBlock sep2;
 		CheckBox chkFont;
 		CheckBox chkVibrate;
+		ColorBlock sep3;                    //SPSEXPD: 布局反转分组（自「游戏辅助」页迁入）
+		CheckBox chkSwapAuxBar;
 
 		@Override
 		protected void createChildren() {
@@ -506,6 +504,7 @@ public class WndSettings extends WndTabbed {
 							OptionSlider optQSlotBottom; OptionSlider optQSlotLeft; OptionSlider optQSlotRight;
 							CheckBox chkFlipToolbar;
 							CheckBox chkFlipTags;
+							CheckBox chkSwapWaitSearch;   //SPSEXPD: 自「界面设置」迁入
 
 							{
 								barDesc = PixelScene.renderTextBlock(Messages.get(WndSettings.UITab.this, "mode"), 9);
@@ -612,6 +611,19 @@ public class WndSettings extends WndTabbed {
 								chkFlipTags.checked(SPDSettings.flipTags());
 								add(chkFlipTags);
 
+								//SPSEXPD: 翻转等待与检视（自「界面设置」页迁入）
+								chkSwapWaitSearch = new CheckBox(Messages.get(WndSettings.UITab.this, "swap_wait_search")) {
+									@Override
+									protected void onClick() {
+										super.onClick();
+										SPDSettings.swapWaitSearch(checked());
+										//SPSEXPD: 立即重排工具栏，无需关闭窗口
+										Toolbar.updateLayout();
+									}
+								};
+								chkSwapWaitSearch.checked(SPDSettings.swapWaitSearch());
+								add(chkSwapWaitSearch);
+
 								//layout
 								resize(WIDTH_P, 0);
 
@@ -635,7 +647,10 @@ public class WndSettings extends WndTabbed {
 									chkFlipTags.setRect(0, chkFlipToolbar.bottom() + GAP, width, BTN_HEIGHT);
 								}
 
-								resize(WIDTH_P, (int)chkFlipTags.bottom());
+								//SPSEXPD: 文案较长，独占一行
+								chkSwapWaitSearch.setRect(0, chkFlipTags.bottom() + GAP, width, BTN_HEIGHT);
+
+								resize(WIDTH_P, (int)chkSwapWaitSearch.bottom());
 
 							}
 						});
@@ -696,6 +711,22 @@ public class WndSettings extends WndTabbed {
 				chkVibrate.checked(SPDSettings.vibration());
 			}
 			add(chkVibrate);
+
+			//SPSEXPD: 布局反转（自「游戏辅助」页迁入）——两个开关都即时重排
+			sep3 = new ColorBlock(1, 1, 0xFF000000);
+			add(sep3);
+
+			chkSwapAuxBar = new CheckBox(Messages.get(this, "swap_aux_bar")) {
+				@Override
+				protected void onClick() {
+					super.onClick();
+					SPDSettings.swapAuxBar(checked());
+					//SPSEXPD: 立即重排快捷操作按钮与左侧快捷栏，无需关闭设置页或重开场景
+					GameScene.refreshQuickActionLayout();
+				}
+			};
+			chkSwapAuxBar.checked(SPDSettings.swapAuxBar());
+			add(chkSwapAuxBar);
 		}
 
 		@Override
@@ -733,6 +764,14 @@ public class WndSettings extends WndTabbed {
 				chkVibrate.setRect(0, chkFont.bottom() + GAP, width, BTN_HEIGHT);
 				height = chkVibrate.bottom();
 			}
+
+			//SPSEXPD: 布局反转分组（自「游戏辅助」页迁入）
+			sep3.size(width, 1);
+			sep3.y = height + GAP;
+			height = sep3.y + 1;
+
+			chkSwapAuxBar.setRect(0, height + GAP, width, BTN_HEIGHT);
+			height = chkSwapAuxBar.bottom();
 		}
 
 	}
@@ -859,91 +898,230 @@ public class WndSettings extends WndTabbed {
 		}
 	}
 
-	private static class DataTab extends Component{
+	//SPSEXPD: 游戏辅助选项卡——移动路径点 / 搜索捡拾 / 快捷操作按钮开关 / 布局交换（替代原「网络设置」）
+	//SPSEXPD: 游戏辅助选项卡——内容放进滚动容器，条目超出窗口高度时可以滚动
+	private static class AuxTab extends Component {
 
-		RenderedTextBlock title;
-		ColorBlock sep1;
-		CheckBox chkUpdates;
-		CheckBox chkBetas;
-		CheckBox chkWifi;
+		//SPSEXPD: 滚动容器的视口高度——内容超出这个高度时即可滚动。
+		//不写死：横屏逻辑高仅约 160，减去 tab 栏 25 与 chrome 边距后放不下 160，会撑爆窗口
+		static int paneHeight() {
+			if (PixelScene.uiCamera == null) return 160;
+			return (int) Math.max(60, Math.min(160, PixelScene.uiCamera.height - 42));   //42 ≈ tab 高 25 + chrome 边距/留白
+		}
+
+		private ScrollPane pane;
+		private boolean laidOut = false;
+
+		//SPSEXPD: 本页高度固定为视口高度（不再由内容撑开），否则窗口高度会算成 0 而完全不显示
+		@Override
+		public float height() {
+			return paneHeight();
+		}
 
 		@Override
 		protected void createChildren() {
-			title = PixelScene.renderTextBlock(Messages.get(this, "title"), 9);
+			super.createChildren();
+			pane = new ScrollPane( new AuxContent() );
+			add( pane );
+			//SPSEXPD: 必须在 ScrollPane 构造完成之后再提升热区优先级（控制器在构造里注册，会插到最前）
+			((AuxContent)pane.content()).givePointerPriority();
+		}
+
+		@Override
+		protected void layout() {
+			super.layout();
+			//SPSEXPD: 构造期（还没 add 进窗口）父链上没有 camera，此时布局 ScrollPane 会 NPE，先跳过
+			if (pane == null || camera() == null) return;
+
+			//SPSEXPD: 父级宽度偶尔还没下发（挂载顺序问题），用窗口宽度常量兜底，
+			//否则内容宽度为 0，文字根本画不出来（表现为“只有溢出、没有文本”）
+			float w = width > 0 ? width : (PixelScene.landscape() ? WIDTH_L : WIDTH_P);
+
+			AuxContent content = (AuxContent)pane.content();
+			content.setSize( w, 0 );
+			content.setSize( w, content.height() );
+
+			pane.setRect( x, y, w, paneHeight() );
+		}
+
+		@Override
+		public void update() {
+			super.update();
+			//SPSEXPD: 挂载到窗口后补一次布局；只补一次，否则每帧重排会把滚动位置一直清零
+			if (!laidOut && pane != null && camera() != null) {
+				layout();
+				laidOut = true;
+			}
+		}
+	}
+
+	//SPSEXPD: 滚动容器内的复选框基类：热区必须 NEVER_BLOCK 且提到最前接收事件。
+	//PointerEvent 信号是 stackMode（后注册者先收到、返回 true 即停止传播），
+	//ScrollPane 的拖拽控制器后注册会吞掉点击，导致滚动正常但条目点不动（同 TalentButton/NEVER_BLOCK 的滚动区惯例）
+	private static class AuxCheckBox extends CheckBox {
+		AuxCheckBox(String label) {
+			super(label);
+			hotArea.blockLevel = PointerArea.NEVER_BLOCK;
+		}
+	}
+
+	//SPSEXPD: 游戏辅助页的实际内容
+	private static class AuxContent extends Component {
+
+		RenderedTextBlock title;
+		ColorBlock sep1;
+		CheckBox chkUnlockAlchemyGuide;   //SPSXPD: 无条件解锁炼金指南全部配方页
+		CheckBox chkHeroPath;
+		CheckBox chkSearchPickUp;
+		ColorBlock sep2;
+		RenderedTextBlock quickGroup;   //SPSEXPD: 「快捷操作开关」小标题
+		CheckBox chkQuickAll;
+		CheckBox chkQuickLight;
+		CheckBox chkQuickTalent;
+		CheckBox chkQuickEat;
+
+		@Override
+		protected void createChildren() {
+			title = PixelScene.renderTextBlock(Messages.get(AuxTab.class, "title"), 9);
 			title.hardlight(TITLE_COLOR);
 			add(title);
 
 			sep1 = new ColorBlock(1, 1, 0xFF000000);
 			add(sep1);
 
-			//SPSEXPD: 新闻入口已移除（上游新闻服务不再接入），数据页不再有「新闻」开关
-			if (Updates.supportsUpdates() && Updates.supportsUpdatePrompts()) {
-				chkUpdates = new CheckBox(Messages.get(this, "updates")) {
-					@Override
-					protected void onClick() {
-						super.onClick();
-						SPDSettings.updates(checked());
-						Updates.clearUpdate();
-					}
-				};
-				chkUpdates.checked(SPDSettings.updates());
-				add(chkUpdates);
-
-				if (Updates.supportsBetaChannel()){
-					chkBetas = new CheckBox(Messages.get(this, "betas")) {
-						@Override
-						protected void onClick() {
-							super.onClick();
-							SPDSettings.betas(checked());
-							Updates.clearUpdate();
-						}
-					};
-					chkBetas.checked(SPDSettings.betas());
-					add(chkBetas);
+			//SPSXPD: 无条件解锁炼金指南的全部配方页
+			chkUnlockAlchemyGuide = new AuxCheckBox(Messages.get(WndSettings.class, "unlock_alchemy_guide")) {
+				@Override
+				protected void onClick() {
+					super.onClick();
+					SPDSettings.unlockAlchemyGuide(checked());
 				}
-			}
+			};
+			chkUnlockAlchemyGuide.checked(SPDSettings.unlockAlchemyGuide());
+			add(chkUnlockAlchemyGuide);
+			//移动路径点（原显示设置页迁入）
+			chkHeroPath = new AuxCheckBox(Messages.get(AuxTab.class, "hero_path")) {
+				@Override
+				protected void onClick() {
+					super.onClick();
+					SPDSettings.heroPath(checked());
+					GameScene.clearHeroPath();
+					GameScene.refreshHeroPath();
+				}
+			};
+			chkHeroPath.checked(SPDSettings.heroPath());
+			add(chkHeroPath);
 
-			if (!DeviceCompat.isDesktop()){
-				chkWifi = new CheckBox(Messages.get(this, "wifi")){
-					@Override
-					protected void onClick() {
-						super.onClick();
-						SPDSettings.WiFi(checked());
-					}
-				};
-				chkWifi.checked(SPDSettings.WiFi());
-				add(chkWifi);
+			//搜索捡拾（原显示设置页迁入）
+			chkSearchPickUp = new AuxCheckBox(Messages.get(AuxTab.class, "search_pickup")) {
+				@Override
+				protected void onClick() {
+					super.onClick();
+					SPDSettings.searchPickUp(checked());
+				}
+			};
+			chkSearchPickUp.checked(SPDSettings.searchPickUp());
+			add(chkSearchPickUp);
+
+			sep2 = new ColorBlock(1, 1, 0xFF000000);
+			add(sep2);
+
+			//SPSEXPD: 快捷操作分组的小标题（小号字，避免与页标题同尺寸）
+			quickGroup = PixelScene.renderTextBlock(Messages.get(AuxTab.class, "quick_group"), 6);
+			add(quickGroup);
+
+			//快捷操作总开关（关闭后三个按钮都不显示，各自开关的状态保留）
+			chkQuickAll = new AuxCheckBox(Messages.get(AuxTab.class, "quick_all")) {
+				@Override
+				protected void onClick() {
+					super.onClick();
+					SPDSettings.quickAll(checked());
+				}
+			};
+			chkQuickAll.checked(SPDSettings.quickAll());
+			add(chkQuickAll);
+
+			//快捷操作按钮：三种按钮各自开关，不需要的可单独关掉
+			chkQuickLight = new AuxCheckBox(Messages.get(AuxTab.class, "quick_light")) {
+				@Override
+				protected void onClick() {
+					super.onClick();
+					SPDSettings.quickLight(checked());
+				}
+			};
+			chkQuickLight.checked(SPDSettings.quickLight());
+			add(chkQuickLight);
+
+			chkQuickTalent = new AuxCheckBox(Messages.get(AuxTab.class, "quick_talent")) {
+				@Override
+				protected void onClick() {
+					super.onClick();
+					SPDSettings.quickTalent(checked());
+				}
+			};
+			chkQuickTalent.checked(SPDSettings.quickTalent());
+			add(chkQuickTalent);
+
+			chkQuickEat = new AuxCheckBox(Messages.get(AuxTab.class, "quick_eat")) {
+				@Override
+				protected void onClick() {
+					super.onClick();
+					SPDSettings.quickEat(checked());
+				}
+			};
+			chkQuickEat.checked(SPDSettings.quickEat());
+			add(chkQuickEat);
+		}
+
+		//SPSEXPD: 提升本页复选框热区的事件优先级，必须在 ScrollPane 构造之后调用：
+		//ScrollPane 的拖拽控制器在它自己的构造里注册，而 PointerEvent 信号是 stackMode（后注册者先收到），
+		//不提升的话控制器会先吞掉按下/抬起事件，表现为能滚动但条目点不动
+		void givePointerPriority() {
+			for (Object o : members) {
+				if (o instanceof AuxCheckBox) ((AuxCheckBox) o).givePointerPriority();
 			}
 		}
 
 		@Override
 		protected void layout() {
-			title.setPos((width - title.width())/2, y + GAP);
+			float bottom = 0;
+			title.setPos((width - title.width())/2, bottom + GAP);
 			sep1.size(width, 1);
 			sep1.y = title.bottom() + 3*GAP;
+			bottom = sep1.y + 1;
 
-			float pos = sep1.y + 1 + GAP;
+			chkUnlockAlchemyGuide.setRect(0, bottom + GAP, width, BTN_HEIGHT);
+			bottom = chkUnlockAlchemyGuide.bottom();
 
-			if (chkUpdates != null) {
-				chkUpdates.setRect(0, pos, width, BTN_HEIGHT);
-				pos = chkUpdates.bottom();
-			}
+			chkHeroPath.setRect(0, bottom + GAP, width, BTN_HEIGHT);
+			bottom = chkHeroPath.bottom();
 
-			if (chkBetas != null){
-				chkBetas.setRect(0, pos + GAP, width, BTN_HEIGHT);
-				pos = chkBetas.bottom();
-			}
+			chkSearchPickUp.setRect(0, bottom + GAP, width, BTN_HEIGHT);
+			bottom = chkSearchPickUp.bottom();
 
-			if (chkWifi != null){
-				chkWifi.setRect(0, pos + GAP, width, BTN_HEIGHT);
-				pos = chkWifi.bottom();
-			}
+			sep2.size(width, 1);
+			sep2.y = bottom + GAP;
+			bottom = sep2.y + 1;
 
-			height = pos;
+			//SPSEXPD: 快捷操作分组的小标题
+			quickGroup.setPos(0, bottom + GAP);
+			bottom = quickGroup.bottom();
 
+			chkQuickAll.setRect(0, bottom + GAP, width, BTN_HEIGHT);
+			bottom = chkQuickAll.bottom();
+
+			//SPSEXPD: 照明与加点共用一行，各占 1/2 宽
+			chkQuickLight.setRect(0, bottom + GAP, width/2 - 1, BTN_HEIGHT);
+			chkQuickTalent.setRect(chkQuickLight.right() + 2, chkQuickLight.top(), width/2 - 1, BTN_HEIGHT);
+			bottom = chkQuickLight.bottom();
+
+			//SPSEXPD: 进食另起一行，只占左侧 1/2
+			chkQuickEat.setRect(0, bottom + GAP, width/2 - 1, BTN_HEIGHT);
+			bottom = chkQuickEat.bottom();
+
+			height = bottom;
 		}
 	}
-
 	private static class AudioTab extends Component {
 
 		RenderedTextBlock title;

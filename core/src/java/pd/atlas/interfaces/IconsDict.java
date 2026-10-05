@@ -192,4 +192,6 @@ public final class IconsDict {
 	public static final IconEntry ICON_088 = new IconEntry("interfaces/icons.png", new int[]{160, 0, 16, 16}, 5920);
 	/** icon_089 */
 	public static final IconEntry ICON_089 = new IconEntry("interfaces/icons.png", new int[]{176, 0, 16, 16}, 5921);
+	/** icon_090 */
+	public static final IconEntry ICON_090 = new IconEntry("interfaces/icons.png", new int[]{240, 80, 10, 10}, 7196);
 }

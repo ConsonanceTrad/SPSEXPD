@@ -31,9 +31,6 @@ import pd.items.equipment.armor.normalarmor.BaseArmor;
 import pd.items.equipment.armor.normalarmor.VestArmor;
 import pd.items.equipment.artifacts.CloakOfShadows;
 import pd.items.equipment.artifacts.EtherealChains;
-import pd.items.consum.medicine.Hardpill;
-import pd.items.consum.medicine.Powerpill;
-import pd.items.consum.medicine.Smashpill;
 import pd.items.consum.potions.PotionOfHealing;
 import pd.items.equipment.rings.RingOfForce;
 import pd.items.equipment.rings.RingOfMight;
@@ -122,8 +119,7 @@ public final class SpsSkinSixTest {
 		h = start(HeroClass.MAGE);
 		check(h.belongings.weapon instanceof ShortSword
 				&& h.belongings.armor instanceof pd.items.equipment.armor.normalarmor.ClothArmor
-				&& has(h, GnollMark.class) && has(h, WandOfLight.class) && has(h, Powerpill.class)
-				&& has(h, Smashpill.class) && has(h, Hardpill.class) && has(h, JumpW.class)
+				&& has(h, GnollMark.class) && has(h, WandOfLight.class) && has(h, JumpW.class)
 				&& h.magicSkill() == 3, "皮肤6法师开局错误");
 
 		h = start(HeroClass.ROGUE);

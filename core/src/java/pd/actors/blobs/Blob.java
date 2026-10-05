@@ -107,11 +107,27 @@ public class Blob extends Actor {
 	}
 
 	protected ArrayList<Integer> cellsToFlagUpdate = new ArrayList<>();
-	
+
+	//SPSEXPD: 最小存活回合数（0 = 不限制，保持原版行为）
+	public int minLifetime = 0;
+	private int aliveTicks = 0;
+	private int[] initialGrid = null;
+
+	/** SPSEXPD: 让这种雾/场在消散前至少存在指定回合数（范围不变，只延长留存）。 */
+	public Blob setMinLifetime( int turns ){
+		this.minLifetime = Math.max( this.minLifetime, turns );
+		if (initialGrid == null && cur != null) {
+			initialGrid = new int[cur.length];
+			System.arraycopy( cur, 0, initialGrid, 0, cur.length );
+		}
+		return this;
+	}
+
 	@Override
 	public boolean act() {
 		
 		spend( TICK );
+		aliveTicks++;
 		
 		if (volume > 0) {
 
@@ -131,6 +147,21 @@ public class Blob extends Actor {
 			cellsToFlagUpdate.clear();
 			
 		} else {
+			//SPSEXPD: 未满最短留存回合时，按初始分布续上，保持场上仍有该雾/场
+			if (minLifetime > 0 && aliveTicks < minLifetime && initialGrid != null) {
+				System.arraycopy( initialGrid, 0, cur, 0, cur.length );
+				volume = 0;
+				for (int v : cur) volume += v;
+				if (volume > 0) {
+					area.setEmpty();
+					setupArea();
+					for (int i : cellsToFlagUpdate){
+						Dungeon.level.updateCellFlags(i);
+					}
+					cellsToFlagUpdate.clear();
+					return true;
+				}
+			}
 			if (!area.isEmpty()) {
 				area.setEmpty();
 				//clear any values remaining in off
@@ -212,6 +243,12 @@ public class Blob extends Actor {
 
 		cur[cell] += amount;
 		volume += amount;
+
+		//SPSEXPD: 记录初始分布，供最短留存时间到时“续上”使用
+		if (minLifetime > 0) {
+			if (initialGrid == null || initialGrid.length != cur.length) initialGrid = new int[cur.length];
+			initialGrid[cell] += amount;
+		}
 
 		area.union(cell%level.width(), cell/level.width());
 	}

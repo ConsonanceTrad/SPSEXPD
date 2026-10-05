@@ -67,19 +67,24 @@ public class TransmutationBall extends Item {
 		}
 	}
 
+	/** SPSEXPD: 转换球与转换笼蔬菜共用的“可转换”判定。 */
+	public static boolean selectable(Item item) {
+		if (item == null || item.isEquipped(Dungeon.hero)) return false;
+		if (item instanceof StrBottle) return true;
+		if (item instanceof MeleeWeapon) return true;
+		if (item instanceof MissileWeapon) return item.getClass() != Dart.class;
+		if (item instanceof Potion) return !(item instanceof Elixir || item instanceof Brew);
+		if (item instanceof Scroll) return true;
+		if (item instanceof Artifact) return !item.unique;
+		return item instanceof Ring || item instanceof Wand || item instanceof Trinket
+				|| item instanceof Plant.Seed || item instanceof Runestone;
+	}
+
 	private final WndBag.ItemSelector itemSelector = new WndBag.ItemSelector() {
 		@Override public String textPrompt() { return Messages.get(TransmutationBall.class, "prompt"); }
 		@Override public Class<? extends Bag> preferredBag() { return Belongings.Backpack.class; }
 		@Override public boolean itemSelectable(Item item) {
-			if (item.isEquipped(Dungeon.hero) || item == TransmutationBall.this) return false;
-			if (item instanceof StrBottle) return true;
-			if (item instanceof MeleeWeapon) return true;
-			if (item instanceof MissileWeapon) return item.getClass() != Dart.class;
-			if (item instanceof Potion) return !(item instanceof Elixir || item instanceof Brew);
-			if (item instanceof Scroll) return true;
-			if (item instanceof Artifact) return !item.unique;
-			return item instanceof Ring || item instanceof Wand || item instanceof Trinket
-					|| item instanceof Plant.Seed || item instanceof Runestone;
+			return item != TransmutationBall.this && selectable(item);
 		}
 		@Override public void onSelect(Item item) {
 			if (item == null) return;
@@ -102,7 +107,8 @@ public class TransmutationBall extends Item {
 		}
 	};
 
-	static Item changeItem(Item item) {
+	/** SPSEXPD: 转换球与转换笼蔬菜共用的转换逻辑。 */
+	public static Item changeItem(Item item) {
 		return item instanceof StrBottle ? new MitBottle() : ScrollOfTransmutation.changeItem(item);
 	}
 

@@ -13,17 +13,17 @@ public final class SpecificPagesDict {
 	private SpecificPagesDict() { }
 
 	/** GUIDE_PAGE#0 */
-	public static final IconEntry GUIDE_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{3, 2, 10, 11}, 7048);
+	public static final IconEntry GUIDE_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{3, 2, 10, 11}, 7113);
 	/** ALCH_PAGE#0 */
-	public static final IconEntry ALCH_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{19, 2, 10, 11}, 7049);
+	public static final IconEntry ALCH_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{19, 2, 10, 11}, 7114);
 	/** SEWER_PAGE#0 */
-	public static final IconEntry SEWER_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{35, 2, 10, 11}, 7050);
+	public static final IconEntry SEWER_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{35, 2, 10, 11}, 7115);
 	/** PRISON_PAGE#0 */
-	public static final IconEntry PRISON_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{51, 2, 10, 11}, 7051);
+	public static final IconEntry PRISON_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{51, 2, 10, 11}, 7116);
 	/** CAVES_PAGE#0 */
-	public static final IconEntry CAVES_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{67, 2, 10, 11}, 7052);
+	public static final IconEntry CAVES_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{67, 2, 10, 11}, 7117);
 	/** CITY_PAGE#0 */
-	public static final IconEntry CITY_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{83, 2, 10, 11}, 7053);
+	public static final IconEntry CITY_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{83, 2, 10, 11}, 7118);
 	/** HALLS_PAGE#0 */
-	public static final IconEntry HALLS_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{99, 2, 10, 11}, 7054);
+	public static final IconEntry HALLS_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{99, 2, 10, 11}, 7119);
 }

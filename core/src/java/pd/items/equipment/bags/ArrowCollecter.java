@@ -30,6 +30,9 @@ public class ArrowCollecter extends Bag {
 				&& super.canHold(item);
 	}
 
-	@Override public int capacity() { return 34; }
+	/** SPSEXPD: 标签页固定排序位。 */
+	@Override public int bagOrder() { return 6; }
+
+	@Override public int capacity() { return 35; }
 	@Override public int value() { return 50 * quantity; }
 }

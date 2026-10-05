@@ -22,7 +22,7 @@ import pd.items.equipment.armor.specialarmor.TestArmor;
 import pd.items.equipment.bombs.DungeonBomb;
 import pd.items.consum.food.SmallMeat;
 import pd.items.specific.keys.IronKey;
-import pd.items.consum.potions.PotionOfMending;
+import pd.items.consum.potions.PotionOfHealing;
 import pd.items.consum.potions.PotionOfMindVision;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
 import pd.items.equipment.wands.WandOfTest;
@@ -106,7 +106,7 @@ public final class SpsLearnLevelTest {
 		check(level.heaps.valueList().size() == 13, "教学固定物品堆数量错误");
 		checkHeap(level, 15 + 48 * 2, Heap.Type.HEAP, TestWeapon.class, 1);
 		checkHeap(level, 16 + 48 * 2, Heap.Type.HEAP, TestArmor.class, 1);
-		checkHeap(level, 40 + 48 * 3, Heap.Type.CHEST, PotionOfMending.class, 1);
+		checkHeap(level, 40 + 48 * 3, Heap.Type.CHEST, PotionOfHealing.class, 1);
 		checkHeap(level, 41 + 48 * 3, Heap.Type.E_DUST, IronKey.class, 1);
 		checkHeap(level, 42 + 48 * 4, Heap.Type.E_DUST, VioletDewdrop.class, 1);
 		checkHeap(level, 42 + 48 * 5, Heap.Type.CHEST, Gold.class, 1000);

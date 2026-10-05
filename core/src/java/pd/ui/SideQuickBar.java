@@ -41,7 +41,13 @@ public class SideQuickBar extends Component {
 	private static SideQuickBar instance;
 
 	//SPS: 布局参数——贴边、自上而下、距顶起始（避让顶部状态栏，参照 SPS 的 48~50px）
-	private static final float TOP_OFFSET = 48;
+	public static final float TOP_OFFSET = 48;
+
+	//SPSEXPD: 顶部额外预留高度——「游戏辅助」设置里把快捷操作按钮换到左上时，左栏整体下移
+	public static int topReserve = 0;
+
+	//SPSEXPD: >0 时左栏改为「底部对齐」该锚点（与快捷操作按钮互换位置时使用）
+	public static float leftBottomAnchor = 0;
 
 	//SPS: 纹理帧规格（side_toolbar.png）
 	private static final int BAR_W		= 24;	//栏宽 = 外框 1 + 格 22 + 外框 1
@@ -78,7 +84,14 @@ public class SideQuickBar extends Component {
 
 	@Override
 	protected void layout() {
-		leftBar.layout( x, y + TOP_OFFSET, SPDSettings.quickslotsLeft() );
+		int nLeft = SPDSettings.quickslotsLeft();
+		float leftY = y + TOP_OFFSET + topReserve;
+		//SPSEXPD: 与快捷操作按钮互换位置时，左栏改成底部对齐——自下而上贴住信息栏上方
+		if (leftBottomAnchor > 0 && nLeft > 0) {
+			float barH = CAP_H + CELL_SIZE + (nLeft - 1) * CELL_STEP + CAP_H;
+			leftY = leftBottomAnchor - barH;
+		}
+		leftBar.layout( x, leftY, nLeft );
 		rightBar.layout( x + width - BAR_W, y + TOP_OFFSET, SPDSettings.quickslotsRight() );
 	}
 

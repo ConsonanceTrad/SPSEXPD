@@ -18,8 +18,8 @@ public class PixieParasol extends Pill {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(PixieParasol.class)
-			.t("name", "单色块")
-			.t("desc", "一种有强烈致幻作用的菌类，食用后会使人振奋，同时使其他生物陷入睡眠状态。\n使用_1份水，1份蔬菜，1份夜梦花种子_炼金");
+			.t("name", "小精灵伞瓶")
+			.t("desc", "存储者数种致幻植物的提取物的混合溶液，泼洒时会使生物振奋或陷入沉睡。");
 	}
 
 

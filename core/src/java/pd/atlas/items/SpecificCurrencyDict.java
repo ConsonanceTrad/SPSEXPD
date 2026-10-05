@@ -13,7 +13,7 @@ public final class SpecificCurrencyDict {
 	private SpecificCurrencyDict() { }
 
 	/** GOLD#0 */
-	public static final IconEntry GOLD_0 = new IconEntry("sprites/items/specific/currency.png", new int[]{0, 0, 15, 13}, 7042);
+	public static final IconEntry GOLD_0 = new IconEntry("sprites/items/specific/currency.png", new int[]{0, 0, 15, 13}, 7107);
 	/** ENERGY#0 */
-	public static final IconEntry ENERGY_0 = new IconEntry("sprites/items/specific/currency.png", new int[]{16, 0, 16, 16}, 7043);
+	public static final IconEntry ENERGY_0 = new IconEntry("sprites/items/specific/currency.png", new int[]{16, 0, 16, 16}, 7108);
 }

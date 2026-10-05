@@ -61,8 +61,11 @@ public class ScrollHolder extends Bag {
 		}
 	}
 
+	/** SPSEXPD: 标签页固定排序位。 */
+	@Override public int bagOrder() { return 1; }
+
 	public int capacity(){
-		return 34;
+		return 35;
 	}
 	
 	@Override

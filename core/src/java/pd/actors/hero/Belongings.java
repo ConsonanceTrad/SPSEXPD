@@ -60,18 +60,32 @@ public class Belongings implements Iterable<Item> {
 			image = EquipmentBagsDict.BACKPACK_0;
 		}
 		public int capacity(){
-			//SPS: 主背包 40 格（5 列 x 8 行，装备区两排不占背包格）
+			//SPS: 主背包 35 格（5 列 x 7 行）。净格恒为 35——包裹袋本体不占格，也不再额外多给一格
 			int cap = BACKPACK_CAPACITY;
 			if (Dungeon.isChallenged(pd.Challenges.TEST_TIME)) {
 				cap = Math.max(cap, 64);
 			}
-			for (Item item : items){
-				if (item instanceof Bag){
-					cap++;
-				}
-			}
 			//SPS: 副武器/副护甲由装备区两排承载，不再扣减背包容量（用户裁决）
 			return cap;
+		}
+
+		//SPSEXPD: 最后一格恒留给露珠瓶，其它物品最多 capacity-1 件（露珠瓶自身不受预留限制）
+		@Override
+		protected int reservedSlotsFor( Item item ){
+			return item instanceof pd.items.Waterskin ? 0 : 1;
+		}
+	}
+
+	//SPSEXPD: 旧存档的露珠瓶可能被药剂挎带等包裹收录，读档后迁回主背包（只被主背包收录）
+	private void migrateWaterskin() {
+		for (Bag bag : getBags()) {
+			if (bag == null || bag == backpack) continue;
+			for (Item item : bag.items.toArray(new Item[0])) {
+				if (item instanceof pd.items.Waterskin) {
+					item.detachAll(bag);
+					item.collect(backpack);
+				}
+			}
 		}
 	}
 
@@ -269,6 +283,9 @@ public class Belongings implements Iterable<Item> {
 		secondArmor = (Armor) bundle.get(SECOND_ARMOR);
 
 		bundleRestoring = false;
+
+		//SPSEXPD: 旧存档里露珠瓶若被药剂挎带等包裹收录，迁回主背包
+		migrateWaterskin();
 	}
 
 	public void clear(){
@@ -302,11 +319,17 @@ public class Belongings implements Iterable<Item> {
 
 		result.add(backpack);
 
+		ArrayList<Bag> others = new ArrayList<>();
 		for (Item i : this){
 			if (i instanceof Bag){
-				result.add((Bag)i);
+				others.add((Bag)i);
 			}
 		}
+
+		//SPSEXPD: 标签页固定顺序——绒布包-卷轴筒-药水箱-购物车-竹背篓-魔法套筒-暗器袋-草靶子-钥匙串
+		//（Bag.bagOrder()，相等的保持原有次序；主背包固定在下标 0）
+		others.sort(java.util.Comparator.comparingInt(Bag::bagOrder));
+		result.addAll(others);
 
 		return result;
 	}

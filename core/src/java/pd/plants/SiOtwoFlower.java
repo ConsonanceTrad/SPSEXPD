@@ -15,11 +15,11 @@ public class SiOtwoFlower extends Plant {
 	//SPSEXPD: inline Chinese text (generated from messages/plants/zh)
 	static {
 		InlineText.of(SiOtwoFlower.class)
-			.t("name", "石英花")
+			.t("name", "水晶花")
 			.t("desc", "富含玻璃成分的沙漠花朵，会为接触者提供护盾，并留下一颗可食用坚果。")
-			.t("warden_desc", "_守望者_会获得石英花完整的玻璃护盾。")
-			.t("$seed.name", "石英花之种")
-			.t("$exsiotwoflower.name", "石英花果丛")
+			.t("warden_desc", "_守望者_会获得水晶花完整的玻璃护盾。")
+			.t("$seed.name", "水晶花之种")
+			.t("$exsiotwoflower.name", "水晶花果丛")
 			.t("$exsiotwoflower.desc", "生长水晶果的果丛。");
 	}
 

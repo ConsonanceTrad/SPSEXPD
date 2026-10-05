@@ -44,6 +44,9 @@ public class ShatteredPixelDungeon extends Game {
 
 	//starting here we are doing 2 version codes per public update, so use code-1 to get both
 	public static final int v4_0_0 = 909;
+
+	//SPSXPD: 特质（Perk）体系起始版本 —— 早于此版本的存档带有破碎天赋数据，不再兼容
+	public static final int v_traits = 924;
 	
 	public ShatteredPixelDungeon( PlatformSupport platform ) {
 		super( sceneClass == null ? WelcomeScene.class : sceneClass, platform );

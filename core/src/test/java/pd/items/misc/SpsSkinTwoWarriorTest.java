@@ -610,8 +610,8 @@ public final class SpsSkinTwoWarriorTest {
 				"皮肤2演员圣水或基础护甲错误");
 		check(hero.belongings.getItem(CopyBall.class) != null && hero.belongings.getItem(JumpP.class) != null,
 				"皮肤2演员侵蚀核心或演员之鞋缺失");
-		check(hero.belongings.getItem(pd.items.consum.potions.PotionOfMending.class) != null
-				&& hero.belongings.getItem(pd.items.consum.potions.PotionOfHealing.class) != null,
+		check(hero.belongings.getItem(pd.items.consum.potions.PotionOfHealing.class) != null
+				&& hero.belongings.getItem(pd.items.consum.potions.PotionOfHealing.class).quantity() >= 2,
 				"皮肤2演员两瓶治疗药剂缺失");
 	}
 
@@ -948,7 +948,7 @@ public final class SpsSkinTwoWarriorTest {
 
 		check(Generator.Category.MUSHROOM.classes.length == 8
 				&& Generator.Category.SPS_BERRY.classes.length == 4
-				&& Generator.Category.SPS_SEED.classes.length == 19,
+				&& Generator.Category.SPS_SEED.classes.length == 20,
 				"自然之书使用的旧版药材、浆果或种子池不完整");
 		boolean mushroom = false, berry = false, regrowth = false, seed = false;
 		Random.pushGenerator(0x4752415353424F4FL);

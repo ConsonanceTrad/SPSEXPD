@@ -94,7 +94,7 @@ public class AlchemyScene extends PixelScene {
 	static {
 		InlineText.of(AlchemyScene.class)
 			.t("title", "炼金")
-			.t("text", "放入材料以制作新的道具！")
+			.t("text", "")
 			.t("select", "选择一件物品")
 			.t("energy", "能量：")
 			.t("add", "添加物品")
@@ -1237,7 +1237,8 @@ public class AlchemyScene extends PixelScene {
 	}
 
 	public static int spsInputCapacity(AlchemistsToolkit toolkit) {
-		return toolkit == null ? 3 : Math.min(5, 3 + Math.max(0, toolkit.level()) / 5);
+		//SPSEXPD: 炼金釜固定提供 5 个投放格（不再依赖炼金护腕等级）
+		return 5;
 	}
 
 	public static void assignToolkit( AlchemistsToolkit toolkit ){

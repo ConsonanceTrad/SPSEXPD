@@ -68,12 +68,16 @@ public final class SpsBlandfruitTest {
 		TestBlandfruit fruit = new TestBlandfruit();
 		check(fruit instanceof Fruit, "无味果没有归入旧版水果分类");
 		check(Food.AC_EAT.equals(fruit.defaultAction()), "生无味果没有默认食用动作");
-		check(fruit.energy == 100f && fruit.eatTime() == Food.TIME_TO_EAT,
+		check(fruit.energy == Hunger.HUNGRY && fruit.eatTime() == Food.TIME_TO_EAT,
 				"生无味果应恢复100饱食并耗时3回合");
 		check(fruit.value() == 20 && fruit.quantity(2).value() == 40, "无味果价值不是每个20");
 
+		//SPSEXPD: 先把饥饿度抬高，确保能吃下的饱食量不受上限影响
+		hunger.affectHunger(-300f, true);
+		float beforeFeed = hunger.hunger();
 		fruit.feed(hero);
-		check(hunger.hunger() == 100, "生食无味果没有实际恢复100点饱食");
+		check(Math.abs((beforeFeed - hunger.hunger()) - Hunger.HUNGRY) < 1f,
+				"生食无味果没有实际恢复干粮等量饱食");
 		for (Method method : Blandfruit.class.getDeclaredMethods()) {
 			check(!method.getName().equals("onThrow"), "无味果仍覆盖投掷并可能爆炸");
 		}
@@ -84,11 +88,9 @@ public final class SpsBlandfruitTest {
 		inputs.add(new Blandfruit());
 		inputs.add(new Icecap.Seed());
 		ArrayList<Recipe> recipes = Recipe.findRecipes(inputs);
-		check(recipes.size() == 1 && recipes.get(0) == SpsAlchemyRecipes.cookBrewedRecipe(),
-				"无味果与种子没有唯一匹配SPS酿制配方");
-		Item sample = recipes.get(0).sampleOutput(inputs);
-		check(sample instanceof Brewed && ((Brewed) sample).potionAttrib instanceof PotionOfFrost,
-				"无味果配方预览没有生成独立Brewed");
+		//SPSEXPD: 无味果的浸泡(炖菜)配方已移除，现在只会落入废料兜底
+		check(recipes.size() == 1 && recipes.get(0) == SpsAlchemyRecipes.garbageRecipe(),
+				"无味果与种子仍能匹配到炖菜配方");
 
 		try {
 			Class.forName(Blandfruit.class.getName() + "$CookFruit");

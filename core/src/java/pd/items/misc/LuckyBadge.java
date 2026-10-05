@@ -4,6 +4,7 @@ package pd.items.misc;
 import pd.atlas.items.EquipmentJewelleryArtifactDict;
 
 import pd.actors.buffs.AflyBless;
+import pd.actors.buffs.LuckyMoment;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroClass;
 import pd.actors.hero.HeroSubClass;
@@ -42,6 +43,8 @@ public class LuckyBadge extends Item {
 		if (hero.heroClass == HeroClass.SOLDIER) bonus += 5;
 		if (hero.subClass == HeroSubClass.SUPERSTAR) bonus += 3;
 		bonus += 3 * hero.buffs(AflyBless.class).size();
+		//SPSEXPD: 彩虹三色堇的临时幸运
+		bonus += LuckyMoment.BONUS * hero.buffs(LuckyMoment.class).size();
 		return bonus;
 	}
 

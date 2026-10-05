@@ -94,17 +94,5 @@ public final class SpsDew {
 		return false;
 	}
 
-	public static int par( Level level ) {
-		int base;
-		switch ((Dungeon.depth - 1) / 5) {
-			case 0: default: base = 500; break;
-			case 1: base = 400; break;
-			case 2: base = 300; break;
-			case 3: base = 250; break;
-			case 4: base = 200; break;
-		}
-		int secretDoors = 0;
-		for (int terrain : level.map) if (terrain == Terrain.SECRET_DOOR) secretDoors++;
-		return base + Dungeon.depth * 50 + secretDoors * 20;
-	}
+	//SPSEXPD: 清层限时已取消，原有的 par() 回合基准一并移除
 }

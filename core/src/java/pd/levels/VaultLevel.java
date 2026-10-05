@@ -104,7 +104,7 @@ import pd.plants.Blindweed;
 import pd.plants.Earthroot;
 import pd.plants.Firebloom;
 import pd.plants.Icecap;
-import pd.plants.Mageroyal;
+import pd.plants.Dreamfoil;
 import pd.plants.Sorrowmoss;
 import pd.plants.Starflower;
 import pd.plants.Stormvine;
@@ -452,7 +452,7 @@ public class VaultLevel extends CityLevel {
 		if (consumableLoot.get(0).isEmpty()){
 			consumableLoot.get(0).addAll(Arrays.asList(
 					Reflection.newInstance(Random.oneOf(PotionOfFrost.class, PotionOfLevitation.class)),
-					Reflection.newInstance(Random.oneOf(Mageroyal.Seed.class, Icecap.Seed.class, Stormvine.Seed.class)),
+					Reflection.newInstance(Random.oneOf(Dreamfoil.Seed.class, Icecap.Seed.class, Stormvine.Seed.class)),
 					Reflection.newInstance(Random.oneOf(ScrollOfMirrorImage.class, ScrollOfTeleportation.class)),
 					Reflection.newInstance(Random.oneOf(StoneOfFlock.class, StoneOfShock.class, StoneOfFear.class))));
 			Collections.shuffle(consumableLoot.get(0));

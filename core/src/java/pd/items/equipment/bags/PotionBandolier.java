@@ -25,7 +25,6 @@ import pd.atlas.items.EquipmentBagsDict;
 
 import pd.items.Item;
 import pd.items.LiquidMetal;
-import pd.items.Waterskin;
 import pd.items.consum.potions.Potion;
 import pd.messages.InlineText;
 
@@ -34,7 +33,7 @@ public class PotionBandolier extends Bag {
 	static {
 		InlineText.of(PotionBandolier.class)
 			.t("name", "药剂挎带")
-			.t("desc", "这副厚实的挎带能像肩带一样缠在身上，上面有许多用来放药剂、水袋和液金的隔热皮带。\n\n挎带应该能为存放其中的药剂抵御寒冷。");
+			.t("desc", "这副厚实的挎带能像肩带一样缠在身上，上面有许多用来放药剂和液金的隔热皮带。\n\n挎带应该能为存放其中的药剂抵御寒冷。");
 	}
 
 
@@ -46,15 +45,19 @@ public class PotionBandolier extends Bag {
 
 	@Override
 	public boolean canHold( Item item ) {
-		if (item instanceof Potion || item instanceof LiquidMetal || item instanceof Waterskin){
+		//SPSEXPD: 露珠瓶不再进药剂挎带，只被主背包收录
+		if (item instanceof Potion || item instanceof LiquidMetal){
 			return super.canHold(item);
 		} else {
 			return false;
 		}
 	}
 
+	/** SPSEXPD: 标签页固定排序位。 */
+	@Override public int bagOrder() { return 2; }
+
 	public int capacity(){
-		return 34;
+		return 35;
 	}
 
 	@Override

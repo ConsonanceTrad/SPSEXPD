@@ -13,13 +13,13 @@ public final class EquipmentEquipArmorUniqueArmorDict {
 	private EquipmentEquipArmorUniqueArmorDict() { }
 
 	/** TOWEL */
-	public static final IconEntry TOWEL = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{1, 0, 14, 16}, 6714);
+	public static final IconEntry TOWEL = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{1, 0, 14, 16}, 6778);
 	/** SPECTACLES */
-	public static final IconEntry SPECTACLES = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{16, 4, 15, 8}, 6715);
+	public static final IconEntry SPECTACLES = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{16, 4, 15, 8}, 6779);
 	/** SHARK_PAJAMAS */
-	public static final IconEntry SHARK_PAJAMAS = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{34, 1, 10, 14}, 6716);
+	public static final IconEntry SHARK_PAJAMAS = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{34, 1, 10, 14}, 6780);
 	/** LIVING_ARMOR */
-	public static final IconEntry LIVING_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{49, 2, 14, 13}, 6717);
+	public static final IconEntry LIVING_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{49, 2, 14, 13}, 6781);
 	/** SPS_BUNNY_ARMOR#0 */
-	public static final IconEntry SPS_BUNNY_ARMOR_0 = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{64, 0, 16, 16}, 6718);
+	public static final IconEntry SPS_BUNNY_ARMOR_0 = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{64, 0, 16, 16}, 6782);
 }

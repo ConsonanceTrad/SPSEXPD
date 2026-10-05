@@ -32,7 +32,7 @@ import pd.items.Gold;
 import pd.items.Honeypot;
 import pd.items.Item;
 import pd.items.StoneOre;
-import pd.items.consum.potions.PotionOfMending;
+import pd.items.consum.potions.PotionOfHealing;
 import pd.items.equipment.weapon.missiles.arrows.GlassFruit;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
@@ -330,7 +330,7 @@ public final class SpsHallsMobs {
 			baseSpeed = 0.4f;
 			EXP = 12;
 			maxLvl = 30;
-			setupLegacyDualLoot(GlassFruit.class, 0.2f, PotionOfMending.class, 0.1f);
+			setupLegacyDualLoot(GlassFruit.class, 0.2f, PotionOfHealing.class, 0.1f);
 			properties.add(Property.DEMONIC);
 			immunities.add(Amok.class);
 			immunities.add(Terror.class);

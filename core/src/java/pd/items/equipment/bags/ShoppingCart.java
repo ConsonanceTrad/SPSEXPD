@@ -34,6 +34,9 @@ public class ShoppingCart extends Bag {
 		return false;
 	}
 
+	/** SPSEXPD: 标签页固定排序位。 */
+	@Override public int bagOrder() { return 3; }
+
 	@Override public int capacity() { return 34; }
 	@Override public int value() { return 50 * quantity; }
 }

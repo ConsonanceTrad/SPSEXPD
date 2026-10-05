@@ -27,7 +27,6 @@ import pd.items.consum.food.Food;
 import pd.items.consum.food.fusion.Nut;
 import pd.items.specific.journalpages.JournalPage;
 import pd.items.specific.journalpages.SafeSpotPage;
-import pd.items.consum.medicine.MagicPill;
 import pd.items.consum.medicine.MendingTonic;
 import pd.items.consum.medicine.TimePill;
 import pd.items.misc.LuckyBadge;
@@ -410,7 +409,6 @@ public class AdventureJournal extends Item {
 			case 10: reward = new MendingTonic(); break;
 			case 11: reward = new ScrollOfRemoveCurse(); break;
 			case 12: reward = new RitualBlade(); break;
-			case 13: reward = new MagicPill(); break;
 			case 14: reward = new CatSharkArmor(); break;
 			case 15: reward = new VerdantGuard(); break;
 			case 16: reward = new TimePill(); break;

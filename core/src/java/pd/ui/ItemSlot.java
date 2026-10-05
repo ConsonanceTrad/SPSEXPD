@@ -266,22 +266,33 @@ public class ItemSlot extends Button {
 
 		} else if (item instanceof Weapon || item instanceof Armor) {
 
+			boolean throwable = item instanceof MissileWeapon;
 			if (item.levelKnown){
 				int str = item instanceof Weapon ? ((Weapon)item).STRReq() : ((Armor)item).STRReq();
-				extra.text( Messages.format( TXT_STRENGTH, str ) );
-				if (Dungeon.hero != null && str > Dungeon.hero.STR()) {
-					extra.hardlight( DEGRADED );
-				} else if (item instanceof Weapon && ((Weapon) item).masteryPotionBonus){
-					extra.hardlight( MASTERED );
-				} else if (item instanceof Armor && ((Armor) item).masteryPotionBonus) {
-					extra.hardlight( MASTERED );
+				//SPSEXPD: 投掷武器（含果实）在力量充足时不显示力量需求
+				if (throwable && Dungeon.hero != null && str <= Dungeon.hero.STR()) {
+					extra.text( null );
 				} else {
-					extra.resetColor();
+					extra.text( Messages.format( TXT_STRENGTH, str ) );
+					if (Dungeon.hero != null && str > Dungeon.hero.STR()) {
+						extra.hardlight( DEGRADED );
+					} else if (item instanceof Weapon && ((Weapon) item).masteryPotionBonus){
+						extra.hardlight( MASTERED );
+					} else if (item instanceof Armor && ((Armor) item).masteryPotionBonus) {
+						extra.hardlight( MASTERED );
+					} else {
+						extra.resetColor();
+					}
 				}
 			} else {
 				int str = item instanceof Weapon ? ((Weapon)item).STRReq(0) : ((Armor)item).STRReq(0);
-				extra.text( Messages.format( TXT_TYPICAL_STR, str ) );
-				extra.hardlight( WARNING );
+				//SPSEXPD: 未鉴定的投掷武器在力量充足时同样隐藏力量需求
+				if (throwable && Dungeon.hero != null && str <= Dungeon.hero.STR()) {
+					extra.text( null );
+				} else {
+					extra.text( Messages.format( TXT_TYPICAL_STR, str ) );
+					extra.hardlight( WARNING );
+				}
 			}
 			extra.measure();
 

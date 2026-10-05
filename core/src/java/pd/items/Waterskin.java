@@ -21,12 +21,12 @@ import pd.Challenges;
 import pd.Dungeon;
 import pd.Statistics;
 import pd.actors.Actor;
-import pd.actors.Char;
 import pd.actors.blobs.Blob;
 import pd.actors.blobs.Water;
 import pd.actors.buffs.Bless;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Burning;
+import pd.actors.buffs.HighLight;
 import pd.actors.buffs.Haste;
 import pd.actors.buffs.Invisibility;
 import pd.actors.buffs.Levitation;
@@ -51,8 +51,6 @@ import pd.levels.Terrain;
 import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.scenes.GameScene;
-import pd.sprites.CharSprite;
-import pd.ui.BuffIndicator;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndUseItem;
@@ -76,7 +74,6 @@ public class Waterskin extends Item {
 			.t("ac_cleanse", "清洗")
 			.t("ac_haste", "加速")
 			.t("collected", "你将一滴露珠收集到了水袋里。")
-			.t("full", "你的水袋装满了！")
 			.t("empty", "你的水袋一滴也不剩了！")
 			.t("not_enough", "水袋中的露珠不足以施展这项能力。")
 			.t("lit", "露珠化作稳定的微光，照亮了你的周围。")
@@ -87,7 +84,7 @@ public class Waterskin extends Item {
 			.t("desc_water", "你的水袋里只有普普通通的饮用水，地牢中肯定会有更值得装的东西。")
 			.t("desc_heal", "水袋里现在装着有治愈魔力的露水。每滴露珠恢复最大生命值的2.5%%，每次只会喝掉你需要的量。")
 			.t("desc_full", "装满了的水袋散发着一股能量，也许能够用来祝福其他的生存道具？")
-			.t("desc_utility", "露珠瓶可以恢复生命、侦测生物并持续照明，后续还可解锁种植、强化、清洗、加速和提纯功能。")
+			.t("desc_utility", "露珠瓶可以恢复生命、侦测生物并一次性消耗露珠照明，后续还可解锁种植、强化、清洗、加速和提纯功能。")
 			.t("discover_hint", "某位英雄初始携带该物品。")
 			.t("mode_random", "露珠研究者已将水袋调整为_祝福强化_模式。")
 			.t("mode_accurate", "露珠研究者已将水袋调整为_精确强化_模式。")
@@ -102,30 +99,27 @@ public class Waterskin extends Item {
 			.t("blessed", "神秘的能量强化了你的装备。")
 			.t("select", "选择一件要强化的物品")
 			.t("upgraded", "你的%1$s获得了%2$d级强化。")
+			.t("bless_gate", "这件装备已经达到或超过了露珠强化的门槛（当前门槛 %d 级），无法再被强化。")
 			.t("fly", "你漂浮到了空中！")
-			.t("no_charge", "你的露珠瓶空了！")
 			.t("fast", "你的移动速度大幅提升了！")
 			.t("poured", "你用露水清洗了身躯，驱散了多种负面效果。")
 			.t("refined", "露珠被提纯成了洁净的水。")
-			.t("desc_ex", "露珠瓶的无限溢出池中额外储存了_%d点露珠_。这些露珠可用于侦测、种植、强化和提纯。")
+			.t("desc_total", "瓶中共储存了_%d点露珠_。露珠可用于饮水、侦测、种植、强化、清洗和提纯。")
 			.t("desc_v1", "露珠瓶v1提供强化和种植功能。")
 			.t("desc_v2", "露珠瓶v2提供清洗和加速功能。")
-			.t("desc_v3", "露珠瓶v3将基础容量提升至200，并使加速附带漂浮。")
-			.t("$dewlight.name", "露珠微光")
-			.t("$dewlight.desc", "每20回合将1点普通露珠转化为光亮，保护你免受黑暗侵袭。");
+			.t("desc_v3", "露珠瓶v3使加速附带漂浮。");
 	}
 
 
 
 
-	private static final int BASE_MAX_VOLUME = 100;
-	private static final int WING_MAX_VOLUME = 200;
+	//SPSEXPD: 露珠瓶改为单一存储池（无上限），不再区分基础容量/翅膀容量
 
 	private static final String AC_DRINK = "DRINK";
 	private static final String AC_WATER = "WATER";
 	private static final String AC_SPLASH = "SPLASH";
 	private static final String AC_BLESS = "BLESS";
-	private static final String AC_LIGHT = "LIGHT";
+	public static final String AC_LIGHT = "LIGHT";   //SPSEXPD: 快捷操作需要引用
 	private static final String AC_POUR = "POUR";
 	private static final String AC_PEEK = "PEEK";
 	private static final String AC_REFINE = "REFINE";
@@ -137,13 +131,18 @@ public class Waterskin extends Item {
 	private static final int WATER_COST = 25;
 	private static final int BLESS_COST = 70;
 	private static final int REFINE_COST = 100;
+	//SPSEXPD: 照明改为一次性消耗，不再按回合持续扣露珠
+	public static final int LIGHT_COST = 50;
+	public static final int LIGHT_DURATION = 100;
 
 	private static final float TIME_TO_LIGHT = 1f;
 	private static final float TIME_TO_DRINK = 2f;
 	private static final float TIME_TO_WATER = 3f;
 
+	//格子状态数字超过 3 位会超框，超过 999 时显示 999+
+	private static final int STATUS_CAP = 999;
 	private static final String TXT_STATUS = "%d";
-	private static final String TXT_STATUS2 = "%d/%d";
+	private static final String TXT_STATUS2 = "%d";
 
 	{
 		image = EquipmentNonEquipDict.WATERSKIN;
@@ -151,13 +150,12 @@ public class Waterskin extends Item {
 		unique = true;
 	}
 
-	private int volume;
-	private int overflow;
+	private int volume;   //SPSEXPD: 单一露珠存储池（无上限）
 	private UpgradeMode upgradeMode = UpgradeMode.NONE;
 
 	private static final String VOLUME = "volume";
 	private static final String LEGACY_VOLUME = "dewpoint";
-	private static final String EX_VOLUME = "dewpointex";
+	private static final String LEGACY_EX_VOLUME = "dewpointex";   //旧溢出池，读档时并入 volume
 	private static final String UPGRADE_MODE = "sps_upgrade_mode";
 
 	public enum UpgradeMode {
@@ -170,26 +168,27 @@ public class Waterskin extends Item {
 		super();
 	}
 
+	//SPSEXPD: 双参构造保留签名，两个数值一律并入同一个池
 	public Waterskin(int volume, int overflow) {
-		this.volume = Math.max(0, volume);
-		this.overflow = Math.max(0, overflow);
+		this.volume = Math.max(0, volume) + Math.max(0, overflow);
 	}
 
 	public int checkVol() {
 		return volume;
 	}
 
+	//SPSEXPD: 溢出池已取消，总量即唯一的池
 	public int checkVolEx() {
-		return overflow;
+		return volume;
 	}
 
 	public int totalDew() {
-		return volume + overflow;
+		return volume;
 	}
 
+	//SPSEXPD: 双参保留签名，两个数值一律并入同一个池
 	public void setVol(int volume, int overflow) {
-		this.volume = Math.max(0, Math.min(volume, maxVolume()));
-		this.overflow = Math.max(0, overflow + Math.max(0, volume - maxVolume()));
+		this.volume = Math.max(0, volume) + Math.max(0, overflow);
 		updateQuickslot();
 	}
 
@@ -198,7 +197,6 @@ public class Waterskin extends Item {
 		super.storeInBundle(bundle);
 		bundle.put(VOLUME, volume);
 		bundle.put(LEGACY_VOLUME, volume);
-		bundle.put(EX_VOLUME, overflow);
 		bundle.put(UPGRADE_MODE, upgradeMode);
 	}
 
@@ -206,16 +204,12 @@ public class Waterskin extends Item {
 	public void restoreFromBundle(Bundle bundle) {
 		super.restoreFromBundle(bundle);
 		volume = bundle.contains(VOLUME) ? bundle.getInt(VOLUME) : bundle.getInt(LEGACY_VOLUME);
-		overflow = bundle.getInt(EX_VOLUME);
+		//SPSEXPD: 旧存档的溢出池并入主池
+		volume += bundle.getInt(LEGACY_EX_VOLUME);
 		upgradeMode = bundle.contains(UPGRADE_MODE)
 				? bundle.getEnum(UPGRADE_MODE, UpgradeMode.class)
 				: UpgradeMode.NONE;
 		volume = Math.max(0, volume);
-		overflow = Math.max(0, overflow);
-		if (volume > maxVolume()) {
-			overflow += volume - maxVolume();
-			volume = maxVolume();
-		}
 	}
 
 	@Override
@@ -226,6 +220,9 @@ public class Waterskin extends Item {
 
 		if (volume > 1) {
 			actions.add(AC_DRINK);
+		}
+		//SPSEXPD: 照明一次性消耗50露珠，与火把的「强光」时间叠加
+		if (volume >= LIGHT_COST) {
 			actions.add(AC_LIGHT);
 		}
 		if (Dungeon.dewNorn && volume > 29 && volume >= dewCost(SPLASH_COST)) {
@@ -246,13 +243,13 @@ public class Waterskin extends Item {
 		super.execute(hero, action);
 
 		if (action.equals(AC_CHOOSE)) {
-			if (hero.buff(DewLight.class) == null) GameScene.show(new WndUseItem(null, this));
-			else Buff.detach(hero, DewLight.class);
+			GameScene.show(new WndUseItem(null, this));
 		} else if (action.equals(AC_DRINK)) {
 			drink(hero);
-		} else if (action.equals(AC_LIGHT)) {
-			if (hero.buff(DewLight.class) == null) Buff.affect(hero, DewLight.class);
-			else Buff.detach(hero, DewLight.class);
+		} else if (action.equals(AC_LIGHT) && consumeOrdinary(LIGHT_COST)) {
+			//SPSEXPD: 与火把同一个「强光」buff，剩余时间直接叠加；点亮即语义结束，无关闭
+			Buff.affect(hero, HighLight.class, LIGHT_DURATION);
+			GLog.i(Messages.get(this, "lit"));
 		} else if (action.equals(AC_PEEK) && consumeCombined(dewCost(PEEK_COST))) {
 			Buff.prolong(hero, MindVision.class, 2f);
 			SpellSprite.show(hero, SpellSprite.VISION, 1f, 0.77f, 0.9f);
@@ -276,11 +273,8 @@ public class Waterskin extends Item {
 			Buff.prolong(hero, Bless.class, Bless.DURATION);
 			operate(hero, TIME_TO_WATER);
 			GLog.i(Messages.get(this, "poured"));
-		} else if (action.equals(AC_BLESS) && randomBlessMode()
-				&& consumeCombined(dewCost(BLESS_COST))) {
-			randomBless(hero);
-			updateQuickslot();
-		} else if (action.equals(AC_BLESS) && accurateMode()) {
+		} else if (action.equals(AC_BLESS)) {
+			//SPSEXPD: 已取消祝福强化分支，强化统一走"选一件装备"的精确强化
 			curUser = hero;
 			GameScene.selectItem(itemSelector);
 		} else if (action.equals(AC_REFINE) && consumeCombined(dewCost(REFINE_COST))) {
@@ -290,10 +284,6 @@ public class Waterskin extends Item {
 
 	private boolean hasFirstUpgrade() {
 		return Dungeon.dewWater || Dungeon.dewDraw || upgradeMode != UpgradeMode.NONE;
-	}
-
-	private boolean randomBlessMode() {
-		return Dungeon.dewWater || upgradeMode == UpgradeMode.RANDOM_BLESS;
 	}
 
 	private boolean accurateMode() {
@@ -358,6 +348,8 @@ public class Waterskin extends Item {
 					int terrain = Dungeon.level.map[cell];
 					GameScene.add(Blob.seed(cell, 40, Water.class));
 					if (terrain == Terrain.FLOWER_POT) {
+						//SPSEXPD: 露珠瓶浇水催生的植物保持野生形态（踩踏触发原生效果 + 散落 1 枚果实），
+						//给野生植物多一条获取途径；果丛形态只保留给入口房/帐篷房与手动把种子种进花盆
 						GroundItems.plant( Dungeon.level, (Plant.Seed) Generator.random(Generator.Category.SEED4), cell);
 					}
 				}
@@ -373,42 +365,7 @@ public class Waterskin extends Item {
 		Buff.detach(hero, Vertigo.class);
 	}
 
-	private void randomBless(Hero hero) {
-		boolean upgraded = blessItems(hero, hero.belongings.backpack.items.toArray(new Item[0]));
-		Item[] equipped = {
-				hero.belongings.weapon, hero.belongings.armor, hero.belongings.artifact,
-				hero.belongings.misc, hero.belongings.ring, hero.belongings.secondWep,
-				hero.belongings.secondArmor
-		};
-		upgraded |= blessItems(hero, equipped);
-		upgraded |= blessItems(hero, equipped);
-		if (upgraded) GLog.i(Messages.get(this, "blessed"));
-	}
-
-	private boolean blessItems(Hero hero, Item... items) {
-		int levelLimit = Math.max(3, 3 + Math.round((Statistics.deepestFloor - 2) / 2f));
-		if (hero.heroClass == HeroClass.MAGE) levelLimit++;
-		float chance = hero.heroClass == HeroClass.MAGE ? 0.5f : 0.33f;
-		boolean upgraded = false;
-
-		for (Item item : items) {
-			if (item == null) continue;
-			if (item.isUpgradable()) {
-				if (Random.Float() < chance && item.level() < levelLimit) {
-					item.upgrade();
-					upgraded = true;
-					hero.sprite.emitter().start(Speck.factory(Speck.UP), 0.2f, 3);
-					Badges.validateItemLevelAquired(item);
-				} else {
-					overflow++;
-				}
-			}
-			if (item instanceof Bag) {
-				upgraded |= blessItems(hero, ((Bag) item).items.toArray(new Item[0]));
-			}
-		}
-		return upgraded;
-	}
+	//SPSEXPD: 祝福强化分支已取消，原 randomBless()/blessItems() 一并移除；强化统一走 itemSelector。
 
 	private final WndBag.ItemSelector itemSelector = new WndBag.ItemSelector() {
 		@Override
@@ -429,19 +386,32 @@ public class Waterskin extends Item {
 		@Override
 		public void onSelect(Item item) {
 			int cost = dewCost(BLESS_COST);
-			if (item == null || totalDew() < cost) return;
-			int min = Math.min(1, Statistics.deepestFloor / 24);
-			int max = Math.max(2, Statistics.deepestFloor / 6);
-			int upgrades = 1 + Random.Int(min, max);
-			for (int i = 0; i < upgrades; i++) item.upgrade();
+			if (item == null || !item.isUpgradable()) return;
+
+			//SPSEXPD: 门槛 = 玩家等级/4 向上取整（上限 10）。装备等级低于门槛才可强化；
+			//单轮提升 1~3 级，若仍未达门槛且露珠足够就继续，直到达门槛或露珠耗尽。
+			int threshold = Math.min(10, (curUser.lvl + 3) / 4);
+			if (item.level() >= threshold) {
+				GLog.w(Messages.get(Waterskin.class, "bless_gate", threshold));
+				return;
+			}
+
+			int levels = 0;
+			while (item.level() < threshold && totalDew() >= cost) {
+				int upgrades = 1 + Random.Int(3);
+				for (int i = 0; i < upgrades; i++) item.upgrade();
+				levels += upgrades;
+				consumeCombined(cost);
+			}
+			if (levels <= 0) return;
+
 			if (item.level() > 14) item.identify();
-			consumeCombined(cost);
 			fillCrystalVial(curUser);
 			Badges.validateItemLevelAquired(item);
 			curUser.sprite.operate(curUser.pos);
 			curUser.sprite.emitter().start(Speck.factory(Speck.UP), 0.2f, 3);
 			curUser.spendAndNext(Actor.TICK);
-			GLog.i(Messages.get(Waterskin.class, "upgraded", item.name(), upgrades));
+			GLog.i(Messages.get(Waterskin.class, "upgraded", item.name(), levels));
 			updateQuickslot();
 		}
 	};
@@ -469,7 +439,8 @@ public class Waterskin extends Item {
 		updateQuickslot();
 	}
 
-	private boolean consumeOrdinary(int amount) {
+	//SPSEXPD: 单池化后所有消耗都走同一实现
+	private boolean consumeDew(int amount) {
 		if (volume < amount) {
 			GLog.w(Messages.get(this, "not_enough"));
 			return false;
@@ -480,17 +451,12 @@ public class Waterskin extends Item {
 		return true;
 	}
 
+	private boolean consumeOrdinary(int amount) {
+		return consumeDew(amount);
+	}
+
 	private boolean consumeCombined(int amount) {
-		if (totalDew() < amount) {
-			GLog.w(Messages.get(this, "not_enough"));
-			return false;
-		}
-		int fromOverflow = Math.min(overflow, amount);
-		overflow -= fromOverflow;
-		volume -= amount - fromOverflow;
-		Catalog.countUses(Dewdrop.class, amount);
-		updateQuickslot();
-		return true;
+		return consumeDew(amount);
 	}
 
 	public void empty() {
@@ -502,8 +468,9 @@ public class Waterskin extends Item {
 		consumeOrdinary(1);
 	}
 
+	//SPSEXPD: 单池化，直接扣露珠池
 	public void upbook(int amount) {
-		overflow = Math.max(0, overflow - amount);
+		volume = Math.max(0, volume - amount);
 		updateQuickslot();
 	}
 
@@ -517,32 +484,26 @@ public class Waterskin extends Item {
 		return true;
 	}
 
+	//SPSEXPD: 单池化后"祝福门槛"看总量
 	public boolean isFullBless() {
-		return overflow >= 100;
+		return volume >= 100;
 	}
 
+	//SPSEXPD: 单池化后"满"指达到基础量100（供十字章等判定）
 	public boolean isFull() {
-		return volume >= maxVolume();
+		return volume >= 100;
 	}
 
-	private int maxVolume() {
-		return Dungeon.wings ? WING_MAX_VOLUME : BASE_MAX_VOLUME;
-	}
-
+	//SPSEXPD: 无条件收入，不再有上限，也不再有"已满"提示
 	public void collectDew(Dewdrop dew) {
 		GLog.i(Messages.get(this, "collected"));
-		int collected = dew.dewValue();
-		int room = Math.max(0, maxVolume() - volume);
-		int stored = Math.min(room, collected);
-		volume += stored;
-		overflow += collected - stored;
-		if (volume >= maxVolume()) GLog.p(Messages.get(this, "full"));
+		volume += Math.max(0, dew.dewValue());
 		updateQuickslot();
 	}
 
+	//SPSEXPD: 强化时补足到基础量，不再有上限概念
 	public void fill() {
-		overflow += volume;
-		volume = maxVolume();
+		volume = Math.max(volume, 100);
 		updateQuickslot();
 	}
 
@@ -557,11 +518,12 @@ public class Waterskin extends Item {
 
 	@Override
 	public String status() {
-		return Messages.format(TXT_STATUS, volume);
+		//SPSEXPD: 格子上超过 999 显示 999+，真实数量在详情页
+		return volume > STATUS_CAP ? (STATUS_CAP + "+") : Messages.format(TXT_STATUS, volume);
 	}
 
 	public String status2() {
-		return Messages.format(TXT_STATUS2, volume, overflow);
+		return Messages.format(TXT_STATUS2, volume);
 	}
 
 	@Override
@@ -572,91 +534,12 @@ public class Waterskin extends Item {
 	@Override
 	public String info() {
 		String info = super.info();
-		if (overflow > 0) info += "\n\n" + Messages.get(this, "desc_ex", overflow);
+		//SPSEXPD: 详情页显示真实数量
+		info += "\n\n" + Messages.get(this, "desc_total", volume);
 		if (hasFirstUpgrade()) info += "\n\n" + Messages.get(this, "desc_v1");
 		if (Dungeon.dewNorn) info += "\n\n" + Messages.get(this, "desc_v2");
 		if (Dungeon.wings) info += "\n\n" + Messages.get(this, "desc_v3");
 		return info;
 	}
 
-	public static class DewLight extends Buff {
-
-		private int left;
-
-		{
-			type = buffType.NEUTRAL;
-		}
-
-		@Override
-		public boolean attachTo(Char target) {
-			if (!super.attachTo(target)) return false;
-			if (Dungeon.level != null) {
-				target.viewDistance = Math.max(Dungeon.level.viewDistance, 6);
-				Dungeon.observe();
-			}
-			return true;
-		}
-
-		@Override
-		public void detach() {
-			if (Dungeon.level != null) {
-				target.viewDistance = Dungeon.level.viewDistance;
-				Dungeon.observe();
-			}
-			super.detach();
-		}
-
-		@Override
-		public boolean act() {
-			left--;
-			if (left <= 0) {
-				Waterskin waterskin = target instanceof Hero
-						? ((Hero) target).belongings.getItem(Waterskin.class) : null;
-				if (waterskin == null || !waterskin.consumeOrdinary(1)) {
-					detach();
-					GLog.w(Messages.get(Waterskin.class, "no_charge"));
-					if (target instanceof Hero) ((Hero) target).interrupt();
-				} else {
-					left = 20;
-				}
-			}
-			spend(TICK);
-			return true;
-		}
-
-		@Override
-		public int icon() {
-			return BuffIndicator.LIGHT;
-		}
-
-		@Override
-		public void fx(boolean on) {
-			if (on) target.sprite.add(CharSprite.State.ILLUMINATED);
-			else target.sprite.remove(CharSprite.State.ILLUMINATED);
-		}
-
-		@Override
-		public String toString() {
-			return Messages.get(this, "name");
-		}
-
-		@Override
-		public String desc() {
-			return Messages.get(this, "desc");
-		}
-
-		private static final String LEFT = "left";
-
-		@Override
-		public void storeInBundle(Bundle bundle) {
-			super.storeInBundle(bundle);
-			bundle.put(LEFT, left);
-		}
-
-		@Override
-		public void restoreFromBundle(Bundle bundle) {
-			super.restoreFromBundle(bundle);
-			left = bundle.getInt(LEFT);
-		}
-	}
 }

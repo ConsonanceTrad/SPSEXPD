@@ -22,6 +22,7 @@ import pd.items.equipment.trinkets.TrinketCatalyst;
 import pd.items.equipment.wands.WandOfRegrowth;
 import pd.levels.traps.Trap;
 import pd.plants.Plant;
+import pd.plants.SpsFruitBush;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
 
@@ -129,6 +130,18 @@ public final class GroundItems {
 		plant = seed.excouch(pos, level);
 		level.plants.put(pos, plant);
 		GameScene.plantSeed(pos);
+		return plant;
+	}
+
+	/**
+	 * SPSEXPD: 手动把种子种进花盆 = 精心种植。
+	 * 与 explant 相同，但标记为花盆精心种植，收获时按花盆规则产出（额外蔬菜 + 3 枚果实，30% 大型）。
+	 */
+	public static Plant explantPot( Level level, Plant.Seed seed, int pos ) {
+		Plant plant = explant( level, seed, pos );
+		if (plant instanceof SpsFruitBush) {
+			((SpsFruitBush) plant).potGrown = true;
+		}
 		return plant;
 	}
 

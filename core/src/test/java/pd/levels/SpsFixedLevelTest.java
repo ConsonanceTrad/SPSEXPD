@@ -2093,7 +2093,7 @@ public final class SpsFixedLevelTest {
 
 	private static void testFestivalDrops() {
 		HeartOfScarecrow target = new HeartOfScarecrow();
-		check(target.capacity() == 34, "草靶子容量必须为34");
+		check(target.capacity() == 35, "草靶子容量必须为35");
 		check(target.canHold(new Dagger()) && target.canHold(new ClothArmor()),
 				"草靶子必须收纳近战武器和护甲");
 		check(!target.canHold(new Gold()), "草靶子不应收纳金币");

@@ -24,17 +24,23 @@ package pd.windows;
 import pd.Dungeon;
 import pd.items.Generator;
 import pd.items.Item;
+import pd.items.equipment.bags.BambooBasket;
 import pd.items.equipment.bags.ArrowCollecter;
 import pd.items.equipment.bags.HeartOfScarecrow;
 import pd.items.equipment.bags.KeyRing;
 import pd.items.equipment.bags.MagicalHolster;
 import pd.items.equipment.bags.PotionBandolier;
 import pd.items.equipment.bags.ScrollHolder;
-import pd.items.equipment.bags.SeedPouch;
 import pd.items.equipment.bags.ShoppingCart;
 import pd.items.equipment.bags.VelvetPouch;
-import pd.items.equipment.bags.WandHolster;
+import pd.items.consum.food.Blandfruit;
+import pd.items.consum.food.fruit.Durian;
+import pd.items.consum.food.processed.*;
+import pd.items.consum.food.vegetable.*;
+import pd.items.equipment.weapon.missiles.arrows.*;
+import pd.items.misc.DewBadge;
 import pd.journal.Catalog;
+import pd.plants.*;
 import pd.journal.SpsCatalog;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -107,6 +113,45 @@ public class WndDebugItems extends Window {
 		return GROUP_LABELS.containsKey(segment) ? segment : null;
 	}
 
+	//SPSXPD: 「作物相关」独立组——顺序严格按参照图（seed.png 行优先：种子 → 蔬菜 → 二次产物 → 普通果实 → 大型果实）
+	private static final String CROP_LABEL = "作物相关";
+
+	private static final Class<?>[] CROP_ORDER = {
+			// row 0：种子（鲜莓与腐莓共用第一格）
+			Freshberry.Seed.class, Rotberry.Seed.class, Firebloom.Seed.class, Blindweed.Seed.class,
+			Sungrass.Seed.class, Icecap.Seed.class, Stormvine.Seed.class, Sorrowmoss.Seed.class,
+			Dreamfoil.Seed.class, Earthroot.Seed.class, Fadeleaf.Seed.class, BlandfruitBush.Seed.class,
+			Starflower.Seed.class, NutPlant.Seed.class, StarEater.Seed.class, ReNepenth.Seed.class,
+			SiOtwoFlower.Seed.class, Dewcatcher.Seed.class, Seedpod.Seed.class, Swiftthistle.Seed.class,
+			// row 2：蔬菜
+			Durian.class, Chili.class, Marigold.class, HealGrass.class, IceMint.class, Tulip.class,
+			ToxicEggplant.class, DreamLeaf.class, Radish.class, Sunflower.class, Blandfruit.class,
+			BattleFlower.class, NutVegetable.class, StarEaterFlower.class, TransmuteCage.class,
+			QuartzFlower.class, DewSpore.class, RainbowPansy.class, Sorrel.class,
+			// row 3：二次加工产物
+			Adhesive.class, Capsaicin.class, TransmutePowder.class, HealingSalve.class, CoolingOil.class,
+			Perfume.class, ToxicExtract.class, WakeTea.class, NutrientSolution.class, SunflowerSeed.class,
+			FruitThread.class, Sedative.class, RedRose.class, DigestiveFluid.class, AetherLiquid.class,
+			CrystalShard.class, HighEnergySpore.class, WishPetal.class, HormoneSolution.class,
+			// row 4：普通果实
+			FreshFruit.class, RotFruit.class, FireFruit.class, BlindFruit.class, HealFruit.class,
+			IceFruit.class, ShockFruit.class, ToxicFruit.class, CharmFruit.class, RootFruit.class,
+			SmokeFruit.class, FlavorlessFruit.class, StarFruit.class, NutFruit.class, StarEaterFruit.class,
+			TransmuteFruit.class, GlassFruit.class, DewFruit.class, SeedFruit.class, SwiftFruit.class,
+			// row 5：大型果实
+			LargeFreshFruit.class, LargeRotFruit.class, LargeFireFruit.class, LargeBlindFruit.class,
+			LargeHealFruit.class, LargeIceFruit.class, LargeShockFruit.class, LargeToxicFruit.class,
+			LargeCharmFruit.class, LargeRootFruit.class, LargeSmokeFruit.class, LargeFlavorlessFruit.class,
+			LargeStarFruit.class, LargeNutFruit.class, LargeStarEaterFruit.class, LargeTransmuteFruit.class,
+			LargeGlassFruit.class, LargeDewFruit.class, LargeSeedFruit.class, LargeSwiftFruit.class
+	};
+
+	private static final LinkedHashSet<Class<?>> CROP_SET = new LinkedHashSet<>();
+
+	static {
+		Collections.addAll(CROP_SET, CROP_ORDER);
+	}
+
 	private static LinkedHashMap<String, ArrayList<Class<? extends Item>>> groups() {
 		if (groups != null) return groups;
 
@@ -134,15 +179,25 @@ public class WndDebugItems extends Window {
 		all.put(ArrowCollecter.class, true);
 		all.put(ShoppingCart.class, true);
 		all.put(HeartOfScarecrow.class, true);
+		all.put(BambooBasket.class, true);   //SPSEXPD: 竹背篓（只装果实）
 
-		//按功能域分组（GROUP_LABELS 的顺序即组菜单顺序）
+		//SPSEXPD: 魔法集露袋（移动时自动收露珠）不在图鉴/生成表里，手动补入调试器
+		all.put(DewBadge.class, true);
+
+		//SPSEXPD: 作物相关物品（种子/蔬菜/二次产物/果实）登记进调试器全集
+		for (Class<?> t : CROP_ORDER) all.put((Class<? extends Item>) t, true);
+
+		//按功能域分组（「作物相关」排在最前且按参照图顺序，其后是 GROUP_LABELS 的顺序）
+		ArrayList<Class<? extends Item>> crops = new ArrayList<>();
+		for (Class<?> t : CROP_ORDER) crops.add((Class<? extends Item>) t);
 		LinkedHashMap<String, ArrayList<Class<? extends Item>>> map = new LinkedHashMap<>();
+		map.put(CROP_LABEL, crops);
 		for (String label : GROUP_LABELS.values()) map.put(label, new ArrayList<>());
 		ArrayList<Class<? extends Item>> unknown = new ArrayList<>();
 
 		for (Class<? extends Item> t : all.keySet()) {
-			//合并前的旧袋子不列出（用户裁决 2026-09-28：只出现合并后的绒布袋/魔法套筒）
-			if (t == SeedPouch.class || t == WandHolster.class) continue;
+			//SPSEXPD: 种子包已并入绒布袋、法杖套已并入魔法筒袋，这两个类已删除
+			if (CROP_SET.contains(t)) continue;   //已按参照图顺序归入「作物相关」
 			String label = GROUP_LABELS.get(groupKeyOf(t));
 			ArrayList<Class<? extends Item>> list = label == null ? null : map.get(label);
 			if (list != null) {

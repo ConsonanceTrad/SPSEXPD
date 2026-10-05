@@ -43,7 +43,8 @@ public class Seedpod extends Plant {
 	public static class Seed extends Plant.Seed {
 		{ image = ConsumPotionSeedSeedDict.SEED_POD; plantClass = Seedpod.class; explantClass = ExSeedpod.class; }
 	}
+	//SPSEXPD: 精心种植不再产随机浆果，只产出七色堇与种子果实
 	public static class ExSeedpod extends SpsFruitBush {
-		{ image = 13; harvestCount = 3; harvestCategory = Generator.Category.SPS_BERRY; }
+		{ image = 13; }
 	}
 }

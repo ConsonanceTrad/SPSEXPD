@@ -15,8 +15,8 @@ public class DeathCap extends Pill {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(DeathCap.class)
-			.t("name", "致死帽")
-			.t("desc", "这种头上布满白斑的红色菌类肯定是具有致命效果的东西。希望它也会对其他生物有效。\n使用_1份水，1份蔬菜，1份毒草种子_炼金");
+			.t("name", "死亡溶剂瓶")
+			.t("desc", "这种标签的瓶子肯定装着具有致命效果的东西。希望它也会对其他生物有效。");
 	}
 
 

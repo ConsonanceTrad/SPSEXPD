@@ -68,7 +68,7 @@ public class Blandfruit extends Fruit {
 			.t("starfruit", "星陨果")
 			.t("swiftfruit", "速行果")
 			.t("raw", "你没法忍受生吃这玩意儿。")
-			.t("desc", "干燥且脆弱，或许加点其他材料再煮能够增强它的效果。")
+			.t("desc", "干燥且几乎没有味道的果实。可以直接食用，饱腹感与标准干粮相当。")
 			.t("desc_cooked", "这个果实已经因为吸收锅中的汤而鼓胀，并且吸收了其中种子的属性。它具有这粒种子对应的药剂效果。")
 			.t("desc_eat", "看起来已经可以吃了！")
 			.t("desc_throw", "它似乎性质很不稳定，最好作为武器丢出去。")
@@ -84,9 +84,10 @@ public class Blandfruit extends Fruit {
 
 	{
 		stackable = true;
-		image = ConsumFoodFoodDict.BLANDFRUIT;
+		image = pd.atlas.items.ConsumPotionSeedSeedDict.BLANDFRUIT;
 
-		energy = 100f;
+		//SPSEXPD: 无味果可直接食用，饱食度等同标准干粮
+		energy = Hunger.HUNGRY;
 		hornValue = 2;
 
 		bones = true;
@@ -193,7 +194,7 @@ public class Blandfruit extends Fruit {
 		energy = Hunger.STARVING;
 		potionAttrib.anonymize();
 
-		potionAttrib.image = ConsumFoodFoodDict.BLANDFRUIT;
+		potionAttrib.image = pd.atlas.items.ConsumPotionSeedSeedDict.BLANDFRUIT;
 
 		if (potionAttrib instanceof PotionOfHealing)        potionGlow = new ItemSprite.Glowing( 0x2EE62E );
 		if (potionAttrib instanceof PotionOfStrength)       potionGlow = new ItemSprite.Glowing( 0xCC0022 );

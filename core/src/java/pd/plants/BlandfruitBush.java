@@ -57,7 +57,7 @@ public class BlandfruitBush extends Plant {
 	//seed is never dropped
 	public static class Seed extends Plant.Seed {
 		{
-			image = ConsumPotionSeedSeedDict.SEED_FADELEAF_0;
+			image = ConsumPotionSeedSeedDict.SEED_BLANDFRUIT;
 			plantClass = BlandfruitBush.class;
 			explantClass = ExBlandfruitBush.class;
 		}

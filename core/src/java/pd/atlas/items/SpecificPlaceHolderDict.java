@@ -13,81 +13,81 @@ public final class SpecificPlaceHolderDict {
 	private SpecificPlaceHolderDict() { }
 
 	/** SPS_PH_ERROR */
-	public static final IconEntry SPS_PH_ERROR = new IconEntry("sprites/items/specific/place_holder.png", new int[]{0, 4, 16, 7}, 7055);
+	public static final IconEntry SPS_PH_ERROR = new IconEntry("sprites/items/specific/place_holder.png", new int[]{0, 4, 16, 7}, 7120);
 	/** SPS_PH_WEAPON */
-	public static final IconEntry SPS_PH_WEAPON = new IconEntry("sprites/items/specific/place_holder.png", new int[]{17, 1, 14, 14}, 7056);
+	public static final IconEntry SPS_PH_WEAPON = new IconEntry("sprites/items/specific/place_holder.png", new int[]{17, 1, 14, 14}, 7121);
 	/** SPS_PH_ARMOR */
-	public static final IconEntry SPS_PH_ARMOR = new IconEntry("sprites/items/specific/place_holder.png", new int[]{33, 1, 14, 12}, 7057);
+	public static final IconEntry SPS_PH_ARMOR = new IconEntry("sprites/items/specific/place_holder.png", new int[]{33, 1, 14, 12}, 7122);
 	/** WAND_HOLDER#0 */
-	public static final IconEntry WAND_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{49, 1, 14, 14}, 7058);
+	public static final IconEntry WAND_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{49, 1, 14, 14}, 7123);
 	/** ARTIFACT_HOLDER#0 */
-	public static final IconEntry ARTIFACT_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{64, 0, 15, 15}, 7059);
+	public static final IconEntry ARTIFACT_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{64, 0, 15, 15}, 7124);
 	/** TRINKET_HOLDER#0 */
-	public static final IconEntry TRINKET_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{80, 2, 16, 11}, 7060);
+	public static final IconEntry TRINKET_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{80, 2, 16, 11}, 7125);
 	/** SPS_PH_FOOD */
-	public static final IconEntry SPS_PH_FOOD = new IconEntry("sprites/items/specific/place_holder.png", new int[]{97, 3, 14, 11}, 7061);
+	public static final IconEntry SPS_PH_FOOD = new IconEntry("sprites/items/specific/place_holder.png", new int[]{97, 3, 14, 11}, 7126);
 	/** SPS_UI_ICON_CATALOG */
-	public static final IconEntry SPS_UI_ICON_CATALOG = new IconEntry("sprites/items/specific/place_holder.png", new int[]{113, 1, 14, 14}, 7062);
+	public static final IconEntry SPS_UI_ICON_CATALOG = new IconEntry("sprites/items/specific/place_holder.png", new int[]{113, 1, 14, 14}, 7127);
 	/** SCROLL_HOLDER#0 */
-	public static final IconEntry SCROLL_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{128, 1, 15, 14}, 7063);
+	public static final IconEntry SCROLL_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{128, 1, 15, 14}, 7128);
 	/** POTION_HOLDER#0 */
-	public static final IconEntry POTION_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{146, 1, 12, 14}, 7064);
+	public static final IconEntry POTION_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{146, 1, 12, 14}, 7129);
 	/** MOB_HOLDER#0 */
-	public static final IconEntry MOB_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{208, 1, 15, 14}, 7065);
+	public static final IconEntry MOB_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{208, 1, 15, 14}, 7130);
 	/** SPS_UI_ICON_A */
-	public static final IconEntry SPS_UI_ICON_A = new IconEntry("sprites/items/specific/place_holder.png", new int[]{227, 2, 11, 12}, 7066);
+	public static final IconEntry SPS_UI_ICON_A = new IconEntry("sprites/items/specific/place_holder.png", new int[]{227, 2, 11, 12}, 7131);
 	/** SPS_UI_ICON_B */
-	public static final IconEntry SPS_UI_ICON_B = new IconEntry("sprites/items/specific/place_holder.png", new int[]{242, 4, 13, 10}, 7067);
+	public static final IconEntry SPS_UI_ICON_B = new IconEntry("sprites/items/specific/place_holder.png", new int[]{242, 4, 13, 10}, 7132);
 	/** SOMETHING#0 */
-	public static final IconEntry SOMETHING_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{4, 18, 8, 13}, 7068);
+	public static final IconEntry SOMETHING_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{4, 18, 8, 13}, 7133);
 	/** SPS_PH_WEAPON_BAD */
-	public static final IconEntry SPS_PH_WEAPON_BAD = new IconEntry("sprites/items/specific/place_holder.png", new int[]{17, 17, 14, 14}, 7069);
+	public static final IconEntry SPS_PH_WEAPON_BAD = new IconEntry("sprites/items/specific/place_holder.png", new int[]{17, 17, 14, 14}, 7134);
 	/** SPS_PH_ARMOR_BAD */
-	public static final IconEntry SPS_PH_ARMOR_BAD = new IconEntry("sprites/items/specific/place_holder.png", new int[]{33, 17, 14, 12}, 7070);
+	public static final IconEntry SPS_PH_ARMOR_BAD = new IconEntry("sprites/items/specific/place_holder.png", new int[]{33, 17, 14, 12}, 7135);
 	/** SPS_PH_WAND_BAD */
-	public static final IconEntry SPS_PH_WAND_BAD = new IconEntry("sprites/items/specific/place_holder.png", new int[]{49, 17, 14, 14}, 7071);
+	public static final IconEntry SPS_PH_WAND_BAD = new IconEntry("sprites/items/specific/place_holder.png", new int[]{49, 17, 14, 14}, 7136);
 	/** RING_HOLDER#0 */
-	public static final IconEntry RING_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{68, 19, 8, 10}, 7072);
+	public static final IconEntry RING_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{68, 19, 8, 10}, 7137);
 	/** FOOD_HOLDER#0 */
-	public static final IconEntry FOOD_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{96, 18, 15, 11}, 7073);
+	public static final IconEntry FOOD_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{96, 18, 15, 11}, 7138);
 	/** STONE_HOLDER#0 */
-	public static final IconEntry STONE_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{129, 18, 14, 12}, 7074);
+	public static final IconEntry STONE_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{129, 18, 14, 12}, 7139);
 	/** SEED_HOLDER#0 */
-	public static final IconEntry SEED_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{147, 19, 10, 10}, 7075);
+	public static final IconEntry SEED_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{147, 19, 10, 10}, 7140);
 	/** SPS_UI_ICON_C */
-	public static final IconEntry SPS_UI_ICON_C = new IconEntry("sprites/items/specific/place_holder.png", new int[]{209, 18, 14, 11}, 7076);
+	public static final IconEntry SPS_UI_ICON_C = new IconEntry("sprites/items/specific/place_holder.png", new int[]{209, 18, 14, 11}, 7141);
 	/** SPS_UI_ICON_D */
-	public static final IconEntry SPS_UI_ICON_D = new IconEntry("sprites/items/specific/place_holder.png", new int[]{226, 17, 12, 14}, 7077);
+	public static final IconEntry SPS_UI_ICON_D = new IconEntry("sprites/items/specific/place_holder.png", new int[]{226, 17, 12, 14}, 7142);
 	/** SPS_UI_ICON_E */
-	public static final IconEntry SPS_UI_ICON_E = new IconEntry("sprites/items/specific/place_holder.png", new int[]{241, 17, 13, 14}, 7078);
+	public static final IconEntry SPS_UI_ICON_E = new IconEntry("sprites/items/specific/place_holder.png", new int[]{241, 17, 13, 14}, 7143);
 	/** SPS_PH_LOG */
-	public static final IconEntry SPS_PH_LOG = new IconEntry("sprites/items/specific/place_holder.png", new int[]{4, 36, 8, 9}, 7079);
+	public static final IconEntry SPS_PH_LOG = new IconEntry("sprites/items/specific/place_holder.png", new int[]{4, 36, 8, 9}, 7144);
 	/** SPS_PH_WEAPON_TEST */
-	public static final IconEntry SPS_PH_WEAPON_TEST = new IconEntry("sprites/items/specific/place_holder.png", new int[]{17, 33, 14, 14}, 7080);
+	public static final IconEntry SPS_PH_WEAPON_TEST = new IconEntry("sprites/items/specific/place_holder.png", new int[]{17, 33, 14, 14}, 7145);
 	/** SPS_PH_ARMOR_TEST */
-	public static final IconEntry SPS_PH_ARMOR_TEST = new IconEntry("sprites/items/specific/place_holder.png", new int[]{33, 33, 14, 12}, 7081);
+	public static final IconEntry SPS_PH_ARMOR_TEST = new IconEntry("sprites/items/specific/place_holder.png", new int[]{33, 33, 14, 12}, 7146);
 	/** SPS_PH_WAND_TEST */
-	public static final IconEntry SPS_PH_WAND_TEST = new IconEntry("sprites/items/specific/place_holder.png", new int[]{49, 33, 14, 14}, 7082);
+	public static final IconEntry SPS_PH_WAND_TEST = new IconEntry("sprites/items/specific/place_holder.png", new int[]{49, 33, 14, 14}, 7147);
 	/** SPS_PH_TRINKET */
-	public static final IconEntry SPS_PH_TRINKET = new IconEntry("sprites/items/specific/place_holder.png", new int[]{65, 35, 14, 11}, 7083);
+	public static final IconEntry SPS_PH_TRINKET = new IconEntry("sprites/items/specific/place_holder.png", new int[]{65, 35, 14, 11}, 7148);
 	/** SPS_PH_ALCHEMY */
-	public static final IconEntry SPS_PH_ALCHEMY = new IconEntry("sprites/items/specific/place_holder.png", new int[]{99, 35, 10, 10}, 7084);
+	public static final IconEntry SPS_PH_ALCHEMY = new IconEntry("sprites/items/specific/place_holder.png", new int[]{99, 35, 10, 10}, 7149);
 	/** ELIXIR_HOLDER#0 */
-	public static final IconEntry ELIXIR_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{130, 33, 12, 14}, 7085);
+	public static final IconEntry ELIXIR_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{130, 33, 12, 14}, 7150);
 	/** SPELL_HOLDER#0 */
-	public static final IconEntry SPELL_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{148, 32, 8, 16}, 7086);
+	public static final IconEntry SPELL_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{148, 32, 8, 16}, 7151);
 	/** DOCUMENT_HOLDER#0 */
-	public static final IconEntry DOCUMENT_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{3, 50, 10, 11}, 7087);
+	public static final IconEntry DOCUMENT_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{3, 50, 10, 11}, 7152);
 	/** SPS_PH_WEAPON_SPARE */
-	public static final IconEntry SPS_PH_WEAPON_SPARE = new IconEntry("sprites/items/specific/place_holder.png", new int[]{17, 49, 14, 14}, 7088);
+	public static final IconEntry SPS_PH_WEAPON_SPARE = new IconEntry("sprites/items/specific/place_holder.png", new int[]{17, 49, 14, 14}, 7153);
 	/** SPS_PH_ARMOR_SPARE */
-	public static final IconEntry SPS_PH_ARMOR_SPARE = new IconEntry("sprites/items/specific/place_holder.png", new int[]{33, 50, 14, 12}, 7089);
+	public static final IconEntry SPS_PH_ARMOR_SPARE = new IconEntry("sprites/items/specific/place_holder.png", new int[]{33, 50, 14, 12}, 7154);
 	/** SPS_PH_WAND_SPARE */
-	public static final IconEntry SPS_PH_WAND_SPARE = new IconEntry("sprites/items/specific/place_holder.png", new int[]{49, 49, 14, 14}, 7090);
+	public static final IconEntry SPS_PH_WAND_SPARE = new IconEntry("sprites/items/specific/place_holder.png", new int[]{49, 49, 14, 14}, 7155);
 	/** SPS_PH_BADGE */
-	public static final IconEntry SPS_PH_BADGE = new IconEntry("sprites/items/specific/place_holder.png", new int[]{65, 49, 14, 14}, 7091);
+	public static final IconEntry SPS_PH_BADGE = new IconEntry("sprites/items/specific/place_holder.png", new int[]{65, 49, 14, 14}, 7156);
 	/** SPS_GOLD_TO_SCOIN */
-	public static final IconEntry SPS_GOLD_TO_SCOIN = new IconEntry("sprites/items/specific/place_holder.png", new int[]{209, 51, 14, 11}, 7092);
+	public static final IconEntry SPS_GOLD_TO_SCOIN = new IconEntry("sprites/items/specific/place_holder.png", new int[]{209, 51, 14, 11}, 7157);
 	/** SPS_PH_BADGE_ALT */
-	public static final IconEntry SPS_PH_BADGE_ALT = new IconEntry("sprites/items/specific/place_holder.png", new int[]{243, 52, 10, 9}, 7093);
+	public static final IconEntry SPS_PH_BADGE_ALT = new IconEntry("sprites/items/specific/place_holder.png", new int[]{243, 52, 10, 9}, 7158);
 }

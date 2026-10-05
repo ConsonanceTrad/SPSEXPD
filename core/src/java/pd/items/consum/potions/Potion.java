@@ -46,12 +46,14 @@ import pd.items.Recipe;
 import pd.items.consum.potions.brews.AquaBrew;
 import pd.items.consum.potions.brews.Brew;
 import pd.items.consum.potions.elixirs.ElixirOfHoneyedHealing;
+import pd.items.consum.potions.elixirs.ElixirOfMight;
 import pd.items.consum.potions.exotic.ExoticPotion;
 import pd.items.consum.potions.exotic.PotionOfCleansing;
 import pd.items.consum.potions.exotic.PotionOfCorrosiveGas;
 import pd.items.consum.potions.exotic.PotionOfShroudingFog;
 import pd.items.consum.potions.exotic.PotionOfSnapFreeze;
 import pd.items.consum.potions.exotic.PotionOfStormClouds;
+import pd.items.equipment.weapon.missiles.arrows.*;
 import pd.journal.Catalog;
 import pd.levels.Terrain;
 import pd.messages.Messages;
@@ -60,6 +62,7 @@ import pd.plants.Earthroot;
 import pd.plants.Fadeleaf;
 import pd.plants.Firebloom;
 import pd.plants.Icecap;
+import pd.plants.Dreamfoil;
 import pd.plants.Mageroyal;
 import pd.plants.NutPlant;
 import pd.plants.Plant;
@@ -516,7 +519,8 @@ public class Potion extends Item {
 		public static HashMap<Class<?extends Plant.Seed>, Class<?extends Potion>> types = new HashMap<>();
 		static {
 			types.put(Blindweed.Seed.class,     PotionOfInvisibility.class);
-			types.put(Mageroyal.Seed.class,     PotionOfPurity.class);
+			types.put(Dreamfoil.Seed.class,     PotionOfPurity.class);
+			types.put(Mageroyal.Seed.class,     PotionOfPurity.class);//兼容旧存档里的魔皇草之种
 			types.put(Earthroot.Seed.class,     PotionOfParalyticGas.class);
 			types.put(Fadeleaf.Seed.class,      PotionOfMindVision.class);
 			types.put(Firebloom.Seed.class,     PotionOfLiquidFlame.class);
@@ -527,11 +531,11 @@ public class Potion extends Item {
 			types.put(Stormvine.Seed.class,     PotionOfLevitation.class);
 			types.put(Sungrass.Seed.class,      PotionOfHealing.class);
 			types.put(Swiftthistle.Seed.class,  PotionOfHaste.class);
-			types.put(NutPlant.Seed.class,      PotionOfMending.class);
-			types.put(ReNepenth.Seed.class,     PotionOfMight.class);
+			types.put(NutPlant.Seed.class,      PotionOfHealing.class);//原恢复药水，已并入治疗药剂
+			types.put(ReNepenth.Seed.class,     ElixirOfMight.class);//原根骨药水，已并入根骨秘药
 			types.put(Seedpod.Seed.class,       PotionOfMixing.class);
 			types.put(SiOtwoFlower.Seed.class,  PotionOfShield.class);
-			types.put(StarEater.Seed.class,     PotionOfOverHealing.class);
+			types.put(StarEater.Seed.class,     PotionOfHealing.class);//原生命药水，已并入治疗药剂
 		}
 		
 		@Override
@@ -608,6 +612,136 @@ public class Potion extends Item {
 					return Messages.get(Potion.SeedToPotion.class, "name");
 				}
 				
+				@Override
+				public String info() {
+					return "";
+				}
+			};
+		}
+	}
+
+	/**
+	 * SPSEXPD: 果实酿造配方（取代原先的三种子酿造）。
+	 * 4 个果实（可混搭）或 1 个大型果实 + 1 个普通果实均可酿出一瓶药剂。
+	 * 出货概率沿用种子酿造的机制：投入的果实种类越多，越容易开出随机药剂；
+	 * 只投入单一品种时，直接得到对应的药剂（并自动鉴定）。
+	 */
+	public static class FruitToPotion extends Recipe {
+
+		public static final int COUNT = 4;
+
+		public static final LinkedHashMap<Class<? extends Item>, Class<? extends Potion>> types = new LinkedHashMap<>();
+
+		static {
+			//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+			InlineText.of(FruitToPotion.class)
+				.t("name", "果实酿造");
+
+			types.put(NutFruit.class,        PotionOfShield.class);
+			types.put(StarEaterFruit.class,  PotionOfAcid.class);
+			types.put(TransmuteFruit.class,  PotionOfTransmute.class);
+			types.put(GlassFruit.class,      PotionOfGlass.class);
+			types.put(DewFruit.class,        PotionOfEnergy.class);
+			types.put(SeedFruit.class,       PotionOfConfusion.class);
+			types.put(FlavorlessFruit.class, PotionOfSatiety.class);
+			types.put(FreshFruit.class,      PotionOfMixing.class);
+			types.put(HealFruit.class,       PotionOfHealing.class);
+			types.put(FireFruit.class,       PotionOfLiquidFlame.class);
+			types.put(IceFruit.class,        PotionOfFrost.class);
+			types.put(ToxicFruit.class,      PotionOfToxicGas.class);
+			types.put(BlindFruit.class,      PotionOfInvisibility.class);
+			types.put(RootFruit.class,       PotionOfParalyticGas.class);
+			types.put(StarFruit.class,       PotionOfExperience.class);
+			types.put(SwiftFruit.class,      PotionOfHaste.class);
+			types.put(RotFruit.class,        PotionOfStrength.class);
+			types.put(ShockFruit.class,      PotionOfLevitation.class);
+			types.put(SmokeFruit.class,      PotionOfMindVision.class);
+			types.put(CharmFruit.class,      PotionOfPurity.class);
+		}
+
+		/** 沿继承链查找果实对应的药剂（大型果实是普通果实的子类）。 */
+		public static Class<? extends Potion> potionFor(Item fruit) {
+			for (Class<?> type = fruit.getClass(); type != null; type = type.getSuperclass()) {
+				Class<? extends Potion> potion = types.get(type);
+				if (potion != null) return potion;
+			}
+			return null;
+		}
+
+		/** 自身不在映射表中、却能沿父类匹配到药剂，即为大型果实。 */
+		public static boolean isLarge(Item fruit) {
+			return potionFor(fruit) != null && !types.containsKey(fruit.getClass());
+		}
+
+		@Override
+		public boolean testIngredients(ArrayList<Item> ingredients) {
+			if (ingredients.size() == COUNT) {
+				for (Item ingredient : ingredients) if (potionFor(ingredient) == null) return false;
+				return true;
+			}
+			if (ingredients.size() == 2) {
+				int large = 0;
+				for (Item ingredient : ingredients) {
+					if (potionFor(ingredient) == null) return false;
+					if (isLarge(ingredient)) large++;
+				}
+				return large == 1;
+			}
+			return false;
+		}
+
+		@Override
+		public int cost(ArrayList<Item> ingredients) {
+			return 0;
+		}
+
+		@Override
+		public Item brew(ArrayList<Item> ingredients) {
+			if (!testIngredients(ingredients)) return null;
+
+			for (Item ingredient : ingredients) {
+				ingredient.quantity(ingredient.quantity() - 1);
+			}
+
+			ArrayList<Class<? extends Potion>> kinds = new ArrayList<>();
+			for (Item ingredient : ingredients) {
+				Class<? extends Potion> potion = potionFor(ingredient);
+				if (!kinds.contains(potion)) kinds.add(potion);
+			}
+
+			Potion result;
+			if ((kinds.size() == 2 && Random.Int(4) == 0)
+					|| (kinds.size() >= 3 && Random.Int(2) == 0)) {
+				result = (Potion) Generator.randomUsingDefaults(Generator.Category.POTION);
+			} else {
+				result = Reflection.newInstance(potionFor(Random.element(ingredients)));
+			}
+
+			if (kinds.size() == 1 && Dungeon.hero != null) {
+				result.identify();
+			}
+
+			while (result instanceof PotionOfHealing
+					&& Random.Int(10) < Dungeon.LimitedDrops.COOKING_HP.count) {
+				result = (Potion) Generator.randomUsingDefaults(Generator.Category.POTION);
+			}
+
+			if (result instanceof PotionOfHealing) {
+				Dungeon.LimitedDrops.COOKING_HP.count++;
+			}
+
+			return result;
+		}
+
+		@Override
+		public Item sampleOutput(ArrayList<Item> ingredients) {
+			return new WndBag.Placeholder(SpecificPlaceHolderDict.POTION_HOLDER_0) {
+
+				@Override
+				public String name() {
+					return Messages.get(Potion.FruitToPotion.class, "name");
+				}
+
 				@Override
 				public String info() {
 					return "";

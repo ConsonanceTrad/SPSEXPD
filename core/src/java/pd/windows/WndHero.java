@@ -40,6 +40,7 @@ import pd.ui.ScrollPane;
 import pd.ui.StatusPane;
 import pd.ui.TalentButton;
 import pd.ui.TalentsPane;
+import pd.ui.PerkSlot;
 import pd.ui.Window;
 import pd.utils.DungeonSeed;
 import render.input.KeyBindings;
@@ -58,10 +59,17 @@ public class WndHero extends WndTabbed {
 	static {
 		InlineText.of(WndHero.class)
 			.t("stats", "属性")
-			.t("talents", "天赋")
+			.t("talents", "特质")
 			.t("buffs", "状态")
 			.t("$statstab.title", "%1$d级%2$s")
 			.t("$statstab.exp", "经验")
+			.t("$statstab.satiation", "饱食度")
+			.t("$statstab.accuracy", "命中")
+			.t("$statstab.evasion", "闪避")
+			.t("$statstab.spell_power", "法术强度")
+			.t("$statstab.magic_resist", "魔法抗性")
+			.t("$statstab.critical_chance", "暴击几率")
+			.t("$statstab.perks", "特质")
 			.t("$statstab.str", "力量")
 			.t("$statstab.health", "生命")
 			.t("$statstab.gold", "金币收集数")
@@ -76,7 +84,8 @@ public class WndHero extends WndTabbed {
 
 	
 	private static final int WIDTH		= 120;
-	private static final int HEIGHT		= 120;
+	//SPSXPD: 属性页行数增加（饱食度/命中/闪避/法术强度/魔法抗性/暴击/特质），加高窗口
+	private static final int HEIGHT		= 210;
 	
 	private StatsTab stats;
 	private TalentsTab talents;
@@ -114,7 +123,7 @@ public class WndHero extends WndTabbed {
 				stats.visible = stats.active = selected;
 			}
 		} );
-		add( new IconTab( Icons.get(Icons.TALENT) ) {
+		add( new IconTab( new render.noosa.Image( pd.Assets.Interfaces.SPECIFIC_POINT ) ) {
 			protected void select( boolean value ) {
 				super.select( value );
 				if (selected) lastIdx = 1;
@@ -158,7 +167,7 @@ public class WndHero extends WndTabbed {
 
 	private class StatsTab extends Group {
 		
-		private static final int GAP = 6;
+		private static final int GAP = 5;
 		
 		private float pos;
 		
@@ -215,6 +224,29 @@ public class WndHero extends WndTabbed {
 			else                        statSlot( Messages.get(this, "health"), (hero.HP) + "/" + hero.HT );
 			statSlot( Messages.get(this, "exp"), hero.exp + "/" + hero.maxExp() );
 
+			//SPSXPD: 饱食度（当前饥饿值 / 上限；上限受「坚忍肠胃」特质影响）
+			pd.actors.buffs.Hunger hungerBuff = hero.buff(pd.actors.buffs.Hunger.class);
+			int hunger = hungerBuff == null ? 0 : hungerBuff.hunger();
+			int hungerCap = (int)(pd.actors.buffs.Hunger.STARVING
+					+ pd.actors.hero.perks.HardenedStomach.capBonus(hero));
+			statSlot( Messages.get(this, "satiation"), hunger + "/" + hungerCap );
+
+			//SPSXPD: 命中 / 闪避 / 法术强度 / 魔法抗性
+			statSlot( Messages.get(this, "accuracy"), hero.attackSkill(hero) );
+			statSlot( Messages.get(this, "evasion"), hero.defenseSkill(hero) );
+			statSlot( Messages.get(this, "spell_power"), hero.magicSkill() );
+			statSlot( Messages.get(this, "magic_resist"),
+					Math.round(hero.magicalResistance() * 100) + "%" );
+
+			//SPSXPD: 特质体系在属性页的显示 —— 暴击几率与特质情况
+			statSlot( Messages.get(this, "critical_chance"),
+					Math.round(pd.actors.hero.Critical.chance(hero) * 100) + "%" );
+			String perkText = String.valueOf(hero.heroPerk == null ? 0 : hero.heroPerk.getPerks().size());
+			if (hero.reservedPerks > 0) {
+				perkText += " +" + hero.reservedPerks;
+			}
+			statSlot( Messages.get(this, "perks"), perkText );
+
 			pos += GAP;
 
 			statSlot( Messages.get(this, "gold"), Statistics.goldCollected );
@@ -268,19 +300,47 @@ public class WndHero extends WndTabbed {
 
 	public class TalentsTab extends Component {
 
-		TalentsPane pane;
+		private static final int GAP = 2;
+		private static final int COLS = 5;
+
+		private ScrollPane pane;
+		private ArrayList<PerkSlot> slots;
 
 		@Override
 		protected void createChildren() {
 			super.createChildren();
-			pane = new TalentsPane(TalentButton.Mode.UPGRADE);
+			//SPSXPD: 特质页 —— 展示已获得的特质（取代原天赋页）
+			//注意：createChildren() 会在构造期被 Component 调用，
+			//所以字段必须在这里初始化，不能在声明处初始化（否则 NPE）
+			slots = new ArrayList<>();
+			pane = new ScrollPane(new Component());
 			add(pane);
+
+			if (pd.Dungeon.hero != null && pd.Dungeon.hero.heroPerk != null) {
+				for (pd.actors.hero.perks.Perk perk : pd.Dungeon.hero.heroPerk.getPerks()) {
+					PerkSlot slot = new PerkSlot(perk);
+					slots.add(slot);
+					pane.content().add(slot);
+				}
+			}
 		}
 
 		@Override
 		protected void layout() {
 			super.layout();
+			if (pane == null || slots == null) return;
 			pane.setRect(x, y, width, height);
+
+			for (int i = 0; i < slots.size(); i++) {
+				int r = i / COLS;
+				int c = i % COLS;
+				slots.get(i).setRect(
+						GAP + c * (PerkSlot.BTN + GAP),
+						GAP + r * (PerkSlot.BTN + GAP),
+						PerkSlot.BTN, PerkSlot.BTN);
+			}
+			int rows = Math.max(1, (slots.size() + COLS - 1) / COLS);
+			pane.content().setSize(width, Math.max(height, GAP + rows * (PerkSlot.BTN + GAP)));
 		}
 
 	}

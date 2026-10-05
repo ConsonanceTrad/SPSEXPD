@@ -22,12 +22,16 @@
 package pd.ui;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.SpecificPlaceHoldeFruitDict;
 
 import pd.Dungeon;
 import pd.ShatteredPixelDungeon;
 import pd.items.ArcaneResin;
+import pd.items.Garbage;
 import pd.items.Generator;
+import pd.items.IronMakerRecipes;
 import pd.items.Item;
+import pd.items.StoneOre;
 import pd.items.LiquidMetal;
 import pd.items.Recipe;
 import pd.items.SpsAlchemyRecipes;
@@ -69,8 +73,14 @@ import pd.items.consum.spells.TelekineticGrab;
 import pd.items.consum.spells.UnstableSpell;
 import pd.items.consum.spells.WildEnergy;
 import pd.items.consum.stones.Runestone;
+import pd.items.consum.food.WaterItem;
+import pd.items.consum.medicine.Timepill2;
+import pd.items.equipment.weapon.spammo.FireAmmo;
+import pd.items.equipment.weapon.spammo.HeavyAmmo;
+import pd.plants.Firebloom;
 import pd.items.equipment.wands.Wand;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
+import pd.items.equipment.weapon.missiles.arrows.*;
 import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.scenes.AlchemyScene;
@@ -269,19 +279,46 @@ public class QuickRecipe extends Component {
 	public static ArrayList<QuickRecipe> getRecipes( int pageIdx ){
 		ArrayList<QuickRecipe> result = new ArrayList<>();
 		switch (pageIdx){
-			case 0: default:
-				result.add(new QuickRecipe( new Potion.SeedToPotion(), new ArrayList<>(Arrays.asList(new Plant.Seed.PlaceHolder().quantity(3))), new WndBag.Placeholder(SpecificPlaceHolderDict.POTION_HOLDER_0){
+			case 0: default: {
+				//SPSEXPD: 药剂酿造已由种子改为果实（展示使用果实/大型果实占位图标）
+				WndBag.Placeholder brewed = new WndBag.Placeholder(SpecificPlaceHolderDict.POTION_HOLDER_0) {
 					@Override
 					public String name() {
-						return Messages.get(Potion.SeedToPotion.class, "name");
+						return Messages.get(Potion.FruitToPotion.class, "name");
 					}
 
 					@Override
 					public String info() {
 						return "";
 					}
-				}));
+				};
+				Item fruitHolder = new Item() {
+					{
+						image = SpecificPlaceHoldeFruitDict.FRUIT_HOLDER_0;
+					}
+					@Override
+					public String name() { return ""; }
+					@Override
+					public String info() { return ""; }
+				};
+				Item largeFruitHolder = new Item() {
+					{
+						image = SpecificPlaceHoldeFruitDict.LARGE_FRUIT_HOLDER_0;
+					}
+					@Override
+					public String name() { return ""; }
+					@Override
+					public String info() { return ""; }
+				};
+				result.add(new QuickRecipe( new Potion.FruitToPotion(),
+						new ArrayList<>(Arrays.asList(fruitHolder, fruitHolder, fruitHolder, fruitHolder)),
+						brewed));
+				result.add(null);
+				result.add(new QuickRecipe( new Potion.FruitToPotion(),
+						new ArrayList<>(Arrays.asList(largeFruitHolder, fruitHolder)),
+						brewed));
 				return result;
+			}
 			case 1:
 				Recipe r = new Scroll.ScrollToStone();
 				for (Class<?> cls : Generator.Category.SCROLL.classes){
@@ -299,15 +336,6 @@ public class QuickRecipe extends Component {
 				result.add(new QuickRecipe( new MeatPie.Recipe(),
 						new ArrayList<Item>(Arrays.asList(new Pasty(), new Food(), new MysteryMeat.PlaceHolder())),
 						new MeatPie()));
-				result.add(null);
-				result.add(new QuickRecipe( SpsAlchemyRecipes.cookBrewedRecipe(),
-						new ArrayList<>(Arrays.asList(new Blandfruit(), new Plant.Seed.PlaceHolder())),
-						new Brewed(){
-							@Override
-							public String info() {
-								return "";
-							}
-						}));
 				return result;
 			case 3:
 				r = new ExoticPotion.PotionToExotic();
@@ -346,6 +374,21 @@ public class QuickRecipe extends Component {
 				result.add(new QuickRecipe( new ArcaneResin.Recipe(),
 						new ArrayList<Item>(Arrays.asList(new Wand.PlaceHolder())),
 						new ArcaneResin()));
+				result.add(null);
+				//SPSEXPD: 原铁砧的锻造公式已整体并入炼金釜
+				IronMakerRecipes forge = new IronMakerRecipes();
+				result.add(new QuickRecipe( forge,
+						new ArrayList<>(Arrays.asList(new StoneOre(), new StoneOre())),
+						new HeavyAmmo()));
+				result.add(new QuickRecipe( forge,
+						new ArrayList<>(Arrays.asList(new StoneOre(), new Firebloom.Seed())),
+						new FireAmmo()));
+				result.add(new QuickRecipe( forge,
+						new ArrayList<>(Arrays.asList(new StoneOre(), new StoneOre(), new StoneOre(), new StoneOre(), new WaterItem())),
+						new Timepill2()));
+				result.add(new QuickRecipe( forge,
+						new ArrayList<>(Arrays.asList(new Garbage(), new Garbage(), new Garbage(), new Garbage(), new Garbage())),
+						new Garbage(3)));
 				return result;
 			case 7:
 				result.add(new QuickRecipe(new UnstableBrew.Recipe(), new ArrayList<>(Arrays.asList(new Potion.PlaceHolder(), new  Plant.Seed.PlaceHolder())), new UnstableBrew()));
@@ -364,6 +407,24 @@ public class QuickRecipe extends Component {
 				result.add(new QuickRecipe(new ElixirOfDragonsBlood.Recipe()));
 				result.add(new QuickRecipe(new ElixirOfFeatherFall.Recipe()));
 				result.add(new QuickRecipe(new ElixirOfMight.Recipe()));
+				result.add(null);
+				//SPSEXPD: 3 个同种大型果实 → 对应秘药
+				Item largeFruit = new Item() {
+					{
+						image = SpecificPlaceHoldeFruitDict.LARGE_FRUIT_HOLDER_0;
+					}
+					@Override
+					public String name() { return ""; }
+					@Override
+					public String info() { return ""; }
+				};
+				WndBag.Placeholder elixirHolder = new WndBag.Placeholder(SpecificPlaceHolderDict.ELIXIR_HOLDER_0) {
+					@Override
+					public String info() { return ""; }
+				};
+				result.add(new QuickRecipe(new pd.items.LargeFruitToElixir(),
+						new ArrayList<>(Arrays.asList(largeFruit, largeFruit, largeFruit)),
+						elixirHolder));
 				return result;
 			case 8:
 				result.add(new QuickRecipe(new UnstableSpell.Recipe(), new ArrayList<>(Arrays.asList(new Scroll.PlaceHolder(), new  Runestone.PlaceHolder())), new UnstableSpell()));

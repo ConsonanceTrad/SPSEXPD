@@ -21,7 +21,7 @@ import pd.items.Stylus;
 import pd.items.Torch;
 import pd.items.Weightstone;
 import pd.items.misc.LuckyBadge;
-import pd.items.consum.potions.PotionOfOverHealing;
+import pd.items.consum.potions.PotionOfHealing;
 import pd.items.consum.potions.PotionOfStrength;
 import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
@@ -65,14 +65,14 @@ public final class FloorFeeling {
 				if (Random.Float() < LuckyBadge.rareRewardChance(LuckyBadge.luckBonus(Dungeon.hero))) {
 					GroundItems.addItemToSpawn( level, Random.Int(2) == 0
 							? new ScrollOfMagicalInfusion()
-							: new PotionOfOverHealing());
+							: new PotionOfHealing());
 				}
 			} else {
 				GroundItems.addItemToSpawn( level, Generator.random(Generator.Category.FOOD));
 				if (Random.Float() < LuckyBadge.rareRewardChance(LuckyBadge.luckBonus(Dungeon.hero))) {
 					GroundItems.addItemToSpawn( level, Random.Int(2) == 0
 							? new ScrollOfMagicalInfusion()
-							: new PotionOfOverHealing());
+							: new PotionOfHealing());
 				}
 
 				if (Dungeon.posNeeded()) {

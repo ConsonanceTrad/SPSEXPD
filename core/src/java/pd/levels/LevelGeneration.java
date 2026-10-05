@@ -66,7 +66,8 @@ public final class LevelGeneration {
 			}
 		} while (!level.build());
 
-		SpsDew.place( level );
+		//SPSEXPD: 露珠神像已取消——露珠改由「怪物属性浮动」掉落提供。
+		//Terrain.DEW_BLESS 的定义、图块帧、踩踏触发等都保留，以免动图集与旧存档。
 		
 		level.buildFlagMaps();
 		CellFlags.cleanWalls( level );

@@ -26,6 +26,7 @@ import pd.Dungeon;
 import pd.items.EquipableItem;
 import pd.items.Gold;
 import pd.items.Item;
+import pd.items.Waterskin;
 import pd.items.equipment.bags.Bag;
 import pd.items.equipment.wands.Wand;
 import render.gltextures.TextureCache;
@@ -72,7 +73,8 @@ public class InventorySlot extends ItemSlot {
 
 		super.item( item );
 
-		bg.visible = !(item instanceof Gold || item instanceof Bag);
+		//SPSEXPD: 露珠瓶与包裹/金币一样是特殊存在，不画格子背景
+		bg.visible = !(item instanceof Gold || item instanceof Bag || item instanceof Waterskin);
 
 		if (item != null) {
 

@@ -121,7 +121,7 @@ public class GamesInProgress {
 				int saveVersion = bundle.getInt( "version" );
 				//SPSXPD: 0 表示由本地 run 任务写出的存档（拿不到 jar manifest 版本号），
 				//它并非旧版本，按当前版本对待，否则这种存档永远不会显示。
-				if (saveVersion != 0 && saveVersion < ShatteredPixelDungeon.v3_1_1) {
+				if (saveVersion != 0 && saveVersion < ShatteredPixelDungeon.v_traits) {
 					info = null;
 				} else {
 

@@ -650,8 +650,14 @@ public class Toolbar extends Component {
 		}
 		switch(mode){
 			case SPLIT:
-				btnWait.setPos(x, y);
-				btnSearch.setPos(btnWait.right(), y);
+				//SPSEXPD: 可交换等待与检索按钮的位置
+				if (SPDSettings.swapWaitSearch()) {
+					btnSearch.setPos(x, y);
+					btnWait.setPos(btnSearch.right(), y);
+				} else {
+					btnWait.setPos(x, y);
+					btnSearch.setPos(btnWait.right(), y);
+				}
 
 				btnInventory.setPos(right - btnInventory.width(), y);
 
@@ -674,9 +680,12 @@ public class Toolbar extends Component {
 				right = Math.min( (width + toolbarWidth)/2, width );
 
 			case GROUP:
-				btnWait.setPos(right - btnWait.width(), y);
-				btnSearch.setPos(btnWait.left() - btnSearch.width(), y);
-				btnInventory.setPos(btnSearch.left() - btnInventory.width(), y);
+				//SPSEXPD: 可交换等待与检索按钮的位置
+				Button firstBtn = SPDSettings.swapWaitSearch() ? btnSearch : btnWait;
+				Button secondBtn = SPDSettings.swapWaitSearch() ? btnWait : btnSearch;
+				firstBtn.setPos(right - firstBtn.width(), y);
+				secondBtn.setPos(firstBtn.left() - secondBtn.width(), y);
+				btnInventory.setPos(secondBtn.left() - btnInventory.width(), y);
 
 				btnQuick[startingSlot].setPos(btnInventory.left() - btnQuick[startingSlot].width(), y + 2);
 				for (int i = startingSlot+1; i <= endingSlot; i++) {

@@ -84,7 +84,14 @@ public class MovieClip extends Image {
 			}
 			
 			if (curFrame != lastFrame) {
-				frame( curAnim.frames[curFrame] );
+				//SPSEXPD: 缺失帧保护——打印诊断并跳过该帧，避免单张图集/动画定义出错就整局崩溃
+				RectF f = curAnim.frames[curFrame];
+				if (f == null) {
+					System.err.println("[SPSEXPD] null animation frame: sprite=" + getClass().getName()
+							+ " index=" + curFrame + "/" + curAnim.frames.length);
+				} else {
+					frame( f );
+				}
 			}
 			
 		}
@@ -107,7 +114,13 @@ public class MovieClip extends Image {
 		frameTimer = 0;
 		
 		if (anim != null) {
-			frame( anim.frames[curFrame] );
+			//SPSEXPD: 首帧缺失同样只诊断不崩溃
+			RectF f = anim.frames.length > 0 ? anim.frames[0] : null;
+			if (f == null) {
+				System.err.println("[SPSEXPD] null first frame: sprite=" + getClass().getName());
+			} else {
+				frame( f );
+			}
 		}
 	}
 	

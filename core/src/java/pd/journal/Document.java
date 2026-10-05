@@ -34,6 +34,7 @@ import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
 import pd.atlas.items.EquipmentWandBasicWandDict;
 
 import pd.Badges;
+import pd.SPDSettings;
 import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.messages.Messages;
 import pd.sprites.ItemSprite;
@@ -119,7 +120,7 @@ public enum Document {
 			.t("adventurers_guide.magic.body", "魔法攻击可以穿透护甲且难以闪避。这意味着法杖拥有非常可靠的输出能力，不过与此同时这也使得法术系敌人变得异常危险！\n\n不过，魔法攻击并非无懈可击。法杖充能有限，而法术系敌人也通常不会近距离施放法术。\n\n面对法术系敌人的攻击时，学会如何规避魔法攻击至关重要。")
 			.t("alchemy_guide.title", "炼金指南")
 			.t("alchemy_guide.potions.title", "引言与入门配方")
-			.t("alchemy_guide.potions.body", "欢迎来到《炼金术的实际应用》！你可以参照配方来使用炼金釜创造出新的物品。\n\n我们先介绍最经典的配方：药剂！\n\n使用三枚种子即可酿造出一瓶随机药剂！每类植物的种子均对应一种药剂，使用多枚相同的种子以增加酿造出与你使用的种子对应的药剂的概率。")
+			.t("alchemy_guide.potions.body", "欢迎来到《炼金术的实际应用》！你可以参照配方来使用炼金釜创造出新的物品。\n\n我们先介绍最经典的配方：药剂！\n\n投入四个果实（可混搭），或一个大型果实加一个普通果实，即可酿出一瓶药剂！每类果实均对应一种药剂：只投入单一品种时必定得到对应的药剂，混入的品种越多，越容易开出随机药剂。")
 			.t("alchemy_guide.stones.title", "锻造符石")
 			.t("alchemy_guide.stones.body", "将一张卷轴与两个石块投入炼金釜当中，便可以将卷轴的魔力灌注到石块当中。在鉴定该卷轴的同时，对应的符石也被锻造成形！")
 			.t("alchemy_guide.energy_food.title", "炼金能量与食物烹饪")
@@ -131,7 +132,7 @@ public enum Document {
 			.t("alchemy_guide.bombs.title", "改造炸弹")
 			.t("alchemy_guide.bombs.body", "一个标准的黑火药炸弹可以与一个特定的物品共炼来制作一个强化炸弹。")
 			.t("alchemy_guide.weapons.title", "强化武器")
-			.t("alchemy_guide.weapons.body", "投掷武器与法杖也可参与到炼金反应当中！\n\n投掷武器组可被熔化为一定量的液金，足以完全修复一组同阶同级的投掷武器。注意，无论这组武器的完整度如何，使用投掷武器组炼金必定会将整组武器彻底摧毁！\n\n法杖可被裂化为一定量的奥术树脂，足以升级两把同等级的法杖，然而此法无法将法杖升级至+3以上。")
+			.t("alchemy_guide.weapons.body", "投掷武器与法杖也可参与到炼金反应当中！\n\n投掷武器组可被熔化为一定量的液金，足以完全修复一组同阶同级的投掷武器。注意，无论这组武器的完整度如何，使用投掷武器组炼金必定会将整组武器彻底摧毁！\n\n法杖可被裂化为一定量的奥术树脂，足以升级两把同等级的法杖，然而此法无法将法杖升级至+3以上。\n\n铁砧的锻造公式也已整体并入炼金釜：原石与各类种子可锻造成特殊弹药，废料与原石能够重铸，两件同类装备可以合成升级。")
 			.t("alchemy_guide.brews_elixirs.title", "炼制魔药与秘药")
 			.t("alchemy_guide.brews_elixirs.body", "魔药与秘药是较为高级的药剂，它们具有不同用途的各类效果，通常为一次性使用。")
 			.t("alchemy_guide.spells.title", "提取结晶")
@@ -284,6 +285,8 @@ public enum Document {
 	}
 
 	public boolean isPageFound( String page ){
+		//SPSEXPD: 设置中开启"解锁炼金配方"后，炼金指南的每一页都视为已找到
+		if (this == ALCHEMY_GUIDE && SPDSettings.unlockAlchemyGuide()) return true;
 		return pagesStates.containsKey(page) && pagesStates.get(page) > NOT_FOUND;
 	}
 
@@ -324,6 +327,8 @@ public enum Document {
 	}
 
 	public boolean isPageRead( String page ){
+		//SPSEXPD: 设置中开启"解锁炼金配方"后，炼金指南的每一页都视为已读
+		if (this == ALCHEMY_GUIDE && SPDSettings.unlockAlchemyGuide()) return true;
 		return pagesStates.containsKey(page) && pagesStates.get(page) == READ;
 	}
 

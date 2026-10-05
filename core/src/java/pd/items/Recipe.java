@@ -167,7 +167,9 @@ public abstract class Recipe {
 	//*******
 
 	private static Recipe[] variableRecipes = new Recipe[]{
-			//none for now
+			new Potion.FruitToPotion(),
+			new LargeFruitToElixir(),
+			new IronMakerRecipes()
 	};
 	
 	private static Recipe[] oneIngredientRecipes = new Recipe[]{
@@ -212,7 +214,6 @@ public abstract class Recipe {
 	};
 	
 	private static Recipe[] threeIngredientRecipes = new Recipe[]{
-		new Potion.SeedToPotion(),
 		new StewedMeat.threeMeat(),
 		new MeatPie.Recipe()
 	};
@@ -259,15 +260,46 @@ public abstract class Recipe {
 	}
 	
 	public static boolean usableInRecipe(Item item){
-		//only upgradeable thrown weapons and wands allowed among equipment items
+		//SPSEXPD: 任务/剧情道具与角色专属道具不能投入炼金釜
+		if (isSpecialItem(item)) return false;
 		if (item instanceof EquipableItem){
-			return item.cursedKnown && !item.cursed &&
-					item instanceof MissileWeapon && item.isUpgradable();
+			//SPSEXPD: 除特殊道具外的装备均可投入（不再限于可升级的投掷武器）
+			return item.cursedKnown && !item.cursed;
 		} else if (item instanceof Wand) {
 			return item.cursedKnown && !item.cursed;
 		} else {
 			//other items can be unidentified, but not cursed
 			return !item.cursed;
 		}
+	}
+
+	/**
+	 * SPSEXPD: 特殊道具——任务/剧情道具、图鉴与挑战书页、钥匙，
+	 * 以及角色专属道具（鞋子、神圣护盾、技能书、皮肤专属初始装备等）。
+	 * 这些物品不参与炼金。
+	 */
+	public static boolean isSpecialItem(Item item){
+		String pkg = item.getClass().getPackageName();
+		//任务与剧情
+		if (pkg.startsWith("pd.items.quest")) return true;
+		//图鉴页/日志页/挑战纸片/钥匙
+		if (pkg.startsWith("pd.items.specific")) return true;
+		//BOSS 钥匙与剧情道具
+		if (item instanceof SpsBossKey || item instanceof TreasureMap || item instanceof TengusMask
+				|| item instanceof KingsCrown || item instanceof Amulet || item instanceof DolyaSlate
+				|| item instanceof Triforce || item instanceof TriforcePiece
+				|| item instanceof TriforceOfCourage || item instanceof TriforceOfPower
+				|| item instanceof TriforceOfWisdom || item instanceof SoulCollect
+				|| item instanceof ChallengeBook || item instanceof KnowledgeBook
+				|| item instanceof PotKey || item instanceof ShadowEaterKey
+				|| item instanceof BossRush || item instanceof Playericon
+				|| item instanceof BrokenSeal) return true;
+		//角色专属道具（鞋子/神圣护盾/侵蚀核心/机械口袋/特权道具/技能书等）
+		if (pkg.equals("pd.items.misc")) return true;
+		if (pkg.startsWith("pd.items.skills")) return true;
+		if (item instanceof SkillBook) return true;
+		//皮肤专属初始装备
+		if (pkg.endsWith(".melee.start") || pkg.endsWith(".specialarmor")) return true;
+		return false;
 	}
 }

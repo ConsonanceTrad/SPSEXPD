@@ -17,7 +17,7 @@ public class Vialupdater extends Item {
 		InlineText.of(Vialupdater.class)
 			.t("name", "露珠强化器")
 			.t("ac_use", "使用")
-			.t("desc", "扩容，然后解锁露珠瓶的最终能力。");
+			.t("desc", "解锁露珠瓶的清洗与加速能力，并使加速附带漂浮。");
 	}
 
 
@@ -41,7 +41,7 @@ public class Vialupdater extends Item {
 		}
 		curUser = hero;
 		detach(hero.belongings.backpack);
-		Dungeon.dewWater = true;
+		Dungeon.dewDraw = true;
 		Dungeon.wings = true;
 		if (hero.sprite != null) hero.sprite.centerEmitter().start(Speck.factory(Speck.UP), 0.05f, 10);
 		hero.spendAndNext(1f);

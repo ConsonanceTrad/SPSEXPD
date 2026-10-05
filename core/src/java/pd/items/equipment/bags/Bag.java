@@ -31,6 +31,7 @@ import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.items.quest.DarkGold;
 import pd.scenes.GameScene;
+import pd.windows.WndBag;
 import pd.windows.WndQuickBag;
 import render.utils.serialize.Bundlable;
 import render.utils.serialize.Bundle;
@@ -38,6 +39,7 @@ import render.utils.serialize.Bundle;
 import java.util.ArrayList;
 import java.util.Iterator;
 import pd.messages.InlineText;
+import pd.messages.Messages;
 import pd.atlas.items.EquipmentBagsDict;
 
 public class Bag extends Item implements Iterable<Item> {
@@ -45,6 +47,7 @@ public class Bag extends Item implements Iterable<Item> {
 	static {
 		InlineText.of(Bag.class)
 			.t("name", "背包")
+			.t("ac_open", "打开")
 			.t("discover_hint", "你可在商店中购买该物品。");
 	}
 
@@ -69,6 +72,14 @@ public class Bag extends Item implements Iterable<Item> {
 		return 20; // default container size
 	}
 
+	/**
+	 * SPSEXPD: 包裹标签页的固定排序位（越小越靠前，未指认的排最后）。
+	 * 固定顺序：绒布包-卷轴筒-药水箱-购物车-竹背篓-魔法套筒-暗器袋-草靶子-钥匙串。
+	 */
+	public int bagOrder(){
+		return 100;
+	}
+
 	//SPS: 包裹袋不允许被售卖（商店以 item.value() 定价）
 	@Override
 	public int value() {
@@ -88,15 +99,31 @@ public class Bag extends Item implements Iterable<Item> {
 	}
 
 	@Override
+	public ArrayList<String> actions( Hero hero ) {
+		ArrayList<String> actions = super.actions( hero );
+		//SPSEXPD: 包裹的快捷行为是「打开」——打开背包窗口并跳转到本包裹的标签页（可在快捷栏中使用）
+		actions.add( AC_OPEN );
+		return actions;
+	}
+
+	@Override
+	public String actionName( String action, Hero hero ) {
+		//SPSEXPD: 统一用 Bag 的文本键，避免各包裹子类缺少 ac_open 而显示 TEXT NOT FOUND
+		if (AC_OPEN.equals(action)) {
+			return Messages.get( Bag.class, "ac_open" );
+		}
+		return super.actionName( action, hero );
+	}
+
+	@Override
 	public void execute( Hero hero, String action ) {
 		quickUseItem = null;
 
 		super.execute( hero, action );
 
-		if (action.equals( AC_OPEN ) && !items.isEmpty()) {
-			
-			GameScene.show( new WndQuickBag( this ) );
-			
+		if (action.equals( AC_OPEN )) {
+			//SPSEXPD: 打开背包窗口并跳转到本包裹的标签页（WndBag 构造时选中 bag 对应的标签）
+			GameScene.show( new WndBag( this ) );
 		}
 	}
 	
@@ -223,13 +250,18 @@ public class Bag extends Item implements Iterable<Item> {
 		return false;
 	}
 
+	/** SPSEXPD: 非本物品占用的预留格数（主背包最后一格恒留给露珠瓶，见 Belongings.Backpack）。 */
+	protected int reservedSlotsFor( Item item ){
+		return 0;
+	}
+
 	public boolean canHold( Item item ){
 		if (!loading && owner != null && owner.buff(LostInventory.class) != null
 			&& !item.keptThroughLostInventory()){
 			return false;
 		}
 
-		if (items.contains(item) || item instanceof Bag || items.size() < capacity()){
+		if (items.contains(item) || item instanceof Bag || items.size() < capacity() - reservedSlotsFor(item)){
 			return true;
 		} else if (item.stackable) {
 			for (Item i : items) {

@@ -20,8 +20,8 @@ allprojects {
 		appAndroidPackageName = 'com.hmdzl.spsexpd'
 
         //Full releases gets +2 on version code, needed for an F-Droid quirk
-		appVersionCode = 924
-		appVersionName = '0.1.2-alpha'
+		appVersionCode = 925
+		appVersionName = '0.1.3-alpha'
 
         appJavaCompatibility = JavaVersion.VERSION_11
 
@@ -427,9 +427,8 @@ tasks.register('verifySpsContent') {
 		}
 		def generatorSource = coreSource('items/Generator.java').getText('UTF-8')
 		def medicineClasses = ['BlueMilk', 'DeathCap', 'Earthstar', 'Foamedbeverage', 'GoldenJelly',
-				'Greaterpill', 'GreenSpore', 'Hardpill', 'JackOLantern', 'LingPotion', 'MagicPill',
-				'MendingTonic', 'Musicpill', 'PixieParasol', 'Powerpill', 'RealgarWine', 'Shootpill',
-				'Smashpill', 'TimePill', 'Timepill2']
+				'Greaterpill', 'GreenSpore', 'JackOLantern', 'LingPotion', 'MendingTonic',
+				'PixieParasol', 'RealgarWine', 'TimePill', 'Timepill2']
 		medicineClasses.each { name ->
 			def source = coreSource("items/consum/medicine/${name}.java")
 			if (!source.isFile() || !generatorSource.contains("${name}.class")) {
@@ -459,8 +458,8 @@ tasks.register('verifySpsContent') {
 			def source = coreSource("items/${name}.java")
 			if (!source.isFile()) throw new GradleException("SPS植物产物缺失: ${name}")
 		}
-		def spsPotionClasses = ['PotionOfMending', 'PotionOfMight', 'PotionOfMixing',
-				'PotionOfShield', 'PotionOfOverHealing']
+		def spsPotionClasses = ['PotionOfMixing', 'PotionOfShield', 'PotionOfAcid',
+				'PotionOfTransmute', 'PotionOfGlass', 'PotionOfEnergy', 'PotionOfConfusion', 'PotionOfSatiety']
 		def potionSource = coreSource('items/consum/potions/Potion.java').getText('UTF-8')
 		spsPotionClasses.each { name ->
 			def source = coreSource("items/consum/potions/${name}.java")
@@ -545,7 +544,7 @@ tasks.register('verifySpsMechanics') {
         def expectedRewards = [
                 1: 'Nut', 2: 'ScrollOfIdentify', 3: 'ScrollOfMagicMapping', 4: 'StoneOfEnchantment',
                 7: 'MendingTonic', 9: 'ReedPipe', 10: 'MendingTonic', 11: 'ScrollOfRemoveCurse',
-                12: 'RitualBlade', 13: 'MagicPill', 14: 'CatSharkArmor', 15: 'VerdantGuard',
+                12: 'RitualBlade', 14: 'CatSharkArmor', 15: 'VerdantGuard',
                 16: 'TimePill', 17: 'MendingTonic', 18: 'Harp', 19: 'LifeArmor',
                 20: 'EyeOfSkadi', 21: 'WarDrum', 22: 'PotionOfHaste', 23: 'NoomlinCrown',
                 24: 'MendingTonic'
@@ -1089,8 +1088,7 @@ tasks.register('verifySpsMechanics') {
 			requireText(heroClassSource, it, '八职业默认皮肤开局食物')
 		}
 		['hero.belongings.weapon = new ShortSword()', 'hero.belongings.armor = new WoodenArmor()',
-		 'new MissileShield().identify().collect()', 'new Powerpill().identify().collect()',
-		 'new Smashpill().identify().collect()', 'new Hardpill().identify().collect()',
+		 'new MissileShield().identify().collect()',
 		 'hero.belongings.weapon = new MageBook()', 'new WandOfDisintegration()',
 		 'new PotionOfMage().identify().collect()', 'hero.improveMagicSkill(3)'].each {
 			requireText(heroClassSource, it, '战士与法师默认皮肤开局配置')
@@ -1143,7 +1141,7 @@ tasks.register('verifySpsRelease') {
 	dependsOn ':core:verifySpsBossKeys'
 	dependsOn ':core:verifySpsTimekeepersHourglass'
 	dependsOn ':core:verifySpsRingOfElements', ':core:verifySpsLegacyRings', ':core:verifySpsMagicKnowledgeRings', ':core:verifySpsLegacyConsumableBuffs', ':core:verifySpsLegacyProperties', ':core:verifySpsChaliceOfBlood', ':core:verifySpsGlassTotem', ':core:verifySpsFlyChains', ':core:verifySpsLegacyUtilityItems', ':core:verifySpsLegacyChallenges', ':core:verifySpsLegacyBlobs', ':core:verifySpsCallCoconut', ':core:verifySpsPocketBallFull', ':core:verifySpsEasterWeapons', ':core:verifySpsSpecialRewardWeapons', ':core:verifySpsExtendedLegacyWeapons', ':core:verifySpsLegacySpecialMelee', ':core:verifySpsSewerBossTimeline', ':core:verifySpsPrisonBossTimeline', ':core:verifySpsCavesBossTimeline', ':core:verifySpsCityBossTimeline', ':core:verifySpsHallsBossTimeline', ':core:verifySpsTownBlockWeapons', ':core:verifySpsDangerousBomb', ':core:verifySpsOrbOfZot', ':core:verifySpsJournalPages', ':core:verifySpsStoryGuide', ':core:verifySpsCatalog', ':core:verifySpsMobCatalog', ':core:verifySpsTenguKey', ':core:verifySpsSpecialArrows', ':core:verifySpsTransmutationWell', ':core:verifySpsPsionicBlast'
-	dependsOn 'verifySpsContent', 'verifySpsMechanics', ':core:verifySpsSCoinGiftShop', ':core:verifySpsKeyPickup', ':core:verifySpsAdventureRoutes', ':core:verifySpsBetweenBuilder', ':core:verifySpsBetweenLevels', ':core:verifySpsBspLayout', ':core:verifySpsRegularLevels', ':core:verifySpsFixedLevels', ':core:verifySpsBossSprites', ':core:verifySpsMainBossTimelines', ':core:verifySpsLearnLevel', ':core:verifySpsChallengeLevels', ':core:verifySpsTriangleLevels', ':core:verifySpsChallengeJournal', ':core:verifySpsChallengeRewards', ':core:verifySpsLegacyTraps', ':core:verifySpsLightBomb', ':core:verifySpsLegacyWands', ':core:verifySpsLegacyArmor', ':core:verifySpsLegacyGlyphs', ':core:verifySpsSpecialArmor', ':core:verifySpsLegacyMelee', ':core:verifySpsLegacyStartMeleeStats', ':core:verifySpsRelicWeapons', ':core:verifySpsLegacyEnchantments', ':core:verifySpsCompleteFoods', ':core:verifySpsBasicFoods', ':core:verifySpsSpecialFoods', ':core:verifySpsPasty', ':core:verifySpsAlchemy', ':core:verifySpsMedicineEffects', ':core:verifySpsAlchemistsToolkit', ':core:verifySpsBlandfruit', ':core:verifySpsHornOfPlenty', ':core:verifySpsCapeOfThorns', ':core:verifySpsCloakOfShadows', ':core:verifySpsDriedRose', ':core:verifySpsEtherealChains', ':core:verifySpsMasterThievesArmband', ':core:verifySpsSandalsOfNature', ':core:verifySpsTalismanOfForesight', ':core:verifySpsStartingMissiles', ':core:verifySpsEnhancedPlants', ':core:verifySpsStartTools', ':core:verifySpsFaithAsceticStart', ':core:verifySpsSkinOneStart', ':core:verifySpsSkinOneInteractions', ':core:verifySpsSkinTwoWarrior', ':core:verifySpsSkinThree', ':core:verifySpsSkinFourTester', ':core:verifySpsSkinFive', ':core:verifySpsSkinSix', ':core:verifySpsSkinSeven', ':core:verifySpsRockCodes', ':core:verifySpsRobotDmt', ':core:verifySpsTestCloak', ':core:verifySpsSellItems', ':core:verifySpsTownNpcLoot', ':core:verifySpsAshWolf', ':core:verifySpsBasePets', ':core:verifySpsPetEggs', ':core:verifySpsPetInteractions', ':core:verifySpsTestTimeLoadout', ':core:verifySpsLegacyBags', ':core:verifySpsApostleBox', ':core:verifySpsTownMisc', ':core:verifySpsTownMelee', ':core:verifySpsXiXiBox', ':core:verifySpsMoneyBook', ':core:verifySpsBottleFire', ':core:verifySpsTownMagic', ':core:verifySpsHoneyArrow', ':core:verifySpsLynnDoll', ':core:verifySpsRustybladeCat', ':core:verifySpsGiftNpc', ':core:verifySpsGhostQuest', ':core:verifySpsWandmakerQuest', ':core:verifySpsBlacksmithImpQuest', ':core:verifySpsLloydsBeacon', ':core:verifySpsLegacyDisplay', ':core:verifySpsMobRotations', ':core:verifySpsHiddenShop', ':core:verifySpsSpecialRooms', ':core:verifySpsMemorySave', ':core:verifySpsMemoryItems', ':core:verifySpsClassSkills', ':core:verifySpsShadowEaterQuest', ':core:verifySpsLuckyBadge', ':core:verifySpsBoomerang', ':core:verifySpsAmmo', ':core:verifySpsGuns', ':core:verifySpsRangeWeapons', ':core:verifySpsManyKnive'
+	dependsOn 'verifySpsContent', 'verifySpsMechanics', ':core:verifySpsSCoinGiftShop', ':core:verifySpsKeyPickup', ':core:verifySpsAdventureRoutes', ':core:verifySpsBetweenBuilder', ':core:verifySpsBetweenLevels', ':core:verifySpsBspLayout', ':core:verifySpsRegularLevels', ':core:verifySpsFixedLevels', ':core:verifySpsBossSprites', ':core:verifySpsMainBossTimelines', ':core:verifySpsLearnLevel', ':core:verifySpsChallengeLevels', ':core:verifySpsTriangleLevels', ':core:verifySpsChallengeJournal', ':core:verifySpsChallengeRewards', ':core:verifySpsLegacyTraps', ':core:verifySpsLightBomb', ':core:verifySpsLegacyWands', ':core:verifySpsLegacyArmor', ':core:verifySpsLegacyGlyphs', ':core:verifySpsSpecialArmor', ':core:verifySpsLegacyMelee', ':core:verifySpsLegacyStartMeleeStats', ':core:verifySpsRelicWeapons', ':core:verifySpsLegacyEnchantments', ':core:verifySpsCompleteFoods', ':core:verifySpsBasicFoods', ':core:verifySpsSpecialFoods', ':core:verifySpsPasty', ':core:verifySpsAlchemy', ':core:verifySpsMedicineEffects', ':core:verifySpsAlchemistsToolkit', ':core:verifySpsBlandfruit', ':core:verifySpsHornOfPlenty', ':core:verifySpsCapeOfThorns', ':core:verifySpsCloakOfShadows', ':core:verifySpsDriedRose', ':core:verifySpsEtherealChains', ':core:verifySpsMasterThievesArmband', ':core:verifySpsSandalsOfNature', ':core:verifySpsTalismanOfForesight', ':core:verifySpsStartingMissiles', ':core:verifySpsEnhancedPlants', ':core:verifySpsStartTools', ':core:verifySpsFaithAsceticStart', ':core:verifySpsSkinOneStart', ':core:verifySpsSkinOneInteractions', ':core:verifySpsSkinTwoWarrior', ':core:verifySpsSkinThree', ':core:verifySpsSkinFourTester', ':core:verifySpsSkinFive', ':core:verifySpsSkinSix', ':core:verifySpsSkinSeven', ':core:verifySpsRockCodes', ':core:verifySpsRobotDmt', ':core:verifySpsTestCloak', ':core:verifySpsSellItems', ':core:verifySpsTownNpcLoot', ':core:verifySpsAshWolf', ':core:verifySpsBasePets', ':core:verifySpsPetEggs', ':core:verifySpsPetInteractions', ':core:verifySpsTestTimeLoadout', ':core:verifySpsLegacyBags', ':core:verifySpsApostleBox', ':core:verifySpsTownMisc', ':core:verifySpsTownMelee', ':core:verifySpsXiXiBox', ':core:verifySpsMoneyBook', ':core:verifySpsBottleFire', ':core:verifySpsTownMagic', ':core:verifySpsHoneyArrow', ':core:verifySpsLynnDoll', ':core:verifySpsRustybladeCat', ':core:verifySpsGiftNpc', ':core:verifySpsGhostQuest', ':core:verifySpsWandmakerQuest', ':core:verifySpsBlacksmithImpQuest', ':core:verifySpsLloydsBeacon', ':core:verifySpsLegacyDisplay', ':core:verifySpsMobRotations', ':core:verifySpsHiddenShop', ':core:verifySpsSpecialRooms', ':core:verifySpsMemorySave', ':core:verifySpsMemoryItems', ':core:verifySpsClassSkills', ':core:verifySpsShadowEaterQuest', ':core:verifySpsLuckyBadge', ':core:verifySpsBoomerang', ':core:verifySpsAmmo', ':core:verifySpsGuns', ':core:verifySpsRangeWeapons', ':core:verifySpsManyKnive', ':core:verifySpsTraitSystem'
 }
 
 project(':core') {
@@ -1310,7 +1308,7 @@ project(':core') {
 	}
 	tasks.register('verifySpsEnhancedPlants', JavaExec) {
 		group = 'verification'
-		description = '无图形验证SPS旧版19种强化植物、9种果实、生成限制、存档与原始像素。'
+		description = '无图形验证SPS旧版20种强化植物、果实、生成限制、存档与原始像素。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('plants.SpsEnhancedPlantsTest')
@@ -1858,6 +1856,15 @@ project(':core') {
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.skills.SpsClassSkillsTest')
+		workingDir = file('src/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
+	tasks.register('verifySpsTraitSystem', JavaExec) {
+		group = 'verification'
+		description = '无图形验证特质（Perk）体系：容器增删改、序列化、候选抽取、暴击入口、条件型特质、职业初始特质与天赋停用。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = coreTestClass('actors.hero.perks.SpsTraitSystemTest')
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}

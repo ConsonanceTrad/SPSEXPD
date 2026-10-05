@@ -137,6 +137,16 @@ abstract public class MissileWeapon extends Weapon {
 		return  2 * tier +                      //base
 				lvl;                            //level scaling
 	}
+
+	/** SPSEXPD: 是否可以被炼金熔化成液金（果实覆写为 false）。 */
+	public boolean canMeltIntoMetal() {
+		return true;
+	}
+
+	/** SPSEXPD: 是否为投掷果实（果实体系覆写为 true）。 */
+	public boolean isFruit() {
+		return false;
+	}
 	
 	@Override
 	public int max() {
@@ -686,18 +696,22 @@ abstract public class MissileWeapon extends Weapon {
 		String info = super.info();
 
 		if (levelKnown) {
-			info += "\n\n" + Messages.get(MissileWeapon.class, "stats_known", tier, augment.damageFactor(min()), augment.damageFactor(max()), STRReq());
-			if (Dungeon.hero != null) {
-				if (STRReq() > Dungeon.hero.STR()) {
-					info += " " + Messages.get(Weapon.class, "too_heavy");
-				} else if (Dungeon.hero.STR() > STRReq()) {
-					info += " " + Messages.get(Weapon.class, "excess_str", Dungeon.hero.STR() - STRReq());
+			if (showStatsInfo()) {
+				info += "\n\n" + Messages.get(MissileWeapon.class, "stats_known", tier, augment.damageFactor(min()), augment.damageFactor(max()), STRReq());
+				if (Dungeon.hero != null) {
+					if (STRReq() > Dungeon.hero.STR()) {
+						info += " " + Messages.get(Weapon.class, "too_heavy");
+					} else if (Dungeon.hero.STR() > STRReq()) {
+						info += " " + Messages.get(Weapon.class, "excess_str", Dungeon.hero.STR() - STRReq());
+					}
 				}
 			}
 		} else {
-			info += "\n\n" + Messages.get(MissileWeapon.class, "stats_unknown", tier, min(0), max(0), STRReq(0));
-			if (Dungeon.hero != null && STRReq(0) > Dungeon.hero.STR()) {
-				info += " " + Messages.get(MissileWeapon.class, "probably_too_heavy");
+			if (showStatsInfo()) {
+				info += "\n\n" + Messages.get(MissileWeapon.class, "stats_unknown", tier, min(0), max(0), STRReq(0));
+				if (Dungeon.hero != null && STRReq(0) > Dungeon.hero.STR()) {
+					info += " " + Messages.get(MissileWeapon.class, "probably_too_heavy");
+				}
 			}
 		}
 
@@ -751,6 +765,11 @@ abstract public class MissileWeapon extends Weapon {
 
 	public String statsInfo(){
 		return Messages.get(this, "stats_desc");
+	}
+
+	/** SPSEXPD: 是否在描述里显示“成组投掷武器”的伤害/力量需求说明（果实覆写为 false）。 */
+	protected boolean showStatsInfo(){
+		return true;
 	}
 	
 	@Override

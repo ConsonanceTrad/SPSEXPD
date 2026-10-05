@@ -34,14 +34,13 @@ import pd.actors.hero.Belongings;
 import pd.items.ChangeEquip;
 import pd.items.Item;
 import pd.items.equipment.bags.ArrowCollecter;
+import pd.items.equipment.bags.BambooBasket;
 import pd.items.equipment.bags.Bag;
 import pd.items.equipment.bags.KeyRing;
 import pd.items.equipment.bags.MagicalHolster;
 import pd.items.equipment.bags.PotionBandolier;
 import pd.items.equipment.bags.ScrollHolder;
-import pd.items.equipment.bags.SeedPouch;
 import pd.items.equipment.bags.VelvetPouch;
-import pd.items.equipment.bags.WandHolster;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
@@ -485,12 +484,13 @@ public class InventoryPane extends Component {
 	}
 
 	private Image bagIcon(Bag bag ) {
-		if (bag instanceof VelvetPouch || bag instanceof SeedPouch) {
+		if (bag instanceof BambooBasket) {
+			return Icons.get( Icons.BAMBOO_BASKET );
+		} else if (bag instanceof VelvetPouch) {
 			return Icons.get( Icons.SEED_POUCH );
 		} else if (bag instanceof ScrollHolder || bag instanceof KeyRing) {
 			return Icons.get( Icons.SCROLL_HOLDER );
-		} else if (bag instanceof MagicalHolster || bag instanceof WandHolster
-				|| bag instanceof ArrowCollecter) {
+		} else if (bag instanceof MagicalHolster || bag instanceof ArrowCollecter) {
 			return Icons.get( Icons.WAND_HOLSTER );
 		} else if (bag instanceof PotionBandolier) {
 			return Icons.get( Icons.POTION_BANDOLIER );

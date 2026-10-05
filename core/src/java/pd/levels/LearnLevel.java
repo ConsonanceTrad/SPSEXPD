@@ -15,7 +15,7 @@ import pd.items.VioletDewdrop;
 import pd.items.equipment.armor.specialarmor.TestArmor;
 import pd.items.consum.food.SmallMeat;
 import pd.items.specific.keys.IronKey;
-import pd.items.consum.potions.PotionOfMending;
+import pd.items.consum.potions.PotionOfHealing;
 import pd.items.consum.potions.PotionOfMindVision;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
 import pd.items.equipment.weapon.melee.special.TestWeapon;
@@ -68,7 +68,7 @@ public class LearnLevel extends Level {
 	protected void createItems() {
 		drop(new TestWeapon().identify(), 15 + WIDTH * 2).type = Heap.Type.HEAP;
 		drop(new TestArmor().identify(), 16 + WIDTH * 2).type = Heap.Type.HEAP;
-		drop(new PotionOfMending(), 40 + WIDTH * 3).type = Heap.Type.CHEST;
+		drop(new PotionOfHealing(), 40 + WIDTH * 3).type = Heap.Type.CHEST;
 		drop(new IronKey(Dungeon.depth).identify(), 41 + WIDTH * 3).type = Heap.Type.E_DUST;
 		drop(new VioletDewdrop().identify(), 42 + WIDTH * 4).type = Heap.Type.E_DUST;
 		drop(new Gold(1000), 42 + WIDTH * 5).type = Heap.Type.CHEST;

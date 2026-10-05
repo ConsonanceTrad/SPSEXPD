@@ -73,6 +73,7 @@ import pd.effects.particles.ShadowParticle;
 import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
+import pd.items.Dewdrop;
 import pd.items.RedDewdrop;
 import pd.items.StoneOre;
 import pd.items.VioletDewdrop;
@@ -86,7 +87,6 @@ import pd.items.misc.LuckyBadge;
 import pd.items.misc.PPC;
 import pd.items.misc.Shovel;
 import pd.items.consum.potions.exotic.ExoticPotion;
-import pd.items.specific.reward.BoundReward;
 import pd.items.equipment.rings.Ring;
 import pd.items.equipment.rings.RingOfWealth;
 import pd.items.equipment.rings.fusion.RingOfKnowledge;
@@ -135,8 +135,7 @@ public abstract class Mob extends Char {
 	static {
 		InlineText.of(Mob.class)
 			.t("died", "你依稀听到远处有什么东西死掉了。")
-			.t("sps_clear", "本层已清理，规定时间还剩%d回合。露珠奖励已掉落。")
-			.t("sps_clear_late", "本层已清理，但已超过规定时间，没有获得清层奖励。")
+
 			.t("rage", "#$%^")
 			.t("rankings_desc", "死于：%s")
 			.t("discover_hint", "你可在某个地牢区域中遇到该敌人。");
@@ -175,6 +174,10 @@ public abstract class Mob extends Char {
 	protected boolean alerted = false;
 	public boolean spsOriginalGeneration = false;
 
+	//SPSEXPD: 怪物属性浮动（生命与攻击力 ±5%~15%），浮动越高露珠掉落率越高
+	public float statFloat = 0f;
+	private static final String STAT_FLOAT = "stat_float";
+
 	protected static final float TIME_TO_WAKE_UP = 1f;
 
 	/** SPS-PD used a separate depth counter for the three Triforce trials. */
@@ -199,9 +202,18 @@ public abstract class Mob extends Char {
 			//modify health for ascension challenge if applicable, only on first add
 			float percent = HP / (float) HT;
 			HT = Math.round(HT * AscensionChallenge.statModifier(this));
+			//SPSEXPD: 属性浮动——生命按 ±5%~15% 缩放，攻击力在 damageRoll() 里乘同一系数
+			rollStatFloat();
+			HT = Math.max(1, Math.round(HT * (1f + statFloat)));
 			HP = Math.round(HT * percent);
 			firstAdded = false;
 		}
+	}
+
+	//SPSEXPD: 掷出属性浮动：幅度 5%~15%，上下各半
+	private void rollStatFloat() {
+		float magnitude = Random.Float(0.05f, 0.15f);
+		statFloat = Random.Int(2) == 0 ? -magnitude : magnitude;
 	}
 
 	private static final String STATE	= "state";
@@ -249,6 +261,7 @@ public abstract class Mob extends Char {
 
 		bundle.put(SWARM_TIME, timeSeenAt);
 		bundle.put(SPS_ORIGINAL_GENERATION, spsOriginalGeneration);
+		bundle.put(STAT_FLOAT, statFloat);
 		bundle.put(FIRST_ITEM, firstItem);
 
 		bundle.put( USING_STEALTH, usingStealthGamePlay );
@@ -304,6 +317,7 @@ public abstract class Mob extends Char {
 
 		timeSeenAt = bundle.getFloat( SWARM_TIME );
 		spsOriginalGeneration = bundle.getBoolean(SPS_ORIGINAL_GENERATION);
+		statFloat = bundle.getFloat(STAT_FLOAT);
 
 		//no need to actually save this, must be false
 		firstAdded = false;
@@ -1094,6 +1108,13 @@ public abstract class Mob extends Char {
 			if (dewcharge != null && dewcharge.isDewing()) {
 				dropChargedDew(pos);
 			}
+			//SPSEXPD: 怪物自身带「露珠爆破」时（本层初始怪物），死亡同样爆一次
+			Dewcharge ownCharge = buff(Dewcharge.class);
+			if (ownCharge != null && ownCharge.isDewing()) {
+				dropChargedDew(pos);
+			}
+			//SPSEXPD: 按属性浮动档位掉露珠
+			dropDewByStatFloat(pos);
 
 			if (cause == Dungeon.hero || cause instanceof Weapon || cause instanceof Weapon.Enchantment){
 				if (Dungeon.hero.hasTalent(Talent.LETHAL_MOMENTUM)
@@ -1119,6 +1140,7 @@ public abstract class Mob extends Char {
 		super.die( cause );
 		spawnNightmareVirusOnDeath();
 
+		//SPSEXPD: 初始敌人清空即标记本层已清（保留"清层前不自然刷怪"），但已取消清层限时与清层奖励
 		if (spsOriginalGeneration
 				&& Dungeon.branch == 0
 				&& Dungeon.depth > 1 && Dungeon.depth < 25
@@ -1127,13 +1149,6 @@ public abstract class Mob extends Char {
 				&& !Dungeon.level.cleared
 				&& !Dungeon.level.mobs().hasSpsOriginalMobs()) {
 			Dungeon.level.cleared = true;
-			Statistics.previousFloorMoves = Math.max(SpsDew.par( Dungeon.level ) - Dungeon.level.currentMoves, 0);
-			if (Statistics.previousFloorMoves > 1) {
-				GLog.h(Messages.get(Mob.class, "sps_clear"), Statistics.previousFloorMoves);
-				Dungeon.level.drop(new BoundReward(), pos).sprite.drop();
-			} else {
-				GLog.h(Messages.get(Mob.class, "sps_clear_late"));
-			}
 		}
 
 		if (!(this instanceof Wraith)
@@ -1186,6 +1201,19 @@ public abstract class Mob extends Char {
 		GameScene.add(virus, 1f);
 		if (virus.sprite != null) Actor.addDelayed(new Pushing(virus, pos, virus.pos), -1f);
 		return virus;
+	}
+
+	//SPSEXPD: 按属性浮动分档掉露珠——浮动越正（越强）掉率越高，档位 10%~40%
+	private void dropDewByStatFloat( int cell ) {
+		if (!(Dungeon.dewDraw || Dungeon.dewWater)) return;
+		if (!SpsDew.isClearable( Dungeon.level )) return;
+		float chance = statFloat >= 0.10f ? 0.40f            // +10%~+15%
+				: statFloat >= 0.05f ? 0.30f                 // +5%~+10%
+				: statFloat <= -0.10f ? 0.10f                // -15%~-10%
+				: 0.20f;                                     // -10%~-5%
+		if (Random.Float() < chance) {
+			Dungeon.level.drop(new Dewdrop(), cell).sprite.drop(cell);
+		}
 	}
 
 	private void dropChargedDew(int center) {

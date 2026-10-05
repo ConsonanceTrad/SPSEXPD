@@ -16,9 +16,8 @@ import pd.items.consum.potions.PotionOfExperience;
 import pd.items.consum.potions.PotionOfFrost;
 import pd.items.consum.potions.PotionOfHaste;
 import pd.items.consum.potions.PotionOfHealing;
-import pd.items.consum.potions.PotionOfMight;
-import pd.items.consum.potions.PotionOfOverHealing;
 import pd.items.consum.potions.PotionOfStrength;
+import pd.items.consum.potions.elixirs.ElixirOfMight;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.Trap;
@@ -65,9 +64,8 @@ public final class SpsAlchemistsToolkitTest {
 		check(toolkit.combination.size() == 3 && new HashSet<>(toolkit.combination).size() == 3,
 				"炼金工具箱没有生成三种互不重复的药剂组合");
 		check(!toolkit.combination.contains(PotionOfExperience.class)
-				&& !toolkit.combination.contains(PotionOfOverHealing.class)
 				&& !toolkit.combination.contains(PotionOfStrength.class)
-				&& !toolkit.combination.contains(PotionOfMight.class), "工具箱组合包含源码禁用药剂");
+				&& !toolkit.combination.contains(ElixirOfMight.class), "工具箱组合包含源码禁用药剂");
 
 		Hero hero = prepareHero();
 		check(AlchemistsToolkit.AC_BREW.equals(toolkit.defaultAction()), "工具箱默认动作不是组合");
@@ -83,11 +81,11 @@ public final class SpsAlchemistsToolkitTest {
 		toolkit.level(4);
 		hero.belongings.artifact = null;
 		check(toolkit.actions(hero).contains(AlchemistsToolkit.AC_CREATE), "卸下的已升级工具箱没有耗竭造物");
-		check(AlchemyScene.spsInputCapacity(toolkit) == 3, "四级工具箱错误增加了炼金槽位");
+		check(AlchemyScene.spsInputCapacity(toolkit) == 5, "四级工具箱的炼金槽位应为五");
 		toolkit.level(5);
-		check(AlchemyScene.spsInputCapacity(toolkit) == 4, "五级工具箱没有增加到四个炼金槽位");
+		check(AlchemyScene.spsInputCapacity(toolkit) == 5, "五级工具箱的炼金槽位应为五");
 		toolkit.level(10);
-		check(AlchemyScene.spsInputCapacity(toolkit) == 5, "十级工具箱没有增加到五个炼金槽位");
+		check(AlchemyScene.spsInputCapacity(toolkit) == 5, "十级工具箱的炼金槽位应为五");
 	}
 
 	private static void testScoringAndEfficiency() {

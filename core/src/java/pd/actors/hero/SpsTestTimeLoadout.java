@@ -13,9 +13,13 @@ import pd.items.SkillBook;
 import pd.items.SoulCollect;
 import pd.items.TomeOfMastery;
 import pd.items.equipment.artifacts.MasterThievesArmband;
+import pd.items.equipment.bags.BambooBasket;
 import pd.items.equipment.bags.MagicalHolster;
+import pd.items.equipment.bags.BambooBasket;
 import pd.items.equipment.bags.PotionBandolier;
+import pd.items.equipment.bags.BambooBasket;
 import pd.items.equipment.bags.ScrollHolder;
+import pd.items.equipment.bags.BambooBasket;
 import pd.items.equipment.bags.ShoppingCart;
 import pd.items.consum.eggs.AflyEgg;
 import pd.items.consum.eggs.EasterEgg;
@@ -30,7 +34,7 @@ import pd.items.nornstone.GreenNornStone;
 import pd.items.nornstone.OrangeNornStone;
 import pd.items.nornstone.PurpleNornStone;
 import pd.items.nornstone.YellowNornStone;
-import pd.items.consum.potions.PotionOfMending;
+import pd.items.consum.potions.PotionOfHealing;
 import pd.items.consum.potions.PotionOfMindVision;
 import pd.items.quest.AdventureJournal;
 import pd.items.quest.ChallengeJournal;
@@ -52,8 +56,12 @@ import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
 import pd.items.consum.scrolls.ScrollOfPsionicBlast;
 import pd.items.equipment.weapon.melee.special.TestWeapon;
-import pd.plants.Dewcatcher;
-import pd.plants.Seedpod;
+import pd.items.consum.food.*;
+import pd.items.consum.food.fruit.*;
+import pd.items.consum.food.processed.*;
+import pd.items.consum.food.vegetable.*;
+import pd.items.equipment.weapon.missiles.arrows.*;
+import pd.plants.*;
 
 import java.util.Collections;
 
@@ -80,6 +88,8 @@ public final class SpsTestTimeLoadout {
 		collect(hero, new PotionBandolier());
 		collect(hero, new ShoppingCart());
 		collect(hero, new MagicalHolster());
+		//SPSEXPD: 竹背篓——专门存放投掷果实与大型果实
+		collect(hero, new BambooBasket());
 		collect(hero, new Palantir());
 		collect(hero, new SoulCollect());
 		collect(hero, new PowerHand());
@@ -103,11 +113,56 @@ public final class SpsTestTimeLoadout {
 		collect(hero, new Seedpod.Seed().quantity(10));
 		collect(hero, new Dewcatcher.Seed().quantity(10));
 		collect(hero, new ScrollOfDummy().quantity(10));
-		collect(hero, new PotionOfMending().quantity(10));
+		collect(hero, new PotionOfHealing().quantity(10));
 		collect(hero, new ScrollOfPsionicBlast().quantity(10));
 		collect(hero, new Hamburger().quantity(10));
 		collect(hero, new RandomMonthEgg().quantity(10));
 		collect(hero, new Honey().quantity(10));
+
+		//SPSEXPD: 本次新增/改造的种子产物，供测试三分支与炼药（20 种种子、19 种蔬菜、19 种二次加工产物）
+		//集露草之种与种子荚之种已在上方按 10 粒发放，此处不重复
+		Plant.Seed[] testSeeds = {
+				new Firebloom.Seed(), new Icecap.Seed(), new Sorrowmoss.Seed(), new Blindweed.Seed(),
+				new Sungrass.Seed(), new Earthroot.Seed(), new Fadeleaf.Seed(), new Rotberry.Seed(),
+				new BlandfruitBush.Seed(), new Dreamfoil.Seed(), new Stormvine.Seed(), new NutPlant.Seed(),
+				new Starflower.Seed(), new ReNepenth.Seed(), new StarEater.Seed(), new Freshberry.Seed(),
+				new SiOtwoFlower.Seed(), new Swiftthistle.Seed()
+		};
+		for (Plant.Seed seed : testSeeds) collect(hero, seed.quantity(5));
+
+		Item[] testVegetables = {
+				new Chili(), new Marigold(), new IceMint(), new Tulip(), new ToxicEggplant(),
+				new TransmuteCage(), new Radish(), new Sunflower(), new QuartzFlower(),
+				new RainbowPansy(), new DewSpore(), new Sorrel(), new StarEaterFlower(),
+				new Durian(), new DreamLeaf(), new NutVegetable(), new BattleFlower(),
+				new Blandfruit(), new HealGrass()
+		};
+		for (Item item : testVegetables) collect(hero, item.quantity(5));
+
+		Item[] testProcessed = {
+				new Adhesive(), new Capsaicin(), new TransmutePowder(), new HealingSalve(),
+				new CoolingOil(), new Perfume(), new ToxicExtract(), new WakeTea(),
+				new NutrientSolution(), new SunflowerSeed(), new FruitThread(), new Sedative(),
+				new RedRose(), new DigestiveFluid(), new AetherLiquid(), new CrystalShard(),
+				new HighEnergySpore(), new WishPetal(), new HormoneSolution()
+		};
+		for (Item item : testProcessed) collect(hero, item.quantity(5));
+
+		//SPSEXPD: 投掷果实——20 种普通 + 20 种大型，各 10 枚便于投掷/食用测试
+		Item[] testFruits = {
+				new FreshFruit(), new RotFruit(), new FireFruit(), new BlindFruit(), new HealFruit(),
+				new IceFruit(), new ShockFruit(), new ToxicFruit(), new CharmFruit(), new RootFruit(),
+				new SmokeFruit(), new FlavorlessFruit(), new StarFruit(), new NutFruit(),
+				new StarEaterFruit(), new TransmuteFruit(), new GlassFruit(), new DewFruit(),
+				new SeedFruit(), new SwiftFruit(),
+				new LargeFreshFruit(), new LargeRotFruit(), new LargeFireFruit(), new LargeBlindFruit(),
+				new LargeHealFruit(), new LargeIceFruit(), new LargeShockFruit(), new LargeToxicFruit(),
+				new LargeCharmFruit(), new LargeRootFruit(), new LargeSmokeFruit(),
+				new LargeFlavorlessFruit(), new LargeStarFruit(), new LargeNutFruit(),
+				new LargeStarEaterFruit(), new LargeTransmuteFruit(), new LargeGlassFruit(),
+				new LargeDewFruit(), new LargeSeedFruit(), new LargeSwiftFruit()
+		};
+		for (Item item : testFruits) collect(hero, identified(item).quantity(10));
 
 		Ring[] rings = {
 				new RingOfElements(), new RingOfAccuracy(), new RingOfMight(), new RingOfForce(),

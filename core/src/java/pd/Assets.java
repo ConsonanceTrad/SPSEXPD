@@ -133,6 +133,10 @@ public class Assets {
 
 		public static final String TALENT_ICONS     = "interfaces/talent_icons.png";
 		public static final String TALENT_BUTTON    = "interfaces/talent_button.png";
+		//SPSXPD: 特质（Perk）图标集，16x16 网格
+		public static final String PERKS            = "interfaces/perks.png";
+		//SPSXPD: 特质加点按钮 / 英雄窗特质页签的专用图标（独立单图，非图集）
+		public static final String SPECIFIC_POINT   = "interfaces/specific_point.png";
 
 		public static final String HERO_ICONS       = "interfaces/hero_icons.png";
 

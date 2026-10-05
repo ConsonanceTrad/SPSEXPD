@@ -33,6 +33,7 @@ import pd.items.consum.potions.PotionOfFrost;
 import pd.items.consum.potions.PotionOfHealing;
 import pd.items.consum.potions.PotionOfMixing;
 import pd.items.consum.scrolls.ScrollOfIdentify;
+import pd.items.equipment.weapon.missiles.arrows.*;
 import pd.plants.*;
 import pd.scenes.AlchemyScene;
 import render.utils.serialize.Bundle;
@@ -65,12 +66,6 @@ public final class SpsAlchemyRecipesTest {
 			{TimePill.class, 1, O, O, O, O, W},
 			{Crystalnucleus.class, 1, O, O, O, W, SEED},
 			{Hamburger.class, 1, S, S, V, M, M},
-			{Powerpill.class, 1, M, M, M, V},
-			{Hardpill.class, 1, M, M, O, V},
-			{Smashpill.class, 1, M, M, P, V},
-			{Shootpill.class, 1, M, M, M, SEED},
-			{Musicpill.class, 1, M, M, O, SEED},
-			{MagicPill.class, 1, M, M, P, SEED},
 			{Chocolate.class, 1, N, N, N, N, N},
 			{OverpricedRation.class, 1, N, N, N, N},
 			{RiceGruel.class, 2, S, W, W},
@@ -85,7 +80,6 @@ public final class SpsAlchemyRecipesTest {
 			{BlueMilk.class, 1, W, V, Sungrass.Seed.class},
 			{DeathCap.class, 1, W, V, Sorrowmoss.Seed.class},
 			{Egg.class, 1, Honey.class, Gel.class, O},
-			{PotionOfMixing.class, 1, Seedpod.Seed.class, Seedpod.Seed.class, Seedpod.Seed.class},
 			{Honey.class, 2, Honeypot.class},
 			{Honey.class, 2, Honeypot.ShatteredPot.class},
 			{Honey.class, 1, Truffles.class},
@@ -119,37 +113,42 @@ public final class SpsAlchemyRecipesTest {
 	public static void main(String[] args) throws Exception {
 		GdxNativesLoader.load();
 		Gdx.files = new HeadlessFiles();
-		check(CASES.length == 54, "旧版确定性炼金配方数量错误");
+		check(CASES.length == 47, "旧版确定性炼金配方数量错误");
 		for (Object[] test : CASES) verifyCase(test);
 
+		//SPSEXPD: 药剂酿造已由种子改为果实
 		ArrayList<Item> seedpods = ingredients(Seedpod.Seed.class, Seedpod.Seed.class, Seedpod.Seed.class);
-		check(Recipe.findRecipes(seedpods).size() == 1
-				&& Recipe.findRecipes(seedpods).get(0).sampleOutput(seedpods) instanceof PotionOfMixing,
-				"三颗种荚没有优先生成混合药剂");
-		ArrayList<Item> iceSeeds = ingredients(Icecap.Seed.class, Icecap.Seed.class, Icecap.Seed.class);
-		for (Item item : iceSeeds) item.quantity(2);
-		Recipe seedRecipe = Recipe.findRecipes(iceSeeds).get(0);
-		check(seedRecipe.cost(iceSeeds) == 0 && seedRecipe.brew(iceSeeds) instanceof PotionOfFrost,
-				"旧版三种子制药没有按材料对应药剂生成");
-		for (Item item : iceSeeds) check(item.quantity() == 1, "三种子制药耗材错误");
+		check(Recipe.findRecipes(seedpods).get(0).sampleOutput(seedpods) instanceof Garbage,
+				"三颗种子仍能酿造出药剂");
+		ArrayList<Item> iceFruits = ingredients(IceFruit.class, IceFruit.class, IceFruit.class, IceFruit.class);
+		for (Item item : iceFruits) item.quantity(2);
+		Recipe fruitRecipe = Recipe.findRecipes(iceFruits).get(0);
+		check(fruitRecipe.cost(iceFruits) == 0 && fruitRecipe.brew(iceFruits) instanceof PotionOfFrost,
+				"四颗同种果实没有按材料对应药剂生成");
+		for (Item item : iceFruits) check(item.quantity() == 1, "果实酿造耗材错误");
+		ArrayList<Item> largeFruit = ingredients(LargeIceFruit.class, IceFruit.class);
+		check(Recipe.findRecipes(largeFruit).get(0).brew(largeFruit) instanceof PotionOfFrost,
+				"大型果实加普通果实没有按对应药剂生成");
 		testBrewed();
 		ArrayList<Item> invalid = ingredients(Gold.class, Gold.class, Gold.class, Gold.class, Gold.class);
 		Recipe garbage = Recipe.findRecipes(invalid).get(0);
 		Item waste = garbage.brew(invalid);
+		//SPSEXPD: 垃圾图标已从占位换成材料图集的 SCRAP 废料
 		check(waste instanceof Garbage && waste.quantity() == 5
-				&& waste.image == pd.atlas.items.SpecificPlaceHolderDict.SOMETHING_0,
-				"无效五槽组合没有生成五份旧版图标垃圾");
+				&& waste.image == pd.atlas.items.ConsumGoodsMaterialsMaterialsDict.SCRAP,
+				"无效五槽组合没有生成五份废料垃圾");
 		checkGarbageIcon();
 
 		AlchemistsToolkit toolkit = new AlchemistsToolkit();
-		check(AlchemyScene.spsInputCapacity(null) == 3, "普通炼金釜应为三槽");
-		check(AlchemyScene.spsInputCapacity(toolkit) == 3, "零级炼金工具应为三槽");
+		//SPSEXPD: 炼金釜固定 5 格，不再依赖护腕等级
+		check(AlchemyScene.spsInputCapacity(null) == 5, "普通炼金釜应为五槽");
+		check(AlchemyScene.spsInputCapacity(toolkit) == 5, "零级炼金工具应为五槽");
 		toolkit.upgrade(5);
-		check(AlchemyScene.spsInputCapacity(toolkit) == 4, "五级炼金工具应为四槽");
+		check(AlchemyScene.spsInputCapacity(toolkit) == 5, "五级炼金工具应为五槽");
 		toolkit.upgrade(5);
 		check(AlchemyScene.spsInputCapacity(toolkit) == 5, "十级炼金工具应为五槽");
 
-		System.out.println("SPS炼金测试通过：54条固定配方、三种子制药、酿制无味果、无效组合垃圾、耗材、产量及3/4/5槽解锁均正常。");
+		System.out.println("SPS炼金测试通过：47条固定配方、果实酿造、酿制无味果、无效组合垃圾、耗材、产量及固定五槽均正常。");
 	}
 
 	private static void checkGarbageIcon() throws Exception {
@@ -170,13 +169,13 @@ public final class SpsAlchemyRecipesTest {
 	}
 
 	private static void testBrewed() {
+		//SPSEXPD: 无味果的浸泡(炖菜)配方已移除，直接构造炖菜验证其行为
 		ArrayList<Item> inputs = ingredients(Blandfruit.class, Icecap.Seed.class);
-		Recipe recipe = Recipe.findRecipes(inputs).get(0);
-		check(recipe.cost(inputs) == 0, "酿制无味果不应消耗炼金能量");
-		Item output = recipe.brew(inputs);
-		check(output instanceof Brewed && ((Brewed) output).potionAttrib instanceof PotionOfFrost,
-				"无味果与冰冠花没有生成冰霜酿制果");
-		check(inputs.get(0).quantity() == 0 && inputs.get(1).quantity() == 0, "酿制无味果耗材错误");
+		check(Recipe.findRecipes(inputs).get(0) == SpsAlchemyRecipes.garbageRecipe(),
+				"无味果与冰冠花仍能生成酿制果");
+
+		Brewed output = new Brewed().imbuePotion(new PotionOfFrost());
+		check(output.potionAttrib instanceof PotionOfFrost, "炖菜的药剂属性未生效");
 
 		Bundle bundle = new Bundle();
 		output.storeInBundle(bundle);

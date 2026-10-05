@@ -16,7 +16,6 @@ import pd.actors.hero.Hero;
 import pd.effects.CellEmitter;
 import pd.effects.particles.ElmoParticle;
 import pd.levels.Level;
-import pd.levels.SpsDew;
 import pd.levels.Terrain;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -27,7 +26,7 @@ public final class DewBlessRoom {
 	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
 	static {
 		InlineText.of(DewBlessRoom.class)
-			.t("order", "露珠女神赐予了你祝福，本层的规定清理时间为%d回合。");
+			.t("order", "露珠女神赐予了你祝福，你获得了露珠爆炸。");
 	}
 
 
@@ -40,7 +39,8 @@ public final class DewBlessRoom {
 		CellEmitter.get(pos).burst(ElmoParticle.FACTORY, 6);
 		if (ch instanceof Hero) {
 			Buff.affect((Hero) ch, Dewcharge.class, 720f);
-			GLog.h(Messages.get(DewBlessRoom.class, "order"), SpsDew.par( level ));
+			//SPSEXPD: 清层限时已取消，这里只提示祝福本身
+			GLog.h(Messages.get(DewBlessRoom.class, "order"));
 			Level.set(pos, Terrain.GRASS);
 			GameScene.updateMap(pos);
 		}

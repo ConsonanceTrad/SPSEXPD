@@ -591,6 +591,8 @@ public class InterlevelScene extends PixelScene {
 				else if (error instanceof IOException)          errorMsg = Messages.get(this, "io_error");
 				else if (error.getMessage() != null &&
 						error.getMessage().equals("old save")) errorMsg = Messages.get(this, "io_error");
+				else if (error.getMessage() != null &&
+						error.getMessage().equals("incompatible save")) errorMsg = Messages.get(this, "incompatible_save");
 
 				else throw new RuntimeException("fatal error occurred while moving between floors. " +
 							"Seed:" + Dungeon.seed + " depth:" + Dungeon.depth, error);

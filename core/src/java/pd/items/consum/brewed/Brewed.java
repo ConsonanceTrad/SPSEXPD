@@ -15,6 +15,7 @@ import pd.items.StrBottle;
 import pd.items.YellowDewdrop;
 import pd.items.consum.food.Food;
 import pd.items.consum.potions.*;
+import pd.items.consum.potions.elixirs.ElixirOfMight;
 import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.messages.Messages;
 import pd.plants.Plant;
@@ -161,20 +162,13 @@ public class Brewed extends Item {
 		} else if (potionAttrib instanceof PotionOfPurity) {
 			Buff.prolong(hero, GasesImmunity.class, 50f);
 			Buff.prolong(hero, HighLight.class, 100f);
-		} else if (potionAttrib instanceof PotionOfOverHealing) {
-			hero.HP = hero.HT + (int) (hero.lvl * 1.5f);
-			Buff.affect(hero, BerryRegeneration.class).level(hero.HT);
-			PotionOfHealing.cure(hero);
 		} else if (potionAttrib instanceof PotionOfMindVision) {
 			Buff.prolong(hero, MindVision.class, 30f);
 			Buff.prolong(hero, Awareness.class, 15f);
-		} else if (potionAttrib instanceof PotionOfMight) {
+		} else if (potionAttrib instanceof ElixirOfMight) {
 			Buff.affect(hero, DefenceUp.class, 240f).level(30);
 			Buff.prolong(hero, HTimprove.class, 240f);
 			hero.updateHT(true);
-		} else if (potionAttrib instanceof PotionOfMending) {
-			Buff.affect(hero, BerryRegeneration.class).level(Math.max(hero.HT / 4, 25));
-			PotionOfHealing.cure(hero);
 		} else if (potionAttrib instanceof PotionOfLevitation) {
 			Buff.prolong(hero, Levitation.class, Levitation.DURATION);
 			Buff.affect(hero, DefenceUp.class, 50f).level(20);
@@ -236,9 +230,9 @@ public class Brewed extends Item {
 		else if (item instanceof PotionOfLevitation) potionGlow = new ItemSprite.Glowing(0x1C3A57);
 		else if (item instanceof PotionOfPurity) potionGlow = new ItemSprite.Glowing(0x8E2975);
 		else if (item instanceof PotionOfExperience) potionGlow = new ItemSprite.Glowing(0xA79400);
-		else if (item instanceof PotionOfOverHealing || item instanceof PotionOfMixing
-				|| item instanceof PotionOfMight || item instanceof StrBottle) potionGlow = new ItemSprite.Glowing(0xB20000);
-		else if (item instanceof PotionOfShield || item instanceof PotionOfMending) potionGlow = new ItemSprite.Glowing(0x67583D);
+		else if (item instanceof PotionOfMixing
+				|| item instanceof ElixirOfMight || item instanceof StrBottle) potionGlow = new ItemSprite.Glowing(0xB20000);
+		else if (item instanceof PotionOfShield) potionGlow = new ItemSprite.Glowing(0x67583D);
 		return this;
 	}
 
@@ -261,9 +255,7 @@ public class Brewed extends Item {
 		else if (potionAttrib instanceof PotionOfLevitation) key = "stormfruit";
 		else if (potionAttrib instanceof PotionOfPurity) key = "dreamfruit";
 		else if (potionAttrib instanceof PotionOfExperience) key = "starfruit";
-		else if (potionAttrib instanceof PotionOfMight) key = "mightfruit";
-		else if (potionAttrib instanceof PotionOfOverHealing) key = "heartfruit";
-		else if (potionAttrib instanceof PotionOfMending) key = "nutfruit";
+		else if (potionAttrib instanceof ElixirOfMight) key = "mightfruit";
 		else if (potionAttrib instanceof PotionOfMixing) key = "mixfruit";
 		else if (potionAttrib instanceof StrBottle) key = "strfruit";
 		else if (potionAttrib instanceof PotionOfShield) key = "glassfruit";

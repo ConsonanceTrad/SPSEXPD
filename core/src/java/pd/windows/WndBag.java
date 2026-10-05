@@ -36,15 +36,14 @@ import pd.items.ChangeEquip;
 import pd.items.Item;
 import pd.items.equipment.bags.ArrowCollecter;
 import pd.items.equipment.bags.Bag;
+import pd.items.equipment.bags.BambooBasket;
 import pd.items.equipment.bags.HeartOfScarecrow;
 import pd.items.equipment.bags.KeyRing;
 import pd.items.equipment.bags.MagicalHolster;
 import pd.items.equipment.bags.PotionBandolier;
 import pd.items.equipment.bags.ScrollHolder;
-import pd.items.equipment.bags.SeedPouch;
 import pd.items.equipment.bags.ShoppingCart;
 import pd.items.equipment.bags.VelvetPouch;
-import pd.items.equipment.bags.WandHolster;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
@@ -98,7 +97,7 @@ public class WndBag extends WndTabbed {
 	
 	protected static final int TITLE_HEIGHT	= 14;
 
-	//SPS: 窗口布局 = 装备区两排 + 背包 7 行（5 列 x 7 行 = 35 格）
+	//SPS: 窗口布局 = 装备区两排(10 格) + 背包 7 行(35 格)，主背包与包裹统一
 	protected static final int EQUIP_ROWS	= 2;
 	protected static final int BAG_ROWS		= 7;
 
@@ -159,8 +158,13 @@ public class WndBag extends WndTabbed {
 		slotHeight = PixelScene.landscape() ? SLOT_HEIGHT_L : SLOT_HEIGHT_P;
 
 		nCols = PixelScene.landscape() ? COLS_L : COLS_P;
-		//SPS: 装备区两排 + 背包 8 行（共 10 行；背包 40 格见 Belongings.BACKPACK_CAPACITY）
-		nRows = EQUIP_ROWS + BAG_ROWS;
+		//SPSEXPD: 行数 = 装备区两排 + 背包 7 行（35 格）。
+		//非主背包时窗口里还会显示包裹本体自己（占其中一格）；包裹袋（Bag）本身不占格、不计入
+		int shown = 0;
+		for (Item i : bag.items) if (!(i instanceof Bag)) shown++;
+		if (bag != Dungeon.hero.belongings.backpack) shown++;   //包裹本体占一格
+		int contentRows = (shown + nCols - 1) / nCols;
+		nRows = EQUIP_ROWS + Math.max(BAG_ROWS, contentRows);
 
 		//SPS: 标签移到窗框外侧，内容区回到满宽——包裹区外缘正好紧贴标签内缘（无缝隙）
 		int contentWidth = slotWidth * nCols + SLOT_MARGIN * (nCols - 1);
@@ -505,24 +509,35 @@ public class WndBag extends WndTabbed {
 
 		int equipped = EQUIP_ROWS * nCols;
 
-		//SPS: 容器本体占用该容器的一格（配合 5x7 满格布局，避免多出一行）
-		if (container != Dungeon.hero.belongings.backpack){
-			placeItem(container);
+		//SPSEXPD: 主背包之外的窗口也要显示包裹本体自己（占其中一格）
+		boolean showsSelf = container != Dungeon.hero.belongings.backpack;
+		if (showsSelf) {
+			placeItem( container );
 		}
 
 		// Items in the bag, except other containers (they have tags at the bottom)
+		//SPSEXPD: 包裹袋不占格子，也不计入格子数——否则主背包会凭空多出空行
+		//SPSEXPD: 露珠瓶恒定占用并显示在主背包右下角最后一格，不参与顺序摆放
+		boolean mainBackpack = container == Dungeon.hero.belongings.backpack;
+		Item waterskin = null;
 		for (Item item : container.items.toArray(new Item[0])) {
-			if (!(item instanceof Bag)) {
-				placeItem( item );
-			} else {
-				count++;
+			if (item instanceof Bag) continue;
+			if (mainBackpack && item instanceof pd.items.Waterskin) {
+				waterskin = item;
+				continue;
 			}
+			placeItem( item );
 		}
-		
+
 		// Free Space
-		while ((count - equipped) < container.capacity()) {
+		//SPSEXPD: 空格填到「内容区格数」为止（上限含本体占格），与窗口行数一致，不会溢到窗口外
+		int contentSlots = nRows * nCols - equipped;
+		int wanted = Math.min(container.capacity() + (showsSelf ? 1 : 0), contentSlots);
+		while ((count - equipped) < wanted - (waterskin != null ? 1 : 0)) {
 			placeItem( null );
 		}
+		//SPSEXPD: 露珠瓶最后落位，恒为右下角最后一格
+		if (waterskin != null) placeItem( waterskin );
 	}
 	
 	protected void placeItem( final Item item ) {
@@ -657,11 +672,13 @@ public class WndBag extends WndTabbed {
 	//SPS: 选项卡图标按 SPS 0.9.8 原版映射（不再复用别的袋子图标）；SPS 独有的
 	//SHOP_CART / KEYRING / HOS / ARROW_C 四个图标已从 SPS 图集原像素补入本基底图标集
 	private Image icon( Bag bag ) {
-		if (bag instanceof VelvetPouch || bag instanceof SeedPouch) {
+		if (bag instanceof BambooBasket) {
+			return Icons.get( Icons.BAMBOO_BASKET );
+		} else if (bag instanceof VelvetPouch) {
 			return Icons.get( Icons.SEED_POUCH );
 		} else if (bag instanceof ScrollHolder) {
 			return Icons.get( Icons.SCROLL_HOLDER );
-		} else if (bag instanceof MagicalHolster || bag instanceof WandHolster) {
+		} else if (bag instanceof MagicalHolster) {
 			return Icons.get( Icons.WAND_HOLSTER );
 		} else if (bag instanceof PotionBandolier) {
 			return Icons.get( Icons.POTION_BANDOLIER );

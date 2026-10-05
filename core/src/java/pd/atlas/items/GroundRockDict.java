@@ -13,5 +13,5 @@ public final class GroundRockDict {
 	private GroundRockDict() { }
 
 	/** GEO_BOULDER#0 */
-	public static final IconEntry GEO_BOULDER_0 = new IconEntry("sprites/items/ground/rock.png", new int[]{0, 0, 16, 15}, 7041);
+	public static final IconEntry GEO_BOULDER_0 = new IconEntry("sprites/items/ground/rock.png", new int[]{0, 0, 16, 15}, 7106);
 }

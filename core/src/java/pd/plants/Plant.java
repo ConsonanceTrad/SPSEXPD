@@ -91,6 +91,13 @@ public abstract class Plant implements Bundlable {
 
 		wither();
 		activate( ch );
+
+		//SPSEXPD: 野生植物触发原生踩踏效果后，还会在附近散落 1 枚对应的投掷果实
+		if (!(this instanceof SpsFruitBush) && Dungeon.level != null) {
+			Class<? extends Item> fruit = PlantHarvest.fruitFor(getClass());
+			if (fruit != null) PlantHarvest.scatter(Dungeon.level, pos, fruit, null, 1, 0f);
+		}
+
 		Bestiary.setSeen(getClass());
 		Bestiary.countEncounter(getClass());
 	}
@@ -174,6 +181,10 @@ public abstract class Plant implements Bundlable {
 					|| Dungeon.level.traps.get(cell) != null
 					|| Dungeon.isChallenged(Challenges.NO_HERBALISM)) {
 				super.onThrow( cell );
+			} else if (Dungeon.level.map[cell] == Terrain.FLOWER_POT) {
+				//SPSEXPD: 手动把种子种进花盆 = 精心种植（果丛形态 + 花盆产出规则）
+				Catalog.countUse(getClass());
+				GroundItems.explantPot( Dungeon.level, this, cell );
 			} else {
 				Catalog.countUse(getClass());
 				GroundItems.plant( Dungeon.level,  this, cell );
@@ -213,6 +224,8 @@ public abstract class Plant implements Bundlable {
 			}
 			Plant plant = Reflection.newInstance(plantClass);
 			plant.pos = pos;
+			//SPSEXPD: 记录植物来自哪种种子，供花盆种植等场景校验/回推
+			plant.seedClass = getClass();
 			return plant;
 		}
 
@@ -223,6 +236,8 @@ public abstract class Plant implements Bundlable {
 			Class<? extends Plant> type = explantClass == null ? plantClass : explantClass;
 			Plant plant = Reflection.newInstance(type);
 			plant.pos = pos;
+			//SPSEXPD: 记录植物来自哪种种子，供花盆种植等场景校验/回推
+			plant.seedClass = getClass();
 			return plant;
 		}
 		

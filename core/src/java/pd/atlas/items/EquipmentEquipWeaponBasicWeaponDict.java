@@ -13,193 +13,193 @@ public final class EquipmentEquipWeaponBasicWeaponDict {
 	private EquipmentEquipWeaponBasicWeaponDict() { }
 
 	/** WORN_SHORTSWORD#0 */
-	public static final IconEntry WORN_SHORTSWORD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 0, 13, 13}, 6719);
+	public static final IconEntry WORN_SHORTSWORD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 0, 13, 13}, 6783);
 	/** RAPIER#0 */
-	public static final IconEntry RAPIER_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 0, 13, 14}, 6720);
+	public static final IconEntry RAPIER_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 0, 13, 14}, 6784);
 	/** DAGGER#0 */
-	public static final IconEntry DAGGER_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{32, 0, 12, 13}, 6721);
+	public static final IconEntry DAGGER_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{32, 0, 12, 13}, 6785);
 	/** OLD_STAFF */
-	public static final IconEntry OLD_STAFF = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{48, 2, 15, 14}, 6722);
+	public static final IconEntry OLD_STAFF = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{48, 2, 15, 14}, 6786);
 	/** GLOVES */
-	public static final IconEntry GLOVES = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{64, 0, 12, 15}, 6723);
+	public static final IconEntry GLOVES = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{64, 0, 12, 15}, 6787);
 	/** KNUCKLES */
-	public static final IconEntry KNUCKLES = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{80, 4, 15, 10}, 6724);
+	public static final IconEntry KNUCKLES = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{80, 4, 15, 10}, 6788);
 	/** RUNE_DICTIONARY */
-	public static final IconEntry RUNE_DICTIONARY = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{112, 0, 14, 16}, 6725);
+	public static final IconEntry RUNE_DICTIONARY = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{112, 0, 14, 16}, 6789);
 	/** DUAL_SWORDS */
-	public static final IconEntry DUAL_SWORDS = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{129, 2, 14, 13}, 6726);
+	public static final IconEntry DUAL_SWORDS = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{129, 2, 14, 13}, 6790);
 	/** CLAW_SHEATH */
-	public static final IconEntry CLAW_SHEATH = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{145, 0, 14, 14}, 6727);
+	public static final IconEntry CLAW_SHEATH = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{145, 0, 14, 14}, 6791);
 	/** NUNCHAKU */
-	public static final IconEntry NUNCHAKU = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{161, 1, 14, 15}, 6728);
+	public static final IconEntry NUNCHAKU = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{161, 1, 14, 15}, 6792);
 	/** QUARTERSTAFF#0 */
-	public static final IconEntry QUARTERSTAFF_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{176, 0, 16, 16}, 6729);
+	public static final IconEntry QUARTERSTAFF_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{176, 0, 16, 16}, 6793);
 	/** SPS_WEP_CLUB#0 */
-	public static final IconEntry SPS_WEP_CLUB_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{192, 0, 16, 16}, 6730);
+	public static final IconEntry SPS_WEP_CLUB_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{192, 0, 16, 16}, 6794);
 	/** SWIFT_SWORD */
-	public static final IconEntry SWIFT_SWORD = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{208, 0, 16, 16}, 6731);
+	public static final IconEntry SWIFT_SWORD = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{208, 0, 16, 16}, 6795);
 	/** SPS_TEKKO_KAGI#0 */
-	public static final IconEntry SPS_TEKKO_KAGI_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{224, 0, 16, 16}, 6732);
+	public static final IconEntry SPS_TEKKO_KAGI_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{224, 0, 16, 16}, 6796);
 	/** SHORTSWORD#0 */
-	public static final IconEntry SHORTSWORD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 16, 13, 13}, 6733);
+	public static final IconEntry SHORTSWORD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 16, 13, 13}, 6797);
 	/** HAND_AXE#0 */
-	public static final IconEntry HAND_AXE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 16, 12, 14}, 6734);
+	public static final IconEntry HAND_AXE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 16, 12, 14}, 6798);
 	/** SPEAR#0 */
-	public static final IconEntry SPEAR_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{32, 16, 16, 16}, 6735);
+	public static final IconEntry SPEAR_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{32, 16, 16, 16}, 6799);
 	/** SPS_WEP_SPEAR#0 */
-	public static final IconEntry SPS_WEP_SPEAR_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{48, 16, 16, 16}, 6736);
+	public static final IconEntry SPS_WEP_SPEAR_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{48, 16, 16, 16}, 6800);
 	/** DIRK#0 */
-	public static final IconEntry DIRK_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{64, 16, 13, 14}, 6737);
+	public static final IconEntry DIRK_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{64, 16, 13, 14}, 6801);
 	/** SICKLE#0 */
-	public static final IconEntry SICKLE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{80, 16, 15, 15}, 6738);
+	public static final IconEntry SICKLE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{80, 16, 15, 15}, 6802);
 	/** TRIANGLE */
-	public static final IconEntry TRIANGLE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{112, 18, 16, 13}, 6739);
+	public static final IconEntry TRIANGLE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{112, 18, 16, 13}, 6803);
 	/** FLUTE */
-	public static final IconEntry FLUTE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{133, 16, 6, 16}, 6740);
+	public static final IconEntry FLUTE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{133, 16, 6, 16}, 6804);
 	/** WAR_DRUM */
-	public static final IconEntry WAR_DRUM = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{145, 17, 14, 13}, 6741);
+	public static final IconEntry WAR_DRUM = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{145, 17, 14, 13}, 6805);
 	/** HORN */
-	public static final IconEntry HORN = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{162, 17, 12, 14}, 6742);
+	public static final IconEntry HORN = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{162, 17, 12, 14}, 6806);
 	/** HARP */
-	public static final IconEntry HARP = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{177, 18, 15, 14}, 6743);
+	public static final IconEntry HARP = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{177, 18, 15, 14}, 6807);
 	/** LEGACY_WOODEN_STAFF#0 */
-	public static final IconEntry LEGACY_WOODEN_STAFF_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{192, 16, 16, 16}, 6744);
+	public static final IconEntry LEGACY_WOODEN_STAFF_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{192, 16, 16, 16}, 6808);
 	/** MAGIC_DUST */
-	public static final IconEntry MAGIC_DUST = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{209, 17, 14, 14}, 6745);
+	public static final IconEntry MAGIC_DUST = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{209, 17, 14, 14}, 6809);
 	/** PRAYER_WHEEL */
-	public static final IconEntry PRAYER_WHEEL = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{225, 16, 15, 15}, 6746);
+	public static final IconEntry PRAYER_WHEEL = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{225, 16, 15, 15}, 6810);
 	/** HOLY_WATER */
-	public static final IconEntry HOLY_WATER = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{243, 16, 11, 16}, 6747);
+	public static final IconEntry HOLY_WATER = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{243, 16, 11, 16}, 6811);
 	/** MIRROR_DOLL */
-	public static final IconEntry MIRROR_DOLL = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{257, 16, 14, 16}, 6748);
+	public static final IconEntry MIRROR_DOLL = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{257, 16, 14, 16}, 6812);
 	/** WIND_GOURD */
-	public static final IconEntry WIND_GOURD = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{274, 16, 11, 15}, 6749);
+	public static final IconEntry WIND_GOURD = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{274, 16, 11, 15}, 6813);
 	/** LAMP_PUNCH */
-	public static final IconEntry LAMP_PUNCH = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{288, 16, 15, 16}, 6750);
+	public static final IconEntry LAMP_PUNCH = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{288, 16, 15, 16}, 6814);
 	/** BLOOD_BLADE */
-	public static final IconEntry BLOOD_BLADE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{304, 16, 15, 16}, 6751);
+	public static final IconEntry BLOOD_BLADE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{304, 16, 15, 16}, 6815);
 	/** ENCHANTED_AXE_BLADE */
-	public static final IconEntry ENCHANTED_AXE_BLADE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{321, 17, 14, 14}, 6752);
+	public static final IconEntry ENCHANTED_AXE_BLADE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{321, 17, 14, 14}, 6816);
 	/** SPS_NINJA_FAN#0 */
-	public static final IconEntry SPS_NINJA_FAN_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{336, 16, 16, 16}, 6753);
+	public static final IconEntry SPS_NINJA_FAN_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{336, 16, 16, 16}, 6817);
 	/** MENTOR_SET */
-	public static final IconEntry MENTOR_SET = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{353, 16, 13, 15}, 6754);
+	public static final IconEntry MENTOR_SET = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{353, 16, 13, 15}, 6818);
 	/** FAN */
-	public static final IconEntry FAN = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{368, 17, 16, 15}, 6755);
+	public static final IconEntry FAN = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{368, 17, 16, 15}, 6819);
 	/** BASKETBALL */
-	public static final IconEntry BASKETBALL = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{385, 16, 14, 16}, 6756);
+	public static final IconEntry BASKETBALL = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{385, 16, 14, 16}, 6820);
 	/** SWORD#0 */
-	public static final IconEntry SWORD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 32, 14, 14}, 6757);
+	public static final IconEntry SWORD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 32, 14, 14}, 6821);
 	/** MACE#0 */
-	public static final IconEntry MACE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 32, 15, 15}, 6758);
+	public static final IconEntry MACE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 32, 15, 15}, 6822);
 	/** SCIMITAR */
-	public static final IconEntry SCIMITAR = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{33, 32, 13, 16}, 6759);
+	public static final IconEntry SCIMITAR = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{33, 32, 13, 16}, 6823);
 	/** ROUND_SHIELD#0 */
-	public static final IconEntry ROUND_SHIELD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{48, 32, 16, 16}, 6760);
+	public static final IconEntry ROUND_SHIELD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{48, 32, 16, 16}, 6824);
 	/** SAI#0 */
-	public static final IconEntry SAI_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{64, 32, 16, 16}, 6761);
+	public static final IconEntry SAI_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{64, 32, 16, 16}, 6825);
 	/** WHIP#0 */
-	public static final IconEntry WHIP_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{80, 32, 14, 14}, 6762);
+	public static final IconEntry WHIP_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{80, 32, 14, 14}, 6826);
 	/** HALBERD */
-	public static final IconEntry HALBERD = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{112, 32, 16, 16}, 6763);
+	public static final IconEntry HALBERD = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{112, 32, 16, 16}, 6827);
 	/** LANCE */
-	public static final IconEntry LANCE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{128, 32, 16, 16}, 6764);
+	public static final IconEntry LANCE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{128, 32, 16, 16}, 6828);
 	/** CROSS */
-	public static final IconEntry CROSS = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{144, 32, 16, 16}, 6765);
+	public static final IconEntry CROSS = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{144, 32, 16, 16}, 6829);
 	/** MIMIC_CHEST */
-	public static final IconEntry MIMIC_CHEST = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{161, 32, 15, 16}, 6766);
+	public static final IconEntry MIMIC_CHEST = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{161, 32, 15, 16}, 6830);
 	/** HAM_AND_HOOK */
-	public static final IconEntry HAM_AND_HOOK = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{176, 33, 16, 15}, 6767);
+	public static final IconEntry HAM_AND_HOOK = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{176, 33, 16, 15}, 6831);
 	/** LOLLIPOP */
-	public static final IconEntry LOLLIPOP = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{192, 33, 15, 15}, 6768);
+	public static final IconEntry LOLLIPOP = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{192, 33, 15, 15}, 6832);
 	/** SLAM_DUNK_SET */
-	public static final IconEntry SLAM_DUNK_SET = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{209, 33, 13, 15}, 6769);
+	public static final IconEntry SLAM_DUNK_SET = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{209, 33, 13, 15}, 6833);
 	/** MONEY_PACK */
-	public static final IconEntry MONEY_PACK = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{227, 34, 10, 13}, 6770);
+	public static final IconEntry MONEY_PACK = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{227, 34, 10, 13}, 6834);
 	/** ROCKET */
-	public static final IconEntry ROCKET = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{241, 33, 14, 14}, 6771);
+	public static final IconEntry ROCKET = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{241, 33, 14, 14}, 6835);
 	/** CHRISTMAS_TREE */
-	public static final IconEntry CHRISTMAS_TREE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{258, 32, 11, 16}, 6772);
+	public static final IconEntry CHRISTMAS_TREE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{258, 32, 11, 16}, 6836);
 	/** DWARF_HAMMER */
-	public static final IconEntry DWARF_HAMMER = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{272, 33, 15, 15}, 6773);
+	public static final IconEntry DWARF_HAMMER = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{272, 33, 15, 15}, 6837);
 	/** RUSTY_KEY */
-	public static final IconEntry RUSTY_KEY = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{292, 33, 8, 14}, 6774);
+	public static final IconEntry RUSTY_KEY = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{292, 33, 8, 14}, 6838);
 	/** EASTER_STATUE */
-	public static final IconEntry EASTER_STATUE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{308, 32, 9, 16}, 6775);
+	public static final IconEntry EASTER_STATUE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{308, 32, 9, 16}, 6839);
 	/** POWER_KNUCKLES */
-	public static final IconEntry POWER_KNUCKLES = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{321, 36, 15, 10}, 6776);
+	public static final IconEntry POWER_KNUCKLES = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{321, 36, 15, 10}, 6840);
 	/** HALLOWEEN_PUMPKIN */
-	public static final IconEntry HALLOWEEN_PUMPKIN = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{337, 33, 14, 14}, 6777);
+	public static final IconEntry HALLOWEEN_PUMPKIN = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{337, 33, 14, 14}, 6841);
 	/** DRAGON_BOAT */
-	public static final IconEntry DRAGON_BOAT = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{353, 36, 15, 10}, 6778);
+	public static final IconEntry DRAGON_BOAT = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{353, 36, 15, 10}, 6842);
 	/** FIRE_CRACKER#0 */
-	public static final IconEntry FIRE_CRACKER_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{368, 32, 16, 16}, 6779);
+	public static final IconEntry FIRE_CRACKER_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{368, 32, 16, 16}, 6843);
 	/** COIN_SWORD */
-	public static final IconEntry COIN_SWORD = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{385, 33, 14, 14}, 6780);
+	public static final IconEntry COIN_SWORD = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{385, 33, 14, 14}, 6844);
 	/** LONGSWORD#0 */
-	public static final IconEntry LONGSWORD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 48, 15, 15}, 6781);
+	public static final IconEntry LONGSWORD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 48, 15, 15}, 6845);
 	/** BATTLE_AXE#0 */
-	public static final IconEntry BATTLE_AXE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 48, 16, 16}, 6782);
+	public static final IconEntry BATTLE_AXE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 48, 16, 16}, 6846);
 	/** FLAIL#0 */
-	public static final IconEntry FLAIL_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{32, 48, 14, 14}, 6783);
+	public static final IconEntry FLAIL_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{32, 48, 14, 14}, 6847);
 	/** RUNE_SWORD */
-	public static final IconEntry RUNE_SWORD = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{48, 48, 16, 16}, 6784);
+	public static final IconEntry RUNE_SWORD = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{48, 48, 16, 16}, 6848);
 	/** ASSASSINS_BLADE#0 */
-	public static final IconEntry ASSASSINS_BLADE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{64, 48, 14, 15}, 6785);
+	public static final IconEntry ASSASSINS_BLADE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{64, 48, 14, 15}, 6849);
 	/** ODACHI */
-	public static final IconEntry ODACHI = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{80, 48, 15, 16}, 6786);
+	public static final IconEntry ODACHI = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{80, 48, 15, 16}, 6850);
 	/** GREATSWORD#0 */
-	public static final IconEntry GREATSWORD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 64, 16, 16}, 6787);
+	public static final IconEntry GREATSWORD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 64, 16, 16}, 6851);
 	/** WAR_HAMMER#0 */
-	public static final IconEntry WAR_HAMMER_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 64, 16, 16}, 6788);
+	public static final IconEntry WAR_HAMMER_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 64, 16, 16}, 6852);
 	/** GLAIVE#0 */
-	public static final IconEntry GLAIVE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{32, 64, 16, 16}, 6789);
+	public static final IconEntry GLAIVE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{32, 64, 16, 16}, 6853);
 	/** GAUNTLETS#0 */
-	public static final IconEntry GAUNTLETS_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{48, 64, 13, 15}, 6790);
+	public static final IconEntry GAUNTLETS_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{48, 64, 13, 15}, 6854);
 	/** GREATSHIELD#0 */
-	public static final IconEntry GREATSHIELD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{64, 64, 12, 16}, 6791);
+	public static final IconEntry GREATSHIELD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{64, 64, 12, 16}, 6855);
 	/** GOHEI */
-	public static final IconEntry GOHEI = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{112, 64, 15, 16}, 6792);
+	public static final IconEntry GOHEI = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{112, 64, 15, 16}, 6856);
 	/** ROYAL_FORK */
-	public static final IconEntry ROYAL_FORK = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{129, 65, 14, 14}, 6793);
+	public static final IconEntry ROYAL_FORK = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{129, 65, 14, 14}, 6857);
 	/** WAR_SCYTHE#0 */
-	public static final IconEntry WAR_SCYTHE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 80, 14, 15}, 6794);
+	public static final IconEntry WAR_SCYTHE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 80, 14, 15}, 6858);
 	/** GREATAXE#0 */
-	public static final IconEntry GREATAXE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 80, 12, 16}, 6795);
+	public static final IconEntry GREATAXE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 80, 12, 16}, 6859);
 	/** SHOCK_TRIDENT */
-	public static final IconEntry SHOCK_TRIDENT = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{112, 80, 16, 16}, 6796);
+	public static final IconEntry SHOCK_TRIDENT = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{112, 80, 16, 16}, 6860);
 	/** SOUL_DRAIN_LONGSWORD */
-	public static final IconEntry SOUL_DRAIN_LONGSWORD = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{129, 81, 14, 14}, 6797);
+	public static final IconEntry SOUL_DRAIN_LONGSWORD = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{129, 81, 14, 14}, 6861);
 	/** DETERRENT_ROCK_BLADE */
-	public static final IconEntry DETERRENT_ROCK_BLADE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{144, 81, 15, 14}, 6798);
+	public static final IconEntry DETERRENT_ROCK_BLADE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{144, 81, 15, 14}, 6862);
 	/** BONE_SAW_GREATAXE */
-	public static final IconEntry BONE_SAW_GREATAXE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{160, 80, 14, 16}, 6799);
+	public static final IconEntry BONE_SAW_GREATAXE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{160, 80, 14, 16}, 6863);
 	/** VENOMOUS_HEAVY_FLAIL */
-	public static final IconEntry VENOMOUS_HEAVY_FLAIL = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{176, 82, 16, 14}, 6800);
+	public static final IconEntry VENOMOUS_HEAVY_FLAIL = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{176, 82, 16, 14}, 6864);
 	/** CROSSBOW#0 */
-	public static final IconEntry CROSSBOW_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 96, 15, 15}, 6801);
+	public static final IconEntry CROSSBOW_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 96, 15, 15}, 6865);
 	/** WOODEN_BOW */
-	public static final IconEntry WOODEN_BOW = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{113, 97, 14, 14}, 6802);
+	public static final IconEntry WOODEN_BOW = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{113, 97, 14, 14}, 6866);
 	/** DAMAGED_WOODEN_BOW */
-	public static final IconEntry DAMAGED_WOODEN_BOW = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{129, 97, 14, 14}, 6803);
+	public static final IconEntry DAMAGED_WOODEN_BOW = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{129, 97, 14, 14}, 6867);
 	/** COMPOSITE_BOW */
-	public static final IconEntry COMPOSITE_BOW = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{144, 97, 15, 15}, 6804);
+	public static final IconEntry COMPOSITE_BOW = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{144, 97, 15, 15}, 6868);
 	/** FULL_COMPOSITE_BOW */
-	public static final IconEntry FULL_COMPOSITE_BOW = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{160, 97, 15, 15}, 6805);
+	public static final IconEntry FULL_COMPOSITE_BOW = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{160, 97, 15, 15}, 6869);
 	/** CROSSBOW */
-	public static final IconEntry CROSSBOW = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{177, 97, 14, 14}, 6806);
+	public static final IconEntry CROSSBOW = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{177, 97, 14, 14}, 6870);
 	/** PISTOL */
-	public static final IconEntry PISTOL = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{115, 114, 10, 13}, 6807);
+	public static final IconEntry PISTOL = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{115, 114, 10, 13}, 6871);
 	/** FLINTLOCK */
-	public static final IconEntry FLINTLOCK = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{130, 112, 12, 16}, 6808);
+	public static final IconEntry FLINTLOCK = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{130, 112, 12, 16}, 6872);
 	/** MACHINE_GUN */
-	public static final IconEntry MACHINE_GUN = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{146, 112, 13, 16}, 6809);
+	public static final IconEntry MACHINE_GUN = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{146, 112, 13, 16}, 6873);
 	/** SHOTGUN */
-	public static final IconEntry SHOTGUN = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{161, 112, 13, 16}, 6810);
+	public static final IconEntry SHOTGUN = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{161, 112, 13, 16}, 6874);
 	/** gun#4 */
-	public static final IconEntry GUN_4 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{176, 112, 16, 16}, 6811);
+	public static final IconEntry GUN_4 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{176, 112, 16, 16}, 6875);
 	/** POTION_GUN */
-	public static final IconEntry POTION_GUN = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{194, 112, 12, 16}, 6812);
+	public static final IconEntry POTION_GUN = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{194, 112, 12, 16}, 6876);
 	/** SLING */
-	public static final IconEntry SLING = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{211, 115, 10, 11}, 6813);
+	public static final IconEntry SLING = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{211, 115, 10, 11}, 6877);
 }

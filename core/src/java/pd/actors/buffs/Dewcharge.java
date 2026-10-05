@@ -22,7 +22,7 @@ public class Dewcharge extends FlavourBuff {
 	static {
 		InlineText.of(Dewcharge.class)
 			.t("name", "露珠爆炸")
-			.t("desc", "当你击杀任何目标时，在它周围生成任意数量的露珠。\n\n剩余的露珠爆破效果时长：%s回合");
+			.t("desc", "持有者死亡或击杀目标时，会在它周围生成任意数量的露珠。\n\n剩余的露珠爆破效果时长：%s回合");
 	}
 
 

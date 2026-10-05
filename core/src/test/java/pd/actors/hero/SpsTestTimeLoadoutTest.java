@@ -20,6 +20,7 @@ import pd.items.SkillBook;
 import pd.items.SoulCollect;
 import pd.items.TomeOfMastery;
 import pd.items.equipment.artifacts.MasterThievesArmband;
+import pd.items.equipment.bags.BambooBasket;
 import pd.items.equipment.bags.MagicalHolster;
 import pd.items.equipment.bags.PotionBandolier;
 import pd.items.equipment.bags.ScrollHolder;
@@ -37,7 +38,7 @@ import pd.items.nornstone.GreenNornStone;
 import pd.items.nornstone.OrangeNornStone;
 import pd.items.nornstone.PurpleNornStone;
 import pd.items.nornstone.YellowNornStone;
-import pd.items.consum.potions.PotionOfMending;
+import pd.items.consum.potions.PotionOfHealing;
 import pd.items.consum.potions.PotionOfMindVision;
 import pd.items.quest.AdventureJournal;
 import pd.items.quest.ChallengeJournal;
@@ -135,6 +136,8 @@ public final class SpsTestTimeLoadoutTest {
 		Class<?>[] uniqueItems = {
 				Elevator.class, SkillBook.class, ScrollHolder.class,
 				PotionBandolier.class, ShoppingCart.class, MagicalHolster.class, Palantir.class,
+				//SPSEXPD: 竹背篓（只装投掷果实与大型果实）
+				BambooBasket.class,
 				SoulCollect.class, PowerHand.class, TomeOfMastery.class, TestWeapon.class,
 				EasterEgg.class, AflyEgg.class, GoldDragonEgg.class, SaveYourLife.class,
 				FourClover.class, MasterThievesArmband.class
@@ -150,7 +153,7 @@ public final class SpsTestTimeLoadoutTest {
 				PurpleNornStone.class, GreenNornStone.class};
 		for (Class<?> type : nornStones) check(countExact(hero, type) == 199, type.getSimpleName() + "数量不是199");
 		Class<?>[] tens = {Seedpod.Seed.class, Dewcatcher.Seed.class, ScrollOfDummy.class,
-				PotionOfMending.class, ScrollOfPsionicBlast.class, Hamburger.class,
+				PotionOfHealing.class, ScrollOfPsionicBlast.class, Hamburger.class,
 				RandomMonthEgg.class, Honey.class};
 		for (Class<?> type : tens) check(countExact(hero, type) == 10, type.getSimpleName() + "数量不是10");
 
@@ -168,6 +171,21 @@ public final class SpsTestTimeLoadoutTest {
 				"测试模式金币或最大生命没有恢复到规定值（金币20000、生命10000）");
 		check(Dungeon.depth == 17 && Dungeon.branch == 0, "测试模式不应改写楼层深度（出生点留在 0 层由 Dungeon.init 决定），但应归零分支");
 		check(hero.belongings.backpack.capacity() >= 64, "测试模式背包容量不足64格");
+
+		//SPSEXPD: 包裹标签固定顺序——绒布包-卷轴筒-药水箱-购物车-竹背篓-魔法套筒-暗器袋-草靶子-钥匙串
+		java.util.ArrayList<pd.items.equipment.bags.Bag> bags = hero.belongings.getBags();
+		int lastOrder = -1;
+		for (pd.items.equipment.bags.Bag b : bags) {
+			if (b == hero.belongings.backpack) continue;
+			check(b.bagOrder() >= lastOrder, "包裹标签顺序不是固定顺序（" + b.getClass().getSimpleName() + "）");
+			lastOrder = b.bagOrder();
+		}
+		int cartIdx = -1, basketIdx = -1;
+		for (int i = 0; i < bags.size(); i++) {
+			if (bags.get(i) instanceof ShoppingCart) cartIdx = i;
+			else if (bags.get(i) instanceof BambooBasket) basketIdx = i;
+		}
+		check(cartIdx >= 0 && basketIdx == cartIdx + 1, "竹背篓的标签页没有紧跟购物车");
 	}
 
 	private static void testLegacyContainersAndTome() {
@@ -175,7 +193,7 @@ public final class SpsTestTimeLoadoutTest {
 
 		MagicalHolster holster = new MagicalHolster();
 		//SPS: 法器包与魔法套筒已合并（取大：容量 30、价值 60）
-		check(holster.capacity() == 34 && holster.value() == 60, "魔法套筒容量或价值错误");
+		check(holster.capacity() == 35 && holster.value() == 60, "魔法套筒容量或价值错误");
 		check(holster.canHold(new WandOfMagicMissile()), "魔法套筒没有收纳法杖");
 		check(!holster.canHold(new Seedpod.Seed()), "魔法套筒错误收纳种子");
 		//SPS: 投掷武器统一存放暗器袋（用户裁决 2026-09-28）

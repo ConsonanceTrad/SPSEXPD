@@ -81,7 +81,6 @@ import pd.items.equipment.artifacts.TalismanOfForesight;
 import pd.items.equipment.artifacts.TimekeepersHourglass;
 import pd.items.equipment.bombs.Bomb;
 import pd.items.misc.LuckyBadge;
-import pd.items.consum.potions.PotionOfOverHealing;
 import pd.items.consum.potions.PotionOfStrength;
 import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
@@ -191,7 +190,7 @@ public abstract class Level implements Bundlable {
 			.t("barricade_desc", "木栅栏依然坚固，但早已风干多年。或许可以点燃烧掉？")
 			.t("dew_bless_desc", "作为自然派系的神明之一，露珠女神很乐意为冒险者提供露珠相关的帮助。")
 			.t("tent_desc", "一个安静的休息处。投入食物后，你会休息与其饱食值相同的时间。")
-			.t("iron_maker_desc", "这座铁砧可以合成、重铸或分解装备与材料。")
+			.t("iron_maker_desc", "这座铁砧已经冷却废弃了，它的锻造公式都转移到了炼金釜。")
 			.t("sign_desc", "你从这里看不清楚上面写的是什么。")
 			.t("wool_rug_desc", "这东西被摧毁到只剩下一些碎屑了。")
 			.t("fleecing_trap_desc", "这个陷阱破坏能力很强，推个箱子进去试试。")
@@ -466,7 +465,6 @@ public abstract class Level implements Bundlable {
 		if (transition.type == LevelTransition.Type.REGULAR_EXIT
 				&& SpsDew.isClearable( this ) && !cleared) {
 			cleared = true;
-			Statistics.previousFloorMoves = 0;
 		}
 
 		Transitions.beforeTransition();
@@ -561,8 +559,15 @@ public abstract class Level implements Bundlable {
 		if (Dungeon.branch != 0 || Dungeon.depth <= 1 || Dungeon.depth >= 25 || Dungeon.bossLevel()) {
 			return;
 		}
+		boolean dewMode = Dungeon.dewDraw || Dungeon.dewWater;
 		for (Mob mob : mobs()) {
-			if (mob.alignment == Char.Alignment.ENEMY) mob.spsOriginalGeneration = true;
+			if (mob.alignment == Char.Alignment.ENEMY) {
+				mob.spsOriginalGeneration = true;
+				//SPSEXPD: 本层初始怪物自带「露珠爆破」，死亡时爆出露珠；后续刷出的怪物不再带
+				if (dewMode && mob.buff(Dewcharge.class) == null) {
+					Buff.affect(mob, Dewcharge.class, Dewcharge.DURATION);
+				}
+			}
 		}
 	}
 

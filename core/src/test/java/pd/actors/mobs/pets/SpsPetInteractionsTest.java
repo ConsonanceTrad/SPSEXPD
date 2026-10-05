@@ -97,7 +97,7 @@ public final class SpsPetInteractionsTest {
 				"MoonCake", "NormalRation", "UpgradeBlobRed", "Whip", "PotionOfShield", "PotionOfLiquidFlame",
 				"ScrollOfRage", "Fruit",
 				"PotionOfToxicGas", "WoodenArmor", "PotionOfExperience", "NornStone",
-				"PotionOfMending", "ScrollOfMirrorImage"
+				"PotionOfHealing", "ScrollOfMirrorImage"
 		};
 		check(pets.length == 35 && rewards.length == pets.length, "宠物交互测试清单数量错误");
 		for (int i = 0; i < pets.length; i++) {

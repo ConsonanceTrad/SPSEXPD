@@ -13,7 +13,7 @@ import pd.effects.Pushing;
 import pd.items.Item;
 import pd.items.consum.food.completefood.PetFood;
 import pd.items.consum.food.meatfood.MeatFood;
-import pd.items.consum.potions.PotionOfMending;
+import pd.items.consum.potions.PotionOfHealing;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.FlySprite;
@@ -39,7 +39,7 @@ public class Fly extends PET {
 	{ spriteClass=FlySprite.class;cooldown=50;properties.add(Property.BEAST);updateStats(true); }
 	@Override protected Kind kind(){return Kind.FLY;}
 	@Override public boolean lovefood(Item item){return item instanceof PetFood||item instanceof MeatFood;}
-	@Override public Item SupercreateLoot(){return new PotionOfMending();}
+	@Override public Item SupercreateLoot(){return new PotionOfHealing();}
 	@Override public void updateStats(boolean refill){int old=HT;HT=150+petLevel()*2;defenseSkill=petLevel()*3/2;if(refill)HP=HT;else if(HT>old)HP=Math.min(HT,HP+HT-old);}
 	@Override public int damageRoll(){return Random.NormalIntRange(5+petLevel()/2,5+petLevel()*3/2);}
 	@Override public int drRoll(){return Random.IntRange(petLevel()*2,Math.max(petLevel()*2,petLevel()*5));}

@@ -25,9 +25,8 @@ import pd.items.Item;
 import pd.items.equipment.bags.Bag;
 import pd.items.consum.potions.Potion;
 import pd.items.consum.potions.PotionOfExperience;
-import pd.items.consum.potions.PotionOfMight;
-import pd.items.consum.potions.PotionOfOverHealing;
 import pd.items.consum.potions.PotionOfStrength;
+import pd.items.consum.potions.elixirs.ElixirOfMight;
 import pd.messages.Messages;
 import pd.scenes.AlchemyScene;
 import pd.scenes.GameScene;
@@ -111,8 +110,8 @@ public class AlchemistsToolkit extends Artifact {
 	}
 
 	private static boolean validCombinationPotion(Class<?> potion) {
-		return potion != PotionOfExperience.class && potion != PotionOfOverHealing.class
-				&& potion != PotionOfStrength.class && potion != PotionOfMight.class;
+		return potion != PotionOfExperience.class
+				&& potion != PotionOfStrength.class && potion != ElixirOfMight.class;
 	}
 
 	@Override

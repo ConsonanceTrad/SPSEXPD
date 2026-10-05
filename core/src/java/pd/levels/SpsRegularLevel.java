@@ -18,6 +18,7 @@ import pd.actors.blobs.weather.WeatherOfSand;
 import pd.actors.blobs.weather.WeatherOfSnow;
 import pd.actors.blobs.weather.WeatherOfSun;
 import pd.actors.buffs.Buff;
+import pd.actors.buffs.Dewcharge;
 import pd.actors.buffs.ExProtect;
 import pd.actors.buffs.GlassShield;
 import pd.actors.buffs.MagicArmor;
@@ -346,7 +347,7 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		if (mob == null) return;
 		mob.pos = randomInteriorCell(room, 0);
 		if (mob.pos < 0) return;
-		mob.spsOriginalGeneration = true;
+		markAsOriginal(mob);
 		Buff.affect(mob, ExProtect.class);
 		Buff.affect(mob, ShieldArmor.class).level(Dungeon.depth * 5);
 		Buff.affect(mob, MagicArmor.class).level(Dungeon.depth * 5);
@@ -1208,7 +1209,7 @@ public abstract class SpsRegularLevel extends RegularLevel {
 	}
 
 	void applyLegacyInitialMobTraits(Mob mob) {
-		mob.spsOriginalGeneration = true;
+		markAsOriginal(mob);
 		int multiplier;
 		if (this instanceof CavesLevel) multiplier = 5;
 		else if (this instanceof CityLevel) multiplier = 10;
@@ -1217,6 +1218,14 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		Buff.affect(mob, ShieldArmor.class).level(Dungeon.legacyDepth() * multiplier);
 		Buff.affect(mob, MagicArmor.class).level(Dungeon.legacyDepth() * multiplier);
 		if (this instanceof HallsLevel) Buff.affect(mob, GlassShield.class).turns(1);
+	}
+
+	//SPSEXPD: 初始怪物统一标记，并让它们自带「露珠爆破」（后续刷出的怪物不带）
+	private void markAsOriginal( Mob mob ) {
+		mob.spsOriginalGeneration = true;
+		if ((Dungeon.dewDraw || Dungeon.dewWater) && mob.buff(Dewcharge.class) == null) {
+			Buff.affect(mob, Dewcharge.class, Dewcharge.DURATION);
+		}
 	}
 
 	@Override

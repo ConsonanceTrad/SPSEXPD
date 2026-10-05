@@ -78,7 +78,13 @@ public class Swiftthistle extends Plant {
 			image = ConsumPotionSeedSeedDict.SEED_SWIFTTHISTLE;
 			
 			plantClass = Swiftthistle.class;
+			explantClass = ExSwiftthistle.class;
 		}
+	}
+
+	/** SPSEXPD: 速行蓟的果丛——精心种植时收获酢浆草与速行果实。 */
+	public static class ExSwiftthistle extends SpsFruitBush {
+		{ image = 2; }
 	}
 	
 	//FIXME lots of copypasta from time freeze here

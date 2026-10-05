@@ -218,7 +218,8 @@ public class UnstableSpellbook extends Artifact {
 		if (hero == null || !isEquipped(hero) || cursed || level() >= levelCap) return false;
 		DewVial vial = hero.belongings.getItem(DewVial.class);
 		int cost = (level() + 1) * 100;
-		if (vial == null || vial.checkVolEx() <= cost) {
+		//SPSEXPD: 露珠瓶已单池化，升级直接消耗露珠池
+		if (vial == null || vial.checkVol() <= cost) {
 			GLog.w(Messages.get(UnstableSpellbook.class, "dew_empty"));
 			return false;
 		}

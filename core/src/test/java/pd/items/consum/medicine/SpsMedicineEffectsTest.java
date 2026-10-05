@@ -46,10 +46,9 @@ public final class SpsMedicineEffectsTest {
 		try {
 			testMushrooms();
 			testGrowSeedTurnsAndSave();
-			testCombatPills();
 			testRecoveryAndDewPills();
 			testImagesAndValues();
-			System.out.println("SPS药丸测试通过：全层蘑菇、寄生逐回合与存档、战斗药丸、恢复、露珠条件、元素亲和、原始图标槽和售价均符合0.9.8。");
+			System.out.println("SPS药丸测试通过：全层蘑菇、寄生逐回合与存档、恢复、露珠条件、元素亲和、原始图标槽和售价均符合0.9.8。");
 		} finally {
 			Random.popGenerator();
 			Actor.clear();
@@ -101,40 +100,6 @@ public final class SpsMedicineEffectsTest {
 		check(state.hero.buff(Bless.class) != null, "单色块没有给予20回合祝福");
 	}
 
-	private static void testCombatPills() {
-		State state = state();
-		new Hardpill().onUse(state.hero);
-		check(state.hero.buff(DefenceUp.class) != null && state.hero.buff(DefenceUp.class).level() == 50
-				&& state.hero.buff(DefenceUp.class).cooldown() >= 800f, "硬化药丸不是800回合50级防御");
-
-		state = state();
-		new Smashpill().onUse(state.hero);
-		check(state.hero.buff(AttackUp.class) != null && state.hero.buff(AttackUp.class).level() == 50
-				&& state.hero.buff(AttackUp.class).cooldown() >= 800f, "增幅药丸不是800回合50级攻击");
-
-		state = state();
-		new Powerpill().onUse(state.hero);
-		check(state.hero.buff(Muscle.class) != null && state.hero.buff(Muscle.class).cooldown() >= 1440f,
-				"力量药丸没有给予1440回合肌力");
-
-		state = state();
-		new Shootpill().onUse(state.hero);
-		check(state.hero.buff(TargetShoot.class) != null && state.hero.buff(TargetShoot.class).cooldown() >= 800f,
-				"神射药丸没有给予800回合瞄准");
-
-		state = state();
-		new MagicPill().onUse(state.hero);
-		check(state.hero.buff(Arcane.class) != null && state.hero.buff(Arcane.class).cooldown() >= 50f,
-				"奥术药丸没有给予50回合奥术");
-
-		state = state();
-		state.hero.heroClass = HeroClass.PERFORMER;
-		state.hero.subClass = HeroSubClass.SUPERSTAR;
-		new Musicpill().onUse(state.hero);
-		check(state.hero.buff(Rhythm.class) != null && state.hero.buff(Rhythm.class).cooldown() >= 800f
-				&& state.hero.buff(WarGroove.class) != null && state.hero.buff(Rhythm2.class) != null,
-				"节奏药丸没有给予表演者和超级明星完整状态");
-	}
 
 	private static void testGrowSeedTurnsAndSave() {
 		State state = state();
@@ -202,24 +167,20 @@ public final class SpsMedicineEffectsTest {
 	}
 
 	private static void testImagesAndValues() {
-		check(new BlueMilk().image == SpecificPlaceHolderDict.SOMETHING_0
-				&& new DeathCap().image == SpecificPlaceHolderDict.SOMETHING_0
-				&& new Earthstar().image == SpecificPlaceHolderDict.SOMETHING_0
-				&& new GoldenJelly().image == SpecificPlaceHolderDict.SOMETHING_0
-				&& new GreenSpore().image == SpecificPlaceHolderDict.SOMETHING_0
-				&& new JackOLantern().image == SpecificPlaceHolderDict.SOMETHING_0
-				&& new PixieParasol().image == SpecificPlaceHolderDict.SOMETHING_0,
+		//SPSEXPD: 这些合成药品已改用各自专属图集帧（不再走占位槽）
+		check(new BlueMilk().image == pd.atlas.items.ConsumPotionSeedBasicPotionDict.BLUE_CAP_MUSHROOM
+				&& new DeathCap().image == pd.atlas.items.ConsumPotionSeedBasicPotionDict.POISON_MUSHROOM
+				&& new Earthstar().image == pd.atlas.items.ConsumPotionSeedBasicPotionDict.EARTH_RIFT_FRUIT
+				&& new GoldenJelly().image == pd.atlas.items.ConsumPotionSeedBasicPotionDict.LETHAL_FUNGUS
+				&& new GreenSpore().image == pd.atlas.items.ConsumPotionSeedBasicPotionDict.DEW_FUNGUS_SPORE
+				&& new JackOLantern().image == pd.atlas.items.ConsumPotionSeedBasicPotionDict.FIRE_PHOSPHORUS_FRUIT
+				&& new PixieParasol().image == pd.atlas.items.ConsumPotionSeedBasicPotionDict.MONOCHROME_BLOCK,
 				"七种蘑菇没有使用0.9.8专属图标槽");
-		check(new Greaterpill().image == SpecificPlaceHolderDict.SOMETHING_0
-				&& new Hardpill().image == SpecificPlaceHolderDict.SOMETHING_0
-				&& new MagicPill().image == SpecificPlaceHolderDict.SOMETHING_0
-				&& new Musicpill().image == SpecificPlaceHolderDict.SOMETHING_0
-				&& new Powerpill().image == SpecificPlaceHolderDict.SOMETHING_0
-				&& new Shootpill().image == SpecificPlaceHolderDict.SOMETHING_0
-				&& new Smashpill().image == SpecificPlaceHolderDict.SOMETHING_0,
-				"七种战斗药丸没有使用0.9.8强效药丸图标槽");
-		check(new RealgarWine().image == SpecificPlaceHolderDict.SOMETHING_0 && new RealgarWine().value() == 50,
-				"雄黄酒图标或售价错误");
+		//SPSEXPD: 六种战斗药丸已删除，仅保留生血丸的图标检查
+		check(new Greaterpill().image == pd.atlas.items.ConsumPotionSeedBasicPotionDict.PILL,
+				"生血丸没有使用旧版药丸图标槽");
+		check(new RealgarWine().image == pd.atlas.items.ConsumFoodFoodDict.REALGAR_WINE
+				&& new RealgarWine().value() == 50, "雄黄酒图标或售价错误");
 		check(new BlueMilk(3).quantity() == 3 && new DeathCap(4).quantity() == 4
 				&& new GoldenJelly(5).quantity() == 5, "蘑菇数量构造器未保留");
 	}

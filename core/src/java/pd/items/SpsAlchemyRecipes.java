@@ -2,27 +2,23 @@
 package pd.items;
 
 import pd.ShatteredPixelDungeon;
-import pd.items.consum.brewed.Brewed;
 import pd.items.consum.eggs.Egg;
 import pd.items.consum.food.Blandfruit;
 import pd.items.consum.food.FishCracker;
 import pd.items.consum.food.Honey;
 import pd.items.consum.food.WaterItem;
 import pd.items.consum.food.completefood.*;
-import pd.items.consum.food.fruit.Fruit;
+import pd.items.consum.food.fruit.*;
 import pd.items.consum.food.fusion.Nut;
 import pd.items.consum.food.meatfood.MeatFood;
+import pd.items.consum.food.processed.*;
 import pd.items.consum.food.staplefood.OverpricedRation;
 import pd.items.consum.food.staplefood.StapleFood;
-import pd.items.consum.food.vegetable.NutVegetable;
-import pd.items.consum.food.vegetable.Truffles;
-import pd.items.consum.food.vegetable.Vegetable;
+import pd.items.consum.food.vegetable.*;
 import pd.items.consum.medicine.*;
 import pd.items.consum.potions.Potion;
-import pd.items.consum.potions.PotionOfMixing;
 import pd.items.consum.scrolls.Scroll;
 import pd.plants.*;
-import render.utils.math.Random;
 import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
@@ -104,12 +100,6 @@ public final class SpsAlchemyRecipes {
 			recipe(TimePill.class, StoneOre.class, StoneOre.class, StoneOre.class, StoneOre.class, WaterItem.class),
 			recipe(Crystalnucleus.class, StoneOre.class, StoneOre.class, StoneOre.class, WaterItem.class, Plant.Seed.class),
 			recipe(Hamburger.class, StapleFood.class, StapleFood.class, Vegetable.class, MeatFood.class, MeatFood.class),
-			recipe(Powerpill.class, MeatFood.class, MeatFood.class, MeatFood.class, Vegetable.class),
-			recipe(Hardpill.class, MeatFood.class, MeatFood.class, StoneOre.class, Vegetable.class),
-			recipe(Smashpill.class, MeatFood.class, MeatFood.class, Potion.class, Vegetable.class),
-			recipe(Shootpill.class, MeatFood.class, MeatFood.class, MeatFood.class, Plant.Seed.class),
-			recipe(Musicpill.class, MeatFood.class, MeatFood.class, StoneOre.class, Plant.Seed.class),
-			recipe(MagicPill.class, MeatFood.class, MeatFood.class, Potion.class, Plant.Seed.class),
 			recipe(Chocolate.class, Nut.class, Nut.class, Nut.class, Nut.class, Nut.class),
 			recipe(OverpricedRation.class, Nut.class, Nut.class, Nut.class, Nut.class),
 			recipe(2, RiceGruel.class, StapleFood.class, WaterItem.class, WaterItem.class),
@@ -124,7 +114,6 @@ public final class SpsAlchemyRecipes {
 			recipe(BlueMilk.class, WaterItem.class, Vegetable.class, Sungrass.Seed.class),
 			recipe(DeathCap.class, WaterItem.class, Vegetable.class, Sorrowmoss.Seed.class),
 			recipe(Egg.class, Honey.class, Gel.class, StoneOre.class),
-			recipe(PotionOfMixing.class, Seedpod.Seed.class, Seedpod.Seed.class, Seedpod.Seed.class),
 			recipe(2, Honey.class, Honeypot.class),
 			recipe(2, Honey.class, Honeypot.ShatteredPot.class),
 			recipe(Honey.class, Truffles.class),
@@ -152,79 +141,30 @@ public final class SpsAlchemyRecipes {
 			recipe(Meatroll.class, Scroll.class, MeatFood.class),
 			recipe(Vegetableroll.class, Scroll.class, Vegetable.class),
 			recipe(Gel.class, StoneOre.class, WaterItem.class),
-			recipe(NutVegetable.class, Nut.class)
+			recipe(NutVegetable.class, Nut.class),
+			//SPSEXPD: 蔬菜 → 二次加工产物（把收获到的蔬菜再炼药加工）
+			recipe(Adhesive.class, Durian.class),
+			recipe(Capsaicin.class, Chili.class),
+			recipe(TransmutePowder.class, Marigold.class),
+			recipe(HealingSalve.class, HealGrass.class),
+			recipe(CoolingOil.class, IceMint.class),
+			recipe(Perfume.class, Tulip.class),
+			recipe(ToxicExtract.class, ToxicEggplant.class),
+			recipe(WakeTea.class, DreamLeaf.class),
+			recipe(NutrientSolution.class, Radish.class),
+			recipe(SunflowerSeed.class, Sunflower.class),
+			recipe(FruitThread.class, Blandfruit.class),
+			recipe(Sedative.class, BattleFlower.class),
+			recipe(RedRose.class, NutVegetable.class),
+			recipe(DigestiveFluid.class, StarEaterFlower.class),
+			recipe(AetherLiquid.class, TransmuteCage.class),
+			recipe(CrystalShard.class, QuartzFlower.class),
+			recipe(HighEnergySpore.class, DewSpore.class),
+			recipe(WishPetal.class, RainbowPansy.class),
+			recipe(HormoneSolution.class, Sorrel.class)
 	);
 
-	private static final Recipe SEED_TO_POTION = new Recipe() {
-		@Override
-		public boolean testIngredients(ArrayList<Item> ingredients) {
-			if (ingredients.size() != 3) return false;
-			for (Item ingredient : ingredients) {
-				if (!(ingredient instanceof Plant.Seed)
-						|| !Potion.SeedToPotion.types.containsKey(ingredient.getClass())) return false;
-			}
-			return true;
-		}
 
-		@Override
-		public int cost(ArrayList<Item> ingredients) {
-			return 0;
-		}
-
-		@Override
-		public Item brew(ArrayList<Item> ingredients) {
-			if (!testIngredients(ingredients)) return null;
-			Item result = sampleOutput(ingredients);
-			for (Item ingredient : ingredients) ingredient.quantity(ingredient.quantity() - 1);
-			return result;
-		}
-
-		@Override
-		public Item sampleOutput(ArrayList<Item> ingredients) {
-			if (!testIngredients(ingredients)) return null;
-			Class<? extends Potion> potion = Potion.SeedToPotion.types.get(Random.element(ingredients).getClass());
-			return Reflection.newInstance(potion);
-		}
-	};
-
-	private static final Recipe COOK_BREWED = new Recipe() {
-		private Plant.Seed seed(ArrayList<Item> ingredients) {
-			for (Item item : ingredients) if (item instanceof Plant.Seed) return (Plant.Seed) item;
-			return null;
-		}
-
-		private Blandfruit fruit(ArrayList<Item> ingredients) {
-			for (Item item : ingredients) if (item instanceof Blandfruit) return (Blandfruit) item;
-			return null;
-		}
-
-		@Override
-		public boolean testIngredients(ArrayList<Item> ingredients) {
-			Plant.Seed seed = seed(ingredients);
-			Blandfruit fruit = fruit(ingredients);
-			return ingredients.size() == 2 && seed != null && fruit != null
-					&& fruit.potionAttrib == null && Potion.SeedToPotion.types.containsKey(seed.getClass());
-		}
-
-		@Override public int cost(ArrayList<Item> ingredients) { return 0; }
-
-		@Override
-		public Item brew(ArrayList<Item> ingredients) {
-			if (!testIngredients(ingredients)) return null;
-			Item result = sampleOutput(ingredients);
-			for (Item ingredient : ingredients) ingredient.quantity(ingredient.quantity() - 1);
-			return result;
-		}
-
-		@Override
-		public Item sampleOutput(ArrayList<Item> ingredients) {
-			return testIngredients(ingredients) ? new Brewed().cook(seed(ingredients)) : null;
-		}
-	};
-
-	public static Recipe cookBrewedRecipe() {
-		return COOK_BREWED;
-	}
 
 	private static final Recipe GARBAGE = new Recipe() {
 		@Override public boolean testIngredients(ArrayList<Item> ingredients) { return !ingredients.isEmpty(); }
@@ -247,8 +187,6 @@ public final class SpsAlchemyRecipes {
 		for (Recipe recipe : RECIPES) {
 			if (recipe.testIngredients(ingredients)) return recipe;
 		}
-		if (SEED_TO_POTION.testIngredients(ingredients)) return SEED_TO_POTION;
-		if (COOK_BREWED.testIngredients(ingredients)) return COOK_BREWED;
 		return null;
 	}
 

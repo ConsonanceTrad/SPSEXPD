@@ -55,7 +55,9 @@ public final class SpsStartingMissilesTest {
 		EmpBola bola = new EmpBola(3);
 		check(fruit.quantity() == 3 && fruit.min(0) == 10 && fruit.max(0) == 10 && fruit.STRReq(0) == 10,
 				"闪耀果数量或数值错误");
-		check(fruit.image == SpecificPlaceHolderDict.SOMETHING_0 && fruit.value() == 30, "闪耀果图标或价格错误");
+		//SPSEXPD: 致盲果实已改用 seed 图集的新帧
+		check(fruit.image == pd.atlas.items.ConsumPotionSeedSeedDict.FRUIT_BLINDWEED && fruit.value() == 30,
+				"致盲果实图标或价格错误");
 		check(bola.quantity() == 3 && bola.min(0) == 5 && bola.max(0) == 10 && bola.STRReq(0) == 10,
 				"电磁套索数量或数值错误");
 		check(bola.image == SpecificPlaceHolderDict.SOMETHING_0 && bola.value() == 30, "电磁套索图标或价格错误");

@@ -39,6 +39,7 @@ import pd.plants.Earthroot;
 import pd.plants.Fadeleaf;
 import pd.plants.Firebloom;
 import pd.plants.Icecap;
+import pd.plants.Dreamfoil;
 import pd.plants.Mageroyal;
 import pd.plants.Plant;
 import pd.plants.Rotberry;
@@ -251,7 +252,8 @@ public abstract class TippedDart extends Dart {
 		types.put(Blindweed.Seed.class,     BlindingDart.class);
 		types.put(Stormvine.Seed.class,     ShockingDart.class);
 		types.put(Earthroot.Seed.class,     ParalyticDart.class);
-		types.put(Mageroyal.Seed.class,     CleansingDart.class);
+		types.put(Dreamfoil.Seed.class,     CleansingDart.class);
+		types.put(Mageroyal.Seed.class,     CleansingDart.class);//兼容旧存档里的魔皇草之种
 		types.put(Starflower.Seed.class,    HolyDart.class);
 	}
 	

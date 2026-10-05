@@ -35,6 +35,9 @@ public class GameLog extends Component implements Signal.Listener<String> {
 
 	private static final int MAX_LINES = 3;
 
+	//SPSEXPD: 日志文本区最大高度的缓存（单行高度按本设备实际字号实测，只算一次）
+	private static float cachedLineHeight = 0;
+
 	private static final Pattern PUNCTUATION = Pattern.compile( ".*[.,;?! ]$" );
 
 	private RenderedTextBlock lastEntry;
@@ -56,7 +59,7 @@ public class GameLog extends Component implements Signal.Listener<String> {
 
 		synchronized (textsToAdd){
 			if (!textsToAdd.isEmpty()){
-				int maxLines = SPDSettings.interfaceSize() > 0 ? 5 : 3;
+				int maxLines = maxDisplayLines();
 				for (String text : textsToAdd){
 					if (length != entries.size()){
 						clear();
@@ -178,8 +181,21 @@ public class GameLog extends Component implements Signal.Listener<String> {
 		}
 	}
 
-	public static void wipe() {
-		synchronized (textsToAdd) {
+	//SPSEXPD: 日志文本区最大高度——供左下快捷操作按钮避让，避免盖住日志上半部分。
+	//行数上限随界面模式变化（全尺寸 5 行 / 移动端 3 行），单行高度按本设备实际字号实测，二者都不写死
+	public static float maxTextHeight() {
+		if (cachedLineHeight <= 0) {
+			//与 layout() 的行步进保持一致：单行高度 + 2
+			cachedLineHeight = PixelScene.renderTextBlock("A", 6).height() + 2;
+		}
+		return maxDisplayLines() * cachedLineHeight;
+	}
+
+	private static int maxDisplayLines() {
+		return SPDSettings.interfaceSize() > 0 ? 5 : 3;
+	}
+
+	public static void wipe() {		synchronized (textsToAdd) {
 			entries.clear();
 			textsToAdd.clear();
 		}

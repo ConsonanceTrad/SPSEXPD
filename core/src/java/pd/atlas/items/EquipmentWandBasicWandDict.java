@@ -13,49 +13,49 @@ public final class EquipmentWandBasicWandDict {
 	private EquipmentWandBasicWandDict() { }
 
 	/** WAND_SPS_MAGIC_MISSILE */
-	public static final IconEntry WAND_SPS_MAGIC_MISSILE = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{0, 0, 14, 14}, 6994);
+	public static final IconEntry WAND_SPS_MAGIC_MISSILE = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{0, 0, 14, 14}, 7058);
 	/** WAND_FIREBOLT#0 */
-	public static final IconEntry WAND_FIREBOLT_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{16, 0, 14, 14}, 6995);
+	public static final IconEntry WAND_FIREBOLT_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{16, 0, 14, 14}, 7059);
 	/** WAND_FROST */
-	public static final IconEntry WAND_FROST = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{32, 0, 14, 14}, 6996);
+	public static final IconEntry WAND_FROST = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{32, 0, 14, 14}, 7060);
 	/** WAND_LIGHTNING */
-	public static final IconEntry WAND_LIGHTNING = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{48, 0, 14, 14}, 6997);
+	public static final IconEntry WAND_LIGHTNING = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{48, 0, 14, 14}, 7061);
 	/** WAND_DISINTEGRATION#0 */
-	public static final IconEntry WAND_DISINTEGRATION_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{64, 0, 14, 14}, 6998);
+	public static final IconEntry WAND_DISINTEGRATION_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{64, 0, 14, 14}, 7062);
 	/** WAND_LIGHT */
-	public static final IconEntry WAND_LIGHT = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{80, 0, 16, 15}, 6999);
+	public static final IconEntry WAND_LIGHT = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{80, 0, 16, 15}, 7063);
 	/** WAND_WARDING#0 */
-	public static final IconEntry WAND_WARDING_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{96, 0, 14, 14}, 7000);
+	public static final IconEntry WAND_WARDING_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{96, 0, 14, 14}, 7064);
 	/** WAND_REGROWTH */
-	public static final IconEntry WAND_REGROWTH = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{112, 0, 16, 14}, 7001);
+	public static final IconEntry WAND_REGROWTH = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{112, 0, 16, 14}, 7065);
 	/** WAND_SPS_ENERGY */
-	public static final IconEntry WAND_SPS_ENERGY = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{193, 1, 14, 14}, 7002);
+	public static final IconEntry WAND_SPS_ENERGY = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{193, 1, 14, 14}, 7066);
 	/** WAND_SPS_FIREBOLT */
-	public static final IconEntry WAND_SPS_FIREBOLT = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{209, 1, 14, 14}, 7003);
+	public static final IconEntry WAND_SPS_FIREBOLT = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{209, 1, 14, 14}, 7067);
 	/** WAND_SPS_FREEZE */
-	public static final IconEntry WAND_SPS_FREEZE = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{225, 1, 14, 14}, 7004);
+	public static final IconEntry WAND_SPS_FREEZE = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{225, 1, 14, 14}, 7068);
 	/** WAND_SPS_LIGHTNING */
-	public static final IconEntry WAND_SPS_LIGHTNING = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{241, 1, 14, 14}, 7005);
+	public static final IconEntry WAND_SPS_LIGHTNING = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{241, 1, 14, 14}, 7069);
 	/** WAND_POISON */
-	public static final IconEntry WAND_POISON = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{0, 16, 14, 14}, 7006);
+	public static final IconEntry WAND_POISON = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{0, 16, 14, 14}, 7070);
 	/** WAND_TRANSFUSION#0 */
-	public static final IconEntry WAND_TRANSFUSION_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{16, 16, 14, 14}, 7007);
+	public static final IconEntry WAND_TRANSFUSION_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{16, 16, 14, 14}, 7071);
 	/** WAND_ACID */
-	public static final IconEntry WAND_ACID = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{32, 16, 14, 14}, 7008);
+	public static final IconEntry WAND_ACID = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{32, 16, 14, 14}, 7072);
 	/** WAND_LIVING_EARTH#0 */
-	public static final IconEntry WAND_LIVING_EARTH_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{48, 16, 14, 14}, 7009);
+	public static final IconEntry WAND_LIVING_EARTH_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{48, 16, 14, 14}, 7073);
 	/** WAND_BLAST_WAVE#0 */
-	public static final IconEntry WAND_BLAST_WAVE_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{64, 16, 14, 14}, 7010);
+	public static final IconEntry WAND_BLAST_WAVE_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{64, 16, 14, 14}, 7074);
 	/** WAND_CORRUPTION#0 */
-	public static final IconEntry WAND_CORRUPTION_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{80, 16, 14, 14}, 7011);
+	public static final IconEntry WAND_CORRUPTION_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{80, 16, 14, 14}, 7075);
 	/** WAND_FLOW */
-	public static final IconEntry WAND_FLOW = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{96, 16, 14, 14}, 7012);
+	public static final IconEntry WAND_FLOW = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{96, 16, 14, 14}, 7076);
 	/** WAND_TCLOUD */
-	public static final IconEntry WAND_TCLOUD = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{112, 16, 14, 14}, 7013);
+	public static final IconEntry WAND_TCLOUD = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{112, 16, 14, 14}, 7077);
 	/** WAND_SPS_ACID */
-	public static final IconEntry WAND_SPS_ACID = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{209, 17, 14, 14}, 7014);
+	public static final IconEntry WAND_SPS_ACID = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{209, 17, 14, 14}, 7078);
 	/** WAND_SPS_LIGHT */
-	public static final IconEntry WAND_SPS_LIGHT = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{225, 17, 14, 14}, 7015);
+	public static final IconEntry WAND_SPS_LIGHT = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{225, 17, 14, 14}, 7079);
 	/** WAND_SPS_DARK */
-	public static final IconEntry WAND_SPS_DARK = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{241, 17, 14, 14}, 7016);
+	public static final IconEntry WAND_SPS_DARK = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{241, 17, 14, 14}, 7080);
 }

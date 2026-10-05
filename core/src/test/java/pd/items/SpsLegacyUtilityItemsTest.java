@@ -27,7 +27,7 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.Zombie;
 import pd.items.consum.food.Honey;
 import pd.items.consum.potions.Potion;
-import pd.items.consum.potions.PotionOfMight;
+import pd.items.consum.potions.elixirs.ElixirOfMight;
 import pd.items.consum.scrolls.Scroll;
 import pd.levels.Level;
 import pd.levels.Terrain;
@@ -100,14 +100,16 @@ public final class SpsLegacyUtilityItemsTest {
 	}
 
 	private static void testDewVialCompatibility() throws Exception {
+		//SPSXPD: 露珠瓶已单池化，两个构造参数并入同一个池
 		DewVial vial = new DewVial(35, 70);
-		check(vial.checkVol() == 35 && vial.checkVolEx() == 70, "DewVial构造容量错误");
+		check(vial.checkVol() == 105 && vial.checkVolEx() == 105 && vial.totalDew() == 105,
+				"DewVial构造容量错误（单池后应为两数之和）");
 		vial.applySpsUpgrade(Waterskin.UpgradeMode.ACCURATE);
 		Bundle bundle = new Bundle();
 		vial.storeInBundle(bundle);
 		DewVial restored = new DewVial();
 		restored.restoreFromBundle(bundle);
-		check(restored.checkVol() == 100 && restored.checkVolEx() == 105
+		check(restored.checkVol() == 105 && restored.checkVolEx() == 105
 				&& restored.upgradeMode() == Waterskin.UpgradeMode.ACCURATE,
 				"DewVial没有复用完整露珠容量或强化模式存档");
 		String heroClass = java.nio.file.Files.readString(Paths.get("../java/pd/actors/hero/HeroClass.java"), StandardCharsets.UTF_8);
@@ -164,25 +166,28 @@ public final class SpsLegacyUtilityItemsTest {
 		check(warden.consumeDrink(hero) && hero.HP == 100 && warden.checkVol() == 90,
 				"守望者饮用没有按每滴4%治疗或消耗");
 
+		//SPSXPD: 单池化后升级只会补足到基础量，不再有容量上限
 		Dungeon.wings = false;
 		Waterskin firstUpgrade = new Waterskin(40, 10);
 		firstUpgrade.applySpsUpgrade(Waterskin.UpgradeMode.RANDOM_BLESS);
-		check(firstUpgrade.checkVol() == 100 && firstUpgrade.checkVolEx() == 50
+		check(firstUpgrade.checkVol() == 100 && firstUpgrade.checkVolEx() == 100
 				&& firstUpgrade.upgradeMode() == Waterskin.UpgradeMode.RANDOM_BLESS,
-				"露珠瓶第一次升级没有填充容量、保存溢出或模式");
+				"露珠瓶第一次升级没有补足基础量或保存模式");
 		Dungeon.wings = true;
 		Waterskin wingCapacity = new Waterskin();
 		wingCapacity.fill();
-		check(wingCapacity.checkVol() == 200, "飞翼升级没有把普通容量提升到200");
+		check(wingCapacity.checkVol() == 100, "强化补足基础量时没有补到100或超过了100");
 
 		Dungeon.dewWater = false;
+		Dungeon.dewDraw = false;
 		Dungeon.wings = false;
 		Vialupdater updater = new Vialupdater();
 		check(updater.collect(hero.belongings.backpack), "露珠强化器无法放入背包");
 		updater.execute(hero, Vialupdater.AC_USE);
-		check(Dungeon.dewWater && Dungeon.wings
+		//SPSEXPD: 祝福强化分支已取消，强化器改为开启精确强化(dewDraw)
+		check(Dungeon.dewDraw && Dungeon.wings
 				&& hero.belongings.getItem(Vialupdater.class) == null,
-				"露珠强化器没有消耗自身并开启露珠水与飞翼升级");
+				"露珠强化器没有消耗自身并开启露珠强化与飞翼升级");
 
 		TestLevel level = freshLevel();
 		hero = freshHero();
@@ -216,8 +221,8 @@ public final class SpsLegacyUtilityItemsTest {
 		String tinkerer = java.nio.file.Files.readString(Paths.get("../java/pd/windows/WndTinkerer.java"), StandardCharsets.UTF_8);
 		String tinkerer2 = java.nio.file.Files.readString(Paths.get("../java/pd/windows/WndTinkerer2.java"), StandardCharsets.UTF_8);
 		String triangle = java.nio.file.Files.readString(Paths.get("../java/pd/levels/TrianglePLevel.java"), StandardCharsets.UTF_8);
-		check(tinkerer.contains("applySpsUpgrade") && tinkerer.contains("Dungeon.dewDraw")
-				&& tinkerer.contains("Dungeon.dewWater"), "第1层工匠没有提供两种第一次升级");
+		check(tinkerer.contains("applySpsUpgrade") && tinkerer.contains("Dungeon.dewDraw = true"),
+				"第1层工匠没有提供第一次露珠强化");
 		check(tinkerer2.contains("Dungeon.dewNorn = true"), "第12层工匠没有开启露珠瓶二阶能力");
 		check(triangle.contains("new Vialupdater()"), "三角维度没有生成露珠强化器");
 	}
@@ -318,7 +323,7 @@ public final class SpsLegacyUtilityItemsTest {
 		Method challengeStarts = HeroClass.class.getDeclaredMethod("applySpsChallengeStarts", Hero.class);
 		challengeStarts.setAccessible(true);
 		challengeStarts.invoke(null, hero);
-		check(hero.belongings.getItem(PotionOfMight.class) != null
+		check(hero.belongings.getItem(ElixirOfMight.class) != null
 				&& hero.belongings.getItem(Honey.class) != null,
 				"精神萎靡开局缺少根骨药水或蜂皇浆");
 	}
@@ -368,8 +373,8 @@ public final class SpsLegacyUtilityItemsTest {
 		check(cross.actions(hero).contains(UnBlessAnkh.AC_BLESS), "100点额外露水没有开放十字架祝福");
 		check(cross.bless(hero), "十字架无法祝福");
 		check(hero.belongings.getItem(UnBlessAnkh.class) == null
-				&& hero.belongings.getItem(Ankh.class) != null && waterskin.checkVolEx() == 0,
-				"十字架祝福没有转换为十字章或消耗100点额外露水");
+				&& hero.belongings.getItem(Ankh.class) != null && waterskin.totalDew() == 0,
+				"十字架祝福没有转换为十字章或消耗100点露珠");
 	}
 
 	private static void testSourcesAndTransmutation() {

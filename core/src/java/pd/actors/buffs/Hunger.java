@@ -31,6 +31,7 @@ import pd.items.equipment.trinkets.SaltCube;
 import pd.journal.Document;
 import pd.levels.VaultLevel;
 import pd.messages.Messages;
+import render.utils.math.Random;
 import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
 import pd.utils.GLog;
@@ -60,7 +61,9 @@ public class Hunger extends Buff implements Hero.Doom {
 	public static final float STARVING	= 450f;
 
 	private float level;
-	private float partialDamage;
+	private float partialDamage;
+	//SPSEXPD: 饥饿掉血的回合计数（每 3~6 回合扣 1 点）
+	private int starvingTimer = Random.IntRange( 3, 6 );
 
 	private static final String LEVEL			= "level";
 	private static final String PARTIALDAMAGE 	= "partialDamage";
@@ -96,13 +99,12 @@ public class Hunger extends Buff implements Hero.Doom {
 
 			if (isStarving()) {
 
-				partialDamage += target.HT/1000f;
-
-				if (partialDamage > 1){
-					target.damage( (int)partialDamage, this);
-					partialDamage -= (int)partialDamage;
+				//SPSEXPD: 饥饿掉血改为「每 3~6 回合扣 1 点」，不再随最大生命值几乎每回合掉血
+				if (--starvingTimer <= 0) {
+					target.damage( 1, this );
+					starvingTimer = Random.IntRange( 3, 6 );
 				}
-				
+
 			} else {
 
 				float hungerDelay = 1f;
@@ -112,15 +114,15 @@ public class Hunger extends Buff implements Hero.Doom {
 				hungerDelay /= SaltCube.hungerGainMultiplier();
 
 				float newLevel = level + (1f/hungerDelay);
-				if (newLevel >= STARVING) {
+				if (newLevel >= cap()) {
 
 					GLog.n( Messages.get(this, "onstarving") );
 					hero.damage( 1, this );
 
 					hero.interrupt();
-					newLevel = STARVING;
+					newLevel = cap();
 
-				} else if (newLevel >= HUNGRY && level < HUNGRY) {
+				} else if (newLevel >= hungryCap() && level < hungryCap()) {
 
 					GLog.w( Messages.get(this, "onhungry") );
 
@@ -168,9 +170,9 @@ public class Hunger extends Buff implements Hero.Doom {
 		level -= energy;
 		if (level < 0 && !overrideLimits) {
 			level = 0;
-		} else if (level > STARVING) {
-			float excess = level - STARVING;
-			level = STARVING;
+		} else if (level > cap()) {
+			float excess = level - cap();
+			level = cap();
 			partialDamage += excess * (target.HT/1000f);
 			if (partialDamage > 1f){
 				target.damage( (int)partialDamage, this );
@@ -178,9 +180,9 @@ public class Hunger extends Buff implements Hero.Doom {
 			}
 		}
 
-		if (oldLevel < HUNGRY && level >= HUNGRY){
+		if (oldLevel < hungryCap() && level >= hungryCap()){
 			GLog.w( Messages.get(this, "onhungry") );
-		} else if (oldLevel < STARVING && level >= STARVING){
+		} else if (oldLevel < cap() && level >= cap()){
 			GLog.n( Messages.get(this, "onstarving") );
 			target.damage( 1, this );
 		}
@@ -188,8 +190,33 @@ public class Hunger extends Buff implements Hero.Doom {
 		BuffIndicator.refreshHero();
 	}
 
+	//SPSEXPD: 特质可提高饥饿上限（如「坚忍肠胃」）
+	private float extraCap() {
+		return (target instanceof Hero) ? pd.actors.hero.perks.HardenedStomach.capBonus( (Hero)target ) : 0f;
+	}
+
+	private float cap() {
+		return STARVING + extraCap();
+	}
+
+	private float hungryCap() {
+		return HUNGRY + extraCap();
+	}
+
+	//SPSEXPD: 特质对饥饿累积速率的影响（节食 <1 更耐饿；暴食 >1 饿得更快）
+	public static float traitRateFactor( Hero hero ) {
+		float f = 1f;
+		if (hero != null && hero.heroPerk != null) {
+			pd.actors.hero.perks.Dieting d = hero.heroPerk.get( pd.actors.hero.perks.Dieting.class );
+			if (d != null) f *= d.hungerMultiplier();
+			pd.actors.hero.perks.RavenousAppetite r = hero.heroPerk.get( pd.actors.hero.perks.RavenousAppetite.class );
+			if (r != null) f *= r.hungerMultiplier();
+		}
+		return Math.max( 0.1f, f );
+	}
+
 	public boolean isStarving() {
-		return level >= STARVING;
+		return level >= cap();
 	}
 
 	public int hunger() {
@@ -198,9 +225,9 @@ public class Hunger extends Buff implements Hero.Doom {
 
 	@Override
 	public int icon() {
-		if (level < HUNGRY) {
+		if (level < hungryCap()) {
 			return BuffIndicator.NONE;
-		} else if (level < STARVING) {
+		} else if (level < cap()) {
 			return BuffIndicator.HUNGER;
 		} else {
 			return BuffIndicator.STARVATION;
@@ -209,7 +236,7 @@ public class Hunger extends Buff implements Hero.Doom {
 
 	@Override
 	public String name() {
-		if (level < STARVING) {
+		if (level < cap()) {
 			return Messages.get(this, "hungry");
 		} else {
 			return Messages.get(this, "starving");
@@ -219,7 +246,7 @@ public class Hunger extends Buff implements Hero.Doom {
 	@Override
 	public String desc() {
 		String result;
-		if (level < STARVING) {
+		if (level < cap()) {
 			result = Messages.get(this, "desc_intro_hungry");
 		} else {
 			result = Messages.get(this, "desc_intro_starving");

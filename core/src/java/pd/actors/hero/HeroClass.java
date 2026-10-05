@@ -102,9 +102,6 @@ import pd.items.consum.food.completefood.RiceGruel;
 import pd.items.consum.food.completefood.Vegetablekebab;
 import pd.items.consum.food.completefood.YearFood;
 import pd.items.consum.food.staplefood.Pasty;
-import pd.items.consum.medicine.Hardpill;
-import pd.items.consum.medicine.Powerpill;
-import pd.items.consum.medicine.Smashpill;
 import pd.items.misc.Ankhshield;
 import pd.items.misc.AttackShield;
 import pd.items.misc.AttackShoes;
@@ -144,10 +141,9 @@ import pd.items.misc.SeriousPunch;
 import pd.items.misc.Shovel;
 import pd.items.misc.UndeadBook;
 import pd.items.consum.potions.PotionOfHealing;
+import pd.items.consum.potions.elixirs.ElixirOfMight;
 import pd.items.consum.potions.PotionOfInvisibility;
 import pd.items.consum.potions.PotionOfLiquidFlame;
-import pd.items.consum.potions.PotionOfMending;
-import pd.items.consum.potions.PotionOfMight;
 import pd.items.consum.potions.PotionOfMindVision;
 import pd.items.consum.potions.PotionOfPurity;
 import pd.items.consum.potions.PotionOfShield;
@@ -386,6 +382,11 @@ public enum HeroClass {
 		}
 		ClassSkill classSkill = ClassSkill.createFor(this);
 		if (classSkill != null) classSkill.collect(hero.belongings.backpack);
+
+		//SPSXPD: 发放职业初始特质（把各角色的特殊点以特质形式呈现）
+		for (pd.actors.hero.perks.Perk perk : pd.actors.hero.perks.PerkGrants.initialPerks(hero)) {
+			hero.heroPerk.add(perk);
+		}
 		if (hero.skin == 3 && hero.belongings.misc == null) {
 			FlyChains chains = new FlyChains();
 			chains.identify().upgrade(3);
@@ -472,7 +473,7 @@ public enum HeroClass {
 			Dungeon.gold += 1000;
 		}
 		if (Dungeon.isChallenged(Challenges.LISTLESS)) {
-			new PotionOfMight().collect(hero.belongings.backpack);
+			new ElixirOfMight().collect(hero.belongings.backpack);
 			new Honey().collect(hero.belongings.backpack);
 		}
 		if (Dungeon.isChallenged(Challenges.NIGHTMARE_VIRUS)) {
@@ -639,10 +640,11 @@ public enum HeroClass {
 		}
 		(hero.belongings.weapon = new ShortSword()).identify();
 		(hero.belongings.armor = new WoodenArmor()).identify();
+		//SPSXPD: 战士开局携带破碎纹章（护盾与刻印转移的载体）
+		BrokenSeal seal = new BrokenSeal();
+		seal.identify();
+		seal.affixToArmor(hero.belongings.armor, null);
 		new MissileShield().identify().collect();
-		new Powerpill().identify().collect();
-		new Smashpill().identify().collect();
-		new Hardpill().identify().collect();
 		new Porksoup().identify().collect();
 
 		new PotionOfStrength().identify();
@@ -712,9 +714,6 @@ public enum HeroClass {
 			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.ClothArmor()).identify();
 			new GnollMark().collect();
 			new WandOfLight().identify().collect();
-			new Powerpill().identify().collect();
-			new Smashpill().identify().collect();
-			new Hardpill().identify().collect();
 			new JumpW().collect();
 			hero.improveMagicSkill(3);
 			new Meatroll().identify().collect();
@@ -722,7 +721,11 @@ public enum HeroClass {
 			new PotionOfLiquidFlame().identify();
 			return;
 		}
-		(hero.belongings.weapon = new MageBook()).identify();
+		//SPSXPD: 法师开局使用「老法杖」（MagesStaff，法杖系特质的载体），替代法术书
+		MagesStaff staff = new MagesStaff();
+		(hero.belongings.weapon = staff).identify();
+		staff.activate(hero);
+		staff.imbueWand(new WandOfMagicMissile(), hero);
 		WandOfMagicMissile missile = new WandOfMagicMissile();
 		missile.identify().collect();
 		WandOfDisintegration disintegration = new WandOfDisintegration();
@@ -899,11 +902,12 @@ public enum HeroClass {
 		} else {
 			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Knuckles()).identify();
 			(hero.belongings.armor = new ClothArmor()).identify();
-			Boomerang boomerang = new Boomerang();
-			boomerang.identify().collect();
+			//SPSXPD: 女猎手开局携带灵能弓（替换原回旋镖）
+			SpiritBow bow = new SpiritBow();
+			bow.identify().collect();
 			EmpBola bola = new EmpBola(3);
 			bola.identify().collect();
-			Dungeon.quickslot.setSlot(0, boomerang);
+			Dungeon.quickslot.setSlot(0, bow);
 			Dungeon.quickslot.setSlot(1, bola);
 		}
 
@@ -977,8 +981,7 @@ public enum HeroClass {
 			(hero.belongings.weapon = new HolyWater()).identify();
 			(hero.belongings.armor = new BaseArmor()).identify();
 			new CopyBall().collect();
-			new PotionOfMending().identify().collect();
-			new PotionOfHealing().identify().collect();
+			new PotionOfHealing().quantity(2).identify().collect();
 			new JumpP().collect();
 			new NutCookie(6).identify().collect();
 			new DungeonBomb().identify().collect();
@@ -1081,7 +1084,7 @@ public enum HeroClass {
 			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.LeatherArmor()).identify().upgrade(3);
 			AttackShoes shoes = new AttackShoes(); shoes.identify().collect(); MKbox box = new MKbox(); box.identify().collect();
 			Dungeon.quickslot.setSlot(0, shoes); Dungeon.quickslot.setSlot(1, box);
-			new MixPizza(4).identify().collect(); new ScrollOfRage().identify(); new PotionOfMending().identify(); hero.improveAttackSkill(4); hero.improveDefenseSkill(2);
+			new MixPizza(4).identify().collect(); new ScrollOfRage().identify(); new PotionOfHealing().identify(); hero.improveAttackSkill(4); hero.improveDefenseSkill(2);
 			return;
 		}
 		if (hero.skin == 2) {
@@ -1099,7 +1102,7 @@ public enum HeroClass {
 			new JumpS().collect();
 			new MixPizza(4).identify().collect();
 			new ScrollOfRage().identify();
-			new PotionOfMending().identify();
+			new PotionOfHealing().identify();
 			return;
 		}
 		if (hero.skin == 3) {
@@ -1116,7 +1119,7 @@ public enum HeroClass {
 			hero.improveAttackSkill(4);
 			hero.improveDefenseSkill(2);
 			new ScrollOfRage().identify();
-			new PotionOfMending().identify();
+			new PotionOfHealing().identify();
 			new MixPizza(4).identify().collect();
 			return;
 		}
@@ -1131,7 +1134,7 @@ public enum HeroClass {
 			hero.improveAttackSkill(4);
 			hero.improveDefenseSkill(2);
 			new ScrollOfRage().identify();
-			new PotionOfMending().identify();
+			new PotionOfHealing().identify();
 			new MixPizza(4).identify().collect();
 			return;
 		}
@@ -1139,7 +1142,7 @@ public enum HeroClass {
 			hero.improveAttackSkill(4);
 			hero.improveDefenseSkill(2);
 			new ScrollOfRage().identify();
-			new PotionOfMending().identify();
+			new PotionOfHealing().identify();
 			new MixPizza(4).identify().collect();
 			return;
 		}
@@ -1156,7 +1159,7 @@ public enum HeroClass {
 			ShootGun shootGun = new ShootGun(); shootGun.identify().collect();
 			new JumpS().collect();
 			new ScrollOfRage().identify();
-			new PotionOfMending().identify();
+			new PotionOfHealing().identify();
 			new MixPizza(4).identify().collect();
 			Dungeon.quickslot.setSlot(0, shootGun);
 			return;
@@ -1172,7 +1175,7 @@ public enum HeroClass {
 			hero.improveAttackSkill(4);
 			hero.improveDefenseSkill(2);
 			new ScrollOfRage().identify();
-			new PotionOfMending().identify();
+			new PotionOfHealing().identify();
 			new MixPizza(4).identify().collect();
 			Dungeon.quickslot.setSlot(0, hero.belongings.weapon);
 			Dungeon.quickslot.setSlot(1, hero.belongings.secondWep);
@@ -1190,7 +1193,7 @@ public enum HeroClass {
 		hero.improveAttackSkill(4);
 		hero.improveDefenseSkill(2);
 		new ScrollOfRage().identify();
-		new PotionOfMending().identify();
+		new PotionOfHealing().identify();
 		new MixPizza(4).identify().collect();
 	}
 

@@ -246,40 +246,41 @@ public final class SpsUnstableSpellbookTest {
 				&& zh.getProperty("items.equipment.artifacts.unstablespellbook.desc_index").contains("露珠"),
 				"不稳定魔典简体中文不是旧版文案或出现乱码");
 
-		String book = Files.readString(Path.of("../java/pd/items/artifacts/UnstableSpellbook.java"));
+		//SPSEXPD: 修正既有测试的相对路径（工作目录为 core/src/test）
+		String book = Files.readString(Path.of("../java/pd/items/equipment/artifacts/UnstableSpellbook.java"));
 		check(book.contains("Random.Int(15) < level()")
 				&& book.contains("attempts < 100")
-				&& book.contains("vial.checkVolEx() <= cost")
+				&& book.contains("vial.checkVol() <= cost")
 				&& book.contains("1 / (150f - (chargeCap - charge)*15f)")
 				&& !book.contains("RingOfEnergy.artifactChargeMultiplier"),
 				"魔典随机率、死循环保护、露珠边界或旧版充能公式发生偏移");
-		String teleport = Files.readString(Path.of("../java/pd/items/scrolls/ScrollOfTeleportation.java"));
+		String teleport = Files.readString(Path.of("../java/pd/items/consum/scrolls/ScrollOfTeleportation.java"));
 		check(teleport.contains("if (target != null) teleportToLocation(curUser, target)"),
 				"强化传送取消选择时仍可能错误执行");
-		String mirror = Files.readString(Path.of("../java/pd/items/scrolls/ScrollOfMirrorImage.java"));
+		String mirror = Files.readString(Path.of("../java/pd/items/consum/scrolls/ScrollOfMirrorImage.java"));
 		check(mirror.contains("new DelayedImageSpawner(6 - spawnImages(curUser, 2), 2, 3f)")
 				&& mirror.contains("private static final int NIMAGES\t= 3")
 				&& mirror.contains("totalImages <= 0 || spawned == 0"),
 				"强化镜像没有保持立即2个、每3回合2个、最多6个或无位置终止保护");
-		String lullaby = Files.readString(Path.of("../java/pd/items/scrolls/ScrollOfLullaby.java"));
+		String lullaby = Files.readString(Path.of("../java/pd/items/consum/scrolls/ScrollOfLullaby.java"));
 		check(lullaby.contains("AttackDown.class, 10f).level(50)")
 				&& lullaby.contains("ArmorBreak.class, 10f).level(20)"),
 				"催眠卷轴缺少0.9.8的敌我攻防削弱");
-		String rage = Files.readString(Path.of("../java/pd/items/scrolls/ScrollOfRage.java"));
+		String rage = Files.readString(Path.of("../java/pd/items/consum/scrolls/ScrollOfRage.java"));
 		check(rage.contains("Silent.class, 20f") && rage.contains("Heap.Type.MIMIC"),
 				"盛怒卷轴缺少0.9.8的沉默或宝箱怪唤醒");
-		String recharge = Files.readString(Path.of("../java/pd/items/scrolls/ScrollOfRecharging.java"));
+		String recharge = Files.readString(Path.of("../java/pd/items/consum/scrolls/ScrollOfRecharging.java"));
 		check(recharge.contains("Arcane.class, 3f") && recharge.contains("Shocked.class).level(6)"),
 				"充能卷轴缺少0.9.8的奥术或可见敌人电击");
-		String terror = Files.readString(Path.of("../java/pd/items/scrolls/ScrollOfTerror.java"));
+		String terror = Files.readString(Path.of("../java/pd/items/consum/scrolls/ScrollOfTerror.java"));
 		check(terror.contains("ShadowCurse.class") && terror.contains("CountDown.class")
 				&& terror.contains("Paralysis.class") && terror.contains("HasteBuff.class"),
 				"恐惧卷轴缺少0.9.8的暗影诅咒或强化附加状态");
-		String mapping = Files.readString(Path.of("../java/pd/items/scrolls/ScrollOfMagicMapping.java"));
+		String mapping = Files.readString(Path.of("../java/pd/items/consum/scrolls/ScrollOfMagicMapping.java"));
 		check(mapping.contains("readMap(false)") && mapping.contains("readMap(true)"),
 				"地图卷轴没有区分普通映射与强化秘密发现");
 
-		try (java.util.stream.Stream<Path> paths = Files.walk(Path.of("messages"))) {
+		try (java.util.stream.Stream<Path> paths = Files.walk(Path.of("../assets/messages"))) {
 			for (Path path : (Iterable<Path>) paths.filter(p -> p.toString().endsWith(".properties"))::iterator) {
 				String text = Files.readString(path, StandardCharsets.UTF_8);
 				check(!text.contains("\uFFFD"), "资源含UTF-8替换字符：" + path);

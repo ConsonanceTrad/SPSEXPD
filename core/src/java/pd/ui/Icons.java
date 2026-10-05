@@ -141,6 +141,10 @@ public enum Icons {
 	KEYRING,
 	HOS,
 	ARROW_C,
+	//SPSEXPD: 竹背篓标签图标（新绘制的竹编背篓）
+	BAMBOO_BASKET,
+	//SPSEXPD: 游戏辅助选项卡图标（另一个手柄帧，位于 CONTROLLER 左侧）
+	GAMEPAD_AUX,
 	//SPS: 恶魔刀锋（主菜单「继续游戏」图标，取自 SPS_DEMON_BLADE 物品图）
 	DEMON_BLADE,
 	//SPS: 幸运徽章（主菜单「加入交流群」图标，取自 LUCKY_BADGE 物品图）
@@ -231,6 +235,8 @@ public enum Icons {
 		ENTRIES.put(SCROLL_HOLDER, IconsDict.ICON_066);
 		ENTRIES.put(SEED, IconsDict.ICON_020);
 		ENTRIES.put(SEED_POUCH, IconsDict.ICON_067);
+		ENTRIES.put(BAMBOO_BASKET, IconsDict.ICON_090);
+		ENTRIES.put(GAMEPAD_AUX, IconsDict.ICON_014);
 		ENTRIES.put(SHOP_CART, IconsDict.ICON_084);
 		ENTRIES.put(SHPX, IconsDict.ICON_007);
 		ENTRIES.put(SHUFFLE, IconsDict.ICON_038);

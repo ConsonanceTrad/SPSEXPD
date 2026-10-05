@@ -156,7 +156,7 @@ import pd.plants.Earthroot;
 import pd.plants.Fadeleaf;
 import pd.plants.Firebloom;
 import pd.plants.Icecap;
-import pd.plants.Mageroyal;
+import pd.plants.Dreamfoil;
 import pd.plants.Rotberry;
 import pd.plants.Sorrowmoss;
 import pd.plants.Starflower;
@@ -278,7 +278,7 @@ public enum Bestiary {
 
 		PLANT.addEntities(Rotberry.class, Sungrass.class, Fadeleaf.class, Icecap.class,
 				Firebloom.class, Sorrowmoss.class, Swiftthistle.class, Blindweed.class,
-				Stormvine.class, Earthroot.class, Mageroyal.class, Starflower.class,
+				Stormvine.class, Earthroot.class, Dreamfoil.class, Starflower.class,
 				BlandfruitBush.class,
 				WandOfRegrowth.Dewcatcher.class, WandOfRegrowth.Seedpod.class, WandOfRegrowth.Lotus.class);
 

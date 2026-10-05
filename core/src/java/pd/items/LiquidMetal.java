@@ -142,7 +142,8 @@ public class LiquidMetal extends Item {
 
 		@Override
 		public boolean itemSelectable(Item item) {
-			return item instanceof MissileWeapon && !(item instanceof Dart);
+			return item instanceof MissileWeapon && !(item instanceof Dart)
+					&& ((MissileWeapon) item).canMeltIntoMetal();
 		}
 
 		@Override

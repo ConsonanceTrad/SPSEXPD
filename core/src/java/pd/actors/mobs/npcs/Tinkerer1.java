@@ -66,7 +66,8 @@ public class Tinkerer1 extends NPC {
 		Waterskin waterskin = Dungeon.hero.belongings.getItem(Waterskin.class);
 		Game.runOnRenderThread(() -> {
 			if (mushroom != null && waterskin != null) {
-				GameScene.show(new WndTinkerer(Tinkerer1.this));
+				//SPSEXPD: 带着任务蘑菇来就直接完成强化，不再弹选择框
+				WndTinkerer.performUpgrade(Tinkerer1.this, Dungeon.hero, waterskin, mushroom);
 			} else {
 				GameScene.show(new WndQuest(Tinkerer1.this,
 						Messages.get(Tinkerer1.this, waterskin == null ? "tell2" : "tell1")));

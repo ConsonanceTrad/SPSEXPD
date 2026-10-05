@@ -35,7 +35,8 @@ public class UpgradeEatBall extends Item {
 	private static final String AC_USE = "USE";
 
 	{
-		image = ConsumPotionSeedSeedDict.STAREATER_FLOWER;
+		//SPSEXPD: 旧版吞噬球让位——STAREATER_FLOWER 帧已归还吞星花蔬菜
+		image = SpecificPlaceHolderDict.SOMETHING_0;
 		stackable = true;
 		defaultAction = AC_USE;
 	}
@@ -54,12 +55,17 @@ public class UpgradeEatBall extends Item {
 		}
 	}
 
+	/** SPSEXPD: 吞噬球与吞星花蔬菜共用的“可吞噬”判定。 */
+	public static boolean consumable(Item item) {
+		return item != null && !item.isEquipped(Dungeon.hero)
+				&& (item.isUpgradable() || item instanceof Scroll || item instanceof Potion || item instanceof Stylus);
+	}
+
 	private final WndBag.ItemSelector itemSelector = new WndBag.ItemSelector() {
 		@Override public String textPrompt() { return Messages.get(UpgradeEatBall.class, "prompt"); }
 		@Override public Class<? extends Bag> preferredBag() { return Belongings.Backpack.class; }
 		@Override public boolean itemSelectable(Item item) {
-			return item != UpgradeEatBall.this && !item.isEquipped(Dungeon.hero)
-					&& (item.isUpgradable() || item instanceof Scroll || item instanceof Potion || item instanceof Stylus);
+			return item != UpgradeEatBall.this && consumable(item);
 		}
 		@Override public void onSelect(Item item) {
 			if (item == null) return;
@@ -72,7 +78,8 @@ public class UpgradeEatBall extends Item {
 		}
 	};
 
-	private Item essenceFrom(Item item) {
+	/** SPSEXPD: 吞噬球与吞星花蔬菜共用的提炼逻辑。 */
+	public static Item essenceFrom(Item item) {
 		if (item.isUpgradable()) {
 			int upgrades = Math.max(0, item.visiblyUpgraded());
 			if (Random.Float() < upgrades / 10f) return new UpgradeBlobViolet();

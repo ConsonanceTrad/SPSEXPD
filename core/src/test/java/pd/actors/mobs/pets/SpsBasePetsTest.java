@@ -53,7 +53,7 @@ import pd.items.consum.food.meatfood.Meat;
 import pd.items.consum.food.staplefood.NormalRation;
 import pd.items.consum.food.vegetable.Truffles;
 import pd.items.consum.potions.PotionOfLiquidFlame;
-import pd.items.consum.potions.PotionOfMending;
+import pd.items.consum.potions.PotionOfHealing;
 import pd.items.consum.potions.PotionOfShield;
 import pd.items.consum.scrolls.ScrollOfRage;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
@@ -147,7 +147,7 @@ public final class SpsBasePetsTest {
 				"柯多拉属性、食物或奖励错误");
 		kodora.setCooldown(0); int hp = enemy.HP; int physical = kodora.attackProc(enemy, 99);
 		check(physical == 0 && enemy.HP < hp && enemy.buff(MagicWeak.class) != null, "柯多拉没有将攻击转成魔法伤害并施加魔法易伤");
-		check(demon.legacyType() == 105 && demon.lovefood(new PotionOfMending()) && demon.SupercreateLoot() instanceof ScrollOfRage,
+		check(demon.legacyType() == 105 && demon.lovefood(new PotionOfHealing()) && demon.SupercreateLoot() instanceof ScrollOfRage,
 				"链锯魔属性、食物或奖励错误");
 		demon.setCooldown(0); hp = enemy.HP; demon.attackProc(enemy, 50);
 		check(enemy.HP <= hp - 6, "链锯魔冷却结束时没有完成六段切割");

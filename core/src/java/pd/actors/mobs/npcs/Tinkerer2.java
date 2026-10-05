@@ -55,8 +55,12 @@ public class Tinkerer2 extends NPC {
 		if (ch != Dungeon.hero) return true;
 		Mushroom mushroom = Dungeon.hero.belongings.getItem(Mushroom.class);
 		Game.runOnRenderThread(() -> {
-			if (mushroom != null) GameScene.show(new WndTinkerer2(Tinkerer2.this));
-			else GameScene.show(new WndQuest(Tinkerer2.this, Messages.get(Tinkerer2.this, "tell1")));
+			if (mushroom != null) {
+				//SPSEXPD: 二次强化直接完成，不再弹奖励选择框
+				WndTinkerer2.performUpgrade(Tinkerer2.this, Dungeon.hero, mushroom);
+			} else {
+				GameScene.show(new WndQuest(Tinkerer2.this, Messages.get(Tinkerer2.this, "tell1")));
+			}
 		});
 		return true;
 	}

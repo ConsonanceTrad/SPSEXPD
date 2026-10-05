@@ -994,6 +994,11 @@ public class Dungeon {
 		initialVersion = bundle.getInt( INIT_VER );
 		version = bundle.getInt( VERSION );
 
+		//SPSXPD: 拒绝特质体系之前的旧存档（破碎天赋数据已不兼容）
+		if (version != 0 && version < ShatteredPixelDungeon.v_traits) {
+			throw new RuntimeException( "incompatible save" );
+		}
+
 		seed = bundle.contains( SEED ) ? bundle.getLong( SEED ) : DungeonSeed.randomSeed();
 		customSeedText = bundle.getString( CUSTOM_SEED );
 		daily = bundle.getBoolean( DAILY );

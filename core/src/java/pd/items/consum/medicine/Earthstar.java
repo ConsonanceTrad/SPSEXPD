@@ -15,8 +15,8 @@ public class Earthstar extends Pill {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Earthstar.class)
-			.t("name", "地裂星")
-			.t("desc", "这种菌类并不属于地球。它可能来自虚空...或死星什么的...反正不会是小马国。食用它会撕裂这片区域所有人的身体。\n使用_1份水，1份蔬菜，1份地缚根种子_炼金");
+			.t("name", "虚空能量瓶")
+			.t("desc", "存储着虚空与死星能量，释放时会撕裂这片区域所有人的身体。");
 	}
 
 

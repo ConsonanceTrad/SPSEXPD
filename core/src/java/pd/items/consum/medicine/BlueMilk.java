@@ -16,8 +16,8 @@ public class BlueMilk extends Pill {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(BlueMilk.class)
-			.t("name", "蓝奶伞")
-			.t("desc", "这种蘑菇像浆果一样鲜嫩多汁，食用它可以大幅度加快你的行动速度和恢复速度。而它对其他生物的效果是降低。\n使用_1份水，1份蔬菜，1份阳春草种子_炼金");
+			.t("name", "蓝浆果汁瓶")
+			.t("desc", "一种特殊的鲜榨果汁，使类人生物的外伤愈合加速，而其他生物的效果是降低。");
 	}
 
 

@@ -10,7 +10,6 @@ import pd.items.Dewdrop;
 import pd.items.RedDewdrop;
 import pd.items.VioletDewdrop;
 import pd.items.YellowDewdrop;
-import pd.items.consum.medicine.GreenSpore;
 import pd.mechanics.pathfind.PathFinder;
 import render.utils.math.Random;
 import pd.messages.InlineText;
@@ -24,7 +23,7 @@ public class Dewcatcher extends Plant {
 			.t("warden_desc", "_守望者_能把集露草当作格外丰厚的露水来源。")
 			.t("$seed.name", "集露草之种")
 			.t("$exdewcatcher.name", "集露草果丛")
-			.t("$exdewcatcher.desc", "生长绿菌孢的果丛。");
+			.t("$exdewcatcher.desc", "生长露珠菌孢的果丛。");
 	}
 
 
@@ -46,7 +45,8 @@ public class Dewcatcher extends Plant {
 	public static class Seed extends Plant.Seed {
 		{ image = ConsumPotionSeedSeedDict.SEED_DEWCATCHER; plantClass = Dewcatcher.class; explantClass = ExDewcatcher.class; }
 	}
+	//SPSEXPD: 果丛收获 = 露珠菌孢（原地 1 个）+ 2~3 枚集露果实（见 PlantHarvest 表），不再产露珠能量瓶
 	public static class ExDewcatcher extends SpsFruitBush {
-		{ image = 12; harvestCount = 3; harvestClass = GreenSpore.class; }
+		{ image = 12; }
 	}
 }

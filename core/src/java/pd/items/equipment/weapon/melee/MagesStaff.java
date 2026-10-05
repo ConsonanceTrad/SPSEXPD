@@ -179,6 +179,8 @@ public class MagesStaff extends MeleeWeapon {
 
 			if (cursed || hasCurseEnchant()) wand.cursed = true;
 			else                             wand.cursed = false;
+			//SPSXPD: 施法后标记，供「蓄能打击」的首次近战加成使用
+			empoweredStrike = true;
 			wand.execute(hero, AC_ZAP);
 		}
 	}
@@ -192,16 +194,27 @@ public class MagesStaff extends MeleeWeapon {
 		}
 	}
 
+	//SPSXPD: 原破碎天赋「蓄能打击」「法杖回收」所需状态，现直接由物品自身维护
+	private boolean empoweredStrike = false;
+	private boolean preservationUsed = false;
+
+	public static final String EMPOWERED_STRIKE = "sps_empowered_strike";
+	public static final String PRESERVATION_USED = "sps_preservation_used";
+
 	@Override
 	public int proc(Char attacker, Char defender, int damage) {
-		if (attacker instanceof Hero && ((Hero) attacker).hasTalent(Talent.MYSTICAL_CHARGE)){
-			Hero hero = (Hero) attacker;
-			ArtifactRecharge.chargeArtifacts(hero, hero.pointsInTalent(Talent.MYSTICAL_CHARGE)/2f);
+		//SPSXPD: 原破碎天赋「充能秘术」直接赋予物品
+		if (attacker instanceof Hero){
+			ArtifactRecharge.chargeArtifacts((Hero) attacker, 1f);
 		}
 
-		Talent.EmpoweredStrikeTracker empoweredStrike = attacker.buff(Talent.EmpoweredStrikeTracker.class);
-		if (empoweredStrike != null){
-			damage = Math.round( damage * (1f + Dungeon.hero.pointsInTalent(Talent.EMPOWERED_STRIKE)/6f));
+		//SPSXPD: 原破碎天赋「蓄能打击」直接赋予物品 —— 施法后首次近战额外伤害
+		if (empoweredStrike){
+			damage = Math.round( damage * 1.5f );
+			empoweredStrike = false;
+			if (!(defender instanceof Mob) || !((Mob) defender).surprisedBy(attacker)){
+				Sample.INSTANCE.play(Assets.Sounds.HIT_STRONG, 0.75f, 1.2f);
+			}
 		}
 
 		if (wand != null &&
@@ -211,12 +224,6 @@ public class MagesStaff extends MeleeWeapon {
 			wand.onHit(this, attacker, defender, damage);
 		}
 
-		if (empoweredStrike != null){
-			if (!empoweredStrike.delayedDetach) empoweredStrike.detach();
-			if (!(defender instanceof Mob) || !((Mob) defender).surprisedBy(attacker)){
-				Sample.INSTANCE.play(Assets.Sounds.HIT_STRONG, 0.75f, 1.2f);
-			}
-		}
 		return super.proc(attacker, defender, damage);
 	}
 
@@ -252,17 +259,15 @@ public class MagesStaff extends MeleeWeapon {
 
 		int oldStaffcharges = this.wand != null ? this.wand.curCharges : 0;
 
-		if (owner == Dungeon.hero && this.wand != null && Dungeon.hero.hasTalent(Talent.WAND_PRESERVATION)){
-			Talent.WandPreservationCounter counter = Buff.affect(Dungeon.hero, Talent.WandPreservationCounter.class);
-			if (counter.count() == 0){
-				counter.countUp(1);
-				this.wand.level(0);
-				if (!this.wand.collect()) {
-					Dungeon.level.drop(this.wand, owner.pos);
-				}
-				GLog.newLine();
-				GLog.p(Messages.get(this, "preserved"));
+		//SPSXPD: 原破碎天赋「法杖回收」直接赋予物品（每根法杖一次）
+		if (owner == Dungeon.hero && this.wand != null && !preservationUsed){
+			preservationUsed = true;
+			this.wand.level(0);
+			if (!this.wand.collect()) {
+				Dungeon.level.drop(this.wand, owner.pos);
 			}
+			GLog.newLine();
+			GLog.p(Messages.get(this, "preserved"));
 		}
 
 		this.wand = null;
@@ -406,12 +411,14 @@ public class MagesStaff extends MeleeWeapon {
 	public void storeInBundle(Bundle bundle) {
 		super.storeInBundle(bundle);
 		bundle.put(WAND, wand);
+		bundle.put(PRESERVATION_USED, preservationUsed);
 	}
 
 	@Override
 	public void restoreFromBundle(Bundle bundle) {
 		super.restoreFromBundle(bundle);
 		wand = (Wand) bundle.get(WAND);
+		preservationUsed = bundle.getBoolean(PRESERVATION_USED);
 		if (wand != null) {
 			wand.maxCharges = Math.min(wand.maxCharges + 1, 10);
 		}
@@ -473,8 +480,7 @@ public class MagesStaff extends MeleeWeapon {
 				}
 
 				if (wand != null) {
-					if (Dungeon.hero.hasTalent(Talent.WAND_PRESERVATION)
-							&& Dungeon.hero.buff(Talent.WandPreservationCounter.class) == null) {
+					if (!preservationUsed) {
 						bodyText += "\n\n" + Messages.get(MagesStaff.class, "imbue_talent");
 					} else {
 						bodyText += "\n\n" + Messages.get(MagesStaff.class, "imbue_lost");

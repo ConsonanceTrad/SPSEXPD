@@ -152,18 +152,12 @@ import pd.items.consum.medicine.Foamedbeverage;
 import pd.items.consum.medicine.GoldenJelly;
 import pd.items.consum.medicine.Greaterpill;
 import pd.items.consum.medicine.GreenSpore;
-import pd.items.consum.medicine.Hardpill;
 import pd.items.consum.medicine.JackOLantern;
 import pd.items.consum.medicine.LingPotion;
-import pd.items.consum.medicine.MagicPill;
 import pd.items.consum.medicine.MendingTonic;
-import pd.items.consum.medicine.Musicpill;
 import pd.items.consum.medicine.Pill;
 import pd.items.consum.medicine.PixieParasol;
-import pd.items.consum.medicine.Powerpill;
 import pd.items.consum.medicine.RealgarWine;
-import pd.items.consum.medicine.Shootpill;
-import pd.items.consum.medicine.Smashpill;
 import pd.items.consum.medicine.TimePill;
 import pd.items.consum.medicine.Timepill2;
 import pd.items.nornstone.BlueNornStone;
@@ -174,22 +168,25 @@ import pd.items.nornstone.PurpleNornStone;
 import pd.items.nornstone.YellowNornStone;
 import pd.items.consum.potions.Potion;
 import pd.items.consum.potions.PotionOfExperience;
+import pd.items.consum.potions.PotionOfAcid;
+import pd.items.consum.potions.PotionOfConfusion;
+import pd.items.consum.potions.PotionOfEnergy;
 import pd.items.consum.potions.PotionOfFrost;
+import pd.items.consum.potions.PotionOfGlass;
 import pd.items.consum.potions.PotionOfHaste;
 import pd.items.consum.potions.PotionOfHealing;
 import pd.items.consum.potions.PotionOfInvisibility;
 import pd.items.consum.potions.PotionOfLevitation;
 import pd.items.consum.potions.PotionOfLiquidFlame;
-import pd.items.consum.potions.PotionOfMending;
-import pd.items.consum.potions.PotionOfMight;
 import pd.items.consum.potions.PotionOfMindVision;
 import pd.items.consum.potions.PotionOfMixing;
-import pd.items.consum.potions.PotionOfOverHealing;
 import pd.items.consum.potions.PotionOfParalyticGas;
 import pd.items.consum.potions.PotionOfPurity;
+import pd.items.consum.potions.PotionOfSatiety;
 import pd.items.consum.potions.PotionOfShield;
 import pd.items.consum.potions.PotionOfStrength;
 import pd.items.consum.potions.PotionOfToxicGas;
+import pd.items.consum.potions.PotionOfTransmute;
 import pd.items.consum.potions.SpsPotion;
 import pd.items.consum.potions.brews.Brew;
 import pd.items.consum.potions.elixirs.Elixir;
@@ -425,7 +422,6 @@ import pd.plants.Fadeleaf;
 import pd.plants.Firebloom;
 import pd.plants.Freshberry;
 import pd.plants.Icecap;
-import pd.plants.Mageroyal;
 import pd.plants.NutPlant;
 import pd.plants.Plant;
 import pd.plants.ReNepenth;
@@ -609,9 +605,10 @@ public class Generator {
 			POTION.probs = POTION.defaultProbs.clone();
 
 			SPS_POTION.classes = new Class<?>[]{
-					PotionOfMending.class, PotionOfMight.class, PotionOfMixing.class,
-					PotionOfShield.class, PotionOfOverHealing.class };
-			SPS_POTION.defaultProbs = new float[]{ 15, 4, 1, 5, 4 };
+					PotionOfMixing.class, PotionOfShield.class,
+					PotionOfAcid.class, PotionOfTransmute.class, PotionOfGlass.class,
+					PotionOfEnergy.class, PotionOfConfusion.class, PotionOfSatiety.class };
+			SPS_POTION.defaultProbs = new float[]{ 1, 5, 2, 2, 2, 2, 2, 2 };
 			SPS_POTION.probs = SPS_POTION.defaultProbs.clone();
 			
 			SEED.classes = new Class<?>[]{
@@ -621,9 +618,9 @@ public class Generator {
 					Dreamfoil.Seed.class, Stormvine.Seed.class, NutPlant.Seed.class,
 					Starflower.Seed.class, ReNepenth.Seed.class, StarEater.Seed.class,
 					Dewcatcher.Seed.class, Seedpod.Seed.class, Freshberry.Seed.class,
-					SiOtwoFlower.Seed.class};
+					SiOtwoFlower.Seed.class, Swiftthistle.Seed.class};
 			SEED.defaultProbs = new float[]{12, 12, 12, 12, 12, 12, 12, 0, 4,
-					12, 12, 12, 3, 3, 4, 8, 2, 4, 3};
+					12, 12, 12, 3, 3, 4, 8, 2, 4, 3, 12};
 			SEED.probs = SEED.defaultProbs.clone();
 
 			SEED3.classes = new Class<?>[]{
@@ -648,9 +645,9 @@ public class Generator {
 					Dreamfoil.Seed.class, Stormvine.Seed.class, NutPlant.Seed.class,
 					Starflower.Seed.class, ReNepenth.Seed.class, StarEater.Seed.class,
 					Dewcatcher.Seed.class, Seedpod.Seed.class, Freshberry.Seed.class,
-					SiOtwoFlower.Seed.class};
+					SiOtwoFlower.Seed.class, Swiftthistle.Seed.class};
 			SPS_SEED.defaultProbs = new float[]{12, 12, 12, 12, 12, 12, 12, 0, 4,
-					12, 12, 12, 3, 3, 4, 8, 2, 4, 3};
+					12, 12, 12, 3, 3, 4, 8, 2, 4, 3, 12};
 			SPS_SEED.probs = SPS_SEED.defaultProbs.clone();
 
 			NORNSTONE.classes = new Class<?>[]{BlueNornStone.class, GreenNornStone.class,
@@ -930,12 +927,11 @@ public class Generator {
 
 			MEDICINE.classes = new Class<?>[]{
 					BlueMilk.class, DeathCap.class, Earthstar.class, Foamedbeverage.class,
-					GoldenJelly.class, Greaterpill.class, GreenSpore.class, Hardpill.class,
-					JackOLantern.class, LingPotion.class, MagicPill.class, MendingTonic.class,
-					Musicpill.class, PixieParasol.class, Powerpill.class, RealgarWine.class,
-					Shootpill.class, Smashpill.class, TimePill.class, Timepill2.class };
+					GoldenJelly.class, Greaterpill.class, GreenSpore.class, JackOLantern.class,
+					LingPotion.class, MendingTonic.class, PixieParasol.class, RealgarWine.class,
+					TimePill.class, Timepill2.class };
 			MEDICINE.defaultProbs = new float[]{
-					1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1 };
+					1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1 };
 			MEDICINE.probs = MEDICINE.defaultProbs.clone();
 
 			MUSHROOM.classes = new Class<?>[]{BlueMilk.class, DeathCap.class, Earthstar.class,
@@ -944,9 +940,9 @@ public class Generator {
 			MUSHROOM.defaultProbs = new float[]{4, 3, 3, 3, 3, 3, 2, 1};
 			MUSHROOM.probs = MUSHROOM.defaultProbs.clone();
 
-			PILL.classes = new Class<?>[]{Hardpill.class, MagicPill.class, Musicpill.class,
-					Powerpill.class, Shootpill.class, Smashpill.class};
-			PILL.defaultProbs = new float[]{1, 1, 1, 1, 1, 1};
+			//SPSEXPD: 六种战斗药丸已删除，原 PILL 掉落类别沿用蘑菇药品池
+			PILL.classes = MUSHROOM.classes.clone();
+			PILL.defaultProbs = MUSHROOM.defaultProbs.clone();
 			PILL.probs = PILL.defaultProbs.clone();
 
 			SUMMONED.classes = new Class<?>[]{

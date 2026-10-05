@@ -13,7 +13,7 @@ import pd.items.Item;
 import pd.items.Stylus;
 import pd.items.Weightstone;
 import pd.items.misc.LuckyBadge;
-import pd.items.consum.potions.PotionOfOverHealing;
+import pd.items.consum.potions.PotionOfHealing;
 import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.levels.builders.SpsBspLayout.Room;
@@ -37,7 +37,7 @@ abstract class SpsTriangleLevel extends SpsRegularLevel {
 		}
 		if (Random.Float() < LuckyBadge.rareRewardChance(LuckyBadge.luckBonus(Dungeon.hero))) {
 			GroundItems.addItemToSpawn( this, Random.Int(2) == 0
-					? new ScrollOfMagicalInfusion() : new PotionOfOverHealing());
+					? new ScrollOfMagicalInfusion() : new PotionOfHealing());
 		}
 		if (legacyTrialDepth() == 31) {
 			feeling = Feeling.DARK;

@@ -33,6 +33,9 @@ public class HeartOfScarecrow extends Bag {
 		return false;
 	}
 
-	@Override public int capacity() { return 34; }
+	/** SPSEXPD: 标签页固定排序位。 */
+	@Override public int bagOrder() { return 7; }
+
+	@Override public int capacity() { return 35; }
 	@Override public int value() { return 50 * quantity; }
 }

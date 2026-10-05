@@ -48,7 +48,7 @@ public final class SpsLegacyBagsTest {
 			testWandHolsterCharging();
 			testStartingLoadouts();
 			testBilingualResources();
-			System.out.println("SPS旧版收纳袋通过：三十格容量、收纳分类、法杖充能生命周期、八职业开局、教程隔离和双语资源均正常。");
+			System.out.println("SPS旧版收纳袋通过：三十五格容量、收纳分类、法杖充能生命周期、八职业开局、教程隔离和双语资源均正常。");
 		} finally {
 			Actor.clear();
 			Dungeon.hero = null;
@@ -60,13 +60,13 @@ public final class SpsLegacyBagsTest {
 
 	private static void testContainerRules() {
 		ArrowCollecter arrows = new ArrowCollecter();
-		check(arrows.capacity() == 34 && arrows.value() == 50, "暗器袋容量或价值错误");
+		check(arrows.capacity() == 35 && arrows.value() == 50, "暗器袋容量或价值错误");
 		check(arrows.canHold(new WoodenBowN()), "暗器袋没有收纳远程武器");
 		check(arrows.canHold(new ThrowingKnife()), "暗器袋没有收纳投掷武器");
 		check(!arrows.canHold(new PotionOfHealing()), "暗器袋错误收纳药剂");
 
 		KeyRing ring = new KeyRing();
-		check(ring.capacity() == 34 && ring.value() == 50, "钥匙环容量或价值错误");
+		check(ring.capacity() == 35 && ring.value() == 50, "钥匙环容量或价值错误");
 		check(ring.canHold(new IronKey(1)), "钥匙环没有收纳地牢钥匙");
 		check(ring.canHold(new PotKey()) && ring.canHold(new AncientCoin()) && ring.canHold(new TenguKey()),
 				"钥匙环没有收纳SPS首领钥匙");
@@ -75,8 +75,8 @@ public final class SpsLegacyBagsTest {
 		check(ring.canHold(new AdventureJournal()), "钥匙环没有收纳路线日志");
 		check(!ring.canHold(new Firebloom.Seed()), "钥匙环错误收纳种子");
 
-		WandHolster holster = new WandHolster();
-		check(holster.capacity() == 34 && holster.value() == 50, "法杖套容量或价值错误");
+		MagicalHolster holster = new MagicalHolster();
+		check(holster.capacity() == 35 && holster.value() == 60, "法杖套容量或价值错误");
 		check(holster.canHold(new WandOfMagicMissile()), "法杖套没有收纳法杖");
 		check(!holster.canHold(new Firebloom.Seed()), "法杖套错误收纳种子");
 	}
@@ -91,7 +91,7 @@ public final class SpsLegacyBagsTest {
 		check(wand.collect(hero.belongings.backpack)
 				&& hero.buffs(Wand.Charger.class).size() == 1, "背包中的法杖没有开始充能");
 
-		WandHolster holster = new WandHolster();
+		MagicalHolster holster = new MagicalHolster();
 		check(holster.collect(hero.belongings.backpack), "法杖套无法收入英雄背包");
 		check(holster.contains(wand) && hero.buffs(Wand.Charger.class).size() == 1,
 				"拾取法杖套时内部法杖没有继续充能或重复充能");

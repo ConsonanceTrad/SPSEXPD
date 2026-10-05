@@ -13,73 +13,73 @@ public final class SpecificTaskDict {
 	private SpecificTaskDict() { }
 
 	/** TRINKET_CATA#0 */
-	public static final IconEntry TRINKET_CATA_0 = new IconEntry("sprites/items/specific/task.png", new int[]{2, 3, 12, 11}, 7094);
+	public static final IconEntry TRINKET_CATA_0 = new IconEntry("sprites/items/specific/task.png", new int[]{2, 3, 12, 11}, 7159);
 	/** DEWDROP_MUSHROOM */
-	public static final IconEntry DEWDROP_MUSHROOM = new IconEntry("sprites/items/specific/task.png", new int[]{17, 1, 13, 14}, 7095);
+	public static final IconEntry DEWDROP_MUSHROOM = new IconEntry("sprites/items/specific/task.png", new int[]{17, 1, 13, 14}, 7160);
 	/** CANDLE#0 */
-	public static final IconEntry CANDLE_0 = new IconEntry("sprites/items/specific/task.png", new int[]{34, 2, 12, 12}, 7096);
+	public static final IconEntry CANDLE_0 = new IconEntry("sprites/items/specific/task.png", new int[]{34, 2, 12, 12}, 7161);
 	/** DUST#0 */
-	public static final IconEntry DUST_0 = new IconEntry("sprites/items/specific/task.png", new int[]{50, 3, 12, 11}, 7097);
+	public static final IconEntry DUST_0 = new IconEntry("sprites/items/specific/task.png", new int[]{50, 3, 12, 11}, 7162);
 	/** GNOLL_CLOTHES */
-	public static final IconEntry GNOLL_CLOTHES = new IconEntry("sprites/items/specific/task.png", new int[]{65, 2, 13, 12}, 7098);
+	public static final IconEntry GNOLL_CLOTHES = new IconEntry("sprites/items/specific/task.png", new int[]{65, 2, 13, 12}, 7163);
 	/** BOOK_OF_ALL */
-	public static final IconEntry BOOK_OF_ALL = new IconEntry("sprites/items/specific/task.png", new int[]{161, 0, 13, 16}, 7099);
+	public static final IconEntry BOOK_OF_ALL = new IconEntry("sprites/items/specific/task.png", new int[]{161, 0, 13, 16}, 7164);
 	/** POWER_CHALLENGE */
-	public static final IconEntry POWER_CHALLENGE = new IconEntry("sprites/items/specific/task.png", new int[]{177, 0, 13, 16}, 7100);
+	public static final IconEntry POWER_CHALLENGE = new IconEntry("sprites/items/specific/task.png", new int[]{177, 0, 13, 16}, 7165);
 	/** TRIAL_OF_LIFE */
-	public static final IconEntry TRIAL_OF_LIFE = new IconEntry("sprites/items/specific/task.png", new int[]{193, 0, 13, 16}, 7101);
+	public static final IconEntry TRIAL_OF_LIFE = new IconEntry("sprites/items/specific/task.png", new int[]{193, 0, 13, 16}, 7166);
 	/** TASTY_PUDDING */
-	public static final IconEntry TASTY_PUDDING = new IconEntry("sprites/items/specific/task.png", new int[]{210, 3, 12, 11}, 7102);
+	public static final IconEntry TASTY_PUDDING = new IconEntry("sprites/items/specific/task.png", new int[]{210, 3, 12, 11}, 7167);
 	/** SOUL_COLLECT */
-	public static final IconEntry SOUL_COLLECT = new IconEntry("sprites/items/specific/task.png", new int[]{225, 1, 14, 14}, 7103);
+	public static final IconEntry SOUL_COLLECT = new IconEntry("sprites/items/specific/task.png", new int[]{225, 1, 14, 14}, 7168);
 	/** POWER_HAND */
-	public static final IconEntry POWER_HAND = new IconEntry("sprites/items/specific/task.png", new int[]{241, 1, 13, 15}, 7104);
+	public static final IconEntry POWER_HAND = new IconEntry("sprites/items/specific/task.png", new int[]{241, 1, 13, 15}, 7169);
 	/** PICKAXE#0 */
-	public static final IconEntry PICKAXE_0 = new IconEntry("sprites/items/specific/task.png", new int[]{1, 17, 14, 14}, 7105);
+	public static final IconEntry PICKAXE_0 = new IconEntry("sprites/items/specific/task.png", new int[]{1, 17, 14, 14}, 7170);
 	/** ORE#0 */
-	public static final IconEntry ORE_0 = new IconEntry("sprites/items/specific/task.png", new int[]{17, 17, 15, 15}, 7106);
+	public static final IconEntry ORE_0 = new IconEntry("sprites/items/specific/task.png", new int[]{17, 17, 15, 15}, 7171);
 	/** TOKEN#0 */
-	public static final IconEntry TOKEN_0 = new IconEntry("sprites/items/specific/task.png", new int[]{34, 18, 12, 12}, 7107);
+	public static final IconEntry TOKEN_0 = new IconEntry("sprites/items/specific/task.png", new int[]{34, 18, 12, 12}, 7172);
 	/** EMBER#0 */
-	public static final IconEntry EMBER_0 = new IconEntry("sprites/items/specific/task.png", new int[]{50, 19, 12, 11}, 7108);
+	public static final IconEntry EMBER_0 = new IconEntry("sprites/items/specific/task.png", new int[]{50, 19, 12, 11}, 7173);
 	/** WISDOM_CHALLENGE */
-	public static final IconEntry WISDOM_CHALLENGE = new IconEntry("sprites/items/specific/task.png", new int[]{161, 16, 13, 16}, 7109);
+	public static final IconEntry WISDOM_CHALLENGE = new IconEntry("sprites/items/specific/task.png", new int[]{161, 16, 13, 16}, 7174);
 	/** TRIFORCE */
-	public static final IconEntry TRIFORCE = new IconEntry("sprites/items/specific/task.png", new int[]{176, 18, 16, 10}, 7110);
+	public static final IconEntry TRIFORCE = new IconEntry("sprites/items/specific/task.png", new int[]{176, 18, 16, 10}, 7175);
 	/** FINAL_TRIAL */
-	public static final IconEntry FINAL_TRIAL = new IconEntry("sprites/items/specific/task.png", new int[]{193, 16, 15, 15}, 7111);
+	public static final IconEntry FINAL_TRIAL = new IconEntry("sprites/items/specific/task.png", new int[]{193, 16, 15, 15}, 7176);
 	/** AMULET#0 */
-	public static final IconEntry AMULET_0 = new IconEntry("sprites/items/specific/task.png", new int[]{208, 16, 16, 16}, 7112);
+	public static final IconEntry AMULET_0 = new IconEntry("sprites/items/specific/task.png", new int[]{208, 16, 16, 16}, 7177);
 	/** ENERGY_CORE */
-	public static final IconEntry ENERGY_CORE = new IconEntry("sprites/items/specific/task.png", new int[]{225, 17, 14, 14}, 7113);
+	public static final IconEntry ENERGY_CORE = new IconEntry("sprites/items/specific/task.png", new int[]{225, 17, 14, 14}, 7178);
 	/** FINAL_TROPHY */
-	public static final IconEntry FINAL_TROPHY = new IconEntry("sprites/items/specific/task.png", new int[]{240, 16, 16, 16}, 7114);
+	public static final IconEntry FINAL_TROPHY = new IconEntry("sprites/items/specific/task.png", new int[]{240, 16, 16, 16}, 7179);
 	/** DOLYA_SLATE */
-	public static final IconEntry DOLYA_SLATE = new IconEntry("sprites/items/specific/task.png", new int[]{1, 33, 14, 15}, 7115);
+	public static final IconEntry DOLYA_SLATE = new IconEntry("sprites/items/specific/task.png", new int[]{1, 33, 14, 15}, 7180);
 	/** SOUL_BOOK */
-	public static final IconEntry SOUL_BOOK = new IconEntry("sprites/items/specific/task.png", new int[]{17, 33, 14, 15}, 7116);
+	public static final IconEntry SOUL_BOOK = new IconEntry("sprites/items/specific/task.png", new int[]{17, 33, 14, 15}, 7181);
 	/** TRIAL_BOOK */
-	public static final IconEntry TRIAL_BOOK = new IconEntry("sprites/items/specific/task.png", new int[]{34, 33, 12, 15}, 7117);
+	public static final IconEntry TRIAL_BOOK = new IconEntry("sprites/items/specific/task.png", new int[]{34, 33, 12, 15}, 7182);
 	/** SEWER_CHALLENGE#0 */
-	public static final IconEntry SEWER_CHALLENGE_0 = new IconEntry("sprites/items/specific/task.png", new int[]{48, 32, 16, 16}, 7118);
+	public static final IconEntry SEWER_CHALLENGE_0 = new IconEntry("sprites/items/specific/task.png", new int[]{48, 32, 16, 16}, 7183);
 	/** SKELETON_CHALLENGE */
-	public static final IconEntry SKELETON_CHALLENGE = new IconEntry("sprites/items/specific/task.png", new int[]{64, 32, 16, 16}, 7119);
+	public static final IconEntry SKELETON_CHALLENGE = new IconEntry("sprites/items/specific/task.png", new int[]{64, 32, 16, 16}, 7184);
 	/** CAVE_CHALLENGE#0 */
-	public static final IconEntry CAVE_CHALLENGE_0 = new IconEntry("sprites/items/specific/task.png", new int[]{80, 32, 16, 16}, 7120);
+	public static final IconEntry CAVE_CHALLENGE_0 = new IconEntry("sprites/items/specific/task.png", new int[]{80, 32, 16, 16}, 7185);
 	/** PRISON_CHALLENGE */
-	public static final IconEntry PRISON_CHALLENGE = new IconEntry("sprites/items/specific/task.png", new int[]{96, 32, 16, 16}, 7121);
+	public static final IconEntry PRISON_CHALLENGE = new IconEntry("sprites/items/specific/task.png", new int[]{96, 32, 16, 16}, 7186);
 	/** POT_KEY#0 */
-	public static final IconEntry POT_KEY_0 = new IconEntry("sprites/items/specific/task.png", new int[]{112, 32, 16, 16}, 7122);
+	public static final IconEntry POT_KEY_0 = new IconEntry("sprites/items/specific/task.png", new int[]{112, 32, 16, 16}, 7187);
 	/** ROGUE_CHALLENGE */
-	public static final IconEntry ROGUE_CHALLENGE = new IconEntry("sprites/items/specific/task.png", new int[]{128, 32, 16, 16}, 7123);
+	public static final IconEntry ROGUE_CHALLENGE = new IconEntry("sprites/items/specific/task.png", new int[]{128, 32, 16, 16}, 7188);
 	/** TELEPORT_COORDINATE */
-	public static final IconEntry TELEPORT_COORDINATE = new IconEntry("sprites/items/specific/task.png", new int[]{3, 50, 10, 11}, 7124);
+	public static final IconEntry TELEPORT_COORDINATE = new IconEntry("sprites/items/specific/task.png", new int[]{3, 50, 10, 11}, 7189);
 	/** SECRET_TREASURE_SPOT */
-	public static final IconEntry SECRET_TREASURE_SPOT = new IconEntry("sprites/items/specific/task.png", new int[]{50, 48, 12, 16}, 7125);
+	public static final IconEntry SECRET_TREASURE_SPOT = new IconEntry("sprites/items/specific/task.png", new int[]{50, 48, 12, 16}, 7190);
 	/** MAGIC_SKULL */
-	public static final IconEntry MAGIC_SKULL = new IconEntry("sprites/items/specific/task.png", new int[]{66, 51, 11, 11}, 7126);
+	public static final IconEntry MAGIC_SKULL = new IconEntry("sprites/items/specific/task.png", new int[]{66, 51, 11, 11}, 7191);
 	/** CHARGED_CONCH */
-	public static final IconEntry CHARGED_CONCH = new IconEntry("sprites/items/specific/task.png", new int[]{83, 49, 9, 14}, 7127);
+	public static final IconEntry CHARGED_CONCH = new IconEntry("sprites/items/specific/task.png", new int[]{83, 49, 9, 14}, 7192);
 	/** COURT_MEMORIAL */
-	public static final IconEntry COURT_MEMORIAL = new IconEntry("sprites/items/specific/task.png", new int[]{98, 49, 12, 15}, 7128);
+	public static final IconEntry COURT_MEMORIAL = new IconEntry("sprites/items/specific/task.png", new int[]{98, 49, 12, 15}, 7193);
 }

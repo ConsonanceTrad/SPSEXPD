@@ -13,103 +13,103 @@ public final class ConsumThrowsDict {
 	private ConsumThrowsDict() { }
 
 	/** THROWING_SPIKE#0 */
-	public static final IconEntry THROWING_SPIKE_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{3, 3, 11, 10}, 6602);
+	public static final IconEntry THROWING_SPIKE_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{3, 3, 11, 10}, 6666);
 	/** THROWING_KNIFE#0 */
-	public static final IconEntry THROWING_KNIFE_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{18, 2, 12, 13}, 6603);
+	public static final IconEntry THROWING_KNIFE_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{18, 2, 12, 13}, 6667);
 	/** THROWING_STONE#0 */
-	public static final IconEntry THROWING_STONE_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{34, 3, 12, 10}, 6604);
+	public static final IconEntry THROWING_STONE_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{34, 3, 12, 10}, 6668);
 	/** FISHING_SPEAR#0 */
-	public static final IconEntry FISHING_SPEAR_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{51, 3, 11, 11}, 6605);
+	public static final IconEntry FISHING_SPEAR_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{51, 3, 11, 11}, 6669);
 	/** SHURIKEN#0 */
-	public static final IconEntry SHURIKEN_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{66, 2, 12, 12}, 6606);
+	public static final IconEntry SHURIKEN_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{66, 2, 12, 12}, 6670);
 	/** THROWING_CLUB#0 */
-	public static final IconEntry THROWING_CLUB_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{82, 2, 12, 12}, 6607);
+	public static final IconEntry THROWING_CLUB_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{82, 2, 12, 12}, 6671);
 	/** THROWING_SPEAR#0 */
-	public static final IconEntry THROWING_SPEAR_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{98, 2, 13, 13}, 6608);
+	public static final IconEntry THROWING_SPEAR_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{98, 2, 13, 13}, 6672);
 	/** BOLAS#0 */
-	public static final IconEntry BOLAS_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{112, 1, 15, 14}, 6609);
+	public static final IconEntry BOLAS_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{112, 1, 15, 14}, 6673);
 	/** KUNAI#0 */
-	public static final IconEntry KUNAI_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{128, 0, 15, 15}, 6610);
+	public static final IconEntry KUNAI_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{128, 0, 15, 15}, 6674);
 	/** GIANT_SHURIKEN */
-	public static final IconEntry GIANT_SHURIKEN = new IconEntry("sprites/items/consum/throws.png", new int[]{144, 0, 16, 16}, 6611);
+	public static final IconEntry GIANT_SHURIKEN = new IconEntry("sprites/items/consum/throws.png", new int[]{144, 0, 16, 16}, 6675);
 	/** JAVELIN#0 */
-	public static final IconEntry JAVELIN_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{160, 0, 16, 16}, 6612);
+	public static final IconEntry JAVELIN_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{160, 0, 16, 16}, 6676);
 	/** TOMAHAWK#0 */
-	public static final IconEntry TOMAHAWK_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{177, 1, 13, 13}, 6613);
+	public static final IconEntry TOMAHAWK_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{177, 1, 13, 13}, 6677);
 	/** BOOMERANG#0 */
-	public static final IconEntry BOOMERANG_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{193, 1, 14, 14}, 6614);
+	public static final IconEntry BOOMERANG_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{193, 1, 14, 14}, 6678);
 	/** TRIDENT#0 */
-	public static final IconEntry TRIDENT_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{208, 0, 16, 16}, 6615);
+	public static final IconEntry TRIDENT_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{208, 0, 16, 16}, 6679);
 	/** THROWING_HAMMER#0 */
-	public static final IconEntry THROWING_HAMMER_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{226, 2, 12, 12}, 6616);
+	public static final IconEntry THROWING_HAMMER_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{226, 2, 12, 12}, 6680);
 	/** FORCE_CUBE#0 */
-	public static final IconEntry FORCE_CUBE_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{242, 2, 11, 12}, 6617);
+	public static final IconEntry FORCE_CUBE_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{242, 2, 11, 12}, 6681);
 	/** ESCAPE_KNIFE */
-	public static final IconEntry ESCAPE_KNIFE = new IconEntry("sprites/items/consum/throws.png", new int[]{2, 18, 12, 12}, 6618);
+	public static final IconEntry ESCAPE_KNIFE = new IconEntry("sprites/items/consum/throws.png", new int[]{2, 18, 12, 12}, 6682);
 	/** SONIC_BAIT */
-	public static final IconEntry SONIC_BAIT = new IconEntry("sprites/items/consum/throws.png", new int[]{17, 16, 14, 16}, 6619);
+	public static final IconEntry SONIC_BAIT = new IconEntry("sprites/items/consum/throws.png", new int[]{17, 16, 14, 16}, 6683);
 	/** MAGIC_HAND */
-	public static final IconEntry MAGIC_HAND = new IconEntry("sprites/items/consum/throws.png", new int[]{33, 17, 14, 14}, 6620);
+	public static final IconEntry MAGIC_HAND = new IconEntry("sprites/items/consum/throws.png", new int[]{33, 17, 14, 14}, 6684);
 	/** ROUND_BLADE */
-	public static final IconEntry ROUND_BLADE = new IconEntry("sprites/items/consum/throws.png", new int[]{49, 17, 14, 14}, 6621);
+	public static final IconEntry ROUND_BLADE = new IconEntry("sprites/items/consum/throws.png", new int[]{49, 17, 14, 14}, 6685);
 	/** BRICK */
-	public static final IconEntry BRICK = new IconEntry("sprites/items/consum/throws.png", new int[]{65, 17, 15, 14}, 6622);
+	public static final IconEntry BRICK = new IconEntry("sprites/items/consum/throws.png", new int[]{65, 17, 15, 14}, 6686);
 	/** METAL_JAVELIN */
-	public static final IconEntry METAL_JAVELIN = new IconEntry("sprites/items/consum/throws.png", new int[]{81, 16, 15, 15}, 6623);
+	public static final IconEntry METAL_JAVELIN = new IconEntry("sprites/items/consum/throws.png", new int[]{81, 16, 15, 15}, 6687);
 	/** TRAP_NET */
-	public static final IconEntry TRAP_NET = new IconEntry("sprites/items/consum/throws.png", new int[]{97, 18, 14, 13}, 6624);
+	public static final IconEntry TRAP_NET = new IconEntry("sprites/items/consum/throws.png", new int[]{97, 18, 14, 13}, 6688);
 	/** SKULL */
-	public static final IconEntry SKULL = new IconEntry("sprites/items/consum/throws.png", new int[]{116, 20, 8, 8}, 6625);
+	public static final IconEntry SKULL = new IconEntry("sprites/items/consum/throws.png", new int[]{116, 20, 8, 8}, 6689);
 	/** BATARANG */
-	public static final IconEntry BATARANG = new IconEntry("sprites/items/consum/throws.png", new int[]{130, 20, 13, 9}, 6626);
+	public static final IconEntry BATARANG = new IconEntry("sprites/items/consum/throws.png", new int[]{130, 20, 13, 9}, 6690);
 	/** FILTH_LUMP */
-	public static final IconEntry FILTH_LUMP = new IconEntry("sprites/items/consum/throws.png", new int[]{145, 17, 14, 15}, 6627);
+	public static final IconEntry FILTH_LUMP = new IconEntry("sprites/items/consum/throws.png", new int[]{145, 17, 14, 15}, 6691);
 	/** RICE_BALL */
-	public static final IconEntry RICE_BALL = new IconEntry("sprites/items/consum/throws.png", new int[]{162, 19, 12, 11}, 6628);
+	public static final IconEntry RICE_BALL = new IconEntry("sprites/items/consum/throws.png", new int[]{162, 19, 12, 11}, 6692);
 	/** PSYCHIC_ARROW */
-	public static final IconEntry PSYCHIC_ARROW = new IconEntry("sprites/items/consum/throws.png", new int[]{2, 34, 12, 12}, 6629);
+	public static final IconEntry PSYCHIC_ARROW = new IconEntry("sprites/items/consum/throws.png", new int[]{2, 34, 12, 12}, 6693);
 	/** HONEY_ARROW */
-	public static final IconEntry HONEY_ARROW = new IconEntry("sprites/items/consum/throws.png", new int[]{18, 34, 12, 12}, 6630);
+	public static final IconEntry HONEY_ARROW = new IconEntry("sprites/items/consum/throws.png", new int[]{18, 34, 12, 12}, 6694);
 	/** DOOR_BLOCK_PLACER */
-	public static final IconEntry DOOR_BLOCK_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{0, 64, 16, 16}, 6631);
+	public static final IconEntry DOOR_BLOCK_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{0, 64, 16, 16}, 6695);
 	/** BRICK_BLOCK_PLACER */
-	public static final IconEntry BRICK_BLOCK_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{16, 64, 16, 16}, 6632);
+	public static final IconEntry BRICK_BLOCK_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{16, 64, 16, 16}, 6696);
 	/** WATER_BLOCK_PLACER */
-	public static final IconEntry WATER_BLOCK_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{32, 64, 16, 16}, 6633);
+	public static final IconEntry WATER_BLOCK_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{32, 64, 16, 16}, 6697);
 	/** STATUE_PLACER */
-	public static final IconEntry STATUE_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{48, 64, 16, 16}, 6634);
+	public static final IconEntry STATUE_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{48, 64, 16, 16}, 6698);
 	/** PLANK_PLACER */
-	public static final IconEntry PLANK_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{64, 64, 16, 16}, 6635);
+	public static final IconEntry PLANK_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{64, 64, 16, 16}, 6699);
 	/** BOOKSHELF_PLACER */
-	public static final IconEntry BOOKSHELF_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{80, 64, 16, 16}, 6636);
+	public static final IconEntry BOOKSHELF_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{80, 64, 16, 16}, 6700);
 	/** FLOWER_POT_PLACER */
-	public static final IconEntry FLOWER_POT_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{98, 66, 12, 12}, 6637);
+	public static final IconEntry FLOWER_POT_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{98, 66, 12, 12}, 6701);
 	/** SMALL_POISON_DART */
-	public static final IconEntry SMALL_POISON_DART = new IconEntry("sprites/items/consum/throws.png", new int[]{0, 80, 14, 14}, 6638);
+	public static final IconEntry SMALL_POISON_DART = new IconEntry("sprites/items/consum/throws.png", new int[]{0, 80, 14, 14}, 6702);
 	/** NORMAL_DART */
-	public static final IconEntry NORMAL_DART = new IconEntry("sprites/items/consum/throws.png", new int[]{16, 80, 15, 15}, 6639);
+	public static final IconEntry NORMAL_DART = new IconEntry("sprites/items/consum/throws.png", new int[]{16, 80, 15, 15}, 6703);
 	/** ROT_DART#0 */
-	public static final IconEntry ROT_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{32, 80, 15, 15}, 6640);
+	public static final IconEntry ROT_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{32, 80, 15, 15}, 6704);
 	/** INCENDIARY_DART#0 */
-	public static final IconEntry INCENDIARY_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{48, 80, 15, 15}, 6641);
+	public static final IconEntry INCENDIARY_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{48, 80, 15, 15}, 6705);
 	/** ADRENALINE_DART#0 */
-	public static final IconEntry ADRENALINE_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{64, 80, 15, 15}, 6642);
+	public static final IconEntry ADRENALINE_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{64, 80, 15, 15}, 6706);
 	/** HEALING_DART#0 */
-	public static final IconEntry HEALING_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{80, 80, 15, 15}, 6643);
+	public static final IconEntry HEALING_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{80, 80, 15, 15}, 6707);
 	/** CHILLING_DART#0 */
-	public static final IconEntry CHILLING_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{96, 80, 15, 15}, 6644);
+	public static final IconEntry CHILLING_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{96, 80, 15, 15}, 6708);
 	/** SHOCKING_DART#0 */
-	public static final IconEntry SHOCKING_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{112, 80, 15, 15}, 6645);
+	public static final IconEntry SHOCKING_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{112, 80, 15, 15}, 6709);
 	/** POISON_DART#0 */
-	public static final IconEntry POISON_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{128, 80, 15, 15}, 6646);
+	public static final IconEntry POISON_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{128, 80, 15, 15}, 6710);
 	/** CLEANSING_DART#0 */
-	public static final IconEntry CLEANSING_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{144, 80, 15, 15}, 6647);
+	public static final IconEntry CLEANSING_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{144, 80, 15, 15}, 6711);
 	/** PARALYTIC_DART#0 */
-	public static final IconEntry PARALYTIC_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{160, 80, 15, 15}, 6648);
+	public static final IconEntry PARALYTIC_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{160, 80, 15, 15}, 6712);
 	/** HOLY_DART#0 */
-	public static final IconEntry HOLY_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{176, 80, 15, 15}, 6649);
+	public static final IconEntry HOLY_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{176, 80, 15, 15}, 6713);
 	/** DISPLACING_DART#0 */
-	public static final IconEntry DISPLACING_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{192, 80, 15, 15}, 6650);
+	public static final IconEntry DISPLACING_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{192, 80, 15, 15}, 6714);
 	/** BLINDING_DART#0 */
-	public static final IconEntry BLINDING_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{208, 80, 15, 15}, 6651);
+	public static final IconEntry BLINDING_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{208, 80, 15, 15}, 6715);
 }

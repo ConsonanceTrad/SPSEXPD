@@ -69,21 +69,21 @@ public final class ConsumPotionSeedBasicPotionDict {
 	/** ALCHEMY_FLUX */
 	public static final IconEntry ALCHEMY_FLUX = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{245, 17, 6, 15}, 6451);
 	/** FIRE_PHOSPHORUS_FRUIT */
-	public static final IconEntry FIRE_PHOSPHORUS_FRUIT = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{2, 34, 12, 13}, 6452);
+	public static final IconEntry FIRE_PHOSPHORUS_FRUIT = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{2, 32, 12, 16}, 6452);
 	/** EARTH_RIFT_FRUIT */
-	public static final IconEntry EARTH_RIFT_FRUIT = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{16, 33, 16, 15}, 6453);
+	public static final IconEntry EARTH_RIFT_FRUIT = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{18, 32, 12, 16}, 6453);
 	/** DEW_FUNGUS_SPORE */
-	public static final IconEntry DEW_FUNGUS_SPORE = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{35, 37, 12, 9}, 6454);
+	public static final IconEntry DEW_FUNGUS_SPORE = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{34, 32, 12, 16}, 6454);
 	/** POISON_MUSHROOM */
-	public static final IconEntry POISON_MUSHROOM = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{50, 35, 11, 12}, 6455);
+	public static final IconEntry POISON_MUSHROOM = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{50, 32, 12, 16}, 6455);
 	/** MONOCHROME_BLOCK */
-	public static final IconEntry MONOCHROME_BLOCK = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{67, 35, 11, 12}, 6456);
+	public static final IconEntry MONOCHROME_BLOCK = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{66, 32, 12, 16}, 6456);
 	/** LETHAL_FUNGUS */
-	public static final IconEntry LETHAL_FUNGUS = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{82, 36, 12, 11}, 6457);
+	public static final IconEntry LETHAL_FUNGUS = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{82, 32, 12, 16}, 6457);
 	/** BLUE_CAP_MUSHROOM */
-	public static final IconEntry BLUE_CAP_MUSHROOM = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{97, 35, 12, 12}, 6458);
+	public static final IconEntry BLUE_CAP_MUSHROOM = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{98, 32, 12, 16}, 6458);
 	/** PILL */
-	public static final IconEntry PILL = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{115, 34, 11, 11}, 6459);
+	public static final IconEntry PILL = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{116, 33, 7, 13}, 6459);
 	/** BREW_INFERNAL#0 */
 	public static final IconEntry BREW_INFERNAL_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{48, 48, 11, 13}, 6460);
 	/** BREW_BLIZZARD#0 */

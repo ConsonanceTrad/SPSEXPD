@@ -13,29 +13,29 @@ public final class EquipmentJewelleryRingDict {
 	private EquipmentJewelleryRingDict() { }
 
 	/** RING_HOLDER */
-	public static final IconEntry RING_HOLDER = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{4, 3, 8, 10}, 6900);
+	public static final IconEntry RING_HOLDER = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{4, 3, 8, 10}, 6964);
 	/** RING_RUBY#0 */
-	public static final IconEntry RING_RUBY_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{20, 3, 8, 10}, 6901);
+	public static final IconEntry RING_RUBY_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{20, 3, 8, 10}, 6965);
 	/** RING_ELEMENTS#0 */
-	public static final IconEntry RING_ELEMENTS_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{36, 3, 8, 10}, 6902);
+	public static final IconEntry RING_ELEMENTS_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{36, 3, 8, 10}, 6966);
 	/** RING_ENERGY#0 */
-	public static final IconEntry RING_ENERGY_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{52, 3, 8, 10}, 6903);
+	public static final IconEntry RING_ENERGY_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{52, 3, 8, 10}, 6967);
 	/** RING_ONYX#0 */
-	public static final IconEntry RING_ONYX_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{68, 3, 8, 10}, 6904);
+	public static final IconEntry RING_ONYX_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{68, 3, 8, 10}, 6968);
 	/** RING_FORCE#0 */
-	public static final IconEntry RING_FORCE_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{84, 3, 8, 10}, 6905);
+	public static final IconEntry RING_FORCE_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{84, 3, 8, 10}, 6969);
 	/** RING_FUROR#0 */
-	public static final IconEntry RING_FUROR_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{100, 3, 8, 10}, 6906);
+	public static final IconEntry RING_FUROR_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{100, 3, 8, 10}, 6970);
 	/** RING_SAPPHIRE#0 */
-	public static final IconEntry RING_SAPPHIRE_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{116, 3, 8, 10}, 6907);
+	public static final IconEntry RING_SAPPHIRE_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{116, 3, 8, 10}, 6971);
 	/** RING_MIGHT#0 */
-	public static final IconEntry RING_MIGHT_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{132, 3, 8, 10}, 6908);
+	public static final IconEntry RING_MIGHT_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{132, 3, 8, 10}, 6972);
 	/** RING_SHARPSHOOT#0 */
-	public static final IconEntry RING_SHARPSHOOT_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{148, 3, 8, 10}, 6909);
+	public static final IconEntry RING_SHARPSHOOT_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{148, 3, 8, 10}, 6973);
 	/** RING_TENACITY#0 */
-	public static final IconEntry RING_TENACITY_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{164, 3, 8, 10}, 6910);
+	public static final IconEntry RING_TENACITY_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{164, 3, 8, 10}, 6974);
 	/** RING_DIAMOND#0 */
-	public static final IconEntry RING_DIAMOND_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{180, 3, 8, 10}, 6911);
+	public static final IconEntry RING_DIAMOND_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{180, 3, 8, 10}, 6975);
 	/** SPS_WING_RING */
-	public static final IconEntry SPS_WING_RING = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{1, 35, 14, 10}, 6912);
+	public static final IconEntry SPS_WING_RING = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{1, 35, 14, 10}, 6976);
 }

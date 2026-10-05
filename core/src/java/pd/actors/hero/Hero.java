@@ -50,6 +50,7 @@ import pd.actors.buffs.Combo;
 import pd.actors.buffs.Cripple;
 import pd.actors.buffs.DarkFallen;
 import pd.actors.buffs.DeadRaise;
+import pd.actors.buffs.DewScatter;
 import pd.actors.buffs.Disarm;
 import pd.actors.buffs.Drowsy;
 import pd.actors.buffs.Foresight;
@@ -128,7 +129,9 @@ import pd.items.Dewdrop;
 import pd.items.EquipableItem;
 import pd.items.Generator;
 import pd.items.Heap.Type;
+import pd.items.Gold;
 import pd.items.Heap;
+import pd.items.misc.DewBadge;
 import pd.items.Item;
 import pd.items.KindOfWeapon;
 import pd.items.OrbOfZot;
@@ -287,6 +290,7 @@ public class Hero extends Char {
 			.t("level_up", "升级！")
 			.t("new_level", "升级！精准+，闪避+，最大生命值+5！")
 			.t("new_talent", "天赋点+1！")
+			.t("new_perk", "获得特质点！请前往选择新特质。")
 			.t("unspent", "你还有尚未使用的天赋点！")
 			.t("level_cap", "你不能变得更强了，不过你的经验给了你一股力量！")
 			.t("you_now_have", "你获得了：%s。")
@@ -319,6 +323,7 @@ public class Hero extends Char {
 	private static final float TIME_TO_REST		    = 1f;
 	private static final float TIME_TO_SEARCH	    = 2f;
 	private static final float HUNGER_FOR_SEARCH	= 6f;
+	private static final float TIME_TO_PICK_UP      = 1f;   //SPSXPD: 搜索顺带拾取时每件物品的耗时
 	
 	public HeroClass heroClass = HeroClass.ROGUE;
 	public HeroSubClass subClass = HeroSubClass.NONE;
@@ -327,6 +332,30 @@ public class Hero extends Char {
 	public ArmorAbility armorAbility = null;
 	public ArrayList<LinkedHashMap<Talent, Integer>> talents = new ArrayList<>();
 	public LinkedHashMap<Talent, Talent> metamorphedTalents = new LinkedHashMap<>();
+
+	//SPSXPD: 特质（Perk）体系 —— 取代破碎天赋
+	public pd.actors.hero.perks.HeroPerk heroPerk = new pd.actors.hero.perks.HeroPerk();
+	/** 每多少级发放一个特质点 */
+	public static final int PERK_LEVEL_STEP = 3;
+
+	/** 未使用的特质点（每 PERK_LEVEL_STEP 级 +1） */
+	public int reservedPerks = 0;
+	/** 本次升级抽出的候选特质（存档安全） */
+	public ArrayList<pd.actors.hero.perks.Perk> spawnedPerks = new ArrayList<>();
+	/** 已获得的特质数量（用于徽章等统计） */
+	public int perkGained = 0;
+	/** 暴击几率（0-1），由特质与装备修改 */
+	public float criticalChance = 0f;
+	/** 生命回复加成（累加），由特质修改 */
+	public float regenerationBonus = 0f;
+	/** 特质条件计数器 */
+	public pd.actors.hero.TraitCounters traitCounters = new pd.actors.hero.TraitCounters();
+
+	public static final String PERK_POINTS    = "sps_perk_points";
+	public static final String PERK_SPAWNED   = "sps_perk_spawned";
+	public static final String PERK_GAINED    = "sps_perk_gained";
+	public static final String CRITICAL_CHANCE= "sps_critical_chance";
+	public static final String REGEN_BONUS    = "sps_regen_bonus";
 	
 	private int attackSkill = 10;
 	private int defenseSkill = 5;
@@ -427,6 +456,17 @@ public class Hero extends Char {
 				+ (arcane == null ? 0 : Math.max(5, arcane.level()));
 	}
 
+	//SPSXPD: 魔法抗性（目前由特质提供，后续可扩展装备/护甲加成）
+	public float magicalResistance() {
+		float r = 0f;
+		if (heroPerk != null) {
+			pd.actors.hero.perks.ExtraMagicalResistance m =
+					heroPerk.get(pd.actors.hero.perks.ExtraMagicalResistance.class);
+			if (m != null) r += m.ratio();
+		}
+		return Math.min(0.9f, r);
+	}
+
 	public int STR() {
 		int strBonus = 0;
 
@@ -476,6 +516,15 @@ public class Hero extends Char {
 		bundle.put( STYLE, combatStyle );
 		bundle.put( ABILITY, armorAbility );
 		Talent.storeTalentsInBundle( bundle, this );
+
+		//SPSXPD: 特质体系存档
+		heroPerk.storeInBundle( bundle );
+		bundle.put( PERK_POINTS, reservedPerks );
+		bundle.put( PERK_SPAWNED, spawnedPerks );
+		bundle.put( PERK_GAINED, perkGained );
+		bundle.put( CRITICAL_CHANCE, criticalChance );
+		bundle.put( REGEN_BONUS, regenerationBonus );
+		traitCounters.storeInBundle( bundle );
 		
 		bundle.put( ATTACK, attackSkill );
 		bundle.put( DEFENSE, defenseSkill );
@@ -514,6 +563,22 @@ public class Hero extends Char {
 		if (combatStyle == null) combatStyle = CombatStyle.BALANCED;
 		armorAbility = (ArmorAbility)bundle.get( ABILITY );
 		Talent.restoreTalentsFromBundle( bundle, this );
+
+		//SPSXPD: 特质体系读档
+		if (bundle.contains( PERK_POINTS )) {
+			heroPerk.restoreFromBundle( bundle );
+			reservedPerks = bundle.getInt( PERK_POINTS );
+			spawnedPerks.clear();
+			if (bundle.contains( PERK_SPAWNED )) {
+				for (render.utils.serialize.Bundlable b : bundle.getCollection( PERK_SPAWNED )) {
+					if (b instanceof pd.actors.hero.perks.Perk) spawnedPerks.add((pd.actors.hero.perks.Perk) b);
+				}
+			}
+			perkGained = bundle.getInt( PERK_GAINED );
+			criticalChance = bundle.getFloat( CRITICAL_CHANCE );
+			regenerationBonus = bundle.getFloat( REGEN_BONUS );
+			traitCounters.restoreFromBundle( bundle );
+		}
 		
 		attackSkill = bundle.getInt( ATTACK );
 		defenseSkill = bundle.getInt( DEFENSE );
@@ -568,16 +633,16 @@ public class Hero extends Char {
 		return total;
 	}
 
+	/** SPSXPD: 该等级是否发放特质点（每 PERK_LEVEL_STEP 级一次） */
+	public static boolean grantsPerkPoint(int level) {
+		return level > 0 && level % PERK_LEVEL_STEP == 0;
+	}
+
 	public int talentPointsAvailable(int tier){
-		if (lvl < (Talent.tierLevelThresholds[tier] - 1)
-			|| (tier == 3 && subClass == HeroSubClass.NONE)
-			|| (tier == 4 && armorAbility == null)) {
-			return 0;
-		} else if (lvl >= Talent.tierLevelThresholds[tier+1]){
-			return Talent.tierLevelThresholds[tier+1] - Talent.tierLevelThresholds[tier] - talentPointsSpent(tier) + bonusTalentPoints(tier);
-		} else {
-			return 1 + lvl - Talent.tierLevelThresholds[tier] - talentPointsSpent(tier) + bonusTalentPoints(tier);
-		}
+		//SPSXPD: 破碎天赋体系已停用（改用特质/Perk 体系），天赋点恒为 0。
+		//这样所有内联的 hasTalent(...)/pointsInTalent(...) 判定自然失效，
+		//无需改动全项目 100+ 处调用点，也便于随时回退。
+		return 0;
 	}
 
 	public int bonusTalentPoints(int tier){
@@ -1860,6 +1925,13 @@ public class Hero extends Char {
 	public int attackProc( final Char enemy, int damage ) {
 		damage = super.attackProc( enemy, damage );
 
+		//SPSXPD: 暴击系统（照暗黑实现，近战/法术/投掷共用 Critical 入口）
+		damage = pd.actors.hero.Critical.roll( this, damage );
+		if (pd.actors.hero.Critical.lastWasCrit()) {
+			//「汲血暴击」：暴击时按伤害比例回血
+			pd.actors.hero.perks.VampiricCrit.tryProc( this, damage );
+		}
+
 		KindOfWeapon wep;
 		if (RingOfForce.fightingUnarmed(this) && !RingOfForce.unarmedGetsWeaponEnchantment(this)){
 			wep = null;
@@ -1868,6 +1940,9 @@ public class Hero extends Char {
 		}
 
 		damage = Talent.onAttackProc( this, enemy, damage );
+
+		//SPSEXPD: 蔬菜的“下次攻击”类效果（露珠菌孢）
+		DewScatter.onHeroAttack( this, enemy, damage );
 
 		OnePunch onePunch = buff(OnePunch.class);
 		if (onePunch != null) {
@@ -2430,7 +2505,9 @@ public class Hero extends Char {
 
 		//xp granted by ascension challenge is only for on-exp gain effects
 		if (source != AscensionChallenge.class) {
-			this.exp += exp + GhostGirlRose.experienceBonus(this);
+			//SPSXPD: 「快速学习」特质提供额外经验
+			this.exp += exp + GhostGirlRose.experienceBonus(this)
+					+ pd.actors.hero.perks.QuickLearner.extraExp(this, exp);
 		}
 		LegacyPet legacyPet = LegacyPet.active();
 		if (legacyPet != null && exp > 0) {
@@ -2550,12 +2627,15 @@ public class Hero extends Char {
 				GLog.p( Messages.get(this, "new_level") );
 				sprite.showStatus( CharSprite.POSITIVE, Messages.get(Hero.class, "level_up") );
 				Sample.INSTANCE.play( Assets.Sounds.LEVELUP );
-				if (lvl < Talent.tierLevelThresholds[Talent.MAX_TALENT_TIERS+1]){
+				//SPSXPD: 每 3 级发放一个特质点（取代破碎天赋的 tier 机制）
+				if (grantsPerkPoint(lvl)) {
+					reservedPerks++;
 					GLog.newLine();
-					GLog.p( Messages.get(this, "new_talent") );
+					GLog.p( Messages.get(this, "new_perk") );
 					StatusPane.talentBlink = 10f;
-					WndHero.lastIdx = 1;
 				}
+				//「特定等级必然获得」与「满足条件即获得」的特质检查
+				pd.actors.hero.perks.PerkGrants.onLevelUp(this, lvl);
 			}
 			
 			Item.updateQuickslot();
@@ -2807,6 +2887,11 @@ public class Hero extends Char {
 				Sample.INSTANCE.play( Assets.Sounds.STEP, 1, Random.Float( 0.96f, 1.05f ) );
 			}
 		}
+
+		//SPSEXPD: 佩戴集露徽章时，移动那一刻把落脚点周围 3x3 的露珠收进露珠瓶（不花回合）
+		if (step == pos && belongings.badge instanceof DewBadge) {
+			DewBadge.collectAround(this);
+		}
 	}
 	
 	@Override
@@ -3002,15 +3087,50 @@ public class Hero extends Char {
 		}
 	}
 
+	//SPSEXPD: 搜索时顺手拾取一格的地面物品，返回因此额外消耗的回合数（每件 1 回合）。
+	//只处理普通地面堆，宝箱/遗骸等仍需玩家自己打开。
+	private float pickUpHeap( int cell ){
+		Heap heap = Dungeon.level.heaps.get( cell );
+		if (heap == null || heap.type != Heap.Type.HEAP || heap.isEmpty()) return 0f;
+
+		float time = 0f;
+		while (!heap.isEmpty()){
+			Item item = heap.pickUp();
+			if (!item.doPickUp( this )){
+				heap.drop( item );
+				GLog.newLine();
+				GLog.n( Messages.capitalize(Messages.get(this, "you_cant_have", item.name())) );
+				break;
+			}
+			//露珠的 doPickUp 内部已结算拾取回合，这里不再重复计时
+			if (!(item instanceof Dewdrop)) time += TIME_TO_PICK_UP;
+			//金币与自动收集类物品不刷屏
+			if (!(item instanceof Gold || item instanceof DarkGold || item instanceof Dewdrop
+					|| item instanceof Key || item instanceof Guidebook)){
+				GLog.i( Messages.capitalize(Messages.get(this, "you_now_have", item.name())) );
+			}
+		}
+		return time;
+	}
+
+	//SPSEXPD: 搜索拾取只作用于「视野内且可抵达」的格子，避免隔墙取物
+	private boolean canPickUpAt( int cell ){
+		return fieldOfView[cell] && PathFinder.distance[cell] < Integer.MAX_VALUE;
+	}
+
 	public boolean search( boolean intentional ) {
 		
 		if (!isAlive()) return false;
 		
 		boolean smthFound = false;
+		float pickUpTime = 0f;   //SPSXPD: 搜索顺带拾取物品额外消耗的回合
 
 		boolean circular = pointsInTalent(Talent.WIDE_SEARCH) == 1;
-		int distance = heroClass == HeroClass.ROGUE ? 2 : 1;
+		//SPSXPD: 盗贼的搜索距离加成改由「高效搜索」特质体现（裁决），不再硬编码在角色上
+		int distance = 1;
 		if (hasTalent(Talent.WIDE_SEARCH)) distance++;
+		//SPSXPD: 「高效搜索」特质（盗贼/修士的搜索更远）
+		if (heroPerk != null && heroPerk.has(pd.actors.hero.perks.EfficientSearch.class)) distance++;
 		
 		boolean foresight = buff(Foresight.class) != null;
 		boolean notice = buff(Notice.class) != null;
@@ -3026,6 +3146,14 @@ public class Hero extends Char {
 		}
 
 		Point c = Dungeon.level.cellToPoint(pos);
+
+		//SPSEXPD: 先算一次「从英雄出发、限本次搜索距离」的可达范围，供搜索拾取判定（防隔墙取物）
+		PathFinder.buildDistanceMap( pos, BArray.not( Dungeon.level.solid, null ), distance + 1 );
+
+		//SPSEXPD: 脚下的格子也算——搜索时先捡起自己站的那一格
+		if (intentional && SPDSettings.searchPickUp() && canPickUpAt( pos )) {
+			pickUpTime += pickUpHeap( pos );
+		}
 
 		TalismanOfForesight.Foresight talisman = buff( TalismanOfForesight.Foresight.class );
 		boolean cursed = talisman != null && talisman.isCursed();
@@ -3051,6 +3179,11 @@ public class Hero extends Char {
 			for (curr = left + y * Dungeon.level.width(); curr <= right + y * Dungeon.level.width(); curr++){
 
 				if ((foresight || fieldOfView[curr]) && curr != pos) {
+
+					//SPSEXPD: 主动搜索时顺带拾取该格地面物品（设置里可关闭），只限视野内且可达的位置
+					if (intentional && SPDSettings.searchPickUp() && canPickUpAt( curr )){
+						pickUpTime += pickUpHeap( curr );
+					}
 
 					if ((foresight && (!Dungeon.level.mapped[curr] || foresightScan))){
 						GameScene.checkedCell(curr, foresightScan ? pos : curr);
@@ -3122,12 +3255,12 @@ public class Hero extends Char {
 			if (!Dungeon.level.locked) {
 				if (cursed) {
 					GLog.n(Messages.get(this, "search_distracted"));
-					Buff.affect(this, Hunger.class).affectHunger(TIME_TO_SEARCH - (2 * HUNGER_FOR_SEARCH));
+					Buff.affect(this, Hunger.class).affectHunger(TIME_TO_SEARCH + pickUpTime - (2 * HUNGER_FOR_SEARCH));
 				} else {
-					Buff.affect(this, Hunger.class).affectHunger(TIME_TO_SEARCH - HUNGER_FOR_SEARCH);
+					Buff.affect(this, Hunger.class).affectHunger(TIME_TO_SEARCH + pickUpTime - HUNGER_FOR_SEARCH);
 				}
 			}
-			spendAndNext(TIME_TO_SEARCH);
+			spendAndNext(TIME_TO_SEARCH + pickUpTime);
 			
 		}
 		

@@ -1,5 +1,11 @@
 package pd.plants;
 
+import pd.actors.buffs.Healing;
+
+import pd.actors.buffs.Paralysis;
+
+import pd.actors.buffs.Cold;
+
 import pd.atlas.items.ConsumPotionSeedSeedDict;
 import pd.atlas.items.SpecificPlaceHolderDict;
 
@@ -42,16 +48,21 @@ import pd.items.UpgradeEatBall;
 import pd.items.consum.food.Blandfruit;
 import pd.items.consum.food.fruit.Durian;
 import pd.items.consum.food.fruit.Fruit;
-import pd.items.consum.medicine.GreenSpore;
+import pd.items.consum.food.vegetable.Vegetable;
 import pd.items.nornstone.NornStone;
 import pd.items.quest.AdventureJournal;
+import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.items.equipment.weapon.missiles.arrows.BlindFruit;
 import pd.items.equipment.weapon.missiles.arrows.CharmFruit;
 import pd.items.equipment.weapon.missiles.arrows.FireFruit;
 import pd.items.equipment.weapon.missiles.arrows.GlassFruit;
 import pd.items.equipment.weapon.missiles.arrows.HealFruit;
 import pd.items.equipment.weapon.missiles.arrows.IceFruit;
+import pd.items.equipment.weapon.missiles.arrows.LargeHealFruit;
 import pd.items.equipment.weapon.missiles.arrows.NutFruit;
+import pd.items.equipment.weapon.missiles.arrows.RotFruit;
+import pd.items.equipment.weapon.missiles.arrows.StarEaterFruit;
+import pd.items.equipment.weapon.missiles.arrows.StarFruit;
 import pd.items.equipment.weapon.missiles.arrows.RootFruit;
 import pd.items.equipment.weapon.missiles.arrows.ShockFruit;
 import pd.items.equipment.weapon.missiles.arrows.SmokeFruit;
@@ -84,7 +95,7 @@ public final class SpsEnhancedPlantsTest {
 			Firebloom.class, Icecap.class, Sorrowmoss.class, Blindweed.class, Sungrass.class,
 			Earthroot.class, Fadeleaf.class, Rotberry.class, BlandfruitBush.class, Dreamfoil.class,
 			Stormvine.class, NutPlant.class, Starflower.class, ReNepenth.class, StarEater.class,
-			Dewcatcher.class, Seedpod.class, Freshberry.class, SiOtwoFlower.class
+			Dewcatcher.class, Seedpod.class, Freshberry.class, SiOtwoFlower.class, Swiftthistle.class
 	};
 	private static final Class<?>[] ENHANCED = {
 			Firebloom.ExFirebloom.class, Icecap.ExIcecap.class, Sorrowmoss.ExSorrowmoss.class,
@@ -93,31 +104,31 @@ public final class SpsEnhancedPlantsTest {
 			Dreamfoil.ExDreamfoil.class, Stormvine.ExStormvine.class, NutPlant.ExNutPlant.class,
 			Starflower.ExStarflower.class, ReNepenth.ExReNepenth.class, StarEater.ExStarEater.class,
 			Dewcatcher.ExDewcatcher.class, Seedpod.ExSeedpod.class, Freshberry.ExFreshberry.class,
-			SiOtwoFlower.ExSiOtwoFlower.class
+			SiOtwoFlower.ExSiOtwoFlower.class, Swiftthistle.ExSwiftthistle.class
 	};
 	private static final int[] PLANT_IMAGES = {
-			0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 9, 17, 11, 14, 15, 12, 13, 7, 18
+			0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 9, 17, 11, 14, 15, 12, 13, 7, 18, 2
 	};
 	private static final IconEntry[] SEED_IMAGES = {
 			ConsumPotionSeedSeedDict.SEED_FIREBLOOM, ConsumPotionSeedSeedDict.SEED_ICECAP,
 			ConsumPotionSeedSeedDict.SEED_SORROWMOSS_0, ConsumPotionSeedSeedDict.SEED_BLINDWEED_0,
 			ConsumPotionSeedSeedDict.SEED_SUNGRASS, ConsumPotionSeedSeedDict.SEED_EARTHROOT_0,
-			ConsumPotionSeedSeedDict.SEED_FADELEAF_0, SpecificPlaceHolderDict.SOMETHING_0,
-			SpecificPlaceHolderDict.SOMETHING_0, SpecificPlaceHolderDict.SOMETHING_0,
-			ConsumPotionSeedSeedDict.SEED_STORMVINE, SpecificPlaceHolderDict.SOMETHING_0,
-			ConsumPotionSeedSeedDict.SEED_STARFLOWER_0, SpecificPlaceHolderDict.SOMETHING_0,
-			ConsumPotionSeedSeedDict.SEED_STAREATER, SpecificPlaceHolderDict.SOMETHING_0,
-			SpecificPlaceHolderDict.SOMETHING_0, SpecificPlaceHolderDict.SOMETHING_0,
-			SpecificPlaceHolderDict.SOMETHING_0
+			ConsumPotionSeedSeedDict.SEED_FADELEAF_0, ConsumPotionSeedSeedDict.SEED_ROT_BERRY,
+			ConsumPotionSeedSeedDict.SEED_BLANDFRUIT, ConsumPotionSeedSeedDict.SEED_MAGEROYAL_0,
+			ConsumPotionSeedSeedDict.SEED_STORMVINE, ConsumPotionSeedSeedDict.SEED_NUTVINE,
+			ConsumPotionSeedSeedDict.SEED_STARFLOWER_0, ConsumPotionSeedSeedDict.SEED_TRANSMUTE_CAGE,
+			ConsumPotionSeedSeedDict.SEED_STAREATER, ConsumPotionSeedSeedDict.SEED_DEWCATCHER,
+			ConsumPotionSeedSeedDict.SEED_POD, ConsumPotionSeedSeedDict.SEED_ROT_BERRY,
+			ConsumPotionSeedSeedDict.SEED_QUARTZFLOWER, ConsumPotionSeedSeedDict.SEED_SWIFTTHISTLE
 	};
 	private static final int[] HARVEST_COUNTS = {
-			3, 3, 3, 3, 2, 3, 3, 1, 2, 3, 3, 3, 1, 2, 2, 3, 3, 3, 2
+			3, 3, 3, 3, 2, 3, 3, 1, 2, 3, 3, 3, 1, 2, 2, 0, 0, 3, 2, 0
 	};
 	private static final Class<?>[] HARVEST_CLASSES = {
 			FireFruit.class, IceFruit.class, ToxicFruit.class, BlindFruit.class, HealFruit.class,
 			RootFruit.class, SmokeFruit.class, Gold.class, Blandfruit.class, CharmFruit.class,
 			ShockFruit.class, NutFruit.class, null, TransmutationBall.class, UpgradeEatBall.class,
-			GreenSpore.class, null, null, GlassFruit.class
+			null, null, null, GlassFruit.class, null
 	};
 
 	private static final String[] SEED_HASHES = {
@@ -175,7 +186,7 @@ public final class SpsEnhancedPlantsTest {
 		testFruitEffects();
 		testSorrowmossDepthEffect();
 		testLegacyPixels();
-		System.out.println("SPS强化植物测试通过：19种种子映射、果丛掉落、存档、9种果实效果及37格旧版像素均正确。");
+		System.out.println("SPS强化植物测试通过：20种种子映射、果丛掉落、存档、果实效果及旧版像素均正确。");
 	}
 
 	private static void testSorrowmossDepthEffect() {
@@ -199,7 +210,7 @@ public final class SpsEnhancedPlantsTest {
 
 	private static void testMappingsAndHarvests() {
 		Class<?>[] seeds = Generator.Category.SPS_SEED.classes;
-		check(seeds.length == 19, "强化种子牌组数量不是19");
+		check(seeds.length == 20, "强化种子牌组数量不是20");
 		for (int i = 0; i < seeds.length; i++) {
 			Plant.Seed seed = (Plant.Seed)Reflection.newInstance(seeds[i]);
 			check(seed.plantClass == PLANTS[i], "第" + i + "种普通植物映射错误");
@@ -213,7 +224,7 @@ public final class SpsEnhancedPlantsTest {
 			check(plant.harvestCount == HARVEST_COUNTS[i], "第" + i + "种果丛掉落数量错误");
 			check(plant.harvestClass == HARVEST_CLASSES[i], "第" + i + "种果丛掉落类型错误");
 			Generator.Category expectedCategory = i == 12 ? Generator.Category.NORNSTONE
-					: i == 16 || i == 17 ? Generator.Category.SPS_BERRY : null;
+					: i == 17 ? Generator.Category.SPS_BERRY : null;
 			check(plant.harvestCategory == expectedCategory, "第" + i + "种果丛随机牌组错误");
 			check(plant.centerClass == (i == 7 ? Rotberry.Seed.class : null),
 					"第" + i + "种果丛中心掉落错误");
@@ -237,6 +248,9 @@ public final class SpsEnhancedPlantsTest {
 	}
 
 	private static void validateHarvest(TestLevel level, int index) {
+		int legacy = HARVEST_COUNTS[index];
+		boolean legacySeen = legacy == 0;
+		boolean fruitSeen = false;
 		int neighbourHeaps = 0;
 		int neighbourItems = 0;
 		for (int offset : PathFinder.NEIGHBOURS8) {
@@ -246,16 +260,24 @@ public final class SpsEnhancedPlantsTest {
 			neighbourItems += heap.items.size();
 			check(heap.items.size() == 1, "第" + index + "种果丛在同一邻格重复掉落");
 			Item item = heap.peek();
-			if (index == 12) check(item instanceof NornStone, "星陨花没有掉落诺恩石");
-			else if (index == 16 || index == 17) check(item instanceof Fruit, "莓果牌组掉落类型错误");
-			else check(HARVEST_CLASSES[index].isInstance(item), "第" + index + "种果丛实物类型错误");
+			if (HARVEST_CLASSES[index] != null && HARVEST_CLASSES[index].isInstance(item)) legacySeen = true;
+			if (index == 12 && item instanceof NornStone) legacySeen = true;
+			if (index == 17 && item instanceof Fruit) legacySeen = true;
+			if (item instanceof MissileWeapon) fruitSeen = true;
 		}
-		check(neighbourHeaps == HARVEST_COUNTS[index]
-				&& neighbourItems == HARVEST_COUNTS[index], "第" + index + "种果丛邻格掉落总数错误");
+		check(neighbourHeaps == neighbourItems, "第" + index + "种果丛邻格掉落堆叠异常");
+		//SPSEXPD: 新规则下邻格 = 旧版产出 + 2~3 枚投掷果实
+		check(neighbourItems >= legacy + 2 && neighbourItems <= legacy + 3,
+				"第" + index + "种果丛邻格掉落总数错误");
+		check(legacySeen, "第" + index + "种果丛旧版产出丢失");
+		check(fruitSeen, "第" + index + "种果丛没有散落投掷果实");
+
 		Heap center = level.heaps.get(40);
-		if (index == 7) check(center != null && center.items.size() == 1
-				&& center.peek() instanceof Rotberry.Seed, "腐莓果丛没有在中心返还种子");
-		else check(center == null, "第" + index + "种果丛错误产生中心掉落");
+		PlantHarvest.Species species = PlantHarvest.speciesFor(ENHANCED[index]);
+		check(center != null && center.items.stream().anyMatch(item -> species.vegetable.isInstance(item)),
+				"第" + index + "种果丛没有在原地掉落蔬菜");
+		if (index == 7) check(center.items.stream().anyMatch(item -> item instanceof Rotberry.Seed),
+				"腐莓果丛没有在中心返还种子");
 	}
 
 	private static void testBoundaryHarvest() {
@@ -269,9 +291,17 @@ public final class SpsEnhancedPlantsTest {
 		} finally {
 			Random.popGenerator();
 		}
-		check(level.heaps.size == 3 && level.heaps.get(13) != null
-				&& level.heaps.get(23) != null && level.heaps.get(24) != null,
-				"地图边缘强化植物发生越界或横向绕回");
+		int width = level.width();
+		int px = 12 % width;
+		int py = 12 / width;
+		for (int cell = 0; cell < level.length(); cell++) {
+			if (level.heaps.get(cell) == null || cell == 12) continue;
+			int dx = Math.abs(cell % width - px);
+			int dy = Math.abs(cell / width - py);
+			check((dx + dy) > 0 && dx <= 1 && dy <= 1, "地图边缘强化植物发生越界或横向绕回");
+		}
+		check(level.heaps.get(12) != null, "地图边缘强化植物没有掉落蔬菜");
+		check(level.heaps.get(13) != null, "地图边缘强化植物没有散落果实");
 	}
 
 	private static void testFruitEffects() {
@@ -286,55 +316,104 @@ public final class SpsEnhancedPlantsTest {
 		TestMob target = new TestMob(100);
 		target.HP = 70;
 		new HealFruit().proc(attacker, target, 0);
-		check(target.HP == 90, "疗伤果没有治疗20点生命");
-		target.HP = 95;
-		new HealFruit().proc(attacker, target, 0);
-		check(target.HP == 100, "疗伤果治疗超过生命上限");
+		//SPSEXPD: 果实治疗已改为缓慢治愈 buff
+		check(target.buff(Healing.class) != null, "阳春果实没有给予缓慢治愈效果");
 
-		checkBuff(new ShockFruit(), attacker, Shocked.class, "乱流果没有施加电击");
+		checkBuff(new ShockFruit(), attacker, Paralysis.class, "乱流果没有施加麻痹");
 		checkBuff(new ToxicFruit(), attacker, Poison.class, "毒液果没有施加中毒");
 		checkBuff(new RootFruit(), attacker, Roots.class, "缠绕果没有施加缠绕");
 		checkBuff(new FireFruit(), attacker, Burning.class, "火焰果没有施加燃烧");
 		target = new TestMob(100);
 		new CharmFruit().proc(attacker, target, 10);
-		check(target.buff(Charm.class) != null && target.buff(Amok.class) != null,
-				"魅惑果没有同时施加魅惑与狂乱");
+		check(target.buff(Charm.class) != null,
+				"魅惑果没有施加魅惑");
 		checkBuff(new SmokeFruit(), attacker, Blindness.class, "烟雾果没有施加致盲");
-		checkBuff(new IceFruit(), attacker, FrostIce.class, "冰霜果没有施加冻伤");
+		checkBuff(new IceFruit(), attacker, Cold.class, "冰霜果没有施加寒冷");
+
+		//SPSEXPD: 同种果实按种类堆叠合并（不再受投掷武器 setID/每组3个的限制）
+		FireFruit fruitA = new FireFruit(2);
+		FireFruit fruitB = new FireFruit(3);
+		check(fruitA.isSimilar(fruitB) && fruitA.merge(fruitB) == fruitA
+				&& fruitA.quantity() == 5 && fruitB.quantity() == 0,
+				"投掷果实没有按种类合并堆叠");
 
 		TestLevel level = new TestLevel(11, 11);
 		Dungeon.level = level;
-		land(level, new GroundHealFruit(), HealLight.class, 8);
-		land(level, new GroundShockFruit(), ElectriShock.class, 4);
-		checkBlob(level, ShockEffectDamage.class, 32, "乱流果邻格电元素错误");
-		land(level, new GroundToxicFruit(), ToxicGas.class, 8);
-		land(level, new GroundRootFruit(), Web.class, 4);
-		checkBlob(level, EarthEffectDamage.class, 32, "缠绕果邻格自然元素错误");
-		land(level, new GroundFireFruit(), Fire.class, 4);
-		checkBlob(level, FireEffectDamage.class, 32, "火焰果邻格火元素错误");
-		land(level, new GroundCharmFruit(), ParalyticGas.class, 10);
-		land(level, new GroundSmokeFruit(), DarkGas.class, 64);
-		land(level, new GroundIceFruit(), FrostCloud.class, 4);
-		checkBlob(level, IceEffectDamage.class, 32, "冰霜果邻格冰元素错误");
+		land(level, new GroundShockFruit(), ElectriShock.class, 6);
+		land(level, new GroundToxicFruit(), ToxicGas.class, 4);
+		new GroundRootFruit().land(60);
+		check(level.map[60] == Terrain.HIGH_GRASS, "缠绕果落地没有生成高草");
+		land(level, new GroundFireFruit(), Fire.class, 6);
+		land(level, new GroundSmokeFruit(), DarkGas.class, 6);
+		land(level, new GroundIceFruit(), FrostCloud.class, 6);
+		land(level, new GroundRotFruit(), ToxicGas.class, 8);
+		land(level, new GroundBlindFruit(), pd.actors.blobs.ConfusionGas.class, 4);
+		land(level, new GroundStarEaterFruit(), pd.actors.blobs.CorrosiveGas.class, 6);
+		//SPSEXPD: 星陨果落地降下圣光审判之场
+		land(level, new GroundStarFruit(), pd.actors.blobs.effectblobs.HolyLight.class, 3);
 
-		level.resetEffects();
-		Random.pushGenerator(0x4E55544652554954L);
-		try {
-			GroundNutFruit nut = new GroundNutFruit();
-			for (int i = 0; i < 200; i++) nut.land(60);
-		} finally {
-			Random.popGenerator();
-		}
-		check(level.map[60] == Terrain.HIGH_GRASS, "硬壳果落地没有生成高草");
+		//SPSEXPD: 梦叶果实落地会清空周围 3x3 的有害气体
+		pd.scenes.GameScene.add(pd.actors.blobs.Blob.seed(60, 100, ToxicGas.class));
+		check(level.blobs.get(ToxicGas.class) != null && level.blobs.get(ToxicGas.class).volume > 0,
+				"测试前置的毒气没有被放置");
+		new GroundCharmFruit().land(60);
+		check(level.blobs.get(ToxicGas.class) == null || level.blobs.get(ToxicGas.class).volume <= 0,				"梦叶果实落地没有清空周围的有害气体");
+
+		//SPSEXPD: 坚果果实命中按主武器两成伤害结算（投掷时 attackingWeapon 是果实自己，必须取主武器）
+		Hero nutHero = Dungeon.hero != null ? Dungeon.hero : new Hero();
+		pd.items.KindOfWeapon oldWeapon = nutHero.belongings.weapon;
+		pd.items.KindOfWeapon oldThrown = nutHero.belongings.thrownWeapon;
+		pd.items.equipment.weapon.melee.WornShortsword testWeapon =
+				new pd.items.equipment.weapon.melee.WornShortsword();
+		//强化到两成伤害明显不为 0，确保断言能区分“取到主武器”与“取到果实自身(0 伤害)”
+		testWeapon.upgrade(20);
+		nutHero.belongings.weapon = testWeapon;
+		//模拟投掷中的状态：此时 attackingWeapon() 会返回果实自身
+		nutHero.belongings.thrownWeapon = new NutFruit();
+		TestMob nutVictim = new TestMob(100);
+		int nutLo = Math.round(testWeapon.min() * 0.2f);
+		int nutHi = Math.round(testWeapon.max() * 0.2f);
+		check(nutLo > 0, "测试武器的两成伤害为 0，坚果果断言无效");
+		new NutFruit().proc(nutHero, nutVictim, 0);
+		check(nutVictim.HP <= 100 - nutLo && nutVictim.HP >= 100 - nutHi,
+				"坚果果实没有按主武器两成伤害结算（实际伤害 " + (100 - nutVictim.HP)
+						+ "，期望 " + nutLo + "~" + nutHi + "）");
+		nutHero.belongings.thrownWeapon = oldThrown;
+		nutHero.belongings.weapon = oldWeapon;
+
+		new GroundNutFruit().land(60);
 		Heap nuts = level.heaps.get(60);
-		check(nuts != null && nuts.items.stream().anyMatch(item -> item instanceof Durian),
-				"硬壳果固定随机序列没有触发10%榴莲掉落");
+		check(nuts != null && nuts.items.stream().anyMatch(item -> item instanceof pd.items.consum.food.fusion.Nut),
+				"坚果果落地没有掉落坚果");
+
+		//SPSEXPD: 竹背篓只收纳投掷果实与大型果实
+		pd.items.equipment.bags.BambooBasket basket = new pd.items.equipment.bags.BambooBasket();
+		check(basket.canHold(new NutFruit()), "竹背篓不能收纳投掷果实");
+		check(basket.canHold(new LargeHealFruit()), "竹背篓不能收纳大型果实");
+		check(!basket.canHold(new pd.items.consum.food.fusion.Nut()), "竹背篓收纳了非果实物品");
+		//SPSEXPD: 包裹的快捷行为是「打开」，不可售卖但可以扔出
+		check(basket.actions(new Hero()).contains(pd.items.equipment.bags.Bag.AC_OPEN),
+				"竹背篓的快捷行为不是打开");
+		check(basket.actions(new Hero()).contains(pd.items.Item.AC_DROP), "竹背篓不能扔出");
+		check(!pd.actors.mobs.npcs.Shopkeeper.canSell(basket), "竹背篓不应该可以售卖");
+		//SPSEXPD: 「打开」动作的文本键必须存在（测试环境无法初始化 Messages，改为直接查资源文件）
+		for (String lang : new String[]{"zh", "en"}) {
+			try {
+				String text = new String(java.nio.file.Files.readAllBytes(
+						java.nio.file.Paths.get("messages/items/" + lang + "/items.properties")),
+						java.nio.charset.StandardCharsets.UTF_8);
+				check(text.contains("items.equipment.bags.bag.ac_open="),
+						"包裹「打开」动作缺少文本键（" + lang + "）");
+			} catch (Exception e) {
+				check(false, "读取包裹文本资源失败：" + e);
+			}
+		}
 	}
 
 	private static void checkStats(Item item, int min, int max) {
 		pd.items.equipment.weapon.Weapon weapon =
 				(pd.items.equipment.weapon.Weapon)item;
-		check(weapon.min() == min && weapon.max() == max && weapon.STRReq() == 10,
+		check(weapon.min() == min && weapon.max() == max && weapon.STRReq() == 5,
 				item.getClass().getSimpleName() + "基础数值错误");
 		check(!item.isUpgradable() && item.isIdentified(), item.getClass().getSimpleName() + "识别属性错误");
 	}
@@ -346,10 +425,22 @@ public final class SpsEnhancedPlantsTest {
 		check(target.buff((Class)buff) != null, message);
 	}
 
-	private static void land(TestLevel level, GroundFruit fruit, Class<? extends Blob> type, int volume) {
+	private static void land(TestLevel level, GroundFruit fruit, Class<? extends Blob> type, int perCell) {
 		level.resetEffects();
 		fruit.land(60);
-		checkBlob(level, type, volume, fruit.getClass().getSimpleName() + "落地范围错误");
+		//SPSEXPD: 落点效果为周围 1 格（3x3），每格强度沿用原值
+		Blob blob = level.blobs.get(type);
+		String name = fruit.getClass().getSimpleName();
+		check(blob != null && blob.cur[60] == perCell,
+				name + "落地效果强度错误（实际 " + (blob == null ? "无" : String.valueOf(blob.cur[60])) + "，期望 " + perCell + "）");
+		int covered = 0;
+		for (int cell = 0; cell < level.length(); cell++) {
+			if (blob.cur[cell] > 0) {
+				check(level.insideMap(cell), name + "落地范围发生地图越界");
+				covered++;
+			}
+		}
+		check(covered <= 9, name + "落地范围超过了周围 1 格");
 	}
 
 	private static void checkBlob(TestLevel level, Class<? extends Blob> type, int volume, String message) {
@@ -405,6 +496,10 @@ public final class SpsEnhancedPlantsTest {
 	private static final class GroundSmokeFruit extends SmokeFruit implements GroundFruit { public void land(int c) { onThrow(c); } }
 	private static final class GroundIceFruit extends IceFruit implements GroundFruit { public void land(int c) { onThrow(c); } }
 	private static final class GroundNutFruit extends NutFruit implements GroundFruit { public void land(int c) { onThrow(c); } }
+	private static final class GroundRotFruit extends RotFruit implements GroundFruit { public void land(int c) { onThrow(c); } }
+	private static final class GroundBlindFruit extends BlindFruit implements GroundFruit { public void land(int c) { onThrow(c); } }
+	private static final class GroundStarEaterFruit extends StarEaterFruit implements GroundFruit { public void land(int c) { onThrow(c); } }
+	private static final class GroundStarFruit extends StarFruit implements GroundFruit { public void land(int c) { onThrow(c); } }
 
 	private static final class TestMob extends Mob {
 		TestMob(int health) { HP = HT = health; }

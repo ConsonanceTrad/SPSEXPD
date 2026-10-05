@@ -4,21 +4,21 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.items.Item;
 import pd.messages.InlineText;
-import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
+import pd.atlas.items.SpecificTaskDict;
 
 public class Mushroom extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Mushroom.class)
-			.t("name", "露珠菌孢")
-			.t("desc", "这种罕见菌孢生长在潮湿的地牢中，对等候在入口附近的研究者很有价值。");
+			.t("name", "巨型露珠菌孢")
+			.t("desc", "这颗巨大的罕见菌孢生长在潮湿的地牢中，对等候在入口附近的研究者很有价值。");
 	}
 
 
 
 
 	{
-		image = ConsumPotionSeedBasicPotionDict.DEW_FUNGUS_SPORE;
+		image = SpecificTaskDict.DEWDROP_MUSHROOM;
 		unique = true;
 	}
 

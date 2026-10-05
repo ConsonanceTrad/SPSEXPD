@@ -6,7 +6,7 @@ import pd.items.Generator;
 import pd.items.Item;
 import pd.items.consum.food.fruit.Fruit;
 import pd.items.consum.medicine.LingPotion;
-import pd.items.consum.potions.PotionOfMending;
+import pd.items.consum.potions.PotionOfHealing;
 import pd.items.specific.sellitem.LingHeart;
 import pd.plants.Plant;
 import render.utils.math.Random;
@@ -36,7 +36,7 @@ public class GiftFlyLing extends GiftNpc {
 	{ properties.add(Property.ELF); }
 	@Override public Visual visual() { return Visual.FLY_LING; }
 	@Override public boolean acceptsGift(Item item) {
-		return item instanceof PotionOfMending || item instanceof Plant.Seed || item instanceof Fruit;
+		return item instanceof PotionOfHealing || item instanceof Plant.Seed || item instanceof Fruit;
 	}
 	@Override protected GiftResult reward(Hero hero) {
 		if (friendship() == 100) return result("reward3", new LingHeart());

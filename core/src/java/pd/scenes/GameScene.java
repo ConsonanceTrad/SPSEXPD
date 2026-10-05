@@ -109,6 +109,7 @@ import pd.ui.Icons;
 import pd.ui.InventoryPane;
 import pd.ui.LootIndicator;
 import pd.ui.MenuPane;
+import pd.ui.QuickActionBar;
 import pd.ui.QuickSlotButton;
 import pd.ui.ResumeIndicator;
 import pd.ui.RightClickMenu;
@@ -267,6 +268,7 @@ public class GameScene extends PixelScene {
 	private Toolbar toolbar;
 	//SPS: 两侧快捷栏（左 0-4、右 0-4，数量可调，用户裁决 2026-09）
 	private SideQuickBar sideQuickBar;
+	private QuickActionBar quickActionBar;   //SPSEXPD: 左下角快捷操作按钮
 	private Toast prompt;
 
 	private AttackIndicator attack;
@@ -619,6 +621,11 @@ public class GameScene extends PixelScene {
 		sideQuickBar.camera = uiCamera;
 		add( sideQuickBar );
 
+		//SPSEXPD: 左下角快捷操作按钮（按需出现，各自可在「游戏辅助」里开关）
+		quickActionBar = new QuickActionBar();
+		quickActionBar.camera = uiCamera;
+		add( quickActionBar );
+
 		if (uiSize == 2) {
 			inventory = new InventoryPane();
 			inventory.camera = uiCamera;
@@ -632,6 +639,9 @@ public class GameScene extends PixelScene {
 
 		//SPS: 两侧快捷栏占满内容高、贴左右边缘（随 insets 避让安全区）
 		sideQuickBar.setRect( insets.left, 0, uiCamera.width - insets.left - insets.right, uiCamera.height - insets.bottom );
+
+		//SPSEXPD: 快捷操作按钮与左侧快捷栏的定位（设置里可互换位置，切换后立即生效）
+		refreshQuickActionLayout();
 
 		if (insets.bottom > 0){
 			SkinnedBlock bar = new SkinnedBlock(uiCamera.width, insets.bottom, TextureCache.createSolid(0x88000000));
@@ -1074,6 +1084,37 @@ public class GameScene extends PixelScene {
 	private boolean tagLoot      = false;
 	private boolean tagAction    = false;
 	private boolean tagResume    = false;
+
+	//SPSEXPD: 重排左下/左上快捷操作按钮与左侧快捷栏——场景创建时调用，
+	//设置页切换「交换左侧快捷栏与快捷操作按钮的位置」后也会立即调用（静态，便于窗口层触发）
+	public static void refreshQuickActionLayout() {
+
+		if (scene == null || scene.quickActionBar == null) return;
+
+		RectF insets = scene.getCommonInsets();
+		int uiSize = SPDSettings.interfaceSize();
+		boolean swapped = SPDSettings.swapAuxBar();
+
+		//SPSEXPD: 日志基线（取法与 layoutTags() 一致），再整体让出日志文本区高度 + 4px 间距。
+		//文本区高度按运行时动态计算（行数上限随界面模式、单行高度随设备字号），避免不同设备下遮挡日志上半部分
+		float logBottom = (uiSize == 0 ? scene.toolbar.top() : scene.status.top()) - 2;
+		float bottomAnchor = logBottom - GameLog.maxTextHeight() - 4;
+
+		//交换后按钮到左上：必须避开顶部状态栏（全尺寸模式下状态栏与头像在顶部）
+		float topAnchor = (uiSize == 0) ? scene.status.bottom() + 4 : SideQuickBar.TOP_OFFSET;
+		float ax = insets.left + 1;
+		//默认：按钮在下、左栏在左上；交换后：按钮到左上，左栏改成底部对齐
+		float ay = swapped ? Math.max( SideQuickBar.TOP_OFFSET, topAnchor ) : bottomAnchor - QuickActionBar.BTN_H;
+
+		SideQuickBar.topReserve = 0;
+		SideQuickBar.leftBottomAnchor = swapped ? bottomAnchor : 0;
+		SideQuickBar.updateLayout();
+
+		//SPSEXPD: 按钮位于上方时改为向下生长（否则会向上越过预留区）
+		scene.quickActionBar.setGrowDown( swapped );
+		scene.quickActionBar.setPos( ax, ay );
+		scene.quickActionBar.refresh();   //SPSEXPD: 定位后立即排好按钮
+	}
 
 	public static void layoutTags() {
 

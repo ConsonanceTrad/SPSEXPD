@@ -1,10 +1,22 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.equipment.weapon.missiles.arrows;
 
+import pd.actors.hero.Hero;
+
+import pd.Dungeon;
+import pd.actors.buffs.*;
+import pd.items.Item;
+import pd.items.StoneOre;
+import pd.levels.Level;
+import pd.levels.Terrain;
+import pd.messages.Messages;
+import pd.scenes.GameScene;
+import pd.sprites.CharSprite;
+import render.utils.math.Random;
+
 import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.Assets;
-import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.blobs.Blob;
@@ -17,22 +29,21 @@ import pd.actors.buffs.Silent;
 import pd.actors.buffs.Vertigo;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.mechanics.pathfind.PathFinder;
-import pd.scenes.GameScene;
 import pd.messages.InlineText;
 
-public class BlindFruit extends MissileWeapon {
+public class BlindFruit extends SpsFruit {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(BlindFruit.class)
-			.t("name", "闪耀果")
-			.t("desc", "人工种植的致盲草结出的果实。直接命中会使目标眩晕、沉默、锁定并缴械；落地则会释放混乱气体和伤害性的光芒。");
+			.t("name", "致盲果实")
+			.t("desc", "人工种植的致盲草结出的果实。落地会散出混乱气体，命中则使目标沉默。");
 	}
 
 
 
 
 	{
-		image = SpecificPlaceHolderDict.SEED_HOLDER_0;
+		image = pd.atlas.items.ConsumPotionSeedSeedDict.FRUIT_BLINDWEED;
 		hitSound = Assets.Sounds.HIT_STAB;
 		hitSoundPitch = 1.2f;
 		baseUses = 1;
@@ -41,39 +52,31 @@ public class BlindFruit extends MissileWeapon {
 	}
 
 	public BlindFruit() { this(1); }
-	public BlindFruit(int number) { quantity(number); }
+	public BlindFruit(int number) { super(pd.atlas.items.ConsumPotionSeedSeedDict.FRUIT_BLINDWEED, 10, 10); quantity(number); }
 
-	@Override public int min(int lvl) { return 10; }
-	@Override public int max(int lvl) { return 10; }
+	@Override public int min(int lvl) { return scaled(10); }
+	@Override public int max(int lvl) { return scaled(10); }
 	@Override public int STRReq(int lvl) { return 10; }
 
-	@Override
-	protected void onThrow(int cell) {
-		Char enemy = Actor.findChar(cell);
-		if (enemy == null || enemy == curUser) {
-			parent = null;
-			GameScene.add(Blob.seed(cell, 10, ConfusionGas.class));
-			for (int offset : PathFinder.NEIGHBOURS8) {
-				int nearby = cell + offset;
-				if (Dungeon.level.insideMap(nearby)) {
-					GameScene.add(Blob.seed(nearby, 4, LightEffectDamage.class));
-				}
-			}
-		} else {
-			super.onThrow(cell);
-		}
-	}
 
-	@Override
-	public int proc(Char attacker, Char defender, int damage) {
-		Buff.prolong(defender, Vertigo.class, 5f);
-		Buff.prolong(defender, Silent.class, 5f);
-		Buff.prolong(defender, Locked.class, 5f);
-		Buff.prolong(defender, Disarm.class, 5f);
-		return super.proc(attacker, defender, damage);
-	}
 
 	@Override public boolean isUpgradable() { return false; }
 	@Override public boolean isIdentified() { return true; }
 	@Override public int value() { return 10 * quantity; }
+
+
+	@Override protected void onThrow(int cell) {
+		if (landsAt(cell)) seedArea(cell, 4, ConfusionGas.class);
+		else super.onThrow(cell);
+	}
+
+	@Override public int proc(Char attacker, Char defender, int damage) {
+		//SPSEXPD: 只保留沉默（去掉缴械）
+		Buff.prolong(defender, Silent.class, 2f);
+		return super.proc(attacker, defender, 0);
+	}
+
+	@Override protected void onEat(Hero hero) {
+		Buff.affect(hero, Light.class, 10f);
+	}
 }

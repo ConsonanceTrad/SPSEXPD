@@ -32,7 +32,8 @@ public class FullMoonStrength extends Buff {
 		return deepestFloor / 5 + (night ? 9 : 3);
 	}
 
-	private static boolean isNightNow() {
+	/** SPSEXPD: 公开给向日葵等按昼夜判定的效果使用。 */
+	public static boolean isNightNow() {
 		int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
 		return hour > 19 || hour < 7;
 	}

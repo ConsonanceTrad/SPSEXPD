@@ -38,6 +38,7 @@ import pd.plants.Earthroot;
 import pd.plants.Fadeleaf;
 import pd.plants.Firebloom;
 import pd.plants.Icecap;
+import pd.plants.Dreamfoil;
 import pd.plants.Mageroyal;
 import pd.plants.Plant;
 import pd.plants.Rotberry;
@@ -321,7 +322,8 @@ public class SandalsOfNature extends Artifact {
 		seedColors.put(Icecap.Seed.class, 0x66B3FF);        seedChargeReqs.put(Icecap.Seed.class, 20);
 		seedColors.put(Stormvine.Seed.class, 0x195D80);     seedChargeReqs.put(Stormvine.Seed.class, 20);
 		seedColors.put(Sorrowmoss.Seed.class, 0xA15CE5);    seedChargeReqs.put(Sorrowmoss.Seed.class, 20);
-		seedColors.put(Mageroyal.Seed.class, 0xFF4CD2);     seedChargeReqs.put(Mageroyal.Seed.class, 12);
+		seedColors.put(Dreamfoil.Seed.class, 0xFF4CD2);     seedChargeReqs.put(Dreamfoil.Seed.class, 12);
+		seedColors.put(Mageroyal.Seed.class, 0xFF4CD2);     seedChargeReqs.put(Mageroyal.Seed.class, 12);//兼容旧存档里的魔皇草之种
 		seedColors.put(Earthroot.Seed.class, 0x67583D);     seedChargeReqs.put(Earthroot.Seed.class, 40);
 		seedColors.put(Starflower.Seed.class, 0x404040);    seedChargeReqs.put(Starflower.Seed.class, 40);
 		seedColors.put(Fadeleaf.Seed.class, 0x919999);      seedChargeReqs.put(Fadeleaf.Seed.class, 12);

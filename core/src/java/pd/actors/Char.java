@@ -148,6 +148,7 @@ import pd.actors.mobs.CrystalSpire;
 import pd.actors.mobs.DwarfKing;
 import pd.actors.mobs.Elemental;
 import pd.actors.mobs.GnollGeomancer;
+import pd.actors.mobs.Mob;
 import pd.actors.mobs.Necromancer;
 import pd.actors.mobs.Tengu;
 import pd.actors.mobs.npcs.MirrorImage;
@@ -499,6 +500,9 @@ public abstract class Char extends Actor {
 			}
 
 			dmg = dmg*dmgMulti;
+
+			//SPSEXPD: 怪物属性浮动同样作用于攻击力（±5%~15%），在倍率之后、固定加成之前
+			if (this instanceof Mob) dmg *= 1f + ((Mob) this).statFloat;
 
 			//flat damage bonus is affected by multipliers
 			dmg += dmgBonus;

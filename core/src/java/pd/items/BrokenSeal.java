@@ -95,18 +95,8 @@ public class BrokenSeal extends Item {
 	private Armor.Glyph glyph;
 
 	public boolean canTransferGlyph(){
-		if (glyph == null){
-			return false;
-		}
-		if (Dungeon.hero.pointsInTalent(Talent.RUNIC_TRANSFERENCE) == 2){
-			return true;
-		} else if (Dungeon.hero.pointsInTalent(Talent.RUNIC_TRANSFERENCE) == 1
-			&& (Arrays.asList(Armor.Glyph.common).contains(glyph.getClass())
-				|| Arrays.asList(Armor.Glyph.uncommon).contains(glyph.getClass()))){
-			return true;
-		} else {
-			return false;
-		}
+		//SPSXPD: 原为破碎天赋「刻印转移」解锁，现直接赋予物品 —— 任意刻印均可转移
+		return glyph != null;
 	}
 
 	public Armor.Glyph getGlyph(){
@@ -118,8 +108,9 @@ public class BrokenSeal extends Item {
 	}
 
 	public int maxShield( int armTier, int armLvl ){
-		// 5-15, based on equip tier and iron will
-		return 3 + 2*armTier + Dungeon.hero.pointsInTalent(Talent.IRON_WILL);
+		// 5-15, based on equip tier
+		//SPSXPD: 原破碎天赋「钢铁意志」的满级加成（+2）直接并入物品
+		return 3 + 2*armTier + 2;
 	}
 
 	@Override
@@ -390,11 +381,7 @@ public class BrokenSeal extends Item {
 		}
 
 		public synchronized int maxShield() {
-			//metamorphed iron will logic
-			if (((Hero)target).heroClass != HeroClass.WARRIOR && ((Hero) target).hasTalent(Talent.IRON_WILL)){
-				return ((Hero) target).pointsInTalent(Talent.IRON_WILL);
-			}
-
+			//SPSXPD: 原「钢铁意志」职业特判已并入 maxShield()，此处不再区分职业
 			if (armor != null && armor.isEquipped((Hero)target) && armor.checkSeal() != null) {
 				return armor.checkSeal().maxShield(armor.tier, armor.level());
 			} else {

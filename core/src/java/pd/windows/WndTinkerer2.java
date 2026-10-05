@@ -1,53 +1,37 @@
 package pd.windows;
 
 import pd.Dungeon;
+import pd.actors.hero.Hero;
 import pd.actors.mobs.npcs.Tinkerer2;
-import pd.items.Item;
 import pd.items.quest.Mushroom;
-import pd.items.summon.ActiveMrDestructo;
-import pd.items.summon.FairyCard;
-import pd.items.summon.Mobile;
 import pd.messages.Messages;
 import pd.messages.InlineText;
+import pd.utils.GLog;
 
-public class WndTinkerer2 extends WndOptions {
-	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
+/**
+ * SPSEXPD: 二次强化入口。原先是三选一奖励窗口（无人机/仙女卡牌/遥控卫星），
+ * 现已取消选择——带任务蘑菇对话即直接完成，只解锁露珠瓶二阶能力（清洗/加速）。
+ * 类名与文件名为兼容既有测试而保留。
+ */
+public final class WndTinkerer2 {
+	//SPSEXPD: inline Chinese text
 	static {
 		InlineText.of(WndTinkerer2.class)
-			.t("info", "哦，你找到那个啦。万分感谢，我可以稍微改进一下你的露珠瓶。同时，选择一个奖励吧。")
-			.t("mr", "无人机")
-			.t("call", "仙女卡牌")
-			.t("mob", "遥控卫星")
+			.t("info", "哦，你找到那个啦。万分感谢，我再改进一下你的露珠瓶，它现在能清洗与加速了。")
 			.t("farewell", "小镇见，%s！");
 	}
 
-
-
-
-	private final Tinkerer2 tinkerer;
-
-	public WndTinkerer2(Tinkerer2 tinkerer) {
-		super(tinkerer.sprite(), Messages.titleCase(tinkerer.name()),
-				Messages.get(WndTinkerer2.class, "info"),
-				Messages.get(WndTinkerer2.class, "mr"),
-				Messages.get(WndTinkerer2.class, "call"),
-				Messages.get(WndTinkerer2.class, "mob"));
-		this.tinkerer = tinkerer;
+	private WndTinkerer2() {
 	}
 
-	@Override
-	protected void onSelect(int index) {
-		Mushroom mushroom = Dungeon.hero.belongings.getItem(Mushroom.class);
-		if (mushroom == null || index < 0 || index > 2) return;
-		mushroom.detach(Dungeon.hero.belongings.backpack);
+	//SPSEXPD: 二次强化直接完成，不再提供奖励选择
+	public static void performUpgrade(Tinkerer2 tinkerer, Hero hero, Mushroom mushroom) {
+		if (tinkerer == null || hero == null || mushroom == null) return;
 
-		Item reward;
-		if (index == 0) reward = new ActiveMrDestructo();
-		else if (index == 1) reward = new FairyCard();
-		else reward = new Mobile();
+		mushroom.detach(hero.belongings.backpack);
 		Dungeon.dewNorn = true;
-		Dungeon.level.drop(reward, Dungeon.hero.pos).sprite.drop();
-		tinkerer.yell(Messages.get(WndTinkerer2.class, "farewell", Dungeon.hero.name()));
+		tinkerer.yell(Messages.get(WndTinkerer2.class, "farewell", hero.name()));
+		GLog.p(Messages.get(WndTinkerer2.class, "info"));
 		tinkerer.destroy();
 		tinkerer.sprite.die();
 	}
