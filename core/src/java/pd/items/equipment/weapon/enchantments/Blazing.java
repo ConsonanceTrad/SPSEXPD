@@ -71,7 +71,8 @@ public class Blazing extends Weapon.Enchantment {
 				}
 			}
 			
-			defender.sprite.emitter().burst( FlameParticle.FACTORY, level + 1 );
+			//SPSEXPD: headless/无精灵场景下 sprite 可能为 null
+			if (defender.sprite != null) defender.sprite.emitter().burst( FlameParticle.FACTORY, level + 1 );
 			
 		}
 

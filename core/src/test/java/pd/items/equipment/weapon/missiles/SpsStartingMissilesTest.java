@@ -60,7 +60,7 @@ public final class SpsStartingMissilesTest {
 				"致盲果实图标或价格错误");
 		check(bola.quantity() == 3 && bola.min(0) == 5 && bola.max(0) == 10 && bola.STRReq(0) == 10,
 				"电磁套索数量或数值错误");
-		check(bola.image == SpecificPlaceHolderDict.SOMETHING_0 && bola.value() == 30, "电磁套索图标或价格错误");
+		check(bola.image == pd.atlas.items.ConsumThrowsDict.TRAP_NET && bola.value() == 30, "电磁套索图标或价格错误");
 	}
 
 	private static void testHitEffects() {
@@ -69,9 +69,8 @@ public final class SpsStartingMissilesTest {
 		Dungeon.hero = attacker;
 		TestMob target = new TestMob(false);
 		new BlindFruit().proc(attacker, target, 10);
-		check(target.buff(Vertigo.class) != null && target.buff(Silent.class) != null
-				&& target.buff(Locked.class) != null && target.buff(Disarm.class) != null,
-				"闪耀果没有施加全部四种状态");
+		//SPSEXPD: 致盲果实只保留沉默（已去掉眩晕/锁定/缴械）
+		check(target.buff(Silent.class) != null, "闪耀果没有施加沉默");
 
 		target = new TestMob(true);
 		Buff.affect(target, EnergyArmor.class).level(30);

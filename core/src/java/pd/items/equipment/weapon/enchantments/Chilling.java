@@ -67,7 +67,7 @@ public class Chilling extends Weapon.Enchantment {
 			if (durationToAdd > 0) {
 				Buff.affect(defender, Chill.class, durationToAdd);
 			}
-			Splash.at( defender.sprite.center(), 0xFFB2D6FF, 5);
+			if (defender.sprite != null) Splash.at( defender.sprite.center(), 0xFFB2D6FF, 5);
 
 		}
 

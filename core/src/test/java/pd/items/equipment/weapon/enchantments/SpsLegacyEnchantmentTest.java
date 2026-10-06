@@ -50,12 +50,18 @@ import java.util.Set;
 /** Headless regression checks for SPS-PD 0.9.8's 14 ordinary weapon enchantments. */
 public final class SpsLegacyEnchantmentTest {
 
+	//SPSEXPD: 追加破碎原版并入的附魔（按破碎 common/uncommon/rare 分档）
 	private static final Class<?>[] CLASSES = {
 		EnchantmentFire.class, EnchantmentEarth.class, EnchantmentDark.class,
 		EnchantmentEnergy.class, EnchantmentIce.class, EnchantmentShock.class,
 		EnchantmentLight.class, EnchantmentFire2.class, EnchantmentEarth2.class,
 		EnchantmentDark2.class, EnchantmentEnergy2.class, EnchantmentIce2.class,
-		EnchantmentShock2.class, EnchantmentLight2.class
+		EnchantmentShock2.class, EnchantmentLight2.class,
+		Blazing.class, Chilling.class, Kinetic.class, Shocking.class,
+		Blocking.class, Blooming.class, Elastic.class,
+		Lucky.class, Projecting.class, Unstable.class,
+		Corrupting.class, Grim.class, Vampiric.class,
+		Eldritch.class, Venomous.class, Vorpal.class
 	};
 
 	public static void main(String[] args) throws Exception {
@@ -87,9 +93,9 @@ public final class SpsLegacyEnchantmentTest {
 		configured.addAll(Arrays.asList(Weapon.Enchantment.common));
 		configured.addAll(Arrays.asList(Weapon.Enchantment.uncommon));
 		configured.addAll(Arrays.asList(Weapon.Enchantment.rare));
-		check(configured.equals(expected), "普通附魔随机池不是旧版14种");
-		check(Weapon.Enchantment.common.length == 5 && Weapon.Enchantment.uncommon.length == 5
-				&& Weapon.Enchantment.rare.length == 4, "旧版附魔分组适配错误");
+		check(configured.equals(expected), "普通附魔随机池不是预期的 30 种（14 旧版 + 16 破碎）");
+		check(Weapon.Enchantment.common.length == 9 && Weapon.Enchantment.uncommon.length == 11
+				&& Weapon.Enchantment.rare.length == 10, "附魔分组适配错误");
 		check(Arrays.equals(Weapon.Enchantment.typeChances, new float[]{5, 5, 4}), "旧版附魔等权概率错误");
 		Set<Class<?>> generated = new HashSet<>();
 		for (int i = 0; i < 10_000; i++) generated.add(Weapon.Enchantment.random().getClass());

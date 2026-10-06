@@ -72,7 +72,7 @@ public class Eldritch extends Weapon.Enchantment {
 				}
 			}
 
-			new Flare( 5, 24 ).color( 0xFF0000, true ).show( attacker.sprite, 1f );
+			if (attacker.sprite != null) new Flare( 5, 24 ).color( 0xFF0000, true ).show( attacker.sprite, 1f );
 		}
 
 		return damage;

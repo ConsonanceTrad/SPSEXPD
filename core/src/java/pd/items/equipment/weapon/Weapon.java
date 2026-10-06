@@ -600,19 +600,25 @@ abstract public class Weapon extends KindOfWeapon {
 
 	public static abstract class Enchantment implements Bundlable {
 
+		//SPSEXPD: 并入破碎原版的武器附魔（按破碎原版 common/uncommon/rare 分档）
 		public static final Class<?>[] common = new Class<?>[]{
 				EnchantmentFire.class, EnchantmentEarth.class, EnchantmentDark.class,
-				EnchantmentEnergy.class, EnchantmentIce.class
+				EnchantmentEnergy.class, EnchantmentIce.class,
+				Blazing.class, Chilling.class, Kinetic.class, Shocking.class
 		};
 
 		public static final Class<?>[] uncommon = new Class<?>[]{
 				EnchantmentShock.class, EnchantmentLight.class, EnchantmentFire2.class,
-				EnchantmentEarth2.class, EnchantmentDark2.class
+				EnchantmentEarth2.class, EnchantmentDark2.class,
+				Blocking.class, Blooming.class, Elastic.class,
+				Lucky.class, Projecting.class, Unstable.class
 		};
 
 		public static final Class<?>[] rare = new Class<?>[]{
 				EnchantmentEnergy2.class, EnchantmentIce2.class,
-				EnchantmentShock2.class, EnchantmentLight2.class
+				EnchantmentShock2.class, EnchantmentLight2.class,
+				Corrupting.class, Grim.class, Vampiric.class,
+				Eldritch.class, Venomous.class, Vorpal.class
 		};
 
 		public static final float[] typeChances = new float[]{

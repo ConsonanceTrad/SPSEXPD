@@ -92,7 +92,7 @@ public class Corrupting extends Weapon.Enchantment {
 				Mob corrupted = Multiplicity.duplicate((Mob)target);
 
 				if (corrupted != null) {
-					target.sprite.killAndErase();
+					if (target.sprite != null) target.sprite.killAndErase();
 
 					corrupted.timeToNow();
 					corrupted.pos = target.pos;

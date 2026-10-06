@@ -69,8 +69,10 @@ public class Blocking extends Weapon.Enchantment {
 			BlockBuff b = Buff.affect(attacker, BlockBuff.class);
 			int shield = Math.round(powerMulti * (2 + weapon.buffedLvl()));
 			b.setShield(shield);
-			attacker.sprite.showStatusWithIcon(CharSprite.POSITIVE, Integer.toString(shield), FloatingText.SHIELDING);
-			attacker.sprite.emitter().burst(Speck.factory(Speck.LIGHT), 5);
+			if (attacker.sprite != null) {
+				attacker.sprite.showStatusWithIcon(CharSprite.POSITIVE, Integer.toString(shield), FloatingText.SHIELDING);
+				attacker.sprite.emitter().burst(Speck.factory(Speck.LIGHT), 5);
+			}
 		}
 		
 		return damage;
@@ -111,8 +113,8 @@ public class Blocking extends Weapon.Enchantment {
 		@Override
 		public void fx(boolean on) {
 			if (on) {
-				target.sprite.add(CharSprite.State.SHIELDED);
-			} else if (target.buff(Barrier.class) == null) {
+				if (target.sprite != null) target.sprite.add(CharSprite.State.SHIELDED);
+			} else if (target.buff(Barrier.class) == null && target.sprite != null) {
 				target.sprite.remove(CharSprite.State.SHIELDED);
 			}
 		}

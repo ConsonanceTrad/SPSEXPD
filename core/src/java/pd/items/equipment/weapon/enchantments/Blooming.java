@@ -105,6 +105,8 @@ public class Blooming extends Weapon.Enchantment {
 	}
 	
 	private boolean plantGrass(int cell){
+		//SPSEXPD: headless/无关卡场景下 level 可能为 null
+		if (Dungeon.level == null || cell < 0 || cell >= Dungeon.level.map.length) return false;
 		int t = Dungeon.level.map[cell];
 		if ((t == Terrain.EMPTY || t == Terrain.EMPTY_DECO || t == Terrain.EMBERS
 				|| t == Terrain.GRASS || t == Terrain.FURROWED_GRASS)

@@ -855,38 +855,52 @@ public class Generator {
 			MISSILE.classes = new Class<?>[]{};
 			MISSILE.probs = new float[]{};
 			
+			//SPSEXPD: 并入破碎原版的投掷武器（按破碎 MIS_T1-T5 的成员与权重加入）
 			MIS_T1.classes = new Class<?>[]{
-					GlassFruit.class
+					GlassFruit.class,
+					ThrowingStone.class,
+					ThrowingKnife.class,
+					ThrowingSpike.class
 			};
-			MIS_T1.defaultProbs = new float[]{ 1 };
+			MIS_T1.defaultProbs = new float[]{ 1, 3, 3, 3 };
 			MIS_T1.probs = MIS_T1.defaultProbs.clone();
 			
 			MIS_T2.classes = new Class<?>[]{
-					GlassFruit.class
+					GlassFruit.class,
+					FishingSpear.class,
+					ThrowingClub.class,
+					Shuriken.class
 			};
-			MIS_T2.defaultProbs = new float[]{ 1 };
+			MIS_T2.defaultProbs = new float[]{ 1, 3, 3, 3 };
 			MIS_T2.probs = MIS_T2.defaultProbs.clone();
 			
 			MIS_T3.classes = new Class<?>[]{
-					Kunai.class
+					Kunai.class,
+					ThrowingSpear.class,
+					Bolas.class
 			};
-			MIS_T3.defaultProbs = new float[]{ 1 };
+			MIS_T3.defaultProbs = new float[]{ 1, 3, 3 };
 			MIS_T3.probs = MIS_T3.defaultProbs.clone();
 			
 			MIS_T4.classes = new Class<?>[]{
 					Javelin.class,
 					RocketMissile.class,
-					TempestBoomerang.class
+					TempestBoomerang.class,
+					Tomahawk.class,
+					HeavyBoomerang.class
 			};
-			MIS_T4.defaultProbs = new float[]{ 3, 1, 1 };
+			MIS_T4.defaultProbs = new float[]{ 3, 1, 1, 3, 3 };
 			MIS_T4.probs = MIS_T4.defaultProbs.clone();
 			
 			MIS_T5.classes = new Class<?>[]{
 					Javelin.class,
 					RocketMissile.class,
-					TempestBoomerang.class
+					TempestBoomerang.class,
+					Trident.class,
+					ThrowingHammer.class,
+					ForceCube.class
 			};
-			MIS_T5.defaultProbs = new float[]{ 3, 1, 1 };
+			MIS_T5.defaultProbs = new float[]{ 3, 1, 1, 3, 3, 3 };
 			MIS_T5.probs = MIS_T5.defaultProbs.clone();
 			
 			FOOD.classes = new Class<?>[]{
@@ -967,6 +981,7 @@ public class Generator {
 			SHOES.defaultProbs = new float[]{1, 1, 1, 1, 1, 1, 1, 1};
 			SHOES.probs = SHOES.defaultProbs.clone();
 			
+			//SPSEXPD: 并入破碎原版的两枚戒指
 			RING.classes = new Class<?>[]{
 					RingOfAccuracy.class,
 					RingOfEvasion.class,
@@ -979,8 +994,10 @@ public class Generator {
 					RingOfSharpshooting.class,
 					RingOfTenacity.class,
 					RingOfEnergy.class,
-					RingOfKnowledge.class};
-			RING.defaultProbs = new float[]{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+					RingOfKnowledge.class,
+					RingOfArcana.class,
+					RingOfWealth.class};
+			RING.defaultProbs = new float[]{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
 			RING.probs = RING.defaultProbs.clone();
 			
 			ARTIFACT.classes = new Class<?>[]{

@@ -984,17 +984,42 @@ tasks.register('verifySpsMechanics') {
 		}
 
 		def generator = readSource('items/Generator.java')
-		def equipmentDeckStart = generator.indexOf('WAND.classes')
+		//SPSEXPD: 按裁决接入破碎的投掷武器、戒指、武器附魔与护甲刻印（近战武器与法杖仍不接入）
+		def equipmentDeckStart = generator.indexOf('MIS_T1.classes')
 		def equipmentDeckEnd = generator.indexOf('//Trinkets are unique')
 		if (equipmentDeckStart < 0 || equipmentDeckEnd <= equipmentDeckStart) {
 			throw new GradleException('SPS装备生成器: 无法定位装备牌组')
 		}
 		def equipmentDeck = generator.substring(equipmentDeckStart, equipmentDeckEnd)
-		['DuelistArmor.class', 'ClericArmor.class', 'HolyTome.class', 'RingOfArcana.class',
-		 'RingOfWealth.class', 'WandOfLivingEarth.class', 'WandOfWarding.class',
+		['ThrowingStone.class', 'ThrowingKnife.class', 'ThrowingSpike.class', 'FishingSpear.class',
+		 'ThrowingClub.class', 'ThrowingSpear.class', 'Bolas.class', 'Tomahawk.class',
+		 'HeavyBoomerang.class', 'Trident.class', 'ThrowingHammer.class', 'ForceCube.class',
+		 'RingOfArcana.class', 'RingOfWealth.class'].each {
+			if (!equipmentDeck.contains(it)) {
+				throw new GradleException("SPS装备生成器: 破碎投掷武器或戒指未接入可见牌组 ${it}")
+			}
+		}
+		['DuelistArmor.class', 'ClericArmor.class', 'HolyTome.class',
+		 'WandOfLivingEarth.class', 'WandOfWarding.class',
 		 'WornShortsword.class', 'MagesStaff.class', 'Greatshield.class', 'WarScythe.class'].each {
 			if (equipmentDeck.contains(it)) {
 				throw new GradleException("SPS装备生成器: 破碎独有装备仍在可见牌组中 ${it}")
+			}
+		}
+		def weaponSrc = readSource('items/equipment/weapon/Weapon.java')
+		['Blazing.class', 'Chilling.class', 'Kinetic.class', 'Shocking.class',
+		 'Blocking.class', 'Blooming.class', 'Elastic.class', 'Lucky.class',
+		 'Projecting.class', 'Unstable.class', 'Corrupting.class', 'Grim.class',
+		 'Vampiric.class', 'Eldritch.class', 'Venomous.class', 'Vorpal.class'].each {
+			if (!weaponSrc.contains(it)) {
+				throw new GradleException("SPS装备生成器: 破碎武器附魔未接入随机池 ${it}")
+			}
+		}
+		def armorSrc = readSource('items/equipment/armor/Armor.java')
+		['Obfuscation.class', 'Swiftness.class', 'Viscosity.class', 'Brimstone.class',
+		 'Repulsion.class', 'Camouflage.class', 'Flow.class', 'AntiMagic.class'].each {
+			if (!armorSrc.contains(it)) {
+				throw new GradleException("SPS装备生成器: 破碎护甲刻印未接入随机池 ${it}")
 			}
 		}
 		def catalog = readSource('journal/Catalog.java')

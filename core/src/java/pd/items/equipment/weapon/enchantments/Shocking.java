@@ -73,7 +73,7 @@ public class Shocking extends Weapon.Enchantment {
 				}
 			}
 
-			attacker.sprite.parent.addToFront( new Lightning( arcs, null ) );
+			if (attacker.sprite != null) attacker.sprite.parent.addToFront( new Lightning( arcs, null ) );
 			Sample.INSTANCE.play( Assets.Sounds.LIGHTNING );
 			
 		}
@@ -93,8 +93,10 @@ public class Shocking extends Weapon.Enchantment {
 	
 	public static void arc( Char attacker, Char defender, int dist, ArrayList<Char> affected, ArrayList<Lightning.Arc> arcs ) {
 
-		defender.sprite.centerEmitter().burst(SparkParticle.FACTORY, 3);
-		defender.sprite.flash();
+		if (defender.sprite != null) {
+			defender.sprite.centerEmitter().burst(SparkParticle.FACTORY, 3);
+			defender.sprite.flash();
+		}
 
 		ArrayList<Char> hitThisArc = new ArrayList<>();
 		PathFinder.buildDistanceMap( defender.pos, BArray.not( Dungeon.level.solid, null ), dist );
@@ -109,7 +111,8 @@ public class Shocking extends Weapon.Enchantment {
 
 		affected.addAll(hitThisArc);
 		for (Char hit : hitThisArc){
-			arcs.add(new Lightning.Arc(defender.sprite.center(), hit.sprite.center()));
+			if (defender.sprite != null && hit.sprite != null)
+				arcs.add(new Lightning.Arc(defender.sprite.center(), hit.sprite.center()));
 			arc(attacker, hit, (Dungeon.level.water[hit.pos] && !hit.flying) ? 2 : 1, affected, arcs);
 		}
 

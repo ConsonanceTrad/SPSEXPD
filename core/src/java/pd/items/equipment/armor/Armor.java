@@ -310,7 +310,8 @@ public class Armor extends EquipableItem {
 
 			if (Dungeon.hero.heroClass == HeroClass.WARRIOR && checkSeal() == null){
 				BrokenSeal seal = oldArmor != null ? oldArmor.checkSeal() : null;
-				if (seal != null && (!cursed || (seal.getGlyph() != null && seal.getGlyph().curse()))){
+				//SPSEXPD: 任意护甲都可承接纹章（原版对被诅咒护甲有刻印类型限制）
+				if (seal != null){
 
 					GameScene.show(new WndOptions(new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
 							Messages.titleCase(seal.trueName()),
@@ -384,7 +385,8 @@ public class Armor extends EquipableItem {
 		this.seal = seal;
 		if (seal.level() > 0){
 			//doesn't trigger upgrading logic such as affecting curses/glyphs
-			int newLevel = trueLevel()+1;
+			//SPSEXPD: 纹章携带的升级全部转移到护甲上（原版只带 1 级）
+			int newLevel = trueLevel() + seal.level();
 			level(newLevel);
 			Badges.validateItemLevelAquired(this);
 		}
@@ -408,7 +410,8 @@ public class Armor extends EquipableItem {
 			seal = null;
 
 			if (detaching.level() > 0){
-				degrade();
+				//SPSEXPD: 纹章带走的升级全部从护甲上扣回（原版只扣 1 级）
+				for (int i = 0; i < detaching.level(); i++) degrade();
 			}
 			if (detaching.canTransferGlyph()){
 				inscribe(null);
@@ -583,7 +586,7 @@ public class Armor extends EquipableItem {
 		
 		cursed = false;
 
-		if (seal != null && seal.level() == 0)
+		if (seal != null && seal.level() < BrokenSeal.MAX_CARRIED_LEVEL)
 			seal.upgrade();
 
 		return super.upgrade();
@@ -885,11 +888,15 @@ public class Armor extends EquipableItem {
 	
 	public static abstract class Glyph implements Bundlable {
 		
+		//SPSEXPD: 并入破碎原版的护甲刻印（SPS 刻印池为单档平权，这里同样并入 common 档）
 		public static final Class<?>[] common = new Class<?>[]{
 				Changeglyph.class, Crystalglyph.class, Darkglyph.class, Earthglyph.class,
 				Electricityglyph.class, Fireglyph.class, Iceglyph.class, Lightglyph.class,
 				Revivalglyph.class, Testglyph.class, AdaptGlyph.class, RecoilGlyph.class,
-				Energyglyph.class };
+				Energyglyph.class,
+				Obfuscation.class, Swiftness.class, Viscosity.class,
+				Brimstone.class, Repulsion.class, Camouflage.class, Flow.class,
+				AntiMagic.class };
 
 		public static final Class<?>[] uncommon = new Class<?>[]{};
 

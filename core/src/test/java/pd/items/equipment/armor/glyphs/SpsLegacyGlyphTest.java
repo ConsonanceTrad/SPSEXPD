@@ -19,11 +19,15 @@ import render.utils.serialize.Bundle;
 /** Headless regression checks for all thirteen SPS-PD 0.9.8 armor glyphs. */
 public final class SpsLegacyGlyphTest {
 
+	//SPSEXPD: 追加破碎原版并入的 8 种护甲刻印（同样并入 common 档）
 	private static final Class<?>[] GLYPHS = {
 			Changeglyph.class, Crystalglyph.class, Darkglyph.class, Earthglyph.class,
 			Electricityglyph.class, Fireglyph.class, Iceglyph.class, Lightglyph.class,
 			Revivalglyph.class, Testglyph.class, AdaptGlyph.class, RecoilGlyph.class,
-			Energyglyph.class
+			Energyglyph.class,
+			Obfuscation.class, Swiftness.class, Viscosity.class,
+			Brimstone.class, Repulsion.class, Camouflage.class, Flow.class,
+			AntiMagic.class
 	};
 
 	public static void main(String[] args) throws Exception {
