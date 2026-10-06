@@ -1022,6 +1022,14 @@ tasks.register('verifySpsMechanics') {
 				throw new GradleException("SPS装备生成器: 破碎护甲刻印未接入随机池 ${it}")
 			}
 		}
+		//SPSEXPD: ScrollPane/组件必须先 add 到场景再 setRect —— layout 依赖 camera()，
+		//未挂载时 parent 为 null 会 NPE（实机崩溃过：MemorySaveScene）
+		def memorySave = readSource('scenes/MemorySaveScene.java')
+		int addAt = memorySave.indexOf('add(list)')
+		int rectAt = memorySave.indexOf('list.setRect')
+		if (addAt < 0 || rectAt < 0 || addAt > rectAt) {
+			throw new GradleException('SPS记忆存档场景: ScrollPane 必须先 add 再 setRect，否则 camera() 为 null 崩溃')
+		}
 		def catalog = readSource('journal/Catalog.java')
 		['ENCHANTMENTS.addItems', 'GLYPHS.addItems', 'TRINKETS.addItems',
 		 'MISC_EQUIPMENT.addItems', 'equipmentCatalogs.add(TRINKETS)',

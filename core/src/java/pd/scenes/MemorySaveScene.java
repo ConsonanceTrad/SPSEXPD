@@ -62,22 +62,24 @@ public class MemorySaveScene extends PixelScene {
 
 		Component content = new Component();
 		ScrollPane list = new ScrollPane(content);
-		list.setRect(0, title.bottom() + 6, width, height - title.bottom() - 12);
+		//SPSEXPD: 必须先挂到场景再布局——ScrollPane/按钮的 layout 依赖 camera()，
+		//未 add 时 parent 为 null，camera() 返回 null 会 NPE
 		add(list);
+		list.setRect(0, title.bottom() + 6, width, height - title.bottom() - 12);
 
 		ArrayList<GamesInProgress.Info> games = GamesInProgress.checkAll();
 		float y = 0;
 		for (GamesInProgress.Info info : games) {
 			MemorySlotButton button = new MemorySlotButton(info.slot, label(info));
-			button.setRect((width - SLOT_WIDTH) / 2f, y, SLOT_WIDTH, SLOT_HEIGHT);
 			content.add(button);
+			button.setRect((width - SLOT_WIDTH) / 2f, y, SLOT_WIDTH, SLOT_HEIGHT);
 			y += SLOT_HEIGHT + 4;
 		}
 		if (games.size() < GamesInProgress.MAX_SLOTS) {
 			int slot = GamesInProgress.firstEmpty();
 			MemorySlotButton button = new MemorySlotButton(slot, Messages.get(this, "new", slot));
-			button.setRect((width - SLOT_WIDTH) / 2f, y, SLOT_WIDTH, SLOT_HEIGHT);
 			content.add(button);
+			button.setRect((width - SLOT_WIDTH) / 2f, y, SLOT_WIDTH, SLOT_HEIGHT);
 			y += SLOT_HEIGHT + 4;
 		}
 		content.setSize(width, y);
