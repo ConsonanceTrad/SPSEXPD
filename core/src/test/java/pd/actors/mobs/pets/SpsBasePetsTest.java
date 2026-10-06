@@ -210,16 +210,18 @@ public final class SpsBasePetsTest {
 		check(hatch(new ButterflypetEgg()) instanceof ButterflyPet && hatch(new ChocoboEgg()) instanceof Chocobo
 				&& hatch(new DaturaEgg()) instanceof Datura && hatch(new DogpetEgg()) instanceof DogPet
 				&& hatch(new DwarfBoyEgg()) instanceof DwarfBoy, "五种普通蛋孵化类型错误");
-		check(new ButterflypetEgg().image == SpecificPlaceHolderDict.SOMETHING_0
+		check(new ButterflypetEgg().image == ConsumSummorDict.AFLY_EGG_0
 				&& new ChocoboEgg().image == ConsumSummorDict.CHOCOBO_EGG_0 && new DaturaEgg().image == ConsumSummorDict.DATURA_EGG_0
 				&& new DogpetEgg().image == ConsumSummorDict.DOG_PET_EGG_0 && new DwarfBoyEgg().image == ConsumSummorDict.DWARF_BOY_EGG_0,
 				"五种普通蛋图标索引错误");
-		Set<Class<?>> easter = new HashSet<>();
-		for (int seed = 0; seed < 100; seed++) {
-			Random.pushGenerator(seed); try { easter.add(hatch(new RandomEasterEgg()).getClass()); } finally { Random.popGenerator(); }
-		}
-		check(easter.contains(Bunny.class) && easter.contains(CocoCat.class) && easter.contains(Velocirooster.class),
-				"随机复活节之魂没有覆盖原版三种宠物");
+		//SPSXPD: 随机复活节之魂现在是奖励包，开出的应是三种复活节魂石
+		pd.items.consum.eggs.randomone.RandomPetEgg easterPack = new RandomEasterEgg();
+		java.util.List<Class<?>> easter = Arrays.asList(easterPack.possibleEggs());
+		check(easter.size() == 3
+				&& easter.contains(pd.items.consum.eggs.EasterEgg.class)
+				&& easter.contains(pd.items.consum.eggs.CocoCatEgg.class)
+				&& easter.contains(pd.items.consum.eggs.VelociroosterEgg.class),
+				"随机复活节之魂没有覆盖原版三种复活节魂石");
 		ButterflyProbe original = new ButterflyProbe(); original.setCooldown(17); Bundle bundle = new Bundle(); original.storeInBundle(bundle);
 		ButterflyProbe restored = new ButterflyProbe(); restored.restoreFromBundle(bundle);
 		check(restored.petCooldown() == 17 && restored.legacyType() == 304, "普通宠物冷却或类型存档错误");

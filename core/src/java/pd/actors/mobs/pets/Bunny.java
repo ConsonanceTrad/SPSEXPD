@@ -38,14 +38,23 @@ public class Bunny extends PET {
 		int b = (5 + petLevel() * 3) * 4;
 		return Random.NormalIntRange(Math.min(a, b), Math.max(a, b));
 	}
+	/** 掉落型/无目标技能：施法目标是自身 */
+	@Override protected Char castTarget() { return this; }
+
+	@Override public boolean hasAbility() { return true; }
+
+	@Override protected boolean castOn(Char target) {
+		if (Dungeon.level == null) return false;
+		int kind = Random.Int(3);
+		Item reward = kind == 0 ? Generator.random(Generator.Category.SEED)
+				: kind == 1 ? Generator.random(Generator.Category.BERRY) : new Mushroom();
+		Dungeon.level.drop(reward, pos).sprite.drop();
+		cooldown = Math.max(4, 40 - petLevel());
+		return true;
+	}
+
 	@Override public int attackProc(Char enemy, int damage) {
-		if (cooldown == 0) {
-			int kind = Random.Int(3);
-			Item reward = kind == 0 ? Generator.random(Generator.Category.SEED)
-					: kind == 1 ? Generator.random(Generator.Category.BERRY) : new Mushroom();
-			Dungeon.level.drop(reward, pos).sprite.drop();
-			cooldown = Math.max(4, 40 - petLevel());
-		}
+		if (cooldown == 0) castOn(this);
 		return damage;
 	}
 }

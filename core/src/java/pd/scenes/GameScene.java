@@ -1973,6 +1973,9 @@ public class GameScene extends PixelScene {
 	public static void examineObject(Object o){
 		if (o == Dungeon.hero){
 			GameScene.show( new WndHero() );
+		} else if (o instanceof pd.actors.mobs.pets.LegacyPet){
+			//SPSXPD: 伙伴投影用宠物信息窗（普通点击已改为移动 / 交换位置）
+			GameScene.show(new pd.windows.WndPetInfo((pd.actors.mobs.pets.LegacyPet) o));
 		} else if ( o instanceof Mob && ((Mob) o).isActive() ){
 			GameScene.show(new WndInfoMob((Mob) o));
 			if (o instanceof Snake && !Document.ADVENTURERS_GUIDE.isPageRead(Document.GUIDE_SURPRISE_ATKS)){

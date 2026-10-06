@@ -38,12 +38,18 @@ public class CocoCat extends PET {
 	@Override protected boolean canAttack(Char enemy) {
 		return Dungeon.level != null && Dungeon.level.distance(pos, enemy.pos) <= 4;
 	}
+	@Override public boolean hasAbility() { return true; }
+
+	@Override protected boolean castOn(Char target) {
+		if (target == null || target == this || Dungeon.level == null) return false;
+		new BuildBomb().explode(target.pos);
+		cooldown = Math.max(5, 50 - petLevel());
+		return true;
+	}
+
 	@Override public int attackProc(Char enemy, int damage) {
 		if (cooldown > 0) cooldown--;
-		if (cooldown == 0 && enemy != null && Dungeon.level != null) {
-			new BuildBomb().explode(enemy.pos);
-			cooldown = Math.max(5, 50 - petLevel());
-		}
+		if (cooldown == 0) castOn(enemy);
 		return super.attackProc(enemy, damage);
 	}
 }

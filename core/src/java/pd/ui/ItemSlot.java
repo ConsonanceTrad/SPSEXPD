@@ -323,6 +323,11 @@ public class ItemSlot extends Button {
 			} else {
 				level.hardlight(buffedLvl > trueLvl ? ENHANCED : WARNING);
 			}
+		} else if (item.slotLevelText() != null) {
+			//SPSXPD: 物品自定义的右上角等级文本（例如魂石的宠物等级）
+			level.text( item.slotLevelText() );
+			level.measure();
+			level.hardlight( UPGRADED );
 		} else {
 			level.text( null );
 		}

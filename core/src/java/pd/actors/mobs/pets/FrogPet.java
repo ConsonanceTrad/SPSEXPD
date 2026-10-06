@@ -38,11 +38,22 @@ public class FrogPet extends PET {
 	@Override public int damageRoll() { return Random.NormalIntRange(5 + petLevel() / 2, 5 + petLevel() * 3 / 2); }
 	@Override public int drRoll() { return Random.IntRange(petLevel(), Math.max(petLevel(), petLevel() * 3)); }
 	@Override public int attackSkill(Char target) { return petLevel() + 5; }
+	/** 掉落型/无目标技能：施法目标是自身 */
+	@Override protected Char castTarget() { return this; }
+
+	@Override public boolean hasAbility() { return true; }
+
+	/** 技能是掉落随机物品 */
+	@Override protected boolean castOn(Char target) {
+		if (Dungeon.level == null) return false;
+		Dungeon.level.drop(Generator.random(), pos).sprite.drop();
+		cooldown = Math.max(15, 45 - petLevel());
+		return true;
+	}
+
 	@Override public int attackProc(Char enemy, int damage) {
-		cooldown--;
-		if (Dungeon.level != null && enemy != null && damage > enemy.HP && cooldown <= 0) {
-			Dungeon.level.drop(Generator.random(), pos).sprite.drop(); cooldown = Math.max(15, 45 - petLevel());
-		}
+		if (cooldown > 0) cooldown--;
+		if (Dungeon.level != null && enemy != null && damage > enemy.HP && cooldown <= 0) castOn(enemy);
 		return super.attackProc(enemy, damage);
 	}
 }

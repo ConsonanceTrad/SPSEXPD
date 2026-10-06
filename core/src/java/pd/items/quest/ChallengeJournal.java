@@ -15,7 +15,6 @@ import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
 import pd.items.ChallengeBook;
 import pd.items.Item;
-import pd.items.PocketBallFull;
 import pd.items.specific.challengelists.ChallengeList;
 import pd.levels.Level;
 import pd.levels.Transitions;
@@ -160,7 +159,7 @@ public class ChallengeJournal extends Item {
 		returnBranch = Dungeon.branch;
 		returnPos = hero.pos;
 
-		PocketBallFull.removePet(hero);
+		pd.items.consum.eggs.Egg.recallProjection(hero);
 		Transitions.beforeTransition();
 		Invisibility.dispel();
 		hero.spend(1f);
@@ -180,7 +179,7 @@ public class ChallengeJournal extends Item {
 			return;
 		}
 
-		PocketBallFull.removePet(hero);
+		pd.items.consum.eggs.Egg.recallProjection(hero);
 		Transitions.beforeTransition();
 		Invisibility.dispel();
 		hero.spend(1f);

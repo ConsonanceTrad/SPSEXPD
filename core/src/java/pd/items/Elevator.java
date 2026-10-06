@@ -49,11 +49,11 @@ public class Elevator extends Item {
 
 	@Override public void execute(Hero hero, String action) {
 		if (AC_UP.equals(action)) {
-			PocketBallFull.removePet(hero);
+			pd.items.consum.eggs.Egg.recallProjection(hero);
 			InterlevelScene.mode = InterlevelScene.Mode.ASCEND;
 			Game.switchScene(InterlevelScene.class);
 		} else if (AC_DOWN.equals(action)) {
-			PocketBallFull.removePet(hero);
+			pd.items.consum.eggs.Egg.recallProjection(hero);
 			InterlevelScene.mode = InterlevelScene.Mode.DESCEND;
 			Game.switchScene(InterlevelScene.class);
 		} else super.execute(hero, action);

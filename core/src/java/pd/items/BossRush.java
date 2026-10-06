@@ -62,7 +62,7 @@ public class BossRush extends Item {
 			super.execute(hero, action);
 			return;
 		}
-		PocketBallFull.removePet(hero);
+		pd.items.consum.eggs.Egg.recallProjection(hero);
 
 		if (Dungeon.branch == BRANCH) {
 			returnToDungeon(hero);

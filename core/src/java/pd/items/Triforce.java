@@ -59,7 +59,7 @@ public class Triforce extends Item {
 			super.execute(hero, action);
 			return;
 		}
-		PocketBallFull.removePet(hero);
+		pd.items.consum.eggs.Egg.recallProjection(hero);
 		int arenaBranch = AdventureJournal.branchFor(DESTINATION);
 		if (Dungeon.branch == arenaBranch) {
 			for (Mob mob : Dungeon.level.mobs()) {

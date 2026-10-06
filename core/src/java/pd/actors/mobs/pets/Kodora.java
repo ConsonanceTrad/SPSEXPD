@@ -36,9 +36,19 @@ public class Kodora extends PET {
 	@Override public int damageRoll() { return Random.NormalIntRange(5 + petLevel(), 5 + petLevel() * 2); }
 	@Override public int drRoll() { return Random.IntRange(0, petLevel() * 2); }
 	@Override public int attackSkill(Char target) { return petLevel() + 10; }
+	@Override public boolean hasAbility() { return true; }
+
+	/** 技能是魔法易伤 */
+	@Override protected boolean castOn(Char target) {
+		if (target == null || target == this || !target.isAlive()) return false;
+		Buff.affect(target, MagicWeak.class, petLevel() * 2f);
+		cooldown = Math.max(5, 25 - petLevel());
+		return true;
+	}
+
 	@Override public int attackProc(Char enemy, int damage) {
 		if (enemy == null) return 0;
-		if (cooldown <= 0 && enemy.isAlive()) { Buff.affect(enemy, MagicWeak.class, petLevel() * 2f); cooldown = Math.max(5, 25 - petLevel()); }
+		if (cooldown <= 0) castOn(enemy);
 		if (cooldown > 0) cooldown--;
 		enemy.damage(damageRoll(), WandOfMagicMissile.class);
 		return super.attackProc(enemy, 0);

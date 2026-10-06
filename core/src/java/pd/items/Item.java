@@ -143,6 +143,11 @@ public class Item implements Bundlable {
 		return Messages.get(this, "ac_" + action);
 	}
 
+	/** SPSXPD: 动作按钮右上角显示的消耗提示（默认无；露珠瓶用来显示露珠消耗） */
+	public String actionCost(String action, Hero hero) {
+		return null;
+	}
+
 	public final boolean doPickUp( Hero hero ) {
 		return doPickUp( hero, hero.pos );
 	}
@@ -610,6 +615,11 @@ public class Item implements Bundlable {
 	
 	public String status() {
 		return quantity != 1 ? Integer.toString( quantity ) : null;
+	}
+
+	//SPSXPD: 右上角等级槽的自定义文本（默认无；魂石用它显示宠物等级）
+	public String slotLevelText() {
+		return null;
 	}
 
 	public static void updateQuickslot() {

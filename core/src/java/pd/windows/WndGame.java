@@ -53,7 +53,8 @@ public class WndGame extends Window {
 			.t("exit", "退出游戏")
 			.t("return", "继续冒险")
 			.t("debug_items", "调试物品")
-			.t("debug_mobs", "召唤怪物");
+		.t("debug_mobs", "召唤怪物")
+		.t("debug_perks", "调试特质");
 	}
 
 
@@ -89,7 +90,7 @@ public class WndGame extends Window {
 					GameScene.show( new WndDebugItems() );
 				}
 			} );
-			curBtn.icon(Icons.get(Icons.DATA));
+			curBtn.icon(new render.noosa.Image(pd.Assets.Interfaces.ADD_THINGS));
 
 			//SPS: 调试怪物工具（原创缺口）。在英雄身旁召唤任意怪物，协助测试战斗/特效/新怪
 			addButton( curBtn = new RedButton( Messages.get(this, "debug_mobs") ) {
@@ -99,7 +100,17 @@ public class WndGame extends Window {
 					GameScene.show( new WndDebugMobs() );
 				}
 			} );
-			curBtn.icon(Icons.get(Icons.DATA));
+			curBtn.icon(new render.noosa.Image(pd.Assets.Interfaces.ADD_THINGS));
+
+			//SPS: 调试特质工具（原创缺口）。直接给英雄授予任意特质，便于测试特质效果
+			addButton( curBtn = new RedButton( Messages.get(this, "debug_perks") ) {
+				@Override
+				protected void onClick() {
+					hide();
+					GameScene.show( new WndDebugPerks() );
+				}
+			} );
+			curBtn.icon(new render.noosa.Image(pd.Assets.Interfaces.ADD_THINGS));
 		}
 
 		// Challenges window

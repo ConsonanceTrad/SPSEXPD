@@ -190,7 +190,8 @@ public class BrokenSeal extends Item {
 				}
 
 				GLog.p(Messages.get(BrokenSeal.class, "affix"));
-				Dungeon.hero.sprite.operate(Dungeon.hero.pos);
+				//SPSXPD: 开局初始化（Dungeon.init -> initWarrior）时 hero.sprite 尚未创建，不能直接调用
+				if (Dungeon.hero.sprite != null) Dungeon.hero.sprite.operate(Dungeon.hero.pos);
 				Sample.INSTANCE.play(Assets.Sounds.UNLOCK);
 				armor.affixSeal(this);
 				Dungeon.hero.next();

@@ -18,7 +18,6 @@ import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Honeypot;
 import pd.items.Item;
-import pd.items.PocketBall;
 import pd.items.equipment.artifacts.fusion.NoomlinCrown;
 import pd.items.equipment.bags.MagicalHolster;
 import pd.items.equipment.bags.PotionBandolier;
@@ -244,7 +243,7 @@ public final class SpsBetweenLevelTest {
 		int result = 0;
 		for (Item item : items) {
 			if (item instanceof ActiveMrDestructo || item instanceof FairyCard || item instanceof Mobile
-					|| item instanceof Honeypot || item instanceof PocketBall) result++;
+					|| item instanceof Honeypot) result++;
 		}
 		return result;
 	}

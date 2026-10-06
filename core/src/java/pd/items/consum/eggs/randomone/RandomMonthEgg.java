@@ -26,7 +26,9 @@ public class RandomMonthEgg extends RandomEgg {
 			return;
 		}
 		if (Random.Int(10) == 0) drop(new VIPcard(), hero);
-		drop(Random.Int(10) == 0 ? new RandomEasterEgg() : monthEgg(Random.Int(12)), hero);
+		//SPSXPD: 一步到位 —— 直接开出魂石
+		RandomPetEgg pack = Random.Int(10) == 0 ? new RandomEasterEgg() : monthEgg(Random.Int(12));
+		pack.dropContents(hero);
 		detach(hero.belongings.backpack);
 		hero.spendAndNext(1f);
 	}

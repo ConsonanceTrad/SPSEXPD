@@ -51,6 +51,8 @@ public class WndUseItem extends WndInfoItem {
 		if (Dungeon.hero.isAlive() && Dungeon.hero.belongings.contains(item)) {
 			y += GAP;
 			ArrayList<RedButton> buttons = new ArrayList<>();
+			//SPSXPD: 与 buttons 平行的消耗提示（露珠瓶用它显示露珠消耗）
+			ArrayList<CostLabel> actionCosts = new ArrayList<>();
 			for (final String action : item.actions(Dungeon.hero)) {
 
 				RedButton btn = new RedButton(item.actionName(action, Dungeon.hero), 8) {
@@ -71,12 +73,24 @@ public class WndUseItem extends WndInfoItem {
 				buttons.add(btn);
 				add(btn);
 
+				//SPSXPD: 消耗提示（绿色，画在该按钮右上角）
+				String actionCost = item.actionCost(action, Dungeon.hero);
+				actionCosts.add(actionCost == null ? null : new CostLabel(actionCost));
+
 				if (action.equals(item.defaultAction())) {
 					btn.textColor(TITLE_COLOR);
 				}
 
 			}
 			y = layoutButtons(buttons, width, y);
+			//SPSXPD: 把消耗提示摆到各自按钮的右上角
+			for (int bi = 0; bi < buttons.size(); bi++) {
+				CostLabel ct = actionCosts.get(bi);
+				if (ct == null) continue;
+				RedButton rb = buttons.get(bi);
+				ct.setRect(rb.left(), rb.top(), rb.width(), rb.height());
+				add(ct);
+			}
 
 			ItemJournalButton btn = new ItemJournalButton(item, this);
 			btn.setRect(width - 16, 0, 16, 16);
@@ -84,6 +98,25 @@ public class WndUseItem extends WndInfoItem {
 		}
 
 		resize( width, (int)(y) );
+	}
+
+	/** SPSXPD: 动作按钮右上角的消耗提示（绿色数字） */
+	private static class CostLabel extends render.noosa.ui.Component {
+		private final render.noosa.BitmapText text;
+
+		CostLabel(String cost) {
+			text = new render.noosa.BitmapText(pd.scenes.PixelScene.pixelFont);
+			text.text(cost);
+			text.hardlight(0x66FF66);
+			add(text);
+		}
+
+		@Override
+		protected void layout() {
+			super.layout();
+			text.x = x + width - text.width() - 1;
+			text.y = y + 1;
+		}
 	}
 
 	private static float layoutButtons(ArrayList<RedButton> buttons, float width, float y){

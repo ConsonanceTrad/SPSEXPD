@@ -50,8 +50,10 @@ public class RandomEgg extends Item {
 			return;
 		}
 		if (Random.Int(10) == 0) drop(new VIPcard(), hero);
-		drop(Random.Int(10) == 0 ? new RandomEasterEgg()
-				: monthEgg(Calendar.getInstance().get(Calendar.MONTH)), hero);
+		//SPSXPD: 一步到位 —— 直接开出魂石，不再掉出中间包
+		RandomPetEgg pack = Random.Int(10) == 0 ? new RandomEasterEgg()
+				: monthEgg(Calendar.getInstance().get(Calendar.MONTH));
+		pack.dropContents(hero);
 		detach(hero.belongings.backpack);
 		hero.spendAndNext(1f);
 	}

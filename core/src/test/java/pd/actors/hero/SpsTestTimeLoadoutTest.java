@@ -13,7 +13,6 @@ import pd.items.Elevator;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.Palantir;
-import pd.items.PocketBall;
 import pd.items.PowerHand;
 import pd.items.SaveYourLife;
 import pd.items.SkillBook;
@@ -144,7 +143,6 @@ public final class SpsTestTimeLoadoutTest {
 		};
 		for (Class<?> type : uniqueItems) check(countExact(hero, type) == 1, "测试物资缺失或重复：" + type.getSimpleName());
 
-		check(countExact(hero, PocketBall.class) == 10, "精灵球数量不是10");
 		check(countExact(hero, ScrollOfIdentify.class) == 199, "鉴定卷轴数量不是199");
 		check(countExact(hero, ScrollOfMagicMapping.class) == 199, "地图卷轴数量不是199");
 		check(countExact(hero, MoonCake.class) == 199, "月饼数量不是199");

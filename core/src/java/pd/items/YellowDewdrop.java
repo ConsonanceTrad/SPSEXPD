@@ -9,7 +9,7 @@ public class YellowDewdrop extends ColoredDewdrop {
 	static {
 		InlineText.of(YellowDewdrop.class)
 			.t("name", "黄色露珠")
-			.t("desc", "黄色的露珠。如果水袋无法继续收集，它会立即恢复少量生命。");
+			.t("desc", "黄色的露珠。如果露珠瓶无法继续收集，它会立即恢复少量生命。");
 	}
 
 

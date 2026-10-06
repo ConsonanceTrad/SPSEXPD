@@ -61,7 +61,7 @@ public final class SpsBossKeysTest {
 		Hero hero = state();
 		SpsBossKey[] keys = {new Bone(), new ConchShell(), new AncientCoin()};
 		int[] destinations = {11, 12, 13};
-		IconEntry[] images = {SpecificPlaceHolderDict.SOMETHING_0, SpecificPlaceHolderDict.SOMETHING_0, SpecificPlaceHolderDict.SOMETHING_0};
+		IconEntry[] images = {pd.atlas.items.SpecificTaskDict.MAGIC_SKULL, pd.atlas.items.SpecificTaskDict.CHARGED_CONCH, pd.atlas.items.SpecificTaskDict.COURT_MEMORIAL};
 		for (int i = 0; i < keys.length; i++) {
 			SpsBossKey key = keys[i];
 			check(key.destination() == destinations[i] && key.image == images[i],
@@ -114,17 +114,19 @@ public final class SpsBossKeysTest {
 		for (SpsBossKey key : new SpsBossKey[]{new Bone(), new ConchShell(), new AncientCoin()}) {
 			Hero hero = state();
 			BlueDragon pet = new BlueDragon();
-			pet.HP = 77;
 			pet.pos = CENTER + 1;
 			Dungeon.level.mobs().add(pet);
 			Actor.add(pet);
 			hero.belongings.backpack.items.add(key);
+			pd.items.consum.eggs.Egg soulStone1 = new pd.items.consum.eggs.Egg();
+			hero.belongings.backpack.items.add(soulStone1);
+			pet.markProjection(soulStone1);
+			pet.HP = 77;
 
 			key.execute(hero, SpsBossKey.AC_PORT);
 			check(LegacyPet.active() == null, key.getClass().getSimpleName() + "传送前没有收回在场宠物");
-			PocketBallFull ball = hero.belongings.getItem(PocketBallFull.class);
-			check(ball != null && ball.pet_type == LegacyPet.Kind.BLUE_DRAGON.legacyType && ball.pet_hp == 77,
-					key.getClass().getSimpleName() + "没有保留宠物类型和生命");
+			check(soulStone1.petHp == 77,
+					key.getClass().getSimpleName() + "没有把投影血量写回魂石");
 			check(hero.belongings.backpack.contains(key), key.getClass().getSimpleName() + "在非法地点错误消耗");
 		}
 	}
@@ -153,18 +155,20 @@ public final class SpsBossKeysTest {
 			Hero hero = state();
 			Dungeon.depth = portals[i] instanceof Triforce ? 5 : 1;
 			BlueDragon pet = new BlueDragon();
-			pet.HP = 76;
 			pet.pos = CENTER + 1;
 			Dungeon.level.mobs().add(pet);
 			Actor.add(pet);
 			hero.belongings.backpack.items.add(portals[i]);
+			pd.items.consum.eggs.Egg soulStone2 = new pd.items.consum.eggs.Egg();
+			hero.belongings.backpack.items.add(soulStone2);
+			pet.markProjection(soulStone2);
+			pet.HP = 76;
 
 			portals[i].execute(hero, actions[i]);
 			check(LegacyPet.active() == null,
 					portals[i].getClass().getSimpleName() + "在检查传送地点前没有收回宠物");
-			PocketBallFull ball = hero.belongings.getItem(PocketBallFull.class);
-			check(ball != null && ball.pet_hp == 76,
-					portals[i].getClass().getSimpleName() + "收回宠物时丢失状态");
+			check(soulStone2.petHp == 76,
+					portals[i].getClass().getSimpleName() + "收回投影时丢失状态");
 			check(hero.belongings.backpack.contains(portals[i]),
 					portals[i].getClass().getSimpleName() + "在非法地点错误消耗");
 		}

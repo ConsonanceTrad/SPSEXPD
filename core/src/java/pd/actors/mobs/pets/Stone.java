@@ -29,6 +29,16 @@ public class Stone extends PET {
 	@Override public int damageRoll(){return Random.NormalIntRange(5+petLevel()/2,5+petLevel()*3/2);}
 	@Override public int drRoll(){return Random.IntRange(petLevel()*2,Math.max(petLevel()*2,petLevel()*5));}
 	@Override public int attackSkill(Char target){return petLevel()+5;}
+	@Override public boolean hasAbility(){return true;}
+
+	/** 技能是神圣眩晕 */
+	@Override protected boolean castOn(Char target){
+		if(target==null||target==this||!target.isAlive())return false;
+		Buff.affect(target,HolyStun.class,5f);
+		cooldown=Math.max(10,30-petLevel());
+		return true;
+	}
+
 	@Override public int attackProc(Char enemy,int damage){if(enemy!=null&&Random.Int(20)==0)Buff.affect(enemy,Paralysis.class,3f);cooldown--;return super.attackProc(enemy,damage);}
-	@Override public int defenseProc(Char enemy,int damage){if(enemy!=null&&cooldown<=0){Buff.affect(enemy,HolyStun.class,5f);cooldown=Math.max(10,30-petLevel());}return super.defenseProc(enemy,damage);}
+	@Override public int defenseProc(Char enemy,int damage){if(enemy!=null&&cooldown<=0)castOn(enemy);return super.defenseProc(enemy,damage);}
 }

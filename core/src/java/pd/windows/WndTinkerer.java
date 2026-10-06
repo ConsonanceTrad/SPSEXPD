@@ -18,7 +18,7 @@ public class WndTinkerer extends WndOptions {
 	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
 	static {
 		InlineText.of(WndTinkerer.class)
-			.t("info1", "嗯……这就是露珠菌孢。作为回报，我可以帮你改进水袋，让它能强化你的装备。")
+			.t("info1", "嗯……这就是露珠菌孢。作为回报，我可以帮你改进露珠瓶，让它能强化你的装备。")
 			.t("water", "祝福强化")
 			.t("draw", "精确强化")
 			.t("spinfo", "告诉我它们之间的区别")

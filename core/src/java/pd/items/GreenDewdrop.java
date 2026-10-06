@@ -23,7 +23,7 @@ public class GreenDewdrop extends Dewdrop {
 	static {
 		InlineText.of(GreenDewdrop.class)
 			.t("name", "绿色露珠")
-			.t("desc", "绿色的露珠。没有水袋时恢复10至39点生命，否则可储存10至29点露水能量。");
+			.t("desc", "绿色的露珠。没有露珠瓶时恢复10至39点生命，否则可储存10至29点露水能量。");
 	}
 
 

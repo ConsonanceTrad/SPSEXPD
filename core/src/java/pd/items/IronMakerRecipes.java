@@ -73,7 +73,7 @@ public class IronMakerRecipes extends Recipe {
 		if (items.size() == 3 && water == 1 && count(items, Fruit.class) == 1 && ore == 1) {
 			return new FruitCandy(2);
 		}
-		if (items.size() == 4 && count(items, DarkGold.class) == 3 && ore == 1) return new PocketBall();
+		if (items.size() == 4 && count(items, DarkGold.class) == 3 && ore == 1) return new pd.items.consum.eggs.randomone.RandomEgg1();
 		if (items.size() == 2 && ore == 2) return new HeavyAmmo();
 		if (items.size() == 2 && ore == 1) {
 			if (count(items, NutPlant.Seed.class) == 1) return new WoodenAmmo();

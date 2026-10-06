@@ -28,5 +28,15 @@ public class Snake extends PET {
 	@Override public int damageRoll(){return Random.NormalIntRange(5+petLevel(),5+petLevel()*2);}
 	@Override public int drRoll(){return Random.IntRange(0,petLevel()*2);}
 	@Override public int attackSkill(Char target){return petLevel()+10;}
-	@Override public int attackProc(Char enemy,int damage){if(enemy==null)return damage;if(Random.Int(10)==0&&enemy.isAlive())Buff.affect(enemy,Poison.class).set(Random.IntRange(5,6));if(cooldown<=0&&enemy.isAlive()){enemy.damage(Math.max(1,enemy.HP/3),this);cooldown=Math.max(5,25-petLevel());}if(cooldown>0)cooldown--;return super.attackProc(enemy,damage);}
+	@Override public boolean hasAbility(){return true;}
+
+	/** 技能是剧毒撕咬（造成目标当前生命三分之一的伤害） */
+	@Override protected boolean castOn(Char target){
+		if(target==null||target==this||!target.isAlive())return false;
+		target.damage(Math.max(1,target.HP/3),this);
+		cooldown=Math.max(5,25-petLevel());
+		return true;
+	}
+
+	@Override public int attackProc(Char enemy,int damage){if(enemy==null)return damage;if(Random.Int(10)==0&&enemy.isAlive())Buff.affect(enemy,Poison.class).set(Random.IntRange(5,6));if(cooldown<=0)castOn(enemy);if(cooldown>0)cooldown--;return super.attackProc(enemy,damage);}
 }

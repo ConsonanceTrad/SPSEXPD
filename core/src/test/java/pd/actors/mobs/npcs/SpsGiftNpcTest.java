@@ -179,8 +179,8 @@ public final class SpsGiftNpcTest {
 		check(hatch(new HaroEgg()) instanceof Haro && hatch(new PigpetEgg()) instanceof PigPet
 				&& hatch(new CocoCatEgg()) instanceof CocoCat && hatch(new VelociroosterEgg()) instanceof Velocirooster,
 				"四种礼物宠物蛋孵化类型错误");
-		check(new HaroEgg().image == SpecificPlaceHolderDict.SOMETHING_0 && new PigpetEgg().image == ConsumSummorDict.PIG_PET_EGG_0
-				&& new CocoCatEgg().image == SpecificPlaceHolderDict.SOMETHING_0
+		check(new HaroEgg().image == ConsumSummorDict.MONKEY_EGG_0 && new PigpetEgg().image == ConsumSummorDict.PIG_PET_EGG_0
+				&& new CocoCatEgg().image == ConsumSummorDict.STONE_PET_EGG_0
 				&& new VelociroosterEgg().image == ConsumSummorDict.VELOCIROOSTER_EGG_0,
 				"四种礼物宠物蛋图标索引错误");
 	}

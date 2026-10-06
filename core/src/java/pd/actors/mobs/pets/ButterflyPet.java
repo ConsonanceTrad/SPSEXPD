@@ -55,17 +55,28 @@ public class ButterflyPet extends PET {
 
 	void supportHero() {
 		if (Dungeon.hero != null && Dungeon.level != null && Dungeon.level.adjacent(pos, Dungeon.hero.pos)) {
-			cooldown--;
-			if (cooldown <= 0) {
-				if (Dungeon.hero.sprite != null) {
-					Dungeon.hero.sprite.emitter().start(pd.effects.Speck.factory(
-							pd.effects.Speck.HEALING), 0.4f, 1);
-					Dungeon.hero.sprite.showStatus(CharSprite.POSITIVE, "5");
-				}
-				Dungeon.hero.HP = Math.min(Dungeon.hero.HT, Dungeon.hero.HP + 5);
-				cooldown = Math.max(15, 35 - petLevel());
-			}
+			if (cooldown > 0) cooldown--;
+			if (cooldown <= 0) castOn(Dungeon.hero);
 		}
+	}
+
+	@Override public boolean hasAbility() { return true; }
+
+	/** 技能目标是相邻的英雄（治疗） */
+	@Override protected Char castTarget() {
+		return (Dungeon.hero != null && Dungeon.level != null && Dungeon.level.adjacent(pos, Dungeon.hero.pos))
+				? Dungeon.hero : null;
+	}
+
+	@Override protected boolean castOn(Char target) {
+		if (Dungeon.hero == null || target != Dungeon.hero) return false;
+		if (Dungeon.hero.sprite != null) {
+			Dungeon.hero.sprite.emitter().start(pd.effects.Speck.factory(pd.effects.Speck.HEALING), 0.4f, 1);
+			Dungeon.hero.sprite.showStatus(CharSprite.POSITIVE, "5");
+		}
+		Dungeon.hero.HP = Math.min(Dungeon.hero.HT, Dungeon.hero.HP + 5);
+		cooldown = Math.max(15, 35 - petLevel());
+		return true;
 	}
 
 	@Override public int attackProc(Char enemy, int damage) {

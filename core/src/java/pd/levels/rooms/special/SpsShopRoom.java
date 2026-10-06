@@ -10,7 +10,6 @@ import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Honeypot;
 import pd.items.Item;
-import pd.items.PocketBall;
 import pd.items.Stylus;
 import pd.items.equipment.artifacts.AlienBag;
 import pd.items.equipment.artifacts.TimekeepersHourglass;
@@ -157,7 +156,7 @@ public class SpsShopRoom extends ShopRoom {
 			case 2: itemsToSpawn.add(new FairyCard()); break;
 			case 3: itemsToSpawn.add(new Mobile()); break;
 			case 4: itemsToSpawn.add(new Honeypot()); break;
-			default: itemsToSpawn.add(new PocketBall()); break;
+			default: itemsToSpawn.add(new Mobile()); break;
 		}
 		itemsToSpawn.add(new Ankh());
 

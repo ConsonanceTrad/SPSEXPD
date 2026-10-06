@@ -79,6 +79,18 @@ public class Abi extends PET {
 		cooldown = 5;
 	}
 
+	/** 掉落型/无目标技能：施法目标是自身 */
+	@Override protected Char castTarget() { return this; }
+
+	@Override public boolean hasAbility() { return true; }
+
+	/** 技能是全场范围强击（CD 5） */
+	@Override protected boolean castOn(Char target) {
+		if (cooldown > 0 || Dungeon.level == null) return false;
+		superAttack();
+		return true;
+	}
+
 	private void zap() {
 		spend(TICK);
 		if (enemy == null || !enemy.isAlive()) return;

@@ -33,14 +33,22 @@ public class LitDemon extends PET {
 	@Override public int damageRoll() { return Random.NormalIntRange(5 + petLevel(), 5 + petLevel() * 2); }
 	@Override public int drRoll() { return Random.IntRange(0, petLevel() * 2); }
 	@Override public int attackSkill(Char target) { return petLevel() + 10; }
+	@Override public boolean hasAbility() { return true; }
+
+	/** 技能是五段切割 */
+	@Override protected boolean castOn(Char target) {
+		if (target == null || target == this || !target.isAlive()) return false;
+		int fragmentMax = Math.max(1, damageRoll() / 5);
+		for (int i = 0; i < 5; i++) target.damage(Random.IntRange(1, fragmentMax), Item.class);
+		cooldown = Math.max(6, 26 - petLevel());
+		return true;
+	}
+
 	@Override public int attackProc(Char enemy, int damage) {
 		if (enemy == null) return super.attackProc(null, damage);
 		int fragmentMax = Math.max(1, damage / 5);
 		enemy.damage(Random.IntRange(1, fragmentMax), Item.class);
-		if (cooldown <= 0 && enemy.isAlive()) {
-			for (int i = 0; i < 5; i++) enemy.damage(Random.IntRange(1, fragmentMax), Item.class);
-			cooldown = Math.max(6, 26 - petLevel());
-		}
+		if (cooldown <= 0) castOn(enemy);
 		if (cooldown > 0) cooldown--;
 		return super.attackProc(enemy, damage);
 	}

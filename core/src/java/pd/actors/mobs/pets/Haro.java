@@ -48,11 +48,18 @@ public class Haro extends PET {
 		}
 		return super.attackProc(enemy, damage);
 	}
+	@Override public boolean hasAbility() { return true; }
+
+	/** 技能是神圣眩晕 */
+	@Override protected boolean castOn(Char target) {
+		if (target == null || target == this || !target.isAlive()) return false;
+		Buff.affect(target, HolyStun.class, 5f);
+		cooldown = Math.max(10, 50 - petLevel());
+		return true;
+	}
+
 	@Override public int defenseProc(Char enemy, int damage) {
-		if (cooldown == 0 && enemy != null) {
-			Buff.affect(enemy, HolyStun.class, 5f);
-			cooldown = Math.max(10, 50 - petLevel());
-		}
+		if (cooldown == 0) castOn(enemy);
 		return super.defenseProc(enemy, damage);
 	}
 }

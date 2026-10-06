@@ -42,7 +42,19 @@ public class RibbonRat extends PET {
 	@Override public int damageRoll(){return Random.NormalIntRange(5+petLevel(),5+petLevel()*2);}
 	@Override public int drRoll(){return Random.IntRange(0,petLevel()*2);}
 	@Override public int attackSkill(Char target){return petLevel()+10;}
-	@Override public int attackProc(Char enemy,int damage){if(enemy!=null&&cooldown<=0){int cell=vacantCardinal(enemy.pos);if(cell>=0){summon(cell,enemy.pos);cooldown=Math.max(15,40-petLevel());}}if(cooldown>0)cooldown--;return super.attackProc(enemy,damage);}
+	@Override public boolean hasAbility(){return true;}
+
+	/** 技能是召唤小老鼠 */
+	@Override protected boolean castOn(Char target){
+		if(target==null||target==this)return false;
+		int cell=vacantCardinal(target.pos);
+		if(cell<0)return false;
+		summon(cell,target.pos);
+		cooldown=Math.max(15,40-petLevel());
+		return true;
+	}
+
+	@Override public int attackProc(Char enemy,int damage){if(enemy!=null&&cooldown<=0)castOn(enemy);if(cooldown>0)cooldown--;return super.attackProc(enemy,damage);}
 	int vacantCardinal(int center){if(Dungeon.level==null)return -1;ArrayList<Integer> cells=new ArrayList<>();for(int offset:PathFinder.NEIGHBOURS4){int cell=center+offset;if(cell>=0&&cell<Dungeon.level.length()&&Dungeon.level.passable[cell]&&Actor.findChar(cell)==null)cells.add(cell);}return cells.isEmpty()?-1:Random.element(cells);}
 	protected RibbonRatTwo createMinion(){RibbonRatTwo minion=new RibbonRatTwo();minion.updateStats();return minion;}
 	private void summon(int cell,int origin){RibbonRatTwo minion=createMinion();minion.pos=cell;GameScene.add(minion);Actor.add(new Pushing(minion,origin,cell));if(Game.instance!=null)Sample.INSTANCE.play(Assets.Sounds.BEE);}

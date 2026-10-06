@@ -6,7 +6,6 @@ import pd.Dungeon;
 import pd.items.Elevator;
 import pd.items.Item;
 import pd.items.Palantir;
-import pd.items.PocketBall;
 import pd.items.PowerHand;
 import pd.items.SaveYourLife;
 import pd.items.SkillBook;
@@ -98,7 +97,7 @@ public final class SpsTestTimeLoadout {
 		collect(hero, new EasterEgg());
 		collect(hero, new AflyEgg());
 		collect(hero, new GoldDragonEgg());
-		collect(hero, new PocketBall(10));
+
 
 		collect(hero, identified(new ScrollOfIdentify().quantity(199)));
 		collect(hero, identified(new ScrollOfMagicMapping().quantity(199)));

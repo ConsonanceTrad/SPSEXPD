@@ -38,12 +38,19 @@ public class PigPet extends PET {
 	}
 	@Override public int drRoll() { return Random.IntRange(petLevel(), Math.max(petLevel(), petLevel() * 3)); }
 	@Override public int attackSkill(Char target) { return petLevel() + 5; }
+	@Override public boolean hasAbility() { return true; }
+
+	/** 技能是在敌人位置掉落蘑菇 */
+	@Override protected boolean castOn(Char target) {
+		if (Dungeon.level == null || target == null || target == this) return false;
+		Dungeon.level.drop(Generator.random(Generator.Category.MUSHROOM), target.pos).sprite.drop();
+		cooldown = Math.max(25, 45 - petLevel());
+		return true;
+	}
+
 	@Override public int attackProc(Char enemy, int damage) {
 		if (cooldown > 0) cooldown--;
-		if (cooldown == 0 && Dungeon.level != null && enemy != null) {
-			Dungeon.level.drop(Generator.random(Generator.Category.MUSHROOM), enemy.pos).sprite.drop();
-			cooldown = Math.max(25, 45 - petLevel());
-		}
+		if (cooldown == 0) castOn(enemy);
 		return super.attackProc(enemy, damage);
 	}
 	@Override public int defenseProc(Char enemy, int damage) {

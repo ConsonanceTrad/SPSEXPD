@@ -60,7 +60,7 @@ public class TreasureMap extends Item {
 			super.execute(hero, action);
 			return;
 		}
-		PocketBallFull.removePet(hero);
+		pd.items.consum.eggs.Egg.recallProjection(hero);
 		if (Dungeon.branch == BRANCH) {
 			if (!Dungeon.gnollKingKilled) {
 				hero.spend(TIME_TO_USE);

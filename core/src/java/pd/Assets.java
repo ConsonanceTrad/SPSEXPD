@@ -138,6 +138,8 @@ public class Assets {
 		//SPSXPD: 特质加点按钮 / 英雄窗特质页签的专用图标（独立单图，非图集）
 		public static final String SPECIFIC_POINT   = "interfaces/specific_point.png";
 
+		//SPSXPD: 调试器按钮图标（独立单图，16x16）
+		public static final String ADD_THINGS       = "interfaces/add_things.png";
 		public static final String HERO_ICONS       = "interfaces/hero_icons.png";
 
 		public static final String RADIAL_MENU      = "interfaces/radial_menu.png";

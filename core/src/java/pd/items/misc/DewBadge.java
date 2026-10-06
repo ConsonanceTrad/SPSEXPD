@@ -23,7 +23,7 @@ public class DewBadge extends Badge {
 	static {
 		InlineText.of(DewBadge.class)
 			.t("name", "魔法集露袋")
-			.t("desc", "装备后，你每移动一步都会自动把落脚点周围九格内的地面露珠收入露珠瓶，且不消耗任何回合。需要随身携带露珠瓶（水袋）。");
+			.t("desc", "装备后，你每移动一步都会自动把落脚点周围九格内的地面露珠收入露珠瓶，且不消耗任何回合。需要随身携带露珠瓶（露珠瓶）。");
 	}
 
 	{

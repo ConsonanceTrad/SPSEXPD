@@ -284,7 +284,11 @@ public class Statistics {
 		orcsKilled = bundle.getInt(ORCS_KILLED);
 
 		if (bundle.contains( ITEM_TYPES_DISCOVERED )) {
-			itemTypesDiscovered = new HashSet<>(Arrays.asList(bundle.getClassArray(ITEM_TYPES_DISCOVERED)));
+			//SPSXPD: 版本更新可能删掉物品类，读档时跳过缺失的类，避免存盘时空指针崩溃
+			itemTypesDiscovered = new HashSet<>();
+			for (Class<?> discovered : bundle.getClassArray(ITEM_TYPES_DISCOVERED)) {
+				if (discovered != null) itemTypesDiscovered.add(discovered);
+			}
 		} else {
 			itemTypesDiscovered.clear();
 		}

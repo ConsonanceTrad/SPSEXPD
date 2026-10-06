@@ -156,7 +156,7 @@ public final class SpsPetInteractionsTest {
 				&& zhItems.contains("items.equipment.weapon.melee.special.sjrbmusic.rap=鸡你太美!!!"),
 				"S-J-R-B音乐套装中文资源缺失、被改写或乱码");
 		SJRBMusic music = new SJRBMusic();
-		check(music.image == SpecificPlaceHolderDict.SOMETHING_0 && music.tier == 1
+		check(music.image == pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict.SLAM_DUNK_SET && music.tier == 1
 				&& music.min(0) == 3 && music.max(0) == 6, "S-J-R-B音乐套装图标或基础属性错误");
 	}
 

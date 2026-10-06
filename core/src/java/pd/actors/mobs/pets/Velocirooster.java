@@ -46,10 +46,19 @@ public class Velocirooster extends PET {
 		if (cooldown == 0) { low = low * 5 / 2; high *= 2; }
 		return Random.NormalIntRange(low, Math.max(low, high));
 	}
+	@Override public boolean hasAbility() { return true; }
+
+	/** 技能是恐吓魅惑（yell1） */
+	@Override protected boolean castOn(Char target) {
+		if (target == null || target == this) return false;
+		charm(target, "yell1", Math.max(5, 30 - petLevel()));
+		return true;
+	}
+
 	@Override public int attackProc(Char enemy, int damage) {
 		if (Random.Int(4) == 0) damage = damage * 6 / 5;
 		if (cooldown > 0) cooldown--;
-		if (cooldown == 0 && enemy != null) charm(enemy, "yell1", Math.max(5, 30 - petLevel()));
+		if (cooldown == 0) castOn(enemy);
 		return super.attackProc(enemy, damage);
 	}
 	@Override public int defenseProc(Char enemy, int damage) {

@@ -29,5 +29,15 @@ public class StarKid extends PET {
 	@Override public int damageRoll(){return Random.NormalIntRange(5+petLevel(),5+petLevel()*2);}
 	@Override public int drRoll(){return Random.IntRange(0,petLevel()*2);}
 	@Override public int attackSkill(Char target){return petLevel()+10;}
-	@Override public int attackProc(Char enemy,int damage){if(enemy==null)return 0;if(cooldown<=0&&enemy.isAlive()){Buff.affect(enemy,LightShootAttack.class).level(petLevel());cooldown=Math.max(9,29-petLevel());}if(cooldown>0)cooldown--;enemy.damage(damageRoll(),DamageType.LIGHT_DAMAGE);return super.attackProc(enemy,0);}
+	@Override public boolean hasAbility(){return true;}
+
+	/** 技能是圣光射击 */
+	@Override protected boolean castOn(Char target){
+		if(target==null||target==this||!target.isAlive())return false;
+		Buff.affect(target,LightShootAttack.class).level(petLevel());
+		cooldown=Math.max(9,29-petLevel());
+		return true;
+	}
+
+	@Override public int attackProc(Char enemy,int damage){if(enemy==null)return 0;if(cooldown<=0)castOn(enemy);if(cooldown>0)cooldown--;enemy.damage(damageRoll(),DamageType.LIGHT_DAMAGE);return super.attackProc(enemy,0);}
 }

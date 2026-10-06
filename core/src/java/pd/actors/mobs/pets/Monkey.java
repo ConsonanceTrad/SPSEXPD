@@ -30,5 +30,15 @@ public class Monkey extends PET {
 	@Override public int damageRoll() { return Random.NormalIntRange(5+petLevel()/2,5+petLevel()*3/2); }
 	@Override public int drRoll() { return Random.IntRange(petLevel(),Math.max(petLevel(),petLevel()*3)); }
 	@Override public int attackSkill(Char target) { return petLevel()+5; }
-	@Override public int attackProc(Char enemy,int damage) { cooldown--; if(Dungeon.level!=null&&enemy!=null&&cooldown<=0&&Random.Int(4)==0){Dungeon.level.drop(Generator.random(Generator.Category.BERRY),enemy.pos).sprite.drop();cooldown=Math.max(15,45-petLevel());} return super.attackProc(enemy,damage); }
+	@Override public boolean hasAbility(){return true;}
+
+	/** 技能是在敌人位置掉落浆果 */
+	@Override protected boolean castOn(Char target){
+		if(Dungeon.level==null||target==null||target==this)return false;
+		Dungeon.level.drop(Generator.random(Generator.Category.BERRY),target.pos).sprite.drop();
+		cooldown=Math.max(15,45-petLevel());
+		return true;
+	}
+
+	@Override public int attackProc(Char enemy,int damage) { cooldown--; if(Dungeon.level!=null&&enemy!=null&&cooldown<=0&&Random.Int(4)==0)castOn(enemy); return super.attackProc(enemy,damage); }
 }

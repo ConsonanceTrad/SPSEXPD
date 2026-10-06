@@ -45,7 +45,19 @@ public class Fly extends PET {
 	@Override public int drRoll(){return Random.IntRange(petLevel()*2,Math.max(petLevel()*2,petLevel()*5));}
 	@Override public int attackSkill(Char target){return petLevel()+5;}
 	@Override public int attackProc(Char enemy,int damage){if(enemy!=null&&Random.Int(10)==0)Buff.affect(enemy,Slow.class,5f);return super.attackProc(enemy,damage);}
-	@Override public int defenseProc(Char enemy,int damage){if(enemy!=null&&cooldown<=0){int cell=vacantCardinal(enemy.pos);if(cell>=0){summon(cell,enemy.pos);cooldown=Math.max(10,30-petLevel());}}if(cooldown>0)cooldown--;return super.defenseProc(enemy,damage);}
+	@Override public boolean hasAbility(){return true;}
+
+	/** 技能是召唤小飞虫 */
+	@Override protected boolean castOn(Char target){
+		if(target==null||target==this)return false;
+		int cell=vacantCardinal(target.pos);
+		if(cell<0)return false;
+		summon(cell,target.pos);
+		cooldown=Math.max(10,30-petLevel());
+		return true;
+	}
+
+	@Override public int defenseProc(Char enemy,int damage){if(enemy!=null&&cooldown<=0)castOn(enemy);if(cooldown>0)cooldown--;return super.defenseProc(enemy,damage);}
 	int vacantCardinal(int center){if(Dungeon.level==null)return -1;ArrayList<Integer> cells=new ArrayList<>();for(int offset:PathFinder.NEIGHBOURS4){int cell=center+offset;if(cell>=0&&cell<Dungeon.level.length()&&Dungeon.level.passable[cell]&&Actor.findChar(cell)==null)cells.add(cell);}return cells.isEmpty()?-1:Random.element(cells);}
 	protected FlyTwo createMinion(){FlyTwo minion=new FlyTwo();minion.updateStats();return minion;}
 	private void summon(int cell,int origin){FlyTwo minion=createMinion();minion.pos=cell;GameScene.add(minion);Actor.add(new Pushing(minion,origin,cell));if(Game.instance!=null)Sample.INSTANCE.play(Assets.Sounds.BEE);}

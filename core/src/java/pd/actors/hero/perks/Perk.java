@@ -159,6 +159,11 @@ public abstract class Perk implements Bundlable {
 		private Companion() {
 		}
 
+		//SPSXPD: 调试用 —— 列出全部已注册特质（含权重 0、正常途径拿不到的）
+		public static ArrayList<Class<? extends Perk>> allClasses() {
+			return new ArrayList<>(POSITIVES.keySet());
+		}
+
 		/**
 		 * 可随机获得的特质池及其权重（照暗黑的 Perk.INSTANCE.positives）。
 		 * 权重 0 表示只在特定途径获得；压力体系已决定不引入，故池中不含压力类。
@@ -166,6 +171,15 @@ public abstract class Perk implements Bundlable {
 		private static final LinkedHashMap<Class<? extends Perk>, Float> POSITIVES = new LinkedHashMap<>();
 
 		static {
+			//SPSXPD: 驯兽大师 —— 魂石的献祭 / 炸环由它解锁
+			POSITIVES.put(BeastMaster.class, 1f);
+
+			//SPSXPD: 深渊巨口 —— 吞星花啃咬 + 击杀铭记（每种生物一次）
+			POSITIVES.put(AbyssalMaw.class, 1f);
+
+			//SPSXPD: 露珠研究 —— 露珠瓶 / 露珠瓶消耗打折
+			POSITIVES.put(DewResearch.class, 1f);
+
 			POSITIVES.put(LuckFromAuthor.class, 0.01f);
 			POSITIVES.put(GoodAppetite.class, 1f);
 			//裁决：Optimistic 改写为「法术防御抵抗纯粹伤害」，入池

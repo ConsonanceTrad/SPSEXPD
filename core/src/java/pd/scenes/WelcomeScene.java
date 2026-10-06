@@ -58,7 +58,7 @@ public class WelcomeScene extends PixelScene {
 	static {
 		InlineText.of(WelcomeScene.class)
 			.t("update_intro", "SPS-SPD 已经更新！")
-			.t("update_msg", "SPS-SPD 4.0.0-sps.1 已建立特别惊喜像素地牢基于破碎 4.0 的独立移植工程。现有异界路线、挑战、伙伴、装备、九格快捷栏和水袋操作均予保留，其余旧版系统将依据可核验的内容台账继续迁移。")
+			.t("update_msg", "SPS-SPD 4.0.0-sps.1 已建立特别惊喜像素地牢基于破碎 4.0 的独立移植工程。现有异界路线、挑战、伙伴、装备、九格快捷栏和露珠瓶操作均予保留，其余旧版系统将依据可核验的内容台账继续迁移。")
 			.t("patch_intro", "破碎的像素地牢补丁已经成功安装！")
 			.t("patch_bugfixes", "本次补丁包含少量Bug修复。")
 			.t("patch_translations", "本次补丁包含翻译文本更新。")

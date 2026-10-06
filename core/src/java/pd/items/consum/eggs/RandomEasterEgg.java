@@ -1,33 +1,21 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.consum.eggs;
 
-import pd.atlas.items.SpecificPlaceHolderDict;
-
-import pd.actors.mobs.pets.Bunny;
-import pd.actors.mobs.pets.CocoCat;
-import pd.actors.mobs.pets.LegacyPet;
-import pd.actors.mobs.pets.Velocirooster;
-import render.utils.math.Random;
+import pd.items.consum.eggs.randomone.RandomPetEgg;
 import pd.messages.InlineText;
-import pd.atlas.items.ConsumSummorDict;
 
-public class RandomEasterEgg extends Egg {
+/**
+ * SPSXPD: 原「随机复活节之魂」。灵魂必须固定，所以它改为**奖励包**：
+ * 使用后掉落三种复活节魂石之一。
+ */
+public class RandomEasterEgg extends RandomPetEgg {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(RandomEasterEgg.class)
 			.t("name", "随机复活节之魂")
-			.t("desc", "随机召唤三种复活节宠物之一。");
+			.t("desc", "获得三种复活节魂石之一。")
+			.t("ac_use", "使用");
 	}
 
-
-
-	{ image = ConsumSummorDict.RANDOM_SOUL; }
-	@Override protected LegacyPet hatchling() {
-		switch (Random.Int(3)) {
-			case 0: return new Bunny();
-			case 1: return new CocoCat();
-			default: return new Velocirooster();
-		}
-	}
-	@Override public int value() { return 500 * quantity; }
+	public RandomEasterEgg() { super(EasterEgg.class, CocoCatEgg.class, VelociroosterEgg.class); }
 }

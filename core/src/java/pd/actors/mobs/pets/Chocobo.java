@@ -50,11 +50,20 @@ public class Chocobo extends PET {
 		return super.attackProc(enemy, damage);
 	}
 
+	@Override public boolean hasAbility() { return true; }
+
+	/** 技能目标是英雄（加速） */
+	@Override protected Char castTarget() { return Dungeon.hero; }
+
+	@Override protected boolean castOn(Char target) {
+		if (target == null) return false;
+		Buff.affect(target, HasteBuff.class, petLevel());
+		cooldown = Math.max(10, 30 - petLevel());
+		return true;
+	}
+
 	@Override public int defenseProc(Char enemy, int damage) {
-		if (cooldown <= 0 && Dungeon.hero != null) {
-			Buff.affect(Dungeon.hero, HasteBuff.class, petLevel());
-			cooldown = Math.max(10, 30 - petLevel());
-		}
+		if (cooldown <= 0) castOn(castTarget());
 		return super.defenseProc(enemy, damage);
 	}
 }

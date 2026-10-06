@@ -14,7 +14,6 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.NormalCell;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.PocketBall;
 import pd.items.StoneOre;
 import pd.items.Torch;
 import pd.items.equipment.bombs.Bomb;
@@ -203,7 +202,7 @@ public final class SpsAmmoTest {
 		assertRecipe(MixPizza.class, 8, new MeatFood(), new StoneOre(), new StapleFood(), new Fruit(), new Vegetable());
 		assertRecipe(FruitCandy.class, 2, new WaterItem(), new Fruit(), new StoneOre());
 		assertRecipe(Bomb.class, new BuildBomb(), new Firebloom.Seed(), new Icecap.Seed());
-		assertRecipe(PocketBall.class, new DarkGold(), new DarkGold(), new DarkGold(), new StoneOre());
+		assertRecipe(pd.items.consum.eggs.randomone.RandomEgg1.class, new DarkGold(), new DarkGold(), new DarkGold(), new StoneOre());
 		assertRecipe(pd.items.GreatRune.class, new ScrollOfMagicalInfusion());
 		assertRecipe(Torch.class, new Gel());
 	}

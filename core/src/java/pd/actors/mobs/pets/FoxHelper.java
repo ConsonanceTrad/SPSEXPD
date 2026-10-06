@@ -41,12 +41,25 @@ public class FoxHelper extends PET {
 	@Override protected boolean act() { supportHero(); return super.act(); }
 	void supportHero() {
 		if (Dungeon.hero != null && Dungeon.level != null && Dungeon.level.adjacent(pos, Dungeon.hero.pos) && cooldown <= 0) {
-			if (sprite != null) sprite.emitter().start(pd.effects.Speck.factory(
-					pd.effects.Speck.UP), 0.4f, 1);
-			Heap heap = Dungeon.level.drop(supportReward(), pos);
-			if (heap.sprite != null) heap.sprite.drop();
-			cooldown = Math.max(45, 65 - petLevel());
+			castOn(Dungeon.hero);
 		}
+	}
+
+	@Override public boolean hasAbility() { return true; }
+
+	/** 技能目标是相邻的英雄（掉落升级卷轴） */
+	@Override protected Char castTarget() {
+		return (Dungeon.hero != null && Dungeon.level != null && Dungeon.level.adjacent(pos, Dungeon.hero.pos))
+				? Dungeon.hero : null;
+	}
+
+	@Override protected boolean castOn(Char target) {
+		if (target == null || Dungeon.level == null) return false;
+		if (sprite != null) sprite.emitter().start(pd.effects.Speck.factory(pd.effects.Speck.UP), 0.4f, 1);
+		Heap heap = Dungeon.level.drop(supportReward(), pos);
+		if (heap.sprite != null) heap.sprite.drop();
+		cooldown = Math.max(45, 65 - petLevel());
+		return true;
 	}
 	protected Item supportReward() { return new ScrollOfUpgrade(); }
 	@Override public int attackProc(Char enemy, int damage) { cooldown--; return super.attackProc(enemy, damage); }

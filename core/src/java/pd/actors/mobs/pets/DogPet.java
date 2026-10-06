@@ -50,12 +50,22 @@ public class DogPet extends PET {
 	}
 
 	void supportHero() {
-		if (Dungeon.hero != null && Dungeon.level != null && Dungeon.level.adjacent(pos, Dungeon.hero.pos)
-				&& cooldown <= 0) {
-			Buff.affect(Dungeon.hero, ShieldArmor.class).level(petLevel() * 2);
-			Buff.affect(this, ShieldArmor.class).level(petLevel() * 2);
-			cooldown = Math.max(20, 40 - petLevel());
-		}
+		if (cooldown <= 0 && castTarget() != null) castOn(castTarget());
+	}
+
+	@Override public boolean hasAbility() { return true; }
+
+	/** 技能目标是相邻的英雄（护盾） */
+	@Override protected Char castTarget() {
+		return (Dungeon.hero != null && Dungeon.level != null && Dungeon.level.adjacent(pos, Dungeon.hero.pos))
+				? Dungeon.hero : null;
+	}
+
+	@Override protected boolean castOn(Char target) {
+		Buff.affect(target, ShieldArmor.class).level(petLevel() * 2);
+		Buff.affect(this, ShieldArmor.class).level(petLevel() * 2);
+		cooldown = Math.max(20, 40 - petLevel());
+		return true;
 	}
 	@Override public int attackProc(Char enemy, int damage) { cooldown--; return super.attackProc(enemy, damage); }
 	@Override public int defenseProc(Char enemy, int damage) { cooldown--; return super.defenseProc(enemy, damage); }

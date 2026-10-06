@@ -26,10 +26,17 @@ public class StarEaterFlower extends Vegetable {
 			.t("name", "吞星花")
 			.t("desc", "吞星花的一部分。它真正的用途是吞噬物品并提炼其中的精华；若直接食用，其中的消化液会灼伤你（损失 40% 最大生命）。")
 			.t("ac_consume", "吞噬")
-			.t("consume_prompt", "选择一件未装备的物品供吞星花吞噬提炼");
+			.t("consume_prompt", "选择一件未装备的物品供吞星花吞噬提炼")
+			.t("ac_bite", "啃咬")
+			.t("bite_prompt", "选择要啃咬的附近目标")
+			.t("bite_far", "目标太远了，深渊巨口只够得着身边的东西。")
+			.t("bite_kill", "你铭记了这个物种，生命上限提高 5 点（已铭记 %d 种）。")
+			.t("bite_known", "你已经铭记过这个物种了。");
 	}
 
 	private static final String AC_CONSUME = "CONSUME";
+	//SPSXPD: 深渊巨口解锁 —— 啃咬一个附近目标
+	private static final String AC_BITE = "BITE";
 
 	{ image = ConsumPotionSeedSeedDict.STAREATER_FLOWER; defaultAction = AC_CONSUME; }
 
@@ -40,6 +47,11 @@ public class StarEaterFlower extends Vegetable {
 	}
 
 	@Override public void execute(Hero hero, String action) {
+		if (AC_BITE.equals(action)) {
+			curUser = hero;
+			GameScene.selectCell(biteSelector);
+			return;
+		}
 		if (action.equals(AC_CONSUME)) {
 			curUser = hero;
 			GameScene.selectItem(consumeSelector);
@@ -64,6 +76,46 @@ public class StarEaterFlower extends Vegetable {
 			curUser.spendAndNext(Actor.TICK);
 		}
 	};
+
+	/** SPSXPD: 啃咬 —— 点选一个附近目标 */
+	private final pd.scenes.CellSelector.Listener biteSelector = new pd.scenes.CellSelector.Listener() {
+		@Override public void onSelect(Integer cell) {
+			if (cell != null) bite(cell);
+		}
+		@Override public String prompt() {
+			return Messages.get(StarEaterFlower.class, "bite_prompt");
+		}
+	};
+
+	/** 啃咬一个目标：当前攻击力 40% 的纯粹伤害；击杀则铭记该物种（生命上限 +5，每种一次） */
+	private void bite(int cell) {
+		Hero hero = curUser;
+		if (hero == null || Dungeon.level == null) return;
+		pd.actors.Char ch = Actor.findChar(cell);
+		if (!(ch instanceof pd.actors.mobs.Mob) || !ch.isAlive()) return;
+		if (!Dungeon.level.adjacent(hero.pos, cell)) {
+			pd.utils.GLog.w(Messages.get(StarEaterFlower.class, "bite_far"));
+			return;
+		}
+		int dmg = Math.max(1, Math.round(hero.damageRoll() * 0.4f));
+		ch.HP -= dmg; //SPSXPD: 纯粹伤害 —— 绕过一切防御与减伤
+		if (ch.sprite != null) ch.sprite.showStatus(pd.sprites.CharSprite.NEGATIVE, Integer.toString(dmg));
+		if (!ch.isAlive()) {
+			pd.actors.hero.perks.AbyssalMaw maw =
+					hero.heroPerk.get(pd.actors.hero.perks.AbyssalMaw.class);
+			if (maw != null && maw.markDevoured(ch.getClass().getName())) {
+				hero.HTBoost += 5;
+				hero.updateHT(true);
+				pd.utils.GLog.p(Messages.get(StarEaterFlower.class, "bite_kill", maw.devouredCount()));
+			} else {
+				pd.utils.GLog.i(Messages.get(StarEaterFlower.class, "bite_known"));
+			}
+			ch.die(StarEaterFlower.this);
+		}
+		if (hero.sprite != null) hero.sprite.operate(hero.pos);
+		StarEaterFlower.this.detach(hero.belongings.backpack);
+		hero.spendAndNext(Actor.TICK);
+	}
 
 	@Override protected void onEat(Hero hero) {
 		hero.damage(Math.max(1, Math.round(hero.HT * 0.4f)), this);

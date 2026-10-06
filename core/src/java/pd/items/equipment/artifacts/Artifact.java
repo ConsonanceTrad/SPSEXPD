@@ -110,7 +110,8 @@ public class Artifact extends KindofMisc {
 			passiveBuff = null;
 		}
 		passiveBuff = passiveBuff();
-		passiveBuff.attachTo(ch);
+		//SPSXPD: 有些神器（例如魂石）没有被动效果，不应因此崩溃
+		if (passiveBuff != null) passiveBuff.attachTo(ch);
 	}
 
 	@Override

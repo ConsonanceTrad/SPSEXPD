@@ -64,21 +64,21 @@ public final class SpsPetEggsTest {
 	}
 
 	private static void testRandomPools() {
-		assertPool(new RandomAtkEgg(), Kodora.class, Snake.class, RibbonRat.class, GentleCrab.class);
-		assertPool(new RandomDefEgg(), DogPet.class, Chocobo.class, Fly.class, Stone.class, Spider.class);
-		assertPool(new RandomColEgg(), ButterflyPet.class, Monkey.class, PigPet.class, Datura.class);
-		assertPool(new RandomEgg1(), Kodora.class, DogPet.class, Datura.class);
-		assertPool(new RandomEgg2(), GentleCrab.class, Stone.class, FoxHelper.class);
-		assertPool(new RandomEgg3(), RibbonRat.class, DwarfBoy.class, FrogPet.class);
-		assertPool(new RandomEgg4(), Kodora.class, Fly.class, Monkey.class);
-		assertPool(new RandomEgg5(), Snake.class, Chocobo.class, PigPet.class);
-		assertPool(new RandomEgg6(), LitDemon.class, Spider.class, ButterflyPet.class);
-		assertPool(new RandomEgg7(), GentleCrab.class, DwarfBoy.class, FrogPet.class);
-		assertPool(new RandomEgg8(), StarKid.class, DogPet.class, FoxHelper.class);
-		assertPool(new RandomEgg9(), RibbonRat.class, Chocobo.class, Datura.class);
-		assertPool(new RandomEgg10(), StarKid.class, Stone.class, PigPet.class);
-		assertPool(new RandomEgg11(), Snake.class, Fly.class, ButterflyPet.class);
-		assertPool(new RandomEgg12(), LitDemon.class, Spider.class, Monkey.class);
+		assertPool(new RandomAtkEgg(), KodoraEgg.class, SnakeEgg.class, RibbonRatEgg.class, GentleCrabEgg.class);
+		assertPool(new RandomDefEgg(), DogpetEgg.class, ChocoboEgg.class, FlyEgg.class, StoneEgg.class, SpiderpetEgg.class);
+		assertPool(new RandomColEgg(), ButterflypetEgg.class, MonkeyEgg.class, PigpetEgg.class, DaturaEgg.class);
+		assertPool(new RandomEgg1(), KodoraEgg.class, DogpetEgg.class, DaturaEgg.class);
+		assertPool(new RandomEgg2(), GentleCrabEgg.class, StoneEgg.class, FoxHelperEgg.class);
+		assertPool(new RandomEgg3(), RibbonRatEgg.class, DwarfBoyEgg.class, FrogpetEgg.class);
+		assertPool(new RandomEgg4(), KodoraEgg.class, FlyEgg.class, MonkeyEgg.class);
+		assertPool(new RandomEgg5(), SnakeEgg.class, ChocoboEgg.class, PigpetEgg.class);
+		assertPool(new RandomEgg6(), LitDemonEgg.class, SpiderpetEgg.class, ButterflypetEgg.class);
+		assertPool(new RandomEgg7(), GentleCrabEgg.class, DwarfBoyEgg.class, FrogpetEgg.class);
+		assertPool(new RandomEgg8(), StarKidEgg.class, DogpetEgg.class, FoxHelperEgg.class);
+		assertPool(new RandomEgg9(), RibbonRatEgg.class, ChocoboEgg.class, DaturaEgg.class);
+		assertPool(new RandomEgg10(), StarKidEgg.class, StoneEgg.class, PigpetEgg.class);
+		assertPool(new RandomEgg11(), SnakeEgg.class, FlyEgg.class, ButterflypetEgg.class);
+		assertPool(new RandomEgg12(), LitDemonEgg.class, SpiderpetEgg.class, MonkeyEgg.class);
 		Class<?>[] months = {RandomEgg1.class, RandomEgg2.class, RandomEgg3.class, RandomEgg4.class,
 				RandomEgg5.class, RandomEgg6.class, RandomEgg7.class, RandomEgg8.class,
 				RandomEgg9.class, RandomEgg10.class, RandomEgg11.class, RandomEgg12.class};
@@ -160,9 +160,9 @@ public final class SpsPetEggsTest {
 	}
 
 	@SafeVarargs
-	private static void assertPool(RandomPetEgg egg, Class<? extends LegacyPet>... expected) {
-		check(Arrays.equals(egg.possiblePets(), expected), egg.getClass().getSimpleName() + "候选宠物错误");
-		check(egg.image == SpecificPlaceHolderDict.SOMETHING_0 && egg.value() == 500,
+	private static void assertPool(RandomPetEgg egg, Class<? extends Egg>... expected) {
+		check(Arrays.equals(egg.possibleEggs(), expected), egg.getClass().getSimpleName() + "候选魂石错误");
+		check(egg.image == ConsumSummorDict.RANDOM_SOUL && egg.value() == 500,
 				egg.getClass().getSimpleName() + "图标或价值错误");
 	}
 

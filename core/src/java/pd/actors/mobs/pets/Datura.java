@@ -54,13 +54,23 @@ public class Datura extends PET {
 		return super.attackProc(enemy, damage);
 	}
 
+	/** 掉落型/无目标技能：施法目标是自身 */
+	@Override protected Char castTarget() { return this; }
+
+	@Override public boolean hasAbility() { return true; }
+
+	/** 技能是自身掉落紫色露珠 */
+	@Override protected boolean castOn(Char target) {
+		if (Dungeon.level == null) return false;
+		Dungeon.level.drop(new VioletDewdrop(), pos).sprite.drop();
+		cooldown = Math.max(25, 50 - petLevel());
+		return true;
+	}
+
 	@Override public int defenseProc(Char enemy, int damage) {
 		if (Dungeon.level != null && Random.Int(5) == 0) Dungeon.level.drop(new YellowDewdrop(), pos).sprite.drop();
-		cooldown--;
-		if (Dungeon.level != null && cooldown < 0) {
-			Dungeon.level.drop(new VioletDewdrop(), pos).sprite.drop();
-			cooldown = Math.max(25, 50 - petLevel());
-		}
+		if (cooldown > 0) cooldown--;
+		if (cooldown <= 0) castOn(this);
 		return super.defenseProc(enemy, damage);
 	}
 }

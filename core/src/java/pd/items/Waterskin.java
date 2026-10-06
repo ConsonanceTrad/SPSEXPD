@@ -73,21 +73,21 @@ public class Waterskin extends Item {
 			.t("ac_detect", "侦测")
 			.t("ac_cleanse", "清洗")
 			.t("ac_haste", "加速")
-			.t("collected", "你将一滴露珠收集到了水袋里。")
-			.t("empty", "你的水袋一滴也不剩了！")
-			.t("not_enough", "水袋中的露珠不足以施展这项能力。")
+			.t("collected", "你将一滴露珠收集到了露珠瓶里。")
+			.t("empty", "你的露珠瓶一滴也不剩了！")
+			.t("not_enough", "露珠瓶中的露珠不足以施展这项能力。")
 			.t("lit", "露珠化作稳定的微光，照亮了你的周围。")
 			.t("detected", "露珠短暂揭示了本层所有生物的位置。")
 			.t("cleansed", "露珠洗去了有害效果，并为你提供了片刻净化保护。")
 			.t("hastened", "露珠令你的脚步短暂加快。")
-			.t("desc", "牛皮缝制的液体容器，被软木塞牢牢密封着。在激烈的搏斗中也不会漏出一滴内容。")
-			.t("desc_water", "你的水袋里只有普普通通的饮用水，地牢中肯定会有更值得装的东西。")
-			.t("desc_heal", "水袋里现在装着有治愈魔力的露水。每滴露珠恢复最大生命值的2.5%%，每次只会喝掉你需要的量。")
-			.t("desc_full", "装满了的水袋散发着一股能量，也许能够用来祝福其他的生存道具？")
+			.t("desc", "一瓶收集来的露珠。露珠是地牢里凝结的净化之水，可以用来照明、浇灌、提纯，或在积攒足够后强化自身。")
+			.t("desc_water", "你的露珠瓶里只有普普通通的饮用水，地牢中肯定会有更值得装的东西。")
+			.t("desc_heal", "露珠瓶里现在装着有治愈魔力的露水。每滴露珠恢复最大生命值的2.5%%，每次只会喝掉你需要的量。")
+			.t("desc_full", "装满了的露珠瓶散发着一股能量，也许能够用来祝福其他的生存道具？")
 			.t("desc_utility", "露珠瓶可以恢复生命、侦测生物并一次性消耗露珠照明，后续还可解锁种植、强化、清洗、加速和提纯功能。")
 			.t("discover_hint", "某位英雄初始携带该物品。")
-			.t("mode_random", "露珠研究者已将水袋调整为_祝福强化_模式。")
-			.t("mode_accurate", "露珠研究者已将水袋调整为_精确强化_模式。")
+			.t("mode_random", "露珠研究者已将露珠瓶调整为_祝福强化_模式。")
+			.t("mode_accurate", "露珠研究者已将露珠瓶调整为_精确强化_模式。")
 			.t("ac_water", "种植")
 			.t("ac_splash", "加速")
 			.t("ac_bless", "强化")
@@ -129,7 +129,7 @@ public class Waterskin extends Item {
 	private static final int SPLASH_COST = 15;
 	private static final int POUR_COST = 20;
 	private static final int WATER_COST = 25;
-	private static final int BLESS_COST = 70;
+	private static final int BLESS_COST = 100; //SPSXPD: 提高到 100，方便玩家计算
 	private static final int REFINE_COST = 100;
 	//SPSEXPD: 照明改为一次性消耗，不再按回合持续扣露珠
 	public static final int LIGHT_COST = 50;
@@ -440,7 +440,30 @@ public class Waterskin extends Item {
 	}
 
 	//SPSEXPD: 单池化后所有消耗都走同一实现
+	/** SPSXPD: 动作按钮右上角显示的露珠消耗 */
+	@Override
+	public String actionCost(String action, Hero hero) {
+		if (AC_LIGHT.equals(action)) return costText(LIGHT_COST, hero);
+		if (AC_PEEK.equals(action)) return costText(dewCost(PEEK_COST), hero);
+		if (AC_WATER.equals(action)) return costText(dewCost(WATER_COST), hero);
+		if (AC_SPLASH.equals(action)) return costText(dewCost(SPLASH_COST), hero);
+		if (AC_POUR.equals(action)) return costText(dewCost(POUR_COST), hero);
+		if (AC_BLESS.equals(action)) return costText(dewCost(BLESS_COST), hero);
+		if (AC_REFINE.equals(action)) return costText(dewCost(REFINE_COST), hero);
+		return null;
+	}
+
+	/** SPSXPD: 消耗提示文本；拥有「露珠研究」时显示随机折扣后的区间（如 35~45） */
+	private static String costText(int base, Hero hero) {
+		pd.actors.hero.perks.DewResearch research =
+				hero == null ? null : hero.heroPerk.get(pd.actors.hero.perks.DewResearch.class);
+		if (research == null) return Integer.toString(base);
+		return research.costMin(base) + "~" + research.costMax(base);
+	}
+
 	private boolean consumeDew(int amount) {
+		//SPSXPD: 「露珠研究」特质 —— 随机降低本次露珠消耗（1 级 10~30%，2 级 20~40%）
+		amount = pd.actors.hero.perks.DewResearch.applyDiscount(Dungeon.hero, amount);
 		if (volume < amount) {
 			GLog.w(Messages.get(this, "not_enough"));
 			return false;

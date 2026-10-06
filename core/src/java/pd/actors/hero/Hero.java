@@ -1138,6 +1138,8 @@ public class Hero extends Char {
 	
 	@Override
 	public boolean act() {
+		//SPSXPD: 宠物能力特质（献祭获得）的每回合触发
+		pd.actors.hero.perks.pets.PetAbilityPerk.dispatchTurn(this);
 		
 		//calls to dungeon.observe will also update hero's local FOV.
 		fieldOfView = Dungeon.level.heroFOV;
@@ -1927,6 +1929,9 @@ public class Hero extends Char {
 
 		//SPSXPD: 暴击系统（照暗黑实现，近战/法术/投掷共用 Critical 入口）
 		damage = pd.actors.hero.Critical.roll( this, damage );
+		//SPSXPD: 宠物能力特质（献祭获得）在命中时生效
+		pd.actors.hero.perks.pets.PetAbilityPerk.dispatchHit(this, enemy, damage);
+
 		if (pd.actors.hero.Critical.lastWasCrit()) {
 			//「汲血暴击」：暴击时按伤害比例回血
 			pd.actors.hero.perks.VampiricCrit.tryProc( this, damage );
@@ -2102,6 +2107,8 @@ public class Hero extends Char {
 
 	@Override
 	public void damage( int dmg, Object src ) {
+		//SPSXPD: 宠物能力特质（献祭获得）的受击触发
+		pd.actors.hero.perks.pets.PetAbilityPerk.dispatchHurt(this, src instanceof pd.actors.Char ? (pd.actors.Char) src : null, dmg);
 		if (buff(TimekeepersHourglass.timeStasis.class) != null
 				|| buff(TimeStasis.class) != null) {
 			return;
@@ -2428,7 +2435,17 @@ public class Hero extends Char {
 		Char ch = Actor.findChar( cell );
 		Heap heap = Dungeon.level.heaps.get( cell );
 
-		if ((Dungeon.level.map[cell] == Terrain.ALCHEMY
+		//SPSXPD: 点自己的伙伴投影：
+		//  - 有 1 级驯兽大师：直接走到它脚下的格子（同格已放行）
+		//  - 否则：相邻则交换位置，远处则走到它旁边（寻路自然停在旁边）
+		if (ch instanceof pd.actors.mobs.pets.LegacyPet && ch != this) {
+			pd.actors.hero.perks.BeastMaster beastMaster = heroPerk.get(pd.actors.hero.perks.BeastMaster.class);
+			if (beastMaster != null || !Dungeon.level.adjacent(pos, cell)) {
+				curAction = new HeroAction.Move( cell );
+			} else {
+				curAction = new HeroAction.Interact( ch );
+			}
+		} else if ((Dungeon.level.map[cell] == Terrain.ALCHEMY
 				|| Dungeon.level.map[cell] == Terrain.TENT
 				|| Dungeon.level.map[cell] == Terrain.IRON_MAKER) && cell != pos) {
 			
@@ -2867,8 +2884,7 @@ public class Hero extends Char {
 		boolean wasHighGrass = Dungeon.level.map[step] == Terrain.HIGH_GRASS;
 
 		super.move( step, travelling);
-		Egg egg = Egg.carried();
-		if (egg != null && step == pos) egg.moves++;
+		//SPSXPD: 能量不再靠走路积攒 —— 改为对装备在神器位的魂石喂食（见 Egg.feed）
 		
 		if (!flying && travelling) {
 			if (Dungeon.level.water[pos]) {

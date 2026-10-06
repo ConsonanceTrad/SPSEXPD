@@ -59,7 +59,6 @@ import pd.items.equipment.artifacts.TalismanOfForesight;
 import pd.items.consum.potions.Potion;
 import pd.items.quest.AdventureJournal;
 import pd.items.quest.ChallengeJournal;
-import pd.items.quest.PetCompendium;
 import pd.items.equipment.rings.Ring;
 import pd.items.consum.scrolls.Scroll;
 import pd.items.equipment.wands.WandOfRegrowth;
@@ -828,6 +827,8 @@ public class Dungeon {
 	
 	public static void saveGame( int save ) {
 		try {
+			//SPSXPD: 投影不入档 —— 存档前把在场投影收回魂石
+			pd.items.consum.eggs.Egg.recallProjection( hero );
 			Bundle bundle = new Bundle();
 
 			bundle.put( INIT_VER, initialVersion );
@@ -1122,8 +1123,6 @@ public class Dungeon {
 		if (journal != null && initialVersion < ChallengeJournal.FIRST_VERSION) {
 			journal.migrateLegacyRegions(Statistics.deepestFloor);
 		}
-		AdventureJournal adventureJournal = hero.belongings.getItem(AdventureJournal.class);
-		if (adventureJournal != null && adventureJournal.isCompleted(6)) PetCompendium.ensureFor(hero);
 
 	}
 	
@@ -1362,8 +1361,14 @@ public class Dungeon {
 		ch.modifyPassable(passable);
 
 		if (chars) {
+			//SPSXPD: 驯兽大师 1 级 —— 英雄与自己的伙伴投影可以叠加在同一格，避免宠物挡住窄道寻路
+			pd.actors.hero.perks.BeastMaster beastMaster = Dungeon.hero == null ? null
+					: Dungeon.hero.heroPerk.get(pd.actors.hero.perks.BeastMaster.class);
+			boolean mayShareWithPet = beastMaster != null
+					&& (ch == Dungeon.hero || ch instanceof pd.actors.mobs.pets.LegacyPet);
 			for (Char c : Actor.chars()) {
 				if (vis[c.pos]) {
+					if (mayShareWithPet && (c == Dungeon.hero || c instanceof pd.actors.mobs.pets.LegacyPet)) continue;
 					passable[c.pos] = false;
 				}
 			}

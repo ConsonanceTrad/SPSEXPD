@@ -52,6 +52,79 @@ public abstract class LegacyPet extends DirectableAlly {
 
 	protected int cooldown = 50;
 
+	//SPSXPD: 投影语义 —— 魂石召唤出的临时实体（半透明、不入档、死亡回写魂石）
+	public static final float REVIVE_TURNS = 50f;
+	public boolean projection = false;
+	public pd.items.consum.eggs.Egg stone = null;
+	private boolean projectionTintPending = false;
+
+	public void markProjection(pd.items.consum.eggs.Egg stone) {
+		this.projection = true;
+		this.stone = stone;
+		this.projectionTintPending = true;
+	}
+
+	/** SPSXPD: 「施法」—— 该宠物是否有可主动释放的 CD 技能（子类覆写） */
+	public boolean hasAbility() {
+		//SPSXPD: 技能写在基类 kind 分支里的宠物
+		return kind() == Kind.BLUE_GIRL || kind() == Kind.SCORPION || kind() == Kind.BUG_DRAGON
+				|| kind() == Kind.LERY_FIRE || rangedDragon();
+	}
+
+	/** SPSXPD: 技能目标 —— 默认锁定当前敌人；掉落/自增益型宠物覆写为自身 */
+	protected Char castTarget() {
+		return (enemy != null && enemy.isAlive()) ? enemy : null;
+	}
+
+	/** SPSXPD: 技能是否就绪（有技能 + CD 结束 + 有目标） */
+	public boolean castAbilityAvailable() {
+		return hasAbility() && cooldown <= 0 && castTarget() != null;
+	}
+
+	/** SPSXPD: 释放技能的具体效果（子类覆写）；返回是否施放成功。回合消耗由英雄动作负责。 */
+	protected boolean castOn(Char target) {
+		if (target == null || target == this || !target.isAlive()) return false;
+		switch (kind()) {
+			case BLUE_GIRL:
+				Buff.affect(target, Paralysis.class, 2f);
+				cooldown = Math.max(20, 40 - petLevel());
+				return true;
+			case SCORPION:
+				Buff.affect(target, Ooze.class).set(20f);
+				HP = Math.min(HT, HP + damageRoll());
+				if (Dungeon.hero != null) Dungeon.hero.HP = Math.min(Dungeon.hero.HT, Dungeon.hero.HP + petLevel());
+				cooldown = Math.max(15, 35 - petLevel());
+				return true;
+			case BUG_DRAGON:
+				target.damage(cooldown < 3 ? target.HT : damageRoll(), this);
+				cooldown = Random.Int(100);
+				return true;
+			case LERY_FIRE:
+				rangedLeryAttack(target);
+				return true;
+			default:
+				if (rangedDragon()) {
+					applyChargedEffect(target);
+					cooldown = Math.max(9, 30 - petLevel());
+					return true;
+				}
+				return false;
+		}
+	}
+
+	/** SPSXPD: 主动施法 */
+	public boolean castAbility() {
+		if (!castAbilityAvailable()) return false;
+		Char target = castTarget();
+		return target != null && castOn(target);
+	}
+
+	public void dismiss() {
+		if (sprite != null) sprite.killAndErase();
+		if (Dungeon.level != null) Dungeon.level.mobs().remove(this);
+		pd.actors.Actor.remove(this);
+	}
+
 	{
 		EXP = 0;
 		maxLvl = -1;
@@ -231,14 +304,8 @@ public abstract class LegacyPet extends DirectableAlly {
 	@Override
 	public boolean interact(Char c) {
 		if (c != Dungeon.hero) return super.interact(c);
-		if (sprite != null) sprite.turnTo(pos, c.pos);
-		//SPSXPD: 窗口构造会测量文字，必须在渲染线程执行（actor 线程直接 new 会崩）
-		Game.runOnRenderThread(new Callback() {
-			@Override public void call() {
-				GameScene.show(new WndPetInfo(LegacyPet.this));
-			}
-		});
-		return true;
+		//SPSXPD: 点自己的伙伴 = 交换位置（伙伴的信息改由「检视」查看）
+		return swapPlaces(Dungeon.hero);
 	}
 
 	protected int petLevel() {
@@ -256,10 +323,33 @@ public abstract class LegacyPet extends DirectableAlly {
 
 	@Override
 	protected boolean act() {
+		if (projectionTintPending && sprite != null) {
+			sprite.tint(0.72f, 0.72f, 1f, 0.72f);
+			projectionTintPending = false;
+		}
 		updateStats(false);
 		if (kind() == Kind.LERY_FIRE && cooldown > 0) cooldown--;
-		if (HP < HT) HP = Math.min(HT, HP + petLevel());
+		//SPSXPD: 魂石不再处于神器位（被卸下 / 售卖 / 丢失）时，投影逐渐消散：每回合 7% 最大生命的纯粹伤害
+		if (!stoneStillEquipped()) {
+			int decay = Math.max(1, HT * 7 / 100);
+			damage(decay, this);
+			if (sprite != null) sprite.showStatus(CharSprite.NEGATIVE, Integer.toString(decay));
+			if (!isAlive()) return true;
+		} else if (HP < HT) {
+			HP = Math.min(HT, HP + petLevel());
+		}
 		return super.act();
+	}
+
+	/** SPSXPD: 投影的来源魂石是否仍装备着（非投影不受此规则约束）。
+	 *  魂石是 Artifact，会被 KindofMisc 放进 artifact/misc/ring 任一空槽，所以三槽都要查。 */
+	private boolean stoneStillEquipped() {
+		if (!projection || stone == null) return true;
+		Hero hero = Dungeon.hero;
+		if (hero == null) return false;
+		return hero.belongings.artifact == stone
+				|| hero.belongings.misc == stone
+				|| hero.belongings.ring == stone;
 	}
 
 	@Override
@@ -320,18 +410,20 @@ public abstract class LegacyPet extends DirectableAlly {
 		return super.doAttack(enemy);
 	}
 
-	private void rangedLeryAttack() {
+	private void rangedLeryAttack() { rangedLeryAttack(enemy); }
+
+	private void rangedLeryAttack(Char target) {
 		spend(TICK);
 		cooldown = Math.max(25, 45 - petLevel());
-		if (enemy == null || !enemy.isAlive() || !hit(this, enemy, true)) return;
+		if (target == null || !target.isAlive() || !hit(this, target, true)) return;
 		int roll = Random.Int(5);
 		int damage = damageRoll() * (roll == 3 ? 3 : 2);
-		enemy.damage(damage, this);
-		if (!enemy.isAlive()) return;
-		if (roll == 0) Buff.affect(enemy, Frost.class, 10f);
-		else if (roll == 1) Buff.affect(enemy, Poison.class).set(petLevel() + 1);
+		target.damage(damage, this);
+		if (!target.isAlive()) return;
+		if (roll == 0) Buff.affect(target, Frost.class, 10f);
+		else if (roll == 1) Buff.affect(target, Poison.class).set(petLevel() + 1);
 		else if (roll == 2 && petLevel() > 0 && Random.Int(Math.max(1, damage)) < petLevel()) {
-			Buff.affect(enemy, Burning.class).reignite(enemy, 4f);
+			Buff.affect(target, Burning.class).reignite(target, 4f);
 		}
 	}
 
@@ -411,10 +503,19 @@ public abstract class LegacyPet extends DirectableAlly {
 		super.damage(damage, source);
 	}
 
+	/** SPSXPD: 投影死亡时的回写（独立成方法，便于测试） */
+	protected void onProjectionDeath() {
+		if (projection && stone != null) {
+			stone.petHp = 0;
+			stone.reviveAtTurn = render.noosa.Game.timeTotal + REVIVE_TURNS;
+		}
+	}
+
 	@Override
 	public void die(Object cause) {
+		onProjectionDeath();
 		super.die(cause);
-		if (Dungeon.hero != null) Messages.get(this, "pet_died");
+		if (Dungeon.hero != null) pd.utils.GLog.w(Messages.get(this, "pet_died"));
 	}
 
 	public static LegacyPet active() {
@@ -429,6 +530,9 @@ public abstract class LegacyPet extends DirectableAlly {
 	}
 
 	private static final String COOLDOWN = "cooldown";
-	@Override public void storeInBundle(Bundle bundle) { super.storeInBundle(bundle); bundle.put(COOLDOWN, cooldown); }
+	@Override public void storeInBundle(Bundle bundle) {
+		if (projection) { super.storeInBundle(bundle); return; } //SPSXPD: 投影不入档
+		super.storeInBundle(bundle); bundle.put(COOLDOWN, cooldown);
+	}
 	@Override public void restoreFromBundle(Bundle bundle) { super.restoreFromBundle(bundle); cooldown = bundle.getInt(COOLDOWN); updateStats(false); }
 }

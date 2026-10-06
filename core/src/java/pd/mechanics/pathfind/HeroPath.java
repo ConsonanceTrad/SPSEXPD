@@ -54,8 +54,13 @@ public final class HeroPath {
 		boolean[] mapped  = Dungeon.level.mapped;
 
 		boolean[] passable = new boolean[Dungeon.level.length()];
+		//SPSXPD: 驯兽大师 1 级 —— 英雄可以踩着自己的伙伴投影走，路径预览要同步放行
+		pd.actors.hero.perks.BeastMaster beastMaster = Dungeon.hero == null ? null
+				: Dungeon.hero.heroPerk.get(pd.actors.hero.perks.BeastMaster.class);
 		for (int i = 0; i < passable.length; i++){
-			passable[i] = Dungeon.level.passable[i] && Actor.findChar(i) == null;
+			pd.actors.Char blocker = Actor.findChar(i);
+			boolean petMayShare = beastMaster != null && blocker instanceof pd.actors.mobs.pets.LegacyPet;
+			passable[i] = Dungeon.level.passable[i] && (blocker == null || petMayShare);
 			//SPS: "已知"既包括走过的，也包括探地卷轴等手段揭示过的（mapped）
 			if (exploredOnly && !known(visited, mapped, i)) passable[i] = false;
 		}

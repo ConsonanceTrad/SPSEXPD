@@ -17,7 +17,6 @@ import pd.items.Generator;
 import pd.items.GreatRune;
 import pd.items.GreenDewdrop;
 import pd.items.Item;
-import pd.items.PocketBall;
 import pd.items.StoneOre;
 import pd.items.Stylus;
 import pd.items.Torch;

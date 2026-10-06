@@ -18,7 +18,6 @@ import pd.actors.hero.Hero;
 import pd.items.DolyaSlate;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.PocketBallFull;
 import pd.items.equipment.armor.fusion.CatSharkArmor;
 import pd.items.equipment.armor.fusion.LifeArmor;
 import pd.items.equipment.artifacts.fusion.EyeOfSkadi;
@@ -304,7 +303,7 @@ public class AdventureJournal extends Item {
 		returnDepth = Dungeon.depth;
 		returnBranch = Dungeon.branch;
 		returnPos = hero.pos;
-		PocketBallFull.removePet(hero);
+		pd.items.consum.eggs.Egg.recallProjection(hero);
 		Transitions.beforeTransition();
 		Invisibility.dispel();
 		hero.spend(1f);
@@ -325,7 +324,7 @@ public class AdventureJournal extends Item {
 			return;
 		}
 
-		PocketBallFull.removePet(hero);
+		pd.items.consum.eggs.Egg.recallProjection(hero);
 		Transitions.beforeTransition();
 		Invisibility.dispel();
 		hero.spend(1f);
@@ -394,10 +393,6 @@ public class AdventureJournal extends Item {
 	}
 
 	private static void grantReward(int destination) {
-		if (destination == 6) {
-			PetCompendium.ensureFor(Dungeon.hero);
-			return;
-		}
 		Item reward;
 		switch (destination) {
 			case 1: reward = new Nut().quantity(3); break;

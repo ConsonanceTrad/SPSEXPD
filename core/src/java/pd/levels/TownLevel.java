@@ -34,7 +34,6 @@ import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.KnowledgeBook;
-import pd.items.PocketBall;
 import pd.items.equipment.bombs.ArcaneBomb;
 import pd.items.equipment.bombs.Bomb;
 import pd.items.equipment.bombs.Firebomb;
@@ -379,7 +378,7 @@ public class TownLevel extends Level {
 		switch (Random.Int(10)) {
 			case 0: return new Mushroom();
 			case 1: return Generator.random(Generator.Category.POTION);
-			case 2: return new PocketBall();
+			case 2: return new PetFood();
 			case 3: return Generator.random(Generator.Category.SCROLL);
 			case 4: return Generator.random(Generator.Category.SEED);
 			case 5: return Generator.random(Generator.Category.BERRY);
