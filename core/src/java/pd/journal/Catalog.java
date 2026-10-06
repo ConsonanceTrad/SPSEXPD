@@ -84,6 +84,7 @@ import pd.items.consum.potions.elixirs.ElixirOfHoneyedHealing;
 import pd.items.consum.potions.elixirs.ElixirOfIcyTouch;
 import pd.items.consum.potions.elixirs.ElixirOfMight;
 import pd.items.consum.potions.elixirs.ElixirOfToxicEssence;
+import pd.items.consum.potions.elixirs.WishPotion;
 import pd.items.consum.potions.exotic.ExoticPotion;
 import pd.items.quest.CeremonialCandle;
 import pd.items.quest.CorpseDust;
@@ -270,7 +271,8 @@ public enum Catalog {
 		BREWS_ELIXIRS.addItems( UnstableBrew.class, InfernalBrew.class, BlizzardBrew.class,
 				ShockingBrew.class, CausticBrew.class, AquaBrew.class, ElixirOfHoneyedHealing.class,
 				ElixirOfAquaticRejuvenation.class, ElixirOfArcaneArmor.class, ElixirOfDragonsBlood.class,
-				ElixirOfIcyTouch.class, ElixirOfToxicEssence.class, ElixirOfMight.class, ElixirOfFeatherFall.class);
+				ElixirOfIcyTouch.class, ElixirOfToxicEssence.class, ElixirOfMight.class, ElixirOfFeatherFall.class,
+				WishPotion.class);
 
 		SPELLS.addItems( UnstableSpell.class, WildEnergy.class, TelekineticGrab.class, PhaseShift.class,
 				Alchemize.class, CurseInfusion.class, MagicalInfusion.class, Recycle.class,

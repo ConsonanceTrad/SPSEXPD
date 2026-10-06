@@ -44,6 +44,7 @@ import pd.items.consum.food.MysteryMeat;
 import pd.items.consum.food.Pasty;
 import pd.items.consum.food.StewedMeat;
 import pd.items.consum.potions.Potion;
+import pd.items.consum.potions.PotionOfConfusion;
 import pd.items.consum.potions.brews.AquaBrew;
 import pd.items.consum.potions.brews.BlizzardBrew;
 import pd.items.consum.potions.brews.CausticBrew;
@@ -58,6 +59,7 @@ import pd.items.consum.potions.elixirs.ElixirOfHoneyedHealing;
 import pd.items.consum.potions.elixirs.ElixirOfIcyTouch;
 import pd.items.consum.potions.elixirs.ElixirOfMight;
 import pd.items.consum.potions.elixirs.ElixirOfToxicEssence;
+import pd.items.consum.potions.elixirs.WishPotion;
 import pd.items.consum.potions.exotic.ExoticPotion;
 import pd.items.consum.scrolls.Scroll;
 import pd.items.consum.scrolls.exotic.ExoticScroll;
@@ -74,6 +76,10 @@ import pd.items.consum.spells.UnstableSpell;
 import pd.items.consum.spells.WildEnergy;
 import pd.items.consum.stones.Runestone;
 import pd.items.consum.food.WaterItem;
+import pd.items.consum.food.processed.AetherLiquid;
+import pd.items.consum.food.processed.CrystalShard;
+import pd.items.consum.food.processed.HighEnergySpore;
+import pd.items.consum.food.processed.WishPetal;
 import pd.items.consum.medicine.Timepill2;
 import pd.items.equipment.weapon.spammo.FireAmmo;
 import pd.items.equipment.weapon.spammo.HeavyAmmo;
@@ -425,6 +431,12 @@ public class QuickRecipe extends Component {
 				result.add(new QuickRecipe(new pd.items.LargeFruitToElixir(),
 						new ArrayList<>(Arrays.asList(largeFruit, largeFruit, largeFruit)),
 						elixirHolder));
+				result.add(null);
+				//SPSEXPD: 许愿魔药——混乱药剂 + 许愿花瓣 + 水晶碎片 + 韵魔原液 + 高能孢子
+				result.add(new QuickRecipe(SpsAlchemyRecipes.WISH_POTION,
+						new ArrayList<>(Arrays.asList(new PotionOfConfusion(), new WishPetal(),
+								new CrystalShard(), new AetherLiquid(), new HighEnergySpore())),
+						new WishPotion()));
 				return result;
 			case 8:
 				result.add(new QuickRecipe(new UnstableSpell.Recipe(), new ArrayList<>(Arrays.asList(new Scroll.PlaceHolder(), new  Runestone.PlaceHolder())), new UnstableSpell()));

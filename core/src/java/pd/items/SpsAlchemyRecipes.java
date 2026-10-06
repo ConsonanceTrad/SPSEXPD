@@ -17,6 +17,8 @@ import pd.items.consum.food.staplefood.StapleFood;
 import pd.items.consum.food.vegetable.*;
 import pd.items.consum.medicine.*;
 import pd.items.consum.potions.Potion;
+import pd.items.consum.potions.PotionOfConfusion;
+import pd.items.consum.potions.elixirs.WishPotion;
 import pd.items.consum.scrolls.Scroll;
 import pd.plants.*;
 import render.utils.serialize.Reflection;
@@ -28,7 +30,12 @@ import java.util.List;
 /** The deterministic recipe chain from SPS-PD 0.9.8's WndAlchemy. */
 public final class SpsAlchemyRecipes {
 
-	private static final class TypedRecipe extends Recipe {
+	/** SPSEXPD: 许愿魔药的确定性配方——炼金釜与炼金指南共用这一份定义，避免两处漂移。 */
+	public static final TypedRecipe WISH_POTION = recipe(WishPotion.class,
+			PotionOfConfusion.class, WishPetal.class, CrystalShard.class, AetherLiquid.class, HighEnergySpore.class);
+
+	/** SPSEXPD: 通用确定性配方：产物 + 若干输入，数量与顺序无关全匹配。 */
+	public static final class TypedRecipe extends Recipe {
 		private final Class<?>[] inputs;
 		private final Class<? extends Item> output;
 		private final int outputQuantity;
@@ -84,11 +91,11 @@ public final class SpsAlchemyRecipes {
 		}
 	}
 
-	private static TypedRecipe recipe(Class<? extends Item> output, Class<?>... inputs) {
+	public static TypedRecipe recipe(Class<? extends Item> output, Class<?>... inputs) {
 		return new TypedRecipe(output, 1, inputs);
 	}
 
-	private static TypedRecipe recipe(int quantity, Class<? extends Item> output, Class<?>... inputs) {
+	public static TypedRecipe recipe(int quantity, Class<? extends Item> output, Class<?>... inputs) {
 		return new TypedRecipe(output, quantity, inputs);
 	}
 
@@ -161,7 +168,9 @@ public final class SpsAlchemyRecipes {
 			recipe(CrystalShard.class, QuartzFlower.class),
 			recipe(HighEnergySpore.class, DewSpore.class),
 			recipe(WishPetal.class, RainbowPansy.class),
-			recipe(HormoneSolution.class, Sorrel.class)
+			recipe(HormoneSolution.class, Sorrel.class),
+			//SPSEXPD: 许愿魔药——混乱药剂 + 4 种二次加工产物
+			WISH_POTION
 	);
 
 
