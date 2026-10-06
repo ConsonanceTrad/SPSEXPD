@@ -172,6 +172,14 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		placeLegacyTraps();
 		decorateLegacyFloor();
 		buildRoomAdapters();
+		//SPSEXPD: 下水道不生成破碎的区域装饰（REGION_DECO/ALT 在排水道主题下是"储物木桶"）
+		if (this instanceof SewerLevel) {
+			for (int i = 0; i < length(); i++) {
+				if (map[i] == Terrain.REGION_DECO || map[i] == Terrain.REGION_DECO_ALT) {
+					map[i] = Terrain.EMPTY;
+				}
+			}
+		}
 		return legacyPathExists();
 	}
 

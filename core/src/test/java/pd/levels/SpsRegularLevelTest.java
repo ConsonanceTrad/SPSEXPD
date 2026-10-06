@@ -89,6 +89,7 @@ public final class SpsRegularLevelTest {
 		int generated = 0;
 		for (int region = 0; region < types.length; region++) {
 			int decoratedMaps = 0;
+			int regionDecoMaps = 0;
 			for (int seed = 0; seed < SEEDS_PER_REGION; seed++) {
 				Dungeon.depth = depths[region];
 				Dungeon.branch = 0;
@@ -107,12 +108,18 @@ public final class SpsRegularLevelTest {
 					}
 					if (countTerrain(level, Terrain.EMPTY_DECO)
 							+ countTerrain(level, Terrain.WALL_DECO) > 0) decoratedMaps++;
+					if (countTerrain(level, Terrain.REGION_DECO)
+							+ countTerrain(level, Terrain.REGION_DECO_ALT) > 0) regionDecoMaps++;
 					generated++;
 				} finally {
 					Random.popGenerator();
 				}
 			}
 			check(decoratedMaps > 0, region, -3, "400个固定种子均未生成区域装饰");
+			//SPSEXPD: 下水道不得生成破碎区域装饰（REGION_DECO/ALT 即"储物木桶"），其余区域仍保留
+			check(region == 0 ? regionDecoMaps == 0 : regionDecoMaps > 0, region, -4,
+					region == 0 ? "下水道仍生成储物木桶（REGION_DECO）"
+							: "非下水道区域未生成破碎区域装饰");
 		}
 		check(pitRoomsValidated > 0, -1, -1, "2000张地图没有覆盖旧版陷坑房");
 		validateHallsKeyDrop();
