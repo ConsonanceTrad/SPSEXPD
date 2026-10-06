@@ -135,8 +135,9 @@ public abstract class SpsRegularLevel extends RegularLevel {
 	private static final ArrayList<Type> CRYSTAL_TYPES = new ArrayList<>(Arrays.asList(
 			Type.PIT, Type.CRYSTAL_VAULT, Type.CRYSTAL_CHOICE, Type.CRYSTAL_PATH
 	));
+	//SPSEXPD: 已去掉 SPS 的记忆火房间（SpsMemoryRoom），隐藏房间池不再抽取 MEMORY
 	private static final Type[] HIDDEN_TYPES = {
-			Type.MAGIC_WELL, Type.MEMORY, Type.BARRICADED, Type.HIDE_SHOP,
+			Type.MAGIC_WELL, Type.BARRICADED, Type.HIDE_SHOP,
 			Type.MAGIC_WELL, Type.HIDE_SHOP, Type.WISH_POOL, Type.GLASSROOM,
 			Type.PRISON_PIT, Type.BARRICADED, Type.WISH_POOL, Type.PRISON_PIT
 	};
@@ -171,6 +172,13 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		paintLegacyChasms();
 		placeLegacyTraps();
 		decorateLegacyFloor();
+		//SPSEXPD: 地形全部生成之后再定稿门与门后连通性 —— 装饰阶段新放的雕像/家具、
+		//以及虚空都可能堵住门口，先修就会被后面的 pass 重新堵上（断头路/孤岛）
+		for (Room room : legacyLayout.rooms) {
+			openLegacyDoorInside(room);
+			connectLegacyDoorsInside(room);
+			paintDoors(room);
+		}
 		buildRoomAdapters();
 		//SPSEXPD: 下水道不生成破碎的区域装饰（REGION_DECO/ALT 在排水道主题下是"储物木桶"）
 		if (this instanceof SewerLevel) {
@@ -360,16 +368,24 @@ public abstract class SpsRegularLevel extends RegularLevel {
 
 	private void placeLegacyDoors() {
 		for (Room room : legacyLayout.rooms) {
-			for (Room neighbour : room.connected.keySet()) {
+			for (Room neighbour : new ArrayList<>(room.connected.keySet())) {
 				if (room.connected.get(neighbour) != null) continue;
 				Rect overlap = room.intersect(neighbour);
+				int spanX = overlap.right - overlap.left;
+				int spanY = overlap.bottom - overlap.top;
 				Door door;
-				if (overlap.width() == 0) {
-					if (overlap.bottom - overlap.top < 2) continue;
-					door = new Door(overlap.left, Random.Int(overlap.top + 1, overlap.bottom));
+				if (overlap.width() == 0 && spanY >= 1) {
+					door = new Door(overlap.left,
+							spanY == 1 ? overlap.top : Random.Int(overlap.top + 1, overlap.bottom));
+				} else if (overlap.height() == 0 && spanX >= 1) {
+					door = new Door(spanX == 1 ? overlap.left : Random.Int(overlap.left + 1, overlap.right),
+							overlap.top);
 				} else {
-					if (overlap.right - overlap.left < 2) continue;
-					door = new Door(Random.Int(overlap.left + 1, overlap.right), overlap.top);
+					//SPSEXPD: 两个房间没有贴合（connected 里有这条边，地图上却开不出门）——
+					//把边从双方图里去掉，保证"图上连通"与"地图上连通"一致，否则会出现整片孤岛
+					room.connected.remove(neighbour);
+					neighbour.connected.remove(room);
+					continue;
 				}
 				room.connected.put(neighbour, door);
 				neighbour.connected.put(room, door);
@@ -1150,6 +1166,162 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		}
 	}
 
+	/**
+	 * SPSEXPD: 破碎结构只为它自己认得的那一个门开口，房间其余门在 fill(WALL) 后里侧仍是墙，
+	 * 破碎房间自己画的虚空也会落在门后 —— 两者都会把门后的走廊切断。
+	 * 这里为每个门沿法线向内打通到第一个可站人格（没走破碎结构的房间本来就有地板，循环立即停止）。
+	 */
+	private void openLegacyDoorInside(Room room) {
+		for (Door door : room.connected.values()) {
+			if (door == null) continue;
+			int stepX = door.x <= room.left ? 1 : door.x >= room.right ? -1 : 0;
+			int stepY = door.y <= room.top ? 1 : door.y >= room.bottom ? -1 : 0;
+			if (stepX == 0 && stepY == 0) continue;
+			for (int x = door.x + stepX, y = door.y + stepY;
+					x > room.left && x < room.right && y > room.top && y < room.bottom;
+					x += stepX, y += stepY) {
+				int cell = x + y * width();
+				if (!insideMap(cell)) break;
+				//虚空(PIT)不算通路：它和墙一样会切断门后的走廊，需要填成地板
+				boolean pit = (Terrain.flags[map[cell]] & Terrain.PIT) != 0;
+				if (!pit && legacyTraversable(cell)) break;
+				map[cell] = Terrain.EMPTY;
+			}
+		}
+	}
+
+	/**
+	 * SPSEXPD: 同一个房间的门可能被墙/虚空隔开（破碎结构只认一个门，TUNNEL/PASSAGE 的通道
+	 * 也可能只覆盖部分门），于是"门在这头、通道在那头"，玩家进门就撞墙。
+	 * 这里把房间内各门的里侧格按连通分量分组，只把小块补通到最大块（尽量不动原有结构）；
+	 * 只有 1 个门的房间则确保门里侧能走到房间的主区域。
+	 */
+	private void connectLegacyDoorsInside(Room room) {
+		ArrayList<int[]> insides = new ArrayList<>();
+		for (Door door : room.connected.values()) {
+			if (door == null) continue;
+			int stepX = door.x <= room.left ? 1 : door.x >= room.right ? -1 : 0;
+			int stepY = door.y <= room.top ? 1 : door.y >= room.bottom ? -1 : 0;
+			int x = door.x + stepX;
+			int y = door.y + stepY;
+			if (x <= room.left || x >= room.right || y <= room.top || y >= room.bottom) continue;
+			insides.add(new int[]{x, y});
+		}
+		if (insides.isEmpty()) return;
+
+		if (insides.size() == 1) {
+			int[] only = insides.get(0);
+			int anchor = legacyLargestWalkableCell(room);
+			if (anchor >= 0 && !legacyConnectedWithin(room, anchor, only[0] + only[1] * width())) {
+				drawLegacyCorridor(new int[]{anchor % width(), anchor / width()}, only);
+			}
+			return;
+		}
+
+		ArrayList<ArrayList<int[]>> groups = new ArrayList<>();
+		for (int[] cell : insides) {
+			ArrayList<int[]> group = null;
+			for (ArrayList<int[]> existing : groups) {
+				int[] head = existing.get(0);
+				if (legacyConnectedWithin(room, head[0] + head[1] * width(), cell[0] + cell[1] * width())) {
+					group = existing;
+					break;
+				}
+			}
+			if (group == null) {
+				group = new ArrayList<>();
+				groups.add(group);
+			}
+			group.add(cell);
+		}
+		ArrayList<int[]> main = groups.get(0);
+		for (ArrayList<int[]> group : groups) if (group.size() > main.size()) main = group;
+		int[] anchor = main.get(0);
+		for (ArrayList<int[]> group : groups) {
+			if (group == main) continue;
+			drawLegacyCorridor(anchor, group.get(0));
+		}
+	}
+
+	/** 房间内面积最大的可站连通块里的一个代表格，找不到返回 -1。 */
+	private int legacyLargestWalkableCell(Room room) {
+		boolean[] seen = new boolean[length()];
+		int bestCell = -1;
+		int bestSize = 0;
+		for (int y = room.top + 1; y < room.bottom; y++) {
+			for (int x = room.left + 1; x < room.right; x++) {
+				int start = x + y * width();
+				if (seen[start] || !legacyTraversable(start)) continue;
+				seen[start] = true;
+				ArrayList<Integer> stack = new ArrayList<>();
+				stack.add(start);
+				int size = 0;
+				while (!stack.isEmpty()) {
+					int cell = stack.remove(stack.size() - 1);
+					size++;
+					int cx = cell % width();
+					int cy = cell / width();
+					if (cx - 1 > room.left) {
+						int next = cell - 1;
+						if (!seen[next] && legacyTraversable(next)) { seen[next] = true; stack.add(next); }
+					}
+					if (cx + 1 < room.right) {
+						int next = cell + 1;
+						if (!seen[next] && legacyTraversable(next)) { seen[next] = true; stack.add(next); }
+					}
+					if (cy - 1 > room.top) {
+						int next = cell - width();
+						if (!seen[next] && legacyTraversable(next)) { seen[next] = true; stack.add(next); }
+					}
+					if (cy + 1 < room.bottom) {
+						int next = cell + width();
+						if (!seen[next] && legacyTraversable(next)) { seen[next] = true; stack.add(next); }
+					}
+				}
+				if (size > bestSize) {
+					bestSize = size;
+					bestCell = start;
+				}
+			}
+		}
+		return bestCell;
+	}
+
+	private boolean legacyConnectedWithin(Room room, int from, int to) {
+		if (from == to) return true;
+		boolean[] seen = new boolean[length()];
+		ArrayList<Integer> pending = new ArrayList<>();
+		pending.add(from);
+		while (!pending.isEmpty()) {
+			int cell = pending.remove(pending.size() - 1);
+			if (cell == to) return true;
+			if (!insideMap(cell) || seen[cell] || !legacyTraversable(cell)) continue;
+			int x = cell % width();
+			int y = cell / width();
+			if (x <= room.left || x >= room.right || y <= room.top || y >= room.bottom) continue;
+			seen[cell] = true;
+			if (x > 0) pending.add(cell - 1);
+			if (x < width() - 1) pending.add(cell + 1);
+			if (y > 0) pending.add(cell - width());
+			if (y < height() - 1) pending.add(cell + width());
+		}
+		return false;
+	}
+
+	private void drawLegacyCorridor(int[] from, int[] to) {
+		int floor = tunnelTile();
+		for (int x = Math.min(from[0], to[0]); x <= Math.max(from[0], to[0]); x++) carveLegacy(x, from[1], floor);
+		for (int y = Math.min(from[1], to[1]); y <= Math.max(from[1], to[1]); y++) carveLegacy(to[0], y, floor);
+	}
+
+	/** SPSEXPD: 挖掉真正挡路的东西（墙、玻璃墙、实心装饰等），可通行的格与门一概不动。 */
+	private void carveLegacy(int x, int y, int terrain) {
+		if (x < 0 || y < 0 || x >= width() || y >= height()) return;
+		int cell = x + y * width();
+		if (legacyTraversable(cell)) return;
+		map[cell] = terrain;
+	}
+
 	private boolean joinLegacyRooms(Room room, Room neighbour) {
 		if (room.type != Type.STANDARD || neighbour.type != Type.STANDARD) return false;
 		Rect overlap = room.intersect(neighbour);
@@ -1251,7 +1423,9 @@ public abstract class SpsRegularLevel extends RegularLevel {
 			if (map[i] != Terrain.EMPTY && map[i] != Terrain.WATER && map[i] != Terrain.HIGH_GRASS) continue;
 			Room room = legacyRoom(i);
 			if (room == null || room.type == Type.ENTRANCE || room.type == Type.EXIT
-					|| room.type == Type.SHOP || room.type == Type.HIDE_SHOP) continue;
+					|| room.type == Type.SHOP || room.type == Type.HIDE_SHOP
+					//SPSEXPD: 铁匠房自己有火焰陷阱环，不能被随机陷阱覆盖
+					|| room.type == Type.BLACKSMITH) continue;
 			if (Dungeon.legacyDepth() == 1 && room.type == Type.TUNNEL) continue;
 			valid.add(i);
 		}
@@ -1646,7 +1820,10 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		int terrain = map[cell];
 		return (Terrain.flags[terrain] & Terrain.SOLID) == 0
 				|| terrain == Terrain.DOOR || terrain == Terrain.SECRET_DOOR || terrain == Terrain.LOCKED_DOOR
-				|| terrain == Terrain.BARRICADE || terrain == Terrain.BOOKSHELF;
+				|| terrain == Terrain.BARRICADE || terrain == Terrain.BOOKSHELF
+				//SPSEXPD: 其它门类地形（破损门/水晶门/骷髅钥匙门）也是通路，不能当成墙
+				|| terrain == Terrain.BROKEN_DOOR || terrain == Terrain.CRYSTAL_DOOR
+				|| terrain == Terrain.HERO_LKD_DR;
 	}
 
 	protected int randomInteriorCell(Room room, int margin) {
@@ -1683,6 +1860,8 @@ public abstract class SpsRegularLevel extends RegularLevel {
 
 	@Override
 	protected int nTraps() {
+		//SPSEXPD: 第一层的陷阱池只有知识陷阱，按需求把这一层的陷阱数量压到很少
+		if (Dungeon.legacyDepth() == 1) return Random.NormalIntRange(3, 5);
 		return Random.NormalIntRange(13, 20 + Dungeon.legacyDepth() / 2);
 	}
 

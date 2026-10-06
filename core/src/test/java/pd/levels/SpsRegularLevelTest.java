@@ -90,6 +90,7 @@ public final class SpsRegularLevelTest {
 		for (int region = 0; region < types.length; region++) {
 			int decoratedMaps = 0;
 			int regionDecoMaps = 0;
+			int memoryRooms = 0;
 			for (int seed = 0; seed < SEEDS_PER_REGION; seed++) {
 				Dungeon.depth = depths[region];
 				Dungeon.branch = 0;
@@ -110,6 +111,8 @@ public final class SpsRegularLevelTest {
 							+ countTerrain(level, Terrain.WALL_DECO) > 0) decoratedMaps++;
 					if (countTerrain(level, Terrain.REGION_DECO)
 							+ countTerrain(level, Terrain.REGION_DECO_ALT) > 0) regionDecoMaps++;
+					if (countRoomsOfType(level,
+							pd.levels.builders.SpsBspLayout.Type.MEMORY) > 0) memoryRooms++;
 					generated++;
 				} finally {
 					Random.popGenerator();
@@ -120,8 +123,11 @@ public final class SpsRegularLevelTest {
 			check(region == 0 ? regionDecoMaps == 0 : regionDecoMaps > 0, region, -4,
 					region == 0 ? "下水道仍生成储物木桶（REGION_DECO）"
 							: "非下水道区域未生成破碎区域装饰");
+			//SPSEXPD: 记忆火房间已去掉，任何区域都不应再生成
+			check(memoryRooms == 0, region, -5, "仍生成记忆火房间（MEMORY）");
 		}
 		check(pitRoomsValidated > 0, -1, -1, "2000张地图没有覆盖旧版陷坑房");
+		validateFirstFloorTraps();
 		validateHallsKeyDrop();
 		validateSpecialRoomRotationPersistence();
 		validateLegacyInitialMobCounts();
@@ -204,9 +210,81 @@ public final class SpsRegularLevelTest {
 		level.traps.valueList().forEach(trap ->
 				check(trap.pos > level.width() && trap.pos < level.length() - level.width(),
 						region, seed, "陷阱出现在地图边界"));
+		//SPSEXPD: 破碎结构只为它自己认得的门开口，房间其余门的里侧在 fill(WALL) 后仍是墙，
+		//paintLegacyChasms 还会把这些墙变成虚空 —— 这里锁住「门里侧必须可通行」
+		for (pd.levels.builders.SpsBspLayout.Room room : level.legacyLayout.rooms) {
+			for (pd.levels.builders.SpsBspLayout.Door door : room.connected.values()) {
+				if (door == null) continue;
+				int stepX = door.x <= room.left ? 1 : door.x >= room.right ? -1 : 0;
+				int stepY = door.y <= room.top ? 1 : door.y >= room.bottom ? -1 : 0;
+				int inX = door.x + stepX;
+				int inY = door.y + stepY;
+				if (inX <= room.left || inX >= room.right
+						|| inY <= room.top || inY >= room.bottom) continue;
+				int inside = inX + inY * level.width();
+				check(walkableFloor(level.map[inside]), region, seed,
+						"门的里侧被墙或虚空堵住（走廊/房间被阻断）"
+								+ " room=[" + room.left + "," + room.top + "," + room.right + "," + room.bottom
+								+ "] door=" + door.x + "," + door.y
+								+ " inside=" + inX + "," + inY + " terrain=" + level.map[inside]);
+			}
+		}
 		validateExitGuard(level, region, seed);
 		validateEnhancedEntrancePlant(level, region, seed);
 		validatePitRoom(level, region, seed);
+		validateDoorsReachable(level, region, seed);
+	}
+
+	/**
+	 * SPSEXPD: 每个门都必须与入口连通 —— 破碎房间绘制只给它认得的那一个门开口，
+	 * 同房间其余门的里侧会留下墙（之后还会被 paintLegacyChasms 变成虚空）。
+	 */
+	//SPSEXPD: 第一层陷阱池只有知识陷阱，且数量已压到很少（3-5）
+	private static void validateFirstFloorTraps() {
+		Dungeon.depth = 1;
+		Dungeon.branch = 0;
+		Random.pushGenerator(0x5350534C4556454CL + 777L);
+		try {
+			SpsRegularLevel level = newLevel(SewerLevel.class);
+			check(buildWithRetries(level), 0, -7, "第一层构建失败");
+			int traps = level.traps.valueList().size();
+			check(traps >= 3 && traps <= 5, 0, -7, "第一层陷阱数量不在3-5之间，实际为" + traps);
+			for (pd.levels.traps.Trap trap : level.traps.valueList()) {
+				check(trap instanceof pd.levels.traps.KnowledgeTrap, 0, -7,
+						"第一层出现了非知识陷阱（第一层陷阱池必须只有知识陷阱）");
+			}
+		} finally {
+			Random.popGenerator();
+		}
+	}
+
+	private static int countRoomsOfType(SpsRegularLevel level,
+			pd.levels.builders.SpsBspLayout.Type type) {
+		int count = 0;
+		for (pd.levels.builders.SpsBspLayout.Room room : level.legacyLayout.rooms) {
+			if (room.type == type) count++;
+		}
+		return count;
+	}
+
+	private static void validateDoorsReachable(SpsRegularLevel level, int region, int seed) {
+		int entrance = level.entrance();
+		boolean[] reach = reachableFrom(level, entrance);
+		for (pd.levels.builders.SpsBspLayout.Room room : level.legacyLayout.rooms) {
+			for (pd.levels.builders.SpsBspLayout.Door door : room.connected.values()) {
+				if (door == null) continue;
+				//单向门（深坑房出口）与上锁门（水晶房/宝库）本来就要求玩家先处理，
+				//不要求能从入口直接走过去；其余门都必须可达
+				if (door.type == pd.levels.builders.SpsBspLayout.Door.Type.ONEWAY
+						|| door.type == pd.levels.builders.SpsBspLayout.Door.Type.LOCKED) continue;
+				int cell = door.x + door.y * level.width();
+				check(cell >= 0 && cell < reach.length && reach[cell], region, seed,
+						"门被墙或虚空阻断 door=" + door.x + "," + door.y
+								+ " terrain=" + (cell >= 0 && cell < reach.length ? level.map[cell] : -1)
+								+ " type=" + door.type
+								+ " room=[" + room.left + "," + room.top + "," + room.right + "," + room.bottom + "]");
+			}
+		}
 	}
 
 	private static void validatePitRoom(SpsRegularLevel level, int region, int seed) {
@@ -283,12 +361,15 @@ public final class SpsRegularLevelTest {
 	}
 
 	private static boolean reachable(Level level, int from, int to) {
+		return to >= 0 && to < level.length() && reachableFrom(level, from)[to];
+	}
+
+	private static boolean[] reachableFrom(Level level, int from) {
 		boolean[] seen = new boolean[level.length()];
 		ArrayList<Integer> pending = new ArrayList<>();
 		pending.add(from);
 		while (!pending.isEmpty()) {
 			int cell = pending.remove(pending.size() - 1);
-			if (cell == to) return true;
 			if (cell < 0 || cell >= seen.length || seen[cell] || !traversable(level.map[cell])) continue;
 			seen[cell] = true;
 			int x = cell % level.width();
@@ -298,14 +379,21 @@ public final class SpsRegularLevelTest {
 			if (y > 0) pending.add(cell - level.width());
 			if (y < level.height() - 1) pending.add(cell + level.width());
 		}
-		return false;
+		return seen;
 	}
 
 	private static boolean traversable(int terrain) {
 		return (Terrain.flags[terrain] & Terrain.SOLID) == 0
 				|| terrain == Terrain.DOOR || terrain == Terrain.SECRET_DOOR || terrain == Terrain.LOCKED_DOOR
 				|| terrain == Terrain.BARRICADE || terrain == Terrain.BOOKSHELF
-				|| terrain == Terrain.LOCKED_EXIT;
+				|| terrain == Terrain.LOCKED_EXIT
+				|| terrain == Terrain.BROKEN_DOOR || terrain == Terrain.CRYSTAL_DOOR
+				|| terrain == Terrain.HERO_LKD_DR;
+	}
+
+	/** SPSEXPD: 门里侧要能站人 —— 虚空(PIT)不算通路。 */
+	private static boolean walkableFloor(int terrain) {
+		return traversable(terrain) && (Terrain.flags[terrain] & Terrain.PIT) == 0;
 	}
 
 	private static int countTerrain(Level level, int terrain) {
