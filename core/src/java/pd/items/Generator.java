@@ -1261,7 +1261,7 @@ public class Generator {
 	};
 	
 	public static MissileWeapon randomMissile(){
-		return randomMissile(Dungeon.depth / 5);
+		return randomMissile(Dungeon.chapterIndex(Dungeon.depth));
 	}
 
 	public static MissileWeapon randomMissile(int floorSet) {
@@ -1269,7 +1269,7 @@ public class Generator {
 	}
 
 	public static MissileWeapon randomMissile(boolean useDefaults) {
-		return randomMissile(Dungeon.depth / 5, useDefaults);
+		return randomMissile(Dungeon.chapterIndex(Dungeon.depth), useDefaults);
 	}
 
 	public static MissileWeapon randomMissile(int floorSet, boolean useDefaults) {

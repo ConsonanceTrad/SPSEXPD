@@ -250,7 +250,7 @@ public class CityLevel extends SpsRegularLevel {
 
 	void createLegacyQuestActors() {
 		Imp.Quest.spawnLegacy(this);
-		if (Dungeon.depth == 19) spawnLegacyGoldThief();
+		if (Dungeon.depth == 30) spawnLegacyGoldThief();
 	}
 
 	private void spawnLegacyGoldThief() {

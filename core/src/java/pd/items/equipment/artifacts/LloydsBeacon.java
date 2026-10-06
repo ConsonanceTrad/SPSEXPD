@@ -111,7 +111,7 @@ public class LloydsBeacon extends Item {
 	@Override
 	public void execute(Hero hero, String action) {
 		if (AC_SET.equals(action) || AC_RETURN.equals(action)) {
-			if (Dungeon.bossLevel() || Dungeon.depth > 24) {
+			if (Dungeon.bossLevel() || Dungeon.depth > 38) {
 				hero.spend(TIME_TO_USE);
 				GLog.w(Messages.get(this, "preventing"));
 				return;

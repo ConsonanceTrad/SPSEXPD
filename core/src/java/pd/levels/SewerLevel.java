@@ -146,7 +146,7 @@ public class SewerLevel extends SpsRegularLevel {
 	protected void createMobs() {
 		Ghost.Quest.spawn(this);
 		super.createMobs();
-		if (Dungeon.depth == 4) {
+		if (Dungeon.depth == 6) {
 			GnollArcher archer = new GnollArcher();
 			int pos = randomRespawnCell(archer);
 			if (pos >= 0 && mobs().findMob(pos) == null) {
@@ -158,7 +158,7 @@ public class SewerLevel extends SpsRegularLevel {
 
 	@Override
 	public Mob createMob() {
-		if (Dungeon.depth == 4 && Random.Int(5) == 0) return new GnollArcher();
+		if (Dungeon.depth == 6 && Random.Int(5) == 0) return new GnollArcher();
 		return super.createMob();
 	}
 	
@@ -176,27 +176,19 @@ public class SewerLevel extends SpsRegularLevel {
 		return visuals;
 	}
 
+	/** SPSXPD: 下水道不生成区域装饰（储物木桶等），生成后统一清掉 */
 	@Override
-	public void buildFlagMaps() {
-		super.buildFlagMaps();
-		for (int i=0; i < length(); i++) {
-			if (map[i] == Terrain.REGION_DECO || map[i] == Terrain.REGION_DECO_ALT){
-				flamable[i] = true;
+	public void create() {
+		super.create();
+		for (int i = 0; i < length(); i++) {
+			if (map[i] == Terrain.REGION_DECO || map[i] == Terrain.REGION_DECO_ALT) {
+				map[i] = Terrain.EMPTY;
 			}
 		}
 	}
 
 	@Override
 	public void destroy(int pos) {
-		//if we're burning  sewers barrels
-		int terr = map[pos];
-		if (terr == Terrain.REGION_DECO){
-			set(pos, Terrain.WATER);
-			Splash.at(pos, 0xFF507B5D, 10);
-		} else if (terr == Terrain.REGION_DECO_ALT){
-			set(pos, Terrain.EMPTY_SP);
-			Splash.at(pos, 0xFF507B5D, 10);
-		}
 		super.destroy(pos);
 	}
 

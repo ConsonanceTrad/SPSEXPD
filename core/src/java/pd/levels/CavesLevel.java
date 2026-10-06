@@ -236,7 +236,7 @@ public class CavesLevel extends SpsRegularLevel {
 
 	@Override
 	protected void createItems() {
-		if (Dungeon.depth == 12) {
+		if (Dungeon.depth == 17) {
 			GroundItems.addItemToSpawn( this, new Mushroom());
 			int cell;
 			do {

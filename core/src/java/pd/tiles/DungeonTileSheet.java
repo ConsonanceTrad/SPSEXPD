@@ -168,9 +168,9 @@ public class DungeonTileSheet {
 	public static int stitchChasmTile(int above){
 		//alt region deco has different visuals per region, but most commonly FLOOR_SP
 		if (above == Terrain.REGION_DECO_ALT){
-			if (Dungeon.depth <= 5)     return chasmFrame( CHASM_FLOOR_SP );
-			if (Dungeon.depth <= 10)    return CHASM;
-			if (Dungeon.depth <= 20)    return chasmFrame( CHASM_FLOOR_SP );
+			if (Dungeon.depth <= 7)     return chasmFrame( CHASM_FLOOR_SP );
+			if (Dungeon.depth <= 15)    return CHASM;
+			if (Dungeon.depth <= 32)    return chasmFrame( CHASM_FLOOR_SP );
 			else                        return chasmFrame( CHASM_FLOOR );
 		}
 		//SPS: 水在深渊上方时的帧随图集族变化，不能进静态表
@@ -202,7 +202,7 @@ public class DungeonTileSheet {
 	public static boolean waterStitcheable(int tile){
 		//alt region deco has different visuals per region, is stitcheable in demon halls
 		if (tile == Terrain.REGION_DECO_ALT){
-			if (Dungeon.depth <= 20)    return false;
+			if (Dungeon.depth <= 32)    return false;
 			else                        return true;
 		}
 		return waterStitcheable.contains(tile);

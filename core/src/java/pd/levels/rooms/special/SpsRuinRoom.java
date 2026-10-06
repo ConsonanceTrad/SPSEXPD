@@ -63,7 +63,7 @@ public class SpsRuinRoom extends SpecialRoom {
 			int cell = center + offset;
 			if (level.insideMap(cell) && level.heaps.get(cell) == null) webCells.add(cell);
 		}
-		if (!webCells.isEmpty()) level.drop(foodPrize(), Random.element(webCells)).type = Heap.Type.M_WEB;
+		if (!webCells.isEmpty()) level.drop(foodPrize(), Random.element(webCells)).type = Heap.Type.HEAP;
 
 		ArrayList<Integer> free = freeInterior(level);
 		Random.shuffle(free);

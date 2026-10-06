@@ -44,7 +44,7 @@ import pd.items.Gold;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.TransmutationBall;
-import pd.items.UpgradeEatBall;
+import pd.items.consum.food.vegetable.StarEaterFlower;
 import pd.items.consum.food.Blandfruit;
 import pd.items.consum.food.fruit.Durian;
 import pd.items.consum.food.fruit.Fruit;
@@ -127,7 +127,7 @@ public final class SpsEnhancedPlantsTest {
 	private static final Class<?>[] HARVEST_CLASSES = {
 			FireFruit.class, IceFruit.class, ToxicFruit.class, BlindFruit.class, HealFruit.class,
 			RootFruit.class, SmokeFruit.class, Gold.class, Blandfruit.class, CharmFruit.class,
-			ShockFruit.class, NutFruit.class, null, TransmutationBall.class, UpgradeEatBall.class,
+			ShockFruit.class, NutFruit.class, null, TransmutationBall.class, StarEaterFlower.class,
 			null, null, null, GlassFruit.class, null
 	};
 

@@ -102,21 +102,21 @@ public class SpsShopRoom extends ShopRoom {
 				//SPS: 任务蘑菇固定出售，售价 10 金币（配合开局 10 金币）
 				itemsToSpawn.add(new Mushroom());
 				break;
-			case 6:
+			case 8:
 				itemsToSpawn.add(new ScrollHolder());
 				itemsToSpawn.add(new DolyaSlate().identify(false));
 				itemsToSpawn.add(chapterShootWeapon().identify(false));
 				break;
-			case 11:
+			case 16:
 				itemsToSpawn.add(new PotionBandolier());
 				itemsToSpawn.add(new Town().identify(false));
 				itemsToSpawn.add(chapterShootWeapon().identify(false));
 				break;
-			case 16:
+			case 24:
 				itemsToSpawn.add(new MagicalHolster());
 				itemsToSpawn.add(chapterShootWeapon().identify(false));
 				break;
-			case 21:
+			case 32:
 				itemsToSpawn.add(chapterShootWeapon().identify(false));
 				itemsToSpawn.add(new CourageChallenge());
 				itemsToSpawn.add(new PowerChallenge());
@@ -165,10 +165,10 @@ public class SpsShopRoom extends ShopRoom {
 		if (hourglass != null) {
 			int bags = 0;
 			switch (Dungeon.legacyDepth()) {
-				case 6: bags = (int)Math.ceil((5 - hourglass.sandBags) * 0.20f); break;
-				case 11: bags = (int)Math.ceil((5 - hourglass.sandBags) * 0.25f); break;
-				case 16: bags = (int)Math.ceil((5 - hourglass.sandBags) * 0.50f); break;
-				case 21: bags = (int)Math.ceil((5 - hourglass.sandBags) * 0.80f); break;
+				case 8: bags = (int)Math.ceil((5 - hourglass.sandBags) * 0.20f); break;
+				case 16: bags = (int)Math.ceil((5 - hourglass.sandBags) * 0.25f); break;
+				case 24: bags = (int)Math.ceil((5 - hourglass.sandBags) * 0.50f); break;
+				case 32: bags = (int)Math.ceil((5 - hourglass.sandBags) * 0.80f); break;
 			}
 			for (int i = 0; i < bags; i++) {
 				itemsToSpawn.add(new TimekeepersHourglass.sandBag());
@@ -227,7 +227,7 @@ public class SpsShopRoom extends ShopRoom {
 	protected void placeShopkeeper(Level level) {
 		int pos = randomFreeInterior(level);
 		if (pos == -1) pos = level.pointToCell(center());
-		Mob shopkeeper = Dungeon.legacyDepth() > 20 ? new ImpShopkeeper() : new Shopkeeper();
+		Mob shopkeeper = Dungeon.legacyDepth() > 31 ? new ImpShopkeeper() : new Shopkeeper();
 		shopkeeper.pos = pos;
 
 		//SPS: 新一层的商店要重置涨价倍率与免费开关（这两个是静态的，属于"本层这家店"），
@@ -238,7 +238,7 @@ public class SpsShopRoom extends ShopRoom {
 
 		level.mobs().add(shopkeeper);
 
-		if (Dungeon.legacyDepth() > 20) {
+		if (Dungeon.legacyDepth() > 31) {
 			for (int offset : PathFinder.NEIGHBOURS9) {
 				int cell = pos + offset;
 				if (cell >= 0 && cell < level.length() && level.map[cell] == Terrain.EMPTY_SP) {
@@ -316,9 +316,9 @@ public class SpsShopRoom extends ShopRoom {
 		if (Random.Int(2) == 0) return chapterBow();
 		switch (Dungeon.legacyDepth()) {
 			case 0: return new GunA();   //SPS: 0 层为第一章（原 1 层）
-			case 6: return new GunB();
-			case 11: return new GunC();
-			case 16: return new GunD();
+			case 8: return new GunB();
+			case 16: return new GunC();
+			case 24: return new GunD();
 			default: return new GunE();
 		}
 	}
@@ -326,9 +326,9 @@ public class SpsShopRoom extends ShopRoom {
 	private static Item chapterBow() {
 		switch (Dungeon.legacyDepth()) {
 			case 0: return new WoodenBowN();   //SPS: 0 层为第一章（原 1 层）
-			case 6: return new StoneBowN();
-			case 11: return new MetalBowN();
-			case 16: return new AlloyBowN();
+			case 8: return new StoneBowN();
+			case 16: return new MetalBowN();
+			case 24: return new AlloyBowN();
 			default: return new PVCBowN();
 		}
 	}

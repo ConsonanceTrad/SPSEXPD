@@ -85,6 +85,22 @@ public final class Sign {
 
 	private static final int LAST_TIP_DEPTH = 25;
 
+	//SPSEXPD: 深度重排（每章 8 层）后每层对应的提示文案编号。
+	// 沿用原有 1-25 层的文案：关键层（boss / 商人层）保留专属提示，普通层按同章的三条通用提示循环。
+	private static final int[] TIP_DEPTH = {
+			0,
+			2, 3, 4, 2, 3, 4,        // 1-6   下水道
+			5, 6,                    // 7 boss / 8 商人层
+			7, 8, 9, 7, 8, 9,        // 9-14  监狱
+			10, 11,                  // 15 boss / 16 商人层
+			12, 13, 14, 12, 13, 14,  // 17-22 洞穴
+			15, 16,                  // 23 boss / 24 商人层
+			17, 18, 19, 17, 18, 19,  // 25-30 城市
+			20, 21,                  // 31 boss / 32 商人层
+			22, 23, 24, 22, 23, 24,  // 33-38 大厅
+			25                       // 39 boss
+	};
+
 	public static void read(int pos) {
 		if (pos == Dungeon.level.pitSign) {
 			//SPS: UI 构造必须切回渲染线程（Sign.read 由 Hero 的 actor 流程调用，直接 new 会崩）
@@ -106,7 +122,7 @@ public final class Sign {
 				GameScene.show(new WndMessage(Messages.get(Sign.class, fkey)));
 			}
 		});
-		if (key.startsWith("tip_") && Dungeon.depth >= 22) burn(pos);
+		if (key.startsWith("tip_") && Dungeon.depth >= 33) burn(pos);
 	}
 
 	static String messageKey(Level level, int depth, int roomType) {
@@ -115,7 +131,8 @@ public final class Sign {
 		if (level instanceof NewRoomLevel) {
 			return "new_room_" + (roomType >= 0 && roomType <= 4 ? roomType : 0);
 		}
-		return depth >= 1 && depth <= LAST_TIP_DEPTH ? "tip_" + depth : null;
+		return depth >= 1 && depth < TIP_DEPTH.length && TIP_DEPTH[depth] > 0
+				? "tip_" + TIP_DEPTH[depth] : null;
 	}
 
 	private static void burn(int pos) {

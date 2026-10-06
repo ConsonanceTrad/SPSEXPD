@@ -122,6 +122,6 @@ public class ExitRoom extends StandardRoom {
 	}
 
 	public static StandardRoom createExit(){
-		return Reflection.newInstance(rooms.get(Random.chances(chances[Dungeon.depth])));
+		return Reflection.newInstance(rooms.get(Random.chances(chances[Dungeon.roomStyleDepth()])));
 	}
 }

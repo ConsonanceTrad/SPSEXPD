@@ -220,7 +220,7 @@ public class RingOfKnowledge extends Ring {
 	}
 
 	public static int rareEquipmentTier() {
-		return (Dungeon.legacyDepth() / 5) + 1;
+		return Dungeon.chapterIndex(Dungeon.legacyDepth()) + 1;
 	}
 
 	private static Item genHighValueConsumable() {

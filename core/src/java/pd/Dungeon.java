@@ -248,6 +248,52 @@ public class Dungeon {
 	// 1 is for quest sub-floors
 	public static int branch;
 
+	//SPSEXPD: 主题（chapter）楼层结构 —— 6 个普通层 + 1 boss 层 + 1 商人层 = 每章 8 层。
+	// 章 1: 1-6 普通 / 7 boss / 8 商人层；章 2: 9-14 / 15 / 16 … 章 5: 33-38 / 39；40 为终层。
+	public static final int NORMAL_FLOORS_PER_CHAPTER = 6;
+	public static final int FLOORS_PER_CHAPTER = 8;
+	public static final int CHAPTER_COUNT = 5;
+	public static final int LAST_LEVEL_DEPTH = CHAPTER_COUNT * FLOORS_PER_CHAPTER;
+
+	/** 章索引（0 起）：1-7 → 0，8-15 → 1 … 与旧代码的 depth/5 同义。 */
+	public static int chapterIndex(int depth) {
+		return depth <= 0 ? 0 : depth / FLOORS_PER_CHAPTER;
+	}
+
+	/** 章内序号：0..7（6 = boss 层，0 = 商人层/章首）。与旧代码的 depth%5 同义。 */
+	public static int floorInChapter(int depth) {
+		return depth <= 0 ? 0 : depth % FLOORS_PER_CHAPTER;
+	}
+
+	/** 某章的 boss 层深度（章索引从 0 起）。 */
+	public static int bossDepthOf(int chapterIndex) {
+		return chapterIndex * FLOORS_PER_CHAPTER + FLOORS_PER_CHAPTER - 1;
+	}
+
+	/** SPSEXPD: 把每章 8 层的新深度映射回旧房间样式表的代表深度（旧表按 1-26 层分档）。 */
+	public static int roomStyleDepth() {
+		switch (chapterIndex(depth)) {
+			case 0:  return depth <= 0 ? 0 : 1;
+			case 1:  return 6;
+			case 2:  return 11;
+			case 3:  return 16;
+			default: return depth % FLOORS_PER_CHAPTER == 0 ? 21 : 22;
+		}
+	}
+
+	/** SPSEXPD: 旧存档（每章 5 层）的深度 → 新布局（每章 8 层）的对应深度。 */
+	public static int migrateLegacyDepth(int legacy) {
+		if (legacy <= 0) return legacy;
+		if (legacy >= LAST_LEVEL_DEPTH) return LAST_LEVEL_DEPTH;
+		if (legacy <= 4) return legacy;                    // 章 1 普通层
+		if (legacy == 5) return bossDepthOf(0);             // 章 1 boss → 7
+		int chapter = (legacy - 6) / 5 + 1;                 // 1..4
+		int floor = (legacy - 6) % 5;                       // 0..4
+		if (floor == 0) return chapter * FLOORS_PER_CHAPTER;                 // 商人层 → 8/16/24/32
+		if (floor == 4) return bossDepthOf(chapter);                         // boss 层 → 15/23/31/39
+		return chapter * FLOORS_PER_CHAPTER + floor;                         // 普通层 → 9-11/17-19/25-27/33-35
+	}
+
 	//keeps track of what levels the game should try to load instead of creating fresh
 	public static ArrayList<Integer> generatedLevels = new ArrayList<>();
 
@@ -403,32 +449,26 @@ public class Dungeon {
 				case 2:
 				case 3:
 				case 4:
+				case 5:
+				case 6:
 					level = new SewerLevel();
 					break;
-				case 5:
+				case 7:
 					level = new SpsSewerBossLevel();
 					break;
-				case 6:
-					level = new BetweenLevel();
-					break;
-				case 7:
 				case 8:
-				case 9:
-					level = new PrisonLevel();
-					break;
-				case 10:
-					level = new SpsPrisonBossLevel();
-					break;
-				case 11:
 					level = new BetweenLevel();
 					break;
+				case 9:
+				case 10:
+				case 11:
 				case 12:
 				case 13:
 				case 14:
-					level = new CavesLevel();
+					level = new PrisonLevel();
 					break;
 				case 15:
-					level = new SpsCavesBossLevel();
+					level = new SpsPrisonBossLevel();
 					break;
 				case 16:
 					level = new BetweenLevel();
@@ -436,23 +476,43 @@ public class Dungeon {
 				case 17:
 				case 18:
 				case 19:
-					level = new CityLevel();
-					break;
 				case 20:
-					level = new SpsCityBossLevel();
-					break;
 				case 21:
+				case 22:
+					level = new CavesLevel();
+					break;
+				case 23:
+					level = new SpsCavesBossLevel();
+					break;
+				case 24:
 					level = new BetweenLevel();
 					break;
-				case 22:
-				case 23:
-				case 24:
+				case 25:
+				case 26:
+				case 27:
+				case 28:
+				case 29:
+				case 30:
+					level = new CityLevel();
+					break;
+				case 31:
+					level = new SpsCityBossLevel();
+					break;
+				case 32:
+					level = new BetweenLevel();
+					break;
+				case 33:
+				case 34:
+				case 35:
+				case 36:
+				case 37:
+				case 38:
 					level = new HallsLevel();
 					break;
-				case 25:
+				case 39:
 					level = new SpsHallsBossLevel();
 					break;
-				case 26:
+				case 40:
 					level = new LastLevel();
 					break;
 				default:
@@ -460,16 +520,20 @@ public class Dungeon {
 			}
 		} else if (branch == 1) {
 			switch (depth) {
-				case 11:
-				case 12:
-				case 13:
-				case 14:
-					level = new MiningLevel();
-					break;
-				case 16:
 				case 17:
 				case 18:
 				case 19:
+				case 20:
+				case 21:
+				case 22:
+					level = new MiningLevel();
+					break;
+				case 25:
+				case 26:
+				case 27:
+				case 28:
+				case 29:
+				case 30:
 					level = new VaultLevel();
 					break;
 				default:
@@ -587,7 +651,7 @@ public class Dungeon {
 
 	public static long seedForDepth(int depth, int branch){
 		int lookAhead = depth;
-		lookAhead += 30*branch; //Assumes depth is always 1-30, and branch is always 0 or higher
+		lookAhead += 100*branch; //Assumes depth is always 1-99, and branch is always 0 or higher
 
 		Random.pushGenerator( seed );
 
@@ -601,8 +665,8 @@ public class Dungeon {
 	}
 	
 	public static boolean shopOnLevel() {
-		//SPS: 0 层为特殊初始层（带商店），1 层起为普通层；其余过渡层照旧
-		return depth == 0 || depth == 6 || depth == 11 || depth == 16 || depth == 21;
+		//SPS: 0 层为特殊初始层（带商店）；每章最后推进一层（8/16/24/32）是商人层
+		return depth == 0 || (depth % FLOORS_PER_CHAPTER == 0 && depth < LAST_LEVEL_DEPTH);
 	}
 	
 	public static boolean bossLevel() {
@@ -610,7 +674,8 @@ public class Dungeon {
 	}
 	
 	public static boolean bossLevel( int depth ) {
-		return depth == 5 || depth == 10 || depth == 15 || depth == 20 || depth == 25;
+		//SPSEXPD: 每章第 7 层是 boss 层（7/15/23/31/39）
+		return depth > 0 && depth % FLOORS_PER_CHAPTER == FLOORS_PER_CHAPTER - 1;
 	}
 
 	//value used for scaling of damage values and other effects.
@@ -715,11 +780,11 @@ public class Dungeon {
 	}
 
 	public static boolean posNeeded() {
-		//2 POS each floor set
-		int posLeftThisSet = 2 - (LimitedDrops.STRENGTH_POTIONS.count - (depth / 5) * 2);
+		//2 POS each floor set（每章 8 层）
+		int posLeftThisSet = 2 - (LimitedDrops.STRENGTH_POTIONS.count - chapterIndex(depth) * 2);
 		if (posLeftThisSet <= 0) return false;
 
-		int floorThisSet = (depth % 5);
+		int floorThisSet = floorInChapter(depth);
 
 		//pos drops every two floors, (numbers 1-2, and 3-4) with a 50% chance for the earlier one each time.
 		int targetPOSLeft = 2 - floorThisSet/2;
@@ -733,31 +798,31 @@ public class Dungeon {
 	public static boolean souNeeded() {
 		int souLeftThisSet;
 		//3 SOU each floor set
-		souLeftThisSet = 3 - (LimitedDrops.UPGRADE_SCROLLS.count - (depth / 5) * 3);
+		souLeftThisSet = 3 - (LimitedDrops.UPGRADE_SCROLLS.count - chapterIndex(depth) * 3);
 		if (souLeftThisSet <= 0) return false;
 
-		int floorThisSet = (depth % 5);
+		int floorThisSet = floorInChapter(depth);
 		//chance is floors left / scrolls left
-		return Random.Int(5 - floorThisSet) < souLeftThisSet;
+		return Random.Int(FLOORS_PER_CHAPTER - floorThisSet) < souLeftThisSet;
 	}
 	
 	public static boolean asNeeded() {
 		//1 AS each floor set
-		int asLeftThisSet = 1 - (LimitedDrops.ARCANE_STYLI.count - (depth / 5));
+		int asLeftThisSet = 1 - (LimitedDrops.ARCANE_STYLI.count - chapterIndex(depth));
 		if (asLeftThisSet <= 0) return false;
 
-		int floorThisSet = (depth % 5);
+		int floorThisSet = floorInChapter(depth);
 		//chance is floors left / scrolls left
-		return Random.Int(5 - floorThisSet) < asLeftThisSet;
+		return Random.Int(FLOORS_PER_CHAPTER - floorThisSet) < asLeftThisSet;
 	}
 
 	public static boolean enchStoneNeeded(){
 		//1 enchantment stone, spawns on chapter 2 or 3
 		if (!LimitedDrops.ENCH_STONE.dropped()){
-			int region = 1+depth/5;
+			int region = 1+chapterIndex(depth);
 			if (region > 1){
-				int floorsVisited = depth - 5;
-				if (floorsVisited > 4) floorsVisited--; //skip floor 10
+				int floorsVisited = depth - FLOORS_PER_CHAPTER;
+				if (floorsVisited > 6) floorsVisited--; //skip chapter 2's boss floor
 				return Random.Int(9-floorsVisited) == 0; //1/8 chance each floor
 			}
 		}
@@ -766,19 +831,20 @@ public class Dungeon {
 
 	public static boolean intStoneNeeded(){
 		//one stone on floors 1-3
-		return depth < 5 && !LimitedDrops.INT_STONE.dropped() && Random.Int(4-depth) == 0;
+		return depth < 4 && !LimitedDrops.INT_STONE.dropped() && Random.Int(4-depth) == 0;
 	}
 
 	public static boolean trinketCataNeeded(){
-		// Shattered trinkets stay in source for compatibility, but are hidden in SPS runs.
-		return false;
+		//SPSEXPD: 恢复破碎原版的饰物催化剂（第 1 章前 3 层掉落一颗，用于合成特殊饰物）
+		return depth > 0 && depth < 4 && !LimitedDrops.TRINKET_CATA.dropped()
+				&& Random.Int(4 - depth) == 0;
 	}
 
 	public static boolean labRoomNeeded(){
 		//one laboratory each floor set, in floor 3 or 4, 1/2 chance each floor
-		int region = 1+depth/5;
+		int region = 1+chapterIndex(depth);
 		if (region > LimitedDrops.LAB_ROOM.count){
-			int floorThisRegion = depth%5;
+			int floorThisRegion = floorInChapter(depth);
 			if (floorThisRegion >= 4 || (floorThisRegion == 3 && Random.Int(2) == 0)){
 				return true;
 			}
@@ -798,6 +864,8 @@ public class Dungeon {
 	private static final String HERO		= "hero";
 	private static final String DEPTH		= "depth";
 	private static final String BRANCH		= "branch";
+	//SPSEXPD: 存档里的楼层布局版本（旧档没有该键 → 需要把深度从"每章 5 层"迁到"每章 8 层"）
+	private static final String FLOOR_LAYOUT	= "sps_floor_layout";
 	private static final String GENERATED_LEVELS    = "generated_levels";
 	private static final String GOLD		= "gold";
 	private static final String ENERGY		= "energy";
@@ -843,6 +911,7 @@ public class Dungeon {
 			bundle.put( HERO, hero );
 			bundle.put( DEPTH, depth );
 			bundle.put( BRANCH, branch );
+			bundle.put( FLOOR_LAYOUT, FLOORS_PER_CHAPTER );
 
 			bundle.put( GOLD, gold );
 			bundle.put( ENERGY, energy );
@@ -1087,6 +1156,12 @@ public class Dungeon {
 		
 		depth = bundle.getInt( DEPTH );
 		branch = bundle.getInt( BRANCH );
+
+		//SPSEXPD: 每章由 5 层扩到 8 层后，旧档的深度语义整体后移，这里一次性迁移。
+		if (!bundle.contains( FLOOR_LAYOUT )) {
+			if (branch == 0) depth = migrateLegacyDepth( depth );
+			generatedLevels.clear();
+		}
 
 		gold = bundle.getInt( GOLD );
 		energy = bundle.getInt( ENERGY );

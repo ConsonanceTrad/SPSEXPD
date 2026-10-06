@@ -18,7 +18,6 @@ import pd.actors.blobs.weather.WeatherOfSand;
 import pd.actors.blobs.weather.WeatherOfSnow;
 import pd.actors.blobs.weather.WeatherOfSun;
 import pd.actors.buffs.Buff;
-import pd.actors.buffs.Dewcharge;
 import pd.actors.buffs.ExProtect;
 import pd.actors.buffs.GlassShield;
 import pd.actors.buffs.MagicArmor;
@@ -31,7 +30,6 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.items.YellowDewdrop;
 import pd.items.equipment.artifacts.DriedRose;
-import pd.items.consum.food.SmallMeat;
 import pd.items.specific.keys.GoldenKey;
 import pd.items.consum.potions.PotionOfLevitation;
 import pd.items.quest.ChallengeJournal;
@@ -43,11 +41,22 @@ import pd.levels.builders.SpsBspLayout.Room;
 import pd.levels.builders.SpsBspLayout.Type;
 import pd.levels.builders.SpsBspLayout;
 import pd.levels.features.LevelTransition;
+import pd.levels.rooms.connection.ConnectionRoom;
+import pd.levels.rooms.special.ArmoryRoom;
 import pd.levels.rooms.special.CryptRoom;
+import pd.levels.rooms.special.CrystalChoiceRoom;
+import pd.levels.rooms.special.CrystalPathRoom;
+import pd.levels.rooms.special.CrystalVaultRoom;
+import pd.levels.rooms.special.FusionTrialRoom;
 import pd.levels.rooms.special.GardenRoom;
 import pd.levels.rooms.special.LaboratoryRoom;
 import pd.levels.rooms.special.LibraryRoom;
+import pd.levels.rooms.special.MagicalFireRoom;
+import pd.levels.rooms.special.PitRoom;
 import pd.levels.rooms.special.PoolRoom;
+import pd.levels.rooms.special.RunestoneRoom;
+import pd.levels.rooms.special.SacrificeRoom;
+import pd.levels.rooms.special.SentryRoom;
 import pd.levels.rooms.special.SpecialRoom;
 import pd.levels.rooms.special.SpsBarricadedRoom;
 import pd.levels.rooms.special.SpsCookingRoom;
@@ -64,8 +73,11 @@ import pd.levels.rooms.special.SpsTentRoom;
 import pd.levels.rooms.special.SpsWishPoolRoom;
 import pd.levels.rooms.special.StatueRoom;
 import pd.levels.rooms.special.StorageRoom;
+import pd.levels.rooms.special.ToxicGasRoom;
 import pd.levels.rooms.special.TreasuryRoom;
+import pd.levels.rooms.special.WeakFloorRoom;
 import pd.levels.rooms.standard.EmptyRoom;
+import pd.levels.rooms.standard.StandardRoom;
 import pd.levels.rooms.standard.entrance.EntranceRoom;
 import pd.levels.rooms.standard.exit.ExitRoom;
 import pd.levels.traps.ConfusionTrap;
@@ -113,15 +125,26 @@ public abstract class SpsRegularLevel extends RegularLevel {
 	private static final Type[] SPECIAL_TYPES = {
 			Type.RUIN_ROOM, Type.CRYPT, Type.POOL, Type.GARDEN, Type.LIBRARY,
 			Type.MATERIAL, Type.JUNGLE, Type.TRAPS, Type.STORAGE, Type.STATUE,
-			Type.COOKING, Type.VAULT, Type.TENTROOM
+			Type.COOKING, Type.VAULT, Type.TENTROOM,
+			//SPSEXPD: 破碎（Shattered）特殊房间并入普通层轮换
+			Type.SENTRY, Type.MAGICAL_FIRE, Type.TOXIC_GAS, Type.SACRIFICE, Type.WEAK_FLOOR,
+			Type.FUSION_TRIAL, Type.RUNESTONE, Type.ARMORY, Type.CRYSTAL_CHOICE,
+			Type.CRYSTAL_VAULT, Type.CRYSTAL_PATH, Type.PIT
 	};
+	//SPSEXPD: 破碎里每层最多一个水晶钥匙房间（对应 SpecialRoom.CRYSTAL_KEY_SPECIALS）
+	private static final ArrayList<Type> CRYSTAL_TYPES = new ArrayList<>(Arrays.asList(
+			Type.PIT, Type.CRYSTAL_VAULT, Type.CRYSTAL_CHOICE, Type.CRYSTAL_PATH
+	));
 	private static final Type[] HIDDEN_TYPES = {
 			Type.MAGIC_WELL, Type.MEMORY, Type.BARRICADED, Type.HIDE_SHOP,
 			Type.MAGIC_WELL, Type.HIDE_SHOP, Type.WISH_POOL, Type.GLASSROOM,
 			Type.PRISON_PIT, Type.BARRICADED, Type.WISH_POOL, Type.PRISON_PIT
 	};
 	private static final String LEGACY_SPECIAL_ROOMS = "sps_special_rooms";
+	private static final String LEGACY_PIT_NEEDED = "sps_pit_needed";
 	private static final ArrayList<Type> legacySpecialRotation = new ArrayList<>();
+	//SPSEXPD: 破碎 WeakFloorRoom → 下一层 PitRoom 的联动（对应 Shattered 的 pitNeededDepth）
+	private static int pitNeededDepth = -1;
 	@SuppressWarnings("unchecked")
 	private static final Class<? extends Trap>[] LEGACY_TRAP_ROOM_TYPES = new Class[]{
 			ToxicTrap.class, ConfusionTrap.class, ExplosiveTrap.class, ParalyticTrap.class,
@@ -172,6 +195,14 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		int specialRooms = 0;
 		int hiddenRooms = 0;
 
+		//SPSEXPD: 实验室房间每章一次，优先占据本层的特殊房间位（对齐 SpecialRoom.initForFloor）
+		boolean labRoom = Dungeon.branch == 0 && Dungeon.legacyDepth() > 1 && Dungeon.labRoomNeeded();
+		if (labRoom) Dungeon.LimitedDrops.LAB_ROOM.count++;
+		//SPSEXPD: 破碎 WeakFloorRoom 的下一层必为 PitRoom
+		boolean pitRoom = Dungeon.branch == 0 && pitNeededDepth >= 0
+				&& Dungeon.legacyDepth() == pitNeededDepth;
+		if (pitRoom) pitNeededDepth = -1;
+
 		for (Room room : legacyLayout.rooms) {
 			if (room.type != Type.NULL || room.connected.size() != 1) continue;
 			if (!secrets.isEmpty() && room.width() > 5 && room.height() > 5
@@ -181,26 +212,35 @@ public abstract class SpsRegularLevel extends RegularLevel {
 				hiddenRooms++;
 			} else if (!specials.isEmpty() && room.width() > 5 && room.height() > 5
 					&& Random.Int(Math.max(1, specialRooms)) < 3) {
-				if (Dungeon.legacyDepth() % 5 == 2 && specials.contains(Type.COOKING)) {
-					room.type = Type.COOKING;
-				} else if (Dungeon.legacyDepth() % 5 == 3 && specials.contains(Type.RUIN_ROOM)) {
-					room.type = Type.RUIN_ROOM;
+				Type picked = null;
+				if (labRoom) {
+					picked = Type.LABORATORY;
+				} else if (pitRoom) {
+					picked = Type.PIT;
+				} else if (Dungeon.floorInChapter(Dungeon.legacyDepth()) == 2 && specials.contains(Type.COOKING)) {
+					picked = Type.COOKING;
+				} else if (Dungeon.floorInChapter(Dungeon.legacyDepth()) == 3 && specials.contains(Type.RUIN_ROOM)) {
+					picked = Type.RUIN_ROOM;
 				} else {
 					int size = specials.size();
-					room.type = specials.get(Math.min(Random.Int(size), Random.Int(size)));
+					picked = specials.get(Math.min(Random.Int(size), Random.Int(size)));
 				}
-				useLegacySpecialRoom(room.type);
-				specials.remove(room.type);
+				picked = fitLegacySpecialRoom(room, picked, specials);
+				if (picked == null) {
+					//SPSEXPD: 房间放不下任何候选（破碎房间各有最小尺寸要求），退化为普通房间
+					maybeConnectLegacyRoom(room);
+					continue;
+				}
+				room.type = picked;
+				useLegacySpecialRoom(picked);
+				specials.remove(picked);
+				if (CRYSTAL_TYPES.contains(picked)) specials.removeAll(CRYSTAL_TYPES);
+				if (picked == Type.WEAK_FLOOR) pitNeededDepth = Dungeon.legacyDepth() + 1;
+				if (picked == Type.LABORATORY) labRoom = false;
+				if (picked == Type.PIT) pitRoom = false;
 				specialRooms++;
 			} else if (Random.Int(2) == 0) {
-				ArrayList<Room> candidates = new ArrayList<>();
-				for (Room neighbour : room.neighbours) {
-					if (!room.connected.containsKey(neighbour)
-							&& !isSpecial(neighbour.type) && !isHidden(neighbour.type)) {
-						candidates.add(neighbour);
-					}
-				}
-				if (candidates.size() > 1) room.connect(Random.element(candidates));
+				maybeConnectLegacyRoom(room);
 			}
 		}
 
@@ -246,10 +286,12 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		String[] names = new String[legacySpecialRotation.size()];
 		for (int i = 0; i < names.length; i++) names[i] = legacySpecialRotation.get(i).name();
 		bundle.put(LEGACY_SPECIAL_ROOMS, names);
+		bundle.put(LEGACY_PIT_NEEDED, pitNeededDepth);
 	}
 
 	public static void restoreLegacySpecialRooms(Bundle bundle) {
 		legacySpecialRotation.clear();
+		pitNeededDepth = bundle.contains(LEGACY_PIT_NEEDED) ? bundle.getInt(LEGACY_PIT_NEEDED) : -1;
 		if (!bundle.contains(LEGACY_SPECIAL_ROOMS)) {
 			initLegacySpecialRooms();
 			return;
@@ -280,6 +322,32 @@ public abstract class SpsRegularLevel extends RegularLevel {
 	private static boolean isHidden(Type type) {
 		for (Type hidden : HIDDEN_TYPES) if (type == hidden) return true;
 		return false;
+	}
+
+	private void maybeConnectLegacyRoom(Room room) {
+		ArrayList<Room> candidates = new ArrayList<>();
+		for (Room neighbour : room.neighbours) {
+			if (!room.connected.containsKey(neighbour)
+					&& !isSpecial(neighbour.type) && !isHidden(neighbour.type)) {
+				candidates.add(neighbour);
+			}
+		}
+		if (candidates.size() > 1) room.connect(Random.element(candidates));
+	}
+
+	/** 首选特殊房间放不下（房间小于其最小尺寸）时，改挑轮换表里第一个放得下的。 */
+	private static Type fitLegacySpecialRoom(Room room, Type preferred, ArrayList<Type> specials) {
+		if (fitsLegacyRoom(room, preferred)) return preferred;
+		for (Type candidate : specials) {
+			if (fitsLegacyRoom(room, candidate)) return candidate;
+		}
+		return null;
+	}
+
+	private static boolean fitsLegacyRoom(Room room, Type type) {
+		SpecialRoom painter = specialRoomPainter(type);
+		if (painter == null) return true;
+		return room.width() >= painter.minWidth() && room.height() >= painter.minHeight();
 	}
 
 	private void placeLegacyDoors() {
@@ -371,6 +439,8 @@ public abstract class SpsRegularLevel extends RegularLevel {
 	}
 
 	private void paintLegacyStandardRoom(Room room) {
+		//SPSEXPD: 一半概率改用破碎的标准房间结构（StandardRoom 池）
+		if (shatteredStructureAllowed() && Random.Int(2) == 0 && paintLegacyShatteredRoom(room)) return;
 		fill(room, Terrain.WALL);
 		for (Door door : room.connected.values()) if (door != null) door.set(Door.Type.REGULAR);
 		if (paintLegacyDepthStandardRoom(room)) return;
@@ -415,7 +485,7 @@ public abstract class SpsRegularLevel extends RegularLevel {
 					}
 					// Water floors fall through to the fissure-room variant.
 				case 5:
-					if (Dungeon.depth > 1 && Dungeon.depth < 21
+					if (Dungeon.depth > 1 && Dungeon.depth < 33
 							&& !Dungeon.bossLevel(Dungeon.depth + 1)
 							&& Math.min(room.width(), room.height()) >= 5) {
 						paintFissure(room);
@@ -561,7 +631,7 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		fill(room.left + 1, room.top + 1, room.right - room.left - 1,
 				room.bottom - room.top - 1,
 				!Dungeon.bossLevel() && !Dungeon.bossLevel(Dungeon.depth + 1)
-						&& (Dungeon.depth < 22 || Dungeon.depth > 26) && Random.Int(3) == 0
+						&& (Dungeon.depth < 34 || Dungeon.depth > 40) && Random.Int(3) == 0
 						? Terrain.CHASM : Terrain.WATER);
 		Door[] doors = room.connected.values().toArray(new Door[0]);
 		if (doors.length != 2 || doors[0] == null || doors[1] == null) return;
@@ -637,6 +707,74 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		}
 	}
 
+	/**
+	 * SPSEXPD: 用破碎房间自己的 paint 在 SPS 房间上绘制（普通房间 / 走廊 / 特殊房间共用）：
+	 * 绘制矩形收敛到该房间允许的尺寸、门所在边对齐、另一维以门为中心展开；
+	 * 房间小于该房间最小尺寸、或容不下该门位时返回 null，调用方退回 SPS 自绘。
+	 */
+	private pd.levels.rooms.Room.Door paintShatteredRoom(Room room,
+			pd.levels.rooms.Room painter, Door legacyDoor) {
+		if (painter == null || legacyDoor == null) return null;
+		int roomW;
+		int roomH;
+		if (painter.maxWidth() > 0 || painter.minWidth() > 0
+				|| painter.maxHeight() > 0 || painter.minHeight() > 0) {
+			if (room.width() < painter.minWidth() || room.height() < painter.minHeight()) return null;
+			roomW = painter.maxWidth() > 0 ? Math.min(room.width(), painter.maxWidth()) : room.width();
+			roomH = painter.maxHeight() > 0 ? Math.min(room.height(), painter.maxHeight()) : room.height();
+		} else {
+			roomW = room.width();
+			roomH = room.height();
+		}
+		int left;
+		int top;
+		if (legacyDoor.x <= room.left || legacyDoor.x >= room.right) {
+			int naturalTop = legacyDoor.y - roomH / 2;
+			if (naturalTop < room.top || naturalTop > room.bottom - roomH) return null;
+			left = legacyDoor.x <= room.left ? room.left : room.right - roomW;
+			top = naturalTop;
+		} else {
+			int naturalLeft = legacyDoor.x - roomW / 2;
+			if (naturalLeft < room.left || naturalLeft > room.right - roomW) return null;
+			top = legacyDoor.y <= room.top ? room.top : room.bottom - roomH;
+			left = naturalLeft;
+		}
+
+		//收紧后房间外沿保持墙体，避免露出未绘制区域
+		fill(room, Terrain.WALL);
+		painter.set(left, top, left + roomW, top + roomH);
+		EmptyRoom neighbour = new EmptyRoom();
+		neighbour.set(room.left - 1, room.top - 1, room.right + 1, room.bottom + 1);
+		pd.levels.rooms.Room.Door door =
+				new pd.levels.rooms.Room.Door(legacyDoor.x, legacyDoor.y);
+		painter.connected.put(neighbour, door);
+		neighbour.connected.put(painter, door);
+		painter.paint(this);
+		return door;
+	}
+
+	/** SPSEXPD: 用破碎的标准房间结构绘制普通房间（房间/门位不合适时退回 SPS 自绘结构）。 */
+	private boolean paintLegacyShatteredRoom(Room room) {
+		Door legacyDoor = room.connected.isEmpty() ? null : room.connected.values().iterator().next();
+		if (legacyDoor == null) return false;
+		pd.levels.rooms.Room.Door painted =
+				paintShatteredRoom(room, StandardRoom.createRoom(), legacyDoor);
+		if (painted == null) return false;
+		legacyDoor.set(convertDoorType(painted.type));
+		return true;
+	}
+
+	/** SPSEXPD: 用破碎的连接房间结构绘制走廊/通道（失败时退回 SPS 自绘）。 */
+	private boolean paintLegacyShatteredCorridor(Room room) {
+		Door legacyDoor = room.connected.isEmpty() ? null : room.connected.values().iterator().next();
+		if (legacyDoor == null) return false;
+		pd.levels.rooms.Room.Door painted =
+				paintShatteredRoom(room, ConnectionRoom.createRoom(), legacyDoor);
+		if (painted == null) return false;
+		legacyDoor.set(convertDoorType(painted.type));
+		return true;
+	}
+
 	private void paintOpenRoom(Room room, Door.Type doorType) {
 		fill(room, Terrain.WALL);
 		fill(room.left + 1, room.top + 1, room.right - room.left - 1,
@@ -667,7 +805,37 @@ public abstract class SpsRegularLevel extends RegularLevel {
 			return;
 		}
 
+		//SPSEXPD: 破碎（Shattered）房间按各自的最小/最大尺寸绘制（水晶三房还会向两侧铺开
+		//6 个子房），SPS 房间本身为 8-10 格设计、保持原样。破碎房间把绘制矩形收紧到它允许的
+		//尺寸：门所在的边与房间轮廓对齐，另一维以门为中心展开；房间容不下该门位时按普通房间绘制。
 		painter.set(room.left, room.top, room.right, room.bottom);
+		if (!isSpsRoom(painter)) {
+			int roomW = Math.max(painter.minWidth(), Math.min(room.width(), painter.maxWidth()));
+			int roomH = Math.max(painter.minHeight(), Math.min(room.height(), painter.maxHeight()));
+			int left;
+			int top;
+			if (legacyDoor.x <= room.left || legacyDoor.x >= room.right) {
+				int naturalTop = legacyDoor.y - roomH / 2;
+				if (naturalTop < room.top || naturalTop > room.bottom - roomH) {
+					paintOpenRoom(room, isHidden(room.type) ? Door.Type.HIDDEN : Door.Type.REGULAR);
+					return;
+				}
+				left = legacyDoor.x <= room.left ? room.left : room.right - roomW;
+				top = naturalTop;
+			} else {
+				int naturalLeft = legacyDoor.x - roomW / 2;
+				if (naturalLeft < room.left || naturalLeft > room.right - roomW) {
+					paintOpenRoom(room, isHidden(room.type) ? Door.Type.HIDDEN : Door.Type.REGULAR);
+					return;
+				}
+				top = legacyDoor.y <= room.top ? room.top : room.bottom - roomH;
+				left = naturalLeft;
+			}
+			//收紧后房间外沿保持墙体，避免露出未绘制区域
+			fill(room, Terrain.WALL);
+			painter.set(left, top, left + roomW, top + roomH);
+		}
+
 		EmptyRoom neighbour = new EmptyRoom();
 		neighbour.set(room.left - 1, room.top - 1, room.right + 1, room.bottom + 1);
 		pd.levels.rooms.Room.Door door =
@@ -683,6 +851,22 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		} else {
 			legacyDoor.set(convertDoorType(door.type));
 		}
+	}
+
+	/**
+	 * SPSEXPD: 破碎的房间/走廊结构只作用于五个区域的主线普通层。
+	 * 固定地图（天狗隐匿处、首领图、城镇等）与分支层保持 SPS 自绘，避免破坏既有连通性。
+	 */
+	protected boolean shatteredStructureAllowed() {
+		if (Dungeon.branch != 0) return false;
+		return this instanceof SewerLevel || this instanceof PrisonLevel
+				|| this instanceof CavesLevel || this instanceof CityLevel
+				|| this instanceof HallsLevel;
+	}
+
+	/** SPS 自绘房间（SpsXxxRoom）为 8-10 格的旧布局设计，不参与破碎房间的尺寸收紧。 */
+	private static boolean isSpsRoom(SpecialRoom painter) {
+		return painter.getClass().getSimpleName().startsWith("Sps");
 	}
 
 	/** Region levels can paint fixed quest rooms into the legacy BSP layout. */
@@ -771,7 +955,7 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		return prize;
 	}
 
-	private SpecialRoom specialRoomPainter(Type type) {
+	private static SpecialRoom specialRoomPainter(Type type) {
 		switch (type) {
 			case CRYPT: return new CryptRoom();
 			case POOL: return new PoolRoom();
@@ -792,6 +976,20 @@ public abstract class SpsRegularLevel extends RegularLevel {
 			case BARRICADED: return new SpsBarricadedRoom();
 			case JUNGLE: return new SpsJungleRoom();
 			case RUIN_ROOM: return new SpsRuinRoom();
+			//SPSEXPD: 破碎（Shattered）特殊房间
+			case SENTRY: return new SentryRoom();
+			case MAGICAL_FIRE: return new MagicalFireRoom();
+			case TOXIC_GAS: return new ToxicGasRoom();
+			case SACRIFICE: return new SacrificeRoom();
+			case WEAK_FLOOR: return new WeakFloorRoom();
+			case FUSION_TRIAL: return new FusionTrialRoom();
+			case RUNESTONE: return new RunestoneRoom();
+			case ARMORY: return new ArmoryRoom();
+			case CRYSTAL_CHOICE: return new CrystalChoiceRoom();
+			case CRYSTAL_VAULT: return new CrystalVaultRoom();
+			case CRYSTAL_PATH: return new CrystalPathRoom();
+			case PIT: return new PitRoom();
+			case LABORATORY: return new LaboratoryRoom();
 			default: return null;
 		}
 	}
@@ -813,6 +1011,8 @@ public abstract class SpsRegularLevel extends RegularLevel {
 	}
 
 	private void paintTunnel(Room room) {
+		//SPSEXPD: 一半概率改用破碎的连接房间结构（TunnelRoom/BridgeRoom/PerimeterRoom/WalkwayRoom/...）
+		if (shatteredStructureAllowed() && Random.Int(2) == 0 && paintLegacyShatteredCorridor(room)) return;
 		int floor = tunnelTile();
 		Point center = legacyRoomCenter(room);
 		if (room.width() > room.height()
@@ -859,6 +1059,8 @@ public abstract class SpsRegularLevel extends RegularLevel {
 	}
 
 	private void paintPassage(Room room) {
+		//SPSEXPD: 一半概率改用破碎的连接房间结构（失败时退回 SPS 的环形通道）
+		if (shatteredStructureAllowed() && Random.Int(2) == 0 && paintLegacyShatteredCorridor(room)) return;
 		int floor = tunnelTile();
 		int passageWidth = room.width() - 2;
 		int passageHeight = room.height() - 2;
@@ -1100,17 +1302,11 @@ public abstract class SpsRegularLevel extends RegularLevel {
 			}
 		}
 
-		for (int i = 0; i < 10; i++) {
+		//SPSEXPD: 藏宝地（E_DUST）每层 1~5 个（原为固定 10）；「探索点」（M_WEB）已整体移除
+		int dustySpots = Random.IntRange(1, 5);
+		for (int i = 0; i < dustySpots; i++) {
 			Item item = Random.Int(5) == 0 ? Generator.random() : new YellowDewdrop();
 			dropLegacyItem(item, Heap.Type.E_DUST);
-		}
-		for (int i = 0; i < 3; i++) {
-			Item item = Random.Int(3) == 0
-					? Generator.random(Random.oneOf(Generator.Category.ARMOR,
-							Generator.Category.MELEEWEAPON, Generator.Category.ARTIFACT,
-							Generator.Category.RING))
-					: new SmallMeat();
-			dropLegacyItem(item, Heap.Type.M_WEB);
 		}
 
 		if (Random.Int(5) > 0) {
@@ -1190,12 +1386,12 @@ public abstract class SpsRegularLevel extends RegularLevel {
 	@Override
 	protected int initialMobCount() {
 		int legacyDepth = Dungeon.legacyDepth();
-		if (legacyDepth < 5 && !Statistics.amuletObtained) {
+		if (legacyDepth < Dungeon.NORMAL_FLOORS_PER_CHAPTER + 1 && !Statistics.amuletObtained) {
 			return 10 + legacyDepth + Random.Int(3);
 		} else if (!Statistics.amuletObtained) {
 			return 15 + legacyDepth % 3 + Random.Int(3);
 		} else {
-			return 10 + (5 - legacyDepth % 5) + Random.Int(3);
+			return 10 + (Dungeon.FLOORS_PER_CHAPTER - Dungeon.floorInChapter(legacyDepth)) + Random.Int(3);
 		}
 	}
 
@@ -1220,12 +1416,9 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		if (this instanceof HallsLevel) Buff.affect(mob, GlassShield.class).turns(1);
 	}
 
-	//SPSEXPD: 初始怪物统一标记，并让它们自带「露珠爆破」（后续刷出的怪物不带）
+	//SPSEXPD: 初始怪物统一标记（露珠爆破不再默认给予，改由露珠神像/露珠果实等提供）
 	private void markAsOriginal( Mob mob ) {
 		mob.spsOriginalGeneration = true;
-		if ((Dungeon.dewDraw || Dungeon.dewWater) && mob.buff(Dewcharge.class) == null) {
-			Buff.affect(mob, Dewcharge.class, Dewcharge.DURATION);
-		}
 	}
 
 	@Override
@@ -1393,11 +1586,22 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		rooms.add(exitRoom);
 
 		for (Room legacy : legacyLayout.rooms) {
-			if (legacy.type != Type.STANDARD) continue;
-			EmptyRoom room = new EmptyRoom();
-			room.set(legacy.left, legacy.top, legacy.right, legacy.bottom);
-			rooms.add(room);
+			if (legacy.type == Type.NULL) continue;
+			//SPSEXPD: 特殊房间也暴露成对应的 Shattered 房间实例——探索度评分、传送卷轴、
+			//水晶钥匙房间判定等都靠 rooms() 里的房间类型识别（走廊仍不暴露，保持原行为）。
+			pd.levels.rooms.Room adapter = legacySpecialAdapter(legacy.type);
+			if (adapter == null) {
+				if (legacy.type != Type.STANDARD) continue;
+				adapter = new EmptyRoom();
+			}
+			adapter.set(legacy.left, legacy.top, legacy.right, legacy.bottom);
+			rooms.add(adapter);
 		}
+	}
+
+	/** 用绘制器映射生成与 legacy 房间类型对应的 Shattered 房间实例（无对应则返回 null）。 */
+	private static pd.levels.rooms.Room legacySpecialAdapter(Type type) {
+		return isSpecial(type) || isHidden(type) ? specialRoomPainter(type) : null;
 	}
 
 	private Room legacyRoom(int cell) {

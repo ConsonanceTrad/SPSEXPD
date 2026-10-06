@@ -69,7 +69,7 @@ public class BossRush extends Item {
 			return;
 		}
 		if (!AC_READ.equals(action) || Dungeon.branch != 0 || Dungeon.depth <= 1
-				|| Dungeon.depth >= 25 || Dungeon.bossLevel() || !Dungeon.interfloorTeleportAllowed()) {
+				|| Dungeon.depth >= 39 || Dungeon.bossLevel() || !Dungeon.interfloorTeleportAllowed()) {
 			hero.spend(TIME_TO_USE);
 			GLog.w(Messages.get(Item.class, "not_here"));
 			return;

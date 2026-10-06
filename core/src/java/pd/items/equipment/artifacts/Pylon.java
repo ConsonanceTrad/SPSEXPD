@@ -135,7 +135,7 @@ public class Pylon extends Artifact {
 
 	public boolean canUseBeacon(Hero hero) {
 		if (hero == null || Dungeon.level == null || Dungeon.bossLevel()
-				|| Dungeon.depth > 25 || !Dungeon.interfloorTeleportAllowed()) {
+				|| Dungeon.depth > 39 || !Dungeon.interfloorTeleportAllowed()) {
 			if (hero != null) hero.spend(1f);
 			GLog.w(Messages.get(this, "preventing"));
 			return false;

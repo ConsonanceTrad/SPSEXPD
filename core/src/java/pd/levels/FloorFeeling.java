@@ -104,9 +104,9 @@ public final class FloorFeeling {
 				}
 			}
 			
-			if (level instanceof SpsRegularLevel && Dungeon.depth > 1 && Dungeon.depth < 25) {
+			if (level instanceof SpsRegularLevel && Dungeon.depth > 1 && Dungeon.depth < 39) {
 				int roll = Random.Int(10);
-				if (Dungeon.depth <= 20) {
+				if (Dungeon.depth <= 32) {
 					switch (roll) {
 						case 0: level.feeling = Level.Feeling.CHASM; break;
 						case 1: level.feeling = Level.Feeling.WATER; break;

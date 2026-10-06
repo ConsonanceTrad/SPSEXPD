@@ -58,7 +58,7 @@ public class GardenRoom extends SpecialRoom {
 			plant(level, new BlandfruitBush.Seed());
 		}
 
-		if (Dungeon.depth < 25) drop(level, new Honeypot());
+		if (Dungeon.depth < 39) drop(level, new Honeypot());
 		if (Random.Int(50) == 0 && Calendar.getInstance().get(Calendar.MONTH) == Calendar.APRIL) {
 			drop(level, new EasterEgg());
 		}

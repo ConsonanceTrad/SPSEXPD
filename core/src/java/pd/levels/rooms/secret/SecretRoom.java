@@ -22,6 +22,7 @@
 package pd.levels.rooms.secret;
 
 import pd.ShatteredPixelDungeon;
+import pd.Dungeon;
 import pd.levels.rooms.special.SpecialRoom;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -66,10 +67,10 @@ public abstract class SecretRoom extends SpecialRoom {
 	public static int secretsForFloor(int depth){
 		if (depth == 1) return 0;
 		
-		int region = depth/5;
-		int floor = depth%5;
+		int region = Dungeon.chapterIndex(depth);
+		int floor = Dungeon.floorInChapter(depth);
 		
-		int floorsLeft = 5 - floor;
+		int floorsLeft = Dungeon.FLOORS_PER_CHAPTER - floor;
 		
 		float secrets;
 		if (floorsLeft == 0) {

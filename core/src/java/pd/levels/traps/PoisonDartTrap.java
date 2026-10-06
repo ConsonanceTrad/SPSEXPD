@@ -126,7 +126,7 @@ public class PoisonDartTrap extends Trap {
 										finalTarget.damage(dmg, PoisonDartTrap.this);
 										if (finalTarget == Dungeon.hero){
 											//for the poison dart traps in the Tengu fight
-											if (Dungeon.depth == 10) {
+											if (Dungeon.depth == 15) {
 												Statistics.qualifiedForBossChallengeBadge = false;
 												Statistics.bossScores[1] -= 100;
 											}

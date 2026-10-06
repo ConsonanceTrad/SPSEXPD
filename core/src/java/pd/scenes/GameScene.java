@@ -347,6 +347,9 @@ public class GameScene extends PixelScene {
 		waterEdges = new SpsWaterEdgesTilemap();
 		terrain.add( waterEdges );
 
+		//SPSXPD: 区域装饰独立层（紧贴水边层之上、customTiles 之前，避免被后续层盖住）
+		terrain.add( new pd.tiles.SpsRegionDecoTilemap() );
+
 		//SPS: 移动路径提示改挂独立 Group（见 targetedCells），不再进 terrain 层
 		customTiles = new Group();
 		terrain.add(customTiles);
@@ -732,7 +735,7 @@ public class GameScene extends PixelScene {
 				}
 
 				int spawnersAbove = Statistics.spawnersAlive;
-				if (spawnersAbove > 0 && Dungeon.depth <= 25) {
+				if (spawnersAbove > 0 && Dungeon.depth <= 39) {
 					for (Mob m : Dungeon.level.mobs()) {
 						if (m instanceof DemonSpawner && ((DemonSpawner) m).spawnRecorded) {
 							spawnersAbove--;
@@ -2094,6 +2097,9 @@ public class GameScene extends PixelScene {
 			if (cautiousMove && !(lockedTarget && pathTarget == cell)){
 				pathTarget = cell;
 				lockedTarget = true;
+				//SPS: 换目标时解除对原生物的跟踪，否则 update() 会把 pathTarget 拽回生物位置，
+				//导致锁定生物后无法脱离它去预设行动目的地
+				pathTrackedMob = null;
 				refreshHeroPath();
 				return;
 			}
@@ -2101,6 +2107,8 @@ public class GameScene extends PixelScene {
 			//正常移动：记录目标，边走边显示路径（是否显示由设置决定）
 			lockedTarget = false;
 			pathTarget = SPDSettings.heroPath() ? cell : -1;
+			//SPS: 同上，防止旧跟踪生物劫持新目标
+			pathTrackedMob = null;
 			refreshHeroPath();
 
 			if (Dungeon.hero.handle( cell )) {

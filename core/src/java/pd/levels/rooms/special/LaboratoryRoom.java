@@ -63,7 +63,7 @@ public class LaboratoryRoom extends SpecialRoom {
 		}
 		Painter.set( level, pot, Terrain.ALCHEMY );
 		
-		int chapter = 1 + Dungeon.depth/5;
+		int chapter = 1 + Dungeon.chapterIndex(Dungeon.depth);
 		Blob.seed( pot.x + level.width() * pot.y, 1, Alchemy.class, level );
 
 		int pos;

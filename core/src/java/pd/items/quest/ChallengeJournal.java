@@ -77,7 +77,7 @@ public class ChallengeJournal extends Item {
 	public static final String AC_RETURN = "RETURN";
 	public static final String AC_ADD = "ADD";
 
-	private static final int[] ANCHOR_DEPTHS = {4, 9, 14, 19, 24, 9, 19, 24};
+	private static final int[] ANCHOR_DEPTHS = {6, 14, 22, 30, 38, 9, 19, 24};
 	private static final int[] LEGACY_DEPTHS = {90, 27, 28, 29, 30, 31, 32, 33};
 
 	private int unlockedMask;
@@ -251,14 +251,10 @@ public class ChallengeJournal extends Item {
 	}
 
 	public static int fragmentForDepth(int depth) {
-		switch (depth) {
-			case 4: return 0;
-			case 9: return 1;
-			case 14: return 2;
-			case 19: return 3;
-			case 24: return 4;
-			default: return -1;
-		}
+		//SPSEXPD: 碎片落在每章最后一个普通层（章内第 6 层）
+		if (Dungeon.floorInChapter(depth) != Dungeon.NORMAL_FLOORS_PER_CHAPTER) return -1;
+		int chapter = Dungeon.chapterIndex(depth);
+		return chapter >= 0 && chapter < 5 ? chapter : -1;
 	}
 
 	public static int anchorDepth(int challenge) {

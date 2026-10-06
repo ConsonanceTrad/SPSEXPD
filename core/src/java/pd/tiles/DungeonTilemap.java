@@ -106,7 +106,7 @@ public abstract class DungeonTilemap extends Tilemap {
 		}
 
 		//caves region deco is very wall-like, so it counts
-		if (Dungeon.depth >= 10 && Dungeon.depth <= 15
+		if (Dungeon.depth >= 16 && Dungeon.depth <= 23
 				&& (map[cell] == Terrain.REGION_DECO || map[cell] == Terrain.REGION_DECO_ALT)) {
 			return true;
 		}

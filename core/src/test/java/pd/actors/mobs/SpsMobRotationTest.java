@@ -407,19 +407,26 @@ public final class SpsMobRotationTest {
 			if (!found) throw new AssertionError("SPS alternate route is unreachable: " + mapping[1].getName());
 		}
 
-		java.util.HashSet<Class<?>> shatteredOnly = new java.util.HashSet<>(Arrays.asList(
+		//SPSEXPD: 破碎的稀有替代怪已接入常规轮换（RARE_ALTS 生效）——不再禁止，改为验证其确实出现
+		java.util.HashSet<Class<?>> shatteredRares = new java.util.HashSet<>(Arrays.asList(
 				GnollExile.class, HermitCrab.class, CausticSlime.class,
 				SpectralNecromancer.class, ArmoredBrute.class, DM201.class,
 				Elemental.ChaosElemental.class));
-		int[] ordinaryDepths = {2, 3, 4, 7, 8, 9, 12, 13, 14, 17, 18, 19, 22, 23, 24};
-		for (int pass = 0; pass < 200; pass++) {
+		java.util.HashSet<Class<?>> seenShatteredRares = new java.util.HashSet<>();
+		int[] ordinaryDepths = {2, 3, 4, 5, 6, 9, 10, 11, 12, 13, 14,
+				17, 18, 19, 20, 21, 22, 25, 26, 27, 28, 29, 30, 33, 34, 35, 36, 37, 38};
+		for (int pass = 0; pass < 400; pass++) {
 			for (int depth : ordinaryDepths) {
 				for (Class<? extends Mob> type : MobSpawner.getMobRotation(depth)) {
-					if (shatteredOnly.contains(type)) {
-						throw new AssertionError("Shattered-only rare mob is visible in the SPS rotation: " + type.getName());
-					}
+					if (shatteredRares.contains(type)) seenShatteredRares.add(type);
 				}
 			}
+		}
+		if (seenShatteredRares.isEmpty()) {
+			throw new AssertionError("SPS rotation never produced a shattered rare alt (RARE_ALTS not applied)");
+		}
+		if (seenShatteredRares.size() < 3) {
+			throw new AssertionError("SPS rotation produced too few shattered rare alts: " + seenShatteredRares);
 		}
 
 		Dungeon.depth = 13;
@@ -1524,15 +1531,44 @@ public final class SpsMobRotationTest {
 		}
 	}
 
-	private static void checkDeck(int depth, Class<?>[] classes, int[] expected) {
+	private static void checkDeck(int legacyDeckDepth, Class<?>[] classes, int[] expected) {
+		int depth = newDepthForLegacyDeck(legacyDeckDepth);
 		ArrayList<Class<? extends Mob>> deck = MobSpawner.standardMobRotation(depth);
 		Map<Class<?>, Integer> counts = new LinkedHashMap<>();
 		for (Class<?> type : deck) counts.put(type, counts.getOrDefault(type, 0) + 1);
-		if (counts.size() != classes.length) throw new AssertionError("depth " + depth + " extra mob type: " + counts);
+		if (counts.size() != classes.length) throw new AssertionError("depth " + legacyDeckDepth + " extra mob type: " + counts);
 		for (int i = 0; i < classes.length; i++) {
 			if (counts.getOrDefault(classes[i], 0) != expected[i]) {
-				throw new AssertionError("depth " + depth + " wrong count for " + classes[i].getSimpleName());
+				throw new AssertionError("depth " + legacyDeckDepth + " wrong count for " + classes[i].getSimpleName());
 			}
+		}
+	}
+
+	/** SPSEXPD: 每章 8 层后，旧怪表分档对应的新深度（与 MobSpawner.LEGACY_MOB_DEPTH 互逆）。 */
+	private static int newDepthForLegacyDeck(int legacyDeckDepth) {
+		switch (legacyDeckDepth) {
+			case 1: return 1;
+			case 2: return 2;
+			case 3: return 3;
+			case 4: return 5;
+			case 6: return 9;
+			case 7: return 10;
+			case 8: return 11;
+			case 9: return 13;
+			case 11: return 17;
+			case 12: return 18;
+			case 13: return 19;
+			case 14: return 21;
+			case 16: return 25;
+			case 17: return 26;
+			case 18: return 27;
+			case 19: return 29;
+			case 21: return 33;
+			case 22: return 34;
+			case 23: return 35;
+			case 24: return 37;
+			case 25: case 26: return 38;
+			default: return legacyDeckDepth;
 		}
 	}
 

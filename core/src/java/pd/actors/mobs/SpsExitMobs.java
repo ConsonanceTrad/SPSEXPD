@@ -114,8 +114,25 @@ public final class SpsExitMobs {
 
 	public interface ExitGuard { }
 
+	/** SPSEXPD: 每章 8 层 → 旧守卫表分档（每章 3 档，按 2/2/2 层分摊；商人层与 boss 层不放守卫）。 */
+	private static int legacyGuardDepth(int depth) {
+		int chapter = Math.max(0, Math.min(4, Dungeon.chapterIndex(depth)));
+		int floor = Dungeon.floorInChapter(depth);
+		if (floor <= 0 || floor >= Dungeon.FLOORS_PER_CHAPTER - 1) return -1;
+		int tier = Math.min(2, (floor - 1) / 2);
+		switch (chapter) {
+			case 0:  return tier == 0 ? 2 : tier == 1 ? 3 : 4;
+			case 1:  return tier == 0 ? 7 : tier == 1 ? 8 : 9;
+			case 2:  return tier == 0 ? 12 : tier == 1 ? 13 : 14;
+			case 3:  return tier == 0 ? 17 : tier == 1 ? 18 : 19;
+			default: return tier == 0 ? 22 : tier == 1 ? 23 : 24;
+		}
+	}
+
 	public static Mob randomForDepth(int depth) {
-		switch (depth) {
+		int legacyGuard = legacyGuardDepth(depth);
+		if (legacyGuard < 0) return null;
+		switch (legacyGuard) {
 			case 2: return new GuardAlbino();
 			case 3: return Random.chances(new float[]{1, 0.5f}) == 0
 					? new GuardAlbino() : new GuardVagrant();

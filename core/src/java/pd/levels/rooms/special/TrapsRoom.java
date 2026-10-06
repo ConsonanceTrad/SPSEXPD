@@ -67,7 +67,7 @@ public class TrapsRoom extends SpecialRoom {
 				trapClass = null;
 				break;
 			default:
-				trapClass = Random.oneOf(levelTraps[Dungeon.depth/5]);
+				trapClass = Random.oneOf(levelTraps[Math.min(levelTraps.length - 1, Dungeon.chapterIndex(Dungeon.depth))]);
 				break;
 		}
 
@@ -136,12 +136,12 @@ public class TrapsRoom extends SpecialRoom {
 		
 		//1 floor set higher in probability, never cursed
 		if (Random.Int(2) == 0) {
-			prize = Generator.randomWeapon((Dungeon.depth / 5) + 1);
+			prize = Generator.randomWeapon(Dungeon.chapterIndex(Dungeon.depth) + 1);
 			if (((Weapon)prize).hasCurseEnchant()){
 				((Weapon) prize).enchant(null);
 			}
 		} else {
-			prize = Generator.randomArmor((Dungeon.depth / 5) + 1);
+			prize = Generator.randomArmor(Dungeon.chapterIndex(Dungeon.depth) + 1);
 			if (((Armor)prize).hasCurseGlyph()){
 				((Armor) prize).inscribe(null);
 			}

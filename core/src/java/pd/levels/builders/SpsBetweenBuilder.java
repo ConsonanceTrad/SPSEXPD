@@ -31,6 +31,12 @@ public class SpsBetweenBuilder extends FigureEightBuilder {
 		}
 		if (shop == null || tent == null || entrance == null) return null;
 
+		//SPSEXPD: 过渡层房间很少（商店 + 帐篷 + 极少数空房）时 8 字环无法成形，
+		//改用紧凑布局：入口 → 商店 → 帐篷，其余房间挂在商店周围。
+		if (rooms.size() <= 6) {
+			return buildCompact(rooms, shop, tent, entrance);
+		}
+
 		// The legacy generator always chose the tent from rooms touching the shop.
 		// Removing it from normal branch placement avoids relying on a low-probability
 		// random branch choice (and RegularLevel retrying forever on unlucky seeds).
@@ -56,6 +62,62 @@ public class SpsBetweenBuilder extends FigureEightBuilder {
 					&& room.maxConnections(Room.ALL) > 1
 					&& area(room) > area(shop)) return null;
 		}
+		return result;
+	}
+
+	/** 房间数很少时的紧凑过渡层布局（商店是枢纽，帐篷紧贴商店）。 */
+	private ArrayList<Room> buildCompact(ArrayList<Room> rooms, SpsShopRoom shop,
+			SpsTentRoom tent, Room entrance) {
+		rooms.remove(tent);
+		rooms.remove(shop);
+		for (Room room : rooms) room.setEmpty();
+
+		//以商店为锚点（与原 8 字布局一致：landmark 先行放置，其余房间围绕它）
+		shop.setEmpty();
+		if (!shop.setSize() || area(shop) <= 54) return null;
+		shop.setPos(0, 0);
+
+		ArrayList<Room> result = new ArrayList<>();
+		result.add(shop);
+
+		boolean entrancePlaced = false;
+		for (int tries = 0; tries < 32 && !entrancePlaced; tries++) {
+			entrance.clearConnections();
+			entrancePlaced = placeRoom(result, shop, entrance, Random.Float(360f)) != -1;
+		}
+		if (!entrancePlaced) return null;
+		result.add(entrance);
+
+		boolean tentPlaced = false;
+		for (int tries = 0; tries < 64 && !tentPlaced; tries++) {
+			tent.clearConnections();
+			if (placeRoom(result, shop, tent, Random.Float(360f)) == -1) continue;
+			result.add(tent);
+			findNeighbours(result);
+			//帐篷不能贴着入口房（保持旧版过渡层的观感约束）
+			if (tent.neigbours.contains(entrance)) {
+				tent.clearConnections();
+				result.remove(tent);
+				continue;
+			}
+			tentPlaced = true;
+		}
+		if (!tentPlaced || area(tent) <= 54) return null;
+
+		for (Room room : rooms) {
+			if (room == entrance || room == shop || room == tent || result.contains(room)) continue;
+			boolean placed = false;
+			for (int tries = 0; tries < 32 && !placed; tries++) {
+				room.clearConnections();
+				placed = placeRoom(result, shop, room, Random.Float(360f)) != -1;
+			}
+			if (!placed) return null;
+			result.add(room);
+		}
+
+		findNeighbours(result);
+		if (!shop.connected.containsKey(tent) || tent.neigbours.contains(entrance)) return null;
+		if (!fitsLegacyCanvas(result)) return null;
 		return result;
 	}
 

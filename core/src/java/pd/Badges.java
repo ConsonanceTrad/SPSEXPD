@@ -1135,16 +1135,16 @@ public class Badges {
 	public static void validateBossSlain() {
 		Badge badge = null;
 		switch (Dungeon.legacyDepth()) {
-		case 5:
+		case 7:
 			badge = Badge.BOSS_SLAIN_1;
 			break;
-		case 10:
+		case 15:
 			badge = Badge.BOSS_SLAIN_2;
 			break;
-		case 15:
+		case 23:
 			badge = Badge.BOSS_SLAIN_3;
 			break;
-		case 20:
+		case 31:
 			badge = Badge.BOSS_SLAIN_4;
 			break;
 		}
@@ -1207,19 +1207,19 @@ public class Badges {
 	public static void validateBossChallengeCompleted(){
 		Badge badge = null;
 		switch (Dungeon.legacyDepth()) {
-			case 5:
+			case 7:
 				badge = Badge.BOSS_CHALLENGE_1;
 				break;
-			case 10:
+			case 15:
 				badge = Badge.BOSS_CHALLENGE_2;
 				break;
-			case 15:
+			case 23:
 				badge = Badge.BOSS_CHALLENGE_3;
 				break;
-			case 20:
+			case 31:
 				badge = Badge.BOSS_CHALLENGE_4;
 				break;
-			case 25:
+			case 39:
 				badge = Badge.BOSS_CHALLENGE_5;
 				break;
 		}

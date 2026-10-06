@@ -36,9 +36,10 @@ public final class SpsDew {
 	private SpsDew() { }
 
 	public static void place( Level level ) {
-		if (!(Dungeon.dewDraw || Dungeon.dewWater) || Dungeon.branch != 0
-				|| Dungeon.depth <= 1 || Dungeon.depth >= 25 || Dungeon.bossLevel()
-				|| Dungeon.shopOnLevel() || level instanceof BetweenLevel) {
+		//SPSEXPD: 神像无条件生成（不再要求露珠模式），第 1 层也生成
+		if (Dungeon.branch != 0 || Dungeon.depth < 1 || Dungeon.depth >= 39
+				|| Dungeon.bossLevel() || Dungeon.shopOnLevel()
+				|| level instanceof BetweenLevel) {
 			return;
 		}
 		int entrance = level.entrance();
@@ -81,7 +82,7 @@ public final class SpsDew {
 	}
 
 	public static boolean isClearable( Level level ) {
-		return Dungeon.branch == 0 && Dungeon.depth > 1 && Dungeon.depth < 25
+		return Dungeon.branch == 0 && Dungeon.depth > 1 && Dungeon.depth < 39
 				&& !Dungeon.bossLevel() && !(level instanceof BetweenLevel);
 	}
 

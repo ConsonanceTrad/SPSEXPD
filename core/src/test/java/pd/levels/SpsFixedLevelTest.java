@@ -1,5 +1,6 @@
 package pd.levels;
 
+import pd.atlas.items.SpecificKeyDict;
 import pd.atlas.items.SpecificPlaceHolderDict;
 
 import com.badlogic.gdx.ApplicationAdapter;
@@ -218,10 +219,10 @@ public final class SpsFixedLevelTest {
 	}
 
 	private static void testBetweenLevelTextures() {
-		int[] depths = {0, 6, 11, 16, 21};
-		String[] tiles = {Assets.Environment.TILES_SEWERS, Assets.Environment.TILES_PRISON,
-				Assets.Environment.TILES_CAVES, Assets.Environment.TILES_CITY,
-				Assets.Environment.TILES_HALLS};
+		int[] depths = {0, 8, 16, 24, 32};
+		String[] tiles = {Assets.Environment.SPS_TILES_SEWERS_LEGACY,
+				Assets.Environment.SPS_TILES_PRISON_LEGACY, Assets.Environment.SPS_TILES_BEACH,
+				Assets.Environment.SPS_TILES_CITY_LEGACY, Assets.Environment.SPS_TILES_HALLS_LEGACY};
 		String[] legacyTiles = {Assets.Environment.SPS_TILES_SEWERS_LEGACY,
 				Assets.Environment.SPS_TILES_PRISON_LEGACY, Assets.Environment.SPS_TILES_BEACH,
 				Assets.Environment.SPS_TILES_CITY_LEGACY, Assets.Environment.SPS_TILES_HALLS_LEGACY};
@@ -707,7 +708,7 @@ public final class SpsFixedLevelTest {
 				"寄居蟹缺少旧版野兽属性");
 		GoldenSkeletonKey masterKey = new GoldenSkeletonKey();
 		check(masterKey.depth == 0 && masterKey.value() == 100
-				&& masterKey.image == SpecificPlaceHolderDict.SOMETHING_0,
+				&& masterKey.image == SpecificKeyDict.CRYSTAL_KEY,
 				"寄居蟹必掉水晶钥匙的属性或原始图标错误");
 		testGoldenSkeletonKeyConsumption();
 		testHermitCrabGuaranteedKeyDrop();
@@ -2099,7 +2100,7 @@ public final class SpsFixedLevelTest {
 		check(!target.canHold(new Gold()), "草靶子不应收纳金币");
 		check(new AdultDragonViolet().createLoot() instanceof BossRush,
 				"城镇守卫巨龙必须掉落BossRush挑战");
-		check(new YearPetEgg().image == pd.atlas.items.SpecificPlaceHolderDict.SOMETHING_0,
+		check(new YearPetEgg().image == pd.atlas.items.ConsumSummorDict.RANDOM_SOUL,
 				"年兽之魂原版图标索引错误");
 		YearPet pet = new YearPet();
 		check(pet.HT == 500 && pet.legacyType() == 666,

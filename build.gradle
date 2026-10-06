@@ -452,7 +452,7 @@ tasks.register('verifySpsContent') {
 			}
 		}
 		def plantProductClasses = ['RedDewdrop', 'VioletDewdrop', 'YellowDewdrop',
-				'TransmutationBall', 'UpgradeEatBall', 'UpgradeBlobYellow',
+				'TransmutationBall', 'UpgradeBlobYellow',
 				'UpgradeBlobRed', 'UpgradeBlobViolet']
 		plantProductClasses.each { name ->
 			def source = coreSource("items/${name}.java")
@@ -476,7 +476,7 @@ tasks.register('verifySpsContent') {
 		 'Dreamfoil': ['DreamLeaf'], 'Freshberry': ['Category.BERRY'],
 		 'NutPlant': ['NutVegetable', 'Strawberry', 'Cherry'],
 		 'ReNepenth': ['TransmutationBall'], 'SiOtwoFlower': ['GlassFruit'],
-		 'StarEater': ['UpgradeEatBall']].each { plant, tokens ->
+		 'StarEater': ['StarEaterFlower']].each { plant, tokens ->
 			tokens.each { token ->
 				if (!plantLogic[plant].contains(token)) {
 					throw new GradleException("SPS植物掉落尚未接入: ${plant} -> ${token}")
@@ -525,9 +525,18 @@ tasks.register('verifySpsMechanics') {
     description = '静态验证SPS路线、奖励门槛及关键存档机制。'
 
     doLast {
-        def readSource = { String rel -> coreSource(rel).getText('UTF-8') }
+        //SPSEXPD: 收集全部契约偏差后一次抛出——便于逐条核对，而不是只看到第一处
+        def missing = []
+        def readSource = { String rel ->
+            def source = coreSource(rel)
+            if (!source.isFile()) {
+                missing << "源文件缺失: ${rel}"
+                return ''
+            }
+            source.getText('UTF-8')
+        }
         def requireText = { String source, String token, String label ->
-            if (!source.contains(token)) throw new GradleException("${label}: 缺少关键逻辑 ${token}")
+            if (!source.contains(token)) missing << "${label}: ${token}"
         }
 
         def journal = readSource('items/quest/AdventureJournal.java')
@@ -592,7 +601,7 @@ tasks.register('verifySpsMechanics') {
 		requireText(challengeDrops, 'page.getClass().isInstance(item)', '挑战纸片地面防重')
 
 		def hero = readSource('actors/hero/Hero.java')
-		requireText(hero, 'Dungeon.branch == 0 && Dungeon.depth < 26', '多利亚石板主地牢逐回合充能')
+		requireText(hero, 'Dungeon.branch == 0 && Dungeon.depth < 40', '多利亚石板主地牢逐回合充能')
         ['bundle.put( SKIN, skin )', 'bundle.put( STYLE, combatStyle )',
          'bundle.contains(STYLE) ? bundle.getEnum(STYLE, CombatStyle.class) : CombatStyle.BALANCED',
          'Math.max(0, Math.min(7, bundle.getInt(SKIN)))'].each {
@@ -647,9 +656,9 @@ tasks.register('verifySpsMechanics') {
 
 		def dungeon = readSource('Dungeon.java')
 		if (dungeon.count('level = new BetweenLevel();') != 5) {
-			throw new GradleException('SPS主线: 0、6、11、16、21层必须全部使用BetweenLevel')
+			throw new GradleException('SPS主线: 0、8、16、24、32层必须全部使用BetweenLevel')
 		}
-		['depth == 1', 'depth == 6', 'depth == 11', 'depth == 16', 'depth == 21'].each {
+		['depth == 0 ||', 'depth % FLOORS_PER_CHAPTER == 0', 'depth < LAST_LEVEL_DEPTH'].each {
 			requireText(dungeon, it, 'SPS过渡层商店')
 		}
 		def between = readSource('levels/BetweenLevel.java')
@@ -674,10 +683,10 @@ tasks.register('verifySpsMechanics') {
 			requireText(waterskinSource, it, '首层露珠研究任务存档')
 		}
 		def tinkererWindow = readSource('windows/WndTinkerer.java')
-		['Dungeon.dewWater = mode == Waterskin.UpgradeMode.RANDOM_BLESS',
-		 'Dungeon.dewDraw = mode == Waterskin.UpgradeMode.ACCURATE',
-		 'Statistics.previousFloorMoves = 500',
-		 'Buff.affect(Dungeon.hero, Dewcharge.class, 300f)',
+		['waterskin.applySpsUpgrade(Waterskin.UpgradeMode.ACCURATE)',
+		 'Dungeon.dewWater = false',
+		 'Dungeon.dewDraw = true',
+		 'Dewcharge.charge(hero, 300f)',
 		 'new SpsSkeletonKey(Dungeon.depth)'].each {
 			requireText(tinkererWindow, it, '首层研究者旧版奖励')
 		}
@@ -695,7 +704,7 @@ tasks.register('verifySpsMechanics') {
 		def mob = readSource('actors/mobs/Mob.java')
 		['dropChargedDew(pos)', 'new VioletDewdrop()', 'new RedDewdrop()', 'new YellowDewdrop()',
 		 'bundle.put(SPS_ORIGINAL_GENERATION, spsOriginalGeneration)',
-		 'Dungeon.level.mobs().hasSpsOriginalMobs()', 'new BoundReward()'].each {
+		 'Dungeon.level.mobs().hasSpsOriginalMobs()'].each {
 			requireText(mob, it, '露珠爆炸掉落')
 		}
 		def level = readSource('levels/Level.java')
@@ -717,7 +726,7 @@ tasks.register('verifySpsMechanics') {
 		}
 		//SPS 露珠：祝福点铺设与露珠数量统计已移入 SpsDew，覆盖检查随之内聚
 		def spsDew = readSource('levels/SpsDew.java')
-		['place( Level level )', 'isClearable( Level level )', 'hasDew( Level level )', 'par( Level level )',
+		['place( Level level )', 'isClearable( Level level )', 'hasDew( Level level )',
 		 'Dungeon.shopOnLevel()', 'Terrain.DEW_BLESS'].each {
 			requireText(spsDew, it, '露珠祝福点与统计')
 		}
@@ -729,7 +738,7 @@ tasks.register('verifySpsMechanics') {
 		def terrain = readSource('levels/Terrain.java')
 		requireText(terrain, 'DEW_BLESS', '露珠神像地形')
 		def dewBless = readSource('levels/features/DewBlessRoom.java')
-		requireText(dewBless, 'Buff.affect((Hero) ch, Dewcharge.class, 720f)', '露珠神像祝福')
+		requireText(dewBless, 'Dewcharge.chargeCount(ch, 10)', '露珠神像祝福')
 		requireText(between, 'new SpsTentRoom()', '过渡层帐篷房')
 		def tentRoom = readSource('levels/rooms/special/SpsTentRoom.java')
 		['Terrain.TENT', 'Terrain.IRON_MAKER', 'Terrain.ALCHEMY', 'SpsFeatureVisual.TENT',
@@ -738,11 +747,13 @@ tasks.register('verifySpsMechanics') {
 		['food.energy', 'Hunger.class', 'TentSleep.class', 'spendAndNext(time)'].each {
 			requireText(tent, it, '帐篷休息')
 		}
-		def ironMaker = readSource('windows/WndIronMaker.java')
-		['garbage + ore == 5', 'new ScrollOfRemoveCurse()', 'new ScrollOfIdentify()',
-		 'new BuildBomb()', 'new HugeBomb()', 'new GreatRune()', 'equipment == 2',
-		 'water * 15', 'new Garbage(2)'].each {
-			requireText(ironMaker, it, '铁砧基础配方')
+		//SPSEXPD: 铁砧锻造公式已迁入炼金釜（pd/items/IronMakerRecipes.java），契约随之内聚
+		def ironMaker = readSource('items/IronMakerRecipes.java')
+		['items.size() == 5 && garbage + ore == 5', 'new ScrollOfRemoveCurse()', 'new ScrollOfIdentify()',
+		 'new BuildBomb()', 'new HugeBomb()', 'new GreatRune()',
+		 'equipment == 2 && items.get(0).getClass() == items.get(1).getClass()',
+		 'render.utils.math.Random.Int(100) < water * 15', 'new Garbage(2)'].each {
+			requireText(ironMaker, it, '铁砧基础配方（已迁入炼金釜）')
 		}
 		def buildBomb = readSource('items/equipment/bombs/BuildBomb.java')
 		['ch.HT / 12', 'ch.HT / 5', 'Terrain.EMBERS', 'return 10 * quantity()'].each {
@@ -754,12 +765,13 @@ tasks.register('verifySpsMechanics') {
 			requireText(hugeBomb, it, '巨大炸弹')
 		}
 		def caves = readSource('levels/CavesLevel.java')
-		['Dungeon.depth == 12', 'new Mushroom()', 'new Tinkerer2()'].each {
-			requireText(caves, it, '深度12露珠研究任务')
+		['Dungeon.depth == 17', 'new Mushroom()', 'new Tinkerer2()'].each {
+			requireText(caves, it, '深度17露珠研究任务')
 		}
+		//SPSEXPD: 二次强化已取消三选一奖励（召唤物仍在生成池里，但不再由此窗口发放）
 		def tinkerer2 = readSource('windows/WndTinkerer2.java')
-		['new ActiveMrDestructo()', 'new FairyCard()', 'new Mobile()',
-		 'Dungeon.dewNorn = true', 'mushroom.detach', 'tinkerer.destroy()'].each {
+		['Dungeon.dewNorn = true', 'mushroom.detach', 'tinkerer.destroy()',
+		 'tinkerer.sprite.die()'].each {
 			requireText(tinkerer2, it, '深度12研究者奖励')
 		}
 		['ActiveMrDestructo', 'FairyCard', 'Mobile'].each { name ->
@@ -993,21 +1005,22 @@ tasks.register('verifySpsMechanics') {
 				throw new GradleException("SPS装备图鉴: 破碎独有分类仍然可见 ${it}")
 			}
 		}
-		requireText(dungeon, 'public static boolean trinketCataNeeded(){', 'SPS饰物隐藏')
+		requireText(dungeon, 'public static boolean trinketCataNeeded(){', 'SPS饰物催化剂')
 		def trinketMethod = dungeon.substring(dungeon.indexOf('public static boolean trinketCataNeeded(){'), dungeon.indexOf('public static boolean labRoomNeeded(){'))
-		if (!trinketMethod.contains('return false;')) {
-			throw new GradleException('SPS饰物隐藏: 主线仍会生成破碎饰物催化剂')
+		if (!trinketMethod.contains('LimitedDrops.TRINKET_CATA.dropped()')
+				|| !trinketMethod.contains('Random.Int(4 - depth) == 0')) {
+			throw new GradleException('SPS饰物催化剂: 未按破碎原版规则生成（第 1 章前 3 层掉落一颗）')
 		}
 
 		def waterskin = waterskinSource
-		['BASE_MAX_VOLUME = 100', 'WING_MAX_VOLUME = 200', 'EX_VOLUME = "dewpointex"',
-		 'PEEK_COST = 5', 'SPLASH_COST = 15', 'POUR_COST = 20', 'WATER_COST = 25',
-		 'BLESS_COST = 70', 'REFINE_COST = 100', 'overflow += collected - stored',
-		 'left = 20', 'Buff.prolong(hero, MindVision.class, 2f)',
+		['PEEK_COST = 5', 'SPLASH_COST = 15', 'POUR_COST = 20', 'WATER_COST = 25',
+		 'BLESS_COST = 100', 'REFINE_COST = 100', 'LIGHT_COST = 50', 'LIGHT_DURATION = 100',
+		 'STATUS_CAP = 999', 'Math.max(0, volume) + Math.max(0, overflow)',
+		 'Buff.prolong(hero, MindVision.class, 2f)',
 		 'Buff.prolong(hero, Haste.class, Haste.DURATION)',
 		 'Buff.prolong(hero, Levitation.class, Levitation.DURATION)',
 		 'GameScene.add(Blob.seed(cell, 40, Water.class))',
-		 'new WaterItem(10)', 'Random.Float() < chance', 'overflow++',
+		 'new WaterItem(10)',
 		 'defaultAction = AC_CHOOSE', 'GameScene.show(new WndUseItem(null, this))'].each {
 			requireText(waterskin, it, '旧版露珠瓶能力')
 		}
@@ -1047,11 +1060,12 @@ tasks.register('verifySpsMechanics') {
 			requireText(sideQuickBar, it, '两侧快捷栏')
 		}
 
-		def pets = readSource('items/quest/PetCompendium.java')
-        requireText(pets, 'lastSummonDepth == Dungeon.depth && lastSummonBranch == Dungeon.branch', '伙伴重召限制')
-        ['SELECTED', 'PET_ID', 'SUMMON_DEPTH', 'SUMMON_BRANCH'].each {
-            requireText(pets, "bundle.put(${it}", '伙伴图鉴存档')
-        }
+		//SPSEXPD: 伙伴体系已重写为魂石+投影（items/consum/eggs/Egg.java），存档契约随之内聚
+		def pets = readSource('items/consum/eggs/Egg.java')
+		['bundle.put(PET_HP', 'bundle.put(PET_LEVEL', 'bundle.put(FORMED',
+		 'bundle.put(FOOD_COUNT', 'bundle.put(REVIVE_AT'].each {
+			requireText(pets, it, '魂石伙伴存档')
+		}
 
         def guardian = readSource('actors/mobs/AdventureGuardian.java')
         requireText(guardian, 'destination == 21 && rushWave < 3', '首领连续战')
@@ -1089,13 +1103,13 @@ tasks.register('verifySpsMechanics') {
 		}
 		['hero.belongings.weapon = new ShortSword()', 'hero.belongings.armor = new WoodenArmor()',
 		 'new MissileShield().identify().collect()',
-		 'hero.belongings.weapon = new MageBook()', 'new WandOfDisintegration()',
+		 'MagesStaff staff = new MagesStaff();', 'new WandOfDisintegration()',
 		 'new PotionOfMage().identify().collect()', 'hero.improveMagicSkill(3)'].each {
 			requireText(heroClassSource, it, '战士与法师默认皮肤开局配置')
 		}
 		['items.equipment.weapon.melee.normalweapon.Dagger()', 'hero.belongings.armor = new VestArmor()',
 		 'new BlindFruit(3)', 'hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Knuckles()',
-		 'new Boomerang()', 'new EmpBola(3)'].each {
+		 'SpiritBow bow = new SpiritBow();', 'new EmpBola(3)'].each {
 			requireText(heroClassSource, it, '盗贼与女猎手默认皮肤开局配置')
 		}
 		['hero.belongings.weapon = new Triangolo()', 'new Shovel()', 'new SpsFireBomb()',
@@ -1115,7 +1129,12 @@ tasks.register('verifySpsMechanics') {
 		requireText(hero, 'boolean notice = buff(Notice.class) != null;', '敏锐被动搜索接入')
 		requireText(hero, '} else if (intentional || notice){', '敏锐必定发现隐藏事物')
 
-		println 'SPS机制静态测试通过：8个旧版职业可见且开局获得对应技能物品、6个过渡层已接入、破碎独有装备已移出主生成牌组；25条异界路线、8条挑战路线、29份一次性奖励、终局门槛、外观返回路径、三区快捷栏（下3-10、左右0-4）、水袋功能选择及5组关键存档机制均符合当前实现。'
+		if (!missing.isEmpty()) {
+			throw new GradleException("SPS mechanics: " + missing.size() + " contract mismatch(es):\n  - "
+					+ missing.join("\n  - "))
+		}
+
+		println 'SPS机制静态测试通过：8个旧版职业可见且开局获得对应技能物品、6个过渡层已接入、破碎独有怪物与饰物催化剂已按破碎原版接入；25条异界路线、8条挑战路线、29份一次性奖励、终局门槛、外观返回路径、三区快捷栏（下3-10、左右0-4）、水袋功能选择及5组关键存档机制均符合当前实现。'
     }
 }
 

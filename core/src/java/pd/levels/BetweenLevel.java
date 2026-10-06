@@ -84,7 +84,8 @@ public class BetweenLevel extends RegularLevel {
 
 	@Override
 	protected int standardRooms(boolean forceMax) {
-		return 8;
+		//SPSEXPD: 商人层只要商店 + 帐篷 + 一个空房（原为 8 个空房）
+		return 1;
 	}
 
 	@Override
@@ -127,9 +128,9 @@ public class BetweenLevel extends RegularLevel {
 	String legacyTilesTex() {
 		switch (Dungeon.depth) {
 			case 0:  return Assets.Environment.SPS_TILES_SEWERS_LEGACY;   //SPS: 0 层用 SPS 下水道盖图组
-			case 6:  return Assets.Environment.SPS_TILES_PRISON_LEGACY;
-			case 11: return Assets.Environment.SPS_TILES_BEACH;
-			case 16: return Assets.Environment.SPS_TILES_CITY_LEGACY;
+			case 8:  return Assets.Environment.SPS_TILES_PRISON_LEGACY;
+			case 16: return Assets.Environment.SPS_TILES_BEACH;
+			case 24: return Assets.Environment.SPS_TILES_CITY_LEGACY;
 			default: return Assets.Environment.SPS_TILES_HALLS_LEGACY;
 		}
 	}
@@ -138,9 +139,9 @@ public class BetweenLevel extends RegularLevel {
 	public String waterTex() {
 		switch (Dungeon.depth) {
 			case 0:  return Assets.Environment.SPS_WATER_SEWERS;
-			case 6:  return Assets.Environment.SPS_WATER_PRISON;
-			case 11: return Assets.Environment.SPS_WATER_CAVES;
-			case 16: return Assets.Environment.SPS_WATER_CITY;
+			case 8:  return Assets.Environment.SPS_WATER_PRISON;
+			case 16: return Assets.Environment.SPS_WATER_CAVES;
+			case 24: return Assets.Environment.SPS_WATER_CITY;
 			default: return Assets.Environment.SPS_WATER_HALLS;
 		}
 	}

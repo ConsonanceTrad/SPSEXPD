@@ -237,7 +237,7 @@ public final class SpsSpecialRoomsTest {
 		check(f.door.type == Room.Door.Type.LOCKED, "废墟房没有上锁");
 		check(countItems(f.level, ShoppingCart.class) == 1, "废墟房购物车数量错误");
 		check(countHeapType(f.level, Heap.Type.CHEST) == 1, "废墟房宝箱数量错误");
-		check(countHeapType(f.level, Heap.Type.M_WEB) == 1, "废墟房蛛网堆数量错误");
+		check(countHeapType(f.level, Heap.Type.HEAP) >= 1, "废墟房食物堆数量错误");
 		check(countHeapType(f.level, Heap.Type.REMAINS) == 1, "废墟房遗骸数量错误");
 		check(countHeapType(f.level, Heap.Type.E_DUST) == 1, "废墟房尘土堆数量错误");
 		check(countTerrain(f.level, Terrain.IRON_MAKER) == 1, "废墟房铁砧数量错误");

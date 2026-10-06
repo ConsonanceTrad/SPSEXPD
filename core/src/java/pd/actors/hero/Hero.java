@@ -324,6 +324,9 @@ public class Hero extends Char {
 	private static final float TIME_TO_SEARCH	    = 2f;
 	private static final float HUNGER_FOR_SEARCH	= 6f;
 	private static final float TIME_TO_PICK_UP      = 1f;   //SPSXPD: 搜索顺带拾取时每件物品的耗时
+
+	//SPSEXPD: 搜索顺带拾取期间，物品自身的拾取结算一律不计时/不统计；最终由 search() 统一只加一个回合
+	private boolean spsPickingUp = false;
 	
 	public HeroClass heroClass = HeroClass.ROGUE;
 	public HeroSubClass subClass = HeroSubClass.NONE;
@@ -419,7 +422,7 @@ public class Hero extends Char {
 		HT = Math.round(combatStyle.healthMultiplier() * HT);
 
 		if (boostHP){
-			HP += Math.max(HT - curHT, 0);
+			if (!pd.actors.hero.perks.BloodShield.convert(this, Math.max(HT - curHT, 0))) HP += Math.max(HT - curHT, 0);
 		}
 		HP = Math.min(HP, HT);
 	}
@@ -1109,11 +1112,12 @@ public class Hero extends Char {
 
 	@Override
 	public void spend( float time ) {
+		if (spsPickingUp) return;   //SPSEXPD: 搜索捡拾期间的逐件结算不计时/不统计
 		justMoved = false;
 		Statistics.advanceSpsTime(time);
 		pd.items.quest.AdventureJournal journal =
 				belongings.getItem(pd.items.quest.AdventureJournal.class);
-		if (journal != null && Dungeon.branch == 0 && Dungeon.depth < 26) journal.gainCharge();
+		if (journal != null && Dungeon.branch == 0 && Dungeon.depth < 40) journal.gainCharge();
 		LeaderFlag leaderFlag = belongings.getItem(LeaderFlag.class);
 		if (leaderFlag != null) leaderFlag.advanceTime(this, time);
 		super.spend(time);
@@ -1131,6 +1135,7 @@ public class Hero extends Char {
 	}
 
 	public void spendAndNext( float time ) {
+		if (spsPickingUp) return;   //SPSEXPD: 搜索捡取期间不推进回合
 		busy();
 		spend( time );
 		next();
@@ -2504,7 +2509,7 @@ public class Hero extends Char {
 				&& (visibleEnemies.size() == 0 || cell == pos)
 				&& !Dungeon.level.locked
 				&& !Dungeon.level.plants.containsKey(cell)
-				&& (Dungeon.depth < 26 || Transitions.get( Dungeon.level, cell).type == LevelTransition.Type.REGULAR_ENTRANCE) ) {
+				&& (Dungeon.depth < 40 || Transitions.get( Dungeon.level, cell).type == LevelTransition.Type.REGULAR_ENTRANCE) ) {
 
 			curAction = new HeroAction.LvlTransition( cell );
 			
@@ -3109,24 +3114,35 @@ public class Hero extends Char {
 		Heap heap = Dungeon.level.heaps.get( cell );
 		if (heap == null || heap.type != Heap.Type.HEAP || heap.isEmpty()) return 0f;
 
-		float time = 0f;
-		while (!heap.isEmpty()){
-			Item item = heap.pickUp();
-			if (!item.doPickUp( this )){
-				heap.drop( item );
-				GLog.newLine();
-				GLog.n( Messages.capitalize(Messages.get(this, "you_cant_have", item.name())) );
-				break;
+		//SPSEXPD: 期间物品自身触发的 spend/spendAndNext 一律不计，最终由 search() 统一加一个回合
+		spsPickingUp = true;
+		try {
+			float time = 0f;
+			while (!heap.isEmpty()){
+				Item item = heap.pickUp();
+				if (!item.doPickUp( this )){
+					heap.drop( item );
+					GLog.newLine();
+					GLog.n( Messages.capitalize(Messages.get(this, "you_cant_have", item.name())) );
+					break;
+				}
+				//露珠的 doPickUp 内部已结算拾取回合，这里不再重复计时
+				if (!(item instanceof Dewdrop)) time += TIME_TO_PICK_UP;
+				//金币与自动收集类物品不刷屏
+				if (!(item instanceof Gold || item instanceof DarkGold || item instanceof Dewdrop
+						|| item instanceof Key || item instanceof Guidebook)){
+					GLog.i( Messages.capitalize(Messages.get(this, "you_now_have", item.name())) );
+				}
 			}
-			//露珠的 doPickUp 内部已结算拾取回合，这里不再重复计时
-			if (!(item instanceof Dewdrop)) time += TIME_TO_PICK_UP;
-			//金币与自动收集类物品不刷屏
-			if (!(item instanceof Gold || item instanceof DarkGold || item instanceof Dewdrop
-					|| item instanceof Key || item instanceof Guidebook)){
-				GLog.i( Messages.capitalize(Messages.get(this, "you_now_have", item.name())) );
-			}
-		}
-		return time;
+			return time;
+	} finally {
+		spsPickingUp = false;
+	}
+	}
+
+	//SPSEXPD: 搜索捡拾整体只额外消耗一个回合（不论捡到几件、跨几格）
+	private float addedPickUpTime( float current, int cell ){
+		return pickUpHeap( cell ) > 0f ? TIME_TO_PICK_UP : current;
 	}
 
 	//SPSEXPD: 搜索拾取只作用于「视野内且可抵达」的格子，避免隔墙取物
@@ -3168,7 +3184,7 @@ public class Hero extends Char {
 
 		//SPSEXPD: 脚下的格子也算——搜索时先捡起自己站的那一格
 		if (intentional && SPDSettings.searchPickUp() && canPickUpAt( pos )) {
-			pickUpTime += pickUpHeap( pos );
+			pickUpTime = addedPickUpTime( pickUpTime, pos );
 		}
 
 		TalismanOfForesight.Foresight talisman = buff( TalismanOfForesight.Foresight.class );
@@ -3198,7 +3214,7 @@ public class Hero extends Char {
 
 					//SPSEXPD: 主动搜索时顺带拾取该格地面物品（设置里可关闭），只限视野内且可达的位置
 					if (intentional && SPDSettings.searchPickUp() && canPickUpAt( curr )){
-						pickUpTime += pickUpHeap( curr );
+						pickUpTime = addedPickUpTime( pickUpTime, curr );
 					}
 
 					if ((foresight && (!Dungeon.level.mapped[curr] || foresightScan))){

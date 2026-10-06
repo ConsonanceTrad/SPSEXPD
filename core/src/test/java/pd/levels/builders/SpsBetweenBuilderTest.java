@@ -15,13 +15,23 @@ import java.util.HashSet;
 /** Deterministic stress test for the SPS transition-floor room topology. */
 public final class SpsBetweenBuilderTest {
 
-	private static final int[] DEPTHS = {1, 6, 11, 16, 21};
+	private static final int[] DEPTHS = {0, 8, 16, 24, 32};
 	private static final int SEEDS_PER_DEPTH = 500;
+
+	private static int attemptsTotal = 0;
 
 	public static void main(String[] args) {
 		long started = System.nanoTime();
-		int attempts = 0;
-		for (int depth : DEPTHS) {
+		int generated = runGroup(1, DEPTHS);
+		long elapsedMs = (System.nanoTime() - started) / 1_000_000L;
+		System.out.println("SPS过渡层压力测试通过：" + generated
+				+ "个固定种子（商店 + 帐篷 + 1 空房的紧凑过渡层），构建尝试"
+				+ attemptsTotal + "次，耗时" + elapsedMs + "毫秒。");
+	}
+
+	private static int runGroup(int emptyRooms, int[] depths) {
+		int generated = 0;
+		for (int depth : depths) {
 			Dungeon.depth = depth;
 			for (int seed = 0; seed < SEEDS_PER_DEPTH; seed++) {
 				Random.pushGenerator(0x535053L * depth + seed);
@@ -29,26 +39,25 @@ public final class SpsBetweenBuilderTest {
 					ArrayList<Room> built = null;
 					int retries = 0;
 					while (built == null && retries++ < 100) {
-						built = new SpsBetweenBuilder().build(rooms());
+						built = new SpsBetweenBuilder().build(rooms(emptyRooms));
 					}
 					check(built != null, depth, seed, "100次内未能生成地图");
 					validate(built, depth, seed);
-					attempts += retries;
+					attemptsTotal += retries;
+					generated++;
 				} finally {
 					Random.popGenerator();
 				}
 			}
 		}
-		long elapsedMs = (System.nanoTime() - started) / 1_000_000L;
-		System.out.println("SPS过渡层压力测试通过：2500个固定种子，构建尝试"
-				+ attempts + "次，耗时" + elapsedMs + "毫秒。");
+		return generated;
 	}
 
-	private static ArrayList<Room> rooms() {
+	private static ArrayList<Room> rooms(int emptyRooms) {
 		ArrayList<Room> rooms = new ArrayList<>();
 		rooms.add(new EntranceRoom());
 		rooms.add(new ExitRoom());
-		for (int i = 0; i < 8; i++) rooms.add(new EmptyRoom());
+		for (int i = 0; i < emptyRooms; i++) rooms.add(new EmptyRoom());
 		rooms.add(new SpsShopRoom());
 		rooms.add(new SpsTentRoom());
 		Random.shuffle(rooms);

@@ -21,8 +21,11 @@ public final class SpsSignTest {
 		check("new_room_0".equals(Sign.messageKey(new NewRoomLevel(), 14, 0)), "标准样板房告示牌文本错误");
 		check("new_room_1".equals(Sign.messageKey(new NewRoomLevel(), 14, 1)), "森林样板房告示牌文本错误");
 		check("new_room_0".equals(Sign.messageKey(new NewRoomLevel(), 14, 99)), "损坏的样板房类型没有安全回退");
-		check("tip_22".equals(Sign.messageKey(null, 22, 0)), "主线告示牌没有使用实际层号");
-		check(Sign.messageKey(null, 26, 0) == null, "终局层不应生成普通提示文本");
+		//SPSEXPD: 每章扩到 8 层后，提示文案按章内位置映射回原有 1-25 层的文案
+		check("tip_14".equals(Sign.messageKey(null, 22, 0)), "主线告示牌没有按章节映射提示文本");
+		check(Sign.messageKey(null, 1, 0).startsWith("tip_"), "主线第1层缺少提示文本");
+		check(Sign.messageKey(null, 39, 0).startsWith("tip_"), "末章首领层缺少提示文本");
+		check(Sign.messageKey(null, 40, 0) == null, "终局层不应生成普通提示文本");
 
 		for (String lang : new String[]{"en", "zh", "zh-hant", "ru"}) {
 			Path file = Path.of("messages", "levels", lang, "levels.properties");

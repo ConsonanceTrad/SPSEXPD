@@ -38,7 +38,6 @@ import pd.actors.buffs.Blindness;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Burning;
 import pd.actors.buffs.ChampionEnemy;
-import pd.actors.buffs.Dewcharge;
 import pd.actors.buffs.LockedFloor;
 import pd.actors.buffs.MagicalSight;
 import pd.actors.buffs.MindVision;
@@ -556,17 +555,12 @@ public abstract class Level implements Bundlable {
 
 
 	protected void markSpsOriginalMobs() {
-		if (Dungeon.branch != 0 || Dungeon.depth <= 1 || Dungeon.depth >= 25 || Dungeon.bossLevel()) {
+		if (Dungeon.branch != 0 || Dungeon.depth <= 1 || Dungeon.depth >= 39 || Dungeon.bossLevel()) {
 			return;
 		}
-		boolean dewMode = Dungeon.dewDraw || Dungeon.dewWater;
 		for (Mob mob : mobs()) {
 			if (mob.alignment == Char.Alignment.ENEMY) {
 				mob.spsOriginalGeneration = true;
-				//SPSEXPD: 本层初始怪物自带「露珠爆破」，死亡时爆出露珠；后续刷出的怪物不再带
-				if (dewMode && mob.buff(Dewcharge.class) == null) {
-					Buff.affect(mob, Dewcharge.class, Dewcharge.DURATION);
-				}
 			}
 		}
 	}

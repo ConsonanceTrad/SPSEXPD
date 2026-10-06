@@ -68,7 +68,7 @@ public class ShadowEaterKey extends Item {
 					returnDepth > 0 ? returnPos : -1);
 			return;
 		}
-		if (Dungeon.branch != 0 || Dungeon.depth <= 1 || Dungeon.depth >= 25
+		if (Dungeon.branch != 0 || Dungeon.depth <= 1 || Dungeon.depth >= 39
 				|| Dungeon.bossLevel() || !Dungeon.interfloorTeleportAllowed()) {
 			hero.spend(TIME_TO_USE);
 			GLog.w(Messages.get(Item.class, "not_here"));

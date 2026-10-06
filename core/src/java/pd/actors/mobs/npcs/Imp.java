@@ -351,7 +351,7 @@ public class Imp extends NPC {
 		}
 
 		public static ArrayList<Room> spawn( ArrayList<Room> rooms ) {
-			if (!spawned && Dungeon.depth > 16 && Random.Int( 20 - Dungeon.depth ) == 0) {
+			if (!spawned && Dungeon.depth > 24 && Random.Int( Math.max(1, 32 - Dungeon.depth) ) == 0) {
 
 				rooms.add(new AmbitiousImpRoom());
 				spawned = true;

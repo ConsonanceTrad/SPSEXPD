@@ -435,7 +435,7 @@ public class Shopkeeper extends NPC {
 		boolean follower = Dungeon.hero != null && Dungeon.hero.heroClass == HeroClass.FOLLOWER;
 		int multiplier = follower ? 4 : 5;
 		int cap = follower ? 20 : 25;
-		int base = item.value() * Math.min(multiplier * (Dungeon.legacyDepth() / 5 + 1), cap);
+		int base = item.value() * Math.min(multiplier * (Dungeon.chapterIndex(Dungeon.legacyDepth()) + 1), cap);
 		//SPS: 被袭扰后涨价（每次触发 ×1.5，叠乘）；击败足够守卫后本店免费
 		if (freeAndNoRestock) return 0;
 		return Math.round( base * priceMultiplier );

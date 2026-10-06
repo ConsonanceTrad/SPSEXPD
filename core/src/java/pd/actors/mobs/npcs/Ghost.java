@@ -296,7 +296,7 @@ public class Ghost extends NPC {
 		}
 		
 		public static void spawn(SewerLevel level) {
-			if (!spawned && Dungeon.depth > 1 && Random.Int( 5 - Dungeon.depth ) == 0) {
+			if (!spawned && Dungeon.depth > 1 && Random.Int( Math.max(1, 8 - Dungeon.depth) ) == 0) {
 				
 				Ghost ghost = new Ghost();
 				int spawnPos = -1;
@@ -332,7 +332,14 @@ public class Ghost extends NPC {
 				ring = legacyChoice(Generator.Category.RING, Ring.class);
 			}
 			if (ring != null) ring.cursed = false;
-			pet = (Egg) Generator.random(Generator.Category.BASEPET);
+			//SPSXPD: BASEPET 类别里混有「奖励包」(RandomPetEgg 家族, extends Item)。
+			//若是包就从中随机取一颗魂石，保证 pet 始终是 Egg。
+			Item petReward = Generator.random(Generator.Category.BASEPET);
+			if (petReward instanceof pd.items.consum.eggs.randomone.RandomPetEgg) {
+				Class<? extends Egg>[] pool = ((pd.items.consum.eggs.randomone.RandomPetEgg) petReward).possibleEggs();
+				petReward = Reflection.newInstance(pool[Random.Int(pool.length)]);
+			}
+			pet = (petReward instanceof Egg) ? (Egg) petReward : null;
 			if (artifact != null) artifact.identify(false);
 			if (ring != null) ring.identify(false);
 		}

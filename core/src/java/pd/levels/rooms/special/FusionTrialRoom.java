@@ -75,7 +75,7 @@ public class FusionTrialRoom extends SpecialRoom {
 	}
 
 	private static Class<? extends Trap> trapForDepth() {
-		switch (Math.min(4, Dungeon.depth / 5)) {
+		switch (Math.min(4, Dungeon.chapterIndex(Dungeon.depth))) {
 			case 0:
 				return GrippingTrap.class;
 			case 1:
@@ -90,7 +90,7 @@ public class FusionTrialRoom extends SpecialRoom {
 	}
 
 	private static Item prize() {
-		switch (Math.min(4, Dungeon.depth / 5)) {
+		switch (Math.min(4, Dungeon.chapterIndex(Dungeon.depth))) {
 			case 0:
 				return Random.Int(2) == 0 ? new RitualBlade() : new ReedPipe();
 			case 1:

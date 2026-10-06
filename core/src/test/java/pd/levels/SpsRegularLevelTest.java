@@ -85,7 +85,7 @@ public final class SpsRegularLevelTest {
 		Blacksmith.Quest.reset();
 		Class<?>[] types = {SewerLevel.class, PrisonLevel.class, CavesLevel.class,
 				CityLevel.class, HallsLevel.class};
-		int[] depths = {2, 7, 12, 17, 22};
+		int[] depths = {2, 10, 18, 26, 34};
 		int generated = 0;
 		for (int region = 0; region < types.length; region++) {
 			int decoratedMaps = 0;
@@ -308,7 +308,7 @@ public final class SpsRegularLevelTest {
 	}
 
 	private static void validateHallsKeyDrop() {
-		Dungeon.depth = 22;
+		Dungeon.depth = 34;
 		Dungeon.branch = 0;
 		Random.pushGenerator(0x53505348414C4C53L);
 		try {
@@ -361,15 +361,17 @@ public final class SpsRegularLevelTest {
 		try {
 			for (boolean amulet : new boolean[]{false, true}) {
 				Statistics.amuletObtained = amulet;
-				for (int depth = 1; depth < 25; depth++) {
+				for (int depth = 1; depth < Dungeon.LAST_LEVEL_DEPTH; depth++) {
 					Dungeon.depth = depth;
 					SpsRegularLevel level = newLevelForDepth(depth);
 					for (int sample = 0; sample < 20; sample++) {
 						int count = level.initialMobCount();
-						int base = amulet ? 10 + (5 - depth % 5)
-								: depth < 5 ? 10 + depth : 15 + depth % 3;
+						int base = amulet
+								? 10 + (Dungeon.FLOORS_PER_CHAPTER - Dungeon.floorInChapter(depth))
+								: depth < Dungeon.NORMAL_FLOORS_PER_CHAPTER + 1
+										? 10 + depth : 15 + depth % 3;
 						check(count >= base && count <= base + 2,
-								(depth - 1) / 5, sample, "旧版初始怪物数量越界");
+								Dungeon.chapterIndex(depth), sample, "旧版初始怪物数量越界");
 					}
 				}
 			}
@@ -382,7 +384,7 @@ public final class SpsRegularLevelTest {
 	private static void validateLegacyRegionArmor() {
 		Class<?>[] types = {SewerLevel.class, PrisonLevel.class, CavesLevel.class,
 				CityLevel.class, HallsLevel.class};
-		int[] depths = {2, 7, 12, 17, 22};
+		int[] depths = {2, 10, 18, 26, 34};
 		int[] multipliers = {0, 0, 5, 10, 15};
 		for (int region = 0; region < types.length; region++) {
 			Dungeon.depth = depths[region];
@@ -478,10 +480,11 @@ public final class SpsRegularLevelTest {
 				level.queue(new StrBottle());
 				level.generateLegacyItems();
 
-				check(countHeapType(level, Heap.Type.E_DUST) - dustBefore == 10,
-						0, -20 - sample, "普通层没有生成恰好10个尘土堆");
-				check(countHeapType(level, Heap.Type.M_WEB) - webBefore == 3,
-						0, -20 - sample, "普通层没有生成恰好3个蛛网堆");
+				int dust = countHeapType(level, Heap.Type.E_DUST) - dustBefore;
+				check(dust >= 1 && dust <= 5,
+						0, -20 - sample, "普通层的尘土堆数量不在 1~5 之间");
+				check(countHeapType(level, Heap.Type.M_WEB) == webBefore,
+						0, -20 - sample, "普通层不应再生成蛛网堆（探索点已移除）");
 				int locked = countHeapType(level, Heap.Type.LOCKED_CHEST) - lockedBefore;
 				int monster = countHeapType(level, Heap.Type.G_MIMIC) - monsterBefore;
 				int ordinaryMimics = countHeapType(level, Heap.Type.MIMIC) - mimicBefore;
@@ -608,38 +611,58 @@ public final class SpsRegularLevelTest {
 	}
 
 	private static SpsRegularLevel newLevelForDepth(int depth) {
-		if (depth < 6) return new SewerLevel();
-		if (depth < 11) return new PrisonLevel();
-		if (depth < 16) return new CavesLevel();
-		if (depth < 21) return new CityLevel();
+		if (depth < 8) return new SewerLevel();
+		if (depth < 16) return new PrisonLevel();
+		if (depth < 24) return new CavesLevel();
+		if (depth < 32) return new CityLevel();
 		return new HallsLevel();
 	}
 
 	private static void validateExitGuardDepthTable() {
 		Random.pushGenerator(0x5350534558495447L);
 		try {
-			for (int depth = 1; depth <= 25; depth++) {
+			for (int depth = 1; depth < Dungeon.LAST_LEVEL_DEPTH; depth++) {
 				Dungeon.depth = depth;
 				for (int sample = 0; sample < 200; sample++) {
 					Mob guard = SpsExitMobs.randomForDepth(depth);
+					int chapter = Dungeon.chapterIndex(depth);
+					int floor = Dungeon.floorInChapter(depth);
+					boolean normal = floor >= 1 && floor <= Dungeon.NORMAL_FLOORS_PER_CHAPTER;
 					boolean valid;
-					switch (depth) {
-						case 2: valid = guard instanceof SpsExitMobs.GuardAlbino; break;
-						case 3: case 4: valid = guard instanceof SpsExitMobs.GuardAlbino
-								|| guard instanceof SpsExitMobs.GuardVagrant; break;
-						case 7: valid = guard instanceof SpsExitMobs.GuardBandit
-								|| guard instanceof SpsExitMobs.GuardVagrant; break;
-						case 8: case 9: valid = guard instanceof SpsExitMobs.GuardBandit
-								|| guard instanceof SpsExitMobs.GuardBamboo; break;
-						case 12: case 13: case 14: valid = guard instanceof BombBug
-								|| guard instanceof SpsExitMobs.GuardShielded; break;
-						case 17: case 18: case 19: valid = guard instanceof SpsExitMobs.GuardSenior; break;
-						case 22: valid = guard instanceof SpsExitMobs.GuardFireSuccubus; break;
-						case 23: case 24: valid = guard instanceof SpsExitMobs.GuardAcidic
-								|| guard instanceof SpsExitMobs.GuardFireSuccubus; break;
-						default: valid = guard == null;
+					if (!normal) {
+						valid = guard == null;
+					} else {
+						int tier = (floor - 1) / 2;
+						switch (chapter) {
+							case 0:
+								valid = tier == 0
+										? guard instanceof SpsExitMobs.GuardAlbino
+										: guard instanceof SpsExitMobs.GuardAlbino
+												|| guard instanceof SpsExitMobs.GuardVagrant;
+								break;
+							case 1:
+								valid = tier == 0
+										? guard instanceof SpsExitMobs.GuardBandit
+												|| guard instanceof SpsExitMobs.GuardVagrant
+										: guard instanceof SpsExitMobs.GuardBandit
+												|| guard instanceof SpsExitMobs.GuardBamboo;
+								break;
+							case 2:
+								valid = guard instanceof BombBug
+										|| guard instanceof SpsExitMobs.GuardShielded;
+								break;
+							case 3:
+								valid = guard instanceof SpsExitMobs.GuardSenior;
+								break;
+							default:
+								valid = tier == 0
+										? guard instanceof SpsExitMobs.GuardFireSuccubus
+										: guard instanceof SpsExitMobs.GuardAcidic
+												|| guard instanceof SpsExitMobs.GuardFireSuccubus;
+								break;
+						}
 					}
-					check(valid, Math.max(0, (depth - 1) / 5), sample, "出口守卫深度表错误");
+					check(valid, chapter, sample, "出口守卫深度表错误");
 				}
 			}
 		} finally {
@@ -679,7 +702,7 @@ public final class SpsRegularLevelTest {
 	private static void validateEnhancedPlantSuppression() {
 		Random.pushGenerator(0x535053504C414E54L);
 		try {
-			Dungeon.depth = 6;
+			Dungeon.depth = 8;
 			Dungeon.branch = 0;
 			PrisonLevel shop = new PrisonLevel();
 			check(buildWithRetries(shop), 1, -6, "商店层植物测试地图构建失败");
@@ -805,9 +828,9 @@ public final class SpsRegularLevelTest {
 		Random.pushGenerator(0x535053494D505350L);
 		try {
 			Imp.Quest.reset();
-			CityLevel first = populatedCity(17);
+			CityLevel first = populatedCity(25);
 			check(countMobs(first, Imp.class) == 1 && Imp.Quest.isOld(), 3, -8,
-					"第17层没有生成旧版小恶魔任务");
+					"第25层没有生成旧版小恶魔任务");
 
 			Bundle saved = new Bundle();
 			Imp.Quest.storeInBundle(saved);
@@ -819,13 +842,13 @@ public final class SpsRegularLevelTest {
 			check(Imp.Quest.legacyTokenGoal() == (node.getBoolean("alternative") ? 8 : 6),
 					3, -8, "小恶魔令牌需求没有恢复为8/6枚");
 
-			CityLevel second = populatedCity(18);
+			CityLevel second = populatedCity(26);
 			check(countMobs(second, Imp.class) == 0, 3, -9, "小恶魔任务在后续都市层重复生成");
 
 			Imp.Quest.reset();
-			CityLevel finalCity = populatedCity(19);
+			CityLevel finalCity = populatedCity(30);
 			check(countMobs(finalCity, Imp.class) == 1 && countMobs(finalCity, GoldThief.class) == 1,
-					3, -10, "第19层没有同时生成小恶魔和黄金盗贼");
+					3, -10, "第30层没有同时生成小恶魔和黄金盗贼");
 		} finally {
 			Imp.Quest.reset();
 			Dungeon.level = previousLevel;

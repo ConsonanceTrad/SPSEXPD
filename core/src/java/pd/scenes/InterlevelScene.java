@@ -682,7 +682,7 @@ public class InterlevelScene extends PixelScene {
 			int destBranch = curTransition != null ? curTransition.destBranch : Dungeon.branch;
 			LevelTransition.Type destType = curTransition != null ? curTransition.destType : null;
 
-			if (destBranch != Dungeon.branch && Dungeon.depth >= 16 && Dungeon.depth <= 20) {
+			if (destBranch != Dungeon.branch && Dungeon.depth >= 25 && Dungeon.depth <= 31) {
 				//FIXME avoids holding allies when entering city quest area, this is very sloppy though
 				// perhaps holding allies could be a property of the transition?
 			} else {
@@ -742,7 +742,7 @@ public class InterlevelScene extends PixelScene {
 		int destBranch = curTransition != null ? curTransition.destBranch : Dungeon.branch;
 		LevelTransition.Type destType = curTransition != null ? curTransition.destType : null;
 
-		if (destBranch != Dungeon.branch && Dungeon.depth >= 16 && Dungeon.depth <= 20) {
+		if (destBranch != Dungeon.branch && Dungeon.depth >= 25 && Dungeon.depth <= 31) {
 			//FIXME avoids holding allies when entering city quest area, this is very sloppy though
 			// perhaps holding allies could be a property of the transition?
 		} else {

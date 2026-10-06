@@ -6,13 +6,20 @@ import pd.actors.buffs.*;
 import pd.actors.hero.Belongings;
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.items.UpgradeEatBall;
+import pd.items.Stylus;
+import pd.items.UpgradeBlobRed;
+import pd.items.UpgradeBlobViolet;
+import pd.items.UpgradeBlobYellow;
+import pd.items.consum.potions.Potion;
+import pd.items.consum.scrolls.Scroll;
 import pd.items.equipment.bags.Bag;
 import pd.messages.Messages;
+import pd.plants.Seedpod;
 import pd.scenes.GameScene;
 import pd.windows.WndBag;
 import pd.messages.InlineText;
 import pd.atlas.items.ConsumPotionSeedSeedDict;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 
@@ -64,11 +71,11 @@ public class StarEaterFlower extends Vegetable {
 		@Override public String textPrompt() { return Messages.get(StarEaterFlower.class, "consume_prompt"); }
 		@Override public Class<? extends Bag> preferredBag() { return Belongings.Backpack.class; }
 		@Override public boolean itemSelectable(Item item) {
-			return item != StarEaterFlower.this && UpgradeEatBall.consumable(item);
+			return item != StarEaterFlower.this && consumable(item);
 		}
 		@Override public void onSelect(Item item) {
 			if (item == null) return;
-			Item result = UpgradeEatBall.essenceFrom(item);
+			Item result = essenceFrom(item);
 			item.detach(curUser.belongings.backpack);
 			StarEaterFlower.this.detach(curUser.belongings.backpack);
 			if (!result.collect()) Dungeon.level.drop(result, curUser.pos).sprite.drop();
@@ -76,6 +83,25 @@ public class StarEaterFlower extends Vegetable {
 			curUser.spendAndNext(Actor.TICK);
 		}
 	};
+
+	/** SPSEXPD: 吞星花蔬菜的“可吞噬”判定（原「吞星花果实」UpgradeEatBall 的逻辑）。 */
+	public static boolean consumable(Item item) {
+		return item != null && !item.isEquipped(Dungeon.hero)
+				&& (item.isUpgradable() || item instanceof Scroll || item instanceof Potion || item instanceof Stylus);
+	}
+
+	/** SPSEXPD: 吞噬提炼逻辑（原「吞星花果实」UpgradeEatBall 的逻辑）。 */
+	public static Item essenceFrom(Item item) {
+		if (item.isUpgradable()) {
+			int upgrades = Math.max(0, item.visiblyUpgraded());
+			if (Random.Float() < upgrades / 10f) return new UpgradeBlobViolet();
+			if (Random.Float() < upgrades / 5f) return new UpgradeBlobRed();
+			if (Random.Float() < upgrades / 3f) return new UpgradeBlobYellow();
+		} else if (Random.Float() < 0.1f) {
+			return new UpgradeBlobYellow();
+		}
+		return new Seedpod.Seed();
+	}
 
 	/** SPSXPD: 啃咬 —— 点选一个附近目标 */
 	private final pd.scenes.CellSelector.Listener biteSelector = new pd.scenes.CellSelector.Listener() {

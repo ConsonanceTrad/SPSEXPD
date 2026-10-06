@@ -929,7 +929,7 @@ public abstract class Mob extends Char {
 
 				if (Dungeon.hero.HP < Dungeon.hero.HT) {
 					int heal = (int)Math.ceil(restoration * 0.4f);
-					Dungeon.hero.HP = Math.min(Dungeon.hero.HT, Dungeon.hero.HP + heal);
+					if (!pd.actors.hero.perks.BloodShield.convert(Dungeon.hero, heal)) Dungeon.hero.HP = Math.min(Dungeon.hero.HT, Dungeon.hero.HP + heal);
 					Dungeon.hero.sprite.showStatusWithIcon(CharSprite.POSITIVE, Integer.toString(heal), FloatingText.HEALING);
 				}
 			}
@@ -1105,12 +1105,12 @@ public abstract class Mob extends Char {
 			AlienBag alienBag = Dungeon.hero == null ? null : Dungeon.hero.belongings.getItem(AlienBag.class);
 			if (alienBag != null) alienBag.gainExp();
 			Dewcharge dewcharge = Dungeon.hero.buff(Dewcharge.class);
-			if (dewcharge != null && dewcharge.isDewing()) {
+			if (dewcharge != null && dewcharge.consume()) {
 				dropChargedDew(pos);
 			}
 			//SPSEXPD: 怪物自身带「露珠爆破」时（本层初始怪物），死亡同样爆一次
 			Dewcharge ownCharge = buff(Dewcharge.class);
-			if (ownCharge != null && ownCharge.isDewing()) {
+			if (ownCharge != null && ownCharge.consume()) {
 				dropChargedDew(pos);
 			}
 			//SPSEXPD: 按属性浮动档位掉露珠
@@ -1143,7 +1143,7 @@ public abstract class Mob extends Char {
 		//SPSEXPD: 初始敌人清空即标记本层已清（保留"清层前不自然刷怪"），但已取消清层限时与清层奖励
 		if (spsOriginalGeneration
 				&& Dungeon.branch == 0
-				&& Dungeon.depth > 1 && Dungeon.depth < 25
+				&& Dungeon.depth > 1 && Dungeon.depth < 39
 				&& !Dungeon.bossLevel()
 				&& (Dungeon.dewDraw || Dungeon.dewWater)
 				&& !Dungeon.level.cleared

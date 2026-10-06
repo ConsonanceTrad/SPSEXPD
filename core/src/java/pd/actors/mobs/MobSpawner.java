@@ -66,14 +66,35 @@ public class MobSpawner extends Actor {
 	public static ArrayList<Class<? extends Mob>> getMobRotation(int depth ){
 		ArrayList<Class<? extends Mob>> mobs = standardMobRotation( depth );
 		addRareMobs(depth, mobs);
+		//SPSEXPD: 补齐破碎独有稀有怪（RARE_ALTS）的宿主怪，使它们在每章都能出现
+		addShatteredHostMobs(depth, mobs);
+		//SPSEXPD: 恢复破碎的稀有替代怪（RARE_ALTS：GnollExile/HermitCrab/CausticSlime/
+		//SpectralNecromancer/ArmoredBrute/DM201 等）——按破碎原版概率进入常规轮换
+		swapMobAlts(mobs);
 		swapSpsMobAlts(mobs);
 		Random.shuffle(mobs);
 		return mobs;
 	}
 
+	/**
+	 * SPSEXPD: 破碎的稀有替代怪由 RARE_ALTS 按 1/50 概率替换宿主怪，但 SPS 的各章配置里
+	 * 缺少部分宿主怪（Slime/Necromancer/DM200/Elemental），这里按章补上宿主怪。
+	 */
+	private static void addShatteredHostMobs(int depth, ArrayList<Class<? extends Mob>> rotation) {
+		int floor = Dungeon.floorInChapter(depth);
+		if (floor < 1 || floor > Dungeon.NORMAL_FLOORS_PER_CHAPTER) return;
+		switch (Dungeon.chapterIndex(depth)) {
+			case 0: rotation.add(Slime.class); break;          // 下水道：腐蚀史莱姆（CausticSlime）
+			case 1: rotation.add(Necromancer.class); break;    // 监狱：幽灵死灵法师（SpectralNecromancer）
+			case 2: rotation.add(DM200.class); break;          // 洞穴：DM-201
+			case 3: rotation.add(Elemental.random()); break;   // 城市：混乱元素（ChaosElemental）
+			default: break;
+		}
+	}
+
 	//returns a rotation of standard mobs, unshuffled.
 	static ArrayList<Class<? extends Mob>> standardMobRotation( int depth ){
-		switch(depth){
+		switch(legacyMobDepth(depth)){
 
 			// Sewers
 			case 1: default:
@@ -233,6 +254,24 @@ public class MobSpawner extends Actor {
 
 	}
 
+	//SPSEXPD: 每章 8 层（6 普通层）→ 旧表 1-26 层的分档映射（每章 4 档，按 1/1/1/1/2 分摊到 6 层）。
+	private static final int[][] LEGACY_MOB_DEPTH = {
+			{1, 2, 3, 3, 4, 4},       // 章 1 下水道（1-6）
+			{6, 7, 8, 8, 9, 9},       // 章 2 监狱（9-14）
+			{11, 12, 13, 13, 14, 14}, // 章 3 洞穴（17-22）
+			{17, 17, 18, 18, 19, 19}, // 章 4 城市（25-30）
+			{21, 22, 23, 23, 24, 25}  // 章 5 大厅（33-38）
+	};
+
+	private static int legacyMobDepth(int depth) {
+		int chapter = Math.max(0, Math.min(LEGACY_MOB_DEPTH.length - 1, Dungeon.chapterIndex(depth)));
+		int floor = Dungeon.floorInChapter(depth);
+		int[] tiers = LEGACY_MOB_DEPTH[chapter];
+		if (floor <= 0) return tiers[0];                          // 商人层（过渡层不刷普通怪）
+		if (floor > tiers.length) return tiers[tiers.length - 1]; // boss 层沿用本章末档
+		return tiers[floor - 1];
+	}
+
 	private static ArrayList<Class<? extends Mob>> weightedRotation(
 			Class<? extends Mob>[] classes, int[] weights) {
 		ArrayList<Class<? extends Mob>> result = new ArrayList<>();
@@ -245,7 +284,7 @@ public class MobSpawner extends Actor {
 	//has a chance to add a rarely spawned mobs to the rotation
 	public static void addRareMobs( int depth, ArrayList<Class<?extends Mob>> rotation ){
 
-		switch (depth){
+		switch (legacyMobDepth(depth)){
 
 			// Sewers
 			default:

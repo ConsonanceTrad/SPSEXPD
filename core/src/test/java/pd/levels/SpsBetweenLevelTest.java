@@ -62,7 +62,7 @@ import java.util.HashSet;
 /** Draws complete SPS transition floors and validates their legacy visual layer. */
 public final class SpsBetweenLevelTest {
 
-	private static final int[] DEPTHS = {0, 6, 11, 16, 21};   //SPS: 0 层为特殊初始层，其余过渡层照旧
+	private static final int[] DEPTHS = {0, 8, 16, 24, 32};   //SPS: 0 层为特殊初始层，其余过渡层每章末一层
 	private static final int SEEDS_PER_DEPTH = 50;
 
 	public static void main(String[] args) {
@@ -173,10 +173,10 @@ public final class SpsBetweenLevelTest {
 			}
 		}
 		check(keeper != null, depth, seed, "商店没有生成商人");
-		if (depth == 21) {
-			check(keeper instanceof ImpShopkeeper, depth, seed, "第21层没有使用小恶魔商人");
+		if (depth == 32) {
+			check(keeper instanceof ImpShopkeeper, depth, seed, "第32层没有使用小恶魔商人");
 			check(level.map[keeper.pos] == Terrain.WATER || level.map[keeper.pos] == Terrain.OLD_HIGH_GRASS,
-					depth, seed, "第21层小恶魔商人格没有生成旧版水面或水草");
+					depth, seed, "第32层小恶魔商人格没有生成旧版水面或水草");
 		} else {
 			check(keeper.getClass() == Shopkeeper.class, depth, seed, "第" + depth + "层错误使用小恶魔商人");
 		}
@@ -189,7 +189,7 @@ public final class SpsBetweenLevelTest {
 			}
 		}
 		//SPS: 种子包已取消（绒布袋替代，用户裁决 2026-09-28）；0 层商店新增任务蘑菇（10 金），基数 18→19
-		int minimum = depth == 0 ? 19 : depth == 16 ? 16 : depth == 21 ? 18 : 17;
+		int minimum = depth == 0 ? 19 : depth == 24 ? 16 : depth == 32 ? 18 : 17;
 		check(stock.size() == minimum || stock.size() == minimum + 1, depth, seed,
 				"商店商品总数不符合旧版可选宠物蛋分支：" + stock.size());
 		check(count(stock, Ankh.class) == 1, depth, seed, "商店没有固定出售十字架");
@@ -201,7 +201,7 @@ public final class SpsBetweenLevelTest {
 
 		Class<?>[] bows = {WoodenBowN.class, StoneBowN.class, MetalBowN.class, AlloyBowN.class, PVCBowN.class};
 		Class<?>[] guns = {GunA.class, GunB.class, GunC.class, GunD.class, GunE.class};
-		int chapter = depth == 0 ? 0 : depth == 6 ? 1 : depth == 11 ? 2 : depth == 16 ? 3 : 4;
+		int chapter = depth == 0 ? 0 : depth == 8 ? 1 : depth == 16 ? 2 : depth == 24 ? 3 : 4;
 		check(count(stock, bows[chapter]) + count(stock, guns[chapter]) >= 1, depth, seed,
 				"章节枪械或弓档位错误");
 
@@ -211,19 +211,19 @@ public final class SpsBetweenLevelTest {
 					&& count(stock, Pasty.class) >= 1 && count(stock, NoomlinCrown.class) >= 1
 					&& count(stock, Mushroom.class) >= 1,
 					depth, seed, "0层商店专属商品不完整（应含任务蘑菇）");
-		} else if (depth == 6) {
+		} else if (depth == 8) {
 			check(count(stock, ScrollHolder.class) == 1 && count(stock, DolyaSlate.class) == 1,
-					depth, seed, "第6层商店专属商品不完整");
-		} else if (depth == 11) {
-			check(count(stock, PotionBandolier.class) == 1 && count(stock, Town.class) == 1,
-					depth, seed, "第11层商店专属商品不完整");
+					depth, seed, "第8层商店专属商品不完整");
 		} else if (depth == 16) {
+			check(count(stock, PotionBandolier.class) == 1 && count(stock, Town.class) == 1,
+					depth, seed, "第16层商店专属商品不完整");
+		} else if (depth == 24) {
 			//SPS: 法器包与魔法套筒已合并（用户裁决 2026-09-28），商店出售魔法套筒
-			check(count(stock, MagicalHolster.class) == 1, depth, seed, "第16层商店缺少魔法套筒");
+			check(count(stock, MagicalHolster.class) == 1, depth, seed, "第24层商店缺少魔法套筒");
 		} else {
 			check(count(stock, CourageChallenge.class) == 1 && count(stock, PowerChallenge.class) == 1
 					&& count(stock, WisdomChallenge.class) == 1,
-					depth, seed, "第21层商店缺少三本挑战书");
+					depth, seed, "第32层商店缺少三本挑战书");
 		}
 	}
 

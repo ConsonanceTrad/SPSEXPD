@@ -131,7 +131,7 @@ public class Pickaxe extends MeleeWeapon {
 	}
 
 	public static boolean legacyMiningDepth(int depth) {
-		return depth >= 11 && depth <= 15 || depth == 32;
+		return depth >= 16 && depth <= 23 || depth == 32;
 	}
 
 	public boolean mine(final Hero hero) {

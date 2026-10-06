@@ -74,10 +74,11 @@ public class SentryRoom extends SpecialRoom {
 
 		Door entrance = entrance();
 
-		Point center;
-		do {
+		//SPSEXPD: 入口可能与中心同行/同列（SPS 房间的门位是随机的），加上限避免极端情况下死循环
+		Point center = center();
+		for (int tries = 0; tries < 16 && (center.x == entrance.x || center.y == entrance.y); tries++) {
 			center = center();
-		} while (center.x == entrance.x || center.y == entrance.y);
+		}
 
 		Point sentryPos = new Point();
 		Point treasurePos = new Point();
@@ -190,19 +191,19 @@ public class SentryRoom extends SpecialRoom {
 		//1 floor set higher in probability, never cursed
 		switch (Random.Int(5)){
 			case 0: case 1: default:
-				prize = Generator.randomWeapon((Dungeon.depth / 5) + 1);
+				prize = Generator.randomWeapon(Dungeon.chapterIndex(Dungeon.depth) + 1);
 				if (((Weapon)prize).hasCurseEnchant()){
 					((Weapon) prize).enchant(null);
 				}
 				break;
 			case 2:
-				prize = Generator.randomMissile((Dungeon.depth / 5) + 1);
+				prize = Generator.randomMissile(Dungeon.chapterIndex(Dungeon.depth) + 1);
 				if (((Weapon)prize).hasCurseEnchant()){
 					((Weapon) prize).enchant(null);
 				}
 				break;
 			case 3: case 4:
-				prize = Generator.randomArmor((Dungeon.depth / 5) + 1);
+				prize = Generator.randomArmor(Dungeon.chapterIndex(Dungeon.depth) + 1);
 				if (((Armor)prize).hasCurseGlyph()){
 					((Armor) prize).inscribe(null);
 				}

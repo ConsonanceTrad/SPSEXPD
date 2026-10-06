@@ -74,7 +74,7 @@ public class TreasureMap extends Item {
 			transition(hero, depth, branch, pos);
 			return;
 		}
-		if (Dungeon.branch != 0 || Dungeon.depth <= 1 || Dungeon.depth >= 25
+		if (Dungeon.branch != 0 || Dungeon.depth <= 1 || Dungeon.depth >= 39
 				|| Dungeon.bossLevel() || !Dungeon.interfloorTeleportAllowed()) {
 			hero.spend(TIME_TO_USE);
 			GLog.w(Messages.get(Item.class, "not_here"));

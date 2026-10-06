@@ -27,9 +27,9 @@ public class Elevator extends Item {
 	public static final String AC_UP = "UP";
 	public static final String AC_DOWN = "DOWN";
 
-	//SPS: 可达主地牢 0（初始层）至 25 层
+	//SPS: 可达主地牢 0（初始层）至 39 层（末章 boss）
 	private static final int MIN_DEPTH = 0;
-	private static final int MAX_DEPTH = 25;
+	private static final int MAX_DEPTH = 39;
 
 	{
 		image = EquipmentNonEquipDict.ELEVATOR;

@@ -99,12 +99,12 @@ public class SecretMazeRoom extends SecretRoom {
 		//1 floor set higher in probability, never cursed
 		//1 floor set higher in probability, never cursed
 		if (Random.Int(2) == 0) {
-			prize = Generator.randomWeapon((Dungeon.depth / 5) + 1, true);
+			prize = Generator.randomWeapon(Dungeon.chapterIndex(Dungeon.depth) + 1, true);
 			if (((Weapon)prize).hasCurseEnchant()){
 				((Weapon) prize).enchant(null);
 			}
 		} else {
-			prize = Generator.randomArmor((Dungeon.depth / 5) + 1);
+			prize = Generator.randomArmor(Dungeon.chapterIndex(Dungeon.depth) + 1);
 			if (((Armor)prize).hasCurseGlyph()){
 				((Armor) prize).inscribe(null);
 			}
