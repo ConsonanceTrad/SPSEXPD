@@ -188,7 +188,7 @@ public class Brewed extends Item {
 			case WARRIOR:
 				if (hero.HP < hero.HT) {
 					int heal = Random.Int(3, healEnergy);
-					hero.HP = Math.min(hero.HT, hero.HP + heal);
+					if (!pd.actors.hero.perks.BloodShield.convert(hero, heal)) hero.HP = Math.min(hero.HT, hero.HP + heal);
 				}
 				break;
 			case MAGE:

@@ -100,7 +100,7 @@ public class LifeArmor extends NormalArmor {
 			if (time > 1) {
 				time--;
 			} else {
-				if (target != null) target.HP += Math.min(target.HT - target.HP, charge);
+				if (target != null && !pd.actors.hero.perks.BloodShield.convert(target, Math.min(target.HT - target.HP, charge))) target.HP += Math.min(target.HT - target.HP, charge);
 				charge = 0;
 				time = 0;
 			}

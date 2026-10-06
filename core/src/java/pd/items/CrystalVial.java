@@ -75,7 +75,7 @@ public class CrystalVial extends Item {
 	public boolean drink(Hero hero) {
 		if (volume <= 10) return false;
 		int healing = Math.min(hero.HT / 5, hero.HT - hero.HP);
-		hero.HP += healing;
+		if (!pd.actors.hero.perks.BloodShield.convert(hero, healing)) hero.HP += healing;
 		volume -= 10;
 		hero.spend(TIME_TO_DRINK);
 		hero.busy();

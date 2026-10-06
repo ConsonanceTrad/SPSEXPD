@@ -124,7 +124,7 @@ public class Dewdrop extends Item {
 				Healing healing = Buff.affect(hero, Healing.class);
 				healing.setHeal(heal, 0, VialOfBlood.maxHealPerTurn(), true);
 			} else {
-				hero.HP += heal;
+				if (!pd.actors.hero.perks.BloodShield.convert(hero, heal)) hero.HP += heal;
 				if (heal > 0){
 					if (hero.sprite != null) {
 						hero.sprite.showStatusWithIcon( CharSprite.POSITIVE, Integer.toString(heal), FloatingText.HEALING);

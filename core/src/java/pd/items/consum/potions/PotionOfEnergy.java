@@ -20,7 +20,7 @@ public class PotionOfEnergy extends SpsPotion {
 	{ image = SpecificPlaceHolderDict.POTION_HOLDER_0; }
 
 	@Override public void apply(Hero hero) {
-		Buff.affect(hero, Dewcharge.class, Dewcharge.DURATION);
+		Dewcharge.charge(hero, 240f);
 		hero.sprite.emitter().start(Speck.factory(Speck.LIGHT), 0.4f, 4);
 	}
 

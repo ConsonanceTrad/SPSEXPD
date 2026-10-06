@@ -25,7 +25,7 @@ public class DarkMeat extends MeatFood {
 	}
 	public static Food cook(int quantity) { DarkMeat result = new DarkMeat(); result.quantity(quantity); return result; }
 	@Override protected void doEat(Hero hero) {
-		hero.HP = Math.min(hero.HT, hero.HP + hero.HT / 4);
+		if (!pd.actors.hero.perks.BloodShield.convert(hero, hero.HT / 4)) hero.HP = Math.min(hero.HT, hero.HP + hero.HT / 4);
 	}
 	@Override public ItemSprite.Glowing glowing() { return BLACK; }
 	@Override public int value() { return 3 * quantity; }

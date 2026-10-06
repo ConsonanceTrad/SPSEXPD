@@ -17,9 +17,10 @@ public class ScrollOfMagicalInfusion extends InventoryScroll {
 	static {
 		InlineText.of(ScrollOfMagicalInfusion.class)
 			.t("name", "魔力灌注卷轴")
-			.t("desc", "这张卷轴能在保留并强化附魔的同时升级一件武器或护甲。")
-			.t("inv_title", "选择要灌注的物品")
-			.t("infuse", "你的%s充满了魔力。");
+			.t("desc", "这张卷轴能提高一件神器 1 点等级（不会超过其等级上限）。")
+			.t("inv_title", "选择要灌注的神器")
+			.t("infuse", "你的%s被灌注了魔力。")
+			.t("maxed", "这件神器的等级已经达到上限了。");
 	}
 
 
@@ -35,15 +36,22 @@ public class ScrollOfMagicalInfusion extends InventoryScroll {
 
 	@Override
 	protected boolean usableOnItem(Item item) {
-		return item instanceof Weapon || item instanceof Armor;
+		//SPSXPD: 改为只对神器生效
+		return item instanceof pd.items.equipment.artifacts.Artifact;
 	}
 
 	@Override
 	protected void onItemSelected(Item item) {
+		pd.items.equipment.artifacts.Artifact artifact =
+				(pd.items.equipment.artifacts.Artifact) item;
 		ScrollOfRemoveCurse.uncurse(Dungeon.hero, item);
 		item.identify();
-		if (item instanceof Weapon) ((Weapon) item).upgrade(true);
-		else ((Armor) item).upgrade(true);
+		//SPSXPD: 提高 1 点神器等级，但不超过其等级上限
+		if (artifact.level() >= artifact.levelCap()) {
+			GLog.w(Messages.get(this, "maxed"));
+			return;
+		}
+		artifact.upgrade();
 		GLog.p(Messages.get(this, "infuse", item.name()));
 		curUser.sprite.emitter().start(Speck.factory(Speck.UP), 0.2f, 3);
 	}

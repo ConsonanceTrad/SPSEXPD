@@ -38,7 +38,7 @@ public class StrongConstitution extends Perk {
 	public void onHeroUpgrade(Hero hero) {
 		int extra = extraHT();
 		hero.HT += extra;
-		hero.HP += extra;
+		if (!pd.actors.hero.perks.BloodShield.convert(hero, extra)) hero.HP += extra;
 	}
 
 	public static void apply(Hero hero) {

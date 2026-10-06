@@ -11,6 +11,10 @@ import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.items.Generator;
+import pd.QuickSlot;
+import pd.items.BrokenSeal;
+import pd.items.equipment.armor.Armor;
+import pd.items.equipment.armor.glyphs.Crystalglyph;
 import pd.items.skills.ClassSkill;
 import pd.items.skills.WarriorSkill;
 import render.noosa.Game;
@@ -85,6 +89,7 @@ public final class SpsLegacyArmorTest {
 		testHeroFactorsAndDamageReduction();
 		testSkillEnergy();
 		testUpgradeSaveRestore();
+		testBrokenSealCarry();
 		testLegacyIcons();
 		System.out.println("SPS旧版18套普通防具测试通过：牌组、数值、力量、防御、潜行、技能能量、存档和原始图标均正常。");
 	}
@@ -161,6 +166,64 @@ public final class SpsLegacyArmorTest {
 		check(restored.DRMin() == 24 && restored.DRMax() == 75,
 				"升级防具读档后丢失旧版防御成长");
 		check(restored.STRReq() == 21, "升级防具读档后力量需求错误变化");
+	}
+
+	private static void testBrokenSealCarry() throws Exception {
+		Hero hero = new Hero();
+		Dungeon.hero = hero;
+		Dungeon.quickslot = new QuickSlot();
+
+		//SPSXPD: 纹章随护甲升级记录等级，上限 5（原版 1）
+		Armor armor = new WoodenArmor();
+		BrokenSeal seal = new BrokenSeal();
+		armor.affixSeal(seal);
+		for (int i = 0; i < BrokenSeal.MAX_CARRIED_LEVEL; i++) armor.upgrade();
+		check(seal.level() == BrokenSeal.MAX_CARRIED_LEVEL,
+				"纹章没有随护甲升级记录到 5 级：" + seal.level());
+		armor.upgrade();
+		check(seal.level() == BrokenSeal.MAX_CARRIED_LEVEL, "纹章记录超过 5 级上限：" + seal.level());
+
+		//SPSXPD: 摘下纹章时护甲扣回全部携带等级，纹章保留等级
+		int before = armor.trueLevel();
+		BrokenSeal detached = armor.detachSeal();
+		check(detached == seal && detached.level() == BrokenSeal.MAX_CARRIED_LEVEL,
+				"摘下纹章后携带等级丢失：" + detached.level());
+		check(armor.trueLevel() == before - BrokenSeal.MAX_CARRIED_LEVEL,
+				"摘下纹章没有从护甲扣回 5 级：" + armor.trueLevel());
+
+		//SPSXPD: 贴到新护甲时携带等级全部转移
+		Armor second = new MailArmor();
+		int secondBefore = second.trueLevel();
+		second.affixSeal(detached);
+		check(second.trueLevel() == secondBefore + BrokenSeal.MAX_CARRIED_LEVEL,
+				"纹章携带的 5 级没有全部转移给新护甲：" + second.trueLevel());
+
+		//SPSXPD: 取消诅咒限制后，携带刻印的纹章可贴附到被诅咒护甲
+		Armor cursed = new WoodenArmor();
+		cursed.cursed = true;
+		cursed.cursedKnown = true;
+		BrokenSeal glyphSeal = new BrokenSeal();
+		glyphSeal.setGlyph(new Crystalglyph());
+		cursed.affixSeal(glyphSeal);
+		check(cursed.checkSeal() == glyphSeal && cursed.glyph instanceof Crystalglyph,
+				"被诅咒护甲没有接受携带刻印的纹章");
+
+		//SPSXPD: 拆卸下来的纹章本身可被升级（上限 5）并被附魔道具选中
+		BrokenSeal loose = new BrokenSeal();
+		check(loose.isUpgradable(), "拆卸下来的纹章不能升级");
+		for (int i = 0; i < BrokenSeal.MAX_CARRIED_LEVEL; i++) loose.upgrade();
+		check(loose.level() == BrokenSeal.MAX_CARRIED_LEVEL && !loose.isUpgradable(),
+				"纹章升到 5 级后仍可继续升级：" + loose.level());
+		check(pd.items.consum.scrolls.exotic.ScrollOfEnchantment.enchantable(loose),
+				"拆卸下来的纹章不能被附魔道具选中");
+		loose.inscribe(new Crystalglyph());
+		check(loose.getGlyph() instanceof Crystalglyph, "纹章不能被刻上刻印");
+
+		String sealSource = java.nio.file.Files.readString(
+				java.nio.file.Paths.get("../java/pd/items/BrokenSeal.java"),
+				java.nio.charset.StandardCharsets.UTF_8);
+		check(!sealSource.contains("armor.cursed && (getGlyph() == null"),
+				"纹章仍对被诅咒护甲保留了刻印类型限制");
 	}
 
 	private static void testLegacyIcons() throws Exception {

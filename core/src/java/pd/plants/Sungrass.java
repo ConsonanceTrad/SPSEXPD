@@ -121,7 +121,7 @@ public class Sungrass extends Plant {
 
 				if (target.HP < target.HT) {
 
-					target.HP += healThisTurn;
+					if (!pd.actors.hero.perks.BloodShield.convert(target, healThisTurn)) target.HP += healThisTurn;
 					target.sprite.showStatusWithIcon(CharSprite.POSITIVE, Integer.toString(healThisTurn), FloatingText.HEALING);
 
 					if (target.HP >= target.HT) {

@@ -35,7 +35,7 @@ public class BerryRegeneration extends Buff {
 			return true;
 		}
 		if (target.HP < target.HT) {
-			target.HP = Math.min(target.HT, target.HP + 1 + target.HT / 25);
+			if (!pd.actors.hero.perks.BloodShield.convert(target, 1 + target.HT / 25)) target.HP = Math.min(target.HT, target.HP + 1 + target.HT / 25);
 		}
 		regenLeft--;
 		spend(TICK);

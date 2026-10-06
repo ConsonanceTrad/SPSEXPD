@@ -28,6 +28,7 @@ import pd.actors.hero.Talent;
 import pd.effects.Enchanting;
 import pd.effects.Speck;
 import pd.items.Item;
+import pd.items.BrokenSeal;
 import pd.items.equipment.armor.Armor;
 import pd.items.consum.scrolls.exotic.ScrollOfEnchantment;
 import pd.items.equipment.weapon.Weapon;
@@ -44,6 +45,7 @@ public class StoneOfEnchantment extends InventoryStone {
 			.t("inv_title", "附魔一件物品")
 			.t("weapon", "你的武器在暗中微微发光！")
 			.t("armor", "你的护甲在暗中微微发光！")
+			.t("seal", "你的纹章被刻上了新的刻印！")
 			.t("desc", "这颗符石拥有施加附魔的能力。和升级卷轴不同，它不会直接加强一个道具的能力，但能给武器或者护甲施加附魔，使其拥有新的特性。");
 	}
 
@@ -74,6 +76,12 @@ public class StoneOfEnchantment extends InventoryStone {
 			
 			((Weapon)item).enchant();
 			
+		} else if (item instanceof BrokenSeal) {
+			
+			//SPSEXPD: 拆卸下来的破损纹章可被符石刻上随机刻印
+			BrokenSeal seal = (BrokenSeal) item;
+			seal.inscribe( Armor.Glyph.random( seal.getGlyph() != null ? seal.getGlyph().getClass() : null ) );
+			
 		} else {
 			
 			((Armor)item).inscribe();
@@ -85,6 +93,8 @@ public class StoneOfEnchantment extends InventoryStone {
 		
 		if (item instanceof Weapon) {
 			GLog.p(Messages.get(this, "weapon"));
+		} else if (item instanceof BrokenSeal) {
+			GLog.p(Messages.get(this, "seal"));
 		} else {
 			GLog.p(Messages.get(this, "armor"));
 		}

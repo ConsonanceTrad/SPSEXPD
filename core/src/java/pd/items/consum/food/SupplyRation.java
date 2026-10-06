@@ -71,7 +71,7 @@ public class SupplyRation extends Food {
 	protected void satisfy(Hero hero) {
 		super.satisfy(hero);
 
-		hero.HP = Math.min(hero.HP + 5, hero.HT);
+		if (!pd.actors.hero.perks.BloodShield.convert(hero, 5)) hero.HP = Math.min(hero.HP + 5, hero.HT);
 		hero.sprite.showStatusWithIcon( CharSprite.POSITIVE, "5", FloatingText.HEALING );
 
 		CloakOfShadows cloak = hero.belongings.getItem(CloakOfShadows.class);

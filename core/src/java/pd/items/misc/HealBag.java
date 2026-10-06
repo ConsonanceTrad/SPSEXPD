@@ -81,7 +81,7 @@ public class HealBag extends Item {
 			if (!Dungeon.level.insideMap(cell)) continue;
 			Char target = Actor.findChar(cell);
 			if (target != null && target.HP < target.HT * 0.75f) {
-				target.HP = Math.min(target.HT, target.HP + target.HT / 2);
+				if (!pd.actors.hero.perks.BloodShield.convert(target, target.HT / 2)) target.HP = Math.min(target.HT, target.HP + target.HT / 2);
 			}
 		}
 		charge -= HEAL_COST;

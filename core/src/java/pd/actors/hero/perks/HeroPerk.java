@@ -40,6 +40,7 @@ public class HeroPerk implements Bundlable {
 		for (Perk p : perks) {
 			if (p.getClass() == perk.getClass()) {
 				p.upgrade();
+				PerkGain.announceUpgrade(pd.Dungeon.hero, p);
 				return true;
 			}
 		}

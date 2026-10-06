@@ -126,6 +126,25 @@ public class Stylus extends Item {
 		curUser.busy();
 	}
 	
+	private void inscribeSeal( BrokenSeal seal ) {
+
+		//SPSEXPD: 纹章没有护甲那样的诅咒判定，直接刻上随机刻印
+		detach(curUser.belongings.backpack);
+		Catalog.countUse(getClass());
+
+		GLog.w( Messages.get(this, "inscribed") );
+
+		seal.inscribe( Armor.Glyph.random( seal.getGlyph() != null ? seal.getGlyph().getClass() : null ) );
+
+		curUser.sprite.operate(curUser.pos);
+		curUser.sprite.centerEmitter().start(PurpleParticle.BURST, 0.05f, 10);
+		Enchanting.show(curUser, seal);
+		Sample.INSTANCE.play(Assets.Sounds.BURNING);
+
+		curUser.spend(TIME_TO_INSCRIBE);
+		curUser.busy();
+	}
+
 	@Override
 	public int value() {
 		return 30 * quantity;
@@ -145,13 +164,16 @@ public class Stylus extends Item {
 
 		@Override
 		public boolean itemSelectable(Item item) {
-			return item instanceof Armor;
+			//SPSEXPD: 拆卸下来的破损纹章同样可以刻印
+			return item instanceof Armor || item instanceof BrokenSeal;
 		}
 
 		@Override
 		public void onSelect( Item item ) {
-			if (item != null) {
+			if (item instanceof Armor) {
 				Stylus.this.inscribe( (Armor)item );
+			} else if (item instanceof BrokenSeal) {
+				Stylus.this.inscribeSeal( (BrokenSeal)item );
 			}
 		}
 	};

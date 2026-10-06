@@ -112,7 +112,7 @@ public class QuickSlotButton extends Button {
 						if (Dungeon.hero.belongings.contains(item) && !GameScene.cancel()) {
 							GameScene.centerNextWndOnInvPane();
 							//SPSXPD: 没有快捷行为的物品（多行为工具，如魂石）改为打开详情页
-							if (item.defaultAction() == null) {
+							if (item.quickSlotOpensMenu()) {
 								render.noosa.Game.scene().addToFront(new pd.windows.WndUseItem(null, item));
 							} else {
 								item.execute(Dungeon.hero);

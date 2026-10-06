@@ -137,6 +137,11 @@ public class Artifact extends KindofMisc {
 		return false;
 	}
 
+	//SPSXPD: 供外部（如魔力灌注卷轴）判断神器等级上限
+	public int levelCap() {
+		return levelCap;
+	}
+
 	@Override
 	public int visiblyUpgraded() {
 		return levelKnown ? Math.round((level()*10)/(float)levelCap): 0;

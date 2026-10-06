@@ -14,6 +14,6 @@ public class HighEnergySpore extends Processed {
 	}
 
 	@Override protected void onEat(Hero hero) {
-		Buff.affect(hero, Dewcharge.class, 200f);
+		Dewcharge.charge(hero, 200f);
 	}
 }

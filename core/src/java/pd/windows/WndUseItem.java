@@ -52,8 +52,10 @@ public class WndUseItem extends WndInfoItem {
 			y += GAP;
 			ArrayList<RedButton> buttons = new ArrayList<>();
 			//SPSXPD: 与 buttons 平行的消耗提示（露珠瓶用它显示露珠消耗）
-			ArrayList<CostLabel> actionCosts = new ArrayList<>();
 			for (final String action : item.actions(Dungeon.hero)) {
+				//SPSXPD: 该动作的消耗提示（露珠瓶用它显示露珠消耗）
+				final String cost = item.actionCost(action, Dungeon.hero);
+				final CostLabel costLabel = cost == null ? null : new CostLabel(cost, item.actionCostOk(action, Dungeon.hero));
 
 				RedButton btn = new RedButton(item.actionName(action, Dungeon.hero), 8) {
 					@Override
@@ -68,14 +70,24 @@ public class WndUseItem extends WndInfoItem {
 							InventoryPane.useTargeting();
 						}
 					}
+
+					@Override
+					protected void layout() {
+						super.layout();
+						//SPSXPD: 把消耗数字贴到按钮右上角（随按钮一起布局）
+						if (costLabel != null) {
+							costLabel.x = right() - costLabel.width() - 1;
+							costLabel.y = top() + 1;
+						}
+					}
 				};
 				btn.setSize(btn.reqWidth(), BUTTON_HEIGHT);
+				if (costLabel != null) {
+					costLabel.visible = true;
+					btn.add(costLabel);
+				}
 				buttons.add(btn);
 				add(btn);
-
-				//SPSXPD: 消耗提示（绿色，画在该按钮右上角）
-				String actionCost = item.actionCost(action, Dungeon.hero);
-				actionCosts.add(actionCost == null ? null : new CostLabel(actionCost));
 
 				if (action.equals(item.defaultAction())) {
 					btn.textColor(TITLE_COLOR);
@@ -83,14 +95,6 @@ public class WndUseItem extends WndInfoItem {
 
 			}
 			y = layoutButtons(buttons, width, y);
-			//SPSXPD: 把消耗提示摆到各自按钮的右上角
-			for (int bi = 0; bi < buttons.size(); bi++) {
-				CostLabel ct = actionCosts.get(bi);
-				if (ct == null) continue;
-				RedButton rb = buttons.get(bi);
-				ct.setRect(rb.left(), rb.top(), rb.width(), rb.height());
-				add(ct);
-			}
 
 			ItemJournalButton btn = new ItemJournalButton(item, this);
 			btn.setRect(width - 16, 0, 16, 16);
@@ -100,22 +104,20 @@ public class WndUseItem extends WndInfoItem {
 		resize( width, (int)(y) );
 	}
 
-	/** SPSXPD: 动作按钮右上角的消耗提示（绿色数字） */
-	private static class CostLabel extends render.noosa.ui.Component {
-		private final render.noosa.BitmapText text;
+	/** SPSXPD: 动作按钮右上角的消耗提示（绿色数字）。直接继承 BitmapText 以保证被绘制 */
+	private static class CostLabel extends render.noosa.BitmapText {
 
-		CostLabel(String cost) {
-			text = new render.noosa.BitmapText(pd.scenes.PixelScene.pixelFont);
-			text.text(cost);
-			text.hardlight(0x66FF66);
-			add(text);
+		CostLabel(String cost, boolean affordable) {
+			super(pd.scenes.PixelScene.pixelFont);
+			text(cost);
+			measure();
+			hardlight(affordable ? 0x66FF66 : 0xFF5555);
 		}
 
-		@Override
-		protected void layout() {
-			super.layout();
-			text.x = x + width - text.width() - 1;
-			text.y = y + 1;
+		/** 摆到指定位置（访问自身继承的 protected x/y） */
+		void placeAt(float px, float py) {
+			x = px;
+			y = py;
 		}
 	}
 

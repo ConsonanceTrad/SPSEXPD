@@ -25,6 +25,7 @@ import pd.Assets;
 import pd.actors.hero.Belongings;
 import pd.effects.Enchanting;
 import pd.items.Item;
+import pd.items.BrokenSeal;
 import pd.items.equipment.armor.Armor;
 import pd.items.equipment.bags.Bag;
 import pd.items.consum.scrolls.InventoryScroll;
@@ -84,6 +85,8 @@ public class ScrollOfEnchantment extends ExoticScroll {
 	}
 
 	public static boolean enchantable( Item item ){
+		//SPSEXPD: 拆卸下来的破损纹章也可以被附魔（刻印）
+		if (item instanceof BrokenSeal) return true;
 		return (item instanceof Weapon || item instanceof Armor)
 				&& (item.isUpgradable() || item instanceof SpiritBow);
 	}
@@ -159,6 +162,22 @@ public class ScrollOfEnchantment extends ExoticScroll {
 				glyphs[2] = Armor.Glyph.random( existing, glyphs[0].getClass(), glyphs[1].getClass());
 				
 				GameScene.show(new WndGlyphSelect((Armor) item, glyphs[0], glyphs[1], glyphs[2]));
+			} else if (item instanceof BrokenSeal) {
+				//SPSEXPD: 纹章与护甲一样，从 3 个随机刻印里选 1 个刻上
+				if (!identifiedByUse) {
+					curItem.detach(curUser.belongings.backpack);
+				}
+				identifiedByUse = false;
+
+				final Armor.Glyph glyphs[] = new Armor.Glyph[3];
+
+				Class<? extends Armor.Glyph> existing = ((BrokenSeal) item).getGlyph() != null
+						? ((BrokenSeal) item).getGlyph().getClass() : null;
+				glyphs[0] = Armor.Glyph.randomCommon( existing );
+				glyphs[1] = Armor.Glyph.randomUncommon( existing );
+				glyphs[2] = Armor.Glyph.random( existing, glyphs[0].getClass(), glyphs[1].getClass());
+
+				GameScene.show(new WndGlyphSelect((BrokenSeal) item, glyphs[0], glyphs[1], glyphs[2]));
 			} else if (identifiedByUse){
 				((ScrollOfEnchantment)curItem).confirmCancelation();
 			}
@@ -191,6 +210,7 @@ public class ScrollOfEnchantment extends ExoticScroll {
 			enchantments[2] = ench3;
 
 			WndGlyphSelect.arm = null;
+			WndGlyphSelect.seal = null;
 		}
 
 		@Override
@@ -230,23 +250,36 @@ public class ScrollOfEnchantment extends ExoticScroll {
 	public static class WndGlyphSelect extends WndOptions {
 
 		private static Armor arm;
+		//SPSEXPD: 附魔目标也可能是拆卸下来的破损纹章
+		private static BrokenSeal seal;
 		private static Armor.Glyph[] glyphs;
 
 		//used in PixelScene.restoreWindows
 		public WndGlyphSelect() {
-			this(arm, glyphs[0], glyphs[1], glyphs[2]);
+			this(arm, seal, glyphs[0], glyphs[1], glyphs[2]);
 		}
 
 		public WndGlyphSelect(Armor arm, Armor.Glyph glyph1,
 		                      Armor.Glyph glyph2, Armor.Glyph glyph3) {
+			this(arm, null, glyph1, glyph2, glyph3);
+		}
+
+		public WndGlyphSelect(BrokenSeal seal, Armor.Glyph glyph1,
+		                      Armor.Glyph glyph2, Armor.Glyph glyph3) {
+			this(null, seal, glyph1, glyph2, glyph3);
+		}
+
+		private WndGlyphSelect(Armor arm, BrokenSeal seal, Armor.Glyph glyph1,
+		                      Armor.Glyph glyph2, Armor.Glyph glyph3) {
 			super(new ItemSprite(new ScrollOfEnchantment()),
 					Messages.titleCase(new ScrollOfEnchantment().name()),
-					Messages.get(ScrollOfEnchantment.class, "armor"),
+					Messages.get(ScrollOfEnchantment.class, seal != null ? "seal" : "armor"),
 					glyph1.name(),
 					glyph2.name(),
 					glyph3.name(),
 					Messages.get(ScrollOfEnchantment.class, "cancel"));
 			this.arm = arm;
+			this.seal = seal;
 			glyphs = new Armor.Glyph[3];
 			glyphs[0] = glyph1;
 			glyphs[1] = glyph2;
@@ -258,12 +291,22 @@ public class ScrollOfEnchantment extends ExoticScroll {
 		@Override
 		protected void onSelect(int index) {
 			if (index < 3) {
-				arm.inscribe(glyphs[index]);
-				GLog.p(Messages.get(StoneOfEnchantment.class, "armor"));
-				((ScrollOfEnchantment) curItem).readAnimation();
+				if (seal != null) {
+					//SPSEXPD: 给纹章本体刻印
+					seal.inscribe(glyphs[index]);
+					GLog.p(Messages.get(StoneOfEnchantment.class, "seal"));
+					((ScrollOfEnchantment) curItem).readAnimation();
 
-				Sample.INSTANCE.play(Assets.Sounds.READ);
-				Enchanting.show(curUser, arm);
+					Sample.INSTANCE.play(Assets.Sounds.READ);
+					Enchanting.show(curUser, seal);
+				} else {
+					arm.inscribe(glyphs[index]);
+					GLog.p(Messages.get(StoneOfEnchantment.class, "armor"));
+					((ScrollOfEnchantment) curItem).readAnimation();
+
+					Sample.INSTANCE.play(Assets.Sounds.READ);
+					Enchanting.show(curUser, arm);
+				}
 			} else {
 				GameScene.show(new WndConfirmCancel());
 			}
@@ -312,6 +355,7 @@ public class ScrollOfEnchantment extends ExoticScroll {
 				WndEnchantSelect.wep = null;
 				WndEnchantSelect.enchantments = null;
 				WndGlyphSelect.arm = null;
+				WndGlyphSelect.seal = null;
 				WndGlyphSelect.glyphs = null;
 			}
 		}

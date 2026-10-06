@@ -64,8 +64,8 @@ public class SpsTerrainFrames {
 			case Terrain.CUSTOM_DECO:        return BLANK; //隐形装饰由 CustomTilemap 绘制
 			case Terrain.CUSTOM_DECO_EMPTY:  return BLANK;
 			case Terrain.CUSTOM_DECO_WTR:    return BLANK; //水穿透装饰，水面层在其下
-			case Terrain.REGION_DECO:        return 25;   //区域装饰暂用空地装饰帧（B3 随区域图集定标）
-			case Terrain.REGION_DECO_ALT:    return 25;
+			case Terrain.REGION_DECO:        return BLANK;  //SPSXPD: 改由 SpsRegionDecoTilemap 独立绘制
+			case Terrain.REGION_DECO_ALT:    return BLANK;  //SPSXPD: 同上
 			case Terrain.MINE_CRYSTAL:       return 25;   //挖掘晶体暂用空地装饰帧（B3 定标）
 			case Terrain.MINE_BOULDER:       return 25;
 

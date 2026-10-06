@@ -54,7 +54,7 @@ public class AresLeech extends Weapon.Enchantment {
 				return true;
 			}
 			int healing = Math.max(1, (int)(damage * 0.1f));
-			target.HP = Math.min(target.HT, target.HP + healing);
+			if (!pd.actors.hero.perks.BloodShield.convert(target, healing)) target.HP = Math.min(target.HT, target.HP + healing);
 			damage -= healing;
 			if (--damage <= 0 || target.HP >= target.HT) detach();
 			else spend(TICK);

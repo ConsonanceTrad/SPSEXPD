@@ -25,7 +25,7 @@ public class Greaterpill extends Pill {
 	{ image = ConsumPotionSeedBasicPotionDict.PILL; }
 	@Override protected void onUse(Hero hero) {
 		Buff.affect(hero, BerryRegeneration.class).level(Math.max(hero.HT / 2, 30));
-		hero.HP += Math.min(hero.HT, hero.HT * 2 - hero.HP);
+		if (!pd.actors.hero.perks.BloodShield.convert(hero, Math.min(hero.HT, hero.HT * 2 - hero.HP))) hero.HP += Math.min(hero.HT, hero.HT * 2 - hero.HP);
 		Buff.detach(hero, Poison.class);
 		Buff.detach(hero, Cripple.class);
 		Buff.detach(hero, STRDown.class);

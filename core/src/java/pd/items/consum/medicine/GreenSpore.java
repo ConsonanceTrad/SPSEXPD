@@ -28,7 +28,7 @@ public class GreenSpore extends Pill {
 			GLog.w(Messages.get(this, "not_time"));
 			return;
 		}
-		Buff.affect(hero, Dewcharge.class, 100f);
+		Dewcharge.charge(hero, 100f);
 	}
 	@Override public int value() { return 20 * quantity; }
 }

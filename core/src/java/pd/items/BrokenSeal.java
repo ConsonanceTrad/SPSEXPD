@@ -63,7 +63,7 @@ public class BrokenSeal extends Item {
 			.t("unknown_armor", "你需要先鉴定那件护甲有无诅咒。")
 			.t("cursed_armor", "纹章不能贴附于被诅咒的盔甲。")
 			.t("affix", "你将纹章佩挂在了护甲上！")
-			.t("desc", "一枚蜡制纹章，作为勇气的象征而贴附在护甲之上。纹章上刻有磨损的防御符咒，并从中碎裂为两半。\n\n这是一件来自家乡的纪念物，在纹章的支持下战士会变得不屈不挠。佩戴着纹章，战士会在将要受伤至生命值半数以下时立即获得护盾。\n\n纹章可以被_贴附在护甲上_并能在护甲间转移。它能够携带一次升级，前提是升级时纹章需已贴附在护甲上。")
+			.t("desc", "一枚蜡制纹章，作为勇气的象征而贴附在护甲之上。纹章上刻有磨损的防御符咒，并从中碎裂为两半。\n\n这是一件来自家乡的纪念物，在纹章的支持下战士会变得不屈不挠。佩戴着纹章，战士会在将要受伤至生命值半数以下时立即获得护盾。\n\n纹章可以被_贴附在护甲上_并能在护甲间转移。它能够携带最多 _5 级_升级（升级时纹章需已贴附在护甲上），并能携带_任意刻印_。\n\n纹章_取下后_同样是一件可被打造的物品：它可以被_升级卷轴_继续升级（仍以 5 级为限），也可以被_附魔道具_刻上新的刻印。")
 			.t("inscribed", "纹章刻有_%s_。")
 			.t("choose_title", "选择一个刻印")
 			.t("choose_desc", "这件护甲与破损纹章均刻有刻印。请选择一个想保留的刻印。\n\n护甲刻印：%1$s\n破损纹章刻印：%2$s\n\n注意，如果选择保留护甲的刻印，纹章将无法转移该刻印。")
@@ -81,6 +81,9 @@ public class BrokenSeal extends Item {
 
 	//only to be used from the quickslot, for tutorial purposes mostly.
 	public static final String AC_INFO = "INFO_WINDOW";
+
+	/** SPSEXPD: 纹章可携带的升级上限（原版为 1 级）。 */
+	public static final int MAX_CARRIED_LEVEL = 5;
 
 	{
 		image = ConsumUsefulCorpseRelicsDict.SEAL_SHARD_0;
@@ -105,6 +108,11 @@ public class BrokenSeal extends Item {
 
 	public void setGlyph( Armor.Glyph glyph ){
 		this.glyph = glyph;
+	}
+
+	/** SPSEXPD: 供附魔道具（注魔秘卷/附魔符石）给拆卸下来的纹章刻上刻印。 */
+	public void inscribe( Armor.Glyph glyph ){
+		setGlyph( glyph );
 	}
 
 	public int maxShield( int armTier, int armLvl ){
@@ -144,9 +152,7 @@ public class BrokenSeal extends Item {
 			if (!armor.cursedKnown){
 				GLog.w(Messages.get(BrokenSeal.class, "unknown_armor"));
 
-			} else if (armor.cursed && (getGlyph() == null || !getGlyph().curse())){
-				GLog.w(Messages.get(BrokenSeal.class, "cursed_armor"));
-
+			//SPSEXPD: 取消「诅咒护甲需配诅咒刻印」的限制——纹章可贴附到任意护甲，携带任意刻印
 			} else if (armor.glyph != null && getGlyph() != null &&
 					(canTransferGlyph() || outgoing instanceof BrokenSeal) //if glyph is on the seal in isolation, always allow xfer
 					&& armor.glyph.getClass() != getGlyph().getClass()) {
@@ -215,9 +221,10 @@ public class BrokenSeal extends Item {
 	}
 
 	@Override
-	//scroll of upgrade can be used directly once, same as upgrading armor the seal is affixed to then removing it.
+	//SPSEXPD: 拆卸下来的纹章可被升级卷轴/铁匠继续升级，直到携带上限；
+	//贴在护甲上时仍由护甲升级同步记录（见 Armor.upgrade）
 	public boolean isUpgradable() {
-		return level() == 0;
+		return level() < MAX_CARRIED_LEVEL;
 	}
 
 	protected static WndBag.ItemSelector armorSelector = new WndBag.ItemSelector() {

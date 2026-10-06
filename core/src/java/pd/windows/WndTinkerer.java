@@ -64,7 +64,7 @@ public class WndTinkerer extends WndOptions {
 		waterskin.applySpsUpgrade(Waterskin.UpgradeMode.ACCURATE);
 		Dungeon.dewWater = false;
 		Dungeon.dewDraw = true;
-		Buff.affect(hero, Dewcharge.class, 300f);
+		Dewcharge.charge(hero, 300f);
 		Dungeon.level.drop(new SpsSkeletonKey(Dungeon.depth), tinkerer.pos).sprite.drop();
 		tinkerer.yell(Messages.get(WndTinkerer.class, "farewell", hero.name()));
 		GLog.p(Messages.get(WndTinkerer.class, "dungeon"));

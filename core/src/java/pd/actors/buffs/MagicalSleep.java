@@ -79,7 +79,7 @@ public class MagicalSleep extends Buff {
 			return true;
 		}
 		if (target.alignment == Char.Alignment.ALLY) {
-			target.HP = Math.min(target.HP+1, target.HT);
+			if (!pd.actors.hero.perks.BloodShield.convert(target, 1)) target.HP = Math.min(target.HP+1, target.HT);
 			if (target instanceof  Hero) ((Hero) target).resting = true;
 			if (target.HP == target.HT) {
 				if (target instanceof  Hero) GLog.p(Messages.get(this, "wakeup"));

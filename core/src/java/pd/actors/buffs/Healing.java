@@ -60,16 +60,20 @@ public class Healing extends Buff {
 	@Override
 	public boolean act(){
 
-		if (target.HP < target.HT) {
-			target.HP = Math.min(target.HT, target.HP + healingThisTick());
+		int tick = healingThisTick();
+		//SPSXPD: 「血能护盾」—— 不再直接治疗，而是把回复量转为奥术护盾（满血时也转，避免浪费）
+		boolean shielded = pd.actors.hero.perks.BloodShield.convert(target, tick);
+
+		if (!shielded && target.HP < target.HT) {
+			target.HP = Math.min(target.HT, target.HP + tick);
 
 			if (target.HP == target.HT && target instanceof Hero) {
 				((Hero) target).resting = false;
 			}
 		}
 
-		target.sprite.showStatusWithIcon(CharSprite.POSITIVE, Integer.toString(healingThisTick()), FloatingText.HEALING);
-		healingLeft -= healingThisTick();
+		target.sprite.showStatusWithIcon(CharSprite.POSITIVE, Integer.toString(tick), FloatingText.HEALING);
+		healingLeft -= tick;
 		
 		if (healingLeft <= 0){
 			if (target instanceof Hero) {

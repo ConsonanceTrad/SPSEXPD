@@ -38,7 +38,7 @@ public class VampiricCrit extends Perk {
 	/** 暴击命中后调用；恢复量不超过已损失生命 */
 	public void onCrit(Hero hero, int damage) {
 		int gain = Math.min(hero.HT - hero.HP, Math.round(ratio() * damage));
-		if (gain > 0) hero.HP += gain;
+		if (gain > 0) if (!pd.actors.hero.perks.BloodShield.convert(hero, gain)) hero.HP += gain;
 	}
 
 	public static void tryProc(Hero hero, int damage) {

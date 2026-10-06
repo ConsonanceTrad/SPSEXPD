@@ -21,6 +21,6 @@ public class ButterflyAbility extends PetAbilityPerk {
 	@Override
 	public void onHit(Hero hero, Char enemy, int damage) {
 		if (enemy == null || !enemy.isAlive()) return;
-		hero.HP = Math.min(hero.HT, hero.HP + 4);
+		if (!pd.actors.hero.perks.BloodShield.convert(hero, 4)) hero.HP = Math.min(hero.HT, hero.HP + 4);
 	}
 }

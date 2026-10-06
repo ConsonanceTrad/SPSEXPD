@@ -74,7 +74,7 @@ public class ButterflyPet extends PET {
 			Dungeon.hero.sprite.emitter().start(pd.effects.Speck.factory(pd.effects.Speck.HEALING), 0.4f, 1);
 			Dungeon.hero.sprite.showStatus(CharSprite.POSITIVE, "5");
 		}
-		Dungeon.hero.HP = Math.min(Dungeon.hero.HT, Dungeon.hero.HP + 5);
+		if (!pd.actors.hero.perks.BloodShield.convert(Dungeon.hero, 5)) Dungeon.hero.HP = Math.min(Dungeon.hero.HT, Dungeon.hero.HP + 5);
 		cooldown = Math.max(15, 35 - petLevel());
 		return true;
 	}

@@ -145,7 +145,7 @@ public class UndeadBook extends Item {
 		if (hero == null || hero.permanentHT() <= 10) return false;
 		if (charge > SOUL_COST) charge -= SOUL_COST;
 		else if (!hero.spendPermanentHT(5)) return false;
-		Buff.affect(hero, Dewcharge.class, 100f);
+		Dewcharge.charge(hero, 100f);
 		updateQuickslot();
 		return true;
 	}

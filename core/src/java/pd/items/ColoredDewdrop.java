@@ -39,7 +39,7 @@ public abstract class ColoredDewdrop extends Dewdrop {
 					|| Dungeon.level.map[pos] == Terrain.UNLOCKED_EXIT;
 			if (healing <= 0 && !force) return false;
 			if (healing > 0) {
-				hero.HP += healing;
+				if (!pd.actors.hero.perks.BloodShield.convert(hero, healing)) hero.HP += healing;
 				if (hero.sprite != null) {
 					hero.sprite.showStatusWithIcon(CharSprite.POSITIVE, Integer.toString(healing), FloatingText.HEALING);
 				}

@@ -143,9 +143,19 @@ public class Item implements Bundlable {
 		return Messages.get(this, "ac_" + action);
 	}
 
+	/** SPSXPD: 从快捷栏点击时是否打开详情页（多行为工具返回 true，而不是直接执行默认动作） */
+	public boolean quickSlotOpensMenu() {
+		return defaultAction() == null;
+	}
+
 	/** SPSXPD: 动作按钮右上角显示的消耗提示（默认无；露珠瓶用来显示露珠消耗） */
 	public String actionCost(String action, Hero hero) {
 		return null;
+	}
+
+	/** SPSXPD: 该动作当前是否可用（资源是否足够）。默认 true；露珠瓶用它把不足项的角标标红 */
+	public boolean actionCostOk(String action, Hero hero) {
+		return true;
 	}
 
 	public final boolean doPickUp( Hero hero ) {

@@ -39,10 +39,16 @@ public final class SpsLegacyBagsTest {
 			@Override public void create() { }
 		}, new HeadlessApplicationConfiguration());
 		Gdx.files = new HeadlessFiles();
+		//SPSEXPD: 测试环境需指定存档文件位置（Badges.loadGlobal 等会经 FileUtils 读写）
+		render.utils.serialize.FileUtils.setDefaultFileProperties(
+				com.badlogic.gdx.Files.FileType.Absolute,
+				System.getProperty("java.io.tmpdir") + "sps-legacy-bags" + java.io.File.separator);
 		Game.version = "test";
 		pd.items.consum.scrolls.Scroll.initLabels();
 		pd.items.consum.potions.Potion.initColors();
 		Ring.initGems();
+		//SPSEXPD: 职业初始装备会触发 Badges 徽章校验（global 集合），测试环境需先初始化
+		pd.Badges.loadGlobal();
 		try {
 			testContainerRules();
 			testWandHolsterCharging();

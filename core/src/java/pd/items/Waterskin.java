@@ -94,6 +94,7 @@ public class Waterskin extends Item {
 			.t("ac_pour", "清洗")
 			.t("ac_peek", "侦测")
 			.t("ac_refine", "提纯")
+			.t("not_enough_for", "你的露珠不足以进行%s。")
 			.t("peeked", "露珠短暂揭示了本层的所有生物。")
 			.t("watered", "植物在你周围生长。")
 			.t("blessed", "神秘的能量强化了你的装备。")
@@ -218,29 +219,26 @@ public class Waterskin extends Item {
 		actions.remove(AC_DROP);
 		actions.remove(AC_THROW);
 
-		if (volume > 1) {
-			actions.add(AC_DRINK);
-		}
-		//SPSEXPD: 照明一次性消耗50露珠，与火把的「强光」时间叠加
-		if (volume >= LIGHT_COST) {
-			actions.add(AC_LIGHT);
-		}
-		if (Dungeon.dewNorn && volume > 29 && volume >= dewCost(SPLASH_COST)) {
-			actions.add(AC_SPLASH);
-			if (volume >= dewCost(POUR_COST)) actions.add(AC_POUR);
-		}
-		if (totalDew() > 29 && totalDew() >= dewCost(PEEK_COST)) actions.add(AC_PEEK);
-		if (hasFirstUpgrade() && totalDew() > 39 && totalDew() >= dewCost(WATER_COST)) actions.add(AC_WATER);
-		if (hasFirstUpgrade() && totalDew() > 99) {
-			if (totalDew() >= dewCost(BLESS_COST)) actions.add(AC_BLESS);
-			if (totalDew() >= dewCost(REFINE_COST)) actions.add(AC_REFINE);
-		}
+		//SPSXPD: 简化露珠瓶功能 —— 初始 强化 / 提纯；随升级依次解锁 照明(+1) / 种植(+2) / 侦测(+3)
+		//SPSXPD: 简化露珠瓶功能 —— 初始 强化 / 提纯；随升级依次解锁 照明(+1) / 种植(+2) / 侦测(+3)
+		//露珠不足时同样显示，仅把右上角消耗数字标红；实际能否使用按（区间上限）校验
+		if (Dungeon.dewWater) actions.add(AC_LIGHT);
+		if (Dungeon.dewDraw) actions.add(AC_WATER);
+		if (Dungeon.dewNorn) actions.add(AC_PEEK);
+		actions.add(AC_BLESS);
+		actions.add(AC_REFINE);
 		return actions;
 	}
 
 	@Override
 	public void execute(final Hero hero, String action) {
 		super.execute(hero, action);
+
+		//SPSXPD: 露珠不足以支付（区间消耗按上限）时拒绝执行，并给出具体提示
+		if (!AC_CHOOSE.equals(action) && !actionCostOk(action, hero)) {
+			GLog.w(Messages.get(this, "not_enough_for", actionName(action, hero)));
+			return;
+		}
 
 		if (action.equals(AC_CHOOSE)) {
 			GameScene.show(new WndUseItem(null, this));
@@ -440,6 +438,12 @@ public class Waterskin extends Item {
 	}
 
 	//SPSEXPD: 单池化后所有消耗都走同一实现
+	/** SPSXPD: 从快捷栏点击露珠瓶时打开动作菜单（多行为工具，每个动作都有价值） */
+	@Override
+	public boolean quickSlotOpensMenu() {
+		return true;
+	}
+
 	/** SPSXPD: 动作按钮右上角显示的露珠消耗 */
 	@Override
 	public String actionCost(String action, Hero hero) {
@@ -459,6 +463,24 @@ public class Waterskin extends Item {
 				hero == null ? null : hero.heroPerk.get(pd.actors.hero.perks.DewResearch.class);
 		if (research == null) return Integer.toString(base);
 		return research.costMin(base) + "~" + research.costMax(base);
+	}
+
+	/** SPSXPD: 当前露珠是否够用（区间消耗按上限判断） */
+	@Override
+	public boolean actionCostOk(String action, Hero hero) {
+		if (AC_LIGHT.equals(action)) return totalDew() >= costUpper(LIGHT_COST, hero);
+		if (AC_PEEK.equals(action)) return totalDew() >= costUpper(dewCost(PEEK_COST), hero);
+		if (AC_WATER.equals(action)) return totalDew() >= costUpper(dewCost(WATER_COST), hero);
+		if (AC_BLESS.equals(action)) return totalDew() >= costUpper(dewCost(BLESS_COST), hero);
+		if (AC_REFINE.equals(action)) return totalDew() >= costUpper(dewCost(REFINE_COST), hero);
+		return true;
+	}
+
+	/** 折扣后的消耗上限（无「露珠研究」时即固定值） */
+	private static int costUpper(int base, Hero hero) {
+		pd.actors.hero.perks.DewResearch r =
+				hero == null ? null : hero.heroPerk.get(pd.actors.hero.perks.DewResearch.class);
+		return r == null ? base : r.costMax(base);
 	}
 
 	private boolean consumeDew(int amount) {

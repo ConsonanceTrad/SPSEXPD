@@ -102,7 +102,7 @@ public class JumpH extends Item {
 					&& Dungeon.level.distance(hero.pos, mob.pos) <= 7) targets.add(mob);
 		}
 		for (Mob mob : targets) if (mob.isAlive()) hero.attack(mob);
-		if (!targets.isEmpty()) hero.HP = Math.min(hero.HT, hero.HP + 1);
+		if (!targets.isEmpty() && !pd.actors.hero.perks.BloodShield.convert(hero, 1)) hero.HP = Math.min(hero.HT, hero.HP + 1);
 		return targets.size();
 	}
 

@@ -40,12 +40,12 @@ public class DewFruit extends SpsFruit {
 	}
 
 	@Override public int proc(Char attacker, Char defender, int damage) {
-		Buff.affect(defender, Dewcharge.class, 15f);
+		Dewcharge.charge(defender, 15f);
 		return super.proc(attacker, defender, 0);
 	}
 
 	@Override protected void onEat(Hero hero) {
-		Buff.affect(hero, Dewcharge.class, 30f);
+		Dewcharge.charge(hero, 30f);
 	}
 
 	private static Item randomDewdrop() {

@@ -48,7 +48,8 @@ public class SpsHiddenShopRoom extends SpecialRoom {
 			level.drop(item, level.pointToCell(cells.get(index++))).type = Heap.Type.FOR_LIFE;
 		}
 		for (Item item : goldItems) {
-			level.drop(item, level.pointToCell(cells.get(index++))).type = Heap.Type.FOR_SALE;
+			//SPSXPD: 秘密商店一律以生命上限交易
+			level.drop(item, level.pointToCell(cells.get(index++))).type = Heap.Type.FOR_LIFE;
 		}
 
 		ArrayList<Point> keeperCells = new ArrayList<>();
@@ -69,8 +70,12 @@ public class SpsHiddenShopRoom extends SpecialRoom {
 		Point keeperCell = Random.element(keeperCells);
 		TownNpc.Spec[] keepers = {TownNpc.Spec.ICE13, TownNpc.Spec.HONEY_POOOOT,
 				TownNpc.Spec.SAID_BY_SUN};
-		TownNpc keeper = new TownNpc().configure(Random.element(keepers));
+		pd.actors.mobs.npcs.SpsHiddenShopKeeper keeper = new pd.actors.mobs.npcs.SpsHiddenShopKeeper().configure(Random.element(keepers));
+		//SPSXPD: 店主负责在货架见底时补货（补的也是生命货物）
+		keeper.shopRoom = this;
 		keeper.pos = level.pointToCell(keeperCell);
+		//SPSXPD: 商店商人守摊不动（configure 会按 Spec 设为 WANDERING）
+		keeper.state = keeper.PASSIVE;
 		level.mobs().add(keeper);
 		paintPedestal(level, keeperCell);
 
@@ -147,5 +152,46 @@ public class SpsHiddenShopRoom extends SpecialRoom {
 				if (level.map[cell] == Terrain.EMPTY_SP) Level.set(cell, Terrain.PEDESTAL, level);
 			}
 		}
+	}
+
+	/** SPSXPD: 秘密商店卖到少于这个件数就补货（与普通商店同一阈值）。 */
+	public static final int RESTOCK_THRESHOLD = 4;
+
+	/** SPSXPD: 数本层还剩几堆生命货物，不足阈值就补一批。 */
+	public void checkRestock() {
+		if (Dungeon.level == null) return;
+
+		int forLife = 0;
+		for (Heap h : Dungeon.level.heaps.valueList()) {
+			if (h.type == Heap.Type.FOR_LIFE) forLife++;
+		}
+		if (forLife >= RESTOCK_THRESHOLD) return;
+
+		restock();
+	}
+
+	/** SPSXPD: 补一批生命货物（沿用原物品构成），位置随机；补货同样是生命代价。 */
+	public void restock() {
+		if (Dungeon.level == null) return;
+
+		ArrayList<Item> fresh = new ArrayList<>();
+		fresh.addAll(lifeItems());
+		fresh.addAll(goldItems());
+		for (Item item : fresh) {
+			int cell = randomFreeInterior(Dungeon.level);
+			if (cell == -1) break;
+			Dungeon.level.drop(item, cell).type = Heap.Type.FOR_LIFE;
+		}
+	}
+
+	private int randomFreeInterior(Level level) {
+		ArrayList<Integer> candidates = new ArrayList<>();
+		for (int y = top + 1; y < bottom; y++) {
+			for (int x = left + 1; x < right; x++) {
+				int cell = x + y * level.width();
+				if (level.heaps.get(cell) == null && level.mobs().findMob(cell) == null) candidates.add(cell);
+			}
+		}
+		return candidates.isEmpty() ? -1 : Random.element(candidates);
 	}
 }

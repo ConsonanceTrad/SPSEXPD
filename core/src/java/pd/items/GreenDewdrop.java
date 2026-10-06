@@ -50,7 +50,7 @@ public class GreenDewdrop extends Dewdrop {
 					|| Dungeon.level.map[pos] == Terrain.UNLOCKED_EXIT;
 			if (healing <= 0 && !force) return false;
 			if (healing > 0) {
-				hero.HP += healing;
+				if (!pd.actors.hero.perks.BloodShield.convert(hero, healing)) hero.HP += healing;
 				hero.sprite.showStatusWithIcon(CharSprite.POSITIVE, Integer.toString(healing), FloatingText.HEALING);
 			}
 			Catalog.countUse(getClass());

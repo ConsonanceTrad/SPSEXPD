@@ -97,7 +97,7 @@ public class ElixirOfAquaticRejuvenation extends Elixir {
 				} else {
 					healAmt = (float)Math.floor(healAmt);
 				}
-				target.HP += (int)healAmt;
+				if (!pd.actors.hero.perks.BloodShield.convert(target, (int)healAmt)) target.HP += (int)healAmt;
 				left -= (int)healAmt;
 				target.sprite.showStatusWithIcon( CharSprite.POSITIVE, Integer.toString((int)healAmt), FloatingText.HEALING );
 

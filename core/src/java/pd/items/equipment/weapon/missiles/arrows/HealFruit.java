@@ -56,6 +56,6 @@ public class HealFruit extends SpsFruit {
 		int lo = Math.max(1, Math.round(hero.HT * 0.10f));
 		int hi = Math.max(lo, Math.round(hero.HT * 0.25f));
 		int actual = Math.min(hero.HT - hero.HP, Random.IntRange(lo, hi));
-		if (actual > 0) hero.HP += actual;
+		if (actual > 0 && !pd.actors.hero.perks.BloodShield.convert(hero, actual)) hero.HP += actual;
 	}
 }

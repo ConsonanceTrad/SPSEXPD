@@ -35,6 +35,8 @@ public class Assets {
 	public static class Environment {
 		public static final String TERRAIN_FEATURES = "environment/features/terrain_features.png";
 		public static final String SPS_FEATURES = "environment/features/sps_features.png";
+		//SPSXPD: 区域装饰独立图集（4 列 x 5 行 = 20 帧；行=区域：下水道/监狱/洞穴/城市/恶魔大厅；列=普通|精致 与 DECO|DECO_ALT）
+		public static final String DECORATE = "environment/tiles/decorate.png";
 		public static final String SPS_TILES_TOWN = "environment/tiles/sps_tiles_town.png";
 		public static final String SPS_TILES_SNOW_TOWN = "environment/tiles/sps_tiles_snow_town.png";
 		public static final String SPS_TILES_FOREST = "environment/tiles/sps_tiles_forest.png";

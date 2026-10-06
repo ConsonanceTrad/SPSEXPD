@@ -148,7 +148,7 @@ public class RobotDMT extends Artifact {
 				GLog.w(Messages.get(this, "justice"));
 				break;
 			case 6:
-				Buff.prolong(hero, Dewcharge.class, 100f);
+				Dewcharge.charge(hero, 100f);
 				GLog.w(Messages.get(this, "soul"));
 				break;
 			case 7:

@@ -71,7 +71,7 @@ public class NmHealBag extends Item {
 
 	public boolean heal(Hero hero) {
 		if (hero == null || hero.spp <= 0) return false;
-		hero.HP = Math.min(hero.HT, hero.HP + hero.spp);
+		if (!pd.actors.hero.perks.BloodShield.convert(hero, hero.spp)) hero.HP = Math.min(hero.HT, hero.HP + hero.spp);
 		hero.spp = 0;
 		Buff.detach(hero, Poison.class);
 		Buff.detach(hero, Cripple.class);

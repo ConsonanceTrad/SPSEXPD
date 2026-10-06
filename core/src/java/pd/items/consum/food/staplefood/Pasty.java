@@ -144,7 +144,7 @@ public class Pasty extends StapleFood {
 				if (hero.sprite != null) hero.sprite.emitter().start(FlameParticle.FACTORY, 0.2f, 3);
 				break;
 			case HWEEN:
-				hero.HP = Math.min(hero.HT, hero.HP + hero.HT / 10);
+				if (!pd.actors.hero.perks.BloodShield.convert(hero, hero.HT / 10)) hero.HP = Math.min(hero.HT, hero.HP + hero.HT / 10);
 				if (hero.sprite != null) hero.sprite.emitter().burst(Speck.factory(Speck.HEALING), 1);
 				break;
 			case THANK:

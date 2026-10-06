@@ -180,6 +180,9 @@ public abstract class Perk implements Bundlable {
 			//SPSXPD: 露珠研究 —— 露珠瓶 / 露珠瓶消耗打折
 			POSITIVES.put(DewResearch.class, 1f);
 
+			//SPSXPD: 血能护盾 —— 回血转为奥术护盾
+			POSITIVES.put(BloodShield.class, 1f);
+
 			POSITIVES.put(LuckFromAuthor.class, 0.01f);
 			POSITIVES.put(GoodAppetite.class, 1f);
 			//裁决：Optimistic 改写为「法术防御抵抗纯粹伤害」，入池
@@ -348,7 +351,7 @@ public abstract class Perk implements Bundlable {
 		public void onGain() {
 			// TODO 待裁决：改为等价「幸运」效果（原版 = Relieve + Lucky，均属压力体系）
 			if (Dungeon.hero != null) {
-				Dungeon.hero.HP = Math.min(Dungeon.hero.HT, Dungeon.hero.HP + 1);
+				if (!pd.actors.hero.perks.BloodShield.convert(Dungeon.hero, 1)) Dungeon.hero.HP = Math.min(Dungeon.hero.HT, Dungeon.hero.HP + 1);
 			}
 		}
 	}

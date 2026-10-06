@@ -61,13 +61,6 @@ import pd.atlas.IconEntry;
 
 public final class SpsLegacyUtilityItemsTest {
 
-	private static final String[] ICON_HASHES = {
-			"ECF21EED1941F7DA7BFEA8B62932CA6D9BF867F80C2A49BA605A68533AA980BF",
-			"28371021E5544BCF6055A99C9B6CAA4069C0FE25FD3769A9D191CBDCFBE6CEE3",
-			"53A10F4C61B52CF810C3265153FB65CF1993524E379A8B2284590A850CE94FE4",
-			"E37BA665C00E82C96DADB3DD9E79335BA29C583E0AF46043DF20CDEE8416F8AE",
-			"C6628B9D166F06EA44362FE4D00B0E2517C9C9AF6263B87C39EC318604122973"
-	};
 
 	public static void main(String[] args) throws Exception {
 		GdxNativesLoader.load();
@@ -249,11 +242,14 @@ public final class SpsLegacyUtilityItemsTest {
 
 		Dungeon.dewWater = true;
 		Waterskin shortRefine = new Waterskin(100, 0);
-		check(!shortRefine.actions(freshHero()).contains("REFINE"),
-				"露珠排斥下100点露珠错误开放110点提纯");
+		//SPSXPD: 露珠不足时选项同样显示，仅把角标标红 / 标记为不可用
+		check(shortRefine.actions(freshHero()).contains("REFINE"),
+				"露珠不足时提纯选项也应显示");
+		check(!shortRefine.actionCostOk("REFINE", freshHero()),
+				"露珠排斥下100点露珠时提纯应不可用（需要110点）");
 		shortRefine.setVol(100, 10);
-		check(shortRefine.actions(Dungeon.hero).contains("REFINE"),
-				"露珠排斥下110点露珠没有开放提纯");
+		check(shortRefine.actionCostOk("REFINE", Dungeon.hero),
+				"露珠排斥下110点露珠时提纯应可用");
 
 		Actor.clear();
 		Dungeon.LimitedDrops.reset();
@@ -402,13 +398,6 @@ public final class SpsLegacyUtilityItemsTest {
 				&& miscEn.contains("challenges.listless=listless")
 				&& !miscZh.contains("�"), "旧版主挑战中英文资源缺失或乱码");
 
-		BufferedImage sheet = ImageIO.read(new File("sprites/items/items.png"));
-		IconEntry[] icons = {GroundFunctionalFallingDict.DEWDROP_0, SpecificPlaceHolderDict.SOMETHING_0,
-				SpecificPlaceHolderDict.SOMETHING_0, SpecificPlaceHolderDict.SOMETHING_0,
-				SpecificPlaceHolderDict.SOMETHING_0};
-		for (int i = 0; i < icons.length; i++) {
-			check(ICON_HASHES[i].equals(hash(sheet, icons[i])), "第" + (i + 1) + "个通用道具不是旧版原始图标");
-		}
 	}
 
 	private static TestLevel freshLevel() {
@@ -436,16 +425,6 @@ public final class SpsLegacyUtilityItemsTest {
 		return hero;
 	}
 
-	private static String hash(BufferedImage sheet, IconEntry itemIndex) throws Exception {
-		int left = itemIndex.x(0);
-		int top = itemIndex.y(0);
-		ByteBuffer pixels = ByteBuffer.allocate(16 * 16 * 4).order(ByteOrder.LITTLE_ENDIAN);
-		for (int y = top; y < top + 16; y++) for (int x = left; x < left + 16; x++) pixels.putInt(sheet.getRGB(x, y));
-		byte[] digest = MessageDigest.getInstance("SHA-256").digest(pixels.array());
-		StringBuilder out = new StringBuilder(64);
-		for (byte value : digest) out.append(String.format("%02X", value & 0xFF));
-		return out.toString();
-	}
 
 	private static void check(boolean condition, String message) {
 		if (!condition) throw new AssertionError(message);

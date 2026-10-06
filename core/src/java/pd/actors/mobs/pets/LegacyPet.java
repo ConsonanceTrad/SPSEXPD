@@ -92,7 +92,7 @@ public abstract class LegacyPet extends DirectableAlly {
 			case SCORPION:
 				Buff.affect(target, Ooze.class).set(20f);
 				HP = Math.min(HT, HP + damageRoll());
-				if (Dungeon.hero != null) Dungeon.hero.HP = Math.min(Dungeon.hero.HT, Dungeon.hero.HP + petLevel());
+				if (Dungeon.hero != null) if (!pd.actors.hero.perks.BloodShield.convert(Dungeon.hero, petLevel())) Dungeon.hero.HP = Math.min(Dungeon.hero.HT, Dungeon.hero.HP + petLevel());
 				cooldown = Math.max(15, 35 - petLevel());
 				return true;
 			case BUG_DRAGON:
@@ -450,7 +450,7 @@ public abstract class LegacyPet extends DirectableAlly {
 			if (cooldown == 0) {
 				if (enemy.isAlive()) Buff.affect(enemy, Ooze.class).set(20f);
 				HP = Math.min(HT, HP + damage);
-				if (Dungeon.hero != null) Dungeon.hero.HP = Math.min(Dungeon.hero.HT, Dungeon.hero.HP + petLevel());
+				if (Dungeon.hero != null) if (!pd.actors.hero.perks.BloodShield.convert(Dungeon.hero, petLevel())) Dungeon.hero.HP = Math.min(Dungeon.hero.HT, Dungeon.hero.HP + petLevel());
 				damage *= 2;
 				cooldown = Math.max(15, 35 - petLevel());
 			}

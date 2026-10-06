@@ -87,7 +87,7 @@ public class PPC extends Item {
 			MindBuff buff = hero.buff(type);
 			if (buff != null) { buff.detach(); break; }
 		}
-		hero.HP = Math.min(hero.HT, hero.HP + hero.HT / 5);
+		if (!pd.actors.hero.perks.BloodShield.convert(hero, hero.HT / 5)) hero.HP = Math.min(hero.HT, hero.HP + hero.HT / 5);
 		hero.spp = 0;
 		hero.spendAndNext(1f);
 		updateQuickslot();

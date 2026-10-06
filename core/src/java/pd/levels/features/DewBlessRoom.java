@@ -19,6 +19,8 @@ import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
+import pd.tiles.CustomTilemap;
+import pd.tiles.custom.SpsFeatureVisual;
 import pd.utils.GLog;
 import pd.messages.InlineText;
 
@@ -38,12 +40,27 @@ public final class DewBlessRoom {
 	public static void trample(Level level, int pos, Char ch) {
 		CellEmitter.get(pos).burst(ElmoParticle.FACTORY, 6);
 		if (ch instanceof Hero) {
-			Buff.affect((Hero) ch, Dewcharge.class, 720f);
+			Dewcharge.chargeCount(ch, 10);
 			//SPSEXPD: 清层限时已取消，这里只提示祝福本身
 			GLog.h(Messages.get(DewBlessRoom.class, "order"));
-			Level.set(pos, Terrain.GRASS);
+			//SPSXPD: 踩过之后神像消失，变成普通地板
+			Level.set(pos, Terrain.EMPTY);
+			removeDewBlessVisual(level, pos);
 			GameScene.updateMap(pos);
 		}
 		Dungeon.observe();
+	}
+
+	//SPSXPD: 摘掉这一格的露珠神像图块（SpsDew.place 注册的 SpsFeatureVisual）
+	private static void removeDewBlessVisual(Level level, int pos) {
+		int x = pos % level.width();
+		int y = pos / level.width();
+		for (CustomTilemap visual : level.customTiles.toArray(new CustomTilemap[0])) {
+			if (visual instanceof SpsFeatureVisual
+					&& visual.tileX == x && visual.tileY == y) {
+				((SpsFeatureVisual) visual).destroy();
+				level.customTiles.remove(visual);
+			}
+		}
 	}
 }

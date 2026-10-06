@@ -32,7 +32,7 @@ public class Nut extends Food {
 	@Override
 	protected void satisfy(Hero hero) {
 		super.satisfy(hero);
-		hero.HP = Math.min(hero.HT, hero.HP + 1);
+		if (!pd.actors.hero.perks.BloodShield.convert(hero, 1)) hero.HP = Math.min(hero.HT, hero.HP + 1);
 		if (Random.Int(10) == 0) {
 			Buff.affect(hero, Barkskin.class).set(2 + hero.lvl / 4, 1);
 		}

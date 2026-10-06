@@ -30,6 +30,7 @@ public class GreatRune extends Item {
 			.t("prompt", "选择一件要附魔的装备")
 			.t("weapon", "为这件武器选择一个附魔。")
 			.t("armor", "为这件护甲选择一个刻印。")
+			.t("seal", "为这枚破损纹章选择一个刻印。")
 			.t("cancel", "放弃附魔")
 			.t("item", "你完成了附魔。")
 			.t("desc", "为武器或护甲随机提供三种附魔供你选择。它可以用磨刀石和奥术刻笔锻造而成。");
@@ -70,13 +71,15 @@ public class GreatRune extends Item {
 
 		@Override
 		public boolean itemSelectable(Item item) {
-			return item instanceof Weapon || item instanceof Armor;
+			//SPSEXPD: 拆卸下来的破损纹章同样可以刻印
+			return item instanceof Weapon || item instanceof Armor || item instanceof BrokenSeal;
 		}
 
 		@Override
 		public void onSelect(Item item) {
 			if (item instanceof Weapon) chooseWeapon((Weapon)item);
 			else if (item instanceof Armor) chooseArmor((Armor)item);
+			else if (item instanceof BrokenSeal) chooseSeal((BrokenSeal)item);
 		}
 	};
 
@@ -107,6 +110,25 @@ public class GreatRune extends Item {
 				if (index < 3) {
 					armor.inscribe(choices[index]);
 					complete(armor);
+				}
+			}
+		});
+	}
+
+	private void chooseSeal(final BrokenSeal seal) {
+		//SPSEXPD: 纹章与护甲一样 3 选 1 刻印
+		Class<? extends Armor.Glyph> existing = seal.getGlyph() != null ? seal.getGlyph().getClass() : null;
+		final Armor.Glyph[] choices = {
+				Armor.Glyph.random( existing ), Armor.Glyph.random( existing ), Armor.Glyph.random( existing )
+		};
+		GameScene.show(new WndOptions(Messages.titleCase(name()),
+				Messages.get(this, "seal"),
+				choices[0].name(), choices[1].name(), choices[2].name(), Messages.get(this, "cancel")) {
+			@Override
+			protected void onSelect(int index) {
+				if (index < 3) {
+					seal.inscribe(choices[index]);
+					complete(seal);
 				}
 			}
 		});

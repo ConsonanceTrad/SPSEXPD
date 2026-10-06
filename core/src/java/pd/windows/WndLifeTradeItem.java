@@ -63,8 +63,6 @@ public class WndLifeTradeItem extends WndInfoItem {
 		if (item == null || !hero.spendPermanentHT(price())) return false;
 
 		boolean collected = item.doPickUp(hero);
-		Heap replacement = Dungeon.level.drop(Generator.random(), shopCell);
-		replacement.type = Heap.Type.FOR_SALE;
 
 		if (!collected) {
 			int dropCell = adjacentDropCell(shopCell);

@@ -175,7 +175,7 @@ public class PPC2 extends Item {
 			MindBuff buff = hero.buff(type);
 			if (buff == null) continue;
 			buff.detach();
-			hero.HP = Math.min(hero.HT, hero.HP + hero.HT / 5);
+			if (!pd.actors.hero.perks.BloodShield.convert(hero, hero.HT / 5)) hero.HP = Math.min(hero.HT, hero.HP + hero.HT / 5);
 			hero.spp += Math.max(0, hero.lvl - 1);
 			hero.spendAndNext(1f);
 			return true;

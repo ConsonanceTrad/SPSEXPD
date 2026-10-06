@@ -22,6 +22,6 @@ public class ScorpionAbility extends PetAbilityPerk {
 	public void onHit(Hero hero, Char enemy, int damage) {
 		if (enemy == null || !enemy.isAlive()) return;
 		pd.actors.buffs.Buff.affect(enemy, pd.actors.buffs.Poison.class).set(5);
-		hero.HP = Math.min(hero.HT, hero.HP + 2);
+		if (!pd.actors.hero.perks.BloodShield.convert(hero, 2)) hero.HP = Math.min(hero.HT, hero.HP + 2);
 	}
 }

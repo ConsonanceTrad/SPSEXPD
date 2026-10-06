@@ -71,7 +71,7 @@ public class FairyCard extends SpsSummonItem {
 		}
 
 		protected void healHero() {
-			Dungeon.hero.HP = Math.min(Dungeon.hero.HT, Dungeon.hero.HP + 5);
+			if (!pd.actors.hero.perks.BloodShield.convert(Dungeon.hero, 5)) Dungeon.hero.HP = Math.min(Dungeon.hero.HT, Dungeon.hero.HP + 5);
 			Dungeon.hero.sprite.emitter().start(Speck.factory(Speck.HEALING), 0.4f, 1);
 			Dungeon.hero.sprite.showStatus(CharSprite.POSITIVE, "5");
 		}
@@ -101,7 +101,7 @@ public class FairyCard extends SpsSummonItem {
 
 		@Override
 		protected void healHero() {
-			Dungeon.hero.HP = Math.min(Dungeon.hero.HT * 2, Dungeon.hero.HP + 5);
+			if (!pd.actors.hero.perks.BloodShield.convert(Dungeon.hero, 5)) Dungeon.hero.HP = Math.min(Dungeon.hero.HT * 2, Dungeon.hero.HP + 5);
 			Dungeon.hero.sprite.emitter().start(Speck.factory(Speck.HEALING), 0.4f, 1);
 			Dungeon.hero.sprite.showStatus(CharSprite.POSITIVE, "5");
 		}

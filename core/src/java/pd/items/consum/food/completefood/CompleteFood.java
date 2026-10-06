@@ -44,6 +44,6 @@ public class CompleteFood extends Food {
 	}
 
 	protected static void heal(Hero hero, int amount) {
-		hero.HP = Math.min(hero.HT, hero.HP + Math.max(0, amount));
+		if (!pd.actors.hero.perks.BloodShield.convert(hero, Math.max(0, amount))) hero.HP = Math.min(hero.HT, hero.HP + Math.max(0, amount));
 	}
 }

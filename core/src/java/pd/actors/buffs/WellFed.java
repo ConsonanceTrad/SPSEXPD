@@ -60,7 +60,7 @@ public class WellFed extends Buff {
 			}
 			return true;
 		} else if (left % 18 == 0 && target.HP < target.HT){
-			target.HP += 1;
+			if (!pd.actors.hero.perks.BloodShield.convert(target, 1)) target.HP += 1;
 			target.sprite.showStatusWithIcon(CharSprite.POSITIVE, "1", FloatingText.HEALING);
 
 			if (target.HP == target.HT && target instanceof Hero) {
