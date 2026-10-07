@@ -69,6 +69,7 @@ import pd.items.equipment.artifacts.TalismanOfForesight;
 import pd.items.equipment.artifacts.TimeOclock;
 import pd.items.equipment.artifacts.TimekeepersHourglass;
 import pd.items.equipment.artifacts.UnstableSpellbook;
+import pd.items.equipment.artifacts.VoidHand;
 import pd.items.equipment.artifacts.fusion.EyeOfSkadi;
 import pd.items.equipment.bombs.Bomb;
 import pd.items.consum.eggs.BlueDragonEgg;
@@ -1028,9 +1029,10 @@ public class Generator {
 					FlyChains.class,
 					TimeOclock.class,
 					EndlessAmmoBag.class,
-					NaturalAxe.class
+					NaturalAxe.class,
+					VoidHand.class
 			};
-			ARTIFACT.defaultProbs = new float[]{1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1};
+			ARTIFACT.defaultProbs = new float[]{1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1};
 			ARTIFACT.probs = ARTIFACT.defaultProbs.clone();
 
 			//Trinkets are unique like artifacts, but unlike them you can only have one at once
