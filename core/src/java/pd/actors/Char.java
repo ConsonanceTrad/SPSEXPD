@@ -173,6 +173,7 @@ import pd.items.equipment.armor.glyphs.Potential;
 import pd.items.equipment.armor.glyphs.Swiftness;
 import pd.items.equipment.armor.glyphs.Viscosity;
 import pd.items.equipment.artifacts.DriedRose;
+import pd.items.equipment.artifacts.GoddessRadiance;
 import pd.items.equipment.artifacts.TimekeepersHourglass;
 import pd.items.consum.potions.exotic.PotionOfCleansing;
 import pd.items.quest.Pickaxe;
@@ -1390,6 +1391,15 @@ public abstract class Char extends Actor {
 	}
 
 	public synchronized boolean add( Buff buff ) {
+
+		//SPSEXPD: 圣者之辉——装备期间有几率无视精神类负面状态
+		if (this instanceof Hero && GoddessRadiance.isMental(buff)) {
+			GoddessRadiance.Recharge radiance = buff(GoddessRadiance.Recharge.class);
+			if (radiance != null && Random.Float() < radiance.evadeRatio()) {
+				GLog.i(Messages.get(GoddessRadiance.class, "evaded", Messages.get(buff, "name")));
+				return false;
+			}
+		}
 
 		if (buff(PotionOfCleansing.Cleanse.class) != null) { //cleansing buff
 			if (buff.type == Buff.buffType.NEGATIVE

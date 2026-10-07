@@ -759,6 +759,11 @@ public class Dungeon {
 		
 		Light light = hero.buff( Light.class );
 		hero.viewDistance = light == null ? level.viewDistance : Math.max( Light.DISTANCE, level.viewDistance );
+
+		//SPSEXPD: 圣者之辉满级——永久 +1 视野
+		pd.items.equipment.artifacts.GoddessRadiance.Recharge radiance =
+				hero.buff(pd.items.equipment.artifacts.GoddessRadiance.Recharge.class);
+		if (radiance != null && radiance.viewAmend() > 0) hero.viewDistance += radiance.viewAmend();
 		
 		hero.curAction = hero.lastAction = null;
 
