@@ -76,6 +76,11 @@ public final class SpsWishPotionTest {
 		check(pd.messages.Messages.titleCase(null).isEmpty(), "null 物品名不应让标题整理崩溃");
 
 		System.out.println("SPS许愿魔药测试通过：配方、候选池与黑名单、名称词匹配、类型词（武器/神器/秘药等）、怪物召唤、特质精确名、幸运等级门槛、彩蛋物品、效果与死亡愿望、调试器与炼金指南接线均正常。");
+		//SPSXPD: HeadlessApplication 的循环线程不是守护线程，测试跑完必须显式退出，
+		//否则 JavaExec 任务会一直挂着（表现为 BUILD FAILED / WaitDelay expired）
+		app.exit();
+		System.out.flush();
+		System.exit(0);
 	}
 
 	//---- 配方 ----
