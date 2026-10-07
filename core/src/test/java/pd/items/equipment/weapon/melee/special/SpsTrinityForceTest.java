@@ -6,7 +6,10 @@ import com.badlogic.gdx.utils.GdxNativesLoader;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.TrinityStance;
+import pd.actors.Actor;
 import pd.actors.hero.Hero;
+import pd.levels.Level;
+import pd.levels.Terrain;
 import pd.actors.mobs.Mob;
 import pd.atlas.items.SpecificPlaceHolderDict;
 import render.noosa.Game;
@@ -30,6 +33,7 @@ public final class SpsTrinityForceTest {
 			testStances();
 			testActions();
 			testDashApproach();
+			testDashThroughProc();
 			testMessages();
 			System.out.println("SPS三相之力测试通过：数值、七段独立攻击、战舞姿态、攻速叠加、恒定移速、动作可用性、冲锋接近与双语文本均正常。");
 		} finally {
@@ -196,6 +200,76 @@ public final class SpsTrinityForceTest {
 		int loop = weapon.indexOf("for (int blade = 1;");
 		check(loop > 0 && weapon.indexOf("hitSound(", loop) > loop,
 				"追加的六片飞刃命中时没有播命中音效");
+	}
+
+	/**
+	 * 端到端：攻击两格外的敌人时，proc → dashTo 应当真的让英雄靠近一格。
+	 * Char.move 对 sprite 都有 null 检查、travelling=false 又跳过眩晕分支，所以 headless 能跑。
+	 */
+	private static void testDashThroughProc() {
+		Hero hero = new Hero();
+		Dungeon.hero = hero;
+		TestLevel level = new TestLevel();
+		Dungeon.level = level;
+		hero.pos = 3 * 8 + 1;
+
+		TrinityForce weapon = new TrinityForce();
+		hero.belongings.weapon = weapon;
+		weapon.activate(hero);
+
+		SlainMob enemy = new SlainMob(100_000);
+		enemy.pos = 3 * 8 + 3;   // 恰好两格
+		level.mobs().add(enemy);
+		Actor.add(enemy);
+
+		int start = hero.pos;
+		weapon.proc(hero, enemy, 70);
+		check(hero.pos == start + 1, "攻击两格外的敌人后没有靠近一格：" + start + "→" + hero.pos);
+
+		//防御姿态不靠近（原地格挡）
+		TrinityStance stance = hero.buff(TrinityStance.class);
+		check(stance != null, "装备三相之力没有获得战舞姿态");
+		stance.enterDefend();
+		hero.pos = 5 * 8 + 1;
+		SlainMob guarded = new SlainMob(100_000);
+		guarded.pos = 5 * 8 + 4;
+		level.mobs().add(guarded);
+		Actor.add(guarded);
+		weapon.proc(hero, guarded, 70);
+		check(hero.pos == 5 * 8 + 1, "防御姿态不该靠近：" + hero.pos);
+
+		Actor.clear();
+		Dungeon.level = null;
+		Dungeon.hero = null;
+	}
+
+	/** 无头用的最小地图（8x8 空地）。 */
+	private static final class TestLevel extends Level {
+		TestLevel() {
+			setSize(8, 8);
+			//Level.setSize 后 map 默认全是墙，必须铺成空地并重建通行标记
+			java.util.Arrays.fill(map, Terrain.EMPTY);
+			mobs().clear();
+			heaps = new render.utils.data.SparseArray<>();
+			blobs = new java.util.HashMap<>();
+			plants = new render.utils.data.SparseArray<>();
+			traps = new render.utils.data.SparseArray<>();
+			transitions = new java.util.ArrayList<>();
+			customTiles = new java.util.ArrayList<>();
+			customTerrain = new java.util.ArrayList<>();
+			customWalls = new java.util.ArrayList<>();
+			heroFOV = new boolean[length()];
+			visited = new boolean[length()];
+			mapped = new boolean[length()];
+			//等 mobs/heaps/blobs 等集合就位后再重建通行标记（CellFlags.build 会读 blobs）
+			buildFlagMaps();
+		}
+
+		@Override protected boolean build() { return true; }
+		@Override protected void createMobs() { }
+		@Override protected void createItems() { }
+		@Override public String tilesTex() { return null; }
+		@Override public String waterTex() { return null; }
 	}
 
 	private static String read(String path) throws Exception {
