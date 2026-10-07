@@ -1042,8 +1042,6 @@ public abstract class Mob extends Char {
 				if (contract != null) contract.gainSoul();
 				PPC ppc = Dungeon.hero.belongings.getItem(PPC.class);
 				if (ppc != null) ppc.gainCharge();
-				MasterThievesArmband.Thievery armband = Dungeon.hero.buff(MasterThievesArmband.Thievery.class);
-				if (armband != null) armband.gainCharge();
 
 				AscensionChallenge.processEnemyKill(this);
 				

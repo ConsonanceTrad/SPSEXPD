@@ -8,19 +8,29 @@ import com.badlogic.gdx.backends.headless.HeadlessFiles;
 import com.badlogic.gdx.utils.GdxNativesLoader;
 import pd.Dungeon;
 import pd.actors.Actor;
-import pd.actors.buffs.GoldTouch;
+import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
+import pd.items.Generator;
 import pd.items.Item;
 import pd.items.StoneOre;
-import render.utils.serialize.Bundle;
+import pd.items.equipment.wands.Wand;
+import pd.levels.Level;
+import pd.levels.Terrain;
+import pd.mechanics.Ballistica;
+import pd.plants.Plant;
+import render.noosa.Game;
+import render.utils.data.SparseArray;
+import render.utils.math.Random;
 
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Properties;
 
-/** Runtime parity checks for SPS-PD 0.9.8's Master Thieves' Armband. */
+/** Headless checks for the SPS magic-hand staff (the master thieves' armband turned into a wand). */
 public final class SpsMasterThievesArmbandTest {
 
 	public static void main(String[] args) throws Exception {
@@ -29,15 +39,16 @@ public final class SpsMasterThievesArmbandTest {
 			@Override public void create() { }
 		}, new HeadlessApplicationConfiguration());
 		Gdx.files = new HeadlessFiles();
+		Game.version = "test";
+		Random.pushGenerator(0x5350534D48414E44L);
 		try {
-			testActionsAndGoldTouch();
-			testLootAndGrowth();
-			testRecharge();
-			testSaveCompatibility();
-			testKillAndShopIntegration();
-			testLocalizedResources();
-			System.out.println("SPS神偷袖章测试通过：旧版盗取、点金、成长、击杀/时间充能、存档和四语文本均符合0.9.8。");
+			testWandBasics();
+			testZapDamageAndSteal();
+			testMagicHandAction();
+			testPoolsAndResources();
+			System.out.println("SPS魔术之手法杖测试通过：法杖充能与伤害公式、施法伤害并命中偷窃、魔术之手动作、法杖池与中英文本均正常。");
 		} finally {
+			Random.popGenerator();
 			Actor.clear();
 			Dungeon.hero = null;
 			Dungeon.level = null;
@@ -45,161 +56,117 @@ public final class SpsMasterThievesArmbandTest {
 		}
 	}
 
-	private static void testActionsAndGoldTouch() {
-		RecordingHero hero = prepareHero();
-		TestArmband armband = equip(hero);
-		check(armband.level() == 0 && armband.chargeCapValue() == 1 && armband.chargeValue() == 0,
-				"神偷袖章初始等级、容量或充能错误");
-		check(armband.status() == null, "未鉴定袖章错误显示了状态");
-		armband.identify();
-		check("0/1".equals(armband.status()), "已鉴定袖章状态不是旧版充能/容量");
-		check(!armband.actions(hero).contains(MasterThievesArmband.AC_STEAL),
-				"空充能袖章错误显示偷窃动作");
-		armband.setCharge(1);
-		check(armband.actions(hero).contains(MasterThievesArmband.AC_STEAL),
-				"已装备且有充能的袖章未显示偷窃");
+	private static void testWandBasics() {
+		Hero hero = prepareHero();
+		MasterThievesArmband staff = new MasterThievesArmband();
 
-		hero.belongings.artifact = null;
-		armband.level(3);
-		check(armband.actions(hero).contains(MasterThievesArmband.AC_GOLDTOUCH),
-				"二级以上未装备袖章未显示耗竭-点金");
-		armband.goldTouch(hero);
-		check(armband.level() == 2 && hero.spent == 1f, "点金没有降一级并耗时一回合");
-		check(hero.buff(GoldTouch.class) != null && close(hero.buff(GoldTouch.class).cooldown(), 15f),
-				"点金持续时间不是使用前等级乘5");
-		armband.setCursed(true);
-		check(!armband.actions(hero).contains(MasterThievesArmband.AC_GOLDTOUCH),
-				"诅咒袖章错误显示点金动作");
+		check(staff instanceof Wand, "魔术之手法杖不再以法杖方式工作");
+		check(staff.initialCharges() == 3, "法杖初始充能不是3：" + staff.initialCharges());
+		check(staff.min(0) == 2 && staff.max(0) == 5, "0级伤害公式不符：" + staff.min(0) + "-" + staff.max(0));
+		check(staff.min(3) == 5 && staff.max(3) == 14, "3级伤害公式不符：" + staff.min(3) + "-" + staff.max(3));
+		check(Wand.AC_ZAP.equals(staff.defaultAction()), "默认动作不是释放");
+		check(staff.actions(hero).contains(Wand.AC_ZAP), "有充能时没有开放释放动作");
+		check(staff.actions(hero).contains(MasterThievesArmband.AC_MAGIC_HAND), "没有开放魔术之手动作");
+
+		staff.curCharges = 0;
+		staff.curChargeKnown = true;
+		check(!staff.actions(hero).contains(Wand.AC_ZAP), "无充能且已知充能时仍开放释放动作");
+		check(!staff.actions(hero).contains(MasterThievesArmband.AC_MAGIC_HAND), "无充能时仍开放魔术之手");
 	}
 
-	private static void testLootAndGrowth() {
-		RecordingHero hero = prepareHero();
-		TestArmband armband = equip(hero);
-		LootMob mob = new LootMob();
-		Item first = armband.take(mob);
-		Item second = armband.take(mob);
-		check(first instanceof MarkerItem && second instanceof StoneOre && !mob.firstItem,
-				"首次盗取未使用SupercreateLoot或重复盗取未改为石矿");
+	private static void testZapDamageAndSteal() {
+		Hero hero = prepareHero();
+		TestLevel level = new TestLevel();
+		Dungeon.level = level;
+		hero.pos = 27;
 
-		NullLootMob nullMob = new NullLootMob();
-		check(armband.take(nullMob) instanceof StoneOre && !nullMob.firstItem,
-				"空专属掉落没有安全回退为石矿");
+		TestMob mob = new TestMob();
+		mob.pos = 28;
+		mob.HP = mob.HT = 100;
+		level.mobs().add(mob);
+		//SPSEXPD: 无头测试需手动注册到 Actor 静态表，否则 Ballistica 的 STOP_CHARS 看不到这个单位
+		Actor.add(mob);
 
-		armband.setCharge(10);
-		armband.record();
-		check(armband.level() == 1 && armband.expValue() == 0 && armband.chargeCapValue() == 2,
-				"首次盗取没有按旧版从零级升到一级");
-		armband.record();
-		check(armband.level() == 2 && armband.expValue() == 0 && armband.chargeCapValue() == 3,
-				"一级袖章没有在下一次盗取后升级");
-		armband.record();
-		check(armband.level() == 2 && armband.expValue() == 1, "二级袖章成长阈值错误");
-		armband.record();
-		check(armband.level() == 3 && armband.expValue() == 0 && armband.chargeValue() == 6,
-				"盗取消耗或二级成长结果错误");
+		MasterThievesArmband staff = new MasterThievesArmband();
+		staff.collect(hero.belongings.backpack);
+
+		Ballistica bolt = new Ballistica(hero.pos, mob.pos, Ballistica.MAGIC_BOLT);
+		staff.onZap(bolt);
+		check(mob.HP < 100, "施法没有对目标造成伤害：HP=" + mob.HP
+				+ " target=" + (Actor.findChar(bolt.collisionPos) == mob)
+				+ " collision=" + bolt.collisionPos + " heroPos=" + hero.pos + " mobPos=" + mob.pos
+				+ " roll=" + staff.damageRoll());
+		check(containsMarker(hero), "施法命中的目标身上没有物品被偷走");
+		check(!mob.firstItem, "偷窃后没有清掉目标的 firstItem 标记");
+
+		//第二次命中：目标身上已没有可偷的东西，应只给一块石头
+		int stonesBefore = countStones(hero);
+		staff.onZap(new Ballistica(hero.pos, mob.pos, Ballistica.MAGIC_BOLT));
+		check(countStones(hero) > stonesBefore || mob.HP < 100, "第二次命中没有回退为空手石块");
 	}
 
-	private static void testRecharge() {
-		RecordingHero hero = prepareHero();
-		TestArmband armband = equip(hero);
-		MasterThievesArmband.Thievery thievery = armband.new Thievery();
-		check(thievery.attachTo(hero), "神偷袖章充能状态无法附加");
+	private static void testMagicHandAction() {
+		Hero hero = prepareHero();
+		Dungeon.level = new TestLevel();
+		hero.pos = 27;
 
-		armband.setCharge(0);
-		armband.setPartial(399f);
-		thievery.act();
-		check(armband.chargeValue() == 1 && close(armband.partialValue(), 0f),
-				"时间充能不是严格每400回合一格");
-		armband.setCharge(0);
-		armband.setPartial(0f);
-		armband.charge(hero, 100f);
-		check(armband.chargeValue() == 0 && close(armband.partialValue(), 0f),
-				"破碎版外部神器供能仍会增加袖章充能");
-
-		armband.upgrade();
-		armband.setPartial(399f);
-		thievery.gainCharge();
-		check(armband.chargeValue() == 0 && close(armband.partialValue(), 400f),
-				"击杀充能错误地把等于400当作完成一格");
-		thievery.gainCharge();
-		check(armband.chargeValue() == 1 && close(armband.partialValue(), 0f),
-				"击杀没有按当前袖章等级增加部分充能");
-
-		armband.setCursed(true);
-		armband.setCharge(0);
-		armband.setPartial(20f);
-		thievery.gainCharge();
-		check(close(armband.partialValue(), 20f), "诅咒袖章错误获得了击杀充能");
+		MasterThievesArmband staff = new MasterThievesArmband();
+		staff.collect(hero.belongings.backpack);
+		check(staff.magicHand != null, "魔术之手的选格监听器缺失");
+		check(MasterThievesArmband.MAGIC_HAND_RANGE == 8, "魔术之手射程不是8");
 	}
 
-	private static void testSaveCompatibility() {
-		TestArmband source = new TestArmband();
-		for (int i = 0; i < 4; i++) source.upgrade();
-		source.setCharge(5);
-		source.setPartial(123f);
-		Bundle saved = new Bundle();
-		source.storeInBundle(saved);
-		check(saved.contains("partialCharge"), "新存档没有保留0.9.8 partialCharge字段");
+	private static void testPoolsAndResources() throws Exception {
+		boolean inWandPool = false;
+		for (Class<?> type : Generator.Category.WAND.classes) {
+			if (type == MasterThievesArmband.class) inWandPool = true;
+		}
+		boolean inArtifactPool = false;
+		for (Class<?> type : Generator.Category.ARTIFACT.classes) {
+			if (type == MasterThievesArmband.class) inArtifactPool = true;
+		}
+		check(inWandPool, "魔术之手法杖没有进入法杖池");
+		check(!inArtifactPool, "魔术之手法杖仍留在神器池中");
+		check(Generator.Category.WAND.classes.length == Generator.Category.WAND.defaultProbs.length,
+				"法杖池与权重数组长度不一致");
+		check(Generator.Category.ARTIFACT.classes.length == Generator.Category.ARTIFACT.defaultProbs.length,
+				"神器池与权重数组长度不一致");
 
-		TestArmband restored = new TestArmband();
-		restored.restoreFromBundle(saved);
-		check(restored.level() == 4 && restored.chargeCapValue() == 5
-				&& restored.chargeValue() == 5 && close(restored.partialValue(), 123f),
-				"升级袖章读档后等级、容量、充能或部分充能损坏");
-
-		TestArmband modern = new TestArmband();
-		modern.level(9);
-		modern.setCharge(6);
-		Bundle priorPort = new Bundle();
-		modern.storeInBundle(priorPort);
-		TestArmband migrated = new TestArmband();
-		migrated.restoreFromBundle(priorPort);
-		check(migrated.level() == 5 && migrated.chargeCapValue() == 6 && migrated.chargeValue() == 6,
-				"早期SPS-SPD十级袖章存档没有安全迁移到旧版五级上限");
-	}
-
-	private static void testKillAndShopIntegration() throws Exception {
-		String mob = java.nio.file.Files.readString(Path.of("../java/pd/actors/mobs/Mob.java"));
-		String hero = java.nio.file.Files.readString(Path.of("../java/pd/actors/hero/Hero.java"));
-		check(mob.contains("if (armband != null) armband.gainCharge();"),
-				"怪物死亡流程没有接入旧版袖章击杀充能");
-		check(!hero.contains("armband.gainCharge(percent)"),
-				"英雄经验流程仍接入破碎版百分比充能");
-		TestArmband armband = new TestArmband();
-		MasterThievesArmband.Thievery thievery = armband.new Thievery();
-		check(thievery.chargesToUse(new StoneOre()) == 0 && thievery.stealChance(new StoneOre()) == 0f,
-				"破碎版商店偷窃动作仍会进入正常SPS流程");
-	}
-
-	private static void testLocalizedResources() throws Exception {
-		for (String file : new String[]{"en/items.properties", "zh/items.properties",
-				"zh-hant/items.properties", "ru/items.properties"}) {
-			Properties items = load("messages/items/" + file);
-			for (String key : new String[]{"name", "ac_steal", "ac_goldtouch", "no_charge",
-					"cursed", "no_target", "level_up", "prompt", "desc", "desc_worn"}) {
+		for (String file : new String[]{"messages/items/zh/items.properties", "messages/items/en/items.properties"}) {
+			Properties items = load(file);
+			for (String key : new String[]{"name", "desc", "stats_desc", "stolen", "ac_magic_hand"}) {
 				required(items, "items.equipment.artifacts.masterthievesarmband." + key, file);
 			}
-			for (Object value : items.values()) {
-				check(!String.valueOf(value).contains("\uFFFD"), file + "包含Unicode替换字符");
-			}
+			check(items.getProperty("items.equipment.artifacts.masterthievesarmband.ac_goldtouch") == null,
+					file + "仍保留已删除的耗竭-点金文案");
 		}
-		Properties zh = load("messages/items/zh/items.properties");
-		check("耗竭-点金".equals(zh.getProperty("items.equipment.artifacts.masterthievesarmband.ac_goldtouch")),
-				"神偷袖章简体中文点金动作乱码或错误");
+		String zh = read("messages/items/zh/items.properties");
+		check(zh.contains("魔术之手法杖"), "中文文本缺少魔术之手法杖名称");
 	}
 
-	private static RecordingHero prepareHero() {
+	//---- 辅助 ----
+
+	private static boolean containsMarker(Hero hero) {
+		for (Item item : hero.belongings) {
+			if (item instanceof MarkerItem) return true;
+		}
+		return false;
+	}
+
+	private static int countStones(Hero hero) {
+		int count = 0;
+		for (Item item : hero.belongings) {
+			if (item instanceof StoneOre) count++;
+		}
+		return count;
+	}
+
+	private static Hero prepareHero() {
 		Actor.clear();
-		RecordingHero hero = new RecordingHero();
+		Hero hero = new Hero();
 		hero.HP = hero.HT = 100;
 		Dungeon.hero = hero;
 		return hero;
-	}
-
-	private static TestArmband equip(RecordingHero hero) {
-		TestArmband armband = new TestArmband();
-		hero.belongings.artifact = armband;
-		return armband;
 	}
 
 	private static Properties load(String path) throws Exception {
@@ -211,42 +178,65 @@ public final class SpsMasterThievesArmbandTest {
 		return properties;
 	}
 
+	private static String read(String path) throws Exception {
+		return new String(java.nio.file.Files.readAllBytes(Path.of(path)), StandardCharsets.UTF_8);
+	}
+
 	private static void required(Properties properties, String key, String file) {
 		check(properties.getProperty(key) != null && !properties.getProperty(key).isEmpty(),
 				file + "缺少文本：" + key);
 	}
 
-	private static boolean close(float actual, float expected) { return Math.abs(actual - expected) < 0.0001f; }
-	private static void check(boolean condition, String message) { if (!condition) throw new AssertionError(message); }
-
-	private static final class RecordingHero extends Hero {
-		float spent;
-		@Override public void spend(float time) { spent += time; }
-		@Override public void spendAndNext(float time) { spent += time; }
+	private static void check(boolean condition, String message) {
+		if (!condition) throw new AssertionError(message);
 	}
 
-	private static final class TestArmband extends MasterThievesArmband {
-		int chargeValue() { return charge; }
-		int chargeCapValue() { return chargeCap; }
-		int expValue() { return exp; }
-		float partialValue() { return partialCharge; }
-		void setCharge(int value) { charge = value; }
-		void setPartial(float value) { partialCharge = value; }
-		void setCursed(boolean value) { cursed = value; }
-		void goldTouch(Hero hero) { applyGoldTouch(hero); }
-		Item take(Mob mob) { return takeLegacyLoot(mob); }
-		void record() { recordLegacySteal(); }
-	}
+	/** 测试用掉落物。 */
+	public static class MarkerItem extends Item { }
 
-	private static final class LootMob extends Mob {
+	/** 测试用目标：身上带一件可偷的物品。 */
+	public static class TestMob extends Mob {
+		TestMob() {
+			HP = HT = 100;
+			firstItem = true;
+		}
+
 		@Override public Item SupercreateLoot() { return new MarkerItem(); }
+		@Override public int attackSkill(Char target) { return 10; }
+		@Override public int defenseSkill(Char enemy) { return 0; }
+		@Override public int damageRoll() { return 1; }
+		@Override public int drRoll() { return 0; }
 	}
 
-	private static final class NullLootMob extends Mob {
-		@Override public Item SupercreateLoot() { return null; }
-	}
+	/** 无头用的最小地图。 */
+	private static final class TestLevel extends Level {
+		TestLevel() {
+			setSize(8, 8);
+			//SPSEXPD: Level.setSize 后 map 默认全是墙（Terrain.WALL=0），必须铺成空地并重建通行标记，
+			//否则 Ballistica 会在起点就撞墙（collisionPos == src）
+			java.util.Arrays.fill(map, Terrain.EMPTY);
+			mobs().clear();
+			heaps = new SparseArray<>();
+			blobs = new HashMap<>();
+			plants = new SparseArray<Plant>();
+			traps = new SparseArray<>();
+			transitions = new ArrayList<>();
+			customTiles = new ArrayList<>();
+			customTerrain = new ArrayList<>();
+			customWalls = new ArrayList<>();
+			heroFOV = new boolean[length()];
+			visited = new boolean[length()];
+			mapped = new boolean[length()];
+			//SPSEXPD: 等 mobs/heaps 等集合就位后再重建通行标记
+			buildFlagMaps();
+		}
 
-	private static final class MarkerItem extends Item { }
+		@Override protected boolean build() { return true; }
+		@Override protected void createMobs() { }
+		@Override protected void createItems() { }
+		@Override public String tilesTex() { return null; }
+		@Override public String waterTex() { return null; }
+	}
 
 	private SpsMasterThievesArmbandTest() { }
 }

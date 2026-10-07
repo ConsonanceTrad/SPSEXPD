@@ -176,64 +176,6 @@ public class WndTradeItem extends WndInfoItem {
 
 		pos = btnBuy.bottom();
 
-		final MasterThievesArmband.Thievery thievery = Dungeon.hero.buff(MasterThievesArmband.Thievery.class);
-		if (thievery != null && !thievery.isCursed() && thievery.chargesToUse(item) > 0) {
-			final float chance = thievery.stealChance(item);
-			final int chargesToUse = thievery.chargesToUse(item);
-			RedButton btnSteal = new RedButton(Messages.get(this, "steal", Math.min(100, (int) (chance * 100)), chargesToUse), 6) {
-				@Override
-				protected void onClick() {
-					if (chance >= 1){
-						thievery.steal(item);
-						Hero hero = Dungeon.hero;
-						Item item = heap.pickUp();
-						hide();
-
-						if (!item.doPickUp(hero)) {
-							Dungeon.level.drop(item, heap.pos).sprite.drop();
-						}
-					} else {
-						GameScene.show(new WndOptions(new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
-								Messages.titleCase(Messages.get(MasterThievesArmband.class, "name")),
-								Messages.get(WndTradeItem.class, "steal_warn"),
-								Messages.get(WndTradeItem.class, "steal_warn_yes"),
-								Messages.get(WndTradeItem.class, "steal_warn_no")){
-							@Override
-							protected void onSelect(int index) {
-								super.onSelect(index);
-								if (index == 0){
-									if (thievery.steal(item)) {
-										Hero hero = Dungeon.hero;
-										Item item = heap.pickUp();
-										WndTradeItem.this.hide();
-
-										if (!item.doPickUp(hero)) {
-											Dungeon.level.drop(item, heap.pos).sprite.drop();
-										}
-									} else {
-										for (Mob mob : Dungeon.level.mobs()) {
-											if (mob instanceof Shopkeeper) {
-												mob.yell(Messages.get(mob, "thief"));
-												((Shopkeeper) mob).flee();
-												break;
-											}
-										}
-										WndTradeItem.this.hide();
-									}
-								}
-							}
-						});
-					}
-				}
-			};
-			btnSteal.setRect(0, pos + 1, width, BTN_HEIGHT);
-			btnSteal.icon(new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0));
-			add(btnSteal);
-
-			pos = btnSteal.bottom();
-
-		}
-
 		resize(width, (int) pos);
 	}
 	

@@ -10,151 +10,115 @@
 
 package pd.items.equipment.artifacts;
 
-import pd.atlas.items.SpecificPlaceHolderDict;
-
-import com.badlogic.gdx.Gdx;
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
-import pd.actors.buffs.Buff;
-import pd.actors.buffs.CounterBuff;
-import pd.actors.buffs.GoldTouch;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
-import pd.effects.particles.ElmoParticle;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.StoneOre;
+import pd.items.equipment.weapon.melee.MagesStaff;
+import pd.items.equipment.wands.DamageWand;
+import pd.items.equipment.wands.Wand;
+import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
-import render.utils.data.Callback;
-import render.utils.math.Random;
-import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
 
-public class MasterThievesArmband extends Artifact {
+/**
+ * SPSEXPD: 魔术之手法杖——由「神偷袖章」神器改造而成，现在是一根普通法杖（不再是神器）：
+ * 在背包中像其它法杖一样以「释放」施法，命中敌人或 NPC 时造成伤害并顺手偷走一件东西；
+ * 另外保留原有的「魔术之手」隔空取物。
+ *
+ * <p>类名与包名保持不变以尽量减少旧存档加载失败面，但基类已从 Artifact 改为 DamageWand，
+ * 因此旧档中仍装在神器槽上的那一件无法按原类型还原（用户已知悉并接受）。</p>
+ */
+public class MasterThievesArmband extends DamageWand {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(MasterThievesArmband.class)
 			.t("name", "魔术之手法杖")
-			.t("ac_steal", "偷窃")
+			.t("staff_name", "魔术之手魔杖")
 			.t("ac_magic_hand", "魔术之手")
 			.t("magic_prompt", "选择要隔空取来的目标点")
 			.t("magic_none", "那里没有可以取来的东西。")
 			.t("magic_shop", "商店的物品无法这样取用。")
 			.t("magic_range", "太远了，魔术之手够不到。")
 			.t("magic_done", "魔术之手取来了%1$s。")
-			.t("ac_goldtouch", "耗竭-点金")
-			.t("no_charge", "充能不足")
-			.t("cursed", "它被诅咒了，正在吞食你的金币。")
-			.t("no_target", "没有找到目标")
-			.t("level_up", "神偷袖章升级了")
-			.t("prompt", "选择偷窃的目标")
-			.t("desc", "一根缠着紫色天鹅绒的细杖，杖顶嵌着一只小小的银手。挥动它，远处的东西就会自己飞进你的背包。")
-			.t("desc_worn", "装备后只要还有充能，就能用_魔术之手_隔空取来视野中的物品与金币。");
+			.t("stolen", "魔术之手顺手从%1$s身上摸走了%2$s。")
+			.t("stolen_stone", "魔术之手没从%1$s身上摸到什么，只抓到一块石头。")
+			.t("desc", "一根缠着紫色天鹅绒的细杖，杖顶嵌着一只小小的银手。它的魔力既能伤人，也能把别人的东西悄悄挪进你的背包。")
+			.t("stats_desc", "释放时造成_%1$d~%2$d点伤害_，并顺手从命中的敌人或 NPC 身上偷走一件东西。")
+			.t("bmage_desc", "当_战斗法师_以魔术之手魔杖近战攻击目标时，这根魔杖同样会恢复充能。")
+			.t("discover_hint", "可在法杖池中找到。");
 	}
 
-
-
-
-	{
-		//SPSEXPD: 由「神偷袖章」改造为「魔术之手法杖」——占位法杖图标，默认动作改为隔空取物
-		image = EquipmentEquipWeaponBasicWeaponDict.OLD_STAFF;
-		levelCap = 5;
-		charge = 0;
-		partialCharge = 0;
-		chargeCap = 1 + level();
-		defaultAction = AC_MAGIC_HAND;
-	}
-
-	public static final String AC_STEAL = "STEAL";
-	public static final String AC_GOLDTOUCH = "GOLDTOUCH";
 	public static final String AC_MAGIC_HAND = "MAGIC_HAND";
 	/** 魔术之手可以够到的最大距离。 */
 	public static final int MAGIC_HAND_RANGE = 8;
 
+	{
+		//SPSEXPD: 沿用原有占位法杖图标；默认动作与瞄准由 Wand 基类设定（释放）
+		image = EquipmentEquipWeaponBasicWeaponDict.OLD_STAFF;
+		collisionProperties = Ballistica.MAGIC_BOLT;
+	}
+
+	@Override public int min(int lvl) { return 2 + lvl; }
+	@Override public int max(int lvl) { return 5 + 3 * lvl; }
+
+	@Override public int initialCharges() { return 3; }
+
 	@Override
-	public String status() {
-		return levelKnown ? charge + "/" + chargeCap : null;
+	public void onZap(Ballistica bolt) {
+		Char target = Actor.findChar(bolt.collisionPos);
+		if (target == null) return;
+
+		wandProc(target, chargesPerCast());
+		target.damage(damageRoll(), this);
+		//SPSEXPD: 命中敌人或 NPC 时顺手偷窃
+		if (target instanceof Mob) stealFrom((Mob) target, target);
 	}
 
 	@Override
-	public Item upgrade() {
-		chargeCap = Math.min(6, chargeCap + 1);
-		return super.upgrade();
+	public void onHit(MagesStaff staff, Char attacker, Char defender, int damage) {
+		//与其它 SPS 法杖一致：战斗法师近战联动为空
 	}
 
 	@Override
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);
-		if (isEquipped(hero) && charge > 0 && !cursed) {
-			actions.add(AC_MAGIC_HAND);
-			actions.add(AC_STEAL);
-		}
-		if (!isEquipped(hero) && level() > 1 && !cursed) actions.add(AC_GOLDTOUCH);
+		if (curCharges > 0 || !curChargeKnown) actions.add(AC_MAGIC_HAND);
 		return actions;
 	}
 
 	@Override
 	public void execute(Hero hero, String action) {
-		super.execute(hero, action);
-
 		if (AC_MAGIC_HAND.equals(action)) {
 			curUser = hero;
-			if (!isEquipped(hero)) {
-				GLog.i(Messages.get(Artifact.class, "need_to_equip"));
-				usesTargeting = false;
-			} else if (charge < 1) {
-				GLog.i(Messages.get(this, "no_charge"));
+			if (curCharges < 1) {
+				GLog.w(Messages.get(Wand.class, "fizzles"));
 				usesTargeting = false;
 			} else if (cursed) {
-				GLog.w(Messages.get(this, "cursed"));
+				GLog.w(Messages.get(Wand.class, "cursed"));
 				usesTargeting = false;
 			} else {
 				usesTargeting = true;
 				GameScene.selectCell(magicHand);
 			}
+			return;
 		}
-		if (AC_STEAL.equals(action)) {
-			curUser = hero;
-			if (!isEquipped(hero)) {
-				GLog.i(Messages.get(Artifact.class, "need_to_equip"));
-				usesTargeting = false;
-			} else if (charge < 1) {
-				GLog.i(Messages.get(this, "no_charge"));
-				usesTargeting = false;
-			} else if (cursed) {
-				GLog.w(Messages.get(this, "cursed"));
-				usesTargeting = false;
-			} else {
-				usesTargeting = true;
-				GameScene.selectCell(targeter);
-			}
-		}
-		if (AC_GOLDTOUCH.equals(action)) {
-			applyGoldTouch(hero);
-		}
+		super.execute(hero, action);
 	}
 
-	protected void applyGoldTouch(Hero hero) {
-		Buff.affect(hero, GoldTouch.class, level() * 5f);
-		if (Gdx.audio != null) Sample.INSTANCE.play(Assets.Sounds.BURNING);
-		if (hero.sprite != null) hero.sprite.emitter().burst(ElmoParticle.FACTORY, 12);
-		hero.spend(1f);
-		hero.busy();
-		if (hero.sprite != null) hero.sprite.operate(hero.pos);
-		level(level() - 1);
-		updateQuickslot();
-	}
-
-	/** SPSEXPD: 魔术之手——把视野内的掉落物或金币隔空取来。 */
+	/** SPSEXPD: 魔术之手——把视野内的掉落物或金币隔空取来，消耗 1 点充能。 */
 	public final CellSelector.Listener magicHand = new CellSelector.Listener() {
 		@Override
 		public void onSelect(Integer target) {
@@ -181,10 +145,10 @@ public class MasterThievesArmband extends Artifact {
 				return;
 			}
 
-			charge--;
+			curCharges--;
 			seized.doPickUp(curUser);
 			GLog.i(Messages.get(MasterThievesArmband.class, "magic_done", seized.name()));
-			if (Gdx.audio != null) Sample.INSTANCE.play(Assets.Sounds.EVOKE);
+			Sample.INSTANCE.play(Assets.Sounds.EVOKE);
 			if (curUser.sprite != null) curUser.sprite.operate(curUser.pos);
 			updateQuickslot();
 			curUser.spendAndNext(1f);
@@ -196,60 +160,25 @@ public class MasterThievesArmband extends Artifact {
 		}
 	};
 
-	public final CellSelector.Listener targeter = new CellSelector.Listener() {
-		@Override
-		public void onSelect(Integer target) {
-			if (target == null) return;
-			if (curUser == null || Dungeon.level == null || target < 0 || target >= Dungeon.level.length()
-					|| !Dungeon.level.adjacent(curUser.pos, target)) {
-				GLog.w(Messages.get(MasterThievesArmband.class, "no_target"));
-				return;
-			}
+	/** SPSEXPD: 从被命中的目标身上摸走一件东西（沿用旧版袖章的掉落取用规则）。 */
+	protected void stealFrom(Mob mob, Char target) {
+		Hero owner = curUser instanceof Hero ? (Hero) curUser : Dungeon.hero;
+		if (owner == null) return;
 
-			Char targetChar = Actor.findChar(target);
-			if (!(targetChar instanceof Mob)) return;
-
-			final Mob mob = (Mob) targetChar;
-			curUser.busy();
-			Callback finish = new Callback() {
-				@Override
-				public void call() {
-					if (Gdx.audio != null) Sample.INSTANCE.play(Assets.Sounds.HIT);
-					performLegacySteal(mob);
-				}
-			};
-			if (curUser.sprite != null) curUser.sprite.attack(target, finish);
-			else finish.call();
-		}
-
-		@Override
-		public String prompt() {
-			return Messages.get(MasterThievesArmband.class, "prompt");
-		}
-	};
-
-	protected void performLegacySteal(Mob mob) {
 		Item loot = takeLegacyLoot(mob);
-		if (Dungeon.level != null && curUser != null && loot != null) {
-			Heap heap = Dungeon.level.drop(loot, curUser.pos);
-			if (heap != null && heap.sprite != null) heap.sprite.drop();
-		}
+		if (loot == null) return;
 
-		recordLegacySteal();
-		if (curUser != null) curUser.next();
+		if (loot instanceof StoneOre) {
+			GLog.i(Messages.get(this, "stolen_stone", Messages.get(target, "name")));
+		} else {
+			GLog.i(Messages.get(this, "stolen", Messages.get(target, "name"), loot.name()));
+		}
+		if (!loot.doPickUp(owner) && Dungeon.level != null) {
+			Dungeon.level.drop(loot, owner.pos);
+		}
 	}
 
-	protected void recordLegacySteal() {
-		charge--;
-		exp++;
-		while (exp >= level() && level() < levelCap) {
-			exp = 0;
-			GLog.p(Messages.get(MasterThievesArmband.class, "level_up"));
-			upgrade();
-		}
-		updateQuickslot();
-	}
-
+	/** 旧版规则：目标身上第一件掉落物用 SupercreateLoot 取，取不到就给一块石头。 */
 	protected Item takeLegacyLoot(Mob mob) {
 		if (mob.firstItem) {
 			mob.firstItem = false;
@@ -257,87 +186,5 @@ public class MasterThievesArmband extends Artifact {
 			return loot == null ? new StoneOre() : loot;
 		}
 		return new StoneOre();
-	}
-
-	@Override
-	protected ArtifactBuff passiveBuff() {
-		return new Thievery();
-	}
-
-	@Override
-	public String desc() {
-		String desc = super.desc();
-		if (isEquipped(Dungeon.hero)) desc += "\n\n" + Messages.get(this, "desc_worn");
-		return desc;
-	}
-
-	private static final String LEGACY_PARTIAL_CHARGE = "partialCharge";
-	private static final String SAVED_CHARGE = "charge";
-
-	@Override
-	public void storeInBundle(Bundle bundle) {
-		super.storeInBundle(bundle);
-		bundle.put(LEGACY_PARTIAL_CHARGE, partialCharge);
-	}
-
-	@Override
-	public void restoreFromBundle(Bundle bundle) {
-		int savedCharge = bundle.getInt(SAVED_CHARGE);
-		super.restoreFromBundle(bundle);
-		if (level() > levelCap) level(levelCap);
-		chargeCap = Math.min(6, 1 + level());
-		charge = Math.max(0, Math.min(chargeCap, savedCharge));
-		if (bundle.contains(LEGACY_PARTIAL_CHARGE)) {
-			partialCharge = bundle.getFloat(LEGACY_PARTIAL_CHARGE);
-		}
-	}
-
-	public class Thievery extends ArtifactBuff {
-		@Override
-		public boolean act() {
-			if (cursed && Dungeon.gold > 0 && Random.Int(5) == 0) Dungeon.gold--;
-
-			if (charge < chargeCap) {
-				partialCharge += 1f;
-				if (partialCharge >= 400f) {
-					charge++;
-					partialCharge = 0;
-					if (charge == chargeCap) partialCharge = 0;
-				}
-			} else {
-				partialCharge = 0;
-			}
-
-			updateQuickslot();
-			spend(TICK);
-			return true;
-		}
-
-		public void gainCharge() {
-			if (cursed) return;
-			if (charge < chargeCap) {
-				partialCharge += level();
-				while (partialCharge > 400f) {
-					partialCharge = 0;
-					charge++;
-					updateQuickslot();
-					if (charge == chargeCap) partialCharge = 0;
-				}
-			} else {
-				partialCharge = 0f;
-			}
-		}
-
-		// Retained only so Shattered's shop code compiles; zero keeps that non-SPS action hidden.
-		public boolean steal(Item item) { return false; }
-		public float stealChance(Item item) { return 0f; }
-		public int chargesToUse(Item item) { return 0; }
-	}
-
-	/** Kept to deserialize saves made by earlier SPS-SPD development builds. */
-	public static class StolenTracker extends CounterBuff {
-		{ revivePersists = true; }
-		public void setItemStolen(boolean stolen) { if (stolen) countUp(1); }
-		public boolean itemWasStolen() { return count() > 0; }
 	}
 }

@@ -751,8 +751,10 @@ public class Generator {
 					WandOfDisintegration.class,
 					WandOfMeteorite.class,
 					WandOfError.class,
-					WandOfTCloud.class };
-			WAND.defaultProbs = new float[]{ 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 0, 5 };
+					WandOfTCloud.class,
+					//SPSEXPD: 魔术之手法杖（原神器改造为普通法杖）加入法杖池
+					MasterThievesArmband.class };
+			WAND.defaultProbs = new float[]{ 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 0, 5, 5 };
 			WAND.probs = WAND.defaultProbs.clone();
 			
 			// SPS-PD 0.9.8's complete 60-weapon pool. Shattered weapons remain compiled but hidden.
@@ -1016,7 +1018,7 @@ public class Generator {
 					HeartOfSatan.class,
 					CloakOfShadows.class,
 					HornOfPlenty.class,
-					MasterThievesArmband.class,
+					//SPSEXPD: 魔术之手法杖已改造为普通法杖，移出神器池
 					SandalsOfNature.class,
 					TalismanOfForesight.class,
 					TimekeepersHourglass.class,
@@ -1037,7 +1039,7 @@ public class Generator {
 					GoddessRadiance.class,
 					CloakOfSheep.class
 			};
-			ARTIFACT.defaultProbs = new float[]{1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1};
+			ARTIFACT.defaultProbs = new float[]{1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1};
 			ARTIFACT.probs = ARTIFACT.defaultProbs.clone();
 
 			//Trinkets are unique like artifacts, but unlike them you can only have one at once

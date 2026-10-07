@@ -236,12 +236,6 @@ public class SpiritForm extends ClericSpell {
 		} else if (effect instanceof HornOfPlenty){
 			((HornOfPlenty) effect).doEatEffect(Dungeon.hero, 1);
 
-		} else if (effect instanceof MasterThievesArmband){
-			GameScene.selectCell(((MasterThievesArmband) effect).targeter);
-			if (Dungeon.quickslot.contains(armor)) {
-				QuickSlotButton.useTargeting(Dungeon.quickslot.getSlot(armor));
-			}
-
 		} else if (effect instanceof SandalsOfNature){
 			((SandalsOfNature) effect).curSeedEffect = Random.oneOf(
 					Blindweed.Seed.class, Fadeleaf.Seed.class, Firebloom.Seed.class,
