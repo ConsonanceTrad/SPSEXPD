@@ -65,7 +65,7 @@ public final class SpsPsionicBlastTest {
 			testEmpoweredRead();
 			testSaveAndObsoleteLabelMigration();
 			testLegacySpritesAndLocalizedResources();
-			System.out.println("SPS灵能汲取卷轴通过：普通警觉与30回合灵能、强化视野击杀、14类权重池、识别存档、旧符文素材和四语文本均符合0.9.8。");
+			System.out.println("SPS灵能汲取卷轴通过：普通警觉与30回合灵能、强化视野击杀、15类权重池、识别存档、旧符文素材和四语文本均符合0.9.8。");
 		} finally {
 			Scroll.clearLabels();
 			Actor.clear();
@@ -76,25 +76,25 @@ public final class SpsPsionicBlastTest {
 	}
 
 	private static void testIdentityPoolAndLabels() {
+		//SPSEXPD: 报应卷轴与转化卷轴也在普通池中（用户裁决 2026-12：保留在普通池，仅同步断言）
 		Class<?>[] expected = {
 				ScrollOfIdentify.class, ScrollOfTeleportation.class, ScrollOfRemoveCurse.class,
 				ScrollOfUpgrade.class, ScrollOfRecharging.class, ScrollOfMagicMapping.class,
 				ScrollOfRage.class, ScrollOfTerror.class, ScrollOfLullaby.class,
 				ScrollOfMagicalInfusion.class, ScrollOfPsionicBlast.class,
-				ScrollOfMirrorImage.class, ScrollOfRegrowth.class
+				ScrollOfMirrorImage.class, ScrollOfRegrowth.class,
+				ScrollOfRetribution.class, ScrollOfTransmutation.class
 		};
-		float[] probabilities = {30, 10, 15, 3, 10, 20, 10, 8, 8, 3, 3, 6, 6};
+		float[] probabilities = {30, 10, 15, 3, 10, 20, 10, 8, 8, 3, 3, 6, 6, 3, 3};
 		check(Arrays.equals(Generator.Category.SCROLL.classes, expected),
 				"普通卷轴池的类型或顺序不符合0.9.8");
 		check(Arrays.equals(Generator.Category.SCROLL.defaultProbs, probabilities)
 				&& Arrays.equals(Generator.Category.SCROLL.defaultProbsTotal, probabilities)
 				&& Generator.Category.SCROLL.defaultProbs2 == null,
 				"普通卷轴池的权重或单牌组规则不符合0.9.8");
-		check(!Arrays.asList(expected).contains(ScrollOfRetribution.class)
-				&& !Arrays.asList(expected).contains(ScrollOfTransmutation.class)
-				&& !Arrays.asList(expected).contains(
+		check(!Arrays.asList(expected).contains(
 						pd.items.consum.scrolls.exotic.ScrollOfPsionicBlast.class),
-				"破碎版普通卷轴或灵爆秘卷仍进入SPS普通卷轴池");
+				"破碎版灵爆秘卷仍进入SPS普通卷轴池");
 		check(pd.items.consum.scrolls.exotic.ScrollOfPsionicBlast.class
 				.getSuperclass() == ExoticScroll.class, "破碎版灵爆秘卷源码未保留");
 
@@ -104,8 +104,10 @@ public final class SpsPsionicBlastTest {
 			Scroll scroll = (Scroll) render.utils.serialize.Reflection.newInstance(type);
 			images.add(scroll.image);
 		}
-		check(images.size() == 14 && Scroll.getUnknown().size() == 14,
-				"14类普通卷轴没有获得14个独立旧版符文标签");
+		//SPSEXPD: 池内 15 类各自获得一个未识别标签；图标集合为 14（两项共用同一张图）
+		check(images.size() == 14 && Scroll.getUnknown().size() == 15,
+				"普通卷轴池的图标或未识别标签数量不符（images=" + images.size()
+						+ ", unknown=" + Scroll.getUnknown().size() + "）");
 
 		ScrollOfPsionicBlast scroll = new ScrollOfPsionicBlast();
 		check(scroll.getClass().getSuperclass() == Scroll.class
@@ -207,8 +209,8 @@ public final class SpsPsionicBlastTest {
 				}
 			}
 		}
-		check(SpecificPlaceHolderDict.SOMETHING_0 != SpecificPlaceHolderDict.SOMETHING_0
-				&& SpecificPlaceHolderDict.SOMETHING_0 != SpecificPlaceHolderDict.SOMETHING_0,
+		//SPSEXPD: 原断言写成 X != X 恒假，按意图修正为「新增占位槽与旧版符文占位槽不得同槽」
+		check(SpecificPlaceHolderDict.SOMETHING_0 != SpecificPlaceHolderDict.SCROLL_HOLDER_0,
 				"新增旧版符文图标槽发生冲突");
 
 		for (String file : new String[]{"en/items.properties", "zh/items.properties",
