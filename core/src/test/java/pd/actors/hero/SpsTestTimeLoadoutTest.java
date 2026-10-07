@@ -110,6 +110,8 @@ public final class SpsTestTimeLoadoutTest {
 		SpsTestTimeLoadout.apply(hero);
 		check(hero.belongings.getItem(Elevator.class) == null && Dungeon.gold == 77,
 				"未启用TEST_TIME时仍发放了测试物资");
+		//SPSEXPD: 测试时间的重随机会不应污染普通模式
+		check(hero.perkRerolls == Hero.DEFAULT_PERK_REROLLS, "普通模式重随次数被测试模式污染");
 		//SPS: 主背包基准 40 格（5x8）；该断言防止 TEST_TIME 的扩容污染普通模式
 		check(hero.belongings.backpack.capacity() == Belongings.BACKPACK_CAPACITY,
 				"普通模式背包容量被测试模式污染");
@@ -132,6 +134,8 @@ public final class SpsTestTimeLoadoutTest {
 			check(challenges != null && challenges.isUnlocked(i), "测试模式未解锁挑战路线" + i);
 		}
 		check(challenges instanceof ChallengeBook, "测试模式没有获得ChallengeBook实体");
+		//SPSEXPD: 测试时间给足重随机会，方便反复刷候选
+		check(hero.perkRerolls == 999, "测试时间没有给足重随机会");
 
 		Class<?>[] uniqueItems = {
 				Elevator.class, SkillBook.class, ScrollHolder.class,

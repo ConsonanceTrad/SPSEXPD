@@ -42,6 +42,10 @@ import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
 
+/**
+ * SPSEXPD: 神意启发合剂（原版给「天赋点」，天赋体系已停用）——
+ * 效果改为：每次饮用提供 3 次特质候选的重随机会，可反复饮用。
+ */
 public class PotionOfDivineInspiration extends ExoticPotion {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
@@ -49,13 +53,13 @@ public class PotionOfDivineInspiration extends ExoticPotion {
 			.t("name", "神意启发合剂")
 			.t("no_more_points", "你无法再获得更多的额外天赋点了。")
 			.t("select_tier", "选择一个天赋以获得两个额外点数。该天赋所在的层阶必须已被解锁。")
-			.t("bonus", "天赋点+2！")
-			.t("desc", "这股神圣的力量会化作液态，灌注进饮用者的身体，赋予其钟意的天赋两个额外天赋点。\n\n这种药剂对每一层天赋只能生效一次。");
+			.t("bonus", "重随机会 +3！")
+			.t("desc", "这股神圣的力量会化作液态，灌注进饮用者的身体，让他在选择特质时获得 3 次额外的重随机会。\n\n这种药剂可以反复饮用，每次都会提供 3 次重随机会。");
 	}
 
+	/** 每次饮用提供的重随机会次数 */
+	public static final int REROLL_BONUS = 3;
 
-
-	
 	{
 		icon = ItemIconSheet.POTION_DIVINE;
 
@@ -63,6 +67,12 @@ public class PotionOfDivineInspiration extends ExoticPotion {
 	}
 
 	protected static boolean identifiedByUse = false;
+
+	/** 给英雄增加重随机会（UI 与无头校验共用） */
+	public static void grantRerolls(Hero hero) {
+		if (hero == null) return;
+		hero.perkRerolls += REROLL_BONUS;
+	}
 
 	@Override
 	//need to override drink so that time isn't spent right away
@@ -76,97 +86,30 @@ public class PotionOfDivineInspiration extends ExoticPotion {
 			identifiedByUse = false;
 		}
 
-		boolean[] enabled = new boolean[5];
-		enabled[1] = enabled[2] = enabled[3] = enabled[4] = true;
+		//SPSXPD: 效果改为「增加特质重随机会」（原版是选一个天赋阶 +2 天赋点）
+		grantRerolls(hero);
 
-		DivineInspirationTracker tracker = hero.buff(DivineInspirationTracker.class);
+		if (!identifiedByUse) {
+			curItem.detach( curUser.belongings.backpack );
+		}
+		identifiedByUse = false;
 
-		if (tracker != null){
-			boolean allBoosted = true;
-			for (int i = 1; i <= 4; i++){
-				if (tracker.isBoosted(i)){
-					enabled[i] = false;
-				} else {
-					allBoosted = false;
-				}
-			}
+		curUser.busy();
+		curUser.sprite.operate(curUser.pos);
+		curUser.spendAndNext(1f);
 
-			if (allBoosted){
-				GLog.w(Messages.get(this, "no_more_points"));
-				return;
+		Sample.INSTANCE.play( Assets.Sounds.DRINK );
+		Sample.INSTANCE.playDelayed(Assets.Sounds.LEVELUP, 0.3f, 0.7f, 1.2f);
+		Sample.INSTANCE.playDelayed(Assets.Sounds.LEVELUP, 0.6f, 0.7f, 1.2f);
+		new Flare( 6, 32 ).color(0xFFFF00, true).show( curUser.sprite, 2f );
+		GLog.p(Messages.get(PotionOfDivineInspiration.class, "bonus"));
+
+		if (!anonymous) {
+			Catalog.countUse(PotionOfDivineInspiration.class);
+			if (Random.Float() < talentChance) {
+				Talent.onPotionUsed(curUser, curUser.pos, talentFactor);
 			}
 		}
-
-		GameScene.show(new WndOptions(
-				new ItemSprite(this),
-				Messages.titleCase(trueName()),
-				Messages.get(PotionOfDivineInspiration.class, "select_tier"),
-				Messages.titleCase(Messages.get(TalentsPane.class, "tier", 1)),
-				Messages.titleCase(Messages.get(TalentsPane.class, "tier", 2)),
-				Messages.titleCase(Messages.get(TalentsPane.class, "tier", 3)),
-				Messages.titleCase(Messages.get(TalentsPane.class, "tier", 4))
-		){
-			@Override
-			protected boolean enabled(int index) {
-				return enabled[index+1];
-			}
-
-			@Override
-			protected void onSelect(int index) {
-				super.onSelect(index);
-
-				if (index != -1){
-					Buff.affect(curUser, DivineInspirationTracker.class).setBoosted(index+1);
-
-					if (!identifiedByUse) {
-						curItem.detach(curUser.belongings.backpack);
-					}
-					identifiedByUse = false;
-
-					curUser.busy();
-					curUser.sprite.operate(curUser.pos);
-
-					curUser.spendAndNext(1f);
-
-					boolean unspentTalents = false;
-					for (int i = 1; i <= Dungeon.hero.talents.size(); i++){
-						if (Dungeon.hero.talentPointsAvailable(i) > 0){
-							unspentTalents = true;
-							break;
-						}
-					}
-					if (unspentTalents){
-						StatusPane.talentBlink = 10f;
-						WndHero.lastIdx = 1;
-					}
-
-					GameScene.showlevelUpStars();
-
-					Sample.INSTANCE.play( Assets.Sounds.DRINK );
-					Sample.INSTANCE.playDelayed(Assets.Sounds.LEVELUP, 0.3f, 0.7f, 1.2f);
-					Sample.INSTANCE.playDelayed(Assets.Sounds.LEVELUP, 0.6f, 0.7f, 1.2f);
-					new Flare( 6, 32 ).color(0xFFFF00, true).show( curUser.sprite, 2f );
-					GLog.p(Messages.get(PotionOfDivineInspiration.class, "bonus"));
-
-					if (!anonymous) {
-						Catalog.countUse(PotionOfDivineInspiration.class);
-						if (Random.Float() < talentChance) {
-							Talent.onPotionUsed(curUser, curUser.pos, talentFactor);
-						}
-					}
-
-				}
-			}
-
-			@Override
-			public void onBackPressed() {
-				//window can be closed if potion is already IDed
-				if (!identifiedByUse){
-					super.onBackPressed();
-				}
-			}
-		});
-
 	}
 
 	public static class DivineInspirationTracker extends Buff {

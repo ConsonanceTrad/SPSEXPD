@@ -59,6 +59,7 @@ public final class SpsTraitSystemTest {
 			testMaxedPerksNotOffered();
 			testRichDescription();
 			testUpgradeNotice();
+			testPerkRerolls();
 
 			System.out.println("SpsTraitSystemTest PASS (" + checks + " checks)");
 		} catch (Throwable t) {
@@ -301,6 +302,41 @@ public final class SpsTraitSystemTest {
 		String text = PerkGain.upgradeText(keen);
 		check(text.contains(keen.title()), "升级提示缺少特质名：" + text);
 		check(text.contains("2 级"), "升级提示缺少新等级：" + text);
+	}
+
+	/** 重随机会：初始 2 次、合剂 +3（可反复）、排除抽取、满级不进重随池 */
+	private static void testPerkRerolls() {
+		Hero hero = new Hero();
+		check(Hero.DEFAULT_PERK_REROLLS == 2, "默认重随次数应为 2");
+		check(hero.perkRerolls == 2, "重随机会初始应为 2");
+
+		//神意启发合剂：每次 +3，可反复饮用；空英雄不出错
+		pd.items.consum.potions.exotic.PotionOfDivineInspiration.grantRerolls(null);
+		check(hero.perkRerolls == 2, "空英雄不应改变重随次数");
+		int bonus = pd.items.consum.potions.exotic.PotionOfDivineInspiration.REROLL_BONUS;
+		check(bonus == 3, "神意启发合剂每次应 +3 次重随");
+		pd.items.consum.potions.exotic.PotionOfDivineInspiration.grantRerolls(hero);
+		check(hero.perkRerolls == 2 + bonus, "神意启发合剂没有增加重随机会");
+		pd.items.consum.potions.exotic.PotionOfDivineInspiration.grantRerolls(hero);
+		check(hero.perkRerolls == 2 + 2 * bonus, "神意启发合剂应能反复生效");
+
+		//只重随选中格：被排除的类不会再被抽到
+		java.util.HashSet<Class<? extends Perk>> exclude = new java.util.HashSet<>();
+		exclude.add(Keen.class);
+		exclude.add(HardCrit.class);
+		for (int i = 0; i < 200; i++) {
+			Perk p = Perk.Companion.randomPositiveExcluding(hero, exclude);
+			check(p != null, "排除抽取不应返回 null");
+			check(!exclude.contains(p.getClass()), "重随抽到了被排除的候选：" + p.getClass().getSimpleName());
+		}
+
+		//已满级的特质不会出现在重随池里
+		hero.heroPerk.add(new Keen());
+		hero.heroPerk.get(Keen.class).setLevel(hero.heroPerk.get(Keen.class).maxLevel());
+		for (int i = 0; i < 200; i++) {
+			Perk p = Perk.Companion.randomPositiveExcluding(hero, null);
+			check(p != null && p.getClass() != Keen.class, "重随抽到了已满级的特质");
+		}
 	}
 
 	private static boolean hasColor(java.util.List<Span> spans, int color) {

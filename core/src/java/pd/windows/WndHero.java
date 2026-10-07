@@ -127,7 +127,6 @@ public class WndHero extends WndTabbed {
 			protected void select( boolean value ) {
 				super.select( value );
 				if (selected) lastIdx = 1;
-				if (selected) StatusPane.talentBlink = 0;
 				talents.visible = talents.active = selected;
 			}
 		} );

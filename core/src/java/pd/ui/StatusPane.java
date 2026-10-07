@@ -50,9 +50,9 @@ public class StatusPane extends Component {
 	private NinePatch bg;
 	private Image avatar;
 	private Button heroInfo;
-	public static float talentBlink;
 	private float warning;
 
+	//SPSXPD: 闪烁速率仍供炼金场景/菜单的闪烁动画使用（头像的「有天赋点闪金光」已移除）
 	public static final float FLASH_RATE = (float)(Math.PI*1.5f); //1.5 blinks per second
 
 	private int lastTier = 0;
@@ -128,8 +128,6 @@ public class StatusPane extends Component {
 
 		avatar = HeroSprite.avatar( Dungeon.hero );
 		add( avatar );
-
-		talentBlink = 0;
 
 		compass = new Compass( Statistics.amuletObtained ? Dungeon.level.entrance() : Dungeon.level.exit() );
 		add( compass );
@@ -308,9 +306,6 @@ public class StatusPane extends Component {
 			warning += Game.elapsed * 5f *(0.4f - (health/(float)max));
 			warning %= 1f;
 			avatar.tint(ColorMath.interpolate(warning, warningColors), 0.5f );
-		} else if (talentBlink > 0.33f){ //stops early so it doesn't end in the middle of a blink
-			talentBlink -= Game.elapsed;
-			avatar.tint(1, 1, 0, (float)Math.abs(Math.cos(talentBlink*FLASH_RATE))/2f);
 		} else {
 			avatar.resetColor();
 		}

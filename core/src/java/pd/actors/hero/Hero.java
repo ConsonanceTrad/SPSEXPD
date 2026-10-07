@@ -343,6 +343,10 @@ public class Hero extends Char {
 
 	/** 未使用的特质点（每 PERK_LEVEL_STEP 级 +1） */
 	public int reservedPerks = 0;
+	/** 开局默认的重随机会次数 */
+	public static final int DEFAULT_PERK_REROLLS = 2;
+	/** 剩余的重随机会（初始 2 次；「神意启发合剂」每次 +3，测试时间给 999） */
+	public int perkRerolls = DEFAULT_PERK_REROLLS;
 	/** 本次升级抽出的候选特质（存档安全） */
 	public ArrayList<pd.actors.hero.perks.Perk> spawnedPerks = new ArrayList<>();
 	/** 已获得的特质数量（用于徽章等统计） */
@@ -355,6 +359,7 @@ public class Hero extends Char {
 	public pd.actors.hero.TraitCounters traitCounters = new pd.actors.hero.TraitCounters();
 
 	public static final String PERK_POINTS    = "sps_perk_points";
+	public static final String PERK_REROLLS   = "sps_perk_rerolls";
 	public static final String PERK_SPAWNED   = "sps_perk_spawned";
 	public static final String PERK_GAINED    = "sps_perk_gained";
 	public static final String CRITICAL_CHANCE= "sps_critical_chance";
@@ -523,6 +528,7 @@ public class Hero extends Char {
 		//SPSXPD: 特质体系存档
 		heroPerk.storeInBundle( bundle );
 		bundle.put( PERK_POINTS, reservedPerks );
+		bundle.put( PERK_REROLLS, perkRerolls );
 		bundle.put( PERK_SPAWNED, spawnedPerks );
 		bundle.put( PERK_GAINED, perkGained );
 		bundle.put( CRITICAL_CHANCE, criticalChance );
@@ -571,6 +577,9 @@ public class Hero extends Char {
 		if (bundle.contains( PERK_POINTS )) {
 			heroPerk.restoreFromBundle( bundle );
 			reservedPerks = bundle.getInt( PERK_POINTS );
+			//SPSXPD: 旧档没有该键时回落到默认次数（否则会读成 0）
+			perkRerolls = bundle.contains( PERK_REROLLS )
+					? bundle.getInt( PERK_REROLLS ) : DEFAULT_PERK_REROLLS;
 			spawnedPerks.clear();
 			if (bundle.contains( PERK_SPAWNED )) {
 				for (render.utils.serialize.Bundlable b : bundle.getCollection( PERK_SPAWNED )) {
@@ -2654,7 +2663,7 @@ public class Hero extends Char {
 					reservedPerks++;
 					GLog.newLine();
 					GLog.p( Messages.get(this, "new_perk") );
-					StatusPane.talentBlink = 10f;
+					//SPSXPD: 不再让左上角头像闪金光（加点提示由左下角快捷按钮承担）
 				}
 				//「特定等级必然获得」与「满足条件即获得」的特质检查
 				pd.actors.hero.perks.PerkGrants.onLevelUp(this, lvl);

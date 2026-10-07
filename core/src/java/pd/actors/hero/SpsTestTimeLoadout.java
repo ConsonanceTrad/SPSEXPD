@@ -146,6 +146,8 @@ public final class SpsTestTimeLoadout {
 		collect(hero, armband);
 
 		Dungeon.gold = 20000;
+		//SPSEXPD: 测试时间给足重随机会，方便反复刷候选
+		hero.perkRerolls = 999;
 		//SPSEXPD: 初始血量恢复正常（不再把 TEST_TIME 的最大生命拉到 10000，也不覆盖开局生命）
 		//SPS: 不再把开局挪到 1 层。Dungeon.init() 已把 depth 设为 0（0 层 = 学者+商店安全层），
 		//这里若覆盖成 1 会把出生点推后一层；测试时间挑战只负责发装备，不改开局位置。

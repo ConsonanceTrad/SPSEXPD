@@ -55,7 +55,8 @@ public class PerkSlot extends Button {
 		}
 		icon.x = x + (width - icon.width()) / 2f;
 		icon.y = y + (height - icon.height()) / 2f;
-		level.setPos(x + width - level.width() - 1, y + 1);
+		//SPSXPD: 数字左移下移一点，使其保持在 16x16 的图标内（格子 20x20、图标居中）
+		level.setPos(x + width - level.width() - 3, y + 3);
 	}
 
 	@Override

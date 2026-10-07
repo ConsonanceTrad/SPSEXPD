@@ -43,6 +43,10 @@ public abstract class WndSelectPerk extends Window {
 	private int selected = -1;
 
 	public WndSelectPerk(String title, ArrayList<Perk> perks) {
+		this(title, perks, 0);
+	}
+
+	public WndSelectPerk(String title, ArrayList<Perk> perks, int initialSelection) {
 		super();
 
 		this.perks = perks;
@@ -79,10 +83,20 @@ public abstract class WndSelectPerk extends Window {
 		add(confirm);
 
 		if (!perks.isEmpty()) {
-			select(0);
+			select(Math.max(0, Math.min(initialSelection, perks.size() - 1)));
 		} else {
 			relayout();
 		}
+	}
+
+	/** 当前选中的候选下标（无选中时为 -1），供子类做「只重随选中格」 */
+	protected int selectedIndex() {
+		return selected;
+	}
+
+	/** 候选列表（只读用途） */
+	protected ArrayList<Perk> perkList() {
+		return perks;
 	}
 
 	private int rows() {

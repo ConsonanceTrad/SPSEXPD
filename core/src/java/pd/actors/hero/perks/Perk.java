@@ -397,6 +397,24 @@ public abstract class Perk implements Bundlable {
 			return l.isEmpty() ? new LuckFromAuthor() : l.get(0);
 		}
 
+		/**
+		 * 抽 1 个候选，排除 exclude 里的类（用于「只重随选中格」：排除其它格与原来的类）。
+		 * 池中已无可抽项时返回 null，由调用方决定提示与是否消耗次数。
+		 */
+		public static Perk randomPositiveExcluding(
+				Hero hero, java.util.Collection<Class<? extends Perk>> exclude) {
+			LinkedHashMap<Class<? extends Perk>, Float> pool = new LinkedHashMap<>();
+			for (java.util.Map.Entry<Class<? extends Perk>, Float> e : POSITIVES.entrySet()) {
+				if (e.getValue() <= 0f) continue;
+				if (exclude != null && exclude.contains(e.getKey())) continue;
+				Perk probe = Reflection.newInstance(e.getKey());
+				if (probe != null && probe.isAcquireAllowed(hero)) pool.put(e.getKey(), e.getValue());
+			}
+			if (pool.isEmpty()) return null;
+			Class<? extends Perk> c = weightedPick(pool);
+			return c == null ? null : Reflection.newInstance(c);
+		}
+
 		/** 候选数：拥有 ExtraPerkChoice 时为 5，否则 3 */
 		public static int candidateCount(Hero hero) {
 			return hero != null && hero.heroPerk != null && hero.heroPerk.has(ExtraPerkChoice.class) ? 5 : 3;
