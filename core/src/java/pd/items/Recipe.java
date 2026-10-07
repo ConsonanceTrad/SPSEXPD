@@ -286,6 +286,8 @@ public abstract class Recipe {
 		if (pkg.startsWith("pd.items.quest")) return true;
 		//图鉴页/日志页/挑战纸片/钥匙
 		if (pkg.startsWith("pd.items.specific")) return true;
+		//护甲配件包：升格为可反复使用的换皮道具后不再参与炼金
+		if (item instanceof ArmorKit) return true;
 		//BOSS 钥匙与剧情道具
 		if (item instanceof SpsBossKey || item instanceof TreasureMap || item instanceof TengusMask
 				|| item instanceof KingsCrown || item instanceof Amulet || item instanceof DolyaSlate

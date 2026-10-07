@@ -125,6 +125,12 @@ public class NormalArmor extends Armor {
 		return Math.max(1, price);
 	}
 
+	/** SPSXPD: 该英雄职业对应的英雄护甲外观图标（护甲工具包换皮用）。 */
+	public static pd.atlas.IconEntry heroicIcon(Hero owner) {
+		NormalArmor armor = upgrade(owner);
+		return armor == null ? null : armor.image;
+	}
+
 	public static NormalArmor upgrade(Hero owner) {
 		if (owner == null || owner.heroClass == null) return null;
 		switch (owner.heroClass) {

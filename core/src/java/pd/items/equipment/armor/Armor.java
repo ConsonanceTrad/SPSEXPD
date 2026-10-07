@@ -42,9 +42,11 @@ import pd.actors.hero.spells.HolyWard;
 import pd.actors.hero.spells.LifeLinkSpell;
 import pd.actors.mobs.npcs.PrismaticImage;
 import pd.effects.Speck;
+import pd.atlas.IconEntry;
 import pd.items.BrokenSeal;
 import pd.items.EquipableItem;
 import pd.items.Item;
+import pd.items.equipment.armor.normalarmor.NormalArmor;
 import pd.items.equipment.armor.curses.AntiEntropy;
 import pd.items.equipment.armor.curses.Bulk;
 import pd.items.equipment.armor.curses.Corrosion;
@@ -180,6 +182,7 @@ public class Armor extends EquipableItem {
 		this.tier = tier;
 	}
 	
+	private static final String HEROIC_SKIN = "heroic_skin";
 	private static final String USES_LEFT_TO_ID = "uses_left_to_id";
 	private static final String AVAILABLE_USES  = "available_uses";
 	private static final String GLYPH			= "glyph";
@@ -189,9 +192,37 @@ public class Armor extends EquipableItem {
 	private static final String SEAL            = "seal";
 	private static final String AUGMENT			= "augment";
 
+	/** SPSXPD: 护甲工具包换上的「英雄护甲外观」——只影响显示图标，护甲本身数值/技能不变。 */
+	public boolean heroicSkin;
+	private IconEntry heroicIcon;
+
+	/** SPSXPD: 英雄外观时返回对应职业的英雄护甲图标，否则返回护甲自身图标。 */
+	@Override
+	public IconEntry image() {
+		if (heroicSkin) {
+			if (heroicIcon == null) heroicIcon = NormalArmor.heroicIcon(Dungeon.hero);
+			if (heroicIcon != null) return heroicIcon;
+		}
+		return super.image();
+	}
+
+	/** SPSXPD: 换/还原英雄护甲外观；没有对应职业外观时返回 false 且不改变状态。 */
+	public boolean toggleHeroicSkin() {
+		if (heroicSkin) {
+			heroicSkin = false;
+			heroicIcon = null;
+			return true;
+		}
+		if (NormalArmor.heroicIcon(Dungeon.hero) == null) return false;
+		heroicSkin = true;
+		heroicIcon = null;
+		return true;
+	}
+
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
+		bundle.put( HEROIC_SKIN, heroicSkin );
 		bundle.put( USES_LEFT_TO_ID, usesLeftToID );
 		bundle.put( AVAILABLE_USES, availableUsesToID );
 		bundle.put( GLYPH, glyph );
@@ -205,6 +236,8 @@ public class Armor extends EquipableItem {
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle(bundle);
+		heroicSkin = bundle.getBoolean( HEROIC_SKIN );
+		heroicIcon = null;   //SPSEXPD: 图标留到下次访问时按当前英雄职业重建
 		usesLeftToID = bundle.getInt( USES_LEFT_TO_ID );
 		availableUsesToID = bundle.getInt( AVAILABLE_USES );
 		inscribe((Glyph) bundle.get(GLYPH));

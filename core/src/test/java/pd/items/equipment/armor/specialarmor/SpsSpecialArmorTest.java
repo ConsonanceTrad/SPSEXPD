@@ -63,12 +63,12 @@ public final class SpsSpecialArmorTest {
 		Random.pushGenerator(0x53505341524D4F52L);
 		try {
 			testAbilityTransferSource();
+			testArmorKitReskin();
 			testDefinitionsAndArmorKitMapping();
 			testPassiveEffects();
 			testSaveRestore();
 			testLegacyIcons();
-			testAbilityTransferSource();
-			System.out.println("SPS八职业特殊护甲测试通过：护甲包映射、数值、受击被动、存档、原始图标与能力转移素材判定均正常。");
+			System.out.println("SPS八职业特殊护甲测试通过：护甲包映射、数值、受击被动、存档、原始图标、能力转移素材判定与工具包换皮均正常。");
 		} finally {
 			Random.popGenerator();
 		}
@@ -171,6 +171,50 @@ public final class SpsSpecialArmorTest {
 				java.nio.charset.StandardCharsets.UTF_8);
 		check(source.contains("item instanceof Armor && !item.isEquipped(hero)"),
 				"ClassArmor 的能力转移可以选中装备中的护甲（会导致能力被复制但护甲还在）");
+	}
+
+	/**
+	 * 护甲工具包换皮：只换显示图标、可再点一次还原、状态入档；
+	 * 工具包升格为特殊物品后不再消耗自身（源码断言，execute 走 GameScene.selectItem 无法 headless 跑）。
+	 */
+	private static void testArmorKitReskin() throws Exception {
+		Hero hero = hero();
+		hero.heroClass = pd.actors.hero.HeroClass.WARRIOR;
+		//用一件普通护甲来验证（英雄护甲自身的图标就是「英雄外观」，换皮看不出差别）
+		pd.items.equipment.armor.Armor armor = new pd.items.equipment.armor.normalarmor.MailArmor();
+		pd.atlas.IconEntry base = armor.image();
+
+		check(!armor.heroicSkin, "护甲初始不该带英雄外观");
+		check(armor.toggleHeroicSkin(), "护甲换皮失败");
+		check(armor.heroicSkin && armor.image() != base, "换皮后没有换成英雄护甲图标");
+		check(armor.image() == NormalArmor.heroicIcon(hero), "换皮后的图标不是该职业的英雄护甲图标");
+
+		check(armor.toggleHeroicSkin(), "还原外观失败");
+		check(!armor.heroicSkin && armor.image() == base, "还原后图标没有回到护甲自身图标");
+
+		//换皮状态入档；加载后图标按当前职业重建
+		armor.toggleHeroicSkin();
+		render.utils.serialize.Bundle bundle = new render.utils.serialize.Bundle();
+		armor.storeInBundle(bundle);
+		pd.items.equipment.armor.Armor restored = new pd.items.equipment.armor.normalarmor.MailArmor();
+		restored.restoreFromBundle(bundle);
+		check(restored.heroicSkin, "换皮状态没有随存档恢复");
+		check(restored.image() == armor.image(), "存档恢复后的英雄外观图标不一致");
+		check(restored.image() != base, "存档恢复后被换皮的护甲显示回了原图标");
+
+		//没有对应职业外观时（无职业）不改变状态
+		Hero classless = hero();
+		classless.heroClass = null;
+		pd.items.equipment.armor.Armor plain = new pd.items.equipment.armor.normalarmor.MailArmor();
+		check(!plain.toggleHeroicSkin(), "无职业时不该允许换皮");
+		check(!plain.heroicSkin, "无职业时不该置上英雄外观状态");
+
+		//工具包不再被消耗
+		String source = new String(java.nio.file.Files.readAllBytes(
+				java.nio.file.Path.of("../java/pd/items/ArmorKit.java")),
+				java.nio.charset.StandardCharsets.UTF_8);
+		check(!source.contains("detach(hero.belongings.backpack)"), "护甲工具包仍在消耗自身");
+		check(source.contains("toggleHeroicSkin"), "护甲工具包没有接上换皮动作");
 	}
 
 	private static Hero hero() {

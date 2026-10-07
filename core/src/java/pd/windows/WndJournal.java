@@ -823,7 +823,7 @@ public class WndJournal extends WndTabbed {
 					}
 				}
 
-				sprite = new ItemSprite(item.image, seen ? item.glowing() : null);
+				sprite = new ItemSprite(item.image(), seen ? item.glowing() : null);
 				if (!seen)  {
 					if (item instanceof ExoticPotion){
 						sprite.frame(ConsumPotionSeedBasicPotionDict.POTION_CRIMSON_0);
