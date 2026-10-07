@@ -7,8 +7,11 @@ import com.badlogic.gdx.backends.headless.HeadlessApplicationConfiguration;
 import com.badlogic.gdx.backends.headless.HeadlessFiles;
 import com.badlogic.gdx.utils.GdxNativesLoader;
 import pd.Dungeon;
+import pd.actors.Actor;
 import pd.actors.buffs.Poison;
 import pd.actors.hero.Hero;
+import pd.actors.hero.perks.Perk;
+import pd.actors.mobs.Mob;
 import pd.items.consum.food.processed.AetherLiquid;
 import pd.items.consum.food.processed.CrystalShard;
 import pd.items.consum.food.processed.HighEnergySpore;
@@ -23,13 +26,23 @@ import pd.items.consum.potions.wish.WishFragment;
 import pd.items.consum.potions.wish.WishMatcher;
 import pd.items.consum.potions.wish.WishOnlyItem;
 import pd.items.consum.potions.wish.WishRewardTable;
+import pd.items.consum.potions.wish.WishSummon;
+import pd.items.consum.potions.wish.WishTraitGrant;
+import pd.items.consum.potions.wish.WishType;
 import pd.items.misc.LuckyBadge;
+import pd.levels.Level;
+import pd.levels.Terrain;
+import pd.levels.traps.Trap;
+import pd.plants.Plant;
+import render.utils.data.SparseArray;
 import render.utils.serialize.Reflection;
 
 import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -54,10 +67,15 @@ public final class SpsWishPotionTest {
 		testTiers();
 		testWishItems();
 		testWishEffects();
+		testKindWishes();
+		testMobWishes();
+		testTraitWishes();
 		testDebugger();
 		testGuideWiring();
+		//SPSXPD: 占位符等未命名物品的 name() 为 null，标题整理（物品详情窗用）必须不崩
+		check(pd.messages.Messages.titleCase(null).isEmpty(), "null 物品名不应让标题整理崩溃");
 
-		System.out.println("SPS许愿魔药测试通过：配方、候选池与黑名单、名称词匹配、幸运等级门槛、彩蛋物品、效果与死亡愿望、调试器与炼金指南接线均正常。");
+		System.out.println("SPS许愿魔药测试通过：配方、候选池与黑名单、名称词匹配、类型词（武器/神器/秘药等）、怪物召唤、特质精确名、幸运等级门槛、彩蛋物品、效果与死亡愿望、调试器与炼金指南接线均正常。");
 	}
 
 	//---- 配方 ----
@@ -200,6 +218,136 @@ public final class SpsWishPotionTest {
 		check(nothing.kind == WishEngine.Kind.NOTHING, "空愿望没有被判定为无事发生");
 	}
 
+	//---- 类型词愿望 ----
+
+	private static void testKindWishes() {
+		Hero hero = newHero();
+		//给足幸运，让 tier4 的类型池（神器/秘药）也能正常命中，而不是被削弱成低级替代品
+		LuckyBadge badge = new LuckyBadge();
+		badge.upgrade(15);
+		badge.collect(hero.belongings.backpack);
+		Dungeon.depth = 5;
+		Dungeon.branch = 0;
+
+		//各类型池都非空（含本次并入候选池的魔药/秘药/法术/炸弹）
+		String[] kinds = {WishType.WEAPON, WishType.MISSILE, WishType.ARMOR, WishType.WAND,
+				WishType.RING, WishType.ARTIFACT, WishType.POTION, WishType.SCROLL,
+				WishType.STONE, WishType.SEED, WishType.FOOD, WishType.MEDICINE,
+				WishType.BREW, WishType.ELIXIR, WishType.SPELL, WishType.BOMB};
+		for (String kind : kinds) {
+			check(!WishCatalog.ofKind(kind).isEmpty(), "类型池为空：" + kind);
+		}
+
+		//类型词 → 从该类型池里抽取
+		WishEngine.Result weapon = WishEngine.wish(hero, "武器");
+		check(weapon.kind == WishEngine.Kind.ITEM && weapon.item != null, "「武器」没有给出物品");
+		check(WishType.WEAPON.equals(kindOf(weapon.item.getClass())),
+				"「武器」给出的不是武器：" + weapon.item.getClass().getSimpleName());
+
+		WishEngine.Result elixir = WishEngine.wish(hero, "秘药");
+		check(elixir.kind == WishEngine.Kind.ITEM && elixir.item != null, "「秘药」没有给出物品");
+		check(WishType.ELIXIR.equals(kindOf(elixir.item.getClass())),
+				"「秘药」给出的不是秘药：" + elixir.item.getClass().getSimpleName());
+
+		WishEngine.Result artifact = WishEngine.wish(hero, "神器");
+		check(artifact.kind == WishEngine.Kind.ITEM && artifact.item != null, "「神器」没有给出物品");
+		check(WishType.ARTIFACT.equals(kindOf(artifact.item.getClass())),
+				"「神器」给出的不是神器：" + artifact.item.getClass().getSimpleName());
+
+		//具体物品名优先于类型词
+		WishEngine.Result specific = WishEngine.wish(hero, "治疗药剂");
+		check(specific.item instanceof PotionOfHealing, "「治疗药剂」被当成了泛指药剂");
+	}
+
+	/** 候选池里某个类的类型标签。 */
+	private static String kindOf(Class<?> type) {
+		for (WishCatalog.Entry entry : WishCatalog.entries()) {
+			if (entry.type.equals(type)) return entry.kind;
+		}
+		return null;
+	}
+
+	//---- 怪物愿望 ----
+
+	private static void testMobWishes() {
+		Hero hero = newHero();
+		Dungeon.depth = 5;
+		Dungeon.branch = 0;
+		TestLevel level = new TestLevel();
+		Dungeon.level = level;
+		Actor.clear();
+		hero.pos = level.length() / 2;
+		Dungeon.hero = hero;
+		Actor.add(hero);
+
+		ArrayList<Class<? extends Mob>> rotation = WishSummon.rotation();
+		check(!rotation.isEmpty(), "5 层没有普通怪轮转表");
+		for (Class<? extends Mob> type : rotation) {
+			check(!pd.actors.mobs.npcs.NPC.class.isAssignableFrom(type),
+					"怪物池混入了 NPC：" + type.getSimpleName());
+		}
+
+		//泛指"怪物"
+		int before = level.mobs().size();
+		WishEngine.Result generic = WishEngine.wish(hero, "怪物");
+		check(generic.kind == WishEngine.Kind.MOB, "「怪物」没有召唤怪物：" + generic.kind);
+		check(generic.summoned != null && rotation.contains(generic.summoned), "召唤的不是本层普通怪");
+		check(level.mobs().size() == before + 1, "没有真的生成怪物");
+
+		//点名一只本层普通怪
+		Class<? extends Mob> named = rotation.get(0);
+		String name = WishSummon.nameOf(named);
+		if (name != null && !name.isEmpty()) {
+			int beforeNamed = level.mobs().size();
+			WishEngine.Result exact = WishEngine.wish(hero, name);
+			check(exact.kind == WishEngine.Kind.MOB, "具名怪物愿望没有召唤：" + name);
+			check(named.equals(exact.summoned), "具名怪物愿望命中了别的怪：" + name);
+			check(level.mobs().size() == beforeNamed + 1, "具名怪物没有生成");
+		}
+	}
+
+	//---- 特质愿望：名称必须分毫不差 ----
+
+	private static void testTraitWishes() {
+		Hero hero = newHero();
+		Dungeon.depth = 5;
+		Dungeon.branch = 0;
+
+		Perk target = null;
+		String targetName = null;
+		for (Class<? extends Perk> type : Perk.Companion.allClasses()) {
+			Perk perk = Reflection.newInstance(type);
+			if (perk == null || !perk.isAcquireAllowed(hero)) continue;
+			String title;
+			try {
+				title = perk.title();
+			} catch (Throwable ignored) {
+				continue;
+			}
+			if (title == null || title.isEmpty()) continue;
+			target = perk;
+			targetName = title;
+			break;
+		}
+		check(target != null && targetName != null, "找不到可用于测试的可获得特质");
+		Class<? extends Perk> targetType = target.getClass();
+
+		//分毫不差 → 授予
+		WishEngine.Result granted = WishEngine.wish(hero, targetName);
+		check(granted.kind == WishEngine.Kind.TRAIT, "精确特质名没有获得特质：" + targetName);
+		check(hero.heroPerk.has(targetType), "特质没有真的加到英雄身上：" + targetName);
+
+		//多一个字符 → 不授予
+		Hero other = newHero();
+		WishEngine.Result miss = WishEngine.wish(other, targetName + "x");
+		check(!other.heroPerk.has(targetType), "名字不完全一致也授予了特质");
+		check(miss.kind != WishEngine.Kind.TRAIT, "名字不完全一致也被判为特质愿望：" + miss.kind);
+
+		//已拥有时的再次许愿仍被识别为特质愿望
+		WishEngine.Result again = WishEngine.wish(hero, targetName);
+		check(again.kind == WishEngine.Kind.TRAIT, "已拥有时的特质愿望没有被识别");
+	}
+
 	//---- 调试器接入 ----
 
 	@SuppressWarnings("unchecked")
@@ -273,6 +421,30 @@ public final class SpsWishPotionTest {
 		File file = new File(relative);
 		check(file.isFile(), "找不到文件：" + relative);
 		return new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
+	}
+
+	//---- 测试用最小关卡 ----
+
+	private static final class TestLevel extends Level {
+		TestLevel() {
+			setSize(16, 16);
+			Arrays.fill(map, Terrain.EMPTY);
+			mobs().clear();
+			heaps = new SparseArray<>();
+			blobs = new HashMap<>();
+			plants = new SparseArray<Plant>();
+			traps = new SparseArray<Trap>();
+			transitions = new ArrayList<>();
+			customTiles = new ArrayList<>();
+			customTerrain = new ArrayList<>();
+			customWalls = new ArrayList<>();
+			buildFlagMaps();
+		}
+		@Override protected boolean build() { return true; }
+		@Override protected void createMobs() { }
+		@Override protected void createItems() { }
+		@Override public String tilesTex() { return null; }
+		@Override public String waterTex() { return null; }
 	}
 
 	private static void check(boolean condition, String message) {

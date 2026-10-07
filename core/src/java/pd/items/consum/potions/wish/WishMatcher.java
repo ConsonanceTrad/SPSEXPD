@@ -67,19 +67,27 @@ public final class WishMatcher {
 	 */
 	public static double accuracy(String text, WishCatalog.Entry entry) {
 		if (entry == null) return 0d;
+		return accuracy(text, entry.name, entry.desc);
+	}
+
+	/** 名称 + 描述的通用准确度（怪物名称匹配也走同一套分词规则）。 */
+	public static double accuracy(String text, String name, String desc) {
+		if (name == null) return 0d;
+		String target = name;
+		String body = desc == null ? "" : desc;
 		int grams = 0;
 		int singles = 0;
-		int desc = 0;
+		int descHits = 0;
 		for (String token : tokenize(text)) {
-			if (entry.name.contains(token)) {
+			if (target.contains(token)) {
 				if (token.length() >= 2) grams++;
 				else singles++;
-			} else if (!entry.desc.isEmpty() && entry.desc.contains(token)) {
-				desc++;
+			} else if (!body.isEmpty() && body.contains(token)) {
+				descHits++;
 			}
 		}
 		if (grams < 1 && singles < 2) return 0d;
-		return grams * GRAM_WEIGHT + singles * SINGLE_WEIGHT + desc * DESC_WEIGHT;
+		return grams * GRAM_WEIGHT + singles * SINGLE_WEIGHT + descHits * DESC_WEIGHT;
 	}
 
 	/** 在候选池中取准确度最高的条目；并列时取等级更低、名字更短者。 */

@@ -22,12 +22,11 @@
 package pd.windows;
 
 import pd.Dungeon;
-import pd.actors.Actor;
 import pd.actors.mobs.Mob;
 import pd.actors.mobs.MobSpawner;
 import pd.actors.mobs.TestMob;
 import pd.actors.mobs.TestMob2;
-import pd.mechanics.pathfind.PathFinder;
+import pd.items.consum.potions.wish.WishSummon;
 import pd.messages.InlineText;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -295,33 +294,6 @@ public class WndDebugMobs extends Window {
 		resize(WIDTH, (int) rowY + 2);
 	}
 
-	//SPS: 在英雄周围找一格可站立的空位（含相邻 8 格 → 半径 2），找不到返回 -1
-	private static int findSpawnCell() {
-		int hero = Dungeon.hero.pos;
-		int width = Dungeon.level.width();
-
-		ArrayList<Integer> ring1 = new ArrayList<>();
-		for (int offset : PathFinder.NEIGHBOURS8) {
-			int c = hero + offset;
-			if (c < 0 || c >= Dungeon.level.length()) continue;
-			if (!Dungeon.level.passable[c] || Actor.findChar(c) != null) continue;
-			ring1.add(c);
-		}
-		if (!ring1.isEmpty()) return ring1.get(0);
-
-		//半径 2 兜底
-		for (int y = -2; y <= 2; y++) {
-			for (int x = -2; x <= 2; x++) {
-				if (Math.abs(x) < 2 && Math.abs(y) < 2) continue;
-				int c = hero + x + y * width;
-				if (c < 0 || c >= Dungeon.level.length()) continue;
-				if (!Dungeon.level.passable[c] || Actor.findChar(c) != null) continue;
-				return c;
-			}
-		}
-		return -1;
-	}
-
 	//怪物格子：点击召唤 1 只，长按召唤 3 只
 	private class MobBtn extends Button {
 
@@ -366,23 +338,16 @@ public class WndDebugMobs extends Window {
 		}
 
 		private void spawn(int qty) {
-			try {
-				int cell = findSpawnCell();
-				if (cell < 0) {
-					GLog.w(Messages.get(WndDebugMobs.class, "failed"));
-					return;
-				}
-				for (int i = 0; i < qty; i++) {
-					Mob mob = type.getDeclaredConstructor().newInstance();
-					mob.pos = cell;
-					GameScene.add(mob);
-					//下一只另找空位（同格会重叠）
-					cell = findSpawnCell();
-					if (cell < 0) break;
-				}
+			//SPS: 复用许愿的召唤实现（英雄身旁的空格，相邻 8 格优先）
+			int spawned = 0;
+			for (int i = 0; i < qty; i++) {
+				if (WishSummon.summon(type) == null) break;
+				spawned++;
+			}
+			if (spawned == 0) {
+				GLog.w(Messages.get(WndDebugMobs.class, "failed"));
+			} else {
 				GLog.h(Messages.get(WndDebugMobs.class, "spawned", mobName));
-			} catch (Exception e) {
-				Game.reportException(e);
 			}
 		}
 
