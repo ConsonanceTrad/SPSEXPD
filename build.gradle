@@ -1135,7 +1135,7 @@ tasks.register('verifySpsMechanics') {
 			requireText(heroClassSource, it, '八职业默认皮肤开局食物')
 		}
 		['hero.belongings.weapon = new ShortSword()', 'hero.belongings.armor = new WoodenArmor()',
-		 'new MissileShield().identify().collect()',
+		 '(hero.belongings.secondWep = new MissileShield()).identify()',
 		 'MagesStaff staff = new MagesStaff();', 'new WandOfDisintegration()',
 		 'new PotionOfMage().identify().collect()', 'hero.improveMagicSkill(3)'].each {
 			requireText(heroClassSource, it, '战士与法师默认皮肤开局配置')

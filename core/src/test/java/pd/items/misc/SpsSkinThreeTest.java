@@ -119,7 +119,8 @@ public final class SpsSkinThreeTest {
 		check(warrior.STR == Hero.STARTING_STR + 2, "皮肤3战士初始力量错误");
 		check(warrior.belongings.weapon instanceof pd.items.equipment.weapon.melee.normalweapon.Spear
 				&& warrior.belongings.armor instanceof DiscArmor, "皮肤3战士长矛或圆盘甲错误");
-		check(has(warrior, MissileShield.class) && has(warrior, SavageHelmet.class), "皮肤3战士缺少反射盾或蛮族头盔");
+		check(warrior.belongings.secondWep instanceof MissileShield && has(warrior, SavageHelmet.class),
+				"皮肤3战士的神木圆盾没有装备在副武器栏或缺少蛮族头盔");
 
 		Hero mage = start(HeroClass.MAGE);
 		check(mage.belongings.weapon instanceof pd.items.equipment.weapon.melee.normalweapon.WoodenStaff

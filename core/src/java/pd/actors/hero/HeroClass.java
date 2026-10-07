@@ -591,7 +591,8 @@ public enum HeroClass {
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 2;
 			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Spear()).identify();
 			(hero.belongings.armor = new DiscArmor()).identify();
-			new MissileShield().identify().collect();
+			//SPSEXPD: 神木圆盾开局直接装备在副武器栏
+			(hero.belongings.secondWep = new MissileShield()).identify();
 			new SavageHelmet().identify().collect();
 			new Porksoup().identify().collect();
 			new PotionOfStrength().identify();
@@ -641,7 +642,8 @@ public enum HeroClass {
 		BrokenSeal seal = new BrokenSeal();
 		seal.identify();
 		seal.affixToArmor(hero.belongings.armor, null);
-		new MissileShield().identify().collect();
+		//SPSEXPD: 神木圆盾开局直接装备在副武器栏
+		(hero.belongings.secondWep = new MissileShield()).identify();
 		new Porksoup().identify().collect();
 
 		new PotionOfStrength().identify();
