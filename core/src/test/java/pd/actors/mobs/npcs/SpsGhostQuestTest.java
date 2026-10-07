@@ -43,7 +43,7 @@ import java.util.Properties;
 public final class SpsGhostQuestTest {
 
 	private static final String[] ARTIFACTS = {
-			"CapeOfThorns", "ChaliceOfBlood", "CloakOfShadows", "HornOfPlenty",
+			"CapeOfThorns", "HeartOfSatan", "CloakOfShadows", "HornOfPlenty",
 			"MasterThievesArmband", "SandalsOfNature", "TalismanOfForesight",
 			"TimekeepersHourglass", "UnstableSpellbook", "AlchemistsToolkit",
 			"RobotDMT", "EyeOfSkadi", "EtherealChains", "DriedRose", "GlassTotem",

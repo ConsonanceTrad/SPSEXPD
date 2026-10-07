@@ -424,6 +424,11 @@ public class Hero extends Char {
 		if (buff(ElixirOfMight.HTBoost.class) != null){
 			HT += buff(ElixirOfMight.HTBoost.class).boost();
 		}
+
+		//SPSEXPD: 撒旦之心满级——额外生命上限，让自然回复能突破血肉极限
+		pd.items.equipment.artifacts.HeartOfSatan.Regeneration heartOfSatan =
+				buff(pd.items.equipment.artifacts.HeartOfSatan.Regeneration.class);
+		if (heartOfSatan != null) HT += heartOfSatan.extraCap();
 		
 		HT = Math.round(combatStyle.healthMultiplier() * HT);
 

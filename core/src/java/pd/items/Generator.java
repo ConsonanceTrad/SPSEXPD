@@ -60,6 +60,7 @@ import pd.items.equipment.artifacts.EtherealChains;
 import pd.items.equipment.artifacts.FlyChains;
 import pd.items.equipment.artifacts.GlassTotem;
 import pd.items.equipment.artifacts.HandOfTheElder;
+import pd.items.equipment.artifacts.HeartOfSatan;
 import pd.items.equipment.artifacts.HolyTome;
 import pd.items.equipment.artifacts.HornOfPlenty;
 import pd.items.equipment.artifacts.MasterThievesArmband;
@@ -1012,7 +1013,8 @@ public class Generator {
 			
 			ARTIFACT.classes = new Class<?>[]{
 					CapeOfThorns.class,
-					ChaliceOfBlood.class,
+					//SPSEXPD: 用撒旦之心取代圣杯（ChaliceOfBlood 类保留以兼容旧档，但不再掉落）
+					HeartOfSatan.class,
 					CloakOfShadows.class,
 					HornOfPlenty.class,
 					MasterThievesArmband.class,
