@@ -144,13 +144,17 @@ public class Speck extends Image {
 		case SMOKE:
 		case BLIZZARD:
 		case INFERNO:
+		//SPSEXPD: 血色雾气（暗影场）复用毒气帧——旧的帧号 123 超出 specks.png 的 18 帧
+		case BLOOD:
 			frame( film.get( STEAM ) );
 			break;
 		case CALM:
 			frame( film.get( SCREAM ) );
 			break;
 		default:
-			frame( film.get( type ) );
+			//SPSEXPD: 防复发——新增常量若未登记帧映射，film.get 会返回 null 并在 Image.frame 里 NPE
+			render.utils.geom.RectF filmFrame = film.get( type );
+			frame( filmFrame != null ? filmFrame : film.get( HEALING ) );
 		}
 		
 		this.x = x - origin.x;

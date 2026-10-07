@@ -61,6 +61,8 @@ public final class SpsLegacyBlobsTest {
 		Gdx.files = new HeadlessFiles();
 		Game.version = "test";
 		try {
+			//SPSEXPD: 静态契约校验放在最前，避免被同任务的既有失败挡住
+			testSpeckFrames();
 			testNanoSwarm();
 			testCurseWeb();
 			testElementalDamage();
@@ -75,6 +77,65 @@ public final class SpsLegacyBlobsTest {
 			Dungeon.hero = null;
 			app.exit();
 		}
+	}
+
+	/**
+	 * SPSEXPD: 暗影场陷阱（DarkBuffTrap → ShadowGas）曾用 Speck.BLOOD，帧号超出图集导致 NPE 闪退。
+	 * 这里做源码级契约校验：凡是帧号超出 specks.png 帧数的常量，都必须登记在 reset() 的帧映射 switch 里。
+	 */
+	private static void testSpeckFrames() throws Exception {
+		java.nio.file.Path png = locate("effects/specks.png", "core/src/assets/effects/specks.png",
+				"../assets/effects/specks.png");
+		byte[] header = new byte[24];
+		try (java.io.InputStream in = Files.newInputStream(png)) {
+			check(in.read(header) == header.length, "specks.png 头部读取失败");
+		}
+		int width = readInt(header, 16);
+		int height = readInt(header, 20);
+		int frames = (width / 7) * (height / 7);
+		check(frames >= 16, "specks.png 帧数异常：" + frames + "（" + width + "x" + height + "）");
+
+		java.nio.file.Path source = locate("java/pd/effects/Speck.java", "../java/pd/effects/Speck.java",
+				"core/src/java/pd/effects/Speck.java");
+		String text = new String(Files.readAllBytes(source), StandardCharsets.UTF_8);
+
+		HashMap<String, Integer> constants = new HashMap<>();
+		java.util.regex.Matcher declaration = java.util.regex.Pattern
+				.compile("public static final int ([A-Z][A-Z0-9_]*)\\s*=\\s*(\\d+);").matcher(text);
+		while (declaration.find()) constants.put(declaration.group(1), Integer.parseInt(declaration.group(2)));
+		check(constants.containsKey("BLOOD"), "Speck 里找不到 BLOOD 常量");
+
+		int resetAt = text.indexOf("public void reset(");
+		int switchAt = text.indexOf("switch (type) {", resetAt);
+		int defaultAt = text.indexOf("default:", switchAt);
+		check(resetAt > 0 && switchAt > resetAt && defaultAt > switchAt,
+				"Speck.reset 的帧映射 switch 结构变化，契约校验失效");
+
+		HashSet<String> mapped = new HashSet<>();
+		java.util.regex.Matcher cases = java.util.regex.Pattern
+				.compile("case ([A-Z][A-Z0-9_]*):").matcher(text.substring(switchAt, defaultAt));
+		while (cases.find()) mapped.add(cases.group(1));
+
+		for (String name : constants.keySet()) {
+			//帧号在图集范围内的常量直接取帧，不会 NPE
+			if (constants.get(name) < frames) continue;
+			check(mapped.contains(name), "Speck." + name + "(" + constants.get(name)
+					+ ") 没有登记帧映射，会因 film.get 返回 null 而 NPE");
+		}
+		check(mapped.contains("BLOOD"), "Speck.BLOOD 没有登记帧映射（暗影场陷阱会闪退）");
+	}
+
+	private static java.nio.file.Path locate(String... candidates) {
+		for (String candidate : candidates) {
+			java.nio.file.Path path = Paths.get(candidate);
+			if (Files.exists(path)) return path;
+		}
+		throw new AssertionError("找不到文件：" + Arrays.toString(candidates));
+	}
+
+	private static int readInt(byte[] data, int offset) {
+		return ((data[offset] & 0xFF) << 24) | ((data[offset + 1] & 0xFF) << 16)
+				| ((data[offset + 2] & 0xFF) << 8) | (data[offset + 3] & 0xFF);
 	}
 
 	private static void testToxicGasDepthDamage() {
