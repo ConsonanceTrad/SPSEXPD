@@ -16,7 +16,7 @@ public class TrinityCharge extends FlavourBuff {
 	static {
 		InlineText.of(TrinityCharge.class)
 			.t("name", "战舞蓄势")
-			.t("desc", "七刃随战舞依次递进，你的攻势正在加快。\n\n当前攻速层数：%1$d\n\n连续 2 回合未命中后，层数每回合衰减 1 层。");
+			.t("desc", "六刃随战舞依次递进，你的攻势正在加快。\n\n当前攻速层数：%1$d\n\n连续 2 回合未命中后，层数每回合衰减 1 层。");
 	}
 
 	{

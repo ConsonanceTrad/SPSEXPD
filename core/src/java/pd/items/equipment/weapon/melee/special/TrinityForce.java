@@ -27,7 +27,7 @@ import pd.messages.InlineText;
 /**
  * SPSEXPD: SPS 0.9.8 之外原创武器——三相之力。
  *
- * <p>由七把飞刃组成的武器组：一次挥击的伤害总额被拆成七次独立攻击（命中与效果各自结算），
+ * <p>由六把飞刃组成的武器组：一次挥击的伤害总额被拆成三次独立攻击（命中与效果各自结算），
  * 但只消耗一个回合。为维持操控飞刃的战舞，装备期间移速固定降低到原先的四分之三。</p>
  */
 public class TrinityForce extends NormalMeleeWeapon {
@@ -35,10 +35,10 @@ public class TrinityForce extends NormalMeleeWeapon {
 	static {
 		InlineText.of(TrinityForce.class)
 			.t("name", "三相之力")
-			.t("desc", "七把飞刃组成的一套武器组，极难操控：只有以战舞驾驭它，七刃才会同时起舞。为维持操控飞刃的战舞，你的移速会降低到原先的四分之三。\n\n能够使用冲锋或防御姿态进行迎敌。\n\n先锋之刃：向指定方向挥出 60° 扇形（5 格），使掠过的敌人减速 5 回合，施放后退出防御姿态。")
+			.t("desc", "六把飞刃组成的一套武器组，极难操控：只有以战舞驾驭它，六刃才会同时起舞。\n\n一次挥击的伤害被拆成三次独立结算，命中与附带效果分别计算，但总共只消耗一个回合。\n\n为维持操控飞刃的战舞，你的移速会降低到原先的四分之三。\n\n冲锋姿态下命中两格或更远的敌人时，你会顺势朝对方冲进一格。\n\n先锋之刃：向指定方向挥出 60° 扇形（5 格），使掠过的敌人减速 5 回合，施放后退出防御姿态。")
 			.t("ac_defend", "防御姿态")
 			.t("ac_vanguard", "先锋之刃")
-			.t("enter_defend", "你沉入防御姿态，七刃环绕如盾。")
+			.t("enter_defend", "你沉入防御姿态，六刃环绕如盾。")
 			.t("defend_unavailable", "你暂时无法进入防御姿态。")
 			.t("vanguard_prompt", "选择先锋之刃的挥击方向")
 			.t("vanguard_used", "先锋之刃掠过 %1$d 个敌人。")
@@ -48,8 +48,10 @@ public class TrinityForce extends NormalMeleeWeapon {
 	public static final String AC_DEFEND = "DEFEND";
 	public static final String AC_VANGUARD = "VANGUARD";
 
-	/** 一次挥击由七把飞刃组成。 */
-	public static final int BLADES = 7;
+	/** 这套武器组的飞刃总数：六把。 */
+	public static final int BLADES = 6;
+	/** 一次挥击把这六把飞刃分三次挥出，伤害也按三次独立结算。 */
+	public static final int STRIKES = 3;
 	public static final int VANGUARD_RANGE = 5;
 	public static final int VANGUARD_DEGREES = 60;
 	public static final float VANGUARD_SLOW = 5f;
@@ -140,27 +142,27 @@ public class TrinityForce extends NormalMeleeWeapon {
 		int total = Math.max(0, damage);
 		if (total <= 0) return super.proc(attacker, defender, damage);
 
-		//SPSEXPD: 伤害总额拆成七份，七片飞刃各自独立结算；第 1 片沿用引擎已完成的那次命中判定，
-		//其伤害由外层 Char.attack 结算，其余六片在这里独立判定并立即结算。
-		int per = total / BLADES;
-		int remainder = total % BLADES;
+		//SPSEXPD: 伤害总额拆成三次独立结算（六把飞刃两两一组）；第 1 次沿用引擎已完成的那次命中判定，
+		//其伤害由外层 Char.attack 结算，其余两次在这里独立判定并立即结算。
+		int per = total / STRIKES;
+		int remainder = total % STRIKES;
 
 		//SPSEXPD: 先贴近、再结算这一击的伤害（视觉与逻辑都是「冲上去砍」）
 		dashTo(attacker, defender);
 
 		int first = super.proc(attacker, defender, per + (remainder > 0 ? 1 : 0));
 
-		//SPSEXPD: 主片已足以击杀时，剩余飞刃不必再挥出
+		//SPSEXPD: 第 1 次已足以击杀时，剩余两次不必再挥出
 		if (defender.HP > first) {
-			for (int blade = 1; blade < BLADES && defender.isAlive(); blade++) {
-				int amount = per + (blade < remainder ? 1 : 0);
+			for (int strike = 1; strike < STRIKES && defender.isAlive(); strike++) {
+				int amount = per + (strike < remainder ? 1 : 0);
 				if (amount <= 0) continue;
 				if (!Char.hit(attacker, defender, false)) continue;
 				amount = super.proc(attacker, defender, amount);
 				if (amount <= 0) continue;
 				defender.damage(amount, this);
-				//SPSEXPD: 七片飞刃各自独立命中，每一片都要播一次命中音效
-				//（第 1 片由外层 Char.attack 播放，这里补上追加的六片）
+				//SPSEXPD: 三次结算各自独立命中，每一次都要播一次命中音效
+				//（第 1 次由外层 Char.attack 播放，这里补上追加的两次）
 				hitSound(Random.Float(0.87f, 1.15f));
 			}
 		}

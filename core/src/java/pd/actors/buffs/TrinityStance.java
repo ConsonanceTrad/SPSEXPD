@@ -13,7 +13,7 @@ import render.utils.serialize.Bundle;
 /**
  * SPSEXPD: 三相之力的「战舞」姿态。
  *
- * <p>冲锋姿态：移动速度被七刃拖慢（随击杀进度减轻），每次挥击命中都会叠加攻速；
+ * <p>冲锋姿态：移动速度被六刃拖慢（恒定为原先的四分之三），每次挥击命中都会叠加攻速；
  * 防御姿态：移动与攻击速度减半，但受到的伤害减少 50%。</p>
  */
 public class TrinityStance extends Buff {
@@ -24,7 +24,7 @@ public class TrinityStance extends Buff {
 			.t("state_charge", "冲锋姿态")
 			.t("state_defend", "防御姿态")
 			.t("charge_layer", "战舞蓄势：攻速加成叠加至 %d 层。")
-			.t("desc", "以战舞驾驭七刃的架势。\n\n_冲锋姿态：_移动速度降低到原先的四分之三，每次命中使攻速提高，连续 5 回合未命中则加成清零；命中两格或更远的敌人时，你会顺势朝对方冲进一格。\n_防御姿态：_攻击速度减半，但受到的伤害减少 50%%。\n\n当前姿态：%1$s");
+			.t("desc", "以战舞驾驭六刃的架势。\n\n_冲锋姿态：_移动速度降低到原先的四分之三，每次命中使攻速提高，连续 2 回合未命中后层数每回合衰减 1 层；命中两格或更远的敌人时，你会顺势朝对方冲进一格。\n_防御姿态：_攻击速度减半，但受到的伤害减少 50%%。\n\n当前姿态：%1$s");
 	}
 
 	public static final int MAX_LAYERS = 5;
@@ -95,7 +95,7 @@ public class TrinityStance extends Buff {
 		return true;
 	}
 
-	/** 整次挥击（七片飞刃）只记一次。 */
+	/** 整次挥击（三次结算）只记一次。 */
 	public void onAttack() {
 		idleTurns = 0;
 		if (!defending && layers < MAX_LAYERS) layers++;

@@ -34,13 +34,13 @@ public final class SpsTrinityForceTest {
 		Random.pushGenerator(0x5350535452494E49L);
 		try {
 			testStats();
-			testSevenBlades();
+			testThreeStrikes();
 			testStances();
 			testActions();
 			testDashApproach();
 			testDashThroughProc();
 			testMessages();
-			System.out.println("SPS三相之力测试通过：数值、七段独立攻击、战舞姿态、攻速叠加、恒定移速、动作可用性、冲锋接近与双语文本均正常。");
+			System.out.println("SPS三相之力测试通过：数值、三段独立攻击、战舞姿态、攻速叠加、恒定移速、动作可用性、冲锋接近与双语文本均正常。");
 		} finally {
 			Random.popGenerator();
 			Dungeon.hero = null;
@@ -60,33 +60,33 @@ public final class SpsTrinityForceTest {
 		check(Math.abs(weapon.legacyAccuracy(0) - 1f) < 0.00001f, "三相之力命中倍率不是1.0");
 		check(weapon.unique && weapon.isReinforced() && weapon.image == SpecificPlaceHolderDict.SPS_PH_WEAPON,
 				"三相之力唯一、强化或占位图标错误");
-		check(TrinityForce.BLADES == 7, "三相之力不是七把飞刃");
+		check(TrinityForce.BLADES == 6 && TrinityForce.STRIKES == 3, "三相之力不是六把飞刃分三次结算");
 		check(TrinityForce.VANGUARD_DEGREES == 60 && TrinityForce.VANGUARD_RANGE == 5
 						&& Math.abs(TrinityForce.VANGUARD_SLOW - 5f) < 0.00001f,
 				"先锋之刃扇形或减速时长错误");
 	}
 
-	private static void testSevenBlades() {
+	private static void testThreeStrikes() {
 		Hero hero = new Hero();
 		Dungeon.hero = hero;
 		TrinityForce weapon = new TrinityForce();
 		hero.belongings.weapon = weapon;
 
-		//直接调用 proc 时第 1 片（返回值）由外层 Char.attack 结算，其余六片在这里立即结算
+		//直接调用 proc 时第 1 次（返回值）由外层 Char.attack 结算，其余两次在这里立即结算
 		SlainMob even = new SlainMob(1000);
 		int main = weapon.proc(hero, even, 70);
-		check(main == 10 && 1000 - even.HP == 60,
-				"三相之力七段拆分错误：主片=" + main + " 追加=" + (1000 - even.HP));
+		check(main == 24 && 1000 - even.HP == 46,
+				"三相之力三段拆分错误：首段=" + main + " 追加=" + (1000 - even.HP));
 
 		SlainMob odd = new SlainMob(1000);
 		main = weapon.proc(hero, odd, 31);
-		check(main == 5 && 1000 - odd.HP == 26,
-				"三相之力余数分配错误：主片=" + main + " 追加=" + (1000 - odd.HP));
+		check(main == 11 && 1000 - odd.HP == 20,
+				"三相之力余数分配错误：首段=" + main + " 追加=" + (1000 - odd.HP));
 
 		SlainMob weakest = new SlainMob(1000);
 		main = weapon.proc(hero, weakest, 7);
-		check(main == 1 && 1000 - weakest.HP == 6,
-				"三相之力最小拆分错误：主片=" + main + " 追加=" + (1000 - weakest.HP));
+		check(main == 3 && 1000 - weakest.HP == 4,
+				"三相之力最小拆分错误：首段=" + main + " 追加=" + (1000 - weakest.HP));
 	}
 
 	private static void testStances() {
@@ -207,12 +207,12 @@ public final class SpsTrinityForceTest {
 		check(zhItems.contains("四分之三"), "中文武器描述没有写明移速降到原先的四分之三");
 		check(zhItems.contains("先锋之刃："), "中文武器描述没有写明先锋之刃的效果");
 
-		//七片飞刃各自独立命中，每一片都要播命中音效：追加片循环里必须有 hitSound 调用
+		//三次结算各自独立命中，每一次都要播命中音效：追加结算循环里必须有 hitSound 调用
 		//（音效本身无法断言 —— Sample 在 headless 下没加载任何采样，play 会静默跳过）
 		String weapon = read("../java/pd/items/equipment/weapon/melee/special/TrinityForce.java");
-		int loop = weapon.indexOf("for (int blade = 1;");
+		int loop = weapon.indexOf("for (int strike = 1;");
 		check(loop > 0 && weapon.indexOf("hitSound(", loop) > loop,
-				"追加的六片飞刃命中时没有播命中音效");
+				"追加的两次结算命中时没有播命中音效");
 	}
 
 	/**
