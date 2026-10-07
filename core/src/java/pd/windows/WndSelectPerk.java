@@ -17,7 +17,9 @@ import pd.scenes.PixelScene;
 import pd.ui.PerkSlot;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
+import pd.ui.ScrollPane;
 import pd.ui.Window;
+import render.noosa.ui.Component;
 
 public abstract class WndSelectPerk extends Window {
 
@@ -32,15 +34,26 @@ public abstract class WndSelectPerk extends Window {
 	private static final int SLOT = PerkSlot.BTN;
 	private static final int COLS = 4;
 	private static final int GAP = 2;
+	/** 描述区固定展示的行数（更长的内容在视口内滚动） */
+	private static final int DESC_LINES = 6;
+	/** 右侧滚动条占位宽度 */
+	private static final int SCROLLBAR = 3;
+
+	/** 说明文字视口高度：按当前字号实测 DESC_LINES 行的高度（懒算并按缩放缓存） */
+	private static int descViewHeight = 0;
+	private static float descViewZoom = -1f;
 
 	private final ArrayList<Perk> perks;
 	private final ArrayList<PerkSlot> slots = new ArrayList<>();
 
 	private RenderedTextBlock titleBlock;
 	private RenderedTextBlock descBlock;
+	private ScrollPane descPane;
 	protected RedButton confirm;
 
 	private int selected = -1;
+	/** 描述内容变化后需要把视口滚回顶部 */
+	private boolean resetScroll;
 
 	public WndSelectPerk(String title, ArrayList<Perk> perks) {
 		this(title, perks, 0);
@@ -67,9 +80,12 @@ public abstract class WndSelectPerk extends Window {
 			add(slot);
 		}
 
+		//说明文字放进固定高度的滚动视口：过长时内部滚动，按钮位置不再跳动
 		descBlock = PixelScene.renderTextBlock("", 6);
-		descBlock.maxWidth(WIDTH - GAP * 2);
-		add(descBlock);
+		descBlock.maxWidth(descWidth());
+		descPane = new ScrollPane(new Component());
+		descPane.content().add(descBlock);
+		add(descPane);
 
 		confirm = new RedButton(Messages.get(WndSelectPerk.class, "confirm")) {
 			@Override
@@ -131,12 +147,20 @@ public abstract class WndSelectPerk extends Window {
 			}
 		}
 
-		//说明文字
-		descBlock.maxWidth(WIDTH - GAP * 2);
-		descBlock.setPos(GAP, top + rows() * (SLOT + GAP) + GAP);
+		//说明文字：固定高度的视口（过长时内部滚动）。先更新内容尺寸再布局，
+		//否则 ScrollPane 的滚动条可见性会基于旧的 content 高度
+		float descTop = top + rows() * (SLOT + GAP) + GAP;
+		float viewH = descViewHeight();
+		descBlock.setPos(0, 0);
+		descPane.content().setSize(WIDTH - GAP * 2, Math.max(viewH, descBlock.height()));
+		descPane.setRect(GAP, descTop, WIDTH - GAP * 2, viewH);
+		if (resetScroll) {
+			descPane.scrollTo(0, 0);
+			resetScroll = false;
+		}
 
-		//确认按钮
-		confirm.setRect(0, descBlock.bottom() + GAP, WIDTH, BTN_H);
+		//确认按钮：位置只取决于固定视口，不随描述长度变化
+		confirm.setRect(0, descTop + viewH + GAP, WIDTH, BTN_H);
 
 		//子类追加按钮
 		float extraTop = confirm.bottom() + GAP;
@@ -168,7 +192,26 @@ public abstract class WndSelectPerk extends Window {
 		}
 		spans.add(new Span(title + "\n", Span.DEFAULT));
 		spans.addAll(p.describeRich());
-		descBlock.spans(spans, WIDTH - GAP * 2);
+		descBlock.spans(spans, descWidth());
+		resetScroll = true;
+	}
+
+	/** 描述文本可用宽度（视口宽减去滚动条占位） */
+	private static int descWidth() {
+		return WIDTH - GAP * 2 - SCROLLBAR;
+	}
+
+	/** 视口高度：实测 DESC_LINES 行文字的高度，缩放变化时重算 */
+	private static int descViewHeight() {
+		float zoom = PixelScene.defaultZoom;
+		if (descViewHeight <= 0 || zoom != descViewZoom) {
+			StringBuilder probe = new StringBuilder("字");
+			for (int i = 1; i < DESC_LINES; i++) probe.append("\n字");
+			descViewHeight = Math.max(1,
+					Math.round(PixelScene.renderTextBlock(probe.toString(), 6).height()));
+			descViewZoom = zoom;
+		}
+		return descViewHeight;
 	}
 
 	/** 子类实现选中后的处理 */
