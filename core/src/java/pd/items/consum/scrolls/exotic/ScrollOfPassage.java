@@ -63,7 +63,8 @@ public class ScrollOfPassage extends ExoticScroll {
 
 		Transitions.beforeTransition();
 		InterlevelScene.mode = InterlevelScene.Mode.RETURN;
-		InterlevelScene.returnDepth = Math.max(1, (Dungeon.depth - 1 - (Dungeon.depth-2)%5));
+		//SPSEXPD: 回本章首层（每章 8 层）
+		InterlevelScene.returnDepth = Math.max(1, Dungeon.depth - Dungeon.floorInChapter(Dungeon.depth) + 1);
 		InterlevelScene.returnBranch = 0;
 		InterlevelScene.returnPos = -1;
 		Game.switchScene( InterlevelScene.class );

@@ -790,10 +790,11 @@ public class DriedRose extends Artifact {
 			} else {
 
 				int legacyDepth = Dungeon.legacyDepth();
-				int depth = (legacyDepth - 1) / 5;
+				//SPSEXPD: 每章 8 层——章节与“是否章首层”都按新体系计算
+				int depth = Dungeon.chapterIndex(legacyDepth);
 
 				//only some lines are said on the first floor of a depth
-				int variant = legacyDepth % 5 == 1 ? Random.IntRange(1, 3) : Random.IntRange(1, 6);
+				int variant = Dungeon.floorInChapter(legacyDepth) == 1 ? Random.IntRange(1, 3) : Random.IntRange(1, 6);
 
 				switch (depth) {
 					case 0:
@@ -820,7 +821,8 @@ public class DriedRose extends Artifact {
 		}
 		
 		public void sayBoss(){
-			int depth = (Dungeon.legacyDepth() - 1) / 5;
+			//SPSEXPD: 每章 8 层
+			int depth = Dungeon.chapterIndex(Dungeon.legacyDepth());
 			
 			switch(depth){
 				case 0:

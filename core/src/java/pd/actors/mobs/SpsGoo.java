@@ -252,6 +252,8 @@ public class SpsGoo extends Mob {
 		GameScene.bossSlain();
 		Dungeon.level.drop(new SpsSkeletonKey(Dungeon.depth), pos).sprite.drop();
 		Badges.validateBossSlain();
+		//SPSEXPD: 首领挑战徽章（旧版有、新移植类缺失）
+		if (pd.Statistics.qualifiedForBossChallengeBadge) Badges.validateBossChallengeCompleted();
 	}
 
 	private static final String PUMPED_UP = "pumped_up";

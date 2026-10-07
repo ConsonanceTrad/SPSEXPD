@@ -1147,6 +1147,7 @@ public class Badges {
 		case 31:
 			badge = Badge.BOSS_SLAIN_4;
 			break;
+		//SPSEXPD: 第 5 章首领（第 39 层）没有独立的“击杀首领”徽章，由 VICTORY 覆盖（见 badgePairs）
 		}
 		
 		if (badge != null) {

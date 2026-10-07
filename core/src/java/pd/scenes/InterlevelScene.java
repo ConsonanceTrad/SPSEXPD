@@ -168,8 +168,9 @@ public class InterlevelScene extends PixelScene {
 					else                        loadingDepth = Dungeon.depth;
 					if (Statistics.deepestFloor >= loadingDepth) {
 						fadeTime = FAST_FADE;
-					} else if (loadingDepth == 6 || loadingDepth == 11
-							|| loadingDepth == 16 || loadingDepth == 21 || loadingDepth == 26) {
+					//SPSEXPD: 每章 8 层——章首是 9/17/25/33
+					} else if (loadingDepth == 9 || loadingDepth == 17
+							|| loadingDepth == 25 || loadingDepth == 33) {
 						fadeTime = SLOW_FADE;
 					}
 				}
@@ -193,7 +194,8 @@ public class InterlevelScene extends PixelScene {
 		}
 
 		//flush the texture cache whenever moving between regions, helps reduce memory load
-		int region = (int)Math.ceil(loadingDepth / 5f);
+		//SPSEXPD: 每章 8 层——章节号按 chapterIndex 计算
+		int region = loadingDepth > 0 ? Dungeon.chapterIndex(loadingDepth) + 1 : 1;
 		if (region != lastRegion){
 			TextureCache.clear();
 			TitleBackground.reset();
@@ -306,7 +308,9 @@ public class InterlevelScene extends PixelScene {
 		add(loadingText);
 
 		if (mode == Mode.DESCEND && lastRegion <= 5 && !DeviceCompat.isDebug()){
-			if (Dungeon.hero == null || (loadingDepth > Statistics.deepestFloor && loadingDepth % 5 == 1)){
+			//SPSEXPD: 章首层按每章 8 层判定
+			if (Dungeon.hero == null || (loadingDepth > Statistics.deepestFloor
+					&& Dungeon.floorInChapter(loadingDepth) == 1)){
 					storyMessage = PixelScene.renderTextBlock(Document.INTROS.pageBody(region), 6);
 					storyMessage.maxWidth( PixelScene.landscape() ? 180 : 125);
 					storyMessage.setPos(insets.left+(w-storyMessage.width())/2f, insets.top+(h-storyMessage.height())/2f);

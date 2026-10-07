@@ -21,6 +21,8 @@ final class SpsPrisonBossRewards {
 		Dungeon.level.unseal();
 		GameScene.bossSlain();
 		Badges.validateBossSlain();
+		//SPSEXPD: 首领挑战徽章（旧版有、新移植类缺失）
+		if (pd.Statistics.qualifiedForBossChallengeBadge) Badges.validateBossChallengeCompleted();
 
 		Dungeon.level.drop(new SkillBook(), pos).sprite.drop();
 		Dungeon.level.drop(new TenguKey(), pos).sprite.drop();

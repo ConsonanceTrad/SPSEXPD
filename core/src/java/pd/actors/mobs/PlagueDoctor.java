@@ -181,6 +181,8 @@ public class PlagueDoctor extends LegacyDualLootMob {
 		Dungeon.level.unseal();
 		GameScene.bossSlain();
 		Badges.validateBossSlain();
+		//SPSEXPD: 首领挑战徽章（旧版有、新移植类缺失）
+		if (pd.Statistics.qualifiedForBossChallengeBadge) Badges.validateBossChallengeCompleted();
 	}
 
 	@Override public void storeInBundle(Bundle bundle) {

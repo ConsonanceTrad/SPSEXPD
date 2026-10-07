@@ -119,7 +119,9 @@ public class ScrollOfChallenge extends ExoticScroll {
 		public void setup(int pos){
 
 			int dist;
-			if (Dungeon.depth == 7 || Dungeon.depth == 15 || Dungeon.depth == 31){
+			//SPSEXPD: 首领层为 7/15/23/31/39（每章 8 层）
+			if (Dungeon.depth == 7 || Dungeon.depth == 15 || Dungeon.depth == 23
+					|| Dungeon.depth == 31 || Dungeon.depth == 39){
 				dist = 1; //smaller boss arenas
 			} else {
 
