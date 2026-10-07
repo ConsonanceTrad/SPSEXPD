@@ -46,7 +46,8 @@ public class CityPainter extends RegularPainter {
 				
 			} else if (map[i] == Terrain.WALL
 					&& !DungeonTileSheet.wallStitcheable(map[i + w])
-					&& Random.Int( 21 - Dungeon.depth ) == 0) {
+					//SPSEXPD: 每章 8 层——城市章为 25-32，越深越容易出现墙面装饰（旧式 21-depth 会变成非正数）
+					&& Random.Int( Math.max(1, 33 - Dungeon.depth) ) == 0) {
 				map[i] = Terrain.WALL_DECO;
 			}
 		}

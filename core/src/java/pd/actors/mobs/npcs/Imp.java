@@ -351,7 +351,8 @@ public class Imp extends NPC {
 		}
 
 		public static ArrayList<Room> spawn( ArrayList<Room> rooms ) {
-			if (!spawned && Dungeon.depth > 24 && Random.Int( Math.max(1, 32 - Dungeon.depth) ) == 0) {
+			//SPSEXPD: 每章 8 层——小恶魔房出现在大厅/终局（33-40），越深越容易
+			if (!spawned && Dungeon.depth > 32 && Random.Int( Math.max(1, 40 - Dungeon.depth) ) == 0) {
 
 				rooms.add(new AmbitiousImpRoom());
 				spawned = true;

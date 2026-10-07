@@ -114,7 +114,9 @@ public class HallsLevel extends SpsRegularLevel {
 
 	{
 		
-		viewDistance = Math.min( 26 - Dungeon.depth, viewDistance );
+		//SPSEXPD: 每章 8 层——大厅章为 33-40，视野从章首 5 递减到 1
+		//（旧的 26-depth 在新深度下会变成负数，导致 ShadowCaster 数组越界、视野被清空）
+		viewDistance = Math.max(1, Math.min( viewDistance, 6 - Dungeon.floorInChapter( Dungeon.depth ) ));
 		
 		color1 = 0x801500;
 		color2 = 0xa68521;

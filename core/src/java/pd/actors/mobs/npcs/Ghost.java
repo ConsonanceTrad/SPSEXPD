@@ -296,7 +296,8 @@ public class Ghost extends NPC {
 		}
 		
 		public static void spawn(SewerLevel level) {
-			if (!spawned && Dungeon.depth > 1 && Random.Int( Math.max(1, 8 - Dungeon.depth) ) == 0) {
+			//SPSEXPD: 每章 8 层——幽灵出现在下水道章（1-8），越深越容易
+			if (!spawned && Dungeon.depth > 1 && Random.Int( Math.max(1, 9 - Dungeon.depth) ) == 0) {
 				
 				Ghost ghost = new Ghost();
 				int spawnPos = -1;

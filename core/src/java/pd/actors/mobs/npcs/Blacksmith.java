@@ -586,7 +586,8 @@ public class Blacksmith extends NPC {
 		}
 		
 		public static ArrayList<Room> spawn( ArrayList<Room> rooms ) {
-			if (!spawned && Dungeon.depth > 16 && Random.Int( Math.max(1, 24 - Dungeon.depth) ) == 0) {
+			//SPSEXPD: 每章 8 层——铁匠房出现在城市章（25-32），越深越容易
+			if (!spawned && Dungeon.depth > 24 && Random.Int( Math.max(1, 32 - Dungeon.depth) ) == 0) {
 				
 				rooms.add(new BlacksmithRoom());
 				spawned = true;
