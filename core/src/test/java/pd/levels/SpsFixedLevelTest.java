@@ -1272,6 +1272,25 @@ public final class SpsFixedLevelTest {
 							"下水道/监狱首领旧图不同步，章节=" + chapter + "，cell=" + cell);
 				}
 				Dungeon.level = level;
+				if (chapter == 0) {
+					//SPSEXPD: 行走（occupyCell）必须也能触发首领战——pressCell 在真实行走路径上不会被回调
+					Hero previousHero = Dungeon.hero;
+					Hero walker = new Hero();
+					walker.pos = SpsFixedBossLevel.BOSS_CELL;
+					Dungeon.hero = walker;
+					Actor.add(walker);
+					level.occupyCell(walker);
+					Mob arenaBoss = null;
+					for (Mob mob : level.mobs()) {
+						if (mob.pos == SpsFixedBossLevel.BOSS_CELL) arenaBoss = mob;
+					}
+					check(arenaBoss != null, "走进下水道首领竞技场没有刷出首领（occupyCell 触发链断了）");
+					check(level.locked && level.map[SpsFixedBossLevel.ENTRANCE] == Terrain.WALL_DECO,
+							"走进首领竞技场没有封住入口");
+					check(pd.Statistics.qualifiedForBossChallengeBadge,
+							"走进首领竞技场没有计入首领挑战资格");
+					Dungeon.hero = previousHero;
+				}
 				level.seal();
 				check(legacyVisual.visualAt(SpsFixedBossLevel.ENTRANCE) == 12,
 						"首领封门视觉没有同步，章节=" + chapter);

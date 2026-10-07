@@ -118,8 +118,20 @@ public class SpsCityBossLevel extends Level {
 	@Override
 	public void pressCell(int cell) {
 		super.pressCell(cell);
+		enterArena(cell);
+	}
+
+	//SPSEXPD: 玩家走进竞技场时才会触发首领战——pressCell 在行走路径上不会被回调
+	@Override
+	public void occupyCell(Char ch) {
+		super.occupyCell(ch);
+		if (ch == Dungeon.hero) enterArena(ch.pos);
+	}
+
+	private void enterArena(int cell) {
 		if (!enteredArena && Dungeon.hero != null && Dungeon.hero.pos == cell && outsideEntranceRoom(cell)) {
 			enteredArena = true;
+			pd.Statistics.qualifiedForBossChallengeBadge = true;
 			seal();
 			spawnBoss(false);
 			Dungeon.observe();

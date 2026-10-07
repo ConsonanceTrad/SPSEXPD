@@ -101,9 +101,21 @@ public class FieldBossLevel extends Level {
 	@Override
 	public void pressCell(int cell) {
 		super.pressCell(cell);
+		enterArena(cell);
+	}
+
+	//SPSEXPD: 玩家走进竞技场时才会触发首领战——pressCell 在行走路径上不会被回调
+	@Override
+	public void occupyCell(Char ch) {
+		super.occupyCell(ch);
+		if (ch == Dungeon.hero) enterArena(ch.pos);
+	}
+
+	private void enterArena(int cell) {
 		if (!enteredArena && !bossDefeated() && Dungeon.hero != null
 				&& Dungeon.hero.pos == cell && cell / width() < arenaDoor / width()) {
 			enteredArena = true;
+			pd.Statistics.qualifiedForBossChallengeBadge = true;
 			spawnKing();
 			Dungeon.observe();
 		}

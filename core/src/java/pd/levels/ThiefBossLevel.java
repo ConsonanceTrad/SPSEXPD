@@ -26,7 +26,10 @@ public class ThiefBossLevel extends Level {
 	@Override public Mob createMob(){return null;}
 	@Override public Actor addRespawner(){return null;}
 	@Override public int randomRespawnCell(Char ch){return -1;}
-	@Override public void pressCell(int cell){super.pressCell(cell);if(!enteredArena&&Dungeon.hero!=null&&Dungeon.hero.pos==cell&&cell/WIDTH<arenaDoor/WIDTH){enteredArena=true;ArrayList<Integer> candidates=new ArrayList<>();int b1=(TOP+1)*WIDTH+CENTER+1,b2=b1-2;for(int p=0;p<length();p++)if(passable[p]&&p/WIDTH<arenaDoor/WIDTH&&Actor.findChar(p)==null&&p!=b1&&p!=b2)candidates.add(p);if(!candidates.isEmpty()){ThiefKing boss=new ThiefKing();boss.pos=Random.element(candidates);boss.state=boss.HUNTING;BanditKing one=new BanditKing();one.pos=b1;one.state=one.HUNTING;BanditKing two=new BanditKing();two.pos=b2;two.state=two.HUNTING;GameScene.add(boss);GameScene.add(one);GameScene.add(two);}Dungeon.observe();}}
+	@Override public void pressCell(int cell){super.pressCell(cell);enterArena(cell);}
+	//SPSEXPD: 玩家走进竞技场时才会触发首领战——pressCell 在行走路径上不会被回调
+	@Override public void occupyCell(Char ch){super.occupyCell(ch);if(ch==Dungeon.hero)enterArena(ch.pos);}
+	private void enterArena(int cell){if(!enteredArena&&Dungeon.hero!=null&&Dungeon.hero.pos==cell&&cell/WIDTH<arenaDoor/WIDTH){enteredArena=true;pd.Statistics.qualifiedForBossChallengeBadge=true;ArrayList<Integer> candidates=new ArrayList<>();int b1=(TOP+1)*WIDTH+CENTER+1,b2=b1-2;for(int p=0;p<length();p++)if(passable[p]&&p/WIDTH<arenaDoor/WIDTH&&Actor.findChar(p)==null&&p!=b1&&p!=b2)candidates.add(p);if(!candidates.isEmpty()){ThiefKing boss=new ThiefKing();boss.pos=Random.element(candidates);boss.state=boss.HUNTING;BanditKing one=new BanditKing();one.pos=b1;one.state=one.HUNTING;BanditKing two=new BanditKing();two.pos=b2;two.state=two.HUNTING;GameScene.add(boss);GameScene.add(one);GameScene.add(two);}Dungeon.observe();}}
 	int arenaDoorForTesting(){return arenaDoor;}
 	private boolean completed(){if(Dungeon.hero==null)return false;AdventureJournal j=Dungeon.hero.belongings.getItem(AdventureJournal.class);return j!=null&&j.isCompleted(13);}
 	private static final String DOOR="door",ENTERED="entered";

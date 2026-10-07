@@ -52,8 +52,23 @@ abstract class SpsFixedBossLevel extends Level {
 	@Override
 	public void pressCell(int cell) {
 		super.pressCell(cell);
+		enterArena(cell);
+	}
+
+	//SPSEXPD: 玩家走进竞技场时才会触发首领战——pressCell 在行走路径上永远不会被回调
+	//（CellTriggers.occupy 直接调用静态 press，绕过了 Level.pressCell 这一虚方法）
+	@Override
+	public void occupyCell(Char ch) {
+		super.occupyCell(ch);
+		if (ch == Dungeon.hero) enterArena(ch.pos);
+	}
+
+	/** 进入竞技场：封住入口并刷出首领（幂等，只有第一次生效）。 */
+	private void enterArena(int cell) {
 		if (!enteredArena && Dungeon.hero != null && Dungeon.hero.pos == cell && cell != ENTRANCE) {
 			enteredArena = true;
+			//SPSEXPD: 与旧版一致——进入首领竞技场即计入“首领挑战”资格
+			pd.Statistics.qualifiedForBossChallengeBadge = true;
 			seal();
 			spawnBoss();
 			Dungeon.observe();

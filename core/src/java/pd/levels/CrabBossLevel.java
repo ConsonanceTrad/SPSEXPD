@@ -29,7 +29,10 @@ public class CrabBossLevel extends Level {
 	@Override public Mob createMob(){return null;}
 	@Override public Actor addRespawner(){return null;}
 	@Override public int randomRespawnCell(Char ch){return -1;}
-	@Override public void pressCell(int cell){super.pressCell(cell);if(!enteredArena&&Dungeon.hero!=null&&Dungeon.hero.pos==cell&&outsideEntranceRoom(cell)){enteredArena=true;spawnBosses();Dungeon.observe();}}
+	@Override public void pressCell(int cell){super.pressCell(cell);enterArena(cell);}
+	//SPSEXPD: 玩家走进竞技场时才会触发首领战——pressCell 在行走路径上不会被回调
+	@Override public void occupyCell(Char ch){super.occupyCell(ch);if(ch==Dungeon.hero)enterArena(ch.pos);}
+	private void enterArena(int cell){if(!enteredArena&&Dungeon.hero!=null&&Dungeon.hero.pos==cell&&outsideEntranceRoom(cell)){enteredArena=true;pd.Statistics.qualifiedForBossChallengeBadge=true;spawnBosses();Dungeon.observe();}}
 	private void spawnBosses(){ArrayList<Integer> candidates=new ArrayList<>();for(int cell=0;cell<length();cell++)if(passable[cell]&&outsideEntranceRoom(cell)&&Actor.findChar(cell)==null&&cell!=SHELL_CELL&&cell!=SHELL_CELL-1&&cell!=SHELL_CELL+1&&cell!=SHELL_CELL+WIDTH&&cell!=SHELL_CELL-WIDTH)candidates.add(cell);if(candidates.isEmpty())return;CrabKing king=new CrabKing();king.pos=Random.element(candidates);king.state=king.HUNTING;Shell shell=new Shell();shell.pos=SHELL_CELL;GameScene.add(king);GameScene.add(shell);int[] cells={SHELL_CELL+1,SHELL_CELL-1,SHELL_CELL+WIDTH,SHELL_CELL-WIDTH};for(int cell:cells){SpsHermitCrab crab=new SpsHermitCrab();crab.pos=cell;crab.state=crab.HUNTING;GameScene.add(crab);}}
 	boolean outsideEntranceRoom(int cell){return cell/WIDTH<arenaDoor/WIDTH;}
 	int arenaDoorForTesting(){return arenaDoor;}
