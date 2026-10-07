@@ -265,7 +265,10 @@ abstract public class ClassArmor extends Armor {
 
 							@Override
 							public boolean itemSelectable(Item item) {
-								return item instanceof Armor;
+								//SPSEXPD: 装备中的护甲不在背包里，armor.detach(backpack) 会静默失败
+								//（Item.detachAll 找不到就 return），而下面的清槽逻辑只处理主护甲槽、漏掉副护甲槽，
+								//会造成「能力被复制但护甲还在」的白嫖；所以只允许未装备的护甲作为转移素材。
+								return item instanceof Armor && !item.isEquipped(hero);
 							}
 
 							@Override

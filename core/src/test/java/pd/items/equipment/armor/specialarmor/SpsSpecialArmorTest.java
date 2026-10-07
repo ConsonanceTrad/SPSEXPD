@@ -62,11 +62,13 @@ public final class SpsSpecialArmorTest {
 		Game.version = "test";
 		Random.pushGenerator(0x53505341524D4F52L);
 		try {
+			testAbilityTransferSource();
 			testDefinitionsAndArmorKitMapping();
 			testPassiveEffects();
 			testSaveRestore();
 			testLegacyIcons();
-			System.out.println("SPS八职业特殊护甲测试通过：护甲包映射、数值、受击被动、存档和原始图标均正常。");
+			testAbilityTransferSource();
+			System.out.println("SPS八职业特殊护甲测试通过：护甲包映射、数值、受击被动、存档、原始图标与能力转移素材判定均正常。");
 		} finally {
 			Random.popGenerator();
 		}
@@ -156,6 +158,19 @@ public final class SpsSpecialArmorTest {
 			check(ICON_HASHES[slot].equals(toHex(digest.digest(pixels.array()))),
 					"第" + (slot + 1) + "件特殊护甲图标与旧版像素不一致");
 		}
+	}
+
+	/**
+	 * 能力转移只能选未装备的护甲：装备中的护甲不在背包里，armor.detach(backpack) 会静默失败
+	 * （Item.detachAll 找不到就 return），而清槽逻辑只处理主护甲槽、漏掉副护甲槽，
+	 * 会造成「能力被复制但护甲还在」。该 selector 是匿名类，headless 无法直接构造，故做源码断言。
+	 */
+	private static void testAbilityTransferSource() throws Exception {
+		String source = new String(java.nio.file.Files.readAllBytes(
+				java.nio.file.Path.of("../java/pd/items/equipment/armor/ClassArmor.java")),
+				java.nio.charset.StandardCharsets.UTF_8);
+		check(source.contains("item instanceof Armor && !item.isEquipped(hero)"),
+				"ClassArmor 的能力转移可以选中装备中的护甲（会导致能力被复制但护甲还在）");
 	}
 
 	private static Hero hero() {
