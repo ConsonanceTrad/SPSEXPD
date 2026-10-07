@@ -17,6 +17,7 @@ public abstract class ColoredDewdrop extends Dewdrop {
 	protected abstract int baseHealing();
 
 	int healingValue(Hero hero) {
+		//SPSEXPD: 入参是旧版深度语义（异界/混沌领域可达 85），保持旧版每章 5 层的治疗曲线
 		int value = baseHealing() + Math.max(0, Dungeon.legacyDepth() - 1) / 5;
 		if (hero.heroClass == HeroClass.HUNTRESS) value++;
 		return Math.min(hero.HT - hero.HP, value * quantity);

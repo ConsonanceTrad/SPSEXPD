@@ -131,7 +131,8 @@ public class Pickaxe extends MeleeWeapon {
 	}
 
 	public static boolean legacyMiningDepth(int depth) {
-		return depth >= 16 && depth <= 23 || depth == 32;
+		//SPSEXPD: 入参是旧版深度语义（异界可达 85），保持旧版可采掘楼层：洞穴章 11-15 与 32 层
+		return depth >= 11 && depth <= 15 || depth == 32;
 	}
 
 	public boolean mine(final Hero hero) {

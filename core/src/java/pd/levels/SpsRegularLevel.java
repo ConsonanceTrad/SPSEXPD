@@ -1149,8 +1149,10 @@ public abstract class SpsRegularLevel extends RegularLevel {
 				case TUNNEL: map[cell] = tunnelTile(); break;
 				case REGULAR:
 					int legacyDepth = Dungeon.legacyDepth();
+					//SPSEXPD: 第 1 章按每章 8 层判定（原 6 是旧的每章 5 层语义）
 					boolean secret = legacyDepth > 1
-							&& (legacyDepth < 6 ? Random.Int(Math.max(1, 12 - legacyDepth))
+							&& (legacyDepth < Dungeon.NORMAL_FLOORS_PER_CHAPTER + 1
+							? Random.Int(Math.max(1, 12 - legacyDepth))
 							: Random.Int(6)) == 0;
 					map[cell] = secret ? Terrain.SECRET_DOOR : Terrain.DOOR;
 					if (secret) legacySecretDoors++;

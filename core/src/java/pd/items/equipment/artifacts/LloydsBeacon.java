@@ -111,7 +111,8 @@ public class LloydsBeacon extends Item {
 	@Override
 	public void execute(Hero hero, String action) {
 		if (AC_SET.equals(action) || AC_RETURN.equals(action)) {
-			if (Dungeon.bossLevel() || Dungeon.depth > 38) {
+			//SPSEXPD: 与 LAST_LEVEL_DEPTH 对齐（39 为末章首领层，40 为终层）
+			if (Dungeon.bossLevel() || Dungeon.depth >= Dungeon.LAST_LEVEL_DEPTH - 1) {
 				hero.spend(TIME_TO_USE);
 				GLog.w(Messages.get(this, "preventing"));
 				return;

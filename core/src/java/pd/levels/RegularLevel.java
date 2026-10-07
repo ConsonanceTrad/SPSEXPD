@@ -194,7 +194,8 @@ public abstract class RegularLevel extends Level {
 	protected abstract Painter painter();
 	
 	protected int nTraps() {
-		return Random.NormalIntRange( 2, 3 + (Dungeon.legacyDepth()/5) );
+		//SPSEXPD: 每章 8 层——陷阱上限按章节增长
+		return Random.NormalIntRange( 2, 3 + Dungeon.chapterIndex(Dungeon.legacyDepth()) );
 	}
 	
 	protected Class<?>[] trapClasses(){
@@ -213,7 +214,8 @@ public abstract class RegularLevel extends Level {
 			else                            return 10;
 		}
 
-		int count = 3 + legacyDepth % 5 + Random.Int(3);
+		//SPSEXPD: 每章 8 层——刷怪上限按“本章第几层”增长
+		int count = 3 + Dungeon.floorInChapter(legacyDepth) + Random.Int(3);
 		if (feeling == Feeling.LARGE){
 			count = (int)Math.ceil(count * 1.33f);
 		}
@@ -607,7 +609,8 @@ public abstract class RegularLevel extends Level {
 		Random.pushGenerator( Random.Long() );
 			if (Document.ADVENTURERS_GUIDE.allPagesFound()){
 
-				int region = 1+(Dungeon.depth-1)/5;
+				//SPSEXPD: 每章 8 层——文献投放区域按章节
+				int region = 1 + Dungeon.chapterIndex(Dungeon.depth);
 
 				Document regionDoc;
 				switch( region ){
