@@ -43,6 +43,7 @@ import pd.items.Generator;
 import pd.items.Gold;
 import pd.items.Heap;
 import pd.items.Item;
+import pd.items.Recipe;
 import pd.items.TransmutationBall;
 import pd.items.consum.food.vegetable.StarEaterFlower;
 import pd.items.consum.food.Blandfruit;
@@ -179,7 +180,8 @@ public final class SpsEnhancedPlantsTest {
 		testFruitEffects();
 		testSorrowmossDepthEffect();
 		testLegacyPixels();
-		System.out.println("SPS强化植物测试通过：20种种子映射、果丛掉落、存档、果实效果及旧版像素均正确。");
+		testRefinedSeeds();
+		System.out.println("SPS强化植物测试通过：20种种子映射、果丛掉落、精制种子、存档、果实效果及旧版像素均正确。");
 	}
 
 	private static void testSorrowmossDepthEffect() {
@@ -299,6 +301,82 @@ public final class SpsEnhancedPlantsTest {
 			if (level.heaps.get(12 + offset) != null) edgeFruit = true;
 		}
 		check(edgeFruit, "地图边缘强化植物没有散落果实");
+	}
+
+	/** SPSEXPD: 精制种子——果实 + 任意蔬菜炼成，种在普通地板长成精心作物、50 回合成熟。 */
+	private static void testRefinedSeeds() {
+		//配方：对应果实（普通或大型）+ 任意一种蔬菜
+		ArrayList<Item> inputs = new ArrayList<>();
+		inputs.add(new HealFruit());
+		inputs.add(new Vegetable());
+		ArrayList<Recipe> recipes = Recipe.findRecipes(inputs);
+		check(recipes.size() == 1 && recipes.get(0) instanceof RefinedSeeds.RefinedSeedRecipe,
+				"「果实 + 蔬菜」没有匹配到精制种子配方");
+		Item brewed = recipes.get(0).brew(inputs);
+		check(brewed instanceof RefinedSeeds.SungrassRefined && brewed.quantity() == 1,
+				"普通果实没有炼出 1 粒对应作物的精制种子");
+
+		inputs = new ArrayList<>();
+		inputs.add(new LargeHealFruit());
+		inputs.add(new pd.items.consum.food.vegetable.Chili());
+		check(Recipe.findRecipes(inputs).size() == 1 && inputs.get(0).quantity() == 1,
+				"「大型果实 + 任意蔬菜」没有匹配到精制种子配方");
+		check(Recipe.findRecipes(inputs).get(0).brew(inputs).quantity() == 2,
+				"大型果实没有炼出 2 粒精制种子");
+
+		inputs = new ArrayList<>();
+		inputs.add(new HealFruit());
+		inputs.add(new HealFruit());
+		check(!(Recipe.findRecipes(inputs).size() == 1
+				&& Recipe.findRecipes(inputs).get(0) instanceof RefinedSeeds.RefinedSeedRecipe),
+				"精制种子配方错误接受了两个果实");
+		inputs = new ArrayList<>();
+		inputs.add(new Vegetable());
+		inputs.add(new Vegetable());
+		check(!(Recipe.findRecipes(inputs).size() == 1
+				&& Recipe.findRecipes(inputs).get(0) instanceof RefinedSeeds.RefinedSeedRecipe),
+				"精制种子配方错误接受了两个蔬菜");
+
+		//种植：种在普通地板上长成精心作物，并带 50 回合成长计时
+		TestLevel level = new TestLevel(9, 9);
+		Dungeon.level = level;
+		RefinedSeeds.SungrassRefined seed = new RefinedSeeds.SungrassRefined();
+		Plant plant = seed.couch(40, level);
+		check(plant instanceof Sungrass.ExSungrass, "精制种子没有长出精心作物形态");
+		check(((SpsFruitBush) plant).potGrown, "精制种子长出的作物不是精心档");
+		check(plant.growTurns == RefinedSeeds.GROW_TURNS, "精制种子作物的成长回合数不是 50");
+		plant.pos = 40;
+		level.plants.put(40, plant);
+
+		//未成熟被踩踏：作物消失、该格变成被踩踏的高草、不给任何产出
+		plant.trigger();
+		check(level.plants.get(40) == null, "未成熟的精制作物被踩踏后没有消失");
+		check(level.map[40] == Terrain.FURROWED_GRASS,
+				"未成熟的精制作物被踩踏后没有变成被踩踏的高草");
+		check(level.heaps.get(40) == null, "未成熟的精制作物被踩踏后仍然给了产出");
+
+		//成熟后按精心档收获（果实散落邻格 + 蔬菜落在踩踏地）
+		Plant ripe = seed.couch(40, level);
+		ripe.pos = 40;
+		ripe.growTurns = 0;
+		level.plants.put(40, ripe);
+		Random.pushGenerator(0x525346494E454431L);
+		try {
+			ripe.trigger();
+		} finally {
+			Random.popGenerator();
+		}
+		check(level.plants.get(40) == null, "成熟的精制作物被踩踏后没有消失");
+		Heap ripeCenter = level.heaps.get(40);
+		PlantHarvest.Species ripeSpecies = PlantHarvest.speciesFor(Sungrass.ExSungrass.class);
+		check(ripeCenter != null && ripeCenter.items.stream().anyMatch(item -> ripeSpecies.vegetable.isInstance(item)),
+				"成熟的精制作物没有在踩踏地掉落蔬菜");
+		boolean ripeFruit = false;
+		for (int offset : PathFinder.NEIGHBOURS8) {
+			Heap heap = level.heaps.get(40 + offset);
+			if (heap != null && heap.peek() instanceof MissileWeapon) ripeFruit = true;
+		}
+		check(ripeFruit, "成熟的精制作物没有散落果实");
 	}
 
 	private static void testFruitEffects() {

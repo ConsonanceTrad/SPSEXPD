@@ -1154,6 +1154,13 @@ public class Hero extends Char {
 	public boolean act() {
 		//SPSXPD: 宠物能力特质（献祭获得）的每回合触发
 		pd.actors.hero.perks.pets.PetAbilityPerk.dispatchTurn(this);
+
+		//SPSEXPD: 精制种子作物的成长——每回合推进一次，只作用于英雄所在楼层
+		if (Dungeon.level != null && Dungeon.level.plants != null) {
+			for (pd.plants.Plant plant : Dungeon.level.plants.valueList()) {
+				if (plant.growTurns > 0) plant.growTurns--;
+			}
+		}
 		
 		//calls to dungeon.observe will also update hero's local FOV.
 		fieldOfView = Dungeon.level.heroFOV;
