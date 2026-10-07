@@ -23,7 +23,7 @@ public class TrinityStance extends Buff {
 			.t("name", "战舞姿态")
 			.t("state_charge", "冲锋姿态")
 			.t("state_defend", "防御姿态")
-			.t("desc", "以战舞驾驭六刃的架势。\n\n_冲锋姿态：_移速降到原先的四分之三；每次命中叠加攻速（连续 2 回合未命中后每回合掉 1 层）；命中敌人时会顺势贴到对方身边。\n_防御姿态：_移速同样降到四分之三，攻速再减半，但受到的伤害减少 50%%。\n\n随时可以切换姿态，切换本身花一个回合。\n\n当前姿态：%1$s");
+			.t("desc", "以战舞驾驭六刃的架势。\n\n_冲锋姿态：_移速降到原先的四分之三；每次命中叠加攻速（连续 2 回合未命中后每回合掉 1 层）；命中敌人时会顺势贴到对方身边。\n_防御姿态：_移速同样降到四分之三，攻速再减半，但受到的伤害减少 50%%。\n\n随时可以切换姿态，切换本身花一个回合；切进防御姿态会清空已叠的蓄势层数。\n\n当前姿态：%1$s");
 	}
 
 	public static final int MAX_LAYERS = 5;
@@ -82,7 +82,9 @@ public class TrinityStance extends Buff {
 	/** 整次挥击（三次结算）只记一次。 */
 	public void onAttack() {
 		idleTurns = 0;
-		if (!defending && layers < MAX_LAYERS) layers++;
+		//SPSEXPD: 防御姿态下不叠蓄势（层数在切进防御姿态时就已清零）
+		if (defending) return;
+		if (layers < MAX_LAYERS) layers++;
 		if (target != null && target.buff(TrinityCharge.class) == null) {
 			//SPSEXPD: 用一个独立 buff 显示当前层数（它自己跟随层数存活，这里只保证它存在）
 			Buff.affect(target, TrinityCharge.class);
@@ -97,9 +99,14 @@ public class TrinityStance extends Buff {
 		return defending;
 	}
 
-	/** SPSEXPD: 切换冲锋/防御姿态——随时可切，代价是切换这个动作本身花一个回合。 */
+	/** SPSEXPD: 切换冲锋/防御姿态——随时可切，代价是切换这个动作本身花一个回合；切入防御姿态会打断战舞（蓄势层数清零）。 */
 	public void toggleStance() {
 		defending = !defending;
+		if (defending) {
+			layers = 0;
+			//SPSEXPD: 蓄势的显示 buff 立刻消散，而不是等它下个回合自己发现层数为 0
+			if (target != null) Buff.detach(target, TrinityCharge.class);
+		}
 	}
 
 	/** 战舞的移速代价恒定：不再随击杀改善，冲锋姿态与防御姿态都是四分之三。 */

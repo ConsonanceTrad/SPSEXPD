@@ -103,9 +103,10 @@ public final class SpsTrinityForceTest {
 		check(Math.abs(stance.attackSpeedMultiplier(1.5f) - 2.5f) < 0.00001f, "攻速加成没有叠在既有倍率上");
 		check(Math.abs(stance.speedMultiplier() - 0.75f) < 0.00001f, "战舞移速倍率不是 0.75");
 
-		//随时可以切换姿态，没有冷却，也不会自己结束
+		//随时可以切换姿态，没有冷却，也不会自己结束；切进防御姿态会清空蓄势层数
 		stance.toggleStance();
 		check(stance.defending(), "切换后没有进入防御姿态");
+		check(stance.layers() == 0, "切进防御姿态没有清空战舞蓄势层数：" + stance.layers());
 		check(stance.reduceDamage(10) == 5, "防御姿态的 50% 减伤错误");
 		check(stance.reduceDamage(1) == 1, "防御姿态对小伤害的结算错误");
 		check(Math.abs(stance.speedMultiplier() - 0.75f) < 0.00001f, "防御姿态的移速也应恒为 0.75");
