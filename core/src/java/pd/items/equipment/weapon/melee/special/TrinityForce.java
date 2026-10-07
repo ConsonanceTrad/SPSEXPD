@@ -62,11 +62,10 @@ public class TrinityForce extends NormalMeleeWeapon {
 		return this;
 	}
 
-	//SPSEXPD: 不设默认动作——三相之力的每个动作都有各自的价值，
-	//放进快捷栏后点击应打开动作列表，而不是直接执行某一个动作
+	//SPSEXPD: 默认动作 = 切换姿态（快捷栏点击即切换冲锋/防御）
 	@Override
 	public String defaultAction() {
-		return null;
+		return AC_DEFEND;
 	}
 
 	@Override
