@@ -39,6 +39,7 @@ import pd.items.nornstone.PurpleNornStone;
 import pd.items.nornstone.YellowNornStone;
 import pd.items.consum.potions.PotionOfHealing;
 import pd.items.consum.potions.PotionOfMindVision;
+import pd.items.consum.potions.elixirs.WishPotion;
 import pd.items.quest.AdventureJournal;
 import pd.items.quest.ChallengeJournal;
 import pd.items.equipment.rings.Ring;
@@ -94,7 +95,7 @@ public final class SpsTestTimeLoadoutTest {
 			testLegacyContainersAndTome();
 			testDummyMechanicsAndEdgeSafety();
 			testBilingualResources();
-			System.out.println("SPS测试模式开局通过：充满的多利亚石板、25条异界路线、8条挑战路线、完整物资数量、十二枚+10戒指、20000金币/10000生命及玩偶机制均正常。");
+			System.out.println("SPS测试模式开局通过：充满的多利亚石板、25条异界路线、8条挑战路线、完整物资数量、十二枚+10戒指、20000金币、20瓶许愿魔药、默认初始生命及玩偶机制均正常。");
 		} finally {
 			Actor.clear();
 			Dungeon.level = null;
@@ -165,8 +166,19 @@ public final class SpsTestTimeLoadoutTest {
 		}
 		MasterThievesArmband armband = hero.belongings.getItem(MasterThievesArmband.class);
 		check(armband != null && armband.level() == 5, "盗贼袖章不是+5");
-		check(Dungeon.gold == 20000 && hero.HT == 10000 && hero.HP == 10000,
-				"测试模式金币或最大生命没有恢复到规定值（金币20000、生命10000）");
+		check(Dungeon.gold == 20000, "测试模式金币没有恢复到规定值（20000）");
+		//SPSEXPD: 初始血量恢复正常——不再被 TEST_TIME 拉高
+		check(hero.HTBoost == 0 && hero.HT == hero.baseLevelHT(),
+				"测试模式不应改变初始最大生命（HTBoost=" + hero.HTBoost + "）");
+		check(countExact(hero, WishPotion.class) == 20, "许愿魔药数量不是20");
+		//SPSEXPD: 不再发放大小果实/蔬菜/二次产物
+		for (Item item : hero.belongings) {
+			String pkg = item.getClass().getPackageName();
+			check(!pkg.startsWith("pd.items.consum.food.fruit")
+							&& !pkg.startsWith("pd.items.consum.food.vegetable")
+							&& !pkg.startsWith("pd.items.consum.food.processed"),
+					"测试模式仍发放果实/蔬菜/二次产物：" + item.getClass().getSimpleName());
+		}
 		check(Dungeon.depth == 17 && Dungeon.branch == 0, "测试模式不应改写楼层深度（出生点留在 0 层由 Dungeon.init 决定），但应归零分支");
 		check(hero.belongings.backpack.capacity() >= 64, "测试模式背包容量不足64格");
 

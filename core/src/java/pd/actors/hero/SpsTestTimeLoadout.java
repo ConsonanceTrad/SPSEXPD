@@ -54,12 +54,9 @@ import pd.items.consum.scrolls.ScrollOfDummy;
 import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
 import pd.items.consum.scrolls.ScrollOfPsionicBlast;
+import pd.items.consum.potions.elixirs.WishPotion;
 import pd.items.equipment.weapon.melee.special.TestWeapon;
 import pd.items.consum.food.*;
-import pd.items.consum.food.fruit.*;
-import pd.items.consum.food.processed.*;
-import pd.items.consum.food.vegetable.*;
-import pd.items.equipment.weapon.missiles.arrows.*;
 import pd.plants.*;
 
 import java.util.Collections;
@@ -129,39 +126,8 @@ public final class SpsTestTimeLoadout {
 		};
 		for (Plant.Seed seed : testSeeds) collect(hero, seed.quantity(5));
 
-		Item[] testVegetables = {
-				new Chili(), new Marigold(), new IceMint(), new Tulip(), new ToxicEggplant(),
-				new TransmuteCage(), new Radish(), new Sunflower(), new QuartzFlower(),
-				new RainbowPansy(), new DewSpore(), new Sorrel(), new StarEaterFlower(),
-				new Durian(), new DreamLeaf(), new NutVegetable(), new BattleFlower(),
-				new Blandfruit(), new HealGrass()
-		};
-		for (Item item : testVegetables) collect(hero, item.quantity(5));
-
-		Item[] testProcessed = {
-				new Adhesive(), new Capsaicin(), new TransmutePowder(), new HealingSalve(),
-				new CoolingOil(), new Perfume(), new ToxicExtract(), new WakeTea(),
-				new NutrientSolution(), new SunflowerSeed(), new FruitThread(), new Sedative(),
-				new RedRose(), new DigestiveFluid(), new AetherLiquid(), new CrystalShard(),
-				new HighEnergySpore(), new WishPetal(), new HormoneSolution()
-		};
-		for (Item item : testProcessed) collect(hero, item.quantity(5));
-
-		//SPSEXPD: 投掷果实——20 种普通 + 20 种大型，各 10 枚便于投掷/食用测试
-		Item[] testFruits = {
-				new FreshFruit(), new RotFruit(), new FireFruit(), new BlindFruit(), new HealFruit(),
-				new IceFruit(), new ShockFruit(), new ToxicFruit(), new CharmFruit(), new RootFruit(),
-				new SmokeFruit(), new FlavorlessFruit(), new StarFruit(), new NutFruit(),
-				new StarEaterFruit(), new TransmuteFruit(), new GlassFruit(), new DewFruit(),
-				new SeedFruit(), new SwiftFruit(),
-				new LargeFreshFruit(), new LargeRotFruit(), new LargeFireFruit(), new LargeBlindFruit(),
-				new LargeHealFruit(), new LargeIceFruit(), new LargeShockFruit(), new LargeToxicFruit(),
-				new LargeCharmFruit(), new LargeRootFruit(), new LargeSmokeFruit(),
-				new LargeFlavorlessFruit(), new LargeStarFruit(), new LargeNutFruit(),
-				new LargeStarEaterFruit(), new LargeTransmuteFruit(), new LargeGlassFruit(),
-				new LargeDewFruit(), new LargeSeedFruit(), new LargeSwiftFruit()
-		};
-		for (Item item : testFruits) collect(hero, identified(item).quantity(10));
+		//SPSEXPD: 不再发放大小果实/蔬菜/二次产物（用户裁决 2026-11），改为 20 瓶许愿魔药便于测试许愿
+		collect(hero, new WishPotion().quantity(20));
 
 		Ring[] rings = {
 				new RingOfElements(), new RingOfAccuracy(), new RingOfMight(), new RingOfForce(),
@@ -180,9 +146,7 @@ public final class SpsTestTimeLoadout {
 		collect(hero, armband);
 
 		Dungeon.gold = 20000;
-		hero.HTBoost = 10000 - hero.baseLevelHT();
-		hero.updateHT(false);
-		hero.HP = hero.HT;
+		//SPSEXPD: 初始血量恢复正常（不再把 TEST_TIME 的最大生命拉到 10000，也不覆盖开局生命）
 		//SPS: 不再把开局挪到 1 层。Dungeon.init() 已把 depth 设为 0（0 层 = 学者+商店安全层），
 		//这里若覆盖成 1 会把出生点推后一层；测试时间挑战只负责发装备，不改开局位置。
 		Dungeon.branch = 0;
