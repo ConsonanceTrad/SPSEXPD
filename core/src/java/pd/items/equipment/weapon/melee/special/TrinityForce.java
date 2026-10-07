@@ -191,10 +191,10 @@ public class TrinityForce extends NormalMeleeWeapon {
 		if (!Dungeon.level.insideMap(landing)) return;
 		if (Actor.findChar(landing) != null || !Dungeon.level.passable[landing]) return;
 
+		//SPSEXPD: 用与正常移动相同的方式位移——先起移动动画（参数是起点与终点，必须在 pos 更新前调），
+		//再改逻辑位置；直接 place 会变成瞬移
+		if (hero.sprite != null) hero.sprite.move(hero.pos, landing);
 		hero.move(landing, false);
-		//SPSEXPD: Char.move 只改逻辑位置 pos、不同步贴图，这里必须自己 place，否则角色看着没动；
-		//提示里带上与目标的剩余距离，便于确认位移真的发生
-		if (hero.sprite != null) hero.sprite.place(landing);
 		pd.utils.GLog.i(Messages.get(this, "dash_near",
 				Messages.get(defender, "name"), Dungeon.level.distance(landing, defender.pos)));
 		Dungeon.level.pressCell(landing);
