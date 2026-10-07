@@ -140,6 +140,10 @@ public final class SpsTrinityForceTest {
 		check(Math.abs(stance.speedMultiplier() - 0.75f) < 0.00001f, "战舞移速倍率不是 0.75");
 		check(weapon.actions(hero).contains(TrinityForce.AC_VANGUARD), "装备后先锋之刃就该可用，不需要解锁");
 		check(weapon.actions(hero).contains(TrinityForce.AC_DEFEND), "战舞姿态可用时缺少防御姿态动作");
+
+		check(weapon.defaultAction() == null, "三相之力不该有默认动作");
+		check(weapon.canQuickSlot(), "三相之力应该允许加入快捷栏");
+		check(weapon.quickSlotOpensMenu(), "快捷栏点击三相之力应该打开动作列表");
 	}
 
 	private static void testMessages() throws Exception {

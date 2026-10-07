@@ -74,7 +74,8 @@ public class WndQuickBag extends Window {
 		ArrayList<Item> items = new ArrayList<>();
 
 		for (Item i : bag == null ? Dungeon.hero.belongings : bag){
-			if (i.defaultAction() == null){
+			//SPSXPD: 与加入快捷栏的判据保持一致（没有默认动作但放开快捷栏的物品也要列出）
+			if (!i.canQuickSlot()){
 				continue;
 			}
 			if (i instanceof Bag) {
