@@ -158,8 +158,10 @@ public class ScrollingListPane extends ScrollPane {
 			line.x = x;
 			line.y = y;
 
-			label.maxWidth((int)(width - 16 - 1));
-			label.setPos(x + 17, y + (height() - label.height()) / 2f);
+			//SPSEXPD: 没有图标的纯文字条目不再给图标留出 17px 的空位
+			boolean iconed = icon.width > 0;
+			label.maxWidth((int)(width - (iconed ? 17 : 1)));
+			label.setPos(x + (iconed ? 17 : 1), y + (height() - label.height()) / 2f);
 			PixelScene.align(label);
 		}
 	}

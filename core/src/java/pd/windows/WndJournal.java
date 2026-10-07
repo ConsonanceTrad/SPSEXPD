@@ -104,6 +104,7 @@ public class WndJournal extends WndTabbed {
 		InlineText.of(WndJournal.class)
 			.t("$guidetab.title", "地牢指南")
 			.t("$alchemytab.title", "炼金指南")
+			.t("$alchemytab.missing", "缺页")
 			.t("$guidetab.missing", "缺页")
 			.t("$notestab.title", "探险手册")
 			.t("$notestab.desc", "随着你在地牢中的旅途逐渐推进，这里会自动为你记录下重要信息。")
@@ -343,188 +344,52 @@ public class WndJournal extends WndTabbed {
 	
 	public static class AlchemyTab extends Component {
 		
-		private RedButton[] pageButtons;
-		private static final int NUM_BUTTONS = 9;
+		//SPSEXPD: 页签本体只是一份可滚动的文字目录，每一页的内容改由 WndAlchemyPage 弹窗显示。
+		//这样以后新增配方组时只是目录多一行，不必再往顶部挤图标按钮（原来固定 9 个图标按钮）。
+		public static int currentPageIdx   = -1;
 		
-		private static final IconEntry[] sprites = {
-				SpecificPlaceHolderDict.SEED_HOLDER_0,
-				SpecificPlaceHolderDict.STONE_HOLDER_0,
-				SpecificPlaceHolderDict.FOOD_HOLDER_0,
-				SpecificPlaceHolderDict.POTION_HOLDER_0,
-				SpecificPlaceHolderDict.SCROLL_HOLDER_0,
-				SpecificPlaceHolderDict.SOMETHING_0,
-				SpecificPlaceHolderDict.SOMETHING_0,
-				SpecificPlaceHolderDict.ELIXIR_HOLDER_0,
-				SpecificPlaceHolderDict.SPELL_HOLDER_0
-		};
-		
-		public static int currentPageIdx   = 0;
-		
-		private IconTitle title;
-		private RenderedTextBlock body;
-		
-		private ScrollPane list;
-		private ArrayList<QuickRecipe> recipes = new ArrayList<>();
+		private ScrollingListPane list;
 		
 		@Override
 		protected void createChildren() {
-			pageButtons = new RedButton[NUM_BUTTONS];
-			for (int i = 0; i < NUM_BUTTONS; i++){
-				final int idx = i;
-				pageButtons[i] = new RedButton( "" ){
-					@Override
-					protected void onClick() {
-						currentPageIdx = idx;
-						updateList();
-					}
-				};
-				if (Document.ALCHEMY_GUIDE.isPageFound(i)) {
-					pageButtons[i].icon(new ItemSprite(sprites[i], null));
-				} else {
-					pageButtons[i].icon(new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0, null));
-					pageButtons[i].enable(false);
-				}
-				add( pageButtons[i] );
-			}
-			
-			title = new IconTitle();
-			title.icon( new ItemSprite(SpecificPagesDict.ALCH_PAGE_0));
-			title.visible = false;
-
-			body = PixelScene.renderTextBlock(6);
-			
-			list = new ScrollPane(new Component());
+			list = new ScrollingListPane();
 			add(list);
 		}
 		
 		@Override
 		protected void layout() {
 			super.layout();
-			
-			if (width() >= 180){
-				float buttonWidth = width()/pageButtons.length;
-				for (int i = 0; i < NUM_BUTTONS; i++) {
-					pageButtons[i].setRect(x + i*buttonWidth, y, buttonWidth, ITEM_HEIGHT);
-					PixelScene.align(pageButtons[i]);
-				}
-			} else {
-				//for first row
-				float buttonWidth = width()/5;
-				float y = 0;
-				float x = 0;
-				for (int i = 0; i < NUM_BUTTONS; i++) {
-					pageButtons[i].setRect(this.x + x, this.y + y, buttonWidth, ITEM_HEIGHT);
-					PixelScene.align(pageButtons[i]);
-					x += buttonWidth;
-					if (i == 4){
-						y += ITEM_HEIGHT;
-						x = 0;
-						buttonWidth = width()/4;
-					}
-				}
-			}
-			
-			list.setRect(x, pageButtons[NUM_BUTTONS-1].bottom() + 1, width,
-					height - pageButtons[NUM_BUTTONS-1].bottom() + y - 1);
-			
+			list.setRect(x, y, width, height);
 			updateList();
 		}
 		
 		public void updateList() {
+			list.clear();
 
-			if (currentPageIdx != -1 && !Document.ALCHEMY_GUIDE.isPageFound(currentPageIdx)){
-				currentPageIdx = -1;
-			}
+			String missing = Messages.titleCase(Messages.get(this, "missing"));
 
-			for (int i = 0; i < NUM_BUTTONS; i++) {
-				if (i == currentPageIdx) {
-					pageButtons[i].icon().color(TITLE_COLOR);
-				} else {
-					pageButtons[i].icon().resetColor();
-				}
-			}
-			
-			if (currentPageIdx == -1){
-				return;
-			}
-			
-			for (QuickRecipe r : recipes){
-				if (r != null) {
-					r.killAndErase();
-					r.destroy();
-				}
-			}
-			recipes.clear();
-			
-			Component content = list.content();
-			
-			content.clear();
-			
-			title.visible = true;
-			title.label(Document.ALCHEMY_GUIDE.pageTitle(currentPageIdx));
-			title.setRect(0, 0, width(), 10);
-			content.add(title);
-			
-			body.maxWidth((int)width());
-			body.text(Document.ALCHEMY_GUIDE.pageBody(currentPageIdx));
-			body.setPos(0, title.bottom());
-			content.add(body);
-
-			Document.ALCHEMY_GUIDE.readPage(currentPageIdx);
-			
-			ArrayList<QuickRecipe> toAdd = QuickRecipe.getRecipes(currentPageIdx);
-			
-			float left;
-			float top = body.bottom()+2;
-			int w;
-			ArrayList<QuickRecipe> toAddThisRow = new ArrayList<>();
-			while (!toAdd.isEmpty()){
-				if (toAdd.get(0) == null){
-					toAdd.remove(0);
-					top += 6;
-				}
-				
-				w = 0;
-				while(!toAdd.isEmpty() && toAdd.get(0) != null
-						&& w + toAdd.get(0).width() <= width()){
-					toAddThisRow.add(toAdd.remove(0));
-					w += toAddThisRow.get(0).width();
-				}
-				
-				float spacing = (width() - w)/(toAddThisRow.size() + 1);
-				left = spacing;
-				while (!toAddThisRow.isEmpty()){
-					QuickRecipe r = toAddThisRow.remove(0);
-					r.setPos(left, top);
-					left += r.width() + spacing;
-					if (!toAddThisRow.isEmpty()) {
-						ColorBlock spacer = new ColorBlock(1, 16, 0xFF222222);
-						spacer.y = top;
-						spacer.x = left - spacing / 2 - 0.5f;
-						PixelScene.align(spacer);
-						content.add(spacer);
+			for (String page : Document.ALCHEMY_GUIDE.pageNames()){
+				final int idx = Document.ALCHEMY_GUIDE.pageIdx(page);
+				final boolean found = Document.ALCHEMY_GUIDE.isPageFound(page);
+				ScrollingListPane.ListItem item = new ScrollingListPane.ListItem(null, null,
+						found ? Messages.titleCase(Document.ALCHEMY_GUIDE.pageTitle(page)) : missing) {
+					@Override
+					public boolean onClick(float x, float y) {
+						if (inside(x, y) && found) {
+							currentPageIdx = idx;
+							ShatteredPixelDungeon.scene().addToFront(new WndAlchemyPage(idx));
+							Document.ALCHEMY_GUIDE.readPage(idx);
+							return true;
+						} else {
+							return false;
+						}
 					}
-					recipes.add(r);
-					content.add(r);
+				};
+				if (!found){
+					item.hardlight(0x999999);
 				}
-				
-				if (!toAdd.isEmpty() && toAdd.get(0) == null){
-					toAdd.remove(0);
-				}
-				
-				if (!toAdd.isEmpty() && toAdd.get(0) != null) {
-					ColorBlock spacer = new ColorBlock(width(), 1, 0xFF222222);
-					spacer.y = top + 16;
-					spacer.x = 0;
-					content.add(spacer);
-				}
-				top += 17;
-				toAddThisRow.clear();
+				list.addItem(item);
 			}
-			top -= 1;
-			content.setSize(width(), top);
-			list.setSize(list.width(), list.height());
-			list.scrollTo(0, 0);
 		}
 	}
 	
