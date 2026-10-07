@@ -431,6 +431,9 @@ public class QuickRecipe extends Component {
 					public String info() { return ""; }
 				};
 				WndBag.Placeholder elixirHolder = new WndBag.Placeholder(SpecificPlaceHolderDict.ELIXIR_HOLDER_0) {
+					//SPSXPD: 占位符的 name() 默认返回 null，点开物品详情窗会崩溃
+					@Override
+					public String name() { return ""; }
 					@Override
 					public String info() { return ""; }
 				};

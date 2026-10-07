@@ -195,7 +195,7 @@ public class Messages {
 	}
 
 	public static String capitalize( String str ){
-		if (str.length() == 0)  return str;
+		if (str == null || str.length() == 0)  return "";
 		else                    return str.substring( 0, 1 ).toUpperCase(locale) + str.substring( 1 );
 	}
 
@@ -206,6 +206,8 @@ public class Messages {
 	);
 
 	public static String titleCase( String str ){
+		//SPSXPD: 未命名物品（如 WndBag.Placeholder）的 name() 可能为 null，不能让标题整理崩溃
+		if (str == null) return "";
 		//English capitalizes every word except for a few exceptions
 		if (lang == Languages.ENGLISH){
 			String result = "";
