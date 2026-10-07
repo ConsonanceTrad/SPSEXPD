@@ -111,7 +111,8 @@ public final class SpsExtendedLegacyWeaponsTest {
 			MetalBowN.class, MetalBowS.class, MetalBowR.class, GunC.class,
 			AlloyBowN.class, AlloyBowS.class, AlloyBowR.class, GunD.class,
 			PVCBowN.class, PVCBowS.class, PVCBowR.class, GunE.class,
-			pd.items.equipment.weapon.melee.special.TrinityForce.class
+			pd.items.equipment.weapon.melee.special.TrinityForce.class,
+			pd.items.equipment.weapon.missiles.Thrower.class
 	};
 	private static final int[][] ICON_CELLS = {
 			{96, 944}, {112, 944}, {128, 944}, {144, 944},
@@ -150,8 +151,8 @@ public final class SpsExtendedLegacyWeaponsTest {
 
 	private static void testLegacyWeaponDecks() throws Exception {
 		check(Generator.Category.WEAPON.superClass == Weapon.class, "旧版总武器池类型不是Weapon");
-		//SPSEXPD: 旧版 60 件之后追加了三相之力（原创武器，追加在末尾不影响前 40/20 项双抽池）
-		check(Generator.Category.WEAPON.classes.length == 61, "旧版总武器池不是61件");
+		//SPSEXPD: 旧版 60 件之后追加了三相之力与投掷器（原创武器，追加在末尾不影响前 40/20 项双抽池）
+		check(Generator.Category.WEAPON.classes.length == 62, "旧版总武器池不是62件");
 		check(Generator.Category.MELEEWEAPON.classes.length == 40, "旧版近战双抽池不是40件");
 		check(Generator.Category.OLDWEAPON.classes.length == 20, "旧版基础武器池不是20件");
 		for (int i = 0; i < ALL_WEAPONS.length; i++) {

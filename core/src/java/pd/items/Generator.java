@@ -363,6 +363,7 @@ import pd.items.equipment.weapon.missiles.Kunai;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.items.equipment.weapon.missiles.ShitBall;
 import pd.items.equipment.weapon.missiles.Shuriken;
+import pd.items.equipment.weapon.missiles.Thrower;
 import pd.items.equipment.weapon.missiles.ThrowingClub;
 import pd.items.equipment.weapon.missiles.ThrowingHammer;
 import pd.items.equipment.weapon.missiles.ThrowingKnife;
@@ -770,12 +771,12 @@ public class Generator {
 					MetalBowN.class, MetalBowS.class, MetalBowR.class, GunC.class,
 					AlloyBowN.class, AlloyBowS.class, AlloyBowR.class, GunD.class,
 					PVCBowN.class, PVCBowS.class, PVCBowR.class, GunE.class,
-					TrinityForce.class
+					TrinityForce.class, Thrower.class
 			};
 			WEAPON.probs = new float[]{
 					1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 					1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-					1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+					1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 			};
 
 			// Legacy randomWeapon() only draws from the first 40 entries, then picks
@@ -807,9 +808,10 @@ public class Generator {
 			
 			WEP_T3.classes = new Class<?>[]{
 					pd.items.equipment.weapon.melee.normalweapon.Nunchakus.class, pd.items.equipment.weapon.melee.normalweapon.Scimitar.class,
-					pd.items.equipment.weapon.melee.normalweapon.Whip.class, pd.items.equipment.weapon.melee.normalweapon.Rapier.class
+					pd.items.equipment.weapon.melee.normalweapon.Whip.class, pd.items.equipment.weapon.melee.normalweapon.Rapier.class,
+					Thrower.class
 			};
-			WEP_T3.defaultProbs = new float[]{ 1, 1, 1, 1 };
+			WEP_T3.defaultProbs = new float[]{ 1, 1, 1, 1, 1 };
 			WEP_T3.probs = WEP_T3.defaultProbs.clone();
 			
 			WEP_T4.classes = new Class<?>[]{
