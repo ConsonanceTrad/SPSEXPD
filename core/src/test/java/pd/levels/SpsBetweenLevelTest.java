@@ -132,6 +132,10 @@ public final class SpsBetweenLevelTest {
 				"地图超出旧版48x48边界：" + level.width() + "x" + level.height());
 		check(count(level.map, Terrain.SIGN) == 1, depth, seed, "入口告示牌数量不是1");
 		check(count(level.map, Terrain.SECRET_DOOR) == 0, depth, seed, "仍有隐藏门");
+		//SPSEXPD: 过渡层没有 decorate.png 装饰覆盖层，不得残留区域装饰格
+		//（会显示成旧图集 BLANK 帧的红方块，且按 STATUE 处理是实心的）
+		check(count(level.map, Terrain.REGION_DECO) == 0, depth, seed, "过渡层残留区域装饰 REGION_DECO");
+		check(count(level.map, Terrain.REGION_DECO_ALT) == 0, depth, seed, "过渡层残留区域装饰 REGION_DECO_ALT");
 		int residents = 0;
 		for (pd.actors.mobs.Mob mob : level.mobs()) {
 			if (mob instanceof GiftNpc) residents++;
