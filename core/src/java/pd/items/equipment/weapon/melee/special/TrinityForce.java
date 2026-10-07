@@ -36,7 +36,7 @@ public class TrinityForce extends NormalMeleeWeapon {
 	static {
 		InlineText.of(TrinityForce.class)
 			.t("name", "三相之力")
-			.t("desc", "七把飞刃组成的一套武器组，极难操控：只有以战舞驾驭它，七刃才会同时起舞。\n\n一次挥击由七把飞刃各自独立飞舞，命中与附带效果分别结算，但只消耗一个回合；代价是额外的重量会一直拖慢你的步伐。\n\n命中两格开外的敌人时，你会顺势向对方冲进一格。")
+			.t("desc", "七把飞刃组成的一套武器组，极难操控：只有以战舞驾驭它，七刃才会同时起舞。\n\n一次挥击由七把飞刃各自独立飞舞，命中与附带效果分别结算，但只消耗一个回合；代价是额外的重量会一直拖慢你的步伐。\n\n冲锋姿态下命中两格开外的敌人时，你会顺势向对方冲进一格。")
 			.t("ac_defend", "防御姿态")
 			.t("ac_vanguard", "先锋之刃")
 			.t("enter_defend", "你沉入防御姿态，七刃环绕如盾。")
@@ -191,6 +191,9 @@ public class TrinityForce extends NormalMeleeWeapon {
 	private void dashTo(Char attacker, Char defender) {
 		if (!(attacker instanceof Hero) || Dungeon.level == null) return;
 		Hero hero = (Hero) attacker;
+		//SPSEXPD: 冲刺只在冲锋姿态生效；防御姿态原地格挡，不移动
+		pd.actors.buffs.TrinityStance stance = pd.actors.buffs.TrinityStance.of(hero);
+		if (stance != null && stance.defending()) return;
 		if (!Dungeon.level.insideMap(hero.pos) || !Dungeon.level.insideMap(defender.pos)) return;
 		if (Dungeon.level.distance(hero.pos, defender.pos) < 2) return;
 
