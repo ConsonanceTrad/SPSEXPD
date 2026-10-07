@@ -35,6 +35,8 @@ public class QuickActionBar extends Component {
 	//SPSEXPD: 指示器尺寸 = 底图 flag.png 的原始尺寸（用户重绘为 24x16，不缩放；图标用正常尺寸）
 	public static final int BTN_W = 24;
 	public static final int BTN_H = 16;
+	//SPSEXPD: 图标统一的不透明度（用户裁决 2026-12：快捷操作按钮的图标为 70%）
+	private static final float ICON_ALPHA = 0.7f;
 	//SPSEXPD: 按钮之间的间距
 	private static final int BTN_GAP = 5;
 	private static final int STEP = BTN_H + BTN_GAP;
@@ -251,6 +253,8 @@ public class QuickActionBar extends Component {
 			//SPSEXPD: 构造期回调的坑——Component 的构造会调用 createChildren()，
 			//而 setSize() 会立刻调用 layout()；因此字段与子元素必须全部先就位，setSize() 放最后
 			this.icon = icon;
+			//SPSEXPD: 图标统一为 70% 不透明度（底图 flag.png 保持原样）
+			icon.alpha( ICON_ALPHA );
 
 			//SPSEXPD: 底图按原始尺寸使用，不做缩放
 			bg = new Image( "interfaces/flag.png" );
