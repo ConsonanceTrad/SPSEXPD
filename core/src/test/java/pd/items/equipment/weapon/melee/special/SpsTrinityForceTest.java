@@ -205,8 +205,8 @@ public final class SpsTrinityForceTest {
 		//（音效本身无法断言 —— Sample 在 headless 下没加载任何采样，play 会静默跳过）
 		String weapon = read("../java/pd/items/equipment/weapon/melee/special/TrinityForce.java");
 		int loop = weapon.indexOf("for (int strike = 1;");
-		check(loop > 0 && weapon.indexOf("hitSound(", loop) > loop,
-				"追加的两次结算命中时没有播命中音效");
+		check(loop > 0 && weapon.indexOf("playDelayed(hitSound", loop) > loop,
+				"追加的两次结算命中时没有播错开的命中音效");
 	}
 
 	/**

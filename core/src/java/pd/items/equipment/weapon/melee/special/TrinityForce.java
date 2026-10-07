@@ -13,6 +13,7 @@ import pd.items.Item;
 import pd.items.equipment.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.messages.Messages;
 import pd.utils.GLog;
+import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
@@ -41,6 +42,8 @@ public class TrinityForce extends NormalMeleeWeapon {
 	public static final int BLADES = 6;
 	/** 一次挥击把这六把飞刃分三次挥出，伤害也按三次独立结算。 */
 	public static final int STRIKES = 3;
+	/** 三次结算的命中音效依次错开的间隔（秒）。 */
+	public static final float HIT_SOUND_GAP = 0.2f;
 
 	{
 		unique = true;
@@ -143,8 +146,10 @@ public class TrinityForce extends NormalMeleeWeapon {
 				if (amount <= 0) continue;
 				defender.damage(amount, this);
 				//SPSEXPD: 三次结算各自独立命中，每一次都要播一次命中音效
-				//（第 1 次由外层 Char.attack 播放，这里补上追加的两次）
-				hitSound(Random.Float(0.87f, 1.15f));
+				//（第 1 次由外层 Char.attack 播放，这里补上追加的两次）；
+				//依次错开 HIT_SOUND_GAP 秒，听感上是连着三刀而不是叠成一响
+				Sample.INSTANCE.playDelayed(hitSound, HIT_SOUND_GAP * strike, 1f,
+						Random.Float(0.87f, 1.15f) * hitSoundPitch);
 			}
 		}
 
