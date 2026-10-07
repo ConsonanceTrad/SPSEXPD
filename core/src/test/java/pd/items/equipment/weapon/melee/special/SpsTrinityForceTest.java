@@ -5,6 +5,8 @@ import com.badlogic.gdx.backends.headless.HeadlessFiles;
 import com.badlogic.gdx.utils.GdxNativesLoader;
 import pd.Dungeon;
 import pd.actors.Char;
+import pd.actors.buffs.Buff;
+import pd.actors.buffs.TrinityCharge;
 import pd.actors.buffs.TrinityStance;
 import pd.actors.Actor;
 import pd.actors.hero.Hero;
@@ -103,13 +105,20 @@ public final class SpsTrinityForceTest {
 		check(Math.abs(stance.attackSpeedMultiplier(1.5f) - 2.5f) < 0.00001f, "攻速加成没有叠在既有倍率上");
 		check(Math.abs(stance.speedMultiplier() - 0.75f) < 0.00001f, "战舞移速倍率不是 0.75");
 
+		//显示 buff 的图标文字是攻速加成的百分比（每层 +20%）
+		Buff.affect(hero, TrinityCharge.class);
+		TrinityCharge charge = hero.buff(TrinityCharge.class);
+		check(charge != null && "100%".equals(charge.iconTextDisplay()),
+				"满层时蓄势图标应显示 100%：" + (charge == null ? "null" : charge.iconTextDisplay()));
+
 		//随时可以切换姿态，没有冷却，也不会自己结束；切进防御姿态会清空蓄势层数
 		stance.toggleStance();
 		check(stance.defending(), "切换后没有进入防御姿态");
 		check(stance.layers() == 0, "切进防御姿态没有清空战舞蓄势层数：" + stance.layers());
+		check(hero.rooted, "防御姿态下英雄应当无法移动");
 		check(stance.reduceDamage(10) == 5, "防御姿态的 50% 减伤错误");
 		check(stance.reduceDamage(1) == 1, "防御姿态对小伤害的结算错误");
-		check(Math.abs(stance.speedMultiplier() - 0.75f) < 0.00001f, "防御姿态的移速也应恒为 0.75");
+		check(Math.abs(stance.speedMultiplier() - 0.75f) < 0.00001f, "防御姿态的移速也应恒为 0.75（靠 rooted 拦住移动）");
 		check(Math.abs(stance.attackSpeedMultiplier(1f) - 0.5f) < 0.00001f, "防御姿态攻速不是 0.5");
 		check(Math.abs(stance.attackSpeedMultiplier(0.5f) - 0.25f) < 0.00001f, "防御姿态攻速没有叠乘既有倍率");
 
@@ -118,6 +127,7 @@ public final class SpsTrinityForceTest {
 
 		stance.toggleStance();
 		check(!stance.defending(), "再次切换没有回到冲锋姿态");
+		check(!hero.rooted, "回到冲锋姿态后应该能重新移动");
 		check(stance.reduceDamage(10) == 10, "离开防御姿态后仍在减伤");
 
 		for (int i = 0; i < TrinityStance.MAX_LAYERS; i++) stance.onAttack();

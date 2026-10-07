@@ -15,8 +15,8 @@ public class TrinityCharge extends FlavourBuff {
 	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
 	static {
 		InlineText.of(TrinityCharge.class)
-			.t("name", "战舞蓄势")
-			.t("desc", "六刃随战舞依次递进，你的攻势正在加快。\n\n当前攻速层数：%1$d\n\n连续 2 回合未命中后，层数每回合衰减 1 层。");
+			.t("name", "热诚")
+			.t("desc", "当前攻速加成：%1$d%%\n\n连续 2 回合未命中后，每回合衰减 20%%。");
 	}
 
 	{
@@ -48,8 +48,14 @@ public class TrinityCharge extends FlavourBuff {
 
 	@Override
 	public String iconTextDisplay() {
+		return attackBonusPercent() + "%";
+	}
+
+	/** 当前攻速加成（每层 +20%），图标与描述共用。 */
+	private int attackBonusPercent() {
 		TrinityStance stance = TrinityStance.of(target);
-		return Integer.toString(stance == null ? 0 : stance.layers());
+		int layers = stance == null ? 0 : stance.layers();
+		return Math.round(layers * TrinityStance.ATTACK_STEP * 100);
 	}
 
 	@Override
@@ -61,7 +67,6 @@ public class TrinityCharge extends FlavourBuff {
 
 	@Override
 	public String desc() {
-		TrinityStance stance = TrinityStance.of(target);
-		return Messages.get(this, "desc", stance == null ? 0 : stance.layers());
+		return Messages.get(this, "desc", attackBonusPercent());
 	}
 }

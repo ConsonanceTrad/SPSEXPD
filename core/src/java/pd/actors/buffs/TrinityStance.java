@@ -20,10 +20,10 @@ public class TrinityStance extends Buff {
 	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
 	static {
 		InlineText.of(TrinityStance.class)
-			.t("name", "战舞姿态")
+			.t("name", "距破之舞")
 			.t("state_charge", "冲锋姿态")
 			.t("state_defend", "防御姿态")
-			.t("desc", "以战舞驾驭六刃的架势。\n\n_冲锋姿态：_移速降到原先的四分之三；每次命中叠加攻速（连续 2 回合未命中后每回合掉 1 层）；命中敌人时会顺势贴到对方身边。\n_防御姿态：_移速同样降到四分之三，攻速再减半，但受到的伤害减少 50%%。\n\n随时可以切换姿态，切换本身花一个回合；切进防御姿态会清空已叠的蓄势层数。\n\n当前姿态：%1$s");
+			.t("desc", "以战舞控制三相之刃防护。期间无法移动、攻速再减半，带有 50% 的伤害减免。");
 	}
 
 	public static final int MAX_LAYERS = 5;
@@ -71,6 +71,8 @@ public class TrinityStance extends Buff {
 			detach();
 			return true;
 		}
+		//SPSEXPD: 每回合同步一次，读档或其它途径改了姿态时也能纠正
+		if (target != null) target.rooted = defending;
 		idleTurns++;
 		//SPSEXPD: 未命中先宽限 GRACE_TURNS 回合，之后逐层衰减（不再一次性清零）
 		if (idleTurns > GRACE_TURNS && layers > 0) layers--;
@@ -107,9 +109,18 @@ public class TrinityStance extends Buff {
 			//SPSEXPD: 蓄势的显示 buff 立刻消散，而不是等它下个回合自己发现层数为 0
 			if (target != null) Buff.detach(target, TrinityCharge.class);
 		}
+		//SPSEXPD: 防御姿态无法移动（与束缚 Roots 一样走 Char.rooted，拦的是移动/位移而不是攻击）
+		if (target != null) target.rooted = defending;
 	}
 
-	/** 战舞的移速代价恒定：不再随击杀改善，冲锋姿态与防御姿态都是四分之三。 */
+	@Override
+	public void detach() {
+		//SPSEXPD: 只收回本姿态设的 rooted，别把束缚留下的那一个一起清掉
+		if (target != null && defending) target.rooted = false;
+		super.detach();
+	}
+
+	/** 战舞的移速代价恒定：无论何种姿态都降低到原先的四分之三。 */
 	public float speedMultiplier() {
 		return CHARGE_SPEED;
 	}
@@ -139,7 +150,7 @@ public class TrinityStance extends Buff {
 
 	@Override
 	public String desc() {
-		return Messages.get(this, "desc", Messages.get(this, defending ? "state_defend" : "state_charge"));
+		return Messages.get(this, "desc");
 	}
 
 	@Override
