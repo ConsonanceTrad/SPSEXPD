@@ -24,6 +24,11 @@ public final class SpsTrinityForceTest {
 
 	public static void main(String[] args) throws Exception {
 		GdxNativesLoader.load();
+		//Messages/GLog 依赖 Gdx.app（GameSettings 要读 Preferences），headless 下必须建一个空应用
+		com.badlogic.gdx.backends.headless.HeadlessApplication app =
+				new com.badlogic.gdx.backends.headless.HeadlessApplication(
+						new com.badlogic.gdx.ApplicationAdapter() { @Override public void create() { } },
+						new com.badlogic.gdx.backends.headless.HeadlessApplicationConfiguration());
 		Gdx.files = new HeadlessFiles();
 		Game.version = "test";
 		Random.pushGenerator(0x5350535452494E49L);
@@ -40,6 +45,7 @@ public final class SpsTrinityForceTest {
 			Random.popGenerator();
 			Dungeon.hero = null;
 			Dungeon.level = null;
+			app.exit();
 		}
 	}
 

@@ -192,6 +192,8 @@ public class TrinityForce extends NormalMeleeWeapon {
 		if (Actor.findChar(landing) != null || !Dungeon.level.passable[landing]) return;
 
 		hero.move(landing, false);
+		//SPSEXPD: 给一次明确反馈，便于确认接近真的发生了（位移是瞬移，没有动画）
+		pd.utils.GLog.i(Messages.get(this, "dash_near", Messages.get(defender, "name")));
 		Dungeon.level.pressCell(landing);
 		Dungeon.observe();
 	}

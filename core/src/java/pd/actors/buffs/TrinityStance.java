@@ -23,6 +23,7 @@ public class TrinityStance extends Buff {
 			.t("name", "战舞姿态")
 			.t("state_charge", "冲锋姿态")
 			.t("state_defend", "防御姿态")
+			.t("charge_layer", "战舞蓄势：攻速加成叠加至 %d 层。")
 			.t("desc", "以战舞驾驭七刃的架势。\n\n_冲锋姿态：_移动速度降低到原先的四分之三，每次命中使攻速提高，连续 5 回合未命中则加成清零；命中两格或更远的敌人时，你会顺势朝对方冲进一格。\n_防御姿态：_攻击速度减半，但受到的伤害减少 50%%。\n\n当前姿态：%1$s");
 	}
 
@@ -97,6 +98,11 @@ public class TrinityStance extends Buff {
 	public void onAttack() {
 		idleTurns = 0;
 		if (!defending && layers < MAX_LAYERS) layers++;
+		if (target != null) {
+			//SPSEXPD: 用一个独立 buff 显示当前层数，并提示一次，便于确认加成确实在叠加
+			Buff.prolong(target, TrinityCharge.class, TrinityCharge.DURATION);
+			pd.utils.GLog.p(Messages.get(TrinityStance.class, "charge_layer", layers));
+		}
 	}
 
 	public int layers() {
