@@ -22,6 +22,7 @@ import pd.actors.buffs.CounterBuff;
 import pd.actors.buffs.GoldTouch;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
+import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 import pd.effects.particles.ElmoParticle;
 import pd.items.Heap;
 import pd.items.Item;
@@ -37,38 +38,47 @@ import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
-import pd.atlas.items.EquipmentJewelleryArtifactDict;
 
 public class MasterThievesArmband extends Artifact {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(MasterThievesArmband.class)
-			.t("name", "神偷袖章")
+			.t("name", "魔术之手法杖")
 			.t("ac_steal", "偷窃")
+			.t("ac_magic_hand", "魔术之手")
+			.t("magic_prompt", "选择要隔空取来的目标点")
+			.t("magic_none", "那里没有可以取来的东西。")
+			.t("magic_shop", "商店的物品无法这样取用。")
+			.t("magic_range", "太远了，魔术之手够不到。")
+			.t("magic_done", "魔术之手取来了%1$s。")
 			.t("ac_goldtouch", "耗竭-点金")
 			.t("no_charge", "充能不足")
 			.t("cursed", "它被诅咒了，正在吞食你的金币。")
 			.t("no_target", "没有找到目标")
 			.t("level_up", "神偷袖章升级了")
 			.t("prompt", "选择偷窃的目标")
-			.t("desc", "这个紫色的天鹅绒袖标是盗贼大师的标志。它不属于你，但它也不属于你拿到这个袖标时击败的人。")
-			.t("desc_worn", "让它戴在你的手腕上，你可以明目张胆的拿取目标身上的物品，只要它充能完成。");
+			.t("desc", "一根缠着紫色天鹅绒的细杖，杖顶嵌着一只小小的银手。挥动它，远处的东西就会自己飞进你的背包。")
+			.t("desc_worn", "装备后只要还有充能，就能用_魔术之手_隔空取来视野中的物品与金币。");
 	}
 
 
 
 
 	{
-		image = EquipmentJewelleryArtifactDict.MASTER_THIEVES_ARMBAND;
+		//SPSEXPD: 由「神偷袖章」改造为「魔术之手法杖」——占位法杖图标，默认动作改为隔空取物
+		image = EquipmentEquipWeaponBasicWeaponDict.OLD_STAFF;
 		levelCap = 5;
 		charge = 0;
 		partialCharge = 0;
 		chargeCap = 1 + level();
-		defaultAction = AC_STEAL;
+		defaultAction = AC_MAGIC_HAND;
 	}
 
 	public static final String AC_STEAL = "STEAL";
 	public static final String AC_GOLDTOUCH = "GOLDTOUCH";
+	public static final String AC_MAGIC_HAND = "MAGIC_HAND";
+	/** 魔术之手可以够到的最大距离。 */
+	public static final int MAGIC_HAND_RANGE = 8;
 
 	@Override
 	public String status() {
@@ -84,7 +94,10 @@ public class MasterThievesArmband extends Artifact {
 	@Override
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);
-		if (isEquipped(hero) && charge > 0 && !cursed) actions.add(AC_STEAL);
+		if (isEquipped(hero) && charge > 0 && !cursed) {
+			actions.add(AC_MAGIC_HAND);
+			actions.add(AC_STEAL);
+		}
 		if (!isEquipped(hero) && level() > 1 && !cursed) actions.add(AC_GOLDTOUCH);
 		return actions;
 	}
@@ -93,6 +106,22 @@ public class MasterThievesArmband extends Artifact {
 	public void execute(Hero hero, String action) {
 		super.execute(hero, action);
 
+		if (AC_MAGIC_HAND.equals(action)) {
+			curUser = hero;
+			if (!isEquipped(hero)) {
+				GLog.i(Messages.get(Artifact.class, "need_to_equip"));
+				usesTargeting = false;
+			} else if (charge < 1) {
+				GLog.i(Messages.get(this, "no_charge"));
+				usesTargeting = false;
+			} else if (cursed) {
+				GLog.w(Messages.get(this, "cursed"));
+				usesTargeting = false;
+			} else {
+				usesTargeting = true;
+				GameScene.selectCell(magicHand);
+			}
+		}
 		if (AC_STEAL.equals(action)) {
 			curUser = hero;
 			if (!isEquipped(hero)) {
@@ -124,6 +153,48 @@ public class MasterThievesArmband extends Artifact {
 		level(level() - 1);
 		updateQuickslot();
 	}
+
+	/** SPSEXPD: 魔术之手——把视野内的掉落物或金币隔空取来。 */
+	public final CellSelector.Listener magicHand = new CellSelector.Listener() {
+		@Override
+		public void onSelect(Integer target) {
+			if (target == null || curUser == null || Dungeon.level == null) return;
+			if (!Dungeon.level.insideMap(target) || !Dungeon.level.heroFOV[target]
+					|| Dungeon.level.distance(curUser.pos, target) > MAGIC_HAND_RANGE) {
+				GLog.w(Messages.get(MasterThievesArmband.class, "magic_range"));
+				return;
+			}
+
+			Heap heap = Dungeon.level.heaps.get(target);
+			if (heap == null || heap.isEmpty()) {
+				GLog.w(Messages.get(MasterThievesArmband.class, "magic_none"));
+				return;
+			}
+			if (heap.type == Heap.Type.FOR_SALE) {
+				GLog.w(Messages.get(MasterThievesArmband.class, "magic_shop"));
+				return;
+			}
+
+			Item seized = heap.pickUp();
+			if (seized == null) {
+				GLog.w(Messages.get(MasterThievesArmband.class, "magic_none"));
+				return;
+			}
+
+			charge--;
+			seized.doPickUp(curUser);
+			GLog.i(Messages.get(MasterThievesArmband.class, "magic_done", seized.name()));
+			if (Gdx.audio != null) Sample.INSTANCE.play(Assets.Sounds.EVOKE);
+			if (curUser.sprite != null) curUser.sprite.operate(curUser.pos);
+			updateQuickslot();
+			curUser.spendAndNext(1f);
+		}
+
+		@Override
+		public String prompt() {
+			return Messages.get(MasterThievesArmband.class, "magic_prompt");
+		}
+	};
 
 	public final CellSelector.Listener targeter = new CellSelector.Listener() {
 		@Override

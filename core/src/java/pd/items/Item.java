@@ -32,6 +32,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Blindness;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Degrade;
+import pd.actors.buffs.EndlessAmmo;
 import pd.actors.hero.Belongings;
 import pd.actors.hero.Hero;
 import pd.actors.hero.Talent;
@@ -732,7 +733,7 @@ public class Item implements Bundlable {
 						@Override
 						public void call() {
 							curUser = user;
-							Item i = Item.this.detach(user.belongings.backpack);
+							Item i = EndlessAmmo.isActive(user) ? Item.this.duplicate() : Item.this.detach(user.belongings.backpack);
 							if (i != null) i.onThrow(cell);
 							if (curUser.hasTalent(Talent.IMPROVISED_PROJECTILES)
 									&& !(Item.this instanceof MissileWeapon)
@@ -760,7 +761,7 @@ public class Item implements Bundlable {
 						@Override
 						public void call() {
 							curUser = user;
-							Item i = Item.this.detach(user.belongings.backpack);
+							Item i = EndlessAmmo.isActive(user) ? Item.this.duplicate() : Item.this.detach(user.belongings.backpack);
 							user.spend(delay);
 							if (i != null) i.onThrow(cell);
 							user.next();

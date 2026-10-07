@@ -55,6 +55,7 @@ import pd.items.equipment.artifacts.CapeOfThorns;
 import pd.items.equipment.artifacts.ChaliceOfBlood;
 import pd.items.equipment.artifacts.CloakOfShadows;
 import pd.items.equipment.artifacts.DriedRose;
+import pd.items.equipment.artifacts.EndlessAmmoBag;
 import pd.items.equipment.artifacts.EtherealChains;
 import pd.items.equipment.artifacts.FlyChains;
 import pd.items.equipment.artifacts.GlassTotem;
@@ -1024,9 +1025,10 @@ public class Generator {
 					GlassTotem.class,
 					AlienBag.class,
 					FlyChains.class,
-					TimeOclock.class
+					TimeOclock.class,
+					EndlessAmmoBag.class
 			};
-			ARTIFACT.defaultProbs = new float[]{1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0};
+			ARTIFACT.defaultProbs = new float[]{1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1};
 			ARTIFACT.probs = ARTIFACT.defaultProbs.clone();
 
 			//Trinkets are unique like artifacts, but unlike them you can only have one at once

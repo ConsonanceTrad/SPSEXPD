@@ -47,7 +47,9 @@ public final class SpsGhostQuestTest {
 			"MasterThievesArmband", "SandalsOfNature", "TalismanOfForesight",
 			"TimekeepersHourglass", "UnstableSpellbook", "AlchemistsToolkit",
 			"RobotDMT", "EyeOfSkadi", "EtherealChains", "DriedRose", "GlassTotem",
-			"AlienBag", "FlyChains", "TimeOclock"
+			"AlienBag", "FlyChains", "TimeOclock",
+			//SPSEXPD: 原创神器追加在旧版 18 项之后
+			"EndlessAmmoBag"
 	};
 
 	public static void main(String[] args) throws Exception {

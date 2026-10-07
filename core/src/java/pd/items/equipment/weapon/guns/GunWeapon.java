@@ -8,6 +8,7 @@ import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
+import pd.actors.buffs.EndlessAmmo;
 import pd.actors.buffs.MechArmor;
 import pd.actors.buffs.TargetShoot;
 import pd.actors.buffs.Vertigo;
@@ -180,6 +181,8 @@ public class GunWeapon extends SpsRangedWeapon {
 	public int fullCharge() { return fullCharge; }
 	public int reserveAmmo() { return reserveAmmo; }
 	boolean consumeRound() {
+		//SPSEXPD: 无限弹药袋生效期间不消耗弹匣
+		if (EndlessAmmo.isActive(curUser)) return true;
 		if (charge <= 0) return false;
 		charge--;
 		updateQuickslot();
