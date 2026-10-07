@@ -13,7 +13,4 @@ public class HighEnergySpore extends Processed {
 			.t("desc", "露珠菌孢中最饱满的孢子，看上去不是食物。可以作为炼金或烹饪原料。");
 	}
 
-	@Override protected void onEat(Hero hero) {
-		Dewcharge.charge(hero, 200f);
-	}
 }

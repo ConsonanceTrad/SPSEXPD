@@ -14,8 +14,4 @@ public class NutrientSolution extends Processed {
 			.t("desc", "从萝卜中提纯的营养液，看上去不是食物。可以作为炼金或烹饪原料。");
 	}
 
-	@Override protected void onEat(Hero hero) {
-		Buff.affect(hero, Healing.class).setHeal(Math.max(8, hero.HT / 3), 0.25f, 0);
-		Buff.affect(hero, Barrier.class).incShield(Math.max(2, hero.HT / 6));
-	}
 }

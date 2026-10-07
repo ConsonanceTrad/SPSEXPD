@@ -14,8 +14,4 @@ public class Perfume extends Processed {
 			.t("desc", "由郁金香酿制的昂贵香水，看上去不是食物。可以作为炼金或烹饪原料。");
 	}
 
-	@Override protected void onEat(Hero hero) {
-		Buff.affect(hero, Levitation.class, Levitation.DURATION);
-		Buff.prolong(hero, Bless.class, 40f);
-	}
 }

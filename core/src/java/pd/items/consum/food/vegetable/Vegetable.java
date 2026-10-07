@@ -9,7 +9,7 @@ import pd.items.consum.food.Food;
 public class Vegetable extends Food {
 	{
 		image = SpecificPlaceHolderDict.FOOD_HOLDER_0;
-		energy = 20f; //SPSEXPD: 原 Hunger.HUNGRY / 15f（批 3 将调到 50）
+		energy = 50f; //SPSEXPD: 蔬菜基础饱食度 50（原 Hunger.HUNGRY / 15f）
 		hornValue = 1;
 		bones = false;
 	}

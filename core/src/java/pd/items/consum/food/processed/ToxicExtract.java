@@ -13,7 +13,4 @@ public class ToxicExtract extends Processed {
 			.t("desc", "从毒茄子中榨出的毒液，看上去不是食物。可以作为炼金或烹饪原料。");
 	}
 
-	@Override protected void onEat(Hero hero) {
-		Buff.affect(hero, ToxicImbue.class).set(ToxicImbue.DURATION);
-	}
 }

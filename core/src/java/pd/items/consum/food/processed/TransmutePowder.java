@@ -14,8 +14,4 @@ public class TransmutePowder extends Processed {
 			.t("desc", "由金盏花研磨成的中和粉末，看上去不是食物。可以作为炼金或烹饪原料。");
 	}
 
-	@Override protected void onEat(Hero hero) {
-		PotionOfHealing.cure(hero);
-		Buff.affect(hero, BlobImmunity.class, BlobImmunity.DURATION);
-	}
 }

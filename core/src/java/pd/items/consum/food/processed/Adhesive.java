@@ -14,8 +14,4 @@ public class Adhesive extends Processed {
 			.t("desc", "由榴莲熬制的黏稠胶体，看上去不是食物。可以作为炼金或烹饪原料。");
 	}
 
-	@Override protected void onEat(Hero hero) {
-		Buff.affect(hero, Barkskin.class).set(8 + hero.lvl / 2, 40);
-		Buff.affect(hero, Barrier.class).incShield(Math.max(4, hero.HT / 5));
-	}
 }

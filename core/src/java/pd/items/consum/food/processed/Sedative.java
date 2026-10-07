@@ -16,10 +16,4 @@ public class Sedative extends Processed {
 			.t("desc", "用星花瓣配制的镇静剂，看上去不是食物。可以作为炼金或烹饪原料。");
 	}
 
-	@Override protected void onEat(Hero hero) {
-		PotionOfHealing.cure(hero);
-		Buff.detach(hero, Terror.class);
-		Buff.detach(hero, Amok.class);
-		Buff.affect(hero, ArcaneArmor.class).set(6 + hero.lvl / 3, 40);
-	}
 }

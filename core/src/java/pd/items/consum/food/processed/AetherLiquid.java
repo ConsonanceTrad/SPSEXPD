@@ -14,8 +14,4 @@ public class AetherLiquid extends Processed {
 			.t("desc", "转换笼中沉淀的原液，看上去不是食物。可以作为炼金或烹饪原料。");
 	}
 
-	@Override protected void onEat(Hero hero) {
-		Buff.affect(hero, Arcane.class, 50f);
-		Buff.affect(hero, SuperArcane.class, 40f).level(5);
-	}
 }

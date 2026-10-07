@@ -14,8 +14,4 @@ public class WishPetal extends Processed {
 			.t("desc", "七色堇上摘下的一片花瓣，看上去不是食物。可以作为炼金或烹饪原料。");
 	}
 
-	@Override protected void onEat(Hero hero) {
-		Buff.prolong(hero, Bless.class, 60f);
-		Buff.affect(hero, Barrier.class).incShield(Math.max(2, hero.HT / 5));
-	}
 }

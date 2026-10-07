@@ -14,8 +14,4 @@ public class DigestiveFluid extends Processed {
 			.t("desc", "从吞星花中取出的消化液，看上去不是食物。可以作为炼金或烹饪原料。");
 	}
 
-	@Override protected void onEat(Hero hero) {
-		Buff.affect(hero, Recharging.class, 30f);
-		Buff.affect(hero, SuperArcane.class, 40f).level(5);
-	}
 }

@@ -16,8 +16,4 @@ public class RedRose extends Processed {
 	}
 
 	{ image = ConsumPotionSeedSeedDict.RED_ROSE; }
-	@Override protected void onEat(Hero hero) {
-		Buff.affect(hero, Healing.class).setHeal(Math.max(10, hero.HT / 4), 0.25f, 0);
-		Buff.prolong(hero, Bless.class, 40f);
-	}
 }
