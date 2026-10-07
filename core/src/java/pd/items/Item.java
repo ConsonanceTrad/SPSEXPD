@@ -148,6 +148,16 @@ public class Item implements Bundlable {
 		return defaultAction() == null;
 	}
 
+	/** SPSXPD: 是否允许放入快捷栏。默认要求物品有默认动作；无默认行为的物品（如社会升降器）可覆写放开 */
+	public boolean canQuickSlot() {
+		return defaultAction() != null;
+	}
+
+	/** SPSXPD: 动作按钮列表里该动作是否另起一行（用于排版控制，默认不换行） */
+	public boolean actionBreakBefore(String action) {
+		return false;
+	}
+
 	/** SPSXPD: 动作按钮右上角显示的消耗提示（默认无；露珠瓶用来显示露珠消耗） */
 	public String actionCost(String action, Hero hero) {
 		return null;

@@ -23,7 +23,6 @@ import pd.effects.CellEmitter;
 import pd.effects.Pushing;
 import pd.effects.Speck;
 import pd.effects.particles.ShadowParticle;
-import pd.items.Elevator;
 import pd.items.Item;
 import pd.items.PuddingCup;
 import pd.items.specific.keys.SpsSkeletonKey;
@@ -212,7 +211,6 @@ public class SpsYog extends Mob {
 		}
 		Dungeon.level.unseal();
 		GameScene.bossSlain();
-		dropReward(new Elevator());
 		dropReward(new SpsSkeletonKey(Dungeon.depth));
 		yell(Messages.get(this, "die"));
 	}

@@ -53,6 +53,10 @@ public class WndUseItem extends WndInfoItem {
 			ArrayList<RedButton> buttons = new ArrayList<>();
 			//SPSXPD: 与 buttons 平行的消耗提示（露珠瓶用它显示露珠消耗）
 			for (final String action : item.actions(Dungeon.hero)) {
+				//SPSXPD: 需要另起一行的动作（如社会升降器的"上楼"与"快速抵达"）先把上一行布局掉
+				if (item.actionBreakBefore(action) && !buttons.isEmpty()) {
+					y = layoutButtons(buttons, width, y);
+				}
 				//SPSXPD: 该动作的消耗提示（露珠瓶用它显示露珠消耗）
 				final String cost = item.actionCost(action, Dungeon.hero);
 				final CostLabel costLabel = cost == null ? null : new CostLabel(cost, item.actionCostOk(action, Dungeon.hero));

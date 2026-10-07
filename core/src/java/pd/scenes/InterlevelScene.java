@@ -64,6 +64,7 @@ import render.utils.math.GameMath;
 import render.utils.math.Random;
 import render.utils.platform.DeviceCompat;
 import render.utils.platform.PlatformSupport;
+import pd.items.Elevator;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -103,6 +104,9 @@ public class InterlevelScene extends PixelScene {
 		DESCEND, ASCEND, CONTINUE, RESURRECT, RETURN, FALL, RESET, LEARN, NONE
 	}
 	public static Mode mode;
+
+	/** SPSXPD: 社会升降器"快速抵达"单次最多连续跳层的层数（防呆保护）。 */
+	private static final int MAX_GOTO_STEPS = 64;
 
 	public static LevelTransition curTransition = null;
 	public static int returnDepth;
@@ -444,35 +448,43 @@ public class InterlevelScene extends PixelScene {
 
 						Actor.fixTime();
 
-						switch (mode) {
-							case DESCEND:
-								descend();
-								break;
-							case LEARN:
-								learn();
-								break;
-							case ASCEND:
-								ascend();
-								break;
-							case CONTINUE:
-								restore();
-								break;
-							case RESURRECT:
-								resurrect();
-								break;
-							case RETURN:
-								returnTo();
-								break;
-							case FALL:
-								fall();
-								break;
-							case RESET:
-								reset();
-								break;
-						}
+						//SPSXPD: 社会升降器的"快速抵达"——不切场景，连续跳层直到抵达目标深度
+						int gotoSteps = 0;
+						InterlevelScene.Mode next = mode;
+						do {
+							mode = next;
+							switch (mode) {
+								case DESCEND:
+									descend();
+									break;
+								case LEARN:
+									learn();
+									break;
+								case ASCEND:
+									ascend();
+									break;
+								case CONTINUE:
+									restore();
+									break;
+								case RESURRECT:
+									resurrect();
+									break;
+								case RETURN:
+									returnTo();
+									break;
+								case FALL:
+									fall();
+									break;
+								case RESET:
+									reset();
+									break;
+							}
+							next = Elevator.nextGotoMode();
+						} while (next != null && ++gotoSteps < MAX_GOTO_STEPS);
 						
 					} catch (Exception e) {
-						
+
+						Elevator.cancelGoto();
 						error = e;
 						
 					}

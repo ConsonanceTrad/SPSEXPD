@@ -238,9 +238,9 @@ public final class SpsHallsBossTimelineTest {
 		yog.damage(100, Dungeon.hero);
 		check(!yog.isAlive(), "英雄造成恰好等于生命的伤害没有击杀Yog");
 		check(!level.locked, "Yog死亡后没有解锁恶魔大厅");
-		check(countItems(level, Elevator.class) == 1 && countItems(level, SpsSkeletonKey.class) == 1,
-				"Yog没有掉落旧版升降器和骷髅钥匙");
-		check(countItems(level, PuddingCup.class) == 0 && level.itemCount() == 2,
+		check(countItems(level, Elevator.class) == 0 && countItems(level, SpsSkeletonKey.class) == 1,
+				"Yog不应再掉落社会升降器，且必须掉落骷髅钥匙");
+		check(countItems(level, PuddingCup.class) == 0 && level.itemCount() == 1,
 				"Yog击杀奖励混入了旧版没有的固定布丁杯或其他物品");
 	}
 

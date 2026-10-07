@@ -601,7 +601,7 @@ public class WndBag extends WndTabbed {
 
 			@Override
 			protected boolean onLongClick() {
-				if (selector == null && item.defaultAction() != null) {
+				if (selector == null && item.canQuickSlot()) {
 					hide();
 					QuickSlotButton.set( item );
 					return true;

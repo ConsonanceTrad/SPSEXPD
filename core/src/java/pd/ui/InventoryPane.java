@@ -543,7 +543,7 @@ public class InventoryPane extends Component {
 
 		@Override
 		protected boolean onLongClick() {
-			if (selector == null && item.defaultAction() != null) {
+			if (selector == null && item.canQuickSlot()) {
 				QuickSlotButton.set( item );
 				return true;
 			} else if (selector != null) {

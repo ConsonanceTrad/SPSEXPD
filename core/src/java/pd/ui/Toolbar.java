@@ -200,7 +200,7 @@ public class Toolbar extends Component {
 
 									@Override
 									public boolean itemSelectable(Item item) {
-										return item.defaultAction() != null;
+										return item.canQuickSlot();
 									}
 
 									@Override
