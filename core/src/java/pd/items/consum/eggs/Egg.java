@@ -436,12 +436,15 @@ public class Egg extends Artifact {
 
 	/**
 	 * SPSXPD: 消耗掉这颗魂石。
-	 * 魂石是装备在饰品槽（artifact/misc/ring/accessory4/5）上使用的，
-	 * 只从背包移除不够 —— 装备中的要先正常卸下（清理被动 buff 并放回背包），再从背包移除。
+	 * 魂石是装备在饰品槽（artifact/misc/ring/accessory4/5）上使用的，只从背包移除不够 ——
+	 * 装备中的必须先摘下来。这里用 forceUnequipWithoutTime（项目为“装备被外部效果摧毁”提供的入口）：
+	 *   - 它的 collect=false，所以不会尝试放回背包，背包满时也不会把魂石掉在地上；
+	 *   - 它绕过诅咒检查，所以被诅咒的魂石同样会被消耗掉。
+	 * 最后再 detach 一次，兼容魂石恰好躺在背包里的情况。
 	 */
 	private void consumeStone(Hero hero) {
 		if (isEquipped(hero)) {
-			doUnequip(hero, true, false);
+			forceUnequipWithoutTime(hero);
 		}
 		detach(hero.belongings.backpack);
 	}

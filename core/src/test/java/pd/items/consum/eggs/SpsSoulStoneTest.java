@@ -216,6 +216,17 @@ public final class SpsSoulStoneTest {
 		consume.invoke(loose, hero);
 		check(!hero.belongings.contains(loose), "背包里的魂石没有被消耗掉");
 
+		//满包场景：collect=true 的卸下会把魂石掉在地上（还能捡回来），消耗必须避开这条路。
+		//若这里抛 NPE（Dungeon.level 为 null 时 drop 会崩），说明消耗又依赖背包空间了。
+		DogpetEgg cramped = new DogpetEgg();
+		while (hero.belongings.backpack.items.size() < hero.belongings.backpack.capacity()) {
+			hero.belongings.backpack.items.add(new pd.items.StoneOre());
+		}
+		hero.belongings.artifact = cramped;
+		consume.invoke(cramped, hero);
+		check(hero.belongings.artifact == null, "满包时被消耗的魂石仍占着神器槽");
+		check(!hero.belongings.contains(cramped), "满包时被消耗的魂石仍留在背包里");
+
 		Dungeon.hero = null;
 	}
 
