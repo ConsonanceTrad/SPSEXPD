@@ -171,7 +171,9 @@ public abstract class ExoticScroll extends Scroll {
 		
 		@Override
 		public Item sampleOutput(ArrayList<Item> ingredients) {
-			return Reflection.newInstance(regToExo.get(ingredients.get(0).getClass()));
+			//SPSXPD: 没有合剂对应的卷轴（如测试卷轴）返回空预览，而不是崩溃
+			Class<? extends ExoticScroll> exotic = regToExo.get(ingredients.get(0).getClass());
+			return exotic == null ? null : Reflection.newInstance(exotic);
 		}
 	}
 }

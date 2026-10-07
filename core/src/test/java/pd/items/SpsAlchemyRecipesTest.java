@@ -33,6 +33,7 @@ import pd.items.consum.potions.PotionOfFrost;
 import pd.items.consum.potions.PotionOfHealing;
 import pd.items.consum.potions.PotionOfMixing;
 import pd.items.consum.scrolls.ScrollOfIdentify;
+import pd.items.consum.scrolls.exotic.ExoticScroll;
 import pd.items.equipment.weapon.missiles.arrows.*;
 import pd.plants.*;
 import pd.scenes.AlchemyScene;
@@ -130,6 +131,7 @@ public final class SpsAlchemyRecipesTest {
 		check(Recipe.findRecipes(largeFruit).get(0).brew(largeFruit) instanceof PotionOfFrost,
 				"大型果实加普通果实没有按对应药剂生成");
 		testBrewed();
+		testExoticGuidePreviews();
 		ArrayList<Item> invalid = ingredients(Gold.class, Gold.class, Gold.class, Gold.class, Gold.class);
 		Recipe garbage = Recipe.findRecipes(invalid).get(0);
 		Item waste = garbage.brew(invalid);
@@ -205,6 +207,20 @@ public final class SpsAlchemyRecipesTest {
 		brewed.heroClass(hero);
 		check(hero.buff(AttackUp.class) != null && hero.buff(AttackUp.class).level() == 30
 				&& hero.buff(Recharging.class) == null, "盗贼酿制果职业收益错误");
+	}
+
+	private static void testExoticGuidePreviews() {
+		//SPSXPD: 炼金指南「合成秘卷」页会遍历全部卷轴做预览，缺少合剂对应的卷轴（如测试卷轴）必须安全返回空
+		ExoticScroll.ScrollToExotic recipe = new ExoticScroll.ScrollToExotic();
+		for (Class<?> cls : Generator.Category.SCROLL.classes) {
+			ArrayList<Item> in = ingredients(cls);
+			Item out = recipe.sampleOutput(in);
+			if (ExoticScroll.regToExo.containsKey(cls)) {
+				check(out != null, "有合剂对应的卷轴预览为空：" + cls.getSimpleName());
+			} else {
+				check(out == null, "无合剂对应的卷轴应返回空预览：" + cls.getSimpleName());
+			}
+		}
 	}
 
 	private static void verifyCase(Object[] test) {

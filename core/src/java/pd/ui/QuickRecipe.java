@@ -348,7 +348,10 @@ public class QuickRecipe extends Component {
 				for (Class<?> cls : Generator.Category.POTION.classes){
 					Potion pot = (Potion) Reflection.newInstance(cls);
 					ArrayList<Item> in = new ArrayList<>(Arrays.asList(pot));
-					result.add(new QuickRecipe( r, in, r.sampleOutput(in)));
+					Item exoticPotion = r.sampleOutput(in);
+					//SPSXPD: 没有合剂对应的药剂不显示（避免预览为空导致空条目/崩溃）
+					if (exoticPotion == null) continue;
+					result.add(new QuickRecipe( r, in, exoticPotion));
 				}
 				return result;
 			case 4:
@@ -356,7 +359,10 @@ public class QuickRecipe extends Component {
 				for (Class<?> cls : Generator.Category.SCROLL.classes){
 					Scroll scroll = (Scroll) Reflection.newInstance(cls);
 					ArrayList<Item> in = new ArrayList<>(Arrays.asList(scroll));
-					result.add(new QuickRecipe( r, in, r.sampleOutput(in)));
+					Item exoticScroll = r.sampleOutput(in);
+					//SPSXPD: 没有合剂对应的卷轴（如测试卷轴）不显示，避免空条目/崩溃
+					if (exoticScroll == null) continue;
+					result.add(new QuickRecipe( r, in, exoticScroll));
 				}
 				return result;
 			case 5:
