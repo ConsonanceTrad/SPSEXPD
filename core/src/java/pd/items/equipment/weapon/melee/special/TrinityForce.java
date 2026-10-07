@@ -43,7 +43,7 @@ public class TrinityForce extends NormalMeleeWeapon {
 	/** 一次挥击把这六把飞刃分三次挥出，伤害也按三次独立结算。 */
 	public static final int STRIKES = 3;
 	/** 三次结算的命中音效依次错开的间隔（秒）。 */
-	public static final float HIT_SOUND_GAP = 0.1f;
+	public static final float HIT_SOUND_GAP = 0.05f;
 
 	{
 		unique = true;
