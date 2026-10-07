@@ -1,80 +1,57 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
-import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 import pd.Assets;
-import pd.Dungeon;
-import pd.actors.Actor;
-import pd.actors.Char;
-import pd.actors.blobs.Blob;
-import pd.actors.blobs.ConfusionGas;
-import pd.actors.blobs.DarkGas;
-import pd.actors.blobs.ParalyticGas;
-import pd.actors.blobs.StenchGas;
-import pd.actors.blobs.TarGas;
-import pd.actors.blobs.ToxicGas;
-import pd.actors.buffs.Arcane;
-import pd.actors.buffs.ArmorBreak;
-import pd.actors.buffs.AttackDown;
-import pd.actors.buffs.AttackUp;
-import pd.actors.buffs.BerryRegeneration;
-import pd.actors.buffs.Buff;
-import pd.actors.buffs.DefenceUp;
-import pd.actors.buffs.HighLight;
-import pd.actors.buffs.Hot;
-import pd.actors.buffs.Recharging;
-import pd.actors.buffs.Rhythm;
-import pd.actors.buffs.Roots;
-import pd.actors.buffs.Shocked;
-import pd.actors.buffs.Slow;
-import pd.actors.buffs.Wet;
+import pd.actors.hero.Belongings;
 import pd.actors.hero.Hero;
-import pd.effects.Splash;
-import pd.effects.particles.ElmoParticle;
+import pd.effects.Enchanting;
+import pd.effects.particles.PurpleParticle;
+import pd.items.BrokenSeal;
 import pd.items.Item;
+import pd.items.consum.scrolls.ScrollOfRemoveCurse;
+import pd.items.consum.scrolls.exotic.ScrollOfEnchantment;
+import pd.items.equipment.armor.Armor;
+import pd.items.equipment.bags.Bag;
+import pd.items.equipment.weapon.Weapon;
 import pd.messages.Messages;
-import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.MissileSprite;
-import pd.ui.QuickSlotButton;
 import pd.utils.GLog;
+import pd.windows.WndBag;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
-import pd.atlas.items.EquipmentNonEquipDict;
 
 public class PotionOfMage extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(PotionOfMage.class)
 			.t("name", "奇迹烧瓶")
-			.t("ac_use", "施放")
-			.t("ac_drink", "饮用")
-			.t("ac_shattered", "泼洒")
-			.t("prompt", "选择要瞄准的地方")
-			.t("break", "现在烧瓶里什么都没有。")
+			.t("ac_enchant", "灌注")
+			.t("select", "选择要灌注的装备")
+			.t("enchant_weapon", "烧瓶中的魔力涌入了%s。")
+			.t("enchant_armor", "烧瓶中的魔力渗入了%s。")
 			.t("charge", "质量%d / %d。")
-			.t("desc", "法师多年研究成果之一，可以对自身使用来施加增益效果，也可以泼洒出去造成减益效果。");
+			.t("desc", "法师多年研究成果之一，会吸收你获得经验的一半化为瓶中魔力（每次至少为你保留1点经验）。\n瓶中魔力蓄满时，可以将其灌注进一件装备，为其附加一个随机的强力附魔。");
 	}
 
 
 
-	public static final String AC_USE = "USE";
-	public static final String AC_DRINK = "DRINK";
-	public static final String AC_SHATTERED = "SHATTERED";
+	public static final String AC_ENCHANT = "ENCHANT";
+	/** SPSEXPD: 每次灌注消耗的魔力。 */
+	public static final float TIME_TO_ENCHANT = 1f;
 	private static final String CHARGE = "charge";
 	public static final int FULL_CHARGE = 100;
 	private int charge;
 
 	{
 		image = EquipmentNonEquipDict.MIRACLE_FLASK;
-		defaultAction = AC_USE;
+		defaultAction = AC_ENCHANT;
 		unique = true;
-		usesTargeting = true;
 	}
 
 	public int charge() { return charge; }
@@ -85,108 +62,81 @@ public class PotionOfMage extends Item {
 		}
 	}
 
+	/** SPSEXPD: 吸收获得的经验（Hero.earnExp 按 50% 抽取后转入）。 */
+	public void addCharge( int amount ) {
+		if (amount <= 0 || charge >= FULL_CHARGE) return;
+		charge = Math.min(FULL_CHARGE, charge + amount);
+		updateQuickslot();
+	}
+
 	@Override public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);
-		if (charge >= 70) {
-			actions.add(AC_USE);
-			actions.add(AC_SHATTERED);
-		}
-		if (charge >= 50) actions.add(AC_DRINK);
+		if (charge >= FULL_CHARGE) actions.add(AC_ENCHANT);
 		actions.remove(AC_THROW);
 		actions.remove(AC_DROP);
 		return actions;
 	}
 
 	@Override public void execute(Hero hero, String action) {
-		if (AC_USE.equals(action) || AC_SHATTERED.equals(action)) {
+		if (AC_ENCHANT.equals(action)) {
 			curUser = hero;
-			if (charge < 70) GLog.i(Messages.get(this, "break"));
-			else GameScene.selectCell(AC_USE.equals(action) ? shooter : shattered);
-			return;
-		}
-		if (AC_DRINK.equals(action)) {
-			if (charge < 50) {
-				GLog.i(Messages.get(this, "break"));
-				return;
-			}
-			drink(hero);
+			if (charge < FULL_CHARGE) GLog.i(Messages.get(this, "charge", charge, FULL_CHARGE));
+			else GameScene.selectItem(itemSelector);
 			return;
 		}
 		super.execute(hero, action);
 	}
 
-	private void drink(Hero hero) {
-		switch (Random.Int(7)) {
-			case 0: Buff.affect(hero, HighLight.class, 10f); break;
-			case 1: Buff.affect(hero, AttackUp.class, 10f).level(35); break;
-			case 2: Buff.affect(hero, DefenceUp.class, 10f).level(35); break;
-			case 3: Buff.affect(hero, Recharging.class, 10f); break;
-			case 4: Buff.affect(hero, Arcane.class, 5f); break;
-			case 5: Buff.affect(hero, BerryRegeneration.class).level(hero.HP / 2); break;
-			case 6: Buff.affect(hero, Rhythm.class, 10f); break;
-			default: break;
+	/** SPSEXPD: 武器取 uncommon/rare 池的强力附魔（排除现有同类）。 */
+	private static Weapon.Enchantment strongEnchantment( Weapon weapon ) {
+		Class<? extends Weapon.Enchantment> existing =
+				weapon.enchantment != null ? weapon.enchantment.getClass() : null;
+		return Random.Int(2) == 0
+				? Weapon.Enchantment.randomUncommon( existing )
+				: Weapon.Enchantment.randomRare( existing );
+	}
+
+	private final WndBag.ItemSelector itemSelector = new WndBag.ItemSelector() {
+		@Override public String textPrompt() { return Messages.get(PotionOfMage.class, "select"); }
+		@Override public Class<? extends Bag> preferredBag() { return Belongings.Backpack.class; }
+		@Override public boolean itemSelectable(Item item) {
+			return charge >= FULL_CHARGE && ScrollOfEnchantment.enchantable(item);
 		}
-		if (hero.sprite != null) hero.sprite.emitter().burst(ElmoParticle.FACTORY, 12);
-		Sample.INSTANCE.play(Assets.Sounds.BURNING);
-		charge -= 50;
+		@Override public void onSelect(Item item) {
+			if (item == null || charge < FULL_CHARGE) return;
+			if (item instanceof Weapon) {
+				Weapon weapon = (Weapon)item;
+				weapon.enchant( strongEnchantment(weapon) );
+				finishEnchant(weapon, Messages.get(PotionOfMage.class, "enchant_weapon", weapon.name()));
+			} else if (item instanceof Armor) {
+				Armor armor = (Armor)item;
+				armor.inscribe( Armor.Glyph.random( armor.glyph != null ? armor.glyph.getClass() : null ) );
+				finishEnchant(armor, Messages.get(PotionOfMage.class, "enchant_armor", armor.name()));
+			} else if (item instanceof BrokenSeal) {
+				BrokenSeal seal = (BrokenSeal)item;
+				seal.inscribe( Armor.Glyph.random(
+						seal.getGlyph() != null ? seal.getGlyph().getClass() : null ) );
+				finishEnchant(seal, Messages.get(PotionOfMage.class, "enchant_armor", seal.name()));
+			}
+		}
+	};
+
+	private void finishEnchant( Item item, String message ) {
+		ScrollOfRemoveCurse.uncurse(curUser, item);
+		item.identify();
+		GLog.p(message);
+		charge = 0;
 		updateQuickslot();
-		hero.spendAndNext(1f);
-	}
-
-	private final CellSelector.Listener shattered = new CellSelector.Listener() {
-		@Override public void onSelect(Integer target) {
-			if (target == null || charge < 70 || !Dungeon.level.insideMap(target)) return;
-			if (!Dungeon.level.visited[target] && !Dungeon.level.mapped[target]) return;
-			GameScene.add(Blob.seed(target, 15, ToxicGas.class));
-			GameScene.add(Blob.seed(target, 15, ConfusionGas.class));
-			GameScene.add(Blob.seed(target, 15, ParalyticGas.class));
-			GameScene.add(Blob.seed(target, 15, DarkGas.class));
-			GameScene.add(Blob.seed(target, 15, TarGas.class));
-			GameScene.add(Blob.seed(target, 15, StenchGas.class));
-			charge -= 70;
-			updateQuickslot();
-			curUser.spendAndNext(1f);
+		if (curUser.sprite != null) {
+			curUser.sprite.operate(curUser.pos);
+			curUser.sprite.centerEmitter().start(PurpleParticle.BURST, 0.05f, 10);
+			Enchanting.show(curUser, item);
 		}
-		@Override public String prompt() { return Messages.get(PotionOfMage.class, "prompt"); }
-	};
-
-	private final CellSelector.Listener shooter = new CellSelector.Listener() {
-		@Override public void onSelect(Integer target) {
-			if (target == null || charge < 70) return;
-			int cell = new pd.mechanics.Ballistica(
-					curUser.pos, target, pd.mechanics.Ballistica.PROJECTILE).collisionPos;
-			Char enemy = Actor.findChar(cell);
-			charge -= 70;
-			updateQuickslot();
-			curUser.sprite.zap(cell);
-			curUser.busy();
-			QuickSlotButton.target(enemy);
-			Item projectile = new MageProjectile();
-			((MissileSprite)curUser.sprite.parent.recycle(MissileSprite.class)).reset(
-					curUser.sprite, cell, projectile, () -> {
-						if (enemy == null || enemy == curUser) Splash.at(cell, 0xCC99FFFF, 1);
-						else applyDebuffs(enemy);
-						curUser.spendAndNext(1f);
-					});
-		}
-		@Override public String prompt() { return Messages.get(PotionOfMage.class, "prompt"); }
-	};
-
-	private static void applyDebuffs(Char target) {
-		Buff.affect(target, AttackDown.class, 10f).level(35);
-		Buff.affect(target, ArmorBreak.class, 10f).level(35);
-		Buff.affect(target, Slow.class, 10f);
-		Buff.affect(target, Hot.class, 10f);
-		Buff.affect(target, Wet.class, 10f);
-		Buff.affect(target, Shocked.class).level(10);
-		Buff.affect(target, Roots.class, 10f);
+		Sample.INSTANCE.play(Assets.Sounds.MISS);
+		curUser.spendAndNext(TIME_TO_ENCHANT);
 	}
 
-	private static class MageProjectile extends Item {
-		{ image = SpecificPlaceHolderDict.SOMETHING_0; }
-	}
-
-	@Override public String status() { return Integer.toString(charge / 70); }
+	@Override public String status() { return Integer.toString(charge); }
 	@Override public String info() { return desc() + "\n\n" + Messages.get(this, "charge", charge, FULL_CHARGE); }
 	@Override public boolean isUpgradable() { return false; }
 	@Override public boolean isIdentified() { return true; }

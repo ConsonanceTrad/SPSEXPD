@@ -1166,8 +1166,7 @@ public class Hero extends Char {
 		fieldOfView = Dungeon.level.heroFOV;
 		MissileShield missileShield = belongings.getItem(MissileShield.class);
 		if (missileShield != null) missileShield.gainCharge();
-		PotionOfMage potionOfMage = belongings.getItem(PotionOfMage.class);
-		if (potionOfMage != null) potionOfMage.gainCharge();
+		//SPSEXPD: 奇迹烧瓶不再按回合充能，改为在 earnExp 里按获得的经验抽取（见 earnExp）
 		Shovel shovel = belongings.getItem(Shovel.class);
 		if (shovel != null) shovel.gainCharge();
 		GunOfSoldier soldierGun = belongings.getItem(GunOfSoldier.class);
@@ -2541,10 +2540,19 @@ public class Hero extends Char {
 	
 	public void earnExp( int exp, Class source ) {
 
+		//SPSEXPD: 奇迹烧瓶抽取本次获得的经验的 50%，并至少为角色保留 1 点
+		int absorbed = 0;
+
 		//xp granted by ascension challenge is only for on-exp gain effects
 		if (source != AscensionChallenge.class) {
+			PotionOfMage flask = belongings.getItem(PotionOfMage.class);
+			if (flask != null && exp > 0) {
+				absorbed = Math.min(exp - 1, exp / 2);
+				flask.addCharge(absorbed);
+			}
+			int gained = exp - absorbed;
 			//SPSXPD: 「快速学习」特质提供额外经验
-			this.exp += exp + GhostGirlRose.experienceBonus(this)
+			this.exp += gained + GhostGirlRose.experienceBonus(this)
 					+ pd.actors.hero.perks.QuickLearner.extraExp(this, exp);
 		}
 		LegacyPet legacyPet = LegacyPet.active();
@@ -2557,7 +2565,8 @@ public class Hero extends Char {
 				GLog.p(Messages.get(LegacyPet.class, "levelup"));
 			}
 		}
-		float percent = exp/(float)maxExp();
+		//SPSXPD: on-exp 效果按角色实得的经验计算（奇迹烧瓶抽走的部分不算进度）
+		float percent = (exp - absorbed)/(float)maxExp();
 		if (exp > 0 && heroClass == HeroClass.PERFORMER) {
 			Buff.prolong(this, Bless.class, subClass == HeroSubClass.SUPERSTAR ? 5f : 3f);
 		}

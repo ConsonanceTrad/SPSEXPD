@@ -1413,6 +1413,22 @@ public final class SpsFixedLevelTest {
 			}
 		}
 		check(variants.size() == 3, "128个确定种子没有覆盖全部三种监狱首领");
+
+		//SPSEXPD: 奇迹烧瓶按获得经验的 50% 抽取充能，并至少为角色保留 1 点
+		Hero expHero = new Hero();
+		expHero.heroClass = HeroClass.MAGE;
+		Hero heroBefore = Dungeon.hero;
+		Dungeon.hero = expHero;
+		PotionOfMage absorbingFlask = new PotionOfMage();
+		absorbingFlask.collect(expHero.belongings.backpack);
+		expHero.earnExp(5, TestMob.class);
+		check(absorbingFlask.charge() == 2 && expHero.exp == 3,
+				"奇迹烧瓶没有按50%抽取经验（充能=" + absorbingFlask.charge()
+						+ "，角色经验=" + expHero.exp + "）");
+		expHero.earnExp(1, TestMob.class);
+		check(absorbingFlask.charge() == 2 && expHero.exp == 4,
+				"1点经验应完整留给角色而不给奇迹烧瓶充能");
+		Dungeon.hero = heroBefore;
 	}
 
 	private static void testLegacyBossProperties() {
