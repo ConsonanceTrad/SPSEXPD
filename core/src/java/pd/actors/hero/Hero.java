@@ -918,6 +918,11 @@ public class Hero extends Char {
 			}
 			if (wepDr > 0) dr += wepDr;
 		}
+		//SPSEXPD: 装备在副手的神木圆盾提供基于英雄等级的额外防护
+		if (belongings.secondWep() instanceof MissileShield) {
+			int secondDr = Random.NormalIntRange( 0, belongings.secondWep().defenseFactor( this ) );
+			if (secondDr > 0) dr += secondDr;
+		}
 
 		if (buff(HoldFast.class) != null){
 			dr += buff(HoldFast.class).armorBonus();

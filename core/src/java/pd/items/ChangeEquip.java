@@ -68,10 +68,13 @@ public class ChangeEquip extends Item {
 	}
 
 	public static void swap(Hero hero) {
-		KindOfWeapon weapon = hero.belongings.weapon;
-		hero.belongings.weapon = hero.belongings.secondWep;
-		hero.belongings.secondWep = weapon;
-		if (hero.belongings.weapon != null) hero.belongings.weapon.activate(hero);
+		//SPSEXPD: 只能装备在副武器栏的武器（神木圆盾）不参与主/副互换
+		if (hero.belongings.secondWep == null || hero.belongings.secondWep.canEquipPrimary()) {
+			KindOfWeapon weapon = hero.belongings.weapon;
+			hero.belongings.weapon = hero.belongings.secondWep;
+			hero.belongings.secondWep = weapon;
+			if (hero.belongings.weapon != null) hero.belongings.weapon.activate(hero);
+		}
 
 		Armor armor = hero.belongings.armor;
 		if (armor != null) armor.deactivate(hero);

@@ -53,7 +53,8 @@ abstract public class KindOfWeapon extends EquipableItem {
 			.t("which_equip_secondary", "副手(%s)")
 			.t("empty", "空栏位")
 			.t("destory", "你的武器坏掉了。")
-			.t("almost_destory", "你的武器快要坏了。");
+			.t("almost_destory", "你的武器快要坏了。")
+			.t("no_primary_swap", "这件武器只能装备在副武器栏，无法与主武器互换。");
 	}
 
 
@@ -110,6 +111,11 @@ abstract public class KindOfWeapon extends EquipableItem {
 	@Override
 	public boolean isEquipped( Hero hero ) {
 		return hero != null && (hero.belongings.weapon() == this || hero.belongings.secondWep() == this);
+	}
+
+	/** SPSEXPD: 只能装备在副武器栏的武器（如神木圆盾）返回 false，主/副互换会跳过它。 */
+	public boolean canEquipPrimary() {
+		return true;
 	}
 
 	private static boolean isSwiftEquipping = false;

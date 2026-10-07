@@ -1346,13 +1346,27 @@ public final class SpsFixedLevelTest {
 		restoredReinforced.restoreFromBundle(reinforcedBundle);
 		check(restoredReinforced.isReinforced(), "精金破阶标记没有随存档恢复");
 		MissileShield shield = new MissileShield();
-		for (int i = 0; i < 15; i++) shield.gainCharge();
-		check(shield.charge() == MissileShield.FULL_CHARGE, "神木圆盾充能没有限制在10点");
+		check(MissileShield.FULL_CHARGE == 15, "神木圆盾应为每15回合可以扔出一次");
+		for (int i = 0; i < MissileShield.FULL_CHARGE + 5; i++) shield.gainCharge();
+		check(shield.charge() == MissileShield.FULL_CHARGE,
+				"神木圆盾充能没有限制在" + MissileShield.FULL_CHARGE + "点");
+		check(!shield.canEquipPrimary(), "神木圆盾必须只能装备在副武器栏");
 		Bundle shieldBundle = new Bundle();
 		shield.storeInBundle(shieldBundle);
 		MissileShield restoredShield = new MissileShield();
 		restoredShield.restoreFromBundle(shieldBundle);
 		check(restoredShield.charge() == shield.charge(), "神木圆盾充能存档恢复错误");
+		//SPSEXPD: 圆盾只能装备进副武器栏，并提供 0~英雄等级/2 的额外防护
+		Hero shieldHero = new Hero();
+		shieldHero.lvl = 8;
+		Hero heroBeforeShield = Dungeon.hero;
+		Dungeon.hero = shieldHero;
+		check(shield.defenseFactor(shieldHero) == 4, "神木圆盾副手防护上限不等于英雄等级的一半");
+		shield.collect(shieldHero.belongings.backpack);
+		check(shield.doEquip(shieldHero), "神木圆盾无法装备");
+		check(shieldHero.belongings.weapon() == null && shieldHero.belongings.secondWep() == shield,
+				"神木圆盾没有装备进副武器栏");
+		Dungeon.hero = heroBeforeShield;
 		PotionOfMage flask = new PotionOfMage();
 		for (int i = 0; i < 120; i++) flask.gainCharge();
 		check(flask.charge() == PotionOfMage.FULL_CHARGE, "奇迹烧瓶充能没有限制在100点");

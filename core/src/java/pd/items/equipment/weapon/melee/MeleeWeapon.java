@@ -595,6 +595,13 @@ public class MeleeWeapon extends Weapon {
 				return;
 			}
 
+			if (Dungeon.hero.belongings.secondWep != null
+					&& !Dungeon.hero.belongings.secondWep.canEquipPrimary()) {
+				//SPSEXPD: 只能装备在副武器栏的武器（神木圆盾）无法与主武器互换
+				GLog.w(Messages.get(KindOfWeapon.class, "no_primary_swap"));
+				return;
+			}
+
 			KindOfWeapon temp = Dungeon.hero.belongings.weapon;
 			Dungeon.hero.belongings.weapon = Dungeon.hero.belongings.secondWep;
 			Dungeon.hero.belongings.secondWep = temp;
