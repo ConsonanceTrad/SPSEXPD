@@ -539,6 +539,19 @@ public class Waterskin extends Item {
 		return volume >= 100;
 	}
 
+	//SPSEXPD: 跳跃靴等的固定露珠消耗——不享受「露珠研究」折扣，露珠不足直接拒绝
+	public boolean hasDew(int amount) {
+		return volume >= amount;
+	}
+
+	public boolean spendDewStrict(int amount) {
+		if (amount <= 0) return true;
+		if (volume < amount) return false;
+		volume -= amount;
+		updateQuickslot();
+		return true;
+	}
+
 	//SPSEXPD: 无条件收入，不再有上限，也不再有"已满"提示
 	public void collectDew(Dewdrop dew) {
 		GLog.i(Messages.get(this, "collected"));

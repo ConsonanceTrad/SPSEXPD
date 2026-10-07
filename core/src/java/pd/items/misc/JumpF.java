@@ -39,8 +39,8 @@ public class JumpF extends Item {
 
 
 	public static final String AC_JUMP = "JUMP";
-	public static final int FULL_CHARGE = 25;
-	public static final int JUMP_COST = 8;
+	//SPSEXPD: charge 现在只表示冷却剩余回合；跳跃固定消耗 100 露珠（见 JumpBoots）
+	public static final int FULL_CHARGE = JumpBoots.COOLDOWN;
 	public static final int RANGE = 3;
 	private static final String CHARGE = "charge";
 	private int charge;
@@ -64,13 +64,13 @@ public class JumpF extends Item {
 	@Override
 	public void execute(Hero hero, String action) {
 		if (AC_JUMP.equals(action)) {
-			if (!canJump(hero)) GLog.i(Messages.get(this, "rest"));
+			if (!canJump(hero)) GLog.i(Messages.get(JumpBoots.class, "blocked"));
 			else { curUser = hero; GameScene.selectCell(jumper); }
 		} else super.execute(hero, action);
 	}
 
 	public boolean canJump(Hero hero) {
-		return hero != null && (charge >= JUMP_COST || hero.buff(InfJump.class) != null);
+		return hero != null && (hero.buff(InfJump.class) != null || (charge <= 0 && JumpBoots.hasDew(hero)));
 	}
 
 	public boolean jumpTo(Hero hero, int target) {
@@ -93,7 +93,7 @@ public class JumpF extends Item {
 		if (Random.Int(10) > 8) plantSpecialSeed(cell);
 		Dungeon.observe();
 		hero.spendAndNext(1f);
-		if (hero.buff(InfJump.class) == null) charge -= JUMP_COST;
+		if (hero.buff(InfJump.class) == null) { JumpBoots.spendDew(hero); charge = FULL_CHARGE; }
 		updateQuickslot();
 		return true;
 	}
@@ -114,11 +114,11 @@ public class JumpF extends Item {
 		return GroundItems.plant( Dungeon.level, seed, cell);
 	}
 
-	public void gainCharge() { if (charge < FULL_CHARGE) charge++; }
+	public void gainCharge() { if (charge > 0) charge--; }
 	public void gainCharge(int amount) { charge = Math.min(FULL_CHARGE, charge + Math.max(0, amount)); }
 	public int charge() { return charge; }
-	@Override public String status() { return Integer.toString(charge / JUMP_COST); }
-	@Override public String info() { return desc() + "\n\n" + Messages.get(this, "charge", charge, FULL_CHARGE); }
+	@Override public String status() { return charge <= 0 ? null : Integer.toString(charge); }
+	@Override public String info() { return desc() + "\n\n" + Messages.get(JumpBoots.class, "cooldown", charge, FULL_CHARGE, JumpBoots.DEW_COST); }
 	@Override public boolean isUpgradable() { return false; }
 	@Override public boolean isIdentified() { return true; }
 	@Override public int value() { return 30 * quantity; }

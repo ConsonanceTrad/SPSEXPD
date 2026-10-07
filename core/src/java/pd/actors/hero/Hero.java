@@ -1188,8 +1188,7 @@ public class Hero extends Char {
 		if (danceLion != null) danceLion.gainCharge();
 		BShovel bShovel = belongings.getItem(BShovel.class);
 		if (bShovel != null) bShovel.gainCharge();
-		Ankhshield ankhshield = belongings.getItem(Ankhshield.class);
-		if (ankhshield != null) ankhshield.gainCharge();
+		//SPSEXPD: 神圣护盾不再逐回合自然回复——改由重生十字架的「充能」动作消耗安卡补充（见 Ankh）
 		JumpW jumpW = belongings.getItem(JumpW.class);
 		if (jumpW != null) jumpW.gainCharge();
 		JumpM jumpM = belongings.getItem(JumpM.class);

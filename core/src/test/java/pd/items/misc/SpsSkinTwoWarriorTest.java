@@ -273,6 +273,7 @@ public final class SpsSkinTwoWarriorTest {
 		JumpW shoes = new JumpW();
 		shoes.collect(hero.belongings.backpack);
 		shoes.gainCharge(1000);
+		giveDew(hero);
 		check(shoes.charge() == JumpW.FULL_CHARGE, "战士之鞋充能没有封顶");
 		ArrayList<TestMob> landingMobs = new ArrayList<>();
 		for (int offset : new int[]{level.width(), -level.width(), level.width() + 1,
@@ -286,7 +287,7 @@ public final class SpsSkinTwoWarriorTest {
 			Random.popGenerator();
 		}
 		check(hero.pos == CENTER + 5, "战士之鞋落点不是路径上的第五格：" + hero.pos);
-		check(shoes.charge() == 30, "战士之鞋单次跳跃耗能错误");
+		check(shoes.charge() == JumpW.FULL_CHARGE, "战士之鞋跳跃后没有进入满冷却");
 		int paralyzed = 0;
 		for (TestMob mob : landingMobs) if (mob.buff(Paralysis.class) != null) paralyzed++;
 		check(paralyzed > 0 && paralyzed < landingMobs.size(), "战士之鞋没有逐目标执行70%落地麻痹：" + paralyzed);
@@ -295,7 +296,7 @@ public final class SpsSkinTwoWarriorTest {
 		shoes.storeInBundle(saved);
 		JumpW restored = new JumpW();
 		restored.restoreFromBundle(saved);
-		check(restored.charge() == 30, "战士之鞋充能没有随存档恢复");
+		check(restored.charge() == JumpW.FULL_CHARGE, "战士之鞋冷却没有随存档恢复");
 
 		level = freshLevel();
 		hero = freshHero(level);
@@ -353,18 +354,19 @@ public final class SpsSkinTwoWarriorTest {
 		Hero hero = freshHero(level);
 		JumpM shoes = new JumpM();
 		shoes.gainCharge(1000);
+		giveDew(hero);
 		Random.pushGenerator(0x4A554D504D414745L);
 		try {
 			check(shoes.jumpTo(hero, CENTER + 6), "法师之鞋无法执行三格闪烁");
 		} finally {
 			Random.popGenerator();
 		}
-		check(hero.pos == CENTER + 3 && shoes.charge() == 35, "法师之鞋闪烁距离或耗能错误");
+		check(hero.pos == CENTER + 3 && shoes.charge() == JumpM.FULL_CHARGE, "法师之鞋闪烁距离或冷却错误");
 		Bundle saved = new Bundle();
 		shoes.storeInBundle(saved);
 		JumpM restored = new JumpM();
 		restored.restoreFromBundle(saved);
-		check(restored.charge() == 35, "法师之鞋充能没有随存档恢复");
+		check(restored.charge() == JumpM.FULL_CHARGE, "法师之鞋冷却没有随存档恢复");
 
 		level = freshLevel();
 		hero = freshHero(level);
@@ -461,20 +463,21 @@ public final class SpsSkinTwoWarriorTest {
 		Hero hero = freshHero(level);
 		JumpR shoes = new JumpR();
 		shoes.gainCharge(1000);
+		giveDew(hero);
 		Random.pushGenerator(0x4A554D50524F4755L);
 		try {
 			check(shoes.jumpTo(hero, CENTER + 6), "盗贼之鞋无法执行两格跳跃");
 		} finally {
 			Random.popGenerator();
 		}
-		check(hero.pos == CENTER + 2 && shoes.charge() == 30, "盗贼之鞋跳跃距离或耗能错误");
+		check(hero.pos == CENTER + 2 && shoes.charge() == JumpR.FULL_CHARGE, "盗贼之鞋跳跃距离或冷却错误");
 		check(hero.buff(Levitation.class) != null, "盗贼之鞋没有赋予漂浮");
 
 		Bundle saved = new Bundle();
 		shoes.storeInBundle(saved);
 		JumpR restored = new JumpR();
 		restored.restoreFromBundle(saved);
-		check(restored.charge() == 30, "盗贼之鞋充能没有随存档恢复");
+		check(restored.charge() == JumpR.FULL_CHARGE, "盗贼之鞋冷却没有随存档恢复");
 
 		level = freshLevel();
 		hero = freshHero(level);
@@ -573,8 +576,9 @@ public final class SpsSkinTwoWarriorTest {
 		nearOne.HP = nearOne.HT = nearTwo.HP = nearTwo.HT = far.HP = far.HT = 1000;
 		JumpH shoes = new JumpH();
 		shoes.gainCharge(1000);
+		giveDew(hero);
 		check(shoes.jumpTo(hero, CENTER + 6), "猎手之鞋无法执行三格跳跃");
-		check(hero.pos == CENTER + 3 && shoes.charge() == 35, "猎手之鞋跳跃距离或耗能错误");
+		check(hero.pos == CENTER + 3 && shoes.charge() == JumpH.FULL_CHARGE, "猎手之鞋跳跃距离或冷却错误");
 		check(hero.HP == 100 && far.HP == 1000 && (nearOne.HP < 1000 || nearTwo.HP < 1000),
 				"猎手之鞋没有群攻七格视野目标并恢复1点生命");
 
@@ -582,7 +586,7 @@ public final class SpsSkinTwoWarriorTest {
 		shoes.storeInBundle(saved);
 		JumpH restored = new JumpH();
 		restored.restoreFromBundle(saved);
-		check(restored.charge() == 35, "猎手之鞋充能没有随存档恢复");
+		check(restored.charge() == JumpH.FULL_CHARGE, "猎手之鞋冷却没有随存档恢复");
 
 		level = freshLevel();
 		hero = freshHero(level);
@@ -673,8 +677,9 @@ public final class SpsSkinTwoWarriorTest {
 		Hero hero = freshHero(level);
 		JumpP shoes = new JumpP();
 		shoes.gainCharge(1000);
+		giveDew(hero);
 		check(shoes.jumpTo(hero, CENTER + 6), "演员之鞋无法执行三格跳跃");
-		check(hero.pos == CENTER + 3 && shoes.charge() == 10 && hero.buff(GlassShield.class) != null
+		check(hero.pos == CENTER + 3 && shoes.charge() == JumpP.FULL_CHARGE && hero.buff(GlassShield.class) != null
 				&& hero.buff(GlassShield.class).turns() == 1 && hero.buff(Rhythm.class) != null,
 				"演员之鞋距离、耗能或基础增益错误");
 
@@ -682,7 +687,7 @@ public final class SpsSkinTwoWarriorTest {
 		hero = freshHero(level);
 		hero.subClass = HeroSubClass.SUPERSTAR;
 		shoes = new JumpP();
-		shoes.gainCharge(10);
+		giveDew(hero);
 		check(shoes.jumpTo(hero, CENTER + 2) && hero.buff(Rhythm2.class) != null,
 				"超级明星使用演员之鞋没有获得超级律动");
 
@@ -735,10 +740,11 @@ public final class SpsSkinTwoWarriorTest {
 		gun.activate(hero);
 		JumpS shoes = new JumpS();
 		shoes.gainCharge(1000);
+		giveDew(hero);
 		Random.pushGenerator(0x4A554D50534F4C44L);
 		try { check(shoes.jumpTo(hero, CENTER + 6), "星兵之鞋无法执行三格跳跃"); }
 		finally { Random.popGenerator(); }
-		check(hero.pos == CENTER + 3 && shoes.charge() == 20, "星兵之鞋跳跃距离或耗能错误");
+		check(hero.pos == CENTER + 3 && shoes.charge() == JumpS.FULL_CHARGE, "星兵之鞋跳跃距离或冷却错误");
 		check(gun.charge() >= 1 && gun.charge() <= 2
 				&& ((hero.buff(TargetShoot.class) == null && gun.charge() == 1)
 				|| (hero.buff(TargetShoot.class) != null && gun.charge() == 2)),
@@ -748,7 +754,7 @@ public final class SpsSkinTwoWarriorTest {
 		shoes.storeInBundle(saved);
 		JumpS restored = new JumpS();
 		restored.restoreFromBundle(saved);
-		check(restored.charge() == 20, "星兵之鞋充能没有随存档恢复");
+		check(restored.charge() == JumpS.FULL_CHARGE, "星兵之鞋冷却没有随存档恢复");
 
 		level = freshLevel();
 		hero = freshHero(level);
@@ -844,8 +850,9 @@ public final class SpsSkinTwoWarriorTest {
 		Hero hero = freshHero(level);
 		JumpF shoes = new JumpF();
 		shoes.gainCharge(1000);
+		giveDew(hero);
 		check(shoes.jumpTo(hero, CENTER + 6), "信徒之鞋无法执行三格跳跃");
-		check(hero.pos == CENTER + 3 && shoes.charge() == 17
+		check(hero.pos == CENTER + 3 && shoes.charge() == JumpF.FULL_CHARGE
 				&& level.map[CENTER] == Terrain.HIGH_GRASS,
 				"信徒之鞋距离、耗能或起跳格高草效果错误");
 
@@ -867,7 +874,7 @@ public final class SpsSkinTwoWarriorTest {
 		shoes.storeInBundle(saved);
 		JumpF restored = new JumpF();
 		restored.restoreFromBundle(saved);
-		check(restored.charge() == 17, "信徒之鞋充能没有随存档恢复");
+		check(restored.charge() == JumpF.FULL_CHARGE, "信徒之鞋冷却没有随存档恢复");
 
 		level = freshLevel();
 		hero = freshHero(level);
@@ -969,10 +976,11 @@ public final class SpsSkinTwoWarriorTest {
 		Hero hero = freshHero(level);
 		JumpA shoes = new JumpA();
 		shoes.gainCharge(1000);
+		giveDew(hero);
 		Random.pushGenerator(0x4A554D5041534345L);
 		try { check(shoes.jumpTo(hero, CENTER + 6), "修士之鞋无法执行四格闪烁"); }
 		finally { Random.popGenerator(); }
-		check(hero.pos == CENTER + 4 && shoes.charge() == 20, "修士之鞋闪烁距离或耗能错误");
+		check(hero.pos == CENTER + 4 && shoes.charge() == JumpA.FULL_CHARGE, "修士之鞋闪烁距离或冷却错误");
 		boolean haste = hero.buff(pd.actors.buffs.HasteBuff.class) != null;
 		Random.pushGenerator(0x4841535445425546L);
 		try {
@@ -985,7 +993,7 @@ public final class SpsSkinTwoWarriorTest {
 		shoes.storeInBundle(saved);
 		JumpA restored = new JumpA();
 		restored.restoreFromBundle(saved);
-		check(restored.charge() == 20, "修士之鞋充能没有随存档恢复");
+		check(restored.charge() == JumpA.FULL_CHARGE, "修士之鞋冷却没有随存档恢复");
 
 		level = freshLevel();
 		hero = freshHero(level);
@@ -1035,6 +1043,12 @@ public final class SpsSkinTwoWarriorTest {
 		TestLevel level = new TestLevel();
 		Dungeon.level = level;
 		return level;
+	}
+
+	private static void giveDew(Hero hero) {
+		pd.items.Waterskin flask = new pd.items.DewVial();
+		flask.fill();
+		flask.collect(hero.belongings.backpack);
 	}
 
 	private static Hero freshHero(TestLevel level) {

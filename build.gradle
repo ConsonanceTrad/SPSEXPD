@@ -265,6 +265,8 @@ tasks.register('verifySpsContent') {
 				'items.equipment.weapon.melee.special.shadoweater.',
 				'items.equipment.weapon.melee.special.trinityforce.',
 				'items.equipment.weapon.missiles.thrower.',
+				'items.ankh.',
+				'items.misc.jumpboots.',
 				'actors.buffs.trinitystance.',
 				'items.equipment.bags.heartofscarecrow.',
 				'items.powerhand.',
