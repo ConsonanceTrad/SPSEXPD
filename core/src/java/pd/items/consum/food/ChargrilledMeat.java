@@ -40,7 +40,7 @@ public class ChargrilledMeat extends Food {
 
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
-		energy = Hunger.HUNGRY/2f;
+		energy = 150f; //SPSEXPD: 固定绝对值（原 Hunger.HUNGRY/2f）
 	}
 	
 	@Override

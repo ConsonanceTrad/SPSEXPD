@@ -63,7 +63,8 @@ public class Food extends Item {
 	
 	public static final String AC_EAT	= "EAT";
 	
-	public float energy = Hunger.HUNGRY;
+	//SPSEXPD: 固定绝对值（原 Hunger.HUNGRY=300），不随饥饿体系翻倍而变化
+	public float energy = 300f;
 	public int hornValue = 3;
 	
 	{

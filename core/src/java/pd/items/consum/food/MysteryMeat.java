@@ -57,7 +57,7 @@ public class MysteryMeat extends Food {
 
 	{
 		image = ConsumFoodFoodDict.MEAT;
-		energy = Hunger.HUNGRY/2f;
+		energy = 150f; //SPSEXPD: 固定绝对值（原 Hunger.HUNGRY/2f）
 		hornValue = 1;
 	}
 	

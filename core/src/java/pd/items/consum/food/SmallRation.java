@@ -42,7 +42,7 @@ public class SmallRation extends Food {
 
 	{
 		image = ConsumFoodFoodDict.SMALL_RATION_PACK;
-		energy = Hunger.HUNGRY/2f;
+		energy = 150f; //SPSEXPD: 固定绝对值（原 Hunger.HUNGRY/2f）
 	}
 	
 	@Override

@@ -57,8 +57,9 @@ public class ElixirOfHoneyedHealing extends Elixir {
 	public void apply(Hero hero) {
 		PotionOfHealing.cure(hero);
 		PotionOfHealing.heal(hero);
-		Buff.affect(hero, Hunger.class).satisfy(Hunger.HUNGRY/2f);
-		Talent.onFoodEaten(hero, Hunger.HUNGRY/2f, this);
+		//SPSEXPD: 固定 150（原 Hunger.HUNGRY/2f），不随饥饿体系翻倍
+		Buff.affect(hero, Hunger.class).satisfy(150f);
+		Talent.onFoodEaten(hero, 150f, this);
 	}
 	
 	@Override

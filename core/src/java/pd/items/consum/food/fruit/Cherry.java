@@ -18,7 +18,7 @@ public class Cherry extends Fruit {
 
 
 
-	{ image = ConsumFoodFoodDict.CHERRY; energy = Hunger.HUNGRY / 10f; }
+	{ image = ConsumFoodFoodDict.CHERRY; energy = 30f; /*SPSEXPD: 原 Hunger.HUNGRY/10f*/ }
 	@Override protected void onEat(Hero hero) {
 		Dungeon.level.drop(new Bomb(), hero.pos).sprite.drop();
 	}

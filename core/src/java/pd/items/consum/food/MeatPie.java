@@ -48,7 +48,7 @@ public class MeatPie extends Food {
 	
 	{
 		image = ConsumFoodFoodDict.WHOLE_MEAT_PANCAKE;
-		energy = Hunger.STARVING*2f;
+		energy = 900f; //SPSEXPD: 原 Hunger.STARVING*2f
 	}
 	
 	@Override

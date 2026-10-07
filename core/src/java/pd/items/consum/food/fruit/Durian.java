@@ -18,7 +18,7 @@ public class Durian extends Fruit {
 
 
 
-	{ image = ConsumPotionSeedSeedDict.DURIAN; energy = Hunger.HUNGRY / 3f; }
+	{ image = ConsumPotionSeedSeedDict.DURIAN; energy = 100f; /*SPSEXPD: 原 Hunger.HUNGRY / 3f*/ }
 	@Override protected void onEat(Hero hero) {
 		Buff.affect(hero, Barkskin.class).set(4 + hero.lvl / 3, 30);
 	}

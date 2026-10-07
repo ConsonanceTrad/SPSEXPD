@@ -87,7 +87,7 @@ public class Blandfruit extends Fruit {
 		image = pd.atlas.items.ConsumPotionSeedSeedDict.BLANDFRUIT;
 
 		//SPSEXPD: 无味果可直接食用，饱食度等同标准干粮
-		energy = Hunger.HUNGRY;
+		energy = 300f; //SPSEXPD: 原 Hunger.HUNGRY
 		hornValue = 2;
 
 		bones = true;
@@ -191,7 +191,7 @@ public class Blandfruit extends Fruit {
 		potionAttrib = potion;
 		// Cooked Blandfruit only exists in saves made by earlier SPS-SPD builds.
 		// Keep those items usable without allowing this variant back into normal generation.
-		energy = Hunger.STARVING;
+		energy = 450f; //SPSEXPD: 原 Hunger.STARVING
 		potionAttrib.anonymize();
 
 		potionAttrib.image = pd.atlas.items.ConsumPotionSeedSeedDict.BLANDFRUIT;
@@ -249,7 +249,7 @@ public class Blandfruit extends Fruit {
 			stackable = true;
 			image = ConsumFoodFoodDict.BLAND_CHUNKS;
 
-			energy = Hunger.STARVING;
+			energy = 450f; //SPSEXPD: 原 Hunger.STARVING
 
 			bones = true;
 		}

@@ -15,5 +15,5 @@ public class BrewLeft extends Vegetable {
 
 
 
-	{ image = ConsumPotionSeedBasicPotionDict.BREW_LEFT; energy = Hunger.HUNGRY / 10f; hornValue = 0; }
+	{ image = ConsumPotionSeedBasicPotionDict.BREW_LEFT; energy = 30f; /*SPSEXPD: 原 Hunger.HUNGRY / 10f*/ hornValue = 0; }
 }

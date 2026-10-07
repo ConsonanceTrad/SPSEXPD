@@ -57,8 +57,10 @@ public class Hunger extends Buff implements Hero.Doom {
 
 
 
-	public static final float HUNGRY	= 300f;
-	public static final float STARVING	= 450f;
+	//SPSEXPD: 饥饿体系整体翻倍（阈值 300/450 → 600/900，每回合消耗 1 → 2），
+	//使同一份食物相对更不耐饿；物品的饱食度恢复量改为固定绝对值，不随常量变化。
+	public static final float HUNGRY	= 600f;
+	public static final float STARVING	= 900f;
 
 	private float level;
 	private float partialDamage;
@@ -113,7 +115,8 @@ public class Hunger extends Buff implements Hero.Doom {
 				}
 				hungerDelay /= SaltCube.hungerGainMultiplier();
 
-				float newLevel = level + (1f/hungerDelay);
+				//SPSEXPD: 饥饿消耗基础速度翻倍（原 1f/hungerDelay）
+				float newLevel = level + (2f/hungerDelay);
 				if (newLevel >= cap()) {
 
 					GLog.n( Messages.get(this, "onstarving") );

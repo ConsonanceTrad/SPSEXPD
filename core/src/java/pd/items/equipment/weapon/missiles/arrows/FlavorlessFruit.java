@@ -40,6 +40,6 @@ public class FlavorlessFruit extends SpsFruit {
 	}
 
 	@Override protected float eatEnergy() {
-		return Hunger.HUNGRY;
+		return 300f; //SPSEXPD: 原 Hunger.HUNGRY（批 2 统一为果实基础 15）
 	}
 }

@@ -25,7 +25,7 @@ public class Nut extends Food {
 
 	{
 		image = ConsumFoodFoodDict.RAW_NUT;
-		energy = Hunger.HUNGRY / 6f;
+		energy = 50f; //SPSEXPD: 原 Hunger.HUNGRY / 6f
 		hornValue = 1;
 	}
 

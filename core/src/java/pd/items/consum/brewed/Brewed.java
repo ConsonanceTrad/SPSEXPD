@@ -71,7 +71,7 @@ public class Brewed extends Item {
 
 	public Item potionAttrib;
 	private ItemSprite.Glowing potionGlow;
-	public float energy = Hunger.HUNGRY;
+	public float energy = 300f; //SPSEXPD: 固定绝对值（原 Hunger.HUNGRY=300）
 
 	{
 		stackable = true;

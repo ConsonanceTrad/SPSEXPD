@@ -42,7 +42,7 @@ public class StewedMeat extends Food {
 	
 	{
 		image = ConsumFoodFoodDict.STEWED_MEAT;
-		energy = Hunger.HUNGRY/2f;
+		energy = 150f; //SPSEXPD: 固定绝对值（原 Hunger.HUNGRY/2f）
 	}
 	
 	@Override

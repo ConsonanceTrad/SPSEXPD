@@ -55,7 +55,7 @@ public class FrozenCarpaccio extends Food {
 
 	{
 		image = ConsumFoodFoodDict.FROZEN_MEAT;
-		energy = Hunger.HUNGRY/2f;
+		energy = 150f; //SPSEXPD: 固定绝对值（原 Hunger.HUNGRY/2f）
 	}
 	
 	@Override

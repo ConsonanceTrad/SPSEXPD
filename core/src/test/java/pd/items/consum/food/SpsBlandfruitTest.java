@@ -68,15 +68,15 @@ public final class SpsBlandfruitTest {
 		TestBlandfruit fruit = new TestBlandfruit();
 		check(fruit instanceof Fruit, "无味果没有归入旧版水果分类");
 		check(Food.AC_EAT.equals(fruit.defaultAction()), "生无味果没有默认食用动作");
-		check(fruit.energy == Hunger.HUNGRY && fruit.eatTime() == Food.TIME_TO_EAT,
-				"生无味果应恢复100饱食并耗时3回合");
+		check(fruit.energy == 300f && fruit.eatTime() == Food.TIME_TO_EAT,
+				"生无味果应恢复300饱食并耗时3回合");
 		check(fruit.value() == 20 && fruit.quantity(2).value() == 40, "无味果价值不是每个20");
 
 		//SPSEXPD: 先把饥饿度抬高，确保能吃下的饱食量不受上限影响
 		hunger.affectHunger(-300f, true);
 		float beforeFeed = hunger.hunger();
 		fruit.feed(hero);
-		check(Math.abs((beforeFeed - hunger.hunger()) - Hunger.HUNGRY) < 1f,
+		check(Math.abs((beforeFeed - hunger.hunger()) - 300f) < 1f,
 				"生食无味果没有实际恢复干粮等量饱食");
 		for (Method method : Blandfruit.class.getDeclaredMethods()) {
 			check(!method.getName().equals("onThrow"), "无味果仍覆盖投掷并可能爆炸");
@@ -107,7 +107,7 @@ public final class SpsBlandfruitTest {
 		restored.restoreFromBundle(oldSave);
 		check(restored.potionAttrib instanceof PotionOfFrost && restored.glowing() != null,
 				"早期SPS-SPD熟无味果的药剂属性或光效丢失");
-		check(restored.defaultAction() != null && restored.energy == Hunger.STARVING,
+		check(restored.defaultAction() != null && restored.energy == 450f,
 				"早期SPS-SPD熟无味果不再可用或饱食值被破坏");
 
 		Bundle roundTrip = new Bundle();

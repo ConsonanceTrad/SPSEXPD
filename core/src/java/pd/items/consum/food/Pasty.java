@@ -80,7 +80,7 @@ public class Pasty extends Food {
 	{
 		reset();
 
-		energy = Hunger.STARVING;
+		energy = 450f; //SPSEXPD: 原 Hunger.STARVING
 
 		bones = true;
 	}
@@ -137,7 +137,7 @@ public class Pasty extends Food {
 	protected void satisfy(Hero hero) {
 		if (Holiday.getCurrentHoliday() == Holiday.LUNAR_NEW_YEAR){
 			//main item only clears 300 hunger on lunar new year...
-			energy = Hunger.HUNGRY;
+			energy = 300f; //SPSEXPD: 原 Hunger.HUNGRY
 		}
 
 		super.satisfy(hero);
@@ -265,7 +265,7 @@ public class Pasty extends Food {
 
 		{
 			image = ConsumFoodFoodDict.FISH_LEFTOVER_0;
-			energy = Hunger.HUNGRY/2;
+			energy = 150f; //SPSEXPD: 原 Hunger.HUNGRY/2
 		}
 
 		@Override

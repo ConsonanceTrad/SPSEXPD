@@ -19,7 +19,7 @@ public class FlavorlessFruitPiece extends Food {
 	{
 		//SPSEXPD: 贴图待指认，暂用果实系占位图
 		image = pd.atlas.items.SpecificPlaceHoldeFruitDict.FRUIT_HOLDER_0;
-		energy = Hunger.HUNGRY / 3f;
+		energy = 100f; //SPSEXPD: 原 Hunger.HUNGRY / 3f
 		hornValue = 1;
 		bones = false;
 	}

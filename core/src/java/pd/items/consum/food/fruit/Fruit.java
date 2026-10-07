@@ -10,7 +10,7 @@ import pd.atlas.items.ConsumFoodFoodDict;
 public class Fruit extends Food {
 	{
 		image = ConsumFoodFoodDict.STRAWBERRY;
-		energy = Hunger.HUNGRY / 6f;
+		energy = 50f; //SPSEXPD: 原 Hunger.HUNGRY / 6f
 		hornValue = 1;
 		bones = false;
 	}

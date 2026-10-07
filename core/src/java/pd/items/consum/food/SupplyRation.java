@@ -48,7 +48,7 @@ public class SupplyRation extends Food {
 
 	{
 		image = ConsumFoodFoodDict.SMALL_RATION_PACK;
-		energy = 2*Hunger.HUNGRY/3f; //200 food value
+		energy = 200f; //SPSEXPD: 固定绝对值（原 2*Hunger.HUNGRY/3f）
 
 		bones = false;
 	}

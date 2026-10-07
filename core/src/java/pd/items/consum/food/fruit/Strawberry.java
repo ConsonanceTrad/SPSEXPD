@@ -18,7 +18,7 @@ public class Strawberry extends Fruit {
 
 
 
-	{ image = ConsumFoodFoodDict.STRAWBERRY; energy = Hunger.HUNGRY / 10f; }
+	{ image = ConsumFoodFoodDict.STRAWBERRY; energy = 30f; /*SPSEXPD: 原 Hunger.HUNGRY / 10f*/ }
 	@Override protected void onEat(Hero hero) {
 		Buff.prolong(hero, Levitation.class, 20f);
 	}

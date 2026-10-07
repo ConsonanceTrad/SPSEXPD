@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public abstract class Processed extends Food {
 	{
 		image = SpecificPlaceHolderDict.FOOD_HOLDER_0;
-		energy = Hunger.HUNGRY / 12f;
+		energy = 25f; //SPSEXPD: 原 Hunger.HUNGRY / 12f
 		hornValue = 0;
 		bones = false;
 	}

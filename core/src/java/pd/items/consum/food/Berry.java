@@ -48,7 +48,7 @@ public class Berry extends Food {
 
 	{
 		image = ConsumFoodFoodDict.BLACKBERRY;
-		energy = Hunger.HUNGRY/3f; //100 food value
+		energy = 100f; //SPSEXPD: 固定绝对值（原 Hunger.HUNGRY/3f）
 
 		bones = false;
 	}

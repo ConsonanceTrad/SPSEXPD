@@ -47,7 +47,7 @@ public class PhantomMeat extends Food {
 
 	{
 		image = ConsumFoodFoodDict.PHANTOM_MEAT;
-		energy = Hunger.STARVING;
+		energy = 450f; //SPSEXPD: 原 Hunger.STARVING
 	}
 
 	@Override
