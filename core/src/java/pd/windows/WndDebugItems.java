@@ -37,6 +37,7 @@ import pd.items.consum.food.Blandfruit;
 import pd.items.consum.food.fruit.Durian;
 import pd.items.consum.food.processed.*;
 import pd.items.consum.food.vegetable.*;
+import pd.items.consum.potions.elixirs.WishPotion;
 import pd.items.equipment.weapon.missiles.arrows.*;
 import pd.items.misc.DewBadge;
 import pd.journal.Catalog;
@@ -180,6 +181,9 @@ public class WndDebugItems extends Window {
 		all.put(ShoppingCart.class, true);
 		all.put(HeartOfScarecrow.class, true);
 		all.put(BambooBasket.class, true);   //SPSEXPD: 竹背篓（只装果实）
+
+		//SPSEXPD: 许愿魔药（图鉴已登记；这里显式补入，保证调试器始终可取）
+		all.put(WishPotion.class, true);
 
 		//SPSEXPD: 魔法集露袋（移动时自动收露珠）不在图鉴/生成表里，手动补入调试器
 		all.put(DewBadge.class, true);

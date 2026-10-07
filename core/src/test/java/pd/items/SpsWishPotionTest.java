@@ -54,9 +54,10 @@ public final class SpsWishPotionTest {
 		testTiers();
 		testWishItems();
 		testWishEffects();
+		testDebugger();
 		testGuideWiring();
 
-		System.out.println("SPS许愿魔药测试通过：配方、候选池与黑名单、名称词匹配、幸运等级门槛、彩蛋物品、效果与死亡愿望、炼金指南接线均正常。");
+		System.out.println("SPS许愿魔药测试通过：配方、候选池与黑名单、名称词匹配、幸运等级门槛、彩蛋物品、效果与死亡愿望、调试器与炼金指南接线均正常。");
 	}
 
 	//---- 配方 ----
@@ -197,6 +198,26 @@ public final class SpsWishPotionTest {
 		hero = newHero();
 		WishEngine.Result nothing = WishEngine.wish(hero, "   ");
 		check(nothing.kind == WishEngine.Kind.NOTHING, "空愿望没有被判定为无事发生");
+	}
+
+	//---- 调试器接入 ----
+
+	@SuppressWarnings("unchecked")
+	private static void testDebugger() throws Exception {
+		java.lang.reflect.Method groups = pd.windows.WndDebugItems.class.getDeclaredMethod("groups");
+		groups.setAccessible(true);
+		java.util.LinkedHashMap<String, ArrayList<Class<? extends Item>>> map =
+				(java.util.LinkedHashMap<String, ArrayList<Class<? extends Item>>>) groups.invoke(null);
+
+		String found = null;
+		for (java.util.Map.Entry<String, ArrayList<Class<? extends Item>>> entry : map.entrySet()) {
+			if (entry.getValue().contains(WishPotion.class)) {
+				found = entry.getKey();
+				break;
+			}
+		}
+		check(found != null, "调试器物品清单里没有许愿魔药");
+		check("消耗品".equals(found), "许愿魔药没有归入调试器「消耗品」组，实际：" + found);
 	}
 
 	//---- 炼金指南接线 ----
