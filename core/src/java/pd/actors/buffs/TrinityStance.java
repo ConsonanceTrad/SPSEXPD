@@ -23,7 +23,7 @@ public class TrinityStance extends Buff {
 			.t("name", "战舞姿态")
 			.t("state_charge", "冲锋姿态")
 			.t("state_defend", "防御姿态")
-			.t("desc", "以战舞驾驭七刃的架势。\n\n_冲锋姿态：_移动速度降低，每次命中使攻速提高，连续 5 回合未命中则加成清零；命中两格开外的敌人时，你会顺势向对方冲进一格。\n_防御姿态：_移动与攻击速度减半，但受到的伤害减少 50%%。\n\n当前姿态：%1$s");
+			.t("desc", "以战舞驾驭七刃的架势。\n\n_冲锋姿态：_移动速度降低到原先的四分之三，每次命中使攻速提高，连续 5 回合未命中则加成清零；命中两格开外的敌人时，你会顺势向对方冲进一格。\n_防御姿态：_攻击速度减半，但受到的伤害减少 50%%。\n\n当前姿态：%1$s");
 	}
 
 	public static final int MAX_LAYERS = 5;
@@ -33,9 +33,8 @@ public class TrinityStance extends Buff {
 	public static final int DEFEND_COOLDOWN = 10;
 	public static final float ATTACK_STEP = 0.2f;
 	public static final float DEFEND_ATTACK = 0.5f;
-	public static final float DEFEND_SPEED = 0.5f;
-	public static final float CHARGE_SPEED = 0.8f;
-	public static final float CHARGE_SPEED_TRAINED = 0.9f;
+	/** 战舞的移速代价恒定：无论何种姿态，都降低到原先的四分之三。 */
+	public static final float CHARGE_SPEED = 0.75f;
 	public static final float DEFEND_DAMAGE_FACTOR = 0.5f;
 
 	private static final String LAYERS = "layers";
@@ -135,15 +134,8 @@ public class TrinityStance extends Buff {
 		defendCooldown = DEFEND_COOLDOWN;
 	}
 
-	public float speedMultiplier(TrinityForce weapon) {
-		if (defending) return DEFEND_SPEED;
-		return chargeSpeedMultiplier(weapon == null ? 0 : weapon.kills());
-	}
-
-	/** 冲锋姿态的移速惩罚随累计击杀减轻，150 次后完全取消。 */
-	public static float chargeSpeedMultiplier(int kills) {
-		if (kills >= TrinityForce.VANGUARD_KILLS) return 1f;
-		if (kills >= TrinityForce.TRAINED_KILLS) return CHARGE_SPEED_TRAINED;
+	/** 战舞的移速代价恒定：不再随击杀改善，冲锋姿态与防御姿态都是四分之三。 */
+	public float speedMultiplier() {
 		return CHARGE_SPEED;
 	}
 

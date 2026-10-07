@@ -20,7 +20,6 @@ import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
-import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
@@ -29,26 +28,21 @@ import pd.messages.InlineText;
  * SPSEXPD: SPS 0.9.8 之外原创武器——三相之力。
  *
  * <p>由七把飞刃组成的武器组：一次挥击的伤害总额被拆成七次独立攻击（命中与效果各自结算），
- * 但只消耗一个回合。装备期间一直拖慢移动速度，随着以战舞击杀敌人逐步习得防御姿态与先锋之刃。</p>
+ * 但只消耗一个回合。为维持操控飞刃的战舞，装备期间移速固定降低到原先的四分之三。</p>
  */
 public class TrinityForce extends NormalMeleeWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(TrinityForce.class)
 			.t("name", "三相之力")
-			.t("desc", "七把飞刃组成的一套武器组，极难操控：只有以战舞驾驭它，七刃才会同时起舞。\n\n一次挥击由七把飞刃各自独立飞舞，命中与附带效果分别结算，但只消耗一个回合；代价是额外的重量会一直拖慢你的步伐。\n\n冲锋姿态下命中两格开外的敌人时，你会顺势向对方冲进一格。")
+			.t("desc", "七把飞刃组成的一套武器组，极难操控：只有以战舞驾驭它，七刃才会同时起舞。\n\n一次挥击由七把飞刃各自独立飞舞，命中与附带效果分别结算，但只消耗一个回合。\n\n为维持操控飞刃的战舞，你的移速会降低到原先的四分之三。\n\n冲锋姿态下命中两格开外的敌人时，你会顺势向对方冲进一格。\n\n先锋之刃：向指定方向挥出 60° 扇形（5 格），使掠过的敌人减速 5 回合，施放后退出防御姿态。")
 			.t("ac_defend", "防御姿态")
 			.t("ac_vanguard", "先锋之刃")
 			.t("enter_defend", "你沉入防御姿态，七刃环绕如盾。")
 			.t("defend_unavailable", "你暂时无法进入防御姿态。")
 			.t("vanguard_prompt", "选择先锋之刃的挥击方向")
 			.t("vanguard_used", "先锋之刃掠过 %1$d 个敌人。")
-			.t("vanguard_none", "先锋之刃扫过空气。")
-			.t("unlock_defend", "战舞更进一步：你习得了_防御姿态_，冲锋姿态的移速惩罚也减轻了。")
-			.t("unlock_vanguard", "战舞大成：你习得了_先锋之刃_，冲锋姿态不再拖慢你的步伐。")
-			.t("progress_defend", "战舞进度：%1$d 次击杀（%2$d 次后习得_防御姿态_）")
-			.t("progress_vanguard", "战舞进度：%1$d 次击杀（%2$d 次后习得_先锋之刃_）")
-			.t("progress_done", "战舞大成：%1$d 次击杀。");
+			.t("vanguard_none", "先锋之刃扫过空气。");
 	}
 
 	public static final String AC_DEFEND = "DEFEND";
@@ -56,17 +50,9 @@ public class TrinityForce extends NormalMeleeWeapon {
 
 	/** 一次挥击由七把飞刃组成。 */
 	public static final int BLADES = 7;
-	/** 习得防御姿态所需的累计击杀。 */
-	public static final int TRAINED_KILLS = 50;
-	/** 习得先锋之刃所需的累计击杀。 */
-	public static final int VANGUARD_KILLS = 150;
 	public static final int VANGUARD_RANGE = 5;
 	public static final int VANGUARD_DEGREES = 60;
 	public static final float VANGUARD_SLOW = 5f;
-
-	private static final String KILLS = "kills";
-
-	private int kills;
 
 	{
 		unique = true;
@@ -78,10 +64,6 @@ public class TrinityForce extends NormalMeleeWeapon {
 
 	public TrinityForce() {
 		super(5, 1f, 1f, 2, 8, 20, SpecificPlaceHolderDict.SPS_PH_WEAPON);
-	}
-
-	public int kills() {
-		return kills;
 	}
 
 	@Override
@@ -108,7 +90,7 @@ public class TrinityForce extends NormalMeleeWeapon {
 		if (!isEquipped(hero)) return actions;
 		TrinityStance stance = TrinityStance.of(hero);
 		if (stance != null && stance.canDefend()) actions.add(AC_DEFEND);
-		if (kills >= VANGUARD_KILLS) actions.add(AC_VANGUARD);
+		actions.add(AC_VANGUARD);
 		return actions;
 	}
 
@@ -152,12 +134,9 @@ public class TrinityForce extends NormalMeleeWeapon {
 		int remainder = total % BLADES;
 
 		int first = super.proc(attacker, defender, per + (remainder > 0 ? 1 : 0));
-		int slain = 0;
 
-		if (defender.HP <= first) {
-			//主片已足以击杀，剩余飞刃不必再挥出
-			slain = 1;
-		} else {
+		//SPSEXPD: 主片已足以击杀时，剩余飞刃不必再挥出
+		if (defender.HP > first) {
 			for (int blade = 1; blade < BLADES && defender.isAlive(); blade++) {
 				int amount = per + (blade < remainder ? 1 : 0);
 				if (amount <= 0) continue;
@@ -165,26 +144,11 @@ public class TrinityForce extends NormalMeleeWeapon {
 				amount = super.proc(attacker, defender, amount);
 				if (amount <= 0) continue;
 				defender.damage(amount, this);
-				if (!defender.isAlive()) slain++;
 			}
 		}
 
-		if (slain > 0) addKills(attacker, slain);
 		dashTo(attacker, defender);
 		return first;
-	}
-
-	private void addKills(Char attacker, int amount) {
-		int before = kills;
-		kills += amount;
-		if (attacker instanceof Hero) {
-			if (before < TRAINED_KILLS && kills >= TRAINED_KILLS) {
-				GLog.p(Messages.get(this, "unlock_defend"));
-			} else if (before < VANGUARD_KILLS && kills >= VANGUARD_KILLS) {
-				GLog.p(Messages.get(this, "unlock_vanguard"));
-			}
-		}
-		updateQuickslot();
 	}
 
 	/** 命中两格外的敌人时，像刺击一样向对方冲进一格。 */
@@ -246,29 +210,4 @@ public class TrinityForce extends NormalMeleeWeapon {
 			return Messages.get(TrinityForce.this, "vanguard_prompt");
 		}
 	};
-
-	@Override
-	public String info() {
-		String info = super.info();
-		if (kills < TRAINED_KILLS) {
-			info += "\n\n" + Messages.get(this, "progress_defend", kills, TRAINED_KILLS - kills);
-		} else if (kills < VANGUARD_KILLS) {
-			info += "\n\n" + Messages.get(this, "progress_vanguard", kills, VANGUARD_KILLS - kills);
-		} else {
-			info += "\n\n" + Messages.get(this, "progress_done", kills);
-		}
-		return info;
-	}
-
-	@Override
-	public void storeInBundle(Bundle bundle) {
-		super.storeInBundle(bundle);
-		bundle.put(KILLS, kills);
-	}
-
-	@Override
-	public void restoreFromBundle(Bundle bundle) {
-		super.restoreFromBundle(bundle);
-		kills = Math.max(0, bundle.getInt(KILLS));
-	}
 }
