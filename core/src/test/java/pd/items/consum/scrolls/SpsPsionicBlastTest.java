@@ -81,9 +81,9 @@ public final class SpsPsionicBlastTest {
 				ScrollOfUpgrade.class, ScrollOfRecharging.class, ScrollOfMagicMapping.class,
 				ScrollOfRage.class, ScrollOfTerror.class, ScrollOfLullaby.class,
 				ScrollOfMagicalInfusion.class, ScrollOfPsionicBlast.class,
-				ScrollOfMirrorImage.class, ScrollOfRegrowth.class, ScrollOfDummy.class
+				ScrollOfMirrorImage.class, ScrollOfRegrowth.class
 		};
-		float[] probabilities = {30, 10, 15, 3, 10, 20, 10, 8, 8, 3, 3, 6, 6, 6};
+		float[] probabilities = {30, 10, 15, 3, 10, 20, 10, 8, 8, 3, 3, 6, 6};
 		check(Arrays.equals(Generator.Category.SCROLL.classes, expected),
 				"普通卷轴池的类型或顺序不符合0.9.8");
 		check(Arrays.equals(Generator.Category.SCROLL.defaultProbs, probabilities)

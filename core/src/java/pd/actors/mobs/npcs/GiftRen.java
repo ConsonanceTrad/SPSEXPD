@@ -44,7 +44,7 @@ public class GiftRen extends GiftNpc {
 				"StoneArmor", "CeramicsArmor", "ProtectiveclothingArmor", "MachineArmor",
 				"StyrofoamArmor", "Strawberry", "Cherry", "Nut", "PerfectFood", "BlueMilk",
 				"DeathCap", "Earthstar", "JackOLantern", "PixieParasol", "GoldenJelly",
-				"GreenSpore", "RingOfKnowledge", "ScrollOfDummy", "ScrollOfRegrowth");
+				"GreenSpore", "RingOfKnowledge", "ScrollOfRegrowth");
 	}
 	@Override protected GiftResult reward(Hero hero) {
 		if (friendship() == 100) return result("reward5", new RenBArmor());

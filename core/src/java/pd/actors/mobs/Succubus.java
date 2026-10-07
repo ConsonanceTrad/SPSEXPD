@@ -34,7 +34,6 @@ import pd.actors.buffs.Sleep;
 import pd.effects.Speck;
 import pd.items.Item;
 import pd.items.consum.food.MysteryMeat;
-import pd.items.consum.scrolls.ScrollOfDummy;
 import pd.items.consum.scrolls.ScrollOfLullaby;
 import pd.items.consum.scrolls.ScrollOfTeleportation;
 import pd.items.equipment.wands.WandOfCharm;
@@ -177,7 +176,7 @@ public class Succubus extends Mob {
 		Dungeon.level.drop(new MysteryMeat(), pos).sprite.drop();
 	}
 
-	@Override public Item SupercreateLoot() { return Random.oneOf(new ScrollOfDummy(), new WandOfCharm()); }
+	@Override public Item SupercreateLoot() { return new WandOfCharm(); }
 
 	{
 		immunities.add(Sleep.class);

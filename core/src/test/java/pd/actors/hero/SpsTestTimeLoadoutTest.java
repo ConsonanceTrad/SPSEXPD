@@ -55,7 +55,6 @@ import pd.items.equipment.rings.RingOfSharpshooting;
 import pd.items.equipment.rings.RingOfTenacity;
 import pd.items.equipment.rings.fusion.RingOfKnowledge;
 import pd.items.equipment.rings.fusion.RingOfMagic;
-import pd.items.consum.scrolls.ScrollOfDummy;
 import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
 import pd.items.consum.scrolls.ScrollOfPsionicBlast;
@@ -93,9 +92,8 @@ public final class SpsTestTimeLoadoutTest {
 			testChallengeGate();
 			testCompleteLoadout();
 			testLegacyContainersAndTome();
-			testDummyMechanicsAndEdgeSafety();
 			testBilingualResources();
-			System.out.println("SPS测试模式开局通过：充满的多利亚石板、25条异界路线、8条挑战路线、完整物资数量、十二枚+10戒指、20000金币、20瓶许愿魔药、默认初始生命及玩偶机制均正常。");
+			System.out.println("SPS测试模式开局通过：充满的多利亚石板、25条异界路线、8条挑战路线、完整物资数量、十二枚+10戒指、20000金币、20瓶许愿魔药及默认初始生命均正常。");
 		} finally {
 			Actor.clear();
 			Dungeon.level = null;
@@ -155,7 +153,7 @@ public final class SpsTestTimeLoadoutTest {
 		Class<?>[] nornStones = {YellowNornStone.class, BlueNornStone.class, OrangeNornStone.class,
 				PurpleNornStone.class, GreenNornStone.class};
 		for (Class<?> type : nornStones) check(countExact(hero, type) == 199, type.getSimpleName() + "数量不是199");
-		Class<?>[] tens = {Seedpod.Seed.class, Dewcatcher.Seed.class, ScrollOfDummy.class,
+		Class<?>[] tens = {Seedpod.Seed.class, Dewcatcher.Seed.class,
 				PotionOfHealing.class, ScrollOfPsionicBlast.class, Hamburger.class,
 				RandomMonthEgg.class, Honey.class};
 		for (Class<?> type : tens) check(countExact(hero, type) == 10, type.getSimpleName() + "数量不是10");
@@ -218,38 +216,13 @@ public final class SpsTestTimeLoadoutTest {
 				&& TomeOfMastery.TIME_TO_READ == 10f, "精通之书阅读动作或耗时错误");
 	}
 
-	private static void testDummyMechanicsAndEdgeSafety() throws Exception {
-		Actor.clear();
-		TestLevel level = new TestLevel();
-		Dungeon.level = level;
-		Hero hero = freshHero(Challenges.TEST_TIME);
-		hero.pos = 0;
-		Method spawn = ScrollOfDummy.class.getDeclaredMethod("spawnDummy", int.class, int.class);
-		spawn.setAccessible(true);
-		ScrollOfDummy.MiniDummy dummy = (ScrollOfDummy.MiniDummy)spawn.invoke(null, 0, 30);
-		check(dummy != null && dummy.HT == 30 && dummy.HP == 30 && dummy.pos >= 0
-				&& dummy.pos < level.length(), "地图边缘没有安全生成30生命玩偶");
-		check(level.mobs().contains(dummy), "生成的玩偶没有加入地图");
-		dummy.damage(99, hero);
-		check(dummy.HP == 28, "玩偶没有把正伤害固定为2");
-		dummy.defenseProc(hero, 7);
-		check(dummy.HP == 29, "玩偶受击时没有先恢复1点生命");
-		Method decay = ScrollOfDummy.MiniDummy.class.getDeclaredMethod("decay");
-		decay.setAccessible(true);
-		decay.invoke(dummy);
-		check(dummy.HP == 27, "玩偶每回合没有按旧版规则衰减");
-		ScrollOfDummy.MiniDummy empowered = (ScrollOfDummy.MiniDummy)spawn.invoke(null, 0, 50);
-		check(empowered != null && empowered.HT == 50 && empowered.HP == 50, "强化阅读没有生成50生命玩偶");
-	}
-
 	private static void testBilingualResources() throws Exception {
 		String zh = Files.readString(Paths.get("messages/items/zh/items.properties"), StandardCharsets.UTF_8);
 		String en = Files.readString(Paths.get("messages/items/en/items.properties"), StandardCharsets.UTF_8);
 		String[] keys = {"items.equipment.bags.wandholster.name=",
-				"items.tomeofmastery.name=", "items.consum.scrolls.scrollofdummy.name=",
-				"items.consum.scrolls.scrollofdummy$minidummy.name="};
+				"items.tomeofmastery.name="};
 		for (String key : keys) check(zh.contains(key) && en.contains(key), "中英文资源缺少键：" + key);
-		check(zh.contains("精通之书") && zh.contains("吵闹玩偶") && !zh.contains("�"), "测试物品中文乱码或缺失");
+		check(zh.contains("精通之书") && !zh.contains("�"), "测试物品中文乱码或缺失");
 	}
 
 	private static Hero freshHero(int challenges) {

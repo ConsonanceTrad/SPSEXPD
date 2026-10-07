@@ -23,7 +23,6 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.items.quest.AdventureJournal;
 import pd.items.consum.scrolls.Scroll;
-import pd.items.consum.scrolls.ScrollOfDummy;
 import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.items.consum.scrolls.ScrollOfLullaby;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
@@ -212,9 +211,9 @@ public final class SpsUnstableSpellbookTest {
 				ScrollOfRage.class, ScrollOfRemoveCurse.class, ScrollOfTerror.class,
 				ScrollOfTeleportation.class, ScrollOfUpgrade.class, ScrollOfRecharging.class,
 				ScrollOfMirrorImage.class, ScrollOfPsionicBlast.class, ScrollOfRegrowth.class,
-				ScrollOfDummy.class, ScrollOfMagicalInfusion.class
+				ScrollOfMagicalInfusion.class
 		};
-		check(empowered.length == 14, "旧版随机卷轴池数量不是14");
+		check(empowered.length == 13, "旧版随机卷轴池数量不是13");
 		for (Class<?> type : empowered) {
 			check(type.getDeclaredMethod("empoweredRead").getDeclaringClass() == type,
 					type.getSimpleName() + "没有独立强化入口");

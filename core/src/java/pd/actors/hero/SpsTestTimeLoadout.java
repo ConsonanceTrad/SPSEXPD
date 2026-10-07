@@ -50,7 +50,6 @@ import pd.items.equipment.rings.RingOfSharpshooting;
 import pd.items.equipment.rings.RingOfTenacity;
 import pd.items.equipment.rings.fusion.RingOfKnowledge;
 import pd.items.equipment.rings.fusion.RingOfMagic;
-import pd.items.consum.scrolls.ScrollOfDummy;
 import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
 import pd.items.consum.scrolls.ScrollOfPsionicBlast;
@@ -108,7 +107,6 @@ public final class SpsTestTimeLoadout {
 
 		collect(hero, new Seedpod.Seed().quantity(10));
 		collect(hero, new Dewcatcher.Seed().quantity(10));
-		collect(hero, new ScrollOfDummy().quantity(10));
 		collect(hero, new PotionOfHealing().quantity(10));
 		collect(hero, new ScrollOfPsionicBlast().quantity(10));
 		collect(hero, new Hamburger().quantity(10));

@@ -214,7 +214,6 @@ import pd.items.equipment.rings.RingOfWealth;
 import pd.items.equipment.rings.fusion.RingOfKnowledge;
 import pd.items.equipment.rings.fusion.RingOfMagic;
 import pd.items.consum.scrolls.Scroll;
-import pd.items.consum.scrolls.ScrollOfDummy;
 import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.items.consum.scrolls.ScrollOfLullaby;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
@@ -713,10 +712,10 @@ public class Generator {
 					ScrollOfRage.class, ScrollOfTerror.class,
 					ScrollOfLullaby.class, ScrollOfMagicalInfusion.class,
 					ScrollOfPsionicBlast.class, ScrollOfMirrorImage.class,
-					ScrollOfRegrowth.class, ScrollOfDummy.class,
+					ScrollOfRegrowth.class,
 					ScrollOfRetribution.class, ScrollOfTransmutation.class
 			};
-			SCROLL.defaultProbs = new float[]{30, 10, 15, 3, 10, 20, 10, 8, 8, 3, 3, 6, 6, 6, 3, 3};
+			SCROLL.defaultProbs = new float[]{30, 10, 15, 3, 10, 20, 10, 8, 8, 3, 3, 6, 6, 3, 3};
 			SCROLL.defaultProbs2 = null;
 			SCROLL.probs = SCROLL.defaultProbs.clone();
 			
