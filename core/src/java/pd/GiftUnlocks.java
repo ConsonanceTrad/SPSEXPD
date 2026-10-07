@@ -98,8 +98,6 @@ public class GiftUnlocks {
 			.t("$giftunlock.overseas_base.desc", "星兵寻根")
 			.t("$giftunlock.overseas_unknow.title", "虚无")
 			.t("$giftunlock.overseas_unknow.desc", "初始携带5S金")
-			.t("$giftunlock.overseas_rocket.title", "火箭准备")
-			.t("$giftunlock.overseas_rocket.desc", "初始携带火箭")
 			.t("$giftunlock.overseas_artitem.title", "奇异艺术")
 			.t("$giftunlock.overseas_artitem.desc", "初始携带跳舞人偶");
 	}
@@ -149,7 +147,6 @@ public class GiftUnlocks {
 		HOMELESS_PLANT  (52, 15),
 		OVERSEAS_BASE   (58,  0),
 		OVERSEAS_UNKNOW (22,  5),
-		OVERSEAS_ROCKET (19, 15),
 		OVERSEAS_ARTITEM(39,  5);
 
 		public final int image;
@@ -300,7 +297,6 @@ public class GiftUnlocks {
 		}
 		if (!global.contains( GiftUnlock.OVERSEAS_BASE )) {
 			result.remove( GiftUnlock.OVERSEAS_UNKNOW );
-			result.remove( GiftUnlock.OVERSEAS_ROCKET );
 			result.remove( GiftUnlock.OVERSEAS_ARTITEM );
 		}
 		return result;
@@ -405,11 +401,6 @@ public class GiftUnlocks {
 	/** 0.9.9 ARMORGiftisUsed：初始携带随机 +1 鉴定护甲。 */
 	public static int armorGiftCount() {
 		return isUnlocked( GiftUnlock.HORN_ARMOR ) ? 1 : 0;
-	}
-
-	/** 0.9.9 ROCKETGiftisUsed：初始携带火箭。 */
-	public static int rocketGiftCount() {
-		return isUnlocked( GiftUnlock.OVERSEAS_ROCKET ) ? 1 : 0;
 	}
 
 	/** 0.9.9 RINGGiftisUsed：初始携带随机负等级戒指。 */

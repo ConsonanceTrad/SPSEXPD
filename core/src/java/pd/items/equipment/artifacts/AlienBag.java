@@ -24,7 +24,6 @@ import pd.items.equipment.bombs.IceBomb;
 import pd.items.equipment.bombs.LightBomb;
 import pd.items.equipment.bombs.SpsFireBomb;
 import pd.items.equipment.bombs.StormBomb;
-import pd.items.equipment.weapon.missiles.fusion.RocketMissile;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.utils.GLog;
@@ -55,9 +54,9 @@ public class AlienBag extends Artifact {
 
 	public static final String AC_SHIELD = "SHIELD", AC_BOMB = "BOMB", AC_BUILD = "BUILD";
 	private static final Class<?>[] BOMB_SUPPLY_CLASSES = {BuildBomb.class, DungeonBomb.class, HugeBomb.class,
-			RocketMissile.class, SpsFireBomb.class, IceBomb.class, EarthBomb.class, StormBomb.class,
+			SpsFireBomb.class, IceBomb.class, EarthBomb.class, StormBomb.class,
 			LightBomb.class, DarkBomb.class, FishingBomb.class};
-	private static final float[] BOMB_SUPPLY_WEIGHTS = {0, 3, 0, 1, 1, 1, 1, 1, 1, 1, 1};
+	private static final float[] BOMB_SUPPLY_WEIGHTS = {0, 3, 0, 1, 1, 1, 1, 1, 1, 1};
 
 	{
 		image = EquipmentJewelleryArtifactDict.LEGACY_ALIEN_BAG_0;

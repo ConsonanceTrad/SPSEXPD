@@ -27,7 +27,6 @@ import pd.items.EquipableItem;
 import pd.items.Generator;
 import pd.items.Item;
 import pd.items.equipment.weapon.guns.ToyGun;
-import pd.items.equipment.weapon.missiles.fusion.RocketMissile;
 import pd.items.equipment.weapon.missiles.meleethrow.Brick;
 import pd.items.equipment.weapon.missiles.meleethrow.DragonBoat;
 import pd.items.equipment.weapon.missiles.meleethrow.MeleeThrowWeapon;
@@ -54,13 +53,13 @@ import java.util.Set;
 
 import javax.imageio.ImageIO;
 
-/** Runtime checks for SPS-PD 0.9.8's complete fifteen-item event weapon pool. */
+/** Runtime checks for SPS-PD 0.9.8's event weapon pool (RocketMissile removed by user decision). */
 public final class SpsEasterWeaponsTest {
 
 	private static final Class<?>[] POOL = {
 			Pumpkin.class, Tree.class, MiniMoai.class, TestWeapon.class, ToyGun.class,
 			HookHam.class, Brick.class, Lollipop.class, FireCracker.class, SJRBMusic.class,
-			RocketMissile.class, KeyWeapon.class, DragonBoat.class, PaperFan.class, MeleePan.class
+			KeyWeapon.class, DragonBoat.class, PaperFan.class, MeleePan.class
 	};
 	private static final String[] ICON_HASHES = {
 			"2F7DBCDD0EEBFE490D932829F06EB8B5454B37D0FF42A50194E6908A2761A3C2",
@@ -89,7 +88,7 @@ public final class SpsEasterWeaponsTest {
 			testFireCrackerAndMusic();
 			testThrownEffectsAndSafety();
 			testIcons();
-			System.out.println("SPS节日武器池通过：15件等权武器、8件补回武器的数值、特效、投掷、存档、边界和原始图标均正常。");
+			System.out.println("SPS节日武器池通过：14件等权武器、8件补回武器的数值、特效、投掷、存档、边界和原始图标均正常。");
 		} finally {
 			Random.popGenerator();
 			Actor.clear();
@@ -103,7 +102,7 @@ public final class SpsEasterWeaponsTest {
 		for (float probability : Generator.Category.EASTERWEAPON.probs) check(probability == 1f, "节日武器池不是等权");
 		Set<Class<?>> generated = new HashSet<>();
 		for (int i = 0; i < 10_000; i++) generated.add(Generator.random(Generator.Category.EASTERWEAPON).getClass());
-		check(generated.size() == POOL.length, "节日武器池无法生成全部15件物品");
+		check(generated.size() == POOL.length, "节日武器池无法生成全部14件物品");
 		TownNpc npc = new TownNpc().configure(TownNpc.Spec.OLD_NEW_STWIST);
 		check(Arrays.asList(POOL).contains(npc.SupercreateLoot().getClass()), "城镇居民没有使用完整节日武器池");
 	}

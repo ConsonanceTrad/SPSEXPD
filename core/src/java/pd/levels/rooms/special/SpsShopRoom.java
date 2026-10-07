@@ -35,7 +35,6 @@ import pd.items.equipment.weapon.guns.GunD;
 import pd.items.equipment.weapon.guns.GunE;
 import pd.items.equipment.weapon.melee.special.MeleePan;
 import pd.items.equipment.weapon.missiles.arrows.MagicHand;
-import pd.items.equipment.weapon.missiles.fusion.RocketMissile;
 import pd.items.equipment.weapon.ranges.AlloyBowN;
 import pd.items.equipment.weapon.ranges.MetalBowN;
 import pd.items.equipment.weapon.ranges.PVCBowN;
@@ -150,7 +149,6 @@ public class SpsShopRoom extends ShopRoom {
 		if (Random.Int(3) == 0) {
 			itemsToSpawn.add(Random.Int(2) == 0 ? new RandomMonthEgg() : new Egg());
 		}
-		itemsToSpawn.add(new RocketMissile());
 		switch (Random.Int(6)) {
 			case 1: itemsToSpawn.add(new ActiveMrDestructo()); break;
 			case 2: itemsToSpawn.add(new FairyCard()); break;

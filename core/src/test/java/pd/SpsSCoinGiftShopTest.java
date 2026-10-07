@@ -20,7 +20,6 @@ import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.items.equipment.wands.WandOfTest;
 import pd.items.equipment.weapon.Weapon;
 import pd.items.equipment.weapon.missiles.buildblock.PlantPotBlock;
-import pd.items.equipment.weapon.missiles.fusion.RocketMissile;
 import pd.plants.Plant;
 import pd.ui.CurrencyIndicator;
 import render.utils.serialize.FileUtils;
@@ -63,7 +62,7 @@ public final class SpsSCoinGiftShopTest {
 			testSourceWiring();
 			testIconPixels();
 			testRuntimeMessages();
-			System.out.println("SPS S金与礼物商店测试通过：2333:1兑换边界、S金钱包持久化、商店前置树与34项上架、购买落盘、开局强化发放（含无人机信标与跳舞人偶）、图标像素和四语文本均正常。");
+			System.out.println("SPS S金与礼物商店测试通过：2333:1兑换边界、S金钱包持久化、商店前置树与33项上架、购买落盘、开局强化发放（含无人机信标与跳舞人偶）、图标像素和四语文本均正常。");
 		} finally {
 			try {
 				Actor.clear();
@@ -141,7 +140,7 @@ public final class SpsSCoinGiftShopTest {
 			GiftUnlocks.buyOneGift(unlock);
 		}
 		List<GiftUnlocks.GiftUnlock> all = GiftUnlocks.filtered();
-		check(all.size() == 34, "全购后应上架 34 项（隐藏 2 项），实际=" + all.size());
+		check(all.size() == 33, "全购后应上架 33 项（隐藏 2 项，火箭弹礼包已移除），实际=" + all.size());
 		check(!all.contains(GiftUnlocks.GiftUnlock.TRIBE_BUILD)
 						&& !all.contains(GiftUnlocks.GiftUnlock.TRIBE_BUILD_TWO),
 				"S金炼金/锻造两项不应上架售卖");
@@ -180,7 +179,6 @@ public final class SpsSCoinGiftShopTest {
 		check(GiftUnlocks.plantGiftCount() == 1, "采集心得应携带 1 个花盆");
 		check(GiftUnlocks.weaponGiftCount() == 1, "兵器准备应携带 1 件武器");
 		check(GiftUnlocks.armorGiftCount() == 1, "护甲准备应携带 1 件护甲");
-		check(GiftUnlocks.rocketGiftCount() == 1, "火箭准备应携带 1 发火箭");
 		check(GiftUnlocks.ringGiftCount() == 1, "戒指准备应携带 1 枚戒指");
 		check(GiftUnlocks.artifactGiftCount() == 1, "神器准备应携带诺姆林王冠");
 		check(GiftUnlocks.wandGiftCount() == 1, "法杖准备应携带测试法杖");
@@ -224,7 +222,6 @@ public final class SpsSCoinGiftShopTest {
 						&& hero.belongings.getItem(LuckyBadge.class).level() == 1,
 				"开局强化没有发放 1 级幸运徽章");
 		check(hero.belongings.getItem(PlantPotBlock.class) != null, "开局强化没有发放花盆");
-		check(hero.belongings.getItem(RocketMissile.class) != null, "开局强化没有发放火箭");
 		check(hero.belongings.getItem(NoomlinCrown.class) != null, "开局强化没有发放诺姆林王冠");
 		check(hero.belongings.getItem(WandOfTest.class) != null, "开局强化没有发放测试法杖");
 		check(hero.belongings.getItem(ScrollOfUpgrade.class) != null, "开局强化没有发放升级卷轴");
@@ -243,10 +240,9 @@ public final class SpsSCoinGiftShopTest {
 
 		Weapon weapon = null;
 		for (Item item : hero.belongings.backpack.items) {
-			//只排除花盆与火箭（initGift 另行发放），MELEEWEAPON 产物即使是 MissileWeapon 族也算
+			//只排除花盆（initGift 另行发放），MELEEWEAPON 产物即使是 MissileWeapon 族也算
 			if (item instanceof Weapon
-					&& item.getClass() != PlantPotBlock.class
-					&& item.getClass() != RocketMissile.class) {
+					&& item.getClass() != PlantPotBlock.class) {
 				weapon = (Weapon) item;
 			}
 		}

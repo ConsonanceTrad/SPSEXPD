@@ -60,7 +60,6 @@ import pd.items.equipment.weapon.missiles.buildblock.DoorBlock;
 import pd.items.equipment.weapon.missiles.buildblock.StoneBlock;
 import pd.items.equipment.weapon.missiles.buildblock.WallBlock;
 import pd.items.equipment.weapon.missiles.buildblock.WoodenBlock;
-import pd.items.equipment.weapon.missiles.fusion.RocketMissile;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.plants.Plant;
@@ -262,10 +261,10 @@ public final class SpsSkinOneInteractionTest {
 				&& hero.buff(Levitation.class) != null && hero.buff(HasteBuff.class) != null,
 				"异星肩包护盾没有施加完整的五种状态");
 
-		Class<?>[] expected = {BuildBomb.class, DungeonBomb.class, HugeBomb.class, RocketMissile.class,
+		Class<?>[] expected = {BuildBomb.class, DungeonBomb.class, HugeBomb.class,
 				SpsFireBomb.class, IceBomb.class, EarthBomb.class, StormBomb.class, LightBomb.class,
 				DarkBomb.class, FishingBomb.class};
-		float[] weights = {0, 3, 0, 1, 1, 1, 1, 1, 1, 1, 1};
+		float[] weights = {0, 3, 0, 1, 1, 1, 1, 1, 1, 1};
 		check(Arrays.equals(expected, AlienBag.bombSupplyClasses()), "异星肩包炸弹补给池条目错误");
 		check(Arrays.equals(weights, AlienBag.bombSupplyWeights()), "异星肩包炸弹补给池权重错误");
 		for (int i = 0; i < 500; i++) {

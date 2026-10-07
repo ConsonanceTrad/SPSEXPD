@@ -445,9 +445,6 @@ public enum HeroClass {
 		if (GiftUnlocks.armorGiftCount() > 0) {
 			Generator.random( Generator.Category.ARMOR ).uncurse().identify().upgrade( 1 ).collect();
 		}
-		if (GiftUnlocks.rocketGiftCount() > 0) {
-			new pd.items.equipment.weapon.missiles.fusion.RocketMissile().identify().collect();
-		}
 		if (GiftUnlocks.ringGiftCount() > 0) {
 			Generator.random( Generator.Category.RING ).uncurse().identify().degrade( 10 ).collect();
 		}

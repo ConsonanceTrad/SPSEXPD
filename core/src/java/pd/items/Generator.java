@@ -385,7 +385,6 @@ import pd.items.equipment.weapon.missiles.arrows.ShockFruit;
 import pd.items.equipment.weapon.missiles.arrows.SmokeFruit;
 import pd.items.equipment.weapon.missiles.arrows.ToxicFruit;
 import pd.items.equipment.weapon.missiles.darts.Dart;
-import pd.items.equipment.weapon.missiles.fusion.RocketMissile;
 import pd.items.equipment.weapon.missiles.fusion.TempestBoomerang;
 import pd.items.equipment.weapon.missiles.meleethrow.Brick;
 import pd.items.equipment.weapon.missiles.meleethrow.DragonBoat;
@@ -675,22 +674,22 @@ public class Generator {
 			EASTERWEAPON.classes = new Class<?>[]{
 					Pumpkin.class, Tree.class, MiniMoai.class, TestWeapon.class, ToyGun.class,
 					HookHam.class, Brick.class, Lollipop.class, FireCracker.class, SJRBMusic.class,
-					RocketMissile.class, KeyWeapon.class, DragonBoat.class, PaperFan.class, MeleePan.class};
-			EASTERWEAPON.defaultProbs = new float[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+					KeyWeapon.class, DragonBoat.class, PaperFan.class, MeleePan.class};
+			EASTERWEAPON.defaultProbs = new float[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
 			EASTERWEAPON.probs = EASTERWEAPON.defaultProbs.clone();
 
 			RANGEWEAPON.classes = new Class<?>[]{
-					EmpBola.class, EscapeKnive.class, RocketMissile.class, Skull.class,
+					EmpBola.class, EscapeKnive.class, Skull.class,
 					Wave.class, ShitBall.class, MagicHand.class };
-			RANGEWEAPON.probs = new float[]{1, 1, 1, 1, 1, 1, 1};
+			RANGEWEAPON.probs = new float[]{1, 1, 1, 1, 1, 1};
 
 			ARROWS.classes = new Class<?>[]{
 					BlindFruit.class, CharmFruit.class, CharmFruit.class,
 					FireFruit.class, GlassFruit.class, HealFruit.class,
 					IceFruit.class, MagicHand.class, NutFruit.class,
-					RocketMissile.class, RootFruit.class, ShockFruit.class,
+					RootFruit.class, ShockFruit.class,
 					SmokeFruit.class, ToxicFruit.class, RiceBall.class };
-			ARROWS.probs = new float[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+			ARROWS.probs = new float[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
 
 			MUSICWEAPON.classes = new Class<?>[]{
 					Triangolo.class, Flute.class, WarDrum.class, Trumpet.class, Harp.class};
@@ -884,23 +883,21 @@ public class Generator {
 			
 			MIS_T4.classes = new Class<?>[]{
 					Javelin.class,
-					RocketMissile.class,
 					TempestBoomerang.class,
 					Tomahawk.class,
 					HeavyBoomerang.class
 			};
-			MIS_T4.defaultProbs = new float[]{ 3, 1, 1, 3, 3 };
+			MIS_T4.defaultProbs = new float[]{ 3, 1, 3, 3 };
 			MIS_T4.probs = MIS_T4.defaultProbs.clone();
 			
 			MIS_T5.classes = new Class<?>[]{
 					Javelin.class,
-					RocketMissile.class,
 					TempestBoomerang.class,
 					Trident.class,
 					ThrowingHammer.class,
 					ForceCube.class
 			};
-			MIS_T5.defaultProbs = new float[]{ 3, 1, 1, 3, 3, 3 };
+			MIS_T5.defaultProbs = new float[]{ 3, 1, 3, 3, 3 };
 			MIS_T5.probs = MIS_T5.defaultProbs.clone();
 			
 			FOOD.classes = new Class<?>[]{

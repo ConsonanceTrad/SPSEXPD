@@ -31,7 +31,7 @@ public final class SpsCatalogTest {
 		testExactLegacyLists();
 		testConstructionAndUiEntry();
 		testUtf8Titles();
-		System.out.println("SPS物品目录测试通过：七组365个旧版条目（已去掉六种战斗药丸）、顺序、实例化、当前日志入口及多语言UTF-8标题均正常。");
+		System.out.println("SPS物品目录测试通过：七组364个旧版条目（已去掉六种战斗药丸与火箭弹）、顺序、实例化、当前日志入口及多语言UTF-8标题均正常。");
 	}
 
 	private static void testExactLegacyLists() throws Exception {
@@ -53,9 +53,10 @@ public final class SpsCatalogTest {
 			}
 		}
 
-		//SPSEXPD: 六种战斗药丸已删除，旧版目录里的这些条目不再要求
+		//SPSEXPD: 六种战斗药丸与火箭弹已删除，旧版目录里的这些条目不再要求
 		for (List<String> list : expected.values()) {
-			list.removeAll(List.of("Powerpill", "Magicpill", "Shootpill", "Smashpill", "Musicpill", "Hardpill"));
+			list.removeAll(List.of("Powerpill", "Magicpill", "Shootpill", "Smashpill", "Musicpill", "Hardpill",
+					"RocketMissile"));
 		}
 
 		int total = 0;
@@ -66,8 +67,8 @@ public final class SpsCatalogTest {
 			check(catalog.totalSeen() == catalog.totalItems(), catalog + "没有按旧版默认全部可见");
 			total += catalog.totalItems();
 		}
-		//SPSEXPD: 371 减去已删除的六种战斗药丸
-		check(total == 365, "SPS物品目录总数错误: " + total);
+		//SPSEXPD: 371 减去已删除的六种战斗药丸与火箭弹
+		check(total == 364, "SPS物品目录总数错误: " + total);
 	}
 
 	private static String legacyName(Class<?> type) {

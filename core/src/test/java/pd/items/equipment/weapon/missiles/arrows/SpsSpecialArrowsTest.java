@@ -19,7 +19,6 @@ import pd.items.Gold;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.equipment.weapon.missiles.ShitBall;
-import pd.items.equipment.weapon.missiles.fusion.RocketMissile;
 import pd.items.equipment.weapon.missiles.throwing.EmpBola;
 import pd.items.equipment.weapon.missiles.throwing.EscapeKnive;
 import pd.items.equipment.weapon.missiles.throwing.Skull;
@@ -153,15 +152,15 @@ public final class SpsSpecialArrowsTest {
 				BlindFruit.class, CharmFruit.class, CharmFruit.class,
 				FireFruit.class, GlassFruit.class, HealFruit.class,
 				IceFruit.class, MagicHand.class, NutFruit.class,
-				RocketMissile.class, RootFruit.class, ShockFruit.class,
+				RootFruit.class, ShockFruit.class,
 				SmokeFruit.class, ToxicFruit.class, RiceBall.class
 		};
 		Class<?>[] ranged = {
-				EmpBola.class, EscapeKnive.class, RocketMissile.class, Skull.class,
+				EmpBola.class, EscapeKnive.class, Skull.class,
 				Wave.class, ShitBall.class, MagicHand.class
 		};
-		check(Arrays.equals(Generator.Category.ARROWS.classes, arrows), "ARROWS生成池与旧版15项顺序不一致");
-		check(Arrays.equals(Generator.Category.RANGEWEAPON.classes, ranged), "RANGEWEAPON生成池与旧版7项顺序不一致");
+		check(Arrays.equals(Generator.Category.ARROWS.classes, arrows), "ARROWS生成池与旧版14项顺序不一致");
+		check(Arrays.equals(Generator.Category.RANGEWEAPON.classes, ranged), "RANGEWEAPON生成池与旧版6项顺序不一致");
 		check(Generator.Category.ARROWS.ordinal() > Generator.Category.GOLD.ordinal()
 				&& Generator.Category.RANGEWEAPON.ordinal() > Generator.Category.GOLD.ordinal(),
 				"新增生成池没有追加在旧类别之后，可能破坏存档序号");
