@@ -23,7 +23,7 @@ public class TrinityStance extends Buff {
 			.t("name", "距破之舞")
 			.t("state_charge", "冲锋姿态")
 			.t("state_defend", "防御姿态")
-			.t("desc", "以战舞控制三相之刃防护。期间无法移动、攻速再减半，带有 50% 的伤害减免。");
+			.t("desc", "以战舞控制三相之刃防护。\n\n期间获得 50% 的伤害减免，但无法移动且攻速减半。");
 	}
 
 	public static final int MAX_LAYERS = 5;
