@@ -64,6 +64,25 @@ public final class SpsAdventureRouteTest {
 		}
 		Dungeon.branch = 0;
 		check(Mob.legacyDungeonDepth() == Dungeon.depth, "主线怪物深度被异界映射污染");
+
+		//SPSEXPD: 紧急回退只在调试构建下提供（正式游戏必须走关卡内出口）
+		Dungeon.branch = AdventureJournal.branchFor(22);
+		check(!new pd.items.DolyaSlate().actions(null).contains(AdventureJournal.AC_RETURN),
+				"非调试构建下异界分支仍提供紧急回退");
+		String version = Game.version;
+		Game.version = "0.1.3-INDEV";
+		check(new pd.items.DolyaSlate().actions(null).contains(AdventureJournal.AC_RETURN),
+				"调试构建下异界分支不再提供紧急回退");
+		Game.version = version;
+
+		//SPSEXPD: 无尽模式（混沌层）里禁止一切跨层传送/返回（石板与传送道具同源共用该判定）
+		Level chaos = Dungeon.createAdventureLevel(22);
+		check(chaos instanceof ChaosLevel, "异界目的地22不再是混沌层");
+		Level previousLevel = Dungeon.level;
+		Dungeon.level = chaos;
+		check(!Dungeon.interfloorTeleportAllowed(), "无尽模式里仍允许跨层传送或返回");
+		Dungeon.level = previousLevel;
+		Dungeon.branch = 0;
 		check(Dungeon.createAdventureLevel(-1) instanceof DeadEndLevel,
 				"非法负数目的地没有安全回退");
 		check(Dungeon.createAdventureLevel(25) instanceof DeadEndLevel,

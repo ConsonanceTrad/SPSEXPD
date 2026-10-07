@@ -163,7 +163,8 @@ public class AdventureJournal extends Item {
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = new ArrayList<>();
 		if (isAdventureBranch(Dungeon.branch)) {
-			actions.add(AC_RETURN);
+			//SPSEXPD: 紧急回退只在调试构建下提供——正式游戏必须从关卡内的出口离开
+			if (render.utils.platform.DeviceCompat.isDebug()) actions.add(AC_RETURN);
 			int destination = destinationForBranch(Dungeon.branch);
 			if (destination >= 1 && destination <= 4) actions.add(AC_RESET);
 		} else {
@@ -318,6 +319,13 @@ public class AdventureJournal extends Item {
 	}
 
 	private void returnToDungeon(Hero hero) {
+		//SPSEXPD: 无尽模式（混沌层）里禁止用石板返回——两条入口（异界日志 destination 22 与
+		//PowerHand 结局的 CHAOS_BRANCH）都会落到 ChaosLevel，必须只靠关卡内的出口离开
+		if (Dungeon.level instanceof pd.levels.ChaosLevel) {
+			GLog.w(Messages.get(this, "cannot_return"));
+			return;
+		}
+
 		int destination = destinationForBranch(Dungeon.branch);
 		if (destination < 0) {
 			GLog.w(Messages.get(this, "cannot_return"));

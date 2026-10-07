@@ -702,6 +702,8 @@ public class Dungeon {
 
 	public static boolean interfloorTeleportAllowed(){
 		if (Dungeon.level.locked
+				//SPSEXPD: 无尽模式（混沌层）里禁止一切跨层传送与返回（含调试入口）
+				|| Dungeon.level instanceof ChaosLevel
 				|| Dungeon.level instanceof MiningLevel || Dungeon.level instanceof VaultLevel
 				|| ChallengeJournal.isChallengeBranch(Dungeon.branch)
 				|| AdventureJournal.isAdventureBranch(Dungeon.branch)

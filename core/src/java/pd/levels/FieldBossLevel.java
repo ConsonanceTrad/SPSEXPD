@@ -91,7 +91,11 @@ public class FieldBossLevel extends Level {
 	public boolean activateTransition(Hero hero, LevelTransition transition) {
 		// The map itself is the return key. Walking over the pedestal must never
 		// bypass its boss check or leave an unconsumed map in the inventory.
-		return false;
+		//SPSEXPD: 但击败田野之王后必须允许正常离开——原实现一律 return false 会让玩家必困
+		//（正式构建里多利亚石板已不提供「返回」，这层需要自己的出口）。
+		if (!bossDefeated()) return false;
+		locked = false;
+		return super.activateTransition(hero, transition);
 	}
 
 	@Override
