@@ -192,8 +192,11 @@ public class TrinityForce extends NormalMeleeWeapon {
 		if (Actor.findChar(landing) != null || !Dungeon.level.passable[landing]) return;
 
 		hero.move(landing, false);
-		//SPSEXPD: 给一次明确反馈，便于确认接近真的发生了（位移是瞬移，没有动画）
-		pd.utils.GLog.i(Messages.get(this, "dash_near", Messages.get(defender, "name")));
+		//SPSEXPD: Char.move 只改逻辑位置 pos、不同步贴图，这里必须自己 place，否则角色看着没动；
+		//提示里带上与目标的剩余距离，便于确认位移真的发生
+		if (hero.sprite != null) hero.sprite.place(landing);
+		pd.utils.GLog.i(Messages.get(this, "dash_near",
+				Messages.get(defender, "name"), Dungeon.level.distance(landing, defender.pos)));
 		Dungeon.level.pressCell(landing);
 		Dungeon.observe();
 	}
