@@ -14,7 +14,6 @@ import pd.items.Item;
 import pd.items.equipment.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.mechanics.Ballistica;
 import pd.mechanics.ConeAOE;
-import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
@@ -35,7 +34,7 @@ public class TrinityForce extends NormalMeleeWeapon {
 	static {
 		InlineText.of(TrinityForce.class)
 			.t("name", "三相之力")
-			.t("desc", "七把飞刃组成的一套武器组，极难操控：只有以战舞驾驭它，七刃才会同时起舞。\n\n一次挥击由七把飞刃各自独立飞舞，命中与附带效果分别结算，但只消耗一个回合。\n\n为维持操控飞刃的战舞，你的移速会降低到原先的四分之三。\n\n冲锋姿态下命中两格开外的敌人时，你会顺势向对方冲进一格。\n\n先锋之刃：向指定方向挥出 60° 扇形（5 格），使掠过的敌人减速 5 回合，施放后退出防御姿态。")
+			.t("desc", "七把飞刃组成的一套武器组，极难操控：只有以战舞驾驭它，七刃才会同时起舞。\n\n一次挥击由七把飞刃各自独立飞舞，命中与附带效果分别结算，但只消耗一个回合。\n\n为维持操控飞刃的战舞，你的移速会降低到原先的四分之三。\n\n冲锋姿态下命中两格或更远的敌人时，你会顺势朝对方冲进一格。\n\n先锋之刃：向指定方向挥出 60° 扇形（5 格），使掠过的敌人减速 5 回合，施放后退出防御姿态。")
 			.t("ac_defend", "防御姿态")
 			.t("ac_vanguard", "先锋之刃")
 			.t("enter_defend", "你沉入防御姿态，七刃环绕如盾。")
@@ -163,7 +162,18 @@ public class TrinityForce extends NormalMeleeWeapon {
 		return first;
 	}
 
-	/** 命中两格外的敌人时，像刺击一样向对方冲进一格。 */
+	/**
+	 * SPSXPD: 从 from 朝 to 方向跨一格的落点（八向）。
+	 * 不能用「位置差 == 八向偏移」来判断方向：那只在相邻格成立，距离两格以上时永远匹配不上
+	 * （旧实现正是如此，导致接近效果几乎从不触发）。调用方负责判断落点是否在 map 内、是否可通行。
+	 */
+	public static int approachStep(int from, int to, int width) {
+		int dx = Integer.compare(to % width, from % width);
+		int dy = Integer.compare(to / width, from / width);
+		return from + dy * width + dx;
+	}
+
+	/** 命中两格或更远的敌人时，像刺击一样向对方接近一格。 */
 	private void dashTo(Char attacker, Char defender) {
 		if (!(attacker instanceof Hero) || Dungeon.level == null) return;
 		Hero hero = (Hero) attacker;
@@ -173,12 +183,8 @@ public class TrinityForce extends NormalMeleeWeapon {
 		if (!Dungeon.level.insideMap(hero.pos) || !Dungeon.level.insideMap(defender.pos)) return;
 		if (Dungeon.level.distance(hero.pos, defender.pos) < 2) return;
 
-		int step = defender.pos - hero.pos;
-		int landing = -1;
-		for (int offset : PathFinder.NEIGHBOURS8) {
-			if (offset == step) landing = hero.pos + offset;
-		}
-		if (landing < 0 || !Dungeon.level.insideMap(landing)) return;
+		int landing = approachStep(hero.pos, defender.pos, Dungeon.level.width());
+		if (!Dungeon.level.insideMap(landing)) return;
 		if (Actor.findChar(landing) != null || !Dungeon.level.passable[landing]) return;
 
 		hero.move(landing, false);

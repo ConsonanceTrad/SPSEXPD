@@ -29,8 +29,9 @@ public final class SpsTrinityForceTest {
 			testSevenBlades();
 			testStances();
 			testActions();
+			testDashApproach();
 			testMessages();
-			System.out.println("SPS三相之力测试通过：数值、七段独立攻击、战舞姿态、攻速叠加、恒定移速、动作可用性与双语文本均正常。");
+			System.out.println("SPS三相之力测试通过：数值、七段独立攻击、战舞姿态、攻速叠加、恒定移速、动作可用性、冲锋接近与双语文本均正常。");
 		} finally {
 			Random.popGenerator();
 			Dungeon.hero = null;
@@ -123,6 +124,32 @@ public final class SpsTrinityForceTest {
 		stance.enterDefend();
 		stance.leaveDefend();
 		check(!stance.defending(), "先锋之刃没有回到冲锋姿态");
+	}
+
+	/**
+	 * 冲锋接近的落点：命中两格或更远的敌人时都朝对方跨一格（恰好两格同样生效）。
+	 * 只验证方向算法本身 —— dashTo 里的 hero.move 在 headless 下会碰 sprite，跑不了。
+	 */
+	private static void testDashApproach() {
+		int w = 8;
+		int hero = 3 * w + 1;
+
+		//恰好两格（同排）
+		check(TrinityForce.approachStep(hero, 3 * w + 3, w) == 3 * w + 2,
+				"恰好两格的敌人没有让冲锋接近生效");
+		//更远（同排五格）
+		check(TrinityForce.approachStep(hero, 3 * w + 6, w) == 3 * w + 2,
+				"远距离的敌人没有让冲锋接近生效");
+		//斜向与纵向都按八向跨一格
+		check(TrinityForce.approachStep(hero, 5 * w + 3, w) == 4 * w + 2,
+				"斜向远距离的敌人没有按八向接近");
+		check(TrinityForce.approachStep(hero, 6 * w + 1, w) == 4 * w + 1,
+				"正下方的敌人没有接近");
+		check(TrinityForce.approachStep(hero, 0 * w + 1, w) == 2 * w + 1,
+				"正上方的敌人没有接近");
+		//相邻时算出的落点就是对方所在格；dashTo 用 distance < 2 挡掉这种情况，避免来回踱步
+		check(TrinityForce.approachStep(hero, 3 * w + 2, w) == 3 * w + 2,
+				"相邻时落点应是对方所在格");
 	}
 
 	/** 两种姿态都不需要解锁：装备即可使用。 */
