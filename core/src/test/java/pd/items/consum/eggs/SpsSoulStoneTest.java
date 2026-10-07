@@ -16,6 +16,8 @@ import com.badlogic.gdx.utils.GdxNativesLoader;
 
 import java.lang.reflect.Method;
 
+import pd.Dungeon;
+import pd.actors.hero.Hero;
 import pd.actors.mobs.pets.DogPet;
 import pd.actors.mobs.pets.LegacyPet;
 import pd.items.equipment.artifacts.Artifact;
@@ -45,6 +47,7 @@ public final class SpsSoulStoneTest {
 			testEnergyGateAndForming();
 			testBreakRingBoost();
 			testSacrificeAndMastery();
+			testConsumeStone();
 
 			System.out.println("SpsSoulStoneTest PASS (" + checks + " checks)");
 		} catch (Throwable t) {
@@ -178,6 +181,42 @@ public final class SpsSoulStoneTest {
 	 */
 	private static void testSacrificeAndMastery() {
 		check(Egg.petAbilityOf(null) == null, "空生物不应有对应能力特质");
+	}
+
+	/**
+	 * 献祭/炸环都会消耗掉这颗魂石。魂石是装备在饰品槽（artifact 等）上使用的，
+	 * 因此装备中的那件也必须真的消失 —— 只清背包是不够的。
+	 */
+	private static void testConsumeStone() throws Exception {
+		Hero hero = new Hero();
+		Dungeon.hero = hero;
+
+		DogpetEgg worn = new DogpetEgg();
+		hero.belongings.artifact = worn;
+		check(worn.isEquipped(hero), "魂石没有装备到神器槽");
+
+		Method consume = Egg.class.getDeclaredMethod("consumeStone", Hero.class);
+		consume.setAccessible(true);
+		consume.invoke(worn, hero);
+
+		check(hero.belongings.artifact == null, "被消耗的魂石仍占着神器槽");
+		check(!hero.belongings.contains(worn), "被消耗的魂石仍留在背包里");
+
+		//反证：只调 detach(backpack) 对装备中的魂石无效 —— 这正是原先献祭/炸环后魂石不消失的原因
+		DogpetEgg stillWorn = new DogpetEgg();
+		hero.belongings.artifact = stillWorn;
+		stillWorn.detach(hero.belongings.backpack);
+		check(stillWorn.isEquipped(hero), "装备中的魂石不该被 detach(backpack) 移除（原缺陷的根因）");
+		consume.invoke(stillWorn, hero);
+		check(hero.belongings.artifact == null, "装备中的魂石消耗失败");
+
+		//背包里的魂石同样会被消耗
+		DogpetEgg loose = new DogpetEgg();
+		loose.collect(hero.belongings.backpack);
+		consume.invoke(loose, hero);
+		check(!hero.belongings.contains(loose), "背包里的魂石没有被消耗掉");
+
+		Dungeon.hero = null;
 	}
 
 	private static LegacyPet hatch(Egg egg) throws Exception {

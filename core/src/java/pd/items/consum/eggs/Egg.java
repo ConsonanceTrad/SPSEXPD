@@ -434,6 +434,18 @@ public class Egg extends Artifact {
 		return true;
 	}
 
+	/**
+	 * SPSXPD: 消耗掉这颗魂石。
+	 * 魂石是装备在饰品槽（artifact/misc/ring/accessory4/5）上使用的，
+	 * 只从背包移除不够 —— 装备中的要先正常卸下（清理被动 buff 并放回背包），再从背包移除。
+	 */
+	private void consumeStone(Hero hero) {
+		if (isEquipped(hero)) {
+			doUnequip(hero, true, false);
+		}
+		detach(hero.belongings.backpack);
+	}
+
 	//SPSXPD: 献祭 —— 消耗魂石，永久获得该生物的能力特质（驯兽大师 2 级）
 	private void sacrifice(Hero hero) {
 		LegacyPet source = hatchling();
@@ -449,7 +461,7 @@ public class Egg extends Artifact {
 		hero.heroPerk.grantIfMissing(ability, hero);
 		//献祭会消耗掉这颗魂石，投影一同消失
 		LegacyPet owned = LegacyPet.active();
-		detach(hero.belongings.backpack);
+		consumeStone(hero);
 		if (owned != null && owned.stone == this) owned.dismiss();
 		GLog.p(Messages.get(this, "sacrificed", ability.title()));
 		hero.spendAndNext(TIME_TO_USE);
@@ -510,7 +522,7 @@ public class Egg extends Artifact {
 		emp.set(boost, 1);
 		//炸环会消耗掉这颗魂石，投影一同消失
 		LegacyPet owned = LegacyPet.active();
-		detach(hero.belongings.backpack);
+		consumeStone(hero);
 		if (owned != null && owned.stone == this) owned.dismiss();
 		GLog.p(Messages.get(this, "broken", boost));
 		hero.spendAndNext(TIME_TO_USE);
