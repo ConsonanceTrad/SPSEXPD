@@ -49,7 +49,7 @@ public final class SpsGhostQuestTest {
 			"RobotDMT", "EyeOfSkadi", "EtherealChains", "DriedRose", "GlassTotem",
 			"AlienBag", "FlyChains", "TimeOclock",
 			//SPSEXPD: 原创神器追加在旧版 18 项之后
-			"EndlessAmmoBag", "NaturalAxe", "VoidHand", "HandOfTheElder", "GoddessRadiance"
+			"EndlessAmmoBag", "NaturalAxe", "VoidHand", "HandOfTheElder", "GoddessRadiance", "CloakOfSheep"
 	};
 
 	public static void main(String[] args) throws Exception {

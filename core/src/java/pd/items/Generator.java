@@ -53,6 +53,7 @@ import pd.items.equipment.artifacts.AlienBag;
 import pd.items.equipment.artifacts.Artifact;
 import pd.items.equipment.artifacts.CapeOfThorns;
 import pd.items.equipment.artifacts.ChaliceOfBlood;
+import pd.items.equipment.artifacts.CloakOfSheep;
 import pd.items.equipment.artifacts.CloakOfShadows;
 import pd.items.equipment.artifacts.DriedRose;
 import pd.items.equipment.artifacts.EndlessAmmoBag;
@@ -1036,9 +1037,10 @@ public class Generator {
 					NaturalAxe.class,
 					VoidHand.class,
 					HandOfTheElder.class,
-					GoddessRadiance.class
+					GoddessRadiance.class,
+					CloakOfSheep.class
 			};
-			ARTIFACT.defaultProbs = new float[]{1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1};
+			ARTIFACT.defaultProbs = new float[]{1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1};
 			ARTIFACT.probs = ARTIFACT.defaultProbs.clone();
 
 			//Trinkets are unique like artifacts, but unlike them you can only have one at once
