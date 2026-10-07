@@ -189,6 +189,13 @@ public final class SpsTrinityForceTest {
 		String zhItems = read("messages/items/zh/items.properties");
 		check(zhItems.contains("四分之三"), "中文武器描述没有写明移速降到原先的四分之三");
 		check(zhItems.contains("先锋之刃："), "中文武器描述没有写明先锋之刃的效果");
+
+		//七片飞刃各自独立命中，每一片都要播命中音效：追加片循环里必须有 hitSound 调用
+		//（音效本身无法断言 —— Sample 在 headless 下没加载任何采样，play 会静默跳过）
+		String weapon = read("../java/pd/items/equipment/weapon/melee/special/TrinityForce.java");
+		int loop = weapon.indexOf("for (int blade = 1;");
+		check(loop > 0 && weapon.indexOf("hitSound(", loop) > loop,
+				"追加的六片飞刃命中时没有播命中音效");
 	}
 
 	private static String read(String path) throws Exception {

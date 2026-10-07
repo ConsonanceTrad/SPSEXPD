@@ -19,6 +19,7 @@ import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
+import render.utils.math.Random;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
@@ -34,7 +35,7 @@ public class TrinityForce extends NormalMeleeWeapon {
 	static {
 		InlineText.of(TrinityForce.class)
 			.t("name", "三相之力")
-			.t("desc", "七把飞刃组成的一套武器组，极难操控：只有以战舞驾驭它，七刃才会同时起舞。\n\n一次挥击由七把飞刃各自独立飞舞，命中与附带效果分别结算，但只消耗一个回合。\n\n为维持操控飞刃的战舞，你的移速会降低到原先的四分之三。\n\n冲锋姿态下命中两格或更远的敌人时，你会顺势朝对方冲进一格。\n\n先锋之刃：向指定方向挥出 60° 扇形（5 格），使掠过的敌人减速 5 回合，施放后退出防御姿态。")
+			.t("desc", "七把飞刃组成的一套武器组，极难操控：只有以战舞驾驭它，七刃才会同时起舞。为维持操控飞刃的战舞，你的移速会降低到原先的四分之三。\n\n能够使用冲锋或防御姿态进行迎敌。\n\n先锋之刃：向指定方向挥出 60° 扇形（5 格），使掠过的敌人减速 5 回合，施放后退出防御姿态。")
 			.t("ac_defend", "防御姿态")
 			.t("ac_vanguard", "先锋之刃")
 			.t("enter_defend", "你沉入防御姿态，七刃环绕如盾。")
@@ -155,6 +156,9 @@ public class TrinityForce extends NormalMeleeWeapon {
 				amount = super.proc(attacker, defender, amount);
 				if (amount <= 0) continue;
 				defender.damage(amount, this);
+				//SPSEXPD: 七片飞刃各自独立命中，每一片都要播一次命中音效
+				//（第 1 片由外层 Char.attack 播放，这里补上追加的六片）
+				hitSound(Random.Float(0.87f, 1.15f));
 			}
 		}
 
