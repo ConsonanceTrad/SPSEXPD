@@ -149,11 +149,31 @@ public class Hunger extends Buff implements Hero.Doom {
 		return true;
 	}
 
-	public void satisfy( float energy ) {
+	/**
+	 * SPSEXPD: 进食/饮用获得的饱食能量的挑战修正（能量流失挑战下正向收益降至 40%）。
+	 * 抽成静态方法，供实际结算与「食用按钮角标」共用，避免两处逻辑走样。
+	 */
+	public static float applyEnergyModifiers( float energy ) {
 		if (energy > 0 && Dungeon.isChallenged(Challenges.ENERGY_LOST)) {
-			energy = Math.round(energy * 0.4f);
+			return Math.round(energy * 0.4f);
 		}
-		affectHunger( energy, false );
+		return energy;
+	}
+
+	/**
+	 * SPSEXPD: 「食用」动作按钮右上角的角标文本——能一次补满（甚至溢出）时显示 MAX，
+	 * 否则显示实际能回复的饱食度。effectiveEnergy 需已含 NO_FOOD / 诅咒号角等修正。
+	 */
+	public static String eatBadge( Hero hero, float effectiveEnergy ) {
+		if (hero == null) return null;
+		Hunger hunger = hero.buff(Hunger.class);
+		if (hunger == null) return Integer.toString(Math.round(effectiveEnergy));
+		if (effectiveEnergy >= hunger.hunger()) return "MAX";
+		return Integer.toString(Math.round(effectiveEnergy));
+	}
+
+	public void satisfy( float energy ) {
+		affectHunger( applyEnergyModifiers(energy), false );
 	}
 
 	public void affectHunger(float energy ){

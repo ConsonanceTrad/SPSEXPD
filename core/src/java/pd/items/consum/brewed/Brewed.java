@@ -94,6 +94,13 @@ public class Brewed extends Item {
 		return actions;
 	}
 
+	//SPSEXPD: 「食用」按钮上的实际饱食回复角标（酿酒只受能量流失挑战影响）
+	@Override
+	public String actionCost(String action, Hero hero) {
+		if (!AC_EAT.equals(action) || hero == null) return super.actionCost(action, hero);
+		return Hunger.eatBadge(hero, Hunger.applyEnergyModifiers(energy));
+	}
+
 	@Override
 	public void execute(Hero hero, String action) {
 		if (!AC_EAT.equals(action)) {

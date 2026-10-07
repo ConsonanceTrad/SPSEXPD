@@ -45,6 +45,7 @@ public final class SpsBlandfruitTest {
 			testOnlyBrewedRecipe();
 			testOldCookedSaveCompatibility();
 			testHornAcceptsRawFruit();
+			testEatBadge();
 			testLocalizedResources();
 			System.out.println("SPS无味果测试通过：生食、饱食、价值、水果分类、独立酿制果、旧存档、投掷、号角和四语文本均符合0.9.8。");
 		} finally {
@@ -137,6 +138,46 @@ public final class SpsBlandfruitTest {
 		check(!hero.belongings.backpack.items.contains(fruit), "魔法号角仍拒绝生无味果");
 
 		check(horn.level() == 2, "魔法号角没有按旧版hornValue=2接收无味果");
+	}
+
+	/** SPSEXPD: 「食用」按钮上的实际饱食回复角标（考虑挑战与当前饥饿值，能补满显示 MAX）。 */
+	private static void testEatBadge() {
+		Actor.clear();
+		Dungeon.challenges = 0;
+		Hero hero = new Hero();
+		Dungeon.hero = hero;
+		Hunger hunger = Buff.affect(hero, Hunger.class);
+		pd.items.consum.food.staplefood.NormalRation ration =
+				new pd.items.consum.food.staplefood.NormalRation();
+
+		//已完全饱：吃任何东西都显示 MAX
+		hunger.affectHunger(1000f);
+		check("MAX".equals(ration.actionCost(Food.AC_EAT, hero)), "已饱时食用角标不是 MAX");
+
+		//饥饿 100 < 口粮 300：能一次补满
+		hunger.affectHunger(1000f);
+		hunger.affectHunger(-100f);
+		check("MAX".equals(ration.actionCost(Food.AC_EAT, hero)), "能补满时食用角标不是 MAX");
+
+		//饥饿 400 > 口粮 300：显示实际回复量
+		hunger.affectHunger(1000f);
+		hunger.affectHunger(-400f);
+		check("300".equals(ration.actionCost(Food.AC_EAT, hero)), "不能补满时食用角标不是 300");
+
+		//能量流失挑战：正向收益降至 40%
+		Dungeon.challenges = pd.Challenges.ENERGY_LOST;
+		check("120".equals(ration.actionCost(Food.AC_EAT, hero)), "能量流失下食用角标不是 120");
+		Dungeon.challenges = 0;
+
+		//无食物挑战：口粮只恢复 100
+		Dungeon.challenges = pd.Challenges.NO_FOOD;
+		hunger.affectHunger(1000f);
+		hunger.affectHunger(-400f);
+		check("100".equals(ration.actionCost(Food.AC_EAT, hero)), "无食物挑战下食用角标不是 100");
+		Dungeon.challenges = 0;
+
+		//只有「食用」动作带角标
+		check(ration.actionCost(Item.AC_DROP, hero) == null, "非食用动作错误地带上了饱食角标");
 	}
 
 	private static void testLocalizedResources() throws Exception {

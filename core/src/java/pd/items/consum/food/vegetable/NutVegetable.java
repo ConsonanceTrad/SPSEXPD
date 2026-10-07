@@ -23,6 +23,12 @@ public class NutVegetable extends Vegetable {
 
 
 	{ image = ConsumPotionSeedSeedDict.NUT_VEGETABLE; }
+
+	//SPSEXPD: 食用时额外满足 25 点饱食——「食用」角标里的实际回复量也要算上
+	@Override public float foodValue(Hero hero) {
+		return super.foodValue(hero) + 25f;
+	}
+
 	@Override protected void onEat(Hero hero) {
 		Buff.affect(hero, Hunger.class).satisfy(25f);
 	}

@@ -128,19 +128,48 @@ public class Food extends Item {
 		}
 	}
 	
-	protected void satisfy( Hero hero ){
-		float foodVal = energy;
+	/** SPSEXPD: 本次进食的基础能量值（子类可覆写以反映动态值，例如农历年的肉馅饼）。 */
+	protected float baseEnergy( Hero hero ) {
+		return energy;
+	}
+
+	/**
+	 * SPSEXPD: 一次进食的能量值——含「无食物」挑战（÷3）与诅咒号角的修正，
+	 * 不含能量流失挑战（那一层由 Hunger.applyEnergyModifiers 处理）。
+	 */
+	public float foodValue( Hero hero ) {
+		float foodVal = baseEnergy(hero);
 		if (Dungeon.isChallenged(Challenges.NO_FOOD)){
 			foodVal /= 3f;
 		}
 
+		if (hero != null) {
+			Artifact.ArtifactBuff buff = hero.buff( HornOfPlenty.hornRecharge.class );
+			if (buff != null && buff.isCursed()){
+				foodVal *= 0.67f;
+			}
+		}
+		return foodVal;
+	}
+
+	/**
+	 * SPSEXPD: 「食用」动作按钮右上角的角标——实际能回复的饱食度（能补满显示 MAX）。
+	 * 已考虑无食物/能量流失挑战、诅咒号角与当前饥饿值。
+	 */
+	@Override
+	public String actionCost( String action, Hero hero ) {
+		if (!AC_EAT.equals(action) || hero == null) return super.actionCost(action, hero);
+		float effective = Hunger.applyEnergyModifiers(foodValue(hero));
+		return Hunger.eatBadge(hero, effective);
+	}
+
+	protected void satisfy( Hero hero ){
 		Artifact.ArtifactBuff buff = hero.buff( HornOfPlenty.hornRecharge.class );
 		if (buff != null && buff.isCursed()){
-			foodVal *= 0.67f;
 			GLog.n( Messages.get(Hunger.class, "cursedhorn") );
 		}
 
-		Buff.affect(hero, Hunger.class).satisfy(foodVal);
+		Buff.affect(hero, Hunger.class).satisfy(foodValue(hero));
 	}
 	
 	@Override

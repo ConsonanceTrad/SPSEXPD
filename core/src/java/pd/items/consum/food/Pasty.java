@@ -133,6 +133,12 @@ public class Pasty extends Food {
 		super.eatSFX();
 	}
 
+	//SPSEXPD: 农历年时主物品只恢复 300 饱食（与 satisfy 内的改动一致，「食用」角标同源）
+	@Override protected float baseEnergy(Hero hero) {
+		if (Holiday.getCurrentHoliday() == Holiday.LUNAR_NEW_YEAR) return 300f;
+		return super.baseEnergy(hero);
+	}
+
 	@Override
 	protected void satisfy(Hero hero) {
 		if (Holiday.getCurrentHoliday() == Holiday.LUNAR_NEW_YEAR){
