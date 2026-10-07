@@ -36,7 +36,7 @@ public class TrinityForce extends NormalMeleeWeapon {
 	static {
 		InlineText.of(TrinityForce.class)
 			.t("name", "三相之力")
-			.t("desc", "七把飞刃组成的一套武器组，极难操控：只有以战舞驾驭它，七刃才会同时起舞。\n\n一次挥击由七把飞刃各自独立飞舞，命中与附带效果分别结算，但只消耗一个回合；代价是额外的重量会一直拖慢你的步伐。")
+			.t("desc", "七把飞刃组成的一套武器组，极难操控：只有以战舞驾驭它，七刃才会同时起舞。\n\n一次挥击由七把飞刃各自独立飞舞，命中与附带效果分别结算，但只消耗一个回合；代价是额外的重量会一直拖慢你的步伐。\n\n命中两格开外的敌人时，你会顺势向对方冲进一格。")
 			.t("ac_defend", "防御姿态")
 			.t("ac_vanguard", "先锋之刃")
 			.t("enter_defend", "你沉入防御姿态，七刃环绕如盾。")
