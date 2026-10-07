@@ -96,7 +96,8 @@ public final class SpsLegacyMeleeTest {
 	}
 
 	private static void testDefinitionsAndDeck() throws Exception {
-		check(Generator.Category.MELEEWEAPON.classes.length == 40, "旧版近战武器牌组数量错误");
+		//SPSEXPD: 旧版 20 件之后追加三相之力（普通近战池共 41 项），前 20 项顺序不变
+		check(Generator.Category.MELEEWEAPON.classes.length == 41, "旧版近战武器牌组数量错误");
 		Set<Class<?>> generated = new HashSet<>();
 		for (int i = 0; i < CLASSES.length; i++) {
 			check(Generator.Category.MELEEWEAPON.classes[i] == CLASSES[i], "普通近战武器生成顺序错误：" + i);

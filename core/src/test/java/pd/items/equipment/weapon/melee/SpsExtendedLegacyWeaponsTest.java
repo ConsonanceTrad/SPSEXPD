@@ -153,7 +153,9 @@ public final class SpsExtendedLegacyWeaponsTest {
 		check(Generator.Category.WEAPON.superClass == Weapon.class, "旧版总武器池类型不是Weapon");
 		//SPSEXPD: 旧版 60 件之后追加了三相之力与投掷器（原创武器，追加在末尾不影响前 40/20 项双抽池）
 		check(Generator.Category.WEAPON.classes.length == 62, "旧版总武器池不是62件");
-		check(Generator.Category.MELEEWEAPON.classes.length == 40, "旧版近战双抽池不是40件");
+		check(Generator.Category.MELEEWEAPON.classes.length == 41, "旧版近战双抽池不是41件");
+		check(Generator.Category.MELEEWEAPON.classes[40] == pd.items.equipment.weapon.melee.special.TrinityForce.class,
+				"普通近战池末项不是三相之力");
 		check(Generator.Category.OLDWEAPON.classes.length == 20, "旧版基础武器池不是20件");
 		for (int i = 0; i < ALL_WEAPONS.length; i++) {
 			check(Generator.Category.WEAPON.classes[i] == ALL_WEAPONS[i], "旧版总武器池顺序错误：" + i);
