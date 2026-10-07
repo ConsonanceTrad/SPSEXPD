@@ -31,11 +31,13 @@ public class TransmuteFruit extends SpsFruit {
 
 
 	@Override public int proc(Char attacker, Char defender, int damage) {
+		//SPSEXPD: 嬗变为单一目标效果，不随果实大小放大
 		if (defender != attacker) PotionOfTransmute.transmute(defender);
 		return super.proc(attacker, defender, 0);
 	}
 
 	@Override protected void onEat(Hero hero) {
-		Buff.affect(hero, SuperArcane.class, 20f).level(1);
+		//SPSEXPD: 大型果实时长 ×3
+		Buff.affect(hero, SuperArcane.class, scaled(20f)).level(1);
 	}
 }

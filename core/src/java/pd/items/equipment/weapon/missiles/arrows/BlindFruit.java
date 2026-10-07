@@ -66,17 +66,19 @@ public class BlindFruit extends SpsFruit {
 
 
 	@Override protected void onThrow(int cell) {
-		if (landsAt(cell)) seedArea(cell, 4, ConfusionGas.class);
+		//SPSEXPD: 小型 3×3、大型 5×5 圆形；浓度整体 ×3
+		if (landsAt(cell)) seedArea(cell, scaled(4), ConfusionGas.class);
 		else super.onThrow(cell);
 	}
 
 	@Override public int proc(Char attacker, Char defender, int damage) {
 		//SPSEXPD: 只保留沉默（去掉缴械）
-		Buff.prolong(defender, Silent.class, 2f);
+		Buff.prolong(defender, Silent.class, scaled(2f));
 		return super.proc(attacker, defender, 0);
 	}
 
 	@Override protected void onEat(Hero hero) {
-		Buff.affect(hero, Light.class, 10f);
+		//SPSEXPD: 食用效果为正面（发光），默认动作为「食用」
+		Buff.affect(hero, Light.class, scaled(10f));
 	}
 }

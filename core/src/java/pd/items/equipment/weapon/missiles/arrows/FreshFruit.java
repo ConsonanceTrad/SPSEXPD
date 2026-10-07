@@ -25,7 +25,7 @@ public class FreshFruit extends SpsFruit {
 	static {
 		InlineText.of(FreshFruit.class)
 			.t("name", "鲜莓果实")
-			.t("desc", "人工种植的腐梅结出的果实。食用后额外恢复 25 点饱食度，命中则让双方各恢复少量饱食。");
+			.t("desc", "人工种植的腐梅结出的果实。食用后额外恢复少量饱食度，命中则让双方各恢复一点饱食。");
 	}
 
 	{ image = pd.atlas.items.ConsumPotionSeedSeedDict.FRUIT_ROT_BERRY; }//SPSEXPD: 贴图待指认
@@ -37,12 +37,13 @@ public class FreshFruit extends SpsFruit {
 
 
 	@Override public int proc(Char attacker, Char defender, int damage) {
-		if (attacker != null) Buff.affect(attacker, Hunger.class).satisfy(25f);
-		if (defender != null && defender != attacker) Buff.affect(defender, Hunger.class).satisfy(5f);
+		//SPSEXPD: 大型果实为小型果实的 3 倍
+		if (attacker != null) Buff.affect(attacker, Hunger.class).satisfy(scaled(25f));
+		if (defender != null && defender != attacker) Buff.affect(defender, Hunger.class).satisfy(scaled(5f));
 		return super.proc(attacker, defender, 0);
 	}
 
 	@Override protected void onEat(Hero hero) {
-		Buff.affect(hero, Hunger.class).satisfy(25f);
+		Buff.affect(hero, Hunger.class).satisfy(scaled(25f));
 	}
 }

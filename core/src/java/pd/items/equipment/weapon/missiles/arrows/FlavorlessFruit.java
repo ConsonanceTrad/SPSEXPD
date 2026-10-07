@@ -23,7 +23,7 @@ public class FlavorlessFruit extends SpsFruit {
 	static {
 		InlineText.of(FlavorlessFruit.class)
 			.t("name", "无味果实")
-			.t("desc", "人工种植的无味果结出的果实。落地会碎成小块无味果，食用饱腹感与干粮相当。");
+			.t("desc", "人工种植的无味果结出的果实。落地会碎成小块无味果，食用能恢复少量饱食度。");
 	}
 
 	{ image = pd.atlas.items.ConsumPotionSeedSeedDict.FRUIT_BLANDFRUIT; }//SPSEXPD: 贴图待指认
@@ -39,7 +39,5 @@ public class FlavorlessFruit extends SpsFruit {
 		} else super.onThrow(cell);
 	}
 
-	@Override protected float eatEnergy() {
-		return 300f; //SPSEXPD: 原 Hunger.HUNGRY（批 2 统一为果实基础 15）
-	}
+	//SPSEXPD: 食用饱食度统一由基类给出（小型 15 / 大型 45），不再单独覆写
 }

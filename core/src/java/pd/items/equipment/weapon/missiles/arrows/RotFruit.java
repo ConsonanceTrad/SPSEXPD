@@ -38,16 +38,20 @@ public class RotFruit extends SpsFruit {
 
 
 	@Override protected void onThrow(int cell) {
-		if (landsAt(cell)) seedArea(cell, 8, ToxicGas.class);
+		//SPSEXPD: 小型 3×3、大型 5×5 圆形；浓度整体 ×3
+		if (landsAt(cell)) seedArea(cell, scaled(8), ToxicGas.class);
 		else super.onThrow(cell);
 	}
 
 	@Override public int proc(Char attacker, Char defender, int damage) {
-		Buff.affect(defender, LokisPoison.class).set(4f);
+		Buff.affect(defender, LokisPoison.class).set(scaled(4f));
 		return super.proc(attacker, defender, 0);
 	}
 
+	/** SPSEXPD: 食用会让自己中猛毒——默认动作为「投掷」。 */
+	@Override protected boolean harmfulOnEat() { return true; }
+
 	@Override protected void onEat(Hero hero) {
-		Buff.affect(hero, LokisPoison.class).set(6f);
+		Buff.affect(hero, LokisPoison.class).set(scaled(6f));
 	}
 }

@@ -23,7 +23,7 @@ public class StarFruit extends SpsFruit {
 	static {
 		InlineText.of(StarFruit.class)
 			.t("name", "星陨果实")
-			.t("desc", "人工种植的星陨花结出的果实。落地会降下持续 4 回合的圣光审判之场，命中或食用则会赋予祝福。");
+			.t("desc", "人工种植的星陨花结出的果实。落地会降下圣光审判之场，命中或食用则会赋予祝福。");
 	}
 
 	{ image = pd.atlas.items.ConsumPotionSeedSeedDict.FRUIT_STARFLOWER; }//SPSEXPD: 贴图待指认
@@ -33,17 +33,17 @@ public class StarFruit extends SpsFruit {
 
 
 	@Override protected void onThrow(int cell) {
-		//SPSEXPD: 投掷位置降下圣光审判之场（4 回合）
-		if (landsAt(cell)) seedArea(cell, 3, pd.actors.blobs.effectblobs.HolyLight.class);
+		//SPSEXPD: 投掷位置降下圣光审判之场（小型 3×3、大型 5×5 圆形，浓度 ×3）
+		if (landsAt(cell)) seedArea(cell, scaled(3), pd.actors.blobs.effectblobs.HolyLight.class);
 		else super.onThrow(cell);
 	}
 
 	@Override public int proc(Char attacker, Char defender, int damage) {
-		Buff.prolong(defender, Bless.class, 10f);
+		Buff.prolong(defender, Bless.class, scaled(10f));
 		return super.proc(attacker, defender, 0);
 	}
 
 	@Override protected void onEat(Hero hero) {
-		Buff.prolong(hero, Bless.class, 20f);
+		Buff.prolong(hero, Bless.class, scaled(20f));
 	}
 }

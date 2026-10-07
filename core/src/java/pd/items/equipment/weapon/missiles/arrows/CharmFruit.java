@@ -44,24 +44,20 @@ public class CharmFruit extends SpsFruit {
 
 
 	@Override protected void onThrow(int cell) {
-		//SPSEXPD: 落地时清空周围 3x3 的有害气体（与净化药剂同理）
+		//SPSEXPD: 落地时清空作用范围内的有害气体（与净化药剂同理）——小型 3×3、大型 5×5 圆形
 		if (landsAt(cell)) clearGases(cell);
 		else super.onThrow(cell);
 	}
 
-	/** SPSEXPD: 清除以 center 为中心的 3x3 范围内的有害气体。 */
-	private static void clearGases(int center) {
+	/** SPSEXPD: 清除以 center 为中心的作用范围内的有害气体。 */
+	private void clearGases(int center) {
 		if (Dungeon.level == null) return;
 		ArrayList<Blob> blobs = new ArrayList<>();
 		for (Class c : new BlobImmunity().immunities()) {
 			Blob b = Dungeon.level.blobs.get(c);
 			if (b != null && b.volume > 0) blobs.add(b);
 		}
-		clearCell(center, blobs);
-		for (int offset : PathFinder.NEIGHBOURS8) {
-			int cell = center + offset;
-			if (Dungeon.level.insideMap(cell)) clearCell(cell, blobs);
-		}
+		for (int cell : areaCells(center)) clearCell(cell, blobs);
 	}
 
 	private static void clearCell(int cell, ArrayList<Blob> blobs) {
@@ -71,12 +67,15 @@ public class CharmFruit extends SpsFruit {
 
 	@Override public int proc(Char attacker, Char defender, int damage) {
 		if (defender != attacker) {
-			Buff.prolong(defender, Charm.class, 3f).object = attacker.id();
+			Buff.prolong(defender, Charm.class, scaled(3f)).object = attacker.id();
 		}
 		return super.proc(attacker, defender, 0);
 	}
 
+	/** SPSEXPD: 食用会麻痹自己——默认动作为「投掷」。 */
+	@Override protected boolean harmfulOnEat() { return true; }
+
 	@Override protected void onEat(Hero hero) {
-		Buff.prolong(hero, Paralysis.class, 1f);
+		Buff.prolong(hero, Paralysis.class, scaled(1f));
 	}
 }

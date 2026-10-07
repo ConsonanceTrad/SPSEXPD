@@ -74,11 +74,15 @@ public class GlassFruit extends SpsFruit {
 	}
 
 	@Override public int proc(Char attacker, Char defender, int damage) {
-		Buff.affect(defender, Bleeding.class).set(Math.max(1f, defender.HT * 0.03f));
+		//SPSEXPD: 大型果实为小型果实的 3 倍
+		Buff.affect(defender, Bleeding.class).set(Math.max(1f, scaled(defender.HT * 0.03f)));
 		return super.proc(attacker, defender, 0);
 	}
 
+	/** SPSEXPD: 食用会割伤自己——默认动作为「投掷」。 */
+	@Override protected boolean harmfulOnEat() { return true; }
+
 	@Override protected void onEat(Hero hero) {
-		hero.damage(Math.max(1, Math.round(hero.HT * 0.1f)), this);
+		hero.damage(Math.max(1, Math.round(scaled(hero.HT * 0.1f))), this);
 	}
 }

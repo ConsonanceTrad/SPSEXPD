@@ -42,16 +42,20 @@ public class IceFruit extends SpsFruit {
 
 
 	@Override protected void onThrow(int cell) {
-		if (landsAt(cell)) seedArea(cell, 6, FrostCloud.class);
+		//SPSEXPD: 小型 3×3、大型 5×5 圆形；浓度整体 ×3
+		if (landsAt(cell)) seedArea(cell, scaled(6), FrostCloud.class);
 		else super.onThrow(cell);
 	}
 
 	@Override public int proc(Char attacker, Char defender, int damage) {
-		Buff.affect(defender, Cold.class, 2f);
+		Buff.affect(defender, Cold.class, scaled(2f));
 		return super.proc(attacker, defender, 0);
 	}
 
+	/** SPSEXPD: 食用会让自己寒冷——默认动作为「投掷」。 */
+	@Override protected boolean harmfulOnEat() { return true; }
+
 	@Override protected void onEat(Hero hero) {
-		Buff.affect(hero, Cold.class, 2f);
+		Buff.affect(hero, Cold.class, scaled(2f));
 	}
 }

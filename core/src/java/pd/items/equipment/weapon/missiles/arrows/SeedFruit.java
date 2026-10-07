@@ -41,7 +41,7 @@ public class SeedFruit extends SpsFruit {
 	}
 
 	@Override protected void onEat(Hero hero) {
-		//SPSEXPD: 缓慢治愈（与治疗药剂同机制）
-		Buff.affect(hero, Healing.class).setHeal(Math.max(1, Math.round(hero.HT * 0.07f)), 0.25f, 0, true);
+		//SPSEXPD: 缓慢治愈（与治疗药剂同机制），大型果实为小型果实的 3 倍
+		Buff.affect(hero, Healing.class).setHeal(Math.max(1, Math.round(scaled(hero.HT * 0.07f))), 0.25f, 0, true);
 	}
 }

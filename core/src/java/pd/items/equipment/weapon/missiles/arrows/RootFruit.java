@@ -42,20 +42,24 @@ public class RootFruit extends SpsFruit {
 
 
 	@Override protected void onThrow(int cell) {
+		//SPSEXPD: 落地长出高草——小型 3×3、大型 5×5 圆形
 		if (landsAt(cell)) {
-			if (Dungeon.level != null && Dungeon.level.insideMap(cell)) {
-				pd.levels.Level.set(cell, pd.levels.Terrain.HIGH_GRASS);
-				GameScene.updateMap(cell);
+			for (int c : areaCells(cell)) {
+				pd.levels.Level.set(c, pd.levels.Terrain.HIGH_GRASS);
+				GameScene.updateMap(c);
 			}
 		} else super.onThrow(cell);
 	}
 
 	@Override public int proc(Char attacker, Char defender, int damage) {
-		Buff.prolong(defender, Roots.class, 3f);
+		Buff.prolong(defender, Roots.class, scaled(3f));
 		return super.proc(attacker, defender, 0);
 	}
 
+	/** SPSEXPD: 食用会束缚自己——默认动作为「投掷」。 */
+	@Override protected boolean harmfulOnEat() { return true; }
+
 	@Override protected void onEat(Hero hero) {
-		Buff.prolong(hero, Roots.class, 2f);
+		Buff.prolong(hero, Roots.class, scaled(2f));
 	}
 }

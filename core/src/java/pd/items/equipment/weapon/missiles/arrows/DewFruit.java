@@ -40,12 +40,13 @@ public class DewFruit extends SpsFruit {
 	}
 
 	@Override public int proc(Char attacker, Char defender, int damage) {
-		Dewcharge.charge(defender, 15f);
+		//SPSEXPD: 大型果实为小型果实的 3 倍
+		Dewcharge.charge(defender, scaled(15f));
 		return super.proc(attacker, defender, 0);
 	}
 
 	@Override protected void onEat(Hero hero) {
-		Dewcharge.charge(hero, 30f);
+		Dewcharge.charge(hero, scaled(30f));
 	}
 
 	private static Item randomDewdrop() {

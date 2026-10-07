@@ -33,11 +33,15 @@ public class StarEaterFruit extends SpsFruit {
 
 
 	@Override protected void onThrow(int cell) {
-		if (landsAt(cell)) seedArea(cell, 6, pd.actors.blobs.CorrosiveGas.class);
+		//SPSEXPD: 小型 3×3、大型 5×5 圆形；浓度整体 ×3
+		if (landsAt(cell)) seedArea(cell, scaled(6), pd.actors.blobs.CorrosiveGas.class);
 		else super.onThrow(cell);
 	}
 
+	/** SPSEXPD: 食用会灼伤自己——默认动作为「投掷」。 */
+	@Override protected boolean harmfulOnEat() { return true; }
+
 	@Override protected void onEat(Hero hero) {
-		hero.damage(Math.max(1, Math.round(hero.HT * 0.2f)), this);
+		hero.damage(Math.max(1, Math.round(scaled(hero.HT * 0.2f))), this);
 	}
 }

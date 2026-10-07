@@ -30,11 +30,11 @@ public class SwiftFruit extends SpsFruit {
 
 
 	@Override public int proc(Char attacker, Char defender, int damage) {
-		Buff.affect(defender, Swiftthistle.TimeBubble.class).reset(2);
+		Buff.affect(defender, Swiftthistle.TimeBubble.class).reset(scaled(2));
 		return super.proc(attacker, defender, 0);
 	}
 
 	@Override protected void onEat(Hero hero) {
-		Buff.affect(hero, Swiftthistle.TimeBubble.class).reset(4);
+		Buff.affect(hero, Swiftthistle.TimeBubble.class).reset(scaled(4));
 	}
 }

@@ -50,11 +50,11 @@ public class NutFruit extends SpsFruit {
 		if (attacker instanceof Hero) {
 			Hero hero = (Hero) attacker;
 			//SPSEXPD: 投掷时 attackingWeapon 指的是果实自己（果实伤害为 0），
-			//所以这里取真正装备的主武器来算两成伤害
+			//所以这里取真正装备的主武器来算两成伤害（大型果实为六成）
 			KindOfWeapon wep = hero.belongings.weapon();
 			if (wep != null) {
 				int roll = wep.damageRoll(attacker);
-				if (roll > 0) extra = Math.round(roll * 0.2f);
+				if (roll > 0) extra = Math.round(scaled(roll * 0.2f));
 			}
 		}
 		if (extra > 0) defender.damage(extra, this);
@@ -62,6 +62,6 @@ public class NutFruit extends SpsFruit {
 	}
 
 	@Override protected void onEat(Hero hero) {
-		Buff.affect(hero, Hunger.class).satisfy(50f);
+		Buff.affect(hero, Hunger.class).satisfy(scaled(50f));
 	}
 }

@@ -44,8 +44,9 @@ public class HealFruit extends SpsFruit {
 
 	@Override public int proc(Char attacker, Char defender, int damage) {
 		if (defender != null) {
-			int lo = Math.max(1, Math.round(defender.HT * 0.05f));
-			int hi = Math.max(lo, Math.round(defender.HT * 0.10f));
+			//SPSEXPD: 大型果实为小型果实的 3 倍
+			int lo = Math.max(1, Math.round(scaled(defender.HT * 0.05f)));
+			int hi = Math.max(lo, Math.round(scaled(defender.HT * 0.10f)));
 			//SPSEXPD: 缓慢治愈（与治疗药剂同机制），而不是瞬时治疗
 			Buff.affect(defender, Healing.class).setHeal(Random.IntRange(lo, hi), 0.25f, 0, true);
 		}
@@ -53,8 +54,8 @@ public class HealFruit extends SpsFruit {
 	}
 
 	@Override protected void onEat(Hero hero) {
-		int lo = Math.max(1, Math.round(hero.HT * 0.10f));
-		int hi = Math.max(lo, Math.round(hero.HT * 0.25f));
+		int lo = Math.max(1, Math.round(scaled(hero.HT * 0.10f)));
+		int hi = Math.max(lo, Math.round(scaled(hero.HT * 0.25f)));
 		int actual = Math.min(hero.HT - hero.HP, Random.IntRange(lo, hi));
 		if (actual > 0 && !pd.actors.hero.perks.BloodShield.convert(hero, actual)) hero.HP += actual;
 	}

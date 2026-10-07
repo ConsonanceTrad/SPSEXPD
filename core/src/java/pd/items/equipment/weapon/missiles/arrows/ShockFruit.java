@@ -42,16 +42,20 @@ public class ShockFruit extends SpsFruit {
 
 
 	@Override protected void onThrow(int cell) {
-		if (landsAt(cell)) seedArea(cell, 6, ElectriShock.class);
+		//SPSEXPD: 小型 3×3、大型 5×5 圆形；浓度整体 ×3
+		if (landsAt(cell)) seedArea(cell, scaled(6), ElectriShock.class);
 		else super.onThrow(cell);
 	}
 
 	@Override public int proc(Char attacker, Char defender, int damage) {
-		Buff.prolong(defender, Paralysis.class, 2f);
+		Buff.prolong(defender, Paralysis.class, scaled(2f));
 		return super.proc(attacker, defender, 0);
 	}
 
+	/** SPSEXPD: 食用会麻痹自己——默认动作为「投掷」。 */
+	@Override protected boolean harmfulOnEat() { return true; }
+
 	@Override protected void onEat(Hero hero) {
-		Buff.prolong(hero, Paralysis.class, 1f);
+		Buff.prolong(hero, Paralysis.class, scaled(1f));
 	}
 }
