@@ -23,15 +23,12 @@ public class TrinityStance extends Buff {
 			.t("name", "战舞姿态")
 			.t("state_charge", "冲锋姿态")
 			.t("state_defend", "防御姿态")
-			.t("charge_layer", "战舞蓄势：攻速加成叠加至 %d 层。")
-			.t("desc", "以战舞驾驭六刃的架势。\n\n_冲锋姿态：_移动速度降低到原先的四分之三，每次命中使攻速提高，连续 2 回合未命中后层数每回合衰减 1 层；命中两格或更远的敌人时，你会顺势朝对方冲进一格。\n_防御姿态：_攻击速度减半，但受到的伤害减少 50%%。\n\n当前姿态：%1$s");
+			.t("desc", "以战舞驾驭六刃的架势。\n\n_冲锋姿态：_移速降到原先的四分之三；每次命中叠加攻速（连续 2 回合未命中后每回合掉 1 层）；命中敌人时会顺势贴到对方身边。\n_防御姿态：_移速同样降到四分之三，攻速再减半，但受到的伤害减少 50%%。\n\n随时可以切换姿态，切换本身花一个回合。\n\n当前姿态：%1$s");
 	}
 
 	public static final int MAX_LAYERS = 5;
 	/** 未命中后的宽限回合数：这之后每回合衰减一层攻速叠加。 */
 	public static final int GRACE_TURNS = 2;
-	public static final int DEFEND_TURNS = 5;
-	public static final int DEFEND_COOLDOWN = 10;
 	public static final float ATTACK_STEP = 0.2f;
 	public static final float DEFEND_ATTACK = 0.5f;
 	/** 战舞的移速代价恒定：无论何种姿态，都降低到原先的四分之三。 */
@@ -41,14 +38,10 @@ public class TrinityStance extends Buff {
 	private static final String LAYERS = "layers";
 	private static final String IDLE = "idle";
 	private static final String DEFENDING = "defending";
-	private static final String DEFEND_LEFT = "defend_left";
-	private static final String DEFEND_CD = "defend_cd";
 
 	private int layers;
 	private int idleTurns;
 	private boolean defending;
-	private int defendTurns;
-	private int defendCooldown;
 
 	{
 		type = buffType.POSITIVE;
@@ -78,15 +71,6 @@ public class TrinityStance extends Buff {
 			detach();
 			return true;
 		}
-		if (defending) {
-			defendTurns--;
-			if (defendTurns <= 0) {
-				defending = false;
-				defendCooldown = DEFEND_COOLDOWN;
-			}
-		} else if (defendCooldown > 0) {
-			defendCooldown--;
-		}
 		idleTurns++;
 		//SPSEXPD: 未命中先宽限 GRACE_TURNS 回合，之后逐层衰减（不再一次性清零）
 		if (idleTurns > GRACE_TURNS && layers > 0) layers--;
@@ -113,23 +97,9 @@ public class TrinityStance extends Buff {
 		return defending;
 	}
 
-	public int defendTurnsLeft() {
-		return defending ? defendTurns : 0;
-	}
-
-	public int defendCooldownLeft() {
-		return defending ? 0 : Math.max(0, defendCooldown);
-	}
-
-	public boolean canDefend() {
-		return !defending && defendCooldown <= 0;
-	}
-
-	public boolean enterDefend() {
-		if (!canDefend()) return false;
-		defending = true;
-		defendTurns = DEFEND_TURNS;
-		return true;
+	/** SPSEXPD: 切换冲锋/防御姿态——随时可切，代价是切换这个动作本身花一个回合。 */
+	public void toggleStance() {
+		defending = !defending;
 	}
 
 	/** 战舞的移速代价恒定：不再随击杀改善，冲锋姿态与防御姿态都是四分之三。 */
@@ -150,12 +120,14 @@ public class TrinityStance extends Buff {
 
 	@Override
 	public int icon() {
-		return BuffIndicator.FURY;
+		//SPSEXPD: 冲锋姿态是常态，不占状态栏；只有防御姿态才显示（图标沿用植物护甲）
+		return defending ? BuffIndicator.ARMOR : BuffIndicator.NONE;
 	}
 
 	@Override
 	public String iconTextDisplay() {
-		return defending ? Integer.toString(defendTurns) : Integer.toString(layers);
+		//防御姿态没有可倒数的时间，图标上不需要数字
+		return "";
 	}
 
 	@Override
@@ -169,8 +141,6 @@ public class TrinityStance extends Buff {
 		bundle.put(LAYERS, layers);
 		bundle.put(IDLE, idleTurns);
 		bundle.put(DEFENDING, defending);
-		bundle.put(DEFEND_LEFT, defendTurns);
-		bundle.put(DEFEND_CD, defendCooldown);
 	}
 
 	@Override
@@ -179,7 +149,5 @@ public class TrinityStance extends Buff {
 		layers = bundle.getInt(LAYERS);
 		idleTurns = bundle.getInt(IDLE);
 		defending = bundle.getBoolean(DEFENDING);
-		defendTurns = bundle.getInt(DEFEND_LEFT);
-		defendCooldown = bundle.getInt(DEFEND_CD);
 	}
 }

@@ -30,10 +30,10 @@ public class TrinityForce extends NormalMeleeWeapon {
 	static {
 		InlineText.of(TrinityForce.class)
 			.t("name", "三相之力")
-			.t("desc", "六把飞刃组成的一套武器组，极难操控：只有以战舞驾驭它，六刃才会同时起舞。\n\n一次挥击的伤害被拆成三次独立结算，命中与附带效果分别计算，但总共只消耗一个回合。\n\n为维持操控飞刃的战舞，你的移速会降低到原先的四分之三。\n\n冲锋姿态下命中敌人时会顺势贴到对方身边（无论多远，只要这一击打得到）。")
-			.t("ac_defend", "防御姿态")
+			.t("desc", "六把飞刃组成的一套武器组，极难操控：只有通过战舞才能将其自如使用。为维持操控飞刃的战舞，你的移速会降低到原先的四分之三。\n\n挥击时将由三组飞刃各攻击一次，如果不在防御姿态下，将顺势冲锋至对方身边。")
+			.t("ac_defend", "切换姿态")
 			.t("enter_defend", "你沉入防御姿态，六刃环绕如盾。")
-			.t("defend_unavailable", "你暂时无法进入防御姿态。");
+			.t("leave_defend", "你起身回到冲锋姿态。");
 	}
 
 	public static final String AC_DEFEND = "DEFEND";
@@ -91,8 +91,8 @@ public class TrinityForce extends NormalMeleeWeapon {
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);
 		if (!isEquipped(hero)) return actions;
-		TrinityStance stance = TrinityStance.of(hero);
-		if (stance != null && stance.canDefend()) actions.add(AC_DEFEND);
+		//SPSEXPD: 切换姿态随时可用（不再有冷却），切换这个动作本身花一个回合
+		actions.add(AC_DEFEND);
 		return actions;
 	}
 
@@ -106,11 +106,10 @@ public class TrinityForce extends NormalMeleeWeapon {
 	public void execute(Hero hero, String action) {
 		if (AC_DEFEND.equals(action)) {
 			TrinityStance stance = TrinityStance.of(hero);
-			if (stance != null && stance.enterDefend()) {
-				GLog.i(Messages.get(this, "enter_defend"));
+			if (stance != null) {
+				stance.toggleStance();
+				GLog.i(Messages.get(this, stance.defending() ? "enter_defend" : "leave_defend"));
 				hero.spendAndNext(1f);
-			} else {
-				GLog.i(Messages.get(this, "defend_unavailable"));
 			}
 		} else {
 			super.execute(hero, action);

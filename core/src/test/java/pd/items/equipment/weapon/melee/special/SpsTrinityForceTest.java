@@ -96,7 +96,6 @@ public final class SpsTrinityForceTest {
 		TrinityStance stance = hero.buff(TrinityStance.class);
 		check(stance != null, "装备三相之力没有获得战舞姿态");
 		check(!stance.defending() && stance.layers() == 0, "战舞姿态初始状态错误");
-		check(stance.canDefend() && stance.defendCooldownLeft() == 0, "战舞姿态初始不可防御");
 
 		for (int i = 0; i < TrinityStance.MAX_LAYERS + 3; i++) stance.onAttack();
 		check(stance.layers() == TrinityStance.MAX_LAYERS, "攻速叠加超过五层上限：" + stance.layers());
@@ -104,25 +103,24 @@ public final class SpsTrinityForceTest {
 		check(Math.abs(stance.attackSpeedMultiplier(1.5f) - 2.5f) < 0.00001f, "攻速加成没有叠在既有倍率上");
 		check(Math.abs(stance.speedMultiplier() - 0.75f) < 0.00001f, "战舞移速倍率不是 0.75");
 
-		check(stance.enterDefend() && stance.defending(), "无法进入防御姿态");
-		check(stance.defendTurnsLeft() == TrinityStance.DEFEND_TURNS, "防御姿态不是 5 回合");
+		//随时可以切换姿态，没有冷却，也不会自己结束
+		stance.toggleStance();
+		check(stance.defending(), "切换后没有进入防御姿态");
 		check(stance.reduceDamage(10) == 5, "防御姿态的 50% 减伤错误");
 		check(stance.reduceDamage(1) == 1, "防御姿态对小伤害的结算错误");
 		check(Math.abs(stance.speedMultiplier() - 0.75f) < 0.00001f, "防御姿态的移速也应恒为 0.75");
 		check(Math.abs(stance.attackSpeedMultiplier(1f) - 0.5f) < 0.00001f, "防御姿态攻速不是 0.5");
 		check(Math.abs(stance.attackSpeedMultiplier(0.5f) - 0.25f) < 0.00001f, "防御姿态攻速没有叠乘既有倍率");
 
-		for (int i = 0; i < TrinityStance.DEFEND_TURNS; i++) stance.act();
-		check(!stance.defending(), "防御姿态没有在 5 回合后自动结束");
-		check(!stance.canDefend() && stance.defendCooldownLeft() == TrinityStance.DEFEND_COOLDOWN,
-				"防御姿态结束后没有 10 回合冷却");
+		for (int i = 0; i < 10; i++) stance.act();
+		check(stance.defending(), "防御姿态不该自动结束（切回来由玩家决定）");
+
+		stance.toggleStance();
+		check(!stance.defending(), "再次切换没有回到冲锋姿态");
 		check(stance.reduceDamage(10) == 10, "离开防御姿态后仍在减伤");
 
-		for (int i = 0; i < TrinityStance.DEFEND_COOLDOWN; i++) stance.act();
-		check(stance.canDefend(), "冷却结束后仍无法进入防御姿态");
-
 		for (int i = 0; i < TrinityStance.MAX_LAYERS; i++) stance.onAttack();
-		check(stance.layers() == TrinityStance.MAX_LAYERS, "冷却期间无法叠加攻速");
+		check(stance.layers() == TrinityStance.MAX_LAYERS, "无法叠加攻速");
 		//宽限期内不掉层
 		for (int i = 0; i < TrinityStance.GRACE_TURNS; i++) stance.act();
 		check(stance.layers() == TrinityStance.MAX_LAYERS, "宽限 2 回合内不该衰减攻速叠加");
@@ -134,9 +132,6 @@ public final class SpsTrinityForceTest {
 		//衰减到 0 后再次命中可以重新叠层
 		stance.onAttack();
 		check(stance.layers() == 1, "衰减后再次命中应重新叠层");
-
-		stance.enterDefend();
-		check(stance.defending(), "无法进入防御姿态");
 	}
 
 	/**
@@ -235,7 +230,7 @@ public final class SpsTrinityForceTest {
 		//防御姿态不靠近（原地格挡）
 		TrinityStance stance = hero.buff(TrinityStance.class);
 		check(stance != null, "装备三相之力没有获得战舞姿态");
-		stance.enterDefend();
+		stance.toggleStance();
 		hero.pos = 5 * 8 + 1;
 		SlainMob guarded = new SlainMob(100_000);
 		guarded.pos = 5 * 8 + 4;
