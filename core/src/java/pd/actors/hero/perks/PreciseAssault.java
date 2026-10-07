@@ -11,7 +11,7 @@ public class PreciseAssault extends Perk {
 	static {
 		InlineText.of(PreciseAssault.class)
 				.t("title", "精准打击")
-				.t("desc", "使用武技后，%d 回合内的下一次近战攻击具有 %d 倍精准。");
+				.t("desc", "使用武技后，%d 回合内的下一次近战攻击具有 %s 倍精准。");
 	}
 
 	public PreciseAssault() {
@@ -35,6 +35,6 @@ public class PreciseAssault extends Perk {
 	@Override
 	public String description() {
 		return pd.messages.Messages.get(this, "desc",
-				Math.round(window()), Math.round(accuracyMultiplier()));
+				Math.round(window()), num(Math.round(accuracyMultiplier())));
 	}
 }

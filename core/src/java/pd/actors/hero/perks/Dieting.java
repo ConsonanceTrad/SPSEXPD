@@ -11,7 +11,7 @@ public class Dieting extends Perk {
 	static {
 		InlineText.of(Dieting.class)
 				.t("title", "节食")
-				.t("desc", "你更加耐饿，饥饿累积速度降低 %d%%。");
+				.t("desc", "你更加耐饿，饥饿累积速度降低 %s%%。");
 	}
 
 	public Dieting() {
@@ -30,6 +30,6 @@ public class Dieting extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round((1f - hungerMultiplier()) * 100));
+		return pd.messages.Messages.get(this, "desc", num(Math.round((1f - hungerMultiplier()) * 100)));
 	}
 }

@@ -11,7 +11,7 @@ public class WandCharger extends Perk {
 	static {
 		InlineText.of(WandCharger.class)
 				.t("title", "法杖充能")
-				.t("desc", "法杖的充能速度提高 %d%%。");
+				.t("desc", "法杖的充能速度提高 %s%%。");
 	}
 
 	public WandCharger() {
@@ -30,6 +30,6 @@ public class WandCharger extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round((factor() - 1f) * 100));
+		return pd.messages.Messages.get(this, "desc", num(Math.round((factor() - 1f) * 100)));
 	}
 }

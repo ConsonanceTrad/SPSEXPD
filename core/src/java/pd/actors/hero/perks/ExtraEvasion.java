@@ -11,7 +11,7 @@ public class ExtraEvasion extends Perk {
 	static {
 		InlineText.of(ExtraEvasion.class)
 				.t("title", "灵动")
-				.t("desc", "提供 %d%% 的闪避几率。");
+				.t("desc", "提供 %s%% 的闪避几率。");
 	}
 
 	public ExtraEvasion() {
@@ -30,6 +30,6 @@ public class ExtraEvasion extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round(prob() * 100));
+		return pd.messages.Messages.get(this, "desc", num(Math.round(prob() * 100)));
 	}
 }

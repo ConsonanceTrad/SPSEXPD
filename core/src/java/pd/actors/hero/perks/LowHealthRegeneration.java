@@ -11,7 +11,7 @@ public class LowHealthRegeneration extends Perk {
 	static {
 		InlineText.of(LowHealthRegeneration.class)
 				.t("title", "濒死回复")
-				.t("desc", "受到伤害后，若生命值较低则获得一次额外回复。等级越高，触发阈值与回复量越高。");
+				.t("desc", "受到伤害后，若生命值较低则获得一次额外回复。\n当前：生命低于 %1$s%% 时触发，回复最大生命的 %2$s%%。");
 	}
 
 	public LowHealthRegeneration() {
@@ -32,5 +32,11 @@ public class LowHealthRegeneration extends Perk {
 	/** 回复量（最大生命的百分比） */
 	public float healRatio() {
 		return 0.05f + 0.02f * level();
+	}
+
+	@Override
+	public String description() {
+		return pd.messages.Messages.get(this, "desc",
+				num(Math.round(threshold() * 100)), num(Math.round(healRatio() * 100)));
 	}
 }

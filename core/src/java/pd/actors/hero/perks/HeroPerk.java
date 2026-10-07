@@ -34,11 +34,16 @@ public class HeroPerk implements Bundlable {
 		return get(cls) != null;
 	}
 
-	/** 已拥有 -> 升级；未拥有 -> 加入并触发 onGain */
+	/**
+	 * 已拥有 -> 升级（并提示），未拥有 -> 加入（提示由调用方负责）。
+	 * 已达上限时不再升级，返回 false。
+	 */
 	public boolean add(Perk perk) {
 		if (perk == null) return false;
 		for (Perk p : perks) {
 			if (p.getClass() == perk.getClass()) {
+				//SPSXPD: 达到上限的特质不再升级（候选缓存过期等途径也不会升过头）
+				if (p.level() >= p.maxLevel()) return false;
 				p.upgrade();
 				PerkGain.announceUpgrade(pd.Dungeon.hero, p);
 				return true;
@@ -86,11 +91,11 @@ public class HeroPerk implements Bundlable {
 		}
 	}
 
-	/** 由等级/条件授予的表驱动检查（见 PerkGrants） */
+	/** 未拥有则获得；已拥有则升级（两者都会给出提示） */
 	public void grantIfMissing(Perk perk, Hero hero) {
 		if (perk == null) return;
-		if (!has(perk.getClass())) {
-			add(perk);
+		boolean owned = has(perk.getClass());
+		if (add(perk) && !owned) {
 			PerkGain.announce(hero, perk);
 		}
 	}

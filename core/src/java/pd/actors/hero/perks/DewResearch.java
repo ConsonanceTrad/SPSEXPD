@@ -13,7 +13,7 @@ public class DewResearch extends Perk {
 	static {
 		InlineText.of(DewResearch.class)
 			.t("title", "露珠研究")
-			.t("desc", "你改良了露珠的用法：每次使用露珠瓶 / 露珠瓶的效果时，随机降低 %1$d%%~%2$d%% 的露珠消耗。");
+			.t("desc", "你改良了露珠的用法：每次使用露珠瓶 / 露珠瓶的效果时，随机降低 %1$s%%~%2$s%% 的露珠消耗。");
 	}
 
 	public DewResearch() {
@@ -33,7 +33,7 @@ public class DewResearch extends Perk {
 	@Override
 	public String description() {
 		return pd.messages.Messages.get(this, "desc",
-				Math.round(discountMin() * 100), Math.round(discountMax() * 100));
+				num(Math.round(discountMin() * 100)), num(Math.round(discountMax() * 100)));
 	}
 
 	/** 本次消耗的折扣比例（每次使用随机） */

@@ -11,7 +11,7 @@ public class SoulSiphon extends Perk {
 	static {
 		InlineText.of(SoulSiphon.class)
 				.t("title", "灵魂分食")
-				.t("desc", "其他单位造成的物理伤害会以 %d%% 的效率触发你的灵魂标记。");
+				.t("desc", "其他单位造成的物理伤害会以 %s%% 的效率触发你的灵魂标记。");
 	}
 
 	public SoulSiphon() {
@@ -30,6 +30,6 @@ public class SoulSiphon extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round(allyEfficiency() * 100));
+		return pd.messages.Messages.get(this, "desc", num(Math.round(allyEfficiency() * 100)));
 	}
 }

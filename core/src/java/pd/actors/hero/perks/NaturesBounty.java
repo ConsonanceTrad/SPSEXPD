@@ -11,7 +11,7 @@ public class NaturesBounty extends Perk {
 	static {
 		InlineText.of(NaturesBounty.class)
 				.t("title", "自然馈赠")
-				.t("desc", "在探索后续楼层时，可以从高草丛中找出 %d 颗隐藏的浆果。");
+				.t("desc", "在探索后续楼层时，可以从高草丛中找出 %s 颗隐藏的浆果。");
 	}
 
 	public NaturesBounty() {
@@ -30,6 +30,6 @@ public class NaturesBounty extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", berriesPerFloor());
+		return pd.messages.Messages.get(this, "desc", num(berriesPerFloor()));
 	}
 }

@@ -11,7 +11,7 @@ public class ExtraMagicalResistance extends Perk {
 	static {
 		InlineText.of(ExtraMagicalResistance.class)
 				.t("title", "魔法抗性")
-				.t("desc", "提供 %d%% 的魔法抗性。");
+				.t("desc", "提供 %s%% 的魔法抗性。");
 	}
 
 	public ExtraMagicalResistance() {
@@ -30,6 +30,6 @@ public class ExtraMagicalResistance extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round(ratio() * 100));
+		return pd.messages.Messages.get(this, "desc", num(Math.round(ratio() * 100)));
 	}
 }

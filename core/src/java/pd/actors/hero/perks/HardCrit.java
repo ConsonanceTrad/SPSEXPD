@@ -11,7 +11,7 @@ public class HardCrit extends Perk {
 	static {
 		InlineText.of(HardCrit.class)
 				.t("title", "重击")
-				.t("desc", "提高 %d%% 的暴击伤害倍率。");
+				.t("desc", "提高 %s%% 的暴击伤害倍率。");
 	}
 
 	public HardCrit() {
@@ -30,6 +30,6 @@ public class HardCrit extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round(critDamageBonus() * 100));
+		return pd.messages.Messages.get(this, "desc", num(Math.round(critDamageBonus() * 100)));
 	}
 }

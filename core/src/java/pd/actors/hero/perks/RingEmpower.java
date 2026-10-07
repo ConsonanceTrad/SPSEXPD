@@ -11,7 +11,7 @@ public class RingEmpower extends Perk {
 	static {
 		InlineText.of(RingEmpower.class)
 				.t("title", "戒指强化")
-				.t("desc", "使用神器后的 %d 回合内，你佩戴的所有戒指提升 1 级。");
+				.t("desc", "使用神器后的 %s 回合内，你佩戴的所有戒指提升 1 级。");
 	}
 
 	public RingEmpower() {
@@ -34,6 +34,6 @@ public class RingEmpower extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round(duration()));
+		return pd.messages.Messages.get(this, "desc", num(Math.round(duration())));
 	}
 }

@@ -23,12 +23,14 @@ package pd.ui;
 
 import pd.messages.Languages;
 import pd.messages.Messages;
+import pd.messages.Span;
 import pd.scenes.PixelScene;
 import render.noosa.Game;
 import render.noosa.RenderedText;
 import render.noosa.ui.Component;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RenderedTextBlock extends Component {
 
@@ -40,6 +42,10 @@ public class RenderedTextBlock extends Component {
 	
 	protected String text;
 	protected String[] tokens = null;
+	/** 与 tokens 平行的颜色表（多色渲染用）；null 表示走默认/高亮逻辑 */
+	private int[] tokenColors = null;
+	/** 多色渲染的原始片段，maxWidth 变化时据此重建 */
+	private List<Span> spanSource = null;
 	protected ArrayList<RenderedText> words = new ArrayList<>();
 	protected boolean multiline = false;
 
@@ -66,6 +72,8 @@ public class RenderedTextBlock extends Component {
 
 	public void text(String text){
 		this.text = text;
+		this.spanSource = null;
+		this.tokenColors = null;
 
 		if (text != null && !text.equals("")) {
 			
@@ -73,6 +81,39 @@ public class RenderedTextBlock extends Component {
 			
 			build();
 		}
+	}
+
+	/**
+	 * 多色文本：每段用自己的颜色渲染，换行与对齐规则和 {@link #text(String)} 一致。
+	 * 颜色为 {@link Span#DEFAULT} 的片段沿用默认色（或 _ / ** 高亮色）。
+	 */
+	public void spans(List<Span> spanList, int maxWidth){
+		this.maxWidth = maxWidth;
+		this.multiline = true;
+		this.spanSource = spanList == null ? null : new ArrayList<>(spanList);
+
+		ArrayList<String> tk = new ArrayList<>();
+		ArrayList<Integer> cl = new ArrayList<>();
+		StringBuilder full = new StringBuilder();
+		if (spanList != null){
+			for (Span s : spanList){
+				if (s == null || s.text.isEmpty()) continue;
+				full.append(s.text);
+				for (String part : Game.platform.splitforTextBlock(s.text, multiline)){
+					tk.add(part);
+					cl.add(s.color);
+				}
+			}
+		}
+
+		this.text = full.toString();
+		this.tokens = tk.toArray(new String[0]);
+		this.tokenColors = new int[cl.size()];
+		for (int i = 0; i < cl.size(); i++) this.tokenColors[i] = cl.get(i);
+
+		clear();
+		words = new ArrayList<>();
+		if (tokens.length > 0) build();
 	}
 
 	//for manual text block splitting, a space between each word is assumed
@@ -83,6 +124,8 @@ public class RenderedTextBlock extends Component {
 		}
 		text = fullText.toString();
 
+		spanSource = null;
+		tokenColors = null;
 		tokens = words;
 		build();
 	}
@@ -101,7 +144,8 @@ public class RenderedTextBlock extends Component {
 		if (this.maxWidth != maxWidth){
 			this.maxWidth = maxWidth;
 			multiline = true;
-			text(text);
+			if (spanSource != null) spans(spanSource, maxWidth);
+			else text(text);
 		}
 	}
 
@@ -115,7 +159,9 @@ public class RenderedTextBlock extends Component {
 		clear();
 		words = new ArrayList<>();
 		boolean highlighting = false;
-		for (String str : tokens){
+		for (int i = 0; i < tokens.length; i++){
+			String str = tokens[i];
+			int spanColor = tokenColors != null && i < tokenColors.length ? tokenColors[i] : Span.DEFAULT;
 
 			//if highlighting is enabled, '_' or '**' is used to toggle highlighting on or off
 			// the actual symbols are not rendered
@@ -129,6 +175,7 @@ public class RenderedTextBlock extends Component {
 				RenderedText word = new RenderedText(str, size);
 				
 				if (highlighting) word.hardlight(hightlightColor);
+				else if (spanColor != Span.DEFAULT) word.hardlight(spanColor);
 				else if (color != -1) word.hardlight(color);
 				word.scale.set(zoom);
 				

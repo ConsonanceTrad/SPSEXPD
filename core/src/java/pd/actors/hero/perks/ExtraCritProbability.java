@@ -13,7 +13,7 @@ public class ExtraCritProbability extends Perk.Additional {
 	static {
 		InlineText.of(ExtraCritProbability.class)
 				.t("title", "精准打击")
-				.t("desc", "提供 %d%% 的额外暴击几率。");
+				.t("desc", "提供 %s%% 的额外暴击几率。");
 	}
 
 	public ExtraCritProbability() {
@@ -32,7 +32,7 @@ public class ExtraCritProbability extends Perk.Additional {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round(extraProb() * 100));
+		return pd.messages.Messages.get(this, "desc", num(Math.round(extraProb() * 100)));
 	}
 
 	@Override

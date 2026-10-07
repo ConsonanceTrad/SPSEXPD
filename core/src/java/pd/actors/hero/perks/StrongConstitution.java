@@ -12,7 +12,7 @@ public class StrongConstitution extends Perk {
 	static {
 		InlineText.of(StrongConstitution.class)
 				.t("title", "强健体魄")
-				.t("desc", "每次升级额外获得 %d 点生命上限。");
+				.t("desc", "每次升级额外获得 %s 点生命上限。");
 	}
 
 	public StrongConstitution() {
@@ -31,7 +31,7 @@ public class StrongConstitution extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", extraHT());
+		return pd.messages.Messages.get(this, "desc", num(extraHT()));
 	}
 
 	/** 由 HeroClass 升级流程调用 */

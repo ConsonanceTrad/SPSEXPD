@@ -11,7 +11,7 @@ public class DesperatePower extends Perk {
 	static {
 		InlineText.of(DesperatePower.class)
 				.t("title", "绝境迫能")
-				.t("desc", "使用魔杖最后一点充能施法时，效果获得 %d 级额外等级。");
+				.t("desc", "使用魔杖最后一点充能施法时，效果获得 %s 级额外等级。");
 	}
 
 	public DesperatePower() {
@@ -30,6 +30,6 @@ public class DesperatePower extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", lastChargeLevelBonus());
+		return pd.messages.Messages.get(this, "desc", num(lastChargeLevelBonus()));
 	}
 }

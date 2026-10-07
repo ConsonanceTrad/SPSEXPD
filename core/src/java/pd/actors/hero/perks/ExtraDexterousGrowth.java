@@ -12,7 +12,7 @@ public class ExtraDexterousGrowth extends Perk {
 	static {
 		InlineText.of(ExtraDexterousGrowth.class)
 				.t("title", "灵巧成长")
-				.t("desc", "每次升级额外获得 %d 点防御技能。");
+				.t("desc", "每次升级额外获得 %s 点防御技能。");
 	}
 
 	public ExtraDexterousGrowth() {
@@ -31,7 +31,7 @@ public class ExtraDexterousGrowth extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", extraDef());
+		return pd.messages.Messages.get(this, "desc", num(extraDef()));
 	}
 
 	public void onHeroUpgrade(Hero hero) {

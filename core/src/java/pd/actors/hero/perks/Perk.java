@@ -11,11 +11,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.messages.InlineText;
 import pd.messages.Messages;
+import pd.messages.Span;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 import render.utils.serialize.Bundlable;
@@ -27,6 +31,16 @@ public abstract class Perk implements Bundlable {
 	public enum Tag {
 		Bare, Crit, Melee, Ranged, Wand, Evade, Viability
 	}
+
+	/** 描述里「升级后会变化」的数值用绿字显示 */
+	public static final int COLOR_UPGRADE = 0x00FF00;
+	/** 描述里「升级后才解锁」的效果用灰字显示 */
+	public static final int COLOR_LOCKED = 0x888888;
+
+	//SPSXPD: 描述文本里的绿色开关标记（成对出现），渲染时不显示
+	private static final char MARK_UPGRADE = '\u0001';
+	/** 形如「2 级：…」的分段行，数字即解锁等级 */
+	private static final Pattern LEVEL_LINE = Pattern.compile("^\\s*(\\d+)\\s*级\\s*[:：]");
 
 	private int level;
 	private final int maxLevel;
@@ -75,6 +89,77 @@ public abstract class Perk implements Bundlable {
 		return Messages.get(this, "desc");
 	}
 
+	//SPSXPD: ---- 描述富文本（升级更显著） ----------------------------------
+
+	/** 包住「升级后会变化」的数值：UI 里显示为绿字，纯文本里去掉标记 */
+	protected static String num(Object value) {
+		return MARK_UPGRADE + String.valueOf(value) + MARK_UPGRADE;
+	}
+
+	/** 去掉绿字标记的纯文本描述（日志 / 校验等不需要颜色的场合） */
+	public String plainText() {
+		return description().replace(String.valueOf(MARK_UPGRADE), "");
+	}
+
+	/**
+	 * 供 UI 渲染的富文本描述：
+	 * <ul>
+	 *   <li>行首为「N 级：」且 N 大于当前等级的行 —— 整行灰色（升级后才解锁的高级效果）</li>
+	 *   <li>被 {@link #num(Object)} 包住的数值 —— 绿色（升级后会变化）</li>
+	 * </ul>
+	 */
+	public List<Span> describeRich() {
+		ArrayList<Span> out = new ArrayList<>();
+		String desc = description();
+		if (desc == null || desc.isEmpty()) return out;
+
+		String[] lines = desc.split("\n", -1);
+		for (int i = 0; i < lines.length; i++) {
+			int need = requiredLevel(lines[i]);
+			int forced = need > level() ? COLOR_LOCKED : Span.DEFAULT;
+			appendSegments(out, lines[i], forced);
+			if (i < lines.length - 1) out.add(new Span("\n", Span.DEFAULT));
+		}
+		return out;
+	}
+
+	/** 「N 级：」行所需的等级；不是分段行时返回 0 */
+	private static int requiredLevel(String line) {
+		Matcher m = LEVEL_LINE.matcher(line);
+		if (!m.find()) return 0;
+		try {
+			return Integer.parseInt(m.group(1));
+		} catch (NumberFormatException e) {
+			return 0;
+		}
+	}
+
+	/** 把一行文本按绿字标记切成若干片段；forcedColor 非默认时整行同色 */
+	private static void appendSegments(List<Span> out, String line, int forcedColor) {
+		StringBuilder cur = new StringBuilder();
+		boolean green = false;
+		for (int i = 0; i < line.length(); i++) {
+			char c = line.charAt(i);
+			if (c == MARK_UPGRADE) {
+				if (cur.length() > 0) {
+					out.add(new Span(cur.toString(), colorFor(forcedColor, green)));
+					cur.setLength(0);
+				}
+				green = !green;
+			} else {
+				cur.append(c);
+			}
+		}
+		if (cur.length() > 0) out.add(new Span(cur.toString(), colorFor(forcedColor, green)));
+	}
+
+	private static int colorFor(int forcedColor, boolean green) {
+		if (forcedColor != Span.DEFAULT) return forcedColor;
+		return green ? COLOR_UPGRADE : Span.DEFAULT;
+	}
+
+	// ----------------------------------------------------------------------
+
 	public int level() {
 		return level;
 	}
@@ -91,12 +176,14 @@ public abstract class Perk implements Bundlable {
 		return level < maxLevel && canBeGain(Dungeon.hero);
 	}
 
+	/** 升级；已达上限时保持不变（防止从缓存候选等途径升过头） */
 	public void upgrade() {
-		level++;
+		if (level < maxLevel) level++;
 	}
 
+	/** 降级；已到 0 级时保持不变 */
 	public void downgrade() {
-		level--;
+		if (level > 0) level--;
 	}
 
 	/** 是否可以（再次）获得：未拥有，或已拥有但还能升级 */

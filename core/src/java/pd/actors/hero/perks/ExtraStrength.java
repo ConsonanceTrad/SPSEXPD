@@ -13,7 +13,7 @@ public class ExtraStrength extends Perk.Additional {
 	static {
 		InlineText.of(ExtraStrength.class)
 				.t("title", "力大无穷")
-				.t("desc", "永久提升 %d 点力量。");
+				.t("desc", "永久提升 %s 点力量。");
 	}
 
 	public ExtraStrength() {
@@ -31,7 +31,7 @@ public class ExtraStrength extends Perk.Additional {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", str());
+		return pd.messages.Messages.get(this, "desc", num(str()));
 	}
 
 	@Override

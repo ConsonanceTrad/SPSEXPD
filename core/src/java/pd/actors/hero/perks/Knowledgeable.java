@@ -11,7 +11,7 @@ public class Knowledgeable extends Perk {
 	static {
 		InlineText.of(Knowledgeable.class)
 				.t("title", "博识")
-				.t("desc", "拾取装备时有 %d%% 的几率直接鉴定其属性。");
+				.t("desc", "拾取装备时有 %s%% 的几率直接鉴定其属性。");
 	}
 
 	public Knowledgeable() {
@@ -33,6 +33,6 @@ public class Knowledgeable extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round(chance() * 100));
+		return pd.messages.Messages.get(this, "desc", num(Math.round(chance() * 100)));
 	}
 }

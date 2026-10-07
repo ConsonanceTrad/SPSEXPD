@@ -11,7 +11,7 @@ public class MysticalCharge extends Perk {
 	static {
 		InlineText.of(MysticalCharge.class)
 				.t("title", "充能秘术")
-				.t("desc", "用魔杖近战命中敌人时，获得相当于 %.1f 回合的神器充能。");
+				.t("desc", "用魔杖近战命中敌人时，获得相当于 %s 回合的神器充能。");
 	}
 
 	public MysticalCharge() {
@@ -30,6 +30,6 @@ public class MysticalCharge extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", artifactChargeOnHit());
+		return pd.messages.Messages.get(this, "desc", num(artifactChargeOnHit()));
 	}
 }

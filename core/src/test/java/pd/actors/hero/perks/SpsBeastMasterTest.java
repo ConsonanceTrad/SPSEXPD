@@ -42,6 +42,10 @@ public final class SpsBeastMasterTest {
 			t.printStackTrace();
 			System.exit(1);
 		}
+		//SPSXPD: HeadlessApplication 的循环线程不是守护线程，测试跑完必须显式退出，
+		//否则 JavaExec 任务会一直挂着（表现为 BUILD FAILED / WaitDelay expired）
+		System.out.flush();
+		System.exit(0);
 	}
 
 	/** 驯兽大师：1 级羁绊、2 级献祭、3 级炸环 */

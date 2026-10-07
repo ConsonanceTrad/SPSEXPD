@@ -11,7 +11,7 @@ public class NecromancersMinions extends Perk {
 	static {
 		InlineText.of(NecromancersMinions.class)
 				.t("title", "怨灵爪牙")
-				.t("desc", "被灵魂标记的敌人死亡时，有 %d%% 的概率被唤起成为腐化的怨灵为你作战。");
+				.t("desc", "被灵魂标记的敌人死亡时，有 %s%% 的概率被唤起成为腐化的怨灵为你作战。");
 	}
 
 	public NecromancersMinions() {
@@ -30,6 +30,6 @@ public class NecromancersMinions extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round(raiseChance() * 100));
+		return pd.messages.Messages.get(this, "desc", num(Math.round(raiseChance() * 100)));
 	}
 }

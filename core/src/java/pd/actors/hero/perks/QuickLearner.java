@@ -12,7 +12,7 @@ public class QuickLearner extends Perk {
 	static {
 		InlineText.of(QuickLearner.class)
 				.t("title", "快速学习")
-				.t("desc", "获得的经验值提升 %d%%。");
+				.t("desc", "获得的经验值提升 %s%%。");
 	}
 
 	//小数部分累计，避免被取整吃掉
@@ -33,7 +33,7 @@ public class QuickLearner extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round(ratio() * 100));
+		return pd.messages.Messages.get(this, "desc", num(Math.round(ratio() * 100)));
 	}
 
 	/** 返回本次应额外获得的经验 */

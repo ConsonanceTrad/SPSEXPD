@@ -11,7 +11,7 @@ public class SilentStalker extends Perk {
 	static {
 		InlineText.of(SilentStalker.class)
 				.t("title", "无声潜行")
-				.t("desc", "不会惊醒远处的敌人；阅读卷轴或使用法术结晶后获得隐形；隐形期间持续积累动量。");
+				.t("desc", "1 级：距离 3 格以外的敌人不会被你惊醒；阅读卷轴或使用法术结晶后获得隐形；隐形期间持续积累动量。\n2 级：只要不与敌人相邻，就不会惊醒它们。");
 	}
 
 	public SilentStalker() {

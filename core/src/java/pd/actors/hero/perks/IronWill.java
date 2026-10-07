@@ -11,7 +11,7 @@ public class IronWill extends Perk {
 	static {
 		InlineText.of(IronWill.class)
 				.t("title", "钢铁意志")
-				.t("desc", "你的纹章所提供的护盾增加 %d 点。");
+				.t("desc", "你的纹章所提供的护盾增加 %s 点。");
 	}
 
 	public IronWill() {
@@ -30,6 +30,6 @@ public class IronWill extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", shieldBonus());
+		return pd.messages.Messages.get(this, "desc", num(shieldBonus()));
 	}
 }

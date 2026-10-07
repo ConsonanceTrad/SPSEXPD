@@ -45,13 +45,11 @@ public final class PerkGrants {
 
 	public static void grant(Hero hero, Perk perk) {
 		if (hero == null || perk == null) return;
-		if (hero.heroPerk.has(perk.getClass())) {
-			hero.heroPerk.add(perk); // 升级
+		boolean owned = hero.heroPerk.has(perk.getClass());
+		//已拥有 -> HeroPerk.add 内部提示「升级」；未拥有 -> 这里提示「获得」
+		if (hero.heroPerk.add(perk) && !owned) {
 			PerkGain.announce(hero, perk);
-			return;
 		}
-		hero.heroPerk.add(perk);
-		PerkGain.announce(hero, perk);
 	}
 
 	/**

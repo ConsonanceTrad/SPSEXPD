@@ -11,7 +11,7 @@ public class ArcaneCrit extends Perk {
 	static {
 		InlineText.of(ArcaneCrit.class)
 				.t("title", "奥术暴击")
-				.t("desc", "法杖施法伤害享受暴击几率，造成 1.75 倍伤害；高等级还会额外提高法术暴击几率。");
+				.t("desc", "1 级：法杖施法伤害享受暴击几率，造成 1.75 倍伤害。\n2 级：法术暴击几率提高 9%%，此后每提升 1 级再提高 9%%。");
 	}
 
 	public ArcaneCrit() {

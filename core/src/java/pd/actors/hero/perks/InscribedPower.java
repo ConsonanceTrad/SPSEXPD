@@ -11,7 +11,7 @@ public class InscribedPower extends Perk {
 	static {
 		InlineText.of(InscribedPower.class)
 				.t("title", "卷藏秘能")
-				.t("desc", "阅读卷轴或使用法术结晶后，接下来 %d 次施法获得 %d 级额外等级。");
+				.t("desc", "阅读卷轴或使用法术结晶后，接下来 %s 次施法获得 %s 级额外等级。");
 	}
 
 	public InscribedPower() {
@@ -34,6 +34,6 @@ public class InscribedPower extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", charges(), castLevelBonus());
+		return pd.messages.Messages.get(this, "desc", num(charges()), num(castLevelBonus()));
 	}
 }

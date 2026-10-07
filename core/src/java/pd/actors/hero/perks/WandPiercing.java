@@ -11,7 +11,7 @@ public class WandPiercing extends Perk {
 	static {
 		InlineText.of(WandPiercing.class)
 				.t("title", "法术贯穿")
-				.t("desc", "法术命中后，使目标的魔法抗性降低 %d%%。");
+				.t("desc", "法术命中后，使目标的魔法抗性降低 %s%%。");
 	}
 
 	public WandPiercing() {
@@ -30,6 +30,6 @@ public class WandPiercing extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round(reduction() * 100));
+		return pd.messages.Messages.get(this, "desc", num(Math.round(reduction() * 100)));
 	}
 }

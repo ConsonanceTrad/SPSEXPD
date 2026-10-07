@@ -13,7 +13,7 @@ public class Telepath extends Perk {
 	static {
 		InlineText.of(Telepath.class)
 				.t("title", "心灵感知")
-				.t("desc", "感知周围 %d 格内的敌人，即使隔着墙。");
+				.t("desc", "感知周围 %s 格内的敌人，即使隔着墙。");
 	}
 
 	public Telepath() {
@@ -36,6 +36,6 @@ public class Telepath extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", range());
+		return pd.messages.Messages.get(this, "desc", num(range()));
 	}
 }

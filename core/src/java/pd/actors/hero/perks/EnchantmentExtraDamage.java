@@ -11,7 +11,7 @@ public class EnchantmentExtraDamage extends Perk {
 	static {
 		InlineText.of(EnchantmentExtraDamage.class)
 				.t("title", "附魔强化")
-				.t("desc", "使用附魔武器时获得 %d%% 的额外攻击加成。");
+				.t("desc", "使用附魔武器时获得 %s%% 的额外攻击加成。");
 	}
 
 	public EnchantmentExtraDamage() {
@@ -30,6 +30,6 @@ public class EnchantmentExtraDamage extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round(ratio() * 100));
+		return pd.messages.Messages.get(this, "desc", num(Math.round(ratio() * 100)));
 	}
 }

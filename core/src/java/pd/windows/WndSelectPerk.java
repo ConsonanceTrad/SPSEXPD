@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import pd.actors.hero.perks.Perk;
 import pd.messages.InlineText;
 import pd.messages.Messages;
+import pd.messages.Span;
 import pd.scenes.PixelScene;
 import pd.ui.PerkSlot;
 import pd.ui.RedButton;
@@ -22,7 +23,8 @@ public abstract class WndSelectPerk extends Window {
 
 	static {
 		InlineText.of(WndSelectPerk.class)
-				.t("confirm", "确认");
+				.t("confirm", "确认")
+				.t("upgrade_to", "（升级至 %d 级）");
 	}
 
 	protected static final int WIDTH = 130;
@@ -135,10 +137,24 @@ public abstract class WndSelectPerk extends Window {
 			slots.get(i).showHighlight(i == index);
 		}
 		if (index >= 0 && index < perks.size()) {
-			Perk p = perks.get(index);
-			descBlock.text(p.title() + "\n" + p.description());
+			showDescription(perks.get(index));
 		}
 		relayout();
+	}
+
+	/**
+	 * 标题 + 富文本描述：升级后会变化的数值为绿字，未达等级才解锁的效果为灰字。
+	 * 候选实例的等级 > 1 表示这是「已拥有特质的升级预览」，标题里标出升级后的等级。
+	 */
+	private void showDescription(Perk p) {
+		ArrayList<Span> spans = new ArrayList<>();
+		String title = p.title();
+		if (p.level() > 1) {
+			title += " " + Messages.get(WndSelectPerk.class, "upgrade_to", p.level());
+		}
+		spans.add(new Span(title + "\n", Span.DEFAULT));
+		spans.addAll(p.describeRich());
+		descBlock.spans(spans, WIDTH - GAP * 2);
 	}
 
 	/** 子类实现选中后的处理 */

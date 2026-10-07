@@ -11,7 +11,7 @@ public class EnragedCatalyst extends Perk {
 	static {
 		InlineText.of(EnragedCatalyst.class)
 				.t("title", "怒气导魔")
-				.t("desc", "怒气越充盈，武器上的附魔与诅咒触发概率越高（满怒气时提升至 %d%%）。");
+				.t("desc", "怒气越充盈，武器上的附魔与诅咒触发概率越高（满怒气时提升至 %s%%）。");
 	}
 
 	public EnragedCatalyst() {
@@ -31,6 +31,6 @@ public class EnragedCatalyst extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round(enchantProcMultiplier() * 100));
+		return pd.messages.Messages.get(this, "desc", num(Math.round(enchantProcMultiplier() * 100)));
 	}
 }

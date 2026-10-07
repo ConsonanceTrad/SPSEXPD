@@ -11,7 +11,7 @@ public class EndlessRage extends Perk {
 	static {
 		InlineText.of(EndlessRage.class)
 				.t("title", "洪荒之怒")
-				.t("desc", "怒气上限提升至 %d%%。");
+				.t("desc", "怒气上限提升至 %s%%。");
 	}
 
 	public EndlessRage() {
@@ -30,6 +30,6 @@ public class EndlessRage extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round(rageCapMultiplier() * 100));
+		return pd.messages.Messages.get(this, "desc", num(Math.round(rageCapMultiplier() * 100)));
 	}
 }

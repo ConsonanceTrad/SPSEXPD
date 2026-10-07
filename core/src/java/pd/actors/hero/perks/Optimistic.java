@@ -12,7 +12,7 @@ public class Optimistic extends Perk {
 	static {
 		InlineText.of(Optimistic.class)
 				.t("title", "乐观")
-				.t("desc", "受到的纯粹伤害有 %d%% 由法术防御抵挡（等级越高比例越高）。");
+				.t("desc", "受到的纯粹伤害有 %s%% 由法术防御抵挡（提升等级可提高抵挡比例）。");
 	}
 
 	public Optimistic() {
@@ -32,7 +32,7 @@ public class Optimistic extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round(resistRatio() * 100));
+		return pd.messages.Messages.get(this, "desc", num(Math.round(resistRatio() * 100)));
 	}
 
 	/** 把纯粹伤害按比例削减为可被法术防御抵挡的量 */

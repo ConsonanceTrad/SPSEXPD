@@ -9,7 +9,7 @@ package pd.ui;
 import pd.actors.hero.perks.Perk;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
-import pd.windows.WndMessage;
+import pd.windows.WndPerkInfo;
 import render.noosa.ColorBlock;
 
 public class PerkSlot extends Button {
@@ -32,7 +32,8 @@ public class PerkSlot extends Button {
 		icon = new PerkIcon(perk);
 		add(icon);
 
-		level = PixelScene.renderTextBlock(perk.level() > 1 ? String.valueOf(perk.level()) : "", 6);
+		//SPSXPD: 右上角始终显示等级（1 级也显示）
+		level = PixelScene.renderTextBlock(String.valueOf(perk.level()), 6);
 		level.hardlight(Window.TITLE_COLOR);
 		add(level);
 
@@ -60,6 +61,7 @@ public class PerkSlot extends Button {
 	@Override
 	protected void onClick() {
 		super.onClick();
-		GameScene.show(new WndMessage(perk.title() + "\n\n" + perk.description()));
+		//SPSXPD: 说明窗带等级，描述按等级着色（旧效果灰 / 变化数值绿）
+		GameScene.show(new WndPerkInfo(perk));
 	}
 }

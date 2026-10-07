@@ -11,7 +11,7 @@ public class Farsight extends Perk {
 	static {
 		InlineText.of(Farsight.class)
 				.t("title", "鹰眼远视")
-				.t("desc", "视野范围扩大 %d%%。");
+				.t("desc", "视野范围扩大 %s%%。");
 	}
 
 	public Farsight() {
@@ -30,6 +30,6 @@ public class Farsight extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round(viewBonus() * 100));
+		return pd.messages.Messages.get(this, "desc", num(Math.round(viewBonus() * 100)));
 	}
 }

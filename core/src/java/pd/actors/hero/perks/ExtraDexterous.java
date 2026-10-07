@@ -13,7 +13,7 @@ public class ExtraDexterous extends Perk.Additional {
 	static {
 		InlineText.of(ExtraDexterous.class)
 				.t("title", "灵巧")
-				.t("desc", "额外提升 %d 点防御技能。");
+				.t("desc", "额外提升 %s 点防御技能。");
 	}
 
 	public ExtraDexterous() {
@@ -32,7 +32,7 @@ public class ExtraDexterous extends Perk.Additional {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", extraDef());
+		return pd.messages.Messages.get(this, "desc", num(extraDef()));
 	}
 
 	@Override

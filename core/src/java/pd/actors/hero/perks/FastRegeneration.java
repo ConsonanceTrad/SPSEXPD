@@ -13,7 +13,7 @@ public class FastRegeneration extends Perk.Additional {
 	static {
 		InlineText.of(FastRegeneration.class)
 				.t("title", "快速再生")
-				.t("desc", "生命回复速度提升 %d%%。");
+				.t("desc", "生命回复速度提升 %s%%。");
 	}
 
 	public FastRegeneration() {
@@ -32,7 +32,7 @@ public class FastRegeneration extends Perk.Additional {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round(extraReg() * 100));
+		return pd.messages.Messages.get(this, "desc", num(Math.round(extraReg() * 100)));
 	}
 
 	@Override

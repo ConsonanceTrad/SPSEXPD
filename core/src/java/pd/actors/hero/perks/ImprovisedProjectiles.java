@@ -11,7 +11,7 @@ public class ImprovisedProjectiles extends Perk {
 	static {
 		InlineText.of(ImprovisedProjectiles.class)
 				.t("title", "即兴投掷")
-				.t("desc", "向敌人扔出非投掷武器的物品时会使其致盲 %d 回合（有冷却）。");
+				.t("desc", "向敌人扔出非投掷武器的物品时会使其致盲 %s 回合（有冷却）。");
 	}
 
 	public ImprovisedProjectiles() {
@@ -34,6 +34,6 @@ public class ImprovisedProjectiles extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round(blindTurns()));
+		return pd.messages.Messages.get(this, "desc", num(Math.round(blindTurns())));
 	}
 }

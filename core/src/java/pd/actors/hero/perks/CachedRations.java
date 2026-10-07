@@ -11,7 +11,7 @@ public class CachedRations extends Perk {
 	static {
 		InlineText.of(CachedRations.class)
 				.t("title", "备用口粮")
-				.t("desc", "在探索后续楼层时，可以从箱子中找出 %d 包备用口粮。");
+				.t("desc", "在探索后续楼层时，可以从箱子中找出 %s 包备用口粮。");
 	}
 
 	public CachedRations() {
@@ -30,6 +30,6 @@ public class CachedRations extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", rationsPerFloor());
+		return pd.messages.Messages.get(this, "desc", num(rationsPerFloor()));
 	}
 }

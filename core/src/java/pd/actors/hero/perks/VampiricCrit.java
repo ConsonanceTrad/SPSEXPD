@@ -13,7 +13,7 @@ public class VampiricCrit extends Perk {
 	static {
 		InlineText.of(VampiricCrit.class)
 				.t("title", "汲血暴击")
-				.t("desc", "暴击能从敌人身上汲取生命（每级约 %d%% 造成伤害）。");
+				.t("desc", "暴击能从敌人身上汲取生命（每级约 %s%% 造成伤害）。");
 	}
 
 	public VampiricCrit() {
@@ -32,7 +32,7 @@ public class VampiricCrit extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round(ratio() * 100));
+		return pd.messages.Messages.get(this, "desc", num(Math.round(ratio() * 100)));
 	}
 
 	/** 暴击命中后调用；恢复量不超过已损失生命 */

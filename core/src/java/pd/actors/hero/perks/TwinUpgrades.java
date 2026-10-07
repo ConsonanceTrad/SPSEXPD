@@ -11,7 +11,7 @@ public class TwinUpgrades extends Perk {
 	static {
 		InlineText.of(TwinUpgrades.class)
 				.t("title", "伴生强化")
-				.t("desc", "双持时，若一把武器的阶数比另一把低出至少 %d 阶，则其等级被加强至与另一把相同。");
+				.t("desc", "双持时，若一把武器的阶数比另一把低出至少 %s 阶，则其等级被加强至与另一把相同。");
 	}
 
 	public TwinUpgrades() {
@@ -30,6 +30,6 @@ public class TwinUpgrades extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", tierGap());
+		return pd.messages.Messages.get(this, "desc", num(tierGap()));
 	}
 }

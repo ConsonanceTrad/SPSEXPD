@@ -11,7 +11,7 @@ public class EnhancedCombo extends Perk {
 	static {
 		InlineText.of(EnhancedCombo.class)
 				.t("title", "战技强化")
-				.t("desc", "连击数达到 %d 或以上时，冲击的击退距离提升并附带眩晕，可将敌人击落深渊。");
+				.t("desc", "连击数达到 %s 或以上时，冲击的击退距离提升并附带眩晕，可将敌人击落深渊。");
 	}
 
 	public EnhancedCombo() {
@@ -38,6 +38,6 @@ public class EnhancedCombo extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", comboThreshold());
+		return pd.messages.Messages.get(this, "desc", num(comboThreshold()));
 	}
 }

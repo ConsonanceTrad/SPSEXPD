@@ -11,7 +11,7 @@ public class SwiftEquip extends Perk {
 	static {
 		InlineText.of(SwiftEquip.class)
 				.t("title", "迅疾配装")
-				.t("desc", "每 %d 回合可以瞬时更换一次装备的武器。");
+				.t("desc", "每 %s 回合可以瞬时更换一次装备的武器。");
 	}
 
 	public SwiftEquip() {
@@ -30,6 +30,6 @@ public class SwiftEquip extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", cooldownTurns());
+		return pd.messages.Messages.get(this, "desc", num(cooldownTurns()));
 	}
 }

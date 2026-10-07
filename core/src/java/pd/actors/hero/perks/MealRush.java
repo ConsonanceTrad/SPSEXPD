@@ -12,7 +12,7 @@ public class MealRush extends Perk {
 	static {
 		InlineText.of(MealRush.class)
 				.t("title", "速食一餐")
-				.t("desc", "进食只花费极短时间，并为本职业的资源（法杖/神器/武技/圣典）补充充能。");
+				.t("desc", "1 级：进食只花费极短时间（约半个回合），并为本职业的资源（法杖/神器/武技/圣典）补充充能。\n2 级：进食不再消耗回合。");
 	}
 
 	public MealRush() {

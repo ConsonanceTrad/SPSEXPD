@@ -11,7 +11,7 @@ public class EfficientPotionOfHealing extends Perk {
 	static {
 		InlineText.of(EfficientPotionOfHealing.class)
 				.t("title", "药剂增效")
-				.t("desc", "你使用的治疗药剂总量提升 %d%%，且生效更快。");
+				.t("desc", "你使用的治疗药剂总量提升 %s%%，且生效更快。");
 	}
 
 	public EfficientPotionOfHealing() {
@@ -30,6 +30,6 @@ public class EfficientPotionOfHealing extends Perk {
 
 	@Override
 	public String description() {
-		return pd.messages.Messages.get(this, "desc", Math.round(bonus() * 100));
+		return pd.messages.Messages.get(this, "desc", num(Math.round(bonus() * 100)));
 	}
 }
