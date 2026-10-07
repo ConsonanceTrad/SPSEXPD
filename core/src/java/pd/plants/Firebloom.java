@@ -87,6 +87,6 @@ public class Firebloom extends Plant {
 	}
 
 	public static class ExFirebloom extends SpsFruitBush {
-		{ image = 0; harvestCount = 3; harvestClass = FireFruit.class; }
+		{ image = 0; }
 	}
 }

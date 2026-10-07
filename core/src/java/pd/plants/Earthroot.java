@@ -92,7 +92,7 @@ public class Earthroot extends Plant {
 	}
 
 	public static class ExEarthroot extends SpsFruitBush {
-		{ image = 5; harvestCount = 3; harvestClass = RootFruit.class; }
+		{ image = 5; }
 	}
 	
 	public static class Armor extends Buff {

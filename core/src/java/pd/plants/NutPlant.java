@@ -41,6 +41,6 @@ public class NutPlant extends Plant {
 		{ image = ConsumPotionSeedSeedDict.SEED_NUTVINE; plantClass = NutPlant.class; explantClass = ExNutPlant.class; }
 	}
 	public static class ExNutPlant extends SpsFruitBush {
-		{ image = 17; harvestCount = 3; harvestClass = NutFruit.class; }
+		{ image = 17; }
 	}
 }

@@ -55,6 +55,6 @@ public class Dreamfoil extends Plant {
 		{ image = ConsumPotionSeedSeedDict.SEED_MAGEROYAL_0; plantClass = Dreamfoil.class; explantClass = ExDreamfoil.class; }
 	}
 	public static class ExDreamfoil extends SpsFruitBush {
-		{ image = 10; harvestCount = 3; harvestClass = CharmFruit.class; }
+		{ image = 10; }
 	}
 }

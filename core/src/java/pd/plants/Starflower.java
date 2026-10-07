@@ -92,6 +92,7 @@ public class Starflower extends Plant {
 	}
 
 	public static class ExStarflower extends SpsFruitBush {
-		{ image = 11; harvestCount = 1; harvestCategory = Generator.Category.NORNSTONE; }
+		//SPSEXPD: 星陨花果丛不再额外掉落魔法矿石（诺恩石）
+		{ image = 11; }
 	}
 }

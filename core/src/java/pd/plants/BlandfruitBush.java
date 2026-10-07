@@ -65,6 +65,6 @@ public class BlandfruitBush extends Plant {
 	}
 
 	public static class ExBlandfruitBush extends SpsFruitBush {
-		{ image = 8; harvestCount = 2; harvestClass = Blandfruit.class; }
+		{ image = 8; }
 	}
 }

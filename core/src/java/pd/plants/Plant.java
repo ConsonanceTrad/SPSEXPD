@@ -62,7 +62,9 @@ public abstract class Plant implements Bundlable {
 			.t("$seed.seed_of", "%s之种")
 			.t("$seed.ac_plant", "种植")
 			.t("$seed.info", "把这粒种子丢到你想长出一株植物的地方。\n\n%s")
-			.t("$seed$placeholder.name", "种子");
+			.t("$seed$placeholder.name", "种子")
+			//SPSEXPD: 花盆只能种植一次
+			.t("$seed.pot_used", "花盆只能种植一次，这里已经种过作物了。");
 	}
 
 
@@ -105,6 +107,12 @@ public abstract class Plant implements Bundlable {
 	public abstract void activate( Char ch );
 	
 	public void wither() {
+		//SPSEXPD: 花盆上种过的作物被移除（含被踩踏）后，花盆退化为普通格子——一个花盆只能种植一次
+		if (Dungeon.level != null && Dungeon.level.map[pos] == Terrain.FLOWER_POT) {
+			Level.set(pos, Terrain.EMPTY, Dungeon.level);
+			GameScene.updateMap(pos);
+		}
+
 		GroundItems.uproot( Dungeon.level,  pos );
 
 		if (Dungeon.level.heroFOV[pos]) {
@@ -182,9 +190,13 @@ public abstract class Plant implements Bundlable {
 					|| Dungeon.isChallenged(Challenges.NO_HERBALISM)) {
 				super.onThrow( cell );
 			} else if (Dungeon.level.map[cell] == Terrain.FLOWER_POT) {
-				//SPSEXPD: 手动把种子种进花盆 = 精心种植（果丛形态 + 花盆产出规则）
-				Catalog.countUse(getClass());
-				GroundItems.explantPot( Dungeon.level, this, cell );
+				//SPSEXPD: 手动把种子种进花盆 = 精心种植；一个花盆只能种植一次
+				if (GroundItems.explantPot( Dungeon.level, this, cell ) == null) {
+					pd.utils.GLog.w( Messages.get(Seed.class, "pot_used") );
+					super.onThrow( cell );
+				} else {
+					Catalog.countUse(getClass());
+				}
 			} else {
 				Catalog.countUse(getClass());
 				GroundItems.plant( Dungeon.level,  this, cell );

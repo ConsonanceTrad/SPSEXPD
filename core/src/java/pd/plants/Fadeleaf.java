@@ -102,6 +102,6 @@ public class Fadeleaf extends Plant {
 	}
 
 	public static class ExFadeleaf extends SpsFruitBush {
-		{ image = 6; harvestCount = 3; harvestClass = SmokeFruit.class; }
+		{ image = 6; }
 	}
 }

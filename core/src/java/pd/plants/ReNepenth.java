@@ -32,6 +32,6 @@ public class ReNepenth extends Plant {
 		{ image = ConsumPotionSeedSeedDict.SEED_TRANSMUTE_CAGE; plantClass = ReNepenth.class; explantClass = ExReNepenth.class; }
 	}
 	public static class ExReNepenth extends SpsFruitBush {
-		{ image = 14; harvestCount = 2; harvestClass = TransmutationBall.class; }
+		{ image = 14; }
 	}
 }

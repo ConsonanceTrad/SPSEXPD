@@ -84,6 +84,6 @@ public class Icecap extends Plant {
 	}
 
 	public static class ExIcecap extends SpsFruitBush {
-		{ image = 1; harvestCount = 3; harvestClass = IceFruit.class; }
+		{ image = 1; }
 	}
 }

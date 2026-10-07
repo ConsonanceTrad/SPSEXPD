@@ -13,32 +13,34 @@ import render.utils.serialize.Reflection;
 import java.util.ArrayList;
 
 /**
- * Shared harvest behavior for SPS-PD's entrance-room enhanced plants.
+ * SPSEXPD: 人工/精心作物的统一收获行为。
  *
- * SPSEXPD: 统一后的精心种植行为——
- * 人工种植（入口房/帐篷房/浇水的花盆）：掉 1 个蔬菜，周围散落 2~3 枚投掷果实；
- * 花盆精心种植（手动把种子种进花盆）：掉 1 个蔬菜，周围再散落 1~2 个蔬菜与 3 枚投掷果实，
- * 每枚果实有 30% 几率变成对应的大型果实。
- * 原有的 harvestClass/harvestCategory 产出保留，不因统一种植而丢失；所有散落共用同一批相邻格，不会重复堆叠。
+ * <ul>
+ *   <li>人工种植（玩家把种子种在地上、帐篷房的花盆、浇水的花盆）：
+ *       掉 1 个蔬菜（落在踩踏格）+ 散落 1~2 枚投掷果实；</li>
+ *   <li>精心种植（手动把种子种进花盆 / 精制种子种在普通地板）：
+ *       掉 2~3 个蔬菜（落在踩踏格）+ 散落 2~3 枚投掷果实，每枚果实 3% 几率是大型果实。</li>
+ * </ul>
+ *
+ * 野生植物不继承本类，由 {@link Plant#trigger} 散落 1 枚果实、不掉蔬菜。
+ * 少数果丛保留原有额外产出（腐莓果丛的中心腐莓之种、浆果果丛的浆果）。
  */
 public abstract class SpsFruitBush extends Plant {
 
-	//旧字段：部分植物（腐莓之种/符文石/转换球/升级球…）仍用它们产出原有物品
-	protected int harvestCount;
-	protected Class<? extends Item> harvestClass;
-	protected Generator.Category harvestCategory;
-	protected Class<? extends Item> centerClass;
-
-	/** SPSEXPD: 是否为花盆精心种植（手动把种子种进花盆）。 */
+	/** SPSEXPD: 精心种植（手动种进花盆 / 精制种子）时为 true。 */
 	public boolean potGrown = false;
-	protected int potVegetableMin = 1;
-	protected int potVegetableMax = 2;
-	protected int potFruitCount = 3;
-	protected float largeChance = 0.3f;
+
+	/** SPSEXPD: 保留的额外产出——中心返还物（腐莓果丛的腐莓之种）。 */
+	protected Class<? extends Item> centerClass;
+	/** SPSEXPD: 保留的额外产出——散落的额外物品类别（浆果果丛的浆果）。 */
+	protected Generator.Category harvestCategory;
+	protected int harvestCount;
+
+	/** SPSEXPD: 精心种植时每枚果实变成大型果实的几率。 */
+	protected static final float LARGE_FRUIT_CHANCE = 0.03f;
 
 	protected Item harvestItem() {
-		return harvestCategory == null ? Reflection.newInstance(harvestClass)
-				: Generator.random(harvestCategory);
+		return harvestCategory == null ? null : Generator.random(harvestCategory);
 	}
 
 	protected void beforeHarvest() {
@@ -64,36 +66,29 @@ public abstract class SpsFruitBush extends Plant {
 		beforeHarvest();
 		if (Dungeon.level == null) return;
 
-		ArrayList<Integer> candidates = PlantHarvest.neighbours(Dungeon.level, pos);
-
-		//旧的收获产出（保留原 SPS 行为）
-		if (harvestClass != null || harvestCategory != null) {
-			for (int i = 0; i < harvestCount && !candidates.isEmpty(); i++) {
-				PlantHarvest.dropItem(Dungeon.level, take(candidates), harvestItem(), pos);
-			}
-		}
-
 		PlantHarvest.Species species = PlantHarvest.speciesFor(getClass());
 		if (species == null) return;
 
-		//原地掉 1 个对应蔬菜
-		PlantHarvest.drop(Dungeon.level, pos, species.vegetable, pos);
+		ArrayList<Integer> candidates = PlantHarvest.neighbours(Dungeon.level, pos);
 
-		if (potGrown) {
-			//花盆精心种植：周围再散落 1~2 个蔬菜 + 3 枚果实（每枚 30% 大型）
-			for (int i = 0, n = Random.NormalIntRange(potVegetableMin, potVegetableMax);
-					i < n && !candidates.isEmpty(); i++) {
-				PlantHarvest.drop(Dungeon.level, take(candidates), species.vegetable, pos);
-			}
-			for (int i = 0; i < potFruitCount && !candidates.isEmpty(); i++) {
-				Class<? extends Item> type = species.fruit;
-				if (species.largeFruit != null && Random.Float() < largeChance) type = species.largeFruit;
-				PlantHarvest.drop(Dungeon.level, take(candidates), type, pos);
-			}
-		} else {
-			//人工种植：周围散落 2~3 枚果实
-			for (int i = 0, n = Random.NormalIntRange(2, 3); i < n && !candidates.isEmpty(); i++) {
-				PlantHarvest.drop(Dungeon.level, take(candidates), species.fruit, pos);
+		//SPSEXPD: 果实散落到相邻格——人工 1~2 枚，精心 2~3 枚（每枚 3% 几率大型）
+		int fruitCount = potGrown ? Random.NormalIntRange(2, 3) : Random.NormalIntRange(1, 2);
+		for (int i = 0; i < fruitCount && !candidates.isEmpty(); i++) {
+			Class<? extends Item> type = species.fruit;
+			if (potGrown && species.largeFruit != null && Random.Float() < LARGE_FRUIT_CHANCE) type = species.largeFruit;
+			PlantHarvest.drop(Dungeon.level, take(candidates), type, pos);
+		}
+
+		//SPSEXPD: 蔬菜不再散落，全部落在踩踏地——人工 1 个，精心 2~3 个
+		int vegetableCount = potGrown ? Random.NormalIntRange(2, 3) : 1;
+		for (int i = 0; i < vegetableCount; i++) {
+			PlantHarvest.drop(Dungeon.level, pos, species.vegetable, pos);
+		}
+
+		//SPSEXPD: 保留的额外产出（浆果等）
+		if (harvestCategory != null) {
+			for (int i = 0; i < harvestCount && !candidates.isEmpty(); i++) {
+				PlantHarvest.dropItem(Dungeon.level, take(candidates), harvestItem(), pos);
 			}
 		}
 	}

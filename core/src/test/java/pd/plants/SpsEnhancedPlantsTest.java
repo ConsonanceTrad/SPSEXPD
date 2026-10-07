@@ -121,15 +121,8 @@ public final class SpsEnhancedPlantsTest {
 			ConsumPotionSeedSeedDict.SEED_POD, ConsumPotionSeedSeedDict.SEED_ROT_BERRY,
 			ConsumPotionSeedSeedDict.SEED_QUARTZFLOWER, ConsumPotionSeedSeedDict.SEED_SWIFTTHISTLE
 	};
-	private static final int[] HARVEST_COUNTS = {
-			3, 3, 3, 3, 2, 3, 3, 1, 2, 3, 3, 3, 1, 2, 2, 0, 0, 3, 2, 0
-	};
-	private static final Class<?>[] HARVEST_CLASSES = {
-			FireFruit.class, IceFruit.class, ToxicFruit.class, BlindFruit.class, HealFruit.class,
-			RootFruit.class, SmokeFruit.class, Gold.class, Blandfruit.class, CharmFruit.class,
-			ShockFruit.class, NutFruit.class, null, TransmutationBall.class, StarEaterFlower.class,
-			null, null, null, GlassFruit.class, null
-	};
+	//SPSEXPD: 果实/蔬菜掉落已改为统一规则，不再按果丛逐个配置旧产出表；
+	//果丛只保留“附加产出”：浆果果丛的浆果（harvestCount/harvestCategory）、腐莓果丛的中心腐莓之种（centerClass）。
 
 	private static final String[] SEED_HASHES = {
 			"EC1D12B4FD149963B61DA4405CE9835ED0DF458D1DEF85CB04B894A62EF69AE0",
@@ -221,10 +214,10 @@ public final class SpsEnhancedPlantsTest {
 			SpsFruitBush plant = (SpsFruitBush)seed.excouch(40, level);
 			check(plant.getClass() == ENHANCED[i] && plant.image == PLANT_IMAGES[i],
 					"第" + i + "种强化植物类型或图像错误");
-			check(plant.harvestCount == HARVEST_COUNTS[i], "第" + i + "种果丛掉落数量错误");
-			check(plant.harvestClass == HARVEST_CLASSES[i], "第" + i + "种果丛掉落类型错误");
-			Generator.Category expectedCategory = i == 12 ? Generator.Category.NORNSTONE
-					: i == 17 ? Generator.Category.SPS_BERRY : null;
+			//SPSEXPD: 果实/蔬菜掉落改为统一规则（人工 1~2 果实 + 1 蔬菜、精心 2~3 + 2~3），
+			//果丛只保留“附加产出”：浆果果丛的浆果、腐莓果丛的中心腐莓之种
+			check(plant.harvestCount == (i == 17 ? 3 : 0), "第" + i + "种果丛附加产出数量错误");
+			Generator.Category expectedCategory = i == 17 ? Generator.Category.SPS_BERRY : null;
 			check(plant.harvestCategory == expectedCategory, "第" + i + "种果丛随机牌组错误");
 			check(plant.centerClass == (i == 7 ? Rotberry.Seed.class : null),
 					"第" + i + "种果丛中心掉落错误");
@@ -248,9 +241,10 @@ public final class SpsEnhancedPlantsTest {
 	}
 
 	private static void validateHarvest(TestLevel level, int index) {
-		int legacy = HARVEST_COUNTS[index];
-		boolean legacySeen = legacy == 0;
+		//SPSEXPD: 人工种植 = 散落 1~2 枚投掷果实到邻格；浆果果丛额外散落 3 个浆果
+		int bonus = index == 17 ? 3 : 0;
 		boolean fruitSeen = false;
+		boolean bonusSeen = bonus == 0;
 		int neighbourHeaps = 0;
 		int neighbourItems = 0;
 		for (int offset : PathFinder.NEIGHBOURS8) {
@@ -260,22 +254,20 @@ public final class SpsEnhancedPlantsTest {
 			neighbourItems += heap.items.size();
 			check(heap.items.size() == 1, "第" + index + "种果丛在同一邻格重复掉落");
 			Item item = heap.peek();
-			if (HARVEST_CLASSES[index] != null && HARVEST_CLASSES[index].isInstance(item)) legacySeen = true;
-			if (index == 12 && item instanceof NornStone) legacySeen = true;
-			if (index == 17 && item instanceof Fruit) legacySeen = true;
 			if (item instanceof MissileWeapon) fruitSeen = true;
+			if (index == 17 && item instanceof Fruit) bonusSeen = true;
 		}
 		check(neighbourHeaps == neighbourItems, "第" + index + "种果丛邻格掉落堆叠异常");
-		//SPSEXPD: 新规则下邻格 = 旧版产出 + 2~3 枚投掷果实
-		check(neighbourItems >= legacy + 2 && neighbourItems <= legacy + 3,
+		check(neighbourItems >= 1 + bonus && neighbourItems <= 2 + bonus,
 				"第" + index + "种果丛邻格掉落总数错误");
-		check(legacySeen, "第" + index + "种果丛旧版产出丢失");
 		check(fruitSeen, "第" + index + "种果丛没有散落投掷果实");
+		check(bonusSeen, "第" + index + "种果丛附加产出丢失");
 
+		//SPSEXPD: 蔬菜不再散落，全部落在踩踏地（中心格），人工种植固定 1 个
 		Heap center = level.heaps.get(40);
 		PlantHarvest.Species species = PlantHarvest.speciesFor(ENHANCED[index]);
 		check(center != null && center.items.stream().anyMatch(item -> species.vegetable.isInstance(item)),
-				"第" + index + "种果丛没有在原地掉落蔬菜");
+				"第" + index + "种果丛没有在踩踏地掉落蔬菜");
 		if (index == 7) check(center.items.stream().anyMatch(item -> item instanceof Rotberry.Seed),
 				"腐莓果丛没有在中心返还种子");
 	}
@@ -300,8 +292,13 @@ public final class SpsEnhancedPlantsTest {
 			int dy = Math.abs(cell / width - py);
 			check((dx + dy) > 0 && dx <= 1 && dy <= 1, "地图边缘强化植物发生越界或横向绕回");
 		}
-		check(level.heaps.get(12) != null, "地图边缘强化植物没有掉落蔬菜");
-		check(level.heaps.get(13) != null, "地图边缘强化植物没有散落果实");
+		check(level.heaps.get(12) != null, "地图边缘强化植物没有在踩踏地掉落蔬菜");
+		//SPSEXPD: 果实散落到相邻格，具体落点随机，只要求至少有一格
+		boolean edgeFruit = false;
+		for (int offset : PathFinder.NEIGHBOURS8) {
+			if (level.heaps.get(12 + offset) != null) edgeFruit = true;
+		}
+		check(edgeFruit, "地图边缘强化植物没有散落果实");
 	}
 
 	private static void testFruitEffects() {

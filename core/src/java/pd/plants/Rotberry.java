@@ -104,6 +104,6 @@ public class Rotberry extends Plant {
 	}
 
 	public static class ExRotberry extends SpsFruitBush {
-		{ image = 7; centerClass = Rotberry.Seed.class; harvestCount = 1; harvestClass = Gold.class; }
+		{ image = 7; centerClass = Rotberry.Seed.class; }
 	}
 }

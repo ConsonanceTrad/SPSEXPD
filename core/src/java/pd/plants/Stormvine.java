@@ -81,6 +81,6 @@ public class Stormvine extends Plant {
 	}
 
 	public static class ExStormvine extends SpsFruitBush {
-		{ image = 9; harvestCount = 3; harvestClass = ShockFruit.class; }
+		{ image = 9; }
 	}
 }

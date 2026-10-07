@@ -135,9 +135,11 @@ public final class GroundItems {
 
 	/**
 	 * SPSEXPD: 手动把种子种进花盆 = 精心种植。
-	 * 与 explant 相同，但标记为花盆精心种植，收获时按花盆规则产出（额外蔬菜 + 3 枚果实，30% 大型）。
+	 * 与 explant 相同，但标记为精心种植，收获时按精心规则产出（2~3 果实 + 2~3 蔬菜）。
+	 * 花盆只能种植一次：盆里已经有作物时返回 null，由调用方给出提示。
 	 */
 	public static Plant explantPot( Level level, Plant.Seed seed, int pos ) {
+		if (level.plants.get(pos) != null) return null;
 		Plant plant = explant( level, seed, pos );
 		if (plant instanceof SpsFruitBush) {
 			((SpsFruitBush) plant).potGrown = true;

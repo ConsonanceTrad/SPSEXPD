@@ -31,6 +31,6 @@ public class StarEater extends Plant {
 		{ image = ConsumPotionSeedSeedDict.SEED_STAREATER; plantClass = StarEater.class; explantClass = ExStarEater.class; }
 	}
 	public static class ExStarEater extends SpsFruitBush {
-		{ image = 15; harvestCount = 2; harvestClass = StarEaterFlower.class; }
+		{ image = 15; }
 	}
 }

@@ -35,6 +35,6 @@ public class SiOtwoFlower extends Plant {
 		{ image = ConsumPotionSeedSeedDict.SEED_QUARTZFLOWER; plantClass = SiOtwoFlower.class; explantClass = ExSiOtwoFlower.class; }
 	}
 	public static class ExSiOtwoFlower extends SpsFruitBush {
-		{ image = 18; harvestCount = 2; harvestClass = GlassFruit.class; }
+		{ image = 18; }
 	}
 }

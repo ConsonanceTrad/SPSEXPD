@@ -81,6 +81,6 @@ public class Sorrowmoss extends Plant {
 	}
 
 	public static class ExSorrowmoss extends SpsFruitBush {
-		{ image = 2; harvestCount = 3; harvestClass = ToxicFruit.class; }
+		{ image = 2; }
 	}
 }

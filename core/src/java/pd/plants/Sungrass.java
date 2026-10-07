@@ -89,7 +89,7 @@ public class Sungrass extends Plant {
 	}
 
 	public static class ExSungrass extends SpsFruitBush {
-		{ image = 4; harvestCount = 2; harvestClass = HealFruit.class; }
+		{ image = 4; }
 	}
 	
 	public static class Health extends Buff {

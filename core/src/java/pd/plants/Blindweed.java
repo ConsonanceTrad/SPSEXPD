@@ -91,6 +91,6 @@ public class Blindweed extends Plant {
 	}
 
 	public static class ExBlindweed extends SpsFruitBush {
-		{ image = 3; harvestCount = 3; harvestClass = BlindFruit.class; }
+		{ image = 3; }
 	}
 }
