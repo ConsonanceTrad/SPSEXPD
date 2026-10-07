@@ -51,7 +51,6 @@ import pd.items.equipment.armor.normalarmor.WoodenArmor;
 import pd.items.equipment.artifacts.AlchemistsToolkit;
 import pd.items.equipment.artifacts.AlienBag;
 import pd.items.equipment.artifacts.Artifact;
-import pd.items.equipment.artifacts.CapeOfThorns;
 import pd.items.equipment.artifacts.ChaliceOfBlood;
 import pd.items.equipment.artifacts.CloakOfSheep;
 import pd.items.equipment.artifacts.CloakOfShadows;
@@ -1014,8 +1013,7 @@ public class Generator {
 			RING.probs = RING.defaultProbs.clone();
 			
 			ARTIFACT.classes = new Class<?>[]{
-					CapeOfThorns.class,
-					//SPSEXPD: 用撒旦之心取代圣杯（ChaliceOfBlood 类保留以兼容旧档，但不再掉落）
+					//SPSEXPD: 荆棘斗篷已移除（其提高种子掉落的效果并入自然之鞋）
 					HeartOfSatan.class,
 					CloakOfShadows.class,
 					HornOfPlenty.class,
@@ -1040,7 +1038,7 @@ public class Generator {
 					GoddessRadiance.class,
 					CloakOfSheep.class
 			};
-			ARTIFACT.defaultProbs = new float[]{1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1};
+			ARTIFACT.defaultProbs = new float[]{1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1};
 			ARTIFACT.probs = ARTIFACT.defaultProbs.clone();
 
 			//Trinkets are unique like artifacts, but unlike them you can only have one at once

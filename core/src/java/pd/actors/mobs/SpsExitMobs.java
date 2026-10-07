@@ -45,7 +45,6 @@ import pd.items.Item;
 import pd.items.KindOfWeapon;
 import pd.items.StoneOre;
 import pd.items.equipment.armor.normalarmor.WoodenArmor;
-import pd.items.equipment.artifacts.CapeOfThorns;
 import pd.items.equipment.artifacts.HornOfPlenty;
 import pd.items.consum.food.MysteryMeat;
 import pd.items.consum.food.meatfood.Meat;
@@ -357,7 +356,7 @@ public final class SpsExitMobs {
 		@Override public int attackProc(Char enemy, int damage) { if (Random.Int(3) == 0) { int opposite = enemy.pos + enemy.pos - pos; if (Dungeon.level.insideMap(opposite)) { WandOfFlow.throwChar(enemy, new Ballistica(enemy.pos, opposite, Ballistica.MAGIC_BOLT), 2); Buff.prolong(enemy, Vertigo.class, 3f); } } return damage; }
 		@Override public int defenseProc(Char enemy, int damage) { if (HP > damage && Random.Int(2) == 0) attack(enemy); return damage; }
 		@Override public void damage(int damage, Object src) { super.damage(cap(damage, HT), src); if (isAlive() && !enraged && HP < HT / 4) { enraged = true; Buff.affect(this, DefenceUp.class, 3f).level(70); spend(TICK); } }
-		@Override public Item SupercreateLoot() { return Random.oneOf(new WoodenArmor(), new Handaxe(), new CapeOfThorns()); }
+		@Override public Item SupercreateLoot() { return Random.oneOf(new WoodenArmor(), new Handaxe()); }
 		public static Generator.Category secondaryLootCategory() { return Generator.Category.RANGEWEAPON; }
 		@Override public void rollToDropLoot() { super.rollToDropLoot(); if (Dungeon.hero != null && legacyLootLevelEligible() && Random.Float() < legacySecondaryLootChance(0.5f)) dropBonus(this, Generator.randomUsingDefaults(secondaryLootCategory())); }
 		@Override public void storeInBundle(Bundle b) { super.storeInBundle(b); b.put(BREAKS, breaks); b.put(ENRAGED, enraged); }

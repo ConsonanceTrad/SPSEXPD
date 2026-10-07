@@ -43,7 +43,7 @@ import java.util.Properties;
 public final class SpsGhostQuestTest {
 
 	private static final String[] ARTIFACTS = {
-			"CapeOfThorns", "HeartOfSatan", "CloakOfShadows", "HornOfPlenty",
+			"HeartOfSatan", "CloakOfShadows", "HornOfPlenty",
 			"MasterThievesArmband", "SandalsOfNature", "TalismanOfForesight",
 			"TimekeepersHourglass", "UnstableSpellbook", "AlchemistsToolkit",
 			"RobotDMT", "EyeOfSkadi", "EtherealChains", "DriedRose", "GlassTotem",
@@ -84,11 +84,12 @@ public final class SpsGhostQuestTest {
 
 	private static void testLegacyArtifactPool() {
 		check(Generator.Category.ARTIFACT.classes.length == ARTIFACTS.length,
-				"普通神器池数量不是0.9.8的18项");
+				"普通神器池数量与预期不符");
 		for (int i = 0; i < ARTIFACTS.length; i++) {
 			check(Generator.Category.ARTIFACT.classes[i].getSimpleName().equals(ARTIFACTS[i]),
 					"普通神器池顺序错误：" + i);
-			float expected = i == 2 || i == 16 || i == 17 ? 0f : 1f;
+			//SPSEXPD: 荆棘斗篷移除后索引整体前移一位（CloakOfShadows/FlyChains/TimeOclock 权重为 0）
+			float expected = i == 1 || i == 15 || i == 16 ? 0f : 1f;
 			check(Generator.Category.ARTIFACT.defaultProbs[i] == expected,
 					"普通神器池权重错误：" + ARTIFACTS[i]);
 		}

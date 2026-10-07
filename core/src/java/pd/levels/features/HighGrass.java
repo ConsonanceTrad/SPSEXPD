@@ -36,7 +36,6 @@ import pd.effects.particles.LeafParticle;
 import pd.items.Dewdrop;
 import pd.items.Generator;
 import pd.items.equipment.armor.glyphs.Camouflage;
-import pd.items.equipment.artifacts.CapeOfThorns;
 import pd.items.equipment.artifacts.NaturalAxe;
 import pd.items.equipment.artifacts.SandalsOfNature;
 import pd.items.consum.food.Berry;
@@ -80,7 +79,8 @@ public class HighGrass {
 			}
 			
 			int naturalismLevel = 0;
-			int thornsSeedDenominator = spsThornsSeedDenominator(ch);
+			//SPSEXPD: 原荆棘斗篷的独立种子掷骰已并入自然之鞋
+			int sandalsSeedDenominator = spsSandalsSeedDenominator(ch);
 			
 			if (ch != null) {
 				//SPSEXPD: 自然之斧——踩踏高草同样让它成长
@@ -164,8 +164,8 @@ public class HighGrass {
 				}
 			}
 
-			// SPS-PD 0.9.8 grants an independent seed roll from an uncursed thorn cape.
-			if (thornsSeedDenominator > 0 && Random.Int(thornsSeedDenominator) == 0) {
+			// SPSEXPD: 原本由未诅咒的荆棘斗篷提供的独立种子掷骰，现已并入自然之鞋。
+			if (sandalsSeedDenominator > 0 && Random.Int(sandalsSeedDenominator) == 0) {
 				level.drop(Generator.random(Generator.Category.SEED), pos).sprite.drop();
 			}
 
@@ -185,10 +185,11 @@ public class HighGrass {
 		}
 	}
 
-	public static int spsThornsSeedDenominator(Char ch) {
+	/** SPSEXPD: 自然之鞋踩踏高草时的独立种子掷骰（未诅咒且等级 ≥1 时为 1/(16-等级)）。原属荆棘斗篷，已并入自然之鞋。 */
+	public static int spsSandalsSeedDenominator(Char ch) {
 		if (ch == null) return 0;
-		CapeOfThorns.Thorns thorns = ch.buff(CapeOfThorns.Thorns.class);
-		if (thorns == null || thorns.isCursed() || thorns.itemLevel() < 1) return 0;
-		return 16 - thorns.itemLevel();
+		SandalsOfNature.Naturalism sandals = ch.buff(SandalsOfNature.Naturalism.class);
+		if (sandals == null || sandals.isCursed() || sandals.itemLevel() < 1) return 0;
+		return 16 - sandals.itemLevel();
 	}
 }

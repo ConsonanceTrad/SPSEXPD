@@ -25,7 +25,6 @@ import pd.items.Gold;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.StoneOre;
-import pd.items.equipment.artifacts.CapeOfThorns;
 import pd.items.nornstone.BlueNornStone;
 import pd.items.nornstone.GreenNornStone;
 import pd.items.nornstone.OrangeNornStone;
@@ -190,7 +189,8 @@ public class SpsDM300 extends Mob {
 		if (towerWasKilled) Dungeon.level.drop(new Gold(Random.IntRange(3000, 6000)), pos).sprite.drop();
 		Item common = Random.oneOf(new BlueNornStone(), new GreenNornStone(), new OrangeNornStone(),
 				new PurpleNornStone(), new YellowNornStone());
-		SpsCavesBossRewards.grant(pos, new CapeOfThorns().identify(), common);
+		//SPSEXPD: 荆棘斗篷已移除，DM-300 不再保底发放神器（保留常用掉落）
+		SpsCavesBossRewards.grant(pos, null, common);
 	}
 
 	private static final String TOWERS_SPAWNED = "towers_spawned";

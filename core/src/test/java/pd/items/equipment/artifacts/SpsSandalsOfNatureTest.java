@@ -14,6 +14,7 @@ import pd.actors.buffs.MagicImmune;
 import pd.actors.buffs.Roots;
 import pd.actors.hero.Hero;
 import pd.items.Item;
+import pd.levels.features.HighGrass;
 import pd.plants.Earthroot;
 import pd.plants.Firebloom;
 import pd.plants.Icecap;
@@ -39,6 +40,7 @@ public final class SpsSandalsOfNatureTest {
 			testActionsAndFeeding();
 			testRootAndArmor();
 			testNaturalismCharge();
+			testHighGrassSeedBonus();
 			testSprout();
 			testImagesAndSaveMigration();
 			testIntegrationSources();
@@ -194,6 +196,22 @@ public final class SpsSandalsOfNatureTest {
 		check(hero.contains("Earthroot.MagicPlantArmor naturalArmor")
 				&& hero.contains("naturalArmor.absorb(damage)"),
 				"英雄受击流程没有接入旧版50%植被护甲");
+	}
+
+	private static void testHighGrassSeedBonus() {
+		RecordingHero hero = prepareHero();
+		TestSandals sandals = equip(hero);
+		SandalsOfNature.Naturalism naturalism = sandals.new Naturalism();
+		check(naturalism.attachTo(hero), "高草种子测试的自然主义状态无法附加");
+
+		//SPSEXPD: 独立种子掷骰原属荆棘斗篷，现已并入自然之鞋
+		check(HighGrass.spsSandalsSeedDenominator(hero) == 0, "零级自然之鞋错误增加高草种子掉落");
+		sandals.level(1);
+		check(HighGrass.spsSandalsSeedDenominator(hero) == 15, "一级自然之鞋高草额外种子概率不是1/15");
+		sandals.level(10);
+		check(HighGrass.spsSandalsSeedDenominator(hero) == 6, "十级自然之鞋高草额外种子概率不是1/6");
+		sandals.cursed = true;
+		check(HighGrass.spsSandalsSeedDenominator(hero) == 0, "诅咒自然之鞋仍增加高草种子掉落");
 	}
 
 	private static void testLocalizedResources() throws Exception {

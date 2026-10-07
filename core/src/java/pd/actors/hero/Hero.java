@@ -141,7 +141,6 @@ import pd.items.equipment.armor.ClassArmor;
 import pd.items.equipment.armor.ClothArmor;
 import pd.items.equipment.armor.glyphs.Stone;
 import pd.items.equipment.armor.glyphs.Viscosity;
-import pd.items.equipment.artifacts.CapeOfThorns;
 import pd.items.equipment.artifacts.CloakOfShadows;
 import pd.items.equipment.artifacts.DriedRose;
 import pd.items.equipment.artifacts.EtherealChains;
@@ -2181,11 +2180,7 @@ public class Hero extends Char {
 			}
 		}
 
-		//unused, could be removed
-		CapeOfThorns.Thorns thorns = buff( CapeOfThorns.Thorns.class );
-		if (thorns != null) {
-			damage = thorns.proc((int)damage, (src instanceof Char ? (Char)src : null),  this);
-		}
+		//SPSEXPD: 荆棘斗篷已移除，其荆棘反弹钩子一并删除
 
 		if (buff(Talent.WarriorFoodImmunity.class) != null){
 			if (pointsInTalent(Talent.IRON_STOMACH) == 1)       damage /= 4f;
