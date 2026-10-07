@@ -62,6 +62,7 @@ import pd.items.equipment.artifacts.GlassTotem;
 import pd.items.equipment.artifacts.HolyTome;
 import pd.items.equipment.artifacts.HornOfPlenty;
 import pd.items.equipment.artifacts.MasterThievesArmband;
+import pd.items.equipment.artifacts.NaturalAxe;
 import pd.items.equipment.artifacts.RobotDMT;
 import pd.items.equipment.artifacts.SandalsOfNature;
 import pd.items.equipment.artifacts.TalismanOfForesight;
@@ -1026,9 +1027,10 @@ public class Generator {
 					AlienBag.class,
 					FlyChains.class,
 					TimeOclock.class,
-					EndlessAmmoBag.class
+					EndlessAmmoBag.class,
+					NaturalAxe.class
 			};
-			ARTIFACT.defaultProbs = new float[]{1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1};
+			ARTIFACT.defaultProbs = new float[]{1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1};
 			ARTIFACT.probs = ARTIFACT.defaultProbs.clone();
 
 			//Trinkets are unique like artifacts, but unlike them you can only have one at once

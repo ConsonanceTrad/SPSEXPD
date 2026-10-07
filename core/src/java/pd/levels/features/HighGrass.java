@@ -37,6 +37,7 @@ import pd.items.Dewdrop;
 import pd.items.Generator;
 import pd.items.equipment.armor.glyphs.Camouflage;
 import pd.items.equipment.artifacts.CapeOfThorns;
+import pd.items.equipment.artifacts.NaturalAxe;
 import pd.items.equipment.artifacts.SandalsOfNature;
 import pd.items.consum.food.Berry;
 import pd.items.equipment.trinkets.PetrifiedSeed;
@@ -82,6 +83,10 @@ public class HighGrass {
 			int thornsSeedDenominator = spsThornsSeedDenominator(ch);
 			
 			if (ch != null) {
+				//SPSEXPD: 自然之斧——踩踏高草同样让它成长
+				NaturalAxe.Growth naturalAxe = NaturalAxe.growthOf(ch);
+				if (naturalAxe != null) naturalAxe.grow(1);
+
 				SandalsOfNature.Naturalism naturalism = ch.buff( SandalsOfNature.Naturalism.class );
 				if (naturalism != null) {
 					if (!naturalism.isCursed()) {

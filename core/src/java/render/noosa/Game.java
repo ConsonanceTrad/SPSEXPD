@@ -220,7 +220,8 @@ public class Game implements ApplicationListener {
 	}
 	
 	public static Scene scene() {
-		return instance.scene;
+		//SPSEXPD: 无头校验环境里 Game.instance 可能为 null，加守卫避免 NPE
+		return instance == null ? null : instance.scene;
 	}
 
 	public static boolean switchingScene() {
