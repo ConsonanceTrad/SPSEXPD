@@ -28,8 +28,8 @@ public class TrinityStance extends Buff {
 	}
 
 	public static final int MAX_LAYERS = 5;
-	/** 连续这么多回合没有命中就清空攻速叠加。 */
-	public static final int IDLE_RESET = 5;
+	/** 未命中后的宽限回合数：这之后每回合衰减一层攻速叠加。 */
+	public static final int GRACE_TURNS = 2;
 	public static final int DEFEND_TURNS = 5;
 	public static final int DEFEND_COOLDOWN = 10;
 	public static final float ATTACK_STEP = 0.2f;
@@ -88,7 +88,8 @@ public class TrinityStance extends Buff {
 			defendCooldown--;
 		}
 		idleTurns++;
-		if (idleTurns >= IDLE_RESET && layers > 0) layers = 0;
+		//SPSEXPD: 未命中先宽限 GRACE_TURNS 回合，之后逐层衰减（不再一次性清零）
+		if (idleTurns > GRACE_TURNS && layers > 0) layers--;
 		weapon.updateQuickslot();
 		spend(TICK);
 		return true;
@@ -99,8 +100,8 @@ public class TrinityStance extends Buff {
 		idleTurns = 0;
 		if (!defending && layers < MAX_LAYERS) layers++;
 		if (target != null) {
-			//SPSEXPD: 用一个独立 buff 显示当前层数，并提示一次，便于确认加成确实在叠加
-			Buff.prolong(target, TrinityCharge.class, TrinityCharge.DURATION);
+			//SPSEXPD: 用一个独立 buff 显示当前层数（它自己跟随层数存活，这里只保证它存在），并提示一次
+			if (target.buff(TrinityCharge.class) == null) Buff.affect(target, TrinityCharge.class);
 			pd.utils.GLog.p(Messages.get(TrinityStance.class, "charge_layer", layers));
 		}
 	}

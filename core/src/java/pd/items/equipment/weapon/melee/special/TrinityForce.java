@@ -145,6 +145,9 @@ public class TrinityForce extends NormalMeleeWeapon {
 		int per = total / BLADES;
 		int remainder = total % BLADES;
 
+		//SPSEXPD: 先贴近、再结算这一击的伤害（视觉与逻辑都是「冲上去砍」）
+		dashTo(attacker, defender);
+
 		int first = super.proc(attacker, defender, per + (remainder > 0 ? 1 : 0));
 
 		//SPSEXPD: 主片已足以击杀时，剩余飞刃不必再挥出
@@ -162,7 +165,6 @@ public class TrinityForce extends NormalMeleeWeapon {
 			}
 		}
 
-		dashTo(attacker, defender);
 		return first;
 	}
 

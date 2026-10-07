@@ -126,10 +126,17 @@ public final class SpsTrinityForceTest {
 
 		for (int i = 0; i < TrinityStance.MAX_LAYERS; i++) stance.onAttack();
 		check(stance.layers() == TrinityStance.MAX_LAYERS, "冷却期间无法叠加攻速");
-		for (int i = 0; i < TrinityStance.IDLE_RESET - 1; i++) stance.act();
-		check(stance.layers() == TrinityStance.MAX_LAYERS, "未满 5 回合就不该清零攻速叠加");
+		//宽限期内不掉层
+		for (int i = 0; i < TrinityStance.GRACE_TURNS; i++) stance.act();
+		check(stance.layers() == TrinityStance.MAX_LAYERS, "宽限 2 回合内不该衰减攻速叠加");
+		//之后每回合掉一层
 		stance.act();
-		check(stance.layers() == 0, "连续 5 回合未攻击没有清零攻速叠加");
+		check(stance.layers() == TrinityStance.MAX_LAYERS - 1, "宽限期后应逐层衰减攻速叠加");
+		for (int i = 0; i < TrinityStance.MAX_LAYERS; i++) stance.act();
+		check(stance.layers() == 0, "层数应逐层衰减到 0");
+		//衰减到 0 后再次命中可以重新叠层
+		stance.onAttack();
+		check(stance.layers() == 1, "衰减后再次命中应重新叠层");
 
 		stance.enterDefend();
 		stance.leaveDefend();
