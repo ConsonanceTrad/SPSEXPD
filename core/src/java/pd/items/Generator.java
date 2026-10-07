@@ -353,6 +353,7 @@ import pd.items.equipment.weapon.melee.special.PaperFan;
 import pd.items.equipment.weapon.melee.special.Pumpkin;
 import pd.items.equipment.weapon.melee.special.SJRBMusic;
 import pd.items.equipment.weapon.melee.special.TestWeapon;
+import pd.items.equipment.weapon.melee.special.TrinityForce;
 import pd.items.equipment.weapon.missiles.Bolas;
 import pd.items.equipment.weapon.missiles.FishingSpear;
 import pd.items.equipment.weapon.missiles.ForceCube;
@@ -768,12 +769,13 @@ public class Generator {
 					StoneBowN.class, StoneBowS.class, StoneBowR.class, GunB.class,
 					MetalBowN.class, MetalBowS.class, MetalBowR.class, GunC.class,
 					AlloyBowN.class, AlloyBowS.class, AlloyBowR.class, GunD.class,
-					PVCBowN.class, PVCBowS.class, PVCBowR.class, GunE.class
+					PVCBowN.class, PVCBowS.class, PVCBowR.class, GunE.class,
+					TrinityForce.class
 			};
 			WEAPON.probs = new float[]{
 					1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 					1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-					1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+					1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 			};
 
 			// Legacy randomWeapon() only draws from the first 40 entries, then picks
@@ -819,9 +821,10 @@ public class Generator {
 			
 			WEP_T5.classes = new Class<?>[]{
 					pd.items.equipment.weapon.melee.normalweapon.Gsword.class, pd.items.equipment.weapon.melee.normalweapon.Halberd.class,
-					pd.items.equipment.weapon.melee.normalweapon.WarHammer.class, pd.items.equipment.weapon.melee.normalweapon.Lance.class
+					pd.items.equipment.weapon.melee.normalweapon.WarHammer.class, pd.items.equipment.weapon.melee.normalweapon.Lance.class,
+					TrinityForce.class
 			};
-			WEP_T5.defaultProbs = new float[]{ 1, 1, 1, 1 };
+			WEP_T5.defaultProbs = new float[]{ 1, 1, 1, 1, 1 };
 			WEP_T5.probs = WEP_T5.defaultProbs.clone();
 
 			RANGED.classes = new Class<?>[]{

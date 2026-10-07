@@ -87,6 +87,7 @@ import pd.actors.buffs.SpeedImbue;
 import pd.actors.buffs.SuperArcane;
 import pd.actors.buffs.TargetShoot;
 import pd.actors.buffs.TimeStasis;
+import pd.actors.buffs.TrinityStance;
 import pd.actors.buffs.Vertigo;
 import pd.actors.buffs.faithbuff.BalanceFaith;
 import pd.actors.buffs.faithbuff.DemonFaith;
@@ -1033,7 +1034,11 @@ public class Hero extends Char {
 			speed *= FishBone.waterSpeedMultiplier(this, Dungeon.level.water[pos]);
 		}
 		if (buff(LingBless.class) != null) speed += 0.2f;
-		
+
+		//SPSEXPD: 三相之力的战舞姿态——冲锋姿态拖慢步伐，防御姿态更慢
+		TrinityStance trinityStance = buff(TrinityStance.class);
+		if (trinityStance != null) speed *= trinityStance.speedMultiplier(TrinityStance.weaponOf(this));
+
 		return speed;
 		
 	}

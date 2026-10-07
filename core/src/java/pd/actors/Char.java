@@ -121,6 +121,7 @@ import pd.actors.buffs.Stamina;
 import pd.actors.buffs.StandDown;
 import pd.actors.buffs.Tar;
 import pd.actors.buffs.Terror;
+import pd.actors.buffs.TrinityStance;
 import pd.actors.buffs.Vertigo;
 import pd.actors.buffs.Vulnerable;
 import pd.actors.buffs.WarGroove;
@@ -1084,6 +1085,9 @@ public abstract class Char extends Actor {
 		if (mechArmor != null && !(src instanceof Hunger)) dmg = mechArmor.absorb(dmg);
 		DefenceUp defenceUp = buff(DefenceUp.class);
 		if (defenceUp != null) dmg = (int)Math.ceil(dmg * defenceUp.damageMultiplier());
+		//SPSEXPD: 三相之力防御姿态的乘算减伤
+		TrinityStance trinityStance = buff(TrinityStance.class);
+		if (trinityStance != null) dmg = trinityStance.reduceDamage(dmg);
 		GlassShield glassShield = buff(GlassShield.class);
 		if (glassShield != null) dmg = glassShield.capDamage(dmg);
 
