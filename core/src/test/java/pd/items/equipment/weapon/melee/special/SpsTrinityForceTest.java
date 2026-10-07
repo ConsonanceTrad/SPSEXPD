@@ -61,9 +61,6 @@ public final class SpsTrinityForceTest {
 		check(weapon.unique && weapon.isReinforced() && weapon.image == SpecificPlaceHolderDict.SPS_PH_WEAPON,
 				"三相之力唯一、强化或占位图标错误");
 		check(TrinityForce.BLADES == 6 && TrinityForce.STRIKES == 3, "三相之力不是六把飞刃分三次结算");
-		check(TrinityForce.VANGUARD_DEGREES == 60 && TrinityForce.VANGUARD_RANGE == 5
-						&& Math.abs(TrinityForce.VANGUARD_SLOW - 5f) < 0.00001f,
-				"先锋之刃扇形或减速时长错误");
 	}
 
 	private static void testThreeStrikes() {
@@ -139,8 +136,7 @@ public final class SpsTrinityForceTest {
 		check(stance.layers() == 1, "衰减后再次命中应重新叠层");
 
 		stance.enterDefend();
-		stance.leaveDefend();
-		check(!stance.defending(), "先锋之刃没有回到冲锋姿态");
+		check(stance.defending(), "无法进入防御姿态");
 	}
 
 	/**
@@ -175,14 +171,13 @@ public final class SpsTrinityForceTest {
 		Dungeon.hero = hero;
 		TrinityForce weapon = new TrinityForce();
 
-		check(!weapon.actions(hero).contains(TrinityForce.AC_VANGUARD), "未装备时不该出现先锋之刃动作");
+		check(!weapon.actions(hero).contains(TrinityForce.AC_DEFEND), "未装备时不该出现防御姿态动作");
 
 		hero.belongings.weapon = weapon;
 		weapon.activate(hero);
 		TrinityStance stance = hero.buff(TrinityStance.class);
 		check(stance != null, "装备三相之力没有获得战舞姿态");
 		check(Math.abs(stance.speedMultiplier() - 0.75f) < 0.00001f, "战舞移速倍率不是 0.75");
-		check(weapon.actions(hero).contains(TrinityForce.AC_VANGUARD), "装备后先锋之刃就该可用，不需要解锁");
 		check(weapon.actions(hero).contains(TrinityForce.AC_DEFEND), "战舞姿态可用时缺少防御姿态动作");
 
 		check(weapon.defaultAction() == null, "三相之力不该有默认动作");
@@ -195,8 +190,8 @@ public final class SpsTrinityForceTest {
 			String text = read(file);
 			check(text.contains("items.equipment.weapon.melee.special.trinityforce.desc="),
 					file + "缺少三相之力描述");
-			check(text.contains("items.equipment.weapon.melee.special.trinityforce.ac_vanguard="),
-					file + "缺少先锋之刃动作名");
+			check(!text.contains("vanguard") && !text.contains("先锋之刃"),
+					file + "仍残留已移除的先锋之刃文本");
 			check(!text.contains("trinityforce.unlock_") && !text.contains("trinityforce.progress_"),
 					file + "仍残留解锁或战舞进度文本");
 		}
@@ -205,7 +200,6 @@ public final class SpsTrinityForceTest {
 		}
 		String zhItems = read("messages/items/zh/items.properties");
 		check(zhItems.contains("四分之三"), "中文武器描述没有写明移速降到原先的四分之三");
-		check(zhItems.contains("先锋之刃："), "中文武器描述没有写明先锋之刃的效果");
 
 		//三次结算各自独立命中，每一次都要播命中音效：追加结算循环里必须有 hitSound 调用
 		//（音效本身无法断言 —— Sample 在 headless 下没加载任何采样，play 会静默跳过）
@@ -231,13 +225,12 @@ public final class SpsTrinityForceTest {
 		weapon.activate(hero);
 
 		SlainMob enemy = new SlainMob(100_000);
-		enemy.pos = 3 * 8 + 3;   // 恰好两格
+		enemy.pos = 3 * 8 + 5;   // 距离 4 格：应当一路贴到它身边，而不是只前进一格
 		level.mobs().add(enemy);
 		Actor.add(enemy);
 
-		int start = hero.pos;
 		weapon.proc(hero, enemy, 70);
-		check(hero.pos == start + 1, "攻击两格外的敌人后没有靠近一格：" + start + "→" + hero.pos);
+		check(hero.pos == 3 * 8 + 4, "命中后没有贴到敌人身边：" + hero.pos);
 
 		//防御姿态不靠近（原地格挡）
 		TrinityStance stance = hero.buff(TrinityStance.class);

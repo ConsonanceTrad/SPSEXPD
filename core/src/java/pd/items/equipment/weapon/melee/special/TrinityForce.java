@@ -6,19 +6,13 @@ import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
-import pd.actors.buffs.Slow;
 import pd.actors.buffs.TrinityStance;
 import pd.actors.hero.Hero;
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.items.Item;
 import pd.items.equipment.weapon.melee.normalweapon.NormalMeleeWeapon;
-import pd.mechanics.Ballistica;
-import pd.mechanics.ConeAOE;
 import pd.messages.Messages;
-import pd.scenes.CellSelector;
-import pd.scenes.GameScene;
 import pd.utils.GLog;
-import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
@@ -35,26 +29,18 @@ public class TrinityForce extends NormalMeleeWeapon {
 	static {
 		InlineText.of(TrinityForce.class)
 			.t("name", "三相之力")
-			.t("desc", "六把飞刃组成的一套武器组，极难操控：只有以战舞驾驭它，六刃才会同时起舞。\n\n一次挥击的伤害被拆成三次独立结算，命中与附带效果分别计算，但总共只消耗一个回合。\n\n为维持操控飞刃的战舞，你的移速会降低到原先的四分之三。\n\n冲锋姿态下命中两格或更远的敌人时，你会顺势朝对方冲进一格。\n\n先锋之刃：向指定方向挥出 60° 扇形（5 格），使掠过的敌人减速 5 回合，施放后退出防御姿态。")
+			.t("desc", "六把飞刃组成的一套武器组，极难操控：只有以战舞驾驭它，六刃才会同时起舞。\n\n一次挥击的伤害被拆成三次独立结算，命中与附带效果分别计算，但总共只消耗一个回合。\n\n为维持操控飞刃的战舞，你的移速会降低到原先的四分之三。\n\n冲锋姿态下命中敌人时会顺势贴到对方身边（无论多远，只要这一击打得到）。")
 			.t("ac_defend", "防御姿态")
-			.t("ac_vanguard", "先锋之刃")
 			.t("enter_defend", "你沉入防御姿态，六刃环绕如盾。")
-			.t("defend_unavailable", "你暂时无法进入防御姿态。")
-			.t("vanguard_prompt", "选择先锋之刃的挥击方向")
-			.t("vanguard_used", "先锋之刃掠过 %1$d 个敌人。")
-			.t("vanguard_none", "先锋之刃扫过空气。");
+			.t("defend_unavailable", "你暂时无法进入防御姿态。");
 	}
 
 	public static final String AC_DEFEND = "DEFEND";
-	public static final String AC_VANGUARD = "VANGUARD";
 
 	/** 这套武器组的飞刃总数：六把。 */
 	public static final int BLADES = 6;
 	/** 一次挥击把这六把飞刃分三次挥出，伤害也按三次独立结算。 */
 	public static final int STRIKES = 3;
-	public static final int VANGUARD_RANGE = 5;
-	public static final int VANGUARD_DEGREES = 60;
-	public static final float VANGUARD_SLOW = 5f;
 
 	{
 		unique = true;
@@ -104,14 +90,12 @@ public class TrinityForce extends NormalMeleeWeapon {
 		if (!isEquipped(hero)) return actions;
 		TrinityStance stance = TrinityStance.of(hero);
 		if (stance != null && stance.canDefend()) actions.add(AC_DEFEND);
-		actions.add(AC_VANGUARD);
 		return actions;
 	}
 
 	@Override
 	public String actionName(String action, Hero hero) {
 		if (AC_DEFEND.equals(action)) return Messages.get(this, "ac_defend");
-		if (AC_VANGUARD.equals(action)) return Messages.get(this, "ac_vanguard");
 		return super.actionName(action, hero);
 	}
 
@@ -125,9 +109,6 @@ public class TrinityForce extends NormalMeleeWeapon {
 			} else {
 				GLog.i(Messages.get(this, "defend_unavailable"));
 			}
-		} else if (AC_VANGUARD.equals(action)) {
-			curUser = hero;
-			GameScene.selectCell(vanguardSelector);
 		} else {
 			super.execute(hero, action);
 		}
@@ -181,64 +162,35 @@ public class TrinityForce extends NormalMeleeWeapon {
 		return from + dy * width + dx;
 	}
 
-	/** 命中两格或更远的敌人时，像刺击一样向对方接近一格。 */
+	/**
+	 * 命中后朝对方贴过去，一路走到与它相邻为止（距离多远都一样，例如用精准戒指提高攻击距离时）；
+	 * 路上被单位或地形挡住就停在能走到的最远处。
+	 */
 	private void dashTo(Char attacker, Char defender) {
 		if (!(attacker instanceof Hero) || Dungeon.level == null) return;
 		Hero hero = (Hero) attacker;
-		//SPSEXPD: 冲刺只在冲锋姿态生效；防御姿态原地格挡，不移动
-		pd.actors.buffs.TrinityStance stance = pd.actors.buffs.TrinityStance.of(hero);
+		//SPSEXPD: 接近只在冲锋姿态生效；防御姿态原地格挡，不移动
+		TrinityStance stance = TrinityStance.of(hero);
 		if (stance != null && stance.defending()) return;
 		if (!Dungeon.level.insideMap(hero.pos) || !Dungeon.level.insideMap(defender.pos)) return;
-		if (Dungeon.level.distance(hero.pos, defender.pos) < 2) return;
+		if (Dungeon.level.distance(hero.pos, defender.pos) <= 1) return;
 
-		int landing = approachStep(hero.pos, defender.pos, Dungeon.level.width());
-		if (!Dungeon.level.insideMap(landing)) return;
-		if (Actor.findChar(landing) != null || !Dungeon.level.passable[landing]) return;
+		int width = Dungeon.level.width();
+		int landing = hero.pos;
+		while (Dungeon.level.distance(landing, defender.pos) > 1) {
+			int next = approachStep(landing, defender.pos, width);
+			if (next == landing || !Dungeon.level.insideMap(next)) break;
+			if (Actor.findChar(next) != null || !Dungeon.level.passable[next]) break;
+			landing = next;
+		}
+		if (landing == hero.pos) return;
 
 		//SPSEXPD: 用与正常移动相同的方式位移——先起移动动画（参数是起点与终点，必须在 pos 更新前调），
 		//再改逻辑位置；直接 place 会变成瞬移
 		if (hero.sprite != null) hero.sprite.move(hero.pos, landing);
 		hero.move(landing, false);
-		pd.utils.GLog.i(Messages.get(this, "dash_near",
-				Messages.get(defender, "name"), Dungeon.level.distance(landing, defender.pos)));
 		Dungeon.level.pressCell(landing);
 		Dungeon.observe();
 	}
 
-	private final CellSelector.Listener vanguardSelector = new CellSelector.Listener() {
-		@Override
-		public void onSelect(Integer target) {
-			if (target == null || curUser == null || Dungeon.level == null) return;
-			Hero hero = curUser;
-
-			Ballistica aim = new Ballistica(hero.pos, target, Ballistica.WONT_STOP);
-			ConeAOE cone = new ConeAOE(aim, VANGUARD_RANGE, VANGUARD_DEGREES,
-					Ballistica.STOP_SOLID | Ballistica.STOP_TARGET);
-
-			int slowed = 0;
-			for (int cell : cone.cells) {
-				if (!Dungeon.level.insideMap(cell)) continue;
-				Char ch = Actor.findChar(cell);
-				if (ch == null || ch == hero || !ch.isAlive() || ch.alignment == hero.alignment) continue;
-				Buff.prolong(ch, Slow.class, VANGUARD_SLOW);
-				slowed++;
-			}
-
-			TrinityStance stance = TrinityStance.of(hero);
-			if (stance != null) stance.leaveDefend();
-
-			if (hero.sprite != null) {
-				hero.sprite.zap(target);
-				Sample.INSTANCE.play(Assets.Sounds.BLAST, 1f, 0.5f);
-			}
-			if (slowed > 0) GLog.i(Messages.get(TrinityForce.this, "vanguard_used", slowed));
-			else GLog.i(Messages.get(TrinityForce.this, "vanguard_none"));
-			hero.spendAndNext(1f);
-		}
-
-		@Override
-		public String prompt() {
-			return Messages.get(TrinityForce.this, "vanguard_prompt");
-		}
-	};
 }

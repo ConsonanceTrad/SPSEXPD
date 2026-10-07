@@ -99,10 +99,9 @@ public class TrinityStance extends Buff {
 	public void onAttack() {
 		idleTurns = 0;
 		if (!defending && layers < MAX_LAYERS) layers++;
-		if (target != null) {
-			//SPSEXPD: 用一个独立 buff 显示当前层数（它自己跟随层数存活，这里只保证它存在），并提示一次
-			if (target.buff(TrinityCharge.class) == null) Buff.affect(target, TrinityCharge.class);
-			pd.utils.GLog.p(Messages.get(TrinityStance.class, "charge_layer", layers));
+		if (target != null && target.buff(TrinityCharge.class) == null) {
+			//SPSEXPD: 用一个独立 buff 显示当前层数（它自己跟随层数存活，这里只保证它存在）
+			Buff.affect(target, TrinityCharge.class);
 		}
 	}
 
@@ -131,14 +130,6 @@ public class TrinityStance extends Buff {
 		defending = true;
 		defendTurns = DEFEND_TURNS;
 		return true;
-	}
-
-	/** 先锋之刃施放后强制回到冲锋姿态。 */
-	public void leaveDefend() {
-		if (!defending) return;
-		defending = false;
-		defendTurns = 0;
-		defendCooldown = DEFEND_COOLDOWN;
 	}
 
 	/** 战舞的移速代价恒定：不再随击杀改善，冲锋姿态与防御姿态都是四分之三。 */
