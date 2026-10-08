@@ -66,6 +66,8 @@ public class Food extends Item {
 	//SPSEXPD: 固定绝对值（原 Hunger.HUNGRY=300），不随饥饿体系翻倍而变化
 	public float energy = 300f;
 	public int hornValue = 3;
+	//SPSEXPD: 血源风烹饪——标记该食物可投入平底煎锅烹制（默认不可）
+	public boolean canBeCook = false;
 	
 	{
 		stackable = true;

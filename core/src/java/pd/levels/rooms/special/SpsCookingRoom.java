@@ -49,8 +49,22 @@ public class SpsCookingRoom extends SpecialRoom {
 		int food = Math.min(Random.IntRange(2, 3), prizeCells.size());
 		for (int i = 0; i < food; i++) level.drop(potionOrFood(level), prizeCells.remove(0));
 
+		//SPSEXPD: 血源风简单烹饪——厨房固定一把平底煎锅 + 几份可烹制食材
+		if (!prizeCells.isEmpty()) level.drop(new pd.items.equipment.weapon.melee.special.MeleePan(), prizeCells.remove(0));
+		int ingredient = Math.min(Random.IntRange(2, 3), prizeCells.size());
+		for (int i = 0; i < ingredient; i++) level.drop(ingredient(), prizeCells.remove(0));
+
 		entrance.set(Door.Type.LOCKED);
 		GroundItems.addItemToSpawn( level, new IronKey(Dungeon.depth));
+	}
+
+	private static Item ingredient() {
+		switch (Random.Int(4)) {
+			case 0: return new pd.items.consum.food.cook.WildCarrot();
+			case 1: return new pd.items.consum.food.cook.BurdockRoot();
+			case 2: return new pd.items.consum.food.cook.ChicoryRoot();
+			default: return new pd.items.consum.food.cook.DeadRat();
+		}
 	}
 
 	private ArrayList<Integer> cellsWithoutHeaps(Level level, Integer terrain) {

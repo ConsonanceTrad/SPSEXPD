@@ -791,11 +791,15 @@ public class Generator {
 			MELEEWEAPON.classes = Arrays.copyOf(WEAPON.classes, 40);
 			//SPSEXPD: 三相之力同时进入普通近战池——普通商品（SpsShopRoom/SpsHiddenShopRoom）、
 			// 章节/城镇掉落、雕像与随机开局武器都从这个池抽取（旧版 40 项顺序不变）
-			MELEEWEAPON.classes = Arrays.copyOf(MELEEWEAPON.classes, 41);
+			MELEEWEAPON.classes = Arrays.copyOf(MELEEWEAPON.classes, 43);
 			MELEEWEAPON.classes[40] = TrinityForce.class;
+			//SPSEXPD: 血源风猎魂武器（无限提升）进普通近战池
+			MELEEWEAPON.classes[41] = pd.items.equipment.weapon.melee.special.HunterGauntlet.class;
+			MELEEWEAPON.classes[42] = pd.items.equipment.weapon.melee.special.OldHunterScythe.class;
 			MELEEWEAPON.probs = new float[]{
 					1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-					1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+					1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+					1, 1
 			};
 
 			OLDWEAPON.classes = Arrays.copyOf(WEAPON.classes, 20);

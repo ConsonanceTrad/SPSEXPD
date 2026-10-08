@@ -347,6 +347,10 @@ public class Hero extends Char {
 	public static final int DEFAULT_PERK_REROLLS = 2;
 	/** 剩余的重随机会（初始 2 次；「神意启发合剂」每次 +3，测试时间给 999） */
 	public int perkRerolls = DEFAULT_PERK_REROLLS;
+
+	//SPSEXPD: 血源风烹饪技巧（0~100）——每用煎锅烹制一次 +1，决定烹饪产物档次
+	public int cookingSkill = 0;
+	private static final String COOKING_SKILL = "cooking_skill";
 	/** 本次升级抽出的候选特质（存档安全） */
 	public ArrayList<pd.actors.hero.perks.Perk> spawnedPerks = new ArrayList<>();
 	/** 已获得的特质数量（用于徽章等统计） */
@@ -534,6 +538,7 @@ public class Hero extends Char {
 		heroPerk.storeInBundle( bundle );
 		bundle.put( PERK_POINTS, reservedPerks );
 		bundle.put( PERK_REROLLS, perkRerolls );
+		bundle.put( COOKING_SKILL, cookingSkill );
 		bundle.put( PERK_SPAWNED, spawnedPerks );
 		bundle.put( PERK_GAINED, perkGained );
 		bundle.put( CRITICAL_CHANCE, criticalChance );
@@ -600,6 +605,8 @@ public class Hero extends Char {
 		attackSkill = bundle.getInt( ATTACK );
 		defenseSkill = bundle.getInt( DEFENSE );
 		magicSkill = bundle.getInt( MAGIC_SKILL );
+		//SPSEXPD: 旧档没有烹饪技巧时从 0 起步
+		cookingSkill = bundle.contains( COOKING_SKILL ) ? bundle.getInt( COOKING_SKILL ) : 0;
 		
 		STR = bundle.getInt( STRENGTH );
 

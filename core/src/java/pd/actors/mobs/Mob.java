@@ -1094,6 +1094,12 @@ public abstract class Mob extends Char {
 			}
 			LearnSkill learning = Dungeon.hero == null ? null : Dungeon.hero.buff(LearnSkill.class);
 			if (learning != null) learning.onKill();
+			//SPSEXPD: 血源风猎魂武器——击杀积攒血源之力
+			if (Dungeon.hero != null
+					&& Dungeon.hero.belongings.weapon() instanceof pd.items.equipment.weapon.melee.special.BloodChargeWeapon) {
+				((pd.items.equipment.weapon.melee.special.BloodChargeWeapon) Dungeon.hero.belongings.weapon())
+						.gainBloodCharge(this);
+			}
 			if (buff(Trap.HazardAssistTracker.class) != null){
 				Statistics.hazardAssistedKills++;
 				Badges.validateHazardAssists();

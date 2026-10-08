@@ -153,7 +153,10 @@ public final class SpsSpecialRoomsTest {
 		check(f.level.blobs.get(Alchemy.class) != null, "厨房炼金能量缺失");
 		check(countItems(f.level, ShoppingCart.class) == 1, "厨房购物车数量错误");
 		int heaps = f.level.heaps.valueList().size();
-		check(heaps >= 4 && heaps <= 6, "厨房食物堆数量错误");
+		//SPSEXPD: 厨房新增平底煎锅与血源风食材后堆数上限放宽
+		check(heaps >= 7 && heaps <= 10, "厨房食物堆数量错误");
+		check(countItems(f.level, pd.items.equipment.weapon.melee.special.MeleePan.class) == 1,
+				"厨房没有固定生成平底煎锅");
 		check(GroundItems.findPrizeItem( f.level, IronKey.class) != null, "厨房没有生成铁钥匙");
 	}
 
