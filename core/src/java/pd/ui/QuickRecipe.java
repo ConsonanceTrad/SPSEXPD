@@ -43,6 +43,8 @@ import pd.items.consum.food.MeatPie;
 import pd.items.consum.food.MysteryMeat;
 import pd.items.consum.food.Pasty;
 import pd.items.consum.food.StewedMeat;
+import pd.items.consum.food.staplefood.NormalRation;
+import pd.items.consum.food.staplefood.OverpricedRation;
 import pd.items.consum.potions.Potion;
 import pd.items.consum.potions.PotionOfConfusion;
 import pd.items.consum.potions.brews.AquaBrew;
@@ -351,10 +353,6 @@ public class QuickRecipe extends Component {
 				result.add(new QuickRecipe( new Potion.FruitToPotion(),
 						new ArrayList<>(Arrays.asList(fruitHolder, fruitHolder, fruitHolder, fruitHolder)),
 						brewed));
-				result.add(null);
-				result.add(new QuickRecipe( new Potion.FruitToPotion(),
-						new ArrayList<>(Arrays.asList(largeFruitHolder, fruitHolder)),
-						brewed));
 				return result;
 			}
 			case "Stones":
@@ -374,6 +372,13 @@ public class QuickRecipe extends Component {
 				result.add(new QuickRecipe( new MeatPie.Recipe(),
 						new ArrayList<Item>(Arrays.asList(new Pasty(), new Food(), new MysteryMeat.PlaceHolder())),
 						new MeatPie()));
+				//SPSEXPD: 无味果 + 水 → 干粮包；2 干粮包 → 3 干粮小包
+				result.add(new QuickRecipe( SpsAlchemyRecipes.BLANDFRUIT_TO_RATION,
+						new ArrayList<Item>(Arrays.asList(new Blandfruit(), new WaterItem())),
+						new NormalRation()));
+				result.add(new QuickRecipe( SpsAlchemyRecipes.RATION_TO_SMALL,
+						new ArrayList<Item>(Arrays.asList(new NormalRation(), new NormalRation())),
+						new OverpricedRation().quantity(3)));
 				return result;
 			case "Exotic_Potions":
 				r = new ExoticPotion.PotionToExotic();
@@ -452,7 +457,7 @@ public class QuickRecipe extends Component {
 				result.add(new QuickRecipe(new ElixirOfFeatherFall.Recipe()));
 				result.add(new QuickRecipe(new ElixirOfMight.Recipe()));
 				result.add(null);
-				//SPSEXPD: 3 个同种大型果实 → 对应秘药
+				//SPSEXPD: 1 个大型果实 → 对应秘药
 				Item largeFruit = new Item() {
 					{
 						image = SpecificPlaceHoldeFruitDict.LARGE_FRUIT_HOLDER_0;
@@ -470,7 +475,7 @@ public class QuickRecipe extends Component {
 					public String info() { return ""; }
 				};
 				result.add(new QuickRecipe(new pd.items.LargeFruitToElixir(),
-						new ArrayList<>(Arrays.asList(largeFruit, largeFruit, largeFruit)),
+						new ArrayList<>(Arrays.asList(largeFruit)),
 						elixirHolder));
 				result.add(null);
 				//SPSEXPD: 许愿魔药——混乱药剂 + 许愿花瓣 + 水晶碎片 + 韵魔原液 + 高能孢子

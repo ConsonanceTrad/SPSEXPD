@@ -87,6 +87,19 @@ public final class PlantHarvest {
 		return species == null ? null : species.fruit;
 	}
 
+	/**
+	 * SPSEXPD: 随机取一种大型果实。
+	 * 大型果实已不再由植物产出，只作为稀有奖励（许愿 / 商店售卖）出现。
+	 */
+	public static Item randomLargeFruit() {
+		ArrayList<Class<? extends Item>> types = new ArrayList<>();
+		for (Species species : BY_CLASS.values()) {
+			if (species.largeFruit != null && !types.contains(species.largeFruit)) types.add(species.largeFruit);
+		}
+		if (types.isEmpty()) return null;
+		return Reflection.newInstance(Random.element(types));
+	}
+
 	/** 在 center 周围的可通行格散落 count 个物品；largeChance > 0 时按概率换成大型物品。 */
 	public static void scatter(Level level, int center, Class<? extends Item> itemClass,
 			Class<? extends Item> largeClass, int count, float largeChance) {

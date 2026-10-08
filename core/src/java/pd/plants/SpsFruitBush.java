@@ -19,7 +19,7 @@ import java.util.ArrayList;
  *   <li>人工种植（玩家把种子种在地上、帐篷房的花盆、浇水的花盆）：
  *       掉 1 个蔬菜（落在踩踏格）+ 散落 1~2 枚投掷果实；</li>
  *   <li>精心种植（手动把种子种进花盆 / 精制种子种在普通地板）：
- *       掉 2~3 个蔬菜（落在踩踏格）+ 散落 2~3 枚投掷果实，每枚果实 3% 几率是大型果实。</li>
+ *       掉 2~3 个蔬菜（落在踩踏格）+ 散落 2~3 枚投掷果实；大型果实不再由植物产出。</li>
  * </ul>
  *
  * 野生植物不继承本类，由 {@link Plant#trigger} 散落 1 枚果实、不掉蔬菜。
@@ -36,8 +36,6 @@ public abstract class SpsFruitBush extends Plant {
 	protected Generator.Category harvestCategory;
 	protected int harvestCount;
 
-	/** SPSEXPD: 精心种植时每枚果实变成大型果实的几率。 */
-	protected static final float LARGE_FRUIT_CHANCE = 0.03f;
 
 	protected Item harvestItem() {
 		return harvestCategory == null ? null : Generator.random(harvestCategory);
@@ -71,12 +69,11 @@ public abstract class SpsFruitBush extends Plant {
 
 		ArrayList<Integer> candidates = PlantHarvest.neighbours(Dungeon.level, pos);
 
-		//SPSEXPD: 果实散落到相邻格——人工 1~2 枚，精心 2~3 枚（每枚 3% 几率大型）
+		//SPSEXPD: 果实散落到相邻格——人工 1~2 枚，精心 2~3 枚
+		//（大型果实不再由植物产出，只能靠许愿或商店购买）
 		int fruitCount = potGrown ? Random.NormalIntRange(2, 3) : Random.NormalIntRange(1, 2);
 		for (int i = 0; i < fruitCount && !candidates.isEmpty(); i++) {
-			Class<? extends Item> type = species.fruit;
-			if (potGrown && species.largeFruit != null && Random.Float() < LARGE_FRUIT_CHANCE) type = species.largeFruit;
-			PlantHarvest.drop(Dungeon.level, take(candidates), type, pos);
+			PlantHarvest.drop(Dungeon.level, take(candidates), species.fruit, pos);
 		}
 
 		//SPSEXPD: 蔬菜不再散落，全部落在踩踏地——人工 1 个，精心 2~3 个

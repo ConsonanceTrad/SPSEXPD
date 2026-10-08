@@ -11,7 +11,7 @@ public class OverpricedRation extends StapleFood {
 	static {
 		InlineText.of(OverpricedRation.class)
 			.t("name", "干粮小包")
-			.t("desc", "容量比干粮包更小，很受年轻冒险者欢迎。");
+			.t("desc", "比干粮包更小的旅行速食，可以随手取用，而且比别的食物吃起来快很多（食用只需 2 回合）。");
 	}
 
 
@@ -21,5 +21,9 @@ public class OverpricedRation extends StapleFood {
 		energy = 200f;
 		hornValue = 2;
 	}
+
+	/** SPSEXPD: 干粮小包同样是速食——食用只花 2 回合。 */
+	@Override protected float eatingTime() { return 2f; }
+
 	@Override public int value() { return 3 * quantity; }
 }

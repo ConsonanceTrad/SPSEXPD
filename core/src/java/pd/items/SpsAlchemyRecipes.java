@@ -12,6 +12,7 @@ import pd.items.consum.food.fruit.*;
 import pd.items.consum.food.fusion.Nut;
 import pd.items.consum.food.meatfood.MeatFood;
 import pd.items.consum.food.processed.*;
+import pd.items.consum.food.staplefood.NormalRation;
 import pd.items.consum.food.staplefood.OverpricedRation;
 import pd.items.consum.food.staplefood.StapleFood;
 import pd.items.consum.food.vegetable.*;
@@ -33,6 +34,13 @@ public final class SpsAlchemyRecipes {
 	/** SPSEXPD: 许愿魔药的确定性配方——炼金釜与炼金指南共用这一份定义，避免两处漂移。 */
 	public static final TypedRecipe WISH_POTION = recipe(WishPotion.class,
 			PotionOfConfusion.class, WishPetal.class, CrystalShard.class, AetherLiquid.class, HighEnergySpore.class);
+
+	/** SPSEXPD: 无味果 + 水 → 干粮包（「无味果 → 果丝」的单材料配方保持不变，两者不冲突）。 */
+	public static final TypedRecipe BLANDFRUIT_TO_RATION = recipe(NormalRation.class, Blandfruit.class, WaterItem.class);
+
+	/** SPSEXPD: 2 干粮包 → 3 干粮小包（饱食度守恒：600 = 3 × 200）。 */
+	public static final TypedRecipe RATION_TO_SMALL = recipe(3, OverpricedRation.class,
+			NormalRation.class, NormalRation.class);
 
 	/** SPSEXPD: 通用确定性配方：产物 + 若干输入，数量与顺序无关全匹配。 */
 	public static final class TypedRecipe extends Recipe {
@@ -160,6 +168,10 @@ public final class SpsAlchemyRecipes {
 			recipe(WakeTea.class, DreamLeaf.class),
 			recipe(NutrientSolution.class, Radish.class),
 			recipe(SunflowerSeed.class, Sunflower.class),
+			//SPSEXPD: 无味果 + 水 → 干粮包（单材料「无味果 → 果丝」配方保持不变）
+			BLANDFRUIT_TO_RATION,
+			//SPSEXPD: 2 干粮包 → 3 干粮小包
+			RATION_TO_SMALL,
 			recipe(FruitThread.class, Blandfruit.class),
 			recipe(Sedative.class, BattleFlower.class),
 			recipe(RedRose.class, NutVegetable.class),

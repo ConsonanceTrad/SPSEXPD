@@ -11,7 +11,7 @@ public class NormalRation extends StapleFood {
 	static {
 		InlineText.of(NormalRation.class)
 			.t("name", "干粮包")
-			.t("desc", "里面没什么稀奇的：肉干、饼干，以及类似的旅行食物。");
+			.t("desc", "为旅行所制作的快速食品，可以随手取用，而且比别的食物吃起来快很多（食用只需 2 回合）。");
 	}
 
 
@@ -20,5 +20,9 @@ public class NormalRation extends StapleFood {
 		image = ConsumFoodFoodDict.RATION_PACK;
 		energy = 300f;
 	}
+
+	/** SPSEXPD: 干粮是速食——食用只花 2 回合（覆盖 Food 的通用进食时间）。 */
+	@Override protected float eatingTime() { return 2f; }
+
 	@Override public int value() { return 5 * quantity; }
 }

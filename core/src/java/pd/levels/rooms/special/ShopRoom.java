@@ -304,6 +304,13 @@ public class ShopRoom extends SpecialRoom {
 				break;
 		}
 
+		//SPSEXPD: 大型果实改为商店售卖的稀有品（已不再由植物产出）
+		Item largeFruit = pd.plants.PlantHarvest.randomLargeFruit();
+		if (largeFruit != null) itemsToSpawn.add( largeFruit );
+
+		//SPSEXPD: 干粮碾制机——购物车强化组件（随机进货）
+		if (Random.Int(3) == 0) itemsToSpawn.add( new pd.items.RationGrinder() );
+
 		itemsToSpawn.add( new Ankh() );
 		itemsToSpawn.add( new StoneOfAugmentation() );
 

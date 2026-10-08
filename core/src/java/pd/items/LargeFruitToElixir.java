@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 /**
- * SPSEXPD: 3 个同种大型果实 → 对应秘药。
+ * SPSEXPD: 1 个大型果实 → 对应秘药（取代旧的「3 个同种大果」与随机炼药）。
  * 无法自然对应的几种大果暂时指向"占位秘药"（无效果），后续再补足。
  */
 public class LargeFruitToElixir extends Recipe {
 
-	public static final int COUNT = 3;
+	public static final int COUNT = 1;
 
 	/** 大型果实类 → 对应的秘药类。 */
 	public static final LinkedHashMap<Class<? extends Item>, Class<? extends Elixir>> types = new LinkedHashMap<>();

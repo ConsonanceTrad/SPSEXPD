@@ -23,6 +23,7 @@ import pd.items.consum.food.completefood.*;
 import pd.items.consum.food.fruit.Fruit;
 import pd.items.consum.food.fusion.Nut;
 import pd.items.consum.food.meatfood.MeatFood;
+import pd.items.consum.food.staplefood.NormalRation;
 import pd.items.consum.food.staplefood.OverpricedRation;
 import pd.items.consum.food.staplefood.StapleFood;
 import pd.items.consum.food.vegetable.NutVegetable;
@@ -108,13 +109,16 @@ public final class SpsAlchemyRecipesTest {
 			{Meatroll.class, 1, R, M},
 			{Vegetableroll.class, 1, R, V},
 			{Gel.class, 1, O, W},
-			{NutVegetable.class, 1, N}
+			{NutVegetable.class, 1, N},
+			//SPSEXPD: 无味果 + 水 → 干粮包；2 干粮包 → 3 干粮小包
+			{NormalRation.class, 1, Blandfruit.class, W},
+			{OverpricedRation.class, 3, NormalRation.class, NormalRation.class}
 	};
 
 	public static void main(String[] args) throws Exception {
 		GdxNativesLoader.load();
 		Gdx.files = new HeadlessFiles();
-		check(CASES.length == 47, "旧版确定性炼金配方数量错误");
+		check(CASES.length == 49, "旧版确定性炼金配方数量错误");
 		for (Object[] test : CASES) verifyCase(test);
 
 		//SPSEXPD: 药剂酿造已由种子改为果实

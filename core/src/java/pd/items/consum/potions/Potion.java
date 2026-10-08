@@ -675,17 +675,12 @@ public class Potion extends Item {
 
 		@Override
 		public boolean testIngredients(ArrayList<Item> ingredients) {
+			//SPSEXPD: 大型果实不再参与果实酿造的随机炼药（改为 1 个大果 → 对应合剂）
 			if (ingredients.size() == COUNT) {
-				for (Item ingredient : ingredients) if (potionFor(ingredient) == null) return false;
-				return true;
-			}
-			if (ingredients.size() == 2) {
-				int large = 0;
 				for (Item ingredient : ingredients) {
-					if (potionFor(ingredient) == null) return false;
-					if (isLarge(ingredient)) large++;
+					if (potionFor(ingredient) == null || isLarge(ingredient)) return false;
 				}
-				return large == 1;
+				return true;
 			}
 			return false;
 		}
