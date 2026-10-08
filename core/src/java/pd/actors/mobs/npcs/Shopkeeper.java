@@ -221,6 +221,21 @@ public class Shopkeeper extends NPC {
 		}
 	}
 
+	/**
+	 * SPSEXPD: 偷窃货品被发现——与被打不同，这里不散落金币，直接涨价、召唤守卫并从此拒绝交谈。
+	 * 只在商人处于英雄视野内（即被当场看见）时生效。
+	 */
+	public void noticeTheft() {
+		if (Dungeon.level == null || !Dungeon.level.heroFOV[pos]) return;
+
+		//SPS: 同一时间点的重复触发只算一次
+		if (Actor.now() == lastHarmTime) return;
+		lastHarmTime = Actor.now();
+
+		if (turnsSinceHarmed == -1) turnsSinceHarmed = 0;
+		summonGuards();
+	}
+
 	//SPS: 商人被打时召唤的石像守卫：每次触发 2 只，固定按第 30 层强度（不随当前层浮动）。
 	private static final int GUARD_COUNT = 2;
 	private static final int GUARD_DEPTH = 30;
@@ -263,8 +278,9 @@ public class Shopkeeper extends NPC {
 			guard.pos = cell;
 
 			GameScene.add( guard );
-			guard.beckon( Dungeon.hero.pos );
-			if (Dungeon.level.heroFOV[cell]) {
+			if (Dungeon.hero != null) guard.beckon( Dungeon.hero.pos );
+			//SPSEXPD: 无头校验/没有场景时 guard.sprite 为 null，跳过粒子，避免 CellEmitter 取不到场景
+			if (Dungeon.level.heroFOV[cell] && guard.sprite != null) {
 				CellEmitter.get( cell ).burst( ElmoParticle.FACTORY, 8 );
 			}
 		}

@@ -152,8 +152,8 @@ public final class SpsEndlessAmmoBagTest {
 			String text = read(file);
 			check(text.contains("items.equipment.artifacts.endlessammobag.desc="), file + "缺少无限弹药袋描述");
 			check(text.contains("items.equipment.artifacts.endlessammobag.ac_activate="), file + "缺少激活动作名");
-			check(text.contains("items.equipment.artifacts.masterthievesarmband.ac_magic_hand="),
-					file + "缺少魔术之手动作名");
+			check(text.contains("items.equipment.artifacts.masterthievesarmband.steal_goods_ok="),
+					file + "缺少魔术之手法杖的偷窃文案");
 		}
 		for (String file : new String[]{"messages/actors/zh/actors.properties", "messages/actors/en/actors.properties"}) {
 			check(read(file).contains("actors.buffs.endlessammo.desc="), file + "缺少无限弹药状态描述");
