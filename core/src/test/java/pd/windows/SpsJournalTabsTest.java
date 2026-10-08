@@ -8,14 +8,24 @@ import java.nio.file.Path;
  * SPSEXPD: 日志（事件记录）去掉图鉴与徽章面板的无图形校验。
  *
  * <p>这两个面板打开时都要全量扫描目录/成就，进日志就卡；现在桌面场景（JournalScene）与小屏窗口（WndJournal）
- * 都不再构建它们，页签索引固定为 探险手册=0 / 指南=1 / 炼金=2，任何把索引指向 3、4 的引用都会让 select 越界。</p>
+ * 都不再构建它们，页签索引固定为 探险手册=0 / 指南=1 / 炼金=2，任何把索引指向 3、4 的引用都会让 select 越界。
+ * 另外地牢指南里也不再收录「SPS大陆介绍」。</p>
  */
 public final class SpsJournalTabsTest {
 
 	public static void main(String[] args) throws Exception {
 		testDesktopScene();
 		testSmallWindow();
-		System.out.println("SPS日志页签测试通过：日志已去掉徽章与图鉴面板，页签索引只留探险手册/指南/炼金，无越界引用。");
+		testGuideDropsStoryGuide();
+		System.out.println("SPS日志页签测试通过：日志已去掉徽章与图鉴面板与「SPS大陆介绍」，页签索引只留探险手册/指南/炼金，无越界引用。");
+	}
+
+	private static void testGuideDropsStoryGuide() throws Exception {
+		String journal = read("../java/pd/windows/WndJournal.java");
+		check(!journal.contains("addDocument(Document.STORY_GUIDE)"),
+				"地牢指南里仍收录了「SPS大陆介绍」");
+		check(journal.contains("addDocument(Document.ADVENTURERS_GUIDE)"),
+				"地牢指南丢了「地牢探索指南」");
 	}
 
 	private static void testDesktopScene() throws Exception {

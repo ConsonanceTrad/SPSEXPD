@@ -266,7 +266,8 @@ public class WndJournal extends WndTabbed {
 		}
 		
 		public void updateList(){
-			addDocument(Document.STORY_GUIDE);
+			//SPSEXPD: 地牢指南里不再收录「SPS大陆介绍」（STORY_GUIDE）——
+			//该文档与其页文案保留（拾取/调试仍可看），只是不在指南目录里列出
 			addDocument(Document.ADVENTURERS_GUIDE);
 
 			list.setRect(x, y, width, height);
