@@ -18,7 +18,24 @@ public final class SpsJournalTabsTest {
 		testSmallWindow();
 		testGuideDropsStoryGuide();
 		testLorePagesNoLongerDrop();
-		System.out.println("SPS日志页签测试通过：日志已去掉徽章与图鉴面板与「SPS大陆介绍」，故事书页不再掉落，页签索引只留探险手册/指南/炼金。");
+		testIntroNoLongerLocksUi();
+		System.out.println("SPS日志页签测试通过：日志已去掉徽章与图鉴面板与「SPS大陆介绍」，故事书页不再掉落，首局 UI 不再被新手引导锁住。");
+	}
+
+	private static void testIntroNoLongerLocksUi() throws Exception {
+		String scene = read("../java/pd/scenes/GameScene.java");
+		int tutorial = scene.indexOf("//Tutorial");
+		check(tutorial > 0, "GameScene 里找不到 Tutorial 段");
+		String body = scene.substring(tutorial, scene.indexOf("TrinketCatalyst cata", tutorial));
+
+		check(!body.contains("toolbar.visible = toolbar.active = false"),
+				"新手引导仍会隐藏工具栏，UI 还得读完 Intro 页才解锁");
+		check(!body.contains("status.visible = status.active = false"),
+				"新手引导仍会隐藏状态栏，UI 还得读完 Intro 页才解锁");
+		check(!body.contains("inventory.visible = inventory.active = false"),
+				"新手引导仍会隐藏物品栏");
+		check(body.contains("SPDSettings.intro(false)"),
+				"开局没有直接结束新手引导，UI 仍被锁着");
 	}
 
 	private static void testLorePagesNoLongerDrop() throws Exception {

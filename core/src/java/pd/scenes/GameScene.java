@@ -830,6 +830,9 @@ public class GameScene extends PixelScene {
 		}
 
 		//Tutorial
+		//SPSEXPD: 第一次开局不再「先锁住 UI、等玩家捡起指南书并读完 Intro 页才解锁」——
+		//这里在给完提示后直接结束新手引导，工具栏/状态栏/物品栏开局即可用。
+		//日志按钮的闪烁与 GLog 提示照旧（那些不看 intro），所以该怎么找指南还是怎么找。
 		if (SPDSettings.intro()){
 
 			if (Document.ADVENTURERS_GUIDE.isPageFound(Document.GUIDE_INTRO)){
@@ -844,9 +847,7 @@ public class GameScene extends PixelScene {
 				GameLog.wipe();
 				GLog.p(Messages.get(GameScene.class, "tutorial_move_desktop"));
 			}
-			toolbar.visible = toolbar.active = false;
-			status.visible = status.active = false;
-			if (inventory != null) inventory.visible = inventory.active = false;
+			SPDSettings.intro(false);
 		}
 
 		if (!SPDSettings.intro() &&
