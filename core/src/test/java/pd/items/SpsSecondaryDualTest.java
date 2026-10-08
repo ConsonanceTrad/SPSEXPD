@@ -100,6 +100,7 @@ public final class SpsSecondaryDualTest {
 		TestMob target = new TestMob(1_000_000);
 
 		check(SecondaryEquip.hitMultiplier(hero) == 0.85f, "双持时主武器命中修正不是0.85倍");
+		check(Hero.SECONDARY_STRIKE_GAP == 0.05f, "连携攻击的声效间隔不是0.05秒");
 
 		float cooldown = hero.cooldown();
 		int before = target.HP;

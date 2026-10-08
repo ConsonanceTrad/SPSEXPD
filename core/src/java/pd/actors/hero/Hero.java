@@ -2990,9 +2990,21 @@ public class Hero extends Char {
 		Invisibility.dispel();
 		spend( attackDelay() );
 
-		//SPSEXPD: 紧接主武器的副武器连携攻击（不消耗回合）
-		if (attackTarget.isAlive()){
-			secondaryStrike( attackTarget );
+		//SPSEXPD: 紧接主武器的副武器连携攻击（不消耗回合）——延后 SECONDARY_STRIKE_GAP 秒执行，
+		//让两次打击的动画与声效错开成「连击」，而不是重叠在同一个瞬间
+		if (SecondaryEquip.dualWeapons(this) && attackTarget.isAlive()){
+			final Char secondaryTarget = attackTarget;
+			Actor.addDelayed(new Actor(){
+				{
+					actPriority = VFX_PRIO;
+				}
+				@Override
+				protected boolean act() {
+					secondaryStrike( secondaryTarget );
+					Actor.remove( this );
+					return true;
+				}
+			}, SECONDARY_STRIKE_GAP);
 		}
 
 		if (hit && subClass == HeroSubClass.GLADIATOR && wasEnemy){
@@ -3024,6 +3036,9 @@ public class Hero extends Char {
 
 		super.onAttackComplete();
 	}
+
+	/** SPSEXPD: 副武器连携攻击与主武器之间的间隔（秒；Actor 以游戏时间为单位，TICK=1f）。 */
+	public static final float SECONDARY_STRIKE_GAP = 0.05f;
 
 	/**
 	 * SPSEXPD: 副武器连携攻击——双持时，主武器的普通攻击之后由副武器对同一目标追加一次攻击，不消耗回合。
