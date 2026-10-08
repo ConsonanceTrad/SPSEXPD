@@ -20,8 +20,8 @@ allprojects {
 		appAndroidPackageName = 'com.hmdzl.spsexpd'
 
         //Full releases gets +2 on version code, needed for an F-Droid quirk
-		appVersionCode = 925
-		appVersionName = '0.1.3-alpha'
+		appVersionCode = 926
+		appVersionName = '0.1.4-alpha'
 
         appJavaCompatibility = JavaVersion.VERSION_11
 
