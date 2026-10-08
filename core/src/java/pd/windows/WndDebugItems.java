@@ -22,6 +22,7 @@
 package pd.windows;
 
 import pd.Dungeon;
+import pd.items.ArmorKit;
 import pd.items.Generator;
 import pd.items.Item;
 import pd.items.equipment.bags.BambooBasket;
@@ -39,6 +40,7 @@ import pd.items.consum.food.processed.*;
 import pd.items.consum.food.vegetable.*;
 import pd.items.consum.potions.elixirs.WishPotion;
 import pd.items.equipment.weapon.missiles.arrows.*;
+import pd.items.misc.Ankhshield;
 import pd.items.misc.DewBadge;
 import pd.journal.Catalog;
 import pd.plants.*;
@@ -187,6 +189,13 @@ public class WndDebugItems extends Window {
 
 		//SPSEXPD: 魔法集露袋（移动时自动收露珠）不在图鉴/生成表里，手动补入调试器
 		all.put(DewBadge.class, true);
+
+		//SPSEXPD: 护甲配件包（换皮工具）与神圣护盾不在图鉴/生成表里，手动补入调试器
+		all.put(ArmorKit.class, true);
+		all.put(Ankhshield.class, true);
+
+		//SPSEXPD: 干粮碾制机（购物车强化组件）不在图鉴/生成表里，手动补入调试器
+		all.put(pd.items.RationGrinder.class, true);
 
 		//SPSEXPD: 作物相关物品（种子/蔬菜/二次产物/果实）登记进调试器全集
 		for (Class<?> t : CROP_ORDER) all.put((Class<? extends Item>) t, true);

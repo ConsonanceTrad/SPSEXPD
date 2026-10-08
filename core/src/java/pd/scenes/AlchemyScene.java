@@ -36,10 +36,16 @@ import pd.Statistics;
 import pd.actors.hero.Belongings;
 import pd.effects.Speck;
 import pd.effects.particles.SparkParticle;
+import pd.actors.hero.Hero;
 import pd.items.EnergyCrystal;
+import pd.items.Garbage;
+import pd.items.Generator;
+import pd.items.Heap;
 import pd.items.Item;
 import pd.items.LiquidMetal;
 import pd.items.Recipe;
+import pd.items.StoneOre;
+import pd.utils.GLog;
 import pd.items.equipment.artifacts.AlchemistsToolkit;
 import pd.items.equipment.bags.Bag;
 import pd.items.equipment.trinkets.TrinketCatalyst;
@@ -103,7 +109,10 @@ public class AlchemyScene extends PixelScene {
 			.t("guide", "指南")
 			.t("energize", "提炼物品")
 			.t("cancel", "取消加料")
-			.t("repeat", "重复加料");
+			.t("repeat", "重复加料")
+			.t("reforge", "废料重铸")
+			.t("reforge_need", "废料重铸至少需要 5 份废料或原石。")
+			.t("reforge_done", "你把废料重铸成了%1$s。");
 	}
 
 
@@ -117,6 +126,8 @@ public class AlchemyScene extends PixelScene {
 
 	private IconButton cancel;
 	private IconButton repeat;
+	//SPSEXPD: 废料重铸——一键用 5 份废料/原石合成一件随机物品
+	private IconButton reforge;
 	private static ArrayList<Item> lastIngredients = new ArrayList<>();
 	private static Recipe lastRecipe = null;
 
@@ -404,6 +415,23 @@ public class AlchemyScene extends PixelScene {
 		repeat.enable(false);
 		add(repeat);
 
+		//SPSEXPD: 废料重铸按钮——用 5 份废料/原石（按数量）换一件随机物品
+		reforge = new IconButton(Icons.SHUFFLE.get()){
+			@Override
+			protected void onClick() {
+				super.onClick();
+				reforgeWaste();
+			}
+
+			@Override
+			protected String hoverText() {
+				return Messages.get(AlchemyScene.class, "reforge");
+			}
+		};
+		reforge.setRect(left + 40, pos + 2, 16, 16);
+		reforge.enable(false);
+		add(reforge);
+
 		lastIngredients.clear();
 		lastRecipe = null;
 
@@ -630,6 +658,46 @@ public class AlchemyScene extends PixelScene {
 		return filtered;
 	}
 	
+	//SPSEXPD: 背包里可用于废料重铸的份数（废料 + 原石，按数量）
+	private int wasteCount(){
+		Hero hero = Dungeon.hero;
+		if (hero == null) return 0;
+		int count = 0;
+		for (Item item : hero.belongings.backpack.items){
+			if (item instanceof Garbage || item instanceof StoneOre) count += item.quantity();
+		}
+		return count;
+	}
+
+	/** SPSEXPD: 废料重铸——消耗 5 份废料/原石（按数量、任意组合）产出 1 件随机物品。 */
+	private void reforgeWaste(){
+		Hero hero = Dungeon.hero;
+		if (hero == null || Dungeon.level == null) return;
+		if (wasteCount() < 5){
+			GLog.w(Messages.get(AlchemyScene.class, "reforge_need"));
+			return;
+		}
+
+		int needed = 5;
+		for (Item item : new ArrayList<>(hero.belongings.backpack.items)){
+			if (needed <= 0) break;
+			if (!(item instanceof Garbage || item instanceof StoneOre)) continue;
+			int take = Math.min(needed, item.quantity());
+			item.quantity(item.quantity() - take);
+			needed -= take;
+			if (item.quantity() <= 0) hero.belongings.backpack.items.remove(item);
+		}
+
+		Item result = Generator.random();
+		if (result == null) return;
+		Heap heap = Dungeon.level.drop(result, hero.pos);
+		if (heap != null && heap.sprite != null) heap.sprite.drop();
+		GLog.p(Messages.get(AlchemyScene.class, "reforge_done", result.name()));
+
+		hero.spendAndNext(1f);
+		updateState();
+	}
+
 	private void updateState(){
 
 		repeat.enable(false);
@@ -649,6 +717,7 @@ public class AlchemyScene extends PixelScene {
 		}
 
 		cancel.enable(!ingredients.isEmpty());
+		reforge.enable(wasteCount() >= 5);
 
 		if (recipes.isEmpty()){
 			int middle = activeInputCount / 2;
