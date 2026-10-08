@@ -263,10 +263,17 @@ public class Armor extends EquipableItem {
 	@Override
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);
-		if (seal != null) actions.add(AC_DETACH);
-		//SPSEXPD: 「装备」进主护甲栏、「副手装备」进副护甲栏（副手装备对所有职业开放）
+		//SPSEXPD: 「装备」进主护甲栏、「副手装备」进副护甲栏（副手装备对所有职业开放）；
+		//副手装备紧跟装备动作，二者固定并排占同一行
 		if (!isEquipped(hero)) actions.add(AC_EQUIP_SECONDARY);
+		if (seal != null) actions.add(AC_DETACH);
 		return actions;
+	}
+
+	/** SPSEXPD: 「装备/取下」固定另起一行，让「装备」与「副手装备」并排占同一行（动作窗第二行）。 */
+	@Override
+	public boolean actionBreakBefore(String action) {
+		return AC_EQUIP.equals(action) || AC_UNEQUIP.equals(action);
 	}
 
 	@Override
