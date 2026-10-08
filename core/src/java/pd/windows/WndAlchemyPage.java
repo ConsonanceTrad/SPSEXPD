@@ -34,13 +34,13 @@ public class WndAlchemyPage extends Window {
 	private final float paneTop;
 	private final float paneHeight;
 
-	public WndAlchemyPage(int pageIdx) {
+	public WndAlchemyPage(String page) {
 		super(0, 0, Chrome.get(Chrome.Type.SCROLL));
 
 		paneWidth = (PixelScene.landscape() ? WIDTH_L : WIDTH_P) - MARGIN * 2;
 
 		IconTitle title = new IconTitle(new ItemSprite(SpecificPagesDict.ALCH_PAGE_0),
-				Document.ALCHEMY_GUIDE.pageTitle(pageIdx));
+				Document.ALCHEMY_GUIDE.pageTitle(page));
 		title.setRect(0, 0, paneWidth, 0);
 		title.tfLabel.invert();
 
@@ -50,12 +50,12 @@ public class WndAlchemyPage extends Window {
 
 		RenderedTextBlock body = PixelScene.renderTextBlock(6);
 		body.maxWidth(paneWidth);
-		body.text(Document.ALCHEMY_GUIDE.pageBody(pageIdx));
+		body.text(Document.ALCHEMY_GUIDE.pageBody(page));
 		body.invert();
 		body.setPos(0, 0);
 		content.add(body);
 
-		content.setSize(paneWidth, layoutRecipes(content, pageIdx, paneWidth, body.bottom() + 3));
+		content.setSize(paneWidth, layoutRecipes(content, page, paneWidth, body.bottom() + 3));
 
 		float maxHeight = (PixelScene.landscape() ? PixelScene.MIN_HEIGHT_L : PixelScene.MIN_HEIGHT_P)
 				- CHROME_HEIGHT - paneTop;
@@ -101,11 +101,11 @@ public class WndAlchemyPage extends Window {
 	}
 
 	/**
-	 * 把 {@link QuickRecipe#getRecipes(int)} 给的序列排成居中的一行行；null 表示换行间隔。
+	 * 把 {@link QuickRecipe#getRecipes(String)} 给的序列排成居中的一行行；null 表示换行间隔。
 	 * 返回排完之后的底部 y（内容坐标系）。
 	 */
-	private float layoutRecipes(Component content, int pageIdx, int width, float top) {
-		ArrayList<QuickRecipe> toAdd = QuickRecipe.getRecipes(pageIdx);
+	private float layoutRecipes(Component content, String page, int width, float top) {
+		ArrayList<QuickRecipe> toAdd = QuickRecipe.getRecipes(page);
 		ArrayList<QuickRecipe> row = new ArrayList<>();
 
 		while (!toAdd.isEmpty()) {

@@ -17,7 +17,34 @@ public final class SpsAlchemyGuideTabTest {
 		testTabIsScrollableTextIndex();
 		testPopupHoldsBodyAndRecipes();
 		testMissingPageText();
-		System.out.println("SPS炼金指南页签测试通过：可滚动文字目录、点击弹出正文与配方、缺页文案双语均正常。");
+		testSingleSourceOfTruth();
+		System.out.println("SPS炼金指南页签测试通过：目录与条目同源于 ALCHEMY_SECTIONS、可滚动文字目录、点击弹出正文与配方、文案双语均正常。");
+	}
+
+	private static void testSingleSourceOfTruth() throws Exception {
+		String doc = read("../java/pd/journal/Document.java");
+		check(doc.contains("public static final String[][] ALCHEMY_SECTIONS"),
+				"Document 里没有目录表 ALCHEMY_SECTIONS");
+		check(doc.contains("for (String[] section : ALCHEMY_SECTIONS)"),
+				"炼金指南的页没有由目录表展开，页序可能与目录不一致");
+		check(doc.contains("public String sectionTitle(String section)"), "Document 没有 sectionTitle()");
+
+		check(read("../java/pd/ui/QuickRecipe.java").contains("getRecipes( String page )"),
+				"配方仍按页号索引，目录调序会串页");
+
+		String journal = read("../java/pd/windows/WndJournal.java");
+		check(journal.contains("public static String currentPageId"),
+				"页签没有改成按页 id 记录最近翻开的一页");
+		check(!journal.contains("private static final String[][] SECTIONS"),
+				"炼金目录还留着自己的分组表，与 Document.ALCHEMY_SECTIONS 形成两处真源");
+
+		for (String lang : new String[]{"zh", "en"}) {
+			String props = read("messages/journal/" + lang + "/journal.properties");
+			check(props.contains("journal.document.alchemy_guide.section.basics.title="),
+					lang + " 的 journal.properties 缺少炼金目录分组标题");
+			check(!read("messages/windows/" + lang + "/windows.properties").contains("$alchemytab.section."),
+					lang + " 的 windows.properties 仍留有分组标题文案，与 journal 族形成两处");
+		}
 	}
 
 	private static void testTabIsScrollableTextIndex() throws Exception {
@@ -35,17 +62,17 @@ public final class SpsAlchemyGuideTabTest {
 		check(body.contains("readPage("), "翻开炼金页时没有标记为已读");
 		check(body.contains("list.clear()"), "重建炼金目录前没有清空，重复布局会累积条目");
 
-		//分组目录：SECTIONS 决定组与组内条目，手动增改都改这里
-		check(body.contains("private static final String[][] SECTIONS"),
-				"炼金目录没有分组表，无法手动增删配方组");
+		//分组目录：组与条目都来自 Document.ALCHEMY_SECTIONS（唯一真源），手动增改只改那一张表
+		check(body.contains("Document.ALCHEMY_SECTIONS"), "炼金目录没有使用 Document 的目录表");
+		check(body.contains("sectionTitle(section[0])"), "炼金目录没有按组取标题");
 		check(body.contains("list.addTitle("), "炼金目录没有渲染分组标题");
-		check(body.contains("if (idx < 0)"), "分组表里写了不存在的页 id 时没有跳过守卫");
-		check(body.contains("if (!placed.contains(page))"), "分组表未覆盖的页会被漏掉，缺少兜底");
+		check(body.contains("if (idx < 0)"), "目录表里写了不存在的页 id 时没有跳过守卫");
+		check(body.contains("if (!placed.contains(page))"), "目录表未覆盖的页会被漏掉，缺少兜底");
 
 		//固定 9 个图标按钮是这次要淘汰的旧布局
 		check(!body.contains("pageButtons"), "炼金页签仍残留按页生成的图标按钮");
 		check(!body.contains("NUM_BUTTONS"), "炼金页签仍写死了页数常量");
-		check(body.contains("currentPageIdx"), "炼金页签丢掉了外部（日志页道具）定位用的 currentPageIdx");
+		check(body.contains("currentPageId"), "炼金页签丢掉了外部（日志页道具）定位用的 currentPageId");
 	}
 
 	private static void testPopupHoldsBodyAndRecipes() throws Exception {
@@ -86,14 +113,11 @@ public final class SpsAlchemyGuideTabTest {
 	private static void testMissingPageText() throws Exception {
 		String inline = read("../java/pd/windows/WndJournal.java");
 		check(inline.contains(".t(\"$alchemytab.missing\""), "WndJournal 的内联文案缺少炼金页签的缺页文本");
-		check(inline.contains(".t(\"$alchemytab.section.basics\""), "WndJournal 的内联文案缺少炼金目录的分组标题文本");
 
 		for (String lang : new String[]{"zh", "en"}) {
 			String props = read("messages/windows/" + lang + "/windows.properties");
 			check(props.contains("windows.wndjournal$alchemytab.missing="),
 					lang + " 的 windows.properties 缺少炼金页签的缺页文本");
-			check(props.contains("windows.wndjournal$alchemytab.section.basics="),
-					lang + " 的 windows.properties 缺少炼金目录的分组标题文本");
 		}
 	}
 

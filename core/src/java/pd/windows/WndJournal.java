@@ -105,9 +105,6 @@ public class WndJournal extends WndTabbed {
 			.t("$guidetab.title", "地牢指南")
 			.t("$alchemytab.title", "炼金指南")
 			.t("$alchemytab.missing", "缺页")
-			.t("$alchemytab.section.basics", "入门配方")
-			.t("$alchemytab.section.advanced", "进阶与强化")
-			.t("$alchemytab.section.rarities", "珍稀产物")
 			.t("$guidetab.missing", "缺页")
 			.t("$notestab.title", "探险手册")
 			.t("$notestab.desc", "随着你在地牢中的旅途逐渐推进，这里会自动为你记录下重要信息。")
@@ -312,7 +309,8 @@ public class WndJournal extends WndTabbed {
 		
 		//SPSEXPD: 页签本体只是一份可滚动的文字目录，每一页的内容改由 WndAlchemyPage 弹窗显示。
 		//这样以后新增配方组时只是目录多一行，不必再往顶部挤图标按钮（原来固定 9 个图标按钮）。
-		public static int currentPageIdx   = -1;
+		/** 最近一次翻开的页 id（拾取炼金指南书页后也会写这里）。 */
+		public static String currentPageId = null;
 		
 		private ScrollingListPane list;
 		
@@ -330,28 +328,18 @@ public class WndJournal extends WndTabbed {
 		}
 		
 		/**
-		 * SPSEXPD: 炼金指南目录的分组——每行是「组标题文案后缀 + 该组收录的页 id」
-		 * （页 id 就是 {@code Document.ALCHEMY_GUIDE.pagesStates} 的键）。
-		 *
-		 * <p>新增配方组：在这里加一行；往已有组里加页：把页 id 填进对应行。
-		 * 组标题文案是 windows 里的 {@code $alchemytab.section.<后缀>}。
-		 * 没写进本表的页不会丢，会追加在最后一组之后（新增页时不同步这里也能看到），
-		 * 写错/不存在的页 id 会被直接跳过而不是抛异常。</p>
+		 * SPSEXPD: 目录的组与条目都来自 {@link Document#ALCHEMY_SECTIONS}（唯一真源），
+		 * 组标题取自 {@link Document#sectionTitle(String)}。
+		 * 没写进表的页不会丢，会追加在最后一组之后；写错的页 id 直接跳过而不抛异常。
 		 */
-		private static final String[][] SECTIONS = {
-				{"basics",    "Potions", "Stones", "Energy_Food"},
-				{"advanced",  "Exotic_Potions", "Exotic_Scrolls", "Bombs", "Weapons"},
-				{"rarities",  "Brews_Elixirs", "Spells"},
-		};
-
 		public void updateList() {
 			list.clear();
 
 			String missing = Messages.titleCase(Messages.get(this, "missing"));
 
 			ArrayList<String> placed = new ArrayList<>();
-			for (String[] section : SECTIONS){
-				list.addTitle(Messages.get(this, "section." + section[0]));
+			for (String[] section : Document.ALCHEMY_SECTIONS){
+				list.addTitle(Document.ALCHEMY_GUIDE.sectionTitle(section[0]));
 				for (int i = 1; i < section.length; i++){
 					addPage(section[i], missing);
 					placed.add(section[i]);
@@ -378,8 +366,8 @@ public class WndJournal extends WndTabbed {
 				@Override
 				public boolean onClick(float x, float y) {
 					if (inside(x, y) && found) {
-						currentPageIdx = idx;
-						ShatteredPixelDungeon.scene().addToFront(new WndAlchemyPage(idx));
+						currentPageId = page;
+						ShatteredPixelDungeon.scene().addToFront(new WndAlchemyPage(page));
 						Document.ALCHEMY_GUIDE.readPage(idx);
 						return true;
 					} else {

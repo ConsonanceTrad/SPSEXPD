@@ -312,10 +312,12 @@ public class QuickRecipe extends Component {
 	
 	//gets recipes for a particular alchemy guide page
 	//a null entry indicates a break in section
-	public static ArrayList<QuickRecipe> getRecipes( int pageIdx ){
+	//SPSEXPD: 入参是页 id（Document 的目录表里的那个），不再是页号——
+	//这样增删/调序目录不会把配方串到别的页上
+	public static ArrayList<QuickRecipe> getRecipes( String page ){
 		ArrayList<QuickRecipe> result = new ArrayList<>();
-		switch (pageIdx){
-			case 0: default: {
+		switch (page == null ? "" : page){
+			case "Potions": default: {
 				//SPSEXPD: 药剂酿造已由种子改为果实（展示使用果实/大型果实占位图标）
 				WndBag.Placeholder brewed = new WndBag.Placeholder(SpecificPlaceHolderDict.POTION_HOLDER_0) {
 					@Override
@@ -355,7 +357,7 @@ public class QuickRecipe extends Component {
 						brewed));
 				return result;
 			}
-			case 1:
+			case "Stones":
 				Recipe r = new Scroll.ScrollToStone();
 				for (Class<?> cls : Generator.Category.SCROLL.classes){
 					Scroll scroll = (Scroll) Reflection.newInstance(cls);
@@ -364,7 +366,7 @@ public class QuickRecipe extends Component {
 					result.add(new QuickRecipe( r, in, r.sampleOutput(in)));
 				}
 				return result;
-			case 2:
+			case "Energy_Food":
 				result.add(new QuickRecipe( new StewedMeat.oneMeat() ));
 				result.add(new QuickRecipe( new StewedMeat.twoMeat() ));
 				result.add(new QuickRecipe( new StewedMeat.threeMeat() ));
@@ -373,7 +375,7 @@ public class QuickRecipe extends Component {
 						new ArrayList<Item>(Arrays.asList(new Pasty(), new Food(), new MysteryMeat.PlaceHolder())),
 						new MeatPie()));
 				return result;
-			case 3:
+			case "Exotic_Potions":
 				r = new ExoticPotion.PotionToExotic();
 				for (Class<?> cls : Generator.Category.POTION.classes){
 					Potion pot = (Potion) Reflection.newInstance(cls);
@@ -384,7 +386,7 @@ public class QuickRecipe extends Component {
 					result.add(new QuickRecipe( r, in, exoticPotion));
 				}
 				return result;
-			case 4:
+			case "Exotic_Scrolls":
 				r = new ExoticScroll.ScrollToExotic();
 				for (Class<?> cls : Generator.Category.SCROLL.classes){
 					Scroll scroll = (Scroll) Reflection.newInstance(cls);
@@ -395,7 +397,7 @@ public class QuickRecipe extends Component {
 					result.add(new QuickRecipe( r, in, exoticScroll));
 				}
 				return result;
-			case 5:
+			case "Bombs":
 				r = new Bomb.EnhanceBomb();
 				int i = 0;
 				for (Class<?> cls : Bomb.EnhanceBomb.validIngredients.keySet()){
@@ -409,7 +411,7 @@ public class QuickRecipe extends Component {
 					i++;
 				}
 				return result;
-			case 6:
+			case "Weapons":
 				result.add(new QuickRecipe( new LiquidMetal.Recipe(),
 						new ArrayList<Item>(Arrays.asList(new MissileWeapon.PlaceHolder())),
 						new LiquidMetal()));
@@ -432,7 +434,7 @@ public class QuickRecipe extends Component {
 						new ArrayList<>(Arrays.asList(new Garbage(), new Garbage(), new Garbage(), new Garbage(), new Garbage())),
 						new Garbage(3)));
 				return result;
-			case 7:
+			case "Brews_Elixirs":
 				result.add(new QuickRecipe(new UnstableBrew.Recipe(), new ArrayList<>(Arrays.asList(new Potion.PlaceHolder(), new  Plant.Seed.PlaceHolder())), new UnstableBrew()));
 				result.add(new QuickRecipe(new CausticBrew.Recipe()));
 				result.add(new QuickRecipe(new BlizzardBrew.Recipe()));
@@ -477,7 +479,7 @@ public class QuickRecipe extends Component {
 								new CrystalShard(), new AetherLiquid(), new HighEnergySpore())),
 						new WishPotion()));
 				return result;
-			case 8:
+			case "Spells":
 				result.add(new QuickRecipe(new UnstableSpell.Recipe(), new ArrayList<>(Arrays.asList(new Scroll.PlaceHolder(), new  Runestone.PlaceHolder())), new UnstableSpell()));
 				result.add(new QuickRecipe(new WildEnergy.Recipe()));
 				result.add(new QuickRecipe(new TelekineticGrab.Recipe()));

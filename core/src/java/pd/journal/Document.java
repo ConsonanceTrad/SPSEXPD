@@ -119,6 +119,9 @@ public enum Document {
 			.t("adventurers_guide.magic.title", "魔法攻击")
 			.t("adventurers_guide.magic.body", "魔法攻击可以穿透护甲且难以闪避。这意味着法杖拥有非常可靠的输出能力，不过与此同时这也使得法术系敌人变得异常危险！\n\n不过，魔法攻击并非无懈可击。法杖充能有限，而法术系敌人也通常不会近距离施放法术。\n\n面对法术系敌人的攻击时，学会如何规避魔法攻击至关重要。")
 			.t("alchemy_guide.title", "炼金指南")
+			.t("alchemy_guide.section.basics.title", "入门配方")
+			.t("alchemy_guide.section.advanced.title", "进阶与强化")
+			.t("alchemy_guide.section.rarities.title", "珍稀产物")
 			.t("alchemy_guide.potions.title", "引言与入门配方")
 			.t("alchemy_guide.potions.body", "欢迎来到《炼金术的实际应用》！你可以参照配方来使用炼金釜创造出新的物品。\n\n我们先介绍最经典的配方：药剂！\n\n投入四个果实（可混搭），或一个大型果实加一个普通果实，即可酿出一瓶药剂！每类果实均对应一种药剂：只投入单一品种时必定得到对应的药剂，混入的品种越多，越容易开出随机药剂。")
 			.t("alchemy_guide.stones.title", "锻造符石")
@@ -336,6 +339,25 @@ public enum Document {
 		return isPageRead( pagesStates.keySet().toArray(new String[0])[pageIdx] );
 	}
 
+	/**
+	 * SPSEXPD: 炼金指南目录的唯一真源——每行是「组标题后缀 + 该组收录的页 id」。
+	 *
+	 * <p>组顺序 = 行的顺序，组内顺序 = 页 id 的先后，页的注册顺序（以及"缺页/已读"存档键）
+	 * 也由本表展开（见 initPages）。也就是说：增删/调序「目录」与「目录内条目」只改这一张表，
+	 * 再去 journal 族（Document 的 InlineText + messages/journal/{zh,en}）补文案即可。
+	 * 配方不再按页号索引（QuickRecipe.getRecipes 按页 id 取），所以怎么排都不会串页。</p>
+	 */
+	public static final String[][] ALCHEMY_SECTIONS = {
+			{"basics",    "Potions", "Stones", "Energy_Food"},
+			{"advanced",  "Exotic_Potions", "Exotic_Scrolls", "Bombs", "Weapons"},
+			{"rarities",  "Brews_Elixirs", "Spells"},
+	};
+
+	/** 目录某一组的标题（键：{@code alchemy_guide.section.<后缀>.title}）。 */
+	public String sectionTitle(String section){
+		return Messages.get(this, name() + ".section." + section + ".title");
+	}
+
 	public Collection<String> pageNames(){
 		return pagesStates.keySet();
 	}
@@ -476,17 +498,12 @@ public enum Document {
 		ADVENTURERS_GUIDE.pagesStates.put("Positioning",        debug ? READ : NOT_FOUND);
 		ADVENTURERS_GUIDE.pagesStates.put("Magic",              debug ? READ : NOT_FOUND);
 		
-		//given in sewers
-		ALCHEMY_GUIDE.pagesStates.put("Potions",                debug ? READ : NOT_FOUND);
-		ALCHEMY_GUIDE.pagesStates.put("Stones",                 debug ? READ : NOT_FOUND);
-		ALCHEMY_GUIDE.pagesStates.put("Energy_Food",            debug ? READ : NOT_FOUND);
-		ALCHEMY_GUIDE.pagesStates.put("Exotic_Potions",         debug ? READ : NOT_FOUND);
-		ALCHEMY_GUIDE.pagesStates.put("Exotic_Scrolls",         debug ? READ : NOT_FOUND);
-		//given in prison
-		ALCHEMY_GUIDE.pagesStates.put("Bombs",                  debug ? READ : NOT_FOUND);
-		ALCHEMY_GUIDE.pagesStates.put("Weapons",                debug ? READ : NOT_FOUND);
-		ALCHEMY_GUIDE.pagesStates.put("Brews_Elixirs",          debug ? READ : NOT_FOUND);
-		ALCHEMY_GUIDE.pagesStates.put("Spells",                 debug ? READ : NOT_FOUND);
+		//SPSEXPD: 炼金指南的页由 ALCHEMY_SECTIONS 展开——目录表就是唯一真源，页序 = 目录顺序
+		for (String[] section : ALCHEMY_SECTIONS){
+			for (int i = 1; i < section.length; i++){
+				ALCHEMY_GUIDE.pagesStates.put(section[i], debug ? READ : NOT_FOUND);
+			}
+		}
 
 		INTROS.pagesStates.put("Dungeon",                       READ);
 		INTROS.pagesStates.put("Sewers",                        debug ? READ : NOT_FOUND);
