@@ -30,9 +30,7 @@ import pd.effects.particles.ShadowParticle;
 import pd.journal.Document;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSprite;
 import pd.utils.GLog;
-import pd.windows.WndOptions;
 import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
 
@@ -46,7 +44,10 @@ public abstract class EquipableItem extends Item {
 			.t("curse_detected", "在你装备上这件物品前，你感知到了物品的诅咒！")
 			.t("unequip_cursed", "你无法移除一件被诅咒的物品！")
 			.t("ac_equip", "装备")
-			.t("ac_unequip", "取下");
+			.t("ac_unequip", "取下")
+			.t("ac_equip_secondary", "副手装备")
+			.t("yes", "是")
+			.t("no", "否");
 	}
 
 
@@ -54,6 +55,8 @@ public abstract class EquipableItem extends Item {
 
 	public static final String AC_EQUIP		= "EQUIP";
 	public static final String AC_UNEQUIP	= "UNEQUIP";
+	//SPSEXPD: 装备到副手栏（副武器/副护甲）——与「装备」（主手）并列的独立按钮
+	public static final String AC_EQUIP_SECONDARY	= "EQUIP_SECONDARY";
 
 	{
 		bones = true;
@@ -103,48 +106,36 @@ public abstract class EquipableItem extends Item {
 			}
 		} else if (action.equals( AC_UNEQUIP )) {
 			doUnequip( hero, true );
+		} else if (action.equals( AC_EQUIP_SECONDARY )) {
+			equipSecondaryFromInventory( hero );
 		}
 	}
 
-	/**
-	 * SPSEXPD: 装备时的栏位选择（主手/副手），武器与护甲共用。
-	 * 选择后执行对应的装备动作，并沿用原本的快捷栏重排逻辑。
-	 */
-	protected void chooseEquipSlot( Hero hero, String msg, String primaryName, String secondaryName,
-			Runnable primaryAction, Runnable secondaryAction ) {
+	/** SPSEXPD: 装备到副手栏（副武器/副护甲）。默认不支持，由武器与护甲覆写。 */
+	public boolean doEquipSecondary( Hero hero ){
+		return false;
+	}
 
-		usesTargeting = false;
+	/**
+	 * SPSEXPD: 「副手装备」动作的公共流程——装备到副手栏，并沿用原本的快捷栏重排逻辑。
+	 */
+	protected boolean equipSecondaryFromInventory( Hero hero ) {
+
 		int slot = Dungeon.quickslot.getSlot( this );
 		slotOfUnequipped = -1;
 
-		GameScene.show(new WndOptions(
-				new ItemSprite(this),
-				Messages.titleCase(name()),
-				msg,
-				primaryName,
-				secondaryName
-		){
-			@Override
-			protected void onSelect(int index) {
-				super.onSelect(index);
-				if (index == 0 || index == 1){
-					if (index == 0) {
-						primaryAction.run();
-					} else {
-						secondaryAction.run();
-					}
-					if (slot != -1) {
-						Dungeon.quickslot.setSlot( slot, EquipableItem.this );
-						updateQuickslot();
-					//if this item wasn't quickslotted, but the item it is replacing as equipped was
-					//then also have the item occupy the unequipped item's quickslot
-					} else if (slotOfUnequipped != -1 && defaultAction() != null) {
-						Dungeon.quickslot.setSlot( slotOfUnequipped, EquipableItem.this );
-						updateQuickslot();
-					}
-				}
-			}
-		});
+		if (!doEquipSecondary( hero )) return false;
+
+		if (slot != -1) {
+			Dungeon.quickslot.setSlot( slot, this );
+			updateQuickslot();
+		//if this item wasn't quickslotted, but the item it is replacing as equipped was
+		//then also have the item occupy the unequipped item's quickslot
+		} else if (slotOfUnequipped != -1 && defaultAction() != null) {
+			Dungeon.quickslot.setSlot( slotOfUnequipped, this );
+			updateQuickslot();
+		}
+		return true;
 	}
 
 	@Override

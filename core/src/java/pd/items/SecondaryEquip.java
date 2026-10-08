@@ -24,6 +24,7 @@ package pd.items;
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.items.equipment.armor.Armor;
+import pd.items.equipment.weapon.Weapon;
 
 /**
  * SPSEXPD: 副手装备（副武器 secondWep / 副护甲 secondArmor）的全部规则集中在这里。
@@ -91,6 +92,36 @@ public final class SecondaryEquip {
 	/** 主武器普通攻击的命中乘子：双持时主、副武器都受 0.85 倍负向修正。 */
 	public static float hitMultiplier( Hero hero ){
 		return dualWeapons(hero) ? HIT_MULT : 1f;
+	}
+
+	/**
+	 * SPSEXPD: 装备前预演——若把武器装到目标栏位后会形成双持，
+	 * 且其中任意一把武器的 +50% 力量需求超出英雄当前力量，则视为「难以掌控」
+	 * （供装备前的二次确认提示使用）。
+	 */
+	public static boolean dualWieldTooHeavy( Hero hero, KindOfWeapon primary, KindOfWeapon second ){
+		if (hero == null || primary == null || second == null) return false;
+		if (!second.canEquipPrimary()) return false;
+		return tooHeavy(hero, primary) || tooHeavy(hero, second);
+	}
+
+	private static boolean tooHeavy( Hero hero, KindOfWeapon weapon ){
+		if (!(weapon instanceof Weapon)) return false;
+		Weapon w = (Weapon)weapon;
+		return increasedStrengthReq( w.STRReq( w.level() ) ) > hero.STR();
+	}
+
+	/**
+	 * SPSEXPD: 装备前预演——若把护甲装到副护甲栏后会形成双甲，
+	 * 且其中任意一件护甲的 +50% 力量需求超出英雄当前力量，则视为「难以驾驭」。
+	 */
+	public static boolean dualArmorTooHeavy( Hero hero, Armor primary, Armor second ){
+		if (hero == null || primary == null || second == null) return false;
+		return tooHeavy(hero, primary) || tooHeavy(hero, second);
+	}
+
+	private static boolean tooHeavy( Hero hero, Armor armor ){
+		return increasedStrengthReq( armor.STRReq( armor.level() ) ) > hero.STR();
 	}
 
 	/** 副护甲带来的攻击/移动速度倍率：0.8^tier（无副甲时为 1）。 */

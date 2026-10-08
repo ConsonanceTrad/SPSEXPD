@@ -39,6 +39,7 @@ public final class SpsSecondaryDualTest {
 			testSecondaryStrike();
 			testSecondaryArmor();
 			testSecondaryArmorSpeed();
+			testEquipActionsAndOverweight();
 			System.out.println("SPSEXPD副手系统测试通过：力量需求+50%、0.85倍命中修正、副武器连携攻击（不耗回合）、副护甲防护与刻印、副护甲减速均正常。");
 		} finally {
 			Dungeon.hero = null;
@@ -160,6 +161,47 @@ public final class SpsSecondaryDualTest {
 
 		hero.belongings.secondArmor = null;
 		check(close(hero.speed(), baseSpeed) && close(hero.attackDelay(), baseDelay), "卸下副甲后速度惩罚仍然存在");
+	}
+
+	/** 动作栏同时提供「装备」与「副手装备」；超力量提示只在副手装备（双持/双甲）时判定。 */
+	private static void testEquipActionsAndOverweight() {
+		Hero hero = newHero();
+		hero.STR = 10;
+
+		ShortSword primary = new ShortSword();
+		ArrayList<String> actions = primary.actions(hero);
+		check(actions.contains(EquipableItem.AC_EQUIP) && actions.contains(EquipableItem.AC_EQUIP_SECONDARY),
+				"武器动作栏没有同时提供装备与副手装备");
+		check(!actions.contains(EquipableItem.AC_UNEQUIP), "未装备的武器不应提供取下动作");
+
+		hero.belongings.weapon = primary;
+		ArrayList<String> equipped = primary.actions(hero);
+		check(equipped.contains(EquipableItem.AC_UNEQUIP)
+				&& !equipped.contains(EquipableItem.AC_EQUIP_SECONDARY),
+				"已装备的武器仍然提供副手装备动作或缺少取下动作");
+
+		check(SecondaryEquip.dualWieldTooHeavy(hero, primary, new Spear()), "双持超出力量时没有超力量提示");
+		check(!SecondaryEquip.dualWieldTooHeavy(hero, primary, null), "只有主武器时不应提示");
+		check(!SecondaryEquip.dualWieldTooHeavy(hero, primary, new MissileShield()), "副手为盾时不应提示");
+		hero.STR = 60;
+		check(!SecondaryEquip.dualWieldTooHeavy(hero, primary, new Spear()), "力量充足时不应有超力量提示");
+
+		//SPSEXPD: 护甲同样是「装备」+「副手装备」，且双甲也会超出力量
+		hero.STR = 10;
+		BaseArmor armor = new BaseArmor();
+		ArrayList<String> armorActions = armor.actions(hero);
+		check(armorActions.contains(EquipableItem.AC_EQUIP) && armorActions.contains(EquipableItem.AC_EQUIP_SECONDARY),
+				"护甲动作栏没有同时提供装备与副手装备");
+		check(SecondaryEquip.dualArmorTooHeavy(hero, armor, new VestArmor()), "双甲超出力量时没有超力量提示");
+		check(!SecondaryEquip.dualArmorTooHeavy(hero, armor, null), "只有主护甲时不应提示");
+		hero.STR = 60;
+		check(!SecondaryEquip.dualArmorTooHeavy(hero, armor, new VestArmor()), "力量充足时双甲不应有超力量提示");
+
+		//SPSEXPD: 只能进副手栏的武器（神木圆盾）只提供副手装备
+		ArrayList<String> shieldActions = new MissileShield().actions(hero);
+		check(shieldActions.contains(EquipableItem.AC_EQUIP_SECONDARY)
+				&& !shieldActions.contains(EquipableItem.AC_EQUIP),
+				"只能进副手栏的武器没有隐藏主手装备动作");
 	}
 
 	private static Hero newHero() {

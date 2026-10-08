@@ -40,6 +40,7 @@ import pd.windows.WndOptions;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
 import render.utils.math.Random;
+import java.util.ArrayList;
 import pd.messages.InlineText;
 
 abstract public class KindOfWeapon extends EquipableItem {
@@ -54,7 +55,8 @@ abstract public class KindOfWeapon extends EquipableItem {
 			.t("empty", "空栏位")
 			.t("destory", "你的武器坏掉了。")
 			.t("almost_destory", "你的武器快要坏了。")
-			.t("no_primary_swap", "这件武器只能装备在副武器栏，无法与主武器互换。");
+			.t("no_primary_swap", "这件武器只能装备在副武器栏，无法与主武器互换。")
+			.t("equip_overweight_msg", "同时挥舞两把武器需要更强的力量，装备这把武器会导致主手武器/副手武器难以掌控，确定要装备吗？");
 	}
 
 
@@ -64,21 +66,43 @@ abstract public class KindOfWeapon extends EquipableItem {
 	protected float hitSoundPitch = 1f;
 	
 	@Override
-	public void execute(Hero hero, String action) {
-		//SPSEXPD: 副手装备对所有职业开放（原版仅勇士可选），装备武器时选择主手/副手武器栏
-		if (action.equals(AC_EQUIP)){
-			String primaryName = Messages.titleCase(hero.belongings.weapon != null ? hero.belongings.weapon.trueName() : Messages.get(KindOfWeapon.class, "empty"));
-			String secondaryName = Messages.titleCase(hero.belongings.secondWep != null ? hero.belongings.secondWep.trueName() : Messages.get(KindOfWeapon.class, "empty"));
-			if (primaryName.length() > 18) primaryName = primaryName.substring(0, 15) + "...";
-			if (secondaryName.length() > 18) secondaryName = secondaryName.substring(0, 15) + "...";
-			chooseEquipSlot(hero,
-					Messages.get(KindOfWeapon.class, "which_equip_msg"),
-					Messages.get(KindOfWeapon.class, "which_equip_primary", primaryName),
-					Messages.get(KindOfWeapon.class, "which_equip_secondary", secondaryName),
-					() -> doEquip(hero), () -> equipSecondary(hero));
-		} else {
-			super.execute(hero, action);
+	public ArrayList<String> actions(Hero hero) {
+		ArrayList<String> actions = super.actions(hero);
+		if (!isEquipped(hero)){
+			//SPSEXPD: 「装备」进主手、「副手装备」进副武器栏（副手装备对所有职业开放）；
+			//只能装备在副武器栏的武器（神木圆盾）没有主手选项
+			if (!canEquipPrimary()) actions.remove(AC_EQUIP);
+			actions.add(AC_EQUIP_SECONDARY);
 		}
+		return actions;
+	}
+
+	@Override
+	public boolean doEquipSecondary( Hero hero ) {
+		return equipSecondary(hero);
+	}
+
+	@Override
+	public void execute(Hero hero, String action) {
+		//SPSEXPD: 副手装备——双持会让武器力量需求超出英雄力量时，先提示「武器难以掌控」再确认
+		if (action.equals(AC_EQUIP_SECONDARY)
+				&& SecondaryEquip.dualWieldTooHeavy(hero, hero.belongings.weapon, this)){
+			GameScene.show(new WndOptions(
+					new ItemSprite(this),
+					Messages.titleCase(name()),
+					Messages.get(KindOfWeapon.class, "equip_overweight_msg"),
+					Messages.get(EquipableItem.class, "yes"),
+					Messages.get(EquipableItem.class, "no")
+			){
+				@Override
+				protected void onSelect(int index) {
+					super.onSelect(index);
+					if (index == 0) KindOfWeapon.this.equipSecondaryFromInventory(hero);
+				}
+			});
+			return;
+		}
+		super.execute(hero, action);
 	}
 
 	@Override

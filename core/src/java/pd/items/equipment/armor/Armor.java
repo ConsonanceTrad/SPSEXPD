@@ -135,10 +135,7 @@ public class Armor extends EquipableItem {
 			.t("$glyph.killed", "%s杀死了你...")
 			.t("$glyph.rankings_desc", "死于刻印")
 			.t("$glyph.discover_hint", "你可在地牢中概率找到带有该效果的物品，或尝试自行使物品获得该效果。")
-			.t("which_equip_msg", "你想将这件护甲装备至哪个护甲栏位？\n\n副护甲会像主护甲一样为你抵挡伤害并生效刻印。代价是两件护甲的力量需求都会提高 50%，且副护甲每有 1 阶位，你的攻击与移动速度都会降低 20%。\n\n你同样可以瞬间切换主、副护甲。")
-			.t("which_equip_primary", "主护甲(%s)")
-			.t("which_equip_secondary", "副护甲(%s)")
-			.t("empty", "空栏位");
+			.t("equip_overweight_msg", "同时穿戴两件护甲需要更强的力量，装备这件护甲会导致主护甲/副护甲难以驾驭，确定要装备吗？");
 	}
 
 
@@ -267,23 +264,35 @@ public class Armor extends EquipableItem {
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);
 		if (seal != null) actions.add(AC_DETACH);
+		//SPSEXPD: 「装备」进主护甲栏、「副手装备」进副护甲栏（副手装备对所有职业开放）
+		if (!isEquipped(hero)) actions.add(AC_EQUIP_SECONDARY);
 		return actions;
+	}
+
+	@Override
+	public boolean doEquipSecondary( Hero hero ) {
+		return equipSecondary(hero);
 	}
 
 	@Override
 	public void execute(Hero hero, String action) {
 
-		//SPSEXPD: 装备护甲时选择主/副护甲栏（副手装备对所有职业开放）
-		if (action.equals(AC_EQUIP)){
-			String primaryName = Messages.titleCase(hero.belongings.armor != null ? hero.belongings.armor.trueName() : Messages.get(Armor.class, "empty"));
-			String secondaryName = Messages.titleCase(hero.belongings.secondArmor != null ? hero.belongings.secondArmor.trueName() : Messages.get(Armor.class, "empty"));
-			if (primaryName.length() > 18) primaryName = primaryName.substring(0, 15) + "...";
-			if (secondaryName.length() > 18) secondaryName = secondaryName.substring(0, 15) + "...";
-			chooseEquipSlot(hero,
-					Messages.get(Armor.class, "which_equip_msg"),
-					Messages.get(Armor.class, "which_equip_primary", primaryName),
-					Messages.get(Armor.class, "which_equip_secondary", secondaryName),
-					() -> doEquip(hero), () -> equipSecondary(hero));
+		//SPSEXPD: 副手装备——双甲会让护甲力量需求超出英雄力量时，先提示「难以驾驭」再确认
+		if (action.equals(AC_EQUIP_SECONDARY)
+				&& SecondaryEquip.dualArmorTooHeavy(hero, hero.belongings.armor, this)){
+			GameScene.show(new WndOptions(
+					new ItemSprite(this),
+					Messages.titleCase(name()),
+					Messages.get(Armor.class, "equip_overweight_msg"),
+					Messages.get(EquipableItem.class, "yes"),
+					Messages.get(EquipableItem.class, "no")
+			){
+				@Override
+				protected void onSelect(int index) {
+					super.onSelect(index);
+					if (index == 0) Armor.this.equipSecondaryFromInventory(hero);
+				}
+			});
 			return;
 		}
 
