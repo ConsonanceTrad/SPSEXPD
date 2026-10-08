@@ -44,9 +44,7 @@ import pd.items.Torch;
 import pd.items.equipment.artifacts.Artifact;
 import pd.items.equipment.artifacts.DriedRose;
 import pd.items.consum.food.SupplyRation;
-import pd.items.specific.journal.DocumentPage;
 import pd.items.specific.journal.GuidePage;
-import pd.items.specific.journal.RegionLorePage;
 import pd.items.specific.keys.CrystalKey;
 import pd.items.specific.keys.GoldenKey;
 import pd.items.specific.keys.Key;
@@ -604,67 +602,13 @@ public abstract class RegularLevel extends Level {
 			}
 		Random.popGenerator();
 
-		//lore pages
-		//TODO a fair bit going on here, I might want to refactor/externalize this in the future
+		//SPSEXPD: 各区域的「故事书页」（文献）不再掉落。
+		//巡逻队员的信件 / 监狱长日志 / 探险者日志 / 矮人术士手记 / ？？？录 这些 lore 文档，
+		//随日志里的图鉴一起取消了查看入口，捡到也无处可看，因此整段投放逻辑一并移除。
+		//（地牢探索指南的 GuidePage 属于教程页，仍照上方 guide pages 段掉落。）
+		//这里刻意保留一对 pushGenerator/popGenerator：Random.Long() 仍要在父生成器上取一次数，
+		//否则后续关卡的确定性生成（verifySpsRegularLevels 之类按固定种子的校验）会整体偏移。
 		Random.pushGenerator( Random.Long() );
-			if (Document.ADVENTURERS_GUIDE.allPagesFound()){
-
-				//SPSEXPD: 每章 8 层——文献投放区域按章节
-				int region = 1 + Dungeon.chapterIndex(Dungeon.depth);
-
-				Document regionDoc;
-				switch( region ){
-					default: regionDoc = null; break;
-					case 1: regionDoc = Document.SEWERS_GUARD; break;
-					case 2: regionDoc = Document.PRISON_WARDEN; break;
-					case 3: regionDoc = Document.CAVES_EXPLORER; break;
-					case 4: regionDoc = Document.CITY_WARLOCK; break;
-					case 5: regionDoc = Document.HALLS_KING; break;
-				}
-
-				if (regionDoc != null && !regionDoc.allPagesFound()) {
-
-					Dungeon.LimitedDrops limit = limitedDocs.get(regionDoc);
-
-					if (limit == null || !limit.dropped()) {
-
-						float totalPages = 0;
-						float pagesFound = 0;
-						String pageToDrop = null;
-						for (String page : regionDoc.pageNames()) {
-							totalPages++;
-							if (!regionDoc.isPageFound(page)) {
-								if (pageToDrop == null) {
-									pageToDrop = page;
-								}
-							} else {
-								pagesFound++;
-							}
-						}
-						float percentComplete = pagesFound / totalPages;
-
-						// initial value is the first floor in a region
-						int targetFloor = 5*(region-1) + 1;
-						targetFloor += Math.round(3*percentComplete);
-
-						//TODO maybe drop last page in boss floor with custom logic?
-						if (Dungeon.depth >= targetFloor){
-							DocumentPage page = RegionLorePage.pageForDoc(regionDoc);
-							page.page(pageToDrop);
-							int cell = randomDropCell();
-							if (map[cell] == Terrain.HIGH_GRASS || map[cell] == Terrain.FURROWED_GRASS) {
-								map[cell] = Terrain.GRASS;
-								losBlocking[cell] = false;
-							}
-							drop(page, cell);
-							if (limit != null) limit.drop();
-						}
-
-					}
-
-				}
-
-			}
 		Random.popGenerator();
 
 		//ebony mimics >:)
@@ -713,15 +657,6 @@ public abstract class RegularLevel extends Level {
 
 	}
 
-	private static HashMap<Document, Dungeon.LimitedDrops> limitedDocs = new HashMap<>();
-	static {
-		limitedDocs.put(Document.SEWERS_GUARD, Dungeon.LimitedDrops.LORE_SEWERS);
-		limitedDocs.put(Document.PRISON_WARDEN, Dungeon.LimitedDrops.LORE_PRISON);
-		limitedDocs.put(Document.CAVES_EXPLORER, Dungeon.LimitedDrops.LORE_CAVES);
-		limitedDocs.put(Document.CITY_WARLOCK, Dungeon.LimitedDrops.LORE_CITY);
-		limitedDocs.put(Document.HALLS_KING, Dungeon.LimitedDrops.LORE_HALLS);
-	}
-	
 	public ArrayList<Room> rooms() {
 		return new ArrayList<>(rooms);
 	}

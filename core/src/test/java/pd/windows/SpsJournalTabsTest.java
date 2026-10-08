@@ -17,7 +17,16 @@ public final class SpsJournalTabsTest {
 		testDesktopScene();
 		testSmallWindow();
 		testGuideDropsStoryGuide();
-		System.out.println("SPS日志页签测试通过：日志已去掉徽章与图鉴面板与「SPS大陆介绍」，页签索引只留探险手册/指南/炼金，无越界引用。");
+		testLorePagesNoLongerDrop();
+		System.out.println("SPS日志页签测试通过：日志已去掉徽章与图鉴面板与「SPS大陆介绍」，故事书页不再掉落，页签索引只留探险手册/指南/炼金。");
+	}
+
+	private static void testLorePagesNoLongerDrop() throws Exception {
+		String level = read("../java/pd/levels/RegularLevel.java");
+		check(!level.contains("//lore pages"), "RegularLevel 里仍留有区域文献（故事书页）的投放段");
+		check(!level.contains("RegionLorePage"), "RegularLevel 仍引用区域文献页，故事书页还会掉");
+		check(!level.contains("limitedDocs"), "区域文献的抽取表仍在，与已移除的掉落机制不一致");
+		check(level.contains("GuidePage"), "地牢探索指南的页掉落被误删（它属于教程页，应保留）");
 	}
 
 	private static void testGuideDropsStoryGuide() throws Exception {
