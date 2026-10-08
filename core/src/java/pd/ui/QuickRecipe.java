@@ -131,7 +131,10 @@ public class QuickRecipe extends Component {
 
 				@Override
 				protected void onClick() {
-					ShatteredPixelDungeon.scene().addToFront(new WndInfoItem(in));
+					//SPSEXPD: 少数配方取样时 item 会是 null（例如 sampleOutput(null)），别在这里 NPE
+					if (in != null) {
+						ShatteredPixelDungeon.scene().addToFront(new WndInfoItem(in));
+					}
 				}
 			};
 
@@ -177,7 +180,10 @@ public class QuickRecipe extends Component {
 		this.output = new ItemSlot(output){
 			@Override
 			protected void onClick() {
-				ShatteredPixelDungeon.scene().addToFront(new WndInfoItem(output));
+				//SPSEXPD: 少数配方取样时 output 会是 null（sampleOutput(null) 拿不到产物），别在这里 NPE
+				if (output != null) {
+					ShatteredPixelDungeon.scene().addToFront(new WndInfoItem(output));
+				}
 			}
 		};
 		if (Dungeon.hero != null && !hasInputs){

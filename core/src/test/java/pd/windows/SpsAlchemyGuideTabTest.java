@@ -35,6 +35,13 @@ public final class SpsAlchemyGuideTabTest {
 		check(body.contains("readPage("), "翻开炼金页时没有标记为已读");
 		check(body.contains("list.clear()"), "重建炼金目录前没有清空，重复布局会累积条目");
 
+		//分组目录：SECTIONS 决定组与组内条目，手动增改都改这里
+		check(body.contains("private static final String[][] SECTIONS"),
+				"炼金目录没有分组表，无法手动增删配方组");
+		check(body.contains("list.addTitle("), "炼金目录没有渲染分组标题");
+		check(body.contains("if (idx < 0)"), "分组表里写了不存在的页 id 时没有跳过守卫");
+		check(body.contains("if (!placed.contains(page))"), "分组表未覆盖的页会被漏掉，缺少兜底");
+
 		//固定 9 个图标按钮是这次要淘汰的旧布局
 		check(!body.contains("pageButtons"), "炼金页签仍残留按页生成的图标按钮");
 		check(!body.contains("NUM_BUTTONS"), "炼金页签仍写死了页数常量");
@@ -79,11 +86,14 @@ public final class SpsAlchemyGuideTabTest {
 	private static void testMissingPageText() throws Exception {
 		String inline = read("../java/pd/windows/WndJournal.java");
 		check(inline.contains(".t(\"$alchemytab.missing\""), "WndJournal 的内联文案缺少炼金页签的缺页文本");
+		check(inline.contains(".t(\"$alchemytab.section.basics\""), "WndJournal 的内联文案缺少炼金目录的分组标题文本");
 
 		for (String lang : new String[]{"zh", "en"}) {
 			String props = read("messages/windows/" + lang + "/windows.properties");
 			check(props.contains("windows.wndjournal$alchemytab.missing="),
 					lang + " 的 windows.properties 缺少炼金页签的缺页文本");
+			check(props.contains("windows.wndjournal$alchemytab.section.basics="),
+					lang + " 的 windows.properties 缺少炼金目录的分组标题文本");
 		}
 	}
 

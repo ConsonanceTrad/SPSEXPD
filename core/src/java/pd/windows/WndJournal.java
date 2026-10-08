@@ -105,6 +105,9 @@ public class WndJournal extends WndTabbed {
 			.t("$guidetab.title", "地牢指南")
 			.t("$alchemytab.title", "炼金指南")
 			.t("$alchemytab.missing", "缺页")
+			.t("$alchemytab.section.basics", "入门配方")
+			.t("$alchemytab.section.advanced", "进阶与强化")
+			.t("$alchemytab.section.rarities", "珍稀产物")
 			.t("$guidetab.missing", "缺页")
 			.t("$notestab.title", "探险手册")
 			.t("$notestab.desc", "随着你在地牢中的旅途逐渐推进，这里会自动为你记录下重要信息。")
@@ -363,35 +366,69 @@ public class WndJournal extends WndTabbed {
 			updateList();
 		}
 		
+		/**
+		 * SPSEXPD: 炼金指南目录的分组——每行是「组标题文案后缀 + 该组收录的页 id」
+		 * （页 id 就是 {@code Document.ALCHEMY_GUIDE.pagesStates} 的键）。
+		 *
+		 * <p>新增配方组：在这里加一行；往已有组里加页：把页 id 填进对应行。
+		 * 组标题文案是 windows 里的 {@code $alchemytab.section.<后缀>}。
+		 * 没写进本表的页不会丢，会追加在最后一组之后（新增页时不同步这里也能看到），
+		 * 写错/不存在的页 id 会被直接跳过而不是抛异常。</p>
+		 */
+		private static final String[][] SECTIONS = {
+				{"basics",    "Potions", "Stones", "Energy_Food"},
+				{"advanced",  "Exotic_Potions", "Exotic_Scrolls", "Bombs", "Weapons"},
+				{"rarities",  "Brews_Elixirs", "Spells"},
+		};
+
 		public void updateList() {
 			list.clear();
 
 			String missing = Messages.titleCase(Messages.get(this, "missing"));
 
-			for (String page : Document.ALCHEMY_GUIDE.pageNames()){
-				final int idx = Document.ALCHEMY_GUIDE.pageIdx(page);
-				final boolean found = Document.ALCHEMY_GUIDE.isPageFound(page);
-				ScrollingListPane.ListItem item = new ScrollingListPane.ListItem(
-						Document.ALCHEMY_GUIDE.pageSprite(page), null,
-						found ? Messages.titleCase(Document.ALCHEMY_GUIDE.pageTitle(page)) : missing) {
-					@Override
-					public boolean onClick(float x, float y) {
-						if (inside(x, y) && found) {
-							currentPageIdx = idx;
-							ShatteredPixelDungeon.scene().addToFront(new WndAlchemyPage(idx));
-							Document.ALCHEMY_GUIDE.readPage(idx);
-							return true;
-						} else {
-							return false;
-						}
-					}
-				};
-				if (!found){
-					item.hardlight(0x999999);
-					item.hardlightIcon(0x999999);
+			ArrayList<String> placed = new ArrayList<>();
+			for (String[] section : SECTIONS){
+				list.addTitle(Messages.get(this, "section." + section[0]));
+				for (int i = 1; i < section.length; i++){
+					addPage(section[i], missing);
+					placed.add(section[i]);
 				}
-				list.addItem(item);
 			}
+
+			//分组表没覆盖到的页仍然列出来，新增页时不会凭空消失
+			for (String page : Document.ALCHEMY_GUIDE.pageNames()){
+				if (!placed.contains(page)){
+					addPage(page, missing);
+				}
+			}
+		}
+
+		private void addPage(String page, String missing) {
+			final int idx = Document.ALCHEMY_GUIDE.pageIdx(page);
+			if (idx < 0){
+				return;
+			}
+			final boolean found = Document.ALCHEMY_GUIDE.isPageFound(page);
+			ScrollingListPane.ListItem item = new ScrollingListPane.ListItem(
+					Document.ALCHEMY_GUIDE.pageSprite(page), null,
+					found ? Messages.titleCase(Document.ALCHEMY_GUIDE.pageTitle(page)) : missing) {
+				@Override
+				public boolean onClick(float x, float y) {
+					if (inside(x, y) && found) {
+						currentPageIdx = idx;
+						ShatteredPixelDungeon.scene().addToFront(new WndAlchemyPage(idx));
+						Document.ALCHEMY_GUIDE.readPage(idx);
+						return true;
+					} else {
+						return false;
+					}
+				}
+			};
+			if (!found){
+				item.hardlight(0x999999);
+				item.hardlightIcon(0x999999);
+			}
+			list.addItem(item);
 		}
 	}
 	
