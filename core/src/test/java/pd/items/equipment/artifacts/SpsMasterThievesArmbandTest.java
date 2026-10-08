@@ -50,6 +50,7 @@ public final class SpsMasterThievesArmbandTest {
 		try {
 			testWandBasics();
 			testZapDamageAndSteal();
+			testStealFromMobChance();
 			testStealCurve();
 			testGroundAndShopLanding();
 			testMimicLanding();
@@ -117,6 +118,34 @@ public final class SpsMasterThievesArmbandTest {
 		int stonesBefore = countStones(hero);
 		staff.onZap(new Ballistica(hero.pos, mob.pos, Ballistica.PROJECTILE));
 		check(countStones(hero) > stonesBefore || mob.HP < 100, "第二次命中没有回退为空手石块");
+	}
+
+	/** SPSEXPD: 偷生物也按价值概率——极贵的东西会失手，且失手不消耗目标身上的机会。 */
+	private static void testStealFromMobChance() {
+		Hero hero = prepareHero();
+		TestLevel level = new TestLevel();
+		Dungeon.level = level;
+		hero.pos = 27;
+
+		RichTestMob rich = new RichTestMob();
+		rich.pos = 28;
+		rich.HP = rich.HT = 100;
+		level.mobs().add(rich);
+		Actor.add(rich);
+
+		MasterThievesArmband staff = new MasterThievesArmband();
+		staff.collect(hero.belongings.backpack);
+		staff.level(0);   //0 级的价位上限只有 20，极贵的东西必然失手
+
+		check(staff.stealChance(new PriceItem(1000000)) < 0.001f, "极贵的东西不是几乎必失手");
+
+		staff.onZap(new Ballistica(hero.pos, 28, Ballistica.PROJECTILE));
+		check(countMarkers(hero) == 0 && countStones(hero) == 0, "偷窃失手却拿到了东西");
+		check(rich.firstItem, "偷窃失手却消耗了目标身上的机会");
+
+		//失手不消耗机会：同一目标还能再偷
+		staff.onZap(new Ballistica(hero.pos, 28, Ballistica.PROJECTILE));
+		check(rich.firstItem, "第二次尝试前目标身上的机会就已经没了");
 	}
 
 	/** SPSEXPD: 偷窃价位随等级指数上涨——0 级 20、45 级 7000（即 45 级时标价 10000 = 70%）。 */
@@ -373,7 +402,8 @@ public final class SpsMasterThievesArmbandTest {
 		level.map[cell] = terrain;
 	}
 
-	private static Heap heapAt(TestLevel level, int cell, Heap.Type type, Item item) {		//SPSEXPD: 8x8 测试地图的最外圈会被 buildFlagMaps 标成 solid，落点必须选可通行格
+	private static Heap heapAt(TestLevel level, int cell, Heap.Type type, Item item) {
+		//SPSEXPD: 8x8 测试地图的最外圈会被 buildFlagMaps 标成 solid，落点必须选可通行格
 		check(level.passable[cell] && !level.solid[cell], "测试落点不可通行：" + cell);
 		Heap heap = new Heap();
 		heap.type = type;
@@ -476,6 +506,11 @@ public final class SpsMasterThievesArmbandTest {
 		@Override public int defenseSkill(Char enemy) { return 0; }
 		@Override public int damageRoll() { return 1; }
 		@Override public int drRoll() { return 0; }
+	}
+
+	/** 测试用目标：身上带一件极贵的东西（按价值概率必然失手）。 */
+	public static class RichTestMob extends TestMob {
+		@Override public Item SupercreateLoot() { return new PriceItem(1000000); }
 	}
 
 	/** 无头用的最小地图。 */

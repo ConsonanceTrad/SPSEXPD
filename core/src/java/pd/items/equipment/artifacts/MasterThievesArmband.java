@@ -40,7 +40,7 @@ import pd.messages.InlineText;
  * SPSEXPD: 魔术之手法杖——由「神偷袖章」神器改造而成，现在是一根普通法杖（不再是神器）。
  * 所有能力都通过「释放」施法完成（不再有独立的「魔术之手」动作）：
  * <ul>
- *   <li>命中生物：造成伤害并顺手偷走一件东西；</li>
+ *   <li>命中生物：造成伤害，并按价值概率偷走一件东西（与偷商品同一套算法，越贵越难）；</li>
  *   <li>落点是普通商店货品：按标价概率偷取，失手会惊动商店老板（不散落金币）；</li>
  *   <li>落点是秘密商店货品：同样概率偷取，失手则以货价一半的永久生命上限为代价；</li>
  *   <li>落点是普通掉落物：直接取来一件；</li>
@@ -61,6 +61,7 @@ public class MasterThievesArmband extends DamageWand {
 			.t("staff_name", "魔术之手魔杖")
 			.t("stolen", "魔术之手顺手从%1$s身上摸走了%2$s。")
 			.t("stolen_stone", "魔术之手没从%1$s身上摸到什么，只抓到一块石头。")
+			.t("steal_fail", "魔术之手没从%1$s身上摸到东西——它护得太紧了。")
 			.t("pick_ground", "魔术之手取来了%1$s。")
 			.t("open_from_afar", "魔术之手打开了%1$s。")
 			.t("steal_goods_ok", "魔术之手从货架上顺走了%1$s。")
@@ -69,7 +70,7 @@ public class MasterThievesArmband extends DamageWand {
 			.t("steal_life_fail", "魔术之手失手了，你被抽走了%1$d点永久生命。")
 			.t("steal_life_none", "魔术之手失手了；你的永久生命已所剩无几。")
 			.t("desc", "一根缠着紫色天鹅绒的细杖，杖顶嵌着一只小小的银手。它只认「释放」一件事：指尖摸到活物就伤人取物，摸到货架就按价钱掂量着偷，摸到地上的东西就顺手搬走。")
-			.t("stats_desc", "释放时造成_%1$d~%2$d点伤害_，并顺手从命中的敌人或 NPC 身上偷走一件东西。落点是商店货品时会按标价概率偷取：被抓到会惊动商店老板（货品越贵越难偷）；若是秘密商店，失手还要付出货价一半的永久生命。落点是普通掉落物则直接取来，落点是未上锁的宝箱、坟墓、遗骸或藏宝地则隔空打开，落点是草丛或植物则会像踩踏一样把它们处理掉，落点是宝箱怪则会当场惊醒并打它一下。")
+			.t("stats_desc", "释放时造成_%1$d~%2$d点伤害_，并按价值概率从命中的敌人或 NPC 身上偷走一件东西（与偷商品同一套算法，越贵越难偷，失手不消耗机会）。落点是商店货品时会按标价概率偷取：被抓到会惊动商店老板（货品越贵越难偷）；若是秘密商店，失手还要付出货价一半的永久生命。落点是普通掉落物则直接取来，落点是未上锁的宝箱、坟墓、遗骸或藏宝地则隔空打开，落点是草丛或植物则会像踩踏一样把它们处理掉，落点是宝箱怪则会当场惊醒并打它一下。")
 			.t("bmage_desc", "当_战斗法师_以魔术之手魔杖近战攻击目标时，这根魔杖同样会恢复充能。")
 			.t("discover_hint", "可在法杖池中找到。");
 	}
@@ -304,31 +305,31 @@ public class MasterThievesArmband extends DamageWand {
 		return curUser instanceof Hero ? (Hero) curUser : Dungeon.hero;
 	}
 
-	/** SPSEXPD: 从被命中的目标身上摸走一件东西（沿用旧版袖章的掉落取用规则）。 */
+	/**
+	 * SPSEXPD: 从被命中的目标身上摸走一件东西——与偷商品用同一套概率（越贵越难偷），
+	 * 失手不消耗目标身上的机会（还能再花 1 点充能重试）。
+	 */
 	protected void stealFrom(Mob mob, Char target) {
 		Hero owner = ownerOf();
 		if (owner == null) return;
 
-		Item loot = takeLegacyLoot(mob);
-		if (loot == null) return;
+		//先看能得到什么（此时还不改 firstItem 标记），再按它的价值掷概率
+		Item loot = mob.firstItem ? mob.SupercreateLoot() : null;
 
-		if (loot instanceof StoneOre) {
+		if (loot == null) {
+			//目标身上已经没有可偷的东西：沿用旧版规则给一块石头
 			GLog.i(Messages.get(this, "stolen_stone", Messages.get(target, "name")));
-		} else {
-			GLog.i(Messages.get(this, "stolen", Messages.get(target, "name"), loot.name()));
+			deliver(new StoneOre(), owner);
+			return;
 		}
-		if (!loot.doPickUp(owner) && Dungeon.level != null) {
-			Dungeon.level.drop(loot, owner.pos);
-		}
-	}
 
-	/** 旧版规则：目标身上第一件掉落物用 SupercreateLoot 取，取不到就给一块石头。 */
-	protected Item takeLegacyLoot(Mob mob) {
-		if (mob.firstItem) {
-			mob.firstItem = false;
-			Item loot = mob.SupercreateLoot();
-			return loot == null ? new StoneOre() : loot;
+		if (Random.Float() >= stealChance(loot)) {
+			GLog.w(Messages.get(this, "steal_fail", Messages.get(target, "name")));
+			return;
 		}
-		return new StoneOre();
+
+		mob.firstItem = false;
+		GLog.i(Messages.get(this, "stolen", Messages.get(target, "name"), loot.name()));
+		deliver(loot, owner);
 	}
 }
