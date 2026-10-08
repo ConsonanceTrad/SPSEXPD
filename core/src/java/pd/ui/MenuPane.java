@@ -334,9 +334,8 @@ public class MenuPane extends Component {
 				} else if (flashingDoc.pageNames().contains(flashingPage)){
 					if (flashingDoc == Document.ADVENTURERS_GUIDE){
 						WndJournal.last_index = 1;
-					} else if (flashingDoc.isLoreDoc()){
-						WndJournal.last_index = 3;
-						WndJournal.CatalogTab.currentItemIdx = 3;
+					} else {
+						WndJournal.last_index = 0;
 					}
 					GameScene.show( new WndStory( flashingDoc.pageSprite(flashingPage),
 							flashingDoc.pageTitle(flashingPage),

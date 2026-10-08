@@ -70,8 +70,7 @@ public abstract class DocumentPage extends Item {
 			WndJournal.last_index = 2;
 			WndJournal.AlchemyTab.currentPageIdx = document().pageIdx(page());
 		} else if (document().isLoreDoc()){
-			WndJournal.last_index = 3;
-			WndJournal.CatalogTab.currentItemIdx = 3;
+			WndJournal.last_index = 0;
 		}
 		document().findPage(page);
 		Sample.INSTANCE.play( Assets.Sounds.ITEM );

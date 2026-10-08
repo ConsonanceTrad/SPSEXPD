@@ -154,8 +154,6 @@ public class WndJournal extends WndTabbed {
 	private GuideTab guideTab;
 	private AlchemyTab alchemyTab;
 	private NotesTab notesTab;
-	private CatalogTab catalogTab;
-	private BadgesTab badgesTab;
 	
 	public static int last_index = 0;
 
@@ -185,16 +183,6 @@ public class WndJournal extends WndTabbed {
 		add(notesTab);
 		notesTab.setRect(0, 0, width, height);
 		notesTab.updateList();
-		
-		catalogTab = new CatalogTab();
-		add(catalogTab);
-		catalogTab.setRect(0, 0, width, height);
-		catalogTab.updateList();
-
-		badgesTab = new BadgesTab();
-		add(badgesTab);
-		badgesTab.setRect(0, 0, width, height);
-		badgesTab.updateList();
 		
 		Tab[] tabs = {
 				new IconTab( Icons.JOURNAL.get() ) {
@@ -233,30 +221,6 @@ public class WndJournal extends WndTabbed {
 						return Messages.get(alchemyTab, "title");
 					}
 				},
-				new IconTab( Icons.CATALOG.get() ) {
-					protected void select( boolean value ) {
-						super.select( value );
-						catalogTab.active = catalogTab.visible = value;
-						if (value) last_index = 3;
-					}
-
-					@Override
-					protected String hoverText() {
-						return Messages.get(catalogTab, "title");
-					}
-				},
-				new IconTab( Icons.BADGES.get() ) {
-					protected void select( boolean value ) {
-						super.select( value );
-						badgesTab.active = badgesTab.visible = value;
-						if (value) last_index = 4;
-					}
-
-					@Override
-					protected String hoverText() {
-						return Messages.get(badgesTab, "title");
-					}
-				}
 		};
 
 		for (Tab tab : tabs) {
@@ -286,7 +250,6 @@ public class WndJournal extends WndTabbed {
 		guideTab.layout();
 		alchemyTab.layout();
 		notesTab.layout();
-		catalogTab.layout();
 	}
 	
 	public static class GuideTab extends Component {

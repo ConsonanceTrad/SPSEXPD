@@ -62,7 +62,8 @@ public class JournalScene extends PixelScene {
 	public static final int WIDTH_P     = 126;
 	public static final int WIDTH_L     = 216;
 
-	private static int lastIDX = 0;
+	//SPSEXPD: 日志里已去掉徽章与图鉴两个面板（打开时全量扫描太卡），默认落在指南：2=指南，3=炼金
+	private static int lastIDX = 2;
 
 	@Override
 	public void create() {
@@ -120,32 +121,6 @@ public class JournalScene extends PixelScene {
 		add(panel);
 
 		switch (lastIDX){
-			case 0: default:
-				WndJournal.BadgesTab badges = new WndJournal.BadgesTab();
-				add(badges);
-				badges.setRect(panel.x + panel.marginLeft(),
-						panel.y + panel.marginTop(),
-						panel.width() - panel.marginHor(),
-						panel.height() - panel.marginVer());
-				break;
-			case 1:
-				WndJournal.CatalogTab catalog = new WndJournal.CatalogTab();
-				add(catalog);
-				catalog.setRect(panel.x + panel.marginLeft(),
-						panel.y + panel.marginTop(),
-						panel.width() - panel.marginHor(),
-						panel.height() - panel.marginVer());
-				catalog.updateList();
-				break;
-			case 2:
-				WndJournal.GuideTab guidebook = new WndJournal.GuideTab();
-				add(guidebook);
-				guidebook.setRect(panel.x + panel.marginLeft(),
-						panel.y + panel.marginTop(),
-						panel.width() - panel.marginHor(),
-						panel.height() - panel.marginVer());
-				guidebook.updateList();
-				break;
 			case 3:
 				WndJournal.AlchemyTab alchemy = new WndJournal.AlchemyTab();
 				add(alchemy);
@@ -154,48 +129,16 @@ public class JournalScene extends PixelScene {
 						panel.width() - panel.marginHor(),
 						panel.height() - panel.marginVer());
 				break;
+			case 2: default:
+				WndJournal.GuideTab guidebook = new WndJournal.GuideTab();
+				add(guidebook);
+				guidebook.setRect(panel.x + panel.marginLeft(),
+						panel.y + panel.marginTop(),
+						panel.width() - panel.marginHor(),
+						panel.height() - panel.marginVer());
+				guidebook.updateList();
+				break;
 		}
-
-		StyledButton btnBadges =  new StyledButton(Chrome.Type.GREY_BUTTON_TR, ""){
-			@Override
-			protected void onClick() {
-				if (lastIDX != 0) {
-					lastIDX = 0;
-				}
-				ShatteredPixelDungeon.seamlessResetScene();
-				super.onClick();
-			}
-
-			@Override
-			protected String hoverText() {
-				return Messages.get(WndJournal.BadgesTab.class, "title");
-			}
-		};
-		btnBadges.icon(Icons.BADGES.get());
-		btnBadges.setRect(panel.x, panel.y + ph - 3, pw/4f + 1.5f, lastIDX == 0 ? 25 : 20);
-		align(btnBadges);
-		if (lastIDX != 0) btnBadges.icon().brightness(0.6f);
-		addToBack(btnBadges);
-
-		StyledButton btnCatalog =  new StyledButton(Chrome.Type.GREY_BUTTON_TR, ""){
-			@Override
-			protected void onClick() {
-				if (lastIDX != 1) {
-					lastIDX = 1;
-				}
-				ShatteredPixelDungeon.seamlessResetScene();
-				super.onClick();
-			}
-			@Override
-			protected String hoverText() {
-				return Messages.get(WndJournal.CatalogTab.class, "title");
-			}
-		};
-		btnCatalog.icon(Icons.CATALOG.get());
-		btnCatalog.setRect(btnBadges.right()-2, btnBadges.top(), pw/4f + 1.5f, lastIDX == 1 ? 25 : 20);
-		align(btnCatalog);
-		if (lastIDX != 1) btnCatalog.icon().brightness(0.6f);
-		addToBack(btnCatalog);
 
 		StyledButton btnGuide =  new StyledButton(Chrome.Type.GREY_BUTTON_TR, ""){
 			@Override
@@ -212,7 +155,7 @@ public class JournalScene extends PixelScene {
 			}
 		};
 		btnGuide.icon(new ItemSprite(ConsumUsefulProcessEnhanceDict.MASTERY_0));
-		btnGuide.setRect(btnCatalog.right()-2, btnBadges.top(), pw/4f + 1.5f, lastIDX == 2 ? 25 : 20);
+		btnGuide.setRect(panel.x, panel.y + ph - 3, pw/2f + 1.5f, lastIDX == 2 ? 25 : 20);
 		align(btnGuide);
 		if (lastIDX != 2) btnGuide.icon().brightness(0.6f);
 		addToBack(btnGuide);
@@ -232,7 +175,7 @@ public class JournalScene extends PixelScene {
 			}
 		};
 		btnAlchemy.icon(Icons.ALCHEMY.get());
-		btnAlchemy.setRect(btnGuide.right()-2, btnBadges.top(), pw/4f + 1.5f, lastIDX == 3 ? 25 : 20);
+		btnAlchemy.setRect(btnGuide.right()-2, btnGuide.top(), pw/2f + 1.5f, lastIDX == 3 ? 25 : 20);
 		align(btnAlchemy);
 		if (lastIDX != 3) btnAlchemy.icon().brightness(0.6f);
 		addToBack(btnAlchemy);
