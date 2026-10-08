@@ -86,6 +86,7 @@ public class WndUpgrade extends Window {
 			.t("charges", "充能上限")
 			.t("ring_boost", "戒指加成")
 			.t("upgrade", "升级")
+			.t("upgrade_all", "连续升级")
 			.t("back", "返回");
 	}
 
@@ -105,7 +106,11 @@ public class WndUpgrade extends Window {
 	private boolean force;
 
 	private RedButton btnUpgrade;
+	private RedButton btnUpgradeAll;
 	private RedButton btnCancel;
+
+	/** SPSEXPD: 连续升级的防御性上限，避免异常情况下死循环。 */
+	private static final int MAX_BULK_UPGRADES = 100;
 
 	public WndUpgrade( Item upgrader, Item toUpgrade, boolean force){
 
@@ -342,10 +347,12 @@ public class WndUpgrade extends Window {
 
 		//max charges
 		if (wand instanceof Wand){
-			int chargeboost = levelFrom + (toUpgrade instanceof MagesStaff ? 1 : 0);
+			//SPSEXPD: 预览改用 Wand 的充能公式（含每级充能量、各自上限与能量流失挑战），
+			//不再写死「每级+1、上限10」
+			int staffBonus = toUpgrade instanceof MagesStaff ? 1 : 0;
 			bottom = fillFields(Messages.get(this, "charges"),
-					Integer.toString(Math.min(10, ((Wand) wand).initialCharges() + chargeboost)),
-					Integer.toString(Math.min(10, ((Wand) wand).initialCharges() + chargeboost + 1)),
+					Integer.toString(((Wand) wand).maxChargesAtLevel(levelFrom, staffBonus)),
+					Integer.toString(((Wand) wand).maxChargesAtLevel(levelTo, staffBonus)),
 					bottom);
 		}
 
@@ -463,22 +470,15 @@ public class WndUpgrade extends Window {
 
 		// *** Buttons for confirming/cancelling ***
 
+		//SPSEXPD: 还剩多于一个升级用物品时，额外提供「连续升级」——一次用光全部同类
+		boolean bulkAvailable = quantity > 1;
+
 		btnUpgrade = new RedButton(Messages.get(this, "upgrade")){
 			@Override
 			protected void onClick() {
 				super.onClick();
 
-				ScrollOfUpgrade.upgrade(Dungeon.hero);
-
-				Item upgraded = toUpgrade;
-				if (upgrader instanceof ScrollOfUpgrade){
-					((ScrollOfUpgrade) upgrader).readAnimation();
-					upgraded = ((ScrollOfUpgrade) upgrader).upgradeItem(toUpgrade);
-					Sample.INSTANCE.play( Assets.Sounds.READ );
-				} else if (upgrader instanceof MagicalInfusion){
-					((MagicalInfusion) upgrader).useAnimation();
-					upgraded = ((MagicalInfusion) upgrader).upgradeItem(toUpgrade);
-				}
+				Item upgraded = upgradeOnce(upgrader, toUpgrade);
 
 				if (!force) upgrader.detach(Dungeon.hero.belongings.backpack);
 				Item moreUpgradeItem = Dungeon.hero.belongings.getItem(upgrader.getClass());
@@ -491,6 +491,8 @@ public class WndUpgrade extends Window {
 			}
 		};
 		btnUpgrade.setRect(0, bottom+2*GAP, WIDTH/2f, 16);
+		btnUpgrade.icon(new ItemSprite(upgrader));
+		btnUpgrade.enable(Dungeon.hero.ready);
 		add(btnUpgrade);
 
 		btnCancel = new RedButton(Messages.get(this, "back")){
@@ -506,13 +508,48 @@ public class WndUpgrade extends Window {
 			}
 
 		};
-		btnCancel.setRect(btnUpgrade.right()+1, bottom+2*GAP, WIDTH/2f, 16);
+		btnCancel.icon(Icons.EXIT.get());
 		add(btnCancel);
 
-		btnUpgrade.enable(Dungeon.hero.ready);
+		if (bulkAvailable){
+			btnUpgradeAll = new RedButton(Messages.get(this, "upgrade_all")){
+				@Override
+				protected void onClick() {
+					super.onClick();
 
-		btnUpgrade.icon(new ItemSprite(upgrader));
-		btnCancel.icon(Icons.EXIT.get());
+					hide();
+
+					Item target = toUpgrade;
+					Item scroll = upgrader;
+					boolean first = true;
+					int performed = 0;
+
+					while (scroll != null && target != null
+							&& target.isUpgradable()
+							&& performed++ < MAX_BULK_UPGRADES){
+
+						target = upgradeOnce(scroll, target);
+
+						//SPSEXPD: 未鉴定使用时第一张已在 doRead() 里被消耗，不能再 detach 一次
+						if (!first || !force){
+							scroll.detach(Dungeon.hero.belongings.backpack);
+						}
+						first = false;
+
+						scroll = Dungeon.hero.belongings.getItem(upgrader.getClass());
+					}
+				}
+			};
+			btnUpgradeAll.setRect(btnUpgrade.right()+1, bottom+2*GAP, WIDTH/2f, 16);
+			btnUpgradeAll.icon(new ItemSprite(upgrader));
+			btnUpgradeAll.enable(Dungeon.hero.ready);
+			add(btnUpgradeAll);
+
+			//连续升级占了右上位置，「返回」另起一行
+			btnCancel.setRect(0, btnUpgrade.bottom()+1, WIDTH, 16);
+		} else {
+			btnCancel.setRect(btnUpgrade.right()+1, bottom+2*GAP, WIDTH/2f, 16);
+		}
 
 		bottom = (int)btnCancel.bottom();
 
@@ -520,11 +557,32 @@ public class WndUpgrade extends Window {
 
 	}
 
+	/** SPSEXPD: 用一张升级用物品升级一次（不含消耗与窗口切换），「升级」与「连续升级」共用。 */
+	private Item upgradeOnce(Item scroll, Item target) {
+		ScrollOfUpgrade.upgrade(Dungeon.hero);
+
+		Item upgraded = target;
+		if (scroll instanceof ScrollOfUpgrade){
+			((ScrollOfUpgrade) scroll).readAnimation();
+			upgraded = ((ScrollOfUpgrade) scroll).upgradeItem(target);
+			Sample.INSTANCE.play( Assets.Sounds.READ );
+		} else if (scroll instanceof MagicalInfusion){
+			((MagicalInfusion) scroll).useAnimation();
+			upgraded = ((MagicalInfusion) scroll).upgradeItem(target);
+		}
+		return upgraded;
+	}
+
 	@Override
 	public synchronized void update() {
 		super.update();
-		if (!btnUpgrade.active && Dungeon.hero.ready){
-			btnUpgrade.enable(true);
+		if (Dungeon.hero.ready){
+			if (!btnUpgrade.active){
+				btnUpgrade.enable(true);
+			}
+			if (btnUpgradeAll != null && !btnUpgradeAll.active){
+				btnUpgradeAll.enable(true);
+			}
 		}
 	}
 

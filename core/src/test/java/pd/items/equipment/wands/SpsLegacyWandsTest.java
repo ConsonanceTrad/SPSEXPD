@@ -168,6 +168,18 @@ public final class SpsLegacyWandsTest {
 		for (int i = 0; i < 12; i++) missileStaff.upgrade(true);
 		check(((Wand) wandField.get(missileStaff)).maxCharges == 21,
 				"法师杖内嵌魔弹法杖的上限没有被封顶在21");
+
+		//SPSEXPD: 升级界面（WndUpgrade）的充能预览用 maxChargesAtLevel，必须与 updateLevel 同源
+		WandOfMagicMissile preview = new WandOfMagicMissile();
+		for (int lvl : new int[]{0, 1, 3, 9, 50}){
+			preview.level(lvl);
+			check(preview.maxCharges == preview.maxChargesAtLevel(lvl),
+					"升级预览的充能公式与 updateLevel 不一致（等级 " + lvl + "）");
+		}
+		check(preview.maxChargesAtLevel(0, 1) == preview.maxChargesAtLevel(0) + 1,
+				"法师杖内嵌时预览的充能上限没有 +1");
+		check(preview.maxChargesAtLevel(50, 1) == preview.maxChargesAtLevel(50),
+				"法师杖内嵌时预览的充能上限没有按法杖自身上限封顶");
 	}
 
 	private static void testDisintegrationWand() {

@@ -467,10 +467,21 @@ public abstract class Wand extends Item {
 	}
 
 	public void updateLevel() {
-		maxCharges = Dungeon.isChallenged(Challenges.ENERGY_LOST)
-				? Math.min(initialCharges() + chargesPerLevel() * (level() / 5), chargeLimit())
-				: Math.min(initialCharges() + chargesPerLevel() * level(), chargeLimit());
+		maxCharges = maxChargesAtLevel(level());
 		curCharges = Math.min( curCharges, maxCharges );
+	}
+
+	//SPSEXPD: 指定等级下的最大充能——升界面（WndUpgrade）的预览与 updateLevel 共用同一公式，
+	//extra 为法师杖内嵌时的额外 +1 上限。
+	public int maxChargesAtLevel(int lvl) {
+		return maxChargesAtLevel(lvl, 0);
+	}
+
+	public int maxChargesAtLevel(int lvl, int extra) {
+		int charges = Dungeon.isChallenged(Challenges.ENERGY_LOST)
+				? initialCharges() + chargesPerLevel() * (lvl / 5)
+				: initialCharges() + chargesPerLevel() * lvl;
+		return Math.min(charges + extra, chargeLimit());
 	}
 	
 	public int initialCharges() {
