@@ -136,6 +136,7 @@ import pd.items.misc.DewBadge;
 import pd.items.Item;
 import pd.items.KindOfWeapon;
 import pd.items.OrbOfZot;
+import pd.items.SecondaryEquip;
 import pd.items.equipment.armor.Armor;
 import pd.items.equipment.armor.ClassArmor;
 import pd.items.equipment.armor.ClothArmor;
@@ -916,6 +917,12 @@ public class Hero extends Char {
 			armDr = belongings.armor().damageReductionFactor(this, armDr);
 			if (armDr > 0) dr += armDr;
 		}
+		//SPSEXPD: 副护甲与主护甲一样提供护甲值
+		if (belongings.secondArmor() != null) {
+			int secondArmDr = Random.NormalIntRange( belongings.secondArmor().DRMin(), belongings.secondArmor().DRMax());
+			secondArmDr = belongings.secondArmor().damageReductionFactor(this, secondArmDr);
+			if (secondArmDr > 0) dr += secondArmDr;
+		}
 		if (belongings.weapon() != null && !RingOfForce.fightingUnarmed(this))  {
 			int wepDr = Random.NormalIntRange( 0 , belongings.weapon().defenseFactor( this ) );
 			if (STR() < ((Weapon)belongings.weapon()).STRReq()){
@@ -1043,6 +1050,9 @@ public class Hero extends Char {
 		TrinityStance trinityStance = buff(TrinityStance.class);
 		if (trinityStance != null) speed *= trinityStance.speedMultiplier();
 
+		//SPSEXPD: 副护甲每 1 阶位使移动速度降低 20%（累乘 0.8^tier）
+		speed *= SecondaryEquip.armorSpeedMultiplier(this);
+
 		return speed;
 		
 	}
@@ -1111,7 +1121,7 @@ public class Hero extends Char {
 
 		if (!RingOfForce.fightingUnarmed(this)) {
 			
-			return delay * belongings.attackingWeapon().delayFactor( this );
+			delay *= belongings.attackingWeapon().delayFactor( this );
 			
 		} else {
 			//Normally putting furor speed on unarmed attacks would be unnecessary
@@ -1129,8 +1139,16 @@ public class Hero extends Char {
 				delay = ((Weapon)belongings.weapon).augment.delayFactor(delay);
 			}
 
-			return delay/speed;
+			delay /= speed;
 		}
+
+		//SPSEXPD: 副护甲每 1 阶位使攻击速度降低 20%（耗时相应拉长）
+		float secondArmorSpeed = SecondaryEquip.armorSpeedMultiplier(this);
+		if (secondArmorSpeed != 1f){
+			delay /= secondArmorSpeed;
+		}
+
+		return delay;
 	}
 
 	@Override
@@ -2117,6 +2135,11 @@ public class Hero extends Char {
 			}
 		}
 
+		//SPSEXPD: 副护甲的刻印与主护甲一样生效
+		if (belongings.secondArmor() != null && belongings.secondArmor() != belongings.armor()) {
+			damage = belongings.secondArmor().proc( enemy, this, damage );
+		}
+
 		WandOfLivingEarth.RockArmor rockArmor = buff(WandOfLivingEarth.RockArmor.class);
 		if (rockArmor != null) {
 			damage = rockArmor.absorb(damage);
@@ -2962,10 +2985,15 @@ public class Hero extends Char {
 		boolean wasEnemy = attackTarget.alignment == Alignment.ENEMY
 				|| (attackTarget instanceof Mimic && attackTarget.alignment == Alignment.NEUTRAL);
 
-		boolean hit = attack(attackTarget);
-		
+		boolean hit = attack(attackTarget, 1f, 0f, SecondaryEquip.hitMultiplier(this));
+
 		Invisibility.dispel();
 		spend( attackDelay() );
+
+		//SPSEXPD: 紧接主武器的副武器连携攻击（不消耗回合）
+		if (attackTarget.isAlive()){
+			secondaryStrike( attackTarget );
+		}
 
 		if (hit && subClass == HeroSubClass.GLADIATOR && wasEnemy){
 			Buff.affect( this, Combo.class ).hit(attackTarget);
@@ -2995,6 +3023,25 @@ public class Hero extends Char {
 		attackTarget = null;
 
 		super.onAttackComplete();
+	}
+
+	/**
+	 * SPSEXPD: 副武器连携攻击——双持时，主武器的普通攻击之后由副武器对同一目标追加一次攻击，不消耗回合。
+	 * 副武器的命中/伤害/附魔/暴击经由 abilityWeapon 走完整的攻击流程。
+	 * @return 本次连携是否命中；未发动连携（未双持/副手为盾/目标已死）时返回 false
+	 */
+	public boolean secondaryStrike( Char target ){
+		if (!SecondaryEquip.dualWeapons(this)) return false;
+		if (target == null || !target.isAlive()) return false;
+		//连携攻击自身不应再次触发连携
+		if (belongings.abilityWeapon != null) return false;
+
+		belongings.abilityWeapon = belongings.secondWep;
+		try {
+			return super.attack(target, 1f, 0f, SecondaryEquip.HIT_MULT);
+		} finally {
+			belongings.abilityWeapon = null;
+		}
 	}
 
 	public boolean advanceFuuraiWeapon(int amount) {

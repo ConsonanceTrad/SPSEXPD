@@ -30,7 +30,9 @@ import pd.effects.particles.ShadowParticle;
 import pd.journal.Document;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
+import pd.sprites.ItemSprite;
 import pd.utils.GLog;
+import pd.windows.WndOptions;
 import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
 
@@ -102,6 +104,47 @@ public abstract class EquipableItem extends Item {
 		} else if (action.equals( AC_UNEQUIP )) {
 			doUnequip( hero, true );
 		}
+	}
+
+	/**
+	 * SPSEXPD: 装备时的栏位选择（主手/副手），武器与护甲共用。
+	 * 选择后执行对应的装备动作，并沿用原本的快捷栏重排逻辑。
+	 */
+	protected void chooseEquipSlot( Hero hero, String msg, String primaryName, String secondaryName,
+			Runnable primaryAction, Runnable secondaryAction ) {
+
+		usesTargeting = false;
+		int slot = Dungeon.quickslot.getSlot( this );
+		slotOfUnequipped = -1;
+
+		GameScene.show(new WndOptions(
+				new ItemSprite(this),
+				Messages.titleCase(name()),
+				msg,
+				primaryName,
+				secondaryName
+		){
+			@Override
+			protected void onSelect(int index) {
+				super.onSelect(index);
+				if (index == 0 || index == 1){
+					if (index == 0) {
+						primaryAction.run();
+					} else {
+						secondaryAction.run();
+					}
+					if (slot != -1) {
+						Dungeon.quickslot.setSlot( slot, EquipableItem.this );
+						updateQuickslot();
+					//if this item wasn't quickslotted, but the item it is replacing as equipped was
+					//then also have the item occupy the unequipped item's quickslot
+					} else if (slotOfUnequipped != -1 && defaultAction() != null) {
+						Dungeon.quickslot.setSlot( slotOfUnequipped, EquipableItem.this );
+						updateQuickslot();
+					}
+				}
+			}
+		});
 	}
 
 	@Override

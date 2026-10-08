@@ -48,7 +48,7 @@ abstract public class KindOfWeapon extends EquipableItem {
 		InlineText.of(KindOfWeapon.class)
 			.t("swift_equip", "你迅速地装备上了武器。")
 			.t("equip_cursed", "你的手不受控制地握紧了这件武器。")
-			.t("which_equip_msg", "你想将这把武器装备至哪个武器栏位？\n\n勇士仅会使用主武器进行攻击，但主、副武器都能发动武技，且共用同一个充能数。\n\n勇士还能瞬间切换主、副武器。")
+			.t("which_equip_msg", "你想将这把武器装备至哪个武器栏位？\n\n副武器会在你的每次普通攻击之后追加一次不消耗回合的连击。代价是两把武器的力量需求都会提高 50%，且命中都会受到 15% 的减益。\n\n你同样可以瞬间切换主、副武器。")
 			.t("which_equip_primary", "主手(%s)")
 			.t("which_equip_secondary", "副手(%s)")
 			.t("empty", "空栏位")
@@ -65,44 +65,17 @@ abstract public class KindOfWeapon extends EquipableItem {
 	
 	@Override
 	public void execute(Hero hero, String action) {
-		if (hero.subClass == HeroSubClass.CHAMPION && action.equals(AC_EQUIP)){
-			usesTargeting = false;
+		//SPSEXPD: 副手装备对所有职业开放（原版仅勇士可选），装备武器时选择主手/副手武器栏
+		if (action.equals(AC_EQUIP)){
 			String primaryName = Messages.titleCase(hero.belongings.weapon != null ? hero.belongings.weapon.trueName() : Messages.get(KindOfWeapon.class, "empty"));
 			String secondaryName = Messages.titleCase(hero.belongings.secondWep != null ? hero.belongings.secondWep.trueName() : Messages.get(KindOfWeapon.class, "empty"));
 			if (primaryName.length() > 18) primaryName = primaryName.substring(0, 15) + "...";
 			if (secondaryName.length() > 18) secondaryName = secondaryName.substring(0, 15) + "...";
-			GameScene.show(new WndOptions(
-					new ItemSprite(this),
-					Messages.titleCase(name()),
+			chooseEquipSlot(hero,
 					Messages.get(KindOfWeapon.class, "which_equip_msg"),
 					Messages.get(KindOfWeapon.class, "which_equip_primary", primaryName),
-					Messages.get(KindOfWeapon.class, "which_equip_secondary", secondaryName)
-			){
-				@Override
-				protected void onSelect(int index) {
-					super.onSelect(index);
-					if (index == 0 || index == 1){
-						//In addition to equipping itself, item reassigns itself to the quickslot
-						//This is a special case as the item is being removed from inventory, but is staying with the hero.
-						int slot = Dungeon.quickslot.getSlot( KindOfWeapon.this );
-						slotOfUnequipped = -1;
-						if (index == 0) {
-							doEquip(hero);
-						} else {
-							equipSecondary(hero);
-						}
-						if (slot != -1) {
-							Dungeon.quickslot.setSlot( slot, KindOfWeapon.this );
-							updateQuickslot();
-						//if this item wasn't quickslotted, but the item it is replacing as equipped was
-						//then also have the item occupy the unequipped item's quickslot
-						} else if (slotOfUnequipped != -1 && defaultAction() != null) {
-							Dungeon.quickslot.setSlot( slotOfUnequipped, KindOfWeapon.this );
-							updateQuickslot();
-						}
-					}
-				}
-			});
+					Messages.get(KindOfWeapon.class, "which_equip_secondary", secondaryName),
+					() -> doEquip(hero), () -> equipSecondary(hero));
 		} else {
 			super.execute(hero, action);
 		}

@@ -104,6 +104,7 @@ import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import pd.items.SecondaryEquip;
 import pd.messages.InlineText;
 
 abstract public class Weapon extends KindOfWeapon {
@@ -434,9 +435,10 @@ abstract public class Weapon extends KindOfWeapon {
 	}
 
 	public int STRReq(){
-		return STRReq(level());
+		//SPSEXPD: 双持武器时，主、副武器的力量需求都提高 50%（向上取整）
+		return SecondaryEquip.weaponSTRReq(this, STRReq(level()));
 	}
-
+	
 	public abstract int STRReq(int lvl);
 
 	protected static int STRReq(int tier, int lvl){

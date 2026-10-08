@@ -586,7 +586,8 @@ public class MeleeWeapon extends Weapon {
 
 		@Override
 		public void doAction() {
-			if (Dungeon.hero.subClass != HeroSubClass.CHAMPION){
+			//SPSEXPD: 副手装备对所有职业开放，装备切换按钮也随之对所有职业可用
+			if (Dungeon.hero.belongings.weapon == null && Dungeon.hero.belongings.secondWep == null){
 				return;
 			}
 

@@ -100,6 +100,7 @@ import render.utils.serialize.Reflection;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import pd.items.SecondaryEquip;
 import pd.messages.InlineText;
 
 public class Armor extends EquipableItem {
@@ -133,7 +134,11 @@ public class Armor extends EquipableItem {
 			.t("$glyph.glyph", "刻印")
 			.t("$glyph.killed", "%s杀死了你...")
 			.t("$glyph.rankings_desc", "死于刻印")
-			.t("$glyph.discover_hint", "你可在地牢中概率找到带有该效果的物品，或尝试自行使物品获得该效果。");
+			.t("$glyph.discover_hint", "你可在地牢中概率找到带有该效果的物品，或尝试自行使物品获得该效果。")
+			.t("which_equip_msg", "你想将这件护甲装备至哪个护甲栏位？\n\n副护甲会像主护甲一样为你抵挡伤害并生效刻印。代价是两件护甲的力量需求都会提高 50%，且副护甲每有 1 阶位，你的攻击与移动速度都会降低 20%。\n\n你同样可以瞬间切换主、副护甲。")
+			.t("which_equip_primary", "主护甲(%s)")
+			.t("which_equip_secondary", "副护甲(%s)")
+			.t("empty", "空栏位");
 	}
 
 
@@ -267,6 +272,20 @@ public class Armor extends EquipableItem {
 
 	@Override
 	public void execute(Hero hero, String action) {
+
+		//SPSEXPD: 装备护甲时选择主/副护甲栏（副手装备对所有职业开放）
+		if (action.equals(AC_EQUIP)){
+			String primaryName = Messages.titleCase(hero.belongings.armor != null ? hero.belongings.armor.trueName() : Messages.get(Armor.class, "empty"));
+			String secondaryName = Messages.titleCase(hero.belongings.secondArmor != null ? hero.belongings.secondArmor.trueName() : Messages.get(Armor.class, "empty"));
+			if (primaryName.length() > 18) primaryName = primaryName.substring(0, 15) + "...";
+			if (secondaryName.length() > 18) secondaryName = secondaryName.substring(0, 15) + "...";
+			chooseEquipSlot(hero,
+					Messages.get(Armor.class, "which_equip_msg"),
+					Messages.get(Armor.class, "which_equip_primary", primaryName),
+					Messages.get(Armor.class, "which_equip_secondary", secondaryName),
+					() -> doEquip(hero), () -> equipSecondary(hero));
+			return;
+		}
 
 		super.execute(hero, action);
 
@@ -814,9 +833,10 @@ public class Armor extends EquipableItem {
 	}
 
 	public int STRReq(){
-		return STRReq(level());
+		//SPSEXPD: 双甲时，主、副护甲的力量需求都提高 50%（向上取整）
+		return SecondaryEquip.armorSTRReq(this, STRReq(level()));
 	}
-
+	
 	public int STRReq(int lvl){
 		int req = STRReq(tier, lvl);
 		if (masteryPotionBonus){
