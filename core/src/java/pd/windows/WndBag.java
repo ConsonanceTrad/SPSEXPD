@@ -520,9 +520,6 @@ public class WndBag extends WndTabbed {
 		//SPSEXPD: 露珠瓶恒定占用并显示在主背包右下角最后一格，不参与顺序摆放
 		boolean mainBackpack = container == Dungeon.hero.belongings.backpack;
 		Item waterskin = null;
-		//SPSEXPD: 装了碾制机的购物车，末格固定显示碾制机（与露珠瓶同款处理）
-		Item grinder = container instanceof pd.items.equipment.bags.ShoppingCart
-				? ((pd.items.equipment.bags.ShoppingCart) container).grinderSlot() : null;
 		for (Item item : container.items.toArray(new Item[0])) {
 			if (item instanceof Bag) continue;
 			if (mainBackpack && item instanceof pd.items.Waterskin) {
@@ -536,15 +533,11 @@ public class WndBag extends WndTabbed {
 		//SPSEXPD: 空格填到「内容区格数」为止（上限含本体占格），与窗口行数一致，不会溢到窗口外
 		int contentSlots = nRows * nCols - equipped;
 		int wanted = Math.min(container.capacity() + (showsSelf ? 1 : 0), contentSlots);
-		//SPSEXPD: 露珠瓶与碾制机都固定占住末格，先给它们预留格数
-		int reserved = (waterskin != null ? 1 : 0) + (grinder != null ? 1 : 0);
-		while ((count - equipped) < wanted - reserved) {
+		while ((count - equipped) < wanted - (waterskin != null ? 1 : 0)) {
 			placeItem( null );
 		}
 		//SPSEXPD: 露珠瓶最后落位，恒为右下角最后一格
 		if (waterskin != null) placeItem( waterskin );
-		//SPSEXPD: 装了碾制机的购物车，末格是碾制机
-		if (grinder != null) placeItem( grinder );
 	}
 	
 	protected void placeItem( final Item item ) {

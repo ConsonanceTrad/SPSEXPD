@@ -160,9 +160,6 @@ public class SpsShopRoom extends ShopRoom {
 		Item largeFruit = pd.plants.PlantHarvest.randomLargeFruit();
 		if (largeFruit != null) itemsToSpawn.add(largeFruit);
 
-		//SPSEXPD: 干粮碾制机——购物车强化组件
-		if (Random.Int(2) == 0) itemsToSpawn.add(new pd.items.RationGrinder());
-
 		itemsToSpawn.add(new Ankh());
 
 		TimekeepersHourglass hourglass = Dungeon.hero == null ? null

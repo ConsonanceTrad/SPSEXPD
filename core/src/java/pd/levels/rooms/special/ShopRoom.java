@@ -308,9 +308,6 @@ public class ShopRoom extends SpecialRoom {
 		Item largeFruit = pd.plants.PlantHarvest.randomLargeFruit();
 		if (largeFruit != null) itemsToSpawn.add( largeFruit );
 
-		//SPSEXPD: 干粮碾制机——购物车强化组件（随机进货）
-		if (Random.Int(3) == 0) itemsToSpawn.add( new pd.items.RationGrinder() );
-
 		itemsToSpawn.add( new Ankh() );
 		itemsToSpawn.add( new StoneOfAugmentation() );
 
