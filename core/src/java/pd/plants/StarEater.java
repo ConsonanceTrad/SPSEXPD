@@ -13,7 +13,7 @@ public class StarEater extends Plant {
 	static {
 		InlineText.of(StarEater.class)
 			.t("name", "吞星花")
-			.t("desc", "形如巨口的植物。它的花能吞噬物品、提炼其中的精华，并会结出一颗鲜莓。")
+			.t("desc", "形如巨口的植物。它的花能吞噬物品并提炼其中的精华。")
 			.t("warden_desc", "_守望者_可以安全收取其中保存的装备精华。")
 			.t("$seed.name", "吞星花之种")
 			.t("$exstareater.name", "吞星花丛")
