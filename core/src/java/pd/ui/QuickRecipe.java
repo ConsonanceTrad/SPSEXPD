@@ -208,10 +208,9 @@ public class QuickRecipe extends Component {
 		return false;
 	}
 
+	/** 命中判定：ItemSlot 的坐标在 QuickRecipe.layout() 里是按自身位置设的，本身就是 content 坐标系。 */
 	private boolean hit(Component c, float x, float y) {
-		float left = this.x + c.left();
-		float top = this.y + c.top();
-		return x >= left && y >= top && x < left + c.width() && y < top + c.height();
+		return x >= c.left() && y >= c.top() && x < c.right() && y < c.bottom();
 	}
 
 	@Override
