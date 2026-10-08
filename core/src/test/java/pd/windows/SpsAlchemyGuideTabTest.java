@@ -68,6 +68,12 @@ public final class SpsAlchemyGuideTabTest {
 		//全屏 PointerArea 挂 uiCamera，会抢在窗口内容之前派发，把配方物品槽的点击吃掉
 		check(!popup.contains("new PointerArea("),
 				"单页窗口加回了全屏拦截层，配方里的物品槽将点不出物品名");
+
+		//滚动区里的按钮收不到自己的点击（PointerController 先吃掉），必须由 ScrollPane 子类转发
+		check(popup.contains("new ScrollPane(content) {") && popup.contains("public void onClick(float x, float y)"),
+				"单页窗口没有把点击转发给配方槽，物品图标点不出物品名");
+		check(read("../java/pd/ui/QuickRecipe.java").contains("public boolean onClick(float x, float y)"),
+				"QuickRecipe 没有暴露坐标版 onClick，滚动区里无法转发点击");
 	}
 
 	private static void testMissingPageText() throws Exception {

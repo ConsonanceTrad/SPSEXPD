@@ -189,6 +189,31 @@ public class QuickRecipe extends Component {
 		layout();
 	}
 	
+	/**
+	 * SPSEXPD: 供 ScrollPane 转发点击用——滚动区里的按钮收不到自己的点击
+	 * （ScrollPane 的 PointerController 会先吃掉），所以由外层把坐标转进来，
+	 * 命中哪个槽就触发哪个槽的 onClick（弹出物品说明）。
+	 */
+	public boolean onClick(float x, float y) {
+		for (ItemSlot slot : inputs) {
+			if (hit(slot, x, y)) {
+				slot.onClick();
+				return true;
+			}
+		}
+		if (hit(output, x, y)) {
+			output.onClick();
+			return true;
+		}
+		return false;
+	}
+
+	private boolean hit(Component c, float x, float y) {
+		float left = this.x + c.left();
+		float top = this.y + c.top();
+		return x >= left && y >= top && x < left + c.width() && y < top + c.height();
+	}
+
 	@Override
 	protected void layout() {
 		

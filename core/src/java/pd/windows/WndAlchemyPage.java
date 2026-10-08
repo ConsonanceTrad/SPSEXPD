@@ -29,6 +29,7 @@ public class WndAlchemyPage extends Window {
 	private static final int CHROME_HEIGHT = 24;
 
 	private ScrollPane pane;
+	private final ArrayList<QuickRecipe> recipes = new ArrayList<>();
 	private final int paneWidth;
 	private final float paneTop;
 	private final float paneHeight;
@@ -67,7 +68,17 @@ public class WndAlchemyPage extends Window {
 
 		add(title);
 
-		pane = new ScrollPane(content);
+		pane = new ScrollPane(content) {
+			@Override
+			public void onClick(float x, float y) {
+				//SPSEXPD: 滚动区里的按钮收不到自己的点击（PointerController 会先吃掉），这里手动转发给配方槽
+				for (QuickRecipe r : recipes) {
+					if (r.onClick(x, y)) {
+						break;
+					}
+				}
+			}
+		};
 		add(pane);
 		positionPane();
 
@@ -122,6 +133,7 @@ public class WndAlchemyPage extends Window {
 					PixelScene.align(spacer);
 					content.add(spacer);
 				}
+				recipes.add(r);
 				content.add(r);
 			}
 
