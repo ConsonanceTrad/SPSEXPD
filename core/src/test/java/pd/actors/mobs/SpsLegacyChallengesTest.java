@@ -328,7 +328,8 @@ public final class SpsLegacyChallengesTest {
 		check(normal.hunger() == 50, "未开启能量流失时错误削减饱食收益");
 		WandOfMagicMissile normalWand = new WandOfMagicMissile();
 		normalWand.level(5);
-		check(normalWand.maxCharges == 8, "未开启能量流失时错误改变破碎版法杖充能规则");
+		check(normalWand.maxCharges == 13,
+				"未开启能量流失时魔弹法杖没有按每级+2、上限21计算：" + normalWand.maxCharges);
 
 		freshLevel();
 		Dungeon.challenges = Challenges.ENERGY_LOST;
@@ -341,11 +342,11 @@ public final class SpsLegacyChallengesTest {
 
 		WandOfMagicMissile wand = new WandOfMagicMissile();
 		wand.level(5);
-		check(wand.maxCharges == 4, "能量流失下5级法杖最大充能不是4");
-		wand.curCharges = 10;
+		check(wand.maxCharges == 5, "能量流失下5级魔弹法杖最大充能不是5：" + wand.maxCharges);
+		wand.curCharges = 20;
 		wand.level(20);
-		check(wand.maxCharges == 6 && wand.curCharges == 6,
-				"能量流失没有按每5级+1、上限6计算并收束当前充能");
+		check(wand.maxCharges == 11 && wand.curCharges == 11,
+				"能量流失没有按每5级+2、上限21计算并收束当前充能");
 
 		Hero hero = Dungeon.hero;
 		Method challengeStarts = HeroClass.class.getDeclaredMethod("applySpsChallengeStarts", Hero.class);

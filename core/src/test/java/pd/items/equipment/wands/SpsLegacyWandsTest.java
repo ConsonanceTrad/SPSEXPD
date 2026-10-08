@@ -3,6 +3,7 @@ package pd.items.equipment.wands;
 import pd.atlas.items.EquipmentWandBasicWandDict;
 import pd.atlas.items.SpecificPlaceHolderDict;
 
+import pd.Challenges;
 import pd.Dungeon;
 import pd.actors.blobs.SwampGas;
 import pd.actors.buffs.AcidOoze;
@@ -13,9 +14,11 @@ import pd.actors.buffs.SpsAcidOoze;
 import pd.items.Generator;
 import pd.items.equipment.wands.fusion.WandOfBlood;
 import pd.items.equipment.wands.fusion.WandOfFlow;
+import pd.items.equipment.weapon.melee.MagesStaff;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.lang.reflect.Field;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.file.Files;
@@ -79,9 +82,10 @@ public final class SpsLegacyWandsTest {
 		testLightningWand();
 		testMagicMissileWand();
 		testDisintegrationWand();
+		testWandChargeCaps();
 		testPortedGeneratorOrder();
 		testAcidIcon();
-		System.out.println("SPS旧版15项法杖测试通过：数值、状态、充能、生成权重和原始图标均正常。");
+		System.out.println("SPS旧版16项法杖测试通过：数值、状态、充能上限、生成权重和原始图标均正常。");
 	}
 
 	private static void testLightningWand() {
@@ -103,6 +107,67 @@ public final class SpsLegacyWandsTest {
 		check(wand.initialCharges() == 3, "魔弹法杖初始充能错误");
 		check(WandOfMagicMissile.magicSkillMultiplier(7) == 1.7f, "魔弹法杖魔力倍率错误");
 		check(wand.image == EquipmentWandBasicWandDict.WAND_SPS_MAGIC_MISSILE, "魔弹法杖没有使用旧版图标槽位");
+	}
+
+	/**
+	 * SPSEXPD: 法杖充能上限 10 → 9、魔弹法杖 → 21（每级 +2）；能量流失只压制节奏、上限同步放开；
+	 * 法师杖内嵌时按法杖自身的上限封顶（不再固定 10）。
+	 */
+	private static void testWandChargeCaps() throws Exception {
+		WandOfLightning plain = new WandOfLightning();
+		check(plain.chargeLimit() == 9 && plain.chargesPerLevel() == 1,
+				"普通法杖的充能上限或每级充能不是 9/1");
+		plain.level(4);
+		check(plain.maxCharges == 6, "普通法杖没有按每级+1计算最大充能：" + plain.maxCharges);
+		plain.level(50);
+		check(plain.maxCharges == 9, "普通法杖最大充能没有封顶在9：" + plain.maxCharges);
+
+		WandOfMagicMissile missile = new WandOfMagicMissile();
+		check(missile.chargeLimit() == 21 && missile.chargesPerLevel() == 2,
+				"魔弹法杖的充能上限或每级充能不是 21/2");
+		missile.level(3);
+		check(missile.maxCharges == 9, "魔弹法杖没有按每级+2计算最大充能：" + missile.maxCharges);
+		missile.level(50);
+		check(missile.maxCharges == 21, "魔弹法杖最大充能没有封顶在21：" + missile.maxCharges);
+
+		WandOfMagicMissile upgraded = new WandOfMagicMissile();
+		int chargesBefore = upgraded.curCharges;
+		upgraded.upgrade();
+		check(upgraded.maxCharges == chargesBefore + 2,
+				"魔弹法杖升级时最大充能没有+2：" + upgraded.maxCharges);
+		check(upgraded.curCharges == chargesBefore + 2,
+				"魔弹法杖升级时当前充能没有+2：" + upgraded.curCharges);
+
+		int savedChallenges = Dungeon.challenges;
+		Dungeon.challenges = Challenges.ENERGY_LOST;
+		try {
+			WandOfMagicMissile challengedMissile = new WandOfMagicMissile();
+			challengedMissile.level(5);
+			check(challengedMissile.maxCharges == 5,
+					"能量流失下魔弹法杖没有按每5级+2计算：" + challengedMissile.maxCharges);
+			challengedMissile.level(50);
+			check(challengedMissile.maxCharges == 21,
+					"能量流失下魔弹法杖上限没有同步到21：" + challengedMissile.maxCharges);
+			WandOfLightning challengedPlain = new WandOfLightning();
+			challengedPlain.level(50);
+			check(challengedPlain.maxCharges == 9,
+					"能量流失下普通法杖上限没有同步到9：" + challengedPlain.maxCharges);
+		} finally {
+			Dungeon.challenges = savedChallenges;
+		}
+
+		Field wandField = MagesStaff.class.getDeclaredField("wand");
+		wandField.setAccessible(true);
+
+		MagesStaff plainStaff = new MagesStaff(new WandOfLightning());
+		for (int i = 0; i < 12; i++) plainStaff.upgrade(true);
+		check(((Wand) wandField.get(plainStaff)).maxCharges == 9,
+				"法师杖内嵌普通法杖的上限没有被封顶在9");
+
+		MagesStaff missileStaff = new MagesStaff(new WandOfMagicMissile());
+		for (int i = 0; i < 12; i++) missileStaff.upgrade(true);
+		check(((Wand) wandField.get(missileStaff)).maxCharges == 21,
+				"法师杖内嵌魔弹法杖的上限没有被封顶在21");
 	}
 
 	private static void testDisintegrationWand() {

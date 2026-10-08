@@ -62,6 +62,10 @@ public class WandOfMagicMissile extends DamageWand {
 
 	@Override public int initialCharges() { return 3; }
 
+	//SPSEXPD: 魔弹法杖充能上限提到 21，且每级 +2 上限（升级时当前充能同样 +2）
+	@Override public int chargeLimit() { return 21; }
+	@Override public int chargesPerLevel() { return 2; }
+
 	@Override
 	public void onHit(MagesStaff staff, Char attacker, Char defender, int damage) {
 		// The Shattered battlemage charge effect is retained below for save compatibility only.

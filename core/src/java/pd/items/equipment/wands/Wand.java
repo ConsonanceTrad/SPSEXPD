@@ -398,7 +398,8 @@ public abstract class Wand extends Item {
 		}
 
 		updateLevel();
-		curCharges = Math.min( curCharges + 1, maxCharges );
+		//SPSEXPD: 升级时当前充能的增量与「每级充能量」同源（魔弹法杖为 2）
+		curCharges = Math.min( curCharges + chargesPerLevel(), maxCharges );
 		updateQuickslot();
 		
 		return this;
@@ -454,10 +455,21 @@ public abstract class Wand extends Item {
 		return lvl;
 	}
 
+	//SPSEXPD: 法杖充能上限由 10 改为 9，并把「上限」与「每级充能量」抽成可覆写钩子：
+	//能量流失挑战只压制节奏（每 5 级一档），上限则随各自法杖的规则同步放开。
+	//（public 是因为 MagesStaff 在别的包需要按内嵌法杖的上限封顶）
+	public int chargeLimit() {
+		return 9;
+	}
+
+	public int chargesPerLevel() {
+		return 1;
+	}
+
 	public void updateLevel() {
 		maxCharges = Dungeon.isChallenged(Challenges.ENERGY_LOST)
-				? Math.min(initialCharges() + level() / 5, 6)
-				: Math.min(initialCharges() + level(), 10);
+				? Math.min(initialCharges() + chargesPerLevel() * (level() / 5), chargeLimit())
+				: Math.min(initialCharges() + chargesPerLevel() * level(), chargeLimit());
 		curCharges = Math.min( curCharges, maxCharges );
 	}
 	

@@ -356,8 +356,10 @@ public class MagesStaff extends MeleeWeapon {
 			int curCharges = wand.curCharges;
 			wand.level(level());
 			//gives the wand one additional max charge
-			wand.maxCharges = Math.min(wand.maxCharges + 1, 10);
-			wand.curCharges = Math.min(curCharges + (levelled ? 1 : 0), wand.maxCharges);
+			//SPSEXPD: 封顶按法杖自身的充能上限（普通 9 / 魔弹 21），不再固定 10；
+			//升级时当前充能的增量也跟随该法杖的每级充能量
+			wand.maxCharges = Math.min(wand.maxCharges + 1, wand.chargeLimit());
+			wand.curCharges = Math.min(curCharges + (levelled ? wand.chargesPerLevel() : 0), wand.maxCharges);
 			updateQuickslot();
 		}
 	}
@@ -420,7 +422,8 @@ public class MagesStaff extends MeleeWeapon {
 		wand = (Wand) bundle.get(WAND);
 		preservationUsed = bundle.getBoolean(PRESERVATION_USED);
 		if (wand != null) {
-			wand.maxCharges = Math.min(wand.maxCharges + 1, 10);
+			//SPSEXPD: 读档时同样按法杖自身的充能上限封顶
+			wand.maxCharges = Math.min(wand.maxCharges + 1, wand.chargeLimit());
 		}
 	}
 
