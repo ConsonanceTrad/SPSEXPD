@@ -1020,7 +1020,7 @@ public final class SpsMobRotationTest {
 		if (zombie.HT < 94 || zombie.HT > 126 || zombie.defenseSkill != 13
 				|| !zombie.properties().contains(pd.actors.Char.Property.UNDEAD)
 				|| zombie.spriteClass != pd.sprites.ZombieSprite.class
-				|| Zombie.specialLootType() != pd.items.UnBlessAnkh.class
+				|| Zombie.specialLootType() != pd.items.Ankh.class
 				|| !zombie.isWeak(Burning.class)
 				|| !zombie.isWeak(pd.items.equipment.wands.WandOfFirebolt.class)
 				|| zombie.resist(pd.actors.blobs.ToxicGas.class) >= 1f

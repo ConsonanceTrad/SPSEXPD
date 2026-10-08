@@ -362,22 +362,19 @@ public final class SpsLegacyUtilityItemsTest {
 		check(hero.HP == hero.HT, "根骨之瓶没有回满生命：" + hero.HP + "/" + hero.HT);
 		check(might.quantity() == 1, "根骨之瓶没有逐瓶消耗：" + might.quantity());
 
-		Waterskin waterskin = new Waterskin(0, 100);
-		waterskin.collect(hero.belongings.backpack);
+		//SPSEXPD: 安卡不再有「未祝福」形态——UnBlessAnkh 只是旧存档壳，行为等同安卡
 		UnBlessAnkh cross = new UnBlessAnkh();
 		cross.collect(hero.belongings.backpack);
-		check(cross.actions(hero).contains(UnBlessAnkh.AC_BLESS), "100点额外露水没有开放十字架祝福");
-		check(cross.bless(hero), "十字架无法祝福");
-		check(hero.belongings.getItem(UnBlessAnkh.class) == null
-				&& hero.belongings.getItem(Ankh.class) != null && waterskin.totalDew() == 0,
-				"十字架祝福没有转换为十字章或消耗100点露珠");
+		check(cross instanceof Ankh && !cross.actions(hero).contains("BLESS"),
+				"旧存档壳十字架没有继承安卡行为，或仍提供祝福动作");
+		check(hero.belongings.getItem(Ankh.class) != null, "十字架没有按安卡入包");
 	}
 
 	private static void testSourcesAndTransmutation() {
 		check(TransmutationBall.changeItem(new StrBottle()) instanceof MitBottle,
 				"转换球没有把力量之瓶转为根骨之瓶");
-		check(new Zombie().SupercreateLoot() instanceof UnBlessAnkh,
-				"僵尸特殊掉落没有恢复十字架");
+		check(new Zombie().SupercreateLoot() instanceof Ankh,
+				"僵尸特殊掉落没有恢复安卡");
 	}
 
 	private static void testResourcesAndSprites() throws Exception {

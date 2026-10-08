@@ -53,7 +53,6 @@ import pd.effects.FloatingText;
 import pd.effects.Ripple;
 import pd.effects.SpellSprite;
 import pd.effects.TargetedCell;
-import pd.items.Ankh;
 import pd.items.Heap;
 import pd.items.Honeypot;
 import pd.items.Item;
@@ -133,7 +132,6 @@ import pd.windows.WndInfoTrap;
 import pd.windows.WndKeyBindings;
 import pd.windows.WndMessage;
 import pd.windows.WndOptions;
-import pd.windows.WndResurrect;
 import pd.windows.WndUpgrade;
 import render.gltextures.TextureCache;
 import render.glwrap.Blending;
@@ -864,20 +862,9 @@ public class GameScene extends PixelScene {
 		if (!invVisible) toggleInvPane();
 		fadeIn();
 
-		//re-show WndResurrect if needed
+		//SPSEXPD: 未祝福安卡的复活窗口已随安卡改造移除，死亡后直接进入结算
 		if (!Dungeon.hero.isAlive()){
-			//check if hero has an unblessed ankh
-			Ankh ankh = null;
-			for (Ankh i : Dungeon.hero.belongings.getAllItems(Ankh.class)){
-				if (!i.isBlessed()){
-					ankh = i;
-				}
-			}
-			if (ankh != null && GamesInProgress.gameExists(GamesInProgress.curSlot)) {
-				add(new WndResurrect(ankh));
-			} else {
-				gameOver();
-			}
+			gameOver();
 		}
 
 	}

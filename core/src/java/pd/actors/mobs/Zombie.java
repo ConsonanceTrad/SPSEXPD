@@ -2,7 +2,6 @@
 package pd.actors.mobs;
 
 import pd.actors.buffs.Burning;
-import pd.items.UnBlessAnkh;
 import pd.items.equipment.wands.WandOfFirebolt;
 import pd.sprites.ZombieSprite;
 import pd.messages.InlineText;
@@ -26,6 +25,7 @@ public class Zombie extends SpsPrisonMobs.Zombie {
 	}
 
 	public static Class<?> specialLootType() {
-		return UnBlessAnkh.class;
+		//SPSEXPD: 安卡不再有「未祝福」形态
+		return pd.items.Ankh.class;
 	}
 }

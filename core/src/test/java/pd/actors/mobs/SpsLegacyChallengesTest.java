@@ -31,7 +31,6 @@ import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.RedDewdrop;
-import pd.items.UnBlessAnkh;
 import pd.items.consum.food.staplefood.Pasty;
 import pd.items.consum.potions.PotionOfShield;
 import pd.items.consum.scrolls.Scroll;
@@ -131,8 +130,9 @@ public final class SpsLegacyChallengesTest {
 		Method challengeStarts = HeroClass.class.getDeclaredMethod("applySpsChallengeStarts", Hero.class);
 		challengeStarts.setAccessible(true);
 		challengeStarts.invoke(null, hero);
-		check(hero.belongings.getItem(UnBlessAnkh.class) != null,
-				"梦魇病毒开局没有补偿复活十字架");
+		//SPSEXPD: 安卡不再有「未祝福」形态，补偿直接给安卡
+		check(hero.belongings.getAllItems(pd.items.Ankh.class).size() == 1,
+				"梦魇病毒开局没有补偿安卡");
 	}
 
 	private static void testDarknessClockAndMemory() {

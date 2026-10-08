@@ -57,7 +57,6 @@ import pd.items.Item;
 import pd.items.KnowledgeBook;
 import pd.items.StrBottle;
 import pd.items.TransmutationBall;
-import pd.items.UnBlessAnkh;
 import pd.items.Waterskin;
 import pd.items.Weightstone;
 import pd.items.equipment.armor.ClothArmor;
@@ -474,7 +473,8 @@ public enum HeroClass {
 			new Honey().collect(hero.belongings.backpack);
 		}
 		if (Dungeon.isChallenged(Challenges.NIGHTMARE_VIRUS)) {
-			new UnBlessAnkh().collect(hero.belongings.backpack);
+			//SPSEXPD: 安卡不再有「未祝福」形态
+			new Ankh().collect(hero.belongings.backpack);
 		}
 		if (Dungeon.isChallenged(Challenges.ENERGY_LOST)) {
 			new Pasty().collect(hero.belongings.backpack);

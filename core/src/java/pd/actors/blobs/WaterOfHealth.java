@@ -33,7 +33,6 @@ import pd.effects.FloatingText;
 import pd.effects.Speck;
 import pd.effects.particles.ShadowParticle;
 import pd.effects.particles.ShaftParticle;
-import pd.items.Ankh;
 import pd.items.Item;
 import pd.items.Waterskin;
 import pd.items.consum.potions.PotionOfHealing;
@@ -93,11 +92,6 @@ public class WaterOfHealth extends WellWater {
 		if (item instanceof Waterskin) {
 			((Waterskin)item).fill();
 			CellEmitter.get( pos ).start( Speck.factory( Speck.HEALING ), 0.4f, 4 );
-			Sample.INSTANCE.play( Assets.Sounds.DRINK );
-			return item;
-		} else if ( item instanceof Ankh && !(((Ankh) item).isBlessed())){
-			((Ankh) item).bless();
-			CellEmitter.get( pos ).start(Speck.factory(Speck.LIGHT), 0.2f, 3);
 			Sample.INSTANCE.play( Assets.Sounds.DRINK );
 			return item;
 		} else if (ScrollOfRemoveCurse.uncursable(item)) {

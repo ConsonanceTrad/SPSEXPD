@@ -264,7 +264,6 @@ import pd.windows.WndHero;
 import pd.windows.WndIronMaker;
 import pd.windows.WndLifeTradeItem;
 import pd.windows.WndOptions;
-import pd.windows.WndResurrect;
 import pd.windows.WndTent;
 import pd.windows.WndTradeItem;
 import render.noosa.Game;
@@ -2783,68 +2782,45 @@ public class Hero extends Char {
 		}
 	}
 
+	//SPSEXPD: 安卡原地复活给予的无敌回合数
+	private static final float ANKH_INVULNERABILITY = 2f;
+
 	@Override
 	public void die( Object cause ) {
 		
 		curAction = null;
 
+		//SPSEXPD: 安卡不再有祝福概念，背包里取一枚即可
 		Ankh ankh = null;
-
-		//look for ankhs in player inventory, prioritize ones which are blessed.
 		for (Ankh i : belongings.getAllItems(Ankh.class)){
-			if (ankh == null || i.isBlessed()) {
-				ankh = i;
-			}
+			ankh = i;
+			break;
 		}
 
 		if (ankh != null) {
 			interrupt();
 
-			if (ankh.isBlessed()) {
-				this.HP = HT / 4;
+			//SPSEXPD: 死亡即在原地复活——恢复 10% 生命并获得 2 回合无敌，物品不会遗落
+			//（取代旧的「祝福安卡 1/4 血」与「未祝福安卡选两件物品」两条流程）
+			this.HP = Math.max(1, HT / 10);
 
-				PotionOfHealing.cure(this);
-				Buff.prolong(this, Invulnerability.class, Invulnerability.DURATION);
+			PotionOfHealing.cure(this);
+			Buff.prolong(this, Invulnerability.class, ANKH_INVULNERABILITY);
 
-				SpellSprite.show(this, SpellSprite.ANKH);
-				GameScene.flash(0x80FFFF40);
-				Sample.INSTANCE.play(Assets.Sounds.TELEPORT);
-				GLog.w(Messages.get(this, "revive"));
-				Statistics.ankhsUsed++;
-				Catalog.countUse(Ankh.class);
+			SpellSprite.show(this, SpellSprite.ANKH);
+			GameScene.flash(0x80FFFF40);
+			Sample.INSTANCE.play(Assets.Sounds.TELEPORT);
+			GLog.w(Messages.get(this, "revive"));
+			Statistics.ankhsUsed++;
+			Catalog.countUse(Ankh.class);
 
-				ankh.detach(belongings.backpack);
+			ankh.detach(belongings.backpack);
 
-				for (Char ch : Actor.chars()) {
-					if (ch instanceof DriedRose.GhostHero) {
-						((DriedRose.GhostHero) ch).sayAnhk();
-						return;
-					}
+			for (Char ch : Actor.chars()) {
+				if (ch instanceof DriedRose.GhostHero) {
+					((DriedRose.GhostHero) ch).sayAnhk();
+					return;
 				}
-			} else {
-
-				//this is hacky, basically we want to declare that a wndResurrect exists before
-				//it actually gets created. This is important so that the game knows to not
-				//delete the run or submit it to rankings, because a WndResurrect is about to exist
-				//this is needed because the actual creation of the window is delayed here
-				WndResurrect.instance = new Object();
-				Ankh finalAnkh = ankh;
-				Game.runOnRenderThread(new Callback() {
-					@Override
-					public void call() {
-						GameScene.show( new WndResurrect(finalAnkh) );
-					}
-				});
-
-				if (cause instanceof Hero.Doom) {
-					((Hero.Doom)cause).onDeath();
-				}
-
-				SacrificialFire.Marked sacMark = buff(SacrificialFire.Marked.class);
-				if (sacMark != null){
-					sacMark.detach();
-				}
-
 			}
 			return;
 		}

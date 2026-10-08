@@ -179,7 +179,7 @@ public final class SpsPrisonMobs {
 		@Override public int attackSkill(Char target) { return 15 + legacyDepthAdjustment(0); }
 		@Override public int drRoll() { return Random.NormalIntRange(3, 8); }
 		@Override public int attackProc(Char enemy, int damage) { if (Random.Int(3) == 0) Buff.affect(enemy, BeOld.class).set(20f); return damage; }
-		@Override public pd.items.Item SupercreateLoot() { return new pd.items.UnBlessAnkh(); }
+		@Override public pd.items.Item SupercreateLoot() { return new pd.items.Ankh(); }
 	}
 
 	public static class BanditKing extends Mob {
