@@ -55,7 +55,7 @@ def coreTestClass = { String rel -> "${corePackage}.${rel}" }
 
 tasks.register('verifySpsContent') {
     group = 'verification'
-    description = '检查SPS移植内容的中英文资源、UTF-8文本与固定地图模板。'
+    description = '检查SPS移植内容的资源键（zh ⊆ en）、UTF-8文本与固定地图模板。'
 
     doLast {
 		fileTree('core/src/assets/messages').matching { include '**/*.properties' }.each { resource ->
@@ -307,10 +307,14 @@ tasks.register('verifySpsContent') {
                     throw new GradleException("${resource}: 检测到疑似乱码")
                 }
             }
+            //SPSXPD: 简体中文的文本真相源是代码内联（InlineText），messages/*/zh/ 只作内联未命中时的兜底，
+            //所以这里不再要求中英键集合一致：允许 zh 缺键、允许 zh 文件为空。
+            //仅禁止 zh 出现英文模板里没有的键（拼写错误/孤立键仍要拦住）。
             def baseKeys = parseKeys(pair[0])
             def zhKeys = parseKeys(pair[1])
-            if (baseKeys != zhKeys) {
-                throw new GradleException("${pair[0].parent}: SPS内容的中英文资源键不一致，英文独有=${baseKeys-zhKeys}，中文独有=${zhKeys-baseKeys}")
+            def orphanZhKeys = zhKeys - baseKeys
+            if (!orphanZhKeys.isEmpty()) {
+                throw new GradleException("${pair[0].parent}: 中文资源出现英文模板里没有的SPS键，中文独有=${orphanZhKeys}")
             }
         }
 
@@ -530,7 +534,7 @@ tasks.register('verifySpsContent') {
 			}
 		}
 
-		println "SPS内容审计通过：全部消息资源均为严格UTF-8；${layoutRows.size()}行固定地图、25个目的地、8条挑战路线、20种药物、14种果蔬、8种植物产物、5种植物药剂、8种独有植物、12枚洛克芯片、8套战斗风格、9张保留职业动画图集和5张独立职业原画；中英文资源键一致。"
+		println "SPS内容审计通过：全部消息资源均为严格UTF-8；${layoutRows.size()}行固定地图、25个目的地、8条挑战路线、20种药物、14种果蔬、8种植物产物、5种植物药剂、8种独有植物、12枚洛克芯片、8套战斗风格、9张保留职业动画图集和5张独立职业原画；中文资源键为英文模板子集（简中文案以代码内联为准）。"
     }
 }
 
