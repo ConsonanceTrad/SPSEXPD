@@ -93,6 +93,10 @@ public class ExoticPotion extends Potion {
 		regToExo.put(PotionOfToxicGas.class, PotionOfCorrosiveGas.class);
 		exoToReg.put(PotionOfCorrosiveGas.class, PotionOfToxicGas.class);
 
+		//SPSEXPD: 吞星花对应的合剂——强酸药剂的合剂升级（含原「耗竭-盛宴」效果）
+		regToExo.put(pd.items.consum.potions.PotionOfAcid.class, PotionOfAcidFeast.class);
+		exoToReg.put(PotionOfAcidFeast.class, pd.items.consum.potions.PotionOfAcid.class);
+
 		regToExo.put(PotionOfHaste.class, PotionOfStamina.class);
 		exoToReg.put(PotionOfStamina.class, PotionOfHaste.class);
 
@@ -120,7 +124,8 @@ public class ExoticPotion extends Potion {
 	
 	@Override
 	public void setKnown() {
-		if (!isKnown()) {
+		//SPSEXPD: null 守卫——无头测试/临时对象下 handler 未初始化时安全跳过
+		if (!isKnown() && handler != null) {
 			handler.know(exoToReg.get(this.getClass()));
 			updateQuickslot();
 		}

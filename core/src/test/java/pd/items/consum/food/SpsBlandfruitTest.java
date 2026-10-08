@@ -137,7 +137,10 @@ public final class SpsBlandfruitTest {
 		selector.onSelect(fruit);
 		check(!hero.belongings.backpack.items.contains(fruit), "魔法号角仍拒绝生无味果");
 
-		check(horn.level() == 2, "魔法号角没有按旧版hornValue=2接收无味果");
+		//SPSEXPD: 吞噬改为充能制——无味果 hornValue=2 转为 2 点充能（charge 字段在 Artifact 基类）
+		Field chargeField = pd.items.equipment.artifacts.Artifact.class.getDeclaredField("charge");
+		chargeField.setAccessible(true);
+		check(chargeField.getInt(horn) == 2, "魔法号角没有按hornValue=2把无味果转成充能");
 	}
 
 	/** SPSEXPD: 「食用」按钮上的实际饱食回复角标（考虑挑战与当前饥饿值，能补满显示 MAX）。 */

@@ -9,147 +9,141 @@
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
 package pd.items.equipment.artifacts;
 
 import pd.atlas.items.EquipmentJewelleryArtifactDict;
 
-import pd.Assets;
-import pd.Badges;
 import pd.Dungeon;
-import pd.Statistics;
 import pd.actors.buffs.Buff;
-import pd.actors.buffs.Feed;
 import pd.actors.buffs.Hunger;
 import pd.actors.hero.Belongings;
 import pd.actors.hero.Hero;
-import pd.effects.SpellSprite;
-import pd.effects.particles.ElmoParticle;
 import pd.items.Item;
-import pd.items.equipment.bags.Bag;
 import pd.items.consum.food.Food;
+import pd.items.consum.food.staplefood.NormalRation;
+import pd.items.equipment.bags.Bag;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.utils.GLog;
 import pd.windows.WndBag;
-import render.noosa.audio.Sample;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
 
-/** SPS-PD 0.9.8's thirty-level, time-recharging Horn of Plenty. */
+/**
+ * SPSEXPD: 丰饶之角——干粮制造机。
+ *
+ * 充能来源：随时间恢复 + 吞噬食物（按食物的号角价值换充能）。
+ * 每攒满 {@link #RATION_COST} 点充能自动凝成 1 包干粮（余数保留，充能无上限），
+ * 每产出一包干粮神器成长 1 级（等级越高随时间回充能越快）。
+ * 快捷行为是「吞噬食物」；状态栏只显示充能数。
+ */
 public class HornOfPlenty extends Artifact {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(HornOfPlenty.class)
 			.t("name", "丰饶之角")
-			.t("ac_snack", "小吃一口")
-			.t("ac_eat", "食用")
-			.t("ac_store", "贮存")
-			.t("ac_feed", "耗竭-盛宴")
-			.t("eat", "你吃光了号角中的食物。")
+			.t("ac_swallow", "吞噬食物")
 			.t("prompt", "选择一个食物")
-			.t("no_food", "你的号角里没有食物可供食用！")
-			.t("full", "你的号角装满了食物！")
-			.t("reject", "你的号角并不接受未经烹煮的无味果。")
-			.t("maxlevel", "你的号角已经吞噬了尽可能多的食物！")
-			.t("levelup", "号角吞噬了你提供的食物，变得更加强大了。")
-			.t("feed", "号角吞噬了你提供的食物。")
-			.t("desc", "这个号角不能被用来吹奏，不过装备时它似乎会随时间流逝逐渐填充食物。")
-			.t("desc_hint", "也许可以通过给予它食物的能量来增加号角的力量。")
+			.t("swallow", "号角吞噬了%1$s，充能增加%2$d点。")
+			.t("ration", "号角把充能凝成了一包干粮。")
+			.t("levelup", "号角凝成干粮后成长了一级。")
+			.t("maxlevel", "号角的成长已经到达极限，但它仍会继续产出干粮。")
+			.t("desc", "这个号角不能被用来吹奏，不过它会随时间逐渐积蓄食物能量。把食物给它吞噬也能积蓄能量；每积蓄 6 点能量，它就会自动凝成一包干粮，每凝成一包干粮它都会成长一点（成长会加快能量积蓄）。")
+			.t("desc_hint", "当前充能：%1$d（每 6 点自动凝成一包干粮）")
 			.t("desc_cursed", "被诅咒的号角把自己绑在了你的身边，它似乎在渴望得到食物而不是制造食物。");
 	}
 
-
-
-
-	private static final float TIME_TO_EAT = 3f;
+	private static final float TIME_TO_SWALLOW = 2f;
 	private static final float ENERGY_PER_CHARGE = 40f;
+	/** 每这么多点充能自动凝成 1 包干粮。 */
+	public static final int RATION_COST = 6;
 	private static final String OBSOLETE_STORED_ENERGY = "stored";
 
-	public static final String AC_EAT = "EAT";
-	public static final String AC_STORE = "STORE";
-	public static final String AC_FEED = "FEED";
+	public static final String AC_SWALLOW = "SWALLOW";
 
 	{
 		image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN1;
 		levelCap = 30;
 		charge = 0;
 		partialCharge = 0;
-		chargeCap = 10;
-		defaultAction = AC_EAT;
+		//SPSEXPD: 不再设置充能上限——充能超过 6 点会自动凝成干粮
+		chargeCap = 0;
+		defaultAction = AC_SWALLOW;
 	}
 
 	@Override
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);
-		if (isEquipped(hero) && charge > 0) actions.add(AC_EAT);
-		if (isEquipped(hero) && level() < levelCap && !cursed) actions.add(AC_STORE);
-		if (isEquipped(hero) && level() > 0 && !cursed) actions.add(AC_FEED);
+		if (isEquipped(hero)) actions.add(AC_SWALLOW);
 		return actions;
 	}
 
 	@Override
 	public void execute(Hero hero, String action) {
-		if (!AC_EAT.equals(action) && !AC_STORE.equals(action) && !AC_FEED.equals(action)) {
+		if (!AC_SWALLOW.equals(action)) {
 			super.execute(hero, action);
 			return;
 		}
-
-		if (AC_EAT.equals(action)) {
-			if (!isEquipped(hero)) {
-				GLog.i(Messages.get(Artifact.class, "need_to_equip"));
-			} else if (charge == 0) {
-				GLog.i(Messages.get(this, "no_food"));
-			} else {
-				consumeCharges(hero, charge);
-			}
-		} else if (AC_STORE.equals(action)) {
+		if (!isEquipped(hero)) {
+			GLog.i(Messages.get(Artifact.class, "need_to_equip"));
+		} else {
 			GameScene.selectItem(itemSelector);
-		} else if (AC_FEED.equals(action)) {
-			if (!isEquipped(hero)) {
-				GLog.i(Messages.get(Artifact.class, "need_to_equip"));
-			} else if (!cursed && level() > 0) {
-				Buff.affect(hero, Feed.class, level() * 3f);
-				hero.spend(1f);
-				hero.busy();
-				if (hero.sprite != null) {
-					hero.sprite.operate(hero.pos);
-					hero.sprite.emitter().burst(ElmoParticle.FACTORY, 12);
-				}
-				Sample.INSTANCE.play(Assets.Sounds.BURNING);
-				level(0);
-				updateQuickslot();
-			}
 		}
 	}
 
-	private void consumeCharges(Hero hero, int amount) {
-		int consumed = Math.min(charge, Math.max(0, amount));
-		if (consumed == 0) return;
-
-		Buff.affect(hero, Hunger.class).satisfy(ENERGY_PER_CHARGE * consumed);
-		if (consumed >= 3) Statistics.foodEaten++;
-		charge -= consumed;
-
-		if (hero.sprite != null) {
-			hero.sprite.operate(hero.pos);
-			SpellSprite.show(hero, SpellSprite.FOOD);
-		}
-		hero.busy();
-		Sample.INSTANCE.play(Assets.Sounds.EAT);
-		GLog.i(Messages.get(this, "eat"));
-		hero.spend(TIME_TO_EAT);
-		Badges.validateFoodEaten();
-		updateImage();
+	/** SPSEXPD: 吞噬一份食物，按号角价值换充能，随后按需自动凝成干粮。 */
+	public int swallow(Hero hero, Food food) {
+		if (hero == null || food == null) return 0;
+		int gained = Math.max(0, food.hornValue);
+		charge += gained;
+		GLog.p(Messages.get(this, "swallow", food.name(), gained));
+		convertRations(hero);
 		updateQuickslot();
+		return gained;
 	}
 
-	/** Retained only for hidden Shattered spell compatibility; normal SPS play has no snack action. */
+	/** SPSEXPD: 充能每满 RATION_COST 点自动凝成 1 包干粮，每产出一包神器成长 1 级。 */
+	private void convertRations(Hero hero) {
+		while (charge >= RATION_COST) {
+			charge -= RATION_COST;
+
+			NormalRation ration = new NormalRation();
+			boolean collected = hero != null && ration.collect(hero.belongings.backpack);
+			if (!collected && Dungeon.level != null && hero != null) {
+				Dungeon.level.drop(ration, hero.pos);
+			}
+			GLog.p(Messages.get(this, "ration"));
+
+			if (level() < levelCap) {
+				upgrade(1);
+				if (level() >= levelCap) {
+					level(levelCap);
+					GLog.p(Messages.get(this, "maxlevel"));
+				} else {
+					GLog.p(Messages.get(this, "levelup"));
+				}
+			}
+			updateImage();
+		}
+	}
+
+	//SPSEXPD: 兼容隐藏法术（SpiritForm）——号角吐出一口食物，不耗充能
 	public void doEatEffect(Hero hero, int chargesToUse) {
-		consumeCharges(hero, chargesToUse);
+		if (hero == null) return;
+		Buff.affect(hero, Hunger.class).satisfy(ENERGY_PER_CHARGE * Math.max(1, chargesToUse));
+		GLog.i(Messages.get(this, "ration"));
 	}
 
 	@Override
@@ -158,27 +152,20 @@ public class HornOfPlenty extends Artifact {
 	}
 
 	@Override
+	public String status() {
+		//SPSEXPD: 只显示充能数（不显示上限）
+		if (!isIdentified() || cursed) return null;
+		return String.valueOf(charge);
+	}
+
+	@Override
 	public String desc() {
 		String desc = super.desc();
 		if (isEquipped(Dungeon.hero)) {
-			if (!cursed && level() < levelCap) {
-				desc += "\n\n" + Messages.get(this, "desc_hint");
-			} else if (cursed) {
-				desc += "\n\n" + Messages.get(this, "desc_cursed");
-			}
+			desc += "\n\n" + Messages.get(this, "desc_hint", charge);
+			if (cursed) desc += "\n\n" + Messages.get(this, "desc_cursed");
 		}
 		return desc;
-	}
-
-	public void gainFoodValue(Food food) {
-		if (level() >= levelCap) return;
-		upgrade(food.hornValue);
-		if (level() >= levelCap) {
-			level(levelCap);
-			GLog.p(Messages.get(this, "maxlevel"));
-		} else {
-			GLog.p(Messages.get(this, "levelup"));
-		}
 	}
 
 	@Override
@@ -194,29 +181,28 @@ public class HornOfPlenty extends Artifact {
 			int migratedLevel = level() * 3 + Math.round(bundle.getInt(OBSOLETE_STORED_ENERGY) / 100f);
 			level(Math.min(levelCap, migratedLevel));
 		}
+		//SPSEXPD: 旧档的充能可能高于 6（旧上限 10）——下次 tick 自动凝成干粮
 		updateImage();
 	}
 
 	private void updateImage() {
-		if (charge == chargeCap) image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN4;
-		else if (charge >= 7) image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN3;
-		else if (charge >= 3) image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN2;
+		if (charge >= 5) image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN4;
+		else if (charge >= 3) image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN3;
+		else if (charge >= 1) image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN2;
 		else image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN1;
 	}
 
 	public class hornRecharge extends ArtifactBuff {
 		@Override
 		public boolean act() {
-			if (charge < chargeCap && !cursed) {
+			if (!cursed) {
 				partialCharge += 0.25f + 0.015f * level();
 				if (partialCharge >= 80f) {
 					charge++;
 					partialCharge -= 80f;
+					//SPSEXPD: 充能满 6 点自动凝成干粮（随时间产出）
+					convertRations(Dungeon.hero);
 					updateImage();
-					if (charge == chargeCap) {
-						GLog.p(Messages.get(HornOfPlenty.class, "full"));
-						partialCharge = 0;
-					}
 					updateQuickslot();
 				}
 			} else {
@@ -250,8 +236,8 @@ public class HornOfPlenty extends Artifact {
 			if (hero == null) return;
 			if (hero.sprite != null) hero.sprite.operate(hero.pos);
 			hero.busy();
-			hero.spend(TIME_TO_EAT);
-			((HornOfPlenty) curItem).gainFoodValue((Food) item);
+			hero.spend(TIME_TO_SWALLOW);
+			((HornOfPlenty) curItem).swallow(hero, (Food) item);
 			item.detach(hero.belongings.backpack);
 		}
 	};

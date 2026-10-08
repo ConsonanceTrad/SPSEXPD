@@ -17,8 +17,8 @@ public class LargeFruitToElixir extends Recipe {
 
 	public static final int COUNT = 1;
 
-	/** 大型果实类 → 对应的秘药类。 */
-	public static final LinkedHashMap<Class<? extends Item>, Class<? extends Elixir>> types = new LinkedHashMap<>();
+	/** 大型果实类 → 对应的合剂类（吞星花对应强酸药剂的合剂升级，其余仍指秘药系）。 */
+	public static final LinkedHashMap<Class<? extends Item>, Class<? extends Potion>> types = new LinkedHashMap<>();
 
 	static {
 		types.put(LargeHealFruit.class,        ElixirOfHoneyedHealing.class);
@@ -36,17 +36,18 @@ public class LargeFruitToElixir extends Recipe {
 		types.put(LargeNutFruit.class,         ElixirOfMight.class);
 		types.put(LargeDewFruit.class,         ElixirOfAquaticRejuvenation.class);
 		types.put(LargeSeedFruit.class,        ElixirOfSeeds.class);
-		types.put(LargeStarEaterFruit.class,   ElixirOfMight.class);
+		//SPSEXPD: 吞星花对应的合剂——强酸药剂的合剂升级（原误指根骨秘药）
+		types.put(LargeStarEaterFruit.class,   pd.items.consum.potions.exotic.PotionOfAcidFeast.class);
 		types.put(LargeStarFruit.class,        ElixirOfStars.class);
 		types.put(LargeTransmuteFruit.class,   ElixirOfTransmutation.class);
 		types.put(LargeFlavorlessFruit.class,  ElixirOfBlandness.class);
 		types.put(LargeSwiftFruit.class,       ElixirOfFeatherFall.class);
 	}
 
-	/** 沿继承链查找大型果实对应的秘药。 */
-	public static Class<? extends Elixir> elixirFor(Item fruit) {
+	/** 沿继承链查找大型果实对应的合剂。 */
+	public static Class<? extends Potion> elixirFor(Item fruit) {
 		for (Class<?> type = fruit.getClass(); type != null; type = type.getSuperclass()) {
-			Class<? extends Elixir> elixir = types.get(type);
+			Class<? extends Potion> elixir = types.get(type);
 			if (elixir != null) return elixir;
 		}
 		return null;
@@ -55,10 +56,10 @@ public class LargeFruitToElixir extends Recipe {
 	@Override
 	public boolean testIngredients(ArrayList<Item> ingredients) {
 		if (ingredients.size() != COUNT) return false;
-		Class<? extends Elixir> target = null;
+		Class<? extends Potion> target = null;
 		for (Item ingredient : ingredients) {
 			//SPSEXPD: 只接受大型果实（其自身类带映射，且属于果实体系）
-			Class<? extends Elixir> elixir = elixirFor(ingredient);
+			Class<? extends Potion> elixir = elixirFor(ingredient);
 			if (elixir == null) return false;
 			if (!Potion.FruitToPotion.isLarge(ingredient)) return false;
 			if (target == null) target = elixir;
@@ -84,7 +85,7 @@ public class LargeFruitToElixir extends Recipe {
 	@Override
 	public Item sampleOutput(ArrayList<Item> ingredients) {
 		if (ingredients.isEmpty()) return null;
-		Class<? extends Elixir> type = elixirFor(ingredients.get(0));
+		Class<? extends Potion> type = elixirFor(ingredients.get(0));
 		return type == null ? null : Reflection.newInstance(type);
 	}
 }

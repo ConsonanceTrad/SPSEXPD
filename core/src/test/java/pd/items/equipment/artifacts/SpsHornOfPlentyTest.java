@@ -42,12 +42,12 @@ public final class SpsHornOfPlentyTest {
 		Gdx.files = new HeadlessFiles();
 		try {
 			testFoodValues();
-			testActionsAndFoodUpgrades();
+			testSwallowAndRationConversion();
 			testTimeRecharge();
-			testEatAllAndFeast();
+			testFeastMovedToAcidFeastPotion();
 			testSaveMigration();
 			testLocalizedResources();
-			System.out.println("SPS丰饶之角测试通过：30级成长、食物价值、时间充能、整角食用、耗竭盛宴、存档迁移及四语文本均符合0.9.8。");
+			System.out.println("SPS丰饶之角测试通过：吞噬食物充能、每6点自动凝干粮并成长、时间充能、盛宴移植强酸合剂、存档迁移及英文文本均正常。");
 		} finally {
 			Actor.clear();
 			Dungeon.hero = null;
@@ -94,23 +94,43 @@ public final class SpsHornOfPlentyTest {
 		}
 	}
 
-	private static void testActionsAndFoodUpgrades() {
+	//SPSEXPD: 丰饶之角改造——吞噬食物换充能、每 6 点自动凝成干粮并成长
+	private static void testSwallowAndRationConversion() {
 		RecordingHero hero = prepareHero();
 		TestHorn horn = new TestHorn();
+		horn.identify();
 		hero.belongings.artifact = horn;
-		check(HornOfPlenty.AC_EAT.equals(horn.defaultAction()) && horn.levelCapValue() == 30
-				&& horn.chargeCapValue() == 10, "号角默认动作、等级上限或容量错误");
-		check(horn.actions(hero).contains(HornOfPlenty.AC_STORE)
-				&& !horn.actions(hero).contains(HornOfPlenty.AC_FEED), "零级号角动作错误");
-		check(!horn.actions(hero).contains("SNACK"), "破碎版浅尝动作仍进入SPS流程");
+		check(HornOfPlenty.AC_SWALLOW.equals(horn.defaultAction()) && horn.levelCapValue() == 30
+				&& horn.chargeCapValue() == 0, "号角默认动作、等级上限或充能上限错误");
+		check(horn.actions(hero).contains(HornOfPlenty.AC_SWALLOW)
+				&& !horn.actions(hero).contains("EAT") && !horn.actions(hero).contains("FEED"),
+				"号角仍残留食用或盛宴动作");
+		check("0".equals(horn.status()), "号角状态栏没有只显示充能数");
 
-		horn.gainFoodValue(new Blandfruit());
-		check(horn.level() == 2 && horn.actions(hero).contains(HornOfPlenty.AC_FEED),
-				"无味果没有把号角提升2级或解锁盛宴");
-		horn.level(29);
-		horn.gainFoodValue(new pd.items.consum.food.completefood.PerfectFood());
-		check(horn.level() == 30 && !horn.actions(hero).contains(HornOfPlenty.AC_STORE),
-				"号角没有在30级封顶或仍允许储存食物");
+		//吞噬食物按 hornValue 加充能（无味果 hornValue=2），不足 6 不产干粮
+		horn.swallow(hero, new Blandfruit());
+		check(horn.chargeValue() == 2 && horn.level() == 0 && countRations(hero) == 0,
+				"吞噬无味果没有+2充能，或不足6点就产出了干粮");
+		check("2".equals(horn.status()), "号角状态栏没有显示充能数2");
+
+		//满 6 点自动凝成干粮并成长一级（吞 PerfectFood hornValue=10：10+2=12 → 2 包干粮 + 2 级，余 0）
+		horn.swallow(hero, new pd.items.consum.food.completefood.PerfectFood());
+		check(horn.chargeValue() == 0 && countRations(hero) == 2 && horn.level() == 2,
+				"充能没有每6点自动凝成干粮、余数保留或每包成长1级");
+
+		//满级后仍产干粮但不再成长
+		horn.level(30);
+		horn.swallow(hero, new pd.items.consum.food.completefood.PerfectFood());
+		check(horn.level() == 30 && countRations(hero) == 3 && horn.chargeValue() == 4,
+				"满级后没有继续产出干粮或仍在成长");
+	}
+
+	private static int countRations(Hero hero) {
+		int count = 0;
+		for (pd.items.Item item : hero.belongings.backpack.items) {
+			if (item instanceof pd.items.consum.food.staplefood.NormalRation) count += item.quantity();
+		}
+		return count;
 	}
 
 	private static void testTimeRecharge() {
@@ -134,11 +154,13 @@ public final class SpsHornOfPlentyTest {
 		fastRecharge.act();
 		check(fast.chargeValue() == 1, "满级号角115回合没有产生一格食物");
 
-		fast.setCharge(9);
+		fast.setCharge(5);
 		fast.setPartial(79.5f);
 		fastRecharge.act();
-		check(fast.chargeValue() == 10 && fast.partialValue() == 0f
-				&& fast.image == EquipmentJewelleryArtifactDict.ARTIFACT_HORN4, "号角满充、清零或图标阈值错误");
+		//SPSEXPD: 充能 5+1=6 → 自动凝成 1 包干粮、余 0；满级不再成长；部分充能保留小数余量
+		check(fast.chargeValue() == 0 && countRations(hero) == 1 && fast.levelValue() == 30
+				&& fast.partialValue() < 1f && fast.image == EquipmentJewelleryArtifactDict.ARTIFACT_HORN1,
+				"号角满6充能没有自动凝成干粮、保留余数或按余数刷新图标");
 		fast.cursed = true;
 		fast.setCharge(5);
 		fast.setPartial(40f);
@@ -146,39 +168,21 @@ public final class SpsHornOfPlentyTest {
 		check(fast.chargeValue() == 5 && fast.partialValue() == 0f, "诅咒号角仍充能或未清空部分充能");
 	}
 
-	private static void testEatAllAndFeast() {
+	//SPSEXPD: 盛宴效果已移植到吞星花对应的合剂（强酸盛宴合剂）
+	private static void testFeastMovedToAcidFeastPotion() {
 		RecordingHero hero = prepareHero();
-		TestHorn horn = new TestHorn();
-		hero.belongings.artifact = horn;
-		Hunger hunger = Buff.affect(hero, Hunger.class);
-		hunger.affectHunger(-450f, true);
-		horn.setCharge(3);
-		Statistics.reset();
-		horn.execute(hero, HornOfPlenty.AC_EAT);
-		check(hunger.hunger() == 330 && horn.chargeValue() == 0 && hero.spent == 3f,
-				"号角没有一次吃光3格、恢复120饱食或消耗3回合");
-		check(Statistics.foodEaten == 1 && horn.image == EquipmentJewelleryArtifactDict.ARTIFACT_HORN1,
-				"三格号角食物没有计为一餐或图标未复原");
-
-		Actor.clear();
-		hero = prepareHero();
-		horn = new TestHorn();
-		hero.belongings.artifact = horn;
-		horn.setCharge(2);
-		Statistics.reset();
-		horn.execute(hero, HornOfPlenty.AC_EAT);
-		check(Statistics.foodEaten == 0 && horn.chargeValue() == 0, "少于三格的号角食物被错误计为正餐");
-
-		Actor.clear();
-		hero = prepareHero();
-		horn = new TestHorn();
-		hero.belongings.artifact = horn;
-		horn.level(30);
-		hero.spent = 0;
-		horn.execute(hero, HornOfPlenty.AC_FEED);
+		pd.items.consum.potions.exotic.PotionOfAcidFeast potion = new pd.items.consum.potions.exotic.PotionOfAcidFeast();
+		potion.apply(hero);
 		Feed feed = hero.buff(Feed.class);
-		check(feed != null && feed.visualcooldown() >= 89f && horn.level() == 0 && hero.spent == 1f,
-				"满级号角没有转化为90回合Feed、归零等级或消耗1回合");
+		check(feed != null && feed.visualcooldown() >= 49f,
+				"强酸盛宴合剂没有给予50回合生命摄取");
+
+		check(pd.items.consum.potions.exotic.ExoticPotion.regToExo.get(pd.items.consum.potions.PotionOfAcid.class)
+				== pd.items.consum.potions.exotic.PotionOfAcidFeast.class,
+				"强酸药剂没有登记合剂升级");
+		check(pd.items.LargeFruitToElixir.types.get(pd.items.equipment.weapon.missiles.arrows.LargeStarEaterFruit.class)
+				== pd.items.consum.potions.exotic.PotionOfAcidFeast.class,
+				"吞星花大果没有对应强酸盛宴合剂");
 	}
 
 	private static void testSaveMigration() {
@@ -191,8 +195,9 @@ public final class SpsHornOfPlentyTest {
 
 		TestHorn migrated = new TestHorn();
 		migrated.restoreFromBundle(oldSave);
+		//SPSEXPD: 旧档 charge=7 → 新图标阈值（>=5 即 HORN4），充能会在下次 tick 自动凝成干粮
 		check(migrated.level() == 14 && migrated.chargeValue() == 7
-				&& migrated.image == EquipmentJewelleryArtifactDict.ARTIFACT_HORN3,
+				&& migrated.image == EquipmentJewelleryArtifactDict.ARTIFACT_HORN4,
 				"早期10级号角的等级、储存进度、充能或图标迁移错误");
 		Bundle newSave = new Bundle();
 		migrated.storeInBundle(newSave);
@@ -208,17 +213,15 @@ public final class SpsHornOfPlentyTest {
 	}
 
 	private static void testLocalizedResources() throws Exception {
-		for (String file : new String[]{"en/items.properties", "zh/items.properties",
-				"zh-hant/items.properties", "ru/items.properties"}) {
-			Properties items = load("messages/items/" + file);
-			for (String key : new String[]{"name", "ac_eat", "ac_store", "ac_feed", "eat", "prompt",
-					"no_food", "full", "maxlevel", "levelup", "desc", "desc_hint", "desc_cursed"}) {
-				required(items, "items.equipment.artifacts.hornofplenty." + key, file);
-			}
+		//SPSEXPD: 简体内联在代码里（InlineText），zh-hant/其它语言目录不维护——只核对英文模板
+		Properties items = load("messages/items/en/items.properties");
+		for (String key : new String[]{"name", "ac_swallow", "prompt", "swallow", "ration",
+				"levelup", "maxlevel", "desc", "desc_hint", "desc_cursed"}) {
+			required(items, "items.equipment.artifacts.hornofplenty." + key, "en/items.properties");
 		}
-		Properties zh = load("messages/items/zh/items.properties");
-		check("耗竭-盛宴".equals(zh.getProperty("items.equipment.artifacts.hornofplenty.ac_feed")),
-				"丰饶之角简体中文盛宴动作乱码或错误");
+		for (String key : new String[]{"name", "desc", "feast"}) {
+			required(items, "items.consum.potions.exotic.potionofacidfeast." + key, "en/items.properties");
+		}
 		try (java.util.stream.Stream<Path> paths = java.nio.file.Files.walk(Path.of("messages"))) {
 			for (Path path : (Iterable<Path>) paths.filter(p -> p.toString().endsWith(".properties"))::iterator) {
 				check(!java.nio.file.Files.readString(path, StandardCharsets.UTF_8).contains("\uFFFD"),
@@ -262,6 +265,7 @@ public final class SpsHornOfPlentyTest {
 		int chargeValue() { return charge; }
 		int chargeCapValue() { return chargeCap; }
 		int levelCapValue() { return levelCap; }
+		int levelValue() { return level(); }
 		float partialValue() { return partialCharge; }
 		void setCharge(int value) { charge = value; }
 		void setPartial(float value) { partialCharge = value; }
