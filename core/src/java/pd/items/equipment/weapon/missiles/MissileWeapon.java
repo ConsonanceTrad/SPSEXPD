@@ -100,6 +100,12 @@ abstract public class MissileWeapon extends Weapon {
 		usesTargeting = true;
 	}
 
+	/** SPSEXPD: 投掷武器（含各类果实）不能装备到副手栏。 */
+	@Override
+	public boolean canEquipSecondary() {
+		return false;
+	}
+
 	//TODO maybe make this like actor IDs, instead of random? collisions unlikely, but it's messy
 	public long setID = new SecureRandom().nextLong();
 

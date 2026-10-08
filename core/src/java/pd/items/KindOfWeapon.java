@@ -70,9 +70,10 @@ abstract public class KindOfWeapon extends EquipableItem {
 		ArrayList<String> actions = super.actions(hero);
 		if (!isEquipped(hero)){
 			//SPSEXPD: 「装备」进主手、「副手装备」进副武器栏（副手装备对所有职业开放）；
-			//只能装备在副武器栏的武器（神木圆盾）没有主手选项
+			//只能装备在副武器栏的武器（神木圆盾）没有主手选项；
+			//投掷武器（含各类果实）不提供副手装备
 			if (!canEquipPrimary()) actions.remove(AC_EQUIP);
-			actions.add(AC_EQUIP_SECONDARY);
+			if (canEquipSecondary()) actions.add(AC_EQUIP_SECONDARY);
 		}
 		return actions;
 	}
@@ -112,6 +113,11 @@ abstract public class KindOfWeapon extends EquipableItem {
 
 	/** SPSEXPD: 只能装备在副武器栏的武器（如神木圆盾）返回 false，主/副互换会跳过它。 */
 	public boolean canEquipPrimary() {
+		return true;
+	}
+
+	/** SPSEXPD: 能否装备到副武器栏——投掷武器（含各类果实）由 MissileWeapon 覆写为 false。 */
+	public boolean canEquipSecondary() {
 		return true;
 	}
 
@@ -178,6 +184,9 @@ abstract public class KindOfWeapon extends EquipableItem {
 	}
 
 	public boolean equipSecondary( Hero hero ){
+
+		//SPSEXPD: 投掷武器（含各类果实）不能装备到副手栏——动作栏与转化卷轴都走这里
+		if (!canEquipSecondary()) return false;
 
 		isSwiftEquipping = false;
 		if (hero.belongings.contains(this) && hero.hasTalent(Talent.SWIFT_EQUIP)){

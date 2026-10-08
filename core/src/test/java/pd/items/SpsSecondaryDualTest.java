@@ -13,6 +13,8 @@ import pd.items.equipment.armor.normalarmor.VestArmor;
 import pd.items.equipment.weapon.Weapon;
 import pd.items.equipment.weapon.melee.normalweapon.ShortSword;
 import pd.items.equipment.weapon.melee.normalweapon.Spear;
+import pd.items.equipment.weapon.missiles.arrows.BlindFruit;
+import pd.items.equipment.weapon.missiles.darts.Dart;
 import pd.items.misc.MissileShield;
 import pd.levels.Level;
 import pd.plants.Plant;
@@ -203,6 +205,24 @@ public final class SpsSecondaryDualTest {
 		check(shieldActions.contains(EquipableItem.AC_EQUIP_SECONDARY)
 				&& !shieldActions.contains(EquipableItem.AC_EQUIP),
 				"只能进副手栏的武器没有隐藏主手装备动作");
+
+		//SPSEXPD: 果实与其它投掷武器都不能装备到副手栏
+		KindOfWeapon dart = new Dart();
+		check(!dart.canEquipSecondary(), "投掷武器仍允许副手装备");
+		check(!dart.actions(hero).contains(EquipableItem.AC_EQUIP_SECONDARY),
+				"投掷武器的动作栏仍提供副手装备");
+		check(!dart.equipSecondary(hero), "投掷武器仍能被装备到副手栏");
+		check(hero.belongings.secondWep == null, "投掷武器占用了副手武器栏");
+
+		KindOfWeapon fruit = new BlindFruit(10);
+		check(!fruit.canEquipSecondary(), "果实仍允许副手装备");
+		check(!fruit.actions(hero).contains(EquipableItem.AC_EQUIP_SECONDARY),
+				"果实的动作栏仍提供副手装备");
+
+		//SPSEXPD: 旧档里若副手是投掷武器，也不参与双持规则
+		hero.belongings.secondWep = fruit;
+		check(!SecondaryEquip.dualWeapons(hero), "副手为投掷武器时仍然算作双持");
+		hero.belongings.secondWep = null;
 	}
 
 	private static Hero newHero() {

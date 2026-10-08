@@ -53,7 +53,10 @@ public final class SecondaryEquip {
 		if (hero == null || hero.belongings == null) return false;
 		KindOfWeapon primary = hero.belongings.weapon();
 		KindOfWeapon second = hero.belongings.secondWep();
-		return primary != null && second != null && second.canEquipPrimary();
+		//SPSEXPD: 投掷武器（含果实）不允许进副手栏，旧档里已装在副手的也不参与双持
+		return primary != null && second != null
+				&& second.canEquipPrimary()
+				&& second.canEquipSecondary();
 	}
 
 	/** 双甲：主、副护甲栏都有护甲。 */
