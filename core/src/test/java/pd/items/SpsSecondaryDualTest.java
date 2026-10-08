@@ -174,13 +174,6 @@ public final class SpsSecondaryDualTest {
 		check(actions.contains(EquipableItem.AC_EQUIP) && actions.contains(EquipableItem.AC_EQUIP_SECONDARY),
 				"武器动作栏没有同时提供装备与副手装备");
 		check(!actions.contains(EquipableItem.AC_UNEQUIP), "未装备的武器不应提供取下动作");
-		//SPSEXPD: 「装备」固定另起一行（动作窗第二行），「副手装备」紧跟其后 ⇒ 二者并排同占第二行
-		check(primary.actionBreakBefore(EquipableItem.AC_EQUIP)
-				&& !primary.actionBreakBefore(Item.AC_DROP)
-				&& !primary.actionBreakBefore(EquipableItem.AC_EQUIP_SECONDARY),
-				"武器装备动作没有固定另起一行");
-		check(actions.indexOf(EquipableItem.AC_EQUIP) + 1 == actions.indexOf(EquipableItem.AC_EQUIP_SECONDARY),
-				"副手装备没有紧跟在装备动作之后");
 
 		hero.belongings.weapon = primary;
 		ArrayList<String> equipped = primary.actions(hero);
@@ -200,9 +193,6 @@ public final class SpsSecondaryDualTest {
 		ArrayList<String> armorActions = armor.actions(hero);
 		check(armorActions.contains(EquipableItem.AC_EQUIP) && armorActions.contains(EquipableItem.AC_EQUIP_SECONDARY),
 				"护甲动作栏没有同时提供装备与副手装备");
-		check(armor.actionBreakBefore(EquipableItem.AC_EQUIP)
-				&& armorActions.indexOf(EquipableItem.AC_EQUIP) + 1 == armorActions.indexOf(EquipableItem.AC_EQUIP_SECONDARY),
-				"护甲装备动作没有固定另起一行或副手装备未紧跟其后");
 		check(SecondaryEquip.dualArmorTooHeavy(hero, armor, new VestArmor()), "双甲超出力量时没有超力量提示");
 		check(!SecondaryEquip.dualArmorTooHeavy(hero, armor, null), "只有主护甲时不应提示");
 		hero.STR = 60;

@@ -77,12 +77,6 @@ abstract public class KindOfWeapon extends EquipableItem {
 		return actions;
 	}
 
-	/** SPSEXPD: 「装备/取下」固定另起一行，让「装备」与「副手装备」并排占同一行（动作窗第二行）。 */
-	@Override
-	public boolean actionBreakBefore(String action) {
-		return AC_EQUIP.equals(action) || AC_UNEQUIP.equals(action);
-	}
-
 	@Override
 	public boolean doEquipSecondary( Hero hero ) {
 		return equipSecondary(hero);
