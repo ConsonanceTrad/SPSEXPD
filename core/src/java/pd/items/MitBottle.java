@@ -7,7 +7,6 @@ import pd.Badges;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSprite;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
@@ -27,14 +26,12 @@ public class MitBottle extends Item {
 
 
 	public static final String AC_USE = "USE";
-	private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing(0xFFFF44);
 	{
 		image = ConsumPotionSeedBasicPotionDict.POTION_MASTERY_0;
 		stackable = true;
 		defaultAction = AC_USE;
 	}
 
-	@Override public ItemSprite.Glowing glowing() { return YELLOW; }
 	@Override public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);
 		actions.add(AC_USE);

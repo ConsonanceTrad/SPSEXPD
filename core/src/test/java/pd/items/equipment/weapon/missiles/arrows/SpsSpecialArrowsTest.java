@@ -85,8 +85,8 @@ public final class SpsSpecialArrowsTest {
 		Arrows base = new Arrows(2, 7);
 		check(base.min(0) == 2 && base.max(99) == 7 && base.STRReq(0) == 10,
 				"特殊箭矢基类伤害或力量需求错误");
-		check(base.isIdentified() && !base.isUpgradable() && base.value() == 2 && base.glowing() != null,
-				"特殊箭矢基类鉴定、售价或灰色发光错误");
+		check(base.isIdentified() && !base.isUpgradable() && base.value() == 2 && base.glowing() == null,
+				"特殊箭矢基类鉴定、售价错误，或其装饰性发光未被移除");
 
 		MagicHand hand = new MagicHand(5);
 		check(hand.image == ConsumThrowsDict.MAGIC_HAND && hand.min(0) == 1 && hand.max(0) == 5

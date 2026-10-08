@@ -8,7 +8,6 @@ package pd.items.equipment.weapon.missiles.arrows;
 
 import pd.Assets;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
-import pd.sprites.ItemSprite;
 
 /** Base for SPS-PD's consumable special arrows. */
 public class Arrows extends MissileWeapon {
@@ -34,7 +33,4 @@ public class Arrows extends MissileWeapon {
 	@Override public boolean isIdentified() { return true; }
 	@Override public boolean isUpgradable() { return false; }
 	@Override public int value() { return quantity() * 2; }
-	@Override public ItemSprite.Glowing glowing() { return GRAY; }
-
-	private static final ItemSprite.Glowing GRAY = new ItemSprite.Glowing(0x888888);
 }

@@ -3,7 +3,6 @@ package pd.items.consum.food.completefood;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
 
-import pd.sprites.ItemSprite;
 import pd.messages.InlineText;
 import pd.atlas.items.EquipmentNonEquipDict;
 
@@ -17,8 +16,6 @@ public class Gel extends CompleteFood {
 
 
 
-	private static final ItemSprite.Glowing BLUE = new ItemSprite.Glowing(0x0000FF);
 	{ image = EquipmentNonEquipDict.YELLOW_UPGRADE_BLOB; energy = 10f; }
-	@Override public ItemSprite.Glowing glowing() { return BLUE; }
 	@Override public int value() { return 50 * quantity; }
 }

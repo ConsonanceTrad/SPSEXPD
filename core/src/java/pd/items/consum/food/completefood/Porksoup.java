@@ -11,7 +11,6 @@ import pd.actors.buffs.MagicArmor;
 import pd.actors.buffs.Poison;
 import pd.actors.buffs.STRDown;
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSprite;
 import pd.messages.InlineText;
 import pd.atlas.items.ConsumFoodFoodDict;
 
@@ -26,7 +25,6 @@ public class Porksoup extends CompleteFood {
 
 
 
-	private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0xCC6600);
 
 	{
 		image = ConsumFoodFoodDict.BONE_SOUP;
@@ -43,6 +41,5 @@ public class Porksoup extends CompleteFood {
 		Buff.affect(hero, AttackUp.class, 50f).level(20);
 	}
 
-	@Override public ItemSprite.Glowing glowing() { return BROWN; }
 	@Override public int value() { return 3 * quantity; }
 }

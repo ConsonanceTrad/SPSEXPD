@@ -8,7 +8,6 @@ import pd.actors.buffs.Frost;
 import pd.actors.buffs.Wet;
 import pd.actors.damagetype.DamageType;
 import pd.effects.particles.SnowParticle;
-import pd.sprites.ItemSprite;
 import render.utils.math.Random;
 import pd.messages.InlineText;
 import pd.atlas.items.ConsumUsefulUsefulDict;
@@ -26,8 +25,6 @@ public class IceAmmo extends SpAmmo {
 
 
 
-	private static final ItemSprite.Glowing BLUE = new ItemSprite.Glowing(0x0000FF);
-	@Override public ItemSprite.Glowing glowing() { return BLUE; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {
 		defender.damage((int)(0.25f * damage), DamageType.ICE_DAMAGE);
 		if (Random.Int(4) == 3) {

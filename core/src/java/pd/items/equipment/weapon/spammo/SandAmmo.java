@@ -7,7 +7,6 @@ import pd.actors.buffs.AttackDown;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Dry;
 import pd.effects.Speck;
-import pd.sprites.ItemSprite;
 import render.utils.math.Random;
 import pd.messages.InlineText;
 import pd.atlas.items.ConsumUsefulUsefulDict;
@@ -25,8 +24,6 @@ public class SandAmmo extends SpAmmo {
 
 
 
-	private static final ItemSprite.Glowing GREY = new ItemSprite.Glowing(0xCCCCCC);
-	@Override public ItemSprite.Glowing glowing() { return GREY; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {
 		if (Random.Int(5) == 3) {
 			Buff.affect(defender, AttackDown.class, 3f).level(25);

@@ -7,7 +7,6 @@ import pd.actors.buffs.Ooze;
 import pd.actors.buffs.Poison;
 import pd.actors.damagetype.DamageType;
 import pd.effects.particles.EarthParticle;
-import pd.sprites.ItemSprite;
 import render.utils.math.Random;
 import pd.messages.InlineText;
 import pd.atlas.items.ConsumUsefulUsefulDict;
@@ -25,8 +24,6 @@ public class MossAmmo extends SpAmmo {
 
 
 
-	private static final ItemSprite.Glowing PURPLE = new ItemSprite.Glowing(0x8844CC);
-	@Override public ItemSprite.Glowing glowing() { return PURPLE; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {
 		defender.damage((int)(0.10f * damage), DamageType.EARTH_DAMAGE);
 		if (Random.Int(4) == 3) {

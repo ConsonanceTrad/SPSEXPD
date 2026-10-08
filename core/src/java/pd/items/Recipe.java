@@ -57,6 +57,7 @@ import pd.items.consum.spells.WildEnergy;
 import pd.items.equipment.trinkets.Trinket;
 import pd.items.equipment.trinkets.TrinketCatalyst;
 import pd.items.equipment.wands.Wand;
+import pd.items.equipment.weapon.SpiritBow;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import render.utils.serialize.Reflection;
 
@@ -288,6 +289,8 @@ public abstract class Recipe {
 		if (pkg.startsWith("pd.items.specific")) return true;
 		//护甲配件包：升格为可反复使用的换皮道具后不再参与炼金
 		if (item instanceof ArmorKit) return true;
+		//SPSEXPD: 灵能弓是女猎手的专属永久武器，不参与炼金
+		if (item instanceof SpiritBow) return true;
 		//BOSS 钥匙与剧情道具
 		if (item instanceof SpsBossKey || item instanceof TreasureMap || item instanceof TengusMask
 				|| item instanceof KingsCrown || item instanceof Amulet || item instanceof DolyaSlate

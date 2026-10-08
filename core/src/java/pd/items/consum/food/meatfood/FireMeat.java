@@ -4,7 +4,6 @@ package pd.items.consum.food.meatfood;
 import pd.atlas.items.ConsumFoodFoodDict;
 
 import pd.items.consum.food.Food;
-import pd.sprites.ItemSprite;
 import pd.messages.InlineText;
 
 public class FireMeat extends MeatFood {
@@ -17,12 +16,10 @@ public class FireMeat extends MeatFood {
 
 
 
-	private static final ItemSprite.Glowing RED = new ItemSprite.Glowing(0xCC0000);
 	{
 		image = ConsumFoodFoodDict.MEAT;
 		energy = 150f;
 	}
 	public static Food cook(int quantity) { FireMeat result = new FireMeat(); result.quantity(quantity); return result; }
-	@Override public ItemSprite.Glowing glowing() { return RED; }
 	@Override public int value() { return 2 * quantity; }
 }

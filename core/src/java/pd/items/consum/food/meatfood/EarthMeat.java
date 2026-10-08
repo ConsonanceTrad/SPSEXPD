@@ -7,7 +7,6 @@ import pd.actors.buffs.Barkskin;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.items.consum.food.Food;
-import pd.sprites.ItemSprite;
 import pd.messages.InlineText;
 
 public class EarthMeat extends MeatFood {
@@ -20,7 +19,6 @@ public class EarthMeat extends MeatFood {
 
 
 
-	private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0x996600);
 	{
 		image = ConsumFoodFoodDict.MEAT;
 		energy = 100f;
@@ -29,6 +27,5 @@ public class EarthMeat extends MeatFood {
 	@Override protected void doEat(Hero hero) {
 		Buff.affect(hero, Barkskin.class).set(hero.lvl * 3, 1);
 	}
-	@Override public ItemSprite.Glowing glowing() { return BROWN; }
 	@Override public int value() { return 3 * quantity; }
 }

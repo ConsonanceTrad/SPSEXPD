@@ -7,7 +7,6 @@ import pd.actors.buffs.AttackUp;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.MagicArmor;
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSprite;
 import pd.messages.InlineText;
 
 public class Vegetablekebab extends CompleteFood {
@@ -21,7 +20,6 @@ public class Vegetablekebab extends CompleteFood {
 
 
 
-	private static final ItemSprite.Glowing GREEN = new ItemSprite.Glowing(0x22CC44);
 
 	{
 		image = ConsumFoodFoodDict.KEBAB;
@@ -34,6 +32,5 @@ public class Vegetablekebab extends CompleteFood {
 		Buff.affect(hero, AttackUp.class, 50f).level(20);
 	}
 
-	@Override public ItemSprite.Glowing glowing() { return GREEN; }
 	@Override public int value() { return 2 * quantity; }
 }

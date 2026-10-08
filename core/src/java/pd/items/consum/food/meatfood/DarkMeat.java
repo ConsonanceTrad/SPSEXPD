@@ -5,7 +5,6 @@ import pd.atlas.items.ConsumFoodFoodDict;
 
 import pd.actors.hero.Hero;
 import pd.items.consum.food.Food;
-import pd.sprites.ItemSprite;
 import pd.messages.InlineText;
 
 public class DarkMeat extends MeatFood {
@@ -18,7 +17,6 @@ public class DarkMeat extends MeatFood {
 
 
 
-	private static final ItemSprite.Glowing BLACK = new ItemSprite.Glowing(0x000000);
 	{
 		image = ConsumFoodFoodDict.MEAT;
 		energy = 100f;
@@ -27,6 +25,5 @@ public class DarkMeat extends MeatFood {
 	@Override protected void doEat(Hero hero) {
 		if (!pd.actors.hero.perks.BloodShield.convert(hero, hero.HT / 4)) hero.HP = Math.min(hero.HT, hero.HP + hero.HT / 4);
 	}
-	@Override public ItemSprite.Glowing glowing() { return BLACK; }
 	@Override public int value() { return 3 * quantity; }
 }

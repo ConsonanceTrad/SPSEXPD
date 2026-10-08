@@ -9,7 +9,6 @@ import pd.actors.mobs.NormalCell;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSprite;
 import render.utils.math.Random;
 import pd.messages.InlineText;
 import pd.atlas.items.ConsumUsefulUsefulDict;
@@ -27,8 +26,6 @@ public class EvolveAmmo extends SpAmmo {
 
 
 
-	private static final ItemSprite.Glowing DEEP_GREEN = new ItemSprite.Glowing(0x006633);
-	@Override public ItemSprite.Glowing glowing() { return DEEP_GREEN; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {
 		if (Random.Int(10) == 3) {
 			if (!transform(attacker, defender)) defender.damage((int)(0.10f * damage), attacker);

@@ -7,7 +7,6 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Vertigo;
 import pd.actors.damagetype.DamageType;
 import pd.effects.Speck;
-import pd.sprites.ItemSprite;
 import render.utils.math.Random;
 import pd.messages.InlineText;
 import pd.atlas.items.ConsumUsefulUsefulDict;
@@ -25,8 +24,6 @@ public class BlindAmmo extends SpAmmo {
 
 
 
-	private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing(0xFFFF44);
-	@Override public ItemSprite.Glowing glowing() { return YELLOW; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {
 		if (Random.Int(5) == 3) {
 			Buff.prolong(defender, Blindness.class, 3f);

@@ -4,7 +4,6 @@ package pd.items.consum.food.completefood;
 import pd.atlas.items.ConsumFoodFoodDict;
 
 import pd.actors.hero.Hero;
-import pd.sprites.ItemSprite;
 import pd.messages.InlineText;
 
 public class Honeyrice extends CompleteFood {
@@ -17,9 +16,7 @@ public class Honeyrice extends CompleteFood {
 
 
 
-	private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing(0xFFFF44);
 	{ image = ConsumFoodFoodDict.HONEY_RICE; energy = 500f; }
 	@Override protected void doEat(Hero hero) { increaseMaxHealth(hero, 3, 6); }
-	@Override public ItemSprite.Glowing glowing() { return YELLOW; }
 	@Override public int value() { return 400 * quantity; }
 }

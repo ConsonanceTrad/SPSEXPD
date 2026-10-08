@@ -18,7 +18,6 @@ import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.CatSheepSprite;
-import pd.sprites.ItemSprite;
 import render.noosa.audio.Sample;
 import render.utils.data.BArray;
 import render.utils.data.Callback;
@@ -42,16 +41,9 @@ public class WandOfBlackMeow extends Wand {
 
 
 
-	private static final ItemSprite.Glowing WHITE = new ItemSprite.Glowing(0xFFFFFF);
-
 	{
 		image = EquipmentWandBasicWandDict.WAND_SPS_DARK;
 		collisionProperties = Ballistica.PROJECTILE;
-	}
-
-	@Override
-	public ItemSprite.Glowing glowing() {
-		return WHITE;
 	}
 
 	@Override

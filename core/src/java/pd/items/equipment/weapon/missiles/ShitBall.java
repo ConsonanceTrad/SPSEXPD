@@ -12,7 +12,6 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Tar;
 import pd.actors.mobs.Mob;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSprite;
 import render.utils.math.Random;
 import pd.messages.InlineText;
 import pd.atlas.items.ConsumThrowsDict;
@@ -26,8 +25,6 @@ public class ShitBall extends MissileWeapon {
 	}
 
 
-
-	private static final ItemSprite.Glowing BROWN = new ItemSprite.Glowing(0xCC6600);
 
 	{
 		image = ConsumThrowsDict.FILTH_LUMP;
@@ -63,7 +60,6 @@ public class ShitBall extends MissileWeapon {
 	}
 
 	@Override public ShitBall random() { quantity(Random.IntRange(1, 2)); return this; }
-	@Override public ItemSprite.Glowing glowing() { return BROWN; }
 	@Override public boolean isUpgradable() { return false; }
 	@Override public boolean isIdentified() { return true; }
 	@Override public int value() { return 5 * quantity; }

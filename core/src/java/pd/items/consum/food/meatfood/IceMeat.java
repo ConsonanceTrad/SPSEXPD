@@ -7,7 +7,6 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
 import pd.items.consum.food.Food;
-import pd.sprites.ItemSprite;
 import pd.messages.InlineText;
 
 public class IceMeat extends MeatFood {
@@ -20,7 +19,6 @@ public class IceMeat extends MeatFood {
 
 
 
-	private static final ItemSprite.Glowing BLUE = new ItemSprite.Glowing(0x0044FF);
 	{
 		image = ConsumFoodFoodDict.FROZEN_MEAT;
 		energy = 100f;
@@ -29,6 +27,5 @@ public class IceMeat extends MeatFood {
 	@Override protected void doEat(Hero hero) {
 		Buff.affect(hero, Invisibility.class, 20f);
 	}
-	@Override public ItemSprite.Glowing glowing() { return BLUE; }
 	@Override public int value() { return 3 * quantity; }
 }

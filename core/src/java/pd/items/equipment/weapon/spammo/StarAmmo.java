@@ -6,7 +6,6 @@ import pd.actors.Char;
 import pd.actors.damagetype.DamageType;
 import pd.actors.hero.Hero;
 import pd.effects.particles.ShadowParticle;
-import pd.sprites.ItemSprite;
 import render.utils.math.Random;
 import pd.messages.InlineText;
 import pd.atlas.items.ConsumUsefulUsefulDict;
@@ -24,8 +23,6 @@ public class StarAmmo extends SpAmmo {
 
 
 
-	private static final ItemSprite.Glowing BLACK = new ItemSprite.Glowing(0x000000);
-	@Override public ItemSprite.Glowing glowing() { return BLACK; }
 	@Override public void onHit(Char attacker, Char defender, int damage) {
 		if (Random.Int(20) == 1) {
 			int amount;

@@ -7,7 +7,6 @@ import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.items.consum.food.Food;
 import pd.items.consum.food.SmallMeat;
-import pd.sprites.ItemSprite;
 import pd.messages.InlineText;
 
 public class LightMeat extends MeatFood {
@@ -20,7 +19,6 @@ public class LightMeat extends MeatFood {
 
 
 
-	private static final ItemSprite.Glowing YELLOW = new ItemSprite.Glowing(0xFFFF44);
 	{
 		image = ConsumFoodFoodDict.MEAT;
 		energy = 100f;
@@ -29,6 +27,5 @@ public class LightMeat extends MeatFood {
 	@Override protected void doEat(Hero hero) {
 		if (Dungeon.level != null) Dungeon.level.drop(new SmallMeat(), hero.pos);
 	}
-	@Override public ItemSprite.Glowing glowing() { return YELLOW; }
 	@Override public int value() { return 3 * quantity; }
 }

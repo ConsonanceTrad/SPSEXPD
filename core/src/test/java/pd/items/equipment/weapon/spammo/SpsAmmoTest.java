@@ -71,13 +71,6 @@ public final class SpsAmmoTest {
 			SandAmmo.class, GoldAmmo.class, EmptyAmmo.class, RotAmmo.class, EvolveAmmo.class,
 			ThornAmmo.class, BattleAmmo.class, WoodenAmmo.class
 	};
-	private static final Integer[] GLOW_COLORS = {
-			0x000000, 0xFF4400, 0x0000FF, 0xFFFFFF, 0x8844CC,
-			0xFFFF44, 0x000000, 0x22CC44, null, 0xCCAA88,
-			0xCCCCCC, 0xFFFF44, null, 0xCC0000, 0x006633,
-			0xCC6600, 0x006633, 0x000000
-	};
-
 	public static void main(String[] args) throws Exception {
 		GdxNativesLoader.load();
 		Gdx.files = new HeadlessFiles();
@@ -101,10 +94,9 @@ public final class SpsAmmoTest {
 			check(!ammo.stackable && ammo.isIdentified() && !ammo.isUpgradable(),
 					AMMO_TYPES[i].getSimpleName() + "的堆叠、鉴定或强化属性错误");
 			check(ammo.value() == 100, AMMO_TYPES[i].getSimpleName() + "的价值不是100");
-			Integer expected = GLOW_COLORS[i];
-			check(expected == null ? ammo.glowing() == null
-					: ammo.glowing() != null && ammo.glowing().color == expected,
-					AMMO_TYPES[i].getSimpleName() + "的辉光颜色错误");
+			//SPSEXPD: SPS 的装饰性发光已整体移除，弹药不再带辉光
+			check(ammo.glowing() == null,
+					AMMO_TYPES[i].getSimpleName() + "的装饰性辉光未被移除");
 		}
 	}
 

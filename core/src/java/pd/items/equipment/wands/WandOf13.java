@@ -16,7 +16,6 @@ import pd.effects.particles.PurpleParticle;
 import pd.items.Heap;
 import pd.items.equipment.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
-import pd.sprites.ItemSprite;
 import pd.tiles.DungeonTilemap;
 import render.noosa.Game;
 import render.noosa.audio.Sample;
@@ -40,14 +39,11 @@ public class WandOf13 extends DamageWand {
 
 
 
-	private static final ItemSprite.Glowing RED = new ItemSprite.Glowing(0xCC0000);
-
 	{
 		image = EquipmentWandBasicWandDict.WAND_SPS_FIREBOLT;
 		collisionProperties = Ballistica.WONT_STOP;
 	}
 
-	@Override public ItemSprite.Glowing glowing() { return RED; }
 	@Override public int min(int level) { return level; }
 	@Override public int max(int level) { return 1 + 2 * level; }
 

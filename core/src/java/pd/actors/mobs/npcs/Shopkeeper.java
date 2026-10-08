@@ -466,6 +466,9 @@ public class Shopkeeper extends NPC {
 		if (item.unique && !item.stackable)                                 return false;
 		if (item instanceof Armor && ((Armor) item).checkSeal() != null)    return false;
 		if (item.isEquipped(Dungeon.hero) && item.cursed)                   return false;
+		//SPSEXPD: 角色专属/永久道具（与炼金黑名单同源）与灵能弓不允许卖给商人
+		if (pd.items.Recipe.isSpecialItem(item))                            return false;
+		if (item instanceof pd.items.equipment.weapon.SpiritBow)            return false;
 		return true;
 	}
 

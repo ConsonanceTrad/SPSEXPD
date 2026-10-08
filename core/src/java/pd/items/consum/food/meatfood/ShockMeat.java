@@ -13,7 +13,6 @@ import pd.actors.buffs.Slow;
 import pd.actors.buffs.Vertigo;
 import pd.actors.hero.Hero;
 import pd.items.consum.food.Food;
-import pd.sprites.ItemSprite;
 import pd.messages.InlineText;
 
 public class ShockMeat extends MeatFood {
@@ -26,7 +25,6 @@ public class ShockMeat extends MeatFood {
 
 
 
-	private static final ItemSprite.Glowing GREEN = new ItemSprite.Glowing(0x00FF00);
 	{
 		image = ConsumFoodFoodDict.MEAT;
 		energy = 100f;
@@ -41,6 +39,5 @@ public class ShockMeat extends MeatFood {
 		Buff.detach(hero, Slow.class);
 		Buff.detach(hero, Vertigo.class);
 	}
-	@Override public ItemSprite.Glowing glowing() { return GREEN; }
 	@Override public int value() { return 3 * quantity; }
 }
