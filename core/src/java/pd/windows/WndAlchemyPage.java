@@ -9,9 +9,7 @@ import pd.ui.QuickRecipe;
 import pd.ui.RenderedTextBlock;
 import pd.ui.ScrollPane;
 import pd.ui.Window;
-import render.input.PointerEvent;
 import render.noosa.ColorBlock;
-import render.noosa.PointerArea;
 import render.noosa.ui.Component;
 
 import java.util.ArrayList;
@@ -67,22 +65,14 @@ public class WndAlchemyPage extends Window {
 		//顺序反了内容就会停在窗口未定位时的中心位置，表现为文本整体向右下偏移（见 WndDailies 的写法）。
 		resize(paneWidth + MARGIN * 2, (int)(paneTop + paneHeight) + MARGIN);
 
-		//拦截器：点在滚动区域之外（以及窗口外）就把这一页关掉。
-		//它必须在滚动面板之前 add，z 序低于滚动面板，否则会把滚动手势一起吃掉。
-		PointerArea blocker = new PointerArea(0, 0, PixelScene.uiCamera.width, PixelScene.uiCamera.height) {
-			@Override
-			protected void onClick(PointerEvent event) {
-				onBackPressed();
-			}
-		};
-		blocker.camera = PixelScene.uiCamera;
-		add(blocker);
-
 		add(title);
 
 		pane = new ScrollPane(content);
 		add(pane);
 		positionPane();
+
+		//SPSEXPD: 这里刻意不加全屏 PointerArea 关闭层：它挂的是 uiCamera，会在事件派发里抢在窗口内容之前，
+		//把 QuickRecipe 里物品槽自己的点击（弹出 WndInfoItem 显示物品名）一起吃掉。关闭走 ESC / 返回键。
 	}
 
 	@Override

@@ -64,6 +64,10 @@ public final class SpsAlchemyGuideTabTest {
 				"单页窗口先给滚动面板定位再 resize，滚动内容会偏移到窗口中心");
 		check(popup.contains("public void offset(") && popup.contains("positionPane()"),
 				"单页窗口没有在 offset() 里重新定位滚动面板，窗口偏移变化后内容会错位");
+
+		//全屏 PointerArea 挂 uiCamera，会抢在窗口内容之前派发，把配方物品槽的点击吃掉
+		check(!popup.contains("new PointerArea("),
+				"单页窗口加回了全屏拦截层，配方里的物品槽将点不出物品名");
 	}
 
 	private static void testMissingPageText() throws Exception {
