@@ -30,12 +30,44 @@ public class WndAlchemyPage extends Window {
 	/** 标题和上下留白之外，滚动区域可以占用的高度。 */
 	private static final int CHROME_HEIGHT = 24;
 
+	private ScrollPane pane;
+	private final int paneWidth;
+	private final float paneTop;
+	private final float paneHeight;
+
 	public WndAlchemyPage(int pageIdx) {
 		super(0, 0, Chrome.get(Chrome.Type.SCROLL));
 
-		int width = (PixelScene.landscape() ? WIDTH_L : WIDTH_P) - MARGIN * 2;
+		paneWidth = (PixelScene.landscape() ? WIDTH_L : WIDTH_P) - MARGIN * 2;
 
-		//先铺一层拦截器：点在滚动区域之外（以及窗口外）就把这一页关掉。
+		IconTitle title = new IconTitle(new ItemSprite(SpecificPagesDict.ALCH_PAGE_0),
+				Document.ALCHEMY_GUIDE.pageTitle(pageIdx));
+		title.setRect(0, 0, paneWidth, 0);
+		title.tfLabel.invert();
+
+		paneTop = title.bottom() + MARGIN;
+
+		Component content = new Component();
+
+		RenderedTextBlock body = PixelScene.renderTextBlock(6);
+		body.maxWidth(paneWidth);
+		body.text(Document.ALCHEMY_GUIDE.pageBody(pageIdx));
+		body.invert();
+		body.setPos(0, 0);
+		content.add(body);
+
+		content.setSize(paneWidth, layoutRecipes(content, pageIdx, paneWidth, body.bottom() + 3));
+
+		float maxHeight = (PixelScene.landscape() ? PixelScene.MIN_HEIGHT_L : PixelScene.MIN_HEIGHT_P)
+				- CHROME_HEIGHT - paneTop;
+		paneHeight = Math.max(1, Math.min(content.height(), maxHeight));
+
+		//必须先 resize 再给滚动面板定位：ScrollPane.layout() 会把内容自己的 camera 绑到
+		//「当时」窗口在屏幕上的位置，而窗口的居中位置是 Window.resize() 里才确定的。
+		//顺序反了内容就会停在窗口未定位时的中心位置，表现为文本整体向右下偏移（见 WndDailies 的写法）。
+		resize(paneWidth + MARGIN * 2, (int)(paneTop + paneHeight) + MARGIN);
+
+		//拦截器：点在滚动区域之外（以及窗口外）就把这一页关掉。
 		//它必须在滚动面板之前 add，z 序低于滚动面板，否则会把滚动手势一起吃掉。
 		PointerArea blocker = new PointerArea(0, 0, PixelScene.uiCamera.width, PixelScene.uiCamera.height) {
 			@Override
@@ -46,37 +78,25 @@ public class WndAlchemyPage extends Window {
 		blocker.camera = PixelScene.uiCamera;
 		add(blocker);
 
-		IconTitle title = new IconTitle(new ItemSprite(SpecificPagesDict.ALCH_PAGE_0),
-				Document.ALCHEMY_GUIDE.pageTitle(pageIdx));
-		title.setRect(0, 0, width, 0);
-		title.tfLabel.invert();
 		add(title);
 
-		float top = title.bottom() + MARGIN;
-
-		Component content = new Component();
-
-		RenderedTextBlock body = PixelScene.renderTextBlock(6);
-		body.maxWidth(width);
-		body.text(Document.ALCHEMY_GUIDE.pageBody(pageIdx));
-		body.invert();
-		body.setPos(0, 0);
-		content.add(body);
-
-		float bottom = layoutRecipes(content, pageIdx, width, body.bottom() + 3);
-		content.setSize(width, bottom);
-
-		float maxHeight = (PixelScene.landscape() ? PixelScene.MIN_HEIGHT_L : PixelScene.MIN_HEIGHT_P)
-				- CHROME_HEIGHT - top;
-		float paneHeight = Math.max(1, Math.min(bottom, maxHeight));
-
-		ScrollPane pane = new ScrollPane(content);
+		pane = new ScrollPane(content);
 		add(pane);
-		//注意顺序：setRect 会立刻走 ScrollPane.layout()，那里要沿父链找 Camera，
-		//所以必须先 add 进窗口再定位，否则 addToFront 之前就 NPE（见 WndDailies 的写法）
-		pane.setRect(MARGIN, top, width, paneHeight);
+		positionPane();
+	}
 
-		resize(width + MARGIN * 2, (int)(top + paneHeight) + MARGIN);
+	@Override
+	public void offset(int xOffset, int yOffset) {
+		super.offset(xOffset, yOffset);
+		//窗口偏移变化后重新定位，让滚动内容自己的 camera 跟上窗口当前位置
+		//（Window 里那句 "windows with scroll panes will likely need to override this" 指的正是这里）
+		if (pane != null) {
+			positionPane();
+		}
+	}
+
+	private void positionPane() {
+		pane.setRect(MARGIN, paneTop, paneWidth, paneHeight);
 	}
 
 	/**

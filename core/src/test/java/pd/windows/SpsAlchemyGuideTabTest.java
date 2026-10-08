@@ -31,6 +31,7 @@ public final class SpsAlchemyGuideTabTest {
 		check(body.contains("Document.ALCHEMY_GUIDE.pageNames()"),
 				"炼金页签的目录没有遍历 Document.ALCHEMY_GUIDE 的页列表，新增页不会自动出现");
 		check(body.contains("new WndAlchemyPage("), "炼金页签点击条目后没有弹出单页窗口");
+		check(body.contains("Document.ALCHEMY_GUIDE.pageSprite(page)"), "炼金目录条目没有带上书页图标");
 		check(body.contains("readPage("), "翻开炼金页时没有标记为已读");
 		check(body.contains("list.clear()"), "重建炼金目录前没有清空，重复布局会累积条目");
 
@@ -55,6 +56,14 @@ public final class SpsAlchemyGuideTabTest {
 		int positioned = popup.indexOf("pane.setRect(");
 		check(added > 0 && positioned > added,
 				"单页窗口先定位滚动面板再 add，打开时会因 camera() 为 null 而崩溃");
+
+		//ScrollPane 会把内容 camera 绑到「当时」窗口在屏幕上的位置，而窗口位置是 resize() 里才定的：
+		//resize 必须在前，否则内容会停在窗口未定位时的中心位置（表现为文本从中心向右下渲染）
+		int resized = popup.indexOf("resize(");
+		check(resized > 0 && resized < positioned,
+				"单页窗口先给滚动面板定位再 resize，滚动内容会偏移到窗口中心");
+		check(popup.contains("public void offset(") && popup.contains("positionPane()"),
+				"单页窗口没有在 offset() 里重新定位滚动面板，窗口偏移变化后内容会错位");
 	}
 
 	private static void testMissingPageText() throws Exception {

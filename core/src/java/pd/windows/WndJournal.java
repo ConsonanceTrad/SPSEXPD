@@ -371,7 +371,8 @@ public class WndJournal extends WndTabbed {
 			for (String page : Document.ALCHEMY_GUIDE.pageNames()){
 				final int idx = Document.ALCHEMY_GUIDE.pageIdx(page);
 				final boolean found = Document.ALCHEMY_GUIDE.isPageFound(page);
-				ScrollingListPane.ListItem item = new ScrollingListPane.ListItem(null, null,
+				ScrollingListPane.ListItem item = new ScrollingListPane.ListItem(
+						Document.ALCHEMY_GUIDE.pageSprite(page), null,
 						found ? Messages.titleCase(Document.ALCHEMY_GUIDE.pageTitle(page)) : missing) {
 					@Override
 					public boolean onClick(float x, float y) {
@@ -387,6 +388,7 @@ public class WndJournal extends WndTabbed {
 				};
 				if (!found){
 					item.hardlight(0x999999);
+					item.hardlightIcon(0x999999);
 				}
 				list.addItem(item);
 			}
