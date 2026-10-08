@@ -48,6 +48,13 @@ public final class SpsAlchemyGuideTabTest {
 		check(popup.contains("Document.ALCHEMY_GUIDE.pageBody("), "单页窗口没有显示页正文");
 		check(popup.contains("Document.ALCHEMY_GUIDE.pageTitle("), "单页窗口没有显示页标题");
 		check(popup.contains("QuickRecipe.getRecipes("), "单页窗口没有列出该页的配方");
+
+		//setRect 会立刻触发 ScrollPane.layout()，它要沿父链找 Camera：必须先 add 再定位，
+		//否则窗口还没进 scene 就 NPE（WndDailies 也是这么写的）
+		int added = popup.indexOf("add(pane)");
+		int positioned = popup.indexOf("pane.setRect(");
+		check(added > 0 && positioned > added,
+				"单页窗口先定位滚动面板再 add，打开时会因 camera() 为 null 而崩溃");
 	}
 
 	private static void testMissingPageText() throws Exception {

@@ -71,8 +71,10 @@ public class WndAlchemyPage extends Window {
 		float paneHeight = Math.max(1, Math.min(bottom, maxHeight));
 
 		ScrollPane pane = new ScrollPane(content);
-		pane.setRect(MARGIN, top, width, paneHeight);
 		add(pane);
+		//注意顺序：setRect 会立刻走 ScrollPane.layout()，那里要沿父链找 Camera，
+		//所以必须先 add 进窗口再定位，否则 addToFront 之前就 NPE（见 WndDailies 的写法）
+		pane.setRect(MARGIN, top, width, paneHeight);
 
 		resize(width + MARGIN * 2, (int)(top + paneHeight) + MARGIN);
 	}
