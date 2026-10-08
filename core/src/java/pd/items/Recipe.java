@@ -170,9 +170,7 @@ public abstract class Recipe {
 	private static Recipe[] variableRecipes = new Recipe[]{
 			new Potion.FruitToPotion(),
 			new LargeFruitToElixir(),
-			new IronMakerRecipes(),
-			//SPSEXPD: 精制种子——果实 + 任意蔬菜
-			new pd.plants.RefinedSeeds.RefinedSeedRecipe()
+			new IronMakerRecipes()
 	};
 	
 	private static Recipe[] oneIngredientRecipes = new Recipe[]{

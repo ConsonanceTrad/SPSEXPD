@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * <ul>
  *   <li>人工种植（玩家把种子种在地上、帐篷房的花盆、浇水的花盆）：
  *       掉 1 个蔬菜（落在踩踏格）+ 散落 1~2 枚投掷果实；</li>
- *   <li>精心种植（手动把种子种进花盆 / 精制种子种在普通地板）：
+ *   <li>精心种植（手动把种子种进花盆）：
  *       掉 2~3 个蔬菜（落在踩踏格）+ 散落 2~3 枚投掷果实；大型果实不再由植物产出。</li>
  * </ul>
  *
@@ -27,7 +27,7 @@ import java.util.ArrayList;
  */
 public abstract class SpsFruitBush extends Plant {
 
-	/** SPSEXPD: 精心种植（手动种进花盆 / 精制种子）时为 true。 */
+	/** SPSEXPD: 精心种植（手动种进花盆）时为 true。 */
 	public boolean potGrown = false;
 
 	/** SPSEXPD: 保留的额外产出——中心返还物（腐莓果丛的腐莓之种）。 */

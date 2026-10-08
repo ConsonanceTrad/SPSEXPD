@@ -64,9 +64,7 @@ public abstract class Plant implements Bundlable {
 			.t("$seed.info", "把这粒种子丢到你想长出一株植物的地方。\n\n%s")
 			.t("$seed$placeholder.name", "种子")
 			//SPSEXPD: 花盆只能种植一次
-			.t("$seed.pot_used", "花盆只能种植一次，这里已经种过作物了。")
-			//SPSEXPD: 精制种子作物未成熟时被踩踏
-			.t("grow_immature", "这株精制作物还没长成，被你踩得只剩下了被踩踏的高草。");
+			.t("$seed.pot_used", "花盆只能种植一次，这里已经种过作物了。");
 	}
 
 
@@ -75,27 +73,9 @@ public abstract class Plant implements Bundlable {
 	public int image;
 	public int pos;
 
-	/** SPSEXPD: 精制种子种出的作物还需要经过的成长回合（0 = 已成熟、可收获）。 */
-	public int growTurns = 0;
-
 	protected Class<? extends Plant.Seed> seedClass;
 
 	public void trigger(){
-
-		//SPSEXPD: 尚未成熟的精制作物被踩踏——作物直接化作“被踩踏的高草”，不给任何产出
-		if (growTurns > 0) {
-			Level level = Dungeon.level;
-			if (level != null && level.insideMap(pos)) {
-				Level.set(pos, Terrain.FURROWED_GRASS, level);
-				GameScene.updateMap(pos);
-			}
-			wither();
-			//SPSEXPD: 只在英雄可见时提示（也避免无头校验环境初始化 Messages）
-			if (level != null && level.heroFOV != null && level.heroFOV[pos]) {
-				pd.utils.GLog.i( Messages.get(Plant.class, "grow_immature") );
-			}
-			return;
-		}
 
 		Char ch = Actor.findChar(pos);
 
@@ -158,19 +138,15 @@ public abstract class Plant implements Bundlable {
 	}
 	
 	private static final String POS	= "pos";
-	//SPSEXPD: 精制种子作物的成长计时
-	private static final String GROW	= "growTurns";
 
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		pos = bundle.getInt( POS );
-		growTurns = bundle.getInt( GROW );
 	}
 
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		bundle.put( POS, pos );
-		bundle.put( GROW, growTurns );
 	}
 
 	public String name(){
