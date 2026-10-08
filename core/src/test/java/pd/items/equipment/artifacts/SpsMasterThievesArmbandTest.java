@@ -21,6 +21,7 @@ import pd.items.equipment.wands.Wand;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.Ballistica;
+import pd.plants.Firebloom;
 import pd.plants.Plant;
 import render.noosa.Game;
 import render.utils.data.SparseArray;
@@ -180,15 +181,36 @@ public final class SpsMasterThievesArmbandTest {
 		staff.onZap(new Ballistica(hero.pos, 25, Ballistica.PROJECTILE));
 		check(level.map[25] == Terrain.GRASS, "落在犁过的草上没有踩踏：" + level.map[25]);
 
-		//植物：像踩踏一样触发，并以释放者作为触发者
+		//野生植物：踩踏只让植物枯萎，不再触发自身的植物效果
 		TestPlant plant = new TestPlant();
 		plant.pos = 33;
 		check(level.passable[33] && !level.solid[33], "测试落点不可通行：33");
 		level.plants.put(33, plant);
 		staff.onZap(new Ballistica(hero.pos, 33, Ballistica.PROJECTILE));
-		check(plant.activated, "落在植物上没有触发踩踏");
-		check(plant.triggeredBy == hero, "植物踩踏没有以释放者为触发者");
+		check(!plant.activated, "野生植物被踩踏时仍然触发了自身的植物效果");
 		check(level.plants.get(33) == null, "踩踏后植物没有被移除");
+
+		//果丛（人工/精心培育的 Ex* 系列）：踩踏仍保留收获
+		Firebloom.ExFirebloom bush = new Firebloom.ExFirebloom();
+		bush.pos = 34;
+		check(level.passable[34] && !level.solid[34], "测试落点不可通行：34");
+		level.plants.put(34, bush);
+		staff.onZap(new Ballistica(hero.pos, 34, Ballistica.PROJECTILE));
+		check(level.plants.get(34) == null, "踩踏果丛后植物没有被移除");
+		check(level.heaps.get(34) != null, "踩踏果丛没有留下收获（蔬菜应落在踩踏格）");
+
+		//容器：未上锁的宝箱可以隔空打开
+		Heap chest = heapAt(level, 35, Heap.Type.CHEST, new MarkerItem());
+		staff.onZap(new Ballistica(hero.pos, 35, Ballistica.PROJECTILE));
+		check(level.heaps.get(35) == chest, "隔空开箱后容器堆消失了");
+		check(chest.type == Heap.Type.HEAP, "隔空开箱后容器类型没有变成普通堆：" + chest.type);
+		check(chest.size() == 1, "隔空开箱后箱内物品被拿走了");
+
+		//上锁的宝箱不在远程开启范围内
+		check(!MasterThievesArmband.isRemoteOpenable(
+						heapAt(level, 36, Heap.Type.LOCKED_CHEST, new MarkerItem())),
+				"上锁的宝箱被当成了可远程开启的容器");
+		check(!MasterThievesArmband.isRemoteOpenable(chest), "普通堆不该被当成容器");
 
 		//普通商店货品：等级足够时必偷到，且不会惊动老板
 		Shopkeeper.priceMultiplier = 1f;

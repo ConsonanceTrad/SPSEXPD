@@ -44,6 +44,7 @@ import pd.messages.InlineText;
  *   <li>落点是普通商店货品：按标价概率偷取，失手会惊动商店老板（不散落金币）；</li>
  *   <li>落点是秘密商店货品：同样概率偷取，失手则以货价一半的永久生命上限为代价；</li>
  *   <li>落点是普通掉落物：直接取来一件；</li>
+ *   <li>落点是未上锁的宝箱 / 坟墓 / 遗骸 / 藏宝地：隔空打开它；</li>
  *   <li>落点是草丛或植物：像走过去踩踏一样触发掉。</li>
  * </ul>
  * 法术弹道用 {@link Ballistica#PROJECTILE}，与雷霆法杖一样落在指定点后停止，不再继续飞行。
@@ -60,13 +61,14 @@ public class MasterThievesArmband extends DamageWand {
 			.t("stolen", "魔术之手顺手从%1$s身上摸走了%2$s。")
 			.t("stolen_stone", "魔术之手没从%1$s身上摸到什么，只抓到一块石头。")
 			.t("pick_ground", "魔术之手取来了%1$s。")
+			.t("open_from_afar", "魔术之手打开了%1$s。")
 			.t("steal_goods_ok", "魔术之手从货架上顺走了%1$s。")
 			.t("steal_goods_fail", "魔术之手失手了，商店老板发现了你。")
 			.t("steal_life_ok", "魔术之手从密店的货架上顺走了%1$s。")
 			.t("steal_life_fail", "魔术之手失手了，你被抽走了%1$d点永久生命。")
 			.t("steal_life_none", "魔术之手失手了；你的永久生命已所剩无几。")
 			.t("desc", "一根缠着紫色天鹅绒的细杖，杖顶嵌着一只小小的银手。它只认「释放」一件事：指尖摸到活物就伤人取物，摸到货架就按价钱掂量着偷，摸到地上的东西就顺手搬走。")
-			.t("stats_desc", "释放时造成_%1$d~%2$d点伤害_，并顺手从命中的敌人或 NPC 身上偷走一件东西。落点是商店货品时会按标价概率偷取：被抓到会惊动商店老板（货品越贵越难偷）；若是秘密商店，失手还要付出货价一半的永久生命。落点是普通掉落物则直接取来。")
+			.t("stats_desc", "释放时造成_%1$d~%2$d点伤害_，并顺手从命中的敌人或 NPC 身上偷走一件东西。落点是商店货品时会按标价概率偷取：被抓到会惊动商店老板（货品越贵越难偷）；若是秘密商店，失手还要付出货价一半的永久生命。落点是普通掉落物则直接取来，落点是未上锁的宝箱、坟墓、遗骸或藏宝地则隔空打开，落点是草丛或植物则会像踩踏一样把它们处理掉。")
 			.t("bmage_desc", "当_战斗法师_以魔术之手魔杖近战攻击目标时，这根魔杖同样会恢复充能。")
 			.t("discover_hint", "可在法杖池中找到。");
 	}
@@ -100,22 +102,55 @@ public class MasterThievesArmband extends DamageWand {
 			return;
 		}
 
-		//SPSEXPD: 落点没有生物时先处理地面物品，没有物品才踩踏草丛/植物
+		//SPSEXPD: 落点没有生物时先处理地面交互，都没有才踩踏草丛/植物
 		int cell = bolt.collisionPos;
 		Heap heap = Dungeon.level != null ? Dungeon.level.heaps.get(cell) : null;
 
-		if (heap != null && !heap.isEmpty()) {
+		if (heap != null) {
 			if (heap.type == Heap.Type.FOR_SALE) {
 				tryStealGoods(heap);
-			} else if (heap.type == Heap.Type.FOR_LIFE) {
-				tryStealLifeGoods(heap);
-			} else {
-				grabGroundItem(heap);
+				return;
 			}
-			return;
+			if (heap.type == Heap.Type.FOR_LIFE) {
+				tryStealLifeGoods(heap);
+				return;
+			}
+			if (isRemoteOpenable(heap)) {
+				openFromAfar(heap);
+				return;
+			}
+			if (!heap.isEmpty()) {
+				grabGroundItem(heap);
+				return;
+			}
 		}
 
 		trampleCell(cell);
+	}
+
+	/** SPSEXPD: 魔术之手能远程打开的容器——未上锁的宝箱、坟墓、遗骸与藏宝地（上锁/水晶宝箱除外）。 */
+	public static boolean isRemoteOpenable(Heap heap) {
+		if (heap == null) return false;
+		switch (heap.type) {
+			case CHEST:
+			case TOMB:
+			case SKELETON:
+			case REMAINS:
+			case E_DUST:
+				return true;
+			default:
+				return false;
+		}
+	}
+
+	/** SPSEXPD: 隔空开容器——诅咒、幽灵与掉血等后果照旧落在释放者身上（与走过去开一样）。 */
+	protected void openFromAfar(Heap heap) {
+		Hero owner = ownerOf();
+		if (owner == null) return;
+
+		GLog.i(Messages.get(this, "open_from_afar", heap.title()));
+		heap.open(owner);
+		updateQuickslot();
 	}
 
 	@Override

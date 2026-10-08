@@ -95,9 +95,14 @@ public abstract class Plant implements Bundlable {
 		}
 
 		wither();
-		activate( ch );
+		//SPSEXPD: 野生植物被踩踏不再触发自身的"植物效果"（点燃/中毒/传送/治疗之类）——
+		//这些收益改由采集（自然之斧等）与炼药体系提供。
+		//例外：果丛（人工种植/精心培育的 Ex* 系列）的 activate 就是收获本身（蔬菜与果实），保留。
+		if (this instanceof SpsFruitBush) {
+			activate( ch );
+		}
 
-		//SPSEXPD: 野生植物触发原生踩踏效果后，还会在附近散落 1 枚对应的投掷果实
+		//SPSEXPD: 野生植物被踩踏后，还会在附近散落 1 枚对应的投掷果实
 		if (!(this instanceof SpsFruitBush) && Dungeon.level != null) {
 			Class<? extends Item> fruit = PlantHarvest.fruitFor(getClass());
 			if (fruit != null) PlantHarvest.scatter(Dungeon.level, pos, fruit, null, 1, 0f);
