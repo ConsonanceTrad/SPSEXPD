@@ -23,8 +23,12 @@ import pd.items.Item;
 import pd.items.StoneOre;
 import pd.items.equipment.weapon.melee.MagesStaff;
 import pd.items.equipment.wands.DamageWand;
+import pd.levels.Terrain;
+import pd.levels.features.HighGrass;
+import pd.levels.features.OldHighGrass;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
+import pd.plants.Plant;
 import pd.utils.GLog;
 import pd.windows.WndLifeTradeItem;
 import render.noosa.audio.Sample;
@@ -39,7 +43,8 @@ import pd.messages.InlineText;
  *   <li>命中生物：造成伤害并顺手偷走一件东西；</li>
  *   <li>落点是普通商店货品：按标价概率偷取，失手会惊动商店老板（不散落金币）；</li>
  *   <li>落点是秘密商店货品：同样概率偷取，失手则以货价一半的永久生命上限为代价；</li>
- *   <li>落点是普通掉落物：直接取来一件。</li>
+ *   <li>落点是普通掉落物：直接取来一件；</li>
+ *   <li>落点是草丛或植物：像走过去踩踏一样触发掉。</li>
  * </ul>
  * 法术弹道用 {@link Ballistica#PROJECTILE}，与雷霆法杖一样落在指定点后停止，不再继续飞行。
  *
@@ -95,17 +100,22 @@ public class MasterThievesArmband extends DamageWand {
 			return;
 		}
 
-		//SPSEXPD: 落点没有生物时处理地面物品；空堆就是普通空地，不产生任何行为
-		Heap heap = Dungeon.level != null ? Dungeon.level.heaps.get(bolt.collisionPos) : null;
-		if (heap == null || heap.isEmpty()) return;
+		//SPSEXPD: 落点没有生物时先处理地面物品，没有物品才踩踏草丛/植物
+		int cell = bolt.collisionPos;
+		Heap heap = Dungeon.level != null ? Dungeon.level.heaps.get(cell) : null;
 
-		if (heap.type == Heap.Type.FOR_SALE) {
-			tryStealGoods(heap);
-		} else if (heap.type == Heap.Type.FOR_LIFE) {
-			tryStealLifeGoods(heap);
-		} else {
-			grabGroundItem(heap);
+		if (heap != null && !heap.isEmpty()) {
+			if (heap.type == Heap.Type.FOR_SALE) {
+				tryStealGoods(heap);
+			} else if (heap.type == Heap.Type.FOR_LIFE) {
+				tryStealLifeGoods(heap);
+			} else {
+				grabGroundItem(heap);
+			}
+			return;
 		}
+
+		trampleCell(cell);
 	}
 
 	@Override
@@ -198,8 +208,36 @@ public class MasterThievesArmband extends DamageWand {
 	/** SPSEXPD: 惊动本层的商店老板（秘密商店店主是 TownNpc，不参与）。 */
 	private void alertShopkeepers() {
 		if (Dungeon.level == null || Dungeon.level.mobs() == null) return;
-		for (Mob mob : Dungeon.level.mobs()) {
+		//SPSEXPD: 老板被惊动会召唤守卫（往 mobs 里加人），必须先取快照再迭代，
+		//否则触发 ConcurrentModificationException 闪退（已在实机复现）
+		for (Mob mob : Dungeon.level.mobs().snapshot()) {
 			if (mob instanceof Shopkeeper) ((Shopkeeper) mob).noticeTheft();
+		}
+	}
+
+	/**
+	 * SPSEXPD: 落点没有物品时踩踏草丛与植物——与角色走过去踩踏同一套效果，
+	 * 但不触发陷阱/井/门（那属于「按格子」而非「踩踏」）。
+	 */
+	protected void trampleCell(int cell) {
+		if (Dungeon.level == null || !Dungeon.level.insideMap(cell)) return;
+
+		switch (Dungeon.level.map[cell]) {
+			case Terrain.HIGH_GRASS:
+			case Terrain.FURROWED_GRASS:
+				HighGrass.trample(Dungeon.level, cell);
+				return;
+			case Terrain.OLD_HIGH_GRASS:
+				OldHighGrass.trample(Dungeon.level, cell, Actor.findChar(cell));
+				return;
+			default:
+				break;
+		}
+
+		Plant plant = Dungeon.level.plants.get(cell);
+		if (plant != null) {
+			//隔空踩踏：以释放者作为触发者，让植物效果作用在英雄身上
+			plant.trigger(ownerOf());
 		}
 	}
 

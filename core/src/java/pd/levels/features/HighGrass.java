@@ -35,6 +35,8 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.LeafParticle;
 import pd.items.Dewdrop;
 import pd.items.Generator;
+import pd.items.Heap;
+import pd.items.Item;
 import pd.items.equipment.armor.glyphs.Camouflage;
 import pd.items.equipment.artifacts.NaturalAxe;
 import pd.items.equipment.artifacts.SandalsOfNature;
@@ -52,6 +54,14 @@ public class HighGrass {
 	//prevents items dropped from grass, from trampling that same grass.
 	//yes this is a bit ugly, oh well.
 	private static boolean freezeTrample = false;
+
+	//SPSEXPD: 无头校验/没有场景时堆还没有 sprite，跳过掉落动画以免 NPE
+	private static void dropLoot( Level level, Item item, int pos ) {
+		Heap heap = level.drop( item, pos );
+		if (heap != null && heap.sprite != null) {
+			heap.sprite.drop();
+		}
+	}
 
 	public static void trample( Level level, int pos ) {
 		
@@ -117,7 +127,7 @@ public class HighGrass {
 
 						if (droppingBerry) {
 							dropped.countUp(1);
-							level.drop(new Berry(), pos).sprite.drop();
+							dropLoot(level, new Berry(), pos);
 						}
 					}
 
@@ -145,9 +155,9 @@ public class HighGrass {
 
 				if (Random.Float() < lootChance) {
 					if (Random.Float() < PetrifiedSeed.stoneInsteadOfSeedChance()) {
-						level.drop(Generator.randomUsingDefaults(Generator.Category.STONE), pos).sprite.drop();
+						dropLoot(level, Generator.randomUsingDefaults(Generator.Category.STONE), pos);
 					} else {
-						level.drop(Generator.random(Generator.Category.SEED), pos).sprite.drop();
+						dropLoot(level, Generator.random(Generator.Category.SEED), pos);
 					}
 				}
 				
@@ -160,13 +170,13 @@ public class HighGrass {
 				}
 
 				if (Random.Float() < lootChance) {
-					level.drop(new Dewdrop(), pos).sprite.drop();
+					dropLoot(level, new Dewdrop(), pos);
 				}
 			}
 
 			// SPSEXPD: 原本由未诅咒的荆棘斗篷提供的独立种子掷骰，现已并入自然之鞋。
 			if (sandalsSeedDenominator > 0 && Random.Int(sandalsSeedDenominator) == 0) {
-				level.drop(Generator.random(Generator.Category.SEED), pos).sprite.drop();
+				dropLoot(level, Generator.random(Generator.Category.SEED), pos);
 			}
 
 			if (ch != null) {

@@ -76,8 +76,11 @@ public abstract class Plant implements Bundlable {
 	protected Class<? extends Plant.Seed> seedClass;
 
 	public void trigger(){
+		trigger( Actor.findChar(pos) );
+	}
 
-		Char ch = Actor.findChar(pos);
+	/** SPSEXPD: 带显式触发者的踩踏——魔术之手的隔空踩踏由释放者（英雄）充当触发者。 */
+	public void trigger( Char ch ){
 
 		if (ch instanceof Hero){
 			((Hero) ch).interrupt();

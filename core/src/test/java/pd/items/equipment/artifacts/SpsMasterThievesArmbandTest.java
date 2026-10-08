@@ -170,6 +170,26 @@ public final class SpsMasterThievesArmbandTest {
 		staff.onZap(new Ballistica(hero.pos, 29, Ballistica.PROJECTILE));
 		check(level.heaps.get(29) == null, "落在空地时产生了物品");
 
+		//草丛：像踩踏一样把草踩掉（高草 → 草地）
+		setTerrain(level, 26, Terrain.HIGH_GRASS);
+		staff.onZap(new Ballistica(hero.pos, 26, Ballistica.PROJECTILE));
+		check(level.map[26] == Terrain.GRASS, "落在高草上没有踩踏：" + level.map[26]);
+
+		//犁过的草：踩踏后同样变回草地
+		setTerrain(level, 25, Terrain.FURROWED_GRASS);
+		staff.onZap(new Ballistica(hero.pos, 25, Ballistica.PROJECTILE));
+		check(level.map[25] == Terrain.GRASS, "落在犁过的草上没有踩踏：" + level.map[25]);
+
+		//植物：像踩踏一样触发，并以释放者作为触发者
+		TestPlant plant = new TestPlant();
+		plant.pos = 33;
+		check(level.passable[33] && !level.solid[33], "测试落点不可通行：33");
+		level.plants.put(33, plant);
+		staff.onZap(new Ballistica(hero.pos, 33, Ballistica.PROJECTILE));
+		check(plant.activated, "落在植物上没有触发踩踏");
+		check(plant.triggeredBy == hero, "植物踩踏没有以释放者为触发者");
+		check(level.plants.get(33) == null, "踩踏后植物没有被移除");
+
 		//普通商店货品：等级足够时必偷到，且不会惊动老板
 		Shopkeeper.priceMultiplier = 1f;
 		Item goods = new MarkerItem();
@@ -198,6 +218,13 @@ public final class SpsMasterThievesArmbandTest {
 		keeper.pos = 20;
 		level.mobs().add(keeper);
 		level.heroFOV[keeper.pos] = true;
+
+		//SPSEXPD: 层里再放一只怪——惊动老板会召唤守卫（往 mobs 里加人），
+		//只放一个元素时 HashSet 迭代器不会再调 next()，覆盖不到
+		//ConcurrentModificationException 闪退；两个元素才能复现
+		TestMob bystander = new TestMob();
+		bystander.pos = 21;
+		level.mobs().add(bystander);
 
 		Shopkeeper.priceMultiplier = 1f;
 		int goldBefore = Dungeon.gold;
@@ -276,8 +303,13 @@ public final class SpsMasterThievesArmbandTest {
 
 	//---- 辅助 ----
 
-	private static Heap heapAt(TestLevel level, int cell, Heap.Type type, Item item) {
-		//SPSEXPD: 8x8 测试地图的最外圈会被 buildFlagMaps 标成 solid，落点必须选可通行格
+	/** SPSEXPD: 设置测试地形；同样要求落点可通行，否则弹道到不了该格。 */
+	private static void setTerrain(TestLevel level, int cell, int terrain) {
+		check(level.passable[cell] && !level.solid[cell], "测试落点不可通行：" + cell);
+		level.map[cell] = terrain;
+	}
+
+	private static Heap heapAt(TestLevel level, int cell, Heap.Type type, Item item) {		//SPSEXPD: 8x8 测试地图的最外圈会被 buildFlagMaps 标成 solid，落点必须选可通行格
 		check(level.passable[cell] && !level.solid[cell], "测试落点不可通行：" + cell);
 		Heap heap = new Heap();
 		heap.type = type;
@@ -355,6 +387,17 @@ public final class SpsMasterThievesArmbandTest {
 		private final int price;
 		PriceItem(int price) { this.price = price; }
 		@Override public int value() { return price; }
+	}
+
+	/** 测试用植物：记录是否被踩踏以及触发者。 */
+	public static class TestPlant extends Plant {
+		public boolean activated = false;
+		public Char triggeredBy = null;
+
+		@Override public void activate(Char ch) {
+			activated = true;
+			triggeredBy = ch;
+		}
 	}
 
 	/** 测试用目标：身上带一件可偷的物品。 */
