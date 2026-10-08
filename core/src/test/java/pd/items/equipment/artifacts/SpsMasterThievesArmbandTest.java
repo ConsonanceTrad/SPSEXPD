@@ -10,7 +10,9 @@ import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
+import pd.actors.mobs.Mimic;
 import pd.actors.mobs.Mob;
+import pd.actors.mobs.MonsterBox;
 import pd.actors.mobs.npcs.Shopkeeper;
 import pd.items.Generator;
 import pd.items.Gold;
@@ -50,6 +52,7 @@ public final class SpsMasterThievesArmbandTest {
 			testZapDamageAndSteal();
 			testStealCurve();
 			testGroundAndShopLanding();
+			testMimicLanding();
 			testFailedShopTheftAlertsShopkeeper();
 			testFailedHiddenShopTheftCostsPermanentHealth();
 			testPoolsAndResources();
@@ -224,6 +227,45 @@ public final class SpsMasterThievesArmbandTest {
 				+ " heroPos=" + hero.pos);
 		check(level.heaps.get(30) == null, "偷走货品后原位的堆没有清掉");
 		check(Shopkeeper.priceMultiplier == 1f, "偷窃成功却惊动了商店老板");
+	}
+
+	/** SPSEXPD: 落点是宝箱怪（含 SPS 怪物箱）——当场惊醒并造成伤害，不落进「取物」分支。 */
+	private static void testMimicLanding() {
+		Hero hero = prepareHero();
+		TestLevel level = new TestLevel();
+		Dungeon.level = level;
+		hero.pos = 27;
+
+		MasterThievesArmband staff = new MasterThievesArmband();
+		staff.collect(hero.belongings.backpack);
+		staff.level(0);        //低伤害，避免把刚惊醒的怪一击打死
+
+		int savedDepth = Dungeon.depth;
+		int savedBranch = Dungeon.branch;
+		Dungeon.depth = 20;    //让宝箱怪血量足够高，能稳定观察到掉血
+		try {
+			//普通宝箱怪
+			heapAt(level, 28, Heap.Type.MIMIC, new MarkerItem());
+			staff.onZap(new Ballistica(hero.pos, 28, Ballistica.PROJECTILE));
+
+			check(level.heaps.get(28) == null, "落点没有惊醒宝箱怪（箱子还留在原位）");
+			Mob mimic = level.mobs().findMob(28);
+			if (mimic != null){
+				check(mimic instanceof Mimic, "落点惊醒的不是宝箱怪：" + mimic);
+				check(mimic.HP < mimic.HT, "惊醒宝箱怪没有造成伤害：" + mimic.HP + "/" + mimic.HT);
+			}
+
+			//SPS 怪物箱
+			heapAt(level, 29, Heap.Type.G_MIMIC, new MarkerItem());
+			staff.onZap(new Ballistica(hero.pos, 29, Ballistica.PROJECTILE));
+
+			Mob box = level.mobs().findMob(29);
+			check(box instanceof MonsterBox, "落点没有惊醒怪物箱：" + box);
+			check(box.HP < box.HT, "惊醒怪物箱没有造成伤害：" + box.HP + "/" + box.HT);
+		} finally {
+			Dungeon.depth = savedDepth;
+			Dungeon.branch = savedBranch;
+		}
 	}
 
 	/** SPSEXPD: 普通商店偷窃失手——惊动老板，但不散落金币（与被打不同）。 */

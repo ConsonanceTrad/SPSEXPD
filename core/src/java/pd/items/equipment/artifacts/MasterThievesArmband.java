@@ -44,6 +44,7 @@ import pd.messages.InlineText;
  *   <li>落点是普通商店货品：按标价概率偷取，失手会惊动商店老板（不散落金币）；</li>
  *   <li>落点是秘密商店货品：同样概率偷取，失手则以货价一半的永久生命上限为代价；</li>
  *   <li>落点是普通掉落物：直接取来一件；</li>
+ *   <li>落点是宝箱怪：当场把它惊醒并打它一记；</li>
  *   <li>落点是未上锁的宝箱 / 坟墓 / 遗骸 / 藏宝地：隔空打开它；</li>
  *   <li>落点是草丛或植物：像走过去踩踏一样触发掉。</li>
  * </ul>
@@ -68,7 +69,7 @@ public class MasterThievesArmband extends DamageWand {
 			.t("steal_life_fail", "魔术之手失手了，你被抽走了%1$d点永久生命。")
 			.t("steal_life_none", "魔术之手失手了；你的永久生命已所剩无几。")
 			.t("desc", "一根缠着紫色天鹅绒的细杖，杖顶嵌着一只小小的银手。它只认「释放」一件事：指尖摸到活物就伤人取物，摸到货架就按价钱掂量着偷，摸到地上的东西就顺手搬走。")
-			.t("stats_desc", "释放时造成_%1$d~%2$d点伤害_，并顺手从命中的敌人或 NPC 身上偷走一件东西。落点是商店货品时会按标价概率偷取：被抓到会惊动商店老板（货品越贵越难偷）；若是秘密商店，失手还要付出货价一半的永久生命。落点是普通掉落物则直接取来，落点是未上锁的宝箱、坟墓、遗骸或藏宝地则隔空打开，落点是草丛或植物则会像踩踏一样把它们处理掉。")
+			.t("stats_desc", "释放时造成_%1$d~%2$d点伤害_，并顺手从命中的敌人或 NPC 身上偷走一件东西。落点是商店货品时会按标价概率偷取：被抓到会惊动商店老板（货品越贵越难偷）；若是秘密商店，失手还要付出货价一半的永久生命。落点是普通掉落物则直接取来，落点是未上锁的宝箱、坟墓、遗骸或藏宝地则隔空打开，落点是草丛或植物则会像踩踏一样把它们处理掉，落点是宝箱怪则会当场惊醒并打它一下。")
 			.t("bmage_desc", "当_战斗法师_以魔术之手魔杖近战攻击目标时，这根魔杖同样会恢复充能。")
 			.t("discover_hint", "可在法杖池中找到。");
 	}
@@ -115,6 +116,10 @@ public class MasterThievesArmband extends DamageWand {
 				tryStealLifeGoods(heap);
 				return;
 			}
+			if (heap.type == Heap.Type.MIMIC || heap.type == Heap.Type.G_MIMIC) {
+				awakenMimic(heap);
+				return;
+			}
 			if (isRemoteOpenable(heap)) {
 				openFromAfar(heap);
 				return;
@@ -151,6 +156,25 @@ public class MasterThievesArmband extends DamageWand {
 		GLog.i(Messages.get(this, "open_from_afar", heap.title()));
 		heap.open(owner);
 		updateQuickslot();
+	}
+
+	/**
+	 * SPSEXPD: 隔空摸到宝箱怪——先按开箱流程把它惊醒（含「这是一个宝箱怪！」提示），
+	 * 再当场给它一记法术伤害。不顺手偷：宝箱怪的库存要打死它才会掉。
+	 */
+	protected void awakenMimic(Heap heap) {
+		if (Dungeon.level == null || heap == null) return;
+
+		int cell = heap.pos;
+		openFromAfar(heap);
+
+		Mob mimic = Dungeon.level.mobs() != null ? Dungeon.level.mobs().findMob(cell) : null;
+		if (mimic == null) return;
+
+		wandProc(mimic, chargesPerCast());
+		mimic.damage(damageRoll(), this);
+		Sample.INSTANCE.play(Assets.Sounds.HIT);
+		if (mimic.sprite != null) mimic.sprite.flash();
 	}
 
 	@Override
