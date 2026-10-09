@@ -62,6 +62,7 @@ import pd.items.consum.food.MeatPie;
 import pd.items.consum.food.MysteryMeat;
 import pd.items.consum.food.Pasty;
 import pd.items.consum.food.PhantomMeat;
+import pd.items.consum.food.meatfood.RawFish;
 import pd.items.consum.food.SmallRation;
 import pd.items.consum.food.StewedMeat;
 import pd.items.consum.food.SupplyRation;
@@ -257,7 +258,7 @@ public enum Catalog {
 
 		FOOD.addItems( Food.class, Pasty.class, MysteryMeat.class, ChargrilledMeat.class,
 				StewedMeat.class, FrozenCarpaccio.class, SmallRation.class, Berry.class,
-				SupplyRation.class, Blandfruit.class, PhantomMeat.class, MeatPie.class );
+				SupplyRation.class, Blandfruit.class, PhantomMeat.class, MeatPie.class, RawFish.class );
 
 		EXOTIC_POTIONS.addItems(ExoticPotion.exoToReg.keySet().toArray(new Class[0]));
 

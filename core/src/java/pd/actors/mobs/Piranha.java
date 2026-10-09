@@ -32,7 +32,7 @@ import pd.actors.buffs.Roots;
 import pd.items.Item;
 import pd.items.specific.challengelists.CaveChallenge;
 import pd.items.specific.challengelists.ChallengePageDrops;
-import pd.items.consum.food.meatfood.Meat;
+import pd.items.consum.food.meatfood.RawFish;
 import pd.items.equipment.weapon.missiles.meleethrow.HugeShuriken;
 import pd.levels.FieldOfView;
 import pd.sprites.PiranhaSprite;
@@ -60,7 +60,7 @@ public class Piranha extends Mob {
 		
 		EXP = 5;
 		
-		loot = Meat.class;
+		loot = RawFish.class;
 		lootChance = 1f;
 		
 		properties.add(Property.FISHER);

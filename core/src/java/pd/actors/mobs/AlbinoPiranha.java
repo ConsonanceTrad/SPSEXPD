@@ -9,7 +9,7 @@ import pd.actors.buffs.Burning;
 import pd.actors.buffs.Frost;
 import pd.actors.buffs.Paralysis;
 import pd.actors.buffs.Roots;
-import pd.items.consum.food.meatfood.Meat;
+import pd.items.consum.food.meatfood.RawFish;
 
 import pd.items.Item;
 import pd.items.equipment.bombs.FishingBomb;
@@ -37,7 +37,7 @@ public class AlbinoPiranha extends Mob {
 		spriteClass = AlbinoPiranhaSprite.class;
 		baseSpeed = 1f;
 		EXP = 5;
-		loot = Meat.class;
+		loot = RawFish.class;
 		lootChance = 0.1f;
 		properties.add(Property.FISHER);
 		immunities.add(Burning.class);
