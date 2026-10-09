@@ -123,6 +123,27 @@ public final class SpsHornOfPlentyTest {
 		horn.swallow(hero, new pd.items.consum.food.completefood.PerfectFood());
 		check(horn.level() == 30 && countRations(hero) == 3 && horn.chargeValue() == 4,
 				"满级后没有继续产出干粮或仍在成长");
+
+		//SPSEXPD: 号角等级按内部计（0~30），不再折算成 0~10 的通用显示尺度
+		check(horn.visiblyUpgraded() == horn.level() && horn.buffedVisiblyUpgraded() == horn.level(),
+				"号角等级仍被折算成 0~10 显示尺度：" + horn.visiblyUpgraded());
+		horn.level(15);
+		check(horn.visiblyUpgraded() == 15, "号角 15 级没有按内部等级显示：" + horn.visiblyUpgraded());
+
+		//SPSEXPD: 神器等级不受鉴定状态影响（未装备过的神器也要显示等级角标）
+		TestHorn fresh = new TestHorn();
+		fresh.level(3);
+		check(!fresh.isIdentified() && fresh.visiblyUpgraded() == 3 && fresh.buffedVisiblyUpgraded() == 3,
+				"未鉴定号角没有按内部等级显示：" + fresh.visiblyUpgraded());
+
+		//普通神器仍按 0~10 折算，且同样不受鉴定状态影响
+		pd.items.equipment.artifacts.ChaliceOfBlood chalice =
+				new pd.items.equipment.artifacts.ChaliceOfBlood();
+		chalice.level(5);
+		check(!chalice.isIdentified() && chalice.visiblyUpgraded() == 5,
+				"普通神器未鉴定时不显示等级或折算错误：" + chalice.visiblyUpgraded());
+		chalice.level(10);
+		check(chalice.visiblyUpgraded() == 10, "普通神器满级显示错误：" + chalice.visiblyUpgraded());
 	}
 
 	private static int countRations(Hero hero) {

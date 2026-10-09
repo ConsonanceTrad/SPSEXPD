@@ -83,6 +83,18 @@ public class HornOfPlenty extends Artifact {
 		defaultAction = AC_SWALLOW;
 	}
 
+	//SPSEXPD: 号角上限 30，等级直接按内部计（每产出 1 包干粮 +1 级，显示 0~30），
+	//不再折算成 0~10 的通用显示尺度。
+	@Override
+	public int visiblyUpgraded() {
+		return level();
+	}
+
+	@Override
+	public int buffedVisiblyUpgraded() {
+		return level();
+	}
+
 	@Override
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);

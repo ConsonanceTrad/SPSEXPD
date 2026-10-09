@@ -142,9 +142,12 @@ public class Artifact extends KindofMisc {
 		return levelCap;
 	}
 
+	//SPSEXPD: 神器等级本来就可见，不受 levelKnown 影响（未装备过的神器也要显示等级角标）；
+	//levelCap 为 0 的神器（如无限弹药袋）直接退回内部等级，避免除零。
 	@Override
 	public int visiblyUpgraded() {
-		return levelKnown ? Math.round((level()*10)/(float)levelCap): 0;
+		if (levelCap <= 0) return level();
+		return Math.round((level()*10)/(float)levelCap);
 	}
 
 	@Override
