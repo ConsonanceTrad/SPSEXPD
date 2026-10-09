@@ -73,13 +73,15 @@ public class ItemSprite extends MovieClip {
 	private float dropInterval;
 
 	//the amount the sprite is raised from flat when viewed in a raised perspective
-	//SPSEXPD: 默认 0（不抬）；由 frame(IconEntry) 按图标帧高决定小件是否抬 SMALL_ITEM_LIFT
+	//SPSEXPD: 默认 0（不抬）；实际值由 Item.spriteRaise() 按图标帧高决定小件是否抬 SMALL_ITEM_LIFT
 	protected float perspectiveRaise    =  0f;
 
 	//SPSEXPD: 小图标的地面抬升值：避免底边贴住格子底边显得太靠下（上游 Shattered/STSEXPD 是全局抬 5px）。
-	//谁抬由物品自己决定——见 Item.spriteRaise()，当前只有露珠覆写。
 	//3/16 格 = 3px：16px 的格子里 10px 高的露珠上下各留 3px，视觉居中（原 5px 几乎贴格顶，实测太浮）。
 	public static final float SMALL_ITEM_LIFT       =  3 / 16f; //3 像素
+
+	//SPSEXPD: 帧高不超过这个值的图标一律按小件抬升 SMALL_ITEM_LIFT（露珠 10px 即属此列）。
+	public static final int SMALL_ITEM_MAX_HEIGHT   =  10;
 
 	//the width and height of the shadow are a percentage of sprite size
 	//offset is the number of pixels the shadow is moved down or up (handy for some animations)

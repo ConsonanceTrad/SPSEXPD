@@ -590,11 +590,15 @@ public class Item implements Bundlable {
 
 	/**
 	 * SPSEXPD: 该物品作为地面掉落物渲染时，精灵额外向上抬升的比例（1f = 一格高）。
-	 * 默认 0（底边贴格底）；露珠这类矮小图标覆写为非 0，避免显得太靠下。
-	 * 覆写示例见 {@link pd.items.Dewdrop#spriteRaise()}。
+	 *
+	 * <p>默认按图标帧高决定：帧高 ≤ {@link ItemSprite#SMALL_ITEM_MAX_HEIGHT}（10px，露珠即属此列）
+	 * 的图标抬 {@link ItemSprite#SMALL_ITEM_LIFT}，避免底边贴住格子底边显得太靠下；其余贴格底。
+	 * 特殊情况（例如图标高度不代表实际视觉高度）可覆写本方法。
 	 */
 	public float spriteRaise() {
-		return 0f;
+		IconEntry icon = image();
+		if (icon == null || icon.frames() <= 0) return 0f;
+		return icon.h(0) <= ItemSprite.SMALL_ITEM_MAX_HEIGHT ? ItemSprite.SMALL_ITEM_LIFT : 0f;
 	}
 	
 	public String info() {
