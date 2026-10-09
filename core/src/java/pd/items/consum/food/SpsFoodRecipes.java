@@ -12,7 +12,6 @@ import pd.items.consum.food.completefood.ZongZi;
 import pd.items.consum.food.fusion.Nut;
 import pd.items.consum.food.meatfood.MeatFood;
 import pd.items.consum.food.staplefood.StapleFood;
-import pd.items.consum.food.vegetable.Truffles;
 import pd.items.consum.food.vegetable.Vegetable;
 import render.utils.serialize.Reflection;
 
@@ -100,10 +99,6 @@ public final class SpsFoodRecipes {
 
 	public static final class ExtractShatteredPot extends TypedRecipe {
 		public ExtractShatteredPot() { super(Honey.class, 2, Honeypot.ShatteredPot.class); }
-	}
-
-	public static final class ExtractTruffles extends TypedRecipe {
-		public ExtractTruffles() { super(Honey.class, 1, Truffles.class); }
 	}
 
 	private SpsFoodRecipes() { }

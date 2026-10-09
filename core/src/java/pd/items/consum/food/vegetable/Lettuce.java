@@ -5,7 +5,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.messages.InlineText;
 
 /** SPSEXPD: 踩踏高草的收获——莴苣。纯食材，没有任何魔法效果。 */
-public class Lettuce extends Vegetable {
+public class Lettuce extends FoodVegetable {
 	//SPSEXPD: inline Chinese text
 	static {
 		InlineText.of(Lettuce.class)

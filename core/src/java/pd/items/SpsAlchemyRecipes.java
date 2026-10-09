@@ -17,9 +17,9 @@ import pd.items.consum.food.staplefood.OverpricedRation;
 import pd.items.consum.food.staplefood.StapleFood;
 import pd.items.consum.food.vegetable.*;
 import pd.items.consum.medicine.*;
-import pd.items.misc.DryTwig;
-import pd.items.misc.FreshGrass;
-import pd.items.misc.Tinder;
+import pd.items.consum.materials.DryTwig;
+import pd.items.consum.materials.FreshGrass;
+import pd.items.consum.materials.Tinder;
 import pd.items.consum.potions.Potion;
 import pd.items.consum.potions.PotionOfConfusion;
 import pd.items.consum.potions.elixirs.WishPotion;
@@ -134,7 +134,6 @@ public final class SpsAlchemyRecipes {
 			recipe(Egg.class, Honey.class, Gel.class, StoneOre.class),
 			recipe(2, Honey.class, Honeypot.class),
 			recipe(2, Honey.class, Honeypot.ShatteredPot.class),
-			recipe(Honey.class, Truffles.class),
 			recipe(Icecream.class, Honey.class, WaterItem.class, Icecap.Seed.class),
 			recipe(Porksoup.class, MeatFood.class, WaterItem.class, Vegetable.class),
 			recipe(5, Foamedbeverage.class, StoneOre.class, WaterItem.class, WaterItem.class, Plant.Seed.class, Fruit.class),

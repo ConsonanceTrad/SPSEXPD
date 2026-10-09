@@ -5,7 +5,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.messages.InlineText;
 
 /** SPSEXPD: 踩踏高草的收获——胡萝卜。纯食材，没有任何魔法效果。 */
-public class Carrot extends Vegetable {
+public class Carrot extends FoodVegetable {
 	//SPSEXPD: inline Chinese text
 	static {
 		InlineText.of(Carrot.class)

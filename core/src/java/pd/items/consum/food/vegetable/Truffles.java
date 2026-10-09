@@ -6,7 +6,7 @@ import pd.actors.hero.Hero;
 import render.utils.math.Random;
 import pd.messages.InlineText;
 
-public class Truffles extends Vegetable {
+public class Truffles extends FoodVegetable {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Truffles.class)

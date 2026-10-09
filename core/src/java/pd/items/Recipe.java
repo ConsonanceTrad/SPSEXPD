@@ -22,6 +22,7 @@
 package pd.items;
 
 import pd.ShatteredPixelDungeon;
+import pd.items.consum.food.vegetable.FoodVegetable;
 import pd.items.equipment.bombs.Bomb;
 import pd.items.consum.food.MeatPie;
 import pd.items.consum.food.StewedMeat;
@@ -263,6 +264,8 @@ public abstract class Recipe {
 	public static boolean usableInRecipe(Item item){
 		//SPSEXPD: 任务/剧情道具与角色专属道具不能投入炼金釜
 		if (isSpecialItem(item)) return false;
+		//SPSEXPD: 食材蔬菜（胡萝卜/莴苣/松露）只是食物，不参与炼金
+		if (item instanceof FoodVegetable) return false;
 		if (item instanceof EquipableItem){
 			//SPSEXPD: 除特殊道具外的装备均可投入（不再限于可升级的投掷武器）
 			return item.cursedKnown && !item.cursed;

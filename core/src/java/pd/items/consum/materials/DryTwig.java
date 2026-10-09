@@ -1,5 +1,5 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
-package pd.items.misc;
+package pd.items.consum.materials;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.items.Item;
