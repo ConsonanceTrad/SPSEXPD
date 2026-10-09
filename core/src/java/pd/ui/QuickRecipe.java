@@ -21,6 +21,7 @@
 
 package pd.ui;
 
+import pd.atlas.IconEntry;
 import pd.atlas.items.ConsumFoodFoodDict;
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.atlas.items.SpecificPlaceHoldeFruitDict;
@@ -44,9 +45,10 @@ import pd.items.consum.food.MysteryMeat;
 import pd.items.consum.food.staplefood.Pasty;
 import pd.items.consum.food.StewedMeat;
 import pd.items.consum.food.completefood.Fruitsalad;
-import pd.items.consum.food.staplefood.NormalRation;
-import pd.items.consum.food.staplefood.OverpricedRation;
-import pd.items.consum.food.vegetable.Blandfruit;
+import pd.items.consum.food.fruit.Fruit;
+import pd.items.consum.food.meatfood.MeatFood;
+import pd.items.consum.food.staplefood.StapleFood;
+import pd.items.consum.food.vegetable.Vegetable;
 import pd.items.consum.potions.Potion;
 import pd.items.consum.potions.PotionOfConfusion;
 import pd.items.consum.potions.brews.AquaBrew;
@@ -388,13 +390,22 @@ public class QuickRecipe extends Component {
 				result.add(new QuickRecipe( new MeatPie.Recipe(),
 						new ArrayList<Item>(Arrays.asList(new Pasty(), new Food(), new MysteryMeat.PlaceHolder())),
 						new MeatPie()));
-				//SPSEXPD: 无味果 + 水 → 干粮包；2 干粮包 → 3 干粮小包
-				result.add(new QuickRecipe( SpsAlchemyRecipes.BLANDFRUIT_TO_RATION,
-						new ArrayList<Item>(Arrays.asList(new Blandfruit(), new WaterItem())),
-						new NormalRation()));
-				result.add(new QuickRecipe( SpsAlchemyRecipes.RATION_TO_SMALL,
-						new ArrayList<Item>(Arrays.asList(new NormalRation(), new NormalRation())),
-						new OverpricedRation().quantity(3)));
+				result.add(null);
+				//SPSEXPD: 固定配方表里的烹饪与材料加工条目全部由唯一真源生成。
+				//（原指南只手工列了炖肉/肉派/干粮几条，配方表里大部分烹饪配方在指南里根本看不到。）
+				// 许愿魔药在「合剂与秘药」页单独展示，这里跳过；水果沙拉是独立 Recipe，在「药剂」页展示。
+				for (Recipe fixed : SpsAlchemyRecipes.allRecipes()){
+					if (!(fixed instanceof SpsAlchemyRecipes.TypedRecipe)) continue;
+					if (fixed == SpsAlchemyRecipes.WISH_POTION) continue;
+					SpsAlchemyRecipes.TypedRecipe typed = (SpsAlchemyRecipes.TypedRecipe) fixed;
+					ArrayList<Item> ingredients = new ArrayList<>();
+					for (Class<?> input : typed.inputs()){
+						ingredients.add(guideItem(input));
+					}
+					Item product = guideItem(typed.output());
+					product.quantity(typed.outputQuantity());
+					result.add(new QuickRecipe(typed, ingredients, product));
+				}
 				return result;
 			case "Exotic_Potions":
 				r = new ExoticPotion.PotionToExotic();
@@ -519,5 +530,45 @@ public class QuickRecipe extends Component {
 				return result;
 		}
 	}
-	
+
+	/**
+	 * SPSEXPD: 配方表里的具体类直接实例化；基类（任意蔬菜/主食/肉食/果实/药剂/卷轴/种子）
+	 * 用指南既有的占位图标表示，并把名字写成「任意某某」，免得玩家以为是指某件具体物品。
+	 */
+	private static Item guideItem(Class<?> cls){
+		Item holder = guideHolder(cls);
+		if (holder != null) return holder;
+		try {
+			return (Item) Reflection.newInstance(cls);
+		} catch (Exception e){
+			return guideHolder(null);
+		}
+	}
+
+	private static Item guideHolder(Class<?> cls){
+		IconEntry icon;
+		String label;
+		if (cls == null){                  icon = SpecificPlaceHolderDict.SOMETHING_0;         label = "?"; }
+		else if (cls == Plant.Seed.class){ icon = SpecificPlaceHolderDict.SEED_HOLDER_0;     label = "任意种子"; }
+		else if (cls == Vegetable.class){  icon = SpecificPlaceHolderDict.FOOD_HOLDER_0;     label = "任意蔬菜"; }
+		else if (cls == StapleFood.class){ icon = SpecificPlaceHolderDict.FOOD_HOLDER_0;     label = "任意主食"; }
+		else if (cls == MeatFood.class){   icon = SpecificPlaceHolderDict.FOOD_HOLDER_0;     label = "任意肉食"; }
+		else if (cls == Fruit.class){      icon = SpecificPlaceHoldeFruitDict.FRUIT_HOLDER_0; label = "任意果实"; }
+		else if (cls == Potion.class){     icon = SpecificPlaceHolderDict.POTION_HOLDER_0;   label = "任意药剂"; }
+		else if (cls == Scroll.class){     icon = SpecificPlaceHolderDict.SCROLL_HOLDER_0;   label = "任意卷轴"; }
+		else return null;
+
+		final IconEntry entry = icon;
+		final String text = label;
+		return new Item(){
+			{
+				image = entry;
+			}
+			@Override
+			public String name(){ return text; }
+			@Override
+			public String info(){ return ""; }
+		};
+	}
+
 }

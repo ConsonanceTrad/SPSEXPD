@@ -100,6 +100,19 @@ public final class SpsAlchemyRecipes {
 				return null;
 			}
 		}
+
+		/** SPSEXPD: 供炼金指南读取展示（指南与配方表共用同一份定义，避免两处漂移）。 */
+		public Class<?>[] inputs(){
+			return inputs;
+		}
+
+		public Class<? extends Item> output(){
+			return output;
+		}
+
+		public int outputQuantity(){
+			return outputQuantity;
+		}
 	}
 
 	public static TypedRecipe recipe(Class<? extends Item> output, Class<?>... inputs) {
@@ -258,6 +271,11 @@ public final class SpsAlchemyRecipes {
 
 	public static Recipe garbageRecipe() {
 		return GARBAGE;
+	}
+
+	/** SPSEXPD: 固定配方表（只读）——炼金指南用它生成展示条目，避免指南另抄一份。 */
+	public static List<Recipe> allRecipes() {
+		return RECIPES;
 	}
 
 	public static Recipe findRecipe(ArrayList<Item> ingredients) {
