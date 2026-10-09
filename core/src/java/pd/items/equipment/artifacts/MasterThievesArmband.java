@@ -260,7 +260,7 @@ public class MasterThievesArmband extends DamageWand {
 	}
 
 	private void onStolen(Hero owner) {
-		Sample.INSTANCE.play(Assets.Sounds.EVOKE);
+		//SPSEXPD: 取物成功的音效已按用户要求取消（保留取物动作动画与快捷栏刷新）
 		if (owner.sprite != null) owner.sprite.operate(owner.pos);
 		updateQuickslot();
 	}
