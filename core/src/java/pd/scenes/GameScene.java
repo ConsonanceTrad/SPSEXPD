@@ -701,7 +701,8 @@ public class GameScene extends PixelScene {
 				if (item instanceof Potion) {
 					((Potion) item).shatter(pos);
 				} else if (item instanceof Plant.Seed && !Dungeon.isChallenged(Challenges.NO_HERBALISM)) {
-					GroundItems.plant( Dungeon.level, (Plant.Seed) item, pos);
+					//SPSEXPD: 玩家丢下的种子落地后长成人工作物（果丛），与「扔种子」一致
+					GroundItems.explant( Dungeon.level, (Plant.Seed) item, pos);
 				} else if (item instanceof Honeypot) {
 					Dungeon.level.drop(((Honeypot) item).shatter(null, pos), pos);
 				} else {

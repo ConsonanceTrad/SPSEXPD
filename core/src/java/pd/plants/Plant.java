@@ -218,7 +218,9 @@ public abstract class Plant implements Bundlable {
 				}
 			} else {
 				Catalog.countUse(getClass());
-				GroundItems.plant( Dungeon.level,  this, cell );
+				//SPSEXPD: 玩家种下的种子长成「人工作物」（果丛 Ex*，人工档），而不是原生野生植物；
+				//野生形态仍只由地图生成、再生法杖/卷轴等途径产生（它们要的是原生植物效果）。
+				GroundItems.explant( Dungeon.level,  this, cell );
 				if (Dungeon.hero.subClass == HeroSubClass.WARDEN) {
 					for (int i : PathFinder.NEIGHBOURS8) {
 						int c = Dungeon.level.map[cell + i];
