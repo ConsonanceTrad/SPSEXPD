@@ -46,7 +46,6 @@ import pd.utils.DungeonSeed;
 import render.input.KeyBindings;
 import render.input.KeyEvent;
 import render.noosa.Gizmo;
-import render.noosa.Group;
 import render.noosa.Image;
 import render.noosa.ui.Component;
 
@@ -69,6 +68,19 @@ public class WndHero extends WndTabbed {
 			.t("$statstab.spell_power", "法术强度")
 			.t("$statstab.magic_resist", "魔法抗性")
 			.t("$statstab.critical_chance", "暴击几率")
+			.t("$statstab.critical_multiplier", "暴击倍率")
+			.t("$statstab.physical_bonus", "物理伤害加成")
+			.t("$statstab.element_bonus", "元素伤害加成")
+			.t("$statstab.pure_bonus", "纯粹伤害加成")
+			.t("$statstab.element_resist", "元素抗性")
+			.t("$statstab.regen_bonus", "回血速度加成")
+			.t("$statstab.el_energy", "能")
+			.t("$statstab.el_fire", "火")
+			.t("$statstab.el_ice", "冰")
+			.t("$statstab.el_earth", "地")
+			.t("$statstab.el_shock", "雷")
+			.t("$statstab.el_light", "光")
+			.t("$statstab.el_dark", "暗")
 			.t("$statstab.perks", "特质")
 			.t("$statstab.str", "力量")
 			.t("$statstab.health", "生命")
@@ -84,9 +96,10 @@ public class WndHero extends WndTabbed {
 
 	
 	private static final int WIDTH		= 120;
-	//SPSXPD: 属性页行数增加（饱食度/命中/闪避/法术强度/魔法抗性/暴击/特质），加高窗口
-	private static final int HEIGHT		= 210;
-	
+	//SPSEXPD: 属性页高度改为按内容动态计算（含屏幕高度上限，超出可滚动），
+	//原写死 210，每加一行属性都要手改常量
+	private static final int MIN_HEIGHT	= 210;
+
 	private StatsTab stats;
 	private TalentsTab talents;
 	private BuffsTab buffs;
@@ -96,19 +109,24 @@ public class WndHero extends WndTabbed {
 	public WndHero() {
 		
 		super();
-		
-		resize( WIDTH, HEIGHT );
-		
+
 		stats = new StatsTab();
 		add( stats );
 
+		//SPSEXPD: 高度 = 属性页内容高度，夹在 [MIN_HEIGHT, 屏幕高-20] 之间
+		int height = Math.max( MIN_HEIGHT, Math.min( Math.round(stats.height()),
+				PixelScene.uiCamera == null ? MIN_HEIGHT : (int)PixelScene.uiCamera.height - 20 ) );
+		stats.setRect( 0, 0, WIDTH, height );
+
+		resize( WIDTH, height );
+
 		talents = new TalentsTab();
 		add(talents);
-		talents.setRect(0, 0, WIDTH, HEIGHT);
+		talents.setRect(0, 0, WIDTH, height);
 
 		buffs = new BuffsTab();
 		add( buffs );
-		buffs.setRect(0, 0, WIDTH, HEIGHT);
+		buffs.setRect(0, 0, WIDTH, height);
 		buffs.setupList();
 		
 		add( new IconTab( Icons.get(Icons.RANKINGS) ) {
@@ -140,7 +158,7 @@ public class WndHero extends WndTabbed {
 
 		layoutTabs();
 
-		talents.setRect(0, 0, WIDTH, HEIGHT);
+		talents.setRect(0, 0, WIDTH, height);
 		talents.pane.scrollTo(0, talents.pane.content().height() - talents.pane.height());
 		talents.layout();
 
@@ -164,11 +182,39 @@ public class WndHero extends WndTabbed {
 		buffs.layout();
 	}
 
-	private class StatsTab extends Group {
+	private class StatsTab extends Component {
 		
 		private static final int GAP = 5;
 		
 		private float pos;
+		private ScrollPane pane;
+		private StatsContent content;
+
+		//SPSEXPD: Group.members 是 protected，清理逻辑须放在子类里才能访问
+		private class StatsContent extends Component {
+			void clearAll() {
+				for (Gizmo g : members) {
+					if (g != null) g.destroy();
+				}
+				clear();
+			}
+		}
+
+		@Override
+		protected void createChildren() {
+			super.createChildren();
+			//SPSEXPD: 属性行放进滚动窗格，行数再多也不会顶出屏幕
+			//（createChildren 在构造期被调用，字段必须在此初始化，不能用声明处初始化）
+			content = new StatsContent();
+			pane = new ScrollPane( content );
+			add( pane );
+		}
+
+		@Override
+		protected void layout() {
+			super.layout();
+			if (pane != null) pane.setRect( 0, 0, width, height );
+		}
 		
 		public StatsTab() {
 			initialize();
@@ -176,10 +222,7 @@ public class WndHero extends WndTabbed {
 
 		public void initialize(){
 
-			for (Gizmo g : members){
-				if (g != null) g.destroy();
-			}
-			clear();
+			content.clearAll();
 			
 			Hero hero = Dungeon.hero;
 
@@ -191,7 +234,7 @@ public class WndHero extends WndTabbed {
 				title.label((hero.name() + "\n" + Messages.get(this, "title", hero.lvl, hero.className())).toUpperCase(Locale.ENGLISH));
 			title.color(Window.TITLE_COLOR);
 			title.setRect( 0, 0, WIDTH-16, 0 );
-			add(title);
+			content.add(title);
 
 			IconButton infoButton = new IconButton(Icons.get(Icons.INFO)){
 				@Override
@@ -211,7 +254,7 @@ public class WndHero extends WndTabbed {
 
 			};
 			infoButton.setRect(title.right(), 0, 16, 16);
-			add(infoButton);
+			content.add(infoButton);
 
 			pos = title.bottom() + 2*GAP;
 
@@ -240,6 +283,19 @@ public class WndHero extends WndTabbed {
 			//SPSXPD: 特质体系在属性页的显示 —— 暴击几率与特质情况
 			statSlot( Messages.get(this, "critical_chance"),
 					Math.round(pd.actors.hero.Critical.chance(hero) * 100) + "%" );
+
+			//SPSEXPD: 战斗属性（统一属性层 HeroStats）——暴击倍率/物理/元素/纯粹加成/元素抗性/回血
+			statSlot( Messages.get(this, "critical_multiplier"),
+					Math.round(pd.actors.hero.HeroStats.critMultiplier(hero) * 100) + "%" );
+			statSlot( Messages.get(this, "physical_bonus"),
+					bonusText( pd.actors.hero.HeroStats.physicalDamageBonus(hero) ) );
+			statSlot( Messages.get(this, "element_bonus"), elementText( hero, true ) );
+			statSlot( Messages.get(this, "pure_bonus"),
+					bonusText( pd.actors.hero.HeroStats.pureDamageBonus(hero) ) );
+			statSlot( Messages.get(this, "element_resist"), elementText( hero, false ) );
+			statSlot( Messages.get(this, "regen_bonus"),
+					bonusText( pd.actors.hero.HeroStats.regenBonus(hero) ) );
+
 			String perkText = String.valueOf(hero.heroPerk == null ? 0 : hero.heroPerk.getPerks().size());
 			if (hero.reservedPerks > 0) {
 				perkText += " +" + hero.reservedPerks;
@@ -262,6 +318,29 @@ public class WndHero extends WndTabbed {
 			}
 
 			pos += GAP;
+			content.setSize( WIDTH, pos );
+		}
+
+		//SPSEXPD: 百分比加成格式化（0 显示 "0%"，正数带 +）
+		private String bonusText( float ratio ) {
+			int pct = Math.round( ratio * 100 );
+			return (pct > 0 ? "+" : "") + pct + "%";
+		}
+
+		//SPSEXPD: 七系元素加成/抗性摘要 —— 只列非零项（如「火+10% 冰+5%」），全零显示 "0%"
+		private String elementText( Hero hero, boolean offensive ) {
+			StringBuilder sb = new StringBuilder();
+			for (pd.actors.damagetype.Element e : pd.actors.damagetype.Element.values()) {
+				float v = offensive
+						? pd.actors.hero.HeroStats.elementBonus( hero, e )
+						: pd.actors.hero.HeroStats.elementResistance( hero, e );
+				int pct = Math.round( v * 100 );
+				if (pct == 0) continue;
+				if (sb.length() > 0) sb.append( ' ' );
+				sb.append( Messages.get( this, "el_" + e.name().toLowerCase( Locale.ENGLISH ) ) )
+						.append( pct > 0 ? "+" : "" ).append( pct ).append( '%' );
+			}
+			return sb.length() == 0 ? "0%" : sb.toString();
 		}
 
 		private void statSlot( String label, String value ) {
@@ -271,19 +350,19 @@ public class WndHero extends WndTabbed {
 			do {
 				txt = PixelScene.renderTextBlock( label, size );
 				size--;
-			} while (txt.width() >= WIDTH * 0.55f);
+			} while (size >= 5 && txt.width() >= WIDTH * 0.55f);
 			txt.setPos(0, pos + (6 - txt.height())/2);
 			PixelScene.align(txt);
-			add( txt );
+			content.add( txt );
 
 			size = 8;
 			do {
 				txt = PixelScene.renderTextBlock( value, size );
 				size--;
-			} while (txt.width() >= WIDTH * 0.45f);
+			} while (size >= 5 && txt.width() >= WIDTH * 0.45f);
 			txt.setPos(WIDTH * 0.55f, pos + (6 - txt.height())/2);
 			PixelScene.align(txt);
-			add( txt );
+			content.add( txt );
 			
 			pos += GAP + txt.height();
 		}
