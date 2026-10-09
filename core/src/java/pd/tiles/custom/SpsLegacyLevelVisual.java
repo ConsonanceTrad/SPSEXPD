@@ -38,6 +38,10 @@ public class SpsLegacyLevelVisual extends CustomTilemap {
 
 	public static int terrainVisual(int terrain) {
 		//SPS: 全局 2D 帧映射（单一权威表 tiles/SpsTerrainFrames，回 2D 渲染共用）
+		//SPSXPD: 花盆/炼金釜/铁砧改画地板，物件由 GroundingItemsTilemap 叠加（本层图集必为 SPS 系）
+		if (SpsTerrainFrames.isGroundItemTerrain(terrain)) {
+			return SpsTerrainFrames.visual(Terrain.EMPTY);
+		}
 		return SpsTerrainFrames.visual(terrain);
 	}
 

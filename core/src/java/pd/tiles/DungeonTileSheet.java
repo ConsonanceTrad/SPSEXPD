@@ -121,6 +121,14 @@ public class DungeonTileSheet {
 		return chasmFrame( CHASM_WATER_SPS );
 	}
 
+	/**
+	 * SPSXPD: 地物件地形（花盆/炼金釜/铁砧）在本图集族里对应的地板帧。
+	 * SPS 系图集的地板帧 = SPS 的 EMPTY 帧；破碎系图集用 FLOOR。
+	 */
+	public static int groundItemFloor(){
+		return isSpsTilesAtlas() ? SpsTerrainFrames.visual( Terrain.EMPTY ) : FLOOR;
+	}
+
 	//tiles that can stitch with chasms (from above), and which visual represents the stitching
 	public static SparseArray<Integer> chasmStitcheable = new SparseArray<>();
 	static {

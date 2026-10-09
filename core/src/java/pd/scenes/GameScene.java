@@ -85,6 +85,7 @@ import pd.sprites.HeroSprite;
 import pd.sprites.ItemSprite;
 import pd.tiles.CustomTilemap;
 import pd.tiles.DungeonTerrainTilemap;
+import pd.tiles.GroundingItemsTilemap;
 import pd.tiles.DungeonTileSheet;
 import pd.tiles.DungeonTilemap;
 import pd.tiles.DungeonWallsTilemap;
@@ -209,6 +210,8 @@ public class GameScene extends PixelScene {
 	//SPS: 水缝合边独立层（水脱离地形图集的 48-63 段语义）
 	private SpsWaterEdgesTilemap waterEdges;
 	private SpsChasmEdgesTilemap chasmEdges;
+	//SPSXPD: 花盆/炼金釜/铁砧的物件叠加层（派生层，不进存档）
+	private GroundingItemsTilemap groundingItems;
 	//SPS: 移动路径提示层
 	private Group heroPathCells;
 	//SPS: 谨慎移动当前锁定的目标格（-1 = 未锁定）
@@ -351,6 +354,11 @@ public class GameScene extends PixelScene {
 		//SPS: 移动路径提示改挂独立 Group（见 targetedCells），不再进 terrain 层
 		customTiles = new Group();
 		terrain.add(customTiles);
+
+		//SPSXPD: 花盆/炼金釜/铁砧的物件叠加层——必须排在 customTiles（SPS 整层地图）之后，
+		//否则会被整层盖住；又排在植物/陷阱层之前，植物仍显示在花盆之上。
+		groundingItems = new GroundingItemsTilemap();
+		terrain.add( groundingItems );
 
 		//SPS: 回 2D 渲染 —— 停用 2.5D 网格线/墙影层（visualGrid、occlusion）
 		//visualGrid = new GridTileMap();
@@ -1506,6 +1514,7 @@ public class GameScene extends PixelScene {
 	public static void updateMap() {
 		if (scene != null) {
 			scene.tiles.updateMap();
+			if (scene.groundingItems != null) scene.groundingItems.updateMap();
 			if (scene.occlusion != null) scene.occlusion.updateMap();
 			if (scene.visualGrid != null) scene.visualGrid.updateMap();
 			scene.terrainFeatures.updateMap();
@@ -1520,6 +1529,7 @@ public class GameScene extends PixelScene {
 	public static void updateMap( int cell ) {
 		if (scene != null) {
 			scene.tiles.updateMapCell( cell );
+			if (scene.groundingItems != null) scene.groundingItems.updateMapCell( cell );
 			if (scene.occlusion != null) scene.occlusion.updateMapCell( cell );
 			if (scene.visualGrid != null) scene.visualGrid.updateMapCell( cell );
 			scene.terrainFeatures.updateMapCell( cell );

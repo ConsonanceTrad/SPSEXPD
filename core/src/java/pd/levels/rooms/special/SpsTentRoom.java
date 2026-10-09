@@ -57,9 +57,7 @@ public class SpsTentRoom extends SpecialRoom {
 		SpsFeatureVisual tentVisual = new SpsFeatureVisual(SpsFeatureVisual.TENT);
 		tentVisual.pos(level.pointToCell(tent), level);
 		level.customTiles.add(tentVisual);
-		SpsFeatureVisual anvilVisual = new SpsFeatureVisual(SpsFeatureVisual.IRON_MAKER);
-		anvilVisual.pos(level.pointToCell(anvil), level);
-		level.customTiles.add(anvilVisual);
+		//SPSXPD: 铁砧不再用 sps_features 的旧帧叠加，改由 GroundingItemsTilemap 画 grounding_items 的 ANVIL
 
 		Plant.Seed seed = (Plant.Seed)Generator.random(Generator.Category.SEED);
 		GroundItems.explant( level, seed, level.pointToCell(plant));

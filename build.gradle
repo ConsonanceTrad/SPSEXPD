@@ -759,8 +759,9 @@ tasks.register('verifySpsMechanics') {
 		requireText(dewBless, 'Dewcharge.chargeCount(ch, 10)', '露珠神像祝福')
 		requireText(between, 'new SpsTentRoom()', '过渡层帐篷房')
 		def tentRoom = readSource('levels/rooms/special/SpsTentRoom.java')
-		['Terrain.TENT', 'Terrain.IRON_MAKER', 'Terrain.ALCHEMY', 'SpsFeatureVisual.TENT',
-		 'SpsFeatureVisual.IRON_MAKER'].each { requireText(tentRoom, it, '旧版帐篷房') }
+		['Terrain.TENT', 'Terrain.IRON_MAKER', 'Terrain.ALCHEMY', 'SpsFeatureVisual.TENT'].each {
+			requireText(tentRoom, it, '旧版帐篷房')
+		}
 		def tent = readSource('windows/WndTent.java')
 		['food.energy', 'Hunger.class', 'TentSleep.class', 'spendAndNext(time)'].each {
 			requireText(tent, it, '帐篷休息')

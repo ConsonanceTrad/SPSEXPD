@@ -43,6 +43,10 @@ public class DungeonTerrainTilemap extends DungeonTilemap {
 		//SPS: 回 2D 渲染 —— Terrain 常量经 SpsTerrainFrames 直映 SPS 帧号（单层 16x16，
 		//同 SPS 0.9.8 DungeonTilemap 的“常量即帧号”语义）。2.5D 分体/缝合绘制停用。
 		//水（Terrain.WATER）由 SpsWaterEdgesTilemap 独立层绘制，本层不再处理。
+		//SPSXPD: 花盆/炼金釜/铁砧只画地板（帧号随当前图集族），物件由 GroundingItemsTilemap 叠加。
+		if (SpsTerrainFrames.isGroundItemTerrain(tile)) {
+			return DungeonTileSheet.groundItemFloor();
+		}
 		return SpsTerrainFrames.visual(tile);
 	}
 

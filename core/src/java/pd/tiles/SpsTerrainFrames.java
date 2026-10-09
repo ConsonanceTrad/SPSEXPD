@@ -27,6 +27,17 @@ public class SpsTerrainFrames {
 	//SPS tiles 图集中未被 Terrain 引用的空帧，用作透明/不绘制
 	public static final int BLANK = 30;
 
+	/**
+	 * SPSXPD: 地物件地形（花盆 FLOWER_POT / 炼金釜 ALCHEMY / 铁砧 IRON_MAKER）。
+	 * 这些格子不再画地形图集自带的「地板+物件」合成帧，改画所在图集族的地板，
+	 * 物件图标由 {@link pd.tiles.GroundingItemsTilemap} 从 items 图集叠加。
+	 */
+	public static boolean isGroundItemTerrain(int terrain) {
+		return terrain == Terrain.FLOWER_POT
+				|| terrain == Terrain.ALCHEMY
+				|| terrain == Terrain.IRON_MAKER;
+	}
+
 	/** STSSP Terrain 常量 -> SPS 帧号 */
 	public static int visual(int terrain) {
 		switch (terrain) {
