@@ -21,6 +21,7 @@ import pd.items.consum.food.fruit.Fruit;
 import pd.items.consum.food.fusion.Nut;
 import pd.items.consum.food.meatfood.MeatFood;
 import pd.items.consum.food.staplefood.OverpricedRation;
+import pd.items.consum.food.vegetable.Blandfruit;
 import pd.items.consum.food.vegetable.BrewLeft;
 import pd.items.consum.food.vegetable.Vegetable;
 import render.utils.serialize.Bundle;

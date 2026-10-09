@@ -102,10 +102,10 @@ public abstract class Plant implements Bundlable {
 			activate( ch );
 		}
 
-		//SPSEXPD: 野生植物被踩踏后，还会在附近散落 1 枚对应的投掷果实
+		//SPSEXPD: 野生植物被踩踏后，还会在踩踏处掉落 1 枚对应的投掷果实
 		if (!(this instanceof SpsFruitBush) && Dungeon.level != null) {
 			Class<? extends Item> fruit = PlantHarvest.fruitFor(getClass());
-			if (fruit != null) PlantHarvest.scatter(Dungeon.level, pos, fruit, null, 1, 0f);
+			if (fruit != null) PlantHarvest.drop(Dungeon.level, pos, fruit, pos);
 		}
 
 		Bestiary.setSeen(getClass());

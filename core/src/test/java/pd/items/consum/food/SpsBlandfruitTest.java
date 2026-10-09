@@ -17,6 +17,8 @@ import pd.items.SpsAlchemyRecipes;
 import pd.items.equipment.artifacts.HornOfPlenty;
 import pd.items.consum.brewed.Brewed;
 import pd.items.consum.food.fruit.Fruit;
+import pd.items.consum.food.vegetable.Blandfruit;
+import pd.items.consum.food.vegetable.Vegetable;
 import pd.items.consum.potions.PotionOfFrost;
 import pd.plants.Icecap;
 import pd.sprites.CharSprite;
@@ -47,7 +49,7 @@ public final class SpsBlandfruitTest {
 			testHornAcceptsRawFruit();
 			testEatBadge();
 			testLocalizedResources();
-			System.out.println("SPS无味果测试通过：生食、饱食、价值、水果分类、独立酿制果、旧存档、投掷、号角和四语文本均符合0.9.8。");
+			System.out.println("SPS无味果测试通过：生食、饱食、价值、蔬菜分类、独立酿制果、旧存档、投掷、号角和四语文本均符合0.9.8。");
 		} finally {
 			Actor.clear();
 			Dungeon.hero = null;
@@ -67,7 +69,7 @@ public final class SpsBlandfruitTest {
 		hunger.affectHunger(-200f, true);
 
 		TestBlandfruit fruit = new TestBlandfruit();
-		check(fruit instanceof Fruit, "无味果没有归入旧版水果分类");
+		check(fruit instanceof Vegetable, "无味果没有归入蔬菜分类");
 		check(Food.AC_EAT.equals(fruit.defaultAction()), "生无味果没有默认食用动作");
 		check(fruit.energy == 300f && fruit.eatTime() == Food.TIME_TO_EAT,
 				"生无味果应恢复300饱食并耗时3回合");

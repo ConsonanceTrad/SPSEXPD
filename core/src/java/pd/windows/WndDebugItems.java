@@ -34,7 +34,7 @@ import pd.items.equipment.bags.PotionBandolier;
 import pd.items.equipment.bags.ScrollHolder;
 import pd.items.equipment.bags.ShoppingCart;
 import pd.items.equipment.bags.VelvetPouch;
-import pd.items.consum.food.Blandfruit;
+import pd.items.consum.food.vegetable.Blandfruit;
 import pd.items.consum.food.fruit.Durian;
 import pd.items.consum.food.processed.*;
 import pd.items.consum.food.vegetable.*;

@@ -97,6 +97,10 @@ public class ShatteredPixelDungeon extends Game {
 		render.utils.serialize.Bundle.addAlias(
 				pd.items.equipment.artifacts.RobotDMT.DmtRecharge.class,
 				"com.hmdzl.spspd.items.artifacts.RobotDMT$dmtRecharge" );
+		//SPSEXPD: 无味果迁入蔬菜包（consum/food/vegetable），旧档记录的仍是旧包名
+		render.utils.serialize.Bundle.addAlias(
+				pd.items.consum.food.vegetable.Blandfruit.class,
+				"pd.items.consum.food.Blandfruit" );
 		render.utils.serialize.Bundle.addAlias(
 				pd.items.consum.medicine.TimePill.class,
 				"com.hmdzl.spspd.items.medicine.Timepill" );

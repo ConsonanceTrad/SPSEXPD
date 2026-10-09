@@ -46,7 +46,7 @@ import pd.items.Item;
 import pd.items.Recipe;
 import pd.items.TransmutationBall;
 import pd.items.consum.food.vegetable.StarEaterFlower;
-import pd.items.consum.food.Blandfruit;
+import pd.items.consum.food.vegetable.Blandfruit;
 import pd.items.consum.food.fruit.Durian;
 import pd.items.consum.food.fruit.Fruit;
 import pd.items.consum.food.vegetable.Vegetable;
@@ -177,6 +177,7 @@ public final class SpsEnhancedPlantsTest {
 		Generator.fullReset();
 		testMappingsAndHarvests();
 		testBoundaryHarvest();
+		testPotGrownHarvest();
 		testFruitEffects();
 		testSorrowmossDepthEffect();
 		testLegacyPixels();
@@ -301,6 +302,44 @@ public final class SpsEnhancedPlantsTest {
 			if (level.heaps.get(12 + offset) != null) edgeFruit = true;
 		}
 		check(edgeFruit, "地图边缘强化植物没有散落果实");
+	}
+
+	/** SPSEXPD: 精心种植（手动种进花盆）的掉落——踩踏处 2 个蔬菜 + 周围散落 2~4 枚果实。 */
+	private static void testPotGrownHarvest() {
+		Actor.clear();
+		TestLevel level = new TestLevel(9, 9);
+		Dungeon.level = level;
+		Dungeon.depth = 2;
+		Dungeon.branch = 0;
+		Generator.fullReset();
+
+		Firebloom.ExFirebloom plant = new Firebloom.ExFirebloom();
+		plant.pos = 40;
+		plant.potGrown = true;
+		Random.pushGenerator(0x504F5447524F574EL);
+		try {
+			plant.activate(null);
+		} finally {
+			Random.popGenerator();
+		}
+
+		PlantHarvest.Species species = PlantHarvest.speciesFor(Firebloom.ExFirebloom.class);
+		Heap center = level.heaps.get(40);
+		//SPSEXPD: 蔬菜可能被堆叠成一个堆（quantity 累加），所以按数量而不是堆数断言
+		int vegetables = 0;
+		if (center != null) for (Item item : center.items) {
+			if (species.vegetable.isInstance(item)) vegetables += item.quantity();
+		}
+		check(vegetables == 2, "精心种植没有在踩踏处掉落 2 个蔬菜，实际 " + vegetables);
+
+		int fruits = 0;
+		for (int offset : PathFinder.NEIGHBOURS8) {
+			Heap heap = level.heaps.get(40 + offset);
+			if (heap == null) continue;
+			check(heap.items.size() == 1, "精心种植在同一邻格重复掉落");
+			if (heap.peek() instanceof MissileWeapon) fruits += heap.peek().quantity();
+		}
+		check(fruits >= 2 && fruits <= 4, "精心种植没有散落 2~4 枚果实，实际 " + fruits);
 	}
 
 	private static void testFruitEffects() {

@@ -19,14 +19,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package pd.items.consum.food;
+package pd.items.consum.food.vegetable;
 
 import pd.atlas.items.ConsumFoodFoodDict;
 
 import pd.actors.buffs.Hunger;
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.items.consum.food.fruit.Fruit;
+import pd.items.consum.food.Food;
 import pd.items.consum.potions.Potion;
 import pd.items.consum.potions.PotionOfExperience;
 import pd.items.consum.potions.PotionOfFrost;
@@ -49,7 +49,7 @@ import render.utils.serialize.Bundle;
 import render.utils.serialize.Reflection;
 import pd.messages.InlineText;
 
-public class Blandfruit extends Fruit {
+public class Blandfruit extends Vegetable {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Blandfruit.class)

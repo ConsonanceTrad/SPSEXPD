@@ -3,7 +3,6 @@ package pd.items;
 
 import pd.ShatteredPixelDungeon;
 import pd.items.consum.eggs.Egg;
-import pd.items.consum.food.Blandfruit;
 import pd.items.consum.food.FishCracker;
 import pd.items.consum.food.Honey;
 import pd.items.consum.food.WaterItem;
@@ -13,6 +12,7 @@ import pd.items.consum.food.fusion.Nut;
 import pd.items.consum.food.meatfood.MeatFood;
 import pd.items.consum.food.processed.*;
 import pd.items.consum.food.staplefood.NormalRation;
+import pd.items.consum.food.vegetable.Blandfruit;
 import pd.items.consum.food.staplefood.OverpricedRation;
 import pd.items.consum.food.staplefood.StapleFood;
 import pd.items.consum.food.vegetable.*;

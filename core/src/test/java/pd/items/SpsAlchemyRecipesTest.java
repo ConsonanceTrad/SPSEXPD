@@ -15,7 +15,7 @@ import pd.actors.hero.HeroClass;
 import pd.items.equipment.artifacts.AlchemistsToolkit;
 import pd.items.consum.brewed.Brewed;
 import pd.items.consum.eggs.Egg;
-import pd.items.consum.food.Blandfruit;
+import pd.items.consum.food.vegetable.Blandfruit;
 import pd.items.consum.food.FishCracker;
 import pd.items.consum.food.Honey;
 import pd.items.consum.food.WaterItem;

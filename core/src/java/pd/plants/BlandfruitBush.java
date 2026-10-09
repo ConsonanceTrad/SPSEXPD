@@ -26,7 +26,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.Dungeon;
 import pd.actors.Char;
-import pd.items.consum.food.Blandfruit;
+import pd.items.consum.food.vegetable.Blandfruit;
 import pd.messages.InlineText;
 
 public class BlandfruitBush extends Plant {

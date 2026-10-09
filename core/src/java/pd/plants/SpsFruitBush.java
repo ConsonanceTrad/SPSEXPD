@@ -19,10 +19,10 @@ import java.util.ArrayList;
  *   <li>人工种植（玩家把种子种在地上、帐篷房的花盆、浇水的花盆）：
  *       掉 1 个蔬菜（落在踩踏格）+ 散落 1~2 枚投掷果实；</li>
  *   <li>精心种植（手动把种子种进花盆）：
- *       掉 2~3 个蔬菜（落在踩踏格）+ 散落 2~3 枚投掷果实；大型果实不再由植物产出。</li>
+ *       掉 2 个蔬菜（落在踩踏格）+ 散落 2~4 枚投掷果实；大型果实不再由植物产出。</li>
  * </ul>
  *
- * 野生植物不继承本类，由 {@link Plant#trigger} 散落 1 枚果实、不掉蔬菜。
+ * 野生植物不继承本类，被踩踏时由 {@link Plant#trigger} 在踩踏处掉 1 枚果实、不掉蔬菜。
  * 少数果丛保留原有额外产出（腐莓果丛的中心腐莓之种、浆果果丛的浆果）。
  */
 public abstract class SpsFruitBush extends Plant {
@@ -69,15 +69,15 @@ public abstract class SpsFruitBush extends Plant {
 
 		ArrayList<Integer> candidates = PlantHarvest.neighbours(Dungeon.level, pos);
 
-		//SPSEXPD: 果实散落到相邻格——人工 1~2 枚，精心 2~3 枚
+		//SPSEXPD: 果实散落到相邻格——人工 1~2 枚，精心 2~4 枚
 		//（大型果实不再由植物产出，只能靠许愿或商店购买）
-		int fruitCount = potGrown ? Random.NormalIntRange(2, 3) : Random.NormalIntRange(1, 2);
+		int fruitCount = potGrown ? Random.NormalIntRange(2, 4) : Random.NormalIntRange(1, 2);
 		for (int i = 0; i < fruitCount && !candidates.isEmpty(); i++) {
 			PlantHarvest.drop(Dungeon.level, take(candidates), species.fruit, pos);
 		}
 
-		//SPSEXPD: 蔬菜不再散落，全部落在踩踏地——人工 1 个，精心 2~3 个
-		int vegetableCount = potGrown ? Random.NormalIntRange(2, 3) : 1;
+		//SPSEXPD: 蔬菜不再散落，全部落在踩踏地——人工 1 个，精心 2 个
+		int vegetableCount = potGrown ? 2 : 1;
 		for (int i = 0; i < vegetableCount; i++) {
 			PlantHarvest.drop(Dungeon.level, pos, species.vegetable, pos);
 		}

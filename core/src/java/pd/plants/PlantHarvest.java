@@ -3,7 +3,7 @@ package pd.plants;
 
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.consum.food.Blandfruit;
+import pd.items.consum.food.vegetable.Blandfruit;
 import pd.items.consum.food.fruit.Durian;
 import pd.items.consum.food.processed.*;
 import pd.items.consum.food.vegetable.*;
@@ -20,9 +20,9 @@ import java.util.HashMap;
  * SPSEXPD: 种植三分支的公共实现。
  *
  * <ul>
- *   <li>野生：原生植物被踩踏时，触发原生效果之外再散落 1 枚投掷果实；</li>
- *   <li>人工种植：果丛（入口房/帐篷房/浇水的花盆）被踩踏时，掉 1 个蔬菜 + 2~3 枚果实；</li>
- *   <li>花盆精心种植：手动把种子种进花盆，掉 1 个蔬菜 + 周围 1~2 个蔬菜 + 3 枚果实。</li>
+ *   <li>野生：原生植物被踩踏时，在踩踏处掉落 1 枚对应的投掷果实（不再触发原生植物效果）；</li>
+ *   <li>人工种植：果丛（入口房/帐篷房/浇水的花盆）被踩踏时，踩踏处掉 1 个蔬菜 + 周围散落 1~2 枚果实；</li>
+ *   <li>花盆精心种植：手动把种子种进花盆，踩踏处掉 2 个蔬菜 + 周围散落 2~4 枚果实。</li>
  * </ul>
  *
  * 种子→蔬菜/果实/大型果实的对照集中在这里，避免在每个植物类里重复配置。
@@ -98,20 +98,6 @@ public final class PlantHarvest {
 		}
 		if (types.isEmpty()) return null;
 		return Reflection.newInstance(Random.element(types));
-	}
-
-	/** 在 center 周围的可通行格散落 count 个物品；largeChance > 0 时按概率换成大型物品。 */
-	public static void scatter(Level level, int center, Class<? extends Item> itemClass,
-			Class<? extends Item> largeClass, int count, float largeChance) {
-		if (level == null || itemClass == null || count <= 0) return;
-		ArrayList<Integer> candidates = neighbours(level, center);
-		for (int i = 0; i < count && !candidates.isEmpty(); i++) {
-			int cell = Random.element(candidates);
-			candidates.remove((Integer)cell);
-			Class<? extends Item> type = itemClass;
-			if (largeClass != null && largeChance > 0f && Random.Float() < largeChance) type = largeClass;
-			drop(level, cell, type, center);
-		}
 	}
 
 	/** 在指定格掉落一个物品（from 为飞入动画起点）。 */
