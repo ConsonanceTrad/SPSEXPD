@@ -33,7 +33,14 @@ import pd.actors.buffs.AscensionChallenge;
 import pd.actors.hero.Hero;
 import pd.messages.Messages;
 import pd.scenes.AmuletScene;
+import pd.scenes.GameScene;
+import pd.effects.Speck;
+import pd.items.consum.potions.elixirs.WishPotion;
+import pd.items.consum.potions.wish.SimplifiedWish;
+import pd.utils.GLog;
+import pd.windows.WndTextInput;
 import render.noosa.Game;
+import render.utils.serialize.Bundle;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -52,6 +59,16 @@ public class Amulet extends Item {
 			.t("ascent_desc", "你开始感受到古神强大可怖的力量自护符中泛溢而出。凭凡人的区区肉身自这地牢之底向上攀登至地面将远比你想象中的更难！\n\n如果你继续在持有护符的情况下向上返回，地牢将会变得更加险恶重重。跨层传送将会被抑制，而击杀沿途敌人返回地面则将成为你赢得这局游戏的唯一方式！\n\n如果你想要在不开始护符挑战的情况下返回上层，你可以把护符暂时留在这里，也可以选择在这里直接用护符以正常结束游戏。")
 			.t("ascent_yes", "继续前进！")
 			.t("ascent_no", "稍等片刻")
+			.t("wish", "许愿")
+			.t("wish_title", "护符许愿")
+			.t("wish_body", "写下你要许下的愿望——写出一件物品的名字即可，护符会直接把它交给你。\n\n护符还能为你实现 %d 个愿望，用尽之后它将化作粉尘消散。")
+			.t("wish_confirm", "许愿")
+			.t("wish_cancel", "放弃")
+			.t("wish_granted", "护符实现了你的愿望：%s")
+			.t("wish_no_match", "护符听不懂这个愿望——没有找到对应的物品。这次许愿未被消耗。")
+			.t("wish_failed", "护符的力量没能凝成实物。这次许愿未被消耗。")
+			.t("wish_left", "剩余许愿次数：%d")
+			.t("wish_dust", "护符耗尽了最后一丝力量，在你手中化作一捧粉尘消散了……")
 			.t("discover_hint", "你可在地牢底层找到该物品...");
 	}
 
@@ -59,6 +76,13 @@ public class Amulet extends Item {
 
 	
 	private static final String AC_END = "END";
+	private static final String AC_WISH = "WISH";
+
+	/** SPSEXPD: 真护符可以实现的许愿次数上限。 */
+	public static final int MAX_WISHES = 21;
+	private static final String WISH_USES = "wish_uses";
+	/** SPSEXPD: 剩余许愿次数（旧档没有该字段时按上限补齐）。 */
+	private int wishUses = MAX_WISHES;
 	
 	{
 		image = SpecificTaskDict.AMULET_0;
@@ -72,6 +96,8 @@ public class Amulet extends Item {
 		if (hero.buff(AscensionChallenge.class) != null){
 			actions.clear();
 		} else {
+			//SPSEXPD: 真护符可以许愿（简化判定），也可以直接结束游戏
+			actions.add(AC_WISH);
 			actions.add(AC_END);
 		}
 		return actions;
@@ -84,6 +110,8 @@ public class Amulet extends Item {
 
 		if (action.equals(AC_END)) {
 			showAmuletScene( false );
+		} else if (action.equals(AC_WISH)) {
+			promptWish( hero );
 		}
 	}
 	
@@ -139,6 +167,49 @@ public class Amulet extends Item {
 		});
 	}
 	
+	/** SPSEXPD: 简化许愿入口——文本输入窗（不做幸运/描述评分）。 */
+	private void promptWish( final Hero hero ) {
+		if (hero == null || wishUses <= 0) return;
+		GameScene.show(new WndTextInput(
+				Messages.get(Amulet.class, "wish_title"),
+				Messages.get(Amulet.class, "wish_body", wishUses),
+				"",
+				WishPotion.MAX_WISH_LENGTH,
+				false,
+				Messages.get(Amulet.class, "wish_confirm"),
+				Messages.get(Amulet.class, "wish_cancel")) {
+			@Override
+			public void onSelect(boolean positive, String text) {
+				if (positive) wishFor(hero, text);
+			}
+		});
+	}
+
+	/** SPSEXPD: 命中即给物品并扣一次许愿；用尽后护符化作粉尘。 */
+	private void wishFor( Hero hero, String text ) {
+		SimplifiedWish.Outcome outcome = SimplifiedWish.grant(hero, text);
+		if (outcome == SimplifiedWish.Outcome.GRANTED) {
+			wishUses--;
+			GLog.p(Messages.get(Amulet.class, "wish_granted", text == null ? "" : text.trim()));
+			if (wishUses <= 0) dissolve(hero);
+		} else if (outcome == SimplifiedWish.Outcome.NO_MATCH) {
+			GLog.w(Messages.get(Amulet.class, "wish_no_match"));
+		} else {
+			GLog.w(Messages.get(Amulet.class, "wish_failed"));
+		}
+	}
+
+	/** SPSEXPD: 许愿用尽——护符散去。 */
+	private void dissolve( Hero hero ) {
+		GLog.p(Messages.get(Amulet.class, "wish_dust"));
+		if (hero.sprite != null) {
+			hero.sprite.emitter().start(Speck.factory(Speck.DUST), 0.2f, 12);
+		}
+		if (hero.belongings != null) {
+			detach(hero.belongings.backpack);
+		}
+	}
+
 	@Override
 	public boolean isIdentified() {
 		return true;
@@ -147,6 +218,12 @@ public class Amulet extends Item {
 	@Override
 	public boolean isUpgradable() {
 		return false;
+	}
+
+	/** SPSEXPD: 物品格右下角显示剩余许愿次数。 */
+	@Override
+	public String status() {
+		return Integer.toString(Math.max(0, wishUses));
 	}
 
 	@Override
@@ -159,6 +236,20 @@ public class Amulet extends Item {
 			desc += "\n\n" + Messages.get(this, "desc_ascent");
 		}
 
+		desc += "\n\n" + Messages.get(this, "wish_left", Math.max(0, wishUses));
+
 		return desc;
+	}
+
+	@Override
+	public void storeInBundle( Bundle bundle ) {
+		super.storeInBundle( bundle );
+		bundle.put( WISH_USES, wishUses );
+	}
+
+	@Override
+	public void restoreFromBundle( Bundle bundle ) {
+		super.restoreFromBundle( bundle );
+		wishUses = bundle.contains( WISH_USES ) ? bundle.getInt( WISH_USES ) : MAX_WISHES;
 	}
 }
