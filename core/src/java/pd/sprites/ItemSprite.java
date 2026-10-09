@@ -78,7 +78,8 @@ public class ItemSprite extends MovieClip {
 
 	//SPSEXPD: 小图标的地面抬升值：避免底边贴住格子底边显得太靠下（上游 Shattered/STSEXPD 是全局抬 5px）。
 	//谁抬由物品自己决定——见 Item.spriteRaise()，当前只有露珠覆写。
-	public static final float SMALL_ITEM_LIFT       =  5 / 16f; //5 像素
+	//3/16 格 = 3px：16px 的格子里 10px 高的露珠上下各留 3px，视觉居中（原 5px 几乎贴格顶，实测太浮）。
+	public static final float SMALL_ITEM_LIFT       =  3 / 16f; //3 像素
 
 	//the width and height of the shadow are a percentage of sprite size
 	//offset is the number of pixels the shadow is moved down or up (handy for some animations)
