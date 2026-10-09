@@ -148,18 +148,18 @@ public final class SpsMasterThievesArmbandTest {
 		check(rich.firstItem, "第二次尝试前目标身上的机会就已经没了");
 	}
 
-	/** SPSEXPD: 偷窃价位随等级指数上涨——0 级 20、45 级 7000（即 45 级时标价 10000 = 70%）。 */
+	/** SPSEXPD: 偷窃价位随等级指数上涨——0 级 100、45 级 7000（即 45 级时标价 10000 = 70%）。 */
 	private static void testStealCurve() {
 		prepareHero();
 		MasterThievesArmband staff = new MasterThievesArmband();
 
 		staff.level(0);
-		check(Math.abs(staff.stealValueCap() - 20f) < 0.01f,
-				"0级偷窃价位上限不是20：" + staff.stealValueCap());
+		check(Math.abs(staff.stealValueCap() - 100f) < 0.01f,
+				"0级偷窃价位上限不是100：" + staff.stealValueCap());
 
 		staff.level(10);
 		float mid = staff.stealValueCap();
-		check(mid > 20f && mid < 7000f, "偷窃价位上限没有随等级指数上涨：" + mid);
+		check(mid > 100f && mid < 7000f, "偷窃价位上限没有随等级指数上涨：" + mid);
 
 		staff.level(45);
 		float cap = staff.stealValueCap();

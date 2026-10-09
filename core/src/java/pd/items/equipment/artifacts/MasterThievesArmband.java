@@ -75,9 +75,9 @@ public class MasterThievesArmband extends DamageWand {
 			.t("discover_hint", "可在法杖池中找到。");
 	}
 
-	//SPSEXPD: 偷窃价位随等级指数上涨——0 级时等价 20 金币，45 级时 7000 金币
+	//SPSEXPD: 偷窃价位随等级指数上涨——0 级时等价 100 金币，45 级时 7000 金币
 	//（即 45 级时标价 10000 以内的商品都能有 70% 以上成功率），中间为纯指数插值。
-	public static final float STEAL_VALUE_BASE = 20f;
+	public static final float STEAL_VALUE_BASE = 100f;
 	public static final float STEAL_VALUE_AT_MAX_LEVEL = 7000f;
 	public static final int STEAL_CURVE_LEVEL = 45;
 
