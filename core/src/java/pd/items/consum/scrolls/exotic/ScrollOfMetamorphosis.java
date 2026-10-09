@@ -27,8 +27,10 @@ import pd.actors.hero.HeroClass;
 import pd.actors.hero.Talent;
 import pd.effects.Speck;
 import pd.effects.Transmuting;
+import pd.actors.hero.perks.Perk;
 import pd.items.consum.scrolls.InventoryScroll;
 import pd.messages.Messages;
+import pd.utils.GLog;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
@@ -38,7 +40,9 @@ import pd.ui.TalentButton;
 import pd.ui.TalentsPane;
 import pd.ui.Window;
 import pd.windows.IconTitle;
+import pd.windows.WndGainNewPerk;
 import pd.windows.WndOptions;
+import pd.windows.WndSelectPerk;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 
@@ -52,11 +56,13 @@ public class ScrollOfMetamorphosis extends ExoticScroll {
 	static {
 		InlineText.of(ScrollOfMetamorphosis.class)
 			.t("name", "蜕变秘卷")
-			.t("choose_desc", "选择一个天赋以进行蜕变")
+			.t("choose_desc", "选择一个已拥有的特质清空")
 			.t("replace_desc", "选择你希望蜕变出的天赋")
 			.t("cancel_warn", "取消该行动仍然会消耗你的蜕变秘卷，你确定吗？")
 			.t("metamorphose_talent", "蜕变天赋")
-			.t("desc", "这张秘卷充满了嬗变的魔力，不过与一般的嬗变卷轴不同。这股魔力将作用于释放者本身而不是一个物品。秘卷的魔力将允许你蜕变一个自身的天赋，使其转化为来自其他英雄的五个同层天赋之一！\n\n这个效果只适用于英雄自身的天赋，对专精天赋与护甲天赋无效。那些你无法使用的天赋将不会出现在蜕变选项里。");
+			.t("no_perk", "你还没有任何特质，蜕变秘卷无从下手。")
+			.t("metamorph_done", "你清空了特质：%s，并获得 1 点特质点。")
+			.t("desc", "这张秘卷充满了嬗变的魔力，不过与一般的嬗变卷轴不同。这股魔力将作用于释放者本身而不是一个物品。秘卷会清空你已拥有的一个特质，并返还 1 点特质点——你可以用它重新选择一个特质。\n\n特质点会从特质池中抽出若干候选供你挑选，你可以选到此前尚未获得的特质。");
 	}
 
 
@@ -72,6 +78,16 @@ public class ScrollOfMetamorphosis extends ExoticScroll {
 	
 	@Override
 	public void doRead() {
+		//SPSEXPD: 效果改为「清空一个已拥有的特质并返还 1 点特质点」，由玩家挑选要清空的特质
+		ArrayList<Perk> owned = (Dungeon.hero == null || Dungeon.hero.heroPerk == null)
+				? new ArrayList<Perk>()
+				: new ArrayList<>(Dungeon.hero.heroPerk.getPerks());
+		if (owned.isEmpty()) {
+			//没有任何可蜕变的特质时不该消耗卷轴
+			GLog.w(Messages.get(ScrollOfMetamorphosis.class, "no_perk"));
+			return;
+		}
+
 		if (!isKnown()) {
 			identify();
 			curItem = detach(curUser.belongings.backpack);
@@ -79,7 +95,33 @@ public class ScrollOfMetamorphosis extends ExoticScroll {
 		} else {
 			identifiedByUse = false;
 		}
-		GameScene.show(new WndMetamorphChoose());
+		GameScene.show(new WndMetamorphPerkChoose(owned));
+	}
+
+	/** SPSEXPD: 蜕变——清空选中的已拥有特质（返还 1 点特质点），再让英雄重新选择特质。 */
+	static void metamorphPerk(Perk oldPerk) {
+		if (Dungeon.hero == null || oldPerk == null) return;
+
+		//未识别时卷轴已在 doRead 里脱离背包；这里处理已识别（直接读到）的情况
+		if (!identifiedByUse && curItem instanceof ScrollOfMetamorphosis) {
+			curItem.detach(curUser.belongings.backpack);
+		}
+		identifiedByUse = false;
+
+		Dungeon.hero.heroPerk.remove(oldPerk);
+		Dungeon.hero.reservedPerks++;
+		//候选缓存是按旧状态抽的，清掉让 WndGainNewPerk 重抽
+		if (Dungeon.hero.spawnedPerks != null) Dungeon.hero.spawnedPerks.clear();
+
+		if (curUser != null && curUser.sprite != null) {
+			curUser.sprite.emitter().start(Speck.factory(Speck.CHANGE), 0.2f, 10);
+		}
+		if (curItem instanceof ScrollOfMetamorphosis) {
+			((ScrollOfMetamorphosis) curItem).readAnimation();
+			Sample.INSTANCE.play(Assets.Sounds.READ);
+		}
+		GLog.p(Messages.get(ScrollOfMetamorphosis.class, "metamorph_done", oldPerk.title()));
+		WndGainNewPerk.Show(Dungeon.hero);
 	}
 
 	public static void onMetamorph( Talent oldTalent, Talent newTalent ){
@@ -116,6 +158,29 @@ public class ScrollOfMetamorphosis extends ExoticScroll {
 			}
 			public void onBackPressed() {}
 		} );
+	}
+
+	/** SPSEXPD: 蜕变选择窗——列出已拥有的特质，选一个清空以返还 1 点特质点。 */
+	public static class WndMetamorphPerkChoose extends WndSelectPerk {
+
+		public WndMetamorphPerkChoose(ArrayList<Perk> owned) {
+			super(Messages.get(ScrollOfMetamorphosis.class, "choose_desc"), owned);
+		}
+
+		@Override
+		protected void onPerkSelected(Perk perk) {
+			hide();
+			metamorphPerk(perk);
+		}
+
+		@Override
+		public void onBackPressed() {
+			if (curItem instanceof ScrollOfMetamorphosis) {
+				((ScrollOfMetamorphosis) curItem).confirmCancelation(this, false);
+			} else {
+				super.onBackPressed();
+			}
+		}
 	}
 
 	public static class WndMetamorphChoose extends Window {
