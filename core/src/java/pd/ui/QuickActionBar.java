@@ -4,6 +4,7 @@ package pd.ui;
 import pd.Dungeon;
 import pd.SPDSettings;
 import pd.Statistics;
+import pd.actors.buffs.HighLight;
 import pd.actors.buffs.Hunger;
 import pd.actors.hero.perks.PerkImageSheet;
 import pd.actors.hero.Hero;
@@ -30,7 +31,7 @@ import render.noosa.ui.Component;
 
 /**
  * SPSEXPD: 左下角的快捷操作按钮（按需出现，各自可在「游戏辅助」设置里开关）——
- * 照明（优先火把，其次露珠瓶）、天赋加点、饥饿进食。
+ * 照明（优先火把，其次露珠瓶；已有强光 buff 时不显示）、天赋加点、饥饿进食。
  */
 public class QuickActionBar extends Component {
 
@@ -161,10 +162,12 @@ public class QuickActionBar extends Component {
 		return 3 * STEP;
 	}
 
-	//SPSEXPD: 需要照明——夜晚且身上有露珠瓶或火把
+	//SPSEXPD: 需要照明——夜晚且身上有露珠瓶或火把，且当前没有强光（HighLight）buff
 	private boolean needsLight() {
 		Hero hero = Dungeon.hero;
 		if (hero == null) return false;
+		//SPSEXPD: 已有强光（火把/露珠照明等）时隐藏照明快捷按钮
+		if (hero.buff( HighLight.class ) != null) return false;
 		if (!Statistics.spsNight()) return false;
 		return hero.belongings.getItem( Waterskin.class ) != null
 				|| hero.belongings.getItem( Torch.class ) != null;
