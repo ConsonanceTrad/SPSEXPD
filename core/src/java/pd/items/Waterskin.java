@@ -369,7 +369,8 @@ public class Waterskin extends Item {
 
 		@Override
 		public boolean itemSelectable(Item item) {
-			return item != null && item.isUpgradable();
+			//SPSEXPD: 已达当前强化门槛的装备无法再被强化——不出现在可选列表里（之前选中只会弹提示）
+			return item != null && item.isUpgradable() && item.level() < upgradeThreshold();
 		}
 
 		@Override
@@ -379,7 +380,7 @@ public class Waterskin extends Item {
 
 			//SPSEXPD: 门槛 = 玩家等级/4 向上取整（上限 10）。装备等级低于门槛才可强化；
 			//单轮提升 1~3 级，若仍未达门槛且露珠足够就继续，直到达门槛或露珠耗尽。
-			int threshold = Math.min(10, (curUser.lvl + 3) / 4);
+			int threshold = upgradeThreshold();
 			if (item.level() >= threshold) {
 				GLog.w(Messages.get(Waterskin.class, "bless_gate", threshold));
 				return;
@@ -404,6 +405,13 @@ public class Waterskin extends Item {
 			updateQuickslot();
 		}
 	};
+
+	/** SPSEXPD: 强化门槛 = 使用者等级/4 向上取整（上限 10）；装备等级低于它才可被强化。 */
+	private int upgradeThreshold() {
+		Hero user = curUser != null ? curUser : Dungeon.hero;
+		if (user == null) return 0;
+		return Math.min(10, (user.lvl + 3) / 4);
+	}
 
 	private void refine(Hero hero) {
 		operate(hero, TIME_TO_DRINK);
