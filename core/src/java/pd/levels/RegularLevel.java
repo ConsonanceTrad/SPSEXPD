@@ -43,7 +43,7 @@ import pd.items.Item;
 import pd.items.Torch;
 import pd.items.equipment.artifacts.Artifact;
 import pd.items.equipment.artifacts.DriedRose;
-import pd.items.consum.food.SupplyRation;
+import pd.items.consum.food.staplefood.NormalRation;
 import pd.items.specific.journal.GuidePage;
 import pd.items.specific.keys.CrystalKey;
 import pd.items.specific.keys.GoldenKey;
@@ -568,7 +568,8 @@ public abstract class RegularLevel extends Level {
 							map[cell] = Terrain.GRASS;
 							losBlocking[cell] = false;
 						}
-						drop(new SupplyRation(), cell).type = Heap.Type.CHEST;
+						//SPSEXPD: 统一为 SPS 干粮系（缓存口粮天赋的宝箱）
+						drop(new NormalRation(), cell).type = Heap.Type.CHEST;
 						dropped.countUp(2);
 					}
 				}

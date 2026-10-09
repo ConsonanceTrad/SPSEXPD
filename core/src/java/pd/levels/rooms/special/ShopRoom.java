@@ -44,7 +44,7 @@ import pd.items.equipment.bags.PotionBandolier;
 import pd.items.equipment.bags.ScrollHolder;
 import pd.items.equipment.bags.VelvetPouch;
 import pd.items.equipment.bombs.Bomb;
-import pd.items.consum.food.SmallRation;
+import pd.items.consum.food.staplefood.OverpricedRation;
 import pd.items.consum.potions.PotionOfHealing;
 import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
@@ -288,8 +288,9 @@ public class ShopRoom extends SpecialRoom {
 					Generator.randomUsingDefaults( Generator.Category.SCROLL ) );
 
 
-		itemsToSpawn.add( new SmallRation() );
-		itemsToSpawn.add( new SmallRation() );
+		//SPSEXPD: 统一为 SPS 干粮系——货架口粮换成干粮小包
+		itemsToSpawn.add( new OverpricedRation() );
+		itemsToSpawn.add( new OverpricedRation() );
 		
 		switch (Random.Int(4)){
 			case 0:

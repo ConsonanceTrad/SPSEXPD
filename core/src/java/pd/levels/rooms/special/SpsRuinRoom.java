@@ -16,8 +16,6 @@ import pd.items.consum.eggs.Egg;
 import pd.items.consum.eggs.YearPetEgg;
 import pd.items.consum.food.AflyFood;
 import pd.items.consum.food.MeatPie;
-import pd.items.consum.food.Pasty;
-import pd.items.consum.food.SupplyRation;
 import pd.items.specific.keys.IronKey;
 import pd.items.nornstone.BlueNornStone;
 import pd.items.nornstone.GreenNornStone;

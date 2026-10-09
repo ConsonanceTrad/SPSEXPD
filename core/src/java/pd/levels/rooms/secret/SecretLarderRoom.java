@@ -25,7 +25,7 @@ import pd.Dungeon;
 import pd.actors.buffs.Hunger;
 import pd.items.consum.food.ChargrilledMeat;
 import pd.items.consum.food.Food;
-import pd.items.consum.food.Pasty;
+import pd.items.consum.food.staplefood.Pasty;
 import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;

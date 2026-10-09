@@ -34,6 +34,12 @@ import pd.sprites.CharSprite;
 import pd.messages.InlineText;
 import pd.atlas.items.ConsumFoodFoodDict;
 
+/**
+ * SPSEXPD: 仅旧档兼容保留——破碎版「备用口粮」（餐食天赋可 0 回合进食、回血 + 给暗影斗篷充能）。
+ * 自 0.1.4 起产出点已统一为 SPS 干粮系（天赋宝箱与快速进食改用
+ * {@link pd.items.consum.food.staplefood.NormalRation} 干粮包）；其独有特性按裁决不迁移，
+ * 干粮包只保留速食定位。本类不再被任何产出点使用，删除会让旧档里的该物品加载失败，故保留。
+ */
 public class SupplyRation extends Food {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {

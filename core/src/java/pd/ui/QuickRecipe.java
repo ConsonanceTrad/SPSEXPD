@@ -41,7 +41,7 @@ import pd.items.consum.food.Blandfruit;
 import pd.items.consum.food.Food;
 import pd.items.consum.food.MeatPie;
 import pd.items.consum.food.MysteryMeat;
-import pd.items.consum.food.Pasty;
+import pd.items.consum.food.staplefood.Pasty;
 import pd.items.consum.food.StewedMeat;
 import pd.items.consum.food.staplefood.NormalRation;
 import pd.items.consum.food.staplefood.OverpricedRation;

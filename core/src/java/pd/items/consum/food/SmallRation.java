@@ -27,6 +27,12 @@ import pd.actors.buffs.Hunger;
 import pd.messages.InlineText;
 import pd.atlas.items.ConsumFoodFoodDict;
 
+/**
+ * SPSEXPD: 仅旧档兼容保留——破碎版「小包口粮」。
+ * 自 0.1.4 起产出点已统一为 SPS 干粮系（商店货架改用
+ * {@link pd.items.consum.food.staplefood.OverpricedRation} 干粮小包），本类不再被任何产出点使用；
+ * 删除会让旧档里的该物品加载失败，故保留。
+ */
 public class SmallRation extends Food {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {

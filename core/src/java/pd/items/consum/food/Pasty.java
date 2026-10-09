@@ -45,6 +45,12 @@ import pd.utils.Holiday;
 import render.noosa.audio.Sample;
 import pd.messages.InlineText;
 
+/**
+ * SPSEXPD: 仅旧档兼容保留——破碎版「节日馅饼」（10 节日表）。
+ * 自 0.1.4 起产出点与炼金材料判定已统一为 SPS 节日馅饼
+ * {@link pd.items.consum.food.staplefood.Pasty}（秘密储藏室、MeatPie 配方、QuickRecipe 预览），
+ * 本类不再被任何产出点使用；删除会让旧档里的该物品加载失败，故保留。
+ */
 public class Pasty extends Food {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
