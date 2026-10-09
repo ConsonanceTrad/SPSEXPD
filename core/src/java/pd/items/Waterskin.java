@@ -386,6 +386,11 @@ public class Waterskin extends Item {
 				return;
 			}
 
+			//SPSEXPD: 强化不解除诅咒——Weapon/Armor/Ring/Wand 的 upgrade() 里写死了 cursed = false，
+			//这里前后保存/还原诅咒状态（连"已知"标记一起，避免顺手把诅咒揭示出来）
+			boolean wasCursed = item.cursed;
+			boolean curseKnown = item.cursedKnown;
+
 			int levels = 0;
 			while (item.level() < threshold && totalDew() >= cost) {
 				int upgrades = 1 + Random.Int(3);
@@ -396,6 +401,11 @@ public class Waterskin extends Item {
 			if (levels <= 0) return;
 
 			if (item.level() > 14) item.identify();
+
+			//SPSEXPD: 还原诅咒（upgrade() 与 identify() 都会改它，强化既不解咒也不揭示）
+			item.cursed = wasCursed;
+			item.cursedKnown = curseKnown;
+
 			fillCrystalVial(curUser);
 			Badges.validateItemLevelAquired(item);
 			curUser.sprite.operate(curUser.pos);
