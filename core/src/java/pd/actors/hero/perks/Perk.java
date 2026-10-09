@@ -81,6 +81,39 @@ public abstract class Perk implements Bundlable {
 	public void onLose() {
 	}
 
+	//SPSEXPD: ---- 属性增幅钩子（统一定义层 HeroStats 累加） ----------------
+	//子类覆写即贡献加值；默认 0 表示不影响该属性。全部为纯计算，不得有副作用。
+
+	/** 物理伤害加成（百分比，0.1 = +10%） */
+	public float physicalDamageBonus() {
+		return 0f;
+	}
+
+	/** 某系元素伤害加成（百分比） */
+	public float elementBonus(pd.actors.damagetype.Element element) {
+		return 0f;
+	}
+
+	/** 纯粹伤害加成（百分比） */
+	public float pureDamageBonus() {
+		return 0f;
+	}
+
+	/** 暴击倍率加成（加法，0.1 = 暴击倍率 +0.1） */
+	public float critMultiplierBonus() {
+		return 0f;
+	}
+
+	/** 受到某系元素伤害的减免（百分比，0.2 = 减免 20%） */
+	public float elementResistance(pd.actors.damagetype.Element element) {
+		return 0f;
+	}
+
+	/** 受到魔法伤害的减免（百分比） */
+	public float magicResistance() {
+		return 0f;
+	}
+
 	public String title() {
 		return Messages.get(this, "title");
 	}

@@ -28,6 +28,12 @@ public class ExtraMagicalResistance extends Perk {
 		return level() * 0.15f + 0.05f;
 	}
 
+	//SPSEXPD: 走统一属性层（HeroStats.magicResistance 累加本钩子）
+	@Override
+	public float magicResistance() {
+		return ratio();
+	}
+
 	@Override
 	public String description() {
 		return pd.messages.Messages.get(this, "desc", num(Math.round(ratio() * 100)));

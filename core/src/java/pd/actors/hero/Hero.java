@@ -473,15 +473,9 @@ public class Hero extends Char {
 				+ (arcane == null ? 0 : Math.max(5, arcane.level()));
 	}
 
-	//SPSXPD: 魔法抗性（目前由特质提供，后续可扩展装备/护甲加成）
+	//SPSEXPD: 魔法抗性 —— 收口到统一属性层 HeroStats（特质经 Perk.magicResistance() 钩子贡献）
 	public float magicalResistance() {
-		float r = 0f;
-		if (heroPerk != null) {
-			pd.actors.hero.perks.ExtraMagicalResistance m =
-					heroPerk.get(pd.actors.hero.perks.ExtraMagicalResistance.class);
-			if (m != null) r += m.ratio();
-		}
-		return Math.min(0.9f, r);
+		return pd.actors.hero.HeroStats.magicResistance(this);
 	}
 
 	public int STR() {
