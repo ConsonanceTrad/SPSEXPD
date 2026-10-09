@@ -1197,10 +1197,19 @@ tasks.register('verifyIconDict', Exec) {
 	commandLine 'powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', 'tools/gen-atlas-dict.ps1', '-Check'
 }
 
+//SPSEXPD: 图集网格一致性——坐标条目（col/row）必须与图集像素位置对得上，改图/打包后先跑它
+tasks.register('verifyAtlasGrid', Exec) {
+	group = 'verification'
+	description = '校验图集的坐标条目（col/row）与 frames 格子、像素一致（需 PowerShell）'
+	workingDir rootProject.projectDir
+	commandLine 'powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', 'tools/verify-atlas-grid.ps1'
+}
+
 tasks.register('verifySpsRelease') {
     group = 'verification'
     description = '执行SPS-SPD发布前全部内容与机制检查。'
 	dependsOn 'verifyIconDict'
+	dependsOn 'verifyAtlasGrid'
 	dependsOn ':core:verifySpsUnstableSpellbook'
 	dependsOn ':core:verifySpsEyeOfSkadi'
 	dependsOn ':core:verifySpsNoomlinCrown'
