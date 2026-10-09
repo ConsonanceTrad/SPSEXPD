@@ -996,6 +996,17 @@ public abstract class Char extends Actor {
 		if (buff(HighVoice.class) != null && Random.Int(10) == 0) damage *= 0.8f;
 		if (buff(MagicWeak.class) != null && isLegacyMagicSource(src)) damage *= 1.5f;
 
+		//SPSEXPD: 英雄受击端的元素抗性/魔法抗性（统一属性层 HeroStats）：
+		//元素伤害按对应系抗性减免，其余魔法来源按魔法抗性减免；两者均为 0 时不改变任何行为
+		if (this instanceof Hero) {
+			pd.actors.damagetype.Element element = pd.actors.damagetype.Element.of(src);
+			if (element != null) {
+				damage *= pd.actors.hero.HeroStats.elementTakenMultiplier((Hero) this, element);
+			} else if (isLegacyMagicSource(src)) {
+				damage *= pd.actors.hero.HeroStats.magicTakenMultiplier((Hero) this);
+			}
+		}
+
 		//if dmg is from a character we already reduced it in Char.attack
 		if (!(src instanceof Char)) {
 			if (Dungeon.hero.alignment == alignment

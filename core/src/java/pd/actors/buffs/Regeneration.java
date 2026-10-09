@@ -81,7 +81,7 @@ public class Regeneration extends Buff {
 				}
 				if (((Hero)target).subClass == HeroSubClass.PASTOR) delay /= 1.25f;
 
-				partialRegen += 1f / delay;
+				partialRegen += (1f + regenBonus()) / delay;
 
 				if (partialRegen >= 1) {
 					target.HP += (int)partialRegen;
@@ -107,6 +107,11 @@ public class Regeneration extends Buff {
 	
 	public int regencap(){
 		return target.HT;
+	}
+
+	//SPSEXPD: 生命回复速度加成（统一属性层 HeroStats —— 「快速再生」等特质此前只写不读）
+	private float regenBonus() {
+		return target instanceof Hero ? pd.actors.hero.HeroStats.regenBonus((Hero) target) : 0f;
 	}
 
 	public static boolean regenOn(){

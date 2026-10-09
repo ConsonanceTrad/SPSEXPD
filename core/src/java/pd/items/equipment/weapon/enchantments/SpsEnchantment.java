@@ -21,10 +21,21 @@ abstract class SpsEnchantment extends Weapon.Enchantment {
 
 	protected final void elementalDamage(Weapon weapon, Char attacker, Char defender,
 			float scale, Object damageType) {
-		defender.damage((int)(legacyRoll(weapon, attacker) * scale), damageType);
+		defender.damage(applyBonus(attacker, (int)(legacyRoll(weapon, attacker) * scale), damageType), damageType);
 		if (hasClover(attacker) && Random.Int(2) == 1) {
-			defender.damage((int)(legacyRoll(weapon, attacker) * 0.50f), damageType);
+			defender.damage(applyBonus(attacker, (int)(legacyRoll(weapon, attacker) * 0.50f), damageType), damageType);
 		}
+	}
+
+	//SPSEXPD: 英雄的元素伤害加成（统一属性层 HeroStats），非英雄攻击者原样返回
+	private static int applyBonus(Char attacker, int dmg, Object damageType) {
+		if (attacker instanceof pd.actors.hero.Hero && dmg > 0) {
+			pd.actors.damagetype.Element e = pd.actors.damagetype.Element.of(damageType);
+			if (e != null) {
+				return pd.actors.hero.HeroStats.applyElement((pd.actors.hero.Hero) attacker, dmg, e);
+			}
+		}
+		return dmg;
 	}
 
 	protected static boolean hasClover(Char attacker) {

@@ -999,6 +999,9 @@ public class Hero extends Char {
 		if (buff(BloodAngry.class) != null) dmg = (int)(dmg * 1.5f);
 		if (buff(Rhythm2.class) != null) dmg = Math.round(dmg * 1.2f);
 
+		//SPSEXPD: 物理伤害加成（统一属性层 HeroStats，近战/投掷共用本入口）
+		dmg = pd.actors.hero.HeroStats.applyPhysical(this, dmg);
+
 		if (dmg < 0) dmg = 0;
 		return dmg;
 	}
