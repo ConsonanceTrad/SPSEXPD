@@ -9,13 +9,15 @@ import pd.actors.hero.perks.PerkImageSheet;
 import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.items.Torch;
+import pd.items.equipment.bags.Bag;
 import pd.items.equipment.bags.ShoppingCart;
 import pd.items.Waterskin;
 import pd.items.consum.food.Food;
 import pd.items.consum.potions.PotionOfStrength;
-import pd.items.consum.food.Pasty;
-import pd.items.consum.food.SmallRation;
-import pd.items.consum.food.SupplyRation;
+//SPSEXPD: 起用 SPS 干粮系（干粮包/干粮小包/节日馅饼），不再引用破碎版食物类
+import pd.items.consum.food.staplefood.NormalRation;
+import pd.items.consum.food.staplefood.OverpricedRation;
+import pd.items.consum.food.staplefood.Pasty;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
@@ -69,7 +71,7 @@ public class QuickActionBar extends Component {
 		add( btnTalent );
 
 		//饥饿进食
-		btnEat = new ActionButton( new ItemSprite( new SupplyRation() ) ) {
+		btnEat = new ActionButton( new ItemSprite( new NormalRation() ) ) {
 			@Override
 			protected void onClick() {
 				doEat();
@@ -213,9 +215,9 @@ public class QuickActionBar extends Component {
 		Hero hero = Dungeon.hero;
 		if (hero == null) return;
 
-		//1) 干粮 > 小干粮 > 小包干粮，直接进食
-		Food food = findFood( hero, SupplyRation.class );
-		if (food == null) food = findFood( hero, SmallRation.class );
+		//1) 干粮包 > 干粮小包 > 节日馅饼，直接进食（统一为 SPS 干粮系）
+		Food food = findFood( hero, NormalRation.class );
+		if (food == null) food = findFood( hero, OverpricedRation.class );
 		if (food == null) food = findFood( hero, Pasty.class );
 		if (food != null) {
 			food.execute( hero, Food.AC_EAT );
@@ -233,10 +235,20 @@ public class QuickActionBar extends Component {
 		GameScene.show( new WndBag( hero.belongings.backpack ) );
 	}
 
+	/** SPSEXPD: 找一件可进食的指定类型食物——递归覆盖所有包裹（含只装食物的购物车）。 */
 	private Food findFood( Hero hero, Class<? extends Food> type ) {
-		for (Item item : hero.belongings) {
+		return findFoodIn( hero, hero.belongings.backpack, type );
+	}
+
+	private Food findFoodIn( Hero hero, Bag bag, Class<? extends Food> type ) {
+		if (bag == null) return null;
+		for (Item item : bag.items) {
 			if (type.isInstance( item ) && item.actions( hero ).contains( Food.AC_EAT )) {
 				return (Food) item;
+			}
+			if (item instanceof Bag) {
+				Food nested = findFoodIn( hero, (Bag) item, type );
+				if (nested != null) return nested;
 			}
 		}
 		return null;
