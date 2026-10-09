@@ -41,6 +41,12 @@ import pd.items.equipment.armor.glyphs.Camouflage;
 import pd.items.equipment.artifacts.NaturalAxe;
 import pd.items.equipment.artifacts.SandalsOfNature;
 import pd.items.consum.food.Berry;
+import pd.items.consum.food.vegetable.Carrot;
+import pd.items.consum.food.vegetable.Lettuce;
+import pd.items.misc.DryTwig;
+import pd.items.misc.FreshGrass;
+import pd.plants.MiniSeed;
+import pd.items.misc.WillOWisp;
 import pd.items.equipment.trinkets.PetrifiedSeed;
 import pd.levels.Level;
 import pd.levels.MiningLevel;
@@ -179,6 +185,9 @@ public class HighGrass {
 				dropLoot(level, Generator.random(Generator.Category.SEED), pos);
 			}
 
+			//SPSEXPD: 踩踏高草的额外收益——鲜草/枯枝/浆果/迷你种子/磷火/胡萝卜/莴苣
+			dropSpsHarvest( level, pos );
+
 			if (ch != null) {
 				Camouflage.activate(ch, ch.glyphLevel(Camouflage.class));
 			}
@@ -201,5 +210,22 @@ public class HighGrass {
 		SandalsOfNature.Naturalism sandals = ch.buff(SandalsOfNature.Naturalism.class);
 		if (sandals == null || sandals.isCursed() || sandals.itemLevel() < 1) return 0;
 		return 16 - sandals.itemLevel();
+	}
+
+	/**
+	 * SPSEXPD: 踩踏高草的新收益——材料与野生食材。
+	 *
+	 * <p>与原有的种子/露珠掷骰互不影响；概率是初始值，可按手感调整。
+	 * 浆果抽取 {@link Generator.Category#SPS_BERRY}（黑莓/蓝莓/云莓/月亮浆果，不含满月浆果）。
+	 */
+	private static void dropSpsHarvest( Level level, int pos ) {
+		if (level == null) return;
+		if (Random.Float() < 0.10f) dropLoot(level, new FreshGrass(), pos);
+		if (Random.Float() < 0.08f) dropLoot(level, new DryTwig(), pos);
+		if (Random.Float() < 0.03f) dropLoot(level, Generator.random(Generator.Category.SPS_BERRY), pos);
+		if (Random.Float() < 0.02f) dropLoot(level, new MiniSeed(), pos);
+		if (Random.Float() < 0.02f) dropLoot(level, new WillOWisp(), pos);
+		if (Random.Float() < 0.02f) dropLoot(level, new Carrot(), pos);
+		if (Random.Float() < 0.02f) dropLoot(level, new Lettuce(), pos);
 	}
 }

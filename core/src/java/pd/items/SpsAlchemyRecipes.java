@@ -17,6 +17,9 @@ import pd.items.consum.food.staplefood.OverpricedRation;
 import pd.items.consum.food.staplefood.StapleFood;
 import pd.items.consum.food.vegetable.*;
 import pd.items.consum.medicine.*;
+import pd.items.misc.DryTwig;
+import pd.items.misc.FreshGrass;
+import pd.items.misc.Tinder;
 import pd.items.consum.potions.Potion;
 import pd.items.consum.potions.PotionOfConfusion;
 import pd.items.consum.potions.elixirs.WishPotion;
@@ -181,6 +184,8 @@ public final class SpsAlchemyRecipes {
 			recipe(HighEnergySpore.class, DewSpore.class),
 			recipe(WishPetal.class, RainbowPansy.class),
 			recipe(HormoneSolution.class, Sorrel.class),
+			//SPSEXPD: 鲜草 + 枯枝 → 火种（踩踏高草收获的材料，用途后续接入）
+			recipe(Tinder.class, FreshGrass.class, DryTwig.class),
 			//SPSEXPD: 许愿魔药——混乱药剂 + 4 种二次加工产物
 			WISH_POTION
 	);
