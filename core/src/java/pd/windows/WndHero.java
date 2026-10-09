@@ -218,7 +218,10 @@ public class WndHero extends WndTabbed {
 		@Override
 		protected void layout() {
 			super.layout();
-			if (pane != null) pane.setRect( 0, 0, width, height );
+			//SPSEXPD: 构造期（本组件还没挂到窗口上）时 camera() 为 null，不能布局——
+			//ScrollPane.layout() 需要用窗口相机定位其内容，此时会 NPE（实测崩溃）。
+			//挂上窗口后，WndHero 构造里 add + resize 之后的 stats.setRect(...) 会再走一次这里。
+			if (pane != null && camera() != null) pane.setRect( 0, 0, width, height );
 		}
 		
 		public StatsTab() {
