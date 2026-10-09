@@ -60,6 +60,7 @@ public class HornOfPlenty extends Artifact {
 			.t("prompt", "选择一个食物")
 			.t("swallow", "号角吞噬了%1$s，充能增加%2$d点。")
 			.t("ration", "号角把充能凝成了一包干粮。")
+			.t("ration_many", "号角把充能凝成了%1$d包干粮。")
 			.t("auto_feed", "号角在你极度饥饿时自动喂了你一包干粮。")
 			.t("levelup", "号角凝成干粮后成长了一级。")
 			.t("maxlevel", "号角的成长已经到达极限，但它仍会继续产出干粮。")
@@ -74,9 +75,9 @@ public class HornOfPlenty extends Artifact {
 	public static final int RATION_COST = 6;
 	/**
 	 * SPSEXPD: 时间充能整体倍率。1.0 时 0 级号角要 320 回合才攒 1 点充能、
-	 * 1920 回合才凝出 1 包干粮（6 点充能），实测太慢，故提到 8 倍。
+	 * 1920 回合才凝出 1 包干粮（6 点充能）。先提到 8 倍后实测太快，按用户裁决降到 1/4（= 2 倍）。
 	 */
-	public static final float RECHARGE_MULTIPLIER = 8f;
+	public static final float RECHARGE_MULTIPLIER = 2f;
 	private static final String OBSOLETE_STORED_ENERGY = "stored";
 
 	public static final String AC_SWALLOW = "SWALLOW";
@@ -138,8 +139,13 @@ public class HornOfPlenty extends Artifact {
 		return gained;
 	}
 
-	/** SPSEXPD: 充能每满 RATION_COST 点自动凝成 1 包干粮，每产出一包神器成长 1 级。 */
+	/**
+	 * SPSEXPD: 充能每满 RATION_COST 点自动凝成 1 包干粮，每产出一包神器成长 1 级。
+	 * 整组吞噬可能一次凝成很多包：文本合并为一条（产出即代表升级，故不再单独提示升级）。
+	 */
 	private void convertRations(Hero hero) {
+		int produced = 0;
+		boolean reachedCap = false;
 		while (charge >= RATION_COST) {
 			charge -= RATION_COST;
 
@@ -148,19 +154,23 @@ public class HornOfPlenty extends Artifact {
 			if (!collected && Dungeon.level != null && hero != null) {
 				Dungeon.level.drop(ration, hero.pos);
 			}
-			GLog.p(Messages.get(this, "ration"));
+			produced++;
 
 			if (level() < levelCap) {
 				upgrade(1);
 				if (level() >= levelCap) {
 					level(levelCap);
-					GLog.p(Messages.get(this, "maxlevel"));
-				} else {
-					GLog.p(Messages.get(this, "levelup"));
+					reachedCap = true;
 				}
 			}
-			updateImage();
 		}
+		if (produced <= 0) return;
+
+		updateImage();
+		GLog.p(produced == 1
+				? Messages.get(this, "ration")
+				: Messages.get(this, "ration_many", produced));
+		if (reachedCap) GLog.p(Messages.get(this, "maxlevel"));
 	}
 
 	//SPSEXPD: 兼容隐藏法术（SpiritForm）——号角吐出一口食物，不耗充能
