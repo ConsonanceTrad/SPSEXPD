@@ -119,4 +119,6 @@ public final class PerkImageSheet {
 	public static final int PRECISE_ASSAULT = 115;
 	public static final int TWIN_UPGRADES = 116;
 	public static final int SEARING_LIGHT = 117;
+	//SPSEXPD: 幸运儿（流浪者的幸运礼物）——复用「作者的祝福」帧
+	public static final int BORN_LUCKY = LUCK_FROM_ME;
 }

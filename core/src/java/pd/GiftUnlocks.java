@@ -89,7 +89,7 @@ public class GiftUnlocks {
 			.t("$giftunlock.homeless_base.title", "流浪者通识")
 			.t("$giftunlock.homeless_base.desc", "信徒，为理想而流浪")
 			.t("$giftunlock.homeless_lucky.title", "流浪者拾荒心得分享")
-			.t("$giftunlock.homeless_lucky.desc", "初始幸运+1")
+			.t("$giftunlock.homeless_lucky.desc", "开局获得特质：幸运儿（幸运 +1）")
 			.t("$giftunlock.homeless_ht.title", "流浪者生存心得分享")
 			.t("$giftunlock.homeless_ht.desc", "初始生命上限+2")
 			.t("$giftunlock.homeless_plant.title", "流浪者采集心得分享")

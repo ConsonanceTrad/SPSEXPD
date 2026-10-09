@@ -1303,7 +1303,8 @@ public abstract class Mob extends Char {
 		}
 		
 		//ring of wealth logic
-		if (Ring.getBuffedBonus(Dungeon.hero, RingOfWealth.Wealth.class) > 0) {
+		//SPSEXPD: 触发条件改用等效财富等级（戒指等级 + 幸运折算 1/2）
+		if (RingOfWealth.wealthBonus(Dungeon.hero) > 0) {
 			int rolls = 1;
 			if (properties.contains(Property.BOSS)) rolls = 15;
 			else if (properties.contains(Property.MINIBOSS)) rolls = 5;

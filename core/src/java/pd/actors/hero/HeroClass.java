@@ -424,12 +424,9 @@ public enum HeroClass {
 		hero.exp += GiftUnlocks.expGiftBonus();
 		SPDSettings.sCoinAdd( GiftUnlocks.sCoinGiftBonus() );
 
-		//初始幸运：以 1 级幸运徽章计数（LuckyBadge.luckBonus 按等级计入）
+		//初始幸运：改为发放「幸运儿」特质（幸运 +1）——幸运胸章现已固定 +3 且不可强化
 		if (GiftUnlocks.luckyGiftBonus() > 0) {
-			pd.items.misc.LuckyBadge badge =
-					new pd.items.misc.LuckyBadge();
-			badge.identify().upgrade( GiftUnlocks.luckyGiftBonus() );
-			badge.collect();
+			pd.actors.hero.perks.PerkGrants.grant(hero, new pd.actors.hero.perks.BornLucky());
 		}
 
 		for (int i = 0; i < GiftUnlocks.seedGiftCount(); i++) {

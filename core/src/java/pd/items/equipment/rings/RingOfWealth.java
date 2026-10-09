@@ -26,11 +26,13 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.CounterBuff;
+import pd.actors.hero.Hero;
 import pd.effects.Flare;
 import pd.items.Generator;
 import pd.items.Gold;
 import pd.items.Honeypot;
 import pd.items.Item;
+import pd.items.misc.LuckyBadge;
 import pd.items.equipment.armor.Armor;
 import pd.items.equipment.bombs.Bomb;
 import pd.items.consum.potions.PotionOfExperience;
@@ -63,7 +65,7 @@ public class RingOfWealth extends Ring {
 			.t("typical_stats", "佩戴这枚戒指时，你的整体幸运程度通常会提升_%s%%_。")
 			.t("combined_stats", "你已装备的戒指正联结它们的力量，一共增加了你_%s%%_的幸运。")
 			.t("upgrade_stat_name_1", "幸运加成")
-			.t("desc", "这枚戒指有如磁石般的招财功效，佩戴者有更大的机率从敌人身上或各类宝箱中取得较有价值的道具。被诅咒的戒指反而会降低发现宝物的可能性。");
+			.t("desc", "这枚戒指有如磁石般的招财功效，佩戴者有更大的机率从敌人身上或各类宝箱中取得较有价值的道具。戒指每提升 1 级都会为你带来 1 点幸运。被诅咒的戒指反而会降低发现宝物的可能性。");
 	}
 
 
@@ -118,12 +120,25 @@ public class RingOfWealth extends Ring {
 		return new Wealth();
 	}
 	
+	/**
+	 * SPSEXPD: 财富机制的等效等级。
+	 *
+	 * <p>戒指自身的 buffedLvl 保持原版全额效果；其余来源的幸运值按「每 2 点幸运 = 1 级」折算后叠加。
+	 * 幸运值里已经包含戒指等级（见 LuckyBadge.luckBonus），这里把戒指部分扣掉以免重复计入。
+	 */
+	public static int wealthBonus( Char target ){
+		if (target == null) return 0;
+		int ring = getBuffedBonus(target, Wealth.class);
+		int luck = target instanceof Hero ? LuckyBadge.luckBonus((Hero) target) : 0;
+		return ring + Math.max(0, luck - ring) / 2;
+	}
+
 	public static float dropChanceMultiplier( Char target ){
-		return (float)Math.pow(1.20, getBuffedBonus(target, Wealth.class));
+		return (float)Math.pow(1.20, wealthBonus(target));
 	}
 	
 	public static ArrayList<Item> tryForBonusDrop(Char target, int tries ){
-		int bonus = getBuffedBonus(target, Wealth.class);
+		int bonus = wealthBonus(target);
 
 		if (bonus <= 0) return null;
 

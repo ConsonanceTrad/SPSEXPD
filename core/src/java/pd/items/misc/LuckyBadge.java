@@ -8,7 +8,10 @@ import pd.actors.buffs.LuckyMoment;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroClass;
 import pd.actors.hero.HeroSubClass;
+import pd.actors.hero.perks.BornLucky;
 import pd.items.Item;
+import pd.items.equipment.rings.Ring;
+import pd.items.equipment.rings.RingOfWealth;
 import render.utils.math.Random;
 import pd.messages.InlineText;
 
@@ -18,12 +21,14 @@ public class LuckyBadge extends Item {
 	static {
 		InlineText.of(LuckyBadge.class)
 			.t("name", "幸运胸章")
-			.t("desc", "购买房产后商人老板送你的纪念品之一，据说可以小幅提升佩戴者的运气，并且可以被强化。");
+			.t("desc", "购买房产后商人老板送你的纪念品之一。固定提供 3 点幸运，且无法被强化。");
 	}
 
 
 
 
+	/** SPSEXPD: 幸运胸章固定提供的幸运点数（不再随等级成长）。 */
+	public static final int BADGE_LUCK = 3;
 	public static final int MAX_ITEM_LUCK = 10;
 	public static final int MAX_EXTRA_ITEMS = 64;
 
@@ -33,13 +38,18 @@ public class LuckyBadge extends Item {
 	}
 
 	@Override public boolean isIdentified() { return true; }
-	@Override public boolean isUpgradable() { return true; }
+	//SPSEXPD: 幸运胸章不再可以强化——固定提供 3 点幸运
+	@Override public boolean isUpgradable() { return false; }
 
 	public static int luckBonus(Hero hero) {
 		if (hero == null) return 0;
 		int bonus = 0;
-		LuckyBadge badge = hero.belongings.getItem(LuckyBadge.class);
-		if (badge != null) bonus += badge.level();
+		//SPSEXPD: 持有幸运胸章即固定 +3（原按徽章等级计入）
+		if (hero.belongings != null && hero.belongings.getItem(LuckyBadge.class) != null) bonus += BADGE_LUCK;
+		//SPSEXPD: 财富之戒每 +1 级 = +1 点幸运
+		bonus += Ring.getBuffedBonus(hero, RingOfWealth.Wealth.class);
+		//SPSEXPD: 「幸运儿」特质
+		bonus += BornLucky.luckOf(hero);
 		if (hero.heroClass == HeroClass.SOLDIER) bonus += 5;
 		if (hero.subClass == HeroSubClass.SUPERSTAR) bonus += 3;
 		bonus += 3 * hero.buffs(AflyBless.class).size();
