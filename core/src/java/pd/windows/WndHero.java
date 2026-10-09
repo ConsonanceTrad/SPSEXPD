@@ -116,9 +116,14 @@ public class WndHero extends WndTabbed {
 		//SPSEXPD: 高度 = 属性页内容高度，夹在 [MIN_HEIGHT, 屏幕高-20] 之间
 		int height = Math.max( MIN_HEIGHT, Math.min( Math.round(stats.height()),
 				PixelScene.uiCamera == null ? MIN_HEIGHT : (int)PixelScene.uiCamera.height - 20 ) );
-		stats.setRect( 0, 0, WIDTH, height );
 
 		resize( WIDTH, height );
+
+		//SPSEXPD: 属性页必须在 resize 之后再定位。
+		//它内部用 ScrollPane，ScrollPane 会在 layout 时按所属窗口的相机定位内容；
+		//若在 resize 前定位，内容会被绑到窗口的初始（未 resize，居中）相机上，
+		//整页就会从画面中心开始向右下渲染。
+		stats.setRect( 0, 0, WIDTH, height );
 
 		talents = new TalentsTab();
 		add(talents);
@@ -319,6 +324,8 @@ public class WndHero extends WndTabbed {
 
 			pos += GAP;
 			content.setSize( WIDTH, pos );
+			//SPSEXPD: 内容尺寸变了，滚动视口要跟着重新布局（视口裁剪与滚动上限）
+			layout();
 		}
 
 		//SPSEXPD: 百分比加成格式化（0 显示 "0%"，正数带 +）
