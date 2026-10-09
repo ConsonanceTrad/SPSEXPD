@@ -21,6 +21,7 @@
 
 package pd.items;
 
+import pd.atlas.IconEntry;
 import pd.atlas.items.SpecificCurrencyDict;
 
 import pd.Assets;
@@ -51,9 +52,20 @@ public class Gold extends Item {
 
 	public static final String AC_MAKEBAG = "MAKEBAG";
 
+	//SPSEXPD: 地面金币堆小于该值时改用单枚金币图标（currency 图集 C3_R1）
+	public static final int SMALL_PILE_AMOUNT = 75;
+
 	{
 		image = SpecificCurrencyDict.GOLD_0;
 		stackable = true;
+	}
+
+	//SPSEXPD: 地面金币堆的图标——小额用单枚金币，其余用金币堆。仅由 ItemSprite 在地面堆
+	// 渲染时调用（背包/商店等 UI 仍用金币堆图标，不受堆金额影响）。
+	public static IconEntry pileImage( int amount ) {
+		return amount < SMALL_PILE_AMOUNT
+				? SpecificCurrencyDict.CURRENCY_C3_R1
+				: SpecificCurrencyDict.GOLD_0;
 	}
 	
 	public Gold() {

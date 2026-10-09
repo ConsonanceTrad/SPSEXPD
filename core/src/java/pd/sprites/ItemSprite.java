@@ -212,7 +212,9 @@ public class ItemSprite extends MovieClip {
 	}
 
 	public ItemSprite view( Item item ){
-		view(item.image(), item.glowing());
+		//SPSEXPD: 地面金币堆按数量换图标（小额改用单枚金币，见 Gold.pileImage）
+		view( heap != null && item instanceof Gold ? Gold.pileImage( item.quantity() ) : item.image(),
+				item.glowing() );
 		//SPSEXPD: 抬升由物品自己决定（默认 0 = 贴格底）。必须在 frame() 之后赋值，否则会被重置。
 		perspectiveRaise = item.spriteRaise();
 		Emitter emitter = item.emitter();

@@ -20,4 +20,8 @@ public final class SpecificCurrencyDict {
 	public static final IconEntry CURRENCY_C2_R1 = new IconEntry("sprites/items/specific/currency.png", new int[]{16, 0, 16, 16}, 7108);
 	/** semantic alias for CURRENCY_C2_R1 */
 	public static final IconEntry ENERGY_0 = CURRENCY_C2_R1;
+	/** GOLD#1 - 小额金币（单枚），地面金币堆 <75 时使用 */
+	public static final IconEntry CURRENCY_C3_R1 = new IconEntry("sprites/items/specific/currency.png", new int[]{35, 3, 9, 10}, 7510);
+	/** semantic alias for CURRENCY_C3_R1 */
+	public static final IconEntry GOLD_1 = CURRENCY_C3_R1;
 }
