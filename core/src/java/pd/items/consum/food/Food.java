@@ -116,7 +116,32 @@ public class Food extends Item {
 	protected void eatSFX(){
 		Sample.INSTANCE.play( Assets.Sounds.EAT );
 	}
-
+	
+	/**
+	 * SPSEXPD: 与食用（{@link #AC_EAT}）效果相同的进食——扣物品、天赋、统计、音效与进食特效都照常，
+	 * 但不消耗回合，也不占用英雄的 busy 动画。供号角「极度饥饿时自动喂食」使用。
+	 */
+	public void eatQuietly( Hero hero ) {
+		if (hero == null || hero.belongings == null) return;
+		
+		detach( hero.belongings.backpack );
+		Catalog.countUse(getClass());
+		
+		satisfy(hero);
+		GLog.i( Messages.get(this, "eat_msg") );
+		
+		//SPSEXPD: 无头校验等场景下 sprite 可能为 null（SpellSprite.show 会直接读 ch.sprite）
+		if (hero.sprite != null) {
+			SpellSprite.show( hero, SpellSprite.FOOD );
+		}
+		eatSFX();
+		
+		Talent.onFoodEaten(hero, energy, this);
+		
+		Statistics.foodEaten++;
+		Badges.validateFoodEaten();
+	}
+	
 	protected float eatingTime(){
 		if (Dungeon.hero.hasTalent(Talent.IRON_STOMACH)
 			|| Dungeon.hero.hasTalent(Talent.ENERGIZING_MEAL)

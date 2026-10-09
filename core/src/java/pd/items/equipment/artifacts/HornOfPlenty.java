@@ -60,6 +60,7 @@ public class HornOfPlenty extends Artifact {
 			.t("prompt", "选择一个食物")
 			.t("swallow", "号角吞噬了%1$s，充能增加%2$d点。")
 			.t("ration", "号角把充能凝成了一包干粮。")
+			.t("auto_feed", "号角在你极度饥饿时自动喂了你一包干粮。")
 			.t("levelup", "号角凝成干粮后成长了一级。")
 			.t("maxlevel", "号角的成长已经到达极限，但它仍会继续产出干粮。")
 			.t("desc", "这个号角不能被用来吹奏，不过它会随时间逐渐积蓄食物能量。把食物给它吞噬也能积蓄能量；每积蓄 6 点能量，它就会自动凝成一包干粮，每凝成一包干粮它都会成长一点（成长会加快能量积蓄）。")
@@ -123,12 +124,15 @@ public class HornOfPlenty extends Artifact {
 		}
 	}
 
-	/** SPSEXPD: 吞噬一份食物，按号角价值换充能，随后按需自动凝成干粮。 */
+	/** SPSEXPD: 吞噬整组食物（一次吞掉该堆叠的全部数量），按整组的总号角价值换充能，随后按需自动凝成干粮。 */
 	public int swallow(Hero hero, Food food) {
 		if (hero == null || food == null) return 0;
-		int gained = Math.max(0, food.hornValue);
+		//SPSEXPD: 整组吞噬——单个 hornValue × 堆叠数量（quantity 为 protected，跨包要用 accessor）
+		int count = Math.max(1, food.quantity());
+		int gained = Math.max(0, food.hornValue) * count;
 		charge += gained;
-		GLog.p(Messages.get(this, "swallow", food.name(), gained));
+		String label = count > 1 ? food.name() + " ×" + count : food.name();
+		GLog.p(Messages.get(this, "swallow", label, gained));
 		convertRations(hero);
 		updateQuickslot();
 		return gained;
@@ -226,11 +230,27 @@ public class HornOfPlenty extends Artifact {
 					updateImage();
 					updateQuickslot();
 				}
+				autoFeed();
 			} else {
 				partialCharge = 0;
 			}
 			spend(TICK);
 			return true;
+		}
+
+		/**
+		 * SPSEXPD: 英雄处于「极度饥饿」（Hunger.isStarving）时，自动用背包里的干粮包喂食，不消耗回合。
+		 * 每次 tick 最多喂一包；若修正（无食物挑战 / 诅咒号角）让一包不足以脱离极度饥饿，下一回合会继续喂。
+		 */
+		private void autoFeed() {
+			Hero hero = Dungeon.hero;
+			if (hero == null || hero.belongings == null) return;
+			Hunger hunger = hero.buff(Hunger.class);
+			if (hunger == null || !hunger.isStarving()) return;
+			NormalRation ration = hero.belongings.getItem(NormalRation.class);
+			if (ration == null) return;
+			GLog.p(Messages.get(HornOfPlenty.class, "auto_feed"));
+			ration.eatQuietly(hero);
 		}
 	}
 
@@ -265,7 +285,8 @@ public class HornOfPlenty extends Artifact {
 			hero.busy();
 			hero.spend(TIME_TO_SWALLOW);
 			((HornOfPlenty) curItem).swallow(hero, (Food) item);
-			item.detach(hero.belongings.backpack);
+			//SPSEXPD: 吞掉整组——Item.detach 只会消耗 1 个，整堆吞食要用 detachAll
+			item.detachAll(hero.belongings.backpack);
 		}
 	};
 }
