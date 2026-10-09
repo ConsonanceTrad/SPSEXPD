@@ -757,8 +757,14 @@ public class Dungeon {
 			}
 		}
 		
+		//SPSEXPD: 夜晚视野收窄——无光源时按 5/8 缩放（默认 8 → 5，与旧档/黑暗层的先例缩放一致）；
+		//有光源时仍以 Light.DISTANCE(=6) 兜底，所以夜里点火把仍比白天暗
+		int baseViewDistance = level.viewDistance;
+		if (pd.actors.buffs.FullMoonStrength.isNightNow()){
+			baseViewDistance = Math.max(1, Math.round(5 * baseViewDistance / 8f));
+		}
 		Light light = hero.buff( Light.class );
-		hero.viewDistance = light == null ? level.viewDistance : Math.max( Light.DISTANCE, level.viewDistance );
+		hero.viewDistance = light == null ? baseViewDistance : Math.max( Light.DISTANCE, baseViewDistance );
 
 		//SPSEXPD: 圣者之辉满级——永久 +1 视野
 		pd.items.equipment.artifacts.GoddessRadiance.Recharge radiance =
