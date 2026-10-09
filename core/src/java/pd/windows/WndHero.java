@@ -113,9 +113,13 @@ public class WndHero extends WndTabbed {
 		stats = new StatsTab();
 		add( stats );
 
-		//SPSEXPD: 高度 = 属性页内容高度，夹在 [MIN_HEIGHT, 屏幕高-20] 之间
-		int height = Math.max( MIN_HEIGHT, Math.min( Math.round(stats.height()),
-				PixelScene.uiCamera == null ? MIN_HEIGHT : (int)PixelScene.uiCamera.height - 20 ) );
+		//SPSEXPD: 高度 = 属性页内容高度，上限改为界面高度的 80%（原为 uiCamera.height - 20），
+		//下限保持 MIN_HEIGHT——但屏幕矮时 80% 上限优先，保证窗口不超出界面
+		int maxHeight = PixelScene.uiCamera == null
+				? MIN_HEIGHT
+				: Math.round( PixelScene.uiCamera.height * 0.8f );
+		int height = Math.min( Math.round( stats.height() ), maxHeight );
+		height = Math.max( height, Math.min( MIN_HEIGHT, maxHeight ) );
 
 		resize( WIDTH, height );
 
