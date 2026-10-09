@@ -256,7 +256,11 @@ public class ItemSprite extends MovieClip {
 			case REMAINS:
 				view( SpecificPlaceHolderDict.SOMETHING_0, null ); break;
 			case E_DUST:
-				view( GroundGroundingItemsDict.TREASURE_SPOT, null ); break;
+				view( GroundGroundingItemsDict.TREASURE_SPOT, null );
+				//SPSEXPD: 藏宝地是 16x10 的贴地装饰——原来贴格底显得偏下，改为格内垂直居中
+				//（frame() 会把 perspectiveRaise 归零，所以必须在 view 之后赋值）
+				perspectiveRaise = Math.max( 0f, (SIZE - height()) / (SIZE * 2f) );
+				break;
 			case M_WEB:
 				view( SpecificPlaceHolderDict.SOMETHING_0, null ); break;
 			default:
