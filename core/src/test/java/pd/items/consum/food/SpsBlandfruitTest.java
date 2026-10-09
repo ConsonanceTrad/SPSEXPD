@@ -157,26 +157,26 @@ public final class SpsBlandfruitTest {
 		hunger.affectHunger(1000f);
 		check("MAX".equals(ration.actionCost(Food.AC_EAT, hero)), "已饱时食用角标不是 MAX");
 
-		//饥饿 100 < 口粮 300：能一次补满
+		//饥饿 100 < 干粮包 400：能一次补满
 		hunger.affectHunger(1000f);
 		hunger.affectHunger(-100f);
 		check("MAX".equals(ration.actionCost(Food.AC_EAT, hero)), "能补满时食用角标不是 MAX");
 
-		//饥饿 400 > 口粮 300：显示实际回复量
+		//饥饿 500 > 干粮包 400：显示实际回复量
 		hunger.affectHunger(1000f);
-		hunger.affectHunger(-400f);
-		check("300".equals(ration.actionCost(Food.AC_EAT, hero)), "不能补满时食用角标不是 300");
+		hunger.affectHunger(-500f);
+		check("400".equals(ration.actionCost(Food.AC_EAT, hero)), "不能补满时食用角标不是 400");
 
 		//能量流失挑战：正向收益降至 40%
 		Dungeon.challenges = pd.Challenges.ENERGY_LOST;
-		check("120".equals(ration.actionCost(Food.AC_EAT, hero)), "能量流失下食用角标不是 120");
+		check("160".equals(ration.actionCost(Food.AC_EAT, hero)), "能量流失下食用角标不是 160");
 		Dungeon.challenges = 0;
 
-		//无食物挑战：口粮只恢复 100
+		//无食物挑战：干粮包只恢复 133（400÷3 四舍五入）
 		Dungeon.challenges = pd.Challenges.NO_FOOD;
 		hunger.affectHunger(1000f);
 		hunger.affectHunger(-400f);
-		check("100".equals(ration.actionCost(Food.AC_EAT, hero)), "无食物挑战下食用角标不是 100");
+		check("133".equals(ration.actionCost(Food.AC_EAT, hero)), "无食物挑战下食用角标不是 133");
 		Dungeon.challenges = 0;
 
 		//只有「食用」动作带角标

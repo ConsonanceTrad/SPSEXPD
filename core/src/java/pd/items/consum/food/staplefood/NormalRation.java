@@ -18,7 +18,8 @@ public class NormalRation extends StapleFood {
 
 	{
 		image = ConsumFoodFoodDict.RATION_PACK;
-		energy = 300f;
+		//SPSEXPD: 饱食度 300 -> 400——号角要 6 点充能才凝出一包，干粮包该更实在
+		energy = 400f;
 	}
 
 	/** SPSEXPD: 干粮是速食——食用只花 2 回合（覆盖 Food 的通用进食时间）。 */

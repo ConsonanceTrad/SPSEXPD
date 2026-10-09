@@ -71,6 +71,11 @@ public class HornOfPlenty extends Artifact {
 	private static final float ENERGY_PER_CHARGE = 40f;
 	/** 每这么多点充能自动凝成 1 包干粮。 */
 	public static final int RATION_COST = 6;
+	/**
+	 * SPSEXPD: 时间充能整体倍率。1.0 时 0 级号角要 320 回合才攒 1 点充能、
+	 * 1920 回合才凝出 1 包干粮（6 点充能），实测太慢，故提到 8 倍。
+	 */
+	public static final float RECHARGE_MULTIPLIER = 8f;
 	private static final String OBSOLETE_STORED_ENERGY = "stored";
 
 	public static final String AC_SWALLOW = "SWALLOW";
@@ -211,7 +216,8 @@ public class HornOfPlenty extends Artifact {
 		@Override
 		public boolean act() {
 			if (!cursed) {
-				partialCharge += 0.25f + 0.015f * level();
+				//SPSEXPD: 时间充能速率 = (0.25 + 0.015×等级) × RECHARGE_MULTIPLIER
+				partialCharge += (0.25f + 0.015f * level()) * RECHARGE_MULTIPLIER;
 				if (partialCharge >= 80f) {
 					charge++;
 					partialCharge -= 80f;

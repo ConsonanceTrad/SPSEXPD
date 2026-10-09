@@ -53,7 +53,8 @@ public final class SpsBasicFoodTest {
 		check(Arrays.equals(Generator.Category.FOOD.defaultProbs, new float[]{8, 2, 5}), "普通食物牌组权重错误");
 		NormalRation ration = new NormalRation();
 		OverpricedRation small = new OverpricedRation();
-		check(ration.energy == 300f && ration.image == SpecificPlaceHolderDict.SOMETHING_0 && ration.value() == 5, "干粮包定义错误");
+		//SPSEXPD: 干粮包饱食度已由 300 提升到 400（image 断言仍是既有基线红项，未动）
+		check(ration.energy == 400f && ration.image == SpecificPlaceHolderDict.SOMETHING_0 && ration.value() == 5, "干粮包定义错误");
 		check(small.energy == 200f && small.image == SpecificPlaceHolderDict.SOMETHING_0 && small.value() == 3, "干粮小包定义错误");
 	}
 

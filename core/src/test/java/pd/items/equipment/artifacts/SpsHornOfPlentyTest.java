@@ -191,10 +191,11 @@ public final class SpsHornOfPlentyTest {
 		TestHorn slow = new TestHorn();
 		HornOfPlenty.hornRecharge slowRecharge = slow.new hornRecharge();
 		check(slowRecharge.attachTo(hero), "零级号角充能状态无法附加");
-		for (int i = 0; i < 319; i++) slowRecharge.act();
-		check(slow.chargeValue() == 0, "零级号角在320回合前提前产生食物");
+		//SPSEXPD: 8 倍速后 0 级每回合 2.0 → 40 回合攒够 80 点（1 充能）
+		for (int i = 0; i < 39; i++) slowRecharge.act();
+		check(slow.chargeValue() == 0, "零级号角在40回合前提前产生食物");
 		slowRecharge.act();
-		check(slow.chargeValue() == 1, "零级号角320回合没有产生一格食物");
+		check(slow.chargeValue() == 1, "零级号角40回合没有产生一格食物");
 
 		Actor.clear();
 		hero = prepareHero();
@@ -202,13 +203,15 @@ public final class SpsHornOfPlentyTest {
 		fast.level(30);
 		HornOfPlenty.hornRecharge fastRecharge = fast.new hornRecharge();
 		check(fastRecharge.attachTo(hero), "满级号角充能状态无法附加");
-		for (int i = 0; i < 114; i++) fastRecharge.act();
-		check(fast.chargeValue() == 0, "满级号角在115回合前提前产生食物");
+		//SPSEXPD: 满级每回合 (0.25+0.45)×8 = 5.6 → 15 回合攒够 80 点（1 充能）
+		for (int i = 0; i < 14; i++) fastRecharge.act();
+		check(fast.chargeValue() == 0, "满级号角在15回合前提前产生食物");
 		fastRecharge.act();
-		check(fast.chargeValue() == 1, "满级号角115回合没有产生一格食物");
+		check(fast.chargeValue() == 1, "满级号角15回合没有产生一格食物");
 
 		fast.setCharge(5);
-		fast.setPartial(79.5f);
+		//SPSEXPD: 74.9 + 5.6 = 80.5 → 凝 1 包、余 0.5（8 倍速下每次 act 涨 5.6）
+		fast.setPartial(74.9f);
 		fastRecharge.act();
 		//SPSEXPD: 充能 5+1=6 → 自动凝成 1 包干粮、余 0；满级不再成长；部分充能保留小数余量
 		check(fast.chargeValue() == 0 && countRations(hero) == 1 && fast.levelValue() == 30
