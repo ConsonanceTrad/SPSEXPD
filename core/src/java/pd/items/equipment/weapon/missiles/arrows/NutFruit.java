@@ -24,6 +24,8 @@ import pd.messages.InlineText;
 public class NutFruit extends SpsFruit {
 	{
 		image = pd.atlas.items.ConsumPotionSeedSeedDict.FRUIT_NUTVINE;
+		//SPSEXPD: 坚果果实以投掷为主要用法——默认动作改为投掷（仍可手动选「食用」）
+		defaultAction = AC_THROW;
 	}
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
