@@ -459,7 +459,9 @@ public class Heap implements Bundlable {
 			for (Item item : items.toArray( new Item[0] )) {
 
 				//unique items and equipment aren't affect by explosions
-				if (item.unique || item.isUpgradable() || item instanceof EquipableItem){
+				//SPSEXPD: survivesExplosion() 给「非 unique/非装备/不可升级」但也不该被炸掉的物品（力量之瓶）
+				if (item.unique || item.isUpgradable() || item instanceof EquipableItem
+						|| item.survivesExplosion()){
 					continue;
 				}
 

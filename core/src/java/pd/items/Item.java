@@ -512,6 +512,15 @@ public class Item implements Bundlable {
 	public boolean isUpgradable() {
 		return true;
 	}
+
+	/**
+	 * SPSEXPD: 是否免疫爆炸摧毁。
+	 * Heap.explode 本来已豁免 unique / 可升级 / 装备类物品，这个钩子给「不属于上述三类、
+	 * 但也不该被炸掉」的物品用（目前只有力量之瓶 StrBottle）。
+	 */
+	public boolean survivesExplosion() {
+		return false;
+	}
 	
 	public boolean isIdentified() {
 		return levelKnown && cursedKnown;

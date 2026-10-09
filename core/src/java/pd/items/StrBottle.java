@@ -60,6 +60,8 @@ public class StrBottle extends Item {
 	}
 
 	@Override public boolean isUpgradable() { return false; }
+	//SPSEXPD: 力量之瓶不会被爆炸炸毁
+	@Override public boolean survivesExplosion() { return true; }
 	@Override public boolean isIdentified() { return true; }
 	@Override public int value() { return 100 * quantity; }
 }
