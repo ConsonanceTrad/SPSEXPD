@@ -11,7 +11,7 @@ public class PureCrit extends Perk {
 	static {
 		InlineText.of(PureCrit.class)
 				.t("title", "纯粹暴击")
-				.t("desc", "暴击时，暴击伤害的 %d%% 变为纯粹伤害（无视护甲）。");
+				.t("desc", "暴击时，暴击伤害的 %d%% 变为纯粹伤害（无视一切防御直接扣血）。");
 	}
 
 	public PureCrit() {

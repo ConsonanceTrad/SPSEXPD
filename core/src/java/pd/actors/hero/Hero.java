@@ -1979,6 +1979,18 @@ public class Hero extends Char {
 		if (pd.actors.hero.Critical.lastWasCrit()) {
 			//「汲血暴击」：暴击时按伤害比例回血
 			pd.actors.hero.perks.VampiricCrit.tryProc( this, damage );
+
+			//SPSEXPD:「纯粹暴击」——暴击伤害的一部分剥离为纯粹伤害（无视一切防御直接扣血），
+			//剩余部分照常走攻击管线；总伤害不变，但剥离部分不吃护甲/抗性/护盾
+			pd.actors.hero.perks.PureCrit pureCrit =
+					heroPerk == null ? null : heroPerk.get(pd.actors.hero.perks.PureCrit.class);
+			if (pureCrit != null && damage > 0 && enemy != null && enemy.isAlive()) {
+				int pure = Math.round(damage * pureCrit.pureRatio());
+				if (pure > 0) {
+					damage -= pure;
+					pd.actors.PureDamage.deal(enemy, pure, this);
+				}
+			}
 		}
 
 		KindOfWeapon wep;

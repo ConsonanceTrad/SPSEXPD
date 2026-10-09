@@ -124,8 +124,9 @@ public class StarEaterFlower extends Vegetable {
 			return;
 		}
 		int dmg = Math.max(1, Math.round(hero.damageRoll() * 0.4f));
-		ch.HP -= dmg; //SPSXPD: 纯粹伤害 —— 绕过一切防御与减伤
-		if (ch.sprite != null) ch.sprite.showStatus(pd.sprites.CharSprite.NEGATIVE, Integer.toString(dmg));
+		//SPSEXPD: 纯粹伤害走统一入口 PureDamage（无视一切防御直接扣血）；
+		//死亡结算顺序仍由本方法掌握（先给击杀奖励再 die）
+		pd.actors.PureDamage.apply(ch, dmg, StarEaterFlower.this);
 		if (!ch.isAlive()) {
 			pd.actors.hero.perks.AbyssalMaw maw =
 					hero.heroPerk.get(pd.actors.hero.perks.AbyssalMaw.class);

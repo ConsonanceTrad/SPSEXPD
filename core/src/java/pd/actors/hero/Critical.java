@@ -22,10 +22,9 @@ public class Critical {
 	private Critical() {
 	}
 
-	/** 当前暴击几率（0-1） */
+	/** 当前暴击几率（0-1）——收口到统一属性层 HeroStats */
 	public static float chance(Hero hero) {
-		if (hero == null) return 0f;
-		return Math.max(0f, Math.min(1f, hero.criticalChance));
+		return HeroStats.critChance(hero);
 	}
 
 	/** 法术暴击率：在物理暴击率上叠加 ArcaneCrit（在法术流程里调用） */
@@ -57,9 +56,9 @@ public class Critical {
 		return scale(hero, damage);
 	}
 
-	/** 直接按暴击倍率放大（法术自带判定概率时用） */
+	/** 直接按暴击倍率放大（法术自带判定概率时用）——倍率收口到 HeroStats.critMultiplier */
 	public static int scale(Hero hero, int damage) {
-		float mult = BASE_MULTIPLIER + hardCritBonus(hero);
+		float mult = HeroStats.critMultiplier(hero);
 		return Math.max(1, Math.round(damage * mult));
 	}
 
