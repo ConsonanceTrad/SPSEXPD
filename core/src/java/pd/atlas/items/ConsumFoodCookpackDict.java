@@ -33,7 +33,7 @@ public final class ConsumFoodCookpackDict {
 	/** semantic alias for COOKPACK_C2_R2 */
 	public static final IconEntry COOKPACK_5 = COOKPACK_C2_R2;
 	/** COOKPACK_6 - 烤禽（棕褐色整只烤肉） */
-	public static final IconEntry COOKPACK_C3_R2 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{34, 18, 13, 12}, 7455);
+	public static final IconEntry COOKPACK_C3_R2 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{34, 16, 14, 14}, 7455);
 	/** semantic alias for COOKPACK_C3_R2 */
 	public static final IconEntry COOKPACK_6 = COOKPACK_C3_R2;
 	/** COOKPACK_7 - 红色圆果（番茄状） */

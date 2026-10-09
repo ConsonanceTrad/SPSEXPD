@@ -45,7 +45,7 @@ public final class GroundGroundingItemsDict {
 	/** semantic alias for GROUNDING_ITEMS_C2_R2 */
 	public static final IconEntry MARBLE_GRAVESTONE = GROUNDING_ITEMS_C2_R2;
 	/** TREASURE_SPOT */
-	public static final IconEntry GROUNDING_ITEMS_C1_R3 = new IconEntry("sprites/items/ground/grounding_items.png", new int[]{1, 33, 14, 15}, 7101);
+	public static final IconEntry GROUNDING_ITEMS_C1_R3 = new IconEntry("sprites/items/ground/grounding_items.png", new int[]{0, 38, 16, 10}, 7101);
 	/** semantic alias for GROUNDING_ITEMS_C1_R3 */
 	public static final IconEntry TREASURE_SPOT = GROUNDING_ITEMS_C1_R3;
 	/** TREASURE_SPOT_2 */

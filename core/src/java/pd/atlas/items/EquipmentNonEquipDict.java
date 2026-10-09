@@ -37,7 +37,7 @@ public final class EquipmentNonEquipDict {
 	/** semantic alias for NON_EQUIP_C6_R1 */
 	public static final IconEntry YELLOW_DEWDROP = NON_EQUIP_C6_R1;
 	/** RED_DEWDROP */
-	public static final IconEntry NON_EQUIP_C7_R1 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{99, 3, 10, 10}, 6983);
+	public static final IconEntry NON_EQUIP_C7_R1 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{99, 3, 10, 13}, 6983);
 	/** semantic alias for NON_EQUIP_C7_R1 */
 	public static final IconEntry RED_DEWDROP = NON_EQUIP_C7_R1;
 	/** VIOLET_DEWDROP */
