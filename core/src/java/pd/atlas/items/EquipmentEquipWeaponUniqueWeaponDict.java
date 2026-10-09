@@ -59,11 +59,15 @@ public final class EquipmentEquipWeaponUniqueWeaponDict {
 	/** ELECTROMAGNETIC_SHOTGUN */
 	public static final IconEntry ELECTROMAGNETIC_SHOTGUN = new IconEntry("sprites/items/equipment/equip/weapon/unique_weapon.png", new int[]{160, 80, 14, 16}, 6917);
 	/** PAINTBALL_GUN */
-	public static final IconEntry PAINTBALL_GUN = new IconEntry("sprites/items/equipment/equip/weapon/unique_weapon.png", new int[]{177, 84, 14, 11}, 6918);
+	public static final IconEntry PAINTBALL_GUN = new IconEntry("sprites/items/equipment/equip/weapon/unique_weapon.png", new int[]{177, 83, 14, 11}, 6918);
 	/** STRONG_BOW */
 	public static final IconEntry STRONG_BOW = new IconEntry("sprites/items/equipment/equip/weapon/unique_weapon.png", new int[]{192, 80, 16, 16}, 6919);
 	/** GATLING */
 	public static final IconEntry GATLING = new IconEntry("sprites/items/equipment/equip/weapon/unique_weapon.png", new int[]{208, 80, 16, 16}, 6920);
 	/** DEWDROP_GUN */
 	public static final IconEntry DEWDROP_GUN = new IconEntry("sprites/items/equipment/equip/weapon/unique_weapon.png", new int[]{225, 83, 15, 10}, 6921);
+	/** UNIQUE_WEAPON_EXTRA_1 - 黄色三角盾／徽记（黄边，内含蓝灰纹样） */
+	public static final IconEntry UNIQUE_WEAPON_EXTRA_1 = new IconEntry("sprites/items/equipment/equip/weapon/unique_weapon.png", new int[]{64, 17, 15, 14}, 7506);
+	/** UNIQUE_WEAPON_EXTRA_2 - 深绿色三角刃／飞镖（棕绿斑纹） */
+	public static final IconEntry UNIQUE_WEAPON_EXTRA_2 = new IconEntry("sprites/items/equipment/equip/weapon/unique_weapon.png", new int[]{80, 17, 15, 15}, 7507);
 }
