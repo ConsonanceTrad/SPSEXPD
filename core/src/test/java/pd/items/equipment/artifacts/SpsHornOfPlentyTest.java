@@ -43,6 +43,7 @@ public final class SpsHornOfPlentyTest {
 		try {
 			testFoodValues();
 			testSwallowAndRationConversion();
+			testSwallowSelector();
 			testTimeRecharge();
 			testFeastMovedToAcidFeastPotion();
 			testSaveMigration();
@@ -152,6 +153,37 @@ public final class SpsHornOfPlentyTest {
 			if (item instanceof pd.items.consum.food.staplefood.NormalRation) count += item.quantity();
 		}
 		return count;
+	}
+
+	/**
+	 * SPSEXPD: 号角交互——吞噬必须先设置 curItem（否则 onSelect 的守卫失败，吞噬毫无反应）、
+	 * 选择窗默认打开购物车、干粮包/干粮小包不能喂。
+	 */
+	private static void testSwallowSelector() throws Exception {
+		RecordingHero hero = prepareHero();
+		TestHorn horn = new TestHorn();
+		horn.identify();
+		hero.belongings.artifact = horn;
+
+		java.lang.reflect.Field curItemField = pd.items.Item.class.getDeclaredField("curItem");
+		curItemField.setAccessible(true);
+		curItemField.set(null, null);
+
+		horn.execute(hero, HornOfPlenty.AC_SWALLOW);
+		check(curItemField.get(null) == horn, "号角吞噬没有设置 curItem，onSelect 守卫会失败");
+
+		java.lang.reflect.Field selectorField = HornOfPlenty.class.getDeclaredField("itemSelector");
+		selectorField.setAccessible(true);
+		pd.windows.WndBag.ItemSelector selector =
+				(pd.windows.WndBag.ItemSelector) selectorField.get(null);
+
+		check(selector.preferredBag() == pd.items.equipment.bags.ShoppingCart.class,
+				"号角吞噬没有默认打开购物车");
+		check(!selector.itemSelectable(new pd.items.consum.food.staplefood.NormalRation()),
+				"干粮包仍然能喂给号角");
+		check(!selector.itemSelectable(new pd.items.consum.food.staplefood.OverpricedRation()),
+				"干粮小包仍然能喂给号角");
+		check(selector.itemSelectable(new Blandfruit()), "无味果应该仍然能喂给号角");
 	}
 
 	private static void testTimeRecharge() {

@@ -1846,6 +1846,8 @@ public class GameScene extends PixelScene {
 	}
 
 	public static boolean cancel() {
+		//SPSEXPD: 无头校验/尚未初始化选择器时 cellSelector 可能为 null（例如 Item.execute → GameScene.cancel）
+		if (cellSelector == null) return false;
 		cellSelector.resetKeyHold();
 		if (Dungeon.hero != null && (Dungeon.hero.curAction != null || Dungeon.hero.resting)) {
 			

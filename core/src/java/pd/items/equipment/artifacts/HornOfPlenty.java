@@ -31,7 +31,9 @@ import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.items.consum.food.Food;
 import pd.items.consum.food.staplefood.NormalRation;
+import pd.items.consum.food.staplefood.OverpricedRation;
 import pd.items.equipment.bags.Bag;
+import pd.items.equipment.bags.ShoppingCart;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.utils.GLog;
@@ -104,10 +106,11 @@ public class HornOfPlenty extends Artifact {
 
 	@Override
 	public void execute(Hero hero, String action) {
-		if (!AC_SWALLOW.equals(action)) {
-			super.execute(hero, action);
-			return;
-		}
+		//SPSEXPD: 必须先走 super 以正确设置 curUser/curItem——否则 itemSelector.onSelect 里的
+		//「curItem instanceof HornOfPlenty」守卫会失败，吞噬毫无反应（食物也不减少）
+		super.execute(hero, action);
+		if (!AC_SWALLOW.equals(action)) return;
+
 		if (!isEquipped(hero)) {
 			GLog.i(Messages.get(Artifact.class, "need_to_equip"));
 		} else {
@@ -233,12 +236,18 @@ public class HornOfPlenty extends Artifact {
 
 		@Override
 		public Class<? extends Bag> preferredBag() {
-			return Belongings.Backpack.class;
+			//SPSEXPD: 食物会被自动收进只装食物的「购物车」，所以默认打开购物车；
+			//没有购物车时 WndBag / InventoryPane 会自动回退到主背包
+			return ShoppingCart.class;
 		}
 
 		@Override
 		public boolean itemSelectable(Item item) {
-			return item instanceof Food;
+			//SPSEXPD: 干粮包/干粮小包不能喂——号角自产的就是干粮包，能再喂回去会形成与外部食物
+			//脱钩的自喂升级链（干粮小包也能被炼金从干粮包转化，一并堵上）
+			return item instanceof Food
+					&& !(item instanceof NormalRation)
+					&& !(item instanceof OverpricedRation);
 		}
 
 		@Override
