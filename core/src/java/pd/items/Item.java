@@ -578,6 +578,15 @@ public class Item implements Bundlable {
 	}
 
 	public Emitter emitter() { return null; }
+
+	/**
+	 * SPSEXPD: 该物品作为地面掉落物渲染时，精灵额外向上抬升的比例（1f = 一格高）。
+	 * 默认 0（底边贴格底）；露珠这类矮小图标覆写为非 0，避免显得太靠下。
+	 * 覆写示例见 {@link pd.items.Dewdrop#spriteRaise()}。
+	 */
+	public float spriteRaise() {
+		return 0f;
+	}
 	
 	public String info() {
 		String info = desc();

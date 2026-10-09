@@ -76,10 +76,9 @@ public class ItemSprite extends MovieClip {
 	//SPSEXPD: 默认 0（不抬）；由 frame(IconEntry) 按图标帧高决定小件是否抬 SMALL_ITEM_LIFT
 	protected float perspectiveRaise    =  0f;
 
-	//SPSEXPD: 矮小的地面掉落物（帧高 < SMALL_ITEM_MAX_HEIGHT）抬高一点，避免底边贴住格子底边显得太靠下
-	//（上游 Shattered/STSEXPD 是全局抬 5px，这里按用户裁决只作用于小图标）
+	//SPSEXPD: 小图标的地面抬升值：避免底边贴住格子底边显得太靠下（上游 Shattered/STSEXPD 是全局抬 5px）。
+	//谁抬由物品自己决定——见 Item.spriteRaise()，当前只有露珠覆写。
 	public static final float SMALL_ITEM_LIFT       =  5 / 16f; //5 像素
-	public static final float SMALL_ITEM_MAX_HEIGHT =  12f;     //帧高（px）低于此值才算小件
 
 	//the width and height of the shadow are a percentage of sprite size
 	//offset is the number of pixels the shadow is moved down or up (handy for some animations)
@@ -213,6 +212,8 @@ public class ItemSprite extends MovieClip {
 
 	public ItemSprite view( Item item ){
 		view(item.image(), item.glowing());
+		//SPSEXPD: 抬升由物品自己决定（默认 0 = 贴格底）。必须在 frame() 之后赋值，否则会被重置。
+		perspectiveRaise = item.spriteRaise();
 		Emitter emitter = item.emitter();
 		if (emitter != null && parent != null) {
 			emitter.pos( this );
@@ -271,11 +272,9 @@ public class ItemSprite extends MovieClip {
 		this.texture = tex;
 		frame( tex.uvRectBySize( entry.x(0), entry.y(0), entry.w(0), entry.h(0) ) );
 
-		float height = entry.h(0);
-		//adds extra raise to very short items, so they are visible
-		//SPSEXPD: 原实现只在小件分支里赋值，精灵对象池（heaps.recycle）复用的实例会残留上一次的抬升值；
-		//这里两个分支都显式赋值：小件抬 SMALL_ITEM_LIFT，高件不抬。
-		perspectiveRaise = (height < SMALL_ITEM_MAX_HEIGHT) ? SMALL_ITEM_LIFT : 0f;
+		//SPSEXPD: 抬升值不再按图标尺寸判定，统一在这里重置为 0（精灵对象池 heaps.recycle 复用时必须重置）；
+		//需要抬升的物品由 Item.spriteRaise() 决定，在 view(Item) 里应用。
+		perspectiveRaise = 0f;
 	}
 	
 	public synchronized void glow( Glowing glowing ){

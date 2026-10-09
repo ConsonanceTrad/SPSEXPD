@@ -41,6 +41,7 @@ import pd.sprites.CharSprite;
 import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import pd.messages.InlineText;
+import pd.sprites.ItemSprite;
 
 public class Dewdrop extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -61,6 +62,13 @@ public class Dewdrop extends Item {
 		dropsDownHeap = true;
 	}
 	
+	//SPSEXPD: 露珠图标矮小，地面渲染时抬 5px，避免底边贴住格子底边显得太靠下
+	//（绿/红/黄/紫露珠经 ColoredDewdrop 继承本类，自动同样抬升）
+	@Override
+	public float spriteRaise() {
+		return ItemSprite.SMALL_ITEM_LIFT;
+	}
+
 	@Override
 	public boolean doPickUp(Hero hero, int pos) {
 		
