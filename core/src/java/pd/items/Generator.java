@@ -21,6 +21,7 @@
 
 package pd.items;
 
+import pd.Challenges;
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.items.equipment.armor.Armor;
@@ -1145,6 +1146,19 @@ public class Generator {
 		}
 	}
 	
+	//SPSEXPD: 禁咒挑战（Challenges.NO_SCROLLS）下升级/魔力灌注卷轴不再保底，
+	// 挑战效果改为随机抽取时半数替换为同池其它卷轴（期望减半，不额外占用 deck 名额）
+	private static Class<?> applyNoScrollsThinning( Class<?> itemCls ){
+		if (itemCls != ScrollOfUpgrade.class && itemCls != ScrollOfMagicalInfusion.class) return itemCls;
+		if (!Dungeon.isChallenged(Challenges.NO_SCROLLS) || Random.Int(2) == 0) return itemCls;
+		float[] probs = Category.SCROLL.defaultProbs.clone();
+		for (int i = 0; i < Category.SCROLL.classes.length; i++){
+			if (Category.SCROLL.classes[i] == ScrollOfUpgrade.class
+					|| Category.SCROLL.classes[i] == ScrollOfMagicalInfusion.class) probs[i] = 0f;
+		}
+		return Category.SCROLL.classes[Random.chances(probs)];
+	}
+
 	public static Item random() {
 		Category cat = Random.chances( categoryProbs );
 		if (cat == null){
@@ -1193,7 +1207,7 @@ public class Generator {
 					i = Random.chances(cat.probs);
 				}
 				if (cat.defaultProbs != null) cat.probs[i]--;
-				Class<?> itemCls = cat.classes[i];
+				Class<?> itemCls = applyNoScrollsThinning(cat.classes[i]);
 
 				if (cat.defaultProbs != null && cat.seed != null){
 					Random.popGenerator();
@@ -1222,9 +1236,9 @@ public class Generator {
 		} else if (cat.defaultProbs == null || cat == Category.ARTIFACT) {
 			return random(cat);
 		} else if (cat.defaultProbsTotal != null){
-			return ((Item) Reflection.newInstance(cat.classes[Random.chances(cat.defaultProbsTotal)])).random();
+			return ((Item) Reflection.newInstance(applyNoScrollsThinning(cat.classes[Random.chances(cat.defaultProbsTotal)]))).random();
 		} else {
-			Class<?> itemCls = cat.classes[Random.chances(cat.defaultProbs)];
+			Class<?> itemCls = applyNoScrollsThinning(cat.classes[Random.chances(cat.defaultProbs)]);
 
 			if (ExoticPotion.regToExo.containsKey(itemCls)){
 				if (Random.Float() < ExoticCrystals.consumableExoticChance()){

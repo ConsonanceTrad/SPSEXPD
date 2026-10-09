@@ -155,7 +155,7 @@ public class Dungeon {
 	public static enum LimitedDrops {
 		//limited world drops
 		STRENGTH_POTIONS,
-		UPGRADE_SCROLLS,
+		//SPSEXPD: LimitedDrops.UPGRADE_SCROLLS 已随升级卷轴保底移除（旧档残留 key 由 restore 忽略）
 		ARCANE_STYLI,
 		ENCH_STONE,
 		INT_STONE,
@@ -802,16 +802,7 @@ public class Dungeon {
 
 	}
 	
-	public static boolean souNeeded() {
-		int souLeftThisSet;
-		//3 SOU each floor set
-		souLeftThisSet = 3 - (LimitedDrops.UPGRADE_SCROLLS.count - chapterIndex(depth) * 3);
-		if (souLeftThisSet <= 0) return false;
-
-		int floorThisSet = floorInChapter(depth);
-		//chance is floors left / scrolls left
-		return Random.Int(FLOORS_PER_CHAPTER - floorThisSet) < souLeftThisSet;
-	}
+	//SPSEXPD: souNeeded()（升级卷轴每章保底）已移除，升级/魔力灌注卷轴改为高稀有随机刷新
 	
 	public static boolean asNeeded() {
 		//1 AS each floor set

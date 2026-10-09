@@ -13,7 +13,6 @@
 
 package pd.levels;
 
-import pd.Challenges;
 import pd.Dungeon;
 import pd.items.Generator;
 import pd.items.StrBottle;
@@ -37,7 +36,7 @@ import render.utils.math.Random;
  *
  * 从 Level.create() 中独立出来：这是纯策略段——只读 Dungeon 的深度/挑战/限量掉落状态，
  * 写 level.feeling 与 level.viewDistance，并向 GroundItems 队列塞入本层额外补给
- * （食物、升级卷轴、力量药剂、符文石、铆钉等）。它不参与覆写。
+ * （食物、力量药剂、符文石、铆钉等；升级/魔力灌注卷轴只经幸运稀有奖励随机出现）。它不参与覆写。
  *
  * 两种感受表：普通层用 14 抽 1 的老式表（含 LARGE/TRAPS/SECRETS 与两个饰品的覆盖概率），
  * SPS 普通层在 2~24 层改用 10 抽 1 的简化表，并按 20 层前后调换 CHASM 与 DARK 的权重。
@@ -53,7 +52,7 @@ public final class FloorFeeling {
 				// SPS-PD queued these supplies on every ordinary floor before painting it.
 				GroundItems.addItemToSpawn( level, Generator.random(Generator.Category.FOOD));
 				GroundItems.addItemToSpawn( level, Generator.random(Generator.Category.FOOD));
-				GroundItems.addItemToSpawn( level, new ScrollOfUpgrade());
+				//SPSEXPD: 升级/魔力灌注卷轴不再每层固定刷新，改为高稀有刷新物（幸运稀有奖励三选一）
 				if (Random.Int(2) == 0) {
 					GroundItems.addItemToSpawn( level, new Stylus());
 					GroundItems.addItemToSpawn( level, new Weightstone());
@@ -63,29 +62,29 @@ public final class FloorFeeling {
 					GroundItems.addItemToSpawn( level, new StrBottle());
 				}
 				if (Random.Float() < LuckyBadge.rareRewardChance(LuckyBadge.luckBonus(Dungeon.hero))) {
-					GroundItems.addItemToSpawn( level, Random.Int(2) == 0
-							? new ScrollOfMagicalInfusion()
-							: new PotionOfHealing());
+					//SPSEXPD: 稀有奖励改三选一，升级/魔力灌注卷轴作为高稀有刷新物
+					GroundItems.addItemToSpawn( level, Random.oneOf(
+							new ScrollOfUpgrade(),
+							new ScrollOfMagicalInfusion(),
+							new PotionOfHealing()) );
 				}
 			} else {
 				GroundItems.addItemToSpawn( level, Generator.random(Generator.Category.FOOD));
 				if (Random.Float() < LuckyBadge.rareRewardChance(LuckyBadge.luckBonus(Dungeon.hero))) {
-					GroundItems.addItemToSpawn( level, Random.Int(2) == 0
-							? new ScrollOfMagicalInfusion()
-							: new PotionOfHealing());
+					//SPSEXPD: 稀有奖励改三选一，升级/魔力灌注卷轴作为高稀有刷新物
+					GroundItems.addItemToSpawn( level, Random.oneOf(
+							new ScrollOfUpgrade(),
+							new ScrollOfMagicalInfusion(),
+							new PotionOfHealing()) );
 				}
 
 				if (Dungeon.posNeeded()) {
 					Dungeon.LimitedDrops.STRENGTH_POTIONS.count++;
 					GroundItems.addItemToSpawn( level,  new PotionOfStrength() );
 				}
-				if (Dungeon.souNeeded()) {
-					Dungeon.LimitedDrops.UPGRADE_SCROLLS.count++;
-					//every 2nd scroll of upgrade is removed with forbidden runes challenge on
-					if (!Dungeon.isChallenged(Challenges.NO_SCROLLS) || Dungeon.LimitedDrops.UPGRADE_SCROLLS.count%2 != 0){
-						GroundItems.addItemToSpawn( level, new ScrollOfUpgrade());
-					}
-				}
+				//SPSEXPD: 升级卷轴保底（souNeeded/UPGRADE_SCROLLS）已移除，升级/魔力灌注卷轴
+				// 改为高稀有刷新物：SCROLL 池权重 3（与嬗变相同）随机刷新，商店走随机卷轴格；
+				// 禁咒挑战改为随机抽取时半数替换（Generator.applyNoScrollsThinning）
 				if (Dungeon.asNeeded()) {
 					Dungeon.LimitedDrops.ARCANE_STYLI.count++;
 					GroundItems.addItemToSpawn( level,  new Stylus() );

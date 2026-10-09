@@ -689,8 +689,9 @@ public final class SpsRegularLevelTest {
 			level.create();
 			check(countQueued(level.captured, Food.class) == 2, 0, -221,
 					"普通层预生成物资不是两份旧版食物");
-			check(countQueued(level.captured, ScrollOfUpgrade.class) == 1, 0, -221,
-					"普通层没有固定生成一张升级卷轴");
+			//SPSEXPD: 升级卷轴保底已移除，普通层不再固定预排升级卷轴（改为高稀有随机刷新）
+			check(countQueued(level.captured, ScrollOfUpgrade.class) == 0, 0, -221,
+					"普通层仍固定生成升级卷轴");
 			int stylus = countQueued(level.captured, Stylus.class);
 			int weightstone = countQueued(level.captured, Weightstone.class);
 			check(stylus == weightstone && stylus <= 1, 0, -221,
