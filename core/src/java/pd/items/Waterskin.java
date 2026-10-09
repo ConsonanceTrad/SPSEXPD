@@ -393,7 +393,9 @@ public class Waterskin extends Item {
 
 			int levels = 0;
 			while (item.level() < threshold && totalDew() >= cost) {
-				int upgrades = 1 + Random.Int(3);
+				//SPSEXPD: 单轮跳档概率 1 : 2 : 3 级 = 7 : 2 : 1（原为均匀 1:1:1），压低高等级的出现率
+				int roll = Random.Int(10);
+				int upgrades = roll < 7 ? 1 : (roll < 9 ? 2 : 3);
 				for (int i = 0; i < upgrades; i++) item.upgrade();
 				levels += upgrades;
 				consumeCombined(cost);
