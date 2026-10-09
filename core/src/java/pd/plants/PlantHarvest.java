@@ -87,6 +87,12 @@ public final class PlantHarvest {
 		return species == null ? null : species.fruit;
 	}
 
+	/** SPSEXPD: 该植物对应的大型果实（幸运把掉落的果实升为大型时用）。 */
+	public static Class<? extends Item> largeFruitFor(Class<?> plantClass) {
+		Species species = speciesFor(plantClass);
+		return species == null ? null : species.largeFruit;
+	}
+
 	/**
 	 * SPSEXPD: 随机取一种大型果实。
 	 * 大型果实已不再由植物产出，只作为稀有奖励（许愿 / 商店售卖）出现。

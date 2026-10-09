@@ -21,7 +21,7 @@ public class LuckyBadge extends Item {
 	static {
 		InlineText.of(LuckyBadge.class)
 			.t("name", "幸运胸章")
-			.t("desc", "购买房产后商人老板送你的纪念品之一。固定提供 3 点幸运，且无法被强化。");
+			.t("desc", "购买房产后商人老板送你的纪念品之一。固定提供 3 点幸运，无法被强化。\n\n幸运还会提高种植收获的果实数量（每 7 点幸运，额外多出 0~1 枚果实），并让小概率产出大型果实（基础 2%，每 7 点幸运 +1%）。");
 	}
 
 
@@ -71,5 +71,16 @@ public class LuckyBadge extends Item {
 		int extra = 0;
 		while (extra < MAX_EXTRA_ITEMS && Random.Float() < chance) extra++;
 		return extra;
+	}
+
+	/** SPSEXPD: 幸运带来的种植额外果实——均匀随机 0 ~ floor(幸运 / 7)。 */
+	public static int plantExtraFruit(Hero hero) {
+		int tiers = luckBonus(hero) / 7;
+		return tiers <= 0 ? 0 : Random.Int(tiers + 1);
+	}
+
+	/** SPSEXPD: 种植掉的果实升为大型果实的概率：基础 2% + 每 7 点幸运 +1%。 */
+	public static float largeFruitChance(Hero hero) {
+		return 0.02f + 0.01f * (luckBonus(hero) / 7);
 	}
 }

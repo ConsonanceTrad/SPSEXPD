@@ -3,9 +3,11 @@ package pd.plants;
 
 import pd.Dungeon;
 import pd.actors.Char;
+import pd.actors.hero.Hero;
 import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
+import pd.items.misc.LuckyBadge;
 import pd.messages.Messages;
 import render.utils.math.Random;
 import render.utils.serialize.Reflection;
@@ -70,10 +72,17 @@ public abstract class SpsFruitBush extends Plant {
 		ArrayList<Integer> candidates = PlantHarvest.neighbours(Dungeon.level, pos);
 
 		//SPSEXPD: 果实散落到相邻格——人工 1~2 枚，精心 2~4 枚
-		//（大型果实不再由植物产出，只能靠许愿或商店购买）
+		//（大型果实不再由植物产出，只能靠许愿或商店购买；幸运可提高数量并小概率升为大型果实）
 		int fruitCount = potGrown ? Random.NormalIntRange(2, 4) : Random.NormalIntRange(1, 2);
-		for (int i = 0; i < fruitCount && !candidates.isEmpty(); i++) {
-			PlantHarvest.drop(Dungeon.level, take(candidates), species.fruit, pos);
+		Hero hero = ch instanceof Hero ? (Hero) ch : null;
+		fruitCount += LuckyBadge.plantExtraFruit(hero);
+		float largeChance = LuckyBadge.largeFruitChance(hero);
+		for (int i = 0; i < fruitCount; i++) {
+			//SPSEXPD: 邻格容量不足时，多出来的果实落在踩踏格上
+			int cell = candidates.isEmpty() ? pos : take(candidates);
+			Class<? extends Item> type = species.fruit;
+			if (species.largeFruit != null && Random.Float() < largeChance) type = species.largeFruit;
+			PlantHarvest.drop(Dungeon.level, cell, type, pos);
 		}
 
 		//SPSEXPD: 蔬菜不再散落，全部落在踩踏地——人工 1 个，精心 2 个

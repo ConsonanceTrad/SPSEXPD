@@ -36,6 +36,7 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.LeafParticle;
 import pd.items.Item;
 import pd.items.equipment.wands.WandOfRegrowth;
+import pd.items.misc.LuckyBadge;
 import pd.journal.Bestiary;
 import pd.journal.Catalog;
 import pd.levels.GroundItems;
@@ -102,10 +103,20 @@ public abstract class Plant implements Bundlable {
 			activate( ch );
 		}
 
-		//SPSEXPD: 野生植物被踩踏后，还会在踩踏处掉落 1 枚对应的投掷果实
+		//SPSEXPD: 野生植物被踩踏后，还会在踩踏处掉落对应的投掷果实
+		//（幸运可提高掉落数量，并小概率升为同物种的大型果实）
 		if (!(this instanceof SpsFruitBush) && Dungeon.level != null) {
 			Class<? extends Item> fruit = PlantHarvest.fruitFor(getClass());
-			if (fruit != null) PlantHarvest.drop(Dungeon.level, pos, fruit, pos);
+			if (fruit != null) {
+				Hero hero = ch instanceof Hero ? (Hero) ch : null;
+				Class<? extends Item> large = PlantHarvest.largeFruitFor(getClass());
+				float largeChance = LuckyBadge.largeFruitChance(hero);
+				int count = 1 + LuckyBadge.plantExtraFruit(hero);
+				for (int i = 0; i < count; i++) {
+					Class<? extends Item> type = (large != null && Random.Float() < largeChance) ? large : fruit;
+					PlantHarvest.drop(Dungeon.level, pos, type, pos);
+				}
+			}
 		}
 
 		Bestiary.setSeen(getClass());
