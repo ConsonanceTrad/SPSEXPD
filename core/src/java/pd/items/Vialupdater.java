@@ -17,7 +17,7 @@ public class Vialupdater extends Item {
 		InlineText.of(Vialupdater.class)
 			.t("name", "露珠强化器")
 			.t("ac_use", "使用")
-			.t("desc", "解锁露珠瓶的清洗与加速能力，并使加速附带漂浮。");
+			.t("desc", "解锁露珠瓶的侦测能力：消耗露珠，短暂揭示本层所有生物。");
 	}
 
 
@@ -41,8 +41,8 @@ public class Vialupdater extends Item {
 		}
 		curUser = hero;
 		detach(hero.belongings.backpack);
-		Dungeon.dewDraw = true;
-		Dungeon.wings = true;
+		//SPSEXPD: 三阶解锁「侦测」；不再附带漂浮（wings 不再置位）
+		Dungeon.dewNorn = true;
 		if (hero.sprite != null) hero.sprite.centerEmitter().start(Speck.factory(Speck.UP), 0.05f, 10);
 		hero.spendAndNext(1f);
 		hero.busy();

@@ -62,8 +62,8 @@ public class WndTinkerer extends WndOptions {
 		mushroom.detach(hero.belongings.backpack);
 		//SPSEXPD: 已取消祝福强化分支，强化统一为精确强化
 		waterskin.applySpsUpgrade(Waterskin.UpgradeMode.ACCURATE);
-		Dungeon.dewWater = false;
-		Dungeon.dewDraw = true;
+		//SPSEXPD: 一阶解锁「照明」；只加不清零，旧档已获得的能力不被剥夺
+		Dungeon.dewWater = true;
 		Dewcharge.charge(hero, 300f);
 		Dungeon.level.drop(new SpsSkeletonKey(Dungeon.depth), tinkerer.pos).sprite.drop();
 		tinkerer.yell(Messages.get(WndTinkerer.class, "farewell", hero.name()));

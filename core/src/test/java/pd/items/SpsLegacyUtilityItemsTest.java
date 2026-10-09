@@ -111,7 +111,7 @@ public final class SpsLegacyUtilityItemsTest {
 
 	private static void testDewAndForge() throws Exception {
 		GreenDewdrop dew = new GreenDewdrop();
-		check(dew.image == GroundFunctionalFallingDict.DEWDROP_0, "绿色露珠图标常量错误");
+		check(dew.image == GroundFunctionalFallingDict.DEWDROP_4, "绿色露珠图标常量错误");
 		Random.pushGenerator(0x475245454E444557L);
 		try {
 			for (int i = 0; i < 100; i++) {
@@ -173,14 +173,15 @@ public final class SpsLegacyUtilityItemsTest {
 
 		Dungeon.dewWater = false;
 		Dungeon.dewDraw = false;
+		Dungeon.dewNorn = false;
 		Dungeon.wings = false;
 		Vialupdater updater = new Vialupdater();
 		check(updater.collect(hero.belongings.backpack), "露珠强化器无法放入背包");
 		updater.execute(hero, Vialupdater.AC_USE);
-		//SPSEXPD: 祝福强化分支已取消，强化器改为开启精确强化(dewDraw)
-		check(Dungeon.dewDraw && Dungeon.wings
+		//SPSEXPD: 三阶解锁「侦测」；不再附带漂浮（wings 不再置位）
+		check(Dungeon.dewNorn && !Dungeon.wings
 				&& hero.belongings.getItem(Vialupdater.class) == null,
-				"露珠强化器没有消耗自身并开启露珠强化与飞翼升级");
+				"露珠强化器没有消耗自身并开启露珠瓶侦测");
 
 		TestLevel level = freshLevel();
 		hero = freshHero();
@@ -214,9 +215,9 @@ public final class SpsLegacyUtilityItemsTest {
 		String tinkerer = java.nio.file.Files.readString(Paths.get("../java/pd/windows/WndTinkerer.java"), StandardCharsets.UTF_8);
 		String tinkerer2 = java.nio.file.Files.readString(Paths.get("../java/pd/windows/WndTinkerer2.java"), StandardCharsets.UTF_8);
 		String triangle = java.nio.file.Files.readString(Paths.get("../java/pd/levels/TrianglePLevel.java"), StandardCharsets.UTF_8);
-		check(tinkerer.contains("applySpsUpgrade") && tinkerer.contains("Dungeon.dewDraw = true"),
-				"第1层工匠没有提供第一次露珠强化");
-		check(tinkerer2.contains("Dungeon.dewNorn = true"), "第12层工匠没有开启露珠瓶二阶能力");
+		check(tinkerer.contains("applySpsUpgrade") && tinkerer.contains("Dungeon.dewWater = true"),
+				"第1层工匠没有提供第一次露珠强化（照明）");
+		check(tinkerer2.contains("Dungeon.dewDraw = true"), "第12层工匠没有开启露珠瓶二阶能力（种植）");
 		check(triangle.contains("new Vialupdater()"), "三角维度没有生成露珠强化器");
 	}
 

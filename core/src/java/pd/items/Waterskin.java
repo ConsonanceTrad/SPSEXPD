@@ -80,11 +80,11 @@ public class Waterskin extends Item {
 			.t("detected", "露珠短暂揭示了本层所有生物的位置。")
 			.t("cleansed", "露珠洗去了有害效果，并为你提供了片刻净化保护。")
 			.t("hastened", "露珠令你的脚步短暂加快。")
-			.t("desc", "一瓶收集来的露珠。露珠是地牢里凝结的净化之水，可以用来照明、浇灌、提纯，或在积攒足够后强化自身。")
+			.t("desc", "古老而神秘的魔法水瓶，被用于提取露珠中的能量。被收集的露珠能量在这个无底的小瓶中流淌着，可以用于释放各种法术")
 			.t("desc_water", "你的露珠瓶里只有普普通通的饮用水，地牢中肯定会有更值得装的东西。")
 			.t("desc_heal", "露珠瓶里现在装着有治愈魔力的露水。每滴露珠恢复最大生命值的2.5%%，每次只会喝掉你需要的量。")
 			.t("desc_full", "装满了的露珠瓶散发着一股能量，也许能够用来祝福其他的生存道具？")
-			.t("desc_utility", "露珠瓶可以恢复生命、侦测生物并一次性消耗露珠照明，后续还可解锁种植、强化、清洗、加速和提纯功能。")
+			.t("desc_utility", "露珠瓶可以恢复生命，并随强化逐步解锁照明、种植、侦测等魔法；露珠还能用于强化装备与提纯。")
 			.t("discover_hint", "某位英雄初始携带该物品。")
 			.t("mode_random", "露珠研究者已将露珠瓶调整为_祝福强化_模式。")
 			.t("mode_accurate", "露珠研究者已将露珠瓶调整为_精确强化_模式。")
@@ -98,17 +98,16 @@ public class Waterskin extends Item {
 			.t("peeked", "露珠短暂揭示了本层的所有生物。")
 			.t("watered", "植物在你周围生长。")
 			.t("blessed", "神秘的能量强化了你的装备。")
-			.t("select", "选择一件要强化的物品")
-			.t("upgraded", "你的%1$s获得了%2$d级强化。")
-			.t("bless_gate", "这件装备已经达到或超过了露珠强化的门槛（当前门槛 %d 级），无法再被强化。")
+			.t("select", "强化")
+			.t("upgraded", "%1$s被强化了%2$d级。")
+			.t("bless_gate", "这件装备已经无法再被强化。")
 			.t("fly", "你漂浮到了空中！")
 			.t("fast", "你的移动速度大幅提升了！")
 			.t("poured", "你用露水清洗了身躯，驱散了多种负面效果。")
 			.t("refined", "露珠被提纯成了洁净的水。")
-			.t("desc_total", "瓶中共储存了_%d点露珠_。露珠可用于饮水、侦测、种植、强化、清洗和提纯。")
-			.t("desc_v1", "露珠瓶v1提供强化和种植功能。")
-			.t("desc_v2", "露珠瓶v2提供清洗和加速功能。")
-			.t("desc_v3", "露珠瓶v3使加速附带漂浮。");
+			.t("desc_total", "瓶中共储存了_%d点露珠_。可用于强化与提纯，强化以解锁其他魔法。")
+			.t("desc_unlocked", "露珠瓶已被强化：%1$s")
+			.t("desc_join", "、");
 	}
 
 
@@ -131,7 +130,7 @@ public class Waterskin extends Item {
 	private static final int POUR_COST = 20;
 	private static final int WATER_COST = 25;
 	private static final int BLESS_COST = 100; //SPSXPD: 提高到 100，方便玩家计算
-	private static final int REFINE_COST = 100;
+	private static final int REFINE_COST = 70;
 	//SPSEXPD: 照明改为一次性消耗，不再按回合持续扣露珠
 	public static final int LIGHT_COST = 50;
 	public static final int LIGHT_DURATION = 100;
@@ -278,14 +277,6 @@ public class Waterskin extends Item {
 		} else if (action.equals(AC_REFINE) && consumeCombined(dewCost(REFINE_COST))) {
 			refine(hero);
 		}
-	}
-
-	private boolean hasFirstUpgrade() {
-		return Dungeon.dewWater || Dungeon.dewDraw || upgradeMode != UpgradeMode.NONE;
-	}
-
-	private boolean accurateMode() {
-		return Dungeon.dewDraw || upgradeMode == UpgradeMode.ACCURATE;
 	}
 
 	private void drink(Hero hero) {
@@ -594,9 +585,15 @@ public class Waterskin extends Item {
 		String info = super.info();
 		//SPSEXPD: 详情页显示真实数量
 		info += "\n\n" + Messages.get(this, "desc_total", volume);
-		if (hasFirstUpgrade()) info += "\n\n" + Messages.get(this, "desc_v1");
-		if (Dungeon.dewNorn) info += "\n\n" + Messages.get(this, "desc_v2");
-		if (Dungeon.wings) info += "\n\n" + Messages.get(this, "desc_v3");
+		//SPSEXPD: 已解锁的魔法按真实开关逐项列出（照明/种植/侦测），与 actions() 同源
+		ArrayList<String> perks = new ArrayList<>();
+		if (Dungeon.dewWater) perks.add(Messages.get(this, "ac_light"));
+		if (Dungeon.dewDraw) perks.add(Messages.get(this, "ac_water"));
+		if (Dungeon.dewNorn) perks.add(Messages.get(this, "ac_peek"));
+		if (!perks.isEmpty()) {
+			info += "\n\n" + Messages.get(this, "desc_unlocked",
+					String.join(Messages.get(this, "desc_join"), perks));
+		}
 		return info;
 	}
 

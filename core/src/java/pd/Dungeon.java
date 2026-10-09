@@ -1190,11 +1190,11 @@ public class Dungeon {
 		sporkAvailable = bundle.getBoolean(SPORK_AVAILABLE);
 
 		// Saves made by the early SPS-SPD port stored the route only on the waterskin.
+		//SPSEXPD: 升级模式非 NONE = 已过修补匠一阶，一阶能力现为「照明」（只加不清零）
 		if (!dewDraw && !dewWater) {
 			Waterskin waterskin = hero.belongings.getItem(Waterskin.class);
-			if (waterskin != null) {
-				dewWater = waterskin.upgradeMode() == Waterskin.UpgradeMode.RANDOM_BLESS;
-				dewDraw = waterskin.upgradeMode() == Waterskin.UpgradeMode.ACCURATE;
+			if (waterskin != null && waterskin.upgradeMode() != Waterskin.UpgradeMode.NONE) {
+				dewWater = true;
 			}
 		}
 

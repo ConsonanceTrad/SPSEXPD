@@ -17,7 +17,7 @@ public final class WndTinkerer2 {
 	//SPSEXPD: inline Chinese text
 	static {
 		InlineText.of(WndTinkerer2.class)
-			.t("info", "哦，你找到那个啦。万分感谢，我再改进一下你的露珠瓶，它现在能清洗与加速了。")
+			.t("info", "哦，你找到那个啦。万分感谢，我再改进一下你的露珠瓶，它现在能种植了。")
 			.t("farewell", "小镇见，%s！");
 	}
 
@@ -29,7 +29,8 @@ public final class WndTinkerer2 {
 		if (tinkerer == null || hero == null || mushroom == null) return;
 
 		mushroom.detach(hero.belongings.backpack);
-		Dungeon.dewNorn = true;
+		//SPSEXPD: 二阶解锁「种植」；只加不清零
+		Dungeon.dewDraw = true;
 		tinkerer.yell(Messages.get(WndTinkerer2.class, "farewell", hero.name()));
 		GLog.p(Messages.get(WndTinkerer2.class, "info"));
 		tinkerer.destroy();
