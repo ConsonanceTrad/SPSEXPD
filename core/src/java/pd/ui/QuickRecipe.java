@@ -21,6 +21,7 @@
 
 package pd.ui;
 
+import pd.atlas.items.ConsumFoodFoodDict;
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.atlas.items.SpecificPlaceHoldeFruitDict;
 
@@ -42,6 +43,7 @@ import pd.items.consum.food.MeatPie;
 import pd.items.consum.food.MysteryMeat;
 import pd.items.consum.food.staplefood.Pasty;
 import pd.items.consum.food.StewedMeat;
+import pd.items.consum.food.completefood.Fruitsalad;
 import pd.items.consum.food.staplefood.NormalRation;
 import pd.items.consum.food.staplefood.OverpricedRation;
 import pd.items.consum.food.vegetable.Blandfruit;
@@ -354,6 +356,19 @@ public class QuickRecipe extends Component {
 				result.add(new QuickRecipe( new Potion.FruitToPotion(),
 						new ArrayList<>(Arrays.asList(new WaterItem(), fruitHolder, fruitHolder)),
 						brewed));
+				//SPSEXPD: 水果沙拉配方 = 1 份水 + 任意 2 个四色浆果（用浆果类别占位图）
+				Item berryHolder = new Item() {
+					{
+						image = ConsumFoodFoodDict.BERRY_HOLDER;
+					}
+					@Override
+					public String name() { return ""; }
+					@Override
+					public String info() { return ""; }
+				};
+				result.add(new QuickRecipe( new SpsAlchemyRecipes.FruitSalad(),
+						new ArrayList<>(Arrays.asList(new WaterItem(), berryHolder, berryHolder)),
+						new Fruitsalad()));
 				return result;
 			}
 			case "Stones":

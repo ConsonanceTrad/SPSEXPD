@@ -276,6 +276,10 @@ public final class ConsumFoodFoodDict {
 	public static final IconEntry FOOD_C5_R8 = new IconEntry("sprites/items/consum/food/food.png", new int[]{66, 116, 12, 10}, 6371);
 	/** semantic alias for FOOD_C5_R8 */
 	public static final IconEntry FULLMOONBERRY = FOOD_C5_R8;
+	/** BERRY_HOLDER - 浆果类别占位（炼金配方展示用） */
+	public static final IconEntry FOOD_C6_R8 = new IconEntry("sprites/items/consum/food/food.png", new int[]{82, 116, 12, 9}, 7511);
+	/** semantic alias for FOOD_C6_R8 */
+	public static final IconEntry BERRY_HOLDER = FOOD_C6_R8;
 	/** BLANDFRUIT */
 	public static final IconEntry FOOD_C1_R9 = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 128, 9, 12}, 6372);
 	/** semantic alias for FOOD_C1_R9 */
@@ -305,7 +309,7 @@ public final class ConsumFoodFoodDict {
 	/** semantic alias for FOOD_C18_R11 */
 	public static final IconEntry STRAWBERRY = FOOD_C18_R11;
 	/** CHERRY */
-	public static final IconEntry FOOD_C19_R11 = new IconEntry("sprites/items/consum/food/food.png", new int[]{289, 161, 14, 14}, 6379);
+	public static final IconEntry FOOD_C19_R11 = new IconEntry("sprites/items/consum/food/food.png", new int[]{288, 160, 16, 16}, 6379);
 	/** semantic alias for FOOD_C19_R11 */
 	public static final IconEntry CHERRY = FOOD_C19_R11;
 	/** AUTHOR_NUT */
