@@ -137,7 +137,8 @@ public final class SpsAlchemyRecipes {
 			recipe(Icecream.class, Honey.class, WaterItem.class, Icecap.Seed.class),
 			recipe(Porksoup.class, MeatFood.class, WaterItem.class, Vegetable.class),
 			recipe(5, Foamedbeverage.class, StoneOre.class, WaterItem.class, WaterItem.class, Plant.Seed.class, Fruit.class),
-			recipe(Fruitsalad.class, Fruit.class, Fruit.class, WaterItem.class),
+			//SPSEXPD: 水果沙拉改为「水 + 任意两个四色浆果」（黑莓/蓝莓/云莓/月亮浆果，可同种）
+			new FruitSalad(),
 			recipe(Vegetablekebab.class, Vegetable.class, Vegetable.class, MeatFood.class),
 			recipe(HoneyWater.class, Honey.class, WaterItem.class, WaterItem.class),
 			recipe(Kebab.class, Vegetable.class, MeatFood.class, MeatFood.class),
@@ -190,6 +191,56 @@ public final class SpsAlchemyRecipes {
 	);
 
 
+
+	/**
+	 * SPSEXPD: 水果沙拉——1 份水 + 任意两个「四色浆果」（黑莓 / 蓝莓 / 云莓 / 月亮浆果，可同种）。
+	 * 用独立的 Recipe 实现，是因为「两个任意浆果」无法用 TypedRecipe 的按槽位类匹配表达。
+	 */
+	public static final class FruitSalad extends Recipe {
+
+		private static final int TOTAL = 3;
+		private static final int BERRY = 2;
+
+		@Override
+		public boolean testIngredients(ArrayList<Item> ingredients) {
+			if (ingredients.size() != TOTAL) return false;
+			int water = 0;
+			int berry = 0;
+			for (Item ingredient : ingredients) {
+				if (ingredient instanceof WaterItem) {
+					water++;
+				} else if (isFourColorBerry(ingredient)) {
+					berry++;
+				} else {
+					return false;
+				}
+			}
+			return water == 1 && berry == BERRY;
+		}
+
+		@Override
+		public int cost(ArrayList<Item> ingredients) {
+			return 0;
+		}
+
+		@Override
+		public Item brew(ArrayList<Item> ingredients) {
+			if (!testIngredients(ingredients)) return null;
+			for (Item ingredient : ingredients) ingredient.quantity(ingredient.quantity() - 1);
+			return sampleOutput(ingredients);
+		}
+
+		@Override
+		public Item sampleOutput(ArrayList<Item> ingredients) {
+			return new Fruitsalad();
+		}
+	}
+
+	/** SPSEXPD: 四色浆果——踩踏高草掉落的那一池浆果（黑莓 / 蓝莓 / 云莓 / 月亮浆果）。 */
+	public static boolean isFourColorBerry(Item item) {
+		return item instanceof Blackberry || item instanceof Blueberry
+				|| item instanceof Cloudberry || item instanceof Moonberry;
+	}
 
 	private static final Recipe GARBAGE = new Recipe() {
 		@Override public boolean testIngredients(ArrayList<Item> ingredients) { return !ingredients.isEmpty(); }
