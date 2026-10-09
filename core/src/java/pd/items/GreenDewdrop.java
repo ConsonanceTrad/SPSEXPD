@@ -29,7 +29,8 @@ public class GreenDewdrop extends Dewdrop {
 
 
 	{
-		image = GroundFunctionalFallingDict.DEWDROP_0;
+		//SPSEXPD: 原先误用普通露珠图标（DEWDROP_0），改为绿色露珠专用图标
+		image = GroundFunctionalFallingDict.DEWDROP_4;
 	}
 
 	@Override

@@ -14,7 +14,8 @@ public class RedDewdrop extends ColoredDewdrop {
 
 
 
-	{ image = GroundFunctionalFallingDict.DEWDROP_0; }
+	//SPSEXPD: 原先误用普通露珠图标（DEWDROP_0），改为红色露珠专用图标
+	{ image = GroundFunctionalFallingDict.DEWDROP_2; }
 	@Override protected int baseHealing() { return 10; }
 	@Override public int dewValue() { return 15 * quantity; }
 }

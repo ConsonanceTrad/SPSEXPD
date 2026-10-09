@@ -24,4 +24,12 @@ public final class ConsumFoodCookpackDict {
 	public static final IconEntry COOKPACK_5 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{17, 20, 14, 9}, 7454);
 	/** COOKPACK_6 - 烤禽（棕褐色整只烤肉） */
 	public static final IconEntry COOKPACK_6 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{34, 18, 13, 12}, 7455);
+	/** COOKPACK_7 - 红色圆果（番茄状） */
+	public static final IconEntry COOKPACK_7 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{49, 3, 15, 11}, 7472);
+	/** COOKPACK_8 - 棕褐色烤肉（带绿点） */
+	public static final IconEntry COOKPACK_8 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{49, 19, 14, 12}, 7473);
+	/** COOKPACK_9 - 深色锅／碗（内有白绿内容） */
+	public static final IconEntry COOKPACK_9 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{65, 20, 14, 10}, 7474);
+	/** COOKPACK_10 - 淡黄色饼／面包 */
+	public static final IconEntry COOKPACK_10 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{17, 35, 14, 11}, 7475);
 }

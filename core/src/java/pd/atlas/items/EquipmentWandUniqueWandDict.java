@@ -14,4 +14,6 @@ public final class EquipmentWandUniqueWandDict {
 
 	/** LEGACY_CANNON_OF_MAGE */
 	public static final IconEntry LEGACY_CANNON_OF_MAGE = new IconEntry("sprites/items/equipment/wand/unique_wand.png", new int[]{0, 1, 15, 15}, 7081);
+	/** UNIQUE_WAND_EXTRA_1 - 黑色法杖 */
+	public static final IconEntry UNIQUE_WAND_EXTRA_1 = new IconEntry("sprites/items/equipment/wand/unique_wand.png", new int[]{16, 0, 16, 16}, 7505);
 }

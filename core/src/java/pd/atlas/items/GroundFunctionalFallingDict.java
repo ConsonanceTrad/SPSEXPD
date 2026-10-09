@@ -17,7 +17,7 @@ public final class GroundFunctionalFallingDict {
 	/** dewdrop#1 */
 	public static final IconEntry DEWDROP_1 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{19, 3, 10, 10}, 7084);
 	/** dewdrop#2 */
-	public static final IconEntry DEWDROP_2 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{35, 3, 10, 13}, 7085);
+	public static final IconEntry DEWDROP_2 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{35, 3, 10, 10}, 7085);
 	/** dewdrop#3 */
 	public static final IconEntry DEWDROP_3 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{51, 3, 10, 10}, 7086);
 	/** dewdrop#4 */

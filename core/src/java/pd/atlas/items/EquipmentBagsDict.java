@@ -30,4 +30,6 @@ public final class EquipmentBagsDict {
 	public static final IconEntry HEART_OF_SCARECROW_0 = new IconEntry("sprites/items/equipment/bags.png", new int[]{112, 0, 16, 16}, 6744);
 	/** BACKPACK#0 */
 	public static final IconEntry BACKPACK_0 = new IconEntry("sprites/items/equipment/bags.png", new int[]{240, 0, 16, 16}, 6745);
+	/** BAGS_EXTRA_1 - 棕色棋盘格包裹 */
+	public static final IconEntry BAGS_EXTRA_1 = new IconEntry("sprites/items/equipment/bags.png", new int[]{129, 1, 15, 15}, 7504);
 }

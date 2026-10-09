@@ -25,7 +25,7 @@ public final class EquipmentNonEquipDict {
 	/** YELLOW_DEWDROP */
 	public static final IconEntry YELLOW_DEWDROP = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{83, 3, 10, 10}, 6982);
 	/** RED_DEWDROP */
-	public static final IconEntry RED_DEWDROP = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{99, 3, 10, 13}, 6983);
+	public static final IconEntry RED_DEWDROP = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{99, 3, 10, 10}, 6983);
 	/** VIOLET_DEWDROP */
 	public static final IconEntry VIOLET_DEWDROP = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{115, 3, 10, 10}, 6984);
 	/** GREEN_DEWDROP */
@@ -89,7 +89,7 @@ public final class EquipmentNonEquipDict {
 	/** LORD_BANNER */
 	public static final IconEntry LORD_BANNER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{81, 32, 14, 16}, 7014);
 	/** MEDKIT */
-	public static final IconEntry MEDKIT = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{98, 35, 11, 11}, 7015);
+	public static final IconEntry MEDKIT = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{97, 34, 14, 13}, 7015);
 	/** QUIVER */
 	public static final IconEntry QUIVER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{113, 34, 13, 12}, 7016);
 	/** SPS_SERIOUS_PUNCH#0 */

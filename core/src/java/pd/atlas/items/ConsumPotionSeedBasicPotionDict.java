@@ -83,7 +83,7 @@ public final class ConsumPotionSeedBasicPotionDict {
 	/** BLUE_CAP_MUSHROOM */
 	public static final IconEntry BLUE_CAP_MUSHROOM = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{98, 32, 12, 16}, 6458);
 	/** PILL */
-	public static final IconEntry PILL = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{116, 33, 7, 13}, 6459);
+	public static final IconEntry PILL = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{113, 33, 14, 14}, 6459);
 	/** BREW_INFERNAL#0 */
 	public static final IconEntry BREW_INFERNAL_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{48, 48, 11, 13}, 6460);
 	/** BREW_BLIZZARD#0 */
@@ -110,4 +110,20 @@ public final class ConsumPotionSeedBasicPotionDict {
 	public static final IconEntry ELIXIR_ARCANE_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{224, 48, 12, 14}, 6471);
 	/** ELIXIR_FEATHER#0 */
 	public static final IconEntry ELIXIR_FEATHER_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{240, 48, 12, 14}, 6472);
+	/** BASIC_POTION_EXTRA_1 - 斜放药剂试管（灰色／空） */
+	public static final IconEntry BASIC_POTION_EXTRA_1 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{129, 33, 14, 14}, 7477);
+	/** BASIC_POTION_EXTRA_2 - 斜放药剂试管（黑色） */
+	public static final IconEntry BASIC_POTION_EXTRA_2 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{145, 33, 14, 14}, 7478);
+	/** BASIC_POTION_EXTRA_3 - 斜放药剂试管（紫色） */
+	public static final IconEntry BASIC_POTION_EXTRA_3 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{161, 33, 14, 14}, 7479);
+	/** BASIC_POTION_EXTRA_4 - 斜放药剂试管（绿色） */
+	public static final IconEntry BASIC_POTION_EXTRA_4 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{177, 33, 14, 14}, 7480);
+	/** BASIC_POTION_EXTRA_5 - 斜放药剂试管（品红） */
+	public static final IconEntry BASIC_POTION_EXTRA_5 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{193, 33, 14, 14}, 7481);
+	/** BASIC_POTION_EXTRA_6 - 斜放药剂试管（灰蓝） */
+	public static final IconEntry BASIC_POTION_EXTRA_6 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{209, 33, 14, 14}, 7482);
+	/** BASIC_POTION_EXTRA_7 - 斜放药剂试管（白色） */
+	public static final IconEntry BASIC_POTION_EXTRA_7 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{225, 33, 14, 14}, 7483);
+	/** BASIC_POTION_EXTRA_8 - 斜放药剂试管（棕色） */
+	public static final IconEntry BASIC_POTION_EXTRA_8 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{241, 33, 14, 14}, 7484);
 }
