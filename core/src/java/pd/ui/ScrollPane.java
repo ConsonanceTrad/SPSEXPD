@@ -48,6 +48,9 @@ public class ScrollPane extends Component {
 	protected Component content;
 	protected ColorBlock thumb;
 
+	/** SPSEXPD: 是否绘制滚动条。关掉之后拖动/滚轮/按键滚动仍然可用，只是不显示滚动条。 */
+	public boolean scrollBarVisible = true;
+
 	private float keyScroll = 0;
 
 	public ScrollPane( Component content ) {
@@ -146,7 +149,7 @@ public class ScrollPane extends Component {
 		cs.y = p.y;
 		cs.resize( (int)width, (int)height );
 
-		thumb.visible = height < content.height();
+		thumb.visible = scrollBarVisible && height < content.height();
 		if (thumb.visible) {
 			thumb.scale.set( 2, height * height / content.height() );
 			thumb.x = right() - thumb.width();

@@ -216,6 +216,8 @@ public class WndHero extends WndTabbed {
 			//（createChildren 在构造期被调用，字段必须在此初始化，不能用声明处初始化）
 			content = new StatsContent();
 			pane = new ScrollPane( content );
+			//SPSEXPD: 属性页不显示滚动条（拖动/滚轮滚动保留）
+			pane.scrollBarVisible = false;
 			add( pane );
 		}
 
@@ -406,6 +408,8 @@ public class WndHero extends WndTabbed {
 			//所以字段必须在这里初始化，不能在声明处初始化（否则 NPE）
 			slots = new ArrayList<>();
 			pane = new ScrollPane(new Component());
+			//SPSEXPD: 特质页不显示滚动条（拖动/滚轮滚动保留）
+			pane.scrollBarVisible = false;
 			add(pane);
 
 			if (pd.Dungeon.hero != null && pd.Dungeon.hero.heroPerk != null) {
