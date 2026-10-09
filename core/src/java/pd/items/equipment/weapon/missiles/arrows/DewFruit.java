@@ -34,7 +34,15 @@ public class DewFruit extends SpsFruit {
 
 	@Override protected void onThrow(int cell) {
 		if (landsAt(cell)) {
-			Heap heap = Dungeon.level.drop(randomDewdrop(), cell);
+			//SPSEXPD: 露珠本身是 dropsDownHeap（落堆底、不遮挡地面已有物品）；
+			//但果实落地爆露珠时它是一个主要产出，落点已有物品也该看得见它——
+			//所以这一次让它插到堆顶显示（只影响果实爆破这一处，Dewdrop 的默认行为不变）。
+			Item dew = randomDewdrop();
+			boolean down = dew.dropsDownHeap;
+			dew.dropsDownHeap = false;
+			Heap heap = Dungeon.level.drop(dew, cell);
+			dew.dropsDownHeap = down;
+
 			if (heap.sprite != null) heap.sprite.drop(cell);
 		} else super.onThrow(cell);
 	}
