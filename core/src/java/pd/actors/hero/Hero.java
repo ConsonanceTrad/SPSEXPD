@@ -2507,7 +2507,8 @@ public class Hero extends Char {
 			}
 		} else if ((Dungeon.level.map[cell] == Terrain.ALCHEMY
 				|| Dungeon.level.map[cell] == Terrain.TENT
-				|| Dungeon.level.map[cell] == Terrain.IRON_MAKER) && cell != pos
+				|| Dungeon.level.map[cell] == Terrain.IRON_MAKER)
+				//SPSEXPD: 不再要求 cell != pos —— 炼金釜/铁砧/帐篷可通行后，站在该格上点脚下也要能打开
 				//SPSEXPD: 该格有物品堆时优先拾取，否则掉在炼金釜/铁砧上的东西永远拿不到
 				&& heap == null) {
 			
