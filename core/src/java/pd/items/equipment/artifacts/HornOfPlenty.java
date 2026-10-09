@@ -56,17 +56,17 @@ public class HornOfPlenty extends Artifact {
 	static {
 		InlineText.of(HornOfPlenty.class)
 			.t("name", "丰饶之角")
-			.t("ac_swallow", "吞噬食物")
-			.t("prompt", "选择一个食物")
-			.t("swallow", "号角吞噬了%1$s，充能增加%2$d点。")
-			.t("ration", "号角把充能凝成了一包干粮。")
-			.t("ration_many", "号角把充能凝成了%1$d包干粮。")
-			.t("auto_feed", "号角在你极度饥饿时自动喂了你一包干粮。")
-			.t("levelup", "号角凝成干粮后成长了一级。")
-			.t("maxlevel", "号角的成长已经到达极限，但它仍会继续产出干粮。")
-			.t("desc", "这个号角不能被用来吹奏，不过它会随时间逐渐积蓄食物能量。把食物给它吞噬也能积蓄能量；每积蓄 6 点能量，它就会自动凝成一包干粮，每凝成一包干粮它都会成长一点（成长会加快能量积蓄）。")
-			.t("desc_hint", "当前充能：%1$d（每 6 点自动凝成一包干粮）")
-			.t("desc_cursed", "被诅咒的号角把自己绑在了你的身边，它似乎在渴望得到食物而不是制造食物。");
+			.t("ac_swallow", "吞噬")
+			.t("prompt", "选择")
+			.t("swallow", "号角吞噬了%1$s，得到%2$d点能量。")
+			.t("ration", "号角的能量转化成了一包干粮。")
+			.t("ration_many", "号角的能量转化成了%1$d包干粮。")
+			.t("auto_feed", "号角喂了你一包干粮。")
+			.t("levelup", "号角成长了一级。")
+			.t("maxlevel", "号角的成长已经到达极限。")
+			.t("desc", "这个号角不能被用来吹奏，不过它会随时间逐渐积蓄或吞噬其他食物的能量，并最终将其转化为易食的干粮。在你极度饥饿时，它将伸出一只虚幻的手把干粮送入你的口中。")
+			.t("desc_hint", "当前充能：%1$d")
+			.t("desc_cursed", "被诅咒的号角把自己绑在了你的身边，它似乎在渴望吸取能量而不是制造食物。");
 	}
 
 	private static final float TIME_TO_SWALLOW = 2f;
