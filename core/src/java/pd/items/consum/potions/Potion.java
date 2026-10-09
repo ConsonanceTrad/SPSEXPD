@@ -42,6 +42,7 @@ import pd.effects.Splash;
 import pd.items.Generator;
 import pd.items.Item;
 import pd.items.ItemStatusHandler;
+import pd.items.consum.food.WaterItem;
 import pd.items.Recipe;
 import pd.items.consum.potions.brews.AquaBrew;
 import pd.items.consum.potions.brews.Brew;
@@ -622,13 +623,14 @@ public class Potion extends Item {
 
 	/**
 	 * SPSEXPD: 果实酿造配方（取代原先的三种子酿造）。
-	 * 4 个果实（可混搭）或 1 个大型果实 + 1 个普通果实均可酿出一瓶药剂。
-	 * 出货概率沿用种子酿造的机制：投入的果实种类越多，越容易开出随机药剂；
-	 * 只投入单一品种时，直接得到对应的药剂（并自动鉴定）。
+	 * 1 份水 + 2 个果实（可混搭，不含大型果实）可酿出一瓶药剂。
+	 * 两枚同品种 → 直接得到对应药剂（并自动鉴定）；
+	 * 两枚不同品种 → 一半概率开出随机药剂，另一半从两者对应的药剂里随机取一个。
 	 */
 	public static class FruitToPotion extends Recipe {
 
-		public static final int COUNT = 4;
+		/** 需要的果实数量（另需 1 份水）。 */
+		public static final int COUNT = 2;
 
 		public static final LinkedHashMap<Class<? extends Item>, Class<? extends Potion>> types = new LinkedHashMap<>();
 
@@ -675,14 +677,19 @@ public class Potion extends Item {
 
 		@Override
 		public boolean testIngredients(ArrayList<Item> ingredients) {
-			//SPSEXPD: 大型果实不再参与果实酿造的随机炼药（改为 1 个大果 → 对应合剂）
-			if (ingredients.size() == COUNT) {
-				for (Item ingredient : ingredients) {
-					if (potionFor(ingredient) == null || isLarge(ingredient)) return false;
+			//SPSEXPD: 配方 = 1 份水 + COUNT 个普通果实（大型果实不参与，另有 1 大果 → 合剂的独立配方）
+			if (ingredients.size() != COUNT + 1) return false;
+			int water = 0;
+			int fruit = 0;
+			for (Item ingredient : ingredients) {
+				if (ingredient instanceof WaterItem) {
+					water++;
+					continue;
 				}
-				return true;
+				if (potionFor(ingredient) == null || isLarge(ingredient)) return false;
+				fruit++;
 			}
-			return false;
+			return water == 1 && fruit == COUNT;
 		}
 
 		@Override
@@ -699,17 +706,20 @@ public class Potion extends Item {
 			}
 
 			ArrayList<Class<? extends Potion>> kinds = new ArrayList<>();
+			ArrayList<Item> fruits = new ArrayList<>();
 			for (Item ingredient : ingredients) {
+				if (ingredient instanceof WaterItem) continue;
+				fruits.add(ingredient);
 				Class<? extends Potion> potion = potionFor(ingredient);
 				if (!kinds.contains(potion)) kinds.add(potion);
 			}
 
 			Potion result;
-			if ((kinds.size() == 2 && Random.Int(4) == 0)
-					|| (kinds.size() >= 3 && Random.Int(2) == 0)) {
+			//SPSEXPD: 两枚不同品种时，一半概率出随机药剂，一半从两者对应的药剂里随机取一个
+			if (kinds.size() >= 2 && Random.Int(2) == 0) {
 				result = (Potion) Generator.randomUsingDefaults(Generator.Category.POTION);
 			} else {
-				result = Reflection.newInstance(potionFor(Random.element(ingredients)));
+				result = Reflection.newInstance(potionFor(Random.element(fruits)));
 			}
 
 			if (kinds.size() == 1 && Dungeon.hero != null) {

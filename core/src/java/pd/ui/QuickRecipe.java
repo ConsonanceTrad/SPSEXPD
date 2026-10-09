@@ -350,8 +350,9 @@ public class QuickRecipe extends Component {
 					@Override
 					public String info() { return ""; }
 				};
+				//SPSEXPD: 果实酿药配方 = 1 份水 + 2 个果实
 				result.add(new QuickRecipe( new Potion.FruitToPotion(),
-						new ArrayList<>(Arrays.asList(fruitHolder, fruitHolder, fruitHolder, fruitHolder)),
+						new ArrayList<>(Arrays.asList(new WaterItem(), fruitHolder, fruitHolder)),
 						brewed));
 				return result;
 			}
