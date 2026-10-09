@@ -12,6 +12,7 @@ import pd.levels.Terrain;
 import pd.levels.features.HighGrass;
 import pd.messages.Messages;
 import pd.plants.Plant;
+import pd.plants.SpsFruitBush;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.utils.GLog;
@@ -121,8 +122,14 @@ public class NaturalAxe extends Artifact {
 
 		Plant plant = Dungeon.level.plants.get(cell);
 		if (plant != null) {
-			plant.activate(curUser);
-			GroundItems.uproot(Dungeon.level, cell);
+			//SPSEXPD: 果丛的 activate 就是收获本身；原生野生植物按「野生档」收获——
+			//只散 1 枚对应果实（含幸运加成），不触发燃烧/中毒/传送等植物效果，并由 wither 自行移除。
+			if (plant instanceof SpsFruitBush) {
+				plant.activate(curUser);
+				GroundItems.uproot(Dungeon.level, cell);
+			} else {
+				plant.trigger(curUser);
+			}
 			return true;
 		}
 		return false;
