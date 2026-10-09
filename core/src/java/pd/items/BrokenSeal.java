@@ -51,7 +51,7 @@ import render.utils.serialize.Bundle;
 import java.util.ArrayList;
 import java.util.Arrays;
 import pd.messages.InlineText;
-import pd.atlas.items.ConsumUsefulCorpseRelicsDict;
+import pd.atlas.items.EquipmentNonEquipDict;
 
 public class BrokenSeal extends Item {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
@@ -86,7 +86,7 @@ public class BrokenSeal extends Item {
 	public static final int MAX_CARRIED_LEVEL = 5;
 
 	{
-		image = ConsumUsefulCorpseRelicsDict.SEAL_SHARD_0;
+		image = EquipmentNonEquipDict.SEAL_SHARD;
 
 		cursedKnown = levelKnown = true;
 		unique = true;

@@ -204,6 +204,10 @@ public final class EquipmentNonEquipDict {
 	public static final IconEntry NON_EQUIP_C16_R3 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{242, 33, 12, 14}, 7024);
 	/** semantic alias for NON_EQUIP_C16_R3 */
 	public static final IconEntry FAKE_DEWDROP_VIAL = NON_EQUIP_C16_R3;
+	/** SEAL_SHARD */
+	public static final IconEntry NON_EQUIP_C1_R4 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{3, 49, 9, 15}, 7508);
+	/** semantic alias for NON_EQUIP_C1_R4 */
+	public static final IconEntry SEAL_SHARD = NON_EQUIP_C1_R4;
 	/** DEMON_BOOK */
 	public static final IconEntry NON_EQUIP_C1_R6 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{3, 83, 10, 12}, 7025);
 	/** semantic alias for NON_EQUIP_C1_R6 */
