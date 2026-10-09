@@ -128,4 +128,8 @@ public final class EquipmentEquipWeaponUniqueWeaponDict {
 	public static final IconEntry UNIQUE_WEAPON_C6_R2 = new IconEntry("sprites/items/equipment/equip/weapon/unique_weapon.png", new int[]{80, 17, 15, 15}, 7507);
 	/** semantic alias for UNIQUE_WEAPON_C6_R2 */
 	public static final IconEntry UNIQUE_WEAPON_EXTRA_2 = UNIQUE_WEAPON_C6_R2;
+	/** MELEE_PAN - 平底煎锅（黑色描边的圆形锅体，左下带短柄） */
+	public static final IconEntry UNIQUE_WEAPON_C7_R2 = new IconEntry("sprites/items/equipment/equip/weapon/unique_weapon.png", new int[]{96, 16, 16, 16}, 7512);
+	/** semantic alias for UNIQUE_WEAPON_C7_R2 */
+	public static final IconEntry MELEE_PAN = UNIQUE_WEAPON_C7_R2;
 }

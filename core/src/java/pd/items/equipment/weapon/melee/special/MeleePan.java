@@ -1,7 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.equipment.weapon.melee.special;
 
-import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 
 import pd.Dungeon;
 import pd.actors.Char;
@@ -54,7 +54,7 @@ public class MeleePan extends MeleeWeapon {
 	public static final float TIME_TO_COOK = 2f;
 
 	{
-		image = SpecificPlaceHolderDict.SPS_PH_WEAPON_BAD;
+		image = EquipmentEquipWeaponUniqueWeaponDict.MELEE_PAN;
 		tier = 1;
 		usesTargeting = true;
 	}
