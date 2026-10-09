@@ -121,9 +121,15 @@ public class ItemSprite extends MovieClip {
 	public void link( Heap heap ) {
 		this.heap = heap;
 		view(heap);
-		renderShadow = true;
+		//SPSEXPD: 阴影由堆类型决定（藏宝地是地面装饰、不投立体阴影）
+		updateShadow();
 		visible = heap.seen;
 		place(heap.pos);
+	}
+
+	/** SPSEXPD: 藏宝地（E_DUST）贴地，不画椭圆阴影；其余堆保持原样。 */
+	protected void updateShadow() {
+		renderShadow = heap == null || heap.type != Heap.Type.E_DUST;
 	}
 	
 	@Override
@@ -258,6 +264,8 @@ public class ItemSprite extends MovieClip {
 		}
 
 		alpha( heap.hidden ? 0.1f : 1f);
+		//SPSEXPD: 堆类型变化后同步阴影（藏宝地不投影）
+		updateShadow();
 
 		return this;
 	}

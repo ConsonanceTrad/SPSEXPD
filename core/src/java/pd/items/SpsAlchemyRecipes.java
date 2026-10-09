@@ -184,8 +184,9 @@ public final class SpsAlchemyRecipes {
 			recipe(HighEnergySpore.class, DewSpore.class),
 			recipe(WishPetal.class, RainbowPansy.class),
 			recipe(HormoneSolution.class, Sorrel.class),
-			//SPSEXPD: 鲜草 + 枯枝 → 火种（踩踏高草收获的材料，用途后续接入）
-			recipe(Tinder.class, FreshGrass.class, DryTwig.class),
+			//SPSEXPD: 火种 = 3 鲜草，或 1 枯枝（踩踏高草收获的材料）
+			recipe(Tinder.class, FreshGrass.class, FreshGrass.class, FreshGrass.class),
+			recipe(Tinder.class, DryTwig.class),
 			//SPSEXPD: 许愿魔药——混乱药剂 + 4 种二次加工产物
 			WISH_POTION
 	);

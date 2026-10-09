@@ -141,7 +141,8 @@ public class Terrain {
 		flags[UNLOCKED_EXIT]= PASSABLE;
 		flags[WELL]			= AVOID;
 		flags[BOOKSHELF]	= flags[BARRICADE];
-		flags[ALCHEMY]		= SOLID;
+		//SPSEXPD: 炼金釜/铁砧不再是阻挡实体——掉在它们格上的物品玩家要能走上去拿
+		flags[ALCHEMY]		= PASSABLE;
 
 		flags[CUSTOM_DECO_EMPTY] = flags[EMPTY];
 		flags[CUSTOM_DECO] = SOLID;
@@ -155,7 +156,8 @@ public class Terrain {
 		flags[MINE_BOULDER] = SOLID;
 		flags[DEW_BLESS] = AVOID;
 		flags[TENT] = PASSABLE;
-		flags[IRON_MAKER] = AVOID;
+		//SPSEXPD: 铁砧同炼金釜，可通行（AI 也不再绕开）
+		flags[IRON_MAKER] = PASSABLE;
 		flags[SIGN] = PASSABLE | FLAMABLE;
 		flags[GROUND_A] = flags[EMPTY];
 		flags[FLOWER_POT] = flags[EMPTY];

@@ -2507,7 +2507,9 @@ public class Hero extends Char {
 			}
 		} else if ((Dungeon.level.map[cell] == Terrain.ALCHEMY
 				|| Dungeon.level.map[cell] == Terrain.TENT
-				|| Dungeon.level.map[cell] == Terrain.IRON_MAKER) && cell != pos) {
+				|| Dungeon.level.map[cell] == Terrain.IRON_MAKER) && cell != pos
+				//SPSEXPD: 该格有物品堆时优先拾取，否则掉在炼金釜/铁砧上的东西永远拿不到
+				&& heap == null) {
 			
 			curAction = new HeroAction.Alchemy( cell );
 			
