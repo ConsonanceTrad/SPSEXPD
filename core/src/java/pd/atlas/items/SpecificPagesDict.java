@@ -13,17 +13,31 @@ public final class SpecificPagesDict {
 	private SpecificPagesDict() { }
 
 	/** GUIDE_PAGE#0 */
-	public static final IconEntry GUIDE_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{3, 2, 10, 11}, 7113);
+	public static final IconEntry PAGES_C1_R1 = new IconEntry("sprites/items/specific/pages.png", new int[]{3, 2, 10, 11}, 7113);
+	/** semantic alias for PAGES_C1_R1 */
+	public static final IconEntry GUIDE_PAGE_0 = PAGES_C1_R1;
 	/** ALCH_PAGE#0 */
-	public static final IconEntry ALCH_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{19, 2, 10, 11}, 7114);
+	public static final IconEntry PAGES_C2_R1 = new IconEntry("sprites/items/specific/pages.png", new int[]{19, 2, 10, 11}, 7114);
+	/** semantic alias for PAGES_C2_R1 */
+	public static final IconEntry ALCH_PAGE_0 = PAGES_C2_R1;
 	/** SEWER_PAGE#0 */
-	public static final IconEntry SEWER_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{35, 2, 10, 11}, 7115);
+	public static final IconEntry PAGES_C3_R1 = new IconEntry("sprites/items/specific/pages.png", new int[]{35, 2, 10, 11}, 7115);
+	/** semantic alias for PAGES_C3_R1 */
+	public static final IconEntry SEWER_PAGE_0 = PAGES_C3_R1;
 	/** PRISON_PAGE#0 */
-	public static final IconEntry PRISON_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{51, 2, 10, 11}, 7116);
+	public static final IconEntry PAGES_C4_R1 = new IconEntry("sprites/items/specific/pages.png", new int[]{51, 2, 10, 11}, 7116);
+	/** semantic alias for PAGES_C4_R1 */
+	public static final IconEntry PRISON_PAGE_0 = PAGES_C4_R1;
 	/** CAVES_PAGE#0 */
-	public static final IconEntry CAVES_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{67, 2, 10, 11}, 7117);
+	public static final IconEntry PAGES_C5_R1 = new IconEntry("sprites/items/specific/pages.png", new int[]{67, 2, 10, 11}, 7117);
+	/** semantic alias for PAGES_C5_R1 */
+	public static final IconEntry CAVES_PAGE_0 = PAGES_C5_R1;
 	/** CITY_PAGE#0 */
-	public static final IconEntry CITY_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{83, 2, 10, 11}, 7118);
+	public static final IconEntry PAGES_C6_R1 = new IconEntry("sprites/items/specific/pages.png", new int[]{83, 2, 10, 11}, 7118);
+	/** semantic alias for PAGES_C6_R1 */
+	public static final IconEntry CITY_PAGE_0 = PAGES_C6_R1;
 	/** HALLS_PAGE#0 */
-	public static final IconEntry HALLS_PAGE_0 = new IconEntry("sprites/items/specific/pages.png", new int[]{99, 2, 10, 11}, 7119);
+	public static final IconEntry PAGES_C7_R1 = new IconEntry("sprites/items/specific/pages.png", new int[]{99, 2, 10, 11}, 7119);
+	/** semantic alias for PAGES_C7_R1 */
+	public static final IconEntry HALLS_PAGE_0 = PAGES_C7_R1;
 }

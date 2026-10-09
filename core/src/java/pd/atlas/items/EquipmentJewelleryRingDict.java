@@ -13,29 +13,55 @@ public final class EquipmentJewelleryRingDict {
 	private EquipmentJewelleryRingDict() { }
 
 	/** RING_HOLDER */
-	public static final IconEntry RING_HOLDER = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{4, 3, 8, 10}, 6964);
+	public static final IconEntry RING_C1_R1 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{4, 3, 8, 10}, 6964);
+	/** semantic alias for RING_C1_R1 */
+	public static final IconEntry RING_HOLDER = RING_C1_R1;
 	/** RING_RUBY#0 */
-	public static final IconEntry RING_RUBY_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{20, 3, 8, 10}, 6965);
+	public static final IconEntry RING_C2_R1 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{20, 3, 8, 10}, 6965);
+	/** semantic alias for RING_C2_R1 */
+	public static final IconEntry RING_RUBY_0 = RING_C2_R1;
 	/** RING_ELEMENTS#0 */
-	public static final IconEntry RING_ELEMENTS_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{36, 3, 8, 10}, 6966);
+	public static final IconEntry RING_C3_R1 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{36, 3, 8, 10}, 6966);
+	/** semantic alias for RING_C3_R1 */
+	public static final IconEntry RING_ELEMENTS_0 = RING_C3_R1;
 	/** RING_ENERGY#0 */
-	public static final IconEntry RING_ENERGY_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{52, 3, 8, 10}, 6967);
+	public static final IconEntry RING_C4_R1 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{52, 3, 8, 10}, 6967);
+	/** semantic alias for RING_C4_R1 */
+	public static final IconEntry RING_ENERGY_0 = RING_C4_R1;
 	/** RING_ONYX#0 */
-	public static final IconEntry RING_ONYX_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{68, 3, 8, 10}, 6968);
+	public static final IconEntry RING_C5_R1 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{68, 3, 8, 10}, 6968);
+	/** semantic alias for RING_C5_R1 */
+	public static final IconEntry RING_ONYX_0 = RING_C5_R1;
 	/** RING_FORCE#0 */
-	public static final IconEntry RING_FORCE_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{84, 3, 8, 10}, 6969);
+	public static final IconEntry RING_C6_R1 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{84, 3, 8, 10}, 6969);
+	/** semantic alias for RING_C6_R1 */
+	public static final IconEntry RING_FORCE_0 = RING_C6_R1;
 	/** RING_FUROR#0 */
-	public static final IconEntry RING_FUROR_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{100, 3, 8, 10}, 6970);
+	public static final IconEntry RING_C7_R1 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{100, 3, 8, 10}, 6970);
+	/** semantic alias for RING_C7_R1 */
+	public static final IconEntry RING_FUROR_0 = RING_C7_R1;
 	/** RING_SAPPHIRE#0 */
-	public static final IconEntry RING_SAPPHIRE_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{116, 3, 8, 10}, 6971);
+	public static final IconEntry RING_C8_R1 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{116, 3, 8, 10}, 6971);
+	/** semantic alias for RING_C8_R1 */
+	public static final IconEntry RING_SAPPHIRE_0 = RING_C8_R1;
 	/** RING_MIGHT#0 */
-	public static final IconEntry RING_MIGHT_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{132, 3, 8, 10}, 6972);
+	public static final IconEntry RING_C9_R1 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{132, 3, 8, 10}, 6972);
+	/** semantic alias for RING_C9_R1 */
+	public static final IconEntry RING_MIGHT_0 = RING_C9_R1;
 	/** RING_SHARPSHOOT#0 */
-	public static final IconEntry RING_SHARPSHOOT_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{148, 3, 8, 10}, 6973);
+	public static final IconEntry RING_C10_R1 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{148, 3, 8, 10}, 6973);
+	/** semantic alias for RING_C10_R1 */
+	public static final IconEntry RING_SHARPSHOOT_0 = RING_C10_R1;
 	/** RING_TENACITY#0 */
-	public static final IconEntry RING_TENACITY_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{164, 3, 8, 10}, 6974);
+	public static final IconEntry RING_C11_R1 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{164, 3, 8, 10}, 6974);
+	/** semantic alias for RING_C11_R1 */
+	public static final IconEntry RING_TENACITY_0 = RING_C11_R1;
 	/** RING_DIAMOND#0 */
-	public static final IconEntry RING_DIAMOND_0 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{180, 3, 8, 10}, 6975);
+	public static final IconEntry RING_C12_R1 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{180, 3, 8, 10}, 6975);
+	/** semantic alias for RING_C12_R1 */
+	public static final IconEntry RING_DIAMOND_0 = RING_C12_R1;
 	/** SPS_WING_RING */
-	public static final IconEntry SPS_WING_RING = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{1, 35, 14, 10}, 6976);
+	public static final IconEntry RING_C1_R3 = new IconEntry("sprites/items/equipment/jewellery/ring.png", new int[]{1, 35, 14, 10}, 6976);
+	/** semantic alias for RING_C1_R3 */
+	public static final IconEntry SPS_WING_RING = RING_C1_R3;
 }

@@ -13,25 +13,47 @@ public final class EquipmentJewelleryArtifactExtraDict {
 	private EquipmentJewelleryArtifactExtraDict() { }
 
 	/** ARTIFACT_EXTRA_1 - 灰色兽首（顶部橙色／棕色羽饰） */
-	public static final IconEntry ARTIFACT_EXTRA_1 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{2, 1, 12, 15}, 7461);
+	public static final IconEntry ARTIFACT_EXTRA_C1_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{2, 1, 12, 15}, 7461);
+	/** semantic alias for ARTIFACT_EXTRA_C1_R1 */
+	public static final IconEntry ARTIFACT_EXTRA_1 = ARTIFACT_EXTRA_C1_R1;
 	/** ARTIFACT_EXTRA_2 - 白色羽毛／骨片（细长） */
-	public static final IconEntry ARTIFACT_EXTRA_2 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{16, 1, 15, 15}, 7462);
+	public static final IconEntry ARTIFACT_EXTRA_C2_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{16, 1, 15, 15}, 7462);
+	/** semantic alias for ARTIFACT_EXTRA_C2_R1 */
+	public static final IconEntry ARTIFACT_EXTRA_2 = ARTIFACT_EXTRA_C2_R1;
 	/** ARTIFACT_EXTRA_3 - 暗红心脏（小） */
-	public static final IconEntry ARTIFACT_EXTRA_3 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{34, 1, 13, 15}, 7463);
+	public static final IconEntry ARTIFACT_EXTRA_C3_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{34, 1, 13, 15}, 7463);
+	/** semantic alias for ARTIFACT_EXTRA_C3_R1 */
+	public static final IconEntry ARTIFACT_EXTRA_3 = ARTIFACT_EXTRA_C3_R1;
 	/** ARTIFACT_EXTRA_4 - 暗红心脏（中） */
-	public static final IconEntry ARTIFACT_EXTRA_4 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{50, 1, 13, 15}, 7464);
+	public static final IconEntry ARTIFACT_EXTRA_C4_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{50, 1, 13, 15}, 7464);
+	/** semantic alias for ARTIFACT_EXTRA_C4_R1 */
+	public static final IconEntry ARTIFACT_EXTRA_4 = ARTIFACT_EXTRA_C4_R1;
 	/** ARTIFACT_EXTRA_5 - 暗红心脏（大） */
-	public static final IconEntry ARTIFACT_EXTRA_5 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{65, 0, 14, 16}, 7465);
+	public static final IconEntry ARTIFACT_EXTRA_C5_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{65, 0, 14, 16}, 7465);
+	/** semantic alias for ARTIFACT_EXTRA_C5_R1 */
+	public static final IconEntry ARTIFACT_EXTRA_5 = ARTIFACT_EXTRA_C5_R1;
 	/** ARTIFACT_EXTRA_6 - 淡黄色骨头／羽毛形物件（带红斑） */
-	public static final IconEntry ARTIFACT_EXTRA_6 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{82, 0, 10, 16}, 7466);
+	public static final IconEntry ARTIFACT_EXTRA_C6_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{82, 0, 10, 16}, 7466);
+	/** semantic alias for ARTIFACT_EXTRA_C6_R1 */
+	public static final IconEntry ARTIFACT_EXTRA_6 = ARTIFACT_EXTRA_C6_R1;
 	/** ARTIFACT_EXTRA_7 - 蓝色圆盘／徽章（蓝底亮纹） */
-	public static final IconEntry ARTIFACT_EXTRA_7 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{97, 1, 14, 14}, 7467);
+	public static final IconEntry ARTIFACT_EXTRA_C7_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{97, 1, 14, 14}, 7467);
+	/** semantic alias for ARTIFACT_EXTRA_C7_R1 */
+	public static final IconEntry ARTIFACT_EXTRA_7 = ARTIFACT_EXTRA_C7_R1;
 	/** ARTIFACT_EXTRA_8 - 绿色藤蔓（配粉色花朵） */
-	public static final IconEntry ARTIFACT_EXTRA_8 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{0, 17, 16, 14}, 7468);
+	public static final IconEntry ARTIFACT_EXTRA_C1_R2 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{0, 17, 16, 14}, 7468);
+	/** semantic alias for ARTIFACT_EXTRA_C1_R2 */
+	public static final IconEntry ARTIFACT_EXTRA_8 = ARTIFACT_EXTRA_C1_R2;
 	/** ARTIFACT_EXTRA_9 - 棕色小袋／皮囊 */
-	public static final IconEntry ARTIFACT_EXTRA_9 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{18, 16, 13, 16}, 7469);
+	public static final IconEntry ARTIFACT_EXTRA_C2_R2 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{18, 16, 13, 16}, 7469);
+	/** semantic alias for ARTIFACT_EXTRA_C2_R2 */
+	public static final IconEntry ARTIFACT_EXTRA_9 = ARTIFACT_EXTRA_C2_R2;
 	/** ARTIFACT_EXTRA_10 - 黑色小圆点（极小的图标占位） */
-	public static final IconEntry ARTIFACT_EXTRA_10 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{37, 21, 6, 6}, 7470);
+	public static final IconEntry ARTIFACT_EXTRA_C3_R2 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{37, 21, 6, 6}, 7470);
+	/** semantic alias for ARTIFACT_EXTRA_C3_R2 */
+	public static final IconEntry ARTIFACT_EXTRA_10 = ARTIFACT_EXTRA_C3_R2;
 	/** ARTIFACT_EXTRA_11 - 紫色爪／翼（深紫色） */
-	public static final IconEntry ARTIFACT_EXTRA_11 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{48, 16, 15, 16}, 7471);
+	public static final IconEntry ARTIFACT_EXTRA_C4_R2 = new IconEntry("sprites/items/equipment/jewellery/artifact_extra.png", new int[]{48, 16, 15, 16}, 7471);
+	/** semantic alias for ARTIFACT_EXTRA_C4_R2 */
+	public static final IconEntry ARTIFACT_EXTRA_11 = ARTIFACT_EXTRA_C4_R2;
 }

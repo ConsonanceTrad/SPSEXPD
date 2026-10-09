@@ -13,103 +13,203 @@ public final class ConsumThrowsDict {
 	private ConsumThrowsDict() { }
 
 	/** THROWING_SPIKE#0 */
-	public static final IconEntry THROWING_SPIKE_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{3, 3, 11, 10}, 6666);
+	public static final IconEntry THROWS_C1_R1 = new IconEntry("sprites/items/consum/throws.png", new int[]{3, 3, 11, 10}, 6666);
+	/** semantic alias for THROWS_C1_R1 */
+	public static final IconEntry THROWING_SPIKE_0 = THROWS_C1_R1;
 	/** THROWING_KNIFE#0 */
-	public static final IconEntry THROWING_KNIFE_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{18, 2, 12, 13}, 6667);
+	public static final IconEntry THROWS_C2_R1 = new IconEntry("sprites/items/consum/throws.png", new int[]{18, 2, 12, 13}, 6667);
+	/** semantic alias for THROWS_C2_R1 */
+	public static final IconEntry THROWING_KNIFE_0 = THROWS_C2_R1;
 	/** THROWING_STONE#0 */
-	public static final IconEntry THROWING_STONE_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{34, 3, 12, 10}, 6668);
+	public static final IconEntry THROWS_C3_R1 = new IconEntry("sprites/items/consum/throws.png", new int[]{34, 3, 12, 10}, 6668);
+	/** semantic alias for THROWS_C3_R1 */
+	public static final IconEntry THROWING_STONE_0 = THROWS_C3_R1;
 	/** FISHING_SPEAR#0 */
-	public static final IconEntry FISHING_SPEAR_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{51, 3, 11, 11}, 6669);
+	public static final IconEntry THROWS_C4_R1 = new IconEntry("sprites/items/consum/throws.png", new int[]{51, 3, 11, 11}, 6669);
+	/** semantic alias for THROWS_C4_R1 */
+	public static final IconEntry FISHING_SPEAR_0 = THROWS_C4_R1;
 	/** SHURIKEN#0 */
-	public static final IconEntry SHURIKEN_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{66, 2, 12, 12}, 6670);
+	public static final IconEntry THROWS_C5_R1 = new IconEntry("sprites/items/consum/throws.png", new int[]{66, 2, 12, 12}, 6670);
+	/** semantic alias for THROWS_C5_R1 */
+	public static final IconEntry SHURIKEN_0 = THROWS_C5_R1;
 	/** THROWING_CLUB#0 */
-	public static final IconEntry THROWING_CLUB_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{82, 2, 12, 12}, 6671);
+	public static final IconEntry THROWS_C6_R1 = new IconEntry("sprites/items/consum/throws.png", new int[]{82, 2, 12, 12}, 6671);
+	/** semantic alias for THROWS_C6_R1 */
+	public static final IconEntry THROWING_CLUB_0 = THROWS_C6_R1;
 	/** THROWING_SPEAR#0 */
-	public static final IconEntry THROWING_SPEAR_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{98, 2, 13, 13}, 6672);
+	public static final IconEntry THROWS_C7_R1 = new IconEntry("sprites/items/consum/throws.png", new int[]{98, 2, 13, 13}, 6672);
+	/** semantic alias for THROWS_C7_R1 */
+	public static final IconEntry THROWING_SPEAR_0 = THROWS_C7_R1;
 	/** BOLAS#0 */
-	public static final IconEntry BOLAS_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{112, 1, 15, 14}, 6673);
+	public static final IconEntry THROWS_C8_R1 = new IconEntry("sprites/items/consum/throws.png", new int[]{112, 1, 15, 14}, 6673);
+	/** semantic alias for THROWS_C8_R1 */
+	public static final IconEntry BOLAS_0 = THROWS_C8_R1;
 	/** KUNAI#0 */
-	public static final IconEntry KUNAI_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{128, 0, 15, 15}, 6674);
+	public static final IconEntry THROWS_C9_R1 = new IconEntry("sprites/items/consum/throws.png", new int[]{128, 0, 15, 15}, 6674);
+	/** semantic alias for THROWS_C9_R1 */
+	public static final IconEntry KUNAI_0 = THROWS_C9_R1;
 	/** GIANT_SHURIKEN */
-	public static final IconEntry GIANT_SHURIKEN = new IconEntry("sprites/items/consum/throws.png", new int[]{144, 0, 16, 16}, 6675);
+	public static final IconEntry THROWS_C10_R1 = new IconEntry("sprites/items/consum/throws.png", new int[]{144, 0, 16, 16}, 6675);
+	/** semantic alias for THROWS_C10_R1 */
+	public static final IconEntry GIANT_SHURIKEN = THROWS_C10_R1;
 	/** JAVELIN#0 */
-	public static final IconEntry JAVELIN_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{160, 0, 16, 16}, 6676);
+	public static final IconEntry THROWS_C11_R1 = new IconEntry("sprites/items/consum/throws.png", new int[]{160, 0, 16, 16}, 6676);
+	/** semantic alias for THROWS_C11_R1 */
+	public static final IconEntry JAVELIN_0 = THROWS_C11_R1;
 	/** TOMAHAWK#0 */
-	public static final IconEntry TOMAHAWK_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{177, 1, 13, 13}, 6677);
+	public static final IconEntry THROWS_C12_R1 = new IconEntry("sprites/items/consum/throws.png", new int[]{177, 1, 13, 13}, 6677);
+	/** semantic alias for THROWS_C12_R1 */
+	public static final IconEntry TOMAHAWK_0 = THROWS_C12_R1;
 	/** BOOMERANG#0 */
-	public static final IconEntry BOOMERANG_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{193, 1, 14, 14}, 6678);
+	public static final IconEntry THROWS_C13_R1 = new IconEntry("sprites/items/consum/throws.png", new int[]{193, 1, 14, 14}, 6678);
+	/** semantic alias for THROWS_C13_R1 */
+	public static final IconEntry BOOMERANG_0 = THROWS_C13_R1;
 	/** TRIDENT#0 */
-	public static final IconEntry TRIDENT_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{208, 0, 16, 16}, 6679);
+	public static final IconEntry THROWS_C14_R1 = new IconEntry("sprites/items/consum/throws.png", new int[]{208, 0, 16, 16}, 6679);
+	/** semantic alias for THROWS_C14_R1 */
+	public static final IconEntry TRIDENT_0 = THROWS_C14_R1;
 	/** THROWING_HAMMER#0 */
-	public static final IconEntry THROWING_HAMMER_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{226, 2, 12, 12}, 6680);
+	public static final IconEntry THROWS_C15_R1 = new IconEntry("sprites/items/consum/throws.png", new int[]{226, 2, 12, 12}, 6680);
+	/** semantic alias for THROWS_C15_R1 */
+	public static final IconEntry THROWING_HAMMER_0 = THROWS_C15_R1;
 	/** FORCE_CUBE#0 */
-	public static final IconEntry FORCE_CUBE_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{242, 2, 11, 12}, 6681);
+	public static final IconEntry THROWS_C16_R1 = new IconEntry("sprites/items/consum/throws.png", new int[]{242, 2, 11, 12}, 6681);
+	/** semantic alias for THROWS_C16_R1 */
+	public static final IconEntry FORCE_CUBE_0 = THROWS_C16_R1;
 	/** ESCAPE_KNIFE */
-	public static final IconEntry ESCAPE_KNIFE = new IconEntry("sprites/items/consum/throws.png", new int[]{2, 18, 12, 12}, 6682);
+	public static final IconEntry THROWS_C1_R2 = new IconEntry("sprites/items/consum/throws.png", new int[]{2, 18, 12, 12}, 6682);
+	/** semantic alias for THROWS_C1_R2 */
+	public static final IconEntry ESCAPE_KNIFE = THROWS_C1_R2;
 	/** SONIC_BAIT */
-	public static final IconEntry SONIC_BAIT = new IconEntry("sprites/items/consum/throws.png", new int[]{17, 16, 14, 16}, 6683);
+	public static final IconEntry THROWS_C2_R2 = new IconEntry("sprites/items/consum/throws.png", new int[]{17, 16, 14, 16}, 6683);
+	/** semantic alias for THROWS_C2_R2 */
+	public static final IconEntry SONIC_BAIT = THROWS_C2_R2;
 	/** MAGIC_HAND */
-	public static final IconEntry MAGIC_HAND = new IconEntry("sprites/items/consum/throws.png", new int[]{33, 17, 14, 14}, 6684);
+	public static final IconEntry THROWS_C3_R2 = new IconEntry("sprites/items/consum/throws.png", new int[]{33, 17, 14, 14}, 6684);
+	/** semantic alias for THROWS_C3_R2 */
+	public static final IconEntry MAGIC_HAND = THROWS_C3_R2;
 	/** ROUND_BLADE */
-	public static final IconEntry ROUND_BLADE = new IconEntry("sprites/items/consum/throws.png", new int[]{49, 17, 14, 14}, 6685);
+	public static final IconEntry THROWS_C4_R2 = new IconEntry("sprites/items/consum/throws.png", new int[]{49, 17, 14, 14}, 6685);
+	/** semantic alias for THROWS_C4_R2 */
+	public static final IconEntry ROUND_BLADE = THROWS_C4_R2;
 	/** BRICK */
-	public static final IconEntry BRICK = new IconEntry("sprites/items/consum/throws.png", new int[]{65, 17, 15, 14}, 6686);
+	public static final IconEntry THROWS_C5_R2 = new IconEntry("sprites/items/consum/throws.png", new int[]{65, 17, 15, 14}, 6686);
+	/** semantic alias for THROWS_C5_R2 */
+	public static final IconEntry BRICK = THROWS_C5_R2;
 	/** METAL_JAVELIN */
-	public static final IconEntry METAL_JAVELIN = new IconEntry("sprites/items/consum/throws.png", new int[]{81, 16, 15, 15}, 6687);
+	public static final IconEntry THROWS_C6_R2 = new IconEntry("sprites/items/consum/throws.png", new int[]{81, 16, 15, 15}, 6687);
+	/** semantic alias for THROWS_C6_R2 */
+	public static final IconEntry METAL_JAVELIN = THROWS_C6_R2;
 	/** TRAP_NET */
-	public static final IconEntry TRAP_NET = new IconEntry("sprites/items/consum/throws.png", new int[]{97, 18, 14, 13}, 6688);
+	public static final IconEntry THROWS_C7_R2 = new IconEntry("sprites/items/consum/throws.png", new int[]{97, 18, 14, 13}, 6688);
+	/** semantic alias for THROWS_C7_R2 */
+	public static final IconEntry TRAP_NET = THROWS_C7_R2;
 	/** SKULL */
-	public static final IconEntry SKULL = new IconEntry("sprites/items/consum/throws.png", new int[]{116, 20, 8, 8}, 6689);
+	public static final IconEntry THROWS_C8_R2 = new IconEntry("sprites/items/consum/throws.png", new int[]{116, 20, 8, 8}, 6689);
+	/** semantic alias for THROWS_C8_R2 */
+	public static final IconEntry SKULL = THROWS_C8_R2;
 	/** BATARANG */
-	public static final IconEntry BATARANG = new IconEntry("sprites/items/consum/throws.png", new int[]{130, 20, 13, 9}, 6690);
+	public static final IconEntry THROWS_C9_R2 = new IconEntry("sprites/items/consum/throws.png", new int[]{130, 20, 13, 9}, 6690);
+	/** semantic alias for THROWS_C9_R2 */
+	public static final IconEntry BATARANG = THROWS_C9_R2;
 	/** FILTH_LUMP */
-	public static final IconEntry FILTH_LUMP = new IconEntry("sprites/items/consum/throws.png", new int[]{145, 17, 14, 15}, 6691);
+	public static final IconEntry THROWS_C10_R2 = new IconEntry("sprites/items/consum/throws.png", new int[]{145, 17, 14, 15}, 6691);
+	/** semantic alias for THROWS_C10_R2 */
+	public static final IconEntry FILTH_LUMP = THROWS_C10_R2;
 	/** RICE_BALL */
-	public static final IconEntry RICE_BALL = new IconEntry("sprites/items/consum/throws.png", new int[]{162, 19, 12, 11}, 6692);
+	public static final IconEntry THROWS_C11_R2 = new IconEntry("sprites/items/consum/throws.png", new int[]{162, 19, 12, 11}, 6692);
+	/** semantic alias for THROWS_C11_R2 */
+	public static final IconEntry RICE_BALL = THROWS_C11_R2;
 	/** PSYCHIC_ARROW */
-	public static final IconEntry PSYCHIC_ARROW = new IconEntry("sprites/items/consum/throws.png", new int[]{2, 34, 12, 12}, 6693);
+	public static final IconEntry THROWS_C1_R3 = new IconEntry("sprites/items/consum/throws.png", new int[]{2, 34, 12, 12}, 6693);
+	/** semantic alias for THROWS_C1_R3 */
+	public static final IconEntry PSYCHIC_ARROW = THROWS_C1_R3;
 	/** HONEY_ARROW */
-	public static final IconEntry HONEY_ARROW = new IconEntry("sprites/items/consum/throws.png", new int[]{18, 34, 12, 12}, 6694);
+	public static final IconEntry THROWS_C2_R3 = new IconEntry("sprites/items/consum/throws.png", new int[]{18, 34, 12, 12}, 6694);
+	/** semantic alias for THROWS_C2_R3 */
+	public static final IconEntry HONEY_ARROW = THROWS_C2_R3;
 	/** DOOR_BLOCK_PLACER */
-	public static final IconEntry DOOR_BLOCK_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{0, 64, 16, 16}, 6695);
+	public static final IconEntry THROWS_C1_R5 = new IconEntry("sprites/items/consum/throws.png", new int[]{0, 64, 16, 16}, 6695);
+	/** semantic alias for THROWS_C1_R5 */
+	public static final IconEntry DOOR_BLOCK_PLACER = THROWS_C1_R5;
 	/** BRICK_BLOCK_PLACER */
-	public static final IconEntry BRICK_BLOCK_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{16, 64, 16, 16}, 6696);
+	public static final IconEntry THROWS_C2_R5 = new IconEntry("sprites/items/consum/throws.png", new int[]{16, 64, 16, 16}, 6696);
+	/** semantic alias for THROWS_C2_R5 */
+	public static final IconEntry BRICK_BLOCK_PLACER = THROWS_C2_R5;
 	/** WATER_BLOCK_PLACER */
-	public static final IconEntry WATER_BLOCK_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{32, 64, 16, 16}, 6697);
+	public static final IconEntry THROWS_C3_R5 = new IconEntry("sprites/items/consum/throws.png", new int[]{32, 64, 16, 16}, 6697);
+	/** semantic alias for THROWS_C3_R5 */
+	public static final IconEntry WATER_BLOCK_PLACER = THROWS_C3_R5;
 	/** STATUE_PLACER */
-	public static final IconEntry STATUE_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{48, 64, 16, 16}, 6698);
+	public static final IconEntry THROWS_C4_R5 = new IconEntry("sprites/items/consum/throws.png", new int[]{48, 64, 16, 16}, 6698);
+	/** semantic alias for THROWS_C4_R5 */
+	public static final IconEntry STATUE_PLACER = THROWS_C4_R5;
 	/** PLANK_PLACER */
-	public static final IconEntry PLANK_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{64, 64, 16, 16}, 6699);
+	public static final IconEntry THROWS_C5_R5 = new IconEntry("sprites/items/consum/throws.png", new int[]{64, 64, 16, 16}, 6699);
+	/** semantic alias for THROWS_C5_R5 */
+	public static final IconEntry PLANK_PLACER = THROWS_C5_R5;
 	/** BOOKSHELF_PLACER */
-	public static final IconEntry BOOKSHELF_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{80, 64, 16, 16}, 6700);
+	public static final IconEntry THROWS_C6_R5 = new IconEntry("sprites/items/consum/throws.png", new int[]{80, 64, 16, 16}, 6700);
+	/** semantic alias for THROWS_C6_R5 */
+	public static final IconEntry BOOKSHELF_PLACER = THROWS_C6_R5;
 	/** FLOWER_POT_PLACER */
-	public static final IconEntry FLOWER_POT_PLACER = new IconEntry("sprites/items/consum/throws.png", new int[]{98, 66, 12, 12}, 6701);
+	public static final IconEntry THROWS_C7_R5 = new IconEntry("sprites/items/consum/throws.png", new int[]{98, 66, 12, 12}, 6701);
+	/** semantic alias for THROWS_C7_R5 */
+	public static final IconEntry FLOWER_POT_PLACER = THROWS_C7_R5;
 	/** SMALL_POISON_DART */
-	public static final IconEntry SMALL_POISON_DART = new IconEntry("sprites/items/consum/throws.png", new int[]{0, 80, 14, 14}, 6702);
+	public static final IconEntry THROWS_C1_R6 = new IconEntry("sprites/items/consum/throws.png", new int[]{0, 80, 14, 14}, 6702);
+	/** semantic alias for THROWS_C1_R6 */
+	public static final IconEntry SMALL_POISON_DART = THROWS_C1_R6;
 	/** NORMAL_DART */
-	public static final IconEntry NORMAL_DART = new IconEntry("sprites/items/consum/throws.png", new int[]{16, 80, 15, 15}, 6703);
+	public static final IconEntry THROWS_C2_R6 = new IconEntry("sprites/items/consum/throws.png", new int[]{16, 80, 15, 15}, 6703);
+	/** semantic alias for THROWS_C2_R6 */
+	public static final IconEntry NORMAL_DART = THROWS_C2_R6;
 	/** ROT_DART#0 */
-	public static final IconEntry ROT_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{32, 80, 15, 15}, 6704);
+	public static final IconEntry THROWS_C3_R6 = new IconEntry("sprites/items/consum/throws.png", new int[]{32, 80, 15, 15}, 6704);
+	/** semantic alias for THROWS_C3_R6 */
+	public static final IconEntry ROT_DART_0 = THROWS_C3_R6;
 	/** INCENDIARY_DART#0 */
-	public static final IconEntry INCENDIARY_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{48, 80, 15, 15}, 6705);
+	public static final IconEntry THROWS_C4_R6 = new IconEntry("sprites/items/consum/throws.png", new int[]{48, 80, 15, 15}, 6705);
+	/** semantic alias for THROWS_C4_R6 */
+	public static final IconEntry INCENDIARY_DART_0 = THROWS_C4_R6;
 	/** ADRENALINE_DART#0 */
-	public static final IconEntry ADRENALINE_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{64, 80, 15, 15}, 6706);
+	public static final IconEntry THROWS_C5_R6 = new IconEntry("sprites/items/consum/throws.png", new int[]{64, 80, 15, 15}, 6706);
+	/** semantic alias for THROWS_C5_R6 */
+	public static final IconEntry ADRENALINE_DART_0 = THROWS_C5_R6;
 	/** HEALING_DART#0 */
-	public static final IconEntry HEALING_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{80, 80, 15, 15}, 6707);
+	public static final IconEntry THROWS_C6_R6 = new IconEntry("sprites/items/consum/throws.png", new int[]{80, 80, 15, 15}, 6707);
+	/** semantic alias for THROWS_C6_R6 */
+	public static final IconEntry HEALING_DART_0 = THROWS_C6_R6;
 	/** CHILLING_DART#0 */
-	public static final IconEntry CHILLING_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{96, 80, 15, 15}, 6708);
+	public static final IconEntry THROWS_C7_R6 = new IconEntry("sprites/items/consum/throws.png", new int[]{96, 80, 15, 15}, 6708);
+	/** semantic alias for THROWS_C7_R6 */
+	public static final IconEntry CHILLING_DART_0 = THROWS_C7_R6;
 	/** SHOCKING_DART#0 */
-	public static final IconEntry SHOCKING_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{112, 80, 15, 15}, 6709);
+	public static final IconEntry THROWS_C8_R6 = new IconEntry("sprites/items/consum/throws.png", new int[]{112, 80, 15, 15}, 6709);
+	/** semantic alias for THROWS_C8_R6 */
+	public static final IconEntry SHOCKING_DART_0 = THROWS_C8_R6;
 	/** POISON_DART#0 */
-	public static final IconEntry POISON_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{128, 80, 15, 15}, 6710);
+	public static final IconEntry THROWS_C9_R6 = new IconEntry("sprites/items/consum/throws.png", new int[]{128, 80, 15, 15}, 6710);
+	/** semantic alias for THROWS_C9_R6 */
+	public static final IconEntry POISON_DART_0 = THROWS_C9_R6;
 	/** CLEANSING_DART#0 */
-	public static final IconEntry CLEANSING_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{144, 80, 15, 15}, 6711);
+	public static final IconEntry THROWS_C10_R6 = new IconEntry("sprites/items/consum/throws.png", new int[]{144, 80, 15, 15}, 6711);
+	/** semantic alias for THROWS_C10_R6 */
+	public static final IconEntry CLEANSING_DART_0 = THROWS_C10_R6;
 	/** PARALYTIC_DART#0 */
-	public static final IconEntry PARALYTIC_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{160, 80, 15, 15}, 6712);
+	public static final IconEntry THROWS_C11_R6 = new IconEntry("sprites/items/consum/throws.png", new int[]{160, 80, 15, 15}, 6712);
+	/** semantic alias for THROWS_C11_R6 */
+	public static final IconEntry PARALYTIC_DART_0 = THROWS_C11_R6;
 	/** HOLY_DART#0 */
-	public static final IconEntry HOLY_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{176, 80, 15, 15}, 6713);
+	public static final IconEntry THROWS_C12_R6 = new IconEntry("sprites/items/consum/throws.png", new int[]{176, 80, 15, 15}, 6713);
+	/** semantic alias for THROWS_C12_R6 */
+	public static final IconEntry HOLY_DART_0 = THROWS_C12_R6;
 	/** DISPLACING_DART#0 */
-	public static final IconEntry DISPLACING_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{192, 80, 15, 15}, 6714);
+	public static final IconEntry THROWS_C13_R6 = new IconEntry("sprites/items/consum/throws.png", new int[]{192, 80, 15, 15}, 6714);
+	/** semantic alias for THROWS_C13_R6 */
+	public static final IconEntry DISPLACING_DART_0 = THROWS_C13_R6;
 	/** BLINDING_DART#0 */
-	public static final IconEntry BLINDING_DART_0 = new IconEntry("sprites/items/consum/throws.png", new int[]{208, 80, 15, 15}, 6715);
+	public static final IconEntry THROWS_C14_R6 = new IconEntry("sprites/items/consum/throws.png", new int[]{208, 80, 15, 15}, 6715);
+	/** semantic alias for THROWS_C14_R6 */
+	public static final IconEntry BLINDING_DART_0 = THROWS_C14_R6;
 }

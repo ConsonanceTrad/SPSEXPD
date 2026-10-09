@@ -13,167 +13,331 @@ public final class EquipmentNonEquipDict {
 	private EquipmentNonEquipDict() { }
 
 	/** JUMP_BOOTS */
-	public static final IconEntry JUMP_BOOTS = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{0, 0, 16, 16}, 6977);
+	public static final IconEntry NON_EQUIP_C1_R1 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{0, 0, 16, 16}, 6977);
+	/** semantic alias for NON_EQUIP_C1_R1 */
+	public static final IconEntry JUMP_BOOTS = NON_EQUIP_C1_R1;
 	/** HOLY_SHIELD */
-	public static final IconEntry HOLY_SHIELD = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{19, 1, 10, 14}, 6978);
+	public static final IconEntry NON_EQUIP_C2_R1 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{19, 1, 10, 14}, 6978);
+	/** semantic alias for NON_EQUIP_C2_R1 */
+	public static final IconEntry HOLY_SHIELD = NON_EQUIP_C2_R1;
 	/** DEWDROP_MUSHROOM */
-	public static final IconEntry DEWDROP_MUSHROOM = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{33, 1, 13, 14}, 6979);
+	public static final IconEntry NON_EQUIP_C3_R1 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{33, 1, 13, 14}, 6979);
+	/** semantic alias for NON_EQUIP_C3_R1 */
+	public static final IconEntry DEWDROP_MUSHROOM = NON_EQUIP_C3_R1;
 	/** WATERSKIN */
-	public static final IconEntry WATERSKIN = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{50, 2, 12, 12}, 6980);
+	public static final IconEntry NON_EQUIP_C4_R1 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{50, 2, 12, 12}, 6980);
+	/** semantic alias for NON_EQUIP_C4_R1 */
+	public static final IconEntry WATERSKIN = NON_EQUIP_C4_R1;
 	/** DEWDROP */
-	public static final IconEntry DEWDROP = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{67, 3, 10, 10}, 6981);
+	public static final IconEntry NON_EQUIP_C5_R1 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{67, 3, 10, 10}, 6981);
+	/** semantic alias for NON_EQUIP_C5_R1 */
+	public static final IconEntry DEWDROP = NON_EQUIP_C5_R1;
 	/** YELLOW_DEWDROP */
-	public static final IconEntry YELLOW_DEWDROP = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{83, 3, 10, 10}, 6982);
+	public static final IconEntry NON_EQUIP_C6_R1 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{83, 3, 10, 10}, 6982);
+	/** semantic alias for NON_EQUIP_C6_R1 */
+	public static final IconEntry YELLOW_DEWDROP = NON_EQUIP_C6_R1;
 	/** RED_DEWDROP */
-	public static final IconEntry RED_DEWDROP = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{99, 3, 10, 10}, 6983);
+	public static final IconEntry NON_EQUIP_C7_R1 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{99, 3, 10, 10}, 6983);
+	/** semantic alias for NON_EQUIP_C7_R1 */
+	public static final IconEntry RED_DEWDROP = NON_EQUIP_C7_R1;
 	/** VIOLET_DEWDROP */
-	public static final IconEntry VIOLET_DEWDROP = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{115, 3, 10, 10}, 6984);
+	public static final IconEntry NON_EQUIP_C8_R1 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{115, 3, 10, 10}, 6984);
+	/** semantic alias for NON_EQUIP_C8_R1 */
+	public static final IconEntry VIOLET_DEWDROP = NON_EQUIP_C8_R1;
 	/** GREEN_DEWDROP */
-	public static final IconEntry GREEN_DEWDROP = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{131, 3, 10, 10}, 6985);
+	public static final IconEntry NON_EQUIP_C9_R1 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{131, 3, 10, 10}, 6985);
+	/** semantic alias for NON_EQUIP_C9_R1 */
+	public static final IconEntry GREEN_DEWDROP = NON_EQUIP_C9_R1;
 	/** YELLOW_UPGRADE_BLOB */
-	public static final IconEntry YELLOW_UPGRADE_BLOB = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{145, 3, 14, 11}, 6986);
+	public static final IconEntry NON_EQUIP_C10_R1 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{145, 3, 14, 11}, 6986);
+	/** semantic alias for NON_EQUIP_C10_R1 */
+	public static final IconEntry YELLOW_UPGRADE_BLOB = NON_EQUIP_C10_R1;
 	/** RED_UPGRADE_BLOB */
-	public static final IconEntry RED_UPGRADE_BLOB = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{161, 3, 14, 11}, 6987);
+	public static final IconEntry NON_EQUIP_C11_R1 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{161, 3, 14, 11}, 6987);
+	/** semantic alias for NON_EQUIP_C11_R1 */
+	public static final IconEntry RED_UPGRADE_BLOB = NON_EQUIP_C11_R1;
 	/** VIOLET_UPGRADE_BLOB */
-	public static final IconEntry VIOLET_UPGRADE_BLOB = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{177, 3, 14, 11}, 6988);
+	public static final IconEntry NON_EQUIP_C12_R1 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{177, 3, 14, 11}, 6988);
+	/** semantic alias for NON_EQUIP_C12_R1 */
+	public static final IconEntry VIOLET_UPGRADE_BLOB = NON_EQUIP_C12_R1;
 	/** PURE_DEWDROP_WATER */
-	public static final IconEntry PURE_DEWDROP_WATER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{197, 2, 6, 12}, 6989);
+	public static final IconEntry NON_EQUIP_C13_R1 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{197, 2, 6, 12}, 6989);
+	/** semantic alias for NON_EQUIP_C13_R1 */
+	public static final IconEntry PURE_DEWDROP_WATER = NON_EQUIP_C13_R1;
 	/** EMPTY_POCKET_BALL */
-	public static final IconEntry EMPTY_POCKET_BALL = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{211, 1, 10, 14}, 6990);
+	public static final IconEntry NON_EQUIP_C14_R1 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{211, 1, 10, 14}, 6990);
+	/** semantic alias for NON_EQUIP_C14_R1 */
+	public static final IconEntry EMPTY_POCKET_BALL = NON_EQUIP_C14_R1;
 	/** FULL_POCKET_BALL */
-	public static final IconEntry FULL_POCKET_BALL = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{227, 1, 10, 14}, 6991);
+	public static final IconEntry NON_EQUIP_C15_R1 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{227, 1, 10, 14}, 6991);
+	/** semantic alias for NON_EQUIP_C15_R1 */
+	public static final IconEntry FULL_POCKET_BALL = NON_EQUIP_C15_R1;
 	/** SAVE_YOUR_LIFE */
-	public static final IconEntry SAVE_YOUR_LIFE = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{240, 0, 16, 16}, 6992);
+	public static final IconEntry NON_EQUIP_C16_R1 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{240, 0, 16, 16}, 6992);
+	/** semantic alias for NON_EQUIP_C16_R1 */
+	public static final IconEntry SAVE_YOUR_LIFE = NON_EQUIP_C16_R1;
 	/** DIVINE_WOOD_SHIELD */
-	public static final IconEntry DIVINE_WOOD_SHIELD = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{3, 19, 10, 10}, 6993);
+	public static final IconEntry NON_EQUIP_C1_R2 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{3, 19, 10, 10}, 6993);
+	/** semantic alias for NON_EQUIP_C1_R2 */
+	public static final IconEntry DIVINE_WOOD_SHIELD = NON_EQUIP_C1_R2;
 	/** MIRACLE_FLASK */
-	public static final IconEntry MIRACLE_FLASK = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{18, 17, 12, 14}, 6994);
+	public static final IconEntry NON_EQUIP_C2_R2 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{18, 17, 12, 14}, 6994);
+	/** semantic alias for NON_EQUIP_C2_R2 */
+	public static final IconEntry MIRACLE_FLASK = NON_EQUIP_C2_R2;
 	/** LEGACY_SHOVEL#0 */
-	public static final IconEntry LEGACY_SHOVEL_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{32, 16, 16, 16}, 6995);
+	public static final IconEntry NON_EQUIP_C3_R2 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{32, 16, 16, 16}, 6995);
+	/** semantic alias for NON_EQUIP_C3_R2 */
+	public static final IconEntry LEGACY_SHOVEL_0 = NON_EQUIP_C3_R2;
 	/** ELECTROMAGNETIC_PISTOL */
-	public static final IconEntry ELECTROMAGNETIC_PISTOL = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{48, 19, 16, 12}, 6996);
+	public static final IconEntry NON_EQUIP_C4_R2 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{48, 19, 16, 12}, 6996);
+	/** semantic alias for NON_EQUIP_C4_R2 */
+	public static final IconEntry ELECTROMAGNETIC_PISTOL = NON_EQUIP_C4_R2;
 	/** ELECTROMAGNETIC_BULLET */
-	public static final IconEntry ELECTROMAGNETIC_BULLET = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{67, 21, 10, 7}, 6997);
+	public static final IconEntry NON_EQUIP_C5_R2 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{67, 21, 10, 7}, 6997);
+	/** semantic alias for NON_EQUIP_C5_R2 */
+	public static final IconEntry ELECTROMAGNETIC_BULLET = NON_EQUIP_C5_R2;
 	/** RYU_HADOKEN */
-	public static final IconEntry RYU_HADOKEN = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{81, 18, 12, 12}, 6998);
+	public static final IconEntry NON_EQUIP_C6_R2 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{81, 18, 12, 12}, 6998);
+	/** semantic alias for NON_EQUIP_C6_R2 */
+	public static final IconEntry RYU_HADOKEN = NON_EQUIP_C6_R2;
 	/** FAITH_BOX */
-	public static final IconEntry FAITH_BOX = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{97, 17, 14, 14}, 6999);
+	public static final IconEntry NON_EQUIP_C7_R2 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{97, 17, 14, 14}, 6999);
+	/** semantic alias for NON_EQUIP_C7_R2 */
+	public static final IconEntry FAITH_BOX = NON_EQUIP_C7_R2;
 	/** BATTERY */
-	public static final IconEntry BATTERY = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{112, 19, 15, 11}, 7000);
+	public static final IconEntry NON_EQUIP_C8_R2 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{112, 19, 15, 11}, 7000);
+	/** semantic alias for NON_EQUIP_C8_R2 */
+	public static final IconEntry BATTERY = NON_EQUIP_C8_R2;
 	/** CHEAT_CODE */
-	public static final IconEntry CHEAT_CODE = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{130, 17, 13, 15}, 7001);
+	public static final IconEntry NON_EQUIP_C9_R2 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{130, 17, 13, 15}, 7001);
+	/** semantic alias for NON_EQUIP_C9_R2 */
+	public static final IconEntry CHEAT_CODE = NON_EQUIP_C9_R2;
 	/** MUSHROOM_QUESTION_BOX */
-	public static final IconEntry MUSHROOM_QUESTION_BOX = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{146, 19, 11, 11}, 7002);
+	public static final IconEntry NON_EQUIP_C10_R2 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{146, 19, 11, 11}, 7002);
+	/** semantic alias for NON_EQUIP_C10_R2 */
+	public static final IconEntry MUSHROOM_QUESTION_BOX = NON_EQUIP_C10_R2;
 	/** SMALL_HAMMER */
-	public static final IconEntry SMALL_HAMMER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{163, 18, 11, 11}, 7003);
+	public static final IconEntry NON_EQUIP_C11_R2 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{163, 18, 11, 11}, 7003);
+	/** semantic alias for NON_EQUIP_C11_R2 */
+	public static final IconEntry SMALL_HAMMER = NON_EQUIP_C11_R2;
 	/** CARD_BOX */
-	public static final IconEntry CARD_BOX = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{178, 17, 11, 14}, 7004);
+	public static final IconEntry NON_EQUIP_C12_R2 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{178, 17, 11, 14}, 7004);
+	/** semantic alias for NON_EQUIP_C12_R2 */
+	public static final IconEntry CARD_BOX = NON_EQUIP_C12_R2;
 	/** DEMON_CONTRACT */
-	public static final IconEntry DEMON_CONTRACT = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{193, 16, 13, 16}, 7005);
+	public static final IconEntry NON_EQUIP_C13_R2 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{193, 16, 13, 16}, 7005);
+	/** semantic alias for NON_EQUIP_C13_R2 */
+	public static final IconEntry DEMON_CONTRACT = NON_EQUIP_C13_R2;
 	/** CHAOS_PACK */
-	public static final IconEntry CHAOS_PACK = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{210, 16, 13, 16}, 7006);
+	public static final IconEntry NON_EQUIP_C14_R2 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{210, 16, 13, 16}, 7006);
+	/** semantic alias for NON_EQUIP_C14_R2 */
+	public static final IconEntry CHAOS_PACK = NON_EQUIP_C14_R2;
 	/** CHAOS_BLOOD */
-	public static final IconEntry CHAOS_BLOOD = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{227, 16, 11, 14}, 7007);
+	public static final IconEntry NON_EQUIP_C15_R2 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{227, 16, 11, 14}, 7007);
+	/** semantic alias for NON_EQUIP_C15_R2 */
+	public static final IconEntry CHAOS_BLOOD = NON_EQUIP_C15_R2;
 	/** RITUAL_MASK */
-	public static final IconEntry RITUAL_MASK = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{241, 17, 15, 15}, 7008);
+	public static final IconEntry NON_EQUIP_C16_R2 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{241, 17, 15, 15}, 7008);
+	/** semantic alias for NON_EQUIP_C16_R2 */
+	public static final IconEntry RITUAL_MASK = NON_EQUIP_C16_R2;
 	/** RUNE_DICE */
-	public static final IconEntry RUNE_DICE = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{2, 33, 12, 13}, 7009);
+	public static final IconEntry NON_EQUIP_C1_R3 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{2, 33, 12, 13}, 7009);
+	/** semantic alias for NON_EQUIP_C1_R3 */
+	public static final IconEntry RUNE_DICE = NON_EQUIP_C1_R3;
 	/** FORTRESS_BANNER */
-	public static final IconEntry FORTRESS_BANNER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{18, 32, 12, 16}, 7010);
+	public static final IconEntry NON_EQUIP_C2_R3 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{18, 32, 12, 16}, 7010);
+	/** semantic alias for NON_EQUIP_C2_R3 */
+	public static final IconEntry FORTRESS_BANNER = NON_EQUIP_C2_R3;
 	/** SPS_DICE_TOWER#0 */
-	public static final IconEntry SPS_DICE_TOWER_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{32, 32, 16, 16}, 7011);
+	public static final IconEntry NON_EQUIP_C3_R3 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{32, 32, 16, 16}, 7011);
+	/** semantic alias for NON_EQUIP_C3_R3 */
+	public static final IconEntry SPS_DICE_TOWER_0 = NON_EQUIP_C3_R3;
 	/** DORAEMON_POCKET */
-	public static final IconEntry DORAEMON_POCKET = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{48, 35, 16, 11}, 7012);
+	public static final IconEntry NON_EQUIP_C4_R3 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{48, 35, 16, 11}, 7012);
+	/** semantic alias for NON_EQUIP_C4_R3 */
+	public static final IconEntry DORAEMON_POCKET = NON_EQUIP_C4_R3;
 	/** DETECTIVE_SUIT */
-	public static final IconEntry DETECTIVE_SUIT = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{65, 32, 14, 16}, 7013);
+	public static final IconEntry NON_EQUIP_C5_R3 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{65, 32, 14, 16}, 7013);
+	/** semantic alias for NON_EQUIP_C5_R3 */
+	public static final IconEntry DETECTIVE_SUIT = NON_EQUIP_C5_R3;
 	/** LORD_BANNER */
-	public static final IconEntry LORD_BANNER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{81, 32, 14, 16}, 7014);
+	public static final IconEntry NON_EQUIP_C6_R3 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{81, 32, 14, 16}, 7014);
+	/** semantic alias for NON_EQUIP_C6_R3 */
+	public static final IconEntry LORD_BANNER = NON_EQUIP_C6_R3;
 	/** MEDKIT */
-	public static final IconEntry MEDKIT = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{97, 34, 14, 13}, 7015);
+	public static final IconEntry NON_EQUIP_C7_R3 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{97, 34, 14, 13}, 7015);
+	/** semantic alias for NON_EQUIP_C7_R3 */
+	public static final IconEntry MEDKIT = NON_EQUIP_C7_R3;
 	/** QUIVER */
-	public static final IconEntry QUIVER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{113, 34, 13, 12}, 7016);
+	public static final IconEntry NON_EQUIP_C8_R3 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{113, 34, 13, 12}, 7016);
+	/** semantic alias for NON_EQUIP_C8_R3 */
+	public static final IconEntry QUIVER = NON_EQUIP_C8_R3;
 	/** SPS_SERIOUS_PUNCH#0 */
-	public static final IconEntry SPS_SERIOUS_PUNCH_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{128, 32, 16, 16}, 7017);
+	public static final IconEntry NON_EQUIP_C9_R3 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{128, 32, 16, 16}, 7017);
+	/** semantic alias for NON_EQUIP_C9_R3 */
+	public static final IconEntry SPS_SERIOUS_PUNCH_0 = NON_EQUIP_C9_R3;
 	/** WANTED_LIST */
-	public static final IconEntry WANTED_LIST = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{144, 32, 15, 16}, 7018);
+	public static final IconEntry NON_EQUIP_C10_R3 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{144, 32, 15, 16}, 7018);
+	/** semantic alias for NON_EQUIP_C10_R3 */
+	public static final IconEntry WANTED_LIST = NON_EQUIP_C10_R3;
 	/** DETECTOR */
-	public static final IconEntry DETECTOR = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{160, 32, 16, 15}, 7019);
+	public static final IconEntry NON_EQUIP_C11_R3 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{160, 32, 16, 15}, 7019);
+	/** semantic alias for NON_EQUIP_C11_R3 */
+	public static final IconEntry DETECTOR = NON_EQUIP_C11_R3;
 	/** EROSION_CORE */
-	public static final IconEntry EROSION_CORE = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{177, 34, 13, 13}, 7020);
+	public static final IconEntry NON_EQUIP_C12_R3 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{177, 34, 13, 13}, 7020);
+	/** semantic alias for NON_EQUIP_C12_R3 */
+	public static final IconEntry EROSION_CORE = NON_EQUIP_C12_R3;
 	/** BARBARIAN_HELMET */
-	public static final IconEntry BARBARIAN_HELMET = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{193, 33, 14, 14}, 7021);
+	public static final IconEntry NON_EQUIP_C13_R3 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{193, 33, 14, 14}, 7021);
+	/** semantic alias for NON_EQUIP_C13_R3 */
+	public static final IconEntry BARBARIAN_HELMET = NON_EQUIP_C13_R3;
 	/** DEMON_HELMET */
-	public static final IconEntry DEMON_HELMET = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{208, 33, 16, 15}, 7022);
+	public static final IconEntry NON_EQUIP_C14_R3 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{208, 33, 16, 15}, 7022);
+	/** semantic alias for NON_EQUIP_C14_R3 */
+	public static final IconEntry DEMON_HELMET = NON_EQUIP_C14_R3;
 	/** RED_HARE_TOTEM */
-	public static final IconEntry RED_HARE_TOTEM = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{225, 33, 14, 15}, 7023);
+	public static final IconEntry NON_EQUIP_C15_R3 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{225, 33, 14, 15}, 7023);
+	/** semantic alias for NON_EQUIP_C15_R3 */
+	public static final IconEntry RED_HARE_TOTEM = NON_EQUIP_C15_R3;
 	/** FAKE_DEWDROP_VIAL */
-	public static final IconEntry FAKE_DEWDROP_VIAL = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{242, 33, 12, 14}, 7024);
+	public static final IconEntry NON_EQUIP_C16_R3 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{242, 33, 12, 14}, 7024);
+	/** semantic alias for NON_EQUIP_C16_R3 */
+	public static final IconEntry FAKE_DEWDROP_VIAL = NON_EQUIP_C16_R3;
 	/** DEMON_BOOK */
-	public static final IconEntry DEMON_BOOK = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{3, 83, 10, 12}, 7025);
+	public static final IconEntry NON_EQUIP_C1_R6 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{3, 83, 10, 12}, 7025);
+	/** semantic alias for NON_EQUIP_C1_R6 */
+	public static final IconEntry DEMON_BOOK = NON_EQUIP_C1_R6;
 	/** UNDEAD_BIBLE */
-	public static final IconEntry UNDEAD_BIBLE = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{17, 80, 13, 16}, 7026);
+	public static final IconEntry NON_EQUIP_C2_R6 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{17, 80, 13, 16}, 7026);
+	/** semantic alias for NON_EQUIP_C2_R6 */
+	public static final IconEntry UNDEAD_BIBLE = NON_EQUIP_C2_R6;
 	/** COLLECTION_BOOK */
-	public static final IconEntry COLLECTION_BOOK = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{33, 80, 13, 16}, 7027);
+	public static final IconEntry NON_EQUIP_C3_R6 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{33, 80, 13, 16}, 7027);
+	/** semantic alias for NON_EQUIP_C3_R6 */
+	public static final IconEntry COLLECTION_BOOK = NON_EQUIP_C3_R6;
 	/** REWARD_LIST */
-	public static final IconEntry REWARD_LIST = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{50, 82, 12, 12}, 7028);
+	public static final IconEntry NON_EQUIP_C4_R6 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{50, 82, 12, 12}, 7028);
+	/** semantic alias for NON_EQUIP_C4_R6 */
+	public static final IconEntry REWARD_LIST = NON_EQUIP_C4_R6;
 	/** FOREST_GUIDE */
-	public static final IconEntry FOREST_GUIDE = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{65, 80, 13, 16}, 7029);
+	public static final IconEntry NON_EQUIP_C5_R6 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{65, 80, 13, 16}, 7029);
+	/** semantic alias for NON_EQUIP_C5_R6 */
+	public static final IconEntry FOREST_GUIDE = NON_EQUIP_C5_R6;
 	/** ANIMAL_GUIDE */
-	public static final IconEntry ANIMAL_GUIDE = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{81, 80, 14, 16}, 7030);
+	public static final IconEntry NON_EQUIP_C6_R6 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{81, 80, 14, 16}, 7030);
+	/** semantic alias for NON_EQUIP_C6_R6 */
+	public static final IconEntry ANIMAL_GUIDE = NON_EQUIP_C6_R6;
 	/** ELEVATOR */
-	public static final IconEntry ELEVATOR = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{240, 81, 15, 14}, 7031);
+	public static final IconEntry NON_EQUIP_C16_R6 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{240, 81, 15, 14}, 7031);
+	/** semantic alias for NON_EQUIP_C16_R6 */
+	public static final IconEntry ELEVATOR = NON_EQUIP_C16_R6;
 	/** HERO_SKILL_WARRIOR */
-	public static final IconEntry HERO_SKILL_WARRIOR = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{0, 96, 16, 16}, 7032);
+	public static final IconEntry NON_EQUIP_C1_R7 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{0, 96, 16, 16}, 7032);
+	/** semantic alias for NON_EQUIP_C1_R7 */
+	public static final IconEntry HERO_SKILL_WARRIOR = NON_EQUIP_C1_R7;
 	/** HERO_SKILL_MAGE */
-	public static final IconEntry HERO_SKILL_MAGE = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{16, 96, 16, 16}, 7033);
+	public static final IconEntry NON_EQUIP_C2_R7 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{16, 96, 16, 16}, 7033);
+	/** semantic alias for NON_EQUIP_C2_R7 */
+	public static final IconEntry HERO_SKILL_MAGE = NON_EQUIP_C2_R7;
 	/** HERO_SKILL_ROGUE */
-	public static final IconEntry HERO_SKILL_ROGUE = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{32, 96, 16, 16}, 7034);
+	public static final IconEntry NON_EQUIP_C3_R7 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{32, 96, 16, 16}, 7034);
+	/** semantic alias for NON_EQUIP_C3_R7 */
+	public static final IconEntry HERO_SKILL_ROGUE = NON_EQUIP_C3_R7;
 	/** HERO_SKILL_HUNTRESS */
-	public static final IconEntry HERO_SKILL_HUNTRESS = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{48, 96, 16, 16}, 7035);
+	public static final IconEntry NON_EQUIP_C4_R7 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{48, 96, 16, 16}, 7035);
+	/** semantic alias for NON_EQUIP_C4_R7 */
+	public static final IconEntry HERO_SKILL_HUNTRESS = NON_EQUIP_C4_R7;
 	/** HERO_SKILL_PERFORMER */
-	public static final IconEntry HERO_SKILL_PERFORMER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{64, 96, 16, 16}, 7036);
+	public static final IconEntry NON_EQUIP_C5_R7 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{64, 96, 16, 16}, 7036);
+	/** semantic alias for NON_EQUIP_C5_R7 */
+	public static final IconEntry HERO_SKILL_PERFORMER = NON_EQUIP_C5_R7;
 	/** HERO_SKILL_STAR_SOLDIER */
-	public static final IconEntry HERO_SKILL_STAR_SOLDIER = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{80, 96, 16, 16}, 7037);
+	public static final IconEntry NON_EQUIP_C6_R7 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{80, 96, 16, 16}, 7037);
+	/** semantic alias for NON_EQUIP_C6_R7 */
+	public static final IconEntry HERO_SKILL_STAR_SOLDIER = NON_EQUIP_C6_R7;
 	/** HERO_SKILL_CLERIC */
-	public static final IconEntry HERO_SKILL_CLERIC = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{96, 96, 16, 16}, 7038);
+	public static final IconEntry NON_EQUIP_C7_R7 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{96, 96, 16, 16}, 7038);
+	/** semantic alias for NON_EQUIP_C7_R7 */
+	public static final IconEntry HERO_SKILL_CLERIC = NON_EQUIP_C7_R7;
 	/** HERO_SKILL_ASCETIC */
-	public static final IconEntry HERO_SKILL_ASCETIC = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{112, 96, 16, 16}, 7130);
+	public static final IconEntry NON_EQUIP_C8_R7 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{112, 96, 16, 16}, 7130);
+	/** semantic alias for NON_EQUIP_C8_R7 */
+	public static final IconEntry HERO_SKILL_ASCETIC = NON_EQUIP_C8_R7;
 	/** SPS_LIFE_ARMOR#0 */
-	public static final IconEntry SPS_LIFE_ARMOR_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{112, 96, 16, 16}, 7039);
+	public static final IconEntry NON_EQUIP_C8_R7_2 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{112, 96, 16, 16}, 7039);
+	/** semantic alias for NON_EQUIP_C8_R7_2 */
+	public static final IconEntry SPS_LIFE_ARMOR_0 = NON_EQUIP_C8_R7_2;
 	/** TASTY_PUDDING */
-	public static final IconEntry TASTY_PUDDING = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{225, 98, 14, 13}, 7040);
+	public static final IconEntry NON_EQUIP_C15_R7 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{225, 98, 14, 13}, 7040);
+	/** semantic alias for NON_EQUIP_C15_R7 */
+	public static final IconEntry TASTY_PUDDING = NON_EQUIP_C15_R7;
 	/** SPYGLASS#0 */
-	public static final IconEntry SPYGLASS_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{240, 96, 15, 15}, 7041);
+	public static final IconEntry NON_EQUIP_C16_R7 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{240, 96, 15, 15}, 7041);
+	/** semantic alias for NON_EQUIP_C16_R7 */
+	public static final IconEntry SPYGLASS_0 = NON_EQUIP_C16_R7;
 	/** RAT_SKULL#0 */
-	public static final IconEntry RAT_SKULL_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{0, 112, 16, 11}, 7042);
+	public static final IconEntry NON_EQUIP_C1_R8 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{0, 112, 16, 11}, 7042);
+	/** semantic alias for NON_EQUIP_C1_R8 */
+	public static final IconEntry RAT_SKULL_0 = NON_EQUIP_C1_R8;
 	/** PARCHMENT_SCRAP#0 */
-	public static final IconEntry PARCHMENT_SCRAP_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{16, 112, 10, 14}, 7043);
+	public static final IconEntry NON_EQUIP_C2_R8 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{16, 112, 10, 14}, 7043);
+	/** semantic alias for NON_EQUIP_C2_R8 */
+	public static final IconEntry PARCHMENT_SCRAP_0 = NON_EQUIP_C2_R8;
 	/** PETRIFIED_SEED#0 */
-	public static final IconEntry PETRIFIED_SEED_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{32, 112, 9, 9}, 7044);
+	public static final IconEntry NON_EQUIP_C3_R8 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{32, 112, 9, 9}, 7044);
+	/** semantic alias for NON_EQUIP_C3_R8 */
+	public static final IconEntry PETRIFIED_SEED_0 = NON_EQUIP_C3_R8;
 	/** EXOTIC_CRYSTALS#0 */
-	public static final IconEntry EXOTIC_CRYSTALS_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{48, 112, 15, 13}, 7045);
+	public static final IconEntry NON_EQUIP_C4_R8 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{48, 112, 15, 13}, 7045);
+	/** semantic alias for NON_EQUIP_C4_R8 */
+	public static final IconEntry EXOTIC_CRYSTALS_0 = NON_EQUIP_C4_R8;
 	/** MOSSY_CLUMP#0 */
-	public static final IconEntry MOSSY_CLUMP_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{64, 112, 12, 11}, 7046);
+	public static final IconEntry NON_EQUIP_C5_R8 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{64, 112, 12, 11}, 7046);
+	/** semantic alias for NON_EQUIP_C5_R8 */
+	public static final IconEntry MOSSY_CLUMP_0 = NON_EQUIP_C5_R8;
 	/** SUNDIAL#0 */
-	public static final IconEntry SUNDIAL_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{80, 112, 16, 12}, 7047);
+	public static final IconEntry NON_EQUIP_C6_R8 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{80, 112, 16, 12}, 7047);
+	/** semantic alias for NON_EQUIP_C6_R8 */
+	public static final IconEntry SUNDIAL_0 = NON_EQUIP_C6_R8;
 	/** CLOVER#0 */
-	public static final IconEntry CLOVER_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{96, 112, 11, 15}, 7048);
+	public static final IconEntry NON_EQUIP_C7_R8 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{96, 112, 11, 15}, 7048);
+	/** semantic alias for NON_EQUIP_C7_R8 */
+	public static final IconEntry CLOVER_0 = NON_EQUIP_C7_R8;
 	/** TRAP_MECHANISM#0 */
-	public static final IconEntry TRAP_MECHANISM_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{112, 112, 13, 15}, 7049);
+	public static final IconEntry NON_EQUIP_C8_R8 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{112, 112, 13, 15}, 7049);
+	/** semantic alias for NON_EQUIP_C8_R8 */
+	public static final IconEntry TRAP_MECHANISM_0 = NON_EQUIP_C8_R8;
 	/** MIMIC_TOOTH#0 */
-	public static final IconEntry MIMIC_TOOTH_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{128, 112, 8, 15}, 7050);
+	public static final IconEntry NON_EQUIP_C9_R8 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{128, 112, 8, 15}, 7050);
+	/** semantic alias for NON_EQUIP_C9_R8 */
+	public static final IconEntry MIMIC_TOOTH_0 = NON_EQUIP_C9_R8;
 	/** WONDROUS_RESIN#0 */
-	public static final IconEntry WONDROUS_RESIN_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{144, 112, 12, 11}, 7051);
+	public static final IconEntry NON_EQUIP_C10_R8 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{144, 112, 12, 11}, 7051);
+	/** semantic alias for NON_EQUIP_C10_R8 */
+	public static final IconEntry WONDROUS_RESIN_0 = NON_EQUIP_C10_R8;
 	/** EYE_OF_NEWT#0 */
-	public static final IconEntry EYE_OF_NEWT_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{160, 112, 12, 12}, 7052);
+	public static final IconEntry NON_EQUIP_C11_R8 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{160, 112, 12, 12}, 7052);
+	/** semantic alias for NON_EQUIP_C11_R8 */
+	public static final IconEntry EYE_OF_NEWT_0 = NON_EQUIP_C11_R8;
 	/** SALT_CUBE#0 */
-	public static final IconEntry SALT_CUBE_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{176, 112, 12, 13}, 7053);
+	public static final IconEntry NON_EQUIP_C12_R8 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{176, 112, 12, 13}, 7053);
+	/** semantic alias for NON_EQUIP_C12_R8 */
+	public static final IconEntry SALT_CUBE_0 = NON_EQUIP_C12_R8;
 	/** BLOOD_VIAL#0 */
-	public static final IconEntry BLOOD_VIAL_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{192, 112, 6, 15}, 7054);
+	public static final IconEntry NON_EQUIP_C13_R8 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{192, 112, 6, 15}, 7054);
+	/** semantic alias for NON_EQUIP_C13_R8 */
+	public static final IconEntry BLOOD_VIAL_0 = NON_EQUIP_C13_R8;
 	/** OBLIVION_SHARD#0 */
-	public static final IconEntry OBLIVION_SHARD_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{208, 112, 7, 14}, 7055);
+	public static final IconEntry NON_EQUIP_C14_R8 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{208, 112, 7, 14}, 7055);
+	/** semantic alias for NON_EQUIP_C14_R8 */
+	public static final IconEntry OBLIVION_SHARD_0 = NON_EQUIP_C14_R8;
 	/** CHAOTIC_CENSER#0 */
-	public static final IconEntry CHAOTIC_CENSER_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{224, 112, 13, 15}, 7056);
+	public static final IconEntry NON_EQUIP_C15_R8 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{224, 112, 13, 15}, 7056);
+	/** semantic alias for NON_EQUIP_C15_R8 */
+	public static final IconEntry CHAOTIC_CENSER_0 = NON_EQUIP_C15_R8;
 	/** FERRET_TUFT#0 */
-	public static final IconEntry FERRET_TUFT_0 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{240, 112, 16, 15}, 7057);
+	public static final IconEntry NON_EQUIP_C16_R8 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{240, 112, 16, 15}, 7057);
+	/** semantic alias for NON_EQUIP_C16_R8 */
+	public static final IconEntry FERRET_TUFT_0 = NON_EQUIP_C16_R8;
 }

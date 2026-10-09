@@ -13,23 +13,43 @@ public final class EquipmentBagsDict {
 	private EquipmentBagsDict() { }
 
 	/** POUCH */
-	public static final IconEntry POUCH = new IconEntry("sprites/items/equipment/bags.png", new int[]{1, 0, 14, 15}, 6737);
+	public static final IconEntry BAGS_C1_R1 = new IconEntry("sprites/items/equipment/bags.png", new int[]{1, 0, 14, 15}, 6737);
+	/** semantic alias for BAGS_C1_R1 */
+	public static final IconEntry POUCH = BAGS_C1_R1;
 	/** HOLDER */
-	public static final IconEntry HOLDER = new IconEntry("sprites/items/equipment/bags.png", new int[]{16, 0, 16, 16}, 6738);
+	public static final IconEntry BAGS_C2_R1 = new IconEntry("sprites/items/equipment/bags.png", new int[]{16, 0, 16, 16}, 6738);
+	/** semantic alias for BAGS_C2_R1 */
+	public static final IconEntry HOLDER = BAGS_C2_R1;
 	/** BANDOLIER */
-	public static final IconEntry BANDOLIER = new IconEntry("sprites/items/equipment/bags.png", new int[]{32, 0, 15, 16}, 6739);
+	public static final IconEntry BAGS_C3_R1 = new IconEntry("sprites/items/equipment/bags.png", new int[]{32, 0, 15, 16}, 6739);
+	/** semantic alias for BAGS_C3_R1 */
+	public static final IconEntry BANDOLIER = BAGS_C3_R1;
 	/** HOLSTER */
-	public static final IconEntry HOLSTER = new IconEntry("sprites/items/equipment/bags.png", new int[]{48, 0, 15, 16}, 6740);
+	public static final IconEntry BAGS_C4_R1 = new IconEntry("sprites/items/equipment/bags.png", new int[]{48, 0, 15, 16}, 6740);
+	/** semantic alias for BAGS_C4_R1 */
+	public static final IconEntry HOLSTER = BAGS_C4_R1;
 	/** SPS_KEY_RING */
-	public static final IconEntry SPS_KEY_RING = new IconEntry("sprites/items/equipment/bags.png", new int[]{67, 1, 11, 14}, 6741);
+	public static final IconEntry BAGS_C5_R1 = new IconEntry("sprites/items/equipment/bags.png", new int[]{67, 1, 11, 14}, 6741);
+	/** semantic alias for BAGS_C5_R1 */
+	public static final IconEntry SPS_KEY_RING = BAGS_C5_R1;
 	/** SHOPPING_CART#0 */
-	public static final IconEntry SHOPPING_CART_0 = new IconEntry("sprites/items/equipment/bags.png", new int[]{80, 0, 16, 16}, 6742);
+	public static final IconEntry BAGS_C6_R1 = new IconEntry("sprites/items/equipment/bags.png", new int[]{80, 0, 16, 16}, 6742);
+	/** semantic alias for BAGS_C6_R1 */
+	public static final IconEntry SHOPPING_CART_0 = BAGS_C6_R1;
 	/** SPS_ARROW_COLLECTER */
-	public static final IconEntry SPS_ARROW_COLLECTER = new IconEntry("sprites/items/equipment/bags.png", new int[]{97, 1, 14, 14}, 6743);
+	public static final IconEntry BAGS_C7_R1 = new IconEntry("sprites/items/equipment/bags.png", new int[]{97, 1, 14, 14}, 6743);
+	/** semantic alias for BAGS_C7_R1 */
+	public static final IconEntry SPS_ARROW_COLLECTER = BAGS_C7_R1;
 	/** HEART_OF_SCARECROW#0 */
-	public static final IconEntry HEART_OF_SCARECROW_0 = new IconEntry("sprites/items/equipment/bags.png", new int[]{112, 0, 16, 16}, 6744);
+	public static final IconEntry BAGS_C8_R1 = new IconEntry("sprites/items/equipment/bags.png", new int[]{112, 0, 16, 16}, 6744);
+	/** semantic alias for BAGS_C8_R1 */
+	public static final IconEntry HEART_OF_SCARECROW_0 = BAGS_C8_R1;
 	/** BACKPACK#0 */
-	public static final IconEntry BACKPACK_0 = new IconEntry("sprites/items/equipment/bags.png", new int[]{240, 0, 16, 16}, 6745);
+	public static final IconEntry BAGS_C16_R1 = new IconEntry("sprites/items/equipment/bags.png", new int[]{240, 0, 16, 16}, 6745);
+	/** semantic alias for BAGS_C16_R1 */
+	public static final IconEntry BACKPACK_0 = BAGS_C16_R1;
 	/** BAGS_EXTRA_1 - 棕色棋盘格包裹 */
-	public static final IconEntry BAGS_EXTRA_1 = new IconEntry("sprites/items/equipment/bags.png", new int[]{129, 1, 15, 15}, 7504);
+	public static final IconEntry BAGS_C9_R1 = new IconEntry("sprites/items/equipment/bags.png", new int[]{129, 1, 15, 15}, 7504);
+	/** semantic alias for BAGS_C9_R1 */
+	public static final IconEntry BAGS_EXTRA_1 = BAGS_C9_R1;
 }

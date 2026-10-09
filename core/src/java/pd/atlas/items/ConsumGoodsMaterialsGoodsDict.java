@@ -13,59 +13,115 @@ public final class ConsumGoodsMaterialsGoodsDict {
 	private ConsumGoodsMaterialsGoodsDict() { }
 
 	/** RAT_SKULL#0 */
-	public static final IconEntry RAT_SKULL_0 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{0, 2, 16, 11}, 6381);
+	public static final IconEntry GOODS_C1_R1 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{0, 2, 16, 11}, 6381);
+	/** semantic alias for GOODS_C1_R1 */
+	public static final IconEntry RAT_SKULL_0 = GOODS_C1_R1;
 	/** BOTTLE_FLOWER */
-	public static final IconEntry BOTTLE_FLOWER = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{17, 0, 15, 15}, 6382);
+	public static final IconEntry GOODS_C2_R1 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{17, 0, 15, 15}, 6382);
+	/** semantic alias for GOODS_C2_R1 */
+	public static final IconEntry BOTTLE_FLOWER = GOODS_C2_R1;
 	/** WHITE_SOCK */
-	public static final IconEntry WHITE_SOCK = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{33, 2, 14, 12}, 6383);
+	public static final IconEntry GOODS_C3_R1 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{33, 2, 14, 12}, 6383);
+	/** semantic alias for GOODS_C3_R1 */
+	public static final IconEntry WHITE_SOCK = GOODS_C3_R1;
 	/** TEST_SUBJECT */
-	public static final IconEntry TEST_SUBJECT = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{49, 1, 14, 14}, 6384);
+	public static final IconEntry GOODS_C4_R1 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{49, 1, 14, 14}, 6384);
+	/** semantic alias for GOODS_C4_R1 */
+	public static final IconEntry TEST_SUBJECT = GOODS_C4_R1;
 	/** FLYER */
-	public static final IconEntry FLYER = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{68, 1, 9, 12}, 6385);
+	public static final IconEntry GOODS_C5_R1 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{68, 1, 9, 12}, 6385);
+	/** semantic alias for GOODS_C5_R1 */
+	public static final IconEntry FLYER = GOODS_C5_R1;
 	/** BROKEN_CROSSBOW */
-	public static final IconEntry BROKEN_CROSSBOW = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{82, 3, 12, 12}, 6386);
+	public static final IconEntry GOODS_C6_R1 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{82, 3, 12, 12}, 6386);
+	/** semantic alias for GOODS_C6_R1 */
+	public static final IconEntry BROKEN_CROSSBOW = GOODS_C6_R1;
 	/** SWITCH_CONSOLE */
-	public static final IconEntry SWITCH_CONSOLE = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{98, 3, 12, 9}, 6387);
+	public static final IconEntry GOODS_C7_R1 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{98, 3, 12, 9}, 6387);
+	/** semantic alias for GOODS_C7_R1 */
+	public static final IconEntry SWITCH_CONSOLE = GOODS_C7_R1;
 	/** EXTERNAL_TEST_CODE */
-	public static final IconEntry EXTERNAL_TEST_CODE = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{114, 2, 12, 13}, 6388);
+	public static final IconEntry GOODS_C8_R1 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{114, 2, 12, 13}, 6388);
+	/** semantic alias for GOODS_C8_R1 */
+	public static final IconEntry EXTERNAL_TEST_CODE = GOODS_C8_R1;
 	/** ERROR_IMAGE */
-	public static final IconEntry ERROR_IMAGE = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{128, 2, 16, 14}, 6389);
+	public static final IconEntry GOODS_C9_R1 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{128, 2, 16, 14}, 6389);
+	/** semantic alias for GOODS_C9_R1 */
+	public static final IconEntry ERROR_IMAGE = GOODS_C9_R1;
 	/** SPROUTING_TROPHY */
-	public static final IconEntry SPROUTING_TROPHY = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{147, 1, 10, 14}, 6390);
+	public static final IconEntry GOODS_C10_R1 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{147, 1, 10, 14}, 6390);
+	/** semantic alias for GOODS_C10_R1 */
+	public static final IconEntry SPROUTING_TROPHY = GOODS_C10_R1;
 	/** EXCLUSIVE_COLLECTION */
-	public static final IconEntry EXCLUSIVE_COLLECTION = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{160, 1, 16, 13}, 6391);
+	public static final IconEntry GOODS_C11_R1 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{160, 1, 16, 13}, 6391);
+	/** semantic alias for GOODS_C11_R1 */
+	public static final IconEntry EXCLUSIVE_COLLECTION = GOODS_C11_R1;
 	/** BROKEN_REAGENT */
-	public static final IconEntry BROKEN_REAGENT = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{178, 2, 12, 12}, 6392);
+	public static final IconEntry GOODS_C12_R1 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{178, 2, 12, 12}, 6392);
+	/** semantic alias for GOODS_C12_R1 */
+	public static final IconEntry BROKEN_REAGENT = GOODS_C12_R1;
 	/** FLAME_IN_BOTTLE */
-	public static final IconEntry FLAME_IN_BOTTLE = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{194, 2, 12, 13}, 6393);
+	public static final IconEntry GOODS_C13_R1 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{194, 2, 12, 13}, 6393);
+	/** semantic alias for GOODS_C13_R1 */
+	public static final IconEntry FLAME_IN_BOTTLE = GOODS_C13_R1;
 	/** UNCLE_DUMBBELL */
-	public static final IconEntry UNCLE_DUMBBELL = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{209, 3, 14, 10}, 6394);
+	public static final IconEntry GOODS_C14_R1 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{209, 3, 14, 10}, 6394);
+	/** semantic alias for GOODS_C14_R1 */
+	public static final IconEntry UNCLE_DUMBBELL = GOODS_C14_R1;
 	/** HUMMINGBIRD_OPENER */
-	public static final IconEntry HUMMINGBIRD_OPENER = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{226, 0, 12, 15}, 6395);
+	public static final IconEntry GOODS_C15_R1 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{226, 0, 12, 15}, 6395);
+	/** semantic alias for GOODS_C15_R1 */
+	public static final IconEntry HUMMINGBIRD_OPENER = GOODS_C15_R1;
 	/** MOLDY_DONUT */
-	public static final IconEntry MOLDY_DONUT = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{242, 2, 12, 12}, 6396);
+	public static final IconEntry GOODS_C16_R1 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{242, 2, 12, 12}, 6396);
+	/** semantic alias for GOODS_C16_R1 */
+	public static final IconEntry MOLDY_DONUT = GOODS_C16_R1;
 	/** WOODEN_FISH */
-	public static final IconEntry WOODEN_FISH = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{2, 18, 12, 13}, 6397);
+	public static final IconEntry GOODS_C1_R2 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{2, 18, 12, 13}, 6397);
+	/** semantic alias for GOODS_C1_R2 */
+	public static final IconEntry WOODEN_FISH = GOODS_C1_R2;
 	/** EARTH_CRYSTAL */
-	public static final IconEntry EARTH_CRYSTAL = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{18, 18, 12, 11}, 6398);
+	public static final IconEntry GOODS_C2_R2 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{18, 18, 12, 11}, 6398);
+	/** semantic alias for GOODS_C2_R2 */
+	public static final IconEntry EARTH_CRYSTAL = GOODS_C2_R2;
 	/** BLUE_CAT_TEST_CODE */
-	public static final IconEntry BLUE_CAT_TEST_CODE = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{32, 16, 16, 14}, 6399);
+	public static final IconEntry GOODS_C3_R2 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{32, 16, 16, 14}, 6399);
+	/** semantic alias for GOODS_C3_R2 */
+	public static final IconEntry BLUE_CAT_TEST_CODE = GOODS_C3_R2;
 	/** RED_GHOST */
-	public static final IconEntry RED_GHOST = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{49, 17, 12, 12}, 6400);
+	public static final IconEntry GOODS_C4_R2 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{49, 17, 12, 12}, 6400);
+	/** semantic alias for GOODS_C4_R2 */
+	public static final IconEntry RED_GHOST = GOODS_C4_R2;
 	/** RAINBOW_AXE_BLADE */
-	public static final IconEntry RAINBOW_AXE_BLADE = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{65, 17, 14, 14}, 6401);
+	public static final IconEntry GOODS_C5_R2 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{65, 17, 14, 14}, 6401);
+	/** semantic alias for GOODS_C5_R2 */
+	public static final IconEntry RAINBOW_AXE_BLADE = GOODS_C5_R2;
 	/** RABBIT_HEAD_DOLL */
-	public static final IconEntry RABBIT_HEAD_DOLL = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{81, 17, 15, 15}, 6402);
+	public static final IconEntry GOODS_C6_R2 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{81, 17, 15, 15}, 6402);
+	/** semantic alias for GOODS_C6_R2 */
+	public static final IconEntry RABBIT_HEAD_DOLL = GOODS_C6_R2;
 	/** RAINBOW_BOUQUET */
-	public static final IconEntry RAINBOW_BOUQUET = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{96, 17, 16, 15}, 6403);
+	public static final IconEntry GOODS_C7_R2 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{96, 17, 16, 15}, 6403);
+	/** semantic alias for GOODS_C7_R2 */
+	public static final IconEntry RAINBOW_BOUQUET = GOODS_C7_R2;
 	/** TV_GHOST */
-	public static final IconEntry TV_GHOST = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{112, 18, 16, 12}, 6404);
+	public static final IconEntry GOODS_C8_R2 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{112, 18, 16, 12}, 6404);
+	/** semantic alias for GOODS_C8_R2 */
+	public static final IconEntry TV_GHOST = GOODS_C8_R2;
 	/** DANCING_FIGURE#0 */
-	public static final IconEntry DANCING_FIGURE_0 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{0, 80, 16, 16}, 6405);
+	public static final IconEntry GOODS_C1_R6 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{0, 80, 16, 16}, 6405);
+	/** semantic alias for GOODS_C1_R6 */
+	public static final IconEntry DANCING_FIGURE_0 = GOODS_C1_R6;
 	/** DANCING_FIGURE#1 */
-	public static final IconEntry DANCING_FIGURE_1 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{16, 80, 16, 16}, 6406);
+	public static final IconEntry GOODS_C2_R6 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{16, 80, 16, 16}, 6406);
+	/** semantic alias for GOODS_C2_R6 */
+	public static final IconEntry DANCING_FIGURE_1 = GOODS_C2_R6;
 	/** DANCING_FIGURE#2 */
-	public static final IconEntry DANCING_FIGURE_2 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{32, 80, 16, 16}, 6407);
+	public static final IconEntry GOODS_C3_R6 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{32, 80, 16, 16}, 6407);
+	/** semantic alias for GOODS_C3_R6 */
+	public static final IconEntry DANCING_FIGURE_2 = GOODS_C3_R6;
 	/** DANCING_FIGURE#3 */
-	public static final IconEntry DANCING_FIGURE_3 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{48, 80, 16, 16}, 6408);
+	public static final IconEntry GOODS_C4_R6 = new IconEntry("sprites/items/consum/goods_materials/goods.png", new int[]{48, 80, 16, 16}, 6408);
+	/** semantic alias for GOODS_C4_R6 */
+	public static final IconEntry DANCING_FIGURE_3 = GOODS_C4_R6;
 }

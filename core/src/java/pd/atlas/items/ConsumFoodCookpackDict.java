@@ -13,23 +13,43 @@ public final class ConsumFoodCookpackDict {
 	private ConsumFoodCookpackDict() { }
 
 	/** COOKPACK_1 - 两根橙色胡萝卜（带绿缨） */
-	public static final IconEntry COOKPACK_1 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{1, 4, 13, 9}, 7450);
+	public static final IconEntry COOKPACK_C1_R1 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{1, 4, 13, 9}, 7450);
+	/** semantic alias for COOKPACK_C1_R1 */
+	public static final IconEntry COOKPACK_1 = COOKPACK_C1_R1;
 	/** COOKPACK_2 - 黄白色叶菜（白菜状，带绿顶叶） */
-	public static final IconEntry COOKPACK_2 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{18, 3, 13, 12}, 7451);
+	public static final IconEntry COOKPACK_C2_R1 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{18, 3, 13, 12}, 7451);
+	/** semantic alias for COOKPACK_C2_R1 */
+	public static final IconEntry COOKPACK_2 = COOKPACK_C2_R1;
 	/** COOKPACK_3 - 青色鱼（蓝青渐变） */
-	public static final IconEntry COOKPACK_3 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{34, 2, 13, 12}, 7452);
+	public static final IconEntry COOKPACK_C3_R1 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{34, 2, 13, 12}, 7452);
+	/** semantic alias for COOKPACK_C3_R1 */
+	public static final IconEntry COOKPACK_3 = COOKPACK_C3_R1;
 	/** COOKPACK_4 - 便当盒（白盒，橙色主菜配红绿点缀） */
-	public static final IconEntry COOKPACK_4 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{1, 20, 14, 9}, 7453);
+	public static final IconEntry COOKPACK_C1_R2 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{1, 20, 14, 9}, 7453);
+	/** semantic alias for COOKPACK_C1_R2 */
+	public static final IconEntry COOKPACK_4 = COOKPACK_C1_R2;
 	/** COOKPACK_5 - 便当盒（白盒，黑绿内容配红点） */
-	public static final IconEntry COOKPACK_5 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{17, 20, 14, 9}, 7454);
+	public static final IconEntry COOKPACK_C2_R2 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{17, 20, 14, 9}, 7454);
+	/** semantic alias for COOKPACK_C2_R2 */
+	public static final IconEntry COOKPACK_5 = COOKPACK_C2_R2;
 	/** COOKPACK_6 - 烤禽（棕褐色整只烤肉） */
-	public static final IconEntry COOKPACK_6 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{34, 18, 13, 12}, 7455);
+	public static final IconEntry COOKPACK_C3_R2 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{34, 18, 13, 12}, 7455);
+	/** semantic alias for COOKPACK_C3_R2 */
+	public static final IconEntry COOKPACK_6 = COOKPACK_C3_R2;
 	/** COOKPACK_7 - 红色圆果（番茄状） */
-	public static final IconEntry COOKPACK_7 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{49, 3, 15, 11}, 7472);
+	public static final IconEntry COOKPACK_C4_R1 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{49, 3, 15, 11}, 7472);
+	/** semantic alias for COOKPACK_C4_R1 */
+	public static final IconEntry COOKPACK_7 = COOKPACK_C4_R1;
 	/** COOKPACK_8 - 棕褐色烤肉（带绿点） */
-	public static final IconEntry COOKPACK_8 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{49, 19, 14, 12}, 7473);
+	public static final IconEntry COOKPACK_C4_R2 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{49, 19, 14, 12}, 7473);
+	/** semantic alias for COOKPACK_C4_R2 */
+	public static final IconEntry COOKPACK_8 = COOKPACK_C4_R2;
 	/** COOKPACK_9 - 深色锅／碗（内有白绿内容） */
-	public static final IconEntry COOKPACK_9 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{65, 20, 14, 10}, 7474);
+	public static final IconEntry COOKPACK_C5_R2 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{65, 20, 14, 10}, 7474);
+	/** semantic alias for COOKPACK_C5_R2 */
+	public static final IconEntry COOKPACK_9 = COOKPACK_C5_R2;
 	/** COOKPACK_10 - 淡黄色饼／面包 */
-	public static final IconEntry COOKPACK_10 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{17, 35, 14, 11}, 7475);
+	public static final IconEntry COOKPACK_C2_R3 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{17, 35, 14, 11}, 7475);
+	/** semantic alias for COOKPACK_C2_R3 */
+	public static final IconEntry COOKPACK_10 = COOKPACK_C2_R3;
 }

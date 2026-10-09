@@ -13,73 +13,143 @@ public final class SpecificTaskDict {
 	private SpecificTaskDict() { }
 
 	/** TRINKET_CATA#0 */
-	public static final IconEntry TRINKET_CATA_0 = new IconEntry("sprites/items/specific/task.png", new int[]{2, 3, 12, 11}, 7159);
+	public static final IconEntry TASK_C1_R1 = new IconEntry("sprites/items/specific/task.png", new int[]{2, 3, 12, 11}, 7159);
+	/** semantic alias for TASK_C1_R1 */
+	public static final IconEntry TRINKET_CATA_0 = TASK_C1_R1;
 	/** DEWDROP_MUSHROOM */
-	public static final IconEntry DEWDROP_MUSHROOM = new IconEntry("sprites/items/specific/task.png", new int[]{17, 1, 13, 14}, 7160);
+	public static final IconEntry TASK_C2_R1 = new IconEntry("sprites/items/specific/task.png", new int[]{17, 1, 13, 14}, 7160);
+	/** semantic alias for TASK_C2_R1 */
+	public static final IconEntry DEWDROP_MUSHROOM = TASK_C2_R1;
 	/** CANDLE#0 */
-	public static final IconEntry CANDLE_0 = new IconEntry("sprites/items/specific/task.png", new int[]{34, 2, 12, 12}, 7161);
+	public static final IconEntry TASK_C3_R1 = new IconEntry("sprites/items/specific/task.png", new int[]{34, 2, 12, 12}, 7161);
+	/** semantic alias for TASK_C3_R1 */
+	public static final IconEntry CANDLE_0 = TASK_C3_R1;
 	/** DUST#0 */
-	public static final IconEntry DUST_0 = new IconEntry("sprites/items/specific/task.png", new int[]{50, 3, 12, 11}, 7162);
+	public static final IconEntry TASK_C4_R1 = new IconEntry("sprites/items/specific/task.png", new int[]{50, 3, 12, 11}, 7162);
+	/** semantic alias for TASK_C4_R1 */
+	public static final IconEntry DUST_0 = TASK_C4_R1;
 	/** GNOLL_CLOTHES */
-	public static final IconEntry GNOLL_CLOTHES = new IconEntry("sprites/items/specific/task.png", new int[]{65, 2, 13, 12}, 7163);
+	public static final IconEntry TASK_C5_R1 = new IconEntry("sprites/items/specific/task.png", new int[]{65, 2, 13, 12}, 7163);
+	/** semantic alias for TASK_C5_R1 */
+	public static final IconEntry GNOLL_CLOTHES = TASK_C5_R1;
 	/** BOOK_OF_ALL */
-	public static final IconEntry BOOK_OF_ALL = new IconEntry("sprites/items/specific/task.png", new int[]{161, 0, 13, 16}, 7164);
+	public static final IconEntry TASK_C11_R1 = new IconEntry("sprites/items/specific/task.png", new int[]{161, 0, 13, 16}, 7164);
+	/** semantic alias for TASK_C11_R1 */
+	public static final IconEntry BOOK_OF_ALL = TASK_C11_R1;
 	/** POWER_CHALLENGE */
-	public static final IconEntry POWER_CHALLENGE = new IconEntry("sprites/items/specific/task.png", new int[]{177, 0, 13, 16}, 7165);
+	public static final IconEntry TASK_C12_R1 = new IconEntry("sprites/items/specific/task.png", new int[]{177, 0, 13, 16}, 7165);
+	/** semantic alias for TASK_C12_R1 */
+	public static final IconEntry POWER_CHALLENGE = TASK_C12_R1;
 	/** TRIAL_OF_LIFE */
-	public static final IconEntry TRIAL_OF_LIFE = new IconEntry("sprites/items/specific/task.png", new int[]{193, 0, 13, 16}, 7166);
+	public static final IconEntry TASK_C13_R1 = new IconEntry("sprites/items/specific/task.png", new int[]{193, 0, 13, 16}, 7166);
+	/** semantic alias for TASK_C13_R1 */
+	public static final IconEntry TRIAL_OF_LIFE = TASK_C13_R1;
 	/** TASTY_PUDDING */
-	public static final IconEntry TASTY_PUDDING = new IconEntry("sprites/items/specific/task.png", new int[]{210, 3, 12, 11}, 7167);
+	public static final IconEntry TASK_C14_R1 = new IconEntry("sprites/items/specific/task.png", new int[]{210, 3, 12, 11}, 7167);
+	/** semantic alias for TASK_C14_R1 */
+	public static final IconEntry TASTY_PUDDING = TASK_C14_R1;
 	/** SOUL_COLLECT */
-	public static final IconEntry SOUL_COLLECT = new IconEntry("sprites/items/specific/task.png", new int[]{225, 1, 14, 14}, 7168);
+	public static final IconEntry TASK_C15_R1 = new IconEntry("sprites/items/specific/task.png", new int[]{225, 1, 14, 14}, 7168);
+	/** semantic alias for TASK_C15_R1 */
+	public static final IconEntry SOUL_COLLECT = TASK_C15_R1;
 	/** POWER_HAND */
-	public static final IconEntry POWER_HAND = new IconEntry("sprites/items/specific/task.png", new int[]{241, 1, 13, 15}, 7169);
+	public static final IconEntry TASK_C16_R1 = new IconEntry("sprites/items/specific/task.png", new int[]{241, 1, 13, 15}, 7169);
+	/** semantic alias for TASK_C16_R1 */
+	public static final IconEntry POWER_HAND = TASK_C16_R1;
 	/** PICKAXE#0 */
-	public static final IconEntry PICKAXE_0 = new IconEntry("sprites/items/specific/task.png", new int[]{1, 17, 14, 14}, 7170);
+	public static final IconEntry TASK_C1_R2 = new IconEntry("sprites/items/specific/task.png", new int[]{1, 17, 14, 14}, 7170);
+	/** semantic alias for TASK_C1_R2 */
+	public static final IconEntry PICKAXE_0 = TASK_C1_R2;
 	/** ORE#0 */
-	public static final IconEntry ORE_0 = new IconEntry("sprites/items/specific/task.png", new int[]{17, 17, 15, 15}, 7171);
+	public static final IconEntry TASK_C2_R2 = new IconEntry("sprites/items/specific/task.png", new int[]{17, 17, 15, 15}, 7171);
+	/** semantic alias for TASK_C2_R2 */
+	public static final IconEntry ORE_0 = TASK_C2_R2;
 	/** TOKEN#0 */
-	public static final IconEntry TOKEN_0 = new IconEntry("sprites/items/specific/task.png", new int[]{34, 18, 12, 12}, 7172);
+	public static final IconEntry TASK_C3_R2 = new IconEntry("sprites/items/specific/task.png", new int[]{34, 18, 12, 12}, 7172);
+	/** semantic alias for TASK_C3_R2 */
+	public static final IconEntry TOKEN_0 = TASK_C3_R2;
 	/** EMBER#0 */
-	public static final IconEntry EMBER_0 = new IconEntry("sprites/items/specific/task.png", new int[]{50, 19, 12, 11}, 7173);
+	public static final IconEntry TASK_C4_R2 = new IconEntry("sprites/items/specific/task.png", new int[]{50, 19, 12, 11}, 7173);
+	/** semantic alias for TASK_C4_R2 */
+	public static final IconEntry EMBER_0 = TASK_C4_R2;
 	/** WISDOM_CHALLENGE */
-	public static final IconEntry WISDOM_CHALLENGE = new IconEntry("sprites/items/specific/task.png", new int[]{161, 16, 13, 16}, 7174);
+	public static final IconEntry TASK_C11_R2 = new IconEntry("sprites/items/specific/task.png", new int[]{161, 16, 13, 16}, 7174);
+	/** semantic alias for TASK_C11_R2 */
+	public static final IconEntry WISDOM_CHALLENGE = TASK_C11_R2;
 	/** TRIFORCE */
-	public static final IconEntry TRIFORCE = new IconEntry("sprites/items/specific/task.png", new int[]{176, 18, 16, 10}, 7175);
+	public static final IconEntry TASK_C12_R2 = new IconEntry("sprites/items/specific/task.png", new int[]{176, 18, 16, 10}, 7175);
+	/** semantic alias for TASK_C12_R2 */
+	public static final IconEntry TRIFORCE = TASK_C12_R2;
 	/** FINAL_TRIAL */
-	public static final IconEntry FINAL_TRIAL = new IconEntry("sprites/items/specific/task.png", new int[]{193, 16, 15, 15}, 7176);
+	public static final IconEntry TASK_C13_R2 = new IconEntry("sprites/items/specific/task.png", new int[]{193, 16, 15, 15}, 7176);
+	/** semantic alias for TASK_C13_R2 */
+	public static final IconEntry FINAL_TRIAL = TASK_C13_R2;
 	/** AMULET#0 */
-	public static final IconEntry AMULET_0 = new IconEntry("sprites/items/specific/task.png", new int[]{208, 16, 16, 16}, 7177);
+	public static final IconEntry TASK_C14_R2 = new IconEntry("sprites/items/specific/task.png", new int[]{208, 16, 16, 16}, 7177);
+	/** semantic alias for TASK_C14_R2 */
+	public static final IconEntry AMULET_0 = TASK_C14_R2;
 	/** ENERGY_CORE */
-	public static final IconEntry ENERGY_CORE = new IconEntry("sprites/items/specific/task.png", new int[]{225, 17, 14, 14}, 7178);
+	public static final IconEntry TASK_C15_R2 = new IconEntry("sprites/items/specific/task.png", new int[]{225, 17, 14, 14}, 7178);
+	/** semantic alias for TASK_C15_R2 */
+	public static final IconEntry ENERGY_CORE = TASK_C15_R2;
 	/** FINAL_TROPHY */
-	public static final IconEntry FINAL_TROPHY = new IconEntry("sprites/items/specific/task.png", new int[]{240, 16, 16, 16}, 7179);
+	public static final IconEntry TASK_C16_R2 = new IconEntry("sprites/items/specific/task.png", new int[]{240, 16, 16, 16}, 7179);
+	/** semantic alias for TASK_C16_R2 */
+	public static final IconEntry FINAL_TROPHY = TASK_C16_R2;
 	/** DOLYA_SLATE */
-	public static final IconEntry DOLYA_SLATE = new IconEntry("sprites/items/specific/task.png", new int[]{1, 33, 14, 15}, 7180);
+	public static final IconEntry TASK_C1_R3 = new IconEntry("sprites/items/specific/task.png", new int[]{1, 33, 14, 15}, 7180);
+	/** semantic alias for TASK_C1_R3 */
+	public static final IconEntry DOLYA_SLATE = TASK_C1_R3;
 	/** SOUL_BOOK */
-	public static final IconEntry SOUL_BOOK = new IconEntry("sprites/items/specific/task.png", new int[]{17, 33, 14, 15}, 7181);
+	public static final IconEntry TASK_C2_R3 = new IconEntry("sprites/items/specific/task.png", new int[]{17, 33, 14, 15}, 7181);
+	/** semantic alias for TASK_C2_R3 */
+	public static final IconEntry SOUL_BOOK = TASK_C2_R3;
 	/** TRIAL_BOOK */
-	public static final IconEntry TRIAL_BOOK = new IconEntry("sprites/items/specific/task.png", new int[]{34, 33, 12, 15}, 7182);
+	public static final IconEntry TASK_C3_R3 = new IconEntry("sprites/items/specific/task.png", new int[]{34, 33, 12, 15}, 7182);
+	/** semantic alias for TASK_C3_R3 */
+	public static final IconEntry TRIAL_BOOK = TASK_C3_R3;
 	/** SEWER_CHALLENGE#0 */
-	public static final IconEntry SEWER_CHALLENGE_0 = new IconEntry("sprites/items/specific/task.png", new int[]{48, 32, 16, 16}, 7183);
+	public static final IconEntry TASK_C4_R3 = new IconEntry("sprites/items/specific/task.png", new int[]{48, 32, 16, 16}, 7183);
+	/** semantic alias for TASK_C4_R3 */
+	public static final IconEntry SEWER_CHALLENGE_0 = TASK_C4_R3;
 	/** SKELETON_CHALLENGE */
-	public static final IconEntry SKELETON_CHALLENGE = new IconEntry("sprites/items/specific/task.png", new int[]{64, 32, 16, 16}, 7184);
+	public static final IconEntry TASK_C5_R3 = new IconEntry("sprites/items/specific/task.png", new int[]{64, 32, 16, 16}, 7184);
+	/** semantic alias for TASK_C5_R3 */
+	public static final IconEntry SKELETON_CHALLENGE = TASK_C5_R3;
 	/** CAVE_CHALLENGE#0 */
-	public static final IconEntry CAVE_CHALLENGE_0 = new IconEntry("sprites/items/specific/task.png", new int[]{80, 32, 16, 16}, 7185);
+	public static final IconEntry TASK_C6_R3 = new IconEntry("sprites/items/specific/task.png", new int[]{80, 32, 16, 16}, 7185);
+	/** semantic alias for TASK_C6_R3 */
+	public static final IconEntry CAVE_CHALLENGE_0 = TASK_C6_R3;
 	/** PRISON_CHALLENGE */
-	public static final IconEntry PRISON_CHALLENGE = new IconEntry("sprites/items/specific/task.png", new int[]{96, 32, 16, 16}, 7186);
+	public static final IconEntry TASK_C7_R3 = new IconEntry("sprites/items/specific/task.png", new int[]{96, 32, 16, 16}, 7186);
+	/** semantic alias for TASK_C7_R3 */
+	public static final IconEntry PRISON_CHALLENGE = TASK_C7_R3;
 	/** POT_KEY#0 */
-	public static final IconEntry POT_KEY_0 = new IconEntry("sprites/items/specific/task.png", new int[]{112, 32, 16, 16}, 7187);
+	public static final IconEntry TASK_C8_R3 = new IconEntry("sprites/items/specific/task.png", new int[]{112, 32, 16, 16}, 7187);
+	/** semantic alias for TASK_C8_R3 */
+	public static final IconEntry POT_KEY_0 = TASK_C8_R3;
 	/** ROGUE_CHALLENGE */
-	public static final IconEntry ROGUE_CHALLENGE = new IconEntry("sprites/items/specific/task.png", new int[]{128, 32, 16, 16}, 7188);
+	public static final IconEntry TASK_C9_R3 = new IconEntry("sprites/items/specific/task.png", new int[]{128, 32, 16, 16}, 7188);
+	/** semantic alias for TASK_C9_R3 */
+	public static final IconEntry ROGUE_CHALLENGE = TASK_C9_R3;
 	/** TELEPORT_COORDINATE */
-	public static final IconEntry TELEPORT_COORDINATE = new IconEntry("sprites/items/specific/task.png", new int[]{3, 50, 10, 11}, 7189);
+	public static final IconEntry TASK_C1_R4 = new IconEntry("sprites/items/specific/task.png", new int[]{3, 50, 10, 11}, 7189);
+	/** semantic alias for TASK_C1_R4 */
+	public static final IconEntry TELEPORT_COORDINATE = TASK_C1_R4;
 	/** SECRET_TREASURE_SPOT */
-	public static final IconEntry SECRET_TREASURE_SPOT = new IconEntry("sprites/items/specific/task.png", new int[]{50, 48, 12, 16}, 7190);
+	public static final IconEntry TASK_C4_R4 = new IconEntry("sprites/items/specific/task.png", new int[]{50, 48, 12, 16}, 7190);
+	/** semantic alias for TASK_C4_R4 */
+	public static final IconEntry SECRET_TREASURE_SPOT = TASK_C4_R4;
 	/** MAGIC_SKULL */
-	public static final IconEntry MAGIC_SKULL = new IconEntry("sprites/items/specific/task.png", new int[]{66, 51, 11, 11}, 7191);
+	public static final IconEntry TASK_C5_R4 = new IconEntry("sprites/items/specific/task.png", new int[]{66, 51, 11, 11}, 7191);
+	/** semantic alias for TASK_C5_R4 */
+	public static final IconEntry MAGIC_SKULL = TASK_C5_R4;
 	/** CHARGED_CONCH */
-	public static final IconEntry CHARGED_CONCH = new IconEntry("sprites/items/specific/task.png", new int[]{83, 49, 9, 14}, 7192);
+	public static final IconEntry TASK_C6_R4 = new IconEntry("sprites/items/specific/task.png", new int[]{83, 49, 9, 14}, 7192);
+	/** semantic alias for TASK_C6_R4 */
+	public static final IconEntry CHARGED_CONCH = TASK_C6_R4;
 	/** COURT_MEMORIAL */
-	public static final IconEntry COURT_MEMORIAL = new IconEntry("sprites/items/specific/task.png", new int[]{98, 49, 12, 15}, 7193);
+	public static final IconEntry TASK_C7_R4 = new IconEntry("sprites/items/specific/task.png", new int[]{98, 49, 12, 15}, 7193);
+	/** semantic alias for TASK_C7_R4 */
+	public static final IconEntry COURT_MEMORIAL = TASK_C7_R4;
 }

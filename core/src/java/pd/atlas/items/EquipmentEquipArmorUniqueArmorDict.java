@@ -13,13 +13,23 @@ public final class EquipmentEquipArmorUniqueArmorDict {
 	private EquipmentEquipArmorUniqueArmorDict() { }
 
 	/** TOWEL */
-	public static final IconEntry TOWEL = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{1, 0, 14, 16}, 6778);
+	public static final IconEntry UNIQUE_ARMOR_C1_R1 = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{1, 0, 14, 16}, 6778);
+	/** semantic alias for UNIQUE_ARMOR_C1_R1 */
+	public static final IconEntry TOWEL = UNIQUE_ARMOR_C1_R1;
 	/** SPECTACLES */
-	public static final IconEntry SPECTACLES = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{16, 4, 15, 8}, 6779);
+	public static final IconEntry UNIQUE_ARMOR_C2_R1 = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{16, 4, 15, 8}, 6779);
+	/** semantic alias for UNIQUE_ARMOR_C2_R1 */
+	public static final IconEntry SPECTACLES = UNIQUE_ARMOR_C2_R1;
 	/** SHARK_PAJAMAS */
-	public static final IconEntry SHARK_PAJAMAS = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{34, 1, 10, 14}, 6780);
+	public static final IconEntry UNIQUE_ARMOR_C3_R1 = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{34, 1, 10, 14}, 6780);
+	/** semantic alias for UNIQUE_ARMOR_C3_R1 */
+	public static final IconEntry SHARK_PAJAMAS = UNIQUE_ARMOR_C3_R1;
 	/** LIVING_ARMOR */
-	public static final IconEntry LIVING_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{49, 2, 14, 13}, 6781);
+	public static final IconEntry UNIQUE_ARMOR_C4_R1 = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{49, 2, 14, 13}, 6781);
+	/** semantic alias for UNIQUE_ARMOR_C4_R1 */
+	public static final IconEntry LIVING_ARMOR = UNIQUE_ARMOR_C4_R1;
 	/** SPS_BUNNY_ARMOR#0 */
-	public static final IconEntry SPS_BUNNY_ARMOR_0 = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{64, 0, 16, 16}, 6782);
+	public static final IconEntry UNIQUE_ARMOR_C5_R1 = new IconEntry("sprites/items/equipment/equip/armor/unique_armor.png", new int[]{64, 0, 16, 16}, 6782);
+	/** semantic alias for UNIQUE_ARMOR_C5_R1 */
+	public static final IconEntry SPS_BUNNY_ARMOR_0 = UNIQUE_ARMOR_C5_R1;
 }

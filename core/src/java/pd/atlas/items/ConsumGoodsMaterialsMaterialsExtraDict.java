@@ -13,13 +13,23 @@ public final class ConsumGoodsMaterialsMaterialsExtraDict {
 	private ConsumGoodsMaterialsMaterialsExtraDict() { }
 
 	/** MATERIALS_EXTRA_1 - 枯枝／木条（棕色树枝） */
-	public static final IconEntry MATERIALS_EXTRA_1 = new IconEntry("sprites/items/consum/goods_materials/materials_extra.png", new int[]{1, 3, 13, 11}, 7456);
+	public static final IconEntry MATERIALS_EXTRA_C1_R1 = new IconEntry("sprites/items/consum/goods_materials/materials_extra.png", new int[]{1, 3, 13, 11}, 7456);
+	/** semantic alias for MATERIALS_EXTRA_C1_R1 */
+	public static final IconEntry MATERIALS_EXTRA_1 = MATERIALS_EXTRA_C1_R1;
 	/** MATERIALS_EXTRA_2 - 绿色植物（药草状植株） */
-	public static final IconEntry MATERIALS_EXTRA_2 = new IconEntry("sprites/items/consum/goods_materials/materials_extra.png", new int[]{17, 2, 13, 12}, 7457);
+	public static final IconEntry MATERIALS_EXTRA_C2_R1 = new IconEntry("sprites/items/consum/goods_materials/materials_extra.png", new int[]{17, 2, 13, 12}, 7457);
+	/** semantic alias for MATERIALS_EXTRA_C2_R1 */
+	public static final IconEntry MATERIALS_EXTRA_2 = MATERIALS_EXTRA_C2_R1;
 	/** MATERIALS_EXTRA_3 - 蓝色小火苗／晶簇（蓝白色） */
-	public static final IconEntry MATERIALS_EXTRA_3 = new IconEntry("sprites/items/consum/goods_materials/materials_extra.png", new int[]{37, 4, 6, 7}, 7458);
+	public static final IconEntry MATERIALS_EXTRA_C3_R1 = new IconEntry("sprites/items/consum/goods_materials/materials_extra.png", new int[]{37, 4, 6, 7}, 7458);
+	/** semantic alias for MATERIALS_EXTRA_C3_R1 */
+	public static final IconEntry MATERIALS_EXTRA_3 = MATERIALS_EXTRA_C3_R1;
 	/** MATERIALS_EXTRA_4 - 灰边肉块（灰底肉／蛹状） */
-	public static final IconEntry MATERIALS_EXTRA_4 = new IconEntry("sprites/items/consum/goods_materials/materials_extra.png", new int[]{52, 4, 8, 9}, 7459);
+	public static final IconEntry MATERIALS_EXTRA_C4_R1 = new IconEntry("sprites/items/consum/goods_materials/materials_extra.png", new int[]{52, 4, 8, 9}, 7459);
+	/** semantic alias for MATERIALS_EXTRA_C4_R1 */
+	public static final IconEntry MATERIALS_EXTRA_4 = MATERIALS_EXTRA_C4_R1;
 	/** MATERIALS_EXTRA_5 - 火盆／营火（灰盆中橙黄火焰） */
-	public static final IconEntry MATERIALS_EXTRA_5 = new IconEntry("sprites/items/consum/goods_materials/materials_extra.png", new int[]{3, 19, 10, 11}, 7460);
+	public static final IconEntry MATERIALS_EXTRA_C1_R2 = new IconEntry("sprites/items/consum/goods_materials/materials_extra.png", new int[]{3, 19, 10, 11}, 7460);
+	/** semantic alias for MATERIALS_EXTRA_C1_R2 */
+	public static final IconEntry MATERIALS_EXTRA_5 = MATERIALS_EXTRA_C1_R2;
 }

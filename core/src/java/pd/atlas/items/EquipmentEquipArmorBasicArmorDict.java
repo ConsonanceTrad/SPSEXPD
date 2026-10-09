@@ -13,67 +13,131 @@ public final class EquipmentEquipArmorBasicArmorDict {
 	private EquipmentEquipArmorBasicArmorDict() { }
 
 	/** ARMOR_CLOTH#0 */
-	public static final IconEntry ARMOR_CLOTH_0 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{0, 2, 15, 12}, 6746);
+	public static final IconEntry BASIC_ARMOR_C1_R1 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{0, 2, 15, 12}, 6746);
+	/** semantic alias for BASIC_ARMOR_C1_R1 */
+	public static final IconEntry ARMOR_CLOTH_0 = BASIC_ARMOR_C1_R1;
 	/** ARMOR_LEATHER#0 */
-	public static final IconEntry ARMOR_LEATHER_0 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{17, 2, 14, 13}, 6747);
+	public static final IconEntry BASIC_ARMOR_C2_R1 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{17, 2, 14, 13}, 6747);
+	/** semantic alias for BASIC_ARMOR_C2_R1 */
+	public static final IconEntry ARMOR_LEATHER_0 = BASIC_ARMOR_C2_R1;
 	/** ARMOR_MAIL#0 */
-	public static final IconEntry ARMOR_MAIL_0 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{33, 2, 14, 12}, 6748);
+	public static final IconEntry BASIC_ARMOR_C3_R1 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{33, 2, 14, 12}, 6748);
+	/** semantic alias for BASIC_ARMOR_C3_R1 */
+	public static final IconEntry ARMOR_MAIL_0 = BASIC_ARMOR_C3_R1;
 	/** ARMOR_SCALE#0 */
-	public static final IconEntry ARMOR_SCALE_0 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{49, 2, 14, 11}, 6749);
+	public static final IconEntry BASIC_ARMOR_C4_R1 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{49, 2, 14, 11}, 6749);
+	/** semantic alias for BASIC_ARMOR_C4_R1 */
+	public static final IconEntry ARMOR_SCALE_0 = BASIC_ARMOR_C4_R1;
 	/** ARMOR_PLATE#0 */
-	public static final IconEntry ARMOR_PLATE_0 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{66, 2, 12, 12}, 6750);
+	public static final IconEntry BASIC_ARMOR_C5_R1 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{66, 2, 12, 12}, 6750);
+	/** semantic alias for BASIC_ARMOR_C5_R1 */
+	public static final IconEntry ARMOR_PLATE_0 = BASIC_ARMOR_C5_R1;
 	/** HERO_ARMOR_WARRIOR */
-	public static final IconEntry HERO_ARMOR_WARRIOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{112, 2, 16, 13}, 6751);
+	public static final IconEntry BASIC_ARMOR_C8_R1 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{112, 2, 16, 13}, 6751);
+	/** semantic alias for BASIC_ARMOR_C8_R1 */
+	public static final IconEntry HERO_ARMOR_WARRIOR = BASIC_ARMOR_C8_R1;
 	/** HERO_ARMOR_MAGE */
-	public static final IconEntry HERO_ARMOR_MAGE = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{128, 0, 15, 16}, 6752);
+	public static final IconEntry BASIC_ARMOR_C9_R1 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{128, 0, 15, 16}, 6752);
+	/** semantic alias for BASIC_ARMOR_C9_R1 */
+	public static final IconEntry HERO_ARMOR_MAGE = BASIC_ARMOR_C9_R1;
 	/** HERO_ARMOR_ROGUE */
-	public static final IconEntry HERO_ARMOR_ROGUE = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{145, 2, 14, 13}, 6753);
+	public static final IconEntry BASIC_ARMOR_C10_R1 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{145, 2, 14, 13}, 6753);
+	/** semantic alias for BASIC_ARMOR_C10_R1 */
+	public static final IconEntry HERO_ARMOR_ROGUE = BASIC_ARMOR_C10_R1;
 	/** HERO_ARMOR_HUNTRESS */
-	public static final IconEntry HERO_ARMOR_HUNTRESS = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{161, 1, 13, 15}, 6754);
+	public static final IconEntry BASIC_ARMOR_C11_R1 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{161, 1, 13, 15}, 6754);
+	/** semantic alias for BASIC_ARMOR_C11_R1 */
+	public static final IconEntry HERO_ARMOR_HUNTRESS = BASIC_ARMOR_C11_R1;
 	/** ARMOR_DUELIST#0 */
-	public static final IconEntry ARMOR_DUELIST_0 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{178, 1, 12, 13}, 6755);
+	public static final IconEntry BASIC_ARMOR_C12_R1 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{178, 1, 12, 13}, 6755);
+	/** semantic alias for BASIC_ARMOR_C12_R1 */
+	public static final IconEntry ARMOR_DUELIST_0 = BASIC_ARMOR_C12_R1;
 	/** HERO_ARMOR_PERFORMER */
-	public static final IconEntry HERO_ARMOR_PERFORMER = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{193, 2, 14, 13}, 6756);
+	public static final IconEntry BASIC_ARMOR_C13_R1 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{193, 2, 14, 13}, 6756);
+	/** semantic alias for BASIC_ARMOR_C13_R1 */
+	public static final IconEntry HERO_ARMOR_PERFORMER = BASIC_ARMOR_C13_R1;
 	/** HERO_ARMOR_STAR_SOLDIER */
-	public static final IconEntry HERO_ARMOR_STAR_SOLDIER = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{211, 2, 10, 12}, 6757);
+	public static final IconEntry BASIC_ARMOR_C14_R1 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{211, 2, 10, 12}, 6757);
+	/** semantic alias for BASIC_ARMOR_C14_R1 */
+	public static final IconEntry HERO_ARMOR_STAR_SOLDIER = BASIC_ARMOR_C14_R1;
 	/** HERO_ARMOR_CLERIC */
-	public static final IconEntry HERO_ARMOR_CLERIC = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{224, 2, 15, 13}, 6758);
+	public static final IconEntry BASIC_ARMOR_C15_R1 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{224, 2, 15, 13}, 6758);
+	/** semantic alias for BASIC_ARMOR_C15_R1 */
+	public static final IconEntry HERO_ARMOR_CLERIC = BASIC_ARMOR_C15_R1;
 	/** HERO_ARMOR_ASCETIC */
-	public static final IconEntry HERO_ARMOR_ASCETIC = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{241, 2, 13, 14}, 6759);
+	public static final IconEntry BASIC_ARMOR_C16_R1 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{241, 2, 13, 14}, 6759);
+	/** semantic alias for BASIC_ARMOR_C16_R1 */
+	public static final IconEntry HERO_ARMOR_ASCETIC = BASIC_ARMOR_C16_R1;
 	/** VEST */
-	public static final IconEntry VEST = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{3, 34, 11, 12}, 6760);
+	public static final IconEntry BASIC_ARMOR_C1_R3 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{3, 34, 11, 12}, 6760);
+	/** semantic alias for BASIC_ARMOR_C1_R3 */
+	public static final IconEntry VEST = BASIC_ARMOR_C1_R3;
 	/** RUBBER_SUIT */
-	public static final IconEntry RUBBER_SUIT = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{17, 34, 14, 13}, 6761);
+	public static final IconEntry BASIC_ARMOR_C2_R3 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{17, 34, 14, 13}, 6761);
+	/** semantic alias for BASIC_ARMOR_C2_R3 */
+	public static final IconEntry RUBBER_SUIT = BASIC_ARMOR_C2_R3;
 	/** CD_ARMOR */
-	public static final IconEntry CD_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{33, 34, 14, 13}, 6762);
+	public static final IconEntry BASIC_ARMOR_C3_R3 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{33, 34, 14, 13}, 6762);
+	/** semantic alias for BASIC_ARMOR_C3_R3 */
+	public static final IconEntry CD_ARMOR = BASIC_ARMOR_C3_R3;
 	/** STYROFOAM_ARMOR */
-	public static final IconEntry STYROFOAM_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{49, 34, 14, 12}, 6763);
+	public static final IconEntry BASIC_ARMOR_C4_R3 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{49, 34, 14, 12}, 6763);
+	/** semantic alias for BASIC_ARMOR_C4_R3 */
+	public static final IconEntry STYROFOAM_ARMOR = BASIC_ARMOR_C4_R3;
 	/** THICK_RUBBER_SUIT */
-	public static final IconEntry THICK_RUBBER_SUIT = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{65, 34, 14, 11}, 6764);
+	public static final IconEntry BASIC_ARMOR_C5_R3 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{65, 34, 14, 11}, 6764);
+	/** semantic alias for BASIC_ARMOR_C5_R3 */
+	public static final IconEntry THICK_RUBBER_SUIT = BASIC_ARMOR_C5_R3;
 	/** PHANTOM_ARMOR */
-	public static final IconEntry PHANTOM_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{84, 34, 8, 12}, 6765);
+	public static final IconEntry BASIC_ARMOR_C6_R3 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{84, 34, 8, 12}, 6765);
+	/** semantic alias for BASIC_ARMOR_C6_R3 */
+	public static final IconEntry PHANTOM_ARMOR = BASIC_ARMOR_C6_R3;
 	/** WOODEN_ARMOR */
-	public static final IconEntry WOODEN_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{1, 50, 15, 12}, 6766);
+	public static final IconEntry BASIC_ARMOR_C1_R4 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{1, 50, 15, 12}, 6766);
+	/** semantic alias for BASIC_ARMOR_C1_R4 */
+	public static final IconEntry WOODEN_ARMOR = BASIC_ARMOR_C1_R4;
 	/** CERAMICS_ARMOR */
-	public static final IconEntry CERAMICS_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{17, 50, 14, 13}, 6767);
+	public static final IconEntry BASIC_ARMOR_C2_R4 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{17, 50, 14, 13}, 6767);
+	/** semantic alias for BASIC_ARMOR_C2_R4 */
+	public static final IconEntry CERAMICS_ARMOR = BASIC_ARMOR_C2_R4;
 	/** STONE_ARMOR */
-	public static final IconEntry STONE_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{33, 50, 14, 13}, 6768);
+	public static final IconEntry BASIC_ARMOR_C3_R4 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{33, 50, 14, 13}, 6768);
+	/** semantic alias for BASIC_ARMOR_C3_R4 */
+	public static final IconEntry STONE_ARMOR = BASIC_ARMOR_C3_R4;
 	/** HEAVY_CHAIN_ARMOR */
-	public static final IconEntry HEAVY_CHAIN_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{49, 50, 14, 12}, 6769);
+	public static final IconEntry BASIC_ARMOR_C4_R4 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{49, 50, 14, 12}, 6769);
+	/** semantic alias for BASIC_ARMOR_C4_R4 */
+	public static final IconEntry HEAVY_CHAIN_ARMOR = BASIC_ARMOR_C4_R4;
 	/** HEAVY_SCALE_ARMOR */
-	public static final IconEntry HEAVY_SCALE_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{65, 50, 14, 11}, 6770);
+	public static final IconEntry BASIC_ARMOR_C5_R4 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{65, 50, 14, 11}, 6770);
+	/** semantic alias for BASIC_ARMOR_C5_R4 */
+	public static final IconEntry HEAVY_SCALE_ARMOR = BASIC_ARMOR_C5_R4;
 	/** EXOSKELETON_ARMOR */
-	public static final IconEntry EXOSKELETON_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{80, 49, 16, 13}, 6771);
+	public static final IconEntry BASIC_ARMOR_C6_R4 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{80, 49, 16, 13}, 6771);
+	/** semantic alias for BASIC_ARMOR_C6_R4 */
+	public static final IconEntry EXOSKELETON_ARMOR = BASIC_ARMOR_C6_R4;
 	/** ROBE */
-	public static final IconEntry ROBE = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{1, 66, 15, 13}, 6772);
+	public static final IconEntry BASIC_ARMOR_C1_R5 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{1, 66, 15, 13}, 6772);
+	/** semantic alias for BASIC_ARMOR_C1_R5 */
+	public static final IconEntry ROBE = BASIC_ARMOR_C1_R5;
 	/** HIDE_ROBE */
-	public static final IconEntry HIDE_ROBE = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{17, 66, 14, 13}, 6773);
+	public static final IconEntry BASIC_ARMOR_C2_R5 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{17, 66, 14, 13}, 6773);
+	/** semantic alias for BASIC_ARMOR_C2_R5 */
+	public static final IconEntry HIDE_ROBE = BASIC_ARMOR_C2_R5;
 	/** MAGIC_CORE_ROBE */
-	public static final IconEntry MAGIC_CORE_ROBE = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{33, 66, 14, 13}, 6774);
+	public static final IconEntry BASIC_ARMOR_C3_R5 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{33, 66, 14, 13}, 6774);
+	/** semantic alias for BASIC_ARMOR_C3_R5 */
+	public static final IconEntry MAGIC_CORE_ROBE = BASIC_ARMOR_C3_R5;
 	/** CHAIN_ROBE */
-	public static final IconEntry CHAIN_ROBE = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{49, 66, 14, 13}, 6775);
+	public static final IconEntry BASIC_ARMOR_C4_R5 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{49, 66, 14, 13}, 6775);
+	/** semantic alias for BASIC_ARMOR_C4_R5 */
+	public static final IconEntry CHAIN_ROBE = BASIC_ARMOR_C4_R5;
 	/** DRAGON_HIDE_ROBE */
-	public static final IconEntry DRAGON_HIDE_ROBE = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{65, 66, 14, 13}, 6776);
+	public static final IconEntry BASIC_ARMOR_C5_R5 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{65, 66, 14, 13}, 6776);
+	/** semantic alias for BASIC_ARMOR_C5_R5 */
+	public static final IconEntry DRAGON_HIDE_ROBE = BASIC_ARMOR_C5_R5;
 	/** WING_ARMOR */
-	public static final IconEntry WING_ARMOR = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{81, 67, 14, 12}, 6777);
+	public static final IconEntry BASIC_ARMOR_C6_R5 = new IconEntry("sprites/items/equipment/equip/armor/basic_armor.png", new int[]{81, 67, 14, 12}, 6777);
+	/** semantic alias for BASIC_ARMOR_C6_R5 */
+	public static final IconEntry WING_ARMOR = BASIC_ARMOR_C6_R5;
 }

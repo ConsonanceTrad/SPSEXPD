@@ -13,81 +13,159 @@ public final class SpecificPlaceHolderDict {
 	private SpecificPlaceHolderDict() { }
 
 	/** SPS_PH_ERROR */
-	public static final IconEntry SPS_PH_ERROR = new IconEntry("sprites/items/specific/place_holder.png", new int[]{0, 4, 16, 7}, 7120);
+	public static final IconEntry PLACE_HOLDER_C1_R1 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{0, 4, 16, 7}, 7120);
+	/** semantic alias for PLACE_HOLDER_C1_R1 */
+	public static final IconEntry SPS_PH_ERROR = PLACE_HOLDER_C1_R1;
 	/** SPS_PH_WEAPON */
-	public static final IconEntry SPS_PH_WEAPON = new IconEntry("sprites/items/specific/place_holder.png", new int[]{17, 1, 14, 14}, 7121);
+	public static final IconEntry PLACE_HOLDER_C2_R1 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{17, 1, 14, 14}, 7121);
+	/** semantic alias for PLACE_HOLDER_C2_R1 */
+	public static final IconEntry SPS_PH_WEAPON = PLACE_HOLDER_C2_R1;
 	/** SPS_PH_ARMOR */
-	public static final IconEntry SPS_PH_ARMOR = new IconEntry("sprites/items/specific/place_holder.png", new int[]{33, 1, 14, 12}, 7122);
+	public static final IconEntry PLACE_HOLDER_C3_R1 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{33, 1, 14, 12}, 7122);
+	/** semantic alias for PLACE_HOLDER_C3_R1 */
+	public static final IconEntry SPS_PH_ARMOR = PLACE_HOLDER_C3_R1;
 	/** WAND_HOLDER#0 */
-	public static final IconEntry WAND_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{49, 1, 14, 14}, 7123);
+	public static final IconEntry PLACE_HOLDER_C4_R1 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{49, 1, 14, 14}, 7123);
+	/** semantic alias for PLACE_HOLDER_C4_R1 */
+	public static final IconEntry WAND_HOLDER_0 = PLACE_HOLDER_C4_R1;
 	/** ARTIFACT_HOLDER#0 */
-	public static final IconEntry ARTIFACT_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{64, 0, 15, 15}, 7124);
+	public static final IconEntry PLACE_HOLDER_C5_R1 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{64, 0, 15, 15}, 7124);
+	/** semantic alias for PLACE_HOLDER_C5_R1 */
+	public static final IconEntry ARTIFACT_HOLDER_0 = PLACE_HOLDER_C5_R1;
 	/** TRINKET_HOLDER#0 */
-	public static final IconEntry TRINKET_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{80, 2, 16, 11}, 7125);
+	public static final IconEntry PLACE_HOLDER_C6_R1 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{80, 2, 16, 11}, 7125);
+	/** semantic alias for PLACE_HOLDER_C6_R1 */
+	public static final IconEntry TRINKET_HOLDER_0 = PLACE_HOLDER_C6_R1;
 	/** SPS_PH_FOOD */
-	public static final IconEntry SPS_PH_FOOD = new IconEntry("sprites/items/specific/place_holder.png", new int[]{97, 3, 14, 11}, 7126);
+	public static final IconEntry PLACE_HOLDER_C7_R1 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{97, 3, 14, 11}, 7126);
+	/** semantic alias for PLACE_HOLDER_C7_R1 */
+	public static final IconEntry SPS_PH_FOOD = PLACE_HOLDER_C7_R1;
 	/** SPS_UI_ICON_CATALOG */
-	public static final IconEntry SPS_UI_ICON_CATALOG = new IconEntry("sprites/items/specific/place_holder.png", new int[]{113, 1, 14, 14}, 7127);
+	public static final IconEntry PLACE_HOLDER_C8_R1 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{113, 1, 14, 14}, 7127);
+	/** semantic alias for PLACE_HOLDER_C8_R1 */
+	public static final IconEntry SPS_UI_ICON_CATALOG = PLACE_HOLDER_C8_R1;
 	/** SCROLL_HOLDER#0 */
-	public static final IconEntry SCROLL_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{128, 1, 15, 14}, 7128);
+	public static final IconEntry PLACE_HOLDER_C9_R1 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{128, 1, 15, 14}, 7128);
+	/** semantic alias for PLACE_HOLDER_C9_R1 */
+	public static final IconEntry SCROLL_HOLDER_0 = PLACE_HOLDER_C9_R1;
 	/** POTION_HOLDER#0 */
-	public static final IconEntry POTION_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{146, 1, 12, 14}, 7129);
+	public static final IconEntry PLACE_HOLDER_C10_R1 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{146, 1, 12, 14}, 7129);
+	/** semantic alias for PLACE_HOLDER_C10_R1 */
+	public static final IconEntry POTION_HOLDER_0 = PLACE_HOLDER_C10_R1;
 	/** MOB_HOLDER#0 */
-	public static final IconEntry MOB_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{208, 1, 15, 14}, 7130);
+	public static final IconEntry PLACE_HOLDER_C14_R1 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{208, 1, 15, 14}, 7130);
+	/** semantic alias for PLACE_HOLDER_C14_R1 */
+	public static final IconEntry MOB_HOLDER_0 = PLACE_HOLDER_C14_R1;
 	/** SPS_UI_ICON_A */
-	public static final IconEntry SPS_UI_ICON_A = new IconEntry("sprites/items/specific/place_holder.png", new int[]{227, 2, 11, 12}, 7131);
+	public static final IconEntry PLACE_HOLDER_C15_R1 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{227, 2, 11, 12}, 7131);
+	/** semantic alias for PLACE_HOLDER_C15_R1 */
+	public static final IconEntry SPS_UI_ICON_A = PLACE_HOLDER_C15_R1;
 	/** SPS_UI_ICON_B */
-	public static final IconEntry SPS_UI_ICON_B = new IconEntry("sprites/items/specific/place_holder.png", new int[]{242, 4, 13, 10}, 7132);
+	public static final IconEntry PLACE_HOLDER_C16_R1 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{242, 4, 13, 10}, 7132);
+	/** semantic alias for PLACE_HOLDER_C16_R1 */
+	public static final IconEntry SPS_UI_ICON_B = PLACE_HOLDER_C16_R1;
 	/** SOMETHING#0 */
-	public static final IconEntry SOMETHING_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{4, 18, 8, 13}, 7133);
+	public static final IconEntry PLACE_HOLDER_C1_R2 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{4, 18, 8, 13}, 7133);
+	/** semantic alias for PLACE_HOLDER_C1_R2 */
+	public static final IconEntry SOMETHING_0 = PLACE_HOLDER_C1_R2;
 	/** SPS_PH_WEAPON_BAD */
-	public static final IconEntry SPS_PH_WEAPON_BAD = new IconEntry("sprites/items/specific/place_holder.png", new int[]{17, 17, 14, 14}, 7134);
+	public static final IconEntry PLACE_HOLDER_C2_R2 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{17, 17, 14, 14}, 7134);
+	/** semantic alias for PLACE_HOLDER_C2_R2 */
+	public static final IconEntry SPS_PH_WEAPON_BAD = PLACE_HOLDER_C2_R2;
 	/** SPS_PH_ARMOR_BAD */
-	public static final IconEntry SPS_PH_ARMOR_BAD = new IconEntry("sprites/items/specific/place_holder.png", new int[]{33, 17, 14, 12}, 7135);
+	public static final IconEntry PLACE_HOLDER_C3_R2 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{33, 17, 14, 12}, 7135);
+	/** semantic alias for PLACE_HOLDER_C3_R2 */
+	public static final IconEntry SPS_PH_ARMOR_BAD = PLACE_HOLDER_C3_R2;
 	/** SPS_PH_WAND_BAD */
-	public static final IconEntry SPS_PH_WAND_BAD = new IconEntry("sprites/items/specific/place_holder.png", new int[]{49, 17, 14, 14}, 7136);
+	public static final IconEntry PLACE_HOLDER_C4_R2 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{49, 17, 14, 14}, 7136);
+	/** semantic alias for PLACE_HOLDER_C4_R2 */
+	public static final IconEntry SPS_PH_WAND_BAD = PLACE_HOLDER_C4_R2;
 	/** RING_HOLDER#0 */
-	public static final IconEntry RING_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{68, 19, 8, 10}, 7137);
+	public static final IconEntry PLACE_HOLDER_C5_R2 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{68, 19, 8, 10}, 7137);
+	/** semantic alias for PLACE_HOLDER_C5_R2 */
+	public static final IconEntry RING_HOLDER_0 = PLACE_HOLDER_C5_R2;
 	/** FOOD_HOLDER#0 */
-	public static final IconEntry FOOD_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{96, 18, 15, 11}, 7138);
+	public static final IconEntry PLACE_HOLDER_C7_R2 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{96, 18, 15, 11}, 7138);
+	/** semantic alias for PLACE_HOLDER_C7_R2 */
+	public static final IconEntry FOOD_HOLDER_0 = PLACE_HOLDER_C7_R2;
 	/** STONE_HOLDER#0 */
-	public static final IconEntry STONE_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{129, 18, 14, 12}, 7139);
+	public static final IconEntry PLACE_HOLDER_C9_R2 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{129, 18, 14, 12}, 7139);
+	/** semantic alias for PLACE_HOLDER_C9_R2 */
+	public static final IconEntry STONE_HOLDER_0 = PLACE_HOLDER_C9_R2;
 	/** SEED_HOLDER#0 */
-	public static final IconEntry SEED_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{147, 19, 10, 10}, 7140);
+	public static final IconEntry PLACE_HOLDER_C10_R2 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{147, 19, 10, 10}, 7140);
+	/** semantic alias for PLACE_HOLDER_C10_R2 */
+	public static final IconEntry SEED_HOLDER_0 = PLACE_HOLDER_C10_R2;
 	/** SPS_UI_ICON_C */
-	public static final IconEntry SPS_UI_ICON_C = new IconEntry("sprites/items/specific/place_holder.png", new int[]{209, 18, 14, 11}, 7141);
+	public static final IconEntry PLACE_HOLDER_C14_R2 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{209, 18, 14, 11}, 7141);
+	/** semantic alias for PLACE_HOLDER_C14_R2 */
+	public static final IconEntry SPS_UI_ICON_C = PLACE_HOLDER_C14_R2;
 	/** SPS_UI_ICON_D */
-	public static final IconEntry SPS_UI_ICON_D = new IconEntry("sprites/items/specific/place_holder.png", new int[]{226, 17, 12, 14}, 7142);
+	public static final IconEntry PLACE_HOLDER_C15_R2 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{226, 17, 12, 14}, 7142);
+	/** semantic alias for PLACE_HOLDER_C15_R2 */
+	public static final IconEntry SPS_UI_ICON_D = PLACE_HOLDER_C15_R2;
 	/** SPS_UI_ICON_E */
-	public static final IconEntry SPS_UI_ICON_E = new IconEntry("sprites/items/specific/place_holder.png", new int[]{241, 17, 13, 14}, 7143);
+	public static final IconEntry PLACE_HOLDER_C16_R2 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{241, 17, 13, 14}, 7143);
+	/** semantic alias for PLACE_HOLDER_C16_R2 */
+	public static final IconEntry SPS_UI_ICON_E = PLACE_HOLDER_C16_R2;
 	/** SPS_PH_LOG */
-	public static final IconEntry SPS_PH_LOG = new IconEntry("sprites/items/specific/place_holder.png", new int[]{4, 36, 8, 9}, 7144);
+	public static final IconEntry PLACE_HOLDER_C1_R3 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{4, 36, 8, 9}, 7144);
+	/** semantic alias for PLACE_HOLDER_C1_R3 */
+	public static final IconEntry SPS_PH_LOG = PLACE_HOLDER_C1_R3;
 	/** SPS_PH_WEAPON_TEST */
-	public static final IconEntry SPS_PH_WEAPON_TEST = new IconEntry("sprites/items/specific/place_holder.png", new int[]{17, 33, 14, 14}, 7145);
+	public static final IconEntry PLACE_HOLDER_C2_R3 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{17, 33, 14, 14}, 7145);
+	/** semantic alias for PLACE_HOLDER_C2_R3 */
+	public static final IconEntry SPS_PH_WEAPON_TEST = PLACE_HOLDER_C2_R3;
 	/** SPS_PH_ARMOR_TEST */
-	public static final IconEntry SPS_PH_ARMOR_TEST = new IconEntry("sprites/items/specific/place_holder.png", new int[]{33, 33, 14, 12}, 7146);
+	public static final IconEntry PLACE_HOLDER_C3_R3 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{33, 33, 14, 12}, 7146);
+	/** semantic alias for PLACE_HOLDER_C3_R3 */
+	public static final IconEntry SPS_PH_ARMOR_TEST = PLACE_HOLDER_C3_R3;
 	/** SPS_PH_WAND_TEST */
-	public static final IconEntry SPS_PH_WAND_TEST = new IconEntry("sprites/items/specific/place_holder.png", new int[]{49, 33, 14, 14}, 7147);
+	public static final IconEntry PLACE_HOLDER_C4_R3 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{49, 33, 14, 14}, 7147);
+	/** semantic alias for PLACE_HOLDER_C4_R3 */
+	public static final IconEntry SPS_PH_WAND_TEST = PLACE_HOLDER_C4_R3;
 	/** SPS_PH_TRINKET */
-	public static final IconEntry SPS_PH_TRINKET = new IconEntry("sprites/items/specific/place_holder.png", new int[]{65, 35, 14, 11}, 7148);
+	public static final IconEntry PLACE_HOLDER_C5_R3 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{65, 35, 14, 11}, 7148);
+	/** semantic alias for PLACE_HOLDER_C5_R3 */
+	public static final IconEntry SPS_PH_TRINKET = PLACE_HOLDER_C5_R3;
 	/** SPS_PH_ALCHEMY */
-	public static final IconEntry SPS_PH_ALCHEMY = new IconEntry("sprites/items/specific/place_holder.png", new int[]{99, 35, 10, 10}, 7149);
+	public static final IconEntry PLACE_HOLDER_C7_R3 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{99, 35, 10, 10}, 7149);
+	/** semantic alias for PLACE_HOLDER_C7_R3 */
+	public static final IconEntry SPS_PH_ALCHEMY = PLACE_HOLDER_C7_R3;
 	/** ELIXIR_HOLDER#0 */
-	public static final IconEntry ELIXIR_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{130, 33, 12, 14}, 7150);
+	public static final IconEntry PLACE_HOLDER_C9_R3 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{130, 33, 12, 14}, 7150);
+	/** semantic alias for PLACE_HOLDER_C9_R3 */
+	public static final IconEntry ELIXIR_HOLDER_0 = PLACE_HOLDER_C9_R3;
 	/** SPELL_HOLDER#0 */
-	public static final IconEntry SPELL_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{148, 32, 8, 16}, 7151);
+	public static final IconEntry PLACE_HOLDER_C10_R3 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{148, 32, 8, 16}, 7151);
+	/** semantic alias for PLACE_HOLDER_C10_R3 */
+	public static final IconEntry SPELL_HOLDER_0 = PLACE_HOLDER_C10_R3;
 	/** DOCUMENT_HOLDER#0 */
-	public static final IconEntry DOCUMENT_HOLDER_0 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{3, 50, 10, 11}, 7152);
+	public static final IconEntry PLACE_HOLDER_C1_R4 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{3, 50, 10, 11}, 7152);
+	/** semantic alias for PLACE_HOLDER_C1_R4 */
+	public static final IconEntry DOCUMENT_HOLDER_0 = PLACE_HOLDER_C1_R4;
 	/** SPS_PH_WEAPON_SPARE */
-	public static final IconEntry SPS_PH_WEAPON_SPARE = new IconEntry("sprites/items/specific/place_holder.png", new int[]{17, 49, 14, 14}, 7153);
+	public static final IconEntry PLACE_HOLDER_C2_R4 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{17, 49, 14, 14}, 7153);
+	/** semantic alias for PLACE_HOLDER_C2_R4 */
+	public static final IconEntry SPS_PH_WEAPON_SPARE = PLACE_HOLDER_C2_R4;
 	/** SPS_PH_ARMOR_SPARE */
-	public static final IconEntry SPS_PH_ARMOR_SPARE = new IconEntry("sprites/items/specific/place_holder.png", new int[]{33, 50, 14, 12}, 7154);
+	public static final IconEntry PLACE_HOLDER_C3_R4 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{33, 50, 14, 12}, 7154);
+	/** semantic alias for PLACE_HOLDER_C3_R4 */
+	public static final IconEntry SPS_PH_ARMOR_SPARE = PLACE_HOLDER_C3_R4;
 	/** SPS_PH_WAND_SPARE */
-	public static final IconEntry SPS_PH_WAND_SPARE = new IconEntry("sprites/items/specific/place_holder.png", new int[]{49, 49, 14, 14}, 7155);
+	public static final IconEntry PLACE_HOLDER_C4_R4 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{49, 49, 14, 14}, 7155);
+	/** semantic alias for PLACE_HOLDER_C4_R4 */
+	public static final IconEntry SPS_PH_WAND_SPARE = PLACE_HOLDER_C4_R4;
 	/** SPS_PH_BADGE */
-	public static final IconEntry SPS_PH_BADGE = new IconEntry("sprites/items/specific/place_holder.png", new int[]{65, 49, 14, 14}, 7156);
+	public static final IconEntry PLACE_HOLDER_C5_R4 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{65, 49, 14, 14}, 7156);
+	/** semantic alias for PLACE_HOLDER_C5_R4 */
+	public static final IconEntry SPS_PH_BADGE = PLACE_HOLDER_C5_R4;
 	/** SPS_GOLD_TO_SCOIN */
-	public static final IconEntry SPS_GOLD_TO_SCOIN = new IconEntry("sprites/items/specific/place_holder.png", new int[]{209, 51, 14, 11}, 7157);
+	public static final IconEntry PLACE_HOLDER_C14_R4 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{209, 51, 14, 11}, 7157);
+	/** semantic alias for PLACE_HOLDER_C14_R4 */
+	public static final IconEntry SPS_GOLD_TO_SCOIN = PLACE_HOLDER_C14_R4;
 	/** SPS_PH_BADGE_ALT */
-	public static final IconEntry SPS_PH_BADGE_ALT = new IconEntry("sprites/items/specific/place_holder.png", new int[]{243, 52, 10, 9}, 7158);
+	public static final IconEntry PLACE_HOLDER_C16_R4 = new IconEntry("sprites/items/specific/place_holder.png", new int[]{243, 52, 10, 9}, 7158);
+	/** semantic alias for PLACE_HOLDER_C16_R4 */
+	public static final IconEntry SPS_PH_BADGE_ALT = PLACE_HOLDER_C16_R4;
 }

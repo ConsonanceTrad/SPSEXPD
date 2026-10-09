@@ -13,49 +13,95 @@ public final class EquipmentWandBasicWandDict {
 	private EquipmentWandBasicWandDict() { }
 
 	/** WAND_SPS_MAGIC_MISSILE */
-	public static final IconEntry WAND_SPS_MAGIC_MISSILE = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{0, 0, 14, 14}, 7058);
+	public static final IconEntry BASIC_WAND_C1_R1 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{0, 0, 14, 14}, 7058);
+	/** semantic alias for BASIC_WAND_C1_R1 */
+	public static final IconEntry WAND_SPS_MAGIC_MISSILE = BASIC_WAND_C1_R1;
 	/** WAND_FIREBOLT#0 */
-	public static final IconEntry WAND_FIREBOLT_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{16, 0, 14, 14}, 7059);
+	public static final IconEntry BASIC_WAND_C2_R1 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{16, 0, 14, 14}, 7059);
+	/** semantic alias for BASIC_WAND_C2_R1 */
+	public static final IconEntry WAND_FIREBOLT_0 = BASIC_WAND_C2_R1;
 	/** WAND_FROST */
-	public static final IconEntry WAND_FROST = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{32, 0, 14, 14}, 7060);
+	public static final IconEntry BASIC_WAND_C3_R1 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{32, 0, 14, 14}, 7060);
+	/** semantic alias for BASIC_WAND_C3_R1 */
+	public static final IconEntry WAND_FROST = BASIC_WAND_C3_R1;
 	/** WAND_LIGHTNING */
-	public static final IconEntry WAND_LIGHTNING = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{48, 0, 14, 14}, 7061);
+	public static final IconEntry BASIC_WAND_C4_R1 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{48, 0, 14, 14}, 7061);
+	/** semantic alias for BASIC_WAND_C4_R1 */
+	public static final IconEntry WAND_LIGHTNING = BASIC_WAND_C4_R1;
 	/** WAND_DISINTEGRATION#0 */
-	public static final IconEntry WAND_DISINTEGRATION_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{64, 0, 14, 14}, 7062);
+	public static final IconEntry BASIC_WAND_C5_R1 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{64, 0, 14, 14}, 7062);
+	/** semantic alias for BASIC_WAND_C5_R1 */
+	public static final IconEntry WAND_DISINTEGRATION_0 = BASIC_WAND_C5_R1;
 	/** WAND_LIGHT */
-	public static final IconEntry WAND_LIGHT = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{80, 0, 16, 15}, 7063);
+	public static final IconEntry BASIC_WAND_C6_R1 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{80, 0, 16, 15}, 7063);
+	/** semantic alias for BASIC_WAND_C6_R1 */
+	public static final IconEntry WAND_LIGHT = BASIC_WAND_C6_R1;
 	/** WAND_WARDING#0 */
-	public static final IconEntry WAND_WARDING_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{96, 0, 14, 14}, 7064);
+	public static final IconEntry BASIC_WAND_C7_R1 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{96, 0, 14, 14}, 7064);
+	/** semantic alias for BASIC_WAND_C7_R1 */
+	public static final IconEntry WAND_WARDING_0 = BASIC_WAND_C7_R1;
 	/** WAND_REGROWTH */
-	public static final IconEntry WAND_REGROWTH = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{112, 0, 16, 14}, 7065);
+	public static final IconEntry BASIC_WAND_C8_R1 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{112, 0, 16, 14}, 7065);
+	/** semantic alias for BASIC_WAND_C8_R1 */
+	public static final IconEntry WAND_REGROWTH = BASIC_WAND_C8_R1;
 	/** WAND_SPS_ENERGY */
-	public static final IconEntry WAND_SPS_ENERGY = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{193, 1, 14, 14}, 7066);
+	public static final IconEntry BASIC_WAND_C13_R1 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{193, 1, 14, 14}, 7066);
+	/** semantic alias for BASIC_WAND_C13_R1 */
+	public static final IconEntry WAND_SPS_ENERGY = BASIC_WAND_C13_R1;
 	/** WAND_SPS_FIREBOLT */
-	public static final IconEntry WAND_SPS_FIREBOLT = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{209, 1, 14, 14}, 7067);
+	public static final IconEntry BASIC_WAND_C14_R1 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{209, 1, 14, 14}, 7067);
+	/** semantic alias for BASIC_WAND_C14_R1 */
+	public static final IconEntry WAND_SPS_FIREBOLT = BASIC_WAND_C14_R1;
 	/** WAND_SPS_FREEZE */
-	public static final IconEntry WAND_SPS_FREEZE = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{225, 1, 14, 14}, 7068);
+	public static final IconEntry BASIC_WAND_C15_R1 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{225, 1, 14, 14}, 7068);
+	/** semantic alias for BASIC_WAND_C15_R1 */
+	public static final IconEntry WAND_SPS_FREEZE = BASIC_WAND_C15_R1;
 	/** WAND_SPS_LIGHTNING */
-	public static final IconEntry WAND_SPS_LIGHTNING = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{241, 1, 14, 14}, 7069);
+	public static final IconEntry BASIC_WAND_C16_R1 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{241, 1, 14, 14}, 7069);
+	/** semantic alias for BASIC_WAND_C16_R1 */
+	public static final IconEntry WAND_SPS_LIGHTNING = BASIC_WAND_C16_R1;
 	/** WAND_POISON */
-	public static final IconEntry WAND_POISON = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{0, 16, 14, 14}, 7070);
+	public static final IconEntry BASIC_WAND_C1_R2 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{0, 16, 14, 14}, 7070);
+	/** semantic alias for BASIC_WAND_C1_R2 */
+	public static final IconEntry WAND_POISON = BASIC_WAND_C1_R2;
 	/** WAND_TRANSFUSION#0 */
-	public static final IconEntry WAND_TRANSFUSION_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{16, 16, 14, 14}, 7071);
+	public static final IconEntry BASIC_WAND_C2_R2 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{16, 16, 14, 14}, 7071);
+	/** semantic alias for BASIC_WAND_C2_R2 */
+	public static final IconEntry WAND_TRANSFUSION_0 = BASIC_WAND_C2_R2;
 	/** WAND_ACID */
-	public static final IconEntry WAND_ACID = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{32, 16, 14, 14}, 7072);
+	public static final IconEntry BASIC_WAND_C3_R2 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{32, 16, 14, 14}, 7072);
+	/** semantic alias for BASIC_WAND_C3_R2 */
+	public static final IconEntry WAND_ACID = BASIC_WAND_C3_R2;
 	/** WAND_LIVING_EARTH#0 */
-	public static final IconEntry WAND_LIVING_EARTH_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{48, 16, 14, 14}, 7073);
+	public static final IconEntry BASIC_WAND_C4_R2 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{48, 16, 14, 14}, 7073);
+	/** semantic alias for BASIC_WAND_C4_R2 */
+	public static final IconEntry WAND_LIVING_EARTH_0 = BASIC_WAND_C4_R2;
 	/** WAND_BLAST_WAVE#0 */
-	public static final IconEntry WAND_BLAST_WAVE_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{64, 16, 14, 14}, 7074);
+	public static final IconEntry BASIC_WAND_C5_R2 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{64, 16, 14, 14}, 7074);
+	/** semantic alias for BASIC_WAND_C5_R2 */
+	public static final IconEntry WAND_BLAST_WAVE_0 = BASIC_WAND_C5_R2;
 	/** WAND_CORRUPTION#0 */
-	public static final IconEntry WAND_CORRUPTION_0 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{80, 16, 14, 14}, 7075);
+	public static final IconEntry BASIC_WAND_C6_R2 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{80, 16, 14, 14}, 7075);
+	/** semantic alias for BASIC_WAND_C6_R2 */
+	public static final IconEntry WAND_CORRUPTION_0 = BASIC_WAND_C6_R2;
 	/** WAND_FLOW */
-	public static final IconEntry WAND_FLOW = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{96, 16, 14, 14}, 7076);
+	public static final IconEntry BASIC_WAND_C7_R2 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{96, 16, 14, 14}, 7076);
+	/** semantic alias for BASIC_WAND_C7_R2 */
+	public static final IconEntry WAND_FLOW = BASIC_WAND_C7_R2;
 	/** WAND_TCLOUD */
-	public static final IconEntry WAND_TCLOUD = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{112, 16, 14, 14}, 7077);
+	public static final IconEntry BASIC_WAND_C8_R2 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{112, 16, 14, 14}, 7077);
+	/** semantic alias for BASIC_WAND_C8_R2 */
+	public static final IconEntry WAND_TCLOUD = BASIC_WAND_C8_R2;
 	/** WAND_SPS_ACID */
-	public static final IconEntry WAND_SPS_ACID = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{209, 17, 14, 14}, 7078);
+	public static final IconEntry BASIC_WAND_C14_R2 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{209, 17, 14, 14}, 7078);
+	/** semantic alias for BASIC_WAND_C14_R2 */
+	public static final IconEntry WAND_SPS_ACID = BASIC_WAND_C14_R2;
 	/** WAND_SPS_LIGHT */
-	public static final IconEntry WAND_SPS_LIGHT = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{225, 17, 14, 14}, 7079);
+	public static final IconEntry BASIC_WAND_C15_R2 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{225, 17, 14, 14}, 7079);
+	/** semantic alias for BASIC_WAND_C15_R2 */
+	public static final IconEntry WAND_SPS_LIGHT = BASIC_WAND_C15_R2;
 	/** WAND_SPS_DARK */
-	public static final IconEntry WAND_SPS_DARK = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{241, 17, 14, 14}, 7080);
+	public static final IconEntry BASIC_WAND_C16_R2 = new IconEntry("sprites/items/equipment/wand/basic_wand.png", new int[]{241, 17, 14, 14}, 7080);
+	/** semantic alias for BASIC_WAND_C16_R2 */
+	public static final IconEntry WAND_SPS_DARK = BASIC_WAND_C16_R2;
 }

@@ -13,115 +13,199 @@ public final class EquipmentJewelleryArtifactDict {
 	private EquipmentJewelleryArtifactDict() { }
 
 	/** CLOAK_OF_SHADOWS */
-	public static final IconEntry CLOAK_OF_SHADOWS = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{3, 0, 9, 15}, 6922);
+	public static final IconEntry ARTIFACT_C1_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{3, 0, 9, 15}, 6922);
+	/** semantic alias for ARTIFACT_C1_R1 */
+	public static final IconEntry CLOAK_OF_SHADOWS = ARTIFACT_C1_R1;
 	/** MASTER_THIEVES_ARMBAND */
-	public static final IconEntry MASTER_THIEVES_ARMBAND = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{16, 2, 16, 13}, 6923);
+	public static final IconEntry ARTIFACT_C2_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{16, 2, 16, 13}, 6923);
+	/** semantic alias for ARTIFACT_C2_R1 */
+	public static final IconEntry MASTER_THIEVES_ARMBAND = ARTIFACT_C2_R1;
 	/** CAPE_OF_THORNS */
-	public static final IconEntry CAPE_OF_THORNS = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{32, 1, 16, 14}, 6924);
+	public static final IconEntry ARTIFACT_C3_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{32, 1, 16, 14}, 6924);
+	/** semantic alias for ARTIFACT_C3_R1 */
+	public static final IconEntry CAPE_OF_THORNS = ARTIFACT_C3_R1;
 	/** TALISMAN_OF_FORESIGHT */
-	public static final IconEntry TALISMAN_OF_FORESIGHT = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{48, 1, 15, 13}, 6925);
+	public static final IconEntry ARTIFACT_C4_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{48, 1, 15, 13}, 6925);
+	/** semantic alias for ARTIFACT_C4_R1 */
+	public static final IconEntry TALISMAN_OF_FORESIGHT = ARTIFACT_C4_R1;
 	/** TIMEKEEPERS_HOURGLASS */
-	public static final IconEntry TIMEKEEPERS_HOURGLASS = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{65, 0, 13, 16}, 6926);
+	public static final IconEntry ARTIFACT_C5_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{65, 0, 13, 16}, 6926);
+	/** semantic alias for ARTIFACT_C5_R1 */
+	public static final IconEntry TIMEKEEPERS_HOURGLASS = ARTIFACT_C5_R1;
 	/** ALCHEMISTS_TOOLKIT */
-	public static final IconEntry ALCHEMISTS_TOOLKIT = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{81, 1, 15, 13}, 6927);
+	public static final IconEntry ARTIFACT_C6_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{81, 1, 15, 13}, 6927);
+	/** semantic alias for ARTIFACT_C6_R1 */
+	public static final IconEntry ALCHEMISTS_TOOLKIT = ARTIFACT_C6_R1;
 	/** UNSTABLE_SPELLBOOK */
-	public static final IconEntry UNSTABLE_SPELLBOOK = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{97, 0, 13, 16}, 6928);
+	public static final IconEntry ARTIFACT_C7_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{97, 0, 13, 16}, 6928);
+	/** semantic alias for ARTIFACT_C7_R1 */
+	public static final IconEntry UNSTABLE_SPELLBOOK = ARTIFACT_C7_R1;
 	/** ETHEREAL_CHAINS */
-	public static final IconEntry ETHEREAL_CHAINS = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{113, 0, 15, 16}, 6929);
+	public static final IconEntry ARTIFACT_C8_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{113, 0, 15, 16}, 6929);
+	/** semantic alias for ARTIFACT_C8_R1 */
+	public static final IconEntry ETHEREAL_CHAINS = ARTIFACT_C8_R1;
 	/** HORN_OF_PLENTY#0 */
-	public static final IconEntry HORN_OF_PLENTY_0 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{129, 0, 15, 15}, 6930);
-	/** legacy alias for HORN_OF_PLENTY_0 */
-	public static final IconEntry ARTIFACT_HORN1 = HORN_OF_PLENTY_0;
+	public static final IconEntry ARTIFACT_C9_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{129, 0, 15, 15}, 6930);
+	/** semantic alias for ARTIFACT_C9_R1 */
+	public static final IconEntry HORN_OF_PLENTY_0 = ARTIFACT_C9_R1;
+	/** legacy alias for ARTIFACT_C9_R1 */
+	public static final IconEntry ARTIFACT_HORN1 = ARTIFACT_C9_R1;
 	/** HORN_OF_PLENTY#1 */
-	public static final IconEntry HORN_OF_PLENTY_1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{145, 0, 15, 15}, 6931);
-	/** legacy alias for HORN_OF_PLENTY_1 */
-	public static final IconEntry ARTIFACT_HORN2 = HORN_OF_PLENTY_1;
+	public static final IconEntry ARTIFACT_C10_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{145, 0, 15, 15}, 6931);
+	/** semantic alias for ARTIFACT_C10_R1 */
+	public static final IconEntry HORN_OF_PLENTY_1 = ARTIFACT_C10_R1;
+	/** legacy alias for ARTIFACT_C10_R1 */
+	public static final IconEntry ARTIFACT_HORN2 = ARTIFACT_C10_R1;
 	/** HORN_OF_PLENTY#2 */
-	public static final IconEntry HORN_OF_PLENTY_2 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{161, 0, 15, 15}, 6932);
-	/** legacy alias for HORN_OF_PLENTY_2 */
-	public static final IconEntry ARTIFACT_HORN3 = HORN_OF_PLENTY_2;
+	public static final IconEntry ARTIFACT_C11_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{161, 0, 15, 15}, 6932);
+	/** semantic alias for ARTIFACT_C11_R1 */
+	public static final IconEntry HORN_OF_PLENTY_2 = ARTIFACT_C11_R1;
+	/** legacy alias for ARTIFACT_C11_R1 */
+	public static final IconEntry ARTIFACT_HORN3 = ARTIFACT_C11_R1;
 	/** HORN_OF_PLENTY#3 */
-	public static final IconEntry HORN_OF_PLENTY_3 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{176, 0, 16, 16}, 6933);
-	/** legacy alias for HORN_OF_PLENTY_3 */
-	public static final IconEntry ARTIFACT_HORN4 = HORN_OF_PLENTY_3;
+	public static final IconEntry ARTIFACT_C12_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{176, 0, 16, 16}, 6933);
+	/** semantic alias for ARTIFACT_C12_R1 */
+	public static final IconEntry HORN_OF_PLENTY_3 = ARTIFACT_C12_R1;
+	/** legacy alias for ARTIFACT_C12_R1 */
+	public static final IconEntry ARTIFACT_HORN4 = ARTIFACT_C12_R1;
 	/** CHALICE_OF_BLOOD#0 */
-	public static final IconEntry CHALICE_OF_BLOOD_0 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{194, 1, 12, 15}, 6934);
-	/** legacy alias for CHALICE_OF_BLOOD_0 */
-	public static final IconEntry ARTIFACT_CHALICE1 = CHALICE_OF_BLOOD_0;
+	public static final IconEntry ARTIFACT_C13_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{194, 1, 12, 15}, 6934);
+	/** semantic alias for ARTIFACT_C13_R1 */
+	public static final IconEntry CHALICE_OF_BLOOD_0 = ARTIFACT_C13_R1;
+	/** legacy alias for ARTIFACT_C13_R1 */
+	public static final IconEntry ARTIFACT_CHALICE1 = ARTIFACT_C13_R1;
 	/** CHALICE_OF_BLOOD#1 */
-	public static final IconEntry CHALICE_OF_BLOOD_1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{210, 1, 12, 15}, 6935);
-	/** legacy alias for CHALICE_OF_BLOOD_1 */
-	public static final IconEntry ARTIFACT_CHALICE2 = CHALICE_OF_BLOOD_1;
+	public static final IconEntry ARTIFACT_C14_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{210, 1, 12, 15}, 6935);
+	/** semantic alias for ARTIFACT_C14_R1 */
+	public static final IconEntry CHALICE_OF_BLOOD_1 = ARTIFACT_C14_R1;
+	/** legacy alias for ARTIFACT_C14_R1 */
+	public static final IconEntry ARTIFACT_CHALICE2 = ARTIFACT_C14_R1;
 	/** CHALICE_OF_BLOOD#2 */
-	public static final IconEntry CHALICE_OF_BLOOD_2 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{226, 1, 12, 15}, 6936);
-	/** legacy alias for CHALICE_OF_BLOOD_2 */
-	public static final IconEntry ARTIFACT_CHALICE3 = CHALICE_OF_BLOOD_2;
+	public static final IconEntry ARTIFACT_C15_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{226, 1, 12, 15}, 6936);
+	/** semantic alias for ARTIFACT_C15_R1 */
+	public static final IconEntry CHALICE_OF_BLOOD_2 = ARTIFACT_C15_R1;
+	/** legacy alias for ARTIFACT_C15_R1 */
+	public static final IconEntry ARTIFACT_CHALICE3 = ARTIFACT_C15_R1;
 	/** SANDALS_OF_NATURE#0 */
-	public static final IconEntry SANDALS_OF_NATURE_0 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{240, 7, 16, 5}, 6937);
-	/** legacy alias for SANDALS_OF_NATURE_0 */
-	public static final IconEntry ARTIFACT_SANDALS = SANDALS_OF_NATURE_0;
+	public static final IconEntry ARTIFACT_C16_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{240, 7, 16, 5}, 6937);
+	/** semantic alias for ARTIFACT_C16_R1 */
+	public static final IconEntry SANDALS_OF_NATURE_0 = ARTIFACT_C16_R1;
+	/** legacy alias for ARTIFACT_C16_R1 */
+	public static final IconEntry ARTIFACT_SANDALS = ARTIFACT_C16_R1;
 	/** SANDALS_OF_NATURE#1 */
-	public static final IconEntry SANDALS_OF_NATURE_1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{256, 7, 16, 6}, 6938);
-	/** legacy alias for SANDALS_OF_NATURE_1 */
-	public static final IconEntry ARTIFACT_SHOES = SANDALS_OF_NATURE_1;
+	public static final IconEntry ARTIFACT_C17_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{256, 7, 16, 6}, 6938);
+	/** semantic alias for ARTIFACT_C17_R1 */
+	public static final IconEntry SANDALS_OF_NATURE_1 = ARTIFACT_C17_R1;
+	/** legacy alias for ARTIFACT_C17_R1 */
+	public static final IconEntry ARTIFACT_SHOES = ARTIFACT_C17_R1;
 	/** SANDALS_OF_NATURE#2 */
-	public static final IconEntry SANDALS_OF_NATURE_2 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{272, 5, 16, 9}, 6939);
-	/** legacy alias for SANDALS_OF_NATURE_2 */
-	public static final IconEntry ARTIFACT_BOOTS = SANDALS_OF_NATURE_2;
+	public static final IconEntry ARTIFACT_C18_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{272, 5, 16, 9}, 6939);
+	/** semantic alias for ARTIFACT_C18_R1 */
+	public static final IconEntry SANDALS_OF_NATURE_2 = ARTIFACT_C18_R1;
+	/** legacy alias for ARTIFACT_C18_R1 */
+	public static final IconEntry ARTIFACT_BOOTS = ARTIFACT_C18_R1;
 	/** SANDALS_OF_NATURE#3 */
-	public static final IconEntry SANDALS_OF_NATURE_3 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{288, 1, 16, 14}, 6940);
-	/** legacy alias for SANDALS_OF_NATURE_3 */
-	public static final IconEntry ARTIFACT_GREAVES = SANDALS_OF_NATURE_3;
+	public static final IconEntry ARTIFACT_C19_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{288, 1, 16, 14}, 6940);
+	/** semantic alias for ARTIFACT_C19_R1 */
+	public static final IconEntry SANDALS_OF_NATURE_3 = ARTIFACT_C19_R1;
+	/** legacy alias for ARTIFACT_C19_R1 */
+	public static final IconEntry ARTIFACT_GREAVES = ARTIFACT_C19_R1;
 	/** ARTIFACT_KEY#0 */
-	public static final IconEntry ARTIFACT_KEY_0 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{308, 0, 8, 16}, 6941);
+	public static final IconEntry ARTIFACT_C20_R1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{308, 0, 8, 16}, 6941);
+	/** semantic alias for ARTIFACT_C20_R1 */
+	public static final IconEntry ARTIFACT_KEY_0 = ARTIFACT_C20_R1;
 	/** DRIED_ROSE#0 */
-	public static final IconEntry DRIED_ROSE_0 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{2, 16, 13, 15}, 6942);
-	/** legacy alias for DRIED_ROSE_0 */
-	public static final IconEntry ARTIFACT_ROSE1 = DRIED_ROSE_0;
+	public static final IconEntry ARTIFACT_C1_R2 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{2, 16, 13, 15}, 6942);
+	/** semantic alias for ARTIFACT_C1_R2 */
+	public static final IconEntry DRIED_ROSE_0 = ARTIFACT_C1_R2;
+	/** legacy alias for ARTIFACT_C1_R2 */
+	public static final IconEntry ARTIFACT_ROSE1 = ARTIFACT_C1_R2;
 	/** DRIED_ROSE#1 */
-	public static final IconEntry DRIED_ROSE_1 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{17, 17, 14, 14}, 6943);
-	/** legacy alias for DRIED_ROSE_1 */
-	public static final IconEntry ARTIFACT_ROSE2 = DRIED_ROSE_1;
+	public static final IconEntry ARTIFACT_C2_R2 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{17, 17, 14, 14}, 6943);
+	/** semantic alias for ARTIFACT_C2_R2 */
+	public static final IconEntry DRIED_ROSE_1 = ARTIFACT_C2_R2;
+	/** legacy alias for ARTIFACT_C2_R2 */
+	public static final IconEntry ARTIFACT_ROSE2 = ARTIFACT_C2_R2;
 	/** DRIED_ROSE#2 */
-	public static final IconEntry DRIED_ROSE_2 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{33, 17, 14, 14}, 6944);
-	/** legacy alias for DRIED_ROSE_2 */
-	public static final IconEntry ARTIFACT_ROSE3 = DRIED_ROSE_2;
+	public static final IconEntry ARTIFACT_C3_R2 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{33, 17, 14, 14}, 6944);
+	/** semantic alias for ARTIFACT_C3_R2 */
+	public static final IconEntry DRIED_ROSE_2 = ARTIFACT_C3_R2;
+	/** legacy alias for ARTIFACT_C3_R2 */
+	public static final IconEntry ARTIFACT_ROSE3 = ARTIFACT_C3_R2;
 	/** ARTIFACT_BEACON#0 */
-	public static final IconEntry ARTIFACT_BEACON_0 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{48, 16, 16, 16}, 6945);
+	public static final IconEntry ARTIFACT_C4_R2 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{48, 16, 16, 16}, 6945);
+	/** semantic alias for ARTIFACT_C4_R2 */
+	public static final IconEntry ARTIFACT_BEACON_0 = ARTIFACT_C4_R2;
 	/** PYLON */
-	public static final IconEntry PYLON = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{64, 18, 15, 14}, 6946);
+	public static final IconEntry ARTIFACT_C5_R2 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{64, 18, 15, 14}, 6946);
+	/** semantic alias for ARTIFACT_C5_R2 */
+	public static final IconEntry PYLON = ARTIFACT_C5_R2;
 	/** MECHANICAL_HEART */
-	public static final IconEntry MECHANICAL_HEART = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{82, 18, 13, 13}, 6947);
+	public static final IconEntry ARTIFACT_C6_R2 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{82, 18, 13, 13}, 6947);
+	/** semantic alias for ARTIFACT_C6_R2 */
+	public static final IconEntry MECHANICAL_HEART = ARTIFACT_C6_R2;
 	/** ARTIFACT_ICE_EYE#0 */
-	public static final IconEntry ARTIFACT_ICE_EYE_0 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{96, 16, 16, 16}, 6948);
+	public static final IconEntry ARTIFACT_C7_R2 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{96, 16, 16, 16}, 6948);
+	/** semantic alias for ARTIFACT_C7_R2 */
+	public static final IconEntry ARTIFACT_ICE_EYE_0 = ARTIFACT_C7_R2;
 	/** GLASS_TOTEM */
-	public static final IconEntry GLASS_TOTEM = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{114, 17, 12, 14}, 6949);
+	public static final IconEntry ARTIFACT_C8_R2 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{114, 17, 12, 14}, 6949);
+	/** semantic alias for ARTIFACT_C8_R2 */
+	public static final IconEntry GLASS_TOTEM = ARTIFACT_C8_R2;
 	/** LEGACY_ALIEN_BAG#0 */
-	public static final IconEntry LEGACY_ALIEN_BAG_0 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{128, 16, 16, 16}, 6950);
+	public static final IconEntry ARTIFACT_C9_R2 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{128, 16, 16, 16}, 6950);
+	/** semantic alias for ARTIFACT_C9_R2 */
+	public static final IconEntry LEGACY_ALIEN_BAG_0 = ARTIFACT_C9_R2;
 	/** JESTER_BOX */
-	public static final IconEntry JESTER_BOX = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{144, 16, 16, 16}, 6951);
+	public static final IconEntry ARTIFACT_C10_R2 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{144, 16, 16, 16}, 6951);
+	/** semantic alias for ARTIFACT_C10_R2 */
+	public static final IconEntry JESTER_BOX = ARTIFACT_C10_R2;
 	/** WIREBUG */
-	public static final IconEntry WIREBUG = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{160, 16, 16, 16}, 6952);
+	public static final IconEntry ARTIFACT_C11_R2 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{160, 16, 16, 16}, 6952);
+	/** semantic alias for ARTIFACT_C11_R2 */
+	public static final IconEntry WIREBUG = ARTIFACT_C11_R2;
 	/** IZAYOI_WATCH */
-	public static final IconEntry IZAYOI_WATCH = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{178, 16, 13, 16}, 6953);
+	public static final IconEntry ARTIFACT_C12_R2 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{178, 16, 13, 16}, 6953);
+	/** semantic alias for ARTIFACT_C12_R2 */
+	public static final IconEntry IZAYOI_WATCH = ARTIFACT_C12_R2;
 	/** CURSED_PHONE */
-	public static final IconEntry CURSED_PHONE = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{0, 48, 16, 15}, 6954);
+	public static final IconEntry ARTIFACT_C1_R4 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{0, 48, 16, 15}, 6954);
+	/** semantic alias for ARTIFACT_C1_R4 */
+	public static final IconEntry CURSED_PHONE = ARTIFACT_C1_R4;
 	/** LING_HEART#0 */
-	public static final IconEntry LING_HEART_0 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{16, 48, 16, 16}, 6955);
+	public static final IconEntry ARTIFACT_C2_R4 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{16, 48, 16, 16}, 6955);
+	/** semantic alias for ARTIFACT_C2_R4 */
+	public static final IconEntry LING_HEART_0 = ARTIFACT_C2_R4;
 	/** MOON_HAIRPIN */
-	public static final IconEntry MOON_HAIRPIN = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{33, 49, 15, 15}, 6956);
+	public static final IconEntry ARTIFACT_C3_R4 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{33, 49, 15, 15}, 6956);
+	/** semantic alias for ARTIFACT_C3_R4 */
+	public static final IconEntry MOON_HAIRPIN = ARTIFACT_C3_R4;
 	/** LUCKY_BADGE */
-	public static final IconEntry LUCKY_BADGE = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{50, 50, 12, 12}, 6957);
+	public static final IconEntry ARTIFACT_C4_R4 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{50, 50, 12, 12}, 6957);
+	/** semantic alias for ARTIFACT_C4_R4 */
+	public static final IconEntry LUCKY_BADGE = ARTIFACT_C4_R4;
 	/** CLOVER_BADGE */
-	public static final IconEntry CLOVER_BADGE = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{64, 48, 15, 16}, 6958);
+	public static final IconEntry ARTIFACT_C5_R4 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{64, 48, 15, 16}, 6958);
+	/** semantic alias for ARTIFACT_C5_R4 */
+	public static final IconEntry CLOVER_BADGE = ARTIFACT_C5_R4;
 	/** POTION_BADGE */
-	public static final IconEntry POTION_BADGE = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{80, 50, 15, 13}, 6959);
+	public static final IconEntry ARTIFACT_C6_R4 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{80, 50, 15, 13}, 6959);
+	/** semantic alias for ARTIFACT_C6_R4 */
+	public static final IconEntry POTION_BADGE = ARTIFACT_C6_R4;
 	/** KINGS_CROWN */
-	public static final IconEntry KINGS_CROWN = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{96, 49, 16, 15}, 6960);
+	public static final IconEntry ARTIFACT_C7_R4 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{96, 49, 16, 15}, 6960);
+	/** semantic alias for ARTIFACT_C7_R4 */
+	public static final IconEntry KINGS_CROWN = ARTIFACT_C7_R4;
 	/** HARD_RICE_CRACKER */
-	public static final IconEntry HARD_RICE_CRACKER = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{272, 49, 16, 14}, 6961);
+	public static final IconEntry ARTIFACT_C18_R4 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{272, 49, 16, 14}, 6961);
+	/** semantic alias for ARTIFACT_C18_R4 */
+	public static final IconEntry HARD_RICE_CRACKER = ARTIFACT_C18_R4;
 	/** HERO_IRON_SHIELD */
-	public static final IconEntry HERO_IRON_SHIELD = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{289, 49, 14, 15}, 6962);
+	public static final IconEntry ARTIFACT_C19_R4 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{289, 49, 14, 15}, 6962);
+	/** semantic alias for ARTIFACT_C19_R4 */
+	public static final IconEntry HERO_IRON_SHIELD = ARTIFACT_C19_R4;
 	/** IMMORTAL_DRIED_FISH */
-	public static final IconEntry IMMORTAL_DRIED_FISH = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{305, 51, 14, 10}, 6963);
+	public static final IconEntry ARTIFACT_C20_R4 = new IconEntry("sprites/items/equipment/jewellery/artifact.png", new int[]{305, 51, 14, 10}, 6963);
+	/** semantic alias for ARTIFACT_C20_R4 */
+	public static final IconEntry IMMORTAL_DRIED_FISH = ARTIFACT_C20_R4;
 }

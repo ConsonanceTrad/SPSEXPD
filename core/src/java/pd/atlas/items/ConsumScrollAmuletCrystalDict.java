@@ -13,43 +13,73 @@ public final class ConsumScrollAmuletCrystalDict {
 	private ConsumScrollAmuletCrystalDict() { }
 
 	/** WILD_ENERGY#0 */
-	public static final IconEntry WILD_ENERGY_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{0, 0, 6, 15}, 6579);
+	public static final IconEntry CRYSTAL_C1_R1 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{0, 0, 6, 15}, 6579);
+	/** semantic alias for CRYSTAL_C1_R1 */
+	public static final IconEntry WILD_ENERGY_0 = CRYSTAL_C1_R1;
 	/** PHASE_SHIFT#0 */
-	public static final IconEntry PHASE_SHIFT_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{16, 0, 12, 10}, 6580);
+	public static final IconEntry CRYSTAL_C2_R1 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{16, 0, 12, 10}, 6580);
+	/** semantic alias for CRYSTAL_C2_R1 */
+	public static final IconEntry PHASE_SHIFT_0 = CRYSTAL_C2_R1;
 	/** TELE_GRAB#0 */
-	public static final IconEntry TELE_GRAB_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{32, 0, 10, 10}, 6581);
+	public static final IconEntry CRYSTAL_C3_R1 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{32, 0, 10, 10}, 6581);
+	/** semantic alias for CRYSTAL_C3_R1 */
+	public static final IconEntry TELE_GRAB_0 = CRYSTAL_C3_R1;
 	/** UNSTABLE_SPELL#0 */
-	public static final IconEntry UNSTABLE_SPELL_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{48, 0, 12, 13}, 6582);
+	public static final IconEntry CRYSTAL_C4_R1 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{48, 0, 12, 13}, 6582);
+	/** semantic alias for CRYSTAL_C4_R1 */
+	public static final IconEntry UNSTABLE_SPELL_0 = CRYSTAL_C4_R1;
 	/** CURSE_INFUSE#0 */
-	public static final IconEntry CURSE_INFUSE_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{64, 0, 10, 16}, 6583);
+	public static final IconEntry CRYSTAL_C5_R1 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{64, 0, 10, 16}, 6583);
+	/** semantic alias for CRYSTAL_C5_R1 */
+	public static final IconEntry CURSE_INFUSE_0 = CRYSTAL_C5_R1;
 	/** MAGIC_INFUSE#0 */
-	public static final IconEntry MAGIC_INFUSE_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{80, 0, 10, 14}, 6584);
+	public static final IconEntry CRYSTAL_C6_R1 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{80, 0, 10, 14}, 6584);
+	/** semantic alias for CRYSTAL_C6_R1 */
+	public static final IconEntry MAGIC_INFUSE_0 = CRYSTAL_C6_R1;
 	/** ALCHEMIZE#0 */
-	public static final IconEntry ALCHEMIZE_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{96, 0, 12, 12}, 6585);
+	public static final IconEntry CRYSTAL_C7_R1 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{96, 0, 12, 12}, 6585);
+	/** semantic alias for CRYSTAL_C7_R1 */
+	public static final IconEntry ALCHEMIZE_0 = CRYSTAL_C7_R1;
 	/** RECYCLE#0 */
-	public static final IconEntry RECYCLE_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{112, 0, 12, 13}, 6586);
+	public static final IconEntry CRYSTAL_C8_R1 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{112, 0, 12, 13}, 6586);
+	/** semantic alias for CRYSTAL_C8_R1 */
+	public static final IconEntry RECYCLE_0 = CRYSTAL_C8_R1;
 	/** RECLAIM_TRAP#0 */
-	public static final IconEntry RECLAIM_TRAP_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{128, 0, 14, 11}, 6587);
+	public static final IconEntry CRYSTAL_C9_R1 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{128, 0, 14, 11}, 6587);
+	/** semantic alias for CRYSTAL_C9_R1 */
+	public static final IconEntry RECLAIM_TRAP_0 = CRYSTAL_C9_R1;
 	/** RETURN_BEACON#0 */
-	public static final IconEntry RETURN_BEACON_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{144, 0, 8, 16}, 6588);
+	public static final IconEntry CRYSTAL_C10_R1 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{144, 0, 8, 16}, 6588);
+	/** semantic alias for CRYSTAL_C10_R1 */
+	public static final IconEntry RETURN_BEACON_0 = CRYSTAL_C10_R1;
 	/** summon_ele#0 */
-	public static final IconEntry SUMMON_ELE_0 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{160, 0, 8, 16}, 6589);
-	/** legacy alias for SUMMON_ELE_0 */
-	public static final IconEntry SUMMON_ELE = SUMMON_ELE_0;
+	public static final IconEntry CRYSTAL_C11_R1 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{160, 0, 8, 16}, 6589);
+	/** semantic alias for CRYSTAL_C11_R1 */
+	public static final IconEntry SUMMON_ELE_0 = CRYSTAL_C11_R1;
+	/** legacy alias for CRYSTAL_C11_R1 */
+	public static final IconEntry SUMMON_ELE = CRYSTAL_C11_R1;
 	/** summon_ele#1 */
-	public static final IconEntry SUMMON_ELE_1 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{176, 0, 8, 16}, 6590);
-	/** legacy alias for SUMMON_ELE_1 */
-	public static final IconEntry SUMMON_ELE_FIRE = SUMMON_ELE_1;
+	public static final IconEntry CRYSTAL_C12_R1 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{176, 0, 8, 16}, 6590);
+	/** semantic alias for CRYSTAL_C12_R1 */
+	public static final IconEntry SUMMON_ELE_1 = CRYSTAL_C12_R1;
+	/** legacy alias for CRYSTAL_C12_R1 */
+	public static final IconEntry SUMMON_ELE_FIRE = CRYSTAL_C12_R1;
 	/** summon_ele#2 */
-	public static final IconEntry SUMMON_ELE_2 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{192, 0, 8, 16}, 6591);
-	/** legacy alias for SUMMON_ELE_2 */
-	public static final IconEntry SUMMON_ELE_FROST = SUMMON_ELE_2;
+	public static final IconEntry CRYSTAL_C13_R1 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{192, 0, 8, 16}, 6591);
+	/** semantic alias for CRYSTAL_C13_R1 */
+	public static final IconEntry SUMMON_ELE_2 = CRYSTAL_C13_R1;
+	/** legacy alias for CRYSTAL_C13_R1 */
+	public static final IconEntry SUMMON_ELE_FROST = CRYSTAL_C13_R1;
 	/** summon_ele#3 */
-	public static final IconEntry SUMMON_ELE_3 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{208, 0, 8, 16}, 6592);
-	/** legacy alias for SUMMON_ELE_3 */
-	public static final IconEntry SUMMON_ELE_SHOCK = SUMMON_ELE_3;
+	public static final IconEntry CRYSTAL_C14_R1 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{208, 0, 8, 16}, 6592);
+	/** semantic alias for CRYSTAL_C14_R1 */
+	public static final IconEntry SUMMON_ELE_3 = CRYSTAL_C14_R1;
+	/** legacy alias for CRYSTAL_C14_R1 */
+	public static final IconEntry SUMMON_ELE_SHOCK = CRYSTAL_C14_R1;
 	/** summon_ele#4 */
-	public static final IconEntry SUMMON_ELE_4 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{224, 0, 8, 16}, 6593);
-	/** legacy alias for SUMMON_ELE_4 */
-	public static final IconEntry SUMMON_ELE_CHAOS = SUMMON_ELE_4;
+	public static final IconEntry CRYSTAL_C15_R1 = new IconEntry("sprites/items/consum/scroll_amulet/crystal.png", new int[]{224, 0, 8, 16}, 6593);
+	/** semantic alias for CRYSTAL_C15_R1 */
+	public static final IconEntry SUMMON_ELE_4 = CRYSTAL_C15_R1;
+	/** legacy alias for CRYSTAL_C15_R1 */
+	public static final IconEntry SUMMON_ELE_CHAOS = CRYSTAL_C15_R1;
 }

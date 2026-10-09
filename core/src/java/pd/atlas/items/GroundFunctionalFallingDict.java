@@ -13,23 +13,43 @@ public final class GroundFunctionalFallingDict {
 	private GroundFunctionalFallingDict() { }
 
 	/** dewdrop#0 */
-	public static final IconEntry DEWDROP_0 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{3, 3, 10, 10}, 7083);
+	public static final IconEntry FUNCTIONAL_FALLING_C1_R1 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{3, 3, 10, 10}, 7083);
+	/** semantic alias for FUNCTIONAL_FALLING_C1_R1 */
+	public static final IconEntry DEWDROP_0 = FUNCTIONAL_FALLING_C1_R1;
 	/** dewdrop#1 */
-	public static final IconEntry DEWDROP_1 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{19, 3, 10, 10}, 7084);
+	public static final IconEntry FUNCTIONAL_FALLING_C2_R1 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{19, 3, 10, 10}, 7084);
+	/** semantic alias for FUNCTIONAL_FALLING_C2_R1 */
+	public static final IconEntry DEWDROP_1 = FUNCTIONAL_FALLING_C2_R1;
 	/** dewdrop#2 */
-	public static final IconEntry DEWDROP_2 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{35, 3, 10, 10}, 7085);
+	public static final IconEntry FUNCTIONAL_FALLING_C3_R1 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{35, 3, 10, 10}, 7085);
+	/** semantic alias for FUNCTIONAL_FALLING_C3_R1 */
+	public static final IconEntry DEWDROP_2 = FUNCTIONAL_FALLING_C3_R1;
 	/** dewdrop#3 */
-	public static final IconEntry DEWDROP_3 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{51, 3, 10, 10}, 7086);
+	public static final IconEntry FUNCTIONAL_FALLING_C4_R1 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{51, 3, 10, 10}, 7086);
+	/** semantic alias for FUNCTIONAL_FALLING_C4_R1 */
+	public static final IconEntry DEWDROP_3 = FUNCTIONAL_FALLING_C4_R1;
 	/** dewdrop#4 */
-	public static final IconEntry DEWDROP_4 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{67, 3, 10, 10}, 7087);
+	public static final IconEntry FUNCTIONAL_FALLING_C5_R1 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{67, 3, 10, 10}, 7087);
+	/** semantic alias for FUNCTIONAL_FALLING_C5_R1 */
+	public static final IconEntry DEWDROP_4 = FUNCTIONAL_FALLING_C5_R1;
 	/** PETAL#0 */
-	public static final IconEntry PETAL_0 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{4, 20, 8, 8}, 7088);
+	public static final IconEntry FUNCTIONAL_FALLING_C1_R2 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{4, 20, 8, 8}, 7088);
+	/** semantic alias for FUNCTIONAL_FALLING_C1_R2 */
+	public static final IconEntry PETAL_0 = FUNCTIONAL_FALLING_C1_R2;
 	/** SANDBAG#0 */
-	public static final IconEntry SANDBAG_0 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{19, 19, 10, 10}, 7089);
+	public static final IconEntry FUNCTIONAL_FALLING_C2_R2 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{19, 19, 10, 10}, 7089);
+	/** semantic alias for FUNCTIONAL_FALLING_C2_R2 */
+	public static final IconEntry SANDBAG_0 = FUNCTIONAL_FALLING_C2_R2;
 	/** SPIRIT_ARROW#0 */
-	public static final IconEntry SPIRIT_ARROW_0 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{35, 19, 11, 11}, 7090);
+	public static final IconEntry FUNCTIONAL_FALLING_C3_R2 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{35, 19, 11, 11}, 7090);
+	/** semantic alias for FUNCTIONAL_FALLING_C3_R2 */
+	public static final IconEntry SPIRIT_ARROW_0 = FUNCTIONAL_FALLING_C3_R2;
 	/** TENGU_BOMB#0 */
-	public static final IconEntry TENGU_BOMB_0 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{51, 19, 10, 10}, 7091);
+	public static final IconEntry FUNCTIONAL_FALLING_C4_R2 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{51, 19, 10, 10}, 7091);
+	/** semantic alias for FUNCTIONAL_FALLING_C4_R2 */
+	public static final IconEntry TENGU_BOMB_0 = FUNCTIONAL_FALLING_C4_R2;
 	/** TENGU_SHOCKER#0 */
-	public static final IconEntry TENGU_SHOCKER_0 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{67, 19, 10, 10}, 7092);
+	public static final IconEntry FUNCTIONAL_FALLING_C5_R2 = new IconEntry("sprites/items/ground/functional_falling.png", new int[]{67, 19, 10, 10}, 7092);
+	/** semantic alias for FUNCTIONAL_FALLING_C5_R2 */
+	public static final IconEntry TENGU_SHOCKER_0 = FUNCTIONAL_FALLING_C5_R2;
 }

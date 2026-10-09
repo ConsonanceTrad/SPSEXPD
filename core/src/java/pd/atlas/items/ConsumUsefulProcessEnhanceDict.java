@@ -13,15 +13,27 @@ public final class ConsumUsefulProcessEnhanceDict {
 	private ConsumUsefulProcessEnhanceDict() { }
 
 	/** MASK#0 */
-	public static final IconEntry MASK_0 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{0, 0, 11, 9}, 6723);
+	public static final IconEntry PROCESS_ENHANCE_C1_R1 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{0, 0, 11, 9}, 6723);
+	/** semantic alias for PROCESS_ENHANCE_C1_R1 */
+	public static final IconEntry MASK_0 = PROCESS_ENHANCE_C1_R1;
 	/** MASTERY#0 */
-	public static final IconEntry MASTERY_0 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{17, 0, 13, 16}, 6724);
+	public static final IconEntry PROCESS_ENHANCE_C2_R1 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{17, 0, 13, 16}, 6724);
+	/** semantic alias for PROCESS_ENHANCE_C2_R1 */
+	public static final IconEntry MASTERY_0 = PROCESS_ENHANCE_C2_R1;
 	/** KIT#0 */
-	public static final IconEntry KIT_0 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{32, 0, 16, 15}, 6725);
+	public static final IconEntry PROCESS_ENHANCE_C3_R1 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{32, 0, 16, 15}, 6725);
+	/** semantic alias for PROCESS_ENHANCE_C3_R1 */
+	public static final IconEntry KIT_0 = PROCESS_ENHANCE_C3_R1;
 	/** CROWN#0 */
-	public static final IconEntry CROWN_0 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{0, 16, 13, 7}, 6726);
+	public static final IconEntry PROCESS_ENHANCE_C1_R2 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{0, 16, 13, 7}, 6726);
+	/** semantic alias for PROCESS_ENHANCE_C1_R2 */
+	public static final IconEntry CROWN_0 = PROCESS_ENHANCE_C1_R2;
 	/** ARTIFACT_SPELLBOOK */
-	public static final IconEntry ARTIFACT_SPELLBOOK = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{17, 16, 13, 16}, 6727);
+	public static final IconEntry PROCESS_ENHANCE_C2_R2 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{17, 16, 13, 16}, 6727);
+	/** semantic alias for PROCESS_ENHANCE_C2_R2 */
+	public static final IconEntry ARTIFACT_SPELLBOOK = PROCESS_ENHANCE_C2_R2;
 	/** ARMORKIT */
-	public static final IconEntry ARMORKIT = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{34, 18, 12, 12}, 6728);
+	public static final IconEntry PROCESS_ENHANCE_C3_R2 = new IconEntry("sprites/items/consum/useful/process_enhance.png", new int[]{34, 18, 12, 12}, 6728);
+	/** semantic alias for PROCESS_ENHANCE_C3_R2 */
+	public static final IconEntry ARMORKIT = PROCESS_ENHANCE_C3_R2;
 }

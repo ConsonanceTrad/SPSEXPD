@@ -13,193 +13,383 @@ public final class EquipmentEquipWeaponBasicWeaponDict {
 	private EquipmentEquipWeaponBasicWeaponDict() { }
 
 	/** WORN_SHORTSWORD#0 */
-	public static final IconEntry WORN_SHORTSWORD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 0, 13, 13}, 6783);
+	public static final IconEntry BASIC_WEAPON_C1_R1 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 0, 13, 13}, 6783);
+	/** semantic alias for BASIC_WEAPON_C1_R1 */
+	public static final IconEntry WORN_SHORTSWORD_0 = BASIC_WEAPON_C1_R1;
 	/** RAPIER#0 */
-	public static final IconEntry RAPIER_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 0, 13, 14}, 6784);
+	public static final IconEntry BASIC_WEAPON_C2_R1 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 0, 13, 14}, 6784);
+	/** semantic alias for BASIC_WEAPON_C2_R1 */
+	public static final IconEntry RAPIER_0 = BASIC_WEAPON_C2_R1;
 	/** DAGGER#0 */
-	public static final IconEntry DAGGER_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{32, 0, 12, 13}, 6785);
+	public static final IconEntry BASIC_WEAPON_C3_R1 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{32, 0, 12, 13}, 6785);
+	/** semantic alias for BASIC_WEAPON_C3_R1 */
+	public static final IconEntry DAGGER_0 = BASIC_WEAPON_C3_R1;
 	/** OLD_STAFF */
-	public static final IconEntry OLD_STAFF = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{48, 2, 15, 14}, 6786);
+	public static final IconEntry BASIC_WEAPON_C4_R1 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{48, 2, 15, 14}, 6786);
+	/** semantic alias for BASIC_WEAPON_C4_R1 */
+	public static final IconEntry OLD_STAFF = BASIC_WEAPON_C4_R1;
 	/** GLOVES */
-	public static final IconEntry GLOVES = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{64, 0, 12, 15}, 6787);
+	public static final IconEntry BASIC_WEAPON_C5_R1 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{64, 0, 12, 15}, 6787);
+	/** semantic alias for BASIC_WEAPON_C5_R1 */
+	public static final IconEntry GLOVES = BASIC_WEAPON_C5_R1;
 	/** KNUCKLES */
-	public static final IconEntry KNUCKLES = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{80, 4, 15, 10}, 6788);
+	public static final IconEntry BASIC_WEAPON_C6_R1 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{80, 4, 15, 10}, 6788);
+	/** semantic alias for BASIC_WEAPON_C6_R1 */
+	public static final IconEntry KNUCKLES = BASIC_WEAPON_C6_R1;
 	/** RUNE_DICTIONARY */
-	public static final IconEntry RUNE_DICTIONARY = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{112, 0, 14, 16}, 6789);
+	public static final IconEntry BASIC_WEAPON_C8_R1 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{112, 0, 14, 16}, 6789);
+	/** semantic alias for BASIC_WEAPON_C8_R1 */
+	public static final IconEntry RUNE_DICTIONARY = BASIC_WEAPON_C8_R1;
 	/** DUAL_SWORDS */
-	public static final IconEntry DUAL_SWORDS = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{129, 2, 14, 13}, 6790);
+	public static final IconEntry BASIC_WEAPON_C9_R1 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{129, 2, 14, 13}, 6790);
+	/** semantic alias for BASIC_WEAPON_C9_R1 */
+	public static final IconEntry DUAL_SWORDS = BASIC_WEAPON_C9_R1;
 	/** CLAW_SHEATH */
-	public static final IconEntry CLAW_SHEATH = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{145, 0, 14, 14}, 6791);
+	public static final IconEntry BASIC_WEAPON_C10_R1 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{145, 0, 14, 14}, 6791);
+	/** semantic alias for BASIC_WEAPON_C10_R1 */
+	public static final IconEntry CLAW_SHEATH = BASIC_WEAPON_C10_R1;
 	/** NUNCHAKU */
-	public static final IconEntry NUNCHAKU = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{161, 1, 14, 15}, 6792);
+	public static final IconEntry BASIC_WEAPON_C11_R1 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{161, 1, 14, 15}, 6792);
+	/** semantic alias for BASIC_WEAPON_C11_R1 */
+	public static final IconEntry NUNCHAKU = BASIC_WEAPON_C11_R1;
 	/** QUARTERSTAFF#0 */
-	public static final IconEntry QUARTERSTAFF_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{176, 0, 16, 16}, 6793);
+	public static final IconEntry BASIC_WEAPON_C12_R1 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{176, 0, 16, 16}, 6793);
+	/** semantic alias for BASIC_WEAPON_C12_R1 */
+	public static final IconEntry QUARTERSTAFF_0 = BASIC_WEAPON_C12_R1;
 	/** SPS_WEP_CLUB#0 */
-	public static final IconEntry SPS_WEP_CLUB_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{192, 0, 16, 16}, 6794);
+	public static final IconEntry BASIC_WEAPON_C13_R1 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{192, 0, 16, 16}, 6794);
+	/** semantic alias for BASIC_WEAPON_C13_R1 */
+	public static final IconEntry SPS_WEP_CLUB_0 = BASIC_WEAPON_C13_R1;
 	/** SWIFT_SWORD */
-	public static final IconEntry SWIFT_SWORD = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{208, 0, 16, 16}, 6795);
+	public static final IconEntry BASIC_WEAPON_C14_R1 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{208, 0, 16, 16}, 6795);
+	/** semantic alias for BASIC_WEAPON_C14_R1 */
+	public static final IconEntry SWIFT_SWORD = BASIC_WEAPON_C14_R1;
 	/** SPS_TEKKO_KAGI#0 */
-	public static final IconEntry SPS_TEKKO_KAGI_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{224, 0, 16, 16}, 6796);
+	public static final IconEntry BASIC_WEAPON_C15_R1 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{224, 0, 16, 16}, 6796);
+	/** semantic alias for BASIC_WEAPON_C15_R1 */
+	public static final IconEntry SPS_TEKKO_KAGI_0 = BASIC_WEAPON_C15_R1;
 	/** SHORTSWORD#0 */
-	public static final IconEntry SHORTSWORD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 16, 13, 13}, 6797);
+	public static final IconEntry BASIC_WEAPON_C1_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 16, 13, 13}, 6797);
+	/** semantic alias for BASIC_WEAPON_C1_R2 */
+	public static final IconEntry SHORTSWORD_0 = BASIC_WEAPON_C1_R2;
 	/** HAND_AXE#0 */
-	public static final IconEntry HAND_AXE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 16, 12, 14}, 6798);
+	public static final IconEntry BASIC_WEAPON_C2_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 16, 12, 14}, 6798);
+	/** semantic alias for BASIC_WEAPON_C2_R2 */
+	public static final IconEntry HAND_AXE_0 = BASIC_WEAPON_C2_R2;
 	/** SPEAR#0 */
-	public static final IconEntry SPEAR_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{32, 16, 16, 16}, 6799);
+	public static final IconEntry BASIC_WEAPON_C3_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{32, 16, 16, 16}, 6799);
+	/** semantic alias for BASIC_WEAPON_C3_R2 */
+	public static final IconEntry SPEAR_0 = BASIC_WEAPON_C3_R2;
 	/** SPS_WEP_SPEAR#0 */
-	public static final IconEntry SPS_WEP_SPEAR_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{48, 16, 16, 16}, 6800);
+	public static final IconEntry BASIC_WEAPON_C4_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{48, 16, 16, 16}, 6800);
+	/** semantic alias for BASIC_WEAPON_C4_R2 */
+	public static final IconEntry SPS_WEP_SPEAR_0 = BASIC_WEAPON_C4_R2;
 	/** DIRK#0 */
-	public static final IconEntry DIRK_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{64, 16, 13, 14}, 6801);
+	public static final IconEntry BASIC_WEAPON_C5_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{64, 16, 13, 14}, 6801);
+	/** semantic alias for BASIC_WEAPON_C5_R2 */
+	public static final IconEntry DIRK_0 = BASIC_WEAPON_C5_R2;
 	/** SICKLE#0 */
-	public static final IconEntry SICKLE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{80, 16, 15, 15}, 6802);
+	public static final IconEntry BASIC_WEAPON_C6_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{80, 16, 15, 15}, 6802);
+	/** semantic alias for BASIC_WEAPON_C6_R2 */
+	public static final IconEntry SICKLE_0 = BASIC_WEAPON_C6_R2;
 	/** TRIANGLE */
-	public static final IconEntry TRIANGLE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{112, 18, 16, 13}, 6803);
+	public static final IconEntry BASIC_WEAPON_C8_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{112, 18, 16, 13}, 6803);
+	/** semantic alias for BASIC_WEAPON_C8_R2 */
+	public static final IconEntry TRIANGLE = BASIC_WEAPON_C8_R2;
 	/** FLUTE */
-	public static final IconEntry FLUTE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{133, 16, 6, 16}, 6804);
+	public static final IconEntry BASIC_WEAPON_C9_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{133, 16, 6, 16}, 6804);
+	/** semantic alias for BASIC_WEAPON_C9_R2 */
+	public static final IconEntry FLUTE = BASIC_WEAPON_C9_R2;
 	/** WAR_DRUM */
-	public static final IconEntry WAR_DRUM = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{145, 17, 14, 13}, 6805);
+	public static final IconEntry BASIC_WEAPON_C10_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{145, 17, 14, 13}, 6805);
+	/** semantic alias for BASIC_WEAPON_C10_R2 */
+	public static final IconEntry WAR_DRUM = BASIC_WEAPON_C10_R2;
 	/** HORN */
-	public static final IconEntry HORN = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{162, 17, 12, 14}, 6806);
+	public static final IconEntry BASIC_WEAPON_C11_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{162, 17, 12, 14}, 6806);
+	/** semantic alias for BASIC_WEAPON_C11_R2 */
+	public static final IconEntry HORN = BASIC_WEAPON_C11_R2;
 	/** HARP */
-	public static final IconEntry HARP = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{177, 18, 15, 14}, 6807);
+	public static final IconEntry BASIC_WEAPON_C12_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{177, 18, 15, 14}, 6807);
+	/** semantic alias for BASIC_WEAPON_C12_R2 */
+	public static final IconEntry HARP = BASIC_WEAPON_C12_R2;
 	/** LEGACY_WOODEN_STAFF#0 */
-	public static final IconEntry LEGACY_WOODEN_STAFF_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{192, 16, 16, 16}, 6808);
+	public static final IconEntry BASIC_WEAPON_C13_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{192, 16, 16, 16}, 6808);
+	/** semantic alias for BASIC_WEAPON_C13_R2 */
+	public static final IconEntry LEGACY_WOODEN_STAFF_0 = BASIC_WEAPON_C13_R2;
 	/** MAGIC_DUST */
-	public static final IconEntry MAGIC_DUST = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{209, 17, 14, 14}, 6809);
+	public static final IconEntry BASIC_WEAPON_C14_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{209, 17, 14, 14}, 6809);
+	/** semantic alias for BASIC_WEAPON_C14_R2 */
+	public static final IconEntry MAGIC_DUST = BASIC_WEAPON_C14_R2;
 	/** PRAYER_WHEEL */
-	public static final IconEntry PRAYER_WHEEL = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{225, 16, 15, 15}, 6810);
+	public static final IconEntry BASIC_WEAPON_C15_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{225, 16, 15, 15}, 6810);
+	/** semantic alias for BASIC_WEAPON_C15_R2 */
+	public static final IconEntry PRAYER_WHEEL = BASIC_WEAPON_C15_R2;
 	/** HOLY_WATER */
-	public static final IconEntry HOLY_WATER = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{243, 16, 11, 16}, 6811);
+	public static final IconEntry BASIC_WEAPON_C16_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{243, 16, 11, 16}, 6811);
+	/** semantic alias for BASIC_WEAPON_C16_R2 */
+	public static final IconEntry HOLY_WATER = BASIC_WEAPON_C16_R2;
 	/** MIRROR_DOLL */
-	public static final IconEntry MIRROR_DOLL = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{257, 16, 14, 16}, 6812);
+	public static final IconEntry BASIC_WEAPON_C17_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{257, 16, 14, 16}, 6812);
+	/** semantic alias for BASIC_WEAPON_C17_R2 */
+	public static final IconEntry MIRROR_DOLL = BASIC_WEAPON_C17_R2;
 	/** WIND_GOURD */
-	public static final IconEntry WIND_GOURD = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{274, 16, 11, 15}, 6813);
+	public static final IconEntry BASIC_WEAPON_C18_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{274, 16, 11, 15}, 6813);
+	/** semantic alias for BASIC_WEAPON_C18_R2 */
+	public static final IconEntry WIND_GOURD = BASIC_WEAPON_C18_R2;
 	/** LAMP_PUNCH */
-	public static final IconEntry LAMP_PUNCH = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{288, 16, 15, 16}, 6814);
+	public static final IconEntry BASIC_WEAPON_C19_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{288, 16, 15, 16}, 6814);
+	/** semantic alias for BASIC_WEAPON_C19_R2 */
+	public static final IconEntry LAMP_PUNCH = BASIC_WEAPON_C19_R2;
 	/** BLOOD_BLADE */
-	public static final IconEntry BLOOD_BLADE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{304, 16, 15, 16}, 6815);
+	public static final IconEntry BASIC_WEAPON_C20_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{304, 16, 15, 16}, 6815);
+	/** semantic alias for BASIC_WEAPON_C20_R2 */
+	public static final IconEntry BLOOD_BLADE = BASIC_WEAPON_C20_R2;
 	/** ENCHANTED_AXE_BLADE */
-	public static final IconEntry ENCHANTED_AXE_BLADE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{321, 17, 14, 14}, 6816);
+	public static final IconEntry BASIC_WEAPON_C21_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{321, 17, 14, 14}, 6816);
+	/** semantic alias for BASIC_WEAPON_C21_R2 */
+	public static final IconEntry ENCHANTED_AXE_BLADE = BASIC_WEAPON_C21_R2;
 	/** SPS_NINJA_FAN#0 */
-	public static final IconEntry SPS_NINJA_FAN_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{336, 16, 16, 16}, 6817);
+	public static final IconEntry BASIC_WEAPON_C22_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{336, 16, 16, 16}, 6817);
+	/** semantic alias for BASIC_WEAPON_C22_R2 */
+	public static final IconEntry SPS_NINJA_FAN_0 = BASIC_WEAPON_C22_R2;
 	/** MENTOR_SET */
-	public static final IconEntry MENTOR_SET = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{353, 16, 13, 15}, 6818);
+	public static final IconEntry BASIC_WEAPON_C23_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{353, 16, 13, 15}, 6818);
+	/** semantic alias for BASIC_WEAPON_C23_R2 */
+	public static final IconEntry MENTOR_SET = BASIC_WEAPON_C23_R2;
 	/** FAN */
-	public static final IconEntry FAN = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{368, 17, 16, 15}, 6819);
+	public static final IconEntry BASIC_WEAPON_C24_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{368, 17, 16, 15}, 6819);
+	/** semantic alias for BASIC_WEAPON_C24_R2 */
+	public static final IconEntry FAN = BASIC_WEAPON_C24_R2;
 	/** BASKETBALL */
-	public static final IconEntry BASKETBALL = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{385, 16, 14, 16}, 6820);
+	public static final IconEntry BASIC_WEAPON_C25_R2 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{385, 16, 14, 16}, 6820);
+	/** semantic alias for BASIC_WEAPON_C25_R2 */
+	public static final IconEntry BASKETBALL = BASIC_WEAPON_C25_R2;
 	/** SWORD#0 */
-	public static final IconEntry SWORD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 32, 14, 14}, 6821);
+	public static final IconEntry BASIC_WEAPON_C1_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 32, 14, 14}, 6821);
+	/** semantic alias for BASIC_WEAPON_C1_R3 */
+	public static final IconEntry SWORD_0 = BASIC_WEAPON_C1_R3;
 	/** MACE#0 */
-	public static final IconEntry MACE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 32, 15, 15}, 6822);
+	public static final IconEntry BASIC_WEAPON_C2_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 32, 15, 15}, 6822);
+	/** semantic alias for BASIC_WEAPON_C2_R3 */
+	public static final IconEntry MACE_0 = BASIC_WEAPON_C2_R3;
 	/** SCIMITAR */
-	public static final IconEntry SCIMITAR = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{33, 32, 13, 16}, 6823);
+	public static final IconEntry BASIC_WEAPON_C3_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{33, 32, 13, 16}, 6823);
+	/** semantic alias for BASIC_WEAPON_C3_R3 */
+	public static final IconEntry SCIMITAR = BASIC_WEAPON_C3_R3;
 	/** ROUND_SHIELD#0 */
-	public static final IconEntry ROUND_SHIELD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{48, 32, 16, 16}, 6824);
+	public static final IconEntry BASIC_WEAPON_C4_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{48, 32, 16, 16}, 6824);
+	/** semantic alias for BASIC_WEAPON_C4_R3 */
+	public static final IconEntry ROUND_SHIELD_0 = BASIC_WEAPON_C4_R3;
 	/** SAI#0 */
-	public static final IconEntry SAI_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{64, 32, 16, 16}, 6825);
+	public static final IconEntry BASIC_WEAPON_C5_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{64, 32, 16, 16}, 6825);
+	/** semantic alias for BASIC_WEAPON_C5_R3 */
+	public static final IconEntry SAI_0 = BASIC_WEAPON_C5_R3;
 	/** WHIP#0 */
-	public static final IconEntry WHIP_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{80, 32, 14, 14}, 6826);
+	public static final IconEntry BASIC_WEAPON_C6_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{80, 32, 14, 14}, 6826);
+	/** semantic alias for BASIC_WEAPON_C6_R3 */
+	public static final IconEntry WHIP_0 = BASIC_WEAPON_C6_R3;
 	/** HALBERD */
-	public static final IconEntry HALBERD = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{112, 32, 16, 16}, 6827);
+	public static final IconEntry BASIC_WEAPON_C8_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{112, 32, 16, 16}, 6827);
+	/** semantic alias for BASIC_WEAPON_C8_R3 */
+	public static final IconEntry HALBERD = BASIC_WEAPON_C8_R3;
 	/** LANCE */
-	public static final IconEntry LANCE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{128, 32, 16, 16}, 6828);
+	public static final IconEntry BASIC_WEAPON_C9_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{128, 32, 16, 16}, 6828);
+	/** semantic alias for BASIC_WEAPON_C9_R3 */
+	public static final IconEntry LANCE = BASIC_WEAPON_C9_R3;
 	/** CROSS */
-	public static final IconEntry CROSS = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{144, 32, 16, 16}, 6829);
+	public static final IconEntry BASIC_WEAPON_C10_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{144, 32, 16, 16}, 6829);
+	/** semantic alias for BASIC_WEAPON_C10_R3 */
+	public static final IconEntry CROSS = BASIC_WEAPON_C10_R3;
 	/** MIMIC_CHEST */
-	public static final IconEntry MIMIC_CHEST = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{161, 32, 15, 16}, 6830);
+	public static final IconEntry BASIC_WEAPON_C11_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{161, 32, 15, 16}, 6830);
+	/** semantic alias for BASIC_WEAPON_C11_R3 */
+	public static final IconEntry MIMIC_CHEST = BASIC_WEAPON_C11_R3;
 	/** HAM_AND_HOOK */
-	public static final IconEntry HAM_AND_HOOK = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{176, 33, 16, 15}, 6831);
+	public static final IconEntry BASIC_WEAPON_C12_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{176, 33, 16, 15}, 6831);
+	/** semantic alias for BASIC_WEAPON_C12_R3 */
+	public static final IconEntry HAM_AND_HOOK = BASIC_WEAPON_C12_R3;
 	/** LOLLIPOP */
-	public static final IconEntry LOLLIPOP = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{192, 33, 15, 15}, 6832);
+	public static final IconEntry BASIC_WEAPON_C13_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{192, 33, 15, 15}, 6832);
+	/** semantic alias for BASIC_WEAPON_C13_R3 */
+	public static final IconEntry LOLLIPOP = BASIC_WEAPON_C13_R3;
 	/** SLAM_DUNK_SET */
-	public static final IconEntry SLAM_DUNK_SET = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{209, 33, 13, 15}, 6833);
+	public static final IconEntry BASIC_WEAPON_C14_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{209, 33, 13, 15}, 6833);
+	/** semantic alias for BASIC_WEAPON_C14_R3 */
+	public static final IconEntry SLAM_DUNK_SET = BASIC_WEAPON_C14_R3;
 	/** MONEY_PACK */
-	public static final IconEntry MONEY_PACK = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{227, 34, 10, 13}, 6834);
+	public static final IconEntry BASIC_WEAPON_C15_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{227, 34, 10, 13}, 6834);
+	/** semantic alias for BASIC_WEAPON_C15_R3 */
+	public static final IconEntry MONEY_PACK = BASIC_WEAPON_C15_R3;
 	/** ROCKET */
-	public static final IconEntry ROCKET = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{241, 33, 14, 14}, 6835);
+	public static final IconEntry BASIC_WEAPON_C16_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{241, 33, 14, 14}, 6835);
+	/** semantic alias for BASIC_WEAPON_C16_R3 */
+	public static final IconEntry ROCKET = BASIC_WEAPON_C16_R3;
 	/** CHRISTMAS_TREE */
-	public static final IconEntry CHRISTMAS_TREE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{258, 32, 11, 16}, 6836);
+	public static final IconEntry BASIC_WEAPON_C17_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{258, 32, 11, 16}, 6836);
+	/** semantic alias for BASIC_WEAPON_C17_R3 */
+	public static final IconEntry CHRISTMAS_TREE = BASIC_WEAPON_C17_R3;
 	/** DWARF_HAMMER */
-	public static final IconEntry DWARF_HAMMER = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{272, 33, 15, 15}, 6837);
+	public static final IconEntry BASIC_WEAPON_C18_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{272, 33, 15, 15}, 6837);
+	/** semantic alias for BASIC_WEAPON_C18_R3 */
+	public static final IconEntry DWARF_HAMMER = BASIC_WEAPON_C18_R3;
 	/** RUSTY_KEY */
-	public static final IconEntry RUSTY_KEY = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{292, 33, 8, 14}, 6838);
+	public static final IconEntry BASIC_WEAPON_C19_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{292, 33, 8, 14}, 6838);
+	/** semantic alias for BASIC_WEAPON_C19_R3 */
+	public static final IconEntry RUSTY_KEY = BASIC_WEAPON_C19_R3;
 	/** EASTER_STATUE */
-	public static final IconEntry EASTER_STATUE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{308, 32, 9, 16}, 6839);
+	public static final IconEntry BASIC_WEAPON_C20_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{308, 32, 9, 16}, 6839);
+	/** semantic alias for BASIC_WEAPON_C20_R3 */
+	public static final IconEntry EASTER_STATUE = BASIC_WEAPON_C20_R3;
 	/** POWER_KNUCKLES */
-	public static final IconEntry POWER_KNUCKLES = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{321, 36, 15, 10}, 6840);
+	public static final IconEntry BASIC_WEAPON_C21_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{321, 36, 15, 10}, 6840);
+	/** semantic alias for BASIC_WEAPON_C21_R3 */
+	public static final IconEntry POWER_KNUCKLES = BASIC_WEAPON_C21_R3;
 	/** HALLOWEEN_PUMPKIN */
-	public static final IconEntry HALLOWEEN_PUMPKIN = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{337, 33, 14, 14}, 6841);
+	public static final IconEntry BASIC_WEAPON_C22_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{337, 33, 14, 14}, 6841);
+	/** semantic alias for BASIC_WEAPON_C22_R3 */
+	public static final IconEntry HALLOWEEN_PUMPKIN = BASIC_WEAPON_C22_R3;
 	/** DRAGON_BOAT */
-	public static final IconEntry DRAGON_BOAT = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{353, 36, 15, 10}, 6842);
+	public static final IconEntry BASIC_WEAPON_C23_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{353, 36, 15, 10}, 6842);
+	/** semantic alias for BASIC_WEAPON_C23_R3 */
+	public static final IconEntry DRAGON_BOAT = BASIC_WEAPON_C23_R3;
 	/** FIRE_CRACKER#0 */
-	public static final IconEntry FIRE_CRACKER_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{368, 32, 16, 16}, 6843);
+	public static final IconEntry BASIC_WEAPON_C24_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{368, 32, 16, 16}, 6843);
+	/** semantic alias for BASIC_WEAPON_C24_R3 */
+	public static final IconEntry FIRE_CRACKER_0 = BASIC_WEAPON_C24_R3;
 	/** COIN_SWORD */
-	public static final IconEntry COIN_SWORD = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{385, 33, 14, 14}, 6844);
+	public static final IconEntry BASIC_WEAPON_C25_R3 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{385, 33, 14, 14}, 6844);
+	/** semantic alias for BASIC_WEAPON_C25_R3 */
+	public static final IconEntry COIN_SWORD = BASIC_WEAPON_C25_R3;
 	/** LONGSWORD#0 */
-	public static final IconEntry LONGSWORD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 48, 15, 15}, 6845);
+	public static final IconEntry BASIC_WEAPON_C1_R4 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 48, 15, 15}, 6845);
+	/** semantic alias for BASIC_WEAPON_C1_R4 */
+	public static final IconEntry LONGSWORD_0 = BASIC_WEAPON_C1_R4;
 	/** BATTLE_AXE#0 */
-	public static final IconEntry BATTLE_AXE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 48, 16, 16}, 6846);
+	public static final IconEntry BASIC_WEAPON_C2_R4 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 48, 16, 16}, 6846);
+	/** semantic alias for BASIC_WEAPON_C2_R4 */
+	public static final IconEntry BATTLE_AXE_0 = BASIC_WEAPON_C2_R4;
 	/** FLAIL#0 */
-	public static final IconEntry FLAIL_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{32, 48, 14, 14}, 6847);
+	public static final IconEntry BASIC_WEAPON_C3_R4 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{32, 48, 14, 14}, 6847);
+	/** semantic alias for BASIC_WEAPON_C3_R4 */
+	public static final IconEntry FLAIL_0 = BASIC_WEAPON_C3_R4;
 	/** RUNE_SWORD */
-	public static final IconEntry RUNE_SWORD = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{48, 48, 16, 16}, 6848);
+	public static final IconEntry BASIC_WEAPON_C4_R4 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{48, 48, 16, 16}, 6848);
+	/** semantic alias for BASIC_WEAPON_C4_R4 */
+	public static final IconEntry RUNE_SWORD = BASIC_WEAPON_C4_R4;
 	/** ASSASSINS_BLADE#0 */
-	public static final IconEntry ASSASSINS_BLADE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{64, 48, 14, 15}, 6849);
+	public static final IconEntry BASIC_WEAPON_C5_R4 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{64, 48, 14, 15}, 6849);
+	/** semantic alias for BASIC_WEAPON_C5_R4 */
+	public static final IconEntry ASSASSINS_BLADE_0 = BASIC_WEAPON_C5_R4;
 	/** ODACHI */
-	public static final IconEntry ODACHI = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{80, 48, 15, 16}, 6850);
+	public static final IconEntry BASIC_WEAPON_C6_R4 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{80, 48, 15, 16}, 6850);
+	/** semantic alias for BASIC_WEAPON_C6_R4 */
+	public static final IconEntry ODACHI = BASIC_WEAPON_C6_R4;
 	/** GREATSWORD#0 */
-	public static final IconEntry GREATSWORD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 64, 16, 16}, 6851);
+	public static final IconEntry BASIC_WEAPON_C1_R5 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 64, 16, 16}, 6851);
+	/** semantic alias for BASIC_WEAPON_C1_R5 */
+	public static final IconEntry GREATSWORD_0 = BASIC_WEAPON_C1_R5;
 	/** WAR_HAMMER#0 */
-	public static final IconEntry WAR_HAMMER_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 64, 16, 16}, 6852);
+	public static final IconEntry BASIC_WEAPON_C2_R5 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 64, 16, 16}, 6852);
+	/** semantic alias for BASIC_WEAPON_C2_R5 */
+	public static final IconEntry WAR_HAMMER_0 = BASIC_WEAPON_C2_R5;
 	/** GLAIVE#0 */
-	public static final IconEntry GLAIVE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{32, 64, 16, 16}, 6853);
+	public static final IconEntry BASIC_WEAPON_C3_R5 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{32, 64, 16, 16}, 6853);
+	/** semantic alias for BASIC_WEAPON_C3_R5 */
+	public static final IconEntry GLAIVE_0 = BASIC_WEAPON_C3_R5;
 	/** GAUNTLETS#0 */
-	public static final IconEntry GAUNTLETS_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{48, 64, 13, 15}, 6854);
+	public static final IconEntry BASIC_WEAPON_C4_R5 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{48, 64, 13, 15}, 6854);
+	/** semantic alias for BASIC_WEAPON_C4_R5 */
+	public static final IconEntry GAUNTLETS_0 = BASIC_WEAPON_C4_R5;
 	/** GREATSHIELD#0 */
-	public static final IconEntry GREATSHIELD_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{64, 64, 12, 16}, 6855);
+	public static final IconEntry BASIC_WEAPON_C5_R5 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{64, 64, 12, 16}, 6855);
+	/** semantic alias for BASIC_WEAPON_C5_R5 */
+	public static final IconEntry GREATSHIELD_0 = BASIC_WEAPON_C5_R5;
 	/** GOHEI */
-	public static final IconEntry GOHEI = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{112, 64, 15, 16}, 6856);
+	public static final IconEntry BASIC_WEAPON_C8_R5 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{112, 64, 15, 16}, 6856);
+	/** semantic alias for BASIC_WEAPON_C8_R5 */
+	public static final IconEntry GOHEI = BASIC_WEAPON_C8_R5;
 	/** ROYAL_FORK */
-	public static final IconEntry ROYAL_FORK = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{129, 65, 14, 14}, 6857);
+	public static final IconEntry BASIC_WEAPON_C9_R5 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{129, 65, 14, 14}, 6857);
+	/** semantic alias for BASIC_WEAPON_C9_R5 */
+	public static final IconEntry ROYAL_FORK = BASIC_WEAPON_C9_R5;
 	/** WAR_SCYTHE#0 */
-	public static final IconEntry WAR_SCYTHE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 80, 14, 15}, 6858);
+	public static final IconEntry BASIC_WEAPON_C1_R6 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 80, 14, 15}, 6858);
+	/** semantic alias for BASIC_WEAPON_C1_R6 */
+	public static final IconEntry WAR_SCYTHE_0 = BASIC_WEAPON_C1_R6;
 	/** GREATAXE#0 */
-	public static final IconEntry GREATAXE_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 80, 12, 16}, 6859);
+	public static final IconEntry BASIC_WEAPON_C2_R6 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{16, 80, 12, 16}, 6859);
+	/** semantic alias for BASIC_WEAPON_C2_R6 */
+	public static final IconEntry GREATAXE_0 = BASIC_WEAPON_C2_R6;
 	/** SHOCK_TRIDENT */
-	public static final IconEntry SHOCK_TRIDENT = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{112, 80, 16, 16}, 6860);
+	public static final IconEntry BASIC_WEAPON_C8_R6 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{112, 80, 16, 16}, 6860);
+	/** semantic alias for BASIC_WEAPON_C8_R6 */
+	public static final IconEntry SHOCK_TRIDENT = BASIC_WEAPON_C8_R6;
 	/** SOUL_DRAIN_LONGSWORD */
-	public static final IconEntry SOUL_DRAIN_LONGSWORD = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{129, 81, 14, 14}, 6861);
+	public static final IconEntry BASIC_WEAPON_C9_R6 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{129, 81, 14, 14}, 6861);
+	/** semantic alias for BASIC_WEAPON_C9_R6 */
+	public static final IconEntry SOUL_DRAIN_LONGSWORD = BASIC_WEAPON_C9_R6;
 	/** DETERRENT_ROCK_BLADE */
-	public static final IconEntry DETERRENT_ROCK_BLADE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{144, 81, 15, 14}, 6862);
+	public static final IconEntry BASIC_WEAPON_C10_R6 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{144, 81, 15, 14}, 6862);
+	/** semantic alias for BASIC_WEAPON_C10_R6 */
+	public static final IconEntry DETERRENT_ROCK_BLADE = BASIC_WEAPON_C10_R6;
 	/** BONE_SAW_GREATAXE */
-	public static final IconEntry BONE_SAW_GREATAXE = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{160, 80, 14, 16}, 6863);
+	public static final IconEntry BASIC_WEAPON_C11_R6 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{160, 80, 14, 16}, 6863);
+	/** semantic alias for BASIC_WEAPON_C11_R6 */
+	public static final IconEntry BONE_SAW_GREATAXE = BASIC_WEAPON_C11_R6;
 	/** VENOMOUS_HEAVY_FLAIL */
-	public static final IconEntry VENOMOUS_HEAVY_FLAIL = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{176, 82, 16, 14}, 6864);
+	public static final IconEntry BASIC_WEAPON_C12_R6 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{176, 82, 16, 14}, 6864);
+	/** semantic alias for BASIC_WEAPON_C12_R6 */
+	public static final IconEntry VENOMOUS_HEAVY_FLAIL = BASIC_WEAPON_C12_R6;
 	/** CROSSBOW#0 */
-	public static final IconEntry CROSSBOW_0 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 96, 15, 15}, 6865);
+	public static final IconEntry BASIC_WEAPON_C1_R7 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{0, 96, 15, 15}, 6865);
+	/** semantic alias for BASIC_WEAPON_C1_R7 */
+	public static final IconEntry CROSSBOW_0 = BASIC_WEAPON_C1_R7;
 	/** WOODEN_BOW */
-	public static final IconEntry WOODEN_BOW = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{113, 97, 14, 14}, 6866);
+	public static final IconEntry BASIC_WEAPON_C8_R7 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{113, 97, 14, 14}, 6866);
+	/** semantic alias for BASIC_WEAPON_C8_R7 */
+	public static final IconEntry WOODEN_BOW = BASIC_WEAPON_C8_R7;
 	/** DAMAGED_WOODEN_BOW */
-	public static final IconEntry DAMAGED_WOODEN_BOW = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{129, 97, 14, 14}, 6867);
+	public static final IconEntry BASIC_WEAPON_C9_R7 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{129, 97, 14, 14}, 6867);
+	/** semantic alias for BASIC_WEAPON_C9_R7 */
+	public static final IconEntry DAMAGED_WOODEN_BOW = BASIC_WEAPON_C9_R7;
 	/** COMPOSITE_BOW */
-	public static final IconEntry COMPOSITE_BOW = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{144, 97, 15, 15}, 6868);
+	public static final IconEntry BASIC_WEAPON_C10_R7 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{144, 97, 15, 15}, 6868);
+	/** semantic alias for BASIC_WEAPON_C10_R7 */
+	public static final IconEntry COMPOSITE_BOW = BASIC_WEAPON_C10_R7;
 	/** FULL_COMPOSITE_BOW */
-	public static final IconEntry FULL_COMPOSITE_BOW = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{160, 97, 15, 15}, 6869);
+	public static final IconEntry BASIC_WEAPON_C11_R7 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{160, 97, 15, 15}, 6869);
+	/** semantic alias for BASIC_WEAPON_C11_R7 */
+	public static final IconEntry FULL_COMPOSITE_BOW = BASIC_WEAPON_C11_R7;
 	/** CROSSBOW */
-	public static final IconEntry CROSSBOW = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{177, 97, 14, 14}, 6870);
+	public static final IconEntry BASIC_WEAPON_C12_R7 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{177, 97, 14, 14}, 6870);
+	/** semantic alias for BASIC_WEAPON_C12_R7 */
+	public static final IconEntry CROSSBOW = BASIC_WEAPON_C12_R7;
 	/** PISTOL */
-	public static final IconEntry PISTOL = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{115, 114, 10, 13}, 6871);
+	public static final IconEntry BASIC_WEAPON_C8_R8 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{115, 114, 10, 13}, 6871);
+	/** semantic alias for BASIC_WEAPON_C8_R8 */
+	public static final IconEntry PISTOL = BASIC_WEAPON_C8_R8;
 	/** FLINTLOCK */
-	public static final IconEntry FLINTLOCK = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{130, 112, 12, 16}, 6872);
+	public static final IconEntry BASIC_WEAPON_C9_R8 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{130, 112, 12, 16}, 6872);
+	/** semantic alias for BASIC_WEAPON_C9_R8 */
+	public static final IconEntry FLINTLOCK = BASIC_WEAPON_C9_R8;
 	/** MACHINE_GUN */
-	public static final IconEntry MACHINE_GUN = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{146, 112, 13, 16}, 6873);
+	public static final IconEntry BASIC_WEAPON_C10_R8 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{146, 112, 13, 16}, 6873);
+	/** semantic alias for BASIC_WEAPON_C10_R8 */
+	public static final IconEntry MACHINE_GUN = BASIC_WEAPON_C10_R8;
 	/** SHOTGUN */
-	public static final IconEntry SHOTGUN = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{161, 112, 13, 16}, 6874);
+	public static final IconEntry BASIC_WEAPON_C11_R8 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{161, 112, 13, 16}, 6874);
+	/** semantic alias for BASIC_WEAPON_C11_R8 */
+	public static final IconEntry SHOTGUN = BASIC_WEAPON_C11_R8;
 	/** gun#4 */
-	public static final IconEntry GUN_4 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{176, 112, 16, 16}, 6875);
+	public static final IconEntry BASIC_WEAPON_C12_R8 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{176, 112, 16, 16}, 6875);
+	/** semantic alias for BASIC_WEAPON_C12_R8 */
+	public static final IconEntry GUN_4 = BASIC_WEAPON_C12_R8;
 	/** POTION_GUN */
-	public static final IconEntry POTION_GUN = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{194, 112, 12, 16}, 6876);
+	public static final IconEntry BASIC_WEAPON_C13_R8 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{194, 112, 12, 16}, 6876);
+	/** semantic alias for BASIC_WEAPON_C13_R8 */
+	public static final IconEntry POTION_GUN = BASIC_WEAPON_C13_R8;
 	/** SLING */
-	public static final IconEntry SLING = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{211, 115, 10, 11}, 6877);
+	public static final IconEntry BASIC_WEAPON_C14_R8 = new IconEntry("sprites/items/equipment/equip/weapon/basic_weapon.png", new int[]{211, 115, 10, 11}, 6877);
+	/** semantic alias for BASIC_WEAPON_C14_R8 */
+	public static final IconEntry SLING = BASIC_WEAPON_C14_R8;
 }

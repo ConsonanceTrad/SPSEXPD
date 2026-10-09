@@ -13,73 +13,143 @@ public final class ConsumScrollAmuletScrollDict {
 	private ConsumScrollAmuletScrollDict() { }
 
 	/** SCROLL_ENCHANT_LEGACY */
-	public static final IconEntry SCROLL_ENCHANT_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{1, 1, 15, 14}, 6594);
+	public static final IconEntry SCROLL_C1_R1 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{1, 1, 15, 14}, 6594);
+	/** semantic alias for SCROLL_C1_R1 */
+	public static final IconEntry SCROLL_ENCHANT_LEGACY = SCROLL_C1_R1;
 	/** EXOTIC_SOWILO_LEGACY */
-	public static final IconEntry EXOTIC_SOWILO_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{17, 1, 15, 14}, 6595);
+	public static final IconEntry SCROLL_C2_R1 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{17, 1, 15, 14}, 6595);
+	/** semantic alias for SCROLL_C2_R1 */
+	public static final IconEntry EXOTIC_SOWILO_LEGACY = SCROLL_C2_R1;
 	/** EXOTIC_LAGUZ_LEGACY */
-	public static final IconEntry EXOTIC_LAGUZ_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{33, 1, 15, 14}, 6596);
+	public static final IconEntry SCROLL_C3_R1 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{33, 1, 15, 14}, 6596);
+	/** semantic alias for SCROLL_C3_R1 */
+	public static final IconEntry EXOTIC_LAGUZ_LEGACY = SCROLL_C3_R1;
 	/** EXOTIC_YNGVI_LEGACY */
-	public static final IconEntry EXOTIC_YNGVI_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{49, 1, 15, 14}, 6597);
+	public static final IconEntry SCROLL_C4_R1 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{49, 1, 15, 14}, 6597);
+	/** semantic alias for SCROLL_C4_R1 */
+	public static final IconEntry EXOTIC_YNGVI_LEGACY = SCROLL_C4_R1;
 	/** SCROLL_MYSTENRG_LEGACY */
-	public static final IconEntry SCROLL_MYSTENRG_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{65, 1, 15, 14}, 6598);
+	public static final IconEntry SCROLL_C5_R1 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{65, 1, 15, 14}, 6598);
+	/** semantic alias for SCROLL_C5_R1 */
+	public static final IconEntry SCROLL_MYSTENRG_LEGACY = SCROLL_C5_R1;
 	/** EXOTIC_RAIDO_LEGACY */
-	public static final IconEntry EXOTIC_RAIDO_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{81, 1, 15, 14}, 6599);
+	public static final IconEntry SCROLL_C6_R1 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{81, 1, 15, 14}, 6599);
+	/** semantic alias for SCROLL_C6_R1 */
+	public static final IconEntry EXOTIC_RAIDO_LEGACY = SCROLL_C6_R1;
 	/** SCROLL_SIREN_LEGACY */
-	public static final IconEntry SCROLL_SIREN_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{97, 1, 15, 14}, 6600);
+	public static final IconEntry SCROLL_C7_R1 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{97, 1, 15, 14}, 6600);
+	/** semantic alias for SCROLL_C7_R1 */
+	public static final IconEntry SCROLL_SIREN_LEGACY = SCROLL_C7_R1;
 	/** SCROLL_FORESIGHT_LEGACY */
-	public static final IconEntry SCROLL_FORESIGHT_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{113, 1, 15, 14}, 6601);
+	public static final IconEntry SCROLL_C8_R1 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{113, 1, 15, 14}, 6601);
+	/** semantic alias for SCROLL_C8_R1 */
+	public static final IconEntry SCROLL_FORESIGHT_LEGACY = SCROLL_C8_R1;
 	/** SCROLL_CHALLENGE_LEGACY */
-	public static final IconEntry SCROLL_CHALLENGE_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{129, 1, 15, 14}, 6602);
+	public static final IconEntry SCROLL_C9_R1 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{129, 1, 15, 14}, 6602);
+	/** semantic alias for SCROLL_C9_R1 */
+	public static final IconEntry SCROLL_CHALLENGE_LEGACY = SCROLL_C9_R1;
 	/** EXOTIC_BERKANAN_LEGACY */
-	public static final IconEntry EXOTIC_BERKANAN_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{145, 1, 15, 14}, 6603);
+	public static final IconEntry SCROLL_C10_R1 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{145, 1, 15, 14}, 6603);
+	/** semantic alias for SCROLL_C10_R1 */
+	public static final IconEntry EXOTIC_BERKANAN_LEGACY = SCROLL_C10_R1;
 	/** SCROLL_DREAD_LEGACY */
-	public static final IconEntry SCROLL_DREAD_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{161, 1, 15, 14}, 6604);
+	public static final IconEntry SCROLL_C11_R1 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{161, 1, 15, 14}, 6604);
+	/** semantic alias for SCROLL_C11_R1 */
+	public static final IconEntry SCROLL_DREAD_LEGACY = SCROLL_C11_R1;
 	/** SCROLL_METAMORPH_LEGACY */
-	public static final IconEntry SCROLL_METAMORPH_LEGACY = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{177, 1, 15, 14}, 6605);
+	public static final IconEntry SCROLL_C12_R1 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{177, 1, 15, 14}, 6605);
+	/** semantic alias for SCROLL_C12_R1 */
+	public static final IconEntry SCROLL_METAMORPH_LEGACY = SCROLL_C12_R1;
 	/** SPS_SCROLL_A */
-	public static final IconEntry SPS_SCROLL_A = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{193, 1, 15, 14}, 6606);
+	public static final IconEntry SCROLL_C13_R1 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{193, 1, 15, 14}, 6606);
+	/** semantic alias for SCROLL_C13_R1 */
+	public static final IconEntry SPS_SCROLL_A = SCROLL_C13_R1;
 	/** SPS_SCROLL_B */
-	public static final IconEntry SPS_SCROLL_B = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{209, 1, 15, 14}, 6607);
+	public static final IconEntry SCROLL_C14_R1 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{209, 1, 15, 14}, 6607);
+	/** semantic alias for SCROLL_C14_R1 */
+	public static final IconEntry SPS_SCROLL_B = SCROLL_C14_R1;
 	/** SPS_SCROLL_C */
-	public static final IconEntry SPS_SCROLL_C = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{225, 1, 15, 14}, 6608);
+	public static final IconEntry SCROLL_C15_R1 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{225, 1, 15, 14}, 6608);
+	/** semantic alias for SCROLL_C15_R1 */
+	public static final IconEntry SPS_SCROLL_C = SCROLL_C15_R1;
 	/** SCROLL_ENCHANT#0 */
-	public static final IconEntry SCROLL_ENCHANT_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{0, 16, 15, 14}, 6609);
+	public static final IconEntry SCROLL_C1_R2 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{0, 16, 15, 14}, 6609);
+	/** semantic alias for SCROLL_C1_R2 */
+	public static final IconEntry SCROLL_ENCHANT_0 = SCROLL_C1_R2;
 	/** EXOTIC_SOWILO#0 */
-	public static final IconEntry EXOTIC_SOWILO_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{16, 16, 15, 14}, 6610);
+	public static final IconEntry SCROLL_C2_R2 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{16, 16, 15, 14}, 6610);
+	/** semantic alias for SCROLL_C2_R2 */
+	public static final IconEntry EXOTIC_SOWILO_0 = SCROLL_C2_R2;
 	/** EXOTIC_LAGUZ#0 */
-	public static final IconEntry EXOTIC_LAGUZ_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{32, 16, 15, 14}, 6611);
+	public static final IconEntry SCROLL_C3_R2 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{32, 16, 15, 14}, 6611);
+	/** semantic alias for SCROLL_C3_R2 */
+	public static final IconEntry EXOTIC_LAGUZ_0 = SCROLL_C3_R2;
 	/** EXOTIC_YNGVI#0 */
-	public static final IconEntry EXOTIC_YNGVI_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{48, 16, 15, 14}, 6612);
+	public static final IconEntry SCROLL_C4_R2 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{48, 16, 15, 14}, 6612);
+	/** semantic alias for SCROLL_C4_R2 */
+	public static final IconEntry EXOTIC_YNGVI_0 = SCROLL_C4_R2;
 	/** SCROLL_MYSTENRG#0 */
-	public static final IconEntry SCROLL_MYSTENRG_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{64, 16, 15, 14}, 6613);
+	public static final IconEntry SCROLL_C5_R2 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{64, 16, 15, 14}, 6613);
+	/** semantic alias for SCROLL_C5_R2 */
+	public static final IconEntry SCROLL_MYSTENRG_0 = SCROLL_C5_R2;
 	/** EXOTIC_RAIDO#0 */
-	public static final IconEntry EXOTIC_RAIDO_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{80, 16, 15, 14}, 6614);
+	public static final IconEntry SCROLL_C6_R2 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{80, 16, 15, 14}, 6614);
+	/** semantic alias for SCROLL_C6_R2 */
+	public static final IconEntry EXOTIC_RAIDO_0 = SCROLL_C6_R2;
 	/** SCROLL_SIREN#0 */
-	public static final IconEntry SCROLL_SIREN_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{96, 16, 15, 14}, 6615);
+	public static final IconEntry SCROLL_C7_R2 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{96, 16, 15, 14}, 6615);
+	/** semantic alias for SCROLL_C7_R2 */
+	public static final IconEntry SCROLL_SIREN_0 = SCROLL_C7_R2;
 	/** SCROLL_FORESIGHT#0 */
-	public static final IconEntry SCROLL_FORESIGHT_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{112, 16, 15, 14}, 6616);
+	public static final IconEntry SCROLL_C8_R2 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{112, 16, 15, 14}, 6616);
+	/** semantic alias for SCROLL_C8_R2 */
+	public static final IconEntry SCROLL_FORESIGHT_0 = SCROLL_C8_R2;
 	/** SCROLL_CHALLENGE#0 */
-	public static final IconEntry SCROLL_CHALLENGE_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{128, 16, 15, 14}, 6617);
+	public static final IconEntry SCROLL_C9_R2 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{128, 16, 15, 14}, 6617);
+	/** semantic alias for SCROLL_C9_R2 */
+	public static final IconEntry SCROLL_CHALLENGE_0 = SCROLL_C9_R2;
 	/** EXOTIC_BERKANAN#0 */
-	public static final IconEntry EXOTIC_BERKANAN_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{144, 16, 15, 14}, 6618);
+	public static final IconEntry SCROLL_C10_R2 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{144, 16, 15, 14}, 6618);
+	/** semantic alias for SCROLL_C10_R2 */
+	public static final IconEntry EXOTIC_BERKANAN_0 = SCROLL_C10_R2;
 	/** SCROLL_DREAD#0 */
-	public static final IconEntry SCROLL_DREAD_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{160, 16, 15, 14}, 6619);
+	public static final IconEntry SCROLL_C11_R2 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{160, 16, 15, 14}, 6619);
+	/** semantic alias for SCROLL_C11_R2 */
+	public static final IconEntry SCROLL_DREAD_0 = SCROLL_C11_R2;
 	/** SCROLL_METAMORPH#0 */
-	public static final IconEntry SCROLL_METAMORPH_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{176, 16, 15, 14}, 6620);
+	public static final IconEntry SCROLL_C12_R2 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{176, 16, 15, 14}, 6620);
+	/** semantic alias for SCROLL_C12_R2 */
+	public static final IconEntry SCROLL_METAMORPH_0 = SCROLL_C12_R2;
 	/** SCROLL_OF_PRECISION */
-	public static final IconEntry SCROLL_OF_PRECISION = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{192, 16, 15, 14}, 6621);
+	public static final IconEntry SCROLL_C13_R2 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{192, 16, 15, 14}, 6621);
+	/** semantic alias for SCROLL_C13_R2 */
+	public static final IconEntry SCROLL_OF_PRECISION = SCROLL_C13_R2;
 	/** SCROLL_OF_PROTECTION */
-	public static final IconEntry SCROLL_OF_PROTECTION = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{208, 16, 15, 14}, 6622);
+	public static final IconEntry SCROLL_C14_R2 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{208, 16, 15, 14}, 6622);
+	/** semantic alias for SCROLL_C14_R2 */
+	public static final IconEntry SCROLL_OF_PROTECTION = SCROLL_C14_R2;
 	/** SCROLL_OF_MAGIC */
-	public static final IconEntry SCROLL_OF_MAGIC = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{224, 16, 15, 14}, 6623);
+	public static final IconEntry SCROLL_C15_R2 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{224, 16, 15, 14}, 6623);
+	/** semantic alias for SCROLL_C15_R2 */
+	public static final IconEntry SCROLL_OF_MAGIC = SCROLL_C15_R2;
 	/** SPS_SCROLL_A#0 */
-	public static final IconEntry SPS_SCROLL_A_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{192, 16, 15, 14}, 7131);
+	public static final IconEntry SCROLL_C13_R2_2 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{192, 16, 15, 14}, 7131);
+	/** semantic alias for SCROLL_C13_R2_2 */
+	public static final IconEntry SPS_SCROLL_A_0 = SCROLL_C13_R2_2;
 	/** SPS_SCROLL_B#0 */
-	public static final IconEntry SPS_SCROLL_B_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{208, 16, 15, 14}, 7132);
+	public static final IconEntry SCROLL_C14_R2_2 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{208, 16, 15, 14}, 7132);
+	/** semantic alias for SCROLL_C14_R2_2 */
+	public static final IconEntry SPS_SCROLL_B_0 = SCROLL_C14_R2_2;
 	/** SPS_SCROLL_C#0 */
-	public static final IconEntry SPS_SCROLL_C_0 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{224, 16, 15, 14}, 7133);
+	public static final IconEntry SCROLL_C15_R2_2 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{224, 16, 15, 14}, 7133);
+	/** semantic alias for SCROLL_C15_R2_2 */
+	public static final IconEntry SPS_SCROLL_C_0 = SCROLL_C15_R2_2;
 	/** ENCHANT_CUBE */
-	public static final IconEntry ENCHANT_CUBE = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{210, 50, 12, 13}, 6624);
+	public static final IconEntry SCROLL_C14_R4 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{210, 50, 12, 13}, 6624);
+	/** semantic alias for SCROLL_C14_R4 */
+	public static final IconEntry ENCHANT_CUBE = SCROLL_C14_R4;
 	/** ARCANE_RESIN */
-	public static final IconEntry ARCANE_RESIN = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{226, 51, 12, 11}, 6625);
+	public static final IconEntry SCROLL_C15_R4 = new IconEntry("sprites/items/consum/scroll_amulet/scroll.png", new int[]{226, 51, 12, 11}, 6625);
+	/** semantic alias for SCROLL_C15_R4 */
+	public static final IconEntry ARCANE_RESIN = SCROLL_C15_R4;
 }

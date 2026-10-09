@@ -13,7 +13,11 @@ public final class GroundWaypointDict {
 	private GroundWaypointDict() { }
 
 	/** WAYPOINT */
-	public static final IconEntry WAYPOINT = new IconEntry("sprites/items/ground/waypoint.png", new int[]{0, 0, 16, 16}, 7135);
+	public static final IconEntry WAYPOINT_C1_R1 = new IconEntry("sprites/items/ground/waypoint.png", new int[]{0, 0, 16, 16}, 7135);
+	/** semantic alias for WAYPOINT_C1_R1 */
+	public static final IconEntry WAYPOINT = WAYPOINT_C1_R1;
 	/** WAYPOINT_END */
-	public static final IconEntry WAYPOINT_END = new IconEntry("sprites/items/ground/waypoint.png", new int[]{0, 16, 16, 16}, 7136);
+	public static final IconEntry WAYPOINT_C1_R2 = new IconEntry("sprites/items/ground/waypoint.png", new int[]{0, 16, 16, 16}, 7136);
+	/** semantic alias for WAYPOINT_C1_R2 */
+	public static final IconEntry WAYPOINT_END = WAYPOINT_C1_R2;
 }

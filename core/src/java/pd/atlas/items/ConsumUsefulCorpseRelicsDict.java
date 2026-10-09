@@ -13,17 +13,31 @@ public final class ConsumUsefulCorpseRelicsDict {
 	private ConsumUsefulCorpseRelicsDict() { }
 
 	/** SEAL_SHARD#0 */
-	public static final IconEntry SEAL_SHARD_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{0, 0, 12, 12}, 6716);
+	public static final IconEntry CORPSE_RELICS_C1_R1 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{0, 0, 12, 12}, 6716);
+	/** semantic alias for CORPSE_RELICS_C1_R1 */
+	public static final IconEntry SEAL_SHARD_0 = CORPSE_RELICS_C1_R1;
 	/** BROKEN_STAFF#0 */
-	public static final IconEntry BROKEN_STAFF_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{16, 0, 14, 10}, 6717);
+	public static final IconEntry CORPSE_RELICS_C2_R1 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{16, 0, 14, 10}, 6717);
+	/** semantic alias for CORPSE_RELICS_C2_R1 */
+	public static final IconEntry BROKEN_STAFF_0 = CORPSE_RELICS_C2_R1;
 	/** CLOAK_SCRAP#0 */
-	public static final IconEntry CLOAK_SCRAP_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{32, 0, 9, 9}, 6718);
+	public static final IconEntry CORPSE_RELICS_C3_R1 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{32, 0, 9, 9}, 6718);
+	/** semantic alias for CORPSE_RELICS_C3_R1 */
+	public static final IconEntry CLOAK_SCRAP_0 = CORPSE_RELICS_C3_R1;
 	/** BOW_FRAGMENT#0 */
-	public static final IconEntry BOW_FRAGMENT_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{48, 0, 12, 9}, 6719);
+	public static final IconEntry CORPSE_RELICS_C4_R1 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{48, 0, 12, 9}, 6719);
+	/** semantic alias for CORPSE_RELICS_C4_R1 */
+	public static final IconEntry BOW_FRAGMENT_0 = CORPSE_RELICS_C4_R1;
 	/** BROKEN_HILT#0 */
-	public static final IconEntry BROKEN_HILT_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{64, 0, 9, 9}, 6720);
+	public static final IconEntry CORPSE_RELICS_C5_R1 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{64, 0, 9, 9}, 6720);
+	/** semantic alias for CORPSE_RELICS_C5_R1 */
+	public static final IconEntry BROKEN_HILT_0 = CORPSE_RELICS_C5_R1;
 	/** TORN_PAGE#0 */
-	public static final IconEntry TORN_PAGE_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{80, 0, 11, 13}, 6721);
+	public static final IconEntry CORPSE_RELICS_C6_R1 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{80, 0, 11, 13}, 6721);
+	/** semantic alias for CORPSE_RELICS_C6_R1 */
+	public static final IconEntry TORN_PAGE_0 = CORPSE_RELICS_C6_R1;
 	/** TRINKET_CATA#0 */
-	public static final IconEntry TRINKET_CATA_0 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{96, 0, 12, 11}, 6722);
+	public static final IconEntry CORPSE_RELICS_C7_R1 = new IconEntry("sprites/items/consum/useful/corpse_relics.png", new int[]{96, 0, 12, 11}, 6722);
+	/** semantic alias for CORPSE_RELICS_C7_R1 */
+	public static final IconEntry TRINKET_CATA_0 = CORPSE_RELICS_C7_R1;
 }

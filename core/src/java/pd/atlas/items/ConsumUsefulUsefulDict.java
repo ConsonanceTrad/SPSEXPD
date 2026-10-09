@@ -13,19 +13,35 @@ public final class ConsumUsefulUsefulDict {
 	private ConsumUsefulUsefulDict() { }
 
 	/** STYLUS */
-	public static final IconEntry STYLUS = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{18, 1, 12, 13}, 6729);
+	public static final IconEntry USEFUL_C2_R1 = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{18, 1, 12, 13}, 6729);
+	/** semantic alias for USEFUL_C2_R1 */
+	public static final IconEntry STYLUS = USEFUL_C2_R1;
 	/** TORCH#0 */
-	public static final IconEntry TORCH_0 = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{32, 0, 12, 15}, 6730);
+	public static final IconEntry USEFUL_C3_R1 = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{32, 0, 12, 15}, 6730);
+	/** semantic alias for USEFUL_C3_R1 */
+	public static final IconEntry TORCH_0 = USEFUL_C3_R1;
 	/** BEACON#0 */
-	public static final IconEntry BEACON_0 = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{48, 0, 16, 15}, 6731);
+	public static final IconEntry USEFUL_C4_R1 = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{48, 0, 16, 15}, 6731);
+	/** semantic alias for USEFUL_C4_R1 */
+	public static final IconEntry BEACON_0 = USEFUL_C4_R1;
 	/** HONEYPOT#0 */
-	public static final IconEntry HONEYPOT_0 = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{65, 2, 14, 12}, 6732);
+	public static final IconEntry USEFUL_C5_R1 = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{65, 2, 14, 12}, 6732);
+	/** semantic alias for USEFUL_C5_R1 */
+	public static final IconEntry HONEYPOT_0 = USEFUL_C5_R1;
 	/** SHATTPOT */
-	public static final IconEntry SHATTPOT = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{81, 2, 14, 12}, 6733);
+	public static final IconEntry USEFUL_C6_R1 = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{81, 2, 14, 12}, 6733);
+	/** semantic alias for USEFUL_C6_R1 */
+	public static final IconEntry SHATTPOT = USEFUL_C6_R1;
 	/** ANKH */
-	public static final IconEntry ANKH = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{3, 16, 10, 16}, 6734);
+	public static final IconEntry USEFUL_C1_R2 = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{3, 16, 10, 16}, 6734);
+	/** semantic alias for USEFUL_C1_R2 */
+	public static final IconEntry ANKH = USEFUL_C1_R2;
 	/** PET_FOOD */
-	public static final IconEntry PET_FOOD = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{65, 17, 13, 14}, 6735);
+	public static final IconEntry USEFUL_C5_R2 = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{65, 17, 13, 14}, 6735);
+	/** semantic alias for USEFUL_C5_R2 */
+	public static final IconEntry PET_FOOD = USEFUL_C5_R2;
 	/** SP_AMMO */
-	public static final IconEntry SP_AMMO = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{85, 18, 6, 13}, 6736);
+	public static final IconEntry USEFUL_C6_R2 = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{85, 18, 6, 13}, 6736);
+	/** semantic alias for USEFUL_C6_R2 */
+	public static final IconEntry SP_AMMO = USEFUL_C6_R2;
 }

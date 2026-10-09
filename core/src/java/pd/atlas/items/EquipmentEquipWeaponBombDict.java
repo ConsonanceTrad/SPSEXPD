@@ -13,37 +13,71 @@ public final class EquipmentEquipWeaponBombDict {
 	private EquipmentEquipWeaponBombDict() { }
 
 	/** BOMB#0 */
-	public static final IconEntry BOMB_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{3, 1, 10, 13}, 6878);
+	public static final IconEntry BOMB_C1_R1 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{3, 1, 10, 13}, 6878);
+	/** semantic alias for BOMB_C1_R1 */
+	public static final IconEntry BOMB_0 = BOMB_C1_R1;
 	/** DBL_BOMB#0 */
-	public static final IconEntry DBL_BOMB_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{17, 1, 14, 13}, 6879);
+	public static final IconEntry BOMB_C2_R1 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{17, 1, 14, 13}, 6879);
+	/** semantic alias for BOMB_C2_R1 */
+	public static final IconEntry DBL_BOMB_0 = BOMB_C2_R1;
 	/** FLASHBANG#0 */
-	public static final IconEntry FLASHBANG_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{3, 17, 10, 13}, 6880);
+	public static final IconEntry BOMB_C1_R2 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{3, 17, 10, 13}, 6880);
+	/** semantic alias for BOMB_C1_R2 */
+	public static final IconEntry FLASHBANG_0 = BOMB_C1_R2;
 	/** HOLY_BOMB#0 */
-	public static final IconEntry HOLY_BOMB_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{19, 17, 10, 13}, 6881);
+	public static final IconEntry BOMB_C2_R2 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{19, 17, 10, 13}, 6881);
+	/** semantic alias for BOMB_C2_R2 */
+	public static final IconEntry HOLY_BOMB_0 = BOMB_C2_R2;
 	/** WOOLY_BOMB#0 */
-	public static final IconEntry WOOLY_BOMB_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{35, 17, 10, 13}, 6882);
+	public static final IconEntry BOMB_C3_R2 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{35, 17, 10, 13}, 6882);
+	/** semantic alias for BOMB_C3_R2 */
+	public static final IconEntry WOOLY_BOMB_0 = BOMB_C3_R2;
 	/** NOISEMAKER#0 */
-	public static final IconEntry NOISEMAKER_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{51, 17, 10, 13}, 6883);
+	public static final IconEntry BOMB_C4_R2 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{51, 17, 10, 13}, 6883);
+	/** semantic alias for BOMB_C4_R2 */
+	public static final IconEntry NOISEMAKER_0 = BOMB_C4_R2;
 	/** ARCANE_BOMB#0 */
-	public static final IconEntry ARCANE_BOMB_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{67, 17, 10, 13}, 6884);
+	public static final IconEntry BOMB_C5_R2 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{67, 17, 10, 13}, 6884);
+	/** semantic alias for BOMB_C5_R2 */
+	public static final IconEntry ARCANE_BOMB_0 = BOMB_C5_R2;
 	/** SHRAPNEL_BOMB#0 */
-	public static final IconEntry SHRAPNEL_BOMB_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{83, 17, 10, 13}, 6885);
+	public static final IconEntry BOMB_C6_R2 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{83, 17, 10, 13}, 6885);
+	/** semantic alias for BOMB_C6_R2 */
+	public static final IconEntry SHRAPNEL_BOMB_0 = BOMB_C6_R2;
 	/** SPS_FISHING_BOMB */
-	public static final IconEntry SPS_FISHING_BOMB = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{112, 18, 15, 13}, 6886);
+	public static final IconEntry BOMB_C8_R2 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{112, 18, 15, 13}, 6886);
+	/** semantic alias for BOMB_C8_R2 */
+	public static final IconEntry SPS_FISHING_BOMB = BOMB_C8_R2;
 	/** SPS_MINI_BOMB */
-	public static final IconEntry SPS_MINI_BOMB = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{3, 36, 10, 9}, 6887);
+	public static final IconEntry BOMB_C1_R3 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{3, 36, 10, 9}, 6887);
+	/** semantic alias for BOMB_C1_R3 */
+	public static final IconEntry SPS_MINI_BOMB = BOMB_C1_R3;
 	/** DUD_DUNGEON_BOMB */
-	public static final IconEntry DUD_DUNGEON_BOMB = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{18, 35, 12, 11}, 6888);
+	public static final IconEntry BOMB_C2_R3 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{18, 35, 12, 11}, 6888);
+	/** semantic alias for BOMB_C2_R3 */
+	public static final IconEntry DUD_DUNGEON_BOMB = BOMB_C2_R3;
 	/** DUNGEON_BOMB */
-	public static final IconEntry DUNGEON_BOMB = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{34, 35, 12, 11}, 6889);
+	public static final IconEntry BOMB_C3_R3 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{34, 35, 12, 11}, 6889);
+	/** semantic alias for BOMB_C3_R3 */
+	public static final IconEntry DUNGEON_BOMB = BOMB_C3_R3;
 	/** DUNGEON_BOMB_BUNDLE */
-	public static final IconEntry DUNGEON_BOMB_BUNDLE = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{48, 33, 15, 14}, 6890);
+	public static final IconEntry BOMB_C4_R3 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{48, 33, 15, 14}, 6890);
+	/** semantic alias for BOMB_C4_R3 */
+	public static final IconEntry DUNGEON_BOMB_BUNDLE = BOMB_C4_R3;
 	/** FIRE_BOMB#0 */
-	public static final IconEntry FIRE_BOMB_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{66, 34, 13, 12}, 6891);
+	public static final IconEntry BOMB_C5_R3 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{66, 34, 13, 12}, 6891);
+	/** semantic alias for BOMB_C5_R3 */
+	public static final IconEntry FIRE_BOMB_0 = BOMB_C5_R3;
 	/** FROST_BOMB#0 */
-	public static final IconEntry FROST_BOMB_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{82, 34, 13, 12}, 6892);
+	public static final IconEntry BOMB_C6_R3 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{82, 34, 13, 12}, 6892);
+	/** semantic alias for BOMB_C6_R3 */
+	public static final IconEntry FROST_BOMB_0 = BOMB_C6_R3;
 	/** REGROWTH_BOMB#0 */
-	public static final IconEntry REGROWTH_BOMB_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{98, 34, 13, 12}, 6893);
+	public static final IconEntry BOMB_C7_R3 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{98, 34, 13, 12}, 6893);
+	/** semantic alias for BOMB_C7_R3 */
+	public static final IconEntry REGROWTH_BOMB_0 = BOMB_C7_R3;
 	/** SMOKE_BOMB#0 */
-	public static final IconEntry SMOKE_BOMB_0 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{114, 34, 13, 12}, 6894);
+	public static final IconEntry BOMB_C8_R3 = new IconEntry("sprites/items/equipment/equip/weapon/bomb.png", new int[]{114, 34, 13, 12}, 6894);
+	/** semantic alias for BOMB_C8_R3 */
+	public static final IconEntry SMOKE_BOMB_0 = BOMB_C8_R3;
 }

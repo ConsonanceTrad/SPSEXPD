@@ -13,5 +13,7 @@ public final class ConsumScrollAmuletScrollEmptyDict {
 	private ConsumScrollAmuletScrollEmptyDict() { }
 
 	/** SCROLL_EMPTY */
-	public static final IconEntry SCROLL_EMPTY = new IconEntry("sprites/items/consum/scroll_amulet/scroll_empty.png", new int[]{0, 0, 16, 16}, 7134);
+	public static final IconEntry SCROLL_EMPTY_C1_R1 = new IconEntry("sprites/items/consum/scroll_amulet/scroll_empty.png", new int[]{0, 0, 16, 16}, 7134);
+	/** semantic alias for SCROLL_EMPTY_C1_R1 */
+	public static final IconEntry SCROLL_EMPTY = SCROLL_EMPTY_C1_R1;
 }

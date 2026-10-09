@@ -13,231 +13,459 @@ public final class ConsumPotionSeedSeedDict {
 	private ConsumPotionSeedSeedDict() { }
 
 	/** SEED_ROT_BERRY */
-	public static final IconEntry SEED_ROT_BERRY = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{3, 3, 10, 10}, 6473);
+	public static final IconEntry SEED_C1_R1 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{3, 3, 10, 10}, 6473);
+	/** semantic alias for SEED_C1_R1 */
+	public static final IconEntry SEED_ROT_BERRY = SEED_C1_R1;
 	/** SEED_FIREBLOOM */
-	public static final IconEntry SEED_FIREBLOOM = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{19, 3, 10, 10}, 6474);
+	public static final IconEntry SEED_C2_R1 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{19, 3, 10, 10}, 6474);
+	/** semantic alias for SEED_C2_R1 */
+	public static final IconEntry SEED_FIREBLOOM = SEED_C2_R1;
 	/** SEED_BLINDWEED#0 */
-	public static final IconEntry SEED_BLINDWEED_0 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{35, 3, 10, 10}, 6475);
+	public static final IconEntry SEED_C3_R1 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{35, 3, 10, 10}, 6475);
+	/** semantic alias for SEED_C3_R1 */
+	public static final IconEntry SEED_BLINDWEED_0 = SEED_C3_R1;
 	/** SEED_SUNGRASS */
-	public static final IconEntry SEED_SUNGRASS = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{51, 3, 10, 10}, 6476);
+	public static final IconEntry SEED_C4_R1 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{51, 3, 10, 10}, 6476);
+	/** semantic alias for SEED_C4_R1 */
+	public static final IconEntry SEED_SUNGRASS = SEED_C4_R1;
 	/** SEED_ICECAP */
-	public static final IconEntry SEED_ICECAP = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{67, 3, 10, 10}, 6477);
+	public static final IconEntry SEED_C5_R1 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{67, 3, 10, 10}, 6477);
+	/** semantic alias for SEED_C5_R1 */
+	public static final IconEntry SEED_ICECAP = SEED_C5_R1;
 	/** SEED_STORMVINE */
-	public static final IconEntry SEED_STORMVINE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{83, 3, 10, 10}, 6478);
+	public static final IconEntry SEED_C6_R1 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{83, 3, 10, 10}, 6478);
+	/** semantic alias for SEED_C6_R1 */
+	public static final IconEntry SEED_STORMVINE = SEED_C6_R1;
 	/** SEED_SORROWMOSS#0 */
-	public static final IconEntry SEED_SORROWMOSS_0 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{99, 3, 10, 10}, 6479);
+	public static final IconEntry SEED_C7_R1 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{99, 3, 10, 10}, 6479);
+	/** semantic alias for SEED_C7_R1 */
+	public static final IconEntry SEED_SORROWMOSS_0 = SEED_C7_R1;
 	/** SEED_MAGEROYAL#0 */
-	public static final IconEntry SEED_MAGEROYAL_0 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{115, 3, 10, 10}, 6480);
+	public static final IconEntry SEED_C8_R1 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{115, 3, 10, 10}, 6480);
+	/** semantic alias for SEED_C8_R1 */
+	public static final IconEntry SEED_MAGEROYAL_0 = SEED_C8_R1;
 	/** SEED_EARTHROOT#0 */
-	public static final IconEntry SEED_EARTHROOT_0 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{131, 3, 10, 10}, 6481);
+	public static final IconEntry SEED_C9_R1 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{131, 3, 10, 10}, 6481);
+	/** semantic alias for SEED_C9_R1 */
+	public static final IconEntry SEED_EARTHROOT_0 = SEED_C9_R1;
 	/** SEED_FADELEAF#0 */
-	public static final IconEntry SEED_FADELEAF_0 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{147, 3, 10, 10}, 6482);
+	public static final IconEntry SEED_C10_R1 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{147, 3, 10, 10}, 6482);
+	/** semantic alias for SEED_C10_R1 */
+	public static final IconEntry SEED_FADELEAF_0 = SEED_C10_R1;
 	/** SEED_BLANDFRUIT */
-	public static final IconEntry SEED_BLANDFRUIT = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{163, 3, 10, 10}, 6483);
+	public static final IconEntry SEED_C11_R1 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{163, 3, 10, 10}, 6483);
+	/** semantic alias for SEED_C11_R1 */
+	public static final IconEntry SEED_BLANDFRUIT = SEED_C11_R1;
 	/** SEED_STARFLOWER#0 */
-	public static final IconEntry SEED_STARFLOWER_0 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{179, 3, 10, 10}, 6484);
+	public static final IconEntry SEED_C12_R1 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{179, 3, 10, 10}, 6484);
+	/** semantic alias for SEED_C12_R1 */
+	public static final IconEntry SEED_STARFLOWER_0 = SEED_C12_R1;
 	/** SEED_NUTVINE */
-	public static final IconEntry SEED_NUTVINE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{195, 3, 10, 10}, 6485);
+	public static final IconEntry SEED_C13_R1 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{195, 3, 10, 10}, 6485);
+	/** semantic alias for SEED_C13_R1 */
+	public static final IconEntry SEED_NUTVINE = SEED_C13_R1;
 	/** SEED_STAREATER */
-	public static final IconEntry SEED_STAREATER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{211, 3, 10, 10}, 6486);
+	public static final IconEntry SEED_C14_R1 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{211, 3, 10, 10}, 6486);
+	/** semantic alias for SEED_C14_R1 */
+	public static final IconEntry SEED_STAREATER = SEED_C14_R1;
 	/** SEED_TRANSMUTE_CAGE */
-	public static final IconEntry SEED_TRANSMUTE_CAGE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{227, 3, 10, 10}, 6487);
+	public static final IconEntry SEED_C15_R1 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{227, 3, 10, 10}, 6487);
+	/** semantic alias for SEED_C15_R1 */
+	public static final IconEntry SEED_TRANSMUTE_CAGE = SEED_C15_R1;
 	/** SEED_QUARTZFLOWER */
-	public static final IconEntry SEED_QUARTZFLOWER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{243, 3, 10, 10}, 6488);
+	public static final IconEntry SEED_C16_R1 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{243, 3, 10, 10}, 6488);
+	/** semantic alias for SEED_C16_R1 */
+	public static final IconEntry SEED_QUARTZFLOWER = SEED_C16_R1;
 	/** SEED_DEWCATCHER */
-	public static final IconEntry SEED_DEWCATCHER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{259, 3, 10, 10}, 7129);
+	public static final IconEntry SEED_C17_R1 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{259, 3, 10, 10}, 7129);
+	/** semantic alias for SEED_C17_R1 */
+	public static final IconEntry SEED_DEWCATCHER = SEED_C17_R1;
 	/** SEED_POD */
-	public static final IconEntry SEED_POD = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{275, 3, 10, 10}, 6489);
+	public static final IconEntry SEED_C18_R1 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{275, 3, 10, 10}, 6489);
+	/** semantic alias for SEED_C18_R1 */
+	public static final IconEntry SEED_POD = SEED_C18_R1;
 	/** SEED_SWIFTTHISTLE */
-	public static final IconEntry SEED_SWIFTTHISTLE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{291, 3, 10, 10}, 6490);
+	public static final IconEntry SEED_C19_R1 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{291, 3, 10, 10}, 6490);
+	/** semantic alias for SEED_C19_R1 */
+	public static final IconEntry SEED_SWIFTTHISTLE = SEED_C19_R1;
 	/** DURIAN */
-	public static final IconEntry DURIAN = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{1, 33, 14, 14}, 6491);
+	public static final IconEntry SEED_C1_R3 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{1, 33, 14, 14}, 6491);
+	/** semantic alias for SEED_C1_R3 */
+	public static final IconEntry DURIAN = SEED_C1_R3;
 	/** FIRE_PEPPER */
-	public static final IconEntry FIRE_PEPPER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{17, 33, 14, 13}, 6492);
+	public static final IconEntry SEED_C2_R3 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{17, 33, 14, 13}, 6492);
+	/** semantic alias for SEED_C2_R3 */
+	public static final IconEntry FIRE_PEPPER = SEED_C2_R3;
 	/** MARIGOLD */
-	public static final IconEntry MARIGOLD = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{33, 33, 14, 14}, 6493);
+	public static final IconEntry SEED_C3_R3 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{33, 33, 14, 14}, 6493);
+	/** semantic alias for SEED_C3_R3 */
+	public static final IconEntry MARIGOLD = SEED_C3_R3;
 	/** HEAL_GRASS */
-	public static final IconEntry HEAL_GRASS = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{49, 33, 15, 14}, 6494);
+	public static final IconEntry SEED_C4_R3 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{49, 33, 15, 14}, 6494);
+	/** semantic alias for SEED_C4_R3 */
+	public static final IconEntry HEAL_GRASS = SEED_C4_R3;
 	/** ICE_MINT */
-	public static final IconEntry ICE_MINT = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{66, 34, 12, 12}, 6495);
+	public static final IconEntry SEED_C5_R3 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{66, 34, 12, 12}, 6495);
+	/** semantic alias for SEED_C5_R3 */
+	public static final IconEntry ICE_MINT = SEED_C5_R3;
 	/** TULIP */
-	public static final IconEntry TULIP = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{82, 34, 12, 12}, 6496);
+	public static final IconEntry SEED_C6_R3 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{82, 34, 12, 12}, 6496);
+	/** semantic alias for SEED_C6_R3 */
+	public static final IconEntry TULIP = SEED_C6_R3;
 	/** TOXIC_EGGPLANT */
-	public static final IconEntry TOXIC_EGGPLANT = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{98, 34, 11, 12}, 6497);
+	public static final IconEntry SEED_C7_R3 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{98, 34, 11, 12}, 6497);
+	/** semantic alias for SEED_C7_R3 */
+	public static final IconEntry TOXIC_EGGPLANT = SEED_C7_R3;
 	/** DREAM_LEAF */
-	public static final IconEntry DREAM_LEAF = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{114, 34, 13, 13}, 6498);
+	public static final IconEntry SEED_C8_R3 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{114, 34, 13, 13}, 6498);
+	/** semantic alias for SEED_C8_R3 */
+	public static final IconEntry DREAM_LEAF = SEED_C8_R3;
 	/** RADISH */
-	public static final IconEntry RADISH = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{128, 33, 15, 14}, 6499);
+	public static final IconEntry SEED_C9_R3 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{128, 33, 15, 14}, 6499);
+	/** semantic alias for SEED_C9_R3 */
+	public static final IconEntry RADISH = SEED_C9_R3;
 	/** SUNFLOWER */
-	public static final IconEntry SUNFLOWER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{145, 33, 14, 14}, 6500);
+	public static final IconEntry SEED_C10_R3 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{145, 33, 14, 14}, 6500);
+	/** semantic alias for SEED_C10_R3 */
+	public static final IconEntry SUNFLOWER = SEED_C10_R3;
 	/** BLANDFRUIT */
-	public static final IconEntry BLANDFRUIT = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{163, 34, 9, 12}, 6501);
+	public static final IconEntry SEED_C11_R3 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{163, 34, 9, 12}, 6501);
+	/** semantic alias for SEED_C11_R3 */
+	public static final IconEntry BLANDFRUIT = SEED_C11_R3;
 	/** YAM_FLOWER */
-	public static final IconEntry YAM_FLOWER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{177, 33, 14, 14}, 6502);
+	public static final IconEntry SEED_C12_R3 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{177, 33, 14, 14}, 6502);
+	/** semantic alias for SEED_C12_R3 */
+	public static final IconEntry YAM_FLOWER = SEED_C12_R3;
 	/** NUT_VEGETABLE */
-	public static final IconEntry NUT_VEGETABLE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{194, 34, 11, 12}, 6503);
+	public static final IconEntry SEED_C13_R3 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{194, 34, 11, 12}, 6503);
+	/** semantic alias for SEED_C13_R3 */
+	public static final IconEntry NUT_VEGETABLE = SEED_C13_R3;
 	/** STAREATER_FLOWER */
-	public static final IconEntry STAREATER_FLOWER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{210, 35, 13, 11}, 6504);
+	public static final IconEntry SEED_C14_R3 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{210, 35, 13, 11}, 6504);
+	/** semantic alias for SEED_C14_R3 */
+	public static final IconEntry STAREATER_FLOWER = SEED_C14_R3;
 	/** TRANSMUTE_CAGE */
-	public static final IconEntry TRANSMUTE_CAGE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{227, 36, 10, 9}, 6505);
+	public static final IconEntry SEED_C15_R3 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{227, 36, 10, 9}, 6505);
+	/** semantic alias for SEED_C15_R3 */
+	public static final IconEntry TRANSMUTE_CAGE = SEED_C15_R3;
 	/** QUARTZ_FLOWER */
-	public static final IconEntry QUARTZ_FLOWER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{241, 33, 14, 14}, 6506);
+	public static final IconEntry SEED_C16_R3 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{241, 33, 14, 14}, 6506);
+	/** semantic alias for SEED_C16_R3 */
+	public static final IconEntry QUARTZ_FLOWER = SEED_C16_R3;
 	/** DEW_SPORE */
-	public static final IconEntry DEW_SPORE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{258, 36, 12, 9}, 6507);
+	public static final IconEntry SEED_C17_R3 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{258, 36, 12, 9}, 6507);
+	/** semantic alias for SEED_C17_R3 */
+	public static final IconEntry DEW_SPORE = SEED_C17_R3;
 	/** RAINBOW_PANSY */
-	public static final IconEntry RAINBOW_PANSY = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{273, 34, 14, 13}, 6508);
+	public static final IconEntry SEED_C18_R3 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{273, 34, 14, 13}, 6508);
+	/** semantic alias for SEED_C18_R3 */
+	public static final IconEntry RAINBOW_PANSY = SEED_C18_R3;
 	/** SORREL */
-	public static final IconEntry SORREL = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{289, 33, 14, 14}, 6509);
+	public static final IconEntry SEED_C19_R3 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{289, 33, 14, 14}, 6509);
+	/** semantic alias for SEED_C19_R3 */
+	public static final IconEntry SORREL = SEED_C19_R3;
 	/** ADHESIVE */
-	public static final IconEntry ADHESIVE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{2, 51, 11, 11}, 6510);
+	public static final IconEntry SEED_C1_R4 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{2, 51, 11, 11}, 6510);
+	/** semantic alias for SEED_C1_R4 */
+	public static final IconEntry ADHESIVE = SEED_C1_R4;
 	/** CAPSAICIN */
-	public static final IconEntry CAPSAICIN = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{22, 51, 3, 11}, 6511);
+	public static final IconEntry SEED_C2_R4 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{22, 51, 3, 11}, 6511);
+	/** semantic alias for SEED_C2_R4 */
+	public static final IconEntry CAPSAICIN = SEED_C2_R4;
 	/** TRANSMUTE_POWDER */
-	public static final IconEntry TRANSMUTE_POWDER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{35, 55, 10, 6}, 6512);
+	public static final IconEntry SEED_C3_R4 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{35, 55, 10, 6}, 6512);
+	/** semantic alias for SEED_C3_R4 */
+	public static final IconEntry TRANSMUTE_POWDER = SEED_C3_R4;
 	/** HEALING_SALVE */
-	public static final IconEntry HEALING_SALVE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{54, 51, 3, 11}, 6513);
+	public static final IconEntry SEED_C4_R4 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{54, 51, 3, 11}, 6513);
+	/** semantic alias for SEED_C4_R4 */
+	public static final IconEntry HEALING_SALVE = SEED_C4_R4;
 	/** COOLING_OIL */
-	public static final IconEntry COOLING_OIL = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{65, 52, 14, 9}, 6514);
+	public static final IconEntry SEED_C5_R4 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{65, 52, 14, 9}, 6514);
+	/** semantic alias for SEED_C5_R4 */
+	public static final IconEntry COOLING_OIL = SEED_C5_R4;
 	/** PERFUME */
-	public static final IconEntry PERFUME = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{86, 51, 3, 11}, 6515);
+	public static final IconEntry SEED_C6_R4 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{86, 51, 3, 11}, 6515);
+	/** semantic alias for SEED_C6_R4 */
+	public static final IconEntry PERFUME = SEED_C6_R4;
 	/** TOXIC_EXTRACT */
-	public static final IconEntry TOXIC_EXTRACT = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{102, 51, 3, 11}, 6516);
+	public static final IconEntry SEED_C7_R4 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{102, 51, 3, 11}, 6516);
+	/** semantic alias for SEED_C7_R4 */
+	public static final IconEntry TOXIC_EXTRACT = SEED_C7_R4;
 	/** WAKE_TEA */
-	public static final IconEntry WAKE_TEA = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{112, 52, 16, 10}, 6517);
+	public static final IconEntry SEED_C8_R4 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{112, 52, 16, 10}, 6517);
+	/** semantic alias for SEED_C8_R4 */
+	public static final IconEntry WAKE_TEA = SEED_C8_R4;
 	/** NUTRIENT_SOLUTION */
-	public static final IconEntry NUTRIENT_SOLUTION = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{134, 51, 3, 11}, 6518);
+	public static final IconEntry SEED_C9_R4 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{134, 51, 3, 11}, 6518);
+	/** semantic alias for SEED_C9_R4 */
+	public static final IconEntry NUTRIENT_SOLUTION = SEED_C9_R4;
 	/** SUNFLOWER_SEED */
-	public static final IconEntry SUNFLOWER_SEED = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{148, 52, 9, 9}, 6519);
+	public static final IconEntry SEED_C10_R4 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{148, 52, 9, 9}, 6519);
+	/** semantic alias for SEED_C10_R4 */
+	public static final IconEntry SUNFLOWER_SEED = SEED_C10_R4;
 	/** FRUIT_THREAD */
-	public static final IconEntry FRUIT_THREAD = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{162, 52, 12, 9}, 6520);
+	public static final IconEntry SEED_C11_R4 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{162, 52, 12, 9}, 6520);
+	/** semantic alias for SEED_C11_R4 */
+	public static final IconEntry FRUIT_THREAD = SEED_C11_R4;
 	/** SEDATIVE */
-	public static final IconEntry SEDATIVE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{182, 51, 3, 11}, 6521);
+	public static final IconEntry SEED_C12_R4 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{182, 51, 3, 11}, 6521);
+	/** semantic alias for SEED_C12_R4 */
+	public static final IconEntry SEDATIVE = SEED_C12_R4;
 	/** RED_ROSE */
-	public static final IconEntry RED_ROSE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{194, 50, 12, 12}, 6522);
+	public static final IconEntry SEED_C13_R4 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{194, 50, 12, 12}, 6522);
+	/** semantic alias for SEED_C13_R4 */
+	public static final IconEntry RED_ROSE = SEED_C13_R4;
 	/** DIGESTIVE_FLUID */
-	public static final IconEntry DIGESTIVE_FLUID = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{214, 51, 3, 11}, 6523);
+	public static final IconEntry SEED_C14_R4 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{214, 51, 3, 11}, 6523);
+	/** semantic alias for SEED_C14_R4 */
+	public static final IconEntry DIGESTIVE_FLUID = SEED_C14_R4;
 	/** AETHER_LIQUID */
-	public static final IconEntry AETHER_LIQUID = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{230, 51, 3, 11}, 6524);
+	public static final IconEntry SEED_C15_R4 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{230, 51, 3, 11}, 6524);
+	/** semantic alias for SEED_C15_R4 */
+	public static final IconEntry AETHER_LIQUID = SEED_C15_R4;
 	/** CRYSTAL_SHARD */
-	public static final IconEntry CRYSTAL_SHARD = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{243, 52, 9, 9}, 6525);
+	public static final IconEntry SEED_C16_R4 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{243, 52, 9, 9}, 6525);
+	/** semantic alias for SEED_C16_R4 */
+	public static final IconEntry CRYSTAL_SHARD = SEED_C16_R4;
 	/** HIGH_ENERGY_SPORE */
-	public static final IconEntry HIGH_ENERGY_SPORE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{258, 51, 12, 11}, 6526);
+	public static final IconEntry SEED_C17_R4 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{258, 51, 12, 11}, 6526);
+	/** semantic alias for SEED_C17_R4 */
+	public static final IconEntry HIGH_ENERGY_SPORE = SEED_C17_R4;
 	/** WISH_PETAL */
-	public static final IconEntry WISH_PETAL = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{274, 51, 13, 10}, 6527);
+	public static final IconEntry SEED_C18_R4 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{274, 51, 13, 10}, 6527);
+	/** semantic alias for SEED_C18_R4 */
+	public static final IconEntry WISH_PETAL = SEED_C18_R4;
 	/** HORMONE_SOLUTION */
-	public static final IconEntry HORMONE_SOLUTION = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{294, 51, 3, 11}, 6528);
+	public static final IconEntry SEED_C19_R4 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{294, 51, 3, 11}, 6528);
+	/** semantic alias for SEED_C19_R4 */
+	public static final IconEntry HORMONE_SOLUTION = SEED_C19_R4;
 	/** FRUIT_ROT_BERRY */
-	public static final IconEntry FRUIT_ROT_BERRY = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{4, 68, 7, 9}, 6529);
+	public static final IconEntry SEED_C1_R5 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{4, 68, 7, 9}, 6529);
+	/** semantic alias for SEED_C1_R5 */
+	public static final IconEntry FRUIT_ROT_BERRY = SEED_C1_R5;
 	/** FRUIT_FIREBLOOM */
-	public static final IconEntry FRUIT_FIREBLOOM = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{21, 68, 7, 9}, 6530);
+	public static final IconEntry SEED_C2_R5 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{21, 68, 7, 9}, 6530);
+	/** semantic alias for SEED_C2_R5 */
+	public static final IconEntry FRUIT_FIREBLOOM = SEED_C2_R5;
 	/** FRUIT_BLINDWEED */
-	public static final IconEntry FRUIT_BLINDWEED = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{37, 68, 7, 9}, 6531);
+	public static final IconEntry SEED_C3_R5 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{37, 68, 7, 9}, 6531);
+	/** semantic alias for SEED_C3_R5 */
+	public static final IconEntry FRUIT_BLINDWEED = SEED_C3_R5;
 	/** FRUIT_SUNGRASS */
-	public static final IconEntry FRUIT_SUNGRASS = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{53, 68, 7, 9}, 6532);
+	public static final IconEntry SEED_C4_R5 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{53, 68, 7, 9}, 6532);
+	/** semantic alias for SEED_C4_R5 */
+	public static final IconEntry FRUIT_SUNGRASS = SEED_C4_R5;
 	/** FRUIT_ICECAP */
-	public static final IconEntry FRUIT_ICECAP = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{69, 68, 7, 9}, 6533);
+	public static final IconEntry SEED_C5_R5 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{69, 68, 7, 9}, 6533);
+	/** semantic alias for SEED_C5_R5 */
+	public static final IconEntry FRUIT_ICECAP = SEED_C5_R5;
 	/** FRUIT_STORMVINE */
-	public static final IconEntry FRUIT_STORMVINE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{85, 68, 7, 9}, 6534);
+	public static final IconEntry SEED_C6_R5 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{85, 68, 7, 9}, 6534);
+	/** semantic alias for SEED_C6_R5 */
+	public static final IconEntry FRUIT_STORMVINE = SEED_C6_R5;
 	/** FRUIT_SORROWMOSS */
-	public static final IconEntry FRUIT_SORROWMOSS = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{101, 68, 7, 9}, 6535);
+	public static final IconEntry SEED_C7_R5 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{101, 68, 7, 9}, 6535);
+	/** semantic alias for SEED_C7_R5 */
+	public static final IconEntry FRUIT_SORROWMOSS = SEED_C7_R5;
 	/** FRUIT_MAGEROYAL */
-	public static final IconEntry FRUIT_MAGEROYAL = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{117, 68, 7, 9}, 6536);
+	public static final IconEntry SEED_C8_R5 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{117, 68, 7, 9}, 6536);
+	/** semantic alias for SEED_C8_R5 */
+	public static final IconEntry FRUIT_MAGEROYAL = SEED_C8_R5;
 	/** FRUIT_EARTHROOT */
-	public static final IconEntry FRUIT_EARTHROOT = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{133, 68, 7, 9}, 6537);
+	public static final IconEntry SEED_C9_R5 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{133, 68, 7, 9}, 6537);
+	/** semantic alias for SEED_C9_R5 */
+	public static final IconEntry FRUIT_EARTHROOT = SEED_C9_R5;
 	/** FRUIT_FADELEAF */
-	public static final IconEntry FRUIT_FADELEAF = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{149, 68, 7, 9}, 6538);
+	public static final IconEntry SEED_C10_R5 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{149, 68, 7, 9}, 6538);
+	/** semantic alias for SEED_C10_R5 */
+	public static final IconEntry FRUIT_FADELEAF = SEED_C10_R5;
 	/** FRUIT_BLANDFRUIT */
-	public static final IconEntry FRUIT_BLANDFRUIT = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{165, 68, 7, 9}, 6539);
+	public static final IconEntry SEED_C11_R5 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{165, 68, 7, 9}, 6539);
+	/** semantic alias for SEED_C11_R5 */
+	public static final IconEntry FRUIT_BLANDFRUIT = SEED_C11_R5;
 	/** FRUIT_STARFLOWER */
-	public static final IconEntry FRUIT_STARFLOWER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{181, 68, 7, 9}, 6540);
+	public static final IconEntry SEED_C12_R5 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{181, 68, 7, 9}, 6540);
+	/** semantic alias for SEED_C12_R5 */
+	public static final IconEntry FRUIT_STARFLOWER = SEED_C12_R5;
 	/** FRUIT_NUTVINE */
-	public static final IconEntry FRUIT_NUTVINE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{197, 68, 7, 9}, 6541);
+	public static final IconEntry SEED_C13_R5 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{197, 68, 7, 9}, 6541);
+	/** semantic alias for SEED_C13_R5 */
+	public static final IconEntry FRUIT_NUTVINE = SEED_C13_R5;
 	/** FRUIT_STAREATER */
-	public static final IconEntry FRUIT_STAREATER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{213, 68, 7, 9}, 6542);
+	public static final IconEntry SEED_C14_R5 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{213, 68, 7, 9}, 6542);
+	/** semantic alias for SEED_C14_R5 */
+	public static final IconEntry FRUIT_STAREATER = SEED_C14_R5;
 	/** FRUIT_TRANSMUTE_CAGE */
-	public static final IconEntry FRUIT_TRANSMUTE_CAGE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{229, 68, 7, 9}, 6543);
+	public static final IconEntry SEED_C15_R5 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{229, 68, 7, 9}, 6543);
+	/** semantic alias for SEED_C15_R5 */
+	public static final IconEntry FRUIT_TRANSMUTE_CAGE = SEED_C15_R5;
 	/** FRUIT_QUARTZFLOWER */
-	public static final IconEntry FRUIT_QUARTZFLOWER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{245, 68, 7, 9}, 6544);
+	public static final IconEntry SEED_C16_R5 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{245, 68, 7, 9}, 6544);
+	/** semantic alias for SEED_C16_R5 */
+	public static final IconEntry FRUIT_QUARTZFLOWER = SEED_C16_R5;
 	/** FRUIT_DEWCATCHER */
-	public static final IconEntry FRUIT_DEWCATCHER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{261, 68, 7, 9}, 6545);
+	public static final IconEntry SEED_C17_R5 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{261, 68, 7, 9}, 6545);
+	/** semantic alias for SEED_C17_R5 */
+	public static final IconEntry FRUIT_DEWCATCHER = SEED_C17_R5;
 	/** FRUIT_POD */
-	public static final IconEntry FRUIT_POD = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{277, 68, 7, 9}, 6546);
+	public static final IconEntry SEED_C18_R5 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{277, 68, 7, 9}, 6546);
+	/** semantic alias for SEED_C18_R5 */
+	public static final IconEntry FRUIT_POD = SEED_C18_R5;
 	/** FRUIT_SWIFTTHISTLE */
-	public static final IconEntry FRUIT_SWIFTTHISTLE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{293, 68, 7, 9}, 6547);
+	public static final IconEntry SEED_C19_R5 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{293, 68, 7, 9}, 6547);
+	/** semantic alias for SEED_C19_R5 */
+	public static final IconEntry FRUIT_SWIFTTHISTLE = SEED_C19_R5;
 	/** LARGE_FRUIT_ROT_BERRY */
-	public static final IconEntry LARGE_FRUIT_ROT_BERRY = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{2, 81, 13, 14}, 6548);
+	public static final IconEntry SEED_C1_R6 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{2, 81, 13, 14}, 6548);
+	/** semantic alias for SEED_C1_R6 */
+	public static final IconEntry LARGE_FRUIT_ROT_BERRY = SEED_C1_R6;
 	/** LARGE_FRUIT_FIREBLOOM */
-	public static final IconEntry LARGE_FRUIT_FIREBLOOM = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{18, 81, 13, 14}, 6549);
+	public static final IconEntry SEED_C2_R6 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{18, 81, 13, 14}, 6549);
+	/** semantic alias for SEED_C2_R6 */
+	public static final IconEntry LARGE_FRUIT_FIREBLOOM = SEED_C2_R6;
 	/** LARGE_FRUIT_BLINDWEED */
-	public static final IconEntry LARGE_FRUIT_BLINDWEED = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{34, 81, 13, 14}, 6550);
+	public static final IconEntry SEED_C3_R6 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{34, 81, 13, 14}, 6550);
+	/** semantic alias for SEED_C3_R6 */
+	public static final IconEntry LARGE_FRUIT_BLINDWEED = SEED_C3_R6;
 	/** LARGE_FRUIT_SUNGRASS */
-	public static final IconEntry LARGE_FRUIT_SUNGRASS = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{50, 81, 13, 14}, 6551);
+	public static final IconEntry SEED_C4_R6 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{50, 81, 13, 14}, 6551);
+	/** semantic alias for SEED_C4_R6 */
+	public static final IconEntry LARGE_FRUIT_SUNGRASS = SEED_C4_R6;
 	/** LARGE_FRUIT_ICECAP */
-	public static final IconEntry LARGE_FRUIT_ICECAP = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{66, 81, 13, 14}, 6552);
+	public static final IconEntry SEED_C5_R6 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{66, 81, 13, 14}, 6552);
+	/** semantic alias for SEED_C5_R6 */
+	public static final IconEntry LARGE_FRUIT_ICECAP = SEED_C5_R6;
 	/** LARGE_FRUIT_STORMVINE */
-	public static final IconEntry LARGE_FRUIT_STORMVINE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{82, 81, 13, 14}, 6553);
+	public static final IconEntry SEED_C6_R6 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{82, 81, 13, 14}, 6553);
+	/** semantic alias for SEED_C6_R6 */
+	public static final IconEntry LARGE_FRUIT_STORMVINE = SEED_C6_R6;
 	/** LARGE_FRUIT_SORROWMOSS */
-	public static final IconEntry LARGE_FRUIT_SORROWMOSS = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{98, 81, 13, 14}, 6554);
+	public static final IconEntry SEED_C7_R6 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{98, 81, 13, 14}, 6554);
+	/** semantic alias for SEED_C7_R6 */
+	public static final IconEntry LARGE_FRUIT_SORROWMOSS = SEED_C7_R6;
 	/** LARGE_FRUIT_MAGEROYAL */
-	public static final IconEntry LARGE_FRUIT_MAGEROYAL = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{114, 81, 13, 14}, 6555);
+	public static final IconEntry SEED_C8_R6 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{114, 81, 13, 14}, 6555);
+	/** semantic alias for SEED_C8_R6 */
+	public static final IconEntry LARGE_FRUIT_MAGEROYAL = SEED_C8_R6;
 	/** LARGE_FRUIT_EARTHROOT */
-	public static final IconEntry LARGE_FRUIT_EARTHROOT = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{130, 81, 13, 14}, 6556);
+	public static final IconEntry SEED_C9_R6 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{130, 81, 13, 14}, 6556);
+	/** semantic alias for SEED_C9_R6 */
+	public static final IconEntry LARGE_FRUIT_EARTHROOT = SEED_C9_R6;
 	/** LARGE_FRUIT_FADELEAF */
-	public static final IconEntry LARGE_FRUIT_FADELEAF = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{146, 81, 13, 14}, 6557);
+	public static final IconEntry SEED_C10_R6 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{146, 81, 13, 14}, 6557);
+	/** semantic alias for SEED_C10_R6 */
+	public static final IconEntry LARGE_FRUIT_FADELEAF = SEED_C10_R6;
 	/** LARGE_FRUIT_BLANDFRUIT */
-	public static final IconEntry LARGE_FRUIT_BLANDFRUIT = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{162, 81, 13, 14}, 6558);
+	public static final IconEntry SEED_C11_R6 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{162, 81, 13, 14}, 6558);
+	/** semantic alias for SEED_C11_R6 */
+	public static final IconEntry LARGE_FRUIT_BLANDFRUIT = SEED_C11_R6;
 	/** LARGE_FRUIT_STARFLOWER */
-	public static final IconEntry LARGE_FRUIT_STARFLOWER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{178, 81, 13, 14}, 6559);
+	public static final IconEntry SEED_C12_R6 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{178, 81, 13, 14}, 6559);
+	/** semantic alias for SEED_C12_R6 */
+	public static final IconEntry LARGE_FRUIT_STARFLOWER = SEED_C12_R6;
 	/** LARGE_FRUIT_NUTVINE */
-	public static final IconEntry LARGE_FRUIT_NUTVINE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{194, 81, 13, 14}, 6560);
+	public static final IconEntry SEED_C13_R6 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{194, 81, 13, 14}, 6560);
+	/** semantic alias for SEED_C13_R6 */
+	public static final IconEntry LARGE_FRUIT_NUTVINE = SEED_C13_R6;
 	/** LARGE_FRUIT_STAREATER */
-	public static final IconEntry LARGE_FRUIT_STAREATER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{210, 81, 13, 14}, 6561);
+	public static final IconEntry SEED_C14_R6 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{210, 81, 13, 14}, 6561);
+	/** semantic alias for SEED_C14_R6 */
+	public static final IconEntry LARGE_FRUIT_STAREATER = SEED_C14_R6;
 	/** LARGE_FRUIT_TRANSMUTE_CAGE */
-	public static final IconEntry LARGE_FRUIT_TRANSMUTE_CAGE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{226, 81, 13, 14}, 6562);
+	public static final IconEntry SEED_C15_R6 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{226, 81, 13, 14}, 6562);
+	/** semantic alias for SEED_C15_R6 */
+	public static final IconEntry LARGE_FRUIT_TRANSMUTE_CAGE = SEED_C15_R6;
 	/** LARGE_FRUIT_QUARTZFLOWER */
-	public static final IconEntry LARGE_FRUIT_QUARTZFLOWER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{242, 81, 13, 14}, 6563);
+	public static final IconEntry SEED_C16_R6 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{242, 81, 13, 14}, 6563);
+	/** semantic alias for SEED_C16_R6 */
+	public static final IconEntry LARGE_FRUIT_QUARTZFLOWER = SEED_C16_R6;
 	/** LARGE_FRUIT_DEWCATCHER */
-	public static final IconEntry LARGE_FRUIT_DEWCATCHER = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{258, 81, 13, 14}, 6564);
+	public static final IconEntry SEED_C17_R6 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{258, 81, 13, 14}, 6564);
+	/** semantic alias for SEED_C17_R6 */
+	public static final IconEntry LARGE_FRUIT_DEWCATCHER = SEED_C17_R6;
 	/** LARGE_FRUIT_POD */
-	public static final IconEntry LARGE_FRUIT_POD = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{274, 81, 13, 14}, 6565);
+	public static final IconEntry SEED_C18_R6 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{274, 81, 13, 14}, 6565);
+	/** semantic alias for SEED_C18_R6 */
+	public static final IconEntry LARGE_FRUIT_POD = SEED_C18_R6;
 	/** LARGE_FRUIT_SWIFTTHISTLE */
-	public static final IconEntry LARGE_FRUIT_SWIFTTHISTLE = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{290, 81, 13, 14}, 6566);
+	public static final IconEntry SEED_C19_R6 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{290, 81, 13, 14}, 6566);
+	/** semantic alias for SEED_C19_R6 */
+	public static final IconEntry LARGE_FRUIT_SWIFTTHISTLE = SEED_C19_R6;
 	/** SEED_EXTRA_1 - 小号种子图标，对应 SEED_ROT_BERRY */
-	public static final IconEntry SEED_EXTRA_1 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{4, 20, 8, 8}, 7485);
+	public static final IconEntry SEED_C1_R2 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{4, 20, 8, 8}, 7485);
+	/** semantic alias for SEED_C1_R2 */
+	public static final IconEntry SEED_EXTRA_1 = SEED_C1_R2;
 	/** SEED_EXTRA_2 - 小号种子图标，对应 SEED_FIREBLOOM */
-	public static final IconEntry SEED_EXTRA_2 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{20, 20, 8, 8}, 7486);
+	public static final IconEntry SEED_C2_R2 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{20, 20, 8, 8}, 7486);
+	/** semantic alias for SEED_C2_R2 */
+	public static final IconEntry SEED_EXTRA_2 = SEED_C2_R2;
 	/** SEED_EXTRA_3 - 小号种子图标，对应 SEED_BLINDWEED */
-	public static final IconEntry SEED_EXTRA_3 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{36, 20, 8, 8}, 7487);
+	public static final IconEntry SEED_C3_R2 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{36, 20, 8, 8}, 7487);
+	/** semantic alias for SEED_C3_R2 */
+	public static final IconEntry SEED_EXTRA_3 = SEED_C3_R2;
 	/** SEED_EXTRA_4 - 小号种子图标，对应 SEED_SUNGRASS */
-	public static final IconEntry SEED_EXTRA_4 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{52, 20, 8, 8}, 7488);
+	public static final IconEntry SEED_C4_R2 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{52, 20, 8, 8}, 7488);
+	/** semantic alias for SEED_C4_R2 */
+	public static final IconEntry SEED_EXTRA_4 = SEED_C4_R2;
 	/** SEED_EXTRA_5 - 小号种子图标，对应 SEED_ICECAP */
-	public static final IconEntry SEED_EXTRA_5 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{68, 20, 8, 8}, 7489);
+	public static final IconEntry SEED_C5_R2 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{68, 20, 8, 8}, 7489);
+	/** semantic alias for SEED_C5_R2 */
+	public static final IconEntry SEED_EXTRA_5 = SEED_C5_R2;
 	/** SEED_EXTRA_6 - 小号种子图标，对应 SEED_STORMVINE */
-	public static final IconEntry SEED_EXTRA_6 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{84, 20, 8, 8}, 7490);
+	public static final IconEntry SEED_C6_R2 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{84, 20, 8, 8}, 7490);
+	/** semantic alias for SEED_C6_R2 */
+	public static final IconEntry SEED_EXTRA_6 = SEED_C6_R2;
 	/** SEED_EXTRA_7 - 小号种子图标，对应 SEED_SORROWMOSS */
-	public static final IconEntry SEED_EXTRA_7 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{100, 20, 8, 8}, 7491);
+	public static final IconEntry SEED_C7_R2 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{100, 20, 8, 8}, 7491);
+	/** semantic alias for SEED_C7_R2 */
+	public static final IconEntry SEED_EXTRA_7 = SEED_C7_R2;
 	/** SEED_EXTRA_8 - 小号种子图标，对应 SEED_MAGEROYAL */
-	public static final IconEntry SEED_EXTRA_8 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{116, 20, 8, 8}, 7492);
+	public static final IconEntry SEED_C8_R2 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{116, 20, 8, 8}, 7492);
+	/** semantic alias for SEED_C8_R2 */
+	public static final IconEntry SEED_EXTRA_8 = SEED_C8_R2;
 	/** SEED_EXTRA_9 - 小号种子图标，对应 SEED_EARTHROOT */
-	public static final IconEntry SEED_EXTRA_9 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{132, 20, 8, 8}, 7493);
+	public static final IconEntry SEED_C9_R2 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{132, 20, 8, 8}, 7493);
+	/** semantic alias for SEED_C9_R2 */
+	public static final IconEntry SEED_EXTRA_9 = SEED_C9_R2;
 	/** SEED_EXTRA_10 - 小号种子图标，对应 SEED_FADELEAF */
-	public static final IconEntry SEED_EXTRA_10 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{148, 20, 8, 8}, 7494);
+	public static final IconEntry SEED_C10_R2 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{148, 20, 8, 8}, 7494);
+	/** semantic alias for SEED_C10_R2 */
+	public static final IconEntry SEED_EXTRA_10 = SEED_C10_R2;
 	/** SEED_EXTRA_11 - 小号种子图标，对应 SEED_BLANDFRUIT */
-	public static final IconEntry SEED_EXTRA_11 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{164, 20, 8, 8}, 7495);
+	public static final IconEntry SEED_C11_R2 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{164, 20, 8, 8}, 7495);
+	/** semantic alias for SEED_C11_R2 */
+	public static final IconEntry SEED_EXTRA_11 = SEED_C11_R2;
 	/** SEED_EXTRA_12 - 小号种子图标，对应 SEED_STARFLOWER */
-	public static final IconEntry SEED_EXTRA_12 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{180, 20, 8, 8}, 7496);
+	public static final IconEntry SEED_C12_R2 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{180, 20, 8, 8}, 7496);
+	/** semantic alias for SEED_C12_R2 */
+	public static final IconEntry SEED_EXTRA_12 = SEED_C12_R2;
 	/** SEED_EXTRA_13 - 小号种子图标，对应 SEED_NUTVINE */
-	public static final IconEntry SEED_EXTRA_13 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{196, 20, 8, 8}, 7497);
+	public static final IconEntry SEED_C13_R2 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{196, 20, 8, 8}, 7497);
+	/** semantic alias for SEED_C13_R2 */
+	public static final IconEntry SEED_EXTRA_13 = SEED_C13_R2;
 	/** SEED_EXTRA_14 - 小号种子图标，对应 SEED_STAREATER */
-	public static final IconEntry SEED_EXTRA_14 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{212, 20, 8, 8}, 7498);
+	public static final IconEntry SEED_C14_R2 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{212, 20, 8, 8}, 7498);
+	/** semantic alias for SEED_C14_R2 */
+	public static final IconEntry SEED_EXTRA_14 = SEED_C14_R2;
 	/** SEED_EXTRA_15 - 小号种子图标，对应 SEED_TRANSMUTE_CAGE */
-	public static final IconEntry SEED_EXTRA_15 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{228, 20, 8, 8}, 7499);
+	public static final IconEntry SEED_C15_R2 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{228, 20, 8, 8}, 7499);
+	/** semantic alias for SEED_C15_R2 */
+	public static final IconEntry SEED_EXTRA_15 = SEED_C15_R2;
 	/** SEED_EXTRA_16 - 小号种子图标，对应 SEED_QUARTZFLOWER */
-	public static final IconEntry SEED_EXTRA_16 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{244, 20, 8, 8}, 7500);
+	public static final IconEntry SEED_C16_R2 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{244, 20, 8, 8}, 7500);
+	/** semantic alias for SEED_C16_R2 */
+	public static final IconEntry SEED_EXTRA_16 = SEED_C16_R2;
 	/** SEED_EXTRA_17 - 小号种子图标，对应 SEED_DEWCATCHER */
-	public static final IconEntry SEED_EXTRA_17 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{260, 20, 8, 8}, 7501);
+	public static final IconEntry SEED_C17_R2 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{260, 20, 8, 8}, 7501);
+	/** semantic alias for SEED_C17_R2 */
+	public static final IconEntry SEED_EXTRA_17 = SEED_C17_R2;
 	/** SEED_EXTRA_18 - 小号种子图标，对应 SEED_POD */
-	public static final IconEntry SEED_EXTRA_18 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{276, 20, 8, 8}, 7502);
+	public static final IconEntry SEED_C18_R2 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{276, 20, 8, 8}, 7502);
+	/** semantic alias for SEED_C18_R2 */
+	public static final IconEntry SEED_EXTRA_18 = SEED_C18_R2;
 	/** SEED_EXTRA_19 - 小号种子图标，对应 SEED_SWIFTTHISTLE */
-	public static final IconEntry SEED_EXTRA_19 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{292, 20, 8, 8}, 7503);
+	public static final IconEntry SEED_C19_R2 = new IconEntry("sprites/items/consum/potion_seed/seed.png", new int[]{292, 20, 8, 8}, 7503);
+	/** semantic alias for SEED_C19_R2 */
+	public static final IconEntry SEED_EXTRA_19 = SEED_C19_R2;
 }

@@ -13,7 +13,11 @@ public final class SpecificPlaceHoldeFruitDict {
 	private SpecificPlaceHoldeFruitDict() { }
 
 	/** FRUIT_HOLDER#0 */
-	public static final IconEntry FRUIT_HOLDER_0 = new IconEntry("sprites/items/specific/place_holde_fruit.png", new int[]{5, 4, 7, 9}, 7194);
+	public static final IconEntry PLACE_HOLDE_FRUIT_C1_R1 = new IconEntry("sprites/items/specific/place_holde_fruit.png", new int[]{5, 4, 7, 9}, 7194);
+	/** semantic alias for PLACE_HOLDE_FRUIT_C1_R1 */
+	public static final IconEntry FRUIT_HOLDER_0 = PLACE_HOLDE_FRUIT_C1_R1;
 	/** LARGE_FRUIT_HOLDER#0 */
-	public static final IconEntry LARGE_FRUIT_HOLDER_0 = new IconEntry("sprites/items/specific/place_holde_fruit.png", new int[]{18, 1, 13, 14}, 7195);
+	public static final IconEntry PLACE_HOLDE_FRUIT_C2_R1 = new IconEntry("sprites/items/specific/place_holde_fruit.png", new int[]{18, 1, 13, 14}, 7195);
+	/** semantic alias for PLACE_HOLDE_FRUIT_C2_R1 */
+	public static final IconEntry LARGE_FRUIT_HOLDER_0 = PLACE_HOLDE_FRUIT_C2_R1;
 }

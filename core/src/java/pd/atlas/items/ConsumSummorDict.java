@@ -13,83 +13,163 @@ public final class ConsumSummorDict {
 	private ConsumSummorDict() { }
 
 	/** RANDOM_INITIAL_SOUL */
-	public static final IconEntry RANDOM_INITIAL_SOUL = new IconEntry("sprites/items/consum/summor.png", new int[]{2, 2, 11, 12}, 6626);
+	public static final IconEntry SUMMOR_C1_R1 = new IconEntry("sprites/items/consum/summor.png", new int[]{2, 2, 11, 12}, 6626);
+	/** semantic alias for SUMMOR_C1_R1 */
+	public static final IconEntry RANDOM_INITIAL_SOUL = SUMMOR_C1_R1;
 	/** RANDOM_SOUL */
-	public static final IconEntry RANDOM_SOUL = new IconEntry("sprites/items/consum/summor.png", new int[]{16, 0, 16, 16}, 6627);
+	public static final IconEntry SUMMOR_C2_R1 = new IconEntry("sprites/items/consum/summor.png", new int[]{16, 0, 16, 16}, 6627);
+	/** semantic alias for SUMMOR_C2_R1 */
+	public static final IconEntry RANDOM_SOUL = SUMMOR_C2_R1;
 	/** SUMMON_TEMPLATE_1 */
-	public static final IconEntry SUMMON_TEMPLATE_1 = new IconEntry("sprites/items/consum/summor.png", new int[]{32, 0, 16, 16}, 6628);
+	public static final IconEntry SUMMOR_C3_R1 = new IconEntry("sprites/items/consum/summor.png", new int[]{32, 0, 16, 16}, 6628);
+	/** semantic alias for SUMMOR_C3_R1 */
+	public static final IconEntry SUMMON_TEMPLATE_1 = SUMMOR_C3_R1;
 	/** SUMMON_TEMPLATE_2 */
-	public static final IconEntry SUMMON_TEMPLATE_2 = new IconEntry("sprites/items/consum/summor.png", new int[]{48, 0, 16, 16}, 6629);
+	public static final IconEntry SUMMOR_C4_R1 = new IconEntry("sprites/items/consum/summor.png", new int[]{48, 0, 16, 16}, 6629);
+	/** semantic alias for SUMMOR_C4_R1 */
+	public static final IconEntry SUMMON_TEMPLATE_2 = SUMMOR_C4_R1;
 	/** SCORPION_EGG#0 */
-	public static final IconEntry SCORPION_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{0, 16, 16, 16}, 6630);
+	public static final IconEntry SUMMOR_C1_R2 = new IconEntry("sprites/items/consum/summor.png", new int[]{0, 16, 16, 16}, 6630);
+	/** semantic alias for SUMMOR_C1_R2 */
+	public static final IconEntry SCORPION_EGG_0 = SUMMOR_C1_R2;
 	/** BLUE_GIRL_EGG#0 */
-	public static final IconEntry BLUE_GIRL_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{16, 16, 16, 16}, 6631);
+	public static final IconEntry SUMMOR_C2_R2 = new IconEntry("sprites/items/consum/summor.png", new int[]{16, 16, 16, 16}, 6631);
+	/** semantic alias for SUMMOR_C2_R2 */
+	public static final IconEntry BLUE_GIRL_EGG_0 = SUMMOR_C2_R2;
 	/** LERY_FIRE_EGG#0 */
-	public static final IconEntry LERY_FIRE_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{32, 16, 16, 16}, 6632);
+	public static final IconEntry SUMMOR_C3_R2 = new IconEntry("sprites/items/consum/summor.png", new int[]{32, 16, 16, 16}, 6632);
+	/** semantic alias for SUMMOR_C3_R2 */
+	public static final IconEntry LERY_FIRE_EGG_0 = SUMMOR_C3_R2;
 	/** RED_DRAGON_EGG#0 */
-	public static final IconEntry RED_DRAGON_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{48, 16, 16, 16}, 6633);
+	public static final IconEntry SUMMOR_C4_R2 = new IconEntry("sprites/items/consum/summor.png", new int[]{48, 16, 16, 16}, 6633);
+	/** semantic alias for SUMMOR_C4_R2 */
+	public static final IconEntry RED_DRAGON_EGG_0 = SUMMOR_C4_R2;
 	/** BLUE_DRAGON_EGG#0 */
-	public static final IconEntry BLUE_DRAGON_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{64, 16, 16, 16}, 6634);
+	public static final IconEntry SUMMOR_C5_R2 = new IconEntry("sprites/items/consum/summor.png", new int[]{64, 16, 16, 16}, 6634);
+	/** semantic alias for SUMMOR_C5_R2 */
+	public static final IconEntry BLUE_DRAGON_EGG_0 = SUMMOR_C5_R2;
 	/** VIOLET_DRAGON_EGG#0 */
-	public static final IconEntry VIOLET_DRAGON_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{80, 16, 16, 16}, 6635);
+	public static final IconEntry SUMMOR_C6_R2 = new IconEntry("sprites/items/consum/summor.png", new int[]{80, 16, 16, 16}, 6635);
+	/** semantic alias for SUMMOR_C6_R2 */
+	public static final IconEntry VIOLET_DRAGON_EGG_0 = SUMMOR_C6_R2;
 	/** GREEN_DRAGON_EGG#0 */
-	public static final IconEntry GREEN_DRAGON_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{96, 16, 16, 16}, 6636);
+	public static final IconEntry SUMMOR_C7_R2 = new IconEntry("sprites/items/consum/summor.png", new int[]{96, 16, 16, 16}, 6636);
+	/** semantic alias for SUMMOR_C7_R2 */
+	public static final IconEntry GREEN_DRAGON_EGG_0 = SUMMOR_C7_R2;
 	/** RABBIT_PET_EGG#0 */
-	public static final IconEntry RABBIT_PET_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{128, 16, 16, 16}, 6637);
+	public static final IconEntry SUMMOR_C9_R2 = new IconEntry("sprites/items/consum/summor.png", new int[]{128, 16, 16, 16}, 6637);
+	/** semantic alias for SUMMOR_C9_R2 */
+	public static final IconEntry RABBIT_PET_EGG_0 = SUMMOR_C9_R2;
 	/** VELOCIROOSTER_EGG#0 */
-	public static final IconEntry VELOCIROOSTER_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{144, 16, 16, 16}, 6638);
+	public static final IconEntry SUMMOR_C10_R2 = new IconEntry("sprites/items/consum/summor.png", new int[]{144, 16, 16, 16}, 6638);
+	/** semantic alias for SUMMOR_C10_R2 */
+	public static final IconEntry VELOCIROOSTER_EGG_0 = SUMMOR_C10_R2;
 	/** BUG_DRAGON_EGG#0 */
-	public static final IconEntry BUG_DRAGON_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{160, 16, 16, 16}, 6639);
+	public static final IconEntry SUMMOR_C11_R2 = new IconEntry("sprites/items/consum/summor.png", new int[]{160, 16, 16, 16}, 6639);
+	/** semantic alias for SUMMOR_C11_R2 */
+	public static final IconEntry BUG_DRAGON_EGG_0 = SUMMOR_C11_R2;
 	/** LIGHT_DRAGON_EGG#0 */
-	public static final IconEntry LIGHT_DRAGON_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{176, 16, 16, 16}, 6640);
+	public static final IconEntry SUMMOR_C12_R2 = new IconEntry("sprites/items/consum/summor.png", new int[]{176, 16, 16, 16}, 6640);
+	/** semantic alias for SUMMOR_C12_R2 */
+	public static final IconEntry LIGHT_DRAGON_EGG_0 = SUMMOR_C12_R2;
 	/** GOLD_DRAGON_EGG#0 */
-	public static final IconEntry GOLD_DRAGON_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{192, 16, 16, 16}, 6641);
+	public static final IconEntry SUMMOR_C13_R2 = new IconEntry("sprites/items/consum/summor.png", new int[]{192, 16, 16, 16}, 6641);
+	/** semantic alias for SUMMOR_C13_R2 */
+	public static final IconEntry GOLD_DRAGON_EGG_0 = SUMMOR_C13_R2;
 	/** AFLY_EGG#0 */
-	public static final IconEntry AFLY_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{208, 16, 16, 16}, 6642);
+	public static final IconEntry SUMMOR_C14_R2 = new IconEntry("sprites/items/consum/summor.png", new int[]{208, 16, 16, 16}, 6642);
+	/** semantic alias for SUMMOR_C14_R2 */
+	public static final IconEntry AFLY_EGG_0 = SUMMOR_C14_R2;
 	/** STAR_KID_EGG#0 */
-	public static final IconEntry STAR_KID_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{224, 16, 16, 16}, 6643);
+	public static final IconEntry SUMMOR_C15_R2 = new IconEntry("sprites/items/consum/summor.png", new int[]{224, 16, 16, 16}, 6643);
+	/** semantic alias for SUMMOR_C15_R2 */
+	public static final IconEntry STAR_KID_EGG_0 = SUMMOR_C15_R2;
 	/** STONE_PET_EGG#0 */
-	public static final IconEntry STONE_PET_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{240, 16, 16, 16}, 6644);
+	public static final IconEntry SUMMOR_C16_R2 = new IconEntry("sprites/items/consum/summor.png", new int[]{240, 16, 16, 16}, 6644);
+	/** semantic alias for SUMMOR_C16_R2 */
+	public static final IconEntry STONE_PET_EGG_0 = SUMMOR_C16_R2;
 	/** DATURA_EGG#0 */
-	public static final IconEntry DATURA_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{0, 32, 16, 16}, 6645);
+	public static final IconEntry SUMMOR_C1_R3 = new IconEntry("sprites/items/consum/summor.png", new int[]{0, 32, 16, 16}, 6645);
+	/** semantic alias for SUMMOR_C1_R3 */
+	public static final IconEntry DATURA_EGG_0 = SUMMOR_C1_R3;
 	/** DOG_PET_EGG#0 */
-	public static final IconEntry DOG_PET_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{16, 32, 16, 16}, 6646);
+	public static final IconEntry SUMMOR_C2_R3 = new IconEntry("sprites/items/consum/summor.png", new int[]{16, 32, 16, 16}, 6646);
+	/** semantic alias for SUMMOR_C2_R3 */
+	public static final IconEntry DOG_PET_EGG_0 = SUMMOR_C2_R3;
 	/** DWARF_BOY_EGG#0 */
-	public static final IconEntry DWARF_BOY_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{32, 32, 16, 16}, 6647);
+	public static final IconEntry SUMMOR_C3_R3 = new IconEntry("sprites/items/consum/summor.png", new int[]{32, 32, 16, 16}, 6647);
+	/** semantic alias for SUMMOR_C3_R3 */
+	public static final IconEntry DWARF_BOY_EGG_0 = SUMMOR_C3_R3;
 	/** FLY_EGG#0 */
-	public static final IconEntry FLY_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{48, 32, 16, 16}, 6648);
+	public static final IconEntry SUMMOR_C4_R3 = new IconEntry("sprites/items/consum/summor.png", new int[]{48, 32, 16, 16}, 6648);
+	/** semantic alias for SUMMOR_C4_R3 */
+	public static final IconEntry FLY_EGG_0 = SUMMOR_C4_R3;
 	/** FOX_HELPER_EGG#0 */
-	public static final IconEntry FOX_HELPER_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{64, 32, 16, 16}, 6649);
+	public static final IconEntry SUMMOR_C5_R3 = new IconEntry("sprites/items/consum/summor.png", new int[]{64, 32, 16, 16}, 6649);
+	/** semantic alias for SUMMOR_C5_R3 */
+	public static final IconEntry FOX_HELPER_EGG_0 = SUMMOR_C5_R3;
 	/** FROG_PET_EGG#0 */
-	public static final IconEntry FROG_PET_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{80, 32, 16, 16}, 6650);
+	public static final IconEntry SUMMOR_C6_R3 = new IconEntry("sprites/items/consum/summor.png", new int[]{80, 32, 16, 16}, 6650);
+	/** semantic alias for SUMMOR_C6_R3 */
+	public static final IconEntry FROG_PET_EGG_0 = SUMMOR_C6_R3;
 	/** GENTLE_CRAB_EGG#0 */
-	public static final IconEntry GENTLE_CRAB_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{96, 32, 16, 16}, 6651);
+	public static final IconEntry SUMMOR_C7_R3 = new IconEntry("sprites/items/consum/summor.png", new int[]{96, 32, 16, 16}, 6651);
+	/** semantic alias for SUMMOR_C7_R3 */
+	public static final IconEntry GENTLE_CRAB_EGG_0 = SUMMOR_C7_R3;
 	/** KODORA_EGG#0 */
-	public static final IconEntry KODORA_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{112, 32, 16, 16}, 6652);
+	public static final IconEntry SUMMOR_C8_R3 = new IconEntry("sprites/items/consum/summor.png", new int[]{112, 32, 16, 16}, 6652);
+	/** semantic alias for SUMMOR_C8_R3 */
+	public static final IconEntry KODORA_EGG_0 = SUMMOR_C8_R3;
 	/** LIT_DEMON_EGG#0 */
-	public static final IconEntry LIT_DEMON_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{128, 32, 16, 16}, 6653);
+	public static final IconEntry SUMMOR_C9_R3 = new IconEntry("sprites/items/consum/summor.png", new int[]{128, 32, 16, 16}, 6653);
+	/** semantic alias for SUMMOR_C9_R3 */
+	public static final IconEntry LIT_DEMON_EGG_0 = SUMMOR_C9_R3;
 	/** MONKEY_EGG#0 */
-	public static final IconEntry MONKEY_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{144, 32, 16, 16}, 6654);
+	public static final IconEntry SUMMOR_C10_R3 = new IconEntry("sprites/items/consum/summor.png", new int[]{144, 32, 16, 16}, 6654);
+	/** semantic alias for SUMMOR_C10_R3 */
+	public static final IconEntry MONKEY_EGG_0 = SUMMOR_C10_R3;
 	/** PIG_PET_EGG#0 */
-	public static final IconEntry PIG_PET_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{160, 32, 16, 16}, 6655);
+	public static final IconEntry SUMMOR_C11_R3 = new IconEntry("sprites/items/consum/summor.png", new int[]{160, 32, 16, 16}, 6655);
+	/** semantic alias for SUMMOR_C11_R3 */
+	public static final IconEntry PIG_PET_EGG_0 = SUMMOR_C11_R3;
 	/** RIBBON_RAT_EGG#0 */
-	public static final IconEntry RIBBON_RAT_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{176, 32, 16, 16}, 6656);
+	public static final IconEntry SUMMOR_C12_R3 = new IconEntry("sprites/items/consum/summor.png", new int[]{176, 32, 16, 16}, 6656);
+	/** semantic alias for SUMMOR_C12_R3 */
+	public static final IconEntry RIBBON_RAT_EGG_0 = SUMMOR_C12_R3;
 	/** SNAKE_PET_EGG#0 */
-	public static final IconEntry SNAKE_PET_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{192, 32, 16, 16}, 6657);
+	public static final IconEntry SUMMOR_C13_R3 = new IconEntry("sprites/items/consum/summor.png", new int[]{192, 32, 16, 16}, 6657);
+	/** semantic alias for SUMMOR_C13_R3 */
+	public static final IconEntry SNAKE_PET_EGG_0 = SUMMOR_C13_R3;
 	/** SPIDER_PET_EGG#0 */
-	public static final IconEntry SPIDER_PET_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{208, 32, 16, 16}, 6658);
+	public static final IconEntry SUMMOR_C14_R3 = new IconEntry("sprites/items/consum/summor.png", new int[]{208, 32, 16, 16}, 6658);
+	/** semantic alias for SUMMOR_C14_R3 */
+	public static final IconEntry SPIDER_PET_EGG_0 = SUMMOR_C14_R3;
 	/** CHOCOBO_EGG#0 */
-	public static final IconEntry CHOCOBO_EGG_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{224, 32, 16, 16}, 6659);
+	public static final IconEntry SUMMOR_C15_R3 = new IconEntry("sprites/items/consum/summor.png", new int[]{224, 32, 16, 16}, 6659);
+	/** semantic alias for SUMMOR_C15_R3 */
+	public static final IconEntry CHOCOBO_EGG_0 = SUMMOR_C15_R3;
 	/** SOLDIER_SUMMON */
-	public static final IconEntry SOLDIER_SUMMON = new IconEntry("sprites/items/consum/summor.png", new int[]{2, 48, 12, 16}, 6660);
+	public static final IconEntry SUMMOR_C1_R4 = new IconEntry("sprites/items/consum/summor.png", new int[]{2, 48, 12, 16}, 6660);
+	/** semantic alias for SUMMOR_C1_R4 */
+	public static final IconEntry SOLDIER_SUMMON = SUMMOR_C1_R4;
 	/** FAIRY_DOLL */
-	public static final IconEntry FAIRY_DOLL = new IconEntry("sprites/items/consum/summor.png", new int[]{18, 49, 12, 15}, 6661);
+	public static final IconEntry SUMMOR_C2_R4 = new IconEntry("sprites/items/consum/summor.png", new int[]{18, 49, 12, 15}, 6661);
+	/** semantic alias for SUMMOR_C2_R4 */
+	public static final IconEntry FAIRY_DOLL = SUMMOR_C2_R4;
 	/** FAIRY_CARD#0 */
-	public static final IconEntry FAIRY_CARD_0 = new IconEntry("sprites/items/consum/summor.png", new int[]{32, 48, 16, 16}, 6662);
+	public static final IconEntry SUMMOR_C3_R4 = new IconEntry("sprites/items/consum/summor.png", new int[]{32, 48, 16, 16}, 6662);
+	/** semantic alias for SUMMOR_C3_R4 */
+	public static final IconEntry FAIRY_CARD_0 = SUMMOR_C3_R4;
 	/** DESTRUCTION_DRONE */
-	public static final IconEntry DESTRUCTION_DRONE = new IconEntry("sprites/items/consum/summor.png", new int[]{48, 48, 15, 16}, 6663);
+	public static final IconEntry SUMMOR_C4_R4 = new IconEntry("sprites/items/consum/summor.png", new int[]{48, 48, 15, 16}, 6663);
+	/** semantic alias for SUMMOR_C4_R4 */
+	public static final IconEntry DESTRUCTION_DRONE = SUMMOR_C4_R4;
 	/** LASER_TURRET */
-	public static final IconEntry LASER_TURRET = new IconEntry("sprites/items/consum/summor.png", new int[]{64, 49, 15, 14}, 6664);
+	public static final IconEntry SUMMOR_C5_R4 = new IconEntry("sprites/items/consum/summor.png", new int[]{64, 49, 15, 14}, 6664);
+	/** semantic alias for SUMMOR_C5_R4 */
+	public static final IconEntry LASER_TURRET = SUMMOR_C5_R4;
 	/** CAT_EAR_BOX */
-	public static final IconEntry CAT_EAR_BOX = new IconEntry("sprites/items/consum/summor.png", new int[]{83, 54, 11, 9}, 6665);
+	public static final IconEntry SUMMOR_C6_R4 = new IconEntry("sprites/items/consum/summor.png", new int[]{83, 54, 11, 9}, 6665);
+	/** semantic alias for SUMMOR_C6_R4 */
+	public static final IconEntry CAT_EAR_BOX = SUMMOR_C6_R4;
 }

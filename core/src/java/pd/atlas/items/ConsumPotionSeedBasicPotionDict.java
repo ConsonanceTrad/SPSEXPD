@@ -13,117 +13,231 @@ public final class ConsumPotionSeedBasicPotionDict {
 	private ConsumPotionSeedBasicPotionDict() { }
 
 	/** POTION_CRIMSON#0 */
-	public static final IconEntry POTION_CRIMSON_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{0, 0, 12, 14}, 6424);
+	public static final IconEntry BASIC_POTION_C1_R1 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{0, 0, 12, 14}, 6424);
+	/** semantic alias for BASIC_POTION_C1_R1 */
+	public static final IconEntry POTION_CRIMSON_0 = BASIC_POTION_C1_R1;
 	/** POTION_HEALING#0 */
-	public static final IconEntry POTION_HEALING_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{16, 0, 12, 14}, 6425);
+	public static final IconEntry BASIC_POTION_C2_R1 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{16, 0, 12, 14}, 6425);
+	/** semantic alias for BASIC_POTION_C2_R1 */
+	public static final IconEntry POTION_HEALING_0 = BASIC_POTION_C2_R1;
 	/** POTION_MINDVIS#0 */
-	public static final IconEntry POTION_MINDVIS_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{32, 0, 12, 14}, 6426);
+	public static final IconEntry BASIC_POTION_C3_R1 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{32, 0, 12, 14}, 6426);
+	/** semantic alias for BASIC_POTION_C3_R1 */
+	public static final IconEntry POTION_MINDVIS_0 = BASIC_POTION_C3_R1;
 	/** POTION_JADE#0 */
-	public static final IconEntry POTION_JADE_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{48, 0, 12, 14}, 6427);
+	public static final IconEntry BASIC_POTION_C4_R1 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{48, 0, 12, 14}, 6427);
+	/** semantic alias for BASIC_POTION_C4_R1 */
+	public static final IconEntry POTION_JADE_0 = BASIC_POTION_C4_R1;
 	/** POTION_TURQUOISE#0 */
-	public static final IconEntry POTION_TURQUOISE_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{64, 0, 12, 14}, 6428);
+	public static final IconEntry BASIC_POTION_C5_R1 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{64, 0, 12, 14}, 6428);
+	/** semantic alias for BASIC_POTION_C5_R1 */
+	public static final IconEntry POTION_TURQUOISE_0 = BASIC_POTION_C5_R1;
 	/** POTION_AZURE#0 */
-	public static final IconEntry POTION_AZURE_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{80, 0, 12, 14}, 6429);
+	public static final IconEntry BASIC_POTION_C6_R1 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{80, 0, 12, 14}, 6429);
+	/** semantic alias for BASIC_POTION_C6_R1 */
+	public static final IconEntry POTION_AZURE_0 = BASIC_POTION_C6_R1;
 	/** POTION_INDIGO#0 */
-	public static final IconEntry POTION_INDIGO_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{96, 0, 12, 14}, 6430);
+	public static final IconEntry BASIC_POTION_C7_R1 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{96, 0, 12, 14}, 6430);
+	/** semantic alias for BASIC_POTION_C7_R1 */
+	public static final IconEntry POTION_INDIGO_0 = BASIC_POTION_C7_R1;
 	/** POTION_INVIS#0 */
-	public static final IconEntry POTION_INVIS_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{112, 0, 12, 14}, 6431);
+	public static final IconEntry BASIC_POTION_C8_R1 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{112, 0, 12, 14}, 6431);
+	/** semantic alias for BASIC_POTION_C8_R1 */
+	public static final IconEntry POTION_INVIS_0 = BASIC_POTION_C8_R1;
 	/** POTION_BISTRE#0 */
-	public static final IconEntry POTION_BISTRE_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{128, 0, 12, 14}, 6432);
+	public static final IconEntry BASIC_POTION_C9_R1 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{128, 0, 12, 14}, 6432);
+	/** semantic alias for BASIC_POTION_C9_R1 */
+	public static final IconEntry POTION_BISTRE_0 = BASIC_POTION_C9_R1;
 	/** POTION_CHARCOAL#0 */
-	public static final IconEntry POTION_CHARCOAL_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{144, 0, 12, 14}, 6433);
+	public static final IconEntry BASIC_POTION_C10_R1 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{144, 0, 12, 14}, 6433);
+	/** semantic alias for BASIC_POTION_C10_R1 */
+	public static final IconEntry POTION_CHARCOAL_0 = BASIC_POTION_C10_R1;
 	/** POTION_SILVER#0 */
-	public static final IconEntry POTION_SILVER_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{160, 0, 12, 14}, 6434);
+	public static final IconEntry BASIC_POTION_C11_R1 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{160, 0, 12, 14}, 6434);
+	/** semantic alias for BASIC_POTION_C11_R1 */
+	public static final IconEntry POTION_SILVER_0 = BASIC_POTION_C11_R1;
 	/** POTION_EXP#0 */
-	public static final IconEntry POTION_EXP_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{176, 0, 12, 14}, 6435);
+	public static final IconEntry BASIC_POTION_C12_R1 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{176, 0, 12, 14}, 6435);
+	/** semantic alias for BASIC_POTION_C12_R1 */
+	public static final IconEntry POTION_EXP_0 = BASIC_POTION_C12_R1;
 	/** LIQUID_METAL#0 */
-	public static final IconEntry LIQUID_METAL_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{192, 0, 8, 15}, 6436);
+	public static final IconEntry BASIC_POTION_C13_R1 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{192, 0, 8, 15}, 6436);
+	/** semantic alias for BASIC_POTION_C13_R1 */
+	public static final IconEntry LIQUID_METAL_0 = BASIC_POTION_C13_R1;
 	/** STRENGTH_BOTTLE */
-	public static final IconEntry STRENGTH_BOTTLE = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{244, 2, 9, 12}, 6437);
+	public static final IconEntry BASIC_POTION_C16_R1 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{244, 2, 9, 12}, 6437);
+	/** semantic alias for BASIC_POTION_C16_R1 */
+	public static final IconEntry STRENGTH_BOTTLE = BASIC_POTION_C16_R1;
 	/** POTION_MASTERY#0 */
-	public static final IconEntry POTION_MASTERY_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{0, 16, 12, 13}, 6438);
+	public static final IconEntry BASIC_POTION_C1_R2 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{0, 16, 12, 13}, 6438);
+	/** semantic alias for BASIC_POTION_C1_R2 */
+	public static final IconEntry POTION_MASTERY_0 = BASIC_POTION_C1_R2;
 	/** POTION_SHIELDING#0 */
-	public static final IconEntry POTION_SHIELDING_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{16, 16, 12, 13}, 6439);
+	public static final IconEntry BASIC_POTION_C2_R2 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{16, 16, 12, 13}, 6439);
+	/** semantic alias for BASIC_POTION_C2_R2 */
+	public static final IconEntry POTION_SHIELDING_0 = BASIC_POTION_C2_R2;
 	/** POTION_MAGISIGHT#0 */
-	public static final IconEntry POTION_MAGISIGHT_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{32, 16, 12, 13}, 6440);
+	public static final IconEntry BASIC_POTION_C3_R2 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{32, 16, 12, 13}, 6440);
+	/** semantic alias for BASIC_POTION_C3_R2 */
+	public static final IconEntry POTION_MAGISIGHT_0 = BASIC_POTION_C3_R2;
 	/** POTION_SNAPFREEZ#0 */
-	public static final IconEntry POTION_SNAPFREEZ_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{48, 16, 12, 13}, 6441);
+	public static final IconEntry BASIC_POTION_C4_R2 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{48, 16, 12, 13}, 6441);
+	/** semantic alias for BASIC_POTION_C4_R2 */
+	public static final IconEntry POTION_SNAPFREEZ_0 = BASIC_POTION_C4_R2;
 	/** EXOTIC_TURQUOISE#0 */
-	public static final IconEntry EXOTIC_TURQUOISE_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{64, 16, 12, 13}, 6442);
+	public static final IconEntry BASIC_POTION_C5_R2 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{64, 16, 12, 13}, 6442);
+	/** semantic alias for BASIC_POTION_C5_R2 */
+	public static final IconEntry EXOTIC_TURQUOISE_0 = BASIC_POTION_C5_R2;
 	/** POTION_CORROGAS#0 */
-	public static final IconEntry POTION_CORROGAS_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{80, 16, 12, 13}, 6443);
+	public static final IconEntry BASIC_POTION_C6_R2 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{80, 16, 12, 13}, 6443);
+	/** semantic alias for BASIC_POTION_C6_R2 */
+	public static final IconEntry POTION_CORROGAS_0 = BASIC_POTION_C6_R2;
 	/** POTION_STAMINA#0 */
-	public static final IconEntry POTION_STAMINA_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{96, 16, 12, 13}, 6444);
+	public static final IconEntry BASIC_POTION_C7_R2 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{96, 16, 12, 13}, 6444);
+	/** semantic alias for BASIC_POTION_C7_R2 */
+	public static final IconEntry POTION_STAMINA_0 = BASIC_POTION_C7_R2;
 	/** POTION_SHROUDFOG#0 */
-	public static final IconEntry POTION_SHROUDFOG_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{112, 16, 12, 13}, 6445);
+	public static final IconEntry BASIC_POTION_C8_R2 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{112, 16, 12, 13}, 6445);
+	/** semantic alias for BASIC_POTION_C8_R2 */
+	public static final IconEntry POTION_SHROUDFOG_0 = BASIC_POTION_C8_R2;
 	/** EXOTIC_BISTRE#0 */
-	public static final IconEntry EXOTIC_BISTRE_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{128, 16, 12, 13}, 6446);
+	public static final IconEntry BASIC_POTION_C9_R2 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{128, 16, 12, 13}, 6446);
+	/** semantic alias for BASIC_POTION_C9_R2 */
+	public static final IconEntry EXOTIC_BISTRE_0 = BASIC_POTION_C9_R2;
 	/** POTION_EARTHARMR#0 */
-	public static final IconEntry POTION_EARTHARMR_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{144, 16, 12, 13}, 6447);
+	public static final IconEntry BASIC_POTION_C10_R2 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{144, 16, 12, 13}, 6447);
+	/** semantic alias for BASIC_POTION_C10_R2 */
+	public static final IconEntry POTION_EARTHARMR_0 = BASIC_POTION_C10_R2;
 	/** POTION_CLEANSE#0 */
-	public static final IconEntry POTION_CLEANSE_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{160, 16, 12, 13}, 6448);
+	public static final IconEntry BASIC_POTION_C11_R2 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{160, 16, 12, 13}, 6448);
+	/** semantic alias for BASIC_POTION_C11_R2 */
+	public static final IconEntry POTION_CLEANSE_0 = BASIC_POTION_C11_R2;
 	/** EXOTIC_IVORY#0 */
-	public static final IconEntry EXOTIC_IVORY_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{176, 16, 12, 13}, 6449);
+	public static final IconEntry BASIC_POTION_C12_R2 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{176, 16, 12, 13}, 6449);
+	/** semantic alias for BASIC_POTION_C12_R2 */
+	public static final IconEntry EXOTIC_IVORY_0 = BASIC_POTION_C12_R2;
 	/** BREW_UNSTABLE#0 */
-	public static final IconEntry BREW_UNSTABLE_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{192, 16, 11, 13}, 6450);
+	public static final IconEntry BASIC_POTION_C13_R2 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{192, 16, 11, 13}, 6450);
+	/** semantic alias for BASIC_POTION_C13_R2 */
+	public static final IconEntry BREW_UNSTABLE_0 = BASIC_POTION_C13_R2;
 	/** ALCHEMY_FLUX */
-	public static final IconEntry ALCHEMY_FLUX = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{245, 17, 6, 15}, 6451);
+	public static final IconEntry BASIC_POTION_C16_R2 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{245, 17, 6, 15}, 6451);
+	/** semantic alias for BASIC_POTION_C16_R2 */
+	public static final IconEntry ALCHEMY_FLUX = BASIC_POTION_C16_R2;
 	/** FIRE_PHOSPHORUS_FRUIT */
-	public static final IconEntry FIRE_PHOSPHORUS_FRUIT = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{2, 32, 12, 16}, 6452);
+	public static final IconEntry BASIC_POTION_C1_R3 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{2, 32, 12, 16}, 6452);
+	/** semantic alias for BASIC_POTION_C1_R3 */
+	public static final IconEntry FIRE_PHOSPHORUS_FRUIT = BASIC_POTION_C1_R3;
 	/** EARTH_RIFT_FRUIT */
-	public static final IconEntry EARTH_RIFT_FRUIT = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{18, 32, 12, 16}, 6453);
+	public static final IconEntry BASIC_POTION_C2_R3 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{18, 32, 12, 16}, 6453);
+	/** semantic alias for BASIC_POTION_C2_R3 */
+	public static final IconEntry EARTH_RIFT_FRUIT = BASIC_POTION_C2_R3;
 	/** DEW_FUNGUS_SPORE */
-	public static final IconEntry DEW_FUNGUS_SPORE = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{34, 32, 12, 16}, 6454);
+	public static final IconEntry BASIC_POTION_C3_R3 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{34, 32, 12, 16}, 6454);
+	/** semantic alias for BASIC_POTION_C3_R3 */
+	public static final IconEntry DEW_FUNGUS_SPORE = BASIC_POTION_C3_R3;
 	/** POISON_MUSHROOM */
-	public static final IconEntry POISON_MUSHROOM = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{50, 32, 12, 16}, 6455);
+	public static final IconEntry BASIC_POTION_C4_R3 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{50, 32, 12, 16}, 6455);
+	/** semantic alias for BASIC_POTION_C4_R3 */
+	public static final IconEntry POISON_MUSHROOM = BASIC_POTION_C4_R3;
 	/** MONOCHROME_BLOCK */
-	public static final IconEntry MONOCHROME_BLOCK = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{66, 32, 12, 16}, 6456);
+	public static final IconEntry BASIC_POTION_C5_R3 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{66, 32, 12, 16}, 6456);
+	/** semantic alias for BASIC_POTION_C5_R3 */
+	public static final IconEntry MONOCHROME_BLOCK = BASIC_POTION_C5_R3;
 	/** LETHAL_FUNGUS */
-	public static final IconEntry LETHAL_FUNGUS = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{82, 32, 12, 16}, 6457);
+	public static final IconEntry BASIC_POTION_C6_R3 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{82, 32, 12, 16}, 6457);
+	/** semantic alias for BASIC_POTION_C6_R3 */
+	public static final IconEntry LETHAL_FUNGUS = BASIC_POTION_C6_R3;
 	/** BLUE_CAP_MUSHROOM */
-	public static final IconEntry BLUE_CAP_MUSHROOM = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{98, 32, 12, 16}, 6458);
+	public static final IconEntry BASIC_POTION_C7_R3 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{98, 32, 12, 16}, 6458);
+	/** semantic alias for BASIC_POTION_C7_R3 */
+	public static final IconEntry BLUE_CAP_MUSHROOM = BASIC_POTION_C7_R3;
 	/** PILL */
-	public static final IconEntry PILL = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{113, 33, 14, 14}, 6459);
+	public static final IconEntry BASIC_POTION_C8_R3 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{113, 33, 14, 14}, 6459);
+	/** semantic alias for BASIC_POTION_C8_R3 */
+	public static final IconEntry PILL = BASIC_POTION_C8_R3;
 	/** BREW_INFERNAL#0 */
-	public static final IconEntry BREW_INFERNAL_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{48, 48, 11, 13}, 6460);
+	public static final IconEntry BASIC_POTION_C4_R4 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{48, 48, 11, 13}, 6460);
+	/** semantic alias for BASIC_POTION_C4_R4 */
+	public static final IconEntry BREW_INFERNAL_0 = BASIC_POTION_C4_R4;
 	/** BREW_BLIZZARD#0 */
-	public static final IconEntry BREW_BLIZZARD_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{64, 48, 11, 13}, 6461);
+	public static final IconEntry BASIC_POTION_C5_R4 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{64, 48, 11, 13}, 6461);
+	/** semantic alias for BASIC_POTION_C5_R4 */
+	public static final IconEntry BREW_BLIZZARD_0 = BASIC_POTION_C5_R4;
 	/** BREW_SHOCKING#0 */
-	public static final IconEntry BREW_SHOCKING_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{80, 48, 12, 14}, 6462);
+	public static final IconEntry BASIC_POTION_C6_R4 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{80, 48, 12, 14}, 6462);
+	/** semantic alias for BASIC_POTION_C6_R4 */
+	public static final IconEntry BREW_SHOCKING_0 = BASIC_POTION_C6_R4;
 	/** BREW_CAUSTIC#0 */
-	public static final IconEntry BREW_CAUSTIC_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{96, 48, 12, 14}, 6463);
+	public static final IconEntry BASIC_POTION_C7_R4 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{96, 48, 12, 14}, 6463);
+	/** semantic alias for BASIC_POTION_C7_R4 */
+	public static final IconEntry BREW_CAUSTIC_0 = BASIC_POTION_C7_R4;
 	/** BREW_AQUA#0 */
-	public static final IconEntry BREW_AQUA_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{112, 48, 9, 11}, 6464);
+	public static final IconEntry BASIC_POTION_C8_R4 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{112, 48, 9, 11}, 6464);
+	/** semantic alias for BASIC_POTION_C8_R4 */
+	public static final IconEntry BREW_AQUA_0 = BASIC_POTION_C8_R4;
 	/** BREW_LEFT */
-	public static final IconEntry BREW_LEFT = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{128, 48, 12, 14}, 6465);
+	public static final IconEntry BASIC_POTION_C9_R4 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{128, 48, 12, 14}, 6465);
+	/** semantic alias for BASIC_POTION_C9_R4 */
+	public static final IconEntry BREW_LEFT = BASIC_POTION_C9_R4;
 	/** ELIXIR_AQUA#0 */
-	public static final IconEntry ELIXIR_AQUA_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{144, 48, 12, 14}, 6466);
+	public static final IconEntry BASIC_POTION_C10_R4 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{144, 48, 12, 14}, 6466);
+	/** semantic alias for BASIC_POTION_C10_R4 */
+	public static final IconEntry ELIXIR_AQUA_0 = BASIC_POTION_C10_R4;
 	/** ELIXIR_MIGHT#0 */
-	public static final IconEntry ELIXIR_MIGHT_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{160, 48, 12, 14}, 6467);
+	public static final IconEntry BASIC_POTION_C11_R4 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{160, 48, 12, 14}, 6467);
+	/** semantic alias for BASIC_POTION_C11_R4 */
+	public static final IconEntry ELIXIR_MIGHT_0 = BASIC_POTION_C11_R4;
 	/** ELIXIR_DRAGON#0 */
-	public static final IconEntry ELIXIR_DRAGON_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{176, 48, 12, 14}, 6468);
+	public static final IconEntry BASIC_POTION_C12_R4 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{176, 48, 12, 14}, 6468);
+	/** semantic alias for BASIC_POTION_C12_R4 */
+	public static final IconEntry ELIXIR_DRAGON_0 = BASIC_POTION_C12_R4;
 	/** ELIXIR_TOXIC#0 */
-	public static final IconEntry ELIXIR_TOXIC_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{192, 48, 12, 14}, 6469);
+	public static final IconEntry BASIC_POTION_C13_R4 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{192, 48, 12, 14}, 6469);
+	/** semantic alias for BASIC_POTION_C13_R4 */
+	public static final IconEntry ELIXIR_TOXIC_0 = BASIC_POTION_C13_R4;
 	/** ELIXIR_ICY#0 */
-	public static final IconEntry ELIXIR_ICY_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{208, 48, 12, 14}, 6470);
+	public static final IconEntry BASIC_POTION_C14_R4 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{208, 48, 12, 14}, 6470);
+	/** semantic alias for BASIC_POTION_C14_R4 */
+	public static final IconEntry ELIXIR_ICY_0 = BASIC_POTION_C14_R4;
 	/** ELIXIR_ARCANE#0 */
-	public static final IconEntry ELIXIR_ARCANE_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{224, 48, 12, 14}, 6471);
+	public static final IconEntry BASIC_POTION_C15_R4 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{224, 48, 12, 14}, 6471);
+	/** semantic alias for BASIC_POTION_C15_R4 */
+	public static final IconEntry ELIXIR_ARCANE_0 = BASIC_POTION_C15_R4;
 	/** ELIXIR_FEATHER#0 */
-	public static final IconEntry ELIXIR_FEATHER_0 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{240, 48, 12, 14}, 6472);
+	public static final IconEntry BASIC_POTION_C16_R4 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{240, 48, 12, 14}, 6472);
+	/** semantic alias for BASIC_POTION_C16_R4 */
+	public static final IconEntry ELIXIR_FEATHER_0 = BASIC_POTION_C16_R4;
 	/** BASIC_POTION_EXTRA_1 - 斜放药剂试管（灰色／空） */
-	public static final IconEntry BASIC_POTION_EXTRA_1 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{129, 33, 14, 14}, 7477);
+	public static final IconEntry BASIC_POTION_C9_R3 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{129, 33, 14, 14}, 7477);
+	/** semantic alias for BASIC_POTION_C9_R3 */
+	public static final IconEntry BASIC_POTION_EXTRA_1 = BASIC_POTION_C9_R3;
 	/** BASIC_POTION_EXTRA_2 - 斜放药剂试管（黑色） */
-	public static final IconEntry BASIC_POTION_EXTRA_2 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{145, 33, 14, 14}, 7478);
+	public static final IconEntry BASIC_POTION_C10_R3 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{145, 33, 14, 14}, 7478);
+	/** semantic alias for BASIC_POTION_C10_R3 */
+	public static final IconEntry BASIC_POTION_EXTRA_2 = BASIC_POTION_C10_R3;
 	/** BASIC_POTION_EXTRA_3 - 斜放药剂试管（紫色） */
-	public static final IconEntry BASIC_POTION_EXTRA_3 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{161, 33, 14, 14}, 7479);
+	public static final IconEntry BASIC_POTION_C11_R3 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{161, 33, 14, 14}, 7479);
+	/** semantic alias for BASIC_POTION_C11_R3 */
+	public static final IconEntry BASIC_POTION_EXTRA_3 = BASIC_POTION_C11_R3;
 	/** BASIC_POTION_EXTRA_4 - 斜放药剂试管（绿色） */
-	public static final IconEntry BASIC_POTION_EXTRA_4 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{177, 33, 14, 14}, 7480);
+	public static final IconEntry BASIC_POTION_C12_R3 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{177, 33, 14, 14}, 7480);
+	/** semantic alias for BASIC_POTION_C12_R3 */
+	public static final IconEntry BASIC_POTION_EXTRA_4 = BASIC_POTION_C12_R3;
 	/** BASIC_POTION_EXTRA_5 - 斜放药剂试管（品红） */
-	public static final IconEntry BASIC_POTION_EXTRA_5 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{193, 33, 14, 14}, 7481);
+	public static final IconEntry BASIC_POTION_C13_R3 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{193, 33, 14, 14}, 7481);
+	/** semantic alias for BASIC_POTION_C13_R3 */
+	public static final IconEntry BASIC_POTION_EXTRA_5 = BASIC_POTION_C13_R3;
 	/** BASIC_POTION_EXTRA_6 - 斜放药剂试管（灰蓝） */
-	public static final IconEntry BASIC_POTION_EXTRA_6 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{209, 33, 14, 14}, 7482);
+	public static final IconEntry BASIC_POTION_C14_R3 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{209, 33, 14, 14}, 7482);
+	/** semantic alias for BASIC_POTION_C14_R3 */
+	public static final IconEntry BASIC_POTION_EXTRA_6 = BASIC_POTION_C14_R3;
 	/** BASIC_POTION_EXTRA_7 - 斜放药剂试管（白色） */
-	public static final IconEntry BASIC_POTION_EXTRA_7 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{225, 33, 14, 14}, 7483);
+	public static final IconEntry BASIC_POTION_C15_R3 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{225, 33, 14, 14}, 7483);
+	/** semantic alias for BASIC_POTION_C15_R3 */
+	public static final IconEntry BASIC_POTION_EXTRA_7 = BASIC_POTION_C15_R3;
 	/** BASIC_POTION_EXTRA_8 - 斜放药剂试管（棕色） */
-	public static final IconEntry BASIC_POTION_EXTRA_8 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{241, 33, 14, 14}, 7484);
+	public static final IconEntry BASIC_POTION_C16_R3 = new IconEntry("sprites/items/consum/potion_seed/basic_potion.png", new int[]{241, 33, 14, 14}, 7484);
+	/** semantic alias for BASIC_POTION_C16_R3 */
+	public static final IconEntry BASIC_POTION_EXTRA_8 = BASIC_POTION_C16_R3;
 }

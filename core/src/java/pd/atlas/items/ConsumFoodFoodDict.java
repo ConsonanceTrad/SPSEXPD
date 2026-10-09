@@ -13,155 +13,307 @@ public final class ConsumFoodFoodDict {
 	private ConsumFoodFoodDict() { }
 
 	/** SMALL_RATION_PACK */
-	public static final IconEntry SMALL_RATION_PACK = new IconEntry("sprites/items/consum/food/food.png", new int[]{1, 3, 14, 11}, 6306);
+	public static final IconEntry FOOD_C1_R1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{1, 3, 14, 11}, 6306);
+	/** semantic alias for FOOD_C1_R1 */
+	public static final IconEntry SMALL_RATION_PACK = FOOD_C1_R1;
 	/** RATION_PACK */
-	public static final IconEntry RATION_PACK = new IconEntry("sprites/items/consum/food/food.png", new int[]{16, 2, 16, 12}, 6307);
+	public static final IconEntry FOOD_C2_R1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{16, 2, 16, 12}, 6307);
+	/** semantic alias for FOOD_C2_R1 */
+	public static final IconEntry RATION_PACK = FOOD_C2_R1;
 	/** MEAR_PIE */
-	public static final IconEntry MEAR_PIE = new IconEntry("sprites/items/consum/food/food.png", new int[]{32, 3, 16, 11}, 6308);
+	public static final IconEntry FOOD_C3_R1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{32, 3, 16, 11}, 6308);
+	/** semantic alias for FOOD_C3_R1 */
+	public static final IconEntry MEAR_PIE = FOOD_C3_R1;
 	/** WHOLE_MEAT_PANCAKE */
-	public static final IconEntry WHOLE_MEAT_PANCAKE = new IconEntry("sprites/items/consum/food/food.png", new int[]{48, 2, 16, 12}, 6309);
+	public static final IconEntry FOOD_C4_R1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{48, 2, 16, 12}, 6309);
+	/** semantic alias for FOOD_C4_R1 */
+	public static final IconEntry WHOLE_MEAT_PANCAKE = FOOD_C4_R1;
 	/** RICE_FOOD */
-	public static final IconEntry RICE_FOOD = new IconEntry("sprites/items/consum/food/food.png", new int[]{65, 3, 14, 11}, 6310);
+	public static final IconEntry FOOD_C5_R1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{65, 3, 14, 11}, 6310);
+	/** semantic alias for FOOD_C5_R1 */
+	public static final IconEntry RICE_FOOD = FOOD_C5_R1;
 	/** RICE_GRUEL */
-	public static final IconEntry RICE_GRUEL = new IconEntry("sprites/items/consum/food/food.png", new int[]{82, 3, 12, 11}, 6311);
+	public static final IconEntry FOOD_C6_R1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{82, 3, 12, 11}, 6311);
+	/** semantic alias for FOOD_C6_R1 */
+	public static final IconEntry RICE_GRUEL = FOOD_C6_R1;
 	/** PUMPKIN_PIE */
-	public static final IconEntry PUMPKIN_PIE = new IconEntry("sprites/items/consum/food/food.png", new int[]{97, 3, 14, 11}, 6312);
+	public static final IconEntry FOOD_C7_R1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{97, 3, 14, 11}, 6312);
+	/** semantic alias for FOOD_C7_R1 */
+	public static final IconEntry PUMPKIN_PIE = FOOD_C7_R1;
 	/** PIZZA */
-	public static final IconEntry PIZZA = new IconEntry("sprites/items/consum/food/food.png", new int[]{113, 2, 15, 12}, 6313);
+	public static final IconEntry FOOD_C8_R1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{113, 2, 15, 12}, 6313);
+	/** semantic alias for FOOD_C8_R1 */
+	public static final IconEntry PIZZA = FOOD_C8_R1;
 	/** MOON_CAKE */
-	public static final IconEntry MOON_CAKE = new IconEntry("sprites/items/consum/food/food.png", new int[]{129, 2, 14, 12}, 6314);
+	public static final IconEntry FOOD_C9_R1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{129, 2, 14, 12}, 6314);
+	/** semantic alias for FOOD_C9_R1 */
+	public static final IconEntry MOON_CAKE = FOOD_C9_R1;
 	/** HAMBURGER */
-	public static final IconEntry HAMBURGER = new IconEntry("sprites/items/consum/food/food.png", new int[]{144, 1, 16, 14}, 6315);
+	public static final IconEntry FOOD_C10_R1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{144, 1, 16, 14}, 6315);
+	/** semantic alias for FOOD_C10_R1 */
+	public static final IconEntry HAMBURGER = FOOD_C10_R1;
 	/** HEARTY_MEAL */
-	public static final IconEntry HEARTY_MEAL = new IconEntry("sprites/items/consum/food/food.png", new int[]{161, 5, 14, 9}, 6316);
+	public static final IconEntry FOOD_C11_R1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{161, 5, 14, 9}, 6316);
+	/** semantic alias for FOOD_C11_R1 */
+	public static final IconEntry HEARTY_MEAL = FOOD_C11_R1;
 	/** SOUP_DUMPLING */
-	public static final IconEntry SOUP_DUMPLING = new IconEntry("sprites/items/consum/food/food.png", new int[]{177, 0, 14, 16}, 6317);
+	public static final IconEntry FOOD_C12_R1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{177, 0, 14, 16}, 6317);
+	/** semantic alias for FOOD_C12_R1 */
+	public static final IconEntry SOUP_DUMPLING = FOOD_C12_R1;
 	/** SLIME_RICE */
-	public static final IconEntry SLIME_RICE = new IconEntry("sprites/items/consum/food/food.png", new int[]{193, 3, 14, 11}, 6318);
+	public static final IconEntry FOOD_C13_R1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{193, 3, 14, 11}, 6318);
+	/** semantic alias for FOOD_C13_R1 */
+	public static final IconEntry SLIME_RICE = FOOD_C13_R1;
 	/** PATCHOULI_PIE */
-	public static final IconEntry PATCHOULI_PIE = new IconEntry("sprites/items/consum/food/food.png", new int[]{209, 3, 14, 11}, 6319);
+	public static final IconEntry FOOD_C14_R1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{209, 3, 14, 11}, 6319);
+	/** semantic alias for FOOD_C14_R1 */
+	public static final IconEntry PATCHOULI_PIE = FOOD_C14_R1;
 	/** SUMMER_HOMEWORK */
-	public static final IconEntry SUMMER_HOMEWORK = new IconEntry("sprites/items/consum/food/food.png", new int[]{225, 0, 14, 16}, 6320);
+	public static final IconEntry FOOD_C15_R1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{225, 0, 14, 16}, 6320);
+	/** semantic alias for FOOD_C15_R1 */
+	public static final IconEntry SUMMER_HOMEWORK = FOOD_C15_R1;
 	/** SANDWICH */
-	public static final IconEntry SANDWICH = new IconEntry("sprites/items/consum/food/food.png", new int[]{240, 0, 16, 15}, 6321);
+	public static final IconEntry FOOD_C16_R1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{240, 0, 16, 15}, 6321);
+	/** semantic alias for FOOD_C16_R1 */
+	public static final IconEntry SANDWICH = FOOD_C16_R1;
 	/** BONE_SOUP */
-	public static final IconEntry BONE_SOUP = new IconEntry("sprites/items/consum/food/food.png", new int[]{256, 2, 16, 11}, 6322);
+	public static final IconEntry FOOD_C17_R1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{256, 2, 16, 11}, 6322);
+	/** semantic alias for FOOD_C17_R1 */
+	public static final IconEntry BONE_SOUP = FOOD_C17_R1;
 	/** VEGETABLE_SOUP */
-	public static final IconEntry VEGETABLE_SOUP = new IconEntry("sprites/items/consum/food/food.png", new int[]{272, 1, 16, 12}, 6323);
+	public static final IconEntry FOOD_C18_R1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{272, 1, 16, 12}, 6323);
+	/** semantic alias for FOOD_C18_R1 */
+	public static final IconEntry VEGETABLE_SOUP = FOOD_C18_R1;
 	/** RAW_NUT */
-	public static final IconEntry RAW_NUT = new IconEntry("sprites/items/consum/food/food.png", new int[]{291, 3, 10, 10}, 6324);
+	public static final IconEntry FOOD_C19_R1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{291, 3, 10, 10}, 6324);
+	/** semantic alias for FOOD_C19_R1 */
+	public static final IconEntry RAW_NUT = FOOD_C19_R1;
 	/** FRENCH_FRIES */
-	public static final IconEntry FRENCH_FRIES = new IconEntry("sprites/items/consum/food/food.png", new int[]{306, 2, 12, 13}, 6325);
+	public static final IconEntry FOOD_C20_R1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{306, 2, 12, 13}, 6325);
+	/** semantic alias for FOOD_C20_R1 */
+	public static final IconEntry FRENCH_FRIES = FOOD_C20_R1;
 	/** AFLY_FOOD */
-	public static final IconEntry AFLY_FOOD = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 17, 16, 14}, 6326);
+	public static final IconEntry FOOD_C1_R2 = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 17, 16, 14}, 6326);
+	/** semantic alias for FOOD_C1_R2 */
+	public static final IconEntry AFLY_FOOD = FOOD_C1_R2;
 	/** PERFECT_MEAL */
-	public static final IconEntry PERFECT_MEAL = new IconEntry("sprites/items/consum/food/food.png", new int[]{17, 18, 14, 13}, 6327);
+	public static final IconEntry FOOD_C2_R2 = new IconEntry("sprites/items/consum/food/food.png", new int[]{17, 18, 14, 13}, 6327);
+	/** semantic alias for FOOD_C2_R2 */
+	public static final IconEntry PERFECT_MEAL = FOOD_C2_R2;
 	/** SPAGHETTI */
-	public static final IconEntry SPAGHETTI = new IconEntry("sprites/items/consum/food/food.png", new int[]{32, 17, 16, 15}, 6328);
+	public static final IconEntry FOOD_C3_R2 = new IconEntry("sprites/items/consum/food/food.png", new int[]{32, 17, 16, 15}, 6328);
+	/** semantic alias for FOOD_C3_R2 */
+	public static final IconEntry SPAGHETTI = FOOD_C3_R2;
 	/** ZONGZI */
-	public static final IconEntry ZONGZI = new IconEntry("sprites/items/consum/food/food.png", new int[]{49, 18, 14, 13}, 6329);
+	public static final IconEntry FOOD_C4_R2 = new IconEntry("sprites/items/consum/food/food.png", new int[]{49, 18, 14, 13}, 6329);
+	/** semantic alias for FOOD_C4_R2 */
+	public static final IconEntry ZONGZI = FOOD_C4_R2;
 	/** STEAMED_FISH#0 */
-	public static final IconEntry STEAMED_FISH_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{64, 18, 16, 12}, 6330);
+	public static final IconEntry FOOD_C5_R2 = new IconEntry("sprites/items/consum/food/food.png", new int[]{64, 18, 16, 12}, 6330);
+	/** semantic alias for FOOD_C5_R2 */
+	public static final IconEntry STEAMED_FISH_0 = FOOD_C5_R2;
 	/** FISH_LEFTOVER#0 */
-	public static final IconEntry FISH_LEFTOVER_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{80, 18, 16, 12}, 6331);
+	public static final IconEntry FOOD_C6_R2 = new IconEntry("sprites/items/consum/food/food.png", new int[]{80, 18, 16, 12}, 6331);
+	/** semantic alias for FOOD_C6_R2 */
+	public static final IconEntry FISH_LEFTOVER_0 = FOOD_C6_R2;
 	/** EASTER_EGG#0 */
-	public static final IconEntry EASTER_EGG_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{98, 17, 12, 14}, 6332);
+	public static final IconEntry FOOD_C7_R2 = new IconEntry("sprites/items/consum/food/food.png", new int[]{98, 17, 12, 14}, 6332);
+	/** semantic alias for FOOD_C7_R2 */
+	public static final IconEntry EASTER_EGG_0 = FOOD_C7_R2;
 	/** BIRTHDAY_CAKE */
-	public static final IconEntry BIRTHDAY_CAKE = new IconEntry("sprites/items/consum/food/food.png", new int[]{113, 18, 14, 13}, 6333);
+	public static final IconEntry FOOD_C8_R2 = new IconEntry("sprites/items/consum/food/food.png", new int[]{113, 18, 14, 13}, 6333);
+	/** semantic alias for FOOD_C8_R2 */
+	public static final IconEntry BIRTHDAY_CAKE = FOOD_C8_R2;
 	/** HOLIDAY_CAKE */
-	public static final IconEntry HOLIDAY_CAKE = new IconEntry("sprites/items/consum/food/food.png", new int[]{129, 18, 14, 13}, 6334);
+	public static final IconEntry FOOD_C9_R2 = new IconEntry("sprites/items/consum/food/food.png", new int[]{129, 18, 14, 13}, 6334);
+	/** semantic alias for FOOD_C9_R2 */
+	public static final IconEntry HOLIDAY_CAKE = FOOD_C9_R2;
 	/** BRAISED_CHICKEN */
-	public static final IconEntry BRAISED_CHICKEN = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 32, 16, 16}, 6335);
+	public static final IconEntry FOOD_C1_R3 = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 32, 16, 16}, 6335);
+	/** semantic alias for FOOD_C1_R3 */
+	public static final IconEntry BRAISED_CHICKEN = FOOD_C1_R3;
 	/** SPS_TURKEY_MEAT#0 */
-	public static final IconEntry SPS_TURKEY_MEAT_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{16, 32, 16, 16}, 6336);
+	public static final IconEntry FOOD_C2_R3 = new IconEntry("sprites/items/consum/food/food.png", new int[]{16, 32, 16, 16}, 6336);
+	/** semantic alias for FOOD_C2_R3 */
+	public static final IconEntry SPS_TURKEY_MEAT_0 = FOOD_C2_R3;
 	/** CHICKENNUGGET */
-	public static final IconEntry CHICKENNUGGET = new IconEntry("sprites/items/consum/food/food.png", new int[]{34, 33, 12, 15}, 6337);
+	public static final IconEntry FOOD_C3_R3 = new IconEntry("sprites/items/consum/food/food.png", new int[]{34, 33, 12, 15}, 6337);
+	/** semantic alias for FOOD_C3_R3 */
+	public static final IconEntry CHICKENNUGGET = FOOD_C3_R3;
 	/** CHICKEN_WRAP */
-	public static final IconEntry CHICKEN_WRAP = new IconEntry("sprites/items/consum/food/food.png", new int[]{49, 34, 14, 12}, 6338);
+	public static final IconEntry FOOD_C4_R3 = new IconEntry("sprites/items/consum/food/food.png", new int[]{49, 34, 14, 12}, 6338);
+	/** semantic alias for FOOD_C4_R3 */
+	public static final IconEntry CHICKEN_WRAP = FOOD_C4_R3;
 	/** KEBAB */
-	public static final IconEntry KEBAB = new IconEntry("sprites/items/consum/food/food.png", new int[]{66, 33, 12, 15}, 6339);
+	public static final IconEntry FOOD_C5_R3 = new IconEntry("sprites/items/consum/food/food.png", new int[]{66, 33, 12, 15}, 6339);
+	/** semantic alias for FOOD_C5_R3 */
+	public static final IconEntry KEBAB = FOOD_C5_R3;
 	/** NUT_COOKIE */
-	public static final IconEntry NUT_COOKIE = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 48, 16, 15}, 6340);
+	public static final IconEntry FOOD_C1_R4 = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 48, 16, 15}, 6340);
+	/** semantic alias for FOOD_C1_R4 */
+	public static final IconEntry NUT_COOKIE = FOOD_C1_R4;
 	/** EASTER_EGG_CANDY */
-	public static final IconEntry EASTER_EGG_CANDY = new IconEntry("sprites/items/consum/food/food.png", new int[]{18, 49, 11, 14}, 6341);
+	public static final IconEntry FOOD_C2_R4 = new IconEntry("sprites/items/consum/food/food.png", new int[]{18, 49, 11, 14}, 6341);
+	/** semantic alias for FOOD_C2_R4 */
+	public static final IconEntry EASTER_EGG_CANDY = FOOD_C2_R4;
 	/** CANDY_CANE#0 */
-	public static final IconEntry CANDY_CANE_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{34, 48, 13, 16}, 6342);
+	public static final IconEntry FOOD_C3_R4 = new IconEntry("sprites/items/consum/food/food.png", new int[]{34, 48, 13, 16}, 6342);
+	/** semantic alias for FOOD_C3_R4 */
+	public static final IconEntry CANDY_CANE_0 = FOOD_C3_R4;
 	/** FRUIT_CANDY */
-	public static final IconEntry FRUIT_CANDY = new IconEntry("sprites/items/consum/food/food.png", new int[]{48, 51, 15, 10}, 6343);
+	public static final IconEntry FOOD_C4_R4 = new IconEntry("sprites/items/consum/food/food.png", new int[]{48, 51, 15, 10}, 6343);
+	/** semantic alias for FOOD_C4_R4 */
+	public static final IconEntry FRUIT_CANDY = FOOD_C4_R4;
 	/** CHOCOLATE */
-	public static final IconEntry CHOCOLATE = new IconEntry("sprites/items/consum/food/food.png", new int[]{66, 51, 12, 12}, 6344);
+	public static final IconEntry FOOD_C5_R4 = new IconEntry("sprites/items/consum/food/food.png", new int[]{66, 51, 12, 12}, 6344);
+	/** semantic alias for FOOD_C5_R4 */
+	public static final IconEntry CHOCOLATE = FOOD_C5_R4;
 	/** FRUIT_SMOOTHIE */
-	public static final IconEntry FRUIT_SMOOTHIE = new IconEntry("sprites/items/consum/food/food.png", new int[]{82, 49, 13, 15}, 6345);
+	public static final IconEntry FOOD_C6_R4 = new IconEntry("sprites/items/consum/food/food.png", new int[]{82, 49, 13, 15}, 6345);
+	/** semantic alias for FOOD_C6_R4 */
+	public static final IconEntry FRUIT_SMOOTHIE = FOOD_C6_R4;
 	/** MIXED_SODA */
-	public static final IconEntry MIXED_SODA = new IconEntry("sprites/items/consum/food/food.png", new int[]{98, 49, 12, 14}, 6346);
+	public static final IconEntry FOOD_C7_R4 = new IconEntry("sprites/items/consum/food/food.png", new int[]{98, 49, 12, 14}, 6346);
+	/** semantic alias for FOOD_C7_R4 */
+	public static final IconEntry MIXED_SODA = FOOD_C7_R4;
 	/** SPARKLING_POTION#0 */
-	public static final IconEntry SPARKLING_POTION_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{116, 48, 7, 16}, 6347);
+	public static final IconEntry FOOD_C8_R4 = new IconEntry("sprites/items/consum/food/food.png", new int[]{116, 48, 7, 16}, 6347);
+	/** semantic alias for FOOD_C8_R4 */
+	public static final IconEntry SPARKLING_POTION_0 = FOOD_C8_R4;
 	/** RAINBOW_POTION#0 */
-	public static final IconEntry RAINBOW_POTION_0 = new IconEntry("sprites/items/consum/food/food.png", new int[]{130, 49, 12, 14}, 6348);
+	public static final IconEntry FOOD_C9_R4 = new IconEntry("sprites/items/consum/food/food.png", new int[]{130, 49, 12, 14}, 6348);
+	/** semantic alias for FOOD_C9_R4 */
+	public static final IconEntry RAINBOW_POTION_0 = FOOD_C9_R4;
 	/** COCKTAIL */
-	public static final IconEntry COCKTAIL = new IconEntry("sprites/items/consum/food/food.png", new int[]{3, 64, 12, 15}, 6349);
+	public static final IconEntry FOOD_C1_R5 = new IconEntry("sprites/items/consum/food/food.png", new int[]{3, 64, 12, 15}, 6349);
+	/** semantic alias for FOOD_C1_R5 */
+	public static final IconEntry COCKTAIL = FOOD_C1_R5;
 	/** LEMONADE */
-	public static final IconEntry LEMONADE = new IconEntry("sprites/items/consum/food/food.png", new int[]{20, 66, 9, 13}, 6350);
+	public static final IconEntry FOOD_C2_R5 = new IconEntry("sprites/items/consum/food/food.png", new int[]{20, 66, 9, 13}, 6350);
+	/** semantic alias for FOOD_C2_R5 */
+	public static final IconEntry LEMONADE = FOOD_C2_R5;
 	/** MINERAL_WATER */
-	public static final IconEntry MINERAL_WATER = new IconEntry("sprites/items/consum/food/food.png", new int[]{32, 65, 15, 15}, 6351);
+	public static final IconEntry FOOD_C3_R5 = new IconEntry("sprites/items/consum/food/food.png", new int[]{32, 65, 15, 15}, 6351);
+	/** semantic alias for FOOD_C3_R5 */
+	public static final IconEntry MINERAL_WATER = FOOD_C3_R5;
 	/** REALGAR_WINE */
-	public static final IconEntry REALGAR_WINE = new IconEntry("sprites/items/consum/food/food.png", new int[]{50, 65, 12, 14}, 6352);
+	public static final IconEntry FOOD_C4_R5 = new IconEntry("sprites/items/consum/food/food.png", new int[]{50, 65, 12, 14}, 6352);
+	/** semantic alias for FOOD_C4_R5 */
+	public static final IconEntry REALGAR_WINE = FOOD_C4_R5;
 	/** EFFERVESCENT_SODA */
-	public static final IconEntry EFFERVESCENT_SODA = new IconEntry("sprites/items/consum/food/food.png", new int[]{66, 66, 12, 13}, 6353);
+	public static final IconEntry FOOD_C5_R5 = new IconEntry("sprites/items/consum/food/food.png", new int[]{66, 66, 12, 13}, 6353);
+	/** semantic alias for FOOD_C5_R5 */
+	public static final IconEntry EFFERVESCENT_SODA = FOOD_C5_R5;
 	/** CANNED_HONEY */
-	public static final IconEntry CANNED_HONEY = new IconEntry("sprites/items/consum/food/food.png", new int[]{2, 82, 11, 12}, 6354);
+	public static final IconEntry FOOD_C1_R6 = new IconEntry("sprites/items/consum/food/food.png", new int[]{2, 82, 11, 12}, 6354);
+	/** semantic alias for FOOD_C1_R6 */
+	public static final IconEntry CANNED_HONEY = FOOD_C1_R6;
 	/** DILUTED_HONEY */
-	public static final IconEntry DILUTED_HONEY = new IconEntry("sprites/items/consum/food/food.png", new int[]{19, 82, 11, 12}, 6355);
+	public static final IconEntry FOOD_C2_R6 = new IconEntry("sprites/items/consum/food/food.png", new int[]{19, 82, 11, 12}, 6355);
+	/** semantic alias for FOOD_C2_R6 */
+	public static final IconEntry DILUTED_HONEY = FOOD_C2_R6;
 	/** HONEY_RICE */
-	public static final IconEntry HONEY_RICE = new IconEntry("sprites/items/consum/food/food.png", new int[]{33, 83, 14, 11}, 6356);
+	public static final IconEntry FOOD_C3_R6 = new IconEntry("sprites/items/consum/food/food.png", new int[]{33, 83, 14, 11}, 6356);
+	/** semantic alias for FOOD_C3_R6 */
+	public static final IconEntry HONEY_RICE = FOOD_C3_R6;
 	/** ICECREAM */
-	public static final IconEntry ICECREAM = new IconEntry("sprites/items/consum/food/food.png", new int[]{50, 80, 13, 16}, 6357);
+	public static final IconEntry FOOD_C4_R6 = new IconEntry("sprites/items/consum/food/food.png", new int[]{50, 80, 13, 16}, 6357);
+	/** semantic alias for FOOD_C4_R6 */
+	public static final IconEntry ICECREAM = FOOD_C4_R6;
 	/** HONEY_ROAST_MEAT */
-	public static final IconEntry HONEY_ROAST_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{64, 83, 15, 11}, 6358);
+	public static final IconEntry FOOD_C5_R6 = new IconEntry("sprites/items/consum/food/food.png", new int[]{64, 83, 15, 11}, 6358);
+	/** semantic alias for FOOD_C5_R6 */
+	public static final IconEntry HONEY_ROAST_MEAT = FOOD_C5_R6;
 	/** NUT_CAKE */
-	public static final IconEntry NUT_CAKE = new IconEntry("sprites/items/consum/food/food.png", new int[]{80, 81, 16, 14}, 6359);
+	public static final IconEntry FOOD_C6_R6 = new IconEntry("sprites/items/consum/food/food.png", new int[]{80, 81, 16, 14}, 6359);
+	/** semantic alias for FOOD_C6_R6 */
+	public static final IconEntry NUT_CAKE = FOOD_C6_R6;
 	/** MEAT */
-	public static final IconEntry MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 99, 15, 11}, 6360);
+	public static final IconEntry FOOD_C1_R7 = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 99, 15, 11}, 6360);
+	/** semantic alias for FOOD_C1_R7 */
+	public static final IconEntry MEAT = FOOD_C1_R7;
 	/** MONSTER_MEAT */
-	public static final IconEntry MONSTER_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{16, 99, 15, 11}, 6361);
+	public static final IconEntry FOOD_C2_R7 = new IconEntry("sprites/items/consum/food/food.png", new int[]{16, 99, 15, 11}, 6361);
+	/** semantic alias for FOOD_C2_R7 */
+	public static final IconEntry MONSTER_MEAT = FOOD_C2_R7;
 	/** FROZEN_MEAT */
-	public static final IconEntry FROZEN_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{32, 99, 15, 11}, 6362);
+	public static final IconEntry FOOD_C3_R7 = new IconEntry("sprites/items/consum/food/food.png", new int[]{32, 99, 15, 11}, 6362);
+	/** semantic alias for FOOD_C3_R7 */
+	public static final IconEntry FROZEN_MEAT = FOOD_C3_R7;
 	/** STEWED_MEAT */
-	public static final IconEntry STEWED_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{48, 99, 15, 11}, 6363);
+	public static final IconEntry FOOD_C4_R7 = new IconEntry("sprites/items/consum/food/food.png", new int[]{48, 99, 15, 11}, 6363);
+	/** semantic alias for FOOD_C4_R7 */
+	public static final IconEntry STEWED_MEAT = FOOD_C4_R7;
 	/** ROAST_MEAT */
-	public static final IconEntry ROAST_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{64, 99, 15, 11}, 6364);
+	public static final IconEntry FOOD_C5_R7 = new IconEntry("sprites/items/consum/food/food.png", new int[]{64, 99, 15, 11}, 6364);
+	/** semantic alias for FOOD_C5_R7 */
+	public static final IconEntry ROAST_MEAT = FOOD_C5_R7;
 	/** HERB_SAUCED_MEAT */
-	public static final IconEntry HERB_SAUCED_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{80, 99, 15, 11}, 6365);
+	public static final IconEntry FOOD_C6_R7 = new IconEntry("sprites/items/consum/food/food.png", new int[]{80, 99, 15, 11}, 6365);
+	/** semantic alias for FOOD_C6_R7 */
+	public static final IconEntry HERB_SAUCED_MEAT = FOOD_C6_R7;
 	/** PHANTOM_MEAT */
-	public static final IconEntry PHANTOM_MEAT = new IconEntry("sprites/items/consum/food/food.png", new int[]{96, 99, 15, 11}, 6366);
+	public static final IconEntry FOOD_C7_R7 = new IconEntry("sprites/items/consum/food/food.png", new int[]{96, 99, 15, 11}, 6366);
+	/** semantic alias for FOOD_C7_R7 */
+	public static final IconEntry PHANTOM_MEAT = FOOD_C7_R7;
 	/** BLACKBERRY */
-	public static final IconEntry BLACKBERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{2, 116, 12, 10}, 6367);
+	public static final IconEntry FOOD_C1_R8 = new IconEntry("sprites/items/consum/food/food.png", new int[]{2, 116, 12, 10}, 6367);
+	/** semantic alias for FOOD_C1_R8 */
+	public static final IconEntry BLACKBERRY = FOOD_C1_R8;
 	/** CLOUDBERRY */
-	public static final IconEntry CLOUDBERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{18, 116, 12, 10}, 6368);
+	public static final IconEntry FOOD_C2_R8 = new IconEntry("sprites/items/consum/food/food.png", new int[]{18, 116, 12, 10}, 6368);
+	/** semantic alias for FOOD_C2_R8 */
+	public static final IconEntry CLOUDBERRY = FOOD_C2_R8;
 	/** BLUEBERRY */
-	public static final IconEntry BLUEBERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{34, 116, 12, 10}, 6369);
+	public static final IconEntry FOOD_C3_R8 = new IconEntry("sprites/items/consum/food/food.png", new int[]{34, 116, 12, 10}, 6369);
+	/** semantic alias for FOOD_C3_R8 */
+	public static final IconEntry BLUEBERRY = FOOD_C3_R8;
 	/** MOONBERRY */
-	public static final IconEntry MOONBERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{50, 116, 12, 10}, 6370);
+	public static final IconEntry FOOD_C4_R8 = new IconEntry("sprites/items/consum/food/food.png", new int[]{50, 116, 12, 10}, 6370);
+	/** semantic alias for FOOD_C4_R8 */
+	public static final IconEntry MOONBERRY = FOOD_C4_R8;
 	/** FULLMOONBERRY */
-	public static final IconEntry FULLMOONBERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{66, 116, 12, 10}, 6371);
+	public static final IconEntry FOOD_C5_R8 = new IconEntry("sprites/items/consum/food/food.png", new int[]{66, 116, 12, 10}, 6371);
+	/** semantic alias for FOOD_C5_R8 */
+	public static final IconEntry FULLMOONBERRY = FOOD_C5_R8;
 	/** BLANDFRUIT */
-	public static final IconEntry BLANDFRUIT = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 128, 9, 12}, 6372);
+	public static final IconEntry FOOD_C1_R9 = new IconEntry("sprites/items/consum/food/food.png", new int[]{0, 128, 9, 12}, 6372);
+	/** semantic alias for FOOD_C1_R9 */
+	public static final IconEntry BLANDFRUIT = FOOD_C1_R9;
 	/** BLAND_CHUNKS */
-	public static final IconEntry BLAND_CHUNKS = new IconEntry("sprites/items/consum/food/food.png", new int[]{16, 128, 14, 6}, 6373);
+	public static final IconEntry FOOD_C2_R9 = new IconEntry("sprites/items/consum/food/food.png", new int[]{16, 128, 14, 6}, 6373);
+	/** semantic alias for FOOD_C2_R9 */
+	public static final IconEntry BLAND_CHUNKS = FOOD_C2_R9;
 	/** PINK_BRICK */
-	public static final IconEntry PINK_BRICK = new IconEntry("sprites/items/consum/food/food.png", new int[]{1, 164, 14, 9}, 6374);
+	public static final IconEntry FOOD_C1_R11 = new IconEntry("sprites/items/consum/food/food.png", new int[]{1, 164, 14, 9}, 6374);
+	/** semantic alias for FOOD_C1_R11 */
+	public static final IconEntry PINK_BRICK = FOOD_C1_R11;
 	/** PINK_FISH */
-	public static final IconEntry PINK_FISH = new IconEntry("sprites/items/consum/food/food.png", new int[]{18, 165, 12, 7}, 6375);
+	public static final IconEntry FOOD_C2_R11 = new IconEntry("sprites/items/consum/food/food.png", new int[]{18, 165, 12, 7}, 6375);
+	/** semantic alias for FOOD_C2_R11 */
+	public static final IconEntry PINK_FISH = FOOD_C2_R11;
 	/** BLUE_FISH */
-	public static final IconEntry BLUE_FISH = new IconEntry("sprites/items/consum/food/food.png", new int[]{34, 165, 12, 7}, 6376);
+	public static final IconEntry FOOD_C3_R11 = new IconEntry("sprites/items/consum/food/food.png", new int[]{34, 165, 12, 7}, 6376);
+	/** semantic alias for FOOD_C3_R11 */
+	public static final IconEntry BLUE_FISH = FOOD_C3_R11;
 	/** FUNNY_PARASITE */
-	public static final IconEntry FUNNY_PARASITE = new IconEntry("sprites/items/consum/food/food.png", new int[]{256, 161, 15, 15}, 6377);
+	public static final IconEntry FOOD_C17_R11 = new IconEntry("sprites/items/consum/food/food.png", new int[]{256, 161, 15, 15}, 6377);
+	/** semantic alias for FOOD_C17_R11 */
+	public static final IconEntry FUNNY_PARASITE = FOOD_C17_R11;
 	/** STRAWBERRY */
-	public static final IconEntry STRAWBERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{275, 162, 10, 13}, 6378);
+	public static final IconEntry FOOD_C18_R11 = new IconEntry("sprites/items/consum/food/food.png", new int[]{275, 162, 10, 13}, 6378);
+	/** semantic alias for FOOD_C18_R11 */
+	public static final IconEntry STRAWBERRY = FOOD_C18_R11;
 	/** CHERRY */
-	public static final IconEntry CHERRY = new IconEntry("sprites/items/consum/food/food.png", new int[]{289, 161, 14, 14}, 6379);
+	public static final IconEntry FOOD_C19_R11 = new IconEntry("sprites/items/consum/food/food.png", new int[]{289, 161, 14, 14}, 6379);
+	/** semantic alias for FOOD_C19_R11 */
+	public static final IconEntry CHERRY = FOOD_C19_R11;
 	/** AUTHOR_NUT */
-	public static final IconEntry AUTHOR_NUT = new IconEntry("sprites/items/consum/food/food.png", new int[]{306, 161, 13, 14}, 6380);
+	public static final IconEntry FOOD_C20_R11 = new IconEntry("sprites/items/consum/food/food.png", new int[]{306, 161, 13, 14}, 6380);
+	/** semantic alias for FOOD_C20_R11 */
+	public static final IconEntry AUTHOR_NUT = FOOD_C20_R11;
 	/** FOOD_EXTRA_1 - 灰白色斜长物（顶端带绿芽与棕色握把） */
-	public static final IconEntry FOOD_EXTRA_1 = new IconEntry("sprites/items/consum/food/food.png", new int[]{243, 161, 10, 15}, 7476);
+	public static final IconEntry FOOD_C16_R11 = new IconEntry("sprites/items/consum/food/food.png", new int[]{243, 161, 10, 15}, 7476);
+	/** semantic alias for FOOD_C16_R11 */
+	public static final IconEntry FOOD_EXTRA_1 = FOOD_C16_R11;
 }

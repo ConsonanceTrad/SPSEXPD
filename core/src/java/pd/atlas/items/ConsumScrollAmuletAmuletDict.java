@@ -13,27 +13,51 @@ public final class ConsumScrollAmuletAmuletDict {
 	private ConsumScrollAmuletAmuletDict() { }
 
 	/** STONE_AGGRESSION */
-	public static final IconEntry STONE_AGGRESSION = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{0, 0, 14, 12}, 6567);
+	public static final IconEntry AMULET_C1_R1 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{0, 0, 14, 12}, 6567);
+	/** semantic alias for AMULET_C1_R1 */
+	public static final IconEntry STONE_AGGRESSION = AMULET_C1_R1;
 	/** STONE_AUGMENTATION#0 */
-	public static final IconEntry STONE_AUGMENTATION_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{16, 0, 14, 12}, 6568);
+	public static final IconEntry AMULET_C2_R1 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{16, 0, 14, 12}, 6568);
+	/** semantic alias for AMULET_C2_R1 */
+	public static final IconEntry STONE_AUGMENTATION_0 = AMULET_C2_R1;
 	/** STONE_FEAR#0 */
-	public static final IconEntry STONE_FEAR_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{32, 0, 14, 12}, 6569);
+	public static final IconEntry AMULET_C3_R1 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{32, 0, 14, 12}, 6569);
+	/** semantic alias for AMULET_C3_R1 */
+	public static final IconEntry STONE_FEAR_0 = AMULET_C3_R1;
 	/** STONE_BLAST#0 */
-	public static final IconEntry STONE_BLAST_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{48, 0, 14, 12}, 6570);
+	public static final IconEntry AMULET_C4_R1 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{48, 0, 14, 12}, 6570);
+	/** semantic alias for AMULET_C4_R1 */
+	public static final IconEntry STONE_BLAST_0 = AMULET_C4_R1;
 	/** STONE_BLINK#0 */
-	public static final IconEntry STONE_BLINK_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{64, 0, 14, 12}, 6571);
+	public static final IconEntry AMULET_C5_R1 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{64, 0, 14, 12}, 6571);
+	/** semantic alias for AMULET_C5_R1 */
+	public static final IconEntry STONE_BLINK_0 = AMULET_C5_R1;
 	/** STONE_CLAIRVOYANCE#0 */
-	public static final IconEntry STONE_CLAIRVOYANCE_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{80, 0, 14, 12}, 6572);
+	public static final IconEntry AMULET_C6_R1 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{80, 0, 14, 12}, 6572);
+	/** semantic alias for AMULET_C6_R1 */
+	public static final IconEntry STONE_CLAIRVOYANCE_0 = AMULET_C6_R1;
 	/** STONE_SLEEP#0 */
-	public static final IconEntry STONE_SLEEP_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{96, 0, 14, 12}, 6573);
+	public static final IconEntry AMULET_C7_R1 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{96, 0, 14, 12}, 6573);
+	/** semantic alias for AMULET_C7_R1 */
+	public static final IconEntry STONE_SLEEP_0 = AMULET_C7_R1;
 	/** STONE_DETECT#0 */
-	public static final IconEntry STONE_DETECT_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{112, 0, 14, 12}, 6574);
+	public static final IconEntry AMULET_C8_R1 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{112, 0, 14, 12}, 6574);
+	/** semantic alias for AMULET_C8_R1 */
+	public static final IconEntry STONE_DETECT_0 = AMULET_C8_R1;
 	/** STONE_ENCHANT#0 */
-	public static final IconEntry STONE_ENCHANT_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{128, 0, 14, 12}, 6575);
+	public static final IconEntry AMULET_C9_R1 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{128, 0, 14, 12}, 6575);
+	/** semantic alias for AMULET_C9_R1 */
+	public static final IconEntry STONE_ENCHANT_0 = AMULET_C9_R1;
 	/** STONE_FLOCK#0 */
-	public static final IconEntry STONE_FLOCK_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{144, 0, 14, 12}, 6576);
+	public static final IconEntry AMULET_C10_R1 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{144, 0, 14, 12}, 6576);
+	/** semantic alias for AMULET_C10_R1 */
+	public static final IconEntry STONE_FLOCK_0 = AMULET_C10_R1;
 	/** STONE_INTUITION#0 */
-	public static final IconEntry STONE_INTUITION_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{160, 0, 14, 12}, 6577);
+	public static final IconEntry AMULET_C11_R1 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{160, 0, 14, 12}, 6577);
+	/** semantic alias for AMULET_C11_R1 */
+	public static final IconEntry STONE_INTUITION_0 = AMULET_C11_R1;
 	/** STONE_SHOCK#0 */
-	public static final IconEntry STONE_SHOCK_0 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{176, 0, 14, 12}, 6578);
+	public static final IconEntry AMULET_C12_R1 = new IconEntry("sprites/items/consum/scroll_amulet/amulet.png", new int[]{176, 0, 14, 12}, 6578);
+	/** semantic alias for AMULET_C12_R1 */
+	public static final IconEntry STONE_SHOCK_0 = AMULET_C12_R1;
 }

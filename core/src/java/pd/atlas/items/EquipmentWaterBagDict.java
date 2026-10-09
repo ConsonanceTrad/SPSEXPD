@@ -13,5 +13,7 @@ public final class EquipmentWaterBagDict {
 	private EquipmentWaterBagDict() { }
 
 	/** WATER_BAG */
-	public static final IconEntry WATER_BAG = new IconEntry("sprites/items/equipment/water_bag.png", new int[]{0, 0, 16, 14}, 7082);
+	public static final IconEntry WATER_BAG_C1_R1 = new IconEntry("sprites/items/equipment/water_bag.png", new int[]{0, 0, 16, 14}, 7082);
+	/** semantic alias for WATER_BAG_C1_R1 */
+	public static final IconEntry WATER_BAG = WATER_BAG_C1_R1;
 }
