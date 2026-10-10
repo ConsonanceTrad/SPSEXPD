@@ -30,9 +30,9 @@ import render.noosa.ui.Component;
  */
 public class WndBagPicker extends Component {
 
-	private static final int COLS   = 4;    //每行 4 个
-	private static final int CELL   = 18;   //紧凑格边长（图标 16px + 1px 边）
-	private static final int GAP    = 1;
+	private static final int COLS   = 5;    //每行 5 个
+	private static final int CELL   = 16;   //格子 = 图标本身（16px），图标间的净间隔全部由 GAP 决定
+	private static final int GAP    = 3;    //图标之间的间隔
 	private static final int MARGIN = 1;    //面板内部额外留白（外框留白由 NinePatch 的 margin 提供）
 
 	//SPSEXPD: 与 WndBag.INSTANCE 同理——只允许一个面板，并供 Toolbar 判断“双击”
@@ -120,14 +120,11 @@ public class WndBagPicker extends Component {
 		}
 	}
 
-	//SPSEXPD: 不居中——底边贴在 HUD 背包按钮正上方，水平以按钮为中心，并保证不出屏。
+	//SPSEXPD: 面板出现在背包按钮的「左上方」——右下角对齐按钮左上角，底边即快捷栏顶边。
 	//面板挂在与 InventoryPane 同一层，坐标就是 uiCamera 的逻辑坐标，不需要 Window 那样做屏幕像素换算。
 	private void placeAboveButton( float w, float h ) {
-		float cx = anchorX > 0 ? anchorX : PixelScene.uiCamera.width / 2f;
-		float bottom = anchorY > 0 ? anchorY : PixelScene.uiCamera.height;
-
-		float left = Math.max( 0, Math.min( cx - w / 2f, PixelScene.uiCamera.width - w ) );
-		float top = Math.max( 0, Math.min( bottom - h, PixelScene.uiCamera.height - h ) );
+		float left = Math.max( 0, Math.min( anchorX - w, PixelScene.uiCamera.width - w ) );
+		float top = Math.max( 0, Math.min( anchorY - h, PixelScene.uiCamera.height - h ) );
 
 		setPos( Math.round( left ), Math.round( top ) );
 	}
