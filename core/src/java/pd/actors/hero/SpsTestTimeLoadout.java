@@ -13,6 +13,7 @@ import pd.items.SoulCollect;
 import pd.items.TomeOfMastery;
 import pd.items.equipment.artifacts.MasterThievesArmband;
 import pd.items.equipment.bags.BambooBasket;
+import pd.items.equipment.bags.HeartOfScarecrow;
 import pd.items.equipment.bags.MagicalHolster;
 import pd.items.equipment.bags.BambooBasket;
 import pd.items.equipment.bags.PotionBandolier;
@@ -85,6 +86,8 @@ public final class SpsTestTimeLoadout {
 		collect(hero, new MagicalHolster());
 		//SPSEXPD: 竹背篓——专门存放投掷果实与大型果实
 		collect(hero, new BambooBasket());
+		//SPSEXPD: 草靶子（HeartOfScarecrow）——收纳武器/护甲/暗噬原型
+		collect(hero, new HeartOfScarecrow());
 		collect(hero, new Palantir());
 		collect(hero, new SoulCollect());
 		collect(hero, new PowerHand());
