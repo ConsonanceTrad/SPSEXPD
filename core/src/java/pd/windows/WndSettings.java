@@ -987,6 +987,10 @@ public class WndSettings extends WndTabbed {
 
 		@Override
 		protected void onClick() {
+			super.onClick();
+			//SPSEXPD: 本按钮点击会替换当前窗口（GameScene.show），onPointerUp 送不到，
+			//图标 brightness 会永久残留 —— 这里先手动还原；按压时的亮度反馈仍然保留
+			if (icon() != null) icon().resetColor();
 			GameScene.show(new WndTitledMessage(
 					Icons.INFO.get(),
 					Messages.get(AuxTab.class, key),
@@ -997,15 +1001,6 @@ public class WndSettings extends WndTabbed {
 		@Override
 		protected String hoverText() {
 			return null;
-		}
-
-		//SPSEXPD: 点击会替换当前窗口，onPointerUp 送不到，图标 brightness 会永久残留 —— 干脆不做亮度反馈
-		@Override
-		protected void onPointerDown() {
-		}
-
-		@Override
-		protected void onPointerUp() {
 		}
 	}
 
@@ -1225,11 +1220,11 @@ public class WndSettings extends WndTabbed {
 			height = bottom;
 		}
 
-		//SPSEXPD: 摆一行——复选框占左侧（右侧留出说明按钮），行末是蓝色感叹号
+		//SPSEXPD: 摆一行——复选框占左侧（行末留出说明按钮，两者之间空 2px 作隔断）
 		private float layoutRow(int i, float width, float bottom) {
 			CheckBox chk = rowChecks.get(i);
 			AuxNoteButton note = rowNotes.get(i);
-			chk.setRect(0, bottom + GAP, width - NOTE_W - 1, BTN_HEIGHT);
+			chk.setRect(0, bottom + GAP, width - NOTE_W - 2, BTN_HEIGHT);
 			note.setRect(
 					width - NOTE_W,
 					bottom + GAP + (BTN_HEIGHT - NOTE_W) / 2f,
