@@ -65,7 +65,11 @@ public class ItemSlot extends Button {
 	protected BitmapText extra;
 	protected Image      itemIcon;
 	protected BitmapText level;
-	
+
+	//SPSEXPD: 数字文本（数量/力量/等级）的统一缩放——背包窗口缩小时由 WndBag 按格子边长比例传入；
+	//默认 1f，其它用 ItemSlot 的界面不受影响
+	public float textScale = 1f;
+
 	private static final String TXT_STRENGTH	= ":%d";
 	private static final String TXT_TYPICAL_STR	= "%d?";
 
@@ -144,11 +148,13 @@ public class ItemSlot extends Button {
 		PixelScene.align(sprite);
 		
 		if (status != null) {
+			//SPSEXPD: 先套用窗口给的缩放再测量（measure() 会把 scale 计进 width/height）
+			float s = PixelScene.align(textScale);
+			status.scale.set(s);
 			status.measure();
 			if (status.width > width - (margin.left + margin.right)){
-				status.scale.set(PixelScene.align(0.8f));
-			} else {
-				status.scale.set(1f);
+				s = PixelScene.align(s * 0.8f);
+				status.scale.set(s);
 			}
 			status.x = x + margin.left;
 			status.y = y + margin.top;
@@ -156,6 +162,9 @@ public class ItemSlot extends Button {
 		}
 		
 		if (extra != null) {
+			//SPSEXPD: 力量需求等数字同样跟随 textScale
+			extra.scale.set(PixelScene.align(textScale));
+			extra.measure();
 			extra.x = x + (width - extra.width()) - margin.right;
 			extra.y = y + margin.top;
 			PixelScene.align(extra);
@@ -180,6 +189,9 @@ public class ItemSlot extends Button {
 		}
 		
 		if (level != null) {
+			//SPSEXPD: 等级数字同样跟随 textScale
+			level.scale.set(PixelScene.align(textScale));
+			level.measure();
 			level.x = x + (width - level.width()) - margin.right;
 			level.y = y + (height - level.baseLine() - 1) - margin.bottom;
 			PixelScene.align(level);

@@ -110,6 +110,9 @@ public class WndBag extends WndTabbed {
 	protected static final float MAX_WINDOW_WIDTH_RATIO		= 0.8f;
 	protected static final float MAX_WINDOW_HEIGHT_RATIO	= 0.7f;
 
+	//SPSEXPD: 窗口被上限缩小后，界面数字（格子上的数量/力量/等级、标题栏的金币/能量）的同步缩放
+	private float textScale = 1f;
+
 	//SPS: 标签栏改到窗口左右两侧（用户裁决 2026-09-28）——标签竖置、底板旋转 90°、图案保持正向；
 	//左侧 5 个、右侧其余，主背包固定右下角（参照归档 Godot 版 wnd_bag.gd 的侧栏布局）
 	//SPS: 侧边标签尺寸由贴图 Assets.Interfaces.SIDE_TABS 决定（横向 2 帧）——贴图多大标签就多大，
@@ -202,6 +205,10 @@ public class WndBag extends WndTabbed {
 			slotHeight--;
 			windowHeight -= nRows;
 		}
+
+		//SPSEXPD: 格子被缩小时，格子上的数字与标题栏的金币/能量也跟着等比缩小（格子没缩则保持 1）
+		int baseSlot = PixelScene.landscape() ? SLOT_WIDTH_L : SLOT_WIDTH_P;
+		textScale = Math.min(1f, slotWidth / (float)baseSlot);
 
 		placeTitle( bag, windowWidth );
 		
@@ -366,6 +373,7 @@ public class WndBag extends WndTabbed {
 
 			BitmapText amt = new BitmapText(Integer.toString(Dungeon.gold), PixelScene.pixelFont);
 			amt.hardlight(TITLE_COLOR);
+			amt.scale.set(PixelScene.align(textScale));
 			amt.measure();
 			amt.x = width - gold.width() - amt.width() - 1;
 			amt.y = (TITLE_HEIGHT - amt.baseLine()) / 2f - 1;
@@ -384,6 +392,7 @@ public class WndBag extends WndTabbed {
 
 			BitmapText amt = new BitmapText(Integer.toString(Dungeon.gold), PixelScene.pixelFont);
 			amt.hardlight(TITLE_COLOR);
+			amt.scale.set(PixelScene.align(textScale));
 			amt.measure();
 			amt.x = width - gold.width() - amt.width() - 2f;
 			amt.y = 0;
@@ -401,6 +410,7 @@ public class WndBag extends WndTabbed {
 
 			amt = new BitmapText(Integer.toString(Dungeon.energy), PixelScene.pixelFont);
 			amt.hardlight(0x44CCFF);
+			amt.scale.set(PixelScene.align(textScale));
 			amt.measure();
 			amt.x = width - energy.width() - amt.width() - 1;
 			amt.y = energy.y;
@@ -411,8 +421,10 @@ public class WndBag extends WndTabbed {
 		}
 
 		String title = selector != null ? selector.textPrompt() : null;
+		//SPSEXPD: 标题字号也跟随窗口缩放（RenderedTextBlock 没有 scale，按比例降字号，最小 6）
+		int titleSize = Math.max( 6, Math.round( 8 * textScale ) );
 		RenderedTextBlock txtTitle = PixelScene.renderTextBlock(
-				title != null ? Messages.titleCase(title) : Messages.titleCase( bag.name() ), 8 );
+				title != null ? Messages.titleCase(title) : Messages.titleCase( bag.name() ), titleSize );
 		txtTitle.hardlight( TITLE_COLOR );
 		txtTitle.maxWidth( (int)titleWidth - 2 );
 		txtTitle.setPos(
@@ -619,6 +631,8 @@ public class WndBag extends WndTabbed {
 				}
 			}
 		};
+		//SPSEXPD: 让格子里的数字跟随窗口缩放（必须在 setRect 前设置，setRect 会触发 layout）
+		slot.textScale = textScale;
 		slot.setRect( x, y, slotWidth, slotHeight );
 		add(slot);
 
