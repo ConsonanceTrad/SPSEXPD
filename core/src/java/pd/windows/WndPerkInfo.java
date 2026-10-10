@@ -33,7 +33,7 @@ public class WndPerkInfo extends Window {
 		int width = WIDTH_MIN;
 
 		RenderedTextBlock title = PixelScene.renderTextBlock(
-				perk.title() + " " + levelText(perk), 9);
+				perk.title() + " " + levelText(perk), 7);
 		title.hardlight(Window.TITLE_COLOR);
 		title.maxWidth(width - MARGIN * 2);
 		title.setPos(MARGIN, MARGIN);
@@ -41,7 +41,8 @@ public class WndPerkInfo extends Window {
 
 		RenderedTextBlock info = PixelScene.renderTextBlock("", 6);
 		info.spans(perk.describeRich(), width - MARGIN * 2);
-		info.setPos(MARGIN, title.bottom() + 2);
+		//SPSEXPD: 标题与描述之间留 3px 额外间隔（原为 2，现 5）
+		info.setPos(MARGIN, title.bottom() + 5);
 		add(info);
 
 		while (PixelScene.landscape()
