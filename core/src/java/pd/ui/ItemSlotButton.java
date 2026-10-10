@@ -13,6 +13,7 @@ import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
 import pd.windows.WndInfoItem;
+import render.noosa.BitmapText;
 import render.noosa.Game;
 
 public class ItemSlotButton extends Button {
@@ -22,7 +23,7 @@ public class ItemSlotButton extends Button {
 	public final Item item;
 
 	private final ItemSprite icon;
-	private final RenderedTextBlock count;
+	private final BitmapText count;
 
 	public ItemSlotButton(Item item) {
 		super();
@@ -32,9 +33,10 @@ public class ItemSlotButton extends Button {
 		add(icon);
 
 		int q = (item == null) ? 1 : item.quantity();
-		//SPSEXPD: 数量 >1 才显示角标（与特质格子的等级角标同位置）
-		count = PixelScene.renderTextBlock(q > 1 ? String.valueOf(q) : "", 6);
-		count.hardlight(Window.TITLE_COLOR);
+		//SPSEXPD: 数量 >1 才显示角标；用局内数字字体（PixelScene.pixelFont）、白色，位置同特质格子的等级角标
+		count = new BitmapText(PixelScene.pixelFont);
+		count.text(q > 1 ? String.valueOf(q) : "");
+		count.measure();
 		add(count);
 
 		setSize(BTN, BTN);
@@ -45,8 +47,9 @@ public class ItemSlotButton extends Button {
 		super.layout();
 		icon.x = x + (width - icon.width()) / 2f;
 		icon.y = y + (height - icon.height()) / 2f;
-		//SPSEXPD: 角标左移下移一点，使其保持在 16x16 的图标内（格子 20x20、图标居中）
-		count.setPos(x + width - count.width() - 3, y + 3);
+		//SPSEXPD: 数字左移下移一点，使其保持在 16x16 的图标内（格子 20x20、图标居中）
+		count.x = x + width - count.width() - 3;
+		count.y = y + 3;
 	}
 
 	@Override
