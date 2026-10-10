@@ -1039,12 +1039,18 @@ public class WndSettings extends WndTabbed {
 		//SPSEXPD: 每行行末「蓝色感叹号」说明按钮的边长
 		static final int NOTE_W = 11;
 
-		//SPSEXPD: 行集合——布局时逐行摆放（复选框 + 行末说明按钮），顺序＝添加顺序
-		private final ArrayList<CheckBox> rowChecks = new ArrayList<>();
-		private final ArrayList<AuxNoteButton> rowNotes = new ArrayList<>();
+		//SPSEXPD: 行集合——布局时逐行摆放（复选框 + 行末说明按钮），顺序＝添加顺序。
+		//注意：必须在 createChildren() 里 new（见下方注释），不能用字段初始化器
+		private ArrayList<CheckBox> rowChecks;
+		private ArrayList<AuxNoteButton> rowNotes;
 
 		@Override
 		protected void createChildren() {
+			//SPSEXPD: 行集合必须在这里初始化——Component 的构造里就会调用 createChildren()，
+			//那时子类的字段初始化器还没执行（用字段初始化器会 NPE）
+			rowChecks = new ArrayList<>();
+			rowNotes = new ArrayList<>();
+
 			title = PixelScene.renderTextBlock(Messages.get(AuxTab.class, "title"), 9);
 			title.hardlight(TITLE_COLOR);
 			add(title);
