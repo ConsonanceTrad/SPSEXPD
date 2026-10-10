@@ -691,111 +691,36 @@ public enum HeroClass {
 	}
 
 	private static void initHuntress( Hero hero ) {
+		//SPSEXPD: 物品部分已抽到 startingItems()（单一真源），这里只留属性与全局副作用
 		if (hero.skin == 1) {
 			hero.STR++;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count++;
-			pd.items.equipment.weapon.melee.normalweapon.Dagger dagger = new pd.items.equipment.weapon.melee.normalweapon.Dagger();
-			dagger.upgrade();
-			(hero.belongings.weapon = dagger).identify();
-			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.RubberArmor()).identify().upgrade(1);
-			TimeOclock clock = new TimeOclock(); clock.upgrade(5); (hero.belongings.artifact = clock).identify(); clock.activate(hero);
-			ManyKnive knives = (ManyKnive)new ManyKnive().upgrade();
-			knives.identify().collect();
-			EscapeKnive escapeKnives = new EscapeKnive(5);
-			escapeKnives.identify().collect();
-			Dungeon.quickslot.setSlot(0, clock);
-			Dungeon.quickslot.setSlot(1, escapeKnives);
 		} else if (hero.skin == 2) {
 			hero.HTBoost -= 10;
 			hero.updateHT(false);
 			hero.improveAttackSkill(5);
 			hero.improveDefenseSkill(3);
-			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Knuckles()).identify();
-			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.ClothArmor()).identify();
-			new TaurcenBow().identify().collect();
-			new JumpH().collect();
-		} else if (hero.skin == 3) {
-			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Knuckles()).identify();
-			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.ClothArmor()).identify();
-			new TaurcenBow().identify().collect();
-			new RangeBag().identify().collect();
-		} else if (hero.skin == 4) {
-			(hero.belongings.weapon = new WoodenStaff()).identify();
-			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.ClothArmor()).identify();
-			new PPC().identify().collect();
-			new JumpH().collect();
-		} else if (hero.skin == 5) {
-			// The chaotic skin's shared loadout is installed before the class branch.
 		} else if (hero.skin == 6) {
-			(hero.belongings.weapon = new Sling()).identify();
-			hero.belongings.weapon.activate(hero);
-			(hero.belongings.armor = new VestArmor()).identify();
-			ShootGun shootGun = new ShootGun(); shootGun.identify().collect();
-			new JumpS().collect();
-			new EmpBola(3).identify().collect();
 			hero.improveAttackSkill(4);
 			hero.improveDefenseSkill(2);
-			Dungeon.quickslot.setSlot(0, shootGun);
-		} else {
-			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Knuckles()).identify();
-			(hero.belongings.armor = new ClothArmor()).identify();
-			//SPSXPD: 女猎手开局携带灵能弓（替换原回旋镖）
-			SpiritBow bow = new SpiritBow();
-			bow.identify().collect();
-			EmpBola bola = new EmpBola(3);
-			bola.identify().collect();
-			Dungeon.quickslot.setSlot(0, bow);
-			Dungeon.quickslot.setSlot(1, bola);
 		}
-
-		new PotionOfMindVision().identify();
-		new ScrollOfRemoveCurse().identify();
-		new Vegetablekebab().identify().collect();
+		//skin 5（混沌）的整套装备由 initChaoticSkin() 在 initHero 通用段发放
+		applyStartingItems(hero, startingItems(HUNTRESS, hero.skin));
 	}
 
 	private static void initDuelist( Hero hero ) {
-
-		(hero.belongings.weapon = new Rapier()).identify();
-		hero.belongings.weapon.activate(hero);
-
-		ThrowingSpike spikes = new ThrowingSpike();
-		spikes.quantity(2).identify().collect(); //set quantity is 3, but Duelist starts with 2
-
-		Dungeon.quickslot.setSlot(0, hero.belongings.weapon);
-		Dungeon.quickslot.setSlot(1, spikes);
-
-		new PotionOfStrength().identify();
-		new ScrollOfMirrorImage().identify();
+		//SPSEXPD: 物品部分已抽到 startingItems()（单一真源）
+		applyStartingItems(hero, startingItems(DUELIST, hero.skin));
 	}
 
 	private static void initCleric( Hero hero ) {
-
-		(hero.belongings.weapon = new Cudgel()).identify();
-		hero.belongings.weapon.activate(hero);
-
-		HolyTome tome = new HolyTome();
-		(hero.belongings.artifact = tome).identify();
-		hero.belongings.artifact.activate( hero );
-
-		Dungeon.quickslot.setSlot(0, tome);
-
-		new PotionOfPurity().identify();
-		new ScrollOfRemoveCurse().identify();
+		//SPSEXPD: 物品部分已抽到 startingItems()（单一真源）
+		applyStartingItems(hero, startingItems(CLERIC, hero.skin));
 	}
 
 	private static void initSpellsword( Hero hero ) {
-
-		(hero.belongings.weapon = new Spellblade()).identify();
-		hero.belongings.weapon.activate(hero);
-
-		WandOfMagicMissile wand = new WandOfMagicMissile();
-		wand.identify().collect();
-
-		Dungeon.quickslot.setSlot(0, wand);
-		Dungeon.quickslot.setSlot(1, hero.belongings.weapon);
-
-		new ScrollOfUpgrade().identify();
-		new PotionOfStrength().identify();
+		//SPSEXPD: 物品部分已抽到 startingItems()（单一真源）
+		applyStartingItems(hero, startingItems(SPELLSWORD, hero.skin));
 	}
 
 	private static void initPerformer(Hero hero) {
@@ -1675,6 +1600,84 @@ public enum HeroClass {
 					l.backpack(() -> new RiceGruel());
 					break;
 			}
+		}
+
+		if (cls == HUNTRESS) {
+			switch (skin) {
+				case 1:
+					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Dagger(), 1, null);
+					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.RubberArmor(), 1, null);
+					l.equip(ItemSlot.ARTIFACT, () -> new TimeOclock(), 5, (h, i) -> {
+						((TimeOclock) i).activate(h);
+						Dungeon.quickslot.setSlot(0, i);
+					});
+					l.backpack(() -> new ManyKnive(), 1, 1, -1, null);
+					l.backpack(() -> new EscapeKnive(5), 0, 1, 1, null);
+					break;
+				case 2:
+					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Knuckles(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.ClothArmor(), 0, null);
+					l.backpack(() -> new TaurcenBow());
+					l.backpack(() -> new JumpH());
+					break;
+				case 3:
+					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Knuckles(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.ClothArmor(), 0, null);
+					l.backpack(() -> new TaurcenBow());
+					l.backpack(() -> new RangeBag());
+					break;
+				case 4:
+					l.equip(ItemSlot.WEAPON, () -> new WoodenStaff(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.ClothArmor(), 0, null);
+					l.backpack(() -> new PPC());
+					l.backpack(() -> new JumpH());
+					break;
+				case 5:
+					//skin 5（混沌）的整套装备由 initChaoticSkin() 在 initHero 通用段发放
+					break;
+				case 6:
+					l.equip(ItemSlot.WEAPON, () -> new Sling(), 0,
+							(h, i) -> ((pd.items.KindOfWeapon) i).activate(h));
+					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
+					l.backpack(() -> new ShootGun(), 0, 1, 0, null);
+					l.backpack(() -> new JumpS());
+					l.backpack(() -> new EmpBola(3));
+					break;
+				default:
+					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Knuckles(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new ClothArmor(), 0, null);
+					//SPSXPD: 女猎手开局携带灵能弓（替换原回旋镖）
+					l.backpack(() -> new SpiritBow(), 0, 1, 0, null);
+					l.backpack(() -> new EmpBola(3), 0, 1, 1, null);
+					break;
+			}
+			//所有主题共通
+			l.backpack(() -> new Vegetablekebab());
+		}
+
+		if (cls == DUELIST) {
+			l.equip(ItemSlot.WEAPON, () -> new Rapier(), 0, (h, i) -> {
+				((pd.items.KindOfWeapon) i).activate(h);
+				Dungeon.quickslot.setSlot(0, i);
+			});
+			l.backpack(() -> new ThrowingSpike(), 0, 2, 1, null);
+		}
+
+		if (cls == CLERIC) {
+			l.equip(ItemSlot.WEAPON, () -> new Cudgel(), 0,
+					(h, i) -> ((pd.items.KindOfWeapon) i).activate(h));
+			l.equip(ItemSlot.ARTIFACT, () -> new HolyTome(), 0, (h, i) -> {
+				((HolyTome) i).activate(h);
+				Dungeon.quickslot.setSlot(0, i);
+			});
+		}
+
+		if (cls == SPELLSWORD) {
+			l.equip(ItemSlot.WEAPON, () -> new Spellblade(), 0, (h, i) -> {
+				((pd.items.KindOfWeapon) i).activate(h);
+				Dungeon.quickslot.setSlot(1, i);
+			});
+			l.backpack(() -> new WandOfMagicMissile(), 0, 1, 0, null);
 		}
 
 		return l;
