@@ -1601,7 +1601,9 @@ public class GameScene extends PixelScene {
 		if (scene == null) return false;
 
 		for (Gizmo g : scene.members){
-			if (g instanceof Window) return true;
+			//SPSEXPD: 非模态窗口（blocksInput()==false，例如快捷背包选框）不算“有窗口”，
+			//否则它会把地图点击与 HUD 操作一起吞掉
+			if (g instanceof Window && ((Window) g).blocksInput()) return true;
 		}
 
 		return false;

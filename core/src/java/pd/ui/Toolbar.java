@@ -427,15 +427,15 @@ public class Toolbar extends Component {
 						//SPSEXPD: 快捷背包——单击弹出浮动的包裹选择面板（每行 4 个）；
 						//面板已经开着时再次点击背包按钮（即双击）＝直接打开主背包
 						boolean pickerOpen = WndBagPicker.INSTANCE != null;
-						if (!GameScene.cancel()) {
-							if (pickerOpen) {
-								GameScene.show(new WndBag(Dungeon.hero.belongings.backpack));
-							} else {
-								//SPSEXPD: 选框贴在背包按钮正上方（传按钮中心与顶边的 uiCamera 坐标）
-								GameScene.show(new WndBagPicker(
-										Toolbar.this.left() + btnInventory.left() + btnInventory.width() / 2f,
-										Toolbar.this.top() + btnInventory.top()));
-							}
+						//SPSEXPD: 注意 GameScene.cancel() 在“确实关掉了窗口”时返回 true，
+						//所以不能把两个分支都塞进 if(!cancel()) —— 否则面板开着时这一击只会关掉面板。
+						if (pickerOpen) {
+							GameScene.show(new WndBag(Dungeon.hero.belongings.backpack));
+						} else if (!GameScene.cancel()) {
+							//SPSEXPD: 选框贴在背包按钮正上方（传按钮中心与顶边的 uiCamera 坐标）
+							GameScene.show(new WndBagPicker(
+									Toolbar.this.left() + btnInventory.left() + btnInventory.width() / 2f,
+									Toolbar.this.top() + btnInventory.top()));
 						}
 					} else {
 						if (!GameScene.cancel()) {

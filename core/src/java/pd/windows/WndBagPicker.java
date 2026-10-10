@@ -91,6 +91,12 @@ public class WndBagPicker extends Window {
 		placeAboveButton();
 	}
 
+	//SPSEXPD: 非模态——不阻断下层输入（配合 Window.blocksInput() 与 GameScene.showingWindow()）
+	@Override
+	public boolean blocksInput() {
+		return false;
+	}
+
 	@Override
 	public void hide() {
 		super.hide();

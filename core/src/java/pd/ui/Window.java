@@ -53,6 +53,12 @@ public class Window extends Group implements Signal.Listener<KeyEvent> {
 	public static final int WHITE = 0xFFFFFF;
 	public static final int TITLE_COLOR = 0xFFFF44;
 	public static final int SHPX_COLOR = 0x33BB33;
+
+	//SPSEXPD: 本窗口是否为“模态”——模态窗口会被 GameScene.showingWindow() 计入，从而阻断地图点击与英雄操作。
+	//非模态窗口（例如快捷背包选框 WndBagPicker）覆写为 false，就不会把 HUD / 场景的点击一起吞掉。
+	public boolean blocksInput() {
+		return true;
+	}
 	
 	public Window() {
 		this( 0, 0, Chrome.get( Chrome.Type.WINDOW ) );
