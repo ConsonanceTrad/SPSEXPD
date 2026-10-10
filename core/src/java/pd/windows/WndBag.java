@@ -321,22 +321,22 @@ public class WndBag extends WndTabbed {
 		}
 
 		//SPS: 标签带贴近窗口外缘、四周内缩 1px——露出 1px 窗口边框作过渡
-		//SPSEXPD: 再整体上移 1px（用户要求），去掉这里的 +1 内缩
-		float top = -chrome.marginTop();
+		//（微调定稿：0px 盖压略大、2px 内缩略小，1px 正好）
+		float top = -chrome.marginTop() + 1;
+		//SPS: 底部多留 1px 内边距（上 1 + 下 2），让左栏第 5 个标签与背包下边缘像素衔接
+		float usableH = height + chrome.marginVer() - 3;
 
 		int bagCount = n - 1;                                  //除主背包
 		int leftCount = Math.min( bagCount, LEFT_TABS );
 
-		//SPS: 左右两栏每项都恒定占 1/5 格位（不拉伸）。
+		//SPS: 左右两栏每项都恒定占 1/5（不拉伸）。
 		//整数网格（用户裁决 2026-09-30）：标签页间恒留 1px 间隙避免像素融合——
 		//高度 = g-1、步进 = g（浮点步进取整会在 0~1px 间抖动导致相邻标签粘连/融合）
-		//SPSEXPD: 用户要求竖版标签矮一些、且随背包缩放同步变小——直接把格距绑到背包格子高度
-		//（g - 1 == slotHeight），于是标签与格子等高，窗口缩小时标签自然一起变矮
-		int g = Math.max( 2, slotHeight + 1 );
+		int g = Math.max( 2, (int)( (usableH + 1) / 5 ) );
 
 		//SPS: 标签在窗框外侧——未选中时压在窗框下、选中时探入框带。
-		//SPSEXPD: 去掉原来的 2px 外移——未选中帧正好与窗口边缘邻接，选中帧则完整盖住背包界面的边框带
-		float leftX = -TAB_W, rightX = width;
+		//探入深度 = 窗框带 6px - 2px = 4px（再外移 2px 让选中态探入浅一点）
+		float leftX = -TAB_W - 2, rightX = width + 2;
 
 		int sideIdx = 0;
 		for (int i = 1; i < n; i++) {
@@ -450,8 +450,10 @@ public class WndBag extends WndTabbed {
 		float titleWidth;
 		if (Dungeon.energy == 0) {
 			ItemSprite gold = new ItemSprite(SpecificCurrencyDict.GOLD_0, null);
-			gold.x = width - gold.width();
-			gold.y = (TITLE_HEIGHT - gold.height()) / 2f;
+			//SPSEXPD: 金币图标随窗口一起缩放（图标自身的 width/height 不随 scale 变，布局要自己乘 textScale）
+			gold.scale.set(PixelScene.align(textScale));
+			gold.x = width - gold.width() * textScale;
+			gold.y = (TITLE_HEIGHT - gold.height() * textScale) / 2f;
 			PixelScene.align(gold);
 			add(gold);
 
@@ -459,7 +461,7 @@ public class WndBag extends WndTabbed {
 			amt.hardlight(TITLE_COLOR);
 			amt.scale.set(PixelScene.align(textScale));
 			amt.measure();
-			amt.x = width - gold.width() - amt.width() - 1;
+			amt.x = width - gold.width() * textScale - amt.width() - 1;
 			amt.y = (TITLE_HEIGHT - amt.baseLine()) / 2f - 1;
 			PixelScene.align(amt);
 			add(amt);
@@ -469,7 +471,8 @@ public class WndBag extends WndTabbed {
 		} else {
 
 			Image gold = Icons.get(Icons.COIN_SML);
-			gold.x = width - gold.width() - 0.5f;
+			gold.scale.set(PixelScene.align(textScale));
+			gold.x = width - gold.width() * textScale - 0.5f;
 			gold.y = 0;
 			PixelScene.align(gold);
 			add(gold);
@@ -478,7 +481,7 @@ public class WndBag extends WndTabbed {
 			amt.hardlight(TITLE_COLOR);
 			amt.scale.set(PixelScene.align(textScale));
 			amt.measure();
-			amt.x = width - gold.width() - amt.width() - 2f;
+			amt.x = width - gold.width() * textScale - amt.width() - 2f;
 			amt.y = 0;
 			PixelScene.align(amt);
 			add(amt);
@@ -487,8 +490,9 @@ public class WndBag extends WndTabbed {
 			titleWidth = placeSGoldExchangeButton( amt.x );
 
 			Image energy = Icons.get(Icons.ENERGY_SML);
-			energy.x = width - energy.width();
-			energy.y = gold.height();
+			energy.scale.set(PixelScene.align(textScale));
+			energy.x = width - energy.width() * textScale;
+			energy.y = gold.height() * textScale;
 			PixelScene.align(energy);
 			add(energy);
 
@@ -496,7 +500,7 @@ public class WndBag extends WndTabbed {
 			amt.hardlight(0x44CCFF);
 			amt.scale.set(PixelScene.align(textScale));
 			amt.measure();
-			amt.x = width - energy.width() - amt.width() - 1;
+			amt.x = width - energy.width() * textScale - amt.width() - 1;
 			amt.y = energy.y;
 			PixelScene.align(amt);
 			add(amt);
@@ -528,7 +532,8 @@ public class WndBag extends WndTabbed {
 				askSGoldExchange();
 			}
 		};
-		btn.icon().scale.set( 0.75f );
+		//SPSEXPD: S金兑换图标也随窗口缩放（0.75 是它的基准缩放）
+		btn.icon().scale.set( 0.75f * textScale );
 		btn.icon().originToCenter();
 		final float left = right - 12 - 3;
 		btn.setSize( 12, TITLE_HEIGHT );
