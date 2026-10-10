@@ -55,8 +55,8 @@ abstract public class KindOfWeapon extends EquipableItem {
 			.t("empty", "空栏位")
 			.t("destory", "你的武器坏掉了。")
 			.t("almost_destory", "你的武器快要坏了。")
-			.t("no_primary_swap", "这件武器只能装备在副武器栏，无法与主武器互换。")
-			.t("equip_overweight_msg", "同时挥舞两把武器需要更强的力量，装备这把武器会导致主手武器/副手武器难以掌控，确定要装备吗？");
+			.t("no_primary_swap", "这件武器被设计于副手专用，无法与主武器互换。")
+			.t("equip_overweight_msg", "同时挥舞两把武器需要更强的力量，以你当前的力量而言，双持这把武器会导致难以掌控，确定要装备吗？");
 	}
 
 

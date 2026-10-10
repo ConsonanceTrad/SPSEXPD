@@ -80,7 +80,7 @@ public class Waterskin extends Item {
 			.t("detected", "露珠短暂揭示了本层所有生物的位置。")
 			.t("cleansed", "露珠洗去了有害效果，并为你提供了片刻净化保护。")
 			.t("hastened", "露珠令你的脚步短暂加快。")
-			.t("desc", "古老而神秘的魔法水瓶，被用于提取露珠中的能量。被收集的露珠能量在这个无底的小瓶中流淌着，可以用于释放各种法术")
+			.t("desc", "古老而神秘的魔法水瓶，被用于提取露珠中的能量。被收集的露珠能量在这个无底的小瓶中流淌着，可以用于释放各种法术。")
 			.t("desc_water", "你的露珠瓶里只有普普通通的饮用水，地牢中肯定会有更值得装的东西。")
 			.t("desc_heal", "露珠瓶里现在装着有治愈魔力的露水。每滴露珠恢复最大生命值的2.5%%，每次只会喝掉你需要的量。")
 			.t("desc_full", "装满了的露珠瓶散发着一股能量，也许能够用来祝福其他的生存道具？")
@@ -221,11 +221,11 @@ public class Waterskin extends Item {
 		//SPSXPD: 简化露珠瓶功能 —— 初始 强化 / 提纯；随升级依次解锁 照明(+1) / 种植(+2) / 侦测(+3)
 		//SPSXPD: 简化露珠瓶功能 —— 初始 强化 / 提纯；随升级依次解锁 照明(+1) / 种植(+2) / 侦测(+3)
 		//露珠不足时同样显示，仅把右上角消耗数字标红；实际能否使用按（区间上限）校验
+        actions.add(AC_BLESS);
+        actions.add(AC_REFINE);
 		if (Dungeon.dewWater) actions.add(AC_LIGHT);
 		if (Dungeon.dewDraw) actions.add(AC_WATER);
 		if (Dungeon.dewNorn) actions.add(AC_PEEK);
-		actions.add(AC_BLESS);
-		actions.add(AC_REFINE);
 		return actions;
 	}
 
