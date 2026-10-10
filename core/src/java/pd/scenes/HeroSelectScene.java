@@ -145,9 +145,6 @@ public class HeroSelectScene extends PixelScene {
 	//SPSEXPD: 「名字 + 描述」区的预留高度（= 所有可玩职业里最长的描述高度，-1 表示未测量）
 	private float descReserveH = -1;
 
-	//SPSEXPD: 「头像 + 名字 + 描述」块在横幅下方剩余空间中的占比（0 = 紧贴横幅，0.5 = 完全居中）
-	private static final float BLOCK_DROP = 0.2f;
-
 	private RectF insets;
 
 	private static boolean heroWasRandomized = true;
@@ -381,9 +378,7 @@ public class HeroSelectScene extends PixelScene {
 		float btnH = AVATAR_H * scale + 4;
 		float avatarsH = rows * btnH + (rows - 1);
 
-		//SPSEXPD: 特写横幅贴顶；「头像 + 名字 + 描述」整块落在横幅下方，但只下沉剩余空间的一部分（更靠近横幅）
-		float contentH = avatarsH + 4 + infoH;
-		float offsetY = Math.max(0, (space - areaH - contentH) * BLOCK_DROP);
+		//SPSEXPD: 特写横幅贴顶，选角头像紧随横幅下方；「英雄名 + 描述」在头像行与底部图标行之间的空白里垂直居中
 
 		closeup.scale.set(closeScale, closeScale);
 		closeup.x = left + (w - texW * closeScale)/2f;
@@ -402,7 +397,11 @@ public class HeroSelectScene extends PixelScene {
 			blk.visible = closeup.visible;
 		}
 
-		float rowsY = tipY + areaH + offsetY;
+		float rowsY = tipY + areaH + 4;
+
+		//「英雄名 + 描述」占位区的顶端，以及它在剩余空白里居中后的实际落点
+		float infoTop = rowsY + avatarsH + 4;
+		float infoY = infoTop + Math.max(0, (bottomTop - infoTop - infoH)/2f);
 
 		for (int r = 0; r < rows; r++){
 			int count = Math.min(cols, heroBtns.size() - r * cols);
@@ -417,8 +416,8 @@ public class HeroSelectScene extends PixelScene {
 			}
 		}
 
-		//英雄名与描述紧跟头像行下方（信息按钮贴在名字右侧、整体居中）
-		float nameTop = rowsY + avatarsH + 4;
+		//英雄名与描述（信息按钮贴在名字右侧、整体居中）
+		float nameTop = infoY;
 		float nameRowW = heroName.width() + 2 + infoButton.width();
 		heroName.setPos(left + (w - nameRowW)/2f, nameTop);
 		align(heroName);
