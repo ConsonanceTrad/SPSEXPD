@@ -82,6 +82,12 @@ public class WndBagPicker extends Window {
 
 		resize( w, h );
 
+		//SPSEXPD: 做成“非模态”紧凑选框——去掉全屏 blocker 与整屏变暗。
+		//原因：Window 默认的 blocker 覆盖全屏，会拦住 HUD 背包按钮的点击，
+		//使“再点一次按钮（即双击）打开主背包”完全收不到事件。
+		remove( blocker );
+		remove( shadow );
+
 		placeAboveButton();
 	}
 
