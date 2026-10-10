@@ -75,6 +75,15 @@ public class Statistics {
 	public static int previousFloorMoves;
 	public static float spsTime;
 	public static int spsDays;
+	/**
+	 * SPSEXPD: 日历基准——开局随机一个「起始绝对日序」（0 = 第 1 年 1 月 1 日），
+	 * 之后每过一个游戏日（spsDays++）自动推进，供「挂历」物品显示年/月/日。
+	 * 月与日按 30 天/月、12 月/年等比换算。
+	 */
+	public static int spsCalendarStart;
+	public static final int DAYS_PER_MONTH = 30;
+	public static final int MONTHS_PER_YEAR = 12;
+	public static final int DAYS_PER_YEAR = DAYS_PER_MONTH * MONTHS_PER_YEAR;
 	
 	public static boolean qualifiedForNoKilling = false;
 	public static boolean completedWithNoKilling = false;
@@ -134,6 +143,8 @@ public class Statistics {
 		previousFloorMoves = 0;
 		spsTime        = 360;
 		spsDays        = 0;
+		//SPSEXPD: 每局随机一个起始日期（约 50 年范围内），而不是一律从 1 年 1 月 1 日开始
+		spsCalendarStart = render.utils.math.Random.Int( DAYS_PER_YEAR * 50 );
 		
 		qualifiedForNoKilling = false;
 		qualifiedForBossRemainsBadge = false;
@@ -193,6 +204,7 @@ public class Statistics {
 	private static final String PREVIOUS_FLOOR_MOVES = "prevfloormoves";
 	private static final String SPS_TIME = "spsTime";
 	private static final String SPS_DAYS = "spsDays";
+	private static final String SPS_CALENDAR_START = "spsCalendarStart";
 
 	private static final String NO_KILLING_QUALIFIED	= "qualifiedForNoKilling";
 	private static final String BOSS_REMAINS_QUALIFIED	= "qualifiedForBossRemainsBadge";
@@ -252,6 +264,7 @@ public class Statistics {
 		bundle.put( PREVIOUS_FLOOR_MOVES, previousFloorMoves );
 		bundle.put( SPS_TIME, spsTime );
 		bundle.put( SPS_DAYS, spsDays );
+		bundle.put( SPS_CALENDAR_START, spsCalendarStart );
 
 		bundle.put(NO_KILLING_QUALIFIED, qualifiedForNoKilling);
 		bundle.put(BOSS_REMAINS_QUALIFIED, qualifiedForBossRemainsBadge);
@@ -324,6 +337,8 @@ public class Statistics {
 		previousFloorMoves = bundle.getInt( PREVIOUS_FLOOR_MOVES );
 		spsTime = bundle.contains(SPS_TIME) ? bundle.getFloat(SPS_TIME) : 360;
 		spsDays = bundle.contains(SPS_DAYS) ? bundle.getInt(SPS_DAYS) : 0;
+		//SPSEXPD: 旧档没有这个键时用 0（1 年 1 月 1 日）兜底，避免每次读档日期都跳
+		spsCalendarStart = bundle.contains(SPS_CALENDAR_START) ? bundle.getInt(SPS_CALENDAR_START) : 0;
 
 		qualifiedForNoKilling = bundle.getBoolean( NO_KILLING_QUALIFIED );
 		qualifiedForBossRemainsBadge = bundle.getBoolean( BOSS_REMAINS_QUALIFIED );
@@ -353,6 +368,19 @@ public class Statistics {
 
 	public static boolean spsNight() {
 		return spsTime > 1080 || spsTime < 361;
+	}
+
+	/** SPSEXPD: 当前日历（「挂历」物品显示用）——起始随机日 + 已过日数，按 30 天/月、12 月/年等比换算。 */
+	public static int calendarYear() {
+		return (spsCalendarStart + spsDays) / DAYS_PER_YEAR + 1;
+	}
+
+	public static int calendarMonth() {
+		return ((spsCalendarStart + spsDays) % DAYS_PER_YEAR) / DAYS_PER_MONTH + 1;
+	}
+
+	public static int calendarDay() {
+		return (spsCalendarStart + spsDays) % DAYS_PER_MONTH + 1;
 	}
 	
 	public static void preview( GamesInProgress.Info info, Bundle bundle ){

@@ -72,8 +72,8 @@ public class TimeIndicator extends Component {
 
 		int h = minutes / 60;
 		int m = minutes % 60;
-		label.text( "D" + (Statistics.spsDays + 1) + " "
-				+ (h < 10 ? "0" + h : Integer.toString(h)) + ":"
+		//SPSEXPD: UI 只显示时间——日期改由「挂历」物品显示（Statistics.calendarYear/Month/Day）
+		label.text( (h < 10 ? "0" + h : Integer.toString(h)) + ":"
 				+ (m < 10 ? "0" + m : Integer.toString(m)) );
 		label.hardlight( night ? NIGHT_TEXT : DAY_TEXT );
 		label.measure();
