@@ -145,8 +145,8 @@ public class HeroSelectScene extends PixelScene {
 	//SPSEXPD: 「名字 + 描述」区的预留高度（= 所有可玩职业里最长的描述高度，-1 表示未测量）
 	private float descReserveH = -1;
 
-	//SPSEXPD: 横屏特写横幅的高度占屏幕高度的比例（竖屏固定为 1/3）
-	private static final float BANNER_H_LAND = 0.5f;
+	//SPSEXPD: 横屏特写横幅的高度占屏幕高度的比例（竖屏固定为屏幕高的 1/3，约 33%）
+	private static final float BANNER_H_LAND = 0.35f;
 
 	private RectF insets;
 
