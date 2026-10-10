@@ -724,15 +724,7 @@ public enum HeroClass {
 	}
 
 	private static void initPerformer(Hero hero) {
-		if (hero.skin == 1) {
-			(hero.belongings.weapon = new GunA()).identify().upgrade(2);
-			(hero.belongings.armor = new VestArmor()).identify().upgrade(1);
-			new GoldAmmo().identify().collect(); new WoodenAmmo().identify().collect(); new BattleAmmo().identify().collect();
-			AlienBag bag = new AlienBag(); (hero.belongings.artifact = bag).identify(); bag.activate(hero);
-			BShovel button = new BShovel(); button.identify().collect(); Dungeon.quickslot.setSlot(0, button); Dungeon.quickslot.setSlot(1, hero.belongings.weapon);
-			new NutCookie(6).identify().collect(); new DungeonBomb().identify().collect(); new ScrollOfLullaby().identify(); new PotionOfPurity().identify();
-			return;
-		}
+		//SPSEXPD: 物品部分已抽到 startingItems()（单一真源），这里只留属性与全局副作用
 		if (hero.skin == 2) {
 			hero.HTBoost -= 10;
 			hero.updateHT(false);
@@ -740,116 +732,27 @@ public enum HeroClass {
 			hero.improveDefenseSkill(5);
 			hero.STR += 4;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 4;
-			(hero.belongings.weapon = new HolyWater()).identify();
-			(hero.belongings.armor = new BaseArmor()).identify();
-			new CopyBall().collect();
-			new PotionOfHealing().quantity(2).identify().collect();
-			new JumpP().collect();
-			new NutCookie(6).identify().collect();
-			new DungeonBomb().identify().collect();
-			new ScrollOfLullaby().identify();
-			new PotionOfPurity().identify();
-			return;
-		}
-		if (hero.skin == 3) {
-			(hero.belongings.weapon = new Triangolo()).identify();
-			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.ClothArmor()).identify();
-			Shovel shovel = new Shovel();
-			shovel.identify().collect();
-			DanceLion danceLion = new DanceLion();
-			danceLion.identify().collect();
-			new SpsFireBomb().identify().collect();
-			new IceBomb().identify().collect();
-			new StormBomb().identify().collect();
-			new DungeonBomb().identify().collect();
-			new DungeonBomb().identify().collect();
-			Dungeon.quickslot.setSlot(0, shovel);
-			Dungeon.quickslot.setSlot(1, danceLion);
-			new ScrollOfLullaby().identify();
-			new ScrollOfLullaby().identify().collect();
-			new PotionOfPurity().identify();
-			new NutCookie(6).identify().collect();
-			return;
-		}
-		if (hero.skin == 4) {
+		} else if (hero.skin == 4) {
 			hero.STR += 2;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 2;
-			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.Mace()).identify();
-			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.LeatherArmor()).identify();
-			new LeaderFlag().identify().collect();
-			new JumpP().collect();
 			Dungeon.gold += 1000;
-			new NutCookie(6).identify().collect();
-			new DungeonBomb().identify().collect();
-			new ScrollOfLullaby().identify();
-			new PotionOfPurity().identify();
-			return;
-		}
-		if (hero.skin == 5) {
-			new NutCookie(6).identify().collect();
-			new DungeonBomb().identify().collect();
-			new ScrollOfLullaby().identify();
-			new PotionOfPurity().identify();
-			return;
-		}
-		if (hero.skin == 6) {
+		} else if (hero.skin == 6) {
 			hero.STR += 2;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 2;
-			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.Mace()).identify();
-			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.LeatherArmor()).identify();
-			PPC2 computer = new PPC2(); computer.identify().collect();
-			new JumpP().collect();
-			new NutCookie(6).identify().collect();
-			new DungeonBomb().identify().collect();
-			new ScrollOfLullaby().identify();
-			new PotionOfPurity().identify();
-			Dungeon.quickslot.setSlot(0, computer);
-			return;
-		}
-		if (hero.skin == 7) {
-			pd.items.equipment.weapon.missiles.MegaCannon cannon =
-					new pd.items.equipment.weapon.missiles.MegaCannon();
-			(hero.belongings.weapon = cannon).identify();
-			(hero.belongings.armor = new PerformerArmor()).identify();
-			(hero.belongings.secondWep = new pd.items.equipment.weapon.melee.start.XSaber()).identify();
-			new pd.plants.Dewcatcher.Seed().quantity(2).collect();
-			new pd.items.misc.RockManJumpshoes().collect();
+		} else if (hero.skin == 7) {
 			hero.STR += 2;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 2;
-			new NutCookie(6).identify().collect();
-			new DungeonBomb().identify().collect();
-			new ScrollOfLullaby().identify();
-			new PotionOfPurity().identify();
-			Dungeon.quickslot.setSlot(0, cannon);
-			Dungeon.quickslot.setSlot(1, hero.belongings.secondWep);
-			return;
 		}
-		(hero.belongings.weapon = new Triangolo()).identify();
-		(hero.belongings.armor = new ClothArmor()).identify();
-		Shovel shovel = new Shovel();
-		shovel.identify().collect();
-		new SpsFireBomb().identify().collect();
-		new IceBomb().identify().collect();
-		new StormBomb().identify().collect();
-		new DungeonBomb().identify().collect();
-		new DungeonBomb().identify().collect();
-		Dungeon.quickslot.setSlot(0, shovel);
-		new ScrollOfLullaby().identify();
-		new ScrollOfLullaby().identify().collect();
-		new PotionOfPurity().identify();
-		new NutCookie(6).identify().collect();
+		applyStartingItems(hero, startingItems(PERFORMER, hero.skin));
 	}
 
 	private static void initSoldier(Hero hero) {
+		//SPSEXPD: 物品部分已抽到 startingItems()（单一真源），这里只留属性与全局副作用
 		if (hero.skin == 1) {
 			hero.STR += 2; Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 2;
-			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.LeatherArmor()).identify().upgrade(3);
-			AttackShoes shoes = new AttackShoes(); shoes.identify().collect(); MKbox box = new MKbox(); box.identify().collect();
-			Dungeon.quickslot.setSlot(0, shoes); Dungeon.quickslot.setSlot(1, box);
-			new MixPizza(4).identify().collect(); new ScrollOfRage().identify(); new PotionOfHealing().identify(); hero.improveAttackSkill(4); hero.improveDefenseSkill(2);
-			return;
-		}
-		if (hero.skin == 2) {
+			hero.improveAttackSkill(4);
+			hero.improveDefenseSkill(2);
+		} else if (hero.skin == 2) {
 			hero.HTBoost += 5;
 			hero.updateHT(true);
 			hero.STR += 6;
@@ -857,58 +760,17 @@ public enum HeroClass {
 			hero.improveAttackSkill(-6);
 			hero.improveDefenseSkill(-33);
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 6;
-			(hero.belongings.weapon = new GunC()).identify();
-			hero.belongings.weapon.activate(hero);
-			(hero.belongings.armor = new BaseArmor()).identify();
-			new MechPocket().collect();
-			new JumpS().collect();
-			new MixPizza(4).identify().collect();
-			new ScrollOfRage().identify();
-			new PotionOfHealing().identify();
-			return;
-		}
-		if (hero.skin == 3) {
-			(hero.belongings.weapon = new GunA()).identify();
-			hero.belongings.weapon.activate(hero);
-			(hero.belongings.armor = new VestArmor()).identify();
-			new HeavyAmmo().identify().collect();
-			GunOfSoldier pistol = new GunOfSoldier();
-			pistol.identify().collect();
-			HealBag healBag = new HealBag();
-			healBag.identify().collect();
-			Dungeon.quickslot.setSlot(0, pistol);
-			Dungeon.quickslot.setSlot(1, healBag);
+		} else if (hero.skin == 3) {
 			hero.improveAttackSkill(4);
 			hero.improveDefenseSkill(2);
-			new ScrollOfRage().identify();
-			new PotionOfHealing().identify();
-			new MixPizza(4).identify().collect();
-			return;
-		}
-		if (hero.skin == 4) {
+		} else if (hero.skin == 4) {
 			Buff.affect(hero, NmImbue.class);
-			(hero.belongings.weapon = new GunA()).identify();
-			hero.belongings.weapon.activate(hero);
-			(hero.belongings.armor = new VestArmor()).identify();
-			new JumpS().collect();
-			new NmHealBag().identify().collect();
-			new EscapeKnive(10).identify().collect();
 			hero.improveAttackSkill(4);
 			hero.improveDefenseSkill(2);
-			new ScrollOfRage().identify();
-			new PotionOfHealing().identify();
-			new MixPizza(4).identify().collect();
-			return;
-		}
-		if (hero.skin == 5) {
+		} else if (hero.skin == 5) {
 			hero.improveAttackSkill(4);
 			hero.improveDefenseSkill(2);
-			new ScrollOfRage().identify();
-			new PotionOfHealing().identify();
-			new MixPizza(4).identify().collect();
-			return;
-		}
-		if (hero.skin == 6) {
+		} else if (hero.skin == 6) {
 			hero.HTBoost += 5;
 			hero.updateHT(true);
 			hero.STR += 6;
@@ -916,209 +778,48 @@ public enum HeroClass {
 			hero.improveMagicSkill(5);
 			hero.improveAttackSkill(-6);
 			hero.improveDefenseSkill(-33);
-			(hero.belongings.weapon = new WoodenStaff()).identify();
-			(hero.belongings.armor = new BaseArmor()).identify();
-			ShootGun shootGun = new ShootGun(); shootGun.identify().collect();
-			new JumpS().collect();
-			new ScrollOfRage().identify();
-			new PotionOfHealing().identify();
-			new MixPizza(4).identify().collect();
-			Dungeon.quickslot.setSlot(0, shootGun);
-			return;
-		}
-		if (hero.skin == 7) {
-			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.start.BunnyDagger()).identify();
-			(hero.belongings.secondWep = new pd.items.equipment.weapon.melee.start.BunnySpanner()).identify();
-			(hero.belongings.armor = new RogueArmor()).identify();
-			new JumpR().collect();
-			AlienBag alienBag = new AlienBag();
-			(hero.belongings.artifact = alienBag).identify();
-			alienBag.activate(hero);
+		} else {
 			hero.improveAttackSkill(4);
 			hero.improveDefenseSkill(2);
-			new ScrollOfRage().identify();
-			new PotionOfHealing().identify();
-			new MixPizza(4).identify().collect();
-			Dungeon.quickslot.setSlot(0, hero.belongings.weapon);
-			Dungeon.quickslot.setSlot(1, hero.belongings.secondWep);
-			return;
 		}
-		(hero.belongings.weapon = new Sling()).identify();
-		(hero.belongings.armor = new VestArmor()).identify();
-		hero.belongings.weapon.activate(hero);
-		GunOfSoldier pistol = new GunOfSoldier();
-		pistol.identify().collect();
-		EscapeKnive knives = new EscapeKnive(3);
-		knives.identify().collect();
-		Dungeon.quickslot.setSlot(0, pistol);
-		Dungeon.quickslot.setSlot(1, knives);
-		hero.improveAttackSkill(4);
-		hero.improveDefenseSkill(2);
-		new ScrollOfRage().identify();
-		new PotionOfHealing().identify();
-		new MixPizza(4).identify().collect();
+		applyStartingItems(hero, startingItems(SOLDIER, hero.skin));
 	}
 
 	private static void initFollower(Hero hero) {
+		//SPSEXPD: 物品部分已抽到 startingItems()（单一真源），这里只留属性与全局副作用
 		if (hero.skin == 1) {
-			(hero.belongings.weapon = new DiamondPickaxe()).identify();
-			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.LeatherArmor()).identify();
-			(hero.belongings.secondWep = new PixelTorch()).identify(); hero.belongings.secondWep.activate(hero);
 			hero.STR += 4; Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 4;
-			new MoonCake().identify().collect(); new ScrollOfTerror().identify(); new PotionOfHealing().identify();
-			Dungeon.quickslot.setSlot(0, hero.belongings.weapon); Dungeon.quickslot.setSlot(1, hero.belongings.secondWep); return;
-		}
-		if (hero.skin == 2) {
-			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Dagger()).identify().upgrade(2);
-			(hero.belongings.armor = new VestArmor()).identify();
-			Pylon pylon = new Pylon();
-			pylon.identify().upgrade(2);
-			hero.belongings.artifact = pylon;
-			pylon.activate(hero);
-			new JumpF().collect();
-			new MoonCake().identify().collect();
-			new ScrollOfTerror().identify();
-			new PotionOfHealing().identify();
-			Dungeon.quickslot.setSlot(0, hero.belongings.weapon);
-			Dungeon.quickslot.setSlot(1, pylon);
-			return;
-		}
-		if (hero.skin == 3) {
+		} else if (hero.skin == 3) {
 			hero.STR += 4;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 4;
-			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Rapier()).identify();
-			(hero.belongings.armor = new VestArmor()).identify();
-			new FaithSign().identify().collect();
-			Pylon pylon = new Pylon();
-			(hero.belongings.artifact = pylon).identify();
-			pylon.activate(hero);
-			Dungeon.quickslot.setSlot(0, pylon);
-			new PotionOfHealing().identify().collect();
-			new ScrollOfTerror().identify();
-			new PotionOfHealing().identify();
-			new MoonCake().identify().collect();
-			return;
-		}
-		if (hero.skin == 4) {
-			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Knuckles()).identify();
-			(hero.belongings.armor = new VestArmor()).identify();
-			new DiceTower().identify().collect();
-			new JumpF().collect();
+		} else if (hero.skin == 4) {
 			Dungeon.gold += 1000;
-			new ScrollOfTerror().identify();
-			new PotionOfHealing().identify();
-			new MoonCake().identify().collect();
-			return;
-		}
-		if (hero.skin == 5) {
-			new ScrollOfTerror().identify();
-			new PotionOfHealing().identify();
-			new MoonCake().identify().collect();
-			return;
-		}
-		if (hero.skin == 6) {
-			(hero.belongings.weapon = new TrickSand()).identify();
-			(hero.belongings.armor = new VestArmor()).identify();
+		} else if (hero.skin == 6) {
 			hero.spp = 100;
-			new Skull(5).identify().collect();
-			new Ankh().identify().collect();
-			new Ankh().identify().collect();
-			new JumpF().collect();
-			new ScrollOfTerror().identify();
-			new PotionOfHealing().identify();
-			new MoonCake().identify().collect();
-			return;
 		}
-		(hero.belongings.weapon = new WoodenStaff()).identify();
-		(hero.belongings.armor = new ClothArmor()).identify();
-		new PotionOfHealing().identify().collect();
-		new FaithSign().identify().collect();
-		new ScrollOfTerror().identify();
-		new PotionOfHealing().identify();
-		new MoonCake().identify().collect();
+		applyStartingItems(hero, startingItems(FOLLOWER, hero.skin));
 	}
 
 	private static void initAscetic(Hero hero) {
+		//SPSEXPD: 物品部分已抽到 startingItems()（单一真源），这里只留属性与全局副作用
 		if (hero.skin == 1) {
 			hero.STR += 4; Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 4;
-			(hero.belongings.weapon = new HolyMace()).identify().upgrade(1);
-			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.LeatherArmor()).identify().upgrade(1);
-			(hero.belongings.secondWep = new BraveBook()).identify().upgrade(1); hero.belongings.secondWep.activate(hero);
-			hero.improveMagicSkill(3); new FruitCandy(3).identify().collect(); new ScrollOfMirrorImage().identify(); new PotionOfShield().identify();
-			Dungeon.quickslot.setSlot(0, hero.belongings.weapon); Dungeon.quickslot.setSlot(1, hero.belongings.secondWep); return;
-		}
-		if (hero.skin == 2) {
+			hero.improveMagicSkill(3);
+		} else if (hero.skin == 2) {
 			hero.HTBoost += 10;
 			hero.updateHT(false);
 			hero.improveAttackSkill(4);
 			hero.improveDefenseSkill(2);
 			hero.improveMagicSkill(-3);
-			(hero.belongings.weapon = new WoodenStaff()).identify();
-			LifeArmor armor = new LifeArmor();
-			(hero.belongings.armor = armor).identify();
-			armor.activate(hero);
-			new GrassBook().collect();
-			new JumpA().collect();
 			hero.improveMagicSkill(3);
-			new FruitCandy(3).identify().collect();
-			new ScrollOfMirrorImage().identify();
-			new PotionOfShield().identify();
-			return;
-		}
-		if (hero.skin == 3) {
+		} else if (hero.skin == 3) {
 			hero.STR += 4;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 4;
-			(hero.belongings.weapon = new Whisk()).identify();
-			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.LeatherArmor()).identify();
-			BigBattery battery = new BigBattery();
-			battery.identify().collect();
-			UnstableSpellbook spellbook = new UnstableSpellbook();
-			(hero.belongings.artifact = spellbook).identify();
-			spellbook.activate(hero);
-			Dungeon.quickslot.setSlot(0, battery);
-			Dungeon.quickslot.setSlot(1, spellbook);
 			hero.improveMagicSkill(3);
-			new ScrollOfRecharging().identify();
-			new ScrollOfMirrorImage().identify();
-			new FruitCandy(3).identify().collect();
-			return;
-		}
-		if (hero.skin == 4 || hero.skin == 5 || hero.skin == 6) {
+		} else {
 			hero.improveMagicSkill(3);
-			new ScrollOfMirrorImage().identify();
-			new PotionOfShield().identify();
-			new FruitCandy(3).identify().collect();
-			return;
 		}
-		if (hero.skin == 7) {
-			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.special.NinjaFan()).identify();
-			(hero.belongings.armor = new RenBArmor()).identify();
-			DriedRose rose = new DriedRose();
-			(hero.belongings.artifact = rose).identify();
-			rose.activate(hero);
-			Pylon pylon = new Pylon();
-			pylon.identify().collect();
-			pylon.activate(hero);
-			new WandOfFirebolt().identify().collect();
-			new JumpW().collect();
-			hero.improveMagicSkill(3);
-			new FruitCandy(3).identify().collect();
-			new ScrollOfMirrorImage().identify();
-			new PotionOfShield().identify();
-			Dungeon.quickslot.setSlot(0, pylon);
-			Dungeon.quickslot.setSlot(1, hero.belongings.weapon);
-			return;
-		}
-		(hero.belongings.weapon = new TrickSand()).identify();
-		(hero.belongings.armor = new VestArmor()).identify();
-		BigBattery battery = new BigBattery();
-		battery.identify().collect();
-		new ActiveMrDestructo().identify().collect();
-		Dungeon.quickslot.setSlot(0, battery);
-		hero.improveMagicSkill(3);
-		new ScrollOfRecharging().identify();
-		new ScrollOfMirrorImage().identify();
-		new FruitCandy(3).identify().collect();
+		applyStartingItems(hero, startingItems(ASCETIC, hero.skin));
 	}
 
 	public String title() {
@@ -1678,6 +1379,267 @@ public enum HeroClass {
 				Dungeon.quickslot.setSlot(1, i);
 			});
 			l.backpack(() -> new WandOfMagicMissile(), 0, 1, 0, null);
+		}
+
+		if (cls == PERFORMER) {
+			switch (skin) {
+				case 1:
+					l.equip(ItemSlot.WEAPON, () -> new GunA(), 2, null);
+					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 1, null);
+					l.backpack(() -> new GoldAmmo());
+					l.backpack(() -> new WoodenAmmo());
+					l.backpack(() -> new BattleAmmo());
+					l.equip(ItemSlot.ARTIFACT, () -> new AlienBag(), 0, (h, i) -> ((AlienBag) i).activate(h));
+					l.backpack(() -> new BShovel(), 0, 1, 0, null);
+					l.backpack(() -> new NutCookie(6));
+					l.backpack(() -> new DungeonBomb());
+					break;
+				case 2:
+					l.equip(ItemSlot.WEAPON, () -> new HolyWater(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new BaseArmor(), 0, null);
+					l.backpack(() -> new CopyBall());
+					l.backpack(() -> new PotionOfHealing(), 0, 2, -1, null);
+					l.backpack(() -> new JumpP());
+					l.backpack(() -> new NutCookie(6));
+					l.backpack(() -> new DungeonBomb());
+					break;
+				case 3:
+					l.equip(ItemSlot.WEAPON, () -> new Triangolo(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.ClothArmor(), 0, null);
+					l.backpack(() -> new Shovel(), 0, 1, 0, null);
+					l.backpack(() -> new DanceLion(), 0, 1, 1, null);
+					l.backpack(() -> new SpsFireBomb());
+					l.backpack(() -> new IceBomb());
+					l.backpack(() -> new StormBomb());
+					l.backpack(() -> new DungeonBomb());
+					l.backpack(() -> new DungeonBomb());
+					l.backpack(() -> new ScrollOfLullaby());
+					l.backpack(() -> new NutCookie(6));
+					break;
+				case 4:
+					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.Mace(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.LeatherArmor(), 0, null);
+					l.backpack(() -> new LeaderFlag());
+					l.backpack(() -> new JumpP());
+					l.backpack(() -> new NutCookie(6));
+					l.backpack(() -> new DungeonBomb());
+					break;
+				case 5:
+					l.backpack(() -> new NutCookie(6));
+					l.backpack(() -> new DungeonBomb());
+					break;
+				case 6:
+					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.Mace(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.LeatherArmor(), 0, null);
+					l.backpack(() -> new PPC2(), 0, 1, 0, null);
+					l.backpack(() -> new JumpP());
+					l.backpack(() -> new NutCookie(6));
+					l.backpack(() -> new DungeonBomb());
+					break;
+				case 7:
+					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.missiles.MegaCannon(), 0,
+							(h, i) -> Dungeon.quickslot.setSlot(0, i));
+					l.equip(ItemSlot.ARMOR, () -> new PerformerArmor(), 0, null);
+					l.equip(ItemSlot.SECOND_WEP, () -> new pd.items.equipment.weapon.melee.start.XSaber(), 0,
+							(h, i) -> Dungeon.quickslot.setSlot(1, i));
+					l.backpack(() -> new pd.plants.Dewcatcher.Seed(), 0, 2, -1, null);
+					l.backpack(() -> new pd.items.misc.RockManJumpshoes());
+					l.backpack(() -> new NutCookie(6));
+					l.backpack(() -> new DungeonBomb());
+					break;
+				default:
+					l.equip(ItemSlot.WEAPON, () -> new Triangolo(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new ClothArmor(), 0, null);
+					l.backpack(() -> new Shovel(), 0, 1, 0, null);
+					l.backpack(() -> new SpsFireBomb());
+					l.backpack(() -> new IceBomb());
+					l.backpack(() -> new StormBomb());
+					l.backpack(() -> new DungeonBomb());
+					l.backpack(() -> new DungeonBomb());
+					l.backpack(() -> new ScrollOfLullaby());
+					l.backpack(() -> new NutCookie(6));
+					break;
+			}
+		}
+
+		if (cls == SOLDIER) {
+			switch (skin) {
+				case 1:
+					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.LeatherArmor(), 3, null);
+					l.backpack(() -> new AttackShoes(), 0, 1, 0, null);
+					l.backpack(() -> new MKbox(), 0, 1, 1, null);
+					l.backpack(() -> new MixPizza(4));
+					break;
+				case 2:
+					l.equip(ItemSlot.WEAPON, () -> new GunC(), 0,
+							(h, i) -> ((pd.items.KindOfWeapon) i).activate(h));
+					l.equip(ItemSlot.ARMOR, () -> new BaseArmor(), 0, null);
+					l.backpack(() -> new MechPocket());
+					l.backpack(() -> new JumpS());
+					l.backpack(() -> new MixPizza(4));
+					break;
+				case 3:
+					l.equip(ItemSlot.WEAPON, () -> new GunA(), 0,
+							(h, i) -> ((pd.items.KindOfWeapon) i).activate(h));
+					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
+					l.backpack(() -> new HeavyAmmo());
+					l.backpack(() -> new GunOfSoldier(), 0, 1, 0, null);
+					l.backpack(() -> new HealBag(), 0, 1, 1, null);
+					l.backpack(() -> new MixPizza(4));
+					break;
+				case 4:
+					l.equip(ItemSlot.WEAPON, () -> new GunA(), 0,
+							(h, i) -> ((pd.items.KindOfWeapon) i).activate(h));
+					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
+					l.backpack(() -> new JumpS());
+					l.backpack(() -> new NmHealBag());
+					l.backpack(() -> new EscapeKnive(10));
+					l.backpack(() -> new MixPizza(4));
+					break;
+				case 5:
+					l.backpack(() -> new MixPizza(4));
+					break;
+				case 6:
+					l.equip(ItemSlot.WEAPON, () -> new WoodenStaff(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new BaseArmor(), 0, null);
+					l.backpack(() -> new ShootGun(), 0, 1, 0, null);
+					l.backpack(() -> new JumpS());
+					l.backpack(() -> new MixPizza(4));
+					break;
+				case 7:
+					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.start.BunnyDagger(), 0,
+							(h, i) -> Dungeon.quickslot.setSlot(0, i));
+					l.equip(ItemSlot.SECOND_WEP, () -> new pd.items.equipment.weapon.melee.start.BunnySpanner(), 0,
+							(h, i) -> Dungeon.quickslot.setSlot(1, i));
+					l.equip(ItemSlot.ARMOR, () -> new RogueArmor(), 0, null);
+					l.backpack(() -> new JumpR());
+					l.equip(ItemSlot.ARTIFACT, () -> new AlienBag(), 0, (h, i) -> ((AlienBag) i).activate(h));
+					l.backpack(() -> new MixPizza(4));
+					break;
+				default:
+					l.equip(ItemSlot.WEAPON, () -> new Sling(), 0,
+							(h, i) -> ((pd.items.KindOfWeapon) i).activate(h));
+					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
+					l.backpack(() -> new GunOfSoldier(), 0, 1, 0, null);
+					l.backpack(() -> new EscapeKnive(3), 0, 1, 1, null);
+					l.backpack(() -> new MixPizza(4));
+					break;
+			}
+		}
+
+		if (cls == FOLLOWER) {
+			switch (skin) {
+				case 1:
+					l.equip(ItemSlot.WEAPON, () -> new DiamondPickaxe(), 0, (h, i) -> Dungeon.quickslot.setSlot(0, i));
+					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.LeatherArmor(), 0, null);
+					l.equip(ItemSlot.SECOND_WEP, () -> new PixelTorch(), 0, (h, i) -> {
+						((pd.items.KindOfWeapon) i).activate(h);
+						Dungeon.quickslot.setSlot(1, i);
+					});
+					l.backpack(() -> new MoonCake());
+					break;
+				case 2:
+					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Dagger(), 2,
+							(h, i) -> Dungeon.quickslot.setSlot(0, i));
+					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
+					l.equip(ItemSlot.ARTIFACT, () -> new Pylon(), 2, (h, i) -> {
+						((Pylon) i).activate(h);
+						Dungeon.quickslot.setSlot(1, i);
+					});
+					l.backpack(() -> new JumpF());
+					l.backpack(() -> new MoonCake());
+					break;
+				case 3:
+					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Rapier(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
+					l.backpack(() -> new FaithSign());
+					l.equip(ItemSlot.ARTIFACT, () -> new Pylon(), 0, (h, i) -> {
+						((Pylon) i).activate(h);
+						Dungeon.quickslot.setSlot(0, i);
+					});
+					l.backpack(() -> new PotionOfHealing());
+					l.backpack(() -> new MoonCake());
+					break;
+				case 4:
+					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Knuckles(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
+					l.backpack(() -> new DiceTower());
+					l.backpack(() -> new JumpF());
+					l.backpack(() -> new MoonCake());
+					break;
+				case 5:
+					l.backpack(() -> new MoonCake());
+					break;
+				case 6:
+					l.equip(ItemSlot.WEAPON, () -> new TrickSand(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
+					l.backpack(() -> new Skull(5));
+					l.backpack(() -> new Ankh());
+					l.backpack(() -> new Ankh());
+					l.backpack(() -> new JumpF());
+					l.backpack(() -> new MoonCake());
+					break;
+				default:
+					l.equip(ItemSlot.WEAPON, () -> new WoodenStaff(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new ClothArmor(), 0, null);
+					l.backpack(() -> new PotionOfHealing());
+					l.backpack(() -> new FaithSign());
+					l.backpack(() -> new MoonCake());
+					break;
+			}
+		}
+
+		if (cls == ASCETIC) {
+			switch (skin) {
+				case 1:
+					l.equip(ItemSlot.WEAPON, () -> new HolyMace(), 1, (h, i) -> Dungeon.quickslot.setSlot(0, i));
+					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.LeatherArmor(), 1, null);
+					l.equip(ItemSlot.SECOND_WEP, () -> new BraveBook(), 1, (h, i) -> {
+						((pd.items.KindOfWeapon) i).activate(h);
+						Dungeon.quickslot.setSlot(1, i);
+					});
+					l.backpack(() -> new FruitCandy(3));
+					break;
+				case 2:
+					l.equip(ItemSlot.WEAPON, () -> new WoodenStaff(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new LifeArmor(), 0, (h, i) -> ((LifeArmor) i).activate(h));
+					l.backpack(() -> new GrassBook());
+					l.backpack(() -> new JumpA());
+					l.backpack(() -> new FruitCandy(3));
+					break;
+				case 3:
+					l.equip(ItemSlot.WEAPON, () -> new Whisk(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.LeatherArmor(), 0, null);
+					l.backpack(() -> new BigBattery(), 0, 1, 0, null);
+					l.equip(ItemSlot.ARTIFACT, () -> new UnstableSpellbook(), 0, (h, i) -> {
+						((UnstableSpellbook) i).activate(h);
+						Dungeon.quickslot.setSlot(1, i);
+					});
+					l.backpack(() -> new FruitCandy(3));
+					break;
+				case 4:
+				case 5:
+				case 6:
+					l.backpack(() -> new FruitCandy(3));
+					break;
+				case 7:
+					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.special.NinjaFan(), 0,
+							(h, i) -> Dungeon.quickslot.setSlot(1, i));
+					l.equip(ItemSlot.ARMOR, () -> new RenBArmor(), 0, null);
+					l.equip(ItemSlot.ARTIFACT, () -> new DriedRose(), 0, (h, i) -> ((DriedRose) i).activate(h));
+					l.backpack(() -> new Pylon(), 0, 1, 0, (h, i) -> ((Pylon) i).activate(h));
+					l.backpack(() -> new WandOfFirebolt());
+					l.backpack(() -> new JumpW());
+					l.backpack(() -> new FruitCandy(3));
+					break;
+				default:
+					l.equip(ItemSlot.WEAPON, () -> new TrickSand(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
+					l.backpack(() -> new BigBattery(), 0, 1, 0, null);
+					l.backpack(() -> new ActiveMrDestructo());
+					l.backpack(() -> new FruitCandy(3));
+					break;
+			}
 		}
 
 		return l;
