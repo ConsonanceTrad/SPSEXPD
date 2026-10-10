@@ -146,6 +146,8 @@ public class WndBag extends WndTabbed {
 
 	private int nCols;
 	private int nRows;
+	//SPSEXPD: 内容区格数（构造时按容量定；placeItems 与 placeItem 共用，供超容量守卫用）
+	private int contentSlots;
 
 	private int slotWidth;
 	private int slotHeight;
@@ -192,16 +194,17 @@ public class WndBag extends WndTabbed {
 		boolean bottomTabs = SPDSettings.bagBottomTabs();
 		nCols = bottomTabs ? COLS_BOTTOM : (PixelScene.landscape() ? COLS_L : COLS_P);
 		//SPSEXPD: 行数 = 装备区两排 + 背包行数（5 列时 7 行、7 列时 5 行，都是 35 格）。
-		//非主背包时窗口里还会显示包裹本体自己（占其中一格）；包裹袋（Bag）本身不占格、不计入
-		//⚠️ 由此得出硬约束：包裹 capacity() + 1 必须是 nCols 的整数倍，否则装满时会多出一行空行。
+		//SPSEXPD: 行数按「包裹容量」算，而不是按当前装了多少——否则读档 force-add 出的超容量物品
+		//会让行数多一行、窗口整体被缩一圈（放下/丢掉一件又跳回来）。
+		//⚠️ 由此得出硬约束：包裹 capacity() + 1 必须是 nCols 的整数倍，否则会多出一行空行。
 		//所以各 Bag 子类的容量都取 34（34+1 = 35 = 5 列 x 7 行 = 7 列 x 5 行）。
-		//主背包不受此限（showsSelf == false，不占本体格，故仍为 35）
-		int shown = 0;
-		for (Item i : bag.items) if (!(i instanceof Bag)) shown++;
-		if (bag != Dungeon.hero.belongings.backpack) shown++;   //包裹本体占一格
-		int contentRows = (shown + nCols - 1) / nCols;
+		//主背包 capacity() = 35、不占本体格（露珠瓶占其中一格），也正好是 5 列 7 行 / 7 列 5 行
+		int contentCap = bag.capacity() + (bag != Dungeon.hero.belongings.backpack ? 1 : 0);
+		int contentRows = (contentCap + nCols - 1) / nCols;
 		int bagRows = bottomTabs ? BAG_ROWS_BOTTOM : BAG_ROWS;
 		nRows = EQUIP_ROWS + Math.max(bagRows, contentRows);
+		//SPSEXPD: 内容区格数在此定下来（装备区固定 EQUIP_ROWS 行；底部 7 列时第 2 行放不满 5 个、右侧留白）
+		contentSlots = (nRows - EQUIP_ROWS) * nCols;
 
 		//SPS: 标签移到窗框外侧，内容区回到满宽——包裹区外缘正好紧贴标签内缘（无缝隙）
 		int contentWidth = slotWidth * nCols + SLOT_MARGIN * (nCols - 1);
@@ -690,7 +693,7 @@ public class WndBag extends WndTabbed {
 		//SPSEXPD: 空格填到「内容区格数」为止（上限含本体占格），与窗口行数一致，不会溢到窗口外
 		//SPSEXPD: 装备区独占 EQUIP_ROWS 行（7 列时第 2 行放不满 5 个、右侧留白），
 		//所以内容格数按「行数 − 装备行数」算；旧式 nRows*nCols - equipped 会多出 4 格并越过窗口底边
-		int contentSlots = (nRows - EQUIP_ROWS) * nCols;
+		//（contentSlots 已在构造里按容量算好，这里直接取用）
 		int wanted = Math.min(container.capacity() + (showsSelf ? 1 : 0), contentSlots);
 		while ((count - equipped) < wanted - (waterskin != null ? 1 : 0)) {
 			placeItem( null );
@@ -700,6 +703,10 @@ public class WndBag extends WndTabbed {
 	}
 	
 	protected void placeItem( final Item item ) {
+
+		//SPSEXPD: 内容区已满就不再摆放——读档 force-add 可能让物品数超过容量
+		//（主背包 35 格含露珠瓶）。物品仍留在 bag.items 里，腾出空间后重开背包就会显示，不会丢失
+		if (count - EQUIP_ROWS * COLS_P >= contentSlots) return;
 
 		count++;
 		
