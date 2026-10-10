@@ -196,8 +196,7 @@ public class WndBag extends WndTabbed {
 		//SPSEXPD: 行数 = 装备区两排 + 背包行数（5 列时 7 行、7 列时 5 行，都是 35 格）。
 		//SPSEXPD: 行数按「实际要摆的格数」算，并以「窗口能容纳的格数」封顶（两种布局都是 35 格）：
 		//- 不因超容量物品多出一行（读档 force-add 会让主背包出现 36 件）
-		//- 也不因容量上限而多占行（「测试时间」挑战下 Belongings.Backpack.capacity() 为 64）；
-		//  背包窗口恒为 35 格，超出的物品由 placeItem 的守卫跳过（不显示但不丢失）
+		//- 封顶用窗口格数而不是 bag.capacity()：窗口本来就只有 35 格，超出的物品由 placeItem 的守卫跳过（不显示但不丢失）
 		//⚠️ 硬约束：包裹 capacity() + 1 必须是 nCols 的整数倍且不超过窗口容量，否则会多出一行空行。
 		//所以各 Bag 子类的容量都取 34（34+1 = 35 = 5 列 x 7 行 = 7 列 x 5 行）
 		int bagRows = bottomTabs ? BAG_ROWS_BOTTOM : BAG_ROWS;
