@@ -34,7 +34,6 @@ import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
 import pd.atlas.items.EquipmentWandBasicWandDict;
 
 import pd.Badges;
-import pd.SPDSettings;
 import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.messages.Messages;
 import pd.sprites.ItemSprite;
@@ -288,8 +287,8 @@ public enum Document {
 	}
 
 	public boolean isPageFound( String page ){
-		//SPSEXPD: 设置中开启"解锁炼金配方"后，炼金指南的每一页都视为已找到
-		if (this == ALCHEMY_GUIDE && SPDSettings.unlockAlchemyGuide()) return true;
+		//SPSEXPD: 炼金配方一律直接解锁（不再需要任何设置）——炼金指南的每一页都视为已找到
+		if (this == ALCHEMY_GUIDE) return true;
 		return pagesStates.containsKey(page) && pagesStates.get(page) > NOT_FOUND;
 	}
 
@@ -330,8 +329,8 @@ public enum Document {
 	}
 
 	public boolean isPageRead( String page ){
-		//SPSEXPD: 设置中开启"解锁炼金配方"后，炼金指南的每一页都视为已读
-		if (this == ALCHEMY_GUIDE && SPDSettings.unlockAlchemyGuide()) return true;
+		//SPSEXPD: 同上——炼金指南的每一页都视为已读（配方直接全部解锁）
+		if (this == ALCHEMY_GUIDE) return true;
 		return pagesStates.containsKey(page) && pagesStates.get(page) == READ;
 	}
 

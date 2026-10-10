@@ -57,7 +57,6 @@ public class SPDSettings extends GameSettings {
 	public static final String KEY_CAMERA_FOLLOW= "camera_follow";
 	public static final String KEY_SCREEN_SHAKE = "screen_shake";
 	public static final String KEY_SEARCH_PICKUP= "search_pickup"; //SPSXPD: 搜索时顺带拾取范围内的地面物品
-	public static final String KEY_UNLOCK_ALCHEMY_GUIDE = "unlock_alchemy_guide"; //SPSXPD: 无条件解锁炼金指南全部配方页
 	public static final String KEY_QUICK_ALL = "quick_all"; //SPSEXPD: 快捷操作按钮总开关
 	public static final String KEY_QUICK_LIGHT = "quick_light"; //SPSEXPD: 快捷操作-照明
 	public static final String KEY_QUICK_TALENT = "quick_talent"; //SPSEXPD: 快捷操作-天赋加点
@@ -92,15 +91,6 @@ public class SPDSettings extends GameSettings {
 
 	public static boolean searchPickUp(){
 		return getBoolean( KEY_SEARCH_PICKUP, true );
-	}
-
-	//SPSXPD: 开启后，炼金指南的全部配方页都视为已找到（方便查看炼金与锻造配方）
-	public static void unlockAlchemyGuide( boolean value ){
-		put( KEY_UNLOCK_ALCHEMY_GUIDE, value );
-	}
-
-	public static boolean unlockAlchemyGuide(){
-		return getBoolean( KEY_UNLOCK_ALCHEMY_GUIDE, false );
 	}
 
 	//SPSEXPD: 快捷操作按钮总开关（关闭后三个按钮都不显示，各自开关的状态保留）

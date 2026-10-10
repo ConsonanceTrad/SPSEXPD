@@ -41,7 +41,6 @@ import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.ScrollPane;
 import pd.ui.SideQuickBar;
-import pd.ui.StyledButton;
 import pd.ui.Toolbar;
 import pd.ui.Window;
 import render.input.ControllerHandler;
@@ -111,8 +110,6 @@ public class WndSettings extends WndTabbed {
 			.t("$inputtab.off", "关闭")
 			.t("$inputtab.high", "最高")
 			.t("$auxtab.title", "游戏辅助")
-			.t("unlock_alchemy_guide", "解锁炼金配方")   //SPSXPD: 由 AuxTab 使用，必须在主 static 注册，否则 AuxTab 构造早于 DisplayTab 类加载会取不到文本（顶层类 key 不带 $，规则同 Messages.get(WndSettings.class, ...)）
-			.t("$auxtab.unlock_alchemy_guide", "解锁炼金配方")   //SPSEXPD: 行末说明按钮按 AuxTab 取标题，需要 $ 前缀版本
 			.t("$auxtab.hero_path", "显示移动路径")
 			.t("$auxtab.search_pickup", "搜索捡拾物品")
 			.t("$auxtab.quick_group", "快捷操作开关")   //SPSEXPD: 快捷操作分组的小标题
@@ -123,7 +120,6 @@ public class WndSettings extends WndTabbed {
 			.t("$auxtab.quick_eat", "进食")
 			.t("$auxtab.bag_bottom_tabs", "底部背包标签栏")
 			//SPSEXPD: 行末蓝色感叹号点开的「详细作用」（键名 = 上方各键 + _desc）
-			.t("$auxtab.unlock_alchemy_guide_desc", "点一下即可永久解锁炼金指南里的全部配方页，之后可以随时翻阅。")
 			.t("$auxtab.hero_path_desc", "在画面里画出你点击的移动路线，方便提前规划走位。")
 			.t("$auxtab.search_pickup_desc", "使用「检索」时，会顺手拾取视野内可达的地面物品。")
 			.t("$auxtab.quick_all_desc", "快捷操作按钮的总开关。关掉后按钮不再显示，但下面三项各自的设置会保留。")
@@ -1014,21 +1010,11 @@ public class WndSettings extends WndTabbed {
 		}
 	}
 
-	//SPSEXPD: 滚动容器内的一次性动作按钮（与复选框同宽同高）。
-	//用于「解锁炼金配方」——点一下即永久生效，不做成开关。
-	private static class AuxActionButton extends StyledButton {
-		AuxActionButton(String label) {
-			super(Chrome.Type.GREY_BUTTON_TR, label, 6);
-			hotArea.blockLevel = PointerArea.NEVER_BLOCK;
-		}
-	}
-
 	//SPSEXPD: 游戏辅助页的实际内容
 	private static class AuxContent extends Component {
 
 		RenderedTextBlock title;
 		ColorBlock sep1;
-		AuxActionButton btnUnlockAlchemyGuide;   //SPSEXPD: 一键解锁炼金指南全部配方页（按钮，不是开关）
 		CheckBox chkHeroPath;
 		CheckBox chkSearchPickUp;
 		ColorBlock sep2;
@@ -1066,16 +1052,6 @@ public class WndSettings extends WndTabbed {
 			sep1 = new ColorBlock(1, 1, 0xFF000000);
 			add(sep1);
 
-			//SPSEXPD: 解锁炼金配方——用户要求改成按钮（点一下即永久解锁，不再是开关）
-			btnUnlockAlchemyGuide = new AuxActionButton(Messages.get(WndSettings.class, "unlock_alchemy_guide")) {
-				@Override
-				protected void onClick() {
-					SPDSettings.unlockAlchemyGuide(true);
-					enable(false);   //解锁后置灰
-				}
-			};
-			btnUnlockAlchemyGuide.enable(!SPDSettings.unlockAlchemyGuide());
-			add(btnUnlockAlchemyGuide);
 			//移动路径点（原显示设置页迁入）
 			chkHeroPath = new AuxCheckBox(Messages.get(AuxTab.class, "hero_path")) {
 				@Override
@@ -1168,7 +1144,6 @@ public class WndSettings extends WndTabbed {
 			add(chkBagBottomTabs);
 
 			//SPSEXPD: 每一行行末都挂上蓝色感叹号说明按钮（顺序＝界面从上到下）
-			addRowNote(btnUnlockAlchemyGuide, "unlock_alchemy_guide");
 			addRowNote(chkHeroPath, "hero_path");
 			addRowNote(chkSearchPickUp, "search_pickup");
 			addRowNote(chkQuickAll, "quick_all");
@@ -1192,7 +1167,6 @@ public class WndSettings extends WndTabbed {
 		void givePointerPriority() {
 			for (Object o : members) {
 				if (o instanceof AuxCheckBox) ((AuxCheckBox) o).givePointerPriority();
-				else if (o instanceof AuxActionButton) ((AuxActionButton) o).givePointerPriority();
 				else if (o instanceof AuxNoteButton) ((AuxNoteButton) o).givePointerPriority();
 			}
 		}
@@ -1205,8 +1179,8 @@ public class WndSettings extends WndTabbed {
 			sep1.y = title.bottom() + 3*GAP;
 			bottom = sep1.y + 1;
 
-			//SPSEXPD: 前 3 行——解锁炼金配方 / 显示移动路径 / 搜索捡拾物品
-			for (int i = 0; i < 3 && i < rowChecks.size(); i++) {
+			//SPSEXPD: 前 2 行——显示移动路径 / 搜索捡拾物品
+			for (int i = 0; i < 2 && i < rowChecks.size(); i++) {
 				bottom = layoutRow(i, width, bottom);
 			}
 
@@ -1218,8 +1192,8 @@ public class WndSettings extends WndTabbed {
 			quickGroup.setPos(0, bottom + GAP);
 			bottom = quickGroup.bottom();
 
-			//SPSEXPD: 快捷操作各行的索引是 3..6（总开关/照明/加点/进食），此处只摆这四行
-			for (int i = 3; i < 7 && i < rowChecks.size(); i++) {
+			//SPSEXPD: 快捷操作各行的索引是 2..5（总开关/照明/加点/进食），此处只摆这四行
+			for (int i = 2; i < 6 && i < rowChecks.size(); i++) {
 				bottom = layoutRow(i, width, bottom);
 			}
 
@@ -1231,7 +1205,7 @@ public class WndSettings extends WndTabbed {
 			bagGroup.setPos(0, bottom + GAP);
 			bottom = bagGroup.bottom();
 
-			for (int i = 7; i < rowChecks.size(); i++) {
+			for (int i = 6; i < rowChecks.size(); i++) {
 				bottom = layoutRow(i, width, bottom);
 			}
 
