@@ -2615,9 +2615,10 @@ tasks.register('collectOutputs', Copy) {
 	from('desktop/build/libs') {
 		include 'SPSEXPD*.jar'
 	}
-	//jpackage 安装包
+	//jpackage 安装器（只收顶层产物；app-image 目录里的 exe 离开同目录的运行时跑不起来，
+	//Windows 免安装包改由 tools/package.ps1 -WinExe 整目录复制到 output/）
 	from('desktop/build/jpackage') {
-		include '**/*.exe', '**/*.msi', '**/*.dmg', '**/*.deb', '**/*.rpm'
+		include '*.exe', '*.msi', '*.dmg', '*.deb', '*.rpm'
 	}
 
 	into 'output'
