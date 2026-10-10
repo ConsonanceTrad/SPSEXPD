@@ -30,7 +30,7 @@ import render.noosa.ui.Component;
  */
 public class WndBagPicker extends Component {
 
-	private static final int COLS   = 5;    //每行 5 个
+	private static final int COLS   = 4;    //每行 4 个
 	private static final int CELL   = 16;   //格子 = 图标本身（16px），图标间的净间隔全部由 GAP 决定
 	private static final int GAP    = 3;    //图标之间的间隔
 	private static final int MARGIN = 1;    //面板内部额外留白（外框留白由 NinePatch 的 margin 提供）
@@ -56,10 +56,12 @@ public class WndBagPicker extends Component {
 		}
 		INSTANCE = this;
 
+		//SPSEXPD: 跳过主背包——getBags() 的第一个恒为主背包，而主背包用“双击 HUD 背包按钮”打开，
+		//不必在选框里再占一格
 		ArrayList<Bag> bags = (Dungeon.hero != null)
 				? Dungeon.hero.belongings.getBags()
 				: new ArrayList<Bag>();
-		int n = Math.max( 1, bags.size() );
+		int n = Math.max( 1, bags.size() - 1 );
 		int rows = (n + COLS - 1) / COLS;
 
 		int contentW = COLS * CELL + (COLS - 1) * GAP;
@@ -71,7 +73,9 @@ public class WndBagPicker extends Component {
 		bg = Chrome.get( Chrome.Type.TOAST_TR_HEAVY );
 		addToBack( bg );
 
-		for (Bag bag : bags) {
+		//SPSEXPD: 从下标 1 开始——跳过 getBags() 里第一个的主背包
+		for (int i = 1; i < bags.size(); i++) {
+			Bag bag = bags.get( i );
 			if (bag == null) continue;
 
 			final Bag target = bag;
