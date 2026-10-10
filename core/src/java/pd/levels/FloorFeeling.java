@@ -21,7 +21,6 @@ import pd.items.Torch;
 import pd.items.Weightstone;
 import pd.items.misc.LuckyBadge;
 import pd.items.consum.potions.PotionOfHealing;
-import pd.items.consum.potions.PotionOfStrength;
 import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.items.consum.stones.StoneOfEnchantment;
@@ -78,9 +77,10 @@ public final class FloorFeeling {
 							new PotionOfHealing()) );
 				}
 
-				if (Dungeon.posNeeded()) {
+				//SPSEXPD: 永久力量一律来自力量之瓶（力量药剂已改为临时力量道具，走随机药水池）
+				if (Dungeon.posNeeded() && !Dungeon.shopOnLevel()) {
 					Dungeon.LimitedDrops.STRENGTH_POTIONS.count++;
-					GroundItems.addItemToSpawn( level,  new PotionOfStrength() );
+					GroundItems.addItemToSpawn( level, new StrBottle() );
 				}
 				//SPSEXPD: 升级卷轴保底（souNeeded/UPGRADE_SCROLLS）已移除，升级/魔力灌注卷轴
 				// 改为高稀有刷新物：SCROLL 池权重 3（与嬗变相同）随机刷新，商店走随机卷轴格；

@@ -68,6 +68,7 @@ import pd.actors.buffs.ItemSteal;
 import pd.actors.buffs.Levitation;
 import pd.actors.buffs.LingBless;
 import pd.actors.buffs.LostInventory;
+import pd.actors.buffs.MightSurge;
 import pd.actors.buffs.MindVision;
 import pd.actors.buffs.Momentum;
 import pd.actors.buffs.MonkEnergy;
@@ -495,6 +496,8 @@ public class Hero extends Char {
 		if (buff(pd.actors.buffs.AflyBless.class) != null) strBonus++;
 		if (buff(pd.actors.buffs.STRDown.class) != null) strBonus -= 3;
 		if (buff(Muscle.class) != null) strBonus += 2;
+		//SPSEXPD: 力量药剂的临时力量（永久力量由力量之瓶提供）
+		if (buff(MightSurge.class) != null) strBonus += MightSurge.STRENGTH_BONUS;
 
 		return STR + strBonus;
 	}
