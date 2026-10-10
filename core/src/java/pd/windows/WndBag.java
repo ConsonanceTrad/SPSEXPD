@@ -72,6 +72,7 @@ import render.noosa.Game;
 import render.noosa.Image;
 import render.noosa.PointerArea;
 import render.noosa.audio.Sample;
+import render.noosa.ui.Component;
 import render.utils.geom.PointF;
 import render.utils.math.Random;
 import render.utils.platform.DeviceCompat;
@@ -258,7 +259,11 @@ public class WndBag extends WndTabbed {
 		//SPSEXPD: Tab 的底板只在 select() 里创建，这里手动挂一次未选中态底板
 		bottomPager.select( false );
 		bottomPager.visible = false;
-		add( bottomPager );
+		//SPSEXPD: 必须按 Component 加入！IconTab 是 WndTabbed.Tab 的子类，直接 add(bottomPager)
+		//会命中 WndTabbed.add(Tab) 并被收进 tabs 列表（而且排在主背包标签之前），
+		//于是 tabs.get(0) 变成它、真正的主背包标签既不摆放也点不到
+		Component pager = bottomPager;
+		add( pager );
 
 		int i = 1;
 		for (Bag b : Dungeon.hero.belongings.getBags()) {
