@@ -55,33 +55,25 @@ import pd.windows.WndTextInput;
 import pd.windows.WndTitledMessage;
 import pd.windows.WndVictoryCongrats;
 import render.gltextures.TextureCache;
-import render.input.PointerEvent;
 import render.noosa.Camera;
 import render.noosa.ColorBlock;
 import render.noosa.Game;
 import render.noosa.Image;
-import render.noosa.NinePatch;
 import render.noosa.PointerArea;
 import render.noosa.SkinnedBlock;
 import render.noosa.ui.Component;
 import render.utils.geom.RectF;
-import render.utils.math.GameMath;
 import render.utils.math.Random;
 import render.utils.platform.DeviceCompat;
 import render.utils.platform.PlatformSupport;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
-import java.util.TimeZone;
 import pd.messages.InlineText;
 
 public class HeroSelectScene extends PixelScene {
 	//SPSEXPD: inline Chinese text (generated from messages/scenes/zh)
 	static {
 		InlineText.of(HeroSelectScene.class)
-			.t("title", "选择一位英雄")
 			.t("start", "开始")
 			.t("skin_title", "选择外观")
 			.t("skin_desc", "外观仅改变角色图像，不会影响战斗数值；所选外观会随本局存档保存。")
@@ -139,7 +131,6 @@ public class HeroSelectScene extends PixelScene {
 	private ColorBlock[] closeupShade; //特写图底部向背景色的过渡阴影
 
 	//fading UI elements
-	private RenderedTextBlock title;
 	private ArrayList<HeroBtn> heroBtns = new ArrayList<>();
 	private RenderedTextBlock heroName;
 	private RenderedTextBlock heroDesc;
@@ -184,11 +175,6 @@ public class HeroSelectScene extends PixelScene {
 			closeupShade[i].visible = false;
 			add(closeupShade[i]);
 		}
-
-		title = PixelScene.renderTextBlock(Messages.get(this, "title"), 12);
-		title.hardlight(Window.TITLE_COLOR);
-		PixelScene.align(title);
-		add(title);
 
 		startBtn = new StyledButton(Chrome.Type.GREY_BUTTON_TR, ""){
 			@Override
@@ -264,19 +250,6 @@ public class HeroSelectScene extends PixelScene {
 		add( btnExit );
 		btnExit.visible = btnExit.active = !SPDSettings.intro();
 
-		//SPSEXPD: 横竖屏统一——点任意处恢复整屏 UI（原先横屏靠 chevron 按钮 + tween 展开左栏）
-		PointerArea fadeResetter = new PointerArea(0, 0, Camera.main.width, Camera.main.height){
-			@Override
-			public boolean onSignal(PointerEvent event) {
-				if (event != null && event.type == PointerEvent.Type.UP){
-					resetFade();
-				}
-				return false;
-			}
-		};
-		add(fadeResetter);
-		resetFade();
-
 		if (GamesInProgress.selectedClass != null){
 			setSelectedHero(GamesInProgress.selectedClass);
 		}
@@ -322,7 +295,7 @@ public class HeroSelectScene extends PixelScene {
 		layoutScene();
 	}
 
-	//SPSEXPD: 选角界面自上而下的布局：标题 / 特写横幅 / 过渡阴影 / 选角头像 / 英雄名与描述 / 底部选项面板与开始
+	//SPSEXPD: 选角界面自上而下的布局：特写横幅 / 过渡阴影 / 选角头像 / 英雄名与描述 / 底部图标选项行与开始
 	private void layoutScene(){
 
 		float w = Math.max(1, Camera.main.width - insets.left - insets.right);
@@ -334,30 +307,18 @@ public class HeroSelectScene extends PixelScene {
 		background.y = 0;
 		background.scale.set(Camera.main.width, Camera.main.height);
 
-		//标题
-		title.setPos(left + (w - title.width())/2f, insets.top + 2);
-		align(title);
-
-		//底部：选项面板常显，开始按钮优先放面板右侧（放不下则放面板上方居中）
+		//SPSEXPD: 顶部不再显示标题，特写横幅贴安全区顶部；底部图标选项行居中，「开始」在其下方单独一行居中（贴底）
 		optionsPane.layout();
-		float panelLeft = landscape()
-				? left + 4
-				: left + Math.max(4, (w - optionsPane.width())/2f);
-		optionsPane.setPos(panelLeft, Camera.main.height - insets.bottom - 4 - optionsPane.height());
-		align(optionsPane);
 
 		startBtn.text(Messages.titleCase(Messages.get(this, "start")));
 		startBtn.setSize(startBtn.reqWidth() + 8, 21);
-
-		if (optionsPane.width() + 8 + startBtn.width() <= w){
-			startBtn.setPos(Math.min(left + w - startBtn.width() - 4, optionsPane.right() + 8),
-					optionsPane.top() + (optionsPane.height() - startBtn.height())/2f);
-		} else {
-			startBtn.setPos(left + (w - startBtn.width())/2f, optionsPane.top() - startBtn.height() - 4);
-		}
+		startBtn.setPos(left + (w - startBtn.width())/2f, Camera.main.height - insets.bottom - 4 - startBtn.height());
 		align(startBtn);
 
-		float bottomTop = Math.min(optionsPane.top(), startBtn.top()) - 4;
+		optionsPane.setPos(left + (w - optionsPane.width())/2f, startBtn.top() - 4 - optionsPane.height());
+		align(optionsPane);
+
+		float bottomTop = optionsPane.top() - 4;
 
 		//英雄描述与名字（自下而上），信息按钮贴在名字右侧、整体居中
 		heroDesc.maxWidth(Math.max(40, (int)(w - 8)));
@@ -373,7 +334,7 @@ public class HeroSelectScene extends PixelScene {
 		align(infoButton);
 
 		//特写横幅：横屏按宽度完整展示（contain），竖屏放大到屏高 1/3 并裁掉两侧（cover）
-		float tipY = title.bottom() + 3;
+		float tipY = insets.top + 2;
 		float avail = Math.max(24, heroName.top() - 4 - tipY);
 
 		float texW = Math.max(1, closeup.width);
@@ -409,11 +370,11 @@ public class HeroSelectScene extends PixelScene {
 		int cols = (int)Math.ceil(heroBtns.size() / (float)rows);
 		float avatarArea = Math.max(16, heroName.top() - 4 - (tipY + areaH));
 		float rowMaxH = (avatarArea - (rows - 1)) / rows;
-		float rowMaxW = (w - 8 - (cols - 1) * 2) / cols - 6;
+		float rowMaxW = (w - 8 - (cols - 1) * 2) / cols - 4;
 		float scale = Math.min(1f, Math.min(rowMaxH / AVATAR_H, rowMaxW / AVATAR_W));
 		scale = Math.max(0.45f, scale);
 
-		float btnW = AVATAR_W * scale + 6;
+		float btnW = AVATAR_W * scale + 4;
 		float btnH = AVATAR_H * scale + 4;
 		float rowsH = rows * btnH + (rows - 1);
 		float rowsY = tipY + areaH + Math.max(0, (avatarArea - rowsH)/2f);
@@ -515,8 +476,6 @@ public class HeroSelectScene extends PixelScene {
 		}
 	}
 
-	private float uiAlpha;
-
 	@Override
 	public void update() {
 		super.update();
@@ -528,42 +487,6 @@ public class HeroSelectScene extends PixelScene {
 		if (Camera.main.width != layoutW || Camera.main.height != layoutH){
 			layoutScene();
 		}
-		//do not fade when a window is open
-		for (Object v : members){
-			if (v instanceof Window) resetFade();
-		}
-		//SPSEXPD: 横竖屏统一——4 秒后开始淡出整屏 UI，点任意处恢复（特写横幅与其过渡阴影常驻）
-		if (GamesInProgress.selectedClass != null) {
-			if (uiAlpha > 0f){
-				uiAlpha -= Game.elapsed/4f;
-			}
-			updateFade();
-		}
-	}
-
-	private void updateFade(){
-		float alpha = GameMath.gate(0f, uiAlpha, 1f);
-		title.alpha(alpha);
-		for (HeroBtn b : heroBtns){
-			b.enable(alpha != 0);
-			b.alpha(alpha);
-		}
-		heroName.alpha(alpha);
-		heroDesc.alpha(alpha);
-		startBtn.enable(alpha != 0);
-		startBtn.alpha(alpha);
-		btnExit.enable(btnExit.visible && alpha != 0);
-		btnExit.icon().alpha(alpha);
-		optionsPane.active = optionsPane.visible && alpha != 0;
-		optionsPane.alpha(alpha);
-		infoButton.enable(alpha != 0);
-		infoButton.icon().alpha(alpha);
-	}
-
-	private void resetFade(){
-		//starts fading after 4 seconds, fades over 4 seconds.
-		uiAlpha = 2f;
-		updateFade();
 	}
 
 	@Override
@@ -575,12 +498,13 @@ public class HeroSelectScene extends PixelScene {
 		}
 	}
 
-	private class HeroBtn extends StyledButton {
+	//SPSEXPD: 选角头像按钮——不画按钮边框（splashes/avatars.png 每格自带边框）
+	private class HeroBtn extends IconButton {
 
 		private HeroClass cl;
 
 		HeroBtn ( HeroClass cl ){
-			super(Chrome.Type.GREY_BUTTON_TR, "");
+			super();
 
 			this.cl = cl;
 
@@ -633,24 +557,25 @@ public class HeroSelectScene extends PixelScene {
 		}
 	}
 
+	//SPSEXPD: 底部选项栏——无边框图标按钮横排（自定义种子 / 每日挑战 / 挑战 / 随机）
 	private class GameOptions extends Component {
 
-		private NinePatch bg;
+		private static final int ICON_SIZE = 20;
+		private static final int ICON_GAP = 2;
 
-		private ArrayList<StyledButton> buttons;
-		private ArrayList<ColorBlock> spacers;
-
-		protected StyledButton challengeButton;
+		private ArrayList<IconButton> buttons;
+		protected IconButton challengeButton;
 
 		@Override
 		protected void createChildren() {
 
-			bg = Chrome.get(Chrome.Type.GREY_BUTTON_TR);
-			add(bg);
-
 			buttons = new ArrayList<>();
-			spacers = new ArrayList<>();
-			StyledButton seedButton = new StyledButton(Chrome.Type.BLANK, Messages.get(HeroSelectScene.class, "custom_seed"), 6){
+			IconButton seedButton = new IconButton(Icons.get(Icons.SEED)){
+				@Override
+				protected String hoverText() {
+					return Messages.get(HeroSelectScene.class, "custom_seed");
+				}
+
 				@Override
 				protected void onClick() {
 					if (!Badges.isUnlocked(Badges.Badge.VICTORY) && !DeviceCompat.isDebug()){
@@ -696,18 +621,20 @@ public class HeroSelectScene extends PixelScene {
 					});
 				}
 			};
-			seedButton.leftJustify = true;
-			seedButton.icon(Icons.get(Icons.SEED));
-			if (!SPDSettings.customSeed().isEmpty()) seedButton.icon().hardlight(1f, 1.5f, 0.67f);;
+			seedButton.setSize(ICON_SIZE, ICON_SIZE + 1);
+			if (!SPDSettings.customSeed().isEmpty()) seedButton.icon().hardlight(1f, 1.5f, 0.67f);
 			buttons.add(seedButton);
 			add(seedButton);
 
-			StyledButton dailyButton = new StyledButton(Chrome.Type.BLANK, Messages.get(HeroSelectScene.class, "daily"), 6){
+			IconButton dailyButton = new IconButton(Icons.get(Icons.CALENDAR)){
 
-				private static final long SECOND = 1000;
-				private static final long MINUTE = 60 * SECOND;
-				private static final long HOUR = 60 * MINUTE;
+				private static final long HOUR = 60 * 60 * 1000;
 				private static final long DAY = 24 * HOUR;
+
+				@Override
+				protected String hoverText() {
+					return Messages.get(HeroSelectScene.class, "daily");
+				}
 
 				@Override
 				protected void onClick() {
@@ -774,41 +701,17 @@ public class HeroSelectScene extends PixelScene {
 					});
 				}
 
-				private long timeToUpdate = 0;
-
-				private final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss", Locale.ROOT);
-				{
-					dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-				}
-
-				@Override
-				public void update() {
-					super.update();
-
-					if (Game.realTime > timeToUpdate && visible){
-						long diff = (SPDSettings.lastDaily() + DAY) - Game.realTime;
-
-						if (diff > 0){
-							if (diff > 30*HOUR){
-								text("30:00:00+");
-							} else {
-								text(dateFormat.format(new Date(diff)));
-							}
-							timeToUpdate = Game.realTime + SECOND;
-						} else {
-							text(Messages.get(HeroSelectScene.class, "daily"));
-							timeToUpdate = Long.MAX_VALUE;
-						}
-					}
-
-				}
 			};
-			dailyButton.leftJustify = true;
-			dailyButton.icon(Icons.get(Icons.CALENDAR));
+			dailyButton.setSize(ICON_SIZE, ICON_SIZE + 1);
 			add(dailyButton);
 			buttons.add(dailyButton);
 
-			challengeButton = new StyledButton(Chrome.Type.BLANK, Messages.get(WndChallenges.class, "title"), 6){
+			challengeButton = new IconButton(Icons.get(SPDSettings.challenges() > 0 ? Icons.CHALLENGE_COLOR : Icons.CHALLENGE_GREY)){
+				@Override
+				protected String hoverText() {
+					return Messages.get(WndChallenges.class, "title");
+				}
+
 				@Override
 				protected void onClick() {
 					ShatteredPixelDungeon.scene().addToFront(new WndChallenges(SPDSettings.challenges(), true) {
@@ -819,8 +722,7 @@ public class HeroSelectScene extends PixelScene {
 					} );
 				}
 			};
-			challengeButton.leftJustify = true;
-			challengeButton.icon(Icons.get(SPDSettings.challenges() > 0 ? Icons.CHALLENGE_COLOR : Icons.CHALLENGE_GREY));
+			challengeButton.setSize(ICON_SIZE, ICON_SIZE + 1);
 			add(challengeButton);
 			buttons.add(challengeButton);
 
@@ -830,33 +732,20 @@ public class HeroSelectScene extends PixelScene {
 			}
 
 			if (unlockedCount >= 2) {
-				StyledButton randomButton = new StyledButton(Chrome.Type.BLANK, Messages.get(HeroSelectScene.class, "randomize"), 6) {
+				IconButton randomButton = new IconButton(Icons.SHUFFLE.get()) {
+					@Override
+					protected String hoverText() {
+						return Messages.get(HeroSelectScene.class, "randomize");
+					}
+
 					@Override
 					protected void onClick() {
-
-						if (true){
-							ShatteredPixelDungeon.scene().addToFront(new WndRandomize());
-						} else {
-
-							HeroClass randomCls;
-							do {
-								randomCls = Random.oneOf(HeroClass.playableClasses());
-							} while (!randomCls.isUnlocked());
-							setSelectedHero(randomCls);
-							GamesInProgress.randomizedClass = true;
-						}
+						ShatteredPixelDungeon.scene().addToFront(new WndRandomize());
 					}
 				};
-				randomButton.leftJustify = true;
-				randomButton.icon(Icons.SHUFFLE.get());
+				randomButton.setSize(ICON_SIZE, ICON_SIZE + 1);
 				buttons.add(randomButton);
 				add(randomButton);
-			}
-
-			for (int i = 1; i < buttons.size(); i++){
-				ColorBlock spc = new ColorBlock(1, 1, 0xFF000000);
-				add(spc);
-				spacers.add(spc);
 			}
 		}
 
@@ -962,44 +851,15 @@ public class HeroSelectScene extends PixelScene {
 		protected void layout() {
 			super.layout();
 
-			bg.x = x;
-			bg.y = y;
-
-			int width = 0;
-			for (StyledButton btn : buttons){
-				if (width < btn.reqWidth()) width = (int)btn.reqWidth();
-			}
-			width += bg.marginHor();
-
-			int top = (int)y + bg.marginTop() - 1;
-			int i = 0;
-			for (StyledButton btn : buttons){
-				btn.setRect(x+bg.marginLeft(), top, width - bg.marginHor(), 16);
-				top = (int)btn.bottom();
-				if (i < spacers.size()) {
-					spacers.get(i).size(btn.width(), 1);
-					spacers.get(i).x = btn.left();
-					spacers.get(i).y = PixelScene.align(btn.bottom()-0.5f);
-					i++;
-				}
+			float left = x;
+			for (IconButton btn : buttons){
+				btn.setRect(left, y, ICON_SIZE, ICON_SIZE + 1);
+				PixelScene.align(btn);
+				left += ICON_SIZE + ICON_GAP;
 			}
 
-			this.width = width;
-			this.height = top+bg.marginBottom()-y-1;
-			bg.size(this.width, this.height);
-
-		}
-
-		private void alpha( float value ){
-			bg.alpha(value);
-
-			for (StyledButton btn : buttons){
-				btn.alpha(value);
-			}
-
-			for (ColorBlock spc : spacers){
-				spc.alpha(value);
-			}
+			this.width = Math.max(0, buttons.size() * (ICON_SIZE + ICON_GAP) - ICON_GAP);
+			this.height = ICON_SIZE + 1;
 		}
 	}
 
