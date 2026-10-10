@@ -69,7 +69,11 @@ public class Belongings implements Iterable<Item> {
 		//SPSEXPD: 最后一格恒留给露珠瓶，其它物品最多 capacity-1 件（露珠瓶自身不受预留限制）
 		@Override
 		protected int reservedSlotsFor( Item item ){
-			return item instanceof pd.items.Waterskin ? 0 : 1;
+			if (item instanceof pd.items.Waterskin) return 0;
+			//SPSEXPD: 露珠瓶已经收在背包里时，它自己那格已占掉，不再额外预留——
+			//否则会被重复扣一次，实际可用格比窗口少 1
+			for (Item i : items) if (i instanceof pd.items.Waterskin) return 0;
+			return 1;
 		}
 	}
 
