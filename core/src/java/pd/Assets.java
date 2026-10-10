@@ -117,6 +117,9 @@ public class Assets {
 		public static final String CHROME   = "interfaces/chrome.png";
 		//SPS: 侧边标签底板（横向 2 帧：左=选中 | 右=未选，手动旋转后的标签贴图，每帧 TAB_W×TAB_H）
 		public static final String SIDE_TABS= "interfaces/side_tabs.png";
+		//SPSEXPD: 包裹选择选框（WndBagPicker）的面板整图——斜向底纹 + 右上角已画好的关闭按钮，
+		//整张按选框尺寸缩放使用（不平铺）
+		public static final String BG_LINER = "interfaces/bg_liner.png";
 		//SPS: 左右快捷栏整栏外框三段纹理（横向 3 帧：上帽/中段/下帽，
 		//由 tools/make-side-toolbar.ps1 从 toolbar.png 下栏三段转置生成）
 		public static final String SIDE_TOOLBAR = "interfaces/side_toolbar.png";

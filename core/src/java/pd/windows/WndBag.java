@@ -123,9 +123,12 @@ public class WndBag extends WndTabbed {
 
 	//SPSEXPD: 旧版布局（标签栏放到底部）——每页 3 个包裹 + 翻页格 + 主背包格，底部只留一行标签高
 	protected static final int BOTTOM_PER_PAGE = 3;
+	//SPSEXPD: 底部标签栏固定 5 格（每格 1/5 宽）= 3 个包裹 + 翻页 + 主背包；
+	//翻页与主背包恒定在最右两格，位置不随当前页包裹数量变化
+	protected static final int BOTTOM_SLOTS = 5;
 	protected static final int BOTTOM_TAB_H    = 22;
 	private int bottomPage = 0;
-	private IconButton bottomPager;
+	private IconTab bottomPager;
 
 	//SPS: 标签栏改到窗口左右两侧（用户裁决 2026-09-28）——标签竖置、底板旋转 90°、图案保持正向；
 	//左侧 5 个、右侧其余，主背包固定右下角（参照归档 Godot 版 wnd_bag.gd 的侧栏布局）
@@ -242,14 +245,18 @@ public class WndBag extends WndTabbed {
 
 		resize( windowWidth, windowHeight );
 
-		//SPSEXPD: 旧版布局的翻页格（不是包裹标签，只是一个按钮）——包裹超过一页时才显示
-		bottomPager = new IconButton( Icons.RIGHTARROW.get() ) {
+		//SPSEXPD: 翻页格也用选项卡外观——走 IconTab 的原生底板（与底部包裹标签同一套），
+		//图标与「兑换S金」按钮相同；它不参与标签选中，只负责翻页
+		bottomPager = new IconTab( new ItemSprite( SpecificPlaceHolderDict.SPS_GOLD_TO_SCOIN, null ) ) {
 			@Override
 			protected void onClick() {
+				Sample.INSTANCE.play( Assets.Sounds.CLICK, 0.7f, 0.7f, 1.2f );
 				bottomPage++;
 				layoutTabs();
 			}
 		};
+		//SPSEXPD: Tab 的底板只在 select() 里创建，这里手动挂一次未选中态底板
+		bottomPager.select( false );
 		bottomPager.visible = false;
 		add( bottomPager );
 
@@ -391,29 +398,31 @@ public class WndBag extends WndTabbed {
 		int firstBag = 1 + bottomPage * BOTTOM_PER_PAGE;
 		int shownBags = Math.max( 0, Math.min( BOTTOM_PER_PAGE, n - firstBag ) );
 		boolean pager = pages > 1;
-		int slots = shownBags + (pager ? 1 : 0) + 1;                   //末格是主背包
 
 		//先全部隐藏，再只显示当前页的格子（主背包恒显示）
 		for (int i = 0; i < n; i++) {
 			tabs.get(i).visible = false;
 		}
 
-		float step = (float)width / slots;
-		float cellW = Math.max( 4, Math.min( TAB_W, step - 1 ) );      //格间留 1px
-		float ty = height + 1;                                         //窗口下沿外侧
+		//SPSEXPD: 每个选项卡固定占 1/5 宽，且「换页」「主背包」恒定在最右两格——
+		//这样翻页、回主背包的位置永远不变；包裹不足一格时左侧留白，而不是被挤到右边
+		float step = (float)width / BOTTOM_SLOTS;
+		float cellW = step;                                            //满 1/5 宽（不再留 1px 间隙）
+		float ty = height;                                         //SPSEXPD: 正好贴窗口下沿（原为 +1，用户要求整体上移 1px 使接缝对接）
 
-		int slot = 0;
+		//包裹从第一格起（左对齐）
 		for (int i = 0; i < shownBags; i++) {
-			placeBottomTab( tabs.get( firstBag + i ), slot++, cellW, step, ty );
+			placeBottomTab( tabs.get( firstBag + i ), i, cellW, step, ty );
 		}
+		//翻页格恒定在倒数第二格、主背包恒定在最后一格
 		if (bottomPager != null) {
 			if (pager) {
-				placeBottomTab( bottomPager, slot++, cellW, step, ty );
+				placeBottomTab( bottomPager, BOTTOM_SLOTS - 2, cellW, step, ty );
 			} else {
 				bottomPager.visible = false;
 			}
 		}
-		placeBottomTab( tabs.get(0), slot, cellW, step, ty );           //主背包固定最后一格
+		placeBottomTab( tabs.get(0), BOTTOM_SLOTS - 1, cellW, step, ty );   //主背包固定最右格
 	}
 
 	private void placeBottomTab( Button c, int slot, float cellW, float step, float ty ) {
@@ -619,16 +628,25 @@ public class WndBag extends WndTabbed {
 		// SPS: 装备区固定两排 10 格（饰品槽 1-3 只收非戒指，戒指槽 4-5 只收戒指）
 		// 第一行：主武器 / 主护甲 / 饰品1 / 饰品2 / 饰品3
 		Belongings stuff = Dungeon.hero.belongings;
+		//SPSEXPD: 底部标签模式每行 7 格——把两个戒指挪到第一行（武器/护甲/神器/杂物/戒指/戒指1/戒指2
+		//正好 7 个），第二行剩副武器/副护甲/徽章；两侧模式（5 列）保持原来的两行顺序
+		boolean wideEquip = SPDSettings.bagBottomTabs();
 		placeItem( stuff.weapon != null ? stuff.weapon : new Placeholder( SpecificPlaceHolderDict.SPS_PH_WEAPON ) );
 		placeItem( stuff.armor != null ? stuff.armor : new Placeholder( SpecificPlaceHolderDict.SPS_PH_ARMOR ) );
 		placeItem( stuff.artifact != null ? stuff.artifact : new Placeholder( SpecificPlaceHolderDict.ARTIFACT_HOLDER_0 ) );
 		placeItem( stuff.misc != null ? stuff.misc : new Placeholder( SpecificPlaceHolderDict.ARTIFACT_HOLDER_0 ) );
 		placeItem( stuff.ring != null ? stuff.ring : new Placeholder( SpecificPlaceHolderDict.ARTIFACT_HOLDER_0 ) );
-		// 第二行：副武器 / 副护甲 / 戒指1 / 戒指2 / 徽章
+		if (wideEquip) {
+			placeItem( stuff.accessory4 != null ? stuff.accessory4 : new Placeholder( SpecificPlaceHolderDict.RING_HOLDER_0 ) );
+			placeItem( stuff.accessory5 != null ? stuff.accessory5 : new Placeholder( SpecificPlaceHolderDict.RING_HOLDER_0 ) );
+		}
+		// 第二行：副武器 / 副护甲 /（两侧模式）戒指1 / 戒指2 / 徽章
 		placeItem( stuff.secondWep != null ? stuff.secondWep : new Placeholder( SpecificPlaceHolderDict.SPS_PH_WEAPON_SPARE ) );
 		placeItem( stuff.secondArmor != null ? stuff.secondArmor : new Placeholder( SpecificPlaceHolderDict.SPS_PH_ARMOR_SPARE ) );
-		placeItem( stuff.accessory4 != null ? stuff.accessory4 : new Placeholder( SpecificPlaceHolderDict.RING_HOLDER_0 ) );
-		placeItem( stuff.accessory5 != null ? stuff.accessory5 : new Placeholder( SpecificPlaceHolderDict.RING_HOLDER_0 ) );
+		if (!wideEquip) {
+			placeItem( stuff.accessory4 != null ? stuff.accessory4 : new Placeholder( SpecificPlaceHolderDict.RING_HOLDER_0 ) );
+			placeItem( stuff.accessory5 != null ? stuff.accessory5 : new Placeholder( SpecificPlaceHolderDict.RING_HOLDER_0 ) );
+		}
 		placeItem( stuff.badge != null ? stuff.badge : new Placeholder( SpecificPlaceHolderDict.SPS_PH_TRINKET ) );
 
 		//SPSEXPD: 装备槽固定 10 个（两排 × 5 列），与 nCols 无关——底部模式 7 列时不能算成 14
@@ -749,9 +767,9 @@ public class WndBag extends WndTabbed {
 			slot.enable(false);
 		}
 		
-		//SPSEXPD: 装备区固定 5 列（保证仍是整齐两行），背包区才按 nCols 换行
-		int wrap = (count <= EQUIP_ROWS * COLS_P) ? COLS_P : nCols;
-		if (++col >= wrap) {
+		//SPSEXPD: 装备区与背包区统一按 nCols 换行——底部模式 7 列时装备 10 格正好排成 7+3 两行
+		//（两个戒指已挪到第一行），两侧模式 5 列时仍是整齐的两行 × 5
+		if (++col >= nCols) {
 			col = 0;
 			row++;
 		}

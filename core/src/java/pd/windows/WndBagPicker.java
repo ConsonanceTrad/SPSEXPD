@@ -3,13 +3,16 @@ package pd.windows;
 
 import java.util.ArrayList;
 
+import pd.Assets;
 import pd.Dungeon;
 import pd.items.equipment.bags.Bag;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
+import pd.ui.Button;
 import pd.ui.IconButton;
 import pd.ui.Window;
 import render.noosa.Game;
+import render.noosa.Image;
 
 /**
  * SPSEXPD: 「快捷背包」面板——开启快捷背包后，单击 HUD 背包按钮弹出的包裹选择选框。
@@ -81,6 +84,30 @@ public class WndBagPicker extends Window {
 		}
 
 		resize( w, h );
+
+		//SPSEXPD: 面板整图——bg_liner.png（斜向底纹 + 右上角已画好的关闭按钮）按选框尺寸整体缩放。
+		//不平铺（斜向图案平铺会看出接缝）、也不切分。默认的 Window 外框只隐藏不移除，
+		//因为 resize() 与 camera 的尺寸计算仍然依赖 chrome 对象。
+		Image panel = new Image( Assets.Interfaces.BG_LINER );
+		panel.scale.set( w / panel.width, h / panel.height );
+		addToBack( panel );
+		chrome.visible = false;
+
+		//SPSEXPD: 关闭按钮的点击区——只盖住图上按钮那一块（64x64 里的 x=48..58, y=0..10），
+		//按下只关闭本选框（等同“收起”语义）
+		float bx = 48f / 64f * w;
+		float by = 0f;
+		float bw = 11f / 64f * w;
+		float bh = 11f / 64f * h;
+		Button close = new Button() {
+			@Override
+			protected void onClick() {
+				hide();
+			}
+		};
+		close.setRect( Math.round( bx ), Math.round( by ),
+				Math.max( 4, Math.round( bw ) ), Math.max( 4, Math.round( bh ) ) );
+		add( close );
 
 		//SPSEXPD: 做成“非模态”紧凑选框——去掉全屏 blocker 与整屏变暗。
 		//原因：Window 默认的 blocker 覆盖全屏，会拦住 HUD 背包按钮的点击，
