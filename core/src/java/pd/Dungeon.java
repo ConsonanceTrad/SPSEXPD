@@ -757,19 +757,7 @@ public class Dungeon {
 			}
 		}
 		
-		//SPSEXPD: 夜晚视野收窄——无光源时按 5/8 缩放（默认 8 → 5，与旧档/黑暗层的先例缩放一致）；
-		//有光源时仍以 Light.DISTANCE(=6) 兜底，所以夜里点火把仍比白天暗
-		int baseViewDistance = level.viewDistance;
-		if (pd.actors.buffs.FullMoonStrength.isNightNow()){
-			baseViewDistance = Math.max(1, Math.round(5 * baseViewDistance / 8f));
-		}
-		Light light = hero.buff( Light.class );
-		hero.viewDistance = light == null ? baseViewDistance : Math.max( Light.DISTANCE, baseViewDistance );
-
-		//SPSEXPD: 圣者之辉满级——永久 +1 视野
-		pd.items.equipment.artifacts.GoddessRadiance.Recharge radiance =
-				hero.buff(pd.items.equipment.artifacts.GoddessRadiance.Recharge.class);
-		if (radiance != null && radiance.viewAmend() > 0) hero.viewDistance += radiance.viewAmend();
+		refreshHeroViewDistance();
 		
 		hero.curAction = hero.lastAction = null;
 
@@ -1275,8 +1263,36 @@ public class Dungeon {
 		}
 	}
 
+	/**
+	 * SPSEXPD: 重算英雄视野。
+	 * 夜晚（{@link pd.actors.buffs.FullMoonStrength#isNightNow()}）把 level.viewDistance 按 5/8 收窄
+	 * （默认 8 → 5），有光源时以 Light.DISTANCE(=6) 兜底，所以夜里点火把仍比白天暗；
+	 * 最后叠加圣者之辉的永久 +1。进关卡时（switchLevel）与每次观察前（observe）都会调用，
+	 * 这样在关卡里跨过昼夜分界也会立刻生效。
+	 */
+	public static void refreshHeroViewDistance(){
+		if (hero == null || level == null){
+			return;
+		}
+
+		int base = level.viewDistance;
+		if (pd.actors.buffs.FullMoonStrength.isNightNow()){
+			base = Math.max(1, Math.round(5 * base / 8f));
+		}
+		Light light = hero.buff( Light.class );
+		hero.viewDistance = light == null ? base : Math.max( Light.DISTANCE, base );
+
+		//SPSEXPD: 圣者之辉满级——永久 +1 视野（跟前面的重算放在一起，免得被覆盖掉）
+		pd.items.equipment.artifacts.GoddessRadiance.Recharge radiance =
+				hero.buff(pd.items.equipment.artifacts.GoddessRadiance.Recharge.class);
+		if (radiance != null && radiance.viewAmend() > 0) hero.viewDistance += radiance.viewAmend();
+	}
+
 	//default to recomputing based on max hero vision, in case vision just shrank/grew
 	public static void observe(){
+		//SPSEXPD: 观察前重算视野——昼夜切换（含在关卡里跨过 19:00/7:00）立刻生效
+		refreshHeroViewDistance();
+
 		int dist = Math.max(Dungeon.hero.viewDistance, 8);
 		dist *= 1f + 0.25f*Dungeon.hero.pointsInTalent(Talent.FARSIGHT);
 
