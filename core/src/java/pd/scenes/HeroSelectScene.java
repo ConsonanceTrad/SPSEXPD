@@ -142,6 +142,9 @@ public class HeroSelectScene extends PixelScene {
 	//SPSEXPD: 上一次布局用的屏幕尺寸（窗口缩放/旋转时重排）
 	private float layoutW = -1, layoutH = -1;
 
+	//SPSEXPD: 「名字 + 描述」区的预留高度（= 所有可玩职业里最长的描述高度，-1 表示未测量）
+	private float descReserveH = -1;
+
 	private RectF insets;
 
 	private static boolean heroWasRandomized = true;
@@ -320,22 +323,34 @@ public class HeroSelectScene extends PixelScene {
 
 		float bottomTop = optionsPane.top() - 4;
 
-		//英雄描述与名字（自下而上），信息按钮贴在名字右侧、整体居中
+		//SPSEXPD: 名字与描述按"所有可玩职业里最长的描述"预留固定高度（顶端对齐、下方留白），
+		//这样切换职业时描述行数变化不会把上方的选角头像与特写横幅顶来顶去
 		heroDesc.maxWidth(Math.max(40, (int)(w - 8)));
-		heroDesc.setPos(left + Math.max(0, (w - heroDesc.width())/2f), bottomTop - heroDesc.height());
-		align(heroDesc);
+		if (descReserveH < 0){
+			//用临时文本块测量（不污染正在显示的 heroDesc）
+			RenderedTextBlock probe = renderTextBlock(6);
+			probe.maxWidth(Math.max(40, (int)(w - 8)));
+			descReserveH = 0;
+			for (HeroClass cl : HeroClass.playableClasses()){
+				probe.text(cl.shortDesc());
+				descReserveH = Math.max(descReserveH, probe.height());
+			}
+		}
 
+		float nameTop = bottomTop - (heroName.height() + 3 + descReserveH);
 		float nameRowW = heroName.width() + 2 + infoButton.width();
-		float nameRowX = left + (w - nameRowW)/2f;
-		heroName.setPos(nameRowX, heroDesc.top() - heroName.height() - 3);
+		heroName.setPos(left + (w - nameRowW)/2f, nameTop);
 		align(heroName);
+
+		heroDesc.setPos(left + Math.max(0, (w - heroDesc.width())/2f), heroName.bottom() + 3);
+		align(heroDesc);
 
 		infoButton.setPos(heroName.right() + 2, heroName.top() + (heroName.height() - infoButton.height())/2f);
 		align(infoButton);
 
 		//特写横幅：横屏按宽度完整展示（contain），竖屏放大到屏高 1/3 并裁掉两侧（cover）
 		float tipY = insets.top + 2;
-		float avail = Math.max(24, heroName.top() - 4 - tipY);
+		float avail = Math.max(24, nameTop - 4 - tipY);
 
 		float texW = Math.max(1, closeup.width);
 		float texH = Math.max(1, closeup.height);
@@ -368,7 +383,7 @@ public class HeroSelectScene extends PixelScene {
 		//选角头像：横屏一行、竖屏两行，尺寸按剩余空间自适应
 		int rows = landscape() ? 1 : 2;
 		int cols = (int)Math.ceil(heroBtns.size() / (float)rows);
-		float avatarArea = Math.max(16, heroName.top() - 4 - (tipY + areaH));
+		float avatarArea = Math.max(16, nameTop - 4 - (tipY + areaH));
 		float rowMaxH = (avatarArea - (rows - 1)) / rows;
 		float rowMaxW = (w - 8 - (cols - 1) * 2) / cols - 4;
 		float scale = Math.min(1f, Math.min(rowMaxH / AVATAR_H, rowMaxW / AVATAR_W));
@@ -483,8 +498,9 @@ public class HeroSelectScene extends PixelScene {
 			SPDSettings.intro(false);
 		}
 		btnExit.visible = btnExit.active = !SPDSettings.intro();
-		//SPSEXPD: 屏幕尺寸变化（窗口缩放/旋转）时重排
+		//SPSEXPD: 屏幕尺寸变化（窗口缩放/旋转）时重排（描述预留高度按新宽度重测）
 		if (Camera.main.width != layoutW || Camera.main.height != layoutH){
+			descReserveH = -1;
 			layoutScene();
 		}
 	}
