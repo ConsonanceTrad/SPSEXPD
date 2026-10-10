@@ -39,6 +39,7 @@ import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
 import pd.ui.IconButton;
 import pd.ui.Icons;
+import pd.ui.ItemSlotButton;
 import pd.ui.PerkSlot;
 import pd.ui.RenderedTextBlock;
 import pd.ui.ScrollPane;
@@ -60,6 +61,17 @@ public class WndHeroInfo extends WndTabbed {
 			.t("perks_exclusive", "职业专属")
 			.t("perks_none", "（无）")
 			.t("perks_cond_class_level", "达到 %d 级时获得")
+			.t("perks_group_equip", "装备套装")
+			.t("perks_group_special", "特殊装备")
+			.t("perks_group_bag", "包裹袋")
+			.t("perks_group_food", "食品")
+			.t("perks_group_potion", "药水")
+			.t("perks_group_scroll", "卷轴")
+			.t("perks_group_wand", "法杖")
+			.t("perks_group_missile", "投掷与弹药")
+			.t("perks_group_bomb", "炸弹")
+			.t("perks_group_other", "其它")
+			.t("items_none", "（无）")
 			.t("subclasses", "专精")
 			.t("subclasses_msg", "击杀第二个Boss后可以选择一种职业专精。")
 			.t("abilities", "护甲技能")
@@ -206,14 +218,26 @@ public class WndHeroInfo extends WndTabbed {
 
 	private static class HeroInfoTab extends Component {
 
+		private static final int GAP = 2;
+		private static final int COLS = 6;
+		private static final int CELL = ItemSlotButton.BTN + GAP;
+		/** SPSEXPD: 清单区最大高度（超出由 ScrollPane 滚动） */
+		private static final int MAX_LIST_H = 120;
+
 		private RenderedTextBlock title;
 		private ScrollPane pane;
-		private ArrayList<ItemSprite> itemIcons;
-		private ArrayList<RenderedTextBlock> itemNames;
+		private ArrayList<Group> groups;
+
+		/** 一个分组：小标题 + 该组物品的格子 */
+		private static class Group {
+			RenderedTextBlock label;
+			ArrayList<ItemSlotButton> buttons = new ArrayList<>();
+		}
 
 		/**
-		 * SPSEXPD: 第一栏 = 开局携带的物品清单（每行：图标 + 名称），跟随当前主题。
-		 * 数据来自 HeroClass.baseStartingItems() + startingItems(cls, skin)（单一真源）。
+		 * SPSEXPD: 第一栏 = 开局携带的物品，按用途分组、以图标网格展示（含数量角标，
+		 * 点击图标看物品详情），跟随当前主题。数据来自
+		 * HeroClass.baseStartingItems() + startingItems(cls, skin)（单一真源）。
 		 */
 		public HeroInfoTab(HeroClass cls, int skin){
 			super();
@@ -222,8 +246,7 @@ public class WndHeroInfo extends WndTabbed {
 			title.hardlight(TITLE_COLOR);
 			add(title);
 
-			itemIcons = new ArrayList<>();
-			itemNames = new ArrayList<>();
+			groups = new ArrayList<>();
 
 			pane = new ScrollPane(new Component());
 			pane.scrollBarVisible = false;
@@ -232,22 +255,28 @@ public class WndHeroInfo extends WndTabbed {
 			ArrayList<pd.items.Item> items = new ArrayList<>();
 			items.addAll(HeroClass.baseStartingItems().preview());
 			items.addAll(HeroClass.startingItems(cls, skin).preview());
-
 			for (pd.items.Item item : items){
-				if (item == null) continue;
-				//展示用：先鉴定，让名字是普通名而不是「未鉴定的…」（实例是临时创建的，无副作用）
-				item.identify();
+				//展示用：先鉴定，让详情窗显示普通名字（实例是临时创建的，无副作用）
+				if (item != null) item.identify();
+			}
 
-				ItemSprite icon = new ItemSprite(item);
-				itemIcons.add(icon);
-				pane.content().add(icon);
+			//按用途分组：组序按枚举声明顺序，组内保持发放顺序
+			for (HeroClass.ItemGroup g : HeroClass.ItemGroup.values()){
+				Group group = new Group();
+				for (pd.items.Item item : items){
+					if (item == null || HeroClass.groupOf(item) != g) continue;
+					ItemSlotButton btn = new ItemSlotButton(item);
+					group.buttons.add(btn);
+					pane.content().add(btn);
+				}
+				if (group.buttons.isEmpty()) continue;
 
-				String label = item.quantity() > 1
-						? item.name() + "  x" + item.quantity()
-						: item.name();
-				RenderedTextBlock name = PixelScene.renderTextBlock(label, 6);
-				itemNames.add(name);
-				pane.content().add(name);
+				group.label = PixelScene.renderTextBlock(
+						Messages.get(WndHeroInfo.class, "perks_group_" + g.name().toLowerCase()), 7);
+				group.label.hardlight(TITLE_COLOR);
+				pane.content().add(group.label);
+
+				groups.add(group);
 			}
 		}
 
@@ -258,25 +287,25 @@ public class WndHeroInfo extends WndTabbed {
 			title.setPos((width-title.width())/2, MARGIN);
 			float top = title.bottom() + 3*MARGIN;
 
-			//每行：左边图标（16px），右边名称；行高随名称换行自适应
-			float y = 2;
-			int textW = Math.max(20, (int)width - 20);
-			for (int i = 0; i < itemNames.size(); i++){
-				RenderedTextBlock name = itemNames.get(i);
-				name.maxWidth(textW);
+			//逐组排：小标题一行，下面是图标网格
+			float y = 1;
+			for (Group g : groups){
+				g.label.setPos(0, y);
+				y = g.label.bottom() + 1;
 
-				float rowH = Math.max(name.height(), 16);
-				ItemSprite icon = itemIcons.get(i);
-				icon.x = 2;
-				icon.y = y + (rowH - icon.height())/2f;
-				PixelScene.align(icon);
-				name.setPos(20, y + (rowH - name.height())/2f);
-
-				y += rowH + 2;
+				for (int i = 0; i < g.buttons.size(); i++){
+					int r = i / COLS;
+					int c = i % COLS;
+					g.buttons.get(i).setRect(
+							GAP + c * CELL,
+							y + r * CELL,
+							ItemSlotButton.BTN, ItemSlotButton.BTN);
+				}
+				int rows = Math.max(1, (g.buttons.size() + COLS - 1) / COLS);
+				y += rows * CELL + 2;
 			}
 
-			//清单区最多约 5 行高，超出由 ScrollPane 滚动
-			float listH = Math.max(20, Math.min(y, 96));
+			float listH = Math.max(24, Math.min(y, MAX_LIST_H));
 			pane.setRect(0, top, width, listH);
 			pane.content().setSize(width, Math.max(listH, y));
 

@@ -1696,4 +1696,34 @@ public enum HeroClass {
 		}
 	}
 
+	//SPSEXPD: ---- 开局物品在详情页里的「按用途分组」（用户后续可自行调整这里的规则）-------
+	public enum ItemGroup {
+		EQUIP,    // 装备套装（武器 / 护甲 / 副手 / 饰品）
+		SPECIAL,  // 特殊装备（露珠瓶、神圣护盾、破损纹章、刻印笔… 不属于上面任何一类的本体物品）
+		BAG,      // 包裹袋
+		FOOD,     // 食品
+		POTION,   // 药水
+		SCROLL,   // 卷轴
+		WAND,     // 法杖
+		MISSILE,  // 投掷与弹药
+		BOMB,     // 炸弹
+		OTHER     // 其它
+	}
+
+	/** 判定某个物品属于哪一组（顺序有意义：炸弹先于投掷物、包袋先于食物类容器） */
+	public static ItemGroup groupOf(Item item) {
+		if (item == null) return ItemGroup.OTHER;
+		if (item instanceof pd.items.equipment.bags.Bag) return ItemGroup.BAG;
+		if (item instanceof pd.items.consum.food.Food) return ItemGroup.FOOD;
+		if (item instanceof pd.items.consum.potions.Potion) return ItemGroup.POTION;
+		if (item instanceof pd.items.consum.scrolls.Scroll) return ItemGroup.SCROLL;
+		if (item instanceof pd.items.equipment.wands.Wand) return ItemGroup.WAND;
+		if (item instanceof pd.items.equipment.bombs.Bomb) return ItemGroup.BOMB;
+		if (item instanceof pd.items.equipment.weapon.missiles.MissileWeapon) return ItemGroup.MISSILE;
+		if (item instanceof pd.items.KindOfWeapon
+				|| item instanceof pd.items.equipment.armor.Armor
+				|| item instanceof pd.items.KindofMisc) return ItemGroup.EQUIP;
+		return ItemGroup.SPECIAL;
+	}
+
 }
