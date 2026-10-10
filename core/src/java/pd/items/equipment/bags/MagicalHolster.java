@@ -70,8 +70,10 @@ public class MagicalHolster extends Bag {
 	/** SPSEXPD: 标签页固定排序位。 */
 	@Override public int bagOrder() { return 5; }
 
+	//SPSEXPD: 容量 34 = 35-1。窗口里包裹本体自身还占一格，两者相加须正好占满整数行
+	//（5 列 x 7 行 = 7 列 x 5 行 = 35），否则装满时会多出一行空行。曾为 35
 	public int capacity(){
-		return 35;
+		return 34;
 	}
 	
 	@Override

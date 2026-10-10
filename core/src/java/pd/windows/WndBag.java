@@ -193,6 +193,9 @@ public class WndBag extends WndTabbed {
 		nCols = bottomTabs ? COLS_BOTTOM : (PixelScene.landscape() ? COLS_L : COLS_P);
 		//SPSEXPD: 行数 = 装备区两排 + 背包行数（5 列时 7 行、7 列时 5 行，都是 35 格）。
 		//非主背包时窗口里还会显示包裹本体自己（占其中一格）；包裹袋（Bag）本身不占格、不计入
+		//⚠️ 由此得出硬约束：包裹 capacity() + 1 必须是 nCols 的整数倍，否则装满时会多出一行空行。
+		//所以各 Bag 子类的容量都取 34（34+1 = 35 = 5 列 x 7 行 = 7 列 x 5 行）。
+		//主背包不受此限（showsSelf == false，不占本体格，故仍为 35）
 		int shown = 0;
 		for (Item i : bag.items) if (!(i instanceof Bag)) shown++;
 		if (bag != Dungeon.hero.belongings.backpack) shown++;   //包裹本体占一格
