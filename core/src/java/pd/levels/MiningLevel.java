@@ -90,9 +90,7 @@ public class MiningLevel extends CavesLevel {
 			default:
 				return Assets.Environment.SPS_TILES_CAVES_LEGACY;
 			case Blacksmith.Quest.CRYSTAL:
-				//SPSEXPD: 去掉「琉璃（水晶）层」的玻璃墙壁氛围——改用与本层其它变体一致的普通洞窟贴图。
-				//只影响墙/地面的外观；水晶尖刺（Terrain.MINE_CRYSTAL）、矿工任务流程与掉落都不受影响。
-				return Assets.Environment.SPS_TILES_CAVES_LEGACY;
+				return Assets.Environment.TILES_CAVES_CRYSTAL;
 			case Blacksmith.Quest.GNOLL:
 				return Assets.Environment.TILES_CAVES_GNOLL;
 		}
