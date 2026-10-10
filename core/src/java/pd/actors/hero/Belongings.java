@@ -61,12 +61,9 @@ public class Belongings implements Iterable<Item> {
 		}
 		public int capacity(){
 			//SPS: 主背包 35 格（5 列 x 7 行）。净格恒为 35——包裹袋本体不占格，也不再额外多给一格
-			int cap = BACKPACK_CAPACITY;
-			if (Dungeon.isChallenged(pd.Challenges.TEST_TIME)) {
-				cap = Math.max(cap, 64);
-			}
-			//SPS: 副武器/副护甲由装备区两排承载，不再扣减背包容量（用户裁决）
-			return cap;
+			//SPSEXPD: 恒为 BACKPACK_CAPACITY，不给任何挑战/模式放大——背包窗口就是 35 格，
+			//且露珠瓶恒占最后一格（普通物品最多 34 件）。曾有过 TEST_TIME 放大到 64 的特例，已按用户要求移除
+			return BACKPACK_CAPACITY;
 		}
 
 		//SPSEXPD: 最后一格恒留给露珠瓶，其它物品最多 capacity-1 件（露珠瓶自身不受预留限制）
