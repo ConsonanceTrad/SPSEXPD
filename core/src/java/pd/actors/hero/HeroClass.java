@@ -563,14 +563,9 @@ public enum HeroClass {
 	}
 
 	private static void initWarrior( Hero hero ) {
+		//SPSEXPD: 物品部分已抽到 startingItems()（单一真源），这里只留属性与全局副作用
 		if (hero.skin == 1) {
-			(hero.belongings.armor = new VestArmor()).identify().upgrade(1);
-			pd.items.equipment.rings.RingOfForce force = new pd.items.equipment.rings.RingOfForce();
-			(hero.belongings.accessory4 = force).identify().upgrade(1); force.activate(hero);
-			pd.items.equipment.rings.RingOfMight might = new pd.items.equipment.rings.RingOfMight();
-			(hero.belongings.accessory5 = might).identify().upgrade(1); might.activate(hero);
-			AttackShield shield = new AttackShield(); shield.identify().collect(); Dungeon.quickslot.setSlot(0, shield);
-			new Porksoup().identify().collect(); new PotionOfStrength().identify(); new ScrollOfUpgrade().identify();
+			applyStartingItems(hero, startingItems(WARRIOR, 1));
 			return;
 		}
 		if (hero.skin == 2) {
@@ -580,79 +575,32 @@ public enum HeroClass {
 			hero.improveAttackSkill(-4);
 			hero.improveDefenseSkill(1);
 			hero.improveMagicSkill(6);
-			(hero.belongings.armor = new BaseArmor()).upgrade(6).identify();
-			new WandOfFirebolt().upgrade(6).identify().collect();
-			new DemoScroll().collect();
-			new StrBottle().quantity(4).collect();
 			Dungeon.gold += 666;
-			new JumpW().collect();
-			new Porksoup().identify().collect();
-			new PotionOfStrength().identify();
-			new ScrollOfUpgrade().identify();
+			applyStartingItems(hero, startingItems(WARRIOR, 2));
 			return;
 		}
 		if (hero.skin == 3) {
 			hero.STR += 2;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 2;
-			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Spear()).identify();
-			(hero.belongings.armor = new DiscArmor()).identify();
-			//SPSEXPD: 神木圆盾开局直接装备在副武器栏
-			(hero.belongings.secondWep = new MissileShield()).identify();
-			new SavageHelmet().identify().collect();
-			new Porksoup().identify().collect();
-			new PotionOfStrength().identify();
-			new ScrollOfUpgrade().identify();
+			applyStartingItems(hero, startingItems(WARRIOR, 3));
 			return;
 		}
 		if (hero.skin == 4) {
 			hero.STR += 3;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 3;
-			(hero.belongings.weapon = new GunB()).identify();
-			hero.belongings.weapon.activate(hero);
-			(hero.belongings.armor = new StyrofoamArmor()).identify();
-			new TestWeapon().identify().collect();
-			new WandOfTest().identify().collect();
-			new TestArmor().identify().collect();
-			new RewardPaper().identify().collect();
-			new JumpW().collect();
-			new Porksoup().identify().collect();
-			new PotionOfStrength().identify();
-			new ScrollOfUpgrade().identify();
+			applyStartingItems(hero, startingItems(WARRIOR, 4));
 			return;
 		}
 		if (hero.skin == 5) {
-			new Porksoup().identify().collect();
-			new PotionOfStrength().identify();
-			new ScrollOfUpgrade().identify();
+			applyStartingItems(hero, startingItems(WARRIOR, 5));
 			return;
 		}
 		if (hero.skin == 6) {
-			(hero.belongings.armor = new VestArmor()).identify().upgrade(1);
-			pd.items.equipment.rings.RingOfForce force = new pd.items.equipment.rings.RingOfForce();
-			(hero.belongings.accessory4 = force).identify().upgrade(1); force.activate(hero);
-			pd.items.equipment.rings.RingOfMight might = new pd.items.equipment.rings.RingOfMight();
-			(hero.belongings.accessory5 = might).identify().upgrade(1); might.activate(hero);
-			SeriousPunch punch = new SeriousPunch(); punch.identify().collect();
-			Ankhshield shield = new Ankhshield(); shield.identify().collect();
-			new JumpW().collect();
-			new Porksoup().identify().collect();
-			new PotionOfStrength().identify();
-			new ScrollOfUpgrade().identify();
-			Dungeon.quickslot.setSlot(0, punch); Dungeon.quickslot.setSlot(1, shield);
+			applyStartingItems(hero, startingItems(WARRIOR, 6));
 			return;
 		}
-		(hero.belongings.weapon = new ShortSword()).identify();
-		(hero.belongings.armor = new WoodenArmor()).identify();
-		//SPSXPD: 战士开局携带破碎纹章（护盾与刻印转移的载体）
-		BrokenSeal seal = new BrokenSeal();
-		seal.identify();
-		seal.affixToArmor(hero.belongings.armor, null);
-		//SPSEXPD: 神木圆盾开局直接装备在副武器栏
-		(hero.belongings.secondWep = new MissileShield()).identify();
-		new Porksoup().identify().collect();
-
-		new PotionOfStrength().identify();
-		new ScrollOfUpgrade().identify();
+		//经典（skin 0）与留空主题（skin >= IMPLEMENTED_SKINS）都走默认清单
+		applyStartingItems(hero, startingItems(WARRIOR, 0));
 	}
 
 	private static void initMage( Hero hero ) {
@@ -1542,6 +1490,211 @@ public enum HeroClass {
 	
 	public String unlockMsg() {
 		return shortDesc() + "\n\n" + Messages.get(HeroClass.class, name()+"_unlock");
+	}
+
+	//SPSEXPD: ---- 开局物品的声明式清单（单一真源）-----------------------------------
+	//initXxx 用它发放物品；选角详情页用它展示「开局携带的物品」（每行图标 + 名称）。
+	//只描述物品本身（去向 / 升级 / 数量 / 快捷栏 / 收集后处理）；属性调整与全局副作用
+	//（STR、HTBoost、技能等级、LimitedDrops、gold 等）仍留在 initXxx 里。
+
+	/** 物品去向 */
+	public enum ItemSlot { BACKPACK, WEAPON, ARMOR, SECOND_WEP, ACCESSORY4, ACCESSORY5, MISC }
+
+	/** 一条物品声明：存工厂而不是实例，避免共享实例被 identify/upgrade 污染 */
+	public static final class LoadoutItem {
+		final java.util.function.Supplier<Item> factory;
+		final ItemSlot slot;
+		final int upgrade;
+		final int quantity;
+		final int quickSlot;                                    // -1 = 不设快捷栏
+		final java.util.function.BiConsumer<Hero, Item> after;  // 装备/收集后的额外处理，可空
+
+		LoadoutItem(java.util.function.Supplier<Item> factory, ItemSlot slot, int upgrade, int quantity,
+					int quickSlot, java.util.function.BiConsumer<Hero, Item> after) {
+			this.factory = factory;
+			this.slot = slot;
+			this.upgrade = upgrade;
+			this.quantity = quantity;
+			this.quickSlot = quickSlot;
+			this.after = after;
+		}
+	}
+
+	/** 一份开局物品清单 */
+	public static final class Loadout {
+		private final java.util.ArrayList<LoadoutItem> items = new java.util.ArrayList<>();
+
+		public Loadout backpack(java.util.function.Supplier<Item> factory) {
+			return backpack(factory, 0, 1, -1, null);
+		}
+
+		public Loadout backpack(java.util.function.Supplier<Item> factory, int upgrade) {
+			return backpack(factory, upgrade, 1, -1, null);
+		}
+
+		public Loadout backpack(java.util.function.Supplier<Item> factory, int upgrade, int quantity, int quickSlot,
+								java.util.function.BiConsumer<Hero, Item> after) {
+			items.add(new LoadoutItem(factory, ItemSlot.BACKPACK, upgrade, quantity, quickSlot, after));
+			return this;
+		}
+
+		public Loadout equip(ItemSlot slot, java.util.function.Supplier<Item> factory) {
+			return equip(slot, factory, 0, null);
+		}
+
+		public Loadout equip(ItemSlot slot, java.util.function.Supplier<Item> factory, int upgrade,
+							 java.util.function.BiConsumer<Hero, Item> after) {
+			items.add(new LoadoutItem(factory, slot, upgrade, 1, -1, after));
+			return this;
+		}
+
+		public boolean isEmpty() {
+			return items.isEmpty();
+		}
+
+		/** 供 UI 展示：按发放顺序新建物品实例（只读名字与图标，不做装备/收集） */
+		public java.util.ArrayList<Item> preview() {
+			java.util.ArrayList<Item> out = new java.util.ArrayList<>();
+			for (LoadoutItem it : items) {
+				Item item = it.factory.get();
+				if (item != null) out.add(item);
+			}
+			return out;
+		}
+	}
+
+	/** 通用开局物品（展示用；实际发放仍在 initHero 通用段，那里还有挑战屏蔽等判定） */
+	public static Loadout baseStartingItems() {
+		Loadout l = new Loadout();
+		l.equip(ItemSlot.ARMOR, () -> new ClothArmor());
+		l.backpack(() -> new VelvetPouch());
+		l.backpack(() -> new ArrowCollecter());
+		l.backpack(() -> new KeyRing());
+		l.backpack(() -> new DewVial());
+		l.backpack(() -> new Pasty());
+		l.backpack(() -> new NutCake());
+		return l;
+	}
+
+	/**
+	 * 「职业 × 主题」的开局物品。
+	 * 还没迁移过来的职业返回空清单（它们的发放暂时仍在各自的 initXxx 里）。
+	 */
+	public static Loadout startingItems(HeroClass cls, int skin) {
+		Loadout l = new Loadout();
+		if (cls == null) return l;
+
+		if (cls == WARRIOR) {
+			switch (skin) {
+				case 1:
+					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 1, null);
+					l.equip(ItemSlot.ACCESSORY4, () -> new pd.items.equipment.rings.RingOfForce(), 1,
+							(h, i) -> ((pd.items.equipment.rings.RingOfForce) i).activate(h));
+					l.equip(ItemSlot.ACCESSORY5, () -> new pd.items.equipment.rings.RingOfMight(), 1,
+							(h, i) -> ((pd.items.equipment.rings.RingOfMight) i).activate(h));
+					l.backpack(() -> new AttackShield(), 0, 1, 0, null);
+					l.backpack(() -> new Porksoup());
+					break;
+				case 2:
+					l.equip(ItemSlot.ARMOR, () -> new BaseArmor(), 6, null);
+					l.backpack(() -> new WandOfFirebolt(), 6, 1, -1, null);
+					l.backpack(() -> new DemoScroll());
+					l.backpack(() -> new StrBottle(), 0, 4, -1, null);
+					l.backpack(() -> new JumpW());
+					l.backpack(() -> new Porksoup());
+					break;
+				case 3:
+					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Spear(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new DiscArmor(), 0, null);
+					l.equip(ItemSlot.SECOND_WEP, () -> new MissileShield(), 0, null);
+					l.backpack(() -> new SavageHelmet());
+					l.backpack(() -> new Porksoup());
+					break;
+				case 4:
+					l.equip(ItemSlot.WEAPON, () -> new GunB(), 0,
+							(h, i) -> ((pd.items.KindOfWeapon) i).activate(h));
+					l.equip(ItemSlot.ARMOR, () -> new StyrofoamArmor(), 0, null);
+					l.backpack(() -> new TestWeapon());
+					l.backpack(() -> new WandOfTest());
+					l.backpack(() -> new TestArmor());
+					l.backpack(() -> new RewardPaper());
+					l.backpack(() -> new JumpW());
+					l.backpack(() -> new Porksoup());
+					break;
+				case 5:
+					l.backpack(() -> new Porksoup());
+					break;
+				case 6:
+					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 1, null);
+					l.equip(ItemSlot.ACCESSORY4, () -> new pd.items.equipment.rings.RingOfForce(), 1,
+							(h, i) -> ((pd.items.equipment.rings.RingOfForce) i).activate(h));
+					l.equip(ItemSlot.ACCESSORY5, () -> new pd.items.equipment.rings.RingOfMight(), 1,
+							(h, i) -> ((pd.items.equipment.rings.RingOfMight) i).activate(h));
+					l.backpack(() -> new SeriousPunch(), 0, 1, 0, null);
+					l.backpack(() -> new Ankhshield(), 0, 1, 1, null);
+					l.backpack(() -> new JumpW());
+					l.backpack(() -> new Porksoup());
+					break;
+				default:
+					l.equip(ItemSlot.WEAPON, () -> new ShortSword(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new WoodenArmor(), 0, null);
+					l.equip(ItemSlot.SECOND_WEP, () -> new MissileShield(), 0, null);
+					l.backpack(() -> new Porksoup());
+					//破碎纹章贴在已装备的护甲上，依赖护甲，故走「收集后处理」
+					l.backpack(() -> new BrokenSeal(), 0, 1, -1, (h, i) -> {
+						if (h.belongings.armor != null) ((BrokenSeal) i).affixToArmor(h.belongings.armor, null);
+					});
+					break;
+			}
+		}
+		return l;
+	}
+
+	/** 唯一发放实现：identify → 升级/数量 → 装备或收集 → 快捷栏 → 额外处理 */
+	public static void applyStartingItems(Hero hero, Loadout loadout) {
+		if (hero == null || loadout == null) return;
+
+		for (LoadoutItem it : loadout.items) {
+			Item item = it.factory.get();
+			if (item == null) continue;
+
+			item.identify();
+			if (it.quantity > 1) item.quantity(it.quantity);
+			if (it.upgrade > 0) item.upgrade(it.upgrade);
+
+			switch (it.slot) {
+				case WEAPON:
+					if (item instanceof pd.items.KindOfWeapon) hero.belongings.weapon = (pd.items.KindOfWeapon) item;
+					else item.collect();
+					break;
+				case ARMOR:
+					if (item instanceof pd.items.equipment.armor.Armor) hero.belongings.armor = (pd.items.equipment.armor.Armor) item;
+					else item.collect();
+					break;
+				case SECOND_WEP:
+					if (item instanceof pd.items.KindOfWeapon) hero.belongings.secondWep = (pd.items.KindOfWeapon) item;
+					else item.collect();
+					break;
+				case ACCESSORY4:
+					if (item instanceof pd.items.KindofMisc) hero.belongings.accessory4 = (pd.items.KindofMisc) item;
+					else item.collect();
+					break;
+				case ACCESSORY5:
+					if (item instanceof pd.items.KindofMisc) hero.belongings.accessory5 = (pd.items.KindofMisc) item;
+					else item.collect();
+					break;
+				case MISC:
+					if (item instanceof pd.items.KindofMisc) hero.belongings.misc = (pd.items.KindofMisc) item;
+					else item.collect();
+					break;
+				default:
+					item.collect();
+					break;
+			}
+
+			if (it.quickSlot >= 0) Dungeon.quickslot.setSlot(it.quickSlot, item);
+			if (it.after != null) it.after.accept(hero, item);
+		}
 	}
 
 }
