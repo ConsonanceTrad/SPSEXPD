@@ -90,6 +90,10 @@ public class WndBagPicker extends Component {
 		setSize( w, h );
 		placeAboveButton( w, h );
 
+		//SPSEXPD: 必须显式挂 uiCamera——GameScene 的所有直属 UI 子都这么做（menu/status/toolbar/inventory…）。
+		//不设的话 Group 会沿用场景相机，面板会被画到世界坐标上，看起来就是"没显示"。
+		camera = PixelScene.uiCamera;
+
 		//SPSEXPD: 挂到场景顶层（与 InventoryPane 同层）。面板只是普通 Component，
 		//没有 Window 的 blocker，所以只有落在自己矩形内的指针事件才会被它响应。
 		if (Game.scene() instanceof GameScene) {
