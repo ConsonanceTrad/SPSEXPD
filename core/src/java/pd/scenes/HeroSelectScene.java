@@ -368,13 +368,13 @@ public class HeroSelectScene extends PixelScene {
 		float btnH = AVATAR_H * scale + 4;
 		float avatarsH = rows * btnH + (rows - 1);
 
-		//SPSEXPD: 「横幅 + 头像 + 名字 + 描述」整块在可用空间里垂直居中（上下留白均分），不必贴顶
-		float contentH = areaH + 4 + avatarsH + 4 + infoH;
-		float offsetY = Math.max(0, (space - contentH)/2f);
+		//SPSEXPD: 特写横幅贴顶；「头像 + 名字 + 描述」整块在横幅下方到图标行之间的空间里垂直居中
+		float contentH = avatarsH + 4 + infoH;
+		float offsetY = Math.max(0, (space - areaH - contentH)/2f);
 
 		closeup.scale.set(closeScale, closeScale);
 		closeup.x = left + (w - texW * closeScale)/2f;
-		closeup.y = tipY + offsetY + (areaH - texH * closeScale)/2f;
+		closeup.y = tipY + (areaH - texH * closeScale)/2f;
 		align(closeup);
 
 		//特写图底部向背景色过渡的阴影
@@ -383,13 +383,13 @@ public class HeroSelectScene extends PixelScene {
 		for (int i = 0; i < closeupShade.length; i++){
 			ColorBlock blk = closeupShade[i];
 			blk.x = 0;
-			blk.y = tipY + offsetY + areaH - shadeH + stepH * i;
+			blk.y = tipY + areaH - shadeH + stepH * i;
 			blk.size(Camera.main.width, stepH + 0.5f);
 			blk.alpha((i + 1f) / closeupShade.length);
 			blk.visible = closeup.visible;
 		}
 
-		float rowsY = tipY + offsetY + areaH + 4;
+		float rowsY = tipY + areaH + offsetY;
 
 		for (int r = 0; r < rows; r++){
 			int count = Math.min(cols, heroBtns.size() - r * cols);
