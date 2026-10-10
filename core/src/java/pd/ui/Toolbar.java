@@ -54,6 +54,7 @@ import render.input.KeyBindings;
 import render.noosa.Camera;
 import render.noosa.Game;
 import render.noosa.Gizmo;
+import render.noosa.Gizmo;
 import render.noosa.Image;
 import render.noosa.PointerArea;
 import render.noosa.ui.Component;
@@ -434,11 +435,19 @@ public class Toolbar extends Component {
 							WndBagPicker.INSTANCE.close();
 							GameScene.show(new WndBag(Dungeon.hero.belongings.backpack));
 						} else if (!GameScene.cancel()) {
-							//SPSEXPD: 选框贴在背包按钮正上方（传按钮中心与顶边的 uiCamera 坐标）。
+							//SPSEXPD: 选框贴在背包按钮正上方。
+							//btnInventory.left()/top() 只是 Toolbar 内的坐标，若 Toolbar（或更外层）
+							//有偏移就不是 uiCamera 绝对坐标了，所以逐级累加 Component 的偏移
+							float cx = 0f, top = 0f;
+							for (Gizmo g = btnInventory; g != null; g = g.parent) {
+								if (g instanceof Component) {
+									cx += ((Component) g).left();
+									top += ((Component) g).top();
+								}
+							}
+							cx += btnInventory.width() / 2f;
 							//它不是 Window，构造时自己挂到场景顶层，所以不用 GameScene.show()。
-							new WndBagPicker(
-									Toolbar.this.left() + btnInventory.left() + btnInventory.width() / 2f,
-									Toolbar.this.top() + btnInventory.top());
+							new WndBagPicker( cx, top );
 						}
 					} else {
 						if (!GameScene.cancel()) {

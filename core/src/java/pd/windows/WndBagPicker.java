@@ -3,12 +3,14 @@ package pd.windows;
 
 import java.util.ArrayList;
 
+import pd.Chrome;
 import pd.Dungeon;
 import pd.items.equipment.bags.Bag;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.ui.IconButton;
 import render.noosa.Game;
+import render.noosa.NinePatch;
 import render.noosa.ui.Component;
 
 /**
@@ -29,9 +31,9 @@ import render.noosa.ui.Component;
 public class WndBagPicker extends Component {
 
 	private static final int COLS   = 4;    //每行 4 个
-	private static final int CELL   = 20;   //紧凑格边长（图标 16px + 少量留白）
+	private static final int CELL   = 18;   //紧凑格边长（图标 16px + 1px 边）
 	private static final int GAP    = 1;
-	private static final int MARGIN = 3;
+	private static final int MARGIN = 1;    //面板内部额外留白（外框留白由 NinePatch 的 margin 提供）
 
 	//SPSEXPD: 与 WndBag.INSTANCE 同理——只允许一个面板，并供 Toolbar 判断“双击”
 	public static WndBagPicker INSTANCE;
@@ -87,8 +89,15 @@ public class WndBagPicker extends Component {
 			idx++;
 		}
 
-		setSize( w, h );
-		placeAboveButton( w, h );
+		//SPSEXPD: 背景框——与 pd.ui.InventoryPane 同款的轻量面板底板（用户要求"要有背景框"）
+		NinePatch bg = Chrome.get( Chrome.Type.TOAST_TR_HEAVY );
+		bg.size( w + bg.marginHor(), h + bg.marginVer() );
+		bg.x = -bg.marginLeft();
+		bg.y = -bg.marginTop();
+		addToBack( bg );
+
+		setSize( w + bg.marginHor(), h + bg.marginVer() );
+		placeAboveButton( width, height );
 
 		//SPSEXPD: 必须显式挂 uiCamera——GameScene 的所有直属 UI 子都这么做（menu/status/toolbar/inventory…）。
 		//不设的话 Group 会沿用场景相机，面板会被画到世界坐标上，看起来就是"没显示"。
@@ -113,7 +122,7 @@ public class WndBagPicker extends Component {
 
 	//SPSEXPD: 不居中——底边贴在 HUD 背包按钮正上方，水平以按钮为中心，并保证不出屏。
 	//面板挂在与 InventoryPane 同一层，坐标就是 uiCamera 的逻辑坐标，不需要 Window 那样做屏幕像素换算。
-	private void placeAboveButton( int w, int h ) {
+	private void placeAboveButton( float w, float h ) {
 		float cx = anchorX > 0 ? anchorX : PixelScene.uiCamera.width / 2f;
 		float bottom = anchorY > 0 ? anchorY : PixelScene.uiCamera.height;
 
