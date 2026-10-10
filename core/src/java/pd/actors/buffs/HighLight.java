@@ -12,7 +12,7 @@ public class HighLight extends FlavourBuff {
 	static {
 		InlineText.of(HighLight.class)
 			.t("name", "强光")
-			.t("desc", "明亮光线将视野扩大到10格。\n\n剩余回合：%s。");
+			.t("desc", "强光显著扩大你的视野：日间 9 格、夜间 7 格。\n\n剩余回合：%s。");
 	}
 
 
