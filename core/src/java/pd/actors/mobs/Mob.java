@@ -1193,8 +1193,7 @@ public abstract class Mob extends Char {
 		}
 
 		if (candidates.isEmpty()) {
-			Heap heap = Dungeon.level.drop(new RedDewdrop(), pos);
-			if (heap != null && heap.sprite != null) heap.sprite.drop();
+			dropDew( new RedDewdrop(), pos, pos );
 			return null;
 		}
 
@@ -1207,6 +1206,17 @@ public abstract class Mob extends Char {
 		return virus;
 	}
 
+	/**
+	 * SPSEXPD: 掉落露珠时临时把它插到堆顶，再播掉落/飞溅动画。
+	 * 露珠默认 dropsDownHeap=true（落堆底、不遮挡地面已有物品），于是落点有物品时，
+	 * 飞溅轨迹与落地图标显示的都是那件原有物品、看不到露珠；这里只在本次掉落期间把它置顶。
+	 * fromCell 与落点不同时就是原来的 sprite.drop(center) 飞行动画。
+	 */
+	private void dropDew( Item dew, int cell, int fromCell ) {
+		//SPSEXPD: 统一走 Dewdrop.dropAt（本次掉落临时置顶，避免落点已有物品时看不到露珠）
+		Dewdrop.dropAt( dew, cell, fromCell );
+	}
+
 	//SPSEXPD: 按属性浮动分档掉露珠——浮动越正（越强）掉率越高，档位 10%~40%
 	private void dropDewByStatFloat( int cell ) {
 		if (!(Dungeon.dewDraw || Dungeon.dewWater)) return;
@@ -1216,7 +1226,7 @@ public abstract class Mob extends Char {
 				: statFloat <= -0.10f ? 0.10f                // -15%~-10%
 				: 0.20f;                                     // -10%~-5%
 		if (Random.Float() < chance) {
-			Dungeon.level.drop(new Dewdrop(), cell).sprite.drop(cell);
+			dropDew( new Dewdrop(), cell, cell );
 		}
 	}
 
@@ -1233,7 +1243,7 @@ public abstract class Mob extends Char {
 			if (Random.Int(80) == 1) dew = new VioletDewdrop();
 			else if (Random.Int(10) == 1) dew = new RedDewdrop();
 			else if (Random.Int(2) == 0) dew = new YellowDewdrop();
-			if (dew != null) Dungeon.level.drop(dew, cell).sprite.drop(center);
+			if (dew != null) dropDew( dew, cell, center );
 		}
 	}
 
@@ -1251,7 +1261,7 @@ public abstract class Mob extends Char {
 			Item dew = null;
 			if (Random.Int(20) == 1) dew = new VioletDewdrop();
 			else if (Random.Int(8) == 1) dew = new RedDewdrop();
-			if (dew != null) Dungeon.level.drop(dew, cell).sprite.drop(center);
+			if (dew != null) dropDew( dew, cell, center );
 		}
 	}
 

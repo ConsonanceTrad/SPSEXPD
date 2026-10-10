@@ -4,6 +4,7 @@ package pd.actors.buffs;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
+import pd.items.Dewdrop;
 import pd.items.RedDewdrop;
 import pd.items.VioletDewdrop;
 import pd.items.YellowDewdrop;
@@ -42,15 +43,15 @@ public class DewScatter extends FlavourBuff {
 	private static void scatter(int pos, int energy) {
 		int remaining = energy;
 		while (remaining >= 30) {
-			Dungeon.level.drop(new VioletDewdrop(), pos).sprite.drop();
+			Dewdrop.dropAt(new VioletDewdrop(), pos, pos);
 			remaining -= 30;
 		}
 		while (remaining >= 15) {
-			Dungeon.level.drop(new RedDewdrop(), pos).sprite.drop();
+			Dewdrop.dropAt(new RedDewdrop(), pos, pos);
 			remaining -= 15;
 		}
 		while (remaining >= 5) {
-			Dungeon.level.drop(new YellowDewdrop(), pos).sprite.drop();
+			Dewdrop.dropAt(new YellowDewdrop(), pos, pos);
 			remaining -= 5;
 		}
 	}

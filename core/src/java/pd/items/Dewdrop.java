@@ -154,6 +154,21 @@ public class Dewdrop extends Item {
 		return quantity;
 	}
 
+	/**
+	 * SPSEXPD: 把一颗露珠掉到 cell 上，并让它在本次掉落期间显示在堆顶。
+	 * 露珠默认 dropsDownHeap=true（落堆底、不遮挡地面已有物品），于是落点已有物品时，
+	 * 飞溅轨迹与落地图标显示的都是那件原有物品、看不到露珠；这里只在本次掉落把它置顶。
+	 * fromCell 与落点不同就是原来的 sprite.drop(fromCell) 飞行动画。
+	 */
+	public static void dropAt( Item dew, int cell, int fromCell ) {
+		if (dew == null || Dungeon.level == null) return;
+		boolean down = dew.dropsDownHeap;
+		dew.dropsDownHeap = false;
+		Heap heap = Dungeon.level.drop( dew, cell );
+		dew.dropsDownHeap = down;
+		if (heap != null && heap.sprite != null) heap.sprite.drop( fromCell );
+	}
+
 	@Override
 	public boolean isUpgradable() {
 		return false;
