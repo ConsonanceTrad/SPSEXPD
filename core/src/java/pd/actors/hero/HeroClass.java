@@ -1033,7 +1033,7 @@ public enum HeroClass {
 
 	/** 一份开局物品清单 */
 	public static final class Loadout {
-		private final java.util.ArrayList<LoadoutItem> items = new java.util.ArrayList<>();
+		final java.util.ArrayList<LoadoutItem> items = new java.util.ArrayList<>();
 
 		public Loadout backpack(java.util.function.Supplier<Item> factory) {
 			return backpack(factory, 0, 1, -1, null);

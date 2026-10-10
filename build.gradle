@@ -1975,6 +1975,15 @@ project(':core') {
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
+	tasks.register('verifySpsStartingItems', JavaExec) {
+		group = 'verification'
+		description = '无图形验证开局物品单一真源：每个职业×主题的清单可用、槽位类型相符、留空主题等同经典。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = coreTestClass('actors.hero.SpsStartingItemsTest')
+		workingDir = file('src/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
 	tasks.register('verifySpsBeastMaster', JavaExec) {
 		group = 'verification'
 		description = '无图形验证驯兽大师：3 级设计、35 种生物的能力特质映射、炸环增幅。'
