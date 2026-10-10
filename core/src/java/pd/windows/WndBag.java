@@ -131,7 +131,23 @@ public class WndBag extends WndTabbed {
 	private int bottomPage = 0;
 	//SPSEXPD: 记住底部标签栏上次停在第几页——切包裹/重新打开时停在同一页，而不是弹回第一页
 	private static int lastBottomPage = 0;
+	//SPSEXPD: 一次性「这次打开落在第几页」（底部标签模式）；<0 表示沿用 lastBottomPage。
+	//包裹的「打开」跳到该包裹所在页、背包按钮回到第一页，都通过它传入（构造时消费掉）
+	private static int pendingBottomPage = -1;
 	private IconTab bottomPager;
+
+	/** SPSEXPD: 下次打开背包窗口时落在指定页（0 = 第一页）。只影响下一次构造。 */
+	public static void openOnBottomPage( int page ) {
+		pendingBottomPage = Math.max( 0, page );
+	}
+
+	/** SPSEXPD: 某包裹在底部标签分页中属于第几页（主背包/找不到 -> 第一页）。 */
+	public static int bottomPageOf( Bag bag ) {
+		if (bag == null || Dungeon.hero == null || Dungeon.hero.belongings == null) return 0;
+		int idx = Dungeon.hero.belongings.getBags().indexOf( bag );
+		if (idx <= 0) return 0;                 //下标 0 是主背包
+		return (idx - 1) / BOTTOM_PER_PAGE;
+	}
 
 	//SPS: 标签栏改到窗口左右两侧（用户裁决 2026-09-28）——标签竖置、底板旋转 90°、图案保持正向；
 	//左侧 5 个、右侧其余，主背包固定右下角（参照归档 Godot 版 wnd_bag.gd 的侧栏布局）
@@ -184,8 +200,10 @@ public class WndBag extends WndTabbed {
 		
 		lastBag = bag;
 
-		//SPSEXPD: 继承上次的翻页位置（页数变少时会在 layoutBottomTabs() 里取模兜底）
-		bottomPage = lastBottomPage;
+		//SPSEXPD: 继承上次的翻页位置（页数变少时会在 layoutBottomTabs() 里取模兜底）；
+		//若调用方用 openOnBottomPage() 指定了落页（包裹「打开」跳自己那页 / 背包按钮回第一页），优先用它
+		bottomPage = pendingBottomPage >= 0 ? pendingBottomPage : lastBottomPage;
+		pendingBottomPage = -1;
 
 		slotWidth = PixelScene.landscape() ? SLOT_WIDTH_L : SLOT_WIDTH_P;
 		slotHeight = PixelScene.landscape() ? SLOT_HEIGHT_L : SLOT_HEIGHT_P;

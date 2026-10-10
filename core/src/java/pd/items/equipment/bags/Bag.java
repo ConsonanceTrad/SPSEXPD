@@ -122,7 +122,9 @@ public class Bag extends Item implements Iterable<Item> {
 		super.execute( hero, action );
 
 		if (action.equals( AC_OPEN )) {
-			//SPSEXPD: 打开背包窗口并跳转到本包裹的标签页（WndBag 构造时选中 bag 对应的标签）
+			//SPSEXPD: 打开背包窗口并跳到本包裹所在的标签页（底部标签模式下的分页；
+			//两侧标签模式不分页，这一句无影响）
+			WndBag.openOnBottomPage( WndBag.bottomPageOf( this ) );
 			GameScene.show( new WndBag( this ) );
 		}
 	}

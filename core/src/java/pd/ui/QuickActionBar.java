@@ -234,11 +234,13 @@ public class QuickActionBar extends Component {
 		//2) 打开购物车（自动跳到购物车标签），方便在食物堆里挑
 		ShoppingCart cart = hero.belongings.getItem( ShoppingCart.class );
 		if (cart != null) {
+			WndBag.openOnBottomPage( WndBag.bottomPageOf( cart ) );
 			GameScene.show( new WndBag( cart ) );
 			return;
 		}
 
-		//3) 没有购物车就打开主背包
+		//3) 没有购物车就打开主背包（回到第一页）
+		WndBag.openOnBottomPage( 0 );
 		GameScene.show( new WndBag( hero.belongings.backpack ) );
 	}
 

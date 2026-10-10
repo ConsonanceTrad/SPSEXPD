@@ -424,6 +424,8 @@ public class Toolbar extends Component {
 						GameScene.toggleInvPane();
 					} else {
 						if (!GameScene.cancel()) {
+							//SPSEXPD: 背包按钮打开主背包时标签页回到第一页
+							WndBag.openOnBottomPage( 0 );
 							GameScene.show(new WndBag(Dungeon.hero.belongings.backpack));
 						}
 					}
