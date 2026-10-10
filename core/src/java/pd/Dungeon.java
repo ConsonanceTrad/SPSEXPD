@@ -1276,7 +1276,9 @@ public class Dungeon {
 		}
 
 		int base = level.viewDistance;
-		if (pd.actors.buffs.FullMoonStrength.isNightNow()){
+		//SPSEXPD: 夜晚按**游戏内**时间判定（Statistics.spsTime / spsNight()，一天 1440 分钟，英雄每回合推进），
+		//与「测试时间」的「时间 +6 小时」调试按钮联动
+		if (pd.Statistics.spsNight()){
 			base = Math.max(1, Math.round(base / 2f));
 		}
 		Light light = hero.buff( Light.class );

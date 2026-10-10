@@ -596,6 +596,13 @@ public class GameScene extends PixelScene {
 		}
 		add(boss);
 
+		//SPSEXPD: 右上角游戏内时间（D1 06:00，夜晚转蓝）——配合暂停菜单「时间 +6 小时」调试按钮看昼夜推进
+		pd.ui.TimeIndicator clock = new pd.ui.TimeIndicator();
+		clock.camera = uiCamera;
+		clock.setRightInset(extraRight + 2);
+		clock.setTopInset(2);
+		add(clock);
+
 		resume = new ResumeIndicator();
 		resume.camera = uiCamera;
 		add( resume );

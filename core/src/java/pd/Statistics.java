@@ -346,6 +346,11 @@ public class Statistics {
 		}
 	}
 
+	/** SPSEXPD: 按小时推进游戏内时间（调试「时间 +6 小时」等用）。 */
+	public static void advanceSpsHours(float hours) {
+		advanceSpsTime(hours * 60f);
+	}
+
 	public static boolean spsNight() {
 		return spsTime > 1080 || spsTime < 361;
 	}

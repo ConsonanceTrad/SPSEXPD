@@ -54,7 +54,9 @@ public class WndGame extends Window {
 			.t("return", "继续冒险")
 			.t("debug_items", "调试物品")
 		.t("debug_mobs", "召唤怪物")
-		.t("debug_perks", "调试特质");
+		.t("debug_perks", "调试特质")
+		.t("debug_time", "时间 +6 小时")
+		.t("time_advanced", "游戏内时间推进了 6 小时。");
 	}
 
 
@@ -108,6 +110,17 @@ public class WndGame extends Window {
 				protected void onClick() {
 					hide();
 					GameScene.show( new WndDebugPerks() );
+				}
+			} );
+			curBtn.icon(new render.noosa.Image(pd.Assets.Interfaces.ADD_THINGS));
+
+			//SPS: 时间推进（原创缺口）。游戏内时间 +6 小时，用来测试昼夜（夜晚视野、向日葵传送、满月之力等）。
+			//不关窗，方便连点推进到想要的时刻。
+			addButton( curBtn = new RedButton( Messages.get(this, "debug_time") ) {
+				@Override
+				protected void onClick() {
+					pd.Statistics.advanceSpsHours( 6f );
+					pd.utils.GLog.i( Messages.get( WndGame.class, "time_advanced" ) );
 				}
 			} );
 			curBtn.icon(new render.noosa.Image(pd.Assets.Interfaces.ADD_THINGS));
