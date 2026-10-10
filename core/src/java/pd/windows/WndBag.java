@@ -129,6 +129,8 @@ public class WndBag extends WndTabbed {
 	protected static final int BOTTOM_SLOTS = 5;
 	protected static final int BOTTOM_TAB_H    = 22;
 	private int bottomPage = 0;
+	//SPSEXPD: 记住底部标签栏上次停在第几页——切包裹/重新打开时停在同一页，而不是弹回第一页
+	private static int lastBottomPage = 0;
 	private IconTab bottomPager;
 
 	//SPS: 标签栏改到窗口左右两侧（用户裁决 2026-09-28）——标签竖置、底板旋转 90°、图案保持正向；
@@ -179,6 +181,9 @@ public class WndBag extends WndTabbed {
 		this.selector = selector;
 		
 		lastBag = bag;
+
+		//SPSEXPD: 继承上次的翻页位置（页数变少时会在 layoutBottomTabs() 里取模兜底）
+		bottomPage = lastBottomPage;
 
 		slotWidth = PixelScene.landscape() ? SLOT_WIDTH_L : SLOT_WIDTH_P;
 		slotHeight = PixelScene.landscape() ? SLOT_HEIGHT_L : SLOT_HEIGHT_P;
@@ -399,6 +404,7 @@ public class WndBag extends WndTabbed {
 		int bagCount = n - 1;                                         //除主背包
 		int pages = Math.max( 1, (bagCount + BOTTOM_PER_PAGE - 1) / BOTTOM_PER_PAGE );
 		bottomPage = ((bottomPage % pages) + pages) % pages;          //翻到底回到第一页
+		lastBottomPage = bottomPage;                                  //SPSEXPD: 记住页数，供下次打开/切包裹时沿用
 
 		int firstBag = 1 + bottomPage * BOTTOM_PER_PAGE;
 		int shownBags = Math.max( 0, Math.min( BOTTOM_PER_PAGE, n - firstBag ) );
