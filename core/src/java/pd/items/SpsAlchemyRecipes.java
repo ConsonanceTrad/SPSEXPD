@@ -24,6 +24,7 @@ import pd.items.consum.potions.Potion;
 import pd.items.consum.potions.PotionOfConfusion;
 import pd.items.consum.potions.elixirs.WishPotion;
 import pd.items.consum.scrolls.Scroll;
+import pd.items.misc.WallCalendar;
 import pd.plants.*;
 import render.utils.serialize.Reflection;
 
@@ -200,6 +201,8 @@ public final class SpsAlchemyRecipes {
 			//SPSEXPD: 火种 = 3 鲜草，或 1 枯枝（踩踏高草收获的材料）
 			recipe(Tinder.class, FreshGrass.class, FreshGrass.class, FreshGrass.class),
 			recipe(Tinder.class, DryTwig.class),
+			//SPSEXPD: 卷轴 + 枯枝 → 挂历（翻开可看当前的游戏内日期，见 Statistics.calendarYear/Month/Day）
+			recipe(WallCalendar.class, Scroll.class, DryTwig.class),
 			//SPSEXPD: 许愿魔药——混乱药剂 + 4 种二次加工产物
 			WISH_POTION
 	);
