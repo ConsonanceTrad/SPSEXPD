@@ -385,7 +385,7 @@ public class HeroSelectScene extends PixelScene {
 			}
 		}
 
-		float infoH = heroName.height() + 3 + descReserveH;
+		float infoH = heroName.height() + 8 + descReserveH;
 		float space = Math.max(40, bottomTop - 4 - insets.top);
 
 		//特写横幅：横屏约半屏高、竖屏屏高 1/3；等比放大到该高度，超出部分裁掉两侧（cover）
@@ -463,7 +463,7 @@ public class HeroSelectScene extends PixelScene {
 		heroName.setPos(left + (w - nameRowW)/2f, nameTop);
 		align(heroName);
 
-		heroDesc.setPos(left + Math.max(0, (w - heroDesc.width())/2f), heroName.bottom() + 3);
+		heroDesc.setPos(left + Math.max(0, (w - heroDesc.width())/2f), heroName.bottom() + 8);
 		align(heroDesc);
 
 		infoButton.setPos(heroName.right() + 2, heroName.top() + (heroName.height() - infoButton.height())/2f);
