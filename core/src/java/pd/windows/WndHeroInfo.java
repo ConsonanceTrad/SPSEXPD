@@ -59,6 +59,7 @@ public class WndHeroInfo extends WndTabbed {
 			.t("perks_initial", "初始特质")
 			.t("perks_exclusive", "职业专属")
 			.t("perks_none", "（无）")
+			.t("perks_cond_class_level", "达到 %d 级时获得")
 			.t("subclasses", "专精")
 			.t("subclasses_msg", "击杀第二个Boss后可以选择一种职业专精。")
 			.t("abilities", "护甲技能")
@@ -320,6 +321,7 @@ public class WndHeroInfo extends WndTabbed {
 		private ScrollPane exclusivePane;
 		private ArrayList<PerkSlot> initialSlots;
 		private ArrayList<PerkSlot> exclusiveSlots;
+		private ArrayList<RenderedTextBlock> exclusiveConds;
 
 		public PerkInfoTab( HeroClass cls ){
 			super();
@@ -350,13 +352,20 @@ public class WndHeroInfo extends WndTabbed {
 			}
 
 			exclusiveSlots = new ArrayList<>();
+			exclusiveConds = new ArrayList<>();
 			exclusivePane = new ScrollPane(new Component());
 			exclusivePane.scrollBarVisible = false;
 			add(exclusivePane);
-			for (Perk p : PerkGrants.exclusivePerksFor(cls)){
-				PerkSlot slot = new PerkSlot(p);
+			//SPSEXPD: 职业专属每行一个 —— 左半行是图标，后半行是获取条件（该行内可容纳多行文本）
+			for (PerkGrants.Exclusive ex : PerkGrants.exclusivePerksFor(cls)){
+				PerkSlot slot = new PerkSlot(ex.perk);
 				exclusiveSlots.add(slot);
 				exclusivePane.content().add(slot);
+
+				RenderedTextBlock cond = PixelScene.renderTextBlock(
+						Messages.get(WndHeroInfo.class, ex.conditionKey, ex.conditionArgs), 6);
+				exclusiveConds.add(cond);
+				exclusivePane.content().add(cond);
 			}
 
 			initialNone = PixelScene.renderTextBlock(Messages.get(WndHeroInfo.class, "perks_none"), 6);
@@ -389,7 +398,7 @@ public class WndHeroInfo extends WndTabbed {
 			pos = exclusiveLabel.bottom() + 1;
 			exclusivePane.setRect(0, pos, width, PANE_H);
 			exclusiveNone.setPos(1, pos + 1);
-			layoutSlots(exclusiveSlots, exclusivePane);
+			layoutExclusive(exclusivePane);
 
 			height = Math.max(height, exclusivePane.bottom());
 		}
@@ -405,6 +414,26 @@ public class WndHeroInfo extends WndTabbed {
 			}
 			int rows = Math.max(1, (slots.size() + COLS - 1) / COLS);
 			pane.content().setSize(width, Math.max(pane.height(), GAP + rows * (PerkSlot.BTN + GAP)));
+		}
+
+		/** SPSEXPD: 职业专属栏 —— 每行一个特质：左半行图标，后半行是获取条件（可多行，行高自适应） */
+		private void layoutExclusive(ScrollPane pane){
+			float y = GAP;
+			int textW = Math.max(20, (int)width - PerkSlot.BTN - 3*GAP);
+
+			for (int i = 0; i < exclusiveSlots.size(); i++){
+				PerkSlot slot = exclusiveSlots.get(i);
+				RenderedTextBlock cond = exclusiveConds.get(i);
+				cond.maxWidth(textW);
+
+				float rowH = Math.max(PerkSlot.BTN, cond.height());
+				slot.setRect(GAP, y + (rowH - PerkSlot.BTN)/2f, PerkSlot.BTN, PerkSlot.BTN);
+				cond.setPos(GAP + PerkSlot.BTN + GAP, y + (rowH - cond.height())/2f);
+
+				y += rowH + GAP;
+			}
+
+			pane.content().setSize(width, Math.max(pane.height(), y));
 		}
 	}
 

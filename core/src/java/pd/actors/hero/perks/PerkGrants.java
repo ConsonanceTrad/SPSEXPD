@@ -95,19 +95,35 @@ public final class PerkGrants {
 	}
 
 	/**
-	 * 职业后续专属特质（静态表）—— 按职业/等级或职业条件授予的那些，供 UI 展示。
+	 * 职业后续专属特质 + 获取条件（供 UI 列表展示）。
+	 * 条件只带 key 与参数，不带文案 —— 由 UI 层用 Messages.get(WndHeroInfo.class, …) 翻译。
+	 */
+	public static final class Exclusive {
+		public final Perk perk;
+		public final String conditionKey;
+		public final Object[] conditionArgs;
+
+		public Exclusive(Perk perk, String conditionKey, Object... conditionArgs) {
+			this.perk = perk;
+			this.conditionKey = conditionKey;
+			this.conditionArgs = conditionArgs;
+		}
+	}
+
+	/**
+	 * 职业后续专属特质（静态表）—— 按职业/等级或职业条件授予的那些。
 	 *
 	 * 与实际授予点保持一致：目前只有 onLevelUp() 里的「战士 10 级 → 刻印转移」。
 	 * 以后新增按职业的授予时，这里要同步登记一条。
 	 */
-	public static ArrayList<Perk> exclusivePerksFor(HeroClass cls) {
-		ArrayList<Perk> result = new ArrayList<>();
+	public static ArrayList<Exclusive> exclusivePerksFor(HeroClass cls) {
+		ArrayList<Exclusive> result = new ArrayList<>();
 		if (cls == null) return result;
 
 		switch (cls) {
 			case WARRIOR:
 				//10 级必然获得（见 onLevelUp）
-				result.add(new RunicTransference());
+				result.add(new Exclusive(new RunicTransference(), "perks_cond_class_level", 10));
 				break;
 			default:
 				break;
