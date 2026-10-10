@@ -297,17 +297,19 @@ public class WndHeroInfo extends WndTabbed {
 			title.setPos((width-title.width())/2, MARGIN);
 			float top = title.bottom() + 3*MARGIN;
 
-			//逐组排：小标题一行，下面是图标网格；组之间画一条分隔线
+			//逐组排：小标题一行，下面是图标网格；组之间画一条分隔线（首组之前不画）
 			float y = 1;
 			int di = 0;
+			boolean first = true;
 			for (Group g : groups){
-				if (di < dividers.size()){
+				if (!first && di < dividers.size()){
 					ColorBlock divider = dividers.get(di++);
 					divider.x = 0;
 					divider.y = y;
 					divider.size(width, 1);
 					y += 4;
 				}
+				first = false;
 				g.label.setPos(0, y);
 				y = g.label.bottom() + 1;
 
