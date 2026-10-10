@@ -323,8 +323,8 @@ public class HeroSelectScene extends PixelScene {
 
 		float bottomTop = optionsPane.top() - 4;
 
-		//SPSEXPD: 名字与描述按"所有可玩职业里最长的描述"预留固定高度（顶端对齐、下方留白），
-		//这样切换职业时描述行数变化不会把上方的选角头像与特写横幅顶来顶去
+		//SPSEXPD: 描述高度按"所有可玩职业里最长的描述"预留，内容自上而下紧凑排列
+		//（多出的空间留在描述与底部图标行之间），这样切换职业时描述行数变化不会顶动上方的头像与横幅
 		heroDesc.maxWidth(Math.max(40, (int)(w - 8)));
 		if (descReserveH < 0){
 			//用临时文本块测量（不污染正在显示的 heroDesc）
@@ -337,28 +337,18 @@ public class HeroSelectScene extends PixelScene {
 			}
 		}
 
-		float nameTop = bottomTop - (heroName.height() + 3 + descReserveH);
-		float nameRowW = heroName.width() + 2 + infoButton.width();
-		heroName.setPos(left + (w - nameRowW)/2f, nameTop);
-		align(heroName);
-
-		heroDesc.setPos(left + Math.max(0, (w - heroDesc.width())/2f), heroName.bottom() + 3);
-		align(heroDesc);
-
-		infoButton.setPos(heroName.right() + 2, heroName.top() + (heroName.height() - infoButton.height())/2f);
-		align(infoButton);
+		float infoH = heroName.height() + 3 + descReserveH;
+		float space = Math.max(40, bottomTop - 4 - (insets.top + 2));
 
 		//特写横幅：横屏按宽度完整展示（contain），竖屏放大到屏高 1/3 并裁掉两侧（cover）
 		float tipY = insets.top + 2;
-		float avail = Math.max(24, nameTop - 4 - tipY);
-
 		float texW = Math.max(1, closeup.width);
 		float texH = Math.max(1, closeup.height);
 
 		float areaH = landscape()
-				? Math.min(texH * (w / texW), avail * 0.55f)
+				? texH * (w / texW)
 				: h / 3f;
-		areaH = Math.max(12, Math.min(areaH, avail - 18));
+		areaH = Math.max(12, Math.min(areaH, space - infoH - 24));
 
 		float closeScale = landscape()
 				? Math.min(w / texW, areaH / texH)
@@ -380,10 +370,10 @@ public class HeroSelectScene extends PixelScene {
 			blk.visible = closeup.visible;
 		}
 
-		//选角头像：横屏一行、竖屏两行，尺寸按剩余空间自适应
+		//选角头像：紧贴特写下方，横屏一行、竖屏两行，尺寸按剩余空间自适应
 		int rows = landscape() ? 1 : 2;
 		int cols = (int)Math.ceil(heroBtns.size() / (float)rows);
-		float avatarArea = Math.max(16, nameTop - 4 - (tipY + areaH));
+		float avatarArea = Math.max(16, space - areaH - infoH - 8);
 		float rowMaxH = (avatarArea - (rows - 1)) / rows;
 		float rowMaxW = (w - 8 - (cols - 1) * 2) / cols - 4;
 		float scale = Math.min(1f, Math.min(rowMaxH / AVATAR_H, rowMaxW / AVATAR_W));
@@ -391,8 +381,7 @@ public class HeroSelectScene extends PixelScene {
 
 		float btnW = AVATAR_W * scale + 4;
 		float btnH = AVATAR_H * scale + 4;
-		float rowsH = rows * btnH + (rows - 1);
-		float rowsY = tipY + areaH + Math.max(0, (avatarArea - rowsH)/2f);
+		float rowsY = tipY + areaH + 4;
 
 		for (int r = 0; r < rows; r++){
 			int count = Math.min(cols, heroBtns.size() - r * cols);
@@ -406,6 +395,18 @@ public class HeroSelectScene extends PixelScene {
 				align(btn);
 			}
 		}
+
+		//英雄名与描述紧跟头像行下方（信息按钮贴在名字右侧、整体居中）
+		float nameTop = rowsY + rows * btnH + (rows - 1) + 4;
+		float nameRowW = heroName.width() + 2 + infoButton.width();
+		heroName.setPos(left + (w - nameRowW)/2f, nameTop);
+		align(heroName);
+
+		heroDesc.setPos(left + Math.max(0, (w - heroDesc.width())/2f), heroName.bottom() + 3);
+		align(heroDesc);
+
+		infoButton.setPos(heroName.right() + 2, heroName.top() + (heroName.height() - infoButton.height())/2f);
+		align(infoButton);
 
 		layoutW = Camera.main.width;
 		layoutH = Camera.main.height;
