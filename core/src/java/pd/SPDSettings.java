@@ -64,6 +64,8 @@ public class SPDSettings extends GameSettings {
 	public static final String KEY_QUICK_EAT = "quick_eat"; //SPSEXPD: 快捷操作-饥饿吃饭
 	public static final String KEY_SWAP_AUX_BAR = "swap_aux_bar"; //SPSEXPD: 交换左侧快捷栏与快捷操作按钮
 	public static final String KEY_SWAP_WAIT_SEARCH = "swap_wait_search"; //SPSEXPD: 交换等待与检索按钮
+	public static final String KEY_QUICK_BAG = "quick_bag"; //SPSEXPD: 快捷背包——单击背包按钮弹包裹选择面板、双击开主背包
+	public static final String KEY_BAG_BOTTOM_TABS = "bag_bottom_tabs"; //SPSEXPD: 背包标签栏放到底部（旧版布局，每页 3 个包裹 + 翻页 + 主背包）
 	
 	public static void fullscreen( boolean value ) {
 		put( KEY_FULLSCREEN, value );
@@ -152,6 +154,25 @@ public class SPDSettings extends GameSettings {
 
 	public static boolean swapWaitSearch(){
 		return getBoolean( KEY_SWAP_WAIT_SEARCH, false );
+	}
+
+	//SPSEXPD: 快捷背包——单击 HUD 背包按钮弹出包裹选择面板（每行 4 个），双击直接打开主背包。
+	//会改变操作习惯，故默认关闭
+	public static void quickBag( boolean value ){
+		put( KEY_QUICK_BAG, value );
+	}
+
+	public static boolean quickBag(){
+		return getBoolean( KEY_QUICK_BAG, false );
+	}
+
+	//SPSEXPD: 背包界面还原旧版——包裹标签栏从左右两侧移到底部，分页显示（每页 3 个包裹 + 翻页 + 主背包）
+	public static void bagBottomTabs( boolean value ){
+		put( KEY_BAG_BOTTOM_TABS, value );
+	}
+
+	public static boolean bagBottomTabs(){
+		return getBoolean( KEY_BAG_BOTTOM_TABS, false );
 	}
 	
 	public static void zoom( int value ) {

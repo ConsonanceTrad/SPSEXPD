@@ -43,6 +43,7 @@ import pd.sprites.ItemSprite;
 import pd.tiles.DungeonTerrainTilemap;
 import pd.utils.GLog;
 import pd.windows.WndBag;
+import pd.windows.WndBagPicker;
 import pd.windows.WndKeyBindings;
 import pd.windows.WndMessage;
 import pd.windows.WndQuickBag;
@@ -422,6 +423,17 @@ public class Toolbar extends Component {
 				if (Dungeon.hero != null && (Dungeon.hero.ready || !Dungeon.hero.isAlive())) {
 					if (SPDSettings.interfaceSize() == 2) {
 						GameScene.toggleInvPane();
+					} else if (SPDSettings.quickBag()) {
+						//SPSEXPD: 快捷背包——单击弹出浮动的包裹选择面板（每行 4 个）；
+						//面板已经开着时再次点击背包按钮（即双击）＝直接打开主背包
+						boolean pickerOpen = WndBagPicker.INSTANCE != null;
+						if (!GameScene.cancel()) {
+							if (pickerOpen) {
+								GameScene.show(new WndBag(Dungeon.hero.belongings.backpack));
+							} else {
+								GameScene.show(new WndBagPicker());
+							}
+						}
 					} else {
 						if (!GameScene.cancel()) {
 							GameScene.show(new WndBag(Dungeon.hero.belongings.backpack));

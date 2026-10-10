@@ -117,6 +117,7 @@ public class WndSettings extends WndTabbed {
 			.t("$auxtab.quick_light", "照明")
 			.t("$auxtab.quick_talent", "加点")
 			.t("$auxtab.quick_eat", "进食")
+			.t("$auxtab.quick_bag", "快捷背包")
 			.t("$audiotab.title", "音频设置")
 			.t("$audiotab.music_vol", "音乐音量")
 			.t("$audiotab.music_mute", "关闭音乐")
@@ -979,6 +980,8 @@ public class WndSettings extends WndTabbed {
 		CheckBox chkQuickLight;
 		CheckBox chkQuickTalent;
 		CheckBox chkQuickEat;
+		//SPSEXPD: 背包相关开关——快捷背包（单击弹包裹选择面板）
+		CheckBox chkQuickBag;
 
 		@Override
 		protected void createChildren() {
@@ -1071,6 +1074,17 @@ public class WndSettings extends WndTabbed {
 			};
 			chkQuickEat.checked(SPDSettings.quickEat());
 			add(chkQuickEat);
+
+			//SPSEXPD: 快捷背包——单击 HUD 背包按钮弹出包裹选择面板（每行 4 个），双击直接开主背包
+			chkQuickBag = new AuxCheckBox(Messages.get(AuxTab.class, "quick_bag")) {
+				@Override
+				protected void onClick() {
+					super.onClick();
+					SPDSettings.quickBag(checked());
+				}
+			};
+			chkQuickBag.checked(SPDSettings.quickBag());
+			add(chkQuickBag);
 		}
 
 		//SPSEXPD: 提升本页复选框热区的事件优先级，必须在 ScrollPane 构造之后调用：
@@ -1118,6 +1132,9 @@ public class WndSettings extends WndTabbed {
 			//SPSEXPD: 进食另起一行，只占左侧 1/2
 			chkQuickEat.setRect(0, bottom + GAP, width/2 - 1, BTN_HEIGHT);
 			bottom = chkQuickEat.bottom();
+
+			chkQuickBag.setRect(0, bottom + GAP, width, BTN_HEIGHT);
+			bottom = chkQuickBag.bottom();
 
 			height = bottom;
 		}
