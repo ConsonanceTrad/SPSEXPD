@@ -305,10 +305,11 @@ public class HeroSelectScene extends PixelScene {
 		float h = Math.max(1, Camera.main.height - insets.top - insets.bottom);
 		float left = insets.left;
 
-		//纯色底铺满整屏（含安全区）
-		background.x = 0;
-		background.y = 0;
-		background.scale.set(Camera.main.width, Camera.main.height);
+		//纯色底铺满整屏（含安全区）；向外多铺 2 逻辑像素，
+		//避免相机视口按物理像素取整时在屏幕边缘留下 1px 未绘制的空白条
+		background.x = -2;
+		background.y = -2;
+		background.scale.set(Camera.main.width + 4, Camera.main.height + 4);
 
 		//SPSEXPD: 顶部不再显示标题，特写横幅贴安全区顶部；底部图标选项行居中，「开始」在其下方单独一行居中（贴底）
 		optionsPane.layout();
@@ -338,10 +339,10 @@ public class HeroSelectScene extends PixelScene {
 		}
 
 		float infoH = heroName.height() + 3 + descReserveH;
-		float space = Math.max(40, bottomTop - 4 - (insets.top + 2));
+		float space = Math.max(40, bottomTop - 4 - insets.top);
 
 		//特写横幅：横屏按宽度完整展示（contain），竖屏放大到屏高 1/3 并裁掉两侧（cover）
-		float tipY = insets.top + 2;
+		float tipY = insets.top;
 		float texW = Math.max(1, closeup.width);
 		float texH = Math.max(1, closeup.height);
 
