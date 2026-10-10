@@ -83,6 +83,9 @@ public class WndBag extends WndTabbed {
 
 	protected static final int COLS_P   = 5;
 	protected static final int COLS_L   = 5;
+	//SPSEXPD: 底部标签模式（旧版布局）——标签不占左右两侧，横向更宽裕而纵向要更矮，
+	//所以背包区改为每行 7 格（主背包 35 格 = 5 行，正好压进 70% 高度上限）
+	protected static final int COLS_BOTTOM = 7;
 	
 	protected static int SLOT_WIDTH_P   = 24;
 	protected static int SLOT_WIDTH_L   = 24;
@@ -101,6 +104,8 @@ public class WndBag extends WndTabbed {
 	//SPS: 窗口布局 = 装备区两排(10 格) + 背包 7 行(35 格)，主背包与包裹统一
 	protected static final int EQUIP_ROWS	= 2;
 	protected static final int BAG_ROWS		= 7;
+	//SPSEXPD: 底部标签模式下背包区每行 7 格（COLS_BOTTOM），35 格即 5 行
+	protected static final int BAG_ROWS_BOTTOM = 5;
 
 	//SPS: 移动端安全边距（占屏幕比例）——「包裹窗口 + 左右标签带 + 外框」限制在此比例内，
 	//避免窗口/选项卡被屏幕裁切（选项卡被裁则点不到，功能不可用）
@@ -174,14 +179,17 @@ public class WndBag extends WndTabbed {
 		slotWidth = PixelScene.landscape() ? SLOT_WIDTH_L : SLOT_WIDTH_P;
 		slotHeight = PixelScene.landscape() ? SLOT_HEIGHT_L : SLOT_HEIGHT_P;
 
-		nCols = PixelScene.landscape() ? COLS_L : COLS_P;
-		//SPSEXPD: 行数 = 装备区两排 + 背包 7 行（35 格）。
+		//SPSEXPD: 底部标签模式改用每行 7 格（见 COLS_BOTTOM）；其余布局保持 5 列
+		boolean bottomTabs = SPDSettings.bagBottomTabs();
+		nCols = bottomTabs ? COLS_BOTTOM : (PixelScene.landscape() ? COLS_L : COLS_P);
+		//SPSEXPD: 行数 = 装备区两排 + 背包行数（5 列时 7 行、7 列时 5 行，都是 35 格）。
 		//非主背包时窗口里还会显示包裹本体自己（占其中一格）；包裹袋（Bag）本身不占格、不计入
 		int shown = 0;
 		for (Item i : bag.items) if (!(i instanceof Bag)) shown++;
 		if (bag != Dungeon.hero.belongings.backpack) shown++;   //包裹本体占一格
 		int contentRows = (shown + nCols - 1) / nCols;
-		nRows = EQUIP_ROWS + Math.max(BAG_ROWS, contentRows);
+		int bagRows = bottomTabs ? BAG_ROWS_BOTTOM : BAG_ROWS;
+		nRows = EQUIP_ROWS + Math.max(bagRows, contentRows);
 
 		//SPS: 标签移到窗框外侧，内容区回到满宽——包裹区外缘正好紧贴标签内缘（无缝隙）
 		int contentWidth = slotWidth * nCols + SLOT_MARGIN * (nCols - 1);
@@ -458,10 +466,11 @@ public class WndBag extends WndTabbed {
 		float titleWidth;
 		if (Dungeon.energy == 0) {
 			ItemSprite gold = new ItemSprite(SpecificCurrencyDict.GOLD_0, null);
-			//SPSEXPD: 金币图标随窗口一起缩放（图标自身的 width/height 不随 scale 变，布局要自己乘 textScale）
+			//SPSEXPD: 金币图标跟着窗口缩放。注意 Visual.width()/height() 已经含 scale，
+			//所以布局直接用它、绝不能再乘一次 textScale（否则成了 s*s，右下会溢出背包框）
 			gold.scale.set(PixelScene.align(textScale));
-			gold.x = width - gold.width() * textScale;
-			gold.y = (TITLE_HEIGHT - gold.height() * textScale) / 2f;
+			gold.x = width - gold.width();
+			gold.y = (TITLE_HEIGHT - gold.height()) / 2f;
 			PixelScene.align(gold);
 			add(gold);
 
@@ -469,7 +478,7 @@ public class WndBag extends WndTabbed {
 			amt.hardlight(TITLE_COLOR);
 			amt.scale.set(PixelScene.align(textScale));
 			amt.measure();
-			amt.x = width - gold.width() * textScale - amt.width() - 1;
+			amt.x = width - gold.width() - amt.width() - 1;
 			amt.y = (TITLE_HEIGHT - amt.baseLine()) / 2f - 1;
 			PixelScene.align(amt);
 			add(amt);
@@ -480,7 +489,7 @@ public class WndBag extends WndTabbed {
 
 			Image gold = Icons.get(Icons.COIN_SML);
 			gold.scale.set(PixelScene.align(textScale));
-			gold.x = width - gold.width() * textScale - 0.5f;
+			gold.x = width - gold.width() - 0.5f;
 			gold.y = 0;
 			PixelScene.align(gold);
 			add(gold);
@@ -489,7 +498,7 @@ public class WndBag extends WndTabbed {
 			amt.hardlight(TITLE_COLOR);
 			amt.scale.set(PixelScene.align(textScale));
 			amt.measure();
-			amt.x = width - gold.width() * textScale - amt.width() - 2f;
+			amt.x = width - gold.width() - amt.width() - 2f;
 			amt.y = 0;
 			PixelScene.align(amt);
 			add(amt);
@@ -499,8 +508,8 @@ public class WndBag extends WndTabbed {
 
 			Image energy = Icons.get(Icons.ENERGY_SML);
 			energy.scale.set(PixelScene.align(textScale));
-			energy.x = width - energy.width() * textScale;
-			energy.y = gold.height() * textScale;
+			energy.x = width - energy.width();
+			energy.y = gold.height();
 			PixelScene.align(energy);
 			add(energy);
 
@@ -508,7 +517,7 @@ public class WndBag extends WndTabbed {
 			amt.hardlight(0x44CCFF);
 			amt.scale.set(PixelScene.align(textScale));
 			amt.measure();
-			amt.x = width - energy.width() * textScale - amt.width() - 1;
+			amt.x = width - energy.width() - amt.width() - 1;
 			amt.y = energy.y;
 			PixelScene.align(amt);
 			add(amt);
@@ -622,7 +631,8 @@ public class WndBag extends WndTabbed {
 		placeItem( stuff.accessory5 != null ? stuff.accessory5 : new Placeholder( SpecificPlaceHolderDict.RING_HOLDER_0 ) );
 		placeItem( stuff.badge != null ? stuff.badge : new Placeholder( SpecificPlaceHolderDict.SPS_PH_TRINKET ) );
 
-		int equipped = EQUIP_ROWS * nCols;
+		//SPSEXPD: 装备槽固定 10 个（两排 × 5 列），与 nCols 无关——底部模式 7 列时不能算成 14
+		int equipped = EQUIP_ROWS * COLS_P;
 
 		//SPSEXPD: 主背包之外的窗口也要显示包裹本体自己（占其中一格）
 		boolean showsSelf = container != Dungeon.hero.belongings.backpack;
@@ -646,7 +656,9 @@ public class WndBag extends WndTabbed {
 
 		// Free Space
 		//SPSEXPD: 空格填到「内容区格数」为止（上限含本体占格），与窗口行数一致，不会溢到窗口外
-		int contentSlots = nRows * nCols - equipped;
+		//SPSEXPD: 装备区独占 EQUIP_ROWS 行（7 列时第 2 行放不满 5 个、右侧留白），
+		//所以内容格数按「行数 − 装备行数」算；旧式 nRows*nCols - equipped 会多出 4 格并越过窗口底边
+		int contentSlots = (nRows - EQUIP_ROWS) * nCols;
 		int wanted = Math.min(container.capacity() + (showsSelf ? 1 : 0), contentSlots);
 		while ((count - equipped) < wanted - (waterskin != null ? 1 : 0)) {
 			placeItem( null );
@@ -737,7 +749,9 @@ public class WndBag extends WndTabbed {
 			slot.enable(false);
 		}
 		
-		if (++col >= nCols) {
+		//SPSEXPD: 装备区固定 5 列（保证仍是整齐两行），背包区才按 nCols 换行
+		int wrap = (count <= EQUIP_ROWS * COLS_P) ? COLS_P : nCols;
+		if (++col >= wrap) {
 			col = 0;
 			row++;
 		}
