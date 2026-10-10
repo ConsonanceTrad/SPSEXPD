@@ -34,6 +34,7 @@ import pd.services.updates.Updates;
 import pd.sprites.CharSprite;
 import pd.ui.CheckBox;
 import pd.ui.GameLog;
+import pd.ui.IconButton;
 import pd.ui.Icons;
 import pd.ui.OptionSlider;
 import pd.ui.RedButton;
@@ -119,6 +120,16 @@ public class WndSettings extends WndTabbed {
 			.t("$auxtab.quick_eat", "进食")
 			.t("$auxtab.quick_bag", "快捷背包")
 			.t("$auxtab.bag_bottom_tabs", "背包标签栏放到底部")
+			//SPSEXPD: 行末蓝色感叹号点开的「详细作用」（键名 = 上方各键 + _desc）
+			.t("$auxtab.unlock_alchemy_guide_desc", "开启后炼金指南里全部配方页都不再需要解锁，随时可以翻阅。")
+			.t("$auxtab.hero_path_desc", "在画面里画出你点击的移动路线，方便提前规划走位。")
+			.t("$auxtab.search_pickup_desc", "使用「检索」时，会顺手拾取视野内可达的地面物品。")
+			.t("$auxtab.quick_all_desc", "快捷操作按钮的总开关。关掉后按钮不再显示，但下面三项各自的设置会保留。")
+			.t("$auxtab.quick_light_desc", "夜晚且身上带着光源时，显示一键照明的快捷按钮（优先用露珠瓶，其次火把）。")
+			.t("$auxtab.quick_talent_desc", "有未分配的特质点时，显示一键打开加点界面的快捷按钮。")
+			.t("$auxtab.quick_eat_desc", "饥饿时显示一键进食的快捷按钮，自动吃背包里的食物。")
+			.t("$auxtab.quick_bag_desc", "开启后，单击 HUD 上的背包按钮会弹出浮动的包裹选择面板（每行 4 个）；在面板开着时再点一次同一按钮（即双击），直接打开主背包。会改变原来的操作习惯。")
+			.t("$auxtab.bag_bottom_tabs_desc", "把包裹标签栏从背包窗口左右两侧移到底部，分页显示：每页 3 个包裹 + 翻页 + 主背包。切换包裹仍是一次点击，只有包裹多于 3 个时才需要先翻页；好处是标签不再占用窗口宽度，背包格子可以保持更大（高缩放时尤其明显）。")
 			.t("$audiotab.title", "音频设置")
 			.t("$audiotab.music_vol", "音乐音量")
 			.t("$audiotab.music_mute", "关闭音乐")
@@ -957,6 +968,45 @@ public class WndSettings extends WndTabbed {
 		}
 	}
 
+	//SPSEXPD: 设置行末的说明按钮——蓝色感叹号，点击弹出该开关的详细作用（WndTitledMessage）。
+	//key 对应 windows.wndsettings$auxtab.<key>（标题）与 <key>_desc（详解）两个文案
+	private static class AuxNoteButton extends IconButton {
+
+		private final String key;
+
+		AuxNoteButton(String key) {
+			super( noteIcon() );
+			this.key = key;
+			width = AuxContent.NOTE_W;
+			height = AuxContent.NOTE_W;
+			//滚动区内必须 NEVER_BLOCK，否则 ScrollPane 的拖拽控制器会吞掉点击
+			hotArea.blockLevel = PointerArea.NEVER_BLOCK;
+		}
+
+		@Override
+		protected void onClick() {
+			GameScene.show(new WndTitledMessage(
+					noteIcon(),
+					Messages.get(AuxTab.class, key),
+					Messages.get(AuxTab.class, key + "_desc") ));
+		}
+
+		@Override
+		protected String hoverText() {
+			return Messages.get(AuxTab.class, key);
+		}
+
+		//每次取新实例并染成蓝色（Icons.WARNING 是感叹号形状）
+		private static Image noteIcon() {
+			Image icon = Icons.WARNING.get();
+			icon.hardlight( NOTE_COLOR );
+			return icon;
+		}
+	}
+
+	//SPSEXPD: 行末说明按钮的蓝色
+	private static final int NOTE_COLOR = 0x3399FF;
+
 	//SPSEXPD: 滚动容器内的复选框基类：热区必须 NEVER_BLOCK 且提到最前接收事件。
 	//PointerEvent 信号是 stackMode（后注册者先收到、返回 true 即停止传播），
 	//ScrollPane 的拖拽控制器后注册会吞掉点击，导致滚动正常但条目点不动（同 TalentButton/NEVER_BLOCK 的滚动区惯例）
@@ -985,6 +1035,13 @@ public class WndSettings extends WndTabbed {
 		CheckBox chkQuickBag;
 		//SPSEXPD: 背包相关开关——旧版布局（标签栏放底部，分页显示）
 		CheckBox chkBagBottomTabs;
+
+		//SPSEXPD: 每行行末「蓝色感叹号」说明按钮的边长
+		static final int NOTE_W = 11;
+
+		//SPSEXPD: 行集合——布局时逐行摆放（复选框 + 行末说明按钮），顺序＝添加顺序
+		private final ArrayList<CheckBox> rowChecks = new ArrayList<>();
+		private final ArrayList<AuxNoteButton> rowNotes = new ArrayList<>();
 
 		@Override
 		protected void createChildren() {
@@ -1099,6 +1156,25 @@ public class WndSettings extends WndTabbed {
 			};
 			chkBagBottomTabs.checked(SPDSettings.bagBottomTabs());
 			add(chkBagBottomTabs);
+
+			//SPSEXPD: 每一行行末都挂上蓝色感叹号说明按钮（顺序＝界面从上到下）
+			addRowNote(chkUnlockAlchemyGuide, "unlock_alchemy_guide");
+			addRowNote(chkHeroPath, "hero_path");
+			addRowNote(chkSearchPickUp, "search_pickup");
+			addRowNote(chkQuickAll, "quick_all");
+			addRowNote(chkQuickLight, "quick_light");
+			addRowNote(chkQuickTalent, "quick_talent");
+			addRowNote(chkQuickEat, "quick_eat");
+			addRowNote(chkQuickBag, "quick_bag");
+			addRowNote(chkBagBottomTabs, "bag_bottom_tabs");
+		}
+
+		//SPSEXPD: 给某一行挂上行末的说明按钮（复选框本身已在 createChildren 里 add 过）
+		private void addRowNote(CheckBox chk, String key) {
+			AuxNoteButton note = new AuxNoteButton(key);
+			add(note);
+			rowChecks.add(chk);
+			rowNotes.add(note);
 		}
 
 		//SPSEXPD: 提升本页复选框热区的事件优先级，必须在 ScrollPane 构造之后调用：
@@ -1107,6 +1183,7 @@ public class WndSettings extends WndTabbed {
 		void givePointerPriority() {
 			for (Object o : members) {
 				if (o instanceof AuxCheckBox) ((AuxCheckBox) o).givePointerPriority();
+				else if (o instanceof AuxNoteButton) ((AuxNoteButton) o).givePointerPriority();
 			}
 		}
 
@@ -1118,14 +1195,10 @@ public class WndSettings extends WndTabbed {
 			sep1.y = title.bottom() + 3*GAP;
 			bottom = sep1.y + 1;
 
-			chkUnlockAlchemyGuide.setRect(0, bottom + GAP, width, BTN_HEIGHT);
-			bottom = chkUnlockAlchemyGuide.bottom();
-
-			chkHeroPath.setRect(0, bottom + GAP, width, BTN_HEIGHT);
-			bottom = chkHeroPath.bottom();
-
-			chkSearchPickUp.setRect(0, bottom + GAP, width, BTN_HEIGHT);
-			bottom = chkSearchPickUp.bottom();
+			//SPSEXPD: 前 3 行——解锁炼金配方 / 显示移动路径 / 搜索捡拾物品
+			for (int i = 0; i < 3 && i < rowChecks.size(); i++) {
+				bottom = layoutRow(i, width, bottom);
+			}
 
 			sep2.size(width, 1);
 			sep2.y = bottom + GAP;
@@ -1135,25 +1208,25 @@ public class WndSettings extends WndTabbed {
 			quickGroup.setPos(0, bottom + GAP);
 			bottom = quickGroup.bottom();
 
-			chkQuickAll.setRect(0, bottom + GAP, width, BTN_HEIGHT);
-			bottom = chkQuickAll.bottom();
-
-			//SPSEXPD: 照明与加点共用一行，各占 1/2 宽
-			chkQuickLight.setRect(0, bottom + GAP, width/2 - 1, BTN_HEIGHT);
-			chkQuickTalent.setRect(chkQuickLight.right() + 2, chkQuickLight.top(), width/2 - 1, BTN_HEIGHT);
-			bottom = chkQuickLight.bottom();
-
-			//SPSEXPD: 进食另起一行，只占左侧 1/2
-			chkQuickEat.setRect(0, bottom + GAP, width/2 - 1, BTN_HEIGHT);
-			bottom = chkQuickEat.bottom();
-
-			chkQuickBag.setRect(0, bottom + GAP, width, BTN_HEIGHT);
-			bottom = chkQuickBag.bottom();
-
-			chkBagBottomTabs.setRect(0, bottom + GAP, width, BTN_HEIGHT);
-			bottom = chkBagBottomTabs.bottom();
+			//SPSEXPD: 其余各行（快捷操作三项、快捷背包、标签栏放底部）
+			//每行独占整宽并在行末留出说明按钮——原先「照明/加点共用一行」的排布已取消
+			for (int i = 3; i < rowChecks.size(); i++) {
+				bottom = layoutRow(i, width, bottom);
+			}
 
 			height = bottom;
+		}
+
+		//SPSEXPD: 摆一行——复选框占左侧（右侧留出说明按钮），行末是蓝色感叹号
+		private float layoutRow(int i, float width, float bottom) {
+			CheckBox chk = rowChecks.get(i);
+			AuxNoteButton note = rowNotes.get(i);
+			chk.setRect(0, bottom + GAP, width - NOTE_W - 1, BTN_HEIGHT);
+			note.setRect(
+					width - NOTE_W,
+					bottom + GAP + (BTN_HEIGHT - NOTE_W) / 2f,
+					NOTE_W, NOTE_W);
+			return chk.bottom();
 		}
 	}
 	private static class AudioTab extends Component {
