@@ -838,6 +838,12 @@ public class WndBag extends WndTabbed {
 		//SPS: 覆写 select 以跳过原版九宫格底板（Tab.select 会 addToBack(bg)），只用贴图底板
 		@Override
 		protected void select( boolean value ) {
+			//SPSEXPD: 旧版（底部）布局改用 Tab 的原生底板（Chrome.Type.TAB_SELECTED / TAB_UNSELECTED）
+			if (SPDSettings.bagBottomTabs()) {
+				super.select( value );
+				return;
+			}
+
 			selected = value;
 			if (icon != null) icon.am = value ? 1.0f : 0.6f;   //沿用 IconTab 的未选变暗
 			layout();
@@ -851,6 +857,20 @@ public class WndBag extends WndTabbed {
 
 		@Override
 		protected void layout() {
+			//SPSEXPD: 旧版（底部）标签栏用 Tab/IconTab 的原生底板与图标布局，
+			//side_tabs 的三段自绘底板（专给侧向用）在这里整体隐藏
+			if (SPDSettings.bagBottomTabs()) {
+				if (plateTop != null) {
+					plateTop.visible = false;
+					plateBot.visible = false;
+					for (Image seg : plateMids) {
+						if (seg != null) seg.visible = false;
+					}
+				}
+				super.layout();
+				return;
+			}
+
 			super.layout();
 
 			if (plateTop == null) return;
