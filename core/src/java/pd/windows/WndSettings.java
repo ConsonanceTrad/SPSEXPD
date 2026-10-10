@@ -120,8 +120,7 @@ public class WndSettings extends WndTabbed {
 			.t("$auxtab.quick_light", "照明")
 			.t("$auxtab.quick_talent", "加点")
 			.t("$auxtab.quick_eat", "进食")
-			.t("$auxtab.quick_bag", "快捷背包")
-			.t("$auxtab.bag_bottom_tabs", "背包标签栏放到底部")
+			.t("$auxtab.bag_bottom_tabs", "底部背包标签栏")
 			//SPSEXPD: 行末蓝色感叹号点开的「详细作用」（键名 = 上方各键 + _desc）
 			.t("$auxtab.unlock_alchemy_guide_desc", "开启后炼金指南里全部配方页都不再需要解锁，随时可以翻阅。")
 			.t("$auxtab.hero_path_desc", "在画面里画出你点击的移动路线，方便提前规划走位。")
@@ -130,7 +129,6 @@ public class WndSettings extends WndTabbed {
 			.t("$auxtab.quick_light_desc", "夜晚且身上带着光源时，显示一键照明的快捷按钮（优先用露珠瓶，其次火把）。")
 			.t("$auxtab.quick_talent_desc", "有未分配的特质点时，显示一键打开加点界面的快捷按钮。")
 			.t("$auxtab.quick_eat_desc", "饥饿时显示一键进食的快捷按钮，自动吃背包里的食物。")
-			.t("$auxtab.quick_bag_desc", "开启后，单击 HUD 上的背包按钮会弹出浮动的包裹选择面板（每行 4 个）；在面板开着时再点一次同一按钮（即双击），直接打开主背包。会改变原来的操作习惯。")
 			.t("$auxtab.bag_bottom_tabs_desc", "把包裹标签栏从背包窗口左右两侧移到底部，分页显示：每页 3 个包裹 + 翻页 + 主背包。切换包裹仍是一次点击，只有包裹多于 3 个时才需要先翻页；好处是标签不再占用窗口宽度，背包格子可以保持更大（高缩放时尤其明显）。")
 			.t("$audiotab.title", "音频设置")
 			.t("$audiotab.music_vol", "音乐音量")
@@ -1029,8 +1027,6 @@ public class WndSettings extends WndTabbed {
 		CheckBox chkQuickLight;
 		CheckBox chkQuickTalent;
 		CheckBox chkQuickEat;
-		//SPSEXPD: 背包相关开关——快捷背包（单击弹包裹选择面板）
-		CheckBox chkQuickBag;
 		//SPSEXPD: 背包相关开关——旧版布局（标签栏放底部，分页显示）
 		CheckBox chkBagBottomTabs;
 
@@ -1150,17 +1146,6 @@ public class WndSettings extends WndTabbed {
 			bagGroup = PixelScene.renderTextBlock(Messages.get(AuxTab.class, "bag_group"), 6);
 			add(bagGroup);
 
-			//SPSEXPD: 快捷背包——单击 HUD 背包按钮弹出包裹选择面板（每行 4 个），双击直接开主背包
-			chkQuickBag = new AuxCheckBox(Messages.get(AuxTab.class, "quick_bag")) {
-				@Override
-				protected void onClick() {
-					super.onClick();
-					SPDSettings.quickBag(checked());
-				}
-			};
-			chkQuickBag.checked(SPDSettings.quickBag());
-			add(chkQuickBag);
-
 			//SPSEXPD: 旧版背包界面——包裹标签栏从左右两侧移到底部（分页：3 包裹 + 翻页 + 主背包）
 			chkBagBottomTabs = new AuxCheckBox(Messages.get(AuxTab.class, "bag_bottom_tabs")) {
 				@Override
@@ -1180,7 +1165,6 @@ public class WndSettings extends WndTabbed {
 			addRowNote(chkQuickLight, "quick_light");
 			addRowNote(chkQuickTalent, "quick_talent");
 			addRowNote(chkQuickEat, "quick_eat");
-			addRowNote(chkQuickBag, "quick_bag");
 			addRowNote(chkBagBottomTabs, "bag_bottom_tabs");
 		}
 
@@ -1228,7 +1212,7 @@ public class WndSettings extends WndTabbed {
 				bottom = layoutRow(i, width, bottom);
 			}
 
-			//SPSEXPD: 背包分组——分隔线 + 小标题，然后是快捷背包与标签栏放底部两行
+			//SPSEXPD: 背包分组——分隔线 + 小标题，然后是「标签栏放底部」这一行
 			sep3.size(width, 1);
 			sep3.y = bottom + GAP;
 			bottom = sep3.y + 1;

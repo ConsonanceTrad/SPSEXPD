@@ -832,7 +832,7 @@ public class WndBag extends WndTabbed {
 	
 	//SPS: 选项卡图标按 SPS 0.9.8 原版映射（不再复用别的袋子图标）；SPS 独有的
 	//SHOP_CART / KEYRING / HOS / ARROW_C 四个图标已从 SPS 图集原像素补入本基底图标集
-	//SPSEXPD: 改为 static，供 WndBagPicker（快捷背包面板）复用同一套图标映射
+	//SPSEXPD: 改为 static，供其它面板复用同一套图标映射
 	static Image icon( Bag bag ) {
 		if (bag instanceof BambooBasket) {
 			return Icons.get( Icons.BAMBOO_BASKET );

@@ -43,7 +43,6 @@ import pd.sprites.ItemSprite;
 import pd.tiles.DungeonTerrainTilemap;
 import pd.utils.GLog;
 import pd.windows.WndBag;
-import pd.windows.WndBagPicker;
 import pd.windows.WndKeyBindings;
 import pd.windows.WndMessage;
 import pd.windows.WndQuickBag;
@@ -53,7 +52,6 @@ import render.input.GameAction;
 import render.input.KeyBindings;
 import render.noosa.Camera;
 import render.noosa.Game;
-import render.noosa.Gizmo;
 import render.noosa.Gizmo;
 import render.noosa.Image;
 import render.noosa.PointerArea;
@@ -424,38 +422,6 @@ public class Toolbar extends Component {
 				if (Dungeon.hero != null && (Dungeon.hero.ready || !Dungeon.hero.isAlive())) {
 					if (SPDSettings.interfaceSize() == 2) {
 						GameScene.toggleInvPane();
-					} else if (SPDSettings.quickBag()) {
-						//SPSEXPD: 快捷背包——单击弹出浮动的包裹选择面板（每行 4 个）；
-						//面板已经开着时再次点击背包按钮（即双击）＝直接打开主背包
-						boolean pickerOpen = WndBagPicker.INSTANCE != null;
-						//SPSEXPD: 注意 GameScene.cancel() 在“确实关掉了窗口”时返回 true，
-						//所以不能把两个分支都塞进 if(!cancel()) —— 否则面板开着时这一击只会关掉面板。
-						if (pickerOpen) {
-							//SPSEXPD: 选框不是 Window，没有 hide()；先摘掉它再开主背包
-							WndBagPicker.INSTANCE.close();
-							GameScene.show(new WndBag(Dungeon.hero.belongings.backpack));
-						} else if (!GameScene.cancel()) {
-							//SPSEXPD: 取背包按钮【右上角】的绝对坐标——面板以它为基准向左上渲染
-							//（沿 parent 链逐级累加 Component 的偏移；Group 自身没有坐标，只有 Component 有）
-							float cx = 0f, top = 0f;
-							for (Gizmo g = btnInventory; g != null; g = g.parent) {
-								if (g instanceof Component) {
-									cx += ((Component) g).left();
-									top += ((Component) g).top();
-								}
-							}
-							cx += btnInventory.width();
-							//SPSEXPD: 兜底——万一父链坐标没参与进来（结果落在屏幕左/上半），
-							//按已知 HUD 布局回退：背包按钮在下快捷栏右端、其上方就是面板该在的位置
-							if (cx < PixelScene.uiCamera.width / 2f) {
-								cx = PixelScene.uiCamera.width - 12f;
-							}
-							if (top < PixelScene.uiCamera.height / 2f) {
-								top = PixelScene.uiCamera.height - 40f;
-							}
-							//它不是 Window，构造时自己挂到场景顶层，所以不用 GameScene.show()。
-							new WndBagPicker( cx, top );
-						}
 					} else {
 						if (!GameScene.cancel()) {
 							GameScene.show(new WndBag(Dungeon.hero.belongings.backpack));
