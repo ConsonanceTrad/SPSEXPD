@@ -2637,6 +2637,17 @@ tasks.register('collectOutputs', Copy) {
 //构建任务完成后自动汇总（assembleDebug / assembleRelease / desktop release）
 gradle.projectsEvaluated {
 	def collect = rootProject.tasks.named('collectOutputs')
+
+	//collectOutputs 会读取 desktop/build/jpackage（:desktop:jpackageImage 的产物目录）。
+	//必须显式声明先后顺序，否则 Gradle 9 的隐式依赖校验会直接判失败：
+	//  "Task ':collectOutputs' uses this output of task ':desktop:jpackageImage'
+	//   without declaring an explicit or implicit dependency"
+	//用 mustRunAfter 只约束顺序、不强制运行 jpackageImage —— 只打 APK 时不会白跑一遍 exe 打包。
+	def jpackageImage = project(':desktop').tasks.findByName('jpackageImage')
+	if (jpackageImage != null) {
+		collect.configure { mustRunAfter jpackageImage }
+	}
+
 	allprojects { p ->
 		p.tasks.matching { t ->
 			t.name == 'assembleDebug' || t.name == 'assembleRelease' || t.name == 'release'
