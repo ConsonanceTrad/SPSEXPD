@@ -253,9 +253,14 @@ public class HeroSelectScene extends PixelScene {
 		add( btnExit );
 		btnExit.visible = btnExit.active = !SPDSettings.intro();
 
-		if (GamesInProgress.selectedClass != null){
-			setSelectedHero(GamesInProgress.selectedClass);
+		//SPSEXPD: 没有选中职业时默认选中第一个可玩职业（战士），
+		//让界面一进来就是完整的（特写横幅 + 英雄名 + 简述），不必先点头像
+		if (GamesInProgress.selectedClass == null){
+			GamesInProgress.selectedSkin = 0;
+			GamesInProgress.selectedStyle = CombatStyle.BALANCED;
+			GamesInProgress.selectedClass = HeroClass.playableClasses()[0];
 		}
+		setSelectedHero(GamesInProgress.selectedClass);
 
 		if (Badges.isUnlocked(Badges.Badge.VICTORY) && !SPDSettings.victoryNagged()) {
 			SPDSettings.victoryNagged(true);
