@@ -431,7 +431,10 @@ public class Toolbar extends Component {
 							if (pickerOpen) {
 								GameScene.show(new WndBag(Dungeon.hero.belongings.backpack));
 							} else {
-								GameScene.show(new WndBagPicker());
+								//SPSEXPD: 选框贴在背包按钮正上方（传按钮中心与顶边的 uiCamera 坐标）
+								GameScene.show(new WndBagPicker(
+										Toolbar.this.left() + btnInventory.left() + btnInventory.width() / 2f,
+										Toolbar.this.top() + btnInventory.top()));
 							}
 						}
 					} else {

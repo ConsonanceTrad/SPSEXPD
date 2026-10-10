@@ -115,6 +115,7 @@ public class WndSettings extends WndTabbed {
 			.t("$auxtab.hero_path", "显示移动路径")
 			.t("$auxtab.search_pickup", "搜索捡拾物品")
 			.t("$auxtab.quick_group", "快捷操作开关")   //SPSEXPD: 快捷操作分组的小标题
+			.t("$auxtab.bag_group", "背包界面")   //SPSEXPD: 背包分组的小标题
 			.t("$auxtab.quick_all", "启用快捷操作按钮")
 			.t("$auxtab.quick_light", "照明")
 			.t("$auxtab.quick_talent", "加点")
@@ -1033,6 +1034,10 @@ public class WndSettings extends WndTabbed {
 		//SPSEXPD: 背包相关开关——旧版布局（标签栏放底部，分页显示）
 		CheckBox chkBagBottomTabs;
 
+		//SPSEXPD: 背包分组的标题（小号字，风格同「快捷操作开关」）
+		RenderedTextBlock bagGroup;
+		ColorBlock sep3;
+
 		//SPSEXPD: 每行行末「蓝色感叹号」说明按钮的边长
 		static final int NOTE_W = 11;
 
@@ -1138,6 +1143,13 @@ public class WndSettings extends WndTabbed {
 			chkQuickEat.checked(SPDSettings.quickEat());
 			add(chkQuickEat);
 
+			//SPSEXPD: 背包分组——分隔线 + 小标题（风格与「快捷操作开关」一致）
+			sep3 = new ColorBlock(1, 1, 0xFF000000);
+			add(sep3);
+
+			bagGroup = PixelScene.renderTextBlock(Messages.get(AuxTab.class, "bag_group"), 6);
+			add(bagGroup);
+
 			//SPSEXPD: 快捷背包——单击 HUD 背包按钮弹出包裹选择面板（每行 4 个），双击直接开主背包
 			chkQuickBag = new AuxCheckBox(Messages.get(AuxTab.class, "quick_bag")) {
 				@Override
@@ -1211,9 +1223,20 @@ public class WndSettings extends WndTabbed {
 			quickGroup.setPos(0, bottom + GAP);
 			bottom = quickGroup.bottom();
 
-			//SPSEXPD: 其余各行（快捷操作三项、快捷背包、标签栏放底部）
-			//每行独占整宽并在行末留出说明按钮——原先「照明/加点共用一行」的排布已取消
-			for (int i = 3; i < rowChecks.size(); i++) {
+			//SPSEXPD: 快捷操作各行的索引是 3..6（总开关/照明/加点/进食），此处只摆这四行
+			for (int i = 3; i < 7 && i < rowChecks.size(); i++) {
+				bottom = layoutRow(i, width, bottom);
+			}
+
+			//SPSEXPD: 背包分组——分隔线 + 小标题，然后是快捷背包与标签栏放底部两行
+			sep3.size(width, 1);
+			sep3.y = bottom + GAP;
+			bottom = sep3.y + 1;
+
+			bagGroup.setPos(0, bottom + GAP);
+			bottom = bagGroup.bottom();
+
+			for (int i = 7; i < rowChecks.size(); i++) {
 				bottom = layoutRow(i, width, bottom);
 			}
 
