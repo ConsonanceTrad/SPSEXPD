@@ -161,7 +161,7 @@ public class SPDSettings extends GameSettings {
 	}
 
 	public static boolean bagBottomTabs(){
-		return getBoolean( KEY_BAG_BOTTOM_TABS, false );
+		return getBoolean( KEY_BAG_BOTTOM_TABS, true );
 	}
 	
 	public static void zoom( int value ) {
