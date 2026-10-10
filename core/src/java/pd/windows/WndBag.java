@@ -244,7 +244,11 @@ public class WndBag extends WndTabbed {
 		int i = 1;
 		for (Bag b : Dungeon.hero.belongings.getBags()) {
 			if (b != null) {
-				BagTab tab = new BagTab( b, i++ );
+				//SPSEXPD: 按布局选择实现——底部模式走 BottomBagTab（Tab 原生底板），
+				//两侧走 BagTab（side_tabs 三段自绘）；两套渲染互不干涉
+				Tab tab = SPDSettings.bagBottomTabs()
+						? new BottomBagTab( b, i++ )
+						: new BagTab( b, i++ );
 				add( tab );
 				tab.select( b == bag );
 				if  (b == bag){
@@ -757,7 +761,7 @@ public class WndBag extends WndTabbed {
 	@Override
 	protected void onClick( Tab tab ) {
 		hide();
-		Window w = new WndBag(((BagTab) tab).bag, selector);
+		Window w = new WndBag(((BagHolder) tab).bag(), selector);
 		if (Game.scene() instanceof GameScene){
 			GameScene.show(w);
 		} else {
@@ -806,24 +810,76 @@ public class WndBag extends WndTabbed {
 		}
 	}
 	
-	private class BagTab extends IconTab {
+	//SPSEXPD: 包裹标签的共同契约——两侧与底部各有一套渲染实现，互不干扰
+	private interface BagHolder {
+		Bag bag();
+	}
+
+	//SPSEXPD: 包裹标签的公共部分：携带的是哪个包裹、快捷键与悬浮名。
+	//渲染完全交给子类——BagTab（两侧，side_tabs 三段自绘）与 BottomBagTab（底部，Tab/IconTab 原生底板），
+	//两套路径彼此独立，不会交叉影响
+	private abstract class BagTabBase extends IconTab implements BagHolder {
+
+		protected final Bag bag;
+		private final int index;
+
+		BagTabBase( Bag bag, int index ) {
+			super( icon(bag) );
+
+			this.bag = bag;
+			this.index = index;
+		}
+
+		@Override
+		public Bag bag() {
+			return bag;
+		}
+
+		@Override
+		public GameAction keyAction() {
+			switch (index){
+				case 1: default:
+					return SPDAction.BAG_1;
+				case 2:
+					return SPDAction.BAG_2;
+				case 3:
+					return SPDAction.BAG_3;
+				case 4:
+					return SPDAction.BAG_4;
+				case 5:
+					return SPDAction.BAG_5;
+			}
+		}
+
+		@Override
+		protected String hoverText() {
+			return Messages.titleCase(bag.name());
+		}
+	}
+
+	//SPSEXPD: 底部（旧版）标签栏专用——直接用 Tab/IconTab 的原生渲染
+	//（Chrome.Type.TAB_SELECTED / TAB_UNSELECTED 九宫格底板 + 图标居中、未选中时上移与裁切），
+	//完全不碰 side_tabs 三段自绘，因此与两侧标签不可能互相影响
+	private class BottomBagTab extends BagTabBase {
+
+		BottomBagTab( Bag bag, int index ) {
+			super( bag, index );
+		}
+	}
+
+	private class BagTab extends BagTabBase {
 
 		//SPS: 底板用「三段 1:1 裁取」而非九宫格拉伸——移动端非整数缩放下拉伸会拉出条纹/发虚，
 		//改为直接从 side_tabs.png 按需裁取：上固定段 + 中段（按标签高度裁取）+ 下固定段。
 		//贴图规格（每帧）：顶部 PLATE_CAP px 边框段 + 中间可裁段 + 底部 PLATE_CAP px 边框段。
 		//横向不做任何缩放（帧宽 == TAB_W，1:1 显示）。
-		private Bag bag;
-		private int index;
 		private boolean leftSide = true;   //SPS: 位于左侧还是右侧栏（layoutTabs 指定）
 		private Image plateTop;            //上固定段
 		private Image[] plateMids;         //中段（多块循环拼接，贴图不够长时按需追加）
 		private Image plateBot;            //下固定段
 
-		public BagTab( Bag bag, int index ) {
-			super( icon(bag) );
-			
-			this.bag = bag;
-			this.index = index;
+		BagTab( Bag bag, int index ) {
+			super( bag, index );
 		}
 
 		@Override
@@ -848,12 +904,6 @@ public class WndBag extends WndTabbed {
 		//SPS: 覆写 select 以跳过原版九宫格底板（Tab.select 会 addToBack(bg)），只用贴图底板
 		@Override
 		protected void select( boolean value ) {
-			//SPSEXPD: 旧版（底部）布局改用 Tab 的原生底板（Chrome.Type.TAB_SELECTED / TAB_UNSELECTED）
-			if (SPDSettings.bagBottomTabs()) {
-				super.select( value );
-				return;
-			}
-
 			selected = value;
 			if (icon != null) icon.am = value ? 1.0f : 0.6f;   //沿用 IconTab 的未选变暗
 			layout();
@@ -867,20 +917,6 @@ public class WndBag extends WndTabbed {
 
 		@Override
 		protected void layout() {
-			//SPSEXPD: 旧版（底部）标签栏用 Tab/IconTab 的原生底板与图标布局，
-			//side_tabs 的三段自绘底板（专给侧向用）在这里整体隐藏
-			if (SPDSettings.bagBottomTabs()) {
-				if (plateTop != null) {
-					plateTop.visible = false;
-					plateBot.visible = false;
-					for (Image seg : plateMids) {
-						if (seg != null) seg.visible = false;
-					}
-				}
-				super.layout();
-				return;
-			}
-
 			super.layout();
 
 			if (plateTop == null) return;
@@ -923,28 +959,8 @@ public class WndBag extends WndTabbed {
 			PixelScene.align( icon );
 		}
 
-		@Override
-		public GameAction keyAction() {
-			switch (index){
-				case 1: default:
-					return SPDAction.BAG_1;
-				case 2:
-					return SPDAction.BAG_2;
-				case 3:
-					return SPDAction.BAG_3;
-				case 4:
-					return SPDAction.BAG_4;
-				case 5:
-					return SPDAction.BAG_5;
-			}
-		}
-
-		@Override
-		protected String hoverText() {
-			return Messages.titleCase(bag.name());
-		}
 	}
-	
+
 	public static class Placeholder extends Item {
 
 		public Placeholder(IconEntry image ) {
