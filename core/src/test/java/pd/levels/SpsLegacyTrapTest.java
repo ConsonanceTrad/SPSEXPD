@@ -17,8 +17,7 @@ import pd.actors.mobs.Rat;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.StoneOre;
-import pd.items.VioletDewdrop;
-import pd.items.equipment.armor.LeatherArmor;
+import pd.items.RedDewdrop;import pd.items.equipment.armor.LeatherArmor;
 import pd.items.equipment.bombs.Bomb;
 import pd.items.specific.keys.IronKey;
 import pd.items.quest.AdventureJournal;
@@ -47,6 +46,7 @@ import pd.levels.traps.ToxicTrap;
 import pd.levels.traps.Trap;
 import pd.levels.traps.WarpingTrap;
 import pd.levels.traps.WeakeningTrap;
+import pd.mechanics.pathfind.PathFinder;
 import pd.plants.Fadeleaf;
 import pd.plants.Plant;
 import pd.plants.Sungrass;
@@ -497,17 +497,44 @@ public final class SpsLegacyTrapTest {
 	}
 
 	private static void testLegacyDewEdge(RecordingLevel level) {
+		//SPSEXPD: 露珠陷阱现在只洒红色露珠，且只落在可站立的格子上
 		level.heaps.clear();
-		DewTrap dew = new DewTrap();
-		dew.pos = level.width() + 1;
-		dew.activate();
+		int center = level.width() + 1;
+		Arrays.fill(level.map, Terrain.WALL);
+		level.map[center] = Terrain.EMPTY;
+		level.buildFlagMaps();
+		DewTrap walled = new DewTrap();
+		walled.pos = center;
+		walled.activate();
 		int drops = 0;
 		for (Heap heap : level.heaps.valueList()) {
 			for (Item item : heap.items) {
-				if (item instanceof VioletDewdrop) drops += item.quantity();
+				check(item instanceof RedDewdrop, "露珠陷阱产出了非红色露珠：" + item.getClass().getSimpleName());
+				drops += item.quantity();
 			}
 		}
-		check(drops == 9, "露珠陷阱在地图边缘没有保持旧版九滴产量：" + drops);
+		check(drops == 1, "露珠陷阱把露珠洒到了不可通行的格子上：" + drops);
+
+		//地图恢复全空：产量应等于周围可通行格的数目（不可通行的格不再凑数）
+		Arrays.fill(level.map, Terrain.EMPTY);
+		level.buildFlagMaps();
+		level.heaps.clear();
+		DewTrap dew = new DewTrap();
+		dew.pos = level.width() + 1;
+		int expected = 0;
+		for (int offset : PathFinder.NEIGHBOURS9) {
+			int cell = dew.pos + offset;
+			if (level.insideMap(cell) && level.passable[cell]) expected++;
+		}
+		check(expected > 0, "测试用例无效：陷阱周围没有可通行的格子");
+		dew.activate();
+		drops = 0;
+		for (Heap heap : level.heaps.valueList()) {
+			for (Item item : heap.items) {
+				if (item instanceof RedDewdrop) drops += item.quantity();
+			}
+		}
+		check(drops == expected, "露珠只应洒在可通行的格子上：期望 " + expected + "，实际 " + drops);
 	}
 
 	private static void testLegacyChasm(RecordingLevel level) {
