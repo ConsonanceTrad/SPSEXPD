@@ -1068,7 +1068,10 @@ public enum HeroClass {
 			java.util.ArrayList<Item> out = new java.util.ArrayList<>();
 			for (LoadoutItem it : items) {
 				Item item = it.factory.get();
-				if (item != null) out.add(item);
+				if (item == null) continue;
+				//SPSEXPD: 预览要带上数量，否则 UI 的数量角标不会显示
+				if (it.quantity > 1) item.quantity(it.quantity);
+				out.add(item);
 			}
 			return out;
 		}

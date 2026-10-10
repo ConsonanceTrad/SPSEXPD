@@ -101,6 +101,21 @@ public final class SpsStartingItemsTest {
 
 		//详情页展示与实际发放同源：preview 的条数应与声明一致
 		check(lo.preview().size() == n, where + " preview 条数与声明一致");
+
+		//preview 要带上数量（否则 UI 的数量角标不会显示）
+		//注：有些物品的数量来自构造参数（如 new BlindFruit(3)），声明 quantity=1 只是「不额外覆盖」
+		java.util.ArrayList<Item> pv = lo.preview();
+		int idx = 0;
+		for (HeroClass.LoadoutItem it : lo.items) {
+			Item item = it.factory.get();
+			if (item == null) continue;
+			Item shown = pv.get(idx++);
+			check(shown.quantity() >= 1, where + " preview 数量至少为 1（实际 " + shown.quantity() + "）");
+			if (it.quantity > 1) {
+				check(shown.quantity() == it.quantity,
+						where + " preview 数量与声明一致（声明 " + it.quantity + "，实际 " + shown.quantity() + "）");
+			}
+		}
 	}
 
 	/** 留空主题 / 无皮肤内容职业的清单必须与经典完全一致 */
