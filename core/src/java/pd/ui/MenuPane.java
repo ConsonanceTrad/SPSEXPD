@@ -46,7 +46,11 @@ import render.noosa.audio.Sample;
 import render.noosa.ui.Component;
 public class MenuPane extends Component {
 
-	private Image bg;
+	//SPSEXPD: 原本这一排外面有一圈 31x21 的 MENU 外框（版本号就画在框内左侧），
+	//按钮是与外框底对齐的。外框去掉后整排要上移 TOP_OFFSET，才会贴住屏幕顶部。
+	private static final float TOP_OFFSET  = 8f;
+	/** 原外框高度，只用于给危险指示器保留与原版一致的纵向位置。 */
+	private static final float PANE_HEIGHT = 21f;
 
 	private Image depthIcon;
 	private BitmapText depthText;
@@ -72,10 +76,7 @@ public class MenuPane extends Component {
 	protected void createChildren() {
 		super.createChildren();
 
-		bg = new Image(Assets.Interfaces.MENU, 1, 0, 31, 21);
-		add(bg);
-
-		//SPSEXPD: 右上角不再显示版本号（version 文本与溢出底已整体移除）
+		//SPSEXPD: 原 MENU 外框（31x21，版本号所在的那块底）已随版本号一起去掉，这一排现在是裸图标+文本
 
 		depthIcon = Icons.get(Dungeon.level.feeling);
 		add(depthIcon);
@@ -162,15 +163,15 @@ public class MenuPane extends Component {
 	protected void layout() {
 		super.layout();
 
-		bg.x = x;
-		bg.y = y;
+		//SPSEXPD: 去掉外框后整排上移，第一排贴住屏幕顶部
+		float top = y - TOP_OFFSET;
 
-		btnMenu.setPos( x + WIDTH - btnMenu.width(), y );
+		btnMenu.setPos( x + WIDTH - btnMenu.width(), top );
 
-		btnJournal.setPos( btnMenu.left() - btnJournal.width() + 2, y );
+		btnJournal.setPos( btnMenu.left() - btnJournal.width() + 2, top );
 
 		depthIcon.x = btnJournal.left() - 7 + (7 - depthIcon.width())/2f - 0.1f;
-		depthIcon.y = y+8;
+		depthIcon.y = top + TOP_OFFSET;
 		PixelScene.align(depthIcon);
 
 		depthText.scale.set(PixelScene.align(0.67f));
@@ -193,13 +194,14 @@ public class MenuPane extends Component {
 			challengeButton.setRect(challengeIcon.x, challengeIcon.y, challengeIcon.width(), challengeIcon.height() + challengeText.height());
 		}
 
-		danger.setPos( x + WIDTH - danger.width(), y + bg.height + 1 );
+		danger.setPos( x + WIDTH - danger.width(), top + PANE_HEIGHT + 1 );
 
 		//SPSEXPD: 时间贴在「挑战/深度」图标左侧（整排最左）；位置每帧由这里给定，组件不自己贴屏幕角
 		if (clock != null){
 			float anchor = (challengeIcon != null ? challengeIcon.x : depthIcon.x) - 2f;
 			clock.refresh();
-			clock.setPos( anchor - clock.width(), y + 1 );
+			//置于内容顶（top + TOP_OFFSET 就是整排内容的顶边，与原 y 相同），与按钮底图、深度图标同一水平线
+			clock.setPos( anchor - clock.width(), top + TOP_OFFSET );
 		}
 		danger.setSize( camera.width - danger.width(), danger.height());
 	}
