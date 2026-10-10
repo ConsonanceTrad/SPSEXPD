@@ -100,10 +100,25 @@ runtime {
     if (osName.contains('windows')) {
         //May work on Windows 7 (2009), but that's old enough that I'm only officially supporting Windows 10 (2015)
         targetPlatform("win") {
-            jdkHome = jdkDownload("https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.17%2B10/OpenJDK17U-jdk_x64_windows_hotspot_17.0.17_10.zip")
-            javaHome = file("./build/jdks/win/jdk-17.0.17+10").getAbsolutePath()
+            //SPSEXPD: 优先用本机 JAVA_HOME 里的 JDK（需带 jpackage/jlink，即 JDK 14+），
+            //省掉 badass-runtime 首次下载 Temurin 17（约 180MB）；本机确实没有时才回退下载。
+            //注意：免安装包里内置的是该 JDK 的 JVM（用 JDK 21 生成也能正常跑 Java 11 字节码）。
+            def rawJdkHome = System.getenv('JAVA_HOME')
+            def localJdkHome = rawJdkHome ? new File(rawJdkHome).getAbsolutePath() : null
+            def localJpackage = localJdkHome ? new File(localJdkHome, 'bin/jpackage.exe') : null
+            def useLocalJdk = localJpackage != null && localJpackage.exists()
+            if (useLocalJdk) {
+                logger.lifecycle("SPSEXPD: jpackage 使用本机 JDK - ${localJdkHome}")
+                //targetPlatform.jdkHome 的 Provider 必须返回 String（badass-runtime 内部自行 File 化）
+                jdkHome = project.providers.provider { localJdkHome }
+                javaHome = localJdkHome
+            } else {
+                logger.lifecycle("SPSEXPD: JAVA_HOME 下没找到 jpackage，回退下载 Temurin 17")
+                jdkHome = jdkDownload("https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.17%2B10/OpenJDK17U-jdk_x64_windows_hotspot_17.0.17_10.zip")
+                javaHome = file("./build/jdks/win/jdk-17.0.17+10").getAbsolutePath()
+            }
             jpackage {
-                jpackageHome = file("./build/jdks/win/jdk-17.0.17+10")
+                jpackageHome = useLocalJdk ? new File(localJdkHome) : file("./build/jdks/win/jdk-17.0.17+10")
                 imageOptions = ["--icon", file("../core/src/desktop/assets/icons/windows.ico"),
                                 "--java-options", "-XX:+IgnoreUnrecognizedVMOptions"]
             }
