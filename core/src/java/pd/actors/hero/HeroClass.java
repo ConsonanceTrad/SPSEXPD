@@ -1467,7 +1467,43 @@ public enum HeroClass {
 				return Assets.Splashes.ASCETIC;
 		}
 	}
-	
+
+	//SPSEXPD: 选角界面顶部的特写横幅。不可玩职业没有对应素材，返回 null 由调用方回退到 splashArt()
+	public String closeupArt(){
+		switch (this) {
+			case WARRIOR:
+				return Assets.Splashes.Closeup.WARRIOR;
+			case MAGE:
+				return Assets.Splashes.Closeup.MAGE;
+			case ROGUE:
+				return Assets.Splashes.Closeup.ROGUE;
+			case HUNTRESS:
+				return Assets.Splashes.Closeup.HUNTRESS;
+			case DUELIST:
+				return Assets.Splashes.Closeup.DUELIST;
+			case SPELLSWORD:
+				return Assets.Splashes.Closeup.SPELLSWORD;
+			case PERFORMER:
+				return Assets.Splashes.Closeup.PERFORMER;
+			case SOLDIER:
+				return Assets.Splashes.Closeup.SOLDIER;
+			case FOLLOWER:
+				return Assets.Splashes.Closeup.FOLLOWER;
+			case ASCETIC:
+				return Assets.Splashes.Closeup.ASCETIC;
+			default:
+				return null;
+		}
+	}
+
+	//SPSEXPD: 在选角头像图集（splashes/avatars.png，28x36 一格）中的格号；不在可玩列表的职业返回 -1
+	public int avatarIndex(){
+		for (int i = 0; i < SPS_PLAYABLE.length; i++){
+			if (SPS_PLAYABLE[i] == this) return i;
+		}
+		return -1;
+	}
+
 	public boolean isUnlocked(){
 		//SPSEXPD: every class is available from the start
 		return true;

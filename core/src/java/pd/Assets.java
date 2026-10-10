@@ -305,6 +305,23 @@ public class Assets {
 		public static final String FOLLOWER   = "splashes/fusion_follower.jpg";
 		public static final String ASCETIC    = "splashes/fusion_ascetic.jpg";
 
+		//SPSEXPD: 选角界面的头像图集（SPS 风格，9 格 28x36，格序同 HeroClass.playableClasses()）
+		public static final String AVATARS    = "splashes/avatars.png";
+
+		//SPSEXPD: 选角界面顶部的职业特写横幅（800x140；横屏完整展示、竖屏放大裁两侧）
+		public static class Closeup {
+			public static final String WARRIOR    = "splashes/closeup/warrior.png";
+			public static final String MAGE       = "splashes/closeup/mage.png";
+			public static final String ROGUE      = "splashes/closeup/rogue.png";
+			public static final String HUNTRESS   = "splashes/closeup/huntress.png";
+			public static final String DUELIST    = "splashes/closeup/duelist.png";
+			public static final String SPELLSWORD = "splashes/closeup/fusion_spellsword.png";
+			public static final String PERFORMER  = "splashes/closeup/fusion_performer.png";
+			public static final String SOLDIER    = "splashes/closeup/fusion_soldier.png";
+			public static final String FOLLOWER   = "splashes/closeup/fusion_follower.png";
+			public static final String ASCETIC    = "splashes/closeup/fusion_ascetic.png";
+		}
+
 		public static final String SEWERS   = "splashes/sewers.jpg";
 		public static final String PRISON   = "splashes/prison.jpg";
 		public static final String CAVES    = "splashes/caves.jpg";

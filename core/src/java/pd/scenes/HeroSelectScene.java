@@ -21,6 +21,7 @@
 
 package pd.scenes;
 
+import pd.Assets;
 import pd.Badges;
 import pd.Challenges;
 import pd.Chrome;
@@ -62,9 +63,7 @@ import render.noosa.Image;
 import render.noosa.NinePatch;
 import render.noosa.PointerArea;
 import render.noosa.SkinnedBlock;
-import render.noosa.tweeners.Tweener;
 import render.noosa.ui.Component;
-import render.utils.geom.PointF;
 import render.utils.geom.RectF;
 import render.utils.math.GameMath;
 import render.utils.math.Random;
@@ -126,20 +125,31 @@ public class HeroSelectScene extends PixelScene {
 
 
 
+	//SPSEXPD: 选角素材规格（splashes/avatars.png 每格 28x36；splashes/closeup/*.png 为 800x140 横幅）
+	private static final int AVATAR_W = 28;
+	private static final int AVATAR_H = 36;
+	private static final int CLOSEUP_H = 140;
+	private static final int BG_COLOR = 0xFF2d2f31;
+
+	//SPSEXPD: 特写图底部过渡阴影的分段数（逐段 ColorBlock 近似竖直渐变，避免绕 origin 旋转的定位坑）
+	private static final int SHADE_STEPS = 24;
+
 	private Image background;
-	private Image fadeLeft, fadeRight;
-	private IconButton btnFade; //only on landscape
+	private Image closeup;         //职业特写横幅
+	private ColorBlock[] closeupShade; //特写图底部向背景色的过渡阴影
 
 	//fading UI elements
 	private RenderedTextBlock title;
-	private ArrayList<StyledButton> heroBtns = new ArrayList<>();
-	private RenderedTextBlock heroName; //only on landscape
-	private RenderedTextBlock heroDesc; //only on landscape
+	private ArrayList<HeroBtn> heroBtns = new ArrayList<>();
+	private RenderedTextBlock heroName;
+	private RenderedTextBlock heroDesc;
 	private StyledButton startBtn;
 	private IconButton infoButton;
-	private IconButton btnOptions;
 	private GameOptions optionsPane;
 	private IconButton btnExit;
+
+	//SPSEXPD: 上一次布局用的屏幕尺寸（窗口缩放/旋转时重排）
+	private float layoutW = -1, layoutH = -1;
 
 	private RectF insets;
 
@@ -160,36 +170,20 @@ public class HeroSelectScene extends PixelScene {
 		float w = (Camera.main.width - insets.left - insets.right);
 		float h = (Camera.main.height - insets.top - insets.bottom);
 
-		background = new Image(TextureCache.createSolid(0xFF2d2f31), 0, 0, 800, 450){
-			@Override
-			public void update() {
-				if (GamesInProgress.selectedClass != null) {
-					if (rm > 1f) {
-						rm -= Game.elapsed;
-						gm = bm = rm;
-					} else {
-						rm = gm = bm = 1;
-					}
-				}
-			}
-		};
-		background.scale.set(Camera.main.height/background.height);
-
-		background.x = (Camera.main.width - background.width())/2f;
-		background.y = (Camera.main.height - background.height())/2f;
-		PixelScene.align(background);
+		//SPSEXPD: 背景退化为纯色底（职业立绘改为顶部特写横幅，见 closeup）
+		background = new Image(TextureCache.createSolid(BG_COLOR), 0, 0, 1, 1);
 		add(background);
 
-		fadeLeft = new Image(TextureCache.createGradient(0xFF000000, 0xFF000000, 0x00000000));
-		fadeLeft.x = background.x-2;
-		fadeLeft.scale.set(3, background.height());
-		add(fadeLeft);
+		closeup = new Image();
+		closeup.visible = false;
+		add(closeup);
 
-		fadeRight = new Image(fadeLeft);
-		fadeRight.x = background.x + background.width() + 2;
-		fadeRight.y = background.y + background.height();
-		fadeRight.angle = 180;
-		add(fadeRight);
+		closeupShade = new ColorBlock[SHADE_STEPS];
+		for (int i = 0; i < closeupShade.length; i++){
+			closeupShade[i] = new ColorBlock(1, 1, BG_COLOR);
+			closeupShade[i].visible = false;
+			add(closeupShade[i]);
+		}
 
 		title = PixelScene.renderTextBlock(Messages.get(this, "title"), 12);
 		title.hardlight(Window.TITLE_COLOR);
@@ -240,163 +234,29 @@ public class HeroSelectScene extends PixelScene {
 			heroBtns.add(button);
 		}
 
+		//SPSEXPD: 选项面板常显在底部（不再用齿轮图标切换显示）
 		optionsPane = new GameOptions();
-		optionsPane.visible = optionsPane.active = false;
 		optionsPane.layout();
 		add(optionsPane);
 
-		btnOptions = new IconButton(Icons.get(Icons.PREFS)){
-			@Override
-			protected void onClick() {
-				super.onClick();
-				optionsPane.visible = !optionsPane.visible;
-				optionsPane.active = !optionsPane.active;
-			}
+		heroName = renderTextBlock(9);
+		add(heroName);
 
-			@Override
-			protected void onPointerDown() {
-				super.onPointerDown();
-			}
+		heroDesc = renderTextBlock(6);
+		heroDesc.align(RenderedTextBlock.CENTER_ALIGN);
+		add(heroDesc);
 
-			@Override
-			protected void onPointerUp() {
-				updateOptionsColor();
-			}
+		//add a darkening bar along bottom
+		if (insets.bottom > 0){
+			SkinnedBlock bar = new SkinnedBlock(Camera.main.width, insets.bottom, TextureCache.createSolid(0xAA000000));
+			bar.y = h + insets.top;
+			add(bar);
 
-			@Override
-			protected String hoverText() {
-				return Messages.get(HeroSelectScene.class, "options");
-			}
-		};
-		updateOptionsColor();
-		btnOptions.visible = false;
-
-		if(!SPDSettings.intro()){
-			add(btnOptions);
+			PointerArea blocker = new PointerArea(0, Camera.main.width - insets.bottom, Camera.main.width, insets.bottom);
+			add(blocker);
 		}
 
-		if (landscape()){
-			float leftArea = Math.max(100, w/3f);
-			float uiHeight = Math.min(h-20, 300);
-			float uiSpacing = (uiHeight-120)/2f;
-
-			if (uiHeight >= 160) uiSpacing -= 5;
-			if (uiHeight >= 180) uiSpacing -= 6;
-
-			background.x += insets.left + leftArea/6f;
-
-			float fadeLeftScale = 47 * (leftArea - background.x)/leftArea;
-			fadeLeft.scale = new PointF(3 + Math.max(0, fadeLeftScale), background.height());
-
-			title.setPos(insets.left + (leftArea - title.width())/2f, (h-uiHeight)/2f);
-			align(title);
-
-			int btnWidth = HeroBtn.MIN_WIDTH + 15;
-			int btnHeight = HeroBtn.HEIGHT;
-			if (uiHeight >= 180){
-				btnHeight += 6;
-			}
-
-			//SPS: 每行固定 3 个（原按"职业数对半"分行，左侧栏内会溢出并被遮盖）
-			int cols = 3;
-			float rowStartX = insets.left + (leftArea - btnWidth * cols + (cols-1))/2f;
-			float curX = rowStartX;
-			float curY = title.bottom() + uiSpacing;
-
-			int count = 0;
-			for (StyledButton button : heroBtns){
-				button.setRect(curX, curY, btnWidth, btnHeight);
-				align(button);
-				curX += btnWidth+1;
-				count++;
-				if (count == cols){
-					curX = rowStartX;
-					curY += btnHeight+1;
-					count = 0;
-				}
-			}
-
-			heroName = renderTextBlock(9);
-			heroName.setPos(insets.left, heroBtns.get(heroBtns.size()-1).bottom()+5);
-			add(heroName);
-
-			if (uiHeight >= 160){
-				heroDesc = renderTextBlock(6);
-			} else {
-				heroDesc = renderTextBlock(5);
-			}
-			heroDesc.align(RenderedTextBlock.CENTER_ALIGN);
-			heroDesc.setPos(insets.left, heroName.bottom()+5);
-			add(heroDesc);
-
-			startBtn.text(Messages.titleCase(Messages.get(this, "start")));
-			startBtn.setSize(startBtn.reqWidth()+8, 21);
-			startBtn.setPos(insets.left + (leftArea - startBtn.width())/2f, title.top() + uiHeight - startBtn.height());
-			align(startBtn);
-
-			btnFade = new IconButton(Icons.CHEVRON.get()){
-				@Override
-				protected void onClick() {
-					enable(false);
-					parent.add(new Tweener(parent, 0.5f) {
-						@Override
-						protected void updateValues(float progress) {
-							uiAlpha = 1 - progress;
-							updateFade();
-						}
-					});
-				}
-			};
-			btnFade.icon().originToCenter();
-			btnFade.icon().angle = 270f;
-			btnFade.visible = btnFade.active = false;
-			btnFade.setRect(startBtn.left()-20, startBtn.top(), 20, 21);
-			align(btnFade);
-			add(btnFade);
-
-			btnOptions.setRect(startBtn.right(), startBtn.top(), 20, 21);
-			optionsPane.setPos(btnOptions.right(), btnOptions.top() - optionsPane.height() - 2);
-			align(optionsPane);
-		} else {
-			background.visible = false;
-
-			//SPS: 竖版沿用上游的"两行分列"算法（职业数 > 7 时 2 行）。
-			//原实现的换行判断缺少 count 重置，8 个职业时第 5 个起不会换行、向右溢出，此处补上
-			int rows = heroBtns.size() > 7 ? 2 : 1;
-			int cols = (int)Math.ceil(heroBtns.size() / (float)rows);
-			int btnWidth = Math.max(32, Math.min(HeroBtn.MIN_WIDTH + 15, (int)(w / cols)));
-			float curX = insets.left + (w - btnWidth * cols) / 2f;
-			float rowStart = curX;
-			float curY = insets.top + h - rows * HeroBtn.HEIGHT + 3;
-			int count = 0;
-			for (StyledButton button : heroBtns) {
-				button.setRect(curX, curY, btnWidth, HeroBtn.HEIGHT + insets.bottom);
-				curX += btnWidth;
-				count++;
-				if (count == cols) {
-					curX = rowStart;
-					curY += HeroBtn.HEIGHT;
-					count = 0;
-				}
-			}
-
-			//add a darkening bar along bottom
-			if (insets.bottom > 0){
-				SkinnedBlock bar = new SkinnedBlock(Camera.main.width, insets.bottom, TextureCache.createSolid(0xAA000000));
-				bar.y = h + insets.top;
-				add(bar);
-
-				PointerArea blocker = new PointerArea(0, Camera.main.width - insets.bottom, Camera.main.width, insets.bottom);
-				add(blocker);
-			}
-
-			title.setPos(insets.left + (w - title.width()) / 2f,
-					insets.top + (h - rows * HeroBtn.HEIGHT - title.height() - 4));
-
-			btnOptions.setRect(heroBtns.get(0).left() + 16,
-					Camera.main.height-rows*HeroBtn.HEIGHT-16, 20, 21);
-			optionsPane.setPos(heroBtns.get(0).left(), 0);
-		}
+		layoutScene();
 
 		btnExit = new ExitButton();
 		int ofs = PixelScene.landscape() ? 0 : 4;
@@ -404,26 +264,12 @@ public class HeroSelectScene extends PixelScene {
 		add( btnExit );
 		btnExit.visible = btnExit.active = !SPDSettings.intro();
 
+		//SPSEXPD: 横竖屏统一——点任意处恢复整屏 UI（原先横屏靠 chevron 按钮 + tween 展开左栏）
 		PointerArea fadeResetter = new PointerArea(0, 0, Camera.main.width, Camera.main.height){
 			@Override
 			public boolean onSignal(PointerEvent event) {
 				if (event != null && event.type == PointerEvent.Type.UP){
-					if (uiAlpha == 0 && landscape()){
-						parent.add(new Tweener(parent, 0.5f) {
-							@Override
-							protected void updateValues(float progress) {
-								uiAlpha = progress;
-								updateFade();
-							}
-
-							@Override
-							protected void onComplete() {
-								resetFade();
-							}
-						});
-					} else {
-						resetFade();
-					}
+					resetFade();
 				}
 				return false;
 			}
@@ -444,16 +290,6 @@ public class HeroSelectScene extends PixelScene {
 
 	}
 
-	private void updateOptionsColor(){
-		if (!SPDSettings.customSeed().isEmpty()){
-			btnOptions.icon().hardlight(1f, 1.5f, 0.67f);
-		} else if (SPDSettings.challenges() != 0){
-			btnOptions.icon().hardlight(2f, 1.33f, 0.5f);
-		} else {
-			btnOptions.icon().resetColor();
-		}
-	}
-
 	private void setSelectedHero(HeroClass cl){
 		if (GamesInProgress.selectedClass != cl) {
 			GamesInProgress.selectedSkin = 0;
@@ -462,70 +298,141 @@ public class HeroSelectScene extends PixelScene {
 		GamesInProgress.selectedClass = cl;
 		GamesInProgress.randomizedClass = false;
 
+		//SPSEXPD: 顶部特写横幅（没有特写素材的隐藏职业回退到原职业立绘）
+		String art = cl.closeupArt();
+		if (art == null) art = cl.splashArt();
 		try {
 			//loading these big jpgs fails sometimes, so we have a catch for it
-			background.texture(cl.splashArt());
+			closeup.texture(art);
 		} catch (Exception e){
 			Game.reportException(e);
-			background.texture(TextureCache.createSolid(0xFF2d2f31));
-			background.frame(0, 0, 800, 450);
+			closeup.texture(TextureCache.createSolid(BG_COLOR));
+			closeup.frame(0, 0, 1, 1);
 		}
-		background.visible = true;
-		background.hardlight(1.5f,1.5f,1.5f);
+		closeup.visible = true;
 
-		float leftPortion = Math.max(100, (Camera.main.width - insets.left - insets.right)/3f);
+		heroName.text(Messages.titleCase(cl.title()));
+		heroName.hardlight(Window.TITLE_COLOR);
 
-		if (landscape()) {
+		heroDesc.text(cl.shortDesc());
 
-			heroName.text(Messages.titleCase(cl.title()));
-			heroName.hardlight(Window.TITLE_COLOR);
-			heroName.setPos(insets.left + (leftPortion - heroName.width() - 20)/2f, heroName.top());
-			align(heroName);
+		startBtn.visible = startBtn.active = true;
+		infoButton.visible = infoButton.active = true;
 
-			heroDesc.text(cl.shortDesc());
-			heroDesc.maxWidth(80);
-			heroDesc.setPos(insets.left +(leftPortion - heroDesc.width())/2f, heroName.bottom() + 5);
-			align(heroDesc);
+		layoutScene();
+	}
 
-			while(startBtn.top() < heroDesc.bottom()){
-				heroDesc.maxWidth(heroDesc.maxWidth()+10);
-				heroDesc.setPos(Math.max(insets.left, (leftPortion - heroDesc.width())/2f), heroName.bottom() + 5);
-				align(heroDesc);
-			}
+	//SPSEXPD: 选角界面自上而下的布局：标题 / 特写横幅 / 过渡阴影 / 选角头像 / 英雄名与描述 / 底部选项面板与开始
+	private void layoutScene(){
 
-			btnFade.visible = btnFade.active = true;
+		float w = Math.max(1, Camera.main.width - insets.left - insets.right);
+		float h = Math.max(1, Camera.main.height - insets.top - insets.bottom);
+		float left = insets.left;
 
-			startBtn.visible = startBtn.active = true;
+		//纯色底铺满整屏（含安全区）
+		background.x = 0;
+		background.y = 0;
+		background.scale.set(Camera.main.width, Camera.main.height);
 
-			infoButton.visible = infoButton.active = true;
-			infoButton.setPos(heroName.right(), heroName.top() + (heroName.height() - infoButton.height())/2f);
-			align(infoButton);
+		//标题
+		title.setPos(left + (w - title.width())/2f, insets.top + 2);
+		align(title);
 
-			btnOptions.visible = btnOptions.active = !SPDSettings.intro();
+		//底部：选项面板常显，开始按钮优先放面板右侧（放不下则放面板上方居中）
+		optionsPane.layout();
+		float panelLeft = landscape()
+				? left + 4
+				: left + Math.max(4, (w - optionsPane.width())/2f);
+		optionsPane.setPos(panelLeft, Camera.main.height - insets.bottom - 4 - optionsPane.height());
+		align(optionsPane);
 
+		startBtn.text(Messages.titleCase(Messages.get(this, "start")));
+		startBtn.setSize(startBtn.reqWidth() + 8, 21);
+
+		if (optionsPane.width() + 8 + startBtn.width() <= w){
+			startBtn.setPos(Math.min(left + w - startBtn.width() - 4, optionsPane.right() + 8),
+					optionsPane.top() + (optionsPane.height() - startBtn.height())/2f);
 		} else {
-			title.visible = false;
+			startBtn.setPos(left + (w - startBtn.width())/2f, optionsPane.top() - startBtn.height() - 4);
+		}
+		align(startBtn);
 
-			startBtn.visible = startBtn.active = true;
-			startBtn.text(Messages.titleCase(cl.title()));
-			startBtn.setSize(startBtn.reqWidth() + 8, 21);
+		float bottomTop = Math.min(optionsPane.top(), startBtn.top()) - 4;
 
-			int heroRows = heroBtns.size() > 7 ? 2 : 1;
-			startBtn.setPos((Camera.main.width - startBtn.width())/2f,
-					(Camera.main.height - insets.bottom - heroRows*HeroBtn.HEIGHT + 2 - startBtn.height()));
-			PixelScene.align(startBtn);
+		//英雄描述与名字（自下而上），信息按钮贴在名字右侧、整体居中
+		heroDesc.maxWidth(Math.max(40, (int)(w - 8)));
+		heroDesc.setPos(left + Math.max(0, (w - heroDesc.width())/2f), bottomTop - heroDesc.height());
+		align(heroDesc);
 
-			infoButton.visible = infoButton.active = true;
-			infoButton.setPos(startBtn.right(), startBtn.top());
+		float nameRowW = heroName.width() + 2 + infoButton.width();
+		float nameRowX = left + (w - nameRowW)/2f;
+		heroName.setPos(nameRowX, heroDesc.top() - heroName.height() - 3);
+		align(heroName);
 
-			btnOptions.visible = btnOptions.active = !SPDSettings.intro();
-			btnOptions.setPos(startBtn.left()-btnOptions.width(), startBtn.top());
+		infoButton.setPos(heroName.right() + 2, heroName.top() + (heroName.height() - infoButton.height())/2f);
+		align(infoButton);
 
-			optionsPane.setPos(heroBtns.get(0).left(), startBtn.top() - optionsPane.height() - 2);
-			align(optionsPane);
+		//特写横幅：横屏按宽度完整展示（contain），竖屏放大到屏高 1/3 并裁掉两侧（cover）
+		float tipY = title.bottom() + 3;
+		float avail = Math.max(24, heroName.top() - 4 - tipY);
+
+		float texW = Math.max(1, closeup.width);
+		float texH = Math.max(1, closeup.height);
+
+		float areaH = landscape()
+				? Math.min(texH * (w / texW), avail * 0.55f)
+				: h / 3f;
+		areaH = Math.max(12, Math.min(areaH, avail - 18));
+
+		float closeScale = landscape()
+				? Math.min(w / texW, areaH / texH)
+				: Math.max(w / texW, areaH / texH);
+		closeup.scale.set(closeScale, closeScale);
+		closeup.x = left + (w - texW * closeScale)/2f;
+		closeup.y = tipY + (areaH - texH * closeScale)/2f;
+		align(closeup);
+
+		//特写图底部向背景色过渡的阴影
+		float shadeH = Math.min(areaH * 0.45f, 26);
+		float stepH = shadeH / closeupShade.length;
+		for (int i = 0; i < closeupShade.length; i++){
+			ColorBlock blk = closeupShade[i];
+			blk.x = 0;
+			blk.y = tipY + areaH - shadeH + stepH * i;
+			blk.size(Camera.main.width, stepH + 0.5f);
+			blk.alpha((i + 1f) / closeupShade.length);
+			blk.visible = closeup.visible;
 		}
 
-		updateOptionsColor();
+		//选角头像：横屏一行、竖屏两行，尺寸按剩余空间自适应
+		int rows = landscape() ? 1 : 2;
+		int cols = (int)Math.ceil(heroBtns.size() / (float)rows);
+		float avatarArea = Math.max(16, heroName.top() - 4 - (tipY + areaH));
+		float rowMaxH = (avatarArea - (rows - 1)) / rows;
+		float rowMaxW = (w - 8 - (cols - 1) * 2) / cols - 6;
+		float scale = Math.min(1f, Math.min(rowMaxH / AVATAR_H, rowMaxW / AVATAR_W));
+		scale = Math.max(0.45f, scale);
+
+		float btnW = AVATAR_W * scale + 6;
+		float btnH = AVATAR_H * scale + 4;
+		float rowsH = rows * btnH + (rows - 1);
+		float rowsY = tipY + areaH + Math.max(0, (avatarArea - rowsH)/2f);
+
+		for (int r = 0; r < rows; r++){
+			int count = Math.min(cols, heroBtns.size() - r * cols);
+			if (count <= 0) break;
+			float rowW = count * btnW + (count - 1) * 2;
+			float rowX = left + (w - rowW)/2f;
+			for (int c = 0; c < count; c++){
+				HeroBtn btn = heroBtns.get(r * cols + c);
+				btn.setAvatarScale(scale);
+				btn.setRect(rowX + c * (btnW + 2), rowsY + r * (btnH + 1), btnW, btnH);
+				align(btn);
+			}
+		}
+
+		layoutW = Camera.main.width;
+		layoutH = Camera.main.height;
 	}
 
 	private void chooseSkinAndStart() {
@@ -617,11 +524,16 @@ public class HeroSelectScene extends PixelScene {
 			SPDSettings.intro(false);
 		}
 		btnExit.visible = btnExit.active = !SPDSettings.intro();
+		//SPSEXPD: 屏幕尺寸变化（窗口缩放/旋转）时重排
+		if (Camera.main.width != layoutW || Camera.main.height != layoutH){
+			layoutScene();
+		}
 		//do not fade when a window is open
 		for (Object v : members){
 			if (v instanceof Window) resetFade();
 		}
-		if (!PixelScene.landscape() && GamesInProgress.selectedClass != null) {
+		//SPSEXPD: 横竖屏统一——4 秒后开始淡出整屏 UI，点任意处恢复（特写横幅与其过渡阴影常驻）
+		if (GamesInProgress.selectedClass != null) {
 			if (uiAlpha > 0f){
 				uiAlpha -= Game.elapsed/4f;
 			}
@@ -632,48 +544,20 @@ public class HeroSelectScene extends PixelScene {
 	private void updateFade(){
 		float alpha = GameMath.gate(0f, uiAlpha, 1f);
 		title.alpha(alpha);
-		for (StyledButton b : heroBtns){
+		for (HeroBtn b : heroBtns){
 			b.enable(alpha != 0);
 			b.alpha(alpha);
 		}
-		if (heroName != null){
-			heroName.alpha(alpha);
-			heroDesc.alpha(alpha);
-			btnFade.enable(alpha != 0);
-			btnFade.icon().alpha(alpha);
-		}
+		heroName.alpha(alpha);
+		heroDesc.alpha(alpha);
 		startBtn.enable(alpha != 0);
 		startBtn.alpha(alpha);
 		btnExit.enable(btnExit.visible && alpha != 0);
 		btnExit.icon().alpha(alpha);
 		optionsPane.active = optionsPane.visible && alpha != 0;
 		optionsPane.alpha(alpha);
-		btnOptions.enable(alpha != 0);
-		btnOptions.icon().alpha(alpha);
 		infoButton.enable(alpha != 0);
 		infoButton.icon().alpha(alpha);
-
-		if (landscape()){
-
-			int w = (int)(Camera.main.width - insets.left - insets.right);
-
-			background.x = insets.left + (w - background.width())/2f;
-
-			float leftPortion = Math.max(100, w/3f);
-
-			background.x += (leftPortion/2f)*alpha;
-
-			float fadeLeftScale = 47 * (leftPortion - (background.x - insets.left))/leftPortion;
-			fadeLeft.scale.x = 3 + Math.max(fadeLeftScale, 0)*alpha;
-			fadeLeft.x = background.x-4;
-			fadeRight.x = background.x + background.width() + 4;
-		}
-
-		fadeLeft.x = background.x-5;
-		fadeRight.x = background.x + background.width() + 5;
-
-		fadeLeft.visible = background.x > 0 || (alpha > 0 && landscape());
-		fadeRight.visible = background.x + background.width() < Camera.main.width;
 	}
 
 	private void resetFade(){
@@ -695,16 +579,26 @@ public class HeroSelectScene extends PixelScene {
 
 		private HeroClass cl;
 
-		private static final int MIN_WIDTH = 20;
-		private static final int HEIGHT = 24;
-
 		HeroBtn ( HeroClass cl ){
 			super(Chrome.Type.GREY_BUTTON_TR, "");
 
 			this.cl = cl;
 
-			icon(new Image(cl.spritesheet(), 0, 90, 12, 15));
+			//SPSEXPD: 头像取自 splashes/avatars.png（格序同可玩职业列表）；无头像的职业回退到原站立帧
+			Image avatar = new Image(Assets.Splashes.AVATARS);
+			int idx = cl.avatarIndex();
+			if (idx >= 0){
+				avatar.frame(idx * AVATAR_W, 0, AVATAR_W, AVATAR_H);
+			} else {
+				avatar.texture(cl.spritesheet());
+				avatar.frame(0, 90, 12, 15);
+			}
+			icon(avatar);
+		}
 
+		void setAvatarScale(float scale){
+			icon.scale.set(scale);
+			layout();
 		}
 
 		@Override
@@ -735,15 +629,6 @@ public class HeroSelectScene extends PixelScene {
 				ShatteredPixelDungeon.scene().addToFront(w);
 			} else {
 				setSelectedHero(cl);
-			}
-		}
-
-		@Override
-		protected void layout() {
-			super.layout();
-			//if we're super tall (i.e. rendering into display inset) then put hero at the top
-			if (height > 30) {
-				icon.y = y + (HEIGHT - icon.height()) / 2f;
 			}
 		}
 	}
@@ -807,7 +692,6 @@ public class HeroSelectScene extends PixelScene {
 								SPDSettings.customSeed("");
 								icon.resetColor();
 							}
-							updateOptionsColor();
 						}
 					});
 				}
@@ -931,7 +815,6 @@ public class HeroSelectScene extends PixelScene {
 						public void onBackPressed() {
 							super.onBackPressed();
 							icon(Icons.get(SPDSettings.challenges() > 0 ? Icons.CHALLENGE_COLOR : Icons.CHALLENGE_GREY));
-							updateOptionsColor();
 						}
 					} );
 				}
