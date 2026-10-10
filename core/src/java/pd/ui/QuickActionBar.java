@@ -116,35 +116,39 @@ public class QuickActionBar extends Component {
 		}
 	}
 
+	//SPSEXPD: 按钮相对本组件的水平偏移——整体左移 2px
+	private static final float BUTTON_X_OFFSET = -2f;
+
 	//SPSEXPD: 自下而上排列——底部固定，按钮按可见性往上堆；位于屏幕上方时改为自上而下生长
 	private void layoutButtons() {
+		float bx = x + BUTTON_X_OFFSET;
 		if (growDown) {
 			float t = y;
 			if (btnLight.visible) {
-				btnLight.setPos( x, t );
+				btnLight.setPos( bx, t );
 				t += STEP;
 			}
 			if (btnTalent.visible) {
-				btnTalent.setPos( x, t );
+				btnTalent.setPos( bx, t );
 				t += STEP;
 			}
 			if (btnEat.visible) {
-				btnEat.setPos( x, t );
+				btnEat.setPos( bx, t );
 			}
 			return;
 		}
 
 		float b = y + BTN_H;
 		if (btnEat.visible) {
-			btnEat.setPos( x, b - BTN_H );
+			btnEat.setPos( bx, b - BTN_H );
 			b -= STEP;
 		}
 		if (btnTalent.visible) {
-			btnTalent.setPos( x, b - BTN_H );
+			btnTalent.setPos( bx, b - BTN_H );
 			b -= STEP;
 		}
 		if (btnLight.visible) {
-			btnLight.setPos( x, b - BTN_H );
+			btnLight.setPos( bx, b - BTN_H );
 		}
 	}
 
