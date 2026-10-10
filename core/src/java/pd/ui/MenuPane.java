@@ -42,11 +42,8 @@ import render.input.GameAction;
 import render.noosa.BitmapText;
 import render.noosa.Game;
 import render.noosa.Image;
-import render.noosa.NinePatch;
 import render.noosa.audio.Sample;
 import render.noosa.ui.Component;
-import render.utils.platform.DeviceCompat;
-
 public class MenuPane extends Component {
 
 	private Image bg;
@@ -67,9 +64,6 @@ public class MenuPane extends Component {
 
 	private Toolbar.PickedUpItem pickedUp;
 
-	private BitmapText version;
-	private NinePatch versionOverflowBG;
-
 	private DangerIndicator danger;
 
 	public static final int WIDTH = 31;
@@ -81,12 +75,7 @@ public class MenuPane extends Component {
 		bg = new Image(Assets.Interfaces.MENU, 1, 0, 31, 21);
 		add(bg);
 
-		versionOverflowBG = new NinePatch(bg.texture, 1, 22, 6, 8, 3, 0, 2, 0);
-		add(versionOverflowBG);
-
-		version = new BitmapText( "v" + Game.version , PixelScene.pixelFont);
-		version.hardlight( 0xCACFC2 );
-		add(version);
+		//SPSEXPD: 右上角不再显示版本号（version 文本与溢出底已整体移除）
 
 		depthIcon = Icons.get(Dungeon.level.feeling);
 		add(depthIcon);
@@ -175,25 +164,6 @@ public class MenuPane extends Component {
 
 		bg.x = x;
 		bg.y = y;
-
-		version.scale.set(PixelScene.align(0.5f));
-		version.measure();
-
-		float rightMargin = DeviceCompat.isDesktop() ? 1 : 8;
-		if (DeviceCompat.isDebug()) rightMargin = 1; //don't care about hiding 'indev'
-		float overFlow = version.width()-(bg.width()-4-rightMargin);
-		if (overFlow >= 1){
-			version.x = x + 2 - overFlow;
-			versionOverflowBG.size(overFlow+3, 8);
-			versionOverflowBG.x = version.x-3;
-			versionOverflowBG.y = y;
-		} else {
-			version.x = x + 3;
-			versionOverflowBG.visible = false;
-		}
-		version.y = y + 3 - (version.baseLine()*version.scale.y)/2f;
-		version.y -= .001f;
-		PixelScene.align(version);
 
 		btnMenu.setPos( x + WIDTH - btnMenu.width(), y );
 
