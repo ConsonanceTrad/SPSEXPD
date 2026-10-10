@@ -57,11 +57,12 @@ public final class SpsTownBlockWeaponsTest {
 	private static void testStatsAndCombat() {
 		GoblinShield shield = new GoblinShield();
 		SpKnuckles knuckles = new SpKnuckles();
-		check(shield.tier == 3 && shield.min(0) == 8 && shield.max(0) == 18
-				&& shield.min(3) == 14 && shield.max(3) == 27 && shield.STRReq(0) == 14,
+		//SPSEXPD: 数值曲线统一到破碎式（T3 => +0 3-20、+3 6-32）
+		check(shield.tier == 3 && shield.min(0) == 3 && shield.max(0) == 20
+				&& shield.min(3) == 6 && shield.max(3) == 32 && shield.STRReq(0) == 14,
 				"哥布林神盾数值或成长错误");
 		check(knuckles.tier == 1 && knuckles.min(0) == 1 && knuckles.max(0) == 10
-				&& knuckles.min(3) == 7 && knuckles.max(3) == 19 && knuckles.STRReq(0) == 10,
+				&& knuckles.min(3) == 4 && knuckles.max(3) == 16 && knuckles.STRReq(0) == 10,
 				"特制指虎数值或成长错误");
 
 		Hero attacker = hero(100);

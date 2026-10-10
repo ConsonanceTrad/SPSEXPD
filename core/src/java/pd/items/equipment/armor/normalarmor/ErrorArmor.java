@@ -37,6 +37,9 @@ public class ErrorArmor extends NormalArmor {
 		super(0, 1f, 1f, 10, 0, 0, -8, 0, 0, SpecificPlaceHolderDict.SOMETHING_0);
 	}
 
+	//SPSEXPD: 错误护甲保持旧版「零防御、零力量需求」的语义（DR 由 tier 0 自然为 0）
+	@Override public int STRReq(int lvl) { return 0; }
+
 	@Override
 	public int proc(Char attacker, Char defender, int damage) {
 		switch (Random.Int(10)) {

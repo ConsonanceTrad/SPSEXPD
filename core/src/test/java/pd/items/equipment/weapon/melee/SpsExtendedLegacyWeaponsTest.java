@@ -198,14 +198,16 @@ public final class SpsExtendedLegacyWeaponsTest {
 		level();
 		Hero hero = hero(27);
 		StoneCross cross = new StoneCross();
-		check(cross.tier == 5 && cross.min(0) == 50 && cross.max(0) == 66
-				&& cross.min(3) == 53 && cross.max(3) == 78 && cross.STRReq(0) == 18,
+		//SPSEXPD: 数值曲线统一到破碎式（T5 => +0 5-30、+3 8-48）
+		check(cross.tier == 5 && cross.min(0) == 5 && cross.max(0) == 30
+				&& cross.min(3) == 8 && cross.max(3) == 48 && cross.STRReq(0) == 18,
 				"十碑基础数值或强化成长错误");
 		PlainMob target = mob(28);
 		for (int i = 0; i < StoneCross.FULL_CHARGE; i++) cross.proc(hero, target, 1);
 		check(cross.charge() == 20, "十碑没有积蓄20次攻击");
 		int chargedDamage = cross.damageRoll(hero);
-		check(chargedDamage >= 250 && chargedDamage <= 330, "十碑满充没有造成五倍伤害：" + chargedDamage);
+		//SPSEXPD: 满充 = 基础伤害 5-30 的五倍
+		check(chargedDamage >= 25 && chargedDamage <= 150, "十碑满充没有造成五倍伤害：" + chargedDamage);
 		Bundle saved = new Bundle();
 		cross.storeInBundle(saved);
 		StoneCross restored = new StoneCross();
@@ -219,14 +221,15 @@ public final class SpsExtendedLegacyWeaponsTest {
 		MirrorDoll mirror = new MirrorDoll();
 		HandLight light = new HandLight();
 		CurseBox box = new CurseBox();
-		check(mirror.tier == 2 && mirror.min(0) == 12 && mirror.max(0) == 17
-				&& mirror.min(3) == 18 && mirror.max(3) == 26 && mirror.STRReq(0) == 12,
+		//SPSEXPD: 数值曲线统一到破碎式后，三件破法武器的伤害只由 tier 决定
+		check(mirror.tier == 2 && mirror.min(0) == 2 && mirror.max(0) == 15
+				&& mirror.min(3) == 5 && mirror.max(3) == 24 && mirror.STRReq(0) == 12,
 				"持镜人偶数值错误");
-		check(light.tier == 4 && light.min(0) == 29 && light.max(0) == 38
-				&& light.min(3) == 35 && light.max(3) == 50 && light.STRReq(0) == 16,
+		check(light.tier == 4 && light.min(0) == 4 && light.max(0) == 25
+				&& light.min(3) == 7 && light.max(3) == 40 && light.STRReq(0) == 16,
 				"神拳灯数值错误");
-		check(box.tier == 5 && box.min(0) == 40 && box.max(0) == 50
-				&& box.min(3) == 46 && box.max(3) == 62 && box.STRReq(0) == 18,
+		check(box.tier == 5 && box.min(0) == 5 && box.max(0) == 30
+				&& box.min(3) == 8 && box.max(3) == 48 && box.STRReq(0) == 18,
 				"魔箱数值错误");
 		checkMagicBreak(mirror, 5f, 30);
 		checkMagicBreak(light, 3f, 31);

@@ -47,11 +47,6 @@ public final class SpsLegacyArmorTest {
 	private static final float[] STE = {6f, 1f, 12f, 5f, .5f, 11f, 4f, 0f, 10f,
 			3f, -.5f, 9f, 2f, -1f, 8f, 1f, -2f, 7f};
 	private static final int[] ENG = {3, 2, 1, 3, 3, 2, 4, 4, 3, 4, 3, 4, 3, 2, 3, 3, 1, 2};
-	private static final int[] BASE_MIN = {0, 2, 0, 0, 4, 0, 0, 6, 0, 0, 8, 0, 0, 10, 0, 0, 15, 0};
-	private static final int[] BASE_MAX = {4, 6, 2, 12, 18, 8, 20, 26, 15, 28, 36, 22, 36, 46, 30, 44, 60, 35};
-	private static final int[] MIN_GROWTH = {1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 3, 0};
-	private static final int[] MAX_GROWTH = {3, 3, 1, 3, 3, 1, 3, 4, 2, 3, 4, 2, 3, 5, 3, 3, 5, 3};
-	private static final int[] STR_OFFSET = {0, 1, -1, 0, 1, -1, 0, 1, -1, 0, 1, -1, 0, 1, -1, 0, 1, -1};
 	private static final IconEntry[] images = {
 			EquipmentEquipArmorBasicArmorDict.ARMOR_CLOTH_0, EquipmentEquipArmorBasicArmorDict.WOODEN_ARMOR, SpecificPlaceHolderDict.SOMETHING_0,
 			EquipmentEquipArmorBasicArmorDict.ARMOR_LEATHER_0, EquipmentEquipArmorBasicArmorDict.CERAMICS_ARMOR, SpecificPlaceHolderDict.SOMETHING_0,
@@ -103,14 +98,13 @@ public final class SpsLegacyArmorTest {
 			check(armor.tier == TIERS[i], armor.getClass().getSimpleName() + "阶级错误");
 			check(close(armor.DEX, DEX[i]) && close(armor.STE, STE[i]) && armor.ENG == ENG[i],
 					armor.getClass().getSimpleName() + "闪避、潜行或技能能量错误");
-			check(armor.DRMin(0) == BASE_MIN[i] && armor.DRMax(0) == BASE_MAX[i],
+			//SPSEXPD: DR 与力量需求统一到破碎式（Armor）：DRMin=lvl、DRMax=tier*(2+lvl)、STRReq 随等级下降
+			check(armor.DRMin(0) == 0 && armor.DRMax(0) == 2 * TIERS[i],
 					armor.getClass().getSimpleName() + "基础防御错误");
-			check(armor.DRMin(4) == BASE_MIN[i] + MIN_GROWTH[i] * 4
-					&& armor.DRMax(4) == BASE_MAX[i] + MAX_GROWTH[i] * 4,
+			check(armor.DRMin(4) == 4 && armor.DRMax(4) == 6 * TIERS[i],
 					armor.getClass().getSimpleName() + "升级成长错误");
-			int expectedStrength = 8 + TIERS[i] * 2 + STR_OFFSET[i];
-			check(armor.STRReq(0) == expectedStrength && armor.STRReq(10) == expectedStrength,
-					armor.getClass().getSimpleName() + "固定力量需求错误");
+			check(armor.STRReq(0) == 8 + TIERS[i] * 2 && armor.STRReq(10) == 4 + TIERS[i] * 2,
+					armor.getClass().getSimpleName() + "力量需求错误");
 			check(armor.image == images[i], armor.getClass().getSimpleName() + "图标槽错误");
 		}
 	}
@@ -119,7 +113,8 @@ public final class SpsLegacyArmorTest {
 		Hero hero = new Hero();
 		hero.STR = 100;
 		CeramicsArmor ceramics = new CeramicsArmor();
-		check(close(ceramics.evasionFactor(hero, 10f), 8f), "防具DEX没有接入闪避结算");
+		//SPSEXPD: DEX 已收敛为有界加项（1.0 为中性），0.8 的 DEX 把 10 点闪避放大到 9
+		check(close(ceramics.evasionFactor(hero, 10f), 9f), "防具DEX没有接入闪避结算");
 		hero.belongings.armor = new VestArmor();
 		check(close(hero.stealth(), 12f), "防具STE没有接入英雄潜行");
 		hero.subClass = HeroSubClass.AGENT;
@@ -127,11 +122,11 @@ public final class SpsLegacyArmorTest {
 
 		WoodenArmor wooden = new WoodenArmor();
 		hero.STR = 20;
-		check(wooden.damageReductionFactor(hero, 5) == 14, "超额力量没有增加旧版防御");
+		check(wooden.damageReductionFactor(hero, 5) == 5, "超额力量不再增加减伤");
 		hero.STR = 10;
-		check(wooden.damageReductionFactor(hero, 5) == 5, "轻微力量不足处罚不符合旧版");
+		check(wooden.damageReductionFactor(hero, 5) == 5, "力量刚好时不应扣减伤");
 		hero.STR = 8;
-		check(wooden.damageReductionFactor(hero, 5) == 0, "严重力量不足处罚不符合旧版");
+		check(wooden.damageReductionFactor(hero, 5) == 1, "力量不足应按每点扣两点减伤");
 	}
 
 	private static void testSkillEnergy() throws Exception {
@@ -163,9 +158,10 @@ public final class SpsLegacyArmorTest {
 		MachineArmor restored = new MachineArmor();
 		restored.restoreFromBundle(bundle);
 		check(restored.level() == 3, "防具升级等级没有随存档恢复");
-		check(restored.DRMin() == 24 && restored.DRMax() == 75,
-				"升级防具读档后丢失旧版防御成长");
-		check(restored.STRReq() == 21, "升级防具读档后力量需求错误变化");
+		//SPSEXPD: +3 的 T6 护甲 => DRMin 3 / DRMax 6*(2+3)=30；STRReq(3) = (8+12)-2 = 18
+		check(restored.DRMin() == 3 && restored.DRMax() == 30,
+				"升级防具读档后防御数值错误");
+		check(restored.STRReq(restored.level()) == 18, "升级防具读档后力量需求错误变化");
 	}
 
 	private static void testBrokenSealCarry() throws Exception {

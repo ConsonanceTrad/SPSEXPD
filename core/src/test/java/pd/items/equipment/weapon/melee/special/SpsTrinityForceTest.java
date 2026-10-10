@@ -55,7 +55,8 @@ public final class SpsTrinityForceTest {
 		Hero hero = new Hero();
 		Dungeon.hero = hero;
 		TrinityForce weapon = new TrinityForce();
-		check(weapon.tier == 5 && weapon.min(0) == 8 && weapon.max(0) == 20 && weapon.STRReq(0) == 18,
+		//SPSEXPD: 数值曲线统一到破碎式（T5 => +0 5-30）
+		check(weapon.tier == 5 && weapon.min(0) == 5 && weapon.max(0) == 30 && weapon.STRReq(0) == 18,
 				"三相之力基础数值或力量需求错误");
 		check(weapon.legacyReach(0) == 2, "三相之力攻击距离不是2");
 		check(Math.abs(weapon.legacyDelay(0) - 1f) < 0.00001f, "三相之力攻击延迟不是1.0");

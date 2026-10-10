@@ -333,7 +333,8 @@ public final class SpsSkinThreeTest {
 		TestLevel level = freshLevel();
 		Hero hero = freshHero(level);
 		Whisk whisk = new Whisk();
-		check(whisk.min() == 8 && whisk.max() == 15 && whisk.legacyAccuracy(0) == 1f
+		//SPSEXPD: 数值曲线统一到破碎式（Whisk 为 T3 => +0 3-20）
+		check(whisk.min() == 3 && whisk.max() == 20 && whisk.legacyAccuracy(0) == 1f
 				&& whisk.legacyDelay(0) == 1f && whisk.legacyReach(0) == 2, "拂尘木剑旧版基础数值错误");
 		TestMob target = mobAt(level, CENTER + 2);
 		for (int i = 0; i < 10; i++) whisk.proc(hero, target, 10);

@@ -208,7 +208,9 @@ public final class SpsSpecialRoomsTest {
 				"护甲石像命中错误");
 		check(armorStatue.armor() instanceof NormalArmor && armorStatue.armor().isIdentified()
 				&& armorStatue.armor().glyph != null, "护甲石像没有生成已鉴定刻印普通护甲");
-		int expectedDefense = Math.round(((NormalArmor)armorStatue.armor()).DEX * (4 + Dungeon.depth));
+		NormalArmor statueArmor = (NormalArmor)armorStatue.armor();
+		//SPSEXPD: DEX 已收敛为有界加项（1.0 中性），石像闪避 = (4+depth) * (1 + (DEX-1)*0.5)
+		int expectedDefense = Math.round((4 + Dungeon.depth) * (1f + (statueArmor.DEX - 1f) * 0.5f));
 		check(armorStatue.defenseSkill(Dungeon.hero) == expectedDefense, "护甲石像闪避没有使用护甲敏捷");
 		for (int i = 0; i < 50; i++) {
 			int damage = armorStatue.damageRoll();

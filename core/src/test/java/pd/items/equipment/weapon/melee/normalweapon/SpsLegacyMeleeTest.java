@@ -39,10 +39,11 @@ public final class SpsLegacyMeleeTest {
 			Gsword.class, Halberd.class, WarHammer.class, Lance.class
 	};
 	private static final int[] TIERS = {1,1,1,1, 2,2,2,2, 3,3,3,3, 4,4,4,4, 5,5,5,5};
-	private static final int[] BASE_MIN = {1,1,1,1, 11,14,11,11, 18,23,24,18, 26,36,42,28, 50,62,41,35};
-	private static final int[] BASE_MAX = {10,10,10,10, 22,30,17,17, 27,35,35,25, 34,49,60,40, 64,82,56,44};
-	private static final int[] LEVEL4_MIN = {9,9,17,9, 23,22,19,19, 30,31,32,22, 42,40,50,44, 66,66,49,43};
-	private static final int[] LEVEL4_MAX = {18,18,26,22, 42,54,29,29, 39,59,51,49, 50,85,96,56, 80,114,80,68};
+	//SPSEXPD: 数值曲线统一到破碎式后，同 tier 武器的 +0/+4 伤害只由 tier 决定
+	private static final int[] BASE_MIN = {1,1,1,1, 2,2,2,2, 3,3,3,3, 4,4,4,4, 5,5,5,5};
+	private static final int[] BASE_MAX = {10,10,10,10, 15,15,15,15, 20,20,20,20, 25,25,25,25, 30,30,30,30};
+	private static final int[] LEVEL4_MIN = {5,5,5,5, 6,6,6,6, 7,7,7,7, 8,8,8,8, 9,9,9,9};
+	private static final int[] LEVEL4_MAX = {18,18,18,18, 27,27,27,27, 36,36,36,36, 45,45,45,45, 54,54,54,54};
 	private static final IconEntry[] images = {
 			SpecificPlaceHolderDict.SOMETHING_0, SpecificPlaceHolderDict.SOMETHING_0,
 			SpecificPlaceHolderDict.SOMETHING_0, SpecificPlaceHolderDict.SOMETHING_0,
@@ -122,8 +123,8 @@ public final class SpsLegacyMeleeTest {
 		}
 		check(close(new Dagger().legacyAccuracy(4), 1.8f), "匕首命中成长错误");
 		check(close(new Knuckles().legacyDelay(20), .3f) && new Knuckles().legacyReach(20) == 2, "指虎攻速或距离成长错误");
-		check(new MageBook().STRReq(10) == 1 && new MageBook().legacyReach(10) == 3, "魔典力量或距离成长错误");
-		check(new Handaxe().STRReq(10) == 10, "手斧力量成长错误");
+		check(new MageBook().STRReq(10) == 6 && new MageBook().legacyReach(10) == 3, "魔典力量或距离成长错误");
+		check(new Handaxe().STRReq(10) == 8, "手斧力量成长错误");
 		check(new Spear().legacyReach(20) == 3, "长矛距离成长错误");
 		check(new FightGloves().legacyReach(20) == 2, "战斗拳套距离成长错误");
 	}
@@ -152,7 +153,7 @@ public final class SpsLegacyMeleeTest {
 		MageBook restored = new MageBook();
 		restored.restoreFromBundle(bundle);
 		check(restored.level() == 10 && restored.min() == source.min() && restored.max() == source.max(), "魔典升级伤害没有随存档恢复");
-		check(restored.STRReq() == 1 && restored.legacyReach(restored.level()) == 3, "魔典升级属性没有随存档恢复");
+		check(restored.STRReq() == 6 && restored.legacyReach(restored.level()) == 3, "魔典升级属性没有随存档恢复");
 	}
 
 	private static void testLegacyIcons() throws Exception {

@@ -55,9 +55,10 @@ public abstract class NormalMeleeWeapon extends MeleeWeapon {
 		return result;
 	}
 
-	@Override public int min(int level) { return stats(level).min; }
-	@Override public int max(int level) { return stats(level).max; }
-	@Override public int STRReq(int level) { return stats(level).strength; }
+	//SPSEXPD: 数值曲线统一到破碎式（MeleeWeapon）——min/max 走 tier 曲线、STRReq 随等级下降。
+	// 这里不再覆写 min/max/STRReq，旧版「线性成长 + 恒定力量需求 + 子类 min/max 增量」因此失效；
+	// stats() 仍保留（其 min/max 结果不再被读取），只为 legacyAccuracy/legacyDelay/legacyReach
+	// 提供 SPS 的 acc/delay/reach 手感。
 
 	public float legacyAccuracy(int level) { return stats(level).accuracy; }
 	public float legacyDelay(int level) { return stats(level).delay; }
@@ -89,7 +90,12 @@ public abstract class NormalMeleeWeapon extends MeleeWeapon {
 				? Hero.heroDamageIntRange(min(), max())
 				: Random.NormalIntRange(min(), max());
 		damage = augment.damageFactor(damage);
-		if (owner instanceof Hero) damage += Math.max(0, ((Hero)owner).STR() - STRReq());
+		//SPSEXPD: 超额力量改为随机骰（与破碎式 MeleeWeapon 一致），不再是每点定值 +1，
+		// 让「堆力量 = 堆伤害」的线性收益降半。
+		if (owner instanceof Hero) {
+			int exStr = ((Hero)owner).STR() - STRReq();
+			if (exStr > 0) damage += Hero.heroDamageIntRange(0, exStr);
+		}
 		return damage;
 	}
 

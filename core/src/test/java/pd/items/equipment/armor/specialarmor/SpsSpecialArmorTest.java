@@ -36,11 +36,6 @@ public final class SpsSpecialArmorTest {
 	private static final float[] DEX = {1f, 3f, 5f, 2.4f, 4f, 1f, 3.5f, 3.5f};
 	private static final float[] STE = {1f, 7f, 13f, 6f, 12f, 1f, 10f, 11f};
 	private static final int[] ENG = {2, 4, 2, 4, 3, 2, 5, 4};
-	private static final int[] BASE_MIN = {20, 0, 0, 0, 0, 20, 0, 0};
-	private static final int[] BASE_MAX = {40, 4, 2, 12, 10, 40, 20, 15};
-	private static final int[] MIN_GROWTH = {3, 1, 1, 1, 1, 0, 1, 1};
-	private static final int[] MAX_GROWTH = {5, 4, 3, 3, 3, 3, 3, 3};
-	private static final int[] STR_OFFSET = {0, 0, -1, 0, -1, 1, -1, -1};
 	private static final IconEntry[] images = {SpecificPlaceHolderDict.SOMETHING_0, SpecificPlaceHolderDict.SOMETHING_0,
 			SpecificPlaceHolderDict.SOMETHING_0, SpecificPlaceHolderDict.SOMETHING_0,
 			SpecificPlaceHolderDict.SOMETHING_0, SpecificPlaceHolderDict.SOMETHING_0,
@@ -83,12 +78,11 @@ public final class SpsSpecialArmorTest {
 			NormalArmor armor = (NormalArmor)CLASSES[i].getDeclaredConstructor().newInstance();
 			check(armor.tier == TIERS[i] && close(armor.DEX, DEX[i]) && close(armor.STE, STE[i])
 					&& armor.ENG == ENG[i], armor.getClass().getSimpleName() + "阶级或SPS属性错误");
-			check(armor.DRMin(0) == BASE_MIN[i] && armor.DRMax(0) == BASE_MAX[i]
-					&& armor.DRMin(4) == BASE_MIN[i] + 4 * MIN_GROWTH[i]
-					&& armor.DRMax(4) == BASE_MAX[i] + 4 * MAX_GROWTH[i],
+			//SPSEXPD: DR 与力量需求统一到破碎式（Armor）：DRMin=lvl、DRMax=tier*(2+lvl)、STRReq 随等级下降
+			check(armor.DRMin(0) == 0 && armor.DRMax(0) == 2 * TIERS[i]
+					&& armor.DRMin(4) == 4 && armor.DRMax(4) == 6 * TIERS[i],
 					armor.getClass().getSimpleName() + "防御或成长错误");
-			int strength = 8 + TIERS[i] * 2 + STR_OFFSET[i];
-			check(armor.STRReq(0) == strength && armor.STRReq(10) == strength,
+			check(armor.STRReq(0) == 8 + TIERS[i] * 2 && armor.STRReq(10) == 4 + TIERS[i] * 2,
 					armor.getClass().getSimpleName() + "力量需求错误");
 			check(armor.image == images[i], armor.getClass().getSimpleName() + "图标槽错误");
 		}
@@ -141,7 +135,8 @@ public final class SpsSpecialArmorTest {
 		source.storeInBundle(bundle);
 		WarriorArmor restored = new WarriorArmor();
 		restored.restoreFromBundle(bundle);
-		check(restored.level() == 3 && restored.DRMin() == 29 && restored.DRMax() == 55,
+		//SPSEXPD: +3 的 T7 英雄护甲 => DRMin 3 / DRMax 7*(2+3)=35
+		check(restored.level() == 3 && restored.DRMin() == 3 && restored.DRMax() == 35,
 				"特殊护甲升级数值没有随存档恢复");
 	}
 
