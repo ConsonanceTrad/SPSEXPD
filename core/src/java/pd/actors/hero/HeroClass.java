@@ -342,7 +342,8 @@ public enum HeroClass {
 		new NutCake().identify().collect();
 		if (hero.skin == 3) new YearFood().identify().collect();
 
-		new ScrollOfIdentify().identify();
+		//SPSEXPD: 原本这里有一句 new ScrollOfIdentify().identify()（游离实例），
+		//但 Scroll.identify() 会 setKnown() 全局标记该类型已知 —— 开局不该自带这种鉴定状态，故删除。
 
 		if (hero.skin == 5) initChaoticSkin(hero);
 
@@ -529,7 +530,9 @@ public enum HeroClass {
 		Item shoes = Generator.random(Generator.Category.SHOES);
 		if (shoes != null) shoes.identify().collect();
 		new KnowledgeBook().collect();
-		new ScrollOfRemoveCurse().identify().collect();
+		//SPSEXPD: 原本是 identify().collect()，但 Scroll.identify() 会 setKnown() 全局标记该类型已知，
+		//开局不该自带这种鉴定状态 —— 保留物品、去掉鉴定
+		new ScrollOfRemoveCurse().collect();
 		new TransmutationBall().collect();
 		new TransmutationBall().collect();
 	}
@@ -1035,10 +1038,14 @@ public enum HeroClass {
 
 	/**
 	 * SPSEXPD: 开局默认不鉴定的物品类型 —— 照原实现，这些物品开场本来就是未鉴定的。
-	 * 个别同类型但原本有鉴定的条目可在 startingItems 里用 Loadout.identified() 覆盖。
+	 * 另外药水/卷轴一律不鉴定：它们的 identify() 会调用 setKnown() 全局标记该类型为已知，
+	 * 开局不该自带这种「鉴定状态」（玩家自己鉴定）。
+	 * 个别同类型但确实要鉴定的条目可在 startingItems 里用 Loadout.identified() 覆盖。
 	 */
 	private static boolean identifyOnStart(Item item) {
 		if (item == null) return false;
+		if (item instanceof pd.items.consum.potions.Potion) return false;
+		if (item instanceof pd.items.consum.scrolls.Scroll) return false;
 		return !(item instanceof JumpW || item instanceof JumpS || item instanceof JumpR
 				|| item instanceof JumpM || item instanceof JumpP || item instanceof JumpA
 				|| item instanceof JumpH
