@@ -321,10 +321,8 @@ public class WndBag extends WndTabbed {
 		}
 
 		//SPS: 标签带贴近窗口外缘、四周内缩 1px——露出 1px 窗口边框作过渡
-		//（微调定稿：0px 盖压略大、2px 内缩略小，1px 正好）
-		float top = -chrome.marginTop() + 1;
-		//SPS: 底部多留 1px 内边距（上 1 + 下 2），让左栏第 5 个标签与背包下边缘像素衔接
-		float usableH = height + chrome.marginVer() - 3;
+		//SPSEXPD: 再整体上移 1px（用户要求），去掉这里的 +1 内缩
+		float top = -chrome.marginTop();
 
 		int bagCount = n - 1;                                  //除主背包
 		int leftCount = Math.min( bagCount, LEFT_TABS );
@@ -332,9 +330,9 @@ public class WndBag extends WndTabbed {
 		//SPS: 左右两栏每项都恒定占 1/5 格位（不拉伸）。
 		//整数网格（用户裁决 2026-09-30）：标签页间恒留 1px 间隙避免像素融合——
 		//高度 = g-1、步进 = g（浮点步进取整会在 0~1px 间抖动导致相邻标签粘连/融合）
-		//SPSEXPD: 用户要求竖版标签矮一些——格位由 5 调到 6，于是单个标签变矮、整列也随之整体上移
-		//（主背包仍固定第 LEFT_TABS 格，所以底部会自然留出余量）
-		int g = Math.max( 2, (int)( (usableH + 1) / 6 ) );
+		//SPSEXPD: 用户要求竖版标签矮一些、且随背包缩放同步变小——直接把格距绑到背包格子高度
+		//（g - 1 == slotHeight），于是标签与格子等高，窗口缩小时标签自然一起变矮
+		int g = Math.max( 2, slotHeight + 1 );
 
 		//SPS: 标签在窗框外侧——未选中时压在窗框下、选中时探入框带。
 		//SPSEXPD: 去掉原来的 2px 外移——未选中帧正好与窗口边缘邻接，选中帧则完整盖住背包界面的边框带
