@@ -62,6 +62,9 @@ public class MenuPane extends Component {
 	private JournalButton btnJournal;
 	private MenuButton btnMenu;
 
+	//SPSEXPD: 右上角按钮组里的游戏内时间（HH:MM，夜晚转蓝），排在事件记录/深度图标左侧
+	private TimeIndicator clock;
+
 	private Toolbar.PickedUpItem pickedUp;
 
 	private BitmapText version;
@@ -147,10 +150,23 @@ public class MenuPane extends Component {
 		btnMenu = new MenuButton();
 		add( btnMenu );
 
+		//SPSEXPD: 时间指示器与菜单/事件记录同属右上角这一组按钮
+		clock = new TimeIndicator();
+		add( clock );
+
 		danger = new DangerIndicator();
 		add( danger );
 
 		add( pickedUp = new Toolbar.PickedUpItem());
+	}
+
+	//SPSEXPD: MenuPane 是 Component，不会自动遍历子组件的 update——时间指示器要在这里驱动刷新
+	@Override
+	public void update() {
+		super.update();
+		if (clock != null) {
+			clock.update();
+		}
 	}
 
 	@Override
@@ -208,6 +224,13 @@ public class MenuPane extends Component {
 		}
 
 		danger.setPos( x + WIDTH - danger.width(), y + bg.height + 1 );
+
+		//SPSEXPD: 时间指示器贴在「挑战/深度」图标左侧，与菜单、事件记录同一行
+		if (clock != null){
+			float anchor = (challengeIcon != null ? challengeIcon.x : depthIcon.x) - 2f;
+			clock.setAnchorRight( anchor );
+			clock.setAnchorY( y + 1 );
+		}
 		danger.setSize( camera.width - danger.width(), danger.height());
 	}
 

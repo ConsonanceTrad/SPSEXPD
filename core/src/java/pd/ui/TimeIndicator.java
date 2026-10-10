@@ -27,8 +27,9 @@ public class TimeIndicator extends Component {
 	private BitmapText label;
 	private SkinnedBlock bg;
 
-	private float rightInset = 2f;
-	private float topInset   = 2f;
+	/** 右边缘对齐位置（由 MenuPane 布局时给出；<0 表示没有锚点，退回屏幕右上角）。 */
+	private float anchorRight = -1f;
+	private float anchorY     = 2f;
 
 	private int     lastMinutes = Integer.MIN_VALUE;
 	private int     lastDays    = Integer.MIN_VALUE;
@@ -48,13 +49,23 @@ public class TimeIndicator extends Component {
 		add( label );
 	}
 
-	/** 右上角需要避让的宽度（例如右上角的按钮条），默认 2。 */
-	public void setRightInset( float value ){
-		rightInset = value;
+	/** SPSEXPD: 右边缘对齐位置——由 MenuPane 在 layout() 里传入（贴在事件记录/深度图标左侧）。 */
+	public void setAnchorRight( float value ){
+		anchorRight = value;
+		reposition();
 	}
 
-	public void setTopInset( float value ){
-		topInset = value;
+	public void setAnchorY( float value ){
+		anchorY = value;
+		reposition();
+	}
+
+	/** SPSEXPD: 按当前尺寸贴到锚点右边缘；没有锚点时退回屏幕右上角。 */
+	private void reposition(){
+		float right = anchorRight >= 0f ? anchorRight
+				: (PixelScene.uiCamera != null ? PixelScene.uiCamera.width - 2f : 158f);
+		x = PixelScene.align( right - width );
+		y = PixelScene.align( anchorY );
 	}
 
 	@Override
@@ -89,9 +100,7 @@ public class TimeIndicator extends Component {
 		width  = w;
 		height = hgt;
 
-		//SPSEXPD: 贴屏幕右上角（uiCamera 未就绪时用 160 的保守宽度，不会越界到画面外）
-		float cameraWidth = PixelScene.uiCamera != null ? PixelScene.uiCamera.width : 160f;
-		x = PixelScene.align( cameraWidth - rightInset - w );
-		y = PixelScene.align( topInset );
+		//SPSEXPD: 尺寸算好后按锚点重新定位（位置由 MenuPane 给的右边缘决定）
+		reposition();
 	}
 }
