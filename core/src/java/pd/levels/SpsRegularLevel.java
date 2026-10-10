@@ -1452,7 +1452,8 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		else if (this instanceof CityLevel) decorateCity();
 		else if (this instanceof HallsLevel) decorateHalls();
 
-		if (feeling == Feeling.SPECIAL_FLOOR) replaceInteriorWallsWithGlass();
+		//SPSEXPD: 去掉「琉璃层」（Feeling.SPECIAL_FLOOR）——它会把整层内部墙换成玻璃墙。
+		//枚举值与文案都保留（旧档兼容），只是不再生成。
 		placeEntranceSign();
 
 		if (this instanceof CavesLevel && !Dungeon.bossLevel(Dungeon.depth + 1)) {
@@ -1708,15 +1709,6 @@ public abstract class SpsRegularLevel extends RegularLevel {
 			} else if (map[i] == Terrain.WALL && map[i - 1] != Terrain.WALL_DECO
 					&& map[i - width()] != Terrain.WALL_DECO && Random.Int(20) == 0) {
 				map[i] = Terrain.WALL_DECO;
-			}
-		}
-	}
-
-	private void replaceInteriorWallsWithGlass() {
-		for (int y = 1; y < height() - 1; y++) {
-			for (int x = 1; x < width() - 1; x++) {
-				int cell = x + y * width();
-				if (map[cell] == Terrain.WALL) map[cell] = Terrain.GLASS_WALL;
 			}
 		}
 	}

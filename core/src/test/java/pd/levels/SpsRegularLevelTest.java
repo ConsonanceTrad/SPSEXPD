@@ -188,7 +188,7 @@ public final class SpsRegularLevelTest {
 			case 2: return Level.Feeling.WATER;
 			case 3: return Level.Feeling.GRASS;
 			case 4: return Level.Feeling.DARK;
-			default: return Level.Feeling.SPECIAL_FLOOR;
+			default: return Level.Feeling.SECRETS;
 		}
 	}
 

@@ -117,7 +117,7 @@ public final class FloorFeeling {
 							GroundItems.addItemToSpawn( level, new Torch());
 							level.viewDistance = (int)Math.ceil(level.viewDistance / 3f);
 							break;
-						case 4: level.feeling = Level.Feeling.SPECIAL_FLOOR; break;
+						//SPSEXPD: 去掉「琉璃层」（SPECIAL_FLOOR）——它会把整层内部墙换成玻璃墙
 						default: level.feeling = Level.Feeling.NONE; break;
 					}
 				} else {
@@ -131,7 +131,7 @@ public final class FloorFeeling {
 							break;
 						case 1: level.feeling = Level.Feeling.WATER; break;
 						case 2: level.feeling = Level.Feeling.GRASS; break;
-						case 3: level.feeling = Level.Feeling.SPECIAL_FLOOR; break;
+						//SPSEXPD: 去掉「琉璃层」（SPECIAL_FLOOR）
 						default: level.feeling = Level.Feeling.NONE; break;
 					}
 				}
