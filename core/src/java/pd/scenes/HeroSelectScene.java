@@ -145,6 +145,9 @@ public class HeroSelectScene extends PixelScene {
 	//SPSEXPD: 「名字 + 描述」区的预留高度（= 所有可玩职业里最长的描述高度，-1 表示未测量）
 	private float descReserveH = -1;
 
+	//SPSEXPD: 「头像 + 名字 + 描述」块在横幅下方剩余空间中的占比（0 = 紧贴横幅，0.5 = 完全居中）
+	private static final float BLOCK_DROP = 0.2f;
+
 	private RectF insets;
 
 	private static boolean heroWasRandomized = true;
@@ -378,9 +381,9 @@ public class HeroSelectScene extends PixelScene {
 		float btnH = AVATAR_H * scale + 4;
 		float avatarsH = rows * btnH + (rows - 1);
 
-		//SPSEXPD: 特写横幅贴顶；「头像 + 名字 + 描述」整块在横幅下方到图标行之间的空间里垂直居中
+		//SPSEXPD: 特写横幅贴顶；「头像 + 名字 + 描述」整块落在横幅下方，但只下沉剩余空间的一部分（更靠近横幅）
 		float contentH = avatarsH + 4 + infoH;
-		float offsetY = Math.max(0, (space - areaH - contentH)/2f);
+		float offsetY = Math.max(0, (space - areaH - contentH) * BLOCK_DROP);
 
 		closeup.scale.set(closeScale, closeScale);
 		closeup.x = left + (w - texW * closeScale)/2f;
