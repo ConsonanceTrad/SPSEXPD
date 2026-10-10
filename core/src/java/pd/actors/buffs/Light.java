@@ -43,14 +43,19 @@ public class Light extends FlavourBuff {
 	}
 
 	public static final float DURATION	= 250f;
-	public static final int DISTANCE	= 6;
+	public static final int DISTANCE	= 6;   //SPSEXPD: 普通照明的最低保底视距，实际由 Dungeon.refreshHeroViewDistance() 统一计算
 	
 	@Override
 	public boolean attachTo( Char target ) {
 		if (super.attachTo( target )) {
 			if (Dungeon.level != null) {
-				target.viewDistance = Math.max( Dungeon.level.viewDistance, DISTANCE );
-				Dungeon.observe();
+				//SPSEXPD: 英雄视野统一由 Dungeon 计算（普通照明保底 Light.DISTANCE）；
+				//其它角色（怪物）维持原行为，避免改动它们的感知范围
+				if (target == Dungeon.hero) {
+					Dungeon.observe();
+				} else {
+					target.viewDistance = Math.max( Dungeon.level.viewDistance, DISTANCE );
+				}
 			}
 			return true;
 		} else {
@@ -60,9 +65,16 @@ public class Light extends FlavourBuff {
 	
 	@Override
 	public void detach() {
-		target.viewDistance = Dungeon.level.viewDistance;
-		Dungeon.observe();
+		//SPSEXPD: 先移除 buff 再观察/还原，否则重算时仍会看到 Light 挂着
+		Char owner = target;
 		super.detach();
+		if (Dungeon.level != null && owner != null) {
+			if (owner == Dungeon.hero) {
+				Dungeon.observe();
+			} else {
+				owner.viewDistance = Dungeon.level.viewDistance;
+			}
+		}
 	}
 
 	public void weaken( int amount ){

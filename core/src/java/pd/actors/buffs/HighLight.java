@@ -18,24 +18,34 @@ public class HighLight extends FlavourBuff {
 
 
 	public static final float DURATION = 500f;
-	public static final int DISTANCE = 10;
+	public static final int DISTANCE = 10;   //SPSEXPD: 仅作记录——英雄实际视距由 Dungeon.refreshHeroViewDistance() 决定（日间 9 / 夜间 7）
 	{ type = buffType.NEUTRAL; announced = true; }
 
 	@Override public boolean attachTo(Char target) {
 		if (!super.attachTo(target)) return false;
 		if (Dungeon.level != null) {
-			target.viewDistance = Math.max(Dungeon.level.viewDistance, DISTANCE);
-			Dungeon.observe();
+			//SPSEXPD: 英雄视野统一由 Dungeon 计算（强光：日间 9 / 夜间 7）；
+			//其它角色维持原行为，避免改动它们的感知范围
+			if (target == Dungeon.hero) {
+				Dungeon.observe();
+			} else {
+				target.viewDistance = Math.max(Dungeon.level.viewDistance, DISTANCE);
+			}
 		}
 		return true;
 	}
 
 	@Override public void detach() {
-		if (Dungeon.level != null) {
-			target.viewDistance = Dungeon.level.viewDistance;
-			Dungeon.observe();
-		}
+		//SPSEXPD: 先移除 buff 再观察/还原，否则重算时仍会看到 HighLight 挂着
+		Char owner = target;
 		super.detach();
+		if (Dungeon.level != null && owner != null) {
+			if (owner == Dungeon.hero) {
+				Dungeon.observe();
+			} else {
+				owner.viewDistance = Dungeon.level.viewDistance;
+			}
+		}
 	}
 
 	@Override public int icon() { return BuffIndicator.LIGHT; }

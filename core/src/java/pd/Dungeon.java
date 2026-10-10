@@ -28,6 +28,7 @@ import pd.actors.buffs.AscensionChallenge;
 import pd.actors.buffs.Awareness;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Dread;
+import pd.actors.buffs.HighLight;
 import pd.actors.buffs.Light;
 import pd.actors.buffs.MagicalSight;
 import pd.actors.buffs.MindVision;
@@ -1263,6 +1264,10 @@ public class Dungeon {
 		}
 	}
 
+	/** SPSEXPD: 强光（火把 / 露珠瓶照明，均为 HighLight）在普通层的视距：日间 9、夜间 7。 */
+	private static final int HIGHLIGHT_VIEW_DAY   = 9;
+	private static final int HIGHLIGHT_VIEW_NIGHT = 7;
+
 	/**
 	 * SPSEXPD: 重算英雄视野。
 	 * 夜晚（{@link pd.actors.buffs.FullMoonStrength#isNightNow()}）把 level.viewDistance 砍半
@@ -1275,14 +1280,25 @@ public class Dungeon {
 			return;
 		}
 
-		int base = level.viewDistance;
-		//SPSEXPD: 夜晚按**游戏内**时间判定（Statistics.spsTime / spsNight()，一天 1440 分钟，英雄每回合推进），
-		//与「测试时间」的「时间 +6 小时」调试按钮联动
-		if (pd.Statistics.spsNight()){
-			base = Math.max(1, Math.round(base / 2f));
+		//SPSEXPD: 视野的唯一真源（Light / HighLight 的 attach/detach 也走这里，避免两处各写一份互相覆盖）。
+		// 基准 = level.viewDistance（普通层 8）；夜晚按**游戏内**时间收窄一半（8 → 4），
+		// 夜晚判定用 Statistics.spsNight()（与「测试时间」的「时间 +6 小时」调试按钮联动）。
+		boolean night = pd.Statistics.spsNight();
+
+		int view = level.viewDistance;
+		if (night){
+			view = Math.max(1, Math.round(view / 2f));
 		}
-		Light light = hero.buff( Light.class );
-		hero.viewDistance = light == null ? base : Math.max( Light.DISTANCE, base );
+		//普通照明（照明卷轴/食物/法杖等挂的 buff Light）：保持既有语义——至少 Light.DISTANCE = 6
+		if (hero.buff( Light.class ) != null){
+			view = Math.max(view, Light.DISTANCE);
+		}
+		//强光（火把 / 露珠瓶照明，都是 HighLight）：日间 9、夜间 7
+		if (hero.buff( HighLight.class ) != null){
+			view = Math.max(view, night ? HIGHLIGHT_VIEW_NIGHT : HIGHLIGHT_VIEW_DAY);
+		}
+
+		hero.viewDistance = view;
 
 		//SPSEXPD: 圣者之辉满级——永久 +1 视野（跟前面的重算放在一起，免得被覆盖掉）
 		pd.items.equipment.artifacts.GoddessRadiance.Recharge radiance =
