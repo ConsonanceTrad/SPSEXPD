@@ -105,6 +105,11 @@ public class WndBag extends WndTabbed {
 	//避免窗口/选项卡被屏幕裁切（选项卡被裁则点不到，功能不可用）
 	protected static final float MOBILE_SAFE	= 0.94f;
 
+	//SPSEXPD: 背包窗口的尺寸上限（占屏幕比例）——「窗口 + 左右标签带 + 外框」不超过屏宽 80%，
+	//「窗口 + 外框」不超过屏高 70%。超出时按下方循环联动缩小格子直到进入上限（下限 MIN_SLOT）。
+	protected static final float MAX_WINDOW_WIDTH_RATIO		= 0.8f;
+	protected static final float MAX_WINDOW_HEIGHT_RATIO	= 0.7f;
+
 	//SPS: 标签栏改到窗口左右两侧（用户裁决 2026-09-28）——标签竖置、底板旋转 90°、图案保持正向；
 	//左侧 5 个、右侧其余，主背包固定右下角（参照归档 Godot 版 wnd_bag.gd 的侧栏布局）
 	//SPS: 侧边标签尺寸由贴图 Assets.Interfaces.SIDE_TABS 决定（横向 2 帧）——贴图多大标签就多大，
@@ -177,8 +182,9 @@ public class WndBag extends WndTabbed {
 		//窗口 + 外框 ≤ 屏高上限（横屏沿用底部 20px 预留）；Android 再乘 MOBILE_SAFE。
 		//只缩格子，绝不压缩标签带宽度——TAB_W 必须等于贴图帧宽，否则三段按 TAB_W
 		//裁取会切掉图案右侧，在移动端高缩放下表现为选项卡渲染错位
-		int limitW = PixelScene.uiCamera.width;
-		int limitH = PixelScene.uiCamera.height;
+		//SPSEXPD: 上限改为屏幕的 80% 宽 / 70% 高（含左右两列标签带与外框）；超出就缩格子
+		int limitW = (int)(PixelScene.uiCamera.width * MAX_WINDOW_WIDTH_RATIO);
+		int limitH = (int)(PixelScene.uiCamera.height * MAX_WINDOW_HEIGHT_RATIO);
 		if (PixelScene.landscape()) {
 			limitH -= 20;
 		}
