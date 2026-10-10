@@ -149,6 +149,10 @@ public enum Icons {
 	DEMON_BLADE,
 	//SPS: 幸运徽章（主菜单「加入交流群」图标，取自 LUCKY_BADGE 物品图）
 	LUCKY_BADGE,
+	//SPSEXPD: 游戏内时间指示器的日/夜/午夜图标（12x11 自绘，位于 interfaces/icons.png）
+	TIME_DAY,
+	TIME_NIGHT,
+	TIME_MIDNIGHT,
 
 	//icons that appear in the about screen, variable spacing
 	LIBGDX,
@@ -260,6 +264,10 @@ public enum Icons {
 		ENTRIES.put(WATA, IconsDict.ICON_082);
 		ENTRIES.put(WELL_AWARENESS, IconsDict.ICON_056);
 		ENTRIES.put(WELL_HEALTH, IconsDict.ICON_055);
+		//SPSEXPD: 游戏内时间指示器的日/夜/午夜图标
+		ENTRIES.put(TIME_DAY, IconsDict.ICON_091);
+		ENTRIES.put(TIME_NIGHT, IconsDict.ICON_092);
+		ENTRIES.put(TIME_MIDNIGHT, IconsDict.ICON_093);
 		SCALED.add(CELESTI);
 		SCALED.add(LUMINE);
 		SCALED.add(ARCNOR);
