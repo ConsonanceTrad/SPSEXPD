@@ -3,16 +3,13 @@ package pd.windows;
 
 import java.util.ArrayList;
 
-import pd.Assets;
 import pd.Dungeon;
 import pd.items.equipment.bags.Bag;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
-import pd.ui.Button;
 import pd.ui.IconButton;
-import pd.ui.Window;
 import render.noosa.Game;
-import render.noosa.Image;
+import render.noosa.ui.Component;
 
 /**
  * SPSEXPD: 「快捷背包」面板——开启快捷背包后，单击 HUD 背包按钮弹出的包裹选择选框。
@@ -21,9 +18,15 @@ import render.noosa.Image;
  * {@link WndBag}。它**不居中**，而是紧贴在 HUD 背包按钮的正上方（水平以按钮为中心、底边贴住
  * 按钮顶边），并做成紧凑尺寸，尽量少遮挡画面。</p>
  *
+ * <p><b>为什么不是 Window</b>（用户要求：打开选框时不影响任何其它区域的点击）：
+ * {@code Window} 天生带全屏 blocker、暗化 shadow，以及 onBackPressed/键盘拦截，
+ * 即使逐个移除也仍有残留副作用。所以这里与 {@code pd.ui.InventoryPane}（桌面端侧栏）用同一套做法——
+ * 直接继承 {@code render.noosa.ui.Component}，挂到 {@code GameScene} 顶层：
+ * 它只在自己的矩形内响应指针事件，其余区域完全不受影响。</p>
+ *
  * <p>相比把标签挂在背包窗口左右两侧，这里不占用背包窗口的宽度预算，高缩放下背包格子就不必缩小。</p>
  */
-public class WndBagPicker extends Window {
+public class WndBagPicker extends Component {
 
 	private static final int COLS   = 4;    //每行 4 个
 	private static final int CELL   = 20;   //紧凑格边长（图标 16px + 少量留白）
@@ -33,8 +36,9 @@ public class WndBagPicker extends Window {
 	//SPSEXPD: 与 WndBag.INSTANCE 同理——只允许一个面板，并供 Toolbar 判断“双击”
 	public static WndBagPicker INSTANCE;
 
-	private final float anchorX;   //HUD 背包按钮中心（uiCamera 逻辑坐标）
-	private final float anchorY;   //HUD 背包按钮顶边
+	//HUD 背包按钮中心（uiCamera 逻辑坐标）与其顶边
+	private final float anchorX;
+	private final float anchorY;
 
 	public WndBagPicker( float anchorX, float anchorY ) {
 		super();
@@ -43,7 +47,7 @@ public class WndBagPicker extends Window {
 		this.anchorY = anchorY;
 
 		if (INSTANCE != null) {
-			INSTANCE.hide();
+			INSTANCE.close();
 		}
 		INSTANCE = this;
 
@@ -66,12 +70,12 @@ public class WndBagPicker extends Window {
 			IconButton btn = new IconButton( WndBag.icon( bag ) ) {
 				@Override
 				protected void onClick() {
-					hide();
-					WndBag w = new WndBag( target );
+					close();
+					WndBag wnd = new WndBag( target );
 					if (Game.scene() instanceof GameScene) {
-						GameScene.show( w );
+						GameScene.show( wnd );
 					} else {
-						Game.scene().addToFront( w );
+						Game.scene().addToFront( wnd );
 					}
 				}
 			};
@@ -83,73 +87,35 @@ public class WndBagPicker extends Window {
 			idx++;
 		}
 
-		resize( w, h );
+		setSize( w, h );
+		placeAboveButton( w, h );
 
-		//SPSEXPD: 面板整图——bg_liner.png（斜向底纹 + 右上角已画好的关闭按钮）按选框尺寸整体缩放。
-		//不平铺（斜向图案平铺会看出接缝）、也不切分。默认的 Window 外框只隐藏不移除，
-		//因为 resize() 与 camera 的尺寸计算仍然依赖 chrome 对象。
-		Image panel = new Image( Assets.Interfaces.BG_LINER );
-		panel.scale.set( w / panel.width, h / panel.height );
-		addToBack( panel );
-		chrome.visible = false;
-
-		//SPSEXPD: 关闭按钮的点击区——只盖住图上按钮那一块（64x64 里的 x=48..58, y=0..10），
-		//按下只关闭本选框（等同“收起”语义）
-		float bx = 48f / 64f * w;
-		float by = 0f;
-		float bw = 11f / 64f * w;
-		float bh = 11f / 64f * h;
-		Button close = new Button() {
-			@Override
-			protected void onClick() {
-				hide();
-			}
-		};
-		close.setRect( Math.round( bx ), Math.round( by ),
-				Math.max( 4, Math.round( bw ) ), Math.max( 4, Math.round( bh ) ) );
-		add( close );
-
-		//SPSEXPD: 做成“非模态”紧凑选框——去掉全屏 blocker 与整屏变暗。
-		//原因：Window 默认的 blocker 覆盖全屏，会拦住 HUD 背包按钮的点击，
-		//使“再点一次按钮（即双击）打开主背包”完全收不到事件。
-		remove( blocker );
-		remove( shadow );
-
-		placeAboveButton();
+		//SPSEXPD: 挂到场景顶层（与 InventoryPane 同层）。面板只是普通 Component，
+		//没有 Window 的 blocker，所以只有落在自己矩形内的指针事件才会被它响应。
+		if (Game.scene() instanceof GameScene) {
+			Game.scene().addToFront( this );
+		}
 	}
 
-	//SPSEXPD: 非模态——不阻断下层输入（配合 Window.blocksInput() 与 GameScene.showingWindow()）
-	@Override
-	public boolean blocksInput() {
-		return false;
-	}
-
-	@Override
-	public void hide() {
-		super.hide();
+	//SPSEXPD: 关闭 = 从场景里摘掉自己（Component 没有 Window.hide() 那套）
+	public void close() {
+		if (parent != null) {
+			parent.remove( this );
+		}
 		if (INSTANCE == this) {
 			INSTANCE = null;
 		}
 	}
 
-	//SPSEXPD: 不居中——底边贴在 HUD 背包按钮正上方，水平以按钮为中心，并保证不出屏
-	private void placeAboveButton() {
-		float scale = 1f;
-		if (PixelScene.uiCamera != null && PixelScene.uiCamera.width > 0) {
-			//Window 的 camera 用屏幕像素坐标（Game.width/height），这里把 uiCamera 逻辑坐标换算过去
-			scale = (float)Game.width / PixelScene.uiCamera.width;
-		}
+	//SPSEXPD: 不居中——底边贴在 HUD 背包按钮正上方，水平以按钮为中心，并保证不出屏。
+	//面板挂在与 InventoryPane 同一层，坐标就是 uiCamera 的逻辑坐标，不需要 Window 那样做屏幕像素换算。
+	private void placeAboveButton( int w, int h ) {
+		float cx = anchorX > 0 ? anchorX : PixelScene.uiCamera.width / 2f;
+		float bottom = anchorY > 0 ? anchorY : PixelScene.uiCamera.height;
 
-		int x = Math.round( anchorX * scale - camera.screenWidth() / 2f );
-		int y = Math.round( anchorY * scale - camera.screenHeight() );
+		float left = Math.max( 0, Math.min( cx - w / 2f, PixelScene.uiCamera.width - w ) );
+		float top = Math.max( 0, Math.min( bottom - h, PixelScene.uiCamera.height - h ) );
 
-		//Camera.screenWidth()/screenHeight() 是 float，这里显式取整后再夹取
-		int maxX = Game.width - Math.round( camera.screenWidth() );
-		int maxY = Game.height - Math.round( camera.screenHeight() );
-		x = Math.max( 0, Math.min( x, maxX ) );
-		y = Math.max( 0, Math.min( y, maxY ) );
-
-		camera.x = x;
-		camera.y = y;
+		setPos( Math.round( left ), Math.round( top ) );
 	}
 }

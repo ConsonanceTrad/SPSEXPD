@@ -430,12 +430,15 @@ public class Toolbar extends Component {
 						//SPSEXPD: 注意 GameScene.cancel() 在“确实关掉了窗口”时返回 true，
 						//所以不能把两个分支都塞进 if(!cancel()) —— 否则面板开着时这一击只会关掉面板。
 						if (pickerOpen) {
+							//SPSEXPD: 选框不是 Window，没有 hide()；先摘掉它再开主背包
+							WndBagPicker.INSTANCE.close();
 							GameScene.show(new WndBag(Dungeon.hero.belongings.backpack));
 						} else if (!GameScene.cancel()) {
-							//SPSEXPD: 选框贴在背包按钮正上方（传按钮中心与顶边的 uiCamera 坐标）
-							GameScene.show(new WndBagPicker(
+							//SPSEXPD: 选框贴在背包按钮正上方（传按钮中心与顶边的 uiCamera 坐标）。
+							//它不是 Window，构造时自己挂到场景顶层，所以不用 GameScene.show()。
+							new WndBagPicker(
 									Toolbar.this.left() + btnInventory.left() + btnInventory.width() / 2f,
-									Toolbar.this.top() + btnInventory.top()));
+									Toolbar.this.top() + btnInventory.top());
 						}
 					} else {
 						if (!GameScene.cancel()) {
