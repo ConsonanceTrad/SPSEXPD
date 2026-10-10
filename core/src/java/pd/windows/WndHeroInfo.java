@@ -309,6 +309,9 @@ public class WndHeroInfo extends WndTabbed {
 
 		private static final int GAP = 2;
 		private static final int COLS = 5;
+		/** SPSEXPD: 初始特质一般只有数个（不到 5 个），一行就够 */
+		private static final int INIT_H = PerkSlot.BTN + 2*GAP;
+		/** SPSEXPD: 职业专属栏高度 —— 条件文案可能占两行以上，超出由 ScrollPane 滚动 */
 		private static final int PANE_H = 42;
 
 		private RenderedTextBlock title;
@@ -389,7 +392,7 @@ public class WndHeroInfo extends WndTabbed {
 
 			initialLabel.setPos(0, pos);
 			pos = initialLabel.bottom() + 1;
-			initialPane.setRect(0, pos, width, PANE_H);
+			initialPane.setRect(0, pos, width, INIT_H);
 			initialNone.setPos(1, pos + 1);
 			layoutSlots(initialSlots, initialPane);
 
