@@ -107,9 +107,11 @@ public class WndBag extends WndTabbed {
 	protected static final float MOBILE_SAFE	= 0.94f;
 
 	//SPSEXPD: 背包窗口的尺寸上限（占屏幕比例）——「窗口 + 左右标签带 + 外框」不超过屏宽 80%，
-	//「窗口 + 外框」不超过屏高 70%。超出时按下方循环联动缩小格子直到进入上限（下限 MIN_SLOT）。
+	//「窗口 + 外框」不超过屏高上限。超出时按下方循环联动缩小格子直到进入上限（下限 MIN_SLOT）。
+	//高度上限分两种布局：竖版（左右两侧标签）90%，旧版（底部标签）70%
 	protected static final float MAX_WINDOW_WIDTH_RATIO		= 0.8f;
-	protected static final float MAX_WINDOW_HEIGHT_RATIO	= 0.7f;
+	protected static final float MAX_WINDOW_HEIGHT_RATIO_SIDE	= 0.9f;
+	protected static final float MAX_WINDOW_HEIGHT_RATIO_BOTTOM	= 0.7f;
 
 	//SPSEXPD: 窗口被上限缩小后，界面数字（格子上的数量/力量/等级、标题栏的金币/能量）的同步缩放
 	private float textScale = 1f;
@@ -193,8 +195,11 @@ public class WndBag extends WndTabbed {
 		//只缩格子，绝不压缩标签带宽度——TAB_W 必须等于贴图帧宽，否则三段按 TAB_W
 		//裁取会切掉图案右侧，在移动端高缩放下表现为选项卡渲染错位
 		//SPSEXPD: 上限改为屏幕的 80% 宽 / 70% 高（含左右两列标签带与外框）；超出就缩格子
+		//SPSEXPD: 上限——宽度 80%；高度按布局取（竖版两侧标签 90% / 旧版底部标签 70%）。
+		//竖版时左右标签竖着占满窗口高度，所以它们也一并落在 90% 之内
 		int limitW = (int)(PixelScene.uiCamera.width * MAX_WINDOW_WIDTH_RATIO);
-		int limitH = (int)(PixelScene.uiCamera.height * MAX_WINDOW_HEIGHT_RATIO);
+		int limitH = (int)(PixelScene.uiCamera.height
+				* (SPDSettings.bagBottomTabs() ? MAX_WINDOW_HEIGHT_RATIO_BOTTOM : MAX_WINDOW_HEIGHT_RATIO_SIDE));
 		if (PixelScene.landscape()) {
 			limitH -= 20;
 		}
@@ -324,14 +329,16 @@ public class WndBag extends WndTabbed {
 		int bagCount = n - 1;                                  //除主背包
 		int leftCount = Math.min( bagCount, LEFT_TABS );
 
-		//SPS: 左右两栏每项都恒定占 1/5（不拉伸）。
+		//SPS: 左右两栏每项都恒定占 1/5 格位（不拉伸）。
 		//整数网格（用户裁决 2026-09-30）：标签页间恒留 1px 间隙避免像素融合——
 		//高度 = g-1、步进 = g（浮点步进取整会在 0~1px 间抖动导致相邻标签粘连/融合）
-		int g = Math.max( 2, (int)( (usableH + 1) / 5 ) );
+		//SPSEXPD: 用户要求竖版标签矮一些——格位由 5 调到 6，于是单个标签变矮、整列也随之整体上移
+		//（主背包仍固定第 LEFT_TABS 格，所以底部会自然留出余量）
+		int g = Math.max( 2, (int)( (usableH + 1) / 6 ) );
 
 		//SPS: 标签在窗框外侧——未选中时压在窗框下、选中时探入框带。
-		//探入深度 = 窗框带 6px - 2px = 4px（再外移 2px 让选中态探入浅一点）
-		float leftX = -TAB_W - 2, rightX = width + 2;
+		//SPSEXPD: 去掉原来的 2px 外移——未选中帧正好与窗口边缘邻接，选中帧则完整盖住背包界面的边框带
+		float leftX = -TAB_W, rightX = width;
 
 		int sideIdx = 0;
 		for (int i = 1; i < n; i++) {
