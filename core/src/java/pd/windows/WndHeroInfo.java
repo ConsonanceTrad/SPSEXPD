@@ -247,7 +247,7 @@ public class WndHeroInfo extends WndTabbed {
 		public HeroInfoTab(HeroClass cls, int skin){
 			super();
 
-			title = PixelScene.renderTextBlock(Messages.get(WndHeroInfo.class, "items_title"), 9);
+			title = PixelScene.renderTextBlock(Messages.get(WndHeroInfo.class, "items_title"), 7);
 			title.hardlight(TITLE_COLOR);
 			add(title);
 
@@ -362,7 +362,7 @@ public class WndHeroInfo extends WndTabbed {
 		public PerkInfoTab( HeroClass cls ){
 			super();
 
-			title = PixelScene.renderTextBlock(Messages.titleCase(Messages.get(WndHeroInfo.class, "perks")), 9);
+			title = PixelScene.renderTextBlock(Messages.titleCase(Messages.get(WndHeroInfo.class, "perks")), 7);
 			title.hardlight(TITLE_COLOR);
 			add(title);
 
