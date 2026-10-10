@@ -111,6 +111,7 @@ public class WndSettings extends WndTabbed {
 			.t("$inputtab.high", "最高")
 			.t("$auxtab.title", "游戏辅助")
 			.t("unlock_alchemy_guide", "解锁炼金配方")   //SPSXPD: 由 AuxTab 使用，必须在主 static 注册，否则 AuxTab 构造早于 DisplayTab 类加载会取不到文本（顶层类 key 不带 $，规则同 Messages.get(WndSettings.class, ...)）
+			.t("$auxtab.unlock_alchemy_guide", "解锁炼金配方")   //SPSEXPD: 行末说明按钮按 AuxTab 取标题，需要 $ 前缀版本
 			.t("$auxtab.hero_path", "显示移动路径")
 			.t("$auxtab.search_pickup", "搜索捡拾物品")
 			.t("$auxtab.quick_group", "快捷操作开关")   //SPSEXPD: 快捷操作分组的小标题
@@ -968,14 +969,15 @@ public class WndSettings extends WndTabbed {
 		}
 	}
 
-	//SPSEXPD: 设置行末的说明按钮——蓝色感叹号，点击弹出该开关的详细作用（WndTitledMessage）。
+	//SPSEXPD: 设置行末的说明按钮——用与「英雄信息」「挑战详情」等信息按钮相同的 Icons.INFO 图标，
+	//点击弹出该开关的详细作用（WndTitledMessage）。
 	//key 对应 windows.wndsettings$auxtab.<key>（标题）与 <key>_desc（详解）两个文案
 	private static class AuxNoteButton extends IconButton {
 
 		private final String key;
 
 		AuxNoteButton(String key) {
-			super( noteIcon() );
+			super( Icons.INFO.get() );
 			this.key = key;
 			width = AuxContent.NOTE_W;
 			height = AuxContent.NOTE_W;
@@ -986,26 +988,26 @@ public class WndSettings extends WndTabbed {
 		@Override
 		protected void onClick() {
 			GameScene.show(new WndTitledMessage(
-					noteIcon(),
+					Icons.INFO.get(),
 					Messages.get(AuxTab.class, key),
 					Messages.get(AuxTab.class, key + "_desc") ));
 		}
 
+		//SPSEXPD: 不要悬浮提示——设置页在滚动区里，tooltip 容易闪；与旁边的复选框观感也一致
 		@Override
 		protected String hoverText() {
-			return Messages.get(AuxTab.class, key);
+			return null;
 		}
 
-		//每次取新实例并染成蓝色（Icons.WARNING 是感叹号形状）
-		private static Image noteIcon() {
-			Image icon = Icons.WARNING.get();
-			icon.hardlight( NOTE_COLOR );
-			return icon;
+		//SPSEXPD: 点击会替换当前窗口，onPointerUp 送不到，图标 brightness 会永久残留 —— 干脆不做亮度反馈
+		@Override
+		protected void onPointerDown() {
+		}
+
+		@Override
+		protected void onPointerUp() {
 		}
 	}
-
-	//SPSEXPD: 行末说明按钮的蓝色
-	private static final int NOTE_COLOR = 0x3399FF;
 
 	//SPSEXPD: 滚动容器内的复选框基类：热区必须 NEVER_BLOCK 且提到最前接收事件。
 	//PointerEvent 信号是 stackMode（后注册者先收到、返回 true 即停止传播），
