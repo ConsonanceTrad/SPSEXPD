@@ -1158,7 +1158,6 @@ public class Hero extends Char {
 	public void spend( float time ) {
 		if (spsPickingUp) return;   //SPSEXPD: 搜索捡拾期间的逐件结算不计时/不统计
 		justMoved = false;
-		Statistics.advanceSpsTime(time);
 		pd.items.quest.AdventureJournal journal =
 				belongings.getItem(pd.items.quest.AdventureJournal.class);
 		if (journal != null && Dungeon.branch == 0 && Dungeon.depth < 40) journal.gainCharge();
@@ -1187,6 +1186,10 @@ public class Hero extends Char {
 	
 	@Override
 	public boolean act() {
+		//SPSEXPD: 游戏内时间按“英雄真正经过的回合数”推进（每 2 回合 = 1 分钟）——
+		//放在这里而不是 spend()/spendConstant()：那两处的时间量会被移速加成、时间冻结扭曲
+		pd.Statistics.advanceSpsTurn();
+
 		//SPSXPD: 宠物能力特质（献祭获得）的每回合触发
 		pd.actors.hero.perks.pets.PetAbilityPerk.dispatchTurn(this);
 

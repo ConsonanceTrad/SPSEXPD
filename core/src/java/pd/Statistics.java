@@ -76,6 +76,13 @@ public class Statistics {
 	public static float spsTime;
 	public static int spsDays;
 	/**
+	 * SPSEXPD: 游戏内时间按“英雄真正经过的回合数”推进，与动作耗时无关——
+	 * 这样移速加成、时间冻结等机制都不会扭曲时钟，也不需要为每种行为单独配时间。
+	 * 每 {@link #TURNS_PER_MINUTE} 回合 = 1 分钟（即一回合半小时）。
+	 */
+	public static int spsTurns;
+	public static final int TURNS_PER_MINUTE = 2;
+	/**
 	 * SPSEXPD: 日历基准——开局随机一个「起始绝对日序」（0 = 第 1 年 1 月 1 日），
 	 * 之后每过一个游戏日（spsDays++）自动推进，供「挂历」物品显示年/月/日。
 	 * 月与日按 30 天/月、12 月/年等比换算。
@@ -143,6 +150,7 @@ public class Statistics {
 		previousFloorMoves = 0;
 		spsTime        = 360;
 		spsDays        = 0;
+		spsTurns       = 0;
 		//SPSEXPD: 每局随机一个起始日期（约 50 年范围内），而不是一律从 1 年 1 月 1 日开始
 		spsCalendarStart = render.utils.math.Random.Int( DAYS_PER_YEAR * 50 );
 		
@@ -204,6 +212,7 @@ public class Statistics {
 	private static final String PREVIOUS_FLOOR_MOVES = "prevfloormoves";
 	private static final String SPS_TIME = "spsTime";
 	private static final String SPS_DAYS = "spsDays";
+	private static final String SPS_TURNS = "spsTurns";
 	private static final String SPS_CALENDAR_START = "spsCalendarStart";
 
 	private static final String NO_KILLING_QUALIFIED	= "qualifiedForNoKilling";
@@ -264,6 +273,7 @@ public class Statistics {
 		bundle.put( PREVIOUS_FLOOR_MOVES, previousFloorMoves );
 		bundle.put( SPS_TIME, spsTime );
 		bundle.put( SPS_DAYS, spsDays );
+		bundle.put( SPS_TURNS, spsTurns );
 		bundle.put( SPS_CALENDAR_START, spsCalendarStart );
 
 		bundle.put(NO_KILLING_QUALIFIED, qualifiedForNoKilling);
@@ -337,6 +347,7 @@ public class Statistics {
 		previousFloorMoves = bundle.getInt( PREVIOUS_FLOOR_MOVES );
 		spsTime = bundle.contains(SPS_TIME) ? bundle.getFloat(SPS_TIME) : 360;
 		spsDays = bundle.contains(SPS_DAYS) ? bundle.getInt(SPS_DAYS) : 0;
+		spsTurns = bundle.contains(SPS_TURNS) ? bundle.getInt(SPS_TURNS) : 0;
 		//SPSEXPD: 旧档没有这个键时用 0（1 年 1 月 1 日）兜底，避免每次读档日期都跳
 		spsCalendarStart = bundle.contains(SPS_CALENDAR_START) ? bundle.getInt(SPS_CALENDAR_START) : 0;
 
@@ -355,6 +366,17 @@ public class Statistics {
 	public static void advanceSpsTime(float time) {
 		if (time <= 0) return;
 		spsTime += time;
+		while (spsTime >= 1440) {
+			spsTime -= 1440;
+			spsDays++;
+		}
+	}
+
+	/** SPSEXPD: 推进一回合的游戏内时间（每 2 回合 = 1 分钟）——由 {@code Hero.act()} 每次行动调用。 */
+	public static void advanceSpsTurn() {
+		if (++spsTurns < TURNS_PER_MINUTE) return;
+		spsTurns = 0;
+		spsTime += 1f;
 		while (spsTime >= 1440) {
 			spsTime -= 1440;
 			spsDays++;
