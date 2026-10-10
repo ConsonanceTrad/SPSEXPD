@@ -247,7 +247,7 @@ public class WndHeroInfo extends WndTabbed {
 		public HeroInfoTab(HeroClass cls, int skin){
 			super();
 
-			title = PixelScene.renderTextBlock(Messages.get(WndHeroInfo.class, "items_title"), 7);
+			title = PixelScene.renderTextBlock(Messages.get(WndHeroInfo.class, "items_title"), 9);
 			title.hardlight(TITLE_COLOR);
 			add(title);
 
@@ -282,7 +282,7 @@ public class WndHeroInfo extends WndTabbed {
 				}
 
 				group.label = PixelScene.renderTextBlock(
-						Messages.get(WndHeroInfo.class, "perks_group_" + g.name().toLowerCase()), 7);
+						Messages.get(WndHeroInfo.class, "perks_group_" + g.name().toLowerCase()), 6);
 				group.label.hardlight(TITLE_COLOR);
 				pane.content().add(group.label);
 
@@ -362,18 +362,18 @@ public class WndHeroInfo extends WndTabbed {
 		public PerkInfoTab( HeroClass cls ){
 			super();
 
-			title = PixelScene.renderTextBlock(Messages.titleCase(Messages.get(WndHeroInfo.class, "perks")), 7);
+			title = PixelScene.renderTextBlock(Messages.titleCase(Messages.get(WndHeroInfo.class, "perks")), 9);
 			title.hardlight(TITLE_COLOR);
 			add(title);
 
 			message = PixelScene.renderTextBlock(Messages.get(WndHeroInfo.class, "perks_msg"), 6);
 			add(message);
 
-			initialLabel = PixelScene.renderTextBlock(Messages.titleCase(Messages.get(WndHeroInfo.class, "perks_initial")), 7);
+			initialLabel = PixelScene.renderTextBlock(Messages.titleCase(Messages.get(WndHeroInfo.class, "perks_initial")), 6);
 			initialLabel.hardlight(TITLE_COLOR);
 			add(initialLabel);
 
-			exclusiveLabel = PixelScene.renderTextBlock(Messages.titleCase(Messages.get(WndHeroInfo.class, "perks_exclusive")), 7);
+			exclusiveLabel = PixelScene.renderTextBlock(Messages.titleCase(Messages.get(WndHeroInfo.class, "perks_exclusive")), 6);
 			exclusiveLabel.hardlight(TITLE_COLOR);
 			add(exclusiveLabel);
 
