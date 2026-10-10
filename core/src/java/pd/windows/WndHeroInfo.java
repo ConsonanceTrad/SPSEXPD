@@ -78,7 +78,15 @@ public class WndHeroInfo extends WndTabbed {
 	private static int MIN_HEIGHT = 125;
 	private static int MARGIN = 2;
 
+	//SPSEXPD: 当前主题（选角界面传 GamesInProgress.selectedSkin，游戏内传 Dungeon.hero.skin）
+	private final int themeSkin;
+
 	public WndHeroInfo( HeroClass cl ){
+		this(cl, 0);
+	}
+
+	public WndHeroInfo( HeroClass cl, int skin ){
+		this.themeSkin = skin;
 
 		Image tabIcon;
 		switch (cl){

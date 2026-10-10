@@ -418,7 +418,9 @@ public class Dungeon {
 
 		hero = new Hero();
 		hero.live();
-		hero.skin = GamesInProgress.selectedSkin;
+		//SPSEXPD: 还没有皮肤内容的职业（决斗者/修士/剑圣）一律按经典皮肤开局；
+		//留空主题（skin >= IMPLEMENTED_SKINS，如「传奇征途」）无需归零 —— 它天然不匹配任何皮肤内容分支。
+		hero.skin = GamesInProgress.selectedClass.supportsSkins() ? GamesInProgress.selectedSkin : 0;
 		hero.combatStyle = GamesInProgress.selectedStyle;
 		
 		Badges.reset();

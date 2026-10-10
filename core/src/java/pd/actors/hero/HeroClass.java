@@ -297,6 +297,14 @@ public enum HeroClass {
 			PERFORMER, SOLDIER, FOLLOWER, ASCETIC
 	};
 
+	//SPSEXPD: 主题（= 开局拓展包）总数。索引 0 = 经典皮肤，1~7 = 已有内容的皮肤，
+	//8 = 「传奇征途」（留空占位，表现与经典一致，待填充）。
+	public static final int THEME_COUNT = 9;
+
+	//SPSEXPD: 已实装专属内容的主题数量（skin 0 ~ IMPLEMENTED_SKINS-1）。
+	//skin >= 该值的主题对任何职业都还没有内容，一律按经典处理。
+	public static final int IMPLEMENTED_SKINS = 8;
+
 	private HeroSubClass[] subClasses;
 
 	HeroClass( HeroSubClass...subClasses ) {
@@ -1359,6 +1367,28 @@ public enum HeroClass {
 		return Messages.get(HeroClass.class, name());
 	}
 
+	/**
+	 * SPSEXPD: 角色显示名 —— 按主题取名的预留接口。
+	 *
+	 * 现在一律回退到职业名；以后某个主题有专属名字时，只需在 themedName() 里登记，
+	 * 选角界面与详情页的调用点都不用改。
+	 */
+	public String displayName( int skin ) {
+		String themed = themedName( skin );
+		return themed != null ? themed : Messages.titleCase( title() );
+	}
+
+	/**
+	 * SPSEXPD: 主题专属角色名的登记入口（当前为空，一律返回 null）。
+	 *
+	 * 填法：按 (职业, 主题索引) 返回名字，文本走项目的内联简体 + en properties 机制，例如
+	 *   case WARRIOR: if (skin == 3) return Messages.get(HeroClass.class, "warrior_name_3");
+	 * 并在 HeroClass 的 InlineText 静态块里登记 .t("warrior_name_3", "年兽猎人")。
+	 */
+	private String themedName( int skin ) {
+		return null;
+	}
+
 	public String desc(){
 		return Messages.get(HeroClass.class, name()+"_desc");
 	}
@@ -1426,7 +1456,8 @@ public enum HeroClass {
 	}
 
 	public String spritesheet(int skin) {
-		if (skin <= 0) return spritesheet();
+		//SPSEXPD: 经典（0）与留空主题（>= IMPLEMENTED_SKINS）都用默认（经典）贴图
+		if (skin <= 0 || skin >= IMPLEMENTED_SKINS) return spritesheet();
 		switch (this) {
 			case WARRIOR: return Assets.Sprites.SPS_WARRIOR;
 			case MAGE: return Assets.Sprites.SPS_MAGE;

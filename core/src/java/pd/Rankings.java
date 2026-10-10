@@ -508,7 +508,7 @@ public enum Rankings {
 
 			heroClass	= bundle.getEnum( CLASS, HeroClass.class );
 			armorTier	= bundle.getInt( TIER );
-			skin        = Math.max(0, Math.min(7, bundle.getInt(SKIN)));
+			skin        = Math.max(0, Math.min(HeroClass.THEME_COUNT - 1, bundle.getInt(SKIN)));
 			herolevel   = bundle.getInt( LEVEL );
 			depth       = bundle.getInt( DEPTH );
 			ascending   = bundle.getBoolean( ASCEND );

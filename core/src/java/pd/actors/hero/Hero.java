@@ -571,7 +571,7 @@ public class Hero extends Char {
 
 		heroClass = bundle.getEnum( CLASS, HeroClass.class );
 		subClass = bundle.getEnum( SUBCLASS, HeroSubClass.class );
-		skin = Math.max(0, Math.min(7, bundle.getInt(SKIN)));
+		skin = Math.max(0, Math.min(HeroClass.THEME_COUNT - 1, bundle.getInt(SKIN)));
 		combatStyle = bundle.contains(STYLE) ? bundle.getEnum(STYLE, CombatStyle.class) : CombatStyle.BALANCED;
 		if (combatStyle == null) combatStyle = CombatStyle.BALANCED;
 		armorAbility = (ArmorAbility)bundle.get( ABILITY );
@@ -616,7 +616,7 @@ public class Hero extends Char {
 		info.shld = bundle.getInt( Char.TAG_SHLD );
 		info.heroClass = bundle.getEnum( CLASS, HeroClass.class );
 		info.subClass = bundle.getEnum( SUBCLASS, HeroSubClass.class );
-		info.skin = Math.max(0, Math.min(7, bundle.getInt(SKIN)));
+		info.skin = Math.max(0, Math.min(HeroClass.THEME_COUNT - 1, bundle.getInt(SKIN)));
 		info.combatStyle = bundle.contains(STYLE) ? bundle.getEnum(STYLE, CombatStyle.class) : CombatStyle.BALANCED;
 		Belongings.preview( info, bundle );
 	}

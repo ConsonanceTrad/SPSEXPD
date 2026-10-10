@@ -75,20 +75,17 @@ public class HeroSelectScene extends PixelScene {
 	static {
 		InlineText.of(HeroSelectScene.class)
 			.t("start", "开始")
-			.t("skin_title", "选择外观")
-			.t("skin_desc", "外观仅改变角色图像，不会影响战斗数值；所选外观会随本局存档保存。")
-			.t("skin_0", "经典")
-			.t("skin_1", "赤焰")
-			.t("skin_2", "苍穹")
-			.t("skin_3", "荒野")
-			.t("skin_4", "星辉")
-			.t("skin_5", "暗影")
-			.t("skin_6", "霜雪")
-			.t("skin_7", "异界")
-			.t("skin_back", "返回职业选择")
-			.t("style_title", "选择战斗风格")
-			.t("style_desc", "战斗风格与外观相互独立。除平衡外，每种风格都有数值接近的优势与代价，并会随本局存档保存。")
-			.t("style_back", "返回外观选择")
+			.t("theme_title", "主题选择")
+			.t("theme_desc", "主题是本局的开局拓展包：决定角色形象与开局初始装备/物品，不影响中途成长；所选主题会随本局存档保存。")
+			.t("theme_0", "经典皮肤")
+			.t("theme_1", "暑期特典")
+			.t("theme_2", "万圣逃亡")
+			.t("theme_3", "年兽猎人")
+			.t("theme_4", "奇迹实验")
+			.t("theme_5", "幻想之旅")
+			.t("theme_6", "复刻潮流")
+			.t("theme_7", "联动狂欢")
+			.t("theme_8", "传奇征途")
 			.t("options", "游戏选项")
 			.t("custom_seed", "自定义种子")
 			.t("daily", "每日挑战")
@@ -135,6 +132,9 @@ public class HeroSelectScene extends PixelScene {
 	private RenderedTextBlock heroName;
 	private RenderedTextBlock heroDesc;
 	private StyledButton startBtn;
+	private StyledButton themeBtn;
+	//SPSEXPD: 是否已点选过主题（未点过时按钮显示「主题选择」，点过后显示主题名）
+	private boolean themeChosen = false;
 	private IconButton infoButton;
 	private GameOptions optionsPane;
 	private IconButton btnExit;
@@ -188,7 +188,7 @@ public class HeroSelectScene extends PixelScene {
 				super.onClick();
 
 				if (GamesInProgress.selectedClass == null) return;
-				chooseSkinAndStart();
+				startSelectedGame();
 			}
 		};
 		startBtn.icon(Icons.get(Icons.ENTER));
@@ -197,13 +197,26 @@ public class HeroSelectScene extends PixelScene {
 		add(startBtn);
 		startBtn.visible = startBtn.active = false;
 
+		//SPSEXPD: 「主题选择」= 开局拓展包。与「开始」同占一行；点开选主题，选完只更新选择（不开局）
+		themeBtn = new StyledButton(Chrome.Type.GREY_BUTTON_TR, ""){
+			@Override
+			protected void onClick() {
+				super.onClick();
+				if (GamesInProgress.selectedClass == null) return;
+				chooseTheme();
+			}
+		};
+		themeBtn.textColor(Window.TITLE_COLOR);
+		add(themeBtn);
+		themeBtn.visible = themeBtn.active = false;
+
 		infoButton = new IconButton(Icons.get(Icons.INFO)){
 			@Override
 			protected void onClick() {
 				super.onClick();
 				HeroClass cls = GamesInProgress.selectedClass;
 				if (cls != null) {
-					Window info = new WndHeroInfo(GamesInProgress.selectedClass);
+					Window info = new WndHeroInfo(GamesInProgress.selectedClass, GamesInProgress.selectedSkin);
 					if (landscape()) {
 						info.offset((int)(w / 6), 0);
 					}
@@ -261,6 +274,7 @@ public class HeroSelectScene extends PixelScene {
 		if (GamesInProgress.selectedClass == null){
 			GamesInProgress.selectedSkin = 0;
 			GamesInProgress.selectedStyle = CombatStyle.BALANCED;
+			themeChosen = false;
 			GamesInProgress.selectedClass = HeroClass.playableClasses()[0];
 		}
 		setSelectedHero(GamesInProgress.selectedClass);
@@ -278,6 +292,7 @@ public class HeroSelectScene extends PixelScene {
 		if (GamesInProgress.selectedClass != cl) {
 			GamesInProgress.selectedSkin = 0;
 			GamesInProgress.selectedStyle = CombatStyle.BALANCED;
+			themeChosen = false;
 		}
 		GamesInProgress.selectedClass = cl;
 		GamesInProgress.randomizedClass = false;
@@ -295,7 +310,7 @@ public class HeroSelectScene extends PixelScene {
 		}
 		closeup.visible = true;
 
-		heroName.text(Messages.titleCase(cl.title()));
+		heroName.text(cl.displayName(GamesInProgress.selectedSkin));
 		heroName.hardlight(Window.TITLE_COLOR);
 
 		heroDesc.text(cl.shortDesc());
@@ -319,12 +334,35 @@ public class HeroSelectScene extends PixelScene {
 		background.y = -2;
 		background.scale.set(Camera.main.width + 4, Camera.main.height + 4);
 
-		//SPSEXPD: 顶部不再显示标题，特写横幅贴安全区顶部；底部图标选项行居中，「开始」在其下方单独一行居中（贴底）
+		//SPSEXPD: 顶部不显示标题，特写横幅贴安全区顶部；底部图标选项行居中，
+		//其下方一行并排「主题选择」与「开始」（两个按钮整体居中）
 		optionsPane.layout();
 
 		startBtn.text(Messages.titleCase(Messages.get(this, "start")));
 		startBtn.setSize(startBtn.reqWidth() + 8, 21);
-		startBtn.setPos(left + (w - startBtn.width())/2f, Camera.main.height - insets.bottom - 4 - startBtn.height());
+
+		//SPSEXPD: 未点选过时显示「主题选择」，点选过显示主题名
+		themeBtn.text(themeChosen
+				? Messages.get(this, "theme_" + GamesInProgress.selectedSkin)
+				: Messages.titleCase(Messages.get(this, "theme_title")));
+		themeBtn.setSize(themeBtn.reqWidth() + 8, 21);
+
+		//SPSEXPD: 两个按钮并排居中，间距 4；可用宽度不足时按比例压缩（下限各 40）
+		float btnGap = 4;
+		float btnTotal = themeBtn.width() + btnGap + startBtn.width();
+		if (btnTotal > w - 4){
+			float avail = Math.max(80, w - 4 - btnGap);
+			float shrink = avail / (themeBtn.width() + startBtn.width());
+			themeBtn.setSize(Math.max(40, themeBtn.width() * shrink), 21);
+			startBtn.setSize(Math.max(40, startBtn.width() * shrink), 21);
+			btnTotal = themeBtn.width() + btnGap + startBtn.width();
+		}
+
+		float btnRowY = Camera.main.height - insets.bottom - 4 - startBtn.height();
+		float btnRowX = left + (w - btnTotal)/2f;
+		themeBtn.setPos(btnRowX, btnRowY);
+		align(themeBtn);
+		startBtn.setPos(btnRowX + themeBtn.width() + btnGap, btnRowY);
 		align(startBtn);
 
 		optionsPane.setPos(left + (w - optionsPane.width())/2f, startBtn.top() - 4 - optionsPane.height());
@@ -434,68 +472,37 @@ public class HeroSelectScene extends PixelScene {
 		layoutH = Camera.main.height;
 	}
 
-	private void chooseSkinAndStart() {
+	//SPSEXPD: 主题选择（开局拓展包）—— 只更新选择、不开局；列出全部主题（名字 + 形象预览）
+	private void chooseTheme() {
 		final HeroClass cl = GamesInProgress.selectedClass;
-		if (!cl.supportsSkins()) {
-			GamesInProgress.selectedSkin = 0;
-			GamesInProgress.selectedStyle = CombatStyle.BALANCED;
-			startSelectedGame();
-			return;
-		}
+		if (cl == null) return;
 
-		String[] options = new String[9];
-		for (int i = 0; i < 8; i++) {
-			options[i] = Messages.get(HeroSelectScene.class, "skin_" + i);
+		String[] options = new String[HeroClass.THEME_COUNT];
+		for (int i = 0; i < HeroClass.THEME_COUNT; i++) {
+			options[i] = Messages.get(HeroSelectScene.class, "theme_" + i);
 		}
-		options[8] = Messages.get(HeroSelectScene.class, "skin_back");
 
 		ShatteredPixelDungeon.scene().addToFront(new WndOptions(
 				HeroSprite.skinPreview(cl, GamesInProgress.selectedSkin),
-				Messages.get(HeroSelectScene.class, "skin_title"),
-				Messages.get(HeroSelectScene.class, "skin_desc"), options) {
+				Messages.get(HeroSelectScene.class, "theme_title"),
+				Messages.get(HeroSelectScene.class, "theme_desc"), options) {
 			@Override
 			protected void onSelect(int index) {
-				if (index == 8) return;
 				GamesInProgress.selectedSkin = index;
-				chooseStyleAndStart();
+				themeChosen = true;
+				//SPSEXPD: 名字跟随主题（主题专属名字的内容后续登记，现在回退职业名）
+				heroName.text(cl.displayName(index));
+				layoutScene();
 			}
 
 			@Override
 			protected boolean hasIcon(int index) {
-				return index < 8;
+				return true;
 			}
 
 			@Override
 			protected Image getIcon(int index) {
 				return HeroSprite.skinPreview(cl, index);
-			}
-		});
-	}
-
-	private void chooseStyleAndStart() {
-		final CombatStyle[] styles = CombatStyle.values();
-		String[] options = new String[styles.length + 1];
-		for (int i = 0; i < styles.length; i++) {
-			options[i] = styles[i].title() + " - " + styles[i].summary();
-		}
-		options[styles.length] = Messages.get(HeroSelectScene.class, "style_back");
-		ShatteredPixelDungeon.scene().addToFront(new WndOptions(
-				Messages.get(HeroSelectScene.class, "style_title"),
-				Messages.get(HeroSelectScene.class, "style_desc"), options) {
-			@Override
-			protected void onSelect(int index) {
-				if (index == styles.length) {
-					chooseSkinAndStart();
-					return;
-				}
-				GamesInProgress.selectedStyle = styles[index];
-				startSelectedGame();
-			}
-
-			@Override
-			public void onBackPressed() {
-				hide();
-				chooseSkinAndStart();
 			}
 		});
 	}
@@ -585,7 +592,7 @@ public class HeroSelectScene extends PixelScene {
 			if( !cl.isUnlocked() ){
 				ShatteredPixelDungeon.scene().addToFront( new WndMessage(cl.unlockMsg()));
 			} else if (GamesInProgress.selectedClass == cl) {
-				Window w = new WndHeroInfo(cl);
+				Window w = new WndHeroInfo(cl, GamesInProgress.selectedSkin);
 				if (landscape()){
 					w.offset(Camera.main.width/6, 0);
 				}

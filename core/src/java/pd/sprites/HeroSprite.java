@@ -203,6 +203,8 @@ public class HeroSprite extends CharSprite {
 	}
 
 	private static int visualRow(HeroClass cl, int armorTier, int skin) {
-		return cl.supportsSkins() ? Math.max(0, Math.min(7, skin)) : armorTier;
+		if (!cl.supportsSkins()) return armorTier;
+		//SPSEXPD: 留空主题（skin >= IMPLEMENTED_SKINS，如「传奇征途」）回退到经典形象
+		return skin >= 0 && skin < HeroClass.IMPLEMENTED_SKINS ? skin : armorTier;
 	}
 }
