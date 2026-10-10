@@ -222,7 +222,11 @@ public class WndBag extends WndTabbed {
 
 		//SPSEXPD: 格子被缩小时，格子上的数字与标题栏的金币/能量也跟着等比缩小（格子没缩则保持 1）
 		int baseSlot = PixelScene.landscape() ? SLOT_WIDTH_L : SLOT_WIDTH_P;
-		textScale = Math.min(1f, slotWidth / (float)baseSlot);
+		//SPSEXPD: 缩放系数唯一真源——先吸附到像素网格（1/defaultZoom 的整数倍），
+		//这样所有用它的地方（格子内数字、标题栏数字、金币/S金/能量图标及其布局乘法、标题字号）
+		//拿到的是同一个值。若这里不吸附、而某处自行 PixelScene.align()，两者会不一致
+		//（例如 0.6 被吸附成 0.667），图标就会比预留的位置更大/偏移。
+		textScale = PixelScene.align( Math.min(1f, slotWidth / (float)baseSlot) );
 
 		placeTitle( bag, windowWidth );
 		
