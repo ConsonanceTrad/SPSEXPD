@@ -194,12 +194,16 @@ public class WndBag extends WndTabbed {
 		boolean bottomTabs = SPDSettings.bagBottomTabs();
 		nCols = bottomTabs ? COLS_BOTTOM : (PixelScene.landscape() ? COLS_L : COLS_P);
 		//SPSEXPD: 行数 = 装备区两排 + 背包行数（5 列时 7 行、7 列时 5 行，都是 35 格）。
-		//SPSEXPD: 行数按「包裹容量」算，而不是按当前装了多少——否则读档 force-add 出的超容量物品
-		//会让行数多一行、窗口整体被缩一圈（放下/丢掉一件又跳回来）。
-		//⚠️ 由此得出硬约束：包裹 capacity() + 1 必须是 nCols 的整数倍，否则会多出一行空行。
-		//所以各 Bag 子类的容量都取 34（34+1 = 35 = 5 列 x 7 行 = 7 列 x 5 行）。
+		//SPSEXPD: 行数按「实际要摆的格数」算，并以「包裹容量」封顶：
+		//- 不因超容量物品多出一行（读档 force-add 会让主背包出现 36 件）
+		//- 也不把容量上限当成实际需要（「测试时间」挑战下 capacity 为 64，但没装那么多就不该占 13 行）
+		//⚠️ 硬约束：包裹 capacity() + 1 必须是 nCols 的整数倍，否则满载时会多出一行空行。
+		//所以各 Bag 子类的容量都取 34（34+1 = 35 = 5 列 x 7 行 = 7 列 x 5 行）；
 		//主背包 capacity() = 35、不占本体格（露珠瓶占其中一格），也正好是 5 列 7 行 / 7 列 5 行
-		int contentCap = bag.capacity() + (bag != Dungeon.hero.belongings.backpack ? 1 : 0);
+		int shown = 0;
+		for (Item i : bag.items) if (!(i instanceof Bag)) shown++;
+		if (bag != Dungeon.hero.belongings.backpack) shown++;   //包裹本体占一格
+		int contentCap = Math.min(shown, bag.capacity());
 		int contentRows = (contentCap + nCols - 1) / nCols;
 		int bagRows = bottomTabs ? BAG_ROWS_BOTTOM : BAG_ROWS;
 		nRows = EQUIP_ROWS + Math.max(bagRows, contentRows);
