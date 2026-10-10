@@ -346,10 +346,15 @@ public class HeroSelectScene extends PixelScene {
 		float texW = Math.max(1, closeup.width);
 		float texH = Math.max(1, closeup.height);
 
-		float areaH = landscape()
-				? texH * (w / texW)
-				: h / 3f;
-		areaH = Math.max(12, Math.min(areaH, space - infoH - 24));
+		//SPSEXPD: 未选中职业时没有特写贴图（closeup 尺寸为 0），此时不预留横幅高度——
+		//否则横屏按「宽度 contain」会算出整屏高的横幅区，把选角头像挤到最小尺寸
+		float areaH = 0;
+		if (closeup.visible){
+			areaH = landscape()
+					? texH * (w / texW)
+					: h / 3f;
+			areaH = Math.max(12, Math.min(areaH, space - infoH - 24));
+		}
 
 		float closeScale = landscape()
 				? Math.min(w / texW, areaH / texH)
