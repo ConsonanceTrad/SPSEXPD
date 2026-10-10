@@ -127,7 +127,7 @@ public class WndHeroInfo extends WndTabbed {
 
 		int finalHeight = MIN_HEIGHT;
 
-		heroInfo = new HeroInfoTab(cl);
+		heroInfo = new HeroInfoTab(cl, themeSkin);
 		add(heroInfo);
 		heroInfo.setSize(WIDTH, MIN_HEIGHT);
 		finalHeight = (int)Math.max(finalHeight, heroInfo.height());
@@ -202,86 +202,48 @@ public class WndHeroInfo extends WndTabbed {
 	private static class HeroInfoTab extends Component {
 
 		private RenderedTextBlock title;
-		private RenderedTextBlock[] info;
-		private Image[] icons;
+		private ScrollPane pane;
+		private ArrayList<ItemSprite> itemIcons;
+		private ArrayList<RenderedTextBlock> itemNames;
 
-		public HeroInfoTab(HeroClass cls){
+		/**
+		 * SPSEXPD: 第一栏 = 开局携带的物品清单（每行：图标 + 名称），跟随当前主题。
+		 * 数据来自 HeroClass.baseStartingItems() + startingItems(cls, skin)（单一真源）。
+		 */
+		public HeroInfoTab(HeroClass cls, int skin){
 			super();
-			title = PixelScene.renderTextBlock(Messages.titleCase(cls.title()), 9);
+
+			title = PixelScene.renderTextBlock(cls.displayName(skin), 9);
 			title.hardlight(TITLE_COLOR);
 			add(title);
 
-			String[] desc_entries = cls.desc().split("\n\n");
+			itemIcons = new ArrayList<>();
+			itemNames = new ArrayList<>();
 
-			info = new RenderedTextBlock[desc_entries.length];
+			pane = new ScrollPane(new Component());
+			pane.scrollBarVisible = false;
+			add(pane);
 
-			for (int i = 0; i < desc_entries.length; i++){
-				info[i] = PixelScene.renderTextBlock(desc_entries[i], 6);
-				add(info[i]);
+			ArrayList<pd.items.Item> items = new ArrayList<>();
+			items.addAll(HeroClass.baseStartingItems().preview());
+			items.addAll(HeroClass.startingItems(cls, skin).preview());
+
+			for (pd.items.Item item : items){
+				if (item == null) continue;
+				//展示用：先鉴定，让名字是普通名而不是「未鉴定的…」（实例是临时创建的，无副作用）
+				item.identify();
+
+				ItemSprite icon = new ItemSprite(item);
+				itemIcons.add(icon);
+				pane.content().add(icon);
+
+				String label = item.quantity() > 1
+						? item.name() + "  x" + item.quantity()
+						: item.name();
+				RenderedTextBlock name = PixelScene.renderTextBlock(label, 6);
+				itemNames.add(name);
+				pane.content().add(name);
 			}
-
-			switch (cls){
-				case WARRIOR: default:
-					icons = new Image[]{ new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
-							new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.WORN_SHORTSWORD_0),
-							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
-					break;
-				case MAGE:
-					icons = new Image[]{ new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
-							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
-							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
-					break;
-				case ROGUE:
-					icons = new Image[]{ new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
-							Icons.get(Icons.STAIRS),
-							new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.DAGGER_0),
-							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
-					break;
-				case HUNTRESS:
-					icons = new Image[]{ new ItemSprite(EquipmentEquipWeaponUniqueWeaponDict.SPIRIT_BOW_0),
-							Icons.GRASS.get(),
-							new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.GLOVES),
-							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
-					break;
-				case DUELIST:
-					icons = new Image[]{ new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.RAPIER_0),
-							new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.WAR_HAMMER_0),
-							new ItemSprite(ConsumThrowsDict.THROWING_SPIKE_0),
-							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
-					break;
-				case CLERIC:
-					icons = new Image[]{ new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
-							Icons.TALENT.get(),
-							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
-							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
-					break;
-				case SPELLSWORD:
-					icons = new Image[]{ new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
-							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
-							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
-							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
-					break;
-				case PERFORMER:
-					icons = new Image[]{ new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0), Icons.BUFFS.get(),
-							new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.DAGGER_0), new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
-					break;
-				case SOLDIER:
-					icons = new Image[]{ new ItemSprite(ConsumThrowsDict.THROWING_SPIKE_0), Icons.TARGET.get(),
-							new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.RAPIER_0), new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
-					break;
-				case FOLLOWER:
-					icons = new Image[]{ new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0), Icons.GOLD.get(),
-							new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0), new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
-					break;
-				case ASCETIC:
-					icons = new Image[]{ new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.GLOVES), new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0),
-							new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.GLOVES), new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0)};
-					break;
-			}
-			for (Image im : icons) {
-				add(im);
-			}
-
 		}
 
 		@Override
@@ -289,22 +251,31 @@ public class WndHeroInfo extends WndTabbed {
 			super.layout();
 
 			title.setPos((width-title.width())/2, MARGIN);
+			float top = title.bottom() + 3*MARGIN;
 
-			float pos = title.bottom()+4*MARGIN;
+			//每行：左边图标（16px），右边名称；行高随名称换行自适应
+			float y = 2;
+			int textW = Math.max(20, (int)width - 20);
+			for (int i = 0; i < itemNames.size(); i++){
+				RenderedTextBlock name = itemNames.get(i);
+				name.maxWidth(textW);
 
-			for (int i = 0; i < info.length; i++){
-				info[i].maxWidth((int)width - 20);
-				info[i].setPos(20, pos);
+				float rowH = Math.max(name.height(), 16);
+				ItemSprite icon = itemIcons.get(i);
+				icon.x = 2;
+				icon.y = y + (rowH - icon.height())/2f;
+				PixelScene.align(icon);
+				name.setPos(20, y + (rowH - name.height())/2f);
 
-				icons[i].x = (20-icons[i].width())/2;
-				icons[i].y = info[i].top() + (info[i].height() - icons[i].height())/2;
-				PixelScene.align(icons[i]);
-
-				pos = info[i].bottom() + 4*MARGIN;
+				y += rowH + 2;
 			}
 
-			height = Math.max(height, pos - 4*MARGIN);
+			//清单区最多约 5 行高，超出由 ScrollPane 滚动
+			float listH = Math.max(20, Math.min(y, 96));
+			pane.setRect(0, top, width, listH);
+			pane.content().setSize(width, Math.max(listH, y));
 
+			height = Math.max(height, top + listH);
 		}
 	}
 
