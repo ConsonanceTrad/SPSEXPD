@@ -316,6 +316,7 @@ public class HeroSelectScene extends PixelScene {
 		heroDesc.text(cl.shortDesc());
 
 		startBtn.visible = startBtn.active = true;
+		themeBtn.visible = themeBtn.active = true;
 		infoButton.visible = infoButton.active = true;
 
 		layoutScene();

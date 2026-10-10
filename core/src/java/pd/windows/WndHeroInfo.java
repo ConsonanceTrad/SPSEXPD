@@ -187,6 +187,9 @@ public class WndHeroInfo extends WndTabbed {
 		resize(WIDTH, finalHeight);
 
 		layoutTabs();
+		//SPSEXPD: 构造期 setSize() 已经触发过一次首页 layout()，那时窗口还没 resize、
+		//ScrollPane 会按初始相机定位（内容整块偏下）；resize 之后再排一次拿正确的相机。
+		heroInfo.layout();
 		perkInfo.layout();
 
 		select(0);
@@ -196,6 +199,8 @@ public class WndHeroInfo extends WndTabbed {
 	@Override
 	public void offset(int xOffset, int yOffset) {
 		super.offset(xOffset, yOffset);
+		//SPSEXPD: 窗口整体位移后，ScrollPane 的内部相机要跟着重排（否则内容偏位）
+		heroInfo.layout();
 		perkInfo.layout();
 	}
 
