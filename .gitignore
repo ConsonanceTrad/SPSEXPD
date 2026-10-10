@@ -45,3 +45,8 @@ tools/atlas-meta/**/work/
 # 构建产物汇总目录（每次构建后自动复制 APK / 桌面 jar 到此，不入库）
 output/
 Game-Test-Start.lnk
+
+# 工具脚本、项目文档与 agent 约定：只在本地维护，不入库（用户约定）
+tools/
+docs/
+AGENTS.md
