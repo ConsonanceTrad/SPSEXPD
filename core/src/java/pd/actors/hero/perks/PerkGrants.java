@@ -53,14 +53,13 @@ public final class PerkGrants {
 	}
 
 	/**
-	 * 职业初始特质 —— 把角色的特殊点以特质形式呈现。
-	 * 目前按暗黑的原型映射到本项目职业，待 CSV 裁决后可继续调整。
+	 * 职业初始特质（静态版）—— 选角界面等没有 Hero 实例的场景用它。
 	 */
-	public static ArrayList<Perk> initialPerks(Hero hero) {
+	public static ArrayList<Perk> initialPerksFor(HeroClass cls) {
 		ArrayList<Perk> result = new ArrayList<>();
-		if (hero == null) return result;
+		if (cls == null) return result;
 
-		switch (hero.heroClass) {
+		switch (cls) {
 			case WARRIOR:
 				result.add(new GoodAppetite());
 				result.add(new RavenousAppetite());   // 裁决：负向特质保留
@@ -92,9 +91,36 @@ public final class PerkGrants {
 				break;
 		}
 
-		if (hero.subClass == HeroSubClass.NONE) {
-			//子职业未定，保持基础初始特质
-		}
 		return result;
+	}
+
+	/**
+	 * 职业后续专属特质（静态表）—— 按职业/等级或职业条件授予的那些，供 UI 展示。
+	 *
+	 * 与实际授予点保持一致：目前只有 onLevelUp() 里的「战士 10 级 → 刻印转移」。
+	 * 以后新增按职业的授予时，这里要同步登记一条。
+	 */
+	public static ArrayList<Perk> exclusivePerksFor(HeroClass cls) {
+		ArrayList<Perk> result = new ArrayList<>();
+		if (cls == null) return result;
+
+		switch (cls) {
+			case WARRIOR:
+				//10 级必然获得（见 onLevelUp）
+				result.add(new RunicTransference());
+				break;
+			default:
+				break;
+		}
+
+		return result;
+	}
+
+	/**
+	 * 职业初始特质 —— 把角色的特殊点以特质形式呈现（按英雄实例，供开局发放）。
+	 */
+	public static ArrayList<Perk> initialPerks(Hero hero) {
+		if (hero == null) return new ArrayList<>();
+		return initialPerksFor(hero.heroClass);
 	}
 }

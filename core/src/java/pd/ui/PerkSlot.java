@@ -6,8 +6,10 @@
 
 package pd.ui;
 
+import pd.ShatteredPixelDungeon;
 import pd.actors.hero.perks.Perk;
 import pd.scenes.GameScene;
+import render.noosa.Game;
 import pd.scenes.PixelScene;
 import pd.windows.WndPerkInfo;
 import render.noosa.ColorBlock;
@@ -63,6 +65,12 @@ public class PerkSlot extends Button {
 	protected void onClick() {
 		super.onClick();
 		//SPSXPD: 说明窗带等级，描述按等级着色（旧效果灰 / 变化数值绿）
-		GameScene.show(new WndPerkInfo(perk));
+		WndPerkInfo info = new WndPerkInfo(perk);
+		//SPSEXPD: 选角界面没有 GameScene，此时直接挂在当前场景上（否则会 NPE）
+		if (Game.scene() instanceof GameScene) {
+			GameScene.show(info);
+		} else {
+			ShatteredPixelDungeon.scene().addToFront(info);
+		}
 	}
 }

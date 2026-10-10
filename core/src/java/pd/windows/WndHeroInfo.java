@@ -27,34 +27,38 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.atlas.items.ConsumThrowsDict;
 import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
 
+import pd.Assets;
 import pd.Badges;
 import pd.actors.hero.HeroClass;
 import pd.actors.hero.HeroSubClass;
-import pd.actors.hero.Talent;
 import pd.actors.hero.abilities.ArmorAbility;
+import pd.actors.hero.perks.Perk;
+import pd.actors.hero.perks.PerkGrants;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
 import pd.ui.IconButton;
 import pd.ui.Icons;
+import pd.ui.PerkSlot;
 import pd.ui.RenderedTextBlock;
-import pd.ui.TalentButton;
-import pd.ui.TalentsPane;
+import pd.ui.ScrollPane;
 import render.noosa.Game;
 import render.noosa.Image;
 import render.noosa.ui.Component;
 import render.utils.platform.DeviceCompat;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import pd.messages.InlineText;
 
 public class WndHeroInfo extends WndTabbed {
 	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
 	static {
 		InlineText.of(WndHeroInfo.class)
-			.t("talents", "天赋")
-			.t("talents_msg", "英雄在升级时会获得一点天赋点数。更高阶的天赋在击杀第二个Boss后才会解锁。")
+			.t("perks", "特质")
+			.t("perks_msg", "特质是英雄开局拥有或途中获得的被动能力：初始特质开局即有；职业专属特质需要达到对应等级或满足条件才会获得。")
+			.t("perks_initial", "初始特质")
+			.t("perks_exclusive", "职业专属")
+			.t("perks_none", "（无）")
 			.t("subclasses", "专精")
 			.t("subclasses_msg", "击杀第二个Boss后可以选择一种职业专精。")
 			.t("abilities", "护甲技能")
@@ -65,7 +69,7 @@ public class WndHeroInfo extends WndTabbed {
 
 
 	private HeroInfoTab heroInfo;
-	private TalentInfoTab talentInfo;
+	private PerkInfoTab perkInfo;
 	private SubclassInfoTab subclassInfo;
 	private ArmorAbilityInfoTab abilityInfo;
 
@@ -127,16 +131,17 @@ public class WndHeroInfo extends WndTabbed {
 			}
 		});
 
-		talentInfo = new TalentInfoTab(cl);
-		add(talentInfo);
-		talentInfo.setSize(WIDTH, MIN_HEIGHT);
-		finalHeight = (int)Math.max(finalHeight, talentInfo.height());
+		perkInfo = new PerkInfoTab(cl);
+		add(perkInfo);
+		perkInfo.setSize(WIDTH, MIN_HEIGHT);
+		finalHeight = (int)Math.max(finalHeight, perkInfo.height());
 
-		add( new IconTab( Icons.get(Icons.TALENT) ){
+		//SPSEXPD: 图标与局内快捷栏的「特质加点」按钮一致
+		add( new IconTab( new Image(Assets.Interfaces.SPECIFIC_POINT) ){
 			@Override
 			protected void select(boolean value) {
 				super.select(value);
-				talentInfo.visible = talentInfo.active = value;
+				perkInfo.visible = perkInfo.active = value;
 			}
 		});
 
@@ -173,7 +178,7 @@ public class WndHeroInfo extends WndTabbed {
 		resize(WIDTH, finalHeight);
 
 		layoutTabs();
-		talentInfo.layout();
+		perkInfo.layout();
 
 		select(0);
 
@@ -182,7 +187,7 @@ public class WndHeroInfo extends WndTabbed {
 	@Override
 	public void offset(int xOffset, int yOffset) {
 		super.offset(xOffset, yOffset);
-		talentInfo.layout();
+		perkInfo.layout();
 	}
 
 	private static class HeroInfoTab extends Component {
@@ -294,27 +299,73 @@ public class WndHeroInfo extends WndTabbed {
 		}
 	}
 
-	private static class TalentInfoTab extends Component {
+	/**
+	 * SPSEXPD: 特质页（取代原天赋页）—— 两栏展示：
+	 * 「初始特质」= 该职业开局就有的特质；「职业专属」= 按职业/等级或条件授予的后续特质。
+	 * 两种数据都来自 PerkGrants 的静态查询（只有 HeroClass，没有存档英雄）。
+	 */
+	private static class PerkInfoTab extends Component {
+
+		private static final int GAP = 2;
+		private static final int COLS = 5;
+		private static final int PANE_H = 42;
 
 		private RenderedTextBlock title;
 		private RenderedTextBlock message;
-		private TalentsPane talentPane;
+		private RenderedTextBlock initialLabel;
+		private RenderedTextBlock exclusiveLabel;
+		private RenderedTextBlock initialNone;
+		private RenderedTextBlock exclusiveNone;
+		private ScrollPane initialPane;
+		private ScrollPane exclusivePane;
+		private ArrayList<PerkSlot> initialSlots;
+		private ArrayList<PerkSlot> exclusiveSlots;
 
-		public TalentInfoTab( HeroClass cls ){
+		public PerkInfoTab( HeroClass cls ){
 			super();
-			title = PixelScene.renderTextBlock(Messages.titleCase(Messages.get(WndHeroInfo.class, "talents")), 9);
+
+			title = PixelScene.renderTextBlock(Messages.titleCase(Messages.get(WndHeroInfo.class, "perks")), 9);
 			title.hardlight(TITLE_COLOR);
 			add(title);
 
-			message = PixelScene.renderTextBlock(Messages.get(WndHeroInfo.class, "talents_msg"), 6);
+			message = PixelScene.renderTextBlock(Messages.get(WndHeroInfo.class, "perks_msg"), 6);
 			add(message);
 
-			ArrayList<LinkedHashMap<Talent, Integer>> talents = new ArrayList<>();
-			Talent.initClassTalents(cls, talents);
-			talents.get(2).clear(); //we show T3 talents with subclasses
+			initialLabel = PixelScene.renderTextBlock(Messages.titleCase(Messages.get(WndHeroInfo.class, "perks_initial")), 7);
+			initialLabel.hardlight(TITLE_COLOR);
+			add(initialLabel);
 
-			talentPane = new TalentsPane(TalentButton.Mode.INFO, talents);
-			add(talentPane);
+			exclusiveLabel = PixelScene.renderTextBlock(Messages.titleCase(Messages.get(WndHeroInfo.class, "perks_exclusive")), 7);
+			exclusiveLabel.hardlight(TITLE_COLOR);
+			add(exclusiveLabel);
+
+			initialSlots = new ArrayList<>();
+			initialPane = new ScrollPane(new Component());
+			initialPane.scrollBarVisible = false;
+			add(initialPane);
+			for (Perk p : PerkGrants.initialPerksFor(cls)){
+				PerkSlot slot = new PerkSlot(p);
+				initialSlots.add(slot);
+				initialPane.content().add(slot);
+			}
+
+			exclusiveSlots = new ArrayList<>();
+			exclusivePane = new ScrollPane(new Component());
+			exclusivePane.scrollBarVisible = false;
+			add(exclusivePane);
+			for (Perk p : PerkGrants.exclusivePerksFor(cls)){
+				PerkSlot slot = new PerkSlot(p);
+				exclusiveSlots.add(slot);
+				exclusivePane.content().add(slot);
+			}
+
+			initialNone = PixelScene.renderTextBlock(Messages.get(WndHeroInfo.class, "perks_none"), 6);
+			initialNone.visible = initialSlots.isEmpty();
+			add(initialNone);
+
+			exclusiveNone = PixelScene.renderTextBlock(Messages.get(WndHeroInfo.class, "perks_none"), 6);
+			exclusiveNone.visible = exclusiveSlots.isEmpty();
+			add(exclusiveNone);
 		}
 
 		@Override
@@ -325,9 +376,35 @@ public class WndHeroInfo extends WndTabbed {
 			message.maxWidth((int)width);
 			message.setPos(0, title.bottom()+4*MARGIN);
 
-			talentPane.setRect(0, message.bottom() + 3*MARGIN, width, 85);
+			float pos = message.bottom() + 3*MARGIN;
 
-			height = Math.max(height, talentPane.bottom());
+			initialLabel.setPos(0, pos);
+			pos = initialLabel.bottom() + 1;
+			initialPane.setRect(0, pos, width, PANE_H);
+			initialNone.setPos(1, pos + 1);
+			layoutSlots(initialSlots, initialPane);
+
+			pos = initialPane.bottom() + 3*MARGIN;
+			exclusiveLabel.setPos(0, pos);
+			pos = exclusiveLabel.bottom() + 1;
+			exclusivePane.setRect(0, pos, width, PANE_H);
+			exclusiveNone.setPos(1, pos + 1);
+			layoutSlots(exclusiveSlots, exclusivePane);
+
+			height = Math.max(height, exclusivePane.bottom());
+		}
+
+		private void layoutSlots(ArrayList<PerkSlot> slots, ScrollPane pane){
+			for (int i = 0; i < slots.size(); i++){
+				int r = i / COLS;
+				int c = i % COLS;
+				slots.get(i).setRect(
+						GAP + c * (PerkSlot.BTN + GAP),
+						GAP + r * (PerkSlot.BTN + GAP),
+						PerkSlot.BTN, PerkSlot.BTN);
+			}
+			int rows = Math.max(1, (slots.size() + COLS - 1) / COLS);
+			pane.content().setSize(width, Math.max(pane.height(), GAP + rows * (PerkSlot.BTN + GAP)));
 		}
 	}
 
