@@ -151,8 +151,8 @@ public class WndBagPicker extends Component {
 		}
 	}
 
-	//SPSEXPD: 渲染在背包按钮的左上方——右下角对齐按钮左上角（底边即下快捷栏顶边），之后夹屏。
-	//面板挂在与 InventoryPane 同一层，坐标就是 uiCamera 的逻辑坐标，不需要 Window 那样做屏幕像素换算。
+	//SPSEXPD: 以背包按钮【右上角】为基准向左上渲染——面板右下角对齐该点（底边即按钮顶边/快捷栏上沿），
+	//之后夹屏。面板挂在与 InventoryPane 同一层，坐标就是 uiCamera 的逻辑坐标，不需要 Window 的像素换算。
 	private void placeAboveButton( float w, float h ) {
 		float left = Math.max( 0, Math.min( anchorX - w, PixelScene.uiCamera.width - w ) );
 		float top = Math.max( 0, Math.min( anchorY - h, PixelScene.uiCamera.height - h ) );

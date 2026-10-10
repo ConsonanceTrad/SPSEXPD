@@ -435,8 +435,8 @@ public class Toolbar extends Component {
 							WndBagPicker.INSTANCE.close();
 							GameScene.show(new WndBag(Dungeon.hero.belongings.backpack));
 						} else if (!GameScene.cancel()) {
-							//SPSEXPD: 取背包按钮左上角的绝对坐标（面板会贴在它的左上方）。
-							//沿 parent 链逐级累加 Component 的偏移——Group 自身没有坐标，只有 Component 有
+							//SPSEXPD: 取背包按钮【右上角】的绝对坐标——面板以它为基准向左上渲染
+							//（沿 parent 链逐级累加 Component 的偏移；Group 自身没有坐标，只有 Component 有）
 							float cx = 0f, top = 0f;
 							for (Gizmo g = btnInventory; g != null; g = g.parent) {
 								if (g instanceof Component) {
@@ -444,13 +444,14 @@ public class Toolbar extends Component {
 									top += ((Component) g).top();
 								}
 							}
+							cx += btnInventory.width();
 							//SPSEXPD: 兜底——万一父链坐标没参与进来（结果落在屏幕左/上半），
-							//按已知位置回退到右下角：背包按钮就在界面右下角
+							//按已知 HUD 布局回退：背包按钮在下快捷栏右端、其上方就是面板该在的位置
 							if (cx < PixelScene.uiCamera.width / 2f) {
 								cx = PixelScene.uiCamera.width - 12f;
 							}
 							if (top < PixelScene.uiCamera.height / 2f) {
-								top = PixelScene.uiCamera.height - 12f;
+								top = PixelScene.uiCamera.height - 40f;
 							}
 							//它不是 Window，构造时自己挂到场景顶层，所以不用 GameScene.show()。
 							new WndBagPicker( cx, top );
