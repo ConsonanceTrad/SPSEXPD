@@ -115,8 +115,8 @@ public class Hunger extends Buff implements Hero.Doom {
 				}
 				hungerDelay /= SaltCube.hungerGainMultiplier();
 
-				//SPSEXPD: 饥饿消耗基础速度翻倍（原 1f/hungerDelay）
-				float newLevel = level + (2f/hungerDelay);
+				//SPSEXPD: 饥饿消耗基础速度——每回合 1（曾翻倍为 2，现按要求降回上游的 1）
+				float newLevel = level + (1f/hungerDelay);
 				if (newLevel >= cap()) {
 
 					GLog.n( Messages.get(this, "onstarving") );
