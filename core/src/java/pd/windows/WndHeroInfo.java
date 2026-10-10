@@ -43,6 +43,7 @@ import pd.ui.ItemSlotButton;
 import pd.ui.PerkSlot;
 import pd.ui.RenderedTextBlock;
 import pd.ui.ScrollPane;
+import render.noosa.ColorBlock;
 import render.noosa.Game;
 import render.noosa.Image;
 import render.noosa.ui.Component;
@@ -61,6 +62,7 @@ public class WndHeroInfo extends WndTabbed {
 			.t("perks_exclusive", "职业专属")
 			.t("perks_none", "（无）")
 			.t("perks_cond_class_level", "达到 %d 级时获得")
+			.t("items_title", "初始物品")
 			.t("perks_group_equip", "装备套装")
 			.t("perks_group_special", "特殊装备")
 			.t("perks_group_bag", "包裹袋")
@@ -223,10 +225,13 @@ public class WndHeroInfo extends WndTabbed {
 		private static final int CELL = ItemSlotButton.BTN + GAP;
 		/** SPSEXPD: 清单区最大高度（超出由 ScrollPane 滚动） */
 		private static final int MAX_LIST_H = 120;
+		/** SPSEXPD: 分组之间的分隔线颜色（半透明白，深色底上可见） */
+		private static final int DIVIDER_COLOR = 0x33FFFFFF;
 
 		private RenderedTextBlock title;
 		private ScrollPane pane;
 		private ArrayList<Group> groups;
+		private ArrayList<ColorBlock> dividers;
 
 		/** 一个分组：小标题 + 该组物品的格子 */
 		private static class Group {
@@ -242,11 +247,12 @@ public class WndHeroInfo extends WndTabbed {
 		public HeroInfoTab(HeroClass cls, int skin){
 			super();
 
-			title = PixelScene.renderTextBlock(cls.displayName(skin), 9);
+			title = PixelScene.renderTextBlock(Messages.get(WndHeroInfo.class, "items_title"), 9);
 			title.hardlight(TITLE_COLOR);
 			add(title);
 
 			groups = new ArrayList<>();
+			dividers = new ArrayList<>();
 
 			pane = new ScrollPane(new Component());
 			pane.scrollBarVisible = false;
@@ -255,10 +261,7 @@ public class WndHeroInfo extends WndTabbed {
 			ArrayList<pd.items.Item> items = new ArrayList<>();
 			items.addAll(HeroClass.baseStartingItems().preview());
 			items.addAll(HeroClass.startingItems(cls, skin).preview());
-			for (pd.items.Item item : items){
-				//展示用：先鉴定，让详情窗显示普通名字（实例是临时创建的，无副作用）
-				if (item != null) item.identify();
-			}
+			//SPSEXPD: 不做鉴定 —— 开局未鉴定的物品，在这里也如实保持未鉴定（点开详情能看到）
 
 			//按用途分组：组序按枚举声明顺序，组内保持发放顺序
 			for (HeroClass.ItemGroup g : HeroClass.ItemGroup.values()){
@@ -270,6 +273,13 @@ public class WndHeroInfo extends WndTabbed {
 					pane.content().add(btn);
 				}
 				if (group.buttons.isEmpty()) continue;
+
+				//SPSEXPD: 分组之间的分隔线（首组之前不画）
+				if (!groups.isEmpty()){
+					ColorBlock divider = new ColorBlock(1, 1, DIVIDER_COLOR);
+					pane.content().add(divider);
+					dividers.add(divider);
+				}
 
 				group.label = PixelScene.renderTextBlock(
 						Messages.get(WndHeroInfo.class, "perks_group_" + g.name().toLowerCase()), 7);
@@ -287,9 +297,17 @@ public class WndHeroInfo extends WndTabbed {
 			title.setPos((width-title.width())/2, MARGIN);
 			float top = title.bottom() + 3*MARGIN;
 
-			//逐组排：小标题一行，下面是图标网格
+			//逐组排：小标题一行，下面是图标网格；组之间画一条分隔线
 			float y = 1;
+			int di = 0;
 			for (Group g : groups){
+				if (di < dividers.size()){
+					ColorBlock divider = dividers.get(di++);
+					divider.x = 0;
+					divider.y = y;
+					divider.size(width, 1);
+					y += 4;
+				}
 				g.label.setPos(0, y);
 				y = g.label.bottom() + 1;
 

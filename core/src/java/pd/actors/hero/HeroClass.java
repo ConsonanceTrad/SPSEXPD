@@ -1019,6 +1019,8 @@ public enum HeroClass {
 		final int quantity;
 		final int quickSlot;                                    // -1 = 不设快捷栏
 		final java.util.function.BiConsumer<Hero, Item> after;  // 装备/收集后的额外处理，可空
+		/** SPSEXPD: 开局是否鉴定；null = 按物品类型默认（见 identifyOnStart） */
+		Boolean identify = null;
 
 		LoadoutItem(java.util.function.Supplier<Item> factory, ItemSlot slot, int upgrade, int quantity,
 					int quickSlot, java.util.function.BiConsumer<Hero, Item> after) {
@@ -1029,6 +1031,22 @@ public enum HeroClass {
 			this.quickSlot = quickSlot;
 			this.after = after;
 		}
+	}
+
+	/**
+	 * SPSEXPD: 开局默认不鉴定的物品类型 —— 照原实现，这些物品开场本来就是未鉴定的。
+	 * 个别同类型但原本有鉴定的条目可在 startingItems 里用 Loadout.identified() 覆盖。
+	 */
+	private static boolean identifyOnStart(Item item) {
+		if (item == null) return false;
+		return !(item instanceof JumpW || item instanceof JumpS || item instanceof JumpR
+				|| item instanceof JumpM || item instanceof JumpP || item instanceof JumpA
+				|| item instanceof JumpH
+				|| item instanceof GnollMark || item instanceof DemoScroll || item instanceof StrBottle
+				|| item instanceof UndeadBook || item instanceof Skull || item instanceof CopyBall
+				|| item instanceof GrassBook || item instanceof MechPocket
+				|| item instanceof pd.items.misc.RockManJumpshoes
+				|| item instanceof pd.plants.Dewcatcher.Seed);
 	}
 
 	/** 一份开局物品清单 */
@@ -1061,6 +1079,18 @@ public enum HeroClass {
 
 		public boolean isEmpty() {
 			return items.isEmpty();
+		}
+
+		/** SPSEXPD: 让「最后加入的那一条」开局不鉴定 */
+		public Loadout unidentified() {
+			if (!items.isEmpty()) items.get(items.size() - 1).identify = Boolean.FALSE;
+			return this;
+		}
+
+		/** SPSEXPD: 让「最后加入的那一条」开局照样鉴定（覆盖 identifyOnStart 的默认） */
+		public Loadout identified() {
+			if (!items.isEmpty()) items.get(items.size() - 1).identify = Boolean.TRUE;
+			return this;
 		}
 
 		/** 供 UI 展示：按发放顺序新建物品实例（只读名字与图标，不做装备/收集） */
@@ -1576,7 +1606,7 @@ public enum HeroClass {
 				case 6:
 					l.equip(ItemSlot.WEAPON, () -> new TrickSand(), 0, null);
 					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
-					l.backpack(() -> new Skull(5));
+					l.backpack(() -> new Skull(5)).identified();
 					l.backpack(() -> new Ankh());
 					l.backpack(() -> new Ankh());
 					l.backpack(() -> new JumpF());
@@ -1656,7 +1686,9 @@ public enum HeroClass {
 			Item item = it.factory.get();
 			if (item == null) continue;
 
-			item.identify();
+			//SPSEXPD: 照原实现 —— 部分物品开局本就是未鉴定的
+			boolean identify = (it.identify != null) ? it.identify : identifyOnStart(item);
+			if (identify) item.identify();
 			if (it.quantity > 1) item.quantity(it.quantity);
 			if (it.upgrade > 0) item.upgrade(it.upgrade);
 
