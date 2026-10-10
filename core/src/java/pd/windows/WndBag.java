@@ -49,6 +49,7 @@ import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
 import pd.ui.CurrencyIndicator;
+import pd.ui.Button;
 import pd.ui.IconButton;
 import pd.ui.Icons;
 import pd.ui.InventorySlot;
@@ -112,6 +113,12 @@ public class WndBag extends WndTabbed {
 
 	//SPSEXPD: 窗口被上限缩小后，界面数字（格子上的数量/力量/等级、标题栏的金币/能量）的同步缩放
 	private float textScale = 1f;
+
+	//SPSEXPD: 旧版布局（标签栏放到底部）——每页 3 个包裹 + 翻页格 + 主背包格，底部只留一行标签高
+	protected static final int BOTTOM_PER_PAGE = 3;
+	protected static final int BOTTOM_TAB_H    = 22;
+	private int bottomPage = 0;
+	private IconButton bottomPager;
 
 	//SPS: 标签栏改到窗口左右两侧（用户裁决 2026-09-28）——标签竖置、底板旋转 90°、图案保持正向；
 	//左侧 5 个、右侧其余，主背包固定右下角（参照归档 Godot 版 wnd_bag.gd 的侧栏布局）
@@ -197,8 +204,10 @@ public class WndBag extends WndTabbed {
 			limitW = (int)(limitW * MOBILE_SAFE);
 			limitH = (int)(limitH * MOBILE_SAFE);
 		}
+		//SPSEXPD: 旧版布局下标签在底部，不再吃横向预算，因此同样屏幕下格子能保持更大
+		int tabBudgetW = SPDSettings.bagBottomTabs() ? 0 : 2 * TAB_W;
 		while (slotWidth > MIN_SLOT &&
-				(windowWidth + 2 * TAB_W + chrome.marginHor() > limitW ||
+				(windowWidth + tabBudgetW + chrome.marginHor() > limitW ||
 				 windowHeight + chrome.marginVer() > limitH)) {
 			slotWidth--;
 			windowWidth -= nCols;
@@ -215,6 +224,17 @@ public class WndBag extends WndTabbed {
 		placeItems( bag );
 
 		resize( windowWidth, windowHeight );
+
+		//SPSEXPD: 旧版布局的翻页格（不是包裹标签，只是一个按钮）——包裹超过一页时才显示
+		bottomPager = new IconButton( Icons.RIGHTARROW.get() ) {
+			@Override
+			protected void onClick() {
+				bottomPage++;
+				layoutTabs();
+			}
+		};
+		bottomPager.visible = false;
+		add( bottomPager );
 
 		int i = 1;
 		for (Bag b : Dungeon.hero.belongings.getBags()) {
@@ -260,11 +280,18 @@ public class WndBag extends WndTabbed {
 
 		chrome.size( width + chrome.marginHor(), height + chrome.marginVer() );
 
-		camera.resize( (int)chrome.width + 2 * TAB_W, (int)chrome.height );
+		//SPSEXPD: 两侧标签要左右各留 TAB_W；旧版布局改为在底部留出一行标签
+		if (SPDSettings.bagBottomTabs()) {
+			camera.resize( (int)chrome.width, (int)chrome.height + BOTTOM_TAB_H + 2 );
+		} else {
+			camera.resize( (int)chrome.width + 2 * TAB_W, (int)chrome.height );
+		}
 		camera.x = (int)(Game.width - camera.screenWidth()) / 2;
 		camera.y = (int)(Game.height - camera.screenHeight()) / 2;
 		camera.y += yOffset * camera.zoom;
-		camera.scroll.set( chrome.x - TAB_W, chrome.y );
+		camera.scroll.set(
+				SPDSettings.bagBottomTabs() ? chrome.x : chrome.x - TAB_W,
+				chrome.y );
 
 		shadow.boxRect(
 				camera.x / camera.zoom,
@@ -281,6 +308,12 @@ public class WndBag extends WndTabbed {
 	public void layoutTabs(){
 		int n = tabs.size();
 		if (n == 0) return;
+
+		//SPSEXPD: 旧版布局——标签栏放到底部一行，分页显示
+		if (SPDSettings.bagBottomTabs()) {
+			layoutBottomTabs();
+			return;
+		}
 
 		//SPS: 标签带贴近窗口外缘、四周内缩 1px——露出 1px 窗口边框作过渡
 		//（微调定稿：0px 盖压略大、2px 内缩略小，1px 正好）
@@ -320,6 +353,52 @@ public class WndBag extends WndTabbed {
 		main.setPos( rightX, top + (LEFT_TABS - 1) * g );
 		if (main instanceof BagTab) ((BagTab)main).setLeftSide( false );
 		PixelScene.align( main );
+	}
+
+	//SPSEXPD: 旧版背包界面（用户方案）——标签栏固定在窗口底部一行，分页显示：
+	//每页 = 3 个包裹 + 翻页格 + 主背包格（主背包恒在最后一格）。包裹不超过一页时隐藏翻页格；
+	//切包仍是「一次点击」，只有包裹多于 3 个时才需要先翻页。横向预算里不再扣 2*TAB_W，
+	//所以同样屏幕下背包格子能保持更大（高缩放时尤其明显）。
+	private void layoutBottomTabs() {
+		int n = tabs.size();
+		if (n == 0) return;
+
+		int bagCount = n - 1;                                         //除主背包
+		int pages = Math.max( 1, (bagCount + BOTTOM_PER_PAGE - 1) / BOTTOM_PER_PAGE );
+		bottomPage = ((bottomPage % pages) + pages) % pages;          //翻到底回到第一页
+
+		int firstBag = 1 + bottomPage * BOTTOM_PER_PAGE;
+		int shownBags = Math.max( 0, Math.min( BOTTOM_PER_PAGE, n - firstBag ) );
+		boolean pager = pages > 1;
+		int slots = shownBags + (pager ? 1 : 0) + 1;                   //末格是主背包
+
+		//先全部隐藏，再只显示当前页的格子（主背包恒显示）
+		for (int i = 0; i < n; i++) {
+			tabs.get(i).visible = false;
+		}
+
+		float step = (float)width / slots;
+		float cellW = Math.max( 4, Math.min( TAB_W, step - 1 ) );      //格间留 1px
+		float ty = height + 1;                                         //窗口下沿外侧
+
+		int slot = 0;
+		for (int i = 0; i < shownBags; i++) {
+			placeBottomTab( tabs.get( firstBag + i ), slot++, cellW, step, ty );
+		}
+		if (bottomPager != null) {
+			if (pager) {
+				placeBottomTab( bottomPager, slot++, cellW, step, ty );
+			} else {
+				bottomPager.visible = false;
+			}
+		}
+		placeBottomTab( tabs.get(0), slot, cellW, step, ty );           //主背包固定最后一格
+	}
+
+	private void placeBottomTab( Button c, int slot, float cellW, float step, float ty ) {
+		c.setRect( slot * step, ty, cellW, BOTTOM_TAB_H );
+		c.visible = true;
+		PixelScene.align( c );
 	}
 
 	//SPS: 从贴图读取侧边标签的单帧尺寸（横向 2 帧：左=选中、右=未选）。
@@ -686,7 +765,8 @@ public class WndBag extends WndTabbed {
 	
 	@Override
 	protected int tabHeight() {
-		return 0; //SPS: 标签栏改到左右两侧，底部不再留标签高度
+		//SPS: 标签栏在左右两侧时底部不留高度；SPSEXPD: 旧版布局时底部留出一行标签
+		return SPDSettings.bagBottomTabs() ? BOTTOM_TAB_H + 2 : 0;
 	}
 	
 	//SPS: 选项卡图标按 SPS 0.9.8 原版映射（不再复用别的袋子图标）；SPS 独有的
