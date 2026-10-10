@@ -1265,8 +1265,8 @@ public class Dungeon {
 
 	/**
 	 * SPSEXPD: 重算英雄视野。
-	 * 夜晚（{@link pd.actors.buffs.FullMoonStrength#isNightNow()}）把 level.viewDistance 按 5/8 收窄
-	 * （默认 8 → 5），有光源时以 Light.DISTANCE(=6) 兜底，所以夜里点火把仍比白天暗；
+	 * 夜晚（{@link pd.actors.buffs.FullMoonStrength#isNightNow()}）把 level.viewDistance 砍半
+	 * （默认 8 → 4），有光源时以 Light.DISTANCE(=6) 兜底，所以夜里点火把仍比白天暗；
 	 * 最后叠加圣者之辉的永久 +1。进关卡时（switchLevel）与每次观察前（observe）都会调用，
 	 * 这样在关卡里跨过昼夜分界也会立刻生效。
 	 */
@@ -1277,7 +1277,7 @@ public class Dungeon {
 
 		int base = level.viewDistance;
 		if (pd.actors.buffs.FullMoonStrength.isNightNow()){
-			base = Math.max(1, Math.round(5 * base / 8f));
+			base = Math.max(1, Math.round(base / 2f));
 		}
 		Light light = hero.buff( Light.class );
 		hero.viewDistance = light == null ? base : Math.max( Light.DISTANCE, base );
