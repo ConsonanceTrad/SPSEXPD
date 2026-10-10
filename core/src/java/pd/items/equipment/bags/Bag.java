@@ -250,6 +250,14 @@ public class Bag extends Item implements Iterable<Item> {
 		return false;
 	}
 
+	/** SPSEXPD: 已占用的格数——包裹袋（Bag）不占格，与 WndBag 的显示口径一致。
+	 *  包裹数量会随玩家增减而变动，所以每次动态统计，不写死常量。 */
+	public int usedSlots(){
+		int n = 0;
+		for (Item i : items) if (!(i instanceof Bag)) n++;
+		return n;
+	}
+
 	/** SPSEXPD: 非本物品占用的预留格数（主背包最后一格恒留给露珠瓶，见 Belongings.Backpack）。 */
 	protected int reservedSlotsFor( Item item ){
 		return 0;
@@ -261,7 +269,8 @@ public class Bag extends Item implements Iterable<Item> {
 			return false;
 		}
 
-		if (items.contains(item) || item instanceof Bag || items.size() < capacity() - reservedSlotsFor(item)){
+		//SPSEXPD: 用 usedSlots() 而不是 items.size()——包裹袋不占格，不该挤掉普通物品的名额
+		if (items.contains(item) || item instanceof Bag || usedSlots() < capacity() - reservedSlotsFor(item)){
 			return true;
 		} else if (item.stackable) {
 			for (Item i : items) {

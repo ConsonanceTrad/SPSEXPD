@@ -201,8 +201,8 @@ public class WndBag extends WndTabbed {
 		//所以各 Bag 子类的容量都取 34（34+1 = 35 = 5 列 x 7 行 = 7 列 x 5 行）
 		int bagRows = bottomTabs ? BAG_ROWS_BOTTOM : BAG_ROWS;
 		int contentCap = bagRows * nCols;
-		int shown = 0;
-		for (Item i : bag.items) if (!(i instanceof Bag)) shown++;
+		//SPSEXPD: 已占格数与 Bag.canHold 同源（包裹袋不占格，见 Bag.usedSlots()）
+		int shown = bag.usedSlots();
 		if (bag != Dungeon.hero.belongings.backpack) shown++;   //包裹本体占一格
 		int contentRows = (Math.min(shown, contentCap) + nCols - 1) / nCols;
 		nRows = EQUIP_ROWS + Math.max(bagRows, contentRows);
