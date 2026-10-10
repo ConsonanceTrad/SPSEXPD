@@ -145,6 +145,9 @@ public class HeroSelectScene extends PixelScene {
 	//SPSEXPD: 「名字 + 描述」区的预留高度（= 所有可玩职业里最长的描述高度，-1 表示未测量）
 	private float descReserveH = -1;
 
+	//SPSEXPD: 横屏特写横幅的高度占屏幕高度的比例（竖屏固定为 1/3）
+	private static final float BANNER_H_LAND = 0.5f;
+
 	private RectF insets;
 
 	private static boolean heroWasRandomized = true;
@@ -346,24 +349,23 @@ public class HeroSelectScene extends PixelScene {
 		float infoH = heroName.height() + 3 + descReserveH;
 		float space = Math.max(40, bottomTop - 4 - insets.top);
 
-		//特写横幅：横屏按宽度完整展示（contain），竖屏放大到屏高 1/3 并裁掉两侧（cover）
+		//特写横幅：横屏约半屏高、竖屏屏高 1/3；等比放大到该高度，超出部分裁掉两侧（cover）
 		float tipY = insets.top;
 		float texW = Math.max(1, closeup.width);
 		float texH = Math.max(1, closeup.height);
 
-		//SPSEXPD: 未选中职业时没有特写贴图（closeup 尺寸为 0），此时不预留横幅高度——
-		//否则横屏按「宽度 contain」会算出整屏高的横幅区，把选角头像挤到最小尺寸
+		//SPSEXPD: 未选中职业时没有特写贴图（closeup 尺寸为 0），此时不预留横幅高度，
+		//否则会把选角头像挤到最小尺寸
 		float areaH = 0;
 		if (closeup.visible){
 			areaH = landscape()
-					? texH * (w / texW)
+					? h * BANNER_H_LAND
 					: h / 3f;
 			areaH = Math.max(12, Math.min(areaH, space - infoH - 24));
 		}
 
-		float closeScale = landscape()
-				? Math.min(w / texW, areaH / texH)
-				: Math.max(w / texW, areaH / texH);
+		//SPSEXPD: cover——等比放大填满横幅高度（横屏因此会裁掉两侧），空间不足时自然退回按宽度铺满
+		float closeScale = Math.max(w / texW, areaH / texH);
 
 		//选角头像：横屏一行、竖屏两行，尺寸按剩余空间自适应
 		int rows = landscape() ? 1 : 2;
