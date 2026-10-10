@@ -604,12 +604,11 @@ public enum HeroClass {
 	}
 
 	private static void initMage( Hero hero ) {
+		//SPSEXPD: 物品部分已抽到 startingItems()（单一真源），这里只留属性与全局副作用
 		if (hero.skin == 1) {
 			hero.STR += 4; Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 4;
-			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Whip()).identify().upgrade(2);
-			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.LeatherArmor()).identify().upgrade(1);
-			CannonOfMage cannon = new CannonOfMage(); cannon.identify().collect(); Dungeon.quickslot.setSlot(0, cannon);
-			new Meatroll().identify().collect(); hero.improveMagicSkill(3); new ScrollOfIdentify().identify(); new PotionOfLiquidFlame().identify();
+			hero.improveMagicSkill(3);
+			applyStartingItems(hero, startingItems(MAGE, 1));
 			return;
 		}
 		if (hero.skin == 2) {
@@ -618,88 +617,39 @@ public enum HeroClass {
 			hero.improveAttackSkill(-5);
 			hero.improveDefenseSkill(2);
 			hero.improveMagicSkill(6);
-			(hero.belongings.weapon = new Dagger()).identify();
-			(hero.belongings.armor = new VestArmor()).identify();
-			new WandOfFirebolt().upgrade(1).identify().collect();
-			new WandOfFreeze().upgrade(1).identify().collect();
-			new WandOfLightning().upgrade(1).identify().collect();
-			new GnollMark().collect();
-			new JumpM().collect();
-			new Meatroll().identify().collect();
-			new ScrollOfIdentify().identify();
-			new PotionOfLiquidFlame().identify();
+			applyStartingItems(hero, startingItems(MAGE, 2));
 			return;
 		}
 		if (hero.skin == 3) {
-			(hero.belongings.weapon = new WoodenStaff()).identify();
-			(hero.belongings.armor = new VestArmor()).identify();
-			new WandOfFirebolt().identify().collect();
-			new WandOfFreeze().identify().collect();
-			new GnollMark().collect();
-			new PotionOfMage().identify().collect();
 			hero.improveMagicSkill(3);
-			new Meatroll().identify().collect();
-			new ScrollOfIdentify().identify();
-			new PotionOfLiquidFlame().identify();
+			applyStartingItems(hero, startingItems(MAGE, 3));
 			return;
 		}
 		if (hero.skin == 4) {
-			(hero.belongings.weapon = new ElfBow()).identify();
-			(hero.belongings.armor = new VestArmor()).identify();
-			new JumpM().collect();
-			new pd.items.consum.scrolls.ScrollOfRegrowth().identify().collect();
 			hero.improveMagicSkill(3);
-			new Meatroll().identify().collect();
-			new ScrollOfIdentify().identify();
-			new PotionOfLiquidFlame().identify();
+			applyStartingItems(hero, startingItems(MAGE, 4));
 			return;
 		}
 		if (hero.skin == 5) {
 			hero.improveMagicSkill(3);
-			new Meatroll().identify().collect();
-			new ScrollOfIdentify().identify();
-			new PotionOfLiquidFlame().identify();
+			applyStartingItems(hero, startingItems(MAGE, 5));
 			return;
 		}
 		if (hero.skin == 6) {
-			(hero.belongings.weapon = new ShortSword()).identify();
-			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.ClothArmor()).identify();
-			new GnollMark().collect();
-			new WandOfLight().identify().collect();
-			new JumpW().collect();
 			hero.improveMagicSkill(3);
-			new Meatroll().identify().collect();
-			new ScrollOfIdentify().identify();
-			new PotionOfLiquidFlame().identify();
+			applyStartingItems(hero, startingItems(MAGE, 6));
 			return;
 		}
-		//SPSXPD: 法师开局使用「老法杖」（MagesStaff，法杖系特质的载体），替代法术书
-		MagesStaff staff = new MagesStaff();
-		(hero.belongings.weapon = staff).identify();
-		staff.activate(hero);
-		staff.imbueWand(new WandOfMagicMissile(), hero);
-		WandOfMagicMissile missile = new WandOfMagicMissile();
-		missile.identify().collect();
-		WandOfDisintegration disintegration = new WandOfDisintegration();
-		disintegration.identify().collect();
-		new PotionOfMage().identify().collect();
-		new Meatroll().identify().collect();
+		//经典（skin 0）与留空主题都走默认清单
 		hero.improveMagicSkill(3);
-
-		Dungeon.quickslot.setSlot(0, missile);
-		Dungeon.quickslot.setSlot(1, disintegration);
-
-		new ScrollOfIdentify().identify();
-		new PotionOfLiquidFlame().identify();
+		applyStartingItems(hero, startingItems(MAGE, 0));
 	}
 
 	private static void initRogue( Hero hero ) {
+		//SPSEXPD: 物品部分已抽到 startingItems()（单一真源），这里只留属性与全局副作用
 		if (hero.skin == 1) {
-			LinkSword sword = new LinkSword(); (hero.belongings.weapon = sword).identify(); sword.activate(hero);
-			(hero.belongings.armor = new WoodenArmor()).identify(); hero.STR++; Dungeon.LimitedDrops.STRENGTH_POTIONS.count++;
-			EtherealChains chains = new EtherealChains(); (hero.belongings.artifact = chains).identify(); chains.activate(hero);
-			Dungeon.quickslot.setSlot(0, chains); Dungeon.quickslot.setSlot(1, sword);
-			new RiceGruel().identify().collect(); new ScrollOfMagicMapping().identify(); new PotionOfInvisibility().identify();
+			hero.STR++; Dungeon.LimitedDrops.STRENGTH_POTIONS.count++;
+			applyStartingItems(hero, startingItems(ROGUE, 1));
 			return;
 		}
 		if (hero.skin == 2) {
@@ -707,102 +657,37 @@ public enum HeroClass {
 			hero.updateHT(false);
 			hero.improveDefenseSkill(3);
 			hero.improveMagicSkill(3);
-			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Dagger()).identify();
-			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.ClothArmor()).identify();
-			new UndeadBook().collect();
-			new Skull(5).collect();
-			new JumpR().collect();
-			new RiceGruel().identify().collect();
-			new ScrollOfMagicMapping().identify();
-			new PotionOfInvisibility().identify();
+			applyStartingItems(hero, startingItems(ROGUE, 2));
 			return;
 		}
 		if (hero.skin == 3) {
 			hero.STR += 4;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 4;
-			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Glaive()).identify();
-			(hero.belongings.armor = new DiscArmor()).identify();
-			CloakOfShadows cloak = new CloakOfShadows();
-			(hero.belongings.artifact = cloak).identify();
-			cloak.activate(hero);
-			new HorseTotem().identify().collect();
-			Dungeon.quickslot.setSlot(0, cloak);
-			new RiceGruel().identify().collect();
-			new ScrollOfMagicMapping().identify();
-			new PotionOfInvisibility().identify();
+			applyStartingItems(hero, startingItems(ROGUE, 3));
 			return;
 		}
 		if (hero.skin == 4) {
-			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Dagger()).identify();
-			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.ClothArmor()).identify();
-			new JumpR().collect();
-			new NeedPaper().identify().collect();
-			new RiceGruel().identify().collect();
-			new ScrollOfMagicMapping().identify();
-			new PotionOfInvisibility().identify();
+			applyStartingItems(hero, startingItems(ROGUE, 4));
 			return;
 		}
 		if (hero.skin == 5) {
-			new RiceGruel().identify().collect();
-			new ScrollOfMagicMapping().identify();
-			new PotionOfInvisibility().identify();
+			applyStartingItems(hero, startingItems(ROGUE, 5));
 			return;
 		}
 		if (hero.skin == 6) {
-			EleKatana katana = new EleKatana();
-			(hero.belongings.weapon = katana).identify();
-			(hero.belongings.armor = new pd.items.equipment.armor.normalarmor.ClothArmor()).identify();
-			BeastKnive knife = new BeastKnive();
-			(hero.belongings.secondWep = knife).identify(); knife.activate(hero);
-			CloakOfShadows cloak = new CloakOfShadows();
-			(hero.belongings.artifact = cloak).identify(); cloak.activate(hero);
-			EtherealChains chains = new EtherealChains();
-			chains.identify().upgrade(3); hero.belongings.misc = chains; chains.activate(hero);
-			new EmpBola(10).identify().collect();
-			new PoisonDart().quantity(10).identify().collect();
-			new BlindFruit(10).identify().collect();
-			new Weightstone().identify().collect();
-			new pd.items.Stylus().identify().collect();
-			new PotionOfHealing().identify().collect();
-			new ScrollOfMagicMapping().identify().collect();
-			new WandOfLightning().upgrade(3).identify().collect();
 			hero.STR += 2;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 2;
-			new RiceGruel().identify().collect();
-			new ScrollOfMagicMapping().identify();
-			new PotionOfInvisibility().identify();
-			Dungeon.quickslot.setSlot(0, katana); Dungeon.quickslot.setSlot(1, knife);
+			applyStartingItems(hero, startingItems(ROGUE, 6));
 			return;
 		}
 		if (hero.skin == 7) {
-			(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Dagger()).identify();
-			(hero.belongings.armor = new VestArmor()).identify();
-			new JumpR().collect();
-			new AflyFood().quantity(3).identify().collect();
-			new AflyEgg().quantity(3).identify().collect();
 			hero.STR += 10;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 10;
-			new RiceGruel().identify().collect();
-			new ScrollOfMagicMapping().identify();
-			new PotionOfInvisibility().identify();
+			applyStartingItems(hero, startingItems(ROGUE, 7));
 			return;
 		}
-		(hero.belongings.weapon = new pd.items.equipment.weapon.melee.normalweapon.Dagger()).identify();
-		(hero.belongings.armor = new VestArmor()).identify();
-
-		CloakOfShadows cloak = new CloakOfShadows();
-		(hero.belongings.artifact = cloak).identify();
-		hero.belongings.artifact.activate( hero );
-
-		BlindFruit fruit = new BlindFruit(3);
-		fruit.identify().collect();
-
-		Dungeon.quickslot.setSlot(0, cloak);
-		Dungeon.quickslot.setSlot(1, fruit);
-
-		new ScrollOfMagicMapping().identify();
-		new PotionOfInvisibility().identify();
-		new RiceGruel().identify().collect();
+		//经典（skin 0）与留空主题都走默认清单
+		applyStartingItems(hero, startingItems(ROGUE, 0));
 	}
 
 	private static void initHuntress( Hero hero ) {
@@ -1498,7 +1383,7 @@ public enum HeroClass {
 	//（STR、HTBoost、技能等级、LimitedDrops、gold 等）仍留在 initXxx 里。
 
 	/** 物品去向 */
-	public enum ItemSlot { BACKPACK, WEAPON, ARMOR, SECOND_WEP, ACCESSORY4, ACCESSORY5, MISC }
+	public enum ItemSlot { BACKPACK, WEAPON, ARMOR, ARTIFACT, SECOND_WEP, ACCESSORY4, ACCESSORY5, MISC }
 
 	/** 一条物品声明：存工厂而不是实例，避免共享实例被 identify/upgrade 污染 */
 	public static final class LoadoutItem {
@@ -1647,6 +1532,151 @@ public enum HeroClass {
 					break;
 			}
 		}
+
+		if (cls == MAGE) {
+			switch (skin) {
+				case 1:
+					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Whip(), 2, null);
+					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.LeatherArmor(), 1, null);
+					l.backpack(() -> new CannonOfMage(), 0, 1, 0, null);
+					l.backpack(() -> new Meatroll());
+					break;
+				case 2:
+					l.equip(ItemSlot.WEAPON, () -> new Dagger(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
+					l.backpack(() -> new WandOfFirebolt(), 1, 1, -1, null);
+					l.backpack(() -> new WandOfFreeze(), 1, 1, -1, null);
+					l.backpack(() -> new WandOfLightning(), 1, 1, -1, null);
+					l.backpack(() -> new GnollMark());
+					l.backpack(() -> new JumpM());
+					l.backpack(() -> new Meatroll());
+					break;
+				case 3:
+					l.equip(ItemSlot.WEAPON, () -> new WoodenStaff(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
+					l.backpack(() -> new WandOfFirebolt());
+					l.backpack(() -> new WandOfFreeze());
+					l.backpack(() -> new GnollMark());
+					l.backpack(() -> new PotionOfMage());
+					l.backpack(() -> new Meatroll());
+					break;
+				case 4:
+					l.equip(ItemSlot.WEAPON, () -> new ElfBow(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
+					l.backpack(() -> new JumpM());
+					l.backpack(() -> new pd.items.consum.scrolls.ScrollOfRegrowth());
+					l.backpack(() -> new Meatroll());
+					break;
+				case 5:
+					l.backpack(() -> new Meatroll());
+					break;
+				case 6:
+					l.equip(ItemSlot.WEAPON, () -> new ShortSword(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.ClothArmor(), 0, null);
+					l.backpack(() -> new GnollMark());
+					l.backpack(() -> new WandOfLight());
+					l.backpack(() -> new JumpW());
+					l.backpack(() -> new Meatroll());
+					break;
+				default:
+					//SPSXPD: 法师开局用「老法杖」（法杖系特质的载体），激活并灌注魔法飞弹
+					l.equip(ItemSlot.WEAPON, () -> new MagesStaff(), 0, (h, i) -> {
+						MagesStaff staff = (MagesStaff) i;
+						staff.activate(h);
+						staff.imbueWand(new WandOfMagicMissile(), h);
+					});
+					l.backpack(() -> new WandOfMagicMissile(), 0, 1, 0, null);
+					l.backpack(() -> new WandOfDisintegration(), 0, 1, 1, null);
+					l.backpack(() -> new PotionOfMage());
+					l.backpack(() -> new Meatroll());
+					break;
+			}
+		}
+
+		if (cls == ROGUE) {
+			switch (skin) {
+				case 1:
+					l.equip(ItemSlot.WEAPON, () -> new LinkSword(), 0, (h, i) -> {
+						((LinkSword) i).activate(h);
+						Dungeon.quickslot.setSlot(1, i);
+					});
+					l.equip(ItemSlot.ARMOR, () -> new WoodenArmor(), 0, null);
+					l.equip(ItemSlot.ARTIFACT, () -> new EtherealChains(), 0, (h, i) -> {
+						((EtherealChains) i).activate(h);
+						Dungeon.quickslot.setSlot(0, i);
+					});
+					l.backpack(() -> new RiceGruel());
+					break;
+				case 2:
+					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Dagger(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.ClothArmor(), 0, null);
+					l.backpack(() -> new UndeadBook());
+					l.backpack(() -> new Skull(5));
+					l.backpack(() -> new JumpR());
+					l.backpack(() -> new RiceGruel());
+					break;
+				case 3:
+					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Glaive(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new DiscArmor(), 0, null);
+					l.equip(ItemSlot.ARTIFACT, () -> new CloakOfShadows(), 0, (h, i) -> {
+						((CloakOfShadows) i).activate(h);
+						Dungeon.quickslot.setSlot(0, i);
+					});
+					l.backpack(() -> new HorseTotem());
+					l.backpack(() -> new RiceGruel());
+					break;
+				case 4:
+					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Dagger(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.ClothArmor(), 0, null);
+					l.backpack(() -> new JumpR());
+					l.backpack(() -> new NeedPaper());
+					l.backpack(() -> new RiceGruel());
+					break;
+				case 5:
+					l.backpack(() -> new RiceGruel());
+					break;
+				case 6:
+					l.equip(ItemSlot.WEAPON, () -> new EleKatana(), 0, (h, i) -> Dungeon.quickslot.setSlot(0, i));
+					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.ClothArmor(), 0, null);
+					l.equip(ItemSlot.SECOND_WEP, () -> new BeastKnive(), 0, (h, i) -> {
+						((BeastKnive) i).activate(h);
+						Dungeon.quickslot.setSlot(1, i);
+					});
+					l.equip(ItemSlot.ARTIFACT, () -> new CloakOfShadows(), 0,
+							(h, i) -> ((CloakOfShadows) i).activate(h));
+					l.equip(ItemSlot.MISC, () -> new EtherealChains(), 3,
+							(h, i) -> ((EtherealChains) i).activate(h));
+					l.backpack(() -> new EmpBola(10));
+					l.backpack(() -> new PoisonDart(), 0, 10, -1, null);
+					l.backpack(() -> new BlindFruit(10));
+					l.backpack(() -> new Weightstone());
+					l.backpack(() -> new pd.items.Stylus());
+					l.backpack(() -> new PotionOfHealing());
+					l.backpack(() -> new ScrollOfMagicMapping());
+					l.backpack(() -> new WandOfLightning(), 3, 1, -1, null);
+					l.backpack(() -> new RiceGruel());
+					break;
+				case 7:
+					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Dagger(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
+					l.backpack(() -> new JumpR());
+					l.backpack(() -> new AflyFood(), 0, 3, -1, null);
+					l.backpack(() -> new AflyEgg(), 0, 3, -1, null);
+					l.backpack(() -> new RiceGruel());
+					break;
+				default:
+					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Dagger(), 0, null);
+					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
+					l.equip(ItemSlot.ARTIFACT, () -> new CloakOfShadows(), 0, (h, i) -> {
+						((CloakOfShadows) i).activate(h);
+						Dungeon.quickslot.setSlot(0, i);
+					});
+					l.backpack(() -> new BlindFruit(3), 0, 1, 1, null);
+					l.backpack(() -> new RiceGruel());
+					break;
+			}
+		}
+
 		return l;
 	}
 
@@ -1669,6 +1699,10 @@ public enum HeroClass {
 					break;
 				case ARMOR:
 					if (item instanceof pd.items.equipment.armor.Armor) hero.belongings.armor = (pd.items.equipment.armor.Armor) item;
+					else item.collect();
+					break;
+				case ARTIFACT:
+					if (item instanceof pd.items.KindofMisc) hero.belongings.artifact = (pd.items.KindofMisc) item;
 					else item.collect();
 					break;
 				case SECOND_WEP:
