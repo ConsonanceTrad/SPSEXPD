@@ -323,8 +323,8 @@ public class HeroSelectScene extends PixelScene {
 
 		float bottomTop = optionsPane.top() - 4;
 
-		//SPSEXPD: 描述高度按"所有可玩职业里最长的描述"预留，内容自上而下紧凑排列
-		//（多出的空间留在描述与底部图标行之间），这样切换职业时描述行数变化不会顶动上方的头像与横幅
+		//SPSEXPD: 描述高度按"所有可玩职业里最长的描述"预留，整块内容（横幅/头像/名字/描述）在可用空间里居中，
+		//这样切换职业时描述行数变化不会顶动上方的头像与横幅
 		heroDesc.maxWidth(Math.max(40, (int)(w - 8)));
 		if (descReserveH < 0){
 			//用临时文本块测量（不污染正在显示的 heroDesc）
@@ -353,24 +353,8 @@ public class HeroSelectScene extends PixelScene {
 		float closeScale = landscape()
 				? Math.min(w / texW, areaH / texH)
 				: Math.max(w / texW, areaH / texH);
-		closeup.scale.set(closeScale, closeScale);
-		closeup.x = left + (w - texW * closeScale)/2f;
-		closeup.y = tipY + (areaH - texH * closeScale)/2f;
-		align(closeup);
 
-		//特写图底部向背景色过渡的阴影
-		float shadeH = Math.min(areaH * 0.45f, 26);
-		float stepH = shadeH / closeupShade.length;
-		for (int i = 0; i < closeupShade.length; i++){
-			ColorBlock blk = closeupShade[i];
-			blk.x = 0;
-			blk.y = tipY + areaH - shadeH + stepH * i;
-			blk.size(Camera.main.width, stepH + 0.5f);
-			blk.alpha((i + 1f) / closeupShade.length);
-			blk.visible = closeup.visible;
-		}
-
-		//选角头像：紧贴特写下方，横屏一行、竖屏两行，尺寸按剩余空间自适应
+		//选角头像：横屏一行、竖屏两行，尺寸按剩余空间自适应
 		int rows = landscape() ? 1 : 2;
 		int cols = (int)Math.ceil(heroBtns.size() / (float)rows);
 		float avatarArea = Math.max(16, space - areaH - infoH - 8);
@@ -381,7 +365,30 @@ public class HeroSelectScene extends PixelScene {
 
 		float btnW = AVATAR_W * scale + 4;
 		float btnH = AVATAR_H * scale + 4;
-		float rowsY = tipY + areaH + 4;
+		float avatarsH = rows * btnH + (rows - 1);
+
+		//SPSEXPD: 「横幅 + 头像 + 名字 + 描述」整块在可用空间里垂直居中（上下留白均分），不必贴顶
+		float contentH = areaH + 4 + avatarsH + 4 + infoH;
+		float offsetY = Math.max(0, (space - contentH)/2f);
+
+		closeup.scale.set(closeScale, closeScale);
+		closeup.x = left + (w - texW * closeScale)/2f;
+		closeup.y = tipY + offsetY + (areaH - texH * closeScale)/2f;
+		align(closeup);
+
+		//特写图底部向背景色过渡的阴影
+		float shadeH = Math.min(areaH * 0.45f, 26);
+		float stepH = shadeH / closeupShade.length;
+		for (int i = 0; i < closeupShade.length; i++){
+			ColorBlock blk = closeupShade[i];
+			blk.x = 0;
+			blk.y = tipY + offsetY + areaH - shadeH + stepH * i;
+			blk.size(Camera.main.width, stepH + 0.5f);
+			blk.alpha((i + 1f) / closeupShade.length);
+			blk.visible = closeup.visible;
+		}
+
+		float rowsY = tipY + offsetY + areaH + 4;
 
 		for (int r = 0; r < rows; r++){
 			int count = Math.min(cols, heroBtns.size() - r * cols);
@@ -397,7 +404,7 @@ public class HeroSelectScene extends PixelScene {
 		}
 
 		//英雄名与描述紧跟头像行下方（信息按钮贴在名字右侧、整体居中）
-		float nameTop = rowsY + rows * btnH + (rows - 1) + 4;
+		float nameTop = rowsY + avatarsH + 4;
 		float nameRowW = heroName.width() + 2 + infoButton.width();
 		heroName.setPos(left + (w - nameRowW)/2f, nameTop);
 		align(heroName);
