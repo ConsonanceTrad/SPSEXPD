@@ -1068,11 +1068,10 @@ public class WndBag extends WndTabbed {
 
 			//SPS: 帧 0 = 选中、帧 1 = 未选；中段按标签高度裁取，绝不缩放。
 			//贴图不够长时用多块中段循环拼接（原先只支持 1 块续块，标签变高后会漏空）
-			//SPSEXPD: 窄版标签两帧是同一张图，只用帧 0，未选中靠整体压暗区分；
+			//SPSEXPD: 窄版标签两帧是同一张图，只用帧 0（未选中不压暗底板，选中与否由图标亮度体现）；
 			//原版两帧不同，fx 必须用「单帧宽」定位（不能用 TAB_W），否则未选中帧会裁到两帧之间的空隙
 			int fx = 0;
 			if (!compactTabs && !selected) fx = TAB_FRAME_W + TAB_ART_OFF_UNSEL;
-			float dim = (compactTabs && !selected) ? 0.6f : 1f;   //窄版未选中压暗，与图标 am 一致
 			int midMax = Math.max( 1, TAB_H - 2 * PLATE_CAP );          //贴图可提供的中段长度
 			int remaining = Math.max( 0, Math.round( height ) - 2 * PLATE_CAP );
 
@@ -1098,11 +1097,6 @@ public class WndBag extends WndTabbed {
 
 			plateTop.flipHorizontal = !leftSide;
 			plateBot.flipHorizontal = !leftSide;
-
-			//SPSEXPD: 窄版标签未选中时整块压暗（两帧同图，靠亮度区分）
-			plateTop.am = dim;
-			plateBot.am = dim;
-			for (Image seg : plateMids) seg.am = dim;
 
 			plateTop.x = x;  plateTop.y = y;
 			plateBot.x = x;  plateBot.y = y + PLATE_CAP + placed;
