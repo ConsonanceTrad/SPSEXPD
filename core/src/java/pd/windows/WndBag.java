@@ -394,13 +394,14 @@ public class WndBag extends WndTabbed {
 		int bagCount = n - 1;                                  //除主背包
 		int leftCount = Math.min( bagCount, LEFT_TABS );
 
-		//SPS: 左右两栏每项都恒定占 1/5（不拉伸）。
-		//整数网格（用户裁决 2026-09-30）：标签页间恒留 1px 间隙避免像素融合——
-		//高度 = g-1、步进 = g（浮点步进取整会在 0~1px 间抖动导致相邻标签粘连/融合）
-		int g = Math.max( 2, (int)( (usableH + 1) / 5 ) );
+		//SPSEXPD: 标签不再纵向拉伸 —— 每个标签用贴图自然高（TAB_H）自上而下堆叠；
+		//一列放不下时在该栏【向内】再开一列（左栏向右扩、右栏向左扩）。
+		//主背包仍固定在最外侧右栏的最下格（右下角），所以右栏第 0 列要给它留出一格。
+		int tabH = Math.max( 2, TAB_H - 1 );
+		int perCol = Math.max( 1, (int)( usableH / TAB_H ) );
+		int rightCol0 = Math.max( 1, perCol - 1 );
 
 		//SPS: 标签在窗框外侧——未选中时压在窗框下、选中时探入框带。
-		//探入深度 = 窗框带 6px - 2px = 4px（再外移 2px 让选中态探入浅一点）
 		//SPSEXPD: 标签紧贴背包内容 —— 原先各留 1px 空隙（±2），按用户要求补进 1px
 		float leftX = -TAB_W - 1, rightX = width + 1;
 
@@ -409,19 +410,33 @@ public class WndBag extends WndTabbed {
 			Tab tab = tabs.get(i);
 			boolean left = sideIdx < leftCount;
 			int slotIdx = left ? sideIdx : sideIdx - leftCount;   //本栏内第几格（0 起）
-			tab.setSize( TAB_W, g - 1 );
+
+			int col, row;
+			if (left) {
+				col = slotIdx / perCol;
+				row = slotIdx % perCol;
+			} else if (slotIdx < rightCol0) {
+				col = 0;
+				row = slotIdx;
+			} else {
+				int k = slotIdx - rightCol0;
+				col = 1 + k / perCol;
+				row = k % perCol;
+			}
+
+			tab.setSize( TAB_W, tabH );
 			tab.setPos(
-					left ? leftX : rightX,
-					top + slotIdx * g );
+					left ? leftX + col * TAB_W : rightX - col * TAB_W,
+					top + row * TAB_H );
 			if (tab instanceof BagTab) ((BagTab)tab).setLeftSide( left );
 			PixelScene.align( tab );
 			sideIdx++;
 		}
 
-		//主背包（getBags() 首位）固定右栏最下一格（1/5）——与左栏格线严格对齐
+		//主背包固定右下角：右栏最外列（col 0）的最下格
 		Tab main = tabs.get(0);
-		main.setSize( TAB_W, g - 1 );
-		main.setPos( rightX, top + (LEFT_TABS - 1) * g );
+		main.setSize( TAB_W, tabH );
+		main.setPos( rightX, top + (perCol - 1) * TAB_H );
 		if (main instanceof BagTab) ((BagTab)main).setLeftSide( false );
 		PixelScene.align( main );
 	}
