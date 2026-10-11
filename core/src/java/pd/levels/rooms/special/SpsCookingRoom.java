@@ -44,9 +44,10 @@ public class SpsCookingRoom extends SpecialRoom {
 
 		ArrayList<Integer> prizeCells = cellsWithoutHeaps(level, Terrain.EMPTY);
 		Random.shuffle(prizeCells);
-		int highFood = Math.min(Random.IntRange(1, 2), prizeCells.size());
+		//SPSEXPD: 食物量下调（用户要求）——高级食物 0~1 份、普通食物固定 2 份
+		int highFood = Math.min(Random.Int(2), prizeCells.size());
 		for (int i = 0; i < highFood; i++) level.drop(potionOrHighFood(level), prizeCells.remove(0));
-		int food = Math.min(Random.IntRange(2, 3), prizeCells.size());
+		int food = Math.min(2, prizeCells.size());
 		for (int i = 0; i < food; i++) level.drop(potionOrFood(level), prizeCells.remove(0));
 
 		//SPSEXPD: 血源风简单烹饪——厨房固定一把平底煎锅 + 几份可烹制食材
