@@ -49,7 +49,7 @@ public final class SpsHornOfPlentyTest {
 			testFeastMovedToAcidFeastPotion();
 			testSaveMigration();
 			testLocalizedResources();
-			System.out.println("SPS丰饶之角测试通过：吞噬食物充能、每6点自动凝干粮并成长、时间充能、盛宴移植强酸合剂、存档迁移及英文文本均正常。");
+			System.out.println("SPS丰饶之角测试通过：吞噬食物按等级效率充能（实数不截断）、每18点自动凝干粮并成长（上限10级）、时间充能、盛宴移植强酸合剂、存档迁移及英文文本均正常。");
 		} finally {
 			Actor.clear();
 			Dungeon.hero = null;
@@ -102,35 +102,47 @@ public final class SpsHornOfPlentyTest {
 		TestHorn horn = new TestHorn();
 		horn.identify();
 		hero.belongings.artifact = horn;
-		check(HornOfPlenty.AC_SWALLOW.equals(horn.defaultAction()) && horn.levelCapValue() == 30
+		check(HornOfPlenty.AC_SWALLOW.equals(horn.defaultAction()) && horn.levelCapValue() == 10
 				&& horn.chargeCapValue() == 0, "号角默认动作、等级上限或充能上限错误");
 		check(horn.actions(hero).contains(HornOfPlenty.AC_SWALLOW)
 				&& !horn.actions(hero).contains("EAT") && !horn.actions(hero).contains("FEED"),
 				"号角仍残留食用或盛宴动作");
 		check("0".equals(horn.status()), "号角状态栏没有只显示充能数");
 
-		//吞噬食物按 hornValue 加充能（无味果 hornValue=2），不足 6 不产干粮
-		horn.swallow(hero, new Blandfruit());
-		check(horn.chargeValue() == 2 && horn.level() == 0 && countRations(hero) == 0,
-				"吞噬无味果没有+2充能，或不足6点就产出了干粮");
-		check("2".equals(horn.status()), "号角状态栏没有显示充能数2");
+		//SPSEXPD: 0 级效率 75%；无味果 hornValue=2 -> 2×0.75 = 1.5 点（实数，不再被 int 截断）
+		check(horn.efficiency() == 0.75f, "0 级号角的食物转化效率不是 75%：" + horn.efficiency());
+		float gained = horn.swallow(hero, new Blandfruit());
+		check(gained == 1.5f && horn.chargeValue() == 1.5f && horn.level() == 0 && countRations(hero) == 0,
+				"吞噬无味果没有按 75% 效率得到 1.5 点充能，或不足 18 点就产出了干粮");
+		check("1".equals(horn.status()), "号角状态栏没有向下取整显示充能数（应为1）");
 
-		//满 6 点自动凝成干粮并成长一级（吞 PerfectFood hornValue=10：10+2=12 → 2 包干粮 + 2 级，余 0）
+		//SPSEXPD: 小饱食度食物的能量不再被丢弃——hornValue=1 在 75% 下是 0.75 点（旧实现会被截断成 0）
+		TestHorn tiny = new TestHorn();
+		tiny.identify();
+		hero.belongings.artifact = tiny;
+		check(tiny.swallow(hero, new Fruit()) == 0.75f && tiny.chargeValue() == 0.75f,
+				"小饱食度食物的能量被截断丢弃了");
+
+		//满 18 点自动凝成干粮并成长一级（0 级下 PerfectFood hornValue=10 -> 10×0.75 = 7.5 点/个）
 		horn.swallow(hero, new pd.items.consum.food.completefood.PerfectFood());
-		check(horn.chargeValue() == 0 && countRations(hero) == 2 && horn.level() == 2,
-				"充能没有每6点自动凝成干粮、余数保留或每包成长1级");
+		horn.swallow(hero, new pd.items.consum.food.completefood.PerfectFood());
+		check(horn.chargeValue() == 16.5f && countRations(hero) == 0, "充能累计错误：" + horn.chargeValue());
+		horn.swallow(hero, new pd.items.consum.food.completefood.PerfectFood());
+		check(horn.chargeValue() == 6f && countRations(hero) == 1 && horn.level() == 1,
+				"充能没有每18点自动凝成干粮、余数保留或每包成长1级");
 
 		//满级后仍产干粮但不再成长
-		horn.level(30);
+		horn.level(10);
+		horn.setCharge(17f);
 		horn.swallow(hero, new pd.items.consum.food.completefood.PerfectFood());
-		check(horn.level() == 30 && countRations(hero) == 3 && horn.chargeValue() == 4,
+		check(horn.level() == 10 && countRations(hero) == 2,
 				"满级后没有继续产出干粮或仍在成长");
 
-		//SPSEXPD: 号角等级按内部计（0~30），不再折算成 0~10 的通用显示尺度
+		//SPSEXPD: 号角等级按内部计（0~10），不再折算成 0~10 的通用显示尺度
 		check(horn.visiblyUpgraded() == horn.level() && horn.buffedVisiblyUpgraded() == horn.level(),
 				"号角等级仍被折算成 0~10 显示尺度：" + horn.visiblyUpgraded());
-		horn.level(15);
-		check(horn.visiblyUpgraded() == 15, "号角 15 级没有按内部等级显示：" + horn.visiblyUpgraded());
+		horn.level(8);
+		check(horn.visiblyUpgraded() == 8, "号角 8 级没有按内部等级显示：" + horn.visiblyUpgraded());
 
 		//SPSEXPD: 神器等级不受鉴定状态影响（未装备过的神器也要显示等级角标）
 		TestHorn fresh = new TestHorn();
@@ -192,37 +204,38 @@ public final class SpsHornOfPlentyTest {
 		TestHorn slow = new TestHorn();
 		HornOfPlenty.hornRecharge slowRecharge = slow.new hornRecharge();
 		check(slowRecharge.attachTo(hero), "零级号角充能状态无法附加");
-		//SPSEXPD: 8 倍速后 0 级每回合 2.0 → 40 回合攒够 80 点（1 充能）
-		for (int i = 0; i < 39; i++) slowRecharge.act();
-		check(slow.chargeValue() == 0, "零级号角在40回合前提前产生食物");
+		//SPSEXPD: 0 级每回合 (0.25+0)×2 = 0.5 → 160 回合攒够 80 点（1 充能）
+		for (int i = 0; i < 159; i++) slowRecharge.act();
+		check(slow.chargeValue() == 0f, "零级号角在160回合前提前产生食物");
 		slowRecharge.act();
-		check(slow.chargeValue() == 1, "零级号角40回合没有产生一格食物");
+		check(slow.chargeValue() == 1f, "零级号角160回合没有产生一格食物");
 
 		Actor.clear();
 		hero = prepareHero();
 		TestHorn fast = new TestHorn();
-		fast.level(30);
+		fast.level(10);
 		HornOfPlenty.hornRecharge fastRecharge = fast.new hornRecharge();
 		check(fastRecharge.attachTo(hero), "满级号角充能状态无法附加");
-		//SPSEXPD: 满级每回合 (0.25+0.45)×8 = 5.6 → 15 回合攒够 80 点（1 充能）
-		for (int i = 0; i < 14; i++) fastRecharge.act();
-		check(fast.chargeValue() == 0, "满级号角在15回合前提前产生食物");
+		//SPSEXPD: 满级每回合 (0.25+0.45)×2 = 1.4 → 58 回合攒够 80 点（1 充能）
+		//（上限 10 级、斜率 ×3，与旧版 30 级的满级速率一致）
+		check(fast.efficiency() == 1.25f, "满级号角的食物转化效率不是 125%：" + fast.efficiency());
+		for (int i = 0; i < 57; i++) fastRecharge.act();
+		check(fast.chargeValue() == 0f, "满级号角在58回合前提前产生食物");
 		fastRecharge.act();
-		check(fast.chargeValue() == 1, "满级号角15回合没有产生一格食物");
+		check(fast.chargeValue() == 1f, "满级号角58回合没有产生一格食物");
 
-		fast.setCharge(5);
-		//SPSEXPD: 74.9 + 5.6 = 80.5 → 凝 1 包、余 0.5（8 倍速下每次 act 涨 5.6）
-		fast.setPartial(74.9f);
+		fast.setCharge(17f);
+		//SPSEXPD: 79 + 1.4 = 80.4 → 充能 18 点 → 自动凝 1 包、余 0
+		fast.setPartial(79f);
 		fastRecharge.act();
-		//SPSEXPD: 充能 5+1=6 → 自动凝成 1 包干粮、余 0；满级不再成长；部分充能保留小数余量
-		check(fast.chargeValue() == 0 && countRations(hero) == 1 && fast.levelValue() == 30
+		check(fast.chargeValue() == 0f && countRations(hero) == 1 && fast.levelValue() == 10
 				&& fast.partialValue() < 1f && fast.image == EquipmentJewelleryArtifactDict.ARTIFACT_HORN1,
-				"号角满6充能没有自动凝成干粮、保留余数或按余数刷新图标");
+				"号角满18充能没有自动凝成干粮、保留余数或按余数刷新图标");
 		fast.cursed = true;
-		fast.setCharge(5);
+		fast.setCharge(17f);
 		fast.setPartial(40f);
 		fastRecharge.act();
-		check(fast.chargeValue() == 5 && fast.partialValue() == 0f, "诅咒号角仍充能或未清空部分充能");
+		check(fast.chargeValue() == 17f && fast.partialValue() == 0f, "诅咒号角仍充能或未清空部分充能");
 	}
 
 	//SPSEXPD: 盛宴效果已移植到吞星花对应的合剂（强酸盛宴合剂）
@@ -243,30 +256,34 @@ public final class SpsHornOfPlentyTest {
 	}
 
 	private static void testSaveMigration() {
+		//SPSEXPD: 旧档——充能写在基类 charge 里（单位是旧的 1/3），等级上限是旧的 30
 		TestHorn oldPortHorn = new TestHorn();
 		oldPortHorn.level(4);
-		oldPortHorn.setCharge(7);
 		Bundle oldSave = new Bundle();
 		oldPortHorn.storeInBundle(oldSave);
+		oldSave.remove("horn_charge");
+		oldSave.put("charge", 7);
 		oldSave.put("stored", 150);
 
 		TestHorn migrated = new TestHorn();
 		migrated.restoreFromBundle(oldSave);
-		//SPSEXPD: 旧档 charge=7 → 新图标阈值（>=5 即 HORN4），充能会在下次 tick 自动凝成干粮
-		check(migrated.level() == 14 && migrated.chargeValue() == 7
+		//SPSEXPD: 旧 charge=7 → 新单位 21（>=15 即 HORN4）；等级 4*3+2=14 收敛到新上限 10
+		check(migrated.level() == 10 && migrated.chargeValue() == 21f
 				&& migrated.image == EquipmentJewelleryArtifactDict.ARTIFACT_HORN4,
 				"早期10级号角的等级、储存进度、充能或图标迁移错误");
 		Bundle newSave = new Bundle();
 		migrated.storeInBundle(newSave);
 		check(!newSave.contains("stored"), "新号角存档仍写入破碎版储存能量字段");
+		check(newSave.contains("horn_charge"), "新号角存档没有写入实数充能字段");
 
+		//SPSEXPD: 无破碎标记的 0.9.8 号角存档不被缩放（等级在新上限内则原样保留）
 		TestHorn legacy = new TestHorn();
-		legacy.level(20);
+		legacy.level(8);
 		Bundle legacySave = new Bundle();
 		legacy.storeInBundle(legacySave);
 		TestHorn restoredLegacy = new TestHorn();
 		restoredLegacy.restoreFromBundle(legacySave);
-		check(restoredLegacy.level() == 20, "无破碎标记的0.9.8号角存档被错误缩放");
+		check(restoredLegacy.level() == 8, "无破碎标记的0.9.8号角存档被错误缩放");
 	}
 
 	private static void testLocalizedResources() throws Exception {
@@ -319,12 +336,13 @@ public final class SpsHornOfPlentyTest {
 	}
 
 	private static final class TestHorn extends HornOfPlenty {
-		int chargeValue() { return charge; }
+		float chargeValue() { return hornCharge; }
 		int chargeCapValue() { return chargeCap; }
 		int levelCapValue() { return levelCap; }
 		int levelValue() { return level(); }
 		float partialValue() { return partialCharge; }
-		void setCharge(int value) { charge = value; }
+		float efficiency() { return conversionEfficiency(); }
+		void setCharge(float value) { hornCharge = value; }
 		void setPartial(float value) { partialCharge = value; }
 	}
 
