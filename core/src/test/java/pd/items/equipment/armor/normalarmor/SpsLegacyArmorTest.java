@@ -233,6 +233,9 @@ public final class SpsLegacyArmorTest {
 				java.nio.charset.StandardCharsets.UTF_8);
 		check(!sealSource.contains("armor.cursed && (getGlyph() == null"),
 				"纹章仍对被诅咒护甲保留了刻印类型限制");
+		//SPSEXPD: 护甲上已挂另一枚纹章/碎片时必须拒绝贴附，否则会覆盖并把原来那枚弄丢
+		check(sealSource.contains("armor.checkSeal() != null && armor.checkSeal() != this"),
+				"纹章缺少「护甲已挂另一枚纹章则拒绝贴附」的检查");
 	}
 
 	private static void testLegacyIcons() throws Exception {

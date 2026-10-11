@@ -62,6 +62,7 @@ public class BrokenSeal extends Item {
 			.t("ac_affix", "贴附")
 			.t("prompt", "选择一件护甲。")
 			.t("unknown_armor", "你需要先鉴定那件护甲有无诅咒。")
+			.t("already_affixed", "这件护甲上已经贴附了一枚纹章，不能再贴附第二枚。")
 			.t("cursed_armor", "纹章不能贴附于被诅咒的盔甲。")
 			.t("affix", "你将纹章佩挂在了护甲上！")
 			.t("desc", "一枚蜡制纹章，作为勇气的象征而贴附在护甲之上。纹章上刻有磨损的防御符咒，并从中碎裂为两半。\n\n这是一件来自家乡的纪念物，在纹章的支持下战士会变得不屈不挠：护盾会随时间累积（上限为护甲等级 + 阶位×2），但在极度饥饿时停止累积。\n\n纹章可以被_贴附在护甲上_并能在护甲间转移。它能够携带最多 _2 级_升级（升级时纹章需已贴附在护甲上），并能携带_任意刻印_。\n\n纹章_取下后_同样是一件可被打造的物品：它可以被_升级卷轴_继续升级（仍以 2 级为限），也可以被_附魔道具_刻上新的刻印。")
@@ -181,6 +182,10 @@ public class BrokenSeal extends Item {
 				GLog.w(Messages.get(BrokenSeal.class, "unknown_armor"));
 
 			//SPSEXPD: 取消「诅咒护甲需配诅咒刻印」的限制——纹章可贴附到任意护甲，携带任意刻印
+			//SPSEXPD: 护甲上已挂着另一枚纹章/碎片——拒绝贴附，否则会覆盖并把原来那枚弄丢
+			} else if (armor.checkSeal() != null && armor.checkSeal() != this) {
+				GLog.w(Messages.get(this, "already_affixed"));
+
 			} else if (armor.glyph != null && getGlyph() != null &&
 					(canTransferGlyph() || outgoing instanceof BrokenSeal) //if glyph is on the seal in isolation, always allow xfer
 					&& armor.glyph.getClass() != getGlyph().getClass()) {

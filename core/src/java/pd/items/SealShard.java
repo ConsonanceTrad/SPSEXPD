@@ -23,6 +23,7 @@ public class SealShard extends BrokenSeal {
 			.t("ac_affix", "贴附")
 			.t("prompt", "选择一件护甲。")
 			.t("unknown_armor", "你需要先鉴定那件护甲有无诅咒。")
+			.t("already_affixed", "这件护甲上已经贴附了一枚纹章，不能再贴附第二枚。")
 			.t("cursed_armor", "纹章不能贴附于被诅咒的盔甲。")
 			.t("affix", "你将纹章碎片佩挂在了护甲上！")
 			.t("inscribed", "碎片刻有_%s_。")
