@@ -109,7 +109,7 @@ public final class EquipmentNonEquipDict {
 	/** semantic alias for NON_EQUIP_C8_R2 */
 	public static final IconEntry BATTERY = NON_EQUIP_C8_R2;
 	/** CHEAT_CODE */
-	public static final IconEntry NON_EQUIP_C9_R2 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{130, 17, 13, 15}, 7001);
+	public static final IconEntry NON_EQUIP_C9_R2 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{130, 18, 13, 13}, 7001);
 	/** semantic alias for NON_EQUIP_C9_R2 */
 	public static final IconEntry CHEAT_CODE = NON_EQUIP_C9_R2;
 	/** MUSHROOM_QUESTION_BOX */
@@ -205,11 +205,11 @@ public final class EquipmentNonEquipDict {
 	/** semantic alias for NON_EQUIP_C16_R3 */
 	public static final IconEntry FAKE_DEWDROP_VIAL = NON_EQUIP_C16_R3;
 	/** SEAL_SHARD */
-	public static final IconEntry NON_EQUIP_C1_R4 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{3, 49, 9, 15}, 7508);
+	public static final IconEntry NON_EQUIP_C1_R4 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{3, 49, 8, 15}, 7508);
 	/** semantic alias for NON_EQUIP_C1_R4 */
 	public static final IconEntry SEAL_SHARD = NON_EQUIP_C1_R4;
 	/** SEAL_FRAGMENT - 纹章碎片（破损纹章同列下一行） */
-	public static final IconEntry NON_EQUIP_C1_R5 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{3, 65, 9, 14}, 7513);
+	public static final IconEntry NON_EQUIP_C1_R5 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{0, 64, 16, 15}, 7513);
 	/** semantic alias for NON_EQUIP_C1_R5 */
 	public static final IconEntry SEAL_FRAGMENT = NON_EQUIP_C1_R5;
 	/** DEMON_BOOK */
