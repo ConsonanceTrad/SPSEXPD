@@ -7,7 +7,6 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
-import pd.actors.blobs.Blob;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Paralysis;
 import pd.actors.hero.Hero;
@@ -138,32 +137,19 @@ public class MissileShield extends MeleeWeapon {
 	@Override public boolean isIdentified() { return true; }
 	@Override public int value() { return 30 * quantity; }
 
-	/** SPSEXPD: 在英雄 4 格范围内挑一个安全的空地作为弹回位置。 */
-	private int pickReturnCell() {
+	/** SPSEXPD: 在英雄两格内挑一个可通行的空地作为弹回位置（排除英雄自身与本次投掷的落点）。 */
+	private int pickReturnCell(int excluded) {
 		Hero hero = Dungeon.hero;
 		if (hero == null) return 0;
 		if (Dungeon.level == null) return hero.pos;
 		ArrayList<Integer> candidates = new ArrayList<>();
 		for (int cell = 0; cell < Dungeon.level.length(); cell++) {
-			if (cell == hero.pos) continue;
+			if (cell == hero.pos || cell == excluded) continue;
 			if (Dungeon.level.distance(hero.pos, cell) > RETURN_RANGE) continue;
-			if (!Dungeon.level.passable[cell] || Dungeon.level.solid[cell]) continue;
-			if (Actor.findChar(cell) != null) continue;
-			if (hazardous(cell)) continue;
+			if (!Dungeon.level.passable[cell]) continue;
 			candidates.add(cell);
 		}
 		return candidates.isEmpty() ? hero.pos : Random.element(candidates);
-	}
-
-	/** 有气体/火焰等 blob 的格子不选作弹回位置。 */
-	private static boolean hazardous(int cell) {
-		if (Dungeon.level == null || Dungeon.level.blobs == null) return false;
-		for (Blob blob : Dungeon.level.blobs.values()) {
-			if (blob != null && blob.cur != null && cell < blob.cur.length && blob.cur[cell] > 0) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 	private final CellSelector.Listener shooter = new CellSelector.Listener() {
@@ -172,7 +158,7 @@ public class MissileShield extends MeleeWeapon {
 			MissileShieldAmmo ammo = new MissileShieldAmmo();
 			int cell = ammo.throwPos(curUser, target);
 			Char enemy = Actor.findChar(cell);
-			int returnCell = pickReturnCell();
+			int returnCell = pickReturnCell(cell);
 			charge = 0;
 			updateQuickslot();
 			curUser.sprite.zap(cell);
@@ -193,7 +179,7 @@ public class MissileShield extends MeleeWeapon {
 	/** SPSEXPD: 标记弹回位置，并安排 3 回合后的弹回。 */
 	private void launchReturn(MissileWeapon ammo, int thrownPos, int returnPos) {
 		if (Dungeon.hero == null || Dungeon.level == null) return;
-		GameScene.targetedCell(returnPos, RETURN_TURNS + 1f);
+		GameScene.targetedCell(returnPos, RETURN_TURNS);
 		Buff.append(Dungeon.hero, ReturnShot.class).setup(this, ammo, thrownPos, returnPos,
 				Dungeon.depth, Dungeon.branch);
 		if (Dungeon.hero.sprite != null) GLog.i(Messages.get(this, "mark"));
@@ -236,7 +222,9 @@ public class MissileShield extends MeleeWeapon {
 			this.returnPos = returnPos;
 			this.returnDepth = returnDepth;
 			this.returnBranch = returnBranch;
-			left = RETURN_TURNS;
+			//SPSEXPD: 投掷的那一回合已经算作第 1 回合，所以计数从 RETURN_TURNS - 1 起，
+			//这样弹回正好落在投掷后的第 RETURN_TURNS 回合（原来从 RETURN_TURNS 起，会晚一回合）
+			left = Math.max(1, RETURN_TURNS - 1);
 		}
 
 		public int returnPos() { return returnPos; }
