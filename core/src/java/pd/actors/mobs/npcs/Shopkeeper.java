@@ -469,6 +469,8 @@ public class Shopkeeper extends NPC {
 		//SPSEXPD: 角色专属/永久道具（与炼金黑名单同源）与灵能弓不允许卖给商人
 		if (pd.items.Recipe.isSpecialItem(item))                            return false;
 		if (item instanceof pd.items.equipment.weapon.SpiritBow)            return false;
+		//SPSEXPD: 煎锅不可售出（它虽已因 unique 被上面的规则挡住，这里再显式钉一次）
+		if (item instanceof pd.items.equipment.weapon.melee.special.MeleePan) return false;
 		return true;
 	}
 
