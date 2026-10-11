@@ -27,20 +27,17 @@ import pd.Dungeon;
 import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Cripple;
-import pd.actors.buffs.HolyStun;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.effects.Speck;
-import pd.effects.Wound;
 import pd.items.equipment.artifacts.TimekeepersHourglass;
 import pd.items.consum.potions.elixirs.ElixirOfFeatherFall;
 import pd.journal.Notes;
 import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.RegularLevel;
-import pd.levels.Terrain;
+import pd.levels.Transitions;
 import pd.levels.rooms.special.WeakFloorRoom;
-import pd.levels.traps.PitfallTrap;
 import pd.levels.traps.Trap;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -119,19 +116,32 @@ public class Chasm implements Hero.Doom {
 	
 	public static void heroFall( int pos ) {
 		jumpConfirmed = false;
+
 		Sample.INSTANCE.play( Assets.Sounds.FALLING );
 
-		Hero hero = Dungeon.hero;
-		TimekeepersHourglass.timeFreeze freeze = hero.buff(TimekeepersHourglass.timeFreeze.class);
-		if (freeze != null) freeze.detach();
-		if (hero.sprite != null) hero.sprite.visible = false;
+		//SPSEXPD: 对齐破碎原版——换层前先做地图转换收尾
+		Transitions.beforeTransition();
 
-		//SPSEXPD: 跳下深渊必须真的落到下一层。
-		//原实现只结算了「跳下瞬间」的摔落惩罚（流血/眩晕/残废/伤害），完全没有换层，
-		//InterlevelScene 的 import 一直在却从未被使用。现按破碎原版恢复：
-		//heroFall 不造成伤害，只负责坠落到下一层；惩罚由落地的 Chasm.Falling -> heroLand 给出。
-		InterlevelScene.mode = InterlevelScene.Mode.FALL;
-		Game.switchScene( InterlevelScene.class );
+		if (Dungeon.hero.isAlive()) {
+			Dungeon.hero.interrupt();
+			InterlevelScene.mode = InterlevelScene.Mode.FALL;
+			//SPSEXPD: 落在「薄地板房」（WeakFloorRoom）时按破碎置 fallIntoPit，
+			//让下一层用 pit 落点（并移除远处的井地标）；普通深渊则用普通落点
+			if (Dungeon.level instanceof RegularLevel &&
+					((RegularLevel)Dungeon.level).room( pos ) instanceof WeakFloorRoom){
+				InterlevelScene.fallIntoPit = true;
+				Notes.remove(Notes.Landmark.DISTANT_WELL, Dungeon.depth - 1);
+			} else {
+				InterlevelScene.fallIntoPit = false;
+			}
+			Game.switchScene( InterlevelScene.class );
+		} else {
+			//SPSEXPD: 摔死了就只是隐藏精灵，不换层
+			Hero hero = Dungeon.hero;
+			TimekeepersHourglass.timeFreeze freeze = hero.buff(TimekeepersHourglass.timeFreeze.class);
+			if (freeze != null) freeze.detach();
+			if (hero.sprite != null) hero.sprite.visible = false;
+		}
 	}
 
 	@Override
@@ -144,25 +154,32 @@ public class Chasm implements Hero.Doom {
 
 	public static void heroLand() {
 		Hero hero = Dungeon.hero;
-		if (hero.sprite != null) hero.sprite.burst(hero.sprite.blood(), 10);
-		if (Game.instance != null) PixelScene.shake(4, 0.2f);
+
+		//SPSEXPD: 羽落药剂——落地时只喷一下气流、由 buff 自行结算免伤，不受落地摔伤
+		ElixirOfFeatherFall.FeatherBuff b = hero.buff(ElixirOfFeatherFall.FeatherBuff.class);
+		if (b != null){
+			if (hero.sprite != null) hero.sprite.emitter().burst( Speck.factory( Speck.JET ), 20);
+			b.processFall();
+			return;
+		}
+
+		//SPSEXPD: 抖动时长按破碎的 1f（原为 0.2f，落地表现一闪而过、观感像「摔得太快」）
+		if (Game.instance != null) PixelScene.shake( 4, 1f );
+
+		Dungeon.level.occupyCell( hero );
 		Buff.prolong( hero, Cripple.class, Cripple.DURATION );
-		hero.damage(Random.IntRange(hero.HT / 3, hero.HT / 2), new Chasm());
+
+		//SPSEXPD: 按破碎原版——HP 越低流血越多、即死伤害越少
+		Buff.affect( hero, Bleeding.class).set( Math.round(hero.HT / (6f + (6f*(hero.HP/(float)hero.HT)))), Chasm.class);
+		hero.damage( Math.max( hero.HP / 2, Random.NormalIntRange( hero.HP / 2, hero.HT / 4 )), new Chasm() );
 	}
 
 	public static void mobFall( Mob mob ) {
-		int pos = mob.pos;
-		int depth = Dungeon.legacyDepth();
-		Buff.affect(mob, Bleeding.class).set(Random.NormalIntRange(depth, depth * 2));
-		Buff.affect(mob, HolyStun.class, 5f);
-		Buff.affect(mob, Cripple.class, 10f);
-		Buff.prolong(mob, Trap.HazardAssistTracker.class, Trap.HazardAssistTracker.DURATION);
-		Wound.hit(mob);
-		mob.damage(mob.HT / 5, new Chasm());
-		GroundItems.setTrap( Dungeon.level, new PitfallTrap().hide(), pos);
-		Level.set(pos, Terrain.SECRET_TRAP, Dungeon.level);
-		GameScene.updateMap(pos);
-		if (mob.sprite instanceof MobSprite) ((MobSprite)mob.sprite).fall();
+		if (mob.isAlive()) {
+			Buff.prolong(mob, Trap.HazardAssistTracker.class, Trap.HazardAssistTracker.DURATION);
+			mob.die( Chasm.class );
+		}
+		if (mob.sprite != null) ((MobSprite)mob.sprite).fall();
 	}
 	
 	public static class Falling extends Buff {
