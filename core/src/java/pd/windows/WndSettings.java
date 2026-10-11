@@ -118,10 +118,10 @@ public class WndSettings extends WndTabbed {
 			.t("$auxtab.quick_light", "照明")
 			.t("$auxtab.quick_talent", "加点")
 			.t("$auxtab.quick_eat", "进食")
-			.t("$auxtab.bag_tabs_side", "两侧标签页")
+			.t("$auxtab.bag_tabs_side", "两侧标签页：建议桌面端使用")
 			.t("$auxtab.bag_tabs_paged", "底部翻页标签页")
 			.t("$auxtab.bag_tabs_plain", "底部原始标签页")
-			.t("$auxtab.bag_tabs_wide", "底部七列标签页")
+			.t("$auxtab.bag_tabs_wide", "底部七列标签页：建议桌面端使用")
 			//SPSEXPD: 行末蓝色感叹号点开的「详细作用」（键名 = 上方各键 + _desc）
 			.t("$auxtab.hero_path_desc", "在画面里画出你点击的移动路线，方便提前规划走位。")
 			.t("$auxtab.search_pickup_desc", "使用「检索」时，会顺手拾取视野内可达的地面物品。")
@@ -129,10 +129,10 @@ public class WndSettings extends WndTabbed {
 			.t("$auxtab.quick_light_desc", "夜晚且身上带着光源时，显示一键照明的快捷按钮（优先用露珠瓶，其次火把）。")
 			.t("$auxtab.quick_talent_desc", "有未分配的特质点时，显示一键打开加点界面的快捷按钮。")
 			.t("$auxtab.quick_eat_desc", "饥饿时显示一键进食的快捷按钮，自动吃背包里的食物。")
-			.t("$auxtab.bag_tabs_side_desc", "包裹标签栏放在背包窗口的左右两侧（默认布局）。建议在桌面端使用——手机竖屏下这两条标签带会挤占较多横向空间，背包格子会变小。")
+			.t("$auxtab.bag_tabs_side_desc", "包裹标签栏放在背包窗口的左右两侧（默认布局）。手机竖屏下这两条标签带会挤占较多横向空间，背包格子会变小。")
 			.t("$auxtab.bag_tabs_paged_desc", "标签栏移到底部、分页显示：每页 3 个包裹 + 翻页 + 主背包。切换包裹仍是一次点击，只有包裹多于 3 个时才需要先翻页；标签不再占用窗口宽度，背包格子能保持更大（高缩放时尤其明显）。")
 			.t("$auxtab.bag_tabs_plain_desc", "标签栏移到底部并平铺显示全部包裹与主背包，没有翻页，一屏点全；包裹多时每格会变窄。")
-			.t("$auxtab.bag_tabs_wide_desc", "旧版布局：标签栏在底部分页显示，背包区每行 7 格（35 格即 5 行，更矮更宽）。建议在桌面端使用——手机竖屏下 7 列会偏挤。")
+			.t("$auxtab.bag_tabs_wide_desc", "旧版布局：标签栏在底部分页显示，背包区每行 7 格（35 格即 5 行，更矮更宽）。手机竖屏下 7 列会偏挤。")
 			.t("$audiotab.title", "音频设置")
 			.t("$audiotab.music_vol", "音乐音量")
 			.t("$audiotab.music_mute", "关闭音乐")
@@ -1189,10 +1189,11 @@ public class WndSettings extends WndTabbed {
 			addRowNote(chkQuickLight, "quick_light");
 			addRowNote(chkQuickTalent, "quick_talent");
 			addRowNote(chkQuickEat, "quick_eat");
+			//SPSEXPD: 顺序 = 界面从上到下（底部七列排第二）
 			addRowNote(chkBagTabsSide, "bag_tabs_side");
+			addRowNote(chkBagTabsWide, "bag_tabs_wide");
 			addRowNote(chkBagTabsPaged, "bag_tabs_paged");
 			addRowNote(chkBagTabsPlain, "bag_tabs_plain");
-			addRowNote(chkBagTabsWide, "bag_tabs_wide");
 		}
 
 		//SPSEXPD: 三个模式互斥——写入设置并同步三行的选中状态
