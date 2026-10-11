@@ -153,12 +153,12 @@ public class WndBag extends WndTabbed {
 	//SPS: 侧边标签尺寸由贴图 Assets.Interfaces.SIDE_TABS 决定（横向 2 帧）——贴图多大标签就多大，
 	//构造时读取（initSideTabSize），避免硬编码尺寸与美术贴图不匹配。
 	//SPSEXPD: 侧栏标签的「绘制 / 占位宽度」= 贴图里每帧有效图案的宽度。
-	//side_tabs_s.png 每帧 20px 宽（TAB_FRAME_W），但有效图案只有 11px，其余是透明留白，
-	//所以按 11 裁取正好贴住背包，横向预算每侧也少扣 9px。
+	//side_tabs_s.png 每帧 20px 宽（TAB_FRAME_W），有效图案 14px，其余是透明留白，
+	//按 14 裁取正好贴住背包；横向预算每侧少扣 6px。
 	//与贴图规格绑定：换图要同步这三个值（同 PLATE_CAP 的做法）。
 	protected static final int TAB_FRAME_W	= 20;      //单帧在贴图里的宽度（= 贴图宽 / 2）
 	protected static final int TAB_ART_OFF_UNSEL = 1;  //未选中帧的图案在帧内右移 1px（贴图本身如此）
-	protected static int TAB_W		= 11;              //有效图案宽度（选中帧在帧内 x0..10）
+	protected static int TAB_W		= 14;              //有效图案宽度（选中帧在帧内 x0..13）
 	protected static int TAB_H		= 70;    //单帧高 = 上固定段 + 可裁中段 + 下固定段
 	protected static final int PLATE_CAP	= 3;     //SPS: 底板上下固定段高度（与 side_tabs.png 规格绑定）
 	protected static final int LEFT_TABS	= 5;
