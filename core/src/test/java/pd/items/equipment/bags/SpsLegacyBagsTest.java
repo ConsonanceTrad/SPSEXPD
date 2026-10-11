@@ -68,7 +68,7 @@ public final class SpsLegacyBagsTest {
 		ArrowCollecter arrows = new ArrowCollecter();
 		//SPSEXPD: 包裹容量定稿为 34（35 格减掉包裹本体占的一格），原断言 35 已过期
 		check(arrows.capacity() == 34 && arrows.value() == 50, "暗器袋容量或价值错误");
-		check(arrows.canHold(new WoodenBowN()), "暗器袋没有收纳远程武器");
+		check(!arrows.canHold(new WoodenBowN()), "暗器袋不应再收纳远程武器（已改归草靶子）");
 		check(arrows.canHold(new ThrowingKnife()), "暗器袋没有收纳投掷武器");
 		check(!arrows.canHold(new PotionOfHealing()), "暗器袋错误收纳药剂");
 		check(!arrows.canHold(new pd.items.equipment.weapon.missiles.arrows.HealFruit()), "暗器袋不应收纳果实");
@@ -89,6 +89,11 @@ public final class SpsLegacyBagsTest {
 		check(holster.capacity() == 34 && holster.value() == 60, "法杖套容量或价值错误");
 		check(holster.canHold(new WandOfMagicMissile()), "法杖套没有收纳法杖");
 		check(!holster.canHold(new Firebloom.Seed()), "法杖套错误收纳种子");
+
+		//SPSEXPD: 远程武器改归草靶子（暗器袋不再收）
+		HeartOfScarecrow scarecrow = new HeartOfScarecrow();
+		check(scarecrow.canHold(new WoodenBowN()), "草靶子没有收纳远程武器");
+		check(!scarecrow.canHold(new ThrowingKnife()), "草靶子不应收纳投掷武器");
 	}
 
 	private static void testWandHolsterCharging() {

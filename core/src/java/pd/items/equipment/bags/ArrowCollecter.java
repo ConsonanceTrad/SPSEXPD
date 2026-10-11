@@ -5,7 +5,6 @@ import pd.atlas.items.EquipmentBagsDict;
 
 import pd.items.Item;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
-import pd.items.equipment.weapon.ranges.RangeWeapon;
 import pd.messages.InlineText;
 
 /** SPS-PD's thirty-slot container for ranged and thrown weapons. */
@@ -28,7 +27,8 @@ public class ArrowCollecter extends Bag {
 	public boolean canHold(Item item) {
 		//SPSEXPD: 果实是 MissileWeapon 的子类，但按用户要求不装进暗器袋（它们归竹背篓）
 		if (item instanceof MissileWeapon && ((MissileWeapon) item).isFruit()) return false;
-		return (item instanceof RangeWeapon || item instanceof MissileWeapon)
+		//SPSEXPD: 远程武器（RangeWeapon）改归草靶子，不再收进暗器袋
+		return item instanceof MissileWeapon
 				&& super.canHold(item);
 	}
 

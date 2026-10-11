@@ -27,7 +27,9 @@ public class HeartOfScarecrow extends Bag {
 
 	@Override
 	public boolean canHold(Item item) {
-		if (item instanceof MeleeWeapon || item instanceof Armor || item instanceof ShadowEaterKey) {
+		//SPSEXPD: 远程武器（RangeWeapon，弓/枪等）归草靶子，不再归暗器袋
+		if (item instanceof MeleeWeapon || item instanceof Armor || item instanceof ShadowEaterKey
+				|| item instanceof pd.items.equipment.weapon.ranges.RangeWeapon) {
 			return super.canHold(item);
 		}
 		return false;
