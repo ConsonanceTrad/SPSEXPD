@@ -186,7 +186,7 @@ public class MissileShield extends MeleeWeapon {
 	}
 
 	private class MissileShieldAmmo extends MissileWeapon {
-		{ image = SpecificPlaceHolderDict.SOMETHING_0; tier = 1; spawnedForEffect = true; setID = 0; }
+		{ image = EquipmentNonEquipDict.DIVINE_WOOD_SHIELD; tier = 1; spawnedForEffect = true; setID = 0; }
 		@Override public int defaultQuantity() { return 1; }
 		@Override public int damageRoll(Char owner) { return MissileShield.this.damageRoll(owner); }
 		@Override public float accuracyFactor(Char owner, Char target) { return 1000f; }
@@ -212,7 +212,8 @@ public class MissileShield extends MeleeWeapon {
 		private int returnPos;
 		private int returnDepth;
 		private int returnBranch;
-		private int left;
+		/** SPSEXPD: 弹回的目标全局时间（绝对时间，见 setup 里的说明）。 */
+		private float returnAt;
 
 		public void setup( MissileShield shield, MissileWeapon ammo, int thrownPos, int returnPos,
 				int returnDepth, int returnBranch ) {
@@ -222,27 +223,26 @@ public class MissileShield extends MeleeWeapon {
 			this.returnPos = returnPos;
 			this.returnDepth = returnDepth;
 			this.returnBranch = returnBranch;
-			//SPSEXPD: 投掷的那一回合已经算作第 1 回合，所以计数从 RETURN_TURNS - 1 起，
-			//这样弹回正好落在投掷后的第 RETURN_TURNS 回合（原来从 RETURN_TURNS 起，会晚一回合）
-			left = Math.max(1, RETURN_TURNS - 1);
+			//SPSEXPD: 用「绝对时间」而不是「剩余次数」计时。Buff.append 之后，这个新 Buff 的
+			//时间戳落后于宿主英雄，Actor.process 会让它连续 act 把时间追平——按次数倒数会在
+			//同一回合内就被耗尽（表现为「刚走一步就弹回」），与 RETURN_TURNS 完全不符。
+			returnAt = Actor.now() + Math.max(1, RETURN_TURNS);
 		}
 
 		public int returnPos() { return returnPos; }
 
 		@Override public boolean act() {
-			if (returnDepth == Dungeon.depth && returnBranch == Dungeon.branch) {
-				left--;
-				if (left <= 0) {
-					final Hero hero = Dungeon.hero;
-					final Char landing = Actor.findChar(returnPos);
-					if (hero == null || hero.sprite == null || ammo == null) {
-						finishReturn(hero, landing);
-						return false;
-					}
-					MissileSprite visual = (MissileSprite) hero.sprite.parent.recycle(MissileSprite.class);
-					visual.reset(thrownPos, returnPos, ammo, () -> finishReturn(hero, landing));
+			if (returnDepth == Dungeon.depth && returnBranch == Dungeon.branch
+					&& Actor.now() >= returnAt) {
+				final Hero hero = Dungeon.hero;
+				final Char landing = Actor.findChar(returnPos);
+				if (hero == null || hero.sprite == null || ammo == null) {
+					finishReturn(hero, landing);
 					return false;
 				}
+				MissileSprite visual = (MissileSprite) hero.sprite.parent.recycle(MissileSprite.class);
+				visual.reset(thrownPos, returnPos, ammo, () -> finishReturn(hero, landing));
+				return false;
 			}
 			spend( TICK );
 			return true;
@@ -271,7 +271,9 @@ public class MissileShield extends MeleeWeapon {
 		private static final String RETURN_POS = "return_pos";
 		private static final String RETURN_DEPTH = "return_depth";
 		private static final String RETURN_BRANCH = "return_branch";
-		private static final String LEFT = "left";
+		/** SPSEXPD: 旧存档的「剩余次数」键，只用于读档兼容（新版改用绝对时间）。 */
+		private static final String LEGACY_LEFT = "left";
+		private static final String RETURN_AT = "return_at";
 
 		@Override public void storeInBundle(Bundle bundle) {
 			super.storeInBundle(bundle);
@@ -281,7 +283,7 @@ public class MissileShield extends MeleeWeapon {
 			bundle.put(RETURN_POS, returnPos);
 			bundle.put(RETURN_DEPTH, returnDepth);
 			bundle.put(RETURN_BRANCH, returnBranch);
-			bundle.put(LEFT, left);
+			bundle.put(RETURN_AT, returnAt);
 		}
 
 		@Override public void restoreFromBundle(Bundle bundle) {
@@ -292,7 +294,12 @@ public class MissileShield extends MeleeWeapon {
 			returnPos = bundle.getInt(RETURN_POS);
 			returnDepth = bundle.getInt(RETURN_DEPTH);
 			returnBranch = bundle.getInt(RETURN_BRANCH);
-			left = bundle.getInt(LEFT);
+			if (bundle.contains(RETURN_AT)) {
+				returnAt = bundle.getFloat(RETURN_AT);
+			} else {
+				//SPSEXPD: 旧档只有剩余次数，按「还差这么多时间」折算成绝对时间
+				returnAt = Actor.now() + Math.max(1, bundle.getInt(LEGACY_LEFT));
+			}
 		}
 	}
 
