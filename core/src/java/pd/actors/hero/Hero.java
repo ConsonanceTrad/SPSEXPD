@@ -1173,6 +1173,11 @@ public class Hero extends Char {
 	@Override
 	public void spendConstant(float time) {
 		super.spendConstant(time);
+		//SPSEXPD: 游戏内时间按英雄「真正消耗掉的时间」推进（TURNS_PER_MINUTE 时间 = 1 分钟）。
+		//挂在这里而不是 Hero.act()：行走走 spend()（受移速修正，移速 >1 时一次按键会触发多次
+		//act，时间会跳成 1 分钟/步），而等待/休息走 spendConstant，两条路径节奏不一致；
+		//spendConstant 是两者的唯一汇合点（Actor.spend 内部也是调它）。
+		pd.Statistics.advanceSpsTime(time / pd.Statistics.TURNS_PER_MINUTE);
 	}
 
 	public void spendAndNextConstant(float time ) {
@@ -1190,9 +1195,9 @@ public class Hero extends Char {
 	
 	@Override
 	public boolean act() {
-		//SPSEXPD: 游戏内时间按“英雄真正经过的回合数”推进（每 2 回合 = 1 分钟）——
-		//放在这里而不是 spend()/spendConstant()：那两处的时间量会被移速加成、时间冻结扭曲
-		pd.Statistics.advanceSpsTurn();
+		//SPSEXPD: 游戏内时间不在这里推进 —— 改在 Hero.spendConstant 里按实际消耗的时间算。
+		//挂在这里会按「act 次数」计时，而行走（spend 受移速修正）一次按键可能触发多次 act，
+		//等待（spendConstant）则不会，导致「行走一步 = 1 分钟、等待两次 = 1 分钟」。
 
 		//SPSXPD: 宠物能力特质（献祭获得）的每回合触发
 		pd.actors.hero.perks.pets.PetAbilityPerk.dispatchTurn(this);

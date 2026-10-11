@@ -372,16 +372,11 @@ public class Statistics {
 		}
 	}
 
-	/** SPSEXPD: 推进一回合的游戏内时间（每 2 回合 = 1 分钟）——由 {@code Hero.act()} 每次行动调用。 */
-	public static void advanceSpsTurn() {
-		if (++spsTurns < TURNS_PER_MINUTE) return;
-		spsTurns = 0;
-		spsTime += 1f;
-		while (spsTime >= 1440) {
-			spsTime -= 1440;
-			spsDays++;
-		}
-	}
+	//SPSEXPD: 原为「按 hero.act() 次数推进」的 advanceSpsTurn()，已删除 —— 按 act 次数计时会让
+	//行走与等待的节奏不一致（行走走 spend()，受移速修正，一次按键可能触发多次 act，
+	//于是「行走一步 = 1 分钟」而「等待两次 = 1 分钟」）。
+	//现在由 Hero.spendConstant 按实际消耗的时间调用 advanceSpsTime(time / TURNS_PER_MINUTE)。
+	//spsTurns 字段保留仅为旧存档兼容，不再参与计时。
 
 	/** SPSEXPD: 按小时推进游戏内时间（调试「时间 +6 小时」等用）。 */
 	public static void advanceSpsHours(float hours) {
