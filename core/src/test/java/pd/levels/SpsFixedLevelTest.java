@@ -1370,6 +1370,11 @@ public final class SpsFixedLevelTest {
 		check(shield.doEquip(shieldHero), "神木圆盾无法装备");
 		check(shieldHero.belongings.weapon() == null && shieldHero.belongings.secondWep() == shield,
 				"神木圆盾没有装备进副武器栏");
+		//SPSEXPD: 未就绪时不得置 usesTargeting —— 否则快捷栏点击会进入选目标流程、点怪物变成走过去普攻
+		MissileShield emptyShield = new MissileShield();
+		emptyShield.execute(shieldHero, MissileShield.AC_CAST);
+		check(!emptyShield.usesTargeting, "圆盾未就绪时不应进入选目标状态");
+		check(emptyShield.charge() == 0, "未就绪的圆盾不应消耗充能");
 		Dungeon.hero = heroBeforeShield;
 		PotionOfMage flask = new PotionOfMage();
 		for (int i = 0; i < 120; i++) flask.gainCharge();

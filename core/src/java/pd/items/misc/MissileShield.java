@@ -36,7 +36,7 @@ public class MissileShield extends MeleeWeapon {
 			.t("ac_cast", "扔出")
 			.t("rest", "圆盾还没有准备好。")
 			.t("prompt", "选择瞄准目标")
-			.t("desc", "一块普通的木质盾牌，被打磨得十分光滑，可以将其投掷出去击晕远处的敌人并弹回你附近，接住弹回的圆盾即可以立即再次扔出。\n\n副手专用。")
+			.t("desc", "一块普通的木质盾牌，被打磨得十分光滑，可以投掷出去击晕远处的敌人，接住弹回的圆盾即可以立即再次扔出。\n\n副手专用。")
 			.t("attack_block", "投掷时造成_%1$d-%2$d点伤害_并击晕目标 _%3$d 回合_。\n\n装备在副手时能格挡 _%4$d-%5$d 点伤害_。")
 			.t("charge", "剩余体力%d / %d。")
 			.t("mark", "圆盾将在3回合后弹回被标记的位置。")
@@ -64,7 +64,8 @@ public class MissileShield extends MeleeWeapon {
 		tier = 1;
 		unique = true;
 		defaultAction = AC_CAST;
-		usesTargeting = true;
+		//SPSEXPD: 不在这里固定 usesTargeting —— 只有充能满、真的要扔时才置 true。
+		//固定为 true 会让「没充好」时快捷栏点击仍然进入选目标流程，点怪物就变成走过去普攻。
 	}
 
 	/** SPSEXPD: 神木圆盾只能装备在副武器栏，主/副互换会跳过它。 */
@@ -93,8 +94,14 @@ public class MissileShield extends MeleeWeapon {
 	@Override public void execute(Hero hero, String action) {
 		if (AC_CAST.equals(action)) {
 			curUser = hero;
-			if (charge < FULL_CHARGE) GLog.i(Messages.get(this, "rest"));
-			else GameScene.selectCell(shooter);
+			if (charge < FULL_CHARGE) {
+				//SPSEXPD: 没充好只提示，且必须清掉 usesTargeting（否则快捷栏点击会进入选目标→普攻）
+				usesTargeting = false;
+				GLog.i(Messages.get(this, "rest"));
+				return;
+			}
+			usesTargeting = true;
+			GameScene.selectCell(shooter);
 			return;
 		}
 		if (AC_EQUIP.equals(action)) {
@@ -187,7 +194,8 @@ public class MissileShield extends MeleeWeapon {
 		GameScene.targetedCell(returnPos, RETURN_TURNS);
 		Buff.append(Dungeon.hero, ReturnShot.class).setup(this, ammo, thrownPos, returnPos,
 				Dungeon.depth, Dungeon.branch);
-		if (Dungeon.hero.sprite != null) GLog.i(Messages.get(this, "mark"));
+        // 不需要日志提示
+//		if (Dungeon.hero.sprite != null) GLog.i(Messages.get(this, "mark"));
 	}
 
 	private class MissileShieldAmmo extends MissileWeapon {
