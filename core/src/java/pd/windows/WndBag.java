@@ -165,6 +165,8 @@ public class WndBag extends WndTabbed {
 	//SPSEXPD: 两版贴图帧高也不同（原版 26 / 窄版 35），运行期按当前模式选，值由 initSideTabSize() 推导
 	protected static int TAB_H_WIDE = 26;
 	protected static int TAB_H_COMPACT = 35;
+	//SPSEXPD: 紧凑布局下左栏固定放 6 个（用户裁决，不做自适应；原布局左栏固定 LEFT_TABS 个）
+	protected static final int LEFT_TABS_COMPACT = 6;
 	protected static int TAB_H		= 70;    //单帧高 = 上固定段 + 可裁中段 + 下固定段
 	protected static final int PLATE_CAP	= 3;     //SPS: 底板上下固定段高度（与 side_tabs.png 规格绑定）
 	protected static final int LEFT_TABS	= 5;
@@ -410,7 +412,8 @@ public class WndBag extends WndTabbed {
 		float usableH = height + chrome.marginVer() - 3;
 
 		int bagCount = n - 1;                                  //除主背包
-		int leftCount = Math.min( bagCount, LEFT_TABS );
+		//SPSEXPD: 左栏格数按模式——原布局固定 LEFT_TABS；紧凑布局固定 6（不做自适应）
+		int leftCount = Math.min( bagCount, compactTabs ? LEFT_TABS_COMPACT : LEFT_TABS );
 
 		//SPS: 标签在窗框外侧——未选中时压在窗框下、选中时探入框带。
 		float leftX = -TAB_W - 2, rightX = width + 2;
