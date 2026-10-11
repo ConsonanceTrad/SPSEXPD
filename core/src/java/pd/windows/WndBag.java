@@ -113,10 +113,10 @@ public class WndBag extends WndTabbed {
 
 	//SPSEXPD: 背包窗口的尺寸上限（占屏幕比例）——「窗口 + 左右标签带 + 外框」不超过屏宽 90%，
 	//「窗口 + 外框」不超过屏高上限。超出时按下方循环联动缩小格子直到进入上限（下限 MIN_SLOT）。
-	//高度上限分两种布局：竖版（左右两侧标签）90%；旧版（底部标签）不再限制高度（1.0）
+	//高度上限两种布局同为屏高的 90%
 	protected static final float MAX_WINDOW_WIDTH_RATIO		= 0.9f;
 	protected static final float MAX_WINDOW_HEIGHT_RATIO_SIDE	= 0.9f;
-	protected static final float MAX_WINDOW_HEIGHT_RATIO_BOTTOM	= 1.0f;
+	protected static final float MAX_WINDOW_HEIGHT_RATIO_BOTTOM	= 0.9f;
 
 	//SPSEXPD: 窗口被上限缩小后，界面数字（格子上的数量/力量/等级、标题栏的金币/能量）的同步缩放
 	private float textScale = 1f;
