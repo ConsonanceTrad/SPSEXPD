@@ -64,15 +64,20 @@ public class HornOfPlenty extends Artifact {
 			.t("auto_feed", "号角喂了你一包干粮。")
 			.t("levelup", "号角成长了一级。")
 			.t("maxlevel", "号角的成长已经到达极限。")
-			.t("desc", "这个号角不能被用来吹奏，不过它会随时间逐渐积蓄或吞噬其他食物的能量，并最终将其转化为易食的干粮。\n\n号角的成长上限为 _10 级_；等级越高，吞噬食物时的能量转化效率越高（从 _75%%_ 提升到 _125%%_）。\n\n在你极度饥饿时，它将伸出一只虚幻的手把干粮送入你的口中。")
+			.t("desc", "这个号角不能被用来吹奏，不过它会随时间逐渐积蓄或吞噬其他食物的能量，并最终将其转化为易食的干粮。\n\n每 _6 点_能量转化成一包干粮，每 _3 包_干粮让号角成长一级（上限 _10 级_）；等级越高，吞噬食物时的能量转化效率越高（从 _75%%_ 提升到 _125%%_）。\n\n在你极度饥饿时，它将伸出一只虚幻的手把干粮送入你的口中。")
 			.t("desc_hint", "当前充能：%1$d")
 			.t("desc_cursed", "被诅咒的号角把自己绑在了你的身边，它似乎在渴望吸取能量而不是制造食物。");
 	}
 
 	private static final float TIME_TO_SWALLOW = 2f;
 	private static final float ENERGY_PER_CHARGE = 40f;
-	/** 每这么多点充能自动凝成 1 包干粮。SPSEXPD: 等级上限 30 -> 10 后同步 ×3，满级总需求仍是 180 点。 */
-	public static final int RATION_COST = 18;
+	/** 每这么多点充能自动凝成 1 包干粮。SPSEXPD: 保持 6 不变（能量→干粮的换算不随等级上限调整）。 */
+	public static final int RATION_COST = 6;
+	/**
+	 * SPSEXPD: 每这么多包干粮升 1 级。等级上限由 30 降为 10（等比），所以升级速度同步 ÷3：
+	 * 10 级 = 30 包 = 180 点充能，与旧版 30 级（30 包 × 6）完全等价。
+	 */
+	public static final int RATIONS_PER_LEVEL = 3;
 	/**
 	 * SPSEXPD: 时间充能整体倍率。1.0 时 0 级号角要 320 回合才攒 1 点充能、
 	 * 1920 回合才凝出 1 包干粮（6 点充能）。先提到 8 倍后实测太快，按用户裁决降到 1/4（= 2 倍）。
@@ -81,6 +86,8 @@ public class HornOfPlenty extends Artifact {
 	private static final String OBSOLETE_STORED_ENERGY = "stored";
 	/** SPSEXPD: 号角自己的实数充能存档键。 */
 	private static final String HORN_CHARGE = "horn_charge";
+	/** SPSEXPD: 「已产出、尚未换成等级」的干粮包数存档键。 */
+	private static final String LEVEL_PROGRESS = "level_progress";
 
 	public static final String AC_SWALLOW = "SWALLOW";
 
@@ -101,6 +108,9 @@ public class HornOfPlenty extends Artifact {
 	 * 设为 protected 以便子类/同包测试直接读写。
 	 */
 	protected float hornCharge = 0f;
+
+	/** SPSEXPD: 已产出、但还没凑够 RATIONS_PER_LEVEL 包因而尚未换取等级的干粮数。 */
+	private int levelProgress = 0;
 
 	/** SPSEXPD: 食物转化效率——等级越高越高，0 级 75%、满级 125%（线性）。 */
 	public float conversionEfficiency() {
@@ -156,11 +166,12 @@ public class HornOfPlenty extends Artifact {
 	}
 
 	/**
-	 * SPSEXPD: 充能每满 RATION_COST 点自动凝成 1 包干粮，每产出一包神器成长 1 级。
-	 * 整组吞噬可能一次凝成很多包：文本合并为一条（产出即代表升级，故不再单独提示升级）。
+	 * SPSEXPD: 充能每满 RATION_COST 点自动凝成 1 包干粮；每累计 RATIONS_PER_LEVEL 包神器成长 1 级。
+	 * 整组吞噬可能一次凝成很多包：文本合并为一条。
 	 */
 	private void convertRations(Hero hero) {
 		int produced = 0;
+		boolean grew = false;
 		boolean reachedCap = false;
 		while (hornCharge >= RATION_COST) {
 			hornCharge -= RATION_COST;
@@ -172,11 +183,16 @@ public class HornOfPlenty extends Artifact {
 			}
 			produced++;
 
-			if (level() < levelCap) {
-				upgrade(1);
-				if (level() >= levelCap) {
-					level(levelCap);
-					reachedCap = true;
+			levelProgress++;
+			if (levelProgress >= RATIONS_PER_LEVEL) {
+				levelProgress -= RATIONS_PER_LEVEL;
+				if (level() < levelCap) {
+					upgrade(1);
+					grew = true;
+					if (level() >= levelCap) {
+						level(levelCap);
+						reachedCap = true;
+					}
 				}
 			}
 		}
@@ -186,6 +202,7 @@ public class HornOfPlenty extends Artifact {
 		GLog.p(produced == 1
 				? Messages.get(this, "ration")
 				: Messages.get(this, "ration_many", produced));
+		if (grew) GLog.p(Messages.get(this, "levelup"));
 		if (reachedCap) GLog.p(Messages.get(this, "maxlevel"));
 	}
 
@@ -222,6 +239,7 @@ public class HornOfPlenty extends Artifact {
 	public void storeInBundle(Bundle bundle) {
 		super.storeInBundle(bundle);
 		bundle.put(HORN_CHARGE, hornCharge);
+		bundle.put(LEVEL_PROGRESS, levelProgress);
 		// The obsolete Shattered food-energy field is deliberately not written.
 	}
 
@@ -231,25 +249,24 @@ public class HornOfPlenty extends Artifact {
 		if (bundle.contains(HORN_CHARGE)) {
 			hornCharge = bundle.getFloat(HORN_CHARGE);
 		} else {
-			//SPSEXPD: 旧档的充能写在基类 charge 里，且单位是旧的 1/3（旧 RATION_COST = 6）——换算到新单位
-			hornCharge = charge * 3f;
+			//SPSEXPD: 旧档的充能写在基类 charge 里，单位与现在一致（每 RATION_COST 点凝 1 包）——直接搬过来
+			hornCharge = charge;
 			charge = 0;
 		}
+		levelProgress = bundle.contains(LEVEL_PROGRESS) ? bundle.getInt(LEVEL_PROGRESS) : 0;
 		if (bundle.contains(OBSOLETE_STORED_ENERGY)) {
 			int migratedLevel = level() * 3 + Math.round(bundle.getInt(OBSOLETE_STORED_ENERGY) / 100f);
 			level(Math.min(levelCap, migratedLevel));
 		}
 		//SPSEXPD: 旧档等级上限是 30，收敛到新的 10 级
 		if (level() > levelCap) level(levelCap);
-		//SPSEXPD: 旧档的充能可能高于 RATION_COST——下次 tick 自动凝成干粮
 		updateImage();
 	}
 
 	private void updateImage() {
-		//SPSEXPD: 阈值随 RATION_COST 同步 ×3（原为 1/3/5）
-		if (hornCharge >= 15) image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN4;
-		else if (hornCharge >= 9) image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN3;
-		else if (hornCharge >= 3) image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN2;
+		if (hornCharge >= 5) image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN4;
+		else if (hornCharge >= 3) image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN3;
+		else if (hornCharge >= 1) image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN2;
 		else image = EquipmentJewelleryArtifactDict.ARTIFACT_HORN1;
 	}
 

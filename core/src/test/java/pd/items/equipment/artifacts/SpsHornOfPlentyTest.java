@@ -49,7 +49,7 @@ public final class SpsHornOfPlentyTest {
 			testFeastMovedToAcidFeastPotion();
 			testSaveMigration();
 			testLocalizedResources();
-			System.out.println("SPS丰饶之角测试通过：吞噬食物按等级效率充能（实数不截断）、每18点自动凝干粮并成长（上限10级）、时间充能、盛宴移植强酸合剂、存档迁移及英文文本均正常。");
+			System.out.println("SPS丰饶之角测试通过：吞噬食物按等级效率充能（实数不截断）、每6点凝1包干粮、每3包升1级（上限10级）、时间充能、盛宴移植强酸合剂、存档迁移及英文文本均正常。");
 		} finally {
 			Actor.clear();
 			Dungeon.hero = null;
@@ -123,19 +123,22 @@ public final class SpsHornOfPlentyTest {
 		check(tiny.swallow(hero, new Fruit()) == 0.75f && tiny.chargeValue() == 0.75f,
 				"小饱食度食物的能量被截断丢弃了");
 
-		//满 18 点自动凝成干粮并成长一级（0 级下 PerfectFood hornValue=10 -> 10×0.75 = 7.5 点/个）
+		//SPSEXPD: 满 6 点凝 1 包干粮；每 3 包才升 1 级（0 级下 PerfectFood hornValue=10 -> 10×0.75 = 7.5 点/个）
 		horn.swallow(hero, new pd.items.consum.food.completefood.PerfectFood());
+		check(horn.chargeValue() == 3f && countRations(hero) == 1 && horn.level() == 0,
+				"6 点没有凝成 1 包干粮或余数不对：" + horn.chargeValue());
 		horn.swallow(hero, new pd.items.consum.food.completefood.PerfectFood());
-		check(horn.chargeValue() == 16.5f && countRations(hero) == 0, "充能累计错误：" + horn.chargeValue());
+		check(horn.chargeValue() == 4.5f && countRations(hero) == 2 && horn.level() == 0,
+				"第 2 包不该让号角升级（要 3 包才 1 级）");
 		horn.swallow(hero, new pd.items.consum.food.completefood.PerfectFood());
-		check(horn.chargeValue() == 6f && countRations(hero) == 1 && horn.level() == 1,
-				"充能没有每18点自动凝成干粮、余数保留或每包成长1级");
+		check(horn.chargeValue() == 0f && countRations(hero) == 4 && horn.level() == 1,
+				"累计 3 包干粮没有让号角成长 1 级");
 
 		//满级后仍产干粮但不再成长
 		horn.level(10);
-		horn.setCharge(17f);
+		horn.setCharge(5f);
 		horn.swallow(hero, new pd.items.consum.food.completefood.PerfectFood());
-		check(horn.level() == 10 && countRations(hero) == 2,
+		check(horn.level() == 10 && countRations(hero) == 6,
 				"满级后没有继续产出干粮或仍在成长");
 
 		//SPSEXPD: 号角等级按内部计（0~10），不再折算成 0~10 的通用显示尺度
@@ -224,18 +227,18 @@ public final class SpsHornOfPlentyTest {
 		fastRecharge.act();
 		check(fast.chargeValue() == 1f, "满级号角58回合没有产生一格食物");
 
-		fast.setCharge(17f);
-		//SPSEXPD: 79 + 1.4 = 80.4 → 充能 18 点 → 自动凝 1 包、余 0
+		fast.setCharge(5f);
+		//SPSEXPD: 79 + 1.4 = 80.4 → 充能 6 点 → 自动凝 1 包、余 0
 		fast.setPartial(79f);
 		fastRecharge.act();
 		check(fast.chargeValue() == 0f && countRations(hero) == 1 && fast.levelValue() == 10
 				&& fast.partialValue() < 1f && fast.image == EquipmentJewelleryArtifactDict.ARTIFACT_HORN1,
-				"号角满18充能没有自动凝成干粮、保留余数或按余数刷新图标");
+				"号角满6充能没有自动凝成干粮、保留余数或按余数刷新图标");
 		fast.cursed = true;
-		fast.setCharge(17f);
+		fast.setCharge(5f);
 		fast.setPartial(40f);
 		fastRecharge.act();
-		check(fast.chargeValue() == 17f && fast.partialValue() == 0f, "诅咒号角仍充能或未清空部分充能");
+		check(fast.chargeValue() == 5f && fast.partialValue() == 0f, "诅咒号角仍充能或未清空部分充能");
 	}
 
 	//SPSEXPD: 盛宴效果已移植到吞星花对应的合剂（强酸盛宴合剂）
@@ -256,25 +259,28 @@ public final class SpsHornOfPlentyTest {
 	}
 
 	private static void testSaveMigration() {
-		//SPSEXPD: 旧档——充能写在基类 charge 里（单位是旧的 1/3），等级上限是旧的 30
+		//SPSEXPD: 旧档——充能写在基类 charge 里（单位与现在一致），等级上限是旧的 30
 		TestHorn oldPortHorn = new TestHorn();
 		oldPortHorn.level(4);
 		Bundle oldSave = new Bundle();
 		oldPortHorn.storeInBundle(oldSave);
 		oldSave.remove("horn_charge");
+		oldSave.remove("level_progress");
 		oldSave.put("charge", 7);
 		oldSave.put("stored", 150);
 
 		TestHorn migrated = new TestHorn();
 		migrated.restoreFromBundle(oldSave);
-		//SPSEXPD: 旧 charge=7 → 新单位 21（>=15 即 HORN4）；等级 4*3+2=14 收敛到新上限 10
-		check(migrated.level() == 10 && migrated.chargeValue() == 21f
+		//SPSEXPD: 旧 charge=7 原样搬入（6 点 1 包的换算没变，即 >=5 为 HORN4）；
+		//等级 4*3+2=14 收敛到新上限 10
+		check(migrated.level() == 10 && migrated.chargeValue() == 7f
 				&& migrated.image == EquipmentJewelleryArtifactDict.ARTIFACT_HORN4,
 				"早期10级号角的等级、储存进度、充能或图标迁移错误");
 		Bundle newSave = new Bundle();
 		migrated.storeInBundle(newSave);
 		check(!newSave.contains("stored"), "新号角存档仍写入破碎版储存能量字段");
-		check(newSave.contains("horn_charge"), "新号角存档没有写入实数充能字段");
+		check(newSave.contains("horn_charge") && newSave.contains("level_progress"),
+				"新号角存档没有写入实数充能或等级进度字段");
 
 		//SPSEXPD: 无破碎标记的 0.9.8 号角存档不被缩放（等级在新上限内则原样保留）
 		TestHorn legacy = new TestHorn();
