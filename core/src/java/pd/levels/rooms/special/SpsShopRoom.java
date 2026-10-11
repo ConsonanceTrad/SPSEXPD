@@ -33,7 +33,6 @@ import pd.items.equipment.weapon.guns.GunB;
 import pd.items.equipment.weapon.guns.GunC;
 import pd.items.equipment.weapon.guns.GunD;
 import pd.items.equipment.weapon.guns.GunE;
-import pd.items.equipment.weapon.melee.special.MeleePan;
 import pd.items.equipment.weapon.missiles.arrows.MagicHand;
 import pd.items.equipment.weapon.ranges.AlloyBowN;
 import pd.items.equipment.weapon.ranges.MetalBowN;
@@ -95,7 +94,8 @@ public class SpsShopRoom extends ShopRoom {
 			case 0:
 				//SPS: 0 层特殊初始层商店；种子包已取消（绒布袋 VelvetPouch 为其替代品，用户裁决 2026-09-28）
 				itemsToSpawn.add(chapterShootWeapon().identify(false));
-				itemsToSpawn.add(new MeleePan());
+				//SPSEXPD: 不再固定售卖煎锅，改为固定售卖竹背篓（用户要求）
+				itemsToSpawn.add(new pd.items.equipment.bags.BambooBasket());
 				itemsToSpawn.add(new Pasty());
 				itemsToSpawn.add(new NoomlinCrown());
 				//SPS: 任务蘑菇固定出售，售价 10 金币（配合开局 10 金币）
