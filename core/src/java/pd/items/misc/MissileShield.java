@@ -37,7 +37,7 @@ public class MissileShield extends MeleeWeapon {
 			.t("ac_cast", "扔出")
 			.t("rest", "圆盾还没有准备好。")
 			.t("prompt", "选择要瞄准的地方")
-			.t("desc", "一块普通的木质盾牌，上面有一些刮痕。\n这块盾牌被打磨得十分光滑，可以将其投掷出去击晕远处的敌人，并在3回合后弹回被标记的位置。\n如果弹回的圆盾被你接住，可以立即再次扔出。\n它只能装备在副武器栏，装备时会为你提供基于等级的额外防护。")
+			.t("desc", "一块普通的木质盾牌，上面有一些刮痕。\n这块盾牌被打磨得十分光滑，可以将其投掷出去击晕远处的敌人，并在3回合后弹回你身边两格内的空地上。\n如果弹回的圆盾被你接住，可以立即再次扔出。\n它只能装备在副武器栏，装备时会为你提供基于等级的额外防护。")
 			.t("damage", "圆盾可以造成_%d-%d点伤害_，并对首领再次造成等量伤害。")
 			.t("charge", "剩余体力%d / %d。")
 			.t("blocking", "装备在副手时能格挡0~%d点伤害。")
@@ -53,8 +53,8 @@ public class MissileShield extends MeleeWeapon {
 	public static final int FULL_CHARGE = 15;
 	/** SPSEXPD: 抛掷后弹回所需回合数。 */
 	public static final int RETURN_TURNS = 3;
-	/** SPSEXPD: 弹回位置的搜索半径。 */
-	public static final int RETURN_RANGE = 4;
+	/** SPSEXPD: 弹回位置的搜索半径（以英雄为中心，格内空地）。 */
+	public static final int RETURN_RANGE = 2;
 	private int charge;
 
 	{

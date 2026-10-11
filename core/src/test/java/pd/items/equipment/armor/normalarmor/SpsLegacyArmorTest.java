@@ -80,15 +80,26 @@ public final class SpsLegacyArmorTest {
 		GdxNativesLoader.load();
 		Gdx.files = new HeadlessFiles();
 		Game.version = "test";
+		//SPSEXPD: 纹章用例会经 TengusMask 触达 GLog/Messages，而 Messages 的静态初始化要读
+		//GameSettings（依赖 Gdx.app）——没有 HeadlessApplication 会 NPE。这里补上，避免误判为功能故障
+		com.badlogic.gdx.backends.headless.HeadlessApplication app =
+				new com.badlogic.gdx.backends.headless.HeadlessApplication(
+						new com.badlogic.gdx.ApplicationAdapter() { },
+						new com.badlogic.gdx.backends.headless.HeadlessApplicationConfiguration());
 		//SPSEXPD: 纹章用例先跑 —— 后面的护甲图标槽断言是本仓既有的基线红（与本功能无关），
 		//排在它前面会挡住纹章相关的校验
-		testBrokenSealCarry();
-		testDefinitionsAndGenerator();
-		testHeroFactorsAndDamageReduction();
-		testSkillEnergy();
-		testUpgradeSaveRestore();
-		testLegacyIcons();
-		System.out.println("SPS旧版18套普通防具测试通过：牌组、数值、力量、防御、潜行、技能能量、存档和原始图标均正常。");
+		try {
+			testBrokenSealCarry();
+			testDefinitionsAndGenerator();
+			testHeroFactorsAndDamageReduction();
+			testSkillEnergy();
+			testUpgradeSaveRestore();
+			testLegacyIcons();
+			System.out.println("SPS旧版18套普通防具测试通过：牌组、数值、力量、防御、潜行、技能能量、存档和原始图标均正常。");
+		} finally {
+			//SPSEXPD: HeadlessApplication 的渲染线程会阻止 JVM 退出，断言失败时也必须关掉
+			app.exit();
+		}
 	}
 
 	private static void testDefinitionsAndGenerator() throws Exception {
@@ -227,6 +238,34 @@ public final class SpsLegacyArmorTest {
 		for (int i = 0; i < 4; i++) shardArmor.upgrade();
 		check(shard.level() == 1, "纹章碎片记录超过 1 级上限：" + shard.level());
 		check(!shard.isUpgradable(), "纹章碎片达到 1 级后仍可继续升级");
+
+		//SPSEXPD: 完整纹章——天狗面具强化后的成品：上限 5 级、护盾上限比破损纹章多 4
+		pd.items.SealComplete complete = new pd.items.SealComplete();
+		check(complete.maxCarriedLevel() == 5, "完整纹章的携带上限不是 5 级：" + complete.maxCarriedLevel());
+		check(complete.maxShield(3, 5) == new BrokenSeal().maxShield(3, 5) + 4,
+				"完整纹章的护盾上限没有比破损纹章多 4：" + complete.maxShield(3, 5));
+		check(complete.canCarryGlyph(new Crystalglyph()), "完整纹章应能携带普通刻印");
+
+		//SPSEXPD: 天狗面具——佩戴时把破损纹章/碎片整体换成完整纹章，并保留等级与刻印
+		Armor maskArmor = new WoodenArmor();
+		BrokenSeal worn = new BrokenSeal();
+		worn.level(2);
+		worn.setGlyph(new Crystalglyph());
+		maskArmor.affixSeal(worn);
+		hero.belongings.armor = maskArmor;
+		hero.belongings.backpack.items.clear();
+		pd.items.SealShard looseShard = new pd.items.SealShard();
+		looseShard.collect(hero.belongings.backpack);
+
+		int upgraded = new pd.items.TengusMask().upgradeUniqueItems(hero);
+		check(upgraded == 2, "面具没有强化到 2 件专属物品：" + upgraded);
+		check(maskArmor.checkSeal() instanceof pd.items.SealComplete
+				&& maskArmor.checkSeal().level() == 2
+				&& maskArmor.checkSeal().getGlyph() instanceof Crystalglyph,
+				"护甲上的破损纹章没有换成完整纹章，或等级/刻印丢失");
+		check(hero.belongings.backpack.items.size() == 1
+				&& hero.belongings.backpack.items.get(0) instanceof pd.items.SealComplete,
+				"背包里的纹章碎片没有换成完整纹章");
 
 		String sealSource = java.nio.file.Files.readString(
 				java.nio.file.Paths.get("../java/pd/items/BrokenSeal.java"),
