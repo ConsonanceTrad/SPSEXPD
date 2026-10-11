@@ -105,31 +105,35 @@ public final class FloorFeeling {
 			}
 			
 			if (level instanceof SpsRegularLevel && Dungeon.depth > 1 && Dungeon.depth < 39) {
-				//SPSEXPD: SPS 普通层的氛围抽签，对齐破碎原版的口径并提高出现率——
-				//总体 60% 出现氛围，7 种氛围均分（每种约 8.6%），其余 40% 为无变异 NONE。
-				//之前这里只有 CHASM/WATER/GRASS/DARK（各 10%/5%），
-				//LARGE/TRAPS/SECRETS 在 FloorFeeling 的另一条分支里、SPS 层走不到，故一直没出过。
-				if (Random.Int(100) < 60) {
-					switch (Random.Int(7)) {
+				//SPSEXPD: SPS 普通层的氛围抽签。总出现率 60%（300 分之 180），
+				//其中黑暗层只占 2%（6/300），其余 58% 由另外 6 种氛围均分（各 29/300 ≈ 9.67%），
+				//剩下 120/300 即 40% 为无变异 NONE。
+				//用 300 分格是为了让 2% 与「其余均分」都能整除，不必凑近似值。
+				//（LARGE/TRAPS/SECRETS 的实现一直在，此前只是抽签表里没有它们。）
+				final int rollRange    = 300;   // 分格总数
+				final int darkRoll     = 6;     // 2%  -> DARK
+				final int otherRoll    = 29;    // 每种其它氛围
+				final int feelingRoll  = 180;   // 60% -> 出现氛围（= 6 + 6*29）
+				int roll = Random.Int(rollRange);
+				if (roll < darkRoll) {
+					//SPSEXPD: 黑暗层给 3 根火把并把视野收窄到 1/3
+					level.feeling = Level.Feeling.DARK;
+					GroundItems.addItemToSpawn( level, new Torch());
+					GroundItems.addItemToSpawn( level, new Torch());
+					GroundItems.addItemToSpawn( level, new Torch());
+					level.viewDistance = (int)Math.ceil(level.viewDistance / 3f);
+				} else if (roll < feelingRoll) {
+					switch ((roll - darkRoll) / otherRoll) {
 						case 0: level.feeling = Level.Feeling.CHASM; break;
 						case 1: level.feeling = Level.Feeling.WATER; break;
 						case 2: level.feeling = Level.Feeling.GRASS; break;
 						case 3:
-							//SPSEXPD: 黑暗层给 3 根火把并把视野收窄到 1/3
-							level.feeling = Level.Feeling.DARK;
-							GroundItems.addItemToSpawn( level, new Torch());
-							GroundItems.addItemToSpawn( level, new Torch());
-							GroundItems.addItemToSpawn( level, new Torch());
-							level.viewDistance = (int)Math.ceil(level.viewDistance / 3f);
-							break;
-						case 4:
 							//SPSEXPD: 广阔层——房间数与刷怪量由 RegularLevel 的 Feeling.LARGE 分支放大
 							level.feeling = Level.Feeling.LARGE;
 							GroundItems.addItemToSpawn( level, Generator.random(Generator.Category.FOOD));
 							break;
-						case 5: level.feeling = Level.Feeling.TRAPS; break;
-						case 6: level.feeling = Level.Feeling.SECRETS; break;
-						default: level.feeling = Level.Feeling.NONE; break;
+						case 4: level.feeling = Level.Feeling.TRAPS; break;
+						default: level.feeling = Level.Feeling.SECRETS; break;
 					}
 				} else {
 					level.feeling = Level.Feeling.NONE;
