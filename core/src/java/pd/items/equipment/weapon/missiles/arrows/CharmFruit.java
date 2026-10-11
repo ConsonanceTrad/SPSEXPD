@@ -44,9 +44,8 @@ public class CharmFruit extends SpsFruit {
 
 
 	@Override protected void onThrow(int cell) {
-		//SPSEXPD: 落地时清空作用范围内的有害气体（与净化药剂同理）——小型 3×3、大型 5×5 圆形
-		if (landsAt(cell)) clearGases(cell);
-		else super.onThrow(cell);
+		//SPSEXPD: 命中空地的效果已按用户要求移除——改为保留投掷物（落地可捡回）
+		super.onThrow(cell);
 	}
 
 	/** SPSEXPD: 清除以 center 为中心的作用范围内的有害气体。 */

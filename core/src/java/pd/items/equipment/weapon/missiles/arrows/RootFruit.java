@@ -42,13 +42,8 @@ public class RootFruit extends SpsFruit {
 
 
 	@Override protected void onThrow(int cell) {
-		//SPSEXPD: 落地长出高草——小型 3×3、大型 5×5 圆形
-		if (landsAt(cell)) {
-			for (int c : areaCells(cell)) {
-				pd.levels.Level.set(c, pd.levels.Terrain.HIGH_GRASS);
-				GameScene.updateMap(c);
-			}
-		} else super.onThrow(cell);
+		//SPSEXPD: 命中空地的效果已按用户要求移除——改为保留投掷物（落地可捡回）
+		super.onThrow(cell);
 	}
 
 	@Override public int proc(Char attacker, Char defender, int damage) {

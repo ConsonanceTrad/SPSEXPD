@@ -33,9 +33,8 @@ public class StarFruit extends SpsFruit {
 
 
 	@Override protected void onThrow(int cell) {
-		//SPSEXPD: 投掷位置降下圣光审判之场（小型 3×3、大型 5×5 圆形，浓度 ×3）
-		if (landsAt(cell)) seedArea(cell, scaled(3), pd.actors.blobs.effectblobs.HolyLight.class);
-		else super.onThrow(cell);
+		//SPSEXPD: 命中空地的效果已按用户要求移除——改为保留投掷物（落地可捡回）
+		super.onThrow(cell);
 	}
 
 	@Override public int proc(Char attacker, Char defender, int damage) {

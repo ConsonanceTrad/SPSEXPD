@@ -42,9 +42,8 @@ public class ShockFruit extends SpsFruit {
 
 
 	@Override protected void onThrow(int cell) {
-		//SPSEXPD: 小型 3×3、大型 5×5 圆形；浓度整体 ×3
-		if (landsAt(cell)) seedArea(cell, scaled(6), ElectriShock.class);
-		else super.onThrow(cell);
+		//SPSEXPD: 命中空地的效果已按用户要求移除——改为保留投掷物（落地可捡回）
+		super.onThrow(cell);
 	}
 
 	@Override public int proc(Char attacker, Char defender, int damage) {

@@ -377,25 +377,8 @@ public final class SpsEnhancedPlantsTest {
 
 		TestLevel level = new TestLevel(11, 11);
 		Dungeon.level = level;
-		land(level, new GroundShockFruit(), ElectriShock.class, 6);
-		land(level, new GroundToxicFruit(), ToxicGas.class, 4);
-		new GroundRootFruit().land(60);
-		check(level.map[60] == Terrain.HIGH_GRASS, "缠绕果落地没有生成高草");
-		land(level, new GroundFireFruit(), Fire.class, 6);
-		land(level, new GroundSmokeFruit(), DarkGas.class, 6);
-		land(level, new GroundIceFruit(), FrostCloud.class, 6);
-		land(level, new GroundRotFruit(), ToxicGas.class, 8);
-		land(level, new GroundBlindFruit(), pd.actors.blobs.ConfusionGas.class, 4);
-		land(level, new GroundStarEaterFruit(), pd.actors.blobs.CorrosiveGas.class, 6);
-		//SPSEXPD: 星陨果落地降下圣光审判之场
-		land(level, new GroundStarFruit(), pd.actors.blobs.effectblobs.HolyLight.class, 3);
-
-		//SPSEXPD: 梦叶果实落地会清空周围 3x3 的有害气体
-		pd.scenes.GameScene.add(pd.actors.blobs.Blob.seed(60, 100, ToxicGas.class));
-		check(level.blobs.get(ToxicGas.class) != null && level.blobs.get(ToxicGas.class).volume > 0,
-				"测试前置的毒气没有被放置");
-		new GroundCharmFruit().land(60);
-		check(level.blobs.get(ToxicGas.class) == null || level.blobs.get(ToxicGas.class).volume <= 0,				"梦叶果实落地没有清空周围的有害气体");
+		//SPSEXPD: 果实「命中空地」的落点效果已按用户要求全部移除（落地只保留投掷物本身，
+		//见各果实 onThrow：现在统一 super.onThrow(cell)），所以这里不再断言任何落地效果。
 
 		//SPSEXPD: 坚果果实命中按主武器两成伤害结算（投掷时 attackingWeapon 是果实自己，必须取主武器）
 		Hero nutHero = Dungeon.hero != null ? Dungeon.hero : new Hero();
@@ -418,11 +401,6 @@ public final class SpsEnhancedPlantsTest {
 						+ "，期望 " + nutLo + "~" + nutHi + "）");
 		nutHero.belongings.thrownWeapon = oldThrown;
 		nutHero.belongings.weapon = oldWeapon;
-
-		new GroundNutFruit().land(60);
-		Heap nuts = level.heaps.get(60);
-		check(nuts != null && nuts.items.stream().anyMatch(item -> item instanceof pd.items.consum.food.fusion.Nut),
-				"坚果果落地没有掉落坚果");
 
 		//SPSEXPD: 竹背篓只收纳投掷果实与大型果实
 		pd.items.equipment.bags.BambooBasket basket = new pd.items.equipment.bags.BambooBasket();
@@ -461,24 +439,6 @@ public final class SpsEnhancedPlantsTest {
 		TestMob target = new TestMob(100);
 		fruit.proc(attacker, target, 10);
 		check(target.buff((Class)buff) != null, message);
-	}
-
-	private static void land(TestLevel level, GroundFruit fruit, Class<? extends Blob> type, int perCell) {
-		level.resetEffects();
-		fruit.land(60);
-		//SPSEXPD: 落点效果为周围 1 格（3x3），每格强度沿用原值
-		Blob blob = level.blobs.get(type);
-		String name = fruit.getClass().getSimpleName();
-		check(blob != null && blob.cur[60] == perCell,
-				name + "落地效果强度错误（实际 " + (blob == null ? "无" : String.valueOf(blob.cur[60])) + "，期望 " + perCell + "）");
-		int covered = 0;
-		for (int cell = 0; cell < level.length(); cell++) {
-			if (blob.cur[cell] > 0) {
-				check(level.insideMap(cell), name + "落地范围发生地图越界");
-				covered++;
-			}
-		}
-		check(covered <= 9, name + "落地范围超过了周围 1 格");
 	}
 
 	private static void checkBlob(TestLevel level, Class<? extends Blob> type, int volume, String message) {
@@ -524,20 +484,6 @@ public final class SpsEnhancedPlantsTest {
 		return result.toString();
 	}
 
-	private interface GroundFruit { void land(int cell); }
-	private static final class GroundHealFruit extends HealFruit implements GroundFruit { public void land(int c) { onThrow(c); } }
-	private static final class GroundShockFruit extends ShockFruit implements GroundFruit { public void land(int c) { onThrow(c); } }
-	private static final class GroundToxicFruit extends ToxicFruit implements GroundFruit { public void land(int c) { onThrow(c); } }
-	private static final class GroundRootFruit extends RootFruit implements GroundFruit { public void land(int c) { onThrow(c); } }
-	private static final class GroundFireFruit extends FireFruit implements GroundFruit { public void land(int c) { onThrow(c); } }
-	private static final class GroundCharmFruit extends CharmFruit implements GroundFruit { public void land(int c) { onThrow(c); } }
-	private static final class GroundSmokeFruit extends SmokeFruit implements GroundFruit { public void land(int c) { onThrow(c); } }
-	private static final class GroundIceFruit extends IceFruit implements GroundFruit { public void land(int c) { onThrow(c); } }
-	private static final class GroundNutFruit extends NutFruit implements GroundFruit { public void land(int c) { onThrow(c); } }
-	private static final class GroundRotFruit extends RotFruit implements GroundFruit { public void land(int c) { onThrow(c); } }
-	private static final class GroundBlindFruit extends BlindFruit implements GroundFruit { public void land(int c) { onThrow(c); } }
-	private static final class GroundStarEaterFruit extends StarEaterFruit implements GroundFruit { public void land(int c) { onThrow(c); } }
-	private static final class GroundStarFruit extends StarFruit implements GroundFruit { public void land(int c) { onThrow(c); } }
 
 	private static final class TestMob extends Mob {
 		TestMob(int health) { HP = HT = health; }

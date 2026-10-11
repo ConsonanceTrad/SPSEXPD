@@ -34,10 +34,8 @@ public class SeedFruit extends SpsFruit {
 
 
 	@Override protected void onThrow(int cell) {
-		if (landsAt(cell)) {
-			Heap heap = Dungeon.level.drop(Generator.random(Generator.Category.SEED), cell);
-			if (heap.sprite != null) heap.sprite.drop(cell);
-		} else super.onThrow(cell);
+		//SPSEXPD: 命中空地的效果已按用户要求移除——改为保留投掷物（落地可捡回）
+		super.onThrow(cell);
 	}
 
 	@Override protected void onEat(Hero hero) {
