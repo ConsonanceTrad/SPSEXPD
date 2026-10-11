@@ -993,10 +993,19 @@ public class WndSettings extends WndTabbed {
 			//SPSEXPD: 本按钮点击会替换当前窗口（GameScene.show），onPointerUp 送不到，
 			//图标 brightness 会永久残留 —— 这里先手动还原；按压时的亮度反馈仍然保留
 			if (icon() != null) icon().resetColor();
-			GameScene.show(new WndTitledMessage(
-					Icons.INFO.get(),
-					Messages.get(AuxTab.class, key),
-					Messages.get(AuxTab.class, key + "_desc") ));
+			//SPSEXPD: 两个修复点——
+			// 1) AuxTab 的内联文案键带 "$auxtab." 前缀（嵌套键），裸 key 取不到，会显示 TEXT NOT FOUND
+			// 2) 换窗必须回到渲染线程：安卓的输入回调不在渲染线程，直接 show 会导致
+			//    弹框不显示且后续输入被吞（需返回一次才恢复）。与 Chasm.heroJump 同款处理。
+			render.noosa.Game.runOnRenderThread(new render.utils.data.Callback() {
+				@Override
+				public void call() {
+					GameScene.show(new WndTitledMessage(
+							Icons.INFO.get(),
+							Messages.get(AuxTab.class, "$auxtab." + key),
+							Messages.get(AuxTab.class, "$auxtab." + key + "_desc") ));
+				}
+			});
 		}
 
 		//SPSEXPD: 不要悬浮提示——设置页在滚动区里，tooltip 容易闪；与旁边的复选框观感也一致
