@@ -104,35 +104,34 @@ public final class FloorFeeling {
 			}
 			
 			if (level instanceof SpsRegularLevel && Dungeon.depth > 1 && Dungeon.depth < 39) {
-				int roll = Random.Int(10);
-				if (Dungeon.depth <= 32) {
-					switch (roll) {
-						case 0: level.feeling = Level.Feeling.CHASM; break;
-						case 1: level.feeling = Level.Feeling.WATER; break;
-						case 2: level.feeling = Level.Feeling.GRASS; break;
-						case 3:
-							level.feeling = Level.Feeling.DARK;
-							GroundItems.addItemToSpawn( level, new Torch());
-							GroundItems.addItemToSpawn( level, new Torch());
-							GroundItems.addItemToSpawn( level, new Torch());
-							level.viewDistance = (int)Math.ceil(level.viewDistance / 3f);
-							break;
-						//SPSEXPD: 去掉「琉璃层」（SPECIAL_FLOOR）——它会把整层内部墙换成玻璃墙
-						default: level.feeling = Level.Feeling.NONE; break;
-					}
+				//SPSEXPD: 黑暗层——独立 1/20（5%）判定，每 20 层左右撞到一次。
+				//必须先于下面的氛围抽签，命中时直接盖过抽签结果，这样其它氛围的权重完全不受影响
+				//（若写成「抽中 NONE 再判定」会变成 7/10 × 1/20 = 3.5%）。
+				boolean dark = Random.Int(20) == 0;
+				if (dark) {
+					level.feeling = Level.Feeling.DARK;
+					GroundItems.addItemToSpawn( level, new Torch());
+					GroundItems.addItemToSpawn( level, new Torch());
+					GroundItems.addItemToSpawn( level, new Torch());
+					level.viewDistance = (int)Math.ceil(level.viewDistance / 3f);
 				} else {
-					switch (roll) {
-						case 0:
-							level.feeling = Level.Feeling.DARK;
-							GroundItems.addItemToSpawn( level, new Torch());
-							GroundItems.addItemToSpawn( level, new Torch());
-							GroundItems.addItemToSpawn( level, new Torch());
-							level.viewDistance = (int)Math.ceil(level.viewDistance / 3f);
-							break;
-						case 1: level.feeling = Level.Feeling.WATER; break;
-						case 2: level.feeling = Level.Feeling.GRASS; break;
-						//SPSEXPD: 去掉「琉璃层」（SPECIAL_FLOOR）
-						default: level.feeling = Level.Feeling.NONE; break;
+					int roll = Random.Int(10);
+					if (Dungeon.depth <= 32) {
+						switch (roll) {
+							case 0: level.feeling = Level.Feeling.CHASM; break;
+							case 1: level.feeling = Level.Feeling.WATER; break;
+							case 2: level.feeling = Level.Feeling.GRASS; break;
+							//SPSEXPD: 去掉「琉璃层」（SPECIAL_FLOOR）——它会把整层内部墙换成玻璃墙
+							default: level.feeling = Level.Feeling.NONE; break;
+						}
+					} else {
+						switch (roll) {
+							//SPSEXPD: 原 case 0 是黑暗层，已移出到上面的独立判定；WATER/GRASS 概率不变
+							case 0: level.feeling = Level.Feeling.WATER; break;
+							case 1: level.feeling = Level.Feeling.GRASS; break;
+							//SPSEXPD: 去掉「琉璃层」（SPECIAL_FLOOR）
+							default: level.feeling = Level.Feeling.NONE; break;
+						}
 					}
 				}
 			} else if (Dungeon.depth > 1) {
