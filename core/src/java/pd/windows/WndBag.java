@@ -157,9 +157,9 @@ public class WndBag extends WndTabbed {
 	//  · side_tabs_s.png = 窄版：单帧贴图（16 x 35），整张直接用（不切两半），选中与否只靠图标亮度
 	//紧凑时才切窄版：见构造里的 compactTabs 判定（两侧布局且原版标签带放不下）
 	protected static final int TAB_FRAME_W	    = 20;   //原版单帧在贴图里的宽度（= side_tabs.png 宽 / 2）
-	protected static final int TAB_W_WIDE	    = 20;   //原版有效图案宽度
+	protected static final int TAB_W_WIDE	    = 18;   //原版图案宽度（帧内 x0..17，右侧留白 2px）
 	protected static final int TAB_W_COMPACT    = 16;   //窄版图案宽度 = 贴图整宽（单帧）
-	protected static final int TAB_ART_OFF_UNSEL = 1;   //原版未选中帧的图案在帧内右移 1px（贴图本身如此）
+	protected static final int TAB_ART_OFF_UNSEL = 0;   //原版未选中帧的图案在帧内偏移（当前两帧对齐）
 	protected static int TAB_W		= TAB_W_WIDE;       //当前生效的图案宽度
 	protected static boolean compactTabs = false;       //是否在用窄版标签
 	//SPSEXPD: 两版贴图帧高也不同（原版 26 / 窄版 35），运行期按当前模式选，值由 initSideTabSize() 推导
