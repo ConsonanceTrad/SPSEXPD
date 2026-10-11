@@ -416,8 +416,7 @@ public class WndBag extends WndTabbed {
 		int rightCol0 = Math.max( 1, perCol - 1 );
 
 		//SPS: 标签在窗框外侧——未选中时压在窗框下、选中时探入框带。
-		//SPSEXPD: 标签紧贴背包内容 —— 原先各留 1px 空隙（±2），按用户要求补进 1px
-		float leftX = -TAB_W - 1, rightX = width + 1;
+		float leftX = -TAB_W - 2, rightX = width + 2;
 
 		int sideIdx = 0;
 		for (int i = 1; i < n; i++) {
