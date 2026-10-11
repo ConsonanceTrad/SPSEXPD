@@ -80,11 +80,13 @@ public final class SpsLegacyArmorTest {
 		GdxNativesLoader.load();
 		Gdx.files = new HeadlessFiles();
 		Game.version = "test";
+		//SPSEXPD: 纹章用例先跑 —— 后面的护甲图标槽断言是本仓既有的基线红（与本功能无关），
+		//排在它前面会挡住纹章相关的校验
+		testBrokenSealCarry();
 		testDefinitionsAndGenerator();
 		testHeroFactorsAndDamageReduction();
 		testSkillEnergy();
 		testUpgradeSaveRestore();
-		testBrokenSealCarry();
 		testLegacyIcons();
 		System.out.println("SPS旧版18套普通防具测试通过：牌组、数值、力量、防御、潜行、技能能量、存档和原始图标均正常。");
 	}
@@ -169,30 +171,30 @@ public final class SpsLegacyArmorTest {
 		Dungeon.hero = hero;
 		Dungeon.quickslot = new QuickSlot();
 
-		//SPSXPD: 纹章随护甲升级记录等级，上限 5（原版 1）
+		//SPSEXPD: 纹章随护甲升级记录等级，破损纹章上限 2（原版 1；纹章碎片为 1）
+		final int cap = new BrokenSeal().maxCarriedLevel();
 		Armor armor = new WoodenArmor();
 		BrokenSeal seal = new BrokenSeal();
 		armor.affixSeal(seal);
-		for (int i = 0; i < BrokenSeal.MAX_CARRIED_LEVEL; i++) armor.upgrade();
-		check(seal.level() == BrokenSeal.MAX_CARRIED_LEVEL,
-				"纹章没有随护甲升级记录到 5 级：" + seal.level());
+		for (int i = 0; i < cap; i++) armor.upgrade();
+		check(seal.level() == cap, "纹章没有随护甲升级记录到 " + cap + " 级：" + seal.level());
 		armor.upgrade();
-		check(seal.level() == BrokenSeal.MAX_CARRIED_LEVEL, "纹章记录超过 5 级上限：" + seal.level());
+		check(seal.level() == cap, "纹章记录超过 " + cap + " 级上限：" + seal.level());
 
 		//SPSXPD: 摘下纹章时护甲扣回全部携带等级，纹章保留等级
 		int before = armor.trueLevel();
 		BrokenSeal detached = armor.detachSeal();
-		check(detached == seal && detached.level() == BrokenSeal.MAX_CARRIED_LEVEL,
+		check(detached == seal && detached.level() == cap,
 				"摘下纹章后携带等级丢失：" + detached.level());
-		check(armor.trueLevel() == before - BrokenSeal.MAX_CARRIED_LEVEL,
-				"摘下纹章没有从护甲扣回 5 级：" + armor.trueLevel());
+		check(armor.trueLevel() == before - cap,
+				"摘下纹章没有从护甲扣回 " + cap + " 级：" + armor.trueLevel());
 
 		//SPSXPD: 贴到新护甲时携带等级全部转移
 		Armor second = new MailArmor();
 		int secondBefore = second.trueLevel();
 		second.affixSeal(detached);
-		check(second.trueLevel() == secondBefore + BrokenSeal.MAX_CARRIED_LEVEL,
-				"纹章携带的 5 级没有全部转移给新护甲：" + second.trueLevel());
+		check(second.trueLevel() == secondBefore + cap,
+				"纹章携带的 " + cap + " 级没有全部转移给新护甲：" + second.trueLevel());
 
 		//SPSXPD: 取消诅咒限制后，携带刻印的纹章可贴附到被诅咒护甲
 		Armor cursed = new WoodenArmor();
@@ -204,16 +206,27 @@ public final class SpsLegacyArmorTest {
 		check(cursed.checkSeal() == glyphSeal && cursed.glyph instanceof Crystalglyph,
 				"被诅咒护甲没有接受携带刻印的纹章");
 
-		//SPSXPD: 拆卸下来的纹章本身可被升级（上限 5）并被附魔道具选中
+		//SPSEXPD: 拆卸下来的纹章本身可被升级（上限 2）并被附魔道具选中
 		BrokenSeal loose = new BrokenSeal();
 		check(loose.isUpgradable(), "拆卸下来的纹章不能升级");
-		for (int i = 0; i < BrokenSeal.MAX_CARRIED_LEVEL; i++) loose.upgrade();
-		check(loose.level() == BrokenSeal.MAX_CARRIED_LEVEL && !loose.isUpgradable(),
-				"纹章升到 5 级后仍可继续升级：" + loose.level());
+		for (int i = 0; i < cap; i++) loose.upgrade();
+		check(loose.level() == cap && !loose.isUpgradable(),
+				"纹章升到 " + cap + " 级后仍可继续升级：" + loose.level());
 		check(pd.items.consum.scrolls.exotic.ScrollOfEnchantment.enchantable(loose),
 				"拆卸下来的纹章不能被附魔道具选中");
 		loose.inscribe(new Crystalglyph());
 		check(loose.getGlyph() instanceof Crystalglyph, "纹章不能被刻上刻印");
+
+		//SPSEXPD: 纹章碎片——同机制但上限 1 级、只携带普通刻印、不提供护盾
+		pd.items.SealShard shard = new pd.items.SealShard();
+		check(shard.maxCarriedLevel() == 1, "纹章碎片的携带上限不是 1 级：" + shard.maxCarriedLevel());
+		check(shard.canCarryGlyph(new Crystalglyph()), "纹章碎片应能携带普通刻印");
+		check(shard.maxShield(3, 5) == 0, "纹章碎片不应提供护盾：" + shard.maxShield(3, 5));
+		Armor shardArmor = new WoodenArmor();
+		shardArmor.affixSeal(shard);
+		for (int i = 0; i < 4; i++) shardArmor.upgrade();
+		check(shard.level() == 1, "纹章碎片记录超过 1 级上限：" + shard.level());
+		check(!shard.isUpgradable(), "纹章碎片达到 1 级后仍可继续升级");
 
 		String sealSource = java.nio.file.Files.readString(
 				java.nio.file.Paths.get("../java/pd/items/BrokenSeal.java"),
