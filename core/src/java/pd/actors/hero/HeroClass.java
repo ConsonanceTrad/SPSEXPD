@@ -1188,14 +1188,17 @@ public enum HeroClass {
 					break;
 				default:
 					l.equip(ItemSlot.WEAPON, () -> new ShortSword(), 0, null);
-					l.equip(ItemSlot.ARMOR, () -> new WoodenArmor(), 0, null);
+					//SPSEXPD: 纹章开局就贴在护甲上，不再额外给一枚独立纹章。
+					//走 affixSeal 而不是 affixToArmor：后者第一关是 armor.cursedKnown，
+					//开局护甲尚未鉴定会被拒绝，纹章就留在背包里多出一枚。
+					l.equip(ItemSlot.ARMOR, () -> new WoodenArmor(), 0, (h, i) -> {
+						if (i instanceof pd.items.equipment.armor.Armor) {
+							((pd.items.equipment.armor.Armor) i).affixSeal(new BrokenSeal());
+						}
+					});
 					l.equip(ItemSlot.SECOND_WEP, () -> new MissileShield(), 0, null);
 					l.backpack(() -> new Porksoup());
-					//破碎纹章贴在已装备的护甲上，依赖护甲，故走「收集后处理」
-					l.backpack(() -> new BrokenSeal(), 0, 1, -1, (h, i) -> {
-						if (h.belongings.armor != null) ((BrokenSeal) i).affixToArmor(h.belongings.armor, null);
-					});
-					//SPSEXPD: 战士同样携带一枚纹章碎片（只放背包，不贴护甲——护甲上只能挂一个纹章）
+					//SPSEXPD: 战士另外携带一枚纹章碎片（只放背包，不贴护甲——护甲上只能挂一个纹章）
 					l.backpack(() -> new pd.items.SealShard());
 					break;
 			}
