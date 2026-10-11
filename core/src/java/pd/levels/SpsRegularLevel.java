@@ -129,17 +129,20 @@ public abstract class SpsRegularLevel extends RegularLevel {
 			//SPSEXPD: 破碎（Shattered）特殊房间并入普通层轮换
 			Type.SENTRY, Type.MAGICAL_FIRE, Type.TOXIC_GAS, Type.SACRIFICE, Type.WEAK_FLOOR,
 			Type.FUSION_TRIAL, Type.RUNESTONE, Type.ARMORY, Type.CRYSTAL_CHOICE,
-			Type.CRYSTAL_VAULT, Type.CRYSTAL_PATH, Type.PIT
+			Type.CRYSTAL_VAULT, Type.CRYSTAL_PATH, Type.PIT,
+			//SPSEXPD: LABORATORY 之前有 case 却没进这张表，导致永远生成不到
+			Type.LABORATORY
 	};
 	//SPSEXPD: 破碎里每层最多一个水晶钥匙房间（对应 SpecialRoom.CRYSTAL_KEY_SPECIALS）
 	private static final ArrayList<Type> CRYSTAL_TYPES = new ArrayList<>(Arrays.asList(
 			Type.PIT, Type.CRYSTAL_VAULT, Type.CRYSTAL_CHOICE, Type.CRYSTAL_PATH
 	));
-	//SPSEXPD: 已去掉 SPS 的记忆火房间（SpsMemoryRoom），隐藏房间池不再抽取 MEMORY
+	//SPSEXPD: 已去掉 SPS 的记忆火房间（SpsMemoryRoom），隐藏房间池不再抽取 MEMORY。
+	//跳楼房改用破碎的 WeakFloorRoom（薄地板 + 深渊，可跳下去），不再抽 SPS 那版无深渊的 SpsPitRoom。
 	private static final Type[] HIDDEN_TYPES = {
 			Type.MAGIC_WELL, Type.BARRICADED, Type.HIDE_SHOP,
 			Type.MAGIC_WELL, Type.HIDE_SHOP, Type.WISH_POOL, Type.GLASSROOM,
-			Type.PRISON_PIT, Type.BARRICADED, Type.WISH_POOL, Type.PRISON_PIT
+			Type.WEAK_FLOOR, Type.BARRICADED, Type.WISH_POOL, Type.WEAK_FLOOR
 	};
 	private static final String LEGACY_SPECIAL_ROOMS = "sps_special_rooms";
 	private static final String LEGACY_PIT_NEEDED = "sps_pit_needed";

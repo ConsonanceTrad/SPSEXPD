@@ -21,8 +21,9 @@ import java.util.List;
 /** Builds the 48x48 BSP room graph used by SPS-PD 0.9.8 ordinary floors. */
 public final class SpsBspLayout {
 
-	public static final int MIN_ROOM_SIZE = 8;
-	public static final int MAX_ROOM_SIZE = 10;
+	//SPSEXPD: 房间尺寸由 8/10 收到 6/7 —— BSP 递归二分下房间数约为原来的 1.8 倍（用户要求扩大每层房间数）
+	public static final int MIN_ROOM_SIZE = 6;
+	public static final int MAX_ROOM_SIZE = 7;
 
 	public static Result generate(int width, int height, int maxAttempts) {
 		return generate(width, height, maxAttempts, MIN_ROOM_SIZE, MAX_ROOM_SIZE);
