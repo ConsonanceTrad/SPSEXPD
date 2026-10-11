@@ -190,7 +190,8 @@ public abstract class Mob extends Char {
 		switch (type) {
 			case 0: return depth;
 			case 1: return depth / 2;
-			case 2: return depth / 4;
+			//SPSEXPD: 成长最慢的一档由 depth/4 提到 depth/2，让深层普通怪不再几乎不成长
+			case 2: return depth / 2;
 			case 3: return depth * 2;
 			default: return 1;
 		}
