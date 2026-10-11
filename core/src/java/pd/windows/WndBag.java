@@ -84,8 +84,9 @@ public class WndBag extends WndTabbed {
 
 	protected static final int COLS_P   = 5;
 	protected static final int COLS_L   = 5;
-	//SPSEXPD: 底部标签模式（旧版布局）——横向不再让位给两侧标签带，列数与其它布局一致，每行 5 格
+	//SPSEXPD: 底部标签模式每行 5 格（默认）；另有「旧版」变体每行 7 格（COLS_BOTTOM_WIDE，见设置项）
 	protected static final int COLS_BOTTOM = 5;
+	protected static final int COLS_BOTTOM_WIDE = 7;
 	
 	protected static int SLOT_WIDTH_P   = 24;
 	protected static int SLOT_WIDTH_L   = 24;
@@ -104,8 +105,9 @@ public class WndBag extends WndTabbed {
 	//SPS: 窗口布局 = 装备区两排(10 格) + 背包 7 行(35 格)，主背包与包裹统一
 	protected static final int EQUIP_ROWS	= 2;
 	protected static final int BAG_ROWS		= 7;
-	//SPSEXPD: 底部标签模式下背包区每行 5 格（COLS_BOTTOM），35 格即 7 行，与两侧布局一致
+	//SPSEXPD: 底部标签模式每行 5 格时背包区 7 行；每行 7 格（旧版变体）时 5 行 —— 都是 35 格
 	protected static final int BAG_ROWS_BOTTOM = 7;
+	protected static final int BAG_ROWS_BOTTOM_WIDE = 5;
 
 	//SPS: 移动端安全边距（占屏幕比例）——「包裹窗口 + 左右标签带 + 外框」限制在此比例内，
 	//避免窗口/选项卡被屏幕裁切（选项卡被裁则点不到，功能不可用）
@@ -210,16 +212,18 @@ public class WndBag extends WndTabbed {
 		slotWidth = PixelScene.landscape() ? SLOT_WIDTH_L : SLOT_WIDTH_P;
 		slotHeight = PixelScene.landscape() ? SLOT_HEIGHT_L : SLOT_HEIGHT_P;
 
-		//SPSEXPD: 底部标签模式沿用 COLS_BOTTOM（现在也是 5 列，与其它布局一致）
+		//SPSEXPD: 底部标签模式——默认每行 5 格；「旧版」变体（BAG_TABS_BOTTOM_WIDE）每行 7 格
+		boolean bottomWide = SPDSettings.bagTabsMode() == SPDSettings.BAG_TABS_BOTTOM_WIDE;
 		boolean bottomTabs = SPDSettings.bagBottomTabs();
-		nCols = bottomTabs ? COLS_BOTTOM : (PixelScene.landscape() ? COLS_L : COLS_P);
+		nCols = bottomTabs ? (bottomWide ? COLS_BOTTOM_WIDE : COLS_BOTTOM)
+				: (PixelScene.landscape() ? COLS_L : COLS_P);
 		//SPSEXPD: 行数 = 装备区两排 + 背包行数（5 列时 7 行、7 列时 5 行，都是 35 格）。
 		//SPSEXPD: 行数按「实际要摆的格数」算，并以「窗口能容纳的格数」封顶（两种布局都是 35 格）：
 		//- 不因超容量物品多出一行（读档 force-add 会让主背包出现 36 件）
 		//- 封顶用窗口格数而不是 bag.capacity()：窗口本来就只有 35 格，超出的物品由 placeItem 的守卫跳过（不显示但不丢失）
 		//⚠️ 硬约束：包裹 capacity() + 1 必须是 nCols 的整数倍且不超过窗口容量，否则会多出一行空行。
 		//所以各 Bag 子类的容量都取 34（34+1 = 35 = 5 列 x 7 行 = 7 列 x 5 行）
-		int bagRows = bottomTabs ? BAG_ROWS_BOTTOM : BAG_ROWS;
+		int bagRows = bottomTabs ? (bottomWide ? BAG_ROWS_BOTTOM_WIDE : BAG_ROWS_BOTTOM) : BAG_ROWS;
 		int contentCap = bagRows * nCols;
 		//SPSEXPD: 已占格数与 Bag.canHold 同源（包裹袋不占格，见 Bag.usedSlots()）
 		int shown = bag.usedSlots();

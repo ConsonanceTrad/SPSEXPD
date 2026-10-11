@@ -146,18 +146,20 @@ public class SPDSettings extends GameSettings {
 		return getBoolean( KEY_SWAP_WAIT_SEARCH, false );
 	}
 
-	//SPSEXPD: 背包界面模式（三选一）——0 两侧标签页 / 1 底部翻页标签页 / 2 底部原始标签页（不翻页）
+	//SPSEXPD: 背包界面模式——0 两侧标签页 / 1 底部翻页标签页（每行 5 格）/ 2 底部原始标签页（每行 5 格、不翻页）
+	//                / 3 底部翻页标签页·每行 7 格（旧版布局）
 	public static final int BAG_TABS_SIDE = 0;
 	public static final int BAG_TABS_BOTTOM_PAGED = 1;
 	public static final int BAG_TABS_BOTTOM_PLAIN = 2;
+	public static final int BAG_TABS_BOTTOM_WIDE = 3;
 
 	public static void bagTabsMode( int value ){
-		put( KEY_BAG_TABS_MODE, Math.max( BAG_TABS_SIDE, Math.min( BAG_TABS_BOTTOM_PLAIN, value ) ) );
+		put( KEY_BAG_TABS_MODE, Math.max( BAG_TABS_SIDE, Math.min( BAG_TABS_BOTTOM_WIDE, value ) ) );
 	}
 
 	public static int bagTabsMode(){
 		int m = getInt( KEY_BAG_TABS_MODE, -1 );
-		if (m >= 0) return Math.min( BAG_TABS_BOTTOM_PLAIN, m );
+		if (m >= 0) return Math.min( BAG_TABS_BOTTOM_WIDE, m );
 		//SPSEXPD: 旧档只有布尔键 bag_bottom_tabs，true -> 底部翻页、false -> 两侧
 		return getBoolean( KEY_BAG_BOTTOM_TABS, true ) ? BAG_TABS_BOTTOM_PAGED : BAG_TABS_SIDE;
 	}
