@@ -156,12 +156,15 @@ public class WndBag extends WndTabbed {
 	//  · side_tabs.png   = 原版，图案满帧 20px
 	//  · side_tabs_s.png = 窄版，图案 16px（右侧透明留白），横向紧凑时才用
 	//紧凑判定见构造里的 shouldUseCompactTabs()：按原版标签带算，理想窗口已超宽度上限就说明横向紧张。
-	protected static final int TAB_FRAME_W	    = 20;   //单帧在贴图里的宽度（= 贴图宽 / 2）
+	protected static final int TAB_FRAME_W	    = 20;   //原版单帧在贴图里的宽度（= side_tabs.png 宽 / 2）
 	protected static final int TAB_W_WIDE	    = 20;   //原版有效图案宽度
-	protected static final int TAB_W_COMPACT    = 16;   //窄版有效图案宽度
+	protected static final int TAB_W_COMPACT    = 8;    //窄版有效图案宽度（side_tabs_s.png 16 / 2）
 	protected static final int TAB_ART_OFF_UNSEL = 1;   //原版未选中帧的图案在帧内右移 1px（贴图本身如此）
 	protected static int TAB_W		= TAB_W_WIDE;       //当前生效的图案宽度
 	protected static boolean compactTabs = false;       //是否在用窄版标签
+	//SPSEXPD: 两版贴图帧高也不同（原版 26 / 窄版 35），运行期按当前模式选，值由 initSideTabSize() 推导
+	protected static int TAB_H_WIDE = 26;
+	protected static int TAB_H_COMPACT = 35;
 	protected static int TAB_H		= 70;    //单帧高 = 上固定段 + 可裁中段 + 下固定段
 	protected static final int PLATE_CAP	= 3;     //SPS: 底板上下固定段高度（与 side_tabs.png 规格绑定）
 	protected static final int LEFT_TABS	= 5;
@@ -266,6 +269,7 @@ public class WndBag extends WndTabbed {
 		compactTabs = !SPDSettings.bagBottomTabs()
 				&& windowWidth + 2 * TAB_FRAME_W + chrome.marginHor() > limitW;
 		TAB_W = compactTabs ? TAB_W_COMPACT : TAB_W_WIDE;
+		TAB_H = compactTabs ? TAB_H_COMPACT : TAB_H_WIDE;   //两版贴图帧高不同
 
 		//SPSEXPD: 旧版布局下标签在底部，不再吃横向预算，因此同样屏幕下格子能保持更大
 		int tabBudgetW = SPDSettings.bagBottomTabs() ? 0 : 2 * TAB_W;
@@ -524,10 +528,14 @@ public class WndBag extends WndTabbed {
 	//贴图规格：单帧 = 顶部 PLATE_CAP px 边框段 + 中间可裁段（纵向可任意裁取）+ 底部 PLATE_CAP px 边框段。
 	//底板不再做九宫格拉伸，而是按标签高度从中间段 1:1 裁取（避免移动端非整数缩放的拉伸条纹）。
 	private static void initSideTabSize() {
-		SmartTexture tex = TextureCache.get( Assets.Interfaces.SIDE_TABS );
-		if (tex != null && tex.height > 0) {
-			//SPSEXPD: 宽度不再从贴图推导（有效图案宽度见 TAB_W_WIDE / TAB_W_COMPACT），这里只取高度
-			TAB_H = Math.max( 2 * PLATE_CAP + 1, tex.height );
+		//SPSEXPD: 宽度不推导（见 TAB_W_WIDE / TAB_W_COMPACT），只从两版贴图各取高度
+		SmartTexture wide = TextureCache.get( Assets.Interfaces.SIDE_TABS );
+		if (wide != null && wide.height > 0) {
+			TAB_H_WIDE = Math.max( 2 * PLATE_CAP + 1, wide.height );
+		}
+		SmartTexture small = TextureCache.get( Assets.Interfaces.SIDE_TABS_S );
+		if (small != null && small.height > 0) {
+			TAB_H_COMPACT = Math.max( 2 * PLATE_CAP + 1, small.height );
 		}
 	}
 
