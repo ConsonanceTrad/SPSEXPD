@@ -995,9 +995,11 @@ public class WndSettings extends WndTabbed {
 			if (icon() != null) icon().resetColor();
 			//SPSEXPD: key 直接传裸 key（如 "hero_path"）：Messages.get 会自己拼出内层类前缀
 			//（windows.wndsettings$auxtab.hero_path），手动再加 "$auxtab." 会变成 $auxtab.$auxtab 而取不到。
-			//注意不要用 Game.runOnRenderThread / postRunnable 来包这个 show：那会把换窗推迟到下一帧，
-			//弹框不出现且输入被吞（曾因此在桌面端复现卡死）。
-			GameScene.show(new WndTitledMessage(
+			//SPSEXPD: 必须用 addToFront（叠加）而不是 GameScene.show（替换当前窗口）——
+			//本按钮位于 ScrollPane 内部，替换掉正在处理事件的窗口会让 ScrollPane 的指针状态残留，
+			//表现为点击后弹框不出现、且后续点击被吞（需返回/esc 才恢复）。桌面端因鼠标 hover 事件能重置状态
+			//而不易复现，移动端（无 hover）必现。同文件其它子窗口（WndKeyBindings 等）也是用 addToFront。
+			ShatteredPixelDungeon.scene().addToFront(new WndTitledMessage(
 					Icons.INFO.get(),
 					Messages.get(AuxTab.class, key),
 					Messages.get(AuxTab.class, key + "_desc") ));
