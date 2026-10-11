@@ -115,7 +115,7 @@ public class WndBag extends WndTabbed {
 	//SPSEXPD: 背包窗口的尺寸上限（占屏幕比例）——「窗口 + 左右标签带 + 外框」不超过屏宽 80%，
 	//「窗口 + 外框」不超过屏高上限。超出时按下方循环联动缩小格子直到进入上限（下限 MIN_SLOT）。
 	//高度上限分两种布局：竖版（左右两侧标签）90%，旧版（底部标签）70%
-	protected static final float MAX_WINDOW_WIDTH_RATIO		= 0.8f;
+	protected static final float MAX_WINDOW_WIDTH_RATIO		= 0.9f;
 	protected static final float MAX_WINDOW_HEIGHT_RATIO_SIDE	= 0.9f;
 	protected static final float MAX_WINDOW_HEIGHT_RATIO_BOTTOM	= 0.7f;
 
@@ -153,7 +153,10 @@ public class WndBag extends WndTabbed {
 	//左侧 5 个、右侧其余，主背包固定右下角（参照归档 Godot 版 wnd_bag.gd 的侧栏布局）
 	//SPS: 侧边标签尺寸由贴图 Assets.Interfaces.SIDE_TABS 决定（横向 2 帧）——贴图多大标签就多大，
 	//构造时读取（initSideTabSize），避免硬编码尺寸与美术贴图不匹配。
-	protected static int TAB_W		= 20;    //单帧宽（贴图宽 / 2）
+	//SPSEXPD: 侧栏标签的「绘制 / 占位宽度」。side_tabs_s.png 每帧 20px 宽，但有效图案只占左侧
+	//12px（右侧 8px 是透明留白），所以这里取 12 —— 横向预算每侧少扣 8px，手机上背包窗口能更大。
+	//与贴图规格绑定：换图要同步这个值（同 PLATE_CAP 的做法）。
+	protected static int TAB_W		= 12;
 	protected static int TAB_H		= 70;    //单帧高 = 上固定段 + 可裁中段 + 下固定段
 	protected static final int PLATE_CAP	= 3;     //SPS: 底板上下固定段高度（与 side_tabs.png 规格绑定）
 	protected static final int LEFT_TABS	= 5;
@@ -473,9 +476,10 @@ public class WndBag extends WndTabbed {
 	//贴图规格：单帧 = 顶部 PLATE_CAP px 边框段 + 中间可裁段（纵向可任意裁取）+ 底部 PLATE_CAP px 边框段。
 	//底板不再做九宫格拉伸，而是按标签高度从中间段 1:1 裁取（避免移动端非整数缩放的拉伸条纹）。
 	private static void initSideTabSize() {
-		SmartTexture tex = TextureCache.get( Assets.Interfaces.SIDE_TABS );
-		if (tex != null && tex.width > 0 && tex.height > 0) {
-			TAB_W = Math.max( 1, tex.width / 2 );
+		SmartTexture tex = TextureCache.get( Assets.Interfaces.SIDE_TABS_S );
+		if (tex != null && tex.height > 0) {
+			//SPSEXPD: 宽度不再从贴图推导 —— side_tabs_s.png 每帧 20px，但有效图案只在左侧 TAB_W，
+			//右侧是透明留白，按 TAB_W 裁取正好贴住图案（见 TAB_W 附近的说明）。
 			TAB_H = Math.max( 2 * PLATE_CAP + 1, tex.height );
 		}
 	}
@@ -964,12 +968,12 @@ public class WndBag extends WndTabbed {
 		protected void createChildren() {
 			super.createChildren();
 
-			plateTop = new Image( Assets.Interfaces.SIDE_TABS );
-			plateBot = new Image( Assets.Interfaces.SIDE_TABS );
+			plateTop = new Image( Assets.Interfaces.SIDE_TABS_S );
+			plateBot = new Image( Assets.Interfaces.SIDE_TABS_S );
 			//SPS: 中段 4 块循环拼接（每块最多裁剪贴图中段长度），保证任意标签高度都不漏空
 			plateMids = new Image[4];
 			for (int i = 0; i < plateMids.length; i++) {
-				plateMids[i] = new Image( Assets.Interfaces.SIDE_TABS );
+				plateMids[i] = new Image( Assets.Interfaces.SIDE_TABS_S );
 			}
 
 			addToBack( plateBot );

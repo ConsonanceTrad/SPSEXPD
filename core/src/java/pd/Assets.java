@@ -117,6 +117,9 @@ public class Assets {
 		public static final String CHROME   = "interfaces/chrome.png";
 		//SPS: 侧边标签底板（横向 2 帧：左=选中 | 右=未选，手动旋转后的标签贴图，每帧 TAB_W×TAB_H）
 		public static final String SIDE_TABS= "interfaces/side_tabs.png";
+		//SPSEXPD: 窄版侧边标签底板（帧宽同为 20px，但有效图案只在左侧约 12px、右侧透明留白；
+		//配合 WndBag.TAB_W = 12 使用，手机上背包窗口不再被左右标签带挤小）
+		public static final String SIDE_TABS_S = "interfaces/side_tabs_s.png";
 		//SPS: 左右快捷栏整栏外框三段纹理（横向 3 帧：上帽/中段/下帽，
 		//由 tools/make-side-toolbar.ps1 从 toolbar.png 下栏三段转置生成）
 		public static final String SIDE_TOOLBAR = "interfaces/side_toolbar.png";
