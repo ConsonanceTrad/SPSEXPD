@@ -1178,6 +1178,15 @@ public class Hero extends Char {
 		//act，时间会跳成 1 分钟/步），而等待/休息走 spendConstant，两条路径节奏不一致；
 		//spendConstant 是两者的唯一汇合点（Actor.spend 内部也是调它）。
 		pd.Statistics.advanceSpsTime(time / pd.Statistics.TURNS_PER_MINUTE);
+
+		//SPSEXPD: 「每回合」类的充能/触发效果也按「真实消耗的时间」结算（每 1 时间 = 1 回合）。
+		//原先挂在 act() 里按次数算，而 act 一回合可能被调度多次（移速修正），
+		//表现为「走一步神木圆盾回 2 充能」。按时间累积后与 act 次数无关。
+		turnChargeProgress += time;
+		while (turnChargeProgress >= 1f) {
+			turnChargeProgress -= 1f;
+			onTurnCharge();
+		}
 	}
 
 	public void spendAndNextConstant(float time ) {
@@ -1186,24 +1195,18 @@ public class Hero extends Char {
 		next();
 	}
 
-	public void spendAndNext( float time ) {
-		if (spsPickingUp) return;   //SPSEXPD: 搜索捡取期间不推进回合
-		busy();
-		spend( time );
-		next();
-	}
-	
-	@Override
-	public boolean act() {
-		//SPSEXPD: 游戏内时间不在这里推进 —— 改在 Hero.spendConstant 里按实际消耗的时间算。
-		//挂在这里会按「act 次数」计时，而行走（spend 受移速修正）一次按键可能触发多次 act，
-		//等待（spendConstant）则不会，导致「行走一步 = 1 分钟、等待两次 = 1 分钟」。
+	/** SPSEXPD: 「每回合」类效果的累积器（每消耗 1 时间触发一次 onTurnCharge）。 */
+	private float turnChargeProgress = 0f;
 
+	/**
+	 * SPSEXPD: 「每回合」类效果的统一入口：每消耗 1 时间结算一次（见 spendConstant）。
+	 * 这些效果原先直接写在 act() 里，而 act 一回合可能被调度多次（移速修正），
+	 * 于是「走一步神木圆盾回 2 充能」。改到时间维度后与 act 次数无关。
+	 */
+	private void onTurnCharge() {
 		//SPSXPD: 宠物能力特质（献祭获得）的每回合触发
 		pd.actors.hero.perks.pets.PetAbilityPerk.dispatchTurn(this);
 
-		//calls to dungeon.observe will also update hero's local FOV.
-		fieldOfView = Dungeon.level.heroFOV;
 		MissileShield missileShield = belongings.getItem(MissileShield.class);
 		if (missileShield != null) missileShield.gainCharge();
 		//SPSEXPD: 奇迹烧瓶不再按回合充能，改为在 earnExp 里按获得的经验抽取（见 earnExp）
@@ -1239,12 +1242,30 @@ public class Hero extends Char {
 		if (jumpF != null) jumpF.gainCharge();
 		JumpA jumpA = belongings.getItem(JumpA.class);
 		if (jumpA != null) jumpA.gainCharge();
+
+		if (buff(DeadRaise.class) != null && Random.Int(30) == 0) {
+			SommonSkeleton.spawnNear(pos);
+		}
+	}
+
+	public void spendAndNext( float time ) {
+		if (spsPickingUp) return;   //SPSEXPD: 搜索捡取期间不推进回合
+		busy();
+		spend( time );
+		next();
+	}
+	
+	@Override
+	public boolean act() {
+		//SPSEXPD: 游戏内时间与「每回合」类的充能效果都不在这里 —— 见 spendConstant / onTurnCharge。
+		//挂在这里会按「act 次数」结算，而行走（spend 受移速修正）一次按键可能触发多次 act，
+		//于是「行走一步 = 1 分钟」「走一步神木圆盾回 2 充能」，等待则不会。
+
+		//calls to dungeon.observe will also update hero's local FOV.
+		fieldOfView = Dungeon.level.heroFOV;
 		if (Dungeon.dewDraw || Dungeon.dewWater) {
 			Dungeon.level.currentMoves++;
 			Statistics.floorMoves = Dungeon.level.currentMoves;
-		}
-		if (buff(DeadRaise.class) != null && Random.Int(30) == 0) {
-			SommonSkeleton.spawnNear(pos);
 		}
 
 		if (buff(Endure.EndureTracker.class) != null){
