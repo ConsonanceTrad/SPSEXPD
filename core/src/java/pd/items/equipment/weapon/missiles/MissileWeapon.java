@@ -547,11 +547,30 @@ abstract public class MissileWeapon extends Weapon {
 		return super.enchant(ench);
 	}
 
+	/** SPSEXPD: 装在暗器袋里时，每次投掷的耐久损耗降为该比例（耐久约 +11%）。 */
+	public static final float ARROW_COLLECTER_DURABILITY_RATIO = 0.9f;
+
+	/** SPSEXPD: 本件是否装在英雄的暗器袋里。 */
+	protected boolean inArrowCollecter() {
+		if (Dungeon.hero == null || Dungeon.hero.belongings == null) return false;
+		pd.items.equipment.bags.ArrowCollecter bag =
+				Dungeon.hero.belongings.getItem(pd.items.equipment.bags.ArrowCollecter.class);
+		return bag != null && bag.contains(this);
+	}
+
+	/** SPSEXPD: 计入暗器袋加成后的实际每次损耗。 */
+	protected float effectiveDurabilityPerUse() {
+		float per = durabilityPerUse();
+		return inArrowCollecter() ? per * ARROW_COLLECTER_DURABILITY_RATIO : per;
+	}
+
 	protected void decrementDurability(){
 		//if this weapon was thrown from a source stack, degrade that stack.
 		//unless a weapon is about to break, then break the one being thrown
 		if (parent != null){
-			if (parent.durability <= parent.durabilityPerUse()){
+			//SPSEXPD: 源堆叠若装在暗器袋里，损耗按加成后的值算（更耐用）
+			float perUse = parent.effectiveDurabilityPerUse();
+			if (parent.durability <= perUse){
 				durability = 0;
 				parent.durability = MAX_DURABILITY;
 				parent.extraThrownLeft = false;
@@ -559,8 +578,8 @@ abstract public class MissileWeapon extends Weapon {
 					GLog.n(Messages.get(this, "has_broken"));
 				}
 			} else {
-				parent.durability -= parent.durabilityPerUse();
-				if (parent.durability > 0 && parent.durability <= parent.durabilityPerUse()){
+				parent.durability -= perUse;
+				if (parent.durability > 0 && parent.durability <= perUse){
 					GLog.w(Messages.get(this, "about_to_break"));
 				}
 			}
@@ -751,10 +770,11 @@ abstract public class MissileWeapon extends Weapon {
 		}
 
 		if (levelKnown) {
-			if (durabilityPerUse() > 0) {
+			//SPSEXPD: 用 effectiveDurabilityPerUse()——装在暗器袋里时描述显示的可用次数与实际一致
+			if (effectiveDurabilityPerUse() > 0) {
 				info += "\n\n" + Messages.get(this, "uses_left",
-						(int) Math.ceil(durability / durabilityPerUse()),
-						(int) Math.ceil(MAX_DURABILITY / durabilityPerUse()));
+						(int) Math.ceil(durability / effectiveDurabilityPerUse()),
+						(int) Math.ceil(MAX_DURABILITY / effectiveDurabilityPerUse()));
 			} else if (!(this instanceof SingleUseMissile)) {
 				//SPSEXPD: 一次性投掷武器（SingleUseMissile）不在描述里显示耐久相关说明
 				info += "\n\n" + Messages.get(this, "unlimited_uses");
