@@ -48,8 +48,8 @@ public final class EquipmentBagsDict {
 	public static final IconEntry BAGS_C16_R1 = new IconEntry("sprites/items/equipment/bags.png", new int[]{240, 0, 16, 16}, 6745);
 	/** semantic alias for BAGS_C16_R1 */
 	public static final IconEntry BACKPACK_0 = BAGS_C16_R1;
-	/** BAGS_EXTRA_1 - 棕色棋盘格包裹 */
+	/** BAMBOO_BASKET - 竹背篓 */
 	public static final IconEntry BAGS_C9_R1 = new IconEntry("sprites/items/equipment/bags.png", new int[]{129, 1, 15, 15}, 7504);
 	/** semantic alias for BAGS_C9_R1 */
-	public static final IconEntry BAGS_EXTRA_1 = BAGS_C9_R1;
+	public static final IconEntry BAMBOO_BASKET = BAGS_C9_R1;
 }

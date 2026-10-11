@@ -20,7 +20,7 @@ public class BambooBasket extends Bag {
 
 	{
 		//SPSEXPD: 竹背篓专属图标（bags.png C9_R1，129,1 15x15）
-		image = EquipmentBagsDict.BAGS_EXTRA_1;
+		image = EquipmentBagsDict.BAMBOO_BASKET;
 	}
 
 	@Override
