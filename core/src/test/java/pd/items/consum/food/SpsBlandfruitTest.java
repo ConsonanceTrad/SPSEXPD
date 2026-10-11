@@ -144,6 +144,12 @@ public final class SpsBlandfruitTest {
 		Field chargeField = HornOfPlenty.class.getDeclaredField("hornCharge");
 		chargeField.setAccessible(true);
 		check(chargeField.getFloat(horn) == 1.5f, "魔法号角没有按 hornValue=2 × 75% 把无味果转成 1.5 点充能");
+
+		//SPSEXPD: 食用按钮右下角「耗时角标」的数据源（无进食类天赋时：普通食物 3 回合、酿酒 2 回合）
+		check(new Food().visibleEatingTime() == 3f && fruit.visibleEatingTime() == 3f,
+				"普通食物/无味果的食用耗时不是 3 回合");
+		check(new pd.items.consum.brewed.Brewed().visibleEatingTime() == 2f,
+				"酿酒的食用耗时不是 2 回合");
 	}
 
 	/** SPSEXPD: 「食用」按钮上的实际饱食回复角标（考虑挑战与当前饥饿值，能补满显示 MAX）。 */

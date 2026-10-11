@@ -154,6 +154,11 @@ public class Food extends Item {
 			return TIME_TO_EAT;
 		}
 	}
+
+	/** SPSEXPD: 供界面显示「食用所花时间」（eatingTime 是 protected，UI 层取不到）。 */
+	public float visibleEatingTime(){
+		return eatingTime();
+	}
 	
 	/** SPSEXPD: 本次进食的基础能量值（子类可覆写以反映动态值，例如农历年的肉馅饼）。 */
 	protected float baseEnergy( Hero hero ) {

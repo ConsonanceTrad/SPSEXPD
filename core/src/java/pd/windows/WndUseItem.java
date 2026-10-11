@@ -60,6 +60,8 @@ public class WndUseItem extends WndInfoItem {
 				//SPSXPD: 该动作的消耗提示（露珠瓶用它显示露珠消耗）
 				final String cost = item.actionCost(action, Dungeon.hero);
 				final CostLabel costLabel = cost == null ? null : new CostLabel(cost, item.actionCostOk(action, Dungeon.hero));
+				//SPSEXPD: 食用动作的耗时提示（小沙漏 + 小一号黄色数字，贴按钮右下角）
+				final EatTimeLabel eatTimeLabel = eatTimeOf(item, action);
 
 				RedButton btn = new RedButton(item.actionName(action, Dungeon.hero), 8) {
 					@Override
@@ -83,12 +85,22 @@ public class WndUseItem extends WndInfoItem {
 							costLabel.x = right() - costLabel.width() - 1;
 							costLabel.y = top() + 1;
 						}
+						//SPSEXPD: 食用耗时贴到按钮右下角（右上角的消耗角标保持不动）
+						if (eatTimeLabel != null) {
+							eatTimeLabel.setPos(
+									right() - eatTimeLabel.width() - 1,
+									bottom() - eatTimeLabel.height() - 1);
+						}
 					}
 				};
 				btn.setSize(btn.reqWidth(), BUTTON_HEIGHT);
 				if (costLabel != null) {
 					costLabel.visible = true;
 					btn.add(costLabel);
+				}
+				if (eatTimeLabel != null) {
+					eatTimeLabel.visible = true;
+					btn.add(eatTimeLabel);
 				}
 				buttons.add(btn);
 				add(btn);
@@ -122,6 +134,64 @@ public class WndUseItem extends WndInfoItem {
 		void placeAt(float px, float py) {
 			x = px;
 			y = py;
+		}
+	}
+
+	/** SPSEXPD: 该动作若是「食用」则返回其耗时角标（沙漏 + 回合数），否则返回 null。 */
+	private static EatTimeLabel eatTimeOf(Item item, String action) {
+		if (item instanceof pd.items.consum.food.Food
+				&& pd.items.consum.food.Food.AC_EAT.equals(action)) {
+			return new EatTimeLabel(((pd.items.consum.food.Food) item).visibleEatingTime());
+		}
+		if (item instanceof pd.items.consum.brewed.Brewed
+				&& pd.items.consum.brewed.Brewed.AC_EAT.equals(action)) {
+			return new EatTimeLabel(((pd.items.consum.brewed.Brewed) item).visibleEatingTime());
+		}
+		return null;
+	}
+
+	/**
+	 * SPSEXPD: 动作按钮右下角的「食用耗时」角标：小沙漏图标 + 小一号黄色数字。
+	 * 注意 Component 的构造里就会调用 createChildren()，子元素必须在 createChildren() 里创建
+	 * （放字段初始化器里会晚于 createChildren 执行而 NPE）。
+	 */
+	private static class EatTimeLabel extends render.noosa.ui.Component {
+
+		private static final float ICON = 9f;
+		private static final float TEXT_SCALE = 0.75f;
+
+		private final int turns;
+
+		private render.noosa.Image hourglass;
+		private render.noosa.BitmapText label;
+
+		EatTimeLabel(float time) {
+			this.turns = (int) time;
+		}
+
+		@Override
+		protected void createChildren() {
+			hourglass = pd.atlas.AtlasReader.image(
+					pd.atlas.items.EquipmentJewelleryArtifactDict.ARTIFACT_C5_R1, ICON, ICON);
+			add(hourglass);
+
+			label = new render.noosa.BitmapText(pd.scenes.PixelScene.pixelFont);
+			label.text(String.valueOf(turns));
+			label.measure();
+			label.scale.set(TEXT_SCALE, TEXT_SCALE);
+			label.hardlight(0xFFFF66);
+			add(label);
+
+			setSize(hourglass.width() + 1 + label.width(),
+					Math.max(hourglass.height(), label.height()));
+		}
+
+		@Override
+		protected void layout() {
+			hourglass.x = left();
+			hourglass.y = top() + (height() - hourglass.height()) / 2f;
+			label.x = left() + hourglass.width() + 1;
+			label.y = top() + (height() - label.height()) / 2f;
 		}
 	}
 

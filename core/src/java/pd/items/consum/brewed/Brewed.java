@@ -69,6 +69,11 @@ public class Brewed extends Item {
 	private static final float TIME_TO_EAT = 2f;
 	private static final String POTION_ATTRIB = "potionattrib";
 
+	/** SPSEXPD: 供界面显示「食用所花时间」。 */
+	public float visibleEatingTime(){
+		return TIME_TO_EAT;
+	}
+
 	public Item potionAttrib;
 	private ItemSprite.Glowing potionGlow;
 	public float energy = 300f; //SPSEXPD: 固定绝对值（原 Hunger.HUNGRY=300）
