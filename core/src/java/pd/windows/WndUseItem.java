@@ -87,9 +87,8 @@ public class WndUseItem extends WndInfoItem {
 						}
 						//SPSEXPD: 食用耗时贴到按钮右下角（右上角的消耗角标保持不动）
 						if (eatTimeLabel != null) {
-							eatTimeLabel.setPos(
-									right() - eatTimeLabel.width() - 1,
-									bottom() - eatTimeLabel.height() - 1);
+							eatTimeLabel.x = right() - eatTimeLabel.width() - 1;
+							eatTimeLabel.y = bottom() - eatTimeLabel.height() - 1;
 						}
 					}
 				};
@@ -151,47 +150,21 @@ public class WndUseItem extends WndInfoItem {
 	}
 
 	/**
-	 * SPSEXPD: 动作按钮右下角的「食用耗时」角标：小沙漏图标 + 小一号黄色数字。
-	 * 注意 Component 的构造里就会调用 createChildren()，子元素必须在 createChildren() 里创建
-	 * （放字段初始化器里会晚于 createChildren 执行而 NPE）。
+	 * SPSEXPD: 动作按钮右下角的「食用耗时」提示（小一号黄色数字）。
+	 * 直接继承 BitmapText、与上面的 CostLabel 同款做法，不引入子组件：
+	 * Component 的构造期就会调用 createChildren()，那时构造参数还没赋值，
+	 * 在 createChildren() 里读它只会拿到默认值 0（之前「所有食物都显示 0」就是这个原因）。
 	 */
-	private static class EatTimeLabel extends render.noosa.ui.Component {
+	private static class EatTimeLabel extends render.noosa.BitmapText {
 
-		private static final float ICON = 9f;
 		private static final float TEXT_SCALE = 0.75f;
 
-		private final int turns;
-
-		private render.noosa.Image hourglass;
-		private render.noosa.BitmapText label;
-
 		EatTimeLabel(float time) {
-			this.turns = (int) time;
-		}
-
-		@Override
-		protected void createChildren() {
-			hourglass = pd.atlas.AtlasReader.image(
-					pd.atlas.items.EquipmentJewelleryArtifactDict.ARTIFACT_C5_R1, ICON, ICON);
-			add(hourglass);
-
-			label = new render.noosa.BitmapText(pd.scenes.PixelScene.pixelFont);
-			label.text(String.valueOf(turns));
-			label.measure();
-			label.scale.set(TEXT_SCALE, TEXT_SCALE);
-			label.hardlight(0xFFFF66);
-			add(label);
-
-			setSize(hourglass.width() + 1 + label.width(),
-					Math.max(hourglass.height(), label.height()));
-		}
-
-		@Override
-		protected void layout() {
-			hourglass.x = left();
-			hourglass.y = top() + (height() - hourglass.height()) / 2f;
-			label.x = left() + hourglass.width() + 1;
-			label.y = top() + (height() - label.height()) / 2f;
+			super(pd.scenes.PixelScene.pixelFont);
+			text(String.valueOf((int) time));
+			measure();
+			scale.set(TEXT_SCALE, TEXT_SCALE);
+			hardlight(0xFFFF66);
 		}
 	}
 
