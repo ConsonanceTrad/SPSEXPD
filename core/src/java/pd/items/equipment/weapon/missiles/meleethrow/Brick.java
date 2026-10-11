@@ -25,6 +25,9 @@ public class Brick extends MeleeThrowWeapon implements pd.items.equipment.weapon
 			.t("desc", "一块由泥土烧成的普通砖头。劳动节辛苦了。\n高级钝器，飞掷，易碎-报酬");
 	}
 
+	//SPSEXPD: 一次性投掷武器不可升级（MeleeThrowWeapon.isUpgradable() 恒为 true，这里挡掉）
+	@Override public boolean isUpgradable() { return false; }
+
 
 
 	public Brick() { super(1, 8, 8, SpecificPlaceHolderDict.SOMETHING_0); }

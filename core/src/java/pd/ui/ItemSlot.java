@@ -36,6 +36,7 @@ import pd.items.equipment.rings.Ring;
 import pd.items.equipment.wands.Wand;
 import pd.items.equipment.weapon.Weapon;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
+import pd.items.equipment.weapon.missiles.SingleUseMissile;
 import pd.messages.Messages;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
@@ -262,6 +263,7 @@ public class ItemSlot extends Button {
 
 		//thrown weapons on their last use show quantity in orange, unless they are single-use
 		if (item instanceof MissileWeapon
+				&& !(item instanceof SingleUseMissile)
 				&& ((MissileWeapon) item).durabilityLeft() <= 50f
 				&& ((MissileWeapon) item).durabilityLeft() <= ((MissileWeapon) item).durabilityPerUse()){
 			status.hardlight(WARNING);

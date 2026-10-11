@@ -1,41 +1,28 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.equipment.weapon.missiles;
 
-import pd.items.Item;
-
 /**
- * SPSEXPD: 「一次性投掷武器」的通用行为集合（果实、魔术手、砖头、地形塑造块等）。
+ * SPSEXPD: 「一次性投掷武器」的标记接口（果实、魔术手、砖头、地形塑造块等）。
+ *
+ * ⚠️ 注意：本接口**故意不提供 default 方法**。
+ * 曾经在这里写过 durabilityPerUse/isSimilar/isUpgradable 的默认实现，但那是无效的——
+ * Java 里**类（含从父类继承来的）实现优先于接口 default**，而 MissileWeapon / Item
+ * 都已经有这些方法，于是 default 全被盖掉，接口形同虚设（果实因此一度变回
+ * 「有耐久 + 不堆叠 + 可升级」）。真正生效的实现统一放在 {@link MissileWeapon} 里，
+ * 由它 instanceof 判定本接口。
  *
  * 为什么是接口而不是抽象基类：这些物品的直接父类各不相同
  * （SpsFruit 系走 MissileWeapon、MagicHand 走 Arrows、Brick 走 MeleeThrowWeapon），
- * Java 单继承下没法共享基类；而这里要统一的行为都是不依赖 super 的覆写，接口默认方法刚好够用。
+ * Java 单继承下没法共享基类。
  *
- * 统一语义（以果实为模板提取）：
- *  · 不在描述里显示耐久度 —— durabilityPerUse 为 0，MissileWeapon 的 uses_left 段就不会拼出来
- *  · 默认为一次性消耗品 —— 可堆叠、按数量消耗，不参与投掷武器的「每组 3 个」耐久机制
+ * 统一语义（实现见 MissileWeapon）：
+ *  · 无限磨损 —— 耐久永不减少，也不受魔法套筒/暗器袋等使用次数加成影响
+ *  · 使用即删除 —— 命中敌人时消耗掉这一件；落空 / 命中空地仍保留（可捡回）
+ *  · 不在描述里显示耐久度，背包里也不会用橙色/黄色警告数字
+ *  · 按种类堆叠合并，不走投掷武器的「每组 3 个」与 setID 判定
  *  · 无法升级
  *
  * 后续要再指定某个投掷武器为一次性，让它 implements 本接口即可。
  */
 public interface SingleUseMissile {
-
-	/** 每次投掷不消耗耐久（返回 0 = 投掷武器里的「不磨损」）。 */
-	default float durabilityPerUse(int level) {
-		return 0f;
-	}
-
-	/** 一次性投掷武器不可升级。 */
-	default boolean isUpgradable() {
-		return false;
-	}
-
-	/** 按种类堆叠合并——不走投掷武器的 setID（「同一组」）判定。 */
-	default boolean isSimilar(Item item) {
-		return item != null && getClass() == item.getClass();
-	}
-
-	/** 堆叠上限：一次性投掷武器不做「每组 3 个」的截断。 */
-	default int defaultQuantity() {
-		return 999;
-	}
 }

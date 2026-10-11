@@ -2,9 +2,10 @@
 package pd.items.equipment.weapon.missiles.buildblock;
 
 import pd.items.equipment.weapon.missiles.MissileWeapon;
+import pd.items.equipment.weapon.missiles.SingleUseMissile;
 
-/** Base class for the reusable SPS terrain-building projectiles. */
-public abstract class BuildBlock extends MissileWeapon {
+/** Base class for the SPS terrain-building projectiles. SPSEXPD: 归入一次性投掷武器。 */
+public abstract class BuildBlock extends MissileWeapon implements SingleUseMissile {
 
 	{
 		tier = 1;

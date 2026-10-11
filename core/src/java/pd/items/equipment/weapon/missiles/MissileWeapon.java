@@ -227,7 +227,17 @@ abstract public class MissileWeapon extends Weapon {
 	}
 
 	public boolean isSimilar( Item item ) {
+		//SPSEXPD: 一次性投掷武器按种类堆叠合并，不走投掷武器的 setID（「同一组」）判定
+		if (this instanceof SingleUseMissile && item instanceof SingleUseMissile){
+			return getClass() == item.getClass();
+		}
 		return trueLevel() == item.trueLevel() && getClass() == item.getClass() && setID == (((MissileWeapon) item).setID);
+	}
+
+	//SPSEXPD: 一次性投掷武器不可升级（Item.isUpgradable() 恒为 true，这里挡掉）
+	@Override
+	public boolean isUpgradable() {
+		return !(this instanceof SingleUseMissile);
 	}
 	
 	@Override
@@ -277,7 +287,8 @@ abstract public class MissileWeapon extends Weapon {
 	@Override
 	public void doThrow(Hero hero) {
 		parent = null; //reset parent before throwing, just in case
-		if (((levelKnown && level() > 0) || hasGoodEnchant() || masteryPotionBonus || enchantHardened)
+		if (!(this instanceof SingleUseMissile)
+				&& ((levelKnown && level() > 0) || hasGoodEnchant() || masteryPotionBonus || enchantHardened)
 				&& !extraThrownLeft && quantity() == 1 && durabilityLeft() <= durabilityPerUse()){
 			GameScene.show(new WndOptions(new ItemSprite(this), Messages.titleCase(title()),
 					Messages.get(MissileWeapon.class, "break_upgraded_warn_desc"),
@@ -397,6 +408,8 @@ abstract public class MissileWeapon extends Weapon {
 	}
 
 	public int defaultQuantity(){
+		//SPSEXPD: 一次性投掷武器按大堆叠（果实/魔术手等），不再受「每组 3 个」限制
+		if (this instanceof SingleUseMissile) return 999;
 		return 3;
 	}
 
@@ -494,6 +507,9 @@ abstract public class MissileWeapon extends Weapon {
 	protected boolean useRoundingInDurabilityCalc = true;
 
 	public float durabilityPerUse( int level ){
+		//SPSEXPD: 一次性投掷武器（SingleUseMissile）无限磨损——永不损耗，
+		//也不用理会魔法套筒/暗器袋这些提升使用次数的加成
+		if (this instanceof SingleUseMissile) return 0f;
 		float usages = baseUses * (float)(Math.pow(1.5f, level));
 
 		//+50%/75% durability
@@ -552,6 +568,8 @@ abstract public class MissileWeapon extends Weapon {
 
 	/** SPSEXPD: 本件是否装在英雄的暗器袋里。 */
 	protected boolean inArrowCollecter() {
+		//SPSEXPD: 一次性投掷武器是无限磨损，不参与暗器袋的耐久加成
+		if (durabilityPerUse() <= 0) return false;
 		if (Dungeon.hero == null || Dungeon.hero.belongings == null) return false;
 		pd.items.equipment.bags.ArrowCollecter bag =
 				Dungeon.hero.belongings.getItem(pd.items.equipment.bags.ArrowCollecter.class);
@@ -565,6 +583,14 @@ abstract public class MissileWeapon extends Weapon {
 	}
 
 	protected void decrementDurability(){
+		//SPSEXPD: 一次性投掷武器（SingleUseMissile）无限磨损 + 使用即删除——
+		//命中敌人时把耐久清 0，rangedHit 的 `if (durability > 0)` 于是跳过落地，这一件就消耗掉了。
+		//落空 / 命中空地的路径不会调用本方法，所以那种情况下物品仍然保留（可捡回）。
+		if (this instanceof SingleUseMissile){
+			durability = 0;
+			parent = null;
+			return;
+		}
 		//if this weapon was thrown from a source stack, degrade that stack.
 		//unless a weapon is about to break, then break the one being thrown
 		if (parent != null){

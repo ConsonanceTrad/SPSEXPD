@@ -52,6 +52,7 @@ public final class SpsLegacyBagsTest {
 		try {
 			testContainerRules();
 			testWandHolsterCharging();
+			testSingleUseMissiles();
 			testStartingLoadouts();
 			testBilingualResources();
 			System.out.println("SPS旧版收纳袋通过：三十五格容量、收纳分类、法杖充能生命周期、八职业开局、教程隔离和双语资源均正常。");
@@ -94,6 +95,33 @@ public final class SpsLegacyBagsTest {
 		HeartOfScarecrow scarecrow = new HeartOfScarecrow();
 		check(scarecrow.canHold(new WoodenBowN()), "草靶子没有收纳远程武器");
 		check(!scarecrow.canHold(new ThrowingKnife()), "草靶子不应收纳投掷武器");
+	}
+
+	//SPSEXPD: 一次性投掷武器（SingleUseMissile）的统一行为——无限磨损/不可升级/按种类堆叠
+	private static void testSingleUseMissiles() {
+		//果实
+		pd.items.equipment.weapon.missiles.arrows.HealFruit fruitA =
+				new pd.items.equipment.weapon.missiles.arrows.HealFruit();
+		pd.items.equipment.weapon.missiles.arrows.HealFruit fruitB =
+				new pd.items.equipment.weapon.missiles.arrows.HealFruit();
+		check(fruitA.durabilityPerUse() == 0f, "果实应无限磨损（durabilityPerUse 必须为 0）");
+		check(!fruitA.isUpgradable(), "果实不可升级");
+		check(fruitA.isSimilar(fruitB), "同种果实应可堆叠（不要求 setID 相同）");
+
+		//魔术手
+		pd.items.equipment.weapon.missiles.arrows.MagicHand handA =
+				new pd.items.equipment.weapon.missiles.arrows.MagicHand();
+		pd.items.equipment.weapon.missiles.arrows.MagicHand handB =
+				new pd.items.equipment.weapon.missiles.arrows.MagicHand();
+		check(handA.durabilityPerUse() == 0f, "魔术手应无限磨损");
+		check(!handA.isUpgradable(), "魔术手不可升级");
+		check(handA.isSimilar(handB), "同种魔术手应可堆叠");
+
+		//砖头（MeleeThrowWeapon 的 isUpgradable 恒 true，须被挡掉）
+		pd.items.equipment.weapon.missiles.meleethrow.Brick brick =
+				new pd.items.equipment.weapon.missiles.meleethrow.Brick();
+		check(brick.durabilityPerUse() == 0f, "砖头应无限磨损");
+		check(!brick.isUpgradable(), "砖头不可升级（MeleeThrowWeapon 的 true 必须被挡掉）");
 	}
 
 	private static void testWandHolsterCharging() {
