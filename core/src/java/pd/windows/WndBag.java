@@ -152,21 +152,10 @@ public class WndBag extends WndTabbed {
 	//左侧 5 个、右侧其余，主背包固定右下角（参照归档 Godot 版 wnd_bag.gd 的侧栏布局）
 	//SPS: 侧边标签尺寸由贴图 Assets.Interfaces.SIDE_TABS 决定（横向 2 帧）——贴图多大标签就多大，
 	//构造时读取（initSideTabSize），避免硬编码尺寸与美术贴图不匹配。
-	//SPSEXPD: 侧栏标签贴图与宽度。
-	//  · side_tabs.png   = 原版：横向 2 帧（40 / 2 = 每帧 20px），帧0 选中 / 帧1 未选
-	//  · side_tabs_s.png = 窄版：单帧贴图（16 x 35），整张直接用（不切两半），选中与否只靠图标亮度
-	//紧凑时才切窄版：见构造里的 compactTabs 判定（两侧布局且原版标签带放不下）
-	protected static final int TAB_FRAME_W	    = 20;   //原版单帧在贴图里的宽度（= side_tabs.png 宽 / 2）
-	protected static final int TAB_W_WIDE	    = 18;   //原版图案宽度（帧内 x0..17，右侧留白 2px）
-	protected static final int TAB_W_COMPACT    = 16;   //窄版图案宽度 = 贴图整宽（单帧）
-	protected static final int TAB_ART_OFF_UNSEL = 0;   //原版未选中帧的图案在帧内偏移（当前两帧对齐）
-	protected static int TAB_W		= TAB_W_WIDE;       //当前生效的图案宽度
-	protected static boolean compactTabs = false;       //是否在用窄版标签
-	//SPSEXPD: 两版贴图帧高也不同（原版 26 / 窄版 35），运行期按当前模式选，值由 initSideTabSize() 推导
-	protected static int TAB_H_WIDE = 26;
-	protected static int TAB_H_COMPACT = 35;
-	//SPSEXPD: 紧凑布局下左栏固定放 6 个（用户裁决，不做自适应；原布局左栏固定 LEFT_TABS 个）
-	protected static final int LEFT_TABS_COMPACT = 6;
+	//SPSEXPD: 侧栏标签贴图规格（side_tabs.png：横向 2 帧，40 / 2 = 每帧 20px，帧0 选中 / 帧1 未选）
+	protected static final int TAB_FRAME_W	    = 20;   //单帧在贴图里的宽度（= 贴图宽 / 2）
+	protected static final int TAB_ART_OFF_UNSEL = 0;   //未选中帧的图案在帧内偏移（当前两帧对齐）
+	protected static int TAB_W		= 18;               //有效图案宽度（帧内 x0..17，右侧留白 2px）
 	protected static int TAB_H		= 70;    //单帧高 = 上固定段 + 可裁中段 + 下固定段
 	protected static final int PLATE_CAP	= 3;     //SPS: 底板上下固定段高度（与 side_tabs.png 规格绑定）
 	protected static final int LEFT_TABS	= 5;
@@ -266,13 +255,6 @@ public class WndBag extends WndTabbed {
 			limitW = (int)(limitW * MOBILE_SAFE);
 			limitH = (int)(limitH * MOBILE_SAFE);
 		}
-		//SPSEXPD: 横向紧凑判定——先按原版标签带算；理想窗口（格子还没被压缩）已经超出宽度上限，
-		//就说明横向紧张，改用窄版标签（side_tabs_s.png）把标签带收窄，给格子留出空间
-		compactTabs = !SPDSettings.bagBottomTabs()
-				&& windowWidth + 2 * TAB_FRAME_W + chrome.marginHor() > limitW;
-		TAB_W = compactTabs ? TAB_W_COMPACT : TAB_W_WIDE;
-		TAB_H = compactTabs ? TAB_H_COMPACT : TAB_H_WIDE;   //两版贴图帧高不同
-
 		//SPSEXPD: 旧版布局下标签在底部，不再吃横向预算，因此同样屏幕下格子能保持更大
 		int tabBudgetW = SPDSettings.bagBottomTabs() ? 0 : 2 * TAB_W;
 		while (slotWidth > MIN_SLOT &&
@@ -394,11 +376,6 @@ public class WndBag extends WndTabbed {
 		int n = tabs.size();
 		if (n == 0) return;
 
-		//SPSEXPD: 紧凑态要等窗口尺寸算完才确定，这里同步底板的宽/窄贴图
-		for (Tab tab : tabs) {
-			if (tab instanceof BagTab) ((BagTab) tab).setCompact( compactTabs );
-		}
-
 		//SPSEXPD: 旧版布局——标签栏放到底部一行，分页显示
 		if (SPDSettings.bagBottomTabs()) {
 			layoutBottomTabs();
@@ -412,58 +389,12 @@ public class WndBag extends WndTabbed {
 		float usableH = height + chrome.marginVer() - 3;
 
 		int bagCount = n - 1;                                  //除主背包
-		//SPSEXPD: 左栏格数按模式——原布局固定 LEFT_TABS；紧凑布局固定 6（不做自适应）
-		int leftCount = Math.min( bagCount, compactTabs ? LEFT_TABS_COMPACT : LEFT_TABS );
+		int leftCount = Math.min( bagCount, LEFT_TABS );
 
 		//SPS: 标签在窗框外侧——未选中时压在窗框下、选中时探入框带。
 		float leftX = -TAB_W - 2, rightX = width + 2;
 
-		if (compactTabs) {
-			//SPSEXPD: 横向紧凑时的布局——标签不纵向拉伸，用贴图自然高（TAB_H）自上而下堆叠；
-			//一列放不下时在该栏【向内】再开一列（左栏向右扩、右栏向左扩）。
-			//主背包仍固定在最外侧右栏的最下格（右下角），所以右栏第 0 列要给它留出一格。
-			int tabH = Math.max( 2, TAB_H - 1 );
-			int perCol = Math.max( 1, (int)( usableH / TAB_H ) );
-			int rightCol0 = Math.max( 1, perCol - 1 );
-
-			int sideIdx = 0;
-			for (int i = 1; i < n; i++) {
-				Tab tab = tabs.get(i);
-				boolean left = sideIdx < leftCount;
-				int slotIdx = left ? sideIdx : sideIdx - leftCount;   //本栏内第几格（0 起）
-
-				int col, row;
-				if (left) {
-					col = slotIdx / perCol;
-					row = slotIdx % perCol;
-				} else if (slotIdx < rightCol0) {
-					col = 0;
-					row = slotIdx;
-				} else {
-					int k = slotIdx - rightCol0;
-					col = 1 + k / perCol;
-					row = k % perCol;
-				}
-
-				tab.setSize( TAB_W, tabH );
-				tab.setPos(
-						left ? leftX + col * TAB_W : rightX - col * TAB_W,
-						top + row * TAB_H );
-				if (tab instanceof BagTab) ((BagTab)tab).setLeftSide( left );
-				PixelScene.align( tab );
-				sideIdx++;
-			}
-
-			//主背包固定右下角：右栏最外列（col 0）的最下格
-			Tab main = tabs.get(0);
-			main.setSize( TAB_W, tabH );
-			main.setPos( rightX, top + (perCol - 1) * TAB_H );
-			if (main instanceof BagTab) ((BagTab)main).setLeftSide( false );
-			PixelScene.align( main );
-			return;
-		}
-
-		//SPS: 宽度足够时的原布局——左右两栏每项都恒定占 1/5（纵向拉伸均分、每栏固定 5 格）。
+		//SPS: 左右两栏每项都恒定占 1/5（纵向拉伸均分、每栏固定 5 格）。
 		//整数网格（用户裁决 2026-09-30）：标签页间恒留 1px 间隙避免像素融合——
 		//高度 = g-1、步进 = g（浮点步进取整会在 0~1px 间抖动导致相邻标签粘连/融合）
 		int g = Math.max( 2, (int)( (usableH + 1) / 5 ) );
@@ -560,14 +491,9 @@ public class WndBag extends WndTabbed {
 	//贴图规格：单帧 = 顶部 PLATE_CAP px 边框段 + 中间可裁段（纵向可任意裁取）+ 底部 PLATE_CAP px 边框段。
 	//底板不再做九宫格拉伸，而是按标签高度从中间段 1:1 裁取（避免移动端非整数缩放的拉伸条纹）。
 	private static void initSideTabSize() {
-		//SPSEXPD: 宽度不推导（见 TAB_W_WIDE / TAB_W_COMPACT），只从两版贴图各取高度
-		SmartTexture wide = TextureCache.get( Assets.Interfaces.SIDE_TABS );
-		if (wide != null && wide.height > 0) {
-			TAB_H_WIDE = Math.max( 2 * PLATE_CAP + 1, wide.height );
-		}
-		SmartTexture small = TextureCache.get( Assets.Interfaces.SIDE_TABS_S );
-		if (small != null && small.height > 0) {
-			TAB_H_COMPACT = Math.max( 2 * PLATE_CAP + 1, small.height );
+		SmartTexture tex = TextureCache.get( Assets.Interfaces.SIDE_TABS );
+		if (tex != null && tex.height > 0) {
+			TAB_H = Math.max( 2 * PLATE_CAP + 1, tex.height );
 		}
 	}
 
@@ -1043,7 +969,6 @@ public class WndBag extends WndTabbed {
 		//贴图规格（每帧）：顶部 PLATE_CAP px 边框段 + 中间可裁段 + 底部 PLATE_CAP px 边框段。
 		//横向不做任何缩放（帧宽 == TAB_W，1:1 显示）。
 		private boolean leftSide = true;   //SPS: 位于左侧还是右侧栏（layoutTabs 指定）
-		private String plateTex = Assets.Interfaces.SIDE_TABS;   //SPSEXPD: 当前使用的底板贴图
 		private Image plateTop;            //上固定段
 		private Image[] plateMids;         //中段（多块循环拼接，贴图不够长时按需追加）
 		private Image plateBot;            //下固定段
@@ -1056,15 +981,12 @@ public class WndBag extends WndTabbed {
 		protected void createChildren() {
 			super.createChildren();
 
-			//SPSEXPD: 贴图按当前是否「横向紧凑」选（原版 / 窄版）——两者帧宽同为 20。
-			//紧凑态要等窗口尺寸算完才确定，所以布局时还会用 setCompact() 再同步一次
-			plateTex = compactTabs ? Assets.Interfaces.SIDE_TABS_S : Assets.Interfaces.SIDE_TABS;
-			plateTop = new Image( plateTex );
-			plateBot = new Image( plateTex );
+			plateTop = new Image( Assets.Interfaces.SIDE_TABS );
+			plateBot = new Image( Assets.Interfaces.SIDE_TABS );
 			//SPS: 中段 4 块循环拼接（每块最多裁剪贴图中段长度），保证任意标签高度都不漏空
 			plateMids = new Image[4];
 			for (int i = 0; i < plateMids.length; i++) {
-				plateMids[i] = new Image( plateTex );
+				plateMids[i] = new Image( Assets.Interfaces.SIDE_TABS );
 			}
 
 			addToBack( plateBot );
@@ -1088,17 +1010,6 @@ public class WndBag extends WndTabbed {
 			layout();
 		}
 
-		//SPSEXPD: 同步「横向紧凑」态——宽/窄两版底板贴图帧宽相同，只换图案
-		void setCompact( boolean compact ) {
-			String want = compact ? Assets.Interfaces.SIDE_TABS_S : Assets.Interfaces.SIDE_TABS;
-			if (want.equals( plateTex )) return;
-			plateTex = want;
-			plateTop.texture( want );
-			plateBot.texture( want );
-			for (Image seg : plateMids) seg.texture( want );
-			layout();
-		}
-
 		@Override
 		protected void layout() {
 			super.layout();
@@ -1107,10 +1018,9 @@ public class WndBag extends WndTabbed {
 
 			//SPS: 帧 0 = 选中、帧 1 = 未选；中段按标签高度裁取，绝不缩放。
 			//贴图不够长时用多块中段循环拼接（原先只支持 1 块续块，标签变高后会漏空）
-			//SPSEXPD: 窄版标签两帧是同一张图，只用帧 0（未选中不压暗底板，选中与否由图标亮度体现）；
-			//原版两帧不同，fx 必须用「单帧宽」定位（不能用 TAB_W），否则未选中帧会裁到两帧之间的空隙
-			int fx = 0;
-			if (!compactTabs && !selected) fx = TAB_FRAME_W + TAB_ART_OFF_UNSEL;
+			//SPS: 帧 0 = 选中、帧 1 = 未选；fx 必须用「单帧宽」定位（不能用 TAB_W），
+			//否则未选中帧会裁到两帧之间的空隙
+			int fx = selected ? 0 : TAB_FRAME_W + TAB_ART_OFF_UNSEL;
 			int midMax = Math.max( 1, TAB_H - 2 * PLATE_CAP );          //贴图可提供的中段长度
 			int remaining = Math.max( 0, Math.round( height ) - 2 * PLATE_CAP );
 

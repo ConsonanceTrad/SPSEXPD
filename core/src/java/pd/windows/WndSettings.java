@@ -128,7 +128,7 @@ public class WndSettings extends WndTabbed {
 			.t("$auxtab.quick_light_desc", "夜晚且身上带着光源时，显示一键照明的快捷按钮（优先用露珠瓶，其次火把）。")
 			.t("$auxtab.quick_talent_desc", "有未分配的特质点时，显示一键打开加点界面的快捷按钮。")
 			.t("$auxtab.quick_eat_desc", "饥饿时显示一键进食的快捷按钮，自动吃背包里的食物。")
-			.t("$auxtab.bag_tabs_side_desc", "包裹标签栏放在背包窗口的左右两侧（默认布局）。")
+			.t("$auxtab.bag_tabs_side_desc", "包裹标签栏放在背包窗口的左右两侧（默认布局）。建议在桌面端使用——手机竖屏下这两条标签带会挤占较多横向空间，背包格子会变小。")
 			.t("$auxtab.bag_tabs_paged_desc", "标签栏移到底部、分页显示：每页 3 个包裹 + 翻页 + 主背包。切换包裹仍是一次点击，只有包裹多于 3 个时才需要先翻页；标签不再占用窗口宽度，背包格子能保持更大（高缩放时尤其明显）。")
 			.t("$auxtab.bag_tabs_plain_desc", "标签栏移到底部并平铺显示全部包裹与主背包，没有翻页，一屏点全；包裹多时每格会变窄。")
 			.t("$audiotab.title", "音频设置")
