@@ -28,6 +28,7 @@ import pd.items.consum.stones.StoneOfIntuition;
 import pd.items.equipment.trinkets.MossyClump;
 import pd.items.equipment.trinkets.TrapMechanism;
 import pd.items.equipment.trinkets.TrinketCatalyst;
+import pd.journal.Notes;
 import render.utils.math.Random;
 
 /**
@@ -104,35 +105,34 @@ public final class FloorFeeling {
 			}
 			
 			if (level instanceof SpsRegularLevel && Dungeon.depth > 1 && Dungeon.depth < 39) {
-				//SPSEXPD: 黑暗层——独立 1/20（5%）判定，每 20 层左右撞到一次。
-				//必须先于下面的氛围抽签，命中时直接盖过抽签结果，这样其它氛围的权重完全不受影响
-				//（若写成「抽中 NONE 再判定」会变成 7/10 × 1/20 = 3.5%）。
-				boolean dark = Random.Int(20) == 0;
-				if (dark) {
-					level.feeling = Level.Feeling.DARK;
-					GroundItems.addItemToSpawn( level, new Torch());
-					GroundItems.addItemToSpawn( level, new Torch());
-					GroundItems.addItemToSpawn( level, new Torch());
-					level.viewDistance = (int)Math.ceil(level.viewDistance / 3f);
-				} else {
-					int roll = Random.Int(10);
-					if (Dungeon.depth <= 32) {
-						switch (roll) {
-							case 0: level.feeling = Level.Feeling.CHASM; break;
-							case 1: level.feeling = Level.Feeling.WATER; break;
-							case 2: level.feeling = Level.Feeling.GRASS; break;
-							//SPSEXPD: 去掉「琉璃层」（SPECIAL_FLOOR）——它会把整层内部墙换成玻璃墙
-							default: level.feeling = Level.Feeling.NONE; break;
-						}
-					} else {
-						switch (roll) {
-							//SPSEXPD: 原 case 0 是黑暗层，已移出到上面的独立判定；WATER/GRASS 概率不变
-							case 0: level.feeling = Level.Feeling.WATER; break;
-							case 1: level.feeling = Level.Feeling.GRASS; break;
-							//SPSEXPD: 去掉「琉璃层」（SPECIAL_FLOOR）
-							default: level.feeling = Level.Feeling.NONE; break;
-						}
+				//SPSEXPD: SPS 普通层的氛围抽签，对齐破碎原版的口径并提高出现率——
+				//总体 60% 出现氛围，7 种氛围均分（每种约 8.6%），其余 40% 为无变异 NONE。
+				//之前这里只有 CHASM/WATER/GRASS/DARK（各 10%/5%），
+				//LARGE/TRAPS/SECRETS 在 FloorFeeling 的另一条分支里、SPS 层走不到，故一直没出过。
+				if (Random.Int(100) < 60) {
+					switch (Random.Int(7)) {
+						case 0: level.feeling = Level.Feeling.CHASM; break;
+						case 1: level.feeling = Level.Feeling.WATER; break;
+						case 2: level.feeling = Level.Feeling.GRASS; break;
+						case 3:
+							//SPSEXPD: 黑暗层给 3 根火把并把视野收窄到 1/3
+							level.feeling = Level.Feeling.DARK;
+							GroundItems.addItemToSpawn( level, new Torch());
+							GroundItems.addItemToSpawn( level, new Torch());
+							GroundItems.addItemToSpawn( level, new Torch());
+							level.viewDistance = (int)Math.ceil(level.viewDistance / 3f);
+							break;
+						case 4:
+							//SPSEXPD: 广阔层——房间数与刷怪量由 RegularLevel 的 Feeling.LARGE 分支放大
+							level.feeling = Level.Feeling.LARGE;
+							GroundItems.addItemToSpawn( level, Generator.random(Generator.Category.FOOD));
+							break;
+						case 5: level.feeling = Level.Feeling.TRAPS; break;
+						case 6: level.feeling = Level.Feeling.SECRETS; break;
+						default: level.feeling = Level.Feeling.NONE; break;
 					}
+				} else {
+					level.feeling = Level.Feeling.NONE;
 				}
 			} else if (Dungeon.depth > 1) {
 				//50% chance of getting a level level.feeling
@@ -175,6 +175,25 @@ public final class FloorFeeling {
 						}
 				}
 			}
+
+			//SPSEXPD: 本层若有特殊氛围，写进探险手册（只记有氛围的层，NONE 不记）
+			Notes.Landmark landmark = feelingLandmark( level.feeling );
+			if (landmark != null) Notes.add( landmark );
+		}
+	}
+
+	/** SPSEXPD: 氛围 -> 探险手册地标。无变异（NONE）返回 null，即不写入。 */
+	private static Notes.Landmark feelingLandmark( Level.Feeling feeling ) {
+		if (feeling == null) return null;
+		switch (feeling) {
+			case CHASM:   return Notes.Landmark.CHASM_FLOOR;
+			case WATER:   return Notes.Landmark.WATER_FLOOR;
+			case GRASS:   return Notes.Landmark.GRASS_FLOOR;
+			case DARK:    return Notes.Landmark.DARK_FLOOR;
+			case LARGE:   return Notes.Landmark.LARGE_FLOOR;
+			case TRAPS:   return Notes.Landmark.TRAPS_FLOOR;
+			case SECRETS: return Notes.Landmark.SECRETS_FLOOR;
+			default:      return null;
 		}
 	}
 }
