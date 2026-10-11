@@ -124,14 +124,14 @@ public class Chasm implements Hero.Doom {
 		Hero hero = Dungeon.hero;
 		TimekeepersHourglass.timeFreeze freeze = hero.buff(TimekeepersHourglass.timeFreeze.class);
 		if (freeze != null) freeze.detach();
-		int depth = Dungeon.legacyDepth();
-		Buff.affect(hero, Bleeding.class).set(Random.NormalIntRange(depth, depth * 2));
-		Buff.affect(hero, HolyStun.class, 3f);
-		Buff.affect(hero, Cripple.class, 5f);
-		hero.damage(Random.IntRange(hero.HT / 4, hero.HT / 3), new Chasm());
-		Wound.hit(pos);
-		if (hero.isAlive()) hero.interrupt();
-		else if (hero.sprite != null) hero.sprite.visible = false;
+		if (hero.sprite != null) hero.sprite.visible = false;
+
+		//SPSEXPD: 跳下深渊必须真的落到下一层。
+		//原实现只结算了「跳下瞬间」的摔落惩罚（流血/眩晕/残废/伤害），完全没有换层，
+		//InterlevelScene 的 import 一直在却从未被使用。现按破碎原版恢复：
+		//heroFall 不造成伤害，只负责坠落到下一层；惩罚由落地的 Chasm.Falling -> heroLand 给出。
+		InterlevelScene.mode = InterlevelScene.Mode.FALL;
+		Game.switchScene( InterlevelScene.class );
 	}
 
 	@Override
