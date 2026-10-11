@@ -35,14 +35,13 @@ public class MissileShield extends MeleeWeapon {
 			.t("name", "神木圆盾")
 			.t("ac_cast", "扔出")
 			.t("rest", "圆盾还没有准备好。")
-			.t("prompt", "选择要瞄准的地方")
-			.t("desc", "一块普通的木质盾牌，上面有一些刮痕。\n这块盾牌被打磨得十分光滑，可以将其投掷出去击晕远处的敌人，并在3回合后弹回你身边两格内的空地上。\n如果弹回的圆盾被你接住，可以立即再次扔出。\n它只能装备在副武器栏，装备时会为你提供基于等级的额外防护。")
-			.t("damage", "圆盾可以造成_%d-%d点伤害_，并对首领再次造成等量伤害。")
+			.t("prompt", "选择瞄准目标")
+			.t("desc", "一块普通的木质盾牌，被打磨得十分光滑，可以将其投掷出去击晕远处的敌人并弹回你附近，接住弹回的圆盾即可以立即再次扔出。\n\n副手专用。")
+			.t("attack_block", "投掷时造成_%1$d-%2$d点伤害_并击晕目标 _%3$d 回合_。\n\n装备在副手时能格挡 _%4$d-%5$d 点伤害_。")
 			.t("charge", "剩余体力%d / %d。")
-			.t("blocking", "装备在副手时能格挡0~%d点伤害。")
 			.t("mark", "圆盾将在3回合后弹回被标记的位置。")
-			.t("returned", "弹回的圆盾被你接住，可以立即再次扔出。")
-			.t("return_bounce", "弹回的圆盾再次击中了%s。");
+			.t("returned", "你接住了弹回的圆盾。")
+			.t("return_bounce", "弹回的圆盾击中了%s。");
 	}
 
 
@@ -54,6 +53,8 @@ public class MissileShield extends MeleeWeapon {
 	public static final int RETURN_TURNS = 3;
 	/** SPSEXPD: 弹回位置的搜索半径（以英雄为中心，格内空地）。 */
 	public static final int RETURN_RANGE = 2;
+	/** SPSEXPD: 命中后的击晕回合数（statsInfo 里的回合数也取自这里）。 */
+	public static final float PARALYSIS_TURNS = 1f;
 	private int charge;
 
 	{
@@ -115,20 +116,24 @@ public class MissileShield extends MeleeWeapon {
 		return Dungeon.hero == null ? 1 : Math.max(1, Dungeon.hero.lvl);
 	}
 
-	@Override public int min(int lvl) { return 1 + heroLevel() / 5; }
-	@Override public int max(int lvl) { return 1 + heroLevel() / 2; }
+	/** SPSEXPD: 投掷伤害下限 = 英雄等级 / 6（向下取整）。形参 lvl 是物品等级，圆盾不可升级，故忽略。 */
+	@Override public int min(int lvl) { return heroLevel() / 6; }
+	/** SPSEXPD: 投掷伤害上限 = 英雄等级 / 4 + 2（向下取整）。 */
+	@Override public int max(int lvl) { return heroLevel() / 4 + 2; }
 	@Override public int damageRoll(Char owner) { return Random.Int(min(), max()); }
 
-	/** SPSEXPD: 副手装备时提供的额外防护上限（0~英雄等级/2），由 Hero.drRoll 掷点使用。 */
+	/** SPSEXPD: 副手装备时提供的额外防护上限（英雄等级/4 + 2），由 Hero.drRoll 掷点使用。 */
 	@Override public int defenseFactor(Char owner) { return DRMax(); }
 
+	/** SPSEXPD: 格挡下限 = 英雄等级 / 6（向下取整）；Hero 的格挡掷点在 [drMin, defenseFactor] 间取值。 */
+	@Override public int drMin(Char owner) { return heroLevel() / 6; }
+
 	public int DRMax() {
-		return Dungeon.hero == null ? 0 : Dungeon.hero.lvl / 2;
+		return heroLevel() / 4 + 2;
 	}
 
 	@Override public String statsInfo() {
-		return Messages.get(this, "damage", min(), max())
-				+ "\n\n" + Messages.get(this, "blocking", DRMax())
+		return Messages.get(this, "attack_block", min(), max(), (int)PARALYSIS_TURNS, drMin(null), DRMax())
 				+ "\n\n" + Messages.get(this, "charge", charge, FULL_CHARGE);
 	}
 
@@ -191,10 +196,8 @@ public class MissileShield extends MeleeWeapon {
 		@Override public int damageRoll(Char owner) { return MissileShield.this.damageRoll(owner); }
 		@Override public float accuracyFactor(Char owner, Char target) { return 1000f; }
 		@Override public int proc(Char attacker, Char defender, int damage) {
-			if (Char.hasProp(defender, Char.Property.BOSS) || Char.hasProp(defender, Char.Property.MINIBOSS)) {
-				defender.damage(damage, this);
-			}
-			Buff.prolong(defender, Paralysis.class, 2f);
+			//SPSEXPD: 原为「对首领/小首领额外造成等量伤害」，按用户要求去掉——只保留击晕
+			Buff.prolong(defender, Paralysis.class, PARALYSIS_TURNS);
 			return super.proc(attacker, defender, damage);
 		}
 	}

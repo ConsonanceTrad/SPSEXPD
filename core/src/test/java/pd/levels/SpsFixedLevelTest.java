@@ -1355,12 +1355,17 @@ public final class SpsFixedLevelTest {
 		MissileShield restoredShield = new MissileShield();
 		restoredShield.restoreFromBundle(shieldBundle);
 		check(restoredShield.charge() == shield.charge(), "神木圆盾充能存档恢复错误");
-		//SPSEXPD: 圆盾只能装备进副武器栏，并提供 0~英雄等级/2 的额外防护
+		//SPSEXPD: 圆盾只能装备进副武器栏，数值＝英雄等级/6 ~ 英雄等级/4+2（向下取整），另含格挡下限
 		Hero shieldHero = new Hero();
 		shieldHero.lvl = 8;
 		Hero heroBeforeShield = Dungeon.hero;
 		Dungeon.hero = shieldHero;
-		check(shield.defenseFactor(shieldHero) == 4, "神木圆盾副手防护上限不等于英雄等级的一半");
+		check(shield.defenseFactor(shieldHero) == 8 / 4 + 2, "神木圆盾副手防护上限不等于 英雄等级/4+2");
+		check(shield.drMin(shieldHero) == 8 / 6, "神木圆盾格挡下限不等于 英雄等级/6：" + shield.drMin(shieldHero));
+		check(shield.min(0) == 8 / 6 && shield.max(0) == 8 / 4 + 2,
+				"神木圆盾投掷伤害不等于 英雄等级/6 ~ 英雄等级/4+2：" + shield.min(0) + "-" + shield.max(0));
+		check(MissileShield.PARALYSIS_TURNS == 1f, "神木圆盾的击晕回合数不是 1");
+		check(!shield.isUpgradable(), "神木圆盾不应可升级");
 		shield.collect(shieldHero.belongings.backpack);
 		check(shield.doEquip(shieldHero), "神木圆盾无法装备");
 		check(shieldHero.belongings.weapon() == null && shieldHero.belongings.secondWep() == shield,

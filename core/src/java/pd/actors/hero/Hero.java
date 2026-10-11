@@ -928,15 +928,15 @@ public class Hero extends Char {
 			if (secondArmDr > 0) dr += secondArmDr;
 		}
 		if (belongings.weapon() != null && !RingOfForce.fightingUnarmed(this))  {
-			int wepDr = Random.NormalIntRange( 0 , belongings.weapon().defenseFactor( this ) );
+			int wepDr = Random.NormalIntRange( belongings.weapon().drMin( this ), belongings.weapon().defenseFactor( this ) );
 			if (STR() < ((Weapon)belongings.weapon()).STRReq()){
 				wepDr -= 2*(((Weapon)belongings.weapon()).STRReq() - STR());
 			}
 			if (wepDr > 0) dr += wepDr;
 		}
-		//SPSEXPD: 装备在副手的神木圆盾提供基于英雄等级的额外防护
+		//SPSEXPD: 装备在副手的神木圆盾提供基于英雄等级的额外防护（区间为 英雄等级/6 ~ 英雄等级/4+2）
 		if (belongings.secondWep() instanceof MissileShield) {
-			int secondDr = Random.NormalIntRange( 0, belongings.secondWep().defenseFactor( this ) );
+			int secondDr = Random.NormalIntRange( belongings.secondWep().drMin( this ), belongings.secondWep().defenseFactor( this ) );
 			if (secondDr > 0) dr += secondDr;
 		}
 

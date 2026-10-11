@@ -121,6 +121,14 @@ abstract public class KindOfWeapon extends EquipableItem {
 		return true;
 	}
 
+	/**
+	 * SPSEXPD: 装备时提供的格挡下限（默认 0，即「0 ~ defenseFactor」掷点）。
+	 * 只有神木圆盾覆写为「英雄等级/6」，其它武器不受影响。
+	 */
+	public int drMin( Char owner ) {
+		return 0;
+	}
+
 	private static boolean isSwiftEquipping = false;
 
 	protected float timeToEquip( Hero hero ) {
