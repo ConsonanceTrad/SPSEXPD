@@ -37,7 +37,6 @@ public class MeleePan extends MeleeWeapon {
 	static {
 		InlineText.of(MeleePan.class)
 			.t("name", "平底煎锅")
-			.t("ac_change", "切换")
 			.t("ac_cook", "烹饪")
 			.t("cook_prompt", "选择一份可烹制的食材")
 			.t("cook_need_fire", "你需要一个火把生火才能烹饪！")
@@ -48,7 +47,6 @@ public class MeleePan extends MeleeWeapon {
 
 
 
-	public static final String AC_CHANGE = "CHANGE";
 	public static final String AC_COOK = "COOK";
 	//SPSEXPD: 烹饪耗时（参考血源的 2 回合）
 	public static final float TIME_TO_COOK = 2f;
@@ -57,6 +55,8 @@ public class MeleePan extends MeleeWeapon {
 		image = EquipmentEquipWeaponUniqueWeaponDict.MELEE_PAN;
 		tier = 1;
 		usesTargeting = true;
+		//SPSEXPD: 视为重要道具（唯一物品，不再重复生成）
+		unique = true;
 	}
 
 	@Override public int min(int lvl) { return 8 + Math.max(0, lvl); }
@@ -71,16 +71,15 @@ public class MeleePan extends MeleeWeapon {
 	@Override
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);
-		if (isEquipped(hero)) actions.add(AC_CHANGE);
-		//SPSEXPD: 血源风烹饪——手持或背包里的煎锅都能用
+		//SPSEXPD: 已去掉「切换」动作（不再切换成远程形态 RangePan）；
+		//血源风烹饪保留，手持或背包里的煎锅都能用
 		actions.add(AC_COOK);
 		return actions;
 	}
 
 	@Override
 	public void execute(Hero hero, String action) {
-		if (AC_CHANGE.equals(action) && isEquipped(hero)) changeToRange(hero);
-		else if (AC_COOK.equals(action)) GameScene.selectItem(cookSelector);
+		if (AC_COOK.equals(action)) GameScene.selectItem(cookSelector);
 		else super.execute(hero, action);
 	}
 
