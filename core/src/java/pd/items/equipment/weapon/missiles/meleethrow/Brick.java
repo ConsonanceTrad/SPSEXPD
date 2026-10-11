@@ -14,7 +14,7 @@ import render.utils.math.Random;
 import pd.messages.InlineText;
 import pd.atlas.items.ConsumThrowsDict;
 
-public class Brick extends MeleeThrowWeapon {
+public class Brick extends MeleeThrowWeapon implements pd.items.equipment.weapon.missiles.SingleUseMissile {
 	{
 		image = ConsumThrowsDict.BRICK;
 	}

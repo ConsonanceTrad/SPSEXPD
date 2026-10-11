@@ -34,7 +34,7 @@ import java.util.ArrayList;
  * 作用范围小型果实 3×3（9 格）、大型果实 5×5 圆形（去掉四角，21 格）。
  * 注：果实效果暂不与对应药剂按比例同步（药剂数值后续还会平衡）。
  */
-abstract class SpsFruit extends MissileWeapon {
+abstract class SpsFruit extends MissileWeapon implements pd.items.equipment.weapon.missiles.SingleUseMissile {
 	//SPSEXPD: 果实是投掷武器（不继承 Food），食用动作名要在这里注册，否则界面显示 TEXT_NOT_FOUND
 	static {
 		InlineText.of(SpsFruit.class)
@@ -182,16 +182,7 @@ abstract class SpsFruit extends MissileWeapon {
 		parent = null;
 	}
 
-	@Override
-	public float durabilityPerUse(int level) {
-		return 0;
-	}
-
-	//SPSEXPD: 果实按种类堆叠合并——不走投掷武器的 setID（“同一组”）判定
-	@Override
-	public boolean isSimilar(Item item) {
-		return item != null && getClass() == item.getClass();
-	}
+	//SPSEXPD: durabilityPerUse / isSimilar / defaultQuantity 已上提到 SingleUseMissile 接口
 
 	//SPSEXPD: 合并只累加数量，不做投掷武器的耐久/“每组 3 个”截断
 	@Override
@@ -210,11 +201,6 @@ abstract class SpsFruit extends MissileWeapon {
 		info = info.replace("\n\n" + Messages.get(MissileWeapon.class, "distance"), "");
 		info = info.replace("\n\n" + Messages.get(this, "unlimited_uses"), "");
 		return info;
-	}
-
-	@Override
-	public int defaultQuantity() {
-		return 999;
 	}
 
 	@Override
@@ -248,7 +234,7 @@ abstract class SpsFruit extends MissileWeapon {
 	/** SPSEXPD: 果实标记（竹背篓等只收纳果实）。 */
 	@Override public boolean isFruit() { return true; }
 	@Override protected boolean showStatsInfo() { return false; }
-	@Override public boolean isUpgradable() { return false; }
+	//SPSEXPD: isUpgradable() 已上提到 SingleUseMissile 接口
 	@Override public boolean isIdentified() { return true; }
 	@Override public int value() { return (large ? 4 : 2) * quantity(); }
 }

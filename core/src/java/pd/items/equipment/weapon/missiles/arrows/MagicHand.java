@@ -16,7 +16,7 @@ import pd.items.Item;
 import render.utils.math.Random;
 import pd.messages.InlineText;
 
-public class MagicHand extends Arrows {
+public class MagicHand extends Arrows implements pd.items.equipment.weapon.missiles.SingleUseMissile {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(MagicHand.class)

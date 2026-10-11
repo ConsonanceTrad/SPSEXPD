@@ -755,13 +755,15 @@ abstract public class MissileWeapon extends Weapon {
 				info += "\n\n" + Messages.get(this, "uses_left",
 						(int) Math.ceil(durability / durabilityPerUse()),
 						(int) Math.ceil(MAX_DURABILITY / durabilityPerUse()));
-			} else {
+			} else if (!(this instanceof SingleUseMissile)) {
+				//SPSEXPD: 一次性投掷武器（SingleUseMissile）不在描述里显示耐久相关说明
 				info += "\n\n" + Messages.get(this, "unlimited_uses");
 			}
 		}  else {
 			if (durabilityPerUse(0) > 0) {
 				info += "\n\n" + Messages.get(this, "unknown_uses", (int) Math.ceil(MAX_DURABILITY / durabilityPerUse(0)));
-			} else {
+			} else if (!(this instanceof SingleUseMissile)) {
+				//SPSEXPD: 同上
 				info += "\n\n" + Messages.get(this, "unlimited_uses");
 			}
 		}
