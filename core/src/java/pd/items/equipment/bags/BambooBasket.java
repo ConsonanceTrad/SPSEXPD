@@ -1,8 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.equipment.bags;
 
-import pd.atlas.interfaces.IconsDict;
-
+import pd.atlas.items.EquipmentBagsDict;
 import pd.items.Item;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.messages.InlineText;
@@ -20,8 +19,8 @@ public class BambooBasket extends Bag {
 	}
 
 	{
-		//SPSEXPD: 竹背篓专属图标（icons.png 240,80 10x10，ICON_090）
-		image = IconsDict.ICON_090;
+		//SPSEXPD: 竹背篓专属图标（bags.png C9_R1，129,1 15x15）
+		image = EquipmentBagsDict.BAGS_EXTRA_1;
 	}
 
 	@Override
