@@ -6,6 +6,9 @@ import java.util.Collections;
 
 import pd.actors.damagetype.Element;
 import pd.actors.hero.perks.Perk;
+import pd.items.KindOfWeapon;
+import pd.items.equipment.weapon.Weapon;
+import pd.items.equipment.weapon.enchantments.*;
 
 /**
  * SPSEXPD: 角色属性统一定义层（暗黑式）—— 暴击、暴击倍率、物理/元素/纯粹伤害加成、
@@ -140,20 +143,52 @@ public class HeroStats {
 		return ps == null ? Collections.<Perk>emptyList() : ps;
 	}
 
-	//SPSEXPD: 装备侧钩子预留 —— 后续武器/护甲/戒指提供加成时在此累加，当前恒 0（不改平衡）
+	//SPSEXPD: 装备侧钩子 —— 附魔直接贡献英雄属性，让附魔从「触发型效果」变成可选的专精玩法。
+	/** 元素附魔（Enchantment* 系列）→ 同系元素伤害加成 */
+	private static final float ELEMENT_ENCHANT_BONUS = 0.2f;
+	/** 致命附魔（Vorpal）→ 暴击倍率加成 */
+	private static final float CRIT_ENCHANT_BONUS = 0.25f;
+
+	private static final Object[][] ELEMENT_ENCHANTS = {
+			{Element.FIRE, EnchantmentFire.class, EnchantmentFire2.class},
+			{Element.ICE, EnchantmentIce.class, EnchantmentIce2.class},
+			{Element.ENERGY, EnchantmentEnergy.class, EnchantmentEnergy2.class},
+			{Element.EARTH, EnchantmentEarth.class, EnchantmentEarth2.class},
+			{Element.SHOCK, EnchantmentShock.class, EnchantmentShock2.class},
+			{Element.LIGHT, EnchantmentLight.class, EnchantmentLight2.class},
+			{Element.DARK, EnchantmentDark.class, EnchantmentDark2.class},
+	};
+
 	private static float equipmentCritMultiplierBonus(Hero hero) {
-		return 0f;
+		return equippedEnchantment(hero) instanceof Vorpal ? CRIT_ENCHANT_BONUS : 0f;
 	}
 
+	//SPSEXPD: 装备侧的物理加成不在这里重复计算——武器改造石（Augment）与狂怒戒指已在各自管线生效；
+	// 纯粹伤害的来源是神器与技能，同样没有装备侧来源。
 	private static float equipmentPhysicalDamageBonus(Hero hero) {
 		return 0f;
 	}
 
 	private static float equipmentElementBonus(Hero hero, Element element) {
+		if (element == null) return 0f;
+		Weapon.Enchantment ench = equippedEnchantment(hero);
+		if (ench == null) return 0f;
+		for (Object[] entry : ELEMENT_ENCHANTS) {
+			for (int i = 1; i < entry.length; i++) {
+				if (entry[i] == ench.getClass()) return entry[0] == element ? ELEMENT_ENCHANT_BONUS : 0f;
+			}
+		}
 		return 0f;
 	}
 
 	private static float equipmentPureDamageBonus(Hero hero) {
 		return 0f;
+	}
+
+	/** 当前主手武器的附魔（无武器 / 非 Weapon 时返回 null） */
+	private static Weapon.Enchantment equippedEnchantment(Hero hero) {
+		if (hero == null || hero.belongings == null) return null;
+		KindOfWeapon weapon = hero.belongings.weapon();
+		return weapon instanceof Weapon ? ((Weapon) weapon).enchantment : null;
 	}
 }
