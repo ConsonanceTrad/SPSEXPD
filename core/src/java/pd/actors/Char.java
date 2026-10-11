@@ -1122,16 +1122,8 @@ public abstract class Char extends Actor {
 			buff( Paralysis.class ).processDamage(dmg);
 		}
 
-		BrokenSeal.WarriorShield shield = buff(BrokenSeal.WarriorShield.class);
-		if (!(src instanceof Hunger)
-				&& dmg > 0
-				//either HP is already half or below (ignoring shield)
-				// or the hit will reduce it to half or below
-				&& (HP <= HT/2 || HP + shielding() - dmg <= HT/2)
-				&& shield != null && !shield.coolingDown()){
-			sprite.showStatusWithIcon(CharSprite.POSITIVE, Integer.toString(buff(BrokenSeal.WarriorShield.class).maxShield()), FloatingText.SHIELDING);
-			shield.activate();
-		}
+		//SPSEXPD: 原为「将要掉到半血以下时立刻把护盾补满」的触发式护盾，已随护盾改为
+		//「随时间累积」而移除——否则每次濒死都会瞬间满盾，让累积速度失去意义
 
 		//cancel bleed if the vorpal hit is going to kill
 		if (bleedSrc == Vorpal.class && dmg > (shielding() + HP)){

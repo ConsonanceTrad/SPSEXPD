@@ -236,6 +236,16 @@ public final class SpsLegacyArmorTest {
 		//SPSEXPD: 护甲上已挂另一枚纹章/碎片时必须拒绝贴附，否则会覆盖并把原来那枚弄丢
 		check(sealSource.contains("armor.checkSeal() != null && armor.checkSeal() != this"),
 				"纹章缺少「护甲已挂另一枚纹章则拒绝贴附」的检查");
+		//SPSEXPD: 护盾改为「每 7 回合累积上限的 20%（至少 1 点）」
+		check(sealSource.contains("SHIELD_TICK_TURNS = 7") && sealSource.contains("SHIELD_TICK_RATIO = 0.20f"),
+				"护盾的累积节奏常量不是每 7 回合 20%");
+		check(!sealSource.contains("public synchronized void activate()"),
+				"护盾仍保留「补满」用的 activate()");
+		String charSource = java.nio.file.Files.readString(
+				java.nio.file.Paths.get("../java/pd/actors/Char.java"),
+				java.nio.charset.StandardCharsets.UTF_8);
+		check(!charSource.contains("shield.activate()"),
+				"Char 仍保留「濒死时把护盾补满」的触发式逻辑");
 	}
 
 	private static void testLegacyIcons() throws Exception {

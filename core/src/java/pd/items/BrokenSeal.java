@@ -65,13 +65,13 @@ public class BrokenSeal extends Item {
 			.t("already_affixed", "这件护甲上已经贴附了一枚纹章，不能再贴附第二枚。")
 			.t("cursed_armor", "纹章不能贴附于被诅咒的盔甲。")
 			.t("affix", "你将纹章佩挂在了护甲上！")
-			.t("desc", "一枚蜡制纹章，作为勇气的象征而贴附在护甲之上。纹章上刻有磨损的防御符咒，并从中碎裂为两半。\n\n这是一件来自家乡的纪念物，在纹章的支持下战士会变得不屈不挠：护盾会随时间累积（上限为护甲等级 + 阶位×2），但在极度饥饿时停止累积。\n\n纹章可以被_贴附在护甲上_并能在护甲间转移。它能够携带最多 _2 级_升级（升级时纹章需已贴附在护甲上），并能携带_任意刻印_。\n\n纹章_取下后_同样是一件可被打造的物品：它可以被_升级卷轴_继续升级（仍以 2 级为限），也可以被_附魔道具_刻上新的刻印。")
+			.t("desc", "一枚蜡制纹章，作为勇气的象征而贴附在护甲之上。纹章上刻有磨损的防御符咒，并从中碎裂为两半。\n\n这是一件来自家乡的纪念物，在纹章的支持下战士会变得不屈不挠：护盾会随时间累积——_每 7 回合_获得上限 _20%%_ 的护盾（至少 1 点），上限为护甲等级 + 阶位×2；极度饥饿时暂停累积。\n\n纹章可以被_贴附在护甲上_并能在护甲间转移。它能够携带最多 _2 级_升级（升级时纹章需已贴附在护甲上），并能携带_任意刻印_。\n\n纹章_取下后_同样是一件可被打造的物品：它可以被_升级卷轴_继续升级（仍以 2 级为限），也可以被_附魔道具_刻上新的刻印。")
 			.t("inscribed", "纹章刻有_%s_。")
 			.t("choose_title", "选择一个刻印")
 			.t("choose_desc", "这件护甲与破损纹章均刻有刻印。请选择一个想保留的刻印。\n\n护甲刻印：%1$s\n破损纹章刻印：%2$s\n\n注意，如果选择保留护甲的刻印，纹章将无法转移该刻印。")
 			.t("discover_hint", "某位英雄初始携带该物品。")
 			.t("$warriorshield.name", "战士护盾")
-			.t("$warriorshield.desc_active", "战士的破损纹章正使他变得不屈不挠，使其获得在生命值之上的护盾。在护盾首次触发后其可被再次使用之前护盾需要进行冷却。\n\n这种护盾并不会随时间衰减，但如果附近持续几回合没有敌人则护盾会结束。当其结束时，任何未使用的护盾都会降低护盾冷却，最多降低50%%。\n\n剩余护盾：%1$d\n\n当前冷却：%2$d")
+			.t("$warriorshield.desc_active", "战士的破损纹章正使他变得不屈不挠，为其提供生命值之上的护盾。\n\n护盾随时间累积：_每 7 回合_获得上限 _20%%_ 的护盾（至少 1 点），上限为护甲等级 + 阶位×2；极度饥饿时暂停累积。护盾不会自行衰减，也不会因为附近没有敌人而消失。\n\n剩余护盾：%1$d")
 			.t("$warriorshield.desc_cooldown", "战士近期已经从他的破碎纹章获得了护盾，而他必须等待直至他可从其护盾效果中再次获益。\n\n剩余回合数：%d")
 			.t("$warriorshield.desc_negative_cooldown", "战士护盾的冷却时间当前为负值，意味着当他的护盾生效时，冷却时间会比通常的150回合更低。护盾冷却可被减至最低-150回合，意味着护盾可在生效后立刻冷却完毕，以便再次激活护盾。\n\n当前冷却时间：%d");
 	}
@@ -309,11 +309,18 @@ public class BrokenSeal extends Item {
 			shieldUsePriority = 2;
 		}
 
+		/** SPSEXPD: 护盾每这么多回合积累一次。 */
+		private static final int SHIELD_TICK_TURNS = 7;
+		/** SPSEXPD: 每次积累量 = 上限的这个比例（向下取整，至少 1 点）。 */
+		private static final float SHIELD_TICK_RATIO = 0.20f;
+
 		private Armor armor;
 
 		private int cooldown = 0;
 		private float turnsSinceEnemies = 0;
 		private int initialShield = 0;
+		/** SPSEXPD: 距离下次积累还差多少回合（0..SHIELD_TICK_TURNS-1）。 */
+		private int shieldTicks = 0;
 
 		private static int COOLDOWN_START = 150;
 
@@ -373,14 +380,24 @@ public class BrokenSeal extends Item {
 
 		@Override
 		public synchronized boolean act() {
-			//SPSEXPD: 护盾改为随时间累积（上限 = 护甲等级 + 阶位×2）；极度饥饿时不累积。
-			//同时取消原「触发后冷却」与「附近无敌人 5 回合则清空」的规则：护盾被消耗后会自动补回来。
+			//SPSEXPD: 护盾随时间累积（上限 = 护甲等级 + 阶位×2）：每 SHIELD_TICK_TURNS 回合
+			//一次性补入上限的 SHIELD_TICK_RATIO（向下取整、至少 1 点），并以上限封顶；
+			//极度饥饿时暂停积累（计数器保持不动）。原「触发后冷却」「附近无敌人 5 回合则清空」
+			//「濒死瞬间补满」的规则都已取消。
 			Hunger hunger = target.buff(Hunger.class);
 			boolean starving = hunger != null && hunger.isStarving();
 
 			int cap = maxShield();
-			if (cap > 0 && !starving && shielding() < cap) {
-				incShield(1);
+			if (cap > 0 && !starving) {
+				shieldTicks++;
+				if (shieldTicks >= SHIELD_TICK_TURNS) {
+					shieldTicks = 0;
+					int missing = cap - shielding();
+					if (missing > 0) {
+						int gain = Math.min(missing, Math.max(1, (int)(cap * SHIELD_TICK_RATIO)));
+						incShield(gain);
+					}
+				}
 			}
 
 			if (shielding() <= 0 && cap <= 0){
@@ -389,11 +406,6 @@ public class BrokenSeal extends Item {
 
 			spend(TICK);
 			return true;
-		}
-
-		public synchronized void activate() {
-			//SPSEXPD: 累积机制下不再需要冷却，直接把护盾补到当前上限
-			incShield(maxShield());
 		}
 
 		public boolean coolingDown(){
@@ -421,6 +433,7 @@ public class BrokenSeal extends Item {
 		public static final String COOLDOWN = "cooldown";
 		public static final String TURNS_SINCE_ENEMIES = "turns_since_enemies";
 		public static final String INITIAL_SHIELD = "initial_shield";
+		public static final String SHIELD_TICKS = "shield_ticks";
 
 		@Override
 		public void storeInBundle(Bundle bundle) {
@@ -428,6 +441,7 @@ public class BrokenSeal extends Item {
 			bundle.put(COOLDOWN, cooldown);
 			bundle.put(TURNS_SINCE_ENEMIES, turnsSinceEnemies);
 			bundle.put(INITIAL_SHIELD, initialShield);
+			bundle.put(SHIELD_TICKS, shieldTicks);
 		}
 
 		@Override
@@ -443,6 +457,7 @@ public class BrokenSeal extends Item {
 				turnsSinceEnemies = -100;
 				initialShield = shielding();
 			}
+			shieldTicks = bundle.contains(SHIELD_TICKS) ? bundle.getInt(SHIELD_TICKS) : 0;
 		}
 	}
 }
