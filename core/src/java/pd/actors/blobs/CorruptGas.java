@@ -10,7 +10,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Cripple;
 import pd.actors.hero.Hero;
 import pd.effects.BlobEmitter;
-import pd.effects.particles.ShadowParticle;
+import pd.effects.Speck;
 import pd.messages.Messages;
 import pd.utils.GLog;
 import render.utils.math.Random;
@@ -21,10 +21,10 @@ public class CorruptGas extends Blob implements Hero.Doom {
 	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
 	static {
 		InlineText.of(CorruptGas.class)
-			.t("name", "腐化气体")
-			.t("desc", "一团黑紫色的腐化气体盘绕在这里。它会造成流血、减缓移动，并按生命上限造成伤害。")
-			.t("rankings_desc", "被腐化气体吞噬")
-			.t("ondeath", "你被腐化气体吞噬了……");
+			.t("name", "恶魔血雾")
+			.t("desc", "这里盘绕着一片恶魔血雾。恶魔血雾即使稍微被接触到就可以导致生物血流不止，甚至失去控制。")
+			.t("rankings_desc", "被恶魔血雾吞噬")
+			.t("ondeath", "你被恶魔血雾吞噬了……");
 	}
 
 
@@ -47,9 +47,11 @@ public class CorruptGas extends Blob implements Hero.Doom {
 			}
 		}
 	}
+	//SPSEXPD: 0.9.8 的腐化气体（恶魔血雾）用 Speck.CORRUPT 渲染血红雾气，
+	// 此前误用了暗影系的 ShadowParticle.UP，看起来像一团黑色诅咒粒子
 	@Override public void use(BlobEmitter emitter) {
 		super.use(emitter);
-		emitter.pour(ShadowParticle.UP, 0.6f);
+		emitter.pour(Speck.factory(Speck.CORRUPT), 0.6f);
 	}
 	@Override public String tileDesc() { return Messages.get(this, "desc"); }
 	@Override public void onDeath() {

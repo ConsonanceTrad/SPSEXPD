@@ -73,7 +73,8 @@ public class Speck extends Image {
 	public static final int YELLOW_LIGHT= 120;
 	public static final int BLUE_LIGHT  = 121;
 	public static final int TARGAS      = 122;
-	public static final int BLOOD       = 123;   //SPS: 血色雾气（暗影场用）
+	//SPSEXPD: SPS Speck.CORRUPT（0.9.8 的 116 号在本项目已被 SMOKE 占用）—— 恶魔血雾（CorruptGas）专用的血红雾气
+	public static final int CORRUPT     = 123;
 	
 	private static final int SIZE = 7;
 	
@@ -144,8 +145,8 @@ public class Speck extends Image {
 		case SMOKE:
 		case BLIZZARD:
 		case INFERNO:
-		//SPSEXPD: 血色雾气（暗影场）复用毒气帧——旧的帧号 123 超出 specks.png 的 18 帧
-		case BLOOD:
+		//SPSEXPD: SPS 的 Speck.CORRUPT（恶魔血雾）复用毒气帧——帧号 123 超出 specks.png 的 18 帧，必须显式登记
+		case CORRUPT:
 			frame( film.get( STEAM ) );
 			break;
 		case CALM:
@@ -407,9 +408,9 @@ public class Speck extends Image {
 			lifespan = Random.Float( 1f, 1.5f );
 			break;
 
-		//SPS: 血色雾气 —— 形态同毒气（TOXIC），颜色改血红
-		case BLOOD:
-			hardlight( 0xCC0000 );
+		//SPS: Speck.CORRUPT —— 恶魔血雾（CorruptGas），形态同毒气（TOXIC），颜色改血红
+		case CORRUPT:
+			hardlight( 0xFF0000 );
 			angularSpeed = 30;
 			angle = Random.Float( 360 );
 			lifespan = Random.Float( 1f, 3f );
@@ -523,6 +524,12 @@ public class Speck extends Image {
 				am = p < 0.2f ? p * 5 : 1;
 				break;
 				
+			//SPS: Speck.CORRUPT 在 0.9.8 里走线性淡入淡出（与破碎系的 STEAM 组平方根曲线不同）
+			case CORRUPT:
+				am = p < 0.5f ? p : 1 - p;
+				scale.set( 1 + p * 2 );
+				break;
+
 			case STEAM:
 			case TOXIC:
 			case PARALYSIS:

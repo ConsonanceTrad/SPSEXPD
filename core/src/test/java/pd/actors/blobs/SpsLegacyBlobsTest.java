@@ -63,6 +63,7 @@ public final class SpsLegacyBlobsTest {
 		try {
 			//SPSEXPD: 静态契约校验放在最前，避免被同任务的既有失败挡住
 			testSpeckFrames();
+			testBloodMistParticles();
 			testNanoSwarm();
 			testCurseWeb();
 			testElementalDamage();
@@ -80,8 +81,9 @@ public final class SpsLegacyBlobsTest {
 	}
 
 	/**
-	 * SPSEXPD: 暗影场陷阱（DarkBuffTrap → ShadowGas）曾用 Speck.BLOOD，帧号超出图集导致 NPE 闪退。
-	 * 这里做源码级契约校验：凡是帧号超出 specks.png 帧数的常量，都必须登记在 reset() 的帧映射 switch 里。
+	 * SPSEXPD: 帧号超出 specks.png 帧数的粒子常量（如恶魔血雾用的 Speck.CORRUPT=123）会让 film.get 返回 null，
+	 * 并在 Image.frame 里 NPE 闪退（暗影场陷阱曾因此崩溃）。这里做源码级契约校验：
+	 * 凡是帧号超出图集帧数的常量，都必须登记在 reset() 的帧映射 switch 里。
 	 */
 	private static void testSpeckFrames() throws Exception {
 		java.nio.file.Path png = locate("effects/specks.png", "core/src/assets/effects/specks.png",
@@ -103,7 +105,7 @@ public final class SpsLegacyBlobsTest {
 		java.util.regex.Matcher declaration = java.util.regex.Pattern
 				.compile("public static final int ([A-Z][A-Z0-9_]*)\\s*=\\s*(\\d+);").matcher(text);
 		while (declaration.find()) constants.put(declaration.group(1), Integer.parseInt(declaration.group(2)));
-		check(constants.containsKey("BLOOD"), "Speck 里找不到 BLOOD 常量");
+		check(constants.containsKey("CORRUPT"), "Speck 里找不到 CORRUPT 常量");
 
 		int resetAt = text.indexOf("public void reset(");
 		int switchAt = text.indexOf("switch (type) {", resetAt);
@@ -122,7 +124,33 @@ public final class SpsLegacyBlobsTest {
 			check(mapped.contains(name), "Speck." + name + "(" + constants.get(name)
 					+ ") 没有登记帧映射，会因 film.get 返回 null 而 NPE");
 		}
-		check(mapped.contains("BLOOD"), "Speck.BLOOD 没有登记帧映射（暗影场陷阱会闪退）");
+		check(mapped.contains("CORRUPT"), "Speck.CORRUPT 没有登记帧映射（恶魔血雾会闪退）");
+		check(text.contains("hardlight( 0xFF0000 )"), "Speck.CORRUPT 没有按 SPS 原文着色成血红雾气");
+	}
+
+	/**
+	 * SPSEXPD: 恶魔血雾（CorruptGas）在 0.9.8 里用 Speck.CORRUPT 渲染血红雾气，
+	 * 暗影场（ShadowGas）用的是黑色火焰粒子；两者曾被互换，这里做防回退的源码级契约。
+	 */
+	private static void testBloodMistParticles() throws Exception {
+		String corruptGas = readSource("java/pd/actors/blobs/CorruptGas.java",
+				"../java/pd/actors/blobs/CorruptGas.java", "core/src/java/pd/actors/blobs/CorruptGas.java");
+		check(corruptGas.contains("emitter.pour(Speck.factory(Speck.CORRUPT), 0.6f)"),
+				"恶魔血雾没有使用 SPS 的血红雾气粒子 Speck.CORRUPT");
+		check(!corruptGas.contains("import pd.effects.particles.ShadowParticle;"),
+				"恶魔血雾又 import 了暗影系粒子（会渲染成黑色诅咒粒子）");
+
+		String shadowGas = readSource("java/pd/actors/blobs/effectblobs/ShadowGas.java",
+				"../java/pd/actors/blobs/effectblobs/ShadowGas.java",
+				"core/src/java/pd/actors/blobs/effectblobs/ShadowGas.java");
+		check(shadowGas.contains("emitter.start(BlackFlameParticle.FACTORY, 0.1f, 0)"),
+				"暗影场没有使用 0.9.8 原版的黑色火焰粒子 BlackFlameParticle");
+		check(!shadowGas.contains("import pd.effects.Speck;"),
+				"暗影场又重新依赖了 Speck 粒子图集");
+	}
+
+	private static String readSource(String... candidates) throws Exception {
+		return new String(Files.readAllBytes(locate(candidates)), StandardCharsets.UTF_8);
 	}
 
 	private static java.nio.file.Path locate(String... candidates) {
