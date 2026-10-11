@@ -123,7 +123,9 @@ public class RingOfMight extends Ring {
 	}
 	
 	public static int strengthBonus( Char target ){
-		return getBonus( target, Might.class );
+		//SPSEXPD: 力量收敛——每枚戒指的力量加成由「等级+1」折半，
+		// 避免堆力量 → 线性抬近战伤害（配合旧版武器超额力量改随机骰一起压收益）
+		return (getBonus( target, Might.class ) + 1) / 2;
 	}
 	
 	public static float HTMultiplier( Char target ){

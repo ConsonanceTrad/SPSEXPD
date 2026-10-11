@@ -489,8 +489,9 @@ public class Hero extends Char {
 			strBonus += buff.boost();
 		}
 
+		//SPSEXPD: 力量收敛——乘法百分比改为按点数的定值，避免力量越高滚得越大
 		if (hasTalent(Talent.STRONGMAN)){
-			strBonus += (int)Math.floor(STR * (0.03f + 0.05f*pointsInTalent(Talent.STRONGMAN)));
+			strBonus += pointsInTalent(Talent.STRONGMAN);
 		}
 		if (subClass == HeroSubClass.ARTISAN) strBonus++;
 		if (buff(pd.actors.buffs.AflyBless.class) != null) strBonus++;

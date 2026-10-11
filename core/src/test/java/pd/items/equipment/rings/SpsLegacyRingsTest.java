@@ -91,13 +91,14 @@ public final class SpsLegacyRingsTest {
 		hero.belongings.armor = armor;
 		check(RingOfEvasion.dexterityBonus(hero) == 1, "+15闪避戒指DEX加成错误");
 		check(RingOfEvasion.stealthBonus(hero) == 3, "+15闪避戒指潜行加成错误");
-		check(close(armor.evasionFactor(hero, 1f), 3f), "+15闪避戒指没有接入护甲DEX");
+		//SPSEXPD: DEX 已收敛为有界加项（1.0 中性，上下各 50%），ClothArmor DEX=2 配 +1 DEX 戒指 = 1*(1+(2+1-1)*0.5) = 2
+		check(close(armor.evasionFactor(hero, 1f), 2f), "+15闪避戒指没有接入护甲DEX");
 		check(close(armor.stealthFactor(hero), 9f), "+15闪避戒指没有接入护甲潜行");
 
 		ring.level(30);
 		check(RingOfEvasion.dexterityBonus(hero) == 2 && RingOfEvasion.stealthBonus(hero) == 6,
 				"+30闪避戒指没有达到DEX或潜行上限");
-		check(close(armor.evasionFactor(hero, 1f), 4f) && close(armor.stealthFactor(hero), 12f),
+		check(close(armor.evasionFactor(hero, 1f), 2.5f) && close(armor.stealthFactor(hero), 12f),
 				"+30闪避戒指护甲实际属性错误");
 
 		ring.level(-2);
