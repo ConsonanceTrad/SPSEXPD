@@ -33,7 +33,8 @@ public class SealShard extends BrokenSeal {
 	}
 
 	{
-		image = EquipmentNonEquipDict.NON_EQUIP_C1_R5;
+		//SPSEXPD: 引用语义别名而不是坐标名——图集里挪格时这里不用跟着改
+		image = EquipmentNonEquipDict.SEAL_FRAGMENT;
 	}
 
 	@Override

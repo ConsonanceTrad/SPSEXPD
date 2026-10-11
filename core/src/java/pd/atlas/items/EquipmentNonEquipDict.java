@@ -208,10 +208,14 @@ public final class EquipmentNonEquipDict {
 	public static final IconEntry NON_EQUIP_C1_R4 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{3, 49, 8, 15}, 7508);
 	/** semantic alias for NON_EQUIP_C1_R4 */
 	public static final IconEntry SEAL_SHARD = NON_EQUIP_C1_R4;
-	/** SEAL_FRAGMENT - 纹章碎片（破损纹章同列下一行） */
-	public static final IconEntry NON_EQUIP_C1_R5 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{0, 64, 16, 15}, 7513);
-	/** semantic alias for NON_EQUIP_C1_R5 */
-	public static final IconEntry SEAL_FRAGMENT = NON_EQUIP_C1_R5;
+	/** SEAL_FRAGMENT - 纹章碎片 */
+	public static final IconEntry NON_EQUIP_C2_R4 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{23, 50, 5, 8}, 7513);
+	/** semantic alias for NON_EQUIP_C2_R4 */
+	public static final IconEntry SEAL_FRAGMENT = NON_EQUIP_C2_R4;
+	/** SEAL_COMPLETE - 完整纹章 */
+	public static final IconEntry NON_EQUIP_C3_R4 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{35, 49, 9, 15}, 7514);
+	/** semantic alias for NON_EQUIP_C3_R4 */
+	public static final IconEntry SEAL_COMPLETE = NON_EQUIP_C3_R4;
 	/** DEMON_BOOK */
 	public static final IconEntry NON_EQUIP_C1_R6 = new IconEntry("sprites/items/equipment/non_equip.png", new int[]{3, 83, 10, 12}, 7025);
 	/** semantic alias for NON_EQUIP_C1_R6 */
