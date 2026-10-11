@@ -90,7 +90,8 @@ public final class SpsTownMeleeTest {
 		pan.cursedKnown = true;
 		pan.cursed = true;
 		hero.belongings.weapon = pan;
-		check(pan.actions(hero).contains(MeleePan.AC_CHANGE), "装备近战煎锅时没有切换动作");
+		//SPSEXPD: 煎锅已去掉「切换」动作——装备时不应再出现 CHANGE
+		check(!pan.actions(hero).contains("CHANGE"), "煎锅不应再有切换动作");
 		RangePan ranged = pan.changeToRange(hero);
 		check(hero.belongings.weapon() == ranged && ranged.trueLevel() == 3
 				&& ranged.enchantment instanceof Blazing && ranged.reinforced
