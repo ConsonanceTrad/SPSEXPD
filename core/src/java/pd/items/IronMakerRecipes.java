@@ -45,7 +45,6 @@ public class IronMakerRecipes extends Recipe {
 	/** 复刻铁砧的锻造公式；无匹配时返回 null。 */
 	@SuppressWarnings("unchecked")
 	public static Item forge(ArrayList<Item> items) {
-		int garbage = count(items, Garbage.class);
 		int ore = count(items, StoneOre.class);
 		int water = count(items, WaterItem.class);
 		int equipment = count(items, EquipableItem.class);
@@ -54,7 +53,8 @@ public class IronMakerRecipes extends Recipe {
 		int scrolls = count(items, Scroll.class);
 		int meatfoods = count(items, MeatFood.class);
 
-		if (items.size() == 5 && garbage + ore == 5) return Generator.random();
+		//SPSEXPD: 原为「5 份废料/原石」，废料（垃圾）已移除，改为只认原石
+		if (items.size() == 5 && ore == 5) return Generator.random();
 		if (items.size() == 5 && count(items, Nut.class) == 5) return new NutCookie(6);
 		if (items.size() == 5 && ore == 4 && water == 1) return new Timepill2();
 		if (items.size() == 5 && meatfoods == 1 && ore == 1
@@ -108,24 +108,23 @@ public class IronMakerRecipes extends Recipe {
 				result.cursedKnown = true;
 				return result;
 			}
-			return new Garbage(2);
+			//SPSEXPD: 原本失败时锻出垃圾，已随垃圾物品取消——返回 null 表示无匹配（材料不消耗）
+			return null;
 		}
 		if (equipment == 1 && water > 0 && equipment + water == items.size()) {
 			Item source = first(items, EquipableItem.class);
 			if (source != null && source.isUpgradable() && render.utils.math.Random.Int(100) < water * 15) {
 				Item result = Reflection.newInstance((Class<? extends Item>)source.getClass());
-				if (result == null) return new Garbage();
+				if (result == null) return null;
 				result.level(source.level() + 1).identify();
 				result.cursed = false;
 				result.cursedKnown = true;
 				return result;
 			}
-			return new Garbage();
+			return null;
 		}
-		if (items.size() == 5 && seeds == 5) return new Garbage(3);
-		if (items.size() == 2 && seeds == 2) return new Garbage();
+		//SPSEXPD: 原本「5 种子 / 2 种子 / 单件装备」会锻出垃圾，已随垃圾物品一并取消
 		if (items.size() == 1 && seeds == 1) return new GreenDewdrop();
-		if (items.size() == 1 && equipment == 1) return new Garbage(2);
 		return null;
 	}
 

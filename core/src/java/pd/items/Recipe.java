@@ -256,7 +256,7 @@ public abstract class Recipe {
 				}
 			}
 		}
-		if (result.isEmpty() && !ingredients.isEmpty()) result.add(SpsAlchemyRecipes.garbageRecipe());
+		//SPSEXPD: 原为「无匹配则产出垃圾」兜底，已随垃圾物品一并取消——不匹配就是没有可用配方
 		
 		return result;
 	}

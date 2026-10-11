@@ -2,7 +2,6 @@
 package pd.windows;
 
 import pd.items.Ankh;
-import pd.items.Garbage;
 import pd.items.Item;
 import pd.items.equipment.armor.fusion.LifeArmor;
 import pd.items.consum.eggs.AflyEgg;
@@ -52,7 +51,8 @@ public class WndAflyInfo extends WndSpsRecipe {
 		if (fruit == 1 && staple == 1 && meat == 1) return new AflyFood();
 		if (fruit == 1 && vegetable == 2) return new LifeArmor();
 		if (aflyFood == 1 && ankh == 1) return new AflyEgg();
-		return new Garbage();
+		//SPSEXPD: 原本无匹配时产出垃圾，垃圾物品已移除——改为无产物
+		return null;
 	}
 	private static boolean isMeat(Item item) {
 		return item instanceof ChargrilledMeat || item instanceof FrozenCarpaccio

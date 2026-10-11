@@ -23,7 +23,6 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.actors.hero.Talent;
 import pd.actors.mobs.Mob;
-import pd.items.Garbage;
 import pd.items.Item;
 import pd.items.UpgradeBlobRed;
 import pd.items.consum.eggs.ButterflypetEgg;
@@ -168,7 +167,7 @@ public final class SpsBasePetsTest {
 		}
 		check(butterfly.defenseSkill == 10 && butterfly.legacyType() == 304
 				&& butterfly.lovefood(new PetFood()) && butterfly.lovefood(new Strawberry())
-				&& butterfly.SupercreateLoot() instanceof Garbage, "萤石粉蝶属性、食物或奖励错误");
+				&& butterfly.SupercreateLoot() instanceof pd.items.consum.food.Honey, "萤石粉蝶属性、食物或奖励错误");
 		check(chocobo.defenseSkill == 15 && chocobo.legacyType() == 202
 				&& chocobo.lovefood(new Truffles()) && chocobo.SupercreateLoot() instanceof RandomEasterEgg,
 				"陆行鸟属性、食物或奖励错误");

@@ -12,7 +12,6 @@ import pd.atlas.items.SpecificTaskDict;
 
 import pd.Dungeon;
 import pd.items.EquipableItem;
-import pd.items.Garbage;
 import pd.items.Generator;
 import pd.items.GreatRune;
 import pd.items.GreenDewdrop;

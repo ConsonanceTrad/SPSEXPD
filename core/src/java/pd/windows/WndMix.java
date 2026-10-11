@@ -1,7 +1,6 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.windows;
 
-import pd.items.Garbage;
 import pd.items.Generator;
 import pd.items.Item;
 import pd.items.consum.eggs.Egg;
@@ -52,7 +51,8 @@ public class WndMix extends WndSpsRecipe {
 		if (rings == 1) return fallback(Generator.random(Generator.Category.WAND));
 		if (wands == 2) return fallback(Generator.random(Generator.Category.WAND));
 		if (wands == 1) return fallback(Generator.random(Generator.Category.RING));
-		return new Garbage();
+		//SPSEXPD: 原本无匹配时产出垃圾，垃圾物品已移除——改为无产物
+		return null;
 	}
-	private static Item fallback(Item item) { return item == null ? new Garbage() : item; }
+	private static Item fallback(Item item) { return item; }
 }

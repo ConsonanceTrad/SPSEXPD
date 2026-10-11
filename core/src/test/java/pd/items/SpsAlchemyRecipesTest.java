@@ -123,8 +123,8 @@ public final class SpsAlchemyRecipesTest {
 
 		//SPSEXPD: 药剂酿造已由种子改为果实
 		ArrayList<Item> seedpods = ingredients(Seedpod.Seed.class, Seedpod.Seed.class, Seedpod.Seed.class);
-		check(Recipe.findRecipes(seedpods).get(0).sampleOutput(seedpods) instanceof Garbage,
-				"三颗种子仍能酿造出药剂");
+		check(Recipe.findRecipes(seedpods).isEmpty(),
+				"三颗种子仍能匹配到配方");
 		ArrayList<Item> iceFruits = ingredients(IceFruit.class, IceFruit.class, IceFruit.class, IceFruit.class);
 		for (Item item : iceFruits) item.quantity(2);
 		Recipe fruitRecipe = Recipe.findRecipes(iceFruits).get(0);
@@ -137,13 +137,8 @@ public final class SpsAlchemyRecipesTest {
 		testBrewed();
 		testExoticGuidePreviews();
 		ArrayList<Item> invalid = ingredients(Gold.class, Gold.class, Gold.class, Gold.class, Gold.class);
-		Recipe garbage = Recipe.findRecipes(invalid).get(0);
-		Item waste = garbage.brew(invalid);
-		//SPSEXPD: 垃圾图标已从占位换成材料图集的 SCRAP 废料
-		check(waste instanceof Garbage && waste.quantity() == 5
-				&& waste.image == pd.atlas.items.ConsumGoodsMaterialsMaterialsDict.SCRAP,
-				"无效五槽组合没有生成五份废料垃圾");
-		checkGarbageIcon();
+		//SPSEXPD: 垃圾（废料）已随该物品一并删除——无效组合不再产出任何东西，也不会匹配到任何配方
+		check(Recipe.findRecipes(invalid).isEmpty(), "无效五槽组合仍能匹配到配方");
 
 		AlchemistsToolkit toolkit = new AlchemistsToolkit();
 		//SPSEXPD: 炼金釜固定 5 格，不再依赖护腕等级
@@ -154,18 +149,7 @@ public final class SpsAlchemyRecipesTest {
 		toolkit.upgrade(5);
 		check(AlchemyScene.spsInputCapacity(toolkit) == 5, "十级炼金工具应为五槽");
 
-		System.out.println("SPS炼金测试通过：47条固定配方、果实酿造、酿制无味果、无效组合垃圾、耗材、产量及固定五槽均正常。");
-	}
-
-	private static void checkGarbageIcon() throws Exception {
-		BufferedImage sheet = ImageIO.read(new File("sprites/items/items.png"));
-		ByteBuffer pixels = ByteBuffer.allocate(16 * 16 * 4).order(ByteOrder.LITTLE_ENDIAN);
-		for (int y = 848; y < 864; y++) {
-			for (int x = 144; x < 160; x++) pixels.putInt(sheet.getRGB(x, y));
-		}
-		String hash = toHex(MessageDigest.getInstance("SHA-256").digest(pixels.array()));
-		check("F735FA5C2AA745BB7F9EDF094320BE9BA4A03E7E403A8841D882ED0E0A4741A8".equals(hash),
-				"垃圾图标与旧版像素不一致");
+		System.out.println("SPS炼金测试通过：47条固定配方、果实酿造、酿制无味果、无效组合无产物、耗材、产量及固定五槽均正常。");
 	}
 
 	private static String toHex(byte[] bytes) {
@@ -177,8 +161,8 @@ public final class SpsAlchemyRecipesTest {
 	private static void testBrewed() {
 		//SPSEXPD: 无味果的浸泡(炖菜)配方已移除，直接构造炖菜验证其行为
 		ArrayList<Item> inputs = ingredients(Blandfruit.class, Icecap.Seed.class);
-		check(Recipe.findRecipes(inputs).get(0) == SpsAlchemyRecipes.garbageRecipe(),
-				"无味果与冰冠花仍能生成酿制果");
+		check(Recipe.findRecipes(inputs).isEmpty(),
+				"无味果与冰冠花仍能匹配到配方");
 
 		Brewed output = new Brewed().imbuePotion(new PotionOfFrost());
 		check(output.potionAttrib instanceof PotionOfFrost, "炖菜的药剂属性未生效");

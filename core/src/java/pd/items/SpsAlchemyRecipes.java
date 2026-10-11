@@ -259,22 +259,7 @@ public final class SpsAlchemyRecipes {
 				|| item instanceof Cloudberry || item instanceof Moonberry;
 	}
 
-	private static final Recipe GARBAGE = new Recipe() {
-		@Override public boolean testIngredients(ArrayList<Item> ingredients) { return !ingredients.isEmpty(); }
-		@Override public int cost(ArrayList<Item> ingredients) { return 0; }
-		@Override
-		public Item brew(ArrayList<Item> ingredients) {
-			if (ingredients.isEmpty()) return null;
-			Item result = sampleOutput(ingredients);
-			for (Item ingredient : ingredients) ingredient.quantity(ingredient.quantity() - 1);
-			return result;
-		}
-		@Override public Item sampleOutput(ArrayList<Item> ingredients) { return new Garbage(ingredients.size()); }
-	};
-
-	public static Recipe garbageRecipe() {
-		return GARBAGE;
-	}
+	//SPSEXPD: 原来的「垃圾」兜底配方（garbageRecipe）已随垃圾物品一并删除——炼金不匹配时不再有任何产物
 
 	/** SPSEXPD: 固定配方表（只读）——炼金指南用它生成展示条目，避免指南另抄一份。 */
 	public static List<Recipe> allRecipes() {

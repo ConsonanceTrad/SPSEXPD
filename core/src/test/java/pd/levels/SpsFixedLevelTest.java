@@ -78,7 +78,6 @@ import pd.actors.mobs.pets.YearPet;
 import pd.items.AdamantRing;
 import pd.items.Ankh;
 import pd.items.BossRush;
-import pd.items.Garbage;
 import pd.items.Gold;
 import pd.items.Heap;
 import pd.items.Item;
@@ -2165,8 +2164,8 @@ public final class SpsFixedLevelTest {
 				new AflyFood(), new Ankh(), null}) instanceof AflyEgg,
 				"阿飞哨子配方错误");
 		check(WndAflyInfo.createResult(new pd.items.Item[]{
-				new Gold(), null, null}) instanceof Garbage,
-				"阿飞错误配方必须产生垃圾");
+				new Gold(), null, null}) == null,
+				"阿飞错误配方应无产物");
 	}
 
 	private static void testSafeLevels() {

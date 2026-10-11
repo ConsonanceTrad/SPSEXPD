@@ -5,7 +5,6 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.buffs.Blindness;
 import pd.actors.buffs.Buff;
-import pd.items.Garbage;
 import pd.items.Item;
 import pd.items.consum.food.completefood.PetFood;
 import pd.items.consum.food.fruit.Fruit;
@@ -33,7 +32,7 @@ public class ButterflyPet extends PET {
 
 	@Override protected Kind kind() { return Kind.BUTTERFLY; }
 	@Override public boolean lovefood(Item item) { return item instanceof PetFood || item instanceof Fruit; }
-	@Override public Item SupercreateLoot() { return new Garbage(); }
+	@Override public Item SupercreateLoot() { return new pd.items.consum.food.Honey(); }
 
 	@Override public void updateStats(boolean refill) {
 		int old = HT;

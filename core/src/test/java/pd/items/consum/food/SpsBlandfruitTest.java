@@ -91,9 +91,8 @@ public final class SpsBlandfruitTest {
 		inputs.add(new Blandfruit());
 		inputs.add(new Icecap.Seed());
 		ArrayList<Recipe> recipes = Recipe.findRecipes(inputs);
-		//SPSEXPD: 无味果的浸泡(炖菜)配方已移除，现在只会落入废料兜底
-		check(recipes.size() == 1 && recipes.get(0) == SpsAlchemyRecipes.garbageRecipe(),
-				"无味果与种子仍能匹配到炖菜配方");
+		//SPSEXPD: 无味果的浸泡(炖菜)配方已移除，且垃圾兜底配方也随垃圾物品删除——现在不应该匹配到任何配方
+		check(recipes.isEmpty(), "无味果与种子仍能匹配到配方");
 
 		try {
 			Class.forName(Blandfruit.class.getName() + "$CookFruit");

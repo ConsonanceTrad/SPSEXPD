@@ -163,7 +163,6 @@ public final class WishCatalog {
 
 	static {
 		NEVER.add(pd.items.Gold.class);
-		NEVER.add(pd.items.Garbage.class);
 	}
 
 	private static List<Entry> build() {

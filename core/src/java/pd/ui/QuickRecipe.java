@@ -29,7 +29,6 @@ import pd.atlas.items.SpecificPlaceHoldeFruitDict;
 import pd.Dungeon;
 import pd.ShatteredPixelDungeon;
 import pd.items.ArcaneResin;
-import pd.items.Garbage;
 import pd.items.Generator;
 import pd.items.IronMakerRecipes;
 import pd.items.Item;
@@ -462,9 +461,6 @@ public class QuickRecipe extends Component {
 				result.add(new QuickRecipe( forge,
 						new ArrayList<>(Arrays.asList(new StoneOre(), new StoneOre(), new StoneOre(), new StoneOre(), new WaterItem())),
 						new Timepill2()));
-				result.add(new QuickRecipe( forge,
-						new ArrayList<>(Arrays.asList(new Garbage(), new Garbage(), new Garbage(), new Garbage(), new Garbage())),
-						new Garbage(3)));
 				return result;
 			case "Brews_Elixirs":
 				result.add(new QuickRecipe(new UnstableBrew.Recipe(), new ArrayList<>(Arrays.asList(new Potion.PlaceHolder(), new  Plant.Seed.PlaceHolder())), new UnstableBrew()));
