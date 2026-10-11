@@ -84,9 +84,8 @@ public class WndBag extends WndTabbed {
 
 	protected static final int COLS_P   = 5;
 	protected static final int COLS_L   = 5;
-	//SPSEXPD: 底部标签模式（旧版布局）——标签不占左右两侧，横向更宽裕而纵向要更矮，
-	//所以背包区改为每行 7 格（主背包 35 格 = 5 行，正好压进 70% 高度上限）
-	protected static final int COLS_BOTTOM = 7;
+	//SPSEXPD: 底部标签模式（旧版布局）——横向不再让位给两侧标签带，列数与其它布局一致，每行 5 格
+	protected static final int COLS_BOTTOM = 5;
 	
 	protected static int SLOT_WIDTH_P   = 24;
 	protected static int SLOT_WIDTH_L   = 24;
@@ -105,19 +104,19 @@ public class WndBag extends WndTabbed {
 	//SPS: 窗口布局 = 装备区两排(10 格) + 背包 7 行(35 格)，主背包与包裹统一
 	protected static final int EQUIP_ROWS	= 2;
 	protected static final int BAG_ROWS		= 7;
-	//SPSEXPD: 底部标签模式下背包区每行 7 格（COLS_BOTTOM），35 格即 5 行
-	protected static final int BAG_ROWS_BOTTOM = 5;
+	//SPSEXPD: 底部标签模式下背包区每行 5 格（COLS_BOTTOM），35 格即 7 行，与两侧布局一致
+	protected static final int BAG_ROWS_BOTTOM = 7;
 
 	//SPS: 移动端安全边距（占屏幕比例）——「包裹窗口 + 左右标签带 + 外框」限制在此比例内，
 	//避免窗口/选项卡被屏幕裁切（选项卡被裁则点不到，功能不可用）
 	protected static final float MOBILE_SAFE	= 0.94f;
 
-	//SPSEXPD: 背包窗口的尺寸上限（占屏幕比例）——「窗口 + 左右标签带 + 外框」不超过屏宽 80%，
+	//SPSEXPD: 背包窗口的尺寸上限（占屏幕比例）——「窗口 + 左右标签带 + 外框」不超过屏宽 90%，
 	//「窗口 + 外框」不超过屏高上限。超出时按下方循环联动缩小格子直到进入上限（下限 MIN_SLOT）。
-	//高度上限分两种布局：竖版（左右两侧标签）90%，旧版（底部标签）70%
+	//高度上限分两种布局：竖版（左右两侧标签）90%；旧版（底部标签）不再限制高度（1.0）
 	protected static final float MAX_WINDOW_WIDTH_RATIO		= 0.9f;
 	protected static final float MAX_WINDOW_HEIGHT_RATIO_SIDE	= 0.9f;
-	protected static final float MAX_WINDOW_HEIGHT_RATIO_BOTTOM	= 0.7f;
+	protected static final float MAX_WINDOW_HEIGHT_RATIO_BOTTOM	= 1.0f;
 
 	//SPSEXPD: 窗口被上限缩小后，界面数字（格子上的数量/力量/等级、标题栏的金币/能量）的同步缩放
 	private float textScale = 1f;
@@ -211,7 +210,7 @@ public class WndBag extends WndTabbed {
 		slotWidth = PixelScene.landscape() ? SLOT_WIDTH_L : SLOT_WIDTH_P;
 		slotHeight = PixelScene.landscape() ? SLOT_HEIGHT_L : SLOT_HEIGHT_P;
 
-		//SPSEXPD: 底部标签模式改用每行 7 格（见 COLS_BOTTOM）；其余布局保持 5 列
+		//SPSEXPD: 底部标签模式沿用 COLS_BOTTOM（现在也是 5 列，与其它布局一致）
 		boolean bottomTabs = SPDSettings.bagBottomTabs();
 		nCols = bottomTabs ? COLS_BOTTOM : (PixelScene.landscape() ? COLS_L : COLS_P);
 		//SPSEXPD: 行数 = 装备区两排 + 背包行数（5 列时 7 行、7 列时 5 行，都是 35 格）。
