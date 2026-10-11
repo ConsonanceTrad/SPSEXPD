@@ -66,13 +66,16 @@ public final class SpsLegacyBagsTest {
 
 	private static void testContainerRules() {
 		ArrowCollecter arrows = new ArrowCollecter();
-		check(arrows.capacity() == 35 && arrows.value() == 50, "暗器袋容量或价值错误");
+		//SPSEXPD: 包裹容量定稿为 34（35 格减掉包裹本体占的一格），原断言 35 已过期
+		check(arrows.capacity() == 34 && arrows.value() == 50, "暗器袋容量或价值错误");
 		check(arrows.canHold(new WoodenBowN()), "暗器袋没有收纳远程武器");
 		check(arrows.canHold(new ThrowingKnife()), "暗器袋没有收纳投掷武器");
 		check(!arrows.canHold(new PotionOfHealing()), "暗器袋错误收纳药剂");
+		check(!arrows.canHold(new pd.items.equipment.weapon.missiles.arrows.HealFruit()), "暗器袋不应收纳果实");
 
 		KeyRing ring = new KeyRing();
-		check(ring.capacity() == 35 && ring.value() == 50, "钥匙环容量或价值错误");
+		//SPSEXPD: 包裹容量定稿为 34（35 格减掉包裹本体占的一格），原断言 35 已过期
+		check(ring.capacity() == 34 && ring.value() == 50, "钥匙环容量或价值错误");
 		check(ring.canHold(new IronKey(1)), "钥匙环没有收纳地牢钥匙");
 		check(ring.canHold(new PotKey()) && ring.canHold(new AncientCoin()) && ring.canHold(new TenguKey()),
 				"钥匙环没有收纳SPS首领钥匙");
@@ -82,7 +85,8 @@ public final class SpsLegacyBagsTest {
 		check(!ring.canHold(new Firebloom.Seed()), "钥匙环错误收纳种子");
 
 		MagicalHolster holster = new MagicalHolster();
-		check(holster.capacity() == 35 && holster.value() == 60, "法杖套容量或价值错误");
+		//SPSEXPD: 同上，容量定稿 34
+		check(holster.capacity() == 34 && holster.value() == 60, "法杖套容量或价值错误");
 		check(holster.canHold(new WandOfMagicMissile()), "法杖套没有收纳法杖");
 		check(!holster.canHold(new Firebloom.Seed()), "法杖套错误收纳种子");
 	}

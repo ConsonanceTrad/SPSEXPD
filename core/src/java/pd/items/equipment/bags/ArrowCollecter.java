@@ -26,6 +26,8 @@ public class ArrowCollecter extends Bag {
 
 	@Override
 	public boolean canHold(Item item) {
+		//SPSEXPD: 果实是 MissileWeapon 的子类，但按用户要求不装进暗器袋（它们归竹背篓）
+		if (item instanceof MissileWeapon && ((MissileWeapon) item).isFruit()) return false;
 		return (item instanceof RangeWeapon || item instanceof MissileWeapon)
 				&& super.canHold(item);
 	}
