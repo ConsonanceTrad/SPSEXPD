@@ -647,7 +647,7 @@ public class Armor extends EquipableItem {
 		
 		cursed = false;
 
-		if (seal != null && seal.level() < BrokenSeal.MAX_CARRIED_LEVEL)
+		if (seal != null && seal.level() < seal.maxCarriedLevel())
 			seal.upgrade();
 
 		return super.upgrade();

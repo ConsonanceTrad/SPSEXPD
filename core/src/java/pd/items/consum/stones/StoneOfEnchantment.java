@@ -78,9 +78,9 @@ public class StoneOfEnchantment extends InventoryStone {
 			
 		} else if (item instanceof BrokenSeal) {
 			
-			//SPSEXPD: 拆卸下来的破损纹章可被符石刻上随机刻印
+			//SPSEXPD: 拆卸下来的破损纹章可被符石刻上随机刻印（纹章自带的 canCarryGlyph 会过滤非法刻印）
 			BrokenSeal seal = (BrokenSeal) item;
-			seal.inscribe( Armor.Glyph.random( seal.getGlyph() != null ? seal.getGlyph().getClass() : null ) );
+			seal.inscribeRandom();
 			
 		} else {
 			

@@ -114,8 +114,7 @@ public class PotionOfMage extends Item {
 				finishEnchant(armor, Messages.get(PotionOfMage.class, "enchant_armor", armor.name()));
 			} else if (item instanceof BrokenSeal) {
 				BrokenSeal seal = (BrokenSeal)item;
-				seal.inscribe( Armor.Glyph.random(
-						seal.getGlyph() != null ? seal.getGlyph().getClass() : null ) );
+				seal.inscribeRandom();
 				finishEnchant(seal, Messages.get(PotionOfMage.class, "enchant_armor", seal.name()));
 			}
 		}

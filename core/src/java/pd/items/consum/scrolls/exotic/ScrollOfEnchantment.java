@@ -177,6 +177,15 @@ public class ScrollOfEnchantment extends ExoticScroll {
 				glyphs[1] = Armor.Glyph.randomUncommon( existing );
 				glyphs[2] = Armor.Glyph.random( existing, glyphs[0].getClass(), glyphs[1].getClass());
 
+				//SPSEXPD: 有些纹章（纹章碎片）只能携带普通刻印 —— 把不可携带的候选项换成可携带的
+				BrokenSeal seal = (BrokenSeal) item;
+				for (int i = 0; i < glyphs.length; i++){
+					if (!seal.canCarryGlyph( glyphs[i] )){
+						Armor.Glyph alt = seal.randomCarriableGlyph();
+						if (alt != null) glyphs[i] = alt;
+					}
+				}
+
 				GameScene.show(new WndGlyphSelect((BrokenSeal) item, glyphs[0], glyphs[1], glyphs[2]));
 			} else if (identifiedByUse){
 				((ScrollOfEnchantment)curItem).confirmCancelation();

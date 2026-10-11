@@ -27,6 +27,7 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.actors.buffs.Combo;
 import pd.actors.buffs.HoldFast;
+import pd.actors.buffs.Hunger;
 import pd.actors.buffs.Regeneration;
 import pd.actors.buffs.ShieldBuff;
 import pd.actors.hero.Belongings;
@@ -63,7 +64,7 @@ public class BrokenSeal extends Item {
 			.t("unknown_armor", "你需要先鉴定那件护甲有无诅咒。")
 			.t("cursed_armor", "纹章不能贴附于被诅咒的盔甲。")
 			.t("affix", "你将纹章佩挂在了护甲上！")
-			.t("desc", "一枚蜡制纹章，作为勇气的象征而贴附在护甲之上。纹章上刻有磨损的防御符咒，并从中碎裂为两半。\n\n这是一件来自家乡的纪念物，在纹章的支持下战士会变得不屈不挠。佩戴着纹章，战士会在将要受伤至生命值半数以下时立即获得护盾。\n\n纹章可以被_贴附在护甲上_并能在护甲间转移。它能够携带最多 _5 级_升级（升级时纹章需已贴附在护甲上），并能携带_任意刻印_。\n\n纹章_取下后_同样是一件可被打造的物品：它可以被_升级卷轴_继续升级（仍以 5 级为限），也可以被_附魔道具_刻上新的刻印。")
+			.t("desc", "一枚蜡制纹章，作为勇气的象征而贴附在护甲之上。纹章上刻有磨损的防御符咒，并从中碎裂为两半。\n\n这是一件来自家乡的纪念物，在纹章的支持下战士会变得不屈不挠：护盾会随时间累积（上限为护甲等级 + 阶位×2），但在极度饥饿时停止累积。\n\n纹章可以被_贴附在护甲上_并能在护甲间转移。它能够携带最多 _2 级_升级（升级时纹章需已贴附在护甲上），并能携带_任意刻印_。\n\n纹章_取下后_同样是一件可被打造的物品：它可以被_升级卷轴_继续升级（仍以 2 级为限），也可以被_附魔道具_刻上新的刻印。")
 			.t("inscribed", "纹章刻有_%s_。")
 			.t("choose_title", "选择一个刻印")
 			.t("choose_desc", "这件护甲与破损纹章均刻有刻印。请选择一个想保留的刻印。\n\n护甲刻印：%1$s\n破损纹章刻印：%2$s\n\n注意，如果选择保留护甲的刻印，纹章将无法转移该刻印。")
@@ -82,8 +83,15 @@ public class BrokenSeal extends Item {
 	//only to be used from the quickslot, for tutorial purposes mostly.
 	public static final String AC_INFO = "INFO_WINDOW";
 
-	/** SPSEXPD: 纹章可携带的升级上限（原版为 1 级）。 */
-	public static final int MAX_CARRIED_LEVEL = 5;
+	/** SPSEXPD: 纹章可携带的升级上限（破损纹章 2 级；碎片在子类覆写为 1 级）。 */
+	public int maxCarriedLevel() {
+		return 2;
+	}
+
+	/** SPSEXPD: 能否携带某刻印 —— 破损纹章可携带任意刻印；碎片只允许普通刻印（非诅咒、非强大，子类覆写）。 */
+	public boolean canCarryGlyph( Armor.Glyph g ) {
+		return g != null;
+	}
 
 	{
 		image = EquipmentNonEquipDict.SEAL_SHARD;
@@ -110,15 +118,35 @@ public class BrokenSeal extends Item {
 		this.glyph = glyph;
 	}
 
-	/** SPSEXPD: 供附魔道具（注魔秘卷/附魔符石）给拆卸下来的纹章刻上刻印。 */
+	/** SPSEXPD: 供附魔道具（注魔秘卷/附魔符石）给拆卸下来的纹章刻上刻印。
+	 *  会拒绝本纹章无法携带的刻印（碎片只允许普通刻印），避免出现「消耗了道具却没生效」。 */
 	public void inscribe( Armor.Glyph glyph ){
+		if (glyph != null && !canCarryGlyph( glyph )) return;
 		setGlyph( glyph );
 	}
 
+	/** SPSEXPD: 随机一个本纹章可携带的刻印（池中全是禁用品时返回 null）。 */
+	public Armor.Glyph randomCarriableGlyph() {
+		Class<? extends Armor.Glyph> exclude = glyph != null ? glyph.getClass() : null;
+		for (int i = 0; i < 64; i++) {
+			Armor.Glyph g = Armor.Glyph.random( exclude );
+			if (canCarryGlyph( g )) return g;
+		}
+		return null;
+	}
+
+	/** SPSEXPD: 随机刻上可携带的刻印；返回是否真的刻上了（供调用方决定要不要消耗道具）。 */
+	public boolean inscribeRandom() {
+		Armor.Glyph g = randomCarriableGlyph();
+		if (g == null) return false;
+		inscribe( g );
+		return true;
+	}
+
 	public int maxShield( int armTier, int armLvl ){
-		// 5-15, based on equip tier
-		//SPSXPD: 原破碎天赋「钢铁意志」的满级加成（+2）直接并入物品
-		return 3 + 2*armTier + 2;
+		//SPSEXPD: 护盾上限 = 护甲等级 + 阶位 × 2（护盾随时间累积，见 WarriorShield.act）
+		//碎片不提供护盾（子类覆写为 0）
+		return armLvl + armTier * 2;
 	}
 
 	@Override
@@ -224,7 +252,7 @@ public class BrokenSeal extends Item {
 	//SPSEXPD: 拆卸下来的纹章可被升级卷轴/铁匠继续升级，直到携带上限；
 	//贴在护甲上时仍由护甲升级同步记录（见 Armor.upgrade）
 	public boolean isUpgradable() {
-		return level() < MAX_CARRIED_LEVEL;
+		return level() < maxCarriedLevel();
 	}
 
 	protected static WndBag.ItemSelector armorSelector = new WndBag.ItemSelector() {
@@ -340,39 +368,27 @@ public class BrokenSeal extends Item {
 
 		@Override
 		public synchronized boolean act() {
-			if (cooldown > 0 && Regeneration.regenOn()){
-				cooldown--;
+			//SPSEXPD: 护盾改为随时间累积（上限 = 护甲等级 + 阶位×2）；极度饥饿时不累积。
+			//同时取消原「触发后冷却」与「附近无敌人 5 回合则清空」的规则：护盾被消耗后会自动补回来。
+			Hunger hunger = target.buff(Hunger.class);
+			boolean starving = hunger != null && hunger.isStarving();
+
+			int cap = maxShield();
+			if (cap > 0 && !starving && shielding() < cap) {
+				incShield(1);
 			}
 
-			if (shielding() > 0){
-				if (Dungeon.hero.visibleEnemies() == 0 && Dungeon.hero.buff(Combo.class) == null){
-					turnsSinceEnemies += HoldFast.buffDecayFactor(target);
-					if (turnsSinceEnemies >= 5){
-						if (cooldown > 0) {
-							float percentLeft = shielding() / (float)initialShield;
-							//max of 50% cooldown refund
-							cooldown = Math.max(0, (int)(cooldown - COOLDOWN_START * (percentLeft / 2f)));
-						}
-						decShield(shielding());
-					}
-				} else {
-					turnsSinceEnemies = 0;
-				}
-			}
-			
-			if (shielding() <= 0 && maxShield() <= 0 && cooldown == 0){
+			if (shielding() <= 0 && cap <= 0){
 				detach();
 			}
-			
+
 			spend(TICK);
 			return true;
 		}
 
 		public synchronized void activate() {
+			//SPSEXPD: 累积机制下不再需要冷却，直接把护盾补到当前上限
 			incShield(maxShield());
-			cooldown = Math.max(0, cooldown+COOLDOWN_START);
-			turnsSinceEnemies = 0;
-			initialShield = maxShield();
 		}
 
 		public boolean coolingDown(){

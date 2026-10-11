@@ -134,7 +134,7 @@ public class Stylus extends Item {
 
 		GLog.w( Messages.get(this, "inscribed") );
 
-		seal.inscribe( Armor.Glyph.random( seal.getGlyph() != null ? seal.getGlyph().getClass() : null ) );
+		seal.inscribeRandom();
 
 		curUser.sprite.operate(curUser.pos);
 		curUser.sprite.centerEmitter().start(PurpleParticle.BURST, 0.05f, 10);

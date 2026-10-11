@@ -1195,6 +1195,8 @@ public enum HeroClass {
 					l.backpack(() -> new BrokenSeal(), 0, 1, -1, (h, i) -> {
 						if (h.belongings.armor != null) ((BrokenSeal) i).affixToArmor(h.belongings.armor, null);
 					});
+					//SPSEXPD: 战士同样携带一枚纹章碎片（只放背包，不贴护甲——护甲上只能挂一个纹章）
+					l.backpack(() -> new pd.items.SealShard());
 					break;
 			}
 		}
