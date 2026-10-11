@@ -2621,8 +2621,10 @@ tasks.register('collectOutputs', Copy) {
 		include '**/*.apk'
 	}
 	//桌面可执行 jar（release 任务产物；排除默认命名的模块 jar）
+	//SPSEXPD: 只收本次版本号的 jar —— desktop/build/libs 从不清理，会累积历次构建的产物，
+	//用 SPSEXPD*.jar 会把它们一并搬进 output/，表现为打包途中冒出一堆旧版本。
 	from('desktop/build/libs') {
-		include 'SPSEXPD*.jar'
+		include "SPSEXPD-${appVersionName}.jar"
 	}
 	//jpackage 安装器（只收顶层产物；app-image 目录里的 exe 离开同目录的运行时跑不起来，
 	//Windows 免安装包改由 tools/package.ps1 -WinExe 整目录复制到 output/）
