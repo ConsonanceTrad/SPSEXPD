@@ -118,7 +118,9 @@ public class WndSettings extends WndTabbed {
 			.t("$auxtab.quick_light", "照明")
 			.t("$auxtab.quick_talent", "加点")
 			.t("$auxtab.quick_eat", "进食")
-			.t("$auxtab.bag_bottom_tabs", "底部背包标签栏")
+			.t("$auxtab.bag_tabs_side", "两侧标签页")
+			.t("$auxtab.bag_tabs_paged", "底部翻页标签页")
+			.t("$auxtab.bag_tabs_plain", "底部原始标签页")
 			//SPSEXPD: 行末蓝色感叹号点开的「详细作用」（键名 = 上方各键 + _desc）
 			.t("$auxtab.hero_path_desc", "在画面里画出你点击的移动路线，方便提前规划走位。")
 			.t("$auxtab.search_pickup_desc", "使用「检索」时，会顺手拾取视野内可达的地面物品。")
@@ -126,7 +128,9 @@ public class WndSettings extends WndTabbed {
 			.t("$auxtab.quick_light_desc", "夜晚且身上带着光源时，显示一键照明的快捷按钮（优先用露珠瓶，其次火把）。")
 			.t("$auxtab.quick_talent_desc", "有未分配的特质点时，显示一键打开加点界面的快捷按钮。")
 			.t("$auxtab.quick_eat_desc", "饥饿时显示一键进食的快捷按钮，自动吃背包里的食物。")
-			.t("$auxtab.bag_bottom_tabs_desc", "把包裹标签栏从背包窗口左右两侧移到底部，分页显示：每页 3 个包裹 + 翻页 + 主背包。切换包裹仍是一次点击，只有包裹多于 3 个时才需要先翻页；好处是标签不再占用窗口宽度，背包格子可以保持更大（高缩放时尤其明显）。")
+			.t("$auxtab.bag_tabs_side_desc", "包裹标签栏放在背包窗口的左右两侧（默认布局）。")
+			.t("$auxtab.bag_tabs_paged_desc", "标签栏移到底部、分页显示：每页 3 个包裹 + 翻页 + 主背包。切换包裹仍是一次点击，只有包裹多于 3 个时才需要先翻页；标签不再占用窗口宽度，背包格子能保持更大（高缩放时尤其明显）。")
+			.t("$auxtab.bag_tabs_plain_desc", "标签栏移到底部并平铺显示全部包裹与主背包，没有翻页，一屏点全；包裹多时每格会变窄。")
 			.t("$audiotab.title", "音频设置")
 			.t("$audiotab.music_vol", "音乐音量")
 			.t("$audiotab.music_mute", "关闭音乐")
@@ -1024,7 +1028,10 @@ public class WndSettings extends WndTabbed {
 		CheckBox chkQuickTalent;
 		CheckBox chkQuickEat;
 		//SPSEXPD: 背包相关开关——旧版布局（标签栏放底部，分页显示）
-		CheckBox chkBagBottomTabs;
+		//SPSEXPD: 背包界面三选一（三个单选行互斥）
+		CheckBox chkBagTabsSide;
+		CheckBox chkBagTabsPaged;
+		CheckBox chkBagTabsPlain;
 
 		//SPSEXPD: 背包分组的标题（小号字，风格同「快捷操作开关」）
 		RenderedTextBlock bagGroup;
@@ -1132,16 +1139,35 @@ public class WndSettings extends WndTabbed {
 			bagGroup = PixelScene.renderTextBlock(Messages.get(AuxTab.class, "bag_group"), 6);
 			add(bagGroup);
 
-			//SPSEXPD: 旧版背包界面——包裹标签栏从左右两侧移到底部（分页：3 包裹 + 翻页 + 主背包）
-			chkBagBottomTabs = new AuxCheckBox(Messages.get(AuxTab.class, "bag_bottom_tabs")) {
+			//SPSEXPD: 背包界面三选一——两侧标签页 / 底部翻页标签页 / 底部原始标签页（三个单选行互斥）
+			chkBagTabsSide = new AuxCheckBox(Messages.get(AuxTab.class, "bag_tabs_side")) {
 				@Override
 				protected void onClick() {
 					super.onClick();
-					SPDSettings.bagBottomTabs(checked());
+					setBagTabsMode(SPDSettings.BAG_TABS_SIDE);
 				}
 			};
-			chkBagBottomTabs.checked(SPDSettings.bagBottomTabs());
-			add(chkBagBottomTabs);
+			add(chkBagTabsSide);
+
+			chkBagTabsPaged = new AuxCheckBox(Messages.get(AuxTab.class, "bag_tabs_paged")) {
+				@Override
+				protected void onClick() {
+					super.onClick();
+					setBagTabsMode(SPDSettings.BAG_TABS_BOTTOM_PAGED);
+				}
+			};
+			add(chkBagTabsPaged);
+
+			chkBagTabsPlain = new AuxCheckBox(Messages.get(AuxTab.class, "bag_tabs_plain")) {
+				@Override
+				protected void onClick() {
+					super.onClick();
+					setBagTabsMode(SPDSettings.BAG_TABS_BOTTOM_PLAIN);
+				}
+			};
+			add(chkBagTabsPlain);
+
+			setBagTabsMode(SPDSettings.bagTabsMode());   //按当前模式点亮其中一行
 
 			//SPSEXPD: 每一行行末都挂上蓝色感叹号说明按钮（顺序＝界面从上到下）
 			addRowNote(chkHeroPath, "hero_path");
@@ -1150,7 +1176,17 @@ public class WndSettings extends WndTabbed {
 			addRowNote(chkQuickLight, "quick_light");
 			addRowNote(chkQuickTalent, "quick_talent");
 			addRowNote(chkQuickEat, "quick_eat");
-			addRowNote(chkBagBottomTabs, "bag_bottom_tabs");
+			addRowNote(chkBagTabsSide, "bag_tabs_side");
+			addRowNote(chkBagTabsPaged, "bag_tabs_paged");
+			addRowNote(chkBagTabsPlain, "bag_tabs_plain");
+		}
+
+		//SPSEXPD: 三个模式互斥——写入设置并同步三行的选中状态
+		private void setBagTabsMode(int mode) {
+			SPDSettings.bagTabsMode(mode);
+			chkBagTabsSide.checked(mode == SPDSettings.BAG_TABS_SIDE);
+			chkBagTabsPaged.checked(mode == SPDSettings.BAG_TABS_BOTTOM_PAGED);
+			chkBagTabsPlain.checked(mode == SPDSettings.BAG_TABS_BOTTOM_PLAIN);
 		}
 
 		//SPSEXPD: 给某一行挂上行末的说明按钮（复选框本身已在 createChildren 里 add 过）

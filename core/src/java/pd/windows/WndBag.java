@@ -434,6 +434,23 @@ public class WndBag extends WndTabbed {
 		int n = tabs.size();
 		if (n == 0) return;
 
+		//SPSEXPD: 底部「原始」模式——不翻页，所有包裹 + 主背包平铺在一行（每格 1/n 宽）
+		if (SPDSettings.bagTabsMode() == SPDSettings.BAG_TABS_BOTTOM_PLAIN) {
+			for (int i = 0; i < n; i++) {
+				tabs.get(i).visible = false;
+			}
+			if (bottomPager != null) bottomPager.visible = false;
+
+			float step = (float)width / n;
+			float ty = height;
+			//包裹按顺序占前 n-1 格，主背包固定最后一格（与翻页模式的位置口径一致）
+			for (int i = 1; i < n; i++) {
+				placeBottomTab( tabs.get(i), i - 1, step, step, ty );
+			}
+			placeBottomTab( tabs.get(0), n - 1, step, step, ty );
+			return;
+		}
+
 		int bagCount = n - 1;                                         //除主背包
 		int pages = Math.max( 1, (bagCount + BOTTOM_PER_PAGE - 1) / BOTTOM_PER_PAGE );
 		bottomPage = ((bottomPage % pages) + pages) % pages;          //翻到底回到第一页

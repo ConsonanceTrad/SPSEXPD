@@ -64,6 +64,7 @@ public class SPDSettings extends GameSettings {
 	public static final String KEY_SWAP_AUX_BAR = "swap_aux_bar"; //SPSEXPD: 交换左侧快捷栏与快捷操作按钮
 	public static final String KEY_SWAP_WAIT_SEARCH = "swap_wait_search"; //SPSEXPD: 交换等待与检索按钮
 	public static final String KEY_BAG_BOTTOM_TABS = "bag_bottom_tabs"; //SPSEXPD: 背包标签栏放到底部（旧版布局，每页 3 个包裹 + 翻页 + 主背包）
+	public static final String KEY_BAG_TABS_MODE = "bag_tabs_mode";     //SPSEXPD: 背包界面模式（0 两侧 / 1 底部翻页 / 2 底部原始）
 	
 	public static void fullscreen( boolean value ) {
 		put( KEY_FULLSCREEN, value );
@@ -145,13 +146,29 @@ public class SPDSettings extends GameSettings {
 		return getBoolean( KEY_SWAP_WAIT_SEARCH, false );
 	}
 
-	//SPSEXPD: 背包界面还原旧版——包裹标签栏从左右两侧移到底部，分页显示（每页 3 个包裹 + 翻页 + 主背包）
+	//SPSEXPD: 背包界面模式（三选一）——0 两侧标签页 / 1 底部翻页标签页 / 2 底部原始标签页（不翻页）
+	public static final int BAG_TABS_SIDE = 0;
+	public static final int BAG_TABS_BOTTOM_PAGED = 1;
+	public static final int BAG_TABS_BOTTOM_PLAIN = 2;
+
+	public static void bagTabsMode( int value ){
+		put( KEY_BAG_TABS_MODE, Math.max( BAG_TABS_SIDE, Math.min( BAG_TABS_BOTTOM_PLAIN, value ) ) );
+	}
+
+	public static int bagTabsMode(){
+		int m = getInt( KEY_BAG_TABS_MODE, -1 );
+		if (m >= 0) return Math.min( BAG_TABS_BOTTOM_PLAIN, m );
+		//SPSEXPD: 旧档只有布尔键 bag_bottom_tabs，true -> 底部翻页、false -> 两侧
+		return getBoolean( KEY_BAG_BOTTOM_TABS, true ) ? BAG_TABS_BOTTOM_PAGED : BAG_TABS_SIDE;
+	}
+
+	//SPSEXPD: 兼容旧入口——标签栏是否在底部（翻页与原始两种模式都算在底部）
 	public static void bagBottomTabs( boolean value ){
-		put( KEY_BAG_BOTTOM_TABS, value );
+		bagTabsMode( value ? BAG_TABS_BOTTOM_PAGED : BAG_TABS_SIDE );
 	}
 
 	public static boolean bagBottomTabs(){
-		return getBoolean( KEY_BAG_BOTTOM_TABS, true );
+		return bagTabsMode() != BAG_TABS_SIDE;
 	}
 	
 	public static void zoom( int value ) {
