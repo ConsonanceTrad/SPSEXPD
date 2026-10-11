@@ -96,7 +96,8 @@ public final class SpsTownMeleeTest {
 				&& ranged.enchantment instanceof Blazing && ranged.reinforced
 				&& ranged.levelKnown && ranged.cursedKnown && ranged.cursed,
 				"切换远程煎锅时没有完整保留装备状态");
-		check(ranged.min(0) == 4 && ranged.max(0) == 8 && ranged.STRReq(0) == 10,
+		//SPSEXPD: 数值统一到破碎式（T1 => +0 1-10），力量需求随等级下降（+0 仍为 10）
+		check(ranged.min(0) == 1 && ranged.max(0) == 10 && ranged.STRReq(0) == 10,
 				"远程煎锅基础数值错误");
 		MeleePan restored = ranged.changeToMelee(hero);
 		check(hero.belongings.weapon() == restored && restored.trueLevel() == 3

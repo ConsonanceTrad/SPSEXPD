@@ -77,18 +77,17 @@ public final class SpsRangeWeaponTest {
 			for (int variant = 0; variant < 3; variant++) {
 				RangeWeapon bow = (RangeWeapon)BOW_TYPES[tierIndex][variant].getDeclaredConstructor().newInstance();
 				float delay = variant == 0 ? 1f : variant == 1 ? 0.8f : 1.25f;
-				int baseMin = (int)((tier + 3) * delay);
-				int baseMax = (int)((tier * tier - tier + 8) * delay);
-				int maxGrowth = 1 + tier / 2 + (variant == 2 ? tier + 1 : 0);
-				check(bow.min(0) == baseMin && bow.max(0) == baseMax,
+				//SPSEXPD: 数值统一到破碎式（min=tier+lvl、max=5*(tier+1)+lvl*(tier+1)，LIGHT/HEAVY 各修正 (tier+1)）
+				int step = tier + 1;
+				int maxAt0 = 5 * step + (variant == 1 ? -step : variant == 2 ? step : 0);
+				check(bow.min(0) == tier && bow.max(0) == maxAt0,
 						bow.getClass().getSimpleName() + "基础伤害错误");
-				check(bow.min(4) == baseMin + (variant == 1 ? 0 : 4)
-						&& bow.max(4) == baseMax + maxGrowth * 4,
+				check(bow.min(4) == tier + 4 && bow.max(4) == maxAt0 + 4 * step,
 						bow.getClass().getSimpleName() + "强化成长错误");
 				int strengthShift = variant == 0 ? 0 : variant == 1 ? -1 : 1;
-				check(bow.STRReq(0) == 8 + tier * 2 + strengthShift
-						&& bow.STRReq(4) == bow.STRReq(0),
-						bow.getClass().getSimpleName() + "固定力量需求错误");
+				//SPSEXPD: 力量需求随等级下降（+1/+3/+6/+10 各降 1 点，+4 时降 2）
+				check(bow.STRReq(0) == 8 + tier * 2 + strengthShift && bow.STRReq(4) == bow.STRReq(0) - 2,
+						bow.getClass().getSimpleName() + "力量需求错误");
 				check(Math.abs(bow.DLY - delay) < 0.00001f && bow.image == BOW_IMAGES[tierIndex],
 						bow.getClass().getSimpleName() + "射速或图标错误");
 				check(bow.isUpgradable() && bow.value() == 100, bow.getClass().getSimpleName() + "强化或价值错误");

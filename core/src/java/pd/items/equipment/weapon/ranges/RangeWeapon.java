@@ -69,21 +69,27 @@ public abstract class RangeWeapon extends SpsRangedWeapon {
 		usesTargeting = true;
 	}
 
+	//SPSEXPD: 数值曲线统一到破碎式（与近战同基线）——min=bowTier+lvl、max=5*(tier+1)+lvl*(tier+1)，
+	// LIGHT/HEAVY 各按 ∓(tier+1) 修正上限，力量需求随等级下降（变体的 ±1 保留）。
 	@Override
 	public int min(int lvl) {
-		int base = (int)((bowTier + 3) * variant.delay);
-		return base + (variant == Variant.LIGHT ? 0 : lvl);
+		return bowTier + lvl;
 	}
 
 	@Override
 	public int max(int lvl) {
-		int base = (int)((bowTier * bowTier - bowTier + 8) * variant.delay);
-		int growth = 1 + bowTier / 2;
-		if (variant == Variant.HEAVY) growth += bowTier + 1;
-		return base + growth * lvl;
+		int step = bowTier + 1;
+		int base = 5 * step + lvl * step;
+		if (variant == Variant.LIGHT) return Math.max(min(lvl), base - step);
+		if (variant == Variant.HEAVY) return base + step;
+		return base;
 	}
 
-	@Override public int STRReq(int lvl) { return 8 + bowTier * 2 + variant.strengthShift; }
+	@Override
+	public int STRReq(int lvl) {
+		int lv = Math.max(0, lvl);
+		return (8 + bowTier * 2 + variant.strengthShift) - (int)(Math.sqrt(8 * lv + 1) - 1) / 2;
+	}
 	@Override public boolean isUpgradable() { return true; }
 
 	@Override

@@ -89,7 +89,11 @@ public class GunWeapon extends SpsRangedWeapon {
 
 	@Override public int min(int lvl) { return gunTier + 2 + lvl; }
 	@Override public int max(int lvl) { return gunTier * gunTier - gunTier + 8 + (2 + gunTier / 2) * lvl; }
-	@Override public int STRReq(int lvl) { return 8 + gunTier * 2; }
+	//SPSEXPD: 力量需求随等级下降（与近战/弓/护甲统一）
+	@Override public int STRReq(int lvl) {
+		int lv = Math.max(0, lvl);
+		return (8 + gunTier * 2) - (int)(Math.sqrt(8 * lv + 1) - 1) / 2;
+	}
 	@Override public int damageRoll(Char owner) { return 0; }
 	@Override public boolean isUpgradable() { return true; }
 

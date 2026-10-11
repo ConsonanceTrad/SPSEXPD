@@ -69,8 +69,9 @@ public final class SpsGunTest {
 					gun.getClass().getSimpleName() + "强化成长错误");
 			check(gun.STRReq(0) == 8 + tier * 2 && gun.fullCharge() == capacities[i],
 					gun.getClass().getSimpleName() + "力量需求或弹匣容量错误");
-			check(gun.STRReq(4) == 8 + tier * 2,
-					gun.getClass().getSimpleName() + "强化后错误降低了旧版固定力量需求");
+			//SPSEXPD: 力量需求随等级下降（+1/+3/+6/+10 各降 1 点，+4 时降 2 点）
+			check(gun.STRReq(4) == 8 + tier * 2 - 2,
+					gun.getClass().getSimpleName() + "强化后的力量需求错误");
 			check(gun.image == images[i], gun.getClass().getSimpleName() + "图标槽错误");
 		}
 
