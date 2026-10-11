@@ -326,11 +326,8 @@ public class BrokenSeal extends Item {
 
 		@Override
 		public int icon() {
-			if (coolingDown() || shielding() > 0 || cooldown < 0){
-				return BuffIndicator.SEAL_SHIELD;
-			} else {
-				return BuffIndicator.NONE;
-			}
+			//SPSEXPD: 护盾量已经在血条上显示，不再占用 buff 栏（原为有护盾/冷却时显示 SEAL_SHIELD）
+			return BuffIndicator.NONE;
 		}
 
 		@Override
