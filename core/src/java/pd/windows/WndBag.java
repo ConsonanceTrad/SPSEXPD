@@ -152,10 +152,13 @@ public class WndBag extends WndTabbed {
 	//左侧 5 个、右侧其余，主背包固定右下角（参照归档 Godot 版 wnd_bag.gd 的侧栏布局）
 	//SPS: 侧边标签尺寸由贴图 Assets.Interfaces.SIDE_TABS 决定（横向 2 帧）——贴图多大标签就多大，
 	//构造时读取（initSideTabSize），避免硬编码尺寸与美术贴图不匹配。
-	//SPSEXPD: 侧栏标签的「绘制 / 占位宽度」。side_tabs_s.png 每帧 20px 宽，但有效图案只占左侧
-	//12px（右侧 8px 是透明留白），所以这里取 12 —— 横向预算每侧少扣 8px，手机上背包窗口能更大。
-	//与贴图规格绑定：换图要同步这个值（同 PLATE_CAP 的做法）。
-	protected static int TAB_W		= 12;
+	//SPSEXPD: 侧栏标签的「绘制 / 占位宽度」= 贴图里每帧有效图案的宽度。
+	//side_tabs_s.png 每帧 20px 宽（TAB_FRAME_W），但有效图案只有 11px，其余是透明留白，
+	//所以按 11 裁取正好贴住背包，横向预算每侧也少扣 9px。
+	//与贴图规格绑定：换图要同步这三个值（同 PLATE_CAP 的做法）。
+	protected static final int TAB_FRAME_W	= 20;      //单帧在贴图里的宽度（= 贴图宽 / 2）
+	protected static final int TAB_ART_OFF_UNSEL = 1;  //未选中帧的图案在帧内右移 1px（贴图本身如此）
+	protected static int TAB_W		= 11;              //有效图案宽度（选中帧在帧内 x0..10）
 	protected static int TAB_H		= 70;    //单帧高 = 上固定段 + 可裁中段 + 下固定段
 	protected static final int PLATE_CAP	= 3;     //SPS: 底板上下固定段高度（与 side_tabs.png 规格绑定）
 	protected static final int LEFT_TABS	= 5;
@@ -398,7 +401,8 @@ public class WndBag extends WndTabbed {
 
 		//SPS: 标签在窗框外侧——未选中时压在窗框下、选中时探入框带。
 		//探入深度 = 窗框带 6px - 2px = 4px（再外移 2px 让选中态探入浅一点）
-		float leftX = -TAB_W - 2, rightX = width + 2;
+		//SPSEXPD: 标签紧贴背包内容 —— 原先各留 1px 空隙（±2），按用户要求补进 1px
+		float leftX = -TAB_W - 1, rightX = width + 1;
 
 		int sideIdx = 0;
 		for (int i = 1; i < n; i++) {
@@ -1004,7 +1008,9 @@ public class WndBag extends WndTabbed {
 
 			//SPS: 帧 0 = 选中、帧 1 = 未选；中段按标签高度裁取，绝不缩放。
 			//贴图不够长时用多块中段循环拼接（原先只支持 1 块续块，标签变高后会漏空）
-			int fx = selected ? 0 : TAB_W;
+			//SPSEXPD: fx 必须用「单帧宽」定位，不能用 TAB_W（图案宽）——
+			//否则未选中帧会裁到两帧之间的空隙，表现为未选中时没有图像
+			int fx = selected ? 0 : TAB_FRAME_W + TAB_ART_OFF_UNSEL;
 			int midMax = Math.max( 1, TAB_H - 2 * PLATE_CAP );          //贴图可提供的中段长度
 			int remaining = Math.max( 0, Math.round( height ) - 2 * PLATE_CAP );
 
