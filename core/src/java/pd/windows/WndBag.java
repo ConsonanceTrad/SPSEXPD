@@ -152,13 +152,13 @@ public class WndBag extends WndTabbed {
 	//左侧 5 个、右侧其余，主背包固定右下角（参照归档 Godot 版 wnd_bag.gd 的侧栏布局）
 	//SPS: 侧边标签尺寸由贴图 Assets.Interfaces.SIDE_TABS 决定（横向 2 帧）——贴图多大标签就多大，
 	//构造时读取（initSideTabSize），避免硬编码尺寸与美术贴图不匹配。
-	//SPSEXPD: 侧栏标签贴图与宽度。两版贴图的帧宽都是 20（TAB_FRAME_W）：
-	//  · side_tabs.png   = 原版，图案满帧 20px
-	//  · side_tabs_s.png = 窄版，图案 16px（右侧透明留白），横向紧凑时才用
-	//紧凑判定见构造里的 shouldUseCompactTabs()：按原版标签带算，理想窗口已超宽度上限就说明横向紧张。
+	//SPSEXPD: 侧栏标签贴图与宽度。
+	//  · side_tabs.png   = 原版：横向 2 帧（40 / 2 = 每帧 20px），帧0 选中 / 帧1 未选
+	//  · side_tabs_s.png = 窄版：单帧贴图（16 x 35），整张直接用（不切两半），选中与否只靠图标亮度
+	//紧凑时才切窄版：见构造里的 compactTabs 判定（两侧布局且原版标签带放不下）
 	protected static final int TAB_FRAME_W	    = 20;   //原版单帧在贴图里的宽度（= side_tabs.png 宽 / 2）
 	protected static final int TAB_W_WIDE	    = 20;   //原版有效图案宽度
-	protected static final int TAB_W_COMPACT    = 8;    //窄版有效图案宽度（side_tabs_s.png 16 / 2）
+	protected static final int TAB_W_COMPACT    = 16;   //窄版图案宽度 = 贴图整宽（单帧）
 	protected static final int TAB_ART_OFF_UNSEL = 1;   //原版未选中帧的图案在帧内右移 1px（贴图本身如此）
 	protected static int TAB_W		= TAB_W_WIDE;       //当前生效的图案宽度
 	protected static boolean compactTabs = false;       //是否在用窄版标签
