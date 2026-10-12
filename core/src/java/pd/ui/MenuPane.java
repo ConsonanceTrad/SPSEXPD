@@ -188,11 +188,8 @@ public class MenuPane extends Component {
 		if (clock != null) {
 			clock.refresh();
 		}
-		//SPSEXPD: 本层没有入口/出口 transition 时（例如某些 Boss 层），视角按钮不显示
-		if (cameraButton != null) {
-			boolean show = cameraTargetAvailable();
-			cameraButton.visible = cameraButton.active = show;
-		}
+		//SPSEXPD: 视角按钮始终显示——本层还没发现入口/出口时点击不生效（toggleCameraTarget 里
+		//找不到目标会静默返回），但按钮本身不隐藏，避免玩家以为功能时有时无
 	}
 
 	@Override
@@ -248,8 +245,8 @@ public class MenuPane extends Component {
 		danger.setSize( camera.width - danger.width(), danger.height());
 	}
 
-	//SPSEXPD: 视角切换按钮 —— 与「菜单/事件记录」同款按钮底图，但 hardlight 成红底。
-	//图标暂时不加（以免把按钮撑大），下一步再补。
+	//SPSEXPD: 视角切换按钮 —— 与「菜单/事件记录」同款按钮底图（hardlight 成红底）+ 用户绘制的
+	//9×6 图标。按钮始终显示；本层还没发现入口/出口时点击静默不生效（不隐藏、不变灰）。
 	private class CameraButton extends Button {
 
 		private Image bg;
@@ -299,20 +296,11 @@ public class MenuPane extends Component {
 		}
 	}
 
-	/**
-	 * SPSEXPD: 该格是否是「已知的」入口/出口 —— 本层有对应的 transition，且该格已经被探索过
-	 * （还没走到、没看到的地方不算「发现」，视角按钮不会指向它）。
-	 */
+	/** SPSEXPD: 该格是否是「已知的」入口/出口 —— 本层有对应的 transition，且该格已经被探索过
+	 * （还没走到、没看到的地方不算「发现」，视角跳转不会指向它）。 */
 	private boolean cameraTargetKnown( int cell ){
 		if (Dungeon.level == null) return false;
 		return Transitions.get( Dungeon.level, cell ) != null && Dungeon.level.mapped[cell];
-	}
-
-	/** SPSEXPD: 本层是否至少发现了一处入口/出口（都没发现时不显示视角按钮） */
-	private boolean cameraTargetAvailable(){
-		if (Dungeon.level == null) return false;
-		return cameraTargetKnown( Dungeon.level.entrance() )
-				|| cameraTargetKnown( Dungeon.level.exit() );
 	}
 
 	//SPSEXPD: 在「入口 ↔ 出口」之间切换相机位置。
