@@ -208,7 +208,9 @@ public class MenuPane extends Component {
 		btnJournal.setPos( PixelScene.align( x + CELL2_CENTER - btnJournal.width()/2f ), y );
 		btnMenu.setPos( PixelScene.align( x + CELL3_CENTER - btnMenu.width()/2f ), y );
 
-		depthIcon.x = btnJournal.left() - 7 + (7 - depthIcon.width())/2f - 0.1f;
+		//SPSEXPD: 「楼层 / 挑战」图标在框外左侧 —— 基准用框左缘 x（三个按钮搬进框内后，
+		//不能再以 btnJournal.left() 为基准，那已经变成框内中间格，会把图标压到第三个按钮底下）
+		depthIcon.x = x - 7 + (7 - depthIcon.width())/2f - 0.1f;
 		depthIcon.y = y + FRAME_TOP;
 		PixelScene.align(depthIcon);
 
