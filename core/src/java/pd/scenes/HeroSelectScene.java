@@ -32,6 +32,8 @@ import pd.SPDSettings;
 import pd.ShatteredPixelDungeon;
 import pd.actors.hero.CombatStyle;
 import pd.actors.hero.HeroClass;
+import pd.actors.hero.perks.Perk;
+import pd.actors.hero.perks.PerkGrants;
 import pd.journal.Journal;
 import pd.messages.Messages;
 import pd.sprites.HeroSprite;
@@ -41,6 +43,7 @@ import pd.ui.ExitButton;
 import pd.ui.IconButton;
 import pd.ui.Icons;
 import pd.ui.OptionSlider;
+import pd.ui.PerkSlot;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.StyledButton;
@@ -138,6 +141,11 @@ public class HeroSelectScene extends PixelScene {
 	private IconButton infoButton;
 	private GameOptions optionsPane;
 	private IconButton btnExit;
+
+	//SPSEXPD: 初始特质行 —— 选中职业的开局特质（图标待绘制，暂用 perks.png 空白帧占位）
+	private ArrayList<PerkSlot> perkSlots = new ArrayList<>();
+	private static final int PERK_SLOT = PerkSlot.BTN;
+	private static final int PERK_GAP = 2;
 
 	//SPSEXPD: 上一次布局用的屏幕尺寸（窗口缩放/旋转时重排）
 	private float layoutW = -1, layoutH = -1;
@@ -319,7 +327,25 @@ public class HeroSelectScene extends PixelScene {
 		themeBtn.visible = themeBtn.active = true;
 		infoButton.visible = infoButton.active = true;
 
+		//SPSEXPD: 初始特质行随职业重建，让玩家一眼看清该角色的开局特性
+		rebuildPerkSlots(cl);
+
 		layoutScene();
+	}
+
+	//SPSEXPD: 重建初始特质行（各职业的开局特质数量与内容都不同）
+	private void rebuildPerkSlots(HeroClass cl){
+		for (PerkSlot slot : perkSlots){
+			remove(slot);
+			slot.kill();
+		}
+		perkSlots.clear();
+		if (cl == null) return;
+		for (Perk perk : PerkGrants.initialPerksFor(cl)){
+			PerkSlot slot = new PerkSlot(perk);
+			add(slot);
+			perkSlots.add(slot);
+		}
 	}
 
 	//SPSEXPD: 选角界面自上而下的布局：特写横幅 / 过渡阴影 / 选角头像 / 英雄名与描述 / 底部图标选项行与开始
@@ -385,7 +411,9 @@ public class HeroSelectScene extends PixelScene {
 			}
 		}
 
-		float infoH = heroName.height() + 4 + descReserveH;
+		//SPSEXPD: 初始特质行占位（没有特质时不占高度）
+		float perkRowH = perkSlots.isEmpty() ? 0 : PERK_SLOT + 4;
+		float infoH = heroName.height() + 4 + perkRowH + descReserveH;
 		float space = Math.max(40, bottomTop - 4 - insets.top);
 
 		//特写横幅：横屏约半屏高、竖屏屏高 1/3；等比放大到该高度，超出部分裁掉两侧（cover）
@@ -463,7 +491,22 @@ public class HeroSelectScene extends PixelScene {
 		heroName.setPos(left + (w - nameRowW)/2f, nameTop);
 		align(heroName);
 
-		heroDesc.setPos(left + Math.max(0, (w - heroDesc.width())/2f), heroName.bottom() + 4);
+		//SPSEXPD: 初始特质行夹在英雄名与描述之间，整行居中
+		float perkY = heroName.bottom() + 2;
+		if (!perkSlots.isEmpty()){
+			float rowW = perkSlots.size() * PERK_SLOT + (perkSlots.size() - 1) * PERK_GAP;
+			float px = left + (w - rowW)/2f;
+			for (PerkSlot slot : perkSlots){
+				slot.setRect(px, perkY, PERK_SLOT, PERK_SLOT);
+				align(slot);
+				px += PERK_SLOT + PERK_GAP;
+			}
+			perkY += PERK_SLOT;
+		} else {
+			perkY = heroName.bottom();
+		}
+
+		heroDesc.setPos(left + Math.max(0, (w - heroDesc.width())/2f), perkY + 4);
 		align(heroDesc);
 
 		infoButton.setPos(heroName.right() + 2, heroName.top() + (heroName.height() - infoButton.height())/2f);
