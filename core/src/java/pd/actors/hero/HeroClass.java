@@ -1810,12 +1810,12 @@ public enum HeroClass {
 	//SPSEXPD: ---- 开局物品在详情页里的「按用途分组」（用户后续可自行调整这里的规则）-------
 	public enum ItemGroup {
 		EQUIP,    // 装备套装（武器 / 护甲 / 副手 / 饰品）
-		SPECIAL,  // 特殊装备（破损纹章、刻印笔… 不属于上面任何一类的本体物品）
 		BAG,      // 包裹袋
+		SPECIAL,  // 特殊装备（破损纹章、刻印笔… 不属于上面任何一类的本体物品）
+		WAND,     // 法杖
 		FOOD,     // 食品
 		POTION,   // 药水
 		SCROLL,   // 卷轴
-		WAND,     // 法杖
 		MISSILE,  // 投掷与弹药
 		BOMB,     // 炸弹
 		OTHER,    // 其它
