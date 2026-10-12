@@ -253,6 +253,7 @@ public class MenuPane extends Component {
 	private class CameraButton extends Button {
 
 		private Image bg;
+		private Image icon;
 
 		public CameraButton() {
 			super();
@@ -268,6 +269,10 @@ public class MenuPane extends Component {
 			bg = new Image( Assets.Interfaces.MENU_BTN, 2, 2, 13, 11 );
 			bg.hardlight( 0xC03838 );
 			add( bg );
+
+			//SPSEXPD: 用户绘制的视角图标（9×6）——在底图内居中，尺寸小于底图所以不会撑大按钮
+			icon = new Image( Assets.Interfaces.THIRD_BTN );
+			add( icon );
 		}
 
 		@Override
@@ -276,6 +281,10 @@ public class MenuPane extends Component {
 
 			bg.x = x + 2;
 			bg.y = y + FRAME_TOP;
+
+			icon.x = bg.x + (bg.width() - icon.width())/2f;
+			icon.y = bg.y + (bg.height() - icon.height())/2f;
+			PixelScene.align( icon );
 		}
 
 		@Override
