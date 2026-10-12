@@ -16,10 +16,10 @@ import render.noosa.Game;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
-/** Headless regression checks for all thirteen SPS-PD 0.9.8 armor glyphs. */
+/** Headless regression checks for the merged SPS/Shattered armor glyph pool (26 glyphs). */
 public final class SpsLegacyGlyphTest {
 
-	//SPSEXPD: 追加破碎原版并入的 8 种护甲刻印（同样并入 common 档）
+	//SPSEXPD: 追加破碎原版并入的 8 种护甲刻印 + 补接入的 5 种（魅惑/缠绕/电势/磐岩/荆棘），全部并入 common 档
 	private static final Class<?>[] GLYPHS = {
 			Changeglyph.class, Crystalglyph.class, Darkglyph.class, Earthglyph.class,
 			Electricityglyph.class, Fireglyph.class, Iceglyph.class, Lightglyph.class,
@@ -27,7 +27,8 @@ public final class SpsLegacyGlyphTest {
 			Energyglyph.class,
 			Obfuscation.class, Swiftness.class, Viscosity.class,
 			Brimstone.class, Repulsion.class, Camouflage.class, Flow.class,
-			AntiMagic.class
+			AntiMagic.class,
+			Affection.class, Entanglement.class, Potential.class, Stone.class, Thorns.class
 	};
 
 	public static void main(String[] args) throws Exception {
@@ -42,7 +43,7 @@ public final class SpsLegacyGlyphTest {
 			testCombatEffects();
 			testDeferredDamageSave();
 			testCrystalDelayProtection();
-			System.out.println("SPS旧版13种护甲刻印测试通过：生成牌组、元素抗性、触发效果、零级边界和存档均正常。");
+			System.out.println("护甲刻印测试通过（26 种，含补接入的魅惑/缠绕/电势/磐岩/荆棘）：生成牌组、元素抗性、触发效果、零级边界和存档均正常。");
 		} finally {
 			Random.popGenerator();
 		}

@@ -951,6 +951,7 @@ public class Armor extends EquipableItem {
 	public static abstract class Glyph implements Bundlable {
 		
 		//SPSEXPD: 并入破碎原版的护甲刻印（SPS 刻印池为单档平权，这里同样并入 common 档）
+		//SPSEXPD: 并补接入此前漏掉的 5 种破碎刻印（魅惑/缠绕/电势/磐岩/荆棘），使它们可正常生成
 		public static final Class<?>[] common = new Class<?>[]{
 				Changeglyph.class, Crystalglyph.class, Darkglyph.class, Earthglyph.class,
 				Electricityglyph.class, Fireglyph.class, Iceglyph.class, Lightglyph.class,
@@ -958,7 +959,8 @@ public class Armor extends EquipableItem {
 				Energyglyph.class,
 				Obfuscation.class, Swiftness.class, Viscosity.class,
 				Brimstone.class, Repulsion.class, Camouflage.class, Flow.class,
-				AntiMagic.class };
+				AntiMagic.class,
+				Affection.class, Entanglement.class, Potential.class, Stone.class, Thorns.class };
 
 		public static final Class<?>[] uncommon = new Class<?>[]{};
 
