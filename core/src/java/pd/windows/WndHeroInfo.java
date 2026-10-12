@@ -28,10 +28,8 @@ import pd.atlas.items.ConsumThrowsDict;
 import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
 
 import pd.Assets;
-import pd.Badges;
 import pd.actors.hero.HeroClass;
 import pd.actors.hero.HeroSubClass;
-import pd.actors.hero.abilities.ArmorAbility;
 import pd.actors.hero.perks.Perk;
 import pd.actors.hero.perks.PerkGrants;
 import pd.messages.Messages;
@@ -47,12 +45,18 @@ import render.noosa.ColorBlock;
 import render.noosa.Game;
 import render.noosa.Image;
 import render.noosa.ui.Component;
-import render.utils.platform.DeviceCompat;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
 
 public class WndHeroInfo extends WndTabbed {
+
+	//SPSEXPD: tab 索引（与构造里 add() 的顺序一一对应；选角界面的信息按钮组据此切到对应页）
+	public static final int TAB_ITEMS = 0;
+	public static final int TAB_PERKS = 1;
+	public static final int TAB_SUBCLASS = 2;
+	public static final int TAB_LORE = 3;
+
 	//SPSEXPD: inline Chinese text (generated from messages/windows/zh)
 	static {
 		InlineText.of(WndHeroInfo.class)
@@ -77,7 +81,8 @@ public class WndHeroInfo extends WndTabbed {
 			.t("subclasses", "专精")
 			.t("subclasses_msg", "击杀第二个Boss后可以选择一种职业专精。")
 			.t("abilities", "护甲技能")
-			.t("abilities_msg", "击杀第四个Boss后可以选择一项护甲技能。");
+			.t("abilities_msg", "击杀第四个Boss后可以选择一项护甲技能。")
+			.t("lore", "背景故事");
 	}
 
 
@@ -86,7 +91,7 @@ public class WndHeroInfo extends WndTabbed {
 	private HeroInfoTab heroInfo;
 	private PerkInfoTab perkInfo;
 	private SubclassInfoTab subclassInfo;
-	private ArmorAbilityInfoTab abilityInfo;
+	private LoreInfoTab loreInfo;
 
 	private static int WIDTH = 120;
 	private static int MIN_HEIGHT = 125;
@@ -96,48 +101,16 @@ public class WndHeroInfo extends WndTabbed {
 	private final int themeSkin;
 
 	public WndHeroInfo( HeroClass cl ){
-		this(cl, 0);
+		this(cl, 0, TAB_ITEMS);
 	}
 
 	public WndHeroInfo( HeroClass cl, int skin ){
-		this.themeSkin = skin;
+		this(cl, skin, TAB_ITEMS);
+	}
 
-		Image tabIcon;
-		switch (cl){
-			case WARRIOR: default:
-				tabIcon = new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0, null);
-				break;
-			case MAGE:
-				tabIcon = new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0, null);
-				break;
-			case ROGUE:
-				tabIcon = new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0, null);
-				break;
-			case HUNTRESS:
-				tabIcon = new ItemSprite(EquipmentEquipWeaponUniqueWeaponDict.SPIRIT_BOW_0, null);
-				break;
-			case DUELIST:
-				tabIcon = new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.RAPIER_0, null);
-				break;
-			case CLERIC:
-				tabIcon = new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0, null);
-				break;
-			case SPELLSWORD:
-				tabIcon = new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0, null);
-				break;
-			case PERFORMER:
-				tabIcon = new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0, null);
-				break;
-			case SOLDIER:
-				tabIcon = new ItemSprite(ConsumThrowsDict.THROWING_SPIKE_0, null);
-				break;
-			case FOLLOWER:
-				tabIcon = new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0, null);
-				break;
-			case ASCETIC:
-				tabIcon = new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.GLOVES, null);
-				break;
-		}
+	//SPSEXPD: initialTab = 打开时选中的 tab（选角界面的信息按钮组按类别直达对应页）
+	public WndHeroInfo( HeroClass cl, int skin, int initialTab ){
+		this.themeSkin = skin;
 
 		int finalHeight = MIN_HEIGHT;
 
@@ -146,7 +119,7 @@ public class WndHeroInfo extends WndTabbed {
 		heroInfo.setSize(WIDTH, MIN_HEIGHT);
 		finalHeight = (int)Math.max(finalHeight, heroInfo.height());
 
-		add( new IconTab( tabIcon ){
+		add( new IconTab( tabIcon(cl, TAB_ITEMS) ){
 			@Override
 			protected void select(boolean value) {
 				super.select(value);
@@ -168,35 +141,33 @@ public class WndHeroInfo extends WndTabbed {
 			}
 		});
 
-		if (Badges.isUnlocked(Badges.Badge.BOSS_SLAIN_2) || DeviceCompat.isDebug()) {
-			subclassInfo = new SubclassInfoTab(cl);
-			add(subclassInfo);
-			subclassInfo.setSize(WIDTH, MIN_HEIGHT);
-			finalHeight = (int)Math.max(finalHeight, subclassInfo.height());
+		//SPSEXPD: 专精 tab 常驻 —— 选角界面的信息按钮组固定四格，未解锁也能查看（页内含解锁说明）
+		subclassInfo = new SubclassInfoTab(cl);
+		add(subclassInfo);
+		subclassInfo.setSize(WIDTH, MIN_HEIGHT);
+		finalHeight = (int)Math.max(finalHeight, subclassInfo.height());
 
-			add(new IconTab(new ItemSprite(ConsumUsefulProcessEnhanceDict.MASK_0, null)) {
-				@Override
-				protected void select(boolean value) {
-					super.select(value);
-					subclassInfo.visible = subclassInfo.active = value;
-				}
-			});
-		}
+		add(new IconTab(tabIcon(cl, TAB_SUBCLASS)) {
+			@Override
+			protected void select(boolean value) {
+				super.select(value);
+				subclassInfo.visible = subclassInfo.active = value;
+			}
+		});
 
-		if (Badges.isUnlocked(Badges.Badge.BOSS_SLAIN_4) || DeviceCompat.isDebug()) {
-			abilityInfo = new ArmorAbilityInfoTab(cl);
-			add(abilityInfo);
-			abilityInfo.setSize(WIDTH, MIN_HEIGHT);
-			finalHeight = (int)Math.max(finalHeight, abilityInfo.height());
+		//SPSEXPD: 第四页改为「背景故事」（原先的护甲技能介绍页移除）
+		loreInfo = new LoreInfoTab(cl);
+		add(loreInfo);
+		loreInfo.setSize(WIDTH, MIN_HEIGHT);
+		finalHeight = (int)Math.max(finalHeight, loreInfo.height());
 
-			add(new IconTab(new ItemSprite(ConsumUsefulProcessEnhanceDict.CROWN_0, null)) {
-				@Override
-				protected void select(boolean value) {
-					super.select(value);
-					abilityInfo.visible = abilityInfo.active = value;
-				}
-			});
-		}
+		add(new IconTab(tabIcon(cl, TAB_LORE)) {
+			@Override
+			protected void select(boolean value) {
+				super.select(value);
+				loreInfo.visible = loreInfo.active = value;
+			}
+		});
 
 		resize(WIDTH, finalHeight);
 
@@ -205,8 +176,9 @@ public class WndHeroInfo extends WndTabbed {
 		//ScrollPane 会按初始相机定位（内容整块偏下）；resize 之后再排一次拿正确的相机。
 		heroInfo.layout();
 		perkInfo.layout();
+		loreInfo.layout();
 
-		select(0);
+		select(initialTab);
 
 	}
 
@@ -216,6 +188,33 @@ public class WndHeroInfo extends WndTabbed {
 		//SPSEXPD: 窗口整体位移后，ScrollPane 的内部相机要跟着重排（否则内容偏位）
 		heroInfo.layout();
 		perkInfo.layout();
+		loreInfo.layout();
+	}
+
+	//SPSEXPD: tab 图标（窗口 tab 与选角界面的信息按钮组共用同一真源）
+	public static Image tabIcon(HeroClass cl, int tabIdx){
+		switch (tabIdx){
+			case TAB_PERKS:
+				return new Image(Assets.Interfaces.SPECIFIC_POINT);
+			case TAB_SUBCLASS:
+				return new ItemSprite(ConsumUsefulProcessEnhanceDict.MASK_0, null);
+			case TAB_LORE:
+				return Icons.get(Icons.SCROLL_HOLDER);
+			case TAB_ITEMS:
+			default:
+				switch (cl){
+					case HUNTRESS:
+						return new ItemSprite(EquipmentEquipWeaponUniqueWeaponDict.SPIRIT_BOW_0, null);
+					case DUELIST:
+						return new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.RAPIER_0, null);
+					case SOLDIER:
+						return new ItemSprite(ConsumThrowsDict.THROWING_SPIKE_0, null);
+					case ASCETIC:
+						return new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.GLOVES, null);
+					default:
+						return new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0, null);
+				}
+		}
 	}
 
 	private static class HeroInfoTab extends Component {
@@ -533,40 +532,29 @@ public class WndHeroInfo extends WndTabbed {
 		}
 	}
 
-	private static class ArmorAbilityInfoTab extends Component {
+	/**
+	 * SPSEXPD: 背景故事页（取代原先的护甲技能页）—— 展示该职业的背景设定文本。
+	 */
+	private static class LoreInfoTab extends Component {
+
+		/** SPSEXPD: 文本区最大高度（超出由 ScrollPane 滚动） */
+		private static final int MAX_H = 110;
 
 		private RenderedTextBlock title;
-		private RenderedTextBlock message;
-		private RenderedTextBlock[] abilityDescs;
-		private IconButton[] abilityInfos;
+		private RenderedTextBlock text;
+		private ScrollPane pane;
 
-		public ArmorAbilityInfoTab(HeroClass cls){
+		public LoreInfoTab( HeroClass cls ){
 			super();
-			title = PixelScene.renderTextBlock(Messages.titleCase(Messages.get(WndHeroInfo.class, "abilities")), 9);
+
+			title = PixelScene.renderTextBlock(Messages.titleCase(Messages.get(WndHeroInfo.class, "lore")), 9);
 			title.hardlight(TITLE_COLOR);
 			add(title);
 
-			message = PixelScene.renderTextBlock(Messages.get(WndHeroInfo.class, "abilities_msg"), 6);
-			add(message);
-
-			ArmorAbility[] abilities = cls.armorAbilities();
-
-			abilityDescs = new RenderedTextBlock[abilities.length];
-			abilityInfos = new IconButton[abilities.length];
-
-			for (int i = 0; i < abilities.length; i++){
-				abilityDescs[i] = PixelScene.renderTextBlock(abilities[i].shortDesc(), 6);
-				int finalI = i;
-				abilityInfos[i] = new IconButton( Icons.get(Icons.INFO) ){
-					@Override
-					protected void onClick() {
-						Game.scene().addToFront(new WndInfoArmorAbility(cls, abilities[finalI]));
-					}
-				};
-				add(abilityDescs[i]);
-				add(abilityInfos[i]);
-			}
-
+			text = PixelScene.renderTextBlock(cls.lore(), 6);
+			pane = new ScrollPane(text);
+			pane.scrollBarVisible = false;
+			add(pane);
 		}
 
 		@Override
@@ -574,22 +562,13 @@ public class WndHeroInfo extends WndTabbed {
 			super.layout();
 
 			title.setPos((width-title.width())/2, MARGIN);
-			message.maxWidth((int)width);
-			message.setPos(0, title.bottom()+4*MARGIN);
+			text.maxWidth((int)width);
 
-			float pos = message.bottom()+4*MARGIN;
+			float listH = Math.max(24, Math.min(text.height(), MAX_H));
+			pane.setRect(0, title.bottom() + 3*MARGIN, width, listH);
+			pane.content().setSize(width, Math.max(listH, text.height()));
 
-			for (int i = 0; i < abilityDescs.length; i++){
-				abilityDescs[i].maxWidth((int)width - 20);
-				abilityDescs[i].setPos(0, pos);
-
-				abilityInfos[i].setRect(width-20, abilityDescs[i].top() + (abilityDescs[i].height()-20)/2, 20, 20);
-
-				pos = abilityDescs[i].bottom() + 4*MARGIN;
-			}
-
-			height = Math.max(height, pos - 4*MARGIN);
-
+			height = Math.max(height, pane.bottom());
 		}
 	}
 

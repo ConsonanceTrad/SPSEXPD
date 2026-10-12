@@ -32,8 +32,6 @@ import pd.SPDSettings;
 import pd.ShatteredPixelDungeon;
 import pd.actors.hero.CombatStyle;
 import pd.actors.hero.HeroClass;
-import pd.actors.hero.perks.Perk;
-import pd.actors.hero.perks.PerkGrants;
 import pd.journal.Journal;
 import pd.messages.Messages;
 import pd.sprites.HeroSprite;
@@ -43,7 +41,6 @@ import pd.ui.ExitButton;
 import pd.ui.IconButton;
 import pd.ui.Icons;
 import pd.ui.OptionSlider;
-import pd.ui.PerkSlot;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.StyledButton;
@@ -51,7 +48,6 @@ import pd.ui.Window;
 import pd.utils.DungeonSeed;
 import pd.windows.WndChallenges;
 import pd.windows.WndHeroInfo;
-import pd.windows.WndKeyBindings;
 import pd.windows.WndMessage;
 import pd.windows.WndOptions;
 import pd.windows.WndTextInput;
@@ -138,14 +134,16 @@ public class HeroSelectScene extends PixelScene {
 	private StyledButton themeBtn;
 	//SPSEXPD: 是否已点选过主题（未点过时按钮显示「主题选择」，点过后显示主题名）
 	private boolean themeChosen = false;
-	private IconButton infoButton;
 	private GameOptions optionsPane;
 	private IconButton btnExit;
 
-	//SPSEXPD: 初始特质行 —— 选中职业的开局特质（图标待绘制，暂用 perks.png 空白帧占位）
-	private ArrayList<PerkSlot> perkSlots = new ArrayList<>();
-	private static final int PERK_SLOT = PerkSlot.BTN;
-	private static final int PERK_GAP = 2;
+	//SPSEXPD: 信息按钮组 —— 名字下方一排图标按钮，直达英雄信息窗 WndHeroInfo 的对应页
+	//（取代原先名字右侧单一的 INFO 按钮与名字下方的初始特质行）
+	private ArrayList<IconButton> infoButtons = new ArrayList<>();
+	private static final int INFO_BTN = 20;
+	private static final int INFO_GAP = 2;
+	//SPSEXPD: 四个按钮与 WndHeroInfo 的 tab 一一对应（顺序即 tab 索引）
+	private static final String[] INFO_TAB_KEYS = {"items_title", "perks", "subclasses", "lore"};
 
 	//SPSEXPD: 上一次布局用的屏幕尺寸（窗口缩放/旋转时重排）
 	private float layoutW = -1, layoutH = -1;
@@ -172,7 +170,6 @@ public class HeroSelectScene extends PixelScene {
 
 		insets = Game.platform.getSafeInsets(PlatformSupport.INSET_BLK).scale(1f/defaultZoom);
 
-		float w = (Camera.main.width - insets.left - insets.right);
 		float h = (Camera.main.height - insets.top - insets.bottom);
 
 		//SPSEXPD: 背景退化为纯色底（职业立绘改为顶部特写横幅，见 closeup）
@@ -217,29 +214,6 @@ public class HeroSelectScene extends PixelScene {
 		themeBtn.textColor(Window.TITLE_COLOR);
 		add(themeBtn);
 		themeBtn.visible = themeBtn.active = false;
-
-		infoButton = new IconButton(Icons.get(Icons.INFO)){
-			@Override
-			protected void onClick() {
-				super.onClick();
-				HeroClass cls = GamesInProgress.selectedClass;
-				if (cls != null) {
-					Window info = new WndHeroInfo(GamesInProgress.selectedClass, GamesInProgress.selectedSkin);
-					if (landscape()) {
-						info.offset((int)(w / 6), 0);
-					}
-					ShatteredPixelDungeon.scene().addToFront(info);
-				}
-			}
-
-			@Override
-			protected String hoverText() {
-				return Messages.titleCase(Messages.get(WndKeyBindings.class, "hero_info"));
-			}
-		};
-		infoButton.visible = infoButton.active = false;
-		infoButton.setSize(20, 21);
-		add(infoButton);
 
 		for (HeroClass cl : HeroClass.playableClasses()){
 			HeroBtn button = new HeroBtn(cl);
@@ -325,26 +299,49 @@ public class HeroSelectScene extends PixelScene {
 
 		startBtn.visible = startBtn.active = true;
 		themeBtn.visible = themeBtn.active = true;
-		infoButton.visible = infoButton.active = true;
 
-		//SPSEXPD: 初始特质行随职业重建，让玩家一眼看清该角色的开局特性
-		rebuildPerkSlots(cl);
+		//SPSEXPD: 信息按钮组随职业重建（图标含职业专属武器，如「初始物品」页）
+		rebuildInfoButtons(cl);
 
 		layoutScene();
 	}
 
-	//SPSEXPD: 重建初始特质行（各职业的开局特质数量与内容都不同）
-	private void rebuildPerkSlots(HeroClass cl){
-		for (PerkSlot slot : perkSlots){
-			remove(slot);
-			slot.kill();
+	//SPSEXPD: 重建名字下方的信息按钮组（初始物品 / 特质 / 专精 / 背景故事），按类别直达 WndHeroInfo 对应页
+	private void rebuildInfoButtons(HeroClass cl){
+		for (IconButton btn : infoButtons){
+			remove(btn);
+			btn.kill();
 		}
-		perkSlots.clear();
+		infoButtons.clear();
 		if (cl == null) return;
-		for (Perk perk : PerkGrants.initialPerksFor(cl)){
-			PerkSlot slot = new PerkSlot(perk);
-			add(slot);
-			perkSlots.add(slot);
+
+		final float w = Camera.main.width - insets.left - insets.right;
+
+		for (int i = 0; i < INFO_TAB_KEYS.length; i++){
+			final int tab = i;
+			IconButton btn = new IconButton(WndHeroInfo.tabIcon(cl, tab)){
+				@Override
+				protected void onClick() {
+					super.onClick();
+					//SPSEXPD: 换窗后清掉 IconButton 的按压高亮残留
+					icon().resetColor();
+					HeroClass cls = GamesInProgress.selectedClass;
+					if (cls == null) return;
+					Window info = new WndHeroInfo(cls, GamesInProgress.selectedSkin, tab);
+					if (landscape()){
+						info.offset((int)(w / 6), 0);
+					}
+					ShatteredPixelDungeon.scene().addToFront(info);
+				}
+
+				@Override
+				protected String hoverText() {
+					return Messages.titleCase(Messages.get(WndHeroInfo.class, INFO_TAB_KEYS[tab]));
+				}
+			};
+			btn.setSize(INFO_BTN, INFO_BTN);
+			add(btn);
+			infoButtons.add(btn);
 		}
 	}
 
@@ -411,9 +408,9 @@ public class HeroSelectScene extends PixelScene {
 			}
 		}
 
-		//SPSEXPD: 初始特质行占位（没有特质时不占高度）
-		float perkRowH = perkSlots.isEmpty() ? 0 : PERK_SLOT + 4;
-		float infoH = heroName.height() + 4 + perkRowH + descReserveH;
+		//SPSEXPD: 信息按钮组占位（按钮组常驻）
+		float infoRowH = infoButtons.isEmpty() ? 0 : INFO_BTN + 4;
+		float infoH = heroName.height() + 4 + infoRowH + descReserveH;
 		float space = Math.max(40, bottomTop - 4 - insets.top);
 
 		//特写横幅：横屏约半屏高、竖屏屏高 1/3；等比放大到该高度，超出部分裁掉两侧（cover）
@@ -485,32 +482,28 @@ public class HeroSelectScene extends PixelScene {
 			}
 		}
 
-		//英雄名与描述（信息按钮贴在名字右侧、整体居中）
+		//英雄名（居中）
 		float nameTop = infoY;
-		float nameRowW = heroName.width() + 2 + infoButton.width();
-		heroName.setPos(left + (w - nameRowW)/2f, nameTop);
+		heroName.setPos(left + (w - heroName.width())/2f, nameTop);
 		align(heroName);
 
-		//SPSEXPD: 初始特质行夹在英雄名与描述之间，整行居中
-		float perkY = heroName.bottom() + 2;
-		if (!perkSlots.isEmpty()){
-			float rowW = perkSlots.size() * PERK_SLOT + (perkSlots.size() - 1) * PERK_GAP;
+		//SPSEXPD: 信息按钮组夹在英雄名与描述之间，整行居中
+		float btnY = heroName.bottom() + 2;
+		if (!infoButtons.isEmpty()){
+			float rowW = infoButtons.size() * INFO_BTN + (infoButtons.size() - 1) * INFO_GAP;
 			float px = left + (w - rowW)/2f;
-			for (PerkSlot slot : perkSlots){
-				slot.setRect(px, perkY, PERK_SLOT, PERK_SLOT);
-				align(slot);
-				px += PERK_SLOT + PERK_GAP;
+			for (IconButton btn : infoButtons){
+				btn.setRect(px, btnY, INFO_BTN, INFO_BTN);
+				align(btn);
+				px += INFO_BTN + INFO_GAP;
 			}
-			perkY += PERK_SLOT;
+			btnY += INFO_BTN;
 		} else {
-			perkY = heroName.bottom();
+			btnY = heroName.bottom();
 		}
 
-		heroDesc.setPos(left + Math.max(0, (w - heroDesc.width())/2f), perkY + 4);
+		heroDesc.setPos(left + Math.max(0, (w - heroDesc.width())/2f), btnY + 4);
 		align(heroDesc);
-
-		infoButton.setPos(heroName.right() + 2, heroName.top() + (heroName.height() - infoButton.height())/2f);
-		align(infoButton);
 
 		layoutW = Camera.main.width;
 		layoutH = Camera.main.height;
