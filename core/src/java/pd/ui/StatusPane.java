@@ -67,6 +67,7 @@ public class StatusPane extends Component {
 	//SPSEXPD: 局内 SP 点数（默认 Hero.spp；英雄有专属来源时改显示它的数值）。
 	//位置与边框格子由背板素材提供（用户绘制），有上限时另画一条黄色进度条
 	private BitmapText spText;
+	private BitmapText spLabel;
 	private ColorBlock spBar;
 	private int lastSP = Integer.MIN_VALUE;
 	private int lastSPMax = Integer.MIN_VALUE;
@@ -173,6 +174,14 @@ public class StatusPane extends Component {
 		spBar = new ColorBlock(1, 1, 0xFFFF66);
 		spBar.visible = false;
 		add(spBar);
+
+		//SPSEXPD: 格内最左的「SP」小标签（半透明红），与数字一起说明这是 SP 点数
+		spLabel = new BitmapText(PixelScene.pixelFont);
+		spLabel.text("SP");
+		spLabel.measure();
+		spLabel.hardlight(0xC03838);
+		spLabel.alpha(0.7f);
+		add(spLabel);
 
 		//SPSEXPD: 数字与血条/经验数字同观感（白字 + 0.6 透明度），不做纯白
 		spText = new BitmapText(PixelScene.pixelFont);
@@ -455,16 +464,25 @@ public class StatusPane extends Component {
 			slotH = SP_SLOT_H;
 		}
 
-		//SPSEXPD: 长数值也要在格内完整显示——超出内宽时逐步缩字号（下限 SP_TEXT_SCALE_MIN）
+		//SPSEXPD: 格内最左是半透明红的「SP」标签（固定缩放），数字在其右侧剩余区域居中、再右偏 2px；
+		//长数值按可用宽度自动缩字号（下限 SP_TEXT_SCALE_MIN），保证不压到标签也不溢出格子
+		spLabel.scale.set(SP_TEXT_SCALE, SP_TEXT_SCALE);
+		float labelW = spLabel.width() + 1f;
+
 		float scale = SP_TEXT_SCALE;
-		float avail = Math.max(6f, slotW - 2f);
+		float avail = Math.max(4f, slotW - labelW - 2f);
 		spText.scale.set(scale, scale);
 		while (scale > SP_TEXT_SCALE_MIN && spText.width() > avail){
 			scale -= 0.05f;
 			spText.scale.set(scale, scale);
 		}
 
-		spText.x = slotX + (slotW - spText.width())/2f;
+		spLabel.x = slotX + 1f;
+		spLabel.y = slotY + (slotH - spLabel.height())/2f;
+		PixelScene.align(spLabel);
+
+		//数字在标签右侧的剩余区域居中，并整体再向右偏 1px
+		spText.x = slotX + labelW + (slotW - labelW - spText.width())/2f + 1f;
 		spText.y = slotY + (slotH - spText.height())/2f;
 		PixelScene.align(spText);
 
