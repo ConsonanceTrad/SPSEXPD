@@ -1206,7 +1206,6 @@ public enum HeroClass {
 					l.equip(ItemSlot.ACCESSORY5, () -> new pd.items.equipment.rings.RingOfMight(), 1,
 							(h, i) -> ((pd.items.equipment.rings.RingOfMight) i).activate(h));
 					l.backpack(() -> new SeriousPunch(), 0, 1, 0, null);
-					l.backpack(() -> new Ankhshield(), 0, 1, 1, null);
 					l.backpack(() -> new JumpW());
 					l.backpack(() -> new Porksoup());
 					break;
