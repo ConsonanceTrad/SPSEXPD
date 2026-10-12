@@ -112,6 +112,8 @@ public class WndSettings extends WndTabbed {
 			.t("$auxtab.title", "游戏辅助")
 			.t("$auxtab.hero_path", "显示移动路径")
 			.t("$auxtab.search_pickup", "搜索捡拾物品")
+			.t("$auxtab.search_trample", "搜索踩草")
+			.t("$auxtab.adjacent_pickup", "临近触及")
 			.t("$auxtab.quick_group", "快捷操作开关")   //SPSEXPD: 快捷操作分组的小标题
 			.t("$auxtab.bag_group", "背包界面")   //SPSEXPD: 背包分组的小标题
 			.t("$auxtab.quick_all", "启用快捷操作按钮")
@@ -122,9 +124,12 @@ public class WndSettings extends WndTabbed {
 			.t("$auxtab.bag_tabs_paged", "底部翻页标签页")
 			.t("$auxtab.bag_tabs_plain", "底部原始标签页")
 			.t("$auxtab.bag_tabs_wide", "底部七列标签页：建议桌面端使用")
+			.t("$auxtab.continuous_use", "连续使用物品")
 			//SPSEXPD: 行末蓝色感叹号点开的「详细作用」（键名 = 上方各键 + _desc）
 			.t("$auxtab.hero_path_desc", "在画面里画出你点击的移动路线，方便提前规划走位。")
 			.t("$auxtab.search_pickup_desc", "使用「检索」时，会顺手拾取视野内可达的地面物品。")
+			.t("$auxtab.search_trample_desc", "使用「检索」时，会把搜索范围内的高草与垄沟草踩掉；高草会照常产出种子、露珠等收获。")
+			.t("$auxtab.adjacent_pickup_desc", "开启后可站在原地拾取相邻一格（含斜角）视野内的地面掉落物，不必先走过去。")
 			.t("$auxtab.quick_all_desc", "快捷操作按钮的总开关。关掉后按钮不再显示，但下面三项各自的设置会保留。")
 			.t("$auxtab.quick_light_desc", "夜晚且身上带着光源时，显示一键照明的快捷按钮（优先用露珠瓶，其次火把）。")
 			.t("$auxtab.quick_talent_desc", "有未分配的特质点时，显示一键打开加点界面的快捷按钮。")
@@ -133,6 +138,7 @@ public class WndSettings extends WndTabbed {
 			.t("$auxtab.bag_tabs_paged_desc", "标签栏移到底部、分页显示：每页 3 个包裹 + 翻页 + 主背包。切换包裹仍是一次点击，只有包裹多于 3 个时才需要先翻页；标签不再占用窗口宽度，背包格子能保持更大（高缩放时尤其明显）。")
 			.t("$auxtab.bag_tabs_plain_desc", "标签栏移到底部并平铺显示全部包裹与主背包，没有翻页，一屏点全；包裹多时每格会变窄。")
 			.t("$auxtab.bag_tabs_wide_desc", "旧版布局：标签栏在底部分页显示，背包区每行 7 格（35 格即 5 行，更矮更宽）。手机竖屏下 7 列会偏挤。")
+			.t("$auxtab.continuous_use_desc", "开启后，使用卷轴 / 药水 / 食物等物品时不会关闭操作框与背包，可以连续使用；具体哪些类型生效由行末的筛选按钮决定。")
 			.t("$audiotab.title", "音频设置")
 			.t("$audiotab.music_vol", "音乐音量")
 			.t("$audiotab.music_mute", "关闭音乐")
@@ -1012,6 +1018,34 @@ public class WndSettings extends WndTabbed {
 		}
 	}
 
+	//SPSEXPD: 「连续使用」行末的类型白名单入口按钮——与说明按钮同尺寸同风格，图标换成筛选镜。
+	//点击打开 WndUseWhitelist（勾选哪些物品类型允许用后不关窗），关闭时写回设置。
+	private static class WhitelistButton extends IconButton {
+
+		WhitelistButton() {
+			super( Icons.get(Icons.MAGNIFY) );
+			width = AuxContent.NOTE_W;
+			height = AuxContent.NOTE_W;
+			//滚动区内必须 NEVER_BLOCK，否则 ScrollPane 的拖拽控制器会吞掉点击
+			hotArea.blockLevel = PointerArea.NEVER_BLOCK;
+		}
+
+		@Override
+		protected void onClick() {
+			super.onClick();
+			//同 AuxNoteButton：会弹出新窗，先手动还原图标亮度（onPointerUp 送不到）
+			if (icon() != null) icon().resetColor();
+			//必须 addToFront（本按钮在 ScrollPane 内，替换窗口会残留指针状态）
+			ShatteredPixelDungeon.scene().addToFront(
+					new WndUseWhitelist(SPDSettings.continuousUseTypes()));
+		}
+
+		@Override
+		protected String hoverText() {
+			return null;
+		}
+	}
+
 	//SPSEXPD: 滚动容器内的复选框基类：热区必须 NEVER_BLOCK 且提到最前接收事件。
 	//PointerEvent 信号是 stackMode（后注册者先收到、返回 true 即停止传播），
 	//ScrollPane 的拖拽控制器后注册会吞掉点击，导致滚动正常但条目点不动（同 TalentButton/NEVER_BLOCK 的滚动区惯例）
@@ -1029,6 +1063,8 @@ public class WndSettings extends WndTabbed {
 		ColorBlock sep1;
 		CheckBox chkHeroPath;
 		CheckBox chkSearchPickUp;
+		CheckBox chkSearchTrample;    //SPSEXPD: 搜索踩草
+		CheckBox chkAdjacentPickup;   //SPSEXPD: 临近触及
 		ColorBlock sep2;
 		RenderedTextBlock quickGroup;   //SPSEXPD: 「快捷操作开关」小标题
 		CheckBox chkQuickAll;
@@ -1041,6 +1077,8 @@ public class WndSettings extends WndTabbed {
 		CheckBox chkBagTabsPaged;
 		CheckBox chkBagTabsPlain;
 		CheckBox chkBagTabsWide;
+		//SPSEXPD: 连续使用（用后不关窗），行末除说明按钮外还有「类型白名单」入口
+		CheckBox chkContinuousUse;
 
 		//SPSEXPD: 背包分组的标题（小号字，风格同「快捷操作开关」）
 		RenderedTextBlock bagGroup;
@@ -1052,7 +1090,9 @@ public class WndSettings extends WndTabbed {
 		//SPSEXPD: 行集合——布局时逐行摆放（复选框 + 行末说明按钮），顺序＝添加顺序。
 		//注意：必须在 createChildren() 里 new（见下方注释），不能用字段初始化器
 		private ArrayList<Component> rowChecks;
-		private ArrayList<AuxNoteButton> rowNotes;
+		private ArrayList<IconButton> rowNotes;
+		//SPSEXPD: 可选的「第二个行末按钮」（如「连续使用」行的类型白名单入口），与 rowChecks 下标对齐，无该按钮的行是 null
+		private ArrayList<IconButton> rowExtra;
 
 		@Override
 		protected void createChildren() {
@@ -1060,6 +1100,7 @@ public class WndSettings extends WndTabbed {
 			//那时子类的字段初始化器还没执行（用字段初始化器会 NPE）
 			rowChecks = new ArrayList<>();
 			rowNotes = new ArrayList<>();
+			rowExtra = new ArrayList<>();
 
 			title = PixelScene.renderTextBlock(Messages.get(AuxTab.class, "title"), 9);
 			title.hardlight(TITLE_COLOR);
@@ -1091,6 +1132,28 @@ public class WndSettings extends WndTabbed {
 			};
 			chkSearchPickUp.checked(SPDSettings.searchPickUp());
 			add(chkSearchPickUp);
+
+			//SPSEXPD: 搜索踩草——主动搜索时顺带把范围内的高草踩掉
+			chkSearchTrample = new AuxCheckBox(Messages.get(AuxTab.class, "search_trample")) {
+				@Override
+				protected void onClick() {
+					super.onClick();
+					SPDSettings.searchTrample(checked());
+				}
+			};
+			chkSearchTrample.checked(SPDSettings.searchTrample());
+			add(chkSearchTrample);
+
+			//SPSEXPD: 临近触及——可隔着相邻一格拾取地面掉落物（对齐 SPS）
+			chkAdjacentPickup = new AuxCheckBox(Messages.get(AuxTab.class, "adjacent_pickup")) {
+				@Override
+				protected void onClick() {
+					super.onClick();
+					SPDSettings.adjacentPickup(checked());
+				}
+			};
+			chkAdjacentPickup.checked(SPDSettings.adjacentPickup());
+			add(chkAdjacentPickup);
 
 			sep2 = new ColorBlock(1, 1, 0xFF000000);
 			add(sep2);
@@ -1191,6 +1254,8 @@ public class WndSettings extends WndTabbed {
 			//SPSEXPD: 每一行行末都挂上蓝色感叹号说明按钮（顺序＝界面从上到下）
 			addRowNote(chkHeroPath, "hero_path");
 			addRowNote(chkSearchPickUp, "search_pickup");
+			addRowNote(chkSearchTrample, "search_trample");
+			addRowNote(chkAdjacentPickup, "adjacent_pickup");
 			addRowNote(chkQuickAll, "quick_all");
 			addRowNote(chkQuickLight, "quick_light");
 			addRowNote(chkQuickTalent, "quick_talent");
@@ -1200,6 +1265,28 @@ public class WndSettings extends WndTabbed {
 			addRowNote(chkBagTabsWide, "bag_tabs_wide");
 			addRowNote(chkBagTabsPaged, "bag_tabs_paged");
 			addRowNote(chkBagTabsPlain, "bag_tabs_plain");
+
+			//SPSEXPD: 连续使用（用后不关窗）——行末还要挂一个「类型白名单」入口按钮
+			chkContinuousUse = new AuxCheckBox(Messages.get(AuxTab.class, "continuous_use")) {
+				@Override
+				protected void onClick() {
+					super.onClick();
+					SPDSettings.continuousUse(checked());
+				}
+			};
+			chkContinuousUse.checked(SPDSettings.continuousUse());
+			add(chkContinuousUse);
+
+			addRowNote(chkContinuousUse, "continuous_use");
+			addRowExtra(chkContinuousUse, new WhitelistButton());
+		}
+
+		//SPSEXPD: 给某一行再挂一个行末按钮（排在说明按钮左侧）；必须在该行的 addRowNote 之后调用
+		private void addRowExtra(Component chk, IconButton extra) {
+			//与 rowChecks 下标对齐：中间没有第二个按钮的行用 null 占位
+			while (rowExtra.size() < rowChecks.size() - 1) rowExtra.add(null);
+			rowExtra.add(extra);
+			add(extra);
 		}
 
 		//SPSEXPD: 三个模式互斥——写入设置并同步三行的选中状态
@@ -1225,7 +1312,8 @@ public class WndSettings extends WndTabbed {
 		void givePointerPriority() {
 			for (Object o : members) {
 				if (o instanceof AuxCheckBox) ((AuxCheckBox) o).givePointerPriority();
-				else if (o instanceof AuxNoteButton) ((AuxNoteButton) o).givePointerPriority();
+				//SPSEXPD: 行末按钮（说明按钮与「类型白名单」按钮）都是 IconButton 的子类
+				else if (o instanceof IconButton) ((IconButton) o).givePointerPriority();
 			}
 		}
 
@@ -1237,8 +1325,8 @@ public class WndSettings extends WndTabbed {
 			sep1.y = title.bottom() + 3*GAP;
 			bottom = sep1.y + 1;
 
-			//SPSEXPD: 前 2 行——显示移动路径 / 搜索捡拾物品
-			for (int i = 0; i < 2 && i < rowChecks.size(); i++) {
+			//SPSEXPD: 前 4 行——显示移动路径 / 搜索捡拾物品 / 搜索踩草 / 临近触及
+			for (int i = 0; i < 4 && i < rowChecks.size(); i++) {
 				bottom = layoutRow(i, width, bottom);
 			}
 
@@ -1250,8 +1338,8 @@ public class WndSettings extends WndTabbed {
 			quickGroup.setPos(0, bottom + GAP);
 			bottom = quickGroup.bottom();
 
-			//SPSEXPD: 快捷操作各行的索引是 2..5（总开关/照明/加点/进食），此处只摆这四行
-			for (int i = 2; i < 6 && i < rowChecks.size(); i++) {
+			//SPSEXPD: 快捷操作各行的索引是 4..7（总开关/照明/加点/进食），此处只摆这四行
+			for (int i = 4; i < 8 && i < rowChecks.size(); i++) {
 				bottom = layoutRow(i, width, bottom);
 			}
 
@@ -1263,22 +1351,29 @@ public class WndSettings extends WndTabbed {
 			bagGroup.setPos(0, bottom + GAP);
 			bottom = bagGroup.bottom();
 
-			for (int i = 6; i < rowChecks.size(); i++) {
+			for (int i = 8; i < rowChecks.size(); i++) {
 				bottom = layoutRow(i, width, bottom);
 			}
 
 			height = bottom;
 		}
 
-		//SPSEXPD: 摆一行——复选框占左侧（行末留出说明按钮，两者之间空 2px 作隔断）
+		//SPSEXPD: 摆一行——复选框占左侧；行末从右往左依次是说明按钮、（可选）第二个按钮，之间留 2px
 		private float layoutRow(int i, float width, float bottom) {
 			Component chk = rowChecks.get(i);
-			AuxNoteButton note = rowNotes.get(i);
-			chk.setRect(0, bottom + GAP, width - NOTE_W - 2, BTN_HEIGHT);
-			note.setRect(
-					width - NOTE_W,
-					bottom + GAP + (BTN_HEIGHT - NOTE_W) / 2f,
-					NOTE_W, NOTE_W);
+			IconButton note = rowNotes.get(i);
+			IconButton extra = i < rowExtra.size() ? rowExtra.get(i) : null;
+
+			float right = width;
+			float btnY = bottom + GAP + (BTN_HEIGHT - NOTE_W) / 2f;
+			note.setRect(right - NOTE_W, btnY, NOTE_W, NOTE_W);
+			right -= NOTE_W + 2;
+			if (extra != null) {
+				extra.setRect(right - NOTE_W, btnY, NOTE_W, NOTE_W);
+				right -= NOTE_W + 2;
+			}
+
+			chk.setRect(0, bottom + GAP, Math.max(20, right), BTN_HEIGHT);
 			return chk.bottom();
 		}
 	}

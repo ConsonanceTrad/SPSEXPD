@@ -1591,9 +1591,14 @@ public class Hero extends Char {
 
 	private boolean actPickUp( HeroAction.PickUp action ) {
 		int dst = action.dst;
-		if (pos == dst) {
+		//SPSEXPD: 「临近触及」——开启后可隔着相邻一格拾取地面掉落物（对齐 SPS 的 Floor.adjacent 判定）。
+		//只要求相邻且在视野内：此处不能用 canPickUpAt（它读的是搜索/寻路留下的 PathFinder.distance 旧数据）
+		boolean adjacent = pos != dst && SPDSettings.adjacentPickup()
+				&& isAdjacentCell( pos, dst ) && fieldOfView[dst];
+		if (pos == dst || adjacent) {
 			
-			Heap heap = Dungeon.level.heaps.get( pos );
+			//SPSEXPD: 取目标格的堆（相邻拾取时 dst 才是目标；下面的动画与跨层判定仍用英雄自身 pos）
+			Heap heap = Dungeon.level.heaps.get( dst );
 			if (heap != null) {
 				Item item = heap.peek();
 				if (item.doPickUp( this )) {
@@ -3275,6 +3280,21 @@ public class Hero extends Char {
 		return fieldOfView[cell] && PathFinder.distance[cell] < Integer.MAX_VALUE;
 	}
 
+	//SPSEXPD: 「搜索踩草」的目标地形（高草与垄沟草）
+	private static boolean isTrampleGrass( int cell ){
+		int t = Dungeon.level.map[cell];
+		return t == Terrain.HIGH_GRASS || t == Terrain.FURROWED_GRASS;
+	}
+
+	//SPSEXPD: 「临近触及」——两格是否八方向相邻（含斜角）
+	private static boolean isAdjacentCell( int a, int b ){
+		if (a == b) return false;
+		int w = Dungeon.level.width();
+		int dx = Math.abs( (a % w) - (b % w) );
+		int dy = Math.abs( (a / w) - (b / w) );
+		return dx <= 1 && dy <= 1;
+	}
+
 	public boolean search( boolean intentional ) {
 		
 		if (!isAlive()) return false;
@@ -3336,6 +3356,12 @@ public class Hero extends Char {
 			for (curr = left + y * Dungeon.level.width(); curr <= right + y * Dungeon.level.width(); curr++){
 
 				if ((foresight || fieldOfView[curr]) && curr != pos) {
+
+					//SPSEXPD: 搜索踩草——主动搜索时对范围内的高草执行踩踏（设置里可关闭；
+					//不用 level.pressCell，那会顺带暴露并触发陷阱/开门/触发井）
+					if (intentional && SPDSettings.searchTrample() && isTrampleGrass(curr)) {
+						pd.levels.features.HighGrass.trample( Dungeon.level, curr );
+					}
 
 					//SPSEXPD: 主动搜索时顺带拾取该格地面物品（设置里可关闭），只限视野内且可达的位置
 					if (intentional && SPDSettings.searchPickUp() && canPickUpAt( curr )){

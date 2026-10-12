@@ -27,6 +27,7 @@ import pd.ui.InventoryPane;
 import pd.ui.ItemJournalButton;
 import pd.ui.RedButton;
 import pd.ui.Window;
+import render.noosa.Game;
 
 import java.util.ArrayList;
 
@@ -66,12 +67,22 @@ public class WndUseItem extends WndInfoItem {
 				RedButton btn = new RedButton(item.actionName(action, Dungeon.hero), 8) {
 					@Override
 					protected void onClick() {
+						//SPSEXPD: 连续使用——物品类型在白名单内时，用后不关背包并重开操作框
+						boolean keepOpen = pd.items.ContinuousUse.allows(item, action);
 						hide();
-						if (owner != null && owner.parent != null) owner.hide();
+						if (!keepOpen && owner != null && owner.parent != null) owner.hide();
 						if (Dungeon.hero.isAlive() && Dungeon.hero.belongings.contains(item)) {
 							item.execute(Dungeon.hero, action);
 						}
 						Item.updateQuickslot();
+						if (keepOpen) {
+							//SPSEXPD: 物品还在背包时重开操作框（保持背包打开）；用尽/死亡则退回普通关闭
+							if (Dungeon.hero.isAlive() && Dungeon.hero.belongings.contains(item)) {
+								Game.scene().addToFront(new WndUseItem(owner, item));
+							} else if (owner != null && owner.parent != null) {
+								owner.hide();
+							}
+						}
 						if (action.equals(item.defaultAction()) && item.usesTargeting && owner == null) {
 							InventoryPane.useTargeting();
 						}

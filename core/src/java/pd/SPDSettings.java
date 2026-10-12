@@ -65,6 +65,10 @@ public class SPDSettings extends GameSettings {
 	public static final String KEY_SWAP_WAIT_SEARCH = "swap_wait_search"; //SPSEXPD: 交换等待与检索按钮
 	public static final String KEY_BAG_BOTTOM_TABS = "bag_bottom_tabs"; //SPSEXPD: 背包标签栏放到底部（旧版布局，每页 3 个包裹 + 翻页 + 主背包）
 	public static final String KEY_BAG_TABS_MODE = "bag_tabs_mode";     //SPSEXPD: 背包界面模式（0 两侧 / 1 底部翻页 / 2 底部原始）
+	public static final String KEY_CONTINUOUS_USE = "continuous_use";   //SPSEXPD: 连续使用（用后不关操作框与背包）
+	public static final String KEY_CONTINUOUS_USE_TYPES = "continuous_use_types"; //SPSEXPD: 连续使用的物品类型白名单（位掩码）
+	public static final String KEY_SEARCH_TRAMPLE = "search_trample";   //SPSEXPD: 搜索时对范围内的高草执行踩踏
+	public static final String KEY_ADJACENT_PICKUP = "adjacent_pickup"; //SPSEXPD: 临近触及（可隔着相邻一格拾取地面物品）
 	
 	public static void fullscreen( boolean value ) {
 		put( KEY_FULLSCREEN, value );
@@ -92,6 +96,43 @@ public class SPDSettings extends GameSettings {
 
 	public static boolean searchPickUp(){
 		return getBoolean( KEY_SEARCH_PICKUP, true );
+	}
+
+	//SPSEXPD: 连续使用 —— 用后不关闭操作框与背包，方便连续使用同类物品（默认关闭）
+	public static void continuousUse( boolean value ){
+		put( KEY_CONTINUOUS_USE, value );
+	}
+
+	public static boolean continuousUse(){
+		return getBoolean( KEY_CONTINUOUS_USE, false );
+	}
+
+	//SPSEXPD: 连续使用的物品类型白名单（位掩码，位定义见 pd.items.ContinuousUse）
+	public static void continuousUseTypes( int value ){
+		put( KEY_CONTINUOUS_USE_TYPES, value );
+	}
+
+	public static int continuousUseTypes(){
+		return getInt( KEY_CONTINUOUS_USE_TYPES, pd.items.ContinuousUse.DEFAULT_TYPES,
+				0, pd.items.ContinuousUse.MAX_VALUE );
+	}
+
+	//SPSEXPD: 搜索踩草 —— 主动搜索时对搜索范围内的高草执行踩踏（默认关闭，会照常掷出种子/露珠）
+	public static void searchTrample( boolean value ){
+		put( KEY_SEARCH_TRAMPLE, value );
+	}
+
+	public static boolean searchTrample(){
+		return getBoolean( KEY_SEARCH_TRAMPLE, false );
+	}
+
+	//SPSEXPD: 临近触及 —— 可以隔着相邻一格拾取地面掉落物（对齐 SPS 的相邻拾取，默认开启）
+	public static void adjacentPickup( boolean value ){
+		put( KEY_ADJACENT_PICKUP, value );
+	}
+
+	public static boolean adjacentPickup(){
+		return getBoolean( KEY_ADJACENT_PICKUP, true );
 	}
 
 	//SPSEXPD: 快捷操作按钮总开关（关闭后三个按钮都不显示，各自开关的状态保留）
