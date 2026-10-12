@@ -76,7 +76,7 @@ public class StatusPane extends Component {
 	/** 长数值自动缩字号的下限（再小就读不清了） */
 	private static final float SP_TEXT_SCALE_MIN = 0.35f;
 	/** SP 数字与「SP」标签右缘之间的间距（数字自此向右生长） */
-	private static final float SP_TEXT_OFFSET_X = 4f;
+	private static final float SP_TEXT_OFFSET_X = 2f;
 	//SPSEXPD: 背板素材 status_pane.png 小模式帧里为 SP 预留的格子（帧内坐标，用户绘制）
 	private static final float SP_SLOT_X = 30f;
 	private static final float SP_SLOT_Y = 7f;
