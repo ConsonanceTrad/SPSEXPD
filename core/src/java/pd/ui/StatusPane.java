@@ -37,6 +37,7 @@ import pd.windows.WndKeyBindings;
 import render.input.GameAction;
 import render.noosa.BitmapText;
 import render.noosa.Camera;
+import render.noosa.ColorBlock;
 import render.noosa.Game;
 import render.noosa.Image;
 import render.noosa.NinePatch;
@@ -63,12 +64,17 @@ public class StatusPane extends Component {
 	private BitmapText hpText;
 	private Button heroInfoOnBar;
 
-	//SPSEXPD: 血条下方的局内 SP 点数（默认 Hero.spp；英雄有专属来源时改显示它的数值）
+	//SPSEXPD: 血条下方的局内 SP 点数（默认 Hero.spp；英雄有专属来源时改显示它的数值）。
+	//数字带半透明矩形底板并放大一号——它同样是重要的资源信息
 	private BitmapText spText;
+	private ColorBlock spBg;
 	private int lastSP = Integer.MIN_VALUE;
 	private int lastSPMax = Integer.MIN_VALUE;
-	//SPSEXPD: 小模式下为 SP 行预留的高度（buff 区顺次下移）
-	private static final float SP_LINE_H = 4f;
+	/** SP 数字的缩放（比血条数字大一号） */
+	private static final float SP_TEXT_SCALE = 0.75f;
+	/** 底板的最小尺寸（数值很短时也保持一个明显的方块） */
+	private static final float SP_BG_MIN_W = 20f;
+	private static final float SP_BG_MIN_H = 10f;
 
 	private Image exp;
 	private BitmapText expText;
@@ -157,9 +163,13 @@ public class StatusPane extends Component {
 		hpText.alpha(0.6f);
 		add(hpText);
 
-		//SPSEXPD: 局内 SP 点数（小号字，位置与刷新都在 layout/update 里）
+		//SPSEXPD: 局内 SP 点数——半透明矩形底板 + 放大的数字（位置与刷新都在 layout/update 里）
+		spBg = new ColorBlock(1, 1, 0x000000);
+		spBg.alpha(0.55f);
+		add(spBg);
+
 		spText = new BitmapText(PixelScene.pixelFont);
-		spText.alpha(0.6f);
+		spText.hardlight(0x9FD8FF);
 		add(spText);
 
 		heroInfoOnBar = new Button(){
@@ -232,11 +242,8 @@ public class StatusPane extends Component {
 			expText.y = exp.y;
 			PixelScene.align(expText);
 
-			//SPSEXPD: large 模式血条下方只剩 2px，SP 点数改贴血条内左侧（hpText 居中，左侧是空的）
-			spText.scale.set(PixelScene.align(0.5f));
-			spText.x = hp.x + 2;
-			spText.y = hp.y + (hp.height - (spText.baseLine()+spText.scale.y))/2f;
-			PixelScene.align(spText);
+			//SPSEXPD: large 模式血条下方只剩 2px，SP 底板叠在血条内左端（hpText 居中，左侧是空的）
+			layoutSpPoint();
 
 			heroInfoOnBar.setRect(heroInfo.right(), y + 19, 130, 20);
 
@@ -288,11 +295,8 @@ public class StatusPane extends Component {
 
 			heroInfoOnBar.setRect(heroInfo.right(), y, 50, 9);
 
-			//SPSEXPD: 小模式 SP 点数贴血条正下方；buff 区顺次下移，让出这一行（血条底缘 y+6）
-			spText.scale.set(PixelScene.align(0.5f));
-			spText.x = hp.x;
-			spText.y = hp.y + hp.height;
-			PixelScene.align(spText);
+			//SPSEXPD: 小模式 SP 底板贴血条正下方；buff 区顺次下移到底板之下
+			layoutSpPoint();
 
 			if (buffBarRowMaxWidths != null){
 				buffs.rowWidthLimits = buffBarRowMaxWidths;
@@ -300,7 +304,7 @@ public class StatusPane extends Component {
 			if (buffBarRowAdjusts != null){
 				buffs.rowHeightAdjusts = buffBarRowAdjusts;
 			}
-			buffs.setRect( x + heroPaneWidth + 1, y + 8 + SP_LINE_H, 55, 16 );
+			buffs.setRect( x + heroPaneWidth + 1, spBg.y + spBg.height + 1, 55, 16 );
 
 			busy.x = x + 1;
 			busy.y = y + 37;
@@ -374,8 +378,8 @@ public class StatusPane extends Component {
 			lastSPMax = spMax;
 			spText.text( spMax > 0 ? sp + "/" + spMax : Integer.toString( sp ) );
 			spText.measure();
-			spText.x = large ? hp.x + 2 : hp.x;
-			PixelScene.align( spText );
+			//SPSEXPD: 文本宽度变了，底板尺寸与居中位置要跟着重算
+			layoutSpPoint();
 		}
 
 		if (large) {
@@ -422,6 +426,32 @@ public class StatusPane extends Component {
 		}
 
 		counter.setSweep((1f - Actor.now()%1f)%1f);
+	}
+
+	/** SPSEXPD: 摆放局内 SP 点数 —— 半透明矩形底板 + 居中的放大数字 */
+	private void layoutSpPoint(){
+		if (spBg == null || spText == null || hp == null) return;
+
+		spText.scale.set(PixelScene.align(SP_TEXT_SCALE));
+
+		float w = Math.max(SP_BG_MIN_W, spText.width() + 4);
+		float h = Math.max(SP_BG_MIN_H, spText.height() + 3);
+		spBg.size(w, h);
+
+		if (large){
+			//large：血条下方只剩 2px，底板叠在血条内左端
+			spBg.x = hp.x + 1;
+			spBg.y = hp.y + (hp.height - h)/2f;
+		} else {
+			//小模式：贴血条正下方（血条底缘 y+6）
+			spBg.x = hp.x;
+			spBg.y = hp.y + hp.height + 1;
+		}
+		PixelScene.align(spBg);
+
+		spText.x = spBg.x + Math.max(1, (w - spText.width())/2f);
+		spText.y = spBg.y + Math.max(1, (h - spText.height())/2f);
+		PixelScene.align(spText);
 	}
 
 	public void updateAvatar(){
