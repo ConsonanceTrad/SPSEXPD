@@ -127,8 +127,6 @@ public class Assets {
 		public static final String STATUS   = "interfaces/status_pane.png";
 		public static final String MENU     = "interfaces/menu_pane.png";
 		public static final String MENU_BTN = "interfaces/menu_button.png";
-		//SPSEXPD: 「入口 / 出口」视角切换按钮的图标（11×11 上下双向箭头，自绘；底图是 menu_button 的按钮底帧）
-		public static final String MENU_CAMERA = "interfaces/menu_camera.png";
 		public static final String TOOLBAR  = "interfaces/toolbar.png";
 		public static final String SHADOW   = "interfaces/shadow.png";
 		public static final String BOSSHP   = "interfaces/boss_hp.png";

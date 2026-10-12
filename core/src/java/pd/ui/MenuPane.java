@@ -63,7 +63,7 @@ public class MenuPane extends Component {
 	private static final float FRAME_TOP    = 2f;
 	private static final float FRAME_HEIGHT = 15f;
 
-	private Image[] bgTiles;
+	private Image bg;
 
 	private Image depthIcon;
 	private BitmapText depthText;
@@ -83,33 +83,21 @@ public class MenuPane extends Component {
 
 	private DangerIndicator danger;
 
-	//SPSEXPD: 入口 / 出口相机切换按钮（点击在这两个位置之间循环）——红底，排在按钮组框内
-	private CameraButton cameraButton;
+	//SPSEXPD: 入口 / 出口相机切换按钮（按钮组整排的最左，点击在两者之间切换相机）
+	private Image cameraIcon;
+	private Button cameraButton;
 	private boolean cameraAtExit = false;
+	/** 图标缩放：Icons.STAIRS 原始 15×16，比其它图标大得多，缩到按钮高度以内才不显突兀 */
+	private static final float CAMERA_ICON_SCALE = 0.7f;
 
-	//SPSEXPD: 外框底图是可重复的「框格」素材（menu_pane.png）：
-	//左端 = 左边框 + 一格，中间 = 竖线 + 一格，右端 = 右边框；按按钮数横向拼接。
-	private static final int TILE_LEFT_X  = 2,  TILE_LEFT_W  = 14;
-	private static final int TILE_MID_X   = 16, TILE_MID_W   = 14;
-	private static final int TILE_RIGHT_X = 30, TILE_RIGHT_W = 2;
-	private static final int TILE_H = 21;
-	/** 框的格数（4 格，容纳菜单 / 事件记录 / 视角切换三个按钮，左侧留一点空） */
-	private static final int FRAME_CELLS = 4;
-	/** 框宽 = 左端 + (格数-1)×中间 + 右端 */
-	public static final int WIDTH = TILE_LEFT_W + (FRAME_CELLS - 1) * TILE_MID_W + TILE_RIGHT_W;
+	public static final int WIDTH = 31;
 
 	@Override
 	protected void createChildren() {
 		super.createChildren();
 
-		//SPSEXPD: 外框按「左端 + 中间×(格数-1) + 右端」拼接（原来是一整块 31×21 的两格框）
-		bgTiles = new Image[FRAME_CELLS + 1];
-		bgTiles[0] = new Image(Assets.Interfaces.MENU, TILE_LEFT_X, 0, TILE_LEFT_W, TILE_H);
-		for (int i = 1; i < FRAME_CELLS; i++){
-			bgTiles[i] = new Image(Assets.Interfaces.MENU, TILE_MID_X, 0, TILE_MID_W, TILE_H);
-		}
-		bgTiles[FRAME_CELLS] = new Image(Assets.Interfaces.MENU, TILE_RIGHT_X, 0, TILE_RIGHT_W, TILE_H);
-		for (Image tile : bgTiles) add(tile);
+		bg = new Image(Assets.Interfaces.MENU, 1, 0, 31, 21);
+		add(bg);
 
 		depthIcon = Icons.get(Dungeon.level.feeling);
 		add(depthIcon);
@@ -173,8 +161,22 @@ public class MenuPane extends Component {
 		btnMenu = new MenuButton();
 		add( btnMenu );
 
-		//SPSEXPD: 入口 / 出口相机切换按钮（红底、与菜单/事件记录同款按钮结构）
-		cameraButton = new CameraButton();
+		//SPSEXPD: 入口 / 出口相机切换按钮（整排最左；透明按钮 + 缩小后的楼梯图标）
+		cameraIcon = Icons.get(Icons.STAIRS);
+		cameraIcon.scale.set(PixelScene.align(CAMERA_ICON_SCALE), PixelScene.align(CAMERA_ICON_SCALE));
+		add( cameraIcon );
+
+		cameraButton = new Button(){
+			@Override
+			protected void onClick() {
+				toggleCameraTarget();
+			}
+
+			@Override
+			protected String hoverText() {
+				return Messages.get(MenuPane.class, "camera_toggle");
+			}
+		};
 		add( cameraButton );
 
 		//SPSEXPD: 时间与菜单/事件记录同属右上角这一组按钮
@@ -205,20 +207,13 @@ public class MenuPane extends Component {
 	protected void layout() {
 		super.layout();
 
-		//SPSEXPD: 外框横向拼接，并上移 BG_TRIM 让可见上边框（底图内 y6）正好贴住屏幕顶部
-		float bx = x;
-		for (Image tile : bgTiles){
-			tile.x = bx;
-			tile.y = y - BG_TRIM;
-			bx += tile.width;
-		}
+		//SPSEXPD: 底图上移 BG_TRIM，让框的可见上边框（底图内 y6）正好贴住屏幕顶部
+		bg.x = x;
+		bg.y = y - BG_TRIM;
 
-		//SPSEXPD: 三个按钮在框内自右向左排（间距 2，两侧各留 2）
-		btnMenu.setPos( x + WIDTH - btnMenu.width() - 2, y );
+		btnMenu.setPos( x + WIDTH - btnMenu.width(), y );
 
-		btnJournal.setPos( btnMenu.left() - btnJournal.width() - 2, y );
-
-		cameraButton.setPos( btnJournal.left() - cameraButton.width() - 2, y );
+		btnJournal.setPos( btnMenu.left() - btnJournal.width() + 2, y );
 
 		depthIcon.x = btnJournal.left() - 7 + (7 - depthIcon.width())/2f - 0.1f;
 		depthIcon.y = y + FRAME_TOP;
@@ -255,6 +250,13 @@ public class MenuPane extends Component {
 		//SPSEXPD: 危险指示器顺次下移到时间下方（两者同属框下那一条带，避免重叠）
 		danger.setPos( x + WIDTH - danger.width(), belowY );
 
+		//SPSEXPD: 视角按钮占按钮组整排的最左（框外左侧，与深度/挑战图标同一行）
+		float anchor = (challengeIcon != null ? challengeIcon.x : depthIcon.x) - 2f;
+		cameraIcon.x = anchor - cameraIcon.width();
+		cameraIcon.y = y + FRAME_TOP + (FRAME_HEIGHT - cameraIcon.height())/2f;
+		PixelScene.align( cameraIcon );
+		cameraButton.setRect( cameraIcon.x - 1, y + FRAME_TOP, cameraIcon.width() + 2, FRAME_HEIGHT );
+
 		danger.setSize( camera.width - danger.width(), danger.height());
 	}
 
@@ -265,66 +267,21 @@ public class MenuPane extends Component {
 				|| Transitions.get( Dungeon.level, Dungeon.level.exit() ) != null;
 	}
 
-	//SPSEXPD: 视角切换按钮 —— 与「菜单/事件记录」同款按钮底图，但 hardlight 成红底；
-	//图标用楼梯（Icons.STAIRS），点击在入口/出口之间循环相机
-	private class CameraButton extends Button {
-
-		private Image bg;
-		private Image icon;
-
-		public CameraButton() {
-			super();
-
-			width = bg.width + 4;
-			height = bg.height + 10;
-		}
-
-		@Override
-		protected void createChildren() {
-			super.createChildren();
-
-			bg = new Image( Assets.Interfaces.MENU_BTN, 2, 2, 13, 11 );
-			bg.hardlight( 0xC03838 );
-			add( bg );
-
-			icon = new Image( Assets.Interfaces.MENU_CAMERA );
-			add( icon );
-		}
-
-		@Override
-		protected void layout() {
-			super.layout();
-
-			bg.x = x + 2;
-			bg.y = y + FRAME_TOP;
-
-			icon.x = bg.x + (bg.width() - icon.width())/2f;
-			icon.y = bg.y + (bg.height() - icon.height())/2f;
-			PixelScene.align( icon );
-		}
-
-		@Override
-		protected void onClick() {
-			super.onClick();
-			toggleCameraTarget();
-		}
-
-		@Override
-		protected String hoverText() {
-			return Messages.get(MenuPane.class, "camera_toggle");
-		}
-	}
-
 	//SPSEXPD: 在「入口 ↔ 出口」之间切换相机位置。
 	//这是临时视角：英雄下次 place/move/jump 时 HeroSprite 会 panFollow 把相机拉回。
 	private void toggleCameraTarget(){
 		if (Dungeon.level == null || Dungeon.hero == null) return;
 
 		cameraAtExit = !cameraAtExit;
-		int cell = cameraAtExit ? Dungeon.level.exit() : Dungeon.level.entrance();
+		int primary  = cameraAtExit ? Dungeon.level.exit() : Dungeon.level.entrance();
+		int fallback = cameraAtExit ? Dungeon.level.entrance() : Dungeon.level.exit();
+
 		//SPSEXPD: entrance()/exit() 在本层没有对应 transition 时会回退返回 0（= 左上角格），
-		//所以再用 Transitions 确认一次，避免误跳到左上角
-		if (Transitions.get(Dungeon.level, cell) == null) return;
+		//所以用 Transitions 确认一次。首选目标不存在时改跳另一个；两个都不存在就不做视角跳转。
+		int cell = -1;
+		if (Transitions.get(Dungeon.level, primary) != null)       cell = primary;
+		else if (Transitions.get(Dungeon.level, fallback) != null) cell = fallback;
+		if (cell < 0) return;
 
 		Camera.main.panTo( DungeonTilemap.tileCenterToWorld( cell ), 5f );
 	}
