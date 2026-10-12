@@ -315,8 +315,6 @@ public class HeroSelectScene extends PixelScene {
 		infoButtons.clear();
 		if (cl == null) return;
 
-		final float w = Camera.main.width - insets.left - insets.right;
-
 		for (int i = 0; i < INFO_TAB_KEYS.length; i++){
 			final int tab = i;
 			IconButton btn = new IconButton(WndHeroInfo.tabIcon(cl, tab)){
@@ -327,11 +325,8 @@ public class HeroSelectScene extends PixelScene {
 					icon().resetColor();
 					HeroClass cls = GamesInProgress.selectedClass;
 					if (cls == null) return;
-					Window info = new WndHeroInfo(cls, GamesInProgress.selectedSkin, tab);
-					if (landscape()){
-						info.offset((int)(w / 6), 0);
-					}
-					ShatteredPixelDungeon.scene().addToFront(info);
+					//SPSEXPD: 横屏下也让信息窗居中（不再向右偏移）
+					ShatteredPixelDungeon.scene().addToFront(new WndHeroInfo(cls, GamesInProgress.selectedSkin, tab));
 				}
 
 				@Override
@@ -629,11 +624,8 @@ public class HeroSelectScene extends PixelScene {
 			if( !cl.isUnlocked() ){
 				ShatteredPixelDungeon.scene().addToFront( new WndMessage(cl.unlockMsg()));
 			} else if (GamesInProgress.selectedClass == cl) {
-				Window w = new WndHeroInfo(cl, GamesInProgress.selectedSkin);
-				if (landscape()){
-					w.offset(Camera.main.width/6, 0);
-				}
-				ShatteredPixelDungeon.scene().addToFront(w);
+				//SPSEXPD: 横屏下也让信息窗居中（不再向右偏移）
+				ShatteredPixelDungeon.scene().addToFront(new WndHeroInfo(cl, GamesInProgress.selectedSkin));
 			} else {
 				setSelectedHero(cl);
 			}
