@@ -47,8 +47,8 @@ public final class SpsGhostQuestTest {
 			"TimekeepersHourglass", "UnstableSpellbook", "AlchemistsToolkit",
 			"RobotDMT", "EyeOfSkadi", "EtherealChains", "DriedRose", "GlassTotem",
 			"AlienBag", "FlyChains", "TimeOclock",
-			//SPSEXPD: 原创神器追加在旧版 18 项之后
-			"EndlessAmmoBag", "NaturalAxe", "VoidHand", "HandOfTheElder", "GoddessRadiance", "CloakOfSheep"
+			//SPSEXPD: 原创神器追加在旧版 18 项之后（无尽弹药袋已移出神器池，改为星兵开局携带）
+			"NaturalAxe", "VoidHand", "HandOfTheElder", "GoddessRadiance", "CloakOfSheep"
 	};
 
 	public static void main(String[] args) throws Exception {

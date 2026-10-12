@@ -56,7 +56,6 @@ import pd.items.equipment.artifacts.ChaliceOfBlood;
 import pd.items.equipment.artifacts.CloakOfSheep;
 import pd.items.equipment.artifacts.CloakOfShadows;
 import pd.items.equipment.artifacts.DriedRose;
-import pd.items.equipment.artifacts.EndlessAmmoBag;
 import pd.items.equipment.artifacts.EtherealChains;
 import pd.items.equipment.artifacts.FlyChains;
 import pd.items.equipment.artifacts.GlassTotem;
@@ -1038,14 +1037,14 @@ public class Generator {
 					AlienBag.class,
 					FlyChains.class,
 					TimeOclock.class,
-					EndlessAmmoBag.class,
+					//SPSEXPD: 无尽弹药袋已移出常规神器池（改为星兵开局携带）
 					NaturalAxe.class,
 					VoidHand.class,
 					HandOfTheElder.class,
 					GoddessRadiance.class,
 					CloakOfSheep.class
 			};
-			ARTIFACT.defaultProbs = new float[]{1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1};
+			ARTIFACT.defaultProbs = new float[]{1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1};
 			ARTIFACT.probs = ARTIFACT.defaultProbs.clone();
 
 			//Trinkets are unique like artifacts, but unlike them you can only have one at once

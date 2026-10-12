@@ -131,11 +131,12 @@ public final class SpsEndlessAmmoBagTest {
 	}
 
 	private static void testPoolSaveAndMessages() throws Exception {
+		//SPSEXPD: 无尽弹药袋已移出常规神器池（改为星兵开局携带）
 		boolean inPool = false;
 		for (Class<?> type : Generator.Category.ARTIFACT.classes) {
 			if (type == EndlessAmmoBag.class) inPool = true;
 		}
-		check(inPool, "无限弹药袋没有进入普通神器池");
+		check(!inPool, "无限弹药袋不应再出现在常规神器池中");
 		check(Generator.Category.ARTIFACT.classes.length == Generator.Category.ARTIFACT.defaultProbs.length,
 				"神器池与权重数组长度不一致");
 

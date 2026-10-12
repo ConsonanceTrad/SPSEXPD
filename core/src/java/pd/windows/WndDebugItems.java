@@ -202,6 +202,9 @@ public class WndDebugItems extends Window {
 		all.put(ArmorKit.class, true);
 		all.put(Ankhshield.class, true);
 
+		//SPSEXPD: 无尽弹药袋已移出常规神器池（改为星兵开局携带），手动补入调试器
+		all.put(pd.items.equipment.artifacts.EndlessAmmoBag.class, true);
+
 		//SPSEXPD: 作物相关物品（种子/蔬菜/二次产物/果实）登记进调试器全集
 		for (Class<?> t : CROP_ORDER) all.put((Class<? extends Item>) t, true);
 

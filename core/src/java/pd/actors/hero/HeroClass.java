@@ -1588,6 +1588,9 @@ public enum HeroClass {
 					l.equip(ItemSlot.WEAPON, () -> new Sling(), 0,
 							(h, i) -> ((pd.items.KindOfWeapon) i).activate(h));
 					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
+					//SPSEXPD: 星兵开局携带无尽弹药袋（该物品已移出常规神器池）
+					l.equip(ItemSlot.ARTIFACT, () -> new pd.items.equipment.artifacts.EndlessAmmoBag(), 0,
+							(h, i) -> ((pd.items.equipment.artifacts.EndlessAmmoBag) i).activate(h));
 					l.backpack(() -> new GunOfSoldier(), 0, 1, 0, null);
 					l.backpack(() -> new EscapeKnive(3), 0, 1, 1, null);
 					l.backpack(() -> new MixPizza(4));
@@ -1650,6 +1653,8 @@ public enum HeroClass {
 				default:
 					l.equip(ItemSlot.WEAPON, () -> new WoodenStaff(), 0, null);
 					l.equip(ItemSlot.ARMOR, () -> new ClothArmor(), 0, null);
+					//SPSEXPD: 信徒开局携带蒲团（占位道具，暂无效果）
+					l.backpack(() -> new pd.items.misc.Futon());
 					l.backpack(() -> new PotionOfHealing());
 					l.backpack(() -> new FaithSign());
 					l.backpack(() -> new MoonCake());
@@ -1703,6 +1708,9 @@ public enum HeroClass {
 				default:
 					l.equip(ItemSlot.WEAPON, () -> new TrickSand(), 0, null);
 					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
+					//SPSEXPD: 苦修者开局携带经卷耳环（占位神器，暂不提供效果）
+					l.equip(ItemSlot.ARTIFACT, () -> new pd.items.equipment.artifacts.ScrollEarring(), 0,
+							(h, i) -> ((pd.items.equipment.artifacts.ScrollEarring) i).activate(h));
 					l.backpack(() -> new BigBattery(), 0, 1, 0, null);
 					l.backpack(() -> new ActiveMrDestructo());
 					l.backpack(() -> new FruitCandy(3));
