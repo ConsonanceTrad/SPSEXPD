@@ -82,15 +82,28 @@ public abstract class Plant implements Bundlable {
 
 	/** SPSEXPD: 带显式触发者的踩踏——魔术之手的隔空踩踏由释放者（英雄）充当触发者。 */
 	public void trigger( Char ch ){
+		trigger( ch, true, true );
+	}
+
+	/**
+	 * SPSEXPD: 带开关的踩踏。
+	 *
+	 * <p>{@code interruptHero=false} —— 搜索批量踩踏时不要打断英雄当前的搜索动作；
+	 * {@code accrual=false} —— 跳过「按踩踏次数累积」的效果（树肤 / 自然援助 / 图鉴计数）。
+	 * 二者供一次搜索踩多格时「只算英雄踩过一格」。</p>
+	 */
+	public void trigger( Char ch, boolean interruptHero, boolean accrual ){
 
 		if (ch instanceof Hero){
-			((Hero) ch).interrupt();
-			if(((Hero) ch).hasTalent(Talent.BARKSKIN)){
+			if (interruptHero){
+				((Hero) ch).interrupt();
+			}
+			if (accrual && ((Hero) ch).hasTalent(Talent.BARKSKIN)){
 				Barkskin.conditionallyAppend(ch, (((Hero) ch).lvl* ((Hero) ch).pointsInTalent(Talent.BARKSKIN))/3, 1 );
 			}
 		}
 
-		if (Dungeon.level.heroFOV[pos] && Dungeon.hero.hasTalent(Talent.NATURES_AID)){
+		if (accrual && Dungeon.level.heroFOV[pos] && Dungeon.hero.hasTalent(Talent.NATURES_AID)){
 			// 3/5 turns based on talent points spent
 			Barkskin.conditionallyAppend(Dungeon.hero, 2, 1 + 2*(Dungeon.hero.pointsInTalent(Talent.NATURES_AID)));
 		}
@@ -119,8 +132,10 @@ public abstract class Plant implements Bundlable {
 			}
 		}
 
-		Bestiary.setSeen(getClass());
-		Bestiary.countEncounter(getClass());
+		if (accrual){
+			Bestiary.setSeen(getClass());
+			Bestiary.countEncounter(getClass());
+		}
 	}
 	
 	public abstract void activate( Char ch );

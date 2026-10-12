@@ -102,8 +102,7 @@ public class HighGrass {
 			
 		} else {
 			//SPSEXPD: 一次批量踩草（搜索踩草）只让「按次数累积」的效果结算一次
-			boolean accrual = once == null || !once.spent;
-			if (once != null) once.spent = true;
+			boolean accrual = once == null || once.claim();
 
 			//SPSEXPD: 原为 HUNTRESS 职业判定，现由「踏草无声」特质驱动
 			if (ch instanceof Hero && pd.actors.hero.perks.Grasskeeper.ownedBy((Hero) ch)){
@@ -232,6 +231,13 @@ public class HighGrass {
 	/** SPSEXPD: 搜索踩草的「一次结算」门 —— 见 {@link #trample(Level, int, Char, Once)} */
 	public static final class Once {
 		boolean spent = false;
+
+		/** 取用一次：首次返回 true，之后返回 false（整批只允许结算一次） */
+		public boolean claim() {
+			if (spent) return false;
+			spent = true;
+			return true;
+		}
 	}
 
 	/** SPSEXPD: 自然之鞋踩踏高草时的独立种子掷骰（未诅咒且等级 ≥1 时为 1/(16-等级)）。原属荆棘斗篷，已并入自然之鞋。 */

@@ -128,7 +128,7 @@ public class WndSettings extends WndTabbed {
 			//SPSEXPD: 行末蓝色感叹号点开的「详细作用」（键名 = 上方各键 + _desc）
 			.t("$auxtab.hero_path_desc", "在画面里画出你点击的移动路线，方便提前规划走位。")
 			.t("$auxtab.search_pickup_desc", "使用「检索」时，会顺手拾取视野内可达的地面物品。")
-			.t("$auxtab.search_trample_desc", "使用「检索」时，会把搜索范围内的高草与垄沟草踩掉；高草会照常产出种子、露珠等收获。")
+			.t("$auxtab.search_trample_desc", "使用「检索」时，会把搜索范围内的高草、垄沟草与植物一并踩掉；高草会照常产出种子、露珠等收获，植物则按野生规则散落果实。")
 			.t("$auxtab.adjacent_pickup_desc", "开启后可站在原地拾取或购买相邻一格（含斜角）视野内的物品，不必先走过去。")
 			.t("$auxtab.quick_all_desc", "快捷操作按钮的总开关。关掉后按钮不再显示，但下面三项各自的设置会保留。")
 			.t("$auxtab.quick_light_desc", "夜晚且身上带着光源时，显示一键照明的快捷按钮（优先用露珠瓶，其次火把）。")

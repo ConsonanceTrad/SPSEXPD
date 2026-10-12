@@ -193,7 +193,10 @@ public class WandOfRegrowth extends Wand {
 		if (!cells.isEmpty() && Random.Float() > furrowedChance &&
 				(Random.Int(6) < chrgUsed)){ // 16%/33%/50% chance to spawn a seed pod or dewcatcher
 			int cell = cells.remove(0);
-			GroundItems.plant( Dungeon.level,  Random.Int(2) == 0 ? new Seedpod.Seed() : new Dewcatcher.Seed(), cell);
+			//SPSEXPD: 统一改用 pd.plants 的野生版本（本文件内的旧内部类只留作存档兼容）——
+			//这样草杖生成的植物与野生植物同类，踩踏与「搜索踩草」的掉落规则完全一致
+			GroundItems.plant( Dungeon.level, Random.Int(2) == 0
+					? new pd.plants.Seedpod.Seed() : new pd.plants.Dewcatcher.Seed(), cell);
 		}
 
 		if (!cells.isEmpty() && Random.Float() > furrowedChance &&
