@@ -74,8 +74,9 @@ public class StatusPane extends Component {
 	private static final float SP_TEXT_SCALE = 0.75f;
 	/** 底板的最小宽度（数值很短时也保持一个明显的方块）；宽度随数字长度增长 */
 	private static final float SP_BG_MIN_W = 20f;
-	/** 底板固定高度 —— 必须固定：buff 区的位置按它预留，高度若随数字变化就会压到 buff 栏 */
-	private static final float SP_BG_HEIGHT = 12f;
+	/** 底板固定高度 —— 必须固定：buff 区的位置按它预留，高度若随数字变化就会压到 buff 栏。
+	 *  同时这个值直接决定 buff 区下移多少，所以取「刚好容下放大后数字」的最小值 */
+	private static final float SP_BG_HEIGHT = 9f;
 
 	private Image exp;
 	private BitmapText expText;
@@ -164,9 +165,10 @@ public class StatusPane extends Component {
 		hpText.alpha(0.6f);
 		add(hpText);
 
-		//SPSEXPD: 局内 SP 点数——半透明矩形底板 + 放大的数字（位置与刷新都在 layout/update 里）
-		spBg = new ColorBlock(1, 1, 0x000000);
-		spBg.alpha(0.55f);
+		//SPSEXPD: 局内 SP 点数——半透明矩形底板 + 放大的数字（位置与刷新都在 layout/update 里）。
+		//注意 ColorBlock 的构造参数是 ARGB：必须给不透明的颜色（0xFF……），写 0x000000 会得到 alpha=0 的透明块
+		spBg = new ColorBlock(1, 1, 0xFF101820);
+		spBg.alpha(0.7f);
 		add(spBg);
 
 		spText = new BitmapText(PixelScene.pixelFont);
@@ -305,7 +307,7 @@ public class StatusPane extends Component {
 			if (buffBarRowAdjusts != null){
 				buffs.rowHeightAdjusts = buffBarRowAdjusts;
 			}
-			buffs.setRect( x + heroPaneWidth + 1, spBg.y + SP_BG_HEIGHT + 1, 55, 16 );
+			buffs.setRect( x + heroPaneWidth + 1, spBg.y + SP_BG_HEIGHT, 55, 16 );
 
 			busy.x = x + 1;
 			busy.y = y + 37;
