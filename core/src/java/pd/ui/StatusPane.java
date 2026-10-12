@@ -63,6 +63,13 @@ public class StatusPane extends Component {
 	private BitmapText hpText;
 	private Button heroInfoOnBar;
 
+	//SPSEXPD: 血条下方的局内 SP 点数（默认 Hero.spp；英雄有专属来源时改显示它的数值）
+	private BitmapText spText;
+	private int lastSP = Integer.MIN_VALUE;
+	private int lastSPMax = Integer.MIN_VALUE;
+	//SPSEXPD: 小模式下为 SP 行预留的高度（buff 区顺次下移）
+	private static final float SP_LINE_H = 4f;
+
 	private Image exp;
 	private BitmapText expText;
 
@@ -150,6 +157,11 @@ public class StatusPane extends Component {
 		hpText.alpha(0.6f);
 		add(hpText);
 
+		//SPSEXPD: 局内 SP 点数（小号字，位置与刷新都在 layout/update 里）
+		spText = new BitmapText(PixelScene.pixelFont);
+		spText.alpha(0.6f);
+		add(spText);
+
 		heroInfoOnBar = new Button(){
 			@Override
 			protected void onClick () {
@@ -220,6 +232,12 @@ public class StatusPane extends Component {
 			expText.y = exp.y;
 			PixelScene.align(expText);
 
+			//SPSEXPD: large 模式血条下方只剩 2px，SP 点数改贴血条内左侧（hpText 居中，左侧是空的）
+			spText.scale.set(PixelScene.align(0.5f));
+			spText.x = hp.x + 2;
+			spText.y = hp.y + (hp.height - (spText.baseLine()+spText.scale.y))/2f;
+			PixelScene.align(spText);
+
 			heroInfoOnBar.setRect(heroInfo.right(), y + 19, 130, 20);
 
 			//little extra for 14th buff
@@ -270,13 +288,19 @@ public class StatusPane extends Component {
 
 			heroInfoOnBar.setRect(heroInfo.right(), y, 50, 9);
 
+			//SPSEXPD: 小模式 SP 点数贴血条正下方；buff 区顺次下移，让出这一行（血条底缘 y+6）
+			spText.scale.set(PixelScene.align(0.5f));
+			spText.x = hp.x;
+			spText.y = hp.y + hp.height;
+			PixelScene.align(spText);
+
 			if (buffBarRowMaxWidths != null){
 				buffs.rowWidthLimits = buffBarRowMaxWidths;
 			}
 			if (buffBarRowAdjusts != null){
 				buffs.rowHeightAdjusts = buffBarRowAdjusts;
 			}
-			buffs.setRect( x + heroPaneWidth + 1, y + 8, 55, 16 );
+			buffs.setRect( x + heroPaneWidth + 1, y + 8 + SP_LINE_H, 55, 16 );
 
 			busy.x = x + 1;
 			busy.y = y + 37;
@@ -335,6 +359,23 @@ public class StatusPane extends Component {
 			oldHP = health;
 			oldShield = shield;
 			oldMax = max;
+		}
+
+		//SPSEXPD: 局内 SP 点数 —— 默认显示 Hero.spp；英雄身上挂着专属来源（如武僧内力）时显示它
+		int sp = Dungeon.hero.spp;
+		int spMax = -1;
+		pd.actors.hero.SpPointSource spSource = Dungeon.hero.activeSpSource();
+		if (spSource != null) {
+			sp = spSource.value( Dungeon.hero );
+			spMax = spSource.max( Dungeon.hero );
+		}
+		if (sp != lastSP || spMax != lastSPMax) {
+			lastSP = sp;
+			lastSPMax = spMax;
+			spText.text( spMax > 0 ? sp + "/" + spMax : Integer.toString( sp ) );
+			spText.measure();
+			spText.x = large ? hp.x + 2 : hp.x;
+			PixelScene.align( spText );
 		}
 
 		if (large) {

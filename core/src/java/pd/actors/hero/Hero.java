@@ -2791,6 +2791,20 @@ public class Hero extends Char {
 	public boolean isStarving() {
 		return Buff.affect(this, Hunger.class).isStarving();
 	}
+
+	/**
+	 * SPSEXPD: 血条下方 SP 数字当前应使用的数据源 —— 优先取身上挂着且 active 的专属来源
+	 * （如武僧内力），没有时返回 null，由 HUD 回退显示 {@link #spp}。
+	 */
+	public pd.actors.hero.SpPointSource activeSpSource() {
+		for (Buff b : buffs()) {
+			if (b instanceof pd.actors.hero.SpPointSource) {
+				pd.actors.hero.SpPointSource src = (pd.actors.hero.SpPointSource) b;
+				if (src.active(this)) return src;
+			}
+		}
+		return null;
+	}
 	
 	@Override
 	public boolean add( Buff buff ) {

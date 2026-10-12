@@ -63,7 +63,7 @@ import render.utils.math.GameMath;
 import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
 
-public class MonkEnergy extends Buff implements ActionIndicator.Action {
+public class MonkEnergy extends Buff implements ActionIndicator.Action, pd.actors.hero.SpPointSource {
 
 	//SPSXPD: window construction measures text, which must happen on the render thread.
 	//Called from the actor thread it throws "Text measured from the actor thread!", so
@@ -255,6 +255,22 @@ public class MonkEnergy extends Buff implements ActionIndicator.Action {
 	//10 at base, 20 at level 30
 	public int energyCap(){
 		return Math.max(10, 5 + Dungeon.hero.lvl/2);
+	}
+
+	//SPSEXPD: 血条下方的 SP 数字在本 buff 存在时改显示武僧内力（可插拔数据源）
+	@Override
+	public boolean active( Hero hero ){
+		return true;
+	}
+
+	@Override
+	public int value( Hero hero ){
+		return (int) energy;
+	}
+
+	@Override
+	public int max( Hero hero ){
+		return energyCap();
 	}
 
 	public void abilityUsed( MonkAbility abil ){
