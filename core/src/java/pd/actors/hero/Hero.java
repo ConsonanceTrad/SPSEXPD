@@ -1505,7 +1505,10 @@ public class Hero extends Char {
 	
 	private boolean actBuy( HeroAction.Buy action ) {
 		int dst = action.dst;
-		if (pos == dst) {
+		//SPSEXPD: 「临近触及」——开启后可隔着相邻一格购买（与拾取同口径：相邻且在视野内）
+		boolean touch = pos == dst || (SPDSettings.adjacentPickup()
+				&& Dungeon.level.adjacent( pos, dst ) && fieldOfView[dst]);
+		if (touch) {
 
 			ready();
 			
@@ -1533,7 +1536,10 @@ public class Hero extends Char {
 
 	private boolean actLifeBuy( HeroAction.LifeBuy action ) {
 		int dst = action.dst;
-		if (pos == dst) {
+		//SPSEXPD: 「临近触及」——生命交易同属购买，也支持隔相邻一格
+		boolean touch = pos == dst || (SPDSettings.adjacentPickup()
+				&& Dungeon.level.adjacent( pos, dst ) && fieldOfView[dst]);
+		if (touch) {
 			ready();
 			Heap heap = Dungeon.level.heaps.get(dst);
 			if (heap != null && heap.type == Type.FOR_LIFE && heap.size() == 1) {
@@ -1594,7 +1600,7 @@ public class Hero extends Char {
 		//SPSEXPD: 「临近触及」——开启后可隔着相邻一格拾取地面掉落物（对齐 SPS 的 Floor.adjacent 判定）。
 		//只要求相邻且在视野内：此处不能用 canPickUpAt（它读的是搜索/寻路留下的 PathFinder.distance 旧数据）
 		boolean adjacent = pos != dst && SPDSettings.adjacentPickup()
-				&& isAdjacentCell( pos, dst ) && fieldOfView[dst];
+				&& Dungeon.level.adjacent( pos, dst ) && fieldOfView[dst];
 		if (pos == dst || adjacent) {
 			
 			//SPSEXPD: 取目标格的堆（相邻拾取时 dst 才是目标；下面的动画与跨层判定仍用英雄自身 pos）
@@ -3298,15 +3304,6 @@ public class Hero extends Char {
 	private static boolean isTrampleGrass( int cell ){
 		int t = Dungeon.level.map[cell];
 		return t == Terrain.HIGH_GRASS || t == Terrain.FURROWED_GRASS;
-	}
-
-	//SPSEXPD: 「临近触及」——两格是否八方向相邻（含斜角）
-	private static boolean isAdjacentCell( int a, int b ){
-		if (a == b) return false;
-		int w = Dungeon.level.width();
-		int dx = Math.abs( (a % w) - (b % w) );
-		int dy = Math.abs( (a / w) - (b / w) );
-		return dx <= 1 && dy <= 1;
 	}
 
 	public boolean search( boolean intentional ) {
