@@ -70,8 +70,10 @@ public class StatusPane extends Component {
 	private ColorBlock spBar;
 	private int lastSP = Integer.MIN_VALUE;
 	private int lastSPMax = Integer.MIN_VALUE;
-	/** SP 数字的缩放 */
-	private static final float SP_TEXT_SCALE = 0.75f;
+	/** SP 数字的缩放（与血条数字同规格；背板已提供底色，不需要再放大字号） */
+	private static final float SP_TEXT_SCALE = 0.5f;
+	/** 长数值自动缩字号的下限（再小就读不清了） */
+	private static final float SP_TEXT_SCALE_MIN = 0.35f;
 	//SPSEXPD: 背板素材 status_pane.png 小模式帧里为 SP 预留的格子（帧内坐标，用户绘制）
 	private static final float SP_SLOT_X = 30f;
 	private static final float SP_SLOT_Y = 7f;
@@ -167,13 +169,12 @@ public class StatusPane extends Component {
 		hpText.alpha(0.6f);
 		add(hpText);
 
-		//SPSEXPD: 局内 SP 点数——数字 + 有上限时的黄色进度条（底板/边框由背板素材提供）
+		//SPSEXPD: 局内 SP 点数——白色数字 + 有上限时的黄色进度条（底板/边框由背板素材提供）
 		spBar = new ColorBlock(1, 1, 0xFFFF66);
 		spBar.visible = false;
 		add(spBar);
 
 		spText = new BitmapText(PixelScene.pixelFont);
-		spText.hardlight(0x9FD8FF);
 		add(spText);
 
 		heroInfoOnBar = new Button(){
@@ -437,12 +438,10 @@ public class StatusPane extends Component {
 	private void layoutSpPoint(){
 		if (spText == null || spBar == null || hp == null) return;
 
-		spText.scale.set(PixelScene.align(SP_TEXT_SCALE));
-
 		float slotX, slotY, slotW, slotH;
 		if (large){
-			//large：血条内左侧（没有背板格子），按数字宽度给条
-			slotW = Math.max(12f, spText.width());
+			//large：血条内左侧（没有背板格子），可用宽度取到居中数字之前
+			slotW = 50f;
 			slotH = 7f;
 			slotX = hp.x + 2;
 			slotY = hp.y + (hp.height - slotH)/2f;
@@ -452,6 +451,15 @@ public class StatusPane extends Component {
 			slotY = y + SP_SLOT_Y;
 			slotW = SP_SLOT_W;
 			slotH = SP_SLOT_H;
+		}
+
+		//SPSEXPD: 长数值也要在格内完整显示——超出内宽时逐步缩字号（下限 SP_TEXT_SCALE_MIN）
+		float scale = SP_TEXT_SCALE;
+		float avail = Math.max(6f, slotW - 2f);
+		spText.scale.set(scale, scale);
+		while (scale > SP_TEXT_SCALE_MIN && spText.width() > avail){
+			scale -= 0.05f;
+			spText.scale.set(scale, scale);
 		}
 
 		spText.x = slotX + (slotW - spText.width())/2f;
