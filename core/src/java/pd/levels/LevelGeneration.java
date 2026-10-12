@@ -66,9 +66,6 @@ public final class LevelGeneration {
 			}
 		} while (!level.build());
 
-		//SPSEXPD: 露珠神像恢复生成（踩上去给 10 次露珠爆破）
-		SpsDew.place( level );
-
 		level.buildFlagMaps();
 		CellFlags.cleanWalls( level );
 		

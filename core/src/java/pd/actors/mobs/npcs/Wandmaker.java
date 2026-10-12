@@ -216,7 +216,6 @@ public class Wandmaker extends NPC {
 				if (candidate >= 0 && candidate < level.length()
 						&& level.map[candidate] != Terrain.ENTRANCE
 						&& level.map[candidate] != Terrain.SIGN
-						&& level.map[candidate] != Terrain.DEW_BLESS
 						&& level.passable[candidate]) {
 					spawnPos = candidate;
 				}

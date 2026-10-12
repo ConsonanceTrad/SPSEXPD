@@ -67,8 +67,6 @@ public final class TileTexts {
 				return Messages.get(Level.class, "crystal_door_name");
 			case Terrain.PEDESTAL:
 				return Messages.get(Level.class, "pedestal_name");
-			case Terrain.DEW_BLESS:
-				return Messages.get(Level.class, "dew_bless_name");
 			case Terrain.TENT:
 				return Messages.get(Level.class, "tent_name");
 			case Terrain.IRON_MAKER:
@@ -144,8 +142,6 @@ public final class TileTexts {
 				return Messages.get(Level.class, "locked_exit_desc");
 			case Terrain.BARRICADE:
 				return Messages.get(Level.class, "barricade_desc");
-			case Terrain.DEW_BLESS:
-				return Messages.get(Level.class, "dew_bless_desc");
 			case Terrain.TENT:
 				return Messages.get(Level.class, "tent_desc");
 			case Terrain.IRON_MAKER:

@@ -91,6 +91,11 @@ public class Statistics {
 	public static final int DAYS_PER_MONTH = 30;
 	public static final int MONTHS_PER_YEAR = 12;
 	public static final int DAYS_PER_YEAR = DAYS_PER_MONTH * MONTHS_PER_YEAR;
+	/**
+	 * SPSEXPD: 上一次直接发放露珠爆破的层（{@code depth + 100 * branch}）——
+	 * 进层发放只在首次进入该层时生效，读档或上下楼折返都不会重复发；-1 = 本局还没发过。
+	 */
+	public static int spsDewChargeFloor = -1;
 	
 	public static boolean qualifiedForNoKilling = false;
 	public static boolean completedWithNoKilling = false;
@@ -166,6 +171,7 @@ public class Statistics {
 		ascended = false;
 		roomType = 0;
 		potKeyClaimed = false;
+		spsDewChargeFloor = -1;
 		
 	}
 	
@@ -214,6 +220,7 @@ public class Statistics {
 	private static final String SPS_DAYS = "spsDays";
 	private static final String SPS_TURNS = "spsTurns";
 	private static final String SPS_CALENDAR_START = "spsCalendarStart";
+	private static final String SPS_DEW_CHARGE_FLOOR = "spsDewChargeFloor";
 
 	private static final String NO_KILLING_QUALIFIED	= "qualifiedForNoKilling";
 	private static final String BOSS_REMAINS_QUALIFIED	= "qualifiedForBossRemainsBadge";
@@ -275,6 +282,7 @@ public class Statistics {
 		bundle.put( SPS_DAYS, spsDays );
 		bundle.put( SPS_TURNS, spsTurns );
 		bundle.put( SPS_CALENDAR_START, spsCalendarStart );
+		bundle.put( SPS_DEW_CHARGE_FLOOR, spsDewChargeFloor );
 
 		bundle.put(NO_KILLING_QUALIFIED, qualifiedForNoKilling);
 		bundle.put(BOSS_REMAINS_QUALIFIED, qualifiedForBossRemainsBadge);
@@ -350,6 +358,8 @@ public class Statistics {
 		spsTurns = bundle.contains(SPS_TURNS) ? bundle.getInt(SPS_TURNS) : 0;
 		//SPSEXPD: 旧档没有这个键时用 0（1 年 1 月 1 日）兜底，避免每次读档日期都跳
 		spsCalendarStart = bundle.contains(SPS_CALENDAR_START) ? bundle.getInt(SPS_CALENDAR_START) : 0;
+		//SPSEXPD: 旧档没有该键 → -1，进入下一层时照常发放一次
+		spsDewChargeFloor = bundle.contains(SPS_DEW_CHARGE_FLOOR) ? bundle.getInt(SPS_DEW_CHARGE_FLOOR) : -1;
 
 		qualifiedForNoKilling = bundle.getBoolean( NO_KILLING_QUALIFIED );
 		qualifiedForBossRemainsBadge = bundle.getBoolean( BOSS_REMAINS_QUALIFIED );

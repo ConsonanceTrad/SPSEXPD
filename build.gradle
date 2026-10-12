@@ -742,11 +742,12 @@ tasks.register('verifySpsMechanics') {
 		 'TrapMechanism.getNextFeeling', 'level.feeling', 'level.viewDistance'].each {
 			requireText(floorFeeling, it, '楼层感受与补给')
 		}
-		//SPS 露珠：祝福点铺设与露珠数量统计已移入 SpsDew，覆盖检查随之内聚
+		//SPS 露珠：进层发放与露珠数量统计已移入 SpsDew，覆盖检查随之内聚
 		def spsDew = readSource('levels/SpsDew.java')
-		['place( Level level )', 'isClearable( Level level )', 'hasDew( Level level )',
-		 'Dungeon.shopOnLevel()', 'Terrain.DEW_BLESS'].each {
-			requireText(spsDew, it, '露珠祝福点与统计')
+		['grantDewCharge( Level level )', 'isClearable( Level level )', 'hasDew( Level level )',
+		 'Dungeon.shopOnLevel()', 'legacyRoomCount()', 'Dewcharge.chargeCount',
+		 'Statistics.spsDewChargeFloor'].each {
+			requireText(spsDew, it, '露珠爆破发放与统计')
 		}
 		//SPS 露珠：怪物集合与驻留机制已移入 LevelMobs，覆盖检查随之内聚
 		def levelMobs = readSource('levels/mobs/LevelMobs.java')
@@ -754,9 +755,8 @@ tasks.register('verifySpsMechanics') {
 			requireText(levelMobs, it, '怪物集合与驻留机制')
 		}
 		def terrain = readSource('levels/Terrain.java')
-		requireText(terrain, 'DEW_BLESS', '露珠神像地形')
-		def dewBless = readSource('levels/features/DewBlessRoom.java')
-		requireText(dewBless, 'Dewcharge.chargeCount(ch, 10)', '露珠神像祝福')
+		//SPSEXPD: 露珠神像已移除，DEW_BLESS 地形常量仅为旧档兼容保留（不再生成）
+		requireText(terrain, 'DEW_BLESS', '旧档兼容的露珠神像地形')
 		requireText(between, 'new SpsTentRoom()', '过渡层帐篷房')
 		def tentRoom = readSource('levels/rooms/special/SpsTentRoom.java')
 		['Terrain.TENT', 'Terrain.IRON_MAKER', 'Terrain.ALCHEMY', 'SpsFeatureVisual.TENT'].each {

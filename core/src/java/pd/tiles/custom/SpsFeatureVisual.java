@@ -20,7 +20,6 @@ public class SpsFeatureVisual extends CustomTilemap {
 	public static final int FLOWER_POT = 32;
 	public static final int IRON_MAKER = 33;
 	public static final int TENT = 38;
-	public static final int DEW_BLESS = 39;
 
 	private static final String FEATURE = "feature";
 

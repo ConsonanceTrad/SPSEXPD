@@ -106,6 +106,7 @@ import pd.levels.SokobanTeleportLevel;
 import pd.levels.SpringFestivalLevel;
 import pd.levels.SpsCavesBossLevel;
 import pd.levels.SpsCityBossLevel;
+import pd.levels.SpsDew;
 import pd.levels.SpsHallsBossLevel;
 import pd.levels.SpsPrisonBossLevel;
 import pd.levels.SpsRegularLevel;
@@ -762,6 +763,9 @@ public class Dungeon {
 		
 		refreshHeroViewDistance();
 		
+		//SPSEXPD: 进入新楼层直接发放露珠爆破（露珠神像已移除）
+		SpsDew.grantDewCharge( level );
+
 		hero.curAction = hero.lastAction = null;
 
 		observe();

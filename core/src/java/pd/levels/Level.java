@@ -96,7 +96,6 @@ import pd.items.equipment.wands.WandOfWarding;
 import pd.items.equipment.weapon.missiles.HeavyBoomerang;
 import pd.levels.Transitions;
 import pd.levels.features.Chasm;
-import pd.levels.features.DewBlessRoom;
 import pd.levels.features.Door;
 import pd.levels.features.HighGrass;
 import pd.levels.features.LevelTransition;
@@ -156,7 +155,6 @@ public abstract class Level implements Bundlable {
 			.t("locked_door_name", "锁着的门")
 			.t("crystal_door_name", "水晶之门")
 			.t("pedestal_name", "基座")
-			.t("dew_bless_name", "露珠神像")
 			.t("tent_name", "休息帐篷")
 			.t("iron_maker_name", "铁砧")
 			.t("sign_name", "告示牌")
@@ -187,7 +185,6 @@ public abstract class Level implements Bundlable {
 			.t("crystal_door_desc", "这扇锁着的门由魔力水晶铸造而成。你的视线可以穿过它，但你的身体不能，还是找找对应的水晶钥匙吧。")
 			.t("locked_exit_desc", "沉重的铁栏杆封锁住了通往下一层的楼梯。")
 			.t("barricade_desc", "木栅栏依然坚固，但早已风干多年。或许可以点燃烧掉？")
-			.t("dew_bless_desc", "作为自然派系的神明之一，露珠女神很乐意为冒险者提供露珠相关的帮助。")
 			.t("tent_desc", "一个安静的休息处。投入食物后，你会休息与其饱食值相同的时间。")
 			.t("iron_maker_desc", "这座铁砧已经冷却废弃了，它的锻造公式都转移到了炼金釜。")
 			.t("sign_desc", "你从这里看不清楚上面写的是什么。")

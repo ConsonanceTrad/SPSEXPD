@@ -4,81 +4,63 @@
  *
  * Shattered Pixel Dungeon
  * Copyright (C) 2014-2026 Evan Debenham
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
  */
 
 package pd.levels;
 
 import pd.Dungeon;
+import pd.Statistics;
+import pd.actors.buffs.Dewcharge;
 import pd.items.Dewdrop;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.levels.features.LevelTransition;
-import pd.tiles.custom.SpsFeatureVisual;
-import render.utils.geom.Point;
-import render.utils.math.Random;
+import pd.messages.Messages;
+import pd.utils.GLog;
+import pd.messages.InlineText;
 
 import java.util.ArrayList;
 
 /**
- * SPS-PD 原创的「露珠祝福」机制：在主地牢楼层入口附近选一格铺上祝福点（踩上去给露珠），
- * 以及该层露珠数量的统计口径。
+ * SPS-PD 原创的「露珠祝福」机制：进入主地牢普通层时直接发放露珠爆破
+ * （次数 = 旧版布局房间数 / 4），以及该层露珠数量的统计口径。
  *
- * 从 Level 中独立出来：这一族只读写关卡地形与自定义图块，不参与覆写。
+ * 从 Level 中独立出来：这一族只读写英雄状态与关卡统计，不参与覆写。
  * 相关的 markSpsOriginalMobs 仍留在 Level —— 它被 SpsRegularLevel 覆写，是关卡的钩子。
  */
 public final class SpsDew {
+	//SPSEXPD: inline Chinese text (generated from messages/levels/zh)
+	static {
+		InlineText.of(SpsDew.class)
+			.t("order", "露珠女神赐予了你祝福，你获得了露珠爆炸。");
+	}
 
 	private SpsDew() { }
 
-	public static void place( Level level ) {
-		//SPSEXPD: 神像无条件生成（不再要求露珠模式），第 1 层也生成
+	/** SPSEXPD: 每 4 个房间（旧版布局房间数，含走廊格）换算 1 次露珠爆破。 */
+	public static final int ROOMS_PER_CHARGE = 4;
+
+	/**
+	 * SPSEXPD: 进入新楼层时直接发放露珠爆破（露珠神像已移除，不再需要踩踏）。
+	 *
+	 * <p>次数 = 旧版布局房间数 / {@link #ROOMS_PER_CHARGE}（至少 1 次），累加到现有次数上；
+	 * 同一层只发一次，读档回到该层或上下楼折返都不会重复发放。</p>
+	 */
+	public static void grantDewCharge( Level level ) {
+		if (Dungeon.hero == null || level == null) return;
+		//与旧的露珠神像生成层保持一致：主地牢 1~38 层、非首领层、非商店层、普通层
 		if (Dungeon.branch != 0 || Dungeon.depth < 1 || Dungeon.depth >= 39
 				|| Dungeon.bossLevel() || Dungeon.shopOnLevel()
-				|| level instanceof BetweenLevel) {
+				|| !(level instanceof SpsRegularLevel)) {
 			return;
 		}
-		int entrance = level.entrance();
-		if (!level.insideMap(entrance)) return;
-		ArrayList<Integer> candidates = new ArrayList<>();
-		int ex = entrance % level.width();
-		int ey = entrance / level.width();
-		for (int radius = 1; radius <= 4 && candidates.isEmpty(); radius++) {
-			for (int y = Math.max(1, ey - radius); y <= Math.min(level.height() - 2, ey + radius); y++) {
-				for (int x = Math.max(1, ex - radius); x <= Math.min(level.width() - 2, ex + radius); x++) {
-					if (Math.max(Math.abs(x - ex), Math.abs(y - ey)) != radius) continue;
-					int cell = x + y * level.width();
-					int terrain = level.map[cell];
-					if ((terrain == Terrain.EMPTY || terrain == Terrain.EMPTY_DECO
-							|| terrain == Terrain.GRASS || terrain == Terrain.EMBERS)
-							&& level.traps.get(cell) == null && level.plants.get(cell) == null
-							&& !insideTransition(level, cell)) {
-						candidates.add(cell);
-					}
-				}
-			}
-		}
-		if (!candidates.isEmpty()) {
-			int cell = Random.element(candidates);
-			level.map[cell] = Terrain.DEW_BLESS;
-			SpsFeatureVisual visual = new SpsFeatureVisual(SpsFeatureVisual.DEW_BLESS);
-			visual.pos(cell, level);
-			level.customTiles.add(visual);
-		}
-	}
 
-	//本关卡内的地形查询不能走 getTransition(cell)/LevelTransition.inside(int)：
-	//二者按 Dungeon.level 换算坐标，而本方法在 Level.create() 期间执行，此时 Dungeon.level 尚未指向本关卡
-	private static boolean insideTransition( Level level, int cell ) {
-		Point p = level.cellToPoint(cell);
-		for (LevelTransition transition : level.transitions) {
-			if (transition.inside(p)) return true;
-		}
-		return false;
+		int floorKey = Dungeon.depth + 100 * Dungeon.branch;
+		if (Statistics.spsDewChargeFloor == floorKey) return;
+		Statistics.spsDewChargeFloor = floorKey;
+
+		int rooms = ((SpsRegularLevel) level).legacyRoomCount();
+		Dewcharge.chargeCount( Dungeon.hero, Math.max(1, rooms / ROOMS_PER_CHARGE) );
+		GLog.h( Messages.get(SpsDew.class, "order") );
 	}
 
 	public static boolean isClearable( Level level ) {

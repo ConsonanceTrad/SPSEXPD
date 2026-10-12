@@ -1741,8 +1741,7 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		for (int y = room.top + 1; y < room.bottom; y++) {
 			for (int x = room.left + 1; x < room.right; x++) {
 				int cell = x + y * width();
-				if (cell != entrance && traps.get(cell) == null && plants.get(cell) == null
-						&& map[cell] != Terrain.DEW_BLESS) {
+				if (cell != entrance && traps.get(cell) == null && plants.get(cell) == null) {
 					candidates.add(cell);
 				}
 			}

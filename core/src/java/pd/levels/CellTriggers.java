@@ -34,7 +34,6 @@ import pd.effects.CellEmitter;
 import pd.effects.particles.SacrificialParticle;
 import pd.items.equipment.artifacts.TimekeepersHourglass;
 import pd.levels.features.Chasm;
-import pd.levels.features.DewBlessRoom;
 import pd.levels.features.Door;
 import pd.levels.features.HighGrass;
 import pd.levels.features.OldHighGrass;
@@ -155,10 +154,6 @@ public final class CellTriggers {
 			WellWater.affectCell( cell );
 			break;
 
-		case Terrain.DEW_BLESS:
-			DewBlessRoom.trample(level, cell, Actor.findChar(cell));
-			break;
-			
 		case Terrain.DOOR:
 			Door.enter( cell );
 			break;

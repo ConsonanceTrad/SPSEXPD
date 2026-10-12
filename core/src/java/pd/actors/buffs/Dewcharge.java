@@ -17,6 +17,7 @@ import pd.actors.Char;
 import pd.messages.InlineText;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
+import render.utils.serialize.Bundle;
 
 /**
  * SPSEXPD: 露珠爆破。
@@ -80,6 +81,21 @@ public class Dewcharge extends Buff {
 	public boolean act() {
 		spend(TICK);
 		return true;
+	}
+
+	private static final String CHARGES = "charges";
+
+	/** SPSEXPD: 剩余次数进存档，否则读档会被重置回字段默认值 */
+	@Override
+	public void storeInBundle(Bundle bundle) {
+		super.storeInBundle(bundle);
+		bundle.put(CHARGES, charges);
+	}
+
+	@Override
+	public void restoreFromBundle(Bundle bundle) {
+		super.restoreFromBundle(bundle);
+		if (bundle.contains(CHARGES)) charges = bundle.getInt(CHARGES);
 	}
 
 	public boolean isDewing() {
