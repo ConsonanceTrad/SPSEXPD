@@ -1,7 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.consum.materials;
 
-import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.ConsumGoodsMaterialsMaterialsExtraDict;
 import pd.items.Item;
 import pd.messages.InlineText;
 
@@ -18,7 +18,7 @@ public class Tinder extends Item {
 	}
 
 	{
-		image = SpecificPlaceHolderDict.SPS_PH_ALCHEMY;
+		image = ConsumGoodsMaterialsMaterialsExtraDict.TINDER;
 		stackable = true;
 	}
 

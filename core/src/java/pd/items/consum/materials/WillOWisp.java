@@ -4,7 +4,7 @@ package pd.items.consum.materials;
 import pd.Dungeon;
 import pd.actors.blobs.Blob;
 import pd.actors.blobs.Fire;
-import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.ConsumGoodsMaterialsMaterialsExtraDict;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.items.Item;
@@ -24,7 +24,7 @@ public class WillOWisp extends Item {
 	}
 
 	{
-		image = SpecificPlaceHolderDict.SOMETHING_0;
+		image = ConsumGoodsMaterialsMaterialsExtraDict.WILL_O_WISP;
 		stackable = true;
 		defaultAction = AC_THROW;
 	}

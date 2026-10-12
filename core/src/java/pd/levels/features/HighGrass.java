@@ -45,6 +45,7 @@ import pd.items.consum.food.vegetable.Carrot;
 import pd.items.consum.food.vegetable.Lettuce;
 import pd.items.consum.materials.DryTwig;
 import pd.items.consum.materials.FreshGrass;
+import pd.items.consum.materials.GrassSeed;
 import pd.plants.MiniSeeds;
 import pd.items.consum.materials.WillOWisp;
 import pd.items.equipment.trinkets.PetrifiedSeed;
@@ -256,6 +257,8 @@ public class HighGrass {
 	 */
 	private static void dropSpsHarvest( Level level, int pos ) {
 		if (level == null) return;
+		//SPSEXPD: 草种种出的高草被踩开时不再掉草种（免得自己繁殖自己）——标记随这株高草一起消费
+		boolean seedGrown = level.spsGrassSeedGrass.remove(pos);
 		if (Random.Float() < 0.10f) dropLoot(level, new FreshGrass(), pos);
 		if (Random.Float() < 0.08f) dropLoot(level, new DryTwig(), pos);
 		if (Random.Float() < 0.03f) dropLoot(level, Generator.random(Generator.Category.SPS_BERRY), pos);
@@ -263,5 +266,6 @@ public class HighGrass {
 		if (Random.Float() < 0.02f) dropLoot(level, new WillOWisp(), pos);
 		if (Random.Float() < 0.02f) dropLoot(level, new Carrot(), pos);
 		if (Random.Float() < 0.02f) dropLoot(level, new Lettuce(), pos);
+		if (!seedGrown && Random.Float() < 0.02f) dropLoot(level, new GrassSeed(), pos);
 	}
 }

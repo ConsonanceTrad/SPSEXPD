@@ -292,6 +292,8 @@ public abstract class Level implements Bundlable {
 	public HashMap<Class<? extends Blob>,Blob> blobs;
 	public SparseArray<Plant> plants;
 	public SparseArray<Trap> traps;
+	//SPSEXPD: 由「草种」种出的高草格——这些高草被踩开时不再掉草种（见 GrassSeed / HighGrass.dropSpsHarvest）
+	public final HashSet<Integer> spsGrassSeedGrass = new HashSet<>();
 	public ArrayList<CustomTilemap> customTiles;
 	public ArrayList<CustomTilemap> customTerrain;
 	public ArrayList<CustomTilemap> customWalls;

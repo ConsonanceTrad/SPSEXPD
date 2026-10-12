@@ -60,6 +60,8 @@ public final class LevelPersistence {
 	private static final String CLEARED		= "cleared";
 	private static final String FORCE_DONE	= "forcedone";
 	private static final String PIT_SIGN     = "pit_sign";
+	//SPSEXPD: 草种种出的高草格（Level.spsGrassSeedGrass）
+	private static final String SPS_GRASS_SEED_GRASS = "sps_grass_seed_grass";
 
 	private LevelPersistence() { }
 
@@ -99,6 +101,14 @@ public final class LevelPersistence {
 		level.cleared = bundle.getBoolean( CLEARED );
 		level.forceDone = bundle.getBoolean( FORCE_DONE );
 		level.pitSign = bundle.contains(PIT_SIGN) ? bundle.getInt(PIT_SIGN) : -1;
+
+		//SPSEXPD: 草种种出的高草格（旧档没有该键 → 空集合）
+		level.spsGrassSeedGrass.clear();
+		if (bundle.contains( SPS_GRASS_SEED_GRASS )) {
+			for (int cell : bundle.getIntArray( SPS_GRASS_SEED_GRASS )) {
+				level.spsGrassSeedGrass.add( cell );
+			}
+		}
 		
 		Collection<Bundlable> collection = bundle.getCollection( HEAPS );
 		for (Bundlable h : collection) {
@@ -178,6 +188,11 @@ public final class LevelPersistence {
 		bundle.put( CLEARED, level.cleared );
 		bundle.put( FORCE_DONE, level.forceDone );
 		bundle.put( PIT_SIGN, level.pitSign );
+		//SPSEXPD: 草种种出的高草格
+		int[] spsGrassSeedCells = new int[level.spsGrassSeedGrass.size()];
+		int spsGrassSeedIndex = 0;
+		for (int cell : level.spsGrassSeedGrass) spsGrassSeedCells[spsGrassSeedIndex++] = cell;
+		bundle.put( SPS_GRASS_SEED_GRASS, spsGrassSeedCells );
 		bundle.put( HEAPS, level.heaps.valueList() );
 		bundle.put( PLANTS, level.plants.valueList() );
 		bundle.put( TRAPS, level.traps.valueList() );

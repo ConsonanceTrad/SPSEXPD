@@ -12,14 +12,14 @@ public final class ConsumFoodCookpackDict {
 
 	private ConsumFoodCookpackDict() { }
 
-	/** COOKPACK_1 - 两根橙色胡萝卜（带绿缨） */
+	/** CARROT - 胡萝卜（踩高草掉落） */
 	public static final IconEntry COOKPACK_C1_R1 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{1, 4, 13, 9}, 7450);
 	/** semantic alias for COOKPACK_C1_R1 */
-	public static final IconEntry COOKPACK_1 = COOKPACK_C1_R1;
-	/** COOKPACK_2 - 黄白色叶菜（白菜状，带绿顶叶） */
+	public static final IconEntry CARROT = COOKPACK_C1_R1;
+	/** LETTUCE - 莴苣（踩高草掉落） */
 	public static final IconEntry COOKPACK_C2_R1 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{18, 3, 13, 12}, 7451);
 	/** semantic alias for COOKPACK_C2_R1 */
-	public static final IconEntry COOKPACK_2 = COOKPACK_C2_R1;
+	public static final IconEntry LETTUCE = COOKPACK_C2_R1;
 	/** COOKPACK_3 - 青色鱼（蓝青渐变） */
 	public static final IconEntry COOKPACK_C3_R1 = new IconEntry("sprites/items/consum/food/cookpack.png", new int[]{34, 2, 13, 12}, 7452);
 	/** semantic alias for COOKPACK_C3_R1 */
