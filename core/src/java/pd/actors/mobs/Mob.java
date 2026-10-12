@@ -1103,6 +1103,12 @@ public abstract class Mob extends Char {
 				((pd.items.equipment.weapon.melee.special.BloodChargeWeapon) Dungeon.hero.belongings.weapon())
 						.gainBloodCharge(this);
 			}
+			//SPSEXPD: 白银之手——击杀敌人充能（替代随时间自动充能）
+			if (Dungeon.hero != null) {
+				pd.items.equipment.wands.SilverHand silverHand =
+						Dungeon.hero.belongings.getItem(pd.items.equipment.wands.SilverHand.class);
+				if (silverHand != null) silverHand.onKill();
+			}
 			if (buff(Trap.HazardAssistTracker.class) != null){
 				Statistics.hazardAssistedKills++;
 				Badges.validateHazardAssists();

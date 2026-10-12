@@ -1359,6 +1359,8 @@ public enum HeroClass {
 						((CloakOfShadows) i).activate(h);
 						Dungeon.quickslot.setSlot(0, i);
 					});
+					//SPSEXPD: 盗贼开局携带白银之手（魔术之手法杖强化版，击杀充能）
+					l.backpack(() -> new pd.items.equipment.wands.SilverHand());
 					l.backpack(() -> new BlindFruit(3), 0, 1, 1, null);
 					l.backpack(() -> new RiceGruel());
 					break;
