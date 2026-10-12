@@ -1774,10 +1774,43 @@ public enum HeroClass {
 		}
 	}
 
+	/**
+	 * SPSEXPD: 展示用的「开局物品」清单 —— 按实际发放语义合并通用清单与职业清单：
+	 * 装备类槽位（非 BACKPACK）同槽位时，职业条目会在 applyStartingItems 里覆盖通用条目，
+	 * 因此展示时也跳过被覆盖的通用条目；背包条目则全部保留。
+	 */
+	public static java.util.ArrayList<Item> previewStartingItems(HeroClass cls, int skin) {
+		Loadout base = baseStartingItems();
+		Loadout spec = startingItems(cls, skin);
+
+		java.util.ArrayList<Item> out = new java.util.ArrayList<>();
+		for (LoadoutItem it : base.items) {
+			if (it.slot != ItemSlot.BACKPACK && hasSlot(spec, it.slot)) continue;
+			addPreview(out, it);
+		}
+		for (LoadoutItem it : spec.items) addPreview(out, it);
+		return out;
+	}
+
+	private static boolean hasSlot(Loadout loadout, ItemSlot slot) {
+		for (LoadoutItem it : loadout.items) {
+			if (it.slot == slot) return true;
+		}
+		return false;
+	}
+
+	private static void addPreview(java.util.ArrayList<Item> out, LoadoutItem it) {
+		Item item = it.factory.get();
+		if (item == null) return;
+		//SPSEXPD: 预览要带上数量，否则 UI 的数量角标不会显示
+		if (it.quantity > 1) item.quantity(it.quantity);
+		out.add(item);
+	}
+
 	//SPSEXPD: ---- 开局物品在详情页里的「按用途分组」（用户后续可自行调整这里的规则）-------
 	public enum ItemGroup {
 		EQUIP,    // 装备套装（武器 / 护甲 / 副手 / 饰品）
-		SPECIAL,  // 特殊装备（露珠瓶、神圣护盾、破损纹章、刻印笔… 不属于上面任何一类的本体物品）
+		SPECIAL,  // 特殊装备（破损纹章、刻印笔… 不属于上面任何一类的本体物品）
 		BAG,      // 包裹袋
 		FOOD,     // 食品
 		POTION,   // 药水
@@ -1785,7 +1818,8 @@ public enum HeroClass {
 		WAND,     // 法杖
 		MISSILE,  // 投掷与弹药
 		BOMB,     // 炸弹
-		OTHER     // 其它
+		OTHER,    // 其它
+		INNATE    // 固有物（所有角色开局固定携带物：露珠瓶、神圣护盾；显示在最下）
 	}
 
 	/** 判定某个物品属于哪一组（顺序有意义：炸弹先于投掷物、包袋先于食物类容器） */
@@ -1801,6 +1835,8 @@ public enum HeroClass {
 		if (item instanceof pd.items.KindOfWeapon
 				|| item instanceof pd.items.equipment.armor.Armor
 				|| item instanceof pd.items.KindofMisc) return ItemGroup.EQUIP;
+		//SPSEXPD: 固有物——所有角色开局固定携带的露珠瓶与神圣护盾，单独成组并显示在最下
+		if (item instanceof pd.items.DewVial || item instanceof Ankhshield) return ItemGroup.INNATE;
 		return ItemGroup.SPECIAL;
 	}
 

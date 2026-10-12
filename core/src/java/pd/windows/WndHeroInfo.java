@@ -77,6 +77,7 @@ public class WndHeroInfo extends WndTabbed {
 			.t("perks_group_missile", "投掷与弹药")
 			.t("perks_group_bomb", "炸弹")
 			.t("perks_group_other", "其它")
+			.t("perks_group_innate", "固有物")
 			.t("items_none", "（无）")
 			.t("subclasses", "专精")
 			.t("subclasses_msg", "击杀第二个Boss后可以选择一种职业专精。")
@@ -257,9 +258,9 @@ public class WndHeroInfo extends WndTabbed {
 			pane.scrollBarVisible = false;
 			add(pane);
 
-			ArrayList<pd.items.Item> items = new ArrayList<>();
-			items.addAll(HeroClass.baseStartingItems().preview());
-			items.addAll(HeroClass.startingItems(cls, skin).preview());
+			//SPSEXPD: 按「实际发放语义」合并通用清单与职业清单（职业护甲会覆盖通用布甲），
+			//避免详情页比实际多显示一件护甲
+			ArrayList<pd.items.Item> items = HeroClass.previewStartingItems(cls, skin);
 			//SPSEXPD: 不做鉴定 —— 开局未鉴定的物品，在这里也如实保持未鉴定（点开详情能看到）
 
 			//按用途分组：组序按枚举声明顺序，组内保持发放顺序
