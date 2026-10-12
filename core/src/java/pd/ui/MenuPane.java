@@ -287,7 +287,7 @@ public class MenuPane extends Component {
 			bg.hardlight( 0xC03838 );
 			add( bg );
 
-			icon = Icons.get( Icons.STAIRS );
+			icon = new Image( Assets.Interfaces.MENU_CAMERA );
 			add( icon );
 		}
 
