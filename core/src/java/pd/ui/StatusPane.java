@@ -64,19 +64,21 @@ public class StatusPane extends Component {
 	private BitmapText hpText;
 	private Button heroInfoOnBar;
 
-	//SPSEXPD: 血条下方的局内 SP 点数（默认 Hero.spp；英雄有专属来源时改显示它的数值）。
-	//数字带半透明矩形底板并放大一号——它同样是重要的资源信息
+	//SPSEXPD: 局内 SP 点数（默认 Hero.spp；英雄有专属来源时改显示它的数值）。
+	//位置与边框格子由背板素材提供（用户绘制），有上限时另画一条黄色进度条
 	private BitmapText spText;
-	private ColorBlock spBg;
+	private ColorBlock spBar;
 	private int lastSP = Integer.MIN_VALUE;
 	private int lastSPMax = Integer.MIN_VALUE;
-	/** SP 数字的缩放（比血条数字大一号） */
+	/** SP 数字的缩放 */
 	private static final float SP_TEXT_SCALE = 0.75f;
-	/** 底板的最小宽度（数值很短时也保持一个明显的方块）；宽度随数字长度增长 */
-	private static final float SP_BG_MIN_W = 20f;
-	/** 底板固定高度 —— 必须固定：buff 区的位置按它预留，高度若随数字变化就会压到 buff 栏。
-	 *  同时这个值直接决定 buff 区下移多少，所以取「刚好容下放大后数字」的最小值 */
-	private static final float SP_BG_HEIGHT = 9f;
+	//SPSEXPD: 背板素材 status_pane.png 小模式帧里为 SP 预留的格子（帧内坐标，用户绘制）
+	private static final float SP_SLOT_X = 30f;
+	private static final float SP_SLOT_Y = 7f;
+	private static final float SP_SLOT_W = 22f;
+	private static final float SP_SLOT_H = 7f;
+	/** 黄色上限条的高度（贴格子内底部） */
+	private static final float SP_BAR_H = 2f;
 
 	private Image exp;
 	private BitmapText expText;
@@ -165,11 +167,10 @@ public class StatusPane extends Component {
 		hpText.alpha(0.6f);
 		add(hpText);
 
-		//SPSEXPD: 局内 SP 点数——半透明矩形底板 + 放大的数字（位置与刷新都在 layout/update 里）。
-		//注意 ColorBlock 的构造参数是 ARGB：必须给不透明的颜色（0xFF……），写 0x000000 会得到 alpha=0 的透明块
-		spBg = new ColorBlock(1, 1, 0xFF101820);
-		spBg.alpha(0.7f);
-		add(spBg);
+		//SPSEXPD: 局内 SP 点数——数字 + 有上限时的黄色进度条（底板/边框由背板素材提供）
+		spBar = new ColorBlock(1, 1, 0xFFFF66);
+		spBar.visible = false;
+		add(spBar);
 
 		spText = new BitmapText(PixelScene.pixelFont);
 		spText.hardlight(0x9FD8FF);
@@ -298,7 +299,7 @@ public class StatusPane extends Component {
 
 			heroInfoOnBar.setRect(heroInfo.right(), y, 50, 9);
 
-			//SPSEXPD: 小模式 SP 底板贴血条正下方；buff 区顺次下移到底板之下（按固定高度预留）
+			//SPSEXPD: SP 数字落在背板素材预留的格子里；buff 区顺次下移到该格下方
 			layoutSpPoint();
 
 			if (buffBarRowMaxWidths != null){
@@ -307,7 +308,7 @@ public class StatusPane extends Component {
 			if (buffBarRowAdjusts != null){
 				buffs.rowHeightAdjusts = buffBarRowAdjusts;
 			}
-			buffs.setRect( x + heroPaneWidth + 1, spBg.y + SP_BG_HEIGHT, 55, 16 );
+			buffs.setRect( x + heroPaneWidth + 1, y + SP_SLOT_Y + SP_SLOT_H + 1, 55, 16 );
 
 			busy.x = x + 1;
 			busy.y = y + 37;
@@ -381,7 +382,7 @@ public class StatusPane extends Component {
 			lastSPMax = spMax;
 			spText.text( spMax > 0 ? sp + "/" + spMax : Integer.toString( sp ) );
 			spText.measure();
-			//SPSEXPD: 文本宽度变了，底板尺寸与居中位置要跟着重算
+			//SPSEXPD: 文本宽度变了，居中位置与上限条都要跟着重算（黄条用上方刚更新的 lastSP/lastSPMax）
 			layoutSpPoint();
 		}
 
@@ -431,31 +432,42 @@ public class StatusPane extends Component {
 		counter.setSweep((1f - Actor.now()%1f)%1f);
 	}
 
-	/** SPSEXPD: 摆放局内 SP 点数 —— 半透明矩形底板 + 居中的放大数字 */
+	/** SPSEXPD: 摆放局内 SP 点数 —— 小模式落在背板素材预留的格子里（居中）；
+	 *  有上限时在格内底部再画一条按当前值占比的黄色进度条 */
 	private void layoutSpPoint(){
-		if (spBg == null || spText == null || hp == null) return;
+		if (spText == null || spBar == null || hp == null) return;
 
 		spText.scale.set(PixelScene.align(SP_TEXT_SCALE));
 
-		//SPSEXPD: 底板高度固定——buff 区按 SP_BG_HEIGHT 预留位置，不能让高度随数字变化
-		float w = Math.max(SP_BG_MIN_W, spText.width() + 4);
-		float h = SP_BG_HEIGHT;
-		spBg.size(w, h);
-
+		float slotX, slotY, slotW, slotH;
 		if (large){
-			//large：血条下方只剩 2px，底板叠在血条内左端
-			spBg.x = hp.x + 1;
-			spBg.y = hp.y + (hp.height - h)/2f;
+			//large：血条内左侧（没有背板格子），按数字宽度给条
+			slotW = Math.max(12f, spText.width());
+			slotH = 7f;
+			slotX = hp.x + 2;
+			slotY = hp.y + (hp.height - slotH)/2f;
 		} else {
-			//小模式：贴血条正下方（血条底缘 y+6）
-			spBg.x = hp.x;
-			spBg.y = hp.y + hp.height + 1;
+			//小模式：背板素材预留的格子（用素材内坐标，不随 heroPaneExtraWidth 变化）
+			slotX = x + SP_SLOT_X;
+			slotY = y + SP_SLOT_Y;
+			slotW = SP_SLOT_W;
+			slotH = SP_SLOT_H;
 		}
-		PixelScene.align(spBg);
 
-		spText.x = spBg.x + Math.max(1, (w - spText.width())/2f);
-		spText.y = spBg.y + Math.max(1, (h - spText.height())/2f);
+		spText.x = slotX + (slotW - spText.width())/2f;
+		spText.y = slotY + (slotH - spText.height())/2f;
 		PixelScene.align(spText);
+
+		//SPSEXPD: 上限黄条——只有存在上限（max > 0）时才显示，宽度 = 格内宽 × 当前占比
+		boolean hasMax = lastSPMax > 0;
+		spBar.visible = hasMax;
+		if (hasMax){
+			float frac = Math.max(0f, Math.min(1f, lastSP / (float) lastSPMax));
+			spBar.size( Math.max(1f, (slotW - 2f) * frac), SP_BAR_H );
+			spBar.x = slotX + 1f;
+			spBar.y = slotY + slotH - SP_BAR_H - 1f;
+			PixelScene.align(spBar);
+		}
 	}
 
 	public void updateAvatar(){
