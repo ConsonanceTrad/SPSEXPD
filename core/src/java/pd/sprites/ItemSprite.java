@@ -60,6 +60,9 @@ public class ItemSprite extends MovieClip {
 	public static final int SIZE	= 16;
 	
 	private static final float DROP_INTERVAL = 0.4f;
+
+	/** SPSEXPD: 跨格飞溅的抛物线拱高——与原 speed.set(0,-100)/acc=+500 组合的视觉高度一致（v²/2a = 10px） */
+	private static final float DROP_ARC = 10f;
 	
 	public Heap heap;
 	
@@ -71,6 +74,16 @@ public class ItemSprite extends MovieClip {
 	private boolean glowUp;
 	
 	private float dropInterval;
+
+	//SPSEXPD: 跨格飞溅（sprite.drop(from)，露珠掉落走这条路径）改用解析插值摆位。
+	//原实现靠 speed/acc 做半隐式欧拉自由飞行，终点有两处叠加误差：
+	//① Visual.updateMotion 在到期的那一帧仍先积分一次 speed·elapsed；
+	//② 匀加速段欧拉比解析解大约多 a·I·dt/2。
+	//两者叠加会让物体冲过落点几像素，紧接着 place(heap.pos) 把它拽回，看起来像"闪回"。
+	//插值模式下终点严格等于落点、不依赖帧率；同格 drop() 仍走原 speed/acc 路径（保留上游那套观感）。
+	private boolean dropInterp;
+	private final PointF dropFrom = new PointF();
+	private final PointF dropTo   = new PointF();
 
 	//the amount the sprite is raised from flat when viewed in a raised perspective
 	//SPSEXPD: 默认 0（不抬）；实际值由 Item.spriteRaise() 按图标帧高决定小件是否抬 SMALL_ITEM_LIFT
@@ -139,6 +152,8 @@ public class ItemSprite extends MovieClip {
 		speed.set( 0 );
 		acc.set( 0 );
 		dropInterval = 0;
+		//SPSEXPD: 对象池复用时要一并复位插值状态，否则残留的 dropInterp 会让下一次跳动误走插值分支
+		dropInterp = false;
 		
 		heap = null;
 		if (emitter != null) {
@@ -208,14 +223,56 @@ public class ItemSprite extends MovieClip {
 		if (heap.pos == from) {
 			drop();
 		} else {
-			
-			float px = x;
-			float py = y;
-			drop();
-			
-			place(from);
-	
-			speed.offset((px - x) / DROP_INTERVAL, (py - y) / DROP_INTERVAL);
+			//SPSEXPD: 终点取「落点当前坐标」——Heap.drop 末尾的 sprite.view(this).place(pos) 刚按
+			//新图标尺寸与抬升算过一遍，不能沿用调用瞬间的 x/y；起点取 from，之后按进度解析插值。
+			place( heap.pos );
+			dropTo.set( x, y );
+
+			place( from );
+			dropFrom.set( x, y );
+
+			dropInterval = DROP_INTERVAL;
+			dropInterp = true;
+			//插值摆位与 speed/acc 无关，必须清零——ItemSprite.update() 开头的 super.update() 里
+			//Visual.updateMotion() 仍会按它们积分位置，否则插值位移之上还会再叠加一段自由飞行
+			speed.set(0);
+			acc.set(0);
+
+			//同格 drop() 里的金币音效在这里自己补一份（插值分支不再经过 drop()）
+			if (heap != null && heap.seen && heap.peek() instanceof Gold) {
+				CellEmitter.center( heap.pos ).burst( Speck.factory( Speck.COIN ), 5 );
+				Sample.INSTANCE.play( Assets.Sounds.GOLD, 1, 1, Random.Float( 0.9f, 1.1f ) );
+			}
+		}
+	}
+
+	/** SPSEXPD: 掉落动画收尾——速度清零、阴影归位、落回格子中心，并按地形播落地反馈。
+	 *  自由飞行（drop()）与解析插值（drop(from)）两条路径共用。 */
+	private void landDrop(){
+		speed.set(0);
+		acc.set(0);
+		shadowOffset = 0.25f;
+		place(heap.pos);
+
+		if (visible) {
+
+			if (Dungeon.level.water[heap.pos]) {
+				GameScene.ripple(heap.pos);
+			}
+
+			if (Dungeon.level.water[heap.pos]) {
+				Sample.INSTANCE.play( Assets.Sounds.WATER, 0.8f, Random.Float( 1f, 1.45f ) );
+			} else if (Dungeon.level.map[heap.pos] == Terrain.EMPTY_SP) {
+				Sample.INSTANCE.play( Assets.Sounds.STURDY, 0.8f, Random.Float( 1.16f, 1.25f ) );
+			} else if (Dungeon.level.map[heap.pos] == Terrain.GRASS
+					|| Dungeon.level.map[heap.pos] == Terrain.EMBERS
+					|| Dungeon.level.map[heap.pos] == Terrain.FURROWED_GRASS){
+				Sample.INSTANCE.play( Assets.Sounds.GRASS, 0.8f, Random.Float( 1.16f, 1.25f ) );
+			} else if (Dungeon.level.map[heap.pos] == Terrain.HIGH_GRASS) {
+				Sample.INSTANCE.play( Assets.Sounds.STEP, 0.8f, Random.Float( 1.16f, 1.25f ) );
+			} else {
+				Sample.INSTANCE.play( Assets.Sounds.STEP, 0.8f, Random.Float( 1.16f, 1.25f ));
+			}
 		}
 	}
 
@@ -368,34 +425,29 @@ public class ItemSprite extends MovieClip {
 		}
 
 		if (dropInterval > 0){
-			shadowOffset -= speed.y * Game.elapsed * 0.8f;
 
-			if ((dropInterval -= Game.elapsed) <= 0){
+			if (dropInterp){
+				//SPSEXPD: 跨格飞溅按进度解析插值——水平线性、竖直叠加抛物线拱起，
+				//终点与落点恒等，不受帧率与积分方式影响（原 speed/acc 自由飞行会冲过落点再被拉回）
+				dropInterval -= Game.elapsed;
+				float t = dropInterval > 0 ? 1f - dropInterval / DROP_INTERVAL : 1f;
+				float arc = 4f * t * (1f - t);
 
-				speed.set(0);
-				acc.set(0);
-				shadowOffset = 0.25f;
-				place(heap.pos);
+				x = dropFrom.x + (dropTo.x - dropFrom.x) * t;
+				y = dropFrom.y + (dropTo.y - dropFrom.y) * t - DROP_ARC * arc;
+				shadowOffset = 0.25f + 0.75f * (1f - arc);
 
-				if (visible) {
+				if (dropInterval <= 0){
+					dropInterval = 0;
+					dropInterp = false;
+					landDrop();
+				}
 
-					if (Dungeon.level.water[heap.pos]) {
-						GameScene.ripple(heap.pos);
-					}
+			} else {
+				shadowOffset -= speed.y * Game.elapsed * 0.8f;
 
-					if (Dungeon.level.water[heap.pos]) {
-						Sample.INSTANCE.play( Assets.Sounds.WATER, 0.8f, Random.Float( 1f, 1.45f ) );
-					} else if (Dungeon.level.map[heap.pos] == Terrain.EMPTY_SP) {
-						Sample.INSTANCE.play( Assets.Sounds.STURDY, 0.8f, Random.Float( 1.16f, 1.25f ) );
-					} else if (Dungeon.level.map[heap.pos] == Terrain.GRASS
-							|| Dungeon.level.map[heap.pos] == Terrain.EMBERS
-							|| Dungeon.level.map[heap.pos] == Terrain.FURROWED_GRASS){
-						Sample.INSTANCE.play( Assets.Sounds.GRASS, 0.8f, Random.Float( 1.16f, 1.25f ) );
-					} else if (Dungeon.level.map[heap.pos] == Terrain.HIGH_GRASS) {
-						Sample.INSTANCE.play( Assets.Sounds.STEP, 0.8f, Random.Float( 1.16f, 1.25f ) );
-					} else {
-						Sample.INSTANCE.play( Assets.Sounds.STEP, 0.8f, Random.Float( 1.16f, 1.25f ));
-					}
+				if ((dropInterval -= Game.elapsed) <= 0){
+					landDrop();
 				}
 			}
 		}
