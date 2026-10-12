@@ -83,18 +83,26 @@ public class MenuPane extends Component {
 
 	private DangerIndicator danger;
 
-	//SPSEXPD: 入口 / 出口相机切换按钮（按钮组整排的最左，点击在两者之间切换相机）
-	private Image cameraIcon;
-	private Button cameraButton;
+	//SPSEXPD: 入口 / 出口相机切换按钮（排在按钮组框内的最左一格，点击在两者之间切换相机）
+	private CameraButton cameraButton;
 	private boolean cameraAtExit = false;
 
-	public static final int WIDTH = 31;
+	//SPSEXPD: 外框素材 menu_pane.png 是三格框：左边框到右边框共 44px，三格内部各 12px、
+	//格间与两端各 2px 边框；可见框在底图 y6..y20（上移 BG_TRIM 后贴顶）。
+	//下面三个常量是「三格中心」相对框左缘的位置，用来把三个按钮各自摆进一格。
+	private static final float CELL1_CENTER = 7.5f;
+	private static final float CELL2_CENTER = 22.5f;
+	private static final float CELL3_CENTER = 36.5f;
+
+	/** 框宽（= 新素材三格框的总宽） */
+	public static final int WIDTH = 44;
 
 	@Override
 	protected void createChildren() {
 		super.createChildren();
 
-		bg = new Image(Assets.Interfaces.MENU, 1, 0, 31, 21);
+		//SPSEXPD: 外框换成新的三格素材（左边框起 44×21）
+		bg = new Image(Assets.Interfaces.MENU, 2, 0, 44, 21);
 		add(bg);
 
 		depthIcon = Icons.get(Dungeon.level.feeling);
@@ -159,21 +167,8 @@ public class MenuPane extends Component {
 		btnMenu = new MenuButton();
 		add( btnMenu );
 
-		//SPSEXPD: 入口 / 出口相机切换按钮（整排最左；透明按钮 + 出口图标，15×11 与按钮高度相称）
-		cameraIcon = Icons.get(Icons.EXIT);
-		add( cameraIcon );
-
-		cameraButton = new Button(){
-			@Override
-			protected void onClick() {
-				toggleCameraTarget();
-			}
-
-			@Override
-			protected String hoverText() {
-				return Messages.get(MenuPane.class, "camera_toggle");
-			}
-		};
+		//SPSEXPD: 入口 / 出口相机切换按钮（框内最左一格；红底，图标暂不加以免撑大按钮）
+		cameraButton = new CameraButton();
 		add( cameraButton );
 
 		//SPSEXPD: 时间与菜单/事件记录同属右上角这一组按钮
@@ -208,17 +203,12 @@ public class MenuPane extends Component {
 		bg.x = x;
 		bg.y = y - BG_TRIM;
 
-		btnMenu.setPos( x + WIDTH - btnMenu.width(), y );
+		//SPSEXPD: 三个按钮分别对齐框中三格的中心（左「视角切换」/ 中「事件记录」/ 右「菜单」）
+		cameraButton.setPos( PixelScene.align( x + CELL1_CENTER - cameraButton.width()/2f ), y );
+		btnJournal.setPos( PixelScene.align( x + CELL2_CENTER - btnJournal.width()/2f ), y );
+		btnMenu.setPos( PixelScene.align( x + CELL3_CENTER - btnMenu.width()/2f ), y );
 
-		btnJournal.setPos( btnMenu.left() - btnJournal.width() + 2, y );
-
-		//SPSEXPD: 框外自右向左的顺序 —— 视角按钮紧挨按钮组，再往左才是「楼层 / 挑战」图标（视觉更均衡）
-		cameraIcon.x = btnJournal.left() - cameraIcon.width() - 2f;
-		cameraIcon.y = y + FRAME_TOP + (FRAME_HEIGHT - cameraIcon.height())/2f;
-		PixelScene.align( cameraIcon );
-		cameraButton.setRect( cameraIcon.x - 1, y + FRAME_TOP, cameraIcon.width() + 2, FRAME_HEIGHT );
-
-		depthIcon.x = cameraIcon.x - 7 + (7 - depthIcon.width())/2f - 0.1f;
+		depthIcon.x = btnJournal.left() - 7 + (7 - depthIcon.width())/2f - 0.1f;
 		depthIcon.y = y + FRAME_TOP;
 		PixelScene.align(depthIcon);
 
@@ -254,6 +244,48 @@ public class MenuPane extends Component {
 		danger.setPos( x + WIDTH - danger.width(), belowY );
 
 		danger.setSize( camera.width - danger.width(), danger.height());
+	}
+
+	//SPSEXPD: 视角切换按钮 —— 与「菜单/事件记录」同款按钮底图，但 hardlight 成红底。
+	//图标暂时不加（以免把按钮撑大），下一步再补。
+	private class CameraButton extends Button {
+
+		private Image bg;
+
+		public CameraButton() {
+			super();
+
+			width = bg.width + 4;
+			height = bg.height + 10;
+		}
+
+		@Override
+		protected void createChildren() {
+			super.createChildren();
+
+			bg = new Image( Assets.Interfaces.MENU_BTN, 2, 2, 13, 11 );
+			bg.hardlight( 0xC03838 );
+			add( bg );
+		}
+
+		@Override
+		protected void layout() {
+			super.layout();
+
+			bg.x = x + 2;
+			bg.y = y + FRAME_TOP;
+		}
+
+		@Override
+		protected void onClick() {
+			super.onClick();
+			toggleCameraTarget();
+		}
+
+		@Override
+		protected String hoverText() {
+			return Messages.get(MenuPane.class, "camera_toggle");
+		}
 	}
 
 	/**
