@@ -687,9 +687,10 @@ public class WndBag extends WndTabbed {
 		// SPS: 装备区固定两排 10 格（饰品槽 1-3 只收非戒指，戒指槽 4-5 只收戒指）
 		// 第一行：主武器 / 主护甲 / 饰品1 / 饰品2 / 饰品3
 		Belongings stuff = Dungeon.hero.belongings;
-		//SPSEXPD: 底部标签模式每行 7 格——把两个戒指挪到第一行（武器/护甲/神器/杂物/戒指/戒指1/戒指2
-		//正好 7 个），第二行剩副武器/副护甲/徽章；两侧模式（5 列）保持原来的两行顺序
-		boolean wideEquip = SPDSettings.bagBottomTabs();
+		//SPSEXPD: 第一行能放几格取决于窗口的实际列数——只有「底部 7 列」变体能排满
+		//武器/护甲/神器/杂物/戒指/戒指1/戒指2 七个，把两个戒指留在第一行；
+		//其余布局（底部 5 列、两侧 5 列）第一行只放 5 个，从而保证第二行的第 1、2 格恒为副武器 / 副护甲
+		boolean wideEquip = nCols > COLS_P;
 		placeItem( stuff.weapon != null ? stuff.weapon : new Placeholder( SpecificPlaceHolderDict.SPS_PH_WEAPON ) );
 		placeItem( stuff.armor != null ? stuff.armor : new Placeholder( SpecificPlaceHolderDict.SPS_PH_ARMOR ) );
 		placeItem( stuff.artifact != null ? stuff.artifact : new Placeholder( SpecificPlaceHolderDict.ARTIFACT_HOLDER_0 ) );
