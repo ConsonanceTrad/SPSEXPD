@@ -61,9 +61,18 @@ public class Ankh extends Item {
 	{
 		image = ConsumUsefulUsefulDict.ANKH;
 
+		//SPSEXPD: 安卡可堆叠——复活与护盾充能每次只消耗一枚
+		stackable = true;
+
 		//You tell the ankh no, don't revive me, and then it comes back to revive you again in another run.
 		//I'm not sure if that's enthusiasm or passive-aggression.
 		bones = true;
+	}
+
+	@Override
+	public boolean isSimilar( Item item ) {
+		//SPSEXPD: 旧存档壳 UnBlessAnkh 与新安卡合并为同一堆
+		return item instanceof Ankh;
 	}
 
 	@Override
@@ -132,8 +141,8 @@ public class Ankh extends Item {
 		hero.spend( 1f );
 		hero.busy();
 
-		//这枚安卡被护盾吞噬
-		detachAll( hero.belongings.backpack );
+		//SPSEXPD: 只消耗这一枚安卡（可堆叠时其余保留）
+		detach( hero.belongings.backpack );
 	}
 
 	@Override
