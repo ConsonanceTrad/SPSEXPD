@@ -27,7 +27,6 @@ import pd.ui.InventoryPane;
 import pd.ui.ItemJournalButton;
 import pd.ui.RedButton;
 import pd.ui.Window;
-import render.noosa.Game;
 
 import java.util.ArrayList;
 
@@ -40,12 +39,31 @@ public class WndUseItem extends WndInfoItem {
 	public Window owner;
 	public Item item;
 
+	//SPSEXPD: 连续使用——命中白名单的按钮（附带动作名与消耗角标），用于「忙碌置灰」与「消耗数字刷新」
+	private static class GatedButton {
+		final RedButton btn;
+		final String action;
+		final CostLabel costLabel;
+		String costText;
+
+		GatedButton(RedButton btn, String action, CostLabel costLabel, String costText) {
+			this.btn = btn;
+			this.action = action;
+			this.costLabel = costLabel;
+			this.costText = costText;
+		}
+	}
+
+	private ArrayList<GatedButton> gated;
+	private boolean lastReady = true;
+
 	public WndUseItem( final Window owner, final Item item ) {
 		
 		super(item);
 
 		this.owner = owner;
 		this.item = item;
+		gated = new ArrayList<>();
 
 		float y = height;
 		
@@ -67,21 +85,20 @@ public class WndUseItem extends WndInfoItem {
 				RedButton btn = new RedButton(item.actionName(action, Dungeon.hero), 8) {
 					@Override
 					protected void onClick() {
-						//SPSEXPD: 连续使用——物品类型在白名单内时，用后不关背包并重开操作框
+						//SPSEXPD: 连续使用——物品类型在白名单内时，操作框与背包都原地保留
 						boolean keepOpen = pd.items.ContinuousUse.allows(item, action);
-						hide();
-						if (!keepOpen && owner != null && owner.parent != null) owner.hide();
+						if (!keepOpen) {
+							hide();
+							if (owner != null && owner.parent != null) owner.hide();
+						}
 						if (Dungeon.hero.isAlive() && Dungeon.hero.belongings.contains(item)) {
 							item.execute(Dungeon.hero, action);
 						}
 						Item.updateQuickslot();
-						if (keepOpen) {
-							//SPSEXPD: 物品还在背包时重开操作框（保持背包打开）；用尽/死亡则退回普通关闭
-							if (Dungeon.hero.isAlive() && Dungeon.hero.belongings.contains(item)) {
-								Game.scene().addToFront(new WndUseItem(owner, item));
-							} else if (owner != null && owner.parent != null) {
-								owner.hide();
-							}
+						//SPSEXPD: 保留的操作框只在物品用尽/英雄死亡时退场（背包一并关闭）
+						if (keepOpen && (!Dungeon.hero.isAlive() || !Dungeon.hero.belongings.contains(item))) {
+							hide();
+							if (owner != null && owner.parent != null) owner.hide();
 						}
 						if (action.equals(item.defaultAction()) && item.usesTargeting && owner == null) {
 							InventoryPane.useTargeting();
@@ -115,6 +132,11 @@ public class WndUseItem extends WndInfoItem {
 				buttons.add(btn);
 				add(btn);
 
+				//SPSEXPD: 命中连续使用白名单的按钮参与「忙碌置灰」与消耗数字刷新
+				if (pd.items.ContinuousUse.allows(item, action)) {
+					gated.add(new GatedButton(btn, action, costLabel, cost));
+				}
+
 				if (action.equals(item.defaultAction())) {
 					btn.textColor(TITLE_COLOR);
 				}
@@ -128,6 +150,33 @@ public class WndUseItem extends WndInfoItem {
 		}
 
 		resize( width, (int)(y) );
+	}
+
+	@Override
+	public void update() {
+		super.update();
+
+		//SPSEXPD: 连续使用——操作框原地保留期间：英雄忙碌时按钮置灰（动画结束自动恢复），并刷新消耗数字
+		if (gated.isEmpty() || Dungeon.hero == null) return;
+
+		boolean ready = Dungeon.hero.ready;
+		if (ready != lastReady) {
+			lastReady = ready;
+			for (GatedButton g : gated) g.btn.enable( ready );
+		}
+
+		if (!Dungeon.hero.isAlive() || !Dungeon.hero.belongings.contains(item)) return;
+
+		for (GatedButton g : gated) {
+			if (g.costLabel == null) continue;
+			String now = item.actionCost( g.action, Dungeon.hero );
+			if (now != null && !now.equals( g.costText )) {
+				g.costText = now;
+				g.costLabel.text( now );
+				g.costLabel.measure();
+				g.costLabel.x = g.btn.right() - g.costLabel.width() - 1;
+			}
+		}
 	}
 
 	/** SPSXPD: 动作按钮右上角的消耗提示（绿色数字）。直接继承 BitmapText 以保证被绘制 */

@@ -3315,6 +3315,8 @@ public class Hero extends Char {
 		
 		boolean smthFound = false;
 		float pickUpTime = 0f;   //SPSXPD: 搜索顺带拾取物品额外消耗的回合
+		//SPSEXPD: 搜索踩草的「一次结算」门——整次搜索共用，充能/成长类效果只算一次英雄踩踏
+		pd.levels.features.HighGrass.Once trampleOnce = new pd.levels.features.HighGrass.Once();
 
 		boolean circular = pointsInTalent(Talent.WIDE_SEARCH) == 1;
 		//SPSXPD: 盗贼的搜索距离加成改由「高效搜索」特质体现（裁决），不再硬编码在角色上
@@ -3373,8 +3375,9 @@ public class Hero extends Char {
 
 					//SPSEXPD: 搜索踩草——主动搜索时对范围内的高草执行踩踏（设置里可关闭；
 					//不用 level.pressCell，那会顺带暴露并触发陷阱/开门/触发井）
+					//SPSEXPD: 视同英雄本人踩踏；充能/成长类累积效果整次搜索只结算一次
 					if (intentional && SPDSettings.searchTrample() && isTrampleGrass(curr)) {
-						pd.levels.features.HighGrass.trample( Dungeon.level, curr );
+						pd.levels.features.HighGrass.trample( Dungeon.level, curr, this, trampleOnce );
 					}
 
 					//SPSEXPD: 主动搜索时顺带拾取该格地面物品（设置里可关闭），只限视野内且可达的位置

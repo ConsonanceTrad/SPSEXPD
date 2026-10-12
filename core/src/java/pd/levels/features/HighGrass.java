@@ -70,10 +70,26 @@ public class HighGrass {
 	}
 
 	public static void trample( Level level, int pos ) {
+		trample( level, pos, null, null );
+	}
+
+	/** SPSEXPD: 指定踩踏者 —— 搜索踩草用英雄本人，视同英雄亲自踩过这一格 */
+	public static void trample( Level level, int pos, Char trampler ) {
+		trample( level, pos, trampler, null );
+	}
+
+	/**
+	 * SPSEXPD: 带「一次结算门」的踩踏。
+	 *
+	 * <p>{@code once} 非 null 时（一次搜索批量踩多格），按踩踏次数累积的效果
+	 * ——自然之斧成长、自然之鞋充能、女猎手树肤、天赋「自然恩赐」计数——
+	 * 整批只结算一次；地形改写、掉落与职业特性（踏草无声等）仍按每格正常结算。</p>
+	 */
+	public static void trample( Level level, int pos, Char trampler, Once once ) {
 		
 		if (freezeTrample) return;
 		
-		Char ch = Actor.findChar(pos);
+		Char ch = trampler != null ? trampler : Actor.findChar(pos);
 		
 		if (level.map[pos] == Terrain.FURROWED_GRASS){
 			//SPSEXPD: 原为 HUNTRESS 职业判定，现由「踏草无声」特质驱动
@@ -85,9 +101,13 @@ public class HighGrass {
 			}
 			
 		} else {
+			//SPSEXPD: 一次批量踩草（搜索踩草）只让「按次数累积」的效果结算一次
+			boolean accrual = once == null || !once.spent;
+			if (once != null) once.spent = true;
+
 			//SPSEXPD: 原为 HUNTRESS 职业判定，现由「踏草无声」特质驱动
 			if (ch instanceof Hero && pd.actors.hero.perks.Grasskeeper.ownedBy((Hero) ch)){
-				if(((Hero) ch).hasTalent(Talent.BARKSKIN)){
+				if(accrual && ((Hero) ch).hasTalent(Talent.BARKSKIN)){
 					Barkskin.conditionallyAppend(ch, (((Hero) ch).lvl* ((Hero) ch).pointsInTalent(Talent.BARKSKIN))/3, 1 );
 				}
 				Level.set(pos, Terrain.FURROWED_GRASS);
@@ -101,22 +121,25 @@ public class HighGrass {
 			int sandalsSeedDenominator = spsSandalsSeedDenominator(ch);
 			
 			if (ch != null) {
-				//SPSEXPD: 自然之斧——踩踏高草同样让它成长
-				NaturalAxe.Growth naturalAxe = NaturalAxe.growthOf(ch);
-				if (naturalAxe != null) naturalAxe.grow(1);
+				//SPSEXPD: 自然之斧——踩踏高草同样让它成长（批量踩草只成长一次）
+				if (accrual) {
+					NaturalAxe.Growth naturalAxe = NaturalAxe.growthOf(ch);
+					if (naturalAxe != null) naturalAxe.grow(1);
+				}
 
 				SandalsOfNature.Naturalism naturalism = ch.buff( SandalsOfNature.Naturalism.class );
 				if (naturalism != null) {
 					if (!naturalism.isCursed()) {
+						//等级仍照常读取（参与掉落率），但充能整批只结算一次
 						naturalismLevel = naturalism.itemLevel();
-						naturalism.charge();
+						if (accrual) naturalism.charge();
 					} else {
 						naturalismLevel = -1;
 					}
 				}
 
 				//berries try to drop on floors 2/3/4/6/7/8, to a max of 4/6
-				if (ch instanceof Hero && ((Hero) ch).hasTalent(Talent.NATURES_BOUNTY)){
+				if (accrual && ch instanceof Hero && ((Hero) ch).hasTalent(Talent.NATURES_BOUNTY)){
 					int berriesAvailable = 2 + 2*((Hero) ch).pointsInTalent(Talent.NATURES_BOUNTY);
 
 					Talent.NatureBerriesDropped dropped = Buff.affect(ch, Talent.NatureBerriesDropped.class);
@@ -204,6 +227,11 @@ public class HighGrass {
 			CellEmitter.get(pos).burst(LeafParticle.LEVEL_SPECIFIC, 4);
 			if (Dungeon.level.heroFOV[pos]) Dungeon.observe();
 		}
+	}
+
+	/** SPSEXPD: 搜索踩草的「一次结算」门 —— 见 {@link #trample(Level, int, Char, Once)} */
+	public static final class Once {
+		boolean spent = false;
 	}
 
 	/** SPSEXPD: 自然之鞋踩踏高草时的独立种子掷骰（未诅咒且等级 ≥1 时为 1/(16-等级)）。原属荆棘斗篷，已并入自然之鞋。 */
