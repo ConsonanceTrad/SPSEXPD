@@ -87,8 +87,6 @@ public class MenuPane extends Component {
 	private Image cameraIcon;
 	private Button cameraButton;
 	private boolean cameraAtExit = false;
-	/** 图标缩放：Icons.STAIRS 原始 15×16，比其它图标大得多，缩到按钮高度以内才不显突兀 */
-	private static final float CAMERA_ICON_SCALE = 0.7f;
 
 	public static final int WIDTH = 31;
 
@@ -161,9 +159,8 @@ public class MenuPane extends Component {
 		btnMenu = new MenuButton();
 		add( btnMenu );
 
-		//SPSEXPD: 入口 / 出口相机切换按钮（整排最左；透明按钮 + 缩小后的楼梯图标）
-		cameraIcon = Icons.get(Icons.STAIRS);
-		cameraIcon.scale.set(PixelScene.align(CAMERA_ICON_SCALE), PixelScene.align(CAMERA_ICON_SCALE));
+		//SPSEXPD: 入口 / 出口相机切换按钮（整排最左；透明按钮 + 出口图标，15×11 与按钮高度相称）
+		cameraIcon = Icons.get(Icons.EXIT);
 		add( cameraIcon );
 
 		cameraButton = new Button(){
