@@ -111,6 +111,8 @@ public final class SpsHiddenShopTest {
 
 			Dungeon.hero = new Hero();
 			Dungeon.hero.heroClass = HeroClass.FOLLOWER;
+			//SPSEXPD: 信徒的生命交易价改由「讨价还价」特质提供（原为 heroClass 判定）
+			Dungeon.hero.heroPerk.add(new pd.actors.hero.perks.Bargain());
 			check(WndLifeTradeItem.price() == 8, "追随者生命价格错误");
 			check(Dungeon.hero.spendPermanentHT(8), "追随者首次扣血失败");
 			check(Dungeon.hero.permanentHT() == 22, "追随者永久生命扣除错误");

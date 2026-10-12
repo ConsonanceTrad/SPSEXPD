@@ -78,6 +78,8 @@ public final class PerkGrants {
 				//女猎手：复生步伐（以夜视/疾行体现）
 				result.add(new NightVision());
 				result.add(new BaredSwiftness());
+				//SPSEXPD: 走过草丛不践踏（原为 HighGrass / Hero 里的 heroClass 判定）
+				result.add(new Grasskeeper());
 				break;
 			case DUELIST:
 				result.add(new ExtraDexterous());
@@ -86,6 +88,26 @@ public final class PerkGrants {
 				//修士：更加幸运
 				result.add(new Perk.LuckFromAuthor());
 				result.add(new FastRegeneration());
+				break;
+			case PERFORMER:
+				//SPSEXPD: 演员 —— 得经验/击杀进入节奏，升级获得护盾
+				result.add(new StageRhythm());
+				result.add(new Encore());
+				break;
+			case SOLDIER:
+				//SPSEXPD: 星兵 —— 命中闪避、生命成长与幸运
+				result.add(new Drilled());
+				result.add(new VeteranGrowth());
+				result.add(new Fortunate());
+				break;
+			case FOLLOWER:
+				//SPSEXPD: 信徒 —— 购物更便宜，药水/药丸可能不消耗
+				result.add(new Bargain());
+				result.add(new Thrifty());
+				break;
+			case ASCETIC:
+				//SPSEXPD: 苦修者 —— 开局装备没有免费强化（展示型）
+				result.add(new AsceticDiscipline());
 				break;
 			default:
 				break;
@@ -138,5 +160,19 @@ public final class PerkGrants {
 	public static ArrayList<Perk> initialPerks(Hero hero) {
 		if (hero == null) return new ArrayList<>();
 		return initialPerksFor(hero.heroClass);
+	}
+
+	/**
+	 * SPSEXPD: 补发职业初始特质 —— 供读档时调用。
+	 *
+	 * <p>各职业的小规则改由特质驱动后，旧档英雄身上缺这些特质就会直接失去对应特性，
+	 * 因此读档时把该职业缺失的初始特质补齐。{@code HeroPerk.add} 在未持有时只入表、
+	 * 不播提示，所以这里是静默的。</p>
+	 */
+	public static void ensureInitialPerks(Hero hero) {
+		if (hero == null || hero.heroPerk == null) return;
+		for (Perk perk : initialPerksFor(hero.heroClass)) {
+			if (!hero.heroPerk.has(perk.getClass())) hero.heroPerk.add(perk);
+		}
 	}
 }

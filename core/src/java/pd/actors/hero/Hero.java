@@ -609,6 +609,9 @@ public class Hero extends Char {
 		STR = bundle.getInt( STRENGTH );
 
 		belongings.restoreFromBundle( bundle );
+
+		//SPSEXPD: 职业特性改由特质驱动后，旧档英雄缺这些特质就会丢失对应特性，读档时补齐
+		pd.actors.hero.perks.PerkGrants.ensureInitialPerks( this );
 	}
 	
 	public static void preview( GamesInProgress.Info info, Bundle bundle ) {
@@ -821,7 +824,8 @@ public class Hero extends Char {
 			}
 			if (subClass == HeroSubClass.AGENT) accuracy *= 1.15f;
 		}
-		if (heroClass == HeroClass.SOLDIER) accuracy *= 1.05f;
+		//SPSEXPD: 原为 SOLDIER 职业判定，现由「操练」特质驱动
+		if (pd.actors.hero.perks.Drilled.ownedBy(this)) accuracy *= pd.actors.hero.perks.Drilled.SKILL_MULT;
 		accuracy *= combatStyle.accuracyMultiplier();
 
 		if (buff(Scimitar.SwordDance.class) != null){
@@ -851,7 +855,8 @@ public class Hero extends Char {
 		
 		float evasion = defenseSkill;
 		
-		if (heroClass == HeroClass.SOLDIER) evasion *= 1.05f;
+		//SPSEXPD: 原为 SOLDIER 职业判定，现由「操练」特质驱动
+		if (pd.actors.hero.perks.Drilled.ownedBy(this)) evasion *= pd.actors.hero.perks.Drilled.SKILL_MULT;
 		evasion *= combatStyle.evasionMultiplier();
 
 		if (buff(Talent.LiquidAgilEVATracker.class) != null){
@@ -1444,7 +1449,8 @@ public class Hero extends Char {
 				//standing in high grass
 				(Dungeon.level.map[pos] == Terrain.HIGH_GRASS ||
 				//standing in furrowed grass and not huntress
-				(heroClass != HeroClass.HUNTRESS && Dungeon.level.map[pos] == Terrain.FURROWED_GRASS) ||
+				//SPSEXPD: 原为 HUNTRESS 职业判定，现由「踏草无声」特质驱动
+				(!pd.actors.hero.perks.Grasskeeper.ownedBy(this) && Dungeon.level.map[pos] == Terrain.FURROWED_GRASS) ||
 				//standing on a plant
 				Dungeon.level.plants.get(pos) != null);
 	}
@@ -2643,8 +2649,9 @@ public class Hero extends Char {
 		}
 		//SPSXPD: on-exp 效果按角色实得的经验计算（奇迹烧瓶抽走的部分不算进度）
 		float percent = (exp - absorbed)/(float)maxExp();
-		if (exp > 0 && heroClass == HeroClass.PERFORMER) {
-			Buff.prolong(this, Bless.class, subClass == HeroSubClass.SUPERSTAR ? 5f : 3f);
+		//SPSEXPD: 原为 PERFORMER 职业判定，现由「舞台节奏」特质驱动
+		if (exp > 0 && pd.actors.hero.perks.StageRhythm.ownedBy(this)) {
+			Buff.prolong(this, Bless.class, pd.actors.hero.perks.StageRhythm.expDuration(this));
 		}
 
 		EtherealChains.chainsRecharge chains = buff(EtherealChains.chainsRecharge.class);
@@ -2737,12 +2744,13 @@ public class Hero extends Char {
 		}
 		
 		if (levelUp) {
-			if (heroClass == HeroClass.SOLDIER) {
-				HTBoost++;
+			//SPSEXPD: 原为 SOLDIER / PERFORMER 职业判定，现由「老兵体质」「返场」特质驱动
+			if (pd.actors.hero.perks.VeteranGrowth.ownedBy(this)) {
+				HTBoost += pd.actors.hero.perks.VeteranGrowth.HT_PER_LEVEL;
 				updateHT(true);
 			}
-			if (heroClass == HeroClass.PERFORMER) {
-				Buff.affect(this, Barrier.class).incShield(3 + lvl / 5);
+			if (pd.actors.hero.perks.Encore.ownedBy(this)) {
+				Buff.affect(this, Barrier.class).incShield(pd.actors.hero.perks.Encore.shieldOnLevelUp(lvl));
 			}
 			
 			if (sprite != null) {

@@ -448,9 +448,10 @@ public class Shopkeeper extends NPC {
 
 	//shopkeepers are greedy!
 	public static int sellPrice(Item item){
-		boolean follower = Dungeon.hero != null && Dungeon.hero.heroClass == HeroClass.FOLLOWER;
-		int multiplier = follower ? 4 : 5;
-		int cap = follower ? 20 : 25;
+		//SPSEXPD: 原为 FOLLOWER 职业判定，现由「讨价还价」特质驱动
+		boolean bargain = pd.actors.hero.perks.Bargain.ownedBy(Dungeon.hero);
+		int multiplier = bargain ? pd.actors.hero.perks.Bargain.SHOP_UNIT_MULT : 5;
+		int cap = bargain ? pd.actors.hero.perks.Bargain.SHOP_PRICE_CAP : 25;
 		int base = item.value() * Math.min(multiplier * (Dungeon.chapterIndex(Dungeon.legacyDepth()) + 1), cap);
 		//SPS: 被袭扰后涨价（每次触发 ×1.5，叠乘）；击败足够守卫后本店免费
 		if (freeAndNoRestock) return 0;

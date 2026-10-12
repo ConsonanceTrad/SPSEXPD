@@ -190,9 +190,37 @@ public final class SpsTraitSystemTest {
 		cleric.heroClass = HeroClass.CLERIC;
 		check(!PerkGrants.initialPerks(cleric).isEmpty(), "修士有初始特质");
 
+		//SPSEXPD: 职业特性特质化后，女猎手/演员/星兵/信徒/苦修者各有对应的初始特质
+		check(hasInitial(HeroClass.HUNTRESS, Grasskeeper.class), "女猎手初始含「踏草无声」");
+		check(hasInitial(HeroClass.PERFORMER, StageRhythm.class), "演员初始含「舞台节奏」");
+		check(hasInitial(HeroClass.PERFORMER, Encore.class), "演员初始含「返场」");
+		check(hasInitial(HeroClass.SOLDIER, Drilled.class), "星兵初始含「操练」");
+		check(hasInitial(HeroClass.SOLDIER, VeteranGrowth.class), "星兵初始含「老兵体质」");
+		check(hasInitial(HeroClass.SOLDIER, Fortunate.class), "星兵初始含「天佑」");
+		check(hasInitial(HeroClass.FOLLOWER, Bargain.class), "信徒初始含「讨价还价」");
+		check(hasInitial(HeroClass.FOLLOWER, Thrifty.class), "信徒初始含「精打细算」");
+		check(hasInitial(HeroClass.ASCETIC, AsceticDiscipline.class), "苦修者初始含「苦修」");
+
+		//SPSEXPD: 机制改由特质驱动后，旧档英雄缺特质会丢特性，读档补发必须补齐
+		Hero legacy = new Hero();
+		legacy.heroClass = HeroClass.FOLLOWER;
+		check(!legacy.heroPerk.has(Bargain.class), "新英雄默认不带职业特质");
+		PerkGrants.ensureInitialPerks(legacy);
+		check(legacy.heroPerk.has(Bargain.class) && legacy.heroPerk.has(Thrifty.class),
+				"读档补发没有补齐信徒的初始特质");
+		check(legacy.heroPerk.get(Bargain.class).level() == 1, "读档补发的特质等级错误");
+
 		// 发放后确实进入容器
 		for (Perk p : roguePerks) rogue.heroPerk.add(p);
 		check(rogue.heroPerk.has(EfficientSearch.class), "初始特质已发放");
+	}
+
+	/** 该职业的初始特质里是否含有指定类型 */
+	private static boolean hasInitial(HeroClass cls, Class<? extends Perk> type) {
+		for (Perk p : PerkGrants.initialPerksFor(cls)) {
+			if (type.isInstance(p)) return true;
+		}
+		return false;
 	}
 
 	/** 特质点发放节奏：每 3 级一次 */

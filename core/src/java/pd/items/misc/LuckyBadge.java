@@ -50,7 +50,8 @@ public class LuckyBadge extends Item {
 		bonus += Ring.getBuffedBonus(hero, RingOfWealth.Wealth.class);
 		//SPSEXPD: 「幸运儿」特质
 		bonus += BornLucky.luckOf(hero);
-		if (hero.heroClass == HeroClass.SOLDIER) bonus += 5;
+		//SPSEXPD: 原为 SOLDIER 职业判定，现由「天佑」特质驱动
+		bonus += pd.actors.hero.perks.Fortunate.luckOf(hero);
 		if (hero.subClass == HeroSubClass.SUPERSTAR) bonus += 3;
 		bonus += 3 * hero.buffs(AflyBless.class).size();
 		//SPSEXPD: 彩虹三色堇的临时幸运

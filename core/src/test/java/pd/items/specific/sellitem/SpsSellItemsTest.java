@@ -98,7 +98,12 @@ public final class SpsSellItemsTest {
 		Dungeon.branch = pd.items.quest.AdventureJournal.branchFor(22);
 		check(Shopkeeper.sellPrice(hammer) == 750, "高深度商店价格没有按旧版25倍封顶");
 		Dungeon.hero.heroClass = HeroClass.FOLLOWER;
+		//SPSEXPD: 信徒的价格优惠改由「讨价还价」特质提供（原为 heroClass 判定）
+		check(pd.windows.WndLifeTradeItem.price() == 10, "只有职业、没有特质时不应享受信徒价");
+		Dungeon.hero.heroPerk.add(new pd.actors.hero.perks.Bargain());
 		check(Shopkeeper.sellPrice(hammer) == 600, "追随者商店价格没有按旧版20倍封顶");
+		check(pd.windows.WndLifeTradeItem.price() == pd.actors.hero.perks.Bargain.LIFE_TRADE_PRICE,
+				"追随者生命交易价不是「讨价还价」提供的 8 点");
 		Dungeon.depth = 1;
 		Dungeon.branch = 0;
 	}

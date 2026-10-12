@@ -76,7 +76,8 @@ public class HighGrass {
 		Char ch = Actor.findChar(pos);
 		
 		if (level.map[pos] == Terrain.FURROWED_GRASS){
-			if (ch instanceof Hero && ((Hero) ch).heroClass == HeroClass.HUNTRESS){
+			//SPSEXPD: 原为 HUNTRESS 职业判定，现由「踏草无声」特质驱动
+			if (ch instanceof Hero && pd.actors.hero.perks.Grasskeeper.ownedBy((Hero) ch)){
 				//Do nothing
 				freezeTrample = true;
 			} else {
@@ -84,7 +85,8 @@ public class HighGrass {
 			}
 			
 		} else {
-			if (ch instanceof Hero && ((Hero) ch).heroClass == HeroClass.HUNTRESS){
+			//SPSEXPD: 原为 HUNTRESS 职业判定，现由「踏草无声」特质驱动
+			if (ch instanceof Hero && pd.actors.hero.perks.Grasskeeper.ownedBy((Hero) ch)){
 				if(((Hero) ch).hasTalent(Talent.BARKSKIN)){
 					Barkskin.conditionallyAppend(ch, (((Hero) ch).lvl* ((Hero) ch).pointsInTalent(Talent.BARKSKIN))/3, 1 );
 				}

@@ -1034,10 +1034,12 @@ public abstract class Mob extends Char {
 				Statistics.qualifiedForNoKilling = false;
 				Bestiary.setSeen(getClass());
 				Bestiary.countEncounter(getClass());
-				if (Dungeon.hero.heroClass == HeroClass.PERFORMER) {
-					Buff.prolong(Dungeon.hero, pd.actors.buffs.Rhythm.class, 10f);
+				//SPSEXPD: 原为 PERFORMER 职业判定，现由「舞台节奏」特质驱动
+				if (pd.actors.hero.perks.StageRhythm.ownedBy(Dungeon.hero)) {
+					Buff.prolong(Dungeon.hero, pd.actors.buffs.Rhythm.class,
+							pd.actors.hero.perks.StageRhythm.KILL_DURATION);
 					Shovel shovel = Dungeon.hero.belongings.getItem(Shovel.class);
-					if (shovel != null) shovel.gainCharge(5);
+					if (shovel != null) shovel.gainCharge(pd.actors.hero.perks.StageRhythm.SHOVEL_CHARGE);
 				}
 				DemoScroll contract = Dungeon.hero.belongings.getItem(DemoScroll.class);
 				if (contract != null) contract.gainSoul();

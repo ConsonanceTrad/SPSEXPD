@@ -39,15 +39,25 @@ public final class SpsLuckyBadgeTest {
 		hero.subClass = HeroSubClass.NONE;
 		check(LuckyBadge.luckBonus(hero) == 0, "空背包仍产生运气加成");
 
+		//SPSEXPD: 职业本身不再提供幸运 —— 必须持有「天佑」特质才有星兵的 +5
+		hero.heroClass = HeroClass.SOLDIER;
+		check(LuckyBadge.luckBonus(hero) == 0, "只设职业、没有特质时不应提供幸运加成");
+		hero.heroClass = HeroClass.WARRIOR;
+
 		LuckyBadge badge = (LuckyBadge)new LuckyBadge().level(4);
 		hero.belongings.backpack.items.add(badge);
 		check(badge.image == EquipmentJewelleryArtifactDict.LUCKY_BADGE, "幸运徽章未使用旧版独立图标");
-		check(LuckyBadge.luckBonus(hero) == 4, "徽章等级没有计入运气");
+		//SPSEXPD: 胸章已改为固定 +3、不随等级成长（同步 2b4fd39bf 之后的过期断言）
+		check(LuckyBadge.luckBonus(hero) == LuckyBadge.BADGE_LUCK, "幸运胸章没有固定计入 3 点运气");
 
 		hero.heroClass = HeroClass.SOLDIER;
 		hero.subClass = HeroSubClass.SUPERSTAR;
+		//SPSEXPD: 星兵的 +5 幸运改由「天佑」特质提供（原为 heroClass 判定）
+		hero.heroPerk.add(new pd.actors.hero.perks.Fortunate());
 		Buff.affect(hero, AflyBless.class);
-		check(LuckyBadge.luckBonus(hero) == 15, "士兵、超级明星或Afly祝福加成错误");
+		check(LuckyBadge.luckBonus(hero)
+						== LuckyBadge.BADGE_LUCK + pd.actors.hero.perks.Fortunate.LUCK + 3 + 3,
+				"士兵、超级明星或Afly祝福加成错误");
 	}
 
 	private static void testProbabilitiesAndBound() {

@@ -44,7 +44,9 @@ public class WndLifeTradeItem extends WndInfoItem {
 	}
 
 	public static int price() {
-		return Dungeon.hero != null && Dungeon.hero.heroClass == HeroClass.FOLLOWER ? 8 : 10;
+		//SPSEXPD: 原为 FOLLOWER 职业判定，现由「讨价还价」特质驱动
+		return pd.actors.hero.perks.Bargain.ownedBy(Dungeon.hero)
+				? pd.actors.hero.perks.Bargain.LIFE_TRADE_PRICE : 10;
 	}
 
 	public static boolean canBuy() {

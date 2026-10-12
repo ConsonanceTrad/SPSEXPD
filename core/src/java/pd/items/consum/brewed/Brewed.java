@@ -122,8 +122,9 @@ public class Brewed extends Item {
 		}
 
 		applyPotionEffect(hero);
-		if (hero.heroClass != pd.actors.hero.HeroClass.FOLLOWER
-				|| Random.Int(10) >= 1) {
+		//SPSEXPD: 原为 FOLLOWER 职业判定，现由「精打细算」特质驱动
+		if (!pd.actors.hero.perks.Thrifty.ownedBy(hero)
+				|| Random.Int(pd.actors.hero.perks.Thrifty.KEEP_CHANCE_ROLLS) >= 1) {
 			detach(hero.belongings.backpack);
 		}
 		Buff.affect(hero, Hunger.class).satisfy(energy);

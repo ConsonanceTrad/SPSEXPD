@@ -937,6 +937,8 @@ public final class SpsMobRotationTest {
 		}
 
 		Dungeon.hero.heroClass = pd.actors.hero.HeroClass.SOLDIER;
+		//SPSEXPD: 星兵的幸运改由「天佑」特质提供（原为 heroClass 判定）
+		Dungeon.hero.heroPerk.add(new pd.actors.hero.perks.Fortunate());
 		if (Math.abs(probe.secondaryChance(0.1f) - 0.2f) > 0.0001f) {
 			throw new AssertionError("SPS secondary loot lost the Soldier five-level luck bonus");
 		}

@@ -165,8 +165,9 @@ public class AdventureGuide extends NPC {
 	}
 
 	private int priceFor(int basePrice) {
-		return Dungeon.hero != null && Dungeon.hero.heroClass == HeroClass.FOLLOWER
-				? Math.max(1, Math.round(basePrice * 0.9f)) : basePrice;
+		//SPSEXPD: 原为 FOLLOWER 职业判定，现由「讨价还价」特质驱动
+		return pd.actors.hero.perks.Bargain.ownedBy(Dungeon.hero)
+				? Math.max(1, Math.round(basePrice * pd.actors.hero.perks.Bargain.GUIDE_BUY_MULT)) : basePrice;
 	}
 
 	private void buy(Hero hero, int index, int price) {
