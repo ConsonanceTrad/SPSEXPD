@@ -1155,6 +1155,18 @@ public class WndSettings extends WndTabbed {
 			chkAdjacentPickup.checked(SPDSettings.adjacentPickup());
 			add(chkAdjacentPickup);
 
+			//SPSEXPD: 连续使用（用后不关窗）——行末除说明按钮外还有「类型白名单」入口。
+			//位置紧跟在「临近触及」下面（见下方 addRowNote 的顺序）
+			chkContinuousUse = new AuxCheckBox(Messages.get(AuxTab.class, "continuous_use")) {
+				@Override
+				protected void onClick() {
+					super.onClick();
+					SPDSettings.continuousUse(checked());
+				}
+			};
+			chkContinuousUse.checked(SPDSettings.continuousUse());
+			add(chkContinuousUse);
+
 			sep2 = new ColorBlock(1, 1, 0xFF000000);
 			add(sep2);
 
@@ -1256,6 +1268,9 @@ public class WndSettings extends WndTabbed {
 			addRowNote(chkSearchPickUp, "search_pickup");
 			addRowNote(chkSearchTrample, "search_trample");
 			addRowNote(chkAdjacentPickup, "adjacent_pickup");
+			//SPSEXPD: 连续使用紧跟在「临近触及」下面（行末除说明按钮外还有白名单入口）
+			addRowNote(chkContinuousUse, "continuous_use");
+			addRowExtra(chkContinuousUse, new WhitelistButton());
 			addRowNote(chkQuickAll, "quick_all");
 			addRowNote(chkQuickLight, "quick_light");
 			addRowNote(chkQuickTalent, "quick_talent");
@@ -1265,20 +1280,6 @@ public class WndSettings extends WndTabbed {
 			addRowNote(chkBagTabsWide, "bag_tabs_wide");
 			addRowNote(chkBagTabsPaged, "bag_tabs_paged");
 			addRowNote(chkBagTabsPlain, "bag_tabs_plain");
-
-			//SPSEXPD: 连续使用（用后不关窗）——行末还要挂一个「类型白名单」入口按钮
-			chkContinuousUse = new AuxCheckBox(Messages.get(AuxTab.class, "continuous_use")) {
-				@Override
-				protected void onClick() {
-					super.onClick();
-					SPDSettings.continuousUse(checked());
-				}
-			};
-			chkContinuousUse.checked(SPDSettings.continuousUse());
-			add(chkContinuousUse);
-
-			addRowNote(chkContinuousUse, "continuous_use");
-			addRowExtra(chkContinuousUse, new WhitelistButton());
 		}
 
 		//SPSEXPD: 给某一行再挂一个行末按钮（排在说明按钮左侧）；必须在该行的 addRowNote 之后调用
@@ -1325,8 +1326,8 @@ public class WndSettings extends WndTabbed {
 			sep1.y = title.bottom() + 3*GAP;
 			bottom = sep1.y + 1;
 
-			//SPSEXPD: 前 4 行——显示移动路径 / 搜索捡拾物品 / 搜索踩草 / 临近触及
-			for (int i = 0; i < 4 && i < rowChecks.size(); i++) {
+			//SPSEXPD: 前 5 行——显示移动路径 / 搜索捡拾 / 搜索踩草 / 临近触及 / 连续使用
+			for (int i = 0; i < 5 && i < rowChecks.size(); i++) {
 				bottom = layoutRow(i, width, bottom);
 			}
 
@@ -1338,8 +1339,8 @@ public class WndSettings extends WndTabbed {
 			quickGroup.setPos(0, bottom + GAP);
 			bottom = quickGroup.bottom();
 
-			//SPSEXPD: 快捷操作各行的索引是 4..7（总开关/照明/加点/进食），此处只摆这四行
-			for (int i = 4; i < 8 && i < rowChecks.size(); i++) {
+			//SPSEXPD: 快捷操作各行的索引是 5..8（总开关/照明/加点/进食），此处只摆这四行
+			for (int i = 5; i < 9 && i < rowChecks.size(); i++) {
 				bottom = layoutRow(i, width, bottom);
 			}
 
@@ -1351,7 +1352,7 @@ public class WndSettings extends WndTabbed {
 			bagGroup.setPos(0, bottom + GAP);
 			bottom = bagGroup.bottom();
 
-			for (int i = 8; i < rowChecks.size(); i++) {
+			for (int i = 9; i < rowChecks.size(); i++) {
 				bottom = layoutRow(i, width, bottom);
 			}
 
