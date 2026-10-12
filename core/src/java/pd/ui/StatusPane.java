@@ -72,9 +72,10 @@ public class StatusPane extends Component {
 	private int lastSPMax = Integer.MIN_VALUE;
 	/** SP 数字的缩放（比血条数字大一号） */
 	private static final float SP_TEXT_SCALE = 0.75f;
-	/** 底板的最小尺寸（数值很短时也保持一个明显的方块） */
+	/** 底板的最小宽度（数值很短时也保持一个明显的方块）；宽度随数字长度增长 */
 	private static final float SP_BG_MIN_W = 20f;
-	private static final float SP_BG_MIN_H = 10f;
+	/** 底板固定高度 —— 必须固定：buff 区的位置按它预留，高度若随数字变化就会压到 buff 栏 */
+	private static final float SP_BG_HEIGHT = 12f;
 
 	private Image exp;
 	private BitmapText expText;
@@ -295,7 +296,7 @@ public class StatusPane extends Component {
 
 			heroInfoOnBar.setRect(heroInfo.right(), y, 50, 9);
 
-			//SPSEXPD: 小模式 SP 底板贴血条正下方；buff 区顺次下移到底板之下
+			//SPSEXPD: 小模式 SP 底板贴血条正下方；buff 区顺次下移到底板之下（按固定高度预留）
 			layoutSpPoint();
 
 			if (buffBarRowMaxWidths != null){
@@ -304,7 +305,7 @@ public class StatusPane extends Component {
 			if (buffBarRowAdjusts != null){
 				buffs.rowHeightAdjusts = buffBarRowAdjusts;
 			}
-			buffs.setRect( x + heroPaneWidth + 1, spBg.y + spBg.height + 1, 55, 16 );
+			buffs.setRect( x + heroPaneWidth + 1, spBg.y + SP_BG_HEIGHT + 1, 55, 16 );
 
 			busy.x = x + 1;
 			busy.y = y + 37;
@@ -434,8 +435,9 @@ public class StatusPane extends Component {
 
 		spText.scale.set(PixelScene.align(SP_TEXT_SCALE));
 
+		//SPSEXPD: 底板高度固定——buff 区按 SP_BG_HEIGHT 预留位置，不能让高度随数字变化
 		float w = Math.max(SP_BG_MIN_W, spText.width() + 4);
-		float h = Math.max(SP_BG_MIN_H, spText.height() + 3);
+		float h = SP_BG_HEIGHT;
 		spBg.size(w, h);
 
 		if (large){
