@@ -38,6 +38,9 @@ public class WndInfoItem extends Window {
 	//only one WndInfoItem can appear at a time
 	private static WndInfoItem INSTANCE;
 
+	//SPSEXPD: 标题栏（"名字 ×N"）——物品数量在窗口开着时变化，子类 WndUseItem 用它刷新数量
+	protected IconTitle titlebar;
+
 	public WndInfoItem( Heap heap ) {
 
 		super();
@@ -103,6 +106,8 @@ public class WndInfoItem extends Window {
 	}
 
 	private void layoutFields(IconTitle title, RenderedTextBlock info){
+		//SPSEXPD: 记住标题栏——连续使用等场景下物品数量变化时 WndUseItem 要刷新标题上的「×N」
+		titlebar = title;
 		int width = WIDTH_MIN;
 
 		info.maxWidth(width);

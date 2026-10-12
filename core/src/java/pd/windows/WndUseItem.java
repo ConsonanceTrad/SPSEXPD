@@ -23,6 +23,7 @@ package pd.windows;
 
 import pd.Dungeon;
 import pd.items.Item;
+import pd.messages.Messages;
 import pd.ui.InventoryPane;
 import pd.ui.ItemJournalButton;
 import pd.ui.RedButton;
@@ -56,6 +57,8 @@ public class WndUseItem extends WndInfoItem {
 
 	private ArrayList<GatedButton> gated;
 	private boolean lastReady = true;
+	//SPSEXPD: 上次画在标题上的数量——连续使用后数量变化时刷新「×N」
+	private int lastQuantity = Integer.MIN_VALUE;
 
 	public WndUseItem( final Window owner, final Item item ) {
 		
@@ -155,6 +158,15 @@ public class WndUseItem extends WndInfoItem {
 	@Override
 	public void update() {
 		super.update();
+
+		//SPSEXPD: 连续使用后物品数量变了，操作框标题上的「×N」要跟着刷新
+		if (item != null && item.quantity() != lastQuantity) {
+			lastQuantity = item.quantity();
+			if (titlebar != null) {
+				titlebar.label( Messages.titleCase( item.title() ) );
+				titlebar.layout();
+			}
+		}
 
 		//SPSEXPD: 连续使用——操作框原地保留期间：英雄忙碌时按钮置灰（动画结束自动恢复），并刷新消耗数字
 		if (gated.isEmpty() || Dungeon.hero == null) return;

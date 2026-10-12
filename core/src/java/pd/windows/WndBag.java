@@ -76,6 +76,7 @@ import render.noosa.ui.Component;
 import render.utils.geom.PointF;
 import render.utils.math.Random;
 import render.utils.platform.DeviceCompat;
+import java.util.ArrayList;
 
 public class WndBag extends WndTabbed {
 	
@@ -175,6 +176,9 @@ public class WndBag extends WndTabbed {
 	protected int count;
 	protected int col;
 	protected int row;
+
+	//SPSEXPD: 内容区的格子——窗口一直开着时（连续使用等）按需刷新格子上的数量角标
+	private final ArrayList<InventorySlot> slots = new ArrayList<>();
 	
 	private static Bag lastBag;
 
@@ -826,6 +830,7 @@ public class WndBag extends WndTabbed {
 		slot.textScale = textScale;
 		slot.setRect( x, y, slotWidth, slotHeight );
 		add(slot);
+		slots.add(slot);
 
 		if (item == null || (selector != null && !selector.itemSelectable(item))){
 			slot.enable(false);
@@ -838,6 +843,17 @@ public class WndBag extends WndTabbed {
 			row++;
 		}
 
+	}
+
+	@Override
+	public void update() {
+		super.update();
+
+		//SPSEXPD: 背包窗口一直开着时（连续使用、其它途径消耗）物品数量会变，按需刷新格子上的数字
+		if (!visible || slots.isEmpty()) return;
+		for (InventorySlot slot : slots) {
+			slot.refreshQuantityIfChanged();
+		}
 	}
 
 	@Override

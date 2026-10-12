@@ -62,6 +62,8 @@ public class ItemSlot extends Button {
 
 	protected ItemSprite sprite;
 	protected Item       item;
+	//SPSEXPD: 上次画出的数量——窗口一直开着时（连续使用等）数量会变，据此按需刷新数字
+	private int lastQuantity = Integer.MIN_VALUE;
 	protected BitmapText status;
 	protected BitmapText extra;
 	protected Image      itemIcon;
@@ -247,6 +249,9 @@ public class ItemSlot extends Button {
 
 	public void updateText(){
 
+		//SPSEXPD: 记下这次画出的数量，供 refreshQuantityIfChanged() 比较
+		lastQuantity = item == null ? Integer.MIN_VALUE : item.quantity();
+
 		if (itemIcon != null){
 			remove(itemIcon);
 			itemIcon = null;
@@ -349,6 +354,20 @@ public class ItemSlot extends Button {
 		layout();
 	}
 	
+	/**
+	 * SPSEXPD: 物品数量变了就只刷新数字（不动图标与等级）——窗口一直开着时（连续使用、
+	 * 其它途径消耗）也要让格子上的数量跟上。返回是否真的刷新过。
+	 */
+	public boolean refreshQuantityIfChanged() {
+		if (item == null) return false;
+		int q = item.quantity();
+		if (q == lastQuantity) return false;
+		lastQuantity = q;
+		status.text( item.status() );
+		layout();
+		return true;
+	}
+
 	public void enable( boolean value ) {
 		
 		active = value;
