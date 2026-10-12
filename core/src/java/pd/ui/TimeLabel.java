@@ -30,6 +30,10 @@ public class TimeLabel extends Component {
 	/** 图标与文本之间的间隔。 */
 	private static final float GAP = 1f;
 
+	//SPSEXPD: 整体缩放——图标 12×11 与默认字号在按钮组下方显得偏大，图标与文字统一缩到 0.7
+	//（Visual.width()/height() 已含 scale，布局与 setSize 无需再乘）
+	private static final float SCALE = 0.7f;
+
 	private Image iconDay;
 	private Image iconNight;
 	private Image iconMidnight;
@@ -44,16 +48,20 @@ public class TimeLabel extends Component {
 	@Override
 	protected void createChildren(){
 		iconDay = Icons.get( Icons.TIME_DAY );
+		iconDay.scale.set( SCALE );
 		add( iconDay );
 		iconNight = Icons.get( Icons.TIME_NIGHT );
+		iconNight.scale.set( SCALE );
 		add( iconNight );
 		iconMidnight = Icons.get( Icons.TIME_MIDNIGHT );
+		iconMidnight.scale.set( SCALE );
 		add( iconMidnight );
 		//首次刷新前先只显示白天那一张，避免三张叠在一起
 		iconNight.visible = false;
 		iconMidnight.visible = false;
 
 		label = new BitmapText( PixelScene.pixelFont );
+		label.scale.set( SCALE );
 		label.hardlight( DAY_TEXT );
 		add( label );
 	}
