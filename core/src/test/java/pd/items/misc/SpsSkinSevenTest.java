@@ -117,7 +117,8 @@ public final class SpsSkinSevenTest {
 
 	private static void testStarts() {
 		Hero h = start(HeroClass.WARRIOR);
-		check(h.belongings.weapon instanceof ShortSword && h.belongings.armor instanceof WoodenArmor,
+		//SPSEXPD: 战士经典开局不再自带木甲/神木圆盾，护甲回落到通用布甲
+		check(h.belongings.weapon instanceof ShortSword && h.belongings.armor instanceof ClothArmor,
 				"皮肤7战士没有保持普通开局");
 		h = start(HeroClass.MAGE);
 		check(h.belongings.weapon instanceof MageBook, "皮肤7法师没有保持普通开局");

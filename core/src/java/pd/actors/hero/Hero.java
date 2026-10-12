@@ -1214,6 +1214,10 @@ public class Hero extends Char {
 
 		MissileShield missileShield = belongings.getItem(MissileShield.class);
 		if (missileShield != null) missileShield.gainCharge();
+		//SPSEXPD: 近战化的回旋镖同样每回合回充能
+		pd.items.equipment.weapon.missiles.throwing.Boomerang boomerang =
+				belongings.getItem(pd.items.equipment.weapon.missiles.throwing.Boomerang.class);
+		if (boomerang != null) boomerang.gainCharge();
 		//SPSEXPD: 奇迹烧瓶不再按回合充能，改为在 earnExp 里按获得的经验抽取（见 earnExp）
 		Shovel shovel = belongings.getItem(Shovel.class);
 		if (shovel != null) shovel.gainCharge();

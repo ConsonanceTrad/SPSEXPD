@@ -1211,8 +1211,7 @@ public enum HeroClass {
 					break;
 				default:
 					l.equip(ItemSlot.WEAPON, () -> new ShortSword(), 0, null);
-					l.equip(ItemSlot.ARMOR, () -> new WoodenArmor(), 0, null);
-					l.equip(ItemSlot.SECOND_WEP, () -> new MissileShield(), 0, null);
+					//SPSEXPD: 战士不再自带木甲与神木圆盾（护甲回落到 initHero 通用段的布甲）
 					//SPSEXPD: 破损纹章改为以物品形式发放到背包，不再开局贴附在护甲上（由玩家自行贴附）
 					l.backpack(() -> new BrokenSeal());
 					l.backpack(() -> new Porksoup());
@@ -1412,6 +1411,8 @@ public enum HeroClass {
 					l.equip(ItemSlot.ARMOR, () -> new ClothArmor(), 0, null);
 					//SPSXPD: 女猎手开局携带灵能弓（替换原回旋镖）
 					l.backpack(() -> new SpiritBow(), 0, 1, 0, null);
+					//SPSEXPD: 女猎手开局另携带一枚近战化的回旋镖（充能投掷/命中麻痹/接住重置）
+					l.backpack(() -> new Boomerang());
 					l.backpack(() -> new EmpBola(3), 0, 1, 1, null);
 					break;
 			}
@@ -1424,6 +1425,8 @@ public enum HeroClass {
 				((pd.items.KindOfWeapon) i).activate(h);
 				Dungeon.quickslot.setSlot(0, i);
 			});
+			//SPSEXPD: 决斗家开局携带护手盾（副手，只提供格挡）
+			l.equip(ItemSlot.SECOND_WEP, () -> new pd.items.misc.GauntletShield(), 0, null);
 			l.backpack(() -> new ThrowingSpike(), 0, 2, 1, null);
 		}
 
