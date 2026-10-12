@@ -75,7 +75,7 @@ public class StatusPane extends Component {
 	private static final float SP_TEXT_SCALE = 0.5f;
 	/** 长数值自动缩字号的下限（再小就读不清了） */
 	private static final float SP_TEXT_SCALE_MIN = 0.35f;
-	/** SP 数字相对「SP」标签左缘的起始偏移（之后向右生长，不再居中） */
+	/** SP 数字与「SP」标签右缘之间的间距（数字自此向右生长） */
 	private static final float SP_TEXT_OFFSET_X = 4f;
 	//SPSEXPD: 背板素材 status_pane.png 小模式帧里为 SP 预留的格子（帧内坐标，用户绘制）
 	private static final float SP_SLOT_X = 30f;
@@ -466,12 +466,13 @@ public class StatusPane extends Component {
 			slotH = SP_SLOT_H;
 		}
 
-		//SPSEXPD: 数字从「SP」标签左缘向右偏 SP_TEXT_OFFSET_X 处起笔、向右生长（左对齐，不再居中）；
+		//SPSEXPD: 数字从「SP」标签右缘再往右 SP_TEXT_OFFSET_X 处起笔、向右生长（左对齐）；
 		//长数值按可用宽度自动缩字号（下限 SP_TEXT_SCALE_MIN），保证不溢出格子
 		spLabel.scale.set(SP_TEXT_SCALE, SP_TEXT_SCALE);
 
+		float textStart = spLabel.width() + SP_TEXT_OFFSET_X;
 		float scale = SP_TEXT_SCALE;
-		float avail = Math.max(4f, slotW - SP_TEXT_OFFSET_X - 2f);
+		float avail = Math.max(4f, slotW - textStart - 2f);
 		spText.scale.set(scale, scale);
 		while (scale > SP_TEXT_SCALE_MIN && spText.width() > avail){
 			scale -= 0.05f;
@@ -482,7 +483,7 @@ public class StatusPane extends Component {
 		spLabel.y = slotY + (slotH - spLabel.height())/2f;
 		PixelScene.align(spLabel);
 
-		spText.x = spLabel.x + SP_TEXT_OFFSET_X;
+		spText.x = spLabel.x + textStart;
 		spText.y = slotY + (slotH - spText.height())/2f;
 		PixelScene.align(spText);
 
