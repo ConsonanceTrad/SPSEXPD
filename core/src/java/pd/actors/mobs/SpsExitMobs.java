@@ -18,6 +18,7 @@ import pd.actors.blobs.damageblobs.IceEffectDamage;
 import pd.actors.buffs.Amok;
 import pd.actors.buffs.AttackUp;
 import pd.actors.buffs.BeOld;
+import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Charm;
 import pd.actors.buffs.DBurning;
@@ -191,7 +192,8 @@ public final class SpsExitMobs {
 	public static class GuardAlbino extends Mob implements ExitGuard {
 		{
 			spriteClass = AlbinoSprite.class;
-			HP = HT = 10 + legacyDepthAdjustment(0) * Random.NormalIntRange(1, 3);
+			//SPSEXPD: 与同层小鼠（Rat 的 40 档）同步并稍强——作为出口守卫它是精英
+			HP = HT = 45 + legacyDepthAdjustment(0) * Random.NormalIntRange(1, 3);
 			defenseSkill = 3 + legacyDepthAdjustment(1);
 			EXP = 1; maxLvl = 4; loot = Meat.class; lootChance = 1f;
 			properties.add(Property.BEAST); properties.add(Property.DEMONIC);
@@ -199,7 +201,12 @@ public final class SpsExitMobs {
 			immunities.add(CorruptGas.class); immunities.add(Vertigo.class); immunities.add(SandStorm.class);
 		}
 		@Override protected boolean act() { seedAround(pos, 2, SandStorm.class, true); return super.act(); }
-		@Override public void damage(int damage, Object src) { GameScene.add(Blob.seed(pos, 15, CorruptGas.class)); super.damage(damage, src); }
+		//SPSEXPD: SPS 0.9.8 是「受击喷 15 点恶魔血雾」，与 Albino 一致改为咬中挂 damage/2 流血
+		@Override public int attackProc(Char enemy, int damage) {
+			damage = super.attackProc(enemy, damage);
+			if (enemy != null && damage > 0) Buff.affect(enemy, Bleeding.class).set(damage / 2f);
+			return damage;
+		}
 		@Override public int damageRoll() { return Random.NormalIntRange(1, 5 + legacyDepthAdjustment(0)); }
 		@Override public int attackSkill(Char target) { return 5 + legacyDepthAdjustment(0); }
 		@Override public int drRoll() { return 1; }

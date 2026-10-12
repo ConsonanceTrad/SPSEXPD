@@ -27,6 +27,8 @@ import pd.actors.blobs.Blob;
 import pd.actors.blobs.CorruptGas;
 import pd.actors.blobs.SandStorm;
 import pd.actors.buffs.Amok;
+import pd.actors.buffs.Bleeding;
+import pd.actors.buffs.Buff;
 import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
 import pd.items.Generator;
@@ -43,7 +45,7 @@ public class Albino extends Rat {
 	static {
 		InlineText.of(Albino.class)
 			.t("name", "白化老鼠")
-			.t("desc", "这是一只稀有品种的白色的老鼠，它有一身纯白色的皮毛和锯齿状的牙齿。邪恶污染使它周围布满了血雾。")
+			.t("desc", "这是一只稀有品种的白色的老鼠，它有一身纯白色的皮毛和锯齿状的牙齿。邪恶污染渗进了它的唾液，被它咬中会血流不止。")
 			.t("discover_hint", "你可在某个地牢区域中中碰巧遇到该敌人。");
 	}
 
@@ -53,7 +55,8 @@ public class Albino extends Rat {
 	{
 		spriteClass = AlbinoSprite.class;
 		
-		HP = HT = 10 + legacyDepthAdjustment(0) * Random.NormalIntRange(1, 3);
+		//SPSEXPD: 与同层小鼠（Rat 的 40 档）同步并稍强——白鼠是精英
+		HP = HT = 45 + legacyDepthAdjustment(0) * Random.NormalIntRange(1, 3);
 		EXP = 1;
 		
 		loot = Meat.class;
@@ -76,16 +79,16 @@ public class Albino extends Rat {
 	}
 
 	@Override
-	public void damage(int damage, Object source) {
-		if (Dungeon.level != null && Dungeon.level.insideMap(pos)) {
-			GameScene.add(Blob.seed(pos, 15, CorruptGas.class));
-		}
-		super.damage(damage, source);
-	}
-
-	@Override
 	public Item SupercreateLoot() {
 		return Generator.random(Generator.Category.HIGHFOOD);
+	}
+
+	//SPSEXPD: SPS 0.9.8 是「受击喷 15 点恶魔血雾」，这里按需求改为咬中挂 damage/2 流血
+	@Override
+	public int attackProc(Char enemy, int damage) {
+		damage = super.attackProc(enemy, damage);
+		if (enemy != null && damage > 0) Buff.affect(enemy, Bleeding.class).set(damage / 2f);
+		return damage;
 	}
 
 	public static Generator.Category specialLootCategory() {

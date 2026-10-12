@@ -1513,8 +1513,9 @@ public abstract class Mob extends Char {
 		}
 
 		//chance is 1 in (distance + stealth)
+		//SPSEXPD: 对齐破碎硬核风格——距离权重减半，同距离下被惊醒几率约翻倍（2 格内必醒）
 		protected float detectionChance( Char enemy ){
-			return 1 / (distance( enemy ) + enemy.stealth());
+			return 1 / (distance( enemy ) / 2f + enemy.stealth());
 		}
 
 		protected void awaken( boolean enemyInFOV ){

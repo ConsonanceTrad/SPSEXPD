@@ -18,7 +18,6 @@ import pd.actors.blobs.weather.WeatherOfSand;
 import pd.actors.blobs.weather.WeatherOfSnow;
 import pd.actors.blobs.weather.WeatherOfSun;
 import pd.actors.buffs.Buff;
-import pd.actors.buffs.ExProtect;
 import pd.actors.buffs.GlassShield;
 import pd.actors.buffs.MagicArmor;
 import pd.actors.buffs.ShieldArmor;
@@ -443,7 +442,8 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		mob.pos = randomInteriorCell(room, 0);
 		if (mob.pos < 0) return;
 		markAsOriginal(mob);
-		Buff.affect(mob, ExProtect.class);
+		//SPSEXPD: 出口守卫不再享有「精英保护」（ExProtect）——它会让守卫在首次伤害被吸收前一直沉睡且麻痹，
+		// 现在守卫和普通怪一样可以被正常惊醒；精英强度改由下方的物理/魔法护甲承担
 		Buff.affect(mob, ShieldArmor.class).level(Dungeon.depth * 5);
 		Buff.affect(mob, MagicArmor.class).level(Dungeon.depth * 5);
 		mobs().add(mob);

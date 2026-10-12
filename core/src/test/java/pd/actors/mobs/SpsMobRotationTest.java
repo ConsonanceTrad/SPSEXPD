@@ -265,7 +265,7 @@ public final class SpsMobRotationTest {
 		Dungeon.level = new TestLevel();
 		for (int i = 0; i < 100; i++) {
 			Albino albino = new Albino();
-			if (albino.HT < 13 || albino.HT > 19 || albino.EXP != 1
+			if (albino.HT < 48 || albino.HT > 54 || albino.EXP != 1
 					|| albino.loot != pd.items.consum.food.meatfood.Meat.class
 					|| Math.abs(albino.lootChance - 1f) > 0.0001f
 					|| !albino.properties().contains(Char.Property.BEAST)
@@ -279,6 +279,21 @@ public final class SpsMobRotationTest {
 				throw new AssertionError("SPS albino stats, faction, defenses, or rewards differ from the source");
 			}
 		}
+
+		//SPSEXPD: 白鼠不再在受击时喷恶魔血雾，改为咬中挂 damage/2 流血
+		Albino biter = new Albino();
+		DamageProbe bleedingVictim = new DamageProbe();
+		biter.attackProc(bleedingVictim, 8);
+		pd.actors.buffs.Bleeding bleed = bleedingVictim.buff(pd.actors.buffs.Bleeding.class);
+		if (bleed == null || bleed.level() <= 0) {
+			throw new AssertionError("SPS albino bite did not inflict bleeding");
+		}
+		DamageProbe untouchedVictim = new DamageProbe();
+		biter.attackProc(untouchedVictim, 0);
+		if (untouchedVictim.buff(pd.actors.buffs.Bleeding.class) != null) {
+			throw new AssertionError("SPS albino inflicted bleeding without dealing damage");
+		}
+		checkAlbinoSource();
 
 		Dungeon.depth = 23;
 		Acidic acidic = new Acidic();
@@ -296,6 +311,30 @@ public final class SpsMobRotationTest {
 		if (target.lastSource != acidic || target.lastDamage < 1 || target.lastDamage > 10) {
 			throw new AssertionError("SPS acidic scorpio retaliation differs from the source");
 		}
+	}
+
+	/** SPSEXPD: 白鼠不得再把受击恶魔血雾改回来，且必须保留咬中挂流血的实现。 */
+	private static void checkAlbinoSource() {
+		java.nio.file.Path source = locateSource("java/pd/actors/mobs/Albino.java",
+				"../java/pd/actors/mobs/Albino.java", "core/src/java/pd/actors/mobs/Albino.java");
+		String text;
+		try {
+			text = java.nio.file.Files.readString(source, java.nio.charset.StandardCharsets.UTF_8);
+		} catch (java.io.IOException error) {
+			throw new AssertionError("Unable to read Albino.java as UTF-8", error);
+		}
+		if (text.contains("Blob.seed(pos, 15, CorruptGas.class)")
+				|| !text.contains("attackProc") || !text.contains("Bleeding")) {
+			throw new AssertionError("SPSEXPD: 白鼠又恢复了受击恶魔血雾，或丢失了咬中流血的实现");
+		}
+	}
+
+	private static java.nio.file.Path locateSource(String... candidates) {
+		for (String candidate : candidates) {
+			java.nio.file.Path path = java.nio.file.Path.of(candidate);
+			if (java.nio.file.Files.exists(path)) return path;
+		}
+		throw new AssertionError("找不到源码文件：" + Arrays.toString(candidates));
 	}
 
 	private static void checkBandit() {

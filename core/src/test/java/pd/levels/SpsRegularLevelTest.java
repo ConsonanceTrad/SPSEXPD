@@ -350,8 +350,9 @@ public final class SpsRegularLevelTest {
 				&& guard.pos / level.width() > level.roomExit.top
 				&& guard.pos / level.width() < level.roomExit.bottom,
 				region, seed, "出口守卫不在出口房内部");
-		check(guard.spsOriginalGeneration && guard.buff(ExProtect.class) != null
-				&& guard.paralysed == 1, region, seed, "出口守卫首次伤害保护错误");
+		//SPSEXPD: 出口守卫不再有「精英保护」（ExProtect），可以被正常惊醒
+		check(guard.spsOriginalGeneration && guard.buff(ExProtect.class) == null
+				&& guard.paralysed == 0, region, seed, "出口守卫不应再有首次伤害保护与强制沉睡");
 		check(guard.buff(ShieldArmor.class) != null
 				&& guard.buff(ShieldArmor.class).level() == Dungeon.depth * 5,
 				region, seed, "出口守卫物理护甲错误");
