@@ -35,6 +35,7 @@ import pd.items.equipment.trinkets.Trinket;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.journal.Catalog;
 import pd.messages.Messages;
+import pd.plants.MiniSeed;
 import pd.plants.Plant;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
@@ -104,11 +105,14 @@ public class Alchemize extends Spell {
 		public boolean testIngredients(ArrayList<Item> ingredients) {
 			if (ingredients.size() != 2) return false;
 
-			if (ingredients.get(0) instanceof Plant.Seed && ingredients.get(1) instanceof Runestone){
+			//SPSEXPD: 迷你种子不作炼金材料
+			if (ingredients.get(0) instanceof Plant.Seed && !MiniSeed.isMini(ingredients.get(0))
+					&& ingredients.get(1) instanceof Runestone){
 				return true;
 			}
 
-			if (ingredients.get(0) instanceof Runestone && ingredients.get(1) instanceof Plant.Seed){
+			if (ingredients.get(0) instanceof Runestone
+					&& ingredients.get(1) instanceof Plant.Seed && !MiniSeed.isMini(ingredients.get(1))){
 				return true;
 			}
 

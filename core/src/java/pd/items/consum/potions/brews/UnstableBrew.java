@@ -40,6 +40,7 @@ import pd.items.consum.potions.PotionOfParalyticGas;
 import pd.items.consum.potions.PotionOfPurity;
 import pd.items.consum.potions.PotionOfToxicGas;
 import pd.items.consum.potions.exotic.ExoticPotion;
+import pd.plants.MiniSeed;
 import pd.plants.Plant;
 import render.utils.math.Random;
 import render.utils.serialize.Reflection;
@@ -150,7 +151,8 @@ public class UnstableBrew extends Brew {
 			boolean seed = false;
 
 			for (Item i : ingredients){
-				if (i instanceof Plant.Seed) {
+				//SPSEXPD: 迷你种子不作酿药材料
+				if (i instanceof Plant.Seed && !MiniSeed.isMini(i)) {
 					seed = true;
 					//if it is a regular or exotic potion
 				} else if (ExoticPotion.regToExo.containsKey(i.getClass())

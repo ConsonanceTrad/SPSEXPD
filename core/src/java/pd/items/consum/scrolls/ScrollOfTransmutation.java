@@ -53,6 +53,7 @@ import pd.items.equipment.weapon.missiles.darts.TippedDart;
 import pd.journal.Catalog;
 import pd.levels.MiningLevel;
 import pd.messages.Messages;
+import pd.plants.MiniSeed;
 import pd.plants.Plant;
 import pd.sprites.ItemIconSheet;
 import pd.utils.GLog;
@@ -186,7 +187,8 @@ public class ScrollOfTransmutation extends InventoryScroll {
 			return changeRing( (Ring)item );
 		} else if (item instanceof Wand) {
 			return changeWand( (Wand)item );
-		} else if (item instanceof Plant.Seed) {
+		} else if (item instanceof Plant.Seed && !MiniSeed.isMini(item)) {
+			//SPSEXPD: 迷你种子是劣质草籽，不能被蜕变成正常种子
 			return changeSeed((Plant.Seed) item);
 		} else if (item instanceof Runestone) {
 			return changeStone((Runestone) item);

@@ -48,7 +48,8 @@ public class IronMakerRecipes extends Recipe {
 		int ore = count(items, StoneOre.class);
 		int water = count(items, WaterItem.class);
 		int equipment = count(items, EquipableItem.class);
-		int seeds = count(items, Plant.Seed.class);
+		//SPSEXPD: 迷你种子不算作通用种子材料（劣质草籽）
+		int seeds = count(items, Plant.Seed.class) - count(items, MiniSeed.class);
 		int potions = count(items, Potion.class);
 		int scrolls = count(items, Scroll.class);
 		int meatfoods = count(items, MeatFood.class);

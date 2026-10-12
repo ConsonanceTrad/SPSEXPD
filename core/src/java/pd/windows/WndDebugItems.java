@@ -126,6 +126,14 @@ public class WndDebugItems extends Window {
 			Dreamfoil.Seed.class, Earthroot.Seed.class, Fadeleaf.Seed.class, BlandfruitBush.Seed.class,
 			Starflower.Seed.class, NutPlant.Seed.class, StarEater.Seed.class, ReNepenth.Seed.class,
 			SiOtwoFlower.Seed.class, Dewcatcher.Seed.class, Seedpod.Seed.class, Swiftthistle.Seed.class,
+			// row 1：迷你种子（各品种的小号图标；鲜莓与腐莓同样共用第一格）
+			MiniSeeds.MiniFreshberrySeed.class, MiniSeeds.MiniRotberrySeed.class, MiniSeeds.MiniFirebloomSeed.class,
+			MiniSeeds.MiniBlindweedSeed.class, MiniSeeds.MiniSungrassSeed.class, MiniSeeds.MiniIcecapSeed.class,
+			MiniSeeds.MiniStormvineSeed.class, MiniSeeds.MiniSorrowmossSeed.class, MiniSeeds.MiniDreamfoilSeed.class,
+			MiniSeeds.MiniEarthrootSeed.class, MiniSeeds.MiniFadeleafSeed.class, MiniSeeds.MiniBlandfruitSeed.class,
+			MiniSeeds.MiniStarflowerSeed.class, MiniSeeds.MiniNutPlantSeed.class, MiniSeeds.MiniStarEaterSeed.class,
+			MiniSeeds.MiniReNepenthSeed.class, MiniSeeds.MiniSiOtwoFlowerSeed.class, MiniSeeds.MiniDewcatcherSeed.class,
+			MiniSeeds.MiniSeedpodSeed.class, MiniSeeds.MiniSwiftthistleSeed.class,
 			// row 2：蔬菜
 			Durian.class, Chili.class, Marigold.class, HealGrass.class, IceMint.class, Tulip.class,
 			ToxicEggplant.class, DreamLeaf.class, Radish.class, Sunflower.class, Blandfruit.class,

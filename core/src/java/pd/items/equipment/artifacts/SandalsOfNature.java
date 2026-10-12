@@ -40,6 +40,7 @@ import pd.plants.Firebloom;
 import pd.plants.Icecap;
 import pd.plants.Dreamfoil;
 import pd.plants.Mageroyal;
+import pd.plants.MiniSeed;
 import pd.plants.Plant;
 import pd.plants.Rotberry;
 import pd.plants.Sorrowmoss;
@@ -199,7 +200,8 @@ public class SandalsOfNature extends Artifact {
 	}
 
 	public boolean canUseSeed(Item item) {
-		return item instanceof Plant.Seed;
+		//SPSEXPD: 迷你种子是营养不良的劣质草籽，不参与自然之鞋的充能
+		return item instanceof Plant.Seed && !MiniSeed.isMini(item);
 	}
 
 	@Override
@@ -287,7 +289,8 @@ public class SandalsOfNature extends Artifact {
 	};
 
 	protected void feedSeed(Item item, Hero hero) {
-		if (!(item instanceof Plant.Seed) || hero == null) return;
+		//SPSEXPD: 迷你种子不参与充能（选择器已过滤，这里是兜底）
+		if (!(item instanceof Plant.Seed) || MiniSeed.isMini(item) || hero == null) return;
 		String seedName = item.name();
 		if (seeds.contains(seedName)) {
 			GLog.w(Messages.get(SandalsOfNature.class, "already_fed"));

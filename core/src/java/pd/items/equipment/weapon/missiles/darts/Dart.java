@@ -36,6 +36,7 @@ import pd.items.equipment.weapon.melee.Crossbow;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
+import pd.plants.MiniSeed;
 import pd.plants.Plant;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
@@ -298,7 +299,8 @@ public class Dart extends MissileWeapon {
 
 		@Override
 		public boolean itemSelectable(Item item) {
-			return item instanceof Plant.Seed;
+			//SPSEXPD: 迷你种子不能涂抹箭毒（TippedDart 里没有它们的映射）
+			return item instanceof Plant.Seed && !MiniSeed.isMini(item);
 		}
 
 		@Override

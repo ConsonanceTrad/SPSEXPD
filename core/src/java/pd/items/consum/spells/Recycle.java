@@ -39,6 +39,7 @@ import pd.items.consum.scrolls.exotic.ExoticScroll;
 import pd.items.consum.stones.Runestone;
 import pd.items.equipment.weapon.missiles.darts.TippedDart;
 import pd.messages.Messages;
+import pd.plants.MiniSeed;
 import pd.plants.Plant;
 import pd.utils.GLog;
 import render.utils.serialize.Reflection;
@@ -68,7 +69,8 @@ public class Recycle extends InventorySpell {
 	protected boolean usableOnItem(Item item) {
 		return (item instanceof Potion && !(item instanceof Elixir || item instanceof Brew)) ||
 				item instanceof Scroll ||
-				item instanceof Plant.Seed ||
+				//SPSEXPD: 迷你种子不能被回收成正常种子
+				(item instanceof Plant.Seed && !MiniSeed.isMini(item)) ||
 				item instanceof Runestone ||
 				item instanceof TippedDart;
 	}

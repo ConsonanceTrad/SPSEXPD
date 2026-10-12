@@ -45,7 +45,7 @@ import pd.items.consum.food.vegetable.Carrot;
 import pd.items.consum.food.vegetable.Lettuce;
 import pd.items.consum.materials.DryTwig;
 import pd.items.consum.materials.FreshGrass;
-import pd.plants.MiniSeed;
+import pd.plants.MiniSeeds;
 import pd.items.consum.materials.WillOWisp;
 import pd.items.equipment.trinkets.PetrifiedSeed;
 import pd.levels.Level;
@@ -259,7 +259,7 @@ public class HighGrass {
 		if (Random.Float() < 0.10f) dropLoot(level, new FreshGrass(), pos);
 		if (Random.Float() < 0.08f) dropLoot(level, new DryTwig(), pos);
 		if (Random.Float() < 0.03f) dropLoot(level, Generator.random(Generator.Category.SPS_BERRY), pos);
-		if (Random.Float() < 0.02f) dropLoot(level, new MiniSeed(), pos);
+		if (Random.Float() < 0.02f) dropLoot(level, MiniSeeds.random(), pos);
 		if (Random.Float() < 0.02f) dropLoot(level, new WillOWisp(), pos);
 		if (Random.Float() < 0.02f) dropLoot(level, new Carrot(), pos);
 		if (Random.Float() < 0.02f) dropLoot(level, new Lettuce(), pos);
