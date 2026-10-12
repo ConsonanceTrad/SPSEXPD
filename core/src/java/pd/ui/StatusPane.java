@@ -174,7 +174,9 @@ public class StatusPane extends Component {
 		spBar.visible = false;
 		add(spBar);
 
+		//SPSEXPD: 数字与血条/经验数字同观感（白字 + 0.6 透明度），不做纯白
 		spText = new BitmapText(PixelScene.pixelFont);
+		spText.alpha(0.6f);
 		add(spText);
 
 		heroInfoOnBar = new Button(){
