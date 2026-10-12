@@ -29,6 +29,8 @@ import pd.SPDSettings;
 import pd.items.Item;
 import pd.journal.Document;
 import pd.levels.Level;
+import pd.levels.Transitions;
+import pd.messages.InlineText;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
@@ -37,14 +39,22 @@ import pd.windows.WndGame;
 import pd.windows.WndJournal;
 import pd.windows.WndKeyBindings;
 import pd.windows.WndStory;
+import pd.tiles.DungeonTilemap;
 import pd.windows.WndTitledMessage;
 import render.input.GameAction;
+import render.noosa.Camera;
 import render.noosa.BitmapText;
 import render.noosa.Game;
 import render.noosa.Image;
 import render.noosa.audio.Sample;
 import render.noosa.ui.Component;
 public class MenuPane extends Component {
+
+	//SPSEXPD: inline Chinese text
+	static {
+		InlineText.of(MenuPane.class)
+			.t("camera_toggle", "切换视角：入口 / 出口");
+	}
 
 	//SPSEXPD: 外框底图 menu_pane.png 的 (1,0,31,21) 是与按钮底一起定死的；其中顶部 6 行是原先版本号
 	//所在的位置，已被擦成透明。底图上移 BG_TRIM 后，框的可见上边框才贴住屏幕顶部；
@@ -72,6 +82,11 @@ public class MenuPane extends Component {
 	private Toolbar.PickedUpItem pickedUp;
 
 	private DangerIndicator danger;
+
+	//SPSEXPD: 入口 / 出口相机切换按钮（点击在这两个位置之间循环）
+	private Image cameraIcon;
+	private Button cameraButton;
+	private boolean cameraAtExit = false;
 
 	public static final int WIDTH = 31;
 
@@ -144,6 +159,23 @@ public class MenuPane extends Component {
 		btnMenu = new MenuButton();
 		add( btnMenu );
 
+		//SPSEXPD: 入口 / 出口相机切换按钮（图标直接叠在透明按钮上，风格同这一排的其它图标）
+		cameraIcon = Icons.get(Icons.STAIRS);
+		add( cameraIcon );
+
+		cameraButton = new Button(){
+			@Override
+			protected void onClick() {
+				toggleCameraTarget();
+			}
+
+			@Override
+			protected String hoverText() {
+				return Messages.get(MenuPane.class, "camera_toggle");
+			}
+		};
+		add( cameraButton );
+
 		//SPSEXPD: 时间与菜单/事件记录同属右上角这一组按钮
 		clock = new TimeLabel();
 		add( clock );
@@ -199,15 +231,39 @@ public class MenuPane extends Component {
 			challengeButton.setRect(challengeIcon.x, challengeIcon.y, challengeIcon.width(), challengeIcon.height() + challengeText.height());
 		}
 
-		danger.setPos( x + WIDTH - danger.width(), y + FRAME_HEIGHT + 1 );
-
-		//SPSEXPD: 时间贴在「挑战/深度」图标左侧（整排最左）；位置每帧由这里给定，组件不自己贴屏幕角
+		//SPSEXPD: 时间移到按钮组「正下方」（右对齐到按钮组右缘）——窄屏下不再占用顶部那一行的横向空间
+		float belowY = y + FRAME_HEIGHT + 1;
 		if (clock != null){
-			float anchor = (challengeIcon != null ? challengeIcon.x : depthIcon.x) - 2f;
 			clock.refresh();
-			clock.setPos( anchor - clock.width(), y + FRAME_TOP );
+			clock.setPos( x + WIDTH - clock.width(), belowY );
+			belowY += clock.height() + 1;
 		}
+
+		//SPSEXPD: 危险指示器顺次下移到时间下方（两者同属框下那一条带，避免重叠）
+		danger.setPos( x + WIDTH - danger.width(), belowY );
+
+		//SPSEXPD: 入口/出口切换按钮占原先时间的位置（整排最左）
+		float anchor = (challengeIcon != null ? challengeIcon.x : depthIcon.x) - 2f;
+		cameraIcon.x = anchor - cameraIcon.width();
+		cameraIcon.y = y + FRAME_TOP + (FRAME_HEIGHT - cameraIcon.height())/2f;
+		PixelScene.align( cameraIcon );
+		cameraButton.setRect( cameraIcon.x - 1, y + FRAME_TOP, cameraIcon.width() + 2, FRAME_HEIGHT );
+
 		danger.setSize( camera.width - danger.width(), danger.height());
+	}
+
+	//SPSEXPD: 在「入口 ↔ 出口」之间切换相机位置。
+	//这是临时视角：英雄下次 place/move/jump 时 HeroSprite 会 panFollow 把相机拉回。
+	private void toggleCameraTarget(){
+		if (Dungeon.level == null || Dungeon.hero == null) return;
+
+		cameraAtExit = !cameraAtExit;
+		int cell = cameraAtExit ? Dungeon.level.exit() : Dungeon.level.entrance();
+		//SPSEXPD: entrance()/exit() 在本层没有对应 transition 时会回退返回 0（= 左上角格），
+		//所以再用 Transitions 确认一次，避免误跳到左上角
+		if (Transitions.get(Dungeon.level, cell) == null) return;
+
+		Camera.main.panTo( DungeonTilemap.tileCenterToWorld( cell ), 5f );
 	}
 
 	public void pickup(Item item, int cell) {
