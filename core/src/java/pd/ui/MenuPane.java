@@ -212,7 +212,13 @@ public class MenuPane extends Component {
 
 		btnJournal.setPos( btnMenu.left() - btnJournal.width() + 2, y );
 
-		depthIcon.x = btnJournal.left() - 7 + (7 - depthIcon.width())/2f - 0.1f;
+		//SPSEXPD: 框外自右向左的顺序 —— 视角按钮紧挨按钮组，再往左才是「楼层 / 挑战」图标（视觉更均衡）
+		cameraIcon.x = btnJournal.left() - cameraIcon.width() - 2f;
+		cameraIcon.y = y + FRAME_TOP + (FRAME_HEIGHT - cameraIcon.height())/2f;
+		PixelScene.align( cameraIcon );
+		cameraButton.setRect( cameraIcon.x - 1, y + FRAME_TOP, cameraIcon.width() + 2, FRAME_HEIGHT );
+
+		depthIcon.x = cameraIcon.x - 7 + (7 - depthIcon.width())/2f - 0.1f;
 		depthIcon.y = y + FRAME_TOP;
 		PixelScene.align(depthIcon);
 
@@ -224,7 +230,7 @@ public class MenuPane extends Component {
 		depthButton.setRect(depthIcon.x, depthIcon.y, depthIcon.width(), depthIcon.height() + depthText.height());
 
 		if (challengeIcon != null){
-			challengeIcon.x = btnJournal.left() - 14 + (7 - challengeIcon.width())/2f - 0.1f;
+			challengeIcon.x = depthIcon.x - 7 + (7 - challengeIcon.width())/2f - 0.1f;
 			challengeIcon.y = depthIcon.y;
 			PixelScene.align(challengeIcon);
 
@@ -246,13 +252,6 @@ public class MenuPane extends Component {
 
 		//SPSEXPD: 危险指示器顺次下移到时间下方（两者同属框下那一条带，避免重叠）
 		danger.setPos( x + WIDTH - danger.width(), belowY );
-
-		//SPSEXPD: 视角按钮占按钮组整排的最左（框外左侧，与深度/挑战图标同一行）
-		float anchor = (challengeIcon != null ? challengeIcon.x : depthIcon.x) - 2f;
-		cameraIcon.x = anchor - cameraIcon.width();
-		cameraIcon.y = y + FRAME_TOP + (FRAME_HEIGHT - cameraIcon.height())/2f;
-		PixelScene.align( cameraIcon );
-		cameraButton.setRect( cameraIcon.x - 1, y + FRAME_TOP, cameraIcon.width() + 2, FRAME_HEIGHT );
 
 		danger.setSize( camera.width - danger.width(), danger.height());
 	}
