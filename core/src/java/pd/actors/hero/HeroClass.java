@@ -349,6 +349,9 @@ public enum HeroClass {
 		new ArrowCollecter().collect();
 		new KeyRing().collect();
 
+		//SPSEXPD: 所有角色开局携带一枚满充能的神圣护盾
+		Ankhshield.fullCharge().collect();
+
 		Waterskin waterskin = new DewVial();
 		waterskin.collect();
 
@@ -1140,6 +1143,8 @@ public enum HeroClass {
 		l.backpack(() -> new VelvetPouch());
 		l.backpack(() -> new ArrowCollecter());
 		l.backpack(() -> new KeyRing());
+		//SPSEXPD: 所有角色开局携带一枚满充能的神圣护盾（与 initHero 通用段一致）
+		l.backpack(() -> Ankhshield.fullCharge());
 		l.backpack(() -> new DewVial());
 		l.backpack(() -> new Pasty());
 		l.backpack(() -> new NutCake());

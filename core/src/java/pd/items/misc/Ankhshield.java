@@ -92,6 +92,13 @@ public class Ankhshield extends Item {
 
 	public int charge() { return charge; }
 	public void charge(int value) { charge = Math.max(0, Math.min(FULL_CHARGE, value)); updateQuickslot(); }
+
+	/** SPSEXPD: 一枚满充能的神圣护盾（开局发放用；直接赋初值，避免触发 updateQuickslot）。 */
+	public static Ankhshield fullCharge() {
+		Ankhshield shield = new Ankhshield();
+		shield.charge = FULL_CHARGE;
+		return shield;
+	}
 	@Override public boolean isUpgradable() { return false; }
 	@Override public boolean isIdentified() { return true; }
 	@Override public String status() { return Integer.toString(charge / DEFENCE_COST); }
