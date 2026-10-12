@@ -260,11 +260,20 @@ public class MenuPane extends Component {
 		danger.setSize( camera.width - danger.width(), danger.height());
 	}
 
-	/** SPSEXPD: 本层是否有可跳转的入口/出口（没有对应 transition 时不显示视角按钮） */
+	/**
+	 * SPSEXPD: 该格是否是「已知的」入口/出口 —— 本层有对应的 transition，且该格已经被探索过
+	 * （还没走到、没看到的地方不算「发现」，视角按钮不会指向它）。
+	 */
+	private boolean cameraTargetKnown( int cell ){
+		if (Dungeon.level == null) return false;
+		return Transitions.get( Dungeon.level, cell ) != null && Dungeon.level.mapped[cell];
+	}
+
+	/** SPSEXPD: 本层是否至少发现了一处入口/出口（都没发现时不显示视角按钮） */
 	private boolean cameraTargetAvailable(){
 		if (Dungeon.level == null) return false;
-		return Transitions.get( Dungeon.level, Dungeon.level.entrance() ) != null
-				|| Transitions.get( Dungeon.level, Dungeon.level.exit() ) != null;
+		return cameraTargetKnown( Dungeon.level.entrance() )
+				|| cameraTargetKnown( Dungeon.level.exit() );
 	}
 
 	//SPSEXPD: 在「入口 ↔ 出口」之间切换相机位置。
@@ -277,10 +286,11 @@ public class MenuPane extends Component {
 		int fallback = cameraAtExit ? Dungeon.level.entrance() : Dungeon.level.exit();
 
 		//SPSEXPD: entrance()/exit() 在本层没有对应 transition 时会回退返回 0（= 左上角格），
-		//所以用 Transitions 确认一次。首选目标不存在时改跳另一个；两个都不存在就不做视角跳转。
+		//所以按「有 transition 且该格已探索」判定。首选目标没发现时改跳另一个；
+		//两个都没发现就不做视角跳转。
 		int cell = -1;
-		if (Transitions.get(Dungeon.level, primary) != null)       cell = primary;
-		else if (Transitions.get(Dungeon.level, fallback) != null) cell = fallback;
+		if (cameraTargetKnown( primary ))       cell = primary;
+		else if (cameraTargetKnown( fallback )) cell = fallback;
 		if (cell < 0) return;
 
 		Camera.main.panTo( DungeonTilemap.tileCenterToWorld( cell ), 5f );
