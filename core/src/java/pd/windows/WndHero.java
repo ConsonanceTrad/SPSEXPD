@@ -85,7 +85,7 @@ public class WndHero extends WndTabbed {
 			.t("$statstab.str", "力量")
 			.t("$statstab.health", "生命")
 			.t("$statstab.gold", "金币收集数")
-			.t("$statstab.depth", "最高层数")
+			.t("$statstab.move_speed", "移速")
 			.t("$statstab.dungeon_seed", "地牢种子")
 			.t("$statstab.custom_seed", "_自定义种子_")
 			.t("$statstab.daily_for", "_日常挑战于_")
@@ -273,52 +273,59 @@ public class WndHero extends WndTabbed {
 			pos = title.bottom() + 2*GAP;
 
 			int strBonus = hero.STR() - hero.STR;
-			if (strBonus > 0)           statSlot( Messages.get(this, "str"), hero.STR + " + " + strBonus );
-			else if (strBonus < 0)      statSlot( Messages.get(this, "str"), hero.STR + " - " + -strBonus );
-			else                        statSlot( Messages.get(this, "str"), hero.STR() );
-			if (hero.shielding() > 0)   statSlot( Messages.get(this, "health"), hero.HP + "+" + hero.shielding() + "/" + hero.HT );
-			else                        statSlot( Messages.get(this, "health"), (hero.HP) + "/" + hero.HT );
-			statSlot( Messages.get(this, "exp"), hero.exp + "/" + hero.maxExp() );
+			String strText;
+			if (strBonus > 0)           strText = hero.STR + " + " + strBonus;
+			else if (strBonus < 0)      strText = hero.STR + " - " + -strBonus;
+			else                        strText = Integer.toString( hero.STR() );
+
+			String healthText = hero.shielding() > 0
+					? hero.HP + "+" + hero.shielding() + "/" + hero.HT
+					: hero.HP + "/" + hero.HT;
 
 			//SPSXPD: 饱食度（当前饥饿值 / 上限；上限受「坚忍肠胃」特质影响）
 			pd.actors.buffs.Hunger hungerBuff = hero.buff(pd.actors.buffs.Hunger.class);
 			int hunger = hungerBuff == null ? 0 : hungerBuff.hunger();
 			int hungerCap = (int)(pd.actors.buffs.Hunger.STARVING
 					+ pd.actors.hero.perks.HardenedStomach.capBonus(hero));
-			statSlot( Messages.get(this, "satiation"), hunger + "/" + hungerCap );
-
-			//SPSXPD: 命中 / 闪避 / 法术强度 / 魔法抗性
-			statSlot( Messages.get(this, "accuracy"), hero.attackSkill(hero) );
-			statSlot( Messages.get(this, "evasion"), hero.defenseSkill(hero) );
-			statSlot( Messages.get(this, "spell_power"), hero.magicSkill() );
-			statSlot( Messages.get(this, "magic_resist"),
-					Math.round(hero.magicalResistance() * 100) + "%" );
-
-			//SPSXPD: 特质体系在属性页的显示 —— 暴击几率与特质情况
-			statSlot( Messages.get(this, "critical_chance"),
-					Math.round(pd.actors.hero.Critical.chance(hero) * 100) + "%" );
-
-			//SPSEXPD: 战斗属性（统一属性层 HeroStats）——暴击倍率/物理/元素/纯粹加成/元素抗性/回血
-			statSlot( Messages.get(this, "critical_multiplier"),
-					Math.round(pd.actors.hero.HeroStats.critMultiplier(hero) * 100) + "%" );
-			statSlot( Messages.get(this, "physical_bonus"),
-					bonusText( pd.actors.hero.HeroStats.physicalDamageBonus(hero) ) );
-			statSlot( Messages.get(this, "element_bonus"), elementText( hero, true ) );
-			statSlot( Messages.get(this, "pure_bonus"),
-					bonusText( pd.actors.hero.HeroStats.pureDamageBonus(hero) ) );
-			statSlot( Messages.get(this, "element_resist"), elementText( hero, false ) );
-			statSlot( Messages.get(this, "regen_bonus"),
-					bonusText( pd.actors.hero.HeroStats.regenBonus(hero) ) );
 
 			String perkText = String.valueOf(hero.heroPerk == null ? 0 : hero.heroPerk.getPerks().size());
 			if (hero.reservedPerks > 0) {
 				perkText += " +" + hero.reservedPerks;
 			}
-			statSlot( Messages.get(this, "perks"), perkText );
+
+			//SPSEXPD: 属性改双列显示 —— 每行两项（左列 / 右列），值右对齐到本列右缘
+			statRow( Messages.get(this, "str"), strText,
+					Messages.get(this, "health"), healthText );
+			statRow( Messages.get(this, "exp"), hero.exp + "/" + hero.maxExp(),
+					Messages.get(this, "satiation"), hunger + "/" + hungerCap );
+			statRow( Messages.get(this, "accuracy"), Integer.toString( hero.attackSkill(hero) ),
+					Messages.get(this, "evasion"), Integer.toString( hero.defenseSkill(hero) ) );
+			statRow( Messages.get(this, "spell_power"), Integer.toString( hero.magicSkill() ),
+					Messages.get(this, "magic_resist"),
+					Math.round(hero.magicalResistance() * 100) + "%" );
+
+			//SPSXPD: 特质体系在属性页的显示 —— 暴击几率；SPSEXPD: 新增移速（100% 基准，更快绿更慢红）
+			statRow( Messages.get(this, "critical_chance"),
+					Math.round(pd.actors.hero.Critical.chance(hero) * 100) + "%",
+					Messages.get(this, "move_speed"), speedText(hero), speedColor(hero) );
+
+			//SPSEXPD: 战斗属性（统一属性层 HeroStats）——暴击倍率/物理/元素/纯粹加成/元素抗性/回血
+			statRow( Messages.get(this, "critical_multiplier"),
+					Math.round(pd.actors.hero.HeroStats.critMultiplier(hero) * 100) + "%",
+					Messages.get(this, "regen_bonus"),
+					bonusText( pd.actors.hero.HeroStats.regenBonus(hero) ) );
+			statRow( Messages.get(this, "physical_bonus"),
+					bonusText( pd.actors.hero.HeroStats.physicalDamageBonus(hero) ),
+					Messages.get(this, "pure_bonus"),
+					bonusText( pd.actors.hero.HeroStats.pureDamageBonus(hero) ) );
+			statRow( Messages.get(this, "element_bonus"), elementText( hero, true ),
+					Messages.get(this, "element_resist"), elementText( hero, false ) );
+			statRow( Messages.get(this, "perks"), perkText,
+					Messages.get(this, "gold"), Integer.toString( Statistics.goldCollected ) );
 
 			pos += GAP;
 
-			statSlot( Messages.get(this, "gold"), Statistics.goldCollected );
+			//SPSEXPD: 种子/每日挑战文本可能较长，仍走整行
 			if (Dungeon.daily){
 				if (!Dungeon.dailyReplay) {
 					statSlot(Messages.get(this, "daily_for"), "_" + Dungeon.customSeedText + "_");
@@ -359,6 +366,55 @@ public class WndHero extends WndTabbed {
 			return sb.length() == 0 ? "0%" : sb.toString();
 		}
 
+		//SPSEXPD: ---- 双列属性行 ------------------------------------------------
+		//每行两项：左列在前、右列在后。每列 = 左标签 + 右值（值右对齐到本列右缘），
+		//行高取两列较大者（长文本会被 maxWidth 换行，不会横跨到邻列）。
+		private static final int COL_GAP = 4;
+
+		private void statRow( String lLabel, String lValue, String rLabel, String rValue ) {
+			statRow( lLabel, lValue, rLabel, rValue, 0 );
+		}
+
+		/** rValueColor != 0 时给右列的值上色（0 = 默认色） */
+		private void statRow( String lLabel, String lValue, String rLabel, String rValue, int rValueColor ) {
+			float colW = (WIDTH - COL_GAP) / 2f;
+			float h = 0;
+			if (lLabel != null) h = Math.max( h, statCell( 0, colW, lLabel, lValue, 0 ) );
+			if (rLabel != null) h = Math.max( h, statCell( 1, colW, rLabel, rValue, rValueColor ) );
+			pos += GAP + h;
+		}
+
+		/** 渲染一列（标签左、值右对齐到列右缘），返回该列占用高度 */
+		private float statCell( int col, float colW, String label, String value, int valueColor ) {
+			float x0 = col * (colW + COL_GAP);
+
+			int size = 7;
+			RenderedTextBlock lab;
+			do {
+				lab = PixelScene.renderTextBlock( label, size );
+				size--;
+			} while (size >= 5 && lab.width() >= colW * 0.55f);
+			lab.maxWidth( Math.max(8, (int)(colW * 0.6f)) );
+			lab.setPos( x0, pos + (6 - lab.height())/2f );
+			PixelScene.align( lab );
+			content.add( lab );
+
+			size = 7;
+			RenderedTextBlock val;
+			do {
+				val = PixelScene.renderTextBlock( value, size );
+				size--;
+			} while (size >= 5 && val.width() >= colW * 0.45f);
+			val.maxWidth( Math.max(8, (int)(colW * 0.45f)) );
+			val.setPos( x0 + colW - val.width(), pos + (6 - val.height())/2f );
+			if (valueColor != 0) val.hardlight( valueColor );
+			PixelScene.align( val );
+			content.add( val );
+
+			return Math.max( lab.height(), val.height() );
+		}
+
+		/** SPSEXPD: 整行项（文本可能较长，如种子/每日挑战）——保持原有的满宽单列 */
 		private void statSlot( String label, String value ) {
 
 			int size = 8;
@@ -382,9 +438,17 @@ public class WndHero extends WndTabbed {
 			
 			pos += GAP + txt.height();
 		}
-		
-		private void statSlot( String label, int value ) {
-			statSlot( label, Integer.toString( value ) );
+
+		//SPSEXPD: 移速格式化（100% 为基准）与着色（更快绿、更慢红）
+		private String speedText( Hero hero ) {
+			return Math.round( hero.speed() * 100 ) + "%";
+		}
+
+		private int speedColor( Hero hero ) {
+			float spd = hero.speed();
+			if (spd > 1.001f) return 0x44FF44;
+			if (spd < 0.999f) return 0xFF6666;
+			return 0;
 		}
 		
 		public float height() {
