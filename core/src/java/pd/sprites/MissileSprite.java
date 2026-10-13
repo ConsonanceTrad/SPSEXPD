@@ -52,11 +52,8 @@ public class MissileSprite extends ItemSprite implements Tweener.Listener {
 
 	private static final float SPEED	= 240f;
 
-	/**
-	 * SPSEXPD: 枪弹飞行速度倍率——正常值 2f（比普通弹体快一倍）。
-	 * 【临时调试】现已降到原来的 1/5（2f/5f = 0.4f）用于观察弹道；恢复正常只需把这里改回 2f。
-	 */
-	private static final float GUN_AMMO_SPEED = 2f / 5f;
+	/** SPSEXPD: 枪弹飞行速度倍率——比普通弹体快一倍（正常值 2f）。 */
+	private static final float GUN_AMMO_SPEED = 2f;
 	
 	private Callback callback;
 	
