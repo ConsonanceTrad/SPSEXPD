@@ -129,7 +129,8 @@ public class Terrain {
 		flags[BARRICADE]	= FLAMABLE | SOLID | LOS_BLOCKING;
 		flags[EMPTY_SP]		= flags[EMPTY];
 		flags[HIGH_GRASS]	= PASSABLE | LOS_BLOCKING | FLAMABLE;
-		flags[FURROWED_GRASS]= flags[HIGH_GRASS];
+		//SPSEXPD: 垄沟草（高草被踩平后）不再阻挡视线（原误沿用 HIGH_GRASS 的 flags，导致踩平后仍挡视野）
+		flags[FURROWED_GRASS]= PASSABLE | FLAMABLE;
 
 		flags[SECRET_DOOR]  = flags[WALL]  | SECRET;
 		flags[SECRET_TRAP]  = flags[EMPTY] | SECRET;
