@@ -168,12 +168,6 @@ public class MissileSprite extends ItemSprite implements Tweener.Listener {
 			updateFrame();
 		}
 		
-		if (item instanceof pd.items.equipment.weapon.guns.GunWeapon.GunAmmo){
-			//SPSEXPD: 枪弹弹道保持正置，不随射击方向旋转
-			angle = 0;
-			flipHorizontal = false;
-			updateFrame();
-		}
 
 		float speed = SPEED;
 		if (item instanceof SpiritBow.SpiritArrow
