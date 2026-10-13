@@ -66,7 +66,8 @@ public class Boomerang extends MeleeWeapon {
 	/** SPSEXPD: 命中后的击晕回合数。 */
 	public static final float PARALYSIS_TURNS = 1f;
 
-	private int charge;
+	//SPSEXPD: 新获得的回旋镖默认满充能（构造/工厂生成/开局发放/商店购入均如此）
+	private int charge = FULL_CHARGE;
 
 	{
 		image = ConsumThrowsDict.BOOMERANG_0;
@@ -309,6 +310,9 @@ public class Boomerang extends MeleeWeapon {
 	@Override
 	public void restoreFromBundle(Bundle bundle) {
 		super.restoreFromBundle(bundle);
-		charge = Math.max(0, Math.min(FULL_CHARGE, bundle.getInt(CHARGE)));
+		//SPSEXPD: 旧档没有充能记录时同样按满充能处理
+		charge = bundle.contains(CHARGE)
+				? Math.max(0, Math.min(FULL_CHARGE, bundle.getInt(CHARGE)))
+				: FULL_CHARGE;
 	}
 }
