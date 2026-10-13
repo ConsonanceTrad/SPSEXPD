@@ -193,25 +193,9 @@ public class ItemSlot extends Button {
 				: y + margin.top;
 			PixelScene.align(extra);
 
-			//SPSEXPD: 角标优先——空间不足时让步的是状态文本（弹匣数/数量），不再隐藏角标
+			//SPSEXPD: 角标固定字号、不再自适应缩小；左上数量也不再为角标让步
 			extra.visible = item != null;
-
-			//SPSEXPD: 枪械角标不隐藏——空间不足时逐级缩小字号，把它塞进格子
-			if (extra.visible && gunBadge) {
-				float s = PixelScene.align(extraBase);
-				for (int i = 0; i < 8 && status != null && s > 0.4f
-						&& (status.width() + extra.width()) > width; i++) {
-					s = Math.max(0.4f, s * 0.85f);
-					extra.scale.set(s);
-					extra.measure();
-					extra.x = x + margin.left;
-					extra.y = y + height - extra.height() - margin.bottom;
-					PixelScene.align(extra);
-				}
-			}
-
-			status.visible = item != null && status != null
-					&& (status.width() + extra.width()) <= width;
+			status.visible = item != null && status != null;
 		}
 
 		if (itemIcon != null){
