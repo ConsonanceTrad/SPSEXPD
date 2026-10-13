@@ -44,7 +44,6 @@ public class GunWeapon extends SpsRangedWeapon {
 			.t("ac_reload", "装填")
 			.t("reloading", "装填中……")
 			.t("need_to_equip", "你需要先装备这件武器才能射击。")
-			.t("need_target", "那里没有可以射击的目标。")
 			.t("full", "弹匣已满。")
 			.t("empty", "你没有可以装填的通用弹匣。")
 			.t("prompt", "选择射击目标")
