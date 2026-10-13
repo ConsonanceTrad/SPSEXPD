@@ -1377,12 +1377,13 @@ public enum HeroClass {
 					l.backpack(() -> new EmpBola(3));
 					break;
 				default:
-					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Knuckles(), 0, null);
+					//SPSEXPD: 回旋镖装备在主手（近战 + 可投掷），灵能弓装备在副手（远程）
+					l.equip(ItemSlot.WEAPON, () -> new Boomerang(), 0, null);
 					l.equip(ItemSlot.ARMOR, () -> new ClothArmor(), 0, null);
-					//SPSXPD: 女猎手开局携带灵能弓（替换原回旋镖）
-					l.backpack(() -> new SpiritBow(), 0, 1, 0, null);
-					//SPSEXPD: 女猎手开局另携带一枚近战化的回旋镖（充能投掷/命中麻痹/接住重置）
-					l.backpack(() -> new Boomerang());
+					l.equip(ItemSlot.SECOND_WEP, () -> new SpiritBow(), 0,
+							(h, i) -> Dungeon.quickslot.setSlot(0, i));
+					//SPSEXPD: 原主手近战武器改为背包携带
+					l.backpack(() -> new pd.items.equipment.weapon.melee.normalweapon.Knuckles());
 					l.backpack(() -> new EmpBola(3), 0, 1, 1, null);
 					break;
 			}
