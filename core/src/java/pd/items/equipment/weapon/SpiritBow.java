@@ -94,7 +94,7 @@ public class SpiritBow extends Weapon {
 	{
 		image = EquipmentEquipWeaponUniqueWeaponDict.SPIRIT_BOW_0;
 		
-		defaultAction = AC_SHOOT;
+		defaultAction = AC_RELOAD;
 		usesTargeting = true;
 		
 		unique = true;
@@ -133,6 +133,25 @@ public class SpiritBow extends Weapon {
 			curUser = hero;
 			reload(hero);
 		}
+	}
+
+	/** SPSEXPD: 点击敌人时灵能弓自动射箭（枪械模型）；优先主手，其次副手。返回 true 表示已接管本次点击。 */
+	public static boolean autoAttack(Hero hero, Char enemy) {
+		if (hero == null || enemy == null || Dungeon.level == null) return false;
+		if (!hero.ready) return false;
+		SpiritBow bow = equippedBow(hero);
+		if (bow == null || bow.charge <= 0) return false;
+		bow.curUser = hero;
+		bow.curItem = bow;
+		bow.knockArrow().cast(hero, enemy.pos);
+		return true;
+	}
+
+	private static SpiritBow equippedBow(Hero hero) {
+		if (hero.belongings == null) return null;
+		if (hero.belongings.weapon() instanceof SpiritBow) return (SpiritBow) hero.belongings.weapon();
+		if (hero.belongings.secondWep() instanceof SpiritBow) return (SpiritBow) hero.belongings.secondWep();
+		return null;
 	}
 
 	/** SPSEXPD: 装填——消耗 2 点炼金能量，填充 6 发。 */
