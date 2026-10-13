@@ -84,9 +84,9 @@ public final class SpsGunTest {
 
 
 		ToyGun toy = new ToyGun();
-		check(toy.min(0) == 1 && toy.max(0) == 10 && toy.STRReq(0) == 10,
+		check(toy.min(0) == 9999 && toy.max(0) == 9999 && toy.STRReq(0) == 10,
 				"玩具枪基础数值错误");
-		check(toy.min(4) == 5 && toy.max(4) == 22 && toy.fullCharge() == 10,
+		check(toy.min(4) == 9999 && toy.max(4) == 9999 && toy.fullCharge() == 10,
 				"玩具枪强化成长或容量错误");
 		check(toy.isReinforced(), "玩具枪强化规则错误");
 	}

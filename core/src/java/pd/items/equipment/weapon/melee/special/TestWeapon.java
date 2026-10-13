@@ -30,6 +30,11 @@ public class TestWeapon extends NormalMeleeWeapon {
 		super(1, 1f, 1f, 1, 9999, 9999, SpecificPlaceHolderDict.SOMETHING_0);
 	}
 
+	//SPSEXPD: 【测试用，勿改回！】父类 NormalMeleeWeapon 已不再读取构造里的 min/max
+	//（数值统一走 MeleeWeapon 的 tier 曲线，构造参数实际失效），必须显式覆写才真的拉满。
+	@Override public int min(int lvl) { return 9999; }
+	@Override public int max(int lvl) { return 9999; }
+
 	@Override
 	public int proc(Char attacker, Char defender, int damage) {
 		if (damage > Random.Int(8, 20)) {

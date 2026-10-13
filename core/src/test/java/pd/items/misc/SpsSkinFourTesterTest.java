@@ -140,7 +140,7 @@ public final class SpsSkinFourTesterTest {
 		Hero hero = freshHero(level);
 		TestMob target = mobAt(level, CENTER + 2);
 		TestWeapon weapon = new TestWeapon();
-		check(weapon.min() == 10 && weapon.max() == 10 && weapon.STRReq() == 10,
+		check(weapon.min() == 9999 && weapon.max() == 9999 && weapon.STRReq() == 10,
 				"测试武器基础数值错误");
 		weapon.proc(hero, target, 8);
 		check(hero.spp == 0, "测试武器低伤害错误增加试验点");

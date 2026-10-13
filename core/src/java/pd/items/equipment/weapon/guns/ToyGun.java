@@ -31,8 +31,11 @@ public class ToyGun extends GunWeapon {
 		noiseRadius = 3;
 		baseReloadTime = 3f; //SPSEXPD: 玩具枪装填固定 3 回合
 	}
-	@Override public int min(int lvl) { return 1 + lvl; }
-	@Override public int max(int lvl) { return 10 + 3 * lvl; }
+	//SPSEXPD: 【测试用，勿改回！】玩具枪攻击力拉满（原 1+lvl ~ 10+3*lvl），便于测试
+	@Override public int min(int lvl) { return 9999; }
+	@Override public int max(int lvl) { return 9999; }
+	//SPSEXPD: 玩具枪装填不需要弹药（不消耗通用弹匣）
+	@Override protected boolean consumeReload(Hero hero) { return true; }
 	@Override protected boolean canShoot(Hero hero) { return isEquipped(hero); }
 	//SPSEXPD: 玩具枪装填固定 3 回合（不受特工 0.5 回合特例影响）
 	@Override protected float reloadTime(Hero hero, boolean automatic) { return 3f; }

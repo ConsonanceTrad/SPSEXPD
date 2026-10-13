@@ -110,7 +110,6 @@ public class GunWeapon extends SpsRangedWeapon {
 
 	/** 连射状态：对同一目标连续射击不消耗回合，但仍受后坐缓冲限制。 */
 	protected int lastTargetPos = -1;
-	protected float lastShotTime = -Float.MAX_VALUE;
 
 	protected GunWeapon(GunArchetype archetype) {
 		this.archetype = archetype;
@@ -169,12 +168,11 @@ public class GunWeapon extends SpsRangedWeapon {
 		Char target = Actor.findChar(cell);
 		boolean sameTarget = target != null && target.pos == lastTargetPos;
 
-		float buffer = shotBuffer(hero);
-		float wait = Math.max(0f, lastShotTime + buffer - Game.timeTotal);
-		float delay = wait + (sameTarget ? 0f : delayFactor(hero));
+		//SPSEXPD: 后坐缓冲改为「每次击发的固定代价」——原实现按时间差补差，两次射击之间等得够久
+		//缓冲就被抵消，表现为恒为 delayFactor（约 1 回合）。现在每次击发都固定加上缓冲回合。
+		float delay = shotBuffer(hero) + (sameTarget ? 0f : delayFactor(hero));
 
 		lastTargetPos = target != null ? target.pos : -1;
-		lastShotTime = Game.timeTotal + delay;
 		return delay;
 	}
 
@@ -400,6 +398,17 @@ public class GunWeapon extends SpsRangedWeapon {
 
 	/** SPSEXPD: 完美力量（零后坐缓冲所需的力量阈值）——物品图标的力量角标显示它。 */
 	public int perfectSTR() { return perfectSTR; }
+
+	/** SPSEXPD: 装填耗时（取整回合数）——物品图标「X:Y」角标里的 X。 */
+	public int reloadRounds(Hero hero) {
+		if (hero == null) return Math.round(baseReloadTime);
+		return Math.round(reloadTime(hero, false));
+	}
+
+	/** SPSEXPD: 当前力量下的后坐缓冲回合数——物品图标「X:Y」角标里的 Y。 */
+	public int bufferRounds(Hero hero) {
+		return Math.round(shotBuffer(hero));
+	}
 
 	/** SPSEXPD: 充能型枪械的每回合自然回充（本回合开过火则不回充）。 */
 	public void gainCharge() {

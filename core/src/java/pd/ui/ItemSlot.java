@@ -76,6 +76,16 @@ public class ItemSlot extends Button {
 	private static final String TXT_STRENGTH	= ":%d";
 	private static final String TXT_TYPICAL_STR	= "%d?";
 
+	//SPSEXPD: 角标文字——枪械显示「装填回合数:缓冲回合数」（X:Y），其余武器/护甲仍是力量需求
+	private static String extraText(Item item, int str, boolean typical) {
+		if (item instanceof pd.items.equipment.weapon.guns.GunWeapon && Dungeon.hero != null) {
+			pd.items.equipment.weapon.guns.GunWeapon gw =
+					(pd.items.equipment.weapon.guns.GunWeapon) item;
+			return gw.reloadRounds(Dungeon.hero) + ":" + gw.bufferRounds(Dungeon.hero);
+		}
+		return Messages.format( typical ? TXT_TYPICAL_STR : TXT_STRENGTH, str );
+	}
+
 	private static final String TXT_LEVEL	= "%+d";
 
 	// Special "virtual items"
@@ -172,11 +182,9 @@ public class ItemSlot extends Button {
 			extra.y = y + margin.top;
 			PixelScene.align(extra);
 
-			if ((status.width() + extra.width()) > width){
-				extra.visible = false;
-			} else if (item != null) {
-				extra.visible = true;
-			}
+			//SPSEXPD: 角标优先——空间不足时让步的是状态文本（弹匣数/数量），不再隐藏右上角角标
+			extra.visible = item != null;
+			status.visible = item != null && (status.width() + extra.width()) <= width;
 		}
 
 		if (itemIcon != null){
@@ -295,7 +303,7 @@ public class ItemSlot extends Button {
 				if (throwable && Dungeon.hero != null && str <= Dungeon.hero.STR()) {
 					extra.text( null );
 				} else {
-					extra.text( Messages.format( TXT_STRENGTH, str ) );
+					extra.text( extraText( item, str, false ) );
 					int gap = Dungeon.hero != null ? str - Dungeon.hero.STR() : 0;
 					//SPSEXPD: 枪械角标显示「完美力量」——差 1~4 点用黄色提示，差 5 点及以上用红色警示
 					if (item instanceof pd.items.equipment.weapon.guns.GunWeapon && gap > 0) {
@@ -319,7 +327,7 @@ public class ItemSlot extends Button {
 				if (throwable && Dungeon.hero != null && str <= Dungeon.hero.STR()) {
 					extra.text( null );
 				} else {
-					extra.text( Messages.format( TXT_TYPICAL_STR, str ) );
+					extra.text( extraText( item, str, true ) );
 					extra.hardlight( WARNING );
 				}
 			}
