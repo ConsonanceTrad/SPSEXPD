@@ -88,18 +88,7 @@ import pd.items.equipment.bombs.IceBomb;
 import pd.items.equipment.bombs.SpsFireBomb;
 import pd.items.equipment.bombs.StormBomb;
 import pd.items.consum.eggs.AflyEgg;
-import pd.items.consum.food.AflyFood;
 import pd.items.consum.food.Honey;
-import pd.items.consum.food.completefood.FruitCandy;
-import pd.items.consum.food.completefood.Meatroll;
-import pd.items.consum.food.completefood.MixPizza;
-import pd.items.consum.food.completefood.MoonCake;
-import pd.items.consum.food.completefood.NutCake;
-import pd.items.consum.food.completefood.NutCookie;
-import pd.items.consum.food.completefood.Porksoup;
-import pd.items.consum.food.completefood.RiceGruel;
-import pd.items.consum.food.completefood.Vegetablekebab;
-import pd.items.consum.food.completefood.YearFood;
 import pd.items.consum.food.staplefood.Pasty;
 import pd.items.misc.Ankhshield;
 import pd.items.misc.AttackShield;
@@ -354,9 +343,6 @@ public enum HeroClass {
 		Waterskin waterskin = new DewVial();
 		waterskin.collect();
 
-		new Pasty().identify().collect();
-		new NutCake().identify().collect();
-		if (hero.skin == 3) new YearFood().identify().collect();
 
 		//SPSEXPD: 原本这里有一句 new ScrollOfIdentify().identify()（游离实例），
 		//但 Scroll.identify() 会 setKnown() 全局标记该类型已知 —— 开局不该自带这种鉴定状态，故删除。
@@ -1145,8 +1131,6 @@ public enum HeroClass {
 		//SPSEXPD: 所有角色开局携带一枚满充能的神圣护盾（与 initHero 通用段一致）
 		l.backpack(() -> Ankhshield.fullCharge());
 		l.backpack(() -> new DewVial());
-		l.backpack(() -> new Pasty());
-		l.backpack(() -> new NutCake());
 		return l;
 	}
 
@@ -1167,7 +1151,6 @@ public enum HeroClass {
 					l.equip(ItemSlot.ACCESSORY5, () -> new pd.items.equipment.rings.RingOfMight(), 1,
 							(h, i) -> ((pd.items.equipment.rings.RingOfMight) i).activate(h));
 					l.backpack(() -> new AttackShield(), 0, 1, 0, null);
-					l.backpack(() -> new Porksoup());
 					break;
 				case 2:
 					l.equip(ItemSlot.ARMOR, () -> new BaseArmor(), 6, null);
@@ -1175,14 +1158,12 @@ public enum HeroClass {
 					l.backpack(() -> new DemoScroll());
 					l.backpack(() -> new StrBottle(), 0, 4, -1, null);
 					l.backpack(() -> new JumpW());
-					l.backpack(() -> new Porksoup());
 					break;
 				case 3:
 					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Spear(), 0, null);
 					l.equip(ItemSlot.ARMOR, () -> new DiscArmor(), 0, null);
 					l.equip(ItemSlot.SECOND_WEP, () -> new MissileShield(), 0, null);
 					l.backpack(() -> new SavageHelmet());
-					l.backpack(() -> new Porksoup());
 					break;
 				case 4:
 					l.equip(ItemSlot.WEAPON, () -> new GunB(), 0,
@@ -1193,10 +1174,8 @@ public enum HeroClass {
 					l.backpack(() -> new TestArmor());
 					l.backpack(() -> new RewardPaper());
 					l.backpack(() -> new JumpW());
-					l.backpack(() -> new Porksoup());
 					break;
 				case 5:
-					l.backpack(() -> new Porksoup());
 					break;
 				case 6:
 					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 1, null);
@@ -1206,14 +1185,12 @@ public enum HeroClass {
 							(h, i) -> ((pd.items.equipment.rings.RingOfMight) i).activate(h));
 					l.backpack(() -> new SeriousPunch(), 0, 1, 0, null);
 					l.backpack(() -> new JumpW());
-					l.backpack(() -> new Porksoup());
 					break;
 				default:
 					l.equip(ItemSlot.WEAPON, () -> new ShortSword(), 0, null);
 					//SPSEXPD: 战士不再自带木甲与神木圆盾（护甲回落到 initHero 通用段的布甲）
 					//SPSEXPD: 破损纹章改为以物品形式发放到背包，不再开局贴附在护甲上（由玩家自行贴附）
 					l.backpack(() -> new BrokenSeal());
-					l.backpack(() -> new Porksoup());
 					//SPSEXPD: 战士另外携带一枚纹章碎片（只放背包，不贴护甲——护甲上只能挂一个纹章）
 					l.backpack(() -> new pd.items.SealShard());
 					break;
@@ -1226,7 +1203,6 @@ public enum HeroClass {
 					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Whip(), 2, null);
 					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.LeatherArmor(), 1, null);
 					l.backpack(() -> new CannonOfMage(), 0, 1, 0, null);
-					l.backpack(() -> new Meatroll());
 					break;
 				case 2:
 					l.equip(ItemSlot.WEAPON, () -> new Dagger(), 0, null);
@@ -1236,7 +1212,6 @@ public enum HeroClass {
 					l.backpack(() -> new WandOfLightning(), 1, 1, -1, null);
 					l.backpack(() -> new GnollMark());
 					l.backpack(() -> new JumpM());
-					l.backpack(() -> new Meatroll());
 					break;
 				case 3:
 					l.equip(ItemSlot.WEAPON, () -> new WoodenStaff(), 0, null);
@@ -1245,17 +1220,14 @@ public enum HeroClass {
 					l.backpack(() -> new WandOfFreeze());
 					l.backpack(() -> new GnollMark());
 					l.backpack(() -> new PotionOfMage());
-					l.backpack(() -> new Meatroll());
 					break;
 				case 4:
 					l.equip(ItemSlot.WEAPON, () -> new ElfBow(), 0, null);
 					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
 					l.backpack(() -> new JumpM());
 					l.backpack(() -> new pd.items.consum.scrolls.ScrollOfRegrowth());
-					l.backpack(() -> new Meatroll());
 					break;
 				case 5:
-					l.backpack(() -> new Meatroll());
 					break;
 				case 6:
 					l.equip(ItemSlot.WEAPON, () -> new ShortSword(), 0, null);
@@ -1263,7 +1235,6 @@ public enum HeroClass {
 					l.backpack(() -> new GnollMark());
 					l.backpack(() -> new WandOfLight());
 					l.backpack(() -> new JumpW());
-					l.backpack(() -> new Meatroll());
 					break;
 				default:
 					//SPSXPD: 法师开局用「老法杖」（法杖系特质的载体），激活并灌注魔法飞弹
@@ -1275,7 +1246,6 @@ public enum HeroClass {
 					l.backpack(() -> new WandOfMagicMissile(), 0, 1, 0, null);
 					l.backpack(() -> new WandOfDisintegration(), 0, 1, 1, null);
 					l.backpack(() -> new PotionOfMage());
-					l.backpack(() -> new Meatroll());
 					break;
 			}
 		}
@@ -1292,7 +1262,6 @@ public enum HeroClass {
 						((EtherealChains) i).activate(h);
 						Dungeon.quickslot.setSlot(0, i);
 					});
-					l.backpack(() -> new RiceGruel());
 					break;
 				case 2:
 					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Dagger(), 0, null);
@@ -1300,7 +1269,6 @@ public enum HeroClass {
 					l.backpack(() -> new UndeadBook());
 					l.backpack(() -> new Skull(5));
 					l.backpack(() -> new JumpR());
-					l.backpack(() -> new RiceGruel());
 					break;
 				case 3:
 					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Glaive(), 0, null);
@@ -1310,17 +1278,14 @@ public enum HeroClass {
 						Dungeon.quickslot.setSlot(0, i);
 					});
 					l.backpack(() -> new HorseTotem());
-					l.backpack(() -> new RiceGruel());
 					break;
 				case 4:
 					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Dagger(), 0, null);
 					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.ClothArmor(), 0, null);
 					l.backpack(() -> new JumpR());
 					l.backpack(() -> new NeedPaper());
-					l.backpack(() -> new RiceGruel());
 					break;
 				case 5:
-					l.backpack(() -> new RiceGruel());
 					break;
 				case 6:
 					l.equip(ItemSlot.WEAPON, () -> new EleKatana(), 0, (h, i) -> Dungeon.quickslot.setSlot(0, i));
@@ -1341,15 +1306,12 @@ public enum HeroClass {
 					l.backpack(() -> new PotionOfHealing());
 					l.backpack(() -> new ScrollOfMagicMapping());
 					l.backpack(() -> new WandOfLightning(), 3, 1, -1, null);
-					l.backpack(() -> new RiceGruel());
 					break;
 				case 7:
 					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Dagger(), 0, null);
 					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
 					l.backpack(() -> new JumpR());
-					l.backpack(() -> new AflyFood(), 0, 3, -1, null);
 					l.backpack(() -> new AflyEgg(), 0, 3, -1, null);
-					l.backpack(() -> new RiceGruel());
 					break;
 				default:
 					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Dagger(), 0, null);
@@ -1361,7 +1323,6 @@ public enum HeroClass {
 					//SPSEXPD: 盗贼开局携带白银之手（魔术之手法杖强化版，击杀充能）
 					l.backpack(() -> new pd.items.equipment.wands.SilverHand());
 					l.backpack(() -> new BlindFruit(3), 0, 1, 1, null);
-					l.backpack(() -> new RiceGruel());
 					break;
 			}
 		}
@@ -1417,8 +1378,6 @@ public enum HeroClass {
 					l.backpack(() -> new EmpBola(3), 0, 1, 1, null);
 					break;
 			}
-			//所有主题共通
-			l.backpack(() -> new Vegetablekebab());
 		}
 
 		if (cls == DUELIST) {
@@ -1458,7 +1417,6 @@ public enum HeroClass {
 					l.backpack(() -> new BattleAmmo());
 					l.equip(ItemSlot.ARTIFACT, () -> new AlienBag(), 0, (h, i) -> ((AlienBag) i).activate(h));
 					l.backpack(() -> new BShovel(), 0, 1, 0, null);
-					l.backpack(() -> new NutCookie(6));
 					l.backpack(() -> new DungeonBomb());
 					break;
 				case 2:
@@ -1467,7 +1425,6 @@ public enum HeroClass {
 					l.backpack(() -> new CopyBall());
 					l.backpack(() -> new PotionOfHealing(), 0, 2, -1, null);
 					l.backpack(() -> new JumpP());
-					l.backpack(() -> new NutCookie(6));
 					l.backpack(() -> new DungeonBomb());
 					break;
 				case 3:
@@ -1481,18 +1438,15 @@ public enum HeroClass {
 					l.backpack(() -> new DungeonBomb());
 					l.backpack(() -> new DungeonBomb());
 					l.backpack(() -> new ScrollOfLullaby());
-					l.backpack(() -> new NutCookie(6));
 					break;
 				case 4:
 					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.Mace(), 0, null);
 					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.LeatherArmor(), 0, null);
 					l.backpack(() -> new LeaderFlag());
 					l.backpack(() -> new JumpP());
-					l.backpack(() -> new NutCookie(6));
 					l.backpack(() -> new DungeonBomb());
 					break;
 				case 5:
-					l.backpack(() -> new NutCookie(6));
 					l.backpack(() -> new DungeonBomb());
 					break;
 				case 6:
@@ -1500,7 +1454,6 @@ public enum HeroClass {
 					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.LeatherArmor(), 0, null);
 					l.backpack(() -> new PPC2(), 0, 1, 0, null);
 					l.backpack(() -> new JumpP());
-					l.backpack(() -> new NutCookie(6));
 					l.backpack(() -> new DungeonBomb());
 					break;
 				case 7:
@@ -1511,7 +1464,6 @@ public enum HeroClass {
 							(h, i) -> Dungeon.quickslot.setSlot(1, i));
 					l.backpack(() -> new pd.plants.Dewcatcher.Seed(), 0, 2, -1, null);
 					l.backpack(() -> new pd.items.misc.RockManJumpshoes());
-					l.backpack(() -> new NutCookie(6));
 					l.backpack(() -> new DungeonBomb());
 					break;
 				default:
@@ -1524,7 +1476,6 @@ public enum HeroClass {
 					l.backpack(() -> new DungeonBomb());
 					l.backpack(() -> new DungeonBomb());
 					l.backpack(() -> new ScrollOfLullaby());
-					l.backpack(() -> new NutCookie(6));
 					break;
 			}
 		}
@@ -1535,7 +1486,6 @@ public enum HeroClass {
 					l.equip(ItemSlot.ARMOR, () -> new pd.items.equipment.armor.normalarmor.LeatherArmor(), 3, null);
 					l.backpack(() -> new AttackShoes(), 0, 1, 0, null);
 					l.backpack(() -> new MKbox(), 0, 1, 1, null);
-					l.backpack(() -> new MixPizza(4));
 					break;
 				case 2:
 					l.equip(ItemSlot.WEAPON, () -> new GunC(), 0,
@@ -1543,7 +1493,6 @@ public enum HeroClass {
 					l.equip(ItemSlot.ARMOR, () -> new BaseArmor(), 0, null);
 					l.backpack(() -> new MechPocket());
 					l.backpack(() -> new JumpS());
-					l.backpack(() -> new MixPizza(4));
 					break;
 				case 3:
 					l.equip(ItemSlot.WEAPON, () -> new GunA(), 0,
@@ -1552,7 +1501,6 @@ public enum HeroClass {
 					l.backpack(() -> new HeavyAmmo());
 					l.backpack(() -> new GunOfSoldier(), 0, 1, 0, null);
 					l.backpack(() -> new HealBag(), 0, 1, 1, null);
-					l.backpack(() -> new MixPizza(4));
 					break;
 				case 4:
 					l.equip(ItemSlot.WEAPON, () -> new GunA(), 0,
@@ -1561,17 +1509,14 @@ public enum HeroClass {
 					l.backpack(() -> new JumpS());
 					l.backpack(() -> new NmHealBag());
 					l.backpack(() -> new EscapeKnive(10));
-					l.backpack(() -> new MixPizza(4));
 					break;
 				case 5:
-					l.backpack(() -> new MixPizza(4));
 					break;
 				case 6:
 					l.equip(ItemSlot.WEAPON, () -> new WoodenStaff(), 0, null);
 					l.equip(ItemSlot.ARMOR, () -> new BaseArmor(), 0, null);
 					l.backpack(() -> new ShootGun(), 0, 1, 0, null);
 					l.backpack(() -> new JumpS());
-					l.backpack(() -> new MixPizza(4));
 					break;
 				case 7:
 					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.start.BunnyDagger(), 0,
@@ -1581,7 +1526,6 @@ public enum HeroClass {
 					l.equip(ItemSlot.ARMOR, () -> new RogueArmor(), 0, null);
 					l.backpack(() -> new JumpR());
 					l.equip(ItemSlot.ARTIFACT, () -> new AlienBag(), 0, (h, i) -> ((AlienBag) i).activate(h));
-					l.backpack(() -> new MixPizza(4));
 					break;
 				default:
 					l.equip(ItemSlot.WEAPON, () -> new Sling(), 0,
@@ -1592,7 +1536,6 @@ public enum HeroClass {
 							(h, i) -> ((pd.items.equipment.artifacts.EndlessAmmoBag) i).activate(h));
 					l.backpack(() -> new GunOfSoldier(), 0, 1, 0, null);
 					l.backpack(() -> new EscapeKnive(3), 0, 1, 1, null);
-					l.backpack(() -> new MixPizza(4));
 					break;
 			}
 		}
@@ -1606,7 +1549,6 @@ public enum HeroClass {
 						((pd.items.KindOfWeapon) i).activate(h);
 						Dungeon.quickslot.setSlot(1, i);
 					});
-					l.backpack(() -> new MoonCake());
 					break;
 				case 2:
 					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Dagger(), 2,
@@ -1617,7 +1559,6 @@ public enum HeroClass {
 						Dungeon.quickslot.setSlot(1, i);
 					});
 					l.backpack(() -> new JumpF());
-					l.backpack(() -> new MoonCake());
 					break;
 				case 3:
 					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Rapier(), 0, null);
@@ -1628,17 +1569,14 @@ public enum HeroClass {
 						Dungeon.quickslot.setSlot(0, i);
 					});
 					l.backpack(() -> new PotionOfHealing());
-					l.backpack(() -> new MoonCake());
 					break;
 				case 4:
 					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.normalweapon.Knuckles(), 0, null);
 					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
 					l.backpack(() -> new DiceTower());
 					l.backpack(() -> new JumpF());
-					l.backpack(() -> new MoonCake());
 					break;
 				case 5:
-					l.backpack(() -> new MoonCake());
 					break;
 				case 6:
 					l.equip(ItemSlot.WEAPON, () -> new TrickSand(), 0, null);
@@ -1647,7 +1585,6 @@ public enum HeroClass {
 					l.backpack(() -> new Ankh());
 					l.backpack(() -> new Ankh());
 					l.backpack(() -> new JumpF());
-					l.backpack(() -> new MoonCake());
 					break;
 				default:
 					l.equip(ItemSlot.WEAPON, () -> new WoodenStaff(), 0, null);
@@ -1656,7 +1593,6 @@ public enum HeroClass {
 					l.backpack(() -> new pd.items.misc.Futon());
 					l.backpack(() -> new PotionOfHealing());
 					l.backpack(() -> new FaithSign());
-					l.backpack(() -> new MoonCake());
 					break;
 			}
 		}
@@ -1670,14 +1606,12 @@ public enum HeroClass {
 						((pd.items.KindOfWeapon) i).activate(h);
 						Dungeon.quickslot.setSlot(1, i);
 					});
-					l.backpack(() -> new FruitCandy(3));
 					break;
 				case 2:
 					l.equip(ItemSlot.WEAPON, () -> new WoodenStaff(), 0, null);
 					l.equip(ItemSlot.ARMOR, () -> new LifeArmor(), 0, (h, i) -> ((LifeArmor) i).activate(h));
 					l.backpack(() -> new GrassBook());
 					l.backpack(() -> new JumpA());
-					l.backpack(() -> new FruitCandy(3));
 					break;
 				case 3:
 					l.equip(ItemSlot.WEAPON, () -> new Whisk(), 0, null);
@@ -1687,12 +1621,10 @@ public enum HeroClass {
 						((UnstableSpellbook) i).activate(h);
 						Dungeon.quickslot.setSlot(1, i);
 					});
-					l.backpack(() -> new FruitCandy(3));
 					break;
 				case 4:
 				case 5:
 				case 6:
-					l.backpack(() -> new FruitCandy(3));
 					break;
 				case 7:
 					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.special.NinjaFan(), 0,
@@ -1702,7 +1634,6 @@ public enum HeroClass {
 					l.backpack(() -> new Pylon(), 0, 1, 0, (h, i) -> ((Pylon) i).activate(h));
 					l.backpack(() -> new WandOfFirebolt());
 					l.backpack(() -> new JumpW());
-					l.backpack(() -> new FruitCandy(3));
 					break;
 				default:
 					l.equip(ItemSlot.WEAPON, () -> new TrickSand(), 0, null);
@@ -1711,7 +1642,6 @@ public enum HeroClass {
 					l.equip(ItemSlot.ARTIFACT, () -> new pd.items.equipment.artifacts.ScrollEarring(), 0,
 							(h, i) -> ((pd.items.equipment.artifacts.ScrollEarring) i).activate(h));
 					l.backpack(() -> new BigBattery(), 0, 1, 0, null);
-					l.backpack(() -> new FruitCandy(3));
 					break;
 			}
 		}
