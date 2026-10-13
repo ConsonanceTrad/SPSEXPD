@@ -90,7 +90,7 @@ public final class SpsGunFireModeTest {
 		check(Math.abs(pistol.shotBuffer(hero) - expected) < 0.00001f, "后坐缓冲公式错误");
 		for (GunArchetype type : new GunArchetype[]{GunArchetype.PISTOL, GunArchetype.SMG,
 				GunArchetype.SHOTGUN, GunArchetype.SNIPER}) {
-			check(type.perfectSTR >= type.tier * 2 + 10, "完美阈值没有明显高于力量需求基准");
+			check(type.perfectSTR >= type.strBase + 2, "完美阈值没有明显高于力量需求基准");
 		}
 	}
 
@@ -112,6 +112,13 @@ public final class SpsGunFireModeTest {
 				"枪械的力量需求被双持惩罚加成了");
 		check(!pd.items.SecondaryEquip.dualWieldTooHeavy(hero, gun, new GunA()),
 				"枪械被误判为双持难以掌控");
+
+		//SPSEXPD: 装备的枪械没有弹药时不参与近战，改为徒手攻击
+		hero.belongings.weapon = gun;
+		gun.charge(0);
+		check(hero.damageRoll() > 0, "无弹药的枪械没有回落为徒手攻击");
+		gun.charge(1);
+		check(hero.damageRoll() == 0, "有弹药的枪械参与了近战伤害");
 	}
 
 	/** 充能型枪械：未开火时每回合自然回充 0.5 发（显示取整）。 */

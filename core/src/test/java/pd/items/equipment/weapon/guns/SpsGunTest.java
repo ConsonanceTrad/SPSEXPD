@@ -57,22 +57,27 @@ public final class SpsGunTest {
 	private static void testDefinitions() {
 		GunWeapon[] guns = {new GunA(), new GunB(), new GunC(), new GunD(), new GunE()};
 		//SPSEXPD: 重铸后的五把枪——手枪 / 冲锋枪 / 霰弹枪 / 狙击枪 / 狙击枪
+		//SPSEXPD: 枪械不再分阶位，直接断言类型基准数值（min(lvl)=minBase+lvl、max(lvl)=maxBase+growth*lvl）
 		int[] capacities = {7, 20, 4, 5, 6};
-		int[] tiers = {1, 2, 3, 4, 4};
+		int[] min0 = {3, 4, 5, 6, 6};
+		int[] max0 = {8, 10, 14, 20, 20};
+		int[] min4 = {7, 8, 9, 10, 10};
+		int[] max4 = {16, 22, 26, 36, 36};
+		int[] str0 = {10, 12, 14, 16, 16};
+		int[] str4 = {8, 10, 12, 14, 14};
 		IconEntry[] images = {EquipmentEquipWeaponBasicWeaponDict.PISTOL, EquipmentEquipWeaponBasicWeaponDict.MACHINE_GUN,
 				pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict.ELECTROMAGNETIC_SHOTGUN,
 				EquipmentEquipWeaponBasicWeaponDict.GUN_4, EquipmentEquipWeaponBasicWeaponDict.GUN_4};
 		for (int i = 0; i < guns.length; i++) {
-			int tier = tiers[i];
 			GunWeapon gun = guns[i];
-			check(gun.min(0) == tier + 2 && gun.max(0) == tier * tier - tier + 8,
+			check(gun.min(0) == min0[i] && gun.max(0) == max0[i],
 					gun.getClass().getSimpleName() + "基础伤害错误");
-			check(gun.min(4) == tier + 6 && gun.max(4) == tier * tier - tier + 8 + (2 + tier / 2) * 4,
+			check(gun.min(4) == min4[i] && gun.max(4) == max4[i],
 					gun.getClass().getSimpleName() + "强化成长错误");
-			check(gun.STRReq(0) == 8 + tier * 2 && gun.fullCharge() == capacities[i],
+			check(gun.STRReq(0) == str0[i] && gun.fullCharge() == capacities[i],
 					gun.getClass().getSimpleName() + "力量需求或弹匣容量错误");
 			//SPSEXPD: 力量需求随等级下降（+1/+3/+6/+10 各降 1 点，+4 时降 2 点）
-			check(gun.STRReq(4) == 8 + tier * 2 - 2,
+			check(gun.STRReq(4) == str4[i],
 					gun.getClass().getSimpleName() + "强化后的力量需求错误");
 			check(gun.image == images[i], gun.getClass().getSimpleName() + "图标槽错误");
 		}

@@ -5,11 +5,9 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
-import pd.actors.buffs.Buff;
 import pd.actors.buffs.EndlessAmmo;
 import pd.actors.buffs.MechArmor;
 import pd.actors.buffs.TargetShoot;
-import pd.actors.buffs.Vertigo;
 import pd.actors.damagetype.DamageType;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
@@ -23,7 +21,6 @@ import pd.items.equipment.weapon.Weapon;
 import pd.items.equipment.weapon.enchantments.Puncturing;
 import pd.items.equipment.weapon.enchantments.Ricochet;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
-import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
@@ -52,7 +49,9 @@ public class GunWeapon extends SpsRangedWeapon {
 			.t("empty", "你没有可以装填的通用弹匣。")
 			.t("prompt", "选择射击目标")
 			.t("prompt_aim", "选择射击方向")
-			.t("stats_known", "这件_%1$d阶_枪械可以造成_%2$d～%3$d点伤害_，并且需要_%4$d点力量_来正常使用。")
+			.t("stats_1", "这把 _%1$s_ 有 _%2$d_ 发弹匣容量，单次击发 _%3$d_ ，造成 _%4$d~%5$d_ 点伤害")
+			.t("stats_2", "你需要 _%1$d_ 点力量以完全克服其后坐力，以你目前的力量而言，每次击发需要 _%2$s_ 回合的缓冲时间。")
+			.t("stats_3", "装填耗时 _%1$s_ ，精准范围 _%2$d_ ，噪声半径 _%3$d_ 。")
 			.t("charge", "弹匣：%1$d/%2$d");
 	}
 
@@ -83,7 +82,6 @@ public class GunWeapon extends SpsRangedWeapon {
 	};
 
 	protected GunArchetype archetype;
-	protected final int gunTier;
 	/** 弹匣容量（一次可连续击发的发数上限）。 */
 	protected int fullCharge;
 	/** 单次击发消耗的弹药数（冲锋枪 = 4）。 */
@@ -113,7 +111,6 @@ public class GunWeapon extends SpsRangedWeapon {
 
 	protected GunWeapon(GunArchetype archetype) {
 		this.archetype = archetype;
-		this.gunTier = archetype.tier;
 		this.fullCharge = archetype.magazine;
 		this.shotsPerFire = archetype.shotsPerFire;
 		this.perfectSTR = archetype.perfectSTR;
@@ -126,12 +123,13 @@ public class GunWeapon extends SpsRangedWeapon {
 		usesTargeting = true;
 	}
 
-	@Override public int min(int lvl) { return gunTier + 2 + lvl; }
-	@Override public int max(int lvl) { return gunTier * gunTier - gunTier + 8 + (2 + gunTier / 2) * lvl; }
+	//SPSEXPD: 不再分阶位——伤害与力量需求直接取自类型基准
+	@Override public int min(int lvl) { return archetype.minBase + lvl; }
+	@Override public int max(int lvl) { return archetype.maxBase + archetype.maxGrowth * lvl; }
 	//SPSEXPD: 力量需求随等级下降（与近战/弓/护甲统一）
 	@Override public int STRReq(int lvl) {
 		int lv = Math.max(0, lvl);
-		return (8 + gunTier * 2) - (int)(Math.sqrt(8 * lv + 1) - 1) / 2;
+		return archetype.strBase - (int)(Math.sqrt(8 * lv + 1) - 1) / 2;
 	}
 	@Override public int damageRoll(Char owner) { return 0; }
 	@Override public boolean isUpgradable() { return true; }
@@ -227,19 +225,13 @@ public class GunWeapon extends SpsRangedWeapon {
 	protected boolean canReload(Hero hero) { return true; }
 
 	/**
-	 * SPSEXPD: 点击敌人时的枪械自动射击。
-	 * - 敌人在近战武器范围内 → 不接管（交给近战接近战）；
-	 * - 否则优先使用「已装备且有弹药」的枪械：先主手，再副手（主副都是枪械时优先主手）。
-	 * 返回 true 表示已用枪械开火。
+	 * SPSEXPD: 点击敌人时的枪械自动射击（枪械不再有近战功能，装备枪械后一律转为射击）。
+	 * 优先使用「已装备且有弹药」的枪械：先主手，再副手（主副都是枪械时优先主手）；
+	 * 两把都没有弹药时不接管，回落为徒手攻击。返回 true 表示已用枪械开火。
 	 */
 	public static boolean autoAttack(Hero hero, Char enemy) {
 		if (hero == null || enemy == null || Dungeon.level == null) return false;
 		if (!hero.ready) return false;
-
-		int meleeReach = 1;
-		KindOfWeapon melee = hero.belongings.weapon();
-		if (melee != null) meleeReach = Math.max(1, melee.reachFactor(hero));
-		if (Dungeon.level.distance(hero.pos, enemy.pos) <= meleeReach) return false;
 
 		GunWeapon gun = readyGun(hero, hero.belongings.weapon());
 		if (gun == null) gun = readyGun(hero, hero.belongings.secondWep());
@@ -358,13 +350,7 @@ public class GunWeapon extends SpsRangedWeapon {
 
 	@Override
 	public int proc(Char attacker, Char defender, int damage) {
-		if (Dungeon.level != null && attacker != null && defender != null && defender.isAlive()) {
-			int opposite = defender.pos + defender.pos - attacker.pos;
-			Ballistica trajectory = new Ballistica(defender.pos, opposite, Ballistica.MAGIC_BOLT);
-			pd.items.equipment.wands.WandOfBlastWave.throwChar(defender, trajectory, 1, false, false, this);
-			if (causesVertigo()) Buff.prolong(defender, Vertigo.class, 3f);
-		}
-		//SPSEXPD: 走 Weapon.proc —— 让枪械附魔与识别进度正常生效
+		//SPSEXPD: 枪械不再有近战功能（原击退与眩晕已彻底移除）
 		return super.proc(attacker, defender, damage);
 	}
 
@@ -401,8 +387,10 @@ public class GunWeapon extends SpsRangedWeapon {
 		return false;
 	}
 
-	protected boolean causesVertigo() { return true; }
 	protected boolean addsEnergyDamage() { return true; }
+
+	/** SPSEXPD: 弹匣内是否还有弹药（无弹药时装备枪械改走徒手攻击）。 */
+	public boolean hasAmmo() { return charge > 0; }
 
 	@Override
 	public int value() {
@@ -418,9 +406,20 @@ public class GunWeapon extends SpsRangedWeapon {
 
 	@Override
 	public String info() {
-		return desc() + "\n\n" + Messages.get(GunWeapon.class, "stats_known",
-				gunTier, min(), max(), STRReq())
-				+ "\n\n" + Messages.get(GunWeapon.class, "charge", charge, fullCharge);
+		return desc() + "\n\n"
+				+ Messages.get(GunWeapon.class, "stats_1",
+						archetype.displayName(), fullCharge, shotsPerFire, min(), max())
+				+ "\n\n"
+				+ Messages.get(GunWeapon.class, "stats_2", perfectSTR, num(shotBuffer(Dungeon.hero)))
+				+ "\n\n"
+				+ Messages.get(GunWeapon.class, "stats_3", num(baseReloadTime), effectiveRange, noiseRadius)
+				+ "\n\n"
+				+ Messages.get(GunWeapon.class, "charge", charge, fullCharge);
+	}
+
+	/** SPSEXPD: 整数就不带小数点（1 / 0.5）。 */
+	private static String num(float v) {
+		return v == Math.round(v) ? String.valueOf(Math.round(v)) : String.valueOf(v);
 	}
 
 	@Override public String status() { return levelKnown ? charge + "/" + fullCharge : null; }
@@ -467,7 +466,7 @@ public class GunWeapon extends SpsRangedWeapon {
 
 		{
 			image = EquipmentEquipWeaponUniqueWeaponDict.PAINTBALL_GUN;
-			tier = Math.max(1, gunTier);
+			tier = 1; //SPSEXPD: 枪弹不再是分阶武器
 			ACC = 1.3f;
 			spawnedForEffect = true;
 		}

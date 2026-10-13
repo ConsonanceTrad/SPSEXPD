@@ -18,6 +18,6 @@ public class Hydra extends GunWeapon {
 		fullCharge = 6;      //SPSEXPD: 个体特色——弹匣 6
 		perfectSTR = 13;     //SPSEXPD: 个体特色——完美力量 13
 	}
-	@Override public int min(int lvl) { return gunTier + 4 + lvl; }
-	@Override public int max(int lvl) { return gunTier * gunTier - gunTier + 10 + (2 + gunTier / 2) * lvl; }
+	@Override public int min(int lvl) { return 5 + lvl; }
+	@Override public int max(int lvl) { return 9 + 2 * lvl; }
 }

@@ -957,14 +957,19 @@ public class Hero extends Char {
 		KindOfWeapon wep = belongings.attackingWeapon();
 		int dmg;
 
-		if (!RingOfForce.fightingUnarmed(this)) {
+		//SPSEXPD: 装备的枪械没有弹药时不再用枪挥击，改为徒手攻击
+		boolean unarmed = RingOfForce.fightingUnarmed(this)
+				|| (wep instanceof pd.items.equipment.weapon.guns.GunWeapon
+						&& !((pd.items.equipment.weapon.guns.GunWeapon) wep).hasAmmo());
+
+		if (!unarmed) {
 			dmg = wep.damageRoll( this );
 
 			if (!(wep instanceof MissileWeapon)) dmg += RingOfForce.armedDamageBonus(this);
 		} else {
 			dmg = RingOfForce.damageRoll(this);
-			if (RingOfForce.unarmedGetsWeaponAugment(this)){
-				dmg = ((Weapon)belongings.attackingWeapon()).augment.damageFactor(dmg);
+			if (RingOfForce.unarmedGetsWeaponAugment(this) && wep instanceof Weapon){
+				dmg = ((Weapon)wep).augment.damageFactor(dmg);
 			}
 		}
 		dmg += RingOfFuror.damageBonus(this);
