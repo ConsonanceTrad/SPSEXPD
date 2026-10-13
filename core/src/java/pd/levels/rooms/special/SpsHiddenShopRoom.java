@@ -12,7 +12,6 @@ import pd.items.equipment.bombs.BuildBomb;
 import pd.items.equipment.bombs.DungeonBomb;
 import pd.items.equipment.bombs.HugeBomb;
 import pd.items.equipment.weapon.missiles.ShitBall;
-import pd.items.equipment.weapon.missiles.darts.PoisonDart;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -115,7 +114,7 @@ public class SpsHiddenShopRoom extends SpecialRoom {
 
 	private static Item linkDrop() {
 		Class<? extends Item>[] classes = new Class[]{BuildBomb.class, DungeonBomb.class,
-				HugeBomb.class, PoisonDart.class, ShitBall.class};
+				HugeBomb.class, pd.items.equipment.weapon.missiles.arrows.Arrows.class, ShitBall.class};
 		float[] weights = {3, 1, 1, 2, 2};
 		return Generator.random(classes[Random.chances(weights)]);
 	}

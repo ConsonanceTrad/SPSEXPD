@@ -24,8 +24,6 @@ package pd.actors.buffs;
 import pd.Dungeon;
 import pd.items.Item;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
-import pd.items.equipment.weapon.missiles.darts.Dart;
-import pd.items.equipment.weapon.missiles.darts.TippedDart;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
@@ -52,12 +50,6 @@ public class PinCushion extends Buff {
 			if (projectile.isSimilar(items.get(i))) {
 				projectile.merge(items.get(i));
 				items.set(i, projectile);
-				if (TippedDart.lostDarts > 0) {
-					Dart d = new Dart();
-					d.quantity(TippedDart.lostDarts);
-					TippedDart.lostDarts = 0;
-					stick(d);
-				}
 				return;
 			}
 		}

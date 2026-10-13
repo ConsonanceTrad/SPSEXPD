@@ -31,7 +31,6 @@ import pd.actors.buffs.Locked;
 import pd.actors.buffs.Poison;
 import pd.actors.mobs.npcs.Ghost;
 import pd.items.Generator;
-import pd.items.equipment.weapon.missiles.darts.PoisonDart;
 import pd.mechanics.Ballistica;
 import pd.scenes.GameScene;
 import pd.sprites.GnollTricksterSprite;
@@ -62,7 +61,7 @@ public class GnollTrickster extends Gnoll {
 
 		state = WANDERING;
 
-		loot = Generator.random(PoisonDart.class);
+		loot = Generator.random(pd.items.equipment.weapon.missiles.arrows.Arrows.class);
 		lootChance = 1f;
 
 		properties.add(Property.ORC);

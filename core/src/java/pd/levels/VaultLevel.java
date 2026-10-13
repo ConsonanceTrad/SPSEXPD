@@ -83,7 +83,6 @@ import pd.items.equipment.wands.WandOfCorruption;
 import pd.items.equipment.wands.WandOfRegrowth;
 import pd.items.equipment.wands.WandOfTransfusion;
 import pd.items.equipment.weapon.Weapon;
-import pd.items.equipment.weapon.missiles.darts.Dart;
 import pd.levels.GroundItems;
 import pd.levels.Transitions;
 import pd.levels.builders.Builder;
@@ -146,7 +145,7 @@ public class VaultLevel extends CityLevel {
 		for (int i = 0; i < 4; i++){
 			GroundItems.addItemToSpawn( this, createEquipment(0));
 		}
-		GroundItems.addItemToSpawn( this, new Dart());
+		GroundItems.addItemToSpawn( this, new pd.items.equipment.weapon.missiles.arrows.Arrows(2, 7));
 		for (int i = 0; i < 5; i++){
 			GroundItems.addItemToSpawn( this, createConsumabe(0));
 		}

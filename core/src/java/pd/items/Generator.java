@@ -406,7 +406,6 @@ import pd.items.equipment.weapon.missiles.arrows.RootFruit;
 import pd.items.equipment.weapon.missiles.arrows.ShockFruit;
 import pd.items.equipment.weapon.missiles.arrows.SmokeFruit;
 import pd.items.equipment.weapon.missiles.arrows.ToxicFruit;
-import pd.items.equipment.weapon.missiles.darts.Dart;
 import pd.items.equipment.weapon.missiles.fusion.TempestBoomerang;
 import pd.items.equipment.weapon.missiles.meleethrow.Brick;
 import pd.items.equipment.weapon.missiles.meleethrow.DragonBoat;
@@ -873,7 +872,8 @@ public class Generator {
 			};
 			RANGED.probs = new float[]{
 					1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-					1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+					1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+					1
 			};
 			
 			//see Generator.randomArmor

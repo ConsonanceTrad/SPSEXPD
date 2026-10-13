@@ -54,7 +54,6 @@ import pd.items.consum.spells.Alchemize;
 import pd.items.consum.stones.StoneOfAugmentation;
 import pd.items.equipment.weapon.melee.MeleeWeapon;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
-import pd.items.equipment.weapon.missiles.darts.TippedDart;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -266,8 +265,6 @@ public class ShopRoom extends SpecialRoom {
 		m.identify(false);
 		itemsToSpawn.add(m);
 		
-		itemsToSpawn.add( TippedDart.randomTipped(2) );
-
 		itemsToSpawn.add( new Alchemize().quantity(Random.IntRange(2, 3)));
 
 		Bag bag = ChooseBag(Dungeon.hero.belongings);

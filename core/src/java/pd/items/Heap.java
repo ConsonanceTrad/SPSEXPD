@@ -73,8 +73,6 @@ import pd.items.equipment.weapon.melee.relic.CromCruachAxe;
 import pd.items.equipment.weapon.melee.relic.JupitersWraith;
 import pd.items.equipment.weapon.melee.relic.LokisFlail;
 import pd.items.equipment.weapon.melee.relic.NeptunusTrident;
-import pd.items.equipment.weapon.missiles.darts.Dart;
-import pd.items.equipment.weapon.missiles.darts.TippedDart;
 import pd.journal.Document;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
@@ -293,13 +291,6 @@ public class Heap implements Bundlable {
 		
 		if (sprite != null) {
 			sprite.view(this).place( pos );
-		}
-
-		if (TippedDart.lostDarts > 0){
-			Dart d = new Dart();
-			d.quantity(TippedDart.lostDarts);
-			TippedDart.lostDarts = 0;
-			drop(d);
 		}
 	}
 	

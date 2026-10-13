@@ -39,7 +39,6 @@ import pd.items.equipment.weapon.missiles.ThrowingKnife;
 import pd.items.equipment.weapon.missiles.ThrowingSpear;
 import pd.items.equipment.weapon.missiles.ThrowingSpike;
 import pd.items.equipment.weapon.missiles.Trident;
-import pd.items.equipment.weapon.missiles.darts.Dart;
 import pd.tiles.DungeonTilemap;
 import render.noosa.Visual;
 import render.noosa.tweeners.PosTweener;
@@ -93,7 +92,6 @@ public class MissileSprite extends ItemSprite implements Tweener.Listener {
 	
 	private static final HashMap<Class<?extends Item>, Integer> ANGULAR_SPEEDS = new HashMap<>();
 	static {
-		ANGULAR_SPEEDS.put(Dart.class,          0);
 		ANGULAR_SPEEDS.put(ThrowingKnife.class, 0);
 		ANGULAR_SPEEDS.put(ThrowingSpike.class, 0);
 		ANGULAR_SPEEDS.put(FishingSpear.class,  0);
@@ -163,12 +161,7 @@ public class MissileSprite extends ItemSprite implements Tweener.Listener {
 		}
 		
 		float speed = SPEED;
-		if (item instanceof Dart
-				&& (Dungeon.hero.belongings.weapon() instanceof Crossbow
-				|| Dungeon.hero.belongings.secondWep() instanceof Crossbow)){
-			speed *= 3f;
-			
-		} else if (item instanceof SpiritBow.SpiritArrow
+		if (item instanceof SpiritBow.SpiritArrow
 				|| item instanceof ScorpioSprite.ScorpioShot
 				|| item instanceof TenguSprite.TenguShuriken){
 			speed *= 1.5f;

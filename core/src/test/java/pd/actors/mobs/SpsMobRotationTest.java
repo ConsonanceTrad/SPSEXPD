@@ -230,7 +230,7 @@ public final class SpsMobRotationTest {
 		trickster.pos = 11;
 		target.pos = 13;
 		if (trickster.HT != 60 || trickster.defenseSkill != 5 || trickster.EXP != 5
-				|| !(trickster.loot instanceof pd.items.equipment.weapon.missiles.darts.PoisonDart)
+				|| !(trickster.loot instanceof pd.items.equipment.weapon.missiles.arrows.Arrows)
 				|| Math.abs(trickster.lootChance - 1f) > 0.0001f
 				|| !trickster.properties().contains(Char.Property.ORC)
 				|| !trickster.canAttack(target)) {

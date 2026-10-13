@@ -2,7 +2,6 @@ package pd.sprites;
 
 import pd.Assets;
 import pd.Dungeon;
-import pd.items.equipment.weapon.missiles.darts.PoisonDart;
 import render.noosa.TextureFilm;
 
 public class ElderAvatarSprite extends MobSprite {
@@ -23,7 +22,7 @@ public class ElderAvatarSprite extends MobSprite {
 	public void attack(int cell) {
 		if (ch != null && Dungeon.level != null && !Dungeon.level.adjacent(ch.pos, cell)) {
 			((MissileSprite) parent.recycle(MissileSprite.class))
-					.reset(this, cell, new PoisonDart(), ch::onAttackComplete);
+					.reset(this, cell, new pd.items.equipment.weapon.missiles.arrows.Arrows(2, 7), ch::onAttackComplete);
 			play(cast);
 			turnTo(ch.pos, cell);
 		} else {

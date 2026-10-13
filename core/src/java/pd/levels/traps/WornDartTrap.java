@@ -30,7 +30,6 @@ import pd.actors.Char;
 import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
-import pd.items.equipment.weapon.missiles.darts.Dart;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.sprites.MissileSprite;
@@ -105,7 +104,7 @@ public class WornDartTrap extends Trap {
 					final Char finalTarget = target;
 					if (Dungeon.level.heroFOV[pos] || Dungeon.level.heroFOV[target.pos]) {
 						((MissileSprite) ShatteredPixelDungeon.scene().recycle(MissileSprite.class)).
-								reset(pos, finalTarget.sprite, new Dart(), new Callback() {
+								reset(pos, finalTarget.sprite, new pd.items.equipment.weapon.missiles.arrows.Arrows(1, 4), new Callback() {
 									@Override
 									public void call() {
 										int dmg = Random.NormalIntRange(4, 8) - finalTarget.drRoll();

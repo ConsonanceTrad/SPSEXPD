@@ -48,8 +48,6 @@ import pd.items.equipment.weapon.Weapon;
 import pd.items.equipment.weapon.melee.MagesStaff;
 import pd.items.equipment.weapon.melee.MeleeWeapon;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
-import pd.items.equipment.weapon.missiles.darts.Dart;
-import pd.items.equipment.weapon.missiles.darts.TippedDart;
 import pd.journal.Catalog;
 import pd.levels.MiningLevel;
 import pd.messages.Messages;
@@ -88,9 +86,9 @@ public class ScrollOfTransmutation extends InventoryScroll {
 		if (item instanceof MeleeWeapon){
 			return !(item instanceof Pickaxe && Dungeon.level instanceof MiningLevel);
 
-		//all missile weapons except untipped darts
+		//all missile weapons
 		} else if (item instanceof MissileWeapon){
-			return item.getClass() != Dart.class;
+			return true;
 
 		//all regular or exotic potions. No brews or elixirs
 		} else if (item instanceof Potion){
@@ -143,7 +141,7 @@ public class ScrollOfTransmutation extends InventoryScroll {
 					}
 					Dungeon.hero.spend(-Dungeon.hero.cooldown()); //cancel equip/unequip time
 				} else {
-					if (item instanceof MissileWeapon && !(item instanceof TippedDart)){
+					if (item instanceof MissileWeapon){
 						item.detachAll(Dungeon.hero.belongings.backpack);
 					} else {
 						item.detach(Dungeon.hero.belongings.backpack);
@@ -175,8 +173,6 @@ public class ScrollOfTransmutation extends InventoryScroll {
 	public static Item changeItem( Item item ){
 		if (item instanceof MagesStaff) {
 			return changeStaff((MagesStaff) item);
-		}else if (item instanceof TippedDart){
-			return changeTippedDart( (TippedDart)item );
 		} else if (item instanceof MeleeWeapon || item instanceof MissileWeapon) {
 			return changeWeapon( (Weapon)item );
 		} else if (item instanceof Scroll) {
@@ -238,15 +234,6 @@ public class ScrollOfTransmutation extends InventoryScroll {
 		return staff;
 	}
 
-	private static TippedDart changeTippedDart( TippedDart dart ){
-		TippedDart n;
-		do {
-			n = TippedDart.randomTipped(1);
-		} while (n.getClass() == dart.getClass());
-
-		return n;
-	}
-	
 	private static Weapon changeWeapon( Weapon w ) {
 		Weapon n;
 		Generator.Category c;

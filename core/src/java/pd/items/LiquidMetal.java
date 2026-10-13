@@ -33,7 +33,6 @@ import pd.items.equipment.bags.Bag;
 import pd.items.equipment.bags.MagicalHolster;
 import pd.items.consum.potions.Potion;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
-import pd.items.equipment.weapon.missiles.darts.Dart;
 import pd.journal.Catalog;
 import pd.levels.Terrain;
 import pd.messages.Messages;
@@ -142,7 +141,7 @@ public class LiquidMetal extends Item {
 
 		@Override
 		public boolean itemSelectable(Item item) {
-			return item instanceof MissileWeapon && !(item instanceof Dart)
+			return item instanceof MissileWeapon
 					&& ((MissileWeapon) item).canMeltIntoMetal();
 		}
 

@@ -55,7 +55,6 @@ import pd.items.equipment.weapon.melee.start.HolyMace;
 import pd.items.equipment.weapon.melee.start.LinkSword;
 import pd.items.equipment.weapon.melee.start.PixelTorch;
 import pd.items.equipment.weapon.missiles.ShitBall;
-import pd.items.equipment.weapon.missiles.darts.PoisonDart;
 import pd.items.equipment.weapon.missiles.throwing.EmpBola;
 import pd.items.equipment.weapon.missiles.throwing.EscapeKnive;
 import pd.items.equipment.weapon.missiles.throwing.Skull;
@@ -131,7 +130,7 @@ public final class SpsSkinOneStartTest {
 		Mob protectedTarget=new TestMob();protectedTarget.HP=protectedTarget.HT=100;Mob attacker=new TestMob();attacker.HP=attacker.HT=100;Buff.affect(protectedTarget,BoxStar.class,3f);protectedTarget.damage(40,attacker);check(protectedTarget.HP==100,"无敌星没有免疫伤害");Buff.detach(protectedTarget,BoxStar.class);Buff.affect(protectedTarget,MirrorShield.class,3f);protectedTarget.damage(40,attacker);check(protectedTarget.HP==100&&attacker.HP<100,"智慧守护没有免疫并反射伤害");
 	}
 	private static void testLinkDrops(){
-		Class<?>[] expected={BuildBomb.class,DungeonBomb.class,HugeBomb.class,SpsFireBomb.class,IceBomb.class,EarthBomb.class,StormBomb.class,LightBomb.class,DarkBomb.class,FishingBomb.class,EmpBola.class,EscapeKnive.class,PoisonDart.class,Skull.class,Wave.class,ShitBall.class};
+		Class<?>[] expected={BuildBomb.class,DungeonBomb.class,HugeBomb.class,SpsFireBomb.class,IceBomb.class,EarthBomb.class,StormBomb.class,LightBomb.class,DarkBomb.class,FishingBomb.class,EmpBola.class,EscapeKnive.class,pd.items.equipment.weapon.missiles.arrows.Arrows.class,Skull.class,Wave.class,ShitBall.class};
 		float[] weights={3,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2};
 		check(Arrays.equals(expected,LinkSword.linkDropClasses()),"勇者剑掉落池条目或顺序错误");check(Arrays.equals(weights,LinkSword.linkDropWeights()),"勇者剑掉落池权重错误");
 		HashSet<Integer> seen=new HashSet<>();for(int roll=0;roll<2000;roll++){Item item=LinkSword.randomLinkDrop();for(int i=0;i<expected.length;i++)if(expected[i].isInstance(item)){seen.add(i);break;}}check(seen.size()==expected.length,"勇者剑掉落池存在无法生成的条目："+seen.size()+"/"+expected.length);

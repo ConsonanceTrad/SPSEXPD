@@ -118,7 +118,6 @@ import pd.items.consum.spells.WildEnergy;
 import pd.items.equipment.trinkets.TrinketCatalyst;
 import pd.items.equipment.weapon.SpiritBow;
 import pd.items.equipment.weapon.Weapon;
-import pd.items.equipment.weapon.missiles.darts.TippedDart;
 import pd.messages.Messages;
 import render.utils.serialize.Bundle;
 
@@ -267,8 +266,6 @@ public enum Catalog {
 		BOMBS.addItems( Bomb.class, FrostBomb.class, Firebomb.class, SmokeBomb.class, RegrowthBomb.class,
 				WoollyBomb.class, Noisemaker.class, FlashBangBomb.class, HolyBomb.class, ArcaneBomb.class, ShrapnelBomb.class);
 
-		TIPPED_DARTS.addItems(TippedDart.types.values().toArray(new Class[0]));
-
 		BREWS_ELIXIRS.addItems( UnstableBrew.class, InfernalBrew.class, BlizzardBrew.class,
 				ShockingBrew.class, CausticBrew.class, AquaBrew.class, ElixirOfHoneyedHealing.class,
 				ElixirOfAquaticRejuvenation.class, ElixirOfArcaneArmor.class, ElixirOfDragonsBlood.class,
@@ -309,7 +306,8 @@ public enum Catalog {
 		consumableCatalogs.add(EXOTIC_POTIONS);
 		consumableCatalogs.add(EXOTIC_SCROLLS);
 		consumableCatalogs.add(BOMBS);
-		consumableCatalogs.add(TIPPED_DARTS);
+		//SPSEXPD: 涂药飞镖已随飞镖系统移除，该分类不再注册
+		//consumableCatalogs.add(TIPPED_DARTS);
 		consumableCatalogs.add(BREWS_ELIXIRS);
 		consumableCatalogs.add(SPELLS);
 		consumableCatalogs.add(MISC_CONSUMABLES);

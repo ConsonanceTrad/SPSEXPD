@@ -14,7 +14,6 @@ import pd.items.equipment.weapon.Weapon;
 import pd.items.equipment.weapon.melee.normalweapon.ShortSword;
 import pd.items.equipment.weapon.melee.normalweapon.Spear;
 import pd.items.equipment.weapon.missiles.arrows.BlindFruit;
-import pd.items.equipment.weapon.missiles.darts.Dart;
 import pd.items.misc.MissileShield;
 import pd.levels.Level;
 import pd.plants.Plant;
@@ -207,7 +206,7 @@ public final class SpsSecondaryDualTest {
 				"只能进副手栏的武器没有隐藏主手装备动作");
 
 		//SPSEXPD: 果实与其它投掷武器都不能装备到副手栏
-		KindOfWeapon dart = new Dart();
+		KindOfWeapon dart = new pd.items.equipment.weapon.missiles.ThrowingKnife();
 		check(!dart.canEquipSecondary(), "投掷武器仍允许副手装备");
 		check(!dart.actions(hero).contains(EquipableItem.AC_EQUIP_SECONDARY),
 				"投掷武器的动作栏仍提供副手装备");

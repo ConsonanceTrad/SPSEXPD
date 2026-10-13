@@ -3,7 +3,6 @@ package pd.sprites;
 
 import pd.Assets;
 import pd.Dungeon;
-import pd.items.equipment.weapon.missiles.darts.PoisonDart;
 import render.noosa.TextureFilm;
 
 /** Original SPS scarecrow animation and ranged dart presentation. */
@@ -41,7 +40,7 @@ public class SpsScarecrowSprite extends MobSprite {
 		if (anim == zap) {
 			idle();
 			((MissileSprite) parent.recycle(MissileSprite.class))
-					.reset(this, cellToAttack, new PoisonDart(), ch::onAttackComplete);
+					.reset(this, cellToAttack, new pd.items.equipment.weapon.missiles.arrows.Arrows(2, 7), ch::onAttackComplete);
 		} else {
 			super.onComplete(anim);
 		}

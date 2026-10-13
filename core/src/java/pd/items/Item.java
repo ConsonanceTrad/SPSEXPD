@@ -39,8 +39,6 @@ import pd.actors.hero.Talent;
 import pd.effects.Speck;
 import pd.items.equipment.bags.Bag;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
-import pd.items.equipment.weapon.missiles.darts.Dart;
-import pd.items.equipment.weapon.missiles.darts.TippedDart;
 import pd.journal.Catalog;
 import pd.journal.Notes;
 import pd.mechanics.Ballistica;
@@ -289,23 +287,6 @@ public class Item implements Bundlable {
 						if (isIdentified()) {
 							Catalog.setSeen(getClass());
 							Statistics.itemTypesDiscovered.add(getClass());
-						}
-					}
-					if (TippedDart.lostDarts > 0){
-						Dart d = new Dart();
-						d.quantity(TippedDart.lostDarts);
-						TippedDart.lostDarts = 0;
-						if (!d.collect()){
-							//have to handle this in an actor as we can't manipulate the heap during pickup
-							Actor.add(new Actor() {
-								{ actPriority = VFX_PRIO; }
-								@Override
-								protected boolean act() {
-									Dungeon.level.drop(d, Dungeon.hero.pos).sprite.drop();
-									Actor.remove(this);
-									return true;
-								}
-							});
 						}
 					}
 					return true;

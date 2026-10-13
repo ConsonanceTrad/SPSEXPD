@@ -100,7 +100,6 @@ import pd.items.equipment.weapon.SpiritBow;
 import pd.items.equipment.weapon.Weapon;
 import pd.items.equipment.weapon.enchantments.Lucky;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
-import pd.items.equipment.weapon.missiles.darts.Dart;
 import pd.journal.Bestiary;
 import pd.journal.Notes;
 import pd.levels.FieldOfView;
@@ -894,8 +893,7 @@ public abstract class Mob extends Char {
 			Badges.validateRogueUnlock();
 			//TODO this is somewhat messy, it would be nicer to not have to manually handle delays here
 			// playing the strong hit sound might work best as another property of weapon?
-			if (Dungeon.hero.belongings.attackingWeapon() instanceof SpiritBow.SpiritArrow
-				|| Dungeon.hero.belongings.attackingWeapon() instanceof Dart){
+			if (Dungeon.hero.belongings.attackingWeapon() instanceof SpiritBow.SpiritArrow){
 				Sample.INSTANCE.playDelayed(Assets.Sounds.HIT_STRONG, 0.125f);
 			} else {
 				Sample.INSTANCE.play(Assets.Sounds.HIT_STRONG);

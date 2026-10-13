@@ -47,7 +47,6 @@ import pd.items.equipment.weapon.Weapon;
 import pd.items.equipment.weapon.curses.Explosive;
 import pd.items.equipment.weapon.enchantments.Crystal;
 import pd.items.equipment.weapon.enchantments.Projecting;
-import pd.items.equipment.weapon.missiles.darts.Dart;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
@@ -878,8 +877,7 @@ abstract public class MissileWeapon extends Weapon {
 				quantity = defaultQuantity();
 
 			//otherwise treat all currently spawned thrown weapons of the same class as if they are part of the same set
-			//darts already do this though and need no conversion
-			} else if (!(this instanceof Dart)){
+			} else {
 				levelKnown = cursedKnown = true;
 				//setID 由类名哈希决定（稳定、与包名无关）；改类名会改变堆叠标识，需评估旧存档
 				setID = getClass().getSimpleName().hashCode();
@@ -899,8 +897,7 @@ abstract public class MissileWeapon extends Weapon {
 
 		@Override
 		public boolean isSimilar(Item item) {
-			//yes, even though it uses a dart outline
-			return item instanceof MissileWeapon && !(item instanceof Dart);
+			return item instanceof MissileWeapon;
 		}
 
 		@Override

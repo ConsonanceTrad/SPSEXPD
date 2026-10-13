@@ -245,13 +245,6 @@ public class WndUpgrade extends Window {
 					bottom);
 		}
 
-		if (toUpgrade instanceof Crossbow){
-			bottom = fillFields(Messages.get(this, "dart_damage"),
-					((Crossbow) toUpgrade).dartMin(levelFrom) + "-" + ((Crossbow) toUpgrade).dartMax(levelFrom),
-					((Crossbow) toUpgrade).dartMin(levelTo) + "-" + ((Crossbow) toUpgrade).dartMax(levelTo),
-					bottom);
-		}
-
 		//bleeding (tomahawk)
 		if (toUpgrade instanceof Tomahawk){
 			bottom = fillFields(Messages.get(this, "bleeding"),

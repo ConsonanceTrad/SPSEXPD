@@ -206,7 +206,6 @@ import pd.items.equipment.weapon.enchantments.Vorpal;
 import pd.items.equipment.weapon.melee.MeleeWeapon;
 import pd.items.equipment.weapon.melee.Sickle;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
-import pd.items.equipment.weapon.missiles.darts.ShockingDart;
 import pd.levels.FieldOfView;
 import pd.levels.Terrain;
 import pd.levels.features.Chasm;
@@ -1686,7 +1685,7 @@ public abstract class Char extends Actor {
 		ACIDIC ( new HashSet<Class>( Arrays.asList(Corrosion.class)),
 				new HashSet<Class>( Arrays.asList(Ooze.class))),
 		ELECTRIC ( new HashSet<Class>( Arrays.asList(WandOfLightning.class, Shocking.class, Potential.class,
-										Electricity.class, ShockingDart.class, Elemental.ShockElemental.class )),
+										Electricity.class, Elemental.ShockElemental.class )),
 				new HashSet<Class>()),
 		LARGE,
 		IMMOVABLE ( new HashSet<Class>(),

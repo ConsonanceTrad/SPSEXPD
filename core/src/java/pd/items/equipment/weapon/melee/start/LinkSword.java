@@ -28,7 +28,6 @@ import pd.items.equipment.bombs.SpsFireBomb;
 import pd.items.equipment.bombs.StormBomb;
 import pd.items.equipment.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.items.equipment.weapon.missiles.ShitBall;
-import pd.items.equipment.weapon.missiles.darts.PoisonDart;
 import pd.items.equipment.weapon.missiles.throwing.EmpBola;
 import pd.items.equipment.weapon.missiles.throwing.EscapeKnive;
 import pd.items.equipment.weapon.missiles.throwing.Skull;
@@ -72,7 +71,7 @@ public class LinkSword extends NormalMeleeWeapon {
 	private static final Class<?>[] LINK_DROP_CLASSES={
 			BuildBomb.class,DungeonBomb.class,HugeBomb.class,SpsFireBomb.class,IceBomb.class,
 			EarthBomb.class,StormBomb.class,LightBomb.class,DarkBomb.class,FishingBomb.class,
-			EmpBola.class,EscapeKnive.class,PoisonDart.class,
+			EmpBola.class,EscapeKnive.class,pd.items.equipment.weapon.missiles.arrows.Arrows.class,
 			Skull.class,Wave.class,ShitBall.class};
 	private static final float[] LINK_DROP_WEIGHTS={3,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2};
 	private int charge, uptime;

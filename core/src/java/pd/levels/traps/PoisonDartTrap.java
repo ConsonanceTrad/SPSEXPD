@@ -32,7 +32,6 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Poison;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
-import pd.items.equipment.weapon.missiles.darts.PoisonDart;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.sprites.MissileSprite;
@@ -119,7 +118,7 @@ public class PoisonDartTrap extends Trap {
 					final Char finalTarget = target;
 					if (Dungeon.level.heroFOV[pos] || Dungeon.level.heroFOV[target.pos]) {
 						((MissileSprite) ShatteredPixelDungeon.scene().recycle(MissileSprite.class)).
-								reset(pos, finalTarget.sprite, new PoisonDart(), new Callback() {
+								reset(pos, finalTarget.sprite, new pd.items.equipment.weapon.missiles.arrows.Arrows(2, 7), new Callback() {
 									@Override
 									public void call() {
 										int dmg = Random.NormalIntRange(4, 8) - finalTarget.drRoll();

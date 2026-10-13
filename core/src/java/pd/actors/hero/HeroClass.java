@@ -194,7 +194,6 @@ import pd.items.equipment.weapon.missiles.ThrowingKnife;
 import pd.items.equipment.weapon.missiles.ThrowingSpike;
 import pd.items.equipment.weapon.missiles.ThrowingStone;
 import pd.items.equipment.weapon.missiles.arrows.BlindFruit;
-import pd.items.equipment.weapon.missiles.darts.PoisonDart;
 import pd.items.equipment.weapon.missiles.throwing.Boomerang;
 import pd.items.equipment.weapon.missiles.throwing.EmpBola;
 import pd.items.equipment.weapon.missiles.throwing.EscapeKnive;
@@ -1309,7 +1308,7 @@ public enum HeroClass {
 					l.equip(ItemSlot.MISC, () -> new EtherealChains(), 3,
 							(h, i) -> ((EtherealChains) i).activate(h));
 					l.backpack(() -> new EmpBola(10));
-					l.backpack(() -> new PoisonDart(), 0, 10, -1, null);
+					l.backpack(() -> new pd.items.equipment.weapon.missiles.arrows.Arrows(2, 7), 0, 10, -1, null);
 					l.backpack(() -> new BlindFruit(10));
 					l.backpack(() -> new Weightstone());
 					l.backpack(() -> new pd.items.Stylus());

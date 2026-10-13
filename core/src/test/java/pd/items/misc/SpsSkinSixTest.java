@@ -46,7 +46,6 @@ import pd.items.equipment.weapon.melee.start.BeastKnive;
 import pd.items.equipment.weapon.melee.start.EleKatana;
 import pd.items.equipment.weapon.missiles.ShootGun;
 import pd.items.equipment.weapon.missiles.arrows.BlindFruit;
-import pd.items.equipment.weapon.missiles.darts.PoisonDart;
 import pd.items.equipment.weapon.missiles.throwing.EmpBola;
 import pd.items.equipment.weapon.missiles.throwing.Skull;
 import pd.levels.Level;
@@ -127,7 +126,7 @@ public final class SpsSkinSixTest {
 				&& h.belongings.secondWep instanceof BeastKnive
 				&& h.belongings.artifact instanceof CloakOfShadows && h.belongings.misc instanceof EtherealChains
 				&& h.belongings.misc.level() == 3 && quantity(h, EmpBola.class) == 10
-				&& quantity(h, PoisonDart.class) == 10 && quantity(h, BlindFruit.class) == 10
+				&& quantity(h, pd.items.equipment.weapon.missiles.arrows.Arrows.class) == 10 && quantity(h, BlindFruit.class) == 10
 				&& has(h, Weightstone.class) && has(h, Stylus.class) && has(h, PotionOfHealing.class)
 				&& has(h, ScrollOfMagicMapping.class) && has(h, WandOfLightning.class), "皮肤6盗贼开局错误");
 

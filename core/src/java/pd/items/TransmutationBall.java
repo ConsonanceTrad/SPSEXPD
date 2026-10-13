@@ -21,8 +21,6 @@ import pd.items.equipment.trinkets.Trinket;
 import pd.items.equipment.wands.Wand;
 import pd.items.equipment.weapon.melee.MeleeWeapon;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
-import pd.items.equipment.weapon.missiles.darts.Dart;
-import pd.items.equipment.weapon.missiles.darts.TippedDart;
 import pd.messages.Messages;
 import pd.plants.Plant;
 import pd.scenes.GameScene;
@@ -72,7 +70,7 @@ public class TransmutationBall extends Item {
 		if (item == null || item.isEquipped(Dungeon.hero)) return false;
 		if (item instanceof StrBottle) return true;
 		if (item instanceof MeleeWeapon) return true;
-		if (item instanceof MissileWeapon) return item.getClass() != Dart.class;
+		if (item instanceof MissileWeapon) return true;
 		if (item instanceof Potion) return !(item instanceof Elixir || item instanceof Brew);
 		if (item instanceof Scroll) return true;
 		if (item instanceof Artifact) return !item.unique;
@@ -91,7 +89,7 @@ public class TransmutationBall extends Item {
 			Item result = changeItem(item);
 			if (result == null) return;
 			int slot = Dungeon.quickslot.getSlot(item);
-			if (item instanceof MissileWeapon && !(item instanceof TippedDart)) {
+			if (item instanceof MissileWeapon) {
 				item.detachAll(curUser.belongings.backpack);
 			} else {
 				item.detach(curUser.belongings.backpack);

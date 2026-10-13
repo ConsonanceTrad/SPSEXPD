@@ -11,7 +11,6 @@ import pd.items.Item;
 import pd.items.TransmutationBall;
 import pd.items.equipment.bags.Bag;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
-import pd.items.equipment.weapon.missiles.darts.TippedDart;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.windows.WndBag;
@@ -63,7 +62,7 @@ public class TransmuteCage extends Vegetable {
 			Item result = TransmutationBall.changeItem(item);
 			if (result == null) return;
 			int slot = Dungeon.quickslot.getSlot(item);
-			if (item instanceof MissileWeapon && !(item instanceof TippedDart)) {
+			if (item instanceof MissileWeapon) {
 				item.detachAll(curUser.belongings.backpack);
 			} else {
 				item.detach(curUser.belongings.backpack);

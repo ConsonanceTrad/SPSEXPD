@@ -37,7 +37,6 @@ import pd.items.consum.scrolls.Scroll;
 import pd.items.consum.scrolls.ScrollOfTransmutation;
 import pd.items.consum.scrolls.exotic.ExoticScroll;
 import pd.items.consum.stones.Runestone;
-import pd.items.equipment.weapon.missiles.darts.TippedDart;
 import pd.messages.Messages;
 import pd.plants.MiniSeed;
 import pd.plants.Plant;
@@ -71,8 +70,7 @@ public class Recycle extends InventorySpell {
 				item instanceof Scroll ||
 				//SPSEXPD: 迷你种子不能被回收成正常种子
 				(item instanceof Plant.Seed && !MiniSeed.isMini(item)) ||
-				item instanceof Runestone ||
-				item instanceof TippedDart;
+				item instanceof Runestone;
 	}
 
 	@Override
@@ -94,7 +92,8 @@ public class Recycle extends InventorySpell {
 			} else if (item instanceof Runestone) {
 				result = Generator.randomUsingDefaults(Generator.Category.STONE);
 			} else {
-				result = TippedDart.randomTipped(1);
+				//SPSEXPD: 涂药飞镖已随飞镖系统移除，此处只作兜底（正常流程不会到这里）
+				result = Generator.randomUsingDefaults(Generator.Category.POTION);
 			}
 		} while (result.getClass() == item.getClass() || Challenges.isItemBlocked(result));
 		

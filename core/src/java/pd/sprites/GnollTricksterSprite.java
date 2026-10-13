@@ -23,7 +23,6 @@ package pd.sprites;
 
 import pd.Assets;
 import pd.Dungeon;
-import pd.items.equipment.weapon.missiles.darts.ParalyticDart;
 import render.noosa.MovieClip;
 import render.noosa.TextureFilm;
 import render.utils.data.Callback;
@@ -63,7 +62,7 @@ public class GnollTricksterSprite extends MobSprite {
 		if (!Dungeon.level.adjacent(cell, ch.pos)) {
 
 			((MissileSprite)parent.recycle( MissileSprite.class )).
-					reset( this, cell, new ParalyticDart(), new Callback() {
+					reset( this, cell, new pd.items.equipment.weapon.missiles.arrows.Arrows(2, 7), new Callback() {
 						@Override
 						public void call() {
 							ch.onAttackComplete();

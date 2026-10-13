@@ -65,7 +65,6 @@ import pd.items.equipment.weapon.enchantments.Blazing;
 import pd.items.equipment.weapon.enchantments.Crystal;
 import pd.items.equipment.weapon.enchantments.Grim;
 import pd.items.equipment.weapon.enchantments.Shocking;
-import pd.items.equipment.weapon.missiles.darts.HolyDart;
 import pd.levels.traps.DisintegrationTrap;
 import pd.levels.traps.GrimTrap;
 import pd.sprites.ItemSprite;
@@ -104,7 +103,6 @@ public class AntiMagic extends Armor.Glyph {
 		RESISTS.add( ScrollOfRetribution.class );
 		RESISTS.add( ScrollOfPsionicBlast.class );
 		RESISTS.add( ScrollOfTeleportation.class );
-		RESISTS.add( HolyDart.class );
 
 		RESISTS.add( GuidingLight.class );
 		RESISTS.add( HolyWeapon.class );
