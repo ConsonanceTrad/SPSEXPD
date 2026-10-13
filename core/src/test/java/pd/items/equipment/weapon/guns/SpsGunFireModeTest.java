@@ -13,7 +13,7 @@ import render.utils.math.Random;
  */
 public final class SpsGunFireModeTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Random.pushGenerator(0x5350534746495245L);
 		try {
 			testArchetypes();
@@ -70,7 +70,7 @@ public final class SpsGunFireModeTest {
 	 * SPSEXPD: 装填要等装填时间结束才补满——装填期间弹匣为空（阻止提前射击），
 	 * 装填时间走完（Reloading 结束）后才由 finishReload() 补满。
 	 */
-	private static void testReloadWaitsForTime() {
+	private static void testReloadWaitsForTime() throws java.io.IOException {
 		Hero hero = new Hero();
 		pd.Dungeon.hero = hero;
 		GunA gun = new GunA();
@@ -102,6 +102,29 @@ public final class SpsGunFireModeTest {
 		reloading.finish();
 		check(gun2.charge() == gun2.fullCharge(), "装填 buff 结束时没有补满弹匣");
 		check(!gun2.isPendingReload(), "装填 buff 结束后仍处于等待装填状态");
+
+		//双持：装填 buff 结束时两把枪都要补满（buff 可能已被后一把枪复用、绑定被覆盖）
+		Hero hero3 = new Hero();
+		pd.Dungeon.hero = hero3;
+		GunA mainGun = new GunA();
+		GunB offGun = new GunB();
+		hero3.belongings.weapon = mainGun;
+		hero3.belongings.secondWep = offGun;
+		mainGun.charge(0); mainGun.pendingReload = true;
+		offGun.charge(0); offGun.pendingReload = true;
+		pd.actors.buffs.Reloading reloading2 = new pd.actors.buffs.Reloading();
+		reloading2.finish();
+		check(mainGun.charge() == mainGun.fullCharge() && offGun.charge() == offGun.fullCharge(),
+				"双持时装填结束没有补满两把枪");
+
+		//装填耗材不足的提示键必须都能在英文模板里取到（曾出现 TEXT NOT FOUND）
+		String en = new String(java.nio.file.Files.readAllBytes(java.nio.file.Paths.get(
+				"messages/items/en/items.properties")), java.nio.charset.StandardCharsets.UTF_8);
+		for (String key : new String[]{"guns.gunweapon.full", "guns.gunweapon.empty", "guns.gunweapon.reloading",
+				"guns.dewcannon.no_dew", "guns.bomblauncher.no_bomb", "melee.crossbow.no_twig"}) {
+			check(en.contains("items.equipment.weapon." + key + "="),
+					"装填提示键在英文模板里缺失：" + key);
+		}
 	}
 
 	/** 装填：一个通用弹匣装满任意容量。 */

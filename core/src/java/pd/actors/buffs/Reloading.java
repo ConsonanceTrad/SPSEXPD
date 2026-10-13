@@ -31,6 +31,14 @@ public class Reloading extends FlavourBuff {
 	/** SPSEXPD: 装填结束时补满弹匣（detach 时调用；单测可直接调用）。 */
 	public void finish() {
 		if (gun != null) gun.finishReload();
+		//SPSEXPD: 双持时本 buff 可能已被后一把枪复用（bind 被覆盖），这里兜底把所有装备中的枪都补满
+		if (Dungeon.hero == null || Dungeon.hero.belongings == null) return;
+		if (Dungeon.hero.belongings.weapon() instanceof GunWeapon) {
+			((GunWeapon) Dungeon.hero.belongings.weapon()).finishReload();
+		}
+		if (Dungeon.hero.belongings.secondWep() instanceof GunWeapon) {
+			((GunWeapon) Dungeon.hero.belongings.secondWep()).finishReload();
+		}
 	}
 
 	@Override

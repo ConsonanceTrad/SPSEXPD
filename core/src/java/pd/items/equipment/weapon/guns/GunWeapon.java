@@ -47,7 +47,7 @@ public class GunWeapon extends SpsRangedWeapon {
 			.t("empty", "你没有可以装填的通用弹匣。")
 			.t("prompt", "选择射击目标")
 			.t("prompt_aim", "选择射击方向")
-			.t("stats_1", "这把_%1$s_可以造成_%4$d~%5$d点伤害_。\n\n弹匣容量 _%2$d_ ，单次击发 _%3$d_ ，装填耗时 _%1$s_ 。")
+			.t("stats_1", "这把_%1$s_可以造成_%4$d~%5$d点伤害_。\n\n弹匣容量 _%2$d_ ，单次击发 _%3$d_ ，装填耗时 _%6$s_ 。")
 			.t("stats_2", "你需要_%1$d点力量_以完全抑制其后坐力。以当前力量而言，每次击发需要 _%2$s 回合_的缓冲时间。")
 			.t("stats_3", "这把枪在 _%2$d_ 格范围内必定命中目标；超出后每格命中率下降 _%4$d%%_，最低 _%5$d%%_。")
 			.t("charge", "载弹量：%1$d/%2$d");
@@ -274,8 +274,14 @@ public class GunWeapon extends SpsRangedWeapon {
 			GLog.n(Messages.get(GunWeapon.class, "full"));
 			return;
 		}
+		//SPSEXPD: 禁止并行装填——另一把枪还在装填时不再开始新的装填（双持时也不会互相吞掉补弹）
+		if (anotherGunReloading(hero)) {
+			GLog.i(Messages.get(GunWeapon.class, "reloading"));
+			return;
+		}
 		if (!consumeReload(hero)) {
-			GLog.n(Messages.get(GunWeapon.class, reloadHintKey()));
+			//SPSEXPD: 按具体枪的类查提示文本（no_bomb / no_dew / no_twig 等注册在子类的内联里）
+			GLog.n(Messages.get(this, reloadHintKey()));
 			return;
 		}
 		//SPSEXPD: 弹匣先空着——弹药已交出去装填，等装填时间走完（Reloading 结束）才补满，
@@ -333,6 +339,18 @@ public class GunWeapon extends SpsRangedWeapon {
 
 	/** SPSEXPD: 耗材不足时的提示文案键（子类覆写成自己的键）。 */
 	protected String reloadHintKey() { return "empty"; }
+
+	/** SPSEXPD: 是否还有「另一把」枪正在装填（双持时禁止并行装填）。 */
+	private boolean anotherGunReloading(Hero hero) {
+		if (hero == null || hero.belongings == null) return false;
+		return isOtherReloading(hero.belongings.weapon())
+				|| isOtherReloading(hero.belongings.secondWep())
+				|| isOtherReloading(hero.belongings.getItem(pd.items.misc.GunOfSoldier.class));
+	}
+
+	private boolean isOtherReloading(KindOfWeapon weapon) {
+		return weapon instanceof GunWeapon && weapon != this && ((GunWeapon) weapon).isPendingReload();
+	}
 
 	/** SPSEXPD: 子弹命中时的额外效果钩子（特殊枪械覆写，如露珠炮对亡灵加成、爆弹发射器引爆）。 */
 	protected void onBulletHit(Char attacker, Char defender, int damage) { }
@@ -457,7 +475,7 @@ public class GunWeapon extends SpsRangedWeapon {
 	public String info() {
 		return desc() + "\n\n"
 				+ Messages.get(GunWeapon.class, "stats_1",
-						archetype.displayName(), fullCharge, shotsPerFire, min(), max())
+						archetype.displayName(), fullCharge, shotsPerFire, min(), max(), num(baseReloadTime))
 				+ "\n\n"
 				+ Messages.get(GunWeapon.class, "stats_2", perfectSTR, num(shotBuffer(Dungeon.hero)))
 				+ "\n\n"
@@ -487,8 +505,6 @@ public class GunWeapon extends SpsRangedWeapon {
 			shot.preDelay = (i == 0) ? delay : 0f;
 			shot.cast(hero, cell);
 		}
-
-		GunFire.alertNearby(hero.pos, noiseRadius);
 	}
 
 	private final CellSelector.Listener targetShooter = new CellSelector.Listener() {

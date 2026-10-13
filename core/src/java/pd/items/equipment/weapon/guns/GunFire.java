@@ -83,14 +83,4 @@ public final class GunFire {
 		hero.shoot(enemy, shot);
 		return true;
 	}
-
-	/** 枪声：按半径唤醒并吸引范围内的敌人。 */
-	public static void alertNearby(int from, int radius) {
-		if (radius <= 0 || Dungeon.level == null) return;
-		for (Mob mob : Dungeon.level.mobs().toArray(new Mob[0])) {
-			if (mob != null && Dungeon.level.distance(from, mob.pos) <= radius) {
-				mob.beckon(from);
-			}
-		}
-	}
 }
