@@ -204,6 +204,8 @@ public class GunWeapon extends SpsRangedWeapon {
 		} else if (AC_RELOAD.equals(action)) {
 			curUser = hero;
 			if (!canReload(hero)) GLog.i(Messages.get(GunWeapon.class, "need_to_equip"));
+			//SPSEXPD: 装填中再次点击 → 原地等待至多 1 回合并播放动画（不再只提示）
+			else if (pendingReload) waitForReload(hero);
 			else reload(hero, false);
 		} else {
 			super.execute(hero, action);
