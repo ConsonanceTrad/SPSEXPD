@@ -1781,13 +1781,55 @@ public enum HeroClass {
 		Loadout base = baseStartingItems();
 		Loadout spec = startingItems(cls, skin);
 
-		java.util.ArrayList<Item> out = new java.util.ArrayList<>();
+		java.util.ArrayList<LoadoutItem> merged = new java.util.ArrayList<>();
 		for (LoadoutItem it : base.items) {
 			if (it.slot != ItemSlot.BACKPACK && hasSlot(spec, it.slot)) continue;
-			addPreview(out, it);
+			merged.add(it);
 		}
-		for (LoadoutItem it : spec.items) addPreview(out, it);
+		for (LoadoutItem it : spec.items) merged.add(it);
+
+		//SPSEXPD: 「装备套装」组内部顺序：武器 → 副武器 → 护甲 → 副护甲 → 戒指。
+		//只在装备类槽位之间做稳定排序，不移动背包条目。
+		java.util.ArrayList<Integer> equipIdx = new java.util.ArrayList<>();
+		java.util.ArrayList<LoadoutItem> equip = new java.util.ArrayList<>();
+		for (int i = 0; i < merged.size(); i++) {
+			if (isEquipSlot(merged.get(i).slot)) {
+				equipIdx.add(i);
+				equip.add(merged.get(i));
+			}
+		}
+		equip.sort(java.util.Comparator.comparingInt(a -> equipSlotOrder(a.slot)));
+		for (int i = 0; i < equipIdx.size(); i++) merged.set(equipIdx.get(i), equip.get(i));
+
+		java.util.ArrayList<Item> out = new java.util.ArrayList<>();
+		for (LoadoutItem it : merged) addPreview(out, it);
 		return out;
+	}
+
+	private static boolean isEquipSlot(ItemSlot slot) {
+		switch (slot) {
+			case WEAPON:
+			case SECOND_WEP:
+			case ARMOR:
+			case ACCESSORY4:
+			case ACCESSORY5:
+			case MISC:
+				return true;
+			default:
+				return false;
+		}
+	}
+
+	/** SPSEXPD: 装备类槽位在「装备套装」组内的排序权重：武器 → 副武器 → 护甲 → 副护甲 → 戒指。 */
+	private static int equipSlotOrder(ItemSlot slot) {
+		switch (slot) {
+			case WEAPON: return 0;
+			case SECOND_WEP: return 1;
+			case ARMOR: return 2;
+			case ACCESSORY4:
+			case ACCESSORY5: return 4;
+			default: return 3;   // 副护甲等预留槽位
+		}
 	}
 
 	private static boolean hasSlot(Loadout loadout, ItemSlot slot) {
