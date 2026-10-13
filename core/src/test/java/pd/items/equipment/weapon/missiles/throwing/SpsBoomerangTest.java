@@ -56,7 +56,8 @@ public final class SpsBoomerangTest {
 	//改由 MissileShield 式的 ReturnShot 实现，无头环境无法驱动弹回动画，这里只校验充能状态。
 	private static void testChargeState() {
 		Boomerang boomerang = new Boomerang();
-		check(boomerang.charge() == 0, "回旋镖初始充能不为 0");
+		//SPSEXPD: 新获得的回旋镖默认满充能
+		check(boomerang.charge() == Boomerang.FULL_CHARGE, "回旋镖初始充能不为满");
 		for (int i = 0; i < Boomerang.FULL_CHARGE + 5; i++) boomerang.gainCharge();
 		check(boomerang.charge() == Boomerang.FULL_CHARGE, "回旋镖充能没有封顶");
 

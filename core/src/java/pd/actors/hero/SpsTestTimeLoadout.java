@@ -78,6 +78,7 @@ import pd.items.equipment.weapon.guns.BorderWolf;
 import pd.items.equipment.weapon.guns.DewCannon;
 import pd.items.equipment.weapon.guns.BombLauncher;
 import pd.items.equipment.weapon.guns.ToyGun;
+import pd.items.equipment.weapon.missiles.throwing.Boomerang;
 import pd.items.misc.GunOfSoldier;
 import pd.items.consum.food.*;
 import pd.plants.*;
@@ -141,6 +142,9 @@ public final class SpsTestTimeLoadout {
 		collect(hero, identified(new BombLauncher()));
 		collect(hero, identified(new ToyGun()));
 		collect(hero, identified(new GunOfSoldier()));
+		//SPSEXPD: 两个回旋镖——用于测试多回旋镖同时使用时是否互相干扰
+		collect(hero, identified(new Boomerang()));
+		collect(hero, identified(new Boomerang()));
 		collect(hero, new EasterEgg());
 		collect(hero, new AflyEgg());
 		collect(hero, new GoldDragonEgg());
