@@ -24,7 +24,6 @@ import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.CharSprite;
 import pd.utils.GLog;
 import render.noosa.Game;
 import render.utils.math.Random;
@@ -42,7 +41,7 @@ public class GunWeapon extends SpsRangedWeapon {
 			.t("ac_shoot", "射击目标")
 			.t("ac_aim", "定向射击")
 			.t("ac_reload", "装填")
-			.t("reloading", "装填中……")
+			.t("reloading", "正在装填中……")
 			.t("need_to_equip", "你需要先装备这件武器才能射击。")
 			.t("full", "弹匣已满。")
 			.t("empty", "你没有可以装填的通用弹匣。")
@@ -197,6 +196,9 @@ public class GunWeapon extends SpsRangedWeapon {
 			curUser = hero;
 			if (!canShoot(hero)) {
 				GLog.i(Messages.get(GunWeapon.class, "need_to_equip"));
+			} else if (pendingReload) {
+				//SPSEXPD: 正在装填中——日志提示，不再重复装填
+				GLog.i(Messages.get(GunWeapon.class, "reloading"));
 			} else if (charge <= 0) {
 				reload(hero, true);
 			} else {
@@ -206,6 +208,9 @@ public class GunWeapon extends SpsRangedWeapon {
 			curUser = hero;
 			if (!canShoot(hero)) {
 				GLog.i(Messages.get(GunWeapon.class, "need_to_equip"));
+			} else if (pendingReload) {
+				//SPSEXPD: 正在装填中——日志提示，不再重复装填
+				GLog.i(Messages.get(GunWeapon.class, "reloading"));
 			} else if (charge <= 0) {
 				reload(hero, true);
 			} else {
@@ -237,11 +242,23 @@ public class GunWeapon extends SpsRangedWeapon {
 
 		GunWeapon gun = readyGun(hero, hero.belongings.weapon());
 		if (gun == null) gun = readyGun(hero, hero.belongings.secondWep());
-		if (gun == null) return false;
+		if (gun == null) {
+			//SPSEXPD: 手里的枪正在装填 → 日志提示并接管本次点击（不回落成徒手攻击）
+			if (pendingReload(hero.belongings.weapon()) || pendingReload(hero.belongings.secondWep())) {
+				GLog.i(Messages.get(GunWeapon.class, "reloading"));
+				return true;
+			}
+			return false;
+		}
 
 		curUser = hero;
 		gun.fire(hero, enemy.pos);
 		return true;
+	}
+
+	/** SPSEXPD: 该武器是否是「正在装填中」的枪械。 */
+	private static boolean pendingReload(KindOfWeapon weapon) {
+		return weapon instanceof GunWeapon && ((GunWeapon) weapon).isPendingReload();
 	}
 
 	private static GunWeapon readyGun(Hero hero, KindOfWeapon weapon) {
@@ -267,9 +284,12 @@ public class GunWeapon extends SpsRangedWeapon {
 		pendingReload = true;
 		updateQuickslot();
 		float time = reloadTime(hero, automatic);
-		if (hero.sprite != null) hero.sprite.showStatus(CharSprite.DEFAULT, Messages.get(GunWeapon.class, "reloading"));
-		//SPSEXPD: 装填状态 buff（提高装填的可视度，并在结束时用它判断装填是否还进行中）
-		pd.actors.buffs.Buff.affect(hero, pd.actors.buffs.Reloading.class, Math.max(1f, time));
+		//SPSEXPD: 装填提示走信息日志（不用悬浮文字）
+		GLog.i(Messages.get(GunWeapon.class, "reloading"));
+		//SPSEXPD: 装填状态 buff——它结束时（装填时间走完）负责把弹匣补满
+		pd.actors.buffs.Reloading reloading =
+				pd.actors.buffs.Buff.affect(hero, pd.actors.buffs.Reloading.class, Math.max(1f, time));
+		if (reloading != null) reloading.bind(this);
 		hero.spendAndNext(Math.max(0.1f, time));
 	}
 

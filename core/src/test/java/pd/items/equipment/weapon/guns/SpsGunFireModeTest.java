@@ -92,6 +92,16 @@ public final class SpsGunFireModeTest {
 		gun.charge(1);
 		gun.finishReload();
 		check(gun.charge() == 1, "未在装填时 finishReload 意外改动了弹匣");
+
+		//真实路径：装填 buff 结束时（装填时间走完）由 buff 负责补满
+		GunA gun2 = new GunA();
+		gun2.charge(0);
+		gun2.pendingReload = true;
+		pd.actors.buffs.Reloading reloading = new pd.actors.buffs.Reloading();
+		reloading.bind(gun2);
+		reloading.finish();
+		check(gun2.charge() == gun2.fullCharge(), "装填 buff 结束时没有补满弹匣");
+		check(!gun2.isPendingReload(), "装填 buff 结束后仍处于等待装填状态");
 	}
 
 	/** 装填：一个通用弹匣装满任意容量。 */
