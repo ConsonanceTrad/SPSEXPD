@@ -160,7 +160,6 @@ import pd.items.consum.scrolls.ScrollOfRemoveCurse;
 import pd.items.consum.scrolls.ScrollOfTerror;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.items.skills.ClassSkill;
-import pd.items.summon.ActiveMrDestructo;
 import pd.items.equipment.wands.CannonOfMage;
 import pd.items.equipment.wands.WandOfDisintegration;
 import pd.items.equipment.wands.WandOfFirebolt;
@@ -1712,7 +1711,6 @@ public enum HeroClass {
 					l.equip(ItemSlot.ARTIFACT, () -> new pd.items.equipment.artifacts.ScrollEarring(), 0,
 							(h, i) -> ((pd.items.equipment.artifacts.ScrollEarring) i).activate(h));
 					l.backpack(() -> new BigBattery(), 0, 1, 0, null);
-					l.backpack(() -> new ActiveMrDestructo());
 					l.backpack(() -> new FruitCandy(3));
 					break;
 			}
@@ -1832,6 +1830,10 @@ public enum HeroClass {
 		if (item instanceof pd.items.equipment.wands.Wand) return ItemGroup.WAND;
 		if (item instanceof pd.items.equipment.bombs.Bomb) return ItemGroup.BOMB;
 		if (item instanceof pd.items.equipment.weapon.missiles.MissileWeapon) return ItemGroup.MISSILE;
+		//SPSEXPD: 神器、灵能弓、回旋镖、经卷耳环视为「特殊装备」（排在装备套装判定之前）
+		if (item instanceof pd.items.equipment.artifacts.Artifact) return ItemGroup.SPECIAL;
+		if (item instanceof pd.items.equipment.weapon.SpiritBow) return ItemGroup.SPECIAL;
+		if (item instanceof pd.items.equipment.weapon.missiles.throwing.Boomerang) return ItemGroup.SPECIAL;
 		if (item instanceof pd.items.KindOfWeapon
 				|| item instanceof pd.items.equipment.armor.Armor
 				|| item instanceof pd.items.KindofMisc) return ItemGroup.EQUIP;
