@@ -42,7 +42,6 @@ import pd.items.equipment.wands.WandOfFirebolt;
 import pd.items.equipment.weapon.Weapon;
 import pd.items.equipment.weapon.enchantments.Blazing;
 import pd.items.equipment.weapon.melee.normalweapon.Dagger;
-import pd.items.equipment.weapon.melee.normalweapon.Knuckles;
 import pd.items.equipment.weapon.melee.normalweapon.MageBook;
 import pd.items.equipment.weapon.melee.normalweapon.ShortSword;
 import pd.items.equipment.weapon.melee.normalweapon.WoodenStaff;
@@ -123,8 +122,11 @@ public final class SpsSkinSevenTest {
 		h = start(HeroClass.MAGE);
 		check(h.belongings.weapon instanceof MageBook, "皮肤7法师没有保持普通开局");
 		h = start(HeroClass.HUNTRESS);
-		check(h.belongings.weapon instanceof Knuckles && h.belongings.armor instanceof ClothArmor,
-				"皮肤7女猎手没有保持普通开局：武器=" + h.belongings.weapon.getClass().getName()
+		//SPSEXPD: 女猎手经典开局改为主手回旋镖、副手灵能弓
+		check(h.belongings.weapon instanceof pd.items.equipment.weapon.missiles.throwing.Boomerang
+				&& h.belongings.secondWep instanceof pd.items.equipment.weapon.SpiritBow
+				&& h.belongings.armor instanceof ClothArmor,
+				"皮肤7女猎手没有保持普通开局：主手=" + h.belongings.weapon.getClass().getName()
 						+ "，护甲=" + h.belongings.armor.getClass().getName());
 		h = start(HeroClass.FOLLOWER);
 		check(h.belongings.weapon instanceof WoodenStaff && h.belongings.armor instanceof ClothArmor,
