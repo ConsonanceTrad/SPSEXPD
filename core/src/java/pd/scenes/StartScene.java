@@ -32,18 +32,22 @@ import pd.messages.Messages;
 import pd.sprites.HeroSprite;
 import pd.ui.Button;
 import pd.ui.ExitButton;
+import pd.ui.IconButton;
 import pd.ui.Icons;
 import pd.ui.RenderedTextBlock;
+import pd.ui.ScrollPane;
 import pd.ui.StyledButton;
 import pd.ui.TitleBackground;
 import pd.ui.Window;
 import pd.windows.IconTitle;
 import pd.windows.WndGameInProgress;
+import pd.windows.WndTextInput;
 import render.noosa.BitmapText;
 import render.noosa.Camera;
 import render.noosa.Game;
 import render.noosa.Image;
 import render.noosa.NinePatch;
+import render.noosa.ui.Component;
 import render.utils.geom.RectF;
 
 import java.util.ArrayList;
@@ -61,7 +65,11 @@ public class StartScene extends PixelScene {
 			.t("months_ago", "存档于%d月前")
 			.t("new", "新游戏")
 			.t("sort_level", "排序：按等级")
-			.t("sort_recent", "排序：按时间");
+			.t("sort_recent", "排序：按时间")
+			.t("rename_title", "为这个角色命名")
+			.t("rename_desc", "给这名冒险者起一个名字，会显示在存档列表、角色详情与排行榜上。_留空表示清除，仍使用职业名。_")
+			.t("rename_ok", "确定")
+			.t("rename_clear", "清除");
 	}
 
 
@@ -103,40 +111,38 @@ public class StartScene extends PixelScene {
 		add(title);
 		
 		ArrayList<GamesInProgress.Info> games = GamesInProgress.checkAll();
-		
-		int slotCount = Math.min(GamesInProgress.MAX_SLOTS, games.size()+1);
-		int slotGap = 10 - slotCount;
-		int slotsHeight = slotCount*SLOT_HEIGHT + (slotCount-1)* slotGap;
-		slotsHeight += 14;
 
-		while (slotGap >= 2 && slotsHeight > (h-title.bottom()-2)){
-			slotGap--;
-			slotsHeight -= slotCount-1;
-		}
-		
-		float yPos = insets.top + (h - slotsHeight + title.bottom() + 2)/2f - 4;
-		yPos = Math.max(yPos, title.bottom()+2);
 		float slotLeft = insets.left + (w - SLOT_WIDTH) / 2f;
-		
+
+		//SPSEXPD: 「新游戏」按钮固定在存档列表上方，不随列表滚动
+		SaveSlotButton newGame = new SaveSlotButton();
+		newGame.set( GamesInProgress.firstEmpty() );
+		newGame.setRect(slotLeft, title.bottom() + 4, SLOT_WIDTH, SLOT_HEIGHT);
+		align(newGame);
+		add(newGame);
+
+		//SPSEXPD: 已有存档放进可滚动列表（存档位无上限）
+		float listTop = newGame.bottom() + 4;
+		float listBottom = Math.max(listTop + SLOT_HEIGHT, Camera.main.height - insets.bottom - 16);
+
+		Component content = new Component();
+		ScrollPane list = new ScrollPane(content);
+		//SPSEXPD: 必须先挂到场景再布局 —— ScrollPane/按钮的 layout 依赖 camera()，
+		//未 add 时 parent 为 null，camera() 返回 null 会 NPE
+		add(list);
+		list.setRect(insets.left, listTop, w, listBottom - listTop);
+
+		float yPos = 0;
 		for (GamesInProgress.Info game : games) {
 			SaveSlotButton existingGame = new SaveSlotButton();
 			existingGame.set(game.slot);
-			existingGame.setRect(slotLeft, yPos, SLOT_WIDTH, SLOT_HEIGHT);
-			yPos += SLOT_HEIGHT + slotGap;
-			align(existingGame);
-			add(existingGame);
-			
+			content.add(existingGame);
+			existingGame.setRect((w - SLOT_WIDTH) / 2f, yPos, SLOT_WIDTH, SLOT_HEIGHT);
+			yPos += SLOT_HEIGHT + 4;
 		}
-		
-		if (games.size() < GamesInProgress.MAX_SLOTS){
-			SaveSlotButton newGame = new SaveSlotButton();
-			newGame.set(GamesInProgress.firstEmpty());
-			newGame.setRect(slotLeft, yPos, SLOT_WIDTH, SLOT_HEIGHT);
-			yPos += SLOT_HEIGHT + slotGap;
-			align(newGame);
-			add(newGame);
-		}
-		
+		content.setSize(w, Math.max(1, yPos));
+		list.scrollTo(0, 0);
+
 		GamesInProgress.curSlot = 0;
 
 		String sortText = "";
@@ -164,12 +170,7 @@ public class StartScene extends PixelScene {
 			}
 		};
 		btnSort.textColor(0xCCCCCC);
-
-		if (yPos + 10 > Camera.main.height) {
-			btnSort.setRect(slotLeft - btnSort.reqWidth() - 6, Camera.main.height - 14, btnSort.reqWidth() + 4, 12);
-		} else {
-			btnSort.setRect(slotLeft, yPos, btnSort.reqWidth() + 4, 12);
-		}
+		btnSort.setRect(slotLeft - btnSort.reqWidth() - 6, Camera.main.height - insets.bottom - 14, btnSort.reqWidth() + 4, 12);
 		if (games.size() >= 2) add(btnSort);
 
 		fadeIn();
@@ -194,6 +195,8 @@ public class StartScene extends PixelScene {
 		private Image classIcon;
 		private BitmapText level;
 		
+		private IconButton nameBtn;
+		
 		private int slot;
 		private boolean newGame;
 		
@@ -209,6 +212,44 @@ public class StartScene extends PixelScene {
 
 			lastPlayed = PixelScene.renderTextBlock(6);
 			add(lastPlayed);
+
+			//SPSEXPD: 名称行右侧的书本按钮 —— 为该存档改名
+			nameBtn = new IconButton( Icons.get(Icons.JOURNAL) ){
+				@Override
+				protected void onClick(){
+					super.onClick();
+					//SPSEXPD: 清掉 IconButton 的按压高亮残留
+					icon().resetColor();
+					rename( slot );
+				}
+
+				@Override
+				protected String hoverText(){
+					return Messages.get(StartScene.class, "rename_title");
+				}
+			};
+			nameBtn.setSize(12, 12);
+			add(nameBtn);
+		}
+		
+		//SPSEXPD: 打开改名输入框，写入存档并刷新本槽显示
+		private void rename( int slot ){
+			if (newGame) return;
+			GamesInProgress.Info info = GamesInProgress.check(slot);
+			String current = (info != null && info.heroName != null) ? info.heroName : "";
+			ShatteredPixelDungeon.scene().addToFront(new WndTextInput(
+					Messages.get(StartScene.class, "rename_title"),
+					Messages.get(StartScene.class, "rename_desc"),
+					current, 12, false,
+					Messages.get(StartScene.class, "rename_ok"),
+					Messages.get(StartScene.class, "rename_clear")){
+				@Override
+				public void onSelect(boolean positive, String text){
+					String name = (positive && text != null) ? text.trim() : "";
+					GamesInProgress.setHeroName( slot, name );
+					set( slot );
+				}
+			});
 		}
 		
 		public void set( int slot ){
@@ -217,6 +258,7 @@ public class StartScene extends PixelScene {
 			newGame = info == null;
 			if (newGame){
 				name.text( Messages.get(StartScene.class, "new"));
+				nameBtn.visible = nameBtn.active = false;
 				
 				if (hero != null){
 					remove(hero);
@@ -231,11 +273,16 @@ public class StartScene extends PixelScene {
 					level = null;
 				}
 			} else {
+				nameBtn.visible = nameBtn.active = true;
 				
-				if (info.subClass != HeroSubClass.NONE){
-					name.text(Messages.titleCase(info.subClass.title()));
+				String className = info.subClass != HeroSubClass.NONE
+						? Messages.titleCase(info.subClass.title())
+						: Messages.titleCase(info.heroClass.title());
+				//SPSEXPD: 有自定义角色名时显示「职业·名字」
+				if (info.heroName != null && !info.heroName.isEmpty()){
+					name.text(className + "·" + info.heroName);
 				} else {
-					name.text(Messages.titleCase(info.heroClass.title()));
+					name.text(className);
 				}
 				
 				if (hero == null){
@@ -318,11 +365,18 @@ public class StartScene extends PixelScene {
 				hero.y = y + (height - hero.height())/2f;
 				align(hero);
 				
+				//SPSEXPD: 名称行右侧留出书本改名按钮的位置，名字过长自动收窄
+				float stepsX = x + width - 40 + (16 - steps.width())/2f;
+				float nameX = hero.x + hero.width() + 6;
+				name.maxWidth( (int)Math.max(12, stepsX - 4 - nameX - 14) );
 				name.setPos(
-						hero.x + hero.width() + 6,
+						nameX,
 						y + (height - name.height() - lastPlayed.height() - 2)/2f
 				);
 				align(name);
+
+				nameBtn.setPos( name.right() + 2, y + (height - nameBtn.height())/2f );
+				align(nameBtn);
 
 				lastPlayed.setPos(
 						hero.x + hero.width() + 6,

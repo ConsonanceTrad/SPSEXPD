@@ -107,7 +107,11 @@ public class HeroSelectScene extends PixelScene {
 			.t("randomize_chals", "随机挑战")
 			.t("randomize_chals_title", "挑战个数")
 			.t("randomize_confirm", "确定")
-			.t("randomize_cancel", "取消");
+			.t("randomize_cancel", "取消")
+			.t("name_title", "为这名冒险者命名")
+			.t("name_desc", "给即将开始的角色起一个名字，会显示在存档列表、角色详情与排行榜上。_留空则开局随机分配一个名字。_")
+			.t("name_ok", "确定")
+			.t("name_clear", "清除");
 	}
 
 
@@ -136,6 +140,8 @@ public class HeroSelectScene extends PixelScene {
 	private boolean themeChosen = false;
 	private GameOptions optionsPane;
 	private IconButton btnExit;
+	//SPSEXPD: 「开始」右侧的书本按钮 —— 指定新角色的名字
+	private IconButton nameBtn;
 
 	//SPSEXPD: 信息按钮组 —— 名字下方一排图标按钮，直达英雄信息窗 WndHeroInfo 的对应页
 	//（取代原先名字右侧单一的 INFO 按钮与名字下方的初始特质行）
@@ -214,6 +220,26 @@ public class HeroSelectScene extends PixelScene {
 		themeBtn.textColor(Window.TITLE_COLOR);
 		add(themeBtn);
 		themeBtn.visible = themeBtn.active = false;
+
+		//SPSEXPD: 「开始」右侧的书本按钮 —— 为即将创建的角色指定名字
+		nameBtn = new IconButton( Icons.get(Icons.JOURNAL) ){
+			@Override
+			protected void onClick() {
+				super.onClick();
+				//SPSEXPD: 清掉 IconButton 的按压高亮残留
+				icon().resetColor();
+				if (GamesInProgress.selectedClass == null) return;
+				chooseName();
+			}
+
+			@Override
+			protected String hoverText() {
+				return Messages.get(HeroSelectScene.class, "name_title");
+			}
+		};
+		nameBtn.setSize(21, 21);
+		add(nameBtn);
+		nameBtn.visible = nameBtn.active = false;
 
 		for (HeroClass cl : HeroClass.playableClasses()){
 			HeroBtn button = new HeroBtn(cl);
@@ -299,6 +325,7 @@ public class HeroSelectScene extends PixelScene {
 
 		startBtn.visible = startBtn.active = true;
 		themeBtn.visible = themeBtn.active = true;
+		nameBtn.visible = nameBtn.active = true;
 
 		//SPSEXPD: 信息按钮组随职业重建（图标含职业专属武器，如「初始物品」页）
 		rebuildInfoButtons(cl);
@@ -366,15 +393,16 @@ public class HeroSelectScene extends PixelScene {
 				: Messages.titleCase(Messages.get(this, "theme_title")));
 		themeBtn.setSize(themeBtn.reqWidth() + 8, 21);
 
-		//SPSEXPD: 两个按钮并排居中，间距 4；可用宽度不足时按比例压缩（下限各 40）
+		//SPSEXPD: 「主题选择」「开始」「命名」并排居中，间距 4；可用宽度不足时按比例压缩（下限各 40）
 		float btnGap = 4;
-		float btnTotal = themeBtn.width() + btnGap + startBtn.width();
+		float nameBtnW = 21;
+		float btnTotal = themeBtn.width() + btnGap + startBtn.width() + btnGap + nameBtnW;
 		if (btnTotal > w - 4){
-			float avail = Math.max(80, w - 4 - btnGap);
+			float avail = Math.max(80, w - 4 - 2*btnGap - nameBtnW);
 			float shrink = avail / (themeBtn.width() + startBtn.width());
 			themeBtn.setSize(Math.max(40, themeBtn.width() * shrink), 21);
 			startBtn.setSize(Math.max(40, startBtn.width() * shrink), 21);
-			btnTotal = themeBtn.width() + btnGap + startBtn.width();
+			btnTotal = themeBtn.width() + btnGap + startBtn.width() + btnGap + nameBtnW;
 		}
 
 		float btnRowY = Camera.main.height - insets.bottom - 4 - startBtn.height();
@@ -383,6 +411,9 @@ public class HeroSelectScene extends PixelScene {
 		align(themeBtn);
 		startBtn.setPos(btnRowX + themeBtn.width() + btnGap, btnRowY);
 		align(startBtn);
+		nameBtn.setSize(nameBtnW, 21);
+		nameBtn.setPos(startBtn.right() + btnGap, btnRowY);
+		align(nameBtn);
 
 		optionsPane.setPos(left + (w - optionsPane.width())/2f, startBtn.top() - 4 - optionsPane.height());
 		align(optionsPane);
@@ -535,6 +566,26 @@ public class HeroSelectScene extends PixelScene {
 			@Override
 			protected Image getIcon(int index) {
 				return HeroSprite.skinPreview(cl, index);
+			}
+		});
+	}
+
+	//SPSEXPD: 「命名」—— 为即将创建的角色指定名字（留空则开局随机分配）
+	private void chooseName() {
+		String current = GamesInProgress.pendingHeroName != null ? GamesInProgress.pendingHeroName : "";
+		ShatteredPixelDungeon.scene().addToFront(new WndTextInput(
+				Messages.get(HeroSelectScene.class, "name_title"),
+				Messages.get(HeroSelectScene.class, "name_desc"),
+				current, 12, false,
+				Messages.get(HeroSelectScene.class, "name_ok"),
+				Messages.get(HeroSelectScene.class, "name_clear")){
+			@Override
+			public void onSelect(boolean positive, String text) {
+				if (positive && text != null && !text.trim().isEmpty()){
+					GamesInProgress.pendingHeroName = text.trim();
+				} else {
+					GamesInProgress.pendingHeroName = null;
+				}
 			}
 		});
 	}

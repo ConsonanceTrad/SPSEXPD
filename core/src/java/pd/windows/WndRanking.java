@@ -202,6 +202,11 @@ public class WndRanking extends WndTabbed {
 			String heroClass = record.heroClass.name();
 			if (Dungeon.hero != null){
 				heroClass = Dungeon.hero.className();
+				//SPSEXPD: 附上自定义角色名
+				String hn = Dungeon.hero.heroName();
+				if (hn != null && !hn.isEmpty()){
+					heroClass = heroClass + "·" + hn;
+				}
 			}
 			
 			IconTitle title = new IconTitle();

@@ -84,6 +84,10 @@ public class WndGameInProgress extends Window {
 		} else {
 			className = info.heroClass.title();
 		}
+		//SPSEXPD: 附上自定义角色名
+		if (info.heroName != null && !info.heroName.isEmpty()){
+			className = className + "·" + info.heroName;
+		}
 		
 		IconTitle title = new IconTitle();
 		title.icon( HeroSprite.avatar(info.heroClass, info.armorTier, info.skin) );

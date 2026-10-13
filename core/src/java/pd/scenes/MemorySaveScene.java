@@ -75,7 +75,8 @@ public class MemorySaveScene extends PixelScene {
 			button.setRect((width - SLOT_WIDTH) / 2f, y, SLOT_WIDTH, SLOT_HEIGHT);
 			y += SLOT_HEIGHT + 4;
 		}
-		if (games.size() < GamesInProgress.MAX_SLOTS) {
+		//SPSEXPD: 存档位无上限，总是允许再创建一个
+		{
 			int slot = GamesInProgress.firstEmpty();
 			MemorySlotButton button = new MemorySlotButton(slot, Messages.get(this, "new", slot));
 			content.add(button);

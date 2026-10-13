@@ -22,6 +22,7 @@
 package pd;
 
 import pd.actors.hero.CombatStyle;
+import pd.actors.hero.Hero;
 import pd.actors.hero.HeroClass;
 import pd.actors.hero.HeroSubClass;
 import pd.messages.Messages;
@@ -37,9 +38,16 @@ import java.util.Locale;
 
 public class GamesInProgress {
 	
-	// Hidden compatibility/tutorial classes must not create ordinary save slots.
+	//SPSEXPD: 存档位不再设上限（usedSlots()/firstEmpty() 按需扩容，列表滚动显示）。
+	//保留该常量作兼容基数，不再用于枚举槽位。
 	public static final int MAX_SLOTS = HeroClass.playableClasses().length;
-	
+
+	//SPSEXPD: 与 Dungeon.HERO 一致的存档子 bundle 键
+	private static final String HERO_KEY = "hero";
+
+	//SPSEXPD: 选角界面指定、待新建英雄采用的自定义名（null = 未指定，交由 HeroNames 随机分配）
+	public static String pendingHeroName = null;
+
 	//null means we have loaded info and it is empty, no entry means unknown.
 	private static HashMap<Integer, Info> slotStates = new HashMap<>();
 	public static int curSlot;
@@ -76,15 +84,33 @@ public class GamesInProgress {
 	}
 	
 	public static int firstEmpty(){
-		for (int i = 1; i <= MAX_SLOTS; i++){
+		//SPSEXPD: 无上限 —— 从 1 起返回第一个空槽
+		for (int i = 1; ; i++){
 			if (check(i) == null) return i;
 		}
-		return -1;
+	}
+	
+	/** SPSEXPD: 已存在的存档槽位（扫描根目录 gameN + 已知缓存），升序。 */
+	public static ArrayList<Integer> usedSlots(){
+		java.util.TreeSet<Integer> slots = new java.util.TreeSet<>();
+		for (String name : FileUtils.filesInDir("")){
+			if (name != null && name.matches("game\\d+")){
+				try {
+					slots.add( Integer.parseInt( name.substring(4) ) );
+				} catch (NumberFormatException e){
+					// ignore malformed folder
+				}
+			}
+		}
+		for (Integer slot : slotStates.keySet()){
+			if (slot != null && slot >= 1 && slotStates.get(slot) != null) slots.add(slot);
+		}
+		return new ArrayList<>(slots);
 	}
 	
 	public static ArrayList<Info> checkAll(){
 		ArrayList<Info> result = new ArrayList<>();
-		for (int i = 1; i <= MAX_SLOTS; i++){
+		for (int i : usedSlots()){
 			Info curr = check(i);
 			if (curr != null) result.add(curr);
 		}
@@ -183,9 +209,30 @@ public class GamesInProgress {
 	public static void delete( int slot ) {
 		slotStates.put( slot, null );
 	}
+
+	//SPSEXPD: 改写指定存档的自定义角色名（name 为 null/空 = 清除）
+	public static void setHeroName( int slot, String name ) {
+		if (!gameExists( slot )) return;
+		try {
+			Bundle bundle = FileUtils.bundleFromFile( gameFile( slot ) );
+			if (!bundle.contains( HERO_KEY )) return;
+			Bundle heroBundle = bundle.getBundle( HERO_KEY );
+			heroBundle.put( Hero.HERO_NAME, name == null ? "" : name );
+			bundle.put( HERO_KEY, heroBundle );
+			FileUtils.bundleToFile( gameFile( slot ), bundle );
+
+			Info info = check( slot );
+			if (info != null) info.heroName = (name == null || name.isEmpty()) ? null : name;
+		} catch (IOException e) {
+			ShatteredPixelDungeon.reportException( e );
+		}
+	}
 	
 	public static class Info {
 		public int slot;
+
+		//SPSEXPD: 玩家自定义角色名（可能为 null）
+		public String heroName;
 
 		public int depth;
 		public int version;

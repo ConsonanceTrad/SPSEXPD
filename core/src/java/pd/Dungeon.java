@@ -427,6 +427,14 @@ public class Dungeon {
 		Badges.reset();
 		
 		GamesInProgress.selectedClass.initHero( hero );
+
+		//SPSEXPD: 新角色命名 —— 选角界面指定优先，否则随机分配
+		if (GamesInProgress.pendingHeroName != null && !GamesInProgress.pendingHeroName.isEmpty()){
+			hero.setHeroName( GamesInProgress.pendingHeroName );
+		} else {
+			hero.setHeroName( pd.actors.hero.HeroNames.random() );
+		}
+		GamesInProgress.pendingHeroName = null;
 	}
 
 	public static boolean isChallenged( int mask ) {
@@ -1013,7 +1021,7 @@ public class Dungeon {
 
 	/** Copies the active run into an empty slot, as used by the SPS memory fire. */
 	public static void saveNewSlot(int targetSlot) throws IOException {
-		if (targetSlot < 1 || targetSlot > GamesInProgress.MAX_SLOTS
+		if (targetSlot < 1
 				|| targetSlot == GamesInProgress.curSlot || GamesInProgress.gameExists(targetSlot)) {
 			throw new IOException("invalid memory save slot: " + targetSlot);
 		}
@@ -1024,8 +1032,7 @@ public class Dungeon {
 
 	/** Copies an already-saved run. Public for isolated persistence verification. */
 	public static void copySaveSlotFiles(int sourceSlot, int targetSlot) throws IOException {
-		if (sourceSlot < 1 || sourceSlot > GamesInProgress.MAX_SLOTS
-				|| targetSlot < 1 || targetSlot > GamesInProgress.MAX_SLOTS
+		if (sourceSlot < 1 || targetSlot < 1
 				|| sourceSlot == targetSlot || !GamesInProgress.gameExists(sourceSlot)
 				|| GamesInProgress.gameExists(targetSlot)) {
 			throw new IOException("invalid memory save copy: " + sourceSlot + " -> " + targetSlot);

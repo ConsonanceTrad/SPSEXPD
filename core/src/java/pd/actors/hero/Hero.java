@@ -369,6 +369,8 @@ public class Hero extends Char {
 	public static final String PERK_GAINED    = "sps_perk_gained";
 	public static final String CRITICAL_CHANCE= "sps_critical_chance";
 	public static final String REGEN_BONUS    = "sps_regen_bonus";
+	//SPSEXPD: 玩家自定义的角色名（随存档；空表示未命名，显示时回退职业名）
+	public static final String HERO_NAME      = "sps_hero_name";
 	
 	private int attackSkill = 10;
 	private int defenseSkill = 5;
@@ -396,6 +398,8 @@ public class Hero extends Char {
 	public int petExperience = 0;
 	/** Legacy SPS resource used by several skin-specific weapons. */
 	public int spp = 0;
+	//SPSEXPD: 玩家自定义的角色名（null/空 = 未命名）
+	private String heroName = null;
 	
 	public int HTBoost = 0;
 	public static final int STARTING_HT = 30;
@@ -528,6 +532,8 @@ public class Hero extends Char {
 		bundle.put( CLASS, heroClass );
 		bundle.put( SUBCLASS, subClass );
 		bundle.put( SKIN, skin );
+		//SPSEXPD: 自定义角色名随存档
+		bundle.put( HERO_NAME, heroName == null ? "" : heroName );
 		bundle.put( STYLE, combatStyle );
 		bundle.put( ABILITY, armorAbility );
 		Talent.storeTalentsInBundle( bundle, this );
@@ -565,6 +571,8 @@ public class Hero extends Char {
 
 		lvl = bundle.getInt( LEVEL );
 		exp = bundle.getInt( EXPERIENCE );
+		//SPSEXPD: 自定义角色名（空 = 未命名）
+		heroName = bundle.getString( HERO_NAME ); if (heroName != null && heroName.isEmpty()) heroName = null;
 		petLevel = bundle.getInt(PET_LEVEL);
 		petExperience = bundle.getInt(PET_EXP);
 		spp = Math.max(0, bundle.getInt(SPP));
@@ -625,6 +633,8 @@ public class Hero extends Char {
 		info.subClass = bundle.getEnum( SUBCLASS, HeroSubClass.class );
 		info.skin = Math.max(0, Math.min(HeroClass.THEME_COUNT - 1, bundle.getInt(SKIN)));
 		info.combatStyle = bundle.contains(STYLE) ? bundle.getEnum(STYLE, CombatStyle.class) : CombatStyle.BALANCED;
+		//SPSEXPD: 自定义角色名（用于存档列表/详情显示）
+		info.heroName = bundle.contains(HERO_NAME) ? bundle.getString(HERO_NAME) : null;
 		Belongings.preview( info, bundle );
 	}
 
@@ -689,11 +699,24 @@ public class Hero extends Char {
 
 	@Override
 	public String name(){
-		if (buff(HeroDisguise.class) != null) {
+		//SPSEXPD: 有自定义角色名时优先显示
+		if (heroName != null && !heroName.isEmpty()) {
+			return heroName;
+		} else if (buff(HeroDisguise.class) != null) {
 			return buff(HeroDisguise.class).getDisguise().title();
 		} else {
 			return className();
 		}
+	}
+
+	/** SPSEXPD: 自定义角色名（可能为 null 表示未命名）。 */
+	public String heroName(){
+		return heroName;
+	}
+
+	/** SPSEXPD: 设置自定义角色名（null/空则清除）。 */
+	public void setHeroName( String name ){
+		heroName = (name == null || name.isEmpty()) ? null : name;
 	}
 
 	@Override
