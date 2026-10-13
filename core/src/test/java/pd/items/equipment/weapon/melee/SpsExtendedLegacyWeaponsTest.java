@@ -41,21 +41,6 @@ import pd.items.equipment.weapon.missiles.meleethrow.HugeShuriken;
 import pd.items.equipment.weapon.missiles.meleethrow.MeleeThrowWeapon;
 import pd.items.equipment.weapon.missiles.meleethrow.SmallChakram;
 import pd.items.equipment.weapon.missiles.meleethrow.Tamahawk;
-import pd.items.equipment.weapon.ranges.AlloyBowN;
-import pd.items.equipment.weapon.ranges.AlloyBowR;
-import pd.items.equipment.weapon.ranges.AlloyBowS;
-import pd.items.equipment.weapon.ranges.MetalBowN;
-import pd.items.equipment.weapon.ranges.MetalBowR;
-import pd.items.equipment.weapon.ranges.MetalBowS;
-import pd.items.equipment.weapon.ranges.PVCBowN;
-import pd.items.equipment.weapon.ranges.PVCBowR;
-import pd.items.equipment.weapon.ranges.PVCBowS;
-import pd.items.equipment.weapon.ranges.StoneBowN;
-import pd.items.equipment.weapon.ranges.StoneBowR;
-import pd.items.equipment.weapon.ranges.StoneBowS;
-import pd.items.equipment.weapon.ranges.WoodenBowN;
-import pd.items.equipment.weapon.ranges.WoodenBowR;
-import pd.items.equipment.weapon.ranges.WoodenBowS;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.plants.Plant;
@@ -106,11 +91,7 @@ public final class SpsExtendedLegacyWeaponsTest {
 			WoodenStaff.class, Mace.class, HolyWater.class, PrayerWheel.class, StoneCross.class,
 			TrickSand.class, MirrorDoll.class, WindBottle.class, HandLight.class, CurseBox.class,
 			Kunai.class, SmallChakram.class, Javelin.class, HugeShuriken.class, Tamahawk.class,
-			WoodenBowN.class, WoodenBowS.class, WoodenBowR.class, GunA.class,
-			StoneBowN.class, StoneBowS.class, StoneBowR.class, GunB.class,
-			MetalBowN.class, MetalBowS.class, MetalBowR.class, GunC.class,
-			AlloyBowN.class, AlloyBowS.class, AlloyBowR.class, GunD.class,
-			PVCBowN.class, PVCBowS.class, PVCBowR.class, GunE.class,
+			GunA.class, GunB.class, GunC.class, GunD.class, GunE.class,
 			pd.items.equipment.weapon.melee.special.TrinityForce.class,
 			pd.items.equipment.weapon.missiles.Thrower.class
 	};
@@ -151,8 +132,8 @@ public final class SpsExtendedLegacyWeaponsTest {
 
 	private static void testLegacyWeaponDecks() throws Exception {
 		check(Generator.Category.WEAPON.superClass == Weapon.class, "旧版总武器池类型不是Weapon");
-		//SPSEXPD: 旧版 60 件之后追加了三相之力与投掷器（原创武器，追加在末尾不影响前 40/20 项双抽池）
-		check(Generator.Category.WEAPON.classes.length == 62, "旧版总武器池不是62件");
+		//SPSEXPD: 常规弓弩移除后总池 47 件；三相之力与投掷器仍追加在末尾（不影响前 40/20 项双抽池）
+		check(Generator.Category.WEAPON.classes.length == 47, "旧版总武器池不是47件");
 		//SPSEXPD: 普通近战池追加血源风猎魂武器两件（无限提升武器），前 41 项顺序不变
 		check(Generator.Category.MELEEWEAPON.classes.length == 43, "旧版近战双抽池不是43件");
 		check(Generator.Category.MELEEWEAPON.classes[40] == pd.items.equipment.weapon.melee.special.TrinityForce.class,
@@ -181,7 +162,7 @@ public final class SpsExtendedLegacyWeaponsTest {
 		try {
 			Arrays.fill(Generator.Category.WEAPON.probs, 0f);
 			Generator.Category.WEAPON.probs[40] = 1f;
-			check(Generator.random(Generator.Category.WEAPON) instanceof WoodenBowN,
+			check(Generator.random(Generator.Category.WEAPON) instanceof GunA,
 					"总武器池仍错误地转入近战双抽流程");
 
 			Arrays.fill(Generator.Category.MELEEWEAPON.probs, 0f);

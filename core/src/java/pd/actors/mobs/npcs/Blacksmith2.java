@@ -16,7 +16,6 @@ import pd.items.specific.sellitem.BrokenHammer;
 import pd.items.equipment.wands.Wand;
 import pd.items.equipment.weapon.guns.GunWeapon;
 import pd.items.equipment.weapon.melee.MeleeWeapon;
-import pd.items.equipment.weapon.ranges.RangeWeapon;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.sprites.ElectricwelderSprite;
@@ -100,8 +99,8 @@ public class Blacksmith2 extends NPC {
 		if (!equipment.isUpgradable()) return Messages.get(Blacksmith2.class, "cant_reforge");
 
 		if (equipment instanceof Armor && adamant instanceof AdamantArmor) return null;
-		if ((equipment instanceof MeleeWeapon || equipment instanceof GunWeapon
-				|| equipment instanceof RangeWeapon) && adamant instanceof AdamantWeapon) return null;
+		if ((equipment instanceof MeleeWeapon || equipment instanceof GunWeapon)
+				&& adamant instanceof AdamantWeapon) return null;
 		if (equipment instanceof Wand && adamant instanceof AdamantWand) return null;
 		if (equipment instanceof Ring && adamant instanceof AdamantRing) return null;
 		return Messages.get(Blacksmith2.class, "cant_work");

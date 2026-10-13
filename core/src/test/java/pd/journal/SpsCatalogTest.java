@@ -59,6 +59,15 @@ public final class SpsCatalogTest {
 			list.removeAll(List.of("Powerpill", "Magicpill", "Shootpill", "Smashpill", "Musicpill", "Hardpill",
 					"RocketMissile", "CapeOfThorns"));
 		}
+		//SPSEXPD: 常规弓弩 15 把与远程煎锅已移除
+		for (List<String> list : expected.values()) {
+			list.removeAll(List.of("WoodenBowN", "WoodenBowS", "WoodenBowR",
+					"StoneBowN", "StoneBowS", "StoneBowR",
+					"MetalBowN", "MetalBowS", "MetalBowR",
+					"AlloyBowN", "AlloyBowS", "AlloyBowR",
+					"PVCBowN", "PVCBowS", "PVCBowR",
+					"RangePan"));
+		}
 
 		int total = 0;
 		for (SpsCatalog catalog : SpsCatalog.values()) {
@@ -68,8 +77,8 @@ public final class SpsCatalogTest {
 			check(catalog.totalSeen() == catalog.totalItems(), catalog + "没有按旧版默认全部可见");
 			total += catalog.totalItems();
 		}
-		//SPSEXPD: 371 减去已删除的六种战斗药丸、火箭弹与荆棘斗篷
-		check(total == 363, "SPS物品目录总数错误: " + total);
+		//SPSEXPD: 371 减去已删除的六种战斗药丸、火箭弹、荆棘斗篷，以及常规弓弩 15 把与远程煎锅
+		check(total == 347, "SPS物品目录总数错误: " + total);
 	}
 
 	private static String legacyName(Class<?> type) {

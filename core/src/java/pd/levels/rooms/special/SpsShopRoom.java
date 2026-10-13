@@ -34,11 +34,6 @@ import pd.items.equipment.weapon.guns.GunC;
 import pd.items.equipment.weapon.guns.GunD;
 import pd.items.equipment.weapon.guns.GunE;
 import pd.items.equipment.weapon.missiles.arrows.MagicHand;
-import pd.items.equipment.weapon.ranges.AlloyBowN;
-import pd.items.equipment.weapon.ranges.MetalBowN;
-import pd.items.equipment.weapon.ranges.PVCBowN;
-import pd.items.equipment.weapon.ranges.StoneBowN;
-import pd.items.equipment.weapon.ranges.WoodenBowN;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -316,23 +311,13 @@ public class SpsShopRoom extends ShopRoom {
 	}
 
 	private static Item chapterShootWeapon() {
-		if (Random.Int(2) == 0) return chapterBow();
+		//SPSEXPD: 常规弓弩已移除，商店的远程武器一律给枪械
 		switch (Dungeon.legacyDepth()) {
 			case 0: return new GunA();   //SPS: 0 层为第一章（原 1 层）
 			case 8: return new GunB();
 			case 16: return new GunC();
 			case 24: return new GunD();
 			default: return new GunE();
-		}
-	}
-
-	private static Item chapterBow() {
-		switch (Dungeon.legacyDepth()) {
-			case 0: return new WoodenBowN();   //SPS: 0 层为第一章（原 1 层）
-			case 8: return new StoneBowN();
-			case 16: return new MetalBowN();
-			case 24: return new AlloyBowN();
-			default: return new PVCBowN();
 		}
 	}
 }

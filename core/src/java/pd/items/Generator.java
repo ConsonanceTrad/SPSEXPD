@@ -419,21 +419,6 @@ import pd.items.equipment.weapon.missiles.throwing.EmpBola;
 import pd.items.equipment.weapon.missiles.throwing.EscapeKnive;
 import pd.items.equipment.weapon.missiles.throwing.Skull;
 import pd.items.equipment.weapon.missiles.throwing.Wave;
-import pd.items.equipment.weapon.ranges.AlloyBowN;
-import pd.items.equipment.weapon.ranges.AlloyBowR;
-import pd.items.equipment.weapon.ranges.AlloyBowS;
-import pd.items.equipment.weapon.ranges.MetalBowN;
-import pd.items.equipment.weapon.ranges.MetalBowR;
-import pd.items.equipment.weapon.ranges.MetalBowS;
-import pd.items.equipment.weapon.ranges.PVCBowN;
-import pd.items.equipment.weapon.ranges.PVCBowR;
-import pd.items.equipment.weapon.ranges.PVCBowS;
-import pd.items.equipment.weapon.ranges.StoneBowN;
-import pd.items.equipment.weapon.ranges.StoneBowR;
-import pd.items.equipment.weapon.ranges.StoneBowS;
-import pd.items.equipment.weapon.ranges.WoodenBowN;
-import pd.items.equipment.weapon.ranges.WoodenBowR;
-import pd.items.equipment.weapon.ranges.WoodenBowS;
 import pd.plants.BlandfruitBush;
 import pd.plants.Blindweed;
 import pd.plants.Dewcatcher;
@@ -806,17 +791,15 @@ public class Generator {
 					WoodenStaff.class, Mace.class, HolyWater.class, PrayerWheel.class, StoneCross.class,
 					TrickSand.class, MirrorDoll.class, WindBottle.class, HandLight.class, CurseBox.class,
 					Kunai.class, SmallChakram.class, Javelin.class, HugeShuriken.class, Tamahawk.class,
-					WoodenBowN.class, WoodenBowS.class, WoodenBowR.class, GunA.class,
-					StoneBowN.class, StoneBowS.class, StoneBowR.class, GunB.class,
-					MetalBowN.class, MetalBowS.class, MetalBowR.class, GunC.class,
-					AlloyBowN.class, AlloyBowS.class, AlloyBowR.class, GunD.class,
-					PVCBowN.class, PVCBowS.class, PVCBowR.class, GunE.class,
+					//SPSEXPD: 常规弓弩（WoodenBow/StoneBow/MetalBow/AlloyBow/PVCBow 各 N/S/R 共 15 把）已移除
+					GunA.class, GunB.class, GunC.class,
+					GunD.class, GunE.class,
 					TrinityForce.class, Thrower.class
 			};
 			WEAPON.probs = new float[]{
 					1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 					1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-					1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+					1, 1, 1, 1, 1, 1, 1
 			};
 
 			// Legacy randomWeapon() only draws from the first 40 entries, then picks
@@ -878,11 +861,8 @@ public class Generator {
 			WEP_T5.probs = WEP_T5.defaultProbs.clone();
 
 			RANGED.classes = new Class<?>[]{
-					WoodenBowN.class, WoodenBowS.class, WoodenBowR.class, GunA.class,
-					StoneBowN.class, StoneBowS.class, StoneBowR.class, GunB.class,
-					MetalBowN.class, MetalBowS.class, MetalBowR.class, GunC.class,
-					AlloyBowN.class, AlloyBowS.class, AlloyBowR.class, GunD.class,
-					PVCBowN.class, PVCBowS.class, PVCBowR.class, GunE.class,
+					//SPSEXPD: 常规弓弩已移除，远程池只保留枪械
+					GunA.class, GunB.class, GunC.class, GunD.class, GunE.class,
 					//SPSEXPD: 新增常规枪械（手枪/冲锋枪/霰弹枪/狙击枪）
 					Liberator.class, Hydra.class, Garand.class, LightningM.class, Howl.class,
 					HighNoon.class, Exorcist.class, Arc.class,
@@ -893,9 +873,7 @@ public class Generator {
 			};
 			RANGED.probs = new float[]{
 					1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-					1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-					1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-					1, 1, 1, 1, 1
+					1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 			};
 			
 			//see Generator.randomArmor

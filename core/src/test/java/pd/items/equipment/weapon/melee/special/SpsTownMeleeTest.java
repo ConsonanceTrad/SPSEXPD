@@ -15,7 +15,6 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.actors.mobs.npcs.TownNpc;
 import pd.items.equipment.weapon.enchantments.Blazing;
-import pd.items.equipment.weapon.ranges.RangePan;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -92,18 +91,7 @@ public final class SpsTownMeleeTest {
 		hero.belongings.weapon = pan;
 		//SPSEXPD: 煎锅已去掉「切换」动作——装备时不应再出现 CHANGE
 		check(!pan.actions(hero).contains("CHANGE"), "煎锅不应再有切换动作");
-		RangePan ranged = pan.changeToRange(hero);
-		check(hero.belongings.weapon() == ranged && ranged.trueLevel() == 3
-				&& ranged.enchantment instanceof Blazing && ranged.reinforced
-				&& ranged.levelKnown && ranged.cursedKnown && ranged.cursed,
-				"切换远程煎锅时没有完整保留装备状态");
-		//SPSEXPD: 数值统一到破碎式（T1 => +0 1-10），力量需求随等级下降（+0 仍为 10）
-		check(ranged.min(0) == 1 && ranged.max(0) == 10 && ranged.STRReq(0) == 10,
-				"远程煎锅基础数值错误");
-		MeleePan restored = ranged.changeToMelee(hero);
-		check(hero.belongings.weapon() == restored && restored.trueLevel() == 3
-				&& restored.enchantment instanceof Blazing && restored.reinforced && restored.cursed,
-				"切回近战煎锅时没有完整保留装备状态");
+		//SPSEXPD: 远程煎锅（RangePan）已随常规弓弩一并移除，这里只验证近战形态
 		PlainMob target = new PlainMob();
 		Buff.prolong(target, HolyStun.class, 2f);
 		check(target.buff(HolyStun.class) != null, "煎锅的2回合神圣眩晕状态不可用");

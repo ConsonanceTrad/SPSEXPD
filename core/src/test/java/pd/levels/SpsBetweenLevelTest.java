@@ -42,11 +42,6 @@ import pd.items.equipment.weapon.guns.GunD;
 import pd.items.equipment.weapon.guns.GunE;
 import pd.items.equipment.weapon.melee.special.MeleePan;
 import pd.items.equipment.weapon.missiles.arrows.MagicHand;
-import pd.items.equipment.weapon.ranges.AlloyBowN;
-import pd.items.equipment.weapon.ranges.MetalBowN;
-import pd.items.equipment.weapon.ranges.PVCBowN;
-import pd.items.equipment.weapon.ranges.StoneBowN;
-import pd.items.equipment.weapon.ranges.WoodenBowN;
 import pd.plants.Plant;
 import pd.tiles.CustomTilemap;
 import pd.tiles.custom.SpsLegacyLevelVisual;
@@ -201,11 +196,10 @@ public final class SpsBetweenLevelTest {
 		check(countSummon(stock) == 1, depth, seed, "商店召唤物五选一数量错误");
 		check(count(stock, Egg.class) <= 1, depth, seed, "商店生成了多于一个宠物蛋");
 
-		Class<?>[] bows = {WoodenBowN.class, StoneBowN.class, MetalBowN.class, AlloyBowN.class, PVCBowN.class};
 		Class<?>[] guns = {GunA.class, GunB.class, GunC.class, GunD.class, GunE.class};
 		int chapter = depth == 0 ? 0 : depth == 8 ? 1 : depth == 16 ? 2 : depth == 24 ? 3 : 4;
-		check(count(stock, bows[chapter]) + count(stock, guns[chapter]) >= 1, depth, seed,
-				"章节枪械或弓档位错误");
+		check(count(stock, guns[chapter]) >= 1, depth, seed,
+				"章节枪械档位错误");
 
 		if (depth == 0) {
 			//SPS: 0 层商店固定出售任务蘑菇（10 金币）+ 专属商品

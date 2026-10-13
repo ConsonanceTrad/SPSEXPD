@@ -23,7 +23,7 @@ import pd.items.equipment.rings.RingOfAccuracy;
 import pd.items.equipment.wands.Wand;
 import pd.items.equipment.wands.WandOfMagicMissile;
 import pd.items.equipment.weapon.missiles.ThrowingKnife;
-import pd.items.equipment.weapon.ranges.WoodenBowN;
+import pd.items.equipment.weapon.missiles.ElfBow;
 import pd.plants.Firebloom;
 import render.noosa.Game;
 
@@ -69,7 +69,7 @@ public final class SpsLegacyBagsTest {
 		ArrowCollecter arrows = new ArrowCollecter();
 		//SPSEXPD: 包裹容量定稿为 34（35 格减掉包裹本体占的一格），原断言 35 已过期
 		check(arrows.capacity() == 34 && arrows.value() == 50, "暗器袋容量或价值错误");
-		check(!arrows.canHold(new WoodenBowN()), "暗器袋不应再收纳远程武器（已改归草靶子）");
+		check(!arrows.canHold(new ElfBow()), "暗器袋不应再收纳远程武器（已改归草靶子）");
 		check(arrows.canHold(new ThrowingKnife()), "暗器袋没有收纳投掷武器");
 		check(!arrows.canHold(new PotionOfHealing()), "暗器袋错误收纳药剂");
 		check(!arrows.canHold(new pd.items.equipment.weapon.missiles.arrows.HealFruit()), "暗器袋不应收纳果实");
@@ -96,7 +96,7 @@ public final class SpsLegacyBagsTest {
 
 		//SPSEXPD: 远程武器改归草靶子（暗器袋不再收），枪械也归草靶子
 		HeartOfScarecrow scarecrow = new HeartOfScarecrow();
-		check(scarecrow.canHold(new WoodenBowN()), "草靶子没有收纳远程武器");
+		check(scarecrow.canHold(new ElfBow()), "草靶子没有收纳远程武器");
 		check(!scarecrow.canHold(new ThrowingKnife()), "草靶子不应收纳投掷武器");
 		check(scarecrow.canHold(new pd.items.equipment.weapon.guns.GunA()), "草靶子没有收纳枪械");
 

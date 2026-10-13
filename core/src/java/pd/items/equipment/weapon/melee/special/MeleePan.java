@@ -16,7 +16,6 @@ import pd.items.consum.food.cook.*;
 import pd.items.consum.food.meatfood.FireMeat;
 import pd.items.equipment.weapon.Weapon;
 import pd.items.equipment.weapon.melee.MeleeWeapon;
-import pd.items.equipment.weapon.ranges.RangePan;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.utils.GLog;
@@ -138,13 +137,6 @@ public class MeleePan extends MeleeWeapon {
 		}
 		//SPSEXPD: 其它 canBeCook 食材（如神秘肉）一律烤成烤肉排
 		return new FireMeat();
-	}
-
-	public RangePan changeToRange(Hero hero) {
-		RangePan replacement = new RangePan();
-		copyState(this, replacement);
-		hero.belongings.weapon = replacement;
-		return replacement;
 	}
 
 	public static void copyState(Weapon source, Weapon replacement) {
