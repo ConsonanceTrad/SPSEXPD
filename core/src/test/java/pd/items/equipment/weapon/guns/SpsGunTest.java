@@ -118,7 +118,7 @@ public final class SpsGunTest {
 		GunA gun = new GunA();
 		check(!gun.canShoot(hero) && gun.canReload(hero), "普通职业未装备枪械时的操作规则错误");
 		hero.subClass = HeroSubClass.AGENT;
-		check(gun.canShoot(hero), "特工未装备时不能射击");
+		check(!gun.canShoot(hero), "特工未装备枪械时仍能射击（枪械必须装备）");
 		hero.justMoved = true;
 		check(Math.abs(gun.new GunAmmo().delayFactor(hero) - 0.1f) < 0.00001f,
 				"特工移动后的射击延迟不是0.1回合");

@@ -22,6 +22,7 @@ public final class SpsGunFireModeTest {
 			testSpread();
 			testRecoilBuffer();
 			testEnchantWhitelist();
+			testEquipAndDualRules();
 			testChargeGun();
 			System.out.println("枪械核心机制测试通过：类型基准、单次击发、装填方式、出膛偏差、后坐缓冲、附魔白名单与充能回充均正常。");
 		} finally {
@@ -99,6 +100,18 @@ public final class SpsGunFireModeTest {
 		check(gun.isIncompatible(new Vorpal()), "斩首附魔不应适用于枪械");
 		check(!gun.isIncompatible(new Puncturing()), "穿甲附魔应适用于枪械");
 		check(!gun.isIncompatible(new Ricochet()), "弹射附魔应适用于枪械");
+	}
+
+	/** SPSEXPD: 枪械必须装备才能射击；双持时枪械豁免力量惩罚。 */
+	private static void testEquipAndDualRules() {
+		Hero hero = new Hero();
+		pd.Dungeon.hero = hero;
+		GunA gun = new GunA();
+		check(!gun.canShoot(hero), "未装备的枪械仍然可以射击");
+		check(pd.items.SecondaryEquip.weaponSTRReq(gun, 12) == 12,
+				"枪械的力量需求被双持惩罚加成了");
+		check(!pd.items.SecondaryEquip.dualWieldTooHeavy(hero, gun, new GunA()),
+				"枪械被误判为双持难以掌控");
 	}
 
 	/** 充能型枪械：未开火时每回合自然回充 0.5 发（显示取整）。 */

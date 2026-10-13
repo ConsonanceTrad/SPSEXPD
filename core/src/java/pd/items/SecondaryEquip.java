@@ -71,6 +71,8 @@ public final class SecondaryEquip {
 	 */
 	public static int weaponSTRReq( KindOfWeapon weapon, int base ){
 		Hero hero = Dungeon.hero;
+		//SPSEXPD: 枪械不受双持力量惩罚——完美力量与力量需求都不因副手而变化
+		if (weapon instanceof pd.items.equipment.weapon.guns.GunWeapon) return base;
 		if (dualWeapons(hero)
 				&& (hero.belongings.weapon() == weapon || hero.belongings.secondWep() == weapon)){
 			return increasedStrengthReq(base);
@@ -110,6 +112,8 @@ public final class SecondaryEquip {
 
 	private static boolean tooHeavy( Hero hero, KindOfWeapon weapon ){
 		if (!(weapon instanceof Weapon)) return false;
+		//SPSEXPD: 枪械不受双持力量惩罚，不参与「难以掌控」判定
+		if (weapon instanceof pd.items.equipment.weapon.guns.GunWeapon) return false;
 		Weapon w = (Weapon)weapon;
 		return increasedStrengthReq( w.STRReq( w.level() ) ) > hero.STR();
 	}

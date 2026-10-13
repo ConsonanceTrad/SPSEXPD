@@ -15,6 +15,7 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.effects.Speck;
 import pd.items.Item;
+import pd.items.KindOfWeapon;
 import pd.items.Magazine;
 import pd.items.equipment.rings.RingOfSharpshooting;
 import pd.items.equipment.weapon.SpsRangedWeapon;
@@ -220,9 +221,42 @@ public class GunWeapon extends SpsRangedWeapon {
 	}
 
 	protected boolean canShoot(Hero hero) {
-		return isEquipped(hero) || hero.subClass == HeroSubClass.AGENT;
+		//SPSEXPD: 枪械必须装备才能射击（不再允许特工未装备时射击）
+		return isEquipped(hero);
 	}
 	protected boolean canReload(Hero hero) { return true; }
+
+	/**
+	 * SPSEXPD: 点击敌人时的枪械自动射击。
+	 * - 敌人在近战武器范围内 → 不接管（交给近战接近战）；
+	 * - 否则优先使用「已装备且有弹药」的枪械：先主手，再副手（主副都是枪械时优先主手）。
+	 * 返回 true 表示已用枪械开火。
+	 */
+	public static boolean autoAttack(Hero hero, Char enemy) {
+		if (hero == null || enemy == null || Dungeon.level == null) return false;
+		if (!hero.ready) return false;
+
+		int meleeReach = 1;
+		KindOfWeapon melee = hero.belongings.weapon();
+		if (melee != null) meleeReach = Math.max(1, melee.reachFactor(hero));
+		if (Dungeon.level.distance(hero.pos, enemy.pos) <= meleeReach) return false;
+
+		GunWeapon gun = readyGun(hero, hero.belongings.weapon());
+		if (gun == null) gun = readyGun(hero, hero.belongings.secondWep());
+		if (gun == null) return false;
+
+		curUser = hero;
+		gun.fire(hero, enemy.pos);
+		return true;
+	}
+
+	private static GunWeapon readyGun(Hero hero, KindOfWeapon weapon) {
+		if (!(weapon instanceof GunWeapon)) return null;
+		GunWeapon gun = (GunWeapon)weapon;
+		if (!gun.isEquipped(hero)) return null;
+		if (gun.charge() <= 0) return null;
+		return gun;
+	}
 
 	private void reload(Hero hero, boolean automatic) {
 		if (charge >= fullCharge) {

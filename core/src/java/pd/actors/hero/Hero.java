@@ -2575,6 +2575,10 @@ public class Hero extends Char {
 
 			if (((Mob) ch).heroShouldInteract()) {
 				curAction = new HeroAction.Interact( ch );
+			} else if (pd.items.equipment.weapon.guns.GunWeapon.autoAttack(this, ch)) {
+				//SPSEXPD: 敌人在近战范围外时，点击敌人优先用有弹药的枪械直接开火
+				//（射击内部已自行调度回合，这里不再交给外层的 next()）
+				return false;
 			} else {
 				curAction = new HeroAction.Attack( ch );
 			}
