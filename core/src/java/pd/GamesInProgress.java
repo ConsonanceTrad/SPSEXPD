@@ -195,6 +195,8 @@ public class GamesInProgress {
 		info.armorTier = Dungeon.hero.tier();
 		info.skin = Dungeon.hero.skin;
 		info.combatStyle = Dungeon.hero.combatStyle;
+		//SPSEXPD: 自定义角色名 —— 缺了它，退回主菜单的存档列表会丢失名字（重开进程才从 game.dat 恢复）
+		info.heroName = Dungeon.hero.heroName();
 		
 		info.goldCollected = Statistics.goldCollected;
 		info.maxDepth = Statistics.deepestFloor;
