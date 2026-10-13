@@ -287,7 +287,10 @@ public class ItemSlot extends Button {
 
 			boolean throwable = item instanceof MissileWeapon;
 			if (item.levelKnown){
-				int str = item instanceof Weapon ? ((Weapon)item).STRReq() : ((Armor)item).STRReq();
+				//SPSEXPD: 枪械的力量角标显示「完美力量」（零后坐缓冲所需力量），而不是随等级下降的 STRReq
+				int str = item instanceof pd.items.equipment.weapon.guns.GunWeapon
+						? ((pd.items.equipment.weapon.guns.GunWeapon) item).perfectSTR()
+						: item instanceof Weapon ? ((Weapon)item).STRReq() : ((Armor)item).STRReq();
 				//SPSEXPD: 投掷武器（含果实）在力量充足时不显示力量需求
 				if (throwable && Dungeon.hero != null && str <= Dungeon.hero.STR()) {
 					extra.text( null );
@@ -304,7 +307,10 @@ public class ItemSlot extends Button {
 					}
 				}
 			} else {
-				int str = item instanceof Weapon ? ((Weapon)item).STRReq(0) : ((Armor)item).STRReq(0);
+				//SPSEXPD: 未鉴定的枪械同样显示「完美力量」
+				int str = item instanceof pd.items.equipment.weapon.guns.GunWeapon
+						? ((pd.items.equipment.weapon.guns.GunWeapon) item).perfectSTR()
+						: item instanceof Weapon ? ((Weapon)item).STRReq(0) : ((Armor)item).STRReq(0);
 				//SPSEXPD: 未鉴定的投掷武器在力量充足时同样隐藏力量需求
 				if (throwable && Dungeon.hero != null && str <= Dungeon.hero.STR()) {
 					extra.text( null );

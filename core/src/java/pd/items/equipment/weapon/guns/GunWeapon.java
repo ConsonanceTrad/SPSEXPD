@@ -51,7 +51,7 @@ public class GunWeapon extends SpsRangedWeapon {
 			.t("prompt_aim", "选择射击方向")
 			.t("stats_1", "这把_%1$s_可以造成_%4$d~%5$d点伤害_。\n\n弹匣容量 _%2$d_ ，单次击发 _%3$d_ ，装填耗时 _%1$s_ 。")
 			.t("stats_2", "你需要_%1$d点力量_以完全抑制其后坐力。以当前力量而言，每次击发需要 _%2$s 回合_的缓冲时间。")
-			.t("stats_3", "在 _%2$d_ 格范围内，其可以确保攻击到目标格，射击产生的噪声范围为 _%3$d_ 格。")
+			.t("stats_3", "枪械的射击会有一定角度偏移，这把枪在 _%2$d_ 格范围内可以确保精准射击。")
 			.t("charge", "载弹量：%1$d/%2$d");
 	}
 
@@ -313,6 +313,9 @@ public class GunWeapon extends SpsRangedWeapon {
 		return true;
 	}
 	public int fullCharge() { return fullCharge; }
+
+	/** SPSEXPD: 完美力量（零后坐缓冲所需的力量阈值）——物品图标的力量角标显示它。 */
+	public int perfectSTR() { return perfectSTR; }
 
 	/** SPSEXPD: 充能型枪械的每回合自然回充（本回合开过火则不回充）。 */
 	public void gainCharge() {

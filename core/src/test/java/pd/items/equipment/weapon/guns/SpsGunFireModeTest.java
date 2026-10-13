@@ -60,6 +60,9 @@ public final class SpsGunFireModeTest {
 		check(new GunD().fullCharge() == 5 && new GunD().pierce == Integer.MAX_VALUE, "狙击枪弹匣或穿透错误");
 		check(new GunE().fullCharge() == 6 && new GunE().pierce == Integer.MAX_VALUE, "至高无上弹匣或穿透错误");
 		check(new Sling().fullCharge() == 1 && new ToyGun().fullCharge() == 10, "投石索或玩具枪弹匣错误");
+		//SPSEXPD: 物品图标的力量角标显示完美力量（零后坐缓冲所需力量）
+		check(new GunA().perfectSTR() == 12 && new GunB().perfectSTR() == 16 && new GunD().perfectSTR() == 20,
+				"枪械完美力量（力量角标显示值）错误");
 	}
 
 	/** 装填：一个通用弹匣装满任意容量。 */
