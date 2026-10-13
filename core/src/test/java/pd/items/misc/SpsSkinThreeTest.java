@@ -47,7 +47,7 @@ import pd.items.equipment.artifacts.UnstableSpellbook;
 import pd.items.equipment.weapon.melee.start.LinkSword;
 import pd.items.equipment.weapon.melee.start.Whisk;
 import pd.items.equipment.weapon.missiles.TaurcenBow;
-import pd.items.equipment.weapon.spammo.HeavyAmmo;
+import pd.items.Magazine;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.traps.Trap;
@@ -150,7 +150,7 @@ public final class SpsSkinThreeTest {
 		Hero soldier = start(HeroClass.SOLDIER);
 		check(soldier.belongings.weapon instanceof pd.items.equipment.weapon.guns.GunA
 				&& soldier.belongings.armor instanceof VestArmor, "皮肤3星兵枪械或背心错误");
-		check(has(soldier, HeavyAmmo.class) && has(soldier, GunOfSoldier.class) && has(soldier, HealBag.class),
+		check(has(soldier, Magazine.class) && has(soldier, GunOfSoldier.class) && has(soldier, HealBag.class),
 				"皮肤3星兵缺少重弹、制式手枪或医疗箱");
 
 		Hero follower = start(HeroClass.FOLLOWER);

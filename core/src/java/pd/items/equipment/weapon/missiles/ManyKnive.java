@@ -4,32 +4,22 @@ package pd.items.equipment.weapon.missiles;
 import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 import pd.atlas.items.SpecificPlaceHolderDict;
 
-import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.buffs.MechArmor;
 import pd.actors.buffs.TargetShoot;
-import pd.actors.hero.Belongings;
 import pd.actors.hero.Hero;
 import pd.effects.Speck;
 import pd.effects.Splash;
 import pd.items.Heap;
-import pd.items.Item;
-import pd.items.equipment.bags.Bag;
 import pd.items.equipment.rings.RingOfSharpshooting;
 import pd.items.equipment.weapon.Weapon;
 import pd.items.equipment.weapon.missiles.throwing.EscapeKnive;
-import pd.items.equipment.weapon.spammo.SpAmmo;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
-import pd.sprites.ItemSprite;
-import pd.windows.WndBag;
-import pd.windows.WndOptions;
-import render.noosa.audio.Sample;
 import render.utils.math.Random;
-import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
@@ -41,24 +31,14 @@ public class ManyKnive extends Weapon {
 		InlineText.of(ManyKnive.class)
 			.t("name", "十六夜的千支刀")
 			.t("ac_shoot", "投掷")
-			.t("ac_ammo", "涂油")
-			.t("prompt", "选择用于涂抹的强化弹药")
 			.t("shoot_prompt", "选择投掷目标")
-			.t("desc", "由大量普通飞刀组成的飞刀组。此外，这个飞刀组可以使用强化弹药涂油。")
-			.t("damage", "这件高攻速武器可以造成_%1$d～%2$d点伤害_。")
-			.t("ammo", "当前强化弹药：%s")
-			.t("replace", "千支刀当前涂有%1$s。是否改用%2$s？原有涂层将会消失。")
-			.t("yes", "是")
-			.t("no", "否");
+			.t("desc", "由大量普通飞刀组成的飞刀组。")
+			.t("damage", "这件高攻速武器可以造成_%1$d～%2$d点伤害_。");
 	}
 
 
 
 	public static final String AC_SHOOT = "SHOOT";
-	public static final String AC_AMMO = "AMMO";
-	private static final String SP_AMMO = "sp_ammo";
-
-	private SpAmmo ammo;
 
 	{
 		image = EquipmentEquipWeaponUniqueWeaponDict.MANY_KNIVE_0;
@@ -83,7 +63,6 @@ public class ManyKnive extends Weapon {
 		actions.remove(AC_DROP);
 		actions.remove(AC_THROW);
 		actions.add(AC_SHOOT);
-		actions.add(AC_AMMO);
 		return actions;
 	}
 
@@ -92,9 +71,6 @@ public class ManyKnive extends Weapon {
 		if (AC_SHOOT.equals(action)) {
 			curUser = hero;
 			GameScene.selectCell(shooter);
-		} else if (AC_AMMO.equals(action)) {
-			curUser = hero;
-			GameScene.selectItem(ammoSelector);
 		} else {
 			super.execute(hero, action);
 		}
@@ -114,7 +90,6 @@ public class ManyKnive extends Weapon {
 	}
 
 	private int rangedProc(Char attacker, Char defender, int damage) {
-		if (ammo != null) ammo.onHit(attacker, defender, damage);
 		maybeDropEscapeKnife(defender);
 		return super.proc(attacker, defender, damage);
 	}
@@ -126,66 +101,9 @@ public class ManyKnive extends Weapon {
 		return true;
 	}
 
-	public void loadAmmo(SpAmmo ammo) {
-		this.ammo = ammo;
-		if (ammo != null) {
-			ammo.identify();
-			ammo.cursed = false;
-		}
-		updateQuickslot();
-	}
-
-	public boolean loadAmmoFromBackpack(Hero owner, SpAmmo selected) {
-		if (owner == null || selected == null || !owner.belongings.backpack.contains(selected)) return false;
-		Item consumed = selected.detach(owner.belongings.backpack);
-		if (!(consumed instanceof SpAmmo)) return false;
-		loadAmmo((SpAmmo)consumed);
-		return true;
-	}
-
-	public SpAmmo loadedAmmo() { return ammo; }
-
-	private final WndBag.ItemSelector ammoSelector = new WndBag.ItemSelector() {
-		@Override public String textPrompt() { return Messages.get(ManyKnive.class, "prompt"); }
-		@Override public Class<? extends Bag> preferredBag() { return Belongings.Backpack.class; }
-		@Override public boolean itemSelectable(Item item) { return item instanceof SpAmmo; }
-		@Override public void onSelect(Item item) {
-			if (!(item instanceof SpAmmo) || curUser == null) return;
-			SpAmmo selected = (SpAmmo)item;
-			if (ammo == null) consumeAndLoad(selected);
-			else GameScene.show(new WndOptions(new ItemSprite(selected), Messages.titleCase(selected.name()),
-					Messages.get(ManyKnive.class, "replace", ammo.name(), selected.name()),
-					Messages.get(ManyKnive.class, "yes"), Messages.get(ManyKnive.class, "no")) {
-				@Override protected void onSelect(int index) { if (index == 0) consumeAndLoad(selected); }
-			});
-		}
-	};
-
-	private void consumeAndLoad(SpAmmo selected) {
-		if (!loadAmmoFromBackpack(curUser, selected)) return;
-		if (curUser.sprite != null) curUser.sprite.operate(curUser.pos);
-		Sample.INSTANCE.play(Assets.Sounds.EVOKE);
-		curUser.spendAndNext(2f);
-	}
-
 	@Override
 	public String info() {
-		String info = desc() + "\n\n" + Messages.get(this, "damage", min(), max());
-		if (ammo != null) info += "\n\n" + Messages.get(this, "ammo", ammo.name());
-		return info;
-	}
-
-	@Override
-	public void storeInBundle(Bundle bundle) {
-		super.storeInBundle(bundle);
-		if (ammo != null) bundle.put(SP_AMMO, ammo);
-	}
-
-	@Override
-	public void restoreFromBundle(Bundle bundle) {
-		super.restoreFromBundle(bundle);
-		Object restored = bundle.get(SP_AMMO);
-		ammo = restored instanceof SpAmmo ? (SpAmmo)restored : null;
+		return desc() + "\n\n" + Messages.get(this, "damage", min(), max());
 	}
 
 	public class KniveAmmo extends MissileWeapon {

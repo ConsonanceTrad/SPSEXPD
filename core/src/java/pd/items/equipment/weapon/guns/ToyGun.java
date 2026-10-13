@@ -29,15 +29,14 @@ public class ToyGun extends GunWeapon {
 		perfectSTR = 10;
 		effectiveRange = 4;
 		noiseRadius = 3;
+		baseReloadTime = 3f; //SPSEXPD: 玩具枪装填固定 3 回合
 	}
 	@Override public int min(int lvl) { return 1 + lvl; }
 	@Override public int max(int lvl) { return 10 + 3 * lvl; }
-	@Override protected boolean supportsSpecialAmmo() { return false; }
 	@Override protected boolean canShoot(Hero hero) { return isEquipped(hero); }
 	@Override protected boolean canReload(Hero hero) { return isEquipped(hero); }
 	@Override protected boolean causesVertigo() { return false; }
 	@Override protected boolean addsEnergyDamage() { return false; }
-	@Override protected float reloadTime(Hero hero, boolean automatic, int loaded) {
-		return automatic ? 3f : loaded / 2f;
-	}
+	//SPSEXPD: 玩具枪装填固定 3 回合（不受特工 0.5 回合特例影响）
+	@Override protected float reloadTime(Hero hero, boolean automatic) { return 3f; }
 }

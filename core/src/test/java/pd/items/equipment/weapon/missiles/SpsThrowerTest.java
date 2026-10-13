@@ -8,7 +8,6 @@ import pd.actors.hero.Hero;
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.items.Item;
 import pd.items.equipment.weapon.missiles.throwing.EscapeKnive;
-import pd.items.equipment.weapon.spammo.FireAmmo;
 import render.noosa.Game;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -60,7 +59,7 @@ public final class SpsThrowerTest {
 
 	private static void testAmmoSelection() {
 		check(Thrower.isValidAmmo(new EscapeKnive(1)), "普通投掷物应可作为装填物");
-		check(!Thrower.isValidAmmo(new FireAmmo()), "涂油弹药不应作为装填物");
+		check(!Thrower.isValidAmmo(new pd.items.Magazine()), "通用弹匣不应作为装填物");
 		check(!Thrower.isValidAmmo(new Item()), "非投掷物不应作为装填物");
 		check(!Thrower.isValidAmmo(new ManyKnive().new KniveAmmo()), "无限临时投掷物不应作为装填物");
 	}
@@ -84,7 +83,7 @@ public final class SpsThrowerTest {
 				"已装填时不应再次装填");
 
 		Thrower empty = new Thrower();
-		check(!empty.loadAmmoFromBackpack(hero, new FireAmmo()), "投掷器不应装填非投掷物");
+		check(!empty.loadAmmoFromBackpack(hero, new pd.items.Magazine()), "投掷器不应装填非投掷物");
 	}
 
 	private static void testConsumption() {

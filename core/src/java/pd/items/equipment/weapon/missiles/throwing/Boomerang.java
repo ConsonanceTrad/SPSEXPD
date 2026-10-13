@@ -16,7 +16,6 @@ import pd.items.Item;
 import pd.items.equipment.bags.Bag;
 import pd.items.equipment.weapon.melee.MeleeWeapon;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
-import pd.items.equipment.weapon.spammo.SpAmmo;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
@@ -43,15 +42,9 @@ public class Boomerang extends MeleeWeapon {
 	static {
 		InlineText.of(Boomerang.class)
 			.t("name", "回旋镖")
-			.t("ac_ammo", "涂油")
 			.t("ac_cast", "扔出")
 			.t("rest", "回旋镖充能未完成。")
-			.t("prompt", "选择用于涂抹的强化子弹")
 			.t("cast_prompt", "选择瞄准目标")
-			.t("replace", "这把回旋镖当前涂有%1$s。是否改用%2$s？原有涂层将会消失。")
-			.t("yes", "是")
-			.t("no", "否")
-			.t("ammo", "当前强化子弹：%s")
 			.t("charge", "剩余体力%d / %d。")
 			.t("returned", "你接住了弹回的回旋镖。")
 			.t("return_bounce", "弹回的回旋镖击中了%s。")
@@ -60,9 +53,7 @@ public class Boomerang extends MeleeWeapon {
 
 
 
-	public static final String AC_AMMO = "AMMO";
 	public static final String AC_CAST = "CAST";
-	private static final String SP_AMMO = "sp_ammo";
 	private static final String CHARGE = "charge";
 
 	/** SPSEXPD: 充满才能投掷（与神木圆盾一致）。 */
@@ -74,7 +65,6 @@ public class Boomerang extends MeleeWeapon {
 	/** SPSEXPD: 命中后的击晕回合数。 */
 	public static final float PARALYSIS_TURNS = 1f;
 
-	private SpAmmo ammo;
 	private int charge;
 
 	{
@@ -103,7 +93,6 @@ public class Boomerang extends MeleeWeapon {
 	@Override
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);
-		actions.add(AC_AMMO);
 		if (isEquipped(hero) && charge >= FULL_CHARGE) actions.add(AC_CAST);
 		//回旋镖没有决斗家武技，避免出现点了没有效果的按钮
 		actions.remove(AC_ABILITY);
@@ -117,11 +106,6 @@ public class Boomerang extends MeleeWeapon {
 
 	@Override
 	public void execute(Hero hero, String action) {
-		if (AC_AMMO.equals(action)) {
-			curUser = hero;
-			GameScene.selectItem(ammoSelector);
-			return;
-		}
 		if (AC_CAST.equals(action)) {
 			curUser = hero;
 			if (!isEquipped(hero) || charge < FULL_CHARGE) {
@@ -137,66 +121,14 @@ public class Boomerang extends MeleeWeapon {
 		super.execute(hero, action);
 	}
 
-	private final WndBag.ItemSelector ammoSelector = new WndBag.ItemSelector() {
-		@Override public String textPrompt() { return Messages.get(Boomerang.class, "prompt"); }
-		@Override public Class<? extends Bag> preferredBag() { return Belongings.Backpack.class; }
-		@Override public boolean itemSelectable(Item item) { return item instanceof SpAmmo; }
-		@Override public void onSelect(Item item) {
-			if (!(item instanceof SpAmmo) || curUser == null) return;
-			SpAmmo selected = (SpAmmo)item;
-			if (ammo == null) {
-				consumeAndLoad(selected);
-			} else {
-				GameScene.show(new WndOptions(new ItemSprite(selected), Messages.titleCase(selected.name()),
-						Messages.get(Boomerang.class, "replace", ammo.name(), selected.name()),
-						Messages.get(Boomerang.class, "yes"), Messages.get(Boomerang.class, "no")) {
-					@Override protected void onSelect(int index) {
-						if (index == 0) consumeAndLoad(selected);
-					}
-				});
-			}
-		}
-	};
-
-	private void consumeAndLoad(SpAmmo selected) {
-		if (!loadAmmoFromBackpack(curUser, selected)) return;
-		if (curUser.sprite != null) curUser.sprite.operate(curUser.pos);
-		Sample.INSTANCE.play(Assets.Sounds.EVOKE);
-		curUser.spendAndNext(2f);
-	}
-
-	public boolean loadAmmoFromBackpack(Hero owner, SpAmmo selected) {
-		if (owner == null || selected == null || !owner.belongings.backpack.contains(selected)) return false;
-		Item consumed = selected.detach(owner.belongings.backpack);
-		if (!(consumed instanceof SpAmmo)) return false;
-		loadAmmo((SpAmmo)consumed);
-		return true;
-	}
-
-	public void loadAmmo(SpAmmo ammo) {
-		this.ammo = ammo;
-		if (ammo != null) {
-			ammo.identify();
-			ammo.cursed = false;
-		}
-		updateQuickslot();
-	}
-
-	public SpAmmo loadedAmmo() {
-		return ammo;
-	}
-
 	@Override
 	public int proc(Char attacker, Char defender, int damage) {
-		if (ammo != null) ammo.onHit(attacker, defender, damage);
 		return super.proc(attacker, defender, damage);
 	}
 
 	@Override
 	public String desc() {
-		String desc = super.desc();
-		if (ammo != null) desc += "\n\n" + Messages.get(this, "ammo", ammo.name());
-		return desc + "\n\n" + Messages.get(this, "charge", charge, FULL_CHARGE);
+		return super.desc() + "\n\n" + Messages.get(this, "charge", charge, FULL_CHARGE);
 	}
 
 	/** SPSEXPD: 在英雄两格内挑一个可通行的空地作为弹回位置（排除英雄自身与本次投掷的落点）。 */
@@ -254,9 +186,8 @@ public class Boomerang extends MeleeWeapon {
 		@Override public int damageRoll(Char owner) { return Boomerang.this.damageRoll(owner); }
 		@Override public float accuracyFactor(Char owner, Char target) { return 1000f; }
 		@Override public int proc(Char attacker, Char defender, int damage) {
-			//SPSEXPD: 命中麻痹，并触发涂层的命中效果
+			//SPSEXPD: 命中麻痹
 			Buff.prolong(defender, Paralysis.class, PARALYSIS_TURNS);
-			if (Boomerang.this.ammo != null) Boomerang.this.ammo.onHit(attacker, defender, damage);
 			return super.proc(attacker, defender, damage);
 		}
 	}
@@ -360,15 +291,12 @@ public class Boomerang extends MeleeWeapon {
 	@Override
 	public void storeInBundle(Bundle bundle) {
 		super.storeInBundle(bundle);
-		if (ammo != null) bundle.put(SP_AMMO, ammo);
 		bundle.put(CHARGE, charge);
 	}
 
 	@Override
 	public void restoreFromBundle(Bundle bundle) {
 		super.restoreFromBundle(bundle);
-		Object restored = bundle.get(SP_AMMO);
-		ammo = restored instanceof SpAmmo ? (SpAmmo)restored : null;
 		charge = Math.max(0, Math.min(FULL_CHARGE, bundle.getInt(CHARGE)));
 	}
 }

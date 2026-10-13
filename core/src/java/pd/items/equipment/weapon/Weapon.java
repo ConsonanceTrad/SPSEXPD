@@ -613,7 +613,13 @@ abstract public class Weapon extends KindOfWeapon {
 				EnchantmentShock.class, EnchantmentLight.class, EnchantmentFire2.class,
 				EnchantmentEarth2.class, EnchantmentDark2.class,
 				Blocking.class, Blooming.class, Elastic.class,
-				Lucky.class, Projecting.class, Unstable.class
+				Lucky.class, Projecting.class, Unstable.class,
+				//SPSEXPD: 枪械专属附魔（由原特殊弹药效果转化而来）
+				pd.items.equipment.weapon.enchantments.Puncturing.class,
+				pd.items.equipment.weapon.enchantments.Ricochet.class,
+				pd.items.equipment.weapon.enchantments.Starfall.class,
+				pd.items.equipment.weapon.enchantments.Hypnotic.class,
+				pd.items.equipment.weapon.enchantments.Jackpot.class
 		};
 
 		public static final Class<?>[] rare = new Class<?>[]{

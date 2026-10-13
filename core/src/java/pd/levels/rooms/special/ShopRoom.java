@@ -31,6 +31,7 @@ import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Honeypot;
 import pd.items.Item;
+import pd.items.Magazine;
 import pd.items.Stylus;
 import pd.items.Torch;
 import pd.items.equipment.armor.LeatherArmor;
@@ -291,6 +292,9 @@ public class ShopRoom extends SpecialRoom {
 		//SPSEXPD: 统一为 SPS 干粮系——货架口粮换成干粮小包
 		itemsToSpawn.add( new OverpricedRation() );
 		itemsToSpawn.add( new OverpricedRation() );
+
+		//SPSEXPD: 通用弹匣——枪械弹药，随层数上架
+		itemsToSpawn.add( new Magazine().quantity(Random.IntRange(2, 4)) );
 		
 		switch (Random.Int(4)){
 			case 0:

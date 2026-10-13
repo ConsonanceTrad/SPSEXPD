@@ -22,7 +22,6 @@ import pd.items.consum.stones.StoneOfAugmentation;
 import pd.items.equipment.artifacts.AlienBag;
 import pd.items.equipment.bombs.BuildBomb;
 import pd.items.equipment.bombs.HugeBomb;
-import pd.items.equipment.weapon.spammo.*;
 import pd.items.quest.DarkGold;
 import pd.messages.InlineText;
 import pd.plants.*;
@@ -75,26 +74,6 @@ public class IronMakerRecipes extends Recipe {
 			return new FruitCandy(2);
 		}
 		if (items.size() == 4 && count(items, DarkGold.class) == 3 && ore == 1) return new pd.items.consum.eggs.randomone.RandomEgg1();
-		if (items.size() == 2 && ore == 2) return new HeavyAmmo();
-		if (items.size() == 2 && ore == 1) {
-			if (count(items, NutPlant.Seed.class) == 1) return new WoodenAmmo();
-			if (count(items, Firebloom.Seed.class) == 1) return new FireAmmo();
-			if (count(items, Icecap.Seed.class) == 1) return new IceAmmo();
-			if (count(items, Stormvine.Seed.class) == 1) return new StormAmmo();
-			if (count(items, Sorrowmoss.Seed.class) == 1) return new MossAmmo();
-			if (count(items, Blindweed.Seed.class) == 1) return new BlindAmmo();
-			if (count(items, Starflower.Seed.class) == 1) return new StarAmmo();
-			if (count(items, Dreamfoil.Seed.class) == 1) return new DreamAmmo();
-			if (count(items, Dewcatcher.Seed.class) == 1) return new DewAmmo();
-			if (count(items, Sungrass.Seed.class) == 1) return new SunAmmo();
-			if (count(items, Fadeleaf.Seed.class) == 1) return new SandAmmo();
-			if (count(items, Seedpod.Seed.class) == 1) return new GoldAmmo();
-			if (count(items, Rotberry.Seed.class) == 1 || count(items, Freshberry.Seed.class) == 1) return new RotAmmo();
-			if (count(items, Earthroot.Seed.class) == 1) return new ThornAmmo();
-			if (count(items, BlandfruitBush.Seed.class) == 1) return new EmptyAmmo();
-			if (count(items, ReNepenth.Seed.class) == 1) return new EvolveAmmo();
-			if (count(items, StarEater.Seed.class) == 1) return new BattleAmmo();
-		}
 		if (items.size() == 2 && count(items, BuildBomb.class) == 2) return new HugeBomb();
 		if (items.size() == 2 && count(items, StoneOfAugmentation.class) == 1
 				&& count(items, Stylus.class) == 1) return new GreatRune();

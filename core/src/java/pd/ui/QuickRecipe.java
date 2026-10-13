@@ -86,8 +86,6 @@ import pd.items.consum.food.processed.CrystalShard;
 import pd.items.consum.food.processed.HighEnergySpore;
 import pd.items.consum.food.processed.WishPetal;
 import pd.items.consum.medicine.Timepill2;
-import pd.items.equipment.weapon.spammo.FireAmmo;
-import pd.items.equipment.weapon.spammo.HeavyAmmo;
 import pd.plants.Firebloom;
 import pd.items.equipment.wands.Wand;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
@@ -450,14 +448,8 @@ public class QuickRecipe extends Component {
 						new ArrayList<Item>(Arrays.asList(new Wand.PlaceHolder())),
 						new ArcaneResin()));
 				result.add(null);
-				//SPSEXPD: 原铁砧的锻造公式已整体并入炼金釜
+				//SPSEXPD: 原铁砧的锻造公式已整体并入炼金釜（通用弹匣配方见炼金指南）
 				IronMakerRecipes forge = new IronMakerRecipes();
-				result.add(new QuickRecipe( forge,
-						new ArrayList<>(Arrays.asList(new StoneOre(), new StoneOre())),
-						new HeavyAmmo()));
-				result.add(new QuickRecipe( forge,
-						new ArrayList<>(Arrays.asList(new StoneOre(), new Firebloom.Seed())),
-						new FireAmmo()));
 				result.add(new QuickRecipe( forge,
 						new ArrayList<>(Arrays.asList(new StoneOre(), new StoneOre(), new StoneOre(), new StoneOre(), new WaterItem())),
 						new Timepill2()));

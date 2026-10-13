@@ -199,10 +199,7 @@ import pd.items.equipment.weapon.missiles.throwing.Boomerang;
 import pd.items.equipment.weapon.missiles.throwing.EmpBola;
 import pd.items.equipment.weapon.missiles.throwing.EscapeKnive;
 import pd.items.equipment.weapon.missiles.throwing.Skull;
-import pd.items.equipment.weapon.spammo.BattleAmmo;
-import pd.items.equipment.weapon.spammo.GoldAmmo;
-import pd.items.equipment.weapon.spammo.HeavyAmmo;
-import pd.items.equipment.weapon.spammo.WoodenAmmo;
+import pd.items.Magazine;
 import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.plants.Dewcatcher;
@@ -1425,9 +1422,9 @@ public enum HeroClass {
 				case 1:
 					l.equip(ItemSlot.WEAPON, () -> new GunA(), 2, null);
 					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 1, null);
-					l.backpack(() -> new GoldAmmo());
-					l.backpack(() -> new WoodenAmmo());
-					l.backpack(() -> new BattleAmmo());
+					l.backpack(() -> new Magazine());
+					l.backpack(() -> new Magazine());
+					l.backpack(() -> new Magazine());
 					l.equip(ItemSlot.ARTIFACT, () -> new AlienBag(), 0, (h, i) -> ((AlienBag) i).activate(h));
 					l.backpack(() -> new BShovel(), 0, 1, 0, null);
 					l.backpack(() -> new DungeonBomb());
@@ -1511,7 +1508,7 @@ public enum HeroClass {
 					l.equip(ItemSlot.WEAPON, () -> new GunA(), 0,
 							(h, i) -> ((pd.items.KindOfWeapon) i).activate(h));
 					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
-					l.backpack(() -> new HeavyAmmo());
+					l.backpack(() -> new Magazine());
 					l.backpack(() -> new GunOfSoldier(), 0, 1, 0, null);
 					l.backpack(() -> new HealBag(), 0, 1, 1, null);
 					break;

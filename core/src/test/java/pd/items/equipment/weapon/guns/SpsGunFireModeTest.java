@@ -38,7 +38,7 @@ public final class SpsGunFireModeTest {
 		check(GunArchetype.SMG.magazine == 20 && GunArchetype.SMG.shotsPerFire == 4
 						&& GunArchetype.SMG.perfectSTR == 16 && GunArchetype.SMG.noise == 5,
 				"冲锋枪基准参数错误");
-		check(GunArchetype.SHOTGUN.magazine == 4 && GunArchetype.SHOTGUN.reload == GunArchetype.Reload.SINGLE
+		check(GunArchetype.SHOTGUN.magazine == 4
 						&& GunArchetype.SHOTGUN.perfectSTR == 18 && GunArchetype.SHOTGUN.range == 2
 						&& GunArchetype.SHOTGUN.noise == 7,
 				"霰弹枪基准参数错误");
@@ -60,14 +60,16 @@ public final class SpsGunFireModeTest {
 		check(new Sling().fullCharge() == 1 && new ToyGun().fullCharge() == 10, "投石索或玩具枪弹匣错误");
 	}
 
-	/** 整匣装填 vs 逐颗装填。 */
+	/** 装填：一个通用弹匣装满任意容量。 */
 	private static void testReloadModes() {
+		Hero hero = new Hero();
+		pd.Dungeon.hero = hero;
+		hero.belongings.backpack.items.add(new pd.items.Magazine());
 		GunC shotgun = new GunC();
-		check(shotgun.reloadMagazine() == 1 && shotgun.charge() == 1, "霰弹枪不是逐颗装填");
-		check(shotgun.reloadMagazine() == 1 && shotgun.charge() == 2, "霰弹枪第二颗装填错误");
+		check(shotgun.reloadMagazine(hero) && shotgun.charge() == 4, "霰弹枪没有被一个通用弹匣装满");
 
 		GunA pistol = new GunA();
-		check(pistol.reloadMagazine() == 7 && pistol.charge() == 7, "手枪不是整匣装填");
+		check(!pistol.reloadMagazine(hero), "无通用弹匣时仍能装填");
 	}
 
 	/** 出膛偏差（流弹）：范围内且力量达标 = 0；超出范围或力量不足则增大。 */

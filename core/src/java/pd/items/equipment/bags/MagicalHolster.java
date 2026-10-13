@@ -32,7 +32,7 @@ import pd.items.equipment.bombs.Bomb;
 import pd.items.equipment.wands.Wand;
 import pd.items.equipment.weapon.guns.GunWeapon;
 import pd.items.equipment.weapon.rockcode.RockCode;
-import pd.items.equipment.weapon.spammo.SpAmmo;
+import pd.items.Magazine;
 import pd.messages.InlineText;
 
 public class MagicalHolster extends Bag {
@@ -40,7 +40,7 @@ public class MagicalHolster extends Bag {
 	static {
 		InlineText.of(MagicalHolster.class)
 			.t("name", "魔法筒袋")
-			.t("desc", "（已合并法杖套）这款细长的皮制筒袋由某种异域动物的毛皮制成。强大的附魔使其拥有收纳法杖、枪械与爆炸物等道具的能力。\n\n只需伸手一探，想要的道具就会出现在你的手上。\n\n筒袋中涌动的魔力流还能小幅强化其中法杖的充能速度。投掷武器（暗器）请存放于暗器袋。");
+			.t("desc", "这款细长的皮制筒袋由某种异域动物的毛皮制成。强大的附魔使其拥有收纳法杖与爆炸物等道具的能力。\n\n只需伸手一探，想要的道具就会出现在你的手上。\n\n筒袋中涌动的魔力流还能小幅强化其中法杖的充能速度。");
 	}
 
 
@@ -59,7 +59,7 @@ public class MagicalHolster extends Bag {
 		//SPS: 投掷武器统一存放暗器袋（用户裁决 2026-09-28），魔法套筒不再收纳
 		if (item instanceof Wand || item instanceof Bomb
 				|| item instanceof TriforceOfCourage || item instanceof TriforceOfPower
-				|| item instanceof TriforceOfWisdom || item instanceof SpAmmo
+				|| item instanceof TriforceOfWisdom || item instanceof Magazine
 				|| item instanceof GunWeapon || item instanceof RockCode){
 			return super.canHold(item);
 		} else {

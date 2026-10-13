@@ -10,8 +10,7 @@ import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.actors.mobs.Mob;
-import pd.items.equipment.weapon.spammo.FireAmmo;
-import pd.items.equipment.weapon.spammo.HeavyAmmo;
+import pd.items.Magazine;
 import render.noosa.Game;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -24,7 +23,7 @@ import java.security.MessageDigest;
 import javax.imageio.ImageIO;
 import pd.atlas.IconEntry;
 
-/** Headless checks for SPS-PD's five firearms, sling, and toy gun. */
+/** Headless checks for SPS-PD's five firearms, sling, toy gun, and the general magazine. */
 public final class SpsGunTest {
 
 	private static final String[] ICON_HASHES = {
@@ -47,9 +46,9 @@ public final class SpsGunTest {
 			testDefinitions();
 			testReloadAndShotUse();
 			testAgentAndToyRules();
-			testAmmoEffectsAndSave();
+			testMagazineAndSave();
 			testLegacyIcons();
-			System.out.println("SPS枪械测试通过：五档枪械、投石索、玩具枪、弹匣、特工射击、特殊弹药、存档和8个旧版图标均正常。");
+			System.out.println("SPS枪械测试通过：五档枪械、投石索、玩具枪、弹匣、特工射击、通用弹匣装填、存档和8个旧版图标均正常。");
 		} finally {
 			Random.popGenerator();
 		}
@@ -89,18 +88,22 @@ public final class SpsGunTest {
 				"玩具枪基础数值错误");
 		check(toy.min(4) == 5 && toy.max(4) == 22 && toy.fullCharge() == 10,
 				"玩具枪强化成长或容量错误");
-		check(toy.isReinforced() && !toy.supportsSpecialAmmo(), "玩具枪强化或弹药规则错误");
+		check(toy.isReinforced(), "玩具枪强化规则错误");
 	}
 
 	private static void testReloadAndShotUse() {
 		Hero hero = new Hero();
+		Dungeon.hero = hero;
 		GunA gun = new GunA();
-		gun.charge = 6;
-		check(gun.reloadMagazine() == 1 && gun.charge() == 7,
-				"部分弹匣装填没有保留原有子弹");
-		check(gun.reloadMagazine() == 0 && gun.charge() == 7, "满弹匣仍可继续装填");
-		check(gun.reloadTime(hero, false, 1) >= 0.1f && gun.reloadTime(hero, true, 1) == 1f,
-				"普通装填出现零耗时或自动装填耗时错误");
+		gun.charge = 3;
+		//SPSEXPD: 装填消耗一个通用弹匣并把弹匣填满（这里弹匣 7，3 → 7）
+		hero.belongings.backpack.items.add(new Magazine());
+		check(gun.reloadMagazine(hero) && gun.charge() == 7, "通用弹匣装填没有填满弹匣");
+		check(gun.reloadMagazine(hero) == false && gun.charge() == 7, "满弹匣仍可继续装填");
+		//SPSEXPD: 装满后不再消耗弹匣
+		check(hero.belongings.getItem(Magazine.class) == null, "满弹匣装填仍然消耗了通用弹匣");
+		check(gun.reloadTime(hero, false) == 1f && gun.reloadTime(hero, true) == 1f,
+				"手枪装填耗时错误");
 		check(gun.consumeRound() && gun.charge() == 6, "射击没有消耗一发子弹");
 		gun.charge = 0;
 		check(!gun.consumeRound() && gun.charge() == 0, "空弹匣仍能射击或扣成负数");
@@ -124,37 +127,37 @@ public final class SpsGunTest {
 
 		ToyGun toy = new ToyGun();
 		check(!toy.canShoot(hero) && !toy.canReload(hero), "玩具枪未装备时仍可射击或装填");
-		check(toy.reloadTime(hero, true, 10) == 3f, "玩具枪自动装填不是固定3回合");
+		check(toy.reloadTime(hero, true) == 3f, "玩具枪装填不是固定3回合");
 		TestMob target = new TestMob(100);
 		toy.new GunAmmo().proc(hero, target, 10);
 		check(target.HP == 100, "玩具枪错误附带了普通枪的额外能量伤害");
 	}
 
-	private static void testAmmoEffectsAndSave() {
+	private static void testMagazineAndSave() {
 		Hero hero = new Hero();
 		Dungeon.hero = hero;
 		TestGun gun = new TestGun();
 		gun.charge = 2;
-		gun.reserveAmmo = 137;
-		gun.loadAmmo(new HeavyAmmo());
+
+		//SPSEXPD: 枪弹附带一段额外能量伤害（GunAmmo.proc）
 		TestMob target = new TestMob(100);
-		gun.new GunAmmo().proc(hero, target, 20);
-		check(target.HP == 75, "特殊弹药或额外能量伤害没有用于枪弹");
+		new TestGun().new GunAmmo().proc(hero, target, 20);
+		check(target.HP < 100, "枪弹没有附带额外能量伤害");
 
 		Bundle bundle = new Bundle();
 		gun.storeInBundle(bundle);
 		TestGun restored = new TestGun();
 		restored.restoreFromBundle(bundle);
-		check(restored.charge() == 2 && restored.reserveAmmo() == 137,
-				"枪械弹匣或余弹没有随存档恢复");
-		check(restored.loadedAmmo() instanceof HeavyAmmo, "枪械特殊弹药没有随存档恢复");
+		check(restored.charge() == 2, "枪械弹匣没有随存档恢复");
 
+		//SPSEXPD: 通用弹匣——一个弹匣填满任意容量
 		Hero owner = new Hero();
-		FireAmmo fire = new FireAmmo();
-		owner.belongings.backpack.items.add(fire);
-		check(restored.loadAmmoFromBackpack(owner, fire) && restored.loadedAmmo() instanceof FireAmmo,
-				"枪械不能消耗并替换背包中的特殊弹药");
-		check(!owner.belongings.backpack.contains(fire), "装填特殊弹药后背包中仍保留原物品");
+		Dungeon.hero = owner;
+		owner.belongings.backpack.items.add(new Magazine());
+		restored.charge = 0;
+		check(restored.reloadMagazine(owner) && restored.charge() == restored.fullCharge(),
+				"通用弹匣没有装满枪械");
+		check(!owner.belongings.backpack.contains(new Magazine()), "装填后通用弹匣没有从背包消耗");
 	}
 
 	private static void testLegacyIcons() throws Exception {

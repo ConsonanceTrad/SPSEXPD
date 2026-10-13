@@ -35,7 +35,8 @@ public class GunOfSoldier extends Item {
 			.t("ac_reload", "填弹")
 			.t("prompt", "选择一个目标。")
 			.t("prompt_aim", "选择一个射击方向。")
-			.t("break", "脉冲手枪的充能不足。")
+			.t("break", "脉冲手枪的弹匣是空的。")
+			.t("no_magazine", "你没有可以装填的通用弹匣。")
 			.t("full", "弹匣已满。")
 			.t("reloading", "填弹中……")
 			.t("charge", "弹匣：%1$d / %2$d。")
@@ -55,14 +56,11 @@ public class GunOfSoldier extends Item {
 	public static final int PERFECT_STR = 10;
 	public static final int RANGE = 6;
 	public static final int NOISE = 5;
-	private static final int RESERVE = 100;
 	private static final float RELOAD_TIME = 2f;
 
 	private static final String CHARGE = "charge";
-	private static final String RESERVE_KEY = "reserve";
 
 	private int charge;
-	private int reserveAmmo = RESERVE;
 	private float regenProgress = 0f;
 	private boolean firedSinceLastCharge = false;
 
@@ -132,15 +130,23 @@ public class GunOfSoldier extends Item {
 			GLog.n(Messages.get(this, "full"));
 			return;
 		}
-		int loaded = Math.min(MAGAZINE - charge, reserveAmmo);
-		if (loaded <= 0) {
-			GLog.n(Messages.get(this, "break"));
+		if (!consumeMagazine(hero)) {
+			GLog.n(Messages.get(this, "no_magazine"));
 			return;
 		}
-		charge += loaded;
+		charge = MAGAZINE;
 		updateQuickslot();
 		if (hero.sprite != null) hero.sprite.showStatus(pd.sprites.CharSprite.DEFAULT, Messages.get(this, "reloading"));
 		hero.spendAndNext(RELOAD_TIME);
+	}
+
+	/** SPSEXPD: 消耗一个通用弹匣填满弹匣（无限弹药袋生效时免消耗）。 */
+	public boolean consumeMagazine(Hero hero) {
+		if (hero == null) return false;
+		if (pd.actors.buffs.EndlessAmmo.isActive(hero)) return true;
+		Item magazine = hero.belongings.getItem(pd.items.Magazine.class);
+		if (magazine == null || !hero.belongings.backpack.contains(magazine)) return false;
+		return magazine.detach(hero.belongings.backpack) != null;
 	}
 
 	private float shotDelay(Hero hero, int cell) {
@@ -191,14 +197,12 @@ public class GunOfSoldier extends Item {
 	public void storeInBundle(Bundle bundle) {
 		super.storeInBundle(bundle);
 		bundle.put(CHARGE, charge);
-		bundle.put(RESERVE_KEY, reserveAmmo);
 	}
 
 	@Override
 	public void restoreFromBundle(Bundle bundle) {
 		super.restoreFromBundle(bundle);
 		charge = Math.max(0, Math.min(MAGAZINE, bundle.getInt(CHARGE)));
-		reserveAmmo = bundle.contains(RESERVE_KEY) ? Math.max(0, bundle.getInt(RESERVE_KEY)) : RESERVE;
 	}
 
 	public class SoldierAmmo extends MissileWeapon {

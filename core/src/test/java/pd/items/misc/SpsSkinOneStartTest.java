@@ -60,9 +60,7 @@ import pd.items.equipment.weapon.missiles.throwing.EmpBola;
 import pd.items.equipment.weapon.missiles.throwing.EscapeKnive;
 import pd.items.equipment.weapon.missiles.throwing.Skull;
 import pd.items.equipment.weapon.missiles.throwing.Wave;
-import pd.items.equipment.weapon.spammo.BattleAmmo;
-import pd.items.equipment.weapon.spammo.GoldAmmo;
-import pd.items.equipment.weapon.spammo.WoodenAmmo;
+import pd.items.Magazine;
 import render.noosa.Game;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -108,7 +106,7 @@ public final class SpsSkinOneStartTest {
 
 		h=start(HeroClass.PERFORMER);
 		check(h.belongings.weapon instanceof GunA&&h.belongings.weapon.level()==2&&h.belongings.artifact instanceof AlienBag,"演员皮肤1枪械或肩包错误");
-		check(h.belongings.getItem(GoldAmmo.class)!=null&&h.belongings.getItem(WoodenAmmo.class)!=null&&h.belongings.getItem(BattleAmmo.class)!=null&&h.belongings.getItem(BShovel.class)!=null,"演员皮肤1弹药或按钮缺失");
+		check(h.belongings.getItem(Magazine.class)!=null&&h.belongings.getItem(BShovel.class)!=null,"演员皮肤1弹药或按钮缺失");
 
 		h=start(HeroClass.SOLDIER);
 		check(h.STR==Hero.STARTING_STR+2&&h.belongings.weapon==null&&h.belongings.armor.level()==3,"星兵皮肤1属性或护甲错误");

@@ -1,8 +1,6 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.equipment.weapon.guns;
 
-import pd.atlas.items.SpecificPlaceHolderDict;
-
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -13,31 +11,24 @@ import pd.actors.buffs.MechArmor;
 import pd.actors.buffs.TargetShoot;
 import pd.actors.buffs.Vertigo;
 import pd.actors.damagetype.DamageType;
-import pd.actors.hero.Belongings;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.effects.Speck;
-import pd.effects.Splash;
 import pd.items.Item;
-import pd.items.equipment.bags.Bag;
+import pd.items.Magazine;
 import pd.items.equipment.rings.RingOfSharpshooting;
 import pd.items.equipment.weapon.SpsRangedWeapon;
 import pd.items.equipment.weapon.Weapon;
 import pd.items.equipment.weapon.enchantments.Puncturing;
 import pd.items.equipment.weapon.enchantments.Ricochet;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
-import pd.items.equipment.weapon.spammo.SpAmmo;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.sprites.CharSprite;
-import pd.sprites.ItemSprite;
 import pd.utils.GLog;
-import pd.windows.WndBag;
-import pd.windows.WndOptions;
 import render.noosa.Game;
-import render.noosa.audio.Sample;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
@@ -52,18 +43,12 @@ public class GunWeapon extends SpsRangedWeapon {
 		InlineText.of(GunWeapon.class)
 			.t("ac_shoot", "射击目标")
 			.t("ac_aim", "定向射击")
-			.t("ac_reload", "填弹")
-			.t("ac_ammo", "切换子弹")
-			.t("reloading", "填弹中……")
+			.t("ac_reload", "装填")
+			.t("reloading", "装填中……")
 			.t("need_to_equip", "你需要先装备这件武器才能射击。")
 			.t("need_target", "那里没有可以射击的目标。")
-			.t("prompt2", "选择加载的强化弹药")
 			.t("full", "弹匣已满。")
-			.t("empty", "弹药不足。")
-			.t("ammo_add", "当前强化弹药：%s")
-			.t("warning", "这把枪当前装有%1$s。是否改用%2$s？原有强化弹药将会消失。")
-			.t("yes", "是")
-			.t("no", "否")
+			.t("empty", "你没有可以装填的通用弹匣。")
 			.t("prompt", "选择射击目标")
 			.t("prompt_aim", "选择射击方向")
 			.t("stats_known", "这件_%1$d阶_枪械可以造成_%2$d～%3$d点伤害_，并且需要_%4$d点力量_来正常使用。")
@@ -75,11 +60,8 @@ public class GunWeapon extends SpsRangedWeapon {
 	public static final String AC_SHOOT = "SHOOT";
 	public static final String AC_AIM = "AIM";
 	public static final String AC_RELOAD = "RELOAD";
-	public static final String AC_AMMO = "AMMO";
 
 	private static final String CHARGE = "charge";
-	private static final String RESERVE = "reserve";
-	private static final String SP_AMMO = "sp_ammo";
 
 	/** SPSEXPD: 枪械不适用（近战专属）的附魔，随机附魔时排除。 */
 	public static final Class<?>[] INCOMPATIBLE_ENCHANTS = new Class<?>[]{
@@ -88,6 +70,15 @@ public class GunWeapon extends SpsRangedWeapon {
 			pd.items.equipment.weapon.enchantments.Vampiric.class,
 			pd.items.equipment.weapon.enchantments.Blocking.class,
 			pd.items.equipment.weapon.enchantments.Blooming.class,
+	};
+
+	/** SPSEXPD: 枪械专属附魔（由原特殊弹药效果转化而来），随机附魔时优先抽取。 */
+	public static final Class<? extends Enchantment>[] GUN_ENCHANTS = new Class[]{
+			Puncturing.class,
+			Ricochet.class,
+			pd.items.equipment.weapon.enchantments.Starfall.class,
+			pd.items.equipment.weapon.enchantments.Hypnotic.class,
+			pd.items.equipment.weapon.enchantments.Jackpot.class,
 	};
 
 	protected GunArchetype archetype;
@@ -102,11 +93,8 @@ public class GunWeapon extends SpsRangedWeapon {
 	protected int effectiveRange;
 
 	protected int charge;
-	protected int reserveAmmo = 100;
-	private SpAmmo ammo;
 
-	/** 装填方式；耗时按枪型固定（霰弹枪为逐颗）。 */
-	protected GunArchetype.Reload reloadMode;
+	/** 装填耗时（回合）。 */
 	protected float baseReloadTime;
 	/** 枪声传播半径。 */
 	protected int noiseRadius;
@@ -129,7 +117,6 @@ public class GunWeapon extends SpsRangedWeapon {
 		this.shotsPerFire = archetype.shotsPerFire;
 		this.perfectSTR = archetype.perfectSTR;
 		this.effectiveRange = archetype.range;
-		this.reloadMode = archetype.reload;
 		this.baseReloadTime = archetype.reloadTime;
 		this.noiseRadius = archetype.noise;
 		this.regenPerTurn = archetype.regenPerTurn;
@@ -147,12 +134,6 @@ public class GunWeapon extends SpsRangedWeapon {
 	}
 	@Override public int damageRoll(Char owner) { return 0; }
 	@Override public boolean isUpgradable() { return true; }
-
-	@Override
-	public Item upgrade() {
-		reserveAmmo += 10;
-		return super.upgrade();
-	}
 
 	/** SPSEXPD: 枪械精准——不吃天赋/戒指的近战精准，只由力量与距离决定（力量越高越准）。 */
 	@Override
@@ -206,7 +187,6 @@ public class GunWeapon extends SpsRangedWeapon {
 			actions.add(AC_AIM);
 		}
 		if (canReload(hero)) actions.add(AC_RELOAD);
-		if (supportsSpecialAmmo()) actions.add(AC_AMMO);
 		return actions;
 	}
 
@@ -234,15 +214,11 @@ public class GunWeapon extends SpsRangedWeapon {
 			curUser = hero;
 			if (!canReload(hero)) GLog.i(Messages.get(GunWeapon.class, "need_to_equip"));
 			else reload(hero, false);
-		} else if (AC_AMMO.equals(action) && supportsSpecialAmmo()) {
-			curUser = hero;
-			GameScene.selectItem(ammoSelector);
 		} else {
 			super.execute(hero, action);
 		}
 	}
 
-	protected boolean supportsSpecialAmmo() { return true; }
 	protected boolean canShoot(Hero hero) {
 		return isEquipped(hero) || hero.subClass == HeroSubClass.AGENT;
 	}
@@ -253,28 +229,37 @@ public class GunWeapon extends SpsRangedWeapon {
 			GLog.n(Messages.get(GunWeapon.class, "full"));
 			return;
 		}
-		int loaded = reloadMagazine();
-		if (loaded <= 0) {
+		if (!reloadMagazine(hero)) {
 			GLog.n(Messages.get(GunWeapon.class, "empty"));
 			return;
 		}
-		float time = reloadTime(hero, automatic, loaded);
+		float time = reloadTime(hero, automatic);
 		if (hero.sprite != null) hero.sprite.showStatus(CharSprite.DEFAULT, Messages.get(GunWeapon.class, "reloading"));
 		hero.spendAndNext(Math.max(0.1f, time));
 	}
 
-	/** Reloads without scheduling a turn, also used by deterministic tests. */
-	public int reloadMagazine() {
-		int missing = Math.max(0, fullCharge - charge);
-		if (missing == 0 || reserveAmmo <= 0) return 0;
-		int want = reloadMode == GunArchetype.Reload.SINGLE ? 1 : missing;
-		int loaded = Math.min(want, reserveAmmo);
-		charge += loaded;
+	/**
+	 * SPSEXPD: 消耗一个「通用弹匣」把弹匣填满，不排回合（供确定性测试调用）。
+	 * 无论枪械容量与单次击发数，一个弹匣一律填满。
+	 */
+	public boolean reloadMagazine(Hero hero) {
+		if (charge >= fullCharge) return false;
+		if (!consumeMagazine(hero)) return false;
+		charge = fullCharge;
 		updateQuickslot();
-		return loaded;
+		return true;
 	}
 
-	protected float reloadTime(Hero hero, boolean automatic, int loaded) {
+	/** SPSEXPD: 从背包消耗一个通用弹匣；无限弹药袋生效期间无需消耗。 */
+	protected boolean consumeMagazine(Hero hero) {
+		if (hero == null) return false;
+		if (EndlessAmmo.isActive(hero)) return true;
+		Item magazine = hero.belongings.getItem(Magazine.class);
+		if (magazine == null || !hero.belongings.backpack.contains(magazine)) return false;
+		return magazine.detach(hero.belongings.backpack) != null;
+	}
+
+	protected float reloadTime(Hero hero, boolean automatic) {
 		if (hero.subClass == HeroSubClass.AGENT) return 0.5f;
 		return baseReloadTime;
 	}
@@ -291,7 +276,6 @@ public class GunWeapon extends SpsRangedWeapon {
 		return true;
 	}
 	public int fullCharge() { return fullCharge; }
-	public int reserveAmmo() { return reserveAmmo; }
 
 	/** SPSEXPD: 充能型枪械的每回合自然回充（本回合开过火则不回充）。 */
 	public void gainCharge() {
@@ -337,7 +321,7 @@ public class GunWeapon extends SpsRangedWeapon {
 			pd.items.equipment.wands.WandOfBlastWave.throwChar(defender, trajectory, 1, false, false, this);
 			if (causesVertigo()) Buff.prolong(defender, Vertigo.class, 3f);
 		}
-		//SPSEXPD: 走 Weapon.proc —— 让枪械附魔（含穿甲/弹射）与识别进度正常生效
+		//SPSEXPD: 走 Weapon.proc —— 让枪械附魔与识别进度正常生效
 		return super.proc(attacker, defender, damage);
 	}
 
@@ -345,8 +329,9 @@ public class GunWeapon extends SpsRangedWeapon {
 	@Override
 	public Weapon enchant() {
 		Class<? extends Enchantment> old = enchantment != null ? enchantment.getClass() : null;
-		if (Random.Int(10) < 3 && !Puncturing.class.equals(old) && !Ricochet.class.equals(old)) {
-			return enchant(Random.Int(2) == 0 ? new Puncturing() : new Ricochet());
+		if (Random.Int(10) < 3 && !isGunEnchant(old)) {
+			Class<? extends Enchantment> pick = Random.element(java.util.Arrays.asList(GUN_ENCHANTS));
+			return enchant(render.utils.serialize.Reflection.newInstance(pick));
 		}
 		Enchantment ench;
 		int guard = 0;
@@ -361,6 +346,14 @@ public class GunWeapon extends SpsRangedWeapon {
 		if (ench == null) return false;
 		for (Class<?> c : INCOMPATIBLE_ENCHANTS) {
 			if (c == ench.getClass()) return true;
+		}
+		return false;
+	}
+
+	protected boolean isGunEnchant(Class<? extends Enchantment> type) {
+		if (type == null) return false;
+		for (Class<?> c : GUN_ENCHANTS) {
+			if (c == type) return true;
 		}
 		return false;
 	}
@@ -382,56 +375,12 @@ public class GunWeapon extends SpsRangedWeapon {
 
 	@Override
 	public String info() {
-		String info = desc() + "\n\n" + Messages.get(GunWeapon.class, "stats_known",
-				gunTier, min(), max(), STRReq());
-		if (ammo != null) info += "\n\n" + Messages.get(GunWeapon.class, "ammo_add", ammo.name());
-		info += "\n\n" + Messages.get(GunWeapon.class, "charge", charge, fullCharge);
-		return info;
+		return desc() + "\n\n" + Messages.get(GunWeapon.class, "stats_known",
+				gunTier, min(), max(), STRReq())
+				+ "\n\n" + Messages.get(GunWeapon.class, "charge", charge, fullCharge);
 	}
 
 	@Override public String status() { return levelKnown ? charge + "/" + fullCharge : null; }
-
-	public void loadAmmo(SpAmmo ammo) {
-		this.ammo = ammo;
-		if (ammo != null) {
-			ammo.identify();
-			ammo.cursed = false;
-		}
-		updateQuickslot();
-	}
-
-	public boolean loadAmmoFromBackpack(Hero owner, SpAmmo selected) {
-		if (owner == null || selected == null || !owner.belongings.backpack.contains(selected)) return false;
-		Item consumed = selected.detach(owner.belongings.backpack);
-		if (!(consumed instanceof SpAmmo)) return false;
-		loadAmmo((SpAmmo)consumed);
-		return true;
-	}
-
-	public SpAmmo loadedAmmo() { return ammo; }
-
-	private final WndBag.ItemSelector ammoSelector = new WndBag.ItemSelector() {
-		@Override public String textPrompt() { return Messages.get(GunWeapon.class, "prompt2"); }
-		@Override public Class<? extends Bag> preferredBag() { return Belongings.Backpack.class; }
-		@Override public boolean itemSelectable(Item item) { return item instanceof SpAmmo; }
-		@Override public void onSelect(Item item) {
-			if (!(item instanceof SpAmmo) || curUser == null) return;
-			SpAmmo selected = (SpAmmo)item;
-			if (ammo == null) consumeAndLoad(selected);
-			else GameScene.show(new WndOptions(new ItemSprite(selected), Messages.titleCase(selected.name()),
-					Messages.get(GunWeapon.class, "warning", ammo.name(), selected.name()),
-					Messages.get(GunWeapon.class, "yes"), Messages.get(GunWeapon.class, "no")) {
-				@Override protected void onSelect(int index) { if (index == 0) consumeAndLoad(selected); }
-			});
-		}
-	};
-
-	private void consumeAndLoad(SpAmmo selected) {
-		if (!loadAmmoFromBackpack(curUser, selected)) return;
-		if (curUser.sprite != null) curUser.sprite.operate(curUser.pos);
-		Sample.INSTANCE.play(Assets.Sounds.EVOKE);
-		curUser.spendAndNext(2f);
-	}
 
 	/** 一次击发：按单次弹药数连续发射，每颗子弹各自独立结算。 */
 	protected void fire(Hero hero, int cell) {
@@ -503,7 +452,6 @@ public class GunWeapon extends SpsRangedWeapon {
 		@Override protected void rangedHit(Char enemy, int cell) { }
 		@Override protected void rangedMiss(int cell) { }
 		@Override public int proc(Char attacker, Char defender, int damage) {
-			if (ammo != null) ammo.onHit(attacker, defender, damage);
 			if (addsEnergyDamage()) {
 				defender.damage(gunDamageRoll(attacker) / 2, DamageType.ENERGY_DAMAGE);
 			}
@@ -520,16 +468,11 @@ public class GunWeapon extends SpsRangedWeapon {
 	public void storeInBundle(Bundle bundle) {
 		super.storeInBundle(bundle);
 		bundle.put(CHARGE, charge);
-		bundle.put(RESERVE, reserveAmmo);
-		if (ammo != null) bundle.put(SP_AMMO, ammo);
 	}
 
 	@Override
 	public void restoreFromBundle(Bundle bundle) {
 		super.restoreFromBundle(bundle);
 		charge = Math.max(0, Math.min(fullCharge, bundle.getInt(CHARGE)));
-		reserveAmmo = bundle.contains(RESERVE) ? Math.max(0, bundle.getInt(RESERVE)) : 100 + 10 * Math.max(0, trueLevel());
-		Object restored = bundle.get(SP_AMMO);
-		ammo = restored instanceof SpAmmo ? (SpAmmo)restored : null;
 	}
 }

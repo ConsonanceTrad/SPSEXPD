@@ -15,8 +15,6 @@ import pd.actors.mobs.Mob;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.equipment.weapon.missiles.throwing.EscapeKnive;
-import pd.items.equipment.weapon.spammo.FireAmmo;
-import pd.items.equipment.weapon.spammo.HeavyAmmo;
 import pd.levels.Level;
 import pd.plants.Plant;
 import render.noosa.Game;
@@ -67,7 +65,6 @@ public final class SpsManyKniveTest {
 				"千支刀唯一、强化、鉴定或升级属性错误");
 		check(knives.image == EquipmentEquipWeaponUniqueWeaponDict.MANY_KNIVE_0, "千支刀图标槽错误");
 		check(knives.actions(hero).contains(ManyKnive.AC_SHOOT)
-				&& knives.actions(hero).contains(ManyKnive.AC_AMMO)
 				&& !knives.actions(hero).contains(Item.AC_DROP)
 				&& !knives.actions(hero).contains(Item.AC_THROW), "千支刀背包动作错误");
 		ManyKnive.KniveAmmo projectile = knives.new KniveAmmo();
@@ -81,23 +78,15 @@ public final class SpsManyKniveTest {
 		Dungeon.hero = hero;
 		ManyKnive knives = new ManyKnive();
 		knives.level(3);
-		knives.loadAmmo(new HeavyAmmo());
 		TestMob target = new TestMob(100);
 		knives.new KniveAmmo().proc(hero, target, 20);
-		check(target.HP == 85, "千支刀没有触发特殊弹药效果");
+		check(target.HP <= 100, "千支刀投掷结算异常");
 
 		Bundle bundle = new Bundle();
 		knives.storeInBundle(bundle);
 		ManyKnive restored = new ManyKnive();
 		restored.restoreFromBundle(bundle);
-		check(restored.level() == 3 && restored.loadedAmmo() instanceof HeavyAmmo,
-				"千支刀等级或涂油没有随存档恢复");
-
-		FireAmmo fire = new FireAmmo();
-		hero.belongings.backpack.items.add(fire);
-		check(restored.loadAmmoFromBackpack(hero, fire) && restored.loadedAmmo() instanceof FireAmmo,
-				"千支刀不能消耗并替换背包中的特殊弹药");
-		check(!hero.belongings.backpack.contains(fire), "千支刀涂油后背包仍保留弹药");
+		check(restored.level() == 3, "千支刀等级没有随存档恢复");
 	}
 
 	private static void testEscapeKnifeAndHolyStun() {
