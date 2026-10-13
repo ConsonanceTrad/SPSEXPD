@@ -1,6 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.equipment.weapon.missiles;
 
+import pd.atlas.items.EquipmentEquipWeaponGunDict;
 import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 import pd.atlas.items.ConsumThrowsDict;
 
@@ -77,7 +78,7 @@ public class TaurcenBow extends Weapon {
 	private int loaded;
 
 	{
-		image = EquipmentEquipWeaponUniqueWeaponDict.SPS_TAURCEN_BOW_0;
+		image = EquipmentEquipWeaponGunDict.TAURCEN_BOW;
 		stackable = false;
 		unique = true;
 		bones = false;

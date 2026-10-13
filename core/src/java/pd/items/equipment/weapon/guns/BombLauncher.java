@@ -2,7 +2,7 @@ package pd.items.equipment.weapon.guns;
 
 import pd.actors.Char;
 import pd.actors.hero.Hero;
-import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
+import pd.atlas.items.EquipmentEquipWeaponGunDict;
 import pd.items.Item;
 import pd.items.equipment.bombs.Bomb;
 import pd.messages.InlineText;
@@ -28,7 +28,7 @@ public class BombLauncher extends GunWeapon {
 	/** SPSEXPD: 当前装填的炸弹（实例）。 */
 	private Bomb loaded;
 
-	{ image = EquipmentEquipWeaponUniqueWeaponDict.GATLING; } //SPSEXPD: 占位图标，待美术替换
+	{ image = EquipmentEquipWeaponGunDict.BOMB_LAUNCHER; }
 	public BombLauncher() {
 		super(GunArchetype.CUSTOM);
 		fullCharge = 1;      //SPSEXPD: 弹匣容量 1

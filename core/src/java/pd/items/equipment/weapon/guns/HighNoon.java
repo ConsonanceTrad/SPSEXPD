@@ -1,6 +1,6 @@
 package pd.items.equipment.weapon.guns;
 
-import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+import pd.atlas.items.EquipmentEquipWeaponGunDict;
 import pd.messages.InlineText;
 
 /** SPSEXPD: 冲锋枪·正午——弹匣较小的精准冲锋枪。 */
@@ -12,7 +12,7 @@ public class HighNoon extends GunWeapon {
 			.t("desc", "为烈日下的枪战而生的冲锋枪，弹匣不长，但抬枪即中。");
 	}
 
-	{ image = EquipmentEquipWeaponBasicWeaponDict.MACHINE_GUN; } //SPSEXPD: 占位图标，待美术替换
+	{ image = EquipmentEquipWeaponGunDict.HIGH_NOON; }
 	public HighNoon() {
 		super(GunArchetype.SMG);
 		fullCharge = 15;     //SPSEXPD: 个体特色——弹匣 15

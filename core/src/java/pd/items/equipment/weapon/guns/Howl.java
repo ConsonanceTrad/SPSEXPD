@@ -1,6 +1,6 @@
 package pd.items.equipment.weapon.guns;
 
-import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+import pd.atlas.items.EquipmentEquipWeaponGunDict;
 import pd.messages.InlineText;
 
 /** SPSEXPD: 手枪·H.O.W.L——枪声传播最远的制式手枪。 */
@@ -12,7 +12,7 @@ public class Howl extends GunWeapon {
 			.t("desc", "枪口制退器被整体拆除的制式手枪，每一发都在地牢里嘶吼。");
 	}
 
-	{ image = EquipmentEquipWeaponBasicWeaponDict.GUN_4; } //SPSEXPD: 占位图标，待美术替换
+	{ image = EquipmentEquipWeaponGunDict.HOWL; }
 	public Howl() {
 		super(GunArchetype.PISTOL);
 		fullCharge = 7;      //SPSEXPD: 个体特色——弹匣 7

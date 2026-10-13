@@ -1,6 +1,6 @@
 package pd.items.equipment.weapon.guns;
 
-import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+import pd.atlas.items.EquipmentEquipWeaponGunDict;
 import pd.messages.InlineText;
 
 /** SPSEXPD: 霰弹枪·边界 FN-4——精准范围略远的霰弹枪。 */
@@ -12,7 +12,7 @@ public class BorderFN4 extends GunWeapon {
 			.t("desc", "边境哨所配发的制式霰弹枪，弹匣更深，散布也收得更紧一些。");
 	}
 
-	{ image = EquipmentEquipWeaponBasicWeaponDict.SHOTGUN; } //SPSEXPD: 占位图标，待美术替换
+	{ image = EquipmentEquipWeaponGunDict.BORDER_FN4; }
 	public BorderFN4() {
 		super(GunArchetype.SHOTGUN);
 		fullCharge = 6;      //SPSEXPD: 个体特色——弹匣 6

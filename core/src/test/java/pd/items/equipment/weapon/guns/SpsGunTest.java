@@ -1,6 +1,6 @@
 package pd.items.equipment.weapon.guns;
 
-import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+import pd.atlas.items.EquipmentEquipWeaponGunDict;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.headless.HeadlessFiles;
@@ -65,9 +65,9 @@ public final class SpsGunTest {
 		int[] max4 = {16, 22, 26, 36, 36};
 		int[] str0 = {10, 12, 14, 16, 16};
 		int[] str4 = {8, 10, 12, 14, 14};
-		IconEntry[] images = {EquipmentEquipWeaponBasicWeaponDict.PISTOL, EquipmentEquipWeaponBasicWeaponDict.MACHINE_GUN,
-				pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict.ELECTROMAGNETIC_SHOTGUN,
-				EquipmentEquipWeaponBasicWeaponDict.GUN_4, EquipmentEquipWeaponBasicWeaponDict.GUN_4};
+		IconEntry[] images = {EquipmentEquipWeaponGunDict.GUN_A, EquipmentEquipWeaponGunDict.GUN_B,
+				EquipmentEquipWeaponGunDict.GUN_C,
+				EquipmentEquipWeaponGunDict.GUN_D, EquipmentEquipWeaponGunDict.GUN_E};
 		for (int i = 0; i < guns.length; i++) {
 			GunWeapon gun = guns[i];
 			check(gun.min(0) == min0[i] && gun.max(0) == max0[i],

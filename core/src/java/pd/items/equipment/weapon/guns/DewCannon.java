@@ -2,7 +2,7 @@ package pd.items.equipment.weapon.guns;
 
 import pd.actors.Char;
 import pd.actors.hero.Hero;
-import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
+import pd.atlas.items.EquipmentEquipWeaponGunDict;
 import pd.items.Waterskin;
 import pd.messages.InlineText;
 
@@ -24,7 +24,7 @@ public class DewCannon extends GunWeapon {
 	/** SPSEXPD: 弹药（充能）数。 */
 	public static final int CHARGES = 3;
 
-	{ image = EquipmentEquipWeaponUniqueWeaponDict.DEWDROP_GUN; } //SPSEXPD: 占位图标，待美术替换
+	{ image = EquipmentEquipWeaponGunDict.DEW_CANNON; }
 	public DewCannon() {
 		super(GunArchetype.CUSTOM);
 		fullCharge = CHARGES;

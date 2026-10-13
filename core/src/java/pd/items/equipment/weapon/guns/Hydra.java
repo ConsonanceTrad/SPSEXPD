@@ -1,6 +1,6 @@
 package pd.items.equipment.weapon.guns;
 
-import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+import pd.atlas.items.EquipmentEquipWeaponGunDict;
 import pd.messages.InlineText;
 
 /** SPSEXPD: 手枪·九头蛇——弹匣小但单发更重的重型手枪。 */
@@ -12,7 +12,7 @@ public class Hydra extends GunWeapon {
 			.t("desc", "多管交织的重型手枪，弹匣虽小，每一发都像被蛇头撕咬。");
 	}
 
-	{ image = EquipmentEquipWeaponBasicWeaponDict.GUN_4; } //SPSEXPD: 占位图标，待美术替换
+	{ image = EquipmentEquipWeaponGunDict.HYDRA; }
 	public Hydra() {
 		super(GunArchetype.PISTOL);
 		fullCharge = 6;      //SPSEXPD: 个体特色——弹匣 6
