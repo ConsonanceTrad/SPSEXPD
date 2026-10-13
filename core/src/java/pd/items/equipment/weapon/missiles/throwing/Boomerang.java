@@ -45,7 +45,6 @@ public class Boomerang extends MeleeWeapon {
 			.t("ac_cast", "扔出")
 			.t("rest", "回旋镖正在飞回途中。")
 			.t("not_equipped", "你需要先装备回旋镖。")
-			.t("unexplored", "你看不到那里。")
 			.t("cast_prompt", "选择瞄准目标")
 			.t("charge", "剩余体力%d / %d。")
 			.t("returned", "你接住了弹回的回旋镖。")
@@ -155,7 +154,8 @@ public class Boomerang extends MeleeWeapon {
 			if (cell == hero.pos || cell == excluded) continue;
 			if (Dungeon.level.distance(hero.pos, cell) > RETURN_RANGE) continue;
 			if (!Dungeon.level.passable[cell]) continue;
-			if (!Dungeon.level.mapped[cell]) continue;   //SPSEXPD: 弹回位置也不落在未探索的格子
+			//SPSEXPD: 弹回落点必须在英雄当前视野内（投掷本身不受限）
+			if (!Dungeon.level.heroFOV[cell]) continue;
 			candidates.add(cell);
 		}
 		return candidates.isEmpty() ? hero.pos : Random.element(candidates);
@@ -165,11 +165,6 @@ public class Boomerang extends MeleeWeapon {
 	private final CellSelector.Listener shooter = new CellSelector.Listener() {
 		@Override public void onSelect(Integer target) {
 			if (target == null || charge < FULL_CHARGE || curUser == null) return;
-			//SPSEXPD: 不能把未探索的格子当作落点
-			if (Dungeon.level == null || !Dungeon.level.mapped[target]) {
-				GLog.i(Messages.get(Boomerang.class, "unexplored"));
-				return;
-			}
 			BoomerangAmmo thrown = new BoomerangAmmo();
 			int cell = thrown.throwPos(curUser, target);
 			Char enemy = Actor.findChar(cell);
