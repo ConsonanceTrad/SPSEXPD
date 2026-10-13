@@ -175,30 +175,31 @@ public class ItemSlot extends Button {
 		}
 		
 		if (extra != null) {
-			//SPSEXPD: 力量需求等数字同样跟随 textScale
-			extra.scale.set(PixelScene.align(textScale));
+			//SPSEXPD: 力量需求等数字同样跟随 textScale；枪械角标（「装填:缓冲」）放左下角且字号小一号
+			boolean gunBadge = item instanceof pd.items.equipment.weapon.guns.GunWeapon;
+			extra.scale.set(PixelScene.align(gunBadge ? textScale * 0.75f : textScale));
 			extra.measure();
-			extra.x = x + (width - extra.width()) - margin.right;
-			extra.y = item instanceof pd.items.equipment.weapon.guns.GunWeapon
-					? y + height - extra.height() - margin.bottom
-					: y + margin.top;
+			extra.x = gunBadge
+				? x + margin.left
+				: x + (width - extra.width()) - margin.right;
+			extra.y = gunBadge
+				? y + height - extra.height() - margin.bottom
+				: y + margin.top;
 			PixelScene.align(extra);
 
-			//SPSEXPD: 角标优先——空间不足时让步的是状态文本（弹匣数/数量），不再隐藏右上角角标
+			//SPSEXPD: 角标优先——空间不足时让步的是状态文本（弹匣数/数量），不再隐藏角标
 			extra.visible = item != null;
 
-			//SPSEXPD: 枪械的「装填:缓冲」角标不隐藏——空间不足时逐级缩小字号，把它塞进格子
-			if (extra.visible && item instanceof pd.items.equipment.weapon.guns.GunWeapon) {
-				float s = PixelScene.align(textScale);
+			//SPSEXPD: 枪械角标不隐藏——空间不足时逐级缩小字号，把它塞进格子
+			if (extra.visible && gunBadge) {
+				float s = PixelScene.align(textScale * 0.75f);
 				for (int i = 0; i < 8 && status != null && s > 0.4f
 						&& (status.width() + extra.width()) > width; i++) {
 					s = Math.max(0.4f, s * 0.85f);
 					extra.scale.set(s);
 					extra.measure();
-					extra.x = x + (width - extra.width()) - margin.right;
-					extra.y = item instanceof pd.items.equipment.weapon.guns.GunWeapon
-						? y + height - extra.height() - margin.bottom
-						: y + margin.top;
+					extra.x = x + margin.left;
+					extra.y = y + height - extra.height() - margin.bottom;
 					PixelScene.align(extra);
 				}
 			}
