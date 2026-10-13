@@ -69,10 +69,17 @@ public final class SecondaryEquip {
 	 * 武器/护甲的力量需求：仅当英雄正处于对应的副手双持状态、
 	 * 且 query 的就是当前装备槽里的那一件时才提高 50%（背包里未装备的同名物品不受影响）。
 	 */
+	/** SPSEXPD: 不受双持力量惩罚的武器（枪械 / 灵能弓 / 回旋镖）。 */
+	private static boolean dualWieldExempt( KindOfWeapon weapon ){
+		return weapon instanceof pd.items.equipment.weapon.guns.GunWeapon
+				|| weapon instanceof pd.items.equipment.weapon.SpiritBow
+				|| weapon instanceof pd.items.equipment.weapon.missiles.throwing.Boomerang;
+	}
+
 	public static int weaponSTRReq( KindOfWeapon weapon, int base ){
 		Hero hero = Dungeon.hero;
-		//SPSEXPD: 枪械不受双持力量惩罚——完美力量与力量需求都不因副手而变化
-		if (weapon instanceof pd.items.equipment.weapon.guns.GunWeapon) return base;
+		//SPSEXPD: 枪械/灵能弓/回旋镖不受双持力量惩罚——力量需求不因副手而变化
+		if (dualWieldExempt(weapon)) return base;
 		if (dualWeapons(hero)
 				&& (hero.belongings.weapon() == weapon || hero.belongings.secondWep() == weapon)){
 			return increasedStrengthReq(base);
@@ -112,8 +119,8 @@ public final class SecondaryEquip {
 
 	private static boolean tooHeavy( Hero hero, KindOfWeapon weapon ){
 		if (!(weapon instanceof Weapon)) return false;
-		//SPSEXPD: 枪械不受双持力量惩罚，不参与「难以掌控」判定
-		if (weapon instanceof pd.items.equipment.weapon.guns.GunWeapon) return false;
+		//SPSEXPD: 枪械/灵能弓/回旋镖不受双持力量惩罚，不参与「难以掌控」判定
+		if (dualWieldExempt(weapon)) return false;
 		Weapon w = (Weapon)weapon;
 		return increasedStrengthReq( w.STRReq( w.level() ) ) > hero.STR();
 	}
