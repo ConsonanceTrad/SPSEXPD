@@ -41,7 +41,7 @@ public final class ConsumUsefulUsefulDict {
 	/** semantic alias for USEFUL_C5_R2 */
 	public static final IconEntry PET_FOOD = USEFUL_C5_R2;
 	/** SP_AMMO */
-	public static final IconEntry USEFUL_C6_R2 = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{85, 18, 6, 13}, 6736);
+	public static final IconEntry USEFUL_C6_R2 = new IconEntry("sprites/items/consum/useful/useful.png", new int[]{83, 18, 10, 13}, 6736);
 	/** semantic alias for USEFUL_C6_R2 */
 	public static final IconEntry SP_AMMO = USEFUL_C6_R2;
 }

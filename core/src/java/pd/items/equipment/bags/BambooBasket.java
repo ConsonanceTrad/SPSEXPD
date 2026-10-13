@@ -14,7 +14,7 @@ public class BambooBasket extends Bag {
 	static {
 		InlineText.of(BambooBasket.class)
 			.t("name", "竹背篓")
-			.t("desc", "一只用竹子编成的背篓，专门用来堆放投掷果实与大型果实。")
+			.t("desc", "这个背篓是一种坚韧的魔法竹子编成的，口沿和肩带用浸过树脂的藤皮加固过。\n\n它曾被丰收女神所祝福，可以收纳海量的果实，也让虫蚁、雀鸟本能避开。")
 			.t("discover_hint", "你可以在旅途中找到它。");
 	}
 

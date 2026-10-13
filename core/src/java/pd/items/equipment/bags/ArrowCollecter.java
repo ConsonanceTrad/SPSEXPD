@@ -13,7 +13,7 @@ public class ArrowCollecter extends Bag {
 	static {
 		InlineText.of(ArrowCollecter.class)
 			.t("name", "暗器袋")
-			.t("desc", "这个实验背包有三十格空间，投掷武器（暗器）与远程武器统一收纳于此。");
+			.t("desc", "这具窄长的容器由四根细鳞皮带紧缚在小臂内侧，内侧缝着几个薄隔层与牵引绳，屈伸时也不会影响行动。\n\n只需要勾下手指，存储在其中的暗器就会瞬间滑入手掌中。\n\n由于精心的保护，其中的投掷武器会比寻常更耐用一些。");
 	}
 
 

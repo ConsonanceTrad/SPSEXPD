@@ -26,7 +26,7 @@ public class KeyRing extends Bag {
 	static {
 		InlineText.of(KeyRing.class)
 			.t("name", "钥匙环")
-			.t("desc", "这个钥匙环有三十格空间，可以收纳钥匙、戒指、路线日志和其他传送道具。");
+			.t("desc", "这枚钥匙环由某种生物的骨头雕刻而成，像有活物在其中转动，会主动替你保管钥匙之类的物品。\n\n用指腹按压环身，默念锁孔的形状或目的地的样子，对应的道具就会被无声的送入你的手中。");
 	}
 
 

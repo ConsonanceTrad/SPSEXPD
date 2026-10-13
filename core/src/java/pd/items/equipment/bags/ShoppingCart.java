@@ -16,7 +16,7 @@ public class ShoppingCart extends Bag {
 	static {
 		InlineText.of(ShoppingCart.class)
 			.t("name", "购物车")
-			.t("desc", "容量很大的购物车，可以收纳食物和酿造药剂，但不能装入虫肉。");
+			.t("desc", "这个方形的容器看起来可以装下一整场宴会的食材和餐品，不过你的口粮也刚好能放在里面。\n\n里面甚至有一些能用来固定鸡蛋、香料罐和餐具的小隔间。");
 	}
 
 
