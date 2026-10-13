@@ -164,7 +164,8 @@ public class QuickSlotButton extends Button {
 				}
 			}
 		};
-		slot.showExtraInfo( false );
+		//SPSEXPD: 快捷栏同样要显示右上角角标（枪械的「装填:缓冲」等）——原来这里把 extra 整块移除了
+		slot.showExtraInfo( true );
 		add( slot );
 		
 		crossB = Icons.TARGET.get();
