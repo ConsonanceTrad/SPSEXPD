@@ -296,7 +296,11 @@ public class ItemSlot extends Button {
 					extra.text( null );
 				} else {
 					extra.text( Messages.format( TXT_STRENGTH, str ) );
-					if (Dungeon.hero != null && str > Dungeon.hero.STR()) {
+					int gap = Dungeon.hero != null ? str - Dungeon.hero.STR() : 0;
+					//SPSEXPD: 枪械角标显示「完美力量」——差 1~4 点用黄色提示，差 5 点及以上用红色警示
+					if (item instanceof pd.items.equipment.weapon.guns.GunWeapon && gap > 0) {
+						extra.hardlight( gap > 4 ? DEGRADED : WARNING );
+					} else if (Dungeon.hero != null && str > Dungeon.hero.STR()) {
 						extra.hardlight( DEGRADED );
 					} else if (item instanceof Weapon && ((Weapon) item).masteryPotionBonus){
 						extra.hardlight( MASTERED );
