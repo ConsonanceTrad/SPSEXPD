@@ -103,6 +103,8 @@ public class ShootGun extends SpsRangedWeapon {
 		float reloadTime = (FULL_CHARGE - charge) / 2f;
 		charge = FULL_CHARGE;
 		if (hero.sprite != null) hero.sprite.showStatus(CharSprite.DEFAULT, Messages.get(this, "reloading"));
+		//SPSEXPD: 装填状态 buff（提高装填的可视度）
+		pd.actors.buffs.Buff.affect(hero, pd.actors.buffs.Reloading.class, Math.max(1f, reloadTime));
 		hero.spendAndNext(reloadTime);
 		updateQuickslot();
 		return true;

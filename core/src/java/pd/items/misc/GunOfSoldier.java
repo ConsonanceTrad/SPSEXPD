@@ -137,6 +137,8 @@ public class GunOfSoldier extends Item {
 		charge = MAGAZINE;
 		updateQuickslot();
 		if (hero.sprite != null) hero.sprite.showStatus(pd.sprites.CharSprite.DEFAULT, Messages.get(this, "reloading"));
+		//SPSEXPD: 装填状态 buff（提高装填的可视度）
+		pd.actors.buffs.Buff.affect(hero, pd.actors.buffs.Reloading.class, RELOAD_TIME);
 		hero.spendAndNext(RELOAD_TIME);
 	}
 

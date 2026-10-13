@@ -51,9 +51,11 @@ public class VelvetPouch extends Bag {
 	@Override
 	public boolean canHold( Item item ) {
 		//SPS: 合并种子包收纳（矿石/诺恩石，用户裁决 2026-09-28），容量并入种子包 30 格
+		//SPSEXPD: 枪械弹药「通用弹匣」也收进绒布袋
 		if (item instanceof Plant.Seed || item instanceof Runestone
 				|| item instanceof GooBlob || item instanceof MetalShard
-				|| item instanceof StoneOre || item instanceof NornStone){
+				|| item instanceof StoneOre || item instanceof NornStone
+				|| item instanceof pd.items.Magazine){
 			return super.canHold(item);
 		} else {
 			return false;

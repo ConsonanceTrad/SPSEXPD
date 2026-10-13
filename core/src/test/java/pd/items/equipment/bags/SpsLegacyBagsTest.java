@@ -90,11 +90,20 @@ public final class SpsLegacyBagsTest {
 		check(holster.capacity() == 34 && holster.value() == 60, "法杖套容量或价值错误");
 		check(holster.canHold(new WandOfMagicMissile()), "法杖套没有收纳法杖");
 		check(!holster.canHold(new Firebloom.Seed()), "法杖套错误收纳种子");
+		//SPSEXPD: 枪械改归草靶子、通用弹匣改归绒布袋，法杖套都不收
+		check(!holster.canHold(new pd.items.equipment.weapon.guns.GunA()), "法杖套不应收纳枪械");
+		check(!holster.canHold(new pd.items.Magazine()), "法杖套不应收纳通用弹匣");
 
-		//SPSEXPD: 远程武器改归草靶子（暗器袋不再收）
+		//SPSEXPD: 远程武器改归草靶子（暗器袋不再收），枪械也归草靶子
 		HeartOfScarecrow scarecrow = new HeartOfScarecrow();
 		check(scarecrow.canHold(new WoodenBowN()), "草靶子没有收纳远程武器");
 		check(!scarecrow.canHold(new ThrowingKnife()), "草靶子不应收纳投掷武器");
+		check(scarecrow.canHold(new pd.items.equipment.weapon.guns.GunA()), "草靶子没有收纳枪械");
+
+		//SPSEXPD: 枪械弹药「通用弹匣」归绒布袋
+		VelvetPouch pouch = new VelvetPouch();
+		check(pouch.canHold(new pd.items.Magazine()), "绒布袋没有收纳通用弹匣");
+		check(!pouch.canHold(new pd.items.equipment.weapon.guns.GunA()), "绒布袋不应收纳枪械");
 	}
 
 	//SPSEXPD: 一次性投掷武器（SingleUseMissile）的统一行为——无限磨损/不可升级/按种类堆叠

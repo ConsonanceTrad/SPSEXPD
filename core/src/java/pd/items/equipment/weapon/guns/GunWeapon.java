@@ -49,10 +49,10 @@ public class GunWeapon extends SpsRangedWeapon {
 			.t("empty", "你没有可以装填的通用弹匣。")
 			.t("prompt", "选择射击目标")
 			.t("prompt_aim", "选择射击方向")
-			.t("stats_1", "这把 _%1$s_ 有 _%2$d_ 发弹匣容量，单次击发 _%3$d_ ，造成 _%4$d~%5$d_ 点伤害")
-			.t("stats_2", "你需要 _%1$d_ 点力量以完全克服其后坐力，以你目前的力量而言，每次击发需要 _%2$s_ 回合的缓冲时间。")
+			.t("stats_1", "这把_%1$s_可以造成_%4$d~%5$d点伤害_。弹匣容量 _%2$d_ ，单次击发 _%3$d_ 。")
+			.t("stats_2", "你需要_%1$d点力量_以完全抑制其后坐力。以当前力量而言，每次击发需要 _%2$s 回合_的缓冲时间。")
 			.t("stats_3", "装填耗时 _%1$s_ ，精准范围 _%2$d_ ，噪声半径 _%3$d_ 。")
-			.t("charge", "弹匣：%1$d/%2$d");
+			.t("charge", "载弹量：%1$d/%2$d");
 	}
 
 
@@ -261,6 +261,8 @@ public class GunWeapon extends SpsRangedWeapon {
 		}
 		float time = reloadTime(hero, automatic);
 		if (hero.sprite != null) hero.sprite.showStatus(CharSprite.DEFAULT, Messages.get(GunWeapon.class, "reloading"));
+		//SPSEXPD: 装填状态 buff（提高装填的可视度）
+		pd.actors.buffs.Buff.affect(hero, pd.actors.buffs.Reloading.class, Math.max(1f, time));
 		hero.spendAndNext(Math.max(0.1f, time));
 	}
 

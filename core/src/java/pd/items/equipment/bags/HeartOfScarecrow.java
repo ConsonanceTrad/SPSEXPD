@@ -15,7 +15,7 @@ public class HeartOfScarecrow extends Bag {
 	static {
 		InlineText.of(HeartOfScarecrow.class)
 			.t("name", "草靶子")
-			.t("desc", "可以收纳武器、护甲与暗噬原型的便携训练靶。");
+			.t("desc", "一颗包裹着稻草的魔核，由稻草人的生命精华所凝聚。\n\n它可以像生前一样吞进武器或护甲，伸进稻草的间隙内即可原样取回");
 	}
 
 
@@ -27,9 +27,10 @@ public class HeartOfScarecrow extends Bag {
 
 	@Override
 	public boolean canHold(Item item) {
-		//SPSEXPD: 远程武器（RangeWeapon，弓/枪等）归草靶子，不再归暗器袋
+		//SPSEXPD: 远程武器（RangeWeapon，弓/枪等）与枪械（GunWeapon）归草靶子
 		if (item instanceof MeleeWeapon || item instanceof Armor || item instanceof ShadowEaterKey
-				|| item instanceof pd.items.equipment.weapon.ranges.RangeWeapon) {
+				|| item instanceof pd.items.equipment.weapon.ranges.RangeWeapon
+				|| item instanceof pd.items.equipment.weapon.guns.GunWeapon) {
 			return super.canHold(item);
 		}
 		return false;

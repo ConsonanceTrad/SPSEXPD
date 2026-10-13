@@ -191,6 +191,8 @@ public class TaurcenBow extends Weapon {
 			pd.utils.GLog.n(Messages.get(this, "no_twig"));
 			return;
 		}
+		//SPSEXPD: 装填状态 buff（提高装填的可视度）
+		pd.actors.buffs.Buff.affect(hero, pd.actors.buffs.Reloading.class, 1f);
 		hero.spendAndNext(1f);
 	}
 

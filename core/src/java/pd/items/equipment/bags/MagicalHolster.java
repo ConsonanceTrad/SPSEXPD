@@ -30,9 +30,7 @@ import pd.items.TriforceOfPower;
 import pd.items.TriforceOfWisdom;
 import pd.items.equipment.bombs.Bomb;
 import pd.items.equipment.wands.Wand;
-import pd.items.equipment.weapon.guns.GunWeapon;
 import pd.items.equipment.weapon.rockcode.RockCode;
-import pd.items.Magazine;
 import pd.messages.InlineText;
 
 public class MagicalHolster extends Bag {
@@ -59,8 +57,7 @@ public class MagicalHolster extends Bag {
 		//SPS: 投掷武器统一存放暗器袋（用户裁决 2026-09-28），魔法套筒不再收纳
 		if (item instanceof Wand || item instanceof Bomb
 				|| item instanceof TriforceOfCourage || item instanceof TriforceOfPower
-				|| item instanceof TriforceOfWisdom || item instanceof Magazine
-				|| item instanceof GunWeapon || item instanceof RockCode){
+				|| item instanceof TriforceOfWisdom || item instanceof RockCode){
 			return super.canHold(item);
 		} else {
 			return false;
