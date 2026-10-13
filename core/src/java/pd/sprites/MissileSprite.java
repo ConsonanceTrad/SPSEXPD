@@ -51,6 +51,12 @@ import java.util.HashMap;
 public class MissileSprite extends ItemSprite implements Tweener.Listener {
 
 	private static final float SPEED	= 240f;
+
+	/**
+	 * SPSEXPD: 枪弹飞行速度倍率——正常值 2f（比普通弹体快一倍）。
+	 * 【临时调试】现已降到原来的 1/5（2f/5f = 0.4f）用于观察弹道；恢复正常只需把这里改回 2f。
+	 */
+	private static final float GUN_AMMO_SPEED = 2f / 5f;
 	
 	private Callback callback;
 	
@@ -103,6 +109,8 @@ public class MissileSprite extends ItemSprite implements Tweener.Listener {
 		ANGULAR_SPEEDS.put(SpiritBow.SpiritArrow.class,       0);
 		ANGULAR_SPEEDS.put(ScorpioSprite.ScorpioShot.class,   0);
 		ANGULAR_SPEEDS.put(HolyLance.HolyLanceVFX.class,      0);
+		//SPSEXPD: 枪弹不旋转（不登记就会落到 DEFAULT_ANGULAR_SPEED=720，飞行中持续自转）
+		ANGULAR_SPEEDS.put(pd.items.equipment.weapon.guns.GunWeapon.GunAmmo.class, 0);
 		
 		//720 is default
 
@@ -174,7 +182,7 @@ public class MissileSprite extends ItemSprite implements Tweener.Listener {
 			speed *= 1.5f;
 		} else if (item instanceof pd.items.equipment.weapon.guns.GunWeapon.GunAmmo){
 			//SPSEXPD: 枪弹的射击动画速度提高一倍
-			speed *= 2f;
+			speed *= GUN_AMMO_SPEED;
 		}
 		
 		PosTweener tweener = new PosTweener( this, to, d.length() / speed );
