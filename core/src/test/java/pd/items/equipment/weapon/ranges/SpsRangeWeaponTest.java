@@ -134,11 +134,13 @@ public final class SpsRangeWeaponTest {
 				pd.items.equipment.weapon.guns.JeffHammer.class,
 				pd.items.equipment.weapon.guns.BorderFN4.class,
 				pd.items.equipment.weapon.guns.Apok.class,
-				pd.items.equipment.weapon.guns.BorderWolf.class
+				pd.items.equipment.weapon.guns.BorderWolf.class,
+				pd.items.equipment.weapon.guns.DewCannon.class,
+				pd.items.equipment.weapon.guns.BombLauncher.class
 		};
 		check(Generator.Category.RANGED.classes.length == expected.length
 				&& Generator.Category.RANGED.probs.length == expected.length,
-				"远程武器牌组不是33件");
+				"远程武器牌组不是35件");
 		for (int i = 0; i < expected.length; i++) {
 			check(Generator.Category.RANGED.classes[i] == expected[i]
 					&& Generator.Category.RANGED.probs[i] == 1f, "远程武器牌组顺序或权重错误");

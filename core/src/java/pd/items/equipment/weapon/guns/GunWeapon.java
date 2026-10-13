@@ -264,7 +264,7 @@ public class GunWeapon extends SpsRangedWeapon {
 			return;
 		}
 		if (!reloadMagazine(hero)) {
-			GLog.n(Messages.get(GunWeapon.class, "empty"));
+			GLog.n(Messages.get(GunWeapon.class, reloadHintKey()));
 			return;
 		}
 		float time = reloadTime(hero, automatic);
@@ -273,25 +273,34 @@ public class GunWeapon extends SpsRangedWeapon {
 	}
 
 	/**
-	 * SPSEXPD: 消耗一个「通用弹匣」把弹匣填满，不排回合（供确定性测试调用）。
-	 * 无论枪械容量与单次击发数，一个弹匣一律填满。
+	 * SPSEXPD: 装填一次把弹匣填满，不排回合（供确定性测试调用）。
+	 * 无论枪械容量与单次击发数，一次装填一律填满。
 	 */
 	public boolean reloadMagazine(Hero hero) {
 		if (charge >= fullCharge) return false;
-		if (!consumeMagazine(hero)) return false;
+		if (!consumeReload(hero)) return false;
 		charge = fullCharge;
 		updateQuickslot();
 		return true;
 	}
 
-	/** SPSEXPD: 从背包消耗一个通用弹匣；无限弹药袋生效期间无需消耗。 */
-	protected boolean consumeMagazine(Hero hero) {
+	/**
+	 * SPSEXPD: 一次装填的耗材来源；默认消耗一个「通用弹匣」（无限弹药袋生效期间无需消耗）。
+	 * 特殊枪械覆写此方法改用炼金能量 / 露珠 / 炸弹 / 枯枝等。
+	 */
+	protected boolean consumeReload(Hero hero) {
 		if (hero == null) return false;
 		if (EndlessAmmo.isActive(hero)) return true;
 		Item magazine = hero.belongings.getItem(Magazine.class);
 		if (magazine == null || !hero.belongings.backpack.contains(magazine)) return false;
 		return magazine.detach(hero.belongings.backpack) != null;
 	}
+
+	/** SPSEXPD: 耗材不足时的提示文案键（子类覆写成自己的键）。 */
+	protected String reloadHintKey() { return "empty"; }
+
+	/** SPSEXPD: 子弹命中时的额外效果钩子（特殊枪械覆写，如露珠炮对亡灵加成、爆弹发射器引爆）。 */
+	protected void onBulletHit(Char attacker, Char defender, int damage) { }
 
 	protected float reloadTime(Hero hero, boolean automatic) {
 		if (hero.subClass == HeroSubClass.AGENT) return 0.5f;
@@ -486,6 +495,9 @@ public class GunWeapon extends SpsRangedWeapon {
 		@Override protected void rangedHit(Char enemy, int cell) { }
 		@Override protected void rangedMiss(int cell) { }
 		@Override public int proc(Char attacker, Char defender, int damage) {
+			if (defender != null && defender.isAlive()) {
+				GunWeapon.this.onBulletHit(attacker, defender, damage);
+			}
 			if (addsEnergyDamage()) {
 				defender.damage(gunDamageRoll(attacker) / 2, DamageType.ENERGY_DAMAGE);
 			}

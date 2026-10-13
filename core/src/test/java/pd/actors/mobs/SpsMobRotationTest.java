@@ -994,7 +994,9 @@ public final class SpsMobRotationTest {
 				pd.items.equipment.weapon.guns.Apok.class,
 				pd.items.equipment.weapon.guns.GunD.class,
 				pd.items.equipment.weapon.guns.GunE.class,
-				pd.items.equipment.weapon.guns.BorderWolf.class
+				pd.items.equipment.weapon.guns.BorderWolf.class,
+				pd.items.equipment.weapon.guns.DewCannon.class,
+				pd.items.equipment.weapon.guns.BombLauncher.class
 		};
 		if (!Arrays.equals(gunPool, expectedGuns)) throw new AssertionError("SPS five-gun boss pool differs from 0.9.8");
 		if (!(ElderAvatar.rareLoot() instanceof pd.items.equipment.artifacts.AlienBag)) throw new AssertionError("SPS Elder Avatar rare loot differs from 0.9.8");

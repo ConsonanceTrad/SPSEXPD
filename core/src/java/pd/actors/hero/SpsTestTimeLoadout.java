@@ -75,6 +75,8 @@ import pd.items.equipment.weapon.guns.JeffHammer;
 import pd.items.equipment.weapon.guns.BorderFN4;
 import pd.items.equipment.weapon.guns.Apok;
 import pd.items.equipment.weapon.guns.BorderWolf;
+import pd.items.equipment.weapon.guns.DewCannon;
+import pd.items.equipment.weapon.guns.BombLauncher;
 import pd.items.equipment.weapon.guns.Sling;
 import pd.items.equipment.weapon.guns.ToyGun;
 import pd.items.misc.GunOfSoldier;
@@ -136,6 +138,8 @@ public final class SpsTestTimeLoadout {
 		collect(hero, identified(new BorderFN4()));
 		collect(hero, identified(new Apok()));
 		collect(hero, identified(new BorderWolf()));
+		collect(hero, identified(new DewCannon()));
+		collect(hero, identified(new BombLauncher()));
 		collect(hero, identified(new Sling()));
 		collect(hero, identified(new ToyGun()));
 		collect(hero, identified(new GunOfSoldier()));

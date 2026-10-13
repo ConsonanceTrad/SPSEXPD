@@ -310,6 +310,8 @@ import pd.items.equipment.weapon.guns.JeffHammer;
 import pd.items.equipment.weapon.guns.BorderFN4;
 import pd.items.equipment.weapon.guns.Apok;
 import pd.items.equipment.weapon.guns.BorderWolf;
+import pd.items.equipment.weapon.guns.DewCannon;
+import pd.items.equipment.weapon.guns.BombLauncher;
 import pd.items.equipment.weapon.guns.ToyGun;
 import pd.items.equipment.weapon.melee.AssassinsBlade;
 import pd.items.equipment.weapon.melee.BattleAxe;
@@ -724,13 +726,16 @@ public class Generator {
 					//SPSEXPD: 霰弹枪
 					GunC.class, HereticTorment.class, JeffHammer.class, BorderFN4.class, Apok.class,
 					//SPSEXPD: 狙击枪
-					GunD.class, GunE.class, BorderWolf.class
+					GunD.class, GunE.class, BorderWolf.class,
+					//SPSEXPD: 特殊枪械（露珠 / 炸弹弹药）
+					DewCannon.class, BombLauncher.class
 			};
 			GUNWEAPON.probs = new float[]{
 					1, 1, 1, 1, 1, 1,
 					1, 1, 1, 1,
 					1, 1, 1, 1, 1,
-					1, 1, 1
+					1, 1, 1,
+					1, 1
 			};
 			
 			SCROLL.classes = new Class<?>[]{
@@ -882,13 +887,15 @@ public class Generator {
 					Liberator.class, Hydra.class, Garand.class, LightningM.class, Howl.class,
 					HighNoon.class, Exorcist.class, Arc.class,
 					HereticTorment.class, JeffHammer.class, BorderFN4.class, Apok.class,
-					BorderWolf.class
+					BorderWolf.class,
+					//SPSEXPD: 特殊枪械（露珠 / 炸弹弹药）
+					DewCannon.class, BombLauncher.class
 			};
 			RANGED.probs = new float[]{
 					1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 					1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 					1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-					1, 1, 1
+					1, 1, 1, 1, 1
 			};
 			
 			//see Generator.randomArmor
