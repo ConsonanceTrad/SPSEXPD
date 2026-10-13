@@ -504,22 +504,7 @@ public class GunWeapon extends SpsRangedWeapon {
 		return v == Math.round(v) ? String.valueOf(Math.round(v)) : String.valueOf(v);
 	}
 
-	@Override public String status() {
-		//SPSEXPD: 左上角标「当前弹数/容量:库存弹药」（库存 >99 显示 99+）
-		if (!levelKnown) return null;
-		return charge + "/" + fullCharge + ":" + formatStock(stockAmmo(Dungeon.hero));
-	}
-
-	/** SPSEXPD: 库存弹药量（可供装填的份数）；子类按各自资源（炸弹/露珠/枯枝等）覆写。 */
-	public int stockAmmo(Hero hero) {
-		if (hero == null) return 0;
-		Item magazine = hero.belongings.getItem(Magazine.class);
-		return magazine == null ? 0 : magazine.quantity();
-	}
-
-	private static String formatStock(int n) {
-		return n > 99 ? "99+" : Integer.toString(n);
-	}
+	@Override public String status() { return levelKnown ? charge + "/" + fullCharge : null; }
 
 	/** 一次击发：按单次弹药数连续发射，每颗子弹各自独立结算。 */
 	protected void fire(Hero hero, int cell) {

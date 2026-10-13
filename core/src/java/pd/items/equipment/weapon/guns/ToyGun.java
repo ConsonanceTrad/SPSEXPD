@@ -16,9 +16,6 @@ public class ToyGun extends GunWeapon {
 			.t("ac_reload", "装填");
 	}
 
-	/** SPSEXPD: 玩具枪弹药无限——库存角标显示 99+。 */
-	@Override public int stockAmmo(Hero hero) { return 9999; }
-
 
 
 	{
