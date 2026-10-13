@@ -49,6 +49,13 @@ public class DewCannon extends GunWeapon {
 
 	@Override protected String reloadHintKey() { return "no_dew"; }
 
+	/** SPSEXPD: 库存弹药 = 露珠瓶里的露珠量。 */
+	@Override public int stockAmmo(Hero hero) {
+		if (hero == null) return 0;
+		Waterskin flask = hero.belongings.getItem(Waterskin.class);
+		return flask == null ? 0 : flask.totalDew();
+	}
+
 	/** SPSEXPD: 对亡灵额外造成一段伤害。 */
 	@Override
 	protected void onBulletHit(Char attacker, Char defender, int damage) {

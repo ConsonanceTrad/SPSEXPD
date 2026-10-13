@@ -109,7 +109,7 @@ public final class SpsGunTest {
 		check(!gun.consumeRound() && gun.charge() == 0, "空弹匣仍能射击或扣成负数");
 		check(gun.status() == null, "未鉴定枪械泄露了弹匣状态");
 		gun.identify(false);
-		check("0/7".equals(gun.status()), "鉴定后没有显示弹匣状态");
+		check("0/7:0".equals(gun.status()), "鉴定后没有显示弹匣状态（应为 弹数/容量:库存）");
 	}
 
 	private static void testAgentAndToyRules() {

@@ -42,7 +42,7 @@ public class GunWeapon extends SpsRangedWeapon {
 			.t("ac_reload", "装填")
 			.t("reloading", "正在装填中……")
 			.t("need_to_equip", "你需要先装备这件武器才能射击。")
-			.t("full", "弹匣已满。")
+			.t("full", "弹药已满。")
 			.t("empty", "你没有可以装填的通用弹匣。")
 			.t("prompt", "选择射击目标")
 			.t("prompt_aim", "选择射击方向")
@@ -121,7 +121,7 @@ public class GunWeapon extends SpsRangedWeapon {
 		this.noiseRadius = archetype.noise;
 		this.regenPerTurn = archetype.regenPerTurn;
 		this.pierce = archetype.pierce;
-		defaultAction = AC_SHOOT;
+		defaultAction = AC_RELOAD;
 		usesTargeting = true;
 	}
 
@@ -179,29 +179,15 @@ public class GunWeapon extends SpsRangedWeapon {
 	@Override
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);
-		if (canShoot(hero)) {
-			actions.add(AC_SHOOT);
-			actions.add(AC_AIM);
-		}
+		//SPSEXPD: 已去掉「射击目标」动作（点击怪物由 autoAttack 直接开火），只保留「定向射击」与「装填」
+		if (canShoot(hero)) actions.add(AC_AIM);
 		if (canReload(hero)) actions.add(AC_RELOAD);
 		return actions;
 	}
 
 	@Override
 	public void execute(Hero hero, String action) {
-		if (AC_SHOOT.equals(action)) {
-			curUser = hero;
-			if (!canShoot(hero)) {
-				GLog.i(Messages.get(GunWeapon.class, "need_to_equip"));
-			} else if (pendingReload) {
-				//SPSEXPD: 正在装填中——原地等待（至多 1 回合；剩余不足 1 回合则直接等到装填结束）
-				waitForReload(hero);
-			} else if (charge <= 0) {
-				reload(hero, true);
-			} else {
-				GameScene.selectCell(targetShooter);
-			}
-		} else if (AC_AIM.equals(action)) {
+		if (AC_AIM.equals(action)) {
 			curUser = hero;
 			if (!canShoot(hero)) {
 				GLog.i(Messages.get(GunWeapon.class, "need_to_equip"));
@@ -518,7 +504,22 @@ public class GunWeapon extends SpsRangedWeapon {
 		return v == Math.round(v) ? String.valueOf(Math.round(v)) : String.valueOf(v);
 	}
 
-	@Override public String status() { return levelKnown ? charge + "/" + fullCharge : null; }
+	@Override public String status() {
+		//SPSEXPD: 左上角标「当前弹数/容量:库存弹药」（库存 >99 显示 99+）
+		if (!levelKnown) return null;
+		return charge + "/" + fullCharge + ":" + formatStock(stockAmmo(Dungeon.hero));
+	}
+
+	/** SPSEXPD: 库存弹药量（可供装填的份数）；子类按各自资源（炸弹/露珠/枯枝等）覆写。 */
+	public int stockAmmo(Hero hero) {
+		if (hero == null) return 0;
+		Item magazine = hero.belongings.getItem(Magazine.class);
+		return magazine == null ? 0 : magazine.quantity();
+	}
+
+	private static String formatStock(int n) {
+		return n > 99 ? "99+" : Integer.toString(n);
+	}
 
 	/** 一次击发：按单次弹药数连续发射，每颗子弹各自独立结算。 */
 	protected void fire(Hero hero, int cell) {
@@ -533,15 +534,6 @@ public class GunWeapon extends SpsRangedWeapon {
 			shot.cast(hero, cell);
 		}
 	}
-
-	private final CellSelector.Listener targetShooter = new CellSelector.Listener() {
-		@Override public void onSelect(Integer target) {
-			if (target == null || curUser == null) return;
-			//SPSEXPD: 默认开火允许选择空地（不再要求目标格上站着敌人），子弹沿该方向飞出射击
-			fire(curUser, target);
-		}
-		@Override public String prompt() { return Messages.get(GunWeapon.class, "prompt"); }
-	};
 
 	private final CellSelector.Listener aimShooter = new CellSelector.Listener() {
 		@Override public void onSelect(Integer target) {

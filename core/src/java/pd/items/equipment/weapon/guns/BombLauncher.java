@@ -66,6 +66,16 @@ public class BombLauncher extends GunWeapon {
 
 	@Override protected String reloadHintKey() { return "no_bomb"; }
 
+	/** SPSEXPD: 库存弹药 = 背包里的炸弹数（不含已装填的那一枚）。 */
+	@Override public int stockAmmo(Hero hero) {
+		if (hero == null) return 0;
+		int n = 0;
+		for (Item item : hero.belongings.backpack.items) {
+			if (item instanceof Bomb) n += item.quantity();
+		}
+		return n;
+	}
+
 	public Bomb loadedBomb() { return loaded; }
 
 	/** SPSEXPD: 命中时在目标位置引爆装填的炸弹。 */

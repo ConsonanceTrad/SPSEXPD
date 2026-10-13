@@ -13,8 +13,11 @@ public class ToyGun extends GunWeapon {
 			.t("name", "玩具枪")
 			.t("desc", "一把庆祝2019年新年与春节的简易玩具枪。")
 			.t("ac_shoot", "射击")
-			.t("ac_reload", "填弹");
+			.t("ac_reload", "装填");
 	}
+
+	/** SPSEXPD: 玩具枪弹药无限——库存角标显示 99+。 */
+	@Override public int stockAmmo(Hero hero) { return 9999; }
 
 
 

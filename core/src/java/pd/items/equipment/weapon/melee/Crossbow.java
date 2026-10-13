@@ -52,4 +52,11 @@ public class Crossbow extends GunWeapon {
 	}
 
 	@Override protected String reloadHintKey() { return "no_twig"; }
+
+	/** SPSEXPD: 库存弹药 = 背包里的枯枝数。 */
+	@Override public int stockAmmo(Hero hero) {
+		if (hero == null) return 0;
+		DryTwig twig = hero.belongings.getItem(DryTwig.class);
+		return twig == null ? 0 : twig.quantity();
+	}
 }
