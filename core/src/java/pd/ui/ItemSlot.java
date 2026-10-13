@@ -344,6 +344,12 @@ public class ItemSlot extends Button {
 			}
 			extra.measure();
 
+			//SPSEXPD: 回旋镖不显示力量需求（改由左上角 status 显示充能进度 charge/FULL_CHARGE）
+			if (item instanceof pd.items.equipment.weapon.missiles.throwing.Boomerang) {
+				extra.text( null );
+				extra.measure();
+			}
+
 		} else {
 
 			extra.text( null );

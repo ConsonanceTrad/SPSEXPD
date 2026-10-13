@@ -43,7 +43,8 @@ public class Boomerang extends MeleeWeapon {
 		InlineText.of(Boomerang.class)
 			.t("name", "回旋镖")
 			.t("ac_cast", "扔出")
-			.t("rest", "回旋镖充能未完成。")
+			.t("rest", "回旋镖正在飞回途中。")
+			.t("not_equipped", "你需要先装备回旋镖。")
 			.t("cast_prompt", "选择瞄准目标")
 			.t("charge", "剩余体力%d / %d。")
 			.t("returned", "你接住了弹回的回旋镖。")
@@ -93,17 +94,16 @@ public class Boomerang extends MeleeWeapon {
 	@Override
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);
-		if (isEquipped(hero) && charge >= FULL_CHARGE) actions.add(AC_CAST);
+		//SPSEXPD: 投掷始终作为可选动作（未充能完成时点击会提示「正在飞回途中」）
+		actions.add(AC_CAST);
 		//回旋镖没有决斗家武技，避免出现点了没有效果的按钮
 		actions.remove(AC_ABILITY);
 		return actions;
 	}
 
-	//SPSEXPD: 装备时默认动作恒为「投掷」——充能未满时 execute(AC_CAST) 会提示「充能未完成」
-	//并清掉 usesTargeting（避免进入选目标→普攻）；回旋镖没有决斗家武技，未装备时不给默认动作。
+	//SPSEXPD: 投掷恒为默认动作（未充能完成时 execute 会提示、并清掉 usesTargeting）。
 	@Override public String defaultAction() {
-		if (Dungeon.hero != null && isEquipped(Dungeon.hero)) return AC_CAST;
-		return null;
+		return AC_CAST;
 	}
 
 	//SPSEXPD: 允许放入快捷栏（不受充能与装备状态影响），以便快捷投掷。
@@ -115,9 +115,14 @@ public class Boomerang extends MeleeWeapon {
 	public void execute(Hero hero, String action) {
 		if (AC_CAST.equals(action)) {
 			curUser = hero;
-			if (!isEquipped(hero) || charge < FULL_CHARGE) {
-				//SPSEXPD: 没充好只提示，且必须清掉 usesTargeting（否则快捷栏点击会进入选目标→普攻）
-				usesTargeting = false;
+			//SPSEXPD: 先清掉 usesTargeting（否则快捷栏点击会进入选目标→普攻）
+			usesTargeting = false;
+			if (!isEquipped(hero)) {
+				GLog.i(Messages.get(this, "not_equipped"));
+				return;
+			}
+			if (charge < FULL_CHARGE) {
+				//SPSEXPD: 已投出、尚未弹回
 				GLog.i(Messages.get(this, "rest"));
 				return;
 			}
