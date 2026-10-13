@@ -48,18 +48,25 @@ public final class GunFire {
 		return ty * w + tx;
 	}
 
+	/**
+	 * SPSEXPD: 本次击发的实际落点（含出膛偏差）——动画（MissileSprite）与伤害弹道共用它，
+	 * 保证「看到的即打出的」。
+	 */
+	public static int aimedCell(Hero hero, int targetCell, int range, int perfectSTR) {
+		if (hero == null || Dungeon.level == null) return targetCell;
+		int dist = Dungeon.level.distance(hero.pos, targetCell);
+		int spread = spreadOffset(dist, range, perfectSTR, hero.STR());
+		if (spread <= 0) return targetCell;
+		return lateralOffset(hero.pos, targetCell, Random.IntRange(-spread, spread));
+	}
+
 	/** 沿弹道逐格结算：命中即结算；未命中不消失，继续飞；pierce > 0 时命中也继续飞，直到撞墙。 */
 	public static int resolveShot(Hero hero, MissileWeapon shot, int targetCell,
 	                              int range, int perfectSTR, int pierce) {
 		if (hero == null || Dungeon.level == null || shot == null) return 0;
 		int from = hero.pos;
-		int dist = Dungeon.level.distance(from, targetCell);
-		int spread = spreadOffset(dist, range, perfectSTR, hero.STR());
-		int to = spread > 0
-				? lateralOffset(from, targetCell, Random.IntRange(-spread, spread))
-				: targetCell;
-
-		Ballistica traj = new Ballistica(from, to, Ballistica.WONT_STOP);
+		//SPSEXPD: targetCell 已由 aimedCell 带上出膛偏差，这里不再二次偏移
+		Ballistica traj = new Ballistica(from, targetCell, Ballistica.WONT_STOP);
 		int hits = 0;
 		for (Integer cell : traj.path) {
 			if (cell == null || cell == from) continue;

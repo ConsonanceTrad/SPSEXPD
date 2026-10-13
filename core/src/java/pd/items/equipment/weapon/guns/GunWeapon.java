@@ -49,9 +49,9 @@ public class GunWeapon extends SpsRangedWeapon {
 			.t("empty", "你没有可以装填的通用弹匣。")
 			.t("prompt", "选择射击目标")
 			.t("prompt_aim", "选择射击方向")
-			.t("stats_1", "这把_%1$s_可以造成_%4$d~%5$d点伤害_。弹匣容量 _%2$d_ ，单次击发 _%3$d_ 。")
+			.t("stats_1", "这把_%1$s_可以造成_%4$d~%5$d点伤害_。\n\n弹匣容量 _%2$d_ ，单次击发 _%3$d_ ，装填耗时 _%1$s_ 。")
 			.t("stats_2", "你需要_%1$d点力量_以完全抑制其后坐力。以当前力量而言，每次击发需要 _%2$s 回合_的缓冲时间。")
-			.t("stats_3", "装填耗时 _%1$s_ ，精准范围 _%2$d_ ，噪声半径 _%3$d_ 。")
+			.t("stats_3", "在 _%2$d_ 格范围内，其可以确保攻击到目标格，射击产生的噪声范围为 _%3$d_ 格。")
 			.t("charge", "载弹量：%1$d/%2$d");
 	}
 
@@ -507,7 +507,9 @@ public class GunWeapon extends SpsRangedWeapon {
 		}
 		@Override public void cast(Hero user, int dst) {
 			if (!consumeRound()) return;
-			super.cast(user, dst);
+			//SPSEXPD: 出膛偏差先算成落点再飞——动画与伤害弹道一致（看到的即打出的）
+			int aim = GunFire.aimedCell(user, dst, effectiveRange, perfectSTR);
+			super.cast(user, aim);
 		}
 	}
 
