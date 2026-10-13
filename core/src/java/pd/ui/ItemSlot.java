@@ -184,7 +184,22 @@ public class ItemSlot extends Button {
 
 			//SPSEXPD: 角标优先——空间不足时让步的是状态文本（弹匣数/数量），不再隐藏右上角角标
 			extra.visible = item != null;
-			status.visible = item != null && (status.width() + extra.width()) <= width;
+
+			//SPSEXPD: 枪械的「装填:缓冲」角标不隐藏——空间不足时逐级缩小字号，把它塞进格子
+			if (extra.visible && item instanceof pd.items.equipment.weapon.guns.GunWeapon) {
+				float s = PixelScene.align(textScale);
+				for (int i = 0; i < 8 && status != null && s > 0.4f
+						&& (status.width() + extra.width()) > width; i++) {
+					s = Math.max(0.4f, s * 0.85f);
+					extra.scale.set(s);
+					extra.measure();
+					extra.x = x + (width - extra.width()) - margin.right;
+					PixelScene.align(extra);
+				}
+			}
+
+			status.visible = item != null && status != null
+					&& (status.width() + extra.width()) <= width;
 		}
 
 		if (itemIcon != null){
