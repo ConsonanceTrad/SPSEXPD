@@ -5,74 +5,53 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
+import pd.effects.Splash;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.mechanics.Ballistica;
-import render.utils.math.GameMath;
 import render.utils.math.Random;
 
 /**
  * SPSEXPD: 枪械共享开火核心——弹匣型（GunWeapon）与充能型（GunOfSoldier）共用。
  *
- * 负责「出膛偏差 → 沿轨迹飞行（未命中不消失）→ 命中结算 → 穿透/撞墙终止」这一弹道模型，
- * 以及枪声唤醒。弹药来源（弹匣 / 自然充能 / 特殊弹药）由各自的实现负责。
+ * 弹道模型：命中概率由距离决定（精准射击范围内必定命中，超出后每格衰减），
+ * 命中后沿轨迹继续飞行直至撞墙（穿透型）——**不再有出膛偏差**，子弹直线飞向目标格。
+ * 另外负责枪声唤醒。弹药来源（弹匣 / 自然充能 / 特殊弹药）由各自的实现负责。
  */
 public final class GunFire {
 
 	private GunFire() {}
 
-	/**
-	 * SPSEXPD: 出膛偏差的最大横向格数——只由「超出精准射击范围的距离」决定。
-	 * 力量不足不再让子弹直接打偏（它体现在命中率与后坐缓冲上）。
-	 */
-	public static int spreadOffset(int dist, int range, int perfectSTR, int heroSTR) {
-		int offset = 0;
-		if (dist > range) offset += (dist - range) / 2;
-		return Math.min(3, offset);
-	}
-
-	/** 把终点格在垂直于视线的方向上平移 k 格（k 为 0 时即原目标）。 */
-	public static int lateralOffset(int from, int to, int k) {
-		if (k == 0 || Dungeon.level == null) return to;
-		int w = Dungeon.level.width();
-		int x0 = from % w, y0 = from / w;
-		int x1 = to % w,   y1 = to / w;
-		int dx = x1 - x0, dy = y1 - y0;
-		double len = Math.sqrt((double)(dx * dx + dy * dy));
-		if (len == 0) return to;
-		//视线的法向量
-		double nx = -dy / len, ny = dx / len;
-		int tx = x1 + (int)Math.round(nx * k);
-		int ty = y1 + (int)Math.round(ny * k);
-		tx = (int)GameMath.gate(0, tx, w - 1);
-		ty = (int)GameMath.gate(0, ty, Dungeon.level.height() - 1);
-		return ty * w + tx;
-	}
+	/** SPSEXPD: 超出精准射击范围后，每格的命中衰减比例（默认 17%）。 */
+	public static final float HIT_DECAY_PER_TILE = 0.17f;
+	/** SPSEXPD: 命中率下限（默认 5%，即累计最多衰减 95%）。 */
+	public static final float MIN_HIT_CHANCE = 0.05f;
 
 	/**
-	 * SPSEXPD: 本次击发的实际落点（含出膛偏差）——动画（MissileSprite）与伤害弹道共用它，
-	 * 保证「看到的即打出的」。
+	 * SPSEXPD: 命中概率——在精准射击范围内必定命中；超出后每格乘 (1 - decayPerTile)，
+	 * 并收敛到 minChance。子弹走直线，动画与结算完全一致。
 	 */
-	public static int aimedCell(Hero hero, int targetCell, int range, int perfectSTR) {
-		if (hero == null || Dungeon.level == null) return targetCell;
-		int dist = Dungeon.level.distance(hero.pos, targetCell);
-		int spread = spreadOffset(dist, range, perfectSTR, hero.STR());
-		if (spread <= 0) return targetCell;
-		return lateralOffset(hero.pos, targetCell, Random.IntRange(-spread, spread));
+	public static float hitChance(int dist, int range, float decayPerTile, float minChance) {
+		if (dist <= range) return 1f;
+		return Math.max(minChance, (float)Math.pow(1f - decayPerTile, dist - range));
 	}
 
 	/**
 	 * 沿弹道逐格结算：命中即结算；未命中不消失，继续飞；pierce > 0 时命中也继续飞，直到撞墙。
-	 * SPSEXPD: 参考洛克手炮（MegaCannon.MegaAmmo）的射击物写法——**先直接结算落点上的目标**，
-	 * 保证直瞄一定打得到人；之后再沿弹道结算路径上的其它目标（流弹/穿透）。
+	 * SPSEXPD: 先结算落点上的目标（与洛克手炮 MegaCannon.MegaAmmo 的写法一致），
+	 * 命中与否由 hitChance 的距离概率裁定；之后沿弹道结算路径上的其它目标（流弹/穿透）。
 	 */
 	public static int resolveShot(Hero hero, MissileWeapon shot, int targetCell,
-	                              int range, int perfectSTR, int pierce) {
+	                              int range, float decayPerTile, float minChance, int pierce) {
 		if (hero == null || Dungeon.level == null || shot == null) return 0;
 		int from = hero.pos;
 		int hits = 0;
 
 		Char direct = targetCell == from ? null : Actor.findChar(targetCell);
-		if (direct != null && direct != hero && hero.shoot(direct, shot)) {
+		if (direct != null && direct != hero) {
+			if (!tryHit(hero, shot, direct, range, decayPerTile, minChance)) {
+				Splash.at(targetCell, 0xCC99FFFF, 1); //打空：目标格只溅起尘土
+				return hits;
+			}
 			hits++;
 			if (pierce <= 0) return hits;
 		}
@@ -87,13 +66,22 @@ public final class GunFire {
 				continue;         //空地：未命中的子弹继续飞
 			}
 			if (enemy == hero) continue;
-			if (hero.shoot(enemy, shot)) {
+			if (tryHit(hero, shot, enemy, range, decayPerTile, minChance)) {
 				hits++;
 				if (pierce <= 0) break; //普通枪命中即止
 			}
 			//未命中（或穿透型）：继续沿弹道飞行
 		}
 		return hits;
+	}
+
+	/** 一次命中裁定：按「射手到目标的距离」取命中概率，命中才结算伤害。 */
+	private static boolean tryHit(Hero hero, MissileWeapon shot, Char enemy,
+	                              int range, float decayPerTile, float minChance) {
+		float chance = hitChance(Dungeon.level.distance(hero.pos, enemy.pos), range, decayPerTile, minChance);
+		if (Random.Float() >= chance) return false;
+		hero.shoot(enemy, shot);
+		return true;
 	}
 
 	/** 枪声：按半径唤醒并吸引范围内的敌人。 */

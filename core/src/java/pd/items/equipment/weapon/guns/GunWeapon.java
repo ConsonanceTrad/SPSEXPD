@@ -51,7 +51,7 @@ public class GunWeapon extends SpsRangedWeapon {
 			.t("prompt_aim", "选择射击方向")
 			.t("stats_1", "这把_%1$s_可以造成_%4$d~%5$d点伤害_。\n\n弹匣容量 _%2$d_ ，单次击发 _%3$d_ ，装填耗时 _%1$s_ 。")
 			.t("stats_2", "你需要_%1$d点力量_以完全抑制其后坐力。以当前力量而言，每次击发需要 _%2$s 回合_的缓冲时间。")
-			.t("stats_3", "枪械的射击会有一定角度偏移，这把枪在 _%2$d_ 格范围内可以确保精准射击。")
+			.t("stats_3", "这把枪在 _%2$d_ 格范围内必定命中目标；超出后每格命中率下降 _%4$d%%_，最低 _%5$d%%_。")
 			.t("charge", "载弹量：%1$d/%2$d");
 	}
 
@@ -134,21 +134,18 @@ public class GunWeapon extends SpsRangedWeapon {
 	@Override public int damageRoll(Char owner) { return 0; }
 	@Override public boolean isUpgradable() { return true; }
 
-	/** SPSEXPD: 枪械精准——不吃天赋/戒指的近战精准，只由力量与距离决定（力量越高越准）。 */
+	/**
+	 * SPSEXPD: 枪械的命中概率由距离单独裁定（见 {@link #hitChance(int)}），
+	 * 这里恒返回高值，避免 hero.shoot 内部再随机判一次、把距离概率二次打折。
+	 */
 	@Override
 	public float accuracyFactor(Char owner, Char target) {
-		float acc = this.ACC;
-		if (owner instanceof Hero) {
-			int diff = ((Hero)owner).STR() - perfectSTR;
-			acc *= (float)Math.pow(1.1, diff);
-		}
-		if (target != null && Dungeon.level != null) {
-			int dist = Dungeon.level.distance(owner.pos, target.pos);
-			if (dist > effectiveRange) {
-				acc *= Math.max(0.2f, 1f - 0.15f * (dist - effectiveRange));
-			}
-		}
-		return Math.max(0.05f, acc);
+		return 1000f;
+	}
+
+	/** SPSEXPD: 命中概率——精准射击范围内必定命中；超出后每格衰减 17%，最低 5%。 */
+	public float hitChance(int dist) {
+		return GunFire.hitChance(dist, effectiveRange, GunFire.HIT_DECAY_PER_TILE, GunFire.MIN_HIT_CHANCE);
 	}
 
 	/** SPSEXPD: 枪械攻速极快——连射同目标不耗回合，换目标才消耗一个（较短的）回合。 */
@@ -417,7 +414,9 @@ public class GunWeapon extends SpsRangedWeapon {
 				+ "\n\n"
 				+ Messages.get(GunWeapon.class, "stats_2", perfectSTR, num(shotBuffer(Dungeon.hero)))
 				+ "\n\n"
-				+ Messages.get(GunWeapon.class, "stats_3", num(baseReloadTime), effectiveRange, noiseRadius)
+				+ Messages.get(GunWeapon.class, "stats_3", num(baseReloadTime), effectiveRange, noiseRadius,
+						Math.round(GunFire.HIT_DECAY_PER_TILE * 100f),
+						Math.round(GunFire.MIN_HIT_CHANCE * 100f))
 				+ "\n\n"
 				+ Messages.get(GunWeapon.class, "charge", charge, fullCharge);
 	}
@@ -470,9 +469,8 @@ public class GunWeapon extends SpsRangedWeapon {
 			//SPSEXPD: 借用洛克手炮（MegaCannon）的子弹贴图
 			image = pd.atlas.items.SpecificPlaceHolderDict.SOMETHING_0;
 			tier = 1; //SPSEXPD: 枪弹不再是分阶武器
-			//SPSEXPD: 枪弹保证命中（对齐洛克手炮 ACC=100f / 科技霰弹枪 ACC=1000f 的做法），
-			//力量与距离的影响体现在「出膛偏差」与「后坐缓冲」上
-			ACC = 100f;
+			//SPSEXPD: 命中概率由 GunFire.hitChance 按距离决定（不再有出膛偏差）；这里只保证 hero.shoot 必然打中
+			ACC = 1000f;
 			spawnedForEffect = true;
 		}
 		//SPSEXPD: 凭空弹体必须 quantity=1——否则 Item.detach 走 split()，而非静态内部类无法反射构造（Reflection 返回 null），
@@ -493,12 +491,13 @@ public class GunWeapon extends SpsRangedWeapon {
 			return GunWeapon.this.hasEnchant(type, owner);
 		}
 		@Override public float accuracyFactor(Char owner, Char target) {
-			//SPSEXPD: 以枪本体的精准（力量/距离决定）为系数，再乘枪弹自身的命中基准
+			//SPSEXPD: 命中由 GunFire.hitChance 按距离裁定，这里只保证 hero.shoot 内部必然打中
 			return GunWeapon.this.accuracyFactor(owner, target) * ACC;
 		}
 		@Override protected void onThrow(int cell) {
 			if (curUser == null) return;
-			GunFire.resolveShot(curUser, this, cell, effectiveRange, perfectSTR, pierce);
+			GunFire.resolveShot(curUser, this, cell, effectiveRange,
+					GunFire.HIT_DECAY_PER_TILE, GunFire.MIN_HIT_CHANCE, pierce);
 		}
 		@Override protected void rangedHit(Char enemy, int cell) { }
 		@Override protected void rangedMiss(int cell) { }
@@ -514,9 +513,8 @@ public class GunWeapon extends SpsRangedWeapon {
 		}
 		@Override public void cast(Hero user, int dst) {
 			if (!consumeRound()) return;
-			//SPSEXPD: 出膛偏差先算成落点再飞——动画与伤害弹道一致（看到的即打出的）
-			int aim = GunFire.aimedCell(user, dst, effectiveRange, perfectSTR);
-			super.cast(user, aim);
+			//SPSEXPD: 不再有出膛偏差——子弹直线飞向所选目标格，命中与否由距离概率决定
+			super.cast(user, dst);
 		}
 	}
 

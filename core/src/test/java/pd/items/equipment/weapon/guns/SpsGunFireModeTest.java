@@ -19,7 +19,7 @@ public final class SpsGunFireModeTest {
 			testArchetypes();
 			testMagazineAndShots();
 			testReloadModes();
-			testSpread();
+			testHitChance();
 			testRecoilBuffer();
 			testEnchantWhitelist();
 			testEquipAndDualRules();
@@ -77,12 +77,21 @@ public final class SpsGunFireModeTest {
 		check(!pistol.reloadMagazine(hero), "无通用弹匣时仍能装填");
 	}
 
-	/** 出膛偏差（流弹）：范围内且力量达标 = 0；超出范围或力量不足则增大。 */
-	private static void testSpread() {
-		check(GunFire.spreadOffset(3, 4, 12, 12) == 0, "精准范围内不应有偏差");
-		check(GunFire.spreadOffset(3, 4, 12, 8) == 0, "力量不足不应让子弹直接打偏（只影响命中率与缓冲）");
-		check(GunFire.spreadOffset(10, 4, 12, 12) > 0, "超出精准范围后没有产生偏差");
-		check(GunFire.spreadOffset(20, 4, 12, 12) == 3, "偏差没有封顶到 3 格");
+	/** 弹道精准度（不再有出膛偏差）：精准射击范围内必定命中，超出后每格衰减 17%，最低 5%。 */
+	private static void testHitChance() {
+		final int range = GunArchetype.PISTOL.range;
+		final float decay = GunFire.HIT_DECAY_PER_TILE;
+		final float floor = GunFire.MIN_HIT_CHANCE;
+
+		check(GunFire.hitChance(range - 1, range, decay, floor) == 1f, "精准射击范围内不是必定命中");
+		check(GunFire.hitChance(range, range, decay, floor) == 1f, "精准射击范围边界不是必定命中");
+		check(GunFire.hitChance(range + 1, range, decay, floor) < 1f, "超出精准范围后命中率没有下降");
+
+		float near = GunFire.hitChance(range + 1, range, decay, floor);
+		float far = GunFire.hitChance(range + 3, range, decay, floor);
+		check(Math.abs(near - 0.83f) < 0.001f, "超出 1 格的命中率不是 83%（每格降 17%）：" + near);
+		check(far < near, "命中率没有随超出距离继续下降");
+		check(GunFire.hitChance(60, range, decay, floor) == floor, "命中率没有收敛到下限 5%");
 	}
 
 	/** 后坐缓冲：完美阈值越高惩罚越重；达阈值时为 0。 */
