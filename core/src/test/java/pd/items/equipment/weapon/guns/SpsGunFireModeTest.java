@@ -137,6 +137,10 @@ public final class SpsGunFireModeTest {
 		gun.charge(gun.fullCharge());
 
 		GunWeapon.GunAmmo shot = gun.new GunAmmo();
+		//SPSEXPD: 凭空弹体必须 quantity=1——否则 Item.detach 会走 split()，而 Reflection 造不出非静态内部类（返回 null），
+		//Item.cast 里的 `if (i != null) i.onThrow(cell)` 被跳过，子弹飞出去却完全没有伤害结算
+		check(shot.defaultQuantity() == 1,
+				"枪弹默认堆叠不是 1：detach 会走 split() 失败，onThrow 永远不会被调用（射击没有伤害）");
 		for (int i = 0; i < 20; i++) {
 			int dmg = shot.damageRoll(hero);
 			check(dmg >= gun.min() && dmg <= gun.max(),

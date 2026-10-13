@@ -475,6 +475,9 @@ public class GunWeapon extends SpsRangedWeapon {
 			ACC = 100f;
 			spawnedForEffect = true;
 		}
+		//SPSEXPD: 凭空弹体必须 quantity=1——否则 Item.detach 走 split()，而非静态内部类无法反射构造（Reflection 返回 null），
+		//Item.cast 的 `if (i != null) i.onThrow(cell)` 被跳过，子弹飞出去却完全没有伤害结算
+		@Override public int defaultQuantity() { return 1; }
 		@Override public int min(int lvl) { return GunWeapon.this.min(); }
 		@Override public int max(int lvl) { return GunWeapon.this.max(); }
 		@Override public int STRReq(int lvl) { return Math.max(1, GunWeapon.this.STRReq()); }

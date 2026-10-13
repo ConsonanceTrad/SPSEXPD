@@ -184,6 +184,8 @@ public class ManyKnive extends Weapon {
 			DLY = 0.25f;
 			spawnedForEffect = true;
 		}
+		//SPSEXPD: 凭空弹体必须 quantity=1（否则 detach→split 对非静态内部类失败，onThrow 不被调用、没有伤害）
+		@Override public int defaultQuantity() { return 1; }
 		@Override public int min(int lvl) { return ManyKnive.this.min(); }
 		@Override public int max(int lvl) { return ManyKnive.this.max(); }
 		@Override public int STRReq(int lvl) { return 10; }
