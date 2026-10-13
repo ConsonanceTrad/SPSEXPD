@@ -162,7 +162,11 @@ public class ItemSlot extends Button {
 		
 		if (status != null) {
 			//SPSEXPD: 先套用窗口给的缩放再测量（measure() 会把 scale 计进 width/height）
-			float s = PixelScene.align(textScale);
+			//SPSEXPD: 快捷栏里枪械的左上数量也小一号（物品栏保持原字号）
+//SPSEXPD: 先套用窗口给的缩放再测量（measure() 会把 scale 计进 width/height）
+			float statusScale = compactText && item instanceof pd.items.equipment.weapon.guns.GunWeapon ? 0.75f : 1f;
+//SPSEXPD: 先套用窗口给的缩放再测量（measure() 会把 scale 计进 width/height）
+			float s = PixelScene.align(textScale * statusScale);
 			status.scale.set(s);
 			status.measure();
 			if (status.width > width - (margin.left + margin.right)){
@@ -177,7 +181,9 @@ public class ItemSlot extends Button {
 		if (extra != null) {
 			//SPSEXPD: 力量需求等数字同样跟随 textScale；枪械角标（「装填:缓冲」）放左下角且字号小一号
 			boolean gunBadge = item instanceof pd.items.equipment.weapon.guns.GunWeapon;
-			extra.scale.set(PixelScene.align(gunBadge ? textScale * 0.75f : textScale));
+			float extraBase = gunBadge ? textScale * 0.75f : textScale;
+			if (compactText) extraBase *= 0.75f;
+			extra.scale.set(PixelScene.align(extraBase));
 			extra.measure();
 			extra.x = gunBadge
 				? x + margin.left
@@ -192,7 +198,7 @@ public class ItemSlot extends Button {
 
 			//SPSEXPD: 枪械角标不隐藏——空间不足时逐级缩小字号，把它塞进格子
 			if (extra.visible && gunBadge) {
-				float s = PixelScene.align(textScale * 0.75f);
+				float s = PixelScene.align(extraBase);
 				for (int i = 0; i < 8 && status != null && s > 0.4f
 						&& (status.width() + extra.width()) > width; i++) {
 					s = Math.max(0.4f, s * 0.85f);
@@ -425,6 +431,11 @@ public class ItemSlot extends Button {
 		level.alpha( alpha );
 		if (itemIcon != null) itemIcon.alpha( alpha );
 	}
+
+	/** SPSEXPD: 紧凑模式——快捷栏格子小，左上数量与角标字号整体再小一号（物品栏不设此模式）。 */
+	private boolean compactText = false;
+
+	public void setCompactText( boolean value ){ compactText = value; }
 
 	public void showExtraInfo( boolean show ){
 

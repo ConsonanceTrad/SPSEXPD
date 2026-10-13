@@ -166,6 +166,8 @@ public class QuickSlotButton extends Button {
 		};
 		//SPSEXPD: 快捷栏同样要显示右上角角标（枪械的「装填:缓冲」等）——原来这里把 extra 整块移除了
 		slot.showExtraInfo( true );
+		//SPSEXPD: 快捷栏格子小——枪械的左上数量与左下「装填:缓冲」角标字号再小一号
+		slot.setCompactText( true );
 		add( slot );
 		
 		crossB = Icons.TARGET.get();
