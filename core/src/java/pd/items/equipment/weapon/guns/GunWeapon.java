@@ -122,7 +122,9 @@ public class GunWeapon extends SpsRangedWeapon {
 		this.regenPerTurn = archetype.regenPerTurn;
 		this.pierce = archetype.pierce;
 		defaultAction = AC_RELOAD;
-		usesTargeting = true;
+		//SPSEXPD: 枪械不再有「选目标射击」动作（点击怪物已 autoAttack 自动开火）——
+		//关掉 usesTargeting，避免点快捷栏后进入选目标、点敌人变成走过去近战
+		usesTargeting = false;
 	}
 
 	//SPSEXPD: 不再分阶位——伤害与力量需求直接取自类型基准

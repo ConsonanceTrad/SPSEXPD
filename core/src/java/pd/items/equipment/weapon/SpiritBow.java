@@ -98,7 +98,8 @@ public class SpiritBow extends Weapon {
 		image = EquipmentEquipWeaponUniqueWeaponDict.SPIRIT_BOW_0;
 		
 		defaultAction = AC_RELOAD;
-		usesTargeting = true;
+		//SPSEXPD: 关闭 usesTargeting——点快捷栏即装填，不再进入选目标（避免无弹药点快捷栏后点敌人走过去近战）
+		usesTargeting = false;
 		
 		unique = true;
 		bones = false;
