@@ -3,17 +3,15 @@ package pd.items.equipment.weapon.guns;
 import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 import pd.messages.InlineText;
 
-
+/** SPSEXPD: 冲锋枪·寻雷（原 B 型枪械重铸）——单次击发 4 发、弹匣 20、装填 2 回合。 */
 public class GunB extends GunWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(GunB.class)
-			.t("name", "B型枪械")
-			.t("desc", "高塔基于下水道试验结果制作的可靠双管手枪，被投入监狱环境进行测试。");
+			.t("name", "寻雷")
+			.t("desc", "射速极快的冲锋枪，一次扣动扳机便泼出四发子弹，弹雨如追雷而去。");
 	}
 
-
-
-	{ image = EquipmentEquipWeaponBasicWeaponDict.GUN_4; }
-	public GunB() { super(2, 4); }
+	{ image = EquipmentEquipWeaponBasicWeaponDict.MACHINE_GUN; }
+	public GunB() { super(GunArchetype.SMG); }
 }

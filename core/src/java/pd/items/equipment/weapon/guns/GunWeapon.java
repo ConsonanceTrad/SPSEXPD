@@ -21,8 +21,10 @@ import pd.effects.Splash;
 import pd.items.Item;
 import pd.items.equipment.bags.Bag;
 import pd.items.equipment.rings.RingOfSharpshooting;
-import pd.items.equipment.wands.WandOfBlastWave;
 import pd.items.equipment.weapon.SpsRangedWeapon;
+import pd.items.equipment.weapon.Weapon;
+import pd.items.equipment.weapon.enchantments.Puncturing;
+import pd.items.equipment.weapon.enchantments.Ricochet;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.items.equipment.weapon.spammo.SpAmmo;
 import pd.mechanics.Ballistica;
@@ -34,6 +36,7 @@ import pd.sprites.ItemSprite;
 import pd.utils.GLog;
 import pd.windows.WndBag;
 import pd.windows.WndOptions;
+import render.noosa.Game;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -47,11 +50,13 @@ public class GunWeapon extends SpsRangedWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(GunWeapon.class)
-			.t("ac_shoot", "射击")
+			.t("ac_shoot", "射击目标")
+			.t("ac_aim", "定向射击")
 			.t("ac_reload", "填弹")
 			.t("ac_ammo", "切换子弹")
 			.t("reloading", "填弹中……")
 			.t("need_to_equip", "你需要先装备这件武器才能射击。")
+			.t("need_target", "那里没有可以射击的目标。")
 			.t("prompt2", "选择加载的强化弹药")
 			.t("full", "弹匣已满。")
 			.t("empty", "弹药不足。")
@@ -60,6 +65,7 @@ public class GunWeapon extends SpsRangedWeapon {
 			.t("yes", "是")
 			.t("no", "否")
 			.t("prompt", "选择射击目标")
+			.t("prompt_aim", "选择射击方向")
 			.t("stats_known", "这件_%1$d阶_枪械可以造成_%2$d～%3$d点伤害_，并且需要_%4$d点力量_来正常使用。")
 			.t("charge", "弹匣：%1$d/%2$d");
 	}
@@ -67,6 +73,7 @@ public class GunWeapon extends SpsRangedWeapon {
 
 
 	public static final String AC_SHOOT = "SHOOT";
+	public static final String AC_AIM = "AIM";
 	public static final String AC_RELOAD = "RELOAD";
 	public static final String AC_AMMO = "AMMO";
 
@@ -74,15 +81,59 @@ public class GunWeapon extends SpsRangedWeapon {
 	private static final String RESERVE = "reserve";
 	private static final String SP_AMMO = "sp_ammo";
 
+	/** SPSEXPD: 枪械不适用（近战专属）的附魔，随机附魔时排除。 */
+	public static final Class<?>[] INCOMPATIBLE_ENCHANTS = new Class<?>[]{
+			pd.items.equipment.weapon.enchantments.Vorpal.class,
+			pd.items.equipment.weapon.enchantments.Grim.class,
+			pd.items.equipment.weapon.enchantments.Vampiric.class,
+			pd.items.equipment.weapon.enchantments.Blocking.class,
+			pd.items.equipment.weapon.enchantments.Blooming.class,
+	};
+
+	protected GunArchetype archetype;
 	protected final int gunTier;
-	protected final int fullCharge;
+	/** 弹匣容量（一次可连续击发的发数上限）。 */
+	protected int fullCharge;
+	/** 单次击发消耗的弹药数（冲锋枪 = 4）。 */
+	protected int shotsPerFire;
+	/** 零后坐缓冲所需的力量阈值。 */
+	protected int perfectSTR;
+	/** 精准射击范围（超出后命中率与弹道偏差变差）。 */
+	protected int effectiveRange;
+
 	protected int charge;
 	protected int reserveAmmo = 100;
 	private SpAmmo ammo;
 
-	protected GunWeapon(int tier, int fullCharge) {
-		this.gunTier = tier;
-		this.fullCharge = fullCharge;
+	/** 装填方式；耗时按枪型固定（霰弹枪为逐颗）。 */
+	protected GunArchetype.Reload reloadMode;
+	protected float baseReloadTime;
+	/** 枪声传播半径。 */
+	protected int noiseRadius;
+	/** 充能型：未开火时每回合自然回充的发数（0 = 普通枪械）。 */
+	protected float regenPerTurn;
+	/** 弹道穿透：0 = 命中即止；Integer.MAX_VALUE = 命中后继续飞至撞墙。 */
+	protected int pierce;
+
+	private float regenProgress = 0f;
+	private boolean firedSinceLastCharge = false;
+
+	/** 连射状态：对同一目标连续射击不消耗回合，但仍受后坐缓冲限制。 */
+	protected int lastTargetPos = -1;
+	protected float lastShotTime = -Float.MAX_VALUE;
+
+	protected GunWeapon(GunArchetype archetype) {
+		this.archetype = archetype;
+		this.gunTier = archetype.tier;
+		this.fullCharge = archetype.magazine;
+		this.shotsPerFire = archetype.shotsPerFire;
+		this.perfectSTR = archetype.perfectSTR;
+		this.effectiveRange = archetype.range;
+		this.reloadMode = archetype.reload;
+		this.baseReloadTime = archetype.reloadTime;
+		this.noiseRadius = archetype.noise;
+		this.regenPerTurn = archetype.regenPerTurn;
+		this.pierce = archetype.pierce;
 		defaultAction = AC_SHOOT;
 		usesTargeting = true;
 	}
@@ -103,10 +154,57 @@ public class GunWeapon extends SpsRangedWeapon {
 		return super.upgrade();
 	}
 
+	/** SPSEXPD: 枪械精准——不吃天赋/戒指的近战精准，只由力量与距离决定（力量越高越准）。 */
+	@Override
+	public float accuracyFactor(Char owner, Char target) {
+		float acc = this.ACC;
+		if (owner instanceof Hero) {
+			int diff = ((Hero)owner).STR() - perfectSTR;
+			acc *= (float)Math.pow(1.1, diff);
+		}
+		if (target != null && Dungeon.level != null) {
+			int dist = Dungeon.level.distance(owner.pos, target.pos);
+			if (dist > effectiveRange) {
+				acc *= Math.max(0.2f, 1f - 0.15f * (dist - effectiveRange));
+			}
+		}
+		return Math.max(0.05f, acc);
+	}
+
+	/** SPSEXPD: 枪械攻速极快——连射同目标不耗回合，换目标才消耗一个（较短的）回合。 */
+	@Override
+	public float delayFactor(Char owner) {
+		return Math.max(0.2f, super.delayFactor(owner) * 0.5f);
+	}
+
+	/** 后坐缓冲：力量每差完美阈值 1 点，每次击发后需额外等待 0.5 回合。 */
+	protected float shotBuffer(Hero hero) {
+		if (hero == null) return 0f;
+		int lack = perfectSTR - hero.STR();
+		return lack > 0 ? lack * 0.5f : 0f;
+	}
+
+	/** 计算本次击发的回合代价，并更新连射/缓冲状态。 */
+	protected float shotDelay(Hero hero, int cell) {
+		Char target = Actor.findChar(cell);
+		boolean sameTarget = target != null && target.pos == lastTargetPos;
+
+		float buffer = shotBuffer(hero);
+		float wait = Math.max(0f, lastShotTime + buffer - Game.timeTotal);
+		float delay = wait + (sameTarget ? 0f : delayFactor(hero));
+
+		lastTargetPos = target != null ? target.pos : -1;
+		lastShotTime = Game.timeTotal + delay;
+		return delay;
+	}
+
 	@Override
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);
-		if (canShoot(hero)) actions.add(AC_SHOOT);
+		if (canShoot(hero)) {
+			actions.add(AC_SHOOT);
+			actions.add(AC_AIM);
+		}
 		if (canReload(hero)) actions.add(AC_RELOAD);
 		if (supportsSpecialAmmo()) actions.add(AC_AMMO);
 		return actions;
@@ -121,7 +219,16 @@ public class GunWeapon extends SpsRangedWeapon {
 			} else if (charge <= 0) {
 				reload(hero, true);
 			} else {
-				GameScene.selectCell(shooter);
+				GameScene.selectCell(targetShooter);
+			}
+		} else if (AC_AIM.equals(action)) {
+			curUser = hero;
+			if (!canShoot(hero)) {
+				GLog.i(Messages.get(GunWeapon.class, "need_to_equip"));
+			} else if (charge <= 0) {
+				reload(hero, true);
+			} else {
+				GameScene.selectCell(aimShooter);
 			}
 		} else if (AC_RELOAD.equals(action)) {
 			curUser = hero;
@@ -146,13 +253,12 @@ public class GunWeapon extends SpsRangedWeapon {
 			GLog.n(Messages.get(GunWeapon.class, "full"));
 			return;
 		}
-		int missing = fullCharge - charge;
 		int loaded = reloadMagazine();
 		if (loaded <= 0) {
 			GLog.n(Messages.get(GunWeapon.class, "empty"));
 			return;
 		}
-		float time = reloadTime(hero, automatic, Math.min(missing, loaded));
+		float time = reloadTime(hero, automatic, loaded);
 		if (hero.sprite != null) hero.sprite.showStatus(CharSprite.DEFAULT, Messages.get(GunWeapon.class, "reloading"));
 		hero.spendAndNext(Math.max(0.1f, time));
 	}
@@ -161,14 +267,16 @@ public class GunWeapon extends SpsRangedWeapon {
 	public int reloadMagazine() {
 		int missing = Math.max(0, fullCharge - charge);
 		if (missing == 0 || reserveAmmo <= 0) return 0;
-		int loaded = Math.min(missing, reserveAmmo);
+		int want = reloadMode == GunArchetype.Reload.SINGLE ? 1 : missing;
+		int loaded = Math.min(want, reserveAmmo);
 		charge += loaded;
+		updateQuickslot();
 		return loaded;
 	}
 
 	protected float reloadTime(Hero hero, boolean automatic, int loaded) {
 		if (hero.subClass == HeroSubClass.AGENT) return 0.5f;
-		return automatic ? fullCharge / 2f : loaded / 2f;
+		return baseReloadTime;
 	}
 
 	public int charge() { return charge; }
@@ -184,6 +292,22 @@ public class GunWeapon extends SpsRangedWeapon {
 	}
 	public int fullCharge() { return fullCharge; }
 	public int reserveAmmo() { return reserveAmmo; }
+
+	/** SPSEXPD: 充能型枪械的每回合自然回充（本回合开过火则不回充）。 */
+	public void gainCharge() {
+		if (regenPerTurn <= 0f) return;
+		if (firedSinceLastCharge) {
+			firedSinceLastCharge = false;
+			return;
+		}
+		regenProgress += regenPerTurn;
+		while (regenProgress >= 1f) {
+			regenProgress -= 1f;
+			if (charge < fullCharge) charge++;
+		}
+		updateQuickslot();
+	}
+
 	boolean consumeRound() {
 		//SPSEXPD: 无限弹药袋生效期间不消耗弹匣
 		if (EndlessAmmo.isActive(curUser)) return true;
@@ -207,13 +331,38 @@ public class GunWeapon extends SpsRangedWeapon {
 
 	@Override
 	public int proc(Char attacker, Char defender, int damage) {
-		if (Dungeon.level != null && attacker != null && defender != null) {
+		if (Dungeon.level != null && attacker != null && defender != null && defender.isAlive()) {
 			int opposite = defender.pos + defender.pos - attacker.pos;
 			Ballistica trajectory = new Ballistica(defender.pos, opposite, Ballistica.MAGIC_BOLT);
-			WandOfBlastWave.throwChar(defender, trajectory, 1, false, false, this);
+			pd.items.equipment.wands.WandOfBlastWave.throwChar(defender, trajectory, 1, false, false, this);
 			if (causesVertigo()) Buff.prolong(defender, Vertigo.class, 3f);
 		}
-		return damage;
+		//SPSEXPD: 走 Weapon.proc —— 让枪械附魔（含穿甲/弹射）与识别进度正常生效
+		return super.proc(attacker, defender, damage);
+	}
+
+	/** SPSEXPD: 随机附魔时排除近战专属附魔，并有机会获得枪械专属附魔。 */
+	@Override
+	public Weapon enchant() {
+		Class<? extends Enchantment> old = enchantment != null ? enchantment.getClass() : null;
+		if (Random.Int(10) < 3 && !Puncturing.class.equals(old) && !Ricochet.class.equals(old)) {
+			return enchant(Random.Int(2) == 0 ? new Puncturing() : new Ricochet());
+		}
+		Enchantment ench;
+		int guard = 0;
+		do {
+			ench = Enchantment.random(old);
+			guard++;
+		} while (guard < 20 && isIncompatible(ench));
+		return enchant(ench);
+	}
+
+	protected boolean isIncompatible(Enchantment ench) {
+		if (ench == null) return false;
+		for (Class<?> c : INCOMPATIBLE_ENCHANTS) {
+			if (c == ench.getClass()) return true;
+		}
+		return false;
 	}
 
 	protected boolean causesVertigo() { return true; }
@@ -284,12 +433,46 @@ public class GunWeapon extends SpsRangedWeapon {
 		curUser.spendAndNext(2f);
 	}
 
-	private final CellSelector.Listener shooter = new CellSelector.Listener() {
-		@Override public void onSelect(Integer target) { if (target != null && charge > 0) new GunAmmo().cast(curUser, target); }
+	/** 一次击发：按单次弹药数连续发射，每颗子弹各自独立结算。 */
+	protected void fire(Hero hero, int cell) {
+		if (hero == null || charge <= 0) return;
+		float delay = shotDelay(hero, cell);
+		firedSinceLastCharge = true;
+
+		int shots = Math.min(shotsPerFire, charge);
+		for (int i = 0; i < shots; i++) {
+			GunAmmo shot = new GunAmmo();
+			shot.preDelay = (i == 0) ? delay : 0f;
+			shot.cast(hero, cell);
+		}
+
+		GunFire.alertNearby(hero.pos, noiseRadius);
+	}
+
+	private final CellSelector.Listener targetShooter = new CellSelector.Listener() {
+		@Override public void onSelect(Integer target) {
+			if (target == null || curUser == null) return;
+			if (Actor.findChar(target) == null) {
+				GLog.i(Messages.get(GunWeapon.class, "need_target"));
+				return;
+			}
+			fire(curUser, target);
+		}
 		@Override public String prompt() { return Messages.get(GunWeapon.class, "prompt"); }
 	};
 
+	private final CellSelector.Listener aimShooter = new CellSelector.Listener() {
+		@Override public void onSelect(Integer target) {
+			if (target == null || curUser == null) return;
+			fire(curUser, target);
+		}
+		@Override public String prompt() { return Messages.get(GunWeapon.class, "prompt_aim"); }
+	};
+
 	public class GunAmmo extends MissileWeapon {
+		/** 本次击发的回合代价（由 GunWeapon.fire 预先算好）。 */
+		float preDelay = -1f;
+
 		{
 			image = EquipmentEquipWeaponUniqueWeaponDict.PAINTBALL_GUN;
 			tier = Math.max(1, gunTier);
@@ -300,14 +483,22 @@ public class GunWeapon extends SpsRangedWeapon {
 		@Override public int max(int lvl) { return GunWeapon.this.max(); }
 		@Override public int STRReq(int lvl) { return Math.max(1, GunWeapon.this.STRReq()); }
 		@Override public int damageRoll(Char owner) { return GunWeapon.this.gunDamageRoll(owner); }
+		@Override public float castDelay(Char user, int cell) {
+			return preDelay >= 0f ? preDelay : super.castDelay(user, cell);
+		}
 		@Override public float delayFactor(Char owner) {
 			if (owner instanceof Hero && ((Hero)owner).subClass == HeroSubClass.AGENT && ((Hero)owner).justMoved) return 0.1f;
-			return super.delayFactor(owner);
+			return GunWeapon.this.delayFactor(owner);
+		}
+		@Override public boolean hasEnchant(Class<? extends Enchantment> type, Char owner) {
+			return GunWeapon.this.hasEnchant(type, owner);
+		}
+		@Override public float accuracyFactor(Char owner, Char target) {
+			return GunWeapon.this.accuracyFactor(owner, target);
 		}
 		@Override protected void onThrow(int cell) {
-			Char enemy = Actor.findChar(cell);
-			if (enemy == null || enemy == curUser) Splash.at(cell, 0xCC99FFFF, 1);
-			else if (!curUser.shoot(enemy, this)) Splash.at(cell, 0xCC99FFFF, 1);
+			if (curUser == null) return;
+			GunFire.resolveShot(curUser, this, cell, effectiveRange, perfectSTR, pierce);
 		}
 		@Override protected void rangedHit(Char enemy, int cell) { }
 		@Override protected void rangedMiss(int cell) { }
@@ -316,7 +507,8 @@ public class GunWeapon extends SpsRangedWeapon {
 			if (addsEnergyDamage()) {
 				defender.damage(gunDamageRoll(attacker) / 2, DamageType.ENERGY_DAMAGE);
 			}
-			return super.proc(attacker, defender, damage);
+			//SPSEXPD: 转发给枪本体，使枪上的附魔（穿甲/弹射等）生效
+			return GunWeapon.this.proc(attacker, defender, damage);
 		}
 		@Override public void cast(Hero user, int dst) {
 			if (!consumeRound()) return;

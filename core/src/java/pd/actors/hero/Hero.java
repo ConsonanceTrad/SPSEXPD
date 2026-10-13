@@ -1223,6 +1223,9 @@ public class Hero extends Char {
 		if (shovel != null) shovel.gainCharge();
 		GunOfSoldier soldierGun = belongings.getItem(GunOfSoldier.class);
 		if (soldierGun != null) soldierGun.gainCharge();
+		//SPSEXPD: 充能型枪械（如电磁手枪）的每回合自然回充
+		if (belongings.weapon instanceof pd.items.equipment.weapon.guns.GunWeapon)
+			((pd.items.equipment.weapon.guns.GunWeapon)belongings.weapon).gainCharge();
 		if (belongings.weapon instanceof MegaCannon) ((MegaCannon)belongings.weapon).gainCharge();
 		BigBattery battery = belongings.getItem(BigBattery.class);
 		if (battery != null) battery.gainCharge();

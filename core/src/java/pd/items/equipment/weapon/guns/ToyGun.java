@@ -22,7 +22,14 @@ public class ToyGun extends GunWeapon {
 		image = EquipmentEquipWeaponUniqueWeaponDict.PAINTBALL_GUN;
 		reinforced = true;
 	}
-	public ToyGun() { super(1, 10); }
+	public ToyGun() {
+		super(GunArchetype.CUSTOM);
+		fullCharge = 10;   //SPSEXPD: 玩具枪弹匣 10
+		shotsPerFire = 1;
+		perfectSTR = 10;
+		effectiveRange = 4;
+		noiseRadius = 3;
+	}
 	@Override public int min(int lvl) { return 1 + lvl; }
 	@Override public int max(int lvl) { return 10 + 3 * lvl; }
 	@Override protected boolean supportsSpecialAmmo() { return false; }

@@ -2047,6 +2047,15 @@ project(':core') {
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
+	tasks.register('verifySpsGunFireMode', JavaExec) {
+		group = 'verification'
+		description = '无图形验证枪械核心机制：类型基准、单次击发、装填方式、出膛偏差、后坐缓冲、附魔白名单与充能回充。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = coreTestClass('items.equipment.weapon.guns.SpsGunFireModeTest')
+		workingDir = file('src/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
 	tasks.register('verifySpsRangeWeapons', JavaExec) {
 		group = 'verification'
 		description = '无图形验证SPS十五把弓、远程牌组、五章商店二选一和旧版图标。'

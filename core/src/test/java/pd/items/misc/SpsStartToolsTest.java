@@ -72,14 +72,14 @@ public final class SpsStartToolsTest {
 
 	private static void testPulsePistol() {
 		GunOfSoldier gun = new GunOfSoldier();
-		for (int i = 0; i < GunOfSoldier.FULL_CHARGE + 20; i++) gun.gainCharge();
-		check(gun.charge() == GunOfSoldier.FULL_CHARGE, "脉冲手枪充能没有封顶");
-		check(gun.consumeShot() && gun.charge() == 150, "脉冲手枪单发耗能错误");
+		for (int i = 0; i < 20; i++) gun.gainCharge();
+		check(gun.charge() == GunOfSoldier.MAGAZINE, "脉冲手枪弹匣没有封顶");
+		check(gun.consumeShot() && gun.charge() == GunOfSoldier.MAGAZINE - 1, "脉冲手枪单发射击耗弹错误");
 		Bundle bundle = new Bundle();
 		gun.storeInBundle(bundle);
 		GunOfSoldier restored = new GunOfSoldier();
 		restored.restoreFromBundle(bundle);
-		check(restored.charge() == 150, "脉冲手枪充能没有随存档恢复");
+		check(restored.charge() == GunOfSoldier.MAGAZINE - 1, "脉冲手枪弹匣没有随存档恢复");
 
 		Hero attacker = new Hero();
 		attacker.HP = attacker.HT = 100;

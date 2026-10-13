@@ -57,11 +57,14 @@ public final class SpsGunTest {
 
 	private static void testDefinitions() {
 		GunWeapon[] guns = {new GunA(), new GunB(), new GunC(), new GunD(), new GunE()};
-		int[] capacities = {4, 4, 5, 5, 6};
-		IconEntry[] images = {EquipmentEquipWeaponBasicWeaponDict.GUN_4, EquipmentEquipWeaponBasicWeaponDict.GUN_4, EquipmentEquipWeaponBasicWeaponDict.GUN_4,
+		//SPSEXPD: 重铸后的五把枪——手枪 / 冲锋枪 / 霰弹枪 / 狙击枪 / 狙击枪
+		int[] capacities = {7, 20, 4, 5, 6};
+		int[] tiers = {1, 2, 3, 4, 4};
+		IconEntry[] images = {EquipmentEquipWeaponBasicWeaponDict.PISTOL, EquipmentEquipWeaponBasicWeaponDict.MACHINE_GUN,
+				pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict.ELECTROMAGNETIC_SHOTGUN,
 				EquipmentEquipWeaponBasicWeaponDict.GUN_4, EquipmentEquipWeaponBasicWeaponDict.GUN_4};
 		for (int i = 0; i < guns.length; i++) {
-			int tier = i + 1;
+			int tier = tiers[i];
 			GunWeapon gun = guns[i];
 			check(gun.min(0) == tier + 2 && gun.max(0) == tier * tier - tier + 8,
 					gun.getClass().getSimpleName() + "基础伤害错误");
@@ -92,18 +95,18 @@ public final class SpsGunTest {
 	private static void testReloadAndShotUse() {
 		Hero hero = new Hero();
 		GunA gun = new GunA();
-		gun.charge = 3;
-		check(gun.reloadMagazine() == 1 && gun.charge() == 4,
+		gun.charge = 6;
+		check(gun.reloadMagazine() == 1 && gun.charge() == 7,
 				"部分弹匣装填没有保留原有子弹");
-		check(gun.reloadMagazine() == 0 && gun.charge() == 4, "满弹匣仍可继续装填");
-		check(gun.reloadTime(hero, false, 1) >= 0.1f && gun.reloadTime(hero, true, 1) == 2f,
+		check(gun.reloadMagazine() == 0 && gun.charge() == 7, "满弹匣仍可继续装填");
+		check(gun.reloadTime(hero, false, 1) >= 0.1f && gun.reloadTime(hero, true, 1) == 1f,
 				"普通装填出现零耗时或自动装填耗时错误");
-		check(gun.consumeRound() && gun.charge() == 3, "射击没有消耗一发子弹");
+		check(gun.consumeRound() && gun.charge() == 6, "射击没有消耗一发子弹");
 		gun.charge = 0;
 		check(!gun.consumeRound() && gun.charge() == 0, "空弹匣仍能射击或扣成负数");
 		check(gun.status() == null, "未鉴定枪械泄露了弹匣状态");
 		gun.identify(false);
-		check("0/4".equals(gun.status()), "鉴定后没有显示弹匣状态");
+		check("0/7".equals(gun.status()), "鉴定后没有显示弹匣状态");
 	}
 
 	private static void testAgentAndToyRules() {
@@ -177,7 +180,7 @@ public final class SpsGunTest {
 	}
 
 	private static final class TestGun extends GunWeapon {
-		TestGun() { super(1, 4); }
+		TestGun() { super(GunArchetype.CUSTOM); fullCharge = 4; }
 		@Override public int min(int lvl) { return 20; }
 		@Override public int max(int lvl) { return 20; }
 	}

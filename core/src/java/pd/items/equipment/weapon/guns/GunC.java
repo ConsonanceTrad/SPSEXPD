@@ -1,19 +1,17 @@
 package pd.items.equipment.weapon.guns;
 
-import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
+import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 import pd.messages.InlineText;
 
-
+/** SPSEXPD: 霰弹枪·电磁霰弹枪（原 C 型枪械重铸）——弹匣 4、逐颗装填、精准范围极短。 */
 public class GunC extends GunWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(GunC.class)
-			.t("name", "C型枪械")
-			.t("desc", "适合狭窄空间的霰弹枪械，被投入洞穴环境进行压力测试。");
+			.t("name", "电磁霰弹枪")
+			.t("desc", "线圈加速的霰弹枪，弹丸在近距离拥有恐怖的穿透力，但射程极短。");
 	}
 
-
-
-	{ image = EquipmentEquipWeaponBasicWeaponDict.GUN_4; }
-	public GunC() { super(3, 5); }
+	{ image = EquipmentEquipWeaponUniqueWeaponDict.ELECTROMAGNETIC_SHOTGUN; }
+	public GunC() { super(GunArchetype.SHOTGUN); }
 }
