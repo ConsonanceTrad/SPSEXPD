@@ -134,7 +134,8 @@ public class SpsShopRoom extends ShopRoom {
 	private void addCommonItems(ArrayList<Item> itemsToSpawn) {
 
 		itemsToSpawn.add(Generator.random(Generator.Category.POTION));
-		itemsToSpawn.add(Generator.random(Generator.Category.POTION));
+		//SPSEXPD: 通用弹匣——枪械弹药上架（替换第二瓶随机药剂，不改变商店商品总数）
+		itemsToSpawn.add(new pd.items.Magazine().quantity(Random.IntRange(2, 4)));
 		itemsToSpawn.add(Generator.random(Generator.Category.SCROLL));
 		itemsToSpawn.add(Generator.random(Generator.Category.SCROLL));
 		itemsToSpawn.add(new MagicHand(5));

@@ -976,11 +976,25 @@ public final class SpsMobRotationTest {
 	private static void checkLegacyBossLootTypes() {
 		Class<?>[] gunPool = pd.items.Generator.Category.GUNWEAPON.classes;
 		Class<?>[] expectedGuns = {
+				//SPSEXPD: 与 Generator.Category.GUNWEAPON 顺序一致（手枪 6 / 冲锋枪 4 / 霰弹枪 5 / 狙击枪 3）
 				pd.items.equipment.weapon.guns.GunA.class,
+				pd.items.equipment.weapon.guns.Liberator.class,
+				pd.items.equipment.weapon.guns.Hydra.class,
+				pd.items.equipment.weapon.guns.Garand.class,
+				pd.items.equipment.weapon.guns.LightningM.class,
+				pd.items.equipment.weapon.guns.Howl.class,
 				pd.items.equipment.weapon.guns.GunB.class,
+				pd.items.equipment.weapon.guns.HighNoon.class,
+				pd.items.equipment.weapon.guns.Exorcist.class,
+				pd.items.equipment.weapon.guns.Arc.class,
 				pd.items.equipment.weapon.guns.GunC.class,
+				pd.items.equipment.weapon.guns.HereticTorment.class,
+				pd.items.equipment.weapon.guns.JeffHammer.class,
+				pd.items.equipment.weapon.guns.BorderFN4.class,
+				pd.items.equipment.weapon.guns.Apok.class,
 				pd.items.equipment.weapon.guns.GunD.class,
-				pd.items.equipment.weapon.guns.GunE.class
+				pd.items.equipment.weapon.guns.GunE.class,
+				pd.items.equipment.weapon.guns.BorderWolf.class
 		};
 		if (!Arrays.equals(gunPool, expectedGuns)) throw new AssertionError("SPS five-gun boss pool differs from 0.9.8");
 		if (!(ElderAvatar.rareLoot() instanceof pd.items.equipment.artifacts.AlienBag)) throw new AssertionError("SPS Elder Avatar rare loot differs from 0.9.8");

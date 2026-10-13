@@ -120,11 +120,25 @@ public final class SpsRangeWeaponTest {
 				StoneBowN.class, StoneBowS.class, StoneBowR.class, GunB.class,
 				MetalBowN.class, MetalBowS.class, MetalBowR.class, GunC.class,
 				AlloyBowN.class, AlloyBowS.class, AlloyBowR.class, GunD.class,
-				PVCBowN.class, PVCBowS.class, PVCBowR.class, GunE.class
+				PVCBowN.class, PVCBowS.class, PVCBowR.class, GunE.class,
+				//SPSEXPD: 新增常规枪械
+				pd.items.equipment.weapon.guns.Liberator.class,
+				pd.items.equipment.weapon.guns.Hydra.class,
+				pd.items.equipment.weapon.guns.Garand.class,
+				pd.items.equipment.weapon.guns.LightningM.class,
+				pd.items.equipment.weapon.guns.Howl.class,
+				pd.items.equipment.weapon.guns.HighNoon.class,
+				pd.items.equipment.weapon.guns.Exorcist.class,
+				pd.items.equipment.weapon.guns.Arc.class,
+				pd.items.equipment.weapon.guns.HereticTorment.class,
+				pd.items.equipment.weapon.guns.JeffHammer.class,
+				pd.items.equipment.weapon.guns.BorderFN4.class,
+				pd.items.equipment.weapon.guns.Apok.class,
+				pd.items.equipment.weapon.guns.BorderWolf.class
 		};
 		check(Generator.Category.RANGED.classes.length == expected.length
 				&& Generator.Category.RANGED.probs.length == expected.length,
-				"远程武器牌组不是20件");
+				"远程武器牌组不是33件");
 		for (int i = 0; i < expected.length; i++) {
 			check(Generator.Category.RANGED.classes[i] == expected[i]
 					&& Generator.Category.RANGED.probs[i] == 1f, "远程武器牌组顺序或权重错误");

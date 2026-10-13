@@ -283,18 +283,16 @@ public class ShopRoom extends SpecialRoom {
 		itemsToSpawn.add( new ScrollOfRemoveCurse() );
 		itemsToSpawn.add( new ScrollOfMagicMapping() );
 
-		for (int i=0; i < 2; i++)
-			itemsToSpawn.add( Random.Int(2) == 0 ?
-					Generator.randomUsingDefaults( Generator.Category.POTION ) :
-					Generator.randomUsingDefaults( Generator.Category.SCROLL ) );
+		//SPSEXPD: 通用弹匣——枪械弹药上架（占用原本第二个随机药剂/卷轴的货位，不增加商店商品总数）
+		itemsToSpawn.add( new Magazine().quantity(Random.IntRange(2, 4)) );
+		itemsToSpawn.add( Random.Int(2) == 0 ?
+				Generator.randomUsingDefaults( Generator.Category.POTION ) :
+				Generator.randomUsingDefaults( Generator.Category.SCROLL ) );
 
 
 		//SPSEXPD: 统一为 SPS 干粮系——货架口粮换成干粮小包
 		itemsToSpawn.add( new OverpricedRation() );
 		itemsToSpawn.add( new OverpricedRation() );
-
-		//SPSEXPD: 通用弹匣——枪械弹药，随层数上架
-		itemsToSpawn.add( new Magazine().quantity(Random.IntRange(2, 4)) );
 		
 		switch (Random.Int(4)){
 			case 0:

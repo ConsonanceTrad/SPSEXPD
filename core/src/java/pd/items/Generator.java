@@ -297,6 +297,19 @@ import pd.items.equipment.weapon.guns.GunB;
 import pd.items.equipment.weapon.guns.GunC;
 import pd.items.equipment.weapon.guns.GunD;
 import pd.items.equipment.weapon.guns.GunE;
+import pd.items.equipment.weapon.guns.Liberator;
+import pd.items.equipment.weapon.guns.Hydra;
+import pd.items.equipment.weapon.guns.Garand;
+import pd.items.equipment.weapon.guns.LightningM;
+import pd.items.equipment.weapon.guns.Howl;
+import pd.items.equipment.weapon.guns.HighNoon;
+import pd.items.equipment.weapon.guns.Exorcist;
+import pd.items.equipment.weapon.guns.Arc;
+import pd.items.equipment.weapon.guns.HereticTorment;
+import pd.items.equipment.weapon.guns.JeffHammer;
+import pd.items.equipment.weapon.guns.BorderFN4;
+import pd.items.equipment.weapon.guns.Apok;
+import pd.items.equipment.weapon.guns.BorderWolf;
 import pd.items.equipment.weapon.guns.ToyGun;
 import pd.items.equipment.weapon.melee.AssassinsBlade;
 import pd.items.equipment.weapon.melee.BattleAxe;
@@ -703,8 +716,22 @@ public class Generator {
 					Triangolo.class, Flute.class, WarDrum.class, Trumpet.class, Harp.class};
 			MUSICWEAPON.probs = new float[]{1, 1, 1, 1, 1};
 
-			GUNWEAPON.classes = new Class<?>[]{GunA.class, GunB.class, GunC.class, GunD.class, GunE.class};
-			GUNWEAPON.probs = new float[]{1, 1, 1, 1, 1};
+			GUNWEAPON.classes = new Class<?>[]{
+					//SPSEXPD: 手枪
+					GunA.class, Liberator.class, Hydra.class, Garand.class, LightningM.class, Howl.class,
+					//SPSEXPD: 冲锋枪
+					GunB.class, HighNoon.class, Exorcist.class, Arc.class,
+					//SPSEXPD: 霰弹枪
+					GunC.class, HereticTorment.class, JeffHammer.class, BorderFN4.class, Apok.class,
+					//SPSEXPD: 狙击枪
+					GunD.class, GunE.class, BorderWolf.class
+			};
+			GUNWEAPON.probs = new float[]{
+					1, 1, 1, 1, 1, 1,
+					1, 1, 1, 1,
+					1, 1, 1, 1, 1,
+					1, 1, 1
+			};
 			
 			SCROLL.classes = new Class<?>[]{
 					ScrollOfIdentify.class, ScrollOfTeleportation.class,
@@ -850,11 +877,18 @@ public class Generator {
 					StoneBowN.class, StoneBowS.class, StoneBowR.class, GunB.class,
 					MetalBowN.class, MetalBowS.class, MetalBowR.class, GunC.class,
 					AlloyBowN.class, AlloyBowS.class, AlloyBowR.class, GunD.class,
-					PVCBowN.class, PVCBowS.class, PVCBowR.class, GunE.class
+					PVCBowN.class, PVCBowS.class, PVCBowR.class, GunE.class,
+					//SPSEXPD: 新增常规枪械（手枪/冲锋枪/霰弹枪/狙击枪）
+					Liberator.class, Hydra.class, Garand.class, LightningM.class, Howl.class,
+					HighNoon.class, Exorcist.class, Arc.class,
+					HereticTorment.class, JeffHammer.class, BorderFN4.class, Apok.class,
+					BorderWolf.class
 			};
 			RANGED.probs = new float[]{
 					1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-					1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+					1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+					1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+					1, 1, 1
 			};
 			
 			//see Generator.randomArmor
