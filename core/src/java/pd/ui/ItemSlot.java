@@ -179,7 +179,9 @@ public class ItemSlot extends Button {
 			extra.scale.set(PixelScene.align(textScale));
 			extra.measure();
 			extra.x = x + (width - extra.width()) - margin.right;
-			extra.y = y + margin.top;
+			extra.y = item instanceof pd.items.equipment.weapon.guns.GunWeapon
+					? y + height - extra.height() - margin.bottom
+					: y + margin.top;
 			PixelScene.align(extra);
 
 			//SPSEXPD: 角标优先——空间不足时让步的是状态文本（弹匣数/数量），不再隐藏右上角角标
@@ -194,6 +196,9 @@ public class ItemSlot extends Button {
 					extra.scale.set(s);
 					extra.measure();
 					extra.x = x + (width - extra.width()) - margin.right;
+					extra.y = item instanceof pd.items.equipment.weapon.guns.GunWeapon
+						? y + height - extra.height() - margin.bottom
+						: y + margin.top;
 					PixelScene.align(extra);
 				}
 			}
