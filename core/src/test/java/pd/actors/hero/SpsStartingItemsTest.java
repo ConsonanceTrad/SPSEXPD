@@ -44,6 +44,7 @@ public final class SpsStartingItemsTest {
 		try {
 			testSlotsMatchItemTypes();
 			testBlankThemesEqualClassic();
+			testChallengeLoadouts();
 
 			System.out.println("SpsStartingItemsTest PASS (" + checks + " checks)");
 		} catch (Throwable t) {
@@ -131,8 +132,21 @@ public final class SpsStartingItemsTest {
 		}
 	}
 
-	private static String signature(HeroClass.Loadout lo) {
-		StringBuilder sb = new StringBuilder();
+	/** SPSEXPD: 挑战补偿补给清单（challengeStartingItems）也要能实例化、preview 条数一致 */
+	private static void testChallengeLoadouts() {
+		int all = pd.Challenges.LISTLESS | pd.Challenges.NIGHTMARE_VIRUS | pd.Challenges.ENERGY_LOST
+				| pd.Challenges.DEW_REJECTION | pd.Challenges.SPS_DARKNESS | pd.Challenges.ABRASION
+				| pd.Challenges.ELE_STOME;
+		checkLoadout("挑战补偿(全部)", HeroClass.challengeStartingItems(all));
+		checkLoadout("挑战补偿(无)", HeroClass.challengeStartingItems(0));
+		for (int c : new int[]{pd.Challenges.LISTLESS, pd.Challenges.NIGHTMARE_VIRUS, pd.Challenges.ENERGY_LOST,
+				pd.Challenges.DEW_REJECTION, pd.Challenges.SPS_DARKNESS, pd.Challenges.ABRASION,
+				pd.Challenges.ELE_STOME}) {
+			checkLoadout("挑战补偿(" + c + ")", HeroClass.challengeStartingItems(c));
+		}
+	}
+
+	private static String signature(HeroClass.Loadout lo) {		StringBuilder sb = new StringBuilder();
 		for (HeroClass.LoadoutItem it : lo.items) {
 			Item item = it.factory.get();
 			sb.append(it.slot).append(':')

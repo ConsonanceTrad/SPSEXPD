@@ -476,38 +476,51 @@ public enum HeroClass {
 		if (Dungeon.isChallenged(Challenges.ITEM_PHOBIA)) {
 			Dungeon.gold += 1000;
 		}
-		if (Dungeon.isChallenged(Challenges.LISTLESS)) {
-			new ElixirOfMight().collect(hero.belongings.backpack);
-			new Honey().collect(hero.belongings.backpack);
+		//SPSEXPD: 挑战补偿补给改为声明式清单（开局发放与「初始物品」预览共用同一真源）
+		applyStartingItems(hero, challengeStartingItems(Dungeon.challenges));
+	}
+
+	/**
+	 * SPSEXPD: 挑战补偿补给 —— 针对开启的挑战发放的补给（开局发放与「初始物品」预览共用）。
+	 * 带全局副作用的条目（卷轴/药水的 setKnown）用 LoadoutItem.after 表达。
+	 * @param challenges 挑战位掩码（发放用 Dungeon.challenges；选角预览用 SPDSettings.challenges()）
+	 */
+	public static Loadout challengeStartingItems(int challenges) {
+		Loadout l = new Loadout();
+		if ((challenges & Challenges.LISTLESS) != 0) {
+			l.backpack(() -> new ElixirOfMight()).unidentified();
+			l.backpack(() -> new Honey()).unidentified();
 		}
-		if (Dungeon.isChallenged(Challenges.NIGHTMARE_VIRUS)) {
+		if ((challenges & Challenges.NIGHTMARE_VIRUS) != 0) {
 			//SPSEXPD: 安卡不再有「未祝福」形态
-			new Ankh().collect(hero.belongings.backpack);
+			l.backpack(() -> new Ankh()).unidentified();
 		}
-		if (Dungeon.isChallenged(Challenges.ENERGY_LOST)) {
-			new Pasty().collect(hero.belongings.backpack);
+		if ((challenges & Challenges.ENERGY_LOST) != 0) {
+			l.backpack(() -> new Pasty()).unidentified();
 		}
-		if (Dungeon.isChallenged(Challenges.DEW_REJECTION)) {
-			new Dewcatcher.Seed().collect(hero.belongings.backpack);
-			new Dewcatcher.Seed().collect(hero.belongings.backpack);
+		if ((challenges & Challenges.DEW_REJECTION) != 0) {
+			l.backpack(() -> new Dewcatcher.Seed()).unidentified();
+			l.backpack(() -> new Dewcatcher.Seed()).unidentified();
 		}
-		if (Dungeon.isChallenged(Challenges.SPS_DARKNESS)) {
-			new ScrollOfMagicMapping().collect(hero.belongings.backpack);
-			new ScrollOfMagicMapping().collect(hero.belongings.backpack);
-			new ScrollOfMagicMapping().setKnown();
+		if ((challenges & Challenges.SPS_DARKNESS) != 0) {
+			l.backpack(() -> new ScrollOfMagicMapping(), 0, 1, -1,
+					(h, i) -> ((pd.items.consum.scrolls.Scroll) i).setKnown()).unidentified();
+			l.backpack(() -> new ScrollOfMagicMapping(), 0, 1, -1,
+					(h, i) -> ((pd.items.consum.scrolls.Scroll) i).setKnown()).unidentified();
 		}
-		if (Dungeon.isChallenged(Challenges.ABRASION)) {
-			new ScrollOfUpgrade().collect(hero.belongings.backpack);
-			new ScrollOfUpgrade().setKnown();
-			new ScrollOfMagicalInfusion().collect(hero.belongings.backpack);
-			new ScrollOfMagicalInfusion().setKnown();
+		if ((challenges & Challenges.ABRASION) != 0) {
+			l.backpack(() -> new ScrollOfUpgrade(), 0, 1, -1,
+					(h, i) -> ((pd.items.consum.scrolls.Scroll) i).setKnown()).unidentified();
+			l.backpack(() -> new ScrollOfMagicalInfusion(), 0, 1, -1,
+					(h, i) -> ((pd.items.consum.scrolls.Scroll) i).setKnown()).unidentified();
 		}
-		if (Dungeon.isChallenged(Challenges.ELE_STOME)) {
-			new ScrollOfPsionicBlast().collect(hero.belongings.backpack);
-			new ScrollOfPsionicBlast().setKnown();
-			new PotionOfShield().collect(hero.belongings.backpack);
-			new PotionOfShield().setKnown();
+		if ((challenges & Challenges.ELE_STOME) != 0) {
+			l.backpack(() -> new ScrollOfPsionicBlast(), 0, 1, -1,
+					(h, i) -> ((pd.items.consum.scrolls.Scroll) i).setKnown()).unidentified();
+			l.backpack(() -> new PotionOfShield(), 0, 1, -1,
+					(h, i) -> ((pd.items.consum.potions.Potion) i).setKnown()).unidentified();
 		}
+		return l;
 	}
 
 	private static void initChaoticSkin(Hero hero) {
@@ -1717,6 +1730,8 @@ public enum HeroClass {
 			merged.add(it);
 		}
 		for (LoadoutItem it : spec.items) merged.add(it);
+		//SPSEXPD: 挑战补偿补给也计入「初始物品」预览（取选角界面当前勾选的挑战）
+		for (LoadoutItem it : challengeStartingItems(pd.SPDSettings.challenges()).items) merged.add(it);
 
 		//SPSEXPD: 「装备套装」组内部顺序：武器 → 副武器 → 护甲 → 副护甲 → 戒指。
 		//只在装备类槽位之间做稳定排序，不移动背包条目。
