@@ -1,0 +1,6 @@
+tree 63fb550b541a474878364de87b5980634d52b62c
+parent eb42461b03b7f2b7cafd9a8895832d48129292de
+author Evan Debenham <Evan.SHPX@gmail.com> 1410759274 -0400
+committer Evan Debenham <Evan.SHPX@gmail.com> 1410759274 -0400
+
+V0.2.0: Corrected artifacts triggering the levelled item badge.
