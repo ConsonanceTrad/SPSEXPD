@@ -2,6 +2,7 @@
 package pd.actors.buffs;
 
 import pd.Dungeon;
+import pd.items.equipment.weapon.SpiritBow;
 import pd.items.equipment.weapon.guns.GunWeapon;
 import pd.messages.Messages;
 import pd.ui.BuffIndicator;
@@ -22,22 +23,33 @@ public class Reloading extends FlavourBuff {
 
 	/** SPSEXPD: 正在装填的枪（对象引用不进存档，读档后按当前装备的枪重新绑定）。 */
 	private GunWeapon gun;
+	/** SPSEXPD: 正在装填的灵能弓（同上）。 */
+	private SpiritBow bow;
 
 	{ type = buffType.NEUTRAL; announced = false; }
 
 	/** SPSEXPD: 绑定本次装填的目标枪械。 */
 	public void bind(GunWeapon gun) { this.gun = gun; }
+	/** SPSEXPD: 绑定本次装填的灵能弓。 */
+	public void bind(SpiritBow bow) { this.bow = bow; }
 
 	/** SPSEXPD: 装填结束时补满弹匣（detach 时调用；单测可直接调用）。 */
 	public void finish() {
 		if (gun != null) gun.finishReload();
-		//SPSEXPD: 双持时本 buff 可能已被后一把枪复用（bind 被覆盖），这里兜底把所有装备中的枪都补满
+		if (bow != null) bow.finishReload();
+		//SPSEXPD: 双持时本 buff 可能已被后一把武器复用（bind 被覆盖），这里兜底把所有装备中的枪/灵能弓都补满
 		if (Dungeon.hero == null || Dungeon.hero.belongings == null) return;
 		if (Dungeon.hero.belongings.weapon() instanceof GunWeapon) {
 			((GunWeapon) Dungeon.hero.belongings.weapon()).finishReload();
 		}
 		if (Dungeon.hero.belongings.secondWep() instanceof GunWeapon) {
 			((GunWeapon) Dungeon.hero.belongings.secondWep()).finishReload();
+		}
+		if (Dungeon.hero.belongings.weapon() instanceof SpiritBow) {
+			((SpiritBow) Dungeon.hero.belongings.weapon()).finishReload();
+		}
+		if (Dungeon.hero.belongings.secondWep() instanceof SpiritBow) {
+			((SpiritBow) Dungeon.hero.belongings.secondWep()).finishReload();
 		}
 	}
 
@@ -51,9 +63,16 @@ public class Reloading extends FlavourBuff {
 	@Override
 	public void restoreFromBundle(Bundle bundle) {
 		super.restoreFromBundle(bundle);
-		if (Dungeon.hero != null && Dungeon.hero.belongings != null
-				&& Dungeon.hero.belongings.weapon() instanceof GunWeapon) {
+		if (Dungeon.hero == null || Dungeon.hero.belongings == null) return;
+		if (Dungeon.hero.belongings.weapon() instanceof GunWeapon) {
 			gun = (GunWeapon) Dungeon.hero.belongings.weapon();
+		} else if (Dungeon.hero.belongings.secondWep() instanceof GunWeapon) {
+			gun = (GunWeapon) Dungeon.hero.belongings.secondWep();
+		}
+		if (Dungeon.hero.belongings.weapon() instanceof SpiritBow) {
+			bow = (SpiritBow) Dungeon.hero.belongings.weapon();
+		} else if (Dungeon.hero.belongings.secondWep() instanceof SpiritBow) {
+			bow = (SpiritBow) Dungeon.hero.belongings.secondWep();
 		}
 	}
 

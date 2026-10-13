@@ -88,8 +88,11 @@ public class SpiritBow extends Weapon {
 	/** SPSEXPD: 装填耗时（回合）。 */
 	public static final float RELOAD_TIME = 2f;
 	private static final String CHARGE = "charge";
+	private static final String PENDING = "pendingReload";
 	//SPSEXPD: 弹药计数（原为无限箭）
 	private int charge;
+	/** SPSEXPD: 正在装填——装填期间 charge 归 0，等装填时间走完才补满，装填期间打不出去。 */
+	private boolean pendingReload;
 	
 	{
 		image = EquipmentEquipWeaponUniqueWeaponDict.SPIRIT_BOW_0;
@@ -122,7 +125,11 @@ public class SpiritBow extends Weapon {
 			
 			curUser = hero;
 			curItem = this;
-			//SPSEXPD: 无弹药时不能射击
+			//SPSEXPD: 装填中或无弹药时不能射击
+			if (pendingReload) {
+				pd.utils.GLog.i(Messages.get(this, "reloading"));
+				return;
+			}
 			if (charge <= 0) {
 				pd.utils.GLog.i(Messages.get(this, "no_ammo"));
 				return;
@@ -154,28 +161,56 @@ public class SpiritBow extends Weapon {
 		return null;
 	}
 
-	/** SPSEXPD: 装填——消耗 2 点炼金能量，填充 6 发。 */
+	/** SPSEXPD: 装填——消耗 2 点炼金能量，装填耗时结束才填满 6 发（装填期间打不出去）。 */
 	public void reload(Hero hero) {
 		if (charge >= MAGAZINE) {
 			pd.utils.GLog.n(Messages.get(this, "full"));
 			return;
 		}
-		if (!loadAmmo(hero)) {
+		//SPSEXPD: 装填进行中再次触发装填/等待——只提示，不再消耗装填资源
+		if (pendingReload) {
+			pd.utils.GLog.i(Messages.get(this, "reloading"));
+			return;
+		}
+		if (!consumeEnergy()) {
 			pd.utils.GLog.n(Messages.get(this, "no_energy"));
 			return;
 		}
+		//SPSEXPD: 弹药先空着——交出去装填，等装填时间走完（Reloading 结束）才补满
+		charge = 0;
+		pendingReload = true;
+		updateQuickslot();
 		if (hero.sprite != null) hero.sprite.showStatus(pd.sprites.CharSprite.DEFAULT, Messages.get(this, "reloading"));
-		//SPSEXPD: 装填状态 buff（提高装填的可视度）
-		pd.actors.buffs.Buff.affect(hero, pd.actors.buffs.Reloading.class, RELOAD_TIME);
+		//SPSEXPD: 装填状态 buff——结束时负责补满弹药
+		pd.actors.buffs.Reloading reloading =
+				pd.actors.buffs.Buff.affect(hero, pd.actors.buffs.Reloading.class, RELOAD_TIME);
+		if (reloading != null) reloading.bind(this);
 		hero.spendAndNext(RELOAD_TIME);
 	}
 
-	/** SPSEXPD: 扣炼金能量并填满弹药，不排回合（供内部与确定性测试调用）。 */
-	public boolean loadAmmo(Hero hero) {
-		if (charge >= MAGAZINE) return false;
+	/** SPSEXPD: 装填完成——补满弹药（由 Reloading 结束 / Hero.onTurnCharge 调用，幂等）。 */
+	public void finishReload() {
+		if (!pendingReload) return;
+		pendingReload = false;
+		charge = MAGAZINE;
+		updateQuickslot();
+	}
+
+	public boolean isReloading() { return pendingReload; }
+
+	/** SPSEXPD: 扣炼金能量（不补弹）。 */
+	private boolean consumeEnergy() {
 		if (Dungeon.energy < ENERGY_COST) return false;
 		Dungeon.energy -= ENERGY_COST;
+		return true;
+	}
+
+	/** SPSEXPD: 扣炼金能量并立即填满弹药，不排回合（供内部与确定性测试调用）。 */
+	public boolean loadAmmo(Hero hero) {
+		if (charge >= MAGAZINE) return false;
+		if (!consumeEnergy()) return false;
 		charge = MAGAZINE;
+		pendingReload = false;
 		updateQuickslot();
 		return true;
 	}
@@ -199,12 +234,14 @@ public class SpiritBow extends Weapon {
 	public void storeInBundle(render.utils.serialize.Bundle bundle) {
 		super.storeInBundle(bundle);
 		bundle.put(CHARGE, charge);
+		bundle.put(PENDING, pendingReload);
 	}
 
 	@Override
 	public void restoreFromBundle(render.utils.serialize.Bundle bundle) {
 		super.restoreFromBundle(bundle);
 		charge = Math.max(0, Math.min(MAGAZINE, bundle.getInt(CHARGE)));
+		pendingReload = bundle.contains(PENDING) && bundle.getBoolean(PENDING);
 	}
 
 	private static Class[] harmfulPlants = new Class[]{

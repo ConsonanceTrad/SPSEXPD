@@ -263,6 +263,11 @@ public class GunWeapon extends SpsRangedWeapon {
 			GLog.n(Messages.get(GunWeapon.class, "full"));
 			return;
 		}
+		//SPSEXPD: 装填进行中再次触发装填/等待——只提示，不再消耗装填资源
+		if (pendingReload) {
+			GLog.i(Messages.get(GunWeapon.class, "reloading"));
+			return;
+		}
 		//SPSEXPD: 禁止并行装填——另一把枪还在装填时不再开始新的装填（双持时也不会互相吞掉补弹）
 		if (anotherGunReloading(hero)) {
 			GLog.i(Messages.get(GunWeapon.class, "reloading"));

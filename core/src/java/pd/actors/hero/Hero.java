@@ -1256,6 +1256,11 @@ public class Hero extends Char {
 				((pd.items.equipment.weapon.guns.GunWeapon) belongings.weapon()).finishReload();
 			if (belongings.secondWep() instanceof pd.items.equipment.weapon.guns.GunWeapon)
 				((pd.items.equipment.weapon.guns.GunWeapon) belongings.secondWep()).finishReload();
+			//SPSEXPD: 灵能弓同样「装填时间走完才补满」
+			if (belongings.weapon() instanceof pd.items.equipment.weapon.SpiritBow)
+				((pd.items.equipment.weapon.SpiritBow) belongings.weapon()).finishReload();
+			if (belongings.secondWep() instanceof pd.items.equipment.weapon.SpiritBow)
+				((pd.items.equipment.weapon.SpiritBow) belongings.secondWep()).finishReload();
 		}
 		//SPSEXPD: 装填过程中不补充充能——要等装填转好了才补充（否则装填形同虚设）
 		if (soldierGun != null && !reloading) soldierGun.gainCharge();
