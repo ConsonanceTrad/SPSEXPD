@@ -23,8 +23,9 @@ package pd.windows;
 
 import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
+import pd.atlas.items.EquipmentJewelleryArtifactDict;
+import pd.atlas.items.EquipmentNonEquipDict;
 import pd.atlas.items.SpecificPlaceHolderDict;
-import pd.atlas.items.ConsumThrowsDict;
 import pd.atlas.items.ConsumUsefulProcessEnhanceDict;
 
 import pd.Assets;
@@ -200,18 +201,30 @@ public class WndHeroInfo extends WndTabbed {
 			case TAB_SUBCLASS:
 				return new ItemSprite(ConsumUsefulProcessEnhanceDict.MASK_0, null);
 			case TAB_LORE:
-				return Icons.get(Icons.SCROLL_HOLDER);
+				//SPSEXPD: 背景故事页签用用户绘制的独立图标（不再是卷轴筒贴图）
+				return new Image(Assets.Sprites.STORY);
 			case TAB_ITEMS:
 			default:
+				//SPSEXPD: 「初始物品」按钮/页签按职业显示该职业的标志性物品图标
 				switch (cl){
+					case WARRIOR:
+						return new ItemSprite(EquipmentNonEquipDict.SEAL_COMPLETE, null);
+					case MAGE:
+						return new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.OLD_STAFF, null);
+					case ROGUE:
+						return new ItemSprite(EquipmentJewelleryArtifactDict.CLOAK_OF_SHADOWS, null);
 					case HUNTRESS:
 						return new ItemSprite(EquipmentEquipWeaponUniqueWeaponDict.SPIRIT_BOW_0, null);
 					case DUELIST:
 						return new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.RAPIER_0, null);
+					case PERFORMER:
+						return new ItemSprite(EquipmentNonEquipDict.LEGACY_SHOVEL_0, null);
 					case SOLDIER:
-						return new ItemSprite(ConsumThrowsDict.THROWING_SPIKE_0, null);
+						return new ItemSprite(EquipmentNonEquipDict.ELECTROMAGNETIC_PISTOL, null);
+					case FOLLOWER:
+						return new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.LEGACY_WOODEN_STAFF_0, null);
 					case ASCETIC:
-						return new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.GLOVES, null);
+						return new ItemSprite(EquipmentEquipWeaponBasicWeaponDict.MAGIC_DUST, null);
 					default:
 						return new ItemSprite(SpecificPlaceHolderDict.SOMETHING_0, null);
 				}
