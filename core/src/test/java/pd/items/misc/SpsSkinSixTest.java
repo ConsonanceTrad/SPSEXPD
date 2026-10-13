@@ -37,7 +37,7 @@ import pd.items.equipment.rings.RingOfMight;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
 import pd.items.equipment.wands.WandOfLight;
 import pd.items.equipment.wands.WandOfLightning;
-import pd.items.equipment.weapon.guns.Sling;
+import pd.items.equipment.weapon.guns.GunA;
 import pd.items.equipment.weapon.melee.Mace;
 import pd.items.equipment.weapon.melee.normalweapon.ShortSword;
 import pd.items.equipment.weapon.melee.normalweapon.TrickSand;
@@ -131,7 +131,7 @@ public final class SpsSkinSixTest {
 				&& has(h, ScrollOfMagicMapping.class) && has(h, WandOfLightning.class), "皮肤6盗贼开局错误");
 
 		h = start(HeroClass.HUNTRESS);
-		check(h.belongings.weapon instanceof Sling && h.belongings.armor instanceof VestArmor
+		check(h.belongings.weapon instanceof GunA && h.belongings.armor instanceof VestArmor
 				&& has(h, ShootGun.class) && has(h, JumpS.class) && quantity(h, EmpBola.class) == 3, "皮肤6女猎手开局错误");
 
 		h = start(HeroClass.PERFORMER);

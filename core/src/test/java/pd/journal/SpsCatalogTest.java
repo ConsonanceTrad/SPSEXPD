@@ -69,6 +69,11 @@ public final class SpsCatalogTest {
 					"RangePan"));
 		}
 
+		//SPSEXPD: 投石索已移除
+		for (List<String> list : expected.values()) {
+			list.removeAll(List.of("Sling"));
+		}
+
 		int total = 0;
 		for (SpsCatalog catalog : SpsCatalog.values()) {
 			List<String> actual = new ArrayList<>();
@@ -77,8 +82,8 @@ public final class SpsCatalogTest {
 			check(catalog.totalSeen() == catalog.totalItems(), catalog + "没有按旧版默认全部可见");
 			total += catalog.totalItems();
 		}
-		//SPSEXPD: 371 减去已删除的六种战斗药丸、火箭弹、荆棘斗篷，以及常规弓弩 15 把与远程煎锅
-		check(total == 347, "SPS物品目录总数错误: " + total);
+		//SPSEXPD: 371 减去已删除的六种战斗药丸、火箭弹、荆棘斗篷、投石索，以及常规弓弩 15 把与远程煎锅
+		check(total == 346, "SPS物品目录总数错误: " + total);
 	}
 
 	private static String legacyName(Class<?> type) {

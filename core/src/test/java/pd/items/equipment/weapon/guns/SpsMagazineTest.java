@@ -48,7 +48,6 @@ public final class SpsMagazineTest {
 		checkFills(new GunC(), 4);
 		checkFills(new GunD(), 5);
 		checkFills(new GunE(), 6);
-		checkFills(new Sling(), 1);
 		checkFills(new ToyGun(), 10);
 	}
 

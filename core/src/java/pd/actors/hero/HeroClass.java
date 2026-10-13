@@ -162,7 +162,6 @@ import pd.items.equipment.weapon.Weapon;
 import pd.items.equipment.weapon.guns.GunA;
 import pd.items.equipment.weapon.guns.GunB;
 import pd.items.equipment.weapon.guns.GunC;
-import pd.items.equipment.weapon.guns.Sling;
 import pd.items.equipment.weapon.melee.Cudgel;
 import pd.items.equipment.weapon.melee.Dagger;
 import pd.items.equipment.weapon.melee.Gloves;
@@ -1370,7 +1369,7 @@ public enum HeroClass {
 					//skin 5（混沌）的整套装备由 initChaoticSkin() 在 initHero 通用段发放
 					break;
 				case 6:
-					l.equip(ItemSlot.WEAPON, () -> new Sling(), 0,
+					l.equip(ItemSlot.WEAPON, () -> new GunA(), 0,
 							(h, i) -> ((pd.items.KindOfWeapon) i).activate(h));
 					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
 					l.backpack(() -> new ShootGun(), 0, 1, 0, null);
@@ -1537,13 +1536,13 @@ public enum HeroClass {
 					l.equip(ItemSlot.ARTIFACT, () -> new AlienBag(), 0, (h, i) -> ((AlienBag) i).activate(h));
 					break;
 				default:
-					l.equip(ItemSlot.WEAPON, () -> new Sling(), 0,
+					//SPSEXPD: 星兵开局把电磁手枪装备到主手（原本是背包 + 投石索，投石索已移除）
+					l.equip(ItemSlot.WEAPON, () -> new GunOfSoldier(), 0,
 							(h, i) -> ((pd.items.KindOfWeapon) i).activate(h));
 					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
 					//SPSEXPD: 星兵开局携带无尽弹药袋（该物品已移出常规神器池）
 					l.equip(ItemSlot.ARTIFACT, () -> new pd.items.equipment.artifacts.EndlessAmmoBag(), 0,
 							(h, i) -> ((pd.items.equipment.artifacts.EndlessAmmoBag) i).activate(h));
-					l.backpack(() -> new GunOfSoldier(), 0, 1, 0, null);
 					l.backpack(() -> new EscapeKnive(3), 0, 1, 1, null);
 					break;
 			}

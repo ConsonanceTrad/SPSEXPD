@@ -14,6 +14,8 @@ import render.utils.serialize.Bundle;
  * 装填哪种炸弹就会产生哪种炸弹的效果。
  */
 public class BombLauncher extends GunWeapon {
+	//SPSEXPD: 特殊枪械——不使用通用弹道贴图，保持原有贴图
+	@Override protected boolean usesDefaultBallistic() { return false; }
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(BombLauncher.class)

@@ -27,9 +27,8 @@ public enum GunArchetype {
 	/** 电磁手枪等充能型：未开火时每回合自然回充 0.5 发。 */
 	CHARGE (3,  1, 10, 6,  2f, 5, 0.5f, 0,                  3, 8,  2, 10),
 	/** 自定义基准（玩具枪等），参数由子类覆写。 */
-	CUSTOM (1,  1, 12, 3,  1f, 3, 0f,   0,                  3, 8,  2, 10),
-	/** 投石索：单发，数值由子类覆写。 */
-	SLING  (1,  1, 10, 4,  1f, 2, 0f,   0,                  2, 8,  2, 8);
+	CUSTOM (1,  1, 12, 3,  1f, 3, 0f,   0,                  3, 8,  2, 10);
+
 
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
@@ -39,8 +38,7 @@ public enum GunArchetype {
 			.t("shotgun", "霰弹枪")
 			.t("sniper", "狙击枪")
 			.t("charge", "特殊枪械")
-			.t("custom", "特殊枪械")
-			.t("sling", "投石索");
+			.t("custom", "特殊枪械");
 	}
 
 	public final int magazine;

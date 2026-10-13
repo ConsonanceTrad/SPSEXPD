@@ -77,7 +77,6 @@ import pd.items.equipment.weapon.guns.Apok;
 import pd.items.equipment.weapon.guns.BorderWolf;
 import pd.items.equipment.weapon.guns.DewCannon;
 import pd.items.equipment.weapon.guns.BombLauncher;
-import pd.items.equipment.weapon.guns.Sling;
 import pd.items.equipment.weapon.guns.ToyGun;
 import pd.items.misc.GunOfSoldier;
 import pd.items.consum.food.*;
@@ -140,7 +139,6 @@ public final class SpsTestTimeLoadout {
 		collect(hero, identified(new BorderWolf()));
 		collect(hero, identified(new DewCannon()));
 		collect(hero, identified(new BombLauncher()));
-		collect(hero, identified(new Sling()));
 		collect(hero, identified(new ToyGun()));
 		collect(hero, identified(new GunOfSoldier()));
 		collect(hero, new EasterEgg());

@@ -11,6 +11,8 @@ import pd.messages.InlineText;
  * 一次装填消耗露珠瓶 15 点露珠，填充 3 发充能；对亡灵生物造成额外伤害。
  */
 public class DewCannon extends GunWeapon {
+	//SPSEXPD: 特殊枪械——不使用通用弹道贴图，保持原有贴图
+	@Override protected boolean usesDefaultBallistic() { return false; }
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(DewCannon.class)

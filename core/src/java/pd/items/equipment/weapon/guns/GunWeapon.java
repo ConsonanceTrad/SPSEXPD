@@ -196,8 +196,8 @@ public class GunWeapon extends SpsRangedWeapon {
 			if (!canShoot(hero)) {
 				GLog.i(Messages.get(GunWeapon.class, "need_to_equip"));
 			} else if (pendingReload) {
-				//SPSEXPD: 正在装填中——日志提示，不再重复装填
-				GLog.i(Messages.get(GunWeapon.class, "reloading"));
+				//SPSEXPD: 正在装填中——原地等待（至多 1 回合；剩余不足 1 回合则直接等到装填结束）
+				waitForReload(hero);
 			} else if (charge <= 0) {
 				reload(hero, true);
 			} else {
@@ -208,8 +208,8 @@ public class GunWeapon extends SpsRangedWeapon {
 			if (!canShoot(hero)) {
 				GLog.i(Messages.get(GunWeapon.class, "need_to_equip"));
 			} else if (pendingReload) {
-				//SPSEXPD: 正在装填中——日志提示，不再重复装填
-				GLog.i(Messages.get(GunWeapon.class, "reloading"));
+				//SPSEXPD: 正在装填中——原地等待（至多 1 回合；剩余不足 1 回合则直接等到装填结束）
+				waitForReload(hero);
 			} else if (charge <= 0) {
 				reload(hero, true);
 			} else {
@@ -228,7 +228,11 @@ public class GunWeapon extends SpsRangedWeapon {
 		//SPSEXPD: 枪械必须装备才能射击（不再允许特工未装备时射击）
 		return isEquipped(hero);
 	}
-	protected boolean canReload(Hero hero) { return true; }
+	/** SPSEXPD: 装填同样要求「已装备」——背包里的枪不显示装填选项。 */
+	protected boolean canReload(Hero hero) { return isEquipped(hero); }
+
+	/** SPSEXPD: 是否使用通用弹道贴图（gun/ballistic 第一格）；特殊枪械覆写为 false 保持各自贴图。 */
+	protected boolean usesDefaultBallistic() { return true; }
 
 	/**
 	 * SPSEXPD: 点击敌人时的枪械自动射击（枪械不再有近战功能，装备枪械后一律转为射击）。
@@ -242,9 +246,11 @@ public class GunWeapon extends SpsRangedWeapon {
 		GunWeapon gun = readyGun(hero, hero.belongings.weapon());
 		if (gun == null) gun = readyGun(hero, hero.belongings.secondWep());
 		if (gun == null) {
-			//SPSEXPD: 手里的枪正在装填 → 日志提示并接管本次点击（不回落成徒手攻击）
-			if (pendingReload(hero.belongings.weapon()) || pendingReload(hero.belongings.secondWep())) {
-				GLog.i(Messages.get(GunWeapon.class, "reloading"));
+			//SPSEXPD: 手里的枪正在装填 → 原地等待一回合，并接管本次点击（不回落成徒手攻击）
+			GunWeapon reloading = pendingGun(hero.belongings.weapon());
+			if (reloading == null) reloading = pendingGun(hero.belongings.secondWep());
+			if (reloading != null) {
+				reloading.waitForReload(hero);
 				return true;
 			}
 			return false;
@@ -255,9 +261,9 @@ public class GunWeapon extends SpsRangedWeapon {
 		return true;
 	}
 
-	/** SPSEXPD: 该武器是否是「正在装填中」的枪械。 */
-	private static boolean pendingReload(KindOfWeapon weapon) {
-		return weapon instanceof GunWeapon && ((GunWeapon) weapon).isPendingReload();
+	/** SPSEXPD: 该武器是否是「正在装填中」的枪械；是则返回它，否则返回 null。 */
+	private static GunWeapon pendingGun(KindOfWeapon weapon) {
+		return weapon instanceof GunWeapon && ((GunWeapon) weapon).isPendingReload() ? (GunWeapon) weapon : null;
 	}
 
 	private static GunWeapon readyGun(Hero hero, KindOfWeapon weapon) {
@@ -311,6 +317,26 @@ public class GunWeapon extends SpsRangedWeapon {
 
 	/** SPSEXPD: 是否正在等待装填完成。 */
 	public boolean isPendingReload() { return pendingReload; }
+
+	/** SPSEXPD: 该枪的装填剩余时间（没有在装填时为 0）。 */
+	public float reloadRemaining(Hero hero) {
+		if (hero == null) return 0f;
+		pd.actors.buffs.Reloading reloading = hero.buff(pd.actors.buffs.Reloading.class);
+		return reloading == null ? 0f : Math.max(0f, reloading.cooldown());
+	}
+
+	/**
+	 * SPSEXPD: 点击正在装填的枪械——原地等待，至多 1 回合；装填剩余不足 1 回合时直接等到装填结束。
+	 * 过程中播放与「使用药水」一致的角色动画，让等待有明确动作反馈。
+	 */
+	public void waitForReload(Hero hero) {
+		if (hero == null) return;
+		float remain = reloadRemaining(hero);
+		float time = remain > 0f ? Math.min(1f, remain) : 1f;
+		hero.busy();
+		if (hero.sprite != null) hero.sprite.operate(hero.pos);
+		hero.spendAndNext(time);
+	}
 
 	/**
 	 * SPSEXPD: 装填一次把弹匣填满，不排回合（供确定性测试调用）。
@@ -524,7 +550,10 @@ public class GunWeapon extends SpsRangedWeapon {
 
 		{
 			//SPSEXPD: 借用洛克手炮（MegaCannon）的子弹贴图
-			image = pd.atlas.items.SpecificPlaceHolderDict.SOMETHING_0;
+			//SPSEXPD: 普通枪械用 gun/ballistic 图集第一格的通用弹道贴图；特殊枪械保持原贴图（usesDefaultBallistic 覆写为 false）
+			image = GunWeapon.this.usesDefaultBallistic()
+					? pd.atlas.items.EquipmentEquipWeaponBallisticDict.BALLISTIC
+					: pd.atlas.items.SpecificPlaceHolderDict.SOMETHING_0;
 			tier = 1; //SPSEXPD: 枪弹不再是分阶武器
 			//SPSEXPD: 命中概率由 GunFire.hitChance 按距离决定（不再有出膛偏差）；这里只保证 hero.shoot 必然打中
 			ACC = 1000f;

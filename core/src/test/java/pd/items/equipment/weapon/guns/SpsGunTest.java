@@ -23,7 +23,7 @@ import java.security.MessageDigest;
 import javax.imageio.ImageIO;
 import pd.atlas.IconEntry;
 
-/** Headless checks for SPS-PD's five firearms, sling, toy gun, and the general magazine. */
+/** Headless checks for SPS-PD's five firearms, toy gun, and the general magazine. */
 public final class SpsGunTest {
 
 	private static final String[] ICON_HASHES = {
@@ -48,7 +48,7 @@ public final class SpsGunTest {
 			testAgentAndToyRules();
 			testMagazineAndSave();
 			testLegacyIcons();
-			System.out.println("SPS枪械测试通过：五档枪械、投石索、玩具枪、弹匣、特工射击、通用弹匣装填、存档和8个旧版图标均正常。");
+			System.out.println("SPS枪械测试通过：五档枪械、玩具枪、弹匣、特工射击、通用弹匣装填、存档和8个旧版图标均正常。");
 		} finally {
 			Random.popGenerator();
 		}
@@ -82,11 +82,6 @@ public final class SpsGunTest {
 			check(gun.image == images[i], gun.getClass().getSimpleName() + "图标槽错误");
 		}
 
-		Sling sling = new Sling();
-		check(sling.min(0) == 3 && sling.max(0) == 7 && sling.STRReq(0) == 8,
-				"投石索基础数值错误");
-		check(sling.min(4) == 11 && sling.max(4) == 23 && sling.fullCharge() == 1,
-				"投石索强化成长或容量错误");
 
 		ToyGun toy = new ToyGun();
 		check(toy.min(0) == 1 && toy.max(0) == 10 && toy.STRReq(0) == 10,
@@ -121,7 +116,7 @@ public final class SpsGunTest {
 		Hero hero = new Hero();
 		Dungeon.hero = hero;
 		GunA gun = new GunA();
-		check(!gun.canShoot(hero) && gun.canReload(hero), "普通职业未装备枪械时的操作规则错误");
+		check(!gun.canShoot(hero) && !gun.canReload(hero), "未装备时射击与装填都应被拒绝");
 		hero.subClass = HeroSubClass.AGENT;
 		check(!gun.canShoot(hero), "特工未装备枪械时仍能射击（枪械必须装备）");
 		hero.justMoved = true;

@@ -13,6 +13,8 @@ import pd.messages.InlineText;
  * 命中时按目标已损失的生命造成额外伤害。unique、不可升级、需要装备后使用。
  */
 public class GunOfSoldier extends GunWeapon {
+	//SPSEXPD: 特殊枪械——不使用通用弹道贴图，保持原有贴图
+	@Override protected boolean usesDefaultBallistic() { return false; }
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(GunOfSoldier.class)
