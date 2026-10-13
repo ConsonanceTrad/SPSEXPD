@@ -23,6 +23,7 @@ public final class SpsGunFireModeTest {
 			testRecoilBuffer();
 			testEnchantWhitelist();
 			testEquipAndDualRules();
+			testAmmoDamage();
 			testChargeGun();
 			System.out.println("枪械核心机制测试通过：类型基准、单次击发、装填方式、出膛偏差、后坐缓冲、附魔白名单与充能回充均正常。");
 		} finally {
@@ -119,6 +120,26 @@ public final class SpsGunFireModeTest {
 		check(hero.damageRoll() > 0, "无弹药的枪械没有回落为徒手攻击");
 		gun.charge(1);
 		check(hero.damageRoll() == 0, "有弹药的枪械参与了近战伤害");
+	}
+
+	/**
+	 * SPSEXPD: 枪弹的伤害与命中——伤害必须走枪械伤害公式（min~max），
+	 * 命中基准必须足够高（对齐洛克手炮 MegaAmmo ACC=100f 的做法），否则实战会大量落空、看起来「没有伤害」。
+	 */
+	private static void testAmmoDamage() {
+		Hero hero = new Hero();
+		pd.Dungeon.hero = hero;
+		GunA gun = new GunA();
+		hero.belongings.weapon = gun;
+		gun.charge(gun.fullCharge());
+
+		GunWeapon.GunAmmo shot = gun.new GunAmmo();
+		for (int i = 0; i < 20; i++) {
+			int dmg = shot.damageRoll(hero);
+			check(dmg >= gun.min() && dmg <= gun.max(),
+					"枪弹伤害超出 " + gun.min() + "~" + gun.max() + " 范围：" + dmg);
+		}
+		check(shot.accuracyFactor(hero, hero) > 50f, "枪弹命中基准过低，实战会大量落空");
 	}
 
 	/** 充能型枪械：未开火时每回合自然回充 0.5 发（显示取整）。 */

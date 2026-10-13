@@ -60,16 +60,26 @@ public final class GunFire {
 		return lateralOffset(hero.pos, targetCell, Random.IntRange(-spread, spread));
 	}
 
-	/** 沿弹道逐格结算：命中即结算；未命中不消失，继续飞；pierce > 0 时命中也继续飞，直到撞墙。 */
+	/**
+	 * 沿弹道逐格结算：命中即结算；未命中不消失，继续飞；pierce > 0 时命中也继续飞，直到撞墙。
+	 * SPSEXPD: 参考洛克手炮（MegaCannon.MegaAmmo）的射击物写法——**先直接结算落点上的目标**，
+	 * 保证直瞄一定打得到人；之后再沿弹道结算路径上的其它目标（流弹/穿透）。
+	 */
 	public static int resolveShot(Hero hero, MissileWeapon shot, int targetCell,
 	                              int range, int perfectSTR, int pierce) {
 		if (hero == null || Dungeon.level == null || shot == null) return 0;
 		int from = hero.pos;
-		//SPSEXPD: targetCell 已由 aimedCell 带上出膛偏差，这里不再二次偏移
-		Ballistica traj = new Ballistica(from, targetCell, Ballistica.WONT_STOP);
 		int hits = 0;
+
+		Char direct = targetCell == from ? null : Actor.findChar(targetCell);
+		if (direct != null && direct != hero && hero.shoot(direct, shot)) {
+			hits++;
+			if (pierce <= 0) return hits;
+		}
+
+		Ballistica traj = new Ballistica(from, targetCell, Ballistica.WONT_STOP);
 		for (Integer cell : traj.path) {
-			if (cell == null || cell == from) continue;
+			if (cell == null || cell == from || cell == targetCell) continue;
 			Char enemy = Actor.findChar(cell);
 			boolean solid = !Dungeon.level.passable[cell] && !Dungeon.level.avoid[cell];
 			if (enemy == null) {

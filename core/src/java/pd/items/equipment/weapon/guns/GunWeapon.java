@@ -445,10 +445,7 @@ public class GunWeapon extends SpsRangedWeapon {
 	private final CellSelector.Listener targetShooter = new CellSelector.Listener() {
 		@Override public void onSelect(Integer target) {
 			if (target == null || curUser == null) return;
-			if (Actor.findChar(target) == null) {
-				GLog.i(Messages.get(GunWeapon.class, "need_target"));
-				return;
-			}
+			//SPSEXPD: 默认开火允许选择空地（不再要求目标格上站着敌人），子弹沿该方向飞出射击
 			fire(curUser, target);
 		}
 		@Override public String prompt() { return Messages.get(GunWeapon.class, "prompt"); }
@@ -467,9 +464,12 @@ public class GunWeapon extends SpsRangedWeapon {
 		float preDelay = -1f;
 
 		{
-			image = EquipmentEquipWeaponUniqueWeaponDict.PAINTBALL_GUN;
+			//SPSEXPD: 借用洛克手炮（MegaCannon）的子弹贴图
+			image = pd.atlas.items.SpecificPlaceHolderDict.SOMETHING_0;
 			tier = 1; //SPSEXPD: 枪弹不再是分阶武器
-			ACC = 1.3f;
+			//SPSEXPD: 枪弹保证命中（对齐洛克手炮 ACC=100f / 科技霰弹枪 ACC=1000f 的做法），
+			//力量与距离的影响体现在「出膛偏差」与「后坐缓冲」上
+			ACC = 100f;
 			spawnedForEffect = true;
 		}
 		@Override public int min(int lvl) { return GunWeapon.this.min(); }
@@ -487,7 +487,8 @@ public class GunWeapon extends SpsRangedWeapon {
 			return GunWeapon.this.hasEnchant(type, owner);
 		}
 		@Override public float accuracyFactor(Char owner, Char target) {
-			return GunWeapon.this.accuracyFactor(owner, target);
+			//SPSEXPD: 以枪本体的精准（力量/距离决定）为系数，再乘枪弹自身的命中基准
+			return GunWeapon.this.accuracyFactor(owner, target) * ACC;
 		}
 		@Override protected void onThrow(int cell) {
 			if (curUser == null) return;
