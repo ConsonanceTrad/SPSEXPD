@@ -32,6 +32,7 @@ import pd.scenes.PixelScene;
 import pd.scenes.StartScene;
 import pd.sprites.HeroSprite;
 import pd.ui.ActionIndicator;
+import pd.ui.IconButton;
 import pd.ui.Icons;
 import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
@@ -62,7 +63,11 @@ public class WndGameInProgress extends Window {
 			.t("erase_warn_title", "你确定要删除这个存档吗？")
 			.t("erase_warn_body", "你将失去这局游戏的所有进度")
 			.t("erase_warn_yes", "是，删除这个存档")
-			.t("erase_warn_no", "不，我要接着玩");
+			.t("erase_warn_no", "不，我要接着玩")
+			.t("rename_title", "为这个角色命名")
+			.t("rename_desc", "给这名冒险者起一个名字，会显示在存档列表、角色详情与排行榜上。_留空表示清除，仍使用职业名。_")
+			.t("rename_ok", "确定")
+			.t("rename_clear", "清除");
 	}
 
 
@@ -93,8 +98,27 @@ public class WndGameInProgress extends Window {
 		title.icon( HeroSprite.avatar(info.heroClass, info.armorTier, info.skin) );
 		title.label((Messages.get(this, "title", info.level, className)).toUpperCase(Locale.ENGLISH));
 		title.color(Window.TITLE_COLOR);
-		title.setRect( 0, 0, WIDTH, 0 );
+		//SPSEXPD: 名称行右端留出改名按钮
+		title.setRect( 0, 0, WIDTH - 16, 0 );
 		add(title);
+
+		//SPSEXPD: 名称行右端的书本按钮 —— 为这个存档改名
+		IconButton btnRename = new IconButton( Icons.get(Icons.JOURNAL) ){
+			@Override
+			protected void onClick(){
+				super.onClick();
+				//SPSEXPD: 清掉 IconButton 的按压高亮残留
+				icon().resetColor();
+				rename( slot );
+			}
+
+			@Override
+			protected String hoverText(){
+				return Messages.get(WndGameInProgress.class, "rename_title");
+			}
+		};
+		btnRename.setRect( WIDTH - 16, 0, 16, 16 );
+		add(btnRename);
 		
 		if (info.challenges > 0) GAP -= 2;
 		
@@ -189,8 +213,26 @@ public class WndGameInProgress extends Window {
 		resize(WIDTH, (int)cont.bottom()+1);
 	}
 	
-	private void statSlot( String label, String value ) {
+	//SPSEXPD: 改名（名称行右端书本按钮）—— 写入存档并重开存档列表以刷新显示
+	private void rename( final int slot ){
+		GamesInProgress.Info info = GamesInProgress.check(slot);
+		String current = (info != null && info.heroName != null) ? info.heroName : "";
+		ShatteredPixelDungeon.scene().addToFront(new WndTextInput(
+				Messages.get(WndGameInProgress.class, "rename_title"),
+				Messages.get(WndGameInProgress.class, "rename_desc"),
+				current, 12, false,
+				Messages.get(WndGameInProgress.class, "rename_ok"),
+				Messages.get(WndGameInProgress.class, "rename_clear")){
+			@Override
+			public void onSelect(boolean positive, String text){
+				String name = (positive && text != null) ? text.trim() : "";
+				GamesInProgress.setHeroName( slot, name );
+				ShatteredPixelDungeon.seamlessResetScene();
+			}
+		});
+	}
 
+	private void statSlot( String label, String value ) {
 		int size = 8;
 		RenderedTextBlock txt;
 		do {

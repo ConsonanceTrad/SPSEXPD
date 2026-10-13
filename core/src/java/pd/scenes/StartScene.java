@@ -32,7 +32,6 @@ import pd.messages.Messages;
 import pd.sprites.HeroSprite;
 import pd.ui.Button;
 import pd.ui.ExitButton;
-import pd.ui.IconButton;
 import pd.ui.Icons;
 import pd.ui.RenderedTextBlock;
 import pd.ui.ScrollPane;
@@ -41,7 +40,6 @@ import pd.ui.TitleBackground;
 import pd.ui.Window;
 import pd.windows.IconTitle;
 import pd.windows.WndGameInProgress;
-import pd.windows.WndTextInput;
 import render.noosa.BitmapText;
 import render.noosa.Camera;
 import render.noosa.Game;
@@ -65,11 +63,7 @@ public class StartScene extends PixelScene {
 			.t("months_ago", "存档于%d月前")
 			.t("new", "新游戏")
 			.t("sort_level", "排序：按等级")
-			.t("sort_recent", "排序：按时间")
-			.t("rename_title", "为这个角色命名")
-			.t("rename_desc", "给这名冒险者起一个名字，会显示在存档列表、角色详情与排行榜上。_留空表示清除，仍使用职业名。_")
-			.t("rename_ok", "确定")
-			.t("rename_clear", "清除");
+			.t("sort_recent", "排序：按时间");
 	}
 
 
@@ -195,8 +189,6 @@ public class StartScene extends PixelScene {
 		private Image classIcon;
 		private BitmapText level;
 		
-		private IconButton nameBtn;
-		
 		private int slot;
 		private boolean newGame;
 		
@@ -212,44 +204,6 @@ public class StartScene extends PixelScene {
 
 			lastPlayed = PixelScene.renderTextBlock(6);
 			add(lastPlayed);
-
-			//SPSEXPD: 名称行右侧的书本按钮 —— 为该存档改名
-			nameBtn = new IconButton( Icons.get(Icons.JOURNAL) ){
-				@Override
-				protected void onClick(){
-					super.onClick();
-					//SPSEXPD: 清掉 IconButton 的按压高亮残留
-					icon().resetColor();
-					rename( slot );
-				}
-
-				@Override
-				protected String hoverText(){
-					return Messages.get(StartScene.class, "rename_title");
-				}
-			};
-			nameBtn.setSize(12, 12);
-			add(nameBtn);
-		}
-		
-		//SPSEXPD: 打开改名输入框，写入存档并刷新本槽显示
-		private void rename( int slot ){
-			if (newGame) return;
-			GamesInProgress.Info info = GamesInProgress.check(slot);
-			String current = (info != null && info.heroName != null) ? info.heroName : "";
-			ShatteredPixelDungeon.scene().addToFront(new WndTextInput(
-					Messages.get(StartScene.class, "rename_title"),
-					Messages.get(StartScene.class, "rename_desc"),
-					current, 12, false,
-					Messages.get(StartScene.class, "rename_ok"),
-					Messages.get(StartScene.class, "rename_clear")){
-				@Override
-				public void onSelect(boolean positive, String text){
-					String name = (positive && text != null) ? text.trim() : "";
-					GamesInProgress.setHeroName( slot, name );
-					set( slot );
-				}
-			});
 		}
 		
 		public void set( int slot ){
@@ -258,7 +212,6 @@ public class StartScene extends PixelScene {
 			newGame = info == null;
 			if (newGame){
 				name.text( Messages.get(StartScene.class, "new"));
-				nameBtn.visible = nameBtn.active = false;
 				
 				if (hero != null){
 					remove(hero);
@@ -273,7 +226,6 @@ public class StartScene extends PixelScene {
 					level = null;
 				}
 			} else {
-				nameBtn.visible = nameBtn.active = true;
 				
 				String className = info.subClass != HeroSubClass.NONE
 						? Messages.titleCase(info.subClass.title())
@@ -365,18 +317,11 @@ public class StartScene extends PixelScene {
 				hero.y = y + (height - hero.height())/2f;
 				align(hero);
 				
-				//SPSEXPD: 名称行右侧留出书本改名按钮的位置，名字过长自动收窄
-				float stepsX = x + width - 40 + (16 - steps.width())/2f;
-				float nameX = hero.x + hero.width() + 6;
-				name.maxWidth( (int)Math.max(12, stepsX - 4 - nameX - 14) );
 				name.setPos(
-						nameX,
+						hero.x + hero.width() + 6,
 						y + (height - name.height() - lastPlayed.height() - 2)/2f
 				);
 				align(name);
-
-				nameBtn.setPos( name.right() + 2, y + (height - nameBtn.height())/2f );
-				align(nameBtn);
 
 				lastPlayed.setPos(
 						hero.x + hero.width() + 6,
