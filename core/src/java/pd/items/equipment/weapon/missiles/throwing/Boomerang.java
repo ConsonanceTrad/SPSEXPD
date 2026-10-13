@@ -154,8 +154,8 @@ public class Boomerang extends MeleeWeapon {
 			if (cell == hero.pos || cell == excluded) continue;
 			if (Dungeon.level.distance(hero.pos, cell) > RETURN_RANGE) continue;
 			if (!Dungeon.level.passable[cell]) continue;
-			//SPSEXPD: 弹回落点必须在英雄当前视野内（投掷本身不受限）
-			if (!Dungeon.level.heroFOV[cell]) continue;
+			//SPSEXPD: 弹回落点必须在英雄两格内的已探索区域（投掷本身不受限）
+			if (!Dungeon.level.visited[cell]) continue;
 			candidates.add(cell);
 		}
 		return candidates.isEmpty() ? hero.pos : Random.element(candidates);
