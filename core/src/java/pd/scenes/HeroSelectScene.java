@@ -222,7 +222,7 @@ public class HeroSelectScene extends PixelScene {
 		themeBtn.visible = themeBtn.active = false;
 
 		//SPSEXPD: 「开始」右侧的书本按钮 —— 为即将创建的角色指定名字
-		nameBtn = new IconButton( Icons.get(Icons.JOURNAL) ){
+		nameBtn = new IconButton( new Image(Assets.Interfaces.NAMESHOW) ){
 			@Override
 			protected void onClick() {
 				super.onClick();

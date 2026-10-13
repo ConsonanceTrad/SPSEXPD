@@ -21,6 +21,7 @@
 
 package pd.windows;
 
+import pd.Assets;
 import pd.Dungeon;
 import pd.GamesInProgress;
 import pd.ShatteredPixelDungeon;
@@ -39,6 +40,7 @@ import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import pd.utils.DungeonSeed;
 import render.noosa.Game;
+import render.noosa.Image;
 
 import java.util.Locale;
 import pd.messages.InlineText;
@@ -103,7 +105,7 @@ public class WndGameInProgress extends Window {
 		add(title);
 
 		//SPSEXPD: 名称行右端的书本按钮 —— 为这个存档改名
-		IconButton btnRename = new IconButton( Icons.get(Icons.JOURNAL) ){
+		IconButton btnRename = new IconButton( new Image(Assets.Interfaces.NAMESHOW) ){
 			@Override
 			protected void onClick(){
 				super.onClick();
