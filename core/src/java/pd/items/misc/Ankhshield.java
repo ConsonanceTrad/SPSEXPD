@@ -36,8 +36,10 @@ public class Ankhshield extends Item {
 
 
 	public static final String AC_DEFENCE = "DEFENCE";
-	public static final int FULL_CHARGE = 100;
-	public static final int DEFENCE_COST = 30;
+	/** SPSEXPD: 充能上限（一枚安卡补 50 点，4 枚安卡充满）。 */
+	public static final int FULL_CHARGE = 200;
+	/** SPSEXPD: 一次「防卫」的充能消耗（= 两枚安卡）。 */
+	public static final int DEFENCE_COST = 100;
 	private static final String CHARGE = "charge";
 	private int charge;
 

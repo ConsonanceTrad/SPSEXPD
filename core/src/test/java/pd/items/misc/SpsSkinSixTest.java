@@ -165,14 +165,14 @@ public final class SpsSkinSixTest {
 		SeriousPunch restoredPunch = new SeriousPunch(); restoredPunch.restoreFromBundle(saved);
 		check(restoredPunch.charge() == 17, "认真拳套充能未存档");
 
-		Ankhshield shield = new Ankhshield(); shield.collect(hero.belongings.backpack); shield.charge(29);
-		check(!shield.defend(hero), "神圣护盾在30充能前错误发动");
+		Ankhshield shield = new Ankhshield(); shield.collect(hero.belongings.backpack); shield.charge(99);
+		check(!shield.defend(hero), "神圣护盾在100充能前错误发动");
 		TestMob close = mobAt(level, CENTER + 2); TestMob far = mobAt(level, CENTER + 5);
-		shield.charge(30);
+		shield.charge(100);
 		check(shield.defend(hero) && shield.charge() == 0 && close.HP == 95
 				&& close.buff(HolyStun.class) != null && far.buff(WatchOut.class) != null, "神圣护盾范围效果错误");
-		shield.charge(99); shield.gainCharge(); shield.gainCharge();
-		check(shield.charge() == Ankhshield.FULL_CHARGE, "神圣护盾充能未在100封顶");
+		shield.charge(199); shield.gainCharge(); shield.gainCharge();
+		check(shield.charge() == Ankhshield.FULL_CHARGE, "神圣护盾充能未在200封顶");
 	}
 
 	private static void testBladesAndShock() {
