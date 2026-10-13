@@ -99,9 +99,16 @@ public class Boomerang extends MeleeWeapon {
 		return actions;
 	}
 
+	//SPSEXPD: 装备时默认动作恒为「投掷」——充能未满时 execute(AC_CAST) 会提示「充能未完成」
+	//并清掉 usesTargeting（避免进入选目标→普攻）；回旋镖没有决斗家武技，未装备时不给默认动作。
 	@Override public String defaultAction() {
-		if (charge >= FULL_CHARGE) return AC_CAST;
-		return super.defaultAction();
+		if (Dungeon.hero != null && isEquipped(Dungeon.hero)) return AC_CAST;
+		return null;
+	}
+
+	//SPSEXPD: 允许放入快捷栏（不受充能与装备状态影响），以便快捷投掷。
+	@Override public boolean canQuickSlot() {
+		return true;
 	}
 
 	@Override
