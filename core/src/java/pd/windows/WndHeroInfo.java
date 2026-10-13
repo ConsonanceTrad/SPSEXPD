@@ -99,6 +99,11 @@ public class WndHeroInfo extends WndTabbed {
 	private static int MIN_HEIGHT = 125;
 	private static int MARGIN = 2;
 
+	//SPSEXPD: 「背景故事」图标图集（sprites/items/specific/story.png）规格：5 列 × 2 行、每格 16×16，
+	//格序 = 可玩职业顺序（与 avatars.png / HeroClass.avatarIndex() 一致）
+	private static final int STORY_COLS = 5;
+	private static final int STORY_CELL = 16;
+
 	//SPSEXPD: 当前主题（选角界面传 GamesInProgress.selectedSkin，游戏内传 Dungeon.hero.skin）
 	private final int themeSkin;
 
@@ -200,9 +205,15 @@ public class WndHeroInfo extends WndTabbed {
 				return new Image(Assets.Interfaces.SPECIFIC_POINT);
 			case TAB_SUBCLASS:
 				return new ItemSprite(ConsumUsefulProcessEnhanceDict.MASK_0, null);
-			case TAB_LORE:
-				//SPSEXPD: 背景故事页签用用户绘制的独立图标（不再是卷轴筒贴图）
-				return new Image(Assets.Sprites.STORY);
+			case TAB_LORE: {
+				//SPSEXPD: 每个可玩角色各自的「背景故事」图标（不再是统一的 story 单图）
+				Image story = new Image(Assets.Sprites.STORY);
+				int idx = cl == null ? 0 : cl.avatarIndex();
+				if (idx < 0) idx = 0;
+				story.frame((idx % STORY_COLS) * STORY_CELL, (idx / STORY_COLS) * STORY_CELL,
+						STORY_CELL, STORY_CELL);
+				return story;
+			}
 			case TAB_ITEMS:
 			default:
 				//SPSEXPD: 「初始物品」按钮/页签按职业显示该职业的标志性物品图标
