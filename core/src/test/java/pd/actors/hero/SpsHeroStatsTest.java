@@ -72,15 +72,34 @@ public final class SpsHeroStatsTest {
 
 	/** 七系元素与两套来源令牌的映射 */
 	private static void testElementMapping() {
-		check(Element.values().length == 7, "元素共七系");
+		check(Element.values().length == 9, "元素共九系（原七系 + 风/混乱）");
 		check(Element.of(DamageType.FIRE_DAMAGE) == Element.FIRE, "DamageType 火映射到 FIRE");
 		check(Element.of(DamageType.LIGHT_DAMAGE) == Element.LIGHT, "DamageType 光映射到 LIGHT");
+		check(Element.of(DamageType.WIND_DAMAGE) == Element.WIND, "DamageType 风映射到 WIND");
+		check(Element.of(DamageType.CHAOS_DAMAGE) == Element.CHAOS, "DamageType 混乱映射到 CHAOS");
 		check(Element.of(SpsMagicDamage.ICE) == Element.ICE, "SpsMagicDamage 冰映射到 ICE");
 		check(Element.of(SpsMagicDamage.SHOCK) == Element.SHOCK, "SpsMagicDamage 雷映射到 SHOCK");
 		check(Element.FIRE.damageType() == DamageType.FIRE_DAMAGE, "FIRE 映射回来源令牌");
 		check(Element.of(new Object()) == null, "非元素来源解析为 null");
 		check(Element.of((Object) null) == null, "null 来源解析为 null");
 		check(Element.of((SpsMagicDamage) null) == null, "null 令牌解析为 null");
+
+		//SPSEXPD: 伤害飘字图标——有贴图的用贴图，没有的用纯色小方块（SOLID_ICON_BASE + ordinal）
+		check(pd.effects.FloatingText.damageIconFor(DamageType.FIRE_DAMAGE, -99) == pd.effects.FloatingText.BURNING, "火→燃烧图标");
+		check(pd.effects.FloatingText.damageIconFor(DamageType.ICE_DAMAGE, -99) == pd.effects.FloatingText.FROST, "冰→霜冻图标");
+		check(pd.effects.FloatingText.damageIconFor(DamageType.SHOCK_DAMAGE, -99) == pd.effects.FloatingText.SHOCKING, "雷→电击图标");
+		check(pd.effects.FloatingText.damageIconFor(DamageType.ENERGY_DAMAGE, -99) == pd.effects.FloatingText.ENERGY, "能量→能量图标");
+		check(pd.effects.FloatingText.damageIconFor(DamageType.EARTH_DAMAGE, -99)
+				== pd.effects.FloatingText.SOLID_ICON_BASE + Element.EARTH.ordinal(), "地→纯色图标");
+		check(pd.effects.FloatingText.damageIconFor(DamageType.LIGHT_DAMAGE, -99)
+				== pd.effects.FloatingText.SOLID_ICON_BASE + Element.LIGHT.ordinal(), "光→纯色图标");
+		check(pd.effects.FloatingText.damageIconFor(DamageType.DARK_DAMAGE, -99)
+				== pd.effects.FloatingText.SOLID_ICON_BASE + Element.DARK.ordinal(), "暗→纯色图标");
+		check(pd.effects.FloatingText.damageIconFor(DamageType.WIND_DAMAGE, -99)
+				== pd.effects.FloatingText.SOLID_ICON_BASE + Element.WIND.ordinal(), "风→纯色图标");
+		check(pd.effects.FloatingText.damageIconFor(DamageType.CHAOS_DAMAGE, -99)
+				== pd.effects.FloatingText.SOLID_ICON_BASE + Element.CHAOS.ordinal(), "混乱→纯色图标");
+		check(pd.effects.FloatingText.damageIconFor(new Object(), 7) == 7, "非元素来源保持原图标");
 	}
 
 	/** 全部查询对 null 安全（供无头校验与运行期临时对象调用） */

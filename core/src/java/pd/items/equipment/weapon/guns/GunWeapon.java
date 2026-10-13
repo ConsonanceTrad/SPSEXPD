@@ -8,7 +8,6 @@ import pd.actors.Char;
 import pd.actors.buffs.EndlessAmmo;
 import pd.actors.buffs.MechArmor;
 import pd.actors.buffs.TargetShoot;
-import pd.actors.damagetype.DamageType;
 import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.effects.Speck;
@@ -451,11 +450,6 @@ public class GunWeapon extends SpsRangedWeapon {
 		return false;
 	}
 
-	protected boolean addsEnergyDamage() { return true; }
-
-	/** SPSEXPD: 枪械伤害中折算为法术伤害（ENERGY_DAMAGE）的比例——拆分自总伤害，不额外追加。 */
-	protected static final float ENERGY_DAMAGE_RATIO = 0.5f;
-
 	/** SPSEXPD: 弹匣内是否还有弹药（无弹药时装备枪械改走徒手攻击）。 */
 	public boolean hasAmmo() { return charge > 0; }
 
@@ -568,14 +562,7 @@ public class GunWeapon extends SpsRangedWeapon {
 			if (defender != null && defender.isAlive()) {
 				GunWeapon.this.onBulletHit(attacker, defender, damage);
 			}
-			//SPSEXPD: 枪械伤害的一部分以法术伤害结算（原作者设定）——是「拆分」而不是额外追加一段，
-			//一次击发的总伤害不变，只是其中一部分无视常规物理防护
-			if (addsEnergyDamage() && damage > 1 && defender != null && defender.isAlive()) {
-				int magic = Math.min(damage - 1, Math.max(1, Math.round(damage * ENERGY_DAMAGE_RATIO)));
-				defender.damage(magic, DamageType.ENERGY_DAMAGE);
-				damage -= magic;
-			}
-			//SPSEXPD: 转发给枪本体，使枪上的附魔（穿甲/弹射等）生效
+			//SPSEXPD: 一次命中只结算一次普通伤害（不再拆分法术伤害）；转发给枪本体使附魔（穿甲/弹射等）生效
 			return GunWeapon.this.proc(attacker, defender, damage);
 		}
 		@Override public void cast(Hero user, int dst) {

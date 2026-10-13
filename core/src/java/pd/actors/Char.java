@@ -1217,6 +1217,9 @@ public abstract class Char extends Actor {
 			if (src instanceof Corruption)                              icon = FloatingText.CORRUPTION;
 			if (src instanceof AscensionChallenge)                      icon = FloatingText.AMULET;
 
+			//SPSEXPD: 非物理伤害使用对应伤害类型的飘字图标（有贴图用贴图，没有用纯色小方块）
+			icon = FloatingText.damageIconFor(src, icon);
+
 			if ((icon == FloatingText.PHYS_DMG || icon == FloatingText.PHYS_DMG_NO_BLOCK) && hitMissIcon != -1){
 				if (icon == FloatingText.PHYS_DMG_NO_BLOCK) hitMissIcon += 18; //extra row
 				icon = hitMissIcon;

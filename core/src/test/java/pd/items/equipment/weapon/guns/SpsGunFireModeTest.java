@@ -218,6 +218,9 @@ public final class SpsGunFireModeTest {
 					"枪弹伤害超出 " + gun.min() + "~" + gun.max() + " 范围：" + dmg);
 		}
 		check(shot.accuracyFactor(hero, hero) > 50f, "枪弹命中基准过低，实战会大量落空");
+
+		//SPSEXPD: 一次命中只结算一次伤害——GunAmmo.proc 必须原样返回伤害（不再拆分法术伤害）
+		check(shot.proc(hero, hero, 7) == 7, "枪弹 proc 改动了伤害（一次命中只应结算一次）");
 	}
 
 	/** 充能型枪械：未开火时每回合自然回充 0.5 发（显示取整）。 */

@@ -81,6 +81,8 @@ public class WndHero extends WndTabbed {
 			.t("$statstab.el_shock", "雷")
 			.t("$statstab.el_light", "光")
 			.t("$statstab.el_dark", "暗")
+			.t("$statstab.el_wind", "风")
+			.t("$statstab.el_chaos", "混乱")
 			.t("$statstab.perks", "特质")
 			.t("$statstab.str", "力量")
 			.t("$statstab.health", "生命")

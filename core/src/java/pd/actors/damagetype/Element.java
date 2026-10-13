@@ -18,7 +18,10 @@ public enum Element {
 	EARTH(DamageType.EARTH_DAMAGE),
 	SHOCK(DamageType.SHOCK_DAMAGE),
 	LIGHT(DamageType.LIGHT_DAMAGE),
-	DARK(DamageType.DARK_DAMAGE);
+	DARK(DamageType.DARK_DAMAGE),
+	//SPSEXPD: 新增两系属性类型（末尾追加，既有 ordinal 不变）
+	WIND(DamageType.WIND_DAMAGE),
+	CHAOS(DamageType.CHAOS_DAMAGE);
 
 	private final DamageType damageType;
 

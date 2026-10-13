@@ -144,10 +144,11 @@ public final class SpsGunTest {
 		TestGun gun = new TestGun();
 		gun.charge = 2;
 
-		//SPSEXPD: 枪弹附带一段额外能量伤害（GunAmmo.proc）
+		//SPSEXPD: 一次命中只结算一次伤害——GunAmmo.proc 只转发伤害（法术拆分段已移除），
+		//实际扣血由 Char.attack 统一结算，proc 自己不应扣血
 		TestMob target = new TestMob(100);
-		new TestGun().new GunAmmo().proc(hero, target, 20);
-		check(target.HP < 100, "枪弹没有附带额外能量伤害");
+		check(new TestGun().new GunAmmo().proc(hero, target, 20) == 20, "枪弹 proc 改动了伤害");
+		check(target.HP == 100, "枪弹 proc 不应自行结算伤害（应由 Char.attack 统一结算一次）");
 
 		Bundle bundle = new Bundle();
 		gun.storeInBundle(bundle);

@@ -10,6 +10,9 @@ public abstract class DamageType {
 	public static final Earth EARTH_DAMAGE = new Earth();
 	public static final Light LIGHT_DAMAGE = new Light();
 	public static final Dark DARK_DAMAGE = new Dark();
+	//SPSEXPD: 新增两系属性类型（风、混乱）
+	public static final Wind WIND_DAMAGE = new Wind();
+	public static final Chaos CHAOS_DAMAGE = new Chaos();
 
 	public static final class Energy extends DamageType { }
 	public static final class Fire extends DamageType { }
@@ -18,4 +21,7 @@ public abstract class DamageType {
 	public static final class Earth extends DamageType { }
 	public static final class Light extends DamageType { }
 	public static final class Dark extends DamageType { }
+	//SPSEXPD: 新增两系属性类型（风、混乱）
+	public static final class Wind extends DamageType { }
+	public static final class Chaos extends DamageType { }
 }

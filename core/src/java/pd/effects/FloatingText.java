@@ -76,6 +76,21 @@ public class FloatingText extends RenderedTextBlock {
 
 	public static int NO_ICON   = -1;
 
+	//SPSEXPD: 无对应贴图的伤害类型用纯色小方块——iconIdx >= SOLID_ICON_BASE 时取 SOLID_COLORS[idx - BASE]
+	public static final int SOLID_ICON_BASE = 1000;
+	/** SPSEXPD: 纯色图标配色表，按 Element.ordinal() 索引（仅贴图缺项时使用，过渡方案）。 */
+	private static final int[] SOLID_COLORS = {
+			0xFF44CCFF, // ENERGY 能量
+			0xFFFF5522, // FIRE 火
+			0xFF66CCFF, // ICE 冰
+			0xFFFFFF44, // SHOCK 雷
+			0xFFAA8844, // EARTH 地
+			0xFFFFFFCC, // LIGHT 光
+			0xFF8844AA, // DARK 暗
+			0xFF88DDBB, // WIND 风
+			0xFFDD44AA, // CHAOS 混乱
+	};
+
 	//combat damage icons
 	public static int PHYS_DMG          = 0;
 	public static int PHYS_DMG_NO_BLOCK = 1;
@@ -224,7 +239,16 @@ public class FloatingText extends RenderedTextBlock {
 		text( text );
 		hardlight( color );
 
-		if (iconIdx != NO_ICON){
+		if (iconIdx >= SOLID_ICON_BASE){
+			//SPSEXPD: 该伤害类型没有对应贴图 → 用纯色小方块（尺寸与图标帧一致，可控）
+			int solid = Math.max(0, Math.min(SOLID_COLORS.length - 1, iconIdx - SOLID_ICON_BASE));
+			icon = new render.noosa.ColorBlock(ICON_WIDTH, ICON_HEIGHT, SOLID_COLORS[solid]);
+			add(icon);
+			iconLeft = left;
+			if (iconLeft){
+				align(RIGHT_ALIGN);
+			}
+		} else if (iconIdx != NO_ICON){
 			icon = new Image( Assets.Effects.TEXT_ICONS);
 			icon.frame(iconFilm.get(iconIdx));
 			add(icon);
@@ -245,6 +269,23 @@ public class FloatingText extends RenderedTextBlock {
 	}
 	
 	/* STATIC METHODS */
+
+	/**
+	 * SPSEXPD: 按伤害来源解析飘字图标——非物理伤害使用对应伤害类型的图标。
+	 * 有贴图的类型（火 / 冰 / 雷 / 能量）用贴图；没有对应贴图的（地 / 光 / 暗 / 风 / 混乱）
+	 * 用纯色小方块（{@link #SOLID_ICON_BASE}）。非元素/魔法来源返回 fallback，保持调用方原图标。
+	 */
+	public static int damageIconFor(Object src, int fallback) {
+		pd.actors.damagetype.Element element = pd.actors.damagetype.Element.of(src);
+		if (element == null) return fallback;
+		switch (element) {
+			case FIRE:   return BURNING;
+			case ICE:    return FROST;
+			case SHOCK:  return SHOCKING;
+			case ENERGY: return ENERGY;
+			default:     return SOLID_ICON_BASE + element.ordinal();
+		}
+	}
 
 	public static void show( float x, float y, String text, int color) {
 		show(x, y, -1, text, color, -1, false);
