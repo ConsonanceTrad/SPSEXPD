@@ -46,9 +46,9 @@ public class GunWeapon extends SpsRangedWeapon {
 			.t("empty", "你没有可以装填的通用弹匣。")
 			.t("prompt", "选择射击目标")
 			.t("prompt_aim", "选择射击方向")
-			.t("stats_1", "这把_%1$s_可以造成_%4$d~%5$d点伤害_。\n\n弹匣容量 _%2$d_ ，单次击发 _%3$d_ ，装填耗时 _%6$s_ 。")
-			.t("stats_2", "你需要_%1$d点力量_以完全抑制其后坐力。以当前力量而言，每次击发需要 _%2$s 回合_的缓冲时间。")
-			.t("stats_3", "这把枪在 _%2$d_ 格范围内必定命中目标；超出后每格命中率下降 _%4$d%%_，最低 _%5$d%%_。")
+			.t("stats_1", "这把_%1$s_可以造成_%3$d~%4$d点伤害_，你需要_%2$d点力量_以完全抑制其后坐力。")
+			.t("stats_2", "以当前力量而言，每次击发对你而言需要 _%1$s 回合_的缓冲时间。")
+			.t("stats_3", "弹匣容量 _%1$d_ ，单次击发 _%2$d_ ，装填耗时 _%3$s_ ，射程 _%4$d_ 。")
 			.t("charge", "载弹量：%1$d/%2$d");
 	}
 
@@ -495,13 +495,11 @@ public class GunWeapon extends SpsRangedWeapon {
 	public String info() {
 		return desc() + "\n\n"
 				+ Messages.get(GunWeapon.class, "stats_1",
-						archetype.displayName(), fullCharge, shotsPerFire, min(), max(), num(baseReloadTime))
+						archetype.displayName(), perfectSTR, min(), max())
 				+ "\n\n"
-				+ Messages.get(GunWeapon.class, "stats_2", perfectSTR, num(shotBuffer(Dungeon.hero)))
+				+ Messages.get(GunWeapon.class, "stats_2", num(shotBuffer(Dungeon.hero)))
 				+ "\n\n"
-				+ Messages.get(GunWeapon.class, "stats_3", num(baseReloadTime), effectiveRange, noiseRadius,
-						Math.round(GunFire.HIT_DECAY_PER_TILE * 100f),
-						Math.round(GunFire.MIN_HIT_CHANCE * 100f))
+				+ Messages.get(GunWeapon.class, "stats_3", fullCharge, shotsPerFire, num(baseReloadTime), effectiveRange)
 				+ "\n\n"
 				+ Messages.get(GunWeapon.class, "charge", charge, fullCharge);
 	}

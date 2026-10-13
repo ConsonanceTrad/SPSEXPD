@@ -117,6 +117,9 @@ public class WndDebugItems extends Window {
 	}
 
 	//SPSXPD: 「作物相关」独立组——顺序严格按参照图（seed.png 行优先：种子 → 蔬菜 → 二次产物 → 普通果实 → 大型果实）
+	//SPSEXPD: 「枪械」独立组——GunWeapon 全家族（含特殊枪械）与通用弹匣，便于调试快速取枪
+	private static final String GUN_LABEL = "枪械";
+
 	private static final String CROP_LABEL = "作物相关";
 
 	private static final Class<?>[] CROP_ORDER = {
@@ -213,12 +216,23 @@ public class WndDebugItems extends Window {
 		for (Class<?> t : CROP_ORDER) crops.add((Class<? extends Item>) t);
 		LinkedHashMap<String, ArrayList<Class<? extends Item>>> map = new LinkedHashMap<>();
 		map.put(CROP_LABEL, crops);
+
+		//SPSEXPD: 「枪械」独立组（GunWeapon 全家族 + 通用弹匣），排在「作物相关」之后
+		ArrayList<Class<? extends Item>> guns = new ArrayList<>();
+		for (Class<? extends Item> gt : all.keySet()) {
+			if (pd.items.equipment.weapon.guns.GunWeapon.class.isAssignableFrom(gt)) guns.add(gt);
+		}
+		guns.add(pd.items.Magazine.class);
+		map.put(GUN_LABEL, guns);
 		for (String label : GROUP_LABELS.values()) map.put(label, new ArrayList<>());
 		ArrayList<Class<? extends Item>> unknown = new ArrayList<>();
 
 		for (Class<? extends Item> t : all.keySet()) {
 			//SPSEXPD: 种子包已并入绒布袋、法杖套已并入魔法筒袋，这两个类已删除
 			if (CROP_SET.contains(t)) continue;   //已按参照图顺序归入「作物相关」
+			//SPSEXPD: 枪械与通用弹匣已归入「枪械」组
+			if (pd.items.equipment.weapon.guns.GunWeapon.class.isAssignableFrom(t)) continue;
+			if (t == pd.items.Magazine.class) continue;
 			String label = GROUP_LABELS.get(groupKeyOf(t));
 			ArrayList<Class<? extends Item>> list = label == null ? null : map.get(label);
 			if (list != null) {
