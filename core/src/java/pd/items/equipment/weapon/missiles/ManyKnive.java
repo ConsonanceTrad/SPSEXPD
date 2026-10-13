@@ -19,7 +19,9 @@ import pd.items.equipment.weapon.missiles.throwing.EscapeKnive;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
+import pd.utils.GLog;
 import render.utils.math.Random;
+import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
 import pd.messages.InlineText;
@@ -31,14 +33,32 @@ public class ManyKnive extends Weapon {
 		InlineText.of(ManyKnive.class)
 			.t("name", "十六夜的千支刀")
 			.t("ac_shoot", "投掷")
+			.t("ac_reload", "装填")
 			.t("shoot_prompt", "选择投掷目标")
-			.t("desc", "由大量普通飞刀组成的飞刀组。")
-			.t("damage", "这件高攻速武器可以造成_%1$d～%2$d点伤害_。");
+			.t("no_energy", "炼金能量不足（装填需要 2 点）。")
+			.t("no_ammo", "千支刀没有弹药了。")
+			.t("full", "弹药已满。")
+			.t("reloading", "装填中……")
+			.t("desc", "由大量普通飞刀组成的飞刀组。\n\n每次装填消耗_2 点炼金能量_，充满_6 发_弹药；没有弹药时无法投掷。")
+			.t("damage", "这件高攻速武器可以造成_%1$d～%2$d点伤害_。")
+			.t("charge", "弹药：%1$d/%2$d");
 	}
 
 
 
 	public static final String AC_SHOOT = "SHOOT";
+	public static final String AC_RELOAD = "RELOAD";
+
+	/** SPSEXPD: 弹匣容量（发）。 */
+	public static final int MAGAZINE = 6;
+	/** SPSEXPD: 一次装填消耗的炼金能量。 */
+	public static final int ENERGY_COST = 2;
+	/** SPSEXPD: 装填耗时（回合）。 */
+	public static final float RELOAD_TIME = 2f;
+
+	private static final String CHARGE = "charge";
+
+	private int charge;
 
 	{
 		image = EquipmentEquipWeaponUniqueWeaponDict.MANY_KNIVE_0;
@@ -56,6 +76,9 @@ public class ManyKnive extends Weapon {
 	@Override public boolean isUpgradable() { return true; }
 	@Override public boolean isIdentified() { return true; }
 
+	public int charge() { return charge; }
+	public int fullCharge() { return MAGAZINE; }
+
 	@Override
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);
@@ -63,6 +86,7 @@ public class ManyKnive extends Weapon {
 		actions.remove(AC_DROP);
 		actions.remove(AC_THROW);
 		actions.add(AC_SHOOT);
+		actions.add(AC_RELOAD);
 		return actions;
 	}
 
@@ -70,10 +94,39 @@ public class ManyKnive extends Weapon {
 	public void execute(Hero hero, String action) {
 		if (AC_SHOOT.equals(action)) {
 			curUser = hero;
-			GameScene.selectCell(shooter);
+			//SPSEXPD: 无弹药时不能投掷
+			if (charge <= 0) GLog.i(Messages.get(this, "no_ammo"));
+			else GameScene.selectCell(shooter);
+		} else if (AC_RELOAD.equals(action)) {
+			curUser = hero;
+			reload(hero);
 		} else {
 			super.execute(hero, action);
 		}
+	}
+
+	/** SPSEXPD: 装填——消耗 2 点炼金能量，填充 6 发。 */
+	public void reload(Hero hero) {
+		if (charge >= MAGAZINE) {
+			GLog.n(Messages.get(this, "full"));
+			return;
+		}
+		if (!loadAmmo(hero)) {
+			GLog.n(Messages.get(this, "no_energy"));
+			return;
+		}
+		if (hero.sprite != null) hero.sprite.showStatus(pd.sprites.CharSprite.DEFAULT, Messages.get(this, "reloading"));
+		hero.spendAndNext(RELOAD_TIME);
+	}
+
+	/** SPSEXPD: 扣炼金能量并填满弹药，不排回合（供内部与确定性测试调用）。 */
+	public boolean loadAmmo(Hero hero) {
+		if (charge >= MAGAZINE) return false;
+		if (Dungeon.energy < ENERGY_COST) return false;
+		Dungeon.energy -= ENERGY_COST;
+		charge = MAGAZINE;
+		updateQuickslot();
+		return true;
 	}
 
 	@Override
@@ -103,7 +156,23 @@ public class ManyKnive extends Weapon {
 
 	@Override
 	public String info() {
-		return desc() + "\n\n" + Messages.get(this, "damage", min(), max());
+		return desc() + "\n\n" + Messages.get(this, "damage", min(), max())
+				+ "\n\n" + Messages.get(this, "charge", charge, MAGAZINE);
+	}
+
+	@Override
+	public String status() { return charge + "/" + MAGAZINE; }
+
+	@Override
+	public void storeInBundle(Bundle bundle) {
+		super.storeInBundle(bundle);
+		bundle.put(CHARGE, charge);
+	}
+
+	@Override
+	public void restoreFromBundle(Bundle bundle) {
+		super.restoreFromBundle(bundle);
+		charge = Math.max(0, Math.min(MAGAZINE, bundle.getInt(CHARGE)));
 	}
 
 	public class KniveAmmo extends MissileWeapon {
@@ -131,7 +200,10 @@ public class ManyKnive extends Weapon {
 
 	private final CellSelector.Listener shooter = new CellSelector.Listener() {
 		@Override public void onSelect(Integer target) {
-			if (target != null) new KniveAmmo().cast(curUser, target);
+			if (target == null || charge <= 0) return;
+			charge--;
+			updateQuickslot();
+			new KniveAmmo().cast(curUser, target);
 		}
 		@Override public String prompt() { return Messages.get(ManyKnive.class, "shoot_prompt"); }
 	};

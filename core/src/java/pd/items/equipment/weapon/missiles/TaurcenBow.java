@@ -46,6 +46,10 @@ public class TaurcenBow extends Weapon {
 			.t("prompt", "选择射击目标")
 			.t("desc", "一把结实的复合弓，在马人族中也是上等品。可以随时切换特殊箭头，每积蓄8次命中，下一次命中会附加所选箭头的效果。")
 			.t("damage", "这件武器可以造成 %1$d - %2$d 点伤害。")
+			.t("loaded", "枯枝：%1$d / %2$d。")
+			.t("ac_reload", "装填枯枝")
+			.t("no_twig", "你没有可以装填的枯枝。")
+			.t("full", "枯枝已满。")
 			.t("charge", "充能：%1$d / %2$d。");
 	}
 
@@ -57,14 +61,20 @@ public class TaurcenBow extends Weapon {
 	public static final String AC_ICE = "ICE";
 	public static final String AC_POISON = "POISON";
 	public static final String AC_ELE = "ELE";
+	public static final String AC_RELOAD = "RELOAD";
 	public static final int SPECIAL_THRESHOLD = 8;
+	/** SPSEXPD: 枯枝装填数（弹匣容量 1）。 */
+	public static final int MAGAZINE = 1;
 	private static final String CHARGE = "charge";
 	private static final String ARROW = "arrow";
+	private static final String LOADED = "loaded";
 
 	public enum Arrow { NONE, FIRE, ICE, POISON, ELE }
 
 	private Arrow arrow = Arrow.NONE;
 	private int charge;
+	//SPSEXPD: 装填的枯枝数（0 或 1）；射击一次消耗 1
+	private int loaded;
 
 	{
 		image = EquipmentEquipWeaponUniqueWeaponDict.SPS_TAURCEN_BOW_0;
@@ -94,6 +104,7 @@ public class TaurcenBow extends Weapon {
 		actions.add(AC_ICE);
 		actions.add(AC_POISON);
 		actions.add(AC_ELE);
+		actions.add(AC_RELOAD);
 		return actions;
 	}
 
@@ -101,7 +112,15 @@ public class TaurcenBow extends Weapon {
 	public void execute(Hero hero, String action) {
 		if (AC_SHOOT.equals(action)) {
 			curUser = hero;
+			//SPSEXPD: 没有枯枝时不能射击
+			if (loaded <= 0) {
+				pd.utils.GLog.i(Messages.get(this, "no_twig"));
+				return;
+			}
 			GameScene.selectCell(shooter);
+		} else if (AC_RELOAD.equals(action)) {
+			curUser = hero;
+			reload(hero);
 		} else if (AC_BREAK.equals(action)) setArrow(Arrow.NONE);
 		else if (AC_FIRE.equals(action)) setArrow(Arrow.FIRE);
 		else if (AC_ICE.equals(action)) setArrow(Arrow.ICE);
@@ -162,12 +181,39 @@ public class TaurcenBow extends Weapon {
 		}
 	}
 
+	/** SPSEXPD: 装填——消耗背包一个枯枝，填入 1 发。 */
+	public void reload(Hero hero) {
+		if (loaded >= MAGAZINE) {
+			pd.utils.GLog.n(Messages.get(this, "full"));
+			return;
+		}
+		if (!loadTwig(hero)) {
+			pd.utils.GLog.n(Messages.get(this, "no_twig"));
+			return;
+		}
+		hero.spendAndNext(1f);
+	}
+
+	/** SPSEXPD: 消耗背包一个枯枝并填入 1 发，不排回合（供内部与确定性测试调用）。 */
+	public boolean loadTwig(Hero hero) {
+		if (loaded >= MAGAZINE) return false;
+		pd.items.Item twig = hero.belongings.getItem(pd.items.consum.materials.DryTwig.class);
+		if (twig == null || !hero.belongings.backpack.contains(twig)) return false;
+		if (twig.detach(hero.belongings.backpack) == null) return false;
+		loaded = MAGAZINE;
+		updateQuickslot();
+		return true;
+	}
+
+	public int loaded() { return loaded; }
+
 	public void setArrow(Arrow arrow) { this.arrow = arrow == null ? Arrow.NONE : arrow; updateQuickslot(); }
 	public Arrow arrow() { return arrow; }
 	public int charge() { return charge; }
 	public void gainCharge(int amount) { charge = Math.max(0, charge + amount); updateQuickslot(); }
 	@Override public String status() { return charge + "/" + SPECIAL_THRESHOLD; }
 	@Override public String info() { return desc() + "\n\n" + Messages.get(this, "damage", min(), max())
+			+ "\n\n" + Messages.get(this, "loaded", loaded, MAGAZINE)
 			+ "\n\n" + Messages.get(this, "charge", charge, SPECIAL_THRESHOLD); }
 	@Override public int targetingPos(Hero user, int dst) { return new TaurcenBowArrow().targetingPos(user, dst); }
 
@@ -176,6 +222,7 @@ public class TaurcenBow extends Weapon {
 		super.storeInBundle(bundle);
 		bundle.put(ARROW, arrow);
 		bundle.put(CHARGE, charge);
+		bundle.put(LOADED, loaded);
 	}
 
 	@Override
@@ -184,6 +231,7 @@ public class TaurcenBow extends Weapon {
 		arrow = bundle.getEnum(ARROW, Arrow.class);
 		if (arrow == null) arrow = Arrow.NONE;
 		charge = Math.max(0, bundle.getInt(CHARGE));
+		loaded = bundle.contains(LOADED) ? Math.max(0, Math.min(MAGAZINE, bundle.getInt(LOADED))) : 0;
 	}
 
 	public class TaurcenBowArrow extends MissileWeapon {
@@ -210,7 +258,11 @@ public class TaurcenBow extends Weapon {
 
 	private final CellSelector.Listener shooter = new CellSelector.Listener() {
 		@Override public void onSelect(Integer target) {
-			if (target != null) new TaurcenBowArrow().cast(curUser, target);
+			if (target != null && loaded > 0) {
+				loaded--;
+				updateQuickslot();
+				new TaurcenBowArrow().cast(curUser, target);
+			}
 		}
 		@Override public String prompt() { return Messages.get(TaurcenBow.class, "prompt"); }
 	};

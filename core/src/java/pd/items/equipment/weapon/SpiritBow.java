@@ -66,14 +66,30 @@ public class SpiritBow extends Weapon {
 			.t("ac_shoot", "射击")
 			.t("prompt", "选择一个目标")
 			.t("stats", "这把弓不能直接升级，但是会随着你等级提升而逐渐增强。以你目前的等级，这把弓射出的每支箭可以造成_%1$d~%2$d点伤害_并且需要_%3$d点力量_来正常使用。")
-			.t("desc", "一把由远古灵木制成的弓，弓弦和弓身的刻纹散发着苍蓝色的幽光。拉开弓弦时，一发魔法箭矢会生成在弓身一侧向目标飞去。")
-			.t("discover_hint", "某位英雄初始携带该物品。");
+			.t("desc", "一把由远古灵木制成的弓，弓弦和弓身的刻纹散发着苍蓝色的幽光。拉开弓弦时，一发魔法箭矢会生成在弓身一侧向目标飞去。\n\n每次装填消耗_2 点炼金能量_，充满_6 发_弹药；没有弹药时无法射击。")
+			.t("discover_hint", "某位英雄初始携带该物品。")
+			.t("ac_reload", "装填")
+			.t("no_energy", "炼金能量不足（装填需要 2 点）。")
+			.t("no_ammo", "灵能弓没有弹药了。")
+			.t("full", "弹药已满。")
+			.t("reloading", "装填中……")
+			.t("charge", "弹药：%1$d/%2$d");
 	}
 
 
 
 	
 	public static final String AC_SHOOT		= "SHOOT";
+	public static final String AC_RELOAD	= "RELOAD";
+	/** SPSEXPD: 弹药（发）。 */
+	public static final int MAGAZINE = 6;
+	/** SPSEXPD: 一次装填消耗的炼金能量。 */
+	public static final int ENERGY_COST = 2;
+	/** SPSEXPD: 装填耗时（回合）。 */
+	public static final float RELOAD_TIME = 2f;
+	private static final String CHARGE = "charge";
+	//SPSEXPD: 弹药计数（原为无限箭）
+	private int charge;
 	
 	{
 		image = EquipmentEquipWeaponUniqueWeaponDict.SPIRIT_BOW_0;
@@ -93,6 +109,7 @@ public class SpiritBow extends Weapon {
 		ArrayList<String> actions = super.actions(hero);
 		actions.remove(AC_EQUIP);
 		actions.add(AC_SHOOT);
+		actions.add(AC_RELOAD);
 		return actions;
 	}
 	
@@ -105,9 +122,68 @@ public class SpiritBow extends Weapon {
 			
 			curUser = hero;
 			curItem = this;
+			//SPSEXPD: 无弹药时不能射击
+			if (charge <= 0) {
+				pd.utils.GLog.i(Messages.get(this, "no_ammo"));
+				return;
+			}
 			GameScene.selectCell( shooter );
 			
+		} else if (action.equals(AC_RELOAD)) {
+			curUser = hero;
+			reload(hero);
 		}
+	}
+
+	/** SPSEXPD: 装填——消耗 2 点炼金能量，填充 6 发。 */
+	public void reload(Hero hero) {
+		if (charge >= MAGAZINE) {
+			pd.utils.GLog.n(Messages.get(this, "full"));
+			return;
+		}
+		if (!loadAmmo(hero)) {
+			pd.utils.GLog.n(Messages.get(this, "no_energy"));
+			return;
+		}
+		if (hero.sprite != null) hero.sprite.showStatus(pd.sprites.CharSprite.DEFAULT, Messages.get(this, "reloading"));
+		hero.spendAndNext(RELOAD_TIME);
+	}
+
+	/** SPSEXPD: 扣炼金能量并填满弹药，不排回合（供内部与确定性测试调用）。 */
+	public boolean loadAmmo(Hero hero) {
+		if (charge >= MAGAZINE) return false;
+		if (Dungeon.energy < ENERGY_COST) return false;
+		Dungeon.energy -= ENERGY_COST;
+		charge = MAGAZINE;
+		updateQuickslot();
+		return true;
+	}
+
+	/** SPSEXPD: 每射出一箭消耗 1 发弹药（无限弹药袋生效时免消耗）。 */
+	public boolean consumeCharge() {
+		if (pd.actors.buffs.EndlessAmmo.isActive(Dungeon.hero)) return true;
+		if (charge <= 0) return false;
+		charge--;
+		updateQuickslot();
+		return true;
+	}
+
+	public int charge() { return charge; }
+	public int fullCharge() { return MAGAZINE; }
+
+	@Override
+	public String status() { return charge + "/" + MAGAZINE; }
+
+	@Override
+	public void storeInBundle(render.utils.serialize.Bundle bundle) {
+		super.storeInBundle(bundle);
+		bundle.put(CHARGE, charge);
+	}
+
+	@Override
+	public void restoreFromBundle(render.utils.serialize.Bundle bundle) {
+		super.restoreFromBundle(bundle);
+		charge = Math.max(0, Math.min(MAGAZINE, bundle.getInt(CHARGE)));
 	}
 
 	private static Class[] harmfulPlants = new Class[]{
@@ -407,6 +483,8 @@ public class SpiritBow extends Weapon {
 
 		@Override
 		public void cast(final Hero user, final int dst) {
+			//SPSEXPD: 射击消耗 1 发弹药（灵能弓改为消耗炼金能量装填）
+			if (!SpiritBow.this.consumeCharge()) return;
 			final int cell = throwPos( user, dst );
 			SpiritBow.this.targetPos = cell;
 			if (sniperSpecial && SpiritBow.this.augment == Augment.SPEED){
