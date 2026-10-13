@@ -74,7 +74,6 @@ public class WndHeroInfo extends WndTabbed {
 			.t("perks_group_food", "食品")
 			.t("perks_group_potion", "药水")
 			.t("perks_group_scroll", "卷轴")
-			.t("perks_group_wand", "法杖")
 			.t("perks_group_missile", "投掷与弹药")
 			.t("perks_group_bomb", "炸弹")
 			.t("perks_group_other", "其它")

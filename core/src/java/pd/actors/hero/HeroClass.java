@@ -1851,8 +1851,7 @@ public enum HeroClass {
 	public enum ItemGroup {
 		EQUIP,    // 装备套装（武器 / 护甲 / 副手 / 饰品）
 		BAG,      // 包裹袋
-		SPECIAL,  // 特殊装备（破损纹章、刻印笔… 不属于上面任何一类的本体物品）
-		WAND,     // 法杖
+		SPECIAL,  // 特殊装备（神器、法杖、灵能弓、回旋镖、纹章… 不属于上面任何一类的本体物品）
 		FOOD,     // 食品
 		POTION,   // 药水
 		SCROLL,   // 卷轴
@@ -1869,7 +1868,7 @@ public enum HeroClass {
 		if (item instanceof pd.items.consum.food.Food) return ItemGroup.FOOD;
 		if (item instanceof pd.items.consum.potions.Potion) return ItemGroup.POTION;
 		if (item instanceof pd.items.consum.scrolls.Scroll) return ItemGroup.SCROLL;
-		if (item instanceof pd.items.equipment.wands.Wand) return ItemGroup.WAND;
+		//SPSEXPD: 法杖并入「特殊装备」，不再单独成组
 		if (item instanceof pd.items.equipment.bombs.Bomb) return ItemGroup.BOMB;
 		if (item instanceof pd.items.equipment.weapon.missiles.MissileWeapon) return ItemGroup.MISSILE;
 		//SPSEXPD: 神器、灵能弓、回旋镖、经卷耳环视为「特殊装备」（排在装备套装判定之前）
