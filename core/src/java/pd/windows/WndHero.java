@@ -244,10 +244,11 @@ public class WndHero extends WndTabbed {
 
 			IconTitle title = new IconTitle();
 			title.icon( HeroSprite.avatar(hero) );
-			if (hero.name().equals(hero.className()))
-				title.label( Messages.get(this, "title", hero.lvl, hero.className() ).toUpperCase( Locale.ENGLISH ) );
-			else
-				title.label((hero.name() + "\n" + Messages.get(this, "title", hero.lvl, hero.className())).toUpperCase(Locale.ENGLISH));
+			//SPSEXPD: 自定义名以「职业·名字」附在职业名后（单行，不另起一行）
+			String heroTitle = hero.className();
+			if (!hero.name().equals(hero.className()))
+				heroTitle = heroTitle + "·" + hero.name();
+			title.label( Messages.get(this, "title", hero.lvl, heroTitle ).toUpperCase( Locale.ENGLISH ) );
 			title.color(Window.TITLE_COLOR);
 			title.setRect( 0, 0, WIDTH-16, 0 );
 			content.add(title);
