@@ -61,6 +61,7 @@ public class GunWeapon extends SpsRangedWeapon {
 	public static final String AC_RELOAD = "RELOAD";
 
 	private static final String CHARGE = "charge";
+	private static final String PENDING = "pendingReload";
 
 	/** SPSEXPD: 枪械不适用（近战专属）的附魔，随机附魔时排除。 */
 	public static final Class<?>[] INCOMPATIBLE_ENCHANTS = new Class<?>[]{
@@ -91,6 +92,11 @@ public class GunWeapon extends SpsRangedWeapon {
 	protected int effectiveRange;
 
 	protected int charge;
+	/**
+	 * SPSEXPD: 正在等待装填完成——装填期间 charge 归 0（弹药已交出去装填），
+	 * 等装填时间走完（Reloading 结束）才由 finishReload() 补满，因此装填期间无法提前射击。
+	 */
+	protected boolean pendingReload;
 
 	/** 装填耗时（回合）。 */
 	protected float baseReloadTime;
@@ -247,20 +253,39 @@ public class GunWeapon extends SpsRangedWeapon {
 	}
 
 	private void reload(Hero hero, boolean automatic) {
-		if (charge >= fullCharge) {
+		if (charge >= fullCharge && !pendingReload) {
 			GLog.n(Messages.get(GunWeapon.class, "full"));
 			return;
 		}
-		if (!reloadMagazine(hero)) {
+		if (!consumeReload(hero)) {
 			GLog.n(Messages.get(GunWeapon.class, reloadHintKey()));
 			return;
 		}
+		//SPSEXPD: 弹匣先空着——弹药已交出去装填，等装填时间走完（Reloading 结束）才补满，
+		//所以装填期间无法提前射击
+		charge = 0;
+		pendingReload = true;
+		updateQuickslot();
 		float time = reloadTime(hero, automatic);
 		if (hero.sprite != null) hero.sprite.showStatus(CharSprite.DEFAULT, Messages.get(GunWeapon.class, "reloading"));
-		//SPSEXPD: 装填状态 buff（提高装填的可视度）
+		//SPSEXPD: 装填状态 buff（提高装填的可视度，并在结束时用它判断装填是否还进行中）
 		pd.actors.buffs.Buff.affect(hero, pd.actors.buffs.Reloading.class, Math.max(1f, time));
 		hero.spendAndNext(Math.max(0.1f, time));
 	}
+
+	/**
+	 * SPSEXPD: 装填完成——由 Hero.onTurnCharge 在「不再有 Reloading」时调用，把弹匣补满。
+	 * 不是在装填开始时填满，所以装填期间这把枪是打不出去的。
+	 */
+	public void finishReload() {
+		if (!pendingReload) return;
+		pendingReload = false;
+		charge = fullCharge;
+		updateQuickslot();
+	}
+
+	/** SPSEXPD: 是否正在等待装填完成。 */
+	public boolean isPendingReload() { return pendingReload; }
 
 	/**
 	 * SPSEXPD: 装填一次把弹匣填满，不排回合（供确定性测试调用）。
@@ -390,6 +415,9 @@ public class GunWeapon extends SpsRangedWeapon {
 
 	protected boolean addsEnergyDamage() { return true; }
 
+	/** SPSEXPD: 枪械伤害中折算为法术伤害（ENERGY_DAMAGE）的比例——拆分自总伤害，不额外追加。 */
+	protected static final float ENERGY_DAMAGE_RATIO = 0.5f;
+
 	/** SPSEXPD: 弹匣内是否还有弹药（无弹药时装备枪械改走徒手攻击）。 */
 	public boolean hasAmmo() { return charge > 0; }
 
@@ -504,8 +532,12 @@ public class GunWeapon extends SpsRangedWeapon {
 			if (defender != null && defender.isAlive()) {
 				GunWeapon.this.onBulletHit(attacker, defender, damage);
 			}
-			if (addsEnergyDamage()) {
-				defender.damage(gunDamageRoll(attacker) / 2, DamageType.ENERGY_DAMAGE);
+			//SPSEXPD: 枪械伤害的一部分以法术伤害结算（原作者设定）——是「拆分」而不是额外追加一段，
+			//一次击发的总伤害不变，只是其中一部分无视常规物理防护
+			if (addsEnergyDamage() && damage > 1 && defender != null && defender.isAlive()) {
+				int magic = Math.min(damage - 1, Math.max(1, Math.round(damage * ENERGY_DAMAGE_RATIO)));
+				defender.damage(magic, DamageType.ENERGY_DAMAGE);
+				damage -= magic;
 			}
 			//SPSEXPD: 转发给枪本体，使枪上的附魔（穿甲/弹射等）生效
 			return GunWeapon.this.proc(attacker, defender, damage);
@@ -521,11 +553,13 @@ public class GunWeapon extends SpsRangedWeapon {
 	public void storeInBundle(Bundle bundle) {
 		super.storeInBundle(bundle);
 		bundle.put(CHARGE, charge);
+		bundle.put(PENDING, pendingReload);
 	}
 
 	@Override
 	public void restoreFromBundle(Bundle bundle) {
 		super.restoreFromBundle(bundle);
 		charge = Math.max(0, Math.min(fullCharge, bundle.getInt(CHARGE)));
+		pendingReload = bundle.getBoolean(PENDING);
 	}
 }

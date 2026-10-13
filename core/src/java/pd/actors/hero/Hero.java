@@ -1228,6 +1228,14 @@ public class Hero extends Char {
 		if (shovel != null) shovel.gainCharge();
 		boolean reloading = buff(pd.actors.buffs.Reloading.class) != null;
 		GunOfSoldier soldierGun = belongings.getItem(GunOfSoldier.class);
+		//SPSEXPD: 装填时间走完之后才把弹匣补满——装填期间 charge 为 0，所以打不出去（阻止提前射击）
+		if (!reloading) {
+			if (soldierGun != null) soldierGun.finishReload();
+			if (belongings.weapon() instanceof pd.items.equipment.weapon.guns.GunWeapon)
+				((pd.items.equipment.weapon.guns.GunWeapon) belongings.weapon()).finishReload();
+			if (belongings.secondWep() instanceof pd.items.equipment.weapon.guns.GunWeapon)
+				((pd.items.equipment.weapon.guns.GunWeapon) belongings.secondWep()).finishReload();
+		}
 		//SPSEXPD: 装填过程中不补充充能——要等装填转好了才补充（否则装填形同虚设）
 		if (soldierGun != null && !reloading) soldierGun.gainCharge();
 		//SPSEXPD: 充能型枪械（如电磁手枪）的每回合自然回充

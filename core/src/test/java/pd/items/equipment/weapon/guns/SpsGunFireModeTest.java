@@ -19,6 +19,7 @@ public final class SpsGunFireModeTest {
 			testArchetypes();
 			testMagazineAndShots();
 			testReloadModes();
+			testReloadWaitsForTime();
 			testHitChance();
 			testRecoilBuffer();
 			testEnchantWhitelist();
@@ -63,6 +64,34 @@ public final class SpsGunFireModeTest {
 		//SPSEXPD: 物品图标的力量角标显示完美力量（零后坐缓冲所需力量）
 		check(new GunA().perfectSTR() == 12 && new GunB().perfectSTR() == 16 && new GunD().perfectSTR() == 20,
 				"枪械完美力量（力量角标显示值）错误");
+	}
+
+	/**
+	 * SPSEXPD: 装填要等装填时间结束才补满——装填期间弹匣为空（阻止提前射击），
+	 * 装填时间走完（Reloading 结束）后才由 finishReload() 补满。
+	 */
+	private static void testReloadWaitsForTime() {
+		Hero hero = new Hero();
+		pd.Dungeon.hero = hero;
+		GunA gun = new GunA();
+		hero.belongings.weapon = gun;
+
+		//装填开始：弹药交出去装填，弹匣归 0 并进入「等待装填」
+		gun.charge(0);
+		gun.pendingReload = true;
+		check(gun.isPendingReload(), "装填开始后没有进入等待装填状态");
+		check(!gun.hasAmmo(), "装填期间枪械仍然可以射击");
+
+		//装填时间走完才补满
+		gun.finishReload();
+		check(!gun.isPendingReload(), "装填完成后仍处于等待装填状态");
+		check(gun.charge() == gun.fullCharge(), "装填完成后弹匣没有补满");
+		check(gun.hasAmmo(), "装填完成后枪械仍然无法射击");
+
+		//没有在等待装填时 finishReload 不应改动弹匣
+		gun.charge(1);
+		gun.finishReload();
+		check(gun.charge() == 1, "未在装填时 finishReload 意外改动了弹匣");
 	}
 
 	/** 装填：一个通用弹匣装满任意容量。 */

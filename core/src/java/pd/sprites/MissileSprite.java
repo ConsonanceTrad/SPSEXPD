@@ -172,6 +172,9 @@ public class MissileSprite extends ItemSprite implements Tweener.Listener {
 				|| item instanceof ScorpioSprite.ScorpioShot
 				|| item instanceof TenguSprite.TenguShuriken){
 			speed *= 1.5f;
+		} else if (item instanceof pd.items.equipment.weapon.guns.GunWeapon.GunAmmo){
+			//SPSEXPD: 枪弹的射击动画速度提高一倍
+			speed *= 2f;
 		}
 		
 		PosTweener tweener = new PosTweener( this, to, d.length() / speed );
