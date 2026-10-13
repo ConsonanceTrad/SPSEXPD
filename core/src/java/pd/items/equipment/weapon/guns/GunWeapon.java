@@ -15,6 +15,7 @@ import pd.items.Item;
 import pd.items.KindOfWeapon;
 import pd.items.Magazine;
 import pd.items.equipment.rings.RingOfSharpshooting;
+import pd.items.equipment.weapon.SpsAutoFire;
 import pd.items.equipment.weapon.SpsRangedWeapon;
 import pd.items.equipment.weapon.Weapon;
 import pd.items.equipment.weapon.enchantments.Puncturing;
@@ -33,7 +34,7 @@ import pd.messages.InlineText;
 import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 
 /** SPS-PD's magazine-fed firearm base. */
-public class GunWeapon extends SpsRangedWeapon {
+public class GunWeapon extends SpsRangedWeapon implements SpsAutoFire {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(GunWeapon.class)
@@ -223,43 +224,30 @@ public class GunWeapon extends SpsRangedWeapon {
 	protected boolean usesDefaultBallistic() { return true; }
 
 	/**
-	 * SPSEXPD: 点击敌人时的枪械自动射击（枪械不再有近战功能，装备枪械后一律转为射击）。
-	 * 优先使用「已装备且有弹药」的枪械：先主手，再副手（主副都是枪械时优先主手）；
-	 * 两把都没有弹药时不接管，回落为徒手攻击。返回 true 表示已用枪械开火。
+	 * SPSEXPD: 点击敌人时的自动开火（SpsAutoFire）。装备中且有弹药 → fire；正在装填 → 原地等待一回合并接管；
+	 * 无弹药 → 不接管（交由调度层决定装填/近战）。主副手选择由 {@code SpsAutoFire.tryAutoFire} 完成。
 	 */
-	public static boolean autoAttack(Hero hero, Char enemy) {
-		if (hero == null || enemy == null || Dungeon.level == null) return false;
-		if (!hero.ready) return false;
-
-		GunWeapon gun = readyGun(hero, hero.belongings.weapon());
-		if (gun == null) gun = readyGun(hero, hero.belongings.secondWep());
-		if (gun == null) {
+	@Override
+	public boolean autoFire(Hero hero, Char enemy) {
+		if (hero == null || enemy == null) return false;
+		if (!isEquipped(hero)) return false;
+		if (pendingReload) {
 			//SPSEXPD: 手里的枪正在装填 → 原地等待一回合，并接管本次点击（不回落成徒手攻击）
-			GunWeapon reloading = pendingGun(hero.belongings.weapon());
-			if (reloading == null) reloading = pendingGun(hero.belongings.secondWep());
-			if (reloading != null) {
-				reloading.waitForReload(hero);
-				return true;
-			}
-			return false;
+			waitForReload(hero);
+			return true;
 		}
-
+		if (charge <= 0) return false;
 		curUser = hero;
-		gun.fire(hero, enemy.pos);
+		fire(hero, enemy.pos);
 		return true;
 	}
 
-	/** SPSEXPD: 该武器是否是「正在装填中」的枪械；是则返回它，否则返回 null。 */
-	private static GunWeapon pendingGun(KindOfWeapon weapon) {
-		return weapon instanceof GunWeapon && ((GunWeapon) weapon).isPendingReload() ? (GunWeapon) weapon : null;
-	}
+	//SPSEXPD: 枪械有「装填」动作——近战范围外且无弹药时回落为装填。
+	@Override public boolean canReloadAction() { return true; }
 
-	private static GunWeapon readyGun(Hero hero, KindOfWeapon weapon) {
-		if (!(weapon instanceof GunWeapon)) return null;
-		GunWeapon gun = (GunWeapon)weapon;
-		if (!gun.isEquipped(hero)) return null;
-		if (gun.charge() <= 0) return null;
-		return gun;
+	@Override public boolean reloadOnEmpty(Hero hero) {
+		reload(hero, false);
+		return true;
 	}
 
 	private void reload(Hero hero, boolean automatic) {

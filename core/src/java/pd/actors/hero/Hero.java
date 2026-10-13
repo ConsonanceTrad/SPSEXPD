@@ -2619,10 +2619,9 @@ public class Hero extends Char {
 
 			if (((Mob) ch).heroShouldInteract()) {
 				curAction = new HeroAction.Interact( ch );
-			} else if (pd.items.equipment.weapon.guns.GunWeapon.autoAttack(this, ch)
-					|| pd.items.equipment.weapon.SpiritBow.autoAttack(this, ch)) {
-				//SPSEXPD: 点击敌人优先用有弹药的枪械/灵能弓直接射击
-				//（射击内部已自行调度回合，这里不再交给外层的 next()）
+			} else if (pd.items.equipment.weapon.SpsAutoFire.tryAutoFire(this, ch)) {
+				//SPSEXPD: 点击敌人优先用有弹药的枪械/远程武器自动开火；近战范围外且都无弹药则触发装填
+				//（射击/装填内部已自行调度回合，这里不再交给外层的 next()）
 				return false;
 			} else {
 				curAction = new HeroAction.Attack( ch );

@@ -58,7 +58,7 @@ import render.utils.serialize.Reflection;
 import java.util.ArrayList;
 import pd.messages.InlineText;
 
-public class SpiritBow extends Weapon {
+public class SpiritBow extends Weapon implements SpsAutoFire {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(SpiritBow.class)
@@ -143,23 +143,27 @@ public class SpiritBow extends Weapon {
 		}
 	}
 
-	/** SPSEXPD: 点击敌人时灵能弓自动射箭（枪械模型）；优先主手，其次副手。返回 true 表示已接管本次点击。 */
-	public static boolean autoAttack(Hero hero, Char enemy) {
-		if (hero == null || enemy == null || Dungeon.level == null) return false;
-		if (!hero.ready) return false;
-		SpiritBow bow = equippedBow(hero);
-		if (bow == null || bow.charge <= 0) return false;
-		bow.curUser = hero;
-		bow.curItem = bow;
-		bow.knockArrow().cast(hero, enemy.pos);
+	/**
+	 * SPSEXPD: 点击敌人时灵能弓自动射箭（SpsAutoFire）。装填中 / 无弹药 → 不接管（交由调度层决定装填/近战）。
+	 * 主副手选择由 {@code SpsAutoFire.tryAutoFire} 完成。
+	 */
+	@Override
+	public boolean autoFire(Hero hero, Char enemy) {
+		if (hero == null || enemy == null) return false;
+		if (!isEquipped(hero)) return false;
+		if (pendingReload || charge <= 0) return false;
+		curUser = hero;
+		curItem = this;
+		knockArrow().cast(hero, enemy.pos);
 		return true;
 	}
 
-	private static SpiritBow equippedBow(Hero hero) {
-		if (hero.belongings == null) return null;
-		if (hero.belongings.weapon() instanceof SpiritBow) return (SpiritBow) hero.belongings.weapon();
-		if (hero.belongings.secondWep() instanceof SpiritBow) return (SpiritBow) hero.belongings.secondWep();
-		return null;
+	//SPSEXPD: 灵能弓有「装填」动作——近战范围外且无弹药时回落为装填。
+	@Override public boolean canReloadAction() { return true; }
+
+	@Override public boolean reloadOnEmpty(Hero hero) {
+		reload(hero);
+		return true;
 	}
 
 	/** SPSEXPD: 装填——消耗 2 点炼金能量，装填耗时结束才填满 6 发（装填期间打不出去）。 */

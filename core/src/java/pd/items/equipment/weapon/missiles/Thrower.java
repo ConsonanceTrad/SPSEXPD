@@ -11,6 +11,7 @@ import pd.actors.hero.Hero;
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.items.Item;
 import pd.items.equipment.bags.Bag;
+import pd.items.equipment.weapon.SpsAutoFire;
 import pd.items.equipment.weapon.Weapon;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
@@ -29,7 +30,7 @@ import pd.messages.InlineText;
  * <p>内部可以装填一件投掷武器：装填后射程不再受限制，攻击超出本体射程的目标时改为射出内部的
  * 投掷武器（以其伤害与附魔结算，并消耗一件）。没有装填时它只能当短程武器使用。</p>
  */
-public class Thrower extends Weapon {
+public class Thrower extends Weapon implements SpsAutoFire {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Thrower.class)
@@ -172,36 +173,8 @@ public class Thrower extends Weapon {
 	private final CellSelector.Listener shooter = new CellSelector.Listener() {
 		@Override
 		public void onSelect(Integer target) {
-			if (target == null || curUser == null || Dungeon.level == null) return;
-			Hero hero = curUser;
-			if (!Dungeon.level.insideMap(target)) return;
-
-			int distance = Dungeon.level.distance(hero.pos, target);
-			boolean beyondReach = distance > BASE_RANGE;
-			if (beyondReach && loaded == null) {
-				GLog.i(Messages.get(Thrower.this, "out_of_range", BASE_RANGE));
-				return;
-			}
-
-			Char enemy = Actor.findChar(target);
-			if (enemy == null || enemy == hero) {
-				GLog.i(Messages.get(Thrower.this, "no_target"));
-				return;
-			}
-
-			//SPSEXPD: 超出本体射程时射出内仓的投掷武器，并用它自己的伤害与附魔结算
-			MissileWeapon ammo = beyondReach ? loaded : null;
-			int damage = ammo != null ? ammo.damageRoll(hero) : damageRoll(hero);
-			damage = ammo != null ? ammo.proc(hero, enemy, damage) : proc(hero, enemy, damage);
-			Object source = ammo != null ? ammo : this;
-			enemy.damage(damage, source);
-			if (ammo != null) {
-				consumeAmmo();
-				if (!isLoaded()) GLog.i(Messages.get(Thrower.this, "empty"));
-			}
-
-			if (hero.sprite != null) hero.sprite.zap(target);
-			hero.spendAndNext(1f);
+			if (target == null || curUser == null) return;
+			fireAt(curUser, target);
 		}
 
 		@Override
@@ -209,6 +182,63 @@ public class Thrower extends Weapon {
 			return Messages.get(Thrower.this, "shoot_prompt");
 		}
 	};
+
+	/** SPSEXPD: 朝目标结算一次投射（手动射击与「点击敌人自动开火」共用）。返回 true 表示已出手。 */
+	public boolean fireAt(Hero hero, int target) {
+		if (hero == null || Dungeon.level == null || !Dungeon.level.insideMap(target)) return false;
+
+		int distance = Dungeon.level.distance(hero.pos, target);
+		boolean beyondReach = distance > BASE_RANGE;
+		if (beyondReach && loaded == null) {
+			GLog.i(Messages.get(Thrower.this, "out_of_range", BASE_RANGE));
+			return false;
+		}
+
+		Char enemy = Actor.findChar(target);
+		if (enemy == null || enemy == hero) {
+			GLog.i(Messages.get(Thrower.this, "no_target"));
+			return false;
+		}
+
+		//SPSEXPD: 超出本体射程时射出内仓的投掷武器，并用它自己的伤害与附魔结算
+		MissileWeapon ammo = beyondReach ? loaded : null;
+		int damage = ammo != null ? ammo.damageRoll(hero) : damageRoll(hero);
+		damage = ammo != null ? ammo.proc(hero, enemy, damage) : proc(hero, enemy, damage);
+		Object source = ammo != null ? ammo : this;
+		enemy.damage(damage, source);
+		if (ammo != null) {
+			consumeAmmo();
+			if (!isLoaded()) GLog.i(Messages.get(Thrower.this, "empty"));
+		}
+
+		if (hero.sprite != null) hero.sprite.zap(target);
+		hero.spendAndNext(1f);
+		return true;
+	}
+
+	/**
+	 * SPSEXPD: 点击敌人时自动投射（SpsAutoFire）。射程内用本体结算；超程则用内仓投掷物（无内仓时不接管）。
+	 */
+	@Override
+	public boolean autoFire(Hero hero, Char enemy) {
+		if (hero == null || enemy == null) return false;
+		if (!isEquipped(hero)) return false;
+		curUser = hero;
+		return fireAt(hero, enemy.pos);
+	}
+
+	//SPSEXPD: 有「装填」动作——近战范围外且无法投射时回落为装填（打开背包选投掷物）。
+	@Override public boolean canReloadAction() { return true; }
+
+	@Override public boolean reloadOnEmpty(Hero hero) {
+		if (loaded != null) {
+			GLog.i(Messages.get(this, "already_loaded"));
+			return true;
+		}
+		curUser = hero;
+		GameScene.selectItem(ammoSelector);
+		return true;
+	}
 
 	@Override
 	public String info() {

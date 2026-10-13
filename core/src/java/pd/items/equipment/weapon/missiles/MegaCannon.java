@@ -12,6 +12,7 @@ import pd.actors.hero.Hero;
 import pd.effects.Splash;
 import pd.items.Item;
 import pd.items.equipment.rings.RingOfSharpshooting;
+import pd.items.equipment.weapon.SpsAutoFire;
 import pd.items.equipment.weapon.SpsRangedWeapon;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 import pd.messages.InlineText;
 import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 
-public class MegaCannon extends SpsRangedWeapon {
+public class MegaCannon extends SpsRangedWeapon implements SpsAutoFire {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(MegaCannon.class)
@@ -86,6 +87,20 @@ public class MegaCannon extends SpsRangedWeapon {
 		if (bonus > 0 && Random.Int(10) < 3) damage = (int)(damage * (1.5f + 0.25f * bonus));
 		return Math.max(0, damage * Math.max(0, power));
 	}
+	/**
+	 * SPSEXPD: 点击敌人时自动射击（SpsAutoFire）。有能量 → 射出并清空充能；无能量 → 不接管
+	 * （手炮没有装填动作，近战范围外会回落为近战）。主副手选择由 {@code SpsAutoFire.tryAutoFire} 完成。
+	 */
+	@Override
+	public boolean autoFire(Hero hero, Char enemy) {
+		if (hero == null || enemy == null) return false;
+		if (!isEquipped(hero)) return false;
+		if (charge <= 0) return false;
+		curUser = hero;
+		ammo().cast(hero, enemy.pos);   // MegaAmmo.cast 内部清空充能
+		return true;
+	}
+
 	public MegaAmmo ammo() { return new MegaAmmo(charge); }
 	@Override public String status() { return Integer.toString(charge); }
 	@Override public String info() { return desc() + "\n\n" + Messages.get(this, "damage", min(), max()); }

@@ -14,6 +14,7 @@ import pd.actors.hero.Hero;
 import pd.effects.Splash;
 import pd.items.Item;
 import pd.items.equipment.wands.WandOfBlastWave;
+import pd.items.equipment.weapon.SpsAutoFire;
 import pd.items.equipment.weapon.SpsRangedWeapon;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
@@ -29,7 +30,7 @@ import java.util.ArrayList;
 import pd.messages.InlineText;
 import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 
-public class ShootGun extends SpsRangedWeapon {
+public class ShootGun extends SpsRangedWeapon implements SpsAutoFire {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(ShootGun.class)
@@ -96,6 +97,28 @@ public class ShootGun extends SpsRangedWeapon {
 		} else if (AC_RELOAD.equals(action)) {
 			if (!reload(hero)) GLog.n(Messages.get(this, "full"));
 		} else super.execute(hero, action);
+	}
+
+	/**
+	 * SPSEXPD: 点击敌人时自动射击（SpsAutoFire）。有弹药 → 消耗一发并开火；无弹药 → 不接管
+	 * （近战范围外时由调度层回落为装填）。主副手选择由 {@code SpsAutoFire.tryAutoFire} 完成。
+	 */
+	@Override
+	public boolean autoFire(Hero hero, Char enemy) {
+		if (hero == null || enemy == null) return false;
+		if (!isEquipped(hero)) return false;
+		if (charge <= 0) return false;
+		curUser = hero;
+		ammo().cast(hero, enemy.pos);   // ShootAmmo.cast 内部扣 1 发
+		return true;
+	}
+
+	//SPSEXPD: 有「装填」动作——近战范围外且无弹药时回落为装填。
+	@Override public boolean canReloadAction() { return true; }
+
+	@Override public boolean reloadOnEmpty(Hero hero) {
+		reload(hero);
+		return true;
 	}
 
 	public boolean reload(Hero hero) {

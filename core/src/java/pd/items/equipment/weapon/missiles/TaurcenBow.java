@@ -23,6 +23,7 @@ import pd.effects.Speck;
 import pd.effects.Splash;
 import pd.items.Item;
 import pd.items.equipment.rings.RingOfSharpshooting;
+import pd.items.equipment.weapon.SpsAutoFire;
 import pd.items.equipment.weapon.Weapon;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
@@ -33,7 +34,7 @@ import render.utils.serialize.Bundle;
 import java.util.ArrayList;
 import pd.messages.InlineText;
 
-public class TaurcenBow extends Weapon {
+public class TaurcenBow extends Weapon implements SpsAutoFire {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(TaurcenBow.class)
@@ -180,6 +181,30 @@ public class TaurcenBow extends Weapon {
 				defender.damage(damage / 3, this);
 				break;
 		}
+	}
+
+	/**
+	 * SPSEXPD: 点击敌人时自动射箭（SpsAutoFire）。有枯枝 → 消耗 1 发并射击；无弹药 → 不接管
+	 * （近战范围外时由调度层回落为装填）。主副手选择由 {@code SpsAutoFire.tryAutoFire} 完成。
+	 */
+	@Override
+	public boolean autoFire(Hero hero, Char enemy) {
+		if (hero == null || enemy == null) return false;
+		if (!isEquipped(hero)) return false;
+		if (loaded <= 0) return false;
+		curUser = hero;
+		loaded--;
+		updateQuickslot();
+		new TaurcenBowArrow().cast(hero, enemy.pos);
+		return true;
+	}
+
+	//SPSEXPD: 有「装填」动作——近战范围外且无弹药时回落为装填。
+	@Override public boolean canReloadAction() { return true; }
+
+	@Override public boolean reloadOnEmpty(Hero hero) {
+		reload(hero);
+		return true;
 	}
 
 	/** SPSEXPD: 装填——消耗背包一个枯枝，填入 1 发。 */

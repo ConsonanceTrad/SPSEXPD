@@ -13,6 +13,7 @@ import pd.actors.hero.Hero;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.equipment.rings.RingOfSharpshooting;
+import pd.items.equipment.weapon.SpsAutoFire;
 import pd.items.equipment.weapon.Weapon;
 import pd.items.equipment.weapon.melee.start.DemonBlade;
 import pd.messages.Messages;
@@ -25,7 +26,7 @@ import render.utils.serialize.Bundle;
 import java.util.ArrayList;
 import pd.messages.InlineText;
 
-public class ElfBow extends Weapon {
+public class ElfBow extends Weapon implements SpsAutoFire {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(ElfBow.class)
@@ -112,6 +113,19 @@ public class ElfBow extends Weapon {
 		if (bonus > 0 && Random.Int(10) < 3) damage = (int)(damage * (1.5f + 0.25f * bonus));
 		if (hero != null) damage = (int)(damage * (1f + 0.1f * hero.magicSkill()));
 		return Math.max(0, damage);
+	}
+
+	/**
+	 * SPSEXPD: 点击敌人时自动射击（SpsAutoFire）。暗夜短弓没有弹药消耗，装备即可开火。
+	 * 主副手选择由 {@code SpsAutoFire.tryAutoFire} 完成。
+	 */
+	@Override
+	public boolean autoFire(Hero hero, Char enemy) {
+		if (hero == null || enemy == null) return false;
+		if (!isEquipped(hero)) return false;
+		curUser = hero;
+		ammo().cast(hero, enemy.pos);
+		return true;
 	}
 
 	public ElfBowAmmo ammo() { return new ElfBowAmmo(); }

@@ -14,6 +14,7 @@ import pd.effects.Speck;
 import pd.effects.Splash;
 import pd.items.Heap;
 import pd.items.equipment.rings.RingOfSharpshooting;
+import pd.items.equipment.weapon.SpsAutoFire;
 import pd.items.equipment.weapon.Weapon;
 import pd.items.equipment.weapon.missiles.throwing.EscapeKnive;
 import pd.messages.Messages;
@@ -27,7 +28,7 @@ import java.util.ArrayList;
 import pd.messages.InlineText;
 
 /** Izayoi's reusable knife set from SPS-PD. */
-public class ManyKnive extends Weapon {
+public class ManyKnive extends Weapon implements SpsAutoFire {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(ManyKnive.class)
@@ -119,6 +120,30 @@ public class ManyKnive extends Weapon {
 		//SPSEXPD: 装填状态 buff（提高装填的可视度）
 		pd.actors.buffs.Buff.affect(hero, pd.actors.buffs.Reloading.class, RELOAD_TIME);
 		hero.spendAndNext(RELOAD_TIME);
+	}
+
+	/**
+	 * SPSEXPD: 点击敌人时自动投出千支刀（SpsAutoFire）。有弹药 → 消耗一发并投掷；无弹药 → 不接管
+	 * （近战范围外时由调度层回落为装填）。主副手选择由 {@code SpsAutoFire.tryAutoFire} 完成。
+	 */
+	@Override
+	public boolean autoFire(Hero hero, Char enemy) {
+		if (hero == null || enemy == null) return false;
+		if (!isEquipped(hero)) return false;
+		if (charge <= 0) return false;
+		curUser = hero;
+		charge--;
+		updateQuickslot();
+		new KniveAmmo().cast(hero, enemy.pos);
+		return true;
+	}
+
+	//SPSEXPD: 有「装填」动作——近战范围外且无弹药时回落为装填。
+	@Override public boolean canReloadAction() { return true; }
+
+	@Override public boolean reloadOnEmpty(Hero hero) {
+		reload(hero);
+		return true;
 	}
 
 	/** SPSEXPD: 扣炼金能量并填满弹药，不排回合（供内部与确定性测试调用）。 */
