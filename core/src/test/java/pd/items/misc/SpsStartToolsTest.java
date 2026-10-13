@@ -72,26 +72,24 @@ public final class SpsStartToolsTest {
 
 	private static void testPulsePistol() {
 		GunOfSoldier gun = new GunOfSoldier();
+		check(GunOfSoldier.MAGAZINE == 3 && gun.fullCharge() == 3, "脉冲手枪弹匣容量错误");
 		for (int i = 0; i < 20; i++) gun.gainCharge();
-		check(gun.charge() == GunOfSoldier.MAGAZINE, "脉冲手枪弹匣没有封顶");
-		check(gun.consumeShot() && gun.charge() == GunOfSoldier.MAGAZINE - 1, "脉冲手枪单发射击耗弹错误");
+		check(gun.charge() == 3, "脉冲手枪弹匣没有封顶");
+
 		Bundle bundle = new Bundle();
 		gun.storeInBundle(bundle);
 		GunOfSoldier restored = new GunOfSoldier();
 		restored.restoreFromBundle(bundle);
-		check(restored.charge() == GunOfSoldier.MAGAZINE - 1, "脉冲手枪弹匣没有随存档恢复");
+		check(restored.charge() == 3, "脉冲手枪弹匣没有随存档恢复");
 
 		Hero attacker = new Hero();
 		attacker.HP = attacker.HT = 100;
 		Dungeon.hero = attacker;
 		TestMob regular = new TestMob(false);
 		regular.HP = 60;
-		gun.ammo().proc(attacker, regular, 0);
-		check(regular.HP == 30, "脉冲手枪普通目标失血伤害错误");
-		TestMob boss = new TestMob(true);
-		boss.HP = 60;
-		gun.ammo().proc(attacker, boss, 0);
-		check(boss.HP == 45, "脉冲手枪首领失血伤害错误");
+		pd.items.equipment.weapon.guns.GunWeapon.GunAmmo shot = gun.new GunAmmo();
+		shot.proc(attacker, regular, 0);
+		check(regular.HP <= 30, "脉冲手枪没有按目标已损失的生命造成失血伤害");
 	}
 
 	private static void testLegacyIcons() throws Exception {

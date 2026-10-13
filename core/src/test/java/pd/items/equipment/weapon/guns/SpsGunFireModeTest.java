@@ -75,10 +75,10 @@ public final class SpsGunFireModeTest {
 
 	/** 出膛偏差（流弹）：范围内且力量达标 = 0；超出范围或力量不足则增大。 */
 	private static void testSpread() {
-		check(GunFire.spreadOffset(3, 4, 12, 12) == 0, "精准范围内且有力量时不应有偏差");
+		check(GunFire.spreadOffset(3, 4, 12, 12) == 0, "精准范围内不应有偏差");
+		check(GunFire.spreadOffset(3, 4, 12, 8) == 0, "力量不足不应让子弹直接打偏（只影响命中率与缓冲）");
 		check(GunFire.spreadOffset(10, 4, 12, 12) > 0, "超出精准范围后没有产生偏差");
-		check(GunFire.spreadOffset(3, 4, 12, 8) == 3, "力量不足产生的偏差错误（应为 4，封顶 3）");
-		check(GunFire.spreadOffset(3, 4, 12, 4) == 3, "偏差没有封顶到 3 格");
+		check(GunFire.spreadOffset(20, 4, 12, 12) == 3, "偏差没有封顶到 3 格");
 	}
 
 	/** 后坐缓冲：完美阈值越高惩罚越重；达阈值时为 0。 */
@@ -123,7 +123,8 @@ public final class SpsGunFireModeTest {
 
 	/** 充能型枪械：未开火时每回合自然回充 0.5 发（显示取整）。 */
 	private static void testChargeGun() {
-		check(GunOfSoldier.MAGAZINE == 3 && GunOfSoldier.REGEN_PER_TURN == 0.5f, "电磁手枪弹匣或回充常数错误");
+		check(GunOfSoldier.MAGAZINE == 3 && GunArchetype.CHARGE.regenPerTurn == 0.5f,
+				"电磁手枪弹匣或回充常数错误");
 		GunOfSoldier gun = new GunOfSoldier();
 		gun.gainCharge();
 		check(gun.charge() == 0, "半发回充不应立刻增加整发");
@@ -131,7 +132,7 @@ public final class SpsGunFireModeTest {
 		check(gun.charge() == 1, "两回合回充应累积为 1 发");
 		for (int i = 0; i < 10; i++) gun.gainCharge();
 		check(gun.charge() == GunOfSoldier.MAGAZINE, "电磁手枪回充没有封顶");
-		check(gun.consumeShot() && gun.charge() == GunOfSoldier.MAGAZINE - 1, "电磁手枪消耗一发失败");
+		check(gun.fullCharge() == GunOfSoldier.MAGAZINE, "电磁手枪弹匣容量错误");
 	}
 
 	private static void check(boolean condition, String message) {

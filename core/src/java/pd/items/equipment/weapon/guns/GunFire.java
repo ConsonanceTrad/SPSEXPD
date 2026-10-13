@@ -20,11 +20,13 @@ public final class GunFire {
 
 	private GunFire() {}
 
-	/** 出膛偏差的最大横向格数：距离超出精准范围、以及力量不足都会让子弹更容易打偏。 */
+	/**
+	 * SPSEXPD: 出膛偏差的最大横向格数——只由「超出精准射击范围的距离」决定。
+	 * 力量不足不再让子弹直接打偏（它体现在命中率与后坐缓冲上）。
+	 */
 	public static int spreadOffset(int dist, int range, int perfectSTR, int heroSTR) {
 		int offset = 0;
 		if (dist > range) offset += (dist - range) / 2;
-		if (heroSTR < perfectSTR) offset += (perfectSTR - heroSTR);
 		return Math.min(3, offset);
 	}
 

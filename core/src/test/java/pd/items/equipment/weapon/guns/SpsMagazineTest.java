@@ -73,13 +73,14 @@ public final class SpsMagazineTest {
 		check(gun.charge() == 0, "无通用弹匣时装填改变了弹匣状态");
 	}
 
-	/** 电磁手枪（充能型）同样消耗通用弹匣。 */
+	/** 电磁手枪（充能型枪械）同样可以用通用弹匣装填。 */
 	private static void testChargeGunConsumesMagazine() {
 		Hero hero = new Hero();
 		Dungeon.hero = hero;
 		hero.belongings.backpack.items.add(new Magazine());
 		pd.items.misc.GunOfSoldier gun = new pd.items.misc.GunOfSoldier();
-		check(gun.consumeMagazine(hero), "电磁手枪无法消耗通用弹匣");
+		check(gun.reloadMagazine(hero), "电磁手枪无法用通用弹匣装填");
+		check(gun.charge() == pd.items.misc.GunOfSoldier.MAGAZINE, "电磁手枪没有被一个弹匣填满 3 发");
 		check(!hero.belongings.backpack.contains(new Magazine()), "电磁手枪装填后没有消耗通用弹匣");
 	}
 
