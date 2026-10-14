@@ -10,7 +10,7 @@ import render.utils.serialize.Bundle;
 /**
  * SPSEXPD: 致命节奏——接住飞回的回旋镖时获得，持续 {@link #TURNS} 回合。
  *
- * <p>期间「远程 / 射击伤害」每层 +{@link #BONUS_PER_STACK}。重复接住会**刷新持续时间**并**叠加层数**。</p>
+ * <p>期间「远程 / 射击伤害」每层 +{@link #BONUS_PER_STACK}（首层 7%）。重复接住会**刷新持续时间**并**叠加层数**。</p>
  */
 public class LethalRhythm extends Buff {
 	//SPSEXPD: inline Chinese text (generated from messages/actors/zh)
@@ -26,14 +26,15 @@ public class LethalRhythm extends Buff {
 	}
 
 	/** SPSEXPD: 每次接住刷新的持续回合数。 */
-	public static final float TURNS = 5f;
-	/** SPSEXPD: 每层增幅（远程/射击伤害 +10%）。 */
-	public static final float BONUS_PER_STACK = 0.1f;
+	public static final float TURNS = 9f;
+	/** SPSEXPD: 每层增幅（远程/射击伤害 +7%）。 */
+	public static final float BONUS_PER_STACK = 0.07f;
 
 	private static final String STACKS = "stacks";
 	private static final String LEFT = "left";
 
-	private int stacks = 1;
+	//SPSEXPD: 初始 0 层——首次接住时 gainStack() 把它加到 1（若初始为 1，第一次接住会错误地显示 2 层）
+	private int stacks = 0;
 	private float left = TURNS;
 
 	/** SPSEXPD: 远程/射击伤害倍率（无该 buff 时为 1）。 */
@@ -46,9 +47,9 @@ public class LethalRhythm extends Buff {
 
 	public int turnsLeft() { return Math.max(0, (int)Math.ceil(left)); }
 
-	/** SPSEXPD: 叠加一层并刷新持续时间。 */
+	/** SPSEXPD: 叠加一层并刷新持续时间（首次接住 → 1 层）。 */
 	public void gainStack() {
-		stacks++;
+		stacks = Math.max(0, stacks) + 1;
 		left = TURNS;
 	}
 
