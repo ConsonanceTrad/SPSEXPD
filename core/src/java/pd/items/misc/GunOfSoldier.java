@@ -39,11 +39,17 @@ public class GunOfSoldier extends GunWeapon {
 	@Override public boolean isIdentified() { return true; }
 	@Override public int value() { return 30 * quantity; }
 
-	/** SPSEXPD: 按目标已损失的生命造成额外伤害。 */
+	/**
+	 * SPSEXPD: 按目标已损失的生命造成额外伤害——直接并进「主伤害」一起结算，
+	 * 只调用一次 Char.damage（否则会在同一次命中里出现第二个伤害飘字）。
+	 */
 	@Override
-	protected void onBulletHit(Char attacker, Char defender, int damage) {
-		int cap = Char.hasProp(defender, Char.Property.BOSS) || Char.hasProp(defender, Char.Property.MINIBOSS)
-				? defender.HT / 6 : defender.HT / 3;
-		defender.damage(Math.min(Math.max(0, defender.HT - defender.HP), cap), this);
+	public int proc(Char attacker, Char defender, int damage) {
+		if (defender != null && defender.isAlive()) {
+			int cap = Char.hasProp(defender, Char.Property.BOSS) || Char.hasProp(defender, Char.Property.MINIBOSS)
+					? defender.HT / 6 : defender.HT / 3;
+			damage += Math.min(Math.max(0, defender.HT - defender.HP), cap);
+		}
+		return super.proc(attacker, defender, damage);
 	}
 }
