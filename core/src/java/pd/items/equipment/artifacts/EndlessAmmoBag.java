@@ -146,8 +146,9 @@ public class EndlessAmmoBag extends Artifact {
 				addCharge(-AMMO_COST);
 				GLog.p(Messages.get(this, "activate"));
 				if (com.badlogic.gdx.Gdx.audio != null) Sample.INSTANCE.play(Assets.Sounds.EVOKE);
-				hero.spend(1f);
+				//SPSEXPD: 必须用 spendAndNext 结束回合——只 spend 不 next 会让回合卡住（计数器一直转）
 				hero.busy();
+				hero.spendAndNext(1f);
 			}
 		} else if (AC_FEED.equals(action)) {
 			if (!isEquipped(hero)) {
@@ -209,6 +210,10 @@ public class EndlessAmmoBag extends Artifact {
 			Item detached = item.detachAll(curUser.belongings.backpack);
 			if (detached == null) return;
 			feedMagazines(curUser, amount);
+			//SPSEXPD: 喂食也消耗 1 回合并推进（否则回合会卡住）
+			if (curUser.sprite != null) curUser.sprite.operate(curUser.pos);
+			curUser.busy();
+			curUser.spendAndNext(1f);
 		}
 	};
 
