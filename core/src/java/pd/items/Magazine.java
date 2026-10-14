@@ -24,7 +24,8 @@ public class Magazine extends Item {
 
 	@Override public boolean isUpgradable() { return false; }
 	@Override public boolean isIdentified() { return true; }
-	@Override public int value() { return 100 * quantity; }
+	//SPSEXPD: 通用弹匣价格降低 10 倍（原 100 × 数量）
+	@Override public int value() { return 10 * quantity; }
 
 	//SPSEXPD: 允许放入快捷栏查看余量；不设默认行为（点击打开动作列表，不直接使用）
 	@Override public boolean canQuickSlot() { return true; }
