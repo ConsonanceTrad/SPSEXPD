@@ -15,6 +15,13 @@ public class Arrows extends MissileWeapon {
 	private final int baseMin;
 	private final int baseMax;
 
+	//SPSEXPD: 补无参构造——SpsHiddenShopRoom / GnollTrickster / LinkSword / Generator.Category.ARROWS
+	// 都以反射无参实例化本类，缺它会让 Reflection.newInstance 返回 null 并紧接着 NPE
+	//（隐藏商店生成、豺狼猎手生成、勇者剑击杀掉落全崩）。默认伤害与既有 new Arrows(2, 7) 一致。
+	public Arrows() {
+		this(2, 7);
+	}
+
 	public Arrows(int min, int max) {
 		baseMin = min;
 		baseMax = max;
