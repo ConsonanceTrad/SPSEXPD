@@ -107,6 +107,7 @@ import render.utils.serialize.Reflection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -402,7 +403,11 @@ public abstract class SpsRegularLevel extends RegularLevel {
 	}
 
 	private void paintLegacyRooms() {
+		//SPSEXPD: 先把相邻走廊单元合并成"大连接房间"画大环（实验）；被吸收的单元在主循环里跳过
+		HashSet<Room> absorbedCorridors = mergeLegacyCorridorClusters();
+
 		for (Room room : legacyLayout.rooms) {
+			if (absorbedCorridors.contains(room)) continue;
 			switch (room.type) {
 				case NULL:
 					if (feeling == Feeling.CHASM && Random.Int(2) == 0) fill(room, Terrain.WALL);
@@ -439,6 +444,102 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		}
 
 		for (Room room : legacyLayout.rooms) paintDoors(room);
+	}
+
+	/**
+	 * SPSEXPD（实验）: 把相邻的 TUNNEL/PASSAGE 单元按连通分量合并，取「够大且走廊基本铺满」的包围盒
+	 * 当成一个大连接房间，交给破碎 PerimeterRoom/WalkwayRoom 画「中心实心、四周回环」的大环。
+	 * 返回被吸收的单元（主循环跳过）。合并会移除簇内互连的门（变成同一房间内部）。
+	 */
+	private HashSet<Room> mergeLegacyCorridorClusters() {
+		HashSet<Room> absorbed = new HashSet<>();
+		ArrayList<Room> corridors = new ArrayList<>();
+		for (Room room : legacyLayout.rooms) {
+			if (room.type == Type.TUNNEL || room.type == Type.PASSAGE) corridors.add(room);
+		}
+		if (corridors.size() < 2) return absorbed;
+
+		HashMap<Room, Room> parent = new HashMap<>();
+		for (Room r : corridors) parent.put(r, r);
+		for (Room r : corridors) {
+			for (Room n : r.neighbours) {
+				if (parent.containsKey(n)) unionRoom(parent, r, n);
+			}
+		}
+		HashMap<Room, ArrayList<Room>> groups = new HashMap<>();
+		for (Room r : corridors) {
+			Room root = findRoom(parent, r);
+			ArrayList<Room> g = groups.get(root);
+			if (g == null) { g = new ArrayList<>(); groups.put(root, g); }
+			g.add(r);
+		}
+
+		for (ArrayList<Room> group : groups.values()) {
+			if (group.size() < 2) continue;
+			int left = Integer.MAX_VALUE, top = Integer.MAX_VALUE;
+			int right = Integer.MIN_VALUE, bottom = Integer.MIN_VALUE;
+			long cellArea = 0;
+			for (Room r : group) {
+				left = Math.min(left, r.left);
+				top = Math.min(top, r.top);
+				right = Math.max(right, r.right);
+				bottom = Math.max(bottom, r.bottom);
+				cellArea += (long) r.width() * r.height();
+			}
+			int bw = right - left;
+			int bh = bottom - top;
+			if (bw < 5 || bh < 5) continue;
+			// 只在走廊基本铺满包围盒时才吸收，避免把包围盒内的房间整体抹掉
+			if (cellArea * 10 < (long) bw * bh * 7) continue;
+
+			HashSet<Room> groupSet = new HashSet<>(group);
+			HashSet<Door> externalDoors = new HashSet<>();
+			for (Room r : group) {
+				for (Map.Entry<Room, Door> e : r.connected.entrySet()) {
+					if (groupSet.contains(e.getKey())) continue;
+					if (e.getValue() != null) externalDoors.add(e.getValue());
+				}
+			}
+			if (externalDoors.size() < 2) continue;
+
+			// 合并后簇内互连的门就不再是门，去掉它们
+			for (Room r : group) {
+				for (Room n : new ArrayList<>(r.connected.keySet())) {
+					if (groupSet.contains(n)) {
+						r.connected.remove(n);
+						n.connected.remove(r);
+					}
+				}
+			}
+
+			// 沿包围盒内缩 1 画一圈隧道（中心保持实心），门处打通
+			// （不用 PerimeterRoom：它在"大矩形 + 我们的门位"下 fillBetweenPoints 会无限递归）
+			fill(left, top, bw, bh, Terrain.WALL);
+			int floor = tunnelTile();
+			for (int x = left + 1; x < right; x++) {
+				set(x, top + 1, floor);
+				set(x, bottom - 1, floor);
+			}
+			for (int y = top + 1; y < bottom; y++) {
+				set(left + 1, y, floor);
+				set(right - 1, y, floor);
+			}
+			for (Door door : externalDoors) door.set(Door.Type.TUNNEL);
+			absorbed.addAll(group);
+		}
+		return absorbed;
+	}
+
+	private static Room findRoom(HashMap<Room, Room> parent, Room r) {
+		Room p = parent.get(r);
+		while (p != r) { r = p; p = parent.get(r); }
+		return r;
+	}
+
+	private static void unionRoom(HashMap<Room, Room> parent, Room a, Room b) {
+		Room ra = findRoom(parent, a);
+		Room rb = findRoom(parent, b);
+		if (ra != rb) parent.put(ra, rb);
 	}
 
 	private void placeLegacyExitGuard(Room room) {
