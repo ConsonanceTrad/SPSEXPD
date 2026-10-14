@@ -117,15 +117,6 @@ public final class SpsLegacyBagsTest {
 		check(!fruitA.isUpgradable(), "果实不可升级");
 		check(fruitA.isSimilar(fruitB), "同种果实应可堆叠（不要求 setID 相同）");
 
-		//魔术手
-		pd.items.equipment.weapon.missiles.arrows.MagicHand handA =
-				new pd.items.equipment.weapon.missiles.arrows.MagicHand();
-		pd.items.equipment.weapon.missiles.arrows.MagicHand handB =
-				new pd.items.equipment.weapon.missiles.arrows.MagicHand();
-		check(handA.durabilityPerUse() == 0f, "魔术手应无限磨损");
-		check(!handA.isUpgradable(), "魔术手不可升级");
-		check(handA.isSimilar(handB), "同种魔术手应可堆叠");
-
 		//砖头（MeleeThrowWeapon 的 isUpgradable 恒 true，须被挡掉）
 		pd.items.equipment.weapon.missiles.meleethrow.Brick brick =
 				new pd.items.equipment.weapon.missiles.meleethrow.Brick();

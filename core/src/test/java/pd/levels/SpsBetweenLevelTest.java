@@ -38,7 +38,6 @@ import pd.items.equipment.weapon.guns.GunC;
 import pd.items.equipment.weapon.guns.GunD;
 import pd.items.equipment.weapon.guns.GunE;
 import pd.items.equipment.weapon.melee.special.MeleePan;
-import pd.items.equipment.weapon.missiles.arrows.MagicHand;
 import pd.plants.Plant;
 import pd.tiles.CustomTilemap;
 import pd.tiles.custom.SpsLegacyLevelVisual;
@@ -185,11 +184,11 @@ public final class SpsBetweenLevelTest {
 		}
 		//SPS: 种子包已取消（绒布袋替代，用户裁决 2026-09-28）；0 层商店新增任务蘑菇（10 金），基数 18→19
 		//SPSEXPD: 火箭弹已移除，商店固定商品少 1 件（基数 19/16/18/17 → 18/15/17/16）
+		//SPSEXPD: 商店固定商品基数（火箭弹/投掷类魔术手已移除，但召唤物槽位改为固定蜂罐，净变化为 0）
 		int minimum = depth == 0 ? 18 : depth == 24 ? 15 : depth == 32 ? 17 : 16;
 		check(stock.size() == minimum || stock.size() == minimum + 1, depth, seed,
 				"商店商品总数不符合旧版可选宠物蛋分支：" + stock.size());
 		check(count(stock, Ankh.class) == 1, depth, seed, "商店没有固定出售十字架");
-		check(quantity(stock, MagicHand.class) >= 5, depth, seed, "商店缺少固定的5个魔术手");
 		check(countSummon(stock) == 1, depth, seed, "商店召唤物五选一数量错误");
 		check(count(stock, Egg.class) <= 1, depth, seed, "商店生成了多于一个宠物蛋");
 
@@ -200,7 +199,8 @@ public final class SpsBetweenLevelTest {
 
 		if (depth == 0) {
 			//SPS: 0 层商店固定出售任务蘑菇（10 金币）+ 专属商品
-			check(count(stock, MeleePan.class) >= 1
+			//SPSEXPD: 专属商品已演进——固定商品从「煎锅」改为「竹背篓」（与 SpsShopRoom 同步）
+			check(count(stock, pd.items.equipment.bags.BambooBasket.class) >= 1
 					&& count(stock, Pasty.class) >= 1 && count(stock, NoomlinCrown.class) >= 1
 					&& count(stock, Mushroom.class) >= 1,
 					depth, seed, "0层商店专属商品不完整（应含任务蘑菇）");

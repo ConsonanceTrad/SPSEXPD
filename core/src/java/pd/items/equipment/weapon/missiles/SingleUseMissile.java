@@ -12,7 +12,7 @@ package pd.items.equipment.weapon.missiles;
  * 由它 instanceof 判定本接口。
  *
  * 为什么是接口而不是抽象基类：这些物品的直接父类各不相同
- * （SpsFruit 系走 MissileWeapon、MagicHand 走 Arrows、Brick 走 MeleeThrowWeapon），
+ * （SpsFruit 系走 MissileWeapon、Brick 走 MeleeThrowWeapon），
  * Java 单继承下没法共享基类。
  *
  * 统一语义（实现见 MissileWeapon）：

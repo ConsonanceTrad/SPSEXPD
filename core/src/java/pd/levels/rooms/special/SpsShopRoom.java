@@ -30,7 +30,6 @@ import pd.items.equipment.weapon.guns.GunB;
 import pd.items.equipment.weapon.guns.GunC;
 import pd.items.equipment.weapon.guns.GunD;
 import pd.items.equipment.weapon.guns.GunE;
-import pd.items.equipment.weapon.missiles.arrows.MagicHand;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.painters.Painter;
@@ -130,7 +129,6 @@ public class SpsShopRoom extends ShopRoom {
 		itemsToSpawn.add(new pd.items.Magazine().quantity(Random.IntRange(2, 4)));
 		itemsToSpawn.add(Generator.random(Generator.Category.SCROLL));
 		itemsToSpawn.add(Generator.random(Generator.Category.SCROLL));
-		itemsToSpawn.add(new MagicHand(5));
 		itemsToSpawn.add(AlienBag.randomBombSupply());
 		itemsToSpawn.add(Random.Int(2) == 0
 				? Generator.random(Generator.Category.POTION)
@@ -142,8 +140,8 @@ public class SpsShopRoom extends ShopRoom {
 		if (Random.Int(3) == 0) {
 			itemsToSpawn.add(Random.Int(2) == 0 ? new RandomMonthEgg() : new Egg());
 		}
-		//SPSEXPD: 召唤物（仙女卡片/遥控卫星/毁灭无人机）已删除——只在 4 号位保留蜂罐
-		if (Random.Int(6) == 4) itemsToSpawn.add(new Honeypot());
+		//SPSEXPD: 召唤物（仙女卡片/遥控卫星/毁灭无人机）已删除——该槽位固定给蜂罐（保持每家商店 1 个召唤物）
+		itemsToSpawn.add(new Honeypot());
 		//SPSEXPD: 大型果实（稀有商品，已不再由植物产出）
 		Item largeFruit = pd.plants.PlantHarvest.randomLargeFruit();
 		if (largeFruit != null) itemsToSpawn.add(largeFruit);

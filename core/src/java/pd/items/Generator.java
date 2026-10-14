@@ -399,7 +399,6 @@ import pd.items.equipment.weapon.missiles.arrows.FireFruit;
 import pd.items.equipment.weapon.missiles.arrows.GlassFruit;
 import pd.items.equipment.weapon.missiles.arrows.HealFruit;
 import pd.items.equipment.weapon.missiles.arrows.IceFruit;
-import pd.items.equipment.weapon.missiles.arrows.MagicHand;
 import pd.items.equipment.weapon.missiles.arrows.NutFruit;
 import pd.items.equipment.weapon.missiles.arrows.RiceBall;
 import pd.items.equipment.weapon.missiles.arrows.RootFruit;
@@ -686,16 +685,16 @@ public class Generator {
 
 			RANGEWEAPON.classes = new Class<?>[]{
 					EmpBola.class, EscapeKnive.class, Skull.class,
-					Wave.class, ShitBall.class, MagicHand.class };
-			RANGEWEAPON.probs = new float[]{1, 1, 1, 1, 1, 1};
+					Wave.class, ShitBall.class };
+			RANGEWEAPON.probs = new float[]{1, 1, 1, 1, 1};
 
 			ARROWS.classes = new Class<?>[]{
 					BlindFruit.class, CharmFruit.class, CharmFruit.class,
 					FireFruit.class, GlassFruit.class, HealFruit.class,
-					IceFruit.class, MagicHand.class, NutFruit.class,
+					IceFruit.class, NutFruit.class,
 					RootFruit.class, ShockFruit.class,
 					SmokeFruit.class, ToxicFruit.class, RiceBall.class };
-			ARROWS.probs = new float[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+			ARROWS.probs = new float[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
 
 			MUSICWEAPON.classes = new Class<?>[]{
 					Triangolo.class, Flute.class, WarDrum.class, Trumpet.class, Harp.class};

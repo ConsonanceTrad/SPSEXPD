@@ -53,7 +53,6 @@ import javax.imageio.ImageIO;
 /** Headless verification for SPS-PD's special arrow pools and effects. */
 public final class SpsSpecialArrowsTest {
 
-	private static final String MAGIC_HAND_HASH = "C92C20EB9EEA9F39C5F6B4C6D9903EE190DB266F92940B3FD4815E4BCA13568C";
 	private static final String RICE_BALL_HASH = "98A27F038F114784D8761A05C8C061376ED6D5D2CC6447BD1EE7AC1324A01B92";
 
 	public static void main(String[] args) throws Exception {
@@ -67,12 +66,11 @@ public final class SpsSpecialArrowsTest {
 		Game.version = "test";
 		try {
 			testBaseStatsAndRandomQuantity();
-			testMagicHandSteal();
 			testRiceBallEffects();
 			testGeneratorPools();
 			testHuntressAndShopSources();
 			testResourcesAndIcons();
-			System.out.println("SPS特殊箭矢测试通过：魔术手偷取、糯米团睡眠传送、专用生成池、猎人技能、商店来源、双语文本和原始图标均正常。");
+			System.out.println("SPS特殊箭矢测试通过：糯米团睡眠传送、专用生成池、猎人技能、商店来源、双语文本和原始图标均正常。");
 		} finally {
 			Dungeon.hero = null;
 			Dungeon.level = null;
@@ -88,36 +86,9 @@ public final class SpsSpecialArrowsTest {
 		check(base.isIdentified() && !base.isUpgradable() && base.value() == 2 && base.glowing() == null,
 				"特殊箭矢基类鉴定、售价错误，或其装饰性发光未被移除");
 
-		MagicHand hand = new MagicHand(5);
-		check(hand.image == ConsumThrowsDict.MAGIC_HAND && hand.min(0) == 1 && hand.max(0) == 5
-				&& hand.quantity() == 5 && hand.value() == 100, "魔术手基础属性错误");
-		for (int i = 0; i < 50; i++) {
-			int quantity = new MagicHand().random().quantity();
-			check(quantity == 3 || quantity == 4, "魔术手随机数量超出3至4个");
-		}
-
 		RiceBall rice = new RiceBall(4);
 		check(rice.image == ConsumThrowsDict.RICE_BALL && rice.min(0) == 1 && rice.max(0) == 1
 				&& rice.value() == 40, "糯米团基础属性错误");
-	}
-
-	private static void testMagicHandSteal() {
-		RecordingLevel level = new RecordingLevel();
-		Dungeon.level = level;
-		Hero hero = heroAt(34);
-		Dungeon.hero = hero;
-		LootMob target = new LootMob(false);
-		target.pos = 50;
-
-		MagicHand hand = new MagicHand();
-		hand.proc(hero, target, 1);
-		hand.proc(hero, target, 1);
-		check(!target.firstItem && target.lootCalls == 1, "魔术手能从同一怪物重复偷取");
-		check(goldAt(level, hero.pos) == 7, "魔术手没有在攻击者位置掉落特殊奖励");
-
-		Hero nonMob = heroAt(35);
-		hand.proc(hero, nonMob, 1);
-		check(goldAt(level, hero.pos) == 7, "魔术手命中非怪物时错误地产生了奖励");
 	}
 
 	private static void testRiceBallEffects() {
@@ -151,16 +122,16 @@ public final class SpsSpecialArrowsTest {
 		Class<?>[] arrows = {
 				BlindFruit.class, CharmFruit.class, CharmFruit.class,
 				FireFruit.class, GlassFruit.class, HealFruit.class,
-				IceFruit.class, MagicHand.class, NutFruit.class,
+				IceFruit.class, NutFruit.class,
 				RootFruit.class, ShockFruit.class,
 				SmokeFruit.class, ToxicFruit.class, RiceBall.class
 		};
 		Class<?>[] ranged = {
 				EmpBola.class, EscapeKnive.class, Skull.class,
-				Wave.class, ShitBall.class, MagicHand.class
+				Wave.class, ShitBall.class
 		};
-		check(Arrays.equals(Generator.Category.ARROWS.classes, arrows), "ARROWS生成池与旧版14项顺序不一致");
-		check(Arrays.equals(Generator.Category.RANGEWEAPON.classes, ranged), "RANGEWEAPON生成池与旧版6项顺序不一致");
+		check(Arrays.equals(Generator.Category.ARROWS.classes, arrows), "ARROWS生成池与旧版13项顺序不一致");
+		check(Arrays.equals(Generator.Category.RANGEWEAPON.classes, ranged), "RANGEWEAPON生成池与旧版5项顺序不一致");
 		check(Generator.Category.ARROWS.ordinal() > Generator.Category.GOLD.ordinal()
 				&& Generator.Category.RANGEWEAPON.ordinal() > Generator.Category.GOLD.ordinal(),
 				"新增生成池没有追加在旧类别之后，可能破坏存档序号");
@@ -171,35 +142,20 @@ public final class SpsSpecialArrowsTest {
 		String huntress = java.nio.file.Files.readString(root.resolve(Path.of("items", "skills", "HuntressSkill.java")), StandardCharsets.UTF_8);
 		check(huntress.contains("dropAtHero(Generator.random(Generator.Category.ARROWS))"),
 				"猎人第三技能没有使用旧版专用箭池");
-
-		Dungeon.depth = 6;
-		SpsShopRoom shop = new SpsShopRoom();
-		Method ensure = SpsShopRoom.class.getDeclaredMethod("ensureItems");
-		ensure.setAccessible(true);
-		ensure.invoke(shop);
-		Field items = ShopRoom.class.getDeclaredField("itemsToSpawn");
-		items.setAccessible(true);
-		int hands = 0;
-		for (Item item : (ArrayList<Item>)items.get(shop)) {
-			if (item instanceof MagicHand) hands += item.quantity();
-		}
-		check(hands >= 5, "章节商店没有固定出售5个魔术手");
 	}
 
 	private static void testResourcesAndIcons() throws Exception {
 		String en = java.nio.file.Files.readString(Path.of("messages", "items", "en", "items.properties"), StandardCharsets.UTF_8);
 		String zh = java.nio.file.Files.readString(Path.of("messages", "items", "zh", "items.properties"), StandardCharsets.UTF_8);
-		for (String key : new String[]{"items.equipment.weapon.missiles.arrows.magichand.name=",
-				"items.equipment.weapon.missiles.arrows.magichand.desc=",
+		for (String key : new String[]{
 				"items.equipment.weapon.missiles.arrows.riceball.name=",
 				"items.equipment.weapon.missiles.arrows.riceball.desc="}) {
 			check(en.contains(key) && zh.contains(key), "特殊箭矢缺少中英文资源键：" + key);
 		}
-		check(zh.contains("魔术手") && zh.contains("糯米团") && !zh.contains("�"), "特殊箭矢中文资源乱码");
+		check(zh.contains("糯米团") && !zh.contains("�"), "特殊箭矢中文资源乱码");
 
 		BufferedImage sheet = ImageIO.read(new File("sprites/items/items.png"));
 		check(sheet != null && sheet.getWidth() == 256 && sheet.getHeight() == 992, "物品图集尺寸错误");
-		check(MAGIC_HAND_HASH.equals(hash(sheet, 16, 960)), "魔术手图标与SPS-PD 0.9.8原图不一致");
 		check(RICE_BALL_HASH.equals(hash(sheet, 32, 960)), "糯米团图标与SPS-PD 0.9.8原图不一致");
 	}
 
