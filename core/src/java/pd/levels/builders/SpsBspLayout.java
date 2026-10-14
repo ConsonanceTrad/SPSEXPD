@@ -172,7 +172,10 @@ public final class SpsBspLayout {
 		if (path == null) return null;
 		connectPath(entrance, path, connected);
 
-		int target = (int)(rooms.size() * Random.Float(0.5f, 0.7f));
+		//SPSEXPD: 降低被连通的 BSP 单元比例，让房间不铺满整层、留出成片实心
+		//（覆盖率约 60% → 36%，未探索的黑区不再“必有房间”）。target 只影响额外扩张，
+		//入口→出口路径由 connectPath 先加入，故降低它不会增加生成失败。
+		int target = (int)(rooms.size() * Random.Float(0.3f, 0.45f));
 		int remainingTries = rooms.size() * rooms.size();
 		while (connected.size() < target && remainingTries-- > 0) {
 			Room from = Random.element(connected);
