@@ -1813,7 +1813,7 @@ project(':core') {
 	}
 	tasks.register('verifySpsRegularLevels', JavaExec) {
 		group = 'verification'
-		description = '生成五区域普通层并验证48x48尺寸、入口出口、连通性和边界。'
+		description = '生成五区域普通层并验证96x96尺寸、入口出口、连通性和边界。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('levels.SpsRegularLevelTest')

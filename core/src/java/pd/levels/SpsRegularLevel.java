@@ -795,14 +795,35 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		return true;
 	}
 
-	/** SPSEXPD: 用破碎的连接房间结构绘制走廊/通道（失败时退回 SPS 自绘）。 */
+	/**
+	 * SPSEXPD: 用破碎的连接房间结构绘制走廊/通道。
+	 * 关键：把该单元**全部 legacy 门** + **整格矩形**交给破碎连接房间——
+	 * 只喂一个门时 PerimeterRoom/WalkwayRoom（需要 ≥2 个门）什么都不画（长走廊就是因此一直看不见）；
+	 * 且不再按单门居中收紧，门位随机时也能成立。失败才退回 SPS 自绘。
+	 */
 	private boolean paintLegacyShatteredCorridor(Room room) {
-		Door legacyDoor = room.connected.isEmpty() ? null : room.connected.values().iterator().next();
-		if (legacyDoor == null) return false;
-		pd.levels.rooms.Room.Door painted =
-				paintShatteredRoom(room, ConnectionRoom.createRoom(), legacyDoor);
-		if (painted == null) return false;
-		legacyDoor.set(convertDoorType(painted.type));
+		if (room.connected.isEmpty()) return false;
+		pd.levels.rooms.Room painter = ConnectionRoom.createRoom();
+		if (painter == null) return false;
+
+		ArrayList<Door> legacyDoors = new ArrayList<>();
+		for (Door door : room.connected.values()) {
+			if (door != null) legacyDoors.add(door);
+		}
+		if (legacyDoors.isEmpty()) return false;
+
+		fill(room, Terrain.WALL);
+		painter.set(room.left, room.top, room.right, room.bottom);
+		for (Door legacyDoor : legacyDoors) {
+			EmptyRoom neighbour = new EmptyRoom();
+			neighbour.set(legacyDoor.x - 1, legacyDoor.y - 1, legacyDoor.x + 1, legacyDoor.y + 1);
+			pd.levels.rooms.Room.Door door =
+					new pd.levels.rooms.Room.Door(legacyDoor.x, legacyDoor.y);
+			painter.connected.put(neighbour, door);
+		}
+		painter.paint(this);
+		//SPSEXPD: 破碎连接房间会把门设成 TUNNEL，同步回 legacy 门（paintDoors 依此铺隧道地砖）
+		for (Door legacyDoor : legacyDoors) legacyDoor.set(Door.Type.TUNNEL);
 		return true;
 	}
 
