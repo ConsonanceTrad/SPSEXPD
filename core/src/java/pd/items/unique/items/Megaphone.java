@@ -29,8 +29,9 @@ public class Megaphone extends GauntletShield implements UniqueItem {
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 	}
 
-	/** SPSEXPD: 占位，不显示护手盾的格挡数值。 */
-	@Override public String statsInfo() { return null; }
+	/** SPSEXPD: 占位，不显示护手盾的格挡数值。
+	 *  注意必须返回空串而不是 null —— MeleeWeapon.info() 会对 statsInfo() 直接调 .equals("")。 */
+	@Override public String statsInfo() { return ""; }
 
 	@Override
 	public UniqueItemId uniqueId() {
