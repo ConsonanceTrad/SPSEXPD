@@ -50,8 +50,11 @@ public class ChaosLevel extends SpsRegularLevel {
 
 	@Override
 	protected SpsBspLayout.Result generateLegacyLayout() {
-		return SpsBspLayout.generate(LEGACY_WIDTH, LEGACY_HEIGHT, LAYOUT_ATTEMPTS, 6, 10);
+		return SpsBspLayout.generate(legacyWidth(), legacyHeight(), LAYOUT_ATTEMPTS, 6, 10);
 	}
+
+	@Override protected int legacyWidth() { return 48; }
+	@Override protected int legacyHeight() { return 48; }
 
 	@Override
 	protected void afterLegacyRoomsPainted() {

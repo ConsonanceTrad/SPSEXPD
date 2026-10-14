@@ -143,7 +143,7 @@ public final class SpsRegularLevelTest {
 		validateLegacyCityQuestSpawns();
 		validateLegacyImpTokenDrops();
 		System.out.println("SPS普通层完整地图测试通过：" + generated
-				+ "张48x48地图，覆盖五区域装饰、怪物数量、区域护甲、旧版物资与出口守卫。" );
+				+ "张96x96地图，覆盖五区域装饰、怪物数量、区域护甲、旧版物资与出口守卫。" );
 		app.exit();
 		System.exit(0);
 		} catch (Throwable t) {
@@ -193,7 +193,7 @@ public final class SpsRegularLevelTest {
 	}
 
 	private static void validate(SpsRegularLevel level, int region, int seed) {
-		check(level.width() == 48 && level.height() == 48, region, seed, "尺寸不是48x48");
+		check(level.width() == 96 && level.height() == 96, region, seed, "尺寸不是96x96");
 		check(level.legacyRoomCount() >= 20, region, seed, "BSP房间少于20个");
 		check(level.legacyConnectedRoomCount() >= 10, region, seed, "连通房间过少");
 		check(level.legacyGenerationAttempts() > 0 && level.legacyGenerationAttempts() <= 64,

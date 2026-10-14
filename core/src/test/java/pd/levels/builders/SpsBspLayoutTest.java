@@ -16,7 +16,7 @@ public final class SpsBspLayoutTest {
 		for (int seed = 0; seed < SEEDS; seed++) {
 			Random.pushGenerator(0x535053425350L + seed);
 			try {
-				SpsBspLayout.Result result = SpsBspLayout.generate(48, 48, 64);
+				SpsBspLayout.Result result = SpsBspLayout.generate(96, 96, 64);
 				check(result != null, seed, "64次内未能生成布局");
 				validate(result, seed);
 				totalAttempts += result.attempts;
@@ -70,8 +70,8 @@ public final class SpsBspLayoutTest {
 		check(result.entrance != result.exit, seed, "入口与出口是同一房间");
 		check(result.connected.size() >= result.targetConnected, seed, "连通房间不足");
 		for (SpsBspLayout.Room room : result.rooms) {
-			check(room.left >= 0 && room.top >= 0 && room.right < 48 && room.bottom < 48,
-					seed, "房间越出48x48地图");
+			check(room.left >= 0 && room.top >= 0 && room.right < 96 && room.bottom < 96,
+					seed, "房间越出96x96地图");
 			check(room.width() > 0 && room.height() > 0, seed, "房间尺寸无效");
 			for (SpsBspLayout.Room neighbour : room.neighbours) {
 				check(neighbour.neighbours.contains(room), seed, "相邻关系不是双向的");

@@ -21,10 +21,10 @@ import java.util.List;
 /** Builds the 48x48 BSP room graph used by SPS-PD 0.9.8 ordinary floors. */
 public final class SpsBspLayout {
 
-	//SPSEXPD: 房间尺寸由 8/10 收到 6/7 —— BSP 递归二分下房间数约为原来的 1.8 倍（用户要求扩大每层房间数）
-	//SPSEXPD: 上限由 7 放宽到 8 —— 略微降低房间密度（切分更早停止，房间整体变大、数量约减 10~15%）
-	public static final int MIN_ROOM_SIZE = 6;
-	public static final int MAX_ROOM_SIZE = 8;
+	//SPSEXPD: 房间尺寸由 6/8 放大到 8/12 —— 配合地图放大到 96×96，让单元更大、
+	//破碎房间（含大号标准房）能放得下、减少回退；房间数随面积增长（见 SpsRegularLevel.LEGACY_WIDTH）
+	public static final int MIN_ROOM_SIZE = 8;
+	public static final int MAX_ROOM_SIZE = 12;
 
 	public static Result generate(int width, int height, int maxAttempts) {
 		return generate(width, height, maxAttempts, MIN_ROOM_SIZE, MAX_ROOM_SIZE);

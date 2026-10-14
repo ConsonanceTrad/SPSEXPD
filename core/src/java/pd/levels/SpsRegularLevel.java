@@ -117,8 +117,8 @@ import java.util.Map;
  */
 public abstract class SpsRegularLevel extends RegularLevel {
 
-	public static final int LEGACY_WIDTH = 48;
-	public static final int LEGACY_HEIGHT = 48;
+	public static final int LEGACY_WIDTH = 96;
+	public static final int LEGACY_HEIGHT = 96;
 	private static final int LAYOUT_ATTEMPTS = 64;
 
 	private static final Type[] SPECIAL_TYPES = {
@@ -161,7 +161,7 @@ public abstract class SpsRegularLevel extends RegularLevel {
 
 	@Override
 	protected boolean build() {
-		setSize(LEGACY_WIDTH, LEGACY_HEIGHT);
+		setSize(legacyWidth(), legacyHeight());
 		legacyLayout = generateLegacyLayout();
 		if (legacyLayout == null) return false;
 
@@ -194,8 +194,12 @@ public abstract class SpsRegularLevel extends RegularLevel {
 	}
 
 	protected SpsBspLayout.Result generateLegacyLayout() {
-		return SpsBspLayout.generate(LEGACY_WIDTH, LEGACY_HEIGHT, LAYOUT_ATTEMPTS);
+		return SpsBspLayout.generate(legacyWidth(), legacyHeight(), LAYOUT_ATTEMPTS);
 	}
+
+	/** SPSEXPD: 普通五区域用放大的 96×96；特殊层（Chaos/天狗巢穴/追捕关/triangle）覆写回旧尺寸。 */
+	protected int legacyWidth() { return LEGACY_WIDTH; }
+	protected int legacyHeight() { return LEGACY_HEIGHT; }
 
 	protected void afterLegacyRoomsPainted() {
 	}

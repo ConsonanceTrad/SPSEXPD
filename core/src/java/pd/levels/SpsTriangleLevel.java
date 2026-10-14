@@ -25,6 +25,10 @@ import render.utils.math.Random;
 import java.util.ArrayList;
 
 abstract class SpsTriangleLevel extends SpsRegularLevel {
+	//SPSEXPD: 试炼层保持旧尺寸，不随普通五区域放大到 96。
+	@Override protected int legacyWidth() { return 48; }
+	@Override protected int legacyHeight() { return 48; }
+
 	@Override protected Painter painter() { return null; }
 
 	void prepareLegacyTrial() {

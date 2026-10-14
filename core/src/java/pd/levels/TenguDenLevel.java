@@ -51,8 +51,11 @@ public class TenguDenLevel extends SpsRegularLevel {
 
 	@Override
 	protected SpsBspLayout.Result generateLegacyLayout() {
-		return SpsBspLayout.generateThiefCatch(LEGACY_WIDTH, LEGACY_HEIGHT, LAYOUT_ATTEMPTS);
+		return SpsBspLayout.generateThiefCatch(legacyWidth(), legacyHeight(), LAYOUT_ATTEMPTS);
 	}
+
+	@Override protected int legacyWidth() { return 48; }
+	@Override protected int legacyHeight() { return 48; }
 
 	@Override
 	protected void assignLegacyRoomTypes() {
