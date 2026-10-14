@@ -274,7 +274,6 @@ tasks.register('verifySpsContent') {
 				'items.equipment.artifacts.goddessradiance.',
 				'items.equipment.artifacts.cloakofsheep.',
 				'actors.mobs.decoysheep.',
-				'actors.buffs.endlessammo.',
 				'actors.buffs.trinitystance.',
 				'items.equipment.bags.heartofscarecrow.',
 				'items.powerhand.',

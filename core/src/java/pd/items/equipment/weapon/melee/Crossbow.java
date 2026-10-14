@@ -41,15 +41,17 @@ public class Crossbow extends GunWeapon {
 	@Override public int min(int lvl) { return 1 + Math.max(0, lvl); }
 	@Override public int max(int lvl) { return 20 + 4 * Math.max(0, lvl); }
 
-	/** SPSEXPD: 装填耗材 = 背包里的一根枯枝（无限弹药袋生效期间无需消耗）。 */
+	/** SPSEXPD: 装填耗材 = 背包里的一根枯枝。 */
 	@Override
 	protected boolean consumeReload(Hero hero) {
 		if (hero == null) return false;
 		DryTwig twig = hero.belongings.getItem(DryTwig.class);
 		if (twig == null || !hero.belongings.backpack.contains(twig)) return false;
-		if (pd.actors.buffs.EndlessAmmo.isActive(hero)) return true;
 		return twig.detach(hero.belongings.backpack) != null;
 	}
+
+	//SPSEXPD: 耗材特殊（枯枝），不属于「常规枪械」——无限弹药袋不补它。
+	@Override public boolean usesStandardAmmo() { return false; }
 
 	@Override protected String reloadHintKey() { return "no_twig"; }
 }

@@ -41,11 +41,13 @@ public class DewCannon extends GunWeapon {
 	@Override
 	protected boolean consumeReload(Hero hero) {
 		if (hero == null) return false;
-		if (pd.actors.buffs.EndlessAmmo.isActive(hero)) return true;
 		Waterskin flask = hero.belongings.getItem(Waterskin.class);
 		if (flask == null || !flask.hasDew(DEW_COST)) return false;
 		return flask.spendDewStrict(DEW_COST);
 	}
+
+	//SPSEXPD: 耗材特殊（露珠），不属于「常规枪械」——无限弹药袋不补它。
+	@Override public boolean usesStandardAmmo() { return false; }
 
 	@Override protected String reloadHintKey() { return "no_dew"; }
 

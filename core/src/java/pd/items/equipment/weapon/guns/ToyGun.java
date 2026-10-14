@@ -36,6 +36,9 @@ public class ToyGun extends GunWeapon {
 	@Override public int max(int lvl) { return 9999; }
 	//SPSEXPD: 玩具枪装填不需要弹药（不消耗通用弹匣）
 	@Override protected boolean consumeReload(Hero hero) { return true; }
+
+	//SPSEXPD: 玩具枪不需要弹药——不属于「常规枪械」，无限弹药袋不补它。
+	@Override public boolean usesStandardAmmo() { return false; }
 	@Override protected boolean canShoot(Hero hero) { return isEquipped(hero); }
 	//SPSEXPD: 玩具枪装填固定 3 回合（不受特工 0.5 回合特例影响）
 	@Override protected float reloadTime(Hero hero, boolean automatic) { return 3f; }

@@ -5,7 +5,6 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
-import pd.actors.buffs.EndlessAmmo;
 import pd.actors.hero.Belongings;
 import pd.actors.hero.Hero;
 import pd.atlas.items.SpecificPlaceHolderDict;
@@ -145,8 +144,6 @@ public class Thrower extends Weapon implements SpsAutoFire {
 	/** 射出一件内仓投掷物；用完后内仓自动清空。 */
 	public boolean consumeAmmo() {
 		if (loaded == null) return false;
-		//SPSEXPD: 无限弹药袋生效期间不消耗内仓
-		if (EndlessAmmo.isActive(Dungeon.hero)) return true;
 		if (loaded.quantity() > 1) {
 			loaded.quantity(loaded.quantity() - 1);
 		} else {

@@ -47,15 +47,14 @@ public class BombLauncher extends GunWeapon {
 		if (hero == null) return false;
 		Bomb bomb = findBomb(hero);
 		if (bomb == null) return false;
-		if (pd.actors.buffs.EndlessAmmo.isActive(hero)) {
-			loaded = bomb;
-			return true;
-		}
 		Item consumed = bomb.detach(hero.belongings.backpack);
 		if (!(consumed instanceof Bomb)) return false;
 		loaded = (Bomb)consumed;
 		return true;
 	}
+
+	//SPSEXPD: 耗材特殊（炸弹），不属于「常规枪械」——无限弹药袋不补它。
+	@Override public boolean usesStandardAmmo() { return false; }
 
 	private Bomb findBomb(Hero hero) {
 		for (Item item : hero.belongings.backpack.items) {

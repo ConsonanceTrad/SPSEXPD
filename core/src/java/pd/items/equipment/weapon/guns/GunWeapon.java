@@ -5,7 +5,6 @@ import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
-import pd.actors.buffs.EndlessAmmo;
 import pd.actors.buffs.MechArmor;
 import pd.actors.buffs.TargetShoot;
 import pd.actors.hero.Hero;
@@ -332,15 +331,28 @@ public class GunWeapon extends SpsRangedWeapon implements SpsAutoFire {
 	}
 
 	/**
-	 * SPSEXPD: 一次装填的耗材来源；默认消耗一个「通用弹匣」（无限弹药袋生效期间无需消耗）。
+	 * SPSEXPD: 一次装填的耗材来源；默认消耗一个「通用弹匣」。
 	 * 特殊枪械覆写此方法改用炼金能量 / 露珠 / 炸弹 / 枯枝等。
 	 */
 	protected boolean consumeReload(Hero hero) {
 		if (hero == null) return false;
-		if (EndlessAmmo.isActive(hero)) return true;
 		Item magazine = hero.belongings.getItem(Magazine.class);
 		if (magazine == null || !hero.belongings.backpack.contains(magazine)) return false;
 		return magazine.detach(hero.belongings.backpack) != null;
+	}
+
+	/**
+	 * SPSEXPD: 是否是「常规枪械」——用通用弹匣装填的普通枪。
+	 * 耗材特殊的枪（露珠炮/爆弹发射器/十字弩/玩具枪）覆写为 false。
+	 * 无限弹药袋的「补充弹药」只作用于常规枪械。
+	 */
+	public boolean usesStandardAmmo() { return true; }
+
+	/** SPSEXPD: 直接把弹匣补满（不耗材、不排回合）——供无限弹药袋的「补充弹药」调用。 */
+	public void fillAmmo() {
+		charge = fullCharge;
+		pendingReload = false;
+		updateQuickslot();
 	}
 
 	/** SPSEXPD: 耗材不足时的提示文案键（子类覆写成自己的键）。 */
@@ -409,8 +421,6 @@ public class GunWeapon extends SpsRangedWeapon implements SpsAutoFire {
 	}
 
 	boolean consumeRound() {
-		//SPSEXPD: 无限弹药袋生效期间不消耗弹匣
-		if (EndlessAmmo.isActive(curUser)) return true;
 		if (charge <= 0) return false;
 		charge--;
 		updateQuickslot();

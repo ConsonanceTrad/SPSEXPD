@@ -8,20 +8,21 @@ import com.badlogic.gdx.backends.headless.HeadlessFiles;
 import com.badlogic.gdx.utils.GdxNativesLoader;
 import pd.Dungeon;
 import pd.actors.Actor;
-import pd.actors.buffs.Buff;
-import pd.actors.buffs.EndlessAmmo;
 import pd.actors.hero.Hero;
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.items.Generator;
-import pd.items.equipment.weapon.missiles.Thrower;
-import pd.items.equipment.weapon.missiles.throwing.EscapeKnive;
+import pd.items.equipment.weapon.guns.GunA;
+import pd.items.equipment.weapon.melee.Crossbow;
 import render.utils.serialize.Bundle;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-/** Headless checks for the endless ammo bag: charge build-up, activation, upkeep and ammo immunity. */
+/**
+ * Headless checks for the endless ammo bag:
+ * point-based charge, per-level cap growth, charge speed, the reload action and feeding upgrades.
+ */
 public final class SpsEndlessAmmoBagTest {
 
 	public static void main(String[] args) throws Exception {
@@ -32,11 +33,12 @@ public final class SpsEndlessAmmoBagTest {
 		Gdx.files = new HeadlessFiles();
 		try {
 			testStats();
-			testCharging();
-			testActivationAndUpkeep();
-			testAmmoImmunity();
+			testCapGrowth();
+			testChargeSpeed();
+			testReloadEquippedGuns();
+			testFeedUpgrade();
 			testPoolSaveAndMessages();
-			System.out.println("SPS无限弹药袋测试通过：充能、激活门槛、每回合消耗与自动关闭、弹药豁免、神器池、存档与双语文本均正常。");
+			System.out.println("SPS无限弹药袋测试通过：点数充能、上限随等级成长、充能速度、补充弹药与喂食升级、神器池与双语文本均正常。");
 		} finally {
 			Actor.clear();
 			Dungeon.hero = null;
@@ -49,89 +51,97 @@ public final class SpsEndlessAmmoBagTest {
 		Hero hero = new Hero();
 		Dungeon.hero = hero;
 		EndlessAmmoBag bag = new EndlessAmmoBag();
-		check(bag.levelCap() == 0 && bag.chargeCap() == 100 && bag.charge() == 0,
-				"无限弹药袋初始等级上限、容量或充能错误");
-		check(EndlessAmmoBag.DRAIN_PER_TURN == 3f && EndlessAmmoBag.ACTIVATE_COST == 20,
-				"无限弹药袋维持消耗或激活门槛常量错误");
+		check(bag.levelCap() == EndlessAmmoBag.MAX_LEVEL && bag.levelCap() == 10,
+				"无限弹药袋等级上限错误：" + bag.levelCap());
+		check(bag.chargeCap() == 4 && bag.charge() == 0, "无限弹药袋初始上限或充能错误");
+		check(EndlessAmmoBag.AMMO_COST == 4 && EndlessAmmoBag.MAGAZINES_PER_LEVEL == 2,
+				"无限弹药袋消耗或喂食常量错误");
 		check(bag.image == SpecificPlaceHolderDict.ARTIFACT_HOLDER_0, "无限弹药袋占位图标错误");
 		check(bag.status() == null || bag.status().isEmpty() || bag.status().contains("/"),
 				"无限弹药袋状态文本异常");
 	}
 
-	private static void testCharging() {
+	private static void testCapGrowth() {
+		check(EndlessAmmoBag.chargeCapForLevel(0) == 4, "0 级充能上限不是 4");
+		check(EndlessAmmoBag.chargeCapForLevel(2) == 5, "2 级充能上限不是 5");
+		check(EndlessAmmoBag.chargeCapForLevel(4) == 6, "4 级充能上限不是 6");
+		check(EndlessAmmoBag.chargeCapForLevel(6) == 7, "6 级充能上限不是 7");
+		check(EndlessAmmoBag.chargeCapForLevel(8) == 8, "8 级充能上限不是 8");
+		check(EndlessAmmoBag.chargeCapForLevel(10) == 10, "10 级充能上限不是 10");
+
+		EndlessAmmoBag bag = new EndlessAmmoBag();
+		bag.upgrade(4);
+		check(bag.chargeCap() == EndlessAmmoBag.chargeCapForLevel(4),
+				"升级后上限没有随之成长：" + bag.chargeCap());
+	}
+
+	private static void testChargeSpeed() {
+		EndlessAmmoBag bag = new EndlessAmmoBag();
+		check(Math.abs(bag.turnsPerPoint() - 30f) < 0.001f, "0 级充能速度不是 30 回合/点");
+		bag.upgrade(EndlessAmmoBag.MAX_LEVEL);
+		check(Math.abs(bag.turnsPerPoint() - 12f) < 0.001f, "满级充能速度不是 12 回合/点");
+
 		Hero hero = new Hero();
 		Dungeon.hero = hero;
-		EndlessAmmoBag bag = new EndlessAmmoBag();
-		hero.belongings.backpack.items.add(bag);
-		check(bag.doEquip(hero), "无限弹药袋无法装备");
-		bag.activate(hero);
-
-		EndlessAmmoBag.Feeding feeding = bag.new Feeding();
+		EndlessAmmoBag fresh = new EndlessAmmoBag();
+		hero.belongings.backpack.items.add(fresh);
+		check(fresh.doEquip(hero), "无限弹药袋无法装备");
+		fresh.activate(hero);
+		EndlessAmmoBag.Feeding feeding = fresh.new Feeding();
 		check(feeding.attachTo(hero), "无限弹药袋充能状态无法附加");
-		for (int i = 0; i < 10; i++) feeding.act();
-		check(bag.charge() == 20, "无限弹药袋每回合充能不是 2 点：" + bag.charge());
-
-		for (int i = 0; i < 200; i++) feeding.act();
-		check(bag.charge() == bag.chargeCap(), "无限弹药袋充能没有封顶：" + bag.charge());
+		for (int i = 0; i < 30; i++) feeding.act();
+		check(fresh.charge() == 1, "0 级 30 回合没有积攒 1 点充能：" + fresh.charge());
+		for (int i = 0; i < 300; i++) feeding.act();
+		check(fresh.charge() == fresh.chargeCap(), "无限弹药袋充能没有封顶：" + fresh.charge());
 	}
 
-	private static void testActivationAndUpkeep() {
-		EndlessAmmoBag bag = new EndlessAmmoBag();
+	private static void testReloadEquippedGuns() {
 		Hero hero = new Hero();
 		Dungeon.hero = hero;
-		hero.belongings.backpack.items.add(bag);
-		check(bag.doEquip(hero), "无限弹药袋无法装备");
-		bag.activate(hero);
-
-		check(!bag.actions(hero).contains(EndlessAmmoBag.AC_ACTIVATE), "充能不足时错误开放激活动作");
-
-		bag.addCharge(150);
-		check(bag.charge() == bag.chargeCap(), "直接增减充能没有受容量限制：" + bag.charge());
-		bag.addCharge(-40);
-		check(bag.charge() == 60, "直接增减充能没有正确扣减：" + bag.charge());
-		bag.consumeCharge(-5);
-		check(bag.charge() == 60, "consumeCharge 收到负数不该增加充能");
-		check(bag.actions(hero).contains(EndlessAmmoBag.AC_ACTIVATE), "充能足够时没有开放激活动作");
-
-		//无头环境无法走 Item.execute（内部会调用 GameScene.cancel），直接附加激活状态
-		Buff.affect(hero, EndlessAmmo.class);
-		EndlessAmmo active = hero.buff(EndlessAmmo.class);
-		check(active != null && EndlessAmmo.isActive(hero), "激活无限弹药袋没有生效");
-
-		active.act();
-		check(bag.charge() == 57, "激活状态每回合没有扣除充能：" + bag.charge());
-
-		while (bag.charge() > 0) active.act();
-		check(bag.charge() == 0 && hero.buff(EndlessAmmo.class) == null,
-				"充能耗尽后无限弹药没有自动关闭");
-		check(!EndlessAmmo.isActive(hero), "关闭后仍被视为弹药豁免中");
-	}
-
-	private static void testAmmoImmunity() {
-		Hero hero = new Hero();
-		Dungeon.hero = hero;
-		Thrower thrower = new Thrower();
-		EscapeKnive knives = new EscapeKnive(4);
-		hero.belongings.backpack.items.add(knives);
-		check(thrower.loadAmmoFromBackpack(hero, knives), "投掷器无法装填投掷物");
-
 		EndlessAmmoBag bag = new EndlessAmmoBag();
 		hero.belongings.backpack.items.add(bag);
 		check(bag.doEquip(hero), "无限弹药袋无法装备");
 		bag.activate(hero);
-		Buff.affect(hero, EndlessAmmo.class);
+		bag.addCharge(EndlessAmmoBag.AMMO_COST);
 
-		check(thrower.consumeAmmo() && thrower.loadedAmmo() != null && knives.quantity() == 4,
-				"弹药豁免期间投掷器内仓仍被消耗");
-		check(EndlessAmmo.isActive(hero), "弹药豁免状态意外结束");
+		GunA gun = new GunA();
+		hero.belongings.weapon = gun;
+		gun.charge(0);
+		check(bag.reloadEquippedGuns(hero), "补充弹药没有补到常规枪械");
+		check(gun.charge() == gun.fullCharge(), "常规枪械弹匣没有被补满：" + gun.charge());
 
-		hero.buff(EndlessAmmo.class).detach();
-		check(thrower.consumeAmmo() && knives.quantity() == 3,
-				"弹药豁免结束后投掷器没有正常消耗内仓");
+		//特殊枪械（耗材特殊）不属于「常规枪械」，不该被补
+		Crossbow crossbow = new Crossbow();
+		crossbow.charge(0);
+		hero.belongings.weapon = null;
+		hero.belongings.secondWep = crossbow;
+		check(!bag.reloadEquippedGuns(hero), "特殊枪械不该被补充弹药");
+		check(crossbow.charge() == 0, "特殊枪械弹匣被错误补满：" + crossbow.charge());
+		check(!crossbow.usesStandardAmmo() && gun.usesStandardAmmo(), "常规/特殊枪械判定错误");
+	}
+
+	private static void testFeedUpgrade() {
+		Hero hero = new Hero();
+		Dungeon.hero = hero;
+		EndlessAmmoBag bag = new EndlessAmmoBag();
+		hero.belongings.backpack.items.add(bag);
+		check(bag.doEquip(hero), "无限弹药袋无法装备");
+		bag.activate(hero);
+		check(bag.level() == 0 && bag.chargeCap() == 4, "初始等级或上限错误");
+
+		check(bag.feedMagazines(hero, 1), "喂食 1 个弹匣失败");
+		check(bag.level() == 0, "喂食不足 2 个弹匣就升级了");
+		check(bag.feedMagazines(hero, 1), "喂食第 2 个弹匣失败");
+		check(bag.level() == 1, "每 2 个弹匣没有升 1 级：" + bag.level());
+		check(bag.chargeCap() == EndlessAmmoBag.chargeCapForLevel(1), "升级后上限没有同步");
+
+		bag.feedMagazines(hero, 2 * EndlessAmmoBag.MAX_LEVEL);
+		check(bag.level() == EndlessAmmoBag.MAX_LEVEL, "喂食没有升到满级：" + bag.level());
+		check(bag.chargeCap() == 10, "满级上限不是 10：" + bag.chargeCap());
 	}
 
 	private static void testPoolSaveAndMessages() throws Exception {
-		//SPSEXPD: 无尽弹药袋已移出常规神器池（改为星兵开局携带）
+		//SPSEXPD: 无限弹药袋已移出常规神器池（改为星兵开局携带）
 		boolean inPool = false;
 		for (Class<?> type : Generator.Category.ARTIFACT.classes) {
 			if (type == EndlessAmmoBag.class) inPool = true;
@@ -141,24 +151,25 @@ public final class SpsEndlessAmmoBagTest {
 				"神器池与权重数组长度不一致");
 
 		EndlessAmmoBag bag = new EndlessAmmoBag();
-		bag.addCharge(75);
+		bag.addCharge(3);
 		Bundle bundle = new Bundle();
 		bag.storeInBundle(bundle);
 		EndlessAmmoBag restored = new EndlessAmmoBag();
 		restored.restoreFromBundle(bundle);
-		check(restored.charge() == 75, "无限弹药袋充能没有随存档恢复");
+		check(restored.charge() == 3, "无限弹药袋充能没有随存档恢复：" + restored.charge());
 		check(new EndlessAmmoBag().charge() == 0, "无限弹药袋充能没有实例隔离");
 
-		for (String file : new String[]{"messages/items/zh/items.properties", "messages/items/en/items.properties"}) {
-			String text = read(file);
-			check(text.contains("items.equipment.artifacts.endlessammobag.desc="), file + "缺少无限弹药袋描述");
-			check(text.contains("items.equipment.artifacts.endlessammobag.ac_activate="), file + "缺少激活动作名");
-			check(text.contains("items.equipment.artifacts.masterthievesarmband.steal_goods_ok="),
-					file + "缺少魔术之手法杖的偷窃文案");
+		String en = read("messages/items/en/items.properties");
+		for (String key : new String[]{
+				"items.equipment.artifacts.endlessammobag.desc=",
+				"items.equipment.artifacts.endlessammobag.ac_activate=",
+				"items.equipment.artifacts.endlessammobag.ac_feed=",
+				"items.equipment.artifacts.endlessammobag.no_gun=",
+				"items.equipment.artifacts.endlessammobag.level_up="}) {
+			check(en.contains(key), "en 缺少无限弹药袋文本：" + key);
 		}
-		for (String file : new String[]{"messages/actors/zh/actors.properties", "messages/actors/en/actors.properties"}) {
-			check(read(file).contains("actors.buffs.endlessammo.desc="), file + "缺少无限弹药状态描述");
-		}
+		check(en.contains("items.equipment.artifacts.masterthievesarmband.steal_goods_ok="),
+				"en 缺少魔术之手法杖的偷窃文案");
 	}
 
 	private static String read(String path) throws Exception {

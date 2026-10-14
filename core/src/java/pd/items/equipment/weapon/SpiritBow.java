@@ -220,9 +220,8 @@ public class SpiritBow extends Weapon implements SpsAutoFire {
 		return true;
 	}
 
-	/** SPSEXPD: 每射出一箭消耗 1 发弹药（无限弹药袋生效时免消耗）。 */
+	/** SPSEXPD: 每射出一箭消耗 1 发弹药。 */
 	public boolean consumeCharge() {
-		if (pd.actors.buffs.EndlessAmmo.isActive(Dungeon.hero)) return true;
 		if (charge <= 0) return false;
 		charge--;
 		updateQuickslot();
