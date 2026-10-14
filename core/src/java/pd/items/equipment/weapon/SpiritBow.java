@@ -298,10 +298,13 @@ public class SpiritBow extends Weapon implements SpsAutoFire {
 				Math.round(augment.damageFactor(max())),
 				STRReq());
 		
-		if (STRReq() > Dungeon.hero.STR()) {
-			info += " " + Messages.get(Weapon.class, "too_heavy");
-		} else if (Dungeon.hero.STR() > STRReq()){
-			info += " " + Messages.get(Weapon.class, "excess_str", Dungeon.hero.STR() - STRReq());
+		//SPSEXPD: 选角界面的「初始物品」预览没有 Dungeon.hero，需守卫（否则点击灵能弓会 NPE）
+		if (Dungeon.hero != null) {
+			if (STRReq() > Dungeon.hero.STR()) {
+				info += " " + Messages.get(Weapon.class, "too_heavy");
+			} else if (Dungeon.hero.STR() > STRReq()){
+				info += " " + Messages.get(Weapon.class, "excess_str", Dungeon.hero.STR() - STRReq());
+			}
 		}
 		
 		switch (augment) {
@@ -322,7 +325,7 @@ public class SpiritBow extends Weapon implements SpsAutoFire {
 			info += "\n\n" + Messages.get(Weapon.class, "hardened_no_enchant");
 		}
 		
-		if (cursed && isEquipped( Dungeon.hero )) {
+		if (cursed && Dungeon.hero != null && isEquipped( Dungeon.hero )) {
 			info += "\n\n" + Messages.get(Weapon.class, "cursed_worn");
 		} else if (cursedKnown && cursed) {
 			info += "\n\n" + Messages.get(Weapon.class, "cursed");
@@ -342,17 +345,20 @@ public class SpiritBow extends Weapon implements SpsAutoFire {
 	
 	@Override
 	public int min(int lvl) {
-		int dmg = 1 + Dungeon.hero.lvl/5
-				+ RingOfSharpshooting.levelDamageBonus(Dungeon.hero)
-				+ (curseInfusionBonus ? 1 + Dungeon.hero.lvl/30 : 0);
+		//SPSEXPD: 选角界面「初始物品」预览时没有 Dungeon.hero（不能用裸 hero 计算伤害）
+		Hero hero = Dungeon.hero;
+		int dmg = 1 + (hero == null ? 0 : hero.lvl/5)
+				+ (hero == null ? 0 : RingOfSharpshooting.levelDamageBonus(hero))
+				+ (curseInfusionBonus ? 1 + (hero == null ? 0 : hero.lvl/30) : 0);
 		return Math.max(0, dmg);
 	}
 	
 	@Override
 	public int max(int lvl) {
-		int dmg = 6 + (int)(Dungeon.hero.lvl/2.5f)
-				+ 2*RingOfSharpshooting.levelDamageBonus(Dungeon.hero)
-				+ (curseInfusionBonus ? 2 + Dungeon.hero.lvl/15 : 0);
+		Hero hero = Dungeon.hero;
+		int dmg = 6 + (hero == null ? 0 : (int)(hero.lvl/2.5f))
+				+ (hero == null ? 0 : 2*RingOfSharpshooting.levelDamageBonus(hero))
+				+ (curseInfusionBonus ? 2 + (hero == null ? 0 : hero.lvl/15) : 0);
 		return Math.max(0, dmg);
 	}
 
