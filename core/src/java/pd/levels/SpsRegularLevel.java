@@ -261,7 +261,8 @@ public abstract class SpsRegularLevel extends RegularLevel {
 				if (picked == Type.LABORATORY) labRoom = false;
 				if (picked == Type.PIT) pitRoom = false;
 				specialRooms++;
-			} else if (Random.Int(2) == 0) {
+			} else {
+				//SPSEXPD: 度=1 的房间无条件尝试再连一条门，尽量消除死胡同（原为 50% 概率才尝试）
 				maybeConnectLegacyRoom(room);
 			}
 		}
@@ -354,7 +355,8 @@ public abstract class SpsRegularLevel extends RegularLevel {
 				candidates.add(neighbour);
 			}
 		}
-		if (candidates.size() > 1) room.connect(Random.element(candidates));
+		//SPSEXPD: 只要有一个可连邻居就补门（原为 >1，恰恰是"只剩一个候选"时死活不连、留下死胡同）
+		if (!candidates.isEmpty()) room.connect(Random.element(candidates));
 	}
 
 	/** 首选特殊房间放不下（房间小于其最小尺寸）时，改挑轮换表里第一个放得下的。 */
