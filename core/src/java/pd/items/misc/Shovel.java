@@ -25,7 +25,13 @@ import render.utils.serialize.Bundle;
 import java.util.ArrayList;
 import pd.messages.InlineText;
 
-public class Shovel extends Item {
+public class Shovel extends Item implements pd.items.unique.UniqueItem {
+
+	/** SPSEXPD: 特殊物品编号（见 UniqueItemId）。 */
+	public static final pd.items.unique.UniqueItemId UNIQUE_ID = pd.items.unique.UniqueItemId.PERFORMER_SHOVEL_BASE_A;
+
+	@Override public pd.items.unique.UniqueItemId uniqueId() { return UNIQUE_ID; }
+
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Shovel.class)

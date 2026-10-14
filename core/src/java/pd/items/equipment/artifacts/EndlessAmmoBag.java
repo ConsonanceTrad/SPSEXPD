@@ -32,7 +32,13 @@ import pd.messages.InlineText;
  * <p>用通用弹匣「喂食」可以让它升级——每 {@link #MAGAZINES_PER_LEVEL} 个弹匣升 1 级，
  * 等级越高充能上限越高、充能也越快（30 回合/点 → 12 回合/点）。</p>
  */
-public class EndlessAmmoBag extends Artifact {
+public class EndlessAmmoBag extends Artifact implements pd.items.unique.UniqueItem {
+
+	/** SPSEXPD: 特殊物品编号（见 UniqueItemId）。 */
+	public static final pd.items.unique.UniqueItemId UNIQUE_ID = pd.items.unique.UniqueItemId.SOLDIER_GUN_BASE_B;
+
+	@Override public pd.items.unique.UniqueItemId uniqueId() { return UNIQUE_ID; }
+
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(EndlessAmmoBag.class)

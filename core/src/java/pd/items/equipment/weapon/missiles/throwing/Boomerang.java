@@ -37,7 +37,13 @@ import pd.messages.InlineText;
  * 充能满时可投掷（AC_CAST）、命中麻痹目标、弹回后站在落点接住立即回满充能。
  * 原有的强化子弹（涂油）机制保留，涂层的命中效果在投掷时生效。
  */
-public class Boomerang extends MeleeWeapon {
+public class Boomerang extends MeleeWeapon implements pd.items.unique.UniqueItem {
+
+	/** SPSEXPD: 特殊物品编号（见 UniqueItemId）。 */
+	public static final pd.items.unique.UniqueItemId UNIQUE_ID = pd.items.unique.UniqueItemId.HUNTRESS_BOW_BASE_A;
+
+	@Override public pd.items.unique.UniqueItemId uniqueId() { return UNIQUE_ID; }
+
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Boomerang.class)

@@ -10,7 +10,13 @@ import pd.messages.InlineText;
  * 与魔术之手法杖机制相同（偷窃/隔空开箱等），但**不再随时间自动充能**：
  * 覆写 {@link #charge(Char)} 为空，不挂 Wand.Charger；改为**击杀敌人**时获得充能。
  */
-public class SilverHand extends MasterThievesArmband {
+public class SilverHand extends MasterThievesArmband implements pd.items.unique.UniqueItem {
+
+	/** SPSEXPD: 特殊物品编号（见 UniqueItemId）。 */
+	public static final pd.items.unique.UniqueItemId UNIQUE_ID = pd.items.unique.UniqueItemId.ROGUE_CLOAK_BASE_B;
+
+	@Override public pd.items.unique.UniqueItemId uniqueId() { return UNIQUE_ID; }
+
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(SilverHand.class)

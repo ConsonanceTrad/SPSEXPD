@@ -8,7 +8,13 @@ import pd.messages.InlineText;
 /**
  * SPSEXPD: 蒲团 —— 信徒开局携带的占位道具，暂无任何效果。
  */
-public class Futon extends Item {
+public class Futon extends Item implements pd.items.unique.UniqueItem {
+
+	/** SPSEXPD: 特殊物品编号（见 UniqueItemId）。 */
+	public static final pd.items.unique.UniqueItemId UNIQUE_ID = pd.items.unique.UniqueItemId.FOLLOWER_CUSHION_BASE_A;
+
+	@Override public pd.items.unique.UniqueItemId uniqueId() { return UNIQUE_ID; }
+
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Futon.class)

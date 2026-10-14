@@ -18,7 +18,13 @@ import render.utils.serialize.Bundle;
 import pd.messages.InlineText;
 
 /** The original SPS-PD magic missile and magic-weakness wand. */
-public class WandOfMagicMissile extends DamageWand {
+public class WandOfMagicMissile extends DamageWand implements pd.items.unique.UniqueItem {
+
+	/** SPSEXPD: 特殊物品编号（见 UniqueItemId）。 */
+	public static final pd.items.unique.UniqueItemId UNIQUE_ID = pd.items.unique.UniqueItemId.MAGE_STAFF_BASE_B;
+
+	@Override public pd.items.unique.UniqueItemId uniqueId() { return UNIQUE_ID; }
+
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(WandOfMagicMissile.class)

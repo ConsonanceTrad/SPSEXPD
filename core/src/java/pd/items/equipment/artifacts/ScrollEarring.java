@@ -8,7 +8,13 @@ import pd.messages.InlineText;
  * SPSEXPD: 经卷耳环 —— 苦修者开局携带的占位神器（占用神器槽）。
  * 暂时和诺姆林王冠一样不提供任何效果（passiveBuff 保持基类默认的 null）。
  */
-public class ScrollEarring extends Artifact {
+public class ScrollEarring extends Artifact implements pd.items.unique.UniqueItem {
+
+	/** SPSEXPD: 特殊物品编号（见 UniqueItemId）。 */
+	public static final pd.items.unique.UniqueItemId UNIQUE_ID = pd.items.unique.UniqueItemId.ASCETIC_EARRING_BASE_A;
+
+	@Override public pd.items.unique.UniqueItemId uniqueId() { return UNIQUE_ID; }
+
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(ScrollEarring.class)

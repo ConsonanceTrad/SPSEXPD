@@ -58,7 +58,13 @@ import render.utils.serialize.Reflection;
 import java.util.ArrayList;
 import pd.messages.InlineText;
 
-public class SpiritBow extends Weapon implements SpsAutoFire {
+public class SpiritBow extends Weapon implements SpsAutoFire, pd.items.unique.UniqueItem {
+
+	/** SPSEXPD: 特殊物品编号（见 UniqueItemId）。 */
+	public static final pd.items.unique.UniqueItemId UNIQUE_ID = pd.items.unique.UniqueItemId.HUNTRESS_BOW_BASE_B;
+
+	@Override public pd.items.unique.UniqueItemId uniqueId() { return UNIQUE_ID; }
+
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(SpiritBow.class)

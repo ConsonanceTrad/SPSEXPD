@@ -62,7 +62,13 @@ import java.util.ArrayList;
 import pd.messages.InlineText;
 import pd.atlas.items.EquipmentEquipWeaponBasicWeaponDict;
 
-public class MagesStaff extends MeleeWeapon {
+public class MagesStaff extends MeleeWeapon implements pd.items.unique.UniqueItem {
+
+	/** SPSEXPD: 特殊物品编号（见 UniqueItemId）。 */
+	public static final pd.items.unique.UniqueItemId UNIQUE_ID = pd.items.unique.UniqueItemId.MAGE_STAFF_BASE_A;
+
+	@Override public pd.items.unique.UniqueItemId uniqueId() { return UNIQUE_ID; }
+
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(MagesStaff.class)

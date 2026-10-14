@@ -19,7 +19,13 @@ import java.util.ArrayList;
 import pd.messages.InlineText;
 import pd.atlas.items.EquipmentNonEquipDict;
 
-public class FaithSign extends Item {
+public class FaithSign extends Item implements pd.items.unique.UniqueItem {
+
+	/** SPSEXPD: 特殊物品编号（见 UniqueItemId）。 */
+	public static final pd.items.unique.UniqueItemId UNIQUE_ID = pd.items.unique.UniqueItemId.FOLLOWER_CUSHION_BASE_B;
+
+	@Override public pd.items.unique.UniqueItemId uniqueId() { return UNIQUE_ID; }
+
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(FaithSign.class)

@@ -1027,7 +1027,7 @@ public enum HeroClass {
 	//（STR、HTBoost、技能等级、LimitedDrops、gold 等）仍留在 initXxx 里。
 
 	/** 物品去向 */
-	public enum ItemSlot { BACKPACK, WEAPON, ARMOR, ARTIFACT, SECOND_WEP, ACCESSORY4, ACCESSORY5, MISC }
+	public enum ItemSlot { BACKPACK, WEAPON, ARMOR, ARTIFACT, SECOND_WEP, SECOND_ARMOR, ACCESSORY4, ACCESSORY5, MISC }
 
 	/** 一条物品声明：存工厂而不是实例，避免共享实例被 identify/upgrade 污染 */
 	public static final class LoadoutItem {
@@ -1395,6 +1395,8 @@ public enum HeroClass {
 			});
 			//SPSEXPD: 决斗家开局携带护手盾（副手，只提供格挡）
 			l.equip(ItemSlot.SECOND_WEP, () -> new pd.items.misc.GauntletShield(), 0, null);
+			//SPSEXPD: 决斗家第二件专属物品——护手绑带（副护甲，占位）
+			l.equip(ItemSlot.SECOND_ARMOR, () -> new pd.items.unique.items.BraceletArmor(), 0, null);
 			l.backpack(() -> new ThrowingSpike(), 0, 2, 1, null);
 		}
 
@@ -1477,6 +1479,8 @@ public enum HeroClass {
 				default:
 					l.equip(ItemSlot.WEAPON, () -> new Triangolo(), 0, null);
 					l.equip(ItemSlot.ARMOR, () -> new ClothArmor(), 0, null);
+					//SPSEXPD: 演员第二件专属物品——扩音筒（特殊副武器，占位）
+					l.equip(ItemSlot.SECOND_WEP, () -> new pd.items.unique.items.Megaphone(), 0, null);
 					l.backpack(() -> new Shovel(), 0, 1, 0, null);
 					l.backpack(() -> new SpsFireBomb());
 					l.backpack(() -> new IceBomb());
@@ -1649,7 +1653,8 @@ public enum HeroClass {
 					//SPSEXPD: 苦修者开局携带经卷耳环（占位神器，暂不提供效果）
 					l.equip(ItemSlot.ARTIFACT, () -> new pd.items.equipment.artifacts.ScrollEarring(), 0,
 							(h, i) -> ((pd.items.equipment.artifacts.ScrollEarring) i).activate(h));
-					l.backpack(() -> new BigBattery(), 0, 1, 0, null);
+					//SPSEXPD: 苦修者第二件专属物品——木屐（副护甲，占位）；初始皮肤的蓄电池已按清单移除
+					l.equip(ItemSlot.SECOND_ARMOR, () -> new pd.items.unique.items.ClogArmor(), 0, null);
 					break;
 			}
 		}
@@ -1686,6 +1691,10 @@ public enum HeroClass {
 					break;
 				case SECOND_WEP:
 					if (item instanceof pd.items.KindOfWeapon) hero.belongings.secondWep = (pd.items.KindOfWeapon) item;
+					else item.collect();
+					break;
+				case SECOND_ARMOR:
+					if (item instanceof pd.items.equipment.armor.Armor) hero.belongings.secondArmor = (pd.items.equipment.armor.Armor) item;
 					else item.collect();
 					break;
 				case ACCESSORY4:
@@ -1751,6 +1760,7 @@ public enum HeroClass {
 			case WEAPON:
 			case SECOND_WEP:
 			case ARMOR:
+			case SECOND_ARMOR:
 			case ACCESSORY4:
 			case ACCESSORY5:
 			case MISC:

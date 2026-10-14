@@ -98,6 +98,9 @@ public final class SpsTestTimeLoadout {
 		collect(hero, new SoulCollect());
 		collect(hero, new PowerHand());
 		collect(hero, new TomeOfMastery());
+		//SPSEXPD: 专属物品强化机制的两个入口——天狗面具（一档）与矮人国王皇冠（二档）
+		collect(hero, new pd.items.TengusMask());
+		collect(hero, new pd.items.KingsCrown());
 		collect(hero, identified(new TestWeapon()));
 		//SPSEXPD: 测试法杖——可切换并释放九系属性魔弹
 		collect(hero, identified(new WandOfTest()));

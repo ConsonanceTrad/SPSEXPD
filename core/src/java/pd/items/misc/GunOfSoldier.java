@@ -12,7 +12,13 @@ import pd.messages.InlineText;
  * 弹匣 3 发、可用通用弹匣装填，且在「本回合未开火」时每回合自然回充 0.5 发（显示取整）。
  * 命中时按目标「已损失生命比例」提高伤害（乘区：× (1 + 损失比例)）。unique、不可升级、需要装备后使用。
  */
-public class GunOfSoldier extends GunWeapon {
+public class GunOfSoldier extends GunWeapon implements pd.items.unique.UniqueItem {
+
+	/** SPSEXPD: 特殊物品编号（见 UniqueItemId）。 */
+	public static final pd.items.unique.UniqueItemId UNIQUE_ID = pd.items.unique.UniqueItemId.SOLDIER_GUN_BASE_A;
+
+	@Override public pd.items.unique.UniqueItemId uniqueId() { return UNIQUE_ID; }
+
 	//SPSEXPD: 特殊枪械——不使用通用弹道贴图，保持原有贴图
 	@Override protected boolean usesDefaultBallistic() { return false; }
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)

@@ -15,6 +15,12 @@ import pd.messages.InlineText;
 
 public class SealComplete extends BrokenSeal {
 
+	/** SPSEXPD: 特殊物品编号（见 UniqueItemId）。 */
+	public static final pd.items.unique.UniqueItemId UNIQUE_ID = pd.items.unique.UniqueItemId.WARRIOR_SEAL_T1_1_FULL;
+
+	@Override public pd.items.unique.UniqueItemId uniqueId() { return UNIQUE_ID; }
+
+
 	//SPSEXPD: inline Chinese text
 	static {
 		InlineText.of(SealComplete.class)

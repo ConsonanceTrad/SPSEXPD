@@ -35,7 +35,13 @@ import pd.messages.InlineText;
 import pd.atlas.items.EquipmentJewelleryArtifactDict;
 
 /** SPS-PD 0.9.8's charge-based invisibility cloak. */
-public class CloakOfShadows extends Artifact {
+public class CloakOfShadows extends Artifact implements pd.items.unique.UniqueItem {
+
+	/** SPSEXPD: 特殊物品编号（见 UniqueItemId）。 */
+	public static final pd.items.unique.UniqueItemId UNIQUE_ID = pd.items.unique.UniqueItemId.ROGUE_CLOAK_BASE_A;
+
+	@Override public pd.items.unique.UniqueItemId uniqueId() { return UNIQUE_ID; }
+
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(CloakOfShadows.class)

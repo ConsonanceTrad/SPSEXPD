@@ -10,7 +10,13 @@ import pd.messages.InlineText;
 /**
  * SPSEXPD: 护手盾 —— 由神木圆盾改造而来：去掉了投掷功能，只保留装备在副手时的格挡。
  */
-public class GauntletShield extends MissileShield {
+public class GauntletShield extends MissileShield implements pd.items.unique.UniqueItem {
+
+	/** SPSEXPD: 特殊物品编号（见 UniqueItemId）。 */
+	public static final pd.items.unique.UniqueItemId UNIQUE_ID = pd.items.unique.UniqueItemId.DUELIST_SHIELD_BASE_A;
+
+	@Override public pd.items.unique.UniqueItemId uniqueId() { return UNIQUE_ID; }
+
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(GauntletShield.class)

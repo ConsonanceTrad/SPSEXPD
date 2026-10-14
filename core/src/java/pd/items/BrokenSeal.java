@@ -54,7 +54,13 @@ import java.util.Arrays;
 import pd.messages.InlineText;
 import pd.atlas.items.EquipmentNonEquipDict;
 
-public class BrokenSeal extends Item {
+public class BrokenSeal extends Item implements pd.items.unique.UniqueItem {
+
+	/** SPSEXPD: 特殊物品编号（见 UniqueItemId）。 */
+	public static final pd.items.unique.UniqueItemId UNIQUE_ID = pd.items.unique.UniqueItemId.WARRIOR_SEAL_BASE_A;
+
+	@Override public pd.items.unique.UniqueItemId uniqueId() { return UNIQUE_ID; }
+
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(BrokenSeal.class)

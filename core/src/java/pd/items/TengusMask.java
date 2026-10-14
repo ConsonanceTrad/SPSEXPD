@@ -33,21 +33,28 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.actors.hero.Talent;
 import pd.effects.Speck;
-import pd.items.equipment.armor.Armor;
+import pd.items.unique.UniqueFamily;
+import pd.items.unique.UniqueItemId;
+import pd.items.unique.UniqueItems;
 import pd.journal.Catalog;
 import pd.messages.Messages;
+import pd.scenes.GameScene;
+import pd.sprites.ItemSprite;
 import pd.utils.GLog;
+import pd.windows.WndOptions;
 import render.noosa.audio.Sample;
 import render.noosa.particles.Emitter;
 
 import java.util.ArrayList;
+import java.util.List;
 import pd.messages.InlineText;
 
 /**
- * SPSEXPD: 天狗的面具 —— 现在的作用是把英雄身上的「职业专属物品」整体强化一档，
- * 例如 破损纹章 / 纹章碎片 -> 完整纹章。
+ * SPSEXPD: 天狗的面具 —— 一档强化：把英雄开局的两件「职业专属物品」整体换成一档新物品。
  *
- * 佩戴后自动强化背包与装备里的所有可强化物品；一件都强化不了时只提示、不消耗面具。
+ * <p>无论选择哪条路线，族内全部初始物品都会被消耗；缺任何一件都会拒绝执行
+ * （物品可以丢弃后捡回，所以「身上没有」不能当作永久丢失）。有两条路线时会弹选择框。</p>
+ *
  * 原本的「选择职业专精」功能已按用户裁决移除（WndChooseSubclass 与 choose() 保留但不再被调用）。
  */
 public class TengusMask extends Item {
@@ -57,14 +64,14 @@ public class TengusMask extends Item {
 			.t("name", "天狗的面具")
 			.t("ac_wear", "佩戴")
 			.t("nothing", "你身上没有能被面具强化的专属物品。")
+			.t("missing", "你身上缺少 %s，无法强化。")
+			.t("choose_route", "选择一条强化路线。")
+			.t("route", "强化为 %s")
 			.t("used", "面具瓦解了，它所蕴含的能量涌入了你的身体。")
 			.t("upgraded", "面具强化了你的 %1$d 件专属物品。")
 			.t("desc", "天狗死时，这幅面具像褪皮般从他的脸上失落地滑下。你能感受它在波动着一股神妙的魔力，仿佛在极力劝你成为它的新主人。难道天狗戴上它时也是被其力量吸引？\n\n如果你有勇气将其戴上，面具的庞大力量会转嫁到你体内，并_重塑你的专属物品_——破损之物会被补全、残缺的符咒会重新明亮起来。\n\n你会成为它的新主人吗？")
 			.t("discover_hint", "你可从某种敌人的掉落物中获得该物品。");
 	}
-
-
-
 
 	private static final String AC_WEAR	= "WEAR";
 
@@ -96,46 +103,49 @@ public class TengusMask extends Item {
 	}
 
 	/**
-	 * SPSEXPD: 强化英雄的全部职业专属物品。返回实际强化成功的件数。
-	 * 护甲上贴附的纹章会先摘下、换新后再贴回去，等级与刻印都原样保留。
+	 * SPSEXPD: 一档强化 —— 把英雄开局的两件专属物品整体换成一档新物品。
+	 * 族内物品缺任何一件都拒绝执行（不消耗面具）。
 	 */
-	public int upgradeUniqueItems( Hero hero ) {
-		if (hero == null || hero.belongings == null) return 0;
+	public void upgradeUniqueItems( Hero hero ) {
+		if (hero == null || hero.belongings == null) return;
 
-		int upgraded = 0;
-
-		//护甲上贴附的纹章
-		Armor armor = hero.belongings.armor;
-		if (armor != null && isUpgradableUnique( armor.checkSeal() )) {
-			BrokenSeal old = armor.detachSeal();
-			Item replacement = upgradedCopy( old );
-			if (replacement != null) {
-				armor.affixSeal( (BrokenSeal)replacement );
-				upgraded++;
-			} else if (old != null) {
-				//理论上不会发生；兜底把原物贴回去，避免凭空丢失
-				armor.affixSeal( old );
-			}
-		}
-
-		//背包里的独立物品
-		pd.items.equipment.bags.Bag backpack = hero.belongings.backpack;
-		for (Item item : new ArrayList<>(backpack.items)) {
-			if (!isUpgradableUnique( item )) continue;
-			Item replacement = upgradedCopy( item );
-			if (replacement == null) continue;
-			item.detachAll( backpack );
-			if (!replacement.collect( backpack ) && Dungeon.level != null) {
-				Dungeon.level.drop( replacement, hero.pos );
-			}
-			upgraded++;
-		}
-
-		if (upgraded <= 0) {
-			//SPSEXPD: 没有可强化的目标就不消耗面具
+		UniqueFamily family = UniqueItems.familyOf( hero );
+		if (family == null) {
 			GLog.w( Messages.get(this, "nothing") );
-			return 0;
+			return;
 		}
+
+		List<UniqueItemId> miss = UniqueItems.missing( hero, family, 0, 0 );
+		if (!miss.isEmpty()) {
+			GLog.w( Messages.get(this, "missing", names( miss )) );
+			return;
+		}
+
+		List<Integer> routes = UniqueItems.branches( family, 1 );
+		if (routes.size() <= 1) {
+			applyTier1( hero, family, routes.isEmpty() ? 0 : routes.get( 0 ) );
+			return;
+		}
+
+		final List<Integer> branches = routes;
+		String[] opts = new String[routes.size()];
+		for (int i = 0; i < routes.size(); i++) {
+			opts[i] = Messages.get(this, "route", UniqueItems.routeLabel( family, 1, branches.get( i ) ));
+		}
+		GameScene.show( new WndOptions( new ItemSprite(this), Messages.titleCase( name() ),
+				Messages.get(this, "choose_route"), opts ) {
+			@Override
+			protected void onSelect( int index ) {
+				applyTier1( hero, family, branches.get( index ) );
+			}
+		} );
+	}
+
+	/** SPSEXPD: 执行一档转换（消耗族内全部初始物品 → 发放所选路线的新物品）。 */
+	private void applyTier1( Hero hero, UniqueFamily family, int branch ) {
+		List<Item> consumed = UniqueItems.consume( hero, family, 0, 0 );
+		List<Item> granted  = UniqueItems.grant( hero, family, 1, branch );
+		UniqueItems.preserve( consumed, granted );
 
 		detach( hero.belongings.backpack );
 		Catalog.countUse( getClass() );
@@ -152,24 +162,16 @@ public class TengusMask extends Item {
 		Sample.INSTANCE.play( Assets.Sounds.MASTERY );
 
 		GLog.p( Messages.get(this, "used") );
-		GLog.p( Messages.get(this, "upgraded", upgraded) );
-		return upgraded;
+		GLog.p( Messages.get(this, "upgraded", granted.size()) );
 	}
 
-	/** SPSEXPD: 该物品是否有对应的强化形态（完整纹章已是成品，不再强化）。 */
-	public static boolean isUpgradableUnique( Item item ) {
-		return item instanceof BrokenSeal && !(item instanceof SealComplete);
-	}
-
-	/** SPSEXPD: 造出强化形态，并把携带的等级与刻印原样搬过去；没有对应形态时返回 null。 */
-	public static Item upgradedCopy( Item item ) {
-		if (item instanceof BrokenSeal && !(item instanceof SealComplete)) {
-			SealComplete result = new SealComplete();
-			result.level( item.level() );
-			result.setGlyph( ((BrokenSeal)item).getGlyph() );
-			return result;
+	private static String names( List<UniqueItemId> ids ) {
+		StringBuilder sb = new StringBuilder();
+		for (UniqueItemId id : ids) {
+			if (sb.length() > 0) sb.append( "、" );
+			sb.append( UniqueItems.nameOf( id ) );
 		}
-		return null;
+		return sb.toString();
 	}
 
 	@Override
