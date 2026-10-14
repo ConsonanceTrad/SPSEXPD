@@ -491,6 +491,8 @@ public abstract class SpsRegularLevel extends RegularLevel {
 			if (bw < 5 || bh < 5) continue;
 			// 只在走廊基本铺满包围盒时才吸收，避免把包围盒内的房间整体抹掉
 			if (cellArea * 10 < (long) bw * bh * 7) continue;
+			//SPSEXPD: 限制大环尺寸（最多 4 格、包围盒 <=16），避免出现跨图的长直环边（对远程敌人劣势）
+			if (group.size() > 4 || bw > 16 || bh > 16) continue;
 
 			HashSet<Room> groupSet = new HashSet<>(group);
 			HashSet<Door> externalDoors = new HashSet<>();
@@ -1165,7 +1167,28 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		}
 	}
 
+	/**
+	 * SPSEXPD: 把走廊单元画成「细窄房间」——整格墙体、内部留一个居中的窄房间（每维最多 4 格），
+	 * 门里侧由后续 openLegacyDoorInside/connectLegacyDoorsInside 打通。用来降低 1 格宽长走廊的比例。
+	 */
+	private void paintLegacyNarrowRoom(Room room) {
+		fill(room, Terrain.WALL);
+		int innerL = room.left + 1;
+		int innerT = room.top + 1;
+		int innerW = room.width() - 2;
+		int innerH = room.height() - 2;
+		if (innerW < 1 || innerH < 1) return;
+		int narrowW = Math.min(innerW, 4);
+		int narrowH = Math.min(innerH, 4);
+		int x = innerL + (innerW - narrowW) / 2;
+		int y = innerT + (innerH - narrowH) / 2;
+		fill(x, y, narrowW, narrowH, Terrain.EMPTY);
+		for (Door door : room.connected.values()) if (door != null) door.set(Door.Type.REGULAR);
+	}
+
 	private void paintTunnel(Room room) {
+		//SPSEXPD: 一半概率改画「细窄房间」（减少 1 格宽长走廊，避免对远程敌人劣势）
+		if (Random.Int(2) == 0) { paintLegacyNarrowRoom(room); return; }
 		//SPSEXPD: 七成概率改用破碎的连接房间结构（TunnelRoom/BridgeRoom/PerimeterRoom/WalkwayRoom/...），其余走 SPS 自绘
 		if (shatteredStructureAllowed() && Random.Int(10) < 7 && paintLegacyShatteredCorridor(room)) return;
 		int floor = tunnelTile();
@@ -1214,6 +1237,8 @@ public abstract class SpsRegularLevel extends RegularLevel {
 	}
 
 	private void paintPassage(Room room) {
+		//SPSEXPD: 一半概率改画「细窄房间」
+		if (Random.Int(2) == 0) { paintLegacyNarrowRoom(room); return; }
 		//SPSEXPD: 七成概率改用破碎的连接房间结构（失败时退回 SPS 的环形通道），其余走 SPS 自绘
 		if (shatteredStructureAllowed() && Random.Int(10) < 7 && paintLegacyShatteredCorridor(room)) return;
 		int floor = tunnelTile();
