@@ -14,11 +14,7 @@ import pd.items.Generator;
 import pd.items.Item;
 import pd.items.equipment.bombs.DungeonBomb;
 import pd.items.consum.scrolls.ScrollOfTeleportation;
-import pd.items.summon.ActiveMrDestructo;
-import pd.items.summon.FairyCard;
-import pd.items.summon.Mobile;
-import pd.mechanics.pathfind.PathFinder;
-import pd.scenes.GameScene;
+import pd.mechanics.pathfind.PathFinder;import pd.scenes.GameScene;
 import pd.sprites.BMirrorSprite;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
@@ -37,7 +33,7 @@ public class SoldierSkill extends ClassSkill {
 			.t("ac_special_two", "召唤机甲")
 			.t("ac_special_three", "战斗号召")
 			.t("ac_special_four", "空投补给")
-			.t("desc", "_自爆幻影：_生成两个会在被摧毁时爆炸的战斗幻影。达到56级后同时清除部分负面状态。\n\n_召唤机甲（21级）：_获得机械护甲和物理护盾。达到56级后两者翻倍。\n\n_战斗号召（31级）：_获得随机物品或召唤物。达到56级后必定获得召唤物。\n\n_空投补给（41级）：_向自身四角投放投射武器和食物。达到56级后食物品质提高。")
+			.t("desc", "_自爆幻影：_生成两个会在被摧毁时爆炸的战斗幻影。达到56级后同时清除部分负面状态。\n\n_召唤机甲（21级）：_获得机械护甲和物理护盾。达到56级后两者翻倍。\n\n_战斗号召（31级）：_获得随机物品。达到56级后获得神器。\n\n_空投补给（41级）：_向自身四角投放投射武器和食物。达到56级后食物品质提高。")
 			.t("$seekingbomb.name", "砰砰机器人")
 			.t("$seekingbomb.desc", "携带炸药的战斗幻影，被摧毁时会发生爆炸。")
 			.t("$seekinghugebomb.name", "砰砰砰砰机器人")
@@ -85,13 +81,10 @@ public class SoldierSkill extends ClassSkill {
 	}
 
 	@Override public void doSpecial3() {
-		Item summon;
-		switch (Random.Int(3)) {
-			case 0: summon = new FairyCard(); break;
-			case 1: summon = new Mobile(); break;
-			default: summon = new ActiveMrDestructo(); break;
-		}
-		dropAtHero(curUser.lvl > 55 || Random.Int(2) == 0 ? summon : Generator.random());
+		//SPSEXPD: 召唤物（仙女卡片/遥控卫星/毁灭无人机）已删除——战斗号召改为随机物品
+		dropAtHero(curUser.lvl > 55
+				? Generator.random(Generator.Category.ARTIFACT)
+				: Generator.random());
 		addCooldown(15);
 		finishSkillCast();
 	}

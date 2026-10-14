@@ -63,9 +63,6 @@ import pd.items.specific.reward.BoundReward;
 import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.items.consum.scrolls.ScrollOfRegrowth;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
-import pd.items.summon.ActiveMrDestructo;
-import pd.items.summon.FairyCard;
-import pd.items.summon.Mobile;
 import pd.items.equipment.wands.WandOfMagicMissile;
 import pd.items.equipment.weapon.melee.fusion.Flute;
 import pd.items.equipment.weapon.melee.fusion.Harp;
@@ -382,7 +379,7 @@ public class TownLevel extends Level {
 			case 3: return Generator.random(Generator.Category.SCROLL);
 			case 4: return Generator.random(Generator.Category.SEED);
 			case 5: return Generator.random(Generator.Category.BERRY);
-			case 6: return summonItem();
+			case 6: return Generator.random(Generator.Category.MISSILE);
 			case 7: return new PetFood();
 			case 8: return new BoundReward();
 			default: return new Nut();
@@ -429,14 +426,6 @@ public class TownLevel extends Level {
 			case 8: return new ShrapnelBomb();
 			case 9: return new SmokeBomb();
 			default: return new WoollyBomb();
-		}
-	}
-
-	private Item summonItem() {
-		switch (Random.Int(3)) {
-			case 0: return new FairyCard();
-			case 1: return new Mobile();
-			default: return new ActiveMrDestructo();
 		}
 	}
 

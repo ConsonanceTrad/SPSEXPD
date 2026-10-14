@@ -85,7 +85,7 @@ public class NmHealBag extends Item {
 
 	public boolean rebuild(Hero hero) {
 		if (hero == null || Dungeon.level == null || hero.spp < COOK_COST) return false;
-		Item result = Generator.random(Random.Int(4) == 0 ? Generator.Category.HIGHFOOD : Generator.Category.SUMMONED);
+		Item result = Generator.random(Random.Int(4) == 0 ? Generator.Category.HIGHFOOD : Generator.Category.EGGS);
 		if (result == null) return false;
 		hero.spp -= COOK_COST;
 		Heap heap = Dungeon.level.drop(result, hero.pos);

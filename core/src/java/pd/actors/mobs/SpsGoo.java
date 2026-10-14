@@ -31,7 +31,6 @@ import pd.items.specific.keys.SpsSkeletonKey;
 import pd.items.misc.CopyBall;
 import pd.items.misc.LuckyBadge;
 import pd.items.consum.scrolls.ScrollOfTeleportation;
-import pd.items.summon.ActiveMrDestructo;
 import pd.items.equipment.wands.WandOfFirebolt;
 import pd.items.equipment.weapon.enchantments.EnchantmentDark2;
 import pd.items.equipment.weapon.enchantments.EnchantmentDark;
@@ -228,7 +227,7 @@ public class SpsGoo extends Mob {
 				new pd.items.equipment.weapon.rockcode.Obubble());
 		float rareChance = LegacyDualLootMob.primaryShare(0.2f, 1f,
 				LuckyBadge.luckBonus(Dungeon.hero));
-		Item bossLoot = Random.Float() < rareChance ? new UpgradeBlobViolet() : new ActiveMrDestructo();
+		Item bossLoot = Random.Float() < rareChance ? new UpgradeBlobViolet() : new pd.items.Honeypot();
 		Dungeon.level.drop(bossLoot, pos).sprite.drop();
 		Dungeon.level.drop(new Gold(1500), pos).sprite.drop();
 		pd.items.specific.journalpages.JournalPage.dropAt(

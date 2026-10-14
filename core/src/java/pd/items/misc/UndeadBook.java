@@ -10,6 +10,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Dewcharge;
 import pd.actors.buffs.EnergyArmor;
 import pd.actors.buffs.GlassShield;
+import pd.actors.buffs.Healing;
 import pd.actors.buffs.HighLight;
 import pd.actors.buffs.Levitation;
 import pd.actors.hero.Hero;
@@ -18,7 +19,6 @@ import pd.effects.particles.ElmoParticle;
 import pd.items.Ankh;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.summon.FairyCard;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -118,27 +118,12 @@ public class UndeadBook extends Item {
 				}
 				break;
 			case 3:
-				summonFairy(hero);
+				//SPSEXPD: 仙女卡片已删除——原「召唤仙女」的祝福改为直接治疗
+				Buff.affect(hero, Healing.class).setHeal(Math.max(1, hero.HT / 4), 0.25f, 1);
 				break;
 			default:
 				throw new IllegalArgumentException("Unknown holy blessing outcome: " + outcome);
 		}
-	}
-
-	public FairyCard.Fairy summonFairy(Hero hero) {
-		if (hero == null || Dungeon.level == null) return null;
-		ArrayList<Integer> spawnPoints = new ArrayList<>();
-		for (int offset : PathFinder.NEIGHBOURS8) {
-			int cell = hero.pos + offset;
-			if (Dungeon.level.insideMap(cell) && Actor.findChar(cell) == null
-					&& (Dungeon.level.passable[cell] || Dungeon.level.avoid[cell])) spawnPoints.add(cell);
-		}
-		if (spawnPoints.isEmpty()) return null;
-		FairyCard.Fairy fairy = new FairyCard.Fairy();
-		fairy.HP = fairy.HT = hero.lvl * 3;
-		fairy.pos = Random.element(spawnPoints);
-		GameScene.add(fairy);
-		return fairy;
 	}
 
 	public boolean soulSacrifice(Hero hero) {

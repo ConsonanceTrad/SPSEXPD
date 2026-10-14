@@ -38,6 +38,7 @@ import pd.actors.buffs.Rhythm;
 import pd.actors.buffs.STRDown;
 import pd.actors.buffs.ShieldArmor;
 import pd.actors.buffs.Shocked;
+import pd.actors.buffs.Healing;
 import pd.actors.buffs.Silent;
 import pd.actors.buffs.Slow;
 import pd.actors.buffs.TargetShoot;
@@ -64,7 +65,6 @@ import pd.items.consum.potions.Potion;
 import pd.items.equipment.rings.Ring;
 import pd.items.consum.scrolls.Scroll;
 import pd.items.consum.scrolls.ScrollOfRegrowth;
-import pd.items.summon.FairyCard;
 import pd.items.equipment.wands.DamageWand;
 import pd.items.equipment.wands.WandOfFirebolt;
 import pd.items.equipment.wands.WandOfFreeze;
@@ -423,9 +423,10 @@ public final class SpsSkinTwoWarriorTest {
 		TestMob second = mobAt(level, CENTER + 5);
 		book.applyHolyBless(hero, 2);
 		check(first.HP == 50 && second.HP == 50, "神圣庇佑没有伤害视野内所有敌人");
-		FairyCard.Fairy fairy = book.summonFairy(hero);
-		check(fairy != null && fairy.HT == 12 && fairy.HP == 12 && level.mobs().contains(fairy),
-				"神圣庇佑召唤的仙女位置或生命错误");
+		//SPSEXPD: 仙女卡片已删除——神圣庇佑的第 4 种结果改为直接治疗
+		hero.HP = 1;
+		book.applyHolyBless(hero, 3);
+		check(hero.buff(Healing.class) != null, "神圣庇佑的治疗结果不完整");
 
 		level = freshLevel();
 		hero = freshHero(level);

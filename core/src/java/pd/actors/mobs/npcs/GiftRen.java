@@ -36,7 +36,7 @@ public class GiftRen extends GiftNpc {
 	}
 	@Override public Visual visual() { return Visual.REN; }
 	@Override public boolean acceptsGift(Item item) {
-		return named(item, "MiniMoai", "HugeShuriken", "ActiveMrDestructo", "Mobile", "ToyGun",
+		return named(item, "MiniMoai", "HugeShuriken", "ToyGun",
 				"TrickSand", "MirrorDoll", "WindBottle", "HandLight", "CurseBox", "HolyWater",
 				"PrayerWheel", "Triangolo", "Flute", "Wardrum", "Trumpet", "Harp", "Club",
 				"RunicBlade", "Rapier", "Lance", "AresSword", "CromCruachAxe", "JupitersWraith",

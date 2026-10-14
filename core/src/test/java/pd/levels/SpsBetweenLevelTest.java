@@ -32,9 +32,6 @@ import pd.items.consum.potions.Potion;
 import pd.items.quest.Mushroom;
 import pd.items.equipment.rings.Ring;
 import pd.items.consum.scrolls.Scroll;
-import pd.items.summon.ActiveMrDestructo;
-import pd.items.summon.FairyCard;
-import pd.items.summon.Mobile;
 import pd.items.equipment.weapon.guns.GunA;
 import pd.items.equipment.weapon.guns.GunB;
 import pd.items.equipment.weapon.guns.GunC;
@@ -238,8 +235,7 @@ public final class SpsBetweenLevelTest {
 	private static int countSummon(ArrayList<Item> items) {
 		int result = 0;
 		for (Item item : items) {
-			if (item instanceof ActiveMrDestructo || item instanceof FairyCard || item instanceof Mobile
-					|| item instanceof Honeypot) result++;
+			if (item instanceof Honeypot) result++;
 		}
 		return result;
 	}

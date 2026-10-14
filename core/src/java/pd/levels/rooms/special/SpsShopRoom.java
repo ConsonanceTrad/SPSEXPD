@@ -25,9 +25,6 @@ import pd.items.consum.eggs.randomone.RandomMonthEgg;
 import pd.items.consum.food.staplefood.Pasty;
 import pd.items.specific.journalpages.Town;
 import pd.items.quest.Mushroom;
-import pd.items.summon.ActiveMrDestructo;
-import pd.items.summon.FairyCard;
-import pd.items.summon.Mobile;
 import pd.items.equipment.weapon.guns.GunA;
 import pd.items.equipment.weapon.guns.GunB;
 import pd.items.equipment.weapon.guns.GunC;
@@ -145,13 +142,8 @@ public class SpsShopRoom extends ShopRoom {
 		if (Random.Int(3) == 0) {
 			itemsToSpawn.add(Random.Int(2) == 0 ? new RandomMonthEgg() : new Egg());
 		}
-		switch (Random.Int(6)) {
-			case 1: itemsToSpawn.add(new ActiveMrDestructo()); break;
-			case 2: itemsToSpawn.add(new FairyCard()); break;
-			case 3: itemsToSpawn.add(new Mobile()); break;
-			case 4: itemsToSpawn.add(new Honeypot()); break;
-			default: itemsToSpawn.add(new Mobile()); break;
-		}
+		//SPSEXPD: 召唤物（仙女卡片/遥控卫星/毁灭无人机）已删除——只在 4 号位保留蜂罐
+		if (Random.Int(6) == 4) itemsToSpawn.add(new Honeypot());
 		//SPSEXPD: 大型果实（稀有商品，已不再由植物产出）
 		Item largeFruit = pd.plants.PlantHarvest.randomLargeFruit();
 		if (largeFruit != null) itemsToSpawn.add(largeFruit);

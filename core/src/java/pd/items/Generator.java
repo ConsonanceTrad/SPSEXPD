@@ -485,7 +485,6 @@ public class Generator {
 		MEDICINE( 1, 1, Pill.class ),
 		MUSHROOM( 0, 0, Pill.class ),
 		PILL    ( 0, 0, Pill.class ),
-		SUMMONED( 0, 0, Item.class ),
 		SHOES   ( 0, 0, Item.class ),
 		
 		POTION	( 8, 8, Potion.class ),
@@ -560,9 +559,9 @@ public class Generator {
 		public static int order( Item item ) {
 			int catResult = -1, subResult = 0;
 			for (int i=0; i < values().length; i++) {
-				// SUMMONED is a recipe-only generation pool whose entries do not share
-				// a dedicated public base type. It must not classify every Item.
-				if (values()[i] == SUMMONED || values()[i] == SHOES || values()[i] == EASTERWEAPON
+				// These pools are recipe-only generation pools whose entries do not share
+				// a dedicated public base type. They must not classify every Item.
+				if (values()[i] == SHOES || values()[i] == EASTERWEAPON
 						|| values()[i] == RANGEWEAPON || values()[i] == ARROWS
 						|| values()[i] == MUSICWEAPON
 						|| values()[i] == GUNWEAPON) continue;
@@ -995,15 +994,6 @@ public class Generator {
 			PILL.classes = MUSHROOM.classes.clone();
 			PILL.defaultProbs = MUSHROOM.defaultProbs.clone();
 			PILL.probs = PILL.defaultProbs.clone();
-
-			SUMMONED.classes = new Class<?>[]{
-					pd.items.summon.ActiveMrDestructo.class,
-					pd.items.summon.Mobile.class,
-					pd.items.summon.FairyCard.class,
-					Honeypot.class
-			};
-			SUMMONED.defaultProbs = new float[]{1, 1, 1, 1};
-			SUMMONED.probs = SUMMONED.defaultProbs.clone();
 
 			SHOES.classes = new Class<?>[]{
 					pd.items.misc.JumpW.class,

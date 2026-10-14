@@ -1126,7 +1126,7 @@ public final class SpsMobRotationTest {
 				|| moss.spriteClass != pd.sprites.LiveMossSprite.class
 				|| !specialLootCategoriesMatch(LiveMoss.specialLootCategories(), new pd.items.Generator.Category[]{
 				pd.items.Generator.Category.POTION,
-				pd.items.Generator.Category.SUMMONED})
+				pd.items.Generator.Category.EGGS})
 				|| !SpsSewerMobs.LiveMoss.class.isAssignableFrom(LiveMoss.class)) {
 			throw new AssertionError("living moss identity, faction, or special loot differ from SPS");
 		}

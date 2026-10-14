@@ -1532,7 +1532,7 @@ public abstract class SpsRegularLevel extends RegularLevel {
 			case 13: case 14: case 15: case 16:
 				return generatedOrFallback(Generator.Category.PILL);
 			case 17: case 18:
-				return generatedOrFallback(Generator.Category.SUMMONED);
+				return generatedOrFallback(Generator.Category.EGGS);
 			case 19:
 				return generatedOrFallback(Generator.Category.EGGS);
 			default:
@@ -1545,7 +1545,7 @@ public abstract class SpsRegularLevel extends RegularLevel {
 			case 0: return generatedOrFallback(Generator.Category.HIGHFOOD);
 			case 1: return generatedOrFallback(Generator.Category.NORNSTONE);
 			case 2: return generatedOrFallback(Generator.Category.WEAPON);
-			case 3: return generatedOrFallback(Generator.Category.SUMMONED);
+			case 3: return generatedOrFallback(Generator.Category.EGGS);
 			default: return generatedOrFallback(Generator.Category.EGGS);
 		}
 	}

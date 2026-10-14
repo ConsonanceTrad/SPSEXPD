@@ -11,7 +11,6 @@ import pd.actors.mobs.npcs.Mtree;
 import pd.items.Generator;
 import pd.items.Item;
 import pd.items.specific.reward.BoundReward;
-import pd.items.summon.FairyCard;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import render.utils.math.Random;
@@ -30,7 +29,7 @@ public class HuntressSkill extends ClassSkill {
 			.t("ac_special_two", "遗迹之光")
 			.t("ac_special_three", "自然之助")
 			.t("ac_special_four", "战争古树")
-			.t("desc", "_狩猎本能：_获得瞄准射击、针刺和一种随机元素灌注。达到56级后同时获得全部元素灌注。\n\n_遗迹之光（21级）：_获得一个露珠奖励包。达到56级后破阶首件符合条件的装备。\n\n_自然之助（31级）：_获得三件投射武器并召唤一只精灵。达到56级后召唤更强的糖梅精灵。\n\n_战争古树（41级）：_缠绕附近视野内的敌人并使其寄生，随后召唤战争古树。");
+			.t("desc", "_狩猎本能：_获得瞄准射击、针刺和一种随机元素灌注。达到56级后同时获得全部元素灌注。\n\n_遗迹之光（21级）：_获得一个露珠奖励包。达到56级后破阶首件符合条件的装备。\n\n_自然之助（31级）：_获得三件投射武器。\n\n_战争古树（41级）：_缠绕附近视野内的敌人并使其寄生，随后召唤战争古树。");
 	}
 
 
@@ -68,13 +67,8 @@ public class HuntressSkill extends ClassSkill {
 	}
 
 	@Override public void doSpecial3() {
+		//SPSEXPD: 仙女卡片已删除——自然之助不再召唤精灵
 		for (int i = 0; i < 3; i++) dropAtHero(Generator.random(Generator.Category.ARROWS));
-		ArrayList<Integer> spawnPoints = adjacentSpawnPoints();
-		if (!spawnPoints.isEmpty()) {
-			Mob fairy = curUser.lvl > 55 ? new FairyCard.SugarplumFairy() : new FairyCard.Fairy();
-			fairy.pos = Random.element(spawnPoints);
-			GameScene.add(fairy);
-		}
 		addCooldown(15);
 		finishSkillCast();
 	}

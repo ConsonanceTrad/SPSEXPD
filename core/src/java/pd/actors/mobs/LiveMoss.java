@@ -28,10 +28,10 @@ public class LiveMoss extends SpsSewerMobs.LiveMoss {
 	@Override
 	public Item SupercreateLoot() {
 		return Random.oneOf(Generator.random(Generator.Category.POTION),
-				Generator.random(Generator.Category.SUMMONED));
+				Generator.random(Generator.Category.EGGS));
 	}
 
 	public static Generator.Category[] specialLootCategories() {
-		return new Generator.Category[]{Generator.Category.POTION, Generator.Category.SUMMONED};
+		return new Generator.Category[]{Generator.Category.POTION, Generator.Category.EGGS};
 	}
 }

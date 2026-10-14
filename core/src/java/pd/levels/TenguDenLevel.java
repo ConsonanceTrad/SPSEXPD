@@ -22,7 +22,6 @@ import pd.items.equipment.bombs.SmokeBomb;
 import pd.items.equipment.bombs.WoollyBomb;
 import pd.items.consum.eggs.Egg;
 import pd.items.quest.AdventureJournal;
-import pd.items.summon.ActiveMrDestructo;
 import pd.levels.builders.SpsBspLayout.Door;
 import pd.levels.builders.SpsBspLayout.Room;
 import pd.levels.builders.SpsBspLayout.Type;
@@ -109,7 +108,7 @@ public class TenguDenLevel extends SpsRegularLevel {
 			case 2: prize = pd.items.Generator.random(
 					pd.items.Generator.Category.BERRY); break;
 			case 3: prize = new Starflower.Seed(); break;
-			case 5: prize = new ActiveMrDestructo(); break;
+			case 5: prize = new pd.items.Honeypot(); break;
 			case 6: prize = randomBomb(); break;
 			default: prize = new Gold(Random.IntRange(1, 5)); break;
 		}

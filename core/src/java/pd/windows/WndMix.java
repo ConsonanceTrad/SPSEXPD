@@ -5,9 +5,6 @@ import pd.items.Generator;
 import pd.items.Item;
 import pd.items.consum.eggs.Egg;
 import pd.items.equipment.rings.Ring;
-import pd.items.summon.ActiveMrDestructo;
-import pd.items.summon.FairyCard;
-import pd.items.summon.Mobile;
 import pd.items.equipment.wands.Wand;
 import pd.items.equipment.wands.WandOfMagicMissile;
 import render.utils.math.Random;
@@ -40,13 +37,8 @@ public class WndMix extends WndSpsRecipe {
 		}
 		if (rings == 3 || wands == 3) return fallback(Generator.random(Generator.Category.ARTIFACT));
 		if (rings == 2 && wands == 1 || rings == 1 && wands == 2) return new Egg();
-		if (rings == 1 && wands == 1) {
-			switch (Random.Int(3)) {
-				case 0: return new FairyCard();
-				case 1: return new Mobile();
-				default: return new ActiveMrDestructo();
-			}
-		}
+		//SPSEXPD: 召唤物（仙女卡片/遥控卫星/毁灭无人机）已删除——1 戒 1 杖改为产出随机物品
+		if (rings == 1 && wands == 1) return fallback(Generator.random());
 		if (rings == 2) return fallback(Generator.random(Generator.Category.RING));
 		if (rings == 1) return fallback(Generator.random(Generator.Category.WAND));
 		if (wands == 2) return fallback(Generator.random(Generator.Category.WAND));
