@@ -31,7 +31,7 @@ public class WandOfTest extends DamageWand {
 			.t("ac_4", "大地")
 			.t("ac_5", "光明")
 			.t("ac_6", "黑暗")
-			.t("ac_7", "风")
+			.t("ac_7", "狂风")
 			.t("ac_8", "混乱")
 			.t("desc", "这根法杖是测试用的，可以改变造成伤害的属性。")
 			.t("stats_desc", "这根法杖射出的飞弹能造成_%1$d~%2$d点伤害_。");
