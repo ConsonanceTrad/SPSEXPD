@@ -21,15 +21,25 @@ public final class PrisonExitDict {
 	/** tile_003 */
 	public static final IconEntry TILE_003 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 0, 16, 16}, 911);
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 0, 16, 16}, 912);
+	public static final IconEntry PRISON_EXIT_C5_R1 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 0, 16, 16}, 912);
+	/** semantic alias for PRISON_EXIT_C5_R1 */
+	public static final IconEntry TILE_004 = PRISON_EXIT_C5_R1;
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 0, 16, 16}, 913);
+	public static final IconEntry PRISON_EXIT_C6_R1 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 0, 16, 16}, 913);
+	/** semantic alias for PRISON_EXIT_C6_R1 */
+	public static final IconEntry TILE_005 = PRISON_EXIT_C6_R1;
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 0, 16, 16}, 914);
+	public static final IconEntry PRISON_EXIT_C7_R1 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 0, 16, 16}, 914);
+	/** semantic alias for PRISON_EXIT_C7_R1 */
+	public static final IconEntry TILE_006 = PRISON_EXIT_C7_R1;
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 0, 16, 16}, 915);
+	public static final IconEntry PRISON_EXIT_C8_R1 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 0, 16, 16}, 915);
+	/** semantic alias for PRISON_EXIT_C8_R1 */
+	public static final IconEntry TILE_007 = PRISON_EXIT_C8_R1;
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 0, 16, 16}, 916);
+	public static final IconEntry PRISON_EXIT_C9_R1 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 0, 16, 16}, 916);
+	/** semantic alias for PRISON_EXIT_C9_R1 */
+	public static final IconEntry TILE_008 = PRISON_EXIT_C9_R1;
 	/** tile_009 */
 	public static final IconEntry TILE_009 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 0, 16, 16}, 917);
 	/** tile_010 */
@@ -45,7 +55,9 @@ public final class PrisonExitDict {
 	/** tile_015 */
 	public static final IconEntry TILE_015 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 0, 16, 16}, 923);
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 16, 16, 16}, 924);
+	public static final IconEntry PRISON_EXIT_C1_R2 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 16, 16, 16}, 924);
+	/** semantic alias for PRISON_EXIT_C1_R2 */
+	public static final IconEntry TILE_016 = PRISON_EXIT_C1_R2;
 	/** tile_017 */
 	public static final IconEntry TILE_017 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 16, 16, 16}, 925);
 	/** tile_018 */
@@ -53,21 +65,37 @@ public final class PrisonExitDict {
 	/** tile_019 */
 	public static final IconEntry TILE_019 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 16, 16, 16}, 927);
 	/** tile_020 */
-	public static final IconEntry TILE_020 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 16, 16, 16}, 928);
+	public static final IconEntry PRISON_EXIT_C5_R2 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 16, 16, 16}, 928);
+	/** semantic alias for PRISON_EXIT_C5_R2 */
+	public static final IconEntry TILE_020 = PRISON_EXIT_C5_R2;
 	/** tile_021 */
-	public static final IconEntry TILE_021 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 16, 16, 16}, 929);
+	public static final IconEntry PRISON_EXIT_C6_R2 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 16, 16, 16}, 929);
+	/** semantic alias for PRISON_EXIT_C6_R2 */
+	public static final IconEntry TILE_021 = PRISON_EXIT_C6_R2;
 	/** tile_022 */
-	public static final IconEntry TILE_022 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 16, 16, 16}, 930);
+	public static final IconEntry PRISON_EXIT_C7_R2 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 16, 16, 16}, 930);
+	/** semantic alias for PRISON_EXIT_C7_R2 */
+	public static final IconEntry TILE_022 = PRISON_EXIT_C7_R2;
 	/** tile_023 */
-	public static final IconEntry TILE_023 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 16, 16, 16}, 931);
+	public static final IconEntry PRISON_EXIT_C8_R2 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 16, 16, 16}, 931);
+	/** semantic alias for PRISON_EXIT_C8_R2 */
+	public static final IconEntry TILE_023 = PRISON_EXIT_C8_R2;
 	/** tile_024 */
-	public static final IconEntry TILE_024 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 16, 16, 16}, 932);
+	public static final IconEntry PRISON_EXIT_C9_R2 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 16, 16, 16}, 932);
+	/** semantic alias for PRISON_EXIT_C9_R2 */
+	public static final IconEntry TILE_024 = PRISON_EXIT_C9_R2;
 	/** tile_025 */
-	public static final IconEntry TILE_025 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 16, 16, 16}, 933);
+	public static final IconEntry PRISON_EXIT_C10_R2 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 16, 16, 16}, 933);
+	/** semantic alias for PRISON_EXIT_C10_R2 */
+	public static final IconEntry TILE_025 = PRISON_EXIT_C10_R2;
 	/** tile_026 */
-	public static final IconEntry TILE_026 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 16, 16, 16}, 934);
+	public static final IconEntry PRISON_EXIT_C11_R2 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 16, 16, 16}, 934);
+	/** semantic alias for PRISON_EXIT_C11_R2 */
+	public static final IconEntry TILE_026 = PRISON_EXIT_C11_R2;
 	/** tile_027 */
-	public static final IconEntry TILE_027 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 16, 16, 16}, 935);
+	public static final IconEntry PRISON_EXIT_C12_R2 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 16, 16, 16}, 935);
+	/** semantic alias for PRISON_EXIT_C12_R2 */
+	public static final IconEntry TILE_027 = PRISON_EXIT_C12_R2;
 	/** tile_028 */
 	public static final IconEntry TILE_028 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 16, 16, 16}, 936);
 	/** tile_029 */
@@ -77,31 +105,53 @@ public final class PrisonExitDict {
 	/** tile_031 */
 	public static final IconEntry TILE_031 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 16, 16, 16}, 939);
 	/** tile_032 */
-	public static final IconEntry TILE_032 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 32, 16, 16}, 940);
+	public static final IconEntry PRISON_EXIT_C1_R3 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 32, 16, 16}, 940);
+	/** semantic alias for PRISON_EXIT_C1_R3 */
+	public static final IconEntry TILE_032 = PRISON_EXIT_C1_R3;
 	/** tile_033 */
 	public static final IconEntry TILE_033 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 32, 16, 16}, 941);
 	/** tile_034 */
 	public static final IconEntry TILE_034 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 32, 16, 16}, 942);
 	/** tile_035 */
-	public static final IconEntry TILE_035 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 32, 16, 16}, 943);
+	public static final IconEntry PRISON_EXIT_C4_R3 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 32, 16, 16}, 943);
+	/** semantic alias for PRISON_EXIT_C4_R3 */
+	public static final IconEntry TILE_035 = PRISON_EXIT_C4_R3;
 	/** tile_036 */
-	public static final IconEntry TILE_036 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 32, 16, 16}, 944);
+	public static final IconEntry PRISON_EXIT_C5_R3 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 32, 16, 16}, 944);
+	/** semantic alias for PRISON_EXIT_C5_R3 */
+	public static final IconEntry TILE_036 = PRISON_EXIT_C5_R3;
 	/** tile_037 */
-	public static final IconEntry TILE_037 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 32, 16, 16}, 945);
+	public static final IconEntry PRISON_EXIT_C6_R3 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 32, 16, 16}, 945);
+	/** semantic alias for PRISON_EXIT_C6_R3 */
+	public static final IconEntry TILE_037 = PRISON_EXIT_C6_R3;
 	/** tile_038 */
-	public static final IconEntry TILE_038 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 32, 16, 16}, 946);
+	public static final IconEntry PRISON_EXIT_C7_R3 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 32, 16, 16}, 946);
+	/** semantic alias for PRISON_EXIT_C7_R3 */
+	public static final IconEntry TILE_038 = PRISON_EXIT_C7_R3;
 	/** tile_039 */
-	public static final IconEntry TILE_039 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 32, 16, 16}, 947);
+	public static final IconEntry PRISON_EXIT_C8_R3 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 32, 16, 16}, 947);
+	/** semantic alias for PRISON_EXIT_C8_R3 */
+	public static final IconEntry TILE_039 = PRISON_EXIT_C8_R3;
 	/** tile_040 */
-	public static final IconEntry TILE_040 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 32, 16, 16}, 948);
+	public static final IconEntry PRISON_EXIT_C9_R3 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 32, 16, 16}, 948);
+	/** semantic alias for PRISON_EXIT_C9_R3 */
+	public static final IconEntry TILE_040 = PRISON_EXIT_C9_R3;
 	/** tile_041 */
-	public static final IconEntry TILE_041 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 32, 16, 16}, 949);
+	public static final IconEntry PRISON_EXIT_C10_R3 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 32, 16, 16}, 949);
+	/** semantic alias for PRISON_EXIT_C10_R3 */
+	public static final IconEntry TILE_041 = PRISON_EXIT_C10_R3;
 	/** tile_042 */
-	public static final IconEntry TILE_042 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 32, 16, 16}, 950);
+	public static final IconEntry PRISON_EXIT_C11_R3 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 32, 16, 16}, 950);
+	/** semantic alias for PRISON_EXIT_C11_R3 */
+	public static final IconEntry TILE_042 = PRISON_EXIT_C11_R3;
 	/** tile_043 */
-	public static final IconEntry TILE_043 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 32, 16, 16}, 951);
+	public static final IconEntry PRISON_EXIT_C12_R3 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 32, 16, 16}, 951);
+	/** semantic alias for PRISON_EXIT_C12_R3 */
+	public static final IconEntry TILE_043 = PRISON_EXIT_C12_R3;
 	/** tile_044 */
-	public static final IconEntry TILE_044 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 32, 16, 16}, 952);
+	public static final IconEntry PRISON_EXIT_C13_R3 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 32, 16, 16}, 952);
+	/** semantic alias for PRISON_EXIT_C13_R3 */
+	public static final IconEntry TILE_044 = PRISON_EXIT_C13_R3;
 	/** tile_045 */
 	public static final IconEntry TILE_045 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 32, 16, 16}, 953);
 	/** tile_046 */
@@ -109,31 +159,53 @@ public final class PrisonExitDict {
 	/** tile_047 */
 	public static final IconEntry TILE_047 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 32, 16, 16}, 955);
 	/** tile_048 */
-	public static final IconEntry TILE_048 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 48, 16, 16}, 956);
+	public static final IconEntry PRISON_EXIT_C1_R4 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 48, 16, 16}, 956);
+	/** semantic alias for PRISON_EXIT_C1_R4 */
+	public static final IconEntry TILE_048 = PRISON_EXIT_C1_R4;
 	/** tile_049 */
 	public static final IconEntry TILE_049 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 48, 16, 16}, 957);
 	/** tile_050 */
 	public static final IconEntry TILE_050 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 48, 16, 16}, 958);
 	/** tile_051 */
-	public static final IconEntry TILE_051 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 48, 16, 16}, 959);
+	public static final IconEntry PRISON_EXIT_C4_R4 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 48, 16, 16}, 959);
+	/** semantic alias for PRISON_EXIT_C4_R4 */
+	public static final IconEntry TILE_051 = PRISON_EXIT_C4_R4;
 	/** tile_052 */
-	public static final IconEntry TILE_052 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 48, 16, 16}, 960);
+	public static final IconEntry PRISON_EXIT_C5_R4 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 48, 16, 16}, 960);
+	/** semantic alias for PRISON_EXIT_C5_R4 */
+	public static final IconEntry TILE_052 = PRISON_EXIT_C5_R4;
 	/** tile_053 */
-	public static final IconEntry TILE_053 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 48, 16, 16}, 961);
+	public static final IconEntry PRISON_EXIT_C6_R4 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 48, 16, 16}, 961);
+	/** semantic alias for PRISON_EXIT_C6_R4 */
+	public static final IconEntry TILE_053 = PRISON_EXIT_C6_R4;
 	/** tile_054 */
-	public static final IconEntry TILE_054 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 48, 16, 16}, 962);
+	public static final IconEntry PRISON_EXIT_C7_R4 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 48, 16, 16}, 962);
+	/** semantic alias for PRISON_EXIT_C7_R4 */
+	public static final IconEntry TILE_054 = PRISON_EXIT_C7_R4;
 	/** tile_055 */
-	public static final IconEntry TILE_055 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 48, 16, 16}, 963);
+	public static final IconEntry PRISON_EXIT_C8_R4 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 48, 16, 16}, 963);
+	/** semantic alias for PRISON_EXIT_C8_R4 */
+	public static final IconEntry TILE_055 = PRISON_EXIT_C8_R4;
 	/** tile_056 */
-	public static final IconEntry TILE_056 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 48, 16, 16}, 964);
+	public static final IconEntry PRISON_EXIT_C9_R4 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 48, 16, 16}, 964);
+	/** semantic alias for PRISON_EXIT_C9_R4 */
+	public static final IconEntry TILE_056 = PRISON_EXIT_C9_R4;
 	/** tile_057 */
-	public static final IconEntry TILE_057 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 48, 16, 16}, 965);
+	public static final IconEntry PRISON_EXIT_C10_R4 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 48, 16, 16}, 965);
+	/** semantic alias for PRISON_EXIT_C10_R4 */
+	public static final IconEntry TILE_057 = PRISON_EXIT_C10_R4;
 	/** tile_058 */
-	public static final IconEntry TILE_058 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 48, 16, 16}, 966);
+	public static final IconEntry PRISON_EXIT_C11_R4 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 48, 16, 16}, 966);
+	/** semantic alias for PRISON_EXIT_C11_R4 */
+	public static final IconEntry TILE_058 = PRISON_EXIT_C11_R4;
 	/** tile_059 */
-	public static final IconEntry TILE_059 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 48, 16, 16}, 967);
+	public static final IconEntry PRISON_EXIT_C12_R4 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 48, 16, 16}, 967);
+	/** semantic alias for PRISON_EXIT_C12_R4 */
+	public static final IconEntry TILE_059 = PRISON_EXIT_C12_R4;
 	/** tile_060 */
-	public static final IconEntry TILE_060 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 48, 16, 16}, 968);
+	public static final IconEntry PRISON_EXIT_C13_R4 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 48, 16, 16}, 968);
+	/** semantic alias for PRISON_EXIT_C13_R4 */
+	public static final IconEntry TILE_060 = PRISON_EXIT_C13_R4;
 	/** tile_061 */
 	public static final IconEntry TILE_061 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 48, 16, 16}, 969);
 	/** tile_062 */
@@ -141,31 +213,55 @@ public final class PrisonExitDict {
 	/** tile_063 */
 	public static final IconEntry TILE_063 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 48, 16, 16}, 971);
 	/** tile_064 */
-	public static final IconEntry TILE_064 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 64, 16, 16}, 972);
+	public static final IconEntry PRISON_EXIT_C1_R5 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 64, 16, 16}, 972);
+	/** semantic alias for PRISON_EXIT_C1_R5 */
+	public static final IconEntry TILE_064 = PRISON_EXIT_C1_R5;
 	/** tile_065 */
 	public static final IconEntry TILE_065 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 64, 16, 16}, 973);
 	/** tile_066 */
-	public static final IconEntry TILE_066 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 64, 16, 16}, 974);
+	public static final IconEntry PRISON_EXIT_C3_R5 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 64, 16, 16}, 974);
+	/** semantic alias for PRISON_EXIT_C3_R5 */
+	public static final IconEntry TILE_066 = PRISON_EXIT_C3_R5;
 	/** tile_067 */
-	public static final IconEntry TILE_067 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 64, 16, 16}, 975);
+	public static final IconEntry PRISON_EXIT_C4_R5 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 64, 16, 16}, 975);
+	/** semantic alias for PRISON_EXIT_C4_R5 */
+	public static final IconEntry TILE_067 = PRISON_EXIT_C4_R5;
 	/** tile_068 */
-	public static final IconEntry TILE_068 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 64, 16, 16}, 976);
+	public static final IconEntry PRISON_EXIT_C5_R5 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 64, 16, 16}, 976);
+	/** semantic alias for PRISON_EXIT_C5_R5 */
+	public static final IconEntry TILE_068 = PRISON_EXIT_C5_R5;
 	/** tile_069 */
-	public static final IconEntry TILE_069 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 64, 16, 16}, 977);
+	public static final IconEntry PRISON_EXIT_C6_R5 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 64, 16, 16}, 977);
+	/** semantic alias for PRISON_EXIT_C6_R5 */
+	public static final IconEntry TILE_069 = PRISON_EXIT_C6_R5;
 	/** tile_070 */
-	public static final IconEntry TILE_070 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 64, 16, 16}, 978);
+	public static final IconEntry PRISON_EXIT_C7_R5 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 64, 16, 16}, 978);
+	/** semantic alias for PRISON_EXIT_C7_R5 */
+	public static final IconEntry TILE_070 = PRISON_EXIT_C7_R5;
 	/** tile_071 */
-	public static final IconEntry TILE_071 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 64, 16, 16}, 979);
+	public static final IconEntry PRISON_EXIT_C8_R5 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 64, 16, 16}, 979);
+	/** semantic alias for PRISON_EXIT_C8_R5 */
+	public static final IconEntry TILE_071 = PRISON_EXIT_C8_R5;
 	/** tile_072 */
-	public static final IconEntry TILE_072 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 64, 16, 16}, 980);
+	public static final IconEntry PRISON_EXIT_C9_R5 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 64, 16, 16}, 980);
+	/** semantic alias for PRISON_EXIT_C9_R5 */
+	public static final IconEntry TILE_072 = PRISON_EXIT_C9_R5;
 	/** tile_073 */
-	public static final IconEntry TILE_073 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 64, 16, 16}, 981);
+	public static final IconEntry PRISON_EXIT_C10_R5 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 64, 16, 16}, 981);
+	/** semantic alias for PRISON_EXIT_C10_R5 */
+	public static final IconEntry TILE_073 = PRISON_EXIT_C10_R5;
 	/** tile_074 */
-	public static final IconEntry TILE_074 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 64, 16, 16}, 982);
+	public static final IconEntry PRISON_EXIT_C11_R5 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 64, 16, 16}, 982);
+	/** semantic alias for PRISON_EXIT_C11_R5 */
+	public static final IconEntry TILE_074 = PRISON_EXIT_C11_R5;
 	/** tile_075 */
-	public static final IconEntry TILE_075 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 64, 16, 16}, 983);
+	public static final IconEntry PRISON_EXIT_C12_R5 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 64, 16, 16}, 983);
+	/** semantic alias for PRISON_EXIT_C12_R5 */
+	public static final IconEntry TILE_075 = PRISON_EXIT_C12_R5;
 	/** tile_076 */
-	public static final IconEntry TILE_076 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 64, 16, 16}, 984);
+	public static final IconEntry PRISON_EXIT_C13_R5 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 64, 16, 16}, 984);
+	/** semantic alias for PRISON_EXIT_C13_R5 */
+	public static final IconEntry TILE_076 = PRISON_EXIT_C13_R5;
 	/** tile_077 */
 	public static final IconEntry TILE_077 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 64, 16, 16}, 985);
 	/** tile_078 */
@@ -173,11 +269,17 @@ public final class PrisonExitDict {
 	/** tile_079 */
 	public static final IconEntry TILE_079 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 64, 16, 16}, 987);
 	/** tile_080 */
-	public static final IconEntry TILE_080 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 80, 16, 16}, 988);
+	public static final IconEntry PRISON_EXIT_C1_R6 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 80, 16, 16}, 988);
+	/** semantic alias for PRISON_EXIT_C1_R6 */
+	public static final IconEntry TILE_080 = PRISON_EXIT_C1_R6;
 	/** tile_081 */
-	public static final IconEntry TILE_081 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 80, 16, 16}, 989);
+	public static final IconEntry PRISON_EXIT_C2_R6 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 80, 16, 16}, 989);
+	/** semantic alias for PRISON_EXIT_C2_R6 */
+	public static final IconEntry TILE_081 = PRISON_EXIT_C2_R6;
 	/** tile_082 */
-	public static final IconEntry TILE_082 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 80, 16, 16}, 990);
+	public static final IconEntry PRISON_EXIT_C3_R6 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 80, 16, 16}, 990);
+	/** semantic alias for PRISON_EXIT_C3_R6 */
+	public static final IconEntry TILE_082 = PRISON_EXIT_C3_R6;
 	/** tile_083 */
 	public static final IconEntry TILE_083 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 80, 16, 16}, 991);
 	/** tile_084 */
@@ -195,9 +297,13 @@ public final class PrisonExitDict {
 	/** tile_090 */
 	public static final IconEntry TILE_090 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 80, 16, 16}, 998);
 	/** tile_091 */
-	public static final IconEntry TILE_091 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 80, 16, 16}, 999);
+	public static final IconEntry PRISON_EXIT_C12_R6 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 80, 16, 16}, 999);
+	/** semantic alias for PRISON_EXIT_C12_R6 */
+	public static final IconEntry TILE_091 = PRISON_EXIT_C12_R6;
 	/** tile_092 */
-	public static final IconEntry TILE_092 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 80, 16, 16}, 1000);
+	public static final IconEntry PRISON_EXIT_C13_R6 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 80, 16, 16}, 1000);
+	/** semantic alias for PRISON_EXIT_C13_R6 */
+	public static final IconEntry TILE_092 = PRISON_EXIT_C13_R6;
 	/** tile_093 */
 	public static final IconEntry TILE_093 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 80, 16, 16}, 1001);
 	/** tile_094 */
@@ -205,13 +311,19 @@ public final class PrisonExitDict {
 	/** tile_095 */
 	public static final IconEntry TILE_095 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 80, 16, 16}, 1003);
 	/** tile_096 */
-	public static final IconEntry TILE_096 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 96, 16, 16}, 1004);
+	public static final IconEntry PRISON_EXIT_C1_R7 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 96, 16, 16}, 1004);
+	/** semantic alias for PRISON_EXIT_C1_R7 */
+	public static final IconEntry TILE_096 = PRISON_EXIT_C1_R7;
 	/** tile_097 */
 	public static final IconEntry TILE_097 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 96, 16, 16}, 1005);
 	/** tile_098 */
-	public static final IconEntry TILE_098 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 96, 16, 16}, 1006);
+	public static final IconEntry PRISON_EXIT_C3_R7 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 96, 16, 16}, 1006);
+	/** semantic alias for PRISON_EXIT_C3_R7 */
+	public static final IconEntry TILE_098 = PRISON_EXIT_C3_R7;
 	/** tile_099 */
-	public static final IconEntry TILE_099 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 96, 16, 16}, 1007);
+	public static final IconEntry PRISON_EXIT_C4_R7 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 96, 16, 16}, 1007);
+	/** semantic alias for PRISON_EXIT_C4_R7 */
+	public static final IconEntry TILE_099 = PRISON_EXIT_C4_R7;
 	/** tile_100 */
 	public static final IconEntry TILE_100 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 96, 16, 16}, 1008);
 	/** tile_101 */
@@ -227,9 +339,13 @@ public final class PrisonExitDict {
 	/** tile_106 */
 	public static final IconEntry TILE_106 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 96, 16, 16}, 1014);
 	/** tile_107 */
-	public static final IconEntry TILE_107 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 96, 16, 16}, 1015);
+	public static final IconEntry PRISON_EXIT_C12_R7 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 96, 16, 16}, 1015);
+	/** semantic alias for PRISON_EXIT_C12_R7 */
+	public static final IconEntry TILE_107 = PRISON_EXIT_C12_R7;
 	/** tile_108 */
-	public static final IconEntry TILE_108 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 96, 16, 16}, 1016);
+	public static final IconEntry PRISON_EXIT_C13_R7 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 96, 16, 16}, 1016);
+	/** semantic alias for PRISON_EXIT_C13_R7 */
+	public static final IconEntry TILE_108 = PRISON_EXIT_C13_R7;
 	/** tile_109 */
 	public static final IconEntry TILE_109 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 96, 16, 16}, 1017);
 	/** tile_110 */
@@ -237,17 +353,25 @@ public final class PrisonExitDict {
 	/** tile_111 */
 	public static final IconEntry TILE_111 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 96, 16, 16}, 1019);
 	/** tile_112 */
-	public static final IconEntry TILE_112 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 112, 16, 16}, 1020);
+	public static final IconEntry PRISON_EXIT_C1_R8 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 112, 16, 16}, 1020);
+	/** semantic alias for PRISON_EXIT_C1_R8 */
+	public static final IconEntry TILE_112 = PRISON_EXIT_C1_R8;
 	/** tile_113 */
 	public static final IconEntry TILE_113 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 112, 16, 16}, 1021);
 	/** tile_114 */
 	public static final IconEntry TILE_114 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 112, 16, 16}, 1022);
 	/** tile_115 */
-	public static final IconEntry TILE_115 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 112, 16, 16}, 1023);
+	public static final IconEntry PRISON_EXIT_C4_R8 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 112, 16, 16}, 1023);
+	/** semantic alias for PRISON_EXIT_C4_R8 */
+	public static final IconEntry TILE_115 = PRISON_EXIT_C4_R8;
 	/** tile_116 */
-	public static final IconEntry TILE_116 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 112, 16, 16}, 1024);
+	public static final IconEntry PRISON_EXIT_C5_R8 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 112, 16, 16}, 1024);
+	/** semantic alias for PRISON_EXIT_C5_R8 */
+	public static final IconEntry TILE_116 = PRISON_EXIT_C5_R8;
 	/** tile_117 */
-	public static final IconEntry TILE_117 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 112, 16, 16}, 1025);
+	public static final IconEntry PRISON_EXIT_C6_R8 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 112, 16, 16}, 1025);
+	/** semantic alias for PRISON_EXIT_C6_R8 */
+	public static final IconEntry TILE_117 = PRISON_EXIT_C6_R8;
 	/** tile_118 */
 	public static final IconEntry TILE_118 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 112, 16, 16}, 1026);
 	/** tile_119 */
@@ -259,9 +383,13 @@ public final class PrisonExitDict {
 	/** tile_122 */
 	public static final IconEntry TILE_122 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 112, 16, 16}, 1030);
 	/** tile_123 */
-	public static final IconEntry TILE_123 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 112, 16, 16}, 1031);
+	public static final IconEntry PRISON_EXIT_C12_R8 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 112, 16, 16}, 1031);
+	/** semantic alias for PRISON_EXIT_C12_R8 */
+	public static final IconEntry TILE_123 = PRISON_EXIT_C12_R8;
 	/** tile_124 */
-	public static final IconEntry TILE_124 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 112, 16, 16}, 1032);
+	public static final IconEntry PRISON_EXIT_C13_R8 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 112, 16, 16}, 1032);
+	/** semantic alias for PRISON_EXIT_C13_R8 */
+	public static final IconEntry TILE_124 = PRISON_EXIT_C13_R8;
 	/** tile_125 */
 	public static final IconEntry TILE_125 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 112, 16, 16}, 1033);
 	/** tile_126 */
@@ -277,11 +405,17 @@ public final class PrisonExitDict {
 	/** tile_131 */
 	public static final IconEntry TILE_131 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 128, 16, 16}, 1039);
 	/** tile_132 */
-	public static final IconEntry TILE_132 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 128, 16, 16}, 1040);
+	public static final IconEntry PRISON_EXIT_C5_R9 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 128, 16, 16}, 1040);
+	/** semantic alias for PRISON_EXIT_C5_R9 */
+	public static final IconEntry TILE_132 = PRISON_EXIT_C5_R9;
 	/** tile_133 */
-	public static final IconEntry TILE_133 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 128, 16, 16}, 1041);
+	public static final IconEntry PRISON_EXIT_C6_R9 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 128, 16, 16}, 1041);
+	/** semantic alias for PRISON_EXIT_C6_R9 */
+	public static final IconEntry TILE_133 = PRISON_EXIT_C6_R9;
 	/** tile_134 */
-	public static final IconEntry TILE_134 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 128, 16, 16}, 1042);
+	public static final IconEntry PRISON_EXIT_C7_R9 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 128, 16, 16}, 1042);
+	/** semantic alias for PRISON_EXIT_C7_R9 */
+	public static final IconEntry TILE_134 = PRISON_EXIT_C7_R9;
 	/** tile_135 */
 	public static final IconEntry TILE_135 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 128, 16, 16}, 1043);
 	/** tile_136 */
@@ -291,9 +425,13 @@ public final class PrisonExitDict {
 	/** tile_138 */
 	public static final IconEntry TILE_138 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 128, 16, 16}, 1046);
 	/** tile_139 */
-	public static final IconEntry TILE_139 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 128, 16, 16}, 1047);
+	public static final IconEntry PRISON_EXIT_C12_R9 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 128, 16, 16}, 1047);
+	/** semantic alias for PRISON_EXIT_C12_R9 */
+	public static final IconEntry TILE_139 = PRISON_EXIT_C12_R9;
 	/** tile_140 */
-	public static final IconEntry TILE_140 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 128, 16, 16}, 1048);
+	public static final IconEntry PRISON_EXIT_C13_R9 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 128, 16, 16}, 1048);
+	/** semantic alias for PRISON_EXIT_C13_R9 */
+	public static final IconEntry TILE_140 = PRISON_EXIT_C13_R9;
 	/** tile_141 */
 	public static final IconEntry TILE_141 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 128, 16, 16}, 1049);
 	/** tile_142 */
@@ -307,11 +445,17 @@ public final class PrisonExitDict {
 	/** tile_146 */
 	public static final IconEntry TILE_146 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 144, 16, 16}, 1054);
 	/** tile_147 */
-	public static final IconEntry TILE_147 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 144, 16, 16}, 1055);
+	public static final IconEntry PRISON_EXIT_C4_R10 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 144, 16, 16}, 1055);
+	/** semantic alias for PRISON_EXIT_C4_R10 */
+	public static final IconEntry TILE_147 = PRISON_EXIT_C4_R10;
 	/** tile_148 */
-	public static final IconEntry TILE_148 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 144, 16, 16}, 1056);
+	public static final IconEntry PRISON_EXIT_C5_R10 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 144, 16, 16}, 1056);
+	/** semantic alias for PRISON_EXIT_C5_R10 */
+	public static final IconEntry TILE_148 = PRISON_EXIT_C5_R10;
 	/** tile_149 */
-	public static final IconEntry TILE_149 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 144, 16, 16}, 1057);
+	public static final IconEntry PRISON_EXIT_C6_R10 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 144, 16, 16}, 1057);
+	/** semantic alias for PRISON_EXIT_C6_R10 */
+	public static final IconEntry TILE_149 = PRISON_EXIT_C6_R10;
 	/** tile_150 */
 	public static final IconEntry TILE_150 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 144, 16, 16}, 1058);
 	/** tile_151 */
@@ -341,7 +485,9 @@ public final class PrisonExitDict {
 	/** tile_163 */
 	public static final IconEntry TILE_163 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 160, 16, 16}, 1071);
 	/** tile_164 */
-	public static final IconEntry TILE_164 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 160, 16, 16}, 1072);
+	public static final IconEntry PRISON_EXIT_C5_R11 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 160, 16, 16}, 1072);
+	/** semantic alias for PRISON_EXIT_C5_R11 */
+	public static final IconEntry TILE_164 = PRISON_EXIT_C5_R11;
 	/** tile_165 */
 	public static final IconEntry TILE_165 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 160, 16, 16}, 1073);
 	/** tile_166 */
@@ -351,7 +497,9 @@ public final class PrisonExitDict {
 	/** tile_168 */
 	public static final IconEntry TILE_168 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 160, 16, 16}, 1076);
 	/** tile_169 */
-	public static final IconEntry TILE_169 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 160, 16, 16}, 1077);
+	public static final IconEntry PRISON_EXIT_C10_R11 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 160, 16, 16}, 1077);
+	/** semantic alias for PRISON_EXIT_C10_R11 */
+	public static final IconEntry TILE_169 = PRISON_EXIT_C10_R11;
 	/** tile_170 */
 	public static final IconEntry TILE_170 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 160, 16, 16}, 1078);
 	/** tile_171 */
@@ -389,7 +537,9 @@ public final class PrisonExitDict {
 	/** tile_187 */
 	public static final IconEntry TILE_187 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 176, 16, 16}, 1095);
 	/** tile_188 */
-	public static final IconEntry TILE_188 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 176, 16, 16}, 1096);
+	public static final IconEntry PRISON_EXIT_C13_R12 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 176, 16, 16}, 1096);
+	/** semantic alias for PRISON_EXIT_C13_R12 */
+	public static final IconEntry TILE_188 = PRISON_EXIT_C13_R12;
 	/** tile_189 */
 	public static final IconEntry TILE_189 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 176, 16, 16}, 1097);
 	/** tile_190 */
@@ -423,7 +573,9 @@ public final class PrisonExitDict {
 	/** tile_204 */
 	public static final IconEntry TILE_204 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 192, 16, 16}, 1112);
 	/** tile_205 */
-	public static final IconEntry TILE_205 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 192, 16, 16}, 1113);
+	public static final IconEntry PRISON_EXIT_C14_R13 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 192, 16, 16}, 1113);
+	/** semantic alias for PRISON_EXIT_C14_R13 */
+	public static final IconEntry TILE_205 = PRISON_EXIT_C14_R13;
 	/** tile_206 */
 	public static final IconEntry TILE_206 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 192, 16, 16}, 1114);
 	/** tile_207 */
@@ -455,7 +607,9 @@ public final class PrisonExitDict {
 	/** tile_220 */
 	public static final IconEntry TILE_220 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 208, 16, 16}, 1128);
 	/** tile_221 */
-	public static final IconEntry TILE_221 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 208, 16, 16}, 1129);
+	public static final IconEntry PRISON_EXIT_C14_R14 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 208, 16, 16}, 1129);
+	/** semantic alias for PRISON_EXIT_C14_R14 */
+	public static final IconEntry TILE_221 = PRISON_EXIT_C14_R14;
 	/** tile_222 */
 	public static final IconEntry TILE_222 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 208, 16, 16}, 1130);
 	/** tile_223 */
@@ -463,7 +617,9 @@ public final class PrisonExitDict {
 	/** tile_224 */
 	public static final IconEntry TILE_224 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 224, 16, 16}, 1132);
 	/** tile_225 */
-	public static final IconEntry TILE_225 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 224, 16, 16}, 1133);
+	public static final IconEntry PRISON_EXIT_C2_R15 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 224, 16, 16}, 1133);
+	/** semantic alias for PRISON_EXIT_C2_R15 */
+	public static final IconEntry TILE_225 = PRISON_EXIT_C2_R15;
 	/** tile_226 */
 	public static final IconEntry TILE_226 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 224, 16, 16}, 1134);
 	/** tile_227 */
@@ -481,13 +637,21 @@ public final class PrisonExitDict {
 	/** tile_233 */
 	public static final IconEntry TILE_233 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 224, 16, 16}, 1141);
 	/** tile_234 */
-	public static final IconEntry TILE_234 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 224, 16, 16}, 1142);
+	public static final IconEntry PRISON_EXIT_C11_R15 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 224, 16, 16}, 1142);
+	/** semantic alias for PRISON_EXIT_C11_R15 */
+	public static final IconEntry TILE_234 = PRISON_EXIT_C11_R15;
 	/** tile_235 */
-	public static final IconEntry TILE_235 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 224, 16, 16}, 1143);
+	public static final IconEntry PRISON_EXIT_C12_R15 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 224, 16, 16}, 1143);
+	/** semantic alias for PRISON_EXIT_C12_R15 */
+	public static final IconEntry TILE_235 = PRISON_EXIT_C12_R15;
 	/** tile_236 */
-	public static final IconEntry TILE_236 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 224, 16, 16}, 1144);
+	public static final IconEntry PRISON_EXIT_C13_R15 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 224, 16, 16}, 1144);
+	/** semantic alias for PRISON_EXIT_C13_R15 */
+	public static final IconEntry TILE_236 = PRISON_EXIT_C13_R15;
 	/** tile_237 */
-	public static final IconEntry TILE_237 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 224, 16, 16}, 1145);
+	public static final IconEntry PRISON_EXIT_C14_R15 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 224, 16, 16}, 1145);
+	/** semantic alias for PRISON_EXIT_C14_R15 */
+	public static final IconEntry TILE_237 = PRISON_EXIT_C14_R15;
 	/** tile_238 */
 	public static final IconEntry TILE_238 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 224, 16, 16}, 1146);
 	/** tile_239 */
@@ -513,13 +677,21 @@ public final class PrisonExitDict {
 	/** tile_249 */
 	public static final IconEntry TILE_249 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 240, 16, 16}, 1157);
 	/** tile_250 */
-	public static final IconEntry TILE_250 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 240, 16, 16}, 1158);
+	public static final IconEntry PRISON_EXIT_C11_R16 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 240, 16, 16}, 1158);
+	/** semantic alias for PRISON_EXIT_C11_R16 */
+	public static final IconEntry TILE_250 = PRISON_EXIT_C11_R16;
 	/** tile_251 */
-	public static final IconEntry TILE_251 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 240, 16, 16}, 1159);
+	public static final IconEntry PRISON_EXIT_C12_R16 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 240, 16, 16}, 1159);
+	/** semantic alias for PRISON_EXIT_C12_R16 */
+	public static final IconEntry TILE_251 = PRISON_EXIT_C12_R16;
 	/** tile_252 */
-	public static final IconEntry TILE_252 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 240, 16, 16}, 1160);
+	public static final IconEntry PRISON_EXIT_C13_R16 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 240, 16, 16}, 1160);
+	/** semantic alias for PRISON_EXIT_C13_R16 */
+	public static final IconEntry TILE_252 = PRISON_EXIT_C13_R16;
 	/** tile_253 */
-	public static final IconEntry TILE_253 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 240, 16, 16}, 1161);
+	public static final IconEntry PRISON_EXIT_C14_R16 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 240, 16, 16}, 1161);
+	/** semantic alias for PRISON_EXIT_C14_R16 */
+	public static final IconEntry TILE_253 = PRISON_EXIT_C14_R16;
 	/** tile_254 */
 	public static final IconEntry TILE_254 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 240, 16, 16}, 1162);
 	/** tile_255 */
@@ -545,13 +717,21 @@ public final class PrisonExitDict {
 	/** tile_265 */
 	public static final IconEntry TILE_265 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 256, 16, 16}, 1173);
 	/** tile_266 */
-	public static final IconEntry TILE_266 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 256, 16, 16}, 1174);
+	public static final IconEntry PRISON_EXIT_C11_R17 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 256, 16, 16}, 1174);
+	/** semantic alias for PRISON_EXIT_C11_R17 */
+	public static final IconEntry TILE_266 = PRISON_EXIT_C11_R17;
 	/** tile_267 */
-	public static final IconEntry TILE_267 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 256, 16, 16}, 1175);
+	public static final IconEntry PRISON_EXIT_C12_R17 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 256, 16, 16}, 1175);
+	/** semantic alias for PRISON_EXIT_C12_R17 */
+	public static final IconEntry TILE_267 = PRISON_EXIT_C12_R17;
 	/** tile_268 */
-	public static final IconEntry TILE_268 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 256, 16, 16}, 1176);
+	public static final IconEntry PRISON_EXIT_C13_R17 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 256, 16, 16}, 1176);
+	/** semantic alias for PRISON_EXIT_C13_R17 */
+	public static final IconEntry TILE_268 = PRISON_EXIT_C13_R17;
 	/** tile_269 */
-	public static final IconEntry TILE_269 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 256, 16, 16}, 1177);
+	public static final IconEntry PRISON_EXIT_C14_R17 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 256, 16, 16}, 1177);
+	/** semantic alias for PRISON_EXIT_C14_R17 */
+	public static final IconEntry TILE_269 = PRISON_EXIT_C14_R17;
 	/** tile_270 */
 	public static final IconEntry TILE_270 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 256, 16, 16}, 1178);
 	/** tile_271 */
@@ -571,25 +751,41 @@ public final class PrisonExitDict {
 	/** tile_278 */
 	public static final IconEntry TILE_278 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 272, 16, 16}, 1186);
 	/** tile_279 */
-	public static final IconEntry TILE_279 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 272, 16, 16}, 1187);
+	public static final IconEntry PRISON_EXIT_C8_R18 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 272, 16, 16}, 1187);
+	/** semantic alias for PRISON_EXIT_C8_R18 */
+	public static final IconEntry TILE_279 = PRISON_EXIT_C8_R18;
 	/** tile_280 */
-	public static final IconEntry TILE_280 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 272, 16, 16}, 1188);
+	public static final IconEntry PRISON_EXIT_C9_R18 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 272, 16, 16}, 1188);
+	/** semantic alias for PRISON_EXIT_C9_R18 */
+	public static final IconEntry TILE_280 = PRISON_EXIT_C9_R18;
 	/** tile_281 */
-	public static final IconEntry TILE_281 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 272, 16, 16}, 1189);
+	public static final IconEntry PRISON_EXIT_C10_R18 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 272, 16, 16}, 1189);
+	/** semantic alias for PRISON_EXIT_C10_R18 */
+	public static final IconEntry TILE_281 = PRISON_EXIT_C10_R18;
 	/** tile_282 */
-	public static final IconEntry TILE_282 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 272, 16, 16}, 1190);
+	public static final IconEntry PRISON_EXIT_C11_R18 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 272, 16, 16}, 1190);
+	/** semantic alias for PRISON_EXIT_C11_R18 */
+	public static final IconEntry TILE_282 = PRISON_EXIT_C11_R18;
 	/** tile_283 */
-	public static final IconEntry TILE_283 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 272, 16, 16}, 1191);
+	public static final IconEntry PRISON_EXIT_C12_R18 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 272, 16, 16}, 1191);
+	/** semantic alias for PRISON_EXIT_C12_R18 */
+	public static final IconEntry TILE_283 = PRISON_EXIT_C12_R18;
 	/** tile_284 */
-	public static final IconEntry TILE_284 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 272, 16, 16}, 1192);
+	public static final IconEntry PRISON_EXIT_C13_R18 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 272, 16, 16}, 1192);
+	/** semantic alias for PRISON_EXIT_C13_R18 */
+	public static final IconEntry TILE_284 = PRISON_EXIT_C13_R18;
 	/** tile_285 */
-	public static final IconEntry TILE_285 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 272, 16, 16}, 1193);
+	public static final IconEntry PRISON_EXIT_C14_R18 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 272, 16, 16}, 1193);
+	/** semantic alias for PRISON_EXIT_C14_R18 */
+	public static final IconEntry TILE_285 = PRISON_EXIT_C14_R18;
 	/** tile_286 */
 	public static final IconEntry TILE_286 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 272, 16, 16}, 1194);
 	/** tile_287 */
 	public static final IconEntry TILE_287 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{240, 272, 16, 16}, 1195);
 	/** tile_288 */
-	public static final IconEntry TILE_288 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 288, 16, 16}, 1196);
+	public static final IconEntry PRISON_EXIT_C1_R19 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{0, 288, 16, 16}, 1196);
+	/** semantic alias for PRISON_EXIT_C1_R19 */
+	public static final IconEntry TILE_288 = PRISON_EXIT_C1_R19;
 	/** tile_289 */
 	public static final IconEntry TILE_289 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{16, 288, 16, 16}, 1197);
 	/** tile_290 */
@@ -601,21 +797,35 @@ public final class PrisonExitDict {
 	/** tile_293 */
 	public static final IconEntry TILE_293 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 288, 16, 16}, 1201);
 	/** tile_294 */
-	public static final IconEntry TILE_294 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 288, 16, 16}, 1202);
+	public static final IconEntry PRISON_EXIT_C7_R19 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 288, 16, 16}, 1202);
+	/** semantic alias for PRISON_EXIT_C7_R19 */
+	public static final IconEntry TILE_294 = PRISON_EXIT_C7_R19;
 	/** tile_295 */
-	public static final IconEntry TILE_295 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 288, 16, 16}, 1203);
+	public static final IconEntry PRISON_EXIT_C8_R19 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 288, 16, 16}, 1203);
+	/** semantic alias for PRISON_EXIT_C8_R19 */
+	public static final IconEntry TILE_295 = PRISON_EXIT_C8_R19;
 	/** tile_296 */
 	public static final IconEntry TILE_296 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 288, 16, 16}, 1204);
 	/** tile_297 */
-	public static final IconEntry TILE_297 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 288, 16, 16}, 1205);
+	public static final IconEntry PRISON_EXIT_C10_R19 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 288, 16, 16}, 1205);
+	/** semantic alias for PRISON_EXIT_C10_R19 */
+	public static final IconEntry TILE_297 = PRISON_EXIT_C10_R19;
 	/** tile_298 */
-	public static final IconEntry TILE_298 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 288, 16, 16}, 1206);
+	public static final IconEntry PRISON_EXIT_C11_R19 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 288, 16, 16}, 1206);
+	/** semantic alias for PRISON_EXIT_C11_R19 */
+	public static final IconEntry TILE_298 = PRISON_EXIT_C11_R19;
 	/** tile_299 */
-	public static final IconEntry TILE_299 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 288, 16, 16}, 1207);
+	public static final IconEntry PRISON_EXIT_C12_R19 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 288, 16, 16}, 1207);
+	/** semantic alias for PRISON_EXIT_C12_R19 */
+	public static final IconEntry TILE_299 = PRISON_EXIT_C12_R19;
 	/** tile_300 */
-	public static final IconEntry TILE_300 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 288, 16, 16}, 1208);
+	public static final IconEntry PRISON_EXIT_C13_R19 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 288, 16, 16}, 1208);
+	/** semantic alias for PRISON_EXIT_C13_R19 */
+	public static final IconEntry TILE_300 = PRISON_EXIT_C13_R19;
 	/** tile_301 */
-	public static final IconEntry TILE_301 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 288, 16, 16}, 1209);
+	public static final IconEntry PRISON_EXIT_C14_R19 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 288, 16, 16}, 1209);
+	/** semantic alias for PRISON_EXIT_C14_R19 */
+	public static final IconEntry TILE_301 = PRISON_EXIT_C14_R19;
 	/** tile_302 */
 	public static final IconEntry TILE_302 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 288, 16, 16}, 1210);
 	/** tile_303 */
@@ -631,23 +841,37 @@ public final class PrisonExitDict {
 	/** tile_308 */
 	public static final IconEntry TILE_308 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 304, 16, 16}, 1216);
 	/** tile_309 */
-	public static final IconEntry TILE_309 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 304, 16, 16}, 1217);
+	public static final IconEntry PRISON_EXIT_C6_R20 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 304, 16, 16}, 1217);
+	/** semantic alias for PRISON_EXIT_C6_R20 */
+	public static final IconEntry TILE_309 = PRISON_EXIT_C6_R20;
 	/** tile_310 */
-	public static final IconEntry TILE_310 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 304, 16, 16}, 1218);
+	public static final IconEntry PRISON_EXIT_C7_R20 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 304, 16, 16}, 1218);
+	/** semantic alias for PRISON_EXIT_C7_R20 */
+	public static final IconEntry TILE_310 = PRISON_EXIT_C7_R20;
 	/** tile_311 */
 	public static final IconEntry TILE_311 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{112, 304, 16, 16}, 1219);
 	/** tile_312 */
 	public static final IconEntry TILE_312 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{128, 304, 16, 16}, 1220);
 	/** tile_313 */
-	public static final IconEntry TILE_313 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 304, 16, 16}, 1221);
+	public static final IconEntry PRISON_EXIT_C10_R20 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 304, 16, 16}, 1221);
+	/** semantic alias for PRISON_EXIT_C10_R20 */
+	public static final IconEntry TILE_313 = PRISON_EXIT_C10_R20;
 	/** tile_314 */
-	public static final IconEntry TILE_314 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 304, 16, 16}, 1222);
+	public static final IconEntry PRISON_EXIT_C11_R20 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 304, 16, 16}, 1222);
+	/** semantic alias for PRISON_EXIT_C11_R20 */
+	public static final IconEntry TILE_314 = PRISON_EXIT_C11_R20;
 	/** tile_315 */
-	public static final IconEntry TILE_315 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 304, 16, 16}, 1223);
+	public static final IconEntry PRISON_EXIT_C12_R20 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 304, 16, 16}, 1223);
+	/** semantic alias for PRISON_EXIT_C12_R20 */
+	public static final IconEntry TILE_315 = PRISON_EXIT_C12_R20;
 	/** tile_316 */
-	public static final IconEntry TILE_316 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 304, 16, 16}, 1224);
+	public static final IconEntry PRISON_EXIT_C13_R20 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 304, 16, 16}, 1224);
+	/** semantic alias for PRISON_EXIT_C13_R20 */
+	public static final IconEntry TILE_316 = PRISON_EXIT_C13_R20;
 	/** tile_317 */
-	public static final IconEntry TILE_317 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 304, 16, 16}, 1225);
+	public static final IconEntry PRISON_EXIT_C14_R20 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 304, 16, 16}, 1225);
+	/** semantic alias for PRISON_EXIT_C14_R20 */
+	public static final IconEntry TILE_317 = PRISON_EXIT_C14_R20;
 	/** tile_318 */
 	public static final IconEntry TILE_318 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 304, 16, 16}, 1226);
 	/** tile_319 */
@@ -659,11 +883,17 @@ public final class PrisonExitDict {
 	/** tile_322 */
 	public static final IconEntry TILE_322 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{32, 320, 16, 16}, 1230);
 	/** tile_323 */
-	public static final IconEntry TILE_323 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 320, 16, 16}, 1231);
+	public static final IconEntry PRISON_EXIT_C4_R21 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{48, 320, 16, 16}, 1231);
+	/** semantic alias for PRISON_EXIT_C4_R21 */
+	public static final IconEntry TILE_323 = PRISON_EXIT_C4_R21;
 	/** tile_324 */
-	public static final IconEntry TILE_324 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 320, 16, 16}, 1232);
+	public static final IconEntry PRISON_EXIT_C5_R21 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{64, 320, 16, 16}, 1232);
+	/** semantic alias for PRISON_EXIT_C5_R21 */
+	public static final IconEntry TILE_324 = PRISON_EXIT_C5_R21;
 	/** tile_325 */
-	public static final IconEntry TILE_325 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 320, 16, 16}, 1233);
+	public static final IconEntry PRISON_EXIT_C6_R21 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{80, 320, 16, 16}, 1233);
+	/** semantic alias for PRISON_EXIT_C6_R21 */
+	public static final IconEntry TILE_325 = PRISON_EXIT_C6_R21;
 	/** tile_326 */
 	public static final IconEntry TILE_326 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{96, 320, 16, 16}, 1234);
 	/** tile_327 */
@@ -673,13 +903,21 @@ public final class PrisonExitDict {
 	/** tile_329 */
 	public static final IconEntry TILE_329 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 320, 16, 16}, 1237);
 	/** tile_330 */
-	public static final IconEntry TILE_330 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 320, 16, 16}, 1238);
+	public static final IconEntry PRISON_EXIT_C11_R21 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 320, 16, 16}, 1238);
+	/** semantic alias for PRISON_EXIT_C11_R21 */
+	public static final IconEntry TILE_330 = PRISON_EXIT_C11_R21;
 	/** tile_331 */
-	public static final IconEntry TILE_331 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 320, 16, 16}, 1239);
+	public static final IconEntry PRISON_EXIT_C12_R21 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 320, 16, 16}, 1239);
+	/** semantic alias for PRISON_EXIT_C12_R21 */
+	public static final IconEntry TILE_331 = PRISON_EXIT_C12_R21;
 	/** tile_332 */
-	public static final IconEntry TILE_332 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 320, 16, 16}, 1240);
+	public static final IconEntry PRISON_EXIT_C13_R21 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 320, 16, 16}, 1240);
+	/** semantic alias for PRISON_EXIT_C13_R21 */
+	public static final IconEntry TILE_332 = PRISON_EXIT_C13_R21;
 	/** tile_333 */
-	public static final IconEntry TILE_333 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 320, 16, 16}, 1241);
+	public static final IconEntry PRISON_EXIT_C14_R21 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 320, 16, 16}, 1241);
+	/** semantic alias for PRISON_EXIT_C14_R21 */
+	public static final IconEntry TILE_333 = PRISON_EXIT_C14_R21;
 	/** tile_334 */
 	public static final IconEntry TILE_334 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 320, 16, 16}, 1242);
 	/** tile_335 */
@@ -705,13 +943,21 @@ public final class PrisonExitDict {
 	/** tile_345 */
 	public static final IconEntry TILE_345 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 336, 16, 16}, 1253);
 	/** tile_346 */
-	public static final IconEntry TILE_346 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 336, 16, 16}, 1254);
+	public static final IconEntry PRISON_EXIT_C11_R22 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 336, 16, 16}, 1254);
+	/** semantic alias for PRISON_EXIT_C11_R22 */
+	public static final IconEntry TILE_346 = PRISON_EXIT_C11_R22;
 	/** tile_347 */
-	public static final IconEntry TILE_347 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 336, 16, 16}, 1255);
+	public static final IconEntry PRISON_EXIT_C12_R22 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 336, 16, 16}, 1255);
+	/** semantic alias for PRISON_EXIT_C12_R22 */
+	public static final IconEntry TILE_347 = PRISON_EXIT_C12_R22;
 	/** tile_348 */
-	public static final IconEntry TILE_348 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 336, 16, 16}, 1256);
+	public static final IconEntry PRISON_EXIT_C13_R22 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 336, 16, 16}, 1256);
+	/** semantic alias for PRISON_EXIT_C13_R22 */
+	public static final IconEntry TILE_348 = PRISON_EXIT_C13_R22;
 	/** tile_349 */
-	public static final IconEntry TILE_349 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 336, 16, 16}, 1257);
+	public static final IconEntry PRISON_EXIT_C14_R22 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 336, 16, 16}, 1257);
+	/** semantic alias for PRISON_EXIT_C14_R22 */
+	public static final IconEntry TILE_349 = PRISON_EXIT_C14_R22;
 	/** tile_350 */
 	public static final IconEntry TILE_350 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 336, 16, 16}, 1258);
 	/** tile_351 */
@@ -737,13 +983,17 @@ public final class PrisonExitDict {
 	/** tile_361 */
 	public static final IconEntry TILE_361 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 352, 16, 16}, 1269);
 	/** tile_362 */
-	public static final IconEntry TILE_362 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 352, 16, 16}, 1270);
+	public static final IconEntry PRISON_EXIT_C11_R23 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 352, 16, 16}, 1270);
+	/** semantic alias for PRISON_EXIT_C11_R23 */
+	public static final IconEntry TILE_362 = PRISON_EXIT_C11_R23;
 	/** tile_363 */
 	public static final IconEntry TILE_363 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 352, 16, 16}, 1271);
 	/** tile_364 */
 	public static final IconEntry TILE_364 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 352, 16, 16}, 1272);
 	/** tile_365 */
-	public static final IconEntry TILE_365 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 352, 16, 16}, 1273);
+	public static final IconEntry PRISON_EXIT_C14_R23 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 352, 16, 16}, 1273);
+	/** semantic alias for PRISON_EXIT_C14_R23 */
+	public static final IconEntry TILE_365 = PRISON_EXIT_C14_R23;
 	/** tile_366 */
 	public static final IconEntry TILE_366 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 352, 16, 16}, 1274);
 	/** tile_367 */
@@ -769,13 +1019,17 @@ public final class PrisonExitDict {
 	/** tile_377 */
 	public static final IconEntry TILE_377 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 368, 16, 16}, 1285);
 	/** tile_378 */
-	public static final IconEntry TILE_378 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 368, 16, 16}, 1286);
+	public static final IconEntry PRISON_EXIT_C11_R24 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 368, 16, 16}, 1286);
+	/** semantic alias for PRISON_EXIT_C11_R24 */
+	public static final IconEntry TILE_378 = PRISON_EXIT_C11_R24;
 	/** tile_379 */
 	public static final IconEntry TILE_379 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 368, 16, 16}, 1287);
 	/** tile_380 */
 	public static final IconEntry TILE_380 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 368, 16, 16}, 1288);
 	/** tile_381 */
-	public static final IconEntry TILE_381 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 368, 16, 16}, 1289);
+	public static final IconEntry PRISON_EXIT_C14_R24 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 368, 16, 16}, 1289);
+	/** semantic alias for PRISON_EXIT_C14_R24 */
+	public static final IconEntry TILE_381 = PRISON_EXIT_C14_R24;
 	/** tile_382 */
 	public static final IconEntry TILE_382 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 368, 16, 16}, 1290);
 	/** tile_383 */
@@ -801,13 +1055,17 @@ public final class PrisonExitDict {
 	/** tile_393 */
 	public static final IconEntry TILE_393 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 384, 16, 16}, 1301);
 	/** tile_394 */
-	public static final IconEntry TILE_394 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 384, 16, 16}, 1302);
+	public static final IconEntry PRISON_EXIT_C11_R25 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 384, 16, 16}, 1302);
+	/** semantic alias for PRISON_EXIT_C11_R25 */
+	public static final IconEntry TILE_394 = PRISON_EXIT_C11_R25;
 	/** tile_395 */
 	public static final IconEntry TILE_395 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 384, 16, 16}, 1303);
 	/** tile_396 */
 	public static final IconEntry TILE_396 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 384, 16, 16}, 1304);
 	/** tile_397 */
-	public static final IconEntry TILE_397 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 384, 16, 16}, 1305);
+	public static final IconEntry PRISON_EXIT_C14_R25 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 384, 16, 16}, 1305);
+	/** semantic alias for PRISON_EXIT_C14_R25 */
+	public static final IconEntry TILE_397 = PRISON_EXIT_C14_R25;
 	/** tile_398 */
 	public static final IconEntry TILE_398 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 384, 16, 16}, 1306);
 	/** tile_399 */
@@ -833,13 +1091,17 @@ public final class PrisonExitDict {
 	/** tile_409 */
 	public static final IconEntry TILE_409 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 400, 16, 16}, 1317);
 	/** tile_410 */
-	public static final IconEntry TILE_410 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 400, 16, 16}, 1318);
+	public static final IconEntry PRISON_EXIT_C11_R26 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 400, 16, 16}, 1318);
+	/** semantic alias for PRISON_EXIT_C11_R26 */
+	public static final IconEntry TILE_410 = PRISON_EXIT_C11_R26;
 	/** tile_411 */
 	public static final IconEntry TILE_411 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 400, 16, 16}, 1319);
 	/** tile_412 */
 	public static final IconEntry TILE_412 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 400, 16, 16}, 1320);
 	/** tile_413 */
-	public static final IconEntry TILE_413 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 400, 16, 16}, 1321);
+	public static final IconEntry PRISON_EXIT_C14_R26 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 400, 16, 16}, 1321);
+	/** semantic alias for PRISON_EXIT_C14_R26 */
+	public static final IconEntry TILE_413 = PRISON_EXIT_C14_R26;
 	/** tile_414 */
 	public static final IconEntry TILE_414 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 400, 16, 16}, 1322);
 	/** tile_415 */
@@ -865,13 +1127,17 @@ public final class PrisonExitDict {
 	/** tile_425 */
 	public static final IconEntry TILE_425 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 416, 16, 16}, 1333);
 	/** tile_426 */
-	public static final IconEntry TILE_426 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 416, 16, 16}, 1334);
+	public static final IconEntry PRISON_EXIT_C11_R27 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 416, 16, 16}, 1334);
+	/** semantic alias for PRISON_EXIT_C11_R27 */
+	public static final IconEntry TILE_426 = PRISON_EXIT_C11_R27;
 	/** tile_427 */
 	public static final IconEntry TILE_427 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 416, 16, 16}, 1335);
 	/** tile_428 */
 	public static final IconEntry TILE_428 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 416, 16, 16}, 1336);
 	/** tile_429 */
-	public static final IconEntry TILE_429 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 416, 16, 16}, 1337);
+	public static final IconEntry PRISON_EXIT_C14_R27 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 416, 16, 16}, 1337);
+	/** semantic alias for PRISON_EXIT_C14_R27 */
+	public static final IconEntry TILE_429 = PRISON_EXIT_C14_R27;
 	/** tile_430 */
 	public static final IconEntry TILE_430 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 416, 16, 16}, 1338);
 	/** tile_431 */
@@ -897,13 +1163,17 @@ public final class PrisonExitDict {
 	/** tile_441 */
 	public static final IconEntry TILE_441 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 432, 16, 16}, 1349);
 	/** tile_442 */
-	public static final IconEntry TILE_442 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 432, 16, 16}, 1350);
+	public static final IconEntry PRISON_EXIT_C11_R28 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 432, 16, 16}, 1350);
+	/** semantic alias for PRISON_EXIT_C11_R28 */
+	public static final IconEntry TILE_442 = PRISON_EXIT_C11_R28;
 	/** tile_443 */
 	public static final IconEntry TILE_443 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 432, 16, 16}, 1351);
 	/** tile_444 */
 	public static final IconEntry TILE_444 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 432, 16, 16}, 1352);
 	/** tile_445 */
-	public static final IconEntry TILE_445 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 432, 16, 16}, 1353);
+	public static final IconEntry PRISON_EXIT_C14_R28 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 432, 16, 16}, 1353);
+	/** semantic alias for PRISON_EXIT_C14_R28 */
+	public static final IconEntry TILE_445 = PRISON_EXIT_C14_R28;
 	/** tile_446 */
 	public static final IconEntry TILE_446 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 432, 16, 16}, 1354);
 	/** tile_447 */
@@ -929,13 +1199,17 @@ public final class PrisonExitDict {
 	/** tile_457 */
 	public static final IconEntry TILE_457 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 448, 16, 16}, 1365);
 	/** tile_458 */
-	public static final IconEntry TILE_458 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 448, 16, 16}, 1366);
+	public static final IconEntry PRISON_EXIT_C11_R29 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 448, 16, 16}, 1366);
+	/** semantic alias for PRISON_EXIT_C11_R29 */
+	public static final IconEntry TILE_458 = PRISON_EXIT_C11_R29;
 	/** tile_459 */
 	public static final IconEntry TILE_459 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 448, 16, 16}, 1367);
 	/** tile_460 */
 	public static final IconEntry TILE_460 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 448, 16, 16}, 1368);
 	/** tile_461 */
-	public static final IconEntry TILE_461 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 448, 16, 16}, 1369);
+	public static final IconEntry PRISON_EXIT_C14_R29 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 448, 16, 16}, 1369);
+	/** semantic alias for PRISON_EXIT_C14_R29 */
+	public static final IconEntry TILE_461 = PRISON_EXIT_C14_R29;
 	/** tile_462 */
 	public static final IconEntry TILE_462 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 448, 16, 16}, 1370);
 	/** tile_463 */
@@ -961,13 +1235,17 @@ public final class PrisonExitDict {
 	/** tile_473 */
 	public static final IconEntry TILE_473 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 464, 16, 16}, 1381);
 	/** tile_474 */
-	public static final IconEntry TILE_474 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 464, 16, 16}, 1382);
+	public static final IconEntry PRISON_EXIT_C11_R30 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 464, 16, 16}, 1382);
+	/** semantic alias for PRISON_EXIT_C11_R30 */
+	public static final IconEntry TILE_474 = PRISON_EXIT_C11_R30;
 	/** tile_475 */
 	public static final IconEntry TILE_475 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 464, 16, 16}, 1383);
 	/** tile_476 */
 	public static final IconEntry TILE_476 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 464, 16, 16}, 1384);
 	/** tile_477 */
-	public static final IconEntry TILE_477 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 464, 16, 16}, 1385);
+	public static final IconEntry PRISON_EXIT_C14_R30 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 464, 16, 16}, 1385);
+	/** semantic alias for PRISON_EXIT_C14_R30 */
+	public static final IconEntry TILE_477 = PRISON_EXIT_C14_R30;
 	/** tile_478 */
 	public static final IconEntry TILE_478 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 464, 16, 16}, 1386);
 	/** tile_479 */
@@ -993,13 +1271,17 @@ public final class PrisonExitDict {
 	/** tile_489 */
 	public static final IconEntry TILE_489 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 480, 16, 16}, 1397);
 	/** tile_490 */
-	public static final IconEntry TILE_490 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 480, 16, 16}, 1398);
+	public static final IconEntry PRISON_EXIT_C11_R31 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 480, 16, 16}, 1398);
+	/** semantic alias for PRISON_EXIT_C11_R31 */
+	public static final IconEntry TILE_490 = PRISON_EXIT_C11_R31;
 	/** tile_491 */
 	public static final IconEntry TILE_491 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 480, 16, 16}, 1399);
 	/** tile_492 */
 	public static final IconEntry TILE_492 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 480, 16, 16}, 1400);
 	/** tile_493 */
-	public static final IconEntry TILE_493 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 480, 16, 16}, 1401);
+	public static final IconEntry PRISON_EXIT_C14_R31 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 480, 16, 16}, 1401);
+	/** semantic alias for PRISON_EXIT_C14_R31 */
+	public static final IconEntry TILE_493 = PRISON_EXIT_C14_R31;
 	/** tile_494 */
 	public static final IconEntry TILE_494 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 480, 16, 16}, 1402);
 	/** tile_495 */
@@ -1025,13 +1307,17 @@ public final class PrisonExitDict {
 	/** tile_505 */
 	public static final IconEntry TILE_505 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{144, 496, 16, 16}, 1413);
 	/** tile_506 */
-	public static final IconEntry TILE_506 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 496, 16, 16}, 1414);
+	public static final IconEntry PRISON_EXIT_C11_R32 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{160, 496, 16, 16}, 1414);
+	/** semantic alias for PRISON_EXIT_C11_R32 */
+	public static final IconEntry TILE_506 = PRISON_EXIT_C11_R32;
 	/** tile_507 */
 	public static final IconEntry TILE_507 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{176, 496, 16, 16}, 1415);
 	/** tile_508 */
 	public static final IconEntry TILE_508 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{192, 496, 16, 16}, 1416);
 	/** tile_509 */
-	public static final IconEntry TILE_509 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 496, 16, 16}, 1417);
+	public static final IconEntry PRISON_EXIT_C14_R32 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{208, 496, 16, 16}, 1417);
+	/** semantic alias for PRISON_EXIT_C14_R32 */
+	public static final IconEntry TILE_509 = PRISON_EXIT_C14_R32;
 	/** tile_510 */
 	public static final IconEntry TILE_510 = new IconEntry("environment/custom_tiles/prison_exit.png", new int[]{224, 496, 16, 16}, 1418);
 	/** tile_511 */

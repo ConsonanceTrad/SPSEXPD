@@ -15,11 +15,17 @@ public final class CityQuestDict {
 	/** tile_000 */
 	public static final IconEntry TILE_000 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{0, 0, 16, 16}, 524);
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{16, 0, 16, 16}, 525);
+	public static final IconEntry CITY_QUEST_C2_R1 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{16, 0, 16, 16}, 525);
+	/** semantic alias for CITY_QUEST_C2_R1 */
+	public static final IconEntry TILE_001 = CITY_QUEST_C2_R1;
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{32, 0, 16, 16}, 526);
+	public static final IconEntry CITY_QUEST_C3_R1 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{32, 0, 16, 16}, 526);
+	/** semantic alias for CITY_QUEST_C3_R1 */
+	public static final IconEntry TILE_002 = CITY_QUEST_C3_R1;
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{48, 0, 16, 16}, 527);
+	public static final IconEntry CITY_QUEST_C4_R1 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{48, 0, 16, 16}, 527);
+	/** semantic alias for CITY_QUEST_C4_R1 */
+	public static final IconEntry TILE_003 = CITY_QUEST_C4_R1;
 	/** tile_004 */
 	public static final IconEntry TILE_004 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{64, 0, 16, 16}, 528);
 	/** tile_005 */
@@ -45,27 +51,49 @@ public final class CityQuestDict {
 	/** tile_015 */
 	public static final IconEntry TILE_015 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{240, 0, 16, 16}, 539);
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{0, 16, 16, 16}, 540);
+	public static final IconEntry CITY_QUEST_C1_R2 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{0, 16, 16, 16}, 540);
+	/** semantic alias for CITY_QUEST_C1_R2 */
+	public static final IconEntry TILE_016 = CITY_QUEST_C1_R2;
 	/** tile_017 */
-	public static final IconEntry TILE_017 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{16, 16, 16, 16}, 541);
+	public static final IconEntry CITY_QUEST_C2_R2 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{16, 16, 16, 16}, 541);
+	/** semantic alias for CITY_QUEST_C2_R2 */
+	public static final IconEntry TILE_017 = CITY_QUEST_C2_R2;
 	/** tile_018 */
-	public static final IconEntry TILE_018 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{32, 16, 16, 16}, 542);
+	public static final IconEntry CITY_QUEST_C3_R2 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{32, 16, 16, 16}, 542);
+	/** semantic alias for CITY_QUEST_C3_R2 */
+	public static final IconEntry TILE_018 = CITY_QUEST_C3_R2;
 	/** tile_019 */
-	public static final IconEntry TILE_019 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{48, 16, 16, 16}, 543);
+	public static final IconEntry CITY_QUEST_C4_R2 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{48, 16, 16, 16}, 543);
+	/** semantic alias for CITY_QUEST_C4_R2 */
+	public static final IconEntry TILE_019 = CITY_QUEST_C4_R2;
 	/** tile_020 */
-	public static final IconEntry TILE_020 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{64, 16, 16, 16}, 544);
+	public static final IconEntry CITY_QUEST_C5_R2 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{64, 16, 16, 16}, 544);
+	/** semantic alias for CITY_QUEST_C5_R2 */
+	public static final IconEntry TILE_020 = CITY_QUEST_C5_R2;
 	/** tile_021 */
-	public static final IconEntry TILE_021 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{80, 16, 16, 16}, 545);
+	public static final IconEntry CITY_QUEST_C6_R2 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{80, 16, 16, 16}, 545);
+	/** semantic alias for CITY_QUEST_C6_R2 */
+	public static final IconEntry TILE_021 = CITY_QUEST_C6_R2;
 	/** tile_022 */
-	public static final IconEntry TILE_022 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 16, 16, 16}, 546);
+	public static final IconEntry CITY_QUEST_C7_R2 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 16, 16, 16}, 546);
+	/** semantic alias for CITY_QUEST_C7_R2 */
+	public static final IconEntry TILE_022 = CITY_QUEST_C7_R2;
 	/** tile_023 */
-	public static final IconEntry TILE_023 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 16, 16, 16}, 547);
+	public static final IconEntry CITY_QUEST_C8_R2 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 16, 16, 16}, 547);
+	/** semantic alias for CITY_QUEST_C8_R2 */
+	public static final IconEntry TILE_023 = CITY_QUEST_C8_R2;
 	/** tile_024 */
-	public static final IconEntry TILE_024 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 16, 16, 16}, 548);
+	public static final IconEntry CITY_QUEST_C9_R2 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 16, 16, 16}, 548);
+	/** semantic alias for CITY_QUEST_C9_R2 */
+	public static final IconEntry TILE_024 = CITY_QUEST_C9_R2;
 	/** tile_025 */
-	public static final IconEntry TILE_025 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 16, 16, 16}, 549);
+	public static final IconEntry CITY_QUEST_C10_R2 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 16, 16, 16}, 549);
+	/** semantic alias for CITY_QUEST_C10_R2 */
+	public static final IconEntry TILE_025 = CITY_QUEST_C10_R2;
 	/** tile_026 */
-	public static final IconEntry TILE_026 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 16, 16, 16}, 550);
+	public static final IconEntry CITY_QUEST_C11_R2 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 16, 16, 16}, 550);
+	/** semantic alias for CITY_QUEST_C11_R2 */
+	public static final IconEntry TILE_026 = CITY_QUEST_C11_R2;
 	/** tile_027 */
 	public static final IconEntry TILE_027 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 16, 16, 16}, 551);
 	/** tile_028 */
@@ -77,27 +105,49 @@ public final class CityQuestDict {
 	/** tile_031 */
 	public static final IconEntry TILE_031 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{240, 16, 16, 16}, 555);
 	/** tile_032 */
-	public static final IconEntry TILE_032 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{0, 32, 16, 16}, 556);
+	public static final IconEntry CITY_QUEST_C1_R3 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{0, 32, 16, 16}, 556);
+	/** semantic alias for CITY_QUEST_C1_R3 */
+	public static final IconEntry TILE_032 = CITY_QUEST_C1_R3;
 	/** tile_033 */
-	public static final IconEntry TILE_033 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{16, 32, 16, 16}, 557);
+	public static final IconEntry CITY_QUEST_C2_R3 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{16, 32, 16, 16}, 557);
+	/** semantic alias for CITY_QUEST_C2_R3 */
+	public static final IconEntry TILE_033 = CITY_QUEST_C2_R3;
 	/** tile_034 */
-	public static final IconEntry TILE_034 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{32, 32, 16, 16}, 558);
+	public static final IconEntry CITY_QUEST_C3_R3 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{32, 32, 16, 16}, 558);
+	/** semantic alias for CITY_QUEST_C3_R3 */
+	public static final IconEntry TILE_034 = CITY_QUEST_C3_R3;
 	/** tile_035 */
-	public static final IconEntry TILE_035 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{48, 32, 16, 16}, 559);
+	public static final IconEntry CITY_QUEST_C4_R3 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{48, 32, 16, 16}, 559);
+	/** semantic alias for CITY_QUEST_C4_R3 */
+	public static final IconEntry TILE_035 = CITY_QUEST_C4_R3;
 	/** tile_036 */
-	public static final IconEntry TILE_036 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{64, 32, 16, 16}, 560);
+	public static final IconEntry CITY_QUEST_C5_R3 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{64, 32, 16, 16}, 560);
+	/** semantic alias for CITY_QUEST_C5_R3 */
+	public static final IconEntry TILE_036 = CITY_QUEST_C5_R3;
 	/** tile_037 */
-	public static final IconEntry TILE_037 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{80, 32, 16, 16}, 561);
+	public static final IconEntry CITY_QUEST_C6_R3 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{80, 32, 16, 16}, 561);
+	/** semantic alias for CITY_QUEST_C6_R3 */
+	public static final IconEntry TILE_037 = CITY_QUEST_C6_R3;
 	/** tile_038 */
-	public static final IconEntry TILE_038 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 32, 16, 16}, 562);
+	public static final IconEntry CITY_QUEST_C7_R3 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 32, 16, 16}, 562);
+	/** semantic alias for CITY_QUEST_C7_R3 */
+	public static final IconEntry TILE_038 = CITY_QUEST_C7_R3;
 	/** tile_039 */
-	public static final IconEntry TILE_039 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 32, 16, 16}, 563);
+	public static final IconEntry CITY_QUEST_C8_R3 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 32, 16, 16}, 563);
+	/** semantic alias for CITY_QUEST_C8_R3 */
+	public static final IconEntry TILE_039 = CITY_QUEST_C8_R3;
 	/** tile_040 */
-	public static final IconEntry TILE_040 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 32, 16, 16}, 564);
+	public static final IconEntry CITY_QUEST_C9_R3 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 32, 16, 16}, 564);
+	/** semantic alias for CITY_QUEST_C9_R3 */
+	public static final IconEntry TILE_040 = CITY_QUEST_C9_R3;
 	/** tile_041 */
-	public static final IconEntry TILE_041 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 32, 16, 16}, 565);
+	public static final IconEntry CITY_QUEST_C10_R3 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 32, 16, 16}, 565);
+	/** semantic alias for CITY_QUEST_C10_R3 */
+	public static final IconEntry TILE_041 = CITY_QUEST_C10_R3;
 	/** tile_042 */
-	public static final IconEntry TILE_042 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 32, 16, 16}, 566);
+	public static final IconEntry CITY_QUEST_C11_R3 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 32, 16, 16}, 566);
+	/** semantic alias for CITY_QUEST_C11_R3 */
+	public static final IconEntry TILE_042 = CITY_QUEST_C11_R3;
 	/** tile_043 */
 	public static final IconEntry TILE_043 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 32, 16, 16}, 567);
 	/** tile_044 */
@@ -109,27 +159,49 @@ public final class CityQuestDict {
 	/** tile_047 */
 	public static final IconEntry TILE_047 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{240, 32, 16, 16}, 571);
 	/** tile_048 */
-	public static final IconEntry TILE_048 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{0, 48, 16, 16}, 572);
+	public static final IconEntry CITY_QUEST_C1_R4 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{0, 48, 16, 16}, 572);
+	/** semantic alias for CITY_QUEST_C1_R4 */
+	public static final IconEntry TILE_048 = CITY_QUEST_C1_R4;
 	/** tile_049 */
-	public static final IconEntry TILE_049 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{16, 48, 16, 16}, 573);
+	public static final IconEntry CITY_QUEST_C2_R4 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{16, 48, 16, 16}, 573);
+	/** semantic alias for CITY_QUEST_C2_R4 */
+	public static final IconEntry TILE_049 = CITY_QUEST_C2_R4;
 	/** tile_050 */
-	public static final IconEntry TILE_050 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{32, 48, 16, 16}, 574);
+	public static final IconEntry CITY_QUEST_C3_R4 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{32, 48, 16, 16}, 574);
+	/** semantic alias for CITY_QUEST_C3_R4 */
+	public static final IconEntry TILE_050 = CITY_QUEST_C3_R4;
 	/** tile_051 */
-	public static final IconEntry TILE_051 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{48, 48, 16, 16}, 575);
+	public static final IconEntry CITY_QUEST_C4_R4 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{48, 48, 16, 16}, 575);
+	/** semantic alias for CITY_QUEST_C4_R4 */
+	public static final IconEntry TILE_051 = CITY_QUEST_C4_R4;
 	/** tile_052 */
-	public static final IconEntry TILE_052 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{64, 48, 16, 16}, 576);
+	public static final IconEntry CITY_QUEST_C5_R4 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{64, 48, 16, 16}, 576);
+	/** semantic alias for CITY_QUEST_C5_R4 */
+	public static final IconEntry TILE_052 = CITY_QUEST_C5_R4;
 	/** tile_053 */
-	public static final IconEntry TILE_053 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{80, 48, 16, 16}, 577);
+	public static final IconEntry CITY_QUEST_C6_R4 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{80, 48, 16, 16}, 577);
+	/** semantic alias for CITY_QUEST_C6_R4 */
+	public static final IconEntry TILE_053 = CITY_QUEST_C6_R4;
 	/** tile_054 */
-	public static final IconEntry TILE_054 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 48, 16, 16}, 578);
+	public static final IconEntry CITY_QUEST_C7_R4 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 48, 16, 16}, 578);
+	/** semantic alias for CITY_QUEST_C7_R4 */
+	public static final IconEntry TILE_054 = CITY_QUEST_C7_R4;
 	/** tile_055 */
-	public static final IconEntry TILE_055 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 48, 16, 16}, 579);
+	public static final IconEntry CITY_QUEST_C8_R4 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 48, 16, 16}, 579);
+	/** semantic alias for CITY_QUEST_C8_R4 */
+	public static final IconEntry TILE_055 = CITY_QUEST_C8_R4;
 	/** tile_056 */
-	public static final IconEntry TILE_056 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 48, 16, 16}, 580);
+	public static final IconEntry CITY_QUEST_C9_R4 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 48, 16, 16}, 580);
+	/** semantic alias for CITY_QUEST_C9_R4 */
+	public static final IconEntry TILE_056 = CITY_QUEST_C9_R4;
 	/** tile_057 */
-	public static final IconEntry TILE_057 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 48, 16, 16}, 581);
+	public static final IconEntry CITY_QUEST_C10_R4 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 48, 16, 16}, 581);
+	/** semantic alias for CITY_QUEST_C10_R4 */
+	public static final IconEntry TILE_057 = CITY_QUEST_C10_R4;
 	/** tile_058 */
-	public static final IconEntry TILE_058 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 48, 16, 16}, 582);
+	public static final IconEntry CITY_QUEST_C11_R4 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 48, 16, 16}, 582);
+	/** semantic alias for CITY_QUEST_C11_R4 */
+	public static final IconEntry TILE_058 = CITY_QUEST_C11_R4;
 	/** tile_059 */
 	public static final IconEntry TILE_059 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 48, 16, 16}, 583);
 	/** tile_060 */
@@ -143,11 +215,17 @@ public final class CityQuestDict {
 	/** tile_064 */
 	public static final IconEntry TILE_064 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{0, 64, 16, 16}, 588);
 	/** tile_065 */
-	public static final IconEntry TILE_065 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{16, 64, 16, 16}, 589);
+	public static final IconEntry CITY_QUEST_C2_R5 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{16, 64, 16, 16}, 589);
+	/** semantic alias for CITY_QUEST_C2_R5 */
+	public static final IconEntry TILE_065 = CITY_QUEST_C2_R5;
 	/** tile_066 */
-	public static final IconEntry TILE_066 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{32, 64, 16, 16}, 590);
+	public static final IconEntry CITY_QUEST_C3_R5 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{32, 64, 16, 16}, 590);
+	/** semantic alias for CITY_QUEST_C3_R5 */
+	public static final IconEntry TILE_066 = CITY_QUEST_C3_R5;
 	/** tile_067 */
-	public static final IconEntry TILE_067 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{48, 64, 16, 16}, 591);
+	public static final IconEntry CITY_QUEST_C4_R5 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{48, 64, 16, 16}, 591);
+	/** semantic alias for CITY_QUEST_C4_R5 */
+	public static final IconEntry TILE_067 = CITY_QUEST_C4_R5;
 	/** tile_068 */
 	public static final IconEntry TILE_068 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{64, 64, 16, 16}, 592);
 	/** tile_069 */
@@ -155,15 +233,25 @@ public final class CityQuestDict {
 	/** tile_070 */
 	public static final IconEntry TILE_070 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 64, 16, 16}, 594);
 	/** tile_071 */
-	public static final IconEntry TILE_071 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 64, 16, 16}, 595);
+	public static final IconEntry CITY_QUEST_C8_R5 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 64, 16, 16}, 595);
+	/** semantic alias for CITY_QUEST_C8_R5 */
+	public static final IconEntry TILE_071 = CITY_QUEST_C8_R5;
 	/** tile_072 */
-	public static final IconEntry TILE_072 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 64, 16, 16}, 596);
+	public static final IconEntry CITY_QUEST_C9_R5 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 64, 16, 16}, 596);
+	/** semantic alias for CITY_QUEST_C9_R5 */
+	public static final IconEntry TILE_072 = CITY_QUEST_C9_R5;
 	/** tile_073 */
-	public static final IconEntry TILE_073 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 64, 16, 16}, 597);
+	public static final IconEntry CITY_QUEST_C10_R5 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 64, 16, 16}, 597);
+	/** semantic alias for CITY_QUEST_C10_R5 */
+	public static final IconEntry TILE_073 = CITY_QUEST_C10_R5;
 	/** tile_074 */
-	public static final IconEntry TILE_074 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 64, 16, 16}, 598);
+	public static final IconEntry CITY_QUEST_C11_R5 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 64, 16, 16}, 598);
+	/** semantic alias for CITY_QUEST_C11_R5 */
+	public static final IconEntry TILE_074 = CITY_QUEST_C11_R5;
 	/** tile_075 */
-	public static final IconEntry TILE_075 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 64, 16, 16}, 599);
+	public static final IconEntry CITY_QUEST_C12_R5 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 64, 16, 16}, 599);
+	/** semantic alias for CITY_QUEST_C12_R5 */
+	public static final IconEntry TILE_075 = CITY_QUEST_C12_R5;
 	/** tile_076 */
 	public static final IconEntry TILE_076 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{192, 64, 16, 16}, 600);
 	/** tile_077 */
@@ -173,31 +261,55 @@ public final class CityQuestDict {
 	/** tile_079 */
 	public static final IconEntry TILE_079 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{240, 64, 16, 16}, 603);
 	/** tile_080 */
-	public static final IconEntry TILE_080 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{0, 80, 16, 16}, 604);
+	public static final IconEntry CITY_QUEST_C1_R6 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{0, 80, 16, 16}, 604);
+	/** semantic alias for CITY_QUEST_C1_R6 */
+	public static final IconEntry TILE_080 = CITY_QUEST_C1_R6;
 	/** tile_081 */
-	public static final IconEntry TILE_081 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{16, 80, 16, 16}, 605);
+	public static final IconEntry CITY_QUEST_C2_R6 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{16, 80, 16, 16}, 605);
+	/** semantic alias for CITY_QUEST_C2_R6 */
+	public static final IconEntry TILE_081 = CITY_QUEST_C2_R6;
 	/** tile_082 */
-	public static final IconEntry TILE_082 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{32, 80, 16, 16}, 606);
+	public static final IconEntry CITY_QUEST_C3_R6 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{32, 80, 16, 16}, 606);
+	/** semantic alias for CITY_QUEST_C3_R6 */
+	public static final IconEntry TILE_082 = CITY_QUEST_C3_R6;
 	/** tile_083 */
-	public static final IconEntry TILE_083 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{48, 80, 16, 16}, 607);
+	public static final IconEntry CITY_QUEST_C4_R6 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{48, 80, 16, 16}, 607);
+	/** semantic alias for CITY_QUEST_C4_R6 */
+	public static final IconEntry TILE_083 = CITY_QUEST_C4_R6;
 	/** tile_084 */
-	public static final IconEntry TILE_084 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{64, 80, 16, 16}, 608);
+	public static final IconEntry CITY_QUEST_C5_R6 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{64, 80, 16, 16}, 608);
+	/** semantic alias for CITY_QUEST_C5_R6 */
+	public static final IconEntry TILE_084 = CITY_QUEST_C5_R6;
 	/** tile_085 */
 	public static final IconEntry TILE_085 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{80, 80, 16, 16}, 609);
 	/** tile_086 */
-	public static final IconEntry TILE_086 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 80, 16, 16}, 610);
+	public static final IconEntry CITY_QUEST_C7_R6 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 80, 16, 16}, 610);
+	/** semantic alias for CITY_QUEST_C7_R6 */
+	public static final IconEntry TILE_086 = CITY_QUEST_C7_R6;
 	/** tile_087 */
-	public static final IconEntry TILE_087 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 80, 16, 16}, 611);
+	public static final IconEntry CITY_QUEST_C8_R6 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 80, 16, 16}, 611);
+	/** semantic alias for CITY_QUEST_C8_R6 */
+	public static final IconEntry TILE_087 = CITY_QUEST_C8_R6;
 	/** tile_088 */
-	public static final IconEntry TILE_088 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 80, 16, 16}, 612);
+	public static final IconEntry CITY_QUEST_C9_R6 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 80, 16, 16}, 612);
+	/** semantic alias for CITY_QUEST_C9_R6 */
+	public static final IconEntry TILE_088 = CITY_QUEST_C9_R6;
 	/** tile_089 */
-	public static final IconEntry TILE_089 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 80, 16, 16}, 613);
+	public static final IconEntry CITY_QUEST_C10_R6 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 80, 16, 16}, 613);
+	/** semantic alias for CITY_QUEST_C10_R6 */
+	public static final IconEntry TILE_089 = CITY_QUEST_C10_R6;
 	/** tile_090 */
-	public static final IconEntry TILE_090 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 80, 16, 16}, 614);
+	public static final IconEntry CITY_QUEST_C11_R6 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 80, 16, 16}, 614);
+	/** semantic alias for CITY_QUEST_C11_R6 */
+	public static final IconEntry TILE_090 = CITY_QUEST_C11_R6;
 	/** tile_091 */
-	public static final IconEntry TILE_091 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 80, 16, 16}, 615);
+	public static final IconEntry CITY_QUEST_C12_R6 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 80, 16, 16}, 615);
+	/** semantic alias for CITY_QUEST_C12_R6 */
+	public static final IconEntry TILE_091 = CITY_QUEST_C12_R6;
 	/** tile_092 */
-	public static final IconEntry TILE_092 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{192, 80, 16, 16}, 616);
+	public static final IconEntry CITY_QUEST_C13_R6 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{192, 80, 16, 16}, 616);
+	/** semantic alias for CITY_QUEST_C13_R6 */
+	public static final IconEntry TILE_092 = CITY_QUEST_C13_R6;
 	/** tile_093 */
 	public static final IconEntry TILE_093 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{208, 80, 16, 16}, 617);
 	/** tile_094 */
@@ -205,65 +317,119 @@ public final class CityQuestDict {
 	/** tile_095 */
 	public static final IconEntry TILE_095 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{240, 80, 16, 16}, 619);
 	/** tile_096 */
-	public static final IconEntry TILE_096 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{0, 96, 16, 16}, 620);
+	public static final IconEntry CITY_QUEST_C1_R7 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{0, 96, 16, 16}, 620);
+	/** semantic alias for CITY_QUEST_C1_R7 */
+	public static final IconEntry TILE_096 = CITY_QUEST_C1_R7;
 	/** tile_097 */
-	public static final IconEntry TILE_097 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{16, 96, 16, 16}, 621);
+	public static final IconEntry CITY_QUEST_C2_R7 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{16, 96, 16, 16}, 621);
+	/** semantic alias for CITY_QUEST_C2_R7 */
+	public static final IconEntry TILE_097 = CITY_QUEST_C2_R7;
 	/** tile_098 */
-	public static final IconEntry TILE_098 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{32, 96, 16, 16}, 622);
+	public static final IconEntry CITY_QUEST_C3_R7 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{32, 96, 16, 16}, 622);
+	/** semantic alias for CITY_QUEST_C3_R7 */
+	public static final IconEntry TILE_098 = CITY_QUEST_C3_R7;
 	/** tile_099 */
-	public static final IconEntry TILE_099 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{48, 96, 16, 16}, 623);
+	public static final IconEntry CITY_QUEST_C4_R7 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{48, 96, 16, 16}, 623);
+	/** semantic alias for CITY_QUEST_C4_R7 */
+	public static final IconEntry TILE_099 = CITY_QUEST_C4_R7;
 	/** tile_100 */
-	public static final IconEntry TILE_100 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{64, 96, 16, 16}, 624);
+	public static final IconEntry CITY_QUEST_C5_R7 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{64, 96, 16, 16}, 624);
+	/** semantic alias for CITY_QUEST_C5_R7 */
+	public static final IconEntry TILE_100 = CITY_QUEST_C5_R7;
 	/** tile_101 */
-	public static final IconEntry TILE_101 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{80, 96, 16, 16}, 625);
+	public static final IconEntry CITY_QUEST_C6_R7 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{80, 96, 16, 16}, 625);
+	/** semantic alias for CITY_QUEST_C6_R7 */
+	public static final IconEntry TILE_101 = CITY_QUEST_C6_R7;
 	/** tile_102 */
-	public static final IconEntry TILE_102 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 96, 16, 16}, 626);
+	public static final IconEntry CITY_QUEST_C7_R7 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 96, 16, 16}, 626);
+	/** semantic alias for CITY_QUEST_C7_R7 */
+	public static final IconEntry TILE_102 = CITY_QUEST_C7_R7;
 	/** tile_103 */
-	public static final IconEntry TILE_103 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 96, 16, 16}, 627);
+	public static final IconEntry CITY_QUEST_C8_R7 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 96, 16, 16}, 627);
+	/** semantic alias for CITY_QUEST_C8_R7 */
+	public static final IconEntry TILE_103 = CITY_QUEST_C8_R7;
 	/** tile_104 */
-	public static final IconEntry TILE_104 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 96, 16, 16}, 628);
+	public static final IconEntry CITY_QUEST_C9_R7 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 96, 16, 16}, 628);
+	/** semantic alias for CITY_QUEST_C9_R7 */
+	public static final IconEntry TILE_104 = CITY_QUEST_C9_R7;
 	/** tile_105 */
-	public static final IconEntry TILE_105 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 96, 16, 16}, 629);
+	public static final IconEntry CITY_QUEST_C10_R7 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 96, 16, 16}, 629);
+	/** semantic alias for CITY_QUEST_C10_R7 */
+	public static final IconEntry TILE_105 = CITY_QUEST_C10_R7;
 	/** tile_106 */
-	public static final IconEntry TILE_106 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 96, 16, 16}, 630);
+	public static final IconEntry CITY_QUEST_C11_R7 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 96, 16, 16}, 630);
+	/** semantic alias for CITY_QUEST_C11_R7 */
+	public static final IconEntry TILE_106 = CITY_QUEST_C11_R7;
 	/** tile_107 */
-	public static final IconEntry TILE_107 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 96, 16, 16}, 631);
+	public static final IconEntry CITY_QUEST_C12_R7 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 96, 16, 16}, 631);
+	/** semantic alias for CITY_QUEST_C12_R7 */
+	public static final IconEntry TILE_107 = CITY_QUEST_C12_R7;
 	/** tile_108 */
-	public static final IconEntry TILE_108 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{192, 96, 16, 16}, 632);
+	public static final IconEntry CITY_QUEST_C13_R7 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{192, 96, 16, 16}, 632);
+	/** semantic alias for CITY_QUEST_C13_R7 */
+	public static final IconEntry TILE_108 = CITY_QUEST_C13_R7;
 	/** tile_109 */
-	public static final IconEntry TILE_109 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{208, 96, 16, 16}, 633);
+	public static final IconEntry CITY_QUEST_C14_R7 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{208, 96, 16, 16}, 633);
+	/** semantic alias for CITY_QUEST_C14_R7 */
+	public static final IconEntry TILE_109 = CITY_QUEST_C14_R7;
 	/** tile_110 */
 	public static final IconEntry TILE_110 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{224, 96, 16, 16}, 634);
 	/** tile_111 */
 	public static final IconEntry TILE_111 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{240, 96, 16, 16}, 635);
 	/** tile_112 */
-	public static final IconEntry TILE_112 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{0, 112, 16, 16}, 636);
+	public static final IconEntry CITY_QUEST_C1_R8 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{0, 112, 16, 16}, 636);
+	/** semantic alias for CITY_QUEST_C1_R8 */
+	public static final IconEntry TILE_112 = CITY_QUEST_C1_R8;
 	/** tile_113 */
-	public static final IconEntry TILE_113 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{16, 112, 16, 16}, 637);
+	public static final IconEntry CITY_QUEST_C2_R8 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{16, 112, 16, 16}, 637);
+	/** semantic alias for CITY_QUEST_C2_R8 */
+	public static final IconEntry TILE_113 = CITY_QUEST_C2_R8;
 	/** tile_114 */
-	public static final IconEntry TILE_114 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{32, 112, 16, 16}, 638);
+	public static final IconEntry CITY_QUEST_C3_R8 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{32, 112, 16, 16}, 638);
+	/** semantic alias for CITY_QUEST_C3_R8 */
+	public static final IconEntry TILE_114 = CITY_QUEST_C3_R8;
 	/** tile_115 */
-	public static final IconEntry TILE_115 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{48, 112, 16, 16}, 639);
+	public static final IconEntry CITY_QUEST_C4_R8 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{48, 112, 16, 16}, 639);
+	/** semantic alias for CITY_QUEST_C4_R8 */
+	public static final IconEntry TILE_115 = CITY_QUEST_C4_R8;
 	/** tile_116 */
 	public static final IconEntry TILE_116 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{64, 112, 16, 16}, 640);
 	/** tile_117 */
-	public static final IconEntry TILE_117 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{80, 112, 16, 16}, 641);
+	public static final IconEntry CITY_QUEST_C6_R8 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{80, 112, 16, 16}, 641);
+	/** semantic alias for CITY_QUEST_C6_R8 */
+	public static final IconEntry TILE_117 = CITY_QUEST_C6_R8;
 	/** tile_118 */
-	public static final IconEntry TILE_118 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 112, 16, 16}, 642);
+	public static final IconEntry CITY_QUEST_C7_R8 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 112, 16, 16}, 642);
+	/** semantic alias for CITY_QUEST_C7_R8 */
+	public static final IconEntry TILE_118 = CITY_QUEST_C7_R8;
 	/** tile_119 */
-	public static final IconEntry TILE_119 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 112, 16, 16}, 643);
+	public static final IconEntry CITY_QUEST_C8_R8 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 112, 16, 16}, 643);
+	/** semantic alias for CITY_QUEST_C8_R8 */
+	public static final IconEntry TILE_119 = CITY_QUEST_C8_R8;
 	/** tile_120 */
-	public static final IconEntry TILE_120 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 112, 16, 16}, 644);
+	public static final IconEntry CITY_QUEST_C9_R8 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 112, 16, 16}, 644);
+	/** semantic alias for CITY_QUEST_C9_R8 */
+	public static final IconEntry TILE_120 = CITY_QUEST_C9_R8;
 	/** tile_121 */
-	public static final IconEntry TILE_121 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 112, 16, 16}, 645);
+	public static final IconEntry CITY_QUEST_C10_R8 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 112, 16, 16}, 645);
+	/** semantic alias for CITY_QUEST_C10_R8 */
+	public static final IconEntry TILE_121 = CITY_QUEST_C10_R8;
 	/** tile_122 */
-	public static final IconEntry TILE_122 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 112, 16, 16}, 646);
+	public static final IconEntry CITY_QUEST_C11_R8 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 112, 16, 16}, 646);
+	/** semantic alias for CITY_QUEST_C11_R8 */
+	public static final IconEntry TILE_122 = CITY_QUEST_C11_R8;
 	/** tile_123 */
-	public static final IconEntry TILE_123 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 112, 16, 16}, 647);
+	public static final IconEntry CITY_QUEST_C12_R8 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 112, 16, 16}, 647);
+	/** semantic alias for CITY_QUEST_C12_R8 */
+	public static final IconEntry TILE_123 = CITY_QUEST_C12_R8;
 	/** tile_124 */
-	public static final IconEntry TILE_124 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{192, 112, 16, 16}, 648);
+	public static final IconEntry CITY_QUEST_C13_R8 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{192, 112, 16, 16}, 648);
+	/** semantic alias for CITY_QUEST_C13_R8 */
+	public static final IconEntry TILE_124 = CITY_QUEST_C13_R8;
 	/** tile_125 */
-	public static final IconEntry TILE_125 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{208, 112, 16, 16}, 649);
+	public static final IconEntry CITY_QUEST_C14_R8 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{208, 112, 16, 16}, 649);
+	/** semantic alias for CITY_QUEST_C14_R8 */
+	public static final IconEntry TILE_125 = CITY_QUEST_C14_R8;
 	/** tile_126 */
 	public static final IconEntry TILE_126 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{224, 112, 16, 16}, 650);
 	/** tile_127 */
@@ -279,23 +445,41 @@ public final class CityQuestDict {
 	/** tile_132 */
 	public static final IconEntry TILE_132 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{64, 128, 16, 16}, 656);
 	/** tile_133 */
-	public static final IconEntry TILE_133 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{80, 128, 16, 16}, 657);
+	public static final IconEntry CITY_QUEST_C6_R9 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{80, 128, 16, 16}, 657);
+	/** semantic alias for CITY_QUEST_C6_R9 */
+	public static final IconEntry TILE_133 = CITY_QUEST_C6_R9;
 	/** tile_134 */
-	public static final IconEntry TILE_134 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 128, 16, 16}, 658);
+	public static final IconEntry CITY_QUEST_C7_R9 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 128, 16, 16}, 658);
+	/** semantic alias for CITY_QUEST_C7_R9 */
+	public static final IconEntry TILE_134 = CITY_QUEST_C7_R9;
 	/** tile_135 */
-	public static final IconEntry TILE_135 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 128, 16, 16}, 659);
+	public static final IconEntry CITY_QUEST_C8_R9 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 128, 16, 16}, 659);
+	/** semantic alias for CITY_QUEST_C8_R9 */
+	public static final IconEntry TILE_135 = CITY_QUEST_C8_R9;
 	/** tile_136 */
-	public static final IconEntry TILE_136 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 128, 16, 16}, 660);
+	public static final IconEntry CITY_QUEST_C9_R9 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 128, 16, 16}, 660);
+	/** semantic alias for CITY_QUEST_C9_R9 */
+	public static final IconEntry TILE_136 = CITY_QUEST_C9_R9;
 	/** tile_137 */
-	public static final IconEntry TILE_137 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 128, 16, 16}, 661);
+	public static final IconEntry CITY_QUEST_C10_R9 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 128, 16, 16}, 661);
+	/** semantic alias for CITY_QUEST_C10_R9 */
+	public static final IconEntry TILE_137 = CITY_QUEST_C10_R9;
 	/** tile_138 */
-	public static final IconEntry TILE_138 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 128, 16, 16}, 662);
+	public static final IconEntry CITY_QUEST_C11_R9 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 128, 16, 16}, 662);
+	/** semantic alias for CITY_QUEST_C11_R9 */
+	public static final IconEntry TILE_138 = CITY_QUEST_C11_R9;
 	/** tile_139 */
-	public static final IconEntry TILE_139 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 128, 16, 16}, 663);
+	public static final IconEntry CITY_QUEST_C12_R9 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 128, 16, 16}, 663);
+	/** semantic alias for CITY_QUEST_C12_R9 */
+	public static final IconEntry TILE_139 = CITY_QUEST_C12_R9;
 	/** tile_140 */
-	public static final IconEntry TILE_140 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{192, 128, 16, 16}, 664);
+	public static final IconEntry CITY_QUEST_C13_R9 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{192, 128, 16, 16}, 664);
+	/** semantic alias for CITY_QUEST_C13_R9 */
+	public static final IconEntry TILE_140 = CITY_QUEST_C13_R9;
 	/** tile_141 */
-	public static final IconEntry TILE_141 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{208, 128, 16, 16}, 665);
+	public static final IconEntry CITY_QUEST_C14_R9 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{208, 128, 16, 16}, 665);
+	/** semantic alias for CITY_QUEST_C14_R9 */
+	public static final IconEntry TILE_141 = CITY_QUEST_C14_R9;
 	/** tile_142 */
 	public static final IconEntry TILE_142 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{224, 128, 16, 16}, 666);
 	/** tile_143 */
@@ -311,23 +495,41 @@ public final class CityQuestDict {
 	/** tile_148 */
 	public static final IconEntry TILE_148 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{64, 144, 16, 16}, 672);
 	/** tile_149 */
-	public static final IconEntry TILE_149 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{80, 144, 16, 16}, 673);
+	public static final IconEntry CITY_QUEST_C6_R10 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{80, 144, 16, 16}, 673);
+	/** semantic alias for CITY_QUEST_C6_R10 */
+	public static final IconEntry TILE_149 = CITY_QUEST_C6_R10;
 	/** tile_150 */
-	public static final IconEntry TILE_150 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 144, 16, 16}, 674);
+	public static final IconEntry CITY_QUEST_C7_R10 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 144, 16, 16}, 674);
+	/** semantic alias for CITY_QUEST_C7_R10 */
+	public static final IconEntry TILE_150 = CITY_QUEST_C7_R10;
 	/** tile_151 */
-	public static final IconEntry TILE_151 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 144, 16, 16}, 675);
+	public static final IconEntry CITY_QUEST_C8_R10 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 144, 16, 16}, 675);
+	/** semantic alias for CITY_QUEST_C8_R10 */
+	public static final IconEntry TILE_151 = CITY_QUEST_C8_R10;
 	/** tile_152 */
-	public static final IconEntry TILE_152 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 144, 16, 16}, 676);
+	public static final IconEntry CITY_QUEST_C9_R10 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 144, 16, 16}, 676);
+	/** semantic alias for CITY_QUEST_C9_R10 */
+	public static final IconEntry TILE_152 = CITY_QUEST_C9_R10;
 	/** tile_153 */
-	public static final IconEntry TILE_153 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 144, 16, 16}, 677);
+	public static final IconEntry CITY_QUEST_C10_R10 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 144, 16, 16}, 677);
+	/** semantic alias for CITY_QUEST_C10_R10 */
+	public static final IconEntry TILE_153 = CITY_QUEST_C10_R10;
 	/** tile_154 */
-	public static final IconEntry TILE_154 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 144, 16, 16}, 678);
+	public static final IconEntry CITY_QUEST_C11_R10 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 144, 16, 16}, 678);
+	/** semantic alias for CITY_QUEST_C11_R10 */
+	public static final IconEntry TILE_154 = CITY_QUEST_C11_R10;
 	/** tile_155 */
-	public static final IconEntry TILE_155 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 144, 16, 16}, 679);
+	public static final IconEntry CITY_QUEST_C12_R10 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 144, 16, 16}, 679);
+	/** semantic alias for CITY_QUEST_C12_R10 */
+	public static final IconEntry TILE_155 = CITY_QUEST_C12_R10;
 	/** tile_156 */
-	public static final IconEntry TILE_156 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{192, 144, 16, 16}, 680);
+	public static final IconEntry CITY_QUEST_C13_R10 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{192, 144, 16, 16}, 680);
+	/** semantic alias for CITY_QUEST_C13_R10 */
+	public static final IconEntry TILE_156 = CITY_QUEST_C13_R10;
 	/** tile_157 */
-	public static final IconEntry TILE_157 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{208, 144, 16, 16}, 681);
+	public static final IconEntry CITY_QUEST_C14_R10 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{208, 144, 16, 16}, 681);
+	/** semantic alias for CITY_QUEST_C14_R10 */
+	public static final IconEntry TILE_157 = CITY_QUEST_C14_R10;
 	/** tile_158 */
 	public static final IconEntry TILE_158 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{224, 144, 16, 16}, 682);
 	/** tile_159 */
@@ -343,23 +545,41 @@ public final class CityQuestDict {
 	/** tile_164 */
 	public static final IconEntry TILE_164 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{64, 160, 16, 16}, 688);
 	/** tile_165 */
-	public static final IconEntry TILE_165 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{80, 160, 16, 16}, 689);
+	public static final IconEntry CITY_QUEST_C6_R11 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{80, 160, 16, 16}, 689);
+	/** semantic alias for CITY_QUEST_C6_R11 */
+	public static final IconEntry TILE_165 = CITY_QUEST_C6_R11;
 	/** tile_166 */
-	public static final IconEntry TILE_166 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 160, 16, 16}, 690);
+	public static final IconEntry CITY_QUEST_C7_R11 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 160, 16, 16}, 690);
+	/** semantic alias for CITY_QUEST_C7_R11 */
+	public static final IconEntry TILE_166 = CITY_QUEST_C7_R11;
 	/** tile_167 */
-	public static final IconEntry TILE_167 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 160, 16, 16}, 691);
+	public static final IconEntry CITY_QUEST_C8_R11 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 160, 16, 16}, 691);
+	/** semantic alias for CITY_QUEST_C8_R11 */
+	public static final IconEntry TILE_167 = CITY_QUEST_C8_R11;
 	/** tile_168 */
-	public static final IconEntry TILE_168 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 160, 16, 16}, 692);
+	public static final IconEntry CITY_QUEST_C9_R11 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 160, 16, 16}, 692);
+	/** semantic alias for CITY_QUEST_C9_R11 */
+	public static final IconEntry TILE_168 = CITY_QUEST_C9_R11;
 	/** tile_169 */
-	public static final IconEntry TILE_169 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 160, 16, 16}, 693);
+	public static final IconEntry CITY_QUEST_C10_R11 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 160, 16, 16}, 693);
+	/** semantic alias for CITY_QUEST_C10_R11 */
+	public static final IconEntry TILE_169 = CITY_QUEST_C10_R11;
 	/** tile_170 */
-	public static final IconEntry TILE_170 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 160, 16, 16}, 694);
+	public static final IconEntry CITY_QUEST_C11_R11 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 160, 16, 16}, 694);
+	/** semantic alias for CITY_QUEST_C11_R11 */
+	public static final IconEntry TILE_170 = CITY_QUEST_C11_R11;
 	/** tile_171 */
-	public static final IconEntry TILE_171 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 160, 16, 16}, 695);
+	public static final IconEntry CITY_QUEST_C12_R11 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 160, 16, 16}, 695);
+	/** semantic alias for CITY_QUEST_C12_R11 */
+	public static final IconEntry TILE_171 = CITY_QUEST_C12_R11;
 	/** tile_172 */
-	public static final IconEntry TILE_172 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{192, 160, 16, 16}, 696);
+	public static final IconEntry CITY_QUEST_C13_R11 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{192, 160, 16, 16}, 696);
+	/** semantic alias for CITY_QUEST_C13_R11 */
+	public static final IconEntry TILE_172 = CITY_QUEST_C13_R11;
 	/** tile_173 */
-	public static final IconEntry TILE_173 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{208, 160, 16, 16}, 697);
+	public static final IconEntry CITY_QUEST_C14_R11 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{208, 160, 16, 16}, 697);
+	/** semantic alias for CITY_QUEST_C14_R11 */
+	public static final IconEntry TILE_173 = CITY_QUEST_C14_R11;
 	/** tile_174 */
 	public static final IconEntry TILE_174 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{224, 160, 16, 16}, 698);
 	/** tile_175 */
@@ -377,19 +597,33 @@ public final class CityQuestDict {
 	/** tile_181 */
 	public static final IconEntry TILE_181 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{80, 176, 16, 16}, 705);
 	/** tile_182 */
-	public static final IconEntry TILE_182 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 176, 16, 16}, 706);
+	public static final IconEntry CITY_QUEST_C7_R12 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 176, 16, 16}, 706);
+	/** semantic alias for CITY_QUEST_C7_R12 */
+	public static final IconEntry TILE_182 = CITY_QUEST_C7_R12;
 	/** tile_183 */
-	public static final IconEntry TILE_183 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 176, 16, 16}, 707);
+	public static final IconEntry CITY_QUEST_C8_R12 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 176, 16, 16}, 707);
+	/** semantic alias for CITY_QUEST_C8_R12 */
+	public static final IconEntry TILE_183 = CITY_QUEST_C8_R12;
 	/** tile_184 */
-	public static final IconEntry TILE_184 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 176, 16, 16}, 708);
+	public static final IconEntry CITY_QUEST_C9_R12 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 176, 16, 16}, 708);
+	/** semantic alias for CITY_QUEST_C9_R12 */
+	public static final IconEntry TILE_184 = CITY_QUEST_C9_R12;
 	/** tile_185 */
-	public static final IconEntry TILE_185 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 176, 16, 16}, 709);
+	public static final IconEntry CITY_QUEST_C10_R12 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 176, 16, 16}, 709);
+	/** semantic alias for CITY_QUEST_C10_R12 */
+	public static final IconEntry TILE_185 = CITY_QUEST_C10_R12;
 	/** tile_186 */
-	public static final IconEntry TILE_186 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 176, 16, 16}, 710);
+	public static final IconEntry CITY_QUEST_C11_R12 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 176, 16, 16}, 710);
+	/** semantic alias for CITY_QUEST_C11_R12 */
+	public static final IconEntry TILE_186 = CITY_QUEST_C11_R12;
 	/** tile_187 */
-	public static final IconEntry TILE_187 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 176, 16, 16}, 711);
+	public static final IconEntry CITY_QUEST_C12_R12 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 176, 16, 16}, 711);
+	/** semantic alias for CITY_QUEST_C12_R12 */
+	public static final IconEntry TILE_187 = CITY_QUEST_C12_R12;
 	/** tile_188 */
-	public static final IconEntry TILE_188 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{192, 176, 16, 16}, 712);
+	public static final IconEntry CITY_QUEST_C13_R12 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{192, 176, 16, 16}, 712);
+	/** semantic alias for CITY_QUEST_C13_R12 */
+	public static final IconEntry TILE_188 = CITY_QUEST_C13_R12;
 	/** tile_189 */
 	public static final IconEntry TILE_189 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{208, 176, 16, 16}, 713);
 	/** tile_190 */
@@ -411,15 +645,25 @@ public final class CityQuestDict {
 	/** tile_198 */
 	public static final IconEntry TILE_198 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{96, 192, 16, 16}, 722);
 	/** tile_199 */
-	public static final IconEntry TILE_199 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 192, 16, 16}, 723);
+	public static final IconEntry CITY_QUEST_C8_R13 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{112, 192, 16, 16}, 723);
+	/** semantic alias for CITY_QUEST_C8_R13 */
+	public static final IconEntry TILE_199 = CITY_QUEST_C8_R13;
 	/** tile_200 */
-	public static final IconEntry TILE_200 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 192, 16, 16}, 724);
+	public static final IconEntry CITY_QUEST_C9_R13 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{128, 192, 16, 16}, 724);
+	/** semantic alias for CITY_QUEST_C9_R13 */
+	public static final IconEntry TILE_200 = CITY_QUEST_C9_R13;
 	/** tile_201 */
-	public static final IconEntry TILE_201 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 192, 16, 16}, 725);
+	public static final IconEntry CITY_QUEST_C10_R13 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{144, 192, 16, 16}, 725);
+	/** semantic alias for CITY_QUEST_C10_R13 */
+	public static final IconEntry TILE_201 = CITY_QUEST_C10_R13;
 	/** tile_202 */
-	public static final IconEntry TILE_202 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 192, 16, 16}, 726);
+	public static final IconEntry CITY_QUEST_C11_R13 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{160, 192, 16, 16}, 726);
+	/** semantic alias for CITY_QUEST_C11_R13 */
+	public static final IconEntry TILE_202 = CITY_QUEST_C11_R13;
 	/** tile_203 */
-	public static final IconEntry TILE_203 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 192, 16, 16}, 727);
+	public static final IconEntry CITY_QUEST_C12_R13 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{176, 192, 16, 16}, 727);
+	/** semantic alias for CITY_QUEST_C12_R13 */
+	public static final IconEntry TILE_203 = CITY_QUEST_C12_R13;
 	/** tile_204 */
 	public static final IconEntry TILE_204 = new IconEntry("environment/custom_tiles/city_quest.png", new int[]{192, 192, 16, 16}, 728);
 	/** tile_205 */

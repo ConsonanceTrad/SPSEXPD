@@ -13,49 +13,87 @@ public final class CavesQuestDict {
 	private CavesQuestDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{0, 0, 16, 16}, 364);
+	public static final IconEntry CAVES_QUEST_C1_R1 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{0, 0, 16, 16}, 364);
+	/** semantic alias for CAVES_QUEST_C1_R1 */
+	public static final IconEntry TILE_000 = CAVES_QUEST_C1_R1;
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{16, 0, 16, 16}, 365);
+	public static final IconEntry CAVES_QUEST_C2_R1 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{16, 0, 16, 16}, 365);
+	/** semantic alias for CAVES_QUEST_C2_R1 */
+	public static final IconEntry TILE_001 = CAVES_QUEST_C2_R1;
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{32, 0, 16, 16}, 366);
+	public static final IconEntry CAVES_QUEST_C3_R1 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{32, 0, 16, 16}, 366);
+	/** semantic alias for CAVES_QUEST_C3_R1 */
+	public static final IconEntry TILE_002 = CAVES_QUEST_C3_R1;
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{48, 0, 16, 16}, 367);
+	public static final IconEntry CAVES_QUEST_C4_R1 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{48, 0, 16, 16}, 367);
+	/** semantic alias for CAVES_QUEST_C4_R1 */
+	public static final IconEntry TILE_003 = CAVES_QUEST_C4_R1;
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{0, 16, 16, 16}, 368);
+	public static final IconEntry CAVES_QUEST_C1_R2 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{0, 16, 16, 16}, 368);
+	/** semantic alias for CAVES_QUEST_C1_R2 */
+	public static final IconEntry TILE_004 = CAVES_QUEST_C1_R2;
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{16, 16, 16, 16}, 369);
+	public static final IconEntry CAVES_QUEST_C2_R2 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{16, 16, 16, 16}, 369);
+	/** semantic alias for CAVES_QUEST_C2_R2 */
+	public static final IconEntry TILE_005 = CAVES_QUEST_C2_R2;
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{32, 16, 16, 16}, 370);
+	public static final IconEntry CAVES_QUEST_C3_R2 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{32, 16, 16, 16}, 370);
+	/** semantic alias for CAVES_QUEST_C3_R2 */
+	public static final IconEntry TILE_006 = CAVES_QUEST_C3_R2;
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{48, 16, 16, 16}, 371);
+	public static final IconEntry CAVES_QUEST_C4_R2 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{48, 16, 16, 16}, 371);
+	/** semantic alias for CAVES_QUEST_C4_R2 */
+	public static final IconEntry TILE_007 = CAVES_QUEST_C4_R2;
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{0, 32, 16, 16}, 372);
+	public static final IconEntry CAVES_QUEST_C1_R3 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{0, 32, 16, 16}, 372);
+	/** semantic alias for CAVES_QUEST_C1_R3 */
+	public static final IconEntry TILE_008 = CAVES_QUEST_C1_R3;
 	/** tile_009 */
-	public static final IconEntry TILE_009 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{16, 32, 16, 16}, 373);
+	public static final IconEntry CAVES_QUEST_C2_R3 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{16, 32, 16, 16}, 373);
+	/** semantic alias for CAVES_QUEST_C2_R3 */
+	public static final IconEntry TILE_009 = CAVES_QUEST_C2_R3;
 	/** tile_010 */
-	public static final IconEntry TILE_010 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{32, 32, 16, 16}, 374);
+	public static final IconEntry CAVES_QUEST_C3_R3 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{32, 32, 16, 16}, 374);
+	/** semantic alias for CAVES_QUEST_C3_R3 */
+	public static final IconEntry TILE_010 = CAVES_QUEST_C3_R3;
 	/** tile_011 */
 	public static final IconEntry TILE_011 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{48, 32, 16, 16}, 375);
 	/** tile_012 */
-	public static final IconEntry TILE_012 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{0, 48, 16, 16}, 376);
+	public static final IconEntry CAVES_QUEST_C1_R4 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{0, 48, 16, 16}, 376);
+	/** semantic alias for CAVES_QUEST_C1_R4 */
+	public static final IconEntry TILE_012 = CAVES_QUEST_C1_R4;
 	/** tile_013 */
-	public static final IconEntry TILE_013 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{16, 48, 16, 16}, 377);
+	public static final IconEntry CAVES_QUEST_C2_R4 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{16, 48, 16, 16}, 377);
+	/** semantic alias for CAVES_QUEST_C2_R4 */
+	public static final IconEntry TILE_013 = CAVES_QUEST_C2_R4;
 	/** tile_014 */
-	public static final IconEntry TILE_014 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{32, 48, 16, 16}, 378);
+	public static final IconEntry CAVES_QUEST_C3_R4 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{32, 48, 16, 16}, 378);
+	/** semantic alias for CAVES_QUEST_C3_R4 */
+	public static final IconEntry TILE_014 = CAVES_QUEST_C3_R4;
 	/** tile_015 */
 	public static final IconEntry TILE_015 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{48, 48, 16, 16}, 379);
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{0, 64, 16, 16}, 380);
+	public static final IconEntry CAVES_QUEST_C1_R5 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{0, 64, 16, 16}, 380);
+	/** semantic alias for CAVES_QUEST_C1_R5 */
+	public static final IconEntry TILE_016 = CAVES_QUEST_C1_R5;
 	/** tile_017 */
-	public static final IconEntry TILE_017 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{16, 64, 16, 16}, 381);
+	public static final IconEntry CAVES_QUEST_C2_R5 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{16, 64, 16, 16}, 381);
+	/** semantic alias for CAVES_QUEST_C2_R5 */
+	public static final IconEntry TILE_017 = CAVES_QUEST_C2_R5;
 	/** tile_018 */
-	public static final IconEntry TILE_018 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{32, 64, 16, 16}, 382);
+	public static final IconEntry CAVES_QUEST_C3_R5 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{32, 64, 16, 16}, 382);
+	/** semantic alias for CAVES_QUEST_C3_R5 */
+	public static final IconEntry TILE_018 = CAVES_QUEST_C3_R5;
 	/** tile_019 */
 	public static final IconEntry TILE_019 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{48, 64, 16, 16}, 383);
 	/** tile_020 */
-	public static final IconEntry TILE_020 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{0, 80, 16, 16}, 384);
+	public static final IconEntry CAVES_QUEST_C1_R6 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{0, 80, 16, 16}, 384);
+	/** semantic alias for CAVES_QUEST_C1_R6 */
+	public static final IconEntry TILE_020 = CAVES_QUEST_C1_R6;
 	/** tile_021 */
-	public static final IconEntry TILE_021 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{16, 80, 16, 16}, 385);
+	public static final IconEntry CAVES_QUEST_C2_R6 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{16, 80, 16, 16}, 385);
+	/** semantic alias for CAVES_QUEST_C2_R6 */
+	public static final IconEntry TILE_021 = CAVES_QUEST_C2_R6;
 	/** tile_022 */
 	public static final IconEntry TILE_022 = new IconEntry("environment/custom_tiles/caves_quest.png", new int[]{32, 80, 16, 16}, 386);
 	/** tile_023 */

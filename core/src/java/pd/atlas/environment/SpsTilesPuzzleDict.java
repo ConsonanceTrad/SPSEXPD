@@ -13,163 +13,321 @@ public final class SpsTilesPuzzleDict {
 	private SpsTilesPuzzleDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{0, 0, 16, 16}, 2324);
+	public static final IconEntry SPS_TILES_PUZZLE_C1_R1 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{0, 0, 16, 16}, 2324);
+	/** semantic alias for SPS_TILES_PUZZLE_C1_R1 */
+	public static final IconEntry TILE_000 = SPS_TILES_PUZZLE_C1_R1;
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{16, 0, 16, 16}, 2325);
+	public static final IconEntry SPS_TILES_PUZZLE_C2_R1 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{16, 0, 16, 16}, 2325);
+	/** semantic alias for SPS_TILES_PUZZLE_C2_R1 */
+	public static final IconEntry TILE_001 = SPS_TILES_PUZZLE_C2_R1;
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{32, 0, 16, 16}, 2326);
+	public static final IconEntry SPS_TILES_PUZZLE_C3_R1 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{32, 0, 16, 16}, 2326);
+	/** semantic alias for SPS_TILES_PUZZLE_C3_R1 */
+	public static final IconEntry TILE_002 = SPS_TILES_PUZZLE_C3_R1;
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{48, 0, 16, 16}, 2327);
+	public static final IconEntry SPS_TILES_PUZZLE_C4_R1 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{48, 0, 16, 16}, 2327);
+	/** semantic alias for SPS_TILES_PUZZLE_C4_R1 */
+	public static final IconEntry TILE_003 = SPS_TILES_PUZZLE_C4_R1;
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{64, 0, 16, 16}, 2328);
+	public static final IconEntry SPS_TILES_PUZZLE_C5_R1 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{64, 0, 16, 16}, 2328);
+	/** semantic alias for SPS_TILES_PUZZLE_C5_R1 */
+	public static final IconEntry TILE_004 = SPS_TILES_PUZZLE_C5_R1;
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{80, 0, 16, 16}, 2329);
+	public static final IconEntry SPS_TILES_PUZZLE_C6_R1 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{80, 0, 16, 16}, 2329);
+	/** semantic alias for SPS_TILES_PUZZLE_C6_R1 */
+	public static final IconEntry TILE_005 = SPS_TILES_PUZZLE_C6_R1;
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{96, 0, 16, 16}, 2330);
+	public static final IconEntry SPS_TILES_PUZZLE_C7_R1 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{96, 0, 16, 16}, 2330);
+	/** semantic alias for SPS_TILES_PUZZLE_C7_R1 */
+	public static final IconEntry TILE_006 = SPS_TILES_PUZZLE_C7_R1;
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{112, 0, 16, 16}, 2331);
+	public static final IconEntry SPS_TILES_PUZZLE_C8_R1 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{112, 0, 16, 16}, 2331);
+	/** semantic alias for SPS_TILES_PUZZLE_C8_R1 */
+	public static final IconEntry TILE_007 = SPS_TILES_PUZZLE_C8_R1;
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{128, 0, 16, 16}, 2332);
+	public static final IconEntry SPS_TILES_PUZZLE_C9_R1 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{128, 0, 16, 16}, 2332);
+	/** semantic alias for SPS_TILES_PUZZLE_C9_R1 */
+	public static final IconEntry TILE_008 = SPS_TILES_PUZZLE_C9_R1;
 	/** tile_009 */
-	public static final IconEntry TILE_009 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{144, 0, 16, 16}, 2333);
+	public static final IconEntry SPS_TILES_PUZZLE_C10_R1 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{144, 0, 16, 16}, 2333);
+	/** semantic alias for SPS_TILES_PUZZLE_C10_R1 */
+	public static final IconEntry TILE_009 = SPS_TILES_PUZZLE_C10_R1;
 	/** tile_010 */
-	public static final IconEntry TILE_010 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{160, 0, 16, 16}, 2334);
+	public static final IconEntry SPS_TILES_PUZZLE_C11_R1 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{160, 0, 16, 16}, 2334);
+	/** semantic alias for SPS_TILES_PUZZLE_C11_R1 */
+	public static final IconEntry TILE_010 = SPS_TILES_PUZZLE_C11_R1;
 	/** tile_011 */
-	public static final IconEntry TILE_011 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{176, 0, 16, 16}, 2335);
+	public static final IconEntry SPS_TILES_PUZZLE_C12_R1 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{176, 0, 16, 16}, 2335);
+	/** semantic alias for SPS_TILES_PUZZLE_C12_R1 */
+	public static final IconEntry TILE_011 = SPS_TILES_PUZZLE_C12_R1;
 	/** tile_012 */
-	public static final IconEntry TILE_012 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{192, 0, 16, 16}, 2336);
+	public static final IconEntry SPS_TILES_PUZZLE_C13_R1 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{192, 0, 16, 16}, 2336);
+	/** semantic alias for SPS_TILES_PUZZLE_C13_R1 */
+	public static final IconEntry TILE_012 = SPS_TILES_PUZZLE_C13_R1;
 	/** tile_013 */
-	public static final IconEntry TILE_013 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{208, 0, 16, 16}, 2337);
+	public static final IconEntry SPS_TILES_PUZZLE_C14_R1 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{208, 0, 16, 16}, 2337);
+	/** semantic alias for SPS_TILES_PUZZLE_C14_R1 */
+	public static final IconEntry TILE_013 = SPS_TILES_PUZZLE_C14_R1;
 	/** tile_014 */
-	public static final IconEntry TILE_014 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{224, 0, 16, 16}, 2338);
+	public static final IconEntry SPS_TILES_PUZZLE_C15_R1 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{224, 0, 16, 16}, 2338);
+	/** semantic alias for SPS_TILES_PUZZLE_C15_R1 */
+	public static final IconEntry TILE_014 = SPS_TILES_PUZZLE_C15_R1;
 	/** tile_015 */
-	public static final IconEntry TILE_015 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{240, 0, 16, 16}, 2339);
+	public static final IconEntry SPS_TILES_PUZZLE_C16_R1 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{240, 0, 16, 16}, 2339);
+	/** semantic alias for SPS_TILES_PUZZLE_C16_R1 */
+	public static final IconEntry TILE_015 = SPS_TILES_PUZZLE_C16_R1;
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{0, 16, 16, 16}, 2340);
+	public static final IconEntry SPS_TILES_PUZZLE_C1_R2 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{0, 16, 16, 16}, 2340);
+	/** semantic alias for SPS_TILES_PUZZLE_C1_R2 */
+	public static final IconEntry TILE_016 = SPS_TILES_PUZZLE_C1_R2;
 	/** tile_017 */
-	public static final IconEntry TILE_017 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{16, 16, 16, 16}, 2341);
+	public static final IconEntry SPS_TILES_PUZZLE_C2_R2 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{16, 16, 16, 16}, 2341);
+	/** semantic alias for SPS_TILES_PUZZLE_C2_R2 */
+	public static final IconEntry TILE_017 = SPS_TILES_PUZZLE_C2_R2;
 	/** tile_018 */
-	public static final IconEntry TILE_018 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{32, 16, 16, 16}, 2342);
+	public static final IconEntry SPS_TILES_PUZZLE_C3_R2 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{32, 16, 16, 16}, 2342);
+	/** semantic alias for SPS_TILES_PUZZLE_C3_R2 */
+	public static final IconEntry TILE_018 = SPS_TILES_PUZZLE_C3_R2;
 	/** tile_019 */
-	public static final IconEntry TILE_019 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{48, 16, 16, 16}, 2343);
+	public static final IconEntry SPS_TILES_PUZZLE_C4_R2 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{48, 16, 16, 16}, 2343);
+	/** semantic alias for SPS_TILES_PUZZLE_C4_R2 */
+	public static final IconEntry TILE_019 = SPS_TILES_PUZZLE_C4_R2;
 	/** tile_020 */
-	public static final IconEntry TILE_020 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{64, 16, 16, 16}, 2344);
+	public static final IconEntry SPS_TILES_PUZZLE_C5_R2 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{64, 16, 16, 16}, 2344);
+	/** semantic alias for SPS_TILES_PUZZLE_C5_R2 */
+	public static final IconEntry TILE_020 = SPS_TILES_PUZZLE_C5_R2;
 	/** tile_021 */
-	public static final IconEntry TILE_021 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{80, 16, 16, 16}, 2345);
+	public static final IconEntry SPS_TILES_PUZZLE_C6_R2 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{80, 16, 16, 16}, 2345);
+	/** semantic alias for SPS_TILES_PUZZLE_C6_R2 */
+	public static final IconEntry TILE_021 = SPS_TILES_PUZZLE_C6_R2;
 	/** tile_022 */
-	public static final IconEntry TILE_022 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{96, 16, 16, 16}, 2346);
+	public static final IconEntry SPS_TILES_PUZZLE_C7_R2 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{96, 16, 16, 16}, 2346);
+	/** semantic alias for SPS_TILES_PUZZLE_C7_R2 */
+	public static final IconEntry TILE_022 = SPS_TILES_PUZZLE_C7_R2;
 	/** tile_023 */
-	public static final IconEntry TILE_023 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{112, 16, 16, 16}, 2347);
+	public static final IconEntry SPS_TILES_PUZZLE_C8_R2 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{112, 16, 16, 16}, 2347);
+	/** semantic alias for SPS_TILES_PUZZLE_C8_R2 */
+	public static final IconEntry TILE_023 = SPS_TILES_PUZZLE_C8_R2;
 	/** tile_024 */
-	public static final IconEntry TILE_024 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{128, 16, 16, 16}, 2348);
+	public static final IconEntry SPS_TILES_PUZZLE_C9_R2 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{128, 16, 16, 16}, 2348);
+	/** semantic alias for SPS_TILES_PUZZLE_C9_R2 */
+	public static final IconEntry TILE_024 = SPS_TILES_PUZZLE_C9_R2;
 	/** tile_025 */
-	public static final IconEntry TILE_025 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{144, 16, 16, 16}, 2349);
+	public static final IconEntry SPS_TILES_PUZZLE_C10_R2 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{144, 16, 16, 16}, 2349);
+	/** semantic alias for SPS_TILES_PUZZLE_C10_R2 */
+	public static final IconEntry TILE_025 = SPS_TILES_PUZZLE_C10_R2;
 	/** tile_026 */
-	public static final IconEntry TILE_026 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{160, 16, 16, 16}, 2350);
+	public static final IconEntry SPS_TILES_PUZZLE_C11_R2 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{160, 16, 16, 16}, 2350);
+	/** semantic alias for SPS_TILES_PUZZLE_C11_R2 */
+	public static final IconEntry TILE_026 = SPS_TILES_PUZZLE_C11_R2;
 	/** tile_027 */
-	public static final IconEntry TILE_027 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{176, 16, 16, 16}, 2351);
+	public static final IconEntry SPS_TILES_PUZZLE_C12_R2 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{176, 16, 16, 16}, 2351);
+	/** semantic alias for SPS_TILES_PUZZLE_C12_R2 */
+	public static final IconEntry TILE_027 = SPS_TILES_PUZZLE_C12_R2;
 	/** tile_028 */
-	public static final IconEntry TILE_028 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{192, 16, 16, 16}, 2352);
+	public static final IconEntry SPS_TILES_PUZZLE_C13_R2 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{192, 16, 16, 16}, 2352);
+	/** semantic alias for SPS_TILES_PUZZLE_C13_R2 */
+	public static final IconEntry TILE_028 = SPS_TILES_PUZZLE_C13_R2;
 	/** tile_029 */
-	public static final IconEntry TILE_029 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{208, 16, 16, 16}, 2353);
+	public static final IconEntry SPS_TILES_PUZZLE_C14_R2 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{208, 16, 16, 16}, 2353);
+	/** semantic alias for SPS_TILES_PUZZLE_C14_R2 */
+	public static final IconEntry TILE_029 = SPS_TILES_PUZZLE_C14_R2;
 	/** tile_030 */
-	public static final IconEntry TILE_030 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{224, 16, 16, 16}, 2354);
+	public static final IconEntry SPS_TILES_PUZZLE_C15_R2 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{224, 16, 16, 16}, 2354);
+	/** semantic alias for SPS_TILES_PUZZLE_C15_R2 */
+	public static final IconEntry TILE_030 = SPS_TILES_PUZZLE_C15_R2;
 	/** tile_031 */
-	public static final IconEntry TILE_031 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{240, 16, 16, 16}, 2355);
+	public static final IconEntry SPS_TILES_PUZZLE_C16_R2 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{240, 16, 16, 16}, 2355);
+	/** semantic alias for SPS_TILES_PUZZLE_C16_R2 */
+	public static final IconEntry TILE_031 = SPS_TILES_PUZZLE_C16_R2;
 	/** tile_032 */
-	public static final IconEntry TILE_032 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{0, 32, 16, 16}, 2356);
+	public static final IconEntry SPS_TILES_PUZZLE_C1_R3 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{0, 32, 16, 16}, 2356);
+	/** semantic alias for SPS_TILES_PUZZLE_C1_R3 */
+	public static final IconEntry TILE_032 = SPS_TILES_PUZZLE_C1_R3;
 	/** tile_033 */
-	public static final IconEntry TILE_033 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{16, 32, 16, 16}, 2357);
+	public static final IconEntry SPS_TILES_PUZZLE_C2_R3 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{16, 32, 16, 16}, 2357);
+	/** semantic alias for SPS_TILES_PUZZLE_C2_R3 */
+	public static final IconEntry TILE_033 = SPS_TILES_PUZZLE_C2_R3;
 	/** tile_034 */
-	public static final IconEntry TILE_034 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{32, 32, 16, 16}, 2358);
+	public static final IconEntry SPS_TILES_PUZZLE_C3_R3 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{32, 32, 16, 16}, 2358);
+	/** semantic alias for SPS_TILES_PUZZLE_C3_R3 */
+	public static final IconEntry TILE_034 = SPS_TILES_PUZZLE_C3_R3;
 	/** tile_035 */
-	public static final IconEntry TILE_035 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{48, 32, 16, 16}, 2359);
+	public static final IconEntry SPS_TILES_PUZZLE_C4_R3 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{48, 32, 16, 16}, 2359);
+	/** semantic alias for SPS_TILES_PUZZLE_C4_R3 */
+	public static final IconEntry TILE_035 = SPS_TILES_PUZZLE_C4_R3;
 	/** tile_036 */
-	public static final IconEntry TILE_036 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{64, 32, 16, 16}, 2360);
+	public static final IconEntry SPS_TILES_PUZZLE_C5_R3 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{64, 32, 16, 16}, 2360);
+	/** semantic alias for SPS_TILES_PUZZLE_C5_R3 */
+	public static final IconEntry TILE_036 = SPS_TILES_PUZZLE_C5_R3;
 	/** tile_037 */
-	public static final IconEntry TILE_037 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{80, 32, 16, 16}, 2361);
+	public static final IconEntry SPS_TILES_PUZZLE_C6_R3 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{80, 32, 16, 16}, 2361);
+	/** semantic alias for SPS_TILES_PUZZLE_C6_R3 */
+	public static final IconEntry TILE_037 = SPS_TILES_PUZZLE_C6_R3;
 	/** tile_038 */
-	public static final IconEntry TILE_038 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{96, 32, 16, 16}, 2362);
+	public static final IconEntry SPS_TILES_PUZZLE_C7_R3 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{96, 32, 16, 16}, 2362);
+	/** semantic alias for SPS_TILES_PUZZLE_C7_R3 */
+	public static final IconEntry TILE_038 = SPS_TILES_PUZZLE_C7_R3;
 	/** tile_039 */
-	public static final IconEntry TILE_039 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{112, 32, 16, 16}, 2363);
+	public static final IconEntry SPS_TILES_PUZZLE_C8_R3 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{112, 32, 16, 16}, 2363);
+	/** semantic alias for SPS_TILES_PUZZLE_C8_R3 */
+	public static final IconEntry TILE_039 = SPS_TILES_PUZZLE_C8_R3;
 	/** tile_040 */
-	public static final IconEntry TILE_040 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{128, 32, 16, 16}, 2364);
+	public static final IconEntry SPS_TILES_PUZZLE_C9_R3 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{128, 32, 16, 16}, 2364);
+	/** semantic alias for SPS_TILES_PUZZLE_C9_R3 */
+	public static final IconEntry TILE_040 = SPS_TILES_PUZZLE_C9_R3;
 	/** tile_041 */
-	public static final IconEntry TILE_041 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{144, 32, 16, 16}, 2365);
+	public static final IconEntry SPS_TILES_PUZZLE_C10_R3 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{144, 32, 16, 16}, 2365);
+	/** semantic alias for SPS_TILES_PUZZLE_C10_R3 */
+	public static final IconEntry TILE_041 = SPS_TILES_PUZZLE_C10_R3;
 	/** tile_042 */
-	public static final IconEntry TILE_042 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{160, 32, 16, 16}, 2366);
+	public static final IconEntry SPS_TILES_PUZZLE_C11_R3 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{160, 32, 16, 16}, 2366);
+	/** semantic alias for SPS_TILES_PUZZLE_C11_R3 */
+	public static final IconEntry TILE_042 = SPS_TILES_PUZZLE_C11_R3;
 	/** tile_043 */
-	public static final IconEntry TILE_043 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{176, 32, 16, 16}, 2367);
+	public static final IconEntry SPS_TILES_PUZZLE_C12_R3 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{176, 32, 16, 16}, 2367);
+	/** semantic alias for SPS_TILES_PUZZLE_C12_R3 */
+	public static final IconEntry TILE_043 = SPS_TILES_PUZZLE_C12_R3;
 	/** tile_044 */
-	public static final IconEntry TILE_044 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{192, 32, 16, 16}, 2368);
+	public static final IconEntry SPS_TILES_PUZZLE_C13_R3 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{192, 32, 16, 16}, 2368);
+	/** semantic alias for SPS_TILES_PUZZLE_C13_R3 */
+	public static final IconEntry TILE_044 = SPS_TILES_PUZZLE_C13_R3;
 	/** tile_045 */
-	public static final IconEntry TILE_045 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{208, 32, 16, 16}, 2369);
+	public static final IconEntry SPS_TILES_PUZZLE_C14_R3 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{208, 32, 16, 16}, 2369);
+	/** semantic alias for SPS_TILES_PUZZLE_C14_R3 */
+	public static final IconEntry TILE_045 = SPS_TILES_PUZZLE_C14_R3;
 	/** tile_046 */
-	public static final IconEntry TILE_046 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{224, 32, 16, 16}, 2370);
+	public static final IconEntry SPS_TILES_PUZZLE_C15_R3 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{224, 32, 16, 16}, 2370);
+	/** semantic alias for SPS_TILES_PUZZLE_C15_R3 */
+	public static final IconEntry TILE_046 = SPS_TILES_PUZZLE_C15_R3;
 	/** tile_047 */
-	public static final IconEntry TILE_047 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{240, 32, 16, 16}, 2371);
+	public static final IconEntry SPS_TILES_PUZZLE_C16_R3 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{240, 32, 16, 16}, 2371);
+	/** semantic alias for SPS_TILES_PUZZLE_C16_R3 */
+	public static final IconEntry TILE_047 = SPS_TILES_PUZZLE_C16_R3;
 	/** tile_048 */
-	public static final IconEntry TILE_048 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{0, 48, 16, 16}, 2372);
+	public static final IconEntry SPS_TILES_PUZZLE_C1_R4 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{0, 48, 16, 16}, 2372);
+	/** semantic alias for SPS_TILES_PUZZLE_C1_R4 */
+	public static final IconEntry TILE_048 = SPS_TILES_PUZZLE_C1_R4;
 	/** tile_049 */
-	public static final IconEntry TILE_049 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{16, 48, 16, 16}, 2373);
+	public static final IconEntry SPS_TILES_PUZZLE_C2_R4 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{16, 48, 16, 16}, 2373);
+	/** semantic alias for SPS_TILES_PUZZLE_C2_R4 */
+	public static final IconEntry TILE_049 = SPS_TILES_PUZZLE_C2_R4;
 	/** tile_050 */
-	public static final IconEntry TILE_050 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{32, 48, 16, 16}, 2374);
+	public static final IconEntry SPS_TILES_PUZZLE_C3_R4 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{32, 48, 16, 16}, 2374);
+	/** semantic alias for SPS_TILES_PUZZLE_C3_R4 */
+	public static final IconEntry TILE_050 = SPS_TILES_PUZZLE_C3_R4;
 	/** tile_051 */
-	public static final IconEntry TILE_051 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{48, 48, 16, 16}, 2375);
+	public static final IconEntry SPS_TILES_PUZZLE_C4_R4 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{48, 48, 16, 16}, 2375);
+	/** semantic alias for SPS_TILES_PUZZLE_C4_R4 */
+	public static final IconEntry TILE_051 = SPS_TILES_PUZZLE_C4_R4;
 	/** tile_052 */
-	public static final IconEntry TILE_052 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{64, 48, 16, 16}, 2376);
+	public static final IconEntry SPS_TILES_PUZZLE_C5_R4 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{64, 48, 16, 16}, 2376);
+	/** semantic alias for SPS_TILES_PUZZLE_C5_R4 */
+	public static final IconEntry TILE_052 = SPS_TILES_PUZZLE_C5_R4;
 	/** tile_053 */
-	public static final IconEntry TILE_053 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{80, 48, 16, 16}, 2377);
+	public static final IconEntry SPS_TILES_PUZZLE_C6_R4 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{80, 48, 16, 16}, 2377);
+	/** semantic alias for SPS_TILES_PUZZLE_C6_R4 */
+	public static final IconEntry TILE_053 = SPS_TILES_PUZZLE_C6_R4;
 	/** tile_054 */
-	public static final IconEntry TILE_054 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{96, 48, 16, 16}, 2378);
+	public static final IconEntry SPS_TILES_PUZZLE_C7_R4 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{96, 48, 16, 16}, 2378);
+	/** semantic alias for SPS_TILES_PUZZLE_C7_R4 */
+	public static final IconEntry TILE_054 = SPS_TILES_PUZZLE_C7_R4;
 	/** tile_055 */
-	public static final IconEntry TILE_055 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{112, 48, 16, 16}, 2379);
+	public static final IconEntry SPS_TILES_PUZZLE_C8_R4 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{112, 48, 16, 16}, 2379);
+	/** semantic alias for SPS_TILES_PUZZLE_C8_R4 */
+	public static final IconEntry TILE_055 = SPS_TILES_PUZZLE_C8_R4;
 	/** tile_056 */
-	public static final IconEntry TILE_056 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{128, 48, 16, 16}, 2380);
+	public static final IconEntry SPS_TILES_PUZZLE_C9_R4 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{128, 48, 16, 16}, 2380);
+	/** semantic alias for SPS_TILES_PUZZLE_C9_R4 */
+	public static final IconEntry TILE_056 = SPS_TILES_PUZZLE_C9_R4;
 	/** tile_057 */
-	public static final IconEntry TILE_057 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{144, 48, 16, 16}, 2381);
+	public static final IconEntry SPS_TILES_PUZZLE_C10_R4 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{144, 48, 16, 16}, 2381);
+	/** semantic alias for SPS_TILES_PUZZLE_C10_R4 */
+	public static final IconEntry TILE_057 = SPS_TILES_PUZZLE_C10_R4;
 	/** tile_058 */
-	public static final IconEntry TILE_058 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{160, 48, 16, 16}, 2382);
+	public static final IconEntry SPS_TILES_PUZZLE_C11_R4 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{160, 48, 16, 16}, 2382);
+	/** semantic alias for SPS_TILES_PUZZLE_C11_R4 */
+	public static final IconEntry TILE_058 = SPS_TILES_PUZZLE_C11_R4;
 	/** tile_059 */
-	public static final IconEntry TILE_059 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{176, 48, 16, 16}, 2383);
+	public static final IconEntry SPS_TILES_PUZZLE_C12_R4 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{176, 48, 16, 16}, 2383);
+	/** semantic alias for SPS_TILES_PUZZLE_C12_R4 */
+	public static final IconEntry TILE_059 = SPS_TILES_PUZZLE_C12_R4;
 	/** tile_060 */
-	public static final IconEntry TILE_060 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{192, 48, 16, 16}, 2384);
+	public static final IconEntry SPS_TILES_PUZZLE_C13_R4 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{192, 48, 16, 16}, 2384);
+	/** semantic alias for SPS_TILES_PUZZLE_C13_R4 */
+	public static final IconEntry TILE_060 = SPS_TILES_PUZZLE_C13_R4;
 	/** tile_061 */
-	public static final IconEntry TILE_061 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{208, 48, 16, 16}, 2385);
+	public static final IconEntry SPS_TILES_PUZZLE_C14_R4 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{208, 48, 16, 16}, 2385);
+	/** semantic alias for SPS_TILES_PUZZLE_C14_R4 */
+	public static final IconEntry TILE_061 = SPS_TILES_PUZZLE_C14_R4;
 	/** tile_062 */
-	public static final IconEntry TILE_062 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{224, 48, 16, 16}, 2386);
+	public static final IconEntry SPS_TILES_PUZZLE_C15_R4 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{224, 48, 16, 16}, 2386);
+	/** semantic alias for SPS_TILES_PUZZLE_C15_R4 */
+	public static final IconEntry TILE_062 = SPS_TILES_PUZZLE_C15_R4;
 	/** tile_063 */
 	public static final IconEntry TILE_063 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{240, 48, 16, 16}, 2387);
 	/** tile_064 */
-	public static final IconEntry TILE_064 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{0, 64, 16, 16}, 2388);
+	public static final IconEntry SPS_TILES_PUZZLE_C1_R5 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{0, 64, 16, 16}, 2388);
+	/** semantic alias for SPS_TILES_PUZZLE_C1_R5 */
+	public static final IconEntry TILE_064 = SPS_TILES_PUZZLE_C1_R5;
 	/** tile_065 */
-	public static final IconEntry TILE_065 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{16, 64, 16, 16}, 2389);
+	public static final IconEntry SPS_TILES_PUZZLE_C2_R5 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{16, 64, 16, 16}, 2389);
+	/** semantic alias for SPS_TILES_PUZZLE_C2_R5 */
+	public static final IconEntry TILE_065 = SPS_TILES_PUZZLE_C2_R5;
 	/** tile_066 */
-	public static final IconEntry TILE_066 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{32, 64, 16, 16}, 2390);
+	public static final IconEntry SPS_TILES_PUZZLE_C3_R5 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{32, 64, 16, 16}, 2390);
+	/** semantic alias for SPS_TILES_PUZZLE_C3_R5 */
+	public static final IconEntry TILE_066 = SPS_TILES_PUZZLE_C3_R5;
 	/** tile_067 */
-	public static final IconEntry TILE_067 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{48, 64, 16, 16}, 2391);
+	public static final IconEntry SPS_TILES_PUZZLE_C4_R5 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{48, 64, 16, 16}, 2391);
+	/** semantic alias for SPS_TILES_PUZZLE_C4_R5 */
+	public static final IconEntry TILE_067 = SPS_TILES_PUZZLE_C4_R5;
 	/** tile_068 */
-	public static final IconEntry TILE_068 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{64, 64, 16, 16}, 2392);
+	public static final IconEntry SPS_TILES_PUZZLE_C5_R5 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{64, 64, 16, 16}, 2392);
+	/** semantic alias for SPS_TILES_PUZZLE_C5_R5 */
+	public static final IconEntry TILE_068 = SPS_TILES_PUZZLE_C5_R5;
 	/** tile_069 */
-	public static final IconEntry TILE_069 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{80, 64, 16, 16}, 2393);
+	public static final IconEntry SPS_TILES_PUZZLE_C6_R5 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{80, 64, 16, 16}, 2393);
+	/** semantic alias for SPS_TILES_PUZZLE_C6_R5 */
+	public static final IconEntry TILE_069 = SPS_TILES_PUZZLE_C6_R5;
 	/** tile_070 */
-	public static final IconEntry TILE_070 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{96, 64, 16, 16}, 2394);
+	public static final IconEntry SPS_TILES_PUZZLE_C7_R5 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{96, 64, 16, 16}, 2394);
+	/** semantic alias for SPS_TILES_PUZZLE_C7_R5 */
+	public static final IconEntry TILE_070 = SPS_TILES_PUZZLE_C7_R5;
 	/** tile_071 */
-	public static final IconEntry TILE_071 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{112, 64, 16, 16}, 2395);
+	public static final IconEntry SPS_TILES_PUZZLE_C8_R5 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{112, 64, 16, 16}, 2395);
+	/** semantic alias for SPS_TILES_PUZZLE_C8_R5 */
+	public static final IconEntry TILE_071 = SPS_TILES_PUZZLE_C8_R5;
 	/** tile_072 */
-	public static final IconEntry TILE_072 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{128, 64, 16, 16}, 2396);
+	public static final IconEntry SPS_TILES_PUZZLE_C9_R5 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{128, 64, 16, 16}, 2396);
+	/** semantic alias for SPS_TILES_PUZZLE_C9_R5 */
+	public static final IconEntry TILE_072 = SPS_TILES_PUZZLE_C9_R5;
 	/** tile_073 */
-	public static final IconEntry TILE_073 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{144, 64, 16, 16}, 2397);
+	public static final IconEntry SPS_TILES_PUZZLE_C10_R5 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{144, 64, 16, 16}, 2397);
+	/** semantic alias for SPS_TILES_PUZZLE_C10_R5 */
+	public static final IconEntry TILE_073 = SPS_TILES_PUZZLE_C10_R5;
 	/** tile_074 */
-	public static final IconEntry TILE_074 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{160, 64, 16, 16}, 2398);
+	public static final IconEntry SPS_TILES_PUZZLE_C11_R5 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{160, 64, 16, 16}, 2398);
+	/** semantic alias for SPS_TILES_PUZZLE_C11_R5 */
+	public static final IconEntry TILE_074 = SPS_TILES_PUZZLE_C11_R5;
 	/** tile_075 */
-	public static final IconEntry TILE_075 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{176, 64, 16, 16}, 2399);
+	public static final IconEntry SPS_TILES_PUZZLE_C12_R5 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{176, 64, 16, 16}, 2399);
+	/** semantic alias for SPS_TILES_PUZZLE_C12_R5 */
+	public static final IconEntry TILE_075 = SPS_TILES_PUZZLE_C12_R5;
 	/** tile_076 */
-	public static final IconEntry TILE_076 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{192, 64, 16, 16}, 2400);
+	public static final IconEntry SPS_TILES_PUZZLE_C13_R5 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{192, 64, 16, 16}, 2400);
+	/** semantic alias for SPS_TILES_PUZZLE_C13_R5 */
+	public static final IconEntry TILE_076 = SPS_TILES_PUZZLE_C13_R5;
 	/** tile_077 */
-	public static final IconEntry TILE_077 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{208, 64, 16, 16}, 2401);
+	public static final IconEntry SPS_TILES_PUZZLE_C14_R5 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{208, 64, 16, 16}, 2401);
+	/** semantic alias for SPS_TILES_PUZZLE_C14_R5 */
+	public static final IconEntry TILE_077 = SPS_TILES_PUZZLE_C14_R5;
 	/** tile_078 */
-	public static final IconEntry TILE_078 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{224, 64, 16, 16}, 2402);
+	public static final IconEntry SPS_TILES_PUZZLE_C15_R5 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{224, 64, 16, 16}, 2402);
+	/** semantic alias for SPS_TILES_PUZZLE_C15_R5 */
+	public static final IconEntry TILE_078 = SPS_TILES_PUZZLE_C15_R5;
 	/** tile_079 */
-	public static final IconEntry TILE_079 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{240, 64, 16, 16}, 2403);
+	public static final IconEntry SPS_TILES_PUZZLE_C16_R5 = new IconEntry("environment/tiles/sps_tiles_puzzle.png", new int[]{240, 64, 16, 16}, 2403);
+	/** semantic alias for SPS_TILES_PUZZLE_C16_R5 */
+	public static final IconEntry TILE_079 = SPS_TILES_PUZZLE_C16_R5;
 }

@@ -13,23 +13,41 @@ public final class TerrainFeaturesDict {
 	private TerrainFeaturesDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 0, 16, 16}, 2788);
+	public static final IconEntry TERRAIN_FEATURES_C1_R1 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 0, 16, 16}, 2788);
+	/** semantic alias for TERRAIN_FEATURES_C1_R1 */
+	public static final IconEntry TILE_000 = TERRAIN_FEATURES_C1_R1;
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 0, 16, 16}, 2789);
+	public static final IconEntry TERRAIN_FEATURES_C2_R1 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 0, 16, 16}, 2789);
+	/** semantic alias for TERRAIN_FEATURES_C2_R1 */
+	public static final IconEntry TILE_001 = TERRAIN_FEATURES_C2_R1;
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 0, 16, 16}, 2790);
+	public static final IconEntry TERRAIN_FEATURES_C3_R1 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 0, 16, 16}, 2790);
+	/** semantic alias for TERRAIN_FEATURES_C3_R1 */
+	public static final IconEntry TILE_002 = TERRAIN_FEATURES_C3_R1;
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 0, 16, 16}, 2791);
+	public static final IconEntry TERRAIN_FEATURES_C4_R1 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 0, 16, 16}, 2791);
+	/** semantic alias for TERRAIN_FEATURES_C4_R1 */
+	public static final IconEntry TILE_003 = TERRAIN_FEATURES_C4_R1;
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 0, 16, 16}, 2792);
+	public static final IconEntry TERRAIN_FEATURES_C5_R1 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 0, 16, 16}, 2792);
+	/** semantic alias for TERRAIN_FEATURES_C5_R1 */
+	public static final IconEntry TILE_004 = TERRAIN_FEATURES_C5_R1;
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 0, 16, 16}, 2793);
+	public static final IconEntry TERRAIN_FEATURES_C6_R1 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 0, 16, 16}, 2793);
+	/** semantic alias for TERRAIN_FEATURES_C6_R1 */
+	public static final IconEntry TILE_005 = TERRAIN_FEATURES_C6_R1;
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 0, 16, 16}, 2794);
+	public static final IconEntry TERRAIN_FEATURES_C7_R1 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 0, 16, 16}, 2794);
+	/** semantic alias for TERRAIN_FEATURES_C7_R1 */
+	public static final IconEntry TILE_006 = TERRAIN_FEATURES_C7_R1;
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 0, 16, 16}, 2795);
+	public static final IconEntry TERRAIN_FEATURES_C8_R1 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 0, 16, 16}, 2795);
+	/** semantic alias for TERRAIN_FEATURES_C8_R1 */
+	public static final IconEntry TILE_007 = TERRAIN_FEATURES_C8_R1;
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 0, 16, 16}, 2796);
+	public static final IconEntry TERRAIN_FEATURES_C9_R1 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 0, 16, 16}, 2796);
+	/** semantic alias for TERRAIN_FEATURES_C9_R1 */
+	public static final IconEntry TILE_008 = TERRAIN_FEATURES_C9_R1;
 	/** tile_009 */
 	public static final IconEntry TILE_009 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 0, 16, 16}, 2797);
 	/** tile_010 */
@@ -45,23 +63,41 @@ public final class TerrainFeaturesDict {
 	/** tile_015 */
 	public static final IconEntry TILE_015 = new IconEntry("environment/features/terrain_features.png", new int[]{240, 0, 16, 16}, 2803);
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 16, 16, 16}, 2804);
+	public static final IconEntry TERRAIN_FEATURES_C1_R2 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 16, 16, 16}, 2804);
+	/** semantic alias for TERRAIN_FEATURES_C1_R2 */
+	public static final IconEntry TILE_016 = TERRAIN_FEATURES_C1_R2;
 	/** tile_017 */
-	public static final IconEntry TILE_017 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 16, 16, 16}, 2805);
+	public static final IconEntry TERRAIN_FEATURES_C2_R2 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 16, 16, 16}, 2805);
+	/** semantic alias for TERRAIN_FEATURES_C2_R2 */
+	public static final IconEntry TILE_017 = TERRAIN_FEATURES_C2_R2;
 	/** tile_018 */
-	public static final IconEntry TILE_018 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 16, 16, 16}, 2806);
+	public static final IconEntry TERRAIN_FEATURES_C3_R2 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 16, 16, 16}, 2806);
+	/** semantic alias for TERRAIN_FEATURES_C3_R2 */
+	public static final IconEntry TILE_018 = TERRAIN_FEATURES_C3_R2;
 	/** tile_019 */
-	public static final IconEntry TILE_019 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 16, 16, 16}, 2807);
+	public static final IconEntry TERRAIN_FEATURES_C4_R2 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 16, 16, 16}, 2807);
+	/** semantic alias for TERRAIN_FEATURES_C4_R2 */
+	public static final IconEntry TILE_019 = TERRAIN_FEATURES_C4_R2;
 	/** tile_020 */
-	public static final IconEntry TILE_020 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 16, 16, 16}, 2808);
+	public static final IconEntry TERRAIN_FEATURES_C5_R2 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 16, 16, 16}, 2808);
+	/** semantic alias for TERRAIN_FEATURES_C5_R2 */
+	public static final IconEntry TILE_020 = TERRAIN_FEATURES_C5_R2;
 	/** tile_021 */
-	public static final IconEntry TILE_021 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 16, 16, 16}, 2809);
+	public static final IconEntry TERRAIN_FEATURES_C6_R2 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 16, 16, 16}, 2809);
+	/** semantic alias for TERRAIN_FEATURES_C6_R2 */
+	public static final IconEntry TILE_021 = TERRAIN_FEATURES_C6_R2;
 	/** tile_022 */
-	public static final IconEntry TILE_022 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 16, 16, 16}, 2810);
+	public static final IconEntry TERRAIN_FEATURES_C7_R2 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 16, 16, 16}, 2810);
+	/** semantic alias for TERRAIN_FEATURES_C7_R2 */
+	public static final IconEntry TILE_022 = TERRAIN_FEATURES_C7_R2;
 	/** tile_023 */
-	public static final IconEntry TILE_023 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 16, 16, 16}, 2811);
+	public static final IconEntry TERRAIN_FEATURES_C8_R2 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 16, 16, 16}, 2811);
+	/** semantic alias for TERRAIN_FEATURES_C8_R2 */
+	public static final IconEntry TILE_023 = TERRAIN_FEATURES_C8_R2;
 	/** tile_024 */
-	public static final IconEntry TILE_024 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 16, 16, 16}, 2812);
+	public static final IconEntry TERRAIN_FEATURES_C9_R2 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 16, 16, 16}, 2812);
+	/** semantic alias for TERRAIN_FEATURES_C9_R2 */
+	public static final IconEntry TILE_024 = TERRAIN_FEATURES_C9_R2;
 	/** tile_025 */
 	public static final IconEntry TILE_025 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 16, 16, 16}, 2813);
 	/** tile_026 */
@@ -77,23 +113,41 @@ public final class TerrainFeaturesDict {
 	/** tile_031 */
 	public static final IconEntry TILE_031 = new IconEntry("environment/features/terrain_features.png", new int[]{240, 16, 16, 16}, 2819);
 	/** tile_032 */
-	public static final IconEntry TILE_032 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 32, 16, 16}, 2820);
+	public static final IconEntry TERRAIN_FEATURES_C1_R3 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 32, 16, 16}, 2820);
+	/** semantic alias for TERRAIN_FEATURES_C1_R3 */
+	public static final IconEntry TILE_032 = TERRAIN_FEATURES_C1_R3;
 	/** tile_033 */
-	public static final IconEntry TILE_033 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 32, 16, 16}, 2821);
+	public static final IconEntry TERRAIN_FEATURES_C2_R3 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 32, 16, 16}, 2821);
+	/** semantic alias for TERRAIN_FEATURES_C2_R3 */
+	public static final IconEntry TILE_033 = TERRAIN_FEATURES_C2_R3;
 	/** tile_034 */
-	public static final IconEntry TILE_034 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 32, 16, 16}, 2822);
+	public static final IconEntry TERRAIN_FEATURES_C3_R3 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 32, 16, 16}, 2822);
+	/** semantic alias for TERRAIN_FEATURES_C3_R3 */
+	public static final IconEntry TILE_034 = TERRAIN_FEATURES_C3_R3;
 	/** tile_035 */
-	public static final IconEntry TILE_035 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 32, 16, 16}, 2823);
+	public static final IconEntry TERRAIN_FEATURES_C4_R3 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 32, 16, 16}, 2823);
+	/** semantic alias for TERRAIN_FEATURES_C4_R3 */
+	public static final IconEntry TILE_035 = TERRAIN_FEATURES_C4_R3;
 	/** tile_036 */
-	public static final IconEntry TILE_036 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 32, 16, 16}, 2824);
+	public static final IconEntry TERRAIN_FEATURES_C5_R3 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 32, 16, 16}, 2824);
+	/** semantic alias for TERRAIN_FEATURES_C5_R3 */
+	public static final IconEntry TILE_036 = TERRAIN_FEATURES_C5_R3;
 	/** tile_037 */
-	public static final IconEntry TILE_037 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 32, 16, 16}, 2825);
+	public static final IconEntry TERRAIN_FEATURES_C6_R3 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 32, 16, 16}, 2825);
+	/** semantic alias for TERRAIN_FEATURES_C6_R3 */
+	public static final IconEntry TILE_037 = TERRAIN_FEATURES_C6_R3;
 	/** tile_038 */
-	public static final IconEntry TILE_038 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 32, 16, 16}, 2826);
+	public static final IconEntry TERRAIN_FEATURES_C7_R3 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 32, 16, 16}, 2826);
+	/** semantic alias for TERRAIN_FEATURES_C7_R3 */
+	public static final IconEntry TILE_038 = TERRAIN_FEATURES_C7_R3;
 	/** tile_039 */
-	public static final IconEntry TILE_039 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 32, 16, 16}, 2827);
+	public static final IconEntry TERRAIN_FEATURES_C8_R3 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 32, 16, 16}, 2827);
+	/** semantic alias for TERRAIN_FEATURES_C8_R3 */
+	public static final IconEntry TILE_039 = TERRAIN_FEATURES_C8_R3;
 	/** tile_040 */
-	public static final IconEntry TILE_040 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 32, 16, 16}, 2828);
+	public static final IconEntry TERRAIN_FEATURES_C9_R3 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 32, 16, 16}, 2828);
+	/** semantic alias for TERRAIN_FEATURES_C9_R3 */
+	public static final IconEntry TILE_040 = TERRAIN_FEATURES_C9_R3;
 	/** tile_041 */
 	public static final IconEntry TILE_041 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 32, 16, 16}, 2829);
 	/** tile_042 */
@@ -109,23 +163,41 @@ public final class TerrainFeaturesDict {
 	/** tile_047 */
 	public static final IconEntry TILE_047 = new IconEntry("environment/features/terrain_features.png", new int[]{240, 32, 16, 16}, 2835);
 	/** tile_048 */
-	public static final IconEntry TILE_048 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 48, 16, 16}, 2836);
+	public static final IconEntry TERRAIN_FEATURES_C1_R4 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 48, 16, 16}, 2836);
+	/** semantic alias for TERRAIN_FEATURES_C1_R4 */
+	public static final IconEntry TILE_048 = TERRAIN_FEATURES_C1_R4;
 	/** tile_049 */
-	public static final IconEntry TILE_049 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 48, 16, 16}, 2837);
+	public static final IconEntry TERRAIN_FEATURES_C2_R4 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 48, 16, 16}, 2837);
+	/** semantic alias for TERRAIN_FEATURES_C2_R4 */
+	public static final IconEntry TILE_049 = TERRAIN_FEATURES_C2_R4;
 	/** tile_050 */
-	public static final IconEntry TILE_050 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 48, 16, 16}, 2838);
+	public static final IconEntry TERRAIN_FEATURES_C3_R4 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 48, 16, 16}, 2838);
+	/** semantic alias for TERRAIN_FEATURES_C3_R4 */
+	public static final IconEntry TILE_050 = TERRAIN_FEATURES_C3_R4;
 	/** tile_051 */
-	public static final IconEntry TILE_051 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 48, 16, 16}, 2839);
+	public static final IconEntry TERRAIN_FEATURES_C4_R4 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 48, 16, 16}, 2839);
+	/** semantic alias for TERRAIN_FEATURES_C4_R4 */
+	public static final IconEntry TILE_051 = TERRAIN_FEATURES_C4_R4;
 	/** tile_052 */
-	public static final IconEntry TILE_052 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 48, 16, 16}, 2840);
+	public static final IconEntry TERRAIN_FEATURES_C5_R4 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 48, 16, 16}, 2840);
+	/** semantic alias for TERRAIN_FEATURES_C5_R4 */
+	public static final IconEntry TILE_052 = TERRAIN_FEATURES_C5_R4;
 	/** tile_053 */
-	public static final IconEntry TILE_053 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 48, 16, 16}, 2841);
+	public static final IconEntry TERRAIN_FEATURES_C6_R4 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 48, 16, 16}, 2841);
+	/** semantic alias for TERRAIN_FEATURES_C6_R4 */
+	public static final IconEntry TILE_053 = TERRAIN_FEATURES_C6_R4;
 	/** tile_054 */
-	public static final IconEntry TILE_054 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 48, 16, 16}, 2842);
+	public static final IconEntry TERRAIN_FEATURES_C7_R4 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 48, 16, 16}, 2842);
+	/** semantic alias for TERRAIN_FEATURES_C7_R4 */
+	public static final IconEntry TILE_054 = TERRAIN_FEATURES_C7_R4;
 	/** tile_055 */
-	public static final IconEntry TILE_055 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 48, 16, 16}, 2843);
+	public static final IconEntry TERRAIN_FEATURES_C8_R4 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 48, 16, 16}, 2843);
+	/** semantic alias for TERRAIN_FEATURES_C8_R4 */
+	public static final IconEntry TILE_055 = TERRAIN_FEATURES_C8_R4;
 	/** tile_056 */
-	public static final IconEntry TILE_056 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 48, 16, 16}, 2844);
+	public static final IconEntry TERRAIN_FEATURES_C9_R4 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 48, 16, 16}, 2844);
+	/** semantic alias for TERRAIN_FEATURES_C9_R4 */
+	public static final IconEntry TILE_056 = TERRAIN_FEATURES_C9_R4;
 	/** tile_057 */
 	public static final IconEntry TILE_057 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 48, 16, 16}, 2845);
 	/** tile_058 */
@@ -141,23 +213,41 @@ public final class TerrainFeaturesDict {
 	/** tile_063 */
 	public static final IconEntry TILE_063 = new IconEntry("environment/features/terrain_features.png", new int[]{240, 48, 16, 16}, 2851);
 	/** tile_064 */
-	public static final IconEntry TILE_064 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 64, 16, 16}, 2852);
+	public static final IconEntry TERRAIN_FEATURES_C1_R5 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 64, 16, 16}, 2852);
+	/** semantic alias for TERRAIN_FEATURES_C1_R5 */
+	public static final IconEntry TILE_064 = TERRAIN_FEATURES_C1_R5;
 	/** tile_065 */
-	public static final IconEntry TILE_065 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 64, 16, 16}, 2853);
+	public static final IconEntry TERRAIN_FEATURES_C2_R5 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 64, 16, 16}, 2853);
+	/** semantic alias for TERRAIN_FEATURES_C2_R5 */
+	public static final IconEntry TILE_065 = TERRAIN_FEATURES_C2_R5;
 	/** tile_066 */
-	public static final IconEntry TILE_066 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 64, 16, 16}, 2854);
+	public static final IconEntry TERRAIN_FEATURES_C3_R5 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 64, 16, 16}, 2854);
+	/** semantic alias for TERRAIN_FEATURES_C3_R5 */
+	public static final IconEntry TILE_066 = TERRAIN_FEATURES_C3_R5;
 	/** tile_067 */
-	public static final IconEntry TILE_067 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 64, 16, 16}, 2855);
+	public static final IconEntry TERRAIN_FEATURES_C4_R5 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 64, 16, 16}, 2855);
+	/** semantic alias for TERRAIN_FEATURES_C4_R5 */
+	public static final IconEntry TILE_067 = TERRAIN_FEATURES_C4_R5;
 	/** tile_068 */
-	public static final IconEntry TILE_068 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 64, 16, 16}, 2856);
+	public static final IconEntry TERRAIN_FEATURES_C5_R5 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 64, 16, 16}, 2856);
+	/** semantic alias for TERRAIN_FEATURES_C5_R5 */
+	public static final IconEntry TILE_068 = TERRAIN_FEATURES_C5_R5;
 	/** tile_069 */
-	public static final IconEntry TILE_069 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 64, 16, 16}, 2857);
+	public static final IconEntry TERRAIN_FEATURES_C6_R5 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 64, 16, 16}, 2857);
+	/** semantic alias for TERRAIN_FEATURES_C6_R5 */
+	public static final IconEntry TILE_069 = TERRAIN_FEATURES_C6_R5;
 	/** tile_070 */
-	public static final IconEntry TILE_070 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 64, 16, 16}, 2858);
+	public static final IconEntry TERRAIN_FEATURES_C7_R5 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 64, 16, 16}, 2858);
+	/** semantic alias for TERRAIN_FEATURES_C7_R5 */
+	public static final IconEntry TILE_070 = TERRAIN_FEATURES_C7_R5;
 	/** tile_071 */
-	public static final IconEntry TILE_071 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 64, 16, 16}, 2859);
+	public static final IconEntry TERRAIN_FEATURES_C8_R5 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 64, 16, 16}, 2859);
+	/** semantic alias for TERRAIN_FEATURES_C8_R5 */
+	public static final IconEntry TILE_071 = TERRAIN_FEATURES_C8_R5;
 	/** tile_072 */
-	public static final IconEntry TILE_072 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 64, 16, 16}, 2860);
+	public static final IconEntry TERRAIN_FEATURES_C9_R5 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 64, 16, 16}, 2860);
+	/** semantic alias for TERRAIN_FEATURES_C9_R5 */
+	public static final IconEntry TILE_072 = TERRAIN_FEATURES_C9_R5;
 	/** tile_073 */
 	public static final IconEntry TILE_073 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 64, 16, 16}, 2861);
 	/** tile_074 */
@@ -173,23 +263,41 @@ public final class TerrainFeaturesDict {
 	/** tile_079 */
 	public static final IconEntry TILE_079 = new IconEntry("environment/features/terrain_features.png", new int[]{240, 64, 16, 16}, 2867);
 	/** tile_080 */
-	public static final IconEntry TILE_080 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 80, 16, 16}, 2868);
+	public static final IconEntry TERRAIN_FEATURES_C1_R6 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 80, 16, 16}, 2868);
+	/** semantic alias for TERRAIN_FEATURES_C1_R6 */
+	public static final IconEntry TILE_080 = TERRAIN_FEATURES_C1_R6;
 	/** tile_081 */
-	public static final IconEntry TILE_081 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 80, 16, 16}, 2869);
+	public static final IconEntry TERRAIN_FEATURES_C2_R6 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 80, 16, 16}, 2869);
+	/** semantic alias for TERRAIN_FEATURES_C2_R6 */
+	public static final IconEntry TILE_081 = TERRAIN_FEATURES_C2_R6;
 	/** tile_082 */
-	public static final IconEntry TILE_082 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 80, 16, 16}, 2870);
+	public static final IconEntry TERRAIN_FEATURES_C3_R6 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 80, 16, 16}, 2870);
+	/** semantic alias for TERRAIN_FEATURES_C3_R6 */
+	public static final IconEntry TILE_082 = TERRAIN_FEATURES_C3_R6;
 	/** tile_083 */
-	public static final IconEntry TILE_083 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 80, 16, 16}, 2871);
+	public static final IconEntry TERRAIN_FEATURES_C4_R6 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 80, 16, 16}, 2871);
+	/** semantic alias for TERRAIN_FEATURES_C4_R6 */
+	public static final IconEntry TILE_083 = TERRAIN_FEATURES_C4_R6;
 	/** tile_084 */
-	public static final IconEntry TILE_084 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 80, 16, 16}, 2872);
+	public static final IconEntry TERRAIN_FEATURES_C5_R6 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 80, 16, 16}, 2872);
+	/** semantic alias for TERRAIN_FEATURES_C5_R6 */
+	public static final IconEntry TILE_084 = TERRAIN_FEATURES_C5_R6;
 	/** tile_085 */
-	public static final IconEntry TILE_085 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 80, 16, 16}, 2873);
+	public static final IconEntry TERRAIN_FEATURES_C6_R6 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 80, 16, 16}, 2873);
+	/** semantic alias for TERRAIN_FEATURES_C6_R6 */
+	public static final IconEntry TILE_085 = TERRAIN_FEATURES_C6_R6;
 	/** tile_086 */
-	public static final IconEntry TILE_086 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 80, 16, 16}, 2874);
+	public static final IconEntry TERRAIN_FEATURES_C7_R6 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 80, 16, 16}, 2874);
+	/** semantic alias for TERRAIN_FEATURES_C7_R6 */
+	public static final IconEntry TILE_086 = TERRAIN_FEATURES_C7_R6;
 	/** tile_087 */
-	public static final IconEntry TILE_087 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 80, 16, 16}, 2875);
+	public static final IconEntry TERRAIN_FEATURES_C8_R6 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 80, 16, 16}, 2875);
+	/** semantic alias for TERRAIN_FEATURES_C8_R6 */
+	public static final IconEntry TILE_087 = TERRAIN_FEATURES_C8_R6;
 	/** tile_088 */
-	public static final IconEntry TILE_088 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 80, 16, 16}, 2876);
+	public static final IconEntry TERRAIN_FEATURES_C9_R6 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 80, 16, 16}, 2876);
+	/** semantic alias for TERRAIN_FEATURES_C9_R6 */
+	public static final IconEntry TILE_088 = TERRAIN_FEATURES_C9_R6;
 	/** tile_089 */
 	public static final IconEntry TILE_089 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 80, 16, 16}, 2877);
 	/** tile_090 */
@@ -205,23 +313,41 @@ public final class TerrainFeaturesDict {
 	/** tile_095 */
 	public static final IconEntry TILE_095 = new IconEntry("environment/features/terrain_features.png", new int[]{240, 80, 16, 16}, 2883);
 	/** tile_096 */
-	public static final IconEntry TILE_096 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 96, 16, 16}, 2884);
+	public static final IconEntry TERRAIN_FEATURES_C1_R7 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 96, 16, 16}, 2884);
+	/** semantic alias for TERRAIN_FEATURES_C1_R7 */
+	public static final IconEntry TILE_096 = TERRAIN_FEATURES_C1_R7;
 	/** tile_097 */
-	public static final IconEntry TILE_097 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 96, 16, 16}, 2885);
+	public static final IconEntry TERRAIN_FEATURES_C2_R7 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 96, 16, 16}, 2885);
+	/** semantic alias for TERRAIN_FEATURES_C2_R7 */
+	public static final IconEntry TILE_097 = TERRAIN_FEATURES_C2_R7;
 	/** tile_098 */
-	public static final IconEntry TILE_098 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 96, 16, 16}, 2886);
+	public static final IconEntry TERRAIN_FEATURES_C3_R7 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 96, 16, 16}, 2886);
+	/** semantic alias for TERRAIN_FEATURES_C3_R7 */
+	public static final IconEntry TILE_098 = TERRAIN_FEATURES_C3_R7;
 	/** tile_099 */
-	public static final IconEntry TILE_099 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 96, 16, 16}, 2887);
+	public static final IconEntry TERRAIN_FEATURES_C4_R7 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 96, 16, 16}, 2887);
+	/** semantic alias for TERRAIN_FEATURES_C4_R7 */
+	public static final IconEntry TILE_099 = TERRAIN_FEATURES_C4_R7;
 	/** tile_100 */
-	public static final IconEntry TILE_100 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 96, 16, 16}, 2888);
+	public static final IconEntry TERRAIN_FEATURES_C5_R7 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 96, 16, 16}, 2888);
+	/** semantic alias for TERRAIN_FEATURES_C5_R7 */
+	public static final IconEntry TILE_100 = TERRAIN_FEATURES_C5_R7;
 	/** tile_101 */
-	public static final IconEntry TILE_101 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 96, 16, 16}, 2889);
+	public static final IconEntry TERRAIN_FEATURES_C6_R7 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 96, 16, 16}, 2889);
+	/** semantic alias for TERRAIN_FEATURES_C6_R7 */
+	public static final IconEntry TILE_101 = TERRAIN_FEATURES_C6_R7;
 	/** tile_102 */
-	public static final IconEntry TILE_102 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 96, 16, 16}, 2890);
+	public static final IconEntry TERRAIN_FEATURES_C7_R7 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 96, 16, 16}, 2890);
+	/** semantic alias for TERRAIN_FEATURES_C7_R7 */
+	public static final IconEntry TILE_102 = TERRAIN_FEATURES_C7_R7;
 	/** tile_103 */
-	public static final IconEntry TILE_103 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 96, 16, 16}, 2891);
+	public static final IconEntry TERRAIN_FEATURES_C8_R7 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 96, 16, 16}, 2891);
+	/** semantic alias for TERRAIN_FEATURES_C8_R7 */
+	public static final IconEntry TILE_103 = TERRAIN_FEATURES_C8_R7;
 	/** tile_104 */
-	public static final IconEntry TILE_104 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 96, 16, 16}, 2892);
+	public static final IconEntry TERRAIN_FEATURES_C9_R7 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 96, 16, 16}, 2892);
+	/** semantic alias for TERRAIN_FEATURES_C9_R7 */
+	public static final IconEntry TILE_104 = TERRAIN_FEATURES_C9_R7;
 	/** tile_105 */
 	public static final IconEntry TILE_105 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 96, 16, 16}, 2893);
 	/** tile_106 */
@@ -237,59 +363,111 @@ public final class TerrainFeaturesDict {
 	/** tile_111 */
 	public static final IconEntry TILE_111 = new IconEntry("environment/features/terrain_features.png", new int[]{240, 96, 16, 16}, 2899);
 	/** tile_112 */
-	public static final IconEntry TILE_112 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 112, 16, 16}, 2900);
+	public static final IconEntry TERRAIN_FEATURES_C1_R8 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 112, 16, 16}, 2900);
+	/** semantic alias for TERRAIN_FEATURES_C1_R8 */
+	public static final IconEntry TILE_112 = TERRAIN_FEATURES_C1_R8;
 	/** tile_113 */
-	public static final IconEntry TILE_113 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 112, 16, 16}, 2901);
+	public static final IconEntry TERRAIN_FEATURES_C2_R8 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 112, 16, 16}, 2901);
+	/** semantic alias for TERRAIN_FEATURES_C2_R8 */
+	public static final IconEntry TILE_113 = TERRAIN_FEATURES_C2_R8;
 	/** tile_114 */
-	public static final IconEntry TILE_114 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 112, 16, 16}, 2902);
+	public static final IconEntry TERRAIN_FEATURES_C3_R8 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 112, 16, 16}, 2902);
+	/** semantic alias for TERRAIN_FEATURES_C3_R8 */
+	public static final IconEntry TILE_114 = TERRAIN_FEATURES_C3_R8;
 	/** tile_115 */
-	public static final IconEntry TILE_115 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 112, 16, 16}, 2903);
+	public static final IconEntry TERRAIN_FEATURES_C4_R8 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 112, 16, 16}, 2903);
+	/** semantic alias for TERRAIN_FEATURES_C4_R8 */
+	public static final IconEntry TILE_115 = TERRAIN_FEATURES_C4_R8;
 	/** tile_116 */
-	public static final IconEntry TILE_116 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 112, 16, 16}, 2904);
+	public static final IconEntry TERRAIN_FEATURES_C5_R8 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 112, 16, 16}, 2904);
+	/** semantic alias for TERRAIN_FEATURES_C5_R8 */
+	public static final IconEntry TILE_116 = TERRAIN_FEATURES_C5_R8;
 	/** tile_117 */
-	public static final IconEntry TILE_117 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 112, 16, 16}, 2905);
+	public static final IconEntry TERRAIN_FEATURES_C6_R8 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 112, 16, 16}, 2905);
+	/** semantic alias for TERRAIN_FEATURES_C6_R8 */
+	public static final IconEntry TILE_117 = TERRAIN_FEATURES_C6_R8;
 	/** tile_118 */
-	public static final IconEntry TILE_118 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 112, 16, 16}, 2906);
+	public static final IconEntry TERRAIN_FEATURES_C7_R8 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 112, 16, 16}, 2906);
+	/** semantic alias for TERRAIN_FEATURES_C7_R8 */
+	public static final IconEntry TILE_118 = TERRAIN_FEATURES_C7_R8;
 	/** tile_119 */
-	public static final IconEntry TILE_119 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 112, 16, 16}, 2907);
+	public static final IconEntry TERRAIN_FEATURES_C8_R8 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 112, 16, 16}, 2907);
+	/** semantic alias for TERRAIN_FEATURES_C8_R8 */
+	public static final IconEntry TILE_119 = TERRAIN_FEATURES_C8_R8;
 	/** tile_120 */
-	public static final IconEntry TILE_120 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 112, 16, 16}, 2908);
+	public static final IconEntry TERRAIN_FEATURES_C9_R8 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 112, 16, 16}, 2908);
+	/** semantic alias for TERRAIN_FEATURES_C9_R8 */
+	public static final IconEntry TILE_120 = TERRAIN_FEATURES_C9_R8;
 	/** tile_121 */
-	public static final IconEntry TILE_121 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 112, 16, 16}, 2909);
+	public static final IconEntry TERRAIN_FEATURES_C10_R8 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 112, 16, 16}, 2909);
+	/** semantic alias for TERRAIN_FEATURES_C10_R8 */
+	public static final IconEntry TILE_121 = TERRAIN_FEATURES_C10_R8;
 	/** tile_122 */
-	public static final IconEntry TILE_122 = new IconEntry("environment/features/terrain_features.png", new int[]{160, 112, 16, 16}, 2910);
+	public static final IconEntry TERRAIN_FEATURES_C11_R8 = new IconEntry("environment/features/terrain_features.png", new int[]{160, 112, 16, 16}, 2910);
+	/** semantic alias for TERRAIN_FEATURES_C11_R8 */
+	public static final IconEntry TILE_122 = TERRAIN_FEATURES_C11_R8;
 	/** tile_123 */
-	public static final IconEntry TILE_123 = new IconEntry("environment/features/terrain_features.png", new int[]{176, 112, 16, 16}, 2911);
+	public static final IconEntry TERRAIN_FEATURES_C12_R8 = new IconEntry("environment/features/terrain_features.png", new int[]{176, 112, 16, 16}, 2911);
+	/** semantic alias for TERRAIN_FEATURES_C12_R8 */
+	public static final IconEntry TILE_123 = TERRAIN_FEATURES_C12_R8;
 	/** tile_124 */
-	public static final IconEntry TILE_124 = new IconEntry("environment/features/terrain_features.png", new int[]{192, 112, 16, 16}, 2912);
+	public static final IconEntry TERRAIN_FEATURES_C13_R8 = new IconEntry("environment/features/terrain_features.png", new int[]{192, 112, 16, 16}, 2912);
+	/** semantic alias for TERRAIN_FEATURES_C13_R8 */
+	public static final IconEntry TILE_124 = TERRAIN_FEATURES_C13_R8;
 	/** tile_125 */
-	public static final IconEntry TILE_125 = new IconEntry("environment/features/terrain_features.png", new int[]{208, 112, 16, 16}, 2913);
+	public static final IconEntry TERRAIN_FEATURES_C14_R8 = new IconEntry("environment/features/terrain_features.png", new int[]{208, 112, 16, 16}, 2913);
+	/** semantic alias for TERRAIN_FEATURES_C14_R8 */
+	public static final IconEntry TILE_125 = TERRAIN_FEATURES_C14_R8;
 	/** tile_126 */
-	public static final IconEntry TILE_126 = new IconEntry("environment/features/terrain_features.png", new int[]{224, 112, 16, 16}, 2914);
+	public static final IconEntry TERRAIN_FEATURES_C15_R8 = new IconEntry("environment/features/terrain_features.png", new int[]{224, 112, 16, 16}, 2914);
+	/** semantic alias for TERRAIN_FEATURES_C15_R8 */
+	public static final IconEntry TILE_126 = TERRAIN_FEATURES_C15_R8;
 	/** tile_127 */
 	public static final IconEntry TILE_127 = new IconEntry("environment/features/terrain_features.png", new int[]{240, 112, 16, 16}, 2915);
 	/** tile_128 */
-	public static final IconEntry TILE_128 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 128, 16, 16}, 2916);
+	public static final IconEntry TERRAIN_FEATURES_C1_R9 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 128, 16, 16}, 2916);
+	/** semantic alias for TERRAIN_FEATURES_C1_R9 */
+	public static final IconEntry TILE_128 = TERRAIN_FEATURES_C1_R9;
 	/** tile_129 */
-	public static final IconEntry TILE_129 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 128, 16, 16}, 2917);
+	public static final IconEntry TERRAIN_FEATURES_C2_R9 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 128, 16, 16}, 2917);
+	/** semantic alias for TERRAIN_FEATURES_C2_R9 */
+	public static final IconEntry TILE_129 = TERRAIN_FEATURES_C2_R9;
 	/** tile_130 */
-	public static final IconEntry TILE_130 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 128, 16, 16}, 2918);
+	public static final IconEntry TERRAIN_FEATURES_C3_R9 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 128, 16, 16}, 2918);
+	/** semantic alias for TERRAIN_FEATURES_C3_R9 */
+	public static final IconEntry TILE_130 = TERRAIN_FEATURES_C3_R9;
 	/** tile_131 */
-	public static final IconEntry TILE_131 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 128, 16, 16}, 2919);
+	public static final IconEntry TERRAIN_FEATURES_C4_R9 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 128, 16, 16}, 2919);
+	/** semantic alias for TERRAIN_FEATURES_C4_R9 */
+	public static final IconEntry TILE_131 = TERRAIN_FEATURES_C4_R9;
 	/** tile_132 */
-	public static final IconEntry TILE_132 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 128, 16, 16}, 2920);
+	public static final IconEntry TERRAIN_FEATURES_C5_R9 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 128, 16, 16}, 2920);
+	/** semantic alias for TERRAIN_FEATURES_C5_R9 */
+	public static final IconEntry TILE_132 = TERRAIN_FEATURES_C5_R9;
 	/** tile_133 */
-	public static final IconEntry TILE_133 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 128, 16, 16}, 2921);
+	public static final IconEntry TERRAIN_FEATURES_C6_R9 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 128, 16, 16}, 2921);
+	/** semantic alias for TERRAIN_FEATURES_C6_R9 */
+	public static final IconEntry TILE_133 = TERRAIN_FEATURES_C6_R9;
 	/** tile_134 */
-	public static final IconEntry TILE_134 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 128, 16, 16}, 2922);
+	public static final IconEntry TERRAIN_FEATURES_C7_R9 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 128, 16, 16}, 2922);
+	/** semantic alias for TERRAIN_FEATURES_C7_R9 */
+	public static final IconEntry TILE_134 = TERRAIN_FEATURES_C7_R9;
 	/** tile_135 */
-	public static final IconEntry TILE_135 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 128, 16, 16}, 2923);
+	public static final IconEntry TERRAIN_FEATURES_C8_R9 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 128, 16, 16}, 2923);
+	/** semantic alias for TERRAIN_FEATURES_C8_R9 */
+	public static final IconEntry TILE_135 = TERRAIN_FEATURES_C8_R9;
 	/** tile_136 */
-	public static final IconEntry TILE_136 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 128, 16, 16}, 2924);
+	public static final IconEntry TERRAIN_FEATURES_C9_R9 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 128, 16, 16}, 2924);
+	/** semantic alias for TERRAIN_FEATURES_C9_R9 */
+	public static final IconEntry TILE_136 = TERRAIN_FEATURES_C9_R9;
 	/** tile_137 */
-	public static final IconEntry TILE_137 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 128, 16, 16}, 2925);
+	public static final IconEntry TERRAIN_FEATURES_C10_R9 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 128, 16, 16}, 2925);
+	/** semantic alias for TERRAIN_FEATURES_C10_R9 */
+	public static final IconEntry TILE_137 = TERRAIN_FEATURES_C10_R9;
 	/** tile_138 */
-	public static final IconEntry TILE_138 = new IconEntry("environment/features/terrain_features.png", new int[]{160, 128, 16, 16}, 2926);
+	public static final IconEntry TERRAIN_FEATURES_C11_R9 = new IconEntry("environment/features/terrain_features.png", new int[]{160, 128, 16, 16}, 2926);
+	/** semantic alias for TERRAIN_FEATURES_C11_R9 */
+	public static final IconEntry TILE_138 = TERRAIN_FEATURES_C11_R9;
 	/** tile_139 */
 	public static final IconEntry TILE_139 = new IconEntry("environment/features/terrain_features.png", new int[]{176, 128, 16, 16}, 2927);
 	/** tile_140 */
@@ -301,27 +479,49 @@ public final class TerrainFeaturesDict {
 	/** tile_143 */
 	public static final IconEntry TILE_143 = new IconEntry("environment/features/terrain_features.png", new int[]{240, 128, 16, 16}, 2931);
 	/** tile_144 */
-	public static final IconEntry TILE_144 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 144, 16, 16}, 2932);
+	public static final IconEntry TERRAIN_FEATURES_C1_R10 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 144, 16, 16}, 2932);
+	/** semantic alias for TERRAIN_FEATURES_C1_R10 */
+	public static final IconEntry TILE_144 = TERRAIN_FEATURES_C1_R10;
 	/** tile_145 */
-	public static final IconEntry TILE_145 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 144, 16, 16}, 2933);
+	public static final IconEntry TERRAIN_FEATURES_C2_R10 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 144, 16, 16}, 2933);
+	/** semantic alias for TERRAIN_FEATURES_C2_R10 */
+	public static final IconEntry TILE_145 = TERRAIN_FEATURES_C2_R10;
 	/** tile_146 */
-	public static final IconEntry TILE_146 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 144, 16, 16}, 2934);
+	public static final IconEntry TERRAIN_FEATURES_C3_R10 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 144, 16, 16}, 2934);
+	/** semantic alias for TERRAIN_FEATURES_C3_R10 */
+	public static final IconEntry TILE_146 = TERRAIN_FEATURES_C3_R10;
 	/** tile_147 */
-	public static final IconEntry TILE_147 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 144, 16, 16}, 2935);
+	public static final IconEntry TERRAIN_FEATURES_C4_R10 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 144, 16, 16}, 2935);
+	/** semantic alias for TERRAIN_FEATURES_C4_R10 */
+	public static final IconEntry TILE_147 = TERRAIN_FEATURES_C4_R10;
 	/** tile_148 */
-	public static final IconEntry TILE_148 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 144, 16, 16}, 2936);
+	public static final IconEntry TERRAIN_FEATURES_C5_R10 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 144, 16, 16}, 2936);
+	/** semantic alias for TERRAIN_FEATURES_C5_R10 */
+	public static final IconEntry TILE_148 = TERRAIN_FEATURES_C5_R10;
 	/** tile_149 */
-	public static final IconEntry TILE_149 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 144, 16, 16}, 2937);
+	public static final IconEntry TERRAIN_FEATURES_C6_R10 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 144, 16, 16}, 2937);
+	/** semantic alias for TERRAIN_FEATURES_C6_R10 */
+	public static final IconEntry TILE_149 = TERRAIN_FEATURES_C6_R10;
 	/** tile_150 */
-	public static final IconEntry TILE_150 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 144, 16, 16}, 2938);
+	public static final IconEntry TERRAIN_FEATURES_C7_R10 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 144, 16, 16}, 2938);
+	/** semantic alias for TERRAIN_FEATURES_C7_R10 */
+	public static final IconEntry TILE_150 = TERRAIN_FEATURES_C7_R10;
 	/** tile_151 */
-	public static final IconEntry TILE_151 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 144, 16, 16}, 2939);
+	public static final IconEntry TERRAIN_FEATURES_C8_R10 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 144, 16, 16}, 2939);
+	/** semantic alias for TERRAIN_FEATURES_C8_R10 */
+	public static final IconEntry TILE_151 = TERRAIN_FEATURES_C8_R10;
 	/** tile_152 */
-	public static final IconEntry TILE_152 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 144, 16, 16}, 2940);
+	public static final IconEntry TERRAIN_FEATURES_C9_R10 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 144, 16, 16}, 2940);
+	/** semantic alias for TERRAIN_FEATURES_C9_R10 */
+	public static final IconEntry TILE_152 = TERRAIN_FEATURES_C9_R10;
 	/** tile_153 */
-	public static final IconEntry TILE_153 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 144, 16, 16}, 2941);
+	public static final IconEntry TERRAIN_FEATURES_C10_R10 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 144, 16, 16}, 2941);
+	/** semantic alias for TERRAIN_FEATURES_C10_R10 */
+	public static final IconEntry TILE_153 = TERRAIN_FEATURES_C10_R10;
 	/** tile_154 */
-	public static final IconEntry TILE_154 = new IconEntry("environment/features/terrain_features.png", new int[]{160, 144, 16, 16}, 2942);
+	public static final IconEntry TERRAIN_FEATURES_C11_R10 = new IconEntry("environment/features/terrain_features.png", new int[]{160, 144, 16, 16}, 2942);
+	/** semantic alias for TERRAIN_FEATURES_C11_R10 */
+	public static final IconEntry TILE_154 = TERRAIN_FEATURES_C11_R10;
 	/** tile_155 */
 	public static final IconEntry TILE_155 = new IconEntry("environment/features/terrain_features.png", new int[]{176, 144, 16, 16}, 2943);
 	/** tile_156 */
@@ -333,27 +533,49 @@ public final class TerrainFeaturesDict {
 	/** tile_159 */
 	public static final IconEntry TILE_159 = new IconEntry("environment/features/terrain_features.png", new int[]{240, 144, 16, 16}, 2947);
 	/** tile_160 */
-	public static final IconEntry TILE_160 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 160, 16, 16}, 2948);
+	public static final IconEntry TERRAIN_FEATURES_C1_R11 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 160, 16, 16}, 2948);
+	/** semantic alias for TERRAIN_FEATURES_C1_R11 */
+	public static final IconEntry TILE_160 = TERRAIN_FEATURES_C1_R11;
 	/** tile_161 */
-	public static final IconEntry TILE_161 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 160, 16, 16}, 2949);
+	public static final IconEntry TERRAIN_FEATURES_C2_R11 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 160, 16, 16}, 2949);
+	/** semantic alias for TERRAIN_FEATURES_C2_R11 */
+	public static final IconEntry TILE_161 = TERRAIN_FEATURES_C2_R11;
 	/** tile_162 */
-	public static final IconEntry TILE_162 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 160, 16, 16}, 2950);
+	public static final IconEntry TERRAIN_FEATURES_C3_R11 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 160, 16, 16}, 2950);
+	/** semantic alias for TERRAIN_FEATURES_C3_R11 */
+	public static final IconEntry TILE_162 = TERRAIN_FEATURES_C3_R11;
 	/** tile_163 */
-	public static final IconEntry TILE_163 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 160, 16, 16}, 2951);
+	public static final IconEntry TERRAIN_FEATURES_C4_R11 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 160, 16, 16}, 2951);
+	/** semantic alias for TERRAIN_FEATURES_C4_R11 */
+	public static final IconEntry TILE_163 = TERRAIN_FEATURES_C4_R11;
 	/** tile_164 */
-	public static final IconEntry TILE_164 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 160, 16, 16}, 2952);
+	public static final IconEntry TERRAIN_FEATURES_C5_R11 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 160, 16, 16}, 2952);
+	/** semantic alias for TERRAIN_FEATURES_C5_R11 */
+	public static final IconEntry TILE_164 = TERRAIN_FEATURES_C5_R11;
 	/** tile_165 */
-	public static final IconEntry TILE_165 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 160, 16, 16}, 2953);
+	public static final IconEntry TERRAIN_FEATURES_C6_R11 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 160, 16, 16}, 2953);
+	/** semantic alias for TERRAIN_FEATURES_C6_R11 */
+	public static final IconEntry TILE_165 = TERRAIN_FEATURES_C6_R11;
 	/** tile_166 */
-	public static final IconEntry TILE_166 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 160, 16, 16}, 2954);
+	public static final IconEntry TERRAIN_FEATURES_C7_R11 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 160, 16, 16}, 2954);
+	/** semantic alias for TERRAIN_FEATURES_C7_R11 */
+	public static final IconEntry TILE_166 = TERRAIN_FEATURES_C7_R11;
 	/** tile_167 */
-	public static final IconEntry TILE_167 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 160, 16, 16}, 2955);
+	public static final IconEntry TERRAIN_FEATURES_C8_R11 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 160, 16, 16}, 2955);
+	/** semantic alias for TERRAIN_FEATURES_C8_R11 */
+	public static final IconEntry TILE_167 = TERRAIN_FEATURES_C8_R11;
 	/** tile_168 */
-	public static final IconEntry TILE_168 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 160, 16, 16}, 2956);
+	public static final IconEntry TERRAIN_FEATURES_C9_R11 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 160, 16, 16}, 2956);
+	/** semantic alias for TERRAIN_FEATURES_C9_R11 */
+	public static final IconEntry TILE_168 = TERRAIN_FEATURES_C9_R11;
 	/** tile_169 */
-	public static final IconEntry TILE_169 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 160, 16, 16}, 2957);
+	public static final IconEntry TERRAIN_FEATURES_C10_R11 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 160, 16, 16}, 2957);
+	/** semantic alias for TERRAIN_FEATURES_C10_R11 */
+	public static final IconEntry TILE_169 = TERRAIN_FEATURES_C10_R11;
 	/** tile_170 */
-	public static final IconEntry TILE_170 = new IconEntry("environment/features/terrain_features.png", new int[]{160, 160, 16, 16}, 2958);
+	public static final IconEntry TERRAIN_FEATURES_C11_R11 = new IconEntry("environment/features/terrain_features.png", new int[]{160, 160, 16, 16}, 2958);
+	/** semantic alias for TERRAIN_FEATURES_C11_R11 */
+	public static final IconEntry TILE_170 = TERRAIN_FEATURES_C11_R11;
 	/** tile_171 */
 	public static final IconEntry TILE_171 = new IconEntry("environment/features/terrain_features.png", new int[]{176, 160, 16, 16}, 2959);
 	/** tile_172 */
@@ -365,27 +587,49 @@ public final class TerrainFeaturesDict {
 	/** tile_175 */
 	public static final IconEntry TILE_175 = new IconEntry("environment/features/terrain_features.png", new int[]{240, 160, 16, 16}, 2963);
 	/** tile_176 */
-	public static final IconEntry TILE_176 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 176, 16, 16}, 2964);
+	public static final IconEntry TERRAIN_FEATURES_C1_R12 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 176, 16, 16}, 2964);
+	/** semantic alias for TERRAIN_FEATURES_C1_R12 */
+	public static final IconEntry TILE_176 = TERRAIN_FEATURES_C1_R12;
 	/** tile_177 */
-	public static final IconEntry TILE_177 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 176, 16, 16}, 2965);
+	public static final IconEntry TERRAIN_FEATURES_C2_R12 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 176, 16, 16}, 2965);
+	/** semantic alias for TERRAIN_FEATURES_C2_R12 */
+	public static final IconEntry TILE_177 = TERRAIN_FEATURES_C2_R12;
 	/** tile_178 */
-	public static final IconEntry TILE_178 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 176, 16, 16}, 2966);
+	public static final IconEntry TERRAIN_FEATURES_C3_R12 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 176, 16, 16}, 2966);
+	/** semantic alias for TERRAIN_FEATURES_C3_R12 */
+	public static final IconEntry TILE_178 = TERRAIN_FEATURES_C3_R12;
 	/** tile_179 */
-	public static final IconEntry TILE_179 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 176, 16, 16}, 2967);
+	public static final IconEntry TERRAIN_FEATURES_C4_R12 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 176, 16, 16}, 2967);
+	/** semantic alias for TERRAIN_FEATURES_C4_R12 */
+	public static final IconEntry TILE_179 = TERRAIN_FEATURES_C4_R12;
 	/** tile_180 */
-	public static final IconEntry TILE_180 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 176, 16, 16}, 2968);
+	public static final IconEntry TERRAIN_FEATURES_C5_R12 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 176, 16, 16}, 2968);
+	/** semantic alias for TERRAIN_FEATURES_C5_R12 */
+	public static final IconEntry TILE_180 = TERRAIN_FEATURES_C5_R12;
 	/** tile_181 */
-	public static final IconEntry TILE_181 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 176, 16, 16}, 2969);
+	public static final IconEntry TERRAIN_FEATURES_C6_R12 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 176, 16, 16}, 2969);
+	/** semantic alias for TERRAIN_FEATURES_C6_R12 */
+	public static final IconEntry TILE_181 = TERRAIN_FEATURES_C6_R12;
 	/** tile_182 */
-	public static final IconEntry TILE_182 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 176, 16, 16}, 2970);
+	public static final IconEntry TERRAIN_FEATURES_C7_R12 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 176, 16, 16}, 2970);
+	/** semantic alias for TERRAIN_FEATURES_C7_R12 */
+	public static final IconEntry TILE_182 = TERRAIN_FEATURES_C7_R12;
 	/** tile_183 */
-	public static final IconEntry TILE_183 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 176, 16, 16}, 2971);
+	public static final IconEntry TERRAIN_FEATURES_C8_R12 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 176, 16, 16}, 2971);
+	/** semantic alias for TERRAIN_FEATURES_C8_R12 */
+	public static final IconEntry TILE_183 = TERRAIN_FEATURES_C8_R12;
 	/** tile_184 */
-	public static final IconEntry TILE_184 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 176, 16, 16}, 2972);
+	public static final IconEntry TERRAIN_FEATURES_C9_R12 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 176, 16, 16}, 2972);
+	/** semantic alias for TERRAIN_FEATURES_C9_R12 */
+	public static final IconEntry TILE_184 = TERRAIN_FEATURES_C9_R12;
 	/** tile_185 */
-	public static final IconEntry TILE_185 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 176, 16, 16}, 2973);
+	public static final IconEntry TERRAIN_FEATURES_C10_R12 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 176, 16, 16}, 2973);
+	/** semantic alias for TERRAIN_FEATURES_C10_R12 */
+	public static final IconEntry TILE_185 = TERRAIN_FEATURES_C10_R12;
 	/** tile_186 */
-	public static final IconEntry TILE_186 = new IconEntry("environment/features/terrain_features.png", new int[]{160, 176, 16, 16}, 2974);
+	public static final IconEntry TERRAIN_FEATURES_C11_R12 = new IconEntry("environment/features/terrain_features.png", new int[]{160, 176, 16, 16}, 2974);
+	/** semantic alias for TERRAIN_FEATURES_C11_R12 */
+	public static final IconEntry TILE_186 = TERRAIN_FEATURES_C11_R12;
 	/** tile_187 */
 	public static final IconEntry TILE_187 = new IconEntry("environment/features/terrain_features.png", new int[]{176, 176, 16, 16}, 2975);
 	/** tile_188 */
@@ -397,27 +641,49 @@ public final class TerrainFeaturesDict {
 	/** tile_191 */
 	public static final IconEntry TILE_191 = new IconEntry("environment/features/terrain_features.png", new int[]{240, 176, 16, 16}, 2979);
 	/** tile_192 */
-	public static final IconEntry TILE_192 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 192, 16, 16}, 2980);
+	public static final IconEntry TERRAIN_FEATURES_C1_R13 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 192, 16, 16}, 2980);
+	/** semantic alias for TERRAIN_FEATURES_C1_R13 */
+	public static final IconEntry TILE_192 = TERRAIN_FEATURES_C1_R13;
 	/** tile_193 */
-	public static final IconEntry TILE_193 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 192, 16, 16}, 2981);
+	public static final IconEntry TERRAIN_FEATURES_C2_R13 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 192, 16, 16}, 2981);
+	/** semantic alias for TERRAIN_FEATURES_C2_R13 */
+	public static final IconEntry TILE_193 = TERRAIN_FEATURES_C2_R13;
 	/** tile_194 */
-	public static final IconEntry TILE_194 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 192, 16, 16}, 2982);
+	public static final IconEntry TERRAIN_FEATURES_C3_R13 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 192, 16, 16}, 2982);
+	/** semantic alias for TERRAIN_FEATURES_C3_R13 */
+	public static final IconEntry TILE_194 = TERRAIN_FEATURES_C3_R13;
 	/** tile_195 */
-	public static final IconEntry TILE_195 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 192, 16, 16}, 2983);
+	public static final IconEntry TERRAIN_FEATURES_C4_R13 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 192, 16, 16}, 2983);
+	/** semantic alias for TERRAIN_FEATURES_C4_R13 */
+	public static final IconEntry TILE_195 = TERRAIN_FEATURES_C4_R13;
 	/** tile_196 */
-	public static final IconEntry TILE_196 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 192, 16, 16}, 2984);
+	public static final IconEntry TERRAIN_FEATURES_C5_R13 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 192, 16, 16}, 2984);
+	/** semantic alias for TERRAIN_FEATURES_C5_R13 */
+	public static final IconEntry TILE_196 = TERRAIN_FEATURES_C5_R13;
 	/** tile_197 */
-	public static final IconEntry TILE_197 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 192, 16, 16}, 2985);
+	public static final IconEntry TERRAIN_FEATURES_C6_R13 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 192, 16, 16}, 2985);
+	/** semantic alias for TERRAIN_FEATURES_C6_R13 */
+	public static final IconEntry TILE_197 = TERRAIN_FEATURES_C6_R13;
 	/** tile_198 */
-	public static final IconEntry TILE_198 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 192, 16, 16}, 2986);
+	public static final IconEntry TERRAIN_FEATURES_C7_R13 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 192, 16, 16}, 2986);
+	/** semantic alias for TERRAIN_FEATURES_C7_R13 */
+	public static final IconEntry TILE_198 = TERRAIN_FEATURES_C7_R13;
 	/** tile_199 */
-	public static final IconEntry TILE_199 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 192, 16, 16}, 2987);
+	public static final IconEntry TERRAIN_FEATURES_C8_R13 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 192, 16, 16}, 2987);
+	/** semantic alias for TERRAIN_FEATURES_C8_R13 */
+	public static final IconEntry TILE_199 = TERRAIN_FEATURES_C8_R13;
 	/** tile_200 */
-	public static final IconEntry TILE_200 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 192, 16, 16}, 2988);
+	public static final IconEntry TERRAIN_FEATURES_C9_R13 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 192, 16, 16}, 2988);
+	/** semantic alias for TERRAIN_FEATURES_C9_R13 */
+	public static final IconEntry TILE_200 = TERRAIN_FEATURES_C9_R13;
 	/** tile_201 */
-	public static final IconEntry TILE_201 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 192, 16, 16}, 2989);
+	public static final IconEntry TERRAIN_FEATURES_C10_R13 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 192, 16, 16}, 2989);
+	/** semantic alias for TERRAIN_FEATURES_C10_R13 */
+	public static final IconEntry TILE_201 = TERRAIN_FEATURES_C10_R13;
 	/** tile_202 */
-	public static final IconEntry TILE_202 = new IconEntry("environment/features/terrain_features.png", new int[]{160, 192, 16, 16}, 2990);
+	public static final IconEntry TERRAIN_FEATURES_C11_R13 = new IconEntry("environment/features/terrain_features.png", new int[]{160, 192, 16, 16}, 2990);
+	/** semantic alias for TERRAIN_FEATURES_C11_R13 */
+	public static final IconEntry TILE_202 = TERRAIN_FEATURES_C11_R13;
 	/** tile_203 */
 	public static final IconEntry TILE_203 = new IconEntry("environment/features/terrain_features.png", new int[]{176, 192, 16, 16}, 2991);
 	/** tile_204 */
@@ -429,27 +695,49 @@ public final class TerrainFeaturesDict {
 	/** tile_207 */
 	public static final IconEntry TILE_207 = new IconEntry("environment/features/terrain_features.png", new int[]{240, 192, 16, 16}, 2995);
 	/** tile_208 */
-	public static final IconEntry TILE_208 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 208, 16, 16}, 2996);
+	public static final IconEntry TERRAIN_FEATURES_C1_R14 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 208, 16, 16}, 2996);
+	/** semantic alias for TERRAIN_FEATURES_C1_R14 */
+	public static final IconEntry TILE_208 = TERRAIN_FEATURES_C1_R14;
 	/** tile_209 */
-	public static final IconEntry TILE_209 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 208, 16, 16}, 2997);
+	public static final IconEntry TERRAIN_FEATURES_C2_R14 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 208, 16, 16}, 2997);
+	/** semantic alias for TERRAIN_FEATURES_C2_R14 */
+	public static final IconEntry TILE_209 = TERRAIN_FEATURES_C2_R14;
 	/** tile_210 */
-	public static final IconEntry TILE_210 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 208, 16, 16}, 2998);
+	public static final IconEntry TERRAIN_FEATURES_C3_R14 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 208, 16, 16}, 2998);
+	/** semantic alias for TERRAIN_FEATURES_C3_R14 */
+	public static final IconEntry TILE_210 = TERRAIN_FEATURES_C3_R14;
 	/** tile_211 */
-	public static final IconEntry TILE_211 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 208, 16, 16}, 2999);
+	public static final IconEntry TERRAIN_FEATURES_C4_R14 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 208, 16, 16}, 2999);
+	/** semantic alias for TERRAIN_FEATURES_C4_R14 */
+	public static final IconEntry TILE_211 = TERRAIN_FEATURES_C4_R14;
 	/** tile_212 */
-	public static final IconEntry TILE_212 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 208, 16, 16}, 3000);
+	public static final IconEntry TERRAIN_FEATURES_C5_R14 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 208, 16, 16}, 3000);
+	/** semantic alias for TERRAIN_FEATURES_C5_R14 */
+	public static final IconEntry TILE_212 = TERRAIN_FEATURES_C5_R14;
 	/** tile_213 */
-	public static final IconEntry TILE_213 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 208, 16, 16}, 3001);
+	public static final IconEntry TERRAIN_FEATURES_C6_R14 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 208, 16, 16}, 3001);
+	/** semantic alias for TERRAIN_FEATURES_C6_R14 */
+	public static final IconEntry TILE_213 = TERRAIN_FEATURES_C6_R14;
 	/** tile_214 */
-	public static final IconEntry TILE_214 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 208, 16, 16}, 3002);
+	public static final IconEntry TERRAIN_FEATURES_C7_R14 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 208, 16, 16}, 3002);
+	/** semantic alias for TERRAIN_FEATURES_C7_R14 */
+	public static final IconEntry TILE_214 = TERRAIN_FEATURES_C7_R14;
 	/** tile_215 */
-	public static final IconEntry TILE_215 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 208, 16, 16}, 3003);
+	public static final IconEntry TERRAIN_FEATURES_C8_R14 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 208, 16, 16}, 3003);
+	/** semantic alias for TERRAIN_FEATURES_C8_R14 */
+	public static final IconEntry TILE_215 = TERRAIN_FEATURES_C8_R14;
 	/** tile_216 */
-	public static final IconEntry TILE_216 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 208, 16, 16}, 3004);
+	public static final IconEntry TERRAIN_FEATURES_C9_R14 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 208, 16, 16}, 3004);
+	/** semantic alias for TERRAIN_FEATURES_C9_R14 */
+	public static final IconEntry TILE_216 = TERRAIN_FEATURES_C9_R14;
 	/** tile_217 */
-	public static final IconEntry TILE_217 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 208, 16, 16}, 3005);
+	public static final IconEntry TERRAIN_FEATURES_C10_R14 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 208, 16, 16}, 3005);
+	/** semantic alias for TERRAIN_FEATURES_C10_R14 */
+	public static final IconEntry TILE_217 = TERRAIN_FEATURES_C10_R14;
 	/** tile_218 */
-	public static final IconEntry TILE_218 = new IconEntry("environment/features/terrain_features.png", new int[]{160, 208, 16, 16}, 3006);
+	public static final IconEntry TERRAIN_FEATURES_C11_R14 = new IconEntry("environment/features/terrain_features.png", new int[]{160, 208, 16, 16}, 3006);
+	/** semantic alias for TERRAIN_FEATURES_C11_R14 */
+	public static final IconEntry TILE_218 = TERRAIN_FEATURES_C11_R14;
 	/** tile_219 */
 	public static final IconEntry TILE_219 = new IconEntry("environment/features/terrain_features.png", new int[]{176, 208, 16, 16}, 3007);
 	/** tile_220 */
@@ -525,43 +813,81 @@ public final class TerrainFeaturesDict {
 	/** tile_255 */
 	public static final IconEntry TILE_255 = new IconEntry("environment/features/terrain_features.png", new int[]{240, 240, 16, 16}, 3043);
 	/** tile_256 */
-	public static final IconEntry TILE_256 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 256, 16, 16}, 3044);
+	public static final IconEntry TERRAIN_FEATURES_C1_R17 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 256, 16, 16}, 3044);
+	/** semantic alias for TERRAIN_FEATURES_C1_R17 */
+	public static final IconEntry TILE_256 = TERRAIN_FEATURES_C1_R17;
 	/** tile_257 */
-	public static final IconEntry TILE_257 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 256, 16, 16}, 3045);
+	public static final IconEntry TERRAIN_FEATURES_C2_R17 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 256, 16, 16}, 3045);
+	/** semantic alias for TERRAIN_FEATURES_C2_R17 */
+	public static final IconEntry TILE_257 = TERRAIN_FEATURES_C2_R17;
 	/** tile_258 */
-	public static final IconEntry TILE_258 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 256, 16, 16}, 3046);
+	public static final IconEntry TERRAIN_FEATURES_C3_R17 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 256, 16, 16}, 3046);
+	/** semantic alias for TERRAIN_FEATURES_C3_R17 */
+	public static final IconEntry TILE_258 = TERRAIN_FEATURES_C3_R17;
 	/** tile_259 */
-	public static final IconEntry TILE_259 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 256, 16, 16}, 3047);
+	public static final IconEntry TERRAIN_FEATURES_C4_R17 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 256, 16, 16}, 3047);
+	/** semantic alias for TERRAIN_FEATURES_C4_R17 */
+	public static final IconEntry TILE_259 = TERRAIN_FEATURES_C4_R17;
 	/** tile_260 */
-	public static final IconEntry TILE_260 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 256, 16, 16}, 3048);
+	public static final IconEntry TERRAIN_FEATURES_C5_R17 = new IconEntry("environment/features/terrain_features.png", new int[]{64, 256, 16, 16}, 3048);
+	/** semantic alias for TERRAIN_FEATURES_C5_R17 */
+	public static final IconEntry TILE_260 = TERRAIN_FEATURES_C5_R17;
 	/** tile_261 */
-	public static final IconEntry TILE_261 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 256, 16, 16}, 3049);
+	public static final IconEntry TERRAIN_FEATURES_C6_R17 = new IconEntry("environment/features/terrain_features.png", new int[]{80, 256, 16, 16}, 3049);
+	/** semantic alias for TERRAIN_FEATURES_C6_R17 */
+	public static final IconEntry TILE_261 = TERRAIN_FEATURES_C6_R17;
 	/** tile_262 */
-	public static final IconEntry TILE_262 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 256, 16, 16}, 3050);
+	public static final IconEntry TERRAIN_FEATURES_C7_R17 = new IconEntry("environment/features/terrain_features.png", new int[]{96, 256, 16, 16}, 3050);
+	/** semantic alias for TERRAIN_FEATURES_C7_R17 */
+	public static final IconEntry TILE_262 = TERRAIN_FEATURES_C7_R17;
 	/** tile_263 */
-	public static final IconEntry TILE_263 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 256, 16, 16}, 3051);
+	public static final IconEntry TERRAIN_FEATURES_C8_R17 = new IconEntry("environment/features/terrain_features.png", new int[]{112, 256, 16, 16}, 3051);
+	/** semantic alias for TERRAIN_FEATURES_C8_R17 */
+	public static final IconEntry TILE_263 = TERRAIN_FEATURES_C8_R17;
 	/** tile_264 */
-	public static final IconEntry TILE_264 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 256, 16, 16}, 3052);
+	public static final IconEntry TERRAIN_FEATURES_C9_R17 = new IconEntry("environment/features/terrain_features.png", new int[]{128, 256, 16, 16}, 3052);
+	/** semantic alias for TERRAIN_FEATURES_C9_R17 */
+	public static final IconEntry TILE_264 = TERRAIN_FEATURES_C9_R17;
 	/** tile_265 */
-	public static final IconEntry TILE_265 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 256, 16, 16}, 3053);
+	public static final IconEntry TERRAIN_FEATURES_C10_R17 = new IconEntry("environment/features/terrain_features.png", new int[]{144, 256, 16, 16}, 3053);
+	/** semantic alias for TERRAIN_FEATURES_C10_R17 */
+	public static final IconEntry TILE_265 = TERRAIN_FEATURES_C10_R17;
 	/** tile_266 */
-	public static final IconEntry TILE_266 = new IconEntry("environment/features/terrain_features.png", new int[]{160, 256, 16, 16}, 3054);
+	public static final IconEntry TERRAIN_FEATURES_C11_R17 = new IconEntry("environment/features/terrain_features.png", new int[]{160, 256, 16, 16}, 3054);
+	/** semantic alias for TERRAIN_FEATURES_C11_R17 */
+	public static final IconEntry TILE_266 = TERRAIN_FEATURES_C11_R17;
 	/** tile_267 */
-	public static final IconEntry TILE_267 = new IconEntry("environment/features/terrain_features.png", new int[]{176, 256, 16, 16}, 3055);
+	public static final IconEntry TERRAIN_FEATURES_C12_R17 = new IconEntry("environment/features/terrain_features.png", new int[]{176, 256, 16, 16}, 3055);
+	/** semantic alias for TERRAIN_FEATURES_C12_R17 */
+	public static final IconEntry TILE_267 = TERRAIN_FEATURES_C12_R17;
 	/** tile_268 */
-	public static final IconEntry TILE_268 = new IconEntry("environment/features/terrain_features.png", new int[]{192, 256, 16, 16}, 3056);
+	public static final IconEntry TERRAIN_FEATURES_C13_R17 = new IconEntry("environment/features/terrain_features.png", new int[]{192, 256, 16, 16}, 3056);
+	/** semantic alias for TERRAIN_FEATURES_C13_R17 */
+	public static final IconEntry TILE_268 = TERRAIN_FEATURES_C13_R17;
 	/** tile_269 */
-	public static final IconEntry TILE_269 = new IconEntry("environment/features/terrain_features.png", new int[]{208, 256, 16, 16}, 3057);
+	public static final IconEntry TERRAIN_FEATURES_C14_R17 = new IconEntry("environment/features/terrain_features.png", new int[]{208, 256, 16, 16}, 3057);
+	/** semantic alias for TERRAIN_FEATURES_C14_R17 */
+	public static final IconEntry TILE_269 = TERRAIN_FEATURES_C14_R17;
 	/** tile_270 */
-	public static final IconEntry TILE_270 = new IconEntry("environment/features/terrain_features.png", new int[]{224, 256, 16, 16}, 3058);
+	public static final IconEntry TERRAIN_FEATURES_C15_R17 = new IconEntry("environment/features/terrain_features.png", new int[]{224, 256, 16, 16}, 3058);
+	/** semantic alias for TERRAIN_FEATURES_C15_R17 */
+	public static final IconEntry TILE_270 = TERRAIN_FEATURES_C15_R17;
 	/** tile_271 */
-	public static final IconEntry TILE_271 = new IconEntry("environment/features/terrain_features.png", new int[]{240, 256, 16, 16}, 3059);
+	public static final IconEntry TERRAIN_FEATURES_C16_R17 = new IconEntry("environment/features/terrain_features.png", new int[]{240, 256, 16, 16}, 3059);
+	/** semantic alias for TERRAIN_FEATURES_C16_R17 */
+	public static final IconEntry TILE_271 = TERRAIN_FEATURES_C16_R17;
 	/** tile_272 */
-	public static final IconEntry TILE_272 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 272, 16, 16}, 3060);
+	public static final IconEntry TERRAIN_FEATURES_C1_R18 = new IconEntry("environment/features/terrain_features.png", new int[]{0, 272, 16, 16}, 3060);
+	/** semantic alias for TERRAIN_FEATURES_C1_R18 */
+	public static final IconEntry TILE_272 = TERRAIN_FEATURES_C1_R18;
 	/** tile_273 */
-	public static final IconEntry TILE_273 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 272, 16, 16}, 3061);
+	public static final IconEntry TERRAIN_FEATURES_C2_R18 = new IconEntry("environment/features/terrain_features.png", new int[]{16, 272, 16, 16}, 3061);
+	/** semantic alias for TERRAIN_FEATURES_C2_R18 */
+	public static final IconEntry TILE_273 = TERRAIN_FEATURES_C2_R18;
 	/** tile_274 */
-	public static final IconEntry TILE_274 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 272, 16, 16}, 3062);
+	public static final IconEntry TERRAIN_FEATURES_C3_R18 = new IconEntry("environment/features/terrain_features.png", new int[]{32, 272, 16, 16}, 3062);
+	/** semantic alias for TERRAIN_FEATURES_C3_R18 */
+	public static final IconEntry TILE_274 = TERRAIN_FEATURES_C3_R18;
 	/** tile_275 */
 	public static final IconEntry TILE_275 = new IconEntry("environment/features/terrain_features.png", new int[]{48, 272, 16, 16}, 3063);
 	/** tile_276 */

@@ -13,19 +13,35 @@ public final class WeakFloorDict {
 	private WeakFloorDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/custom_tiles/weak_floor.png", new int[]{0, 0, 16, 16}, 4888);
+	public static final IconEntry WEAK_FLOOR_C1_R1 = new IconEntry("environment/custom_tiles/weak_floor.png", new int[]{0, 0, 16, 16}, 4888);
+	/** semantic alias for WEAK_FLOOR_C1_R1 */
+	public static final IconEntry TILE_000 = WEAK_FLOOR_C1_R1;
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/custom_tiles/weak_floor.png", new int[]{16, 0, 16, 16}, 4889);
+	public static final IconEntry WEAK_FLOOR_C2_R1 = new IconEntry("environment/custom_tiles/weak_floor.png", new int[]{16, 0, 16, 16}, 4889);
+	/** semantic alias for WEAK_FLOOR_C2_R1 */
+	public static final IconEntry TILE_001 = WEAK_FLOOR_C2_R1;
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/custom_tiles/weak_floor.png", new int[]{32, 0, 16, 16}, 4890);
+	public static final IconEntry WEAK_FLOOR_C3_R1 = new IconEntry("environment/custom_tiles/weak_floor.png", new int[]{32, 0, 16, 16}, 4890);
+	/** semantic alias for WEAK_FLOOR_C3_R1 */
+	public static final IconEntry TILE_002 = WEAK_FLOOR_C3_R1;
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/custom_tiles/weak_floor.png", new int[]{48, 0, 16, 16}, 4891);
+	public static final IconEntry WEAK_FLOOR_C4_R1 = new IconEntry("environment/custom_tiles/weak_floor.png", new int[]{48, 0, 16, 16}, 4891);
+	/** semantic alias for WEAK_FLOOR_C4_R1 */
+	public static final IconEntry TILE_003 = WEAK_FLOOR_C4_R1;
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/custom_tiles/weak_floor.png", new int[]{64, 0, 16, 16}, 4892);
+	public static final IconEntry WEAK_FLOOR_C5_R1 = new IconEntry("environment/custom_tiles/weak_floor.png", new int[]{64, 0, 16, 16}, 4892);
+	/** semantic alias for WEAK_FLOOR_C5_R1 */
+	public static final IconEntry TILE_004 = WEAK_FLOOR_C5_R1;
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/custom_tiles/weak_floor.png", new int[]{80, 0, 16, 16}, 4893);
+	public static final IconEntry WEAK_FLOOR_C6_R1 = new IconEntry("environment/custom_tiles/weak_floor.png", new int[]{80, 0, 16, 16}, 4893);
+	/** semantic alias for WEAK_FLOOR_C6_R1 */
+	public static final IconEntry TILE_005 = WEAK_FLOOR_C6_R1;
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/custom_tiles/weak_floor.png", new int[]{96, 0, 16, 16}, 4894);
+	public static final IconEntry WEAK_FLOOR_C7_R1 = new IconEntry("environment/custom_tiles/weak_floor.png", new int[]{96, 0, 16, 16}, 4894);
+	/** semantic alias for WEAK_FLOOR_C7_R1 */
+	public static final IconEntry TILE_006 = WEAK_FLOOR_C7_R1;
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/custom_tiles/weak_floor.png", new int[]{112, 0, 16, 16}, 4895);
+	public static final IconEntry WEAK_FLOOR_C8_R1 = new IconEntry("environment/custom_tiles/weak_floor.png", new int[]{112, 0, 16, 16}, 4895);
+	/** semantic alias for WEAK_FLOOR_C8_R1 */
+	public static final IconEntry TILE_007 = WEAK_FLOOR_C8_R1;
 }

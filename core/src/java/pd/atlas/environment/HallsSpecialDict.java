@@ -13,117 +13,229 @@ public final class HallsSpecialDict {
 	private HallsSpecialDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{0, 0, 16, 16}, 780);
+	public static final IconEntry HALLS_SPECIAL_C1_R1 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{0, 0, 16, 16}, 780);
+	/** semantic alias for HALLS_SPECIAL_C1_R1 */
+	public static final IconEntry TILE_000 = HALLS_SPECIAL_C1_R1;
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{16, 0, 16, 16}, 781);
+	public static final IconEntry HALLS_SPECIAL_C2_R1 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{16, 0, 16, 16}, 781);
+	/** semantic alias for HALLS_SPECIAL_C2_R1 */
+	public static final IconEntry TILE_001 = HALLS_SPECIAL_C2_R1;
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{32, 0, 16, 16}, 782);
+	public static final IconEntry HALLS_SPECIAL_C3_R1 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{32, 0, 16, 16}, 782);
+	/** semantic alias for HALLS_SPECIAL_C3_R1 */
+	public static final IconEntry TILE_002 = HALLS_SPECIAL_C3_R1;
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{48, 0, 16, 16}, 783);
+	public static final IconEntry HALLS_SPECIAL_C4_R1 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{48, 0, 16, 16}, 783);
+	/** semantic alias for HALLS_SPECIAL_C4_R1 */
+	public static final IconEntry TILE_003 = HALLS_SPECIAL_C4_R1;
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{64, 0, 16, 16}, 784);
+	public static final IconEntry HALLS_SPECIAL_C5_R1 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{64, 0, 16, 16}, 784);
+	/** semantic alias for HALLS_SPECIAL_C5_R1 */
+	public static final IconEntry TILE_004 = HALLS_SPECIAL_C5_R1;
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{80, 0, 16, 16}, 785);
+	public static final IconEntry HALLS_SPECIAL_C6_R1 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{80, 0, 16, 16}, 785);
+	/** semantic alias for HALLS_SPECIAL_C6_R1 */
+	public static final IconEntry TILE_005 = HALLS_SPECIAL_C6_R1;
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{96, 0, 16, 16}, 786);
+	public static final IconEntry HALLS_SPECIAL_C7_R1 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{96, 0, 16, 16}, 786);
+	/** semantic alias for HALLS_SPECIAL_C7_R1 */
+	public static final IconEntry TILE_006 = HALLS_SPECIAL_C7_R1;
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{112, 0, 16, 16}, 787);
+	public static final IconEntry HALLS_SPECIAL_C8_R1 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{112, 0, 16, 16}, 787);
+	/** semantic alias for HALLS_SPECIAL_C8_R1 */
+	public static final IconEntry TILE_007 = HALLS_SPECIAL_C8_R1;
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{0, 16, 16, 16}, 788);
+	public static final IconEntry HALLS_SPECIAL_C1_R2 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{0, 16, 16, 16}, 788);
+	/** semantic alias for HALLS_SPECIAL_C1_R2 */
+	public static final IconEntry TILE_008 = HALLS_SPECIAL_C1_R2;
 	/** tile_009 */
-	public static final IconEntry TILE_009 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{16, 16, 16, 16}, 789);
+	public static final IconEntry HALLS_SPECIAL_C2_R2 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{16, 16, 16, 16}, 789);
+	/** semantic alias for HALLS_SPECIAL_C2_R2 */
+	public static final IconEntry TILE_009 = HALLS_SPECIAL_C2_R2;
 	/** tile_010 */
-	public static final IconEntry TILE_010 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{32, 16, 16, 16}, 790);
+	public static final IconEntry HALLS_SPECIAL_C3_R2 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{32, 16, 16, 16}, 790);
+	/** semantic alias for HALLS_SPECIAL_C3_R2 */
+	public static final IconEntry TILE_010 = HALLS_SPECIAL_C3_R2;
 	/** tile_011 */
-	public static final IconEntry TILE_011 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{48, 16, 16, 16}, 791);
+	public static final IconEntry HALLS_SPECIAL_C4_R2 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{48, 16, 16, 16}, 791);
+	/** semantic alias for HALLS_SPECIAL_C4_R2 */
+	public static final IconEntry TILE_011 = HALLS_SPECIAL_C4_R2;
 	/** tile_012 */
-	public static final IconEntry TILE_012 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{64, 16, 16, 16}, 792);
+	public static final IconEntry HALLS_SPECIAL_C5_R2 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{64, 16, 16, 16}, 792);
+	/** semantic alias for HALLS_SPECIAL_C5_R2 */
+	public static final IconEntry TILE_012 = HALLS_SPECIAL_C5_R2;
 	/** tile_013 */
-	public static final IconEntry TILE_013 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{80, 16, 16, 16}, 793);
+	public static final IconEntry HALLS_SPECIAL_C6_R2 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{80, 16, 16, 16}, 793);
+	/** semantic alias for HALLS_SPECIAL_C6_R2 */
+	public static final IconEntry TILE_013 = HALLS_SPECIAL_C6_R2;
 	/** tile_014 */
-	public static final IconEntry TILE_014 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{96, 16, 16, 16}, 794);
+	public static final IconEntry HALLS_SPECIAL_C7_R2 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{96, 16, 16, 16}, 794);
+	/** semantic alias for HALLS_SPECIAL_C7_R2 */
+	public static final IconEntry TILE_014 = HALLS_SPECIAL_C7_R2;
 	/** tile_015 */
-	public static final IconEntry TILE_015 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{112, 16, 16, 16}, 795);
+	public static final IconEntry HALLS_SPECIAL_C8_R2 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{112, 16, 16, 16}, 795);
+	/** semantic alias for HALLS_SPECIAL_C8_R2 */
+	public static final IconEntry TILE_015 = HALLS_SPECIAL_C8_R2;
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{0, 32, 16, 16}, 796);
+	public static final IconEntry HALLS_SPECIAL_C1_R3 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{0, 32, 16, 16}, 796);
+	/** semantic alias for HALLS_SPECIAL_C1_R3 */
+	public static final IconEntry TILE_016 = HALLS_SPECIAL_C1_R3;
 	/** tile_017 */
-	public static final IconEntry TILE_017 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{16, 32, 16, 16}, 797);
+	public static final IconEntry HALLS_SPECIAL_C2_R3 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{16, 32, 16, 16}, 797);
+	/** semantic alias for HALLS_SPECIAL_C2_R3 */
+	public static final IconEntry TILE_017 = HALLS_SPECIAL_C2_R3;
 	/** tile_018 */
-	public static final IconEntry TILE_018 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{32, 32, 16, 16}, 798);
+	public static final IconEntry HALLS_SPECIAL_C3_R3 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{32, 32, 16, 16}, 798);
+	/** semantic alias for HALLS_SPECIAL_C3_R3 */
+	public static final IconEntry TILE_018 = HALLS_SPECIAL_C3_R3;
 	/** tile_019 */
-	public static final IconEntry TILE_019 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{48, 32, 16, 16}, 799);
+	public static final IconEntry HALLS_SPECIAL_C4_R3 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{48, 32, 16, 16}, 799);
+	/** semantic alias for HALLS_SPECIAL_C4_R3 */
+	public static final IconEntry TILE_019 = HALLS_SPECIAL_C4_R3;
 	/** tile_020 */
-	public static final IconEntry TILE_020 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{64, 32, 16, 16}, 800);
+	public static final IconEntry HALLS_SPECIAL_C5_R3 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{64, 32, 16, 16}, 800);
+	/** semantic alias for HALLS_SPECIAL_C5_R3 */
+	public static final IconEntry TILE_020 = HALLS_SPECIAL_C5_R3;
 	/** tile_021 */
-	public static final IconEntry TILE_021 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{80, 32, 16, 16}, 801);
+	public static final IconEntry HALLS_SPECIAL_C6_R3 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{80, 32, 16, 16}, 801);
+	/** semantic alias for HALLS_SPECIAL_C6_R3 */
+	public static final IconEntry TILE_021 = HALLS_SPECIAL_C6_R3;
 	/** tile_022 */
-	public static final IconEntry TILE_022 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{96, 32, 16, 16}, 802);
+	public static final IconEntry HALLS_SPECIAL_C7_R3 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{96, 32, 16, 16}, 802);
+	/** semantic alias for HALLS_SPECIAL_C7_R3 */
+	public static final IconEntry TILE_022 = HALLS_SPECIAL_C7_R3;
 	/** tile_023 */
-	public static final IconEntry TILE_023 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{112, 32, 16, 16}, 803);
+	public static final IconEntry HALLS_SPECIAL_C8_R3 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{112, 32, 16, 16}, 803);
+	/** semantic alias for HALLS_SPECIAL_C8_R3 */
+	public static final IconEntry TILE_023 = HALLS_SPECIAL_C8_R3;
 	/** tile_024 */
-	public static final IconEntry TILE_024 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{0, 48, 16, 16}, 804);
+	public static final IconEntry HALLS_SPECIAL_C1_R4 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{0, 48, 16, 16}, 804);
+	/** semantic alias for HALLS_SPECIAL_C1_R4 */
+	public static final IconEntry TILE_024 = HALLS_SPECIAL_C1_R4;
 	/** tile_025 */
-	public static final IconEntry TILE_025 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{16, 48, 16, 16}, 805);
+	public static final IconEntry HALLS_SPECIAL_C2_R4 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{16, 48, 16, 16}, 805);
+	/** semantic alias for HALLS_SPECIAL_C2_R4 */
+	public static final IconEntry TILE_025 = HALLS_SPECIAL_C2_R4;
 	/** tile_026 */
-	public static final IconEntry TILE_026 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{32, 48, 16, 16}, 806);
+	public static final IconEntry HALLS_SPECIAL_C3_R4 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{32, 48, 16, 16}, 806);
+	/** semantic alias for HALLS_SPECIAL_C3_R4 */
+	public static final IconEntry TILE_026 = HALLS_SPECIAL_C3_R4;
 	/** tile_027 */
-	public static final IconEntry TILE_027 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{48, 48, 16, 16}, 807);
+	public static final IconEntry HALLS_SPECIAL_C4_R4 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{48, 48, 16, 16}, 807);
+	/** semantic alias for HALLS_SPECIAL_C4_R4 */
+	public static final IconEntry TILE_027 = HALLS_SPECIAL_C4_R4;
 	/** tile_028 */
-	public static final IconEntry TILE_028 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{64, 48, 16, 16}, 808);
+	public static final IconEntry HALLS_SPECIAL_C5_R4 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{64, 48, 16, 16}, 808);
+	/** semantic alias for HALLS_SPECIAL_C5_R4 */
+	public static final IconEntry TILE_028 = HALLS_SPECIAL_C5_R4;
 	/** tile_029 */
-	public static final IconEntry TILE_029 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{80, 48, 16, 16}, 809);
+	public static final IconEntry HALLS_SPECIAL_C6_R4 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{80, 48, 16, 16}, 809);
+	/** semantic alias for HALLS_SPECIAL_C6_R4 */
+	public static final IconEntry TILE_029 = HALLS_SPECIAL_C6_R4;
 	/** tile_030 */
-	public static final IconEntry TILE_030 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{96, 48, 16, 16}, 810);
+	public static final IconEntry HALLS_SPECIAL_C7_R4 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{96, 48, 16, 16}, 810);
+	/** semantic alias for HALLS_SPECIAL_C7_R4 */
+	public static final IconEntry TILE_030 = HALLS_SPECIAL_C7_R4;
 	/** tile_031 */
-	public static final IconEntry TILE_031 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{112, 48, 16, 16}, 811);
+	public static final IconEntry HALLS_SPECIAL_C8_R4 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{112, 48, 16, 16}, 811);
+	/** semantic alias for HALLS_SPECIAL_C8_R4 */
+	public static final IconEntry TILE_031 = HALLS_SPECIAL_C8_R4;
 	/** tile_032 */
-	public static final IconEntry TILE_032 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{0, 64, 16, 16}, 812);
+	public static final IconEntry HALLS_SPECIAL_C1_R5 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{0, 64, 16, 16}, 812);
+	/** semantic alias for HALLS_SPECIAL_C1_R5 */
+	public static final IconEntry TILE_032 = HALLS_SPECIAL_C1_R5;
 	/** tile_033 */
-	public static final IconEntry TILE_033 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{16, 64, 16, 16}, 813);
+	public static final IconEntry HALLS_SPECIAL_C2_R5 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{16, 64, 16, 16}, 813);
+	/** semantic alias for HALLS_SPECIAL_C2_R5 */
+	public static final IconEntry TILE_033 = HALLS_SPECIAL_C2_R5;
 	/** tile_034 */
-	public static final IconEntry TILE_034 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{32, 64, 16, 16}, 814);
+	public static final IconEntry HALLS_SPECIAL_C3_R5 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{32, 64, 16, 16}, 814);
+	/** semantic alias for HALLS_SPECIAL_C3_R5 */
+	public static final IconEntry TILE_034 = HALLS_SPECIAL_C3_R5;
 	/** tile_035 */
-	public static final IconEntry TILE_035 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{48, 64, 16, 16}, 815);
+	public static final IconEntry HALLS_SPECIAL_C4_R5 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{48, 64, 16, 16}, 815);
+	/** semantic alias for HALLS_SPECIAL_C4_R5 */
+	public static final IconEntry TILE_035 = HALLS_SPECIAL_C4_R5;
 	/** tile_036 */
-	public static final IconEntry TILE_036 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{64, 64, 16, 16}, 816);
+	public static final IconEntry HALLS_SPECIAL_C5_R5 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{64, 64, 16, 16}, 816);
+	/** semantic alias for HALLS_SPECIAL_C5_R5 */
+	public static final IconEntry TILE_036 = HALLS_SPECIAL_C5_R5;
 	/** tile_037 */
-	public static final IconEntry TILE_037 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{80, 64, 16, 16}, 817);
+	public static final IconEntry HALLS_SPECIAL_C6_R5 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{80, 64, 16, 16}, 817);
+	/** semantic alias for HALLS_SPECIAL_C6_R5 */
+	public static final IconEntry TILE_037 = HALLS_SPECIAL_C6_R5;
 	/** tile_038 */
-	public static final IconEntry TILE_038 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{96, 64, 16, 16}, 818);
+	public static final IconEntry HALLS_SPECIAL_C7_R5 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{96, 64, 16, 16}, 818);
+	/** semantic alias for HALLS_SPECIAL_C7_R5 */
+	public static final IconEntry TILE_038 = HALLS_SPECIAL_C7_R5;
 	/** tile_039 */
-	public static final IconEntry TILE_039 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{112, 64, 16, 16}, 819);
+	public static final IconEntry HALLS_SPECIAL_C8_R5 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{112, 64, 16, 16}, 819);
+	/** semantic alias for HALLS_SPECIAL_C8_R5 */
+	public static final IconEntry TILE_039 = HALLS_SPECIAL_C8_R5;
 	/** tile_040 */
-	public static final IconEntry TILE_040 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{0, 80, 16, 16}, 820);
+	public static final IconEntry HALLS_SPECIAL_C1_R6 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{0, 80, 16, 16}, 820);
+	/** semantic alias for HALLS_SPECIAL_C1_R6 */
+	public static final IconEntry TILE_040 = HALLS_SPECIAL_C1_R6;
 	/** tile_041 */
-	public static final IconEntry TILE_041 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{16, 80, 16, 16}, 821);
+	public static final IconEntry HALLS_SPECIAL_C2_R6 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{16, 80, 16, 16}, 821);
+	/** semantic alias for HALLS_SPECIAL_C2_R6 */
+	public static final IconEntry TILE_041 = HALLS_SPECIAL_C2_R6;
 	/** tile_042 */
-	public static final IconEntry TILE_042 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{32, 80, 16, 16}, 822);
+	public static final IconEntry HALLS_SPECIAL_C3_R6 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{32, 80, 16, 16}, 822);
+	/** semantic alias for HALLS_SPECIAL_C3_R6 */
+	public static final IconEntry TILE_042 = HALLS_SPECIAL_C3_R6;
 	/** tile_043 */
-	public static final IconEntry TILE_043 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{48, 80, 16, 16}, 823);
+	public static final IconEntry HALLS_SPECIAL_C4_R6 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{48, 80, 16, 16}, 823);
+	/** semantic alias for HALLS_SPECIAL_C4_R6 */
+	public static final IconEntry TILE_043 = HALLS_SPECIAL_C4_R6;
 	/** tile_044 */
-	public static final IconEntry TILE_044 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{64, 80, 16, 16}, 824);
+	public static final IconEntry HALLS_SPECIAL_C5_R6 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{64, 80, 16, 16}, 824);
+	/** semantic alias for HALLS_SPECIAL_C5_R6 */
+	public static final IconEntry TILE_044 = HALLS_SPECIAL_C5_R6;
 	/** tile_045 */
-	public static final IconEntry TILE_045 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{80, 80, 16, 16}, 825);
+	public static final IconEntry HALLS_SPECIAL_C6_R6 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{80, 80, 16, 16}, 825);
+	/** semantic alias for HALLS_SPECIAL_C6_R6 */
+	public static final IconEntry TILE_045 = HALLS_SPECIAL_C6_R6;
 	/** tile_046 */
-	public static final IconEntry TILE_046 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{96, 80, 16, 16}, 826);
+	public static final IconEntry HALLS_SPECIAL_C7_R6 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{96, 80, 16, 16}, 826);
+	/** semantic alias for HALLS_SPECIAL_C7_R6 */
+	public static final IconEntry TILE_046 = HALLS_SPECIAL_C7_R6;
 	/** tile_047 */
-	public static final IconEntry TILE_047 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{112, 80, 16, 16}, 827);
+	public static final IconEntry HALLS_SPECIAL_C8_R6 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{112, 80, 16, 16}, 827);
+	/** semantic alias for HALLS_SPECIAL_C8_R6 */
+	public static final IconEntry TILE_047 = HALLS_SPECIAL_C8_R6;
 	/** tile_048 */
-	public static final IconEntry TILE_048 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{0, 96, 16, 16}, 828);
+	public static final IconEntry HALLS_SPECIAL_C1_R7 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{0, 96, 16, 16}, 828);
+	/** semantic alias for HALLS_SPECIAL_C1_R7 */
+	public static final IconEntry TILE_048 = HALLS_SPECIAL_C1_R7;
 	/** tile_049 */
-	public static final IconEntry TILE_049 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{16, 96, 16, 16}, 829);
+	public static final IconEntry HALLS_SPECIAL_C2_R7 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{16, 96, 16, 16}, 829);
+	/** semantic alias for HALLS_SPECIAL_C2_R7 */
+	public static final IconEntry TILE_049 = HALLS_SPECIAL_C2_R7;
 	/** tile_050 */
-	public static final IconEntry TILE_050 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{32, 96, 16, 16}, 830);
+	public static final IconEntry HALLS_SPECIAL_C3_R7 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{32, 96, 16, 16}, 830);
+	/** semantic alias for HALLS_SPECIAL_C3_R7 */
+	public static final IconEntry TILE_050 = HALLS_SPECIAL_C3_R7;
 	/** tile_051 */
-	public static final IconEntry TILE_051 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{48, 96, 16, 16}, 831);
+	public static final IconEntry HALLS_SPECIAL_C4_R7 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{48, 96, 16, 16}, 831);
+	/** semantic alias for HALLS_SPECIAL_C4_R7 */
+	public static final IconEntry TILE_051 = HALLS_SPECIAL_C4_R7;
 	/** tile_052 */
-	public static final IconEntry TILE_052 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{64, 96, 16, 16}, 832);
+	public static final IconEntry HALLS_SPECIAL_C5_R7 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{64, 96, 16, 16}, 832);
+	/** semantic alias for HALLS_SPECIAL_C5_R7 */
+	public static final IconEntry TILE_052 = HALLS_SPECIAL_C5_R7;
 	/** tile_053 */
-	public static final IconEntry TILE_053 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{80, 96, 16, 16}, 833);
+	public static final IconEntry HALLS_SPECIAL_C6_R7 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{80, 96, 16, 16}, 833);
+	/** semantic alias for HALLS_SPECIAL_C6_R7 */
+	public static final IconEntry TILE_053 = HALLS_SPECIAL_C6_R7;
 	/** tile_054 */
-	public static final IconEntry TILE_054 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{96, 96, 16, 16}, 834);
+	public static final IconEntry HALLS_SPECIAL_C7_R7 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{96, 96, 16, 16}, 834);
+	/** semantic alias for HALLS_SPECIAL_C7_R7 */
+	public static final IconEntry TILE_054 = HALLS_SPECIAL_C7_R7;
 	/** tile_055 */
-	public static final IconEntry TILE_055 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{112, 96, 16, 16}, 835);
+	public static final IconEntry HALLS_SPECIAL_C8_R7 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{112, 96, 16, 16}, 835);
+	/** semantic alias for HALLS_SPECIAL_C8_R7 */
+	public static final IconEntry TILE_055 = HALLS_SPECIAL_C8_R7;
 	/** tile_056 */
 	public static final IconEntry TILE_056 = new IconEntry("environment/custom_tiles/halls_special.png", new int[]{0, 112, 16, 16}, 836);
 	/** tile_057 */

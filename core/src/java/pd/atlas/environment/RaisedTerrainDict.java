@@ -13,45 +13,85 @@ public final class RaisedTerrainDict {
 	private RaisedTerrainDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 0, 16, 16}, 1676);
+	public static final IconEntry RAISED_TERRAIN_C1_R1 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 0, 16, 16}, 1676);
+	/** semantic alias for RAISED_TERRAIN_C1_R1 */
+	public static final IconEntry TILE_000 = RAISED_TERRAIN_C1_R1;
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 0, 16, 16}, 1677);
+	public static final IconEntry RAISED_TERRAIN_C2_R1 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 0, 16, 16}, 1677);
+	/** semantic alias for RAISED_TERRAIN_C2_R1 */
+	public static final IconEntry TILE_001 = RAISED_TERRAIN_C2_R1;
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 0, 16, 16}, 1678);
+	public static final IconEntry RAISED_TERRAIN_C3_R1 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 0, 16, 16}, 1678);
+	/** semantic alias for RAISED_TERRAIN_C3_R1 */
+	public static final IconEntry TILE_002 = RAISED_TERRAIN_C3_R1;
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 0, 16, 16}, 1679);
+	public static final IconEntry RAISED_TERRAIN_C4_R1 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 0, 16, 16}, 1679);
+	/** semantic alias for RAISED_TERRAIN_C4_R1 */
+	public static final IconEntry TILE_003 = RAISED_TERRAIN_C4_R1;
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 16, 16, 16}, 1680);
+	public static final IconEntry RAISED_TERRAIN_C1_R2 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 16, 16, 16}, 1680);
+	/** semantic alias for RAISED_TERRAIN_C1_R2 */
+	public static final IconEntry TILE_004 = RAISED_TERRAIN_C1_R2;
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 16, 16, 16}, 1681);
+	public static final IconEntry RAISED_TERRAIN_C2_R2 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 16, 16, 16}, 1681);
+	/** semantic alias for RAISED_TERRAIN_C2_R2 */
+	public static final IconEntry TILE_005 = RAISED_TERRAIN_C2_R2;
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 16, 16, 16}, 1682);
+	public static final IconEntry RAISED_TERRAIN_C3_R2 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 16, 16, 16}, 1682);
+	/** semantic alias for RAISED_TERRAIN_C3_R2 */
+	public static final IconEntry TILE_006 = RAISED_TERRAIN_C3_R2;
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 16, 16, 16}, 1683);
+	public static final IconEntry RAISED_TERRAIN_C4_R2 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 16, 16, 16}, 1683);
+	/** semantic alias for RAISED_TERRAIN_C4_R2 */
+	public static final IconEntry TILE_007 = RAISED_TERRAIN_C4_R2;
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 32, 16, 16}, 1684);
+	public static final IconEntry RAISED_TERRAIN_C1_R3 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 32, 16, 16}, 1684);
+	/** semantic alias for RAISED_TERRAIN_C1_R3 */
+	public static final IconEntry TILE_008 = RAISED_TERRAIN_C1_R3;
 	/** tile_009 */
-	public static final IconEntry TILE_009 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 32, 16, 16}, 1685);
+	public static final IconEntry RAISED_TERRAIN_C2_R3 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 32, 16, 16}, 1685);
+	/** semantic alias for RAISED_TERRAIN_C2_R3 */
+	public static final IconEntry TILE_009 = RAISED_TERRAIN_C2_R3;
 	/** tile_010 */
-	public static final IconEntry TILE_010 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 32, 16, 16}, 1686);
+	public static final IconEntry RAISED_TERRAIN_C3_R3 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 32, 16, 16}, 1686);
+	/** semantic alias for RAISED_TERRAIN_C3_R3 */
+	public static final IconEntry TILE_010 = RAISED_TERRAIN_C3_R3;
 	/** tile_011 */
-	public static final IconEntry TILE_011 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 32, 16, 16}, 1687);
+	public static final IconEntry RAISED_TERRAIN_C4_R3 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 32, 16, 16}, 1687);
+	/** semantic alias for RAISED_TERRAIN_C4_R3 */
+	public static final IconEntry TILE_011 = RAISED_TERRAIN_C4_R3;
 	/** tile_012 */
-	public static final IconEntry TILE_012 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 48, 16, 16}, 1688);
+	public static final IconEntry RAISED_TERRAIN_C1_R4 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 48, 16, 16}, 1688);
+	/** semantic alias for RAISED_TERRAIN_C1_R4 */
+	public static final IconEntry TILE_012 = RAISED_TERRAIN_C1_R4;
 	/** tile_013 */
-	public static final IconEntry TILE_013 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 48, 16, 16}, 1689);
+	public static final IconEntry RAISED_TERRAIN_C2_R4 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 48, 16, 16}, 1689);
+	/** semantic alias for RAISED_TERRAIN_C2_R4 */
+	public static final IconEntry TILE_013 = RAISED_TERRAIN_C2_R4;
 	/** tile_014 */
-	public static final IconEntry TILE_014 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 48, 16, 16}, 1690);
+	public static final IconEntry RAISED_TERRAIN_C3_R4 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 48, 16, 16}, 1690);
+	/** semantic alias for RAISED_TERRAIN_C3_R4 */
+	public static final IconEntry TILE_014 = RAISED_TERRAIN_C3_R4;
 	/** tile_015 */
-	public static final IconEntry TILE_015 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 48, 16, 16}, 1691);
+	public static final IconEntry RAISED_TERRAIN_C4_R4 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 48, 16, 16}, 1691);
+	/** semantic alias for RAISED_TERRAIN_C4_R4 */
+	public static final IconEntry TILE_015 = RAISED_TERRAIN_C4_R4;
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 64, 16, 16}, 1692);
+	public static final IconEntry RAISED_TERRAIN_C1_R5 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 64, 16, 16}, 1692);
+	/** semantic alias for RAISED_TERRAIN_C1_R5 */
+	public static final IconEntry TILE_016 = RAISED_TERRAIN_C1_R5;
 	/** tile_017 */
-	public static final IconEntry TILE_017 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 64, 16, 16}, 1693);
+	public static final IconEntry RAISED_TERRAIN_C2_R5 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{16, 64, 16, 16}, 1693);
+	/** semantic alias for RAISED_TERRAIN_C2_R5 */
+	public static final IconEntry TILE_017 = RAISED_TERRAIN_C2_R5;
 	/** tile_018 */
-	public static final IconEntry TILE_018 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 64, 16, 16}, 1694);
+	public static final IconEntry RAISED_TERRAIN_C3_R5 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{32, 64, 16, 16}, 1694);
+	/** semantic alias for RAISED_TERRAIN_C3_R5 */
+	public static final IconEntry TILE_018 = RAISED_TERRAIN_C3_R5;
 	/** tile_019 */
-	public static final IconEntry TILE_019 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 64, 16, 16}, 1695);
+	public static final IconEntry RAISED_TERRAIN_C4_R5 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{48, 64, 16, 16}, 1695);
+	/** semantic alias for RAISED_TERRAIN_C4_R5 */
+	public static final IconEntry TILE_019 = RAISED_TERRAIN_C4_R5;
 	/** tile_020 */
 	public static final IconEntry TILE_020 = new IconEntry("environment/legacy-2.5d/raised_terrain.png", new int[]{0, 80, 16, 16}, 1696);
 	/** tile_021 */

@@ -13,35 +13,59 @@ public final class VisualGridDict {
 	private VisualGridDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{0, 0, 16, 16}, 4868);
+	public static final IconEntry VISUAL_GRID_C1_R1 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{0, 0, 16, 16}, 4868);
+	/** semantic alias for VISUAL_GRID_C1_R1 */
+	public static final IconEntry TILE_000 = VISUAL_GRID_C1_R1;
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{16, 0, 16, 16}, 4869);
+	public static final IconEntry VISUAL_GRID_C2_R1 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{16, 0, 16, 16}, 4869);
+	/** semantic alias for VISUAL_GRID_C2_R1 */
+	public static final IconEntry TILE_001 = VISUAL_GRID_C2_R1;
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{32, 0, 16, 16}, 4870);
+	public static final IconEntry VISUAL_GRID_C3_R1 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{32, 0, 16, 16}, 4870);
+	/** semantic alias for VISUAL_GRID_C3_R1 */
+	public static final IconEntry TILE_002 = VISUAL_GRID_C3_R1;
 	/** tile_003 */
 	public static final IconEntry TILE_003 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{48, 0, 16, 16}, 4871);
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{0, 16, 16, 16}, 4872);
+	public static final IconEntry VISUAL_GRID_C1_R2 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{0, 16, 16, 16}, 4872);
+	/** semantic alias for VISUAL_GRID_C1_R2 */
+	public static final IconEntry TILE_004 = VISUAL_GRID_C1_R2;
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{16, 16, 16, 16}, 4873);
+	public static final IconEntry VISUAL_GRID_C2_R2 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{16, 16, 16, 16}, 4873);
+	/** semantic alias for VISUAL_GRID_C2_R2 */
+	public static final IconEntry TILE_005 = VISUAL_GRID_C2_R2;
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{32, 16, 16, 16}, 4874);
+	public static final IconEntry VISUAL_GRID_C3_R2 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{32, 16, 16, 16}, 4874);
+	/** semantic alias for VISUAL_GRID_C3_R2 */
+	public static final IconEntry TILE_006 = VISUAL_GRID_C3_R2;
 	/** tile_007 */
 	public static final IconEntry TILE_007 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{48, 16, 16, 16}, 4875);
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{0, 32, 16, 16}, 4876);
+	public static final IconEntry VISUAL_GRID_C1_R3 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{0, 32, 16, 16}, 4876);
+	/** semantic alias for VISUAL_GRID_C1_R3 */
+	public static final IconEntry TILE_008 = VISUAL_GRID_C1_R3;
 	/** tile_009 */
-	public static final IconEntry TILE_009 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{16, 32, 16, 16}, 4877);
+	public static final IconEntry VISUAL_GRID_C2_R3 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{16, 32, 16, 16}, 4877);
+	/** semantic alias for VISUAL_GRID_C2_R3 */
+	public static final IconEntry TILE_009 = VISUAL_GRID_C2_R3;
 	/** tile_010 */
-	public static final IconEntry TILE_010 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{32, 32, 16, 16}, 4878);
+	public static final IconEntry VISUAL_GRID_C3_R3 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{32, 32, 16, 16}, 4878);
+	/** semantic alias for VISUAL_GRID_C3_R3 */
+	public static final IconEntry TILE_010 = VISUAL_GRID_C3_R3;
 	/** tile_011 */
 	public static final IconEntry TILE_011 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{48, 32, 16, 16}, 4879);
 	/** tile_012 */
-	public static final IconEntry TILE_012 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{0, 48, 16, 16}, 4880);
+	public static final IconEntry VISUAL_GRID_C1_R4 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{0, 48, 16, 16}, 4880);
+	/** semantic alias for VISUAL_GRID_C1_R4 */
+	public static final IconEntry TILE_012 = VISUAL_GRID_C1_R4;
 	/** tile_013 */
-	public static final IconEntry TILE_013 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{16, 48, 16, 16}, 4881);
+	public static final IconEntry VISUAL_GRID_C2_R4 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{16, 48, 16, 16}, 4881);
+	/** semantic alias for VISUAL_GRID_C2_R4 */
+	public static final IconEntry TILE_013 = VISUAL_GRID_C2_R4;
 	/** tile_014 */
-	public static final IconEntry TILE_014 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{32, 48, 16, 16}, 4882);
+	public static final IconEntry VISUAL_GRID_C3_R4 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{32, 48, 16, 16}, 4882);
+	/** semantic alias for VISUAL_GRID_C3_R4 */
+	public static final IconEntry TILE_014 = VISUAL_GRID_C3_R4;
 	/** tile_015 */
 	public static final IconEntry TILE_015 = new IconEntry("environment/legacy-2.5d/visual_grid.png", new int[]{48, 48, 16, 16}, 4883);
 }

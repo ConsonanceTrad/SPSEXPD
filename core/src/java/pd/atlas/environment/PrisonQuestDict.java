@@ -13,15 +13,21 @@ public final class PrisonQuestDict {
 	private PrisonQuestDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{0, 0, 16, 16}, 1420);
+	public static final IconEntry PRISON_QUEST_C1_R1 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{0, 0, 16, 16}, 1420);
+	/** semantic alias for PRISON_QUEST_C1_R1 */
+	public static final IconEntry TILE_000 = PRISON_QUEST_C1_R1;
 	/** tile_001 */
 	public static final IconEntry TILE_001 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{16, 0, 16, 16}, 1421);
 	/** tile_002 */
 	public static final IconEntry TILE_002 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{32, 0, 16, 16}, 1422);
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{48, 0, 16, 16}, 1423);
+	public static final IconEntry PRISON_QUEST_C4_R1 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{48, 0, 16, 16}, 1423);
+	/** semantic alias for PRISON_QUEST_C4_R1 */
+	public static final IconEntry TILE_003 = PRISON_QUEST_C4_R1;
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{64, 0, 16, 16}, 1424);
+	public static final IconEntry PRISON_QUEST_C5_R1 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{64, 0, 16, 16}, 1424);
+	/** semantic alias for PRISON_QUEST_C5_R1 */
+	public static final IconEntry TILE_004 = PRISON_QUEST_C5_R1;
 	/** tile_005 */
 	public static final IconEntry TILE_005 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{80, 0, 16, 16}, 1425);
 	/** tile_006 */
@@ -29,11 +35,17 @@ public final class PrisonQuestDict {
 	/** tile_007 */
 	public static final IconEntry TILE_007 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{112, 0, 16, 16}, 1427);
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{128, 0, 16, 16}, 1428);
+	public static final IconEntry PRISON_QUEST_C9_R1 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{128, 0, 16, 16}, 1428);
+	/** semantic alias for PRISON_QUEST_C9_R1 */
+	public static final IconEntry TILE_008 = PRISON_QUEST_C9_R1;
 	/** tile_009 */
-	public static final IconEntry TILE_009 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{144, 0, 16, 16}, 1429);
+	public static final IconEntry PRISON_QUEST_C10_R1 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{144, 0, 16, 16}, 1429);
+	/** semantic alias for PRISON_QUEST_C10_R1 */
+	public static final IconEntry TILE_009 = PRISON_QUEST_C10_R1;
 	/** tile_010 */
-	public static final IconEntry TILE_010 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{160, 0, 16, 16}, 1430);
+	public static final IconEntry PRISON_QUEST_C11_R1 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{160, 0, 16, 16}, 1430);
+	/** semantic alias for PRISON_QUEST_C11_R1 */
+	public static final IconEntry TILE_010 = PRISON_QUEST_C11_R1;
 	/** tile_011 */
 	public static final IconEntry TILE_011 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{176, 0, 16, 16}, 1431);
 	/** tile_012 */
@@ -45,13 +57,17 @@ public final class PrisonQuestDict {
 	/** tile_015 */
 	public static final IconEntry TILE_015 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{240, 0, 16, 16}, 1435);
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{0, 16, 16, 16}, 1436);
+	public static final IconEntry PRISON_QUEST_C1_R2 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{0, 16, 16, 16}, 1436);
+	/** semantic alias for PRISON_QUEST_C1_R2 */
+	public static final IconEntry TILE_016 = PRISON_QUEST_C1_R2;
 	/** tile_017 */
 	public static final IconEntry TILE_017 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{16, 16, 16, 16}, 1437);
 	/** tile_018 */
 	public static final IconEntry TILE_018 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{32, 16, 16, 16}, 1438);
 	/** tile_019 */
-	public static final IconEntry TILE_019 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{48, 16, 16, 16}, 1439);
+	public static final IconEntry PRISON_QUEST_C4_R2 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{48, 16, 16, 16}, 1439);
+	/** semantic alias for PRISON_QUEST_C4_R2 */
+	public static final IconEntry TILE_019 = PRISON_QUEST_C4_R2;
 	/** tile_020 */
 	public static final IconEntry TILE_020 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{64, 16, 16, 16}, 1440);
 	/** tile_021 */
@@ -59,15 +75,25 @@ public final class PrisonQuestDict {
 	/** tile_022 */
 	public static final IconEntry TILE_022 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{96, 16, 16, 16}, 1442);
 	/** tile_023 */
-	public static final IconEntry TILE_023 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{112, 16, 16, 16}, 1443);
+	public static final IconEntry PRISON_QUEST_C8_R2 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{112, 16, 16, 16}, 1443);
+	/** semantic alias for PRISON_QUEST_C8_R2 */
+	public static final IconEntry TILE_023 = PRISON_QUEST_C8_R2;
 	/** tile_024 */
-	public static final IconEntry TILE_024 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{128, 16, 16, 16}, 1444);
+	public static final IconEntry PRISON_QUEST_C9_R2 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{128, 16, 16, 16}, 1444);
+	/** semantic alias for PRISON_QUEST_C9_R2 */
+	public static final IconEntry TILE_024 = PRISON_QUEST_C9_R2;
 	/** tile_025 */
-	public static final IconEntry TILE_025 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{144, 16, 16, 16}, 1445);
+	public static final IconEntry PRISON_QUEST_C10_R2 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{144, 16, 16, 16}, 1445);
+	/** semantic alias for PRISON_QUEST_C10_R2 */
+	public static final IconEntry TILE_025 = PRISON_QUEST_C10_R2;
 	/** tile_026 */
-	public static final IconEntry TILE_026 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{160, 16, 16, 16}, 1446);
+	public static final IconEntry PRISON_QUEST_C11_R2 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{160, 16, 16, 16}, 1446);
+	/** semantic alias for PRISON_QUEST_C11_R2 */
+	public static final IconEntry TILE_026 = PRISON_QUEST_C11_R2;
 	/** tile_027 */
-	public static final IconEntry TILE_027 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{176, 16, 16, 16}, 1447);
+	public static final IconEntry PRISON_QUEST_C12_R2 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{176, 16, 16, 16}, 1447);
+	/** semantic alias for PRISON_QUEST_C12_R2 */
+	public static final IconEntry TILE_027 = PRISON_QUEST_C12_R2;
 	/** tile_028 */
 	public static final IconEntry TILE_028 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{192, 16, 16, 16}, 1448);
 	/** tile_029 */
@@ -81,29 +107,49 @@ public final class PrisonQuestDict {
 	/** tile_033 */
 	public static final IconEntry TILE_033 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{16, 32, 16, 16}, 1453);
 	/** tile_034 */
-	public static final IconEntry TILE_034 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{32, 32, 16, 16}, 1454);
+	public static final IconEntry PRISON_QUEST_C3_R3 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{32, 32, 16, 16}, 1454);
+	/** semantic alias for PRISON_QUEST_C3_R3 */
+	public static final IconEntry TILE_034 = PRISON_QUEST_C3_R3;
 	/** tile_035 */
 	public static final IconEntry TILE_035 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{48, 32, 16, 16}, 1455);
 	/** tile_036 */
 	public static final IconEntry TILE_036 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{64, 32, 16, 16}, 1456);
 	/** tile_037 */
-	public static final IconEntry TILE_037 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{80, 32, 16, 16}, 1457);
+	public static final IconEntry PRISON_QUEST_C6_R3 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{80, 32, 16, 16}, 1457);
+	/** semantic alias for PRISON_QUEST_C6_R3 */
+	public static final IconEntry TILE_037 = PRISON_QUEST_C6_R3;
 	/** tile_038 */
-	public static final IconEntry TILE_038 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{96, 32, 16, 16}, 1458);
+	public static final IconEntry PRISON_QUEST_C7_R3 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{96, 32, 16, 16}, 1458);
+	/** semantic alias for PRISON_QUEST_C7_R3 */
+	public static final IconEntry TILE_038 = PRISON_QUEST_C7_R3;
 	/** tile_039 */
-	public static final IconEntry TILE_039 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{112, 32, 16, 16}, 1459);
+	public static final IconEntry PRISON_QUEST_C8_R3 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{112, 32, 16, 16}, 1459);
+	/** semantic alias for PRISON_QUEST_C8_R3 */
+	public static final IconEntry TILE_039 = PRISON_QUEST_C8_R3;
 	/** tile_040 */
-	public static final IconEntry TILE_040 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{128, 32, 16, 16}, 1460);
+	public static final IconEntry PRISON_QUEST_C9_R3 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{128, 32, 16, 16}, 1460);
+	/** semantic alias for PRISON_QUEST_C9_R3 */
+	public static final IconEntry TILE_040 = PRISON_QUEST_C9_R3;
 	/** tile_041 */
-	public static final IconEntry TILE_041 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{144, 32, 16, 16}, 1461);
+	public static final IconEntry PRISON_QUEST_C10_R3 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{144, 32, 16, 16}, 1461);
+	/** semantic alias for PRISON_QUEST_C10_R3 */
+	public static final IconEntry TILE_041 = PRISON_QUEST_C10_R3;
 	/** tile_042 */
-	public static final IconEntry TILE_042 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{160, 32, 16, 16}, 1462);
+	public static final IconEntry PRISON_QUEST_C11_R3 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{160, 32, 16, 16}, 1462);
+	/** semantic alias for PRISON_QUEST_C11_R3 */
+	public static final IconEntry TILE_042 = PRISON_QUEST_C11_R3;
 	/** tile_043 */
-	public static final IconEntry TILE_043 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{176, 32, 16, 16}, 1463);
+	public static final IconEntry PRISON_QUEST_C12_R3 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{176, 32, 16, 16}, 1463);
+	/** semantic alias for PRISON_QUEST_C12_R3 */
+	public static final IconEntry TILE_043 = PRISON_QUEST_C12_R3;
 	/** tile_044 */
-	public static final IconEntry TILE_044 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{192, 32, 16, 16}, 1464);
+	public static final IconEntry PRISON_QUEST_C13_R3 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{192, 32, 16, 16}, 1464);
+	/** semantic alias for PRISON_QUEST_C13_R3 */
+	public static final IconEntry TILE_044 = PRISON_QUEST_C13_R3;
 	/** tile_045 */
-	public static final IconEntry TILE_045 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{208, 32, 16, 16}, 1465);
+	public static final IconEntry PRISON_QUEST_C14_R3 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{208, 32, 16, 16}, 1465);
+	/** semantic alias for PRISON_QUEST_C14_R3 */
+	public static final IconEntry TILE_045 = PRISON_QUEST_C14_R3;
 	/** tile_046 */
 	public static final IconEntry TILE_046 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{224, 32, 16, 16}, 1466);
 	/** tile_047 */
@@ -111,63 +157,115 @@ public final class PrisonQuestDict {
 	/** tile_048 */
 	public static final IconEntry TILE_048 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{0, 48, 16, 16}, 1468);
 	/** tile_049 */
-	public static final IconEntry TILE_049 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{16, 48, 16, 16}, 1469);
+	public static final IconEntry PRISON_QUEST_C2_R4 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{16, 48, 16, 16}, 1469);
+	/** semantic alias for PRISON_QUEST_C2_R4 */
+	public static final IconEntry TILE_049 = PRISON_QUEST_C2_R4;
 	/** tile_050 */
-	public static final IconEntry TILE_050 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{32, 48, 16, 16}, 1470);
+	public static final IconEntry PRISON_QUEST_C3_R4 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{32, 48, 16, 16}, 1470);
+	/** semantic alias for PRISON_QUEST_C3_R4 */
+	public static final IconEntry TILE_050 = PRISON_QUEST_C3_R4;
 	/** tile_051 */
-	public static final IconEntry TILE_051 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{48, 48, 16, 16}, 1471);
+	public static final IconEntry PRISON_QUEST_C4_R4 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{48, 48, 16, 16}, 1471);
+	/** semantic alias for PRISON_QUEST_C4_R4 */
+	public static final IconEntry TILE_051 = PRISON_QUEST_C4_R4;
 	/** tile_052 */
 	public static final IconEntry TILE_052 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{64, 48, 16, 16}, 1472);
 	/** tile_053 */
-	public static final IconEntry TILE_053 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{80, 48, 16, 16}, 1473);
+	public static final IconEntry PRISON_QUEST_C6_R4 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{80, 48, 16, 16}, 1473);
+	/** semantic alias for PRISON_QUEST_C6_R4 */
+	public static final IconEntry TILE_053 = PRISON_QUEST_C6_R4;
 	/** tile_054 */
-	public static final IconEntry TILE_054 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{96, 48, 16, 16}, 1474);
+	public static final IconEntry PRISON_QUEST_C7_R4 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{96, 48, 16, 16}, 1474);
+	/** semantic alias for PRISON_QUEST_C7_R4 */
+	public static final IconEntry TILE_054 = PRISON_QUEST_C7_R4;
 	/** tile_055 */
-	public static final IconEntry TILE_055 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{112, 48, 16, 16}, 1475);
+	public static final IconEntry PRISON_QUEST_C8_R4 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{112, 48, 16, 16}, 1475);
+	/** semantic alias for PRISON_QUEST_C8_R4 */
+	public static final IconEntry TILE_055 = PRISON_QUEST_C8_R4;
 	/** tile_056 */
-	public static final IconEntry TILE_056 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{128, 48, 16, 16}, 1476);
+	public static final IconEntry PRISON_QUEST_C9_R4 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{128, 48, 16, 16}, 1476);
+	/** semantic alias for PRISON_QUEST_C9_R4 */
+	public static final IconEntry TILE_056 = PRISON_QUEST_C9_R4;
 	/** tile_057 */
-	public static final IconEntry TILE_057 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{144, 48, 16, 16}, 1477);
+	public static final IconEntry PRISON_QUEST_C10_R4 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{144, 48, 16, 16}, 1477);
+	/** semantic alias for PRISON_QUEST_C10_R4 */
+	public static final IconEntry TILE_057 = PRISON_QUEST_C10_R4;
 	/** tile_058 */
-	public static final IconEntry TILE_058 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{160, 48, 16, 16}, 1478);
+	public static final IconEntry PRISON_QUEST_C11_R4 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{160, 48, 16, 16}, 1478);
+	/** semantic alias for PRISON_QUEST_C11_R4 */
+	public static final IconEntry TILE_058 = PRISON_QUEST_C11_R4;
 	/** tile_059 */
-	public static final IconEntry TILE_059 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{176, 48, 16, 16}, 1479);
+	public static final IconEntry PRISON_QUEST_C12_R4 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{176, 48, 16, 16}, 1479);
+	/** semantic alias for PRISON_QUEST_C12_R4 */
+	public static final IconEntry TILE_059 = PRISON_QUEST_C12_R4;
 	/** tile_060 */
-	public static final IconEntry TILE_060 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{192, 48, 16, 16}, 1480);
+	public static final IconEntry PRISON_QUEST_C13_R4 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{192, 48, 16, 16}, 1480);
+	/** semantic alias for PRISON_QUEST_C13_R4 */
+	public static final IconEntry TILE_060 = PRISON_QUEST_C13_R4;
 	/** tile_061 */
-	public static final IconEntry TILE_061 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{208, 48, 16, 16}, 1481);
+	public static final IconEntry PRISON_QUEST_C14_R4 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{208, 48, 16, 16}, 1481);
+	/** semantic alias for PRISON_QUEST_C14_R4 */
+	public static final IconEntry TILE_061 = PRISON_QUEST_C14_R4;
 	/** tile_062 */
 	public static final IconEntry TILE_062 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{224, 48, 16, 16}, 1482);
 	/** tile_063 */
 	public static final IconEntry TILE_063 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{240, 48, 16, 16}, 1483);
 	/** tile_064 */
-	public static final IconEntry TILE_064 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{0, 64, 16, 16}, 1484);
+	public static final IconEntry PRISON_QUEST_C1_R5 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{0, 64, 16, 16}, 1484);
+	/** semantic alias for PRISON_QUEST_C1_R5 */
+	public static final IconEntry TILE_064 = PRISON_QUEST_C1_R5;
 	/** tile_065 */
-	public static final IconEntry TILE_065 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{16, 64, 16, 16}, 1485);
+	public static final IconEntry PRISON_QUEST_C2_R5 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{16, 64, 16, 16}, 1485);
+	/** semantic alias for PRISON_QUEST_C2_R5 */
+	public static final IconEntry TILE_065 = PRISON_QUEST_C2_R5;
 	/** tile_066 */
-	public static final IconEntry TILE_066 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{32, 64, 16, 16}, 1486);
+	public static final IconEntry PRISON_QUEST_C3_R5 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{32, 64, 16, 16}, 1486);
+	/** semantic alias for PRISON_QUEST_C3_R5 */
+	public static final IconEntry TILE_066 = PRISON_QUEST_C3_R5;
 	/** tile_067 */
-	public static final IconEntry TILE_067 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{48, 64, 16, 16}, 1487);
+	public static final IconEntry PRISON_QUEST_C4_R5 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{48, 64, 16, 16}, 1487);
+	/** semantic alias for PRISON_QUEST_C4_R5 */
+	public static final IconEntry TILE_067 = PRISON_QUEST_C4_R5;
 	/** tile_068 */
-	public static final IconEntry TILE_068 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{64, 64, 16, 16}, 1488);
+	public static final IconEntry PRISON_QUEST_C5_R5 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{64, 64, 16, 16}, 1488);
+	/** semantic alias for PRISON_QUEST_C5_R5 */
+	public static final IconEntry TILE_068 = PRISON_QUEST_C5_R5;
 	/** tile_069 */
-	public static final IconEntry TILE_069 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{80, 64, 16, 16}, 1489);
+	public static final IconEntry PRISON_QUEST_C6_R5 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{80, 64, 16, 16}, 1489);
+	/** semantic alias for PRISON_QUEST_C6_R5 */
+	public static final IconEntry TILE_069 = PRISON_QUEST_C6_R5;
 	/** tile_070 */
-	public static final IconEntry TILE_070 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{96, 64, 16, 16}, 1490);
+	public static final IconEntry PRISON_QUEST_C7_R5 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{96, 64, 16, 16}, 1490);
+	/** semantic alias for PRISON_QUEST_C7_R5 */
+	public static final IconEntry TILE_070 = PRISON_QUEST_C7_R5;
 	/** tile_071 */
-	public static final IconEntry TILE_071 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{112, 64, 16, 16}, 1491);
+	public static final IconEntry PRISON_QUEST_C8_R5 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{112, 64, 16, 16}, 1491);
+	/** semantic alias for PRISON_QUEST_C8_R5 */
+	public static final IconEntry TILE_071 = PRISON_QUEST_C8_R5;
 	/** tile_072 */
-	public static final IconEntry TILE_072 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{128, 64, 16, 16}, 1492);
+	public static final IconEntry PRISON_QUEST_C9_R5 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{128, 64, 16, 16}, 1492);
+	/** semantic alias for PRISON_QUEST_C9_R5 */
+	public static final IconEntry TILE_072 = PRISON_QUEST_C9_R5;
 	/** tile_073 */
-	public static final IconEntry TILE_073 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{144, 64, 16, 16}, 1493);
+	public static final IconEntry PRISON_QUEST_C10_R5 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{144, 64, 16, 16}, 1493);
+	/** semantic alias for PRISON_QUEST_C10_R5 */
+	public static final IconEntry TILE_073 = PRISON_QUEST_C10_R5;
 	/** tile_074 */
-	public static final IconEntry TILE_074 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{160, 64, 16, 16}, 1494);
+	public static final IconEntry PRISON_QUEST_C11_R5 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{160, 64, 16, 16}, 1494);
+	/** semantic alias for PRISON_QUEST_C11_R5 */
+	public static final IconEntry TILE_074 = PRISON_QUEST_C11_R5;
 	/** tile_075 */
-	public static final IconEntry TILE_075 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{176, 64, 16, 16}, 1495);
+	public static final IconEntry PRISON_QUEST_C12_R5 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{176, 64, 16, 16}, 1495);
+	/** semantic alias for PRISON_QUEST_C12_R5 */
+	public static final IconEntry TILE_075 = PRISON_QUEST_C12_R5;
 	/** tile_076 */
-	public static final IconEntry TILE_076 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{192, 64, 16, 16}, 1496);
+	public static final IconEntry PRISON_QUEST_C13_R5 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{192, 64, 16, 16}, 1496);
+	/** semantic alias for PRISON_QUEST_C13_R5 */
+	public static final IconEntry TILE_076 = PRISON_QUEST_C13_R5;
 	/** tile_077 */
-	public static final IconEntry TILE_077 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{208, 64, 16, 16}, 1497);
+	public static final IconEntry PRISON_QUEST_C14_R5 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{208, 64, 16, 16}, 1497);
+	/** semantic alias for PRISON_QUEST_C14_R5 */
+	public static final IconEntry TILE_077 = PRISON_QUEST_C14_R5;
 	/** tile_078 */
 	public static final IconEntry TILE_078 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{224, 64, 16, 16}, 1498);
 	/** tile_079 */
@@ -175,31 +273,55 @@ public final class PrisonQuestDict {
 	/** tile_080 */
 	public static final IconEntry TILE_080 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{0, 80, 16, 16}, 1500);
 	/** tile_081 */
-	public static final IconEntry TILE_081 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{16, 80, 16, 16}, 1501);
+	public static final IconEntry PRISON_QUEST_C2_R6 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{16, 80, 16, 16}, 1501);
+	/** semantic alias for PRISON_QUEST_C2_R6 */
+	public static final IconEntry TILE_081 = PRISON_QUEST_C2_R6;
 	/** tile_082 */
-	public static final IconEntry TILE_082 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{32, 80, 16, 16}, 1502);
+	public static final IconEntry PRISON_QUEST_C3_R6 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{32, 80, 16, 16}, 1502);
+	/** semantic alias for PRISON_QUEST_C3_R6 */
+	public static final IconEntry TILE_082 = PRISON_QUEST_C3_R6;
 	/** tile_083 */
-	public static final IconEntry TILE_083 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{48, 80, 16, 16}, 1503);
+	public static final IconEntry PRISON_QUEST_C4_R6 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{48, 80, 16, 16}, 1503);
+	/** semantic alias for PRISON_QUEST_C4_R6 */
+	public static final IconEntry TILE_083 = PRISON_QUEST_C4_R6;
 	/** tile_084 */
 	public static final IconEntry TILE_084 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{64, 80, 16, 16}, 1504);
 	/** tile_085 */
-	public static final IconEntry TILE_085 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{80, 80, 16, 16}, 1505);
+	public static final IconEntry PRISON_QUEST_C6_R6 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{80, 80, 16, 16}, 1505);
+	/** semantic alias for PRISON_QUEST_C6_R6 */
+	public static final IconEntry TILE_085 = PRISON_QUEST_C6_R6;
 	/** tile_086 */
-	public static final IconEntry TILE_086 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{96, 80, 16, 16}, 1506);
+	public static final IconEntry PRISON_QUEST_C7_R6 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{96, 80, 16, 16}, 1506);
+	/** semantic alias for PRISON_QUEST_C7_R6 */
+	public static final IconEntry TILE_086 = PRISON_QUEST_C7_R6;
 	/** tile_087 */
-	public static final IconEntry TILE_087 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{112, 80, 16, 16}, 1507);
+	public static final IconEntry PRISON_QUEST_C8_R6 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{112, 80, 16, 16}, 1507);
+	/** semantic alias for PRISON_QUEST_C8_R6 */
+	public static final IconEntry TILE_087 = PRISON_QUEST_C8_R6;
 	/** tile_088 */
-	public static final IconEntry TILE_088 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{128, 80, 16, 16}, 1508);
+	public static final IconEntry PRISON_QUEST_C9_R6 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{128, 80, 16, 16}, 1508);
+	/** semantic alias for PRISON_QUEST_C9_R6 */
+	public static final IconEntry TILE_088 = PRISON_QUEST_C9_R6;
 	/** tile_089 */
-	public static final IconEntry TILE_089 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{144, 80, 16, 16}, 1509);
+	public static final IconEntry PRISON_QUEST_C10_R6 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{144, 80, 16, 16}, 1509);
+	/** semantic alias for PRISON_QUEST_C10_R6 */
+	public static final IconEntry TILE_089 = PRISON_QUEST_C10_R6;
 	/** tile_090 */
-	public static final IconEntry TILE_090 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{160, 80, 16, 16}, 1510);
+	public static final IconEntry PRISON_QUEST_C11_R6 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{160, 80, 16, 16}, 1510);
+	/** semantic alias for PRISON_QUEST_C11_R6 */
+	public static final IconEntry TILE_090 = PRISON_QUEST_C11_R6;
 	/** tile_091 */
-	public static final IconEntry TILE_091 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{176, 80, 16, 16}, 1511);
+	public static final IconEntry PRISON_QUEST_C12_R6 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{176, 80, 16, 16}, 1511);
+	/** semantic alias for PRISON_QUEST_C12_R6 */
+	public static final IconEntry TILE_091 = PRISON_QUEST_C12_R6;
 	/** tile_092 */
-	public static final IconEntry TILE_092 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{192, 80, 16, 16}, 1512);
+	public static final IconEntry PRISON_QUEST_C13_R6 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{192, 80, 16, 16}, 1512);
+	/** semantic alias for PRISON_QUEST_C13_R6 */
+	public static final IconEntry TILE_092 = PRISON_QUEST_C13_R6;
 	/** tile_093 */
-	public static final IconEntry TILE_093 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{208, 80, 16, 16}, 1513);
+	public static final IconEntry PRISON_QUEST_C14_R6 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{208, 80, 16, 16}, 1513);
+	/** semantic alias for PRISON_QUEST_C14_R6 */
+	public static final IconEntry TILE_093 = PRISON_QUEST_C14_R6;
 	/** tile_094 */
 	public static final IconEntry TILE_094 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{224, 80, 16, 16}, 1514);
 	/** tile_095 */
@@ -209,29 +331,49 @@ public final class PrisonQuestDict {
 	/** tile_097 */
 	public static final IconEntry TILE_097 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{16, 96, 16, 16}, 1517);
 	/** tile_098 */
-	public static final IconEntry TILE_098 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{32, 96, 16, 16}, 1518);
+	public static final IconEntry PRISON_QUEST_C3_R7 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{32, 96, 16, 16}, 1518);
+	/** semantic alias for PRISON_QUEST_C3_R7 */
+	public static final IconEntry TILE_098 = PRISON_QUEST_C3_R7;
 	/** tile_099 */
 	public static final IconEntry TILE_099 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{48, 96, 16, 16}, 1519);
 	/** tile_100 */
 	public static final IconEntry TILE_100 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{64, 96, 16, 16}, 1520);
 	/** tile_101 */
-	public static final IconEntry TILE_101 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{80, 96, 16, 16}, 1521);
+	public static final IconEntry PRISON_QUEST_C6_R7 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{80, 96, 16, 16}, 1521);
+	/** semantic alias for PRISON_QUEST_C6_R7 */
+	public static final IconEntry TILE_101 = PRISON_QUEST_C6_R7;
 	/** tile_102 */
-	public static final IconEntry TILE_102 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{96, 96, 16, 16}, 1522);
+	public static final IconEntry PRISON_QUEST_C7_R7 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{96, 96, 16, 16}, 1522);
+	/** semantic alias for PRISON_QUEST_C7_R7 */
+	public static final IconEntry TILE_102 = PRISON_QUEST_C7_R7;
 	/** tile_103 */
-	public static final IconEntry TILE_103 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{112, 96, 16, 16}, 1523);
+	public static final IconEntry PRISON_QUEST_C8_R7 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{112, 96, 16, 16}, 1523);
+	/** semantic alias for PRISON_QUEST_C8_R7 */
+	public static final IconEntry TILE_103 = PRISON_QUEST_C8_R7;
 	/** tile_104 */
-	public static final IconEntry TILE_104 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{128, 96, 16, 16}, 1524);
+	public static final IconEntry PRISON_QUEST_C9_R7 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{128, 96, 16, 16}, 1524);
+	/** semantic alias for PRISON_QUEST_C9_R7 */
+	public static final IconEntry TILE_104 = PRISON_QUEST_C9_R7;
 	/** tile_105 */
-	public static final IconEntry TILE_105 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{144, 96, 16, 16}, 1525);
+	public static final IconEntry PRISON_QUEST_C10_R7 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{144, 96, 16, 16}, 1525);
+	/** semantic alias for PRISON_QUEST_C10_R7 */
+	public static final IconEntry TILE_105 = PRISON_QUEST_C10_R7;
 	/** tile_106 */
-	public static final IconEntry TILE_106 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{160, 96, 16, 16}, 1526);
+	public static final IconEntry PRISON_QUEST_C11_R7 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{160, 96, 16, 16}, 1526);
+	/** semantic alias for PRISON_QUEST_C11_R7 */
+	public static final IconEntry TILE_106 = PRISON_QUEST_C11_R7;
 	/** tile_107 */
-	public static final IconEntry TILE_107 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{176, 96, 16, 16}, 1527);
+	public static final IconEntry PRISON_QUEST_C12_R7 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{176, 96, 16, 16}, 1527);
+	/** semantic alias for PRISON_QUEST_C12_R7 */
+	public static final IconEntry TILE_107 = PRISON_QUEST_C12_R7;
 	/** tile_108 */
-	public static final IconEntry TILE_108 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{192, 96, 16, 16}, 1528);
+	public static final IconEntry PRISON_QUEST_C13_R7 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{192, 96, 16, 16}, 1528);
+	/** semantic alias for PRISON_QUEST_C13_R7 */
+	public static final IconEntry TILE_108 = PRISON_QUEST_C13_R7;
 	/** tile_109 */
-	public static final IconEntry TILE_109 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{208, 96, 16, 16}, 1529);
+	public static final IconEntry PRISON_QUEST_C14_R7 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{208, 96, 16, 16}, 1529);
+	/** semantic alias for PRISON_QUEST_C14_R7 */
+	public static final IconEntry TILE_109 = PRISON_QUEST_C14_R7;
 	/** tile_110 */
 	public static final IconEntry TILE_110 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{224, 96, 16, 16}, 1530);
 	/** tile_111 */
@@ -247,11 +389,17 @@ public final class PrisonQuestDict {
 	/** tile_116 */
 	public static final IconEntry TILE_116 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{64, 112, 16, 16}, 1536);
 	/** tile_117 */
-	public static final IconEntry TILE_117 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{80, 112, 16, 16}, 1537);
+	public static final IconEntry PRISON_QUEST_C6_R8 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{80, 112, 16, 16}, 1537);
+	/** semantic alias for PRISON_QUEST_C6_R8 */
+	public static final IconEntry TILE_117 = PRISON_QUEST_C6_R8;
 	/** tile_118 */
-	public static final IconEntry TILE_118 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{96, 112, 16, 16}, 1538);
+	public static final IconEntry PRISON_QUEST_C7_R8 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{96, 112, 16, 16}, 1538);
+	/** semantic alias for PRISON_QUEST_C7_R8 */
+	public static final IconEntry TILE_118 = PRISON_QUEST_C7_R8;
 	/** tile_119 */
-	public static final IconEntry TILE_119 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{112, 112, 16, 16}, 1539);
+	public static final IconEntry PRISON_QUEST_C8_R8 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{112, 112, 16, 16}, 1539);
+	/** semantic alias for PRISON_QUEST_C8_R8 */
+	public static final IconEntry TILE_119 = PRISON_QUEST_C8_R8;
 	/** tile_120 */
 	public static final IconEntry TILE_120 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{128, 112, 16, 16}, 1540);
 	/** tile_121 */
@@ -259,11 +407,17 @@ public final class PrisonQuestDict {
 	/** tile_122 */
 	public static final IconEntry TILE_122 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{160, 112, 16, 16}, 1542);
 	/** tile_123 */
-	public static final IconEntry TILE_123 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{176, 112, 16, 16}, 1543);
+	public static final IconEntry PRISON_QUEST_C12_R8 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{176, 112, 16, 16}, 1543);
+	/** semantic alias for PRISON_QUEST_C12_R8 */
+	public static final IconEntry TILE_123 = PRISON_QUEST_C12_R8;
 	/** tile_124 */
-	public static final IconEntry TILE_124 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{192, 112, 16, 16}, 1544);
+	public static final IconEntry PRISON_QUEST_C13_R8 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{192, 112, 16, 16}, 1544);
+	/** semantic alias for PRISON_QUEST_C13_R8 */
+	public static final IconEntry TILE_124 = PRISON_QUEST_C13_R8;
 	/** tile_125 */
-	public static final IconEntry TILE_125 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{208, 112, 16, 16}, 1545);
+	public static final IconEntry PRISON_QUEST_C14_R8 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{208, 112, 16, 16}, 1545);
+	/** semantic alias for PRISON_QUEST_C14_R8 */
+	public static final IconEntry TILE_125 = PRISON_QUEST_C14_R8;
 	/** tile_126 */
 	public static final IconEntry TILE_126 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{224, 112, 16, 16}, 1546);
 	/** tile_127 */
@@ -279,9 +433,13 @@ public final class PrisonQuestDict {
 	/** tile_132 */
 	public static final IconEntry TILE_132 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{64, 128, 16, 16}, 1552);
 	/** tile_133 */
-	public static final IconEntry TILE_133 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{80, 128, 16, 16}, 1553);
+	public static final IconEntry PRISON_QUEST_C6_R9 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{80, 128, 16, 16}, 1553);
+	/** semantic alias for PRISON_QUEST_C6_R9 */
+	public static final IconEntry TILE_133 = PRISON_QUEST_C6_R9;
 	/** tile_134 */
-	public static final IconEntry TILE_134 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{96, 128, 16, 16}, 1554);
+	public static final IconEntry PRISON_QUEST_C7_R9 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{96, 128, 16, 16}, 1554);
+	/** semantic alias for PRISON_QUEST_C7_R9 */
+	public static final IconEntry TILE_134 = PRISON_QUEST_C7_R9;
 	/** tile_135 */
 	public static final IconEntry TILE_135 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{112, 128, 16, 16}, 1555);
 	/** tile_136 */
@@ -293,9 +451,13 @@ public final class PrisonQuestDict {
 	/** tile_139 */
 	public static final IconEntry TILE_139 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{176, 128, 16, 16}, 1559);
 	/** tile_140 */
-	public static final IconEntry TILE_140 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{192, 128, 16, 16}, 1560);
+	public static final IconEntry PRISON_QUEST_C13_R9 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{192, 128, 16, 16}, 1560);
+	/** semantic alias for PRISON_QUEST_C13_R9 */
+	public static final IconEntry TILE_140 = PRISON_QUEST_C13_R9;
 	/** tile_141 */
-	public static final IconEntry TILE_141 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{208, 128, 16, 16}, 1561);
+	public static final IconEntry PRISON_QUEST_C14_R9 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{208, 128, 16, 16}, 1561);
+	/** semantic alias for PRISON_QUEST_C14_R9 */
+	public static final IconEntry TILE_141 = PRISON_QUEST_C14_R9;
 	/** tile_142 */
 	public static final IconEntry TILE_142 = new IconEntry("environment/custom_tiles/prison_quest.png", new int[]{224, 128, 16, 16}, 1562);
 	/** tile_143 */

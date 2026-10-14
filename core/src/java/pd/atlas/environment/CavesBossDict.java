@@ -13,101 +13,195 @@ public final class CavesBossDict {
 	private CavesBossDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{0, 0, 16, 16}, 300);
+	public static final IconEntry CAVES_BOSS_C1_R1 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{0, 0, 16, 16}, 300);
+	/** semantic alias for CAVES_BOSS_C1_R1 */
+	public static final IconEntry TILE_000 = CAVES_BOSS_C1_R1;
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{16, 0, 16, 16}, 301);
+	public static final IconEntry CAVES_BOSS_C2_R1 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{16, 0, 16, 16}, 301);
+	/** semantic alias for CAVES_BOSS_C2_R1 */
+	public static final IconEntry TILE_001 = CAVES_BOSS_C2_R1;
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{32, 0, 16, 16}, 302);
+	public static final IconEntry CAVES_BOSS_C3_R1 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{32, 0, 16, 16}, 302);
+	/** semantic alias for CAVES_BOSS_C3_R1 */
+	public static final IconEntry TILE_002 = CAVES_BOSS_C3_R1;
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{48, 0, 16, 16}, 303);
+	public static final IconEntry CAVES_BOSS_C4_R1 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{48, 0, 16, 16}, 303);
+	/** semantic alias for CAVES_BOSS_C4_R1 */
+	public static final IconEntry TILE_003 = CAVES_BOSS_C4_R1;
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{64, 0, 16, 16}, 304);
+	public static final IconEntry CAVES_BOSS_C5_R1 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{64, 0, 16, 16}, 304);
+	/** semantic alias for CAVES_BOSS_C5_R1 */
+	public static final IconEntry TILE_004 = CAVES_BOSS_C5_R1;
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{80, 0, 16, 16}, 305);
+	public static final IconEntry CAVES_BOSS_C6_R1 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{80, 0, 16, 16}, 305);
+	/** semantic alias for CAVES_BOSS_C6_R1 */
+	public static final IconEntry TILE_005 = CAVES_BOSS_C6_R1;
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{96, 0, 16, 16}, 306);
+	public static final IconEntry CAVES_BOSS_C7_R1 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{96, 0, 16, 16}, 306);
+	/** semantic alias for CAVES_BOSS_C7_R1 */
+	public static final IconEntry TILE_006 = CAVES_BOSS_C7_R1;
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{112, 0, 16, 16}, 307);
+	public static final IconEntry CAVES_BOSS_C8_R1 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{112, 0, 16, 16}, 307);
+	/** semantic alias for CAVES_BOSS_C8_R1 */
+	public static final IconEntry TILE_007 = CAVES_BOSS_C8_R1;
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{0, 16, 16, 16}, 308);
+	public static final IconEntry CAVES_BOSS_C1_R2 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{0, 16, 16, 16}, 308);
+	/** semantic alias for CAVES_BOSS_C1_R2 */
+	public static final IconEntry TILE_008 = CAVES_BOSS_C1_R2;
 	/** tile_009 */
-	public static final IconEntry TILE_009 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{16, 16, 16, 16}, 309);
+	public static final IconEntry CAVES_BOSS_C2_R2 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{16, 16, 16, 16}, 309);
+	/** semantic alias for CAVES_BOSS_C2_R2 */
+	public static final IconEntry TILE_009 = CAVES_BOSS_C2_R2;
 	/** tile_010 */
-	public static final IconEntry TILE_010 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{32, 16, 16, 16}, 310);
+	public static final IconEntry CAVES_BOSS_C3_R2 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{32, 16, 16, 16}, 310);
+	/** semantic alias for CAVES_BOSS_C3_R2 */
+	public static final IconEntry TILE_010 = CAVES_BOSS_C3_R2;
 	/** tile_011 */
-	public static final IconEntry TILE_011 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{48, 16, 16, 16}, 311);
+	public static final IconEntry CAVES_BOSS_C4_R2 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{48, 16, 16, 16}, 311);
+	/** semantic alias for CAVES_BOSS_C4_R2 */
+	public static final IconEntry TILE_011 = CAVES_BOSS_C4_R2;
 	/** tile_012 */
-	public static final IconEntry TILE_012 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{64, 16, 16, 16}, 312);
+	public static final IconEntry CAVES_BOSS_C5_R2 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{64, 16, 16, 16}, 312);
+	/** semantic alias for CAVES_BOSS_C5_R2 */
+	public static final IconEntry TILE_012 = CAVES_BOSS_C5_R2;
 	/** tile_013 */
-	public static final IconEntry TILE_013 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{80, 16, 16, 16}, 313);
+	public static final IconEntry CAVES_BOSS_C6_R2 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{80, 16, 16, 16}, 313);
+	/** semantic alias for CAVES_BOSS_C6_R2 */
+	public static final IconEntry TILE_013 = CAVES_BOSS_C6_R2;
 	/** tile_014 */
-	public static final IconEntry TILE_014 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{96, 16, 16, 16}, 314);
+	public static final IconEntry CAVES_BOSS_C7_R2 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{96, 16, 16, 16}, 314);
+	/** semantic alias for CAVES_BOSS_C7_R2 */
+	public static final IconEntry TILE_014 = CAVES_BOSS_C7_R2;
 	/** tile_015 */
-	public static final IconEntry TILE_015 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{112, 16, 16, 16}, 315);
+	public static final IconEntry CAVES_BOSS_C8_R2 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{112, 16, 16, 16}, 315);
+	/** semantic alias for CAVES_BOSS_C8_R2 */
+	public static final IconEntry TILE_015 = CAVES_BOSS_C8_R2;
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{0, 32, 16, 16}, 316);
+	public static final IconEntry CAVES_BOSS_C1_R3 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{0, 32, 16, 16}, 316);
+	/** semantic alias for CAVES_BOSS_C1_R3 */
+	public static final IconEntry TILE_016 = CAVES_BOSS_C1_R3;
 	/** tile_017 */
-	public static final IconEntry TILE_017 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{16, 32, 16, 16}, 317);
+	public static final IconEntry CAVES_BOSS_C2_R3 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{16, 32, 16, 16}, 317);
+	/** semantic alias for CAVES_BOSS_C2_R3 */
+	public static final IconEntry TILE_017 = CAVES_BOSS_C2_R3;
 	/** tile_018 */
-	public static final IconEntry TILE_018 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{32, 32, 16, 16}, 318);
+	public static final IconEntry CAVES_BOSS_C3_R3 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{32, 32, 16, 16}, 318);
+	/** semantic alias for CAVES_BOSS_C3_R3 */
+	public static final IconEntry TILE_018 = CAVES_BOSS_C3_R3;
 	/** tile_019 */
-	public static final IconEntry TILE_019 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{48, 32, 16, 16}, 319);
+	public static final IconEntry CAVES_BOSS_C4_R3 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{48, 32, 16, 16}, 319);
+	/** semantic alias for CAVES_BOSS_C4_R3 */
+	public static final IconEntry TILE_019 = CAVES_BOSS_C4_R3;
 	/** tile_020 */
-	public static final IconEntry TILE_020 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{64, 32, 16, 16}, 320);
+	public static final IconEntry CAVES_BOSS_C5_R3 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{64, 32, 16, 16}, 320);
+	/** semantic alias for CAVES_BOSS_C5_R3 */
+	public static final IconEntry TILE_020 = CAVES_BOSS_C5_R3;
 	/** tile_021 */
-	public static final IconEntry TILE_021 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{80, 32, 16, 16}, 321);
+	public static final IconEntry CAVES_BOSS_C6_R3 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{80, 32, 16, 16}, 321);
+	/** semantic alias for CAVES_BOSS_C6_R3 */
+	public static final IconEntry TILE_021 = CAVES_BOSS_C6_R3;
 	/** tile_022 */
-	public static final IconEntry TILE_022 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{96, 32, 16, 16}, 322);
+	public static final IconEntry CAVES_BOSS_C7_R3 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{96, 32, 16, 16}, 322);
+	/** semantic alias for CAVES_BOSS_C7_R3 */
+	public static final IconEntry TILE_022 = CAVES_BOSS_C7_R3;
 	/** tile_023 */
-	public static final IconEntry TILE_023 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{112, 32, 16, 16}, 323);
+	public static final IconEntry CAVES_BOSS_C8_R3 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{112, 32, 16, 16}, 323);
+	/** semantic alias for CAVES_BOSS_C8_R3 */
+	public static final IconEntry TILE_023 = CAVES_BOSS_C8_R3;
 	/** tile_024 */
-	public static final IconEntry TILE_024 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{0, 48, 16, 16}, 324);
+	public static final IconEntry CAVES_BOSS_C1_R4 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{0, 48, 16, 16}, 324);
+	/** semantic alias for CAVES_BOSS_C1_R4 */
+	public static final IconEntry TILE_024 = CAVES_BOSS_C1_R4;
 	/** tile_025 */
-	public static final IconEntry TILE_025 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{16, 48, 16, 16}, 325);
+	public static final IconEntry CAVES_BOSS_C2_R4 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{16, 48, 16, 16}, 325);
+	/** semantic alias for CAVES_BOSS_C2_R4 */
+	public static final IconEntry TILE_025 = CAVES_BOSS_C2_R4;
 	/** tile_026 */
-	public static final IconEntry TILE_026 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{32, 48, 16, 16}, 326);
+	public static final IconEntry CAVES_BOSS_C3_R4 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{32, 48, 16, 16}, 326);
+	/** semantic alias for CAVES_BOSS_C3_R4 */
+	public static final IconEntry TILE_026 = CAVES_BOSS_C3_R4;
 	/** tile_027 */
-	public static final IconEntry TILE_027 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{48, 48, 16, 16}, 327);
+	public static final IconEntry CAVES_BOSS_C4_R4 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{48, 48, 16, 16}, 327);
+	/** semantic alias for CAVES_BOSS_C4_R4 */
+	public static final IconEntry TILE_027 = CAVES_BOSS_C4_R4;
 	/** tile_028 */
-	public static final IconEntry TILE_028 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{64, 48, 16, 16}, 328);
+	public static final IconEntry CAVES_BOSS_C5_R4 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{64, 48, 16, 16}, 328);
+	/** semantic alias for CAVES_BOSS_C5_R4 */
+	public static final IconEntry TILE_028 = CAVES_BOSS_C5_R4;
 	/** tile_029 */
-	public static final IconEntry TILE_029 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{80, 48, 16, 16}, 329);
+	public static final IconEntry CAVES_BOSS_C6_R4 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{80, 48, 16, 16}, 329);
+	/** semantic alias for CAVES_BOSS_C6_R4 */
+	public static final IconEntry TILE_029 = CAVES_BOSS_C6_R4;
 	/** tile_030 */
-	public static final IconEntry TILE_030 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{96, 48, 16, 16}, 330);
+	public static final IconEntry CAVES_BOSS_C7_R4 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{96, 48, 16, 16}, 330);
+	/** semantic alias for CAVES_BOSS_C7_R4 */
+	public static final IconEntry TILE_030 = CAVES_BOSS_C7_R4;
 	/** tile_031 */
-	public static final IconEntry TILE_031 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{112, 48, 16, 16}, 331);
+	public static final IconEntry CAVES_BOSS_C8_R4 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{112, 48, 16, 16}, 331);
+	/** semantic alias for CAVES_BOSS_C8_R4 */
+	public static final IconEntry TILE_031 = CAVES_BOSS_C8_R4;
 	/** tile_032 */
-	public static final IconEntry TILE_032 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{0, 64, 16, 16}, 332);
+	public static final IconEntry CAVES_BOSS_C1_R5 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{0, 64, 16, 16}, 332);
+	/** semantic alias for CAVES_BOSS_C1_R5 */
+	public static final IconEntry TILE_032 = CAVES_BOSS_C1_R5;
 	/** tile_033 */
-	public static final IconEntry TILE_033 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{16, 64, 16, 16}, 333);
+	public static final IconEntry CAVES_BOSS_C2_R5 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{16, 64, 16, 16}, 333);
+	/** semantic alias for CAVES_BOSS_C2_R5 */
+	public static final IconEntry TILE_033 = CAVES_BOSS_C2_R5;
 	/** tile_034 */
-	public static final IconEntry TILE_034 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{32, 64, 16, 16}, 334);
+	public static final IconEntry CAVES_BOSS_C3_R5 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{32, 64, 16, 16}, 334);
+	/** semantic alias for CAVES_BOSS_C3_R5 */
+	public static final IconEntry TILE_034 = CAVES_BOSS_C3_R5;
 	/** tile_035 */
-	public static final IconEntry TILE_035 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{48, 64, 16, 16}, 335);
+	public static final IconEntry CAVES_BOSS_C4_R5 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{48, 64, 16, 16}, 335);
+	/** semantic alias for CAVES_BOSS_C4_R5 */
+	public static final IconEntry TILE_035 = CAVES_BOSS_C4_R5;
 	/** tile_036 */
-	public static final IconEntry TILE_036 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{64, 64, 16, 16}, 336);
+	public static final IconEntry CAVES_BOSS_C5_R5 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{64, 64, 16, 16}, 336);
+	/** semantic alias for CAVES_BOSS_C5_R5 */
+	public static final IconEntry TILE_036 = CAVES_BOSS_C5_R5;
 	/** tile_037 */
-	public static final IconEntry TILE_037 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{80, 64, 16, 16}, 337);
+	public static final IconEntry CAVES_BOSS_C6_R5 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{80, 64, 16, 16}, 337);
+	/** semantic alias for CAVES_BOSS_C6_R5 */
+	public static final IconEntry TILE_037 = CAVES_BOSS_C6_R5;
 	/** tile_038 */
-	public static final IconEntry TILE_038 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{96, 64, 16, 16}, 338);
+	public static final IconEntry CAVES_BOSS_C7_R5 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{96, 64, 16, 16}, 338);
+	/** semantic alias for CAVES_BOSS_C7_R5 */
+	public static final IconEntry TILE_038 = CAVES_BOSS_C7_R5;
 	/** tile_039 */
 	public static final IconEntry TILE_039 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{112, 64, 16, 16}, 339);
 	/** tile_040 */
-	public static final IconEntry TILE_040 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{0, 80, 16, 16}, 340);
+	public static final IconEntry CAVES_BOSS_C1_R6 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{0, 80, 16, 16}, 340);
+	/** semantic alias for CAVES_BOSS_C1_R6 */
+	public static final IconEntry TILE_040 = CAVES_BOSS_C1_R6;
 	/** tile_041 */
-	public static final IconEntry TILE_041 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{16, 80, 16, 16}, 341);
+	public static final IconEntry CAVES_BOSS_C2_R6 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{16, 80, 16, 16}, 341);
+	/** semantic alias for CAVES_BOSS_C2_R6 */
+	public static final IconEntry TILE_041 = CAVES_BOSS_C2_R6;
 	/** tile_042 */
-	public static final IconEntry TILE_042 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{32, 80, 16, 16}, 342);
+	public static final IconEntry CAVES_BOSS_C3_R6 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{32, 80, 16, 16}, 342);
+	/** semantic alias for CAVES_BOSS_C3_R6 */
+	public static final IconEntry TILE_042 = CAVES_BOSS_C3_R6;
 	/** tile_043 */
-	public static final IconEntry TILE_043 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{48, 80, 16, 16}, 343);
+	public static final IconEntry CAVES_BOSS_C4_R6 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{48, 80, 16, 16}, 343);
+	/** semantic alias for CAVES_BOSS_C4_R6 */
+	public static final IconEntry TILE_043 = CAVES_BOSS_C4_R6;
 	/** tile_044 */
-	public static final IconEntry TILE_044 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{64, 80, 16, 16}, 344);
+	public static final IconEntry CAVES_BOSS_C5_R6 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{64, 80, 16, 16}, 344);
+	/** semantic alias for CAVES_BOSS_C5_R6 */
+	public static final IconEntry TILE_044 = CAVES_BOSS_C5_R6;
 	/** tile_045 */
-	public static final IconEntry TILE_045 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{80, 80, 16, 16}, 345);
+	public static final IconEntry CAVES_BOSS_C6_R6 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{80, 80, 16, 16}, 345);
+	/** semantic alias for CAVES_BOSS_C6_R6 */
+	public static final IconEntry TILE_045 = CAVES_BOSS_C6_R6;
 	/** tile_046 */
-	public static final IconEntry TILE_046 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{96, 80, 16, 16}, 346);
+	public static final IconEntry CAVES_BOSS_C7_R6 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{96, 80, 16, 16}, 346);
+	/** semantic alias for CAVES_BOSS_C7_R6 */
+	public static final IconEntry TILE_046 = CAVES_BOSS_C7_R6;
 	/** tile_047 */
-	public static final IconEntry TILE_047 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{112, 80, 16, 16}, 347);
+	public static final IconEntry CAVES_BOSS_C8_R6 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{112, 80, 16, 16}, 347);
+	/** semantic alias for CAVES_BOSS_C8_R6 */
+	public static final IconEntry TILE_047 = CAVES_BOSS_C8_R6;
 	/** tile_048 */
 	public static final IconEntry TILE_048 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{0, 96, 16, 16}, 348);
 	/** tile_049 */
@@ -119,11 +213,15 @@ public final class CavesBossDict {
 	/** tile_052 */
 	public static final IconEntry TILE_052 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{64, 96, 16, 16}, 352);
 	/** tile_053 */
-	public static final IconEntry TILE_053 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{80, 96, 16, 16}, 353);
+	public static final IconEntry CAVES_BOSS_C6_R7 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{80, 96, 16, 16}, 353);
+	/** semantic alias for CAVES_BOSS_C6_R7 */
+	public static final IconEntry TILE_053 = CAVES_BOSS_C6_R7;
 	/** tile_054 */
 	public static final IconEntry TILE_054 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{96, 96, 16, 16}, 354);
 	/** tile_055 */
-	public static final IconEntry TILE_055 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{112, 96, 16, 16}, 355);
+	public static final IconEntry CAVES_BOSS_C8_R7 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{112, 96, 16, 16}, 355);
+	/** semantic alias for CAVES_BOSS_C8_R7 */
+	public static final IconEntry TILE_055 = CAVES_BOSS_C8_R7;
 	/** tile_056 */
 	public static final IconEntry TILE_056 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{0, 112, 16, 16}, 356);
 	/** tile_057 */
@@ -135,9 +233,15 @@ public final class CavesBossDict {
 	/** tile_060 */
 	public static final IconEntry TILE_060 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{64, 112, 16, 16}, 360);
 	/** tile_061 */
-	public static final IconEntry TILE_061 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{80, 112, 16, 16}, 361);
+	public static final IconEntry CAVES_BOSS_C6_R8 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{80, 112, 16, 16}, 361);
+	/** semantic alias for CAVES_BOSS_C6_R8 */
+	public static final IconEntry TILE_061 = CAVES_BOSS_C6_R8;
 	/** tile_062 */
-	public static final IconEntry TILE_062 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{96, 112, 16, 16}, 362);
+	public static final IconEntry CAVES_BOSS_C7_R8 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{96, 112, 16, 16}, 362);
+	/** semantic alias for CAVES_BOSS_C7_R8 */
+	public static final IconEntry TILE_062 = CAVES_BOSS_C7_R8;
 	/** tile_063 */
-	public static final IconEntry TILE_063 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{112, 112, 16, 16}, 363);
+	public static final IconEntry CAVES_BOSS_C8_R8 = new IconEntry("environment/custom_tiles/caves_boss.png", new int[]{112, 112, 16, 16}, 363);
+	/** semantic alias for CAVES_BOSS_C8_R8 */
+	public static final IconEntry TILE_063 = CAVES_BOSS_C8_R8;
 }

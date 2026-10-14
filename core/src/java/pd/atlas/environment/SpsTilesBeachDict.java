@@ -13,49 +13,91 @@ public final class SpsTilesBeachDict {
 	private SpsTilesBeachDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{0, 0, 16, 16}, 1812);
+	public static final IconEntry SPS_TILES_BEACH_C1_R1 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{0, 0, 16, 16}, 1812);
+	/** semantic alias for SPS_TILES_BEACH_C1_R1 */
+	public static final IconEntry TILE_000 = SPS_TILES_BEACH_C1_R1;
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{16, 0, 16, 16}, 1813);
+	public static final IconEntry SPS_TILES_BEACH_C2_R1 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{16, 0, 16, 16}, 1813);
+	/** semantic alias for SPS_TILES_BEACH_C2_R1 */
+	public static final IconEntry TILE_001 = SPS_TILES_BEACH_C2_R1;
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{32, 0, 16, 16}, 1814);
+	public static final IconEntry SPS_TILES_BEACH_C3_R1 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{32, 0, 16, 16}, 1814);
+	/** semantic alias for SPS_TILES_BEACH_C3_R1 */
+	public static final IconEntry TILE_002 = SPS_TILES_BEACH_C3_R1;
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{48, 0, 16, 16}, 1815);
+	public static final IconEntry SPS_TILES_BEACH_C4_R1 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{48, 0, 16, 16}, 1815);
+	/** semantic alias for SPS_TILES_BEACH_C4_R1 */
+	public static final IconEntry TILE_003 = SPS_TILES_BEACH_C4_R1;
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{64, 0, 16, 16}, 1816);
+	public static final IconEntry SPS_TILES_BEACH_C5_R1 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{64, 0, 16, 16}, 1816);
+	/** semantic alias for SPS_TILES_BEACH_C5_R1 */
+	public static final IconEntry TILE_004 = SPS_TILES_BEACH_C5_R1;
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{80, 0, 16, 16}, 1817);
+	public static final IconEntry SPS_TILES_BEACH_C6_R1 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{80, 0, 16, 16}, 1817);
+	/** semantic alias for SPS_TILES_BEACH_C6_R1 */
+	public static final IconEntry TILE_005 = SPS_TILES_BEACH_C6_R1;
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{96, 0, 16, 16}, 1818);
+	public static final IconEntry SPS_TILES_BEACH_C7_R1 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{96, 0, 16, 16}, 1818);
+	/** semantic alias for SPS_TILES_BEACH_C7_R1 */
+	public static final IconEntry TILE_006 = SPS_TILES_BEACH_C7_R1;
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{112, 0, 16, 16}, 1819);
+	public static final IconEntry SPS_TILES_BEACH_C8_R1 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{112, 0, 16, 16}, 1819);
+	/** semantic alias for SPS_TILES_BEACH_C8_R1 */
+	public static final IconEntry TILE_007 = SPS_TILES_BEACH_C8_R1;
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{128, 0, 16, 16}, 1820);
+	public static final IconEntry SPS_TILES_BEACH_C9_R1 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{128, 0, 16, 16}, 1820);
+	/** semantic alias for SPS_TILES_BEACH_C9_R1 */
+	public static final IconEntry TILE_008 = SPS_TILES_BEACH_C9_R1;
 	/** tile_009 */
-	public static final IconEntry TILE_009 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{144, 0, 16, 16}, 1821);
+	public static final IconEntry SPS_TILES_BEACH_C10_R1 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{144, 0, 16, 16}, 1821);
+	/** semantic alias for SPS_TILES_BEACH_C10_R1 */
+	public static final IconEntry TILE_009 = SPS_TILES_BEACH_C10_R1;
 	/** tile_010 */
-	public static final IconEntry TILE_010 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{160, 0, 16, 16}, 1822);
+	public static final IconEntry SPS_TILES_BEACH_C11_R1 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{160, 0, 16, 16}, 1822);
+	/** semantic alias for SPS_TILES_BEACH_C11_R1 */
+	public static final IconEntry TILE_010 = SPS_TILES_BEACH_C11_R1;
 	/** tile_011 */
-	public static final IconEntry TILE_011 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{176, 0, 16, 16}, 1823);
+	public static final IconEntry SPS_TILES_BEACH_C12_R1 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{176, 0, 16, 16}, 1823);
+	/** semantic alias for SPS_TILES_BEACH_C12_R1 */
+	public static final IconEntry TILE_011 = SPS_TILES_BEACH_C12_R1;
 	/** tile_012 */
-	public static final IconEntry TILE_012 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{192, 0, 16, 16}, 1824);
+	public static final IconEntry SPS_TILES_BEACH_C13_R1 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{192, 0, 16, 16}, 1824);
+	/** semantic alias for SPS_TILES_BEACH_C13_R1 */
+	public static final IconEntry TILE_012 = SPS_TILES_BEACH_C13_R1;
 	/** tile_013 */
-	public static final IconEntry TILE_013 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{208, 0, 16, 16}, 1825);
+	public static final IconEntry SPS_TILES_BEACH_C14_R1 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{208, 0, 16, 16}, 1825);
+	/** semantic alias for SPS_TILES_BEACH_C14_R1 */
+	public static final IconEntry TILE_013 = SPS_TILES_BEACH_C14_R1;
 	/** tile_014 */
-	public static final IconEntry TILE_014 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{224, 0, 16, 16}, 1826);
+	public static final IconEntry SPS_TILES_BEACH_C15_R1 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{224, 0, 16, 16}, 1826);
+	/** semantic alias for SPS_TILES_BEACH_C15_R1 */
+	public static final IconEntry TILE_014 = SPS_TILES_BEACH_C15_R1;
 	/** tile_015 */
-	public static final IconEntry TILE_015 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{240, 0, 16, 16}, 1827);
+	public static final IconEntry SPS_TILES_BEACH_C16_R1 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{240, 0, 16, 16}, 1827);
+	/** semantic alias for SPS_TILES_BEACH_C16_R1 */
+	public static final IconEntry TILE_015 = SPS_TILES_BEACH_C16_R1;
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{0, 16, 16, 16}, 1828);
+	public static final IconEntry SPS_TILES_BEACH_C1_R2 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{0, 16, 16, 16}, 1828);
+	/** semantic alias for SPS_TILES_BEACH_C1_R2 */
+	public static final IconEntry TILE_016 = SPS_TILES_BEACH_C1_R2;
 	/** tile_017 */
-	public static final IconEntry TILE_017 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{16, 16, 16, 16}, 1829);
+	public static final IconEntry SPS_TILES_BEACH_C2_R2 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{16, 16, 16, 16}, 1829);
+	/** semantic alias for SPS_TILES_BEACH_C2_R2 */
+	public static final IconEntry TILE_017 = SPS_TILES_BEACH_C2_R2;
 	/** tile_018 */
-	public static final IconEntry TILE_018 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{32, 16, 16, 16}, 1830);
+	public static final IconEntry SPS_TILES_BEACH_C3_R2 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{32, 16, 16, 16}, 1830);
+	/** semantic alias for SPS_TILES_BEACH_C3_R2 */
+	public static final IconEntry TILE_018 = SPS_TILES_BEACH_C3_R2;
 	/** tile_019 */
-	public static final IconEntry TILE_019 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{48, 16, 16, 16}, 1831);
+	public static final IconEntry SPS_TILES_BEACH_C4_R2 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{48, 16, 16, 16}, 1831);
+	/** semantic alias for SPS_TILES_BEACH_C4_R2 */
+	public static final IconEntry TILE_019 = SPS_TILES_BEACH_C4_R2;
 	/** tile_020 */
 	public static final IconEntry TILE_020 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{64, 16, 16, 16}, 1832);
 	/** tile_021 */
-	public static final IconEntry TILE_021 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{80, 16, 16, 16}, 1833);
+	public static final IconEntry SPS_TILES_BEACH_C6_R2 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{80, 16, 16, 16}, 1833);
+	/** semantic alias for SPS_TILES_BEACH_C6_R2 */
+	public static final IconEntry TILE_021 = SPS_TILES_BEACH_C6_R2;
 	/** tile_022 */
 	public static final IconEntry TILE_022 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{96, 16, 16, 16}, 1834);
 	/** tile_023 */
@@ -63,81 +105,157 @@ public final class SpsTilesBeachDict {
 	/** tile_024 */
 	public static final IconEntry TILE_024 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{128, 16, 16, 16}, 1836);
 	/** tile_025 */
-	public static final IconEntry TILE_025 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{144, 16, 16, 16}, 1837);
+	public static final IconEntry SPS_TILES_BEACH_C10_R2 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{144, 16, 16, 16}, 1837);
+	/** semantic alias for SPS_TILES_BEACH_C10_R2 */
+	public static final IconEntry TILE_025 = SPS_TILES_BEACH_C10_R2;
 	/** tile_026 */
-	public static final IconEntry TILE_026 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{160, 16, 16, 16}, 1838);
+	public static final IconEntry SPS_TILES_BEACH_C11_R2 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{160, 16, 16, 16}, 1838);
+	/** semantic alias for SPS_TILES_BEACH_C11_R2 */
+	public static final IconEntry TILE_026 = SPS_TILES_BEACH_C11_R2;
 	/** tile_027 */
-	public static final IconEntry TILE_027 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{176, 16, 16, 16}, 1839);
+	public static final IconEntry SPS_TILES_BEACH_C12_R2 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{176, 16, 16, 16}, 1839);
+	/** semantic alias for SPS_TILES_BEACH_C12_R2 */
+	public static final IconEntry TILE_027 = SPS_TILES_BEACH_C12_R2;
 	/** tile_028 */
-	public static final IconEntry TILE_028 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{192, 16, 16, 16}, 1840);
+	public static final IconEntry SPS_TILES_BEACH_C13_R2 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{192, 16, 16, 16}, 1840);
+	/** semantic alias for SPS_TILES_BEACH_C13_R2 */
+	public static final IconEntry TILE_028 = SPS_TILES_BEACH_C13_R2;
 	/** tile_029 */
-	public static final IconEntry TILE_029 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{208, 16, 16, 16}, 1841);
+	public static final IconEntry SPS_TILES_BEACH_C14_R2 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{208, 16, 16, 16}, 1841);
+	/** semantic alias for SPS_TILES_BEACH_C14_R2 */
+	public static final IconEntry TILE_029 = SPS_TILES_BEACH_C14_R2;
 	/** tile_030 */
-	public static final IconEntry TILE_030 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{224, 16, 16, 16}, 1842);
+	public static final IconEntry SPS_TILES_BEACH_C15_R2 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{224, 16, 16, 16}, 1842);
+	/** semantic alias for SPS_TILES_BEACH_C15_R2 */
+	public static final IconEntry TILE_030 = SPS_TILES_BEACH_C15_R2;
 	/** tile_031 */
-	public static final IconEntry TILE_031 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{240, 16, 16, 16}, 1843);
+	public static final IconEntry SPS_TILES_BEACH_C16_R2 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{240, 16, 16, 16}, 1843);
+	/** semantic alias for SPS_TILES_BEACH_C16_R2 */
+	public static final IconEntry TILE_031 = SPS_TILES_BEACH_C16_R2;
 	/** tile_032 */
-	public static final IconEntry TILE_032 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{0, 32, 16, 16}, 1844);
+	public static final IconEntry SPS_TILES_BEACH_C1_R3 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{0, 32, 16, 16}, 1844);
+	/** semantic alias for SPS_TILES_BEACH_C1_R3 */
+	public static final IconEntry TILE_032 = SPS_TILES_BEACH_C1_R3;
 	/** tile_033 */
-	public static final IconEntry TILE_033 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{16, 32, 16, 16}, 1845);
+	public static final IconEntry SPS_TILES_BEACH_C2_R3 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{16, 32, 16, 16}, 1845);
+	/** semantic alias for SPS_TILES_BEACH_C2_R3 */
+	public static final IconEntry TILE_033 = SPS_TILES_BEACH_C2_R3;
 	/** tile_034 */
-	public static final IconEntry TILE_034 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{32, 32, 16, 16}, 1846);
+	public static final IconEntry SPS_TILES_BEACH_C3_R3 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{32, 32, 16, 16}, 1846);
+	/** semantic alias for SPS_TILES_BEACH_C3_R3 */
+	public static final IconEntry TILE_034 = SPS_TILES_BEACH_C3_R3;
 	/** tile_035 */
-	public static final IconEntry TILE_035 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{48, 32, 16, 16}, 1847);
+	public static final IconEntry SPS_TILES_BEACH_C4_R3 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{48, 32, 16, 16}, 1847);
+	/** semantic alias for SPS_TILES_BEACH_C4_R3 */
+	public static final IconEntry TILE_035 = SPS_TILES_BEACH_C4_R3;
 	/** tile_036 */
-	public static final IconEntry TILE_036 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{64, 32, 16, 16}, 1848);
+	public static final IconEntry SPS_TILES_BEACH_C5_R3 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{64, 32, 16, 16}, 1848);
+	/** semantic alias for SPS_TILES_BEACH_C5_R3 */
+	public static final IconEntry TILE_036 = SPS_TILES_BEACH_C5_R3;
 	/** tile_037 */
-	public static final IconEntry TILE_037 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{80, 32, 16, 16}, 1849);
+	public static final IconEntry SPS_TILES_BEACH_C6_R3 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{80, 32, 16, 16}, 1849);
+	/** semantic alias for SPS_TILES_BEACH_C6_R3 */
+	public static final IconEntry TILE_037 = SPS_TILES_BEACH_C6_R3;
 	/** tile_038 */
-	public static final IconEntry TILE_038 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{96, 32, 16, 16}, 1850);
+	public static final IconEntry SPS_TILES_BEACH_C7_R3 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{96, 32, 16, 16}, 1850);
+	/** semantic alias for SPS_TILES_BEACH_C7_R3 */
+	public static final IconEntry TILE_038 = SPS_TILES_BEACH_C7_R3;
 	/** tile_039 */
-	public static final IconEntry TILE_039 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{112, 32, 16, 16}, 1851);
+	public static final IconEntry SPS_TILES_BEACH_C8_R3 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{112, 32, 16, 16}, 1851);
+	/** semantic alias for SPS_TILES_BEACH_C8_R3 */
+	public static final IconEntry TILE_039 = SPS_TILES_BEACH_C8_R3;
 	/** tile_040 */
-	public static final IconEntry TILE_040 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{128, 32, 16, 16}, 1852);
+	public static final IconEntry SPS_TILES_BEACH_C9_R3 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{128, 32, 16, 16}, 1852);
+	/** semantic alias for SPS_TILES_BEACH_C9_R3 */
+	public static final IconEntry TILE_040 = SPS_TILES_BEACH_C9_R3;
 	/** tile_041 */
-	public static final IconEntry TILE_041 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{144, 32, 16, 16}, 1853);
+	public static final IconEntry SPS_TILES_BEACH_C10_R3 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{144, 32, 16, 16}, 1853);
+	/** semantic alias for SPS_TILES_BEACH_C10_R3 */
+	public static final IconEntry TILE_041 = SPS_TILES_BEACH_C10_R3;
 	/** tile_042 */
-	public static final IconEntry TILE_042 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{160, 32, 16, 16}, 1854);
+	public static final IconEntry SPS_TILES_BEACH_C11_R3 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{160, 32, 16, 16}, 1854);
+	/** semantic alias for SPS_TILES_BEACH_C11_R3 */
+	public static final IconEntry TILE_042 = SPS_TILES_BEACH_C11_R3;
 	/** tile_043 */
-	public static final IconEntry TILE_043 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{176, 32, 16, 16}, 1855);
+	public static final IconEntry SPS_TILES_BEACH_C12_R3 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{176, 32, 16, 16}, 1855);
+	/** semantic alias for SPS_TILES_BEACH_C12_R3 */
+	public static final IconEntry TILE_043 = SPS_TILES_BEACH_C12_R3;
 	/** tile_044 */
-	public static final IconEntry TILE_044 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{192, 32, 16, 16}, 1856);
+	public static final IconEntry SPS_TILES_BEACH_C13_R3 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{192, 32, 16, 16}, 1856);
+	/** semantic alias for SPS_TILES_BEACH_C13_R3 */
+	public static final IconEntry TILE_044 = SPS_TILES_BEACH_C13_R3;
 	/** tile_045 */
-	public static final IconEntry TILE_045 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{208, 32, 16, 16}, 1857);
+	public static final IconEntry SPS_TILES_BEACH_C14_R3 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{208, 32, 16, 16}, 1857);
+	/** semantic alias for SPS_TILES_BEACH_C14_R3 */
+	public static final IconEntry TILE_045 = SPS_TILES_BEACH_C14_R3;
 	/** tile_046 */
-	public static final IconEntry TILE_046 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{224, 32, 16, 16}, 1858);
+	public static final IconEntry SPS_TILES_BEACH_C15_R3 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{224, 32, 16, 16}, 1858);
+	/** semantic alias for SPS_TILES_BEACH_C15_R3 */
+	public static final IconEntry TILE_046 = SPS_TILES_BEACH_C15_R3;
 	/** tile_047 */
-	public static final IconEntry TILE_047 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{240, 32, 16, 16}, 1859);
+	public static final IconEntry SPS_TILES_BEACH_C16_R3 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{240, 32, 16, 16}, 1859);
+	/** semantic alias for SPS_TILES_BEACH_C16_R3 */
+	public static final IconEntry TILE_047 = SPS_TILES_BEACH_C16_R3;
 	/** tile_048 */
-	public static final IconEntry TILE_048 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{0, 48, 16, 16}, 1860);
+	public static final IconEntry SPS_TILES_BEACH_C1_R4 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{0, 48, 16, 16}, 1860);
+	/** semantic alias for SPS_TILES_BEACH_C1_R4 */
+	public static final IconEntry TILE_048 = SPS_TILES_BEACH_C1_R4;
 	/** tile_049 */
-	public static final IconEntry TILE_049 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{16, 48, 16, 16}, 1861);
+	public static final IconEntry SPS_TILES_BEACH_C2_R4 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{16, 48, 16, 16}, 1861);
+	/** semantic alias for SPS_TILES_BEACH_C2_R4 */
+	public static final IconEntry TILE_049 = SPS_TILES_BEACH_C2_R4;
 	/** tile_050 */
-	public static final IconEntry TILE_050 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{32, 48, 16, 16}, 1862);
+	public static final IconEntry SPS_TILES_BEACH_C3_R4 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{32, 48, 16, 16}, 1862);
+	/** semantic alias for SPS_TILES_BEACH_C3_R4 */
+	public static final IconEntry TILE_050 = SPS_TILES_BEACH_C3_R4;
 	/** tile_051 */
-	public static final IconEntry TILE_051 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{48, 48, 16, 16}, 1863);
+	public static final IconEntry SPS_TILES_BEACH_C4_R4 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{48, 48, 16, 16}, 1863);
+	/** semantic alias for SPS_TILES_BEACH_C4_R4 */
+	public static final IconEntry TILE_051 = SPS_TILES_BEACH_C4_R4;
 	/** tile_052 */
-	public static final IconEntry TILE_052 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{64, 48, 16, 16}, 1864);
+	public static final IconEntry SPS_TILES_BEACH_C5_R4 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{64, 48, 16, 16}, 1864);
+	/** semantic alias for SPS_TILES_BEACH_C5_R4 */
+	public static final IconEntry TILE_052 = SPS_TILES_BEACH_C5_R4;
 	/** tile_053 */
-	public static final IconEntry TILE_053 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{80, 48, 16, 16}, 1865);
+	public static final IconEntry SPS_TILES_BEACH_C6_R4 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{80, 48, 16, 16}, 1865);
+	/** semantic alias for SPS_TILES_BEACH_C6_R4 */
+	public static final IconEntry TILE_053 = SPS_TILES_BEACH_C6_R4;
 	/** tile_054 */
-	public static final IconEntry TILE_054 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{96, 48, 16, 16}, 1866);
+	public static final IconEntry SPS_TILES_BEACH_C7_R4 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{96, 48, 16, 16}, 1866);
+	/** semantic alias for SPS_TILES_BEACH_C7_R4 */
+	public static final IconEntry TILE_054 = SPS_TILES_BEACH_C7_R4;
 	/** tile_055 */
-	public static final IconEntry TILE_055 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{112, 48, 16, 16}, 1867);
+	public static final IconEntry SPS_TILES_BEACH_C8_R4 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{112, 48, 16, 16}, 1867);
+	/** semantic alias for SPS_TILES_BEACH_C8_R4 */
+	public static final IconEntry TILE_055 = SPS_TILES_BEACH_C8_R4;
 	/** tile_056 */
-	public static final IconEntry TILE_056 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{128, 48, 16, 16}, 1868);
+	public static final IconEntry SPS_TILES_BEACH_C9_R4 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{128, 48, 16, 16}, 1868);
+	/** semantic alias for SPS_TILES_BEACH_C9_R4 */
+	public static final IconEntry TILE_056 = SPS_TILES_BEACH_C9_R4;
 	/** tile_057 */
-	public static final IconEntry TILE_057 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{144, 48, 16, 16}, 1869);
+	public static final IconEntry SPS_TILES_BEACH_C10_R4 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{144, 48, 16, 16}, 1869);
+	/** semantic alias for SPS_TILES_BEACH_C10_R4 */
+	public static final IconEntry TILE_057 = SPS_TILES_BEACH_C10_R4;
 	/** tile_058 */
-	public static final IconEntry TILE_058 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{160, 48, 16, 16}, 1870);
+	public static final IconEntry SPS_TILES_BEACH_C11_R4 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{160, 48, 16, 16}, 1870);
+	/** semantic alias for SPS_TILES_BEACH_C11_R4 */
+	public static final IconEntry TILE_058 = SPS_TILES_BEACH_C11_R4;
 	/** tile_059 */
-	public static final IconEntry TILE_059 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{176, 48, 16, 16}, 1871);
+	public static final IconEntry SPS_TILES_BEACH_C12_R4 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{176, 48, 16, 16}, 1871);
+	/** semantic alias for SPS_TILES_BEACH_C12_R4 */
+	public static final IconEntry TILE_059 = SPS_TILES_BEACH_C12_R4;
 	/** tile_060 */
-	public static final IconEntry TILE_060 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{192, 48, 16, 16}, 1872);
+	public static final IconEntry SPS_TILES_BEACH_C13_R4 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{192, 48, 16, 16}, 1872);
+	/** semantic alias for SPS_TILES_BEACH_C13_R4 */
+	public static final IconEntry TILE_060 = SPS_TILES_BEACH_C13_R4;
 	/** tile_061 */
-	public static final IconEntry TILE_061 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{208, 48, 16, 16}, 1873);
+	public static final IconEntry SPS_TILES_BEACH_C14_R4 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{208, 48, 16, 16}, 1873);
+	/** semantic alias for SPS_TILES_BEACH_C14_R4 */
+	public static final IconEntry TILE_061 = SPS_TILES_BEACH_C14_R4;
 	/** tile_062 */
-	public static final IconEntry TILE_062 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{224, 48, 16, 16}, 1874);
+	public static final IconEntry SPS_TILES_BEACH_C15_R4 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{224, 48, 16, 16}, 1874);
+	/** semantic alias for SPS_TILES_BEACH_C15_R4 */
+	public static final IconEntry TILE_062 = SPS_TILES_BEACH_C15_R4;
 	/** tile_063 */
 	public static final IconEntry TILE_063 = new IconEntry("environment/tiles/sps_tiles_beach.png", new int[]{240, 48, 16, 16}, 1875);
 }

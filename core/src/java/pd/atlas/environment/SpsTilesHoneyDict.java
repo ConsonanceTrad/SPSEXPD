@@ -13,49 +13,91 @@ public final class SpsTilesHoneyDict {
 	private SpsTilesHoneyDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{0, 0, 16, 16}, 2132);
+	public static final IconEntry SPS_TILES_HONEY_C1_R1 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{0, 0, 16, 16}, 2132);
+	/** semantic alias for SPS_TILES_HONEY_C1_R1 */
+	public static final IconEntry TILE_000 = SPS_TILES_HONEY_C1_R1;
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{16, 0, 16, 16}, 2133);
+	public static final IconEntry SPS_TILES_HONEY_C2_R1 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{16, 0, 16, 16}, 2133);
+	/** semantic alias for SPS_TILES_HONEY_C2_R1 */
+	public static final IconEntry TILE_001 = SPS_TILES_HONEY_C2_R1;
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{32, 0, 16, 16}, 2134);
+	public static final IconEntry SPS_TILES_HONEY_C3_R1 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{32, 0, 16, 16}, 2134);
+	/** semantic alias for SPS_TILES_HONEY_C3_R1 */
+	public static final IconEntry TILE_002 = SPS_TILES_HONEY_C3_R1;
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{48, 0, 16, 16}, 2135);
+	public static final IconEntry SPS_TILES_HONEY_C4_R1 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{48, 0, 16, 16}, 2135);
+	/** semantic alias for SPS_TILES_HONEY_C4_R1 */
+	public static final IconEntry TILE_003 = SPS_TILES_HONEY_C4_R1;
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{64, 0, 16, 16}, 2136);
+	public static final IconEntry SPS_TILES_HONEY_C5_R1 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{64, 0, 16, 16}, 2136);
+	/** semantic alias for SPS_TILES_HONEY_C5_R1 */
+	public static final IconEntry TILE_004 = SPS_TILES_HONEY_C5_R1;
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{80, 0, 16, 16}, 2137);
+	public static final IconEntry SPS_TILES_HONEY_C6_R1 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{80, 0, 16, 16}, 2137);
+	/** semantic alias for SPS_TILES_HONEY_C6_R1 */
+	public static final IconEntry TILE_005 = SPS_TILES_HONEY_C6_R1;
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{96, 0, 16, 16}, 2138);
+	public static final IconEntry SPS_TILES_HONEY_C7_R1 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{96, 0, 16, 16}, 2138);
+	/** semantic alias for SPS_TILES_HONEY_C7_R1 */
+	public static final IconEntry TILE_006 = SPS_TILES_HONEY_C7_R1;
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{112, 0, 16, 16}, 2139);
+	public static final IconEntry SPS_TILES_HONEY_C8_R1 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{112, 0, 16, 16}, 2139);
+	/** semantic alias for SPS_TILES_HONEY_C8_R1 */
+	public static final IconEntry TILE_007 = SPS_TILES_HONEY_C8_R1;
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{128, 0, 16, 16}, 2140);
+	public static final IconEntry SPS_TILES_HONEY_C9_R1 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{128, 0, 16, 16}, 2140);
+	/** semantic alias for SPS_TILES_HONEY_C9_R1 */
+	public static final IconEntry TILE_008 = SPS_TILES_HONEY_C9_R1;
 	/** tile_009 */
-	public static final IconEntry TILE_009 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{144, 0, 16, 16}, 2141);
+	public static final IconEntry SPS_TILES_HONEY_C10_R1 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{144, 0, 16, 16}, 2141);
+	/** semantic alias for SPS_TILES_HONEY_C10_R1 */
+	public static final IconEntry TILE_009 = SPS_TILES_HONEY_C10_R1;
 	/** tile_010 */
-	public static final IconEntry TILE_010 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{160, 0, 16, 16}, 2142);
+	public static final IconEntry SPS_TILES_HONEY_C11_R1 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{160, 0, 16, 16}, 2142);
+	/** semantic alias for SPS_TILES_HONEY_C11_R1 */
+	public static final IconEntry TILE_010 = SPS_TILES_HONEY_C11_R1;
 	/** tile_011 */
-	public static final IconEntry TILE_011 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{176, 0, 16, 16}, 2143);
+	public static final IconEntry SPS_TILES_HONEY_C12_R1 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{176, 0, 16, 16}, 2143);
+	/** semantic alias for SPS_TILES_HONEY_C12_R1 */
+	public static final IconEntry TILE_011 = SPS_TILES_HONEY_C12_R1;
 	/** tile_012 */
-	public static final IconEntry TILE_012 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{192, 0, 16, 16}, 2144);
+	public static final IconEntry SPS_TILES_HONEY_C13_R1 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{192, 0, 16, 16}, 2144);
+	/** semantic alias for SPS_TILES_HONEY_C13_R1 */
+	public static final IconEntry TILE_012 = SPS_TILES_HONEY_C13_R1;
 	/** tile_013 */
-	public static final IconEntry TILE_013 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{208, 0, 16, 16}, 2145);
+	public static final IconEntry SPS_TILES_HONEY_C14_R1 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{208, 0, 16, 16}, 2145);
+	/** semantic alias for SPS_TILES_HONEY_C14_R1 */
+	public static final IconEntry TILE_013 = SPS_TILES_HONEY_C14_R1;
 	/** tile_014 */
-	public static final IconEntry TILE_014 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{224, 0, 16, 16}, 2146);
+	public static final IconEntry SPS_TILES_HONEY_C15_R1 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{224, 0, 16, 16}, 2146);
+	/** semantic alias for SPS_TILES_HONEY_C15_R1 */
+	public static final IconEntry TILE_014 = SPS_TILES_HONEY_C15_R1;
 	/** tile_015 */
-	public static final IconEntry TILE_015 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{240, 0, 16, 16}, 2147);
+	public static final IconEntry SPS_TILES_HONEY_C16_R1 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{240, 0, 16, 16}, 2147);
+	/** semantic alias for SPS_TILES_HONEY_C16_R1 */
+	public static final IconEntry TILE_015 = SPS_TILES_HONEY_C16_R1;
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{0, 16, 16, 16}, 2148);
+	public static final IconEntry SPS_TILES_HONEY_C1_R2 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{0, 16, 16, 16}, 2148);
+	/** semantic alias for SPS_TILES_HONEY_C1_R2 */
+	public static final IconEntry TILE_016 = SPS_TILES_HONEY_C1_R2;
 	/** tile_017 */
-	public static final IconEntry TILE_017 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{16, 16, 16, 16}, 2149);
+	public static final IconEntry SPS_TILES_HONEY_C2_R2 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{16, 16, 16, 16}, 2149);
+	/** semantic alias for SPS_TILES_HONEY_C2_R2 */
+	public static final IconEntry TILE_017 = SPS_TILES_HONEY_C2_R2;
 	/** tile_018 */
-	public static final IconEntry TILE_018 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{32, 16, 16, 16}, 2150);
+	public static final IconEntry SPS_TILES_HONEY_C3_R2 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{32, 16, 16, 16}, 2150);
+	/** semantic alias for SPS_TILES_HONEY_C3_R2 */
+	public static final IconEntry TILE_018 = SPS_TILES_HONEY_C3_R2;
 	/** tile_019 */
-	public static final IconEntry TILE_019 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{48, 16, 16, 16}, 2151);
+	public static final IconEntry SPS_TILES_HONEY_C4_R2 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{48, 16, 16, 16}, 2151);
+	/** semantic alias for SPS_TILES_HONEY_C4_R2 */
+	public static final IconEntry TILE_019 = SPS_TILES_HONEY_C4_R2;
 	/** tile_020 */
 	public static final IconEntry TILE_020 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{64, 16, 16, 16}, 2152);
 	/** tile_021 */
-	public static final IconEntry TILE_021 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{80, 16, 16, 16}, 2153);
+	public static final IconEntry SPS_TILES_HONEY_C6_R2 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{80, 16, 16, 16}, 2153);
+	/** semantic alias for SPS_TILES_HONEY_C6_R2 */
+	public static final IconEntry TILE_021 = SPS_TILES_HONEY_C6_R2;
 	/** tile_022 */
 	public static final IconEntry TILE_022 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{96, 16, 16, 16}, 2154);
 	/** tile_023 */
@@ -63,81 +105,157 @@ public final class SpsTilesHoneyDict {
 	/** tile_024 */
 	public static final IconEntry TILE_024 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{128, 16, 16, 16}, 2156);
 	/** tile_025 */
-	public static final IconEntry TILE_025 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{144, 16, 16, 16}, 2157);
+	public static final IconEntry SPS_TILES_HONEY_C10_R2 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{144, 16, 16, 16}, 2157);
+	/** semantic alias for SPS_TILES_HONEY_C10_R2 */
+	public static final IconEntry TILE_025 = SPS_TILES_HONEY_C10_R2;
 	/** tile_026 */
-	public static final IconEntry TILE_026 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{160, 16, 16, 16}, 2158);
+	public static final IconEntry SPS_TILES_HONEY_C11_R2 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{160, 16, 16, 16}, 2158);
+	/** semantic alias for SPS_TILES_HONEY_C11_R2 */
+	public static final IconEntry TILE_026 = SPS_TILES_HONEY_C11_R2;
 	/** tile_027 */
-	public static final IconEntry TILE_027 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{176, 16, 16, 16}, 2159);
+	public static final IconEntry SPS_TILES_HONEY_C12_R2 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{176, 16, 16, 16}, 2159);
+	/** semantic alias for SPS_TILES_HONEY_C12_R2 */
+	public static final IconEntry TILE_027 = SPS_TILES_HONEY_C12_R2;
 	/** tile_028 */
-	public static final IconEntry TILE_028 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{192, 16, 16, 16}, 2160);
+	public static final IconEntry SPS_TILES_HONEY_C13_R2 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{192, 16, 16, 16}, 2160);
+	/** semantic alias for SPS_TILES_HONEY_C13_R2 */
+	public static final IconEntry TILE_028 = SPS_TILES_HONEY_C13_R2;
 	/** tile_029 */
-	public static final IconEntry TILE_029 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{208, 16, 16, 16}, 2161);
+	public static final IconEntry SPS_TILES_HONEY_C14_R2 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{208, 16, 16, 16}, 2161);
+	/** semantic alias for SPS_TILES_HONEY_C14_R2 */
+	public static final IconEntry TILE_029 = SPS_TILES_HONEY_C14_R2;
 	/** tile_030 */
-	public static final IconEntry TILE_030 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{224, 16, 16, 16}, 2162);
+	public static final IconEntry SPS_TILES_HONEY_C15_R2 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{224, 16, 16, 16}, 2162);
+	/** semantic alias for SPS_TILES_HONEY_C15_R2 */
+	public static final IconEntry TILE_030 = SPS_TILES_HONEY_C15_R2;
 	/** tile_031 */
-	public static final IconEntry TILE_031 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{240, 16, 16, 16}, 2163);
+	public static final IconEntry SPS_TILES_HONEY_C16_R2 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{240, 16, 16, 16}, 2163);
+	/** semantic alias for SPS_TILES_HONEY_C16_R2 */
+	public static final IconEntry TILE_031 = SPS_TILES_HONEY_C16_R2;
 	/** tile_032 */
-	public static final IconEntry TILE_032 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{0, 32, 16, 16}, 2164);
+	public static final IconEntry SPS_TILES_HONEY_C1_R3 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{0, 32, 16, 16}, 2164);
+	/** semantic alias for SPS_TILES_HONEY_C1_R3 */
+	public static final IconEntry TILE_032 = SPS_TILES_HONEY_C1_R3;
 	/** tile_033 */
-	public static final IconEntry TILE_033 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{16, 32, 16, 16}, 2165);
+	public static final IconEntry SPS_TILES_HONEY_C2_R3 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{16, 32, 16, 16}, 2165);
+	/** semantic alias for SPS_TILES_HONEY_C2_R3 */
+	public static final IconEntry TILE_033 = SPS_TILES_HONEY_C2_R3;
 	/** tile_034 */
-	public static final IconEntry TILE_034 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{32, 32, 16, 16}, 2166);
+	public static final IconEntry SPS_TILES_HONEY_C3_R3 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{32, 32, 16, 16}, 2166);
+	/** semantic alias for SPS_TILES_HONEY_C3_R3 */
+	public static final IconEntry TILE_034 = SPS_TILES_HONEY_C3_R3;
 	/** tile_035 */
-	public static final IconEntry TILE_035 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{48, 32, 16, 16}, 2167);
+	public static final IconEntry SPS_TILES_HONEY_C4_R3 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{48, 32, 16, 16}, 2167);
+	/** semantic alias for SPS_TILES_HONEY_C4_R3 */
+	public static final IconEntry TILE_035 = SPS_TILES_HONEY_C4_R3;
 	/** tile_036 */
-	public static final IconEntry TILE_036 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{64, 32, 16, 16}, 2168);
+	public static final IconEntry SPS_TILES_HONEY_C5_R3 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{64, 32, 16, 16}, 2168);
+	/** semantic alias for SPS_TILES_HONEY_C5_R3 */
+	public static final IconEntry TILE_036 = SPS_TILES_HONEY_C5_R3;
 	/** tile_037 */
-	public static final IconEntry TILE_037 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{80, 32, 16, 16}, 2169);
+	public static final IconEntry SPS_TILES_HONEY_C6_R3 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{80, 32, 16, 16}, 2169);
+	/** semantic alias for SPS_TILES_HONEY_C6_R3 */
+	public static final IconEntry TILE_037 = SPS_TILES_HONEY_C6_R3;
 	/** tile_038 */
-	public static final IconEntry TILE_038 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{96, 32, 16, 16}, 2170);
+	public static final IconEntry SPS_TILES_HONEY_C7_R3 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{96, 32, 16, 16}, 2170);
+	/** semantic alias for SPS_TILES_HONEY_C7_R3 */
+	public static final IconEntry TILE_038 = SPS_TILES_HONEY_C7_R3;
 	/** tile_039 */
-	public static final IconEntry TILE_039 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{112, 32, 16, 16}, 2171);
+	public static final IconEntry SPS_TILES_HONEY_C8_R3 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{112, 32, 16, 16}, 2171);
+	/** semantic alias for SPS_TILES_HONEY_C8_R3 */
+	public static final IconEntry TILE_039 = SPS_TILES_HONEY_C8_R3;
 	/** tile_040 */
-	public static final IconEntry TILE_040 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{128, 32, 16, 16}, 2172);
+	public static final IconEntry SPS_TILES_HONEY_C9_R3 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{128, 32, 16, 16}, 2172);
+	/** semantic alias for SPS_TILES_HONEY_C9_R3 */
+	public static final IconEntry TILE_040 = SPS_TILES_HONEY_C9_R3;
 	/** tile_041 */
-	public static final IconEntry TILE_041 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{144, 32, 16, 16}, 2173);
+	public static final IconEntry SPS_TILES_HONEY_C10_R3 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{144, 32, 16, 16}, 2173);
+	/** semantic alias for SPS_TILES_HONEY_C10_R3 */
+	public static final IconEntry TILE_041 = SPS_TILES_HONEY_C10_R3;
 	/** tile_042 */
-	public static final IconEntry TILE_042 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{160, 32, 16, 16}, 2174);
+	public static final IconEntry SPS_TILES_HONEY_C11_R3 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{160, 32, 16, 16}, 2174);
+	/** semantic alias for SPS_TILES_HONEY_C11_R3 */
+	public static final IconEntry TILE_042 = SPS_TILES_HONEY_C11_R3;
 	/** tile_043 */
-	public static final IconEntry TILE_043 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{176, 32, 16, 16}, 2175);
+	public static final IconEntry SPS_TILES_HONEY_C12_R3 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{176, 32, 16, 16}, 2175);
+	/** semantic alias for SPS_TILES_HONEY_C12_R3 */
+	public static final IconEntry TILE_043 = SPS_TILES_HONEY_C12_R3;
 	/** tile_044 */
-	public static final IconEntry TILE_044 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{192, 32, 16, 16}, 2176);
+	public static final IconEntry SPS_TILES_HONEY_C13_R3 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{192, 32, 16, 16}, 2176);
+	/** semantic alias for SPS_TILES_HONEY_C13_R3 */
+	public static final IconEntry TILE_044 = SPS_TILES_HONEY_C13_R3;
 	/** tile_045 */
-	public static final IconEntry TILE_045 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{208, 32, 16, 16}, 2177);
+	public static final IconEntry SPS_TILES_HONEY_C14_R3 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{208, 32, 16, 16}, 2177);
+	/** semantic alias for SPS_TILES_HONEY_C14_R3 */
+	public static final IconEntry TILE_045 = SPS_TILES_HONEY_C14_R3;
 	/** tile_046 */
-	public static final IconEntry TILE_046 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{224, 32, 16, 16}, 2178);
+	public static final IconEntry SPS_TILES_HONEY_C15_R3 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{224, 32, 16, 16}, 2178);
+	/** semantic alias for SPS_TILES_HONEY_C15_R3 */
+	public static final IconEntry TILE_046 = SPS_TILES_HONEY_C15_R3;
 	/** tile_047 */
-	public static final IconEntry TILE_047 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{240, 32, 16, 16}, 2179);
+	public static final IconEntry SPS_TILES_HONEY_C16_R3 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{240, 32, 16, 16}, 2179);
+	/** semantic alias for SPS_TILES_HONEY_C16_R3 */
+	public static final IconEntry TILE_047 = SPS_TILES_HONEY_C16_R3;
 	/** tile_048 */
-	public static final IconEntry TILE_048 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{0, 48, 16, 16}, 2180);
+	public static final IconEntry SPS_TILES_HONEY_C1_R4 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{0, 48, 16, 16}, 2180);
+	/** semantic alias for SPS_TILES_HONEY_C1_R4 */
+	public static final IconEntry TILE_048 = SPS_TILES_HONEY_C1_R4;
 	/** tile_049 */
-	public static final IconEntry TILE_049 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{16, 48, 16, 16}, 2181);
+	public static final IconEntry SPS_TILES_HONEY_C2_R4 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{16, 48, 16, 16}, 2181);
+	/** semantic alias for SPS_TILES_HONEY_C2_R4 */
+	public static final IconEntry TILE_049 = SPS_TILES_HONEY_C2_R4;
 	/** tile_050 */
-	public static final IconEntry TILE_050 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{32, 48, 16, 16}, 2182);
+	public static final IconEntry SPS_TILES_HONEY_C3_R4 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{32, 48, 16, 16}, 2182);
+	/** semantic alias for SPS_TILES_HONEY_C3_R4 */
+	public static final IconEntry TILE_050 = SPS_TILES_HONEY_C3_R4;
 	/** tile_051 */
-	public static final IconEntry TILE_051 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{48, 48, 16, 16}, 2183);
+	public static final IconEntry SPS_TILES_HONEY_C4_R4 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{48, 48, 16, 16}, 2183);
+	/** semantic alias for SPS_TILES_HONEY_C4_R4 */
+	public static final IconEntry TILE_051 = SPS_TILES_HONEY_C4_R4;
 	/** tile_052 */
-	public static final IconEntry TILE_052 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{64, 48, 16, 16}, 2184);
+	public static final IconEntry SPS_TILES_HONEY_C5_R4 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{64, 48, 16, 16}, 2184);
+	/** semantic alias for SPS_TILES_HONEY_C5_R4 */
+	public static final IconEntry TILE_052 = SPS_TILES_HONEY_C5_R4;
 	/** tile_053 */
-	public static final IconEntry TILE_053 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{80, 48, 16, 16}, 2185);
+	public static final IconEntry SPS_TILES_HONEY_C6_R4 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{80, 48, 16, 16}, 2185);
+	/** semantic alias for SPS_TILES_HONEY_C6_R4 */
+	public static final IconEntry TILE_053 = SPS_TILES_HONEY_C6_R4;
 	/** tile_054 */
-	public static final IconEntry TILE_054 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{96, 48, 16, 16}, 2186);
+	public static final IconEntry SPS_TILES_HONEY_C7_R4 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{96, 48, 16, 16}, 2186);
+	/** semantic alias for SPS_TILES_HONEY_C7_R4 */
+	public static final IconEntry TILE_054 = SPS_TILES_HONEY_C7_R4;
 	/** tile_055 */
-	public static final IconEntry TILE_055 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{112, 48, 16, 16}, 2187);
+	public static final IconEntry SPS_TILES_HONEY_C8_R4 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{112, 48, 16, 16}, 2187);
+	/** semantic alias for SPS_TILES_HONEY_C8_R4 */
+	public static final IconEntry TILE_055 = SPS_TILES_HONEY_C8_R4;
 	/** tile_056 */
-	public static final IconEntry TILE_056 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{128, 48, 16, 16}, 2188);
+	public static final IconEntry SPS_TILES_HONEY_C9_R4 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{128, 48, 16, 16}, 2188);
+	/** semantic alias for SPS_TILES_HONEY_C9_R4 */
+	public static final IconEntry TILE_056 = SPS_TILES_HONEY_C9_R4;
 	/** tile_057 */
-	public static final IconEntry TILE_057 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{144, 48, 16, 16}, 2189);
+	public static final IconEntry SPS_TILES_HONEY_C10_R4 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{144, 48, 16, 16}, 2189);
+	/** semantic alias for SPS_TILES_HONEY_C10_R4 */
+	public static final IconEntry TILE_057 = SPS_TILES_HONEY_C10_R4;
 	/** tile_058 */
-	public static final IconEntry TILE_058 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{160, 48, 16, 16}, 2190);
+	public static final IconEntry SPS_TILES_HONEY_C11_R4 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{160, 48, 16, 16}, 2190);
+	/** semantic alias for SPS_TILES_HONEY_C11_R4 */
+	public static final IconEntry TILE_058 = SPS_TILES_HONEY_C11_R4;
 	/** tile_059 */
-	public static final IconEntry TILE_059 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{176, 48, 16, 16}, 2191);
+	public static final IconEntry SPS_TILES_HONEY_C12_R4 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{176, 48, 16, 16}, 2191);
+	/** semantic alias for SPS_TILES_HONEY_C12_R4 */
+	public static final IconEntry TILE_059 = SPS_TILES_HONEY_C12_R4;
 	/** tile_060 */
-	public static final IconEntry TILE_060 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{192, 48, 16, 16}, 2192);
+	public static final IconEntry SPS_TILES_HONEY_C13_R4 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{192, 48, 16, 16}, 2192);
+	/** semantic alias for SPS_TILES_HONEY_C13_R4 */
+	public static final IconEntry TILE_060 = SPS_TILES_HONEY_C13_R4;
 	/** tile_061 */
-	public static final IconEntry TILE_061 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{208, 48, 16, 16}, 2193);
+	public static final IconEntry SPS_TILES_HONEY_C14_R4 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{208, 48, 16, 16}, 2193);
+	/** semantic alias for SPS_TILES_HONEY_C14_R4 */
+	public static final IconEntry TILE_061 = SPS_TILES_HONEY_C14_R4;
 	/** tile_062 */
-	public static final IconEntry TILE_062 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{224, 48, 16, 16}, 2194);
+	public static final IconEntry SPS_TILES_HONEY_C15_R4 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{224, 48, 16, 16}, 2194);
+	/** semantic alias for SPS_TILES_HONEY_C15_R4 */
+	public static final IconEntry TILE_062 = SPS_TILES_HONEY_C15_R4;
 	/** tile_063 */
 	public static final IconEntry TILE_063 = new IconEntry("environment/tiles/sps_tiles_honey.png", new int[]{240, 48, 16, 16}, 2195);
 }

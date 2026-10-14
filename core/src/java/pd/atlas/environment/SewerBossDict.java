@@ -13,23 +13,41 @@ public final class SewerBossDict {
 	private SewerBossDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{0, 0, 16, 16}, 1716);
+	public static final IconEntry SEWER_BOSS_C1_R1 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{0, 0, 16, 16}, 1716);
+	/** semantic alias for SEWER_BOSS_C1_R1 */
+	public static final IconEntry TILE_000 = SEWER_BOSS_C1_R1;
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{16, 0, 16, 16}, 1717);
+	public static final IconEntry SEWER_BOSS_C2_R1 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{16, 0, 16, 16}, 1717);
+	/** semantic alias for SEWER_BOSS_C2_R1 */
+	public static final IconEntry TILE_001 = SEWER_BOSS_C2_R1;
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{32, 0, 16, 16}, 1718);
+	public static final IconEntry SEWER_BOSS_C3_R1 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{32, 0, 16, 16}, 1718);
+	/** semantic alias for SEWER_BOSS_C3_R1 */
+	public static final IconEntry TILE_002 = SEWER_BOSS_C3_R1;
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{48, 0, 16, 16}, 1719);
+	public static final IconEntry SEWER_BOSS_C4_R1 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{48, 0, 16, 16}, 1719);
+	/** semantic alias for SEWER_BOSS_C4_R1 */
+	public static final IconEntry TILE_003 = SEWER_BOSS_C4_R1;
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{64, 0, 16, 16}, 1720);
+	public static final IconEntry SEWER_BOSS_C5_R1 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{64, 0, 16, 16}, 1720);
+	/** semantic alias for SEWER_BOSS_C5_R1 */
+	public static final IconEntry TILE_004 = SEWER_BOSS_C5_R1;
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{80, 0, 16, 16}, 1721);
+	public static final IconEntry SEWER_BOSS_C6_R1 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{80, 0, 16, 16}, 1721);
+	/** semantic alias for SEWER_BOSS_C6_R1 */
+	public static final IconEntry TILE_005 = SEWER_BOSS_C6_R1;
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{96, 0, 16, 16}, 1722);
+	public static final IconEntry SEWER_BOSS_C7_R1 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{96, 0, 16, 16}, 1722);
+	/** semantic alias for SEWER_BOSS_C7_R1 */
+	public static final IconEntry TILE_006 = SEWER_BOSS_C7_R1;
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{112, 0, 16, 16}, 1723);
+	public static final IconEntry SEWER_BOSS_C8_R1 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{112, 0, 16, 16}, 1723);
+	/** semantic alias for SEWER_BOSS_C8_R1 */
+	public static final IconEntry TILE_007 = SEWER_BOSS_C8_R1;
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{128, 0, 16, 16}, 1724);
+	public static final IconEntry SEWER_BOSS_C9_R1 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{128, 0, 16, 16}, 1724);
+	/** semantic alias for SEWER_BOSS_C9_R1 */
+	public static final IconEntry TILE_008 = SEWER_BOSS_C9_R1;
 	/** tile_009 */
 	public static final IconEntry TILE_009 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{144, 0, 16, 16}, 1725);
 	/** tile_010 */
@@ -45,23 +63,41 @@ public final class SewerBossDict {
 	/** tile_015 */
 	public static final IconEntry TILE_015 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{240, 0, 16, 16}, 1731);
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{0, 16, 16, 16}, 1732);
+	public static final IconEntry SEWER_BOSS_C1_R2 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{0, 16, 16, 16}, 1732);
+	/** semantic alias for SEWER_BOSS_C1_R2 */
+	public static final IconEntry TILE_016 = SEWER_BOSS_C1_R2;
 	/** tile_017 */
-	public static final IconEntry TILE_017 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{16, 16, 16, 16}, 1733);
+	public static final IconEntry SEWER_BOSS_C2_R2 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{16, 16, 16, 16}, 1733);
+	/** semantic alias for SEWER_BOSS_C2_R2 */
+	public static final IconEntry TILE_017 = SEWER_BOSS_C2_R2;
 	/** tile_018 */
-	public static final IconEntry TILE_018 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{32, 16, 16, 16}, 1734);
+	public static final IconEntry SEWER_BOSS_C3_R2 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{32, 16, 16, 16}, 1734);
+	/** semantic alias for SEWER_BOSS_C3_R2 */
+	public static final IconEntry TILE_018 = SEWER_BOSS_C3_R2;
 	/** tile_019 */
-	public static final IconEntry TILE_019 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{48, 16, 16, 16}, 1735);
+	public static final IconEntry SEWER_BOSS_C4_R2 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{48, 16, 16, 16}, 1735);
+	/** semantic alias for SEWER_BOSS_C4_R2 */
+	public static final IconEntry TILE_019 = SEWER_BOSS_C4_R2;
 	/** tile_020 */
-	public static final IconEntry TILE_020 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{64, 16, 16, 16}, 1736);
+	public static final IconEntry SEWER_BOSS_C5_R2 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{64, 16, 16, 16}, 1736);
+	/** semantic alias for SEWER_BOSS_C5_R2 */
+	public static final IconEntry TILE_020 = SEWER_BOSS_C5_R2;
 	/** tile_021 */
-	public static final IconEntry TILE_021 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{80, 16, 16, 16}, 1737);
+	public static final IconEntry SEWER_BOSS_C6_R2 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{80, 16, 16, 16}, 1737);
+	/** semantic alias for SEWER_BOSS_C6_R2 */
+	public static final IconEntry TILE_021 = SEWER_BOSS_C6_R2;
 	/** tile_022 */
-	public static final IconEntry TILE_022 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{96, 16, 16, 16}, 1738);
+	public static final IconEntry SEWER_BOSS_C7_R2 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{96, 16, 16, 16}, 1738);
+	/** semantic alias for SEWER_BOSS_C7_R2 */
+	public static final IconEntry TILE_022 = SEWER_BOSS_C7_R2;
 	/** tile_023 */
-	public static final IconEntry TILE_023 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{112, 16, 16, 16}, 1739);
+	public static final IconEntry SEWER_BOSS_C8_R2 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{112, 16, 16, 16}, 1739);
+	/** semantic alias for SEWER_BOSS_C8_R2 */
+	public static final IconEntry TILE_023 = SEWER_BOSS_C8_R2;
 	/** tile_024 */
-	public static final IconEntry TILE_024 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{128, 16, 16, 16}, 1740);
+	public static final IconEntry SEWER_BOSS_C9_R2 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{128, 16, 16, 16}, 1740);
+	/** semantic alias for SEWER_BOSS_C9_R2 */
+	public static final IconEntry TILE_024 = SEWER_BOSS_C9_R2;
 	/** tile_025 */
 	public static final IconEntry TILE_025 = new IconEntry("environment/custom_tiles/sewer_boss.png", new int[]{144, 16, 16, 16}, 1741);
 	/** tile_026 */

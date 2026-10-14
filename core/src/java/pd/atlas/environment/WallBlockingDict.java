@@ -13,11 +13,19 @@ public final class WallBlockingDict {
 	private WallBlockingDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/legacy-2.5d/wall_blocking.png", new int[]{0, 0, 16, 16}, 4884);
+	public static final IconEntry WALL_BLOCKING_C1_R1 = new IconEntry("environment/legacy-2.5d/wall_blocking.png", new int[]{0, 0, 16, 16}, 4884);
+	/** semantic alias for WALL_BLOCKING_C1_R1 */
+	public static final IconEntry TILE_000 = WALL_BLOCKING_C1_R1;
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/legacy-2.5d/wall_blocking.png", new int[]{16, 0, 16, 16}, 4885);
+	public static final IconEntry WALL_BLOCKING_C2_R1 = new IconEntry("environment/legacy-2.5d/wall_blocking.png", new int[]{16, 0, 16, 16}, 4885);
+	/** semantic alias for WALL_BLOCKING_C2_R1 */
+	public static final IconEntry TILE_001 = WALL_BLOCKING_C2_R1;
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/legacy-2.5d/wall_blocking.png", new int[]{32, 0, 16, 16}, 4886);
+	public static final IconEntry WALL_BLOCKING_C3_R1 = new IconEntry("environment/legacy-2.5d/wall_blocking.png", new int[]{32, 0, 16, 16}, 4886);
+	/** semantic alias for WALL_BLOCKING_C3_R1 */
+	public static final IconEntry TILE_002 = WALL_BLOCKING_C3_R1;
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/legacy-2.5d/wall_blocking.png", new int[]{48, 0, 16, 16}, 4887);
+	public static final IconEntry WALL_BLOCKING_C4_R1 = new IconEntry("environment/legacy-2.5d/wall_blocking.png", new int[]{48, 0, 16, 16}, 4887);
+	/** semantic alias for WALL_BLOCKING_C4_R1 */
+	public static final IconEntry TILE_003 = WALL_BLOCKING_C4_R1;
 }

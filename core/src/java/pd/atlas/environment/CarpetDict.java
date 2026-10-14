@@ -13,183 +13,361 @@ public final class CarpetDict {
 	private CarpetDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 0, 16, 16}, 172);
+	public static final IconEntry CARPET_C1_R1 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 0, 16, 16}, 172);
+	/** semantic alias for CARPET_C1_R1 */
+	public static final IconEntry TILE_000 = CARPET_C1_R1;
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 0, 16, 16}, 173);
+	public static final IconEntry CARPET_C2_R1 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 0, 16, 16}, 173);
+	/** semantic alias for CARPET_C2_R1 */
+	public static final IconEntry TILE_001 = CARPET_C2_R1;
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 0, 16, 16}, 174);
+	public static final IconEntry CARPET_C3_R1 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 0, 16, 16}, 174);
+	/** semantic alias for CARPET_C3_R1 */
+	public static final IconEntry TILE_002 = CARPET_C3_R1;
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 0, 16, 16}, 175);
+	public static final IconEntry CARPET_C4_R1 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 0, 16, 16}, 175);
+	/** semantic alias for CARPET_C4_R1 */
+	public static final IconEntry TILE_003 = CARPET_C4_R1;
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 0, 16, 16}, 176);
+	public static final IconEntry CARPET_C5_R1 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 0, 16, 16}, 176);
+	/** semantic alias for CARPET_C5_R1 */
+	public static final IconEntry TILE_004 = CARPET_C5_R1;
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 0, 16, 16}, 177);
+	public static final IconEntry CARPET_C6_R1 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 0, 16, 16}, 177);
+	/** semantic alias for CARPET_C6_R1 */
+	public static final IconEntry TILE_005 = CARPET_C6_R1;
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 0, 16, 16}, 178);
+	public static final IconEntry CARPET_C7_R1 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 0, 16, 16}, 178);
+	/** semantic alias for CARPET_C7_R1 */
+	public static final IconEntry TILE_006 = CARPET_C7_R1;
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 0, 16, 16}, 179);
+	public static final IconEntry CARPET_C8_R1 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 0, 16, 16}, 179);
+	/** semantic alias for CARPET_C8_R1 */
+	public static final IconEntry TILE_007 = CARPET_C8_R1;
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 0, 16, 16}, 180);
+	public static final IconEntry CARPET_C9_R1 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 0, 16, 16}, 180);
+	/** semantic alias for CARPET_C9_R1 */
+	public static final IconEntry TILE_008 = CARPET_C9_R1;
 	/** tile_009 */
-	public static final IconEntry TILE_009 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 0, 16, 16}, 181);
+	public static final IconEntry CARPET_C10_R1 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 0, 16, 16}, 181);
+	/** semantic alias for CARPET_C10_R1 */
+	public static final IconEntry TILE_009 = CARPET_C10_R1;
 	/** tile_010 */
-	public static final IconEntry TILE_010 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 0, 16, 16}, 182);
+	public static final IconEntry CARPET_C11_R1 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 0, 16, 16}, 182);
+	/** semantic alias for CARPET_C11_R1 */
+	public static final IconEntry TILE_010 = CARPET_C11_R1;
 	/** tile_011 */
-	public static final IconEntry TILE_011 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 0, 16, 16}, 183);
+	public static final IconEntry CARPET_C12_R1 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 0, 16, 16}, 183);
+	/** semantic alias for CARPET_C12_R1 */
+	public static final IconEntry TILE_011 = CARPET_C12_R1;
 	/** tile_012 */
-	public static final IconEntry TILE_012 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 0, 16, 16}, 184);
+	public static final IconEntry CARPET_C13_R1 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 0, 16, 16}, 184);
+	/** semantic alias for CARPET_C13_R1 */
+	public static final IconEntry TILE_012 = CARPET_C13_R1;
 	/** tile_013 */
-	public static final IconEntry TILE_013 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 0, 16, 16}, 185);
+	public static final IconEntry CARPET_C14_R1 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 0, 16, 16}, 185);
+	/** semantic alias for CARPET_C14_R1 */
+	public static final IconEntry TILE_013 = CARPET_C14_R1;
 	/** tile_014 */
-	public static final IconEntry TILE_014 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 0, 16, 16}, 186);
+	public static final IconEntry CARPET_C15_R1 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 0, 16, 16}, 186);
+	/** semantic alias for CARPET_C15_R1 */
+	public static final IconEntry TILE_014 = CARPET_C15_R1;
 	/** tile_015 */
-	public static final IconEntry TILE_015 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 0, 16, 16}, 187);
+	public static final IconEntry CARPET_C16_R1 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 0, 16, 16}, 187);
+	/** semantic alias for CARPET_C16_R1 */
+	public static final IconEntry TILE_015 = CARPET_C16_R1;
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 16, 16, 16}, 188);
+	public static final IconEntry CARPET_C1_R2 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 16, 16, 16}, 188);
+	/** semantic alias for CARPET_C1_R2 */
+	public static final IconEntry TILE_016 = CARPET_C1_R2;
 	/** tile_017 */
-	public static final IconEntry TILE_017 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 16, 16, 16}, 189);
+	public static final IconEntry CARPET_C2_R2 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 16, 16, 16}, 189);
+	/** semantic alias for CARPET_C2_R2 */
+	public static final IconEntry TILE_017 = CARPET_C2_R2;
 	/** tile_018 */
-	public static final IconEntry TILE_018 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 16, 16, 16}, 190);
+	public static final IconEntry CARPET_C3_R2 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 16, 16, 16}, 190);
+	/** semantic alias for CARPET_C3_R2 */
+	public static final IconEntry TILE_018 = CARPET_C3_R2;
 	/** tile_019 */
-	public static final IconEntry TILE_019 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 16, 16, 16}, 191);
+	public static final IconEntry CARPET_C4_R2 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 16, 16, 16}, 191);
+	/** semantic alias for CARPET_C4_R2 */
+	public static final IconEntry TILE_019 = CARPET_C4_R2;
 	/** tile_020 */
-	public static final IconEntry TILE_020 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 16, 16, 16}, 192);
+	public static final IconEntry CARPET_C5_R2 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 16, 16, 16}, 192);
+	/** semantic alias for CARPET_C5_R2 */
+	public static final IconEntry TILE_020 = CARPET_C5_R2;
 	/** tile_021 */
-	public static final IconEntry TILE_021 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 16, 16, 16}, 193);
+	public static final IconEntry CARPET_C6_R2 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 16, 16, 16}, 193);
+	/** semantic alias for CARPET_C6_R2 */
+	public static final IconEntry TILE_021 = CARPET_C6_R2;
 	/** tile_022 */
-	public static final IconEntry TILE_022 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 16, 16, 16}, 194);
+	public static final IconEntry CARPET_C7_R2 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 16, 16, 16}, 194);
+	/** semantic alias for CARPET_C7_R2 */
+	public static final IconEntry TILE_022 = CARPET_C7_R2;
 	/** tile_023 */
-	public static final IconEntry TILE_023 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 16, 16, 16}, 195);
+	public static final IconEntry CARPET_C8_R2 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 16, 16, 16}, 195);
+	/** semantic alias for CARPET_C8_R2 */
+	public static final IconEntry TILE_023 = CARPET_C8_R2;
 	/** tile_024 */
-	public static final IconEntry TILE_024 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 16, 16, 16}, 196);
+	public static final IconEntry CARPET_C9_R2 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 16, 16, 16}, 196);
+	/** semantic alias for CARPET_C9_R2 */
+	public static final IconEntry TILE_024 = CARPET_C9_R2;
 	/** tile_025 */
-	public static final IconEntry TILE_025 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 16, 16, 16}, 197);
+	public static final IconEntry CARPET_C10_R2 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 16, 16, 16}, 197);
+	/** semantic alias for CARPET_C10_R2 */
+	public static final IconEntry TILE_025 = CARPET_C10_R2;
 	/** tile_026 */
-	public static final IconEntry TILE_026 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 16, 16, 16}, 198);
+	public static final IconEntry CARPET_C11_R2 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 16, 16, 16}, 198);
+	/** semantic alias for CARPET_C11_R2 */
+	public static final IconEntry TILE_026 = CARPET_C11_R2;
 	/** tile_027 */
-	public static final IconEntry TILE_027 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 16, 16, 16}, 199);
+	public static final IconEntry CARPET_C12_R2 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 16, 16, 16}, 199);
+	/** semantic alias for CARPET_C12_R2 */
+	public static final IconEntry TILE_027 = CARPET_C12_R2;
 	/** tile_028 */
-	public static final IconEntry TILE_028 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 16, 16, 16}, 200);
+	public static final IconEntry CARPET_C13_R2 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 16, 16, 16}, 200);
+	/** semantic alias for CARPET_C13_R2 */
+	public static final IconEntry TILE_028 = CARPET_C13_R2;
 	/** tile_029 */
-	public static final IconEntry TILE_029 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 16, 16, 16}, 201);
+	public static final IconEntry CARPET_C14_R2 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 16, 16, 16}, 201);
+	/** semantic alias for CARPET_C14_R2 */
+	public static final IconEntry TILE_029 = CARPET_C14_R2;
 	/** tile_030 */
-	public static final IconEntry TILE_030 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 16, 16, 16}, 202);
+	public static final IconEntry CARPET_C15_R2 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 16, 16, 16}, 202);
+	/** semantic alias for CARPET_C15_R2 */
+	public static final IconEntry TILE_030 = CARPET_C15_R2;
 	/** tile_031 */
-	public static final IconEntry TILE_031 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 16, 16, 16}, 203);
+	public static final IconEntry CARPET_C16_R2 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 16, 16, 16}, 203);
+	/** semantic alias for CARPET_C16_R2 */
+	public static final IconEntry TILE_031 = CARPET_C16_R2;
 	/** tile_032 */
-	public static final IconEntry TILE_032 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 32, 16, 16}, 204);
+	public static final IconEntry CARPET_C1_R3 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 32, 16, 16}, 204);
+	/** semantic alias for CARPET_C1_R3 */
+	public static final IconEntry TILE_032 = CARPET_C1_R3;
 	/** tile_033 */
-	public static final IconEntry TILE_033 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 32, 16, 16}, 205);
+	public static final IconEntry CARPET_C2_R3 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 32, 16, 16}, 205);
+	/** semantic alias for CARPET_C2_R3 */
+	public static final IconEntry TILE_033 = CARPET_C2_R3;
 	/** tile_034 */
-	public static final IconEntry TILE_034 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 32, 16, 16}, 206);
+	public static final IconEntry CARPET_C3_R3 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 32, 16, 16}, 206);
+	/** semantic alias for CARPET_C3_R3 */
+	public static final IconEntry TILE_034 = CARPET_C3_R3;
 	/** tile_035 */
-	public static final IconEntry TILE_035 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 32, 16, 16}, 207);
+	public static final IconEntry CARPET_C4_R3 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 32, 16, 16}, 207);
+	/** semantic alias for CARPET_C4_R3 */
+	public static final IconEntry TILE_035 = CARPET_C4_R3;
 	/** tile_036 */
-	public static final IconEntry TILE_036 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 32, 16, 16}, 208);
+	public static final IconEntry CARPET_C5_R3 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 32, 16, 16}, 208);
+	/** semantic alias for CARPET_C5_R3 */
+	public static final IconEntry TILE_036 = CARPET_C5_R3;
 	/** tile_037 */
-	public static final IconEntry TILE_037 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 32, 16, 16}, 209);
+	public static final IconEntry CARPET_C6_R3 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 32, 16, 16}, 209);
+	/** semantic alias for CARPET_C6_R3 */
+	public static final IconEntry TILE_037 = CARPET_C6_R3;
 	/** tile_038 */
-	public static final IconEntry TILE_038 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 32, 16, 16}, 210);
+	public static final IconEntry CARPET_C7_R3 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 32, 16, 16}, 210);
+	/** semantic alias for CARPET_C7_R3 */
+	public static final IconEntry TILE_038 = CARPET_C7_R3;
 	/** tile_039 */
-	public static final IconEntry TILE_039 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 32, 16, 16}, 211);
+	public static final IconEntry CARPET_C8_R3 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 32, 16, 16}, 211);
+	/** semantic alias for CARPET_C8_R3 */
+	public static final IconEntry TILE_039 = CARPET_C8_R3;
 	/** tile_040 */
-	public static final IconEntry TILE_040 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 32, 16, 16}, 212);
+	public static final IconEntry CARPET_C9_R3 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 32, 16, 16}, 212);
+	/** semantic alias for CARPET_C9_R3 */
+	public static final IconEntry TILE_040 = CARPET_C9_R3;
 	/** tile_041 */
-	public static final IconEntry TILE_041 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 32, 16, 16}, 213);
+	public static final IconEntry CARPET_C10_R3 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 32, 16, 16}, 213);
+	/** semantic alias for CARPET_C10_R3 */
+	public static final IconEntry TILE_041 = CARPET_C10_R3;
 	/** tile_042 */
-	public static final IconEntry TILE_042 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 32, 16, 16}, 214);
+	public static final IconEntry CARPET_C11_R3 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 32, 16, 16}, 214);
+	/** semantic alias for CARPET_C11_R3 */
+	public static final IconEntry TILE_042 = CARPET_C11_R3;
 	/** tile_043 */
-	public static final IconEntry TILE_043 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 32, 16, 16}, 215);
+	public static final IconEntry CARPET_C12_R3 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 32, 16, 16}, 215);
+	/** semantic alias for CARPET_C12_R3 */
+	public static final IconEntry TILE_043 = CARPET_C12_R3;
 	/** tile_044 */
-	public static final IconEntry TILE_044 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 32, 16, 16}, 216);
+	public static final IconEntry CARPET_C13_R3 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 32, 16, 16}, 216);
+	/** semantic alias for CARPET_C13_R3 */
+	public static final IconEntry TILE_044 = CARPET_C13_R3;
 	/** tile_045 */
-	public static final IconEntry TILE_045 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 32, 16, 16}, 217);
+	public static final IconEntry CARPET_C14_R3 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 32, 16, 16}, 217);
+	/** semantic alias for CARPET_C14_R3 */
+	public static final IconEntry TILE_045 = CARPET_C14_R3;
 	/** tile_046 */
-	public static final IconEntry TILE_046 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 32, 16, 16}, 218);
+	public static final IconEntry CARPET_C15_R3 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 32, 16, 16}, 218);
+	/** semantic alias for CARPET_C15_R3 */
+	public static final IconEntry TILE_046 = CARPET_C15_R3;
 	/** tile_047 */
-	public static final IconEntry TILE_047 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 32, 16, 16}, 219);
+	public static final IconEntry CARPET_C16_R3 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 32, 16, 16}, 219);
+	/** semantic alias for CARPET_C16_R3 */
+	public static final IconEntry TILE_047 = CARPET_C16_R3;
 	/** tile_048 */
-	public static final IconEntry TILE_048 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 48, 16, 16}, 220);
+	public static final IconEntry CARPET_C1_R4 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 48, 16, 16}, 220);
+	/** semantic alias for CARPET_C1_R4 */
+	public static final IconEntry TILE_048 = CARPET_C1_R4;
 	/** tile_049 */
-	public static final IconEntry TILE_049 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 48, 16, 16}, 221);
+	public static final IconEntry CARPET_C2_R4 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 48, 16, 16}, 221);
+	/** semantic alias for CARPET_C2_R4 */
+	public static final IconEntry TILE_049 = CARPET_C2_R4;
 	/** tile_050 */
-	public static final IconEntry TILE_050 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 48, 16, 16}, 222);
+	public static final IconEntry CARPET_C3_R4 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 48, 16, 16}, 222);
+	/** semantic alias for CARPET_C3_R4 */
+	public static final IconEntry TILE_050 = CARPET_C3_R4;
 	/** tile_051 */
-	public static final IconEntry TILE_051 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 48, 16, 16}, 223);
+	public static final IconEntry CARPET_C4_R4 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 48, 16, 16}, 223);
+	/** semantic alias for CARPET_C4_R4 */
+	public static final IconEntry TILE_051 = CARPET_C4_R4;
 	/** tile_052 */
-	public static final IconEntry TILE_052 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 48, 16, 16}, 224);
+	public static final IconEntry CARPET_C5_R4 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 48, 16, 16}, 224);
+	/** semantic alias for CARPET_C5_R4 */
+	public static final IconEntry TILE_052 = CARPET_C5_R4;
 	/** tile_053 */
-	public static final IconEntry TILE_053 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 48, 16, 16}, 225);
+	public static final IconEntry CARPET_C6_R4 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 48, 16, 16}, 225);
+	/** semantic alias for CARPET_C6_R4 */
+	public static final IconEntry TILE_053 = CARPET_C6_R4;
 	/** tile_054 */
-	public static final IconEntry TILE_054 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 48, 16, 16}, 226);
+	public static final IconEntry CARPET_C7_R4 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 48, 16, 16}, 226);
+	/** semantic alias for CARPET_C7_R4 */
+	public static final IconEntry TILE_054 = CARPET_C7_R4;
 	/** tile_055 */
-	public static final IconEntry TILE_055 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 48, 16, 16}, 227);
+	public static final IconEntry CARPET_C8_R4 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 48, 16, 16}, 227);
+	/** semantic alias for CARPET_C8_R4 */
+	public static final IconEntry TILE_055 = CARPET_C8_R4;
 	/** tile_056 */
-	public static final IconEntry TILE_056 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 48, 16, 16}, 228);
+	public static final IconEntry CARPET_C9_R4 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 48, 16, 16}, 228);
+	/** semantic alias for CARPET_C9_R4 */
+	public static final IconEntry TILE_056 = CARPET_C9_R4;
 	/** tile_057 */
-	public static final IconEntry TILE_057 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 48, 16, 16}, 229);
+	public static final IconEntry CARPET_C10_R4 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 48, 16, 16}, 229);
+	/** semantic alias for CARPET_C10_R4 */
+	public static final IconEntry TILE_057 = CARPET_C10_R4;
 	/** tile_058 */
-	public static final IconEntry TILE_058 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 48, 16, 16}, 230);
+	public static final IconEntry CARPET_C11_R4 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 48, 16, 16}, 230);
+	/** semantic alias for CARPET_C11_R4 */
+	public static final IconEntry TILE_058 = CARPET_C11_R4;
 	/** tile_059 */
-	public static final IconEntry TILE_059 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 48, 16, 16}, 231);
+	public static final IconEntry CARPET_C12_R4 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 48, 16, 16}, 231);
+	/** semantic alias for CARPET_C12_R4 */
+	public static final IconEntry TILE_059 = CARPET_C12_R4;
 	/** tile_060 */
-	public static final IconEntry TILE_060 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 48, 16, 16}, 232);
+	public static final IconEntry CARPET_C13_R4 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 48, 16, 16}, 232);
+	/** semantic alias for CARPET_C13_R4 */
+	public static final IconEntry TILE_060 = CARPET_C13_R4;
 	/** tile_061 */
-	public static final IconEntry TILE_061 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 48, 16, 16}, 233);
+	public static final IconEntry CARPET_C14_R4 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 48, 16, 16}, 233);
+	/** semantic alias for CARPET_C14_R4 */
+	public static final IconEntry TILE_061 = CARPET_C14_R4;
 	/** tile_062 */
-	public static final IconEntry TILE_062 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 48, 16, 16}, 234);
+	public static final IconEntry CARPET_C15_R4 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 48, 16, 16}, 234);
+	/** semantic alias for CARPET_C15_R4 */
+	public static final IconEntry TILE_062 = CARPET_C15_R4;
 	/** tile_063 */
-	public static final IconEntry TILE_063 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 48, 16, 16}, 235);
+	public static final IconEntry CARPET_C16_R4 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 48, 16, 16}, 235);
+	/** semantic alias for CARPET_C16_R4 */
+	public static final IconEntry TILE_063 = CARPET_C16_R4;
 	/** tile_064 */
-	public static final IconEntry TILE_064 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 64, 16, 16}, 236);
+	public static final IconEntry CARPET_C1_R5 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 64, 16, 16}, 236);
+	/** semantic alias for CARPET_C1_R5 */
+	public static final IconEntry TILE_064 = CARPET_C1_R5;
 	/** tile_065 */
-	public static final IconEntry TILE_065 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 64, 16, 16}, 237);
+	public static final IconEntry CARPET_C2_R5 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 64, 16, 16}, 237);
+	/** semantic alias for CARPET_C2_R5 */
+	public static final IconEntry TILE_065 = CARPET_C2_R5;
 	/** tile_066 */
-	public static final IconEntry TILE_066 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 64, 16, 16}, 238);
+	public static final IconEntry CARPET_C3_R5 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 64, 16, 16}, 238);
+	/** semantic alias for CARPET_C3_R5 */
+	public static final IconEntry TILE_066 = CARPET_C3_R5;
 	/** tile_067 */
-	public static final IconEntry TILE_067 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 64, 16, 16}, 239);
+	public static final IconEntry CARPET_C4_R5 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 64, 16, 16}, 239);
+	/** semantic alias for CARPET_C4_R5 */
+	public static final IconEntry TILE_067 = CARPET_C4_R5;
 	/** tile_068 */
-	public static final IconEntry TILE_068 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 64, 16, 16}, 240);
+	public static final IconEntry CARPET_C5_R5 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 64, 16, 16}, 240);
+	/** semantic alias for CARPET_C5_R5 */
+	public static final IconEntry TILE_068 = CARPET_C5_R5;
 	/** tile_069 */
-	public static final IconEntry TILE_069 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 64, 16, 16}, 241);
+	public static final IconEntry CARPET_C6_R5 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 64, 16, 16}, 241);
+	/** semantic alias for CARPET_C6_R5 */
+	public static final IconEntry TILE_069 = CARPET_C6_R5;
 	/** tile_070 */
-	public static final IconEntry TILE_070 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 64, 16, 16}, 242);
+	public static final IconEntry CARPET_C7_R5 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 64, 16, 16}, 242);
+	/** semantic alias for CARPET_C7_R5 */
+	public static final IconEntry TILE_070 = CARPET_C7_R5;
 	/** tile_071 */
-	public static final IconEntry TILE_071 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 64, 16, 16}, 243);
+	public static final IconEntry CARPET_C8_R5 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 64, 16, 16}, 243);
+	/** semantic alias for CARPET_C8_R5 */
+	public static final IconEntry TILE_071 = CARPET_C8_R5;
 	/** tile_072 */
-	public static final IconEntry TILE_072 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 64, 16, 16}, 244);
+	public static final IconEntry CARPET_C9_R5 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 64, 16, 16}, 244);
+	/** semantic alias for CARPET_C9_R5 */
+	public static final IconEntry TILE_072 = CARPET_C9_R5;
 	/** tile_073 */
-	public static final IconEntry TILE_073 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 64, 16, 16}, 245);
+	public static final IconEntry CARPET_C10_R5 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 64, 16, 16}, 245);
+	/** semantic alias for CARPET_C10_R5 */
+	public static final IconEntry TILE_073 = CARPET_C10_R5;
 	/** tile_074 */
-	public static final IconEntry TILE_074 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 64, 16, 16}, 246);
+	public static final IconEntry CARPET_C11_R5 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{160, 64, 16, 16}, 246);
+	/** semantic alias for CARPET_C11_R5 */
+	public static final IconEntry TILE_074 = CARPET_C11_R5;
 	/** tile_075 */
-	public static final IconEntry TILE_075 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 64, 16, 16}, 247);
+	public static final IconEntry CARPET_C12_R5 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{176, 64, 16, 16}, 247);
+	/** semantic alias for CARPET_C12_R5 */
+	public static final IconEntry TILE_075 = CARPET_C12_R5;
 	/** tile_076 */
-	public static final IconEntry TILE_076 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 64, 16, 16}, 248);
+	public static final IconEntry CARPET_C13_R5 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{192, 64, 16, 16}, 248);
+	/** semantic alias for CARPET_C13_R5 */
+	public static final IconEntry TILE_076 = CARPET_C13_R5;
 	/** tile_077 */
-	public static final IconEntry TILE_077 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 64, 16, 16}, 249);
+	public static final IconEntry CARPET_C14_R5 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{208, 64, 16, 16}, 249);
+	/** semantic alias for CARPET_C14_R5 */
+	public static final IconEntry TILE_077 = CARPET_C14_R5;
 	/** tile_078 */
-	public static final IconEntry TILE_078 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 64, 16, 16}, 250);
+	public static final IconEntry CARPET_C15_R5 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{224, 64, 16, 16}, 250);
+	/** semantic alias for CARPET_C15_R5 */
+	public static final IconEntry TILE_078 = CARPET_C15_R5;
 	/** tile_079 */
-	public static final IconEntry TILE_079 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 64, 16, 16}, 251);
+	public static final IconEntry CARPET_C16_R5 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{240, 64, 16, 16}, 251);
+	/** semantic alias for CARPET_C16_R5 */
+	public static final IconEntry TILE_079 = CARPET_C16_R5;
 	/** tile_080 */
-	public static final IconEntry TILE_080 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 80, 16, 16}, 252);
+	public static final IconEntry CARPET_C1_R6 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{0, 80, 16, 16}, 252);
+	/** semantic alias for CARPET_C1_R6 */
+	public static final IconEntry TILE_080 = CARPET_C1_R6;
 	/** tile_081 */
-	public static final IconEntry TILE_081 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 80, 16, 16}, 253);
+	public static final IconEntry CARPET_C2_R6 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{16, 80, 16, 16}, 253);
+	/** semantic alias for CARPET_C2_R6 */
+	public static final IconEntry TILE_081 = CARPET_C2_R6;
 	/** tile_082 */
-	public static final IconEntry TILE_082 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 80, 16, 16}, 254);
+	public static final IconEntry CARPET_C3_R6 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{32, 80, 16, 16}, 254);
+	/** semantic alias for CARPET_C3_R6 */
+	public static final IconEntry TILE_082 = CARPET_C3_R6;
 	/** tile_083 */
-	public static final IconEntry TILE_083 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 80, 16, 16}, 255);
+	public static final IconEntry CARPET_C4_R6 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{48, 80, 16, 16}, 255);
+	/** semantic alias for CARPET_C4_R6 */
+	public static final IconEntry TILE_083 = CARPET_C4_R6;
 	/** tile_084 */
-	public static final IconEntry TILE_084 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 80, 16, 16}, 256);
+	public static final IconEntry CARPET_C5_R6 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{64, 80, 16, 16}, 256);
+	/** semantic alias for CARPET_C5_R6 */
+	public static final IconEntry TILE_084 = CARPET_C5_R6;
 	/** tile_085 */
-	public static final IconEntry TILE_085 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 80, 16, 16}, 257);
+	public static final IconEntry CARPET_C6_R6 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{80, 80, 16, 16}, 257);
+	/** semantic alias for CARPET_C6_R6 */
+	public static final IconEntry TILE_085 = CARPET_C6_R6;
 	/** tile_086 */
-	public static final IconEntry TILE_086 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 80, 16, 16}, 258);
+	public static final IconEntry CARPET_C7_R6 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{96, 80, 16, 16}, 258);
+	/** semantic alias for CARPET_C7_R6 */
+	public static final IconEntry TILE_086 = CARPET_C7_R6;
 	/** tile_087 */
-	public static final IconEntry TILE_087 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 80, 16, 16}, 259);
+	public static final IconEntry CARPET_C8_R6 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{112, 80, 16, 16}, 259);
+	/** semantic alias for CARPET_C8_R6 */
+	public static final IconEntry TILE_087 = CARPET_C8_R6;
 	/** tile_088 */
-	public static final IconEntry TILE_088 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 80, 16, 16}, 260);
+	public static final IconEntry CARPET_C9_R6 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{128, 80, 16, 16}, 260);
+	/** semantic alias for CARPET_C9_R6 */
+	public static final IconEntry TILE_088 = CARPET_C9_R6;
 	/** tile_089 */
 	public static final IconEntry TILE_089 = new IconEntry("environment/custom_tiles/carpet.png", new int[]{144, 80, 16, 16}, 261);
 	/** tile_090 */

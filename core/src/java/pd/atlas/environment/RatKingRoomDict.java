@@ -13,15 +13,25 @@ public final class RatKingRoomDict {
 	private RatKingRoomDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{0, 0, 16, 16}, 1708);
+	public static final IconEntry RAT_KING_ROOM_C1_R1 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{0, 0, 16, 16}, 1708);
+	/** semantic alias for RAT_KING_ROOM_C1_R1 */
+	public static final IconEntry TILE_000 = RAT_KING_ROOM_C1_R1;
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{16, 0, 16, 16}, 1709);
+	public static final IconEntry RAT_KING_ROOM_C2_R1 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{16, 0, 16, 16}, 1709);
+	/** semantic alias for RAT_KING_ROOM_C2_R1 */
+	public static final IconEntry TILE_001 = RAT_KING_ROOM_C2_R1;
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{32, 0, 16, 16}, 1710);
+	public static final IconEntry RAT_KING_ROOM_C3_R1 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{32, 0, 16, 16}, 1710);
+	/** semantic alias for RAT_KING_ROOM_C3_R1 */
+	public static final IconEntry TILE_002 = RAT_KING_ROOM_C3_R1;
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{48, 0, 16, 16}, 1711);
+	public static final IconEntry RAT_KING_ROOM_C4_R1 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{48, 0, 16, 16}, 1711);
+	/** semantic alias for RAT_KING_ROOM_C4_R1 */
+	public static final IconEntry TILE_003 = RAT_KING_ROOM_C4_R1;
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{64, 0, 16, 16}, 1712);
+	public static final IconEntry RAT_KING_ROOM_C5_R1 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{64, 0, 16, 16}, 1712);
+	/** semantic alias for RAT_KING_ROOM_C5_R1 */
+	public static final IconEntry TILE_004 = RAT_KING_ROOM_C5_R1;
 	/** tile_005 */
 	public static final IconEntry TILE_005 = new IconEntry("environment/custom_tiles/rat_king_room.png", new int[]{80, 0, 16, 16}, 1713);
 	/** tile_006 */

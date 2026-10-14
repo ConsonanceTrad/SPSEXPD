@@ -13,31 +13,57 @@ public final class TilesCavesGnollDict {
 	private TilesCavesGnollDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 0, 16, 16}, 3588);
+	public static final IconEntry TILES_CAVES_GNOLL_C1_R1 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 0, 16, 16}, 3588);
+	/** semantic alias for TILES_CAVES_GNOLL_C1_R1 */
+	public static final IconEntry TILE_000 = TILES_CAVES_GNOLL_C1_R1;
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 0, 16, 16}, 3589);
+	public static final IconEntry TILES_CAVES_GNOLL_C2_R1 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 0, 16, 16}, 3589);
+	/** semantic alias for TILES_CAVES_GNOLL_C2_R1 */
+	public static final IconEntry TILE_001 = TILES_CAVES_GNOLL_C2_R1;
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 0, 16, 16}, 3590);
+	public static final IconEntry TILES_CAVES_GNOLL_C3_R1 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 0, 16, 16}, 3590);
+	/** semantic alias for TILES_CAVES_GNOLL_C3_R1 */
+	public static final IconEntry TILE_002 = TILES_CAVES_GNOLL_C3_R1;
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 0, 16, 16}, 3591);
+	public static final IconEntry TILES_CAVES_GNOLL_C4_R1 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 0, 16, 16}, 3591);
+	/** semantic alias for TILES_CAVES_GNOLL_C4_R1 */
+	public static final IconEntry TILE_003 = TILES_CAVES_GNOLL_C4_R1;
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 0, 16, 16}, 3592);
+	public static final IconEntry TILES_CAVES_GNOLL_C5_R1 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 0, 16, 16}, 3592);
+	/** semantic alias for TILES_CAVES_GNOLL_C5_R1 */
+	public static final IconEntry TILE_004 = TILES_CAVES_GNOLL_C5_R1;
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 0, 16, 16}, 3593);
+	public static final IconEntry TILES_CAVES_GNOLL_C6_R1 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 0, 16, 16}, 3593);
+	/** semantic alias for TILES_CAVES_GNOLL_C6_R1 */
+	public static final IconEntry TILE_005 = TILES_CAVES_GNOLL_C6_R1;
 	/** tile_006 */
-	public static final IconEntry TILE_006 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 0, 16, 16}, 3594);
+	public static final IconEntry TILES_CAVES_GNOLL_C7_R1 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 0, 16, 16}, 3594);
+	/** semantic alias for TILES_CAVES_GNOLL_C7_R1 */
+	public static final IconEntry TILE_006 = TILES_CAVES_GNOLL_C7_R1;
 	/** tile_007 */
-	public static final IconEntry TILE_007 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 0, 16, 16}, 3595);
+	public static final IconEntry TILES_CAVES_GNOLL_C8_R1 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 0, 16, 16}, 3595);
+	/** semantic alias for TILES_CAVES_GNOLL_C8_R1 */
+	public static final IconEntry TILE_007 = TILES_CAVES_GNOLL_C8_R1;
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 0, 16, 16}, 3596);
+	public static final IconEntry TILES_CAVES_GNOLL_C9_R1 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 0, 16, 16}, 3596);
+	/** semantic alias for TILES_CAVES_GNOLL_C9_R1 */
+	public static final IconEntry TILE_008 = TILES_CAVES_GNOLL_C9_R1;
 	/** tile_009 */
-	public static final IconEntry TILE_009 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 0, 16, 16}, 3597);
+	public static final IconEntry TILES_CAVES_GNOLL_C10_R1 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 0, 16, 16}, 3597);
+	/** semantic alias for TILES_CAVES_GNOLL_C10_R1 */
+	public static final IconEntry TILE_009 = TILES_CAVES_GNOLL_C10_R1;
 	/** tile_010 */
-	public static final IconEntry TILE_010 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 0, 16, 16}, 3598);
+	public static final IconEntry TILES_CAVES_GNOLL_C11_R1 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 0, 16, 16}, 3598);
+	/** semantic alias for TILES_CAVES_GNOLL_C11_R1 */
+	public static final IconEntry TILE_010 = TILES_CAVES_GNOLL_C11_R1;
 	/** tile_011 */
-	public static final IconEntry TILE_011 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 0, 16, 16}, 3599);
+	public static final IconEntry TILES_CAVES_GNOLL_C12_R1 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 0, 16, 16}, 3599);
+	/** semantic alias for TILES_CAVES_GNOLL_C12_R1 */
+	public static final IconEntry TILE_011 = TILES_CAVES_GNOLL_C12_R1;
 	/** tile_012 */
-	public static final IconEntry TILE_012 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 0, 16, 16}, 3600);
+	public static final IconEntry TILES_CAVES_GNOLL_C13_R1 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 0, 16, 16}, 3600);
+	/** semantic alias for TILES_CAVES_GNOLL_C13_R1 */
+	public static final IconEntry TILE_012 = TILES_CAVES_GNOLL_C13_R1;
 	/** tile_013 */
 	public static final IconEntry TILE_013 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 0, 16, 16}, 3601);
 	/** tile_014 */
@@ -45,31 +71,53 @@ public final class TilesCavesGnollDict {
 	/** tile_015 */
 	public static final IconEntry TILE_015 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 0, 16, 16}, 3603);
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 16, 16, 16}, 3604);
+	public static final IconEntry TILES_CAVES_GNOLL_C1_R2 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 16, 16, 16}, 3604);
+	/** semantic alias for TILES_CAVES_GNOLL_C1_R2 */
+	public static final IconEntry TILE_016 = TILES_CAVES_GNOLL_C1_R2;
 	/** tile_017 */
-	public static final IconEntry TILE_017 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 16, 16, 16}, 3605);
+	public static final IconEntry TILES_CAVES_GNOLL_C2_R2 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 16, 16, 16}, 3605);
+	/** semantic alias for TILES_CAVES_GNOLL_C2_R2 */
+	public static final IconEntry TILE_017 = TILES_CAVES_GNOLL_C2_R2;
 	/** tile_018 */
-	public static final IconEntry TILE_018 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 16, 16, 16}, 3606);
+	public static final IconEntry TILES_CAVES_GNOLL_C3_R2 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 16, 16, 16}, 3606);
+	/** semantic alias for TILES_CAVES_GNOLL_C3_R2 */
+	public static final IconEntry TILE_018 = TILES_CAVES_GNOLL_C3_R2;
 	/** tile_019 */
-	public static final IconEntry TILE_019 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 16, 16, 16}, 3607);
+	public static final IconEntry TILES_CAVES_GNOLL_C4_R2 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 16, 16, 16}, 3607);
+	/** semantic alias for TILES_CAVES_GNOLL_C4_R2 */
+	public static final IconEntry TILE_019 = TILES_CAVES_GNOLL_C4_R2;
 	/** tile_020 */
-	public static final IconEntry TILE_020 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 16, 16, 16}, 3608);
+	public static final IconEntry TILES_CAVES_GNOLL_C5_R2 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 16, 16, 16}, 3608);
+	/** semantic alias for TILES_CAVES_GNOLL_C5_R2 */
+	public static final IconEntry TILE_020 = TILES_CAVES_GNOLL_C5_R2;
 	/** tile_021 */
 	public static final IconEntry TILE_021 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 16, 16, 16}, 3609);
 	/** tile_022 */
-	public static final IconEntry TILE_022 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 16, 16, 16}, 3610);
+	public static final IconEntry TILES_CAVES_GNOLL_C7_R2 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 16, 16, 16}, 3610);
+	/** semantic alias for TILES_CAVES_GNOLL_C7_R2 */
+	public static final IconEntry TILE_022 = TILES_CAVES_GNOLL_C7_R2;
 	/** tile_023 */
 	public static final IconEntry TILE_023 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 16, 16, 16}, 3611);
 	/** tile_024 */
-	public static final IconEntry TILE_024 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 16, 16, 16}, 3612);
+	public static final IconEntry TILES_CAVES_GNOLL_C9_R2 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 16, 16, 16}, 3612);
+	/** semantic alias for TILES_CAVES_GNOLL_C9_R2 */
+	public static final IconEntry TILE_024 = TILES_CAVES_GNOLL_C9_R2;
 	/** tile_025 */
-	public static final IconEntry TILE_025 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 16, 16, 16}, 3613);
+	public static final IconEntry TILES_CAVES_GNOLL_C10_R2 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 16, 16, 16}, 3613);
+	/** semantic alias for TILES_CAVES_GNOLL_C10_R2 */
+	public static final IconEntry TILE_025 = TILES_CAVES_GNOLL_C10_R2;
 	/** tile_026 */
-	public static final IconEntry TILE_026 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 16, 16, 16}, 3614);
+	public static final IconEntry TILES_CAVES_GNOLL_C11_R2 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 16, 16, 16}, 3614);
+	/** semantic alias for TILES_CAVES_GNOLL_C11_R2 */
+	public static final IconEntry TILE_026 = TILES_CAVES_GNOLL_C11_R2;
 	/** tile_027 */
-	public static final IconEntry TILE_027 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 16, 16, 16}, 3615);
+	public static final IconEntry TILES_CAVES_GNOLL_C12_R2 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 16, 16, 16}, 3615);
+	/** semantic alias for TILES_CAVES_GNOLL_C12_R2 */
+	public static final IconEntry TILE_027 = TILES_CAVES_GNOLL_C12_R2;
 	/** tile_028 */
-	public static final IconEntry TILE_028 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 16, 16, 16}, 3616);
+	public static final IconEntry TILES_CAVES_GNOLL_C13_R2 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 16, 16, 16}, 3616);
+	/** semantic alias for TILES_CAVES_GNOLL_C13_R2 */
+	public static final IconEntry TILE_028 = TILES_CAVES_GNOLL_C13_R2;
 	/** tile_029 */
 	public static final IconEntry TILE_029 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 16, 16, 16}, 3617);
 	/** tile_030 */
@@ -79,173 +127,327 @@ public final class TilesCavesGnollDict {
 	/** tile_032 */
 	public static final IconEntry TILE_032 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 32, 16, 16}, 3620);
 	/** tile_033 */
-	public static final IconEntry TILE_033 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 32, 16, 16}, 3621);
+	public static final IconEntry TILES_CAVES_GNOLL_C2_R3 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 32, 16, 16}, 3621);
+	/** semantic alias for TILES_CAVES_GNOLL_C2_R3 */
+	public static final IconEntry TILE_033 = TILES_CAVES_GNOLL_C2_R3;
 	/** tile_034 */
-	public static final IconEntry TILE_034 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 32, 16, 16}, 3622);
+	public static final IconEntry TILES_CAVES_GNOLL_C3_R3 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 32, 16, 16}, 3622);
+	/** semantic alias for TILES_CAVES_GNOLL_C3_R3 */
+	public static final IconEntry TILE_034 = TILES_CAVES_GNOLL_C3_R3;
 	/** tile_035 */
-	public static final IconEntry TILE_035 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 32, 16, 16}, 3623);
+	public static final IconEntry TILES_CAVES_GNOLL_C4_R3 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 32, 16, 16}, 3623);
+	/** semantic alias for TILES_CAVES_GNOLL_C4_R3 */
+	public static final IconEntry TILE_035 = TILES_CAVES_GNOLL_C4_R3;
 	/** tile_036 */
-	public static final IconEntry TILE_036 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 32, 16, 16}, 3624);
+	public static final IconEntry TILES_CAVES_GNOLL_C5_R3 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 32, 16, 16}, 3624);
+	/** semantic alias for TILES_CAVES_GNOLL_C5_R3 */
+	public static final IconEntry TILE_036 = TILES_CAVES_GNOLL_C5_R3;
 	/** tile_037 */
-	public static final IconEntry TILE_037 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 32, 16, 16}, 3625);
+	public static final IconEntry TILES_CAVES_GNOLL_C6_R3 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 32, 16, 16}, 3625);
+	/** semantic alias for TILES_CAVES_GNOLL_C6_R3 */
+	public static final IconEntry TILE_037 = TILES_CAVES_GNOLL_C6_R3;
 	/** tile_038 */
-	public static final IconEntry TILE_038 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 32, 16, 16}, 3626);
+	public static final IconEntry TILES_CAVES_GNOLL_C7_R3 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 32, 16, 16}, 3626);
+	/** semantic alias for TILES_CAVES_GNOLL_C7_R3 */
+	public static final IconEntry TILE_038 = TILES_CAVES_GNOLL_C7_R3;
 	/** tile_039 */
-	public static final IconEntry TILE_039 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 32, 16, 16}, 3627);
+	public static final IconEntry TILES_CAVES_GNOLL_C8_R3 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 32, 16, 16}, 3627);
+	/** semantic alias for TILES_CAVES_GNOLL_C8_R3 */
+	public static final IconEntry TILE_039 = TILES_CAVES_GNOLL_C8_R3;
 	/** tile_040 */
-	public static final IconEntry TILE_040 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 32, 16, 16}, 3628);
+	public static final IconEntry TILES_CAVES_GNOLL_C9_R3 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 32, 16, 16}, 3628);
+	/** semantic alias for TILES_CAVES_GNOLL_C9_R3 */
+	public static final IconEntry TILE_040 = TILES_CAVES_GNOLL_C9_R3;
 	/** tile_041 */
-	public static final IconEntry TILE_041 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 32, 16, 16}, 3629);
+	public static final IconEntry TILES_CAVES_GNOLL_C10_R3 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 32, 16, 16}, 3629);
+	/** semantic alias for TILES_CAVES_GNOLL_C10_R3 */
+	public static final IconEntry TILE_041 = TILES_CAVES_GNOLL_C10_R3;
 	/** tile_042 */
-	public static final IconEntry TILE_042 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 32, 16, 16}, 3630);
+	public static final IconEntry TILES_CAVES_GNOLL_C11_R3 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 32, 16, 16}, 3630);
+	/** semantic alias for TILES_CAVES_GNOLL_C11_R3 */
+	public static final IconEntry TILE_042 = TILES_CAVES_GNOLL_C11_R3;
 	/** tile_043 */
-	public static final IconEntry TILE_043 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 32, 16, 16}, 3631);
+	public static final IconEntry TILES_CAVES_GNOLL_C12_R3 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 32, 16, 16}, 3631);
+	/** semantic alias for TILES_CAVES_GNOLL_C12_R3 */
+	public static final IconEntry TILE_043 = TILES_CAVES_GNOLL_C12_R3;
 	/** tile_044 */
-	public static final IconEntry TILE_044 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 32, 16, 16}, 3632);
+	public static final IconEntry TILES_CAVES_GNOLL_C13_R3 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 32, 16, 16}, 3632);
+	/** semantic alias for TILES_CAVES_GNOLL_C13_R3 */
+	public static final IconEntry TILE_044 = TILES_CAVES_GNOLL_C13_R3;
 	/** tile_045 */
-	public static final IconEntry TILE_045 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 32, 16, 16}, 3633);
+	public static final IconEntry TILES_CAVES_GNOLL_C14_R3 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 32, 16, 16}, 3633);
+	/** semantic alias for TILES_CAVES_GNOLL_C14_R3 */
+	public static final IconEntry TILE_045 = TILES_CAVES_GNOLL_C14_R3;
 	/** tile_046 */
-	public static final IconEntry TILE_046 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 32, 16, 16}, 3634);
+	public static final IconEntry TILES_CAVES_GNOLL_C15_R3 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 32, 16, 16}, 3634);
+	/** semantic alias for TILES_CAVES_GNOLL_C15_R3 */
+	public static final IconEntry TILE_046 = TILES_CAVES_GNOLL_C15_R3;
 	/** tile_047 */
-	public static final IconEntry TILE_047 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 32, 16, 16}, 3635);
+	public static final IconEntry TILES_CAVES_GNOLL_C16_R3 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 32, 16, 16}, 3635);
+	/** semantic alias for TILES_CAVES_GNOLL_C16_R3 */
+	public static final IconEntry TILE_047 = TILES_CAVES_GNOLL_C16_R3;
 	/** tile_048 */
-	public static final IconEntry TILE_048 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 48, 16, 16}, 3636);
+	public static final IconEntry TILES_CAVES_GNOLL_C1_R4 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 48, 16, 16}, 3636);
+	/** semantic alias for TILES_CAVES_GNOLL_C1_R4 */
+	public static final IconEntry TILE_048 = TILES_CAVES_GNOLL_C1_R4;
 	/** tile_049 */
-	public static final IconEntry TILE_049 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 48, 16, 16}, 3637);
+	public static final IconEntry TILES_CAVES_GNOLL_C2_R4 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 48, 16, 16}, 3637);
+	/** semantic alias for TILES_CAVES_GNOLL_C2_R4 */
+	public static final IconEntry TILE_049 = TILES_CAVES_GNOLL_C2_R4;
 	/** tile_050 */
-	public static final IconEntry TILE_050 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 48, 16, 16}, 3638);
+	public static final IconEntry TILES_CAVES_GNOLL_C3_R4 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 48, 16, 16}, 3638);
+	/** semantic alias for TILES_CAVES_GNOLL_C3_R4 */
+	public static final IconEntry TILE_050 = TILES_CAVES_GNOLL_C3_R4;
 	/** tile_051 */
 	public static final IconEntry TILE_051 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 48, 16, 16}, 3639);
 	/** tile_052 */
-	public static final IconEntry TILE_052 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 48, 16, 16}, 3640);
+	public static final IconEntry TILES_CAVES_GNOLL_C5_R4 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 48, 16, 16}, 3640);
+	/** semantic alias for TILES_CAVES_GNOLL_C5_R4 */
+	public static final IconEntry TILE_052 = TILES_CAVES_GNOLL_C5_R4;
 	/** tile_053 */
-	public static final IconEntry TILE_053 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 48, 16, 16}, 3641);
+	public static final IconEntry TILES_CAVES_GNOLL_C6_R4 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 48, 16, 16}, 3641);
+	/** semantic alias for TILES_CAVES_GNOLL_C6_R4 */
+	public static final IconEntry TILE_053 = TILES_CAVES_GNOLL_C6_R4;
 	/** tile_054 */
-	public static final IconEntry TILE_054 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 48, 16, 16}, 3642);
+	public static final IconEntry TILES_CAVES_GNOLL_C7_R4 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 48, 16, 16}, 3642);
+	/** semantic alias for TILES_CAVES_GNOLL_C7_R4 */
+	public static final IconEntry TILE_054 = TILES_CAVES_GNOLL_C7_R4;
 	/** tile_055 */
 	public static final IconEntry TILE_055 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 48, 16, 16}, 3643);
 	/** tile_056 */
-	public static final IconEntry TILE_056 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 48, 16, 16}, 3644);
+	public static final IconEntry TILES_CAVES_GNOLL_C9_R4 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 48, 16, 16}, 3644);
+	/** semantic alias for TILES_CAVES_GNOLL_C9_R4 */
+	public static final IconEntry TILE_056 = TILES_CAVES_GNOLL_C9_R4;
 	/** tile_057 */
-	public static final IconEntry TILE_057 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 48, 16, 16}, 3645);
+	public static final IconEntry TILES_CAVES_GNOLL_C10_R4 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 48, 16, 16}, 3645);
+	/** semantic alias for TILES_CAVES_GNOLL_C10_R4 */
+	public static final IconEntry TILE_057 = TILES_CAVES_GNOLL_C10_R4;
 	/** tile_058 */
-	public static final IconEntry TILE_058 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 48, 16, 16}, 3646);
+	public static final IconEntry TILES_CAVES_GNOLL_C11_R4 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 48, 16, 16}, 3646);
+	/** semantic alias for TILES_CAVES_GNOLL_C11_R4 */
+	public static final IconEntry TILE_058 = TILES_CAVES_GNOLL_C11_R4;
 	/** tile_059 */
-	public static final IconEntry TILE_059 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 48, 16, 16}, 3647);
+	public static final IconEntry TILES_CAVES_GNOLL_C12_R4 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 48, 16, 16}, 3647);
+	/** semantic alias for TILES_CAVES_GNOLL_C12_R4 */
+	public static final IconEntry TILE_059 = TILES_CAVES_GNOLL_C12_R4;
 	/** tile_060 */
-	public static final IconEntry TILE_060 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 48, 16, 16}, 3648);
+	public static final IconEntry TILES_CAVES_GNOLL_C13_R4 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 48, 16, 16}, 3648);
+	/** semantic alias for TILES_CAVES_GNOLL_C13_R4 */
+	public static final IconEntry TILE_060 = TILES_CAVES_GNOLL_C13_R4;
 	/** tile_061 */
-	public static final IconEntry TILE_061 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 48, 16, 16}, 3649);
+	public static final IconEntry TILES_CAVES_GNOLL_C14_R4 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 48, 16, 16}, 3649);
+	/** semantic alias for TILES_CAVES_GNOLL_C14_R4 */
+	public static final IconEntry TILE_061 = TILES_CAVES_GNOLL_C14_R4;
 	/** tile_062 */
 	public static final IconEntry TILE_062 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 48, 16, 16}, 3650);
 	/** tile_063 */
 	public static final IconEntry TILE_063 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 48, 16, 16}, 3651);
 	/** tile_064 */
-	public static final IconEntry TILE_064 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 64, 16, 16}, 3652);
+	public static final IconEntry TILES_CAVES_GNOLL_C1_R5 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 64, 16, 16}, 3652);
+	/** semantic alias for TILES_CAVES_GNOLL_C1_R5 */
+	public static final IconEntry TILE_064 = TILES_CAVES_GNOLL_C1_R5;
 	/** tile_065 */
-	public static final IconEntry TILE_065 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 64, 16, 16}, 3653);
+	public static final IconEntry TILES_CAVES_GNOLL_C2_R5 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 64, 16, 16}, 3653);
+	/** semantic alias for TILES_CAVES_GNOLL_C2_R5 */
+	public static final IconEntry TILE_065 = TILES_CAVES_GNOLL_C2_R5;
 	/** tile_066 */
-	public static final IconEntry TILE_066 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 64, 16, 16}, 3654);
+	public static final IconEntry TILES_CAVES_GNOLL_C3_R5 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 64, 16, 16}, 3654);
+	/** semantic alias for TILES_CAVES_GNOLL_C3_R5 */
+	public static final IconEntry TILE_066 = TILES_CAVES_GNOLL_C3_R5;
 	/** tile_067 */
-	public static final IconEntry TILE_067 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 64, 16, 16}, 3655);
+	public static final IconEntry TILES_CAVES_GNOLL_C4_R5 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 64, 16, 16}, 3655);
+	/** semantic alias for TILES_CAVES_GNOLL_C4_R5 */
+	public static final IconEntry TILE_067 = TILES_CAVES_GNOLL_C4_R5;
 	/** tile_068 */
 	public static final IconEntry TILE_068 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 64, 16, 16}, 3656);
 	/** tile_069 */
-	public static final IconEntry TILE_069 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 64, 16, 16}, 3657);
+	public static final IconEntry TILES_CAVES_GNOLL_C6_R5 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 64, 16, 16}, 3657);
+	/** semantic alias for TILES_CAVES_GNOLL_C6_R5 */
+	public static final IconEntry TILE_069 = TILES_CAVES_GNOLL_C6_R5;
 	/** tile_070 */
-	public static final IconEntry TILE_070 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 64, 16, 16}, 3658);
+	public static final IconEntry TILES_CAVES_GNOLL_C7_R5 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 64, 16, 16}, 3658);
+	/** semantic alias for TILES_CAVES_GNOLL_C7_R5 */
+	public static final IconEntry TILE_070 = TILES_CAVES_GNOLL_C7_R5;
 	/** tile_071 */
 	public static final IconEntry TILE_071 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 64, 16, 16}, 3659);
 	/** tile_072 */
-	public static final IconEntry TILE_072 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 64, 16, 16}, 3660);
+	public static final IconEntry TILES_CAVES_GNOLL_C9_R5 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 64, 16, 16}, 3660);
+	/** semantic alias for TILES_CAVES_GNOLL_C9_R5 */
+	public static final IconEntry TILE_072 = TILES_CAVES_GNOLL_C9_R5;
 	/** tile_073 */
-	public static final IconEntry TILE_073 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 64, 16, 16}, 3661);
+	public static final IconEntry TILES_CAVES_GNOLL_C10_R5 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 64, 16, 16}, 3661);
+	/** semantic alias for TILES_CAVES_GNOLL_C10_R5 */
+	public static final IconEntry TILE_073 = TILES_CAVES_GNOLL_C10_R5;
 	/** tile_074 */
-	public static final IconEntry TILE_074 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 64, 16, 16}, 3662);
+	public static final IconEntry TILES_CAVES_GNOLL_C11_R5 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 64, 16, 16}, 3662);
+	/** semantic alias for TILES_CAVES_GNOLL_C11_R5 */
+	public static final IconEntry TILE_074 = TILES_CAVES_GNOLL_C11_R5;
 	/** tile_075 */
-	public static final IconEntry TILE_075 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 64, 16, 16}, 3663);
+	public static final IconEntry TILES_CAVES_GNOLL_C12_R5 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 64, 16, 16}, 3663);
+	/** semantic alias for TILES_CAVES_GNOLL_C12_R5 */
+	public static final IconEntry TILE_075 = TILES_CAVES_GNOLL_C12_R5;
 	/** tile_076 */
-	public static final IconEntry TILE_076 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 64, 16, 16}, 3664);
+	public static final IconEntry TILES_CAVES_GNOLL_C13_R5 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 64, 16, 16}, 3664);
+	/** semantic alias for TILES_CAVES_GNOLL_C13_R5 */
+	public static final IconEntry TILE_076 = TILES_CAVES_GNOLL_C13_R5;
 	/** tile_077 */
-	public static final IconEntry TILE_077 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 64, 16, 16}, 3665);
+	public static final IconEntry TILES_CAVES_GNOLL_C14_R5 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 64, 16, 16}, 3665);
+	/** semantic alias for TILES_CAVES_GNOLL_C14_R5 */
+	public static final IconEntry TILE_077 = TILES_CAVES_GNOLL_C14_R5;
 	/** tile_078 */
-	public static final IconEntry TILE_078 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 64, 16, 16}, 3666);
+	public static final IconEntry TILES_CAVES_GNOLL_C15_R5 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 64, 16, 16}, 3666);
+	/** semantic alias for TILES_CAVES_GNOLL_C15_R5 */
+	public static final IconEntry TILE_078 = TILES_CAVES_GNOLL_C15_R5;
 	/** tile_079 */
 	public static final IconEntry TILE_079 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 64, 16, 16}, 3667);
 	/** tile_080 */
-	public static final IconEntry TILE_080 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 80, 16, 16}, 3668);
+	public static final IconEntry TILES_CAVES_GNOLL_C1_R6 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 80, 16, 16}, 3668);
+	/** semantic alias for TILES_CAVES_GNOLL_C1_R6 */
+	public static final IconEntry TILE_080 = TILES_CAVES_GNOLL_C1_R6;
 	/** tile_081 */
-	public static final IconEntry TILE_081 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 80, 16, 16}, 3669);
+	public static final IconEntry TILES_CAVES_GNOLL_C2_R6 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 80, 16, 16}, 3669);
+	/** semantic alias for TILES_CAVES_GNOLL_C2_R6 */
+	public static final IconEntry TILE_081 = TILES_CAVES_GNOLL_C2_R6;
 	/** tile_082 */
-	public static final IconEntry TILE_082 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 80, 16, 16}, 3670);
+	public static final IconEntry TILES_CAVES_GNOLL_C3_R6 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 80, 16, 16}, 3670);
+	/** semantic alias for TILES_CAVES_GNOLL_C3_R6 */
+	public static final IconEntry TILE_082 = TILES_CAVES_GNOLL_C3_R6;
 	/** tile_083 */
-	public static final IconEntry TILE_083 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 80, 16, 16}, 3671);
+	public static final IconEntry TILES_CAVES_GNOLL_C4_R6 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 80, 16, 16}, 3671);
+	/** semantic alias for TILES_CAVES_GNOLL_C4_R6 */
+	public static final IconEntry TILE_083 = TILES_CAVES_GNOLL_C4_R6;
 	/** tile_084 */
-	public static final IconEntry TILE_084 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 80, 16, 16}, 3672);
+	public static final IconEntry TILES_CAVES_GNOLL_C5_R6 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 80, 16, 16}, 3672);
+	/** semantic alias for TILES_CAVES_GNOLL_C5_R6 */
+	public static final IconEntry TILE_084 = TILES_CAVES_GNOLL_C5_R6;
 	/** tile_085 */
-	public static final IconEntry TILE_085 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 80, 16, 16}, 3673);
+	public static final IconEntry TILES_CAVES_GNOLL_C6_R6 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 80, 16, 16}, 3673);
+	/** semantic alias for TILES_CAVES_GNOLL_C6_R6 */
+	public static final IconEntry TILE_085 = TILES_CAVES_GNOLL_C6_R6;
 	/** tile_086 */
-	public static final IconEntry TILE_086 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 80, 16, 16}, 3674);
+	public static final IconEntry TILES_CAVES_GNOLL_C7_R6 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 80, 16, 16}, 3674);
+	/** semantic alias for TILES_CAVES_GNOLL_C7_R6 */
+	public static final IconEntry TILE_086 = TILES_CAVES_GNOLL_C7_R6;
 	/** tile_087 */
-	public static final IconEntry TILE_087 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 80, 16, 16}, 3675);
+	public static final IconEntry TILES_CAVES_GNOLL_C8_R6 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 80, 16, 16}, 3675);
+	/** semantic alias for TILES_CAVES_GNOLL_C8_R6 */
+	public static final IconEntry TILE_087 = TILES_CAVES_GNOLL_C8_R6;
 	/** tile_088 */
-	public static final IconEntry TILE_088 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 80, 16, 16}, 3676);
+	public static final IconEntry TILES_CAVES_GNOLL_C9_R6 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 80, 16, 16}, 3676);
+	/** semantic alias for TILES_CAVES_GNOLL_C9_R6 */
+	public static final IconEntry TILE_088 = TILES_CAVES_GNOLL_C9_R6;
 	/** tile_089 */
-	public static final IconEntry TILE_089 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 80, 16, 16}, 3677);
+	public static final IconEntry TILES_CAVES_GNOLL_C10_R6 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 80, 16, 16}, 3677);
+	/** semantic alias for TILES_CAVES_GNOLL_C10_R6 */
+	public static final IconEntry TILE_089 = TILES_CAVES_GNOLL_C10_R6;
 	/** tile_090 */
-	public static final IconEntry TILE_090 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 80, 16, 16}, 3678);
+	public static final IconEntry TILES_CAVES_GNOLL_C11_R6 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 80, 16, 16}, 3678);
+	/** semantic alias for TILES_CAVES_GNOLL_C11_R6 */
+	public static final IconEntry TILE_090 = TILES_CAVES_GNOLL_C11_R6;
 	/** tile_091 */
-	public static final IconEntry TILE_091 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 80, 16, 16}, 3679);
+	public static final IconEntry TILES_CAVES_GNOLL_C12_R6 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 80, 16, 16}, 3679);
+	/** semantic alias for TILES_CAVES_GNOLL_C12_R6 */
+	public static final IconEntry TILE_091 = TILES_CAVES_GNOLL_C12_R6;
 	/** tile_092 */
-	public static final IconEntry TILE_092 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 80, 16, 16}, 3680);
+	public static final IconEntry TILES_CAVES_GNOLL_C13_R6 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 80, 16, 16}, 3680);
+	/** semantic alias for TILES_CAVES_GNOLL_C13_R6 */
+	public static final IconEntry TILE_092 = TILES_CAVES_GNOLL_C13_R6;
 	/** tile_093 */
-	public static final IconEntry TILE_093 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 80, 16, 16}, 3681);
+	public static final IconEntry TILES_CAVES_GNOLL_C14_R6 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 80, 16, 16}, 3681);
+	/** semantic alias for TILES_CAVES_GNOLL_C14_R6 */
+	public static final IconEntry TILE_093 = TILES_CAVES_GNOLL_C14_R6;
 	/** tile_094 */
-	public static final IconEntry TILE_094 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 80, 16, 16}, 3682);
+	public static final IconEntry TILES_CAVES_GNOLL_C15_R6 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 80, 16, 16}, 3682);
+	/** semantic alias for TILES_CAVES_GNOLL_C15_R6 */
+	public static final IconEntry TILE_094 = TILES_CAVES_GNOLL_C15_R6;
 	/** tile_095 */
-	public static final IconEntry TILE_095 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 80, 16, 16}, 3683);
+	public static final IconEntry TILES_CAVES_GNOLL_C16_R6 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 80, 16, 16}, 3683);
+	/** semantic alias for TILES_CAVES_GNOLL_C16_R6 */
+	public static final IconEntry TILE_095 = TILES_CAVES_GNOLL_C16_R6;
 	/** tile_096 */
-	public static final IconEntry TILE_096 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 96, 16, 16}, 3684);
+	public static final IconEntry TILES_CAVES_GNOLL_C1_R7 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 96, 16, 16}, 3684);
+	/** semantic alias for TILES_CAVES_GNOLL_C1_R7 */
+	public static final IconEntry TILE_096 = TILES_CAVES_GNOLL_C1_R7;
 	/** tile_097 */
-	public static final IconEntry TILE_097 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 96, 16, 16}, 3685);
+	public static final IconEntry TILES_CAVES_GNOLL_C2_R7 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 96, 16, 16}, 3685);
+	/** semantic alias for TILES_CAVES_GNOLL_C2_R7 */
+	public static final IconEntry TILE_097 = TILES_CAVES_GNOLL_C2_R7;
 	/** tile_098 */
-	public static final IconEntry TILE_098 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 96, 16, 16}, 3686);
+	public static final IconEntry TILES_CAVES_GNOLL_C3_R7 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 96, 16, 16}, 3686);
+	/** semantic alias for TILES_CAVES_GNOLL_C3_R7 */
+	public static final IconEntry TILE_098 = TILES_CAVES_GNOLL_C3_R7;
 	/** tile_099 */
-	public static final IconEntry TILE_099 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 96, 16, 16}, 3687);
+	public static final IconEntry TILES_CAVES_GNOLL_C4_R7 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 96, 16, 16}, 3687);
+	/** semantic alias for TILES_CAVES_GNOLL_C4_R7 */
+	public static final IconEntry TILE_099 = TILES_CAVES_GNOLL_C4_R7;
 	/** tile_100 */
-	public static final IconEntry TILE_100 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 96, 16, 16}, 3688);
+	public static final IconEntry TILES_CAVES_GNOLL_C5_R7 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 96, 16, 16}, 3688);
+	/** semantic alias for TILES_CAVES_GNOLL_C5_R7 */
+	public static final IconEntry TILE_100 = TILES_CAVES_GNOLL_C5_R7;
 	/** tile_101 */
-	public static final IconEntry TILE_101 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 96, 16, 16}, 3689);
+	public static final IconEntry TILES_CAVES_GNOLL_C6_R7 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 96, 16, 16}, 3689);
+	/** semantic alias for TILES_CAVES_GNOLL_C6_R7 */
+	public static final IconEntry TILE_101 = TILES_CAVES_GNOLL_C6_R7;
 	/** tile_102 */
-	public static final IconEntry TILE_102 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 96, 16, 16}, 3690);
+	public static final IconEntry TILES_CAVES_GNOLL_C7_R7 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 96, 16, 16}, 3690);
+	/** semantic alias for TILES_CAVES_GNOLL_C7_R7 */
+	public static final IconEntry TILE_102 = TILES_CAVES_GNOLL_C7_R7;
 	/** tile_103 */
-	public static final IconEntry TILE_103 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 96, 16, 16}, 3691);
+	public static final IconEntry TILES_CAVES_GNOLL_C8_R7 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 96, 16, 16}, 3691);
+	/** semantic alias for TILES_CAVES_GNOLL_C8_R7 */
+	public static final IconEntry TILE_103 = TILES_CAVES_GNOLL_C8_R7;
 	/** tile_104 */
-	public static final IconEntry TILE_104 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 96, 16, 16}, 3692);
+	public static final IconEntry TILES_CAVES_GNOLL_C9_R7 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 96, 16, 16}, 3692);
+	/** semantic alias for TILES_CAVES_GNOLL_C9_R7 */
+	public static final IconEntry TILE_104 = TILES_CAVES_GNOLL_C9_R7;
 	/** tile_105 */
-	public static final IconEntry TILE_105 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 96, 16, 16}, 3693);
+	public static final IconEntry TILES_CAVES_GNOLL_C10_R7 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 96, 16, 16}, 3693);
+	/** semantic alias for TILES_CAVES_GNOLL_C10_R7 */
+	public static final IconEntry TILE_105 = TILES_CAVES_GNOLL_C10_R7;
 	/** tile_106 */
-	public static final IconEntry TILE_106 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 96, 16, 16}, 3694);
+	public static final IconEntry TILES_CAVES_GNOLL_C11_R7 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 96, 16, 16}, 3694);
+	/** semantic alias for TILES_CAVES_GNOLL_C11_R7 */
+	public static final IconEntry TILE_106 = TILES_CAVES_GNOLL_C11_R7;
 	/** tile_107 */
-	public static final IconEntry TILE_107 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 96, 16, 16}, 3695);
+	public static final IconEntry TILES_CAVES_GNOLL_C12_R7 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 96, 16, 16}, 3695);
+	/** semantic alias for TILES_CAVES_GNOLL_C12_R7 */
+	public static final IconEntry TILE_107 = TILES_CAVES_GNOLL_C12_R7;
 	/** tile_108 */
-	public static final IconEntry TILE_108 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 96, 16, 16}, 3696);
+	public static final IconEntry TILES_CAVES_GNOLL_C13_R7 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 96, 16, 16}, 3696);
+	/** semantic alias for TILES_CAVES_GNOLL_C13_R7 */
+	public static final IconEntry TILE_108 = TILES_CAVES_GNOLL_C13_R7;
 	/** tile_109 */
-	public static final IconEntry TILE_109 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 96, 16, 16}, 3697);
+	public static final IconEntry TILES_CAVES_GNOLL_C14_R7 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 96, 16, 16}, 3697);
+	/** semantic alias for TILES_CAVES_GNOLL_C14_R7 */
+	public static final IconEntry TILE_109 = TILES_CAVES_GNOLL_C14_R7;
 	/** tile_110 */
-	public static final IconEntry TILE_110 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 96, 16, 16}, 3698);
+	public static final IconEntry TILES_CAVES_GNOLL_C15_R7 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 96, 16, 16}, 3698);
+	/** semantic alias for TILES_CAVES_GNOLL_C15_R7 */
+	public static final IconEntry TILE_110 = TILES_CAVES_GNOLL_C15_R7;
 	/** tile_111 */
-	public static final IconEntry TILE_111 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 96, 16, 16}, 3699);
+	public static final IconEntry TILES_CAVES_GNOLL_C16_R7 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 96, 16, 16}, 3699);
+	/** semantic alias for TILES_CAVES_GNOLL_C16_R7 */
+	public static final IconEntry TILE_111 = TILES_CAVES_GNOLL_C16_R7;
 	/** tile_112 */
-	public static final IconEntry TILE_112 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 112, 16, 16}, 3700);
+	public static final IconEntry TILES_CAVES_GNOLL_C1_R8 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 112, 16, 16}, 3700);
+	/** semantic alias for TILES_CAVES_GNOLL_C1_R8 */
+	public static final IconEntry TILE_112 = TILES_CAVES_GNOLL_C1_R8;
 	/** tile_113 */
-	public static final IconEntry TILE_113 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 112, 16, 16}, 3701);
+	public static final IconEntry TILES_CAVES_GNOLL_C2_R8 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 112, 16, 16}, 3701);
+	/** semantic alias for TILES_CAVES_GNOLL_C2_R8 */
+	public static final IconEntry TILE_113 = TILES_CAVES_GNOLL_C2_R8;
 	/** tile_114 */
-	public static final IconEntry TILE_114 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 112, 16, 16}, 3702);
+	public static final IconEntry TILES_CAVES_GNOLL_C3_R8 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 112, 16, 16}, 3702);
+	/** semantic alias for TILES_CAVES_GNOLL_C3_R8 */
+	public static final IconEntry TILE_114 = TILES_CAVES_GNOLL_C3_R8;
 	/** tile_115 */
-	public static final IconEntry TILE_115 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 112, 16, 16}, 3703);
+	public static final IconEntry TILES_CAVES_GNOLL_C4_R8 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 112, 16, 16}, 3703);
+	/** semantic alias for TILES_CAVES_GNOLL_C4_R8 */
+	public static final IconEntry TILE_115 = TILES_CAVES_GNOLL_C4_R8;
 	/** tile_116 */
-	public static final IconEntry TILE_116 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 112, 16, 16}, 3704);
+	public static final IconEntry TILES_CAVES_GNOLL_C5_R8 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 112, 16, 16}, 3704);
+	/** semantic alias for TILES_CAVES_GNOLL_C5_R8 */
+	public static final IconEntry TILE_116 = TILES_CAVES_GNOLL_C5_R8;
 	/** tile_117 */
 	public static final IconEntry TILE_117 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 112, 16, 16}, 3705);
 	/** tile_118 */
@@ -253,35 +455,61 @@ public final class TilesCavesGnollDict {
 	/** tile_119 */
 	public static final IconEntry TILE_119 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 112, 16, 16}, 3707);
 	/** tile_120 */
-	public static final IconEntry TILE_120 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 112, 16, 16}, 3708);
+	public static final IconEntry TILES_CAVES_GNOLL_C9_R8 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 112, 16, 16}, 3708);
+	/** semantic alias for TILES_CAVES_GNOLL_C9_R8 */
+	public static final IconEntry TILE_120 = TILES_CAVES_GNOLL_C9_R8;
 	/** tile_121 */
-	public static final IconEntry TILE_121 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 112, 16, 16}, 3709);
+	public static final IconEntry TILES_CAVES_GNOLL_C10_R8 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 112, 16, 16}, 3709);
+	/** semantic alias for TILES_CAVES_GNOLL_C10_R8 */
+	public static final IconEntry TILE_121 = TILES_CAVES_GNOLL_C10_R8;
 	/** tile_122 */
-	public static final IconEntry TILE_122 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 112, 16, 16}, 3710);
+	public static final IconEntry TILES_CAVES_GNOLL_C11_R8 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 112, 16, 16}, 3710);
+	/** semantic alias for TILES_CAVES_GNOLL_C11_R8 */
+	public static final IconEntry TILE_122 = TILES_CAVES_GNOLL_C11_R8;
 	/** tile_123 */
-	public static final IconEntry TILE_123 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 112, 16, 16}, 3711);
+	public static final IconEntry TILES_CAVES_GNOLL_C12_R8 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 112, 16, 16}, 3711);
+	/** semantic alias for TILES_CAVES_GNOLL_C12_R8 */
+	public static final IconEntry TILE_123 = TILES_CAVES_GNOLL_C12_R8;
 	/** tile_124 */
 	public static final IconEntry TILE_124 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 112, 16, 16}, 3712);
 	/** tile_125 */
-	public static final IconEntry TILE_125 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 112, 16, 16}, 3713);
+	public static final IconEntry TILES_CAVES_GNOLL_C14_R8 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 112, 16, 16}, 3713);
+	/** semantic alias for TILES_CAVES_GNOLL_C14_R8 */
+	public static final IconEntry TILE_125 = TILES_CAVES_GNOLL_C14_R8;
 	/** tile_126 */
-	public static final IconEntry TILE_126 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 112, 16, 16}, 3714);
+	public static final IconEntry TILES_CAVES_GNOLL_C15_R8 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 112, 16, 16}, 3714);
+	/** semantic alias for TILES_CAVES_GNOLL_C15_R8 */
+	public static final IconEntry TILE_126 = TILES_CAVES_GNOLL_C15_R8;
 	/** tile_127 */
 	public static final IconEntry TILE_127 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 112, 16, 16}, 3715);
 	/** tile_128 */
-	public static final IconEntry TILE_128 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 128, 16, 16}, 3716);
+	public static final IconEntry TILES_CAVES_GNOLL_C1_R9 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 128, 16, 16}, 3716);
+	/** semantic alias for TILES_CAVES_GNOLL_C1_R9 */
+	public static final IconEntry TILE_128 = TILES_CAVES_GNOLL_C1_R9;
 	/** tile_129 */
-	public static final IconEntry TILE_129 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 128, 16, 16}, 3717);
+	public static final IconEntry TILES_CAVES_GNOLL_C2_R9 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 128, 16, 16}, 3717);
+	/** semantic alias for TILES_CAVES_GNOLL_C2_R9 */
+	public static final IconEntry TILE_129 = TILES_CAVES_GNOLL_C2_R9;
 	/** tile_130 */
-	public static final IconEntry TILE_130 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 128, 16, 16}, 3718);
+	public static final IconEntry TILES_CAVES_GNOLL_C3_R9 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 128, 16, 16}, 3718);
+	/** semantic alias for TILES_CAVES_GNOLL_C3_R9 */
+	public static final IconEntry TILE_130 = TILES_CAVES_GNOLL_C3_R9;
 	/** tile_131 */
-	public static final IconEntry TILE_131 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 128, 16, 16}, 3719);
+	public static final IconEntry TILES_CAVES_GNOLL_C4_R9 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 128, 16, 16}, 3719);
+	/** semantic alias for TILES_CAVES_GNOLL_C4_R9 */
+	public static final IconEntry TILE_131 = TILES_CAVES_GNOLL_C4_R9;
 	/** tile_132 */
-	public static final IconEntry TILE_132 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 128, 16, 16}, 3720);
+	public static final IconEntry TILES_CAVES_GNOLL_C5_R9 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 128, 16, 16}, 3720);
+	/** semantic alias for TILES_CAVES_GNOLL_C5_R9 */
+	public static final IconEntry TILE_132 = TILES_CAVES_GNOLL_C5_R9;
 	/** tile_133 */
-	public static final IconEntry TILE_133 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 128, 16, 16}, 3721);
+	public static final IconEntry TILES_CAVES_GNOLL_C6_R9 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 128, 16, 16}, 3721);
+	/** semantic alias for TILES_CAVES_GNOLL_C6_R9 */
+	public static final IconEntry TILE_133 = TILES_CAVES_GNOLL_C6_R9;
 	/** tile_134 */
-	public static final IconEntry TILE_134 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 128, 16, 16}, 3722);
+	public static final IconEntry TILES_CAVES_GNOLL_C7_R9 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 128, 16, 16}, 3722);
+	/** semantic alias for TILES_CAVES_GNOLL_C7_R9 */
+	public static final IconEntry TILE_134 = TILES_CAVES_GNOLL_C7_R9;
 	/** tile_135 */
 	public static final IconEntry TILE_135 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 128, 16, 16}, 3723);
 	/** tile_136 */
@@ -301,125 +529,245 @@ public final class TilesCavesGnollDict {
 	/** tile_143 */
 	public static final IconEntry TILE_143 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 128, 16, 16}, 3731);
 	/** tile_144 */
-	public static final IconEntry TILE_144 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 144, 16, 16}, 3732);
+	public static final IconEntry TILES_CAVES_GNOLL_C1_R10 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 144, 16, 16}, 3732);
+	/** semantic alias for TILES_CAVES_GNOLL_C1_R10 */
+	public static final IconEntry TILE_144 = TILES_CAVES_GNOLL_C1_R10;
 	/** tile_145 */
-	public static final IconEntry TILE_145 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 144, 16, 16}, 3733);
+	public static final IconEntry TILES_CAVES_GNOLL_C2_R10 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 144, 16, 16}, 3733);
+	/** semantic alias for TILES_CAVES_GNOLL_C2_R10 */
+	public static final IconEntry TILE_145 = TILES_CAVES_GNOLL_C2_R10;
 	/** tile_146 */
-	public static final IconEntry TILE_146 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 144, 16, 16}, 3734);
+	public static final IconEntry TILES_CAVES_GNOLL_C3_R10 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 144, 16, 16}, 3734);
+	/** semantic alias for TILES_CAVES_GNOLL_C3_R10 */
+	public static final IconEntry TILE_146 = TILES_CAVES_GNOLL_C3_R10;
 	/** tile_147 */
-	public static final IconEntry TILE_147 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 144, 16, 16}, 3735);
+	public static final IconEntry TILES_CAVES_GNOLL_C4_R10 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 144, 16, 16}, 3735);
+	/** semantic alias for TILES_CAVES_GNOLL_C4_R10 */
+	public static final IconEntry TILE_147 = TILES_CAVES_GNOLL_C4_R10;
 	/** tile_148 */
-	public static final IconEntry TILE_148 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 144, 16, 16}, 3736);
+	public static final IconEntry TILES_CAVES_GNOLL_C5_R10 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 144, 16, 16}, 3736);
+	/** semantic alias for TILES_CAVES_GNOLL_C5_R10 */
+	public static final IconEntry TILE_148 = TILES_CAVES_GNOLL_C5_R10;
 	/** tile_149 */
-	public static final IconEntry TILE_149 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 144, 16, 16}, 3737);
+	public static final IconEntry TILES_CAVES_GNOLL_C6_R10 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 144, 16, 16}, 3737);
+	/** semantic alias for TILES_CAVES_GNOLL_C6_R10 */
+	public static final IconEntry TILE_149 = TILES_CAVES_GNOLL_C6_R10;
 	/** tile_150 */
-	public static final IconEntry TILE_150 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 144, 16, 16}, 3738);
+	public static final IconEntry TILES_CAVES_GNOLL_C7_R10 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 144, 16, 16}, 3738);
+	/** semantic alias for TILES_CAVES_GNOLL_C7_R10 */
+	public static final IconEntry TILE_150 = TILES_CAVES_GNOLL_C7_R10;
 	/** tile_151 */
-	public static final IconEntry TILE_151 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 144, 16, 16}, 3739);
+	public static final IconEntry TILES_CAVES_GNOLL_C8_R10 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 144, 16, 16}, 3739);
+	/** semantic alias for TILES_CAVES_GNOLL_C8_R10 */
+	public static final IconEntry TILE_151 = TILES_CAVES_GNOLL_C8_R10;
 	/** tile_152 */
-	public static final IconEntry TILE_152 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 144, 16, 16}, 3740);
+	public static final IconEntry TILES_CAVES_GNOLL_C9_R10 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 144, 16, 16}, 3740);
+	/** semantic alias for TILES_CAVES_GNOLL_C9_R10 */
+	public static final IconEntry TILE_152 = TILES_CAVES_GNOLL_C9_R10;
 	/** tile_153 */
-	public static final IconEntry TILE_153 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 144, 16, 16}, 3741);
+	public static final IconEntry TILES_CAVES_GNOLL_C10_R10 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 144, 16, 16}, 3741);
+	/** semantic alias for TILES_CAVES_GNOLL_C10_R10 */
+	public static final IconEntry TILE_153 = TILES_CAVES_GNOLL_C10_R10;
 	/** tile_154 */
-	public static final IconEntry TILE_154 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 144, 16, 16}, 3742);
+	public static final IconEntry TILES_CAVES_GNOLL_C11_R10 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 144, 16, 16}, 3742);
+	/** semantic alias for TILES_CAVES_GNOLL_C11_R10 */
+	public static final IconEntry TILE_154 = TILES_CAVES_GNOLL_C11_R10;
 	/** tile_155 */
-	public static final IconEntry TILE_155 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 144, 16, 16}, 3743);
+	public static final IconEntry TILES_CAVES_GNOLL_C12_R10 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 144, 16, 16}, 3743);
+	/** semantic alias for TILES_CAVES_GNOLL_C12_R10 */
+	public static final IconEntry TILE_155 = TILES_CAVES_GNOLL_C12_R10;
 	/** tile_156 */
-	public static final IconEntry TILE_156 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 144, 16, 16}, 3744);
+	public static final IconEntry TILES_CAVES_GNOLL_C13_R10 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 144, 16, 16}, 3744);
+	/** semantic alias for TILES_CAVES_GNOLL_C13_R10 */
+	public static final IconEntry TILE_156 = TILES_CAVES_GNOLL_C13_R10;
 	/** tile_157 */
-	public static final IconEntry TILE_157 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 144, 16, 16}, 3745);
+	public static final IconEntry TILES_CAVES_GNOLL_C14_R10 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 144, 16, 16}, 3745);
+	/** semantic alias for TILES_CAVES_GNOLL_C14_R10 */
+	public static final IconEntry TILE_157 = TILES_CAVES_GNOLL_C14_R10;
 	/** tile_158 */
-	public static final IconEntry TILE_158 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 144, 16, 16}, 3746);
+	public static final IconEntry TILES_CAVES_GNOLL_C15_R10 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 144, 16, 16}, 3746);
+	/** semantic alias for TILES_CAVES_GNOLL_C15_R10 */
+	public static final IconEntry TILE_158 = TILES_CAVES_GNOLL_C15_R10;
 	/** tile_159 */
-	public static final IconEntry TILE_159 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 144, 16, 16}, 3747);
+	public static final IconEntry TILES_CAVES_GNOLL_C16_R10 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 144, 16, 16}, 3747);
+	/** semantic alias for TILES_CAVES_GNOLL_C16_R10 */
+	public static final IconEntry TILE_159 = TILES_CAVES_GNOLL_C16_R10;
 	/** tile_160 */
-	public static final IconEntry TILE_160 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 160, 16, 16}, 3748);
+	public static final IconEntry TILES_CAVES_GNOLL_C1_R11 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 160, 16, 16}, 3748);
+	/** semantic alias for TILES_CAVES_GNOLL_C1_R11 */
+	public static final IconEntry TILE_160 = TILES_CAVES_GNOLL_C1_R11;
 	/** tile_161 */
-	public static final IconEntry TILE_161 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 160, 16, 16}, 3749);
+	public static final IconEntry TILES_CAVES_GNOLL_C2_R11 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 160, 16, 16}, 3749);
+	/** semantic alias for TILES_CAVES_GNOLL_C2_R11 */
+	public static final IconEntry TILE_161 = TILES_CAVES_GNOLL_C2_R11;
 	/** tile_162 */
-	public static final IconEntry TILE_162 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 160, 16, 16}, 3750);
+	public static final IconEntry TILES_CAVES_GNOLL_C3_R11 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 160, 16, 16}, 3750);
+	/** semantic alias for TILES_CAVES_GNOLL_C3_R11 */
+	public static final IconEntry TILE_162 = TILES_CAVES_GNOLL_C3_R11;
 	/** tile_163 */
-	public static final IconEntry TILE_163 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 160, 16, 16}, 3751);
+	public static final IconEntry TILES_CAVES_GNOLL_C4_R11 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 160, 16, 16}, 3751);
+	/** semantic alias for TILES_CAVES_GNOLL_C4_R11 */
+	public static final IconEntry TILE_163 = TILES_CAVES_GNOLL_C4_R11;
 	/** tile_164 */
-	public static final IconEntry TILE_164 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 160, 16, 16}, 3752);
+	public static final IconEntry TILES_CAVES_GNOLL_C5_R11 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 160, 16, 16}, 3752);
+	/** semantic alias for TILES_CAVES_GNOLL_C5_R11 */
+	public static final IconEntry TILE_164 = TILES_CAVES_GNOLL_C5_R11;
 	/** tile_165 */
-	public static final IconEntry TILE_165 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 160, 16, 16}, 3753);
+	public static final IconEntry TILES_CAVES_GNOLL_C6_R11 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 160, 16, 16}, 3753);
+	/** semantic alias for TILES_CAVES_GNOLL_C6_R11 */
+	public static final IconEntry TILE_165 = TILES_CAVES_GNOLL_C6_R11;
 	/** tile_166 */
-	public static final IconEntry TILE_166 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 160, 16, 16}, 3754);
+	public static final IconEntry TILES_CAVES_GNOLL_C7_R11 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 160, 16, 16}, 3754);
+	/** semantic alias for TILES_CAVES_GNOLL_C7_R11 */
+	public static final IconEntry TILE_166 = TILES_CAVES_GNOLL_C7_R11;
 	/** tile_167 */
-	public static final IconEntry TILE_167 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 160, 16, 16}, 3755);
+	public static final IconEntry TILES_CAVES_GNOLL_C8_R11 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 160, 16, 16}, 3755);
+	/** semantic alias for TILES_CAVES_GNOLL_C8_R11 */
+	public static final IconEntry TILE_167 = TILES_CAVES_GNOLL_C8_R11;
 	/** tile_168 */
-	public static final IconEntry TILE_168 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 160, 16, 16}, 3756);
+	public static final IconEntry TILES_CAVES_GNOLL_C9_R11 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 160, 16, 16}, 3756);
+	/** semantic alias for TILES_CAVES_GNOLL_C9_R11 */
+	public static final IconEntry TILE_168 = TILES_CAVES_GNOLL_C9_R11;
 	/** tile_169 */
-	public static final IconEntry TILE_169 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 160, 16, 16}, 3757);
+	public static final IconEntry TILES_CAVES_GNOLL_C10_R11 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 160, 16, 16}, 3757);
+	/** semantic alias for TILES_CAVES_GNOLL_C10_R11 */
+	public static final IconEntry TILE_169 = TILES_CAVES_GNOLL_C10_R11;
 	/** tile_170 */
-	public static final IconEntry TILE_170 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 160, 16, 16}, 3758);
+	public static final IconEntry TILES_CAVES_GNOLL_C11_R11 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 160, 16, 16}, 3758);
+	/** semantic alias for TILES_CAVES_GNOLL_C11_R11 */
+	public static final IconEntry TILE_170 = TILES_CAVES_GNOLL_C11_R11;
 	/** tile_171 */
-	public static final IconEntry TILE_171 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 160, 16, 16}, 3759);
+	public static final IconEntry TILES_CAVES_GNOLL_C12_R11 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 160, 16, 16}, 3759);
+	/** semantic alias for TILES_CAVES_GNOLL_C12_R11 */
+	public static final IconEntry TILE_171 = TILES_CAVES_GNOLL_C12_R11;
 	/** tile_172 */
-	public static final IconEntry TILE_172 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 160, 16, 16}, 3760);
+	public static final IconEntry TILES_CAVES_GNOLL_C13_R11 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 160, 16, 16}, 3760);
+	/** semantic alias for TILES_CAVES_GNOLL_C13_R11 */
+	public static final IconEntry TILE_172 = TILES_CAVES_GNOLL_C13_R11;
 	/** tile_173 */
-	public static final IconEntry TILE_173 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 160, 16, 16}, 3761);
+	public static final IconEntry TILES_CAVES_GNOLL_C14_R11 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 160, 16, 16}, 3761);
+	/** semantic alias for TILES_CAVES_GNOLL_C14_R11 */
+	public static final IconEntry TILE_173 = TILES_CAVES_GNOLL_C14_R11;
 	/** tile_174 */
-	public static final IconEntry TILE_174 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 160, 16, 16}, 3762);
+	public static final IconEntry TILES_CAVES_GNOLL_C15_R11 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 160, 16, 16}, 3762);
+	/** semantic alias for TILES_CAVES_GNOLL_C15_R11 */
+	public static final IconEntry TILE_174 = TILES_CAVES_GNOLL_C15_R11;
 	/** tile_175 */
-	public static final IconEntry TILE_175 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 160, 16, 16}, 3763);
+	public static final IconEntry TILES_CAVES_GNOLL_C16_R11 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 160, 16, 16}, 3763);
+	/** semantic alias for TILES_CAVES_GNOLL_C16_R11 */
+	public static final IconEntry TILE_175 = TILES_CAVES_GNOLL_C16_R11;
 	/** tile_176 */
-	public static final IconEntry TILE_176 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 176, 16, 16}, 3764);
+	public static final IconEntry TILES_CAVES_GNOLL_C1_R12 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 176, 16, 16}, 3764);
+	/** semantic alias for TILES_CAVES_GNOLL_C1_R12 */
+	public static final IconEntry TILE_176 = TILES_CAVES_GNOLL_C1_R12;
 	/** tile_177 */
-	public static final IconEntry TILE_177 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 176, 16, 16}, 3765);
+	public static final IconEntry TILES_CAVES_GNOLL_C2_R12 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 176, 16, 16}, 3765);
+	/** semantic alias for TILES_CAVES_GNOLL_C2_R12 */
+	public static final IconEntry TILE_177 = TILES_CAVES_GNOLL_C2_R12;
 	/** tile_178 */
-	public static final IconEntry TILE_178 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 176, 16, 16}, 3766);
+	public static final IconEntry TILES_CAVES_GNOLL_C3_R12 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 176, 16, 16}, 3766);
+	/** semantic alias for TILES_CAVES_GNOLL_C3_R12 */
+	public static final IconEntry TILE_178 = TILES_CAVES_GNOLL_C3_R12;
 	/** tile_179 */
-	public static final IconEntry TILE_179 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 176, 16, 16}, 3767);
+	public static final IconEntry TILES_CAVES_GNOLL_C4_R12 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 176, 16, 16}, 3767);
+	/** semantic alias for TILES_CAVES_GNOLL_C4_R12 */
+	public static final IconEntry TILE_179 = TILES_CAVES_GNOLL_C4_R12;
 	/** tile_180 */
-	public static final IconEntry TILE_180 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 176, 16, 16}, 3768);
+	public static final IconEntry TILES_CAVES_GNOLL_C5_R12 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 176, 16, 16}, 3768);
+	/** semantic alias for TILES_CAVES_GNOLL_C5_R12 */
+	public static final IconEntry TILE_180 = TILES_CAVES_GNOLL_C5_R12;
 	/** tile_181 */
-	public static final IconEntry TILE_181 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 176, 16, 16}, 3769);
+	public static final IconEntry TILES_CAVES_GNOLL_C6_R12 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 176, 16, 16}, 3769);
+	/** semantic alias for TILES_CAVES_GNOLL_C6_R12 */
+	public static final IconEntry TILE_181 = TILES_CAVES_GNOLL_C6_R12;
 	/** tile_182 */
-	public static final IconEntry TILE_182 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 176, 16, 16}, 3770);
+	public static final IconEntry TILES_CAVES_GNOLL_C7_R12 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 176, 16, 16}, 3770);
+	/** semantic alias for TILES_CAVES_GNOLL_C7_R12 */
+	public static final IconEntry TILE_182 = TILES_CAVES_GNOLL_C7_R12;
 	/** tile_183 */
-	public static final IconEntry TILE_183 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 176, 16, 16}, 3771);
+	public static final IconEntry TILES_CAVES_GNOLL_C8_R12 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 176, 16, 16}, 3771);
+	/** semantic alias for TILES_CAVES_GNOLL_C8_R12 */
+	public static final IconEntry TILE_183 = TILES_CAVES_GNOLL_C8_R12;
 	/** tile_184 */
-	public static final IconEntry TILE_184 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 176, 16, 16}, 3772);
+	public static final IconEntry TILES_CAVES_GNOLL_C9_R12 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 176, 16, 16}, 3772);
+	/** semantic alias for TILES_CAVES_GNOLL_C9_R12 */
+	public static final IconEntry TILE_184 = TILES_CAVES_GNOLL_C9_R12;
 	/** tile_185 */
-	public static final IconEntry TILE_185 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 176, 16, 16}, 3773);
+	public static final IconEntry TILES_CAVES_GNOLL_C10_R12 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 176, 16, 16}, 3773);
+	/** semantic alias for TILES_CAVES_GNOLL_C10_R12 */
+	public static final IconEntry TILE_185 = TILES_CAVES_GNOLL_C10_R12;
 	/** tile_186 */
-	public static final IconEntry TILE_186 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 176, 16, 16}, 3774);
+	public static final IconEntry TILES_CAVES_GNOLL_C11_R12 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 176, 16, 16}, 3774);
+	/** semantic alias for TILES_CAVES_GNOLL_C11_R12 */
+	public static final IconEntry TILE_186 = TILES_CAVES_GNOLL_C11_R12;
 	/** tile_187 */
-	public static final IconEntry TILE_187 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 176, 16, 16}, 3775);
+	public static final IconEntry TILES_CAVES_GNOLL_C12_R12 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 176, 16, 16}, 3775);
+	/** semantic alias for TILES_CAVES_GNOLL_C12_R12 */
+	public static final IconEntry TILE_187 = TILES_CAVES_GNOLL_C12_R12;
 	/** tile_188 */
-	public static final IconEntry TILE_188 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 176, 16, 16}, 3776);
+	public static final IconEntry TILES_CAVES_GNOLL_C13_R12 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 176, 16, 16}, 3776);
+	/** semantic alias for TILES_CAVES_GNOLL_C13_R12 */
+	public static final IconEntry TILE_188 = TILES_CAVES_GNOLL_C13_R12;
 	/** tile_189 */
-	public static final IconEntry TILE_189 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 176, 16, 16}, 3777);
+	public static final IconEntry TILES_CAVES_GNOLL_C14_R12 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 176, 16, 16}, 3777);
+	/** semantic alias for TILES_CAVES_GNOLL_C14_R12 */
+	public static final IconEntry TILE_189 = TILES_CAVES_GNOLL_C14_R12;
 	/** tile_190 */
-	public static final IconEntry TILE_190 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 176, 16, 16}, 3778);
+	public static final IconEntry TILES_CAVES_GNOLL_C15_R12 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 176, 16, 16}, 3778);
+	/** semantic alias for TILES_CAVES_GNOLL_C15_R12 */
+	public static final IconEntry TILE_190 = TILES_CAVES_GNOLL_C15_R12;
 	/** tile_191 */
-	public static final IconEntry TILE_191 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 176, 16, 16}, 3779);
+	public static final IconEntry TILES_CAVES_GNOLL_C16_R12 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 176, 16, 16}, 3779);
+	/** semantic alias for TILES_CAVES_GNOLL_C16_R12 */
+	public static final IconEntry TILE_191 = TILES_CAVES_GNOLL_C16_R12;
 	/** tile_192 */
-	public static final IconEntry TILE_192 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 192, 16, 16}, 3780);
+	public static final IconEntry TILES_CAVES_GNOLL_C1_R13 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 192, 16, 16}, 3780);
+	/** semantic alias for TILES_CAVES_GNOLL_C1_R13 */
+	public static final IconEntry TILE_192 = TILES_CAVES_GNOLL_C1_R13;
 	/** tile_193 */
-	public static final IconEntry TILE_193 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 192, 16, 16}, 3781);
+	public static final IconEntry TILES_CAVES_GNOLL_C2_R13 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 192, 16, 16}, 3781);
+	/** semantic alias for TILES_CAVES_GNOLL_C2_R13 */
+	public static final IconEntry TILE_193 = TILES_CAVES_GNOLL_C2_R13;
 	/** tile_194 */
-	public static final IconEntry TILE_194 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 192, 16, 16}, 3782);
+	public static final IconEntry TILES_CAVES_GNOLL_C3_R13 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 192, 16, 16}, 3782);
+	/** semantic alias for TILES_CAVES_GNOLL_C3_R13 */
+	public static final IconEntry TILE_194 = TILES_CAVES_GNOLL_C3_R13;
 	/** tile_195 */
-	public static final IconEntry TILE_195 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 192, 16, 16}, 3783);
+	public static final IconEntry TILES_CAVES_GNOLL_C4_R13 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 192, 16, 16}, 3783);
+	/** semantic alias for TILES_CAVES_GNOLL_C4_R13 */
+	public static final IconEntry TILE_195 = TILES_CAVES_GNOLL_C4_R13;
 	/** tile_196 */
-	public static final IconEntry TILE_196 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 192, 16, 16}, 3784);
+	public static final IconEntry TILES_CAVES_GNOLL_C5_R13 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 192, 16, 16}, 3784);
+	/** semantic alias for TILES_CAVES_GNOLL_C5_R13 */
+	public static final IconEntry TILE_196 = TILES_CAVES_GNOLL_C5_R13;
 	/** tile_197 */
-	public static final IconEntry TILE_197 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 192, 16, 16}, 3785);
+	public static final IconEntry TILES_CAVES_GNOLL_C6_R13 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 192, 16, 16}, 3785);
+	/** semantic alias for TILES_CAVES_GNOLL_C6_R13 */
+	public static final IconEntry TILE_197 = TILES_CAVES_GNOLL_C6_R13;
 	/** tile_198 */
-	public static final IconEntry TILE_198 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 192, 16, 16}, 3786);
+	public static final IconEntry TILES_CAVES_GNOLL_C7_R13 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 192, 16, 16}, 3786);
+	/** semantic alias for TILES_CAVES_GNOLL_C7_R13 */
+	public static final IconEntry TILE_198 = TILES_CAVES_GNOLL_C7_R13;
 	/** tile_199 */
-	public static final IconEntry TILE_199 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 192, 16, 16}, 3787);
+	public static final IconEntry TILES_CAVES_GNOLL_C8_R13 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 192, 16, 16}, 3787);
+	/** semantic alias for TILES_CAVES_GNOLL_C8_R13 */
+	public static final IconEntry TILE_199 = TILES_CAVES_GNOLL_C8_R13;
 	/** tile_200 */
-	public static final IconEntry TILE_200 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 192, 16, 16}, 3788);
+	public static final IconEntry TILES_CAVES_GNOLL_C9_R13 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 192, 16, 16}, 3788);
+	/** semantic alias for TILES_CAVES_GNOLL_C9_R13 */
+	public static final IconEntry TILE_200 = TILES_CAVES_GNOLL_C9_R13;
 	/** tile_201 */
-	public static final IconEntry TILE_201 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 192, 16, 16}, 3789);
+	public static final IconEntry TILES_CAVES_GNOLL_C10_R13 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 192, 16, 16}, 3789);
+	/** semantic alias for TILES_CAVES_GNOLL_C10_R13 */
+	public static final IconEntry TILE_201 = TILES_CAVES_GNOLL_C10_R13;
 	/** tile_202 */
-	public static final IconEntry TILE_202 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 192, 16, 16}, 3790);
+	public static final IconEntry TILES_CAVES_GNOLL_C11_R13 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 192, 16, 16}, 3790);
+	/** semantic alias for TILES_CAVES_GNOLL_C11_R13 */
+	public static final IconEntry TILE_202 = TILES_CAVES_GNOLL_C11_R13;
 	/** tile_203 */
-	public static final IconEntry TILE_203 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 192, 16, 16}, 3791);
+	public static final IconEntry TILES_CAVES_GNOLL_C12_R13 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 192, 16, 16}, 3791);
+	/** semantic alias for TILES_CAVES_GNOLL_C12_R13 */
+	public static final IconEntry TILE_203 = TILES_CAVES_GNOLL_C12_R13;
 	/** tile_204 */
 	public static final IconEntry TILE_204 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 192, 16, 16}, 3792);
 	/** tile_205 */
@@ -429,83 +777,155 @@ public final class TilesCavesGnollDict {
 	/** tile_207 */
 	public static final IconEntry TILE_207 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 192, 16, 16}, 3795);
 	/** tile_208 */
-	public static final IconEntry TILE_208 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 208, 16, 16}, 3796);
+	public static final IconEntry TILES_CAVES_GNOLL_C1_R14 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 208, 16, 16}, 3796);
+	/** semantic alias for TILES_CAVES_GNOLL_C1_R14 */
+	public static final IconEntry TILE_208 = TILES_CAVES_GNOLL_C1_R14;
 	/** tile_209 */
-	public static final IconEntry TILE_209 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 208, 16, 16}, 3797);
+	public static final IconEntry TILES_CAVES_GNOLL_C2_R14 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 208, 16, 16}, 3797);
+	/** semantic alias for TILES_CAVES_GNOLL_C2_R14 */
+	public static final IconEntry TILE_209 = TILES_CAVES_GNOLL_C2_R14;
 	/** tile_210 */
-	public static final IconEntry TILE_210 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 208, 16, 16}, 3798);
+	public static final IconEntry TILES_CAVES_GNOLL_C3_R14 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 208, 16, 16}, 3798);
+	/** semantic alias for TILES_CAVES_GNOLL_C3_R14 */
+	public static final IconEntry TILE_210 = TILES_CAVES_GNOLL_C3_R14;
 	/** tile_211 */
-	public static final IconEntry TILE_211 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 208, 16, 16}, 3799);
+	public static final IconEntry TILES_CAVES_GNOLL_C4_R14 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 208, 16, 16}, 3799);
+	/** semantic alias for TILES_CAVES_GNOLL_C4_R14 */
+	public static final IconEntry TILE_211 = TILES_CAVES_GNOLL_C4_R14;
 	/** tile_212 */
-	public static final IconEntry TILE_212 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 208, 16, 16}, 3800);
+	public static final IconEntry TILES_CAVES_GNOLL_C5_R14 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 208, 16, 16}, 3800);
+	/** semantic alias for TILES_CAVES_GNOLL_C5_R14 */
+	public static final IconEntry TILE_212 = TILES_CAVES_GNOLL_C5_R14;
 	/** tile_213 */
-	public static final IconEntry TILE_213 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 208, 16, 16}, 3801);
+	public static final IconEntry TILES_CAVES_GNOLL_C6_R14 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 208, 16, 16}, 3801);
+	/** semantic alias for TILES_CAVES_GNOLL_C6_R14 */
+	public static final IconEntry TILE_213 = TILES_CAVES_GNOLL_C6_R14;
 	/** tile_214 */
-	public static final IconEntry TILE_214 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 208, 16, 16}, 3802);
+	public static final IconEntry TILES_CAVES_GNOLL_C7_R14 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 208, 16, 16}, 3802);
+	/** semantic alias for TILES_CAVES_GNOLL_C7_R14 */
+	public static final IconEntry TILE_214 = TILES_CAVES_GNOLL_C7_R14;
 	/** tile_215 */
-	public static final IconEntry TILE_215 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 208, 16, 16}, 3803);
+	public static final IconEntry TILES_CAVES_GNOLL_C8_R14 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 208, 16, 16}, 3803);
+	/** semantic alias for TILES_CAVES_GNOLL_C8_R14 */
+	public static final IconEntry TILE_215 = TILES_CAVES_GNOLL_C8_R14;
 	/** tile_216 */
-	public static final IconEntry TILE_216 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 208, 16, 16}, 3804);
+	public static final IconEntry TILES_CAVES_GNOLL_C9_R14 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 208, 16, 16}, 3804);
+	/** semantic alias for TILES_CAVES_GNOLL_C9_R14 */
+	public static final IconEntry TILE_216 = TILES_CAVES_GNOLL_C9_R14;
 	/** tile_217 */
-	public static final IconEntry TILE_217 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 208, 16, 16}, 3805);
+	public static final IconEntry TILES_CAVES_GNOLL_C10_R14 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 208, 16, 16}, 3805);
+	/** semantic alias for TILES_CAVES_GNOLL_C10_R14 */
+	public static final IconEntry TILE_217 = TILES_CAVES_GNOLL_C10_R14;
 	/** tile_218 */
-	public static final IconEntry TILE_218 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 208, 16, 16}, 3806);
+	public static final IconEntry TILES_CAVES_GNOLL_C11_R14 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 208, 16, 16}, 3806);
+	/** semantic alias for TILES_CAVES_GNOLL_C11_R14 */
+	public static final IconEntry TILE_218 = TILES_CAVES_GNOLL_C11_R14;
 	/** tile_219 */
-	public static final IconEntry TILE_219 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 208, 16, 16}, 3807);
+	public static final IconEntry TILES_CAVES_GNOLL_C12_R14 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 208, 16, 16}, 3807);
+	/** semantic alias for TILES_CAVES_GNOLL_C12_R14 */
+	public static final IconEntry TILE_219 = TILES_CAVES_GNOLL_C12_R14;
 	/** tile_220 */
-	public static final IconEntry TILE_220 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 208, 16, 16}, 3808);
+	public static final IconEntry TILES_CAVES_GNOLL_C13_R14 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 208, 16, 16}, 3808);
+	/** semantic alias for TILES_CAVES_GNOLL_C13_R14 */
+	public static final IconEntry TILE_220 = TILES_CAVES_GNOLL_C13_R14;
 	/** tile_221 */
-	public static final IconEntry TILE_221 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 208, 16, 16}, 3809);
+	public static final IconEntry TILES_CAVES_GNOLL_C14_R14 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 208, 16, 16}, 3809);
+	/** semantic alias for TILES_CAVES_GNOLL_C14_R14 */
+	public static final IconEntry TILE_221 = TILES_CAVES_GNOLL_C14_R14;
 	/** tile_222 */
-	public static final IconEntry TILE_222 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 208, 16, 16}, 3810);
+	public static final IconEntry TILES_CAVES_GNOLL_C15_R14 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 208, 16, 16}, 3810);
+	/** semantic alias for TILES_CAVES_GNOLL_C15_R14 */
+	public static final IconEntry TILE_222 = TILES_CAVES_GNOLL_C15_R14;
 	/** tile_223 */
-	public static final IconEntry TILE_223 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 208, 16, 16}, 3811);
+	public static final IconEntry TILES_CAVES_GNOLL_C16_R14 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 208, 16, 16}, 3811);
+	/** semantic alias for TILES_CAVES_GNOLL_C16_R14 */
+	public static final IconEntry TILE_223 = TILES_CAVES_GNOLL_C16_R14;
 	/** tile_224 */
-	public static final IconEntry TILE_224 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 224, 16, 16}, 3812);
+	public static final IconEntry TILES_CAVES_GNOLL_C1_R15 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 224, 16, 16}, 3812);
+	/** semantic alias for TILES_CAVES_GNOLL_C1_R15 */
+	public static final IconEntry TILE_224 = TILES_CAVES_GNOLL_C1_R15;
 	/** tile_225 */
-	public static final IconEntry TILE_225 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 224, 16, 16}, 3813);
+	public static final IconEntry TILES_CAVES_GNOLL_C2_R15 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 224, 16, 16}, 3813);
+	/** semantic alias for TILES_CAVES_GNOLL_C2_R15 */
+	public static final IconEntry TILE_225 = TILES_CAVES_GNOLL_C2_R15;
 	/** tile_226 */
-	public static final IconEntry TILE_226 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 224, 16, 16}, 3814);
+	public static final IconEntry TILES_CAVES_GNOLL_C3_R15 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 224, 16, 16}, 3814);
+	/** semantic alias for TILES_CAVES_GNOLL_C3_R15 */
+	public static final IconEntry TILE_226 = TILES_CAVES_GNOLL_C3_R15;
 	/** tile_227 */
-	public static final IconEntry TILE_227 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 224, 16, 16}, 3815);
+	public static final IconEntry TILES_CAVES_GNOLL_C4_R15 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 224, 16, 16}, 3815);
+	/** semantic alias for TILES_CAVES_GNOLL_C4_R15 */
+	public static final IconEntry TILE_227 = TILES_CAVES_GNOLL_C4_R15;
 	/** tile_228 */
-	public static final IconEntry TILE_228 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 224, 16, 16}, 3816);
+	public static final IconEntry TILES_CAVES_GNOLL_C5_R15 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 224, 16, 16}, 3816);
+	/** semantic alias for TILES_CAVES_GNOLL_C5_R15 */
+	public static final IconEntry TILE_228 = TILES_CAVES_GNOLL_C5_R15;
 	/** tile_229 */
-	public static final IconEntry TILE_229 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 224, 16, 16}, 3817);
+	public static final IconEntry TILES_CAVES_GNOLL_C6_R15 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 224, 16, 16}, 3817);
+	/** semantic alias for TILES_CAVES_GNOLL_C6_R15 */
+	public static final IconEntry TILE_229 = TILES_CAVES_GNOLL_C6_R15;
 	/** tile_230 */
-	public static final IconEntry TILE_230 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 224, 16, 16}, 3818);
+	public static final IconEntry TILES_CAVES_GNOLL_C7_R15 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 224, 16, 16}, 3818);
+	/** semantic alias for TILES_CAVES_GNOLL_C7_R15 */
+	public static final IconEntry TILE_230 = TILES_CAVES_GNOLL_C7_R15;
 	/** tile_231 */
 	public static final IconEntry TILE_231 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 224, 16, 16}, 3819);
 	/** tile_232 */
-	public static final IconEntry TILE_232 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 224, 16, 16}, 3820);
+	public static final IconEntry TILES_CAVES_GNOLL_C9_R15 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{128, 224, 16, 16}, 3820);
+	/** semantic alias for TILES_CAVES_GNOLL_C9_R15 */
+	public static final IconEntry TILE_232 = TILES_CAVES_GNOLL_C9_R15;
 	/** tile_233 */
-	public static final IconEntry TILE_233 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 224, 16, 16}, 3821);
+	public static final IconEntry TILES_CAVES_GNOLL_C10_R15 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{144, 224, 16, 16}, 3821);
+	/** semantic alias for TILES_CAVES_GNOLL_C10_R15 */
+	public static final IconEntry TILE_233 = TILES_CAVES_GNOLL_C10_R15;
 	/** tile_234 */
-	public static final IconEntry TILE_234 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 224, 16, 16}, 3822);
+	public static final IconEntry TILES_CAVES_GNOLL_C11_R15 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{160, 224, 16, 16}, 3822);
+	/** semantic alias for TILES_CAVES_GNOLL_C11_R15 */
+	public static final IconEntry TILE_234 = TILES_CAVES_GNOLL_C11_R15;
 	/** tile_235 */
-	public static final IconEntry TILE_235 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 224, 16, 16}, 3823);
+	public static final IconEntry TILES_CAVES_GNOLL_C12_R15 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{176, 224, 16, 16}, 3823);
+	/** semantic alias for TILES_CAVES_GNOLL_C12_R15 */
+	public static final IconEntry TILE_235 = TILES_CAVES_GNOLL_C12_R15;
 	/** tile_236 */
 	public static final IconEntry TILE_236 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{192, 224, 16, 16}, 3824);
 	/** tile_237 */
-	public static final IconEntry TILE_237 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 224, 16, 16}, 3825);
+	public static final IconEntry TILES_CAVES_GNOLL_C14_R15 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{208, 224, 16, 16}, 3825);
+	/** semantic alias for TILES_CAVES_GNOLL_C14_R15 */
+	public static final IconEntry TILE_237 = TILES_CAVES_GNOLL_C14_R15;
 	/** tile_238 */
-	public static final IconEntry TILE_238 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 224, 16, 16}, 3826);
+	public static final IconEntry TILES_CAVES_GNOLL_C15_R15 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{224, 224, 16, 16}, 3826);
+	/** semantic alias for TILES_CAVES_GNOLL_C15_R15 */
+	public static final IconEntry TILE_238 = TILES_CAVES_GNOLL_C15_R15;
 	/** tile_239 */
 	public static final IconEntry TILE_239 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{240, 224, 16, 16}, 3827);
 	/** tile_240 */
-	public static final IconEntry TILE_240 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 240, 16, 16}, 3828);
+	public static final IconEntry TILES_CAVES_GNOLL_C1_R16 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{0, 240, 16, 16}, 3828);
+	/** semantic alias for TILES_CAVES_GNOLL_C1_R16 */
+	public static final IconEntry TILE_240 = TILES_CAVES_GNOLL_C1_R16;
 	/** tile_241 */
-	public static final IconEntry TILE_241 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 240, 16, 16}, 3829);
+	public static final IconEntry TILES_CAVES_GNOLL_C2_R16 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{16, 240, 16, 16}, 3829);
+	/** semantic alias for TILES_CAVES_GNOLL_C2_R16 */
+	public static final IconEntry TILE_241 = TILES_CAVES_GNOLL_C2_R16;
 	/** tile_242 */
-	public static final IconEntry TILE_242 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 240, 16, 16}, 3830);
+	public static final IconEntry TILES_CAVES_GNOLL_C3_R16 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{32, 240, 16, 16}, 3830);
+	/** semantic alias for TILES_CAVES_GNOLL_C3_R16 */
+	public static final IconEntry TILE_242 = TILES_CAVES_GNOLL_C3_R16;
 	/** tile_243 */
-	public static final IconEntry TILE_243 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 240, 16, 16}, 3831);
+	public static final IconEntry TILES_CAVES_GNOLL_C4_R16 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{48, 240, 16, 16}, 3831);
+	/** semantic alias for TILES_CAVES_GNOLL_C4_R16 */
+	public static final IconEntry TILE_243 = TILES_CAVES_GNOLL_C4_R16;
 	/** tile_244 */
-	public static final IconEntry TILE_244 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 240, 16, 16}, 3832);
+	public static final IconEntry TILES_CAVES_GNOLL_C5_R16 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{64, 240, 16, 16}, 3832);
+	/** semantic alias for TILES_CAVES_GNOLL_C5_R16 */
+	public static final IconEntry TILE_244 = TILES_CAVES_GNOLL_C5_R16;
 	/** tile_245 */
-	public static final IconEntry TILE_245 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 240, 16, 16}, 3833);
+	public static final IconEntry TILES_CAVES_GNOLL_C6_R16 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{80, 240, 16, 16}, 3833);
+	/** semantic alias for TILES_CAVES_GNOLL_C6_R16 */
+	public static final IconEntry TILE_245 = TILES_CAVES_GNOLL_C6_R16;
 	/** tile_246 */
-	public static final IconEntry TILE_246 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 240, 16, 16}, 3834);
+	public static final IconEntry TILES_CAVES_GNOLL_C7_R16 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{96, 240, 16, 16}, 3834);
+	/** semantic alias for TILES_CAVES_GNOLL_C7_R16 */
+	public static final IconEntry TILE_246 = TILES_CAVES_GNOLL_C7_R16;
 	/** tile_247 */
 	public static final IconEntry TILE_247 = new IconEntry("environment/tiles/tiles_caves_gnoll.png", new int[]{112, 240, 16, 16}, 3835);
 	/** tile_248 */

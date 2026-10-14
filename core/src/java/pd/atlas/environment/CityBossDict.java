@@ -13,259 +13,495 @@ public final class CityBossDict {
 	private CityBossDict() { }
 
 	/** tile_000 */
-	public static final IconEntry TILE_000 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 0, 16, 16}, 396);
+	public static final IconEntry CITY_BOSS_C1_R1 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 0, 16, 16}, 396);
+	/** semantic alias for CITY_BOSS_C1_R1 */
+	public static final IconEntry TILE_000 = CITY_BOSS_C1_R1;
 	/** tile_001 */
-	public static final IconEntry TILE_001 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 0, 16, 16}, 397);
+	public static final IconEntry CITY_BOSS_C2_R1 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 0, 16, 16}, 397);
+	/** semantic alias for CITY_BOSS_C2_R1 */
+	public static final IconEntry TILE_001 = CITY_BOSS_C2_R1;
 	/** tile_002 */
-	public static final IconEntry TILE_002 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 0, 16, 16}, 398);
+	public static final IconEntry CITY_BOSS_C3_R1 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 0, 16, 16}, 398);
+	/** semantic alias for CITY_BOSS_C3_R1 */
+	public static final IconEntry TILE_002 = CITY_BOSS_C3_R1;
 	/** tile_003 */
-	public static final IconEntry TILE_003 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 0, 16, 16}, 399);
+	public static final IconEntry CITY_BOSS_C4_R1 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 0, 16, 16}, 399);
+	/** semantic alias for CITY_BOSS_C4_R1 */
+	public static final IconEntry TILE_003 = CITY_BOSS_C4_R1;
 	/** tile_004 */
-	public static final IconEntry TILE_004 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 0, 16, 16}, 400);
+	public static final IconEntry CITY_BOSS_C5_R1 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 0, 16, 16}, 400);
+	/** semantic alias for CITY_BOSS_C5_R1 */
+	public static final IconEntry TILE_004 = CITY_BOSS_C5_R1;
 	/** tile_005 */
-	public static final IconEntry TILE_005 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 0, 16, 16}, 401);
+	public static final IconEntry CITY_BOSS_C6_R1 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 0, 16, 16}, 401);
+	/** semantic alias for CITY_BOSS_C6_R1 */
+	public static final IconEntry TILE_005 = CITY_BOSS_C6_R1;
 	/** tile_006 */
 	public static final IconEntry TILE_006 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 0, 16, 16}, 402);
 	/** tile_007 */
 	public static final IconEntry TILE_007 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 0, 16, 16}, 403);
 	/** tile_008 */
-	public static final IconEntry TILE_008 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 16, 16, 16}, 404);
+	public static final IconEntry CITY_BOSS_C1_R2 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 16, 16, 16}, 404);
+	/** semantic alias for CITY_BOSS_C1_R2 */
+	public static final IconEntry TILE_008 = CITY_BOSS_C1_R2;
 	/** tile_009 */
-	public static final IconEntry TILE_009 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 16, 16, 16}, 405);
+	public static final IconEntry CITY_BOSS_C2_R2 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 16, 16, 16}, 405);
+	/** semantic alias for CITY_BOSS_C2_R2 */
+	public static final IconEntry TILE_009 = CITY_BOSS_C2_R2;
 	/** tile_010 */
-	public static final IconEntry TILE_010 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 16, 16, 16}, 406);
+	public static final IconEntry CITY_BOSS_C3_R2 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 16, 16, 16}, 406);
+	/** semantic alias for CITY_BOSS_C3_R2 */
+	public static final IconEntry TILE_010 = CITY_BOSS_C3_R2;
 	/** tile_011 */
-	public static final IconEntry TILE_011 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 16, 16, 16}, 407);
+	public static final IconEntry CITY_BOSS_C4_R2 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 16, 16, 16}, 407);
+	/** semantic alias for CITY_BOSS_C4_R2 */
+	public static final IconEntry TILE_011 = CITY_BOSS_C4_R2;
 	/** tile_012 */
-	public static final IconEntry TILE_012 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 16, 16, 16}, 408);
+	public static final IconEntry CITY_BOSS_C5_R2 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 16, 16, 16}, 408);
+	/** semantic alias for CITY_BOSS_C5_R2 */
+	public static final IconEntry TILE_012 = CITY_BOSS_C5_R2;
 	/** tile_013 */
-	public static final IconEntry TILE_013 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 16, 16, 16}, 409);
+	public static final IconEntry CITY_BOSS_C6_R2 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 16, 16, 16}, 409);
+	/** semantic alias for CITY_BOSS_C6_R2 */
+	public static final IconEntry TILE_013 = CITY_BOSS_C6_R2;
 	/** tile_014 */
 	public static final IconEntry TILE_014 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 16, 16, 16}, 410);
 	/** tile_015 */
 	public static final IconEntry TILE_015 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 16, 16, 16}, 411);
 	/** tile_016 */
-	public static final IconEntry TILE_016 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 32, 16, 16}, 412);
+	public static final IconEntry CITY_BOSS_C1_R3 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 32, 16, 16}, 412);
+	/** semantic alias for CITY_BOSS_C1_R3 */
+	public static final IconEntry TILE_016 = CITY_BOSS_C1_R3;
 	/** tile_017 */
-	public static final IconEntry TILE_017 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 32, 16, 16}, 413);
+	public static final IconEntry CITY_BOSS_C2_R3 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 32, 16, 16}, 413);
+	/** semantic alias for CITY_BOSS_C2_R3 */
+	public static final IconEntry TILE_017 = CITY_BOSS_C2_R3;
 	/** tile_018 */
-	public static final IconEntry TILE_018 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 32, 16, 16}, 414);
+	public static final IconEntry CITY_BOSS_C3_R3 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 32, 16, 16}, 414);
+	/** semantic alias for CITY_BOSS_C3_R3 */
+	public static final IconEntry TILE_018 = CITY_BOSS_C3_R3;
 	/** tile_019 */
-	public static final IconEntry TILE_019 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 32, 16, 16}, 415);
+	public static final IconEntry CITY_BOSS_C4_R3 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 32, 16, 16}, 415);
+	/** semantic alias for CITY_BOSS_C4_R3 */
+	public static final IconEntry TILE_019 = CITY_BOSS_C4_R3;
 	/** tile_020 */
-	public static final IconEntry TILE_020 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 32, 16, 16}, 416);
+	public static final IconEntry CITY_BOSS_C5_R3 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 32, 16, 16}, 416);
+	/** semantic alias for CITY_BOSS_C5_R3 */
+	public static final IconEntry TILE_020 = CITY_BOSS_C5_R3;
 	/** tile_021 */
-	public static final IconEntry TILE_021 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 32, 16, 16}, 417);
+	public static final IconEntry CITY_BOSS_C6_R3 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 32, 16, 16}, 417);
+	/** semantic alias for CITY_BOSS_C6_R3 */
+	public static final IconEntry TILE_021 = CITY_BOSS_C6_R3;
 	/** tile_022 */
 	public static final IconEntry TILE_022 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 32, 16, 16}, 418);
 	/** tile_023 */
 	public static final IconEntry TILE_023 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 32, 16, 16}, 419);
 	/** tile_024 */
-	public static final IconEntry TILE_024 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 48, 16, 16}, 420);
+	public static final IconEntry CITY_BOSS_C1_R4 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 48, 16, 16}, 420);
+	/** semantic alias for CITY_BOSS_C1_R4 */
+	public static final IconEntry TILE_024 = CITY_BOSS_C1_R4;
 	/** tile_025 */
-	public static final IconEntry TILE_025 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 48, 16, 16}, 421);
+	public static final IconEntry CITY_BOSS_C2_R4 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 48, 16, 16}, 421);
+	/** semantic alias for CITY_BOSS_C2_R4 */
+	public static final IconEntry TILE_025 = CITY_BOSS_C2_R4;
 	/** tile_026 */
-	public static final IconEntry TILE_026 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 48, 16, 16}, 422);
+	public static final IconEntry CITY_BOSS_C3_R4 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 48, 16, 16}, 422);
+	/** semantic alias for CITY_BOSS_C3_R4 */
+	public static final IconEntry TILE_026 = CITY_BOSS_C3_R4;
 	/** tile_027 */
-	public static final IconEntry TILE_027 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 48, 16, 16}, 423);
+	public static final IconEntry CITY_BOSS_C4_R4 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 48, 16, 16}, 423);
+	/** semantic alias for CITY_BOSS_C4_R4 */
+	public static final IconEntry TILE_027 = CITY_BOSS_C4_R4;
 	/** tile_028 */
-	public static final IconEntry TILE_028 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 48, 16, 16}, 424);
+	public static final IconEntry CITY_BOSS_C5_R4 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 48, 16, 16}, 424);
+	/** semantic alias for CITY_BOSS_C5_R4 */
+	public static final IconEntry TILE_028 = CITY_BOSS_C5_R4;
 	/** tile_029 */
-	public static final IconEntry TILE_029 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 48, 16, 16}, 425);
+	public static final IconEntry CITY_BOSS_C6_R4 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 48, 16, 16}, 425);
+	/** semantic alias for CITY_BOSS_C6_R4 */
+	public static final IconEntry TILE_029 = CITY_BOSS_C6_R4;
 	/** tile_030 */
 	public static final IconEntry TILE_030 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 48, 16, 16}, 426);
 	/** tile_031 */
 	public static final IconEntry TILE_031 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 48, 16, 16}, 427);
 	/** tile_032 */
-	public static final IconEntry TILE_032 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 64, 16, 16}, 428);
+	public static final IconEntry CITY_BOSS_C1_R5 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 64, 16, 16}, 428);
+	/** semantic alias for CITY_BOSS_C1_R5 */
+	public static final IconEntry TILE_032 = CITY_BOSS_C1_R5;
 	/** tile_033 */
-	public static final IconEntry TILE_033 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 64, 16, 16}, 429);
+	public static final IconEntry CITY_BOSS_C2_R5 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 64, 16, 16}, 429);
+	/** semantic alias for CITY_BOSS_C2_R5 */
+	public static final IconEntry TILE_033 = CITY_BOSS_C2_R5;
 	/** tile_034 */
-	public static final IconEntry TILE_034 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 64, 16, 16}, 430);
+	public static final IconEntry CITY_BOSS_C3_R5 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 64, 16, 16}, 430);
+	/** semantic alias for CITY_BOSS_C3_R5 */
+	public static final IconEntry TILE_034 = CITY_BOSS_C3_R5;
 	/** tile_035 */
-	public static final IconEntry TILE_035 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 64, 16, 16}, 431);
+	public static final IconEntry CITY_BOSS_C4_R5 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 64, 16, 16}, 431);
+	/** semantic alias for CITY_BOSS_C4_R5 */
+	public static final IconEntry TILE_035 = CITY_BOSS_C4_R5;
 	/** tile_036 */
-	public static final IconEntry TILE_036 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 64, 16, 16}, 432);
+	public static final IconEntry CITY_BOSS_C5_R5 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 64, 16, 16}, 432);
+	/** semantic alias for CITY_BOSS_C5_R5 */
+	public static final IconEntry TILE_036 = CITY_BOSS_C5_R5;
 	/** tile_037 */
-	public static final IconEntry TILE_037 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 64, 16, 16}, 433);
+	public static final IconEntry CITY_BOSS_C6_R5 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 64, 16, 16}, 433);
+	/** semantic alias for CITY_BOSS_C6_R5 */
+	public static final IconEntry TILE_037 = CITY_BOSS_C6_R5;
 	/** tile_038 */
-	public static final IconEntry TILE_038 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 64, 16, 16}, 434);
+	public static final IconEntry CITY_BOSS_C7_R5 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 64, 16, 16}, 434);
+	/** semantic alias for CITY_BOSS_C7_R5 */
+	public static final IconEntry TILE_038 = CITY_BOSS_C7_R5;
 	/** tile_039 */
 	public static final IconEntry TILE_039 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 64, 16, 16}, 435);
 	/** tile_040 */
-	public static final IconEntry TILE_040 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 80, 16, 16}, 436);
+	public static final IconEntry CITY_BOSS_C1_R6 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 80, 16, 16}, 436);
+	/** semantic alias for CITY_BOSS_C1_R6 */
+	public static final IconEntry TILE_040 = CITY_BOSS_C1_R6;
 	/** tile_041 */
-	public static final IconEntry TILE_041 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 80, 16, 16}, 437);
+	public static final IconEntry CITY_BOSS_C2_R6 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 80, 16, 16}, 437);
+	/** semantic alias for CITY_BOSS_C2_R6 */
+	public static final IconEntry TILE_041 = CITY_BOSS_C2_R6;
 	/** tile_042 */
-	public static final IconEntry TILE_042 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 80, 16, 16}, 438);
+	public static final IconEntry CITY_BOSS_C3_R6 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 80, 16, 16}, 438);
+	/** semantic alias for CITY_BOSS_C3_R6 */
+	public static final IconEntry TILE_042 = CITY_BOSS_C3_R6;
 	/** tile_043 */
-	public static final IconEntry TILE_043 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 80, 16, 16}, 439);
+	public static final IconEntry CITY_BOSS_C4_R6 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 80, 16, 16}, 439);
+	/** semantic alias for CITY_BOSS_C4_R6 */
+	public static final IconEntry TILE_043 = CITY_BOSS_C4_R6;
 	/** tile_044 */
-	public static final IconEntry TILE_044 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 80, 16, 16}, 440);
+	public static final IconEntry CITY_BOSS_C5_R6 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 80, 16, 16}, 440);
+	/** semantic alias for CITY_BOSS_C5_R6 */
+	public static final IconEntry TILE_044 = CITY_BOSS_C5_R6;
 	/** tile_045 */
-	public static final IconEntry TILE_045 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 80, 16, 16}, 441);
+	public static final IconEntry CITY_BOSS_C6_R6 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 80, 16, 16}, 441);
+	/** semantic alias for CITY_BOSS_C6_R6 */
+	public static final IconEntry TILE_045 = CITY_BOSS_C6_R6;
 	/** tile_046 */
-	public static final IconEntry TILE_046 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 80, 16, 16}, 442);
+	public static final IconEntry CITY_BOSS_C7_R6 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 80, 16, 16}, 442);
+	/** semantic alias for CITY_BOSS_C7_R6 */
+	public static final IconEntry TILE_046 = CITY_BOSS_C7_R6;
 	/** tile_047 */
 	public static final IconEntry TILE_047 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 80, 16, 16}, 443);
 	/** tile_048 */
-	public static final IconEntry TILE_048 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 96, 16, 16}, 444);
+	public static final IconEntry CITY_BOSS_C1_R7 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 96, 16, 16}, 444);
+	/** semantic alias for CITY_BOSS_C1_R7 */
+	public static final IconEntry TILE_048 = CITY_BOSS_C1_R7;
 	/** tile_049 */
-	public static final IconEntry TILE_049 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 96, 16, 16}, 445);
+	public static final IconEntry CITY_BOSS_C2_R7 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 96, 16, 16}, 445);
+	/** semantic alias for CITY_BOSS_C2_R7 */
+	public static final IconEntry TILE_049 = CITY_BOSS_C2_R7;
 	/** tile_050 */
-	public static final IconEntry TILE_050 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 96, 16, 16}, 446);
+	public static final IconEntry CITY_BOSS_C3_R7 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 96, 16, 16}, 446);
+	/** semantic alias for CITY_BOSS_C3_R7 */
+	public static final IconEntry TILE_050 = CITY_BOSS_C3_R7;
 	/** tile_051 */
-	public static final IconEntry TILE_051 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 96, 16, 16}, 447);
+	public static final IconEntry CITY_BOSS_C4_R7 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 96, 16, 16}, 447);
+	/** semantic alias for CITY_BOSS_C4_R7 */
+	public static final IconEntry TILE_051 = CITY_BOSS_C4_R7;
 	/** tile_052 */
-	public static final IconEntry TILE_052 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 96, 16, 16}, 448);
+	public static final IconEntry CITY_BOSS_C5_R7 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 96, 16, 16}, 448);
+	/** semantic alias for CITY_BOSS_C5_R7 */
+	public static final IconEntry TILE_052 = CITY_BOSS_C5_R7;
 	/** tile_053 */
-	public static final IconEntry TILE_053 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 96, 16, 16}, 449);
+	public static final IconEntry CITY_BOSS_C6_R7 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 96, 16, 16}, 449);
+	/** semantic alias for CITY_BOSS_C6_R7 */
+	public static final IconEntry TILE_053 = CITY_BOSS_C6_R7;
 	/** tile_054 */
-	public static final IconEntry TILE_054 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 96, 16, 16}, 450);
+	public static final IconEntry CITY_BOSS_C7_R7 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 96, 16, 16}, 450);
+	/** semantic alias for CITY_BOSS_C7_R7 */
+	public static final IconEntry TILE_054 = CITY_BOSS_C7_R7;
 	/** tile_055 */
-	public static final IconEntry TILE_055 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 96, 16, 16}, 451);
+	public static final IconEntry CITY_BOSS_C8_R7 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 96, 16, 16}, 451);
+	/** semantic alias for CITY_BOSS_C8_R7 */
+	public static final IconEntry TILE_055 = CITY_BOSS_C8_R7;
 	/** tile_056 */
-	public static final IconEntry TILE_056 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 112, 16, 16}, 452);
+	public static final IconEntry CITY_BOSS_C1_R8 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 112, 16, 16}, 452);
+	/** semantic alias for CITY_BOSS_C1_R8 */
+	public static final IconEntry TILE_056 = CITY_BOSS_C1_R8;
 	/** tile_057 */
-	public static final IconEntry TILE_057 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 112, 16, 16}, 453);
+	public static final IconEntry CITY_BOSS_C2_R8 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 112, 16, 16}, 453);
+	/** semantic alias for CITY_BOSS_C2_R8 */
+	public static final IconEntry TILE_057 = CITY_BOSS_C2_R8;
 	/** tile_058 */
-	public static final IconEntry TILE_058 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 112, 16, 16}, 454);
+	public static final IconEntry CITY_BOSS_C3_R8 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 112, 16, 16}, 454);
+	/** semantic alias for CITY_BOSS_C3_R8 */
+	public static final IconEntry TILE_058 = CITY_BOSS_C3_R8;
 	/** tile_059 */
-	public static final IconEntry TILE_059 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 112, 16, 16}, 455);
+	public static final IconEntry CITY_BOSS_C4_R8 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 112, 16, 16}, 455);
+	/** semantic alias for CITY_BOSS_C4_R8 */
+	public static final IconEntry TILE_059 = CITY_BOSS_C4_R8;
 	/** tile_060 */
-	public static final IconEntry TILE_060 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 112, 16, 16}, 456);
+	public static final IconEntry CITY_BOSS_C5_R8 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 112, 16, 16}, 456);
+	/** semantic alias for CITY_BOSS_C5_R8 */
+	public static final IconEntry TILE_060 = CITY_BOSS_C5_R8;
 	/** tile_061 */
-	public static final IconEntry TILE_061 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 112, 16, 16}, 457);
+	public static final IconEntry CITY_BOSS_C6_R8 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 112, 16, 16}, 457);
+	/** semantic alias for CITY_BOSS_C6_R8 */
+	public static final IconEntry TILE_061 = CITY_BOSS_C6_R8;
 	/** tile_062 */
-	public static final IconEntry TILE_062 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 112, 16, 16}, 458);
+	public static final IconEntry CITY_BOSS_C7_R8 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 112, 16, 16}, 458);
+	/** semantic alias for CITY_BOSS_C7_R8 */
+	public static final IconEntry TILE_062 = CITY_BOSS_C7_R8;
 	/** tile_063 */
-	public static final IconEntry TILE_063 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 112, 16, 16}, 459);
+	public static final IconEntry CITY_BOSS_C8_R8 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 112, 16, 16}, 459);
+	/** semantic alias for CITY_BOSS_C8_R8 */
+	public static final IconEntry TILE_063 = CITY_BOSS_C8_R8;
 	/** tile_064 */
-	public static final IconEntry TILE_064 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 128, 16, 16}, 460);
+	public static final IconEntry CITY_BOSS_C1_R9 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 128, 16, 16}, 460);
+	/** semantic alias for CITY_BOSS_C1_R9 */
+	public static final IconEntry TILE_064 = CITY_BOSS_C1_R9;
 	/** tile_065 */
-	public static final IconEntry TILE_065 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 128, 16, 16}, 461);
+	public static final IconEntry CITY_BOSS_C2_R9 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 128, 16, 16}, 461);
+	/** semantic alias for CITY_BOSS_C2_R9 */
+	public static final IconEntry TILE_065 = CITY_BOSS_C2_R9;
 	/** tile_066 */
-	public static final IconEntry TILE_066 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 128, 16, 16}, 462);
+	public static final IconEntry CITY_BOSS_C3_R9 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 128, 16, 16}, 462);
+	/** semantic alias for CITY_BOSS_C3_R9 */
+	public static final IconEntry TILE_066 = CITY_BOSS_C3_R9;
 	/** tile_067 */
-	public static final IconEntry TILE_067 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 128, 16, 16}, 463);
+	public static final IconEntry CITY_BOSS_C4_R9 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 128, 16, 16}, 463);
+	/** semantic alias for CITY_BOSS_C4_R9 */
+	public static final IconEntry TILE_067 = CITY_BOSS_C4_R9;
 	/** tile_068 */
-	public static final IconEntry TILE_068 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 128, 16, 16}, 464);
+	public static final IconEntry CITY_BOSS_C5_R9 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 128, 16, 16}, 464);
+	/** semantic alias for CITY_BOSS_C5_R9 */
+	public static final IconEntry TILE_068 = CITY_BOSS_C5_R9;
 	/** tile_069 */
-	public static final IconEntry TILE_069 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 128, 16, 16}, 465);
+	public static final IconEntry CITY_BOSS_C6_R9 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 128, 16, 16}, 465);
+	/** semantic alias for CITY_BOSS_C6_R9 */
+	public static final IconEntry TILE_069 = CITY_BOSS_C6_R9;
 	/** tile_070 */
-	public static final IconEntry TILE_070 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 128, 16, 16}, 466);
+	public static final IconEntry CITY_BOSS_C7_R9 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 128, 16, 16}, 466);
+	/** semantic alias for CITY_BOSS_C7_R9 */
+	public static final IconEntry TILE_070 = CITY_BOSS_C7_R9;
 	/** tile_071 */
-	public static final IconEntry TILE_071 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 128, 16, 16}, 467);
+	public static final IconEntry CITY_BOSS_C8_R9 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 128, 16, 16}, 467);
+	/** semantic alias for CITY_BOSS_C8_R9 */
+	public static final IconEntry TILE_071 = CITY_BOSS_C8_R9;
 	/** tile_072 */
-	public static final IconEntry TILE_072 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 144, 16, 16}, 468);
+	public static final IconEntry CITY_BOSS_C1_R10 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 144, 16, 16}, 468);
+	/** semantic alias for CITY_BOSS_C1_R10 */
+	public static final IconEntry TILE_072 = CITY_BOSS_C1_R10;
 	/** tile_073 */
-	public static final IconEntry TILE_073 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 144, 16, 16}, 469);
+	public static final IconEntry CITY_BOSS_C2_R10 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 144, 16, 16}, 469);
+	/** semantic alias for CITY_BOSS_C2_R10 */
+	public static final IconEntry TILE_073 = CITY_BOSS_C2_R10;
 	/** tile_074 */
-	public static final IconEntry TILE_074 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 144, 16, 16}, 470);
+	public static final IconEntry CITY_BOSS_C3_R10 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 144, 16, 16}, 470);
+	/** semantic alias for CITY_BOSS_C3_R10 */
+	public static final IconEntry TILE_074 = CITY_BOSS_C3_R10;
 	/** tile_075 */
-	public static final IconEntry TILE_075 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 144, 16, 16}, 471);
+	public static final IconEntry CITY_BOSS_C4_R10 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 144, 16, 16}, 471);
+	/** semantic alias for CITY_BOSS_C4_R10 */
+	public static final IconEntry TILE_075 = CITY_BOSS_C4_R10;
 	/** tile_076 */
-	public static final IconEntry TILE_076 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 144, 16, 16}, 472);
+	public static final IconEntry CITY_BOSS_C5_R10 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 144, 16, 16}, 472);
+	/** semantic alias for CITY_BOSS_C5_R10 */
+	public static final IconEntry TILE_076 = CITY_BOSS_C5_R10;
 	/** tile_077 */
-	public static final IconEntry TILE_077 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 144, 16, 16}, 473);
+	public static final IconEntry CITY_BOSS_C6_R10 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 144, 16, 16}, 473);
+	/** semantic alias for CITY_BOSS_C6_R10 */
+	public static final IconEntry TILE_077 = CITY_BOSS_C6_R10;
 	/** tile_078 */
-	public static final IconEntry TILE_078 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 144, 16, 16}, 474);
+	public static final IconEntry CITY_BOSS_C7_R10 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 144, 16, 16}, 474);
+	/** semantic alias for CITY_BOSS_C7_R10 */
+	public static final IconEntry TILE_078 = CITY_BOSS_C7_R10;
 	/** tile_079 */
-	public static final IconEntry TILE_079 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 144, 16, 16}, 475);
+	public static final IconEntry CITY_BOSS_C8_R10 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 144, 16, 16}, 475);
+	/** semantic alias for CITY_BOSS_C8_R10 */
+	public static final IconEntry TILE_079 = CITY_BOSS_C8_R10;
 	/** tile_080 */
-	public static final IconEntry TILE_080 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 160, 16, 16}, 476);
+	public static final IconEntry CITY_BOSS_C1_R11 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 160, 16, 16}, 476);
+	/** semantic alias for CITY_BOSS_C1_R11 */
+	public static final IconEntry TILE_080 = CITY_BOSS_C1_R11;
 	/** tile_081 */
-	public static final IconEntry TILE_081 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 160, 16, 16}, 477);
+	public static final IconEntry CITY_BOSS_C2_R11 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 160, 16, 16}, 477);
+	/** semantic alias for CITY_BOSS_C2_R11 */
+	public static final IconEntry TILE_081 = CITY_BOSS_C2_R11;
 	/** tile_082 */
-	public static final IconEntry TILE_082 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 160, 16, 16}, 478);
+	public static final IconEntry CITY_BOSS_C3_R11 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 160, 16, 16}, 478);
+	/** semantic alias for CITY_BOSS_C3_R11 */
+	public static final IconEntry TILE_082 = CITY_BOSS_C3_R11;
 	/** tile_083 */
-	public static final IconEntry TILE_083 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 160, 16, 16}, 479);
+	public static final IconEntry CITY_BOSS_C4_R11 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 160, 16, 16}, 479);
+	/** semantic alias for CITY_BOSS_C4_R11 */
+	public static final IconEntry TILE_083 = CITY_BOSS_C4_R11;
 	/** tile_084 */
-	public static final IconEntry TILE_084 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 160, 16, 16}, 480);
+	public static final IconEntry CITY_BOSS_C5_R11 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 160, 16, 16}, 480);
+	/** semantic alias for CITY_BOSS_C5_R11 */
+	public static final IconEntry TILE_084 = CITY_BOSS_C5_R11;
 	/** tile_085 */
-	public static final IconEntry TILE_085 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 160, 16, 16}, 481);
+	public static final IconEntry CITY_BOSS_C6_R11 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 160, 16, 16}, 481);
+	/** semantic alias for CITY_BOSS_C6_R11 */
+	public static final IconEntry TILE_085 = CITY_BOSS_C6_R11;
 	/** tile_086 */
-	public static final IconEntry TILE_086 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 160, 16, 16}, 482);
+	public static final IconEntry CITY_BOSS_C7_R11 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 160, 16, 16}, 482);
+	/** semantic alias for CITY_BOSS_C7_R11 */
+	public static final IconEntry TILE_086 = CITY_BOSS_C7_R11;
 	/** tile_087 */
-	public static final IconEntry TILE_087 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 160, 16, 16}, 483);
+	public static final IconEntry CITY_BOSS_C8_R11 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 160, 16, 16}, 483);
+	/** semantic alias for CITY_BOSS_C8_R11 */
+	public static final IconEntry TILE_087 = CITY_BOSS_C8_R11;
 	/** tile_088 */
-	public static final IconEntry TILE_088 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 176, 16, 16}, 484);
+	public static final IconEntry CITY_BOSS_C1_R12 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 176, 16, 16}, 484);
+	/** semantic alias for CITY_BOSS_C1_R12 */
+	public static final IconEntry TILE_088 = CITY_BOSS_C1_R12;
 	/** tile_089 */
-	public static final IconEntry TILE_089 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 176, 16, 16}, 485);
+	public static final IconEntry CITY_BOSS_C2_R12 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 176, 16, 16}, 485);
+	/** semantic alias for CITY_BOSS_C2_R12 */
+	public static final IconEntry TILE_089 = CITY_BOSS_C2_R12;
 	/** tile_090 */
-	public static final IconEntry TILE_090 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 176, 16, 16}, 486);
+	public static final IconEntry CITY_BOSS_C3_R12 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 176, 16, 16}, 486);
+	/** semantic alias for CITY_BOSS_C3_R12 */
+	public static final IconEntry TILE_090 = CITY_BOSS_C3_R12;
 	/** tile_091 */
-	public static final IconEntry TILE_091 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 176, 16, 16}, 487);
+	public static final IconEntry CITY_BOSS_C4_R12 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 176, 16, 16}, 487);
+	/** semantic alias for CITY_BOSS_C4_R12 */
+	public static final IconEntry TILE_091 = CITY_BOSS_C4_R12;
 	/** tile_092 */
-	public static final IconEntry TILE_092 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 176, 16, 16}, 488);
+	public static final IconEntry CITY_BOSS_C5_R12 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 176, 16, 16}, 488);
+	/** semantic alias for CITY_BOSS_C5_R12 */
+	public static final IconEntry TILE_092 = CITY_BOSS_C5_R12;
 	/** tile_093 */
-	public static final IconEntry TILE_093 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 176, 16, 16}, 489);
+	public static final IconEntry CITY_BOSS_C6_R12 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 176, 16, 16}, 489);
+	/** semantic alias for CITY_BOSS_C6_R12 */
+	public static final IconEntry TILE_093 = CITY_BOSS_C6_R12;
 	/** tile_094 */
-	public static final IconEntry TILE_094 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 176, 16, 16}, 490);
+	public static final IconEntry CITY_BOSS_C7_R12 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 176, 16, 16}, 490);
+	/** semantic alias for CITY_BOSS_C7_R12 */
+	public static final IconEntry TILE_094 = CITY_BOSS_C7_R12;
 	/** tile_095 */
-	public static final IconEntry TILE_095 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 176, 16, 16}, 491);
+	public static final IconEntry CITY_BOSS_C8_R12 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 176, 16, 16}, 491);
+	/** semantic alias for CITY_BOSS_C8_R12 */
+	public static final IconEntry TILE_095 = CITY_BOSS_C8_R12;
 	/** tile_096 */
-	public static final IconEntry TILE_096 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 192, 16, 16}, 492);
+	public static final IconEntry CITY_BOSS_C1_R13 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 192, 16, 16}, 492);
+	/** semantic alias for CITY_BOSS_C1_R13 */
+	public static final IconEntry TILE_096 = CITY_BOSS_C1_R13;
 	/** tile_097 */
-	public static final IconEntry TILE_097 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 192, 16, 16}, 493);
+	public static final IconEntry CITY_BOSS_C2_R13 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 192, 16, 16}, 493);
+	/** semantic alias for CITY_BOSS_C2_R13 */
+	public static final IconEntry TILE_097 = CITY_BOSS_C2_R13;
 	/** tile_098 */
-	public static final IconEntry TILE_098 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 192, 16, 16}, 494);
+	public static final IconEntry CITY_BOSS_C3_R13 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 192, 16, 16}, 494);
+	/** semantic alias for CITY_BOSS_C3_R13 */
+	public static final IconEntry TILE_098 = CITY_BOSS_C3_R13;
 	/** tile_099 */
-	public static final IconEntry TILE_099 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 192, 16, 16}, 495);
+	public static final IconEntry CITY_BOSS_C4_R13 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 192, 16, 16}, 495);
+	/** semantic alias for CITY_BOSS_C4_R13 */
+	public static final IconEntry TILE_099 = CITY_BOSS_C4_R13;
 	/** tile_100 */
-	public static final IconEntry TILE_100 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 192, 16, 16}, 496);
+	public static final IconEntry CITY_BOSS_C5_R13 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 192, 16, 16}, 496);
+	/** semantic alias for CITY_BOSS_C5_R13 */
+	public static final IconEntry TILE_100 = CITY_BOSS_C5_R13;
 	/** tile_101 */
-	public static final IconEntry TILE_101 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 192, 16, 16}, 497);
+	public static final IconEntry CITY_BOSS_C6_R13 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 192, 16, 16}, 497);
+	/** semantic alias for CITY_BOSS_C6_R13 */
+	public static final IconEntry TILE_101 = CITY_BOSS_C6_R13;
 	/** tile_102 */
-	public static final IconEntry TILE_102 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 192, 16, 16}, 498);
+	public static final IconEntry CITY_BOSS_C7_R13 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 192, 16, 16}, 498);
+	/** semantic alias for CITY_BOSS_C7_R13 */
+	public static final IconEntry TILE_102 = CITY_BOSS_C7_R13;
 	/** tile_103 */
-	public static final IconEntry TILE_103 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 192, 16, 16}, 499);
+	public static final IconEntry CITY_BOSS_C8_R13 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 192, 16, 16}, 499);
+	/** semantic alias for CITY_BOSS_C8_R13 */
+	public static final IconEntry TILE_103 = CITY_BOSS_C8_R13;
 	/** tile_104 */
-	public static final IconEntry TILE_104 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 208, 16, 16}, 500);
+	public static final IconEntry CITY_BOSS_C1_R14 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 208, 16, 16}, 500);
+	/** semantic alias for CITY_BOSS_C1_R14 */
+	public static final IconEntry TILE_104 = CITY_BOSS_C1_R14;
 	/** tile_105 */
-	public static final IconEntry TILE_105 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 208, 16, 16}, 501);
+	public static final IconEntry CITY_BOSS_C2_R14 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 208, 16, 16}, 501);
+	/** semantic alias for CITY_BOSS_C2_R14 */
+	public static final IconEntry TILE_105 = CITY_BOSS_C2_R14;
 	/** tile_106 */
-	public static final IconEntry TILE_106 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 208, 16, 16}, 502);
+	public static final IconEntry CITY_BOSS_C3_R14 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 208, 16, 16}, 502);
+	/** semantic alias for CITY_BOSS_C3_R14 */
+	public static final IconEntry TILE_106 = CITY_BOSS_C3_R14;
 	/** tile_107 */
-	public static final IconEntry TILE_107 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 208, 16, 16}, 503);
+	public static final IconEntry CITY_BOSS_C4_R14 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 208, 16, 16}, 503);
+	/** semantic alias for CITY_BOSS_C4_R14 */
+	public static final IconEntry TILE_107 = CITY_BOSS_C4_R14;
 	/** tile_108 */
-	public static final IconEntry TILE_108 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 208, 16, 16}, 504);
+	public static final IconEntry CITY_BOSS_C5_R14 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 208, 16, 16}, 504);
+	/** semantic alias for CITY_BOSS_C5_R14 */
+	public static final IconEntry TILE_108 = CITY_BOSS_C5_R14;
 	/** tile_109 */
-	public static final IconEntry TILE_109 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 208, 16, 16}, 505);
+	public static final IconEntry CITY_BOSS_C6_R14 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 208, 16, 16}, 505);
+	/** semantic alias for CITY_BOSS_C6_R14 */
+	public static final IconEntry TILE_109 = CITY_BOSS_C6_R14;
 	/** tile_110 */
-	public static final IconEntry TILE_110 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 208, 16, 16}, 506);
+	public static final IconEntry CITY_BOSS_C7_R14 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 208, 16, 16}, 506);
+	/** semantic alias for CITY_BOSS_C7_R14 */
+	public static final IconEntry TILE_110 = CITY_BOSS_C7_R14;
 	/** tile_111 */
-	public static final IconEntry TILE_111 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 208, 16, 16}, 507);
+	public static final IconEntry CITY_BOSS_C8_R14 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 208, 16, 16}, 507);
+	/** semantic alias for CITY_BOSS_C8_R14 */
+	public static final IconEntry TILE_111 = CITY_BOSS_C8_R14;
 	/** tile_112 */
-	public static final IconEntry TILE_112 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 224, 16, 16}, 508);
+	public static final IconEntry CITY_BOSS_C1_R15 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 224, 16, 16}, 508);
+	/** semantic alias for CITY_BOSS_C1_R15 */
+	public static final IconEntry TILE_112 = CITY_BOSS_C1_R15;
 	/** tile_113 */
-	public static final IconEntry TILE_113 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 224, 16, 16}, 509);
+	public static final IconEntry CITY_BOSS_C2_R15 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 224, 16, 16}, 509);
+	/** semantic alias for CITY_BOSS_C2_R15 */
+	public static final IconEntry TILE_113 = CITY_BOSS_C2_R15;
 	/** tile_114 */
-	public static final IconEntry TILE_114 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 224, 16, 16}, 510);
+	public static final IconEntry CITY_BOSS_C3_R15 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 224, 16, 16}, 510);
+	/** semantic alias for CITY_BOSS_C3_R15 */
+	public static final IconEntry TILE_114 = CITY_BOSS_C3_R15;
 	/** tile_115 */
-	public static final IconEntry TILE_115 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 224, 16, 16}, 511);
+	public static final IconEntry CITY_BOSS_C4_R15 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 224, 16, 16}, 511);
+	/** semantic alias for CITY_BOSS_C4_R15 */
+	public static final IconEntry TILE_115 = CITY_BOSS_C4_R15;
 	/** tile_116 */
-	public static final IconEntry TILE_116 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 224, 16, 16}, 512);
+	public static final IconEntry CITY_BOSS_C5_R15 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 224, 16, 16}, 512);
+	/** semantic alias for CITY_BOSS_C5_R15 */
+	public static final IconEntry TILE_116 = CITY_BOSS_C5_R15;
 	/** tile_117 */
-	public static final IconEntry TILE_117 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 224, 16, 16}, 513);
+	public static final IconEntry CITY_BOSS_C6_R15 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 224, 16, 16}, 513);
+	/** semantic alias for CITY_BOSS_C6_R15 */
+	public static final IconEntry TILE_117 = CITY_BOSS_C6_R15;
 	/** tile_118 */
-	public static final IconEntry TILE_118 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 224, 16, 16}, 514);
+	public static final IconEntry CITY_BOSS_C7_R15 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 224, 16, 16}, 514);
+	/** semantic alias for CITY_BOSS_C7_R15 */
+	public static final IconEntry TILE_118 = CITY_BOSS_C7_R15;
 	/** tile_119 */
-	public static final IconEntry TILE_119 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 224, 16, 16}, 515);
+	public static final IconEntry CITY_BOSS_C8_R15 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 224, 16, 16}, 515);
+	/** semantic alias for CITY_BOSS_C8_R15 */
+	public static final IconEntry TILE_119 = CITY_BOSS_C8_R15;
 	/** tile_120 */
-	public static final IconEntry TILE_120 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 240, 16, 16}, 516);
+	public static final IconEntry CITY_BOSS_C1_R16 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{0, 240, 16, 16}, 516);
+	/** semantic alias for CITY_BOSS_C1_R16 */
+	public static final IconEntry TILE_120 = CITY_BOSS_C1_R16;
 	/** tile_121 */
-	public static final IconEntry TILE_121 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 240, 16, 16}, 517);
+	public static final IconEntry CITY_BOSS_C2_R16 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{16, 240, 16, 16}, 517);
+	/** semantic alias for CITY_BOSS_C2_R16 */
+	public static final IconEntry TILE_121 = CITY_BOSS_C2_R16;
 	/** tile_122 */
-	public static final IconEntry TILE_122 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 240, 16, 16}, 518);
+	public static final IconEntry CITY_BOSS_C3_R16 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{32, 240, 16, 16}, 518);
+	/** semantic alias for CITY_BOSS_C3_R16 */
+	public static final IconEntry TILE_122 = CITY_BOSS_C3_R16;
 	/** tile_123 */
-	public static final IconEntry TILE_123 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 240, 16, 16}, 519);
+	public static final IconEntry CITY_BOSS_C4_R16 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{48, 240, 16, 16}, 519);
+	/** semantic alias for CITY_BOSS_C4_R16 */
+	public static final IconEntry TILE_123 = CITY_BOSS_C4_R16;
 	/** tile_124 */
-	public static final IconEntry TILE_124 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 240, 16, 16}, 520);
+	public static final IconEntry CITY_BOSS_C5_R16 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{64, 240, 16, 16}, 520);
+	/** semantic alias for CITY_BOSS_C5_R16 */
+	public static final IconEntry TILE_124 = CITY_BOSS_C5_R16;
 	/** tile_125 */
-	public static final IconEntry TILE_125 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 240, 16, 16}, 521);
+	public static final IconEntry CITY_BOSS_C6_R16 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{80, 240, 16, 16}, 521);
+	/** semantic alias for CITY_BOSS_C6_R16 */
+	public static final IconEntry TILE_125 = CITY_BOSS_C6_R16;
 	/** tile_126 */
-	public static final IconEntry TILE_126 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 240, 16, 16}, 522);
+	public static final IconEntry CITY_BOSS_C7_R16 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{96, 240, 16, 16}, 522);
+	/** semantic alias for CITY_BOSS_C7_R16 */
+	public static final IconEntry TILE_126 = CITY_BOSS_C7_R16;
 	/** tile_127 */
-	public static final IconEntry TILE_127 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 240, 16, 16}, 523);
+	public static final IconEntry CITY_BOSS_C8_R16 = new IconEntry("environment/custom_tiles/city_boss.png", new int[]{112, 240, 16, 16}, 523);
+	/** semantic alias for CITY_BOSS_C8_R16 */
+	public static final IconEntry TILE_127 = CITY_BOSS_C8_R16;
 }
