@@ -22,8 +22,9 @@ import java.util.List;
 public final class SpsBspLayout {
 
 	//SPSEXPD: 房间尺寸由 8/10 收到 6/7 —— BSP 递归二分下房间数约为原来的 1.8 倍（用户要求扩大每层房间数）
+	//SPSEXPD: 上限由 7 放宽到 8 —— 略微降低房间密度（切分更早停止，房间整体变大、数量约减 10~15%）
 	public static final int MIN_ROOM_SIZE = 6;
-	public static final int MAX_ROOM_SIZE = 7;
+	public static final int MAX_ROOM_SIZE = 8;
 
 	public static Result generate(int width, int height, int maxAttempts) {
 		return generate(width, height, maxAttempts, MIN_ROOM_SIZE, MAX_ROOM_SIZE);
