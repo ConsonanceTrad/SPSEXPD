@@ -466,8 +466,8 @@ public abstract class SpsRegularLevel extends RegularLevel {
 	}
 
 	private void paintLegacyStandardRoom(Room room) {
-		//SPSEXPD: 一半概率改用破碎的标准房间结构（StandardRoom 池）
-		if (shatteredStructureAllowed() && Random.Int(2) == 0 && paintLegacyShatteredRoom(room)) return;
+		//SPSEXPD: 七成概率改用破碎的标准房间结构（StandardRoom 池），其余走 SPS 自绘（破碎:SPS = 7:3）
+		if (shatteredStructureAllowed() && Random.Int(10) < 7 && paintLegacyShatteredRoom(room)) return;
 		fill(room, Terrain.WALL);
 		for (Door door : room.connected.values()) if (door != null) door.set(Door.Type.REGULAR);
 		if (paintLegacyDepthStandardRoom(room)) return;
@@ -1038,8 +1038,8 @@ public abstract class SpsRegularLevel extends RegularLevel {
 	}
 
 	private void paintTunnel(Room room) {
-		//SPSEXPD: 一半概率改用破碎的连接房间结构（TunnelRoom/BridgeRoom/PerimeterRoom/WalkwayRoom/...）
-		if (shatteredStructureAllowed() && Random.Int(2) == 0 && paintLegacyShatteredCorridor(room)) return;
+		//SPSEXPD: 七成概率改用破碎的连接房间结构（TunnelRoom/BridgeRoom/PerimeterRoom/WalkwayRoom/...），其余走 SPS 自绘
+		if (shatteredStructureAllowed() && Random.Int(10) < 7 && paintLegacyShatteredCorridor(room)) return;
 		int floor = tunnelTile();
 		Point center = legacyRoomCenter(room);
 		if (room.width() > room.height()
@@ -1086,8 +1086,8 @@ public abstract class SpsRegularLevel extends RegularLevel {
 	}
 
 	private void paintPassage(Room room) {
-		//SPSEXPD: 一半概率改用破碎的连接房间结构（失败时退回 SPS 的环形通道）
-		if (shatteredStructureAllowed() && Random.Int(2) == 0 && paintLegacyShatteredCorridor(room)) return;
+		//SPSEXPD: 七成概率改用破碎的连接房间结构（失败时退回 SPS 的环形通道），其余走 SPS 自绘
+		if (shatteredStructureAllowed() && Random.Int(10) < 7 && paintLegacyShatteredCorridor(room)) return;
 		int floor = tunnelTile();
 		int passageWidth = room.width() - 2;
 		int passageHeight = room.height() - 2;
