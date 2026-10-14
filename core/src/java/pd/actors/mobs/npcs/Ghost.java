@@ -296,8 +296,11 @@ public class Ghost extends NPC {
 		}
 		
 		public static void spawn(SewerLevel level) {
-			//SPSEXPD: 每章 8 层——幽灵出现在下水道章（1-8），越深越容易
-			if (!spawned && Dungeon.depth > 1 && Random.Int( Math.max(1, 9 - Dungeon.depth) ) == 0) {
+			//SPSEXPD: 幽灵在下水道章的普通层里越深越容易，并在本章最后一个普通层保底必出
+			//（原用 9 - depth 是按"每章 8 个普通层"算的，但章内其实只有 NORMAL_FLOORS_PER_CHAPTER=6 个普通层，
+			// 导致永远不保底、整章累计仅约 72% 会遇到）
+			if (!spawned && Dungeon.depth > 1
+					&& Random.Int(Math.max(1, Dungeon.NORMAL_FLOORS_PER_CHAPTER + 1 - Dungeon.depth)) == 0) {
 				
 				Ghost ghost = new Ghost();
 				int spawnPos = -1;
@@ -311,8 +314,8 @@ public class Ghost extends NPC {
 				
 				spawned = true;
 				//dungeon depth determines type of quest.
-				//depth2=fetid rat, 3=gnoll trickster, 4=great crab
-				type = Dungeon.depth-1;
+				//depth2=fetid rat, 3=gnoll trickster, 4+=great crab（收敛到 1..3，越界会落到 default）
+				type = Math.min(3, Math.max(1, Dungeon.depth - 1));
 				
 				given = false;
 				processed = false;
