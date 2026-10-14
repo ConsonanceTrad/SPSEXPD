@@ -868,10 +868,11 @@ public class Generator {
 					//SPSEXPD: 特殊枪械（露珠 / 炸弹弹药）
 					DewCannon.class, BombLauncher.class
 			};
+			//SPSEXPD: probs 必须与 classes 等长（20 项）——原先多写了一个 1，
+			// 会让 Generator.random(Category.RANGED) 里 cat.classes[i] 数组越界
 			RANGED.probs = new float[]{
 					1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-					1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-					1
+					1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 			};
 			
 			//see Generator.randomArmor
