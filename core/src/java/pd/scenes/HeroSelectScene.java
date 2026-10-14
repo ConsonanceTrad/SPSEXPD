@@ -393,27 +393,28 @@ public class HeroSelectScene extends PixelScene {
 				: Messages.titleCase(Messages.get(this, "theme_title")));
 		themeBtn.setSize(themeBtn.reqWidth() + 8, 21);
 
-		//SPSEXPD: 「主题选择」「开始」「命名」并排居中，间距 4；可用宽度不足时按比例压缩（下限各 40）
+		//SPSEXPD: 「命名」「主题选择」「开始」并排居中，间距 4；可用宽度不足时按比例压缩（下限各 40）
+		//（命名图标按钮排在整行最左侧第一位）
 		float btnGap = 4;
 		float nameBtnW = 21;
-		float btnTotal = themeBtn.width() + btnGap + startBtn.width() + btnGap + nameBtnW;
+		float btnTotal = nameBtnW + btnGap + themeBtn.width() + btnGap + startBtn.width();
 		if (btnTotal > w - 4){
 			float avail = Math.max(80, w - 4 - 2*btnGap - nameBtnW);
 			float shrink = avail / (themeBtn.width() + startBtn.width());
 			themeBtn.setSize(Math.max(40, themeBtn.width() * shrink), 21);
 			startBtn.setSize(Math.max(40, startBtn.width() * shrink), 21);
-			btnTotal = themeBtn.width() + btnGap + startBtn.width() + btnGap + nameBtnW;
+			btnTotal = nameBtnW + btnGap + themeBtn.width() + btnGap + startBtn.width();
 		}
 
 		float btnRowY = Camera.main.height - insets.bottom - 4 - startBtn.height();
 		float btnRowX = left + (w - btnTotal)/2f;
-		themeBtn.setPos(btnRowX, btnRowY);
-		align(themeBtn);
-		startBtn.setPos(btnRowX + themeBtn.width() + btnGap, btnRowY);
-		align(startBtn);
 		nameBtn.setSize(nameBtnW, 21);
-		nameBtn.setPos(startBtn.right() + btnGap, btnRowY);
+		nameBtn.setPos(btnRowX, btnRowY);
 		align(nameBtn);
+		themeBtn.setPos(nameBtn.right() + btnGap, btnRowY);
+		align(themeBtn);
+		startBtn.setPos(themeBtn.right() + btnGap, btnRowY);
+		align(startBtn);
 
 		optionsPane.setPos(left + (w - optionsPane.width())/2f, startBtn.top() - 4 - optionsPane.height());
 		align(optionsPane);
