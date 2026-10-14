@@ -1820,6 +1820,15 @@ project(':core') {
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
+	tasks.register('shatteredBasePreview', JavaExec) {
+		group = 'verification'
+		description = '诊断用：破碎原生生成机制出地形PNG（临时任务，用完删除）。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = coreTestClass('levels.SpsShatteredBaseProbe')
+		workingDir = file('src/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
 	tasks.register('verifySpsFixedLevels', JavaExec) {
 		group = 'verification'
 		description = '验证已迁移SPS固定地图的关键几何坐标。'
