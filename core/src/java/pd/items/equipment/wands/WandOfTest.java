@@ -7,7 +7,9 @@ import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.damagetype.DamageType;
+import pd.actors.damagetype.Element;
 import pd.actors.hero.Hero;
+import pd.actors.hero.HeroStats;
 import pd.items.equipment.weapon.melee.MagesStaff;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
@@ -16,7 +18,7 @@ import render.utils.serialize.Bundle;
 import java.util.ArrayList;
 import pd.messages.InlineText;
 
-/** A 99-charge tester wand with seven selectable elemental damage types. */
+/** A 99-charge tester wand with nine selectable elemental damage types. */
 public class WandOfTest extends DamageWand {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
@@ -29,6 +31,8 @@ public class WandOfTest extends DamageWand {
 			.t("ac_4", "大地")
 			.t("ac_5", "光明")
 			.t("ac_6", "黑暗")
+			.t("ac_7", "风")
+			.t("ac_8", "混乱")
 			.t("desc", "这根法杖是测试用的，可以改变造成伤害的属性。")
 			.t("stats_desc", "这根法杖射出的飞弹能造成_%1$d~%2$d点伤害_。");
 	}
@@ -43,6 +47,9 @@ public class WandOfTest extends DamageWand {
 	public static final String AC_EARTH = "4";
 	public static final String AC_LIGHT = "5";
 	public static final String AC_DARK = "6";
+	//SPSEXPD: 新增风、混乱两系，与 Element 九系对齐
+	public static final String AC_WIND = "7";
+	public static final String AC_CHAOS = "8";
 	private static final String TYPE = "type";
 
 	private int type;
@@ -67,6 +74,8 @@ public class WandOfTest extends DamageWand {
 		actions.add(AC_EARTH);
 		actions.add(AC_LIGHT);
 		actions.add(AC_DARK);
+		actions.add(AC_WIND);
+		actions.add(AC_CHAOS);
 		return actions;
 	}
 
@@ -82,7 +91,7 @@ public class WandOfTest extends DamageWand {
 	private static boolean isTypeAction(String action) {
 		return AC_ENERGY.equals(action) || AC_FIRE.equals(action) || AC_ICE.equals(action)
 				|| AC_SHOCK.equals(action) || AC_EARTH.equals(action) || AC_LIGHT.equals(action)
-				|| AC_DARK.equals(action);
+				|| AC_DARK.equals(action) || AC_WIND.equals(action) || AC_CHAOS.equals(action);
 	}
 
 	@Override
@@ -90,7 +99,14 @@ public class WandOfTest extends DamageWand {
 		Char target = Actor.findChar(bolt.collisionPos);
 		if (target == null) return;
 		wandProc(target, chargesPerCast());
-		target.damage(damageRoll(), damageType());
+		//SPSEXPD: 输出端元素增幅（统一属性层 HeroStats，与 SpsEnchantment 同源）——
+		//按当前档位的元素放大伤害，使元素加成在实测中真正生效
+		int dmg = damageRoll();
+		if (curUser instanceof Hero) {
+			Element element = Element.of(damageType());
+			if (element != null) dmg = HeroStats.applyElement((Hero) curUser, dmg, element);
+		}
+		target.damage(dmg, damageType());
 		if (target.sprite != null) target.sprite.burst(0xFF99CCFF, 2);
 	}
 
@@ -107,6 +123,8 @@ public class WandOfTest extends DamageWand {
 			case 4: return DamageType.EARTH_DAMAGE;
 			case 5: return DamageType.LIGHT_DAMAGE;
 			case 6: return DamageType.DARK_DAMAGE;
+			case 7: return DamageType.WIND_DAMAGE;
+			case 8: return DamageType.CHAOS_DAMAGE;
 			default: return DamageType.ENERGY_DAMAGE;
 		}
 	}
@@ -122,7 +140,7 @@ public class WandOfTest extends DamageWand {
 	}
 
 	public int type() { return type; }
-	public void type(int value) { type = Math.max(0, Math.min(6, value)); }
+	public void type(int value) { type = Math.max(0, Math.min(8, value)); }
 
 	@Override public String info() { return super.info() + "\n\n" + Messages.get(this, "ac_" + type); }
 	@Override

@@ -57,29 +57,11 @@ import pd.items.consum.scrolls.ScrollOfMagicMapping;
 import pd.items.consum.scrolls.ScrollOfPsionicBlast;
 import pd.items.consum.potions.elixirs.WishPotion;
 import pd.items.equipment.weapon.melee.special.TestWeapon;
+import pd.items.equipment.wands.WandOfTest;
 import pd.items.equipment.weapon.guns.GunA;
-import pd.items.equipment.weapon.guns.GunB;
-import pd.items.equipment.weapon.guns.GunC;
-import pd.items.equipment.weapon.guns.GunD;
-import pd.items.equipment.weapon.guns.GunE;
-import pd.items.equipment.weapon.guns.Liberator;
-import pd.items.equipment.weapon.guns.Hydra;
-import pd.items.equipment.weapon.guns.Garand;
-import pd.items.equipment.weapon.guns.LightningM;
-import pd.items.equipment.weapon.guns.Howl;
-import pd.items.equipment.weapon.guns.HighNoon;
-import pd.items.equipment.weapon.guns.Exorcist;
-import pd.items.equipment.weapon.guns.Arc;
-import pd.items.equipment.weapon.guns.HereticTorment;
-import pd.items.equipment.weapon.guns.JeffHammer;
-import pd.items.equipment.weapon.guns.BorderFN4;
-import pd.items.equipment.weapon.guns.Apok;
-import pd.items.equipment.weapon.guns.BorderWolf;
-import pd.items.equipment.weapon.guns.DewCannon;
-import pd.items.equipment.weapon.guns.BombLauncher;
 import pd.items.equipment.weapon.guns.ToyGun;
 import pd.items.equipment.weapon.missiles.throwing.Boomerang;
-import pd.items.misc.GunOfSoldier;
+
 import pd.items.consum.food.*;
 import pd.plants.*;
 
@@ -117,31 +99,12 @@ public final class SpsTestTimeLoadout {
 		collect(hero, new PowerHand());
 		collect(hero, new TomeOfMastery());
 		collect(hero, identified(new TestWeapon()));
-		//SPSEXPD: 枪械与弹药——通用弹匣 + 每把非特殊枪械 + 当前全部特殊枪械
+		//SPSEXPD: 测试法杖——可切换并释放九系属性魔弹
+		collect(hero, identified(new WandOfTest()));
+		//SPSEXPD: 枪械只保留测试用两把（沉默之鹰 / 玩具枪）+ 通用弹匣
 		collect(hero, new Magazine().quantity(20));
 		collect(hero, identified(new GunA()));
-		collect(hero, identified(new GunB()));
-		collect(hero, identified(new GunC()));
-		collect(hero, identified(new GunD()));
-		collect(hero, identified(new GunE()));
-		//SPSEXPD: 新增常规枪械（手枪 / 冲锋枪 / 霰弹枪 / 狙击枪）
-		collect(hero, identified(new Liberator()));
-		collect(hero, identified(new Hydra()));
-		collect(hero, identified(new Garand()));
-		collect(hero, identified(new LightningM()));
-		collect(hero, identified(new Howl()));
-		collect(hero, identified(new HighNoon()));
-		collect(hero, identified(new Exorcist()));
-		collect(hero, identified(new Arc()));
-		collect(hero, identified(new HereticTorment()));
-		collect(hero, identified(new JeffHammer()));
-		collect(hero, identified(new BorderFN4()));
-		collect(hero, identified(new Apok()));
-		collect(hero, identified(new BorderWolf()));
-		collect(hero, identified(new DewCannon()));
-		collect(hero, identified(new BombLauncher()));
 		collect(hero, identified(new ToyGun()));
-		collect(hero, identified(new GunOfSoldier()));
 		//SPSEXPD: 两个回旋镖——用于测试多回旋镖同时使用时是否互相干扰
 		collect(hero, identified(new Boomerang()));
 		collect(hero, identified(new Boomerang()));

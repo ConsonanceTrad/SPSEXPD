@@ -59,6 +59,7 @@ import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
 import pd.items.consum.scrolls.ScrollOfPsionicBlast;
 import pd.items.equipment.wands.WandOfMagicMissile;
+import pd.items.equipment.wands.WandOfTest;
 import pd.items.equipment.weapon.melee.special.TestWeapon;
 import pd.items.equipment.weapon.missiles.ThrowingKnife;
 import pd.levels.Level;
@@ -141,10 +142,24 @@ public final class SpsTestTimeLoadoutTest {
 				//SPSEXPD: 竹背篓（只装投掷果实与大型果实）
 				BambooBasket.class,
 				SoulCollect.class, PowerHand.class, TomeOfMastery.class, TestWeapon.class,
+				//SPSEXPD: 测试法杖（可切换九系属性魔弹）
+				WandOfTest.class,
 				EasterEgg.class, AflyEgg.class, GoldDragonEgg.class, SaveYourLife.class,
 				FourClover.class, MasterThievesArmband.class
 		};
 		for (Class<?> type : uniqueItems) check(countExact(hero, type) == 1, "测试物资缺失或重复：" + type.getSimpleName());
+
+		//SPSEXPD: 枪械只保留两把测试枪械（沉默之鹰 / 玩具枪），其余不再随测试时间发放
+		check(countExact(hero, pd.items.equipment.weapon.guns.GunA.class) == 1
+						&& countExact(hero, pd.items.equipment.weapon.guns.ToyGun.class) == 1,
+				"测试时间缺少测试枪械（沉默之鹰 / 玩具枪）");
+		for (Item item : hero.belongings) {
+			if (item.getClass().getPackageName().equals("pd.items.equipment.weapon.guns")) {
+				check(item.getClass() == pd.items.equipment.weapon.guns.GunA.class
+								|| item.getClass() == pd.items.equipment.weapon.guns.ToyGun.class,
+						"测试时间仍发放了非测试用枪械：" + item.getClass().getSimpleName());
+			}
+		}
 
 		check(countExact(hero, ScrollOfIdentify.class) == 199, "鉴定卷轴数量不是199");
 		check(countExact(hero, ScrollOfMagicMapping.class) == 199, "地图卷轴数量不是199");

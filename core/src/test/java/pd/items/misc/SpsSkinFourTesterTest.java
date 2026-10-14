@@ -166,11 +166,12 @@ public final class SpsSkinFourTesterTest {
 		DamageType[] types = {
 				DamageType.ENERGY_DAMAGE, DamageType.FIRE_DAMAGE, DamageType.ICE_DAMAGE,
 				DamageType.SHOCK_DAMAGE, DamageType.EARTH_DAMAGE, DamageType.LIGHT_DAMAGE,
-				DamageType.DARK_DAMAGE
+				DamageType.DARK_DAMAGE, DamageType.WIND_DAMAGE, DamageType.CHAOS_DAMAGE
 		};
 		String[] actions = {
 				WandOfTest.AC_ENERGY, WandOfTest.AC_FIRE, WandOfTest.AC_ICE,
-				WandOfTest.AC_SHOCK, WandOfTest.AC_EARTH, WandOfTest.AC_LIGHT, WandOfTest.AC_DARK
+				WandOfTest.AC_SHOCK, WandOfTest.AC_EARTH, WandOfTest.AC_LIGHT, WandOfTest.AC_DARK,
+				WandOfTest.AC_WIND, WandOfTest.AC_CHAOS
 		};
 		for (int i = 0; i < actions.length; i++) {
 			wand.execute(null, actions[i]);
@@ -180,7 +181,7 @@ public final class SpsSkinFourTesterTest {
 		wand.storeInBundle(saved);
 		WandOfTest restored = new WandOfTest();
 		restored.restoreFromBundle(saved);
-		check(restored.type() == 6 && restored.maxCharges == 99, "测试法杖元素或充能上限没有随存档恢复");
+		check(restored.type() == 8 && restored.maxCharges == 99, "测试法杖元素或充能上限没有随存档恢复");
 	}
 
 	private static void testRewardPaper() {
