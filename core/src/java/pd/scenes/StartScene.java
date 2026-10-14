@@ -184,11 +184,6 @@ public class StartScene extends PixelScene {
 		private RenderedTextBlock name;
 		private RenderedTextBlock lastPlayed;
 		
-		private Image steps;
-		private BitmapText depth;
-		private Image classIcon;
-		private BitmapText level;
-		
 		private int slot;
 		private boolean newGame;
 		
@@ -216,14 +211,6 @@ public class StartScene extends PixelScene {
 				if (hero != null){
 					remove(hero);
 					hero = null;
-					remove(steps);
-					steps = null;
-					remove(depth);
-					depth = null;
-					remove(classIcon);
-					classIcon = null;
-					remove(level);
-					level = null;
 				}
 			} else {
 				
@@ -240,20 +227,8 @@ public class StartScene extends PixelScene {
 				if (hero == null){
 					hero = HeroSprite.avatar(info.heroClass, info.armorTier, info.skin);
 					add(hero);
-					
-					steps = new Image(Icons.get(Icons.STAIRS));
-					add(steps);
-					depth = new BitmapText(PixelScene.pixelFont);
-					add(depth);
-					
-					classIcon = new Image(Icons.get(info.heroClass));
-					add(classIcon);
-					level = new BitmapText(PixelScene.pixelFont);
-					add(level);
 				} else {
 					hero.copy(HeroSprite.avatar(info.heroClass, info.armorTier, info.skin));
-					
-					classIcon.copy(Icons.get(info.heroClass));
 				}
 
 				long diff = Game.realTime - info.lastPlayed;
@@ -271,32 +246,12 @@ public class StartScene extends PixelScene {
 					lastPlayed.text(Messages.get(StartScene.class, "months_ago", diff / (30L * 24 * 60 * 60_000)));
 				}
 				
-				depth.text(Integer.toString(info.depth));
-				depth.measure();
-				
-				level.text(Integer.toString(info.level));
-				level.measure();
-				
 				if (info.challenges > 0){
 					name.hardlight(Window.TITLE_COLOR);
 					lastPlayed.hardlight(Window.TITLE_COLOR);
-					depth.hardlight(Window.TITLE_COLOR);
-					level.hardlight(Window.TITLE_COLOR);
 				} else {
 					name.resetColor();
 					lastPlayed.resetColor();
-					depth.resetColor();
-					level.resetColor();
-				}
-
-				if (info.daily){
-					if (info.dailyReplay){
-						steps.hardlight(1f, 0.5f, 2f);
-					} else {
-						steps.hardlight(0.5f, 1f, 2f);
-					}
-				} else if (!info.customSeed.isEmpty()){
-					steps.hardlight(1f, 1.5f, 0.67f);
 				}
 				
 			}
@@ -327,22 +282,6 @@ public class StartScene extends PixelScene {
 						hero.x + hero.width() + 6,
 						name.bottom()+2
 				);
-				
-				classIcon.x = x + width - 24 + (16 - classIcon.width())/2f;
-				classIcon.y = y + (height - classIcon.height())/2f;
-				align(classIcon);
-				
-				level.x = classIcon.x + (classIcon.width() - level.width()) / 2f;
-				level.y = classIcon.y + (classIcon.height() - level.height()) / 2f + 1;
-				align(level);
-				
-				steps.x = x + width - 40 + (16 - steps.width())/2f;
-				steps.y = y + (height - steps.height())/2f;
-				align(steps);
-				
-				depth.x = steps.x + (steps.width() - depth.width()) / 2f;
-				depth.y = steps.y + (steps.height() - depth.height()) / 2f + 1;
-				align(depth);
 				
 			} else {
 				name.setPos(

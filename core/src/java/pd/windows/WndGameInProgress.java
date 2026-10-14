@@ -56,6 +56,7 @@ public class WndGameInProgress extends Window {
 			.t("health", "生命")
 			.t("gold", "金币收集数")
 			.t("depth", "最高层数")
+			.t("current_depth", "当前楼层")
 			.t("dungeon_seed", "地牢种子")
 			.t("custom_seed", "_自定义种子_")
 			.t("daily_for", "_日常挑战于_")
@@ -153,6 +154,8 @@ public class WndGameInProgress extends Window {
 		
 		pos += GAP;
 		statSlot( Messages.get(this, "gold"), info.goldCollected );
+		//SPSEXPD: 当前楼层从存档槽位移到这里显示
+		statSlot( Messages.get(this, "current_depth"), info.depth );
 		statSlot( Messages.get(this, "depth"), info.maxDepth );
 		if (info.daily) {
 			if (info.dailyReplay) {
