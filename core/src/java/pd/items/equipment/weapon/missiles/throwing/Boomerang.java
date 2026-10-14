@@ -267,6 +267,8 @@ public class Boomerang extends MeleeWeapon {
 					item.charge = FULL_CHARGE;
 					item.updateQuickslot();
 					GLog.p(Messages.get(Boomerang.class, "returned"));
+					//SPSEXPD: 接住弹回的回旋镖 → 获得/刷新「致命节奏」（远程/射击伤害 +10%/层，持续 5 回合）
+					Buff.affect(hero, pd.actors.buffs.LethalRhythm.class).gainStack();
 				}
 			}
 			next();

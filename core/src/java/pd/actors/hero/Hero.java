@@ -1037,6 +1037,11 @@ public class Hero extends Char {
 		//SPSEXPD: 物理伤害加成（统一属性层 HeroStats，近战/投掷共用本入口）
 		dmg = pd.actors.hero.HeroStats.applyPhysical(this, dmg);
 
+		//SPSEXPD: 致命节奏——接住回旋镖后提高「远程 / 射击」伤害（投掷武器与弹体；近战不吃）
+		if (wep instanceof MissileWeapon) {
+			dmg = Math.round(dmg * pd.actors.buffs.LethalRhythm.multiplier(this));
+		}
+
 		if (dmg < 0) dmg = 0;
 		return dmg;
 	}
