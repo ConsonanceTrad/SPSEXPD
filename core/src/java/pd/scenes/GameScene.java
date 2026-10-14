@@ -2104,6 +2104,9 @@ public class GameScene extends PixelScene {
 
 			if (Dungeon.hero.handle( cell )) {
 				Dungeon.hero.next();
+			} else {
+				//SPSEXPD: 点击已被自行处理（远程自动开火 / 装填等待）——不显示、不保留移动路径
+				clearHeroPath();
 			}
 		}
 
