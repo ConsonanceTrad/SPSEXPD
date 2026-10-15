@@ -84,6 +84,14 @@ public final class UniqueItems {
 		REGISTRY.put( UniqueItemId.SOLDIER_GUN_T2_2_MK87, pd.items.unique.items.MK87::new );
 		REGISTRY.put( UniqueItemId.SOLDIER_GUN_T2_2_REACTOR, pd.items.unique.items.AlchemyReactor::new );
 
+		//SPSEXPD: 法师族六件
+		REGISTRY.put( UniqueItemId.MAGE_STAFF_T1_1_CORE, pd.items.unique.items.ArcaneCore::new );
+		REGISTRY.put( UniqueItemId.MAGE_STAFF_T1_2_MITHRIL, pd.items.unique.items.MythrilStaff::new );
+		REGISTRY.put( UniqueItemId.MAGE_STAFF_T1_2_WATCH, pd.items.unique.items.FineWatch::new );
+		REGISTRY.put( UniqueItemId.MAGE_STAFF_T2_1_TOME, pd.items.unique.items.ArcaneTome::new );
+		REGISTRY.put( UniqueItemId.MAGE_STAFF_T2_2_ADAMANT, pd.items.unique.items.AdamantStaff::new );
+		REGISTRY.put( UniqueItemId.MAGE_STAFF_T2_2_REVERSE, pd.items.unique.items.RewindWatch::new );
+
 		// 其余编号一律用占位类
 		for (UniqueItemId id : UniqueItemId.values()) {
 			REGISTRY.computeIfAbsent( id, k -> () -> new PlaceholderUniqueItem( k ) );
