@@ -76,6 +76,14 @@ public final class UniqueItems {
 		REGISTRY.put( UniqueItemId.WARRIOR_SEAL_T2_2_BLOOD, pd.items.unique.items.CrimsonOrb::new );
 		REGISTRY.put( UniqueItemId.WARRIOR_SEAL_T2_2_GLORY, pd.items.unique.items.GloryOrb::new );
 
+		//SPSEXPD: 星兵族六件
+		REGISTRY.put( UniqueItemId.SOLDIER_GUN_T1_1_YAKA, pd.items.unique.items.YakaArrow::new );
+		REGISTRY.put( UniqueItemId.SOLDIER_GUN_T1_2_CANNON, pd.items.unique.items.ElecHandCannon::new );
+		REGISTRY.put( UniqueItemId.SOLDIER_GUN_T1_2_AMMOBOX, pd.items.unique.items.AmmoBox::new );
+		REGISTRY.put( UniqueItemId.SOLDIER_GUN_T2_1_INJECT, pd.items.unique.items.InjectionArrow::new );
+		REGISTRY.put( UniqueItemId.SOLDIER_GUN_T2_2_MK87, pd.items.unique.items.MK87::new );
+		REGISTRY.put( UniqueItemId.SOLDIER_GUN_T2_2_REACTOR, pd.items.unique.items.AlchemyReactor::new );
+
 		// 其余编号一律用占位类
 		for (UniqueItemId id : UniqueItemId.values()) {
 			REGISTRY.computeIfAbsent( id, k -> () -> new PlaceholderUniqueItem( k ) );
