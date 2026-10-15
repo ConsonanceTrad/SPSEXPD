@@ -106,6 +106,10 @@ public final class UniqueItems {
 		REGISTRY.put( UniqueItemId.HUNTRESS_BOW_T2_1_DART, pd.items.unique.items.PsionicDartMk2::new );
 		REGISTRY.put( UniqueItemId.HUNTRESS_BOW_T2_2_BOOM, pd.items.unique.items.VoidBoomerang::new );
 
+		//SPSEXPD: 信徒族六件
+		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T1_1_SCROLL, pd.items.unique.items.ThousandScroll::new );
+		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T2_1_HORN, pd.items.unique.items.BaHuiHorn::new );
+
 		// 其余编号一律用占位类
 		for (UniqueItemId id : UniqueItemId.values()) {
 			REGISTRY.computeIfAbsent( id, k -> () -> new PlaceholderUniqueItem( k ) );

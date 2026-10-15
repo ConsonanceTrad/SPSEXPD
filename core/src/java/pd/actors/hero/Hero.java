@@ -1012,6 +1012,10 @@ public class Hero extends Char {
 		}
 		dmg += RingOfFuror.damageBonus(this);
 
+		//SPSEXPD: 巴虺断角——流血仪式开启期间的伤害增益
+		pd.actors.buffs.BleedingRite bleedingRite = buff(pd.actors.buffs.BleedingRite.class);
+		if (bleedingRite != null) dmg += bleedingRite.damageBonus();
+
 		PhysicalEmpower emp = buff(PhysicalEmpower.class);
 		if (emp != null){
 			dmg += emp.dmgBoost;
@@ -1116,6 +1120,10 @@ public class Hero extends Char {
 		//SPSEXPD: 木屐——连续移动 5 回合后的提速（停下即失效）
 		pd.actors.buffs.ClogMomentum clog = buff(pd.actors.buffs.ClogMomentum.class);
 		if (clog != null) speed *= clog.speedMultiplier();
+
+		//SPSEXPD: 巴虺断角——流血仪式开启期间的移速增益
+		pd.actors.buffs.BleedingRite bleedingRite = buff(pd.actors.buffs.BleedingRite.class);
+		if (bleedingRite != null) speed *= bleedingRite.speedMultiplier();
 
 		return speed;
 		
