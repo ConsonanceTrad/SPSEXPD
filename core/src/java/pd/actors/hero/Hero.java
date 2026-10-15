@@ -1125,6 +1125,10 @@ public class Hero extends Char {
 		pd.actors.buffs.BleedingRite bleedingRite = buff(pd.actors.buffs.BleedingRite.class);
 		if (bleedingRite != null) speed *= bleedingRite.speedMultiplier();
 
+		//SPSEXPD: 禅杖/九环锡杖——连续移动或周围没有怪物时赶路更快
+		pd.actors.buffs.Pilgrimage pilgrimage = buff(pd.actors.buffs.Pilgrimage.class);
+		if (pilgrimage != null) speed *= pilgrimage.speedMultiplier();
+
 		return speed;
 		
 	}

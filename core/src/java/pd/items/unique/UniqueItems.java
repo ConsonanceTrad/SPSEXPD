@@ -109,6 +109,10 @@ public final class UniqueItems {
 		//SPSEXPD: 信徒族六件
 		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T1_1_SCROLL, pd.items.unique.items.ThousandScroll::new );
 		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T2_1_HORN, pd.items.unique.items.BaHuiHorn::new );
+		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T1_2_TALISMAN, pd.items.unique.items.SealingTalisman::new );
+		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T1_2_STAFF, pd.items.unique.items.PilgrimStaff::new );
+		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T2_2_SIXWORD, pd.items.unique.items.SixWordMantra::new );
+		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T2_2_RING, pd.items.unique.items.NineRingStaff::new );
 
 		// 其余编号一律用占位类
 		for (UniqueItemId id : UniqueItemId.values()) {
