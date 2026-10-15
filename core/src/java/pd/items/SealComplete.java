@@ -48,6 +48,12 @@ public class SealComplete extends BrokenSeal {
 		return 5;
 	}
 
+	/** SPSEXPD: 贴附在护甲上时解锁连击技（不要求角斗士子职业）。 */
+	@Override
+	public boolean providesCombo() {
+		return true;
+	}
+
 	@Override
 	public int maxShield( int armTier, int armLvl ) {
 		//SPSEXPD: 比破损纹章（armLvl + armTier*2）多 4 点上限

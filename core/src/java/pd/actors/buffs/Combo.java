@@ -76,22 +76,25 @@ public class Combo extends Buff implements ActionIndicator.Action {
 			.t("combo", "%d连击！")
 			.t("bad_target", "你的目标必须是攻击距离以内的敌人。")
 			.t("prompt", "选择一个攻击目标")
-			.t("desc", "角斗士在成功击中对手时会积累战斗气势。每次攻击命中都会增加1次连击，但长时间不进行攻击，连击数就会归零。只要角斗士仍在积攒连击，其破碎纹章提供的护盾就不会衰减。\n积攒连击可以激活必定命中的连击战技！当连击数到达2、4、6、8、10时可分别激活不同的连击战技。部分连击战技会重置连击数，部分则不会，但每种连击战技在每次连击中只能使用一次。\n\n当前连击：%1$d\n\n连击归零剩余回合：%2$s")
-			.t("$combomove.clobber.name", "冲击")
-			.t("$combomove.clobber.desc", "将一名敌人击退2格，但不造成伤害，也不能将其击落深渊。提升1点连击数。")
-			.t("$combomove.clobber.empower_desc", "将一名敌人_击退3格，施加眩晕，并且可以将其击落深渊_，但不造成伤害。提升1点连击数。")
-			.t("$combomove.slam.name", "撞击")
-			.t("$combomove.slam.desc", "造成等同于自身防御%d%%(连击数x20%%)的额外伤害。使用后重置连击数。")
-			.t("$combomove.slam.empower_desc", "_跳跃最多%1$d格以接近目标_，并对其造成等同于自身防御%2$d%%(连击数x20%%)的额外伤害。使用后重置连击数。")
-			.t("$combomove.parry.name", "招架")
-			.t("$combomove.parry.desc", "使用后，招架下一回合内受到的首次攻击，并立即进行反击。若未触发招架，则重置连击数。")
-			.t("$combomove.parry.empower_desc", "使用后，招架下一回合内受到的_所有攻击_，并立即进行反击。若未触发招架，则重置连击数。")
-			.t("$combomove.crush.name", "横扫")
-			.t("$combomove.crush.desc", "对目标造成%d%%(连击数x25%%)的伤害，并对7x7范围内的其它敌人造成一半伤害。使用后重置连击数。")
-			.t("$combomove.crush.empower_desc", "_跳跃最多%1$d格以接近目标_，对主要目标造成%2$d%%（连击数x25%%）的伤害，并对7x7范围内的其它敌人造成一半伤害。使用后重置连击数。")
+			.t("clash_prompt", "选择要冲闪到的地方")
+			.t("shift_prompt", "选择要挪移的目标")
+			.t("desc", "角斗士，或贴着完整/镀金纹章的人，在成功击中对手时会积累战斗气势。每次攻击命中都会增加1次连击，但长时间不进行攻击，连击数就会归零。只要仍在积攒连击，其破碎纹章提供的护盾就不会衰减。\n积攒连击可以激活必定命中的连击战技！连击数到达 2 或 4 时可使用对应的战技，具体能用哪些要看_当前护甲的阶位_：\n护甲 1-2 阶：冲闪（2 连击）/ 暴雨（4 连击）\n护甲 3-4 阶：挪移（2 连击）/ 反击（4 连击）\n护甲 5-6 阶：粉碎（2 连击）/ 撞击（4 连击）\n部分连击战技会重置连击数，部分则不会，但每种连击战技在每次连击中只能使用一次。\n\n当前连击：%1$d\n\n连击归零剩余回合：%2$s")
+			.t("$combomove.clash.name", "冲闪")
+			.t("$combomove.clash.desc", "向指定方向快速移动，最远 _%d 格_（随连击数提高）。使用后本次连击不能再使用冲闪，但不会重置连击数。")
 			.t("$combomove.fury.name", "暴雨")
 			.t("$combomove.fury.desc", "你每有1点连击数便对一个敌人攻击一次，每次攻击造成60%伤害，并可触发武器附魔。使用后重置连击数。")
-			.t("$combomove.fury.empower_desc", "_跳跃最多%d格以接近目标_，并根据你当前的连击数对敌人发动同等次数的攻击，每次攻击造成60%%的伤害并可触发附魔效果。使用后重置连击数。");
+			.t("$combomove.fury.empower_desc", "_跳跃最多%d格以接近目标_，并根据你当前的连击数对敌人发动同等次数的攻击，每次攻击造成60%%的伤害并可触发附魔效果。使用后重置连击数。")
+			.t("$combomove.shift.name", "挪移")
+			.t("$combomove.shift.desc", "挑起_身旁_的一名敌人，强行与它_交换位置_。使用后重置连击数。")
+			.t("$combomove.parry.name", "反击")
+			.t("$combomove.parry.desc", "使用后，招架下一回合内受到的首次攻击，并立即进行反击。若未触发招架，则重置连击数。")
+			.t("$combomove.parry.empower_desc", "使用后，招架下一回合内受到的_所有攻击_，并立即进行反击。若未触发招架，则重置连击数。")
+			.t("$combomove.crush.name", "粉碎")
+			.t("$combomove.crush.desc", "对目标造成%d%%(连击数x25%%)的伤害，并对7x7范围内的其它敌人造成一半伤害。使用后重置连击数。")
+			.t("$combomove.crush.empower_desc", "_跳跃最多%1$d格以接近目标_，对主要目标造成%2$d%%（连击数x25%%）的伤害，并对7x7范围内的其它敌人造成一半伤害。使用后重置连击数。")
+			.t("$combomove.slam.name", "撞击")
+			.t("$combomove.slam.desc", "造成等同于自身防御%d%%(连击数x20%%)的额外伤害。使用后重置连击数。")
+			.t("$combomove.slam.empower_desc", "_跳跃最多%1$d格以接近目标_，并对其造成等同于自身防御%2$d%%(连击数x20%%)的额外伤害。使用后重置连击数。");
 	}
 
 
@@ -132,6 +135,16 @@ public class Combo extends Buff implements ActionIndicator.Action {
 	
 	public void hit( Char enemy ) {
 
+		//SPSEXPD: 镀金纹章——上次被打断时保留的一半层数，在下次连击开始时继承
+		if (count == 0 && target instanceof Hero) {
+			Hero h = (Hero) target;
+			if (h.spsCarriedCombo > 0) {
+				count = h.spsCarriedCombo;
+				h.spsCarriedCombo = 0;
+				comboTime = Math.max(comboTime, 5f);
+			}
+		}
+
 		count++;
 		if (comboTime <= 5f) {
 			comboTime = Math.max(comboTime, 5f);
@@ -162,16 +175,47 @@ public class Combo extends Buff implements ActionIndicator.Action {
 
 	@Override
 	public void detach() {
+		//SPSEXPD: 镀金纹章——连击被主动打断（如使用战技重置）时也保留一半层数
+		if (gilded() && count >= 2 && target instanceof Hero) {
+			((Hero)target).spsCarriedCombo = count / 2;
+		}
 		super.detach();
 		ActionIndicator.clearAction(this);
 	}
 
+	/** SPSEXPD: 护甲上的纹章是否为镀金纹章（提供连击强化）。 */
+	private boolean gilded(){
+		return sealOf() != null && sealOf().retainsHalfCombo();
+	}
+
+	/** SPSEXPD: 连击被打断的时间倍率（镀金纹章为 2，即打断时间翻倍）。 */
+	private float comboBreakFactor(){
+		return sealOf() == null ? 1f : Math.max(1f, sealOf().comboBreakFactor());
+	}
+
+	private BrokenSeal sealOf(){
+		if (!(target instanceof Hero)) return null;
+		Hero hero = (Hero) target;
+		if (hero.belongings == null || hero.belongings.armor() == null) return null;
+		return hero.belongings.armor().checkSeal();
+	}
+
+	/** SPSEXPD: 打断时保留一半层数；返回 true 表示已处理（外层不必再 detach）。 */
+	private boolean carryHalfCombo(){
+		if (!gilded() || count < 2) return false;
+		detach();
+		return true;
+	}
+
 	@Override
 	public boolean act() {
-		comboTime -= TICK * HoldFast.buffDecayFactor(target);
+		//SPSEXPD: 镀金纹章——连击被打断的时间翻倍（comboTime 衰减速度减半）
+		comboTime -= TICK * HoldFast.buffDecayFactor(target) / comboBreakFactor();
 		spend(TICK);
 		if (comboTime <= 0) {
-			detach();
+			if (!carryHalfCombo()) {
+				detach();
+			}
 		}
 		return true;
 	}
@@ -185,7 +229,9 @@ public class Combo extends Buff implements ActionIndicator.Action {
 	private static final String TIME  = "combotime";
 	private static final String INITIAL_TIME  = "initialComboTime";
 
-	private static final String CLOBBER_USED = "clobber_used";
+	//SPSEXPD: 冲闪取代了原来的「冲击」，旧档的 clobber_used 键仍作兜底读取
+	private static final String CLASH_USED = "clash_used";
+	private static final String LEGACY_CLOBBER_USED = "clobber_used";
 	private static final String PARRY_USED   = "parry_used";
 
 	@Override
@@ -195,7 +241,7 @@ public class Combo extends Buff implements ActionIndicator.Action {
 		bundle.put(TIME, comboTime);
 		bundle.put(INITIAL_TIME, initialComboTime);
 
-		bundle.put(CLOBBER_USED, clobberUsed);
+		bundle.put(CLASH_USED, clashUsed);
 		bundle.put(PARRY_USED, parryUsed);
 	}
 
@@ -207,7 +253,9 @@ public class Combo extends Buff implements ActionIndicator.Action {
 
 		initialComboTime = bundle.getFloat( INITIAL_TIME );
 
-		clobberUsed = bundle.getBoolean(CLOBBER_USED);
+		clashUsed = bundle.contains(CLASH_USED)
+				? bundle.getBoolean(CLASH_USED)
+				: bundle.getBoolean(LEGACY_CLOBBER_USED);
 		parryUsed = bundle.getBoolean(PARRY_USED);
 
 		if (getHighestMove() != null) ActionIndicator.setAction(this);
@@ -252,17 +300,26 @@ public class Combo extends Buff implements ActionIndicator.Action {
 	}
 
 	public enum ComboMove {
-		CLOBBER(2, 0x00FF00),
-		SLAM   (4, 0xCCFF00),
-		PARRY  (6, 0xFFFF00),
-		CRUSH  (8, 0xFFCC00),
-		FURY   (10, 0xFF0000);
+		//SPSEXPD: 连击技按护甲阶位分组，每段两个（解锁连击数为 2 / 4）
+		CLASH(2, 0x00FF00, 1, 2),
+		FURY (4, 0xFF0000, 1, 2),
+		SHIFT(2, 0xFFFF00, 3, 4),
+		PARRY(4, 0xFFFF00, 3, 4),
+		CRUSH(2, 0xFFCC00, 5, 6),
+		SLAM (4, 0xCCFF00, 5, 6);
 
-		public int comboReq, tintColor;
+		public int comboReq, tintColor, tierMin, tierMax;
 
-		ComboMove(int comboReq, int tintColor){
+		ComboMove(int comboReq, int tintColor, int tierMin, int tierMax){
 			this.comboReq = comboReq;
 			this.tintColor = tintColor;
+			this.tierMin = tierMin;
+			this.tierMax = tierMax;
+		}
+
+		/** SPSEXPD: 当前护甲阶位是否允许使用该战技。 */
+		public boolean allowedForTier(int tier){
+			return tier >= tierMin && tier <= tierMax;
 		}
 
 		public String title(){
@@ -271,12 +328,10 @@ public class Combo extends Buff implements ActionIndicator.Action {
 
 		public String desc(int count){
 			switch (this){
-				case CLOBBER: default:
-					if (count >= 7 && Dungeon.hero.pointsInTalent(Talent.ENHANCED_COMBO) >= 1){
-						return Messages.get(this, name() + ".empower_desc");
-					} else {
-						return Messages.get(this, name() + ".desc");
-					}
+				case CLASH:
+					return Messages.get(this, name() + ".desc", clashRange(count));
+				case SHIFT:
+					return Messages.get(this, name() + ".desc");
 				case SLAM:
 					if (count >= 3 && Dungeon.hero.pointsInTalent(Talent.ENHANCED_COMBO) >= 3){
 						return Messages.get(this, name() + ".empower_desc", count/3, count*20);
@@ -295,7 +350,7 @@ public class Combo extends Buff implements ActionIndicator.Action {
 					} else {
 						return Messages.get(this,  name() + ".desc", count*25);
 					}
-				case FURY:
+				case FURY: default:
 					if (count >= 3 && Dungeon.hero.pointsInTalent(Talent.ENHANCED_COMBO) >= 3){
 						return Messages.get(this, name() + ".empower_desc", count/3);
 					} else {
@@ -306,13 +361,26 @@ public class Combo extends Buff implements ActionIndicator.Action {
 
 	}
 
-	private boolean clobberUsed = false;
+	private boolean clashUsed = false;
 	private boolean parryUsed = false;
 
+	/** SPSEXPD: 当前护甲的阶位（无护甲时按 1）。 */
+	public static int armorTier(){
+		Hero hero = Dungeon.hero;
+		if (hero == null || hero.belongings == null || hero.belongings.armor() == null) return 1;
+		return hero.belongings.armor().tier;
+	}
+
+	/** SPSEXPD: 冲闪的最大移动距离——随连击数提高（1 + 连击数/2）。 */
+	public static int clashRange(int count){
+		return 1 + Math.max(0, count) / 2;
+	}
+
 	public ComboMove getHighestMove(){
+		int tier = armorTier();
 		ComboMove best = null;
 		for (ComboMove move : ComboMove.values()){
-			if (count >= move.comboReq){
+			if (count >= move.comboReq && move.allowedForTier(tier)){
 				best = move;
 			}
 		}
@@ -324,8 +392,9 @@ public class Combo extends Buff implements ActionIndicator.Action {
 	}
 
 	public boolean canUseMove(ComboMove move){
-		if (move == ComboMove.CLOBBER && clobberUsed)   return false;
-		if (move == ComboMove.PARRY && parryUsed)       return false;
+		if (!move.allowedForTier(armorTier()))    return false;
+		if (move == ComboMove.CLASH && clashUsed)  return false;
+		if (move == ComboMove.PARRY && parryUsed)  return false;
 		return move.comboReq <= count;
 	}
 
@@ -337,6 +406,14 @@ public class Combo extends Buff implements ActionIndicator.Action {
 			Buff.affect(target, ParryTracker.class, Actor.TICK);
 			((Hero)target).spendAndNext(Actor.TICK);
 			Dungeon.hero.busy();
+		} else if (move == ComboMove.CLASH){
+			//SPSEXPD: 冲闪——选一个落点快速移动（不攻击）
+			moveBeingUsed = move;
+			GameScene.selectCell(clashListener);
+		} else if (move == ComboMove.SHIFT){
+			//SPSEXPD: 挪移——选一个身旁的敌人，与它交换位置
+			moveBeingUsed = move;
+			GameScene.selectCell(shiftListener);
 		} else {
 			moveBeingUsed = move;
 			GameScene.selectCell(listener);
@@ -395,9 +472,6 @@ public class Combo extends Buff implements ActionIndicator.Action {
 
 		//variance in damage dealt
 		switch (moveBeingUsed) {
-			case CLOBBER:
-				dmgMulti = 0;
-				break;
 			case SLAM:
 				dmgBonus = Math.round(target.drRoll() * count / 5f);
 				break;
@@ -413,27 +487,6 @@ public class Combo extends Buff implements ActionIndicator.Action {
 		if (hero.attack(enemy, dmgMulti, dmgBonus, Char.INFINITE_ACCURACY)){
 			//special on-hit effects
 			switch (moveBeingUsed) {
-				case CLOBBER:
-					//trace a ballistica to our target (which will also extend past them
-					Ballistica trajectory = new Ballistica(target.pos, enemy.pos, Ballistica.STOP_TARGET);
-					//trim it to just be the part that goes past them
-					trajectory = new Ballistica(trajectory.collisionPos, trajectory.path.get(trajectory.path.size() - 1), Ballistica.PROJECTILE);
-					//knock them back along that ballistica, ensuring they don't fall into a pit
-					int dist = 2;
-					if (enemy.isAlive() && count >= 7 && hero.pointsInTalent(Talent.ENHANCED_COMBO) >= 1) {
-						dist++;
-						Buff.prolong(enemy, Vertigo.class, 3);
-					} else if (!enemy.flying) {
-						while (dist > trajectory.dist ||
-								(dist > 0 && Dungeon.level.pit[trajectory.path.get(dist)])) {
-							dist--;
-						}
-					}
-					if (!wasAlly) hit(enemy);
-					if (enemy.pos == oldPos) {
-						WandOfBlastWave.throwChar(enemy, trajectory, dist, true, false, hero);
-					}
-					break;
 				case PARRY:
 					hit(enemy);
 					break;
@@ -472,12 +525,6 @@ public class Combo extends Buff implements ActionIndicator.Action {
 
 		//Post-attack behaviour
 		switch(moveBeingUsed){
-			case CLOBBER:
-				clobberUsed = true;
-				if (getHighestMove() == null) ActionIndicator.clearAction(Combo.this);
-				hero.spendAndNext(hero.attackDelay());
-				break;
-
 			case PARRY:
 				//do nothing
 				break;
@@ -584,6 +631,87 @@ public class Combo extends Buff implements ActionIndicator.Action {
 		@Override
 		public String prompt() {
 			return Messages.get(Combo.class, "prompt");
+		}
+	};
+
+	/** SPSEXPD: 冲闪——选一个落点快速移动（最远 1 + 连击数/2 格，不攻击）。 */
+	private CellSelector.Listener clashListener = new CellSelector.Listener(){
+
+		@Override
+		public void onSelect(Integer cell) {
+			if (cell == null) return;
+			final Hero hero = (Hero) target;
+			int maxRange = clashRange(count);
+			if (cell == target.pos
+					|| !Dungeon.level.insideMap(cell)
+					|| Dungeon.level.distance(target.pos, cell) > maxRange
+					|| !Dungeon.level.passable[cell]
+					|| Actor.findChar(cell) != null){
+				GLog.w(Messages.get(Combo.class, "bad_target"));
+				return;
+			}
+			if (PathFinder.find(target.pos, cell, Dungeon.level.passable) == null){
+				GLog.w(Messages.get(Combo.class, "bad_target"));
+				return;
+			}
+			clashUsed = true;
+			Dungeon.hero.busy();
+			target.sprite.jump(target.pos, cell, new Callback(){
+				@Override
+				public void call() {
+					target.move(cell);
+					Dungeon.level.occupyCell(target);
+					Dungeon.observe();
+					GameScene.updateFog();
+					ActionIndicator.clearAction(Combo.this);
+					hero.spendAndNext(hero.attackDelay());
+				}
+			});
+		}
+
+		@Override
+		public String prompt() {
+			return Messages.get(Combo.class, "clash_prompt");
+		}
+	};
+
+	/** SPSEXPD: 挪移——挑起身旁的一名敌人，强行与它交换位置。 */
+	private CellSelector.Listener shiftListener = new CellSelector.Listener(){
+
+		@Override
+		public void onSelect(Integer cell) {
+			if (cell == null) return;
+			final Hero hero = (Hero) target;
+			Char enemy = Actor.findChar(cell);
+			if (enemy == null || enemy == target
+					|| !Dungeon.level.adjacent(target.pos, cell)
+					|| !Dungeon.level.heroFOV[cell]){
+				GLog.w(Messages.get(Combo.class, "bad_target"));
+				return;
+			}
+			int heroPos = target.pos;
+			Dungeon.hero.busy();
+
+			//交换双方位置
+			target.pos = cell;
+			enemy.pos = heroPos;
+			Dungeon.level.occupyCell(target);
+			Dungeon.level.occupyCell(enemy);
+			target.sprite.place(target.pos);
+			enemy.sprite.place(enemy.pos);
+			Dungeon.observe();
+			GameScene.updateFog();
+			Invisibility.dispel();
+
+			//挪移是强力控制：使用后重置连击
+			count = 0;
+			detach();
+			hero.spendAndNext(hero.attackDelay());
+		}
+
+		@Override
+		public String prompt() {
+			return Messages.get(Combo.class, "shift_prompt");
 		}
 	};
 }

@@ -524,6 +524,19 @@ public class Hero extends Char {
 	private static final String SPP          = "sps_power_points";
 	private static final String HTBOOST     = "htboost";
 	
+	//SPSEXPD: 镀金纹章——连击被打断时保留的层数，下次连击开始时继承
+	private static final String SPS_CARRIED_COMBO = "sps_carried_combo";
+	public int spsCarriedCombo = 0;
+
+	/** SPSEXPD: 护甲上是否贴附了提供连击的纹章（完整纹章 / 镀金纹章）——贴了就能积累连击，不要求角斗士。 */
+	public boolean comboSealEquipped(){
+		if (belongings == null) return false;
+		pd.items.equipment.armor.Armor armor = belongings.armor();
+		if (armor == null) return false;
+		BrokenSeal seal = armor.checkSeal();
+		return seal != null && seal.providesCombo();
+	}
+
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 
@@ -562,6 +575,8 @@ public class Hero extends Char {
 		bundle.put( SPP, spp );
 		
 		bundle.put( HTBOOST, HTBoost );
+		//SPSEXPD: 镀金纹章保留的连击层数
+		bundle.put( SPS_CARRIED_COMBO, spsCarriedCombo );
 
 		belongings.storeInBundle( bundle );
 	}
@@ -578,6 +593,8 @@ public class Hero extends Char {
 		spp = Math.max(0, bundle.getInt(SPP));
 
 		HTBoost = bundle.getInt(HTBOOST);
+		//SPSEXPD: 镀金纹章保留的连击层数（旧档没有该键 → 0）
+		spsCarriedCombo = bundle.getInt(SPS_CARRIED_COMBO);
 
 		super.restoreFromBundle( bundle );
 
@@ -775,7 +792,7 @@ public class Hero extends Char {
 		Invisibility.dispel();
 		belongings.thrownWeapon = null;
 
-		if (hit && subClass == HeroSubClass.GLADIATOR && wasEnemy){
+		if (hit && (subClass == HeroSubClass.GLADIATOR || comboSealEquipped()) && wasEnemy){
 			Buff.affect( this, Combo.class ).hit( enemy );
 		}
 
@@ -3130,7 +3147,7 @@ public class Hero extends Char {
 			}, SECONDARY_STRIKE_GAP);
 		}
 
-		if (hit && subClass == HeroSubClass.GLADIATOR && wasEnemy){
+		if (hit && (subClass == HeroSubClass.GLADIATOR || comboSealEquipped()) && wasEnemy){
 			Buff.affect( this, Combo.class ).hit(attackTarget);
 		}
 

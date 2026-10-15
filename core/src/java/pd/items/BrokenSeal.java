@@ -95,6 +95,21 @@ public class BrokenSeal extends Item implements pd.items.unique.UniqueItem {
 		return 2;
 	}
 
+	/** SPSEXPD: 贴附在护甲上时是否解锁连击（完整纹章 / 镀金纹章为 true）。 */
+	public boolean providesCombo() {
+		return false;
+	}
+
+	/** SPSEXPD: 连击被打断时的时间倍率（镀金纹章为 2 = 打断时间翻倍）。 */
+	public float comboBreakFactor() {
+		return 1f;
+	}
+
+	/** SPSEXPD: 打断连击后是否保留一半层数，供下次连击继承（镀金纹章为 true）。 */
+	public boolean retainsHalfCombo() {
+		return false;
+	}
+
 	/** SPSEXPD: 能否携带某刻印 —— 破损纹章可携带任意刻印；碎片只允许普通刻印（非诅咒、非强大，子类覆写）。 */
 	public boolean canCarryGlyph( Armor.Glyph g ) {
 		return g != null;
