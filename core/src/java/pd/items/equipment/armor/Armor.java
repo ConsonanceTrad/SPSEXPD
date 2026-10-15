@@ -260,11 +260,25 @@ public class Armor extends EquipableItem {
 		seal = null;
 	}
 
+	/** SPSEXPD: 只能装备在副护甲栏的护甲（护手绑带 / 木屐）返回 false，「装备」动作与主/副互换都会跳过它。 */
+	public boolean canEquipPrimary() {
+		return true;
+	}
+
+	/**
+	 * SPSEXPD: 该护甲是否参与「双甲」规则（力量 +50% 与副甲速度惩罚）。
+	 * 特殊副甲（护手绑带 / 木屐）返回 false —— 与副手专用的神木圆盾同理，不造成双持惩罚。
+	 */
+	public boolean countsForDualArmor() {
+		return true;
+	}
+
 	@Override
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);
 		if (seal != null) actions.add(AC_DETACH);
 		//SPSEXPD: 「装备」进主护甲栏、「副手装备」进副护甲栏（副手装备对所有职业开放）
+		if (!canEquipPrimary()) actions.remove(AC_EQUIP);
 		if (!isEquipped(hero)) actions.add(AC_EQUIP_SECONDARY);
 		return actions;
 	}
@@ -341,6 +355,11 @@ public class Armor extends EquipableItem {
 
 	@Override
 	public boolean doEquip( Hero hero ) {
+
+		//SPSEXPD: 副手专用护甲（护手绑带 / 木屐）直接进副护甲栏
+		if (!canEquipPrimary()) {
+			return equipSecondary(hero);
+		}
 
 		// 15/25% chance
 		if (hero.heroClass != HeroClass.CLERIC && hero.hasTalent(Talent.HOLY_INTUITION)

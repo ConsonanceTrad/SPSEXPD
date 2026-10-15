@@ -1096,6 +1096,10 @@ public class Hero extends Char {
 		//SPSEXPD: 副护甲每 1 阶位使移动速度降低 20%（累乘 0.8^tier）
 		speed *= SecondaryEquip.armorSpeedMultiplier(this);
 
+		//SPSEXPD: 木屐——连续移动 5 回合后的提速（停下即失效）
+		pd.actors.buffs.ClogMomentum clog = buff(pd.actors.buffs.ClogMomentum.class);
+		if (clog != null) speed *= clog.speedMultiplier();
+
 		return speed;
 		
 	}
@@ -3083,6 +3087,11 @@ public class Hero extends Char {
 		//SPSEXPD: 佩戴集露徽章时，移动那一刻把落脚点周围 3x3 的露珠收进露珠瓶（不花回合）
 		if (step == pos && belongings.badge instanceof DewBadge) {
 			DewBadge.collectAround(this);
+		}
+
+		//SPSEXPD: 木屐——踩到新格子时累计「连续移动」回合
+		if (step == pos && belongings.secondArmor() instanceof pd.items.unique.items.ClogArmor) {
+			Buff.affect(this, pd.actors.buffs.ClogMomentum.class).step();
 		}
 	}
 	

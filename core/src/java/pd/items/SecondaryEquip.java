@@ -59,10 +59,11 @@ public final class SecondaryEquip {
 				&& second.canEquipSecondary();
 	}
 
-	/** 双甲：主、副护甲栏都有护甲。 */
+	/** 双甲：主、副护甲栏都有护甲，且副甲参与双甲规则（特殊副甲不算，见 Armor.countsForDualArmor）。 */
 	public static boolean dualArmor( Hero hero ){
 		if (hero == null || hero.belongings == null) return false;
-		return hero.belongings.armor() != null && hero.belongings.secondArmor() != null;
+		Armor second = hero.belongings.secondArmor();
+		return hero.belongings.armor() != null && second != null && second.countsForDualArmor();
 	}
 
 	/**
@@ -131,6 +132,8 @@ public final class SecondaryEquip {
 	 */
 	public static boolean dualArmorTooHeavy( Hero hero, Armor primary, Armor second ){
 		if (hero == null || primary == null || second == null) return false;
+		//SPSEXPD: 不参与双甲规则的副甲（护手绑带 / 木屐）既不涨需求也不受惩罚
+		if (!second.countsForDualArmor()) return false;
 		return tooHeavy(hero, primary) || tooHeavy(hero, second);
 	}
 
@@ -138,9 +141,9 @@ public final class SecondaryEquip {
 		return increasedStrengthReq( armor.STRReq( armor.level() ) ) > hero.STR();
 	}
 
-	/** 副护甲带来的攻击/移动速度倍率：0.8^tier（无副甲时为 1）。 */
+	/** 副护甲带来的攻击/移动速度倍率：0.8^tier（无副甲、或副甲不参与双甲规则时为 1）。 */
 	public static float armorSpeedMultiplier( Armor secondArmor ){
-		if (secondArmor == null) return 1f;
+		if (secondArmor == null || !secondArmor.countsForDualArmor()) return 1f;
 		return (float)Math.pow( SPEED_PER_TIER, secondArmor.tier );
 	}
 
