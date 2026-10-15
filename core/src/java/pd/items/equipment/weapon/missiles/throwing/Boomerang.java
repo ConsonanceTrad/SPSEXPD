@@ -150,6 +150,16 @@ public class Boomerang extends MeleeWeapon implements pd.items.unique.UniqueItem
 		return super.desc() + "\n\n" + Messages.get(this, "charge", charge, FULL_CHARGE);
 	}
 
+	/** SPSEXPD: 接住判定半径——默认 0（必须站在弹回落点上）；灵能/虚空回旋镖放宽到 1 格内。 */
+	protected int catchRadius() {
+		return 0;
+	}
+
+	/** SPSEXPD: 投掷弹道是否穿透墙壁（虚空回旋镖为 true）。 */
+	protected boolean piercesWalls() {
+		return false;
+	}
+
 	/** SPSEXPD: 在英雄两格内挑一个可通行的空地作为弹回位置（排除英雄自身与本次投掷的落点）。 */
 	private int pickReturnCell(int excluded) {
 		Hero hero = Dungeon.hero;
@@ -204,6 +214,14 @@ public class Boomerang extends MeleeWeapon implements pd.items.unique.UniqueItem
 	private class BoomerangAmmo extends MissileWeapon {
 		{ image = ConsumThrowsDict.BOOMERANG_0; tier = 1; spawnedForEffect = true; setID = 0; }
 		@Override public int defaultQuantity() { return 1; }
+		//SPSEXPD: 虚空回旋镖的弹道不把墙壁当障碍（直接穿过去）
+		@Override public int throwPos(pd.actors.hero.Hero user, int dst) {
+			if (Boomerang.this.piercesWalls()) {
+				pd.mechanics.Ballistica b = new pd.mechanics.Ballistica(user.pos, dst, pd.mechanics.Ballistica.WONT_STOP);
+				return b.collisionPos;
+			}
+			return super.throwPos(user, dst);
+		}
 		@Override public int damageRoll(Char owner) { return Boomerang.this.damageRoll(owner); }
 		@Override public float accuracyFactor(Char owner, Char target) { return 1000f; }
 		@Override public int proc(Char attacker, Char defender, int damage) {
@@ -268,8 +286,9 @@ public class Boomerang extends MeleeWeapon implements pd.items.unique.UniqueItem
 					GLog.w(Messages.get(Boomerang.class, "return_bounce", landing.name()));
 				}
 				Boomerang item = boomerang != null ? boomerang : hero.belongings.getItem(Boomerang.class);
-				//SPSEXPD: 英雄站在弹回位置接住回旋镖时可以立即再次扔出
-				if (item != null && hero.pos == returnPos) {
+				//SPSEXPD: 英雄站在弹回位置（或灵能/虚空回旋镖所允许的一格范围内）接住回旋镖时，可以立即再次扔出
+				if (item != null && (hero.pos == returnPos
+						|| (Dungeon.level != null && Dungeon.level.distance(hero.pos, returnPos) <= item.catchRadius()))) {
 					item.charge = FULL_CHARGE;
 					item.updateQuickslot();
 					GLog.p(Messages.get(Boomerang.class, "returned"));
