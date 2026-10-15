@@ -90,6 +90,21 @@ public class Belongings implements Iterable<Item> {
 		}
 	}
 
+	//SPSEXPD: 独特武器/装备不该被草靶子收纳（详见 HeartOfScarecrow.canHold）——
+	//旧存档里已被收进去的，读档时迁回主背包方便取用。
+	private void migrateUniqueItems() {
+		for (Bag bag : getBags()) {
+			if (bag == null || bag == backpack) continue;
+			if (!(bag instanceof pd.items.equipment.bags.HeartOfScarecrow)) continue;
+			for (Item item : bag.items.toArray(new Item[0])) {
+				if (item instanceof pd.items.unique.UniqueItem) {
+					item.detachAll(bag);
+					item.collect(backpack);
+				}
+			}
+		}
+	}
+
 	//SPS: 主背包净格数（= 5 列 x 7 行；包裹袋打开时本体占其中一格见 WndBag）
 	public static final int BACKPACK_CAPACITY = 35;
 
@@ -287,6 +302,8 @@ public class Belongings implements Iterable<Item> {
 
 		//SPSEXPD: 旧存档里露珠瓶若被药剂挎带等包裹收录，迁回主背包
 		migrateWaterskin();
+		//SPSEXPD: 旧存档里被草靶子收走的独特武器/装备，迁回主背包
+		migrateUniqueItems();
 	}
 
 	public void clear(){

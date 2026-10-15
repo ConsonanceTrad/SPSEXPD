@@ -15,7 +15,7 @@ public class HeartOfScarecrow extends Bag {
 	static {
 		InlineText.of(HeartOfScarecrow.class)
 			.t("name", "草靶子")
-			.t("desc", "一颗包裹着稻草的魔核，由稻草人的生命精华所凝聚。\n\n它可以像生前一样吞进武器或护甲，伸进稻草的间隙内即可原样取回");
+			.t("desc", "一颗包裹着稻草的魔核，由稻草人的生命精华所凝聚。\n\n它可以像生前一样吞进武器或护甲，伸进稻草的间隙内即可原样取回。\n\n_独特_的武器与装备不会被它吞入——它们会留在主背包里方便取用。");
 	}
 
 
@@ -27,6 +27,8 @@ public class HeartOfScarecrow extends Bag {
 
 	@Override
 	public boolean canHold(Item item) {
+		//SPSEXPD: 独特武器/装备（UniqueItem 体系）留在主背包里方便取用，不塞进草靶子
+		if (item instanceof pd.items.unique.UniqueItem) return false;
 		//SPSEXPD: 保留的三把弓（灵能弓 / 马人长弓 / 暗夜短弓）与枪械（GunWeapon）归草靶子
 		if (item instanceof MeleeWeapon || item instanceof Armor || item instanceof ShadowEaterKey
 				|| item instanceof pd.items.equipment.weapon.SpiritBow
