@@ -92,6 +92,14 @@ public final class UniqueItems {
 		REGISTRY.put( UniqueItemId.MAGE_STAFF_T2_2_ADAMANT, pd.items.unique.items.AdamantStaff::new );
 		REGISTRY.put( UniqueItemId.MAGE_STAFF_T2_2_REVERSE, pd.items.unique.items.RewindWatch::new );
 
+		//SPSEXPD: 盗贼族六件
+		REGISTRY.put( UniqueItemId.ROGUE_CLOAK_T1_1_HAND, pd.items.unique.items.GreatHand::new );
+		REGISTRY.put( UniqueItemId.ROGUE_CLOAK_T1_2_NIGHT, pd.items.unique.items.NightBracelet::new );
+		REGISTRY.put( UniqueItemId.ROGUE_CLOAK_T1_2_AGENT, pd.items.unique.items.AgentPistol::new );
+		REGISTRY.put( UniqueItemId.ROGUE_CLOAK_T2_1_HAND, pd.items.unique.items.MasterHand::new );
+		REGISTRY.put( UniqueItemId.ROGUE_CLOAK_T2_2_NIGHT, pd.items.unique.items.EternalBracelet::new );
+		REGISTRY.put( UniqueItemId.ROGUE_CLOAK_T2_2_SILENT, pd.items.unique.items.SilentPistol::new );
+
 		// 其余编号一律用占位类
 		for (UniqueItemId id : UniqueItemId.values()) {
 			REGISTRY.computeIfAbsent( id, k -> () -> new PlaceholderUniqueItem( k ) );
