@@ -217,4 +217,43 @@ public abstract class EquipableItem extends Item {
 
 	public void activate( Char ch ){}
 
+	//SPSEXPD: ---- 宝珠贴附槽（武器与护甲通用；护甲上可与纹章并存）----
+
+	private static final String ORB = "carrier_orb";
+
+	protected pd.items.unique.items.CarrierOrb orb;
+
+	public pd.items.unique.items.CarrierOrb checkOrb(){
+		return orb;
+	}
+
+	/** SPSEXPD: 贴附一枚宝珠——宝珠携带的升级全部转到装备上。 */
+	public void affixOrb( pd.items.unique.items.CarrierOrb orb ){
+		this.orb = orb;
+		if (orb.level() > 0){
+			level( trueLevel() + orb.level() );
+		}
+	}
+
+	/** SPSEXPD: 摘下宝珠，并把它带走的升级从装备上扣回。 */
+	public pd.items.unique.items.CarrierOrb detachOrb(){
+		if (orb == null) return null;
+		pd.items.unique.items.CarrierOrb detaching = orb;
+		orb = null;
+		for (int i = 0; i < detaching.level(); i++) degrade();
+		return detaching;
+	}
+
+	@Override
+	public void storeInBundle( Bundle bundle ) {
+		super.storeInBundle( bundle );
+		bundle.put( ORB, orb );
+	}
+
+	@Override
+	public void restoreFromBundle( Bundle bundle ) {
+		super.restoreFromBundle( bundle );
+		orb = (pd.items.unique.items.CarrierOrb) bundle.get( ORB );
+	}
+
 }

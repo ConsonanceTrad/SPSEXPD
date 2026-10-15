@@ -83,16 +83,30 @@ public final class SecondaryEquip {
 		if (dualWieldExempt(weapon)) return base;
 		if (dualWeapons(hero)
 				&& (hero.belongings.weapon() == weapon || hero.belongings.secondWep() == weapon)){
-			return increasedStrengthReq(base);
+			return applyOrbReduction(weapon, base);
 		}
 		return base;
+	}
+
+	/**
+	 * SPSEXPD: 双持力量需求 —— 先 +50%，再扣除该装备上贴附宝珠的减免
+	 * （宝珠的 dualWieldReduction 为 -1 时表示完全免除，直接用基础值）。
+	 */
+	private static int applyOrbReduction( pd.items.Item equipment, int base ){
+		int req = increasedStrengthReq(base);
+		if (!(equipment instanceof pd.items.EquipableItem)) return req;
+		pd.items.unique.items.CarrierOrb orb = ((pd.items.EquipableItem) equipment).checkOrb();
+		if (orb == null) return req;
+		int reduction = orb.dualWieldReduction();
+		if (reduction < 0) return base;
+		return Math.max(base, req - reduction);
 	}
 
 	public static int armorSTRReq( Armor armor, int base ){
 		Hero hero = Dungeon.hero;
 		if (dualArmor(hero)
 				&& (hero.belongings.armor() == armor || hero.belongings.secondArmor() == armor)){
-			return increasedStrengthReq(base);
+			return applyOrbReduction(armor, base);
 		}
 		return base;
 	}
@@ -123,7 +137,7 @@ public final class SecondaryEquip {
 		//SPSEXPD: 枪械/灵能弓/回旋镖不受双持力量惩罚，不参与「难以掌控」判定
 		if (dualWieldExempt(weapon)) return false;
 		Weapon w = (Weapon)weapon;
-		return increasedStrengthReq( w.STRReq( w.level() ) ) > hero.STR();
+		return applyOrbReduction( w, w.STRReq( w.level() ) ) > hero.STR();
 	}
 
 	/**
@@ -138,7 +152,7 @@ public final class SecondaryEquip {
 	}
 
 	private static boolean tooHeavy( Hero hero, Armor armor ){
-		return increasedStrengthReq( armor.STRReq( armor.level() ) ) > hero.STR();
+		return applyOrbReduction( armor, armor.STRReq( armor.level() ) ) > hero.STR();
 	}
 
 	/** 副护甲带来的攻击/移动速度倍率：0.8^tier（无副甲、或副甲不参与双甲规则时为 1）。 */

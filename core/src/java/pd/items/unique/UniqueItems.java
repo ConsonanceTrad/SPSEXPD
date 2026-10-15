@@ -69,6 +69,13 @@ public final class UniqueItems {
 		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_BASE_A, ScrollEarring::new );
 		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_BASE_B, ClogArmor::new );
 
+		//SPSEXPD: 战士族其余五件（一档 B 的两颗宝珠 / 二档的镀金纹章与两颗宝珠）
+		REGISTRY.put( UniqueItemId.WARRIOR_SEAL_T1_2_BLOOD, pd.items.unique.items.BloodOrb::new );
+		REGISTRY.put( UniqueItemId.WARRIOR_SEAL_T1_2_SOUL, pd.items.unique.items.SoulOrb::new );
+		REGISTRY.put( UniqueItemId.WARRIOR_SEAL_T2_1_GILDED, pd.items.GildedSeal::new );
+		REGISTRY.put( UniqueItemId.WARRIOR_SEAL_T2_2_BLOOD, pd.items.unique.items.CrimsonOrb::new );
+		REGISTRY.put( UniqueItemId.WARRIOR_SEAL_T2_2_GLORY, pd.items.unique.items.GloryOrb::new );
+
 		// 其余编号一律用占位类
 		for (UniqueItemId id : UniqueItemId.values()) {
 			REGISTRY.computeIfAbsent( id, k -> () -> new PlaceholderUniqueItem( k ) );
