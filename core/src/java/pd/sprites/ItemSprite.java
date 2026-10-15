@@ -140,9 +140,10 @@ public class ItemSprite extends MovieClip {
 		place(heap.pos);
 	}
 
-	/** SPSEXPD: 藏宝地（E_DUST）贴地，不画椭圆阴影；其余堆保持原样。 */
+	/** SPSEXPD: 只有真正连在地面上的堆才画椭圆阴影（藏宝地 E_DUST 贴地，不投立体阴影）。
+	 *  窗口里展示的物品（heap == null，例如商店弹出的售卖窗口）不应带阴影。 */
 	protected void updateShadow() {
-		renderShadow = heap == null || heap.type != Heap.Type.E_DUST;
+		renderShadow = heap != null && heap.type != Heap.Type.E_DUST;
 	}
 	
 	@Override
@@ -288,6 +289,8 @@ public class ItemSprite extends MovieClip {
 			parent.add( emitter );
 			this.emitter = emitter;
 		}
+		//SPSEXPD: 非地面场景（窗口里的图标）不画阴影；顺带清掉对象池复用可能残留的阴影状态
+		updateShadow();
 		return this;
 	}
 	
