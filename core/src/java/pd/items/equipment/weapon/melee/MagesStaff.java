@@ -261,6 +261,23 @@ public class MagesStaff extends MeleeWeapon implements pd.items.unique.UniqueIte
 		if (wand != null) wand.stopCharging();
 	}
 
+	/** SPSEXPD: 直接读取内嵌法杖（供「多法术收纳」类使用）。 */
+	protected Wand currentWand(){
+		return wand;
+	}
+
+	/** SPSEXPD: 直接替换内嵌法杖——_不_把旧法杖弹回背包（供「多法术收纳」类切换用）。 */
+	protected void setWandDirect(Wand newWand){
+		this.wand = newWand;
+		if (newWand != null){
+			newWand.level(Math.max(newWand.level(), level()));
+			newWand.identify();
+			newWand.curCharges = Math.max(newWand.curCharges, newWand.maxCharges);
+			newWand.stopCharging();
+		}
+		updateQuickslot();
+	}
+
 	public Item imbueWand(Wand wand, Char owner){
 
 		int oldStaffcharges = this.wand != null ? this.wand.curCharges : 0;

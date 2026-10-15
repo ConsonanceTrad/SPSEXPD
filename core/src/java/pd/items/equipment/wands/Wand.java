@@ -540,6 +540,9 @@ public abstract class Wand extends Item {
 			}
 		}
 		
+		//SPSEXPD: 记录「上次施放的法术」，供秘银/精金手杖的近战特效使用
+		pd.items.unique.items.SpsSpellMemory.record(getClass());
+
 		curCharges -= cursed ? 1 : chargesPerCast();
 
 		//remove magic charge at a higher priority, if we are benefiting from it are and not the
