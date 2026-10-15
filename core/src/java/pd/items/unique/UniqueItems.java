@@ -100,6 +100,12 @@ public final class UniqueItems {
 		REGISTRY.put( UniqueItemId.ROGUE_CLOAK_T2_2_NIGHT, pd.items.unique.items.EternalBracelet::new );
 		REGISTRY.put( UniqueItemId.ROGUE_CLOAK_T2_2_SILENT, pd.items.unique.items.SilentPistol::new );
 
+		//SPSEXPD: 女猎手族四件
+		REGISTRY.put( UniqueItemId.HUNTRESS_BOW_T1_1_DART, pd.items.unique.items.PsionicDart::new );
+		REGISTRY.put( UniqueItemId.HUNTRESS_BOW_T1_2_BOOM, pd.items.unique.items.PsionicBoomerang::new );
+		REGISTRY.put( UniqueItemId.HUNTRESS_BOW_T2_1_DART, pd.items.unique.items.PsionicDartMk2::new );
+		REGISTRY.put( UniqueItemId.HUNTRESS_BOW_T2_2_BOOM, pd.items.unique.items.VoidBoomerang::new );
+
 		// 其余编号一律用占位类
 		for (UniqueItemId id : UniqueItemId.values()) {
 			REGISTRY.computeIfAbsent( id, k -> () -> new PlaceholderUniqueItem( k ) );
