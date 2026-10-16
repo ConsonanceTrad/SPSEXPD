@@ -117,6 +117,10 @@ public final class UniqueItems {
 		//SPSEXPD: 决斗族六件
 		REGISTRY.put( UniqueItemId.DUELIST_SHIELD_T1_1_RAPIER, pd.items.unique.items.BlueSteelRapier::new );
 		REGISTRY.put( UniqueItemId.DUELIST_SHIELD_T2_1_NULL, pd.items.unique.items.NullRapier::new );
+		REGISTRY.put( UniqueItemId.DUELIST_SHIELD_T1_2_ROUND, pd.items.unique.items.RoundShieldUnique::new );
+		REGISTRY.put( UniqueItemId.DUELIST_SHIELD_T1_2_RUNE, pd.items.unique.items.RuneBanding::new );
+		REGISTRY.put( UniqueItemId.DUELIST_SHIELD_T2_2_CAPTAIN, pd.items.unique.items.CaptainShield::new );
+		REGISTRY.put( UniqueItemId.DUELIST_SHIELD_T2_2_STEEL, pd.items.unique.items.SteelBanding::new );
 
 		// 其余编号一律用占位类
 		for (UniqueItemId id : UniqueItemId.values()) {

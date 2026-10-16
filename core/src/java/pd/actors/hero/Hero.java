@@ -2113,6 +2113,12 @@ public class Hero extends Char {
 	public int attackProc( final Char enemy, int damage ) {
 		damage = super.attackProc( enemy, damage );
 
+		//SPSEXPD: 先攻盾——你命中过的敌人会被留下「先攻」标记
+		if (enemy != null && enemy != this
+				&& pd.items.unique.items.RoundShieldUnique.hasFirstStrikeShield(this)) {
+			Buff.affect(enemy, pd.actors.buffs.FirstStrike.class);
+		}
+
 		//SPSXPD: 暴击系统（照暗黑实现，近战/法术/投掷共用 Critical 入口）
 		damage = pd.actors.hero.Critical.roll( this, damage );
 		//SPSXPD: 宠物能力特质（献祭获得）在命中时生效
@@ -2333,6 +2339,11 @@ public class Hero extends Char {
 		//temporarily assign to a float to avoid rounding a bunch
 		float damage = dmg;
 		if (FishBone.protectsFrom(this, src)) damage = 0;
+
+		//SPSEXPD: 神木圆盾/队长之盾——吸收「先攻」目标的首次物理伤害（队长之盾还会反射）
+		if (src instanceof Char) {
+			damage = pd.items.unique.items.RoundShieldUnique.absorbFirstStrike(this, (Char) src, damage);
+		}
 
 		Endure.EndureTracker endure = buff(Endure.EndureTracker.class);
 		if (!(src instanceof Char)){
