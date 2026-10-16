@@ -125,6 +125,10 @@ public final class UniqueItems {
 		//SPSEXPD: 演员族六件
 		REGISTRY.put( UniqueItemId.PERFORMER_SHOVEL_T1_1_BASS, pd.items.unique.items.MagicBass::new );
 		REGISTRY.put( UniqueItemId.PERFORMER_SHOVEL_T2_1_HARM, pd.items.unique.items.StormHarmonica::new );
+		REGISTRY.put( UniqueItemId.PERFORMER_SHOVEL_T1_2_DRILL, pd.items.unique.items.PowerDrill::new );
+		REGISTRY.put( UniqueItemId.PERFORMER_SHOVEL_T1_2_INFRA, pd.items.unique.items.InfrasonicGen::new );
+		REGISTRY.put( UniqueItemId.PERFORMER_SHOVEL_T2_2_HOLY, pd.items.unique.items.HolyDrill::new );
+		REGISTRY.put( UniqueItemId.PERFORMER_SHOVEL_T2_2_PULSE, pd.items.unique.items.PulseUnit::new );
 
 		// 其余编号一律用占位类
 		for (UniqueItemId id : UniqueItemId.values()) {
