@@ -114,6 +114,10 @@ public final class UniqueItems {
 		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T2_2_SIXWORD, pd.items.unique.items.SixWordMantra::new );
 		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T2_2_RING, pd.items.unique.items.NineRingStaff::new );
 
+		//SPSEXPD: 决斗族六件
+		REGISTRY.put( UniqueItemId.DUELIST_SHIELD_T1_1_RAPIER, pd.items.unique.items.BlueSteelRapier::new );
+		REGISTRY.put( UniqueItemId.DUELIST_SHIELD_T2_1_NULL, pd.items.unique.items.NullRapier::new );
+
 		// 其余编号一律用占位类
 		for (UniqueItemId id : UniqueItemId.values()) {
 			REGISTRY.computeIfAbsent( id, k -> () -> new PlaceholderUniqueItem( k ) );
