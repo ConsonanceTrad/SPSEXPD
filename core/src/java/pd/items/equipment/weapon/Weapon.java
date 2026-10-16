@@ -529,7 +529,9 @@ abstract public class Weapon extends KindOfWeapon {
 			//30% chance to be cursed
 			//10% chance to be enchanted
 			float effectRoll = Random.Float();
-			if (effectRoll < 0.3f * ParchmentScrap.curseChanceMultiplier()) {
+			//SPSEXPD: 十字架/荆棘冠冕——携带时武器诅咒的出现概率打折
+			if (effectRoll < 0.3f * ParchmentScrap.curseChanceMultiplier()
+					* pd.items.unique.items.Cross.curseChanceFactor(Dungeon.hero)) {
 				enchant(Enchantment.randomCurse());
 				cursed = true;
 			} else if (effectRoll >= 1f - (0.1f * ParchmentScrap.enchantChanceMultiplier())){
