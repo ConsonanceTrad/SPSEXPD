@@ -130,6 +130,10 @@ public final class UniqueItems {
 		REGISTRY.put( UniqueItemId.PERFORMER_SHOVEL_T2_2_HOLY, pd.items.unique.items.HolyDrill::new );
 		REGISTRY.put( UniqueItemId.PERFORMER_SHOVEL_T2_2_PULSE, pd.items.unique.items.PulseUnit::new );
 
+		//SPSEXPD: 信徒族六件
+		REGISTRY.put( UniqueItemId.FOLLOWER_CUSHION_T1_1_SPOON, pd.items.unique.items.SilverSpoon::new );
+		REGISTRY.put( UniqueItemId.FOLLOWER_CUSHION_T2_1_SUPPER, pd.items.unique.items.SupperSpoon::new );
+
 		// 其余编号一律用占位类
 		for (UniqueItemId id : UniqueItemId.values()) {
 			REGISTRY.computeIfAbsent( id, k -> () -> new PlaceholderUniqueItem( k ) );
