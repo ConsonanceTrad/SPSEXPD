@@ -133,6 +133,10 @@ public final class UniqueItems {
 		//SPSEXPD: 信徒族六件
 		REGISTRY.put( UniqueItemId.FOLLOWER_CUSHION_T1_1_SPOON, pd.items.unique.items.SilverSpoon::new );
 		REGISTRY.put( UniqueItemId.FOLLOWER_CUSHION_T2_1_SUPPER, pd.items.unique.items.SupperSpoon::new );
+		REGISTRY.put( UniqueItemId.FOLLOWER_CUSHION_T1_2_CROSS, pd.items.unique.items.Cross::new );
+		REGISTRY.put( UniqueItemId.FOLLOWER_CUSHION_T1_2_STAKER, pd.items.unique.items.Staker::new );
+		REGISTRY.put( UniqueItemId.FOLLOWER_CUSHION_T2_2_THORN, pd.items.unique.items.ThornCrown::new );
+		REGISTRY.put( UniqueItemId.FOLLOWER_CUSHION_T2_2_MARTYR, pd.items.unique.items.Martyr::new );
 
 		// 其余编号一律用占位类
 		for (UniqueItemId id : UniqueItemId.values()) {

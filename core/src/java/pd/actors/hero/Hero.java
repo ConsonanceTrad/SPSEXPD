@@ -2345,6 +2345,10 @@ public class Hero extends Char {
 			damage = pd.items.unique.items.RoundShieldUnique.absorbFirstStrike(this, (Char) src, damage);
 		}
 
+		//SPSEXPD: 十字架/荆棘冠冕——压低有害魔力的伤害，并累计荆棘冠冕的受击计数
+		damage = pd.items.unique.items.Cross.reduceHarm(this, src, damage);
+		pd.items.unique.items.ThornCrown.countHit(this);
+
 		Endure.EndureTracker endure = buff(Endure.EndureTracker.class);
 		if (!(src instanceof Char)){
 			//reduce damage here if it isn't coming from a character (if it is we already reduced it)
