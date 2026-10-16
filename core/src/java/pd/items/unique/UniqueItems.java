@@ -122,6 +122,10 @@ public final class UniqueItems {
 		REGISTRY.put( UniqueItemId.DUELIST_SHIELD_T2_2_CAPTAIN, pd.items.unique.items.CaptainShield::new );
 		REGISTRY.put( UniqueItemId.DUELIST_SHIELD_T2_2_STEEL, pd.items.unique.items.SteelBanding::new );
 
+		//SPSEXPD: 演员族六件
+		REGISTRY.put( UniqueItemId.PERFORMER_SHOVEL_T1_1_BASS, pd.items.unique.items.MagicBass::new );
+		REGISTRY.put( UniqueItemId.PERFORMER_SHOVEL_T2_1_HARM, pd.items.unique.items.StormHarmonica::new );
+
 		// 其余编号一律用占位类
 		for (UniqueItemId id : UniqueItemId.values()) {
 			REGISTRY.computeIfAbsent( id, k -> () -> new PlaceholderUniqueItem( k ) );
