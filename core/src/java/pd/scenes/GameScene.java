@@ -1624,6 +1624,9 @@ public class GameScene extends PixelScene {
 	public static void toggleInvPane(){
 		if (scene != null && scene.inventory != null){
 			if (scene.inventory.visible){
+				//SPSEXPD: 收起背包时一并清掉「选择物品」的选择器，否则 selector 残留会让
+				//interfaceBlockingHero() 恒为 true，地面点击被静默吞掉（点一次没反应、再点才好）
+				scene.inventory.clearSelector();
 				scene.inventory.visible = scene.inventory.active = invVisible = false;
 				scene.toolbar.setPos(scene.toolbar.left(), uiCamera.height-scene.toolbar.height());
 			} else {

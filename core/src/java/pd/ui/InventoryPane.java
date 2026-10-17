@@ -402,6 +402,22 @@ public class InventoryPane extends Component {
 		updateInventory();
 	}
 
+	/**
+	 * SPSEXPD: 收起背包时清掉「选择物品」的选择器。
+	 *
+	 * <p>selector 只要非空，{@code GameScene.interfaceBlockingHero()} 就恒为 true，而
+	 * {@code CellSelector.select()} 会把地面点击静默交给 {@code GameScene.cancel()}——
+	 * 表现为「点格子没反应，再点一次又好了」（第一次点击浪费在取消选择器上）。
+	 * 退出背包时统一收口，各种退出方式都不再残留。</p>
+	 */
+	public void clearSelector(){
+		if (selector == null) return;
+		WndBag.ItemSelector pending = selector;
+		selector = null;
+		pending.onSelect( null );
+		updateInventory();
+	}
+	
 	public WndBag.ItemSelector getSelector() {
 		return selector;
 	}

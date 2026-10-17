@@ -150,24 +150,29 @@ public class CellSelector extends ScrollArea {
 	}
 	
 	public void select( int cell, int button ) {
-		if (enabled && Dungeon.hero.ready && !GameScene.interfaceBlockingHero()
-				&& listener != null && cell != -1) {
-
-			switch (button){
-				default:
-					listener.onSelect( cell );
-					break;
-				case PointerEvent.RIGHT:
-					listener.onRightClick( cell );
-					break;
-			}
-			GameScene.ready();
-			
-		} else {
-			
+		boolean heroReady = Dungeon.hero.ready;
+		boolean blocking = GameScene.interfaceBlockingHero();
+		if (!(enabled && heroReady && !blocking && listener != null && cell != -1)) {
+			//SPSEXPD: 诊断——点击被吞时打印具体被哪一条挡住（偶发问题时看控制台即可定位）。
+			//这里的分支行为与原来完全一致，只是多打一行日志，不改变任何判定。
+			System.err.println("[SPSEXPD] click swallowed: cell=" + cell
+					+ " enabled=" + enabled
+					+ " heroReady=" + heroReady
+					+ " blockingHero=" + blocking
+					+ " listener=" + (listener == null ? "null" : listener.getClass().getName()));
 			GameScene.cancel();
-			
+			return;
 		}
+
+		switch (button){
+			default:
+				listener.onSelect( cell );
+				break;
+			case PointerEvent.RIGHT:
+				listener.onRightClick( cell );
+				break;
+		}
+		GameScene.ready();
 	}
 	
 	private boolean pinching = false;
