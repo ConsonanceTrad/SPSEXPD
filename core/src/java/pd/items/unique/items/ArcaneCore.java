@@ -2,6 +2,9 @@
 package pd.items.unique.items;
 
 import pd.Dungeon;
+import pd.actors.Actor;
+import pd.actors.Char;
+import pd.actors.buffs.Buff;
 import pd.actors.hero.Belongings;
 import pd.actors.hero.Hero;
 import pd.atlas.items.SpecificPlaceHolderDict;
@@ -49,7 +52,7 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 			.t("switch_title", "选择要使用的法术")
 			.t("no_switch", "轴芯里只收录了一道法术，没什么可切换的。")
 			.t("switched", "轴芯转向了%s的法术。")
-			.t("desc", "一根空心的法师轴芯，可以像老法杖一样施法。\n\n「吞噬」：把一根法杖喂给它——法杖本体就此消融，只留下那道_法术_被轴芯收录。最多收录 _%1$d 道_法术。\n\n「切换法术」：在已收录的法术之间自由切换，想用哪道就用哪道。\n\n它的_能量上限不看等级_：基础 _2 点_，每收录一道法术 _+4 点_；_充能速度_也随收录数提高（每道 +50%%）。\n\n吞噬时与老法杖灌注同规则：会继承比自己等级更高的法杖等级，等级相等时额外获得一次_免费升级_。");
+			.t("desc", "一根空心的法师轴芯，可以像老法杖一样施法。\n\n「吞噬」：把一根法杖喂给它——法杖本体就此消融，只留下那道_法术_被轴芯收录。最多收录 _%1$d 道_法术。\n\n「切换法术」：在已收录的法术之间自由切换，想用哪道就用哪道。\n\n它的_能量上限不看等级_：基础 _2 点_，每收录一道法术 _+4 点_。_充能速度_也随收录数提高：空着时约 _20 回合_回 1 点，每多收录一道快 _50%%_。\n\n吞噬时与老法杖灌注同规则：会继承比自己等级更高的法杖等级，等级相等时额外获得一次_免费升级_。");
 	}
 
 	/** SPSEXPD: 已收录的法术（法杖实例，只保留法术本身）。 */
@@ -112,6 +115,77 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 	/** SPSEXPD: 轴芯自己的能量（唯一真源；内嵌法术只是被同步的壳）。 */
 	protected int coreCharges;
 
+	/** SPSEXPD: 自然充能的「零头」，攒满 1 就涨一点能量。 */
+	protected float corePartial;
+
+	/** SPSEXPD: 0 收录时的自然充能回合数（每收录一道快 50%）。 */
+	public static final float BASE_TURNS_TO_CHARGE = 20f;
+
+	/**
+	 * SPSEXPD: 轴芯的自然充能——由自己身上的 {@link CoreCharger} 每回合驱动，
+	 * <b>不再向内嵌法杖的 Charger 借力</b>。速率随收录数提高。
+	 */
+	protected void coreRecharge() {
+		int cap = coreCapacity();
+		if (coreCharges >= cap) {
+			corePartial = 0f;
+			return;
+		}
+		corePartial += chargeRateMultiplier() / BASE_TURNS_TO_CHARGE;
+		while (corePartial >= 1f && coreCharges < cap) {
+			corePartial--;
+			coreCharges++;
+			updateQuickslot();
+		}
+		if (coreCharges >= cap) corePartial = 0f;
+		pushCharges();
+	}
+
+	/**
+	 * SPSEXPD: 轴芯自己的充能 buff（照 Reloading.bind 的先例绑定物品）。
+	 * 只负责每回合调一次 {@link ArcaneCore#coreRecharge()}。
+	 */
+	public static class CoreCharger extends Buff {
+		{
+			actPriority = Actor.MOB_PRIO;
+		}
+
+		private ArcaneCore core;
+
+		public void bind(ArcaneCore core) {
+			this.core = core;
+		}
+
+		@Override
+		public boolean act() {
+			if (core == null || core != equippedCore()) core = equippedCore();
+			if (core != null) core.coreRecharge();
+			spend(TICK);
+			return true;
+		}
+
+		@Override
+		public void detach() {
+			core = null;
+			super.detach();
+		}
+
+		private ArcaneCore equippedCore() {
+			if (!(target instanceof Hero)) return null;
+			Belongings b = ((Hero) target).belongings;
+			if (b.weapon instanceof ArcaneCore) return (ArcaneCore) b.weapon;
+			if (b.secondWep instanceof ArcaneCore) return (ArcaneCore) b.secondWep;
+			return null;
+		}
+	}
+
+	/** SPSEXPD: 改挂轴芯自己的充能 buff——不再给内嵌法杖挂 Wand.Charger。 */
+	@Override
+	public void applyWandChargeBuff(Char owner) {
+		if (owner == null) return;
+		Buff.affect(owner, CoreCharger.class).bind(this);
+	}
+
 	/** SPSEXPD: 把轴芯的能量推给当前法术（让 Wand 用它施法/显示）。 */
 	protected void pushCharges() {
 		Wand cur = currentWand();
@@ -135,8 +209,6 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 	/** SPSEXPD: 显示的是轴芯自己的能量，而不是收录法术的。 */
 	@Override
 	public String status() {
-		//SPSEXPD: 自然充能由内嵌 Wand 的 Charger 直接加到 wand 上，这里先把它收回来
-		pullCharges();
 		return coreCharges + "/" + coreCapacity();
 	}
 
@@ -158,8 +230,6 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 	/** SPSEXPD: 动作列表按轴芯能量判断能否施法。 */
 	@Override
 	public ArrayList<String> actions(Hero hero) {
-		//SPSEXPD: 先把 Wand 上自然积累的充能收回轴芯，再判断能不能施法
-		pullCharges();
 		pushCharges();
 		ArrayList<String> actions = super.actions(hero);
 		actions.add(AC_SWITCH);
@@ -181,9 +251,8 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 			return;
 		}
 		if (AC_ZAP.equals(action)) {
-			//SPSEXPD: 施法前后各同步一次——先把 Wand 上自然积累的充能收回轴芯，
-			//再让 Wand 用轴芯的能量扣，扣完把剩余收回轴芯
-			pullCharges();
+			//SPSEXPD: 施法要经过 Wand（它按 wand.curCharges 扣能量），
+			//所以施法前把轴芯能量推下去、施法后把剩余收回来
 			pushCharges();
 			super.execute(hero, action);
 			pullCharges();
@@ -310,14 +379,16 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 	private static final String SPELLS = "spells";
 	private static final String CURRENT = "current";
 	private static final String CORE_CHARGES = "core_charges";
+	private static final String CORE_PARTIAL = "core_partial";
 
 	@Override
 	public void storeInBundle(Bundle bundle) {
 		super.storeInBundle(bundle);
 		bundle.put(SPELLS, spells);
 		bundle.put(CURRENT, current);
-		//SPSEXPD: 轴芯能量是唯一真源，必须一起存档
+		//SPSEXPD: 轴芯能量是唯一真源，必须一起存档（含充能零头）
 		bundle.put(CORE_CHARGES, coreCharges);
+		bundle.put(CORE_PARTIAL, corePartial);
 	}
 
 	@Override
@@ -331,6 +402,7 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 		coreCharges = bundle.contains(CORE_CHARGES)
 				? bundle.getInt(CORE_CHARGES)
 				: (currentWand() != null ? currentWand().curCharges : 0);
+		corePartial = bundle.contains(CORE_PARTIAL) ? bundle.getFloat(CORE_PARTIAL) : 0f;
 		pushCharges();
 	}
 
