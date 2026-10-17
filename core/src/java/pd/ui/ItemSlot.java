@@ -247,6 +247,9 @@ public class ItemSlot extends Button {
 		if (this.item == item) {
 			if (item != null) {
 				sprite.view( item );
+				//SPSEXPD: 换图后立刻重摆一次——高分辨率图标（32x32 缩到 14）的 scale 与居中
+				//都在 layout() 里算，只等下一次窗口布局会让首帧显示成未缩放的大小
+				layout();
 			}
 			updateText();
 			return;
@@ -267,6 +270,8 @@ public class ItemSlot extends Button {
 			sprite.visible(true);
 
 			sprite.view( item );
+			//SPSEXPD: 同上，view() 之后立即套用缩放与位置
+			layout();
 			updateText();
 		}
 	}
