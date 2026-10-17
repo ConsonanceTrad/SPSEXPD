@@ -133,7 +133,22 @@ public class Combo extends Buff implements ActionIndicator.Action {
 		return Integer.toString((int)comboTime);
 	}
 	
+	/** SPSEXPD: 上次命中时穿着的护甲——连击技按护甲阶位分组，换护甲不能继承连击数。 */
+	private pd.items.equipment.armor.Armor comboArmor;
+	private static final String COMBO_ARMOR = "combo_armor";
+
 	public void hit( Char enemy ) {
+
+		//SPSEXPD: 连击技是跟着护甲走的（按护甲阶位分组），所以_换护甲不保留连击数_——
+		//否则可以先穿低阶甲攒连击，再换上高阶甲直接甩出高阶战技（武器切换不受影响，允许）。
+		if (target instanceof Hero) {
+			pd.items.equipment.armor.Armor worn = ((Hero) target).belongings.armor();
+			if (comboArmor != worn) {
+				comboArmor = worn;
+				count = 0;
+				comboTime = 0f;
+			}
+		}
 
 		//SPSEXPD: 镀金纹章——上次被打断时保留的一半层数，在下次连击开始时继承
 		if (count == 0 && target instanceof Hero) {
@@ -243,6 +258,8 @@ public class Combo extends Buff implements ActionIndicator.Action {
 
 		bundle.put(CLASH_USED, clashUsed);
 		bundle.put(PARRY_USED, parryUsed);
+		//SPSEXPD: 记住连击对应的护甲，读档后换甲同样不继承连击
+		if (comboArmor != null) bundle.put(COMBO_ARMOR, comboArmor);
 	}
 
 	@Override
@@ -257,6 +274,11 @@ public class Combo extends Buff implements ActionIndicator.Action {
 				? bundle.getBoolean(CLASH_USED)
 				: bundle.getBoolean(LEGACY_CLOBBER_USED);
 		parryUsed = bundle.getBoolean(PARRY_USED);
+
+		//SPSEXPD: 连击对应的护甲（旧档没有这个键，留 null 即可）
+		comboArmor = bundle.contains(COMBO_ARMOR)
+				? (pd.items.equipment.armor.Armor) bundle.get(COMBO_ARMOR)
+				: null;
 
 		if (getHighestMove() != null) ActionIndicator.setAction(this);
 	}
