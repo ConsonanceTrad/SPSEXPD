@@ -109,12 +109,33 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 		return 1f + REGEN_PER_SPELL * spells.size();
 	}
 
-	/** SPSEXPD: 把能量上限按「收录数」重新套到当前法术上（升级不提高上限）。 */
-	protected void applyCoreCapacity() {
+	/** SPSEXPD: 轴芯自己的能量（唯一真源；内嵌法术只是被同步的壳）。 */
+	protected int coreCharges;
+
+	/** SPSEXPD: 把轴芯的能量推给当前法术（让 Wand 用它施法/显示）。 */
+	protected void pushCharges() {
 		Wand cur = currentWand();
 		if (cur == null) return;
 		cur.maxCharges = coreCapacity();
-		cur.curCharges = Math.min(cur.curCharges, cur.maxCharges);
+		cur.curCharges = Math.min(coreCharges, cur.maxCharges);
+	}
+
+	/** SPSEXPD: 把当前法术里剩下的能量收回轴芯。 */
+	protected void pullCharges() {
+		Wand cur = currentWand();
+		if (cur != null) coreCharges = Math.min(cur.curCharges, coreCapacity());
+	}
+
+	/** SPSEXPD: 能量上限按「收录数」刷新，并把轴芯能量推给当前法术（升级不提高上限）。 */
+	protected void applyCoreCapacity() {
+		coreCharges = Math.min(coreCharges, coreCapacity());
+		pushCharges();
+	}
+
+	/** SPSEXPD: 显示的是轴芯自己的能量，而不是收录法术的。 */
+	@Override
+	public String status() {
+		return coreCharges + "/" + coreCapacity();
 	}
 
 	@Override
@@ -124,14 +145,18 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 		applyCoreCapacity();
 	}
 
-	/** SPSEXPD: 充能速度随收录数提高（恢复效率）。 */
+	/** SPSEXPD: 充能速度随收录数提高（恢复效率）；能量加在_轴芯自己_身上。 */
 	@Override
 	public void gainCharge(float amt, boolean notify) {
-		super.gainCharge(amt * chargeRateMultiplier(), notify);
+		coreCharges = Math.min(coreCharges + Math.round(amt * chargeRateMultiplier()), coreCapacity());
+		pushCharges();
+		updateQuickslot();
 	}
 
+	/** SPSEXPD: 动作列表按轴芯能量判断能否施法。 */
 	@Override
 	public ArrayList<String> actions(Hero hero) {
+		pushCharges();
 		ArrayList<String> actions = super.actions(hero);
 		actions.add(AC_SWITCH);
 		return actions;
@@ -149,6 +174,14 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 		if (AC_SWITCH.equals(action)) {
 			curUser = hero;
 			switchSpell(hero);
+			return;
+		}
+		if (AC_ZAP.equals(action)) {
+			//SPSEXPD: 施法前后各同步一次——Wand 用轴芯的能量扣，扣完再把剩余收回轴芯
+			pushCharges();
+			super.execute(hero, action);
+			pullCharges();
+			updateQuickslot();
 			return;
 		}
 		super.execute(hero, action);
@@ -270,12 +303,15 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 
 	private static final String SPELLS = "spells";
 	private static final String CURRENT = "current";
+	private static final String CORE_CHARGES = "core_charges";
 
 	@Override
 	public void storeInBundle(Bundle bundle) {
 		super.storeInBundle(bundle);
 		bundle.put(SPELLS, spells);
 		bundle.put(CURRENT, current);
+		//SPSEXPD: 轴芯能量是唯一真源，必须一起存档
+		bundle.put(CORE_CHARGES, coreCharges);
 	}
 
 	@Override
@@ -286,6 +322,10 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 			if (b instanceof Wand) spells.add((Wand) b);
 		}
 		current = bundle.getInt(CURRENT);
+		coreCharges = bundle.contains(CORE_CHARGES)
+				? bundle.getInt(CORE_CHARGES)
+				: (currentWand() != null ? currentWand().curCharges : 0);
+		pushCharges();
 	}
 
 	@Override
