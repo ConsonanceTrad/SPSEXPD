@@ -300,12 +300,6 @@ public class ItemSlot extends Button {
 
 			itemIcon = new Image(Assets.Sprites.ITEM_ICONS);
 			itemIcon.frame(ItemIconSheet.film.get(item.icon));
-			//SPSEXPD: 32x32 之类的高分辨率图标在格子里等比缩到等价 16，避免溢到邻格
-			IconEntry ie = item.image();
-			if (ie != null) {
-				float fit = Math.min(1f, ItemSprite.ICON_MAX / (float) Math.max(ie.w(0), ie.h(0)));
-				itemIcon.scale.set(fit, fit);
-			}
 			add(itemIcon);
 
 		} else if (item instanceof Weapon || item instanceof Armor) {
