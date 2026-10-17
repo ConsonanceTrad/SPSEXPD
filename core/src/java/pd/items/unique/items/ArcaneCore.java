@@ -45,6 +45,7 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 			.t("swallow_prompt", "选择要吞噬的法杖")
 			.t("swallowed", "轴芯吞下了%s，收录了这道法术（%d/%d）。")
 			.t("full", "轴芯已经收录了 %d 道法术，无法再吞下更多。")
+			.t("replace_title", "用%s替换掉哪一道已收录的法术？")
 			.t("switch_title", "选择要使用的法术")
 			.t("no_switch", "轴芯里只收录了一道法术，没什么可切换的。")
 			.t("switched", "轴芯转向了%s的法术。")
@@ -153,22 +154,46 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 		super.execute(hero, action);
 	}
 
-	/** SPSEXPD: 吞噬一根法杖——法杖本体消融，只收录其法术。 */
+	/** SPSEXPD: 吞噬一根法杖——法杖本体消融，只收录其法术；已收满时可以选择替换掉其中一道。 */
 	public boolean swallow(Wand source) {
-		if (source == null) return false;
+		if (source == null || Dungeon.hero == null) return false;
+
 		if (spells.size() >= maxSpells()) {
-			GLog.w(Messages.get(this, "full", maxSpells()));
+			//SPSEXPD: 已经收满——让玩家挑一道替换掉，而不是直接拒绝
+			askReplace(source);
 			return false;
 		}
-		if (Dungeon.hero == null) return false;
+		return bind(source, -1);
+	}
 
-		String srcName = source.name();
+	/** SPSEXPD: 收满后弹出选择，把某一道已收录的法术替换成新的法杖。 */
+	protected void askReplace(Wand source) {
+		if (spells.isEmpty()) return;
+		String[] opts = new String[spells.size()];
+		for (int i = 0; i < spells.size(); i++) {
+			opts[i] = spells.get(i).name();
+		}
+		GameScene.show(new WndOptions(new ItemSprite(this), Messages.titleCase(name()),
+				Messages.get(this, "replace_title", source.name()), opts) {
+			@Override
+			protected void onSelect(int index) {
+				if (index < 0 || index >= spells.size()) return;
+				bind(source, index);
+			}
+		});
+	}
+
+	/** SPSEXPD: 真正收下这根法杖；replaceIndex >= 0 表示原地替换掉该位置的法术。 */
+	protected boolean bind(Wand source, int replaceIndex) {
+		Wand cur = currentWand();
+		int keepCharges = cur != null ? cur.curCharges : -1;
 
 		//SPSEXPD: 与老法杖灌注同规则——继承比自己高的法杖等级；
 		//等级相等（且自身已有等级）时额外 +1，相当于一次免费升级
 		int targetLevel = Math.max(trueLevel(), source.trueLevel());
 		if (source.trueLevel() >= trueLevel() && trueLevel() > 0) targetLevel++;
 
+		String srcName = source.name();
 		source.detach(Dungeon.hero.belongings.backpack);
 		level(targetLevel);
 
@@ -176,15 +201,21 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 		if (copy == null) return false;
 		copy.level(level());
 		copy.identify();
-		//SPSEXPD: 能量统一——新收录的法术直接沿用轴芯当前的充能，而不是自己补满
-		Wand cur = currentWand();
-		copy.curCharges = cur != null ? cur.curCharges : copy.maxCharges;
+		//SPSEXPD: 能量统一——新法术沿用轴芯当前的充能，而不是自己补满
+		copy.curCharges = keepCharges >= 0 ? keepCharges : copy.maxCharges;
 
-		spells.add(copy);
-		if (current < 0 || currentWand() == null) {
-			current = spells.size() - 1;
-			setWandDirect(copy);
+		if (replaceIndex >= 0 && replaceIndex < spells.size()) {
+			//SPSEXPD: 替换指定位置（若替换的正是当前法术，就地换掉）
+			boolean replacingCurrent = (replaceIndex == current);
+			spells.set(replaceIndex, copy);
+			if (replacingCurrent) current = replaceIndex;
+		} else {
+			spells.add(copy);
+			if (current < 0 || cur == null) current = spells.size() - 1;
 		}
+
+		if (current < 0 || current >= spells.size()) current = 0;
+		setWandDirect(spells.get(current));
 		//SPSEXPD: 收录数变了，能量上限要跟着提高（并按新上限刷新当前法术）
 		applyCoreCapacity();
 		GLog.p(Messages.get(this, "swallowed", srcName, spells.size(), maxSpells()));
