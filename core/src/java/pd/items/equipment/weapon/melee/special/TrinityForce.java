@@ -60,12 +60,6 @@ public class TrinityForce extends NormalMeleeWeapon {
 		super(5, 1f, 1f, 2, 8, 20, pd.atlas.item32.Weapon32Dict.VANGUARD_BLADE_32);
 	}
 
-	/** SPSEXPD: 动画（投掷飞行、飞入背包）改用 16 版图标，避免 32 版缩放导致起终点漂移。 */
-	@Override
-	public pd.atlas.IconEntry animatedImage() {
-		return pd.atlas.item32.Weapon32Dict.VANGUARD_BLADE;
-	}
-
 	@Override
 	public Item random() {
 		return this;
