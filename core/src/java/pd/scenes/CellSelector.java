@@ -154,17 +154,18 @@ public class CellSelector extends ScrollArea {
 		boolean blocking = GameScene.interfaceBlockingHero();
 		if (!(enabled && heroReady && !blocking && listener != null && cell != -1)) {
 			//SPSEXPD: 诊断——点击被吞时打印具体被哪一条挡住（偶发问题时看控制台即可定位）。
-			//这里的分支行为与原来完全一致，只是多打一行日志，不改变任何判定。
 			System.err.println("[SPSEXPD] click swallowed: cell=" + cell
 					+ " enabled=" + enabled
 					+ " heroReady=" + heroReady
 					+ " blockingHero=" + blocking
 					+ " listener=" + (listener == null ? "null" : listener.getClass().getName()));
+			//SPSEXPD: 英雄还在忙（heroReady=false，例如刚买完东西/刚行动完）时，点击只是"早了一步"，
+			//不应该 cancel 掉当前动作队列——原来无条件 GameScene.cancel() 会把这次点击彻底吞掉，
+			//表现为"点一次没反应、再点一次才动"。这里直接返回，玩家再点就能正常走到默认监听器。
+			if (!heroReady || !enabled) {
+				return;
+			}
 			GameScene.cancel();
-			//SPSEXPD: 吞掉一次之后必须把 enabled 复位。否则关窗口（例如商店买完东西、
-			//交易窗口关闭）时留下的 enabled=false 会一直留着，导致下一次点击又被吞——表现为
-			//"点一次没反应，再点一次才好"。enabled 只是"能不能选格"的开关，随时重算即可。
-			enabled = true;
 			return;
 		}
 
