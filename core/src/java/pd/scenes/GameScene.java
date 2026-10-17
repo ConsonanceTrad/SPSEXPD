@@ -239,6 +239,9 @@ public class GameScene extends PixelScene {
 	private GameLog log;
 
 	private static CellSelector cellSelector;
+
+	/** SPSEXPD: 节拍器的「下一拍」格高亮。 */
+	private static pd.effects.MetronomeMark metronomeMark;
 	
 	private Group terrain;
 	private Group customTiles;
@@ -478,6 +481,10 @@ public class GameScene extends PixelScene {
 		add( healthIndicators );
 		//always appears ontop of other health indicators
 		add( new TargetHealthIndicator() );
+
+		//SPSEXPD: 节拍器标出的「下一拍」格子高亮（世界层，跟随 MetronomeBeat.beatCell）
+		metronomeMark = new pd.effects.MetronomeMark();
+		add( metronomeMark );
 		
 		add( emoicons );
 		
