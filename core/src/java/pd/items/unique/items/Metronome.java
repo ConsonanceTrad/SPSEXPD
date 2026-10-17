@@ -104,11 +104,13 @@ public class Metronome extends Artifact implements UniqueItem {
 		return UNIQUE_ID;
 	}
 
-	/** SPSEXPD: 供外部读取当前节拍格（渲染高亮用）。 */
+	/** SPSEXPD: 供外部读取当前节拍格（渲染高亮用）。还没标出来时顺手补一次，保证高亮立刻能看到。 */
 	public static int currentBeatCell() {
 		Hero hero = Dungeon.hero;
 		if (hero == null) return -1;
 		MetronomeBeat beat = hero.buff(MetronomeBeat.class);
-		return beat == null ? -1 : beat.beatCell();
+		if (beat == null) return -1;
+		if (beat.beatCell() < 0 && !beat.awaiting()) beat.autoBeat(hero);
+		return beat.beatCell();
 	}
 }

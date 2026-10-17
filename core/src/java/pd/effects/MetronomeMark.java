@@ -41,8 +41,10 @@ public class MetronomeMark extends ColorBlock {
 		visible = true;
 
 		render.utils.geom.PointF center = DungeonTilemap.tileCenterToWorld( cell );
-		x = PixelScene.align( camera, center.x - width * 0.5f );
-		y = PixelScene.align( camera, center.y - height * 0.5f );
+		//SPSEXPD: ColorBlock 的尺寸存在 scale 里（width()/height() 读的就是 scale），
+		//不能用 width/height 字段——那两个是 1，会让方块偏到格子左上方
+		x = PixelScene.align( camera, center.x - width() * 0.5f );
+		y = PixelScene.align( camera, center.y - height() * 0.5f );
 
 		phase += render.noosa.Game.elapsed;
 		if (phase > PERIOD) phase -= PERIOD;
