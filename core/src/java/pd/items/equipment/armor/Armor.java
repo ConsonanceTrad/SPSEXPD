@@ -524,12 +524,13 @@ public class Armor extends EquipableItem {
 
 		if (super.doUnequip( hero, collect, single )) {
 
+			//SPSEXPD: 脱下护甲（主甲或副甲）——连击数立刻清空（连击技跟随护甲与纹章）
+			pd.actors.buffs.Combo.clearOnGearChange(hero);
+
 			if (!second) {
 				hero.belongings.armor = null;
 				if (hero.sprite instanceof HeroSprite) ((HeroSprite)hero.sprite).updateArmor();
 				deactivate(hero);
-				//SPSEXPD: 脱下主护甲——连击数立刻清空（连击技跟随护甲与纹章）
-				pd.actors.buffs.Combo.clearOnGearChange(hero);
 			}
 
 			return true;

@@ -139,10 +139,10 @@ public class Combo extends Buff implements ActionIndicator.Action {
 
 	public void hit( Char enemy ) {
 
-		//SPSEXPD: 连击技是跟着护甲走的（按护甲阶位分组），所以_换护甲不保留连击数_——
+		//SPSEXPD: 连击技是跟着_贴着纹章的那件护甲_走的，所以_换护甲不保留连击数_——
 		//否则可以先穿低阶甲攒连击，再换上高阶甲直接甩出高阶战技（武器切换不受影响，允许）。
 		if (target instanceof Hero) {
-			pd.items.equipment.armor.Armor worn = ((Hero) target).belongings.armor();
+			pd.items.equipment.armor.Armor worn = comboArmorOf((Hero) target);
 			if (comboArmor != worn) {
 				comboArmor = worn;
 				count = 0;
@@ -404,11 +404,26 @@ public class Combo extends Buff implements ActionIndicator.Action {
 	private boolean clashUsed = false;
 	private boolean parryUsed = false;
 
-	/** SPSEXPD: 当前护甲的阶位（无护甲时按 1）。 */
+	/** SPSEXPD: 连击技跟随_贴附了纹章的那件护甲_的阶位（不是主甲）：主甲 → 副甲依次找，
+	 *  都没有提供连击的纹章时退回主甲阶位（角斗士子职业走这条）。无护甲时按 1。 */
 	public static int armorTier(){
 		Hero hero = Dungeon.hero;
-		if (hero == null || hero.belongings == null || hero.belongings.armor() == null) return 1;
-		return hero.belongings.armor().tier;
+		if (hero == null || hero.belongings == null) return 1;
+		pd.items.equipment.armor.Armor comboArmor = comboArmorOf(hero);
+		pd.items.equipment.armor.Armor worn = comboArmor != null ? comboArmor : hero.belongings.armor();
+		return worn == null ? 1 : worn.tier;
+	}
+
+	/** SPSEXPD: 身上哪件护甲提供了连击（贴了完整/镀金纹章）——主甲优先，其次副甲。 */
+	public static pd.items.equipment.armor.Armor comboArmorOf( Hero hero ){
+		if (hero == null || hero.belongings == null) return null;
+		for (pd.items.equipment.armor.Armor armor :
+				new pd.items.equipment.armor.Armor[]{ hero.belongings.armor(), hero.belongings.secondArmor }) {
+			if (armor == null) continue;
+			pd.items.BrokenSeal seal = armor.checkSeal();
+			if (seal != null && seal.providesCombo()) return armor;
+		}
+		return null;
 	}
 
 	/** SPSEXPD: 冲闪的最大移动距离——随连击数提高（1 + 连击数/2）。 */
