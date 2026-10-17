@@ -158,6 +158,9 @@ public class CellSelector extends ScrollArea {
 					+ " enabled=" + enabled
 					+ " heroReady=" + heroReady
 					+ " blockingHero=" + blocking
+					+ " curAction=" + (Dungeon.hero.curAction == null ? "null" : Dungeon.hero.curAction.getClass().getSimpleName())
+					+ " lastAction=" + (Dungeon.hero.lastAction == null ? "null" : Dungeon.hero.lastAction.getClass().getSimpleName())
+					+ " resting=" + Dungeon.hero.resting
 					+ " listener=" + (listener == null ? "null" : listener.getClass().getName()));
 			//SPSEXPD: enabled 必须复位。它只在 selectCell() 里被赋成 Dungeon.hero.ready，
 			//商店买完东西/交易窗口关闭时英雄还没 ready 就会留下 enabled=false，
