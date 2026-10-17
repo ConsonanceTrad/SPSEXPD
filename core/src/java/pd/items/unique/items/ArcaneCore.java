@@ -126,6 +126,8 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 	 * <b>不再向内嵌法杖的 Charger 借力</b>。速率随收录数提高。
 	 */
 	protected void coreRecharge() {
+		//SPSEXPD: 先把 Wand 上的最新值（含施法扣除）收回来，再累加，避免把扣除盖掉
+		pullCharges();
 		int cap = coreCapacity();
 		if (coreCharges >= cap) {
 			corePartial = 0f;
@@ -202,6 +204,7 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 
 	/** SPSEXPD: 能量上限按「收录数」刷新，并把轴芯能量推给当前法术（升级不提高上限）。 */
 	protected void applyCoreCapacity() {
+		pullCharges();
 		coreCharges = Math.min(coreCharges, coreCapacity());
 		pushCharges();
 	}
@@ -209,6 +212,8 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 	/** SPSEXPD: 显示的是轴芯自己的能量，而不是收录法术的。 */
 	@Override
 	public String status() {
+		//SPSEXPD: 施法的扣除发生在 Wand 上（wandUsed 在 onZap 回调里），读之前先收回来
+		pullCharges();
 		return coreCharges + "/" + coreCapacity();
 	}
 
@@ -230,7 +235,8 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 	/** SPSEXPD: 动作列表按轴芯能量判断能否施法。 */
 	@Override
 	public ArrayList<String> actions(Hero hero) {
-		pushCharges();
+		//SPSEXPD: 只读不写——这里绝不能 pushCharges，否则会把 Wand 刚扣掉的能量又盖回去
+		pullCharges();
 		ArrayList<String> actions = super.actions(hero);
 		actions.add(AC_SWITCH);
 		return actions;
@@ -251,12 +257,11 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 			return;
 		}
 		if (AC_ZAP.equals(action)) {
-			//SPSEXPD: 施法要经过 Wand（它按 wand.curCharges 扣能量），
-			//所以施法前把轴芯能量推下去、施法后把剩余收回来
+			//SPSEXPD: 施法前把轴芯能量交给 Wand（Wand 按 wand.curCharges 扣）。
+			//注意 wandUsed() 里的扣除是在 onZap 回调里才执行的，所以这里不能立刻 pull；
+			//扣除结果留在 wand 上，由下一次 pullCharges()（status / actions）收回轴芯
 			pushCharges();
 			super.execute(hero, action);
-			pullCharges();
-			updateQuickslot();
 			return;
 		}
 		super.execute(hero, action);
