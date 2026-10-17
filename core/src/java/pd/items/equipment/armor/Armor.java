@@ -128,7 +128,7 @@ public class Armor extends EquipableItem {
 			.t("weak_cursed", "虽然这件护甲有诅咒，但是你可以脱下它。")
 			.t("not_cursed", "这件护甲没有被诅咒。")
 			.t("seal_attached_name", "这件护甲已被贴附了_%s_。")
-			.t("seal_attached", "当战士将要受伤至生命值半数以下时，纹章会为战士提供_%d点护盾_。")
+			.t("seal_attached", "它会根据贴附的装备强度，随时间缓慢获得最大 _%d_ 点的护盾。")
 			.t("seal_transfer", "战士的破损纹章必须贴附在他当前穿戴的护甲上方可生效。你是否愿意将破损纹章从卸下的护甲上自动剥离，并贴附到新装备的护甲上？")
 			.t("seal_transfer_yes", "是")
 			.t("seal_transfer_no", "否")
