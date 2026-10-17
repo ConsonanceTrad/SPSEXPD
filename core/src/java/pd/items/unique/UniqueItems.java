@@ -113,6 +113,9 @@ public final class UniqueItems {
 		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T1_1_SANDEVISTAN, pd.items.unique.items.Sandevistan::new );
 		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T1_2_SALVAGER, pd.items.unique.items.Salvager::new );
 		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T1_2_KIT, pd.items.unique.items.EnhancedCyberwareKit::new );
+		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T2_1_SANDEVISTAN_MK2, pd.items.unique.items.SandevistanMk2::new );
+		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T2_2_RECOMBINER, pd.items.unique.items.Recombiner::new );
+		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T2_2_NANO, pd.items.unique.items.NanoCyberware::new );
 
 		//SPSEXPD: 决斗族六件
 		REGISTRY.put( UniqueItemId.DUELIST_SHIELD_T1_1_RAPIER, pd.items.unique.items.BlueSteelRapier::new );

@@ -105,6 +105,9 @@ public enum UniqueItemId {
 	ASCETIC_EARRING_T1_2_SALVAGER( UniqueFamily.ASCETIC, 1, 2, 1, "回收机" ),
 	ASCETIC_EARRING_T1_2_KIT     ( UniqueFamily.ASCETIC, 1, 2, 1, "强化义体工具箱" ),
 	ASCETIC_EARRING_T2_1_HORN    ( UniqueFamily.ASCETIC, 2, 1, 1, "巴虺断角" ),
+	ASCETIC_EARRING_T2_1_SANDEVISTAN_MK2( UniqueFamily.ASCETIC, 2, 1, 1, "二代斯安威斯坦" ),
+	ASCETIC_EARRING_T2_2_RECOMBINER( UniqueFamily.ASCETIC, 2, 2, 1, "重组机" ),
+	ASCETIC_EARRING_T2_2_NANO     ( UniqueFamily.ASCETIC, 2, 2, 1, "纳米义体" ),
 	;
 
 	/** 所属族（= 职业演化线）。 */
