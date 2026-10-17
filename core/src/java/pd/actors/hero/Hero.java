@@ -3238,8 +3238,12 @@ public class Hero extends Char {
 		super.onAttackComplete();
 	}
 
-	/** SPSEXPD: 副武器连携攻击与主武器之间的间隔（秒；Actor 以游戏时间为单位，TICK=1f）。 */
-	public static final float SECONDARY_STRIKE_GAP = 0.05f;
+	/**
+	 * SPSEXPD: 副武器连携攻击与主武器之间的间隔（秒；Actor 以游戏时间为单位，TICK=1f）。
+	 * 这个值同时决定两次命中音效的听感间隔——0.05 太短，两次击打会叠成一响；
+	 * 取 0.15 与先锋之刃三段（0.05/0.10/0.15）的总跨度相当，能明确听出是两下。
+	 */
+	public static final float SECONDARY_STRIKE_GAP = 0.15f;
 
 	/**
 	 * SPSEXPD: 副武器连携攻击——双持时，主武器的普通攻击之后由副武器对同一目标追加一次攻击，不消耗回合。
