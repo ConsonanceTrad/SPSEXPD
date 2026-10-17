@@ -41,6 +41,13 @@ public abstract class Cyberware extends Artifact {
 		return 5;
 	}
 
+	/** SPSEXPD: 提高电量上限（强化义体工具箱用）。 */
+	public void boostCapacity(float factor) {
+		int boosted = Math.max(chargeCap, Math.round(chargeCap * factor));
+		chargeCap = boosted;
+		charge = boosted;
+	}
+
 	/** SPSEXPD: 所有义体共用同一段描述。 */
 	@Override
 	public String desc() {

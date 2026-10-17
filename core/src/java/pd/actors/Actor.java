@@ -262,6 +262,10 @@ public abstract class Actor implements Bundlable {
 				synchronized (Actor.class) {
 					for (Actor actor : all) {
 
+						//SPSEXPD: 子弹时间——只有英雄推进，其它 Actor 全部停在原地
+						if (pd.actors.buffs.SandevistanTime.heroOnly()
+								&& !(actor instanceof pd.actors.hero.Hero)) continue;
+
 						//some actors will always go before others if time is equal.
 						if (actor.time < earliest ||
 								actor.time == earliest && (current == null || actor.actPriority > current.actPriority)) {

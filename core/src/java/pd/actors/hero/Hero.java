@@ -1351,6 +1351,10 @@ public class Hero extends Char {
 	
 	@Override
 	public boolean act() {
+		//SPSEXPD: 子弹时间——计时由英雄推进（buff 自己是 Actor，会被冻结跳过）
+		pd.actors.buffs.SandevistanTime sandevistan = buff(pd.actors.buffs.SandevistanTime.class);
+		if (sandevistan != null) sandevistan.tick();
+
 		//SPSEXPD: 游戏内时间与「每回合」类的充能效果都不在这里 —— 见 spendConstant / onTurnCharge。
 		//挂在这里会按「act 次数」结算，而行走（spend 受移速修正）一次按键可能触发多次 act，
 		//于是「行走一步 = 1 分钟」「走一步神木圆盾回 2 充能」，等待则不会。
