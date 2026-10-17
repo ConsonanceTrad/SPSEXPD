@@ -228,6 +228,10 @@ public abstract class Wand extends Item {
 
 	public void charge( Char owner, float chargeScaleFactor ){
 		charge( owner );
+		//SPSEXPD: attachTo 期间法杖可能被短暂 detach（例如 MagicalHolster.collect 往袋里塞时先收再放），
+		//而 Wand.onDetach() → stopCharging() 会把 charger 置空，导致下面这行 NPE。
+		//这里必须重新判空自愈——测试时间装备集（SpsTestTimeLoadout）走这条路径必崩。
+		if (charger == null) charger = new Charger();
 		charger.setScaleFactor( chargeScaleFactor );
 	}
 
