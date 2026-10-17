@@ -66,6 +66,23 @@ public class ItemSprite extends MovieClip {
 	
 	public Heap heap;
 	
+	/** SPSEXPD: view(Item) 记下的物品，供动画结束后恢复静态图标。 */
+	private Item viewItem;
+
+	/** SPSEXPD: 切到「动画用图标」——高分辨率物品用它的 16 版，普通物品等同于静态图标。 */
+	private void useAnimatedIcon() {
+		if (viewItem != null && viewItem.animatedImage() != viewItem.image()) {
+			view(viewItem.animatedImage(), viewItem.glowing());
+		}
+	}
+
+	/** SPSEXPD: 动画结束后恢复静态图标（32x32 精细版由绘制方等比缩到格子内）。 */
+	private void restoreStaticIcon() {
+		if (viewItem != null && viewItem.animatedImage() != viewItem.image()) {
+			view(viewItem);
+		}
+	}
+	
 	private Glowing glowing;
 	//FIXME: a lot of this emitter functionality isn't very well implemented.
 	//right now I want to ship 0.3.0, but should refactor in the future.
@@ -199,6 +216,9 @@ public class ItemSprite extends MovieClip {
 	
 	public void drop() {
 
+		//SPSEXPD: 飞行阶段用动画图标（高分辨率物品的 16 版），落地后恢复静态版
+		useAnimatedIcon();
+
 		if (heap.isEmpty()) {
 			return;
 		} else if (heap.size() == 1){
@@ -220,6 +240,9 @@ public class ItemSprite extends MovieClip {
 	}
 	
 	public void drop( int from ) {
+
+		//SPSEXPD: 飞行阶段用动画图标（高分辨率物品的 16 版），落地后恢复静态版
+		useAnimatedIcon();
 
 		if (heap.pos == from) {
 			drop();
@@ -255,6 +278,10 @@ public class ItemSprite extends MovieClip {
 		shadowOffset = 0.25f;
 		place(heap.pos);
 
+		//SPSEXPD: 落地后恢复静态图标（高分辨率物品回到 32x32 精细版）
+		restoreStaticIcon();
+		place(heap.pos);
+
 		if (visible) {
 
 			if (Dungeon.level.water[heap.pos]) {
@@ -278,6 +305,8 @@ public class ItemSprite extends MovieClip {
 	}
 
 	public ItemSprite view( Item item ){
+		//SPSEXPD: 记下物品本身，动画（飞行/飞入背包）时切到它的 animatedImage()（高分辨率物品的 16 版）
+		this.viewItem = item;
 		//SPSEXPD: 地面金币堆按数量换图标（小额改用单枚金币，见 Gold.pileImage）
 		view( heap != null && item instanceof Gold ? Gold.pileImage( item.quantity() ) : item.image(),
 				item.glowing() );

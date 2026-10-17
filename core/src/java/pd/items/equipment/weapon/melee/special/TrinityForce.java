@@ -51,10 +51,19 @@ public class TrinityForce extends NormalMeleeWeapon {
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1f;
 		usesTargeting = true;
+		//SPSEXPD: 静态显示用 32x32 精细图标（由 ItemSlot/ItemSprite 等比缩到格子内），
+		//投掷与飞入背包等动画改用右侧伴随的 16 版（animatedImage），动画全程不缩放
+		image = pd.atlas.item32.Weapon32Dict.VANGUARD_BLADE_32;
 	}
 
 	public TrinityForce() {
-		super(5, 1f, 1f, 2, 8, 20, pd.atlas.item32.Weapon32Dict.VANGUARD_BLADE);
+		super(5, 1f, 1f, 2, 8, 20, pd.atlas.item32.Weapon32Dict.VANGUARD_BLADE_32);
+	}
+
+	/** SPSEXPD: 动画（投掷飞行、飞入背包）改用 16 版图标，避免 32 版缩放导致起终点漂移。 */
+	@Override
+	public pd.atlas.IconEntry animatedImage() {
+		return pd.atlas.item32.Weapon32Dict.VANGUARD_BLADE;
 	}
 
 	@Override

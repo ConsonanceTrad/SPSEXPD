@@ -561,6 +561,15 @@ public class Item implements Bundlable {
 	public IconEntry image() {
 		return image;
 	}
+
+	/**
+	 * SPSEXPD: 动画用的图标（投掷飞行、飞入背包等会移动的场景）。
+	 * 默认与 {@link #image()} 相同；高分辨率物品（item32 的 32x32 图标）覆写本方法返回它右侧
+	 * 伴随的 16x16 版本——静态显示用精细的 32 版，动画一律用 16 版，避免缩放带来的位置漂移。
+	 */
+	public IconEntry animatedImage() {
+		return image();
+	}
 	
 	public ItemSprite.Glowing glowing() {
 		return null;
