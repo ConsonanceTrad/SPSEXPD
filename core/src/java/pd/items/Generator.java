@@ -1092,22 +1092,45 @@ public class Generator {
 			}
 
 			//SPSEXPD: 被降级为常规物品的旧独特装备，重新回到各自的生成池
-			ARTIFACT.classes = appendTo(ARTIFACT.classes,
+			appendToPool(Category.ARTIFACT, 3,
 					pd.items.unique.items.ThousandScroll.class,
 					pd.items.unique.items.BaHuiHorn.class,
 					pd.items.equipment.artifacts.ScrollEarring.class);
-			ARTIFACT.defaultProbs = extendProbs(ARTIFACT.defaultProbs, 3);
-			ARTIFACT.probs = ARTIFACT.defaultProbs == null ? null : ARTIFACT.defaultProbs.clone();
-
-			WEAPON.classes = appendTo(WEAPON.classes,
+			appendToPool(Category.WEAPON, 2,
 					pd.items.unique.items.PilgrimStaff.class,
 					pd.items.unique.items.Megaphone.class);
-			WEAPON.defaultProbs = extendProbs(WEAPON.defaultProbs, 2);
-			WEAPON.probs = WEAPON.defaultProbs == null ? null : WEAPON.defaultProbs.clone();
+			appendToPool(Category.ARMOR, 1, pd.items.unique.items.ClogArmor.class);
 
-			ARMOR.classes = appendTo(ARMOR.classes, pd.items.unique.items.ClogArmor.class);
-			ARMOR.defaultProbs = extendProbs(ARMOR.defaultProbs, 1);
-			ARMOR.probs = ARMOR.defaultProbs == null ? null : ARMOR.defaultProbs.clone();
+			//SPSEXPD: 池变长之后，权重表与总和必须跟着同步——
+			//否则 Random.chances() 会拿到 null（ARMOR 的权重只存在 probs 里）或与 classes 错位的数组，
+			//生成商店护甲时会直接 NPE（曾导致进第一层崩溃）。
+			for (Category cat : Category.values()){
+				if (cat.defaultProbs != null){
+					if (cat.defaultProbs2 != null && cat.defaultProbs2.length == cat.defaultProbs.length){
+						cat.defaultProbsTotal = new float[cat.defaultProbs.length];
+						for (int i = 0; i < cat.defaultProbs.length; i++){
+							cat.defaultProbsTotal[i] = cat.defaultProbs[i] + cat.defaultProbs2[i];
+						}
+					} else {
+						cat.defaultProbsTotal = cat.defaultProbs.clone();
+					}
+				}
+				if (cat.probs != null && cat.probs.length != cat.classes.length){
+					cat.probs = extendProbs(cat.probs, cat.classes.length - cat.probs.length);
+				}
+			}
+		}
+	}
+
+	/** SPSEXPD: 往某个生成池尾部追加若干类，并同步扩展它已有的权重表（已有的才动）。 */
+	private static void appendToPool(Category cat, int count, Class<?>... add) {
+		int before = cat.classes.length;
+		cat.classes = appendTo(cat.classes, add);
+		if (cat.defaultProbs != null && cat.defaultProbs.length == before){
+			cat.defaultProbs = extendProbs(cat.defaultProbs, count);
+		}
+		if (cat.defaultProbs2 != null && cat.defaultProbs2.length == before){
+			cat.defaultProbs2 = extendProbs(cat.defaultProbs2, count);
 		}
 	}
 
