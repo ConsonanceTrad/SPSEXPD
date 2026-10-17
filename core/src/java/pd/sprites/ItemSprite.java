@@ -189,19 +189,19 @@ public class ItemSprite extends MovieClip {
 	
 	public PointF worldToCamera( int cell ) {
 		final int csize = DungeonTilemap.SIZE;
-		//SPSEXPD: place() 会先把 scale 锁到 iconFit，所以这里的 width()/height() 一定是"视觉尺寸"，
-		//32x32 图标与普通 16px 图标算出的起落点完全一致
+		//SPSEXPD: 位置一律按 16px 格基准（SIZE）算，完全不读 width()/height() 或 scale。
+		//高分辨率图标缩到 16 后占位与普通图标一致；这样即使 sprite 的尺寸字段/缩放
+		//在调用瞬间还没就绪（算出 0 会导致物体固定在格子右下方），起落点也不会偏。
 		return new PointF(
-				PixelScene.align(Camera.main, ((cell % Dungeon.level.width()) + 0.5f) * csize - width() * 0.5f),
-				PixelScene.align(Camera.main, ((cell / Dungeon.level.width()) + 1.0f) * csize - height() - csize * perspectiveRaise)
+				PixelScene.align(Camera.main, ((cell % Dungeon.level.width()) + 0.5f) * csize - SIZE * 0.5f),
+				PixelScene.align(Camera.main, ((cell / Dungeon.level.width()) + 1.0f) * csize - SIZE - csize * perspectiveRaise)
 		);
 	}
 	
 	public void place( int p ) {
 		if (Dungeon.level != null) {
-			//SPSEXPD: 先把缩放锁到当前图标的 iconFit，再算位置——保证 width()/height()
-			//（含 scale）与视觉尺寸同源；否则 32x32 图标在 scale 还是 1 时会被当成 32px 宽，
-			//飞行的起点/落点都会偏半格
+			//SPSEXPD: 位置按 16px 格基准算（见 worldToCamera），这里只需保证缩放：
+			//高分辨率图标（32x32 → 0.5）在绘制与飞行过程中都保持收着的视觉效果
 			scale.set( iconFit, iconFit );
 			point(worldToCamera(p));
 			shadowOffset = 0.5f;
