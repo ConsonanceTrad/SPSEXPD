@@ -58,6 +58,9 @@ import java.nio.Buffer;
 public class ItemSprite extends MovieClip {
 
 	public static final int SIZE	= 16;
+
+	/** SPSEXPD: 当前图标的缩放系数（32x32 帧 → 0.5），draw() 时对地面精灵再套一次。 */
+	protected float iconFit = 1f;
 	
 	private static final float DROP_INTERVAL = 0.4f;
 
@@ -353,9 +356,10 @@ public class ItemSprite extends MovieClip {
 		frame( tex.uvRectBySize( entry.x(0), entry.y(0), entry.w(0), entry.h(0) ) );
 
 		//SPSEXPD: 兜底——万一有人直接引用了超过 16px 的帧（例如 item32 里的 32x32 源图），
-		//等比缩到 SIZE 免得溢出格子。item32 的正式用法是引用它右侧伴随的 16 版，不用缩放。
-		float fit = Math.min( 1f, SIZE / (float)Math.max( entry.w(0), entry.h(0) ) );
-		scale.set( fit, fit );
+		//等比缩到 SIZE 免得溢出格子。系数同时存进字段，draw() 里对地面精灵再套一次，
+		//防止对象池复用/别处重置把 scale 改回去。
+		iconFit = Math.min( 1f, SIZE / (float)Math.max( entry.w(0), entry.h(0) ) );
+		scale.set( iconFit, iconFit );
 
 		//SPSEXPD: 抬升值不再按图标尺寸判定，统一在这里重置为 0（精灵对象池 heaps.recycle 复用时必须重置）；
 		//需要抬升的物品由 Item.spriteRaise() 决定，在 view(Item) 里应用。
@@ -393,6 +397,10 @@ public class ItemSprite extends MovieClip {
 	public void draw() {
 		if (texture == null || (!dirty && buffer == null))
 			return;
+
+		//SPSEXPD: 地面精灵每帧按缓存系数套一次缩放——位置（worldToCamera 用 width()/height()）
+		//与视觉必须同源，否则 32x32 图标会按 32px 宽算出生点，看起来向右偏半格
+		if (heap != null) scale.set( iconFit, iconFit );
 
 		if (renderShadow) {
 			if (dirty) {
