@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import pd.messages.InlineText;
 
 /**
- * SPSEXPD: SPS 0.9.8 之外原创武器——三相之力。
+ * SPSEXPD: SPS 0.9.8 之外原创武器——先锋之刃。
  *
  * <p>由六把飞刃组成的武器组：一次挥击的伤害总额被拆成三次独立攻击（命中与效果各自结算），
  * 但只消耗一个回合。为维持操控飞刃的战舞，装备期间移速固定降低到原先的四分之三。</p>
@@ -29,7 +29,7 @@ public class TrinityForce extends NormalMeleeWeapon {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(TrinityForce.class)
-			.t("name", "三相之力")
+			.t("name", "先锋之刃")
 			.t("desc", "艾欧尼亚的一件远古神器，一套由六把飞刃组成的武器组，只有通过战舞才能自如使用。为维持操控飞刃的战舞，你的移速会降低到原先的四分之三。\n\n挥击时将由三组飞刃各攻击一次，如果不在防御姿态下，将冲锋至敌人面前，且随着每次攻击提高攻速。")
 			.t("ac_defend", "切换姿态")
 			.t("enter_defend", "飞刃环绕如盾。")

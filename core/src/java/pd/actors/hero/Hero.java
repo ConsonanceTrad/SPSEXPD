@@ -1115,7 +1115,7 @@ public class Hero extends Char {
 		}
 		if (buff(LingBless.class) != null) speed += 0.2f;
 
-		//SPSEXPD: 三相之力的战舞姿态——为维持操控飞刃的战舞，移速恒定降低到原先的四分之三
+		//SPSEXPD: 先锋之刃的战舞姿态——为维持操控飞刃的战舞，移速恒定降低到原先的四分之三
 		TrinityStance trinityStance = buff(TrinityStance.class);
 		if (trinityStance != null) speed *= trinityStance.speedMultiplier();
 

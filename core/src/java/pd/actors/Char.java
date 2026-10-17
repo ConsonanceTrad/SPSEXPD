@@ -1096,7 +1096,7 @@ public abstract class Char extends Actor {
 		if (mechArmor != null && !(src instanceof Hunger)) dmg = mechArmor.absorb(dmg);
 		DefenceUp defenceUp = buff(DefenceUp.class);
 		if (defenceUp != null) dmg = (int)Math.ceil(dmg * defenceUp.damageMultiplier());
-		//SPSEXPD: 三相之力防御姿态的乘算减伤
+		//SPSEXPD: 先锋之刃防御姿态的乘算减伤
 		TrinityStance trinityStance = buff(TrinityStance.class);
 		if (trinityStance != null) dmg = trinityStance.reduceDamage(dmg);
 		GlassShield glassShield = buff(GlassShield.class);

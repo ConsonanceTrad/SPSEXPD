@@ -11,7 +11,7 @@ import pd.messages.InlineText;
 import render.utils.serialize.Bundle;
 
 /**
- * SPSEXPD: 三相之力的「战舞」姿态。
+ * SPSEXPD: 先锋之刃的「战舞」姿态。
  *
  * <p>冲锋姿态：移动速度被六刃拖慢（恒定为原先的四分之三），每次挥击命中都会叠加攻速；
  * 防御姿态：移动与攻击速度减半，但受到的伤害减少 50%。</p>
@@ -53,7 +53,7 @@ public class TrinityStance extends Buff {
 		return ch == null ? null : ch.buff(TrinityStance.class);
 	}
 
-	/** 当前装备着的三相之力；卸下后姿态会自动解除。 */
+	/** 当前装备着的先锋之刃；卸下后姿态会自动解除。 */
 	public static TrinityForce weaponOf(Char ch) {
 		if (!(ch instanceof Hero)) return null;
 		Hero hero = (Hero) ch;

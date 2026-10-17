@@ -6,7 +6,7 @@ import render.noosa.Image;
 import pd.messages.InlineText;
 
 /**
- * SPSEXPD: 三相之力的「战舞蓄势」。
+ * SPSEXPD: 先锋之刃的「战舞蓄势」。
  *
  * <p>只用于显示：图标上的数字就是 {@link TrinityStance} 当前叠加的攻速层数。
  * 它自己跟随层数存活（层数归零即消散），真实状态仍存在 {@link TrinityStance} 里。</p>

@@ -2083,7 +2083,7 @@ project(':core') {
 	}
 	tasks.register('verifySpsTrinityForce', JavaExec) {
 		group = 'verification'
-		description = '无图形验证SPS三相之力：七段独立攻击、战舞姿态、攻速叠加、移速惩罚、击杀进度、存档与双语文本。'
+		description = '无图形验证SPS先锋之刃：七段独立攻击、战舞姿态、攻速叠加、移速惩罚、击杀进度、存档与双语文本。'
 		dependsOn testClasses
 		classpath = sourceSets.test.runtimeClasspath
 		mainClass = coreTestClass('items.equipment.weapon.melee.special.SpsTrinityForceTest')
