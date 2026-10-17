@@ -230,9 +230,27 @@ public class Combo extends Buff implements ActionIndicator.Action {
 		if (comboTime <= 0) {
 			if (!carryHalfCombo()) {
 				detach();
+				return true;
 			}
 		}
+		//SPSEXPD: 用了「不消耗连击数」的战技（冲闪/招架/位移/猛砸等）后，动作栏按钮会被清掉，
+		//下次命中才恢复。这里每回合补回按钮，让它立刻可见（不必等下一次命中）。
+		if (getHighestMove() != null && ActionIndicator.action != this) {
+			ActionIndicator.setAction(this);
+		}
 		return true;
+	}
+
+	/**
+	 * SPSEXPD: 连击技跟随护甲与护甲上的纹章——脱下/切换护甲、摘下或贴附纹章时立刻清空连击数。
+	 * 这里刻意不复用 detach()：镀金纹章「打断后保留一半层数」的规则不适用于换装，直接抹掉。
+	 */
+	public static void clearOnGearChange( Char ch ) {
+		if (ch == null) return;
+		Combo combo = ch.buff(Combo.class);
+		if (combo == null) return;
+		combo.detach();
+		if (ch instanceof Hero) ((Hero) ch).spsCarriedCombo = 0;
 	}
 
 	@Override

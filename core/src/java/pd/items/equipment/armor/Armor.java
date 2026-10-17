@@ -357,6 +357,9 @@ public class Armor extends EquipableItem {
 	@Override
 	public boolean doEquip( Hero hero ) {
 
+		//SPSEXPD: 穿/换主护甲——连击数立刻清空（连击技跟随护甲阶位）
+		pd.actors.buffs.Combo.clearOnGearChange(hero);
+
 		//SPSEXPD: 副手专用护甲（护手绑带 / 木屐）直接进副护甲栏
 		if (!canEquipPrimary()) {
 			return equipSecondary(hero);
@@ -463,6 +466,8 @@ public class Armor extends EquipableItem {
 	}
 
 	public void affixSeal(BrokenSeal seal){
+		//SPSEXPD: 纹章变更（贴附/替换）——连击数立刻清空
+		pd.actors.buffs.Combo.clearOnGearChange(Dungeon.hero);
 		this.seal = seal;
 		if (seal.level() > 0){
 			//doesn't trigger upgrading logic such as affecting curses/glyphs
@@ -489,6 +494,9 @@ public class Armor extends EquipableItem {
 
 			BrokenSeal detaching = seal;
 			seal = null;
+
+			//SPSEXPD: 摘下纹章——连击数立刻清空
+			pd.actors.buffs.Combo.clearOnGearChange(Dungeon.hero);
 
 			if (detaching.level() > 0){
 				//SPSEXPD: 纹章带走的升级全部从护甲上扣回（原版只扣 1 级）
@@ -520,6 +528,8 @@ public class Armor extends EquipableItem {
 				hero.belongings.armor = null;
 				if (hero.sprite instanceof HeroSprite) ((HeroSprite)hero.sprite).updateArmor();
 				deactivate(hero);
+				//SPSEXPD: 脱下主护甲——连击数立刻清空（连击技跟随护甲与纹章）
+				pd.actors.buffs.Combo.clearOnGearChange(hero);
 			}
 
 			return true;
