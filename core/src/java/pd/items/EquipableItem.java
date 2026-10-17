@@ -66,6 +66,8 @@ public abstract class EquipableItem extends Item {
 	public ArrayList<String> actions(Hero hero ) {
 		ArrayList<String> actions = super.actions( hero );
 		actions.add( isEquipped( hero ) ? AC_UNEQUIP : AC_EQUIP );
+		//SPSEXPD: 这件装备上镶嵌着宝珠时，可以在这里把它摘除
+		if (orb != null) actions.add( AC_DETACH_ORB );
 		return actions;
 	}
 
@@ -108,7 +110,40 @@ public abstract class EquipableItem extends Item {
 			doUnequip( hero, true );
 		} else if (action.equals( AC_EQUIP_SECONDARY )) {
 			equipSecondaryFromInventory( hero );
+		} else if (action.equals( AC_DETACH_ORB )) {
+			detachOrbToBackpack( hero );
 		}
+	}
+
+	//SPSEXPD: 宝珠相关的动作与文案
+	public static final String AC_DETACH_ORB = "DETACH_ORB";
+
+	static {
+		InlineText.of(EquipableItem.class)
+			.t("ac_detach_orb", "摘除宝珠")
+			.t("orb_detached", "你把%s从这件装备上摘了下来。")
+			.t("orb_attached", "这件装备已被镶嵌了%s。");
+	}
+
+	/** SPSEXPD: 摘下镶嵌在这件装备上的宝珠，放回背包（背包满了就掉在脚下）。 */
+	public void detachOrbToBackpack( Hero hero ) {
+		pd.items.unique.items.CarrierOrb removed = detachOrb();
+		if (removed == null) return;
+		if (!removed.collect() && Dungeon.level != null) {
+			Dungeon.level.drop( removed, hero.pos );
+		}
+		if (hero.sprite != null) hero.sprite.operate(hero.pos);
+		Sample.INSTANCE.play( Assets.Sounds.UNLOCK );
+		GLog.p( Messages.get(EquipableItem.class, "orb_detached", removed.name()) );
+		hero.spendAndNext(1f);
+	}
+
+	/** SPSEXPD: 详情末尾追加「已被镶嵌了xxx」（宝珠不占装备位，只在装备上挂着）。 */
+	@Override
+	public String info() {
+		String info = super.info();
+		if (orb == null) return info;
+		return info + "\n\n" + Messages.get(EquipableItem.class, "orb_attached", orb.name());
 	}
 
 	/** SPSEXPD: 装备到副手栏（副武器/副护甲）。默认不支持，由武器与护甲覆写。 */

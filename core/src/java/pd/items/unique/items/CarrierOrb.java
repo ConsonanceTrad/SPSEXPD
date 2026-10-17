@@ -31,11 +31,11 @@ public abstract class CarrierOrb extends Item implements UniqueItem {
 	//SPSEXPD: inline Chinese text
 	static {
 		InlineText.of(CarrierOrb.class)
-			.t("ac_affix", "贴附")
-			.t("prompt", "选择要贴附的武器或护甲。")
+			.t("ac_affix", "镶嵌")
+			.t("prompt", "选择要镶嵌的武器或护甲。")
 			.t("unknown_item", "你需要先鉴定那件装备。")
-			.t("already_affixed", "这件装备上已经贴附了一枚宝珠。")
-			.t("affix", "你把宝珠按进了装备里！");
+			.t("already_affixed", "这件装备上已经镶嵌了一枚宝珠。")
+			.t("affix", "你把宝珠镶嵌进了装备里！");
 	}
 
 	/** SPSEXPD: 可携带的升级上限。 */
