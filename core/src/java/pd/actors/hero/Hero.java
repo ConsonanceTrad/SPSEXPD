@@ -1423,6 +1423,10 @@ public class Hero extends Char {
 			resting = false;
 			
 			ready = false;
+
+			//SPSEXPD: 节拍器要看「本次行动是不是移动」——curAction 执行后会被清空，先记下来
+			boolean spsMovedAction = curAction instanceof HeroAction.Move
+					|| curAction instanceof HeroAction.LvlTransition;
 			
 			if (curAction instanceof HeroAction.Move) {
 				actResult = actMove( (HeroAction.Move)curAction );
@@ -1459,6 +1463,17 @@ public class Hero extends Char {
 				
 			} else {
 				actResult = false;
+			}
+
+			//SPSEXPD: 节拍器——行动结束后结算上一拍是否踩中，并自动定下一拍；
+			//连击攒满时由「下一次行动的类型」决定奖励（移动给护盾，其它给强化攻击）
+			pd.actors.buffs.MetronomeBeat beat = buff(pd.actors.buffs.MetronomeBeat.class);
+			if (beat != null) {
+				if (beat.awaiting()) {
+					pd.items.unique.items.Metronome.grantReward(this, spsMovedAction);
+				} else {
+					beat.afterAction(this);
+				}
 			}
 		}
 		
@@ -3173,13 +3188,7 @@ public class Hero extends Char {
 			Buff.affect(this, pd.actors.buffs.ClogMomentum.class).step();
 		}
 
-		//SPSEXPD: 节拍器——踩拍判定（踩满四拍给出不耗回合的奖励）
-		if (step == pos) {
-			pd.actors.buffs.MetronomeBeat beat = buff(pd.actors.buffs.MetronomeBeat.class);
-			if (beat != null && beat.onMoved(this)) {
-				pd.items.unique.items.Metronome.grantReward(this);
-			}
-		}
+		//SPSEXPD: 节拍器的踩拍判定已统一挪到 Hero.act() 末尾（每次行动后结算并自动定下一拍）
 	}
 	
 	@Override
