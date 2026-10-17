@@ -72,8 +72,7 @@ public class HugeBomb extends Bomb {
 				int target = i + offset;
 				if (target >= 0 && target < affected.length && Dungeon.level.insideMap(target)
 						&& Dungeon.level.distance(i, target) <= 1.5f
-						&& (Dungeon.level.map[target] == Terrain.WALL
-						|| Dungeon.level.map[target] == Terrain.WALL_DECO)) {
+						&& (Terrain.breakableWall(Dungeon.level.map[target]))) {
 					affected[target] = true;
 				}
 			}
@@ -89,8 +88,7 @@ public class HugeBomb extends Bomb {
 				Level.set(target, Terrain.EMBERS, Dungeon.level);
 				GameScene.updateMap(target);
 				terrainAffected = true;
-			} else if ((Dungeon.level.map[target] == Terrain.WALL
-					|| Dungeon.level.map[target] == Terrain.WALL_DECO)
+			} else if ((Terrain.breakableWall(Dungeon.level.map[target]))
 					&& Dungeon.level.insideMap(target)) {
 				Level.set(target, Terrain.EMPTY, Dungeon.level);
 				GameScene.updateMap(target);

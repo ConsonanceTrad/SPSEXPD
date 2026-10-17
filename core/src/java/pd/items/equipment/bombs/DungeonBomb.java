@@ -43,7 +43,7 @@ public class DungeonBomb extends Bomb {
 				Level.set(target, Terrain.EMBERS, Dungeon.level);
 				GameScene.updateMap(target);
 				terrainAffected = true;
-			} else if (Dungeon.level.map[target] == Terrain.WALL || Dungeon.level.map[target] == Terrain.WALL_DECO) {
+			} else if (Terrain.breakableWall(Dungeon.level.map[target])) {
 				Level.set(target, Terrain.EMPTY, Dungeon.level);
 				GameScene.updateMap(target);
 				terrainAffected = true;

@@ -65,7 +65,7 @@ public class MageSkill extends ClassSkill {
 			int cell = curUser.pos + offset;
 			if (!Dungeon.level.insideMap(cell)) continue;
 			int terrain = Dungeon.level.map[cell];
-			if (terrain == Terrain.WALL || terrain == Terrain.WALL_DECO || terrain == Terrain.GLASS_WALL) {
+			if (Terrain.breakableWall(terrain)) {
 				Level.set(cell, Terrain.EMBERS, Dungeon.level);
 				GameScene.updateMap(cell);
 			}

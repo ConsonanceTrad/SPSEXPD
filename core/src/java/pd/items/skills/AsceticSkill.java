@@ -67,7 +67,7 @@ public class AsceticSkill extends ClassSkill {
 		for (int cell = 0; cell < Dungeon.level.length(); cell++) {
 			if (!Dungeon.level.insideMap(cell) || Dungeon.level.distance(curUser.pos, cell) > 2) continue;
 			int terrain = Dungeon.level.map[cell];
-			if (terrain == Terrain.WALL || terrain == Terrain.WALL_DECO || terrain == Terrain.GLASS_WALL) {
+			if (Terrain.breakableWall(terrain)) {
 				Level.set(cell, Terrain.EMBERS, Dungeon.level);
 				GameScene.updateMap(cell);
 			}
