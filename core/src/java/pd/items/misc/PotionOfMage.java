@@ -87,8 +87,8 @@ public class PotionOfMage extends Item {
 		super.execute(hero, action);
 	}
 
-	/** SPSEXPD: 武器取 uncommon/rare 池的强力附魔（排除现有同类）。 */
-	private static Weapon.Enchantment strongEnchantment( Weapon weapon ) {
+	/** SPSEXPD: 武器取 uncommon/rare 池的强力附魔（排除现有同类）。秘银/精金手杖的灌注也复用它。 */
+	public static Weapon.Enchantment strongEnchantment( Weapon weapon ) {
 		Class<? extends Weapon.Enchantment> existing =
 				weapon.enchantment != null ? weapon.enchantment.getClass() : null;
 		return Random.Int(2) == 0

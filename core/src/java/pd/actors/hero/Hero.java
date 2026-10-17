@@ -2756,15 +2756,25 @@ public class Hero extends Char {
 		//SPSEXPD: 回收机——击杀产出义体材料
 		pd.items.unique.items.Salvager.onKill(this);
 
-		//SPSEXPD: 奇迹烧瓶抽取本次获得的经验的 50%，并至少为角色保留 1 点
+		//SPSEXPD: 奇迹烧瓶 / 秘银·精金手杖抽取本次获得的经验的 50%，并至少为角色保留 1 点
 		int absorbed = 0;
 
 		//xp granted by ascension challenge is only for on-exp gain effects
 		if (source != AscensionChallenge.class) {
-			PotionOfMage flask = belongings.getItem(PotionOfMage.class);
-			if (flask != null && exp > 0) {
-				absorbed = Math.min(exp - 1, exp / 2);
-				flask.addCharge(absorbed);
+			if (exp > 0) {
+				//SPSEXPD: 秘银/精金手杖优先（精金继承自秘银，getItem 用 isInstance 一并命中）
+				pd.items.unique.items.MythrilStaff staff =
+						belongings.getItem(pd.items.unique.items.MythrilStaff.class);
+				if (staff != null) {
+					absorbed = Math.min(exp - 1, exp / 2);
+					staff.addCharge(absorbed);
+				} else {
+					PotionOfMage flask = belongings.getItem(PotionOfMage.class);
+					if (flask != null) {
+						absorbed = Math.min(exp - 1, exp / 2);
+						flask.addCharge(absorbed);
+					}
+				}
 			}
 			int gained = exp - absorbed;
 			//SPSXPD: 「快速学习」特质提供额外经验
