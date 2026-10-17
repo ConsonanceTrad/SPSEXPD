@@ -334,6 +334,37 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 		return false;
 	}
 
+	/**
+	 * SPSEXPD: 升级时继承「灌注」——
+	 * 来源是老法杖（MagesStaff）时，把它灌注的那根法杖收为第一道法术；
+	 * 来源是奥法轴芯（升为奥法古籍）时，连收录的法术、当前选择与能量一起搬过来。
+	 */
+	public void inheritInfusion(Item source) {
+		if (source == null || source == this) return;
+
+		if (source instanceof ArcaneCore) {
+			ArcaneCore old = (ArcaneCore) source;
+			spells.clear();
+			spells.addAll(old.spells);
+			current = old.current;
+			coreCharges = old.coreCharges;
+			if (current >= 0 && current < spells.size()) {
+				setWandDirect(spells.get(current));
+			}
+			applyCoreCapacity();
+		} else if (source instanceof MagesStaff) {
+			Wand w = ((MagesStaff) source).infusedWand();
+			if (w != null) {
+				spells.clear();
+				spells.add(w);
+				current = 0;
+				coreCharges = w.curCharges;
+				setWandDirect(w);
+				applyCoreCapacity();
+			}
+		}
+	}
+
 	@Override
 	public UniqueItemId uniqueId() {
 		return UNIQUE_ID;

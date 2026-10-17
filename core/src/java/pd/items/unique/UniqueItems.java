@@ -336,6 +336,23 @@ public final class UniqueItems {
 			newSeal.level( oldSeal.level() );
 			newSeal.setGlyph( oldSeal.getGlyph() );
 		}
+
+		//SPSEXPD: 法杖系的「灌注」转移 —— 新轴芯继承来源灌注的法杖 / 旧轴芯已收录的法术
+		pd.items.unique.items.ArcaneCore newCore = null;
+		for (Item it : granted) {
+			if (it instanceof pd.items.unique.items.ArcaneCore) {
+				newCore = (pd.items.unique.items.ArcaneCore) it;
+				break;
+			}
+		}
+		if (newCore != null) {
+			for (Item it : consumed) {
+				if (it instanceof pd.items.equipment.weapon.melee.MagesStaff) {
+					newCore.inheritInfusion(it);
+					break;
+				}
+			}
+		}
 	}
 
 	/** 从英雄的任何携带位置（装备槽 / 背包 / 护甲贴附）移除一件物品。 */

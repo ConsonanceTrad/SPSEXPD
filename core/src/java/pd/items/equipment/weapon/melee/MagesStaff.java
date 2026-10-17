@@ -266,6 +266,11 @@ public class MagesStaff extends MeleeWeapon implements pd.items.unique.UniqueIte
 		return wand;
 	}
 
+	/** SPSEXPD: 读取灌注的法杖（供升级转移等跨包使用；可能为 null）。 */
+	public Wand infusedWand(){
+		return wand;
+	}
+
 	/** SPSEXPD: 直接替换内嵌法杖——_不_把旧法杖弹回背包（供「多法术收纳」类切换用）。
 	 *  注意：这里_不_碰充能——多法术收纳类自己统一能量（见 ArcaneCore.syncCharges），
 	 *  若在此补满充能，切换法术就等于白送一管能量。 */
