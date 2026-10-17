@@ -228,10 +228,12 @@ public class Combo extends Buff implements ActionIndicator.Action {
 		comboTime -= TICK * HoldFast.buffDecayFactor(target) / comboBreakFactor();
 		spend(TICK);
 		if (comboTime <= 0) {
-			if (!carryHalfCombo()) {
-				detach();
-				return true;
-			}
+			//SPSEXPD: 连击时间耗尽就是连击结束——撤掉动作栏按钮并 detach。
+			//镀金纹章「保留一半层数」由 detach() 自己负责，不在这里拦（否则 count 还在，
+			//下面那段补按钮的代码会把入口一直挂着，超时后按钮永远不消失）。
+			if (ActionIndicator.action == this) ActionIndicator.setAction(null);
+			detach();
+			return true;
 		}
 		//SPSEXPD: 用了「不消耗连击数」的战技（冲闪/招架/位移/猛砸等）后，动作栏按钮会被清掉，
 		//下次命中才恢复。这里每回合补回按钮，让它立刻可见（不必等下一次命中）。
