@@ -1090,7 +1090,41 @@ public class Generator {
 					cat.defaultProbsTotal = cat.defaultProbs.clone();
 				}
 			}
+
+			//SPSEXPD: 被降级为常规物品的旧独特装备，重新回到各自的生成池
+			ARTIFACT.classes = appendTo(ARTIFACT.classes,
+					pd.items.unique.items.ThousandScroll.class,
+					pd.items.unique.items.BaHuiHorn.class,
+					pd.items.equipment.artifacts.ScrollEarring.class);
+			ARTIFACT.defaultProbs = extendProbs(ARTIFACT.defaultProbs, 3);
+			ARTIFACT.probs = ARTIFACT.defaultProbs == null ? null : ARTIFACT.defaultProbs.clone();
+
+			WEAPON.classes = appendTo(WEAPON.classes,
+					pd.items.unique.items.PilgrimStaff.class,
+					pd.items.unique.items.Megaphone.class);
+			WEAPON.defaultProbs = extendProbs(WEAPON.defaultProbs, 2);
+			WEAPON.probs = WEAPON.defaultProbs == null ? null : WEAPON.defaultProbs.clone();
+
+			ARMOR.classes = appendTo(ARMOR.classes, pd.items.unique.items.ClogArmor.class);
+			ARMOR.defaultProbs = extendProbs(ARMOR.defaultProbs, 1);
+			ARMOR.probs = ARMOR.defaultProbs == null ? null : ARMOR.defaultProbs.clone();
 		}
+	}
+
+	/** SPSEXPD: 往生成池尾部追加若干类。 */
+	private static Class<?>[] appendTo(Class<?>[] base, Class<?>... add) {
+		Class<?>[] out = Arrays.copyOf(base, base.length + add.length);
+		System.arraycopy(add, 0, out, base.length, add.length);
+		return out;
+	}
+
+	/** SPSEXPD: 同步扩展概率表（用原表最后一项补齐）。 */
+	private static float[] extendProbs(float[] base, int extra) {
+		if (base == null) return null;
+		float[] out = Arrays.copyOf(base, base.length + extra);
+		float fill = base.length > 0 ? base[base.length - 1] : 1f;
+		for (int i = base.length; i < out.length; i++) out[i] = fill;
+		return out;
 	}
 
 	private static final float[][] floorSetTierProbs = new float[][] {

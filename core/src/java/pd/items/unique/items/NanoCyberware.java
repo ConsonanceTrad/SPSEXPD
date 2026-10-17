@@ -62,29 +62,11 @@ public class NanoCyberware extends CyberwareKit {
 		super.execute(hero, action);
 	}
 
-	/** SPSEXPD: 随机拟态成一种义体的功能。 */
+	/** SPSEXPD: 随机拟态成一种义体的功能（12 种全覆盖）。 */
 	protected void morph(Hero hero) {
-		int pick = Random.Int(4);
-		String label;
-		switch (pick) {
-			case 0:
-				Buff.affect(hero, Haste.class, 12f);
-				label = "强化肌腱";
-				break;
-			case 1:
-				Buff.affect(hero, Invisibility.class, 10f);
-				label = "光学迷彩";
-				break;
-			case 2:
-				Buff.affect(hero, MindVision.class, 20f);
-				label = "千里眼";
-				break;
-			default:
-				Buff.affect(hero, Barkskin.class).set(Math.max(1, hero.HT / 5), 1);
-				label = "皮下护甲";
-				break;
-		}
-		GLog.p(Messages.get(this, "morphed", label));
+		Cyberware ware = Cyberwares.randomCyberware();
+		ware.activateEffect(hero);
+		GLog.p(Messages.get(this, "morphed", ware.name()));
 		hero.spendAndNext(1f);
 	}
 
