@@ -144,6 +144,14 @@ public class Metronome extends Artifact implements UniqueItem {
 		}
 		//SPSEXPD: 这一下不消耗回合
 		hero.spend(-1f);
+
+		//SPSEXPD: 闪电竖琴——踩满节拍时额外获得一次玻璃保护
+		if (hero.belongings.weapon() instanceof StormHarmonica
+				|| hero.belongings.secondWep instanceof StormHarmonica) {
+			Buff.affect(hero, Barkskin.class).set(Math.max(1, hero.HT / 8), 1);
+			GLog.p(Messages.get(StormHarmonica.class, "glass"));
+		}
+
 		GLog.p(Messages.get(Metronome.class, "on_beat"));
 	}
 

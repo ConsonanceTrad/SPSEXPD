@@ -48,6 +48,15 @@ public class MagicBass extends MeleeWeapon implements UniqueItem {
 		return dealt;
 	}
 
+	/** SPSEXPD: 魔音贝斯保留节拍功能——拿着它就维持「踩拍」状态。 */
+	@Override
+	public void activate(Char ch) {
+		super.activate(ch);
+		if (ch instanceof pd.actors.hero.Hero) {
+			pd.actors.buffs.Buff.affect((pd.actors.hero.Hero) ch, pd.actors.buffs.MetronomeBeat.class);
+		}
+	}
+
 	/** SPSEXPD: 对目标附近一格的敌对单位造成溅射。 */
 	protected void splash(Char attacker, Char defender, int damage) {
 		if (Dungeon.level == null || defender == null) return;
