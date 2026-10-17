@@ -12,12 +12,8 @@ public final class Weapon32Dict {
 
 	private Weapon32Dict() { }
 
-	/** VANGUARD_BLADE_32 - 先锋之刃 32x32 精细源图（只在图集里作素材，游戏不引用） */
+	/** VANGUARD_BLADE_32 - 先锋之刃 32x32 精细图标（显示时由 ItemSprite/ItemSlot 等比缩到 16 格内） */
 	public static final IconEntry WEAPON_32_C1_R1 = new IconEntry("sprites/item32/weapon_32.png", new int[]{0, 0, 32, 32}, 7600);
 	/** semantic alias for WEAPON_32_C1_R1 */
 	public static final IconEntry VANGUARD_BLADE_32 = WEAPON_32_C1_R1;
-	/** VANGUARD_BLADE - 先锋之刃 显示版（32 版右侧伴随；实测包围盒 16x24，游戏只引用这一个） */
-	public static final IconEntry WEAPON_32_C2_R1 = new IconEntry("sprites/item32/weapon_32.png", new int[]{32, 0, 16, 24}, 7601);
-	/** semantic alias for WEAPON_32_C2_R1 */
-	public static final IconEntry VANGUARD_BLADE = WEAPON_32_C2_R1;
 }
