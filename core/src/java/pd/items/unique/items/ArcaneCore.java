@@ -75,6 +75,20 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 		return spells.size();
 	}
 
+	/**
+	 * SPSEXPD: 轴芯的「能量值」只有一份——收录的所有法术共用当前这道法术的充能与上限。
+	 * 切换之前先把能量广播给全部法术，这样切到哪一道都用同一个池子（施法/自然充能都作用于当前那道，
+	 * 下一次切换时再广播一次即可）。
+	 */
+	protected void syncCharges() {
+		Wand cur = currentWand();
+		if (cur == null) return;
+		for (Wand w : spells) {
+			w.curCharges = cur.curCharges;
+			w.maxCharges = cur.maxCharges;
+		}
+	}
+
 	@Override
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);
@@ -115,7 +129,9 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 		if (copy == null) return false;
 		copy.level(level());
 		copy.identify();
-		copy.curCharges = copy.maxCharges;
+		//SPSEXPD: 能量统一——新收录的法术直接沿用轴芯当前的充能，而不是自己补满
+		Wand cur = currentWand();
+		copy.curCharges = cur != null ? cur.curCharges : copy.maxCharges;
 
 		spells.add(copy);
 		if (current < 0 || currentWand() == null) {
@@ -142,6 +158,8 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 			@Override
 			protected void onSelect(int index) {
 				if (index < 0 || index >= spells.size()) return;
+				//SPSEXPD: 先把当前能量广播给全部法术（能量值只有一份）
+				syncCharges();
 				current = index;
 				setWandDirect(spells.get(index));
 				GLog.p(Messages.get(ArcaneCore.class, "switched", spells.get(index).name()));

@@ -266,13 +266,14 @@ public class MagesStaff extends MeleeWeapon implements pd.items.unique.UniqueIte
 		return wand;
 	}
 
-	/** SPSEXPD: 直接替换内嵌法杖——_不_把旧法杖弹回背包（供「多法术收纳」类切换用）。 */
+	/** SPSEXPD: 直接替换内嵌法杖——_不_把旧法杖弹回背包（供「多法术收纳」类切换用）。
+	 *  注意：这里_不_碰充能——多法术收纳类自己统一能量（见 ArcaneCore.syncCharges），
+	 *  若在此补满充能，切换法术就等于白送一管能量。 */
 	protected void setWandDirect(Wand newWand){
 		this.wand = newWand;
 		if (newWand != null){
 			newWand.level(Math.max(newWand.level(), level()));
 			newWand.identify();
-			newWand.curCharges = Math.max(newWand.curCharges, newWand.maxCharges);
 			newWand.stopCharging();
 		}
 		updateQuickslot();
