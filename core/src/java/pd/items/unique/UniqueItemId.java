@@ -99,12 +99,9 @@ public enum UniqueItemId {
 	// ---------- 苦修者：耳环族（经卷耳环 + 木屐） ----------
 	ASCETIC_EARRING_BASE_A  ( UniqueFamily.ASCETIC, 0, 0, 1, null ),
 	ASCETIC_EARRING_BASE_B  ( UniqueFamily.ASCETIC, 0, 0, 1, null ),
-	ASCETIC_EARRING_T1_1_SCROLL  ( UniqueFamily.ASCETIC, 1, 1, 1, "小千录" ),
 	ASCETIC_EARRING_T1_1_SANDEVISTAN( UniqueFamily.ASCETIC, 1, 1, 1, "斯安威斯坦" ),
-	ASCETIC_EARRING_T1_2_STAFF   ( UniqueFamily.ASCETIC, 1, 2, 1, "禅杖" ),
 	ASCETIC_EARRING_T1_2_SALVAGER( UniqueFamily.ASCETIC, 1, 2, 1, "回收机" ),
 	ASCETIC_EARRING_T1_2_KIT     ( UniqueFamily.ASCETIC, 1, 2, 1, "强化义体工具箱" ),
-	ASCETIC_EARRING_T2_1_HORN    ( UniqueFamily.ASCETIC, 2, 1, 1, "巴虺断角" ),
 	ASCETIC_EARRING_T2_1_SANDEVISTAN_MK2( UniqueFamily.ASCETIC, 2, 1, 1, "二代斯安威斯坦" ),
 	ASCETIC_EARRING_T2_2_RECOMBINER( UniqueFamily.ASCETIC, 2, 2, 1, "重组机" ),
 	ASCETIC_EARRING_T2_2_NANO     ( UniqueFamily.ASCETIC, 2, 2, 1, "纳米义体" ),

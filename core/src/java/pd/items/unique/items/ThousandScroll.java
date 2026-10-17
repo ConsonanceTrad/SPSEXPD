@@ -6,8 +6,6 @@ import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.items.equipment.artifacts.Artifact;
-import pd.items.unique.UniqueItem;
-import pd.items.unique.UniqueItemId;
 import pd.messages.InlineText;
 import pd.messages.Messages;
 import pd.utils.GLog;
@@ -20,9 +18,8 @@ import java.util.ArrayList;
  * <p>「开启」后进入_持续累加的流血_状态，以血换命：每回合流血量递增，同时把血补回来，
  * 并在开启期间_挂起除流血外的所有负面状态_。关闭后要等冷却走完才能再次开启。</p>
  */
-public class ThousandScroll extends Artifact implements UniqueItem {
+public class ThousandScroll extends Artifact {
 
-	public static final UniqueItemId UNIQUE_ID = UniqueItemId.ASCETIC_EARRING_T1_1_SCROLL;
 
 	public static final String AC_OPEN = "OPEN";
 	public static final String AC_CLOSE = "CLOSE";
@@ -119,8 +116,4 @@ public class ThousandScroll extends Artifact implements UniqueItem {
 		}
 	}
 
-	@Override
-	public UniqueItemId uniqueId() {
-		return UNIQUE_ID;
-	}
 }

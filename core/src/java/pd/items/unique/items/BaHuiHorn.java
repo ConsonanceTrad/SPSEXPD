@@ -2,7 +2,6 @@
 package pd.items.unique.items;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
-import pd.items.unique.UniqueItemId;
 import pd.messages.InlineText;
 
 /**
@@ -13,7 +12,6 @@ import pd.messages.InlineText;
  */
 public class BaHuiHorn extends ThousandScroll {
 
-	public static final UniqueItemId UNIQUE_ID = UniqueItemId.ASCETIC_EARRING_T2_1_HORN;
 
 	//SPSEXPD: inline Chinese text
 	static {
@@ -39,8 +37,4 @@ public class BaHuiHorn extends ThousandScroll {
 	@Override protected int damageBonus() { return 3; }
 	@Override protected int cooldownTurns() { return 12; }
 
-	@Override
-	public UniqueItemId uniqueId() {
-		return UNIQUE_ID;
-	}
 }

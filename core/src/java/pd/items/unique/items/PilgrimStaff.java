@@ -7,8 +7,6 @@ import pd.actors.buffs.Pilgrimage;
 import pd.actors.hero.Hero;
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.items.equipment.weapon.melee.MeleeWeapon;
-import pd.items.unique.UniqueItem;
-import pd.items.unique.UniqueItemId;
 import pd.messages.InlineText;
 
 /**
@@ -16,9 +14,8 @@ import pd.messages.InlineText;
  *
  * <p>拿着它_连续移动_、或者_周围没有怪物_时，赶路会明显更快。</p>
  */
-public class PilgrimStaff extends MeleeWeapon implements UniqueItem {
+public class PilgrimStaff extends MeleeWeapon {
 
-	public static final UniqueItemId UNIQUE_ID = UniqueItemId.ASCETIC_EARRING_T1_2_STAFF;
 
 	//SPSEXPD: inline Chinese text
 	static {
@@ -45,8 +42,4 @@ public class PilgrimStaff extends MeleeWeapon implements UniqueItem {
 		if (ch instanceof Hero) Buff.affect((Hero) ch, Pilgrimage.class);
 	}
 
-	@Override
-	public UniqueItemId uniqueId() {
-		return UNIQUE_ID;
-	}
 }

@@ -2745,6 +2745,9 @@ public class Hero extends Char {
 	
 	public void earnExp( int exp, Class source ) {
 
+		//SPSEXPD: 回收机——击杀产出义体材料
+		pd.items.unique.items.Salvager.onKill(this);
+
 		//SPSEXPD: 奇迹烧瓶抽取本次获得的经验的 50%，并至少为角色保留 1 点
 		int absorbed = 0;
 

@@ -9,8 +9,6 @@ import pd.actors.buffs.FlavourBuff;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.atlas.items.SpecificPlaceHolderDict;
-import pd.items.unique.UniqueItem;
-import pd.items.unique.UniqueItemId;
 import pd.messages.InlineText;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
@@ -25,9 +23,8 @@ import java.util.ArrayList;
  * <p>主动技「祷诵」：选中一个敌人，让它陷入短暂的_狂乱_（{@link Amok}）——
  * 它会转而攻击离它最近的任何角色。每次使用后有冷却。</p>
  */
-public class ScrollEarring extends Artifact implements UniqueItem {
+public class ScrollEarring extends Artifact {
 
-	public static final UniqueItemId UNIQUE_ID = UniqueItemId.ASCETIC_EARRING_BASE_A;
 
 	public static final String AC_CONFUSE = "CONFUSE";
 
@@ -103,8 +100,4 @@ public class ScrollEarring extends Artifact implements UniqueItem {
 	public static class EarringCooldown extends FlavourBuff {
 	}
 
-	@Override
-	public UniqueItemId uniqueId() {
-		return UNIQUE_ID;
-	}
 }

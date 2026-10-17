@@ -3,8 +3,6 @@ package pd.items.unique.items;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.items.equipment.armor.normalarmor.ClothArmor;
-import pd.items.unique.UniqueItem;
-import pd.items.unique.UniqueItemId;
 import pd.messages.InlineText;
 
 /**
@@ -14,9 +12,8 @@ import pd.messages.InlineText;
  * 装备期间<b>连续移动 5 回合</b>会提高移动速度（+30%），停下脚步即失去加成
  * （见 {@link pd.actors.buffs.ClogMomentum}）。</p>
  */
-public class ClogArmor extends ClothArmor implements UniqueItem {
+public class ClogArmor extends ClothArmor {
 
-	public static final UniqueItemId UNIQUE_ID = UniqueItemId.ASCETIC_EARRING_BASE_B;
 
 	//SPSEXPD: inline Chinese text
 	static {
@@ -36,8 +33,4 @@ public class ClogArmor extends ClothArmor implements UniqueItem {
 	/** SPSEXPD: 不参与双甲规则（不涨力量需求、不降移速）。 */
 	@Override public boolean countsForDualArmor() { return false; }
 
-	@Override
-	public UniqueItemId uniqueId() {
-		return UNIQUE_ID;
-	}
 }

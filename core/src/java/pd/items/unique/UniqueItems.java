@@ -107,9 +107,6 @@ public final class UniqueItems {
 		REGISTRY.put( UniqueItemId.HUNTRESS_BOW_T2_2_BOOM, pd.items.unique.items.VoidBoomerang::new );
 
 		//SPSEXPD: 信徒族六件
-		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T1_1_SCROLL, pd.items.unique.items.ThousandScroll::new );
-		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T2_1_HORN, pd.items.unique.items.BaHuiHorn::new );
-		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T1_2_STAFF, pd.items.unique.items.PilgrimStaff::new );
 		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T1_1_SANDEVISTAN, pd.items.unique.items.Sandevistan::new );
 		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T1_2_SALVAGER, pd.items.unique.items.Salvager::new );
 		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_T1_2_KIT, pd.items.unique.items.EnhancedCyberwareKit::new );
