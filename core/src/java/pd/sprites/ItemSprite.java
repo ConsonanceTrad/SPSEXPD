@@ -193,10 +193,14 @@ public class ItemSprite extends MovieClip {
 	
 	public PointF worldToCamera( int cell ) {
 		final int csize = DungeonTilemap.SIZE;
-		
+		//SPSEXPD: 位置一律按 16px 格基准（SIZE）算，不用 width()/height()——后两者含 scale，
+		//高分辨率图标（32x32 缩到 14）会让起点/落点/阴影随缩放漂移，表现为"飞行路径不对"。
+		//图标只会被缩小（不会放大），所以按 SIZE 居中/贴底一定落在格子内。
+		float visW = Math.min( SIZE, width() );
+		float visH = Math.min( SIZE, height() );
 		return new PointF(
-				PixelScene.align(Camera.main, ((cell % Dungeon.level.width()) + 0.5f) * csize - width() * 0.5f),
-				PixelScene.align(Camera.main, ((cell / Dungeon.level.width()) + 1.0f) * csize - height() - csize * perspectiveRaise)
+				PixelScene.align(Camera.main, ((cell % Dungeon.level.width()) + 0.5f) * csize - visW * 0.5f),
+				PixelScene.align(Camera.main, ((cell / Dungeon.level.width()) + 1.0f) * csize - visH - csize * perspectiveRaise)
 		);
 	}
 	
