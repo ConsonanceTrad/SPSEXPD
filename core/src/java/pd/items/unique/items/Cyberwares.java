@@ -51,7 +51,11 @@ public final class Cyberwares {
 		static { InlineText.of(HackDriver.class).t("name", "黑客驱动")
 				.t("effect", "你广播出一串乱码，附近的构装体一齐僵在原地。"); }
 		@Override protected int capacity() { return 6; }
-		@Override protected void activateEffect(Hero hero) { paralyzeNearby(hero, 3f, 3); }
+		@Override protected void activateEffect(Hero hero) {
+			//SPSEXPD: 优先瘫痪构装/机械类，没有这类目标时才是全体
+			if (!paralyzeInorganic(hero, 3f, 3)) paralyzeNearby(hero, 2f, 3);
+			GLog.i(Messages.get(HackDriver.class, "effect"));
+		}
 	}
 
 	/** 狂暴驱动：短时间大幅提升伤害。 */
@@ -125,6 +129,8 @@ public final class Cyberwares {
 				Dungeon.level.occupyCell(enemy);
 				if (enemy.sprite != null) enemy.sprite.place(step);
 			}
+			//SPSEXPD: 拖到身边后再缠一会儿
+			Buff.prolong(enemy, Paralysis.class, 1f);
 			GLog.i(Messages.get(Nanowire.class, "effect"));
 		}
 	}
@@ -227,5 +233,19 @@ public final class Cyberwares {
 				Buff.prolong(ch, Paralysis.class, turns);
 			}
 		}
+	}
+
+	/** SPSEXPD: 只瘫痪构装/无机类；返回是否至少命中一个。 */
+	private static boolean paralyzeInorganic(Hero hero, float turns, int range) {
+		if (Dungeon.level == null) return false;
+		boolean hit = false;
+		for (Char ch : Actor.chars()) {
+			if (ch == null || ch == hero || ch.alignment != Char.Alignment.ENEMY) continue;
+			if (Dungeon.level.distance(hero.pos, ch.pos) > range) continue;
+			if (!ch.properties().contains(Char.Property.INORGANIC)) continue;
+			Buff.prolong(ch, Paralysis.class, turns);
+			hit = true;
+		}
+		return hit;
 	}
 }
