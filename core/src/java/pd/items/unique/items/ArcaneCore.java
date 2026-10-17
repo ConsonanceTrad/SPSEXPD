@@ -406,6 +406,13 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 		pushCharges();
 	}
 
+	/** SPSEXPD: 始终显示轴芯/古籍自己的名字，不显示当前收录法术的名字。 */
+	@Override
+	public String name() {
+		String name = trueName();
+		return enchantment != null && (cursedKnown || !enchantment.curse()) ? enchantment.name(name) : name;
+	}
+
 	/** SPSEXPD: 轴芯不显示力量需求（角标与详情都不显示）。 */
 	@Override
 	public boolean showStrength() {
