@@ -149,11 +149,16 @@ public class ItemSlot extends Button {
 		
 		//SPS: 图标自适应略缩——格子小于图标原生尺寸（移动端高缩放把格子缩到 16 以下）时
 		//按需缩小并居中，保持不溢出格子、不压到相邻格；格子 ≥16px 时 scale 恒为 1，渲染不变
+		//SPSEXPD: 高分辨率帧（如 item32 的 32x32）额外乘 ICON_FIT/ICON_MAX，让它缩到 14 而不是铺满 16，
+		//与普通图标（内容 13~15px、自带透明边）的观感对齐；这里会覆盖 ItemSprite.frame() 里设的 scale
 		float availW = width - margin.left - margin.right;
 		float availH = height - margin.top - margin.bottom;
 		float iconScale = 1f;
 		if (sprite.width > 0 && sprite.height > 0) {
 			iconScale = Math.min( 1f, Math.min( availW / sprite.width, availH / sprite.height ) );
+			if (sprite.width > ItemSprite.ICON_MAX || sprite.height > ItemSprite.ICON_MAX) {
+				iconScale *= ItemSprite.ICON_FIT / (float) ItemSprite.ICON_MAX;
+			}
 		}
 		sprite.scale.set( iconScale );
 		sprite.x = x + margin.left + (availW - sprite.width()) / 2f;
