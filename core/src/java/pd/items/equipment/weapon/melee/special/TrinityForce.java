@@ -54,7 +54,7 @@ public class TrinityForce extends NormalMeleeWeapon {
 	}
 
 	public TrinityForce() {
-		super(5, 1f, 1f, 2, 8, 20, pd.atlas.item32.Weapon32Dict.VANGUARD_BLADE_32);
+		super(5, 1f, 1f, 2, 8, 20, pd.atlas.item32.Weapon32Dict.VANGUARD_BLADE);
 	}
 
 	@Override

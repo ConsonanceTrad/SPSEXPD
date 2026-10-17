@@ -58,16 +58,6 @@ import java.nio.Buffer;
 public class ItemSprite extends MovieClip {
 
 	public static final int SIZE	= 16;
-
-	/** SPSEXPD: 物品图标在 UI 里的基准边长；超过这个尺寸的帧（如 32x32 精细图标）会等比缩小到它。 */
-	public static final int ICON_MAX = 16;
-
-	/**
-	 * SPSEXPD: 高分辨率图标缩到的实际边长（比 ICON_MAX 小 2px）。
-	 * 普通 16x16 图标的内容通常只占 13~15px、四周自带透明边；32x32 的图常常画满整格，
-	 * 直接缩到 16 会顶满格、显得比其它物品"大一圈"，所以留 1px 边对齐观感。
-	 */
-	public static final int ICON_FIT = ICON_MAX - 2;
 	
 	private static final float DROP_INTERVAL = 0.4f;
 
@@ -193,14 +183,10 @@ public class ItemSprite extends MovieClip {
 	
 	public PointF worldToCamera( int cell ) {
 		final int csize = DungeonTilemap.SIZE;
-		//SPSEXPD: 位置一律按 16px 格基准（SIZE）算，不用 width()/height()——后两者含 scale，
-		//高分辨率图标（32x32 缩到 14）会让起点/落点/阴影随缩放漂移，表现为"飞行路径不对"。
-		//图标只会被缩小（不会放大），所以按 SIZE 居中/贴底一定落在格子内。
-		float visW = Math.min( SIZE, width() );
-		float visH = Math.min( SIZE, height() );
+		
 		return new PointF(
-				PixelScene.align(Camera.main, ((cell % Dungeon.level.width()) + 0.5f) * csize - visW * 0.5f),
-				PixelScene.align(Camera.main, ((cell / Dungeon.level.width()) + 1.0f) * csize - visH - csize * perspectiveRaise)
+				PixelScene.align(Camera.main, ((cell % Dungeon.level.width()) + 0.5f) * csize - width() * 0.5f),
+				PixelScene.align(Camera.main, ((cell / Dungeon.level.width()) + 1.0f) * csize - height() - csize * perspectiveRaise)
 		);
 	}
 	
@@ -363,11 +349,9 @@ public class ItemSprite extends MovieClip {
 		this.texture = tex;
 		frame( tex.uvRectBySize( entry.x(0), entry.y(0), entry.w(0), entry.h(0) ) );
 
-		//SPSEXPD: 高分辨率图标（如 item32 里 32x32 的帧）等比缩到等价 16——占格与视觉大小不变，
-		//细节靠源图密度；SIZE（阴影/抬升基准）保持 16。
-		//注意缩到 ICON_FIT（16-2）而不是 16：普通图标内容只有 13~15px、带透明边，
-		//32x32 的图若铺满整格，缩到 16 会显得比其它物品大一圈。
-		float fit = Math.min( 1f, ICON_FIT / (float)Math.max( entry.w(0), entry.h(0) ) );
+		//SPSEXPD: 兜底——万一有人直接引用了超过 16px 的帧（例如 item32 里的 32x32 源图），
+		//等比缩到 SIZE 免得溢出格子。item32 的正式用法是引用它右侧伴随的 16 版，不用缩放。
+		float fit = Math.min( 1f, SIZE / (float)Math.max( entry.w(0), entry.h(0) ) );
 		scale.set( fit, fit );
 
 		//SPSEXPD: 抬升值不再按图标尺寸判定，统一在这里重置为 0（精灵对象池 heaps.recycle 复用时必须重置）；
