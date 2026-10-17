@@ -80,7 +80,7 @@ public class WndHeroInfo extends WndTabbed {
 			.t("perks_group_innate", "固有物")
 			.t("items_none", "（无）")
 			.t("subclasses", "专精")
-			.t("subclasses_msg", "击杀第二个Boss后可以选择一种职业专精。")
+			.t("subclasses_msg", "击杀第二个Boss后，可以从下面两条路线中选择一条专精你的职业。每条路线都会强化你已有的独特装备。")
 			.t("abilities", "护甲技能")
 			.t("abilities_msg", "击杀第四个Boss后可以选择一项护甲技能。")
 			.t("lore", "背景故事");

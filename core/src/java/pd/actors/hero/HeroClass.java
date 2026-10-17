@@ -213,7 +213,7 @@ public enum HeroClass {
 	DUELIST( HeroSubClass.CHAMPION, HeroSubClass.MONK ),
 	CLERIC( HeroSubClass.PRIEST, HeroSubClass.PALADIN ),
 	SPELLSWORD( HeroSubClass.WARLOCK, HeroSubClass.MONK ),
-	PERFORMER( HeroSubClass.SUPERSTAR, HeroSubClass.JOKER ),
+	PERFORMER( HeroSubClass.SUPERSTAR, HeroSubClass.AGENT ),
 	SOLDIER( HeroSubClass.AGENT, HeroSubClass.LEADER ),
 	FOLLOWER( HeroSubClass.ARTISAN, HeroSubClass.PASTOR ),
 	ASCETIC( HeroSubClass.ASCETIC_MONK, HeroSubClass.HACKER ),
