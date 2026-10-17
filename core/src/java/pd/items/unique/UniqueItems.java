@@ -66,8 +66,8 @@ public final class UniqueItems {
 		REGISTRY.put( UniqueItemId.SOLDIER_GUN_BASE_B, EndlessAmmoBag::new );
 		REGISTRY.put( UniqueItemId.FOLLOWER_CUSHION_BASE_A, Futon::new );
 		REGISTRY.put( UniqueItemId.FOLLOWER_CUSHION_BASE_B, FaithSign::new );
-		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_BASE_A, ScrollEarring::new );
-		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_BASE_B, ClogArmor::new );
+		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_BASE_A, pd.items.unique.items.OrganicRecycler::new );
+		REGISTRY.put( UniqueItemId.ASCETIC_EARRING_BASE_B, pd.items.unique.items.CyberwareKit::new );
 
 		//SPSEXPD: 战士族其余五件（一档 B 的两颗宝珠 / 二档的镀金纹章与两颗宝珠）
 		REGISTRY.put( UniqueItemId.WARRIOR_SEAL_T1_2_BLOOD, pd.items.unique.items.BloodOrb::new );
