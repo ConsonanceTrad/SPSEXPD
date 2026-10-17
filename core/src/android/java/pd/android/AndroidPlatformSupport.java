@@ -234,13 +234,8 @@ public class AndroidPlatformSupport extends PlatformSupport {
 		if (Gdx.files.absolute("/system/fonts/NotoSansCJK-Regular.ttc").exists()) {
 			//typefaces are 0-JP, 1-KR, 2-SC, 3-TC.
 			int typeFace;
+			//SPSEXPD: 只保留了英文/简体/繁体三种语言，日韩枚举已删除，这里只按简繁取对应字形
 			switch (SPDSettings.language()) {
-				case JAPANESE:
-					typeFace = 0;
-					break;
-				case KOREAN:
-					typeFace = 1;
-					break;
 				case CHI_SMPL:
 				default:
 					typeFace = 2;
