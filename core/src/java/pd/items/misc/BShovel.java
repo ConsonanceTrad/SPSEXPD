@@ -62,7 +62,8 @@ public class BShovel extends Item {
 		for (int offset : PathFinder.NEIGHBOURS4) {
 			int cell = hero.pos + offset;
 			if (!Dungeon.level.insideMap(cell)) continue;
-			if (Dungeon.level.map[cell] == Terrain.WALL || Dungeon.level.map[cell] == Terrain.GLASS_WALL) {
+			//SPSEXPD: 变体墙（装饰墙/管道墙/洞穴特殊墙/琉璃墙）也算可破坏
+			if (Terrain.breakableWall(Dungeon.level.map[cell])) {
 				Level.set(cell, Terrain.DOOR, Dungeon.level); GameScene.updateMap(cell);
 			}
 		}

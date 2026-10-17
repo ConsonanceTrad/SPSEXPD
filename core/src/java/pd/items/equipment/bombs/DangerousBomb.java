@@ -105,7 +105,8 @@ public class DangerousBomb extends Bomb {
 	}
 
 	private static boolean isBreakableWall(int terrain) {
-		return terrain == Terrain.WALL || terrain == Terrain.GLASS_WALL;
+		//SPSEXPD: 变体墙（装饰墙/管道墙/洞穴特殊墙/琉璃墙）也算可破坏
+		return Terrain.breakableWall( terrain );
 	}
 
 	@Override

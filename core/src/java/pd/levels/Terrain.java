@@ -196,4 +196,27 @@ public class Terrain {
 		}
 	}
 
+	/**
+	 * SPSEXPD: 这一格是不是「可以挖开/炸开的墙」——包括各种变体墙
+	 * （装饰墙如下水道的管道墙、洞穴/地狱的特殊墙、琉璃墙等）。
+	 *
+	 * <p>挖墙、炸墙、破墙的技能统一走这里，避免各处只判 {@code WALL} 而漏掉变体，
+	 * 表现为"看着是墙却挖不动"。</p>
+	 *
+	 * <p>刻意排除 {@link #BUY_WALL}（商店柜台那圈不可破坏的墙）与 {@link #SECRET_DOOR}。</p>
+	 */
+	public static boolean breakableWall( int terr ) {
+		switch (terr) {
+		case WALL:
+		case WALL_DECO:
+		case WALL_GROUND:
+		case WALL_LIVER:
+		case WALL_SP:
+		case GLASS_WALL:
+			return true;
+		default:
+			return false;
+		}
+	}
+
 }
