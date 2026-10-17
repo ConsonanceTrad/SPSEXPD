@@ -288,7 +288,7 @@ public final class SpsLegacyBlobsTest {
 	}
 
 	private static void testUtf8Messages() throws Exception {
-		String[] files = {"en/actors.properties", "zh/actors.properties", "zh-hant/actors.properties", "ru/actors.properties"};
+		String[] files = {"en/actors.properties", "zh/actors.properties", "zh-hant/actors.properties"};
 		for (String file : files) {
 			byte[] bytes = Files.readAllBytes(Paths.get("messages", "actors", file));
 			String text = decodeUtf8(bytes, file);

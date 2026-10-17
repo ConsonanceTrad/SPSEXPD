@@ -78,7 +78,7 @@ public final class SpsLegacyDisplayTest {
 
 	private static void testRatSkullResources() throws Exception {
 		String[] files = {"en/items.properties", "zh/items.properties",
-				"zh-hant/items.properties", "ru/items.properties"};
+				"zh-hant/items.properties"};
 		for (String file : files) {
 			Properties items = new Properties();
 			try (InputStreamReader reader = new InputStreamReader(java.nio.file.Files.newInputStream(

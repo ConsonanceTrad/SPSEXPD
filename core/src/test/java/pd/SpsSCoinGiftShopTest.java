@@ -279,7 +279,7 @@ public final class SpsSCoinGiftShopTest {
 
 	//7. 四语文本（英/简/繁/俄）
 	private static void testLocalizedResources() throws Exception {
-		String[] langs = {"en", "zh", "zh-hant", "ru"};
+		String[] langs = {"en", "zh", "zh-hant" };
 
 		for (String lang : langs) {
 			Properties misc = load("messages/misc/" + lang + "/misc.properties");

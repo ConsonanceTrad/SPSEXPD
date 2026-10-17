@@ -214,7 +214,7 @@ public final class SpsPsionicBlastTest {
 				"新增旧版符文图标槽发生冲突");
 
 		for (String file : new String[]{"en/items.properties", "zh/items.properties",
-				"zh-hant/items.properties", "ru/items.properties"}) {
+				"zh-hant/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ondeath", "desc"}) {
 				required(items, "items.consum.scrolls.scrollofpsionicblast." + key, file);

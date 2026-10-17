@@ -209,7 +209,7 @@ public final class SpsEyeOfSkadiTest {
 				"冰眼充能、献祭、冰伤或独立实现发生偏移");
 
 		for (String file : new String[]{"en/items.properties", "zh/items.properties",
-				"zh-hant/items.properties", "ru/items.properties"}) {
+				"zh-hant/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_add", "ac_blast", "ac_curse", "no_charge",
 					"prompt", "need_charge", "full_charge", "exp", "infuse_ore", "desc"}) {

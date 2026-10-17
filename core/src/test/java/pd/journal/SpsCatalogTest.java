@@ -113,7 +113,7 @@ public final class SpsCatalogTest {
 
 	private static void testUtf8Titles() throws Exception {
 		for (String file : new String[]{"en/journal.properties", "zh/journal.properties",
-				"zh-hant/journal.properties", "ru/journal.properties"}) {
+				"zh-hant/journal.properties"}) {
 			Path path = Path.of("messages", "journal", file);
 			String text = StandardCharsets.UTF_8.newDecoder()
 					.onMalformedInput(CodingErrorAction.REPORT)

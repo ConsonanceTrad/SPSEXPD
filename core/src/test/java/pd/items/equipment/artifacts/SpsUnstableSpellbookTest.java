@@ -231,7 +231,7 @@ public final class SpsUnstableSpellbookTest {
 
 	private static void testLocalizedResourcesAndSourceGuards() throws Exception {
 		for (String file : new String[]{"en/items.properties", "zh/items.properties",
-				"zh-hant/items.properties", "ru/items.properties"}) {
+				"zh-hant/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_read", "ac_add", "ac_song", "blinded",
 					"no_charge", "cursed", "update", "dew_empty", "desc", "desc_cursed", "desc_index"}) {

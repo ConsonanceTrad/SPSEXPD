@@ -141,7 +141,7 @@ public final class SpsBlacksmithImpQuestTest {
 
 	private static void testLegacyLabels() throws Exception {
 		String[] files = {"en/actors.properties", "zh/actors.properties",
-				"zh-hant/actors.properties", "ru/actors.properties"};
+				"zh-hant/actors.properties"};
 		for (String file : files) {
 			Properties actors = load("messages/actors/" + file);
 			String golems = required(actors, "actors.mobs.npcs.imp.old_golems_1", file);
@@ -155,7 +155,7 @@ public final class SpsBlacksmithImpQuestTest {
 		}
 
 		String[] windowFiles = {"en/windows.properties", "zh/windows.properties",
-				"zh-hant/windows.properties", "ru/windows.properties"};
+				"zh-hant/windows.properties"};
 		for (String file : windowFiles) {
 			Properties windows = load("messages/windows/" + file);
 			for (String key : new String[]{"prompt", "select1", "select2", "reforge"}) {

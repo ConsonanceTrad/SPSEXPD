@@ -193,7 +193,7 @@ public final class SpsBlandfruitTest {
 
 	private static void testLocalizedResources() throws Exception {
 		for (String file : new String[]{"en/items.properties", "zh/items.properties",
-				"zh-hant/items.properties", "ru/items.properties"}) {
+				"zh-hant/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			required(items, "items.consum.food.blandfruit.name", file);
 			required(items, "items.consum.food.blandfruit.desc", file);

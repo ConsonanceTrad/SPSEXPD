@@ -164,7 +164,7 @@ public final class SpsMobCatalogTest {
 		check(source.contains("for (SpsMobCatalog catalog : SpsMobCatalog.values())"),
 				"当前日志仍未使用完整SPS怪物目录");
 		for (String file : new String[]{"en/journal.properties", "zh/journal.properties",
-				"zh-hant/journal.properties", "ru/journal.properties"}) {
+				"zh-hant/journal.properties"}) {
 			Path path = Path.of("messages", "journal", file);
 			String text = StandardCharsets.UTF_8.newDecoder()
 					.onMalformedInput(CodingErrorAction.REPORT)

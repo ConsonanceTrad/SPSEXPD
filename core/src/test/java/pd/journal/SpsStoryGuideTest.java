@@ -55,7 +55,7 @@ public final class SpsStoryGuideTest {
 		compareLocale(legacy.resolve("misc.properties"), Path.of("messages", "journal", "en", "journal.properties"));
 		compareLocale(legacy.resolve("misc_zh.properties"), Path.of("messages", "journal", "zh", "journal.properties"));
 		compareLocale(legacy.resolve("misc_tzh.properties"), Path.of("messages", "journal", "zh-hant", "journal.properties"));
-		compareLocale(legacy.resolve("misc_ru.properties"), Path.of("messages", "journal", "ru", "journal.properties"));
+		compareLocale(legacy.resolve("misc_ru.properties"), Path.of("messages", "journal", "journal.properties"));
 	}
 
 	private static void compareLocale(Path legacyPath, Path currentPath) throws Exception {

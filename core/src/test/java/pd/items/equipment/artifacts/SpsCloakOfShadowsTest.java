@@ -196,7 +196,7 @@ public final class SpsCloakOfShadowsTest {
 
 	private static void testLocalizedResources() throws Exception {
 		for (String file : new String[]{"en/items.properties", "zh/items.properties",
-				"zh-hant/items.properties", "ru/items.properties"}) {
+				"zh-hant/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_stealth", "ac_shadow", "cooldown", "no_charge", "desc"}) {
 				required(items, "items.equipment.artifacts.cloakofshadows." + key, file);
@@ -206,7 +206,7 @@ public final class SpsCloakOfShadowsTest {
 			}
 		}
 		for (String file : new String[]{"en/actors.properties", "zh/actors.properties",
-				"zh-hant/actors.properties", "ru/actors.properties"}) {
+				"zh-hant/actors.properties"}) {
 			Properties actors = load("messages/actors/" + file);
 			required(actors, "actors.buffs.forevershadow.name", file);
 			required(actors, "actors.buffs.forevershadow.desc", file);

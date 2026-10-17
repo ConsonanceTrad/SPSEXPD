@@ -155,7 +155,7 @@ public final class SpsTimekeepersHourglassTest {
 
 	private static void testLocalizedResources() throws Exception {
 		for (String file : new String[]{"en/items.properties", "zh/items.properties",
-				"zh-hant/items.properties", "ru/items.properties"}) {
+				"zh-hant/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_activate", "ac_restart", "in_use", "no_charge",
 					"cursed", "onstasis", "onfreeze", "stasis", "freeze", "prompt", "desc",

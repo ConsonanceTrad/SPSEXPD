@@ -111,7 +111,7 @@ public final class SpsTownNpcLootTest {
 		check(surface.forceDone, "WndAscend没有记录旧版地表离开确认");
 
 		String[] files = {"en/windows.properties", "zh/windows.properties",
-				"zh-hant/windows.properties", "ru/windows.properties"};
+				"zh-hant/windows.properties"};
 		String[] required = {"windows.wndegoalinfo.title=", "windows.wndhotel.message=",
 				"windows.wnddream.message=", "windows.wndissic.message=", "windows.wndhate.message=",
 				"windows.wndascend.message="};

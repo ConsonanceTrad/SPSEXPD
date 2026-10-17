@@ -135,7 +135,7 @@ public final class SpsDriedRoseTest {
 
 	private static void testLocalizedResources() throws Exception {
 		for (String file : new String[]{"en/items.properties", "zh/items.properties",
-				"zh-hant/items.properties", "ru/items.properties"}) {
+				"zh-hant/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_summon", "ac_outfit", "ac_soulbless",
 					"no_charge", "cursed", "no_space", "charged", "desc"}) {

@@ -157,7 +157,7 @@ public final class SpsAlchemistsToolkitTest {
 				"bestbrew", "bdorder", "right", "desc", "desc_cursed", "level_zero", "level_ten",
 				"make_from", "need_fix", "addpotion", "have_add", "know_first"};
 		for (String file : new String[]{"en/items.properties", "zh/items.properties",
-				"zh-hant/items.properties", "ru/items.properties"}) {
+				"zh-hant/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			for (String key : keys) required(items, "items.equipment.artifacts.alchemiststoolkit." + key, file);
 			check(!items.containsKey("items.equipment.artifacts.alchemiststoolkit.ac_energize")

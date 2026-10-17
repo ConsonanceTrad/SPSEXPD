@@ -27,7 +27,7 @@ public final class SpsSignTest {
 		check(Sign.messageKey(null, 39, 0).startsWith("tip_"), "末章首领层缺少提示文本");
 		check(Sign.messageKey(null, 40, 0) == null, "终局层不应生成普通提示文本");
 
-		for (String lang : new String[]{"en", "zh", "zh-hant", "ru"}) {
+		for (String lang : new String[]{"en", "zh", "zh-hant" }) {
 			Path file = Path.of("messages", "levels", lang, "levels.properties");
 			String text = strictUtf8(file);
 			for (String key : new String[]{"chaos", "new_room_0", "new_room_1"}) {

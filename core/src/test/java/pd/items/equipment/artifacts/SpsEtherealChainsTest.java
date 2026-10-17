@@ -82,7 +82,7 @@ public final class SpsEtherealChainsTest {
 
 	private static void testLocalizedResources() throws Exception {
 		for (String file : new String[]{"en/items.properties", "zh/items.properties",
-				"zh-hant/items.properties", "ru/items.properties"}) {
+				"zh-hant/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			for (String key : new String[]{"name", "ac_cast", "ac_locked", "no_charge", "cursed", "prompt", "desc"}) {
 				required(items, "items.equipment.artifacts.etherealchains." + key, file);

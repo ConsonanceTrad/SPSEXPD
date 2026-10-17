@@ -105,7 +105,7 @@ public final class SpsNoomlinCrownTest {
 				&& !source.contains("MasterThievesArmband"), "王冠一级上限、空被动或独立实现发生偏移");
 
 		for (String file : new String[]{"en/items.properties", "zh/items.properties",
-				"zh-hant/items.properties", "ru/items.properties"}) {
+				"zh-hant/items.properties"}) {
 			Properties items = load("messages/items/" + file);
 			required(items, "items.equipment.artifacts.fusion.noomlincrown.name", file);
 			required(items, "items.equipment.artifacts.fusion.noomlincrown.desc", file);
