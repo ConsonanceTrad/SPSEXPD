@@ -269,6 +269,8 @@ public class WndTradeItem extends WndInfoItem {
 				if (price == 0) {
 					shop.yell( Messages.get(Shopkeeper.class, "free_buy") );
 				}
+				//SPSEXPD: shopRoom 不进存档，读档后是 null → 补货失效，这里按需重绑
+				shop.ensureShopRoom();
 				if (shop.shopRoom != null) shop.shopRoom.checkRestock();
 			}
 		}

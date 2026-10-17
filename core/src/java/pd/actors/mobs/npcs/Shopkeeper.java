@@ -42,6 +42,8 @@ import pd.items.specific.sellitem.SellPermit;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.journal.Notes;
 import pd.levels.rooms.special.SpsShopRoom;
+import pd.levels.RegularLevel;
+import pd.levels.rooms.Room;
 import pd.levels.traps.GuardianTrap;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
@@ -250,6 +252,21 @@ public class Shopkeeper extends NPC {
 
 	/** SPS: 本层商店房间，用于卖光后补货。不参与序列化。 */
 	public SpsShopRoom shopRoom = null;
+
+	/**
+	 * SPSEXPD: shopRoom 不参与序列化，读档后必然是 null，补货就再也不触发。
+	 * 这里按需从当前层的房间列表里重新找回它（同一层只有一个 SpsShopRoom）。
+	 */
+	public void ensureShopRoom() {
+		if (shopRoom != null) return;
+		if (!(Dungeon.level instanceof RegularLevel)) return;
+		for (Room r : ((RegularLevel) Dungeon.level).rooms()) {
+			if (r instanceof SpsShopRoom) {
+				shopRoom = (SpsShopRoom) r;
+				return;
+			}
+		}
+	}
 
 	/** SPS: 已被击败的、本商人召唤的守卫数。 */
 	private int guardsKilled = 0;
