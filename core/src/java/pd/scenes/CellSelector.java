@@ -161,6 +161,10 @@ public class CellSelector extends ScrollArea {
 					+ " blockingHero=" + blocking
 					+ " listener=" + (listener == null ? "null" : listener.getClass().getName()));
 			GameScene.cancel();
+			//SPSEXPD: 吞掉一次之后必须把 enabled 复位。否则关窗口（例如商店买完东西、
+			//交易窗口关闭）时留下的 enabled=false 会一直留着，导致下一次点击又被吞——表现为
+			//"点一次没反应，再点一次才好"。enabled 只是"能不能选格"的开关，随时重算即可。
+			enabled = true;
 			return;
 		}
 
