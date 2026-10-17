@@ -2699,8 +2699,12 @@ public class Hero extends Char {
 			curAction = new HeroAction.Mine( cell );
 
 		} else if (heap != null
+				//SPSEXPD: 临近触及——站在相邻一格（含斜角）即可原地拾取，
+				//这种拾取不产生移动，因此不该被下面「附近有敌人时不自动拾取」的门禁挡住
+				&& ((cell != pos && SPDSettings.adjacentPickup()
+						&& Dungeon.level.adjacent(pos, cell) && fieldOfView[cell])
 				//moving to an item doesn't auto-pickup when enemies are near...
-				&& (visibleEnemies.size() == 0 || cell == pos ||
+				|| visibleEnemies.size() == 0 || cell == pos ||
 				//...but only for standard heaps. Chests and similar open as normal.
 				(heap.type != Type.HEAP && heap.type != Type.FOR_SALE && heap.type != Type.FOR_LIFE))) {
 
