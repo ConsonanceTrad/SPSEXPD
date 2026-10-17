@@ -180,9 +180,6 @@ abstract public class Weapon extends KindOfWeapon {
 	@Override
 	public int proc( Char attacker, Char defender, int damage ) {
 
-		//SPSEXPD: 封魔帖/六字真言——携带者对非人形生物的伤害提升
-		damage = pd.items.unique.items.SealingTalisman.bonusFor(attacker, defender, damage);
-
 		if (attacker.buff(MagicImmune.class) == null) {
 			Enchantment trinityEnchant = null;
 			//only when it's the hero or a char that uses the hero's weapon

@@ -100,11 +100,8 @@ public enum UniqueItemId {
 	ASCETIC_EARRING_BASE_A  ( UniqueFamily.ASCETIC, 0, 0, 1, null ),
 	ASCETIC_EARRING_BASE_B  ( UniqueFamily.ASCETIC, 0, 0, 1, null ),
 	ASCETIC_EARRING_T1_1_SCROLL  ( UniqueFamily.ASCETIC, 1, 1, 1, "小千录" ),
-	ASCETIC_EARRING_T1_2_TALISMAN( UniqueFamily.ASCETIC, 1, 2, 1, "封魔帖" ),
 	ASCETIC_EARRING_T1_2_STAFF   ( UniqueFamily.ASCETIC, 1, 2, 1, "禅杖" ),
 	ASCETIC_EARRING_T2_1_HORN    ( UniqueFamily.ASCETIC, 2, 1, 1, "巴虺断角" ),
-	ASCETIC_EARRING_T2_2_SIXWORD ( UniqueFamily.ASCETIC, 2, 2, 1, "六字真言" ),
-	ASCETIC_EARRING_T2_2_RING    ( UniqueFamily.ASCETIC, 2, 2, 1, "九环锡杖" ),
 	;
 
 	/** 所属族（= 职业演化线）。 */
