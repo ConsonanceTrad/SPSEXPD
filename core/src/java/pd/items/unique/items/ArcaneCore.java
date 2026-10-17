@@ -135,6 +135,8 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 	/** SPSEXPD: 显示的是轴芯自己的能量，而不是收录法术的。 */
 	@Override
 	public String status() {
+		//SPSEXPD: 自然充能由内嵌 Wand 的 Charger 直接加到 wand 上，这里先把它收回来
+		pullCharges();
 		return coreCharges + "/" + coreCapacity();
 	}
 
@@ -156,6 +158,8 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 	/** SPSEXPD: 动作列表按轴芯能量判断能否施法。 */
 	@Override
 	public ArrayList<String> actions(Hero hero) {
+		//SPSEXPD: 先把 Wand 上自然积累的充能收回轴芯，再判断能不能施法
+		pullCharges();
 		pushCharges();
 		ArrayList<String> actions = super.actions(hero);
 		actions.add(AC_SWITCH);
@@ -177,7 +181,9 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 			return;
 		}
 		if (AC_ZAP.equals(action)) {
-			//SPSEXPD: 施法前后各同步一次——Wand 用轴芯的能量扣，扣完再把剩余收回轴芯
+			//SPSEXPD: 施法前后各同步一次——先把 Wand 上自然积累的充能收回轴芯，
+			//再让 Wand 用轴芯的能量扣，扣完把剩余收回轴芯
+			pullCharges();
 			pushCharges();
 			super.execute(hero, action);
 			pullCharges();
