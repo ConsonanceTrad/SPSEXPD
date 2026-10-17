@@ -79,6 +79,11 @@ public class CellSelector extends ScrollArea {
 	protected void onClick( PointerEvent event ) {
 		if (dragging) {
 			
+			//SPSEXPD: 诊断——这条分支在 select() 之前，被它丢弃的点击不会打 click swallowed
+			System.err.println("[SPSEXPD] click dropped by dragging flag: heroReady="
+					+ (Dungeon.hero != null && Dungeon.hero.ready)
+					+ " enabled=" + enabled
+					+ " blockingHero=" + GameScene.interfaceBlockingHero());
 			dragging = false;
 			
 		} else {
@@ -234,6 +239,12 @@ public class CellSelector extends ScrollArea {
 	@Override
 	protected void onPointerDown( PointerEvent event ) {
 		camera.edgeScroll.set(-1);
+		//SPSEXPD: 每次按下都重置拖动标记。原来 dragging 只在 onPointerDown 的多指分支里
+		//被清掉，若上一次触摸让 dragging 变成 true 而对应的 onClick 没跑到（被窗口吞掉、
+		//触摸被取消等），它就会永远留 true —— 之后每一次点击都会走 onClick 的 dragging
+		//分支，被静默丢弃、且不会打任何日志（那条分支在 select() 之前）。
+		dragging = false;
+		lastPos.set( event.current );
 		if (event != curEvent && another == null) {
 					
 			if (curEvent.type == PointerEvent.Type.UP) {
