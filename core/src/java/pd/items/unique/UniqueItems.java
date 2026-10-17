@@ -355,6 +355,21 @@ public final class UniqueItems {
 		}
 	}
 
+	/**
+	 * SPSEXPD: 直接从英雄身上“回收”某类物品——移除且不返还、不补发。
+	 * 目前用于法师升级时一并收走奇迹烧瓶。返回移除的件数。
+	 */
+	public static int discard( Hero hero, Class<? extends Item> type ) {
+		int n = 0;
+		for (Item it : new ArrayList<>( hero.belongings.backpack.items )) {
+			if (type.isInstance( it )) {
+				removeFromHero( hero, it );
+				n++;
+			}
+		}
+		return n;
+	}
+
 	/** 从英雄的任何携带位置（装备槽 / 背包 / 护甲贴附）移除一件物品。 */
 	private static void removeFromHero( Hero hero, Item it ) {
 		Belongings b = hero.belongings;

@@ -33,6 +33,7 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.HeroSubClass;
 import pd.actors.hero.Talent;
 import pd.effects.Speck;
+import pd.items.misc.PotionOfMage;
 import pd.items.unique.UniqueFamily;
 import pd.items.unique.UniqueItemId;
 import pd.items.unique.UniqueItems;
@@ -144,6 +145,10 @@ public class TengusMask extends Item {
 	/** SPSEXPD: 执行一档转换（消耗族内全部初始物品 → 发放所选路线的新物品）。 */
 	private void applyTier1( Hero hero, UniqueFamily family, int branch ) {
 		List<Item> consumed = UniqueItems.consume( hero, family, 0, 0 );
+		//SPSEXPD: 法师的奇迹烧瓶一并回收——功能已被轴芯取代，直接移除不再返还
+		if (family == UniqueFamily.MAGE) {
+			UniqueItems.discard( hero, PotionOfMage.class );
+		}
 		List<Item> granted  = UniqueItems.grant( hero, family, 1, branch );
 		UniqueItems.preserve( consumed, granted );
 
