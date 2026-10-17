@@ -8,7 +8,7 @@ public class LargeFreshFruit extends FreshFruit {
 	static {
 		InlineText.of(LargeFreshFruit.class)
 			.t("name", "鲜莓大型果实")
-			.t("desc", "精心种植的鲜莓丛结出的巨型果实，治疗与落地产出都更强。");
+			.t("desc", "精心种植的鲜莓丛结出的巨型果实，治疗效果更强。");
 	}
 	{ large = true; image = pd.atlas.items.ConsumPotionSeedSeedDict.LARGE_FRUIT_ROT_BERRY; }
 }

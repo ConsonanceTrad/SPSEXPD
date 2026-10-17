@@ -31,7 +31,7 @@ public class NutFruit extends SpsFruit {
 	static {
 		InlineText.of(NutFruit.class)
 			.t("name", "坚果果实")
-			.t("desc", "人工种植的坚果藤结出的果实。落地会留下一颗坚果，命中时则按主武器两成伤害重击目标。");
+			.t("desc", "人工种植的坚果藤结出的果实。命中时按主武器两成伤害重击目标。");
 	}
 
 

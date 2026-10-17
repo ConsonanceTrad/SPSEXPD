@@ -31,7 +31,7 @@ public class ToxicFruit extends SpsFruit {
 	static {
 		InlineText.of(ToxicFruit.class)
 			.t("name", "断肠果实")
-			.t("desc", "人工种植的腐梅草结出的果实。落地会散出剧毒气体，命中则使目标中毒。");
+			.t("desc", "人工种植的腐梅草结出的果实。命中会使目标中毒。");
 	}
 
 

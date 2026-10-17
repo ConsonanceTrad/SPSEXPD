@@ -34,7 +34,7 @@ public class CharmFruit extends SpsFruit {
 	static {
 		InlineText.of(CharmFruit.class)
 			.t("name", "梦叶果实")
-			.t("desc", "人工种植的梦叶花结出的果实。落地会清空周围的有害气体，命中则魅惑目标。");
+			.t("desc", "人工种植的梦叶花结出的果实。命中会魅惑目标。");
 	}
 
 

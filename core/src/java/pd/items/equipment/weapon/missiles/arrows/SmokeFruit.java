@@ -28,7 +28,7 @@ public class SmokeFruit extends SpsFruit {
 	static {
 		InlineText.of(SmokeFruit.class)
 			.t("name", "消逝果实")
-			.t("desc", "人工种植的消逝草结出的果实。落地会散出黑暗，命中则致盲目标。");
+			.t("desc", "人工种植的消逝草结出的果实。命中会致盲目标。");
 	}
 
 

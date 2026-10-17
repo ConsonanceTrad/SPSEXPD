@@ -31,7 +31,7 @@ public class FireFruit extends SpsFruit {
 	static {
 		InlineText.of(FireFruit.class)
 			.t("name", "火焰果实")
-			.t("desc", "人工种植的火焰花结出的果实。落地会燃起火焰，命中则点燃目标。");
+			.t("desc", "人工种植的火焰花结出的果实。命中会点燃目标。");
 	}
 
 

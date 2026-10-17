@@ -23,7 +23,7 @@ public class FlavorlessFruit extends SpsFruit {
 	static {
 		InlineText.of(FlavorlessFruit.class)
 			.t("name", "无味果实")
-			.t("desc", "人工种植的无味果结出的果实。落地会碎成小块无味果，食用能恢复少量饱食度。");
+			.t("desc", "人工种植的无味果结出的果实。食用能恢复少量饱食度。");
 	}
 
 	{ image = pd.atlas.items.ConsumPotionSeedSeedDict.FRUIT_BLANDFRUIT; }//SPSEXPD: 贴图待指认

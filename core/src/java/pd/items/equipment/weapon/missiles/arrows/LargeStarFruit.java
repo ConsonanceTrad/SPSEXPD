@@ -8,7 +8,7 @@ public class LargeStarFruit extends StarFruit {
 	static {
 		InlineText.of(LargeStarFruit.class)
 			.t("name", "星陨大型果实")
-			.t("desc", "精心种植的星陨花结出的巨型果实，落地效果更强。");
+			.t("desc", "精心种植的星陨花结出的巨型果实，命中与食用效果都是普通果实的 3 倍。");
 	}
 	{ large = true; image = pd.atlas.items.ConsumPotionSeedSeedDict.LARGE_FRUIT_STARFLOWER; }
 }

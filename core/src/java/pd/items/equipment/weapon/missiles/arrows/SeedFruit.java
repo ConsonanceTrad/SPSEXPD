@@ -26,7 +26,7 @@ public class SeedFruit extends SpsFruit {
 	static {
 		InlineText.of(SeedFruit.class)
 			.t("name", "种子果实")
-			.t("desc", "人工种植的种子荚结出的果实。落地会炸出随机种子，食用则可缓慢治愈自己。");
+			.t("desc", "人工种植的种子荚结出的果实。食用可缓慢治愈自己。");
 	}
 
 	public SeedFruit() { this(1); }

@@ -32,7 +32,7 @@ public class IceFruit extends SpsFruit {
 	static {
 		InlineText.of(IceFruit.class)
 			.t("name", "冰冠果实")
-			.t("desc", "人工种植的寒冰草结出的果实。落地会散出冰霜云，命中则使目标寒冷。");
+			.t("desc", "人工种植的寒冰草结出的果实。命中会使目标寒冷。");
 	}
 
 

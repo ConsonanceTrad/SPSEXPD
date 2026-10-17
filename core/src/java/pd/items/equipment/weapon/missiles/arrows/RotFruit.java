@@ -26,7 +26,7 @@ public class RotFruit extends SpsFruit {
 	static {
 		InlineText.of(RotFruit.class)
 			.t("name", "腐莓果实")
-			.t("desc", "人工种植的腐梅结出的果实。落地会散出剧毒气体，命中则让目标身中猛毒。");
+			.t("desc", "人工种植的腐梅结出的果实。命中会让目标身中猛毒。");
 	}
 
 	{ image = pd.atlas.items.ConsumPotionSeedSeedDict.FRUIT_ROT_BERRY; }//SPSEXPD: 贴图待指认

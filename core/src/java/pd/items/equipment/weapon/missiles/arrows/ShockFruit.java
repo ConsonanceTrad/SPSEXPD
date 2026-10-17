@@ -32,7 +32,7 @@ public class ShockFruit extends SpsFruit {
 	static {
 		InlineText.of(ShockFruit.class)
 			.t("name", "风暴果实")
-			.t("desc", "人工种植的风暴藤结出的果实。落地会释放电流，命中则麻痹目标。");
+			.t("desc", "人工种植的风暴藤结出的果实。命中会麻痹目标。");
 	}
 
 

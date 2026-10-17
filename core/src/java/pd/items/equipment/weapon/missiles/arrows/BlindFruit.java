@@ -36,7 +36,7 @@ public class BlindFruit extends SpsFruit {
 	static {
 		InlineText.of(BlindFruit.class)
 			.t("name", "致盲果实")
-			.t("desc", "人工种植的致盲草结出的果实。落地会散出混乱气体，命中则使目标沉默。");
+			.t("desc", "人工种植的致盲草结出的果实。命中会使目标沉默。");
 	}
 
 

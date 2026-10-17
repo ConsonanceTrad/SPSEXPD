@@ -23,7 +23,7 @@ public class StarEaterFruit extends SpsFruit {
 	static {
 		InlineText.of(StarEaterFruit.class)
 			.t("name", "吞星果实")
-			.t("desc", "人工种植的吞星花结出的果实。落地会散出酸蚀气体，食用则会灼伤自己。");
+			.t("desc", "人工种植的吞星花结出的果实。食用会灼伤自己。");
 	}
 
 	{ image = pd.atlas.items.ConsumPotionSeedSeedDict.FRUIT_STAREATER; }//SPSEXPD: 贴图待指认

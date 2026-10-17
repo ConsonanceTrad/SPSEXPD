@@ -23,7 +23,7 @@ public class DewFruit extends SpsFruit {
 	static {
 		InlineText.of(DewFruit.class)
 			.t("name", "集露果实")
-			.t("desc", "人工种植的集露草结出的果实。落地会凝结出一颗露珠，命中则赋予目标露珠爆破。");
+			.t("desc", "人工种植的集露草结出的果实。命中会赋予目标露珠爆破。");
 	}
 
 	public DewFruit() { this(1); }

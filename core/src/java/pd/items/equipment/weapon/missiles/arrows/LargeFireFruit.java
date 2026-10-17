@@ -8,7 +8,7 @@ public class LargeFireFruit extends FireFruit {
 	static {
 		InlineText.of(LargeFireFruit.class)
 			.t("name", "火焰大型果实")
-			.t("desc", "精心种植的烈焰花结出的巨型果实，命中与落地效果都更强。");
+			.t("desc", "精心种植的烈焰花结出的巨型果实，命中与食用效果都是普通果实的 3 倍。");
 	}
 	{ large = true; image = pd.atlas.items.ConsumPotionSeedSeedDict.LARGE_FRUIT_FIREBLOOM; }
 }

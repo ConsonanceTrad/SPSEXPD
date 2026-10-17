@@ -28,7 +28,7 @@ import java.util.ArrayList;
 
 /**
  * SPSEXPD: 投掷果实的公共基类。
- * 既是投掷武器（命中/落地都有植物效果），也是可食用物（吃下恢复饱食度并附带小效果）。
+ * 既是投掷武器（命中生物才触发生物效果），也是可食用物（吃下恢复饱食度并附带小效果）。
  *
  * 大小果实规则（2026 批次）：大型果实的效果数值 = 小型果实的 3 倍；
  * 作用范围小型果实 3×3（9 格）、大型果实 5×5 圆形（去掉四角，21 格）。
@@ -226,7 +226,7 @@ abstract class SpsFruit extends MissileWeapon implements pd.items.equipment.weap
 
 	@Override public int min(int lvl) { return scaled(baseMin); }
 	@Override public int max(int lvl) { return scaled(baseMax); }
-	/** SPSEXPD: 果实没有直接投掷伤害，效果全部来自命中/落地的植物能力（子类仍用 min()/max() 计算效果数值）。 */
+	/** SPSEXPD: 果实没有直接投掷伤害，效果全部来自命中的植物能力（子类仍用 min()/max() 计算效果数值）。 */
 	@Override public int damageRoll(Char owner) { return 0; }
 	@Override public int STRReq(int lvl) { return 5; }
 	/** SPSEXPD: 果实不能被炼金熔化为液金。 */

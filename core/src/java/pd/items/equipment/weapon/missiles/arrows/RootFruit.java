@@ -32,7 +32,7 @@ public class RootFruit extends SpsFruit {
 	static {
 		InlineText.of(RootFruit.class)
 			.t("name", "地缚果实")
-			.t("desc", "人工种植的地缚根结出的果实。落地会长出高草，命中则束缚目标。");
+			.t("desc", "人工种植的地缚根结出的果实。命中会束缚目标。");
 	}
 
 

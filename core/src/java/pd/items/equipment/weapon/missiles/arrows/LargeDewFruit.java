@@ -8,7 +8,7 @@ public class LargeDewFruit extends DewFruit {
 	static {
 		InlineText.of(LargeDewFruit.class)
 			.t("name", "集露大型果实")
-			.t("desc", "精心种植的集露草结出的巨型果实，落地时溢出的露珠更多。");
+			.t("desc", "精心种植的集露草结出的巨型果实，命中与食用效果都是普通果实的 3 倍。");
 	}
 	{ large = true; image = pd.atlas.items.ConsumPotionSeedSeedDict.LARGE_FRUIT_DEWCATCHER; }
 }

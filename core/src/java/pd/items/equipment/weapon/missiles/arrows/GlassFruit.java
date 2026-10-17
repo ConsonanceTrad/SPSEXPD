@@ -33,7 +33,7 @@ public class GlassFruit extends SpsFruit {
 	static {
 		InlineText.of(GlassFruit.class)
 			.t("name", "水晶果实")
-			.t("desc", "人工种植的石英花结出的果实。落地时有小概率留下矿石，命中则割伤目标。");
+			.t("desc", "人工种植的石英花结出的果实。命中会割伤目标。");
 	}
 
 

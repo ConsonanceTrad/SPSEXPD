@@ -8,7 +8,7 @@ public class LargeSeedFruit extends SeedFruit {
 	static {
 		InlineText.of(LargeSeedFruit.class)
 			.t("name", "种子大型果实")
-			.t("desc", "精心种植的种子荚结出的巨型果实，落地时会撒出更多种子。");
+			.t("desc", "精心种植的种子荚结出的巨型果实，命中与食用效果都是普通果实的 3 倍。");
 	}
 	{ large = true; image = pd.atlas.items.ConsumPotionSeedSeedDict.LARGE_FRUIT_POD; }
 }

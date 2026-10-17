@@ -23,7 +23,7 @@ public class StarFruit extends SpsFruit {
 	static {
 		InlineText.of(StarFruit.class)
 			.t("name", "星陨果实")
-			.t("desc", "人工种植的星陨花结出的果实。落地会降下圣光审判之场，命中或食用则会赋予祝福。");
+			.t("desc", "人工种植的星陨花结出的果实。命中或食用会赋予祝福。");
 	}
 
 	{ image = pd.atlas.items.ConsumPotionSeedSeedDict.FRUIT_STARFLOWER; }//SPSEXPD: 贴图待指认
