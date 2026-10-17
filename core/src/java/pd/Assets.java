@@ -346,6 +346,8 @@ public class Assets {
 	public static class Sprites {
 		public static final String ITEMS        = "sprites/items/items.png";
 		public static final String ITEM_ICONS   = "sprites/items/item_icons.png";
+		//SPSEXPD: 32x32 高分辨率物品图标图集（画得细，显示时缩到等价 16，占格不变）
+		public static final String ITEM32_WEAPON = "sprites/item32/weapon_32.png";
 		//SPSEXPD: 英雄信息窗「背景故事」页签 / 选角界面同名按钮的图标（用户绘制，独立单图 16x16）
 		public static final String STORY        = "sprites/items/specific/story.png";
 		//SPS: 移动路径提示的图集（第一行=路径点，第二行=终点）

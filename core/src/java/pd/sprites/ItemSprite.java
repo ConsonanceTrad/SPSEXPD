@@ -58,6 +58,9 @@ import java.nio.Buffer;
 public class ItemSprite extends MovieClip {
 
 	public static final int SIZE	= 16;
+
+	/** SPSEXPD: 物品图标在 UI 里的基准边长；超过这个尺寸的帧（如 32x32 精细图标）会等比缩小到它。 */
+	public static final int ICON_MAX = 16;
 	
 	private static final float DROP_INTERVAL = 0.4f;
 
@@ -348,6 +351,11 @@ public class ItemSprite extends MovieClip {
 		SmartTexture tex = TextureCache.get( entry.atlas );
 		this.texture = tex;
 		frame( tex.uvRectBySize( entry.x(0), entry.y(0), entry.w(0), entry.h(0) ) );
+
+		//SPSEXPD: 高分辨率图标（如 item32 里 32x32 的帧）等比缩到等价 16——占格与视觉大小不变，
+		//细节靠源图密度；SIZE（阴影/抬升基准）保持 16。
+		float fit = Math.min( 1f, ICON_MAX / (float)Math.max( entry.w(0), entry.h(0) ) );
+		scale.set( fit, fit );
 
 		//SPSEXPD: 抬升值不再按图标尺寸判定，统一在这里重置为 0（精灵对象池 heaps.recycle 复用时必须重置）；
 		//需要抬升的物品由 Item.spriteRaise() 决定，在 view(Item) 里应用。
