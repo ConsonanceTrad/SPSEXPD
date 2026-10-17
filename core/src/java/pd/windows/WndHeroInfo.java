@@ -39,6 +39,10 @@ import pd.sprites.ItemSprite;
 import pd.ui.IconButton;
 import pd.ui.Icons;
 import pd.ui.ItemSlotButton;
+import pd.items.Item;
+import pd.items.unique.UniqueFamily;
+import pd.items.unique.UniqueItemId;
+import pd.items.unique.UniqueItems;
 import pd.ui.PerkSlot;
 import pd.ui.RenderedTextBlock;
 import pd.ui.ScrollPane;
@@ -80,7 +84,9 @@ public class WndHeroInfo extends WndTabbed {
 			.t("perks_group_innate", "固有物")
 			.t("items_none", "（无）")
 			.t("subclasses", "专精")
-			.t("subclasses_msg", "击杀第二个Boss后，可以从下面两条路线中选择一条专精你的职业。每条路线都会强化你已有的独特装备。")
+			.t("subclasses_msg", "击杀第二个Boss后可以从下面两条路线里选一条：一档用_天狗面具_二选一，二档用_国王王冠_沿选定路线继续强化。")
+			.t("subclass_tier1", "一档强化")
+			.t("subclass_tier2", "二次强化")
 			.t("abilities", "护甲技能")
 			.t("abilities_msg", "击杀第四个Boss后可以选择一项护甲技能。")
 			.t("lore", "背景故事");
@@ -182,6 +188,7 @@ public class WndHeroInfo extends WndTabbed {
 		//ScrollPane 会按初始相机定位（内容整块偏下）；resize 之后再排一次拿正确的相机。
 		heroInfo.layout();
 		perkInfo.layout();
+		subclassInfo.layout();
 		loreInfo.layout();
 
 		select(initialTab);
@@ -194,6 +201,7 @@ public class WndHeroInfo extends WndTabbed {
 		//SPSEXPD: 窗口整体位移后，ScrollPane 的内部相机要跟着重排（否则内容偏位）
 		heroInfo.layout();
 		perkInfo.layout();
+		subclassInfo.layout();
 		loreInfo.layout();
 	}
 
@@ -498,13 +506,32 @@ public class WndHeroInfo extends WndTabbed {
 
 	private static class SubclassInfoTab extends Component {
 
+		private static final int GAP = 2;
+		private static final int COLS = 6;
+		private static final int CELL = ItemSlotButton.BTN + GAP;
+		private static final int DIVIDER_COLOR = 0x33FFFFFF;
+
 		private RenderedTextBlock title;
 		private RenderedTextBlock message;
-		private RenderedTextBlock[] subClsDescs;
-		private IconButton[] subClsInfos;
+		private ScrollPane pane;
+		private ArrayList<Row> rows;
+		private ArrayList<ColorBlock> dividers;
 
+		/** 一行 = 一个「档位 × 路线」分组：路线名 + 一行特色描述 + 该组物品格子 */
+		private static class Row {
+			RenderedTextBlock label;
+			RenderedTextBlock desc;
+			ArrayList<ItemSlotButton> buttons = new ArrayList<>();
+		}
+
+		/**
+		 * SPSEXPD: 专精页 = 该职业的_装备强化路线_（不再列职业专精）。
+		 * 一档由天狗面具在两条路线里二选一，二档由国王王冠沿选定路线继续强化；
+		 * 每条路线显示一行特色描述 + 该组独特装备的图标格子（点击看详情）。
+		 */
 		public SubclassInfoTab( HeroClass cls ){
 			super();
+
 			title = PixelScene.renderTextBlock(Messages.titleCase(Messages.get(WndHeroInfo.class, "subclasses")), 9);
 			title.hardlight(TITLE_COLOR);
 			add(title);
@@ -512,24 +539,48 @@ public class WndHeroInfo extends WndTabbed {
 			message = PixelScene.renderTextBlock(Messages.get(WndHeroInfo.class, "subclasses_msg"), 6);
 			add(message);
 
-			HeroSubClass[] subClasses = cls.subClasses();
+			rows = new ArrayList<>();
+			dividers = new ArrayList<>();
 
-			subClsDescs = new RenderedTextBlock[subClasses.length];
-			subClsInfos = new IconButton[subClasses.length];
+			pane = new ScrollPane(new Component());
+			pane.scrollBarVisible = false;
+			add(pane);
 
-			for (int i = 0; i < subClasses.length; i++){
-				subClsDescs[i] = PixelScene.renderTextBlock(subClasses[i].shortDesc(), 6);
-				int finalI = i;
-				subClsInfos[i] = new IconButton( Icons.get(Icons.INFO) ){
-					@Override
-					protected void onClick() {
-						Game.scene().addToFront(new WndInfoSubclass(cls, subClasses[finalI]));
+			UniqueFamily family = UniqueFamily.of(cls);
+			if (family != null){
+				for (int tier = 1; tier <= 2; tier++){
+					for (int branch : UniqueItems.branches(family, tier)){
+
+						if (!rows.isEmpty()){
+							ColorBlock divider = new ColorBlock(1, 1, DIVIDER_COLOR);
+							pane.content().add(divider);
+							dividers.add(divider);
+						}
+
+						Row row = new Row();
+
+						String tierName = Messages.get(WndHeroInfo.class, tier == 1 ? "subclass_tier1" : "subclass_tier2");
+						row.label = PixelScene.renderTextBlock(
+								tierName + " · " + UniqueItems.routeLabel(family, tier, branch), 6);
+						row.label.hardlight(TITLE_COLOR);
+						pane.content().add(row.label);
+
+						row.desc = PixelScene.renderTextBlock(
+								UniqueItems.routeDesc(family, tier, branch), 6);
+						pane.content().add(row.desc);
+
+						for (UniqueItemId id : UniqueItems.idsOf(family, tier, branch)){
+							Item item = UniqueItems.create(id);
+							if (item == null) continue;
+							ItemSlotButton btn = new ItemSlotButton(item);
+							row.buttons.add(btn);
+							pane.content().add(btn);
+						}
+
+						rows.add(row);
 					}
-				};
-				add(subClsDescs[i]);
-				add(subClsInfos[i]);
+				}
 			}
-
 		}
 
 		@Override
@@ -538,21 +589,47 @@ public class WndHeroInfo extends WndTabbed {
 
 			title.setPos((width-title.width())/2, MARGIN);
 			message.maxWidth((int)width);
-			message.setPos(0, title.bottom()+4*MARGIN);
+			message.setPos(0, title.bottom()+2*MARGIN);
 
-			float pos = message.bottom()+4*MARGIN;
+			float top = message.bottom() + 2*MARGIN;
 
-			for (int i = 0; i < subClsDescs.length; i++){
-				subClsDescs[i].maxWidth((int)width - 20);
-				subClsDescs[i].setPos(0, pos);
+			float y = 1;
+			int di = 0;
+			boolean first = true;
+			for (Row row : rows){
+				if (!first && di < dividers.size()){
+					ColorBlock divider = dividers.get(di++);
+					divider.x = 0;
+					divider.y = y;
+					divider.size(width, 1);
+					y += 4;
+				}
+				first = false;
 
-				subClsInfos[i].setRect(width-20, subClsDescs[i].top() + (subClsDescs[i].height()-20)/2, 20, 20);
+				row.label.setPos(0, y);
+				y = row.label.bottom() + 1;
 
-				pos = subClsDescs[i].bottom() + 4*MARGIN;
+				row.desc.maxWidth((int)width - GAP);
+				row.desc.setPos(0, y);
+				y = row.desc.bottom() + GAP;
+
+				for (int i = 0; i < row.buttons.size(); i++){
+					int r = i / COLS;
+					int c = i % COLS;
+					row.buttons.get(i).setRect(
+							GAP + c * CELL,
+							y + r * CELL,
+							ItemSlotButton.BTN, ItemSlotButton.BTN);
+				}
+				int btnRows = Math.max(1, (row.buttons.size() + COLS - 1) / COLS);
+				y += btnRows * CELL + 2;
 			}
 
-			height = Math.max(height, pos - 4*MARGIN);
+			float listH = Math.max(24, y);
+			pane.setRect(0, top, width, listH);
+			pane.content().setSize(width, Math.max(listH, y));
 
+			height = Math.max(height, top + listH);
 		}
 	}
 

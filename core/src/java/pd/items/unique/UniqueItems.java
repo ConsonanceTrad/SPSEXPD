@@ -204,6 +204,54 @@ public final class UniqueItems {
 		return sb.toString();
 	}
 
+	/** SPSEXPD: 某条路线的特色描述（同一组共用一行，用于选角界面的专精页）。 */
+	public static String routeDesc( UniqueFamily family, int tier, int branch ) {
+		if (family == null) return "";
+		return pd.messages.Messages.get( UniqueItems.class,
+				"route_" + family.name().toLowerCase() + "_" + tier + "_" + branch );
+	}
+
+	//SPSEXPD: inline Chinese text —— 9 族 × 一/二档 × 两条路线
+	static {
+		pd.messages.InlineText.of( UniqueItems.class )
+			.t("route_warrior_1_1", "把纹章留在护甲上：单一路线，但它从一开始就是完整的。")
+			.t("route_warrior_1_2", "以宝珠承载鲜血与英魂，把战士的战意存下来、一次放出去。")
+			.t("route_warrior_2_1", "镀金纹章把纹章的力量推到极致，牺牲的是换装自由。")
+			.t("route_warrior_2_2", "赤血与荣耀两条宝珠分支，分别偏向搏命与统帅。")
+			.t("route_mage_1_1", "奥法轴芯：把法杖吞进核心，用一条法术打天下。")
+			.t("route_mage_1_2", "秘银手杖与精致怀表：不靠施法，靠装备本身供能与计时。")
+			.t("route_mage_2_1", "奥法古籍把轴芯的容量推到九种法术，真正成为一本行走的法术书。")
+			.t("route_mage_2_2", "精金手杖与反转怀表：全杖供能，以及把时间倒回去一次。")
+			.t("route_rogue_1_1", "大盗之手：潜行、准备刺杀，顺手从别人身上摸走东西。")
+			.t("route_rogue_1_2", "暗夜手环与特工手枪：一边藏进夜里，一边在远处解决麻烦。")
+			.t("route_rogue_2_1", "神偷之手在潜行偷取之外，还能对空地瞬移。")
+			.t("route_rogue_2_2", "永夜手镯与无声手枪：更长的隐匿，以及几乎不惊动任何人的一枪。")
+			.t("route_huntress_1_1", "灵能袖箭：把几次射击提前压进袖口，出手时不占回合。")
+			.t("route_huntress_1_2", "灵能回旋镖：扔出去，走到落点附近就算接住，立刻再扔。")
+			.t("route_huntress_2_1", "袖箭·改把整个弹匣都能预装填。")
+			.t("route_huntress_2_2", "虚空回旋镖的弹道穿墙而过，接住判定依旧宽容。")
+			.t("route_duelist_1_1", "蓝钢刺剑：从八个方位挑开破绽，攒满当场斩杀。")
+			.t("route_duelist_1_2", "神木圆盾与符文绑带：先手吸收伤害，并给自己指定刻印。")
+			.t("route_duelist_2_1", "零素刺剑只要六个方位就能挑满破绽。")
+			.t("route_duelist_2_2", "队长之盾把吸收的伤害原样送回，柔钢绑带提供更高的防护。")
+			.t("route_performer_1_1", "魔音贝斯：阶位更高、命中溅射，还保留节拍。")
+			.t("route_performer_1_2", "电钻与次声波发生器：一个磨墙，一个把人定在原地。")
+			.t("route_performer_2_1", "闪电竖琴在溅射之外再射出一道闪电，踩满节拍还有玻璃保护。")
+			.t("route_performer_2_2", "神圣钻头与脉冲单元：钻得更快，也打得更狠。")
+			.t("route_soldier_1_1", "亚卡箭：把箭当作可控的飞行道具来用。")
+			.t("route_soldier_1_2", "电磁手炮与弹药箱：靠充能和弹药撑起持续火力。")
+			.t("route_soldier_2_1", "注射哨箭把药剂与射击绑在一起。")
+			.t("route_soldier_2_2", "MK-87 与炼金反应堆：把炼金能量直接灌进枪里。")
+			.t("route_follower_1_1", "银汤匙：充能无限，但每一次使用都在累积疲劳。")
+			.t("route_follower_1_2", "十字架与尖钉发射器：压低有害魔力，同时专打恶魔。")
+			.t("route_follower_2_1", "圣餐银匙的疲劳上限高得多，可以连用更久。")
+			.t("route_follower_2_2", "荆棘冠冕替你洗净诅咒，殉道者一次打出四颗弹丸。")
+			.t("route_ascetic_1_1", "斯安威斯坦：短暂让世界停住，只有你还在动。")
+			.t("route_ascetic_1_2", "回收机与强化义体工具箱：把击杀和食物变成材料，再造成义体。")
+			.t("route_ascetic_2_1", "二代斯安威斯坦的充能上限翻倍，子弹时间也更长。")
+			.t("route_ascetic_2_2", "重组机能用材料做食物，纳米义体可以拟态成任何一种义体。");
+	}
+
 	// ---------- 持有 / 完整性 ----------
 
 	/** 英雄当前持有的某族某档物品（含护甲上贴附的纹章）。 */
