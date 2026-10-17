@@ -126,10 +126,14 @@ public class MissileSprite extends ItemSprite implements Tweener.Listener {
 		originToCenter();
 
 		//adjust points so they work with the center of the missile sprite, not the corner
-		from.x -= width()/2;
-		to.x -= width()/2;
-		from.y -= height()/2;
-		to.y -= height()/2;
+		//SPSEXPD: 这里必须用**原始尺寸字段** width/height（不是 width()/height()）。originToCenter()
+		//把 origin 设成原始尺寸的一半，缩放围绕 origin 进行，视觉左上 = x + origin*(1-scale)。
+		//要让视觉中心落在格中心，偏移量就得是 origin 本身（= width/2）。用 width()/2（含 scale）
+		//会让 32x32 的高分辨率图标少减一半，飞行起点整体偏右下。
+		from.x -= width/2;
+		to.x -= width/2;
+		from.y -= height/2;
+		to.y -= height/2;
 
 		this.callback = listener;
 
