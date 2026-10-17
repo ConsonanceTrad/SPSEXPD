@@ -149,11 +149,15 @@ public class ItemSlot extends Button {
 		
 		//SPS: 图标自适应略缩——格子小于图标原生尺寸（移动端高缩放把格子缩到 16 以下）时
 		//按需缩小并居中，保持不溢出格子、不压到相邻格；格子 ≥16px 时 scale 恒为 1，渲染不变
+		//SPSEXPD: 上限再夹一层 ItemSprite.SIZE（16）——背包格常比 16 大，若只按 availW/sprite.width 算，
+		//32x32 的高分辨率图标会缩到"填满格子"（比如 20px），比旁边 16px 的物品明显大一圈
 		float availW = width - margin.left - margin.right;
 		float availH = height - margin.top - margin.bottom;
+		float capW = Math.min( availW, ItemSprite.SIZE );
+		float capH = Math.min( availH, ItemSprite.SIZE );
 		float iconScale = 1f;
 		if (sprite.width > 0 && sprite.height > 0) {
-			iconScale = Math.min( 1f, Math.min( availW / sprite.width, availH / sprite.height ) );
+			iconScale = Math.min( 1f, Math.min( capW / sprite.width, capH / sprite.height ) );
 		}
 		sprite.scale.set( iconScale );
 		sprite.x = x + margin.left + (availW - sprite.width()) / 2f;
