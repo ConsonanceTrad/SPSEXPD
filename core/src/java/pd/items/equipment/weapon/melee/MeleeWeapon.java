@@ -69,6 +69,8 @@ public class MeleeWeapon extends Weapon {
 			.t("stats_known", "这件_%1$d阶_近战武器可以造成_%2$d~%3$d点伤害_，并且需要_%4$d点力量_来正常使用。")
 			.t("stats_unknown", "一般情况下这件_%1$d阶_近战武器可以造成_%2$d~%3$d点伤害_，并且需要_%4$d点力量_来正常使用。")
 			.t("probably_too_heavy", "这件武器对你来说或许太重了。")
+			.t("stats_known_nostr", "这组 %d 阶的武器，伤害 %d~%d。")
+			.t("stats_unknown_nostr", "这组 %d 阶的武器，伤害 %d~%d（未鉴定）。")
 			.t("stats_desc", "")
 			.t("ability_need_equip", "你必须装备那把武器才能使用它的武技。")
 			.t("ability_low_str", "你的力量不足以使用这把武器的武技。")
@@ -332,9 +334,14 @@ public class MeleeWeapon extends Weapon {
 
 		String info = super.info();
 
+		//SPSEXPD: showStrength() 为 false 的武器（奥法轴芯/奥法古籍）不显示力量需求
+		boolean showStr = showStrength();
+
 		if (levelKnown) {
-			info += "\n\n" + Messages.get(MeleeWeapon.class, "stats_known", tier, augment.damageFactor(min()), augment.damageFactor(max()), STRReq());
-			if (Dungeon.hero != null) {
+			info += "\n\n" + (showStr
+					? Messages.get(MeleeWeapon.class, "stats_known", tier, augment.damageFactor(min()), augment.damageFactor(max()), STRReq())
+					: Messages.get(MeleeWeapon.class, "stats_known_nostr", tier, augment.damageFactor(min()), augment.damageFactor(max())));
+			if (showStr && Dungeon.hero != null) {
 				if (STRReq() > Dungeon.hero.STR()) {
 					info += " " + Messages.get(Weapon.class, "too_heavy");
 				} else if (Dungeon.hero.STR() > STRReq()) {
@@ -342,8 +349,10 @@ public class MeleeWeapon extends Weapon {
 				}
 			}
 		} else {
-			info += "\n\n" + Messages.get(MeleeWeapon.class, "stats_unknown", tier, min(0), max(0), STRReq(0));
-			if (Dungeon.hero != null && STRReq(0) > Dungeon.hero.STR()) {
+			info += "\n\n" + (showStr
+					? Messages.get(MeleeWeapon.class, "stats_unknown", tier, min(0), max(0), STRReq(0))
+					: Messages.get(MeleeWeapon.class, "stats_unknown_nostr", tier, min(0), max(0)));
+			if (showStr && Dungeon.hero != null && STRReq(0) > Dungeon.hero.STR()) {
 				info += " " + Messages.get(MeleeWeapon.class, "probably_too_heavy");
 			}
 		}

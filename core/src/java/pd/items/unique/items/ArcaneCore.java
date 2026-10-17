@@ -328,6 +328,12 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 		pushCharges();
 	}
 
+	/** SPSEXPD: 轴芯不显示力量需求（角标与详情都不显示）。 */
+	@Override
+	public boolean showStrength() {
+		return false;
+	}
+
 	@Override
 	public UniqueItemId uniqueId() {
 		return UNIQUE_ID;

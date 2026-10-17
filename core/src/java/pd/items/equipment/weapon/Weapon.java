@@ -175,6 +175,11 @@ abstract public class Weapon extends KindOfWeapon {
 	public boolean enchantHardened = false;
 	public boolean curseInfusionBonus = false;
 	public boolean masteryPotionBonus = false;
+
+	/** SPSEXPD: 是否在角标与详情里显示力量需求（奥法轴芯/奥法古籍覆写为 false）。 */
+	public boolean showStrength() {
+		return true;
+	}
 	private int spsDurability = 100;
 	
 	@Override
