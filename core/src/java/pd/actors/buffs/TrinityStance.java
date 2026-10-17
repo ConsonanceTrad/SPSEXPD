@@ -23,7 +23,7 @@ public class TrinityStance extends Buff {
 			.t("name", "距破之舞")
 			.t("state_charge", "冲锋姿态")
 			.t("state_defend", "防御姿态")
-			.t("desc", "以战舞控制三相之刃防护。\n\n期间获得 50% 的伤害减免，但无法移动且攻速减半。");
+			.t("desc", "以战舞控制先锋之刃防护。\n\n期间获得 50% 的伤害减免，但无法移动且攻速减半。");
 	}
 
 	public static final int MAX_LAYERS = 5;
@@ -45,7 +45,8 @@ public class TrinityStance extends Buff {
 
 	{
 		type = buffType.POSITIVE;
-		announced = true;
+		//SPSEXPD: 冲锋姿态是常态（装备即有），获得时不弹 buff 提示；只有切入防御姿态才需要让玩家知道
+		announced = false;
 		revivePersists = true;
 	}
 
