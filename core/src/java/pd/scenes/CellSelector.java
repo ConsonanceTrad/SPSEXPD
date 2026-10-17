@@ -159,10 +159,13 @@ public class CellSelector extends ScrollArea {
 					+ " heroReady=" + heroReady
 					+ " blockingHero=" + blocking
 					+ " listener=" + (listener == null ? "null" : listener.getClass().getName()));
-			//SPSEXPD: 英雄还在忙（heroReady=false，例如刚买完东西/刚行动完）时，点击只是"早了一步"，
-			//不应该 cancel 掉当前动作队列——原来无条件 GameScene.cancel() 会把这次点击彻底吞掉，
-			//表现为"点一次没反应、再点一次才动"。这里直接返回，玩家再点就能正常走到默认监听器。
-			if (!heroReady || !enabled) {
+			//SPSEXPD: enabled 必须复位。它只在 selectCell() 里被赋成 Dungeon.hero.ready，
+			//商店买完东西/交易窗口关闭时英雄还没 ready 就会留下 enabled=false，
+			//若不复位则之后每次点击都掉进这个分支、被吞到永远。
+			//它每次 selectCell() 都会被重设，所以这里置 true 是安全的、不会掩盖任何"真的不能选格"状态。
+			enabled = true;
+			//SPSEXPD: 英雄还在忙（heroReady=false）时点击只是"早了一步"，不要 cancel 掉动作队列
+			if (!heroReady || blocking || cell == -1) {
 				return;
 			}
 			GameScene.cancel();
