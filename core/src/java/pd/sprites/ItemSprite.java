@@ -189,10 +189,14 @@ public class ItemSprite extends MovieClip {
 	
 	public PointF worldToCamera( int cell ) {
 		final int csize = DungeonTilemap.SIZE;
-		
+		//SPSEXPD: 视觉尺寸一律用「原始尺寸字段 × 缓存系数 iconFit」，不读 width()/height()。
+		//后者含「当前 scale」，若 place() 早于 draw() 执行（scale 还是 1），32x32 图标会按 32px
+		//算居中，整条飞行轨迹偏半格；落点因为 landDrop 里重新 place 过所以看着正常。
+		float visW = width * iconFit;
+		float visH = height * iconFit;
 		return new PointF(
-				PixelScene.align(Camera.main, ((cell % Dungeon.level.width()) + 0.5f) * csize - width() * 0.5f),
-				PixelScene.align(Camera.main, ((cell / Dungeon.level.width()) + 1.0f) * csize - height() - csize * perspectiveRaise)
+				PixelScene.align(Camera.main, ((cell % Dungeon.level.width()) + 0.5f) * csize - visW * 0.5f),
+				PixelScene.align(Camera.main, ((cell / Dungeon.level.width()) + 1.0f) * csize - visH - csize * perspectiveRaise)
 		);
 	}
 	
@@ -398,9 +402,10 @@ public class ItemSprite extends MovieClip {
 		if (texture == null || (!dirty && buffer == null))
 			return;
 
-		//SPSEXPD: 地面精灵每帧按缓存系数套一次缩放——位置（worldToCamera 用 width()/height()）
-		//与视觉必须同源，否则 32x32 图标会按 32px 宽算出生点，看起来向右偏半格
-		if (heap != null) scale.set( iconFit, iconFit );
+		//SPSEXPD: 高分辨率图标（32x32 → iconFit=0.5）在任何绘制路径下都必须收着画。
+		//这里无条件夹一次并取更小值：地面精灵的 scale 可能被重置成 1（对象池/别处），
+		//飞入背包等 UI 精灵也走同一入口；而 ItemSlot 若要更小（格小于 16px）仍取它自己的值。
+		scale.set( Math.min( scale.x, iconFit ), Math.min( scale.y, iconFit ) );
 
 		if (renderShadow) {
 			if (dirty) {
