@@ -503,7 +503,9 @@ public class GunWeapon extends SpsRangedWeapon implements SpsAutoFire {
 				+ "\n\n"
 				+ Messages.get(GunWeapon.class, "stats_3", fullCharge, shotsPerFire, num(baseReloadTime), effectiveRange)
 				+ "\n\n"
-				+ Messages.get(GunWeapon.class, "charge", charge, fullCharge);
+				+ Messages.get(GunWeapon.class, "charge", charge, fullCharge)
+				//SPSEXPD: 本方法绕过了 EquipableItem.info()，镶嵌的宝珠要在这里补署名
+				+ pd.items.EquipableItem.orbAttachedLine(this);
 	}
 
 	/** SPSEXPD: 整数就不带小数点（1 / 0.5）。 */

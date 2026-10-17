@@ -146,6 +146,15 @@ public abstract class EquipableItem extends Item {
 		return info + "\n\n" + Messages.get(EquipableItem.class, "orb_attached", orb.name());
 	}
 
+	/**
+	 * SPSEXPD: 给「自己拼接 info()、绕过 EquipableItem.info()」的武器补上宝珠署名。
+	 * 返回空串表示这件装备上没有宝珠。
+	 */
+	public static String orbAttachedLine( EquipableItem item ) {
+		if (item == null || item.orb == null) return "";
+		return "\n\n" + Messages.get(EquipableItem.class, "orb_attached", item.orb.name());
+	}
+
 	/** SPSEXPD: 装备到副手栏（副武器/副护甲）。默认不支持，由武器与护甲覆写。 */
 	public boolean doEquipSecondary( Hero hero ){
 		return false;
