@@ -12,6 +12,8 @@ import pd.messages.InlineText;
 import pd.messages.Messages;
 import pd.utils.GLog;
 
+import java.util.ArrayList;
+
 /**
  * SPSEXPD: 神木圆盾（独特）—— 决斗一档（面具 B 路线）的副手武器。
  *
@@ -42,6 +44,14 @@ public class RoundShieldUnique extends RoundShield implements UniqueItem {
 		if (hero.belongings.weapon instanceof RoundShieldUnique) return (RoundShieldUnique) hero.belongings.weapon;
 		if (hero.belongings.secondWep instanceof RoundShieldUnique) return (RoundShieldUnique) hero.belongings.secondWep;
 		return null;
+	}
+
+	/** SPSEXPD: 这面盾没有主动技能——只保留「先攻」这个被动。 */
+	@Override
+	public ArrayList<String> actions(Hero hero) {
+		ArrayList<String> actions = super.actions(hero);
+		actions.remove(AC_ABILITY);
+		return actions;
 	}
 
 	/** SPSEXPD: 英雄是否带着任意一种「先攻盾」（圆盾 / 队长之盾）。 */

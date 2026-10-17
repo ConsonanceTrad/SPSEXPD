@@ -2122,9 +2122,11 @@ public class Hero extends Char {
 	public int attackProc( final Char enemy, int damage ) {
 		damage = super.attackProc( enemy, damage );
 
-		//SPSEXPD: 先攻盾——你命中过的敌人会被留下「先攻」标记
+		//SPSEXPD: 先攻盾——只有「你抢先命中了它」才留「先攻」标记。
+		//如果它已经对你造成过伤害（StruckHeroFirst），就不再算你先手
 		if (enemy != null && enemy != this
-				&& pd.items.unique.items.RoundShieldUnique.hasFirstStrikeShield(this)) {
+				&& pd.items.unique.items.RoundShieldUnique.hasFirstStrikeShield(this)
+				&& enemy.buff(pd.actors.buffs.StruckHeroFirst.class) == null) {
 			Buff.affect(enemy, pd.actors.buffs.FirstStrike.class);
 		}
 
@@ -2349,9 +2351,16 @@ public class Hero extends Char {
 		float damage = dmg;
 		if (FishBone.protectsFrom(this, src)) damage = 0;
 
-		//SPSEXPD: 神木圆盾/队长之盾——吸收「先攻」目标的首次物理伤害（队长之盾还会反射）
+		//SPSEXPD: 神木圆盾/队长之盾——吸收「先攻」目标的首次物理伤害（队长之盾还会反射）。
+		//同时给它盖上「它先动了手」的标记，并撤掉先攻：先攻只认可真正的先手，
+		//一旦它已经伤害过你，之后你再打它也不会重新获得先攻。
 		if (src instanceof Char) {
-			damage = pd.items.unique.items.RoundShieldUnique.absorbFirstStrike(this, (Char) src, damage);
+			Char attacker = (Char) src;
+			if (attacker.alignment != Char.Alignment.ALLY) {
+				Buff.detach(attacker, pd.actors.buffs.FirstStrike.class);
+				Buff.affect(attacker, pd.actors.buffs.StruckHeroFirst.class);
+			}
+			damage = pd.items.unique.items.RoundShieldUnique.absorbFirstStrike(this, attacker, damage);
 		}
 
 		//SPSEXPD: 十字架/荆棘冠冕——压低有害魔力的伤害，并累计荆棘冠冕的受击计数
