@@ -528,13 +528,17 @@ public class Hero extends Char {
 	private static final String SPS_CARRIED_COMBO = "sps_carried_combo";
 	public int spsCarriedCombo = 0;
 
-	/** SPSEXPD: 护甲上是否贴附了提供连击的纹章（完整纹章 / 镀金纹章）——贴了就能积累连击，不要求角斗士。 */
+	/** SPSEXPD: 护甲上是否贴附了提供连击的纹章（完整纹章 / 镀金纹章）——贴了就能积累连击，不要求角斗士。
+	 *  主护甲与副护甲都算（双甲体系下纹章可能贴在副甲上）。 */
 	public boolean comboSealEquipped(){
 		if (belongings == null) return false;
-		pd.items.equipment.armor.Armor armor = belongings.armor();
-		if (armor == null) return false;
-		BrokenSeal seal = armor.checkSeal();
-		return seal != null && seal.providesCombo();
+		for (pd.items.equipment.armor.Armor armor :
+				new pd.items.equipment.armor.Armor[]{ belongings.armor(), belongings.secondArmor }) {
+			if (armor == null) continue;
+			BrokenSeal seal = armor.checkSeal();
+			if (seal != null && seal.providesCombo()) return true;
+		}
+		return false;
 	}
 
 	@Override
