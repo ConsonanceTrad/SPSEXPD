@@ -61,7 +61,7 @@ public final class UniqueItems {
 		REGISTRY.put( UniqueItemId.DUELIST_SHIELD_BASE_A, GauntletShield::new );
 		REGISTRY.put( UniqueItemId.DUELIST_SHIELD_BASE_B, BraceletArmor::new );
 		REGISTRY.put( UniqueItemId.PERFORMER_SHOVEL_BASE_A, Shovel::new );
-		REGISTRY.put( UniqueItemId.PERFORMER_SHOVEL_BASE_B, Megaphone::new );
+		REGISTRY.put( UniqueItemId.PERFORMER_SHOVEL_BASE_B, pd.items.unique.items.Metronome::new );
 		REGISTRY.put( UniqueItemId.SOLDIER_GUN_BASE_A, GunOfSoldier::new );
 		REGISTRY.put( UniqueItemId.SOLDIER_GUN_BASE_B, EndlessAmmoBag::new );
 		REGISTRY.put( UniqueItemId.FOLLOWER_CUSHION_BASE_A, Futon::new );

@@ -3137,6 +3137,14 @@ public class Hero extends Char {
 		if (step == pos && belongings.secondArmor() instanceof pd.items.unique.items.ClogArmor) {
 			Buff.affect(this, pd.actors.buffs.ClogMomentum.class).step();
 		}
+
+		//SPSEXPD: 节拍器——踩拍判定（踩满四拍给出不耗回合的奖励）
+		if (step == pos) {
+			pd.actors.buffs.MetronomeBeat beat = buff(pd.actors.buffs.MetronomeBeat.class);
+			if (beat != null && beat.onMoved(this)) {
+				pd.items.unique.items.Metronome.grantReward(this);
+			}
+		}
 	}
 	
 	@Override

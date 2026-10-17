@@ -23,9 +23,9 @@ import render.noosa.audio.Sample;
  * <p>装备在副手栏后，点击 {@link #MAX_RANGE} 格内的敌人即可隔空喊出一击：
  * 距离越远伤害衰减越多（1 格 120% → 6 格 20%），代价是这一嗓子会_唤醒攻击范围内的所有敌人_。</p>
  */
-public class Megaphone extends GauntletShield implements UniqueItem, SpsAutoFire {
+public class Megaphone extends GauntletShield implements SpsAutoFire {
 
-	public static final UniqueItemId UNIQUE_ID = UniqueItemId.PERFORMER_SHOVEL_BASE_B;
+
 
 	/** 最大攻击距离（格）。 */
 	public static final int MAX_RANGE = 6;
@@ -102,8 +102,4 @@ public class Megaphone extends GauntletShield implements UniqueItem, SpsAutoFire
 		}
 	}
 
-	@Override
-	public UniqueItemId uniqueId() {
-		return UNIQUE_ID;
-	}
 }
