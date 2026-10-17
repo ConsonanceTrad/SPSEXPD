@@ -97,6 +97,9 @@ public class Buff extends Actor {
 	}
 	
 	public void detach() {
+		//SPSEXPD: target 可能为 null——例如 Wand.charge 里刚 new 出来、attachTo 还没成功的 Charger，
+		//随后被 stopCharging() 调 detach() 就会 NPE（测试时间开局 → 天狗面具 → detachAll 必踩）
+		if (target == null) return;
 		if (target.remove( this ) && target.sprite != null) fx( false );
 	}
 	
