@@ -359,8 +359,7 @@ public class SPDSettings extends GameSettings {
 
 	public static boolean systemFont(){
 		return getBoolean(KEY_SYSTEMFONT,
-				(language() == Languages.CHI_SMPL || language() == Languages.CHI_TRAD
-						|| language() == Languages.KOREAN || language() == Languages.JAPANESE));
+				(language() == Languages.CHI_SMPL || language() == Languages.CHI_TRAD));
 	}
 
 	public static void vibration(boolean value){
