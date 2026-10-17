@@ -317,7 +317,8 @@ public class Hero extends Char {
 		alignment = Alignment.ALLY;
 	}
 	
-	public static final int MAX_LEVEL = 30;
+	//SPSEXPD: 角色等级上限由 30 提高到 99
+	public static final int MAX_LEVEL = 99;
 
 	public static final int STARTING_STR = 10;
 	
