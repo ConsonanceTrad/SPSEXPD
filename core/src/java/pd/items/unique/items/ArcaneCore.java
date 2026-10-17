@@ -52,7 +52,7 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 			.t("switch_title", "选择要使用的法术")
 			.t("no_switch", "轴芯里只收录了一道法术，没什么可切换的。")
 			.t("switched", "轴芯转向了%s的法术。")
-			.t("desc", "一根空心的法师轴芯，可以像老法杖一样施法。\n\n「吞噬」：把一根法杖喂给它——法杖本体就此消融，只留下那道_法术_被轴芯收录。最多收录 _%1$d 道_法术。\n\n「切换法术」：在已收录的法术之间自由切换，想用哪道就用哪道。\n\n它的_能量上限不看等级_：基础 _2 点_，每收录一道法术 _+4 点_。_充能速度_也随收录数提高：空着时约 _20 回合_回 1 点，每多收录一道快 _50%%_。\n\n吞噬时与老法杖灌注同规则：会继承比自己等级更高的法杖等级，等级相等时额外获得一次_免费升级_。");
+			.t("desc", "一根空心的法师轴芯，可以像老法杖一样施法。\n\n「吞噬」：把一根法杖喂给它——法杖本体就此消融，只留下那道_法术_被轴芯收录。最多收录 _%1$d 道_法术。\n\n「切换法术」：在已收录的法术之间自由切换，想用哪道就用哪道。\n\n它的_能量上限不看等级_：基础 _2 点_，每收录一道法术 _+2 点_。_充能速度_也随收录数提高：空着时约 _30 回合_回 1 点，每多收录一道快 _50%%_。\n\n吞噬时与老法杖灌注同规则：会继承比自己等级更高的法杖等级，等级相等时额外获得一次_免费升级_。");
 	}
 
 	/** SPSEXPD: 已收录的法术（法杖实例，只保留法术本身）。 */
@@ -98,7 +98,7 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 	 * 每收录一道 +{@link #CAPACITY_PER_SPELL} 点。奥法古籍沿用同一套模型（只是能收更多道）。
 	 */
 	public static final int BASE_CAPACITY = 2;
-	public static final int CAPACITY_PER_SPELL = 4;
+	public static final int CAPACITY_PER_SPELL = 2;
 	/** SPSEXPD: 每收录一道法术，充能速度 +50%。 */
 	public static final float REGEN_PER_SPELL = 0.5f;
 
@@ -119,7 +119,7 @@ public class ArcaneCore extends MagesStaff implements UniqueItem {
 	protected float corePartial;
 
 	/** SPSEXPD: 0 收录时的自然充能回合数（每收录一道快 50%）。 */
-	public static final float BASE_TURNS_TO_CHARGE = 20f;
+	public static final float BASE_TURNS_TO_CHARGE = 30f;
 
 	/**
 	 * SPSEXPD: 轴芯的自然充能——由自己身上的 {@link CoreCharger} 每回合驱动，
