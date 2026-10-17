@@ -46,8 +46,8 @@ public class WndCombo extends Window {
 
 
 
-	private static final int WIDTH_P = 120;
-	private static final int WIDTH_L = 180;
+	private static final int WIDTH_P = 110;
+	private static final int WIDTH_L = 150;
 
 	private static final int MARGIN  = 2;
 
@@ -73,6 +73,9 @@ public class WndCombo extends Window {
 		}
 
 		for (Combo.ComboMove move : Combo.ComboMove.values()) {
+
+			//SPSEXPD: 只列当前护甲阶位可用的那两个战技（战技本身按阶位分组，每组两个）
+			if (!move.allowedForTier(Combo.armorTier())) continue;
 
 			String text = "_" + Messages.titleCase(move.title()) + " " + Messages.get(this, "combo_req", move.comboReq) + ":_ " + move.desc(combo.getComboCount());
 			RedButton moveBtn = new RedButton(text, 6){
