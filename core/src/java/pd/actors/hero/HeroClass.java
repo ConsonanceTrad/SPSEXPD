@@ -1479,8 +1479,9 @@ public enum HeroClass {
 				default:
 					l.equip(ItemSlot.WEAPON, () -> new Triangolo(), 0, null);
 					l.equip(ItemSlot.ARMOR, () -> new ClothArmor(), 0, null);
-					//SPSEXPD: 演员第二件专属物品——扩音筒（特殊副武器，占位）
-					l.equip(ItemSlot.SECOND_WEP, () -> new pd.items.unique.items.Megaphone(), 0, null);
+					//SPSEXPD: 演员专属物品——节拍器（神器，节拍器 + 义体线的基底）
+					l.equip(ItemSlot.ARTIFACT, () -> new pd.items.unique.items.Metronome(), 0, null);
+					l.backpack(() -> new pd.items.unique.items.Megaphone(), 0, 1, 0, null);
 					l.backpack(() -> new Shovel(), 0, 1, 0, null);
 					l.backpack(() -> new SpsFireBomb());
 					l.backpack(() -> new IceBomb());
