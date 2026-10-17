@@ -189,19 +189,20 @@ public class ItemSprite extends MovieClip {
 	
 	public PointF worldToCamera( int cell ) {
 		final int csize = DungeonTilemap.SIZE;
-		//SPSEXPD: 视觉尺寸一律用「原始尺寸字段 × 缓存系数 iconFit」，不读 width()/height()。
-		//后者含「当前 scale」，若 place() 早于 draw() 执行（scale 还是 1），32x32 图标会按 32px
-		//算居中，整条飞行轨迹偏半格；落点因为 landDrop 里重新 place 过所以看着正常。
-		float visW = width * iconFit;
-		float visH = height * iconFit;
+		//SPSEXPD: place() 会先把 scale 锁到 iconFit，所以这里的 width()/height() 一定是"视觉尺寸"，
+		//32x32 图标与普通 16px 图标算出的起落点完全一致
 		return new PointF(
-				PixelScene.align(Camera.main, ((cell % Dungeon.level.width()) + 0.5f) * csize - visW * 0.5f),
-				PixelScene.align(Camera.main, ((cell / Dungeon.level.width()) + 1.0f) * csize - visH - csize * perspectiveRaise)
+				PixelScene.align(Camera.main, ((cell % Dungeon.level.width()) + 0.5f) * csize - width() * 0.5f),
+				PixelScene.align(Camera.main, ((cell / Dungeon.level.width()) + 1.0f) * csize - height() - csize * perspectiveRaise)
 		);
 	}
 	
 	public void place( int p ) {
 		if (Dungeon.level != null) {
+			//SPSEXPD: 先把缩放锁到当前图标的 iconFit，再算位置——保证 width()/height()
+			//（含 scale）与视觉尺寸同源；否则 32x32 图标在 scale 还是 1 时会被当成 32px 宽，
+			//飞行的起点/落点都会偏半格
+			scale.set( iconFit, iconFit );
 			point(worldToCamera(p));
 			shadowOffset = 0.5f;
 		}
