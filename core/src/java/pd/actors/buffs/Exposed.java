@@ -1,6 +1,9 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.actors.buffs;
 
+import pd.messages.InlineText;
+import pd.messages.Messages;
+import pd.ui.BuffIndicator;
 import render.utils.serialize.Bundle;
 
 /**
@@ -11,6 +14,13 @@ import render.utils.serialize.Bundle;
  */
 public class Exposed extends Buff {
 
+	//SPSEXPD: inline Chinese text
+	static {
+		InlineText.of(Exposed.class)
+			.t("name", "破绽百出")
+			.t("desc", "已被从 _%1$d_ 个方位挑开破绽（共需 _%2$d_ 个）。攒满后，刺剑的下一击会当场斩杀。");
+	}
+
 	private static final String DIRECTIONS = "directions";
 	private static final String REQUIRED = "required";
 
@@ -20,6 +30,17 @@ public class Exposed extends Buff {
 
 	{
 		type = buffType.NEGATIVE;
+	}
+
+	/** SPSEXPD: 破绽必须在敌方详情页/状态栏可见——默认 icon() 是 NONE，不覆写就完全不显示。 */
+	@Override
+	public int icon() {
+		return BuffIndicator.TARGETED;
+	}
+
+	@Override
+	public String desc() {
+		return Messages.get(this, "desc", count(), required);
 	}
 
 	public Exposed setup(int required) {
