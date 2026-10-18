@@ -27,7 +27,7 @@ public class Metronome extends Artifact implements UniqueItem {
 	public static final UniqueItemId UNIQUE_ID = UniqueItemId.PERFORMER_SHOVEL_BASE_B;
 
 	/** SPSEXPD: 诊断只打一次。 */
-	private static boolean equippedLogged = false;
+	private static boolean lastEquippedState = false;
 
 	//SPSEXPD: inline Chinese text
 	static {
@@ -102,16 +102,16 @@ public class Metronome extends Artifact implements UniqueItem {
 		return hero.belongings.getItem(Metronome.class) != null;
 	}
 
-	/**
-	 * SPSEXPD: 诊断——把神器槽里到底是什么类打出来，确认 equipped() 为什么判定失败。
-	 */
+	/** SPSEXPD: 诊断——把神器槽内容打出来。每次状态变化时打一行，便于看出读档后有没有恢复。 */
 	public static void debugEquipped(Hero hero) {
 		if (hero == null) { System.err.println("[SPSEXPD] Metronome.equipped: hero=null"); return; }
 		Object slot = hero.belongings.artifact;
+		boolean isM = slot instanceof Metronome;
+		boolean inBag = hero.belongings.getItem(Metronome.class) != null;
 		System.err.println("[SPSEXPD] Metronome.equipped: slotType="
 				+ (slot == null ? "null" : slot.getClass().getName())
-				+ " isMetronome=" + (slot instanceof Metronome)
-				+ " bagHasMetronome=" + (hero.belongings.getItem(Metronome.class) != null)
+				+ " isMetronome=" + isM
+				+ " bagHasMetronome=" + inBag
 				+ " result=" + equipped(hero));
 	}
 
@@ -126,12 +126,13 @@ public class Metronome extends Artifact implements UniqueItem {
 	public static int currentBeatCell() {
 		Hero hero = Dungeon.hero;
 		if (hero == null) return -1;
-		//SPSEXPD: 诊断——装备节拍器后仍报 cell=-1 时，这行会指出 equipped() 为何为 false
-		if (!equippedLogged) {
-			equippedLogged = true;
+		boolean now = equipped(hero);
+		//SPSEXPD: 诊断——只在"是否装备"状态变化时打一行（启动时还没读档，会打一次 false；读档/装备后再打一次 true）
+		if (now != lastEquippedState) {
+			lastEquippedState = now;
 			debugEquipped(hero);
 		}
-		if (!equipped(hero)) return -1;
+		if (!now) return -1;
 		MetronomeBeat beat = hero.buff(MetronomeBeat.class);
 		if (beat == null) beat = Buff.affect(hero, MetronomeBeat.class);
 		if (beat.beatCell() < 0 && !beat.awaiting()) beat.autoBeat(hero);
