@@ -1588,7 +1588,6 @@ public class Hero extends Char {
 		//表现为"点一下没反应、再点一次才走"。源点与当前位置不一致时重建一次。
 		if (action.dst != pos
 				&& pd.mechanics.pathfind.PathFinder.distance[action.dst] == 0) {
-			System.err.println("[SPSEXPD] actMove: rebuilding distance map (stale source) dst=" + action.dst + " pos=" + pos);
 			pd.mechanics.pathfind.PathFinder.buildDistanceMap(pos,
 					render.utils.data.BArray.not(Dungeon.level.solid, null), Integer.MAX_VALUE);
 		}
