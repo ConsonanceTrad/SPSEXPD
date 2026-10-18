@@ -48,6 +48,22 @@ public class CellSelector extends ScrollArea {
 	public Listener listener = null;
 	
 	public boolean enabled;
+
+	/**
+	 * SPSEXPD: 诊断——确认指针事件到底有没有送到这里。若「点击被吞」时连这行都没有，
+	 * 说明事件被排在它前面的某个 PointerArea（窗口 / 按钮 / 背包选框）返回 true 吞掉了。
+	 */
+	@Override
+	public boolean onSignal( render.input.PointerEvent event ) {
+		if (event != null && event.type == render.input.PointerEvent.Type.DOWN) {
+			System.err.println("[SPSEXPD] CellSelector got DOWN: active=" + active
+					+ " visible=" + visible
+					+ " hit=" + target.overlapsScreenPoint( (int)event.current.x, (int)event.current.y )
+					+ " handled=" + event.handled
+					+ " parent=" + (parent == null ? "null" : parent.getClass().getSimpleName()));
+		}
+		return super.onSignal( event );
+	}
 	
 	private float dragThreshold;
 	
