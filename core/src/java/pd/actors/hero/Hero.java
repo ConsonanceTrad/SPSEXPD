@@ -2691,6 +2691,10 @@ public class Hero extends Char {
 			return false;
 		}
 
+		//SPSEXPD: 任何一次行动指令都应当打断休息（长按等待进入的「睡眠」）——
+		//键盘移动等路径不经过 CellSelector.select，这里补一道。
+		resting = false;
+
 		if (fieldOfView == null || fieldOfView.length != Dungeon.level.length()){
 			fieldOfView = new boolean[Dungeon.level.length()];
 			FieldOfView.update( Dungeon.level,  this, fieldOfView );

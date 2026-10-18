@@ -153,6 +153,11 @@ public class CellSelector extends ScrollArea {
 	public void select( int cell, int button ) {
 		boolean heroReady = Dungeon.hero.ready;
 		boolean blocking = GameScene.interfaceBlockingHero();
+		//SPSEXPD: 休息（长按等待进入的「睡眠」）期间 hero.ready 恒为 false，下面的分支会把点击直接
+		//return 掉，表现为「睡着以后点哪都不醒」。休息不是动作队列，任何地图点击都该立刻打断它。
+		if (Dungeon.hero.resting && !blocking && cell != -1) {
+			Dungeon.hero.resting = false;
+		}
 		if (!(enabled && heroReady && !blocking && listener != null && cell != -1)) {
 			//SPSEXPD: 英雄还在忙（heroReady=false）时点击只是"早了一步"，不要 cancel 掉动作队列
 			if (!heroReady || blocking || cell == -1) {
