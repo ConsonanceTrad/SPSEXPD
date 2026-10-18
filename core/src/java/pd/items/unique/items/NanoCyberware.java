@@ -17,7 +17,7 @@ import render.utils.math.Random;
 import java.util.ArrayList;
 
 /**
- * SPSEXPD: 纳米义体 —— 苦修者二档（王冠 B 路线）的神器。
+ * SPSEXPD: 纳米义体 —— 苦修者二档（王冠 B 路线）的背包道具。
  *
  * <p>它既能像义体工具箱那样造临时义体，也能_把自己随机拟态成某一种义体的功能_，
  * 想换就一直换下去。</p>

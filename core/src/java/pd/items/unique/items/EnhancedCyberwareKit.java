@@ -11,7 +11,7 @@ import pd.utils.GLog;
 import pd.windows.WndOptions;
 
 /**
- * SPSEXPD: 强化义体工具箱 —— 苦修者一档（面具 B 路线）的神器。
+ * SPSEXPD: 强化义体工具箱 —— 苦修者一档（面具 B 路线）的背包道具（同样不是神器）。
  *
  * <p>造出来的义体_电量更强_，而且会一次给出 _3 种_让你自己挑。</p>
  */
