@@ -391,23 +391,7 @@ public class Toolbar extends Component {
 
 			@Override
 			protected String hoverText() {
-				String base = Messages.titleCase(Messages.get(WndKeyBindings.class, "examine"));
-				if (GameScene.cautiousMove){
-					return base + " / " + Messages.get(Toolbar.class, "cautious_on");
-				}
-				return base;
-			}
-			
-			//SPS: 长按 = 开关谨慎移动（原搜寻移到双击）
-			@Override
-			protected boolean onLongClick() {
-				GameScene.cautiousMove = !GameScene.cautiousMove;
-				if (!GameScene.cautiousMove){
-					GameScene.clearHeroPath();
-				}
-				GLog.g(Messages.get(Toolbar.class,
-						GameScene.cautiousMove ? "cautious_on" : "cautious_off"));
-				return true;
+				return Messages.titleCase(Messages.get(WndKeyBindings.class, "examine"));
 			}
 		});
 		btnSearch.icon( 192, 0, 16, 16 );

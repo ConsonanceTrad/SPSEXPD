@@ -218,8 +218,10 @@ public class GameScene extends PixelScene {
 	private static int pathTarget = -1;
 	//SPS: 是否已进入「首次点击仅预览」的锁定状态
 	private static boolean lockedTarget = false;
-	//SPS: 谨慎移动开关（长按检视按钮切换）
-	public static boolean cautiousMove = false;
+	//SPSEXPD: 谨慎移动已移除（用户裁决）。字段保留恒为 false，只是为了让下游零改动即可短路；
+	//原来的语义是"首次点击只预览路径、再点同一格才走"，与"点一下就该动"冲突，且那次
+	//静默 return 是"点击被吞"的真正来源。
+	public static final boolean cautiousMove = false;
 	//SPS: 目标格上站着生物时记下来，路径预览每帧跟随它的新位置
 	private static Mob pathTrackedMob = null;
 	private GridTileMap visualGrid;
@@ -2094,23 +2096,9 @@ public class GameScene extends PixelScene {
 				return;
 			}
 
-			//SPSEXPD: 诊断——谨慎移动的"首次点击只预览路径"分支也是静默 return，不打任何日志
-			System.err.println("[SPSEXPD] defaultCellListener.onSelect: cell=" + cell
-					+ " cautiousMove=" + cautiousMove
-					+ " lockedTarget=" + lockedTarget
-					+ " pathTarget=" + pathTarget
-					+ " previewOnly=" + (cautiousMove && !(lockedTarget && pathTarget == cell)));
-
-			//SPS: 谨慎移动——首次点击只预览路径（相机不返回），再点同一格才真正移动
-			if (cautiousMove && !(lockedTarget && pathTarget == cell)){
-				pathTarget = cell;
-				lockedTarget = true;
-				//SPS: 换目标时解除对原生物的跟踪，否则 update() 会把 pathTarget 拽回生物位置，
-				//导致锁定生物后无法脱离它去预设行动目的地
-				pathTrackedMob = null;
-				refreshHeroPath();
-				return;
-			}
+			//SPSEXPD: 谨慎移动已移除——不再"首次点击只预览路径"，点击一次就直接行动。
+			//原来这里有一条 `if (cautiousMove && !(lockedTarget && pathTarget == cell)) return;`，
+			//会让第一次点击静默落空（不打日志），表现为"点一下没反应、再点才行"。
 
 			//正常移动：记录目标，边走边显示路径（是否显示由设置决定）
 			lockedTarget = false;
