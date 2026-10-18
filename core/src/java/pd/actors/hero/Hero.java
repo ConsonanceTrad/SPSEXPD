@@ -1583,6 +1583,16 @@ public class Hero extends Char {
 
 	private boolean actMove( HeroAction.Move action ) {
 
+		//SPSEXPD: 距离图可能还是以**旧位置**为源（刚买完东西、刚切换目标、读完档等），
+		//那时 distance[dst] 会错误地为 0，getCloser() 就以为"已到达"而原地放弃，
+		//表现为"点一下没反应、再点一次才走"。源点与当前位置不一致时重建一次。
+		if (action.dst != pos
+				&& pd.mechanics.pathfind.PathFinder.distance[action.dst] == 0) {
+			System.err.println("[SPSEXPD] actMove: rebuilding distance map (stale source) dst=" + action.dst + " pos=" + pos);
+			pd.mechanics.pathfind.PathFinder.buildDistanceMap(pos,
+					render.utils.data.BArray.not(Dungeon.level.solid, null), Integer.MAX_VALUE);
+		}
+
 		if (getCloser( action.dst )) {
 			justMoved = true;
 			canSelfTrample = false;
