@@ -51,6 +51,27 @@ public class MetronomeMark extends Component {
 		right.y = y;
 	}
 
+	private boolean drawLogged = false;
+
+	/**
+	 * SPSEXPD: 诊断——确认 draw() 到底有没有被调用、以及四条描边的实际参数。
+	 * 逻辑日志（cell/x/y/camera）已经证明数据都对，现在只差"有没有画"。
+	 */
+	@Override
+	public void draw() {
+		if (!drawLogged && visible) {
+			drawLogged = true;
+			System.err.println("[SPSEXPD] MetronomeMark.draw: self(" + (int)x + "," + (int)y
+					+ " vis=" + visible + " active=" + active
+					+ ") top(" + (int)top.x + "," + (int)top.y + " " + (int)top.width() + "x" + (int)top.height()
+					+ " vis=" + top.visible + ")"
+					+ " bottom(" + (int)bottom.x + "," + (int)bottom.y + " " + (int)bottom.width() + "x" + (int)bottom.height() + ")"
+					+ " left(" + (int)left.x + "," + (int)left.y + " " + (int)left.width() + "x" + (int)left.height() + ")"
+					+ " right(" + (int)right.x + "," + (int)right.y + " " + (int)right.width() + "x" + (int)right.height() + ")");
+		}
+		super.draw();
+	}
+
 	@Override
 	public void update() {
 		super.update();
