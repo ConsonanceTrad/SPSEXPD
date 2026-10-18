@@ -16,15 +16,15 @@ import render.noosa.ui.Component;
  */
 public class MetronomeMark extends Component {
 
-	private static final int COLOR = 0xFF8A00;   // 橙金色，不透明
+	//SPSEXPD: 必须是 8 位 ARGB（aa/rr/gg/bb）——TextureCache.createSolid 按 ARGB 解析，
+	//漏掉 alpha 字节（如 0xFF8A00）会被当成 alpha=0x00 的全透明色，表现为「描边看不见」。
+	private static final int COLOR = 0xFFFF8A00;   // 橙金色，不透明
 	private static final float EDGE = 2f;
 
 	private final ColorBlock top = new ColorBlock( DungeonTilemap.SIZE, EDGE, COLOR );
 	private final ColorBlock bottom = new ColorBlock( DungeonTilemap.SIZE, EDGE, COLOR );
 	private final ColorBlock left = new ColorBlock( EDGE, DungeonTilemap.SIZE, COLOR );
 	private final ColorBlock right = new ColorBlock( EDGE, DungeonTilemap.SIZE, COLOR );
-
-	private int lastCell = Integer.MIN_VALUE;
 
 	public MetronomeMark() {
 		super();
@@ -51,39 +51,11 @@ public class MetronomeMark extends Component {
 		right.y = y;
 	}
 
-	private boolean drawLogged = false;
-
-	/**
-	 * SPSEXPD: 诊断——确认 draw() 到底有没有被调用、以及四条描边的实际参数。
-	 * 逻辑日志（cell/x/y/camera）已经证明数据都对，现在只差"有没有画"。
-	 */
-	@Override
-	public void draw() {
-		if (!drawLogged && visible) {
-			drawLogged = true;
-			System.err.println("[SPSEXPD] MetronomeMark.draw: self(" + (int)x + "," + (int)y
-					+ " vis=" + visible + " active=" + active
-					+ ") top(" + (int)top.x + "," + (int)top.y + " " + (int)top.width() + "x" + (int)top.height()
-					+ " vis=" + top.visible + ")"
-					+ " bottom(" + (int)bottom.x + "," + (int)bottom.y + " " + (int)bottom.width() + "x" + (int)bottom.height() + ")"
-					+ " left(" + (int)left.x + "," + (int)left.y + " " + (int)left.width() + "x" + (int)left.height() + ")"
-					+ " right(" + (int)right.x + "," + (int)right.y + " " + (int)right.width() + "x" + (int)right.height() + ")");
-		}
-		super.draw();
-	}
-
 	@Override
 	public void update() {
 		super.update();
 
 		int cell = Metronome.currentBeatCell();
-		if (cell != lastCell) {
-			System.err.println( "[SPSEXPD] MetronomeMark: cell=" + cell
-					+ " x=" + (int)x + " y=" + (int)y
-					+ " camera=" + (camera == null ? "null" : "ok") );
-			lastCell = cell;
-		}
-
 		if (cell < 0 || Dungeon.level == null || Dungeon.hero == null
 				|| !Metronome.equipped( Dungeon.hero ) ) {
 			visible = false;
