@@ -1583,17 +1583,8 @@ public class Hero extends Char {
 
 	private boolean actMove( HeroAction.Move action ) {
 
-		//SPSEXPD: 距离图可能还是以**旧位置**为源（刚买完东西、刚切换目标、读完档等），
-		//那时 distance[dst] 会错误地为 0，getCloser() 就以为"已到达"而原地放弃，
-		//表现为"点一下没反应、再点一次才走"。源点与当前位置不一致时重建一次。
-		//⚠️ 必须用**两参重载**（无 limit）：三参版内部用 limit + 1 标记不可达，
-		//传 Integer.MAX_VALUE 会溢出成负数，距离全乱、重建了也没用。
-		if (action.dst != pos
-				&& pd.mechanics.pathfind.PathFinder.distance[action.dst] == 0) {
-			pd.mechanics.pathfind.PathFinder.buildDistanceMap(pos,
-					render.utils.data.BArray.not(Dungeon.level.solid, null));
-		}
-
+		//SPSEXPD: 注意——getCloser() 用的是 Dungeon.findPath，不看 PathFinder.distance，
+		//所以这里不需要重建距离图（早先那版重建是无效的，已移除）。
 		if (getCloser( action.dst )) {
 			justMoved = true;
 			canSelfTrample = false;
@@ -2637,7 +2628,18 @@ public class Hero extends Char {
 				}
 			}
 
-			if (path == null) return false;
+			if (path == null) {
+				//SPSEXPD: 诊断——寻路失败（Dungeon.findPath 返回 null 或旧 path 被清空）
+				System.err.println("[SPSEXPD] getCloser: NO PATH to " + target
+						+ " pos=" + pos
+						+ " adjacent=" + Dungeon.level.adjacent(pos, target)
+						+ " passable[tgt]=" + Dungeon.level.passable[target]
+						+ " visited[tgt]=" + Dungeon.level.visited[target]
+						+ " mapped[tgt]=" + Dungeon.level.mapped[target]
+						+ " fov[tgt]=" + fieldOfView[target]
+						+ " charAtTgt=" + (Actor.findChar(target) == null ? "none" : Actor.findChar(target).getClass().getSimpleName()));
+				return false;
+			}
 			step = path.removeFirst();
 
 		}
