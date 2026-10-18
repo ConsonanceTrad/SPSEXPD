@@ -2,8 +2,12 @@
 package pd.actors.buffs;
 
 import pd.Dungeon;
+import pd.actors.Actor;
 import pd.actors.hero.Hero;
+import pd.items.unique.items.Metronome;
 import pd.mechanics.pathfind.PathFinder;
+import pd.messages.InlineText;
+import pd.ui.BuffIndicator;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 
@@ -42,11 +46,27 @@ public class MetronomeBeat extends Buff {
 		type = buffType.POSITIVE;
 	}
 
-	/** SPSEXPD: 这一格能不能被标成拍子——可抵达即可（含陷阱格与虚空格）。 */
+	//SPSEXPD: inline Chinese text
+	static {
+		InlineText.of(MetronomeBeat.class)
+			.t("name", "节拍")
+			.t("desc", "节拍器标出的「下一拍」。走到标出的那一格就算踩中，连击 +1；踩满后下一次行动会被强化且不消耗回合——移动给护盾，攻击则强化该次攻击。");
+	}
+
+	/** SPSEXPD: 让它真正出现在 buff 栏——平时显示连击图标与「x/4」进度，
+	 *  攒满待结算时换成醒目的怒火图标并只显示「!」，提醒下一次行动会拿奖励。 */
+	@Override
+	public int icon() {
+		return awaiting ? BuffIndicator.FURY : BuffIndicator.COMBO;
+	}
+
+	/** SPSEXPD: 这一格能不能被标成拍子——可抵达（含陷阱格与虚空格）且格上（暂时）没有生物。 */
 	public static boolean designatable(int cell) {
 		if (Dungeon.level == null) return false;
 		if (!Dungeon.level.insideMap(cell)) return false;
-		return Dungeon.level.passable[cell] || Dungeon.level.avoid[cell];
+		if (!(Dungeon.level.passable[cell] || Dungeon.level.avoid[cell])) return false;
+		//SPSEXPD: 格子上站着生物（含英雄自己）则不作为候选
+		return Actor.findChar(cell) == null;
 	}
 
 	public int beats() {
@@ -72,12 +92,12 @@ public class MetronomeBeat extends Buff {
 			int cell = hero.pos + offset;
 			if (designatable(cell)) candidates.add(cell);
 		}
-		beatCell = candidates.isEmpty() ? -1 : candidates.get(Random.Int(candidates.size()));
+		beatCell = candidates.isEmpty() ? hero.pos : candidates.get(Random.Int(candidates.size()));
 	}
 
 	/**
-	 * SPSEXPD: 英雄一次行动结束后调用——先结算上一拍是否踩中，再自动定下一拍。
-	 * 连击攒满时进入 awaiting，等下一次行动决定奖励。
+	 * SPSEXPD: 一次移动<b>结束时</b>调用（长距离移动是逐格 act，只在落点结算）：先结算上一拍是否踩中，
+	 * 未攒满则生成下一拍。
 	 */
 	public void afterAction(Hero hero) {
 		if (hero == null) return;
@@ -100,16 +120,26 @@ public class MetronomeBeat extends Buff {
 		return mode;
 	}
 
-	/** SPSEXPD: 进入 waiting 之前不再自动定拍，发奖后由调用方重新 autoBeat。 */
-	public void finishReward(Hero hero) {
+	/** SPSEXPD: 结束本轮（清 awaiting 与连击）。是否重掷新节拍格由调用方决定——
+	 *  只有「这一次行为是移动」才重掷，保证高亮格只在移动后变化。 */
+	public void finishReward() {
 		awaiting = false;
 		beats = 0;
-		autoBeat(hero);
 	}
 
 	@Override
 	public boolean act() {
-		//SPSEXPD: 节拍只在英雄行动后推进（见 afterAction），buff 自己不做任何事
+		//SPSEXPD: 节拍只在英雄行动后推进（见 afterAction），buff 自己不做任何事。
+		//这里只做两件兜底：①没装节拍器神器（只拿着魔音贝斯/闪电竖琴）时没人帮着定拍，由自己补上；
+		//②身上已经没有任何节拍源（节拍器与魔音贝斯都不在了）时把自己摘掉，免得 buff 与高亮残留。
+		if (target instanceof Hero) {
+			Hero hero = (Hero) target;
+			if (!Metronome.equipped(hero)) {
+				detach();
+				return true;
+			}
+			if (beatCell < 0 && !awaiting) autoBeat(hero);
+		}
 		spend(TICK);
 		return true;
 	}

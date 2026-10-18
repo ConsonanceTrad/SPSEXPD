@@ -18,7 +18,8 @@ public class MetronomeMark extends Component {
 
 	//SPSEXPD: 必须是 8 位 ARGB（aa/rr/gg/bb）——TextureCache.createSolid 按 ARGB 解析，
 	//漏掉 alpha 字节（如 0xFF8A00）会被当成 alpha=0x00 的全透明色，表现为「描边看不见」。
-	private static final int COLOR = 0xFFFF8A00;   // 橙金色，不透明
+	//alpha 取 0x66（≈40% 不透明度），让高亮格更好地融入地面背景。
+	private static final int COLOR = 0x66FF8A00;   // 橙金色，40% 不透明
 	private static final float EDGE = 2f;
 
 	private final ColorBlock top = new ColorBlock( DungeonTilemap.SIZE, EDGE, COLOR );

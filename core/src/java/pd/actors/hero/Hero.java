@@ -1320,6 +1320,11 @@ public class Hero extends Char {
 		if (danceLion != null) danceLion.gainCharge();
 		BShovel bShovel = belongings.getItem(BShovel.class);
 		if (bShovel != null) bShovel.gainCharge();
+		//SPSEXPD: 次声波发生器 / 脉冲单元（与铁铲同类的特殊物品）也每回合自行回充能
+		for (pd.items.unique.items.InfrasonicGen infra :
+				belongings.getAllItems(pd.items.unique.items.InfrasonicGen.class)) {
+			infra.gainCharge();
+		}
 		//SPSEXPD: 神圣护盾不再逐回合自然回复——改由重生十字架的「充能」动作消耗安卡补充（见 Ankh）
 		JumpW jumpW = belongings.getItem(JumpW.class);
 		if (jumpW != null) jumpW.gainCharge();
@@ -1425,6 +1430,7 @@ public class Hero extends Char {
 			ready = false;
 
 			//SPSEXPD: 节拍器要看「本次行动是不是移动」——curAction 执行后会被清空，先记下来
+			HeroAction spsAction = curAction;
 			boolean spsMovedAction = curAction instanceof HeroAction.Move
 					|| curAction instanceof HeroAction.LvlTransition;
 			
@@ -1468,12 +1474,21 @@ public class Hero extends Char {
 			//SPSEXPD: 节拍器——行动结束后结算上一拍是否踩中，并自动定下一拍；
 			//连击攒满时由「下一次行动的类型」决定奖励（移动给护盾，其它给强化攻击）
 			pd.actors.buffs.MetronomeBeat beat = buff(pd.actors.buffs.MetronomeBeat.class);
-			if (beat != null) {
+			//SPSEXPD: 只有「整次行动结束」时才结算节拍。长距离移动是连续多次 act（每格一次），
+			//若每格都结算并重掷，节拍格会被甩在英雄身后；所以移动要等到走不动/到达落点
+			//（actMove 返回 false）才结算一次并生成下一拍。非移动行动与换层天然就是一次性行动。
+			boolean spsActionEnded = !spsMovedAction
+					|| !(spsAction instanceof HeroAction.Move)
+					|| !actResult;
+			if (beat != null && spsActionEnded) {
 				if (beat.awaiting()) {
+					//SPSEXPD: 攒满后由「这一次行为」结算奖励：移动→护盾，非移动→强化攻击，且不消耗回合
 					pd.items.unique.items.Metronome.grantReward(this, spsMovedAction);
-				} else {
+				} else if (spsMovedAction) {
+					//SPSEXPD: 平时只有移动才结算「是否踩中」并（未攒满时）重掷新节拍格
 					beat.afterAction(this);
 				}
+				//SPSEXPD: 未攒满 + 非移动（攻击/拾取/用物品等）：完全中立——不重掷、不清零
 			}
 		}
 		

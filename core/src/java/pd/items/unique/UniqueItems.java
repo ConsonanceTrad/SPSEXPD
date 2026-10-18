@@ -237,7 +237,7 @@ public final class UniqueItems {
 			.t("route_performer_1_1", "魔音贝斯：阶位更高、命中溅射，还保留节拍。")
 			.t("route_performer_1_2", "电钻与次声波发生器：一个磨墙，一个把人定在原地。")
 			.t("route_performer_2_1", "闪电竖琴在溅射之外再射出一道闪电，踩满节拍还有玻璃保护。")
-			.t("route_performer_2_2", "神圣钻头与脉冲单元：钻得更快，也打得更狠。")
+			.t("route_performer_2_2", "神圣钻头与脉冲单元：一个钻得更快，一个把人定得更久。")
 			.t("route_soldier_1_1", "亚卡箭：把箭当作可控的飞行道具来用。")
 			.t("route_soldier_1_2", "电磁手炮与弹药箱：靠充能和弹药撑起持续火力。")
 			.t("route_soldier_2_1", "注射哨箭把药剂与射击绑在一起。")

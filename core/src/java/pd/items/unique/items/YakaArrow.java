@@ -37,12 +37,14 @@ public class YakaArrow extends Artifact implements UniqueItem {
 			.t("prompt", "选择哨箭要飞向的地方")
 			.t("summoned", "你吹响哨子，一支哨箭应声而起。")
 			.t("commanded", "哨箭朝你指的方向掠去。")
-			.t("desc", "一支刻着哨声符文的短箭，不需要弓就能飞出去。\n\n「吹哨指挥」：若场上还没有你的哨箭，它会唤出一支；若已经有了，则指挥那支箭_朝指定地点直线飞去_。\n\n哨箭每回合能飞 _4 格_，_可以穿过生物_，但撞到墙壁就会停下；沿途被它掠过的敌人都会受到物理伤害。它还能在抵达当前目标前_提前变向_。\n\n代价是：哨箭靠_声音_指挥——每次下令都会_惊醒周围 6 格内的敌人_。");
+			.t("desc", "一支刻着哨声符文的短箭，不需要弓就能飞出去。\n\n「吹哨指挥」：若场上还没有你的哨箭，它会唤出一支；若已经有了，则指挥那支箭_朝指定地点直线飞去_。_指挥不消耗回合_。\n\n哨箭每回合能飞 _4 格_，_可以穿过生物_，但撞到墙壁就会停下；沿途被它掠过的敌人都会受到物理伤害。它还能在抵达当前目标前_提前变向_。\n\n代价是：哨箭靠_声音_指挥——每次下令都会_惊醒周围 6 格内的敌人_。");
 	}
 
 	{
 		//SPSEXPD: 暂用占位图标
 		image = SpecificPlaceHolderDict.SOMETHING_0;
+		//SPSEXPD: 指挥是默认动作——快捷栏点一下就能吹哨；指挥本身不消耗回合
+		defaultAction = AC_COMMAND;
 	}
 
 	@Override
@@ -93,7 +95,8 @@ public class YakaArrow extends Artifact implements UniqueItem {
 			if (cell == null || !(curUser instanceof Hero)) return;
 			Hero hero = (Hero) curUser;
 			summonOrCommand(SpsArrow.Kind.YAKA, cell, hero);
-			hero.spendAndNext(1f);
+			//SPSEXPD: 指挥不消耗回合（spend 0 = 英雄时间轴不推进，但能让回合流程继续）
+			hero.spendAndNext(0f);
 		}
 		@Override
 		public String prompt() {

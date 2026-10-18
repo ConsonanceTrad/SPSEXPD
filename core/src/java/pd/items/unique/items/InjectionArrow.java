@@ -46,12 +46,14 @@ public class InjectionArrow extends Artifact implements UniqueItem {
 			.t("inject_prompt", "选择要注入哨箭的药水")
 			.t("inject_need_arrow", "哨箭必须先在你身边，才能给它注射药水。")
 			.t("injected", "你把药水注进了哨箭，它接下来的 %d 次命中都会附带这份效果。")
-			.t("desc", "一支比亚卡箭更细的哨箭，箭头带着一枚透明的注药舱。\n\n「吹哨指挥」：唤出一支哨箭，或指挥它朝指定地点直线飞去。它每回合能飞 _6 格_，_可以穿过生物_，撞墙才停，沿途敌人都会受到物理伤害，也能提前变向。\n\n「注射药水」：当哨箭_就在你身边_时，可以往注药舱里注入一瓶药水——它接下来的 _3 次命中_都会附带那瓶药水的效果。\n\n代价与亚卡箭一样：_每次下令都会惊醒周围 6 格内的敌人_。");
+			.t("desc", "一支比亚卡箭更细的哨箭，箭头带着一枚透明的注药舱。\n\n「吹哨指挥」：唤出一支哨箭，或指挥它朝指定地点直线飞去。_指挥不消耗回合_。它每回合能飞 _6 格_，_可以穿过生物_，撞墙才停，沿途敌人都会受到物理伤害，也能提前变向。\n\n「注射药水」：当哨箭_就在你身边_时，可以往注药舱里注入一瓶药水——它接下来的 _3 次命中_都会附带那瓶药水的效果。\n\n代价与亚卡箭一样：_每次下令都会惊醒周围 6 格内的敌人_。");
 	}
 
 	{
 		//SPSEXPD: 暂用占位图标
 		image = SpecificPlaceHolderDict.SOMETHING_0;
+		//SPSEXPD: 指挥是默认动作——快捷栏点一下就能吹哨；指挥本身不消耗回合
+		defaultAction = AC_COMMAND;
 	}
 
 	@Override
@@ -87,7 +89,8 @@ public class InjectionArrow extends Artifact implements UniqueItem {
 			if (cell == null || !(curUser instanceof Hero)) return;
 			Hero hero = (Hero) curUser;
 			YakaArrow.summonOrCommand(SpsArrow.Kind.INJECTION, cell, hero);
-			hero.spendAndNext(1f);
+			//SPSEXPD: 指挥不消耗回合
+			hero.spendAndNext(0f);
 		}
 		@Override
 		public String prompt() {

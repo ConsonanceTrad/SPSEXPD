@@ -90,6 +90,15 @@ public class Belongings implements Iterable<Item> {
 		}
 	}
 
+	//SPSEXPD: 旧档兼容——武器槽/副手槽里如果躺着已经不再是武器的物品（例如改成特殊物品的
+	//次声波发生器与脉冲单元），强转成 KindOfWeapon 会 ClassCastException；这里把它挪回主背包。
+	private KindOfWeapon restoreWeapon(Object stored) {
+		if (stored == null) return null;
+		if (stored instanceof KindOfWeapon) return (KindOfWeapon) stored;
+		if (stored instanceof Item) ((Item) stored).collect(backpack);
+		return null;
+	}
+
 	//SPSEXPD: 独特武器/装备不该被草靶子收纳（详见 HeartOfScarecrow.canHold）——
 	//旧存档里已被收进去的，读档时迁回主背包方便取用。
 	private void migrateUniqueItems() {
@@ -269,7 +278,7 @@ public class Belongings implements Iterable<Item> {
 		backpack.clear();
 		backpack.restoreFromBundle( bundle );
 		
-		weapon = (KindOfWeapon) bundle.get(WEAPON);
+		weapon = restoreWeapon(bundle.get(WEAPON));
 		if (weapon() != null)       weapon().activate(owner);
 		
 		armor = (Armor)bundle.get( ARMOR );
@@ -293,7 +302,7 @@ public class Belongings implements Iterable<Item> {
 		badge = (Badge) bundle.get(BADGE);
 		if (badge != null)          badge.activate( owner );
 
-		secondWep = (KindOfWeapon) bundle.get(SECOND_WEP);
+		secondWep = restoreWeapon(bundle.get(SECOND_WEP));
 		if (secondWep() != null)    secondWep().activate(owner);
 
 		secondArmor = (Armor) bundle.get(SECOND_ARMOR);

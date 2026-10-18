@@ -88,15 +88,22 @@ public class Metronome extends Artifact implements UniqueItem {
 			GLog.p(Messages.get(StormHarmonica.class, "glass"));
 		}
 
-		if (beat != null) beat.finishReward(hero);
+		if (beat != null) {
+			beat.finishReward();
+			//SPSEXPD: 只有这一次行为是移动，才重掷新节拍格；非移动（攻击等）结算后保持当前格，
+			//保证高亮格只在移动后变化。
+			if (moved) beat.autoBeat(hero);
+		}
 		GLog.p(Messages.get(Metronome.class, "on_beat"));
 	}
 
-	/** SPSEXPD: 英雄身上是否挂着节拍器（神器位，或背包里带着）。 */
+	/** SPSEXPD: 英雄身上是否带着能驱动节拍体系的东西——节拍器（神器位或背包里带着），
+	 *  或魔音贝斯 / 闪电竖琴（StormHarmonica 是 MagicBass 的子类，getItem 走 isInstance，一并命中）。 */
 	public static boolean equipped(Hero hero) {
 		if (hero == null) return false;
 		if (hero.belongings.artifact instanceof Metronome) return true;
-		return hero.belongings.getItem(Metronome.class) != null;
+		if (hero.belongings.getItem(Metronome.class) != null) return true;
+		return hero.belongings.getItem(MagicBass.class) != null;
 	}
 
 	@Override

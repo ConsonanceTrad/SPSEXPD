@@ -28,7 +28,7 @@ public class PowerDrill extends MeleeWeapon implements UniqueItem {
 	public static final String AC_DRILL = "DRILL";
 
 	/** 磨开一格墙需要钻几次。 */
-	public static final int DIGS_REQUIRED = 6;
+	public static final int DIGS_REQUIRED = 3;
 
 	/** 已钻的次数与目标格。 */
 	protected int digProgress = 0;
@@ -66,6 +66,17 @@ public class PowerDrill extends MeleeWeapon implements UniqueItem {
 	/** 磨开一格墙需要的次数。 */
 	protected int digsRequired() {
 		return DIGS_REQUIRED;
+	}
+
+	/** SPSEXPD: 默认动作就是「钻掘」——放进快捷栏点一下即可采掘（不再走普攻）。 */
+	@Override
+	public String defaultAction() {
+		return AC_DRILL;
+	}
+
+	@Override
+	public String desc() {
+		return Messages.get(this, "desc", digsRequired());
 	}
 
 	/** 钻掘的回合消耗。 */

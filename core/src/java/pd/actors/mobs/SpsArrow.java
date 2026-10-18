@@ -178,10 +178,14 @@ public class SpsArrow extends Mob {
 			//SPSEXPD: 不可穿透墙壁——实心地形直接停下（生物不算障碍，直接穿过）
 			if (Dungeon.level.solid[next]) { stop(); break; }
 
+			//SPSEXPD: 先把这一格上的生物记下来再移动——移动并 occupyCell 之后
+			//Actor.findChar(该格) 很可能返回哨箭自己，途经伤害就永远打不出来。
+			Char victim = Actor.findChar(next);
+
 			pos = next;
 			Dungeon.level.occupyCell(this);
 			if (sprite != null) sprite.place(pos);
-			hitPassersby();
+			hitVictim(victim);
 
 			if (targetCell >= 0 && pos == targetCell) { stop(); break; }
 		}
@@ -196,9 +200,8 @@ public class SpsArrow extends Mob {
 		targetCell = -1;
 	}
 
-	/** SPSEXPD: 对当前格上的敌人造成途经伤害（并施加注入的药水效果）。 */
-	private void hitPassersby() {
-		Char ch = Actor.findChar(pos);
+	/** SPSEXPD: 对途经格上的敌人造成伤害（并施加注入的药水效果）。 */
+	private void hitVictim(Char ch) {
 		if (ch == null || ch == this || ch == Dungeon.hero) return;
 		if (ch.alignment == alignment) return;
 

@@ -5,6 +5,7 @@ import pd.actors.Char;
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.items.unique.UniqueItemId;
 import pd.messages.InlineText;
+import pd.messages.Messages;
 
 /**
  * SPSEXPD: 神圣钻头 —— 演员二档（王冠 B 路线）的武器。
@@ -16,7 +17,7 @@ public class HolyDrill extends PowerDrill {
 	public static final UniqueItemId UNIQUE_ID = UniqueItemId.PERFORMER_SHOVEL_T2_2_HOLY;
 
 	/** 磨开一格墙需要的次数（比电钻少）。 */
-	public static final int DIGS = 4;
+	public static final int DIGS = 2;
 
 	//SPSEXPD: inline Chinese text
 	static {
@@ -49,6 +50,11 @@ public class HolyDrill extends PowerDrill {
 	@Override
 	protected int digsRequired() {
 		return DIGS;
+	}
+
+	@Override
+	public String desc() {
+		return Messages.get(this, "desc", digsRequired());
 	}
 
 	@Override
