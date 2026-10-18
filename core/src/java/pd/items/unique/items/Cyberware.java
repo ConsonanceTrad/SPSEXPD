@@ -41,6 +41,8 @@ public abstract class Cyberware extends Item {
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		unique = false;
 		charges = capacity();
+		//SPSEXPD: 「启动」是默认动作——义体是背包消耗物，可直接放进快捷栏点一下就用
+		defaultAction = AC_USE;
 	}
 
 	/** 电量（可用次数）。 */

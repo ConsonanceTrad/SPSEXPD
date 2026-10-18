@@ -45,6 +45,8 @@ public class Recombiner extends Salvager {
 	{
 		//SPSEXPD: 暂用占位图标
 		image = SpecificPlaceHolderDict.ARTIFACT_HOLDER_0;
+		//SPSEXPD: 「回收」是默认动作（与升级线一致）；「合成食物」仍在动作列表里
+		defaultAction = AC_CONVERT;
 	}
 
 	@Override

@@ -46,6 +46,8 @@ public class Sandevistan extends Artifact implements UniqueItem {
 		image = SpecificPlaceHolderDict.ARTIFACT_HOLDER_0;
 		chargeCap = chargeCapValue();
 		charge = chargeCap;
+		//SPSEXPD: 「开启」是默认动作——可放进快捷栏，点一下直接开子弹时间
+		defaultAction = AC_ACTIVATE;
 	}
 
 	@Override

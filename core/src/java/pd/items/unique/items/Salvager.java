@@ -51,6 +51,8 @@ public class Salvager extends Artifact implements UniqueItem {
 	{
 		//SPSEXPD: 暂用占位图标
 		image = SpecificPlaceHolderDict.ARTIFACT_HOLDER_0;
+		//SPSEXPD: 「回收」是默认动作——可放进快捷栏，点一下直接进入选食物
+		defaultAction = AC_CONVERT;
 	}
 
 	@Override
