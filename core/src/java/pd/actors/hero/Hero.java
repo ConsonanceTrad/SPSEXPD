@@ -1598,6 +1598,14 @@ public class Hero extends Char {
 			if (pos == action.dst && Dungeon.level.map[pos] == Terrain.SIGN) {
 				Sign.read(pos);
 			}
+			//SPSEXPD: 诊断——getCloser 失败就原地放弃，这一次点击等于白点（不消耗回合、不移动）
+			System.err.println("[SPSEXPD] actMove GAVE UP: dst=" + action.dst
+					+ " pos=" + pos
+					+ " distance=" + pd.mechanics.pathfind.PathFinder.distance[action.dst]
+					+ " solid=" + Dungeon.level.solid[action.dst]
+					+ " passable=" + Dungeon.level.passable[action.dst]
+					+ " avoid=" + Dungeon.level.avoid[action.dst]
+					+ " distanceOverLimit=" + (pd.mechanics.pathfind.PathFinder.distance[action.dst] == Integer.MAX_VALUE));
 			ready();
 			return false;
 		}
