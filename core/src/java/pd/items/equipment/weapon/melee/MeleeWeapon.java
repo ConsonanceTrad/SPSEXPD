@@ -98,24 +98,9 @@ public class MeleeWeapon extends Weapon {
 		}
 	}
 
-	@Override
-	public String defaultAction() {
-		if (Dungeon.hero != null && (Dungeon.hero.heroClass == HeroClass.DUELIST
-			|| Dungeon.hero.hasTalent(Talent.SWIFT_EQUIP))){
-			return AC_ABILITY;
-		} else {
-			return super.defaultAction();
-		}
-	}
-
-	@Override
-	public ArrayList<String> actions(Hero hero) {
-		ArrayList<String> actions = super.actions(hero);
-		if (isEquipped(hero) && hero.heroClass == HeroClass.DUELIST){
-			actions.add(AC_ABILITY);
-		}
-		return actions;
-	}
+	//SPSEXPD: 武器战技（AC_ABILITY）的玩家入口已移除——不再作为默认动作、也不再出现在动作列表里。
+	//疾速换装的「免回合换装」由 KindOfWeapon.doEquip/equipSecondary 的 isSwiftEquipping 独立实现，
+	//不依赖这里；各武器的 duelistAbility 实现与 execute 的 AC_ABILITY 分支作为底层保留（已不可达）。
 
 	@Override
 	public String actionName(String action, Hero hero) {

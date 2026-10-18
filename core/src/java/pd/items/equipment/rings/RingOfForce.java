@@ -203,23 +203,8 @@ public class RingOfForce extends Ring {
 		}
 	}
 
-	@Override
-	public String defaultAction() {
-		if (Dungeon.hero != null && Dungeon.hero.heroClass == HeroClass.DUELIST){
-			return AC_ABILITY;
-		} else {
-			return super.defaultAction();
-		}
-	}
-
-	@Override
-	public ArrayList<String> actions(Hero hero) {
-		ArrayList<String> actions = super.actions(hero);
-		if (isEquipped(hero) && hero.heroClass == HeroClass.DUELIST){
-			actions.add(AC_ABILITY);
-		}
-		return actions;
-	}
+	//SPSEXPD: 力量之戒的战技（力场爆发）入口同样移除——不再作为默认动作、也不再出现在动作列表里。
+	//底层 execute/actionName 的 AC_ABILITY 分支保留（已不可达）。
 
 	@Override
 	public String actionName(String action, Hero hero) {

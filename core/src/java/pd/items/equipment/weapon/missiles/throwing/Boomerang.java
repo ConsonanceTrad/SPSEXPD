@@ -103,8 +103,6 @@ public class Boomerang extends MeleeWeapon implements pd.items.unique.UniqueItem
 		ArrayList<String> actions = super.actions(hero);
 		//SPSEXPD: 投掷始终作为可选动作（未充能完成时点击会提示「正在飞回途中」）
 		actions.add(AC_CAST);
-		//回旋镖没有决斗家武技，避免出现点了没有效果的按钮
-		actions.remove(AC_ABILITY);
 		return actions;
 	}
 

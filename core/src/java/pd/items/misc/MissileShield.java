@@ -82,8 +82,6 @@ public class MissileShield extends MeleeWeapon {
 	@Override public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions(hero);
 		if (charge >= FULL_CHARGE) actions.add(AC_CAST);
-		//圆盾没有决斗家武技，避免出现点了没有效果的按钮
-		actions.remove(AC_ABILITY);
 		actions.remove(AC_THROW);
 		actions.remove(AC_DROP);
 		return actions;

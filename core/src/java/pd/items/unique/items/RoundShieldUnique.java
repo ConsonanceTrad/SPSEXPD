@@ -46,13 +46,8 @@ public class RoundShieldUnique extends RoundShield implements UniqueItem {
 		return null;
 	}
 
-	/** SPSEXPD: 这面盾没有主动技能——只保留「先攻」这个被动。 */
-	@Override
-	public ArrayList<String> actions(Hero hero) {
-		ArrayList<String> actions = super.actions(hero);
-		actions.remove(AC_ABILITY);
-		return actions;
-	}
+	/** SPSEXPD: 这面盾没有主动技能——只保留「先攻」这个被动。
+	 *  （武器战技入口已在 MeleeWeapon 里整体移除，这里不再需要单独 remove AC_ABILITY。） */
 
 	/** SPSEXPD: 英雄是否带着任意一种「先攻盾」（圆盾 / 队长之盾）。 */
 	public static boolean hasFirstStrikeShield(Hero hero) {
