@@ -4,6 +4,9 @@
 
 package pd.actors.mobs.npcs;
 
+import pd.Dungeon;
+import pd.levels.RegularLevel;
+import pd.levels.rooms.Room;
 import pd.levels.rooms.special.SpsHiddenShopRoom;
 
 /**
@@ -28,9 +31,25 @@ public class SpsHiddenShopKeeper extends TownNpc {
 		return this;
 	}
 
+	/**
+	 * SPSEXPD: shopRoom 不参与序列化，读档后必然是 null，补货就再也不触发。
+	 * 这里按需从当前层的房间列表里重新找回它（同一层只有一个 SpsHiddenShopRoom）。
+	 */
+	public void ensureShopRoom() {
+		if (shopRoom != null) return;
+		if (!(Dungeon.level instanceof RegularLevel)) return;
+		for (Room r : ((RegularLevel) Dungeon.level).rooms()) {
+			if (r instanceof SpsHiddenShopRoom) {
+				shopRoom = (SpsHiddenShopRoom) r;
+				return;
+			}
+		}
+	}
+
 	/** 守摊：不走动；顺便检查货架是否需要补货 */
 	@Override
 	protected boolean act() {
+		ensureShopRoom();
 		if (shopRoom != null) shopRoom.checkRestock();
 		spend(TICK);
 		return true;
