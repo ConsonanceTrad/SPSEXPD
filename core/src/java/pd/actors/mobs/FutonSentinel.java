@@ -18,6 +18,8 @@ import pd.scenes.GameScene;
 import pd.sprites.ScarecrowSprite;
 import pd.utils.GLog;
 import pd.windows.WndOptions;
+import render.noosa.Game;
+import render.utils.data.Callback;
 import render.utils.serialize.Bundle;
 
 import java.util.ArrayList;
@@ -119,19 +121,26 @@ public class FutonSentinel extends Mob {
 		if (!(c instanceof Hero) || kind != Kind.MARKER) return false;
 		final Hero hero = (Hero) c;
 		final FutonSentinel self = this;
-		GameScene.show(new WndOptions(
-				new pd.sprites.ItemSprite(pd.atlas.items.SpecificPlaceHolderDict.SOMETHING_0),
-				Messages.get(FutonSentinel.class, "choose_title"),
-				"",
-				Messages.get(FutonSentinel.class, "choose_peashooter"),
-				Messages.get(FutonSentinel.class, "choose_potatomine"),
-				Messages.get(FutonSentinel.class, "choose_wallnut")) {
+		//SPSEXPD: interact 跑在 actor 线程（Hero.act → Actor.process），而 WndOptions 构造会测量文字，
+		//必须切到渲染线程，否则抛 "Text measured from the actor thread!" 直接闪退。
+		Game.runOnRenderThread(new Callback() {
 			@Override
-			protected void onSelect(int index) {
-				Kind chosen = index == 0 ? Kind.PEASHOOTER : index == 1 ? Kind.POTATO_MINE : Kind.WALLNUT;
-				self.grow(chosen);
-				GLog.p(Messages.get(FutonSentinel.class, "grown", self.name()));
-				hero.spendAndNext(1f);
+			public void call() {
+				GameScene.show(new WndOptions(
+						new pd.sprites.ItemSprite(pd.atlas.items.SpecificPlaceHolderDict.SOMETHING_0),
+						Messages.get(FutonSentinel.class, "choose_title"),
+						"",
+						Messages.get(FutonSentinel.class, "choose_peashooter"),
+						Messages.get(FutonSentinel.class, "choose_potatomine"),
+						Messages.get(FutonSentinel.class, "choose_wallnut")) {
+					@Override
+					protected void onSelect(int index) {
+						Kind chosen = index == 0 ? Kind.PEASHOOTER : index == 1 ? Kind.POTATO_MINE : Kind.WALLNUT;
+						self.grow(chosen);
+						GLog.p(Messages.get(FutonSentinel.class, "grown", self.name()));
+						hero.spendAndNext(1f);
+					}
+				});
 			}
 		});
 		return true;
