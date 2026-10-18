@@ -235,8 +235,8 @@ public class MenuPane extends Component {
 		float belowY = y + FRAME_HEIGHT + 1;
 		if (clock != null){
 			clock.refresh();
-			//SPSEXPD: 时间文本再左移 4px（用户要求），避免紧贴按钮组右缘
-			clock.setPos( x + WIDTH - clock.width() - 4, belowY );
+			//SPSEXPD: 时间文本左移 2px（用户要求，原先 4px 偏左），避免紧贴按钮组右缘
+			clock.setPos( x + WIDTH - clock.width() - 2, belowY );
 			belowY += clock.height() + 1;
 		}
 
