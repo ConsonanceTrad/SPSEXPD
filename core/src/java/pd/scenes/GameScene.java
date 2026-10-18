@@ -2094,6 +2094,13 @@ public class GameScene extends PixelScene {
 				return;
 			}
 
+			//SPSEXPD: 诊断——谨慎移动的"首次点击只预览路径"分支也是静默 return，不打任何日志
+			System.err.println("[SPSEXPD] defaultCellListener.onSelect: cell=" + cell
+					+ " cautiousMove=" + cautiousMove
+					+ " lockedTarget=" + lockedTarget
+					+ " pathTarget=" + pathTarget
+					+ " previewOnly=" + (cautiousMove && !(lockedTarget && pathTarget == cell)));
+
 			//SPS: 谨慎移动——首次点击只预览路径（相机不返回），再点同一格才真正移动
 			if (cautiousMove && !(lockedTarget && pathTarget == cell)){
 				pathTarget = cell;

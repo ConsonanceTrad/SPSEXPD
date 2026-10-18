@@ -10,20 +10,21 @@ import render.noosa.ui.Component;
 /**
  * SPSEXPD: 节拍器标出的「下一拍」格子高亮。
  *
- * <p>用四个描边条画一个方框（不透明的暖金色）。相比整格半透明块，描边在任何地板色上都读得出来。</p>
+ * <p>用四个描边条画一个方框（不透明的橙金色）。四条边的尺寸**直接取常量**
+ * {@link DungeonTilemap#SIZE}，不依赖 {@code width()/height()}——那两个在第一帧
+ * 还是 0（相机尚未挂上、setSize 未跑），会导致描边被缩成 1×1 而看不见。</p>
  */
 public class MetronomeMark extends Component {
 
 	private static final int COLOR = 0xFF8A00;   // 橙金色，不透明
 	private static final float EDGE = 2f;
 
-	private final ColorBlock top = new ColorBlock( 1, 1, COLOR );
-	private final ColorBlock bottom = new ColorBlock( 1, 1, COLOR );
-	private final ColorBlock left = new ColorBlock( 1, 1, COLOR );
-	private final ColorBlock right = new ColorBlock( 1, 1, COLOR );
+	private final ColorBlock top = new ColorBlock( DungeonTilemap.SIZE, EDGE, COLOR );
+	private final ColorBlock bottom = new ColorBlock( DungeonTilemap.SIZE, EDGE, COLOR );
+	private final ColorBlock left = new ColorBlock( EDGE, DungeonTilemap.SIZE, COLOR );
+	private final ColorBlock right = new ColorBlock( EDGE, DungeonTilemap.SIZE, COLOR );
 
 	private int lastCell = Integer.MIN_VALUE;
-	private boolean loggedOnce = false;
 
 	public MetronomeMark() {
 		super();
@@ -33,28 +34,21 @@ public class MetronomeMark extends Component {
 		add( right );
 	}
 
-	@Override
-	protected void layout() {
-		float w = width();
-		float h = height();
-		if (w <= 0) w = DungeonTilemap.SIZE;
-		if (h <= 0) h = DungeonTilemap.SIZE;
+	/** 子条位置只跟 x/y 有关，尺寸用常量，所以每次 setPos 重摆都安全。 */
+	private void placeEdges() {
+		float s = DungeonTilemap.SIZE;
 
-		top.scale.set( w, EDGE );
-		top.x = left();
-		top.y = top();
+		top.x = x;
+		top.y = y;
 
-		bottom.scale.set( w, EDGE );
-		bottom.x = left();
-		bottom.y = top() + h - EDGE;
+		bottom.x = x;
+		bottom.y = y + s - EDGE;
 
-		left.scale.set( EDGE, h );
-		left.x = left();
-		left.y = top();
+		left.x = x;
+		left.y = y;
 
-		right.scale.set( EDGE, h );
-		right.x = left() + w - EDGE;
-		right.y = top();
+		right.x = x + s - EDGE;
+		right.y = y;
 	}
 
 	@Override
@@ -65,16 +59,8 @@ public class MetronomeMark extends Component {
 		if (cell != lastCell) {
 			System.err.println( "[SPSEXPD] MetronomeMark: cell=" + cell
 					+ " x=" + (int)x + " y=" + (int)y
-					+ " w=" + (int)width() + " h=" + (int)height()
-					+ " visible=" + visible + " active=" + active
-					+ " camera=" + (camera == null ? "null" : "ok")
-					+ " members=" + (parent == null ? "noparent" : "ok") );
+					+ " camera=" + (camera == null ? "null" : "ok") );
 			lastCell = cell;
-			if (!loggedOnce && cell >= 0) {
-				loggedOnce = true;
-				System.err.println( "[SPSEXPD] MetronomeMark top.x=" + (int)top.x + " top.y=" + (int)top.y
-						+ " top.w=" + (int)top.width() + " top.h=" + (int)top.height() );
-			}
 		}
 
 		if (cell < 0 || Dungeon.level == null || Dungeon.hero == null
@@ -85,7 +71,8 @@ public class MetronomeMark extends Component {
 		visible = true;
 
 		render.utils.geom.PointF p = DungeonTilemap.tileToWorld( cell );
-		setPos( p.x, p.y );
-		setSize( DungeonTilemap.SIZE, DungeonTilemap.SIZE );
+		x = p.x;
+		y = p.y;
+		placeEdges();
 	}
 }
