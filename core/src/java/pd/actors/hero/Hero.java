@@ -1348,11 +1348,7 @@ public class Hero extends Char {
 	}
 
 	public void spendAndNext( float time ) {
-		if (spsPickingUp) {
-			//SPSEXPD: 诊断——这个早退会让行动彻底不结算（不 busy、不 spend、不 next）
-			System.err.println("[SPSEXPD] spendAndNext SKIPPED by spsPickingUp: time=" + time);
-			return;   //SPSEXPD: 搜索捡取期间不推进回合
-		}
+		if (spsPickingUp) return;   //SPSEXPD: 搜索捡取期间不推进回合
 		busy();
 		spend( time );
 		next();
@@ -1360,13 +1356,6 @@ public class Hero extends Char {
 	
 	@Override
 	public boolean act() {
-		//SPSEXPD: 诊断——每次英雄行动都在这里开一次口，能看到它到底有没有被调度到
-		System.err.println("[SPSEXPD] Hero.act: ready=" + ready
-				+ " curAction=" + (curAction == null ? "null" : curAction.getClass().getSimpleName())
-				+ " lastAction=" + (lastAction == null ? "null" : lastAction.getClass().getSimpleName())
-				+ " spsPickingUp=" + spsPickingUp
-				+ " resting=" + resting
-				+ " pos=" + pos);
 		//SPSEXPD: 子弹时间——计时由英雄推进（buff 自己是 Actor，会被冻结跳过）
 		pd.actors.buffs.SandevistanTime sandevistan = buff(pd.actors.buffs.SandevistanTime.class);
 		if (sandevistan != null) sandevistan.tick();
@@ -1600,14 +1589,6 @@ public class Hero extends Char {
 			if (pos == action.dst && Dungeon.level.map[pos] == Terrain.SIGN) {
 				Sign.read(pos);
 			}
-			//SPSEXPD: 诊断——getCloser 失败就原地放弃，这一次点击等于白点（不消耗回合、不移动）
-			System.err.println("[SPSEXPD] actMove GAVE UP: dst=" + action.dst
-					+ " pos=" + pos
-					+ " distance=" + pd.mechanics.pathfind.PathFinder.distance[action.dst]
-					+ " solid=" + Dungeon.level.solid[action.dst]
-					+ " passable=" + Dungeon.level.passable[action.dst]
-					+ " avoid=" + Dungeon.level.avoid[action.dst]
-					+ " distanceOverLimit=" + (pd.mechanics.pathfind.PathFinder.distance[action.dst] == Integer.MAX_VALUE));
 			ready();
 			return false;
 		}
@@ -2637,18 +2618,7 @@ public class Hero extends Char {
 				}
 			}
 
-			if (path == null) {
-				//SPSEXPD: 诊断——寻路失败（Dungeon.findPath 返回 null 或旧 path 被清空）
-				System.err.println("[SPSEXPD] getCloser: NO PATH to " + target
-						+ " pos=" + pos
-						+ " adjacent=" + Dungeon.level.adjacent(pos, target)
-						+ " passable[tgt]=" + Dungeon.level.passable[target]
-						+ " visited[tgt]=" + Dungeon.level.visited[target]
-						+ " mapped[tgt]=" + Dungeon.level.mapped[target]
-						+ " fov[tgt]=" + fieldOfView[target]
-						+ " charAtTgt=" + (Actor.findChar(target) == null ? "none" : Actor.findChar(target).getClass().getSimpleName()));
-				return false;
-			}
+			if (path == null) return false;
 			step = path.removeFirst();
 
 		}

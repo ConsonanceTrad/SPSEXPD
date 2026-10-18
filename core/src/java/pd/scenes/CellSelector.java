@@ -48,25 +48,6 @@ public class CellSelector extends ScrollArea {
 	public Listener listener = null;
 	
 	public boolean enabled;
-
-	/**
-	 * SPSEXPD: 诊断——确认指针事件到底有没有送到这里、以及 DOWN/UP 是否配对。
-	 * onClick 只在 UP 时 hit 为真且 curEvent == event 才触发；UP 时 hit 变假会静默丢弃。
-	 */
-	@Override
-	public boolean onSignal( render.input.PointerEvent event ) {
-		if (event != null && (event.type == render.input.PointerEvent.Type.DOWN
-				|| event.type == render.input.PointerEvent.Type.UP
-				|| event.type == render.input.PointerEvent.Type.CANCEL)) {
-			boolean hit = target.overlapsScreenPoint( (int)event.current.x, (int)event.current.y );
-			System.err.println("[SPSEXPD] CellSelector got " + event.type + ": active=" + active
-					+ " hit=" + hit
-					+ " curEventMatch=" + (curEvent == null ? "null" : (curEvent == event))
-					+ " handled=" + event.handled
-					+ " dragging=" + dragging);
-		}
-		return super.onSignal( event );
-	}
 	
 	private float dragThreshold;
 	
@@ -98,11 +79,7 @@ public class CellSelector extends ScrollArea {
 	protected void onClick( PointerEvent event ) {
 		if (dragging) {
 			
-			//SPSEXPD: 诊断——这条分支在 select() 之前，被它丢弃的点击不会打 click swallowed
-			System.err.println("[SPSEXPD] click dropped by dragging flag: heroReady="
-					+ (Dungeon.hero != null && Dungeon.hero.ready)
-					+ " enabled=" + enabled
-					+ " blockingHero=" + GameScene.interfaceBlockingHero());
+			//SPSEXPD: 拖动结束的那一下不算点击（onPointerDown 已保证每次按下重置 dragging）
 			dragging = false;
 			
 		} else {
@@ -177,15 +154,6 @@ public class CellSelector extends ScrollArea {
 		boolean heroReady = Dungeon.hero.ready;
 		boolean blocking = GameScene.interfaceBlockingHero();
 		if (!(enabled && heroReady && !blocking && listener != null && cell != -1)) {
-			//SPSEXPD: 诊断——点击被吞时打印具体被哪一条挡住（偶发问题时看控制台即可定位）。
-			System.err.println("[SPSEXPD] click swallowed: cell=" + cell
-					+ " enabled=" + enabled
-					+ " heroReady=" + heroReady
-					+ " blockingHero=" + blocking
-					+ " curAction=" + (Dungeon.hero.curAction == null ? "null" : Dungeon.hero.curAction.getClass().getSimpleName())
-					+ " lastAction=" + (Dungeon.hero.lastAction == null ? "null" : Dungeon.hero.lastAction.getClass().getSimpleName())
-					+ " resting=" + Dungeon.hero.resting
-					+ " listener=" + (listener == null ? "null" : listener.getClass().getName()));
 			//SPSEXPD: 英雄还在忙（heroReady=false）时点击只是"早了一步"，不要 cancel 掉动作队列
 			if (!heroReady || blocking || cell == -1) {
 				return;
