@@ -2107,7 +2107,14 @@ public class GameScene extends PixelScene {
 			pathTrackedMob = null;
 			refreshHeroPath();
 
-			if (Dungeon.hero.handle( cell )) {
+			//SPSEXPD: 诊断——点击到底有没有变成行动
+			boolean handled = Dungeon.hero.handle( cell );
+			System.err.println("[SPSEXPD] onSelect done: cell=" + cell
+					+ " handled=" + handled
+					+ " heroReady=" + Dungeon.hero.ready
+					+ " heroPos=" + Dungeon.hero.pos
+					+ " distance=" + Dungeon.level.distance(Dungeon.hero.pos, cell));
+			if (handled) {
 				Dungeon.hero.next();
 			} else {
 				//SPSEXPD: 点击已被自行处理（远程自动开火 / 装填等待）——不显示、不保留移动路径

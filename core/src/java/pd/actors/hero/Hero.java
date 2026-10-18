@@ -1348,7 +1348,11 @@ public class Hero extends Char {
 	}
 
 	public void spendAndNext( float time ) {
-		if (spsPickingUp) return;   //SPSEXPD: 搜索捡取期间不推进回合
+		if (spsPickingUp) {
+			//SPSEXPD: 诊断——这个早退会让行动彻底不结算（不 busy、不 spend、不 next）
+			System.err.println("[SPSEXPD] spendAndNext SKIPPED by spsPickingUp: time=" + time);
+			return;   //SPSEXPD: 搜索捡取期间不推进回合
+		}
 		busy();
 		spend( time );
 		next();
@@ -1356,6 +1360,13 @@ public class Hero extends Char {
 	
 	@Override
 	public boolean act() {
+		//SPSEXPD: 诊断——每次英雄行动都在这里开一次口，能看到它到底有没有被调度到
+		System.err.println("[SPSEXPD] Hero.act: ready=" + ready
+				+ " curAction=" + (curAction == null ? "null" : curAction.getClass().getSimpleName())
+				+ " lastAction=" + (lastAction == null ? "null" : lastAction.getClass().getSimpleName())
+				+ " spsPickingUp=" + spsPickingUp
+				+ " resting=" + resting
+				+ " pos=" + pos);
 		//SPSEXPD: 子弹时间——计时由英雄推进（buff 自己是 Actor，会被冻结跳过）
 		pd.actors.buffs.SandevistanTime sandevistan = buff(pd.actors.buffs.SandevistanTime.class);
 		if (sandevistan != null) sandevistan.tick();

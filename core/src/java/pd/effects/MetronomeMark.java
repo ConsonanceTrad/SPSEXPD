@@ -51,6 +51,28 @@ public class MetronomeMark extends Component {
 		right.y = y;
 	}
 
+	private boolean drawLogged = false;
+
+	/**
+	 * SPSEXPD: 诊断——确认这个 Gizmo 真的走到了 draw()，以及四条描边各自的
+	 * 位置/尺寸/可见性。只有 draw() 被调用过，才能排除"没渲染"。
+	 */
+	@Override
+	public void draw() {
+		if (!drawLogged && visible) {
+			drawLogged = true;
+			System.err.println("[SPSEXPD] MetronomeMark.draw: self x=" + (int)x + " y=" + (int)y
+					+ " visible=" + visible
+					+ " | top(" + (int)top.x + "," + (int)top.y + " " + (int)top.width() + "x" + (int)top.height()
+					+ " vis=" + top.visible + ")"
+					+ " | bottom(" + (int)bottom.x + "," + (int)bottom.y + " " + (int)bottom.width() + "x" + (int)bottom.height() + ")"
+					+ " | left(" + (int)left.x + "," + (int)left.y + " " + (int)left.width() + "x" + (int)left.height() + ")"
+					+ " | right(" + (int)right.x + "," + (int)right.y + " " + (int)right.width() + "x" + (int)right.height() + ")"
+					+ " | camera=" + (camera == null ? "null" : "ok"));
+		}
+		super.draw();
+	}
+
 	@Override
 	public void update() {
 		super.update();
