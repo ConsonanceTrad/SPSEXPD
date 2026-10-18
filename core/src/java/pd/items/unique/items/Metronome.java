@@ -26,6 +26,9 @@ public class Metronome extends Artifact implements UniqueItem {
 
 	public static final UniqueItemId UNIQUE_ID = UniqueItemId.PERFORMER_SHOVEL_BASE_B;
 
+	/** SPSEXPD: 诊断只打一次。 */
+	private static boolean equippedLogged = false;
+
 	//SPSEXPD: inline Chinese text
 	static {
 		InlineText.of(Metronome.class)
@@ -99,6 +102,19 @@ public class Metronome extends Artifact implements UniqueItem {
 		return hero.belongings.getItem(Metronome.class) != null;
 	}
 
+	/**
+	 * SPSEXPD: 诊断——把神器槽里到底是什么类打出来，确认 equipped() 为什么判定失败。
+	 */
+	public static void debugEquipped(Hero hero) {
+		if (hero == null) { System.err.println("[SPSEXPD] Metronome.equipped: hero=null"); return; }
+		Object slot = hero.belongings.artifact;
+		System.err.println("[SPSEXPD] Metronome.equipped: slotType="
+				+ (slot == null ? "null" : slot.getClass().getName())
+				+ " isMetronome=" + (slot instanceof Metronome)
+				+ " bagHasMetronome=" + (hero.belongings.getItem(Metronome.class) != null)
+				+ " result=" + equipped(hero));
+	}
+
 	@Override
 	public UniqueItemId uniqueId() {
 		return UNIQUE_ID;
@@ -110,6 +126,11 @@ public class Metronome extends Artifact implements UniqueItem {
 	public static int currentBeatCell() {
 		Hero hero = Dungeon.hero;
 		if (hero == null) return -1;
+		//SPSEXPD: 诊断——装备节拍器后仍报 cell=-1 时，这行会指出 equipped() 为何为 false
+		if (!equippedLogged) {
+			equippedLogged = true;
+			debugEquipped(hero);
+		}
 		if (!equipped(hero)) return -1;
 		MetronomeBeat beat = hero.buff(MetronomeBeat.class);
 		if (beat == null) beat = Buff.affect(hero, MetronomeBeat.class);
