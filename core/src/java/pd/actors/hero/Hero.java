@@ -2626,6 +2626,15 @@ public class Hero extends Char {
 				} else {
 					path = newpath;
 				}
+
+				//SPSEXPD: 上面把 path 清空的用意只是"放弃旧路径、下次重新算"，
+				//但紧接着的 newPath 分支并不会再算一次，于是 path==null 直接让这次
+				//点空白费。实机日志抓到：NO PATH 但 passable[tgt]=true、visited[tgt]=true、
+				//charAtTgt=none——newpath 其实找到了，只是被丢弃。
+				//这里改为：既然 newpath 已经算出来，就先用它。
+				if (path == null && newpath != null) {
+					path = newpath;
+				}
 			}
 
 			if (path == null) {
