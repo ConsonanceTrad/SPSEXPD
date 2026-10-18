@@ -263,7 +263,7 @@ public enum HeroClass {
 			.t("follower_unlock", "融合版中信徒开局即解锁。")
 			.t("ascetic", "苦修者")
 			.t("ascetic_desc_short", "苦修者在_近身格斗与受控施法_之间切换，不依靠免费的高额强化。")
-			.t("ascetic_desc", "苦修者初始携带_有机重组机_（神器）与背包里的_义体工具箱_，副手位置还有一双木屐。这些开局装备都没有任何免费升级，因此强度与破碎的其他职业保持同一预算。\n\n苦修者可转职为_戒律者_或_黑客_。")
+			.t("ascetic_desc", "苦修者初始携带_有机重组机_（神器）与背包里的_义体工具箱_。这些开局装备都没有任何免费升级，因此强度与破碎的其他职业保持同一预算。\n\n苦修者可转职为_戒律者_或_黑客_。")
 			.t("ascetic_unlock", "融合版中苦修者开局即解锁。")
 			.t("newplayer", "新手")
 			.t("newplayer_desc_short", "仅供 SPS-PD 新手教程使用的隐藏职业。")
@@ -1655,8 +1655,6 @@ public enum HeroClass {
 							(h, i) -> ((pd.items.unique.items.OrganicRecycler) i).activate(h));
 					//SPSEXPD: 义体工具箱不是神器，是背包里直接使用的道具
 					l.backpack(() -> new pd.items.unique.items.CyberwareKit(), 0, 1, 0, null);
-					//SPSEXPD: 木屐作副护甲保留
-					l.equip(ItemSlot.SECOND_ARMOR, () -> new pd.items.unique.items.ClogArmor(), 0, null);
 					break;
 			}
 		}
