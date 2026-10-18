@@ -167,22 +167,7 @@ public class CellSelector extends ScrollArea {
 					+ " lastAction=" + (Dungeon.hero.lastAction == null ? "null" : Dungeon.hero.lastAction.getClass().getSimpleName())
 					+ " resting=" + Dungeon.hero.resting
 					+ " listener=" + (listener == null ? "null" : listener.getClass().getName()));
-			//SPSEXPD: enabled 必须复位。它只在 selectCell() 里被赋成 Dungeon.hero.ready，
-			//商店买完东西/交易窗口关闭时英雄还没 ready 就会留下 enabled=false，
-			//若不复位则之后每次点击都掉进这个分支、被吞到永远。
-			//它每次 selectCell() 都会被重设，所以这里置 true 是安全的、不会掩盖任何"真的不能选格"状态。
-			enabled = true;
-
-			//SPSEXPD: 英雄只是在忙（还没轮到它行动，例如刚买完东西、刚行动完的那一瞬）——
-			//这一次点击先记下来，等英雄 ready 了立刻重放，避免"点一下没反应"。
-			//只缓冲"英雄没 ready"这一种情况；被窗口挡住/无效格照旧丢弃。
-			if (!heroReady && !blocking && listener != null && cell != -1) {
-				pendingCell = cell;
-				pendingButton = button;
-				pendingAt = render.noosa.Game.timeTotal;
-			}
-
-			//SPSEXPD: 英雄还在忙时点击只是"早了一步"，不要 cancel 掉动作队列
+			//SPSEXPD: 英雄还在忙（heroReady=false）时点击只是"早了一步"，不要 cancel 掉动作队列
 			if (!heroReady || blocking || cell == -1) {
 				return;
 			}
@@ -205,36 +190,6 @@ public class CellSelector extends ScrollArea {
 	private PointerEvent another;
 	private float startZoom;
 	private float startSpan;
-
-	/** SPSEXPD: 「英雄还没 ready」时被挡下的那一次点击，等 ready 立刻重放。 */
-	private int pendingCell = -1;
-	private int pendingButton = 0;
-	private float pendingAt = 0f;
-	private static final float PENDING_TIMEOUT = 1f;
-
-	/** SPSEXPD: 换层/清状态时丢掉挂起的点击。 */
-	public void clearPending() {
-		pendingCell = -1;
-	}
-
-	/** SPSEXPD: 有挂起点击时，等英雄 ready 就重放一次。 */
-	private void replayPending() {
-		if (pendingCell < 0) return;
-		if (Dungeon.hero == null || GameScene.scene == null) {
-			pendingCell = -1;
-			return;
-		}
-		if (render.noosa.Game.timeTotal - pendingAt > PENDING_TIMEOUT) {
-			//SPSEXPD: 太久了就不补了，避免凭空多出一步
-			pendingCell = -1;
-			return;
-		}
-		if (!Dungeon.hero.ready || GameScene.interfaceBlockingHero()) return;
-		int cell = pendingCell;
-		int button = pendingButton;
-		pendingCell = -1;
-		select( cell, button );
-	}
 	
 	@Override
 	protected void onPointerDown( PointerEvent event ) {
@@ -422,9 +377,6 @@ public class CellSelector extends ScrollArea {
 	@Override
 	public void update() {
 		super.update();
-
-		//SPSEXPD: 优先处理"英雄没 ready 时被挡下的那一次点击"
-		replayPending();
 
 		GameAction newLeftStick = actionFromStick(ControllerHandler.leftStickPosition.x,
 				ControllerHandler.leftStickPosition.y);
