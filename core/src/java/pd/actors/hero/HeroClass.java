@@ -263,7 +263,7 @@ public enum HeroClass {
 			.t("follower_unlock", "融合版中信徒开局即解锁。")
 			.t("ascetic", "苦修者")
 			.t("ascetic_desc_short", "苦修者在_近身格斗与受控施法_之间切换，不依靠免费的高额强化。")
-			.t("ascetic_desc", "苦修者初始携带拳套和魔弹法杖。两件装备均没有免费升级，因此开局强度与破碎的其他职业保持同一预算。\n\n苦修者可转职为_戒律者_或_黑客_。\n\n苦修者开局鉴定的物品有：\n_-_充能卷轴\n_-_镜像卷轴")
+			.t("ascetic_desc", "苦修者初始携带两件专属神器——_有机重组机_与_义体工具箱_，副手位置还有一双木屐。这些开局装备都没有任何免费升级，因此强度与破碎的其他职业保持同一预算。\n\n苦修者可转职为_戒律者_或_黑客_。")
 			.t("ascetic_unlock", "融合版中苦修者开局即解锁。")
 			.t("newplayer", "新手")
 			.t("newplayer_desc_short", "仅供 SPS-PD 新手教程使用的隐藏职业。")
@@ -1650,10 +1650,12 @@ public enum HeroClass {
 				default:
 					l.equip(ItemSlot.WEAPON, () -> new TrickSand(), 0, null);
 					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
-					//SPSEXPD: 苦修者开局携带经卷耳环（占位神器，暂不提供效果）
-					l.equip(ItemSlot.ARTIFACT, () -> new pd.items.equipment.artifacts.ScrollEarring(), 0,
-							(h, i) -> ((pd.items.equipment.artifacts.ScrollEarring) i).activate(h));
-					//SPSEXPD: 苦修者第二件专属物品——木屐（副护甲，占位）；初始皮肤的蓄电池已按清单移除
+					//SPSEXPD: 苦修者开局携带两件专属神器——有机重组机（面具 B 初始）与义体工具箱（王冠 B 初始）
+					l.equip(ItemSlot.ARTIFACT, () -> new pd.items.unique.items.OrganicRecycler(), 0,
+							(h, i) -> ((pd.items.unique.items.OrganicRecycler) i).activate(h));
+					l.equip(ItemSlot.MISC, () -> new pd.items.unique.items.CyberwareKit(), 0,
+							(h, i) -> ((pd.items.unique.items.CyberwareKit) i).activate(h));
+					//SPSEXPD: 木屐作副护甲保留
 					l.equip(ItemSlot.SECOND_ARMOR, () -> new pd.items.unique.items.ClogArmor(), 0, null);
 					break;
 			}
