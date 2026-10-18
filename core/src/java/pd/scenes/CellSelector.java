@@ -50,17 +50,20 @@ public class CellSelector extends ScrollArea {
 	public boolean enabled;
 
 	/**
-	 * SPSEXPD: 诊断——确认指针事件到底有没有送到这里。若「点击被吞」时连这行都没有，
-	 * 说明事件被排在它前面的某个 PointerArea（窗口 / 按钮 / 背包选框）返回 true 吞掉了。
+	 * SPSEXPD: 诊断——确认指针事件到底有没有送到这里、以及 DOWN/UP 是否配对。
+	 * onClick 只在 UP 时 hit 为真且 curEvent == event 才触发；UP 时 hit 变假会静默丢弃。
 	 */
 	@Override
 	public boolean onSignal( render.input.PointerEvent event ) {
-		if (event != null && event.type == render.input.PointerEvent.Type.DOWN) {
-			System.err.println("[SPSEXPD] CellSelector got DOWN: active=" + active
-					+ " visible=" + visible
-					+ " hit=" + target.overlapsScreenPoint( (int)event.current.x, (int)event.current.y )
+		if (event != null && (event.type == render.input.PointerEvent.Type.DOWN
+				|| event.type == render.input.PointerEvent.Type.UP
+				|| event.type == render.input.PointerEvent.Type.CANCEL)) {
+			boolean hit = target.overlapsScreenPoint( (int)event.current.x, (int)event.current.y );
+			System.err.println("[SPSEXPD] CellSelector got " + event.type + ": active=" + active
+					+ " hit=" + hit
+					+ " curEventMatch=" + (curEvent == null ? "null" : (curEvent == event))
 					+ " handled=" + event.handled
-					+ " parent=" + (parent == null ? "null" : parent.getClass().getSimpleName()));
+					+ " dragging=" + dragging);
 		}
 		return super.onSignal( event );
 	}
