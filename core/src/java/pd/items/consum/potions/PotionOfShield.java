@@ -25,8 +25,10 @@ public class PotionOfShield extends SpsPotion {
 
 	{ image = SpecificPlaceHolderDict.POTION_HOLDER_0; }
 	@Override public void apply(Hero hero) {
-		Buff.affect(hero, Barrier.class).incShield(Math.max(1, hero.HT / 3));
-		Buff.affect(hero, ArcaneArmor.class).set(Math.max(1, hero.HT / 3), 30);
+		//SPSEXPD: 形态折算（粗制 3/4、试剂 1/3 …）
+		int shield = Math.max(1, (int) (hero.HT / 3f * effectScale()));
+		Buff.affect(hero, Barrier.class).incShield(shield);
+		Buff.affect(hero, ArcaneArmor.class).set(shield, 30);
 		Sample.INSTANCE.play(Assets.Sounds.MELD);
 	}
 	@Override public void shatter(int cell) {

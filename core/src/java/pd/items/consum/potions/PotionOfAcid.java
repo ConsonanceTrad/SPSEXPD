@@ -32,8 +32,8 @@ public class PotionOfAcid extends SpsPotion {
 	{ image = SpecificPlaceHolderDict.POTION_HOLDER_0; }
 
 	@Override public void apply(Hero hero) {
-		//SPSEXPD: 危险药剂——误饮会被强酸灼伤
-		Buff.affect(hero, Corrosion.class).set(6f, Math.max(1, hero.HT / 20));
+		//SPSEXPD: 危险药剂——误饮会被强酸灼伤（形态折算：粗制 3/4、试剂 1/3）
+		Buff.affect(hero, Corrosion.class).set(6f * effectScale(), Math.max(1, hero.HT / 20));
 		hero.sprite.emitter().start(Speck.factory(Speck.CORROSION), 0.4f, 4);
 	}
 
@@ -45,19 +45,21 @@ public class PotionOfAcid extends SpsPotion {
 			Sample.INSTANCE.play(Assets.Sounds.GAS);
 		}
 
-		int strength = 2 + Dungeon.scalingDepth() / 5;
-		int centerVolume = 25;
+		//SPSEXPD: 形态折算——腐蚀强度与气体量（作用范围）按比例缩减
+		float scale = effectScale();
+		int strength = Math.max(1, (int) ((2 + Dungeon.scalingDepth() / 5) * scale));
+		int centerVolume = Math.max(1, (int) (25 * scale));
 		for (int i : PathFinder.NEIGHBOURS8) {
 			if (!Dungeon.level.solid[cell + i]) {
-				GameScene.add(Blob.seed(cell + i, 25, CorrosiveGas.class).setStrength(strength));
+				GameScene.add(Blob.seed(cell + i, centerVolume, CorrosiveGas.class).setStrength(strength));
 			} else {
-				centerVolume += 25;
+				centerVolume += Math.max(1, (int) (25 * scale));
 			}
 		}
 		GameScene.add(Blob.seed(cell, centerVolume, CorrosiveGas.class).setStrength(strength));
 
 		Char ch = Actor.findChar(cell);
-		if (ch != null) Buff.affect(ch, Corrosion.class).set(8f, strength);
+		if (ch != null) Buff.affect(ch, Corrosion.class).set(8f * scale, strength);
 	}
 
 	@Override public int value() { return 30 * quantity; }

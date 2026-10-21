@@ -2,7 +2,9 @@
 package pd.items;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import pd.ShatteredPixelDungeon;
 import pd.items.BrewRecipe.AdjuvantSet;
@@ -10,6 +12,7 @@ import pd.items.BrewRecipe.FailureTable;
 import pd.items.BrewRecipe.Slots;
 import pd.items.consum.food.WaterItem;
 import pd.items.consum.food.fruit.Fruit;
+import pd.items.consum.food.vegetable.Vegetable;
 import pd.items.consum.materials.Waste;
 import pd.items.consum.potions.BenignConcoction;
 import pd.items.consum.potions.ChaoticConcoction;
@@ -17,6 +20,8 @@ import pd.items.consum.potions.MalignantConcoction;
 import pd.items.consum.potions.Potion;
 import pd.items.consum.potions.PotionForm;
 import pd.items.consum.potions.exotic.ExoticPotion;
+import pd.plants.Plant;
+import pd.plants.PlantHarvest;
 import render.utils.math.Random;
 import render.utils.serialize.Reflection;
 
@@ -37,6 +42,8 @@ public final class SpsBrewRecipes {
 
 	/** 果实主材的基础成功率。 */
 	private static final int FRUIT_RATE = 40;
+	/** 蔬菜主材的基础成功率（精制·选择1/2）。 */
+	private static final int VEGETABLE_RATE = 60;
 	/** 一个果实辅材的成功率加成。 */
 	private static final int FRUIT_BONUS = 20;
 	/** 一个粗制药水辅材的成功率加成（精制·选择2）。 */
@@ -74,13 +81,14 @@ public final class SpsBrewRecipes {
 	}
 
 	/**
-	 * 药水精制：主材果子（40%）+ 两种辅材方案（2 个果子各 +20%，或 1 瓶粗制药水 +60%）。
+	 * 药水精制：主材果子（40%）或蔬菜（60%）+ 两种辅材方案（2 果子各 +20%，或 1 瓶粗制药水 +60%）。
 	 * 成功产出精制药水，失败固定产出紊乱魔药。
 	 */
 	public static final class RefinedBrew extends BrewRecipe {
 
 		public RefinedBrew() {
-			mainMaterial = Fruit.class;
+			//主材为果子或蔬菜，由 potionType 判定
+			mainMaterial = null;
 			adjuvantOptions = new AdjuvantSet[]{
 					new AdjuvantSet(
 							new AdjuvantSet.Slot(Fruit.class, FRUIT_BONUS),
@@ -93,6 +101,12 @@ public final class SpsBrewRecipes {
 			energyCost = 0;
 			baseRate = FRUIT_RATE;
 			failures = FailureTable.single(ChaoticConcoction::new);
+		}
+
+		@Override
+		protected int baseRate(Item main) {
+			//蔬菜主材提供 60% 基础成功率
+			return main instanceof Vegetable ? VEGETABLE_RATE : FRUIT_RATE;
 		}
 
 		@Override
@@ -170,10 +184,36 @@ public final class SpsBrewRecipes {
 
 	//*** 工具
 
-	/** 主材果实对应的药剂类（沿继承链，含大型果实）。 */
+	/** 主材（果实或蔬菜）对应的药剂类；无法映射时返回 null（不参与配方）。 */
 	public static Class<? extends Potion> potionType(Item main) {
 		if (main == null) return null;
+		if (main instanceof Vegetable) return vegetableToPotion().get(main.getClass());
 		return Potion.FruitToPotion.potionFor(main);
+	}
+
+	/**
+	 * SPSEXPD: 蔬菜 → 药剂映射（docs/alchemy-rework.md §5.2 / 裁决 #4）。
+	 *
+	 * <p>唯一真源是「种子 ↔ 蔬菜」：{@link pd.plants.PlantHarvest} 里每种植物产出哪种蔬菜，
+	 * 再看该植物的种子在 {@code Potion.SeedToPotion.types} 里对应哪种药剂（「种什么收什么药」）。
+	 * 没有种子映射的蔬菜（如无味果）不参与精制主材池（裁决 #4B）。
+	 */
+	private static Map<Class<? extends Item>, Class<? extends Potion>> vegetableMap;
+
+	private static Map<Class<? extends Item>, Class<? extends Potion>> vegetableToPotion() {
+		if (vegetableMap == null) {
+			Map<Class<? extends Item>, Class<? extends Potion>> map = new HashMap<>();
+			for (Map.Entry<Class<? extends Plant.Seed>, Class<? extends Potion>> entry
+					: Potion.SeedToPotion.types.entrySet()) {
+				Class<? extends Item> vegetable = PlantHarvest.vegetableForSeed(entry.getKey());
+				//同一蔬菜可能有多个来源种子：先出现的映射优先（例如榴莲取力量药剂）
+				if (vegetable != null && !map.containsKey(vegetable)) {
+					map.put(vegetable, entry.getValue());
+				}
+			}
+			vegetableMap = map;
+		}
+		return vegetableMap;
 	}
 
 	public static boolean isCrude(Item item) {

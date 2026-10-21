@@ -62,7 +62,8 @@ public class PotionOfLevitation extends Potion {
 			Sample.INSTANCE.play( Assets.Sounds.GAS );
 		}
 
-		GameScene.add( Blob.seed( cell, 1000, ConfusionGas.class ) );
+		//SPSEXPD: 形态折算——投掷产生的迷乱气体量按比例缩减
+		GameScene.add( Blob.seed( cell, Math.max(1, (int) (1000 * effectScale())), ConfusionGas.class ) );
 	}
 	
 	@Override

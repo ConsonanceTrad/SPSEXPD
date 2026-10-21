@@ -56,7 +56,8 @@ public class PotionOfToxicGas extends Potion {
 			Sample.INSTANCE.play( Assets.Sounds.GAS );
 		}
 
-		GameScene.add( Blob.seed( cell, 1000, ToxicGas.class ) );
+		//SPSEXPD: 形态折算——气体量（作用范围）按比例缩减
+		GameScene.add( Blob.seed( cell, Math.max(1, (int) (1000 * effectScale())), ToxicGas.class ) );
 	}
 	
 	@Override

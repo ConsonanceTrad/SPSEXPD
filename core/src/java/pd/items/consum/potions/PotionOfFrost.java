@@ -56,10 +56,12 @@ public class PotionOfFrost extends Potion {
 			Sample.INSTANCE.play( Assets.Sounds.SHATTER );
 		}
 		
+		//SPSEXPD: 形态折算——冻结气体量（作用范围）按比例缩减
+		int volume = Math.max(1, Math.round(10 * effectScale()));
 		for (int offset : PathFinder.NEIGHBOURS9){
 			if (!Dungeon.level.solid[cell+offset]) {
 				
-				GameScene.add(Blob.seed(cell + offset, 10, Freezing.class));
+				GameScene.add(Blob.seed(cell + offset, volume, Freezing.class));
 				
 			}
 		}

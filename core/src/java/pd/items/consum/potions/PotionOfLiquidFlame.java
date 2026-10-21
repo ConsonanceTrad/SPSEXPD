@@ -57,10 +57,12 @@ public class PotionOfLiquidFlame extends Potion {
 			Sample.INSTANCE.play( Assets.Sounds.BURNING );
 		}
 
+		//SPSEXPD: 形态折算——火焰量（伤害）按比例缩减
+		int volume = Math.max(1, Math.round(2 * effectScale()));
 		for (int offset : PathFinder.NEIGHBOURS9){
 			if (!Dungeon.level.solid[cell+offset]) {
 
-				GameScene.add(Blob.seed(cell + offset, 2, Fire.class));
+				GameScene.add(Blob.seed(cell + offset, volume, Fire.class));
 
 			}
 		}

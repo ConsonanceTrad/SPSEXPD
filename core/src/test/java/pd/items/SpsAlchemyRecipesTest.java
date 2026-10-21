@@ -26,6 +26,7 @@ import pd.items.consum.food.meatfood.MeatFood;
 import pd.items.consum.food.staplefood.NormalRation;
 import pd.items.consum.food.staplefood.OverpricedRation;
 import pd.items.consum.food.staplefood.StapleFood;
+import pd.items.consum.food.vegetable.HealGrass;
 import pd.items.consum.food.vegetable.NutVegetable;
 import pd.items.consum.food.vegetable.Truffles;
 import pd.items.consum.food.vegetable.Vegetable;
@@ -155,6 +156,14 @@ public final class SpsAlchemyRecipesTest {
 		ArrayList<Item> mixedFruit = ingredients(LargeIceFruit.class, IceFruit.class, WaterItem.class, Tinder.class);
 		Recipe mixedRecipe = Recipe.findRecipes(mixedFruit).get(0);
 		check(((BrewRecipe) mixedRecipe).successRate(mixedFruit) == 50, "大小果实混用没有扣 10% 成功率");
+
+		//蔬菜主材：向阳草→生命草，经 Sungrass 种子映射到治疗药剂；60% + 20% + 20% = 100%
+		ArrayList<Item> vegetable = ingredients(HealGrass.class, IceFruit.class, IceFruit.class, WaterItem.class, Tinder.class);
+		Recipe vegetableRecipe = Recipe.findRecipes(vegetable).get(0);
+		check(vegetableRecipe instanceof SpsBrewRecipes.RefinedBrew, "蔬菜精制配方没有命中");
+		check(((BrewRecipe) vegetableRecipe).successRate(vegetable) == 100, "蔬菜精制成功率不是 100%");
+		check(vegetableRecipe.sampleOutput(vegetable) instanceof PotionOfHealing,
+				"蔬菜主材没有按「种子↔蔬菜」映射出治疗药剂");
 
 		//合剂：主材药剂 + 辅材药剂 + 水 + 火源（40%），产物是 regToExo 映射的合剂
 		ArrayList<Item> mix = ingredients(PotionOfHealing.class, PotionOfHealing.class, WaterItem.class, Tinder.class);

@@ -20,7 +20,8 @@ public class PotionOfSatiety extends SpsPotion {
 	{ image = SpecificPlaceHolderDict.POTION_HOLDER_0; }
 
 	@Override public void apply(Hero hero) {
-		Buff.affect(hero, Hunger.class).satisfy(500f);
+		//SPSEXPD: 形态折算（粗制 3/4、试剂 1/3 …）
+		Buff.affect(hero, Hunger.class).satisfy(500f * effectScale());
 		hero.sprite.emitter().start(Speck.factory(Speck.HEALING), 0.4f, 4);
 	}
 

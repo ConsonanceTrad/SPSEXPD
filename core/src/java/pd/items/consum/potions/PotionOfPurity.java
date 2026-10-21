@@ -66,7 +66,9 @@ public class PotionOfPurity extends Potion {
 	@Override
 	public void shatter( int cell ) {
 		
-		PathFinder.buildDistanceMap( cell, BArray.not( Dungeon.level.solid, null ), DISTANCE );
+		//SPSEXPD: 形态折算——净化半径按比例缩减（粗制 3/4）
+		int distance = Math.max(1, Math.round(DISTANCE * effectScale()));
+		PathFinder.buildDistanceMap( cell, BArray.not( Dungeon.level.solid, null ), distance );
 		
 		ArrayList<Blob> blobs = new ArrayList<>();
 		for (Class c : affectedBlobs){

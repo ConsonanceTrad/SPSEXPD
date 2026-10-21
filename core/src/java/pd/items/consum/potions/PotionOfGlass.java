@@ -22,7 +22,8 @@ public class PotionOfGlass extends SpsPotion {
 	{ image = SpecificPlaceHolderDict.POTION_HOLDER_0; }
 
 	@Override public void apply(Hero hero) {
-		Buff.affect(hero, GlassShield.class).turns(10);
+		//SPSEXPD: 形态折算——玻璃护盾可挡次数按比例缩减
+		Buff.affect(hero, GlassShield.class).turns(Math.max(1, Math.round(10 * effectScale())));
 		Sample.INSTANCE.play(Assets.Sounds.MELD);
 		hero.sprite.emitter().start(Speck.factory(Speck.LIGHT), 0.4f, 4);
 	}

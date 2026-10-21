@@ -217,8 +217,9 @@ public abstract class BrewRecipe extends Recipe {
 	}
 
 	public boolean matches(Slots ingredients) {
-		if (mainMaterial == null || ingredients.main == null) return false;
-		if (!mainMaterial.isInstance(ingredients.main)) return false;
+		if (ingredients.main == null) return false;
+		//mainMaterial 为 null 时由子类自己判定主材（例如精制接受果子或蔬菜）
+		if (mainMaterial != null && !mainMaterial.isInstance(ingredients.main)) return false;
 		if (needsWater != ingredients.hasWater()) return false;
 		if (needsFire != ingredients.hasFire()) return false;
 
@@ -248,13 +249,18 @@ public abstract class BrewRecipe extends Recipe {
 	}
 
 	public int successRate(Slots ingredients) {
-		int rate = baseRate;
+		int rate = baseRate(ingredients.main);
 		AdjuvantSet set = matchAdjuvant(ingredients);
 		if (set != null) rate += set.bonus();
 		if (ingredients.fire instanceof WillOWisp) rate += WILL_O_WISP_BONUS;
 		//TODO 批4：辅材里放入炼金能量瓶时 +15
 		if (mixesFruitSizes(ingredients)) rate -= MIXED_FRUIT_PENALTY;
 		return Math.max(1, Math.min(100, rate));
+	}
+
+	/** 主材本身提供的成功率（果子 40 / 蔬菜 60 等），子类可按主材类型覆写。 */
+	protected int baseRate(Item main) {
+		return baseRate;
 	}
 
 	/** 是否可失败（有失败产物分布）。 */

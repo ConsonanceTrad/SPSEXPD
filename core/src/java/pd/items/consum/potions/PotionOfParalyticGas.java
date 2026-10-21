@@ -56,7 +56,8 @@ public class PotionOfParalyticGas extends Potion {
 			Sample.INSTANCE.play( Assets.Sounds.GAS );
 		}
 
-		GameScene.add( Blob.seed( cell, 1000, ParalyticGas.class ) );
+		//SPSEXPD: 形态折算——麻痹气体量（作用范围）按比例缩减
+		GameScene.add( Blob.seed( cell, Math.max(1, (int) (1000 * effectScale())), ParalyticGas.class ) );
 	}
 	
 	@Override

@@ -50,8 +50,10 @@ public class PotionOfExperience extends Potion {
 	@Override
 	public void apply( Hero hero ) {
 		identify();
-		hero.sprite.showStatusWithIcon(CharSprite.POSITIVE, Integer.toString(hero.maxExp()), FloatingText.EXPERIENCE);
-		hero.earnExp( hero.maxExp(), getClass() );
+		//SPSEXPD: 形态折算——经验量按比例缩减（粗制 3/4、试剂 1/3）
+		int exp = Math.max(1, Math.round(hero.maxExp() * effectScale()));
+		hero.sprite.showStatusWithIcon(CharSprite.POSITIVE, Integer.toString(exp), FloatingText.EXPERIENCE);
+		hero.earnExp( exp, getClass() );
 		new Flare( 6, 32 ).color(0xFFFF00, true).show( curUser.sprite, 2f );
 	}
 	

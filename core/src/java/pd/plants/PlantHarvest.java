@@ -94,6 +94,18 @@ public final class PlantHarvest {
 	}
 
 	/**
+	 * SPSEXPD: 「种子 → 该种子种出的蔬菜」（docs/alchemy-rework.md §5.2）。
+	 * 供炼金的蔬菜→药剂映射使用：蔬菜继承其来源种子在 SeedToPotion 里的药剂映射。
+	 */
+	public static Class<? extends Item> vegetableForSeed(Class<? extends Plant.Seed> seedClass) {
+		if (seedClass == null) return null;
+		Plant.Seed seed = Reflection.newInstance(seedClass);
+		if (seed == null) return null;
+		Species species = speciesFor(seed.plantClass);
+		return species == null ? null : species.vegetable;
+	}
+
+	/**
 	 * SPSEXPD: 随机取一种大型果实。
 	 * 大型果实已不再由植物产出，只作为稀有奖励（许愿 / 商店售卖）出现。
 	 */

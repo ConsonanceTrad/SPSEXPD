@@ -20,7 +20,8 @@ public class PotionOfEnergy extends SpsPotion {
 	{ image = SpecificPlaceHolderDict.POTION_HOLDER_0; }
 
 	@Override public void apply(Hero hero) {
-		Dewcharge.charge(hero, 240f);
+		//SPSEXPD: 形态折算——露珠爆破时长按比例缩减（持续时长不折算，改为充能量折算）
+		Dewcharge.charge(hero, 240f * effectScale());
 		hero.sprite.emitter().start(Speck.factory(Speck.LIGHT), 0.4f, 4);
 	}
 
