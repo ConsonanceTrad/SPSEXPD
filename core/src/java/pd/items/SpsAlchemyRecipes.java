@@ -17,6 +17,7 @@ import pd.items.consum.food.staplefood.OverpricedRation;
 import pd.items.consum.food.staplefood.StapleFood;
 import pd.items.consum.food.vegetable.*;
 import pd.items.consum.medicine.*;
+import pd.items.consum.materials.DryGrass;
 import pd.items.consum.materials.DryTwig;
 import pd.items.consum.materials.FreshGrass;
 import pd.items.consum.materials.Tinder;
@@ -199,9 +200,12 @@ public final class SpsAlchemyRecipes {
 			recipe(HighEnergySpore.class, DewSpore.class),
 			recipe(WishPetal.class, RainbowPansy.class),
 			recipe(HormoneSolution.class, Sorrel.class),
-			//SPSEXPD: 火种 = 3 鲜草，或 1 枯枝（踩踏高草收获的材料）
-			recipe(Tinder.class, FreshGrass.class, FreshGrass.class, FreshGrass.class),
+			//SPSEXPD: 火源链（docs/alchemy-rework.md §3）——鲜草 ×2 → 干草；干草 / 枯枝 → 火种
+			recipe(DryGrass.class, FreshGrass.class, FreshGrass.class),
+			recipe(Tinder.class, DryGrass.class),
 			recipe(Tinder.class, DryTwig.class),
+			//SPSEXPD: 取水公式 WT-01——鲜草 ×1 → 水（免火源、不失败）
+			recipe(WaterItem.class, FreshGrass.class),
 			//SPSEXPD: 卷轴 + 枯枝 → 挂历（翻开可看当前的游戏内日期，见 Statistics.calendarYear/Month/Day）
 			recipe(WallCalendar.class, Scroll.class, DryTwig.class),
 			//SPSEXPD: 通用弹匣 —— 原石 + 暗金矿（枪械弹药，见 pd.items.Magazine）

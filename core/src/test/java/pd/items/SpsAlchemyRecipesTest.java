@@ -141,15 +141,15 @@ public final class SpsAlchemyRecipesTest {
 		check(Recipe.findRecipes(invalid).isEmpty(), "无效五槽组合仍能匹配到配方");
 
 		AlchemistsToolkit toolkit = new AlchemistsToolkit();
-		//SPSEXPD: 炼金釜固定 5 格，不再依赖护腕等级
-		check(AlchemyScene.spsInputCapacity(null) == 5, "普通炼金釜应为五槽");
-		check(AlchemyScene.spsInputCapacity(toolkit) == 5, "零级炼金工具应为五槽");
+		//SPSEXPD: 炼金釜固定 7 格（1 主材 + 4 辅材 + 水 + 火源），不再依赖护腕等级
+		check(AlchemyScene.spsInputCapacity(null) == 7, "普通炼金釜应为七槽");
+		check(AlchemyScene.spsInputCapacity(toolkit) == 7, "零级炼金工具应为七槽");
 		toolkit.upgrade(5);
-		check(AlchemyScene.spsInputCapacity(toolkit) == 5, "五级炼金工具应为五槽");
+		check(AlchemyScene.spsInputCapacity(toolkit) == 7, "五级炼金工具应为七槽");
 		toolkit.upgrade(5);
-		check(AlchemyScene.spsInputCapacity(toolkit) == 5, "十级炼金工具应为五槽");
+		check(AlchemyScene.spsInputCapacity(toolkit) == 7, "十级炼金工具应为七槽");
 
-		System.out.println("SPS炼金测试通过：47条固定配方、果实酿造、酿制无味果、无效组合无产物、耗材、产量及固定五槽均正常。");
+		System.out.println("SPS炼金测试通过：47条固定配方、果实酿造、酿制无味果、无效组合无产物、耗材、产量及固定七槽均正常。");
 	}
 
 	private static String toHex(byte[] bytes) {

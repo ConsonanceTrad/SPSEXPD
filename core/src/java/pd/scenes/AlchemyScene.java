@@ -25,6 +25,9 @@ import pd.atlas.items.SpecificCurrencyDict;
 import pd.atlas.items.SpecificPagesDict;
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.atlas.items.EquipmentNonEquipDict;
+import pd.atlas.items.ConsumGoodsMaterialsMaterialsExtraDict;
+import pd.atlas.IconEntry;
 
 import pd.Assets;
 import pd.Badges;
@@ -38,6 +41,7 @@ import pd.effects.Speck;
 import pd.effects.particles.SparkParticle;
 import pd.actors.hero.Hero;
 import pd.items.EnergyCrystal;
+import pd.items.BrewRecipe;
 import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
@@ -108,17 +112,29 @@ public class AlchemyScene extends PixelScene {
 			.t("guide", "指南")
 			.t("energize", "提炼物品")
 			.t("cancel", "取消加料")
-			.t("repeat", "重复加料");
+			.t("repeat", "重复加料")
+			.t("chance", "成功率")
+			.t("water_slot", "放入水")
+			.t("fire_slot", "放入火源（火种/磷火）");
 	}
 
 
 
 
-	//SPS-PD expands the pot from 3 to 5 inputs at toolkit levels 5 and 10.
-	private static final InputButton[] inputs = new InputButton[5];
+	//SPSEXPD: 炼金釜固定 7 格——1 主材 / 4 辅材（2×2 两行）/ 水 / 火源（docs/alchemy-rework.md §1.2）
+	private static final int SLOT_MAIN = 0;
+	private static final int SLOT_ADJUVANT = 1;
+	private static final int SLOT_WATER = 5;
+	private static final int SLOT_FIRE = 6;
+	private static final InputButton[] inputs = new InputButton[7];
 	private static final CombineButton[] combines = new CombineButton[3];
 	private static final OutputSlot[] outputs = new OutputSlot[3];
-	private int activeInputCount = 3;
+	private int activeInputCount = 7;
+
+	//SPSEXPD: 7 格区域的上下边界，供合成按钮/输出槽纵向居中对齐
+	private float slotsTop;
+	private float slotsBottom;
+	private float slotsMiddleY;
 
 	private IconButton cancel;
 	private IconButton repeat;
@@ -215,7 +231,7 @@ public class AlchemyScene extends PixelScene {
 
 		centerW = left + pw/2;
 
-		int pos = (int)(insets.top) + (h - (activeInputCount * 30 + 30))/2;
+		int pos = (int)(insets.top) + (h - (4 * BTN_SIZE + 3 * 6 + 40))/2;
 
 		if (splitAlchGuide &&
 				w >= 300 &&
@@ -249,31 +265,71 @@ public class AlchemyScene extends PixelScene {
 		
 		pos += desc.height() + 6;
 
-		NinePatch inputBG = Chrome.get(Chrome.Type.TOAST_TR);
-		inputBG.x = left + 6;
-		inputBG.y = pos;
-		inputBG.size(BTN_SIZE+8, activeInputCount * BTN_SIZE + (activeInputCount - 1) * 2 + 8);
-		add(inputBG);
+		//SPSEXPD: 7 格三段式布局——上方主材、中间辅材 2×2 两行、下方水 + 火源
+		float gapX = Math.max(4, Math.min(24, (pw - 74) - 2*BTN_SIZE));
+		float inputW = 2*BTN_SIZE + gapX;
+		float slotsX0 = left + 6;
+		float slotsX1 = slotsX0 + BTN_SIZE + gapX;
+		float slotsMainX = slotsX0 + (inputW - BTN_SIZE)/2f;
 
 		pos += 4;
 
+		float slotsY0 = pos;
+		float slotsY1 = slotsY0 + BTN_SIZE + 6;
+		float slotsY2 = slotsY1 + BTN_SIZE + 6;
+		float slotsY3 = slotsY2 + BTN_SIZE + 6;
+
+		NinePatch inputBG = Chrome.get(Chrome.Type.TOAST_TR);
+		inputBG.x = slotsX0 - 4;
+		inputBG.y = slotsY0 - 4;
+		inputBG.size(inputW + 8, (slotsY3 + BTN_SIZE) - slotsY0 + 8);
+		add(inputBG);
+
+		slotsTop = slotsY0 - 4;
+		slotsBottom = slotsY3 + BTN_SIZE + 4;
+		slotsMiddleY = slotsTop + (slotsBottom - slotsTop - BTN_SIZE)/2f;
+
 		synchronized (inputs) {
 			for (int i = 0; i < activeInputCount; i++) {
-				if (inputs[i] == null) {
-					inputs[i] = new InputButton();
+				InputButton button;
+				if (i == SLOT_WATER) {
+					button = new WaterInputButton();
+				} else if (i == SLOT_FIRE) {
+					button = new FireInputButton();
 				} else {
-					//in case the scene was reset without calling destroy() for some reason
-					Item item = inputs[i].item();
-					inputs[i] = new InputButton();
-					if (item != null){
-						inputs[i].item(item);
+					button = new InputButton();
+				}
+
+				//in case the scene was reset without calling destroy() for some reason
+				if (inputs[i] != null) {
+					Item carried = inputs[i].item();
+					if (carried != null) {
+						button.item(carried);
 					}
 				}
-				inputs[i].setRect(left + 10, pos, BTN_SIZE, BTN_SIZE);
+				inputs[i] = button;
+				button.item(button.item());
+
+				float x;
+				float y;
+				if (i == SLOT_MAIN) {
+					x = slotsMainX;
+					y = slotsY0;
+				} else if (i >= SLOT_ADJUVANT && i < SLOT_ADJUVANT + 4) {
+					int row = (i - SLOT_ADJUVANT) / 2;
+					x = ((i - SLOT_ADJUVANT) % 2 == 0) ? slotsX0 : slotsX1;
+					y = (row == 0) ? slotsY1 : slotsY2;
+				} else {
+					x = (i == SLOT_WATER) ? slotsX0 : slotsX1;
+					y = slotsY3;
+				}
+
+				inputs[i].setRect(x, y, BTN_SIZE, BTN_SIZE);
 				add(inputs[i]);
-				pos += BTN_SIZE + 2;
 			}
 		}
+
+		pos = (int)(slotsY3 + BTN_SIZE + 8);
 
 		Button invSelector = new Button(){
 			@Override
@@ -423,9 +479,8 @@ public class AlchemyScene extends PixelScene {
 
 			if (i == 0){
 				//first ones are always visible
-				int middle = activeInputCount / 2;
-				combines[i].setRect(left + (pw-30)/2f, inputs[middle].top()+5, 30, inputs[middle].height()-10);
-				outputs[i].setRect(left + pw - BTN_SIZE - 10, inputs[middle].top(), BTN_SIZE, BTN_SIZE);
+				combines[i].setRect(slotsX1 + BTN_SIZE + 6, slotsMiddleY + 5, 30, BTN_SIZE - 10);
+				outputs[i].setRect(combines[i].left() + 34, slotsMiddleY, BTN_SIZE, BTN_SIZE);
 			} else {
 				combines[i].visible = false;
 				outputs[i].visible = false;
@@ -636,6 +691,18 @@ public class AlchemyScene extends PixelScene {
 		}
 		return filtered;
 	}
+
+	/** SPSEXPD: 把 7 个格子的真实槽位交给配方引擎（主材/辅材×4/水/火源）。 */
+	private BrewRecipe.Slots currentSlots(){
+		BrewRecipe.Slots slots = new BrewRecipe.Slots();
+		slots.main = inputs[SLOT_MAIN] == null ? null : inputs[SLOT_MAIN].item();
+		for (int i = 0; i < BrewRecipe.ADJUVANT_SLOTS; i++){
+			slots.adjuvant[i] = inputs[SLOT_ADJUVANT + i] == null ? null : inputs[SLOT_ADJUVANT + i].item();
+		}
+		slots.water = inputs[SLOT_WATER] == null ? null : inputs[SLOT_WATER].item();
+		slots.fire = inputs[SLOT_FIRE] == null ? null : inputs[SLOT_FIRE].item();
+		return slots;
+	}
 	
 	//SPSEXPD: 原来的「废料重铸」（wasteCount/reforgeWaste）已随垃圾物品一并移除
 
@@ -644,7 +711,7 @@ public class AlchemyScene extends PixelScene {
 		repeat.enable(false);
 
 		ArrayList<Item> ingredients = filterInput(Item.class);
-		ArrayList<Recipe> recipes = Recipe.findRecipes(ingredients);
+		ArrayList<Recipe> recipes = Recipe.findRecipes(ingredients, currentSlots());
 
 		//disables / hides unneeded buttons
 		for (int i = recipes.size(); i < combines.length; i++){
@@ -660,9 +727,8 @@ public class AlchemyScene extends PixelScene {
 		cancel.enable(!ingredients.isEmpty());
 
 		if (recipes.isEmpty()){
-			int middle = activeInputCount / 2;
-			combines[0].setPos(combines[0].left(), inputs[middle].top()+5);
-			outputs[0].setPos(outputs[0].left(), inputs[middle].top());
+			combines[0].setPos(combines[0].left(), slotsMiddleY + 5);
+			outputs[0].setPos(outputs[0].left(), slotsMiddleY);
 			energyAddBlinking = false;
 			return;
 		}
@@ -670,9 +736,9 @@ public class AlchemyScene extends PixelScene {
 		//positions active buttons
 		float gap = recipes.size() == 2 ? 6 : 2;
 
-		float height = inputs[activeInputCount - 1].bottom() - inputs[0].top();
+		float height = slotsBottom - slotsTop;
 		height -= recipes.size()*BTN_SIZE + (recipes.size()-1)*gap;
-		float top = inputs[0].top() + height/2;
+		float top = slotsTop + height/2;
 
 		//positions and enables active buttons
 		boolean promptToAddEnergy = false;
@@ -694,7 +760,8 @@ public class AlchemyScene extends PixelScene {
 
 			combines[i].visible = true;
 			combines[i].setRect(combines[0].left(), outputs[i].top()+5, 30, 20);
-			combines[i].enable(cost <= availableEnergy, cost);
+			int chance = recipe instanceof BrewRecipe ? ((BrewRecipe) recipe).successRate(ingredients) : 0;
+			combines[i].enable(cost <= availableEnergy, cost, chance);
 
 			if (cost > availableEnergy && recipe instanceof TrinketCatalyst.Recipe){
 				promptToAddEnergy = true;
@@ -720,7 +787,7 @@ public class AlchemyScene extends PixelScene {
 			lastIngredients.add(i.duplicate());
 		}
 
-		ArrayList<Recipe> recipes = Recipe.findRecipes(ingredients);
+		ArrayList<Recipe> recipes = Recipe.findRecipes(ingredients, currentSlots());
 		if (recipes.size() <= slot) return;
 
 		Recipe recipe = recipes.get(slot);
@@ -1017,7 +1084,7 @@ public class AlchemyScene extends PixelScene {
 		protected void createChildren() {
 			super.createChildren();
 			
-			bg = Chrome.get( Chrome.Type.RED_BUTTON);
+			bg = Chrome.get(chromeType());
 			add( bg );
 			
 			slot = new ItemSlot() {
@@ -1072,7 +1139,7 @@ public class AlchemyScene extends PixelScene {
 				@Override
 				protected String hoverText() {
 					if (item == null || item instanceof WndBag.Placeholder){
-						return Messages.get(AlchemyScene.class, "add");
+						return emptyHoverText();
 					}
 					return super.hoverText();
 				}
@@ -1104,10 +1171,61 @@ public class AlchemyScene extends PixelScene {
 		public void item( Item item ) {
 			if (item == null){
 				this.item = null;
-				slot.item(new WndBag.Placeholder(SpecificPlaceHolderDict.SOMETHING_0));
+				slot.item(new WndBag.Placeholder(placeholderImage()));
 			} else {
 				slot.item(this.item = item);
 			}
+		}
+
+		/** SPSEXPD: 空槽占位图——水格/火源格用各自的图标区分语义。 */
+		protected IconEntry placeholderImage(){
+			return SpecificPlaceHolderDict.SOMETHING_0;
+		}
+
+		/** SPSEXPD: 底框类型——水格/火源格用灰色框，与红色材料格区分。 */
+		protected Chrome.Type chromeType(){
+			return Chrome.Type.RED_BUTTON;
+		}
+
+		/** SPSEXPD: 空槽的悬浮提示文案。 */
+		protected String emptyHoverText(){
+			return Messages.get(AlchemyScene.class, "add");
+		}
+	}
+
+	//SPSEXPD: 水格——只放水（语义固定槽，匹配由配方引擎判断）
+	private class WaterInputButton extends InputButton {
+		@Override
+		protected IconEntry placeholderImage(){
+			return EquipmentNonEquipDict.PURE_DEWDROP_WATER;
+		}
+
+		@Override
+		protected Chrome.Type chromeType(){
+			return Chrome.Type.GREY_BUTTON;
+		}
+
+		@Override
+		protected String emptyHoverText(){
+			return Messages.get(AlchemyScene.class, "water_slot");
+		}
+	}
+
+	//SPSEXPD: 火源格——火种或磷火
+	private class FireInputButton extends InputButton {
+		@Override
+		protected IconEntry placeholderImage(){
+			return ConsumGoodsMaterialsMaterialsExtraDict.TINDER;
+		}
+
+		@Override
+		protected Chrome.Type chromeType(){
+			return Chrome.Type.GREY_BUTTON;
+		}
+
+		@Override
+		protected String emptyHoverText(){
+			return Messages.get(AlchemyScene.class, "fire_slot");
 		}
 	}
 
@@ -1168,10 +1286,15 @@ public class AlchemyScene extends PixelScene {
 		}
 
 		public void enable( boolean enabled ){
-			enable(enabled, 0);
+			enable(enabled, 0, 0);
 		}
 
 		public void enable( boolean enabled, int cost ){
+			enable(enabled, cost, 0);
+		}
+
+		/** SPSEXPD: chance > 0 时显示该次合成的成功率（掷点公式）。 */
+		public void enable( boolean enabled, int cost, int chance ){
 			button.enable(enabled);
 			if (enabled) {
 				button.icon().tint(1, 1, 0, 1);
@@ -1183,11 +1306,14 @@ public class AlchemyScene extends PixelScene {
 				costText.hardlight(0xFF0000);
 			}
 
-			if (cost == 0){
-				costText.visible = false;
-			} else {
+			if (cost > 0){
 				costText.visible = true;
 				costText.text(Messages.get(AlchemyScene.class, "energy") + " " + cost);
+			} else if (chance > 0 && chance < 100){
+				costText.visible = true;
+				costText.text(Messages.get(AlchemyScene.class, "chance") + " " + chance + "%");
+			} else {
+				costText.visible = false;
 			}
 
 			layout();
@@ -1246,8 +1372,8 @@ public class AlchemyScene extends PixelScene {
 	}
 
 	public static int spsInputCapacity(AlchemistsToolkit toolkit) {
-		//SPSEXPD: 炼金釜固定提供 5 个投放格（不再依赖炼金护腕等级）
-		return 5;
+		//SPSEXPD: 炼金釜固定 7 格——1 主材 / 4 辅材 / 水 / 火源（docs/alchemy-rework.md §1.2）
+		return 7;
 	}
 
 	public static void assignToolkit( AlchemistsToolkit toolkit ){

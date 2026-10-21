@@ -168,6 +168,12 @@ public abstract class Recipe {
 	// Static members
 	//*******
 
+	/**
+	 * SPSEXPD: 新炼金框架的公式表（docs/alchemy-rework.md）。
+	 * 批1 只搭框架，具体公式在批2（药水线）/批5（食物线）填充。
+	 */
+	private static Recipe[] brewRecipes = new Recipe[]{};
+
 	private static Recipe[] variableRecipes = new Recipe[]{
 			new Potion.FruitToPotion(),
 			new LargeFruitToElixir(),
@@ -221,11 +227,29 @@ public abstract class Recipe {
 	};
 	
 	public static ArrayList<Recipe> findRecipes(ArrayList<Item> ingredients){
+		return findRecipes(ingredients, BrewRecipe.Slots.of(ingredients));
+	}
+
+	/** SPSEXPD: 带语义槽的匹配入口——炼金釜按「主材/辅材/水/火源」的真实槽位喂入。 */
+	public static ArrayList<Recipe> findRecipes(ArrayList<Item> ingredients, BrewRecipe.Slots slots){
 
 		ArrayList<Recipe> result = new ArrayList<>();
 		Recipe spsRecipe = SpsAlchemyRecipes.findRecipe(ingredients);
 		if (spsRecipe != null) {
 			result.add(spsRecipe);
+			return result;
+		}
+
+		//SPSEXPD: 新炼金框架（主材/辅材/水/火源 + 成功率）
+		for (Recipe recipe : brewRecipes){
+			boolean matched = recipe instanceof BrewRecipe
+					? ((BrewRecipe) recipe).matches(slots)
+					: recipe.testIngredients(ingredients);
+			if (matched){
+				result.add(recipe);
+			}
+		}
+		if (!result.isEmpty()){
 			return result;
 		}
 
