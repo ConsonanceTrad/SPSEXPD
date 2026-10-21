@@ -3,6 +3,7 @@ package pd.items;
 
 import pd.items.consum.food.fruit.Fruit;
 import pd.items.consum.food.WaterItem;
+import pd.items.consum.materials.EnergyFlask;
 import pd.items.consum.materials.Tinder;
 import pd.items.consum.materials.WillOWisp;
 import pd.items.consum.potions.Potion;
@@ -32,6 +33,8 @@ public abstract class BrewRecipe extends Recipe {
 
 	/** 磷火作火源时的成功率加成（裁决 #7）。 */
 	public static final int WILL_O_WISP_BONUS = 5;
+	/** 炼金能量瓶作辅材时的成功率加成（§6.5）。 */
+	public static final int ENERGY_FLASK_BONUS = 15;
 	/** 大小果实混用的成功率惩罚（裁决 #10）。 */
 	public static final int MIXED_FRUIT_PENALTY = 10;
 
@@ -131,7 +134,12 @@ public abstract class BrewRecipe extends Recipe {
 		}
 
 		public boolean matches(Slots ingredients) {
-			if (ingredients.adjuvantCount() != slots.length) return false;
+			//炼金能量瓶是不占方案槽位的加成辅材，不计入槽数
+			int count = 0;
+			for (Item item : ingredients.adjuvant) {
+				if (item != null && !(item instanceof EnergyFlask)) count++;
+			}
+			if (count != slots.length) return false;
 			return matchFrom(ingredients, 0, new boolean[ADJUVANT_SLOTS]);
 		}
 
@@ -139,7 +147,7 @@ public abstract class BrewRecipe extends Recipe {
 			if (slot == slots.length) return true;
 			for (int i = 0; i < ADJUVANT_SLOTS; i++) {
 				Item item = ingredients.adjuvant[i];
-				if (item != null && !used[i] && slots[slot].accepts(item)) {
+				if (item != null && !(item instanceof EnergyFlask) && !used[i] && slots[slot].accepts(item)) {
 					used[i] = true;
 					if (matchFrom(ingredients, slot + 1, used)) return true;
 					used[i] = false;
@@ -253,9 +261,18 @@ public abstract class BrewRecipe extends Recipe {
 		AdjuvantSet set = matchAdjuvant(ingredients);
 		if (set != null) rate += set.bonus();
 		if (ingredients.fire instanceof WillOWisp) rate += WILL_O_WISP_BONUS;
-		//TODO 批4：辅材里放入炼金能量瓶时 +15
+		//SPSEXPD: 炼金能量瓶作辅材 +15%（§6.5）
+		if (hasEnergyFlask(ingredients)) rate += ENERGY_FLASK_BONUS;
 		if (mixesFruitSizes(ingredients)) rate -= MIXED_FRUIT_PENALTY;
 		return Math.max(1, Math.min(100, rate));
+	}
+
+	/** 辅材里是否放了炼金能量瓶。 */
+	protected static boolean hasEnergyFlask(Slots ingredients) {
+		for (Item item : ingredients.adjuvant) {
+			if (item instanceof EnergyFlask) return true;
+		}
+		return false;
 	}
 
 	/** 主材本身提供的成功率（果子 40 / 蔬菜 60 等），子类可按主材类型覆写。 */

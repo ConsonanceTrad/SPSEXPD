@@ -21,6 +21,7 @@
 
 package pd.items.consum.potions;
 
+import pd.actors.buffs.Buff;
 import pd.actors.hero.Hero;
 import pd.effects.Flare;
 import pd.effects.FloatingText;
@@ -50,10 +51,10 @@ public class PotionOfExperience extends Potion {
 	@Override
 	public void apply( Hero hero ) {
 		identify();
-		//SPSEXPD: 形态折算——经验量按比例缩减（粗制 3/4、试剂 1/3）
-		int exp = Math.max(1, Math.round(hero.maxExp() * effectScale()));
-		hero.sprite.showStatusWithIcon(CharSprite.POSITIVE, Integer.toString(exp), FloatingText.EXPERIENCE);
-		hero.earnExp( exp, getClass() );
+		//SPSEXPD: 改为限时经验增益（docs/alchemy-rework.md §8），不再一次性给一整级经验
+		int turns = Math.max(1, Math.round(100 * effectScale()));
+		Buff.prolong(hero, pd.actors.buffs.ExpBoost.class, turns);
+		hero.sprite.showStatusWithIcon(CharSprite.POSITIVE, "+" + turns, FloatingText.EXPERIENCE);
 		new Flare( 6, 32 ).color(0xFFFF00, true).show( curUser.sprite, 2f );
 	}
 	

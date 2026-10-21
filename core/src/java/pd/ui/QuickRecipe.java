@@ -371,6 +371,17 @@ public class QuickRecipe extends Component {
 						new ArrayList<>(Arrays.asList(new ChaoticConcoction(), new ChaoticConcoction(), new ChaoticConcoction())),
 						new BenignConcoction()));
 				result.add(null);
+				//SPSEXPD: 三种变体形态——缓释片（免回合/不可投掷）、注射剂（免回合/可投掷）、试剂（1/3 效果/多瓶）
+				Item potionHolder = potionFormHolder("任意药剂");
+				result.add(new QuickRecipe(new SpsBrewRecipes.TabletBrew(),
+						new ArrayList<>(Arrays.asList(potionHolder)), potionFormHolder("缓释片")));
+				result.add(new QuickRecipe(new SpsBrewRecipes.InjectorBrew(),
+						new ArrayList<>(Arrays.asList(potionFormHolder("任意药剂"), new WaterItem())),
+						potionFormHolder("注射剂")));
+				result.add(new QuickRecipe(new SpsBrewRecipes.ReagentBrew(),
+						new ArrayList<>(Arrays.asList(potionFormHolder("任意药剂"), new WaterItem())),
+						potionFormHolder("试剂 x2~4")));
+				result.add(null);
 				//SPSEXPD: 水果沙拉配方 = 1 份水 + 任意 2 个四色浆果（用浆果类别占位图）
 				Item berryHolder = new Item() {
 					{

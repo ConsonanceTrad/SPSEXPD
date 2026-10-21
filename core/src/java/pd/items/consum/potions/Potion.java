@@ -308,6 +308,8 @@ public class Potion extends Item {
 	public ArrayList<String> actions( Hero hero ) {
 		ArrayList<String> actions = super.actions( hero );
 		actions.add( AC_DRINK );
+		//SPSEXPD: 缓释片没有投掷效果（§6.3）
+		if (form == PotionForm.TABLET) actions.remove( AC_THROW );
 		return actions;
 	}
 	
@@ -393,6 +395,8 @@ public class Potion extends Item {
 	}
 
 	protected float timeToDrink() {
+		//SPSEXPD: 缓释片与注射剂不消耗回合（docs/alchemy-rework.md §6.3）
+		if (form == PotionForm.TABLET || form == PotionForm.INJECTOR) return 0f;
 		return Dungeon.isChallenged(Challenges.ITEM_PHOBIA) ? 5f : TIME_TO_DRINK;
 	}
 	

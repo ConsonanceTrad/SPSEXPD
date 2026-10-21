@@ -13,13 +13,17 @@ import pd.items.BrewRecipe.Slots;
 import pd.items.consum.food.WaterItem;
 import pd.items.consum.food.fruit.Fruit;
 import pd.items.consum.food.vegetable.Vegetable;
+import pd.items.consum.materials.EnergyFlask;
 import pd.items.consum.materials.EyeOfTruth;
 import pd.items.consum.materials.Waste;
+import pd.items.consum.potions.AbstractConcoction;
 import pd.items.consum.potions.BenignConcoction;
 import pd.items.consum.potions.ChaoticConcoction;
 import pd.items.consum.potions.MalignantConcoction;
 import pd.items.consum.potions.Potion;
 import pd.items.consum.potions.PotionForm;
+import pd.items.consum.potions.brews.Brew;
+import pd.items.consum.potions.elixirs.Elixir;
 import pd.items.consum.potions.exotic.ExoticPotion;
 import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.plants.Plant;
@@ -205,7 +209,128 @@ public final class SpsBrewRecipes {
 		}
 	}
 
+	/**
+	 * 缓释片：目标药剂 → 同种药水的缓释片（免回合吞服、效果更持久、**没有投掷效果**）。
+	 * 不失败、免水、免火源、免能量。
+	 */
+	public static final class TabletBrew extends BrewRecipe {
+
+		public TabletBrew() {
+			mainMaterial = Potion.class;
+			adjuvantOptions = null;
+			needsWater = false;
+			needsFire = false;
+			energyCost = 0;
+			baseRate = 100;
+			failures = null;
+		}
+
+		@Override
+		public boolean matches(Slots ingredients) {
+			return super.matches(ingredients) && isPlainPotion(ingredients.main);
+		}
+
+		@Override
+		protected Item successOutput(Slots ingredients) {
+			return variantOf(ingredients.main, PotionForm.TABLET);
+		}
+	}
+
+	/**
+	 * 注射剂：目标药剂 + 水 → 同种药水的注射剂
+	 * （免回合使用、可投掷、药性更集中猛烈）。
+	 */
+	public static final class InjectorBrew extends BrewRecipe {
+
+		public InjectorBrew() {
+			mainMaterial = Potion.class;
+			adjuvantOptions = null;
+			needsWater = true;
+			needsFire = false;
+			energyCost = 0;
+			baseRate = 100;
+			failures = null;
+		}
+
+		@Override
+		public boolean matches(Slots ingredients) {
+			return super.matches(ingredients) && isPlainPotion(ingredients.main);
+		}
+
+		@Override
+		protected Item successOutput(Slots ingredients) {
+			return variantOf(ingredients.main, PotionForm.INJECTOR);
+		}
+	}
+
+	/**
+	 * 试剂：目标药剂 + 水 → 2~4 瓶试剂（效果为正常的 1/3，供魔法药瓶自动喂食）。
+	 */
+	public static final class ReagentBrew extends BrewRecipe {
+
+		public ReagentBrew() {
+			mainMaterial = Potion.class;
+			adjuvantOptions = null;
+			needsWater = true;
+			needsFire = false;
+			energyCost = 0;
+			baseRate = 100;
+			failures = null;
+		}
+
+		@Override
+		public boolean matches(Slots ingredients) {
+			return super.matches(ingredients) && isPlainPotion(ingredients.main);
+		}
+
+		@Override
+		protected Item successOutput(Slots ingredients) {
+			Potion reagent = variantOf(ingredients.main, PotionForm.REAGENT);
+			if (reagent != null) reagent.quantity(Random.IntRange(2, 4));
+			return reagent;
+		}
+	}
+
+	/**
+	 * 炼金能量瓶：水 + 4 点炼金能量 → 能量瓶（§6.5，特殊公式保留能量消耗）。
+	 * 水放在主材格，不需要额外的水/火源。
+	 */
+	public static final class EnergyFlaskBrew extends BrewRecipe {
+
+		public EnergyFlaskBrew() {
+			mainMaterial = WaterItem.class;
+			adjuvantOptions = null;
+			needsWater = false;
+			needsFire = false;
+			energyCost = 4;
+			baseRate = 100;
+			failures = null;
+		}
+
+		@Override
+		protected Item successOutput(Slots ingredients) {
+			return new EnergyFlask();
+		}
+	}
+
 	//*** 工具
+
+	/** 主材是否为「普通药剂」（排除合剂/秘药/酿造物/紊乱魔药家族）。 */
+	public static boolean isPlainPotion(Item item) {
+		return item instanceof Potion
+				&& !(item instanceof ExoticPotion)
+				&& !(item instanceof Elixir)
+				&& !(item instanceof Brew)
+				&& !(item instanceof AbstractConcoction);
+	}
+
+	/** 构建同种药水的指定形态（形态转换类公式用）。 */
+	public static Potion variantOf(Item main, PotionForm form) {
+		if (!isPlainPotion(main)) return null;
+		Potion potion = Reflection.newInstance((Class<? extends Potion>) main.getClass());
+		if (potion != null) potion.form = form;
+		return potion;
+	}
 
 	/** 主材（果实或蔬菜）对应的药剂类；无法映射时返回 null（不参与配方）。 */
 	public static Class<? extends Potion> potionType(Item main) {
@@ -269,6 +394,10 @@ public final class SpsBrewRecipes {
 	/** 全部炼金公式（顺序即匹配顺序）。 */
 	public static List<Recipe> all() {
 		return Arrays.asList(
+				new EnergyFlaskBrew(),
+				new TabletBrew(),
+				new InjectorBrew(),
+				new ReagentBrew(),
 				new CrudeBrew(),
 				new RefinedBrew(),
 				new MixBrew(),
