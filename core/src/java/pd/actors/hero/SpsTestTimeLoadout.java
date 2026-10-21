@@ -147,6 +147,8 @@ public final class SpsTestTimeLoadout {
 
 		//SPSEXPD: 不再发放大小果实/蔬菜/二次产物（用户裁决 2026-11），改为 20 瓶许愿魔药便于测试许愿
 		collect(hero, new WishPotion().quantity(20));
+		//SPSEXPD: 万能许愿器——按名字直接取物品（最多 3 项，可带数量，不消耗、无限次）
+		collect(hero, new pd.items.misc.UniversalWisher());
 
 		Ring[] rings = {
 				new RingOfElements(), new RingOfAccuracy(), new RingOfMight(), new RingOfForce(),

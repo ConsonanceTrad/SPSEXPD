@@ -116,6 +116,41 @@ public final class WishMatcher {
 		return best(text, tiered);
 	}
 
+	/**
+	 * SPSEXPD: 取「最贴合的若干个」条目（测试用万能许愿器）。
+	 *
+	 * <p>规则：只保留得分等于最高分的候选（并列即都算命中），
+	 * 再按 {@link #better} 的次序（等级更低 → 名字更短）排序，最多取 {@code limit} 个，
+	 * 避免「药剂」「武器」这类宽泛词一次给出几十件东西。
+	 */
+	public static List<WishCatalog.Entry> topMatches(String text, List<WishCatalog.Entry> pool, int limit) {
+		List<WishCatalog.Entry> result = new ArrayList<>();
+		if (pool == null || limit <= 0) return result;
+
+		double bestAccuracy = 0d;
+		List<WishCatalog.Entry> tied = new ArrayList<>();
+		for (WishCatalog.Entry entry : pool) {
+			//只按名字计分：万能许愿器要的是「名字最接近」，描述不该打乱并列关系
+			double accuracy = accuracy(text, entry.name, "");
+			if (accuracy <= 0d) continue;
+			if (accuracy > bestAccuracy) {
+				bestAccuracy = accuracy;
+				tied.clear();
+				tied.add(entry);
+			} else if (accuracy == bestAccuracy) {
+				tied.add(entry);
+			}
+		}
+		if (tied.isEmpty()) return result;
+
+		tied.sort((a, b) -> better(a, b) ? -1 : (better(b, a) ? 1 : 0));
+		for (WishCatalog.Entry entry : tied) {
+			if (result.size() >= limit) break;
+			result.add(entry);
+		}
+		return result;
+	}
+
 	private static boolean better(WishCatalog.Entry candidate, WishCatalog.Entry current) {
 		if (candidate.tier != current.tier) return candidate.tier < current.tier;
 		return candidate.name.length() < current.name.length();
