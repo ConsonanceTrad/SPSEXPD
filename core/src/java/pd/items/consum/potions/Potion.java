@@ -120,6 +120,11 @@ public class Potion extends Item {
 			.t("sure_throw", "你确定要投掷它吗？大多数情况下把它喝下去会更有用。")
 			.t("shatter", "药瓶碎裂开，溅出了无害的液体。")
 			.t("discover_hint", "你可在地牢中概率找到该物品，或通过炼金合成该物品。")
+			.t("form_crude", "粗糙的")
+			.t("form_refined", "精制的")
+			.t("form_tablet", "缓释的")
+			.t("form_injector", "注射用")
+			.t("form_reagent", "稀的")
 			.t("$placeholder.name", "药剂")
 			.t("$seedtopotion.name", "随机药剂");
 	}
@@ -182,6 +187,14 @@ public class Potion extends Item {
 	protected static ItemStatusHandler<Potion> handler;
 	
 	protected String color;
+
+	//SPSEXPD: 形态维度（粗制/精制/缓释片/注射剂/试剂），见 PotionForm
+	public PotionForm form = PotionForm.NORMAL;
+
+	/** SPSEXPD: 该瓶药水的效果折算系数（粗制 0.75 / 试剂 1/3 等）。 */
+	public float effectScale() {
+		return form.scale;
+	}
 
 	//affects how strongly on-potion talents trigger from this potion
 	protected float talentFactor = 1;
@@ -413,6 +426,21 @@ public class Potion extends Item {
 			}
 		}
 	}
+
+	//SPSEXPD: 形态随物品存档（旧档无该键 → NORMAL）
+	private static final String FORM = "sps_potion_form";
+
+	@Override
+	public void storeInBundle(Bundle bundle) {
+		super.storeInBundle(bundle);
+		if (form != PotionForm.NORMAL) bundle.put(FORM, form);
+	}
+
+	@Override
+	public void restoreFromBundle(Bundle bundle) {
+		super.restoreFromBundle(bundle);
+		form = bundle.contains(FORM) ? PotionForm.valueOf(bundle.getString(FORM)) : PotionForm.NORMAL;
+	}
 	
 	@Override
 	public Item identify( boolean byHero ) {
@@ -426,7 +454,9 @@ public class Potion extends Item {
 	
 	@Override
 	public String name() {
-		return isKnown() ? super.name() : Messages.get(this, color);
+		String base = isKnown() ? super.name() : Messages.get(this, color);
+		//SPSEXPD: 形态前缀（粗糙的/精制的…），见 PotionForm
+		return form.labeled() ? Messages.get(Potion.class, form.nameKey) + base : base;
 	}
 
 	@Override
@@ -443,6 +473,12 @@ public class Potion extends Item {
 	@Override
 	public boolean isIdentified() {
 		return isKnown();
+	}
+
+	//SPSEXPD: 形态不同的同种药水不堆垛（粗糙的治疗药剂不与普通治疗药剂合并）
+	@Override
+	public boolean isSimilar(Item item) {
+		return super.isSimilar(item) && item instanceof Potion && ((Potion) item).form == form;
 	}
 	
 	@Override

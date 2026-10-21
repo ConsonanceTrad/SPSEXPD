@@ -793,6 +793,7 @@ public class AlchemyScene extends PixelScene {
 		Recipe recipe = recipes.get(slot);
 		
 		Item result = null;
+		ArrayList<Item> extras = new ArrayList<>();
 		
 		if (recipe != null){
 			int cost = recipe.cost(ingredients);
@@ -819,10 +820,17 @@ public class AlchemyScene extends PixelScene {
 			align(energyAdd);
 			
 			result = recipe.brew(ingredients);
+			//SPSEXPD: 一次合成的额外产物（例如提炼的良性 + 恶性各一瓶）
+			if (recipe instanceof BrewRecipe){
+				extras = ((BrewRecipe) recipe).takeExtraOutputs();
+			}
 		}
 		
 		if (result != null){
 
+			for (Item extra : extras){
+				craftItem(ingredients, extra);
+			}
 			craftItem(ingredients, result);
 
 		}

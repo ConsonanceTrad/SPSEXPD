@@ -36,6 +36,11 @@ import pd.items.StoneOre;
 import pd.items.LiquidMetal;
 import pd.items.Recipe;
 import pd.items.SpsAlchemyRecipes;
+import pd.items.SpsBrewRecipes;
+import pd.items.consum.materials.Tinder;
+import pd.items.consum.potions.BenignConcoction;
+import pd.items.consum.potions.ChaoticConcoction;
+import pd.items.consum.potions.MalignantConcoction;
 import pd.items.equipment.bombs.Bomb;
 import pd.items.consum.brewed.Brewed;
 import pd.items.consum.food.Food;
@@ -321,18 +326,7 @@ public class QuickRecipe extends Component {
 		ArrayList<QuickRecipe> result = new ArrayList<>();
 		switch (page == null ? "" : page){
 			case "Potions": default: {
-				//SPSEXPD: 药剂酿造已由种子改为果实（展示使用果实/大型果实占位图标）
-				WndBag.Placeholder brewed = new WndBag.Placeholder(SpecificPlaceHolderDict.POTION_HOLDER_0) {
-					@Override
-					public String name() {
-						return Messages.get(Potion.FruitToPotion.class, "name");
-					}
-
-					@Override
-					public String info() {
-						return "";
-					}
-				};
+				//SPSEXPD: 药水工艺改「粗制 / 精制 / 提炼」（docs/alchemy-rework.md §1.2/§7）
 				Item fruitHolder = new Item() {
 					{
 						image = SpecificPlaceHoldeFruitDict.FRUIT_HOLDER_0;
@@ -351,10 +345,30 @@ public class QuickRecipe extends Component {
 					@Override
 					public String info() { return ""; }
 				};
-				//SPSEXPD: 果实酿药配方 = 1 份水 + 2 个果实
-				result.add(new QuickRecipe( new Potion.FruitToPotion(),
-						new ArrayList<>(Arrays.asList(new WaterItem(), fruitHolder, fruitHolder)),
-						brewed));
+				Item crudeHolder = potionFormHolder("粗制药水");
+				Item refinedHolder = potionFormHolder("精制药水");
+				Item crudeAdjuvant = potionFormHolder("粗制药水");
+
+				//粗制：主材果实 + 辅材果实 + 水 + 火源
+				result.add(new QuickRecipe(new SpsBrewRecipes.CrudeBrew(),
+						new ArrayList<>(Arrays.asList(fruitHolder, fruitHolder, new WaterItem(), new Tinder())),
+						crudeHolder));
+				result.add(null);
+				//精制（选择1）：主材果实 + 2 果实 + 水 + 火源
+				result.add(new QuickRecipe(new SpsBrewRecipes.RefinedBrew(),
+						new ArrayList<>(Arrays.asList(fruitHolder, fruitHolder, fruitHolder, new WaterItem(), new Tinder())),
+						refinedHolder));
+				result.add(null);
+				//精制（选择2）：主材果实 + 1 瓶粗制药水 + 水 + 火源
+				result.add(new QuickRecipe(new SpsBrewRecipes.RefinedBrew(),
+						new ArrayList<>(Arrays.asList(fruitHolder, crudeAdjuvant, new WaterItem(), new Tinder())),
+						refinedHolder));
+				result.add(null);
+				//提炼：3 瓶紊乱魔药 → 1 良性 + 1 恶性
+				result.add(new QuickRecipe(new SpsBrewRecipes.SeparateBrew(),
+						new ArrayList<>(Arrays.asList(new ChaoticConcoction(), new ChaoticConcoction(), new ChaoticConcoction())),
+						new BenignConcoction()));
+				result.add(null);
 				//SPSEXPD: 水果沙拉配方 = 1 份水 + 任意 2 个四色浆果（用浆果类别占位图）
 				Item berryHolder = new Item() {
 					{
@@ -405,13 +419,16 @@ public class QuickRecipe extends Component {
 				}
 				return result;
 			case "Exotic_Potions":
-				r = new ExoticPotion.PotionToExotic();
+				//SPSEXPD: 合剂只能由「合剂酿造」产出（裁决 #1A），不再有药剂直换
+				r = new SpsBrewRecipes.MixBrew();
 				for (Class<?> cls : Generator.Category.POTION.classes){
 					Potion pot = (Potion) Reflection.newInstance(cls);
-					ArrayList<Item> in = new ArrayList<>(Arrays.asList(pot));
-					Item exoticPotion = r.sampleOutput(in);
+					Item exoticPotion = SpsBrewRecipes.exoticOf(pot) == null
+							? null : Reflection.newInstance(SpsBrewRecipes.exoticOf(pot));
 					//SPSXPD: 没有合剂对应的药剂不显示（避免预览为空导致空条目/崩溃）
 					if (exoticPotion == null) continue;
+					ArrayList<Item> in = new ArrayList<>(Arrays.asList(
+							pot, potionFormHolder("任意其它药剂"), new WaterItem(), new Tinder()));
 					result.add(new QuickRecipe( r, in, exoticPotion));
 				}
 				return result;
@@ -472,27 +489,7 @@ public class QuickRecipe extends Component {
 				result.add(new QuickRecipe(new ElixirOfFeatherFall.Recipe()));
 				result.add(new QuickRecipe(new ElixirOfMight.Recipe()));
 				result.add(null);
-				//SPSEXPD: 1 个大型果实 → 对应秘药
-				Item largeFruit = new Item() {
-					{
-						image = SpecificPlaceHoldeFruitDict.LARGE_FRUIT_HOLDER_0;
-					}
-					@Override
-					public String name() { return ""; }
-					@Override
-					public String info() { return ""; }
-				};
-				WndBag.Placeholder elixirHolder = new WndBag.Placeholder(SpecificPlaceHolderDict.ELIXIR_HOLDER_0) {
-					//SPSXPD: 占位符的 name() 默认返回 null，点开物品详情窗会崩溃
-					@Override
-					public String name() { return ""; }
-					@Override
-					public String info() { return ""; }
-				};
-				result.add(new QuickRecipe(new pd.items.LargeFruitToElixir(),
-						new ArrayList<>(Arrays.asList(largeFruit)),
-						elixirHolder));
-				result.add(null);
+				//SPSEXPD: 「1 个大型果实 → 对应秘药」的直换已随裁决 #1A 删除
 				//SPSEXPD: 许愿魔药——混乱药剂 + 许愿花瓣 + 水晶碎片 + 韵魔原液 + 高能孢子
 				result.add(new QuickRecipe(SpsAlchemyRecipes.WISH_POTION,
 						new ArrayList<>(Arrays.asList(new PotionOfConfusion(), new WishPetal(),
@@ -533,8 +530,22 @@ public class QuickRecipe extends Component {
 		}
 	}
 
-	private static Item guideHolder(Class<?> cls){
-		IconEntry icon;
+	/**
+	 * SPSEXPD: 药水形态的展示占位（粗制药水/精制药水等），点开详情不显示内容。
+	 */
+	private static Item potionFormHolder(final String label){
+		return new Item() {
+			{
+				image = SpecificPlaceHolderDict.POTION_HOLDER_0;
+			}
+			@Override
+			public String name() { return label; }
+			@Override
+			public String info() { return ""; }
+		};
+	}
+
+	private static Item guideHolder(Class<?> cls){		IconEntry icon;
 		String label;
 		if (cls == null){                  icon = SpecificPlaceHolderDict.SOMETHING_0;         label = "?"; }
 		else if (cls == Plant.Seed.class){ icon = SpecificPlaceHolderDict.SEED_HOLDER_0;     label = "任意种子"; }

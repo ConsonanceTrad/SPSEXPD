@@ -9,6 +9,7 @@ import pd.items.consum.potions.Potion;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 /**
@@ -81,11 +82,11 @@ public abstract class BrewRecipe extends Recipe {
 		}
 
 		public boolean hasWater() {
-			return water != null;
+			return water instanceof WaterItem;
 		}
 
 		public boolean hasFire() {
-			return fire != null;
+			return isFireSource(fire);
 		}
 
 		public int adjuvantCount() {
@@ -138,7 +139,7 @@ public abstract class BrewRecipe extends Recipe {
 			if (slot == slots.length) return true;
 			for (int i = 0; i < ADJUVANT_SLOTS; i++) {
 				Item item = ingredients.adjuvant[i];
-				if (item != null && !used[i] && slots[slot].type.isInstance(item)) {
+				if (item != null && !used[i] && slots[slot].accepts(item)) {
 					used[i] = true;
 					if (matchFrom(ingredients, slot + 1, used)) return true;
 					used[i] = false;
@@ -158,10 +159,21 @@ public abstract class BrewRecipe extends Recipe {
 		public static final class Slot {
 			public final Class<? extends Item> type;
 			public final int bonus;
+			/** 额外的接受条件（可为 null，例如「粗制药水」= Potion + form==CRUDE）。 */
+			public final Predicate<Item> filter;
 
 			public Slot(Class<? extends Item> type, int bonus) {
+				this(type, bonus, null);
+			}
+
+			public Slot(Class<? extends Item> type, int bonus, Predicate<Item> filter) {
 				this.type = type;
 				this.bonus = bonus;
+				this.filter = filter;
+			}
+
+			public boolean accepts(Item item) {
+				return type.isInstance(item) && (filter == null || filter.test(item));
 			}
 		}
 	}
@@ -277,12 +289,22 @@ public abstract class BrewRecipe extends Recipe {
 		Slots slots = Slots.of(ingredients);
 		if (!matches(slots)) return null;
 
+		extraOutputs.clear();
 		boolean success = failures == null || Random.Int(100) < successRate(slots);
 		for (Item ingredient : ingredients) {
 			ingredient.quantity(ingredient.quantity() - 1);
 		}
 		if (success) return successOutput(slots);
 		return failures.roll();
+	}
+
+	/** 一次合成的额外产物（例如提炼：良性 + 恶性各一瓶），成功时由 successOutput 填充。 */
+	protected final ArrayList<Item> extraOutputs = new ArrayList<>();
+
+	public ArrayList<Item> takeExtraOutputs() {
+		ArrayList<Item> copy = new ArrayList<>(extraOutputs);
+		extraOutputs.clear();
+		return copy;
 	}
 
 	@Override

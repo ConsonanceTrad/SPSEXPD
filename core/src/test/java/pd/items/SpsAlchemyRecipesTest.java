@@ -30,9 +30,16 @@ import pd.items.consum.food.vegetable.NutVegetable;
 import pd.items.consum.food.vegetable.Truffles;
 import pd.items.consum.food.vegetable.Vegetable;
 import pd.items.consum.medicine.*;
+import pd.items.consum.potions.Potion;
+import pd.items.consum.potions.PotionForm;
+import pd.items.consum.potions.BenignConcoction;
+import pd.items.consum.potions.ChaoticConcoction;
+import pd.items.consum.potions.MalignantConcoction;
 import pd.items.consum.potions.PotionOfFrost;
 import pd.items.consum.potions.PotionOfHealing;
 import pd.items.consum.potions.PotionOfMixing;
+import pd.items.consum.potions.exotic.PotionOfShielding;
+import pd.items.consum.materials.Tinder;
 import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.items.consum.scrolls.exotic.ExoticScroll;
 import pd.items.equipment.weapon.missiles.arrows.*;
@@ -121,19 +128,49 @@ public final class SpsAlchemyRecipesTest {
 		check(CASES.length == 49, "旧版确定性炼金配方数量错误");
 		for (Object[] test : CASES) verifyCase(test);
 
-		//SPSEXPD: 药剂酿造已由种子改为果实
+		//SPSEXPD: 药水线改为「粗制 / 精制 / 合剂 / 提炼」（docs/alchemy-rework.md §7）
 		ArrayList<Item> seedpods = ingredients(Seedpod.Seed.class, Seedpod.Seed.class, Seedpod.Seed.class);
 		check(Recipe.findRecipes(seedpods).isEmpty(),
 				"三颗种子仍能匹配到配方");
-		ArrayList<Item> iceFruits = ingredients(IceFruit.class, IceFruit.class, IceFruit.class, IceFruit.class);
-		for (Item item : iceFruits) item.quantity(2);
-		Recipe fruitRecipe = Recipe.findRecipes(iceFruits).get(0);
-		check(fruitRecipe.cost(iceFruits) == 0 && fruitRecipe.brew(iceFruits) instanceof PotionOfFrost,
-				"四颗同种果实没有按材料对应药剂生成");
-		for (Item item : iceFruits) check(item.quantity() == 1, "果实酿造耗材错误");
-		ArrayList<Item> largeFruit = ingredients(LargeIceFruit.class, IceFruit.class);
-		check(Recipe.findRecipes(largeFruit).get(0).brew(largeFruit) instanceof PotionOfFrost,
-				"大型果实加普通果实没有按对应药剂生成");
+
+		//粗制：主材果实 + 辅材果实 + 水 + 火源（40% + 20% = 60%）
+		ArrayList<Item> crude = ingredients(IceFruit.class, IceFruit.class, WaterItem.class, Tinder.class);
+		Recipe crudeRecipe = Recipe.findRecipes(crude).get(0);
+		check(crudeRecipe instanceof SpsBrewRecipes.CrudeBrew, "果实粗制配方没有命中");
+		check(((BrewRecipe) crudeRecipe).successRate(crude) == 60, "粗制成功率不是 60%");
+		Item crudeOut = crudeRecipe.sampleOutput(crude);
+		check(crudeOut instanceof PotionOfFrost && ((Potion) crudeOut).form == PotionForm.CRUDE,
+				"粗制产物不是冰霜药剂的粗制变体");
+
+		//精制（选择1）：主材果实 + 2 果实 + 水 + 火源（40% + 20% + 20% = 80%）
+		ArrayList<Item> refined = ingredients(IceFruit.class, IceFruit.class, IceFruit.class, WaterItem.class, Tinder.class);
+		Recipe refinedRecipe = Recipe.findRecipes(refined).get(0);
+		check(refinedRecipe instanceof SpsBrewRecipes.RefinedBrew, "果实精制配方没有命中");
+		check(((BrewRecipe) refinedRecipe).successRate(refined) == 80, "精制成功率不是 80%");
+		Item refinedOut = refinedRecipe.sampleOutput(refined);
+		check(refinedOut instanceof PotionOfFrost && ((Potion) refinedOut).form == PotionForm.REFINED,
+				"精制产物不是冰霜药剂的精制变体");
+
+		//大小果实混用：成功率额外 -10%（60 → 50）
+		ArrayList<Item> mixedFruit = ingredients(LargeIceFruit.class, IceFruit.class, WaterItem.class, Tinder.class);
+		Recipe mixedRecipe = Recipe.findRecipes(mixedFruit).get(0);
+		check(((BrewRecipe) mixedRecipe).successRate(mixedFruit) == 50, "大小果实混用没有扣 10% 成功率");
+
+		//合剂：主材药剂 + 辅材药剂 + 水 + 火源（40%），产物是 regToExo 映射的合剂
+		ArrayList<Item> mix = ingredients(PotionOfHealing.class, PotionOfHealing.class, WaterItem.class, Tinder.class);
+		Recipe mixRecipe = Recipe.findRecipes(mix).get(0);
+		check(mixRecipe instanceof SpsBrewRecipes.MixBrew, "合剂酿造配方没有命中");
+		check(((BrewRecipe) mixRecipe).successRate(mix) == 40, "合剂成功率不是 40%");
+		check(mixRecipe.sampleOutput(mix) instanceof PotionOfShielding, "合剂产物不是奥术护盾合剂");
+
+		//提炼：3 瓶紊乱魔药 → 1 良性 + 1 恶性
+		ArrayList<Item> chaotic = ingredients(ChaoticConcoction.class, ChaoticConcoction.class, ChaoticConcoction.class);
+		Recipe separate = Recipe.findRecipes(chaotic).get(0);
+		check(separate instanceof SpsBrewRecipes.SeparateBrew, "提炼配方没有命中");
+		Item benign = separate.brew(chaotic);
+		ArrayList<Item> extras = ((BrewRecipe) separate).takeExtraOutputs();
+		check(benign instanceof BenignConcoction && extras.size() == 1 && extras.get(0) instanceof MalignantConcoction,
+				"提炼没有分离出良性 + 恶性各一瓶");
 		testBrewed();
 		testExoticGuidePreviews();
 		ArrayList<Item> invalid = ingredients(Gold.class, Gold.class, Gold.class, Gold.class, Gold.class);

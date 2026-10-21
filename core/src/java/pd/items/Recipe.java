@@ -170,13 +170,20 @@ public abstract class Recipe {
 
 	/**
 	 * SPSEXPD: 新炼金框架的公式表（docs/alchemy-rework.md）。
-	 * 批1 只搭框架，具体公式在批2（药水线）/批5（食物线）填充。
+	 * 惰性初始化，避免与 Potion/ExoticPotion 的类初始化互相牵制。
 	 */
-	private static Recipe[] brewRecipes = new Recipe[]{};
+	private static Recipe[] brewRecipes = null;
+
+	private static Recipe[] brewRecipes() {
+		if (brewRecipes == null) {
+			brewRecipes = SpsBrewRecipes.all().toArray(new Recipe[0]);
+		}
+		return brewRecipes;
+	}
 
 	private static Recipe[] variableRecipes = new Recipe[]{
-			new Potion.FruitToPotion(),
-			new LargeFruitToElixir(),
+			//SPSEXPD: 果实→药剂的直换与「大果→合剂」直换已删除（docs/alchemy-rework.md 裁决 #1A），
+			//改由 SpsBrewRecipes 的粗制/精制/合剂工艺产出；FruitToPotion 仅保留作映射表数据源。
 			new IronMakerRecipes()
 	};
 	
@@ -241,7 +248,7 @@ public abstract class Recipe {
 		}
 
 		//SPSEXPD: 新炼金框架（主材/辅材/水/火源 + 成功率）
-		for (Recipe recipe : brewRecipes){
+		for (Recipe recipe : brewRecipes()){
 			boolean matched = recipe instanceof BrewRecipe
 					? ((BrewRecipe) recipe).matches(slots)
 					: recipe.testIngredients(ingredients);
