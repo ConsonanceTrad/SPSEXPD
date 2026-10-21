@@ -13,6 +13,7 @@ import pd.items.BrewRecipe.Slots;
 import pd.items.consum.food.WaterItem;
 import pd.items.consum.food.fruit.Fruit;
 import pd.items.consum.food.vegetable.Vegetable;
+import pd.items.consum.materials.EyeOfTruth;
 import pd.items.consum.materials.Waste;
 import pd.items.consum.potions.BenignConcoction;
 import pd.items.consum.potions.ChaoticConcoction;
@@ -20,6 +21,7 @@ import pd.items.consum.potions.MalignantConcoction;
 import pd.items.consum.potions.Potion;
 import pd.items.consum.potions.PotionForm;
 import pd.items.consum.potions.exotic.ExoticPotion;
+import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.plants.Plant;
 import pd.plants.PlantHarvest;
 import render.utils.math.Random;
@@ -182,6 +184,27 @@ public final class SpsBrewRecipes {
 		}
 	}
 
+	/**
+	 * 结晶：鉴定卷轴 + 水 + 火源 → 真实之眼（§7.7 XR-01，不失败、免能量）。
+	 */
+	public static final class EyeCrystal extends BrewRecipe {
+
+		public EyeCrystal() {
+			mainMaterial = ScrollOfIdentify.class;
+			adjuvantOptions = null;
+			needsWater = true;
+			needsFire = true;
+			energyCost = 0;
+			baseRate = 100;
+			failures = null;
+		}
+
+		@Override
+		protected Item successOutput(Slots ingredients) {
+			return new EyeOfTruth();
+		}
+	}
+
 	//*** 工具
 
 	/** 主材（果实或蔬菜）对应的药剂类；无法映射时返回 null（不参与配方）。 */
@@ -243,13 +266,14 @@ public final class SpsBrewRecipes {
 		return potion == null ? new ChaoticConcoction() : potion;
 	}
 
-	/** 全部药水线公式（顺序即匹配顺序）。 */
+	/** 全部炼金公式（顺序即匹配顺序）。 */
 	public static List<Recipe> all() {
 		return Arrays.asList(
 				new CrudeBrew(),
 				new RefinedBrew(),
 				new MixBrew(),
-				new SeparateBrew()
+				new SeparateBrew(),
+				new EyeCrystal()
 		);
 	}
 

@@ -27,8 +27,6 @@ public class ChaoticConcoction extends AbstractConcoction {
 
 	@Override
 	protected List<Class<? extends Potion>> pool() {
-		List<Class<? extends Potion>> all = new java.util.ArrayList<>(BenignConcoction.BENEFICIAL);
-		all.addAll(MalignantConcoction.HARMFUL);
-		return all;
+		return allEffects();
 	}
 }

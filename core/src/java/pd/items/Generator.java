@@ -172,6 +172,7 @@ import pd.items.nornstone.NornStone;
 import pd.items.nornstone.OrangeNornStone;
 import pd.items.nornstone.PurpleNornStone;
 import pd.items.nornstone.YellowNornStone;
+import pd.items.consum.potions.AbstractConcoction;
 import pd.items.consum.potions.Potion;
 import pd.items.consum.potions.PotionOfExperience;
 import pd.items.consum.potions.PotionOfAcid;
@@ -1290,7 +1291,7 @@ public class Generator {
 					}
 				}
 
-				return ((Item) Reflection.newInstance(itemCls)).random();
+				return roll(cat, itemCls);
 		}
 	}
 
@@ -1302,7 +1303,7 @@ public class Generator {
 		} else if (cat.defaultProbs == null || cat == Category.ARTIFACT) {
 			return random(cat);
 		} else if (cat.defaultProbsTotal != null){
-			return ((Item) Reflection.newInstance(applyNoScrollsThinning(cat.classes[Random.chances(cat.defaultProbsTotal)]))).random();
+			return roll(cat, applyNoScrollsThinning(cat.classes[Random.chances(cat.defaultProbsTotal)]));
 		} else {
 			Class<?> itemCls = applyNoScrollsThinning(cat.classes[Random.chances(cat.defaultProbs)]);
 
@@ -1316,8 +1317,26 @@ public class Generator {
 				}
 			}
 
-			return ((Item) Reflection.newInstance(itemCls)).random();
+			return roll(cat, itemCls);
 		}
+	}
+
+	/**
+	 * SPSEXPD: 生成一件随机物品（docs/alchemy-rework.md §4）。
+	 *
+	 * <p>**药剂**：野外生成、商店购买、怪物掉落与随机奖励得到的普通药剂一律是
+	 * 「未鉴定」状态——名字统一显示「未鉴定药剂」、贴图统一为同一张、每瓶独立占格不堆垛；
+	 * 但物品本身在生成时就已确定真实类型（饮下/投掷触发的就是它自己的效果）。
+	 * 合剂/秘药/酿造物（ExoticPotion/Elixir/Brew）保持原样——它们本身就是炼金产物。
+	 */
+	private static Item roll( Category cat, Class<?> itemCls ){
+		Item item = ((Item) Reflection.newInstance(itemCls)).random();
+		if (cat == Category.POTION && item instanceof Potion
+				&& !(item instanceof ExoticPotion) && !(item instanceof Elixir)
+				&& !(item instanceof Brew) && !(item instanceof AbstractConcoction)){
+			((Potion) item).unidentify();
+		}
+		return item;
 	}
 	
 	public static Item random( Class<? extends Item> cl ) {

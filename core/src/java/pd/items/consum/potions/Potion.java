@@ -120,6 +120,10 @@ public class Potion extends Item {
 			.t("sure_throw", "你确定要投掷它吗？大多数情况下把它喝下去会更有用。")
 			.t("shatter", "药瓶碎裂开，溅出了无害的液体。")
 			.t("discover_hint", "你可在地牢中概率找到该物品，或通过炼金合成该物品。")
+			.t("unidentified", "未鉴定药剂")
+			.t("unidentified_desc", "一瓶看不出成分的药剂：颜色、气味、稠度都帮不上忙。"
+					+ "喝下或投掷时才会显出它真正的效果，届时也就认得了。"
+					+ "自己炼制、或别人郑重交给你的药剂不在此列。")
 			.t("form_crude", "粗糙的")
 			.t("form_refined", "精制的")
 			.t("form_tablet", "缓释的")
@@ -188,7 +192,28 @@ public class Potion extends Item {
 	
 	protected String color;
 
-	//SPSEXPD: 形态维度（粗制/精制/缓释片/注射剂/试剂），见 PotionForm
+	/**
+	 * SPSEXPD: 这一**瓶**是否已被玩家辨认（docs/alchemy-rework.md §4 裁决）。
+	 *
+	 * <p>与 {@link #isKnown()}（「这类药水长什么样」的全局图鉴状态）不同：
+	 * 未鉴定的瓶子即使同类药水已被认过，也仍然显示为「未鉴定药剂」、使用统一贴图、
+	 * 不与其它药剂堆垛；喝下/投掷/检测卡/真实之眼会把这一瓶单独揭示。
+	 * 默认已鉴定——野外生成、商店与掉落路径会显式置为未鉴定。
+	 */
+	public boolean identified = true;
+
+	/** SPSEXPD: 未鉴定状态下的统一外观（待美术统一绘制）。 */
+	protected static final pd.atlas.IconEntry UNIDENTIFIED_IMAGE = SpecificPlaceHolderDict.POTION_HOLDER_0;
+
+	/** SPSEXPD: 把这一瓶设为未鉴定（野外生成/商店/掉落用）。 */
+	public void unidentify() {
+		identified = false;
+		reset();
+	}
+
+	/**
+	 * SPSEXPD: 形态维度（粗制/精制/缓释片/注射剂/试剂），见 PotionForm
+	 */
 	public PotionForm form = PotionForm.NORMAL;
 
 	/** SPSEXPD: 该瓶药水的效果折算系数（粗制 0.75 / 试剂 1/3 等）。 */
@@ -258,19 +283,21 @@ public class Potion extends Item {
 	public void reset(){
 		super.reset();
 		if (handler != null && handler.contains(this)) {
-			image = handler.image(this);
 			color = handler.label(this);
+			//SPSEXPD: 未鉴定药剂统一外观，鉴定后才按真实药水显示
+			image = identified ? handler.image(this) : UNIDENTIFIED_IMAGE;
 		} else {
-			image = ConsumPotionSeedBasicPotionDict.POTION_CRIMSON_0;
 			color = "crimson";
+			image = identified ? ConsumPotionSeedBasicPotionDict.POTION_CRIMSON_0 : UNIDENTIFIED_IMAGE;
 		}
 	}
 
 	@Override
 	public String defaultAction() {
-		if (isKnown() && mustThrowPots.contains(this.getClass())) {
+		//SPSEXPD: 未鉴定的瓶子一律默认「饮用」，不泄漏它是投掷型药水的信息
+		if (identified && isKnown() && mustThrowPots.contains(this.getClass())) {
 			return AC_THROW;
-		} else if (isKnown() &&canThrowPots.contains(this.getClass())){
+		} else if (identified && isKnown() &&canThrowPots.contains(this.getClass())){
 			return AC_CHOOSE;
 		} else {
 			return AC_DRINK;
@@ -295,7 +322,8 @@ public class Potion extends Item {
 			
 		} else if (action.equals( AC_DRINK )) {
 			
-			if (isKnown() && mustThrowPots.contains(getClass())) {
+			//SPSEXPD: 只有已鉴定的投掷型药水才提示「有害药剂，确定喝吗」
+			if (identified && isKnown() && mustThrowPots.contains(getClass())) {
 				
 					GameScene.show(
 						new WndOptions(new ItemSprite(this),
@@ -427,24 +455,31 @@ public class Potion extends Item {
 		}
 	}
 
-	//SPSEXPD: 形态随物品存档（旧档无该键 → NORMAL）
+	//SPSEXPD: 形态与「这一瓶是否已鉴定」随物品存档（旧档缺省 NORMAL / 已鉴定）
 	private static final String FORM = "sps_potion_form";
+	private static final String IDENTIFIED = "sps_potion_identified";
 
 	@Override
 	public void storeInBundle(Bundle bundle) {
 		super.storeInBundle(bundle);
 		if (form != PotionForm.NORMAL) bundle.put(FORM, form);
+		if (!identified) bundle.put(IDENTIFIED, false);
 	}
 
 	@Override
 	public void restoreFromBundle(Bundle bundle) {
 		super.restoreFromBundle(bundle);
 		form = bundle.contains(FORM) ? PotionForm.valueOf(bundle.getString(FORM)) : PotionForm.NORMAL;
+		identified = !bundle.contains(IDENTIFIED) || bundle.getBoolean(IDENTIFIED);
+		reset();
 	}
 	
 	@Override
 	public Item identify( boolean byHero ) {
 		super.identify(byHero);
+		//SPSEXPD: 揭示这一瓶的真实身份（换回真实贴图/名字）
+		identified = true;
+		reset();
 
 		if (!isKnown()) {
 			setKnown();
@@ -454,6 +489,8 @@ public class Potion extends Item {
 	
 	@Override
 	public String name() {
+		//SPSEXPD: 未鉴定的那一瓶统一叫「未鉴定药剂」，与真实类型无关
+		if (!identified) return Messages.get(Potion.class, "unidentified");
 		String base = isKnown() ? super.name() : Messages.get(this, color);
 		//SPSEXPD: 形态前缀（粗糙的/精制的…），见 PotionForm
 		return form.labeled() ? Messages.get(Potion.class, form.nameKey) + base : base;
@@ -467,18 +504,26 @@ public class Potion extends Item {
 
 	@Override
 	public String desc() {
+		//SPSEXPD: 未鉴定药剂不透露任何线索
+		if (!identified) return Messages.get(Potion.class, "unidentified_desc");
 		return isKnown() ? super.desc() : Messages.get(this, "unknown_desc");
 	}
 	
 	@Override
 	public boolean isIdentified() {
-		return isKnown();
+		//SPSEXPD: 玩家视角的「这一瓶是否已认得」——与全局图鉴 isKnown() 分开
+		return identified;
 	}
 
-	//SPSEXPD: 形态不同的同种药水不堆垛（粗糙的治疗药剂不与普通治疗药剂合并）
+	//SPSEXPD: 形态不同的同种药水不堆垛（粗糙的治疗药剂不与普通治疗药剂合并）；
+	//未鉴定的瓶子一律单独占格——每瓶各自保留自己的真实类型（检测卡/真实之眼要用）
 	@Override
 	public boolean isSimilar(Item item) {
-		return super.isSimilar(item) && item instanceof Potion && ((Potion) item).form == form;
+		if (!(item instanceof Potion)) return false;
+		Potion other = (Potion) item;
+		if (other.form != form) return false;
+		if (!identified || !other.identified) return false;
+		return super.isSimilar(item);
 	}
 	
 	@Override
@@ -537,6 +582,9 @@ public class Potion extends Item {
 		
 		{
 			image = SpecificPlaceHolderDict.POTION_HOLDER_0;
+			//SPSEXPD: 指南里的占位不是「未鉴定药剂」，保持原有显示
+			identified = true;
+			anonymous = true;
 		}
 		
 		@Override

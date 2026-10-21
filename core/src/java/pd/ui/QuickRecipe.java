@@ -37,6 +37,7 @@ import pd.items.LiquidMetal;
 import pd.items.Recipe;
 import pd.items.SpsAlchemyRecipes;
 import pd.items.SpsBrewRecipes;
+import pd.items.consum.materials.EyeOfTruth;
 import pd.items.consum.materials.Tinder;
 import pd.items.consum.potions.BenignConcoction;
 import pd.items.consum.potions.ChaoticConcoction;
@@ -72,6 +73,7 @@ import pd.items.consum.potions.elixirs.ElixirOfToxicEssence;
 import pd.items.consum.potions.elixirs.WishPotion;
 import pd.items.consum.potions.exotic.ExoticPotion;
 import pd.items.consum.scrolls.Scroll;
+import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.items.consum.scrolls.exotic.ExoticScroll;
 import pd.items.consum.spells.Alchemize;
 import pd.items.consum.spells.BeaconOfReturning;
@@ -392,6 +394,11 @@ public class QuickRecipe extends Component {
 					ArrayList<Item> in = new ArrayList<Item>(Arrays.asList(scroll));
 					result.add(new QuickRecipe( r, in, r.sampleOutput(in)));
 				}
+				//SPSEXPD: 结晶——鉴定卷轴 + 水 + 火源 → 真实之眼
+				result.add(null);
+				result.add(new QuickRecipe(new SpsBrewRecipes.EyeCrystal(),
+						new ArrayList<>(Arrays.asList(new ScrollOfIdentify(), new WaterItem(), new Tinder())),
+						new EyeOfTruth()));
 				return result;
 			case "Energy_Food":
 				result.add(new QuickRecipe( new StewedMeat.oneMeat() ));

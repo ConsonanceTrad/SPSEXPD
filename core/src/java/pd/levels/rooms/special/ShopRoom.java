@@ -46,6 +46,7 @@ import pd.items.equipment.bags.ScrollHolder;
 import pd.items.equipment.bags.VelvetPouch;
 import pd.items.equipment.bombs.Bomb;
 import pd.items.consum.food.staplefood.OverpricedRation;
+import pd.items.consum.materials.ReagentTestCard;
 import pd.items.consum.potions.PotionOfHealing;
 import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
@@ -272,7 +273,12 @@ public class ShopRoom extends SpecialRoom {
 			itemsToSpawn.add(bag);
 		}
 
-		itemsToSpawn.add( new PotionOfHealing() );
+		//SPSEXPD: 商店售卖的药剂一律未鉴定（docs/alchemy-rework.md §4）
+		PotionOfHealing shopHealing = new PotionOfHealing();
+		shopHealing.unidentify();
+		itemsToSpawn.add( shopHealing );
+		//SPSEXPD: 试剂检测卡——配套未鉴定药剂的鉴定工具（docs/alchemy-rework.md §4.2）
+		itemsToSpawn.add( new ReagentTestCard().quantity(Random.IntRange(2, 3)) );
 		itemsToSpawn.add( Generator.randomUsingDefaults( Generator.Category.POTION ) );
 		itemsToSpawn.add( Generator.randomUsingDefaults( Generator.Category.POTION ) );
 

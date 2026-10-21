@@ -23,6 +23,15 @@ public abstract class AbstractConcoction extends Potion {
 	/** 该魔药可抽取的效果池（正面或有害）。 */
 	protected abstract List<Class<? extends Potion>> pool();
 
+	/** SPSEXPD: 全部普通药水的粗制效果池（正面 12 + 有害 8 = 20 种）。 */
+	public static List<Class<? extends Potion>> allEffects() {
+		List<Class<? extends Potion>> all = new java.util.ArrayList<>(BenignConcoction.BENEFICIAL);
+		for (Class<? extends Potion> cls : MalignantConcoction.HARMFUL) {
+			if (!all.contains(cls)) all.add(cls);
+		}
+		return all;
+	}
+
 	@Override
 	public boolean isKnown() {
 		return true;
