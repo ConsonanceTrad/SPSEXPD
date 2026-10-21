@@ -18,8 +18,7 @@ import pd.items.consum.food.staplefood.StapleFood;
 import pd.items.consum.food.vegetable.*;
 import pd.items.consum.medicine.*;
 import pd.items.consum.materials.DryGrass;
-import pd.items.consum.materials.DryTwig;
-import pd.items.consum.materials.FreshGrass;
+import pd.items.consum.materials.DryTwig;import pd.items.consum.materials.FreshGrass;
 import pd.items.consum.materials.Tinder;
 import pd.items.consum.potions.Potion;
 import pd.items.consum.potions.PotionOfConfusion;
@@ -206,6 +205,19 @@ public final class SpsAlchemyRecipes {
 			recipe(Tinder.class, DryTwig.class),
 			//SPSEXPD: 取水公式 WT-01——鲜草 ×1 → 水（免火源、不失败）
 			recipe(WaterItem.class, FreshGrass.class),
+			//SPSEXPD: 食物线的中间产物（docs/alchemy-rework.md §7.6）
+			//盐 = 原石研磨（裁决 #5，配套高草原石掉率提升）
+			recipe(Salt.class, StoneOre.class),
+			//面团 = 主食 ×2 + 水（与「精制米饭/米粥」的输入区分开）
+			recipe(Dough.class, StapleFood.class, StapleFood.class, WaterItem.class),
+			//肉馅 = 肉食 ×2 + 水（与「2 神秘之肉 → 炖肉」的输入区分开）
+			recipe(Mince.class, MeatFood.class, MeatFood.class, WaterItem.class),
+			//甜酱 = 蜂蜜 + 水
+			recipe(Syrup.class, Honey.class, WaterItem.class),
+			//腌肉 = 肉食 + 盐
+			recipe(PickledMeat.class, MeatFood.class, Salt.class),
+			//魔力果干 = 任意大型果实（不分类型，见 MagicDriedFruitRecipe）
+			new MagicDriedFruitRecipe(),
 			//SPSEXPD: 卷轴 + 枯枝 → 挂历（翻开可看当前的游戏内日期，见 Statistics.calendarYear/Month/Day）
 			recipe(WallCalendar.class, Scroll.class, DryTwig.class),
 			//SPSEXPD: 通用弹匣 —— 原石 + 暗金矿（枪械弹药，见 pd.items.Magazine）
@@ -264,6 +276,39 @@ public final class SpsAlchemyRecipes {
 	public static boolean isFourColorBerry(Item item) {
 		return item instanceof Blackberry || item instanceof Blueberry
 				|| item instanceof Cloudberry || item instanceof Moonberry;
+	}
+
+	/**
+	 * SPSEXPD: 魔力果干——任意大型果实 ×1 烘干制成，产物**不分大果类型**。
+	 * 用独立 Recipe 实现，因为「任意大型果实」是跨 20 个类的谓词，TypedRecipe 表达不了。
+	 */
+	public static final class MagicDriedFruitRecipe extends Recipe {
+
+		@Override
+		public boolean testIngredients(ArrayList<Item> ingredients) {
+			return ingredients.size() == 1 && isLargeFruit(ingredients.get(0));
+		}
+
+		private static boolean isLargeFruit(Item item) {
+			return item instanceof Fruit && Potion.FruitToPotion.isLarge(item);
+		}
+
+		@Override
+		public int cost(ArrayList<Item> ingredients) {
+			return 0;
+		}
+
+		@Override
+		public Item brew(ArrayList<Item> ingredients) {
+			if (!testIngredients(ingredients)) return null;
+			for (Item ingredient : ingredients) ingredient.quantity(ingredient.quantity() - 1);
+			return sampleOutput(ingredients);
+		}
+
+		@Override
+		public Item sampleOutput(ArrayList<Item> ingredients) {
+			return new MagicDriedFruit();
+		}
 	}
 
 	//SPSEXPD: 原来的「垃圾」兜底配方（garbageRecipe）已随垃圾物品一并删除——炼金不匹配时不再有任何产物

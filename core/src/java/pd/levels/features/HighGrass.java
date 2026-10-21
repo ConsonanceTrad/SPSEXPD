@@ -37,6 +37,7 @@ import pd.items.Dewdrop;
 import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
+import pd.items.StoneOre;
 import pd.items.equipment.armor.glyphs.Camouflage;
 import pd.items.equipment.artifacts.NaturalAxe;
 import pd.items.equipment.artifacts.SandalsOfNature;
@@ -267,5 +268,7 @@ public class HighGrass {
 		if (Random.Float() < 0.02f) dropLoot(level, new Carrot(), pos);
 		if (Random.Float() < 0.02f) dropLoot(level, new Lettuce(), pos);
 		if (!seedGrown && Random.Float() < 0.02f) dropLoot(level, new GrassSeed(), pos);
+		//SPSEXPD: 高草提高原石掉落几率（docs/alchemy-rework.md §7.6 盐/炼金材料的供给，裁决 #5）
+		if (Random.Float() < 0.06f) dropLoot(level, new StoneOre(), pos);
 	}
 }
