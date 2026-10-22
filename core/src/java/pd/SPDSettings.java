@@ -69,6 +69,7 @@ public class SPDSettings extends GameSettings {
 	public static final String KEY_CONTINUOUS_USE_TYPES = "continuous_use_types"; //SPSEXPD: 连续使用的物品类型白名单（位掩码）
 	public static final String KEY_SEARCH_TRAMPLE = "search_trample";   //SPSEXPD: 搜索时对范围内的高草执行踩踏
 	public static final String KEY_ADJACENT_PICKUP = "adjacent_pickup"; //SPSEXPD: 临近触及（可隔着相邻一格拾取地面物品）
+	public static final String KEY_PICKUP_CHAIN = "pickup_chain";        //SPSEXPD: 连带拾取（捡起后顺手收起相邻格的地面掉落）
 	
 	public static void fullscreen( boolean value ) {
 		put( KEY_FULLSCREEN, value );
@@ -133,6 +134,15 @@ public class SPDSettings extends GameSettings {
 
 	public static boolean adjacentPickup(){
 		return getBoolean( KEY_ADJACENT_PICKUP, true );
+	}
+
+	//SPSEXPD: 连带拾取 —— 捡起一件后顺手把相邻格的地面掉落一并收起，额外只花 1 回合（默认关闭）
+	public static void pickupChain( boolean value ){
+		put( KEY_PICKUP_CHAIN, value );
+	}
+
+	public static boolean pickupChain(){
+		return getBoolean( KEY_PICKUP_CHAIN, false );
 	}
 
 	//SPSEXPD: 快捷操作按钮总开关（关闭后三个按钮都不显示，各自开关的状态保留）

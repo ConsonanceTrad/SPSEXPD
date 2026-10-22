@@ -464,7 +464,17 @@ public class WndHero extends WndTabbed {
 		private static final int GAP = 2;
 		private static final int COLS = 5;
 
+		/** SPSEXPD: 特质页的内容容器——把特质格子的点击优先级提到 ScrollPane 拖拽控制器之上。 */
+		private class PerkContent extends Component {
+			void prioritizeChildren() {
+				for (Object o : members) {
+					if (o instanceof pd.ui.Button) ((pd.ui.Button) o).givePointerPriority();
+				}
+			}
+		}
+
 		private ScrollPane pane;
+		private PerkContent content;
 		private ArrayList<PerkSlot> slots;
 
 		@Override
@@ -474,9 +484,11 @@ public class WndHero extends WndTabbed {
 			//注意：createChildren() 会在构造期被 Component 调用，
 			//所以字段必须在这里初始化，不能在声明处初始化（否则 NPE）
 			slots = new ArrayList<>();
-			pane = new ScrollPane(new Component());
-			//SPSEXPD: 特质页不显示滚动条（拖动/滚轮滚动保留）
-			pane.scrollBarVisible = false;
+			content = new PerkContent();
+			pane = new ScrollPane(content);
+			//SPSEXPD: 专精页用滚动视图——内容超出窗口高度时滚动查看，窗口高度不再随特质数量变化。
+			//滚动条要可见，否则玩家看不出这页能滚。
+			pane.scrollBarVisible = true;
 			add(pane);
 
 			if (pd.Dungeon.hero != null && pd.Dungeon.hero.heroPerk != null) {
@@ -486,6 +498,7 @@ public class WndHero extends WndTabbed {
 					pane.content().add(slot);
 				}
 			}
+			content.prioritizeChildren();
 		}
 
 		@Override

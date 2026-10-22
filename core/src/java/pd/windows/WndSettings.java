@@ -114,6 +114,7 @@ public class WndSettings extends WndTabbed {
 			.t("$auxtab.search_pickup", "搜索捡拾物品")
 			.t("$auxtab.search_trample", "搜索踩草")
 			.t("$auxtab.adjacent_pickup", "临近触及")
+			.t("$auxtab.pickup_chain", "连带拾取")
 			.t("$auxtab.quick_group", "快捷操作开关")   //SPSEXPD: 快捷操作分组的小标题
 			.t("$auxtab.bag_group", "背包界面")   //SPSEXPD: 背包分组的小标题
 			.t("$auxtab.quick_all", "启用快捷操作按钮")
@@ -130,6 +131,7 @@ public class WndSettings extends WndTabbed {
 			.t("$auxtab.search_pickup_desc", "使用「检索」时，会顺手拾取视野内可达的地面物品。")
 			.t("$auxtab.search_trample_desc", "使用「检索」时，会把搜索范围内的高草、垄沟草与植物一并踩掉；高草会照常产出种子、露珠等收获，植物则按野生规则散落果实。")
 			.t("$auxtab.adjacent_pickup_desc", "开启后可站在原地拾取或购买相邻一格（含斜角）视野内的物品，不必先走过去。")
+			.t("$auxtab.pickup_chain_desc", "开启后，捡起一件东西时会顺手把四周相邻格（含斜角）的普通地面掉落一起收进背包；宝箱、遗骸与商店货架不会被碰。无论顺手收了几件、跨几格，都只额外消耗 1 回合。")
 			.t("$auxtab.quick_all_desc", "快捷操作按钮的总开关。关掉后按钮不再显示，但下面三项各自的设置会保留。")
 			.t("$auxtab.quick_light_desc", "夜晚且身上带着光源时，显示一键照明的快捷按钮（优先用露珠瓶，其次火把）。")
 			.t("$auxtab.quick_talent_desc", "有未分配的特质点时，显示一键打开加点界面的快捷按钮。")
@@ -1065,6 +1067,7 @@ public class WndSettings extends WndTabbed {
 		CheckBox chkSearchPickUp;
 		CheckBox chkSearchTrample;    //SPSEXPD: 搜索踩草
 		CheckBox chkAdjacentPickup;   //SPSEXPD: 临近触及
+		CheckBox chkPickupChain;      //SPSEXPD: 连带拾取
 		ColorBlock sep2;
 		RenderedTextBlock quickGroup;   //SPSEXPD: 「快捷操作开关」小标题
 		CheckBox chkQuickAll;
@@ -1154,6 +1157,17 @@ public class WndSettings extends WndTabbed {
 			};
 			chkAdjacentPickup.checked(SPDSettings.adjacentPickup());
 			add(chkAdjacentPickup);
+
+			//SPSEXPD: 连带拾取——捡起一件后把相邻格的地面掉落一并收起（额外只花 1 回合）
+			chkPickupChain = new AuxCheckBox(Messages.get(AuxTab.class, "pickup_chain")) {
+				@Override
+				protected void onClick() {
+					super.onClick();
+					SPDSettings.pickupChain(checked());
+				}
+			};
+			chkPickupChain.checked(SPDSettings.pickupChain());
+			add(chkPickupChain);
 
 			//SPSEXPD: 连续使用（用后不关窗）——行末除说明按钮外还有「类型白名单」入口。
 			//位置紧跟在「临近触及」下面（见下方 addRowNote 的顺序）
@@ -1268,6 +1282,7 @@ public class WndSettings extends WndTabbed {
 			addRowNote(chkSearchPickUp, "search_pickup");
 			addRowNote(chkSearchTrample, "search_trample");
 			addRowNote(chkAdjacentPickup, "adjacent_pickup");
+			addRowNote(chkPickupChain, "pickup_chain");
 			//SPSEXPD: 连续使用紧跟在「临近触及」下面（行末除说明按钮外还有白名单入口）
 			addRowNote(chkContinuousUse, "continuous_use");
 			addRowExtra(chkContinuousUse, new WhitelistButton());

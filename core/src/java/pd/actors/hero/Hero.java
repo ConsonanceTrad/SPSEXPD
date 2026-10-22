@@ -1773,6 +1773,12 @@ public class Hero extends Char {
 					}
 					
 					curAction = null;
+
+					//SPSEXPD: 连带拾取——顺手把相邻格（含斜角）的普通地面掉落一并收起，
+					//不论收了几件、跨几格，都只额外消耗 1 回合（docs：游戏辅助设置项）
+					if (SPDSettings.pickupChain()) {
+						pickUpNearby( dst );
+					}
 				} else {
 
 					if (waitOrPickup) {
@@ -3502,6 +3508,28 @@ public class Hero extends Char {
 	//SPSEXPD: 搜索拾取只作用于「视野内且可抵达」的格子，避免隔墙取物
 	private boolean canPickUpAt( int cell ){
 		return fieldOfView[cell] && PathFinder.distance[cell] < Integer.MAX_VALUE;
+	}
+
+	/**
+	 * SPSEXPD: 连带拾取——把英雄脚下与目标格四周相邻格（含斜角）的普通地面掉落一并收起。
+	 *
+	 * <p>只处理普通地面堆（{@link Heap.Type#HEAP}）：宝箱、遗骸、商店货架等都不碰。
+	 * 只要收进了至少一件东西，就固定额外消耗 1 回合（不论件数与格数）。
+	 */
+	private void pickUpNearby( int target ){
+		boolean picked = false;
+		//先补完目标格剩下的（目标格本身可能还有别的掉落），再收四周
+		picked |= pickUpHeap( target ) > 0f;
+		picked |= pickUpHeap( pos ) > 0f;
+		for (int offset : PathFinder.NEIGHBOURS8){
+			int cell = pos + offset;
+			if (!Dungeon.level.insideMap( cell )) continue;
+			if (!fieldOfView[cell]) continue;
+			picked |= pickUpHeap( cell ) > 0f;
+		}
+		if (picked){
+			spend( TIME_TO_PICK_UP );
+		}
 	}
 
 	//SPSEXPD: 「搜索踩草」的目标地形（高草与垄沟草）
