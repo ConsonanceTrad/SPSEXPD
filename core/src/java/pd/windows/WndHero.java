@@ -464,17 +464,7 @@ public class WndHero extends WndTabbed {
 		private static final int GAP = 2;
 		private static final int COLS = 5;
 
-		/** SPSEXPD: 特质页的内容容器——把特质格子的点击优先级提到 ScrollPane 拖拽控制器之上。 */
-		private class PerkContent extends Component {
-			void prioritizeChildren() {
-				for (Object o : members) {
-					if (o instanceof pd.ui.Button) ((pd.ui.Button) o).givePointerPriority();
-				}
-			}
-		}
-
 		private ScrollPane pane;
-		private PerkContent content;
 		private ArrayList<PerkSlot> slots;
 
 		@Override
@@ -484,12 +474,12 @@ public class WndHero extends WndTabbed {
 			//注意：createChildren() 会在构造期被 Component 调用，
 			//所以字段必须在这里初始化，不能在声明处初始化（否则 NPE）
 			slots = new ArrayList<>();
-			content = new PerkContent();
-			pane = new ScrollPane(content);
-			//SPSEXPD: 专精页用滚动视图——内容超出窗口高度时滚动查看，窗口高度不再随特质数量变化。
-			//滚动条要可见，否则玩家看不出这页能滚。
-			pane.scrollBarVisible = true;
-			add(pane);
+			//SPSEXPD: 用滚动视图装特质格子，做法与「英雄信息说明窗」的特质页（WndHeroInfo.PerkInfoTab）一致：
+			//固定视口高 + 内容高自适应（超出即可滚动）；滚动条不显示（否则会压住最右一列格子）；
+			//**不给格子提点击优先级**——格子密集排布几乎没有空白，提权后拖动会被格子吃掉，表现为滚不动。
+			pane = new ScrollPane( new Component() );
+			pane.scrollBarVisible = false;
+			add( pane );
 
 			if (pd.Dungeon.hero != null && pd.Dungeon.hero.heroPerk != null) {
 				for (pd.actors.hero.perks.Perk perk : pd.Dungeon.hero.heroPerk.getPerks()) {
@@ -498,7 +488,6 @@ public class WndHero extends WndTabbed {
 					pane.content().add(slot);
 				}
 			}
-			content.prioritizeChildren();
 		}
 
 		@Override
@@ -516,7 +505,8 @@ public class WndHero extends WndTabbed {
 						PerkSlot.BTN, PerkSlot.BTN);
 			}
 			int rows = Math.max(1, (slots.size() + COLS - 1) / COLS);
-			pane.content().setSize(width, Math.max(height, GAP + rows * (PerkSlot.BTN + GAP)));
+			//内容高 = max(视口高, 实际需要的行高)：超过视口即可滚动，窗口高度不随特质数量变化
+			pane.content().setSize(width, Math.max(pane.height(), GAP + rows * (PerkSlot.BTN + GAP)));
 		}
 
 	}
