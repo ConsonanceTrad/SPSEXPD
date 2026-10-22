@@ -348,7 +348,8 @@ public class SPDSettings extends GameSettings {
 	}
 	
 	public static String toolbarMode() {
-		return getString(KEY_BARMODE, PixelScene.landscape() ? "GROUP" : "SPLIT");
+		//SPSEXPD: 工具栏模式默认「分散」（横竖屏一致，不再按横竖屏区分）
+		return getString(KEY_BARMODE, "SPLIT");
 	}
 
 	public static void quickslotWaterskin( boolean value ){
