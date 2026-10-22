@@ -311,15 +311,16 @@ public class SPDSettings extends GameSettings {
 	//SPS: 三区快捷栏数量（用户裁决 2026-09）：下 3-10（默认 9，延续九格定案）、左 0-4、右 0-4（默认 0 不显示）
 	public static void quickslotsBottom( int value ){ put( KEY_QSLOT_BOTTOM, Math.max( 3, Math.min( 10, value ) ) ); }
 
-	public static int quickslotsBottom(){ return Math.max( 3, Math.min( 10, getInt( KEY_QSLOT_BOTTOM, 9 ) ) ); }
+	public static int quickslotsBottom(){ return Math.max( 3, Math.min( 10, getInt( KEY_QSLOT_BOTTOM, 4 ) ) ); }
 
+	//SPSEXPD: 左右快捷栏默认各 2 格
 	public static void quickslotsLeft( int value ){ put( KEY_QSLOT_LEFT, Math.max( 0, Math.min( 4, value ) ) ); }
 
-	public static int quickslotsLeft(){ return Math.max( 0, Math.min( 4, getInt( KEY_QSLOT_LEFT, 0 ) ) ); }
+	public static int quickslotsLeft(){ return Math.max( 0, Math.min( 4, getInt( KEY_QSLOT_LEFT, 2 ) ) ); }
 
 	public static void quickslotsRight( int value ){ put( KEY_QSLOT_RIGHT, Math.max( 0, Math.min( 4, value ) ) ); }
 
-	public static int quickslotsRight(){ return Math.max( 0, Math.min( 4, getInt( KEY_QSLOT_RIGHT, 0 ) ) ); }
+	public static int quickslotsRight(){ return Math.max( 0, Math.min( 4, getInt( KEY_QSLOT_RIGHT, 2 ) ) ); }
 
 	//SPS: S金全局钱包（用户裁决 2026-09-30）：金币经局内金币图标按 2333:1 兑换为 S金，
 	//S金在标题画面礼物商店购买永久强化解锁。跨存档永久有效，不随单局结束清零。
