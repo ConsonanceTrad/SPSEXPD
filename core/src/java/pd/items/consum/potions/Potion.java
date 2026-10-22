@@ -36,6 +36,7 @@ import pd.actors.blobs.Fire;
 import pd.actors.buffs.Buff;
 import pd.actors.buffs.Burning;
 import pd.actors.buffs.Ooze;
+import pd.actors.hero.Belongings;
 import pd.actors.hero.Hero;
 import pd.actors.hero.Talent;
 import pd.effects.Splash;
@@ -54,6 +55,7 @@ import pd.items.consum.potions.exotic.PotionOfCorrosiveGas;
 import pd.items.consum.potions.exotic.PotionOfShroudingFog;
 import pd.items.consum.potions.exotic.PotionOfSnapFreeze;
 import pd.items.consum.potions.exotic.PotionOfStormClouds;
+import pd.items.equipment.bags.Bag;
 import pd.items.equipment.weapon.missiles.arrows.*;
 import pd.journal.Catalog;
 import pd.levels.Terrain;
@@ -488,7 +490,61 @@ public class Potion extends Item {
 		if (!isKnown()) {
 			setKnown();
 		}
+		//SPSEXPD: 鉴定后并回同类堆——未鉴定期间按设计不能堆垛，
+		//鉴定完若不主动并堆，就会一直各占一格（只有丢地上再捡起走 Heap 合并才并起来）
+		mergeIntoCarriedStack();
 		return this;
+	}
+
+	/** SPSEXPD: 把这一瓶并入英雄身上（背包或包裹里）同类的已鉴定堆。 */
+	private void mergeIntoCarriedStack() {
+		if (!stackable || Dungeon.hero == null || Dungeon.hero.belongings == null) return;
+
+		Belongings belongings = Dungeon.hero.belongings;
+		Bag owner = containerOf(belongings.backpack);
+		if (owner == null) return;   //不在身上（地面/容器里），不处理
+
+		Item same = null;
+		for (Item other : allCarriedItems(belongings)) {
+			if (other == this) continue;
+			if (isSimilar(other)) { same = other; break; }
+		}
+		if (same == null) return;
+
+		detach(owner);
+		same.merge(this);
+		same.updateQuickslot();
+	}
+
+	/** 递归找「这一件」当前所在的容器（主背包或某个包裹）。 */
+	private Bag containerOf(Bag bag) {
+		if (bag == null) return null;
+		if (bag.items.contains(this)) return bag;
+		for (Item item : bag.items) {
+			if (item instanceof Bag) {
+				Bag found = containerOf((Bag) item);
+				if (found != null) return found;
+			}
+		}
+		return null;
+	}
+
+	/** 主背包 + 所有包裹里的物品（用于找同类堆）。 */
+	private static java.util.ArrayList<Item> allCarriedItems(Belongings belongings) {
+		java.util.ArrayList<Item> result = new java.util.ArrayList<>();
+		collectItems(belongings.backpack, result);
+		return result;
+	}
+
+	private static void collectItems(Bag bag, java.util.ArrayList<Item> out) {
+		if (bag == null) return;
+		for (Item item : bag.items) {
+			if (item instanceof Bag) {
+				collectItems((Bag) item, out);
+			} else {
+				out.add(item);
+			}
+		}
 	}
 	
 	@Override
