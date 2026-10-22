@@ -510,6 +510,9 @@ public class WndHeroInfo extends WndTabbed {
 		private static final int COLS = 6;
 		private static final int CELL = ItemSlotButton.BTN + GAP;
 		private static final int DIVIDER_COLOR = 0x33FFFFFF;
+		/** SPSEXPD: 滚动视口的高度上限 —— 与背景故事页（LoreInfoTab.MAX_H）一致。
+		 * 没有它时视口高度会跟着内容一起长，既滚不动、又会把窗口一起撑高。 */
+		private static final int MAX_H = 110;
 
 		private RenderedTextBlock title;
 		private RenderedTextBlock message;
@@ -625,7 +628,9 @@ public class WndHeroInfo extends WndTabbed {
 				y += btnRows * CELL + 2;
 			}
 
-			float listH = Math.max(24, y);
+			//SPSEXPD: 视口高度封顶（原先直接取内容高 y，导致永远不滚动、还把窗口一起撑高）：
+			//内容不足 MAX_H 时按内容自适应，超过时视口固定在 MAX_H、由 ScrollPane 滚动查看
+			float listH = Math.max(24, Math.min(y, MAX_H));
 			pane.setRect(0, top, width, listH);
 			pane.content().setSize(width, Math.max(listH, y));
 

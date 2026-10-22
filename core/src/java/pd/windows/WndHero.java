@@ -494,7 +494,10 @@ public class WndHero extends WndTabbed {
 		protected void layout() {
 			super.layout();
 			if (pane == null || slots == null) return;
-			pane.setRect(x, y, width, height);
+			//构造期本组件还没挂到窗口上时 camera() 为 null，此时布局 ScrollPane 会 NPE
+			//（与属性页 StatsTab 相同的守卫；挂上窗口后 WndHero 构造末尾会再补一次 layout）
+			if (camera() == null) return;
+			pane.setRect(0, 0, width, height);
 
 			for (int i = 0; i < slots.size(); i++) {
 				int r = i / COLS;
