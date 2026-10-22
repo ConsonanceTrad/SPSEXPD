@@ -130,8 +130,8 @@ public class WndSettings extends WndTabbed {
 			.t("$auxtab.hero_path_desc", "在画面里画出你点击的移动路线，方便提前规划走位。")
 			.t("$auxtab.search_pickup_desc", "使用「检索」时，会顺手拾取视野内可达的地面物品。")
 			.t("$auxtab.search_trample_desc", "使用「检索」时，会把搜索范围内的高草、垄沟草与植物一并踩掉；高草会照常产出种子、露珠等收获，植物则按野生规则散落果实。")
-			.t("$auxtab.adjacent_pickup_desc", "开启后可站在原地拾取或购买相邻一格（含斜角）视野内的物品，不必先走过去。")
-			.t("$auxtab.pickup_chain_desc", "开启后，捡起一件东西时会顺手把四周相邻格（含斜角）的普通地面掉落一起收进背包；宝箱、遗骸与商店货架不会被碰。无论顺手收了几件、跨几格，都只额外消耗 1 回合。")
+			.t("$auxtab.adjacent_pickup_desc", "开启后可站在原地拾取或购买相邻一格（含斜角）视野内的物品，不必先走过去。与「连带拾取」互斥，两者只能选其一。")
+			.t("$auxtab.pickup_chain_desc", "开启后，捡起一件东西时会顺手把四周相邻格（含斜角）的普通地面掉落一起收进背包；宝箱、遗骸与商店货架不会被碰。无论顺手收了几件、跨几格，都只额外消耗 1 回合。与「临近触及」互斥，两者只能选其一。")
 			.t("$auxtab.quick_all_desc", "快捷操作按钮的总开关。关掉后按钮不再显示，但下面三项各自的设置会保留。")
 			.t("$auxtab.quick_light_desc", "夜晚且身上带着光源时，显示一键照明的快捷按钮（优先用露珠瓶，其次火把）。")
 			.t("$auxtab.quick_talent_desc", "有未分配的特质点时，显示一键打开加点界面的快捷按钮。")
@@ -1148,22 +1148,26 @@ public class WndSettings extends WndTabbed {
 			add(chkSearchTrample);
 
 			//SPSEXPD: 临近触及——可隔着相邻一格拾取地面掉落物（对齐 SPS）
+			//与「连带拾取」互斥：勾上它就把那一行的勾去掉
 			chkAdjacentPickup = new AuxCheckBox(Messages.get(AuxTab.class, "adjacent_pickup")) {
 				@Override
 				protected void onClick() {
 					super.onClick();
 					SPDSettings.adjacentPickup(checked());
+					if (checked() && chkPickupChain != null) chkPickupChain.checked(false);
 				}
 			};
 			chkAdjacentPickup.checked(SPDSettings.adjacentPickup());
 			add(chkAdjacentPickup);
 
 			//SPSEXPD: 连带拾取——捡起一件后把相邻格的地面掉落一并收起（额外只花 1 回合）
+			//与「临近触及」互斥：勾上它就把那一行的勾去掉
 			chkPickupChain = new AuxCheckBox(Messages.get(AuxTab.class, "pickup_chain")) {
 				@Override
 				protected void onClick() {
 					super.onClick();
 					SPDSettings.pickupChain(checked());
+					if (checked() && chkAdjacentPickup != null) chkAdjacentPickup.checked(false);
 				}
 			};
 			chkPickupChain.checked(SPDSettings.pickupChain());

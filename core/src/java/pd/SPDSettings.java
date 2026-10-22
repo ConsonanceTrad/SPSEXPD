@@ -128,8 +128,10 @@ public class SPDSettings extends GameSettings {
 	}
 
 	//SPSEXPD: 临近触及 —— 可以隔着相邻一格拾取地面掉落物（对齐 SPS 的相邻拾取，默认开启）
+	//与「连带拾取」互斥：两个拾取相关的辅助不能同时开启
 	public static void adjacentPickup( boolean value ){
 		put( KEY_ADJACENT_PICKUP, value );
+		if (value) put( KEY_PICKUP_CHAIN, false );
 	}
 
 	public static boolean adjacentPickup(){
@@ -137,12 +139,15 @@ public class SPDSettings extends GameSettings {
 	}
 
 	//SPSEXPD: 连带拾取 —— 捡起一件后顺手把相邻格的地面掉落一并收起，额外只花 1 回合（默认关闭）
+	//与「临近触及」互斥：开启它会把「临近触及」自动关掉
 	public static void pickupChain( boolean value ){
 		put( KEY_PICKUP_CHAIN, value );
+		if (value) put( KEY_ADJACENT_PICKUP, false );
 	}
 
 	public static boolean pickupChain(){
-		return getBoolean( KEY_PICKUP_CHAIN, false );
+		//兜底：旧档或异常组合下两者都为 true 时，以「临近触及」优先，避免两套拾取逻辑打架
+		return getBoolean( KEY_PICKUP_CHAIN, false ) && !getBoolean( KEY_ADJACENT_PICKUP, true );
 	}
 
 	//SPSEXPD: 快捷操作按钮总开关（关闭后三个按钮都不显示，各自开关的状态保留）
