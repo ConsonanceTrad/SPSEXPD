@@ -1061,6 +1061,11 @@ public class WndSettings extends WndTabbed {
 	//SPSEXPD: 游戏辅助页的实际内容
 	private static class AuxContent extends Component {
 
+		//SPSEXPD: 三段布局的行数边界——「快捷操作」「背包界面」两个小标题之间夹着固定的四行，
+		//增删第一段的行时必须同步改这里，否则后续行的配对会整体错位（标题会顶到别的行上）
+		private static final int ROWS_BEFORE_QUICK_GROUP = 6;   //路径/搜索捡拾/搜索踩草/临近触及/连带拾取/连续使用
+		private static final int ROWS_IN_QUICK_GROUP = 4;       //总开关/照明/加点/进食
+
 		RenderedTextBlock title;
 		ColorBlock sep1;
 		CheckBox chkHeroPath;
@@ -1345,8 +1350,8 @@ public class WndSettings extends WndTabbed {
 			sep1.y = title.bottom() + 3*GAP;
 			bottom = sep1.y + 1;
 
-			//SPSEXPD: 前 5 行——显示移动路径 / 搜索捡拾 / 搜索踩草 / 临近触及 / 连续使用
-			for (int i = 0; i < 5 && i < rowChecks.size(); i++) {
+			//SPSEXPD: 第一段（拾取与使用相关）——行序见 addRowNote 的调用顺序
+			for (int i = 0; i < ROWS_BEFORE_QUICK_GROUP && i < rowChecks.size(); i++) {
 				bottom = layoutRow(i, width, bottom);
 			}
 
@@ -1358,8 +1363,9 @@ public class WndSettings extends WndTabbed {
 			quickGroup.setPos(0, bottom + GAP);
 			bottom = quickGroup.bottom();
 
-			//SPSEXPD: 快捷操作各行的索引是 5..8（总开关/照明/加点/进食），此处只摆这四行
-			for (int i = 5; i < 9 && i < rowChecks.size(); i++) {
+			//SPSEXPD: 快捷操作各行（总开关/照明/加点/进食），此处只摆这四行
+			for (int i = ROWS_BEFORE_QUICK_GROUP;
+					i < ROWS_BEFORE_QUICK_GROUP + ROWS_IN_QUICK_GROUP && i < rowChecks.size(); i++) {
 				bottom = layoutRow(i, width, bottom);
 			}
 
@@ -1371,7 +1377,7 @@ public class WndSettings extends WndTabbed {
 			bagGroup.setPos(0, bottom + GAP);
 			bottom = bagGroup.bottom();
 
-			for (int i = 9; i < rowChecks.size(); i++) {
+			for (int i = ROWS_BEFORE_QUICK_GROUP + ROWS_IN_QUICK_GROUP; i < rowChecks.size(); i++) {
 				bottom = layoutRow(i, width, bottom);
 			}
 
