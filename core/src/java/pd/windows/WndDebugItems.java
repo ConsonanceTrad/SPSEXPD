@@ -257,6 +257,23 @@ public class WndDebugItems extends Window {
 
 	//---- 组选择页 ----
 
+	/**
+	 * SPSEXPD: 全物品类全集（扁平化调试器的分组清单）——万能许愿器共用这一份，
+	 * 避免在别处再维护一份「所有物品」的列表。
+	 */
+	private static ArrayList<Class<? extends Item>> allItems;
+
+	public static java.util.List<Class<? extends Item>> allItems() {
+		if (allItems == null) {
+			ArrayList<Class<? extends Item>> flat = new ArrayList<>();
+			for (ArrayList<Class<? extends Item>> list : groups().values()) {
+				flat.addAll(list);
+			}
+			allItems = flat;
+		}
+		return allItems;
+	}
+
 	//组页翻页入口（调试器菜单分页，避免移动端窗口过高）
 	private WndDebugItems(int groupPage) {
 		super();

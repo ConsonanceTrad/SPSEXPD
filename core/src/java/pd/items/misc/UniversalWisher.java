@@ -46,7 +46,7 @@ public class UniversalWisher extends Item {
 			.t("desc", "测试用道具。写下物品名，它就把名字最接近的东西直接给你——"
 					+ "并列的候选会一并给予（最多 3 项）。名字后面可以加数量，"
 					+ "例如「治疗药剂 x20」，数量只对可堆叠物品生效。"
-					+ "它不消耗，也用不完。")
+					+ "独特物品、剧情与角色专属物品也在它的范围内。它不消耗，也用不完。")
 			.t("ac_use", "许愿")
 			.t("title", "万能许愿器")
 			.t("body", "写下物品名：\n"
@@ -107,7 +107,7 @@ public class UniversalWisher extends Item {
 
 		String[] parts = splitQuantity(text);
 		List<WishCatalog.Entry> matches =
-				WishMatcher.topMatches(parts[0], WishCatalog.entries(), MAX_CANDIDATES);
+				WishMatcher.topMatches(parts[0], matchPool(), MAX_CANDIDATES);
 		if (matches.isEmpty()) {
 			GLog.w(Messages.get(UniversalWisher.class, "no_match"));
 			return;
@@ -116,7 +116,12 @@ public class UniversalWisher extends Item {
 		int quantity = parseQuantity(parts[1]);
 		StringBuilder granted = new StringBuilder();
 		for (WishCatalog.Entry entry : matches) {
-			Item item = Reflection.newInstance(entry.type);
+			Item item;
+			try {
+				item = Reflection.newInstance(entry.type);
+			} catch (Throwable t) {
+				item = null;
+			}
 			if (item == null) continue;
 			item.identify();
 			int amount = item.stackable && quantity > 1 ? quantity : 1;
@@ -130,6 +135,124 @@ public class UniversalWisher extends Item {
 		if (granted.length() > 0) {
 			GLog.p(Messages.get(UniversalWisher.class, "granted", granted.toString()));
 		}
+	}
+
+	//*** 匹配池
+
+	/** 匹配池缓存（全物品类，含独特物品与特殊物品）。 */
+	private static List<WishCatalog.Entry> matchPool;
+
+	/**
+	 * 万能许愿器的匹配池：**全物品类**。
+	 *
+	 * <p>与真许愿的 {@link WishCatalog#entries()} 不同，这里不受
+	 * {@code WishCatalog.excluded()} 的限制——独特物品（`UniqueItem`）、
+	 * 任务/剧情/角色专属等「特殊物品」也能被许出来（用户裁决）。
+	 * 只跳过货币与测试装备，避免无意义的结果。
+	 *
+	 * <p>数据来源：许愿池已有的条目直接复用（名字/描述已按当前语言处理好），
+	 * 其余从调试器的全物品类全集（{@code WndDebugItems.allItems()}）补入，
+	 * 匹配名用「显示名 + 类名」两者，中英文都能对上。
+	 */
+	private static List<WishCatalog.Entry> matchPool() {
+		if (matchPool != null) return matchPool;
+
+		List<WishCatalog.Entry> pool = new ArrayList<>();
+		java.util.Set<Class<? extends Item>> seen = new java.util.HashSet<>();
+		for (WishCatalog.Entry entry : WishCatalog.entries()) {
+			pool.add(entry);
+			seen.add(entry.type);
+		}
+
+		for (Class<? extends Item> type : pd.windows.WndDebugItems.allItems()) {
+			if (seen.contains(type) || skipped(type)) continue;
+			String matchName = matchName(type);
+			if (matchName == null) continue;
+			//tier 只用于并列时的先后（等级更低/名字更短优先），补入项统一放在最高档
+			pool.add(new WishCatalog.Entry(type, 4, matchName, "", false, null));
+			seen.add(type);
+		}
+
+		//SPSEXPD: 独特物品（UniqueItem）绝大多数既不在图鉴也不在生成表里，
+		//只能从 UniqueItems 的注册表补入（用户裁决：独特物品也要能许出来）
+		for (pd.items.unique.UniqueItemId id : pd.items.unique.UniqueItemId.values()) {
+			Item sample;
+			try {
+				sample = pd.items.unique.UniqueItems.create(id);
+			} catch (Throwable t) {
+				continue;
+			}
+			if (sample == null) continue;
+			//占位独特物品（效果未实装、只靠 id 区分）用 newInstance 造不出对应的那一件，跳过
+			if (sample instanceof pd.items.unique.PlaceholderUniqueItem) continue;
+
+			Class<? extends Item> type = sample.getClass();
+			if (seen.contains(type) || skipped(type)) continue;
+			String display = sample.name();
+			String match = display == null || display.isEmpty()
+					? matchName(type)
+					: display.toLowerCase(java.util.Locale.ENGLISH) + " " + matchName(type);
+			pool.add(new WishCatalog.Entry(type, 4, match, "", false, null));
+			seen.add(type);
+		}
+
+		//剧情/任务/角色专属的特殊物品（由 EXTRA_SPECIAL 登记）
+		for (Class<? extends Item> type : EXTRA_SPECIAL) {
+			if (seen.contains(type) || skipped(type)) continue;
+			String matchName = matchName(type);
+			if (matchName == null) continue;
+			pool.add(new WishCatalog.Entry(type, 4, matchName, "", false, null));
+			seen.add(type);
+		}
+
+		matchPool = pool;
+		return matchPool;
+	}
+
+	/**
+	 * SPSEXPD: 剧情/任务/角色专属的「特殊物品」——图鉴、生成表与调试器都不收录这些，
+	 * 但用户要求万能许愿器对它们也生效，所以在这里逐个登记（重复的会被 seen 去掉）。
+	 */
+	private static final Class<? extends Item>[] EXTRA_SPECIAL = new Class[]{
+			pd.items.TreasureMap.class,
+			pd.items.TengusMask.class,
+			pd.items.KingsCrown.class,
+			pd.items.Amulet.class,
+			pd.items.DolyaSlate.class,
+			pd.items.Triforce.class,
+			pd.items.TriforceOfCourage.class,
+			pd.items.TriforceOfPower.class,
+			pd.items.TriforceOfWisdom.class,
+			pd.items.SoulCollect.class,
+			pd.items.ChallengeBook.class,
+			pd.items.KnowledgeBook.class,
+			pd.items.PotKey.class,
+			pd.items.ShadowEaterKey.class,
+			pd.items.BossRush.class,
+			pd.items.Playericon.class,
+			pd.items.BrokenSeal.class,
+			pd.items.ArmorKit.class,
+			pd.items.equipment.weapon.SpiritBow.class
+	};
+
+	/** 池子里明确不要的东西：货币（堆叠数值没意义）与测试装备。 */
+	private static boolean skipped(Class<? extends Item> type) {
+		if (type == pd.items.Gold.class) return true;
+		if (type.getSimpleName().startsWith("Test")) return true;
+		return java.lang.reflect.Modifier.isAbstract(type.getModifiers());
+	}
+
+	/** 匹配名 = 显示名（小写）+ 类名（小写，内部类以空格连接）。 */
+	private static String matchName(Class<? extends Item> type) {
+		String fqn = type.getName();
+		int dot = fqn.lastIndexOf('.');
+		String simple = dot < 0 ? fqn : fqn.substring(dot + 1);
+		String fallback = simple.replace('$', ' ').toLowerCase(java.util.Locale.ENGLISH);
+		String display = Messages.get(type, "name");
+		if (display == null || display.isEmpty() || Messages.NO_TEXT_FOUND.equals(display)) {
+			return fallback;
+		}
+		return display.toLowerCase(java.util.Locale.ENGLISH) + " " + fallback;
 	}
 
 	/**
