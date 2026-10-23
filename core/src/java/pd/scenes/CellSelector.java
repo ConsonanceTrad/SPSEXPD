@@ -159,8 +159,17 @@ public class CellSelector extends ScrollArea {
 			Dungeon.hero.resting = false;
 		}
 		if (!(enabled && heroReady && !blocking && listener != null && cell != -1)) {
-			//SPSEXPD: 英雄还在忙（heroReady=false）时点击只是"早了一步"，不要 cancel 掉动作队列
-			if (!heroReady || blocking || cell == -1) {
+			if (blocking || cell == -1) {
+				return;
+			}
+			if (!heroReady) {
+				//SPSEXPD: 英雄正在执行动作（寻路移动、攻击、使用物品等）时，点击地图 = 中止当前动作。
+				//上游原为无条件 GameScene.cancel()（= 移动中点地图即停）；c9cdbd586 为修「商店买完
+				//东西后点一次没反应」，把它整体改成直接 return，连带取消了「移动中点地图即停」。
+				//这里按有无 curAction 区分：有动作就恢复上游的中止，纯空档仍然丢弃这一下点击。
+				if (Dungeon.hero.curAction != null || Dungeon.hero.resting) {
+					GameScene.cancel();
+				}
 				return;
 			}
 			GameScene.cancel();
