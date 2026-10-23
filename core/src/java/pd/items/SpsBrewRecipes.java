@@ -1,6 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -386,7 +387,7 @@ public final class SpsBrewRecipes {
 		return potion;
 	}
 
-	private static Item randomExotic() {
+	public static Item randomExotic() {
 		Object[] types = ExoticPotion.regToExo.values().toArray();
 		if (types.length == 0) return new ChaoticConcoction();
 		@SuppressWarnings("unchecked")
@@ -395,8 +396,21 @@ public final class SpsBrewRecipes {
 		return potion == null ? new ChaoticConcoction() : potion;
 	}
 
-	/** 全部炼金公式（顺序即匹配顺序）。 */
+	/** 全部炼金公式（顺序即匹配顺序）。
+	 * SPSEXPD: 优先读 assets/data/alchemy.csv（表驱动，方便平衡调整）；
+	 * 表格缺失或解析失败时回退到下面的内置公式（与 CSV 同值）。 */
 	public static List<Recipe> all() {
+		List<BrewRecipe> fromTable = AlchemyCsv.load();
+		if (!fromTable.isEmpty()) {
+			List<Recipe> recipes = new ArrayList<>(fromTable.size());
+			recipes.addAll(fromTable);
+			return recipes;
+		}
+		return builtin();
+	}
+
+	/** 内置公式：CSV 不可用时的兜底，数值应与 assets/data/alchemy.csv 保持一致。 */
+	public static List<Recipe> builtin() {
 		return Arrays.asList(
 				new EnergyFlaskBrew(),
 				new TabletBrew(),
