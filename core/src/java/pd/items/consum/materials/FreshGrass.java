@@ -14,7 +14,7 @@ public class FreshGrass extends Item {
 	static {
 		InlineText.of(FreshGrass.class)
 			.t("name", "鲜草")
-			.t("desc", "刚踩下来的、还带着水汽的鲜草。和枯枝凑在一起，能搓出可以点火的火种。");
+			.t("desc", "刚踩下来的、还带着水汽的鲜草。拧一拧就能挤出水来；晾干之后则成为干草。");
 	}
 
 	{

@@ -27,6 +27,7 @@ import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.atlas.items.EquipmentNonEquipDict;
 import pd.atlas.items.ConsumGoodsMaterialsMaterialsExtraDict;
+import pd.atlas.items.EquipmentBagsDict;
 import pd.atlas.IconEntry;
 
 import pd.Assets;
@@ -51,6 +52,12 @@ import pd.items.StoneOre;
 import pd.utils.GLog;
 import pd.items.equipment.artifacts.AlchemistsToolkit;
 import pd.items.equipment.bags.Bag;
+import pd.items.equipment.bags.PotionBandolier;
+import pd.items.equipment.bags.ShoppingCart;
+import pd.items.equipment.bags.VelvetPouch;
+import pd.items.consum.materials.Tinder;
+import pd.items.consum.materials.WillOWisp;
+import pd.items.consum.food.WaterItem;
 import pd.items.equipment.trinkets.TrinketCatalyst;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.journal.Catalog;
@@ -114,24 +121,33 @@ public class AlchemyScene extends PixelScene {
 			.t("cancel", "取消加料")
 			.t("repeat", "重复加料")
 			.t("chance", "成功率")
-			.t("water_slot", "放入水")
-			.t("fire_slot", "放入火源（火种/磷火）");
+			.t("quick_water", "加水（放进空辅材格）")
+			.t("quick_fire", "加火种（放进空辅材格）")
+			.t("quick_bandolier", "打开药水箱")
+			.t("quick_pouch", "打开种子袋")
+			.t("quick_cart", "打开购物车")
+			.t("no_material", "背包里没有这种材料。")
+			.t("no_space", "没有空闲的辅材格了。")
+			.t("no_bag", "你还没有这个包裹。");
 	}
 
 
 
 
-	//SPSEXPD: 炼金釜固定 7 格——1 主材 / 4 辅材（2×2 两行）/ 水 / 火源（docs/alchemy-rework.md §1.2）
+	//SPSEXPD: 炼金釜固定 5 格——1 主材 / 4 辅材（2×2 两行）；
+	//水与火种不再有专用格，作为辅材之一放进辅材格（docs/alchemy-rework.md §1.2）
 	private static final int SLOT_MAIN = 0;
 	private static final int SLOT_ADJUVANT = 1;
-	private static final int SLOT_WATER = 5;
-	private static final int SLOT_FIRE = 6;
-	private static final InputButton[] inputs = new InputButton[7];
+	private static final InputButton[] inputs = new InputButton[5];
 	private static final CombineButton[] combines = new CombineButton[3];
 	private static final OutputSlot[] outputs = new OutputSlot[3];
-	private int activeInputCount = 7;
+	private int activeInputCount = 5;
 
-	//SPSEXPD: 7 格区域的上下边界，供合成按钮/输出槽纵向居中对齐
+	//SPSEXPD: 左侧快速添加按钮列（加水 / 加火种 / 药水箱 / 种子袋 / 购物车）
+	private static final int QUICK_BTN = 20;
+	private static final int QUICK_COL_W = QUICK_BTN + 8;
+
+	//SPSEXPD: 5 格区域的上下边界，供合成按钮/输出槽纵向居中对齐
 	private float slotsTop;
 	private float slotsBottom;
 	private float slotsMiddleY;
@@ -231,7 +247,7 @@ public class AlchemyScene extends PixelScene {
 
 		centerW = left + pw/2;
 
-		int pos = (int)(insets.top) + (h - (4 * BTN_SIZE + 3 * 6 + 40))/2;
+		int pos = (int)(insets.top) + (h - (3 * BTN_SIZE + 2 * 6 + 40))/2;
 
 		if (splitAlchGuide &&
 				w >= 300 &&
@@ -265,10 +281,11 @@ public class AlchemyScene extends PixelScene {
 		
 		pos += desc.height() + 6;
 
-		//SPSEXPD: 7 格三段式布局——上方主材、中间辅材 2×2 两行、下方水 + 火源
+		//SPSEXPD: 5 格布局——左列快速添加按钮，右侧上方主材、下方辅材 2×2 两行
+		//（水与火种不再是专用格，作为辅材之一放进辅材格；docs/alchemy-rework.md §1.2）
 		float gapX = Math.max(4, Math.min(24, (pw - 74) - 2*BTN_SIZE));
 		float inputW = 2*BTN_SIZE + gapX;
-		float slotsX0 = left + 6;
+		float slotsX0 = left + 6 + QUICK_COL_W;
 		float slotsX1 = slotsX0 + BTN_SIZE + gapX;
 		float slotsMainX = slotsX0 + (inputW - BTN_SIZE)/2f;
 
@@ -277,28 +294,34 @@ public class AlchemyScene extends PixelScene {
 		float slotsY0 = pos;
 		float slotsY1 = slotsY0 + BTN_SIZE + 6;
 		float slotsY2 = slotsY1 + BTN_SIZE + 6;
-		float slotsY3 = slotsY2 + BTN_SIZE + 6;
 
 		NinePatch inputBG = Chrome.get(Chrome.Type.TOAST_TR);
 		inputBG.x = slotsX0 - 4;
 		inputBG.y = slotsY0 - 4;
-		inputBG.size(inputW + 8, (slotsY3 + BTN_SIZE) - slotsY0 + 8);
+		inputBG.size(inputW + 8, (slotsY2 + BTN_SIZE) - slotsY0 + 8);
 		add(inputBG);
 
 		slotsTop = slotsY0 - 4;
-		slotsBottom = slotsY3 + BTN_SIZE + 4;
+		slotsBottom = slotsY2 + BTN_SIZE + 4;
 		slotsMiddleY = slotsTop + (slotsBottom - slotsTop - BTN_SIZE)/2f;
+
+		//左侧快速添加按钮列：加水 / 加火种 / 药水箱 / 种子袋 / 购物车
+		float quickX = left + 6;
+		float quickY = slotsTop;
+		addQuickButton(quickX, quickY + 0*(QUICK_BTN + 4),
+				EquipmentNonEquipDict.PURE_DEWDROP_WATER, this::quickAddWater);
+		addQuickButton(quickX, quickY + 1*(QUICK_BTN + 4),
+				ConsumGoodsMaterialsMaterialsExtraDict.TINDER, this::quickAddFire);
+		addQuickButton(quickX, quickY + 2*(QUICK_BTN + 4),
+				EquipmentBagsDict.BANDOLIER, () -> openBag(PotionBandolier.class));
+		addQuickButton(quickX, quickY + 3*(QUICK_BTN + 4),
+				EquipmentBagsDict.POUCH, () -> openBag(VelvetPouch.class));
+		addQuickButton(quickX, quickY + 4*(QUICK_BTN + 4),
+				EquipmentBagsDict.SHOPPING_CART_0, () -> openBag(ShoppingCart.class));
 
 		synchronized (inputs) {
 			for (int i = 0; i < activeInputCount; i++) {
-				InputButton button;
-				if (i == SLOT_WATER) {
-					button = new WaterInputButton();
-				} else if (i == SLOT_FIRE) {
-					button = new FireInputButton();
-				} else {
-					button = new InputButton();
-				}
+				InputButton button = new InputButton();
 
 				//in case the scene was reset without calling destroy() for some reason
 				if (inputs[i] != null) {
@@ -315,13 +338,10 @@ public class AlchemyScene extends PixelScene {
 				if (i == SLOT_MAIN) {
 					x = slotsMainX;
 					y = slotsY0;
-				} else if (i >= SLOT_ADJUVANT && i < SLOT_ADJUVANT + 4) {
-					int row = (i - SLOT_ADJUVANT) / 2;
-					x = ((i - SLOT_ADJUVANT) % 2 == 0) ? slotsX0 : slotsX1;
-					y = (row == 0) ? slotsY1 : slotsY2;
 				} else {
-					x = (i == SLOT_WATER) ? slotsX0 : slotsX1;
-					y = slotsY3;
+					int adj = i - SLOT_ADJUVANT;
+					x = (adj % 2 == 0) ? slotsX0 : slotsX1;
+					y = (adj / 2 == 0) ? slotsY1 : slotsY2;
 				}
 
 				inputs[i].setRect(x, y, BTN_SIZE, BTN_SIZE);
@@ -329,7 +349,7 @@ public class AlchemyScene extends PixelScene {
 			}
 		}
 
-		pos = (int)(slotsY3 + BTN_SIZE + 8);
+		pos = (int)(slotsY2 + BTN_SIZE + 8);
 
 		Button invSelector = new Button(){
 			@Override
@@ -692,15 +712,15 @@ public class AlchemyScene extends PixelScene {
 		return filtered;
 	}
 
-	/** SPSEXPD: 把 7 个格子的真实槽位交给配方引擎（主材/辅材×4/水/火源）。 */
+	/** SPSEXPD: 把 5 个格子的真实槽位交给配方引擎（主材 + 辅材×4）。
+	 * 槽位语义固定：主材格里是什么就是主材，辅材格不会自动顶替主材；
+	 * 水与火种没有专用格，由 BrewRecipe 从辅材里识别（hasWater/hasFire）。 */
 	private BrewRecipe.Slots currentSlots(){
 		BrewRecipe.Slots slots = new BrewRecipe.Slots();
 		slots.main = inputs[SLOT_MAIN] == null ? null : inputs[SLOT_MAIN].item();
 		for (int i = 0; i < BrewRecipe.ADJUVANT_SLOTS; i++){
 			slots.adjuvant[i] = inputs[SLOT_ADJUVANT + i] == null ? null : inputs[SLOT_ADJUVANT + i].item();
 		}
-		slots.water = inputs[SLOT_WATER] == null ? null : inputs[SLOT_WATER].item();
-		slots.fire = inputs[SLOT_FIRE] == null ? null : inputs[SLOT_FIRE].item();
 		return slots;
 	}
 	
@@ -1201,40 +1221,82 @@ public class AlchemyScene extends PixelScene {
 		}
 	}
 
-	//SPSEXPD: 水格——只放水（语义固定槽，匹配由配方引擎判断）
-	private class WaterInputButton extends InputButton {
-		@Override
-		protected IconEntry placeholderImage(){
-			return EquipmentNonEquipDict.PURE_DEWDROP_WATER;
-		}
-
-		@Override
-		protected Chrome.Type chromeType(){
-			return Chrome.Type.GREY_BUTTON;
-		}
-
-		@Override
-		protected String emptyHoverText(){
-			return Messages.get(AlchemyScene.class, "water_slot");
-		}
+	//SPSEXPD: 快速添加按钮——图标按钮 + 点击动作
+	private void addQuickButton(float x, float y, IconEntry icon, Runnable action) {
+		IconButton button = new IconButton(new ItemSprite(icon)) {
+			@Override
+			protected void onClick() {
+				icon().resetColor();
+				action.run();
+			}
+		};
+		button.setRect(x, y, QUICK_BTN, QUICK_BTN);
+		add(button);
 	}
 
-	//SPSEXPD: 火源格——火种或磷火
-	private class FireInputButton extends InputButton {
-		@Override
-		protected IconEntry placeholderImage(){
-			return ConsumGoodsMaterialsMaterialsExtraDict.TINDER;
+	/** 在当前携带的物品（主背包 + 各包裹）里找第一件指定类型的物品。 */
+	private Item findCarried(Class<? extends Item> type) {
+		if (Dungeon.hero == null) return null;
+		for (Item item : Dungeon.hero.belongings.backpack.items) {
+			if (type.isInstance(item)) return item;
+			if (item instanceof Bag) {
+				for (Item in : ((Bag)item).items) {
+					if (type.isInstance(in)) return in;
+				}
+			}
 		}
+		return null;
+	}
 
-		@Override
-		protected Chrome.Type chromeType(){
-			return Chrome.Type.GREY_BUTTON;
+	/** 第一个空闲的辅材槽，没有则 -1。 */
+	private int firstEmptyAdjuvant() {
+		for (int i = SLOT_ADJUVANT; i < activeInputCount; i++) {
+			if (inputs[i] != null && inputs[i].item() == null) return i;
 		}
+		return -1;
+	}
 
-		@Override
-		protected String emptyHoverText(){
-			return Messages.get(AlchemyScene.class, "fire_slot");
+	/** 快速加料：把携带的指定材料放进第一个空闲辅材格（绝不进主材格）。 */
+	private void quickAdd(Class<? extends Item> type) {
+		if (Dungeon.hero == null) return;
+		int slot = firstEmptyAdjuvant();
+		if (slot < 0) {
+			GLog.w(Messages.get(AlchemyScene.class, "no_space"));
+			return;
 		}
+		Item found = findCarried(type);
+		if (found == null) {
+			GLog.w(Messages.get(AlchemyScene.class, "no_material"));
+			return;
+		}
+		Item taken = found.detach(Dungeon.hero.belongings.backpack);
+		if (taken == null) {
+			GLog.w(Messages.get(AlchemyScene.class, "no_material"));
+			return;
+		}
+		inputs[slot].item(taken);
+		updateState();
+	}
+
+	private void quickAddWater() {
+		quickAdd(WaterItem.class);
+	}
+
+	private void quickAddFire() {
+		if (Dungeon.hero == null) return;
+		//火种优先，其次磷火
+		quickAdd(findCarried(Tinder.class) != null ? Tinder.class : WillOWisp.class);
+	}
+
+	/** 快捷打开指定包裹（没有该包裹则提示）。 */
+	private void openBag(Class<? extends Bag> type) {
+		if (Dungeon.hero == null) return;
+		Bag bag = Dungeon.hero.belongings.getItem(type);
+		if (bag == null) {
+			GLog.w(Messages.get(AlchemyScene.class, "no_bag"));
+			return;
+		}
+		GameScene.show(new WndBag(bag, itemSelector));
 	}
 
 	private class CombineButton extends Component {
@@ -1380,8 +1442,8 @@ public class AlchemyScene extends PixelScene {
 	}
 
 	public static int spsInputCapacity(AlchemistsToolkit toolkit) {
-		//SPSEXPD: 炼金釜固定 7 格——1 主材 / 4 辅材 / 水 / 火源（docs/alchemy-rework.md §1.2）
-		return 7;
+		//SPSEXPD: 炼金釜固定 5 格——1 主材 / 4 辅材；水与火种作为辅材之一（docs/alchemy-rework.md §1.2）
+		return 5;
 	}
 
 	public static void assignToolkit( AlchemistsToolkit toolkit ){

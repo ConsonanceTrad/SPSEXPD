@@ -67,7 +67,8 @@ public final class SpsBrewRecipes {
 					new AdjuvantSet(new AdjuvantSet.Slot(Fruit.class, FRUIT_BONUS))
 			};
 			needsWater = true;
-			needsFire = true;
+			//SPSEXPD: 基础药水配方不再需要火——火源（火种/磷火）预留给烹饪配方
+			needsFire = false;
 			energyCost = 0;
 			baseRate = FRUIT_RATE;
 			//75% 紊乱魔药 / 25% 废料
@@ -103,7 +104,8 @@ public final class SpsBrewRecipes {
 							new AdjuvantSet.Slot(Potion.class, CRUDE_BONUS, SpsBrewRecipes::isCrude))
 			};
 			needsWater = true;
-			needsFire = true;
+			//SPSEXPD: 基础药水配方不再需要火——火源（火种/磷火）预留给烹饪配方
+			needsFire = false;
 			energyCost = 0;
 			baseRate = FRUIT_RATE;
 			failures = FailureTable.single(ChaoticConcoction::new);
@@ -141,7 +143,8 @@ public final class SpsBrewRecipes {
 							new AdjuvantSet.Slot(Item.class, MIX_MATERIAL_BONUS))
 			};
 			needsWater = true;
-			needsFire = true;
+			//SPSEXPD: 基础药水配方不再需要火——火源（火种/磷火）预留给烹饪配方
+			needsFire = false;
 			energyCost = 0;
 			//主材本身不提供成功率，全靠辅材
 			baseRate = 0;
@@ -197,7 +200,8 @@ public final class SpsBrewRecipes {
 			mainMaterial = ScrollOfIdentify.class;
 			adjuvantOptions = null;
 			needsWater = true;
-			needsFire = true;
+			//SPSEXPD: 基础炼金配方不再需要火——火源（火种/磷火）预留给烹饪配方
+			needsFire = false;
 			energyCost = 0;
 			baseRate = 100;
 			failures = null;

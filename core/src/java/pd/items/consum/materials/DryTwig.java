@@ -14,7 +14,7 @@ public class DryTwig extends Item {
 	static {
 		InlineText.of(DryTwig.class)
 			.t("name", "枯枝")
-			.t("desc", "干透的细枝，一点就着。和鲜草凑在一起，能搓出可以点火的火种。");
+			.t("desc", "干透的细枝，一点就着。劈开来能搓出好几把火种。");
 	}
 
 	{

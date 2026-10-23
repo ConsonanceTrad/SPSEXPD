@@ -16,7 +16,7 @@ public class DryGrass extends Item {
 	static {
 		InlineText.of(DryGrass.class)
 			.t("name", "干草")
-			.t("desc", "晾干的鲜草，蓬松易着。既可搓成火种，也能当作烹饪的引火辅料。");
+			.t("desc", "晾干的鲜草，蓬松易着。可以搓成火种，也是烹饪时的引火辅料。");
 	}
 
 	{

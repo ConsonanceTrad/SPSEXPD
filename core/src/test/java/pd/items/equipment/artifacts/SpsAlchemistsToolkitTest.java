@@ -81,11 +81,11 @@ public final class SpsAlchemistsToolkitTest {
 		toolkit.level(4);
 		hero.belongings.artifact = null;
 		check(toolkit.actions(hero).contains(AlchemistsToolkit.AC_CREATE), "卸下的已升级工具箱没有耗竭造物");
-		check(AlchemyScene.spsInputCapacity(toolkit) == 7, "四级工具箱的炼金槽位应为七");
+		check(AlchemyScene.spsInputCapacity(toolkit) == 5, "四级工具箱的炼金槽位应为五");
 		toolkit.level(5);
-		check(AlchemyScene.spsInputCapacity(toolkit) == 7, "五级工具箱的炼金槽位应为七");
+		check(AlchemyScene.spsInputCapacity(toolkit) == 5, "五级工具箱的炼金槽位应为五");
 		toolkit.level(10);
-		check(AlchemyScene.spsInputCapacity(toolkit) == 7, "十级工具箱的炼金槽位应为七");
+		check(AlchemyScene.spsInputCapacity(toolkit) == 5, "十级工具箱的炼金槽位应为五");
 	}
 
 	private static void testScoringAndEfficiency() {

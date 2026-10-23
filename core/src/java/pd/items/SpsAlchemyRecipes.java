@@ -200,9 +200,10 @@ public final class SpsAlchemyRecipes {
 			recipe(WishPetal.class, RainbowPansy.class),
 			recipe(HormoneSolution.class, Sorrel.class),
 			//SPSEXPD: 火源链（docs/alchemy-rework.md §3）——鲜草 ×2 → 干草；干草 / 枯枝 → 火种
+			//枯枝引火效率高：1 枯枝 → 4 火种（药水线已免火，火源预留给烹饪配方）
 			recipe(DryGrass.class, FreshGrass.class, FreshGrass.class),
-			recipe(Tinder.class, DryGrass.class),
-			recipe(Tinder.class, DryTwig.class),
+			recipe(4, Tinder.class, DryGrass.class),
+			recipe(4, Tinder.class, DryTwig.class),
 			//SPSEXPD: 取水公式 WT-01——鲜草 ×1 → 水（免火源、不失败）
 			recipe(WaterItem.class, FreshGrass.class),
 			//SPSEXPD: 食物线的中间产物（docs/alchemy-rework.md §7.6）

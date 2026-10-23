@@ -85,11 +85,21 @@ public abstract class BrewRecipe extends Recipe {
 		}
 
 		public boolean hasWater() {
-			return water instanceof WaterItem;
+			//SPSEXPD: 取消水/火专用槽后，水作为辅材之一放入辅材格——两种来源都要识别
+			if (water instanceof WaterItem) return true;
+			for (Item item : adjuvant) {
+				if (item instanceof WaterItem) return true;
+			}
+			return false;
 		}
 
 		public boolean hasFire() {
-			return isFireSource(fire);
+			//SPSEXPD: 火源（火种/磷火）同理，作为辅材之一放入辅材格
+			if (isFireSource(fire)) return true;
+			for (Item item : adjuvant) {
+				if (isFireSource(item)) return true;
+			}
+			return false;
 		}
 
 		public int adjuvantCount() {
@@ -133,11 +143,19 @@ public abstract class BrewRecipe extends Recipe {
 			this.slots = slots;
 		}
 
+		/** SPSEXPD: 不占辅材方案槽位的「功能辅材」——能量瓶（+15% 加成）、水（溶剂）、火源（燃料）。
+		 * 它们放进辅材格会被引擎识别（needsWater/needsFire/成功率），但不挤占配方的辅材槽位，
+		 * 也不参与方案的类型匹配；酿造时照常被消耗。 */
+		private static boolean isFunctionalAdjuvant(Item item) {
+			return item instanceof WaterItem || item instanceof Tinder
+					|| item instanceof WillOWisp || item instanceof EnergyFlask;
+		}
+
 		public boolean matches(Slots ingredients) {
-			//炼金能量瓶是不占方案槽位的加成辅材，不计入槽数
+			//功能辅材（能量瓶/水/火源）不占方案槽位数
 			int count = 0;
 			for (Item item : ingredients.adjuvant) {
-				if (item != null && !(item instanceof EnergyFlask)) count++;
+				if (item != null && !isFunctionalAdjuvant(item)) count++;
 			}
 			if (count != slots.length) return false;
 			return matchFrom(ingredients, 0, new boolean[ADJUVANT_SLOTS]);
@@ -147,7 +165,7 @@ public abstract class BrewRecipe extends Recipe {
 			if (slot == slots.length) return true;
 			for (int i = 0; i < ADJUVANT_SLOTS; i++) {
 				Item item = ingredients.adjuvant[i];
-				if (item != null && !(item instanceof EnergyFlask) && !used[i] && slots[slot].accepts(item)) {
+				if (item != null && !isFunctionalAdjuvant(item) && !used[i] && slots[slot].accepts(item)) {
 					used[i] = true;
 					if (matchFrom(ingredients, slot + 1, used)) return true;
 					used[i] = false;

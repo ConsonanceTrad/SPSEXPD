@@ -14,7 +14,7 @@ public class Tinder extends Item {
 	static {
 		InlineText.of(Tinder.class)
 			.t("name", "火种")
-			.t("desc", "用鲜草裹着枯枝搓成的引火物。本身烧不出多大动静，却是后续炼金要用到的材料。");
+			.t("desc", "晒干的引火物，是炼金釜认可的唯一火源。炼制药水已经用不上火了——它是预留给烹饪配方的燃料，需要时投进辅材格即可。");
 	}
 
 	{
