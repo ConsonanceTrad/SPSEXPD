@@ -298,6 +298,10 @@ public abstract class Recipe {
 		//SPSEXPD: 食材蔬菜（胡萝卜/莴苣/松露）只是食物，不参与炼金
 		if (item instanceof FoodVegetable) return false;
 		if (item instanceof EquipableItem){
+			//SPSEXPD: 投掷果实（SpsFruit 家族）是炼金主材，但它继承自 MissileWeapon（EquipableItem），
+			//且 cursedKnown 默认为 false —— 若走下面的装备判定会被当成"未鉴定装备"而整类不可选
+			//（表现为「果子放不进炼金槽位」）。果实没有鉴定/诅咒概念，直接按材料处理。
+			if (item instanceof MissileWeapon && ((MissileWeapon) item).isFruit()) return !item.cursed;
 			//SPSEXPD: 除特殊道具外的装备均可投入（不再限于可升级的投掷武器）
 			return item.cursedKnown && !item.cursed;
 		} else if (item instanceof Wand) {

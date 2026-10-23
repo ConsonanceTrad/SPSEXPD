@@ -283,7 +283,8 @@ public class AlchemyScene extends PixelScene {
 
 		//SPSEXPD: 5 格布局——左列快速添加按钮，右侧上方主材、下方辅材 2×2 两行
 		//（水与火种不再是专用格，作为辅材之一放进辅材格；docs/alchemy-rework.md §1.2）
-		float gapX = Math.max(4, Math.min(24, (pw - 74) - 2*BTN_SIZE));
+		//gapX 的上限要把左侧按钮列宽度算进去，否则槽区右移后合成按钮/输出槽会顶到窗口边缘
+		float gapX = Math.max(4, Math.min(24, (pw - 74 - QUICK_COL_W) - 2*BTN_SIZE));
 		float inputW = 2*BTN_SIZE + gapX;
 		float slotsX0 = left + 6 + QUICK_COL_W;
 		float slotsX1 = slotsX0 + BTN_SIZE + gapX;
