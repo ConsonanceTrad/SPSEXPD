@@ -6,35 +6,35 @@
 #
 # 2026-10 二次改版：**全部公式 100% 成功**，因此不再有成功率列与失败产物列。
 # 药水线：粗制药水 = 普通果实 + 水；标准药水 = 大型果实 + 盐 + 水。
+# **水与火种就是普通辅材**：直接写在 adj1..adj3 里，没有单独的 water/fire 标记列。
 #
-# 列说明（共 13 列，顺序不可变）：
+# 列说明（共 11 列，顺序不可变）：
 #   id      公式编号（同一公式的多套辅材方案共用同一个 id，按 plan 排列）
 #   plan    方案序号（1、2、3…）
 #   main    主材类型（简单类名；Fruit=任意果实，LargeFruit=大型果实，Vegetable=任意蔬菜，
 #           Potion=任意药剂，Item=任意物品）
-#   adj1..adj3  辅材方案的类型；留空表示该方案不需要对应辅材
-#             支持后缀 #CRUDE / #STANDARD / #TABLET / #INJECTOR / #REAGENT 要求指定形态
-#   rule    产物规则：CRUDE=粗制变体 / STANDARD=标准变体 / EXOTIC=合剂 / TABLET=缓释片 /
-#           INJECTOR=注射剂 / REAGENT=试剂 / ITEM=固定产物
-#   output  rule=ITEM 时的产物类名（其它规则留空）
+#   adj1..adj3  辅材方案的类型；留空表示该方案不需要对应辅材。水(WaterItem)、盐(Salt)、
+#             火种(Tinder) 等一律当普通辅材写在这里；
+#             支持后缀 #CRUDE / #STANDARD / #PILL / #TABLET / #AMPOULE 要求指定形态
+#   rule    产物规则：CRUDE=粗制变体 / STANDARD=标准变体 / MIX=合剂 / ELIXIR=魔药 /
+#           FIXED=固定产物+本局两味 / ITEM=固定产物
+#   output  rule=ITEM / FIXED 时的产物类名（其它规则留空）
 #   qty     产物数量：1 或区间 2-4
 #   energy  炼金能量消耗
-#   water   是否必须放水（1/0）
-#   fire    是否必须放火源（1/0）——药水线一律 0，火源预留给烹饪配方
 #   note    备注（不参与逻辑，可含中文，但不要含英文逗号）
-id,plan,main,adj1,adj2,adj3,rule,output,qty,energy,water,fire,note
-CRU-01,1,Fruit,,,,CRUDE,,1,0,1,0,粗制：普通果实+水 → 粗制XX药水（效果 1/3）
-STD-01,1,LargeFruit,Salt,,,STANDARD,,1,0,1,0,标准：大型果实+盐+水 → 标准XX药水（完整效果）
-MIX-01,1,Potion#CRUDE,Item,Item,Item,MIX,,1,0,0,0,合剂：粗制药水+辅材（凑齐本局两味则出合剂，否则退回粗制药水）
-ELX-01,1,Potion#STANDARD,Item,Item,Item,ELIXIR,,1,0,0,0,魔药：标准药水+辅材（凑齐本局两味则出魔药，否则退回粗制药水）
-FIX-BLD,1,PotionOfLiquidFlame#CRUDE,Item,Item,Item,FIXED,ElixirOfDragonsBlood,1,0,0,0,合剂层·秘药：液火粗制药水+本局两味 → 龙血秘药
-FIX-ICY,1,PotionOfFrost#CRUDE,Item,Item,Item,FIXED,ElixirOfIcyTouch,1,0,0,0,合剂层·秘药：冰霜粗制药水+本局两味 → 冰触秘药
-FIX-TOX,1,PotionOfToxicGas#CRUDE,Item,Item,Item,FIXED,ElixirOfToxicEssence,1,0,0,0,合剂层·秘药：毒气粗制药水+本局两味 → 毒素精华
-FIX-FTH,1,PotionOfLevitation#CRUDE,Item,Item,Item,FIXED,ElixirOfFeatherFall,1,0,0,0,合剂层·秘药：浮空粗制药水+本局两味 → 羽落秘药
-FIX-AQU,1,PotionOfPurity#CRUDE,Item,Item,Item,FIXED,ElixirOfAquaticRejuvenation,1,0,0,0,合剂层·秘药：净化粗制药水+本局两味 → 水中回春秘药
-FIX-ARC,1,PotionOfHealing#CRUDE,Item,Item,Item,FIXED,ElixirOfArcaneArmor,1,0,0,0,合剂层·秘药：治疗粗制药水+本局两味 → 奥术护甲秘药
-FIX-MGT,1,PotionOfStrength#STANDARD,Item,Item,Item,FIXED,ElixirOfMight,1,0,0,0,魔药层·秘药：力量标准药水+本局两味 → 力量秘药
-FIX-HNY,1,PotionOfHealing#STANDARD,Item,Item,Item,FIXED,ElixirOfHoneyedHealing,1,0,0,0,魔药层·秘药：治疗标准药水+本局两味 → 蜂蜜治疗秘药
-XR-01,1,ScrollOfIdentify,,,,ITEM,EyeOfTruth,1,0,1,0,结晶：鉴定卷轴+水 → 真实之眼
-JUI-01,1,Vegetable,Fruit,,,ITEM,MagicJuice,1,0,1,0,魔法果汁：蔬菜+任意果实+水
-FLK-01,1,WaterItem,,,,ITEM,EnergyFlask,1,4,0,0,能量瓶：水+4炼金能量 → 炼金能量瓶
+id,plan,main,adj1,adj2,adj3,rule,output,qty,energy,note
+CRU-01,1,Fruit,WaterItem,,,CRUDE,,1,0,粗制：普通果实+水 → 粗制XX药水（效果 1/3）
+STD-01,1,LargeFruit,Salt,WaterItem,,STANDARD,,1,0,标准：大型果实+盐+水 → 标准XX药水（完整效果）
+MIX-01,1,Potion#CRUDE,Item,Item,Item,MIX,,1,0,合剂：粗制药水+辅材（凑齐本局两味则出合剂，否则退回粗制药水）
+ELX-01,1,Potion#STANDARD,Item,Item,Item,ELIXIR,,1,0,魔药：标准药水+辅材（凑齐本局两味则出魔药，否则退回粗制药水）
+FIX-BLD,1,PotionOfLiquidFlame#CRUDE,Item,Item,Item,FIXED,ElixirOfDragonsBlood,1,0,合剂层·秘药：液火粗制药水+本局两味 → 龙血秘药
+FIX-ICY,1,PotionOfFrost#CRUDE,Item,Item,Item,FIXED,ElixirOfIcyTouch,1,0,合剂层·秘药：冰霜粗制药水+本局两味 → 冰触秘药
+FIX-TOX,1,PotionOfToxicGas#CRUDE,Item,Item,Item,FIXED,ElixirOfToxicEssence,1,0,合剂层·秘药：毒气粗制药水+本局两味 → 毒素精华
+FIX-FTH,1,PotionOfLevitation#CRUDE,Item,Item,Item,FIXED,ElixirOfFeatherFall,1,0,合剂层·秘药：浮空粗制药水+本局两味 → 羽落秘药
+FIX-AQU,1,PotionOfPurity#CRUDE,Item,Item,Item,FIXED,ElixirOfAquaticRejuvenation,1,0,合剂层·秘药：净化粗制药水+本局两味 → 水中回春秘药
+FIX-ARC,1,PotionOfHealing#CRUDE,Item,Item,Item,FIXED,ElixirOfArcaneArmor,1,0,合剂层·秘药：治疗粗制药水+本局两味 → 奥术护甲秘药
+FIX-MGT,1,PotionOfStrength#STANDARD,Item,Item,Item,FIXED,ElixirOfMight,1,0,魔药层·秘药：力量标准药水+本局两味 → 力量秘药
+FIX-HNY,1,PotionOfHealing#STANDARD,Item,Item,Item,FIXED,ElixirOfHoneyedHealing,1,0,魔药层·秘药：治疗标准药水+本局两味 → 蜂蜜治疗秘药
+XR-01,1,ScrollOfIdentify,WaterItem,,,ITEM,EyeOfTruth,1,0,结晶：鉴定卷轴+水 → 真实之眼
+JUI-01,1,Vegetable,Fruit,WaterItem,,ITEM,MagicJuice,1,0,魔法果汁：蔬菜+任意果实+水
+FLK-01,1,WaterItem,,,,ITEM,EnergyFlask,1,4,能量瓶：水+4炼金能量 → 炼金能量瓶

@@ -34,33 +34,22 @@ public abstract class BrewRecipe extends Recipe {
 	//*** 子类填充项
 	protected Class<? extends Item> mainMaterial;   // 主材（基类 = 任意子类）
 	protected AdjuvantSet[] adjuvantOptions;        // 辅材方案（多选一，可含「无辅材」方案）
-	protected boolean needsWater;
-	protected boolean needsFire;
 	protected int energyCost;
 	//***
 
-	/** 炼金釜 5 格的语义容器，也可由物品列表推断（{@link #of(ArrayList)}）。 */
+	/** 炼金釜 5 格的语义容器，也可由物品列表推断（{@link #of(ArrayList)}）。
+	 * SPSEXPD: 水与火种不再是特殊槽——它们就是普通辅材，按顺序进 {@link #adjuvant}。 */
 	public static final class Slots {
 
 		public Item main;
 		public final Item[] adjuvant = new Item[ADJUVANT_SLOTS];
-		public Item water;
-		public Item fire;
 
-		/** 由「所有非空槽的物品」推断语义槽：水 → 水槽，火种/磷火 → 火源槽，其余按顺序主材 + 辅材。 */
+		/** 由「所有非空槽的物品」推断语义槽：第一个 → 主材，其余按顺序 → 辅材。 */
 		public static Slots of(ArrayList<Item> ingredients) {
 			Slots slots = new Slots();
 			if (ingredients == null) return slots;
 			for (Item item : ingredients) {
 				if (item == null) continue;
-				if (item instanceof WaterItem && slots.water == null) {
-					slots.water = item;
-					continue;
-				}
-				if (isFireSource(item) && slots.fire == null) {
-					slots.fire = item;
-					continue;
-				}
 				if (slots.main == null) {
 					slots.main = item;
 				} else {
@@ -75,24 +64,6 @@ public abstract class BrewRecipe extends Recipe {
 			return slots;
 		}
 
-		public boolean hasWater() {
-			//SPSEXPD: 取消水/火专用槽后，水作为辅材之一放入辅材格——两种来源都要识别
-			if (water instanceof WaterItem) return true;
-			for (Item item : adjuvant) {
-				if (item instanceof WaterItem) return true;
-			}
-			return false;
-		}
-
-		public boolean hasFire() {
-			//SPSEXPD: 火源（火种/磷火）同理，作为辅材之一放入辅材格
-			if (isFireSource(fire)) return true;
-			for (Item item : adjuvant) {
-				if (isFireSource(item)) return true;
-			}
-			return false;
-		}
-
 		public int adjuvantCount() {
 			int count = 0;
 			for (Item item : adjuvant) {
@@ -102,7 +73,7 @@ public abstract class BrewRecipe extends Recipe {
 		}
 
 		public boolean isEmpty() {
-			return main == null && adjuvantCount() == 0 && !hasWater() && !hasFire();
+			return main == null && adjuvantCount() == 0;
 		}
 
 		public ArrayList<Item> all() {
@@ -111,20 +82,17 @@ public abstract class BrewRecipe extends Recipe {
 			for (Item item : adjuvant) {
 				if (item != null) result.add(item);
 			}
-			if (water != null) result.add(water);
-			if (fire != null) result.add(fire);
 			return result;
 		}
 	}
 
-	/** 火源：火种或磷火。 */
+	/** 火源：火种或磷火（仅作材料类型判定用，不再是「特殊槽」）。 */
 	public static boolean isFireSource(Item item) {
 		return item instanceof Tinder || item instanceof WillOWisp;
 	}
 
 	/**
-	 * 一套辅材方案：槽位数量与类型都必须精确匹配（多放辅材不命中），
-	 * 每个槽位自带成功率加成。
+	 * 一套辅材方案：槽位数量与类型都必须精确匹配（多放辅材不命中）。
 	 */
 	public static final class AdjuvantSet {
 
@@ -134,21 +102,8 @@ public abstract class BrewRecipe extends Recipe {
 			this.slots = slots;
 		}
 
-		/** SPSEXPD: 不占辅材方案槽位的「功能辅材」——能量瓶（+15% 加成）、水（溶剂）、火源（燃料）。
-		 * 它们放进辅材格会被引擎识别（needsWater/needsFire/成功率），但不挤占配方的辅材槽位，
-		 * 也不参与方案的类型匹配；酿造时照常被消耗。 */
-		private static boolean isFunctionalAdjuvant(Item item) {
-			return item instanceof WaterItem || item instanceof Tinder
-					|| item instanceof WillOWisp || item instanceof EnergyFlask;
-		}
-
 		public boolean matches(Slots ingredients) {
-			//功能辅材（能量瓶/水/火源）不占方案槽位数
-			int count = 0;
-			for (Item item : ingredients.adjuvant) {
-				if (item != null && !isFunctionalAdjuvant(item)) count++;
-			}
-			if (count != slots.length) return false;
+			if (ingredients.adjuvantCount() != slots.length) return false;
 			return matchFrom(ingredients, 0, new boolean[ADJUVANT_SLOTS]);
 		}
 
@@ -156,7 +111,7 @@ public abstract class BrewRecipe extends Recipe {
 			if (slot == slots.length) return true;
 			for (int i = 0; i < ADJUVANT_SLOTS; i++) {
 				Item item = ingredients.adjuvant[i];
-				if (item != null && !isFunctionalAdjuvant(item) && !used[i] && slots[slot].accepts(item)) {
+				if (item != null && !used[i] && slots[slot].accepts(item)) {
 					used[i] = true;
 					if (matchFrom(ingredients, slot + 1, used)) return true;
 					used[i] = false;
@@ -225,11 +180,10 @@ public abstract class BrewRecipe extends Recipe {
 
 	public boolean matches(Slots ingredients) {
 		if (ingredients.main == null) return false;
-		//mainMaterial 为 null 时由子类自己判定主材（例如精制接受果子或蔬菜）
+		//mainMaterial 为 null 时由子类自己判定主材（例如粗制接受任意果实）
 		if (mainMaterial != null && !mainMaterial.isInstance(ingredients.main)) return false;
-		if (needsWater != ingredients.hasWater()) return false;
-		if (needsFire != ingredients.hasFire()) return false;
 
+		//SPSEXPD: 水与火种就是普通辅材——只按辅材方案精确匹配，不再有 needsWater/needsFire
 		if (adjuvantOptions == null || adjuvantOptions.length == 0) {
 			return ingredients.adjuvantCount() == 0;
 		}

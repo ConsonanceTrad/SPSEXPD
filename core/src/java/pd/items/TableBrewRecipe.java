@@ -252,8 +252,9 @@ public class TableBrewRecipe extends BrewRecipe {
 		}
 	}
 
-	/** CSV 的列数（id,plan,main,adj1,adj2,adj3,rule,output,qty,energy,water,fire,note）。 */
-	public static final int COLUMNS = 13;
+	/** CSV 的列数（id,plan,main,adj1,adj2,adj3,rule,output,qty,energy,note）。
+	 * 水与火种就是普通辅材，写进 adj 列即可——不再有独立的 water/fire 标记列。 */
+	public static final int COLUMNS = 11;
 
 	/**
 	 * 把 CSV 文本解析成配方列表。任一 id 出现解析错误则该 id 被跳过（不影响其它公式）。
@@ -308,8 +309,6 @@ public class TableBrewRecipe extends BrewRecipe {
 				recipe.mainForm = parseMainForm(first[2].trim());
 				recipe.adjuvantOptions = plans.isEmpty() ? null : plans.toArray(new AdjuvantSet[0]);
 				recipe.energyCost = parseInt(first[9], 0);
-				recipe.needsWater = parseInt(first[10], 0) != 0;
-				recipe.needsFire = parseInt(first[11], 0) != 0;
 
 				//产物
 				recipe.rule = first[6].trim().isEmpty() ? "ITEM" : first[6].trim();

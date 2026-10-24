@@ -62,10 +62,10 @@ public final class SpsBrewRecipes {
 		public CrudeBrew() {
 			//主材由 isFruitItem + potionType 判定（果实是 SpsFruit 家族，不是 Fruit 类）
 			mainMaterial = null;
-			adjuvantOptions = null;
-			needsWater = true;
-			//SPSEXPD: 基础药水配方不再需要火——火源（火种/磷火）预留给烹饪配方
-			needsFire = false;
+			//SPSEXPD: 水就是普通辅材之一，写进辅材方案（不再有 needsWater）
+			adjuvantOptions = new AdjuvantSet[]{
+					new AdjuvantSet(new AdjuvantSet.Slot(WaterItem.class))
+			};
 			energyCost = 0;
 		}
 
@@ -89,12 +89,12 @@ public final class SpsBrewRecipes {
 		public StandardBrew() {
 			//主材由 isLargeFruit + potionType 判定
 			mainMaterial = null;
+			//盐与水都是普通辅材
 			adjuvantOptions = new AdjuvantSet[]{
-					new AdjuvantSet(new AdjuvantSet.Slot(Salt.class))
+					new AdjuvantSet(
+							new AdjuvantSet.Slot(Salt.class),
+							new AdjuvantSet.Slot(WaterItem.class))
 			};
-			needsWater = true;
-			//SPSEXPD: 基础药水配方不再需要火——火源（火种/磷火）预留给烹饪配方
-			needsFire = false;
 			energyCost = 0;
 		}
 
@@ -119,8 +119,6 @@ public final class SpsBrewRecipes {
 		public MixBrew() {
 			mainMaterial = null;
 			adjuvantOptions = null;
-			needsWater = false;
-			needsFire = false;
 			energyCost = 0;
 		}
 
@@ -153,8 +151,6 @@ public final class SpsBrewRecipes {
 		public ElixirBrew() {
 			mainMaterial = null;
 			adjuvantOptions = null;
-			needsWater = false;
-			needsFire = false;
 			energyCost = 0;
 		}
 
@@ -184,10 +180,10 @@ public final class SpsBrewRecipes {
 
 		public EyeCrystal() {
 			mainMaterial = ScrollOfIdentify.class;
-			adjuvantOptions = null;
-			needsWater = true;
-			//SPSEXPD: 基础炼金配方不再需要火——火源（火种/磷火）预留给烹饪配方
-			needsFire = false;
+			//水作为普通辅材
+			adjuvantOptions = new AdjuvantSet[]{
+					new AdjuvantSet(new AdjuvantSet.Slot(WaterItem.class))
+			};
 			energyCost = 0;
 		}
 
@@ -210,8 +206,6 @@ public final class SpsBrewRecipes {
 		public EnergyFlaskBrew() {
 			mainMaterial = WaterItem.class;
 			adjuvantOptions = null;
-			needsWater = false;
-			needsFire = false;
 			energyCost = 4;
 		}
 
@@ -228,11 +222,12 @@ public final class SpsBrewRecipes {
 
 		public MagicJuiceBrew() {
 			mainMaterial = Vegetable.class;
+			//果实与水都是普通辅材
 			adjuvantOptions = new AdjuvantSet[]{
-					new AdjuvantSet(new AdjuvantSet.Slot(MissileWeapon.class, SpsBrewRecipes::isFruitItem))
+					new AdjuvantSet(
+							new AdjuvantSet.Slot(MissileWeapon.class, SpsBrewRecipes::isFruitItem),
+							new AdjuvantSet.Slot(WaterItem.class))
 			};
-			needsWater = true;
-			needsFire = false;
 			energyCost = 0;
 		}
 
@@ -253,8 +248,6 @@ public final class SpsBrewRecipes {
 		public DistillBrew() {
 			mainMaterial = null;
 			adjuvantOptions = null;
-			needsWater = false;
-			needsFire = false;
 			energyCost = 0;
 		}
 
@@ -266,7 +259,11 @@ public final class SpsBrewRecipes {
 			if (!isProcessable(main)) return false;
 			if (((Potion) main).form == PotionForm.PILL) {
 				//药片 + 盐 → 缓释片
-				return ingredients.adjuvantCount() == 1 && ingredients.adjuvant[0] instanceof Salt;
+				if (ingredients.adjuvantCount() != 1) return false;
+				for (Item item : ingredients.adjuvant) {
+					if (item instanceof Salt) return true;
+				}
+				return false;
 			}
 			return ingredients.adjuvantCount() == 0;
 		}
@@ -293,11 +290,12 @@ public final class SpsBrewRecipes {
 
 		public FillBrew() {
 			mainMaterial = null;
+			//盐与水都是普通辅材
 			adjuvantOptions = new AdjuvantSet[]{
-					new AdjuvantSet(new AdjuvantSet.Slot(Salt.class))
+					new AdjuvantSet(
+							new AdjuvantSet.Slot(Salt.class),
+							new AdjuvantSet.Slot(WaterItem.class))
 			};
-			needsWater = true;
-			needsFire = false;
 			energyCost = 0;
 		}
 
