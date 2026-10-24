@@ -24,6 +24,7 @@ package pd.items;
 import pd.ShatteredPixelDungeon;
 import pd.items.consum.food.vegetable.FoodVegetable;
 import pd.items.equipment.bombs.Bomb;
+import pd.items.equipment.bags.Bag;
 import pd.items.consum.food.MeatPie;
 import pd.items.consum.food.StewedMeat;
 import pd.items.consum.potions.Potion;
@@ -284,6 +285,11 @@ public abstract class Recipe {
 	public static boolean usableInRecipe(Item item){
 		//SPSEXPD: 任务/剧情道具与角色专属道具不能投入炼金釜
 		if (isSpecialItem(item)) return false;
+		//SPSEXPD: 包裹袋（绒布袋/卷轴筒/药剂挎带/草靶子/竹背篓等）是容器，不是炼金材料
+		if (item instanceof Bag) return false;
+		//SPSEXPD: 灵能弓（含灵能袖箭等子类）是女猎手专属永久武器，不参与炼金
+		//（isSpecialItem 里已排除一次，这里再拦一道，避免以后调整特殊道具清单时漏掉）
+		if (item instanceof SpiritBow) return false;
 		//SPSEXPD: 食材蔬菜（胡萝卜/莴苣/松露）只是食物，不参与炼金
 		if (item instanceof FoodVegetable) return false;
 		if (item instanceof EquipableItem){
