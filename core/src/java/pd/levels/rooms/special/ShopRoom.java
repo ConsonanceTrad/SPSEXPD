@@ -274,8 +274,11 @@ public class ShopRoom extends SpecialRoom {
 			itemsToSpawn.add(bag);
 		}
 
-		//SPSEXPD: 商店售卖的药剂一律未鉴定（docs/alchemy-rework.md §4）
+		//SPSEXPD: 商店售卖的药剂一律是「新形态 + 未鉴定」（docs/alchemy-rework.md §4）——
+		//原版 NORMAL 药剂不再出现，固定位给一瓶粗制治疗药剂
 		PotionOfHealing shopHealing = new PotionOfHealing();
+		shopHealing.form = pd.items.consum.potions.PotionForm.CRUDE;
+		shopHealing.reset();
 		shopHealing.unidentify();
 		itemsToSpawn.add( shopHealing );
 		//SPSEXPD: 试剂检测卡——配套未鉴定药剂的鉴定工具（docs/alchemy-rework.md §4.2）

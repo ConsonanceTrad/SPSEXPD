@@ -46,13 +46,12 @@ public class ReagentTestCard extends Item {
 		InlineText.of(ReagentTestCard.class)
 			.t("name", "试剂检测卡")
 			.t("desc", "商店贩售的简易试剂卡。把它贴上药瓶，能认出最常见的六种药剂"
-					+ "（治疗、灵视、净化、火焰、冰霜、毒气）；遇上看不出的药剂，"
-					+ "它至少能告诉你这东西是有益还是有害。每张只能用一次。")
+					+ "（治疗、灵视、净化、火焰、冰霜、毒气）；遇上认不出的药剂，"
+					+ "它只会告诉你这似乎不是常见的药水类型。每张只能用一次。")
 			.t("ac_test", "检测药剂")
 			.t("prompt", "选择一瓶未鉴定药剂")
 			.t("common", "检测卡上显出熟悉的反应：这是%1$s。")
-			.t("uncommon_good", "这不是常见的药水类型，但根据检测卡，它应当是一瓶有益的药水。")
-			.t("uncommon_bad", "这不是常见的药水类型，但根据检测卡，它应当是一瓶有害的药水。")
+			.t("uncommon", "这似乎不是常见的药水类型。")
 			.t("no_potion", "你身上没有未鉴定的药剂可以检测。");
 	}
 
@@ -121,8 +120,7 @@ public class ReagentTestCard extends Item {
 				potion.identify();
 				GLog.p(Messages.get(ReagentTestCard.class, "common", Messages.titleCase(potion.name())));
 			} else {
-				boolean benign = BenignConcoction.BENEFICIAL.contains(potion.getClass());
-				GLog.w(Messages.get(ReagentTestCard.class, benign ? "uncommon_good" : "uncommon_bad"));
+				GLog.w(Messages.get(ReagentTestCard.class, "uncommon"));
 			}
 
 			curUser.spendAndNext(1f);

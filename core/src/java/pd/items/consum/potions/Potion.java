@@ -600,14 +600,16 @@ public class Potion extends Item {
 		return identified;
 	}
 
-	//SPSEXPD: 形态不同的同种药水不堆垛（粗糙的治疗药剂不与普通治疗药剂合并）；
-	//未鉴定的瓶子一律单独占格——每瓶各自保留自己的真实类型（检测卡/真实之眼要用）
+	//SPSEXPD: 形态不同的同种药水不堆垛（粗制治疗药剂不与治疗药片合并）；
+	//未鉴定的药剂按「同形态 + 同颜色」堆垛（原版行为，恢复后不必一瓶一格）
 	@Override
 	public boolean isSimilar(Item item) {
 		if (!(item instanceof Potion)) return false;
 		Potion other = (Potion) item;
 		if (other.form != form) return false;
-		if (!identified || !other.identified) return false;
+		if (!identified && !other.identified) {
+			return color != null && color.equals(other.color);
+		}
 		return super.isSimilar(item);
 	}
 	
