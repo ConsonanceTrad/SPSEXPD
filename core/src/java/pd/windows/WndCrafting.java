@@ -202,6 +202,8 @@ public class WndCrafting extends Window {
 	private boolean energyAddBlinking = false;
 
 	private static int centerW;
+	//SPSEXPD: 窗口模式下「合成按钮 + 输出槽」那一行的纵向位置（材料区下方）
+	private float craftRowY;
 
 	private static final int BTN_SIZE	= 28;
 
@@ -317,6 +319,7 @@ public class WndCrafting extends Window {
 		slotsTop = slotsY0 - 4;
 		slotsBottom = slotsY2 + BTN_SIZE + 4;
 		slotsMiddleY = slotsTop + (slotsBottom - slotsTop - BTN_SIZE)/2f;
+		craftRowY = slotsBottom + 6;
 
 		//左侧快速添加按钮列：加水 / 加火种 / 药水箱 / 种子袋 / 购物车
 		if (hasQuickColumn()) {
@@ -519,9 +522,11 @@ public class WndCrafting extends Window {
 			outputs[i].item(null);
 
 			if (i == 0){
-				//first ones are always visible
-				combines[i].setRect(slotsX1 + BTN_SIZE + 6, slotsMiddleY + 5, 30, BTN_SIZE - 10);
-				outputs[i].setRect(combines[i].left() + 34, slotsMiddleY, BTN_SIZE, BTN_SIZE);
+				//SPSEXPD: 窗口模式下按钮与输出槽放在材料区下方一行（横排居中），不再挤在材料区右侧
+				float groupW = 30 + 4 + BTN_SIZE;
+				float btnX = (w - groupW) / 2f;
+				combines[i].setRect(btnX, craftRowY + 5, 30, BTN_SIZE - 10);
+				outputs[i].setRect(btnX + 34, craftRowY, BTN_SIZE, BTN_SIZE);
 			} else {
 				combines[i].visible = false;
 				outputs[i].visible = false;
@@ -774,18 +779,16 @@ public class WndCrafting extends Window {
 		cancel.enable(!ingredients.isEmpty());
 
 		if (recipes.isEmpty()){
-			combines[0].setPos(combines[0].left(), slotsMiddleY + 5);
-			outputs[0].setPos(outputs[0].left(), slotsMiddleY);
+			combines[0].setPos(combines[0].left(), craftRowY + 5);
+			outputs[0].setPos(outputs[0].left(), craftRowY);
 			energyAddBlinking = false;
 			return;
 		}
 
-		//positions active buttons
-		float gap = recipes.size() == 2 ? 6 : 2;
-
-		float height = slotsBottom - slotsTop;
-		height -= recipes.size()*BTN_SIZE + (recipes.size()-1)*gap;
-		float top = slotsTop + height/2;
+		//SPSEXPD: 窗口模式——「合成 + 输出」按横排居中排在材料区下方（最多 3 组）
+		float groupW = 30 + 4 + BTN_SIZE;
+		float totalW = groupW * recipes.size() + 6 * (recipes.size() - 1);
+		float startX = ((int)width - totalW) / 2f;
 
 		//positions and enables active buttons
 		boolean promptToAddEnergy = false;
@@ -795,10 +798,10 @@ public class WndCrafting extends Window {
 
 			int cost = recipe.cost(ingredients);
 
+			float x = startX + i * (groupW + 6);
 			outputs[i].visible = true;
-			outputs[i].setRect(outputs[0].left(), top, BTN_SIZE, BTN_SIZE);
+			outputs[i].setRect(x + 34, craftRowY, BTN_SIZE, BTN_SIZE);
 			outputs[i].item(recipe.sampleOutput(ingredients));
-			top += BTN_SIZE+gap;
 
 			int availableEnergy = Dungeon.energy;
 			if (toolkit != null){
@@ -806,7 +809,7 @@ public class WndCrafting extends Window {
 			}
 
 			combines[i].visible = true;
-			combines[i].setRect(combines[0].left(), outputs[i].top()+5, 30, 20);
+			combines[i].setRect(x, craftRowY + 5, 30, BTN_SIZE - 10);
 			//SPSEXPD: 全部公式 100% 成功，合成按钮只需判断能量（平底锅另需 1 个火种）是否够
 			boolean fuelOk = spsMode != MODE_COOK
 					|| Dungeon.hero.belongings.getItem(pd.items.consum.materials.Tinder.class) != null;
