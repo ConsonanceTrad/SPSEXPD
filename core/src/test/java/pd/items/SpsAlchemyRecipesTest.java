@@ -172,6 +172,51 @@ public final class SpsAlchemyRecipesTest {
 		//SPSEXPD: 「提炼」（3 紊乱魔药 → 良性 + 恶性）已随失败产物一并取消
 		ArrayList<Item> chaotic = ingredients(ChaoticConcoction.class, ChaoticConcoction.class, ChaoticConcoction.class);
 		check(Recipe.findRecipes(chaotic).isEmpty(), "提炼公式已取消，三瓶紊乱魔药不应再命中原配方");
+
+		//魔法果汁：蔬菜 + 任意果实 + 水
+		ArrayList<Item> juice = new ArrayList<>(Arrays.asList(
+				Reflection.newInstance(HealGrass.class),
+				Reflection.newInstance(IceFruit.class),
+				Reflection.newInstance(WaterItem.class)));
+		Recipe juiceRecipe = Recipe.findRecipes(juice).get(0);
+		check(juiceRecipe instanceof SpsBrewRecipes.MagicJuiceBrew, "魔法果汁配方没有命中");
+		check(juiceRecipe.sampleOutput(juice) instanceof pd.items.consum.food.MagicJuice,
+				"魔法果汁产物不是 MagicJuice");
+
+		//蒸馏：魔法果汁 → 魔法硬糖
+		ArrayList<Item> candy = new ArrayList<>(Arrays.asList(
+				Reflection.newInstance(pd.items.consum.food.MagicJuice.class)));
+		Recipe candyRecipe = Recipe.findRecipes(candy).get(0);
+		check(candyRecipe instanceof SpsBrewRecipes.DistillBrew, "蒸馏公式没有命中魔法果汁");
+		check(candyRecipe.sampleOutput(candy) instanceof pd.items.consum.food.MagicCandy,
+				"魔法果汁蒸馏产物不是魔法硬糖");
+
+		//蒸馏：粗制药水 → 药片；药片 + 盐 → 缓释片 ×2
+		ArrayList<Item> pill = new ArrayList<>(Arrays.asList(
+				SpsBrewRecipes.variant(PotionOfHealing.class, PotionForm.CRUDE)));
+		Recipe pillRecipe = Recipe.findRecipes(pill).get(0);
+		check(pillRecipe instanceof SpsBrewRecipes.DistillBrew, "蒸馏公式没有命中粗制药水");
+		Item pillOut = pillRecipe.sampleOutput(pill);
+		check(pillOut instanceof Potion && ((Potion) pillOut).form == PotionForm.PILL,
+				"粗制药水蒸馏产物不是药片");
+
+		ArrayList<Item> tablet = new ArrayList<>(Arrays.asList(
+				SpsBrewRecipes.variant(PotionOfHealing.class, PotionForm.PILL),
+				Reflection.newInstance(Salt.class)));
+		Item tabletOut = Recipe.findRecipes(tablet).get(0).sampleOutput(tablet);
+		check(tabletOut instanceof Potion && ((Potion) tabletOut).form == PotionForm.TABLET
+						&& tabletOut.quantity() == 2,
+				"药片加盐没有压成 2 片缓释片");
+
+		//分装：粗制药水 + 水 + 盐 → 安培 ×3
+		ArrayList<Item> ampoule = new ArrayList<>(Arrays.asList(
+				SpsBrewRecipes.variant(PotionOfHealing.class, PotionForm.CRUDE),
+				Reflection.newInstance(WaterItem.class),
+				Reflection.newInstance(Salt.class)));
+		Item ampouleOut = Recipe.findRecipes(ampoule).get(0).sampleOutput(ampoule);
+		check(ampouleOut instanceof Potion && ((Potion) ampouleOut).form == PotionForm.AMPOULE
+						&& ampouleOut.quantity() == 3,
+				"分装没有产出 3 支安培");
 		testBrewed();
 		testExoticGuidePreviews();
 		ArrayList<Item> invalid = ingredients(Gold.class, Gold.class, Gold.class, Gold.class, Gold.class);
