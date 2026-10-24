@@ -28,40 +28,52 @@ import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.hero.Hero;
 import pd.items.Item;
+import pd.items.misc.LuckyBadge;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.messages.InlineText;
-import pd.utils.GLog;
 import render.utils.math.Random;
 import render.utils.serialize.Bundle;
 import render.utils.serialize.Reflection;
 
 /**
- * SPSEXPD: 「魔法植物」——按三档阶位出现在地图上（docs/alchemy-rework.md §4）。
+ * SPSEXPD: 「魔法植物」——地图上少量高草被替换成的植株（docs/alchemy-rework.md §4）。
  *
- * <p>普通地图的少量高草会被替换成这类植株。它本身沿用原植物的贴图与名称，
- * 区别只在踩踏产出：按阶位给「人工种植 / 精心照料」级别的蔬菜（外加 1 枚对应果实）。
+ * <p>**不是**把植物分成三档，而是同一株植物带有三种**形态**之一，形态只影响踩踏产出：
+ * <ul>
+ *   <li>{@link #WILD} 野生：散 1 枚果实（+幸运加成），不给蔬菜</li>
+ *   <li>{@link #CULTIVATED} 人工：散 1~2 枚果实，蔬菜 1</li>
+ *   <li>{@link #CAREFUL} 精心：散 2~4 枚果实（含大型果实概率），蔬菜 2</li>
+ * </ul>
+ * 植株沿用原植物的贴图与名称。
  */
 public class MagicPlant extends Plant {
 
 	static {
 		InlineText.of(MagicPlant.class)
 			.t("name", "魔法植物")
-			.t("desc", "一株被魔法浸润的作物。踩踏它能收到人工种植级别的蔬菜。");
+			.t("desc", "一株被魔法浸润的作物，看起来比同类更繁茂。踩踏它就能收获果实与蔬菜。");
 	}
 
-	/** 阶位：1 = 低阶（人工种植产出），2 = 中阶，3 = 高阶（精心照料产出）。 */
-	public int tier = 1;
+	/** 形态：野生。 */
+	public static final int WILD = 0;
+	/** 形态：人工。 */
+	public static final int CULTIVATED = 1;
+	/** 形态：精心。 */
+	public static final int CAREFUL = 2;
 
-	/** 原植物类（贴图/名称来源）。 */
+	/** 本株的形态（只影响踩踏产出）。 */
+	public int form = WILD;
+
+	/** 原植物类（贴图/名称/产出映射来源）。 */
 	public Class<? extends Plant> base;
 
 	public MagicPlant() {
 	}
 
-	public MagicPlant(Class<? extends Plant> base, int tier) {
+	public MagicPlant(Class<? extends Plant> base, int form) {
 		this.base = base;
-		this.tier = tier;
+		this.form = form;
 		Plant prototype = Reflection.newInstance(base);
 		if (prototype != null) {
 			image = prototype.image;
@@ -69,21 +81,7 @@ public class MagicPlant extends Plant {
 		}
 	}
 
-	//*** 阶位植物池
-
-	private static final Class<? extends Plant>[] LOW = new Class[]{
-			Freshberry.class, Rotberry.class, BlandfruitBush.class, Swiftthistle.class,
-			Fadeleaf.class, Earthroot.class
-	};
-
-	private static final Class<? extends Plant>[] MID = new Class[]{
-			Sungrass.class, Icecap.class, Firebloom.class, Stormvine.class, Sorrowmoss.class,
-			Dreamfoil.class, Blindweed.class, Seedpod.class, Dewcatcher.class
-	};
-
-	private static final Class<? extends Plant>[] HIGH = new Class[]{
-			Starflower.class, NutPlant.class, StarEater.class, ReNepenth.class, SiOtwoFlower.class
-	};
+	//*** 生成
 
 	/** 每层最多出现的株数。 */
 	private static final int MAX_PER_LEVEL = 3;
@@ -91,10 +89,13 @@ public class MagicPlant extends Plant {
 	private static final float CHANCE = 0.06f;
 
 	/**
-	 * 在当前楼层把少量高草替换为魔法植物（在草地绘制完成后调用）。
+	 * 在当前楼层把少量高草替换为魔法植物（草地绘制完成后调用）。
 	 */
 	public static void sprinkle(Level level) {
 		if (level == null) return;
+		List<Class<? extends Plant>> pool = PlantHarvest.plants();
+		if (pool.isEmpty()) return;
+
 		List<Integer> candidates = new ArrayList<>();
 		for (int i = 0; i < level.length(); i++) {
 			if (level.map[i] == Terrain.HIGH_GRASS && level.plants.get(i) == null) {
@@ -109,27 +110,21 @@ public class MagicPlant extends Plant {
 			int cell = candidates.remove(idx);
 			if (Random.Float() >= CHANCE) continue;
 
+			//形态权重：野生 40% / 人工 40% / 精心 20%
 			int roll = Random.Int(100);
-			int tier = roll < 60 ? 1 : roll < 90 ? 2 : 3;
-			MagicPlant plant = ofTier(tier);
-			if (plant == null) continue;
+			int form = roll < 40 ? WILD : roll < 80 ? CULTIVATED : CAREFUL;
+			MagicPlant plant = new MagicPlant(pool.get(Random.Int(pool.size())), form);
 			plant.pos = cell;
 			level.plants.put(cell, plant);
 			placed++;
 		}
 	}
 
-	private static MagicPlant ofTier(int tier) {
-		Class<? extends Plant>[] pool = tier <= 1 ? LOW : tier == 2 ? MID : HIGH;
-		if (pool.length == 0) return null;
-		return new MagicPlant(pool[Random.Int(pool.length)], tier);
-	}
-
 	//*** 踩踏产出
 
 	@Override
 	public void activate(Char ch) {
-		//产出统一在 trigger 里结算，这里不做额外的植物效果
+		//产出统一在 trigger 里结算
 	}
 
 	@Override
@@ -137,23 +132,47 @@ public class MagicPlant extends Plant {
 		if (ch instanceof Hero && interruptHero) {
 			((Hero) ch).interrupt();
 		}
-
-		Class<? extends Item> vegetable = PlantHarvest.vegetableFor(getClass());
-		if (vegetable == null && base != null) {
-			vegetable = PlantHarvest.vegetableFor(base);
+		if (Dungeon.level == null) {
+			wither();
+			return;
 		}
 
-		int vegetables = tier <= 1 ? 1 : tier == 2 ? Random.IntRange(1, 2) : Random.IntRange(2, 3);
-		if (vegetable != null) {
-			for (int i = 0; i < vegetables; i++) {
-				PlantHarvest.drop(Dungeon.level, pos, vegetable, pos);
+		Class<? extends Plant> source = base == null ? getClass() : base;
+		PlantHarvest.Species species = PlantHarvest.speciesFor(source);
+		Hero hero = ch instanceof Hero ? (Hero) ch : null;
+
+		if (species != null) {
+			//果实散到相邻格（邻格不足时溢到踩踏格）
+			int fruitCount;
+			int vegetableCount;
+			switch (form) {
+				case CAREFUL:
+					fruitCount = Random.NormalIntRange(2, 4);
+					vegetableCount = 2;
+					break;
+				case CULTIVATED:
+					fruitCount = Random.NormalIntRange(1, 2);
+					vegetableCount = 1;
+					break;
+				default:
+					fruitCount = 1;
+					vegetableCount = 0;
+					break;
 			}
-		}
+			fruitCount += LuckyBadge.plantExtraFruit(hero);
+			float largeChance = LuckyBadge.largeFruitChance(hero);
 
-		if (tier >= 3) {
-			Class<? extends Item> fruit = PlantHarvest.fruitFor(base == null ? getClass() : base);
-			if (fruit != null) {
-				PlantHarvest.drop(Dungeon.level, pos, fruit, pos);
+			ArrayList<Integer> candidates = PlantHarvest.neighbours(Dungeon.level, pos);
+			for (int i = 0; i < fruitCount; i++) {
+				int cell = candidates.isEmpty() ? pos : candidates.remove(Random.Int(candidates.size()));
+				Class<? extends Item> type = species.fruit;
+				if (type == null) break;
+				if (species.largeFruit != null && Random.Float() < largeChance) type = species.largeFruit;
+				PlantHarvest.drop(Dungeon.level, cell, type, pos);
+			}
+			for (int i = 0; i < vegetableCount; i++) {
+				if (species.vegetable == null) break;
+				PlantHarvest.drop(Dungeon.level, pos, species.vegetable, pos);
 			}
 		}
 
@@ -162,13 +181,13 @@ public class MagicPlant extends Plant {
 
 	//*** 存档
 
-	private static final String TIER = "magic_tier";
+	private static final String FORM = "magic_form";
 	private static final String BASE = "magic_base";
 
 	@Override
 	public void storeInBundle(Bundle bundle) {
 		super.storeInBundle(bundle);
-		bundle.put(TIER, tier);
+		bundle.put(FORM, form);
 		bundle.put(BASE, base == null ? "" : base.getName());
 	}
 
@@ -176,7 +195,7 @@ public class MagicPlant extends Plant {
 	@SuppressWarnings("unchecked")
 	public void restoreFromBundle(Bundle bundle) {
 		super.restoreFromBundle(bundle);
-		tier = bundle.contains(TIER) ? bundle.getInt(TIER) : 1;
+		form = bundle.contains(FORM) ? bundle.getInt(FORM) : WILD;
 		String name = bundle.contains(BASE) ? bundle.getString(BASE) : "";
 		if (!name.isEmpty()) {
 			try {
@@ -185,7 +204,7 @@ public class MagicPlant extends Plant {
 					base = (Class<? extends Plant>) c;
 				}
 			} catch (ClassNotFoundException ignored) {
-				//基类丢失时退化为纯魔法植物（仍可按阶位产出）
+				//基类丢失时仍可按形态产出（只是没有果实/蔬菜映射）
 			}
 		}
 	}

@@ -92,6 +92,20 @@ public final class PlantHarvest {
 		return plantClass == null ? null : BY_CLASS.get(plantClass);
 	}
 
+	/** SPSEXPD: 全部植物类（去重、排除人工果丛）——魔法植物的植株池。 */
+	@SuppressWarnings("unchecked")
+	public static java.util.List<Class<? extends Plant>> plants() {
+		java.util.List<Class<? extends Plant>> out = new java.util.ArrayList<>();
+		for (Class<?> c : BY_CLASS.keySet()) {
+			if (!Plant.class.isAssignableFrom(c)) continue;
+			//果丛（SpsFruitBush 家族）本身代表「人工作物」，不作为地图野生植株
+			if (SpsFruitBush.class.isAssignableFrom(c)) continue;
+			Class<? extends Plant> plant = (Class<? extends Plant>) c;
+			if (!out.contains(plant)) out.add(plant);
+		}
+		return out;
+	}
+
 	/** 该植物对应的投掷果实（野生植物散落用）。 */
 	public static Class<? extends Item> fruitFor(Class<?> plantClass) {
 		Species species = speciesFor(plantClass);
