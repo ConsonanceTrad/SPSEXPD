@@ -48,33 +48,18 @@ import render.utils.serialize.Reflection;
 public final class SpsBrewRecipes {
 
 	/** 果实主材的基础成功率。 */
-	private static final int FRUIT_RATE = 40;
-	/** 蔬菜主材的基础成功率（精制·选择1/2）。 */
-	private static final int VEGETABLE_RATE = 60;
-	/** 一个果实辅材的成功率加成。 */
-	private static final int FRUIT_BONUS = 20;
-	/** 一个粗制药水辅材的成功率加成（精制·选择2）。 */
-	private static final int CRUDE_BONUS = 60;
-	/** 合剂的一个「其他药水」辅材加成 / 两个「其他素材」辅材加成。 */
-	private static final int MIX_POTION_BONUS = 40;
-	private static final int MIX_MATERIAL_BONUS = 10;
-
-	/** 药水粗制：主材果子 + 辅材果子 + 水 + 火源 → 该果实的粗制药水。 */
+	/** 药水粗制：主材果子 + 辅材果子 + 水 → 该果实的粗制药水。 */
 	public static final class CrudeBrew extends BrewRecipe {
 
 		public CrudeBrew() {
 			mainMaterial = Fruit.class;
 			adjuvantOptions = new AdjuvantSet[]{
-					new AdjuvantSet(new AdjuvantSet.Slot(Fruit.class, FRUIT_BONUS))
+					new AdjuvantSet(new AdjuvantSet.Slot(Fruit.class))
 			};
 			needsWater = true;
 			//SPSEXPD: 基础药水配方不再需要火——火源（火种/磷火）预留给烹饪配方
 			needsFire = false;
 			energyCost = 0;
-			baseRate = FRUIT_RATE;
-			//75% 紊乱魔药 / 25% 废料
-			failures = new FailureTable(new int[]{75, 25},
-					ChaoticConcoction::new, Waste::new);
 		}
 
 		@Override
@@ -99,23 +84,15 @@ public final class SpsBrewRecipes {
 			mainMaterial = null;
 			adjuvantOptions = new AdjuvantSet[]{
 					new AdjuvantSet(
-							new AdjuvantSet.Slot(Fruit.class, FRUIT_BONUS),
-							new AdjuvantSet.Slot(Fruit.class, FRUIT_BONUS)),
+							new AdjuvantSet.Slot(Fruit.class),
+							new AdjuvantSet.Slot(Fruit.class)),
 					new AdjuvantSet(
-							new AdjuvantSet.Slot(Potion.class, CRUDE_BONUS, SpsBrewRecipes::isCrude))
+							new AdjuvantSet.Slot(Potion.class, SpsBrewRecipes::isCrude))
 			};
 			needsWater = true;
 			//SPSEXPD: 基础药水配方不再需要火——火源（火种/磷火）预留给烹饪配方
 			needsFire = false;
 			energyCost = 0;
-			baseRate = FRUIT_RATE;
-			failures = FailureTable.single(ChaoticConcoction::new);
-		}
-
-		@Override
-		protected int baseRate(Item main) {
-			//蔬菜主材提供 60% 基础成功率
-			return main instanceof Vegetable ? VEGETABLE_RATE : FRUIT_RATE;
 		}
 
 		@Override
@@ -138,19 +115,15 @@ public final class SpsBrewRecipes {
 		public MixBrew() {
 			mainMaterial = Potion.class;
 			adjuvantOptions = new AdjuvantSet[]{
-					new AdjuvantSet(new AdjuvantSet.Slot(Potion.class, MIX_POTION_BONUS)),
+					new AdjuvantSet(new AdjuvantSet.Slot(Potion.class)),
 					new AdjuvantSet(
-							new AdjuvantSet.Slot(Item.class, MIX_MATERIAL_BONUS),
-							new AdjuvantSet.Slot(Item.class, MIX_MATERIAL_BONUS))
+							new AdjuvantSet.Slot(Item.class),
+							new AdjuvantSet.Slot(Item.class))
 			};
 			needsWater = true;
 			//SPSEXPD: 基础药水配方不再需要火——火源（火种/磷火）预留给烹饪配方
 			needsFire = false;
 			energyCost = 0;
-			//主材本身不提供成功率，全靠辅材
-			baseRate = 0;
-			failures = new FailureTable(new int[]{70, 5, 25},
-					ChaoticConcoction::new, SpsBrewRecipes::randomExotic, Waste::new);
 		}
 
 		@Override
@@ -165,32 +138,8 @@ public final class SpsBrewRecipes {
 		}
 	}
 
-	/**
-	 * 提炼（分离）：3 瓶紊乱魔药 → 1 瓶良性 + 1 瓶恶性。
-	 * 不失败、免水、免火源、免能量。
-	 */
-	public static final class SeparateBrew extends BrewRecipe {
-
-		public SeparateBrew() {
-			mainMaterial = ChaoticConcoction.class;
-			adjuvantOptions = new AdjuvantSet[]{
-					new AdjuvantSet(
-							new AdjuvantSet.Slot(ChaoticConcoction.class, 0),
-							new AdjuvantSet.Slot(ChaoticConcoction.class, 0))
-			};
-			needsWater = false;
-			needsFire = false;
-			energyCost = 0;
-			baseRate = 100;
-			failures = null;
-		}
-
-		@Override
-		protected Item successOutput(Slots ingredients) {
-			extraOutputs.add(new MalignantConcoction());
-			return new BenignConcoction();
-		}
-	}
+	//SPSEXPD: 「提炼」（3 瓶紊乱魔药 → 良性 + 恶性）随成功率/失败产物一并取消（2026-10 裁决）：
+	//紊乱魔药不再有产出途径，提炼公式整条移除（物品类保留，旧档兼容）。
 
 	/**
 	 * 结晶：鉴定卷轴 + 水 + 火源 → 真实之眼（§7.7 XR-01，不失败、免能量）。
@@ -204,8 +153,6 @@ public final class SpsBrewRecipes {
 			//SPSEXPD: 基础炼金配方不再需要火——火源（火种/磷火）预留给烹饪配方
 			needsFire = false;
 			energyCost = 0;
-			baseRate = 100;
-			failures = null;
 		}
 
 		@Override
@@ -226,8 +173,6 @@ public final class SpsBrewRecipes {
 			needsWater = false;
 			needsFire = false;
 			energyCost = 0;
-			baseRate = 100;
-			failures = null;
 		}
 
 		@Override
@@ -253,8 +198,6 @@ public final class SpsBrewRecipes {
 			needsWater = true;
 			needsFire = false;
 			energyCost = 0;
-			baseRate = 100;
-			failures = null;
 		}
 
 		@Override
@@ -279,8 +222,6 @@ public final class SpsBrewRecipes {
 			needsWater = true;
 			needsFire = false;
 			energyCost = 0;
-			baseRate = 100;
-			failures = null;
 		}
 
 		@Override
@@ -308,8 +249,6 @@ public final class SpsBrewRecipes {
 			needsWater = false;
 			needsFire = false;
 			energyCost = 4;
-			baseRate = 100;
-			failures = null;
 		}
 
 		@Override
@@ -419,7 +358,6 @@ public final class SpsBrewRecipes {
 				new CrudeBrew(),
 				new RefinedBrew(),
 				new MixBrew(),
-				new SeparateBrew(),
 				new EyeCrystal()
 		);
 	}

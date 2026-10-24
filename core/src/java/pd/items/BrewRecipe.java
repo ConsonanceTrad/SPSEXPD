@@ -31,24 +31,15 @@ public abstract class BrewRecipe extends Recipe {
 	/** 辅材槽上限（炼金釜 UI 的 2×2 两行）。 */
 	public static final int ADJUVANT_SLOTS = 4;
 
-	/** 磷火作火源时的成功率加成（裁决 #7）。 */
-	public static final int WILL_O_WISP_BONUS = 5;
-	/** 炼金能量瓶作辅材时的成功率加成（§6.5）。 */
-	public static final int ENERGY_FLASK_BONUS = 15;
-	/** 大小果实混用的成功率惩罚（裁决 #10）。 */
-	public static final int MIXED_FRUIT_PENALTY = 10;
-
 	//*** 子类填充项
 	protected Class<? extends Item> mainMaterial;   // 主材（基类 = 任意子类）
 	protected AdjuvantSet[] adjuvantOptions;        // 辅材方案（多选一，可含「无辅材」方案）
 	protected boolean needsWater;
 	protected boolean needsFire;
 	protected int energyCost;
-	protected int baseRate = 100;                   // 主材本身提供的成功率（%）
-	protected FailureTable failures;                // 失败产物分布（null = 不会失败）
 	//***
 
-	/** 炼金釜 7 格的语义容器，也可由物品列表推断（{@link #of(ArrayList)}）。 */
+	/** 炼金釜 5 格的语义容器，也可由物品列表推断（{@link #of(ArrayList)}）。 */
 	public static final class Slots {
 
 		public Item main;
@@ -174,27 +165,17 @@ public abstract class BrewRecipe extends Recipe {
 			return false;
 		}
 
-		public int bonus() {
-			int bonus = 0;
-			for (Slot slot : slots) {
-				bonus += slot.bonus;
-			}
-			return bonus;
-		}
-
 		public static final class Slot {
 			public final Class<? extends Item> type;
-			public final int bonus;
 			/** 额外的接受条件（可为 null，例如「粗制药水」= Potion + form==CRUDE）。 */
 			public final Predicate<Item> filter;
 
-			public Slot(Class<? extends Item> type, int bonus) {
-				this(type, bonus, null);
+			public Slot(Class<? extends Item> type) {
+				this(type, null);
 			}
 
-			public Slot(Class<? extends Item> type, int bonus, Predicate<Item> filter) {
+			public Slot(Class<? extends Item> type, Predicate<Item> filter) {
 				this.type = type;
-				this.bonus = bonus;
 				this.filter = filter;
 			}
 
@@ -255,67 +236,13 @@ public abstract class BrewRecipe extends Recipe {
 		return matchAdjuvant(ingredients) != null;
 	}
 
-	/** 命中的辅材方案（多套都命中时取成功率最高的那套）。 */
+	/** 命中的辅材方案（多套都命中时取第一套命中的）。 */
 	public AdjuvantSet matchAdjuvant(Slots ingredients) {
-		AdjuvantSet best = null;
 		if (adjuvantOptions == null) return null;
 		for (AdjuvantSet option : adjuvantOptions) {
-			if (option.matches(ingredients) && (best == null || option.bonus() > best.bonus())) {
-				best = option;
-			}
+			if (option.matches(ingredients)) return option;
 		}
-		return best;
-	}
-
-	//*** 成功率
-
-	/** 该次合成的最终成功率（含辅材加成、磷火加成、大小果混用惩罚）。 */
-	public int successRate(ArrayList<Item> ingredients) {
-		return successRate(Slots.of(ingredients));
-	}
-
-	public int successRate(Slots ingredients) {
-		int rate = baseRate(ingredients.main);
-		AdjuvantSet set = matchAdjuvant(ingredients);
-		if (set != null) rate += set.bonus();
-		if (ingredients.fire instanceof WillOWisp) rate += WILL_O_WISP_BONUS;
-		//SPSEXPD: 炼金能量瓶作辅材 +15%（§6.5）
-		if (hasEnergyFlask(ingredients)) rate += ENERGY_FLASK_BONUS;
-		if (mixesFruitSizes(ingredients)) rate -= MIXED_FRUIT_PENALTY;
-		return Math.max(1, Math.min(100, rate));
-	}
-
-	/** 辅材里是否放了炼金能量瓶。 */
-	protected static boolean hasEnergyFlask(Slots ingredients) {
-		for (Item item : ingredients.adjuvant) {
-			if (item instanceof EnergyFlask) return true;
-		}
-		return false;
-	}
-
-	/** 主材本身提供的成功率（果子 40 / 蔬菜 60 等），子类可按主材类型覆写。 */
-	protected int baseRate(Item main) {
-		return baseRate;
-	}
-
-	/** 是否可失败（有失败产物分布）。 */
-	public boolean isRisky() {
-		return failures != null;
-	}
-
-	/** 同一次合成里同时出现大型果实与普通果实（裁决 #10）。 */
-	protected static boolean mixesFruitSizes(Slots ingredients) {
-		boolean large = false;
-		boolean normal = false;
-		for (Item item : ingredients.all()) {
-			if (!(item instanceof Fruit)) continue;
-			if (Potion.FruitToPotion.isLarge(item)) {
-				large = true;
-			} else {
-				normal = true;
-			}
-		}
-		return large && normal;
+		return null;
 	}
 
 	//*** 产出
@@ -325,18 +252,17 @@ public abstract class BrewRecipe extends Recipe {
 		return energyCost;
 	}
 
+	/** SPSEXPD: 全部公式 100% 成功、没有失败产物（2026-10 裁决）。 */
 	@Override
 	public Item brew(ArrayList<Item> ingredients) {
 		Slots slots = Slots.of(ingredients);
 		if (!matches(slots)) return null;
 
 		extraOutputs.clear();
-		boolean success = failures == null || Random.Int(100) < successRate(slots);
 		for (Item ingredient : ingredients) {
 			ingredient.quantity(ingredient.quantity() - 1);
 		}
-		if (success) return successOutput(slots);
-		return failures.roll();
+		return successOutput(slots);
 	}
 
 	/** 一次合成的额外产物（例如提炼：良性 + 恶性各一瓶），成功时由 successOutput 填充。 */

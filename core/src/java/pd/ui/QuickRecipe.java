@@ -351,26 +351,22 @@ public class QuickRecipe extends Component {
 				Item refinedHolder = potionFormHolder("精制药水");
 				Item crudeAdjuvant = potionFormHolder("粗制药水");
 
-				//粗制：主材果实 + 辅材果实 + 水 + 火源
+				//粗制：主材果实 + 辅材果实 + 水（免火源）
 				result.add(new QuickRecipe(new SpsBrewRecipes.CrudeBrew(),
-						new ArrayList<>(Arrays.asList(fruitHolder, fruitHolder, new WaterItem(), new Tinder())),
+						new ArrayList<>(Arrays.asList(fruitHolder, fruitHolder, new WaterItem())),
 						crudeHolder));
 				result.add(null);
-				//精制（选择1）：主材果实 + 2 果实 + 水 + 火源
+				//精制（选择1）：主材果实 + 2 果实 + 水（免火源）
 				result.add(new QuickRecipe(new SpsBrewRecipes.RefinedBrew(),
-						new ArrayList<>(Arrays.asList(fruitHolder, fruitHolder, fruitHolder, new WaterItem(), new Tinder())),
+						new ArrayList<>(Arrays.asList(fruitHolder, fruitHolder, fruitHolder, new WaterItem())),
 						refinedHolder));
 				result.add(null);
-				//精制（选择2）：主材果实 + 1 瓶粗制药水 + 水 + 火源
+				//精制（选择2）：主材果实 + 1 瓶粗制药水 + 水（免火源）
 				result.add(new QuickRecipe(new SpsBrewRecipes.RefinedBrew(),
-						new ArrayList<>(Arrays.asList(fruitHolder, crudeAdjuvant, new WaterItem(), new Tinder())),
+						new ArrayList<>(Arrays.asList(fruitHolder, crudeAdjuvant, new WaterItem())),
 						refinedHolder));
 				result.add(null);
-				//提炼：3 瓶紊乱魔药 → 1 良性 + 1 恶性
-				result.add(new QuickRecipe(new SpsBrewRecipes.SeparateBrew(),
-						new ArrayList<>(Arrays.asList(new ChaoticConcoction(), new ChaoticConcoction(), new ChaoticConcoction())),
-						new BenignConcoction()));
-				result.add(null);
+				//SPSEXPD: 全部公式 100% 成功，「提炼」（3 紊乱 → 良性+恶性）已随失败产物取消
 				//SPSEXPD: 三种变体形态——缓释片（免回合/不可投掷）、注射剂（免回合/可投掷）、试剂（1/3 效果/多瓶）
 				Item potionHolder = potionFormHolder("任意药剂");
 				result.add(new QuickRecipe(new SpsBrewRecipes.TabletBrew(),

@@ -134,52 +134,42 @@ public final class SpsAlchemyRecipesTest {
 		check(Recipe.findRecipes(seedpods).isEmpty(),
 				"三颗种子仍能匹配到配方");
 
-		//粗制：主材果实 + 辅材果实 + 水 + 火源（40% + 20% = 60%）
-		ArrayList<Item> crude = ingredients(IceFruit.class, IceFruit.class, WaterItem.class, Tinder.class);
+		//粗制：主材果实 + 辅材果实 + 水（免火源；2026-10 起不再有成功率）
+		ArrayList<Item> crude = ingredients(IceFruit.class, IceFruit.class, WaterItem.class);
 		Recipe crudeRecipe = Recipe.findRecipes(crude).get(0);
 		check(crudeRecipe instanceof SpsBrewRecipes.CrudeBrew, "果实粗制配方没有命中");
-		check(((BrewRecipe) crudeRecipe).successRate(crude) == 60, "粗制成功率不是 60%");
 		Item crudeOut = crudeRecipe.sampleOutput(crude);
 		check(crudeOut instanceof PotionOfFrost && ((Potion) crudeOut).form == PotionForm.CRUDE,
 				"粗制产物不是冰霜药剂的粗制变体");
 
-		//精制（选择1）：主材果实 + 2 果实 + 水 + 火源（40% + 20% + 20% = 80%）
-		ArrayList<Item> refined = ingredients(IceFruit.class, IceFruit.class, IceFruit.class, WaterItem.class, Tinder.class);
+		//精制（选择1）：主材果实 + 2 果实 + 水（免火源）
+		ArrayList<Item> refined = ingredients(IceFruit.class, IceFruit.class, IceFruit.class, WaterItem.class);
 		Recipe refinedRecipe = Recipe.findRecipes(refined).get(0);
 		check(refinedRecipe instanceof SpsBrewRecipes.RefinedBrew, "果实精制配方没有命中");
-		check(((BrewRecipe) refinedRecipe).successRate(refined) == 80, "精制成功率不是 80%");
 		Item refinedOut = refinedRecipe.sampleOutput(refined);
 		check(refinedOut instanceof PotionOfFrost && ((Potion) refinedOut).form == PotionForm.REFINED,
 				"精制产物不是冰霜药剂的精制变体");
 
-		//大小果实混用：成功率额外 -10%（60 → 50）
-		ArrayList<Item> mixedFruit = ingredients(LargeIceFruit.class, IceFruit.class, WaterItem.class, Tinder.class);
-		Recipe mixedRecipe = Recipe.findRecipes(mixedFruit).get(0);
-		check(((BrewRecipe) mixedRecipe).successRate(mixedFruit) == 50, "大小果实混用没有扣 10% 成功率");
+		//大小果实混用：不再有成功率惩罚，配方照常命中
+		ArrayList<Item> mixedFruit = ingredients(LargeIceFruit.class, IceFruit.class, WaterItem.class);
+		check(!Recipe.findRecipes(mixedFruit).isEmpty(), "大小果实混用的粗制配方没有命中");
 
-		//蔬菜主材：向阳草→生命草，经 Sungrass 种子映射到治疗药剂；60% + 20% + 20% = 100%
-		ArrayList<Item> vegetable = ingredients(HealGrass.class, IceFruit.class, IceFruit.class, WaterItem.class, Tinder.class);
+		//蔬菜主材：向阳草→生命草，经 Sungrass 种子映射到治疗药剂
+		ArrayList<Item> vegetable = ingredients(HealGrass.class, IceFruit.class, IceFruit.class, WaterItem.class);
 		Recipe vegetableRecipe = Recipe.findRecipes(vegetable).get(0);
 		check(vegetableRecipe instanceof SpsBrewRecipes.RefinedBrew, "蔬菜精制配方没有命中");
-		check(((BrewRecipe) vegetableRecipe).successRate(vegetable) == 100, "蔬菜精制成功率不是 100%");
 		check(vegetableRecipe.sampleOutput(vegetable) instanceof PotionOfHealing,
 				"蔬菜主材没有按「种子↔蔬菜」映射出治疗药剂");
 
-		//合剂：主材药剂 + 辅材药剂 + 水 + 火源（40%），产物是 regToExo 映射的合剂
-		ArrayList<Item> mix = ingredients(PotionOfHealing.class, PotionOfHealing.class, WaterItem.class, Tinder.class);
+		//合剂：主材药剂 + 辅材药剂 + 水（免火源），产物是 regToExo 映射的合剂
+		ArrayList<Item> mix = ingredients(PotionOfHealing.class, PotionOfHealing.class, WaterItem.class);
 		Recipe mixRecipe = Recipe.findRecipes(mix).get(0);
 		check(mixRecipe instanceof SpsBrewRecipes.MixBrew, "合剂酿造配方没有命中");
-		check(((BrewRecipe) mixRecipe).successRate(mix) == 40, "合剂成功率不是 40%");
 		check(mixRecipe.sampleOutput(mix) instanceof PotionOfShielding, "合剂产物不是奥术护盾合剂");
 
-		//提炼：3 瓶紊乱魔药 → 1 良性 + 1 恶性
+		//SPSEXPD: 「提炼」（3 紊乱魔药 → 良性 + 恶性）已随失败产物一并取消
 		ArrayList<Item> chaotic = ingredients(ChaoticConcoction.class, ChaoticConcoction.class, ChaoticConcoction.class);
-		Recipe separate = Recipe.findRecipes(chaotic).get(0);
-		check(separate instanceof SpsBrewRecipes.SeparateBrew, "提炼配方没有命中");
-		Item benign = separate.brew(chaotic);
-		ArrayList<Item> extras = ((BrewRecipe) separate).takeExtraOutputs();
-		check(benign instanceof BenignConcoction && extras.size() == 1 && extras.get(0) instanceof MalignantConcoction,
-				"提炼没有分离出良性 + 恶性各一瓶");
+		check(Recipe.findRecipes(chaotic).isEmpty(), "提炼公式已取消，三瓶紊乱魔药不应再命中原配方");
 		testBrewed();
 		testExoticGuidePreviews();
 		ArrayList<Item> invalid = ingredients(Gold.class, Gold.class, Gold.class, Gold.class, Gold.class);

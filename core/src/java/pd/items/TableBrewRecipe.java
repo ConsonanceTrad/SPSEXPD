@@ -64,23 +64,6 @@ public class TableBrewRecipe extends BrewRecipe {
 	public int minQty = 1;
 	public int maxQty = 1;
 
-	/** 主材类型决定基准成功率时使用；为空则使用 {@code baseRate}。 */
-	private Map<Class<? extends Item>, Integer> rateByMain;
-
-	public void rateByMain(Map<Class<? extends Item>, Integer> map) {
-		this.rateByMain = map;
-	}
-
-	@Override
-	protected int baseRate(Item main) {
-		if (rateByMain != null && main != null) {
-			for (Map.Entry<Class<? extends Item>, Integer> e : rateByMain.entrySet()) {
-				if (e.getKey().isInstance(main)) return e.getValue();
-			}
-		}
-		return baseRate;
-	}
-
 	@Override
 	public boolean matches(Slots ingredients) {
 		if (!super.matches(ingredients)) return false;
@@ -120,9 +103,6 @@ public class TableBrewRecipe extends BrewRecipe {
 				applyQty(reagent);
 				return reagent;
 			}
-			case "BENIGN":
-				extraOutputs.add(new pd.items.consum.potions.MalignantConcoction());
-				return new pd.items.consum.potions.BenignConcoction();
 			default: {
 				if (outputType == null) return null;
 				Item item = Reflection.newInstance(outputType);
@@ -208,6 +188,9 @@ public class TableBrewRecipe extends BrewRecipe {
 		}
 	}
 
+	/** CSV 的列数（id,plan,main,adj1,adj2,adj3,rule,output,qty,energy,water,fire,note）。 */
+	public static final int COLUMNS = 13;
+
 	/**
 	 * 把 CSV 文本解析成配方列表。任一 id 出现解析错误则该 id 被跳过（不影响其它公式）。
 	 */
@@ -223,13 +206,11 @@ public class TableBrewRecipe extends BrewRecipe {
 			if (line.isEmpty() || line.startsWith("#")) continue;
 			if (line.toLowerCase().startsWith("id,plan,")) continue; //表头
 			String[] cells = line.split(",", -1);
-			if (cells.length < 21) continue;
+			if (cells.length < COLUMNS) continue;
 			rows.add(cells);
 		}
 
 		//按 id 分组（保持出现顺序），每组一个 TableBrewRecipe
-		Map<String, TableBrewRecipe> byId = new LinkedHashMap<>();
-		Map<String, List<AdjuvantSet>> plansById = new LinkedHashMap<>();
 		Map<String, List<String[]>> rowsById = new LinkedHashMap<>();
 		for (String[] cells : rows) {
 			String id = cells[0].trim();
@@ -261,34 +242,15 @@ public class TableBrewRecipe extends BrewRecipe {
 				recipe.id = entry.getKey();
 				recipe.mainMaterial = resolveType(first[2].trim());
 				recipe.adjuvantOptions = plans.isEmpty() ? null : plans.toArray(new AdjuvantSet[0]);
-				recipe.energyCost = parseInt(first[10], 0);
-				recipe.needsWater = parseInt(first[12], 0) != 0;
-				recipe.needsFire = parseInt(first[13], 0) != 0;
-
-				//成功率：单一值，或「40:Fruit|60:Vegetable」
-				String rateText = first[11].trim();
-				if (rateText.contains(":")) {
-					Map<Class<? extends Item>, Integer> map = new LinkedHashMap<>();
-					int firstValue = 0;
-					for (String part : rateText.split("\\|")) {
-						//写法是「值:类型」，如 40:Fruit
-						String[] kv = part.split(":");
-						int value = parseInt(kv[0], 0);
-						Class<? extends Item> type = resolve(kv.length > 1 ? kv[1].trim() : "");
-						if (type != null) map.put(type, value);
-						if (firstValue == 0) firstValue = value;
-					}
-					recipe.rateByMain(map);
-					recipe.baseRate = firstValue;
-				} else {
-					recipe.baseRate = parseInt(rateText, 100);
-				}
+				recipe.energyCost = parseInt(first[9], 0);
+				recipe.needsWater = parseInt(first[10], 0) != 0;
+				recipe.needsFire = parseInt(first[11], 0) != 0;
 
 				//产物
-				recipe.rule = first[7].trim().isEmpty() ? "ITEM" : first[7].trim();
-				String outputText = first[8].trim();
+				recipe.rule = first[6].trim().isEmpty() ? "ITEM" : first[6].trim();
+				String outputText = first[7].trim();
 				if (!outputText.isEmpty()) recipe.outputType = resolveType(outputText);
-				String qtyText = first[9].trim();
+				String qtyText = first[8].trim();
 				if (qtyText.contains("-")) {
 					String[] q = qtyText.split("-");
 					recipe.minQty = parseInt(q[0], 1);
@@ -296,9 +258,6 @@ public class TableBrewRecipe extends BrewRecipe {
 				} else if (!qtyText.isEmpty()) {
 					recipe.minQty = recipe.maxQty = parseInt(qtyText, 1);
 				}
-
-				//失败分布
-				recipe.failures = buildFailures(first);
 
 				//rule=ITEM 必须有产物类与主材；其余规则允许 main 留空（由产物规则自判主材类型）
 				if ("ITEM".equals(recipe.rule)
@@ -315,57 +274,15 @@ public class TableBrewRecipe extends BrewRecipe {
 
 	private static AdjuvantSet buildAdjuvantSet(String[] cells) {
 		List<AdjuvantSet.Slot> slots = new ArrayList<>();
-		int[] bonuses = parseBonuses(cells[6]);
-		int bonusIndex = 0;
 		for (int i = 3; i <= 5; i++) {
 			String text = cells[i].trim();
 			if (text.isEmpty()) continue;
 			Class<? extends Item> type = resolveType(text);
 			if (type == null) return null;
-			int bonus = bonusIndex < bonuses.length ? bonuses[bonusIndex] : 0;
-			bonusIndex++;
-			slots.add(new AdjuvantSet.Slot(type, bonus, formFilter(text)));
+			slots.add(new AdjuvantSet.Slot(type, formFilter(text)));
 		}
 		if (slots.isEmpty()) return null;
 		return new AdjuvantSet(slots.toArray(new AdjuvantSet.Slot[0]));
-	}
-
-	private static int[] parseBonuses(String text) {
-		if (text == null || text.trim().isEmpty()) return new int[0];
-		String[] parts = text.trim().split("/");
-		int[] result = new int[parts.length];
-		for (int i = 0; i < parts.length; i++) {
-			result[i] = parseInt(parts[i], 0);
-		}
-		return result;
-	}
-
-	private static FailureTable buildFailures(String[] cells) {
-		List<Integer> weights = new ArrayList<>();
-		List<java.util.function.Supplier<Item>> outputs = new ArrayList<>();
-		int[][] pairs = {{14, 15}, {16, 17}, {18, 19}};
-		for (int[] pair : pairs) {
-			String name = cells[pair[0]].trim();
-			if (name.isEmpty()) continue;
-			java.util.function.Supplier<Item> maker = failureMaker(name);
-			if (maker == null) continue;
-			outputs.add(maker);
-			weights.add(parseInt(cells[pair[1]], 0));
-		}
-		if (outputs.isEmpty()) return null;
-		int[] w = new int[weights.size()];
-		for (int i = 0; i < w.length; i++) w[i] = weights.get(i);
-		return new FailureTable(w, outputs.toArray(new java.util.function.Supplier[0]));
-	}
-
-	@SuppressWarnings("unchecked")
-	private static java.util.function.Supplier<Item> failureMaker(String name) {
-		if ("*exotic".equals(name)) return SpsBrewRecipes::randomExotic;
-		if ("Waste".equals(name)) return pd.items.consum.materials.Waste::new;
-		if ("ChaoticConcoction".equals(name)) return ChaoticConcoction::new;
-		Class<? extends Item> type = resolveType(name);
-		if (type == null) return null;
-		return () -> Reflection.newInstance(type);
 	}
 
 	private static int parseInt(String text, int fallback) {

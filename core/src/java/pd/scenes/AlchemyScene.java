@@ -781,8 +781,8 @@ public class AlchemyScene extends PixelScene {
 
 			combines[i].visible = true;
 			combines[i].setRect(combines[0].left(), outputs[i].top()+5, 30, 20);
-			int chance = recipe instanceof BrewRecipe ? ((BrewRecipe) recipe).successRate(ingredients) : 0;
-			combines[i].enable(cost <= availableEnergy, cost, chance);
+			//SPSEXPD: 全部公式 100% 成功，合成按钮只需判断能量是否够
+			combines[i].enable(cost <= availableEnergy, cost);
 
 			if (cost > availableEnergy && recipe instanceof TrinketCatalyst.Recipe){
 				promptToAddEnergy = true;
@@ -1357,15 +1357,10 @@ public class AlchemyScene extends PixelScene {
 		}
 
 		public void enable( boolean enabled ){
-			enable(enabled, 0, 0);
+			enable(enabled, 0);
 		}
 
 		public void enable( boolean enabled, int cost ){
-			enable(enabled, cost, 0);
-		}
-
-		/** SPSEXPD: chance > 0 时显示该次合成的成功率（掷点公式）。 */
-		public void enable( boolean enabled, int cost, int chance ){
 			button.enable(enabled);
 			if (enabled) {
 				button.icon().tint(1, 1, 0, 1);
@@ -1380,9 +1375,6 @@ public class AlchemyScene extends PixelScene {
 			if (cost > 0){
 				costText.visible = true;
 				costText.text(Messages.get(AlchemyScene.class, "energy") + " " + cost);
-			} else if (chance > 0 && chance < 100){
-				costText.visible = true;
-				costText.text(Messages.get(AlchemyScene.class, "chance") + " " + chance + "%");
 			} else {
 				costText.visible = false;
 			}
