@@ -127,13 +127,22 @@ public class MagicPlant extends Plant {
 		//产出统一在 trigger 里结算
 	}
 
+	/** 防重入：物品落到踩踏格会触发 pressCell → 再次 trigger 同一株植物。 */
+	private boolean harvested = false;
+
 	@Override
 	public void trigger(Char ch, boolean interruptHero, boolean accrual) {
+		if (harvested) return;
+		harvested = true;
+
+		//SPSEXPD: 必须先把植物从地图上移除再发产出——Level.drop 会 pressCell，
+		//同一格若还留着这株植物就会再次 trigger，造成无限递归（StackOverflowError）。
+		wither();
+
 		if (ch instanceof Hero && interruptHero) {
 			((Hero) ch).interrupt();
 		}
 		if (Dungeon.level == null) {
-			wither();
 			return;
 		}
 
@@ -175,8 +184,6 @@ public class MagicPlant extends Plant {
 				PlantHarvest.drop(Dungeon.level, pos, species.vegetable, pos);
 			}
 		}
-
-		wither();
 	}
 
 	//*** 存档
