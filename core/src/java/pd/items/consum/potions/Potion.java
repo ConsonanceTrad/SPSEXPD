@@ -599,7 +599,15 @@ public class Potion extends Item {
 		//形态词缀：粗制/标准在前（「粗制治疗药剂」），药片/缓释片/安培等在后（「治疗药片」）
 		if (!form.labeled()) return base;
 		String affix = Messages.get(Potion.class, form.nameKey);
-		return form.suffix ? base + sep + affix : affix + sep + base;
+		if (!form.suffix) {
+			return affix + sep + base;
+		}
+		//后缀形态：「浮空药剂」+「药片」→「浮空药片」——先裁掉功能名末尾的类型词
+		String type = Messages.get(Potion.class, "type_potion");
+		if (type != null && !type.isEmpty() && base.endsWith(type)) {
+			base = base.substring(0, base.length() - type.length()).trim();
+		}
+		return base + sep + affix;
 	}
 
 	@Override

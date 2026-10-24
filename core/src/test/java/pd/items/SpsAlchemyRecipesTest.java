@@ -195,6 +195,20 @@ public final class SpsAlchemyRecipesTest {
 		check(unIdedCrude.name().startsWith("粗制") && unIdedCrude.name().contains("冰霜"),
 				"鉴定后的粗制药水名字不是「粗制+功能名」：" + unIdedCrude.name());
 
+		//SPSEXPD: 后缀形态要去掉功能名末尾的「药剂」——浮空药剂 + 药片 = 浮空药片
+		Potion pillPotion = SpsBrewRecipes.variant(PotionOfFrost.class, PotionForm.PILL);
+		pillPotion.identify();
+		check(pillPotion.name().endsWith("药片") && !pillPotion.name().contains("药剂"),
+				"鉴定后的药片名字不应含「药剂」：" + pillPotion.name());
+		Potion tabletPotion = SpsBrewRecipes.variant(PotionOfFrost.class, PotionForm.TABLET);
+		tabletPotion.identify();
+		check(tabletPotion.name().endsWith("缓释片") && !tabletPotion.name().contains("药剂"),
+				"鉴定后的缓释片名字不应含「药剂」：" + tabletPotion.name());
+		Potion ampoulePotion = SpsBrewRecipes.variant(PotionOfFrost.class, PotionForm.AMPOULE);
+		ampoulePotion.identify();
+		check(ampoulePotion.name().endsWith("安培") && !ampoulePotion.name().contains("药剂"),
+				"鉴定后的安培名字不应含「药剂」：" + ampoulePotion.name());
+
 		//魔法果汁：蔬菜 + 任意果实 + 水
 		ArrayList<Item> juice = new ArrayList<>(Arrays.asList(
 				Reflection.newInstance(HealGrass.class),
