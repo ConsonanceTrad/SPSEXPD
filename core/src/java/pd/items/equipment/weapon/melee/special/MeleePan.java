@@ -1,6 +1,8 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.equipment.weapon.melee.special;
 
+import pd.items.consum.materials.Tinder;
+
 import pd.atlas.items.EquipmentEquipWeaponUniqueWeaponDict;
 
 import pd.Dungeon;
@@ -9,7 +11,6 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.HolyStun;
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.items.Torch;
 import pd.items.consum.food.Food;
 import pd.items.consum.food.MysteryMeat;
 import pd.items.consum.food.cook.*;
@@ -38,9 +39,9 @@ public class MeleePan extends MeleeWeapon {
 			.t("name", "平底煎锅")
 			.t("ac_cook", "烹饪")
 			.t("cook_prompt", "选择一份可烹制的食材")
-			.t("cook_need_fire", "你需要一个火把生火才能烹饪！")
+			.t("cook_need_fire", "你需要一个火种生火才能烹饪！")
 			.t("cook_done", "你用煎锅做好了%1$s。")
-			.t("desc", "用于烹饪的煎锅。\n高级钝器\n\n使用「烹饪」可以把可烹制的食材做成菜肴（需要消耗 1 个火把生火），产物取决于你的烹饪技巧。");
+			.t("desc", "用于烹饪的煎锅。\n高级钝器\n\n使用「烹饪」可以把多份食材做成简餐，也可以煎单份食材（需要消耗 1 个火种生火），产物取决于你的烹饪技巧。");
 	}
 
 
@@ -78,32 +79,17 @@ public class MeleePan extends MeleeWeapon {
 
 	@Override
 	public void execute(Hero hero, String action) {
-		if (AC_COOK.equals(action)) GameScene.selectItem(cookSelector);
+		if (AC_COOK.equals(action)) pd.windows.WndCrafting.open(pd.windows.WndCrafting.MODE_COOK);
 		else super.execute(hero, action);
 	}
 
-	//SPSEXPD: 只接受 canBeCook 的食材
-	private final WndBag.ItemSelector cookSelector = new WndBag.ItemSelector() {
-		@Override public String textPrompt() { return Messages.get(MeleePan.class, "cook_prompt"); }
-		@Override public boolean itemSelectable(Item item) {
-			return item instanceof Food && ((Food) item).canBeCook;
-		}
-		@Override
-		public void onSelect(Item item) {
-			if (item == null || curUser == null) return;
-			cook(curUser, (Food) item);
-		}
-	};
+	//SPSEXPD: 烹饪改为打开平底锅窗口（多食材简餐 + 单食材煎制），选择器已不再需要
 
-	/** SPSEXPD: 生火（消耗 1 个火把）并烹制一份食材。 */
+	/** SPSEXPD: 生火（消耗 1 个火种）并烹制一份食材。 */
 	public static boolean cook(Hero hero, Food ingredient) {
 		if (hero == null || ingredient == null) return false;
-		Torch torch = hero.belongings.getItem(Torch.class);
-		if (torch == null) {
-			GLog.w(Messages.get(MeleePan.class, "cook_need_fire"));
-			return false;
-		}
-		torch.detach(hero.belongings.backpack);
+		if (!consumeTinder(hero)) return false;
+
 
 		Item dish = dishFor(ingredient, hero.cookingSkill);
 		//SPSEXPD: 每烹饪一次技巧 +1（上限 100，参考血源）
@@ -118,6 +104,18 @@ public class MeleePan extends MeleeWeapon {
 		if (hero.sprite != null) hero.sprite.operate(hero.pos);
 		hero.busy();
 		hero.spend(TIME_TO_COOK);
+		return true;
+	}
+
+	/** SPSEXPD: 消耗 1 个火种生火；没有火种时提示并返回 false。 */
+	public static boolean consumeTinder(Hero hero) {
+		if (hero == null) return false;
+		Tinder tinder = hero.belongings.getItem(Tinder.class);
+		if (tinder == null) {
+			GLog.w(Messages.get(MeleePan.class, "cook_need_fire"));
+			return false;
+		}
+		tinder.detach(hero.belongings.backpack);
 		return true;
 	}
 

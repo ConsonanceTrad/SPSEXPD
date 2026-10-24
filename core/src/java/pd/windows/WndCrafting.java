@@ -49,6 +49,7 @@ import pd.items.Item;
 import pd.items.LiquidMetal;
 import pd.items.Recipe;
 import pd.items.SpsBrewRecipes;
+import pd.items.SpsFoodPrepRecipes;
 import pd.items.StoneOre;
 import pd.utils.GLog;
 import pd.items.equipment.artifacts.AlchemistsToolkit;
@@ -712,23 +713,38 @@ public class WndCrafting extends Window {
 		return slots;
 	}
 	
-	/** SPSEXPD: 按当前加工模式过滤可用公式——炼金釜 / 蒸馏压片机 / 分装灌液机 各用各的公式集。 */
-	private static ArrayList<Recipe> filterByMode(ArrayList<Recipe> recipes) {
-		if (spsMode == MODE_ALCHEMY) {
-			ArrayList<Recipe> out = new ArrayList<>();
-			for (Recipe recipe : recipes) {
-				if (!(recipe instanceof SpsBrewRecipes.DistillBrew)
-						&& !(recipe instanceof SpsBrewRecipes.FillBrew)) {
-					out.add(recipe);
-				}
-			}
-			return out;
-		}
+	/** SPSEXPD: 按当前加工模式过滤可用公式——炼金釜 / 蒸馏压片机 / 分装灌液机 / 平底锅 / 菜板 各用各的公式集。 */
+	private static ArrayList<Recipe> filterByMode(ArrayList<Recipe> recipes, ArrayList<Item> ingredients) {
 		ArrayList<Recipe> out = new ArrayList<>();
+		//SPSEXPD: 食物配方按工具分流（含水的归分装灌液机、需加热的归平底锅、无水冷食归菜板）
+		int foodKind = SpsFoodPrepRecipes.kindForMode(spsMode);
+		ArrayList<Recipe> foodRecipes = foodKind >= 0
+				? SpsFoodPrepRecipes.forKind(foodKind)
+				: new ArrayList<>();
+
 		for (Recipe recipe : recipes) {
-			if (spsMode == MODE_DISTILL && recipe instanceof SpsBrewRecipes.DistillBrew) {
-				out.add(recipe);
-			} else if (spsMode == MODE_FILL && recipe instanceof SpsBrewRecipes.FillBrew) {
+			boolean food = SpsFoodPrepRecipes.isFoodPrep(recipe);
+			switch (spsMode) {
+				case MODE_DISTILL:
+					if (recipe instanceof SpsBrewRecipes.DistillBrew) out.add(recipe);
+					break;
+				case MODE_FILL:
+					if (recipe instanceof SpsBrewRecipes.FillBrew) out.add(recipe);
+					break;
+				default:
+					//炼金釜只保留药剂工艺与加工产物，食物一律交给新工具
+					if (!(recipe instanceof SpsBrewRecipes.DistillBrew)
+							&& !(recipe instanceof SpsBrewRecipes.FillBrew)
+							&& !food) {
+						out.add(recipe);
+					}
+					break;
+			}
+		}
+
+		//食物配方已从炼金釜表移出，这里按当前材料单独匹配
+		for (Recipe recipe : foodRecipes) {
+			if (recipe.testIngredients(ingredients) && !out.contains(recipe)) {
 				out.add(recipe);
 			}
 		}
@@ -742,7 +758,7 @@ public class WndCrafting extends Window {
 		repeat.enable(false);
 
 		ArrayList<Item> ingredients = filterInput(Item.class);
-		ArrayList<Recipe> recipes = filterByMode(Recipe.findRecipes(ingredients, currentSlots()));
+		ArrayList<Recipe> recipes = filterByMode(Recipe.findRecipes(ingredients, currentSlots()), ingredients);
 
 		//disables / hides unneeded buttons
 		for (int i = recipes.size(); i < combines.length; i++){
@@ -791,8 +807,10 @@ public class WndCrafting extends Window {
 
 			combines[i].visible = true;
 			combines[i].setRect(combines[0].left(), outputs[i].top()+5, 30, 20);
-			//SPSEXPD: 全部公式 100% 成功，合成按钮只需判断能量是否够
-			combines[i].enable(cost <= availableEnergy, cost);
+			//SPSEXPD: 全部公式 100% 成功，合成按钮只需判断能量（平底锅另需 1 个火种）是否够
+			boolean fuelOk = spsMode != MODE_COOK
+					|| Dungeon.hero.belongings.getItem(pd.items.consum.materials.Tinder.class) != null;
+			combines[i].enable(cost <= availableEnergy && fuelOk, cost);
 
 			if (cost > availableEnergy && recipe instanceof TrinketCatalyst.Recipe){
 				promptToAddEnergy = true;
@@ -814,7 +832,7 @@ public class WndCrafting extends Window {
 			lastIngredients.add(i.duplicate());
 		}
 
-		ArrayList<Recipe> recipes = filterByMode(Recipe.findRecipes(ingredients, currentSlots()));
+		ArrayList<Recipe> recipes = filterByMode(Recipe.findRecipes(ingredients, currentSlots()), ingredients);
 		if (recipes.size() <= slot) return;
 
 		Recipe recipe = recipes.get(slot);
@@ -823,6 +841,10 @@ public class WndCrafting extends Window {
 		ArrayList<Item> extras = new ArrayList<>();
 		
 		if (recipe != null){
+			//SPSEXPD: 平底锅做菜要生火——每做一道菜消耗 1 个火种
+			if (spsMode == MODE_COOK && !pd.items.equipment.weapon.melee.special.MeleePan.consumeTinder(Dungeon.hero)) {
+				return;
+			}
 			int cost = recipe.cost(ingredients);
 			if (toolkit != null){
 				cost = toolkit.consumeEnergy(cost);
