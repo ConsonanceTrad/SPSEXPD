@@ -66,6 +66,13 @@ public class TableBrewRecipe extends BrewRecipe {
 
 	@Override
 	public boolean matches(Slots ingredients) {
+		//SPSEXPD: 合剂（MIX）/ 魔药（ELIXIR）用「包含」语义，不走基类的精确辅材匹配
+		if ("MIX".equals(rule)) {
+			return SpsBrewRecipes.isCrude(ingredients.main) && ingredients.adjuvantCount() >= 1;
+		}
+		if ("ELIXIR".equals(rule)) {
+			return SpsBrewMix.isStandard(ingredients.main) && ingredients.adjuvantCount() >= 1;
+		}
 		if (!super.matches(ingredients)) return false;
 		switch (rule) {
 			case "CRUDE":
@@ -86,6 +93,24 @@ public class TableBrewRecipe extends BrewRecipe {
 	@Override
 	protected Item successOutput(Slots ingredients) {
 		switch (rule) {
+			case "MIX": {
+				if (SpsBrewMix.containsRecipe(ingredients)) {
+					Class<? extends pd.items.consum.potions.exotic.ExoticPotion> exotic =
+							SpsBrewRecipes.exoticOf(ingredients.main);
+					if (exotic != null) {
+						Item crafted = Reflection.newInstance(exotic);
+						if (crafted != null) return crafted;
+					}
+				}
+				return SpsBrewRecipes.variantOf(ingredients.main, PotionForm.CRUDE);
+			}
+			case "ELIXIR": {
+				if (SpsBrewMix.containsRecipe(ingredients)) {
+					Item brewed = SpsBrewMix.brewElixir(ingredients.main);
+					if (brewed != null) return brewed;
+				}
+				return SpsBrewRecipes.variantOf(ingredients.main, PotionForm.CRUDE);
+			}
 			case "CRUDE":
 				return SpsBrewRecipes.variant(SpsBrewRecipes.potionType(ingredients.main), PotionForm.CRUDE);
 			case "STANDARD":

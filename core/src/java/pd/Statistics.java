@@ -96,6 +96,13 @@ public class Statistics {
 	 * 进层发放只在首次进入该层时生效，读档或上下楼折返都不会重复发；-1 = 本局还没发过。
 	 */
 	public static int spsDewChargeFloor = -1;
+	/**
+	 * SPSEXPD: 本局合剂/魔药随机指定的两味辅材（docs/alchemy-rework.md §7.3）。
+	 * 存「类型全名[#CRUDE]」形式的稳定标识，开局由 {@code SpsBrewMix.roll()} 掷出，
+	 * 读旧档时缺字段会自动补掷。玩家不被告知这两个值。
+	 */
+	public static String spsMixRecipeA = "";
+	public static String spsMixRecipeB = "";
 	
 	public static boolean qualifiedForNoKilling = false;
 	public static boolean completedWithNoKilling = false;
@@ -172,6 +179,9 @@ public class Statistics {
 		roomType = 0;
 		potKeyClaimed = false;
 		spsDewChargeFloor = -1;
+		//新开局：清空并重新掷本局合剂/魔药的两味辅材
+		spsMixRecipeA = "";
+		spsMixRecipeB = "";
 		
 	}
 	
@@ -221,6 +231,8 @@ public class Statistics {
 	private static final String SPS_TURNS = "spsTurns";
 	private static final String SPS_CALENDAR_START = "spsCalendarStart";
 	private static final String SPS_DEW_CHARGE_FLOOR = "spsDewChargeFloor";
+	private static final String SPS_MIX_RECIPE_A = "spsMixRecipeA";
+	private static final String SPS_MIX_RECIPE_B = "spsMixRecipeB";
 
 	private static final String NO_KILLING_QUALIFIED	= "qualifiedForNoKilling";
 	private static final String BOSS_REMAINS_QUALIFIED	= "qualifiedForBossRemainsBadge";
@@ -283,6 +295,8 @@ public class Statistics {
 		bundle.put( SPS_TURNS, spsTurns );
 		bundle.put( SPS_CALENDAR_START, spsCalendarStart );
 		bundle.put( SPS_DEW_CHARGE_FLOOR, spsDewChargeFloor );
+		bundle.put( SPS_MIX_RECIPE_A, spsMixRecipeA == null ? "" : spsMixRecipeA );
+		bundle.put( SPS_MIX_RECIPE_B, spsMixRecipeB == null ? "" : spsMixRecipeB );
 
 		bundle.put(NO_KILLING_QUALIFIED, qualifiedForNoKilling);
 		bundle.put(BOSS_REMAINS_QUALIFIED, qualifiedForBossRemainsBadge);
@@ -360,6 +374,8 @@ public class Statistics {
 		spsCalendarStart = bundle.contains(SPS_CALENDAR_START) ? bundle.getInt(SPS_CALENDAR_START) : 0;
 		//SPSEXPD: 旧档没有该键 → -1，进入下一层时照常发放一次
 		spsDewChargeFloor = bundle.contains(SPS_DEW_CHARGE_FLOOR) ? bundle.getInt(SPS_DEW_CHARGE_FLOOR) : -1;
+		spsMixRecipeA = bundle.contains(SPS_MIX_RECIPE_A) ? bundle.getString(SPS_MIX_RECIPE_A) : "";
+		spsMixRecipeB = bundle.contains(SPS_MIX_RECIPE_B) ? bundle.getString(SPS_MIX_RECIPE_B) : "";
 
 		qualifiedForNoKilling = bundle.getBoolean( NO_KILLING_QUALIFIED );
 		qualifiedForBossRemainsBadge = bundle.getBoolean( BOSS_REMAINS_QUALIFIED );

@@ -56,6 +56,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.security.MessageDigest;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.imageio.ImageIO;
 
 public final class SpsAlchemyRecipesTest {
@@ -157,11 +158,16 @@ public final class SpsAlchemyRecipesTest {
 		check(!(Recipe.findRecipes(ingredients(IceFruit.class, Salt.class, WaterItem.class)).get(0)
 				instanceof SpsBrewRecipes.StandardBrew), "普通果实不应匹配标准药水配方");
 
-		//合剂：主材药剂 + 辅材药剂 + 水（免火源），产物是 regToExo 映射的合剂
-		ArrayList<Item> mix = ingredients(PotionOfHealing.class, PotionOfHealing.class, WaterItem.class);
+		//合剂：粗制药水 + 辅材（凑齐本局两味才出合剂，否则退回粗制药水）
+		ArrayList<Item> mix = new ArrayList<>(Arrays.asList(
+				SpsBrewRecipes.variant(PotionOfHealing.class, PotionForm.CRUDE),
+				Reflection.newInstance(Salt.class)));
 		Recipe mixRecipe = Recipe.findRecipes(mix).get(0);
-		check(mixRecipe instanceof SpsBrewRecipes.MixBrew, "合剂酿造配方没有命中");
-		check(mixRecipe.sampleOutput(mix) instanceof PotionOfShielding, "合剂产物不是奥术护盾合剂");
+		check(mixRecipe instanceof SpsBrewRecipes.MixBrew, "合剂配方没有命中粗制药水+辅材");
+		Item mixOut = mixRecipe.sampleOutput(mix);
+		//本局两味未知：大多数情况下凑不齐，产出应是退回的粗制药水
+		check(mixOut instanceof Potion && ((Potion) mixOut).form == PotionForm.CRUDE,
+				"合剂未凑齐两味时应退回粗制药水");
 
 		//SPSEXPD: 「提炼」（3 紊乱魔药 → 良性 + 恶性）已随失败产物一并取消
 		ArrayList<Item> chaotic = ingredients(ChaoticConcoction.class, ChaoticConcoction.class, ChaoticConcoction.class);

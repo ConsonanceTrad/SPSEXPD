@@ -46,6 +46,17 @@ public final class PlantHarvest {
 
 	private static final HashMap<Class<?>, Species> BY_CLASS = new HashMap<>();
 
+	/** SPSEXPD: 全部蔬菜产出类（去重，按注册顺序）——炼金「本局随机两味」的池子用。 */
+	public static java.util.List<Class<? extends Item>> vegetables() {
+		java.util.List<Class<? extends Item>> out = new java.util.ArrayList<>();
+		for (Species species : BY_CLASS.values()) {
+			if (species.vegetable != null && !out.contains(species.vegetable)) {
+				out.add(species.vegetable);
+			}
+		}
+		return out;
+	}
+
 	private static void register(Class<?> plant, Class<?> bush, Class<? extends Item> vegetable,
 			Class<? extends Item> fruit, Class<? extends Item> largeFruit) {
 		Species species = new Species(vegetable, fruit, largeFruit);

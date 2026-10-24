@@ -104,34 +104,67 @@ public final class SpsBrewRecipes {
 	}
 
 	/**
-	 * 合剂酿造：主材目标药剂 + 1 瓶其他药剂（+40%）或 2 份其他素材（+10%+10%）+ 水 + 火源。
-	 * 成功产出 regToExo 映射的合剂；失败 70% 紊乱 / 5% 随机合剂 / 25% 废料。
+	 * 合剂：主材**粗制药水** + 4 个辅材格中包含本局两味 → 该药水的合剂；
+	 * 没有凑齐两味时退回一瓶对应粗制药水（副材消耗）。
+	 * 玩家不被告知那两味是什么（后续会有揭示机制）。
 	 */
 	public static final class MixBrew extends BrewRecipe {
 
 		public MixBrew() {
-			mainMaterial = Potion.class;
-			adjuvantOptions = new AdjuvantSet[]{
-					new AdjuvantSet(new AdjuvantSet.Slot(Potion.class)),
-					new AdjuvantSet(
-							new AdjuvantSet.Slot(Item.class),
-							new AdjuvantSet.Slot(Item.class))
-			};
-			needsWater = true;
-			//SPSEXPD: 基础药水配方不再需要火——火源（火种/磷火）预留给烹饪配方
+			mainMaterial = null;
+			adjuvantOptions = null;
+			needsWater = false;
 			needsFire = false;
 			energyCost = 0;
 		}
 
 		@Override
 		public boolean matches(Slots ingredients) {
-			return super.matches(ingredients) && exoticOf(ingredients.main) != null;
+			//只要有粗制药水主材 + 至少 1 个辅材就命中（产出按是否凑齐两味决定）
+			return isCrude(ingredients.main) && ingredients.adjuvantCount() >= 1;
 		}
 
 		@Override
 		protected Item successOutput(Slots ingredients) {
-			Class<? extends ExoticPotion> exotic = exoticOf(ingredients.main);
-			return exotic == null ? null : Reflection.newInstance(exotic);
+			if (SpsBrewMix.containsRecipe(ingredients)) {
+				Class<? extends ExoticPotion> exotic = exoticOf(ingredients.main);
+				if (exotic != null) {
+					Item crafted = Reflection.newInstance(exotic);
+					if (crafted != null) return crafted;
+				}
+			}
+			//未凑齐两味：退回对应粗制药水
+			return variantOf(ingredients.main, PotionForm.CRUDE);
+		}
+	}
+
+	/**
+	 * 魔药：主材**标准药水** + 4 个辅材格中包含本局两味 → 该药水对应的魔药；
+	 * 没有凑齐两味时退回一瓶对应粗制药水（副材消耗）。
+	 */
+	public static final class ElixirBrew extends BrewRecipe {
+
+		public ElixirBrew() {
+			mainMaterial = null;
+			adjuvantOptions = null;
+			needsWater = false;
+			needsFire = false;
+			energyCost = 0;
+		}
+
+		@Override
+		public boolean matches(Slots ingredients) {
+			return SpsBrewMix.isStandard(ingredients.main) && ingredients.adjuvantCount() >= 1;
+		}
+
+		@Override
+		protected Item successOutput(Slots ingredients) {
+			if (SpsBrewMix.containsRecipe(ingredients)) {
+				Item brewed = SpsBrewMix.brewElixir(ingredients.main);
+				if (brewed != null) return brewed;
+			}
+			//未凑齐两味：退回对应粗制药水
+			return variantOf(ingredients.main, PotionForm.CRUDE);
 		}
 	}
 
@@ -371,6 +404,7 @@ public final class SpsBrewRecipes {
 				new CrudeBrew(),
 				new StandardBrew(),
 				new MixBrew(),
+				new ElixirBrew(),
 				new EyeCrystal()
 		);
 	}

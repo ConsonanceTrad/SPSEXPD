@@ -55,6 +55,7 @@ import pd.items.consum.food.meatfood.MeatFood;
 import pd.items.consum.food.staplefood.StapleFood;
 import pd.items.consum.food.vegetable.Vegetable;
 import pd.items.consum.potions.Potion;
+import pd.items.consum.potions.PotionForm;
 import pd.items.consum.potions.PotionOfConfusion;
 import pd.items.consum.potions.brews.AquaBrew;
 import pd.items.consum.potions.brews.BlizzardBrew;
@@ -436,7 +437,7 @@ public class QuickRecipe extends Component {
 				}
 				return result;
 			case "Exotic_Potions":
-				//SPSEXPD: 合剂只能由「合剂酿造」产出（裁决 #1A），不再有药剂直换
+				//SPSEXPD: 合剂 = 粗制药水 + 本局随机两味辅材（未凑齐则退回粗制药水）
 				r = new SpsBrewRecipes.MixBrew();
 				for (Class<?> cls : Generator.Category.POTION.classes){
 					Potion pot = (Potion) Reflection.newInstance(cls);
@@ -444,8 +445,9 @@ public class QuickRecipe extends Component {
 							? null : Reflection.newInstance(SpsBrewRecipes.exoticOf(pot));
 					//SPSXPD: 没有合剂对应的药剂不显示（避免预览为空导致空条目/崩溃）
 					if (exoticPotion == null) continue;
+					Item crudeMain = SpsBrewRecipes.variant(pot.getClass(), PotionForm.CRUDE);
 					ArrayList<Item> in = new ArrayList<>(Arrays.asList(
-							pot, potionFormHolder("任意其它药剂"), new WaterItem(), new Tinder()));
+							crudeMain, potionFormHolder("本局辅材甲"), potionFormHolder("本局辅材乙")));
 					result.add(new QuickRecipe( r, in, exoticPotion));
 				}
 				return result;
