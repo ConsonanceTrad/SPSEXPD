@@ -128,9 +128,9 @@ public class Potion extends Item {
 					+ "自己炼制、或别人郑重交给你的药剂不在此列。")
 			.t("form_crude", "粗制")
 			.t("form_standard", "标准")
-			.t("form_tablet", "缓释")
-			.t("form_injector", "注射用")
-			.t("form_reagent", "稀的")
+			.t("form_tablet", "缓释片")
+			.t("form_injector", "注射剂")
+			.t("form_reagent", "试剂")
 			.t("form_pill", "药片")
 			.t("form_ampoule", "安培")
 			.t("ampoule_hint", "安培无法直接使用，需要装进投掷注射针后掷出。")
@@ -568,9 +568,12 @@ public class Potion extends Item {
 	public String name() {
 		//SPSEXPD: 未鉴定的那一瓶统一叫「未鉴定药剂」，与真实类型无关
 		if (!identified) return Messages.get(Potion.class, "unidentified");
-		String base = isKnown() ? super.name() : Messages.get(this, color);
-		//SPSEXPD: 形态前缀（粗糙的/精制的…），见 PotionForm
-		return form.labeled() ? Messages.get(Potion.class, form.nameKey) + base : base;
+		//SPSEXPD: 名称一律用功能名（「治疗药剂」），不再回落到颜色名
+		String base = super.name();
+		//形态词缀：粗制/标准在前（「粗制治疗药剂」），药片/缓释片/安培等在后（「治疗药片」）
+		if (!form.labeled()) return base;
+		String affix = Messages.get(Potion.class, form.nameKey);
+		return form.suffix ? base + affix : affix + base;
 	}
 
 	@Override
