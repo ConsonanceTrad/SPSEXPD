@@ -124,7 +124,8 @@ public class SpsShopRoom extends ShopRoom {
 	 */
 	private void addCommonItems(ArrayList<Item> itemsToSpawn) {
 
-		itemsToSpawn.add(Generator.random(Generator.Category.POTION));
+		//SPSEXPD: 药水位——普通药水 / 粗制 / 标准 / 药片 / 缓释片 / 安培 / 魔法果汁 / 魔法硬糖 共用
+		itemsToSpawn.add(pd.items.SpsShopPotion.random());
 		//SPSEXPD: 试剂检测卡——配套未鉴定药剂的鉴定工具（docs/alchemy-rework.md §4.2）
 		itemsToSpawn.add(new pd.items.consum.materials.ReagentTestCard().quantity(Random.IntRange(2, 3)));
 		//SPSEXPD: 魔法药瓶——试剂自动喂食组件（docs/alchemy-rework.md §6.6）
@@ -135,7 +136,7 @@ public class SpsShopRoom extends ShopRoom {
 		itemsToSpawn.add(Generator.random(Generator.Category.SCROLL));
 		itemsToSpawn.add(AlienBag.randomBombSupply());
 		itemsToSpawn.add(Random.Int(2) == 0
-				? Generator.random(Generator.Category.POTION)
+				? pd.items.SpsShopPotion.random()
 				: Generator.random(Generator.Category.SCROLL));
 		itemsToSpawn.add(Generator.random(Generator.Category.RANGEWEAPON));
 		itemsToSpawn.add(Generator.random(Generator.Category.MELEEWEAPON));
