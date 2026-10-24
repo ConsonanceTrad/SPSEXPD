@@ -64,6 +64,9 @@ public class TableBrewRecipe extends BrewRecipe {
 	public int minQty = 1;
 	public int maxQty = 1;
 
+	/** rule=FIXED 时要求的主材形态（null = 不限定）。 */
+	public PotionForm mainForm;
+
 	@Override
 	public boolean matches(Slots ingredients) {
 		//SPSEXPD: 合剂（MIX）/ 魔药（ELIXIR）用「包含」语义，不走基类的精确辅材匹配
@@ -72,6 +75,13 @@ public class TableBrewRecipe extends BrewRecipe {
 		}
 		if ("ELIXIR".equals(rule)) {
 			return SpsBrewMix.isStandard(ingredients.main) && ingredients.adjuvantCount() >= 1;
+		}
+		//SPSEXPD: FIXED —— 主材（类型+形态）固定 + 必须凑齐本局两味 + 固定产物（秘药并入用）
+		if ("FIXED".equals(rule)) {
+			if (ingredients.main == null || !mainMaterial.isInstance(ingredients.main)) return false;
+			if (mainForm != null && !mainForm.equals(((Potion) ingredients.main).form)) return false;
+			if (ingredients.adjuvantCount() < 1) return false;
+			return SpsBrewMix.containsRecipe(ingredients);
 		}
 		if (!super.matches(ingredients)) return false;
 		switch (rule) {
@@ -115,6 +125,13 @@ public class TableBrewRecipe extends BrewRecipe {
 				return SpsBrewRecipes.variant(SpsBrewRecipes.potionType(ingredients.main), PotionForm.CRUDE);
 			case "STANDARD":
 				return SpsBrewRecipes.variant(SpsBrewRecipes.potionType(ingredients.main), PotionForm.STANDARD);
+			case "FIXED": {
+				//固定产物（秘药并入新体系）
+				if (outputType == null) return null;
+				Item fixed = Reflection.newInstance(outputType);
+				applyQty(fixed);
+				return fixed;
+			}
 			case "EXOTIC": {
 				Class<? extends ExoticPotion> exotic = SpsBrewRecipes.exoticOf(ingredients.main);
 				return exotic == null ? null : Reflection.newInstance(exotic);
@@ -186,6 +203,22 @@ public class TableBrewRecipe extends BrewRecipe {
 		return null;
 	}
 
+	/** 解析主材列的「#形态」后缀（FIXED 规则用）。 */
+	private static PotionForm parseMainForm(String text) {
+		int hash = text.indexOf('#');
+		if (hash < 0) return null;
+		switch (text.substring(hash + 1).trim()) {
+			case "CRUDE": return PotionForm.CRUDE;
+			case "STANDARD": return PotionForm.STANDARD;
+			case "PILL": return PotionForm.PILL;
+			case "TABLET": return PotionForm.TABLET;
+			case "INJECTOR": return PotionForm.INJECTOR;
+			case "REAGENT": return PotionForm.REAGENT;
+			case "AMPOULE": return PotionForm.AMPOULE;
+			default: return null;
+		}
+	}
+
 	/** 解析一行的「类型#形态」写法。
 	 * SPSEXPD: `Fruit` / `LargeFruit` 是炼金表的伪类型——实际果实是 SpsFruit 家族（MissileWeapon），
 	 * 没有可直接引用的公共基类，因此用 Item + filter 表达。 */
@@ -197,8 +230,7 @@ public class TableBrewRecipe extends BrewRecipe {
 		return resolve(name);
 	}
 
-	private static java.util.function.Predicate<Item> formFilter(String text) {
-		int hash = text.indexOf('#');
+	private static java.util.function.Predicate<Item> formFilter(String text) {		int hash = text.indexOf('#');
 		String name = (hash >= 0 ? text.substring(0, hash) : text).trim();
 		if ("Fruit".equals(name)) return SpsBrewRecipes::isFruitItem;
 		if ("LargeFruit".equals(name)) return SpsBrewRecipes::isLargeFruit;
@@ -273,6 +305,7 @@ public class TableBrewRecipe extends BrewRecipe {
 				TableBrewRecipe recipe = new TableBrewRecipe();
 				recipe.id = entry.getKey();
 				recipe.mainMaterial = resolveType(first[2].trim());
+				recipe.mainForm = parseMainForm(first[2].trim());
 				recipe.adjuvantOptions = plans.isEmpty() ? null : plans.toArray(new AdjuvantSet[0]);
 				recipe.energyCost = parseInt(first[9], 0);
 				recipe.needsWater = parseInt(first[10], 0) != 0;

@@ -27,9 +27,14 @@ CRU-01,1,Fruit,,,,CRUDE,,1,0,1,0,粗制：普通果实+水 → 粗制XX药水（
 STD-01,1,LargeFruit,Salt,,,STANDARD,,1,0,1,0,标准：大型果实+盐+水 → 标准XX药水（完整效果）
 MIX-01,1,Potion#CRUDE,Item,Item,Item,MIX,,1,0,0,0,合剂：粗制药水+辅材（凑齐本局两味则出合剂，否则退回粗制药水）
 ELX-01,1,Potion#STANDARD,Item,Item,Item,ELIXIR,,1,0,0,0,魔药：标准药水+辅材（凑齐本局两味则出魔药，否则退回粗制药水）
+FIX-BLD,1,PotionOfLiquidFlame#CRUDE,Item,Item,Item,FIXED,ElixirOfDragonsBlood,1,0,0,0,合剂层·秘药：液火粗制药水+本局两味 → 龙血秘药
+FIX-ICY,1,PotionOfFrost#CRUDE,Item,Item,Item,FIXED,ElixirOfIcyTouch,1,0,0,0,合剂层·秘药：冰霜粗制药水+本局两味 → 冰触秘药
+FIX-TOX,1,PotionOfToxicGas#CRUDE,Item,Item,Item,FIXED,ElixirOfToxicEssence,1,0,0,0,合剂层·秘药：毒气粗制药水+本局两味 → 毒素精华
+FIX-FTH,1,PotionOfLevitation#CRUDE,Item,Item,Item,FIXED,ElixirOfFeatherFall,1,0,0,0,合剂层·秘药：浮空粗制药水+本局两味 → 羽落秘药
+FIX-AQU,1,PotionOfPurity#CRUDE,Item,Item,Item,FIXED,ElixirOfAquaticRejuvenation,1,0,0,0,合剂层·秘药：净化粗制药水+本局两味 → 水中回春秘药
+FIX-ARC,1,PotionOfHealing#CRUDE,Item,Item,Item,FIXED,ElixirOfArcaneArmor,1,0,0,0,合剂层·秘药：治疗粗制药水+本局两味 → 奥术护甲秘药
+FIX-MGT,1,PotionOfStrength#STANDARD,Item,Item,Item,FIXED,ElixirOfMight,1,0,0,0,魔药层·秘药：力量标准药水+本局两味 → 力量秘药
+FIX-HNY,1,PotionOfHealing#STANDARD,Item,Item,Item,FIXED,ElixirOfHoneyedHealing,1,0,0,0,魔药层·秘药：治疗标准药水+本局两味 → 蜂蜜治疗秘药
 XR-01,1,ScrollOfIdentify,,,,ITEM,EyeOfTruth,1,0,1,0,结晶：鉴定卷轴+水 → 真实之眼
 JUI-01,1,Vegetable,Fruit,,,ITEM,MagicJuice,1,0,1,0,魔法果汁：蔬菜+任意果实+水
-FOR-01,1,Potion,,,,TABLET,,1,0,0,0,缓释片：药剂 → 同种缓释片
-FOR-02,1,Potion,,,,INJECTOR,,1,0,1,0,注射剂：药剂+水 → 同种注射剂
-FOR-03,1,Potion,,,,REAGENT,,2-4,0,1,0,试剂：药剂+水 → 2~4瓶试剂（效果1/3）
 FLK-01,1,WaterItem,,,,ITEM,EnergyFlask,1,4,0,0,能量瓶：水+4炼金能量 → 炼金能量瓶

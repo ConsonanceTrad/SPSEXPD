@@ -371,16 +371,8 @@ public class QuickRecipe extends Component {
 						standardHolder));
 				result.add(null);
 				//SPSEXPD: 全部公式 100% 成功，「提炼」（3 紊乱 → 良性+恶性）已随失败产物取消
-				//SPSEXPD: 三种变体形态——缓释片（免回合/不可投掷）、注射剂（免回合/可投掷）、试剂（1/3 效果/多瓶）
-				Item potionHolder = potionFormHolder("任意药剂");
-				result.add(new QuickRecipe(new SpsBrewRecipes.TabletBrew(),
-						new ArrayList<>(Arrays.asList(potionHolder)), potionFormHolder("缓释片")));
-				result.add(new QuickRecipe(new SpsBrewRecipes.InjectorBrew(),
-						new ArrayList<>(Arrays.asList(potionFormHolder("任意药剂"), new WaterItem())),
-						potionFormHolder("注射剂")));
-				result.add(new QuickRecipe(new SpsBrewRecipes.ReagentBrew(),
-						new ArrayList<>(Arrays.asList(potionFormHolder("任意药剂"), new WaterItem())),
-						potionFormHolder("试剂 x2~4")));
+				//SPSEXPD: 旧的「药剂 → 缓释片/注射剂/试剂」一步公式已删除：
+				//缓释片改由「蒸馏压片机：药片 + 盐 → 缓释片×2」，注射剂/试剂被安培取代（§7.5）
 				result.add(null);
 				//SPSEXPD: 水果沙拉配方 = 1 份水 + 任意 2 个四色浆果（用浆果类别占位图）
 				Item berryHolder = new Item() {

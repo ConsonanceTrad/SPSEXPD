@@ -217,6 +217,21 @@ public final class SpsAlchemyRecipesTest {
 		check(ampouleOut instanceof Potion && ((Potion) ampouleOut).form == PotionForm.AMPOULE
 						&& ampouleOut.quantity() == 3,
 				"分装没有产出 3 支安培");
+
+		//SPSEXPD: 安培不能直接使用（既不能喝也不能投），必须配合投掷注射针
+		Potion ampouleItem = (Potion) ampouleOut;
+		ArrayList<String> ampouleActions = ampouleItem.actions(null);
+		check(!ampouleActions.contains(Potion.AC_DRINK) && !ampouleActions.contains(Potion.AC_THROW),
+				"安培不应有饮用/投掷动作");
+		check(ampouleItem.defaultAction() == null, "安培不应有默认动作");
+
+		//SPSEXPD: 旧的「药剂 → 缓释片/注射剂/试剂」一步公式已删除
+		ArrayList<Item> legacyTablet = new ArrayList<>(Arrays.asList(
+				Reflection.newInstance(PotionOfHealing.class)));
+		check(Recipe.findRecipes(legacyTablet).stream()
+						.noneMatch(r -> r instanceof SpsBrewRecipes.DistillBrew),
+				"药剂不应再一步蒸出药片（需先蒸馏成粗制/标准形态）");
+
 		testBrewed();
 		testExoticGuidePreviews();
 		ArrayList<Item> invalid = ingredients(Gold.class, Gold.class, Gold.class, Gold.class, Gold.class);

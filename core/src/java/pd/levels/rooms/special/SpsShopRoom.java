@@ -132,6 +132,10 @@ public class SpsShopRoom extends ShopRoom {
 		itemsToSpawn.add(new pd.items.consum.materials.MagicFeederBottle());
 		//SPSEXPD: 通用弹匣——枪械弹药上架（替换第二瓶随机药剂，不改变商店商品总数）
 		itemsToSpawn.add(new pd.items.Magazine().quantity(Random.IntRange(2, 4)));
+		//SPSEXPD: 药水再加工工具与安培投射器（docs/alchemy-rework.md §7.5）
+		itemsToSpawn.add(new pd.items.equipment.artifacts.ProcessTool.Distiller());
+		itemsToSpawn.add(new pd.items.equipment.artifacts.ProcessTool.AmpouleFiller());
+		itemsToSpawn.add(new pd.items.equipment.weapon.missiles.ThrowingSyringe().quantity(Random.IntRange(2, 3)));
 		itemsToSpawn.add(Generator.random(Generator.Category.SCROLL));
 		itemsToSpawn.add(Generator.random(Generator.Category.SCROLL));
 		itemsToSpawn.add(AlienBag.randomBombSupply());

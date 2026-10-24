@@ -53,7 +53,7 @@ public final class SpsShopPotion {
 			form = PotionForm.STANDARD;
 		} else if (roll < 78) {
 			form = PotionForm.PILL;
-		} else if (roll < 86) {
+		} else if (roll < 89) {
 			form = PotionForm.TABLET;
 		} else if (roll < 94) {
 			form = PotionForm.AMPOULE;

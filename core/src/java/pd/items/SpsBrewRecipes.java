@@ -197,81 +197,9 @@ public final class SpsBrewRecipes {
 		}
 	}
 
-	/**
-	 * 缓释片：目标药剂 → 同种药水的缓释片（免回合吞服、效果更持久、**没有投掷效果**）。
-	 * 不失败、免水、免火源、免能量。
-	 */
-	public static final class TabletBrew extends BrewRecipe {
-
-		public TabletBrew() {
-			mainMaterial = Potion.class;
-			adjuvantOptions = null;
-			needsWater = false;
-			needsFire = false;
-			energyCost = 0;
-		}
-
-		@Override
-		public boolean matches(Slots ingredients) {
-			return super.matches(ingredients) && isPlainPotion(ingredients.main);
-		}
-
-		@Override
-		protected Item successOutput(Slots ingredients) {
-			return variantOf(ingredients.main, PotionForm.TABLET);
-		}
-	}
-
-	/**
-	 * 注射剂：目标药剂 + 水 → 同种药水的注射剂
-	 * （免回合使用、可投掷、药性更集中猛烈）。
-	 */
-	public static final class InjectorBrew extends BrewRecipe {
-
-		public InjectorBrew() {
-			mainMaterial = Potion.class;
-			adjuvantOptions = null;
-			needsWater = true;
-			needsFire = false;
-			energyCost = 0;
-		}
-
-		@Override
-		public boolean matches(Slots ingredients) {
-			return super.matches(ingredients) && isPlainPotion(ingredients.main);
-		}
-
-		@Override
-		protected Item successOutput(Slots ingredients) {
-			return variantOf(ingredients.main, PotionForm.INJECTOR);
-		}
-	}
-
-	/**
-	 * 试剂：目标药剂 + 水 → 2~4 瓶试剂（效果为正常的 1/3，供魔法药瓶自动喂食）。
-	 */
-	public static final class ReagentBrew extends BrewRecipe {
-
-		public ReagentBrew() {
-			mainMaterial = Potion.class;
-			adjuvantOptions = null;
-			needsWater = true;
-			needsFire = false;
-			energyCost = 0;
-		}
-
-		@Override
-		public boolean matches(Slots ingredients) {
-			return super.matches(ingredients) && isPlainPotion(ingredients.main);
-		}
-
-		@Override
-		protected Item successOutput(Slots ingredients) {
-			Potion reagent = variantOf(ingredients.main, PotionForm.REAGENT);
-			if (reagent != null) reagent.quantity(Random.IntRange(2, 4));
-			return reagent;
-		}
-	}
+	//SPSEXPD: 旧的「缓释片 / 注射剂 / 试剂」一步公式（TabletBrew / InjectorBrew / ReagentBrew）
+	//随二次改版删除（docs/alchemy-rework.md §7.5）：缓释片改由「蒸馏 → 药片 → +盐 → 缓释片×2」，
+	//注射剂/试剂被安培取代。物品与形态保留供旧档兼容。
 
 	/**
 	 * 炼金能量瓶：水 + 4 点炼金能量 → 能量瓶（§6.5，特殊公式保留能量消耗）。
@@ -388,9 +316,12 @@ public final class SpsBrewRecipes {
 		}
 	}
 
-	/** 可再加工的药剂：粗制 / 标准 / 合剂 / 魔药（药片是蒸馏中间体，单独判定）。 */
+	/** 可再加工的药剂：粗制 / 标准 / 合剂 / 魔药（药片是蒸馏中间体，单独判定）。
+	 * SPSEXPD: 排除任务/专属道具与调试用的测试药剂。 */
 	public static boolean isProcessable(Item item) {
 		if (!(item instanceof Potion)) return false;
+		if (Recipe.isSpecialItem(item)) return false;
+		if (item.getClass().getSimpleName().contains("Test")) return false;
 		PotionForm form = ((Potion) item).form;
 		if (form == PotionForm.CRUDE || form == PotionForm.STANDARD || form == PotionForm.PILL) return true;
 		return item instanceof ExoticPotion || item instanceof Brew;
@@ -516,13 +447,11 @@ public final class SpsBrewRecipes {
 		return recipes;
 	}
 
-	/** 内置公式：CSV 不可用时的兜底，数值应与 assets/data/alchemy.csv 保持一致。 */
+	/** 内置公式：CSV 不可用时的兜底，数值应与 assets/data/alchemy.csv 保持一致。
+	 * 注意：秘药并入（FIXED 行）只在 CSV 里，兜底缺这一段（CSV 是主路径）。 */
 	public static List<Recipe> builtin() {
 		return Arrays.asList(
 				new EnergyFlaskBrew(),
-				new TabletBrew(),
-				new InjectorBrew(),
-				new ReagentBrew(),
 				new CrudeBrew(),
 				new StandardBrew(),
 				new MixBrew(),

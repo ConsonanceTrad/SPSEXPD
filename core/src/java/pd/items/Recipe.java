@@ -189,19 +189,12 @@ public abstract class Recipe {
 	
 	private static Recipe[] oneIngredientRecipes = new Recipe[]{
 		new Scroll.ScrollToStone(),
-		new ExoticPotion.PotionToExotic(),
+		//SPSEXPD: 合剂/魔药/秘药的一步直换全部撤下（docs/alchemy-rework.md §7）——
+		//合剂与魔药改由「主材 + 本局两味」产出，秘药也并入同一体系，
+		//所以 ExoticPotion.PotionToExotic、各 Brew.Recipe、各 ElixirOf*.Recipe 不再注册。
 		new ExoticScroll.ScrollToExotic(),
 		new ArcaneResin.Recipe(),
 		new LiquidMetal.Recipe(),
-		new BlizzardBrew.Recipe(),
-		new InfernalBrew.Recipe(),
-		new AquaBrew.Recipe(),
-		new ShockingBrew.Recipe(),
-		new ElixirOfDragonsBlood.Recipe(),
-		new ElixirOfIcyTouch.Recipe(),
-		new ElixirOfToxicEssence.Recipe(),
-		new ElixirOfMight.Recipe(),
-		new ElixirOfFeatherFall.Recipe(),
 		new MagicalInfusion.Recipe(),
 		new BeaconOfReturning.Recipe(),
 		new PhaseShift.Recipe(),
@@ -215,11 +208,7 @@ public abstract class Recipe {
 	
 	private static Recipe[] twoIngredientRecipes = new Recipe[]{
 		new Bomb.EnhanceBomb(),
-		new UnstableBrew.Recipe(),
-		new CausticBrew.Recipe(),
-		new ElixirOfArcaneArmor.Recipe(),
-		new ElixirOfAquaticRejuvenation.Recipe(),
-		new ElixirOfHoneyedHealing.Recipe(),
+		//SPSEXPD: CausticBrew / UnstableBrew / 各 ElixirOf* 的直换同样撤下（见上方说明）
 		new UnstableSpell.Recipe(),
 		new Alchemize.Recipe(),
 		new CurseInfusion.Recipe(),
