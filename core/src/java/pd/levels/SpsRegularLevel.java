@@ -172,6 +172,8 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		afterLegacyRoomsPainted();
 		paintLegacyWater();
 		paintLegacyGrass();
+		//SPSEXPD: 少量高草被替换成三档阶位的魔法植物（踩踏可收人工/精心种植级蔬菜）
+		pd.plants.MagicPlant.sprinkle(this);
 		paintLegacyChasms();
 		placeLegacyTraps();
 		decorateLegacyFloor();

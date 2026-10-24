@@ -98,6 +98,12 @@ public final class PlantHarvest {
 		return species == null ? null : species.fruit;
 	}
 
+	/** SPSEXPD: 该植物对应的蔬菜（魔法植物踩踏产出用）。 */
+	public static Class<? extends Item> vegetableFor(Class<?> plantClass) {
+		Species species = speciesFor(plantClass);
+		return species == null ? null : species.vegetable;
+	}
+
 	/** SPSEXPD: 该植物对应的大型果实（幸运把掉落的果实升为大型时用）。 */
 	public static Class<? extends Item> largeFruitFor(Class<?> plantClass) {
 		Species species = speciesFor(plantClass);

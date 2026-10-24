@@ -28,6 +28,7 @@ STD-01,1,LargeFruit,Salt,,,STANDARD,,1,0,1,0,标准：大型果实+盐+水 → �
 MIX-01,1,Potion#CRUDE,Item,Item,Item,MIX,,1,0,0,0,合剂：粗制药水+辅材（凑齐本局两味则出合剂，否则退回粗制药水）
 ELX-01,1,Potion#STANDARD,Item,Item,Item,ELIXIR,,1,0,0,0,魔药：标准药水+辅材（凑齐本局两味则出魔药，否则退回粗制药水）
 XR-01,1,ScrollOfIdentify,,,,ITEM,EyeOfTruth,1,0,1,0,结晶：鉴定卷轴+水 → 真实之眼
+JUI-01,1,Vegetable,Fruit,,,ITEM,MagicJuice,1,0,1,0,魔法果汁：蔬菜+任意果实+水
 FOR-01,1,Potion,,,,TABLET,,1,0,0,0,缓释片：药剂 → 同种缓释片
 FOR-02,1,Potion,,,,INJECTOR,,1,0,1,0,注射剂：药剂+水 → 同种注射剂
 FOR-03,1,Potion,,,,REAGENT,,2-4,0,1,0,试剂：药剂+水 → 2~4瓶试剂（效果1/3）

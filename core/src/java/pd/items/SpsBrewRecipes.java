@@ -11,6 +11,7 @@ import pd.ShatteredPixelDungeon;
 import pd.items.BrewRecipe.AdjuvantSet;
 import pd.items.BrewRecipe.FailureTable;
 import pd.items.BrewRecipe.Slots;
+import pd.items.consum.food.MagicJuice;
 import pd.items.consum.food.WaterItem;
 import pd.items.consum.food.fruit.Fruit;
 import pd.items.consum.food.processed.Salt;
@@ -287,6 +288,27 @@ public final class SpsBrewRecipes {
 		}
 	}
 
+	/**
+	 * 魔法果汁：主材蔬菜（魔法蔬菜）+ 辅材任意果实 + 水 → 魔法果汁。
+	 */
+	public static final class MagicJuiceBrew extends BrewRecipe {
+
+		public MagicJuiceBrew() {
+			mainMaterial = Vegetable.class;
+			adjuvantOptions = new AdjuvantSet[]{
+					new AdjuvantSet(new AdjuvantSet.Slot(MissileWeapon.class, SpsBrewRecipes::isFruitItem))
+			};
+			needsWater = true;
+			needsFire = false;
+			energyCost = 0;
+		}
+
+		@Override
+		protected Item successOutput(Slots ingredients) {
+			return new MagicJuice();
+		}
+	}
+
 	//*** 工具
 
 	/** 主材是否为「普通药剂」（排除合剂/秘药/酿造物/紊乱魔药家族）。 */
@@ -405,6 +427,7 @@ public final class SpsBrewRecipes {
 				new StandardBrew(),
 				new MixBrew(),
 				new ElixirBrew(),
+				new MagicJuiceBrew(),
 				new EyeCrystal()
 		);
 	}
