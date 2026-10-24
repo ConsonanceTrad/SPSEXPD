@@ -11,6 +11,11 @@ import pd.ShatteredPixelDungeon;
 import pd.items.BrewRecipe.AdjuvantSet;
 import pd.items.BrewRecipe.FailureTable;
 import pd.items.BrewRecipe.Slots;
+import pd.Dungeon;
+import pd.actors.hero.Hero;
+import pd.atlas.items.SpecificPlaceHolderDict;
+import pd.items.Item;
+import pd.items.consum.food.MagicCandy;
 import pd.items.consum.food.MagicJuice;
 import pd.items.consum.food.WaterItem;
 import pd.items.consum.food.fruit.Fruit;
@@ -309,6 +314,97 @@ public final class SpsBrewRecipes {
 		}
 	}
 
+	//*** 再加工（蒸馏压片机 / 分装灌液机）
+
+	/**
+	 * 蒸馏：魔法果汁 → 魔法硬糖；粗制/标准/合剂/魔药 → 同名药片；药片 + 盐 → 缓释片 ×2。
+	 * 只在「蒸馏压片机」界面里出现（见 AlchemyScene.spsMode）。
+	 */
+	public static final class DistillBrew extends BrewRecipe {
+
+		public DistillBrew() {
+			mainMaterial = null;
+			adjuvantOptions = null;
+			needsWater = false;
+			needsFire = false;
+			energyCost = 0;
+		}
+
+		@Override
+		public boolean matches(Slots ingredients) {
+			Item main = ingredients.main;
+			if (main == null) return false;
+			if (main instanceof MagicJuice) return ingredients.adjuvantCount() == 0;
+			if (!isProcessable(main)) return false;
+			if (((Potion) main).form == PotionForm.PILL) {
+				//药片 + 盐 → 缓释片
+				return ingredients.adjuvantCount() == 1 && ingredients.adjuvant[0] instanceof Salt;
+			}
+			return ingredients.adjuvantCount() == 0;
+		}
+
+		@Override
+		protected Item successOutput(Slots ingredients) {
+			Item main = ingredients.main;
+			if (main instanceof MagicJuice) return new MagicCandy();
+			Potion potion = (Potion) main;
+			if (potion.form == PotionForm.PILL) {
+				Potion tablet = variantAny(potion, PotionForm.TABLET);
+				if (tablet != null) tablet.quantity(2);
+				return tablet;
+			}
+			return variantAny(potion, PotionForm.PILL);
+		}
+	}
+
+	/**
+	 * 分装：粗制/标准/合剂/魔药 + 水 + 盐 → 同名安培 ×3（需配合投掷注射针使用）。
+	 * 只在「分装灌液机」界面里出现。
+	 */
+	public static final class FillBrew extends BrewRecipe {
+
+		public FillBrew() {
+			mainMaterial = null;
+			adjuvantOptions = new AdjuvantSet[]{
+					new AdjuvantSet(new AdjuvantSet.Slot(Salt.class))
+			};
+			needsWater = true;
+			needsFire = false;
+			energyCost = 0;
+		}
+
+		@Override
+		public boolean matches(Slots ingredients) {
+			if (!isProcessable(ingredients.main)) return false;
+			if (((Potion) ingredients.main).form == PotionForm.PILL) return false;
+			return super.matches(ingredients);
+		}
+
+		@Override
+		protected Item successOutput(Slots ingredients) {
+			Potion ampoule = variantAny(ingredients.main, PotionForm.AMPOULE);
+			if (ampoule != null) ampoule.quantity(3);
+			return ampoule;
+		}
+	}
+
+	/** 可再加工的药剂：粗制 / 标准 / 合剂 / 魔药（药片是蒸馏中间体，单独判定）。 */
+	public static boolean isProcessable(Item item) {
+		if (!(item instanceof Potion)) return false;
+		PotionForm form = ((Potion) item).form;
+		if (form == PotionForm.CRUDE || form == PotionForm.STANDARD || form == PotionForm.PILL) return true;
+		return item instanceof ExoticPotion || item instanceof Brew;
+	}
+
+	/** 构建任意药水的指定形态（含合剂/魔药；不比 isPlainPotion 更严格）。 */
+	@SuppressWarnings("unchecked")
+	public static Potion variantAny(Item main, PotionForm form) {
+		if (!(main instanceof Potion)) return null;
+		Potion potion = Reflection.newInstance((Class<? extends Potion>) main.getClass());
+		if (potion != null) potion.form = form;
+		return potion;
+	}
+
 	//*** 工具
 
 	/** 主材是否为「普通药剂」（排除合剂/秘药/酿造物/紊乱魔药家族）。 */
@@ -405,15 +501,19 @@ public final class SpsBrewRecipes {
 
 	/** 全部炼金公式（顺序即匹配顺序）。
 	 * SPSEXPD: 优先读 assets/data/alchemy.csv（表驱动，方便平衡调整）；
-	 * 表格缺失或解析失败时回退到下面的内置公式（与 CSV 同值）。 */
+	 * 表格缺失或解析失败时回退到内置公式。再加工（蒸馏/分装）公式不在表里，始终追加。 */
 	public static List<Recipe> all() {
+		List<Recipe> recipes = new ArrayList<>();
 		List<BrewRecipe> fromTable = AlchemyCsv.load();
 		if (!fromTable.isEmpty()) {
-			List<Recipe> recipes = new ArrayList<>(fromTable.size());
 			recipes.addAll(fromTable);
-			return recipes;
+		} else {
+			recipes.addAll(builtin());
 		}
-		return builtin();
+		//蒸馏压片机 / 分装灌液机 专用公式（由 AlchemyScene.spsMode 过滤）
+		recipes.add(new DistillBrew());
+		recipes.add(new FillBrew());
+		return recipes;
 	}
 
 	/** 内置公式：CSV 不可用时的兜底，数值应与 assets/data/alchemy.csv 保持一致。 */

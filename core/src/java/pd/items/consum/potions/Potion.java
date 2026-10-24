@@ -131,6 +131,8 @@ public class Potion extends Item {
 			.t("form_tablet", "缓释")
 			.t("form_injector", "注射用")
 			.t("form_reagent", "稀的")
+			.t("form_pill", "药片")
+			.t("form_ampoule", "安培")
 			.t("$placeholder.name", "药剂")
 			.t("$seedtopotion.name", "随机药剂");
 	}

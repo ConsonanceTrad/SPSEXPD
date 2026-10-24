@@ -48,6 +48,7 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.items.LiquidMetal;
 import pd.items.Recipe;
+import pd.items.SpsBrewRecipes;
 import pd.items.StoneOre;
 import pd.utils.GLog;
 import pd.items.equipment.artifacts.AlchemistsToolkit;
@@ -146,6 +147,13 @@ public class AlchemyScene extends PixelScene {
 	//SPSEXPD: 左侧快速添加按钮列（加水 / 加火种 / 药水箱 / 种子袋 / 购物车）
 	private static final int QUICK_BTN = 20;
 	private static final int QUICK_COL_W = QUICK_BTN + 8;
+
+	//SPSEXPD: 加工模式——炼金釜 / 蒸馏压片机 / 分装灌液机（后两者由可携带工具设置）
+	public static final int MODE_ALCHEMY = 0;
+	public static final int MODE_DISTILL = 1;
+	public static final int MODE_FILL = 2;
+	/** 当前模式；每次进入场景由入口决定，离开时由工具/场景重置为 MODE_ALCHEMY。 */
+	public static int spsMode = MODE_ALCHEMY;
 
 	//SPSEXPD: 5 格区域的上下边界，供合成按钮/输出槽纵向居中对齐
 	private float slotsTop;
@@ -725,6 +733,29 @@ public class AlchemyScene extends PixelScene {
 		return slots;
 	}
 	
+	/** SPSEXPD: 按当前加工模式过滤可用公式——炼金釜 / 蒸馏压片机 / 分装灌液机 各用各的公式集。 */
+	private static ArrayList<Recipe> filterByMode(ArrayList<Recipe> recipes) {
+		if (spsMode == MODE_ALCHEMY) {
+			ArrayList<Recipe> out = new ArrayList<>();
+			for (Recipe recipe : recipes) {
+				if (!(recipe instanceof SpsBrewRecipes.DistillBrew)
+						&& !(recipe instanceof SpsBrewRecipes.FillBrew)) {
+					out.add(recipe);
+				}
+			}
+			return out;
+		}
+		ArrayList<Recipe> out = new ArrayList<>();
+		for (Recipe recipe : recipes) {
+			if (spsMode == MODE_DISTILL && recipe instanceof SpsBrewRecipes.DistillBrew) {
+				out.add(recipe);
+			} else if (spsMode == MODE_FILL && recipe instanceof SpsBrewRecipes.FillBrew) {
+				out.add(recipe);
+			}
+		}
+		return out;
+	}
+
 	//SPSEXPD: 原来的「废料重铸」（wasteCount/reforgeWaste）已随垃圾物品一并移除
 
 	private void updateState(){
@@ -732,7 +763,7 @@ public class AlchemyScene extends PixelScene {
 		repeat.enable(false);
 
 		ArrayList<Item> ingredients = filterInput(Item.class);
-		ArrayList<Recipe> recipes = Recipe.findRecipes(ingredients, currentSlots());
+		ArrayList<Recipe> recipes = filterByMode(Recipe.findRecipes(ingredients, currentSlots()));
 
 		//disables / hides unneeded buttons
 		for (int i = recipes.size(); i < combines.length; i++){
@@ -808,7 +839,7 @@ public class AlchemyScene extends PixelScene {
 			lastIngredients.add(i.duplicate());
 		}
 
-		ArrayList<Recipe> recipes = Recipe.findRecipes(ingredients, currentSlots());
+		ArrayList<Recipe> recipes = filterByMode(Recipe.findRecipes(ingredients, currentSlots()));
 		if (recipes.size() <= slot) return;
 
 		Recipe recipe = recipes.get(slot);

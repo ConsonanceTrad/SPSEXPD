@@ -21,7 +21,11 @@ public enum PotionForm {
 	/** 注射剂：免回合、瞬间化、数值更激烈（批4）。 */
 	INJECTOR(1.25f, "form_injector"),
 	/** 试剂：分装弱化版，效果为正常的 1/3（批4）。 */
-	REAGENT(1f / 3f, "form_reagent");
+	REAGENT(1f / 3f, "form_reagent"),
+	/** 药片：蒸馏得到的中间形态，加盐后压成缓释片（2026-10 二次改版）。 */
+	PILL(1f, "form_pill"),
+	/** 安培：分装灌液机产物，需配合投掷注射针使用（2026-10 二次改版）。 */
+	AMPOULE(1f, "form_ampoule");
 
 	public final float scale;
 	public final String nameKey;
