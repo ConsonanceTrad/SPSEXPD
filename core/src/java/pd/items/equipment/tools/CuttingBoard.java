@@ -25,7 +25,6 @@ import java.util.ArrayList;
 
 import pd.Dungeon;
 import pd.actors.hero.Hero;
-import pd.atlas.items.EquipmentNonEquipDict;
 import pd.items.Item;
 import pd.messages.InlineText;
 import pd.messages.Messages;
@@ -49,7 +48,7 @@ public class CuttingBoard extends Item {
 	public static final String AC_CUT = "CUT";
 
 	{
-		image = EquipmentNonEquipDict.PURE_DEWDROP_WATER;
+		image = pd.atlas.items.ConsumGoodsMaterialsMaterialsExtraDict.DRY_TWIG;
 		stackable = false;
 		unique = true;
 	}

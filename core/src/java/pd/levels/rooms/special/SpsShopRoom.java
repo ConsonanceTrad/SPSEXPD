@@ -143,6 +143,8 @@ public class SpsShopRoom extends ShopRoom {
 		itemsToSpawn.add(Generator.random(Generator.Category.RANGEWEAPON));
 		itemsToSpawn.add(Generator.random(Generator.Category.MELEEWEAPON));
 		itemsToSpawn.add(Generator.random(Generator.Category.ARMOR));
+		//SPSEXPD: 菜板——把食材直接组合成冷食的工具（与平底煎锅、分装灌液机分工）
+		itemsToSpawn.add(new pd.items.equipment.tools.CuttingBoard());
 
 		if (Random.Int(3) == 0) {
 			itemsToSpawn.add(Random.Int(2) == 0 ? new RandomMonthEgg() : new Egg());
