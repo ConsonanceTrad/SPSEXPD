@@ -8,6 +8,7 @@ import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.items.consum.potions.BenignConcoction;
 import pd.items.consum.potions.Potion;
+import pd.items.consum.potions.PotionForm;
 import pd.items.consum.potions.PotionOfFrost;
 import pd.items.consum.potions.PotionOfHealing;
 import pd.items.consum.potions.PotionOfLiquidFlame;
@@ -45,12 +46,13 @@ public class ReagentTestCard extends Item {
 	static {
 		InlineText.of(ReagentTestCard.class)
 			.t("name", "试剂检测卡")
-			.t("desc", "商店贩售的简易试剂卡。把它贴上药瓶，能认出最常见的六种药剂"
-					+ "（治疗、灵视、净化、火焰、冰霜、毒气）；遇上认不出的药剂，"
-					+ "它只会告诉你这似乎不是常见的药水类型。每张只能用一次。")
+			.t("desc", "商店贩售的简易试剂卡。把它贴上药瓶，能认出任何粗制或标准工艺的药水，"
+					+ "也能认出最常见的六种药剂（治疗、灵视、净化、火焰、冰霜、毒气）；"
+					+ "遇上认不出的药剂，它只会告诉你这似乎不是常见的药水类型。每张只能用一次。")
 			.t("ac_test", "检测药剂")
 			.t("prompt", "选择一瓶未鉴定药剂")
 			.t("common", "检测卡上显出熟悉的反应：这是%1$s。")
+			.t("common_crude", "检测卡认出这是常见的粗制工艺产物：%1$s。")
 			.t("uncommon", "这似乎不是常见的药水类型。")
 			.t("no_potion", "你身上没有未鉴定的药剂可以检测。");
 	}
@@ -75,11 +77,7 @@ public class ReagentTestCard extends Item {
 		if (!AC_TEST.equals(action)) return;
 
 		curUser = hero;
-		boolean any = false;
-		for (Item item : hero.belongings.backpack.items) {
-			if (isTestable(item)) { any = true; break; }
-		}
-		if (!any) {
+		if (!anyTestable(hero)) {
 			GLog.w(Messages.get(this, "no_potion"));
 			return;
 		}
@@ -88,6 +86,20 @@ public class ReagentTestCard extends Item {
 
 	private static boolean isTestable(Item item) {
 		return item instanceof Potion && !((Potion) item).identified;
+	}
+
+	/** 背包 + 所有包裹里是否还有可检测的药剂（药水箱里常堆着未鉴定的药水）。 */
+	private static boolean anyTestable(Hero hero) {
+		if (hero == null || hero.belongings == null) return false;
+		for (Item item : hero.belongings.backpack.items) {
+			if (isTestable(item)) return true;
+		}
+		for (pd.items.equipment.bags.Bag bag : hero.belongings.getBags()) {
+			for (Item item : bag.items) {
+				if (isTestable(item)) return true;
+			}
+		}
+		return false;
 	}
 
 	private static final WndBag.ItemSelector selector = new WndBag.ItemSelector() {
@@ -111,14 +123,22 @@ public class ReagentTestCard extends Item {
 			Item card = curUser.belongings.getItem(ReagentTestCard.class);
 			if (card != null) card.detach(curUser.belongings.backpack);
 
-			boolean common = false;
-			for (Class<?> type : COMMON) {
-				if (type.isInstance(potion)) { common = true; break; }
+			//SPSEXPD: 粗制 / 标准是常见工艺产物，检测卡一律认得出；
+			//其余形态再看是不是那 6 种常见药剂
+			PotionForm form = potion.form;
+			boolean common = form == PotionForm.CRUDE || form == PotionForm.STANDARD;
+			if (!common) {
+				for (Class<?> type : COMMON) {
+					if (type.isInstance(potion)) { common = true; break; }
+				}
 			}
 
 			if (common) {
 				potion.identify();
-				GLog.p(Messages.get(ReagentTestCard.class, "common", Messages.titleCase(potion.name())));
+				boolean crafted = potion.form == PotionForm.CRUDE || potion.form == PotionForm.STANDARD;
+				GLog.p(Messages.get(ReagentTestCard.class,
+						crafted ? "common_crude" : "common",
+						Messages.titleCase(potion.name())));
 			} else {
 				GLog.w(Messages.get(ReagentTestCard.class, "uncommon"));
 			}
