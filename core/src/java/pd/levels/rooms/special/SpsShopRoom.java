@@ -128,8 +128,6 @@ public class SpsShopRoom extends ShopRoom {
 		itemsToSpawn.add(pd.items.SpsShopPotion.random());
 		//SPSEXPD: 试剂检测卡——配套未鉴定药剂的鉴定工具（docs/alchemy-rework.md §4.2）
 		itemsToSpawn.add(new pd.items.consum.materials.ReagentTestCard().quantity(Random.IntRange(2, 3)));
-		//SPSEXPD: 魔法药瓶——试剂自动喂食组件（docs/alchemy-rework.md §6.6）
-		itemsToSpawn.add(new pd.items.consum.materials.MagicFeederBottle());
 		//SPSEXPD: 通用弹匣——枪械弹药上架（替换第二瓶随机药剂，不改变商店商品总数）
 		itemsToSpawn.add(new pd.items.Magazine().quantity(Random.IntRange(2, 4)));
 		//SPSEXPD: 药水再加工工具与安培投射器（docs/alchemy-rework.md §7.5）

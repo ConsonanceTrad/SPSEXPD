@@ -1278,9 +1278,6 @@ public class Hero extends Char {
 	 * 于是「走一步神木圆盾回 2 充能」。改到时间维度后与 act 次数无关。
 	 */
 	private void onTurnCharge() {
-		//SPSEXPD: 魔法药瓶的自动喂食（docs/alchemy-rework.md §6.6）
-		pd.items.consum.materials.MagicFeederBottle.autofeed(this);
-
 		//SPSXPD: 宠物能力特质（献祭获得）的每回合触发
 		pd.actors.hero.perks.pets.PetAbilityPerk.dispatchTurn(this);
 

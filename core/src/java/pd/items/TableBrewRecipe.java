@@ -93,7 +93,6 @@ public class TableBrewRecipe extends BrewRecipe {
 				return SpsBrewRecipes.exoticOf(ingredients.main) != null;
 			case "TABLET":
 			case "INJECTOR":
-			case "REAGENT":
 				return SpsBrewRecipes.isPlainPotion(ingredients.main);
 			default:
 				return true;
@@ -140,11 +139,6 @@ public class TableBrewRecipe extends BrewRecipe {
 				return SpsBrewRecipes.variantOf(ingredients.main, PotionForm.TABLET);
 			case "INJECTOR":
 				return SpsBrewRecipes.variantOf(ingredients.main, PotionForm.INJECTOR);
-			case "REAGENT": {
-				Item reagent = SpsBrewRecipes.variantOf(ingredients.main, PotionForm.REAGENT);
-				applyQty(reagent);
-				return reagent;
-			}
 			default: {
 				if (outputType == null) return null;
 				Item item = Reflection.newInstance(outputType);
@@ -213,7 +207,6 @@ public class TableBrewRecipe extends BrewRecipe {
 			case "PILL": return PotionForm.PILL;
 			case "TABLET": return PotionForm.TABLET;
 			case "INJECTOR": return PotionForm.INJECTOR;
-			case "REAGENT": return PotionForm.REAGENT;
 			case "AMPOULE": return PotionForm.AMPOULE;
 			default: return null;
 		}
@@ -245,8 +238,6 @@ public class TableBrewRecipe extends BrewRecipe {
 				return item -> item instanceof Potion && ((Potion) item).form == PotionForm.TABLET;
 			case "INJECTOR":
 				return item -> item instanceof Potion && ((Potion) item).form == PotionForm.INJECTOR;
-			case "REAGENT":
-				return item -> item instanceof Potion && ((Potion) item).form == PotionForm.REAGENT;
 			default:
 				return null;
 		}
