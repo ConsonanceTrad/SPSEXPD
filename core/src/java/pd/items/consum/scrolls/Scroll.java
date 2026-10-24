@@ -60,7 +60,7 @@ import pd.items.consum.stones.StoneOfIntuition;
 import pd.items.consum.stones.StoneOfShock;
 import pd.journal.Catalog;
 import pd.messages.Messages;
-import pd.scenes.AlchemyScene;
+import pd.windows.WndCrafting;
 import pd.sprites.HeroSprite;
 import pd.utils.GLog;
 import render.utils.math.Random;
@@ -423,9 +423,9 @@ public abstract class Scroll extends Item {
 			Scroll s = (Scroll) ingredients.get(0);
 			
 			s.quantity(s.quantity() - 1);
-			if (ShatteredPixelDungeon.scene() instanceof AlchemyScene){
+			if (WndCrafting.active() != null){
 				if (!s.isIdentified()){
-					((AlchemyScene) ShatteredPixelDungeon.scene()).showIdentify(s);
+					WndCrafting.active().showIdentify(s);
 				}
 			} else {
 				s.identify();

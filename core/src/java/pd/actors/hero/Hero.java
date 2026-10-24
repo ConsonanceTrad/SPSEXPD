@@ -249,7 +249,6 @@ import pd.mechanics.ShadowCaster;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.plants.Earthroot;
-import pd.scenes.AlchemyScene;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.scenes.WelcomeScene;
@@ -1704,9 +1703,8 @@ public class Hero extends Char {
 					} else if (Dungeon.level.map[dst] == Terrain.IRON_MAKER) {
 						GameScene.show(new WndIronMaker());
 					} else {
-						AlchemyScene.clearToolkit();
-						AlchemyScene.resetMode();
-						ShatteredPixelDungeon.switchScene(AlchemyScene.class);
+						pd.windows.WndCrafting.clearToolkit();
+						pd.windows.WndCrafting.open(pd.windows.WndCrafting.MODE_ALCHEMY);
 					}
 				}
 			});

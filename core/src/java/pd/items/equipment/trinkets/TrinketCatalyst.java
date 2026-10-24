@@ -35,7 +35,7 @@ import pd.items.Item;
 import pd.journal.Catalog;
 import pd.journal.Document;
 import pd.messages.Messages;
-import pd.scenes.AlchemyScene;
+import pd.windows.WndCrafting;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
@@ -238,8 +238,8 @@ public class TrinketCatalyst extends Item {
 							cata.detach(Dungeon.hero.belongings.backpack);
 							Catalog.countUse(cata.getClass());
 							result.identify();
-							if (ShatteredPixelDungeon.scene() instanceof AlchemyScene) {
-								((AlchemyScene) ShatteredPixelDungeon.scene()).craftItem(null, result);
+							if (WndCrafting.active() != null) {
+								WndCrafting.active().craftItem(null, result);
 							} else {
 								Sample.INSTANCE.play( Assets.Sounds.PUFF );
 

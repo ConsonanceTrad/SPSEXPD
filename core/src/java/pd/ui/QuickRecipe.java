@@ -100,7 +100,7 @@ import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.items.equipment.weapon.missiles.arrows.*;
 import pd.messages.Messages;
 import pd.plants.Plant;
-import pd.scenes.AlchemyScene;
+import pd.windows.WndCrafting;
 import pd.scenes.PixelScene;
 import pd.windows.WndBag;
 import pd.windows.WndInfoItem;
@@ -178,7 +178,7 @@ public class QuickRecipe extends Component {
 		}
 		if (hasInputs) {
 			arrow.icon.tint(1, 1, 0, 1);
-			if (!(ShatteredPixelDungeon.scene() instanceof AlchemyScene)) {
+			if (WndCrafting.active() == null) {
 				arrow.enable(false);
 			}
 		} else {
@@ -313,7 +313,7 @@ public class QuickRecipe extends Component {
 				}
 			}
 			
-			((AlchemyScene)ShatteredPixelDungeon.scene()).populate(ingredients, Dungeon.hero.belongings);
+			WndCrafting.active().populate(ingredients, Dungeon.hero.belongings);
 		}
 		
 		public void hardlightText(int color ){

@@ -28,7 +28,7 @@ import pd.items.consum.potions.PotionOfExperience;
 import pd.items.consum.potions.PotionOfStrength;
 import pd.items.consum.potions.elixirs.ElixirOfMight;
 import pd.messages.Messages;
-import pd.scenes.AlchemyScene;
+import pd.windows.WndCrafting;
 import pd.scenes.GameScene;
 import pd.utils.GLog;
 import pd.windows.WndBag;
@@ -131,8 +131,8 @@ public class AlchemistsToolkit extends Artifact {
 		}
 		setCurrent(hero);
 		if (AC_COOKING.equals(action)) {
-			AlchemyScene.clearToolkit();
-			Game.switchScene(AlchemyScene.class);
+			WndCrafting.clearToolkit();
+			WndCrafting.open(WndCrafting.MODE_ALCHEMY);
 		} else if (AC_BREW.equals(action)) {
 			GameScene.selectItem(itemSelector);
 		} else if (AC_CREATE.equals(action)) {

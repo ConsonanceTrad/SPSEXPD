@@ -27,13 +27,13 @@ import pd.actors.hero.Hero;
 import pd.atlas.items.SpecificPlaceHolderDict;
 import pd.items.Item;
 import pd.messages.InlineText;
-import pd.scenes.AlchemyScene;
+import pd.windows.WndCrafting;
 import render.noosa.Game;
 
 /**
  * SPSEXPD: 药水再加工工具（docs/alchemy-rework.md §4）。
  *
- * <p>两种可携带工具共用同一套加工界面（{@link AlchemyScene} 的加工模式）：
+ * <p>两种可携带工具共用同一套加工界面（{@link WndCrafting} 的加工模式）：
  * <ul>
  *   <li>{@link Distiller} 蒸馏压片机 —— 果汁→硬糖、药水→药片、药片+盐→缓释片×2</li>
  *   <li>{@link AmpouleFiller} 分装灌液机 —— 药水+水+盐→安培×3</li>
@@ -50,7 +50,7 @@ public abstract class ProcessTool extends Item {
 		defaultAction = AC_USE;
 	}
 
-	/** 打开的加工模式（见 AlchemyScene.spsMode）。 */
+	/** 打开的加工模式（见 WndCrafting.spsMode）。 */
 	protected abstract int mode();
 
 	@Override
@@ -65,8 +65,8 @@ public abstract class ProcessTool extends Item {
 		super.execute(hero, action);
 		if (AC_USE.equals(action)) {
 			hero.busy();
-			AlchemyScene.spsMode = mode();
-			Game.runOnRenderThread(() -> Game.switchScene(AlchemyScene.class));
+			final int m = mode();
+			Game.runOnRenderThread(() -> WndCrafting.open(m));
 		}
 	}
 
@@ -96,7 +96,7 @@ public abstract class ProcessTool extends Item {
 
 		@Override
 		protected int mode() {
-			return AlchemyScene.MODE_DISTILL;
+			return WndCrafting.MODE_DISTILL;
 		}
 	}
 
@@ -111,7 +111,7 @@ public abstract class ProcessTool extends Item {
 
 		@Override
 		protected int mode() {
-			return AlchemyScene.MODE_FILL;
+			return WndCrafting.MODE_FILL;
 		}
 	}
 }

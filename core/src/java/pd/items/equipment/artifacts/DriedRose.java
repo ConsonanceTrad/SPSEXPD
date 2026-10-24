@@ -69,7 +69,7 @@ import pd.journal.Catalog;
 import pd.levels.VaultLevel;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
-import pd.scenes.AlchemyScene;
+
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;

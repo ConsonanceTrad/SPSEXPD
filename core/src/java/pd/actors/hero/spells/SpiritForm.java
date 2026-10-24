@@ -54,7 +54,7 @@ import pd.plants.Icecap;
 import pd.plants.Sorrowmoss;
 import pd.plants.Stormvine;
 import pd.plants.Swiftthistle;
-import pd.scenes.AlchemyScene;
+import pd.windows.WndCrafting;
 import pd.scenes.GameScene;
 import pd.ui.BuffIndicator;
 import pd.ui.HeroIcon;
@@ -207,8 +207,8 @@ public class SpiritForm extends ClericSpell {
 	public static void applyActiveArtifactEffect(ClassArmor armor, Artifact effect){
 		if (effect instanceof AlchemistsToolkit){
 			Talent.onArtifactUsed(Dungeon.hero);
-			AlchemyScene.assignToolkit((AlchemistsToolkit) effect);
-			Game.switchScene(AlchemyScene.class);
+			WndCrafting.assignToolkit((AlchemistsToolkit) effect);
+			WndCrafting.open(WndCrafting.MODE_ALCHEMY);
 
 		} else if (effect instanceof DriedRose){
 			ArrayList<Integer> spawnPoints = new ArrayList<>();

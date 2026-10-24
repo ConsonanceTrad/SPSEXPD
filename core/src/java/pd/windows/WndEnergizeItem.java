@@ -31,7 +31,7 @@ import pd.items.EquipableItem;
 import pd.items.Item;
 import pd.items.equipment.trinkets.Trinket;
 import pd.messages.Messages;
-import pd.scenes.AlchemyScene;
+import pd.windows.WndCrafting;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
 import pd.ui.RedButton;
@@ -168,12 +168,12 @@ public class WndEnergizeItem extends WndInfoItem {
 	private static void energize(Item item){
 		Hero hero = Dungeon.hero;
 
-		if (ShatteredPixelDungeon.scene() instanceof AlchemyScene){
+		if (WndCrafting.active() != null){
 
 			Dungeon.energy += item.energyVal();
-			((AlchemyScene) ShatteredPixelDungeon.scene()).createEnergy();
+			WndCrafting.active().createEnergy();
 			if (!item.isIdentified()){
-				((AlchemyScene) ShatteredPixelDungeon.scene()).showIdentify(item);
+				WndCrafting.active().showIdentify(item);
 			}
 
 		} else {

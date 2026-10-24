@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package pd.scenes;
+package pd.windows;
 
 import pd.atlas.items.SpecificCurrencyDict;
 import pd.atlas.items.SpecificPagesDict;
@@ -65,6 +65,8 @@ import pd.journal.Catalog;
 import pd.journal.Document;
 import pd.journal.Journal;
 import pd.messages.Messages;
+import pd.scenes.GameScene;
+import pd.scenes.PixelScene;
 import pd.sprites.ItemSprite;
 import pd.ui.Button;
 import pd.ui.ExitButton;
@@ -106,10 +108,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import pd.messages.InlineText;
 
-public class AlchemyScene extends PixelScene {
+public class WndCrafting extends Window {
 	//SPSEXPD: inline Chinese text (generated from messages/scenes/zh)
 	static {
-		InlineText.of(AlchemyScene.class)
+		InlineText.of(WndCrafting.class)
 			.t("title", "炼金")
 			.t("text", "")
 			.t("select", "选择一件物品")
@@ -129,7 +131,26 @@ public class AlchemyScene extends PixelScene {
 			.t("quick_cart", "打开购物车")
 			.t("no_material", "背包里没有这种材料。")
 			.t("no_space", "没有空闲的辅材格了。")
-			.t("no_bag", "你还没有这个包裹。");
+			.t("no_bag", "你还没有这个包裹。")
+			.t("title_distill", "蒸馏压片机")
+			.t("title_fill", "分装灌液机")
+			.t("title_cook", "平底煎锅")
+			.t("title_board", "菜板");
+	}
+
+	/** SPSEXPD: 打开指定模式的加工窗口（炼金釜 / 蒸馏 / 分装 / 平底锅 / 菜板）。 */
+	public static void open(int mode) {
+		if (Dungeon.hero == null) return;
+		spsMode = mode;
+		Game.scene().addToFront(new WndCrafting());
+	}
+
+	//SPSEXPD: 当前打开的加工窗口（替代原先「scene() instanceof AlchemyScene」的判定）
+	private static WndCrafting instance = null;
+
+	/** 当前打开的加工窗口，没有则为 null。 */
+	public static WndCrafting active() {
+		return instance;
 	}
 
 
@@ -148,14 +169,16 @@ public class AlchemyScene extends PixelScene {
 	private static final int QUICK_BTN = 20;
 	private static final int QUICK_COL_W = QUICK_BTN + 8;
 
-	//SPSEXPD: 加工模式——炼金釜 / 蒸馏压片机 / 分装灌液机（后两者由可携带工具设置）
+	//SPSEXPD: 加工模式——炼金釜 / 蒸馏压片机 / 分装灌液机 / 平底锅 / 菜板
 	public static final int MODE_ALCHEMY = 0;
 	public static final int MODE_DISTILL = 1;
 	public static final int MODE_FILL = 2;
-	/** 当前模式；每次进入场景由入口决定，离开时必须调用 {@link #resetMode()} 复位。 */
+	public static final int MODE_COOK = 3;
+	public static final int MODE_BOARD = 4;
+	/** 当前模式；每次打开窗口由入口决定，关闭时必须调用 {@link #resetMode()} 复位。 */
 	public static int spsMode = MODE_ALCHEMY;
 
-	/** SPSEXPD: 离开加工界面时复位为炼金釜模式，避免下次开釜仍处于蒸馏/分装模式。 */
+	/** SPSEXPD: 关闭加工界面时复位为炼金釜模式，避免下次开釜仍处于其它模式。 */
 	public static void resetMode() {
 		spsMode = MODE_ALCHEMY;
 	}
@@ -171,136 +194,110 @@ public class AlchemyScene extends PixelScene {
 	private static Recipe lastRecipe = null;
 
 	private Emitter smokeEmitter;
-	private Emitter bubbleEmitter;
-	private Emitter sparkEmitter;
-	
-	private Emitter lowerBubbles;
-	private SkinnedBlock water;
 
 	private Image energyIcon;
 	private RenderedTextBlock energyLeft;
 	private IconButton energyAdd;
 	private boolean energyAddBlinking = false;
 
-	private static boolean splitAlchGuide = false;
-	private WndJournal.AlchemyTab alchGuide = null;
 	private static int centerW;
 
 	private static final int BTN_SIZE	= 28;
 
-	{
-		inGameScene = true;
+	//SPSEXPD: 窗口化后的尺寸（照 WndJournal 的竖/横两套），内容按窗口坐标布局
+	private static final int WIDTH_P  = WndJournal.WIDTH_P;
+	private static final int HEIGHT_P = WndJournal.HEIGHT_P;
+	private static final int WIDTH_L  = WndJournal.WIDTH_L;
+	private static final int HEIGHT_L = WndJournal.HEIGHT_L;
+
+	//*** 子类/模式可定制的差异点（窗口标题、图标、格数、是否带快速加料列与指南）
+
+	/** 标题文案键（按模式）。 */
+	protected String titleKey() {
+		switch (spsMode) {
+			case MODE_DISTILL: return "title_distill";
+			case MODE_FILL:    return "title_fill";
+			case MODE_COOK:    return "title_cook";
+			case MODE_BOARD:   return "title_board";
+			default:           return "title";
+		}
 	}
-	
-	@Override
-	public void create() {
-		super.create();
-		activeInputCount = spsInputCapacity(activeToolkit());
 
-		int w = Camera.main.width;
-		int h = Camera.main.height;
-		RectF insets = getCommonInsets();
+	/** 标题图标（按模式，视觉上与炼金釜区分开）。 */
+	protected Image titleIcon() {
+		switch (spsMode) {
+			case MODE_DISTILL:
+				return new ItemSprite(new pd.items.equipment.artifacts.ProcessTool.Distiller());
+			case MODE_FILL:
+				return new ItemSprite(new pd.items.equipment.artifacts.ProcessTool.AmpouleFiller());
+			case MODE_COOK:
+				return new ItemSprite(new pd.items.equipment.weapon.melee.special.MeleePan());
+			case MODE_BOARD:
+				return new ItemSprite(new pd.items.equipment.tools.CuttingBoard());
+			default:
+				return Icons.ALCHEMY.get();
+		}
+	}
 
-		water = new SkinnedBlock(
-				w, h,
-				Dungeon.level.waterTex() ){
-			
-			@Override
-			protected NoosaScript script() {
-				return NoosaScriptNoLighting.get();
-			}
-			
-			@Override
-			public void draw() {
-				//water has no alpha component, this improves performance
-				Blending.disable();
-				super.draw();
-				Blending.enable();
-			}
-		};
-		water.autoAdjust = true;
-		add(water);
-		
-		Image im = new Image(TextureCache.createGradient(0x66000000, 0x88000000, 0xAA000000, 0xCC000000, 0xFF000000));
-		im.angle = 90;
-		im.x = w;
-		im.scale.x = h/5f;
-		im.scale.y = w;
-		add(im);
+	/** 每个模式的材料格数量（炼金 5 / 蒸馏 2 / 分装 2 / 平底锅 3 / 菜板 3）。 */
+	protected int modeSlotCount(int mode) {
+		switch (mode) {
+			case MODE_DISTILL:
+			case MODE_FILL:
+				return 2;
+			case MODE_COOK:
+			case MODE_BOARD:
+				return 3;
+			default:
+				return 5;
+		}
+	}
 
-		w -= insets.left + insets.right;
-		h -= insets.top + insets.bottom;
+	/** 左侧快速加料按钮列只有炼金釜需要（水/火种/包裹）。 */
+	protected boolean hasQuickColumn() {
+		return spsMode == MODE_ALCHEMY;
+	}
 
-		ExitButton btnExit = new ExitButton(){
-			@Override
-			protected void onClick() {
-				resetMode();
-				Game.switchScene(GameScene.class);
-			}
-		};
-		btnExit.setPos( insets.left + w - btnExit.width(), insets.top );
-		add( btnExit );
+	/** 是否需要「指南」按钮（只有炼金有炼金指南）。 */
+	protected boolean hasGuideButton() {
+		return spsMode == MODE_ALCHEMY;
+	}
 
-		bubbleEmitter = new Emitter();
-		add(bubbleEmitter);
+	/** SPSEXPD: 窗口内容在构造期一次性搭好（Window 没有 createChildren 钩子）。 */
+	public WndCrafting() {
+		super(PixelScene.landscape() ? WIDTH_L : WIDTH_P,
+				PixelScene.landscape() ? HEIGHT_L : HEIGHT_P);
+		buildUi();
+	}
 
-		lowerBubbles = new Emitter();
-		add(lowerBubbles);
-		
-		IconTitle title = new IconTitle(Icons.ALCHEMY.get(), Messages.get(this, "title") );
-		title.setSize(200, 0);
-		title.setPos(
-				insets.left + (w - title.reqWidth()) / 2f,
-				insets.top + (20 - title.height()) / 2f
-		);
-		align(title);
+	private void buildUi() {
+		instance = this;
+
+		int winW = (int)width;
+		int winH = (int)height;
+
+		activeInputCount = Math.min(spsInputCapacity(activeToolkit()), modeSlotCount(spsMode));
+
+		int w = winW;
+		int h = winH;
+
+		IconTitle title = new IconTitle(titleIcon(), Messages.get(this, titleKey()));
+		title.setSize(w, 0);
+		title.setPos(0, 0);
+		PixelScene.align(title);
 		add(title);
-		
-		int pw = Math.min(50 + w/2, 150);
-		int left = (int)(insets.left) + (w - pw)/2;
+
+		int pw = w;
+		int left = 0;
 
 		centerW = left + pw/2;
 
-		int pos = (int)(insets.top) + (h - (3 * BTN_SIZE + 2 * 6 + 40))/2;
+		int pos = (int)title.bottom() + 2;
 
-		if (splitAlchGuide &&
-				w >= 300 &&
-				h >= PixelScene.MIN_HEIGHT_FULL){
-			pw = Math.min(150, w/2);
-			left = (w/2 - pw);
-			centerW = left + pw/2;
-
-			NinePatch guideBG = Chrome.get(Chrome.Type.TOAST);
-			guideBG.size(126 + guideBG.marginHor(), Math.min(Camera.main.height - 18, 191 + guideBG.marginVer()));
-			guideBG.y = Math.max(17, insets.top + (h - guideBG.height())/2f);
-			guideBG.x = insets.left + w - left - guideBG.width();
-			add(guideBG);
-
-			alchGuide = new WndJournal.AlchemyTab();
-			add(alchGuide);
-			alchGuide.setRect(guideBG.x + guideBG.marginLeft(),
-					guideBG.y + guideBG.marginTop(),
-					guideBG.width() - guideBG.marginHor(),
-					guideBG.height() - guideBG.marginVer());
-
-		} else {
-			splitAlchGuide = false;
-		}
-		
-		RenderedTextBlock desc = PixelScene.renderTextBlock(6);
-		desc.maxWidth(pw);
-		desc.text( Messages.get(AlchemyScene.class, "text") );
-		desc.setPos(left + (pw - desc.width())/2, pos);
-		add(desc);
-		
-		pos += desc.height() + 6;
-
-		//SPSEXPD: 5 格布局——左列快速添加按钮，右侧上方主材、下方辅材 2×2 两行
-		//（水与火种不再是专用格，作为辅材之一放进辅材格；docs/alchemy-rework.md §1.2）
-		//gapX 的上限要把左侧按钮列宽度算进去，否则槽区右移后合成按钮/输出槽会顶到窗口边缘
-		float gapX = Math.max(4, Math.min(24, (pw - 74 - QUICK_COL_W) - 2*BTN_SIZE));
+		//SPSEXPD: 材料格布局——左侧快速添加按钮列，右侧主材 + 辅材（窗口模式下按 2 列排）
+		float gapX = Math.max(4, Math.min(20, (pw - 74 - QUICK_COL_W) - 2*BTN_SIZE));
 		float inputW = 2*BTN_SIZE + gapX;
-		float slotsX0 = left + 6 + QUICK_COL_W;
+		float slotsX0 = left + 6 + (hasQuickColumn() ? QUICK_COL_W : 0);
 		float slotsX1 = slotsX0 + BTN_SIZE + gapX;
 		float slotsMainX = slotsX0 + (inputW - BTN_SIZE)/2f;
 
@@ -321,24 +318,26 @@ public class AlchemyScene extends PixelScene {
 		slotsMiddleY = slotsTop + (slotsBottom - slotsTop - BTN_SIZE)/2f;
 
 		//左侧快速添加按钮列：加水 / 加火种 / 药水箱 / 种子袋 / 购物车
-		float quickX = left + 6;
-		float quickY = slotsTop;
-		addQuickButton(quickX, quickY + 0*(QUICK_BTN + 4),
-				EquipmentNonEquipDict.PURE_DEWDROP_WATER, this::quickAddWater);
-		addQuickButton(quickX, quickY + 1*(QUICK_BTN + 4),
-				ConsumGoodsMaterialsMaterialsExtraDict.TINDER, this::quickAddFire);
-		addQuickButton(quickX, quickY + 2*(QUICK_BTN + 4),
-				EquipmentBagsDict.BANDOLIER, () -> openBag(PotionBandolier.class));
-		addQuickButton(quickX, quickY + 3*(QUICK_BTN + 4),
-				EquipmentBagsDict.POUCH, () -> openBag(VelvetPouch.class));
-		addQuickButton(quickX, quickY + 4*(QUICK_BTN + 4),
-				EquipmentBagsDict.SHOPPING_CART_0, () -> openBag(ShoppingCart.class));
+		if (hasQuickColumn()) {
+			float quickX = left + 6;
+			float quickY = slotsTop;
+			addQuickButton(quickX, quickY + 0*(QUICK_BTN + 4),
+					EquipmentNonEquipDict.PURE_DEWDROP_WATER, this::quickAddWater);
+			addQuickButton(quickX, quickY + 1*(QUICK_BTN + 4),
+					ConsumGoodsMaterialsMaterialsExtraDict.TINDER, this::quickAddFire);
+			addQuickButton(quickX, quickY + 2*(QUICK_BTN + 4),
+					EquipmentBagsDict.BANDOLIER, () -> openBag(PotionBandolier.class));
+			addQuickButton(quickX, quickY + 3*(QUICK_BTN + 4),
+					EquipmentBagsDict.POUCH, () -> openBag(VelvetPouch.class));
+			addQuickButton(quickX, quickY + 4*(QUICK_BTN + 4),
+					EquipmentBagsDict.SHOPPING_CART_0, () -> openBag(ShoppingCart.class));
+		}
 
 		synchronized (inputs) {
 			for (int i = 0; i < activeInputCount; i++) {
 				InputButton button = new InputButton();
 
-				//in case the scene was reset without calling destroy() for some reason
+				//窗口重开时保留已放的物品
 				if (inputs[i] != null) {
 					Item carried = inputs[i].item();
 					if (carried != null) {
@@ -361,6 +360,12 @@ public class AlchemyScene extends PixelScene {
 
 				inputs[i].setRect(x, y, BTN_SIZE, BTN_SIZE);
 				add(inputs[i]);
+			}
+		}
+		//窗口化后格数少于 5 时，清掉多余格的残留物品
+		for (int i = activeInputCount; i < inputs.length; i++) {
+			if (inputs[i] != null) {
+				inputs[i] = null;
 			}
 		}
 
@@ -400,7 +405,7 @@ public class AlchemyScene extends PixelScene {
 									}
 
 									if (items.size() == 0){
-										ShatteredPixelDungeon.scene().addToFront(new WndMessage(Messages.get(AlchemyScene.class, "no_items")));
+										ShatteredPixelDungeon.scene().addToFront(new WndMessage(Messages.get(WndCrafting.class, "no_items")));
 										return;
 									}
 
@@ -470,7 +475,7 @@ public class AlchemyScene extends PixelScene {
 
 			@Override
 			protected String hoverText() {
-				return Messages.get(AlchemyScene.class, "cancel");
+				return Messages.get(WndCrafting.class, "cancel");
 			}
 		};
 		cancel.setRect(left + 8, pos + 2, 16, 16);
@@ -493,7 +498,7 @@ public class AlchemyScene extends PixelScene {
 
 			@Override
 			protected String hoverText() {
-				return Messages.get(AlchemyScene.class, "repeat");
+				return Messages.get(WndCrafting.class, "repeat");
 			}
 		};
 		repeat.setRect(left + 24, pos + 2, 16, 16);
@@ -532,24 +537,7 @@ public class AlchemyScene extends PixelScene {
 		
 		pos += 10;
 
-		if (Camera.main.height >= 280){
-			//last elements get centered even with a split alch guide UI, as long as there's enough height
-			centerW = (int)(insets.left) + w/2;
-		}
-
-		bubbleEmitter.pos(0,
-				0,
-				2*centerW,
-				Camera.main.height);
-		bubbleEmitter.autoKill = false;
-
-		lowerBubbles.pos(0,
-				pos,
-				2*centerW,
-				Math.max(0, h-pos));
-		lowerBubbles.pour(Speck.factory( Speck.BUBBLE ), 0.1f );
-
-		String energyText = Messages.get(AlchemyScene.class, "energy") + " " + Dungeon.energy;
+		String energyText = Messages.get(WndCrafting.class, "energy") + " " + Dungeon.energy;
 		if (toolkit != null){
 			energyText += "+" + toolkit.availableEnergy();
 		}
@@ -557,7 +545,7 @@ public class AlchemyScene extends PixelScene {
 		energyLeft = PixelScene.renderTextBlock(energyText, 9);
 		energyLeft.setPos(
 				centerW - energyLeft.width()/2,
-				insets.top + h - 8 - energyLeft.height()
+				h - 8 - energyLeft.height()
 		);
 		energyLeft.hardlight(0x44CCFF);
 		add(energyLeft);
@@ -565,7 +553,7 @@ public class AlchemyScene extends PixelScene {
 		energyIcon = new ItemSprite( toolkit != null ? SpecificPlaceHolderDict.SOMETHING_0 : SpecificCurrencyDict.ENERGY_0);
 		energyIcon.x = energyLeft.left() - energyIcon.width();
 		energyIcon.y = energyLeft.top() - (energyIcon.height() - energyLeft.height())/2;
-		align(energyIcon);
+		PixelScene.align(energyIcon);
 		add(energyIcon);
 
 		energyAdd = new IconButton(Icons.get(Icons.PLUS)){
@@ -597,47 +585,37 @@ public class AlchemyScene extends PixelScene {
 
 			@Override
 			protected String hoverText() {
-				return Messages.get(AlchemyScene.class, "energize");
+				return Messages.get(WndCrafting.class, "energize");
 			}
 		};
 		energyAdd.setRect(energyLeft.right(), energyLeft.top() - (16 - energyLeft.height())/2, 16, 16);
-		align(energyAdd);
+		PixelScene.align(energyAdd);
 		add(energyAdd);
 
-		sparkEmitter = new Emitter();
-		sparkEmitter.pos(energyLeft.left(), energyLeft.top(), energyLeft.width(), energyLeft.height());
-		sparkEmitter.autoKill = false;
-		add(sparkEmitter);
-
-		StyledButton btnGuide = new StyledButton( Chrome.Type.TOAST_TR, Messages.get(AlchemyScene.class, "guide")){
+		StyledButton btnGuide = new StyledButton( Chrome.Type.TOAST_TR, Messages.get(WndCrafting.class, "guide")){
 			@Override
 			protected void onClick() {
 				super.onClick();
-				if (Camera.main.width >= 300 && Camera.main.height >= PixelScene.MIN_HEIGHT_FULL){
-					splitAlchGuide = !splitAlchGuide;
-					ShatteredPixelDungeon.seamlessResetScene();
-				} else {
-					clearSlots();
-					updateState();
-					AlchemyScene.this.addToFront(new Window() {
+				clearSlots();
+				updateState();
+				Game.scene().addToFront(new Window() {
 
-						{
-							WndJournal.AlchemyTab t = new WndJournal.AlchemyTab();
-							int w, h;
-							if (landscape()) {
-								w = WndJournal.WIDTH_L;
-								h = WndJournal.HEIGHT_L+8;
-							} else {
-								w = WndJournal.WIDTH_P;
-								h = WndJournal.HEIGHT_P+10;
-							}
-							resize(w, h);
-							add(t);
-							t.setRect(0, 0, w, h);
+					{
+						WndJournal.AlchemyTab t = new WndJournal.AlchemyTab();
+						int w, h;
+						if (PixelScene.landscape()) {
+							w = WndJournal.WIDTH_L;
+							h = WndJournal.HEIGHT_L+8;
+						} else {
+							w = WndJournal.WIDTH_P;
+							h = WndJournal.HEIGHT_P+10;
 						}
+						resize(w, h);
+						add(t);
+						t.setRect(0, 0, w, h);
+					}
 
-					});
-				}
+				});
 			}
 
 			@Override
@@ -650,20 +628,19 @@ public class AlchemyScene extends PixelScene {
 				return Messages.titleCase(Document.ALCHEMY_GUIDE.title());
 			}
 		};
-		btnGuide.icon(new ItemSprite(SpecificPagesDict.ALCH_PAGE_0));
-		btnGuide.setSize(btnGuide.reqWidth()+4, 18);
-		btnGuide.setPos(centerW - btnGuide.width()/2f, energyAdd.top()- btnGuide.height()-2);
-		align(btnGuide);
-		add(btnGuide);
+		if (hasGuideButton()) {
+			btnGuide.icon(new ItemSprite(SpecificPagesDict.ALCH_PAGE_0));
+			btnGuide.setSize(btnGuide.reqWidth()+4, 18);
+			btnGuide.setPos(centerW - btnGuide.width()/2f, energyAdd.top()- btnGuide.height()-2);
+			PixelScene.align(btnGuide);
+			add(btnGuide);
+		}
 
 		TrinketCatalyst cata = Dungeon.hero.belongings.getItem(TrinketCatalyst.class);
 		if (cata != null && cata.hasRolledTrinkets()){
-			addToFront(new TrinketCatalyst.WndTrinket(cata));
+			Game.scene().addToFront(new TrinketCatalyst.WndTrinket(cata));
 		}
 
-		fadeIn();
-
-		saveNeeded = false;
 		try {
 			Dungeon.saveAll();
 			Badges.saveGlobal();
@@ -674,22 +651,17 @@ public class AlchemyScene extends PixelScene {
 	}
 	
 	@Override
-	public void update() {
-		super.update();
-		water.offset( 0, -5 * Game.elapsed );
-	}
-	
-	@Override
-	protected void onBackPressed() {
+	public void onBackPressed() {
 		resetMode();
-		Game.switchScene(GameScene.class);
+		instance = null;
+		hide();
 	}
 	
 	protected WndBag.ItemSelector itemSelector = new WndBag.ItemSelector() {
 
 		@Override
 		public String textPrompt() {
-			return Messages.get(AlchemyScene.class, "select");
+			return Messages.get(WndCrafting.class, "select");
 		}
 
 		@Override
@@ -830,10 +802,6 @@ public class AlchemyScene extends PixelScene {
 
 		energyAddBlinking = promptToAddEnergy;
 
-		if (alchGuide != null){
-			alchGuide.updateList();
-		}
-
 	}
 	
 	private void combine( int slot ){
@@ -862,7 +830,7 @@ public class AlchemyScene extends PixelScene {
 			Catalog.countUses(EnergyCrystal.class, cost);
 			Dungeon.energy -= cost;
 
-			String energyText = Messages.get(AlchemyScene.class, "energy") + " " + Dungeon.energy;
+			String energyText = Messages.get(WndCrafting.class, "energy") + " " + Dungeon.energy;
 			if (toolkit != null){
 				energyText += "+" + toolkit.availableEnergy();
 			}
@@ -873,10 +841,10 @@ public class AlchemyScene extends PixelScene {
 			);
 
 			energyIcon.x = energyLeft.left() - energyIcon.width();
-			align(energyIcon);
+			PixelScene.align(energyIcon);
 
 			energyAdd.setPos(energyLeft.right(), energyAdd.top());
-			align(energyAdd);
+			PixelScene.align(energyAdd);
 			
 			result = recipe.brew(ingredients);
 			//SPSEXPD: 一次合成的额外产物（例如提炼的良性 + 恶性各一瓶）
@@ -915,14 +883,9 @@ public class AlchemyScene extends PixelScene {
 				}
 			}
 		}
-
-		if (alchGuide != null){
-			alchGuide.updateList();
-		}
 	}
 
 	public void craftItem( ArrayList<Item> ingredients, Item result ){
-		bubbleEmitter.start(Speck.factory( Speck.BUBBLE ), 0.01f, 100 );
 		smokeEmitter.burst(Speck.factory( Speck.WOOL ), 10 );
 		Sample.INSTANCE.play( Assets.Sounds.PUFF );
 
@@ -989,8 +952,8 @@ public class AlchemyScene extends PixelScene {
 
 	private boolean saveNeeded = false;
 
-	@Override
-	public void onPause() {
+	/** SPSEXPD: 窗口没有 onPause 钩子，改为在 Game 暂停时由 saveNeeded 标记兜底。 */
+	public void onGamePause() {
 		if (saveNeeded) {
 			saveNeeded = false;
 			clearSlots();
@@ -1007,6 +970,7 @@ public class AlchemyScene extends PixelScene {
 
 	@Override
 	public void destroy() {
+		if (instance == this) instance = null;
 		synchronized ( inputs ) {
 			clearSlots();
 			for (int i = 0; i < inputs.length; i++) {
@@ -1039,13 +1003,10 @@ public class AlchemyScene extends PixelScene {
 		}
 		cancel.enable(false);
 		repeat.enable(lastRecipe != null);
-		if (alchGuide != null){
-			alchGuide.updateList();
-		}
 	}
 
 	public void createEnergy(){
-		String energyText = Messages.get(AlchemyScene.class, "energy") + " " + Dungeon.energy;
+		String energyText = Messages.get(WndCrafting.class, "energy") + " " + Dungeon.energy;
 		if (toolkit != null){
 			energyText += "+" + toolkit.availableEnergy();
 		}
@@ -1056,13 +1017,11 @@ public class AlchemyScene extends PixelScene {
 		);
 
 		energyIcon.x = energyLeft.left() - energyIcon.width();
-		align(energyIcon);
+		PixelScene.align(energyIcon);
 
 		energyAdd.setPos(energyLeft.right(), energyAdd.top());
-		align(energyAdd);
+		PixelScene.align(energyAdd);
 
-		bubbleEmitter.start(Speck.factory( Speck.BUBBLE ), 0.01f, 100 );
-		sparkEmitter.burst(SparkParticle.FACTORY, 20);
 		Sample.INSTANCE.play( Assets.Sounds.LIGHTNING );
 
 		//queue a save here, as items may be in the input windows and we don't want to clear them
@@ -1121,14 +1080,14 @@ public class AlchemyScene extends PixelScene {
 				centerW - oldName.width()/2,
 				energyAdd.top()
 		);
-		align(oldName);
+		PixelScene.align(oldName);
 
 		newName.setSize(w, oldName.height());
 		newName.setPos(
 				centerW - newName.width()/2,
 				energyAdd.top()
 		);
-		align(newName);
+		PixelScene.align(newName);
 
 		BG.x = oldName.left()-2;
 		BG.y = oldName.top()-2;
@@ -1175,14 +1134,14 @@ public class AlchemyScene extends PixelScene {
 						InputButton.this.item(null);
 						updateState();
 					}
-					AlchemyScene.this.addToFront(WndBag.getBag( itemSelector ));
+					WndCrafting.this.addToFront(WndBag.getBag( itemSelector ));
 				}
 
 				@Override
 				protected boolean onLongClick() {
 					Item item = InputButton.this.item;
 					if (item != null){
-						AlchemyScene.this.addToFront(new WndInfoItem(item));
+						WndCrafting.this.addToFront(new WndInfoItem(item));
 						return true;
 					}
 					return false;
@@ -1256,7 +1215,7 @@ public class AlchemyScene extends PixelScene {
 
 		/** SPSEXPD: 空槽的悬浮提示文案。 */
 		protected String emptyHoverText(){
-			return Messages.get(AlchemyScene.class, "add");
+			return Messages.get(WndCrafting.class, "add");
 		}
 	}
 
@@ -1300,17 +1259,17 @@ public class AlchemyScene extends PixelScene {
 		if (Dungeon.hero == null) return;
 		int slot = firstEmptyAdjuvant();
 		if (slot < 0) {
-			GLog.w(Messages.get(AlchemyScene.class, "no_space"));
+			GLog.w(Messages.get(WndCrafting.class, "no_space"));
 			return;
 		}
 		Item found = findCarried(type);
 		if (found == null) {
-			GLog.w(Messages.get(AlchemyScene.class, "no_material"));
+			GLog.w(Messages.get(WndCrafting.class, "no_material"));
 			return;
 		}
 		Item taken = found.detach(Dungeon.hero.belongings.backpack);
 		if (taken == null) {
-			GLog.w(Messages.get(AlchemyScene.class, "no_material"));
+			GLog.w(Messages.get(WndCrafting.class, "no_material"));
 			return;
 		}
 		inputs[slot].item(taken);
@@ -1332,7 +1291,7 @@ public class AlchemyScene extends PixelScene {
 		if (Dungeon.hero == null) return;
 		Bag bag = Dungeon.hero.belongings.getItem(type);
 		if (bag == null) {
-			GLog.w(Messages.get(AlchemyScene.class, "no_bag"));
+			GLog.w(Messages.get(WndCrafting.class, "no_bag"));
 			return;
 		}
 		GameScene.show(new WndBag(bag, itemSelector));
@@ -1364,7 +1323,7 @@ public class AlchemyScene extends PixelScene {
 
 				@Override
 				protected String hoverText() {
-					return Messages.get(AlchemyScene.class, "craft");
+					return Messages.get(WndCrafting.class, "craft");
 				}
 
 				@Override
@@ -1412,7 +1371,7 @@ public class AlchemyScene extends PixelScene {
 
 			if (cost > 0){
 				costText.visible = true;
-				costText.text(Messages.get(AlchemyScene.class, "energy") + " " + cost);
+				costText.text(Messages.get(WndCrafting.class, "energy") + " " + cost);
 			} else {
 				costText.visible = false;
 			}
@@ -1439,7 +1398,7 @@ public class AlchemyScene extends PixelScene {
 				protected void onClick() {
 					super.onClick();
 					if (visible && item != null && item.trueName() != null){
-						AlchemyScene.this.addToFront(new WndInfoItem(item));
+						WndCrafting.this.addToFront(new WndInfoItem(item));
 					}
 				}
 			};
@@ -1478,11 +1437,11 @@ public class AlchemyScene extends PixelScene {
 	}
 
 	public static void assignToolkit( AlchemistsToolkit toolkit ){
-		AlchemyScene.toolkit = toolkit;
+		WndCrafting.toolkit = toolkit;
 	}
 
 	public static void clearToolkit(){
-		AlchemyScene.toolkit = null;
+		WndCrafting.toolkit = null;
 	}
 
 }
