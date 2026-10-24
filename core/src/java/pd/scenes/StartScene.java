@@ -63,7 +63,15 @@ public class StartScene extends PixelScene {
 			.t("months_ago", "存档于%d月前")
 			.t("new", "新游戏")
 			.t("sort_level", "排序：按等级")
-			.t("sort_recent", "排序：按时间");
+			.t("sort_recent", "排序：按时间")
+			.t("import", "导入存档")
+			.t("import_title", "导入存档")
+			.t("import_desc", "输入导出的 JSON 存档文件路径，会导入到第一个空闲存档槽。_")
+			.t("import_ok", "导入")
+			.t("import_cancel", "取消")
+			.t("import_done", "已导入到存档槽 %d")
+			.t("import_failed", "导入失败。")
+			.t("import_none", "Download 目录里没有找到可导入的存档文件。");
 	}
 
 
@@ -167,8 +175,76 @@ public class StartScene extends PixelScene {
 		btnSort.setRect(slotLeft - btnSort.reqWidth() - 6, Camera.main.height - insets.bottom - 14, btnSort.reqWidth() + 4, 12);
 		if (games.size() >= 2) add(btnSort);
 
+		//SPSEXPD: 导入存档——放在页面右下角（docs/alchemy-rework.md §9）
+		StyledButton btnImport = new StyledButton(Chrome.Type.TOAST_TR, Messages.get(this, "import"), 6) {
+			@Override
+			protected void onClick() {
+				super.onClick();
+				promptImport();
+			}
+		};
+		btnImport.textColor(0xCCCCCC);
+		btnImport.setRect(insets.left + w - btnImport.reqWidth() - 4,
+				Camera.main.height - insets.bottom - 14, btnImport.reqWidth() + 4, 12);
+		add(btnImport);
+
 		fadeIn();
 		
+	}
+
+	/** SPSEXPD: 导入存档（docs/alchemy-rework.md §9）。
+	 *  安卓端列出 Download 里的导出文件让玩家挑；桌面端弹输入框输入路径。 */
+	private void promptImport() {
+		if (pd.GameSaves.isAndroid()) {
+			final ArrayList<String> names = pd.GameSaves.listImportableNames();
+			if (names.isEmpty()) {
+				pd.utils.GLog.w(Messages.get(StartScene.class, "import_none"));
+				return;
+			}
+			int shown = Math.min(names.size(), 5);
+			String[] options = new String[shown + 1];
+			for (int i = 0; i < shown; i++) {
+				options[i] = names.get(i);
+			}
+			options[shown] = Messages.get(StartScene.class, "import_cancel");
+			ShatteredPixelDungeon.scene().addToFront(new pd.windows.WndOptions(
+					Icons.get(Icons.ENTER),
+					Messages.get(StartScene.class, "import_title"),
+					Messages.get(StartScene.class, "import_desc"),
+					options) {
+				@Override
+				protected void onSelect(int index) {
+					if (index < 0 || index >= names.size()) return;
+					runImport(names.get(index));
+				}
+			});
+			return;
+		}
+
+		ShatteredPixelDungeon.scene().addToFront(new pd.windows.WndTextInput(
+				Messages.get(StartScene.class, "import_title"),
+				Messages.get(StartScene.class, "import_desc"),
+				"", 240, false,
+				Messages.get(StartScene.class, "import_ok"),
+				Messages.get(StartScene.class, "import_cancel")) {
+			@Override
+			public void onSelect(boolean positive, String text) {
+				if (!positive || text == null || text.trim().isEmpty()) return;
+				runImport(text.trim());
+			}
+		});
+	}
+
+	private void runImport(String path) {
+		try {
+			int slot = pd.GameSaves.importIntoEmptySlot(path);
+			pd.utils.GLog.p(Messages.get(StartScene.class, "import_done", slot));
+			ShatteredPixelDungeon.seamlessResetScene();
+		} catch (java.io.IOException e) {
+			pd.utils.GLog.w(e.getMessage() == null
+					? Messages.get(StartScene.class, "import_failed")
+					: e.getMessage());
+		}
 	}
 
 	@Override

@@ -39,6 +39,7 @@ import pd.ui.RedButton;
 import pd.ui.RenderedTextBlock;
 import pd.ui.Window;
 import pd.utils.DungeonSeed;
+import pd.utils.GLog;
 import render.noosa.Game;
 import render.noosa.Image;
 
@@ -69,6 +70,13 @@ public class WndGameInProgress extends Window {
 			.t("erase_warn_no", "不，我要接着玩")
 			.t("rename_title", "为这个角色命名")
 			.t("rename_desc", "给这名冒险者起一个名字，会显示在存档列表、角色详情与排行榜上。_留空表示清除，仍使用职业名。_")
+			.t("export", "导出存档")
+			.t("export_title", "导出存档")
+			.t("export_desc", "输入导出文件的完整路径（JSON 格式，包含该存档的所有楼层数据）。_")
+			.t("export_ok", "导出")
+			.t("export_cancel", "取消")
+			.t("export_done", "已导出到：%1$s")
+			.t("export_failed", "导出失败。")
 			.t("rename_ok", "确定")
 			.t("rename_clear", "清除");
 	}
@@ -214,13 +222,59 @@ public class WndGameInProgress extends Window {
 		erase.icon(Icons.get(Icons.CLOSE));
 		erase.setRect(WIDTH/2 + 1, pos, WIDTH/2 - 1, 20);
 		add(erase);
-		
-		resize(WIDTH, (int)cont.bottom()+1);
+
+		pos = (int)cont.bottom() + GAP;
+
+		//SPSEXPD: 导出这个存档（docs/alchemy-rework.md §9）
+		RedButton export = new RedButton(Messages.get(this, "export")) {
+			@Override
+			protected void onClick() {
+				super.onClick();
+				promptExport(slot);
+			}
+		};
+		export.setRect(0, pos, WIDTH, 20);
+		add(export);
+
+		resize(WIDTH, (int)export.bottom()+1);
 	}
 	
+	/**
+	 * SPSEXPD: 导出这个存档（docs/alchemy-rework.md §9）。
+	 * 安卓端直接写到系统 Download；桌面端弹输入框让玩家确认/修改路径。
+	 */
+	private void promptExport(final int slot) {
+		if (pd.GameSaves.isAndroid()) {
+			runExport(slot, pd.GameSaves.defaultExportName(slot));
+			return;
+		}
+		ShatteredPixelDungeon.scene().addToFront(new WndTextInput(
+				Messages.get(WndGameInProgress.class, "export_title"),
+				Messages.get(WndGameInProgress.class, "export_desc"),
+				pd.GameSaves.suggestDesktopPath(slot), 240, false,
+				Messages.get(WndGameInProgress.class, "export_ok"),
+				Messages.get(WndGameInProgress.class, "export_cancel")) {
+			@Override
+			public void onSelect(boolean positive, String text) {
+				if (!positive || text == null || text.trim().isEmpty()) return;
+				runExport(slot, text.trim());
+			}
+		});
+	}
+
+	private void runExport(int slot, String path) {
+		try {
+			String written = pd.GameSaves.exportSlot(slot, path);
+			GLog.p(Messages.get(WndGameInProgress.class, "export_done", written));
+		} catch (java.io.IOException e) {
+			GLog.w(e.getMessage() == null
+					? Messages.get(WndGameInProgress.class, "export_failed")
+					: e.getMessage());
+		}
+	}
+
 	//SPSEXPD: 改名（名称行右端书本按钮）—— 写入存档并重开存档列表以刷新显示
-	private void rename( final int slot ){
-		GamesInProgress.Info info = GamesInProgress.check(slot);
+	private void rename( final int slot ){		GamesInProgress.Info info = GamesInProgress.check(slot);
 		String current = (info != null && info.heroName != null) ? info.heroName : "";
 		ShatteredPixelDungeon.scene().addToFront(new WndTextInput(
 				Messages.get(WndGameInProgress.class, "rename_title"),
