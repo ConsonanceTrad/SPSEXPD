@@ -69,8 +69,8 @@ public class TableBrewRecipe extends BrewRecipe {
 		if (!super.matches(ingredients)) return false;
 		switch (rule) {
 			case "CRUDE":
-			case "REFINED":
-				//主材必须能映射到某种药剂（果实/蔬菜）
+			case "STANDARD":
+				//主材必须是可酿药水的果实（大小由产物规则之外的条件约束）
 				return SpsBrewRecipes.potionType(ingredients.main) != null;
 			case "EXOTIC":
 				return SpsBrewRecipes.exoticOf(ingredients.main) != null;
@@ -88,8 +88,8 @@ public class TableBrewRecipe extends BrewRecipe {
 		switch (rule) {
 			case "CRUDE":
 				return SpsBrewRecipes.variant(SpsBrewRecipes.potionType(ingredients.main), PotionForm.CRUDE);
-			case "REFINED":
-				return SpsBrewRecipes.variant(SpsBrewRecipes.potionType(ingredients.main), PotionForm.REFINED);
+			case "STANDARD":
+				return SpsBrewRecipes.variant(SpsBrewRecipes.potionType(ingredients.main), PotionForm.STANDARD);
 			case "EXOTIC": {
 				Class<? extends ExoticPotion> exotic = SpsBrewRecipes.exoticOf(ingredients.main);
 				return exotic == null ? null : Reflection.newInstance(exotic);
@@ -161,22 +161,29 @@ public class TableBrewRecipe extends BrewRecipe {
 		return null;
 	}
 
-	/** 解析一行的「类型#形态」写法。 */
+	/** 解析一行的「类型#形态」写法。
+	 * SPSEXPD: `Fruit` / `LargeFruit` 是炼金表的伪类型——实际果实是 SpsFruit 家族（MissileWeapon），
+	 * 没有可直接引用的公共基类，因此用 Item + filter 表达。 */
 	private static Class<? extends Item> resolveType(String text) {
 		int hash = text.indexOf('#');
 		String name = hash >= 0 ? text.substring(0, hash) : text;
-		return resolve(name.trim());
+		name = name.trim();
+		if ("Fruit".equals(name) || "LargeFruit".equals(name)) return Item.class;
+		return resolve(name);
 	}
 
 	private static java.util.function.Predicate<Item> formFilter(String text) {
 		int hash = text.indexOf('#');
+		String name = (hash >= 0 ? text.substring(0, hash) : text).trim();
+		if ("Fruit".equals(name)) return SpsBrewRecipes::isFruitItem;
+		if ("LargeFruit".equals(name)) return SpsBrewRecipes::isLargeFruit;
 		if (hash < 0) return null;
 		String form = text.substring(hash + 1).trim();
 		switch (form) {
 			case "CRUDE":
 				return SpsBrewRecipes::isCrude;
-			case "REFINED":
-				return item -> item instanceof Potion && ((Potion) item).form == PotionForm.REFINED;
+			case "STANDARD":
+				return item -> item instanceof Potion && ((Potion) item).form == PotionForm.STANDARD;
 			case "TABLET":
 				return item -> item instanceof Potion && ((Potion) item).form == PotionForm.TABLET;
 			case "INJECTOR":

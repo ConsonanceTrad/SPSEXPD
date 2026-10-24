@@ -41,6 +41,7 @@ import pd.items.consum.potions.PotionOfHealing;
 import pd.items.consum.potions.PotionOfMixing;
 import pd.items.consum.potions.exotic.PotionOfShielding;
 import pd.items.consum.materials.Tinder;
+import pd.items.consum.food.processed.Salt;
 import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.items.consum.scrolls.exotic.ExoticScroll;
 import pd.items.equipment.weapon.missiles.arrows.*;
@@ -134,32 +135,27 @@ public final class SpsAlchemyRecipesTest {
 		check(Recipe.findRecipes(seedpods).isEmpty(),
 				"三颗种子仍能匹配到配方");
 
-		//粗制：主材果实 + 辅材果实 + 水（免火源；2026-10 起不再有成功率）
-		ArrayList<Item> crude = ingredients(IceFruit.class, IceFruit.class, WaterItem.class);
+		//粗制：普通果实 + 水（免火源；2026-10 二次改版后不再有成功率与辅材）
+		ArrayList<Item> crude = ingredients(IceFruit.class, WaterItem.class);
 		Recipe crudeRecipe = Recipe.findRecipes(crude).get(0);
 		check(crudeRecipe instanceof SpsBrewRecipes.CrudeBrew, "果实粗制配方没有命中");
 		Item crudeOut = crudeRecipe.sampleOutput(crude);
 		check(crudeOut instanceof PotionOfFrost && ((Potion) crudeOut).form == PotionForm.CRUDE,
 				"粗制产物不是冰霜药剂的粗制变体");
 
-		//精制（选择1）：主材果实 + 2 果实 + 水（免火源）
-		ArrayList<Item> refined = ingredients(IceFruit.class, IceFruit.class, IceFruit.class, WaterItem.class);
-		Recipe refinedRecipe = Recipe.findRecipes(refined).get(0);
-		check(refinedRecipe instanceof SpsBrewRecipes.RefinedBrew, "果实精制配方没有命中");
-		Item refinedOut = refinedRecipe.sampleOutput(refined);
-		check(refinedOut instanceof PotionOfFrost && ((Potion) refinedOut).form == PotionForm.REFINED,
-				"精制产物不是冰霜药剂的精制变体");
+		//标准：大型果实 + 盐 + 水（免火源）
+		ArrayList<Item> standard = ingredients(LargeIceFruit.class, Salt.class, WaterItem.class);
+		Recipe standardRecipe = Recipe.findRecipes(standard).get(0);
+		check(standardRecipe instanceof SpsBrewRecipes.StandardBrew, "大型果实标准药水配方没有命中");
+		Item standardOut = standardRecipe.sampleOutput(standard);
+		check(standardOut instanceof PotionOfFrost && ((Potion) standardOut).form == PotionForm.STANDARD,
+				"标准药水产物不是冰霜药剂的标准变体");
 
-		//大小果实混用：不再有成功率惩罚，配方照常命中
-		ArrayList<Item> mixedFruit = ingredients(LargeIceFruit.class, IceFruit.class, WaterItem.class);
-		check(!Recipe.findRecipes(mixedFruit).isEmpty(), "大小果实混用的粗制配方没有命中");
-
-		//蔬菜主材：向阳草→生命草，经 Sungrass 种子映射到治疗药剂
-		ArrayList<Item> vegetable = ingredients(HealGrass.class, IceFruit.class, IceFruit.class, WaterItem.class);
-		Recipe vegetableRecipe = Recipe.findRecipes(vegetable).get(0);
-		check(vegetableRecipe instanceof SpsBrewRecipes.RefinedBrew, "蔬菜精制配方没有命中");
-		check(vegetableRecipe.sampleOutput(vegetable) instanceof PotionOfHealing,
-				"蔬菜主材没有按「种子↔蔬菜」映射出治疗药剂");
+		//大果不参与粗制；普通果实不参与标准药水
+		check(!(Recipe.findRecipes(ingredients(LargeIceFruit.class, WaterItem.class)).get(0)
+				instanceof SpsBrewRecipes.CrudeBrew), "大型果实不应匹配粗制配方");
+		check(!(Recipe.findRecipes(ingredients(IceFruit.class, Salt.class, WaterItem.class)).get(0)
+				instanceof SpsBrewRecipes.StandardBrew), "普通果实不应匹配标准药水配方");
 
 		//合剂：主材药剂 + 辅材药剂 + 水（免火源），产物是 regToExo 映射的合剂
 		ArrayList<Item> mix = ingredients(PotionOfHealing.class, PotionOfHealing.class, WaterItem.class);

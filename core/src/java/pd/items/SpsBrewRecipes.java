@@ -13,7 +13,9 @@ import pd.items.BrewRecipe.FailureTable;
 import pd.items.BrewRecipe.Slots;
 import pd.items.consum.food.WaterItem;
 import pd.items.consum.food.fruit.Fruit;
+import pd.items.consum.food.processed.Salt;
 import pd.items.consum.food.vegetable.Vegetable;
+import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.items.consum.materials.EnergyFlask;
 import pd.items.consum.materials.EyeOfTruth;
 import pd.items.consum.materials.Waste;
@@ -48,14 +50,13 @@ import render.utils.serialize.Reflection;
 public final class SpsBrewRecipes {
 
 	/** 果实主材的基础成功率。 */
-	/** 药水粗制：主材果子 + 辅材果子 + 水 → 该果实的粗制药水。 */
+	/** 药水粗制：主材普通果实 + 水 → 该果实的粗制药水（效果为标准药水的 1/3）。 */
 	public static final class CrudeBrew extends BrewRecipe {
 
 		public CrudeBrew() {
-			mainMaterial = Fruit.class;
-			adjuvantOptions = new AdjuvantSet[]{
-					new AdjuvantSet(new AdjuvantSet.Slot(Fruit.class))
-			};
+			//主材由 isFruitItem + potionType 判定（果实是 SpsFruit 家族，不是 Fruit 类）
+			mainMaterial = null;
+			adjuvantOptions = null;
 			needsWater = true;
 			//SPSEXPD: 基础药水配方不再需要火——火源（火种/磷火）预留给烹饪配方
 			needsFire = false;
@@ -64,7 +65,7 @@ public final class SpsBrewRecipes {
 
 		@Override
 		public boolean matches(Slots ingredients) {
-			return super.matches(ingredients) && potionType(ingredients.main) != null;
+			return super.matches(ingredients) && isNormalFruit(ingredients.main);
 		}
 
 		@Override
@@ -74,20 +75,16 @@ public final class SpsBrewRecipes {
 	}
 
 	/**
-	 * 药水精制：主材果子（40%）或蔬菜（60%）+ 两种辅材方案（2 果子各 +20%，或 1 瓶粗制药水 +60%）。
-	 * 成功产出精制药水，失败固定产出紊乱魔药。
+	 * 标准药水：主材**大型果实** + 盐 + 水 → 该果实的标准药水（原药水的完整效果）。
+	 * 取代旧的「精制」两套方案（2026-10 二次改版）。
 	 */
-	public static final class RefinedBrew extends BrewRecipe {
+	public static final class StandardBrew extends BrewRecipe {
 
-		public RefinedBrew() {
-			//主材为果子或蔬菜，由 potionType 判定
+		public StandardBrew() {
+			//主材由 isLargeFruit + potionType 判定
 			mainMaterial = null;
 			adjuvantOptions = new AdjuvantSet[]{
-					new AdjuvantSet(
-							new AdjuvantSet.Slot(Fruit.class),
-							new AdjuvantSet.Slot(Fruit.class)),
-					new AdjuvantSet(
-							new AdjuvantSet.Slot(Potion.class, SpsBrewRecipes::isCrude))
+					new AdjuvantSet(new AdjuvantSet.Slot(Salt.class))
 			};
 			needsWater = true;
 			//SPSEXPD: 基础药水配方不再需要火——火源（火种/磷火）预留给烹饪配方
@@ -97,12 +94,12 @@ public final class SpsBrewRecipes {
 
 		@Override
 		public boolean matches(Slots ingredients) {
-			return super.matches(ingredients) && potionType(ingredients.main) != null;
+			return super.matches(ingredients) && isLargeFruit(ingredients.main);
 		}
 
 		@Override
 		protected Item successOutput(Slots ingredients) {
-			return variant(potionType(ingredients.main), PotionForm.REFINED);
+			return variant(potionType(ingredients.main), PotionForm.STANDARD);
 		}
 	}
 
@@ -312,6 +309,22 @@ public final class SpsBrewRecipes {
 		return item instanceof Potion && ((Potion) item).form == PotionForm.CRUDE;
 	}
 
+	/** SPSEXPD: 是否为投掷果实（SpsFruit 家族——炼金药水的果实主材）。 */
+	public static boolean isFruitItem(Item item) {
+		return item instanceof MissileWeapon && ((MissileWeapon) item).isFruit();
+	}
+
+	/** 是否可酿药水的普通果实（大果不算）。 */
+	public static boolean isNormalFruit(Item item) {
+		return isFruitItem(item) && Potion.FruitToPotion.potionFor(item) != null
+				&& !Potion.FruitToPotion.isLarge(item);
+	}
+
+	/** 是否可酿药水的大型果实（标准药水的主材）。 */
+	public static boolean isLargeFruit(Item item) {
+		return isFruitItem(item) && Potion.FruitToPotion.isLarge(item);
+	}
+
 	/** 主材药剂对应的合剂类（无对应则 null，配方不匹配）。 */
 	public static Class<? extends ExoticPotion> exoticOf(Item main) {
 		if (!(main instanceof Potion)) return null;
@@ -356,7 +369,7 @@ public final class SpsBrewRecipes {
 				new InjectorBrew(),
 				new ReagentBrew(),
 				new CrudeBrew(),
-				new RefinedBrew(),
+				new StandardBrew(),
 				new MixBrew(),
 				new EyeCrystal()
 		);

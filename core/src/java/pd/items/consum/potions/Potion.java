@@ -126,9 +126,9 @@ public class Potion extends Item {
 			.t("unidentified_desc", "一瓶看不出成分的药剂：颜色、气味、稠度都帮不上忙。"
 					+ "喝下或投掷时才会显出它真正的效果，届时也就认得了。"
 					+ "自己炼制、或别人郑重交给你的药剂不在此列。")
-			.t("form_crude", "粗糙的")
-			.t("form_refined", "精制的")
-			.t("form_tablet", "缓释的")
+			.t("form_crude", "粗制")
+			.t("form_standard", "标准")
+			.t("form_tablet", "缓释")
 			.t("form_injector", "注射用")
 			.t("form_reagent", "稀的")
 			.t("$placeholder.name", "药剂")
@@ -475,7 +475,13 @@ public class Potion extends Item {
 	@Override
 	public void restoreFromBundle(Bundle bundle) {
 		super.restoreFromBundle(bundle);
-		form = bundle.contains(FORM) ? PotionForm.valueOf(bundle.getString(FORM)) : PotionForm.NORMAL;
+		//SPSEXPD: REFINED 已改名为 STANDARD，旧档里的 REFINED 映射到 STANDARD
+		if (bundle.contains(FORM)) {
+			String stored = bundle.getString(FORM);
+			form = "REFINED".equals(stored) ? PotionForm.STANDARD : PotionForm.valueOf(stored);
+		} else {
+			form = PotionForm.NORMAL;
+		}
 		identified = !bundle.contains(IDENTIFIED) || bundle.getBoolean(IDENTIFIED);
 		reset();
 	}

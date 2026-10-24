@@ -348,23 +348,26 @@ public class QuickRecipe extends Component {
 					public String info() { return ""; }
 				};
 				Item crudeHolder = potionFormHolder("粗制药水");
-				Item refinedHolder = potionFormHolder("精制药水");
-				Item crudeAdjuvant = potionFormHolder("粗制药水");
+				Item standardHolder = potionFormHolder("标准药水");
+				Item saltHolder = new Item() {
+					{
+						image = SpecificPlaceHolderDict.SOMETHING_0;
+					}
+					@Override
+					public String name() { return "盐"; }
+					@Override
+					public String info() { return ""; }
+				};
 
-				//粗制：主材果实 + 辅材果实 + 水（免火源）
+				//粗制：普通果实 + 水（免火源，效果为标准药水的 1/3）
 				result.add(new QuickRecipe(new SpsBrewRecipes.CrudeBrew(),
-						new ArrayList<>(Arrays.asList(fruitHolder, fruitHolder, new WaterItem())),
+						new ArrayList<>(Arrays.asList(fruitHolder, new WaterItem())),
 						crudeHolder));
 				result.add(null);
-				//精制（选择1）：主材果实 + 2 果实 + 水（免火源）
-				result.add(new QuickRecipe(new SpsBrewRecipes.RefinedBrew(),
-						new ArrayList<>(Arrays.asList(fruitHolder, fruitHolder, fruitHolder, new WaterItem())),
-						refinedHolder));
-				result.add(null);
-				//精制（选择2）：主材果实 + 1 瓶粗制药水 + 水（免火源）
-				result.add(new QuickRecipe(new SpsBrewRecipes.RefinedBrew(),
-						new ArrayList<>(Arrays.asList(fruitHolder, crudeAdjuvant, new WaterItem())),
-						refinedHolder));
+				//标准：大型果实 + 盐 + 水（免火源，完整效果）
+				result.add(new QuickRecipe(new SpsBrewRecipes.StandardBrew(),
+						new ArrayList<>(Arrays.asList(largeFruitHolder, saltHolder, new WaterItem())),
+						standardHolder));
 				result.add(null);
 				//SPSEXPD: 全部公式 100% 成功，「提炼」（3 紊乱 → 良性+恶性）已随失败产物取消
 				//SPSEXPD: 三种变体形态——缓释片（免回合/不可投掷）、注射剂（免回合/可投掷）、试剂（1/3 效果/多瓶）
