@@ -1708,6 +1708,7 @@ public class Hero extends Char {
 						GameScene.show(new WndIronMaker());
 					} else {
 						AlchemyScene.clearToolkit();
+						AlchemyScene.resetMode();
 						ShatteredPixelDungeon.switchScene(AlchemyScene.class);
 					}
 				}

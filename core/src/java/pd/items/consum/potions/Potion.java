@@ -133,6 +133,7 @@ public class Potion extends Item {
 			.t("form_reagent", "稀的")
 			.t("form_pill", "药片")
 			.t("form_ampoule", "安培")
+			.t("ampoule_hint", "安培无法直接使用，需要装进投掷注射针后掷出。")
 			.t("$placeholder.name", "药剂")
 			.t("$seedtopotion.name", "随机药剂");
 	}
@@ -298,6 +299,8 @@ public class Potion extends Item {
 
 	@Override
 	public String defaultAction() {
+		//SPSEXPD: 安培不能直接使用——必须配合投掷注射针
+		if (form == PotionForm.AMPOULE) return null;
 		//SPSEXPD: 未鉴定的瓶子一律默认「饮用」，不泄漏它是投掷型药水的信息
 		if (identified && isKnown() && mustThrowPots.contains(this.getClass())) {
 			return AC_THROW;
@@ -314,6 +317,12 @@ public class Potion extends Item {
 		actions.add( AC_DRINK );
 		//SPSEXPD: 缓释片没有投掷效果（§6.3）
 		if (form == PotionForm.TABLET) actions.remove( AC_THROW );
+		//SPSEXPD: 安培既不能喝也不能投——只能配合投掷注射针使用（docs/alchemy-rework.md §7.5）
+		if (form == PotionForm.AMPOULE) {
+			actions.remove( AC_DRINK );
+			actions.remove( AC_THROW );
+			actions.remove( AC_CHOOSE );
+		}
 		return actions;
 	}
 	
@@ -574,7 +583,12 @@ public class Potion extends Item {
 	public String desc() {
 		//SPSEXPD: 未鉴定药剂不透露任何线索
 		if (!identified) return Messages.get(Potion.class, "unidentified_desc");
-		return isKnown() ? super.desc() : Messages.get(this, "unknown_desc");
+		String text = isKnown() ? super.desc() : Messages.get(this, "unknown_desc");
+		//SPSEXPD: 安培不能直接使用，必须配合投掷注射针
+		if (form == PotionForm.AMPOULE) {
+			text += "\n\n" + Messages.get(Potion.class, "ampoule_hint");
+		}
+		return text;
 	}
 	
 	@Override

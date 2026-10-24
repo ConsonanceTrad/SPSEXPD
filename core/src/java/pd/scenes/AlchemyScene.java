@@ -152,8 +152,13 @@ public class AlchemyScene extends PixelScene {
 	public static final int MODE_ALCHEMY = 0;
 	public static final int MODE_DISTILL = 1;
 	public static final int MODE_FILL = 2;
-	/** 当前模式；每次进入场景由入口决定，离开时由工具/场景重置为 MODE_ALCHEMY。 */
+	/** 当前模式；每次进入场景由入口决定，离开时必须调用 {@link #resetMode()} 复位。 */
 	public static int spsMode = MODE_ALCHEMY;
+
+	/** SPSEXPD: 离开加工界面时复位为炼金釜模式，避免下次开釜仍处于蒸馏/分装模式。 */
+	public static void resetMode() {
+		spsMode = MODE_ALCHEMY;
+	}
 
 	//SPSEXPD: 5 格区域的上下边界，供合成按钮/输出槽纵向居中对齐
 	private float slotsTop;
@@ -229,6 +234,7 @@ public class AlchemyScene extends PixelScene {
 		ExitButton btnExit = new ExitButton(){
 			@Override
 			protected void onClick() {
+				resetMode();
 				Game.switchScene(GameScene.class);
 			}
 		};
@@ -675,6 +681,7 @@ public class AlchemyScene extends PixelScene {
 	
 	@Override
 	protected void onBackPressed() {
+		resetMode();
 		Game.switchScene(GameScene.class);
 	}
 	
