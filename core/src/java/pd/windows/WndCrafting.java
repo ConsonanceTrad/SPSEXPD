@@ -207,11 +207,9 @@ public class WndCrafting extends Window {
 
 	private static final int BTN_SIZE	= 28;
 
-	//SPSEXPD: 窗口化后的尺寸（照 WndJournal 的竖/横两套），内容按窗口坐标布局
-	private static final int WIDTH_P  = WndJournal.WIDTH_P;
-	private static final int HEIGHT_P = WndJournal.HEIGHT_P;
-	private static final int WIDTH_L  = WndJournal.WIDTH_L;
-	private static final int HEIGHT_L = WndJournal.HEIGHT_L;
+	//SPSEXPD: 窗口化后的尺寸——横版（左边材料格含快速加料列，右边合成按钮 + 输出槽，底部能量条）
+	private static final int WIN_W = 216;
+	private static final int WIN_H = 170;
 
 	//*** 子类/模式可定制的差异点（窗口标题、图标、格数、是否带快速加料列与指南）
 
@@ -268,8 +266,8 @@ public class WndCrafting extends Window {
 
 	/** SPSEXPD: 窗口内容在构造期一次性搭好（Window 没有 createChildren 钩子）。 */
 	public WndCrafting() {
-		super(PixelScene.landscape() ? WIDTH_L : WIDTH_P,
-				PixelScene.landscape() ? HEIGHT_L : HEIGHT_P);
+		//SPSEXPD: 横版窗口——左边材料格（含快速加料列），右边合成按钮 + 输出槽，底部能量条
+		super(WIN_W, WIN_H);
 		buildUi();
 	}
 
@@ -297,7 +295,7 @@ public class WndCrafting extends Window {
 
 		int pos = (int)title.bottom() + 2;
 
-		//SPSEXPD: 材料格布局——左侧快速添加按钮列，右侧主材 + 辅材（窗口模式下按 2 列排）
+		//SPSEXPD: 材料格布局——左侧快速添加按钮列，右侧主材 + 辅材（2 列 3 行）
 		float gapX = Math.max(4, Math.min(20, (pw - 74 - QUICK_COL_W) - 2*BTN_SIZE));
 		float inputW = 2*BTN_SIZE + gapX;
 		float slotsX0 = left + 6 + (hasQuickColumn() ? QUICK_COL_W : 0);
@@ -319,7 +317,8 @@ public class WndCrafting extends Window {
 		slotsTop = slotsY0 - 4;
 		slotsBottom = slotsY2 + BTN_SIZE + 4;
 		slotsMiddleY = slotsTop + (slotsBottom - slotsTop - BTN_SIZE)/2f;
-		craftRowY = slotsBottom + 6;
+		//SPSEXPD: 合成按钮 + 输出槽在材料区右侧，纵向居中
+		craftRowY = slotsMiddleY;
 
 		//左侧快速添加按钮列：加水 / 加火种 / 药水箱 / 种子袋 / 购物车
 		if (hasQuickColumn()) {
@@ -482,7 +481,8 @@ public class WndCrafting extends Window {
 				return Messages.get(WndCrafting.class, "cancel");
 			}
 		};
-		cancel.setRect(left + 8, pos + 2, 16, 16);
+		//SPSEXPD: 取消/重复按钮挪到窗口左下角（窗口制下底部要给能量条与指南留位）
+		cancel.setRect(6, h - 22, 16, 16);
 		cancel.enable(false);
 		add(cancel);
 
@@ -505,7 +505,7 @@ public class WndCrafting extends Window {
 				return Messages.get(WndCrafting.class, "repeat");
 			}
 		};
-		repeat.setRect(left + 24, pos + 2, 16, 16);
+		repeat.setRect(26, h - 22, 16, 16);
 		repeat.enable(false);
 		add(repeat);
 
@@ -522,11 +522,9 @@ public class WndCrafting extends Window {
 			outputs[i].item(null);
 
 			if (i == 0){
-				//SPSEXPD: 窗口模式下按钮与输出槽放在材料区下方一行（横排居中），不再挤在材料区右侧
-				float groupW = 30 + 4 + BTN_SIZE;
-				float btnX = (w - groupW) / 2f;
-				combines[i].setRect(btnX, craftRowY + 5, 30, BTN_SIZE - 10);
-				outputs[i].setRect(btnX + 34, craftRowY, BTN_SIZE, BTN_SIZE);
+				//SPSEXPD: 合成按钮 + 输出槽在材料区右侧，纵向居中
+				combines[i].setRect(slotsX1 + BTN_SIZE + 8, slotsMiddleY + 5, 30, BTN_SIZE - 10);
+				outputs[i].setRect(combines[i].left() + 34, slotsMiddleY, BTN_SIZE, BTN_SIZE);
 			} else {
 				combines[i].visible = false;
 				outputs[i].visible = false;
@@ -551,7 +549,7 @@ public class WndCrafting extends Window {
 		energyLeft = PixelScene.renderTextBlock(energyText, 9);
 		energyLeft.setPos(
 				centerW - energyLeft.width()/2,
-				h - 8 - energyLeft.height()
+				h - 18
 		);
 		energyLeft.hardlight(0x44CCFF);
 		add(energyLeft);
@@ -637,7 +635,7 @@ public class WndCrafting extends Window {
 		if (hasGuideButton()) {
 			btnGuide.icon(new ItemSprite(SpecificPagesDict.ALCH_PAGE_0));
 			btnGuide.setSize(btnGuide.reqWidth()+4, 18);
-			btnGuide.setPos(centerW - btnGuide.width()/2f, energyAdd.top()- btnGuide.height()-2);
+			btnGuide.setPos(w - btnGuide.width() - 6, h - 24);
 			PixelScene.align(btnGuide);
 			add(btnGuide);
 		}
@@ -779,16 +777,18 @@ public class WndCrafting extends Window {
 		cancel.enable(!ingredients.isEmpty());
 
 		if (recipes.isEmpty()){
-			combines[0].setPos(combines[0].left(), craftRowY + 5);
-			outputs[0].setPos(outputs[0].left(), craftRowY);
+			combines[0].setPos(combines[0].left(), slotsMiddleY + 5);
+			outputs[0].setPos(outputs[0].left(), slotsMiddleY);
 			energyAddBlinking = false;
 			return;
 		}
 
-		//SPSEXPD: 窗口模式——「合成 + 输出」按横排居中排在材料区下方（最多 3 组）
-		float groupW = 30 + 4 + BTN_SIZE;
-		float totalW = groupW * recipes.size() + 6 * (recipes.size() - 1);
-		float startX = ((int)width - totalW) / 2f;
+		//SPSEXPD: 右侧纵向堆叠——多个候选配方时在材料区高度内居中排开
+		float gap = recipes.size() == 2 ? 6 : 2;
+
+		float height = slotsBottom - slotsTop;
+		height -= recipes.size()*BTN_SIZE + (recipes.size()-1)*gap;
+		float top = slotsTop + height/2;
 
 		//positions and enables active buttons
 		boolean promptToAddEnergy = false;
@@ -798,10 +798,10 @@ public class WndCrafting extends Window {
 
 			int cost = recipe.cost(ingredients);
 
-			float x = startX + i * (groupW + 6);
 			outputs[i].visible = true;
-			outputs[i].setRect(x + 34, craftRowY, BTN_SIZE, BTN_SIZE);
+			outputs[i].setRect(outputs[0].left(), top, BTN_SIZE, BTN_SIZE);
 			outputs[i].item(recipe.sampleOutput(ingredients));
+			top += BTN_SIZE+gap;
 
 			int availableEnergy = Dungeon.energy;
 			if (toolkit != null){
@@ -809,7 +809,7 @@ public class WndCrafting extends Window {
 			}
 
 			combines[i].visible = true;
-			combines[i].setRect(x, craftRowY + 5, 30, BTN_SIZE - 10);
+			combines[i].setRect(combines[0].left(), outputs[i].top()+5, 30, BTN_SIZE - 10);
 			//SPSEXPD: 全部公式 100% 成功，合成按钮只需判断能量（平底锅另需 1 个火种）是否够
 			boolean fuelOk = spsMode != MODE_COOK
 					|| Dungeon.hero.belongings.getItem(pd.items.consum.materials.Tinder.class) != null;
