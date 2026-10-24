@@ -173,6 +173,28 @@ public final class SpsAlchemyRecipesTest {
 		ArrayList<Item> chaotic = ingredients(ChaoticConcoction.class, ChaoticConcoction.class, ChaoticConcoction.class);
 		check(Recipe.findRecipes(chaotic).isEmpty(), "提炼公式已取消，三瓶紊乱魔药不应再命中原配方");
 
+		//SPSEXPD: 未鉴定药剂命名 = 「形态 + 颜色 + 类型词」（粗制品红药剂 / 品红药片 / 品红安培）
+		Potion unIdedCrude = SpsBrewRecipes.variant(PotionOfFrost.class, PotionForm.CRUDE);
+		unIdedCrude.unidentify();
+		String crudeName = unIdedCrude.name();
+		check(crudeName.startsWith("粗制") && crudeName.endsWith("药剂") && !crudeName.contains("未鉴定"),
+				"未鉴定粗制药水的名字不是「粗制+颜色+药剂」：" + crudeName);
+
+		Potion unIdedPill = SpsBrewRecipes.variant(PotionOfFrost.class, PotionForm.PILL);
+		unIdedPill.unidentify();
+		check(unIdedPill.name().endsWith("药片") && !unIdedPill.name().contains("未鉴定"),
+				"未鉴定药片的名字应以「药片」结尾：" + unIdedPill.name());
+
+		Potion unIdedAmpoule = SpsBrewRecipes.variant(PotionOfFrost.class, PotionForm.AMPOULE);
+		unIdedAmpoule.unidentify();
+		check(unIdedAmpoule.name().endsWith("安培"),
+				"未鉴定安培的名字应以「安培」结尾：" + unIdedAmpoule.name());
+
+		//已鉴定后恢复功能名 + 形态词缀
+		unIdedCrude.identify();
+		check(unIdedCrude.name().startsWith("粗制") && unIdedCrude.name().contains("冰霜"),
+				"鉴定后的粗制药水名字不是「粗制+功能名」：" + unIdedCrude.name());
+
 		//魔法果汁：蔬菜 + 任意果实 + 水
 		ArrayList<Item> juice = new ArrayList<>(Arrays.asList(
 				Reflection.newInstance(HealGrass.class),

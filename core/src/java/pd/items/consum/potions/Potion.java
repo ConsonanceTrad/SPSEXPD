@@ -134,6 +134,20 @@ public class Potion extends Item {
 			.t("form_pill", "药片")
 			.t("form_ampoule", "安培")
 			.t("ampoule_hint", "安培无法直接使用，需要装进投掷注射针后掷出。")
+			.t("type_potion", "药剂")
+			.t("name_sep", "")
+			.t("color_crimson", "猩红")
+			.t("color_amber", "琥珀")
+			.t("color_golden", "金黄")
+			.t("color_jade", "碧绿")
+			.t("color_turquoise", "青绿")
+			.t("color_azure", "湛蓝")
+			.t("color_indigo", "靛紫")
+			.t("color_magenta", "品红")
+			.t("color_bistre", "深褐")
+			.t("color_charcoal", "煤黑")
+			.t("color_silver", "银灰")
+			.t("color_ivory", "乳白")
 			.t("$placeholder.name", "药剂")
 			.t("$seedtopotion.name", "随机药剂");
 	}
@@ -566,14 +580,26 @@ public class Potion extends Item {
 	
 	@Override
 	public String name() {
-		//SPSEXPD: 未鉴定的那一瓶统一叫「未鉴定药剂」，与真实类型无关
-		if (!identified) return Messages.get(Potion.class, "unidentified");
-		//SPSEXPD: 名称一律用功能名（「治疗药剂」），不再回落到颜色名
+		String sep = Messages.get(Potion.class, "name_sep");
+
+		if (!identified) {
+			//SPSEXPD: 未鉴定 = 「形态 + 颜色 + 类型词」——粗制品红药剂 / 品红药片 / 品红安培
+			String colorName = Messages.get(Potion.class, "color_" + color);
+			if (!form.labeled()) {
+				return colorName + sep + Messages.get(Potion.class, "type_potion");
+			}
+			String affix = Messages.get(Potion.class, form.nameKey);
+			return form.suffix
+					? colorName + sep + affix
+					: affix + sep + colorName + sep + Messages.get(Potion.class, "type_potion");
+		}
+
+		//SPSEXPD: 已鉴定 → 功能名（「治疗药剂」）
 		String base = super.name();
 		//形态词缀：粗制/标准在前（「粗制治疗药剂」），药片/缓释片/安培等在后（「治疗药片」）
 		if (!form.labeled()) return base;
 		String affix = Messages.get(Potion.class, form.nameKey);
-		return form.suffix ? base + affix : affix + base;
+		return form.suffix ? base + sep + affix : affix + sep + base;
 	}
 
 	@Override
