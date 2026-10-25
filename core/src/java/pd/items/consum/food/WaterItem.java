@@ -32,6 +32,7 @@ public class WaterItem extends Food {
 
 	{
 		image = EquipmentNonEquipDict.PURE_DEWDROP_WATER;
+		//SPSEXPD: 水按药水对待（可放进药水箱），饱食效果极轻——只有 1 点
 		energy = 1f;
 		hornValue = 0;
 	}

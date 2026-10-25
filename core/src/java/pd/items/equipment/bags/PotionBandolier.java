@@ -46,7 +46,9 @@ public class PotionBandolier extends Bag {
 	@Override
 	public boolean canHold( Item item ) {
 		//SPSEXPD: 露珠瓶不再进药剂挎带，只被主背包收录
-		if (item instanceof Potion || item instanceof LiquidMetal){
+		//SPSEXPD: 水（露珠产出的那瓶）按药水对待，可以放进药水箱
+		if (item instanceof Potion || item instanceof LiquidMetal
+				|| item instanceof pd.items.consum.food.WaterItem){
 			return super.canHold(item);
 		} else {
 			return false;
