@@ -264,7 +264,10 @@ public class Item implements Bundlable {
 		}
 
 		for (Item item:items) {
-			if (item instanceof Bag && ((Bag)item).canHold( this )) {
+			//SPSEXPD: 包裹组件（BagExpand）是"内部小背包"，不参与自动优先入袋
+			//（否则拾取物品时会往正在遍历的 backpack.items 里插组件，触发 ConcurrentModificationException）
+			if (item instanceof Bag && !(item instanceof pd.items.equipment.bags.BagComponent)
+					&& ((Bag)item).canHold( this )) {
 				if (collect( (Bag)item )){
 					return true;
 				}

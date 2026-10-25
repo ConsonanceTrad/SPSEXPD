@@ -301,7 +301,7 @@ public enum Catalog {
 		consumableCatalogs.add(STONES);
 		consumableCatalogs.add(FOOD);
 		consumableCatalogs.add(EXOTIC_POTIONS);
-		consumableCatalogs.add(EXOTIC_SCROLLS);
+		//SPSEXPD: 秘卷体系已整体取消，图鉴不再注册该分组（空组会让图鉴页显示 0/0）
 		consumableCatalogs.add(BOMBS);
 		//SPSEXPD: 涂药飞镖已随飞镖系统移除，该分类不再注册
 		//consumableCatalogs.add(TIPPED_DARTS);

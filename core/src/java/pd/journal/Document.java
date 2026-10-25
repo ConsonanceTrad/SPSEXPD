@@ -348,7 +348,7 @@ public enum Document {
 	 */
 	public static final String[][] ALCHEMY_SECTIONS = {
 			{"basics",    "Potions", "Stones", "Energy_Food"},
-			{"advanced",  "Exotic_Potions", "Exotic_Scrolls", "Bombs", "Weapons"},
+			//SPSEXPD: 秘卷页已随秘卷体系一并取消`r`n			{"advanced",  "Exotic_Potions", "Bombs", "Weapons"},
 			{"rarities",  "Brews_Elixirs", "Spells"},
 	};
 
