@@ -37,7 +37,7 @@ public class BambooBasket extends Bag {
 
 	@Override
 
-	public int capacity() {
+	public int baseCapacity() {
 		return 34;
 	}
 

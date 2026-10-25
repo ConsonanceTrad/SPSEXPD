@@ -58,7 +58,7 @@ public class PotionBandolier extends Bag {
 
 	//SPSEXPD: 容量 34 = 35-1。窗口里包裹本体自身还占一格，两者相加须正好占满整数行
 	//（5 列 x 7 行 = 7 列 x 5 行 = 35），否则装满时会多出一行空行。曾为 35
-	public int capacity(){
+	public int baseCapacity(){
 		return 34;
 	}
 

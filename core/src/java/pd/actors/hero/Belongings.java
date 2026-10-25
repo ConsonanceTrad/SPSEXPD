@@ -313,6 +313,8 @@ public class Belongings implements Iterable<Item> {
 		migrateWaterskin();
 		//SPSEXPD: 旧存档里被草靶子收走的独特武器/装备，迁回主背包
 		migrateUniqueItems();
+		//SPSEXPD: 已获得的包裹就位后，把主背包里的包裹组件迁进去生效
+		pd.items.equipment.bags.BagComponent.migrateAll(this);
 	}
 
 	public void clear(){

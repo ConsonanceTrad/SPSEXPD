@@ -221,13 +221,13 @@ public class WndBag extends WndTabbed {
 		boolean bottomTabs = SPDSettings.bagBottomTabs();
 		nCols = bottomTabs ? (bottomWide ? COLS_BOTTOM_WIDE : COLS_BOTTOM)
 				: (PixelScene.landscape() ? COLS_L : COLS_P);
-		//SPSEXPD: 行数 = 装备区两排 + 背包行数（5 列时 7 行、7 列时 5 行，都是 35 格）。
-		//SPSEXPD: 行数按「实际要摆的格数」算，并以「窗口能容纳的格数」封顶（两种布局都是 35 格）：
-		//- 不因超容量物品多出一行（读档 force-add 会让主背包出现 36 件）
-		//- 封顶用窗口格数而不是 bag.capacity()：窗口本来就只有 35 格，超出的物品由 placeItem 的守卫跳过（不显示但不丢失）
-		//⚠️ 硬约束：包裹 capacity() + 1 必须是 nCols 的整数倍且不超过窗口容量，否则会多出一行空行。
-		//所以各 Bag 子类的容量都取 34（34+1 = 35 = 5 列 x 7 行 = 7 列 x 5 行）
-		int bagRows = bottomTabs ? (bottomWide ? BAG_ROWS_BOTTOM_WIDE : BAG_ROWS_BOTTOM) : BAG_ROWS;
+		//SPSEXPD: 行数 = 装备区两排 + 背包行数。
+		//SPSEXPD: 行数先按「窗口默认布局」的常量取值；若该容器装了拓展组件（容量变大），
+		//再按 capacity() 把行数撑到装得下——否则多出来的格子放得进去却不显示。
+		//⚠️ 硬约束：不加组件时 capacity+1 必须能被 nCols 整除（34+1 = 35 = 5x7 = 7x5），否则会多一行空行。
+		int minBagRows = bottomTabs ? (bottomWide ? BAG_ROWS_BOTTOM_WIDE : BAG_ROWS_BOTTOM) : BAG_ROWS;
+		int requiredSlots = bag.capacity() + (bag == Dungeon.hero.belongings.backpack ? 0 : 1);
+		int bagRows = Math.max(minBagRows, (requiredSlots + nCols - 1) / nCols);
 		int contentCap = bagRows * nCols;
 		//SPSEXPD: 已占格数与 Bag.canHold 同源（包裹袋不占格，见 Bag.usedSlots()）
 		int shown = bag.usedSlots();

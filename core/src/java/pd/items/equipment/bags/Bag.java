@@ -68,8 +68,27 @@ public class Bag extends Item implements Iterable<Item> {
 
 	public ArrayList<Item> items = new ArrayList<>();
 
+	/**
+	 * SPSEXPD: 容量 = 基础容量 + 拓展组件加成（每件拓展组件 +15 格，同类只算一个）。
+	 */
 	public int capacity(){
+		return baseCapacity() + expansionBonus();
+	}
+
+	/** 基础容量（各包裹覆写自己的常量值）。 */
+	public int baseCapacity(){
 		return 20; // default container size
+	}
+
+	/** SPSEXPD: 本容器装的拓展组件还能额外提供多少格。 */
+	public int expansionBonus(){
+		for (Item i : items) {
+			if (i instanceof BagComponent.BagExpand
+					&& ((BagComponent.BagExpand) i).targetBag().isInstance(this)) {
+				return BagComponent.SLOT_BONUS;
+			}
+		}
+		return 0;
 	}
 
 	/**
@@ -157,6 +176,11 @@ public class Bag extends Item implements Iterable<Item> {
 			owner = container.owner;
 			
 			Badges.validateAllBagsBought( this );
+
+			//SPSEXPD: 刚获得包裹——把主背包里对应的强化/拓展组件迁移进来并开始生效
+			if (container.owner instanceof Hero) {
+				BagComponent.migrateAll(((Hero) container.owner).belongings);
+			}
 			
 			return true;
 		} else {
