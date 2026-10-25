@@ -213,8 +213,28 @@ public class WndCrafting extends Window {
 	private static final int BTN_SIZE	= 28;
 
 	//SPSEXPD: 窗口化后的尺寸——横版（左边材料格含快速加料列，右边合成按钮 + 输出槽，底部能量条）
+	//炼金釜用大号；蒸馏/分装/平底锅/菜板没有快速加料列与能量条，用小号（见 windowWidth/windowHeight）
 	private static final int WIN_W = 216;
 	private static final int WIN_H = 170;
+	private static final int SMALL_W = 150;
+	private static final int SMALL_H_2SLOT = 110;
+	private static final int SMALL_H_3SLOT = 134;
+
+	/** SPSEXPD: 本模式的窗口宽度。 */
+	protected int windowWidth() {
+		return singleColumnLayout() ? SMALL_W : WIN_W;
+	}
+
+	/** SPSEXPD: 本模式的窗口高度（单列按格数决定）。 */
+	protected int windowHeight() {
+		if (!singleColumnLayout()) return WIN_H;
+		return modeSlotCount(spsMode) >= 3 ? SMALL_H_3SLOT : SMALL_H_2SLOT;
+	}
+
+	/** SPSEXPD: 是否需要底部炼金能量条（只有炼金釜需要）。 */
+	protected boolean hasEnergyBar() {
+		return spsMode == MODE_ALCHEMY;
+	}
 
 	//*** 子类/模式可定制的差异点（窗口标题、图标、格数、是否带快速加料列与指南）
 
@@ -277,7 +297,9 @@ public class WndCrafting extends Window {
 	/** SPSEXPD: 窗口内容在构造期一次性搭好（Window 没有 createChildren 钩子）。 */
 	public WndCrafting() {
 		//SPSEXPD: 横版窗口——左边材料格（含快速加料列），右边合成按钮 + 输出槽，底部能量条
+		//SPSEXPD: 先按大号构造（Window 构造需要有效尺寸），再按模式缩到目标尺寸
 		super(WIN_W, WIN_H);
+		resize(windowWidth(), windowHeight());
 		buildUi();
 	}
 
@@ -605,6 +627,9 @@ public class WndCrafting extends Window {
 		add(smokeEmitter);
 		
 		pos += 10;
+
+		//SPSEXPD: 只有炼金釜显示炼金能量（蒸馏/分装等 energyCost 恒为 0，显示没有意义）
+		if (!hasEnergyBar()) return;
 
 		String energyText = Messages.get(WndCrafting.class, "energy") + " " + Dungeon.energy;
 		if (toolkit != null){
@@ -978,6 +1003,9 @@ public class WndCrafting extends Window {
 			Catalog.countUses(EnergyCrystal.class, cost);
 			Dungeon.energy -= cost;
 
+			//SPSEXPD: 非炼金模式没有能量条
+			if (energyLeft == null) return;
+
 			String energyText = Messages.get(WndCrafting.class, "energy") + " " + Dungeon.energy;
 			if (toolkit != null){
 				energyText += "+" + toolkit.availableEnergy();
@@ -1154,6 +1182,8 @@ public class WndCrafting extends Window {
 	}
 
 	public void createEnergy(){
+		//SPSEXPD: 非炼金模式没有能量条
+		if (energyLeft == null) return;
 		String energyText = Messages.get(WndCrafting.class, "energy") + " " + Dungeon.energy;
 		if (toolkit != null){
 			energyText += "+" + toolkit.availableEnergy();
@@ -1226,14 +1256,14 @@ public class WndCrafting extends Window {
 		oldName.setSize(w, oldName.height());
 		oldName.setPos(
 				centerW - oldName.width()/2,
-				energyAdd.top()
+				(energyAdd != null ? energyAdd.top() : height - 18)
 		);
 		PixelScene.align(oldName);
 
 		newName.setSize(w, oldName.height());
 		newName.setPos(
 				centerW - newName.width()/2,
-				energyAdd.top()
+				(energyAdd != null ? energyAdd.top() : height - 18)
 		);
 		PixelScene.align(newName);
 

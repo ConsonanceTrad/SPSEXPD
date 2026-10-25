@@ -45,6 +45,12 @@ public abstract class ProcessTool extends Item {
 	/** SPSEXPD: 本物品的动作常量（项目里动作常量是各类自己声明的）。 */
 	public static final String AC_USE = "USE";
 
+	//SPSEXPD: 动作名文案——缺了会显示 "TEXT NOT FOUND"
+	static {
+		InlineText.of(ProcessTool.class)
+				.t("ac_use", "使用");
+	}
+
 	{
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		defaultAction = AC_USE;
