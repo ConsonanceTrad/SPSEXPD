@@ -515,6 +515,8 @@ public final class SpsBrewRecipes {
 				new SimpleJuiceBrew(pd.items.consum.food.vegetable.Truffles.class),
 				new SimpleJuiceBrew(pd.items.consum.food.vegetable.Lettuce.class),
 				new SimpleJuiceBrew(pd.items.consum.food.vegetable.Apple.class),
+				//SPSEXPD: 浆果同样可以直接榨汁
+				new SimpleJuiceBrew(pd.items.consum.food.Berry.class),
 				new EyeCrystal()
 		);
 	}
