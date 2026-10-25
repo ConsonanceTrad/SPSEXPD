@@ -295,8 +295,12 @@ public class WndDebugItems extends Window {
 
 		//法杖：全部法杖（含新加的 8 根）
 		ArrayList<Entry> wands = new ArrayList<>();
-		for (Class<?> c : Generator.Category.WAND.classes) {
-			if (c != null && Item.class.isAssignableFrom(c)) wands.add(new Entry((Class<? extends Item>) c));
+		//WAND.classes 在 Generator 初始化后才赋值，这里必须判空
+		Class<?>[] wandClasses = Generator.Category.WAND.classes;
+		if (wandClasses != null) {
+			for (Class<?> c : wandClasses) {
+				if (c != null && Item.class.isAssignableFrom(c)) wands.add(new Entry((Class<? extends Item>) c));
+			}
 		}
 		map.put("法杖", wands);
 
@@ -309,7 +313,9 @@ public class WndDebugItems extends Window {
 				pd.items.consum.potions.PotionForm.TABLET,
 				pd.items.consum.potions.PotionForm.AMPOULE
 		};
-		for (Class<?> c : Generator.Category.POTION.classes) {
+		Class<?>[] potionClasses = Generator.Category.POTION.classes;
+		if (potionClasses == null) potionClasses = new Class<?>[0];
+		for (Class<?> c : potionClasses) {
 			if (c == null || !pd.items.consum.potions.Potion.class.isAssignableFrom(c)) continue;
 			//排除合剂/魔药族（它们另有条目），只留普通药剂
 			if (pd.items.consum.potions.exotic.ExoticPotion.class.isAssignableFrom(c)) continue;
@@ -389,8 +395,15 @@ public class WndDebugItems extends Window {
 		add(backButton);
 		pos = backButton.bottom() + 2;
 
+		//SPSEXPD: 把「新增内容」四组（法杖 / 药品 / 工具 / 包裹组件）排在最前
+		LinkedHashMap<String, ArrayList<Class<? extends Item>>> ordered = new LinkedHashMap<>();
+		for (String extraKey : extraGroups().keySet()) {
+			ordered.put(extraKey, new ArrayList<>());
+		}
+		ordered.putAll(map);
+
 		//SPS: 组菜单分页（每页 GROUP_ROWS 行 × 2 列），窄窗适配移动端
-		final ArrayList<String> keys = new ArrayList<>(map.keySet());
+		final ArrayList<String> keys = new ArrayList<>(ordered.keySet());
 		final int pageSize = GROUP_ROWS * GROUP_COLS;
 		int pageCount = (keys.size() + pageSize - 1) / pageSize;
 		if (pageCount == 0) pageCount = 1;
