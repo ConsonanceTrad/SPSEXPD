@@ -64,7 +64,9 @@ public abstract class ProcessTool extends Item {
 	public void execute(Hero hero, String action) {
 		super.execute(hero, action);
 		if (AC_USE.equals(action)) {
-			hero.busy();
+			//SPSEXPD: 这里不能 hero.busy()——它会让英雄一直处于忙碌状态，
+			//打开窗口后所有点击都被吞掉（表现就是「分装器/蒸馏压片机打开后无法操作」）
+			curUser = hero;
 			final int m = mode();
 			Game.runOnRenderThread(() -> WndCrafting.open(m));
 		}

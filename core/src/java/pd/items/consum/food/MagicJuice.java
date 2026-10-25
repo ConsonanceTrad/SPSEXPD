@@ -70,7 +70,14 @@ public class MagicJuice extends Food {
 		SOURCE_NAMES.put(pd.items.consum.food.vegetable.Truffles.class, "松露汁");
 		SOURCE_NAMES.put(pd.items.consum.food.vegetable.Lettuce.class, "莴苣汁");
 		SOURCE_NAMES.put(pd.items.consum.food.vegetable.Apple.class, "苹果汁");
-		SOURCE_NAMES.put(pd.items.consum.food.Berry.class, "浆果汁");
+		//SPSEXPD: 五色浆果（黑莓/蓝莓/云莓/月莓…）都榨成浆果汁
+		for (Class<?> berry : pd.items.Generator.Category.SPS_BERRY.classes) {
+			if (berry != null && pd.items.Item.class.isAssignableFrom(berry)) {
+				@SuppressWarnings("unchecked")
+				Class<? extends Item> bc = (Class<? extends Item>) berry;
+				SOURCE_NAMES.put(bc, "浆果汁");
+			}
+		}
 	}
 
 	/** 榨汁用的蔬菜类；null 表示旧存档里的通用果汁。 */

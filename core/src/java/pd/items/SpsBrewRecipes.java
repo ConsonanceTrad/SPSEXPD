@@ -494,9 +494,40 @@ public final class SpsBrewRecipes {
 		} else {
 			recipes.addAll(builtin());
 		}
+		//SPSEXPD: 果汁公式必须始终注册——CSV 的 ITEM 规则只能反射 new 出通用物品，
+		//传不了「是哪一种蔬菜/浆果」，所以按来源区分的果汁只能由内置公式产出。
+		recipes.addAll(juiceRecipes());
 		//蒸馏压片机 / 分装灌液机 专用公式（由 AlchemyScene.spsMode 过滤）
 		recipes.add(new DistillBrew());
 		recipes.add(new FillBrew());
+		return recipes;
+	}
+
+	/**
+	 * SPSEXPD: 果汁公式（不随 CSV 有无而变）。
+	 *
+	 * <ul>
+	 *   <li>{@link MagicJuiceBrew}：蔬菜 + 任意果实 + 水</li>
+	 *   <li>{@link SimpleJuiceBrew}：萝卜 / 松露 / 莴苣 / 苹果 / 各种浆果，单放主材即可</li>
+	 * </ul>
+	 */
+	public static List<Recipe> juiceRecipes() {
+		List<Recipe> recipes = new ArrayList<>();
+		recipes.add(new MagicJuiceBrew());
+		recipes.add(new SimpleJuiceBrew(pd.items.consum.food.vegetable.Radish.class));
+		recipes.add(new SimpleJuiceBrew(pd.items.consum.food.vegetable.Truffles.class));
+		recipes.add(new SimpleJuiceBrew(pd.items.consum.food.vegetable.Lettuce.class));
+		recipes.add(new SimpleJuiceBrew(pd.items.consum.food.vegetable.Apple.class));
+		//五色浆果：每种都能直接榨成浆果汁
+		Class<?>[] berries = Generator.Category.SPS_BERRY.classes;
+		if (berries != null) {
+			for (Class<?> berry : berries) {
+				if (berry != null && Item.class.isAssignableFrom(berry)) {
+					//noinspection unchecked
+					recipes.add(new SimpleJuiceBrew((Class<? extends Item>) berry));
+				}
+			}
+		}
 		return recipes;
 	}
 
@@ -509,14 +540,8 @@ public final class SpsBrewRecipes {
 				new StandardBrew(),
 				new MixBrew(),
 				new ElixirBrew(),
-				new MagicJuiceBrew(),
-				//SPSEXPD: 单蔬菜汁（萝卜 / 松露 / 莴苣 / 苹果，不用水和果实）
-				new SimpleJuiceBrew(pd.items.consum.food.vegetable.Radish.class),
-				new SimpleJuiceBrew(pd.items.consum.food.vegetable.Truffles.class),
-				new SimpleJuiceBrew(pd.items.consum.food.vegetable.Lettuce.class),
-				new SimpleJuiceBrew(pd.items.consum.food.vegetable.Apple.class),
-				//SPSEXPD: 浆果同样可以直接榨汁
-				new SimpleJuiceBrew(pd.items.consum.food.Berry.class),
+				//SPSEXPD: 果汁公式（MagicJuiceBrew + SimpleJuiceBrew 各种）统一由 juiceRecipes() 提供，
+				//在 all() 里始终追加，见那里的注释
 				new EyeCrystal()
 		);
 	}

@@ -360,11 +360,16 @@ public class WndDebugItems extends Window {
 				pd.items.consum.food.MagicJuice.class));
 		potions.add(Entry.of(() -> pd.items.consum.food.MagicCandy.of(pd.items.consum.food.vegetable.Apple.class),
 				pd.items.consum.food.MagicCandy.class));
-		//SPSEXPD: 浆果同理（不在蔬菜清单里，但能直接榨汁）
-		potions.add(Entry.of(() -> pd.items.consum.food.MagicJuice.of(pd.items.consum.food.Berry.class),
-				pd.items.consum.food.MagicJuice.class));
-		potions.add(Entry.of(() -> pd.items.consum.food.MagicCandy.of(pd.items.consum.food.Berry.class),
-				pd.items.consum.food.MagicCandy.class));
+		//SPSEXPD: 五色浆果同理（不在蔬菜清单里，但能直接榨汁）
+		for (Class<?> berry : Generator.Category.SPS_BERRY.classes) {
+			if (berry == null || !Item.class.isAssignableFrom(berry)) continue;
+			@SuppressWarnings("unchecked")
+			final Class<? extends Item> bc = (Class<? extends Item>) berry;
+			potions.add(Entry.of(() -> pd.items.consum.food.MagicJuice.of(bc),
+					pd.items.consum.food.MagicJuice.class));
+			potions.add(Entry.of(() -> pd.items.consum.food.MagicCandy.of(bc),
+					pd.items.consum.food.MagicCandy.class));
+		}
 
 		//SPSEXPD: 合剂（ExoticPotion）/ 魔药与秘药（Brew、Elixir）——新加入或配方移植后的产物也都在这里
 		java.util.LinkedHashSet<Class<? extends Item>> exoticAndBrews = new java.util.LinkedHashSet<>();
