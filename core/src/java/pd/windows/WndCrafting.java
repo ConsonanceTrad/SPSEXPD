@@ -206,6 +206,8 @@ public class WndCrafting extends Window {
 	private static int centerW;
 	//SPSEXPD: 窗口模式下「合成按钮 + 输出槽」那一行的纵向位置（材料区下方）
 	private float craftRowY;
+	//SPSEXPD: 快速加料按钮列的横向起点（与材料块一起居中）
+	private float quickColumnX = 4;
 
 	private static final int BTN_SIZE	= 28;
 
@@ -315,11 +317,14 @@ public class WndCrafting extends Window {
 			slotsX1 = slotsX0;
 			slotsMainX = slotsX0;
 		} else {
+			//SPSEXPD: 快速加料列与材料块作为一个整体水平居中，避免左侧留大片空白
 			float slotsBlockW = 2*BTN_SIZE + gapX;
-			float blockX = Math.round((w - slotsBlockW) / 2f);
-			slotsX0 = blockX;
+			float quickW = hasQuickColumn() ? QUICK_COL_W : 0;
+			float blockLeft = Math.round((w - (quickW + slotsBlockW)) / 2f);
+			slotsX0 = blockLeft + quickW;
 			slotsX1 = slotsX0 + BTN_SIZE + gapX;
 			slotsMainX = Math.round((w - BTN_SIZE) / 2f);
+			quickColumnX = blockLeft;
 		}
 
 		pos += 4;
@@ -376,7 +381,7 @@ public class WndCrafting extends Window {
 
 		//左侧快速添加按钮列：加水 / 加火种 / 药水箱 / 种子袋 / 购物车（紧贴材料块左侧）
 		if (hasQuickColumn()) {
-			float quickX = Math.max(4, slotsX0 - QUICK_COL_W - 4);
+			float quickX = quickColumnX;
 			float quickY = slotsTop;
 			addQuickButton(quickX, quickY + 0*(QUICK_BTN + 4),
 					EquipmentNonEquipDict.PURE_DEWDROP_WATER, this::quickAddWater);
@@ -736,12 +741,10 @@ public class WndCrafting extends Window {
 			synchronized (inputs) {
 				if (item != null && inputs[0] != null) {
 					for (int i = 0; i < activeInputCount; i++) {
+						//SPSEXPD: 格子可能已被窗口销毁置空，跳过
+						if (inputs[i] == null) continue;
 						if (inputs[i].item() == null) {
-							if (item instanceof LiquidMetal || item instanceof MissileWeapon){
-								inputs[i].item(item.detachAll(Dungeon.hero.belongings.backpack));
-							} else {
-								inputs[i].item(item.detach(Dungeon.hero.belongings.backpack));
-							}
+							inputs[i].item(takeFromCarried(item));
 							break;
 						}
 					}
@@ -750,10 +753,30 @@ public class WndCrafting extends Window {
 			}
 		}
 	};
+
+	/**
+	 * SPSEXPD: 把物品从它实际所在的容器（主背包或任意包裹）里取出。
+	 * 原来只按主背包 detach，从包裹里点物品会取不出来。
+	 */
+	private static Item takeFromCarried(Item item) {
+		if (item == null || Dungeon.hero == null || Dungeon.hero.belongings == null) return null;
+		boolean all = item instanceof LiquidMetal || item instanceof MissileWeapon;
+		Item taken = all
+				? item.detachAll(Dungeon.hero.belongings.backpack)
+				: item.detach(Dungeon.hero.belongings.backpack);
+		if (taken != null) return taken;
+		for (Bag bag : Dungeon.hero.belongings.getBags()) {
+			taken = all ? item.detachAll(bag) : item.detach(bag);
+			if (taken != null) return taken;
+		}
+		return null;
+	}
 	
 	private<T extends Item> ArrayList<T> filterInput(Class<? extends T> itemClass){
 		ArrayList<T> filtered = new ArrayList<>();
 		for (int i = 0; i < activeInputCount; i++){
+			//SPSEXPD: 空格子（含窗口销毁后置空的）直接跳过
+			if (inputs[i] == null) continue;
 			Item item = inputs[i].item();
 			if (item != null && itemClass.isInstance(item)){
 				filtered.add((T)item);
