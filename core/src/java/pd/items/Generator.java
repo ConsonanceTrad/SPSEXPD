@@ -439,6 +439,14 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
+import pd.items.equipment.wands.WandOfShockwave;
+import pd.items.equipment.wands.WandOfShadow;
+import pd.items.equipment.wands.WandOfSmokeBomb;
+import pd.items.equipment.wands.WandOfSpiritHawk;
+import pd.items.equipment.wands.WandOfFeint;
+import pd.items.equipment.wands.WandOfFinality;
+import pd.items.equipment.wands.WandOfWildRune;
+import pd.items.equipment.wands.WandOfChaosTeleport;
 public class Generator {
 
 	public enum Category {
@@ -754,8 +762,12 @@ public class Generator {
 					WandOfError.class,
 					WandOfTCloud.class,
 					//SPSEXPD: 魔术之手法杖（原神器改造为普通法杖）加入法杖池
-					MasterThievesArmband.class };
-			WAND.defaultProbs = new float[]{ 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 0, 5, 5 };
+					MasterThievesArmband.class,
+					//SPSEXPD: 护甲技能转成的法杖 + 新增效果（震波/暗影/烟幕/飞鹰/虚影/终焉/狂野符文/混乱传送）
+					WandOfShockwave.class, WandOfShadow.class, WandOfSmokeBomb.class,
+					WandOfSpiritHawk.class, WandOfFeint.class, WandOfFinality.class,
+					WandOfWildRune.class, WandOfChaosTeleport.class };
+			WAND.defaultProbs = new float[]{ 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 0, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4 };
 			WAND.probs = WAND.defaultProbs.clone();
 			
 			// SPS-PD 0.9.8's complete 60-weapon pool. Shattered weapons remain compiled but hidden.

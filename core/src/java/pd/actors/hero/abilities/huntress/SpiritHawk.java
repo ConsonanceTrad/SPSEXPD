@@ -152,7 +152,7 @@ public class SpiritHawk extends ArmorAbility {
 		return new Talent[]{Talent.EAGLE_EYE, Talent.GO_FOR_THE_EYES, Talent.SWIFT_SPIRIT, Talent.HEROIC_ENERGY};
 	}
 
-	private static HawkAlly getHawk(){
+	public static HawkAlly getHawk(){
 		for (Char ch : Actor.chars()){
 			if (ch instanceof HawkAlly){
 				return (HawkAlly) ch;

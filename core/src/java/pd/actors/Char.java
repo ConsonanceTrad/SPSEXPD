@@ -944,6 +944,12 @@ public abstract class Char extends Actor {
 			return;
 		}
 
+		//SPSEXPD: 狂野符文的标记——被任意法杖命中时引爆（爆炸量按那一击伤害与符文的倍率）
+		if (src instanceof pd.items.equipment.wands.Wand && dmg > 0
+				&& buff(pd.actors.buffs.WildRuneMark.class) != null) {
+			pd.actors.buffs.WildRuneMark.detonate(this, dmg);
+		}
+
 		if(isInvulnerable(src.getClass())){
 			sprite.showStatus(CharSprite.POSITIVE, Messages.get(this, "invulnerable"));
 			return;

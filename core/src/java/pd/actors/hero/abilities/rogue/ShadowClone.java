@@ -149,7 +149,7 @@ public class ShadowClone extends ArmorAbility {
 		return new Talent[]{Talent.SHADOW_BLADE, Talent.CLONED_ARMOR, Talent.PERFECT_COPY, Talent.HEROIC_ENERGY};
 	}
 
-	private static ShadowAlly getShadowAlly(){
+	public static ShadowAlly getShadowAlly(){
 		for (Char ch : Actor.chars()){
 			if (ch instanceof ShadowAlly){
 				return (ShadowAlly) ch;
