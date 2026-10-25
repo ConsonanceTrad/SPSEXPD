@@ -6,7 +6,7 @@ import pd.messages.InlineText;
 import pd.messages.Messages;
 
 /** SPSEXPD: 钥匙挂环——拓展{target}的包裹组件（+15 格）。 */
-public class KeyLoop extends BagComponent.BagExpand {
+public class KeyLoop extends BagExpand {
 
 	static {
 		InlineText.of(KeyLoop.class)

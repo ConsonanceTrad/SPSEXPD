@@ -221,17 +221,18 @@ public class WndBag extends WndTabbed {
 		boolean bottomTabs = SPDSettings.bagBottomTabs();
 		nCols = bottomTabs ? (bottomWide ? COLS_BOTTOM_WIDE : COLS_BOTTOM)
 				: (PixelScene.landscape() ? COLS_L : COLS_P);
-		//SPSEXPD: 行数 = 装备区两排 + 背包行数。
-		//SPSEXPD: 行数先按「窗口默认布局」的常量取值；若该容器装了拓展组件（容量变大），
-		//再按 capacity() 把行数撑到装得下——否则多出来的格子放得进去却不显示。
-		//⚠️ 硬约束：不加组件时 capacity+1 必须能被 nCols 整除（34+1 = 35 = 5x7 = 7x5），否则会多一行空行。
+		//SPSEXPD: 行数 = 装备区两排 + 背包行数（5 列 7 行 / 7 列 5 行 = 35 格）。
+		//SPSEXPD: 拓展组件是一个独立的 15 格小背包（BagExpand），不再改变上级容器容量。
 		int minBagRows = bottomTabs ? (bottomWide ? BAG_ROWS_BOTTOM_WIDE : BAG_ROWS_BOTTOM) : BAG_ROWS;
-		int requiredSlots = bag.capacity() + (bag == Dungeon.hero.belongings.backpack ? 0 : 1);
-		int bagRows = Math.max(minBagRows, (requiredSlots + nCols - 1) / nCols);
+		boolean isExpandComponent = bag instanceof pd.items.equipment.bags.BagExpand;
+		int requiredSlots = bag.capacity() + ((bag == Dungeon.hero.belongings.backpack || isExpandComponent) ? 0 : 1);
+		int bagRows = isExpandComponent
+				? (requiredSlots + nCols - 1) / nCols
+				: Math.max(minBagRows, (requiredSlots + nCols - 1) / nCols);
 		int contentCap = bagRows * nCols;
 		//SPSEXPD: 已占格数与 Bag.canHold 同源（包裹袋不占格，见 Bag.usedSlots()）
 		int shown = bag.usedSlots();
-		if (bag != Dungeon.hero.belongings.backpack) shown++;   //包裹本体占一格
+		if (bag != Dungeon.hero.belongings.backpack && !isExpandComponent) shown++;   //包裹本体占一格（拓展组件本身是容器，不占）
 		int contentRows = (Math.min(shown, contentCap) + nCols - 1) / nCols;
 		nRows = EQUIP_ROWS + Math.max(bagRows, contentRows);
 		//SPSEXPD: 内容区格数在此定下来（装备区固定 EQUIP_ROWS 行；底部 7 列时第 2 行放不满 5 个、右侧留白）

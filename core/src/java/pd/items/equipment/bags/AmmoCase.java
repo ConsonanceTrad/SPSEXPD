@@ -6,7 +6,7 @@ import pd.messages.InlineText;
 import pd.messages.Messages;
 
 /** SPSEXPD: 暗器备匣——拓展{target}的包裹组件（+15 格）。 */
-public class AmmoCase extends BagComponent.BagExpand {
+public class AmmoCase extends BagExpand {
 
 	static {
 		InlineText.of(AmmoCase.class)

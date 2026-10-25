@@ -6,7 +6,7 @@ import pd.messages.InlineText;
 import pd.messages.Messages;
 
 /** SPSEXPD: 购物布袋——拓展{target}的包裹组件（+15 格）。 */
-public class ShoppingCloth extends BagComponent.BagExpand {
+public class ShoppingCloth extends BagExpand {
 
 	static {
 		InlineText.of(ShoppingCloth.class)

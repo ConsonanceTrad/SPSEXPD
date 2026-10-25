@@ -314,7 +314,7 @@ public class Belongings implements Iterable<Item> {
 		//SPSEXPD: 旧存档里被草靶子收走的独特武器/装备，迁回主背包
 		migrateUniqueItems();
 		//SPSEXPD: 已获得的包裹就位后，把主背包里的包裹组件迁进去生效
-		pd.items.equipment.bags.BagComponent.migrateAll(this);
+		pd.items.equipment.bags.BagComponent.Components.migrateAll(this);
 	}
 
 	public void clear(){
@@ -350,7 +350,8 @@ public class Belongings implements Iterable<Item> {
 
 		ArrayList<Bag> others = new ArrayList<>();
 		for (Item i : this){
-			if (i instanceof Bag){
+			//SPSEXPD: 包裹组件（BagExpand 本身是 Bag）不算独立包裹标签页
+			if (i instanceof Bag && !(i instanceof pd.items.equipment.bags.BagComponent)){
 				others.add((Bag)i);
 			}
 		}

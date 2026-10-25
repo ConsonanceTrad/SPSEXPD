@@ -6,7 +6,7 @@ import pd.messages.InlineText;
 import pd.messages.Messages;
 
 /** SPSEXPD: 空间拓环——拓展{target}的包裹组件（+15 格）。 */
-public class SpaceRing extends BagComponent.BagExpand {
+public class SpaceRing extends BagExpand {
 
 	static {
 		InlineText.of(SpaceRing.class)

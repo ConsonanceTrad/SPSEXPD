@@ -6,7 +6,7 @@ import pd.messages.InlineText;
 import pd.messages.Messages;
 
 /** SPSEXPD: 卷轴捆袋——拓展{target}的包裹组件（+15 格）。 */
-public class ScrollBundle extends BagComponent.BagExpand {
+public class ScrollBundle extends BagExpand {
 
 	static {
 		InlineText.of(ScrollBundle.class)

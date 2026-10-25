@@ -6,7 +6,7 @@ import pd.messages.InlineText;
 import pd.messages.Messages;
 
 /** SPSEXPD: 储物宝石——拓展{target}的包裹组件（+15 格）。 */
-public class StorageGem extends BagComponent.BagExpand {
+public class StorageGem extends BagExpand {
 
 	static {
 		InlineText.of(StorageGem.class)

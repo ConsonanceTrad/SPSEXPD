@@ -6,7 +6,7 @@ import pd.messages.InlineText;
 import pd.messages.Messages;
 
 /** SPSEXPD: 竹制小框——拓展{target}的包裹组件（+15 格）。 */
-public class BambooFrame extends BagComponent.BagExpand {
+public class BambooFrame extends BagExpand {
 
 	static {
 		InlineText.of(BambooFrame.class)

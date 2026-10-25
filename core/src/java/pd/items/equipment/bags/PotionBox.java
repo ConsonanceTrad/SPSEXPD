@@ -6,7 +6,7 @@ import pd.messages.InlineText;
 import pd.messages.Messages;
 
 /** SPSEXPD: 药水挂箱——拓展{target}的包裹组件（+15 格）。 */
-public class PotionBox extends BagComponent.BagExpand {
+public class PotionBox extends BagExpand {
 
 	static {
 		InlineText.of(PotionBox.class)
