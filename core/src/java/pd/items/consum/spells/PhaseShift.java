@@ -93,7 +93,7 @@ public class PhaseShift extends TargetedSpell {
 		private static final int OUT_QUANTITY = 6;
 		
 		{
-			inputs =  new Class[]{Teleport.class};
+			inputs =  new Class[]{pd.items.consum.scrolls.ScrollOfRecharging.class};
 			inQuantity = new int[]{1};
 			
 			cost = 10;

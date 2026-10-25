@@ -298,6 +298,7 @@ public class BeaconOfReturning extends Spell {
 		private static final int OUT_QUANTITY = 5;
 		
 		{
+			inputs = new Class[]{pd.items.consum.scrolls.ScrollOfRecharging.class};
 			inQuantity = new int[]{1};
 			
 			cost = 12;
