@@ -259,17 +259,34 @@ public class WndDebugItems extends Window {
 	public static final class Entry {
 		final Class<? extends Item> type;
 		final pd.items.consum.potions.PotionForm form;
+		/** 可选：自定义实例化（如魔法果汁需要带上「是哪一种蔬菜」）。 */
+		final java.util.function.Supplier<Item> factory;
 
 		Entry(Class<? extends Item> type) {
-			this(type, null);
+			this(type, null, null);
 		}
 
 		Entry(Class<? extends Item> type, pd.items.consum.potions.PotionForm form) {
+			this(type, form, null);
+		}
+
+		Entry(Class<? extends Item> type, pd.items.consum.potions.PotionForm form,
+				java.util.function.Supplier<Item> factory) {
 			this.type = type;
 			this.form = form;
+			this.factory = factory;
+		}
+
+		/** 用工厂构造一个条目（不带具体类时按工厂产物的类记）。 */
+		static Entry of(java.util.function.Supplier<Item> factory, Class<? extends Item> type) {
+			return new Entry(type, null, factory);
 		}
 
 		Item create() throws Exception {
+			if (factory != null) {
+				Item custom = factory.get();
+				if (custom != null) return custom;
+			}
 			Item item = type.getDeclaredConstructor().newInstance();
 			if (form != null && item instanceof pd.items.consum.potions.Potion) {
 				((pd.items.consum.potions.Potion) item).form = form;
@@ -324,7 +341,20 @@ public class WndDebugItems extends Window {
 				potions.add(new Entry((Class<? extends Item>) c, form));
 			}
 		}
-		potions.add(new Entry(pd.items.consum.food.MagicJuice.class));
+		//SPSEXPD: 魔法果汁与硬糖都按蔬菜分——每种蔬菜各一条（带蔬菜类的工厂构造）
+		try {
+			for (Class<? extends Item> veg : pd.plants.PlantHarvest.vegetables()) {
+				final Class<? extends Item> vegetable = veg;
+				potions.add(Entry.of(() -> pd.items.consum.food.MagicJuice.of(vegetable),
+						pd.items.consum.food.MagicJuice.class));
+				potions.add(Entry.of(() -> pd.items.consum.food.MagicCandy.of(vegetable),
+						pd.items.consum.food.MagicCandy.class));
+			}
+		} catch (RuntimeException e) {
+			//蔬菜清单取不到时退回通用款
+			potions.add(new Entry(pd.items.consum.food.MagicJuice.class));
+			potions.add(new Entry(pd.items.consum.food.MagicCandy.class));
+		}
 
 		//SPSEXPD: 合剂（ExoticPotion）/ 魔药与秘药（Brew、Elixir）——新加入或配方移植后的产物也都在这里
 		java.util.LinkedHashSet<Class<? extends Item>> exoticAndBrews = new java.util.LinkedHashSet<>();
