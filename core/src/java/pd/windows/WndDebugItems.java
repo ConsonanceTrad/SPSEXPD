@@ -325,6 +325,23 @@ public class WndDebugItems extends Window {
 			}
 		}
 		potions.add(new Entry(pd.items.consum.food.MagicJuice.class));
+
+		//SPSEXPD: 合剂（ExoticPotion）/ 魔药与秘药（Brew、Elixir）——新加入或配方移植后的产物也都在这里
+		java.util.LinkedHashSet<Class<? extends Item>> exoticAndBrews = new java.util.LinkedHashSet<>();
+		for (ArrayList<Class<? extends Item>> list : groups().values()) {
+			for (Class<? extends Item> c : list) {
+				if (c == null) continue;
+				if (pd.items.consum.potions.exotic.ExoticPotion.class.isAssignableFrom(c)
+						|| pd.items.consum.potions.brews.Brew.class.isAssignableFrom(c)
+						|| pd.items.consum.potions.elixirs.Elixir.class.isAssignableFrom(c)) {
+					exoticAndBrews.add(c);
+				}
+			}
+		}
+		for (Class<? extends Item> c : exoticAndBrews) {
+			potions.add(new Entry(c));
+		}
+
 		map.put("药品", potions);
 
 		//工具：蒸馏压片机 / 分装灌液机 / 菜板 / 平底煎锅
