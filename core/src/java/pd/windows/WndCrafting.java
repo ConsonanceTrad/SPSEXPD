@@ -314,7 +314,8 @@ public class WndCrafting extends Window {
 		float slotsX1;
 		float slotsMainX;
 		if (singleColumn) {
-			slotsX0 = Math.round((w - BTN_SIZE) / 2f);
+			//SPSEXPD: 单列布局也贴左内边距（原来居中会在材料行左侧空出一大片）
+			slotsX0 = 8;
 			slotsX1 = slotsX0;
 			slotsMainX = slotsX0;
 		} else {
@@ -815,18 +816,20 @@ public class WndCrafting extends Window {
 
 		for (Recipe recipe : recipes) {
 			boolean food = SpsFoodPrepRecipes.isFoodPrep(recipe);
+			//SPSEXPD: 纯食材（胡萝卜/松露/莴苣/苹果/浆果）榨汁归分装灌液机，魔法植物蔬菜榨汁留在炼金釜
+			boolean plainJuice = isPlainFoodJuice(recipe, ingredients);
 			switch (spsMode) {
 				case MODE_DISTILL:
 					if (recipe instanceof SpsBrewRecipes.DistillBrew) out.add(recipe);
 					break;
 				case MODE_FILL:
-					if (recipe instanceof SpsBrewRecipes.FillBrew) out.add(recipe);
+					if (recipe instanceof SpsBrewRecipes.FillBrew || plainJuice) out.add(recipe);
 					break;
 				default:
 					//炼金釜只保留药剂工艺与加工产物，食物一律交给新工具
 					if (!(recipe instanceof SpsBrewRecipes.DistillBrew)
 							&& !(recipe instanceof SpsBrewRecipes.FillBrew)
-							&& !food) {
+							&& !food && !plainJuice) {
 						out.add(recipe);
 					}
 					break;
@@ -840,6 +843,34 @@ public class WndCrafting extends Window {
 			}
 		}
 		return out;
+	}
+
+	/** SPSEXPD: 纯食材（朴素命名的那些）——它们的榨汁配方归分装灌液机。 */
+	private static boolean isPlainFoodSource(Item item) {
+		if (item == null) return false;
+		Class<?> type = item.getClass();
+		if (type == pd.items.consum.food.vegetable.Carrot.class
+				|| type == pd.items.consum.food.vegetable.Truffles.class
+				|| type == pd.items.consum.food.vegetable.Lettuce.class
+				|| type == pd.items.consum.food.vegetable.Apple.class) {
+			return true;
+		}
+		Class<?>[] berries = Generator.Category.SPS_BERRY.classes;
+		if (berries != null) {
+			for (Class<?> berry : berries) {
+				if (berry == type) return true;
+			}
+		}
+		return false;
+	}
+
+	/** SPSEXPD: 这条配方是不是「纯食材 → 果汁」。 */
+	private static boolean isPlainFoodJuice(Recipe recipe, ArrayList<Item> ingredients) {
+		if (recipe == null || ingredients == null) return false;
+		BrewRecipe.Slots slots = BrewRecipe.Slots.of(ingredients);
+		if (slots.main == null || slots.adjuvantCount() != 0) return false;
+		if (!isPlainFoodSource(slots.main)) return false;
+		return recipe.testIngredients(ingredients);
 	}
 
 	//SPSEXPD: 原来的「废料重铸」（wasteCount/reforgeWaste）已随垃圾物品一并移除
