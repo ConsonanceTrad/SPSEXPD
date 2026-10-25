@@ -11,7 +11,7 @@ import pd.utils.GLog;
 import pd.messages.InlineText;
 import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
 
-public class GreenSpore extends Pill {
+public class GreenSpore extends pd.items.consum.food.MagicJuice {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(GreenSpore.class)
@@ -23,7 +23,8 @@ public class GreenSpore extends Pill {
 
 
 	{ image = ConsumPotionSeedBasicPotionDict.DEW_FUNGUS_SPORE; }
-	@Override protected void onUse(Hero hero) {
+	@Override protected void satisfy(Hero hero) {
+		super.satisfy(hero);
 		if (!Dungeon.dewWater && !Dungeon.dewDraw) {
 			GLog.w(Messages.get(this, "not_time"));
 			return;

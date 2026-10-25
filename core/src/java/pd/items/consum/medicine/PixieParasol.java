@@ -14,7 +14,7 @@ import render.utils.math.Random;
 import pd.messages.InlineText;
 import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
 
-public class PixieParasol extends Pill {
+public class PixieParasol extends pd.items.consum.food.MagicJuice {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(PixieParasol.class)
@@ -27,7 +27,8 @@ public class PixieParasol extends Pill {
 	{ image = ConsumPotionSeedBasicPotionDict.MONOCHROME_BLOCK; }
 	public PixieParasol() { this(1); }
 	public PixieParasol(int value) { quantity = value; }
-	@Override protected void onUse(Hero hero) {
+	@Override protected void satisfy(Hero hero) {
+		super.satisfy(hero);
 		for (Mob mob : mobs()) {
 			Buff.affect(mob, Drowsy.class);
 			Buff.prolong(mob, Paralysis.class, Random.IntRange(10, 16));

@@ -10,7 +10,7 @@ import pd.actors.mobs.Mob;
 import pd.messages.InlineText;
 import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
 
-public class GoldenJelly extends Pill {
+public class GoldenJelly extends pd.items.consum.food.MagicJuice {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(GoldenJelly.class)
@@ -23,7 +23,8 @@ public class GoldenJelly extends Pill {
 	{ image = ConsumPotionSeedBasicPotionDict.LETHAL_FUNGUS; }
 	public GoldenJelly() { this(1); }
 	public GoldenJelly(int value) { quantity = value; }
-	@Override protected void onUse(Hero hero) {
+	@Override protected void satisfy(Hero hero) {
+		super.satisfy(hero);
 		for (Mob mob : mobs()) Buff.affect(mob, GrowSeed.class).set(10f);
 		Buff.affect(hero, Vertigo.class, 10f);
 	}

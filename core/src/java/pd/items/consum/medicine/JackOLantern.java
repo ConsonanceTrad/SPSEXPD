@@ -12,7 +12,7 @@ import pd.scenes.GameScene;
 import pd.messages.InlineText;
 import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
 
-public class JackOLantern extends Pill {
+public class JackOLantern extends pd.items.consum.food.MagicJuice {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(JackOLantern.class)
@@ -25,7 +25,8 @@ public class JackOLantern extends Pill {
 	{ image = ConsumPotionSeedBasicPotionDict.FIRE_PHOSPHORUS_FRUIT; }
 	public JackOLantern() { this(1); }
 	public JackOLantern(int value) { quantity = value; }
-	@Override protected void onUse(Hero hero) {
+	@Override protected void satisfy(Hero hero) {
+		super.satisfy(hero);
 		for (Mob mob : mobs()) {
 			GameScene.add(Blob.seed(mob.pos, 3, Fire.class));
 			Buff.affect(mob, DBurning.class).set(8f);

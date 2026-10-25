@@ -32,19 +32,19 @@ import render.utils.serialize.Reflection;
 /**
  * SPSEXPD: 魔法硬糖——魔法果汁经「蒸馏压片机」蒸馏后的浓缩形态。
  *
- * <p>与果汁一样按蔬菜分：名称、描述与效果都跟着蔬菜走，不同蔬菜的硬糖不堆叠。
+ * <p>与果汁一一对应：名字由果汁名派生（去掉末尾「瓶」/「汁」再拼「硬糖」），
+ * 所以「星辰精华瓶 → 星辰精华硬糖」「萝卜汁 → 萝卜硬糖」。效果同样跟着来源走。
  */
 public class MagicCandy extends Food {
 
 	static {
 		InlineText.of(MagicCandy.class)
 				.t("name", "魔法硬糖")
-				.t("name_pattern", "%s硬糖")
 				.t("desc", "浓缩到几乎发亮的果蔬硬糖，含在嘴里能持续补充体力。")
-				.t("desc_pattern", "用%s的果汁浓缩成的硬糖，含在嘴里能持续补充体力，也会重现那份效果。");
+				.t("desc_source", "用%s浓缩成的硬糖，含在嘴里能持续补充体力，也会重现那份效果。");
 	}
 
-	/** 来源蔬菜类；null 表示旧存档里的通用硬糖。 */
+	/** 来源类（蔬菜或某个旧瓶子类）；null 表示旧存档里的通用硬糖。 */
 	public Class<? extends Item> vegetable = null;
 
 	private static final String VEGETABLE = "vegetable";
@@ -65,13 +65,14 @@ public class MagicCandy extends Food {
 	@Override
 	public String name() {
 		if (vegetable == null) return Messages.get(this, "name");
-		return Messages.get(this, "name_pattern", Messages.titleCase(Messages.get(vegetable, "name")));
+		return MagicJuice.candyNameOf(vegetable);
 	}
 
 	@Override
 	public String desc() {
 		if (vegetable == null) return Messages.get(this, "desc");
-		return Messages.get(this, "desc_pattern", Messages.titleCase(Messages.get(vegetable, "name")));
+		String juice = MagicJuice.juiceNameOf(vegetable);
+		return Messages.get(this, "desc_source", juice == null ? Messages.get(this, "name") : juice);
 	}
 
 	@Override

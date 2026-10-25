@@ -12,7 +12,7 @@ import pd.actors.mobs.Mob;
 import pd.messages.InlineText;
 import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
 
-public class BlueMilk extends Pill {
+public class BlueMilk extends pd.items.consum.food.MagicJuice {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(BlueMilk.class)
@@ -25,7 +25,8 @@ public class BlueMilk extends Pill {
 	{ image = ConsumPotionSeedBasicPotionDict.BLUE_CAP_MUSHROOM; }
 	public BlueMilk() { this(1); }
 	public BlueMilk(int value) { quantity = value; }
-	@Override protected void onUse(Hero hero) {
+	@Override protected void satisfy(Hero hero) {
+		super.satisfy(hero);
 		for (Mob mob : mobs()) {
 			Buff.affect(mob, Slow.class, 50f);
 			Buff.affect(mob, AttackDown.class, 50f).level(50);

@@ -11,7 +11,7 @@ import pd.actors.mobs.Mob;
 import pd.messages.InlineText;
 import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
 
-public class DeathCap extends Pill {
+public class DeathCap extends pd.items.consum.food.MagicJuice {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(DeathCap.class)
@@ -24,7 +24,8 @@ public class DeathCap extends Pill {
 	{ image = ConsumPotionSeedBasicPotionDict.POISON_MUSHROOM; }
 	public DeathCap() { this(1); }
 	public DeathCap(int value) { quantity = value; }
-	@Override protected void onUse(Hero hero) {
+	@Override protected void satisfy(Hero hero) {
+		super.satisfy(hero);
 		for (Mob mob : mobs()) {
 			Buff.affect(mob, BeOld.class).set(50f);
 			Buff.affect(mob, BeCorrupt.class).level(50);

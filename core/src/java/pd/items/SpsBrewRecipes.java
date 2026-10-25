@@ -217,8 +217,30 @@ public final class SpsBrewRecipes {
 
 	/**
 	 * 魔法果汁：主材蔬菜（魔法蔬菜）+ 辅材任意果实 + 水 → 魔法果汁。
+	 *
+	 * <p>SPSEXPD: 7 种蔬菜的效果分别对应旧菌类改造来的果汁瓶，直接产出那些瓶子；其余蔬菜产普通果汁。
 	 */
 	public static final class MagicJuiceBrew extends BrewRecipe {
+
+		private static final java.util.Map<Class<? extends Item>, Class<? extends Item>> LEGACY_BOTTLES =
+				new java.util.LinkedHashMap<>();
+
+		static {
+			LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.Chili.class,
+					pd.items.consum.medicine.JackOLantern.class);
+			LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.DewSpore.class,
+					pd.items.consum.medicine.GreenSpore.class);
+			LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.DreamLeaf.class,
+					pd.items.consum.medicine.PixieParasol.class);
+			LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.HealGrass.class,
+					pd.items.consum.medicine.BlueMilk.class);
+			LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.Marigold.class,
+					pd.items.consum.medicine.Earthstar.class);
+			LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.ToxicEggplant.class,
+					pd.items.consum.medicine.DeathCap.class);
+			LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.Tulip.class,
+					pd.items.consum.medicine.GoldenJelly.class);
+		}
 
 		public MagicJuiceBrew() {
 			mainMaterial = Vegetable.class;
@@ -233,8 +255,14 @@ public final class SpsBrewRecipes {
 
 		@Override
 		protected Item successOutput(Slots ingredients) {
-			//SPSEXPD: 果汁按蔬菜分——把主材（蔬菜）的类记进去
-			return pd.items.consum.food.MagicJuice.of(ingredients.main == null ? null : ingredients.main.getClass());
+			//SPSEXPD: 果汁按蔬菜分——7 种效果对应的蔬菜产旧菌类改造来的果汁瓶，其余产普通蔬菜果汁
+			Class<? extends Item> veg = ingredients.main == null ? null : ingredients.main.getClass();
+			Class<? extends Item> bottle = LEGACY_BOTTLES.get(veg);
+			if (bottle != null) {
+				Item out = render.utils.serialize.Reflection.newInstance(bottle);
+				if (out != null) return out;
+			}
+			return pd.items.consum.food.MagicJuice.of(veg);
 		}
 	}
 
@@ -273,8 +301,9 @@ public final class SpsBrewRecipes {
 		protected Item successOutput(Slots ingredients) {
 			Item main = ingredients.main;
 			if (main instanceof MagicJuice) {
-				//SPSEXPD: 硬糖同样按蔬菜分，继承果汁的蔬菜类
-				return pd.items.consum.food.MagicCandy.of(((MagicJuice) main).vegetable);
+				//SPSEXPD: 硬糖同样按来源分——普通果汁用它的蔬菜类，旧瓶果汁用它自身的类
+				Class<? extends Item> src = ((MagicJuice) main).vegetable;
+				return pd.items.consum.food.MagicCandy.of(src != null ? src : main.getClass());
 			}
 			Potion potion = (Potion) main;
 			if (potion.form == PotionForm.PILL) {

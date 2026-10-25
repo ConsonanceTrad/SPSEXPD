@@ -11,7 +11,7 @@ import render.utils.math.Random;
 import pd.messages.InlineText;
 import pd.atlas.items.ConsumPotionSeedBasicPotionDict;
 
-public class Earthstar extends Pill {
+public class Earthstar extends pd.items.consum.food.MagicJuice {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(Earthstar.class)
@@ -24,7 +24,8 @@ public class Earthstar extends Pill {
 	{ image = ConsumPotionSeedBasicPotionDict.EARTH_RIFT_FRUIT; }
 	public Earthstar() { this(1); }
 	public Earthstar(int value) { quantity = value; }
-	@Override protected void onUse(Hero hero) {
+	@Override protected void satisfy(Hero hero) {
+		super.satisfy(hero);
 		for (Mob mob : mobs()) {
 			int min = mob.HP / 8;
 			int max = mob.HP / 4;
