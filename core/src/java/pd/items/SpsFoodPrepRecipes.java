@@ -21,6 +21,11 @@
 
 package pd.items;
 
+import pd.items.consum.food.processed.Dough;
+import pd.items.consum.food.processed.Mince;
+import pd.items.consum.food.processed.Salt;
+import pd.items.consum.food.processed.Syrup;
+import pd.items.consum.food.processed.PickledMeat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -103,41 +108,42 @@ public final class SpsFoodPrepRecipes {
 	//*** 配方表
 
 	private static final List<Recipe> FILL_RECIPES = Arrays.asList(
-			//粥 / 汤 / 生鱼片
-			SpsAlchemyRecipes.recipe(2, RiceGruel.class, StapleFood.class, WaterItem.class, WaterItem.class),
-			SpsAlchemyRecipes.recipe(Porksoup.class, MeatFood.class, WaterItem.class, Vegetable.class),
-			SpsAlchemyRecipes.recipe(Vegetablesoup.class, WaterItem.class, Vegetable.class, Vegetable.class),
-			SpsAlchemyRecipes.recipe(Sishimi.class, WaterItem.class, MeatFood.class),
+			//SPSEXPD: 语义化——粥/汤/腌菜都走「原料 + 水 + 盐」，肉用肉馅、甜味用甜酱
+			SpsAlchemyRecipes.recipe(2, RiceGruel.class, StapleFood.class, WaterItem.class, Salt.class),
+			SpsAlchemyRecipes.recipe(Porksoup.class, Mince.class, WaterItem.class, Salt.class),
+			SpsAlchemyRecipes.recipe(Vegetablesoup.class, Vegetable.class, WaterItem.class, Salt.class),
+			SpsAlchemyRecipes.recipe(Sishimi.class, MeatFood.class, WaterItem.class, Salt.class),
 			//饮品
-			SpsAlchemyRecipes.recipe(HoneyWater.class, pd.items.consum.food.Honey.class, WaterItem.class, WaterItem.class),
+			SpsAlchemyRecipes.recipe(HoneyWater.class, Syrup.class, WaterItem.class),
 			SpsAlchemyRecipes.recipe(5, Foamedbeverage.class, StoneOre.class, WaterItem.class, WaterItem.class, Plant.Seed.class, Fruit.class),
-			SpsAlchemyRecipes.recipe(Icecream.class, pd.items.consum.food.Honey.class, WaterItem.class, Icecap.Seed.class),
+			SpsAlchemyRecipes.recipe(Icecream.class, Syrup.class, WaterItem.class, Icecap.Seed.class),
 			//含水菜
 			new SpsAlchemyRecipes.FruitSalad(),
-			SpsAlchemyRecipes.recipe(PerfectFood.class, Vegetable.class, StoneOre.class, StapleFood.class, WaterItem.class, Fruit.class),
+			SpsAlchemyRecipes.recipe(PerfectFood.class, Vegetable.class, StoneOre.class, Dough.class, WaterItem.class, Fruit.class),
 			SpsAlchemyRecipes.recipe(TimePill.class, StoneOre.class, StoneOre.class, StoneOre.class, StoneOre.class, WaterItem.class),
 			SpsAlchemyRecipes.recipe(Crystalnucleus.class, StoneOre.class, StoneOre.class, StoneOre.class, WaterItem.class, Plant.Seed.class),
 			SpsAlchemyRecipes.recipe(Gel.class, StoneOre.class, WaterItem.class),
-			SpsAlchemyRecipes.recipe(PetFood.class, Nut.class, Nut.class, WaterItem.class),
+			SpsAlchemyRecipes.recipe(PetFood.class, Nut.class, Mince.class, WaterItem.class),
 			SpsAlchemyRecipes.BLANDFRUIT_TO_RATION
 	);
 
 	private static final List<Recipe> PAN_RECIPES = Arrays.asList(
-			SpsAlchemyRecipes.recipe(Hamburger.class, StapleFood.class, StapleFood.class, Vegetable.class, MeatFood.class, MeatFood.class),
-			SpsAlchemyRecipes.recipe(Kebab.class, Vegetable.class, MeatFood.class, MeatFood.class),
-			SpsAlchemyRecipes.recipe(Vegetablekebab.class, Vegetable.class, Vegetable.class, MeatFood.class),
-			SpsAlchemyRecipes.recipe(Chickennugget.class, StoneOre.class, MeatFood.class),
-			SpsAlchemyRecipes.recipe(Frenchfries.class, Nut.class, Nut.class, Scroll.class),
-			SpsAlchemyRecipes.recipe(Meatroll.class, Scroll.class, MeatFood.class),
-			SpsAlchemyRecipes.recipe(Vegetableroll.class, Scroll.class, Vegetable.class),
-			SpsAlchemyRecipes.recipe(Honeymeat.class, pd.items.consum.food.Honey.class, MeatFood.class),
-			SpsAlchemyRecipes.recipe(Honeyrice.class, pd.items.consum.food.Honey.class, StapleFood.class),
-			SpsAlchemyRecipes.recipe(Herbmeat.class, MeatFood.class, Plant.Seed.class),
-			SpsAlchemyRecipes.recipe(Chocolate.class, Nut.class, Nut.class, Nut.class, Nut.class, Nut.class),
-			SpsAlchemyRecipes.recipe(OverpricedRation.class, Nut.class, Nut.class, Nut.class, Nut.class),
-			SpsAlchemyRecipes.recipe(NutCake.class, StapleFood.class, Nut.class, pd.items.consum.food.Honey.class),
-			SpsAlchemyRecipes.recipe(MoonCake.class, StapleFood.class, Nut.class, Nut.class),
-			SpsAlchemyRecipes.recipe(ZongZi.class, StapleFood.class, Vegetable.class, MeatFood.class),
+			//SPSEXPD: 语义化——面食用面团、肉菜用肉馅、调味用盐/甜酱，其中腌肉与甜酱本身就是中间食物
+			SpsAlchemyRecipes.recipe(Hamburger.class, Dough.class, Mince.class, Vegetable.class, Salt.class),
+			SpsAlchemyRecipes.recipe(Kebab.class, Mince.class, Vegetable.class, Salt.class),
+			SpsAlchemyRecipes.recipe(Vegetablekebab.class, Vegetable.class, Vegetable.class, Salt.class),
+			SpsAlchemyRecipes.recipe(Chickennugget.class, Mince.class, Nut.class, Salt.class),
+			SpsAlchemyRecipes.recipe(Frenchfries.class, Vegetable.class, Nut.class, Salt.class),
+			SpsAlchemyRecipes.recipe(Meatroll.class, Dough.class, Mince.class, Salt.class),
+			SpsAlchemyRecipes.recipe(Vegetableroll.class, Dough.class, Vegetable.class, Salt.class),
+			SpsAlchemyRecipes.recipe(Honeymeat.class, PickledMeat.class, Syrup.class),
+			SpsAlchemyRecipes.recipe(Honeyrice.class, StapleFood.class, Syrup.class),
+			SpsAlchemyRecipes.recipe(Herbmeat.class, Mince.class, Plant.Seed.class),
+			SpsAlchemyRecipes.recipe(Chocolate.class, Nut.class, Nut.class, Nut.class, Syrup.class),
+			SpsAlchemyRecipes.recipe(OverpricedRation.class, Nut.class, Nut.class, Salt.class),
+			SpsAlchemyRecipes.recipe(NutCake.class, Dough.class, Nut.class, Syrup.class),
+			SpsAlchemyRecipes.recipe(MoonCake.class, Dough.class, Nut.class, Nut.class),
+			SpsAlchemyRecipes.recipe(ZongZi.class, StapleFood.class, Mince.class, Salt.class),
 			new SingleIngredientCook()
 	);
 
