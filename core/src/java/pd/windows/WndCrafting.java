@@ -259,6 +259,11 @@ public class WndCrafting extends Window {
 		return spsMode == MODE_ALCHEMY;
 	}
 
+	/** SPSEXPD: 材料格是否改用「单列从上到下」布局——炼金釜以外的工具都用单列。 */
+	protected boolean singleColumnLayout() {
+		return spsMode != MODE_ALCHEMY;
+	}
+
 	/** 是否需要「指南」按钮（只有炼金有炼金指南）。 */
 	protected boolean hasGuideButton() {
 		return spsMode == MODE_ALCHEMY;
@@ -295,27 +300,41 @@ public class WndCrafting extends Window {
 
 		int pos = (int)title.bottom() + 2;
 
-		//SPSEXPD: 材料格布局——左侧快速添加按钮列，右侧主材 + 辅材（2 列 3 行）
+		//SPSEXPD: 材料格布局——炼金釜是「主材 + 辅材 2×2」，其余工具（蒸馏/分装/平底锅/菜板）改成单列三格
+		boolean singleColumn = singleColumnLayout();
 		float gapX = Math.max(4, Math.min(20, (pw - 74 - QUICK_COL_W) - 2*BTN_SIZE));
-		float inputW = 2*BTN_SIZE + gapX;
-		float slotsX0 = left + 6 + (hasQuickColumn() ? QUICK_COL_W : 0);
-		float slotsX1 = slotsX0 + BTN_SIZE + gapX;
-		float slotsMainX = slotsX0 + (inputW - BTN_SIZE)/2f;
+		float inputW = singleColumn ? BTN_SIZE : 2*BTN_SIZE + gapX;
+		float slotsX0;
+		float slotsX1;
+		float slotsMainX;
+		if (singleColumn) {
+			slotsX0 = Math.round((w - BTN_SIZE) / 2f);
+			slotsX1 = slotsX0;
+			slotsMainX = slotsX0;
+		} else {
+			slotsX0 = left + 6 + (hasQuickColumn() ? QUICK_COL_W : 0);
+			slotsX1 = slotsX0 + BTN_SIZE + gapX;
+			slotsMainX = slotsX0 + (inputW - BTN_SIZE)/2f;
+		}
 
 		pos += 4;
 
 		float slotsY0 = pos;
 		float slotsY1 = slotsY0 + BTN_SIZE + 6;
 		float slotsY2 = slotsY1 + BTN_SIZE + 6;
+		//单列模式下槽区的实际底边按格数算
+		float slotsLastY = singleColumn
+				? slotsY0 + (Math.max(1, activeInputCount) - 1) * (BTN_SIZE + 6)
+				: slotsY2;
 
 		NinePatch inputBG = Chrome.get(Chrome.Type.TOAST_TR);
 		inputBG.x = slotsX0 - 4;
 		inputBG.y = slotsY0 - 4;
-		inputBG.size(inputW + 8, (slotsY2 + BTN_SIZE) - slotsY0 + 8);
+		inputBG.size(inputW + 8, (slotsLastY + BTN_SIZE) - slotsY0 + 8);
 		add(inputBG);
 
 		slotsTop = slotsY0 - 4;
-		slotsBottom = slotsY2 + BTN_SIZE + 4;
+		slotsBottom = slotsLastY + BTN_SIZE + 4;
 		slotsMiddleY = slotsTop + (slotsBottom - slotsTop - BTN_SIZE)/2f;
 		//SPSEXPD: 合成按钮 + 输出槽在材料区右侧，纵向居中
 		craftRowY = slotsMiddleY;
@@ -352,7 +371,11 @@ public class WndCrafting extends Window {
 
 				float x;
 				float y;
-				if (i == SLOT_MAIN) {
+				if (singleColumn) {
+					//单列布局：从上到下依次排，不分主材/辅材的位置语义
+					x = slotsMainX;
+					y = slotsY0 + i * (BTN_SIZE + 6);
+				} else if (i == SLOT_MAIN) {
 					x = slotsMainX;
 					y = slotsY0;
 				} else {
@@ -372,7 +395,7 @@ public class WndCrafting extends Window {
 			}
 		}
 
-		pos = (int)(slotsY2 + BTN_SIZE + 8);
+		pos = (int)(slotsLastY + BTN_SIZE + 8);
 
 		Button invSelector = new Button(){
 			@Override
