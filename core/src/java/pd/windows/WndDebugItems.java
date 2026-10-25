@@ -422,7 +422,13 @@ public class WndDebugItems extends Window {
 				@Override
 				protected void onClick() {
 					hide();
-					GameScene.show(new WndDebugItems(title, groups().get(title), 0));
+					//SPSEXPD: 「新增内容」四组走 Entry 版组内页，其余组仍按 Class 列表
+					ArrayList<Entry> extra = extraGroups().get(title);
+					if (extra != null) {
+						GameScene.show(new WndDebugItems(title, extra, 0));
+					} else {
+						GameScene.show(new WndDebugItems(title, groups().get(title), 0));
+					}
 				}
 			};
 			btn.textColor(0xCCCCCC);
