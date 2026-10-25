@@ -21,13 +21,13 @@
 
 package pd.ui;
 
+import pd.items.consum.scrolls.ScrollOfMetamorphosis;
 import pd.Assets;
 import pd.Dungeon;
 import pd.ShatteredPixelDungeon;
 import pd.Statistics;
 import pd.actors.hero.Talent;
 import pd.effects.Speck;
-import pd.items.consum.scrolls.exotic.ScrollOfMetamorphosis;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
 import pd.scenes.PixelScene;

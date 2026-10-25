@@ -19,7 +19,6 @@ import pd.actors.buffs.Silent;
 import pd.actors.buffs.Sleep;
 import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
-import pd.items.consum.scrolls.ScrollOfPsionicBlast;
 import pd.items.equipment.weapon.enchantments.EnchantmentDark;
 import pd.items.equipment.weapon.melee.special.Handcannon;
 import pd.levels.BossRushLevel;
@@ -137,7 +136,6 @@ public class UGoo extends BossRushBoss {
 	}
 
 	public static class FireGoo extends ElementGoo {
-		{ spriteClass = UGooSprite.FireSpawnSprite.class; properties.add(Property.FIERY); immunities.add(Burning.class); immunities.add(ScrollOfPsionicBlast.class); immunities.add(ToxicGas.class); }
 		@Override protected boolean act() {
 			for (int offset : PathFinder.NEIGHBOURS9) {
 				int cell = pos + offset;
@@ -163,7 +161,6 @@ public class UGoo extends BossRushBoss {
 	}
 
 	public static class ShockGoo extends ElementGoo {
-		{ spriteClass = UGooSprite.ShockSpawnSprite.class; properties.add(Property.ELECTRIC); immunities.add(Burning.class); immunities.add(ScrollOfPsionicBlast.class); immunities.add(ElectriShock.class); }
 		@Override public void damage(int damage, Object source) {
 			GameScene.add(Blob.seed(pos, 5, ElectriShock.class));
 			super.damage(damage, source);

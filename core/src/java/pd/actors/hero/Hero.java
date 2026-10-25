@@ -211,7 +211,6 @@ import pd.items.equipment.rings.RingOfTenacity;
 import pd.items.equipment.rings.fusion.RingOfMagic;
 import pd.items.consum.scrolls.Scroll;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
-import pd.items.consum.scrolls.exotic.ScrollOfChallenge;
 import pd.items.equipment.trinkets.ThirteenLeafClover;
 import pd.items.equipment.wands.Wand;
 import pd.items.equipment.wands.WandOfLivingEarth;
@@ -2409,10 +2408,6 @@ public class Hero extends Char {
 			//reduce damage here if it isn't coming from a character (if it is we already reduced it)
 			if (endure != null){
 				damage = endure.adjustDamageTaken(dmg);
-			}
-			//the same also applies to challenge scroll damage reduction
-			if (buff(ScrollOfChallenge.ChallengeArena.class) != null){
-				damage *= 0.67f;
 			}
 			//and to monk meditate damage reduction
 			if (buff(MonkEnergy.MonkAbility.Meditate.MeditateResistance.class) != null){

@@ -33,7 +33,6 @@ import pd.items.consum.potions.Potion;
 import pd.items.consum.potions.exotic.ExoticPotion;
 import pd.items.equipment.rings.Ring;
 import pd.items.consum.scrolls.Scroll;
-import pd.items.consum.scrolls.exotic.ExoticScroll;
 import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -184,13 +183,7 @@ public class StoneOfIntuition extends InventoryStone {
 					unIDed.addAll(Potion.getUnknown());
 				}
 			} else if (item instanceof Scroll){
-				if (item instanceof ExoticScroll) {
-					for (Class<?extends Item> i : Scroll.getUnknown()){
-						unIDed.add(ExoticScroll.regToExo.get(i));
-					}
-				} else {
-					unIDed.addAll(Scroll.getUnknown());
-				}
+				unIDed.addAll(Scroll.getUnknown());
 			} else if (item instanceof Ring) {
 				unIDed.addAll(Ring.getUnknown());
 			} else {

@@ -17,7 +17,6 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.items.consum.food.meatfood.Meat;
 import pd.items.misc.LuckyBadge;
-import pd.items.consum.scrolls.ScrollOfPsionicBlast;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.GreyRatSprite;
@@ -51,7 +50,6 @@ public class GreyRat extends Mob {
 		immunities.add(Sleep.class);
 		immunities.add(Terror.class);
 		immunities.add(Burning.class);
-		immunities.add(ScrollOfPsionicBlast.class);
 		immunities.add(Vertigo.class);
 		immunities.add(Poison.class);
 		immunities.add(StenchGas.class);

@@ -35,7 +35,7 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.npcs.DirectableAlly;
 import pd.effects.MagicMissile;
 import pd.items.equipment.artifacts.HolyTome;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -185,7 +185,7 @@ public class Stasis extends ClericSpell {
 				Buff.prolong(Dungeon.hero, LifeLink.class, stasisAlly.buff(LifeLink.class).cooldown()).object = stasisAlly.id();
 			}
 
-			ScrollOfTeleportation.appear(stasisAlly, stasisAlly.pos);
+			Teleport.appear(stasisAlly, stasisAlly.pos);
 			Sample.INSTANCE.play(Assets.Sounds.TELEPORT);
 
 			return super.act();

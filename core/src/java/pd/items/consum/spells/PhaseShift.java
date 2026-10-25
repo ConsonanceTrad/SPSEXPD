@@ -30,7 +30,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.Paralysis;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.utils.GLog;
@@ -61,7 +61,7 @@ public class PhaseShift extends TargetedSpell {
 		final Char ch = Actor.findChar(bolt.collisionPos);
 		
 		if (ch != null) {
-			if (ScrollOfTeleportation.teleportChar(ch)){
+			if (Teleport.teleportChar(ch)){
 
 				if (ch instanceof Mob) {
 					if (((Mob) ch).state == ((Mob) ch).HUNTING) ((Mob) ch).state = ((Mob) ch).WANDERING;
@@ -93,7 +93,7 @@ public class PhaseShift extends TargetedSpell {
 		private static final int OUT_QUANTITY = 6;
 		
 		{
-			inputs =  new Class[]{ScrollOfTeleportation.class};
+			inputs =  new Class[]{Teleport.class};
 			inQuantity = new int[]{1};
 			
 			cost = 10;

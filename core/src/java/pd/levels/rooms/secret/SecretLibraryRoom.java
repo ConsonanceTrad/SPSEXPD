@@ -23,17 +23,10 @@ package pd.levels.rooms.secret;
 
 import pd.items.consum.scrolls.Scroll;
 import pd.items.consum.scrolls.ScrollOfIdentify;
-import pd.items.consum.scrolls.ScrollOfLullaby;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
-import pd.items.consum.scrolls.ScrollOfMirrorImage;
-import pd.items.consum.scrolls.ScrollOfRage;
 import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.items.consum.scrolls.ScrollOfRemoveCurse;
-import pd.items.consum.scrolls.ScrollOfRetribution;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
-import pd.items.consum.scrolls.ScrollOfTerror;
-import pd.items.consum.scrolls.ScrollOfTransmutation;
-import pd.items.consum.scrolls.exotic.ExoticScroll;
+import pd.utils.Teleport;
 import pd.items.equipment.trinkets.ExoticCrystals;
 import pd.levels.Level;
 import pd.levels.Terrain;
@@ -59,15 +52,8 @@ public class SecretLibraryRoom extends SecretRoom {
 	static{
 		scrollChances.put( ScrollOfIdentify.class,      1f );
 		scrollChances.put( ScrollOfRemoveCurse.class,   2f );
-		scrollChances.put( ScrollOfMirrorImage.class,   3f );
 		scrollChances.put( ScrollOfRecharging.class,    3f );
-		scrollChances.put( ScrollOfTeleportation.class, 3f );
-		scrollChances.put( ScrollOfLullaby.class,       4f );
 		scrollChances.put( ScrollOfMagicMapping.class,  4f );
-		scrollChances.put( ScrollOfRage.class,          4f );
-		scrollChances.put( ScrollOfRetribution.class,   4f );
-		scrollChances.put( ScrollOfTerror.class,        4f );
-		scrollChances.put( ScrollOfTransmutation.class, 6f );
 	}
 	
 	public void paint( Level level ) {
@@ -95,12 +81,6 @@ public class SecretLibraryRoom extends SecretRoom {
 			
 			Class<?extends Scroll> scrollCls = Random.chances(chances);
 			chances.put(scrollCls, 0f);
-
-			if (ExoticScroll.regToExo.containsKey(scrollCls)){
-				if (Random.Float() < ExoticCrystals.consumableExoticChance()){
-					scrollCls = ExoticScroll.regToExo.get(scrollCls);
-				}
-			}
 
 			level.drop( Reflection.newInstance(scrollCls), pos );
 		}

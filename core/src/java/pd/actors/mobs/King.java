@@ -135,7 +135,7 @@ public class King extends Mob {
 		int amount = Math.min(maxArmySize() - undeadCount(), cells.size());
 		for (int i = 0; i < amount; i++) {
 			Undead undead = new Undead(); undead.ownerId = id(); undead.pos = cells.get(i); undead.state = undead.HUNTING; GameScene.add(undead);
-			pd.items.consum.scrolls.ScrollOfTeleportation.appear(undead, undead.pos);
+			pd.utils.Teleport.appear(undead, undead.pos);
 		}
 		yell(Messages.get(this, "arise"));
 		if (HP < HT) HP += Random.Int(1, HT - HP);

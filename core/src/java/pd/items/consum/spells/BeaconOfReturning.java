@@ -32,8 +32,7 @@ import pd.actors.buffs.Invisibility;
 import pd.actors.hero.Hero;
 import pd.actors.hero.Talent;
 import pd.effects.Pushing;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
-import pd.items.consum.scrolls.exotic.ScrollOfPassage;
+import pd.utils.Teleport;
 import pd.journal.Catalog;
 import pd.journal.Notes;
 import pd.levels.Level;
@@ -198,12 +197,12 @@ public class BeaconOfReturning extends Spell {
 						Dungeon.level.occupyCell(toPush);
 					}
 				} else {
-					GLog.w( Messages.get(ScrollOfTeleportation.class, "no_tele") );
+					GLog.w( Messages.get(Teleport.class, "no_tele") );
 					return;
 				}
 			}
 
-			if (ScrollOfTeleportation.teleportToLocation(hero, tracker.returnPos)){
+			if (Teleport.teleportToLocation(hero, tracker.returnPos)){
 				hero.spendAndNext( 1f );
 			} else {
 				return;
@@ -218,7 +217,7 @@ public class BeaconOfReturning extends Spell {
 
 			//cannot return to mining level
 			if (tracker.returnDepth >= 11 && tracker.returnDepth <= 14 && tracker.returnBranch == 1){
-				GLog.w( Messages.get(ScrollOfTeleportation.class, "no_tele") );
+				GLog.w( Messages.get(Teleport.class, "no_tele") );
 				return;
 			}
 
@@ -299,7 +298,6 @@ public class BeaconOfReturning extends Spell {
 		private static final int OUT_QUANTITY = 5;
 		
 		{
-			inputs =  new Class[]{ScrollOfPassage.class};
 			inQuantity = new int[]{1};
 			
 			cost = 12;

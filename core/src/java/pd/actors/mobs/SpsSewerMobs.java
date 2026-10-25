@@ -33,7 +33,6 @@ import pd.items.consum.food.fruit.Strawberry;
 import pd.items.consum.food.meatfood.Meat;
 import pd.items.consum.food.vegetable.NutVegetable;
 import pd.items.misc.LuckyBadge;
-import pd.items.consum.scrolls.ScrollOfRegrowth;
 import pd.items.equipment.wands.WandOfAcid;
 import pd.items.equipment.wands.WandOfLightning;
 import pd.items.equipment.wands.WandOfSwamp;
@@ -124,7 +123,6 @@ public final class SpsSewerMobs {
 
 	public static class RatBoss extends DualLootMob {
 		private boolean spawnedRats;
-		{ spriteClass = SpsSewerSprites.RatBoss.class; HP = HT = 50 + legacyDepthAdjustment(0) * Random.NormalIntRange(2, 5); defenseSkill = 5 + legacyDepthAdjustment(2); EXP = 10; setupDualLoot(Generator.Category.BERRY, 0.5f, ScrollOfRegrowth.class, 0.1f); properties.add(Property.BEAST); properties.add(Property.BOSS); }
 		@Override public Item SupercreateLoot() { return new SaveYourLife(); }
 		@Override public int damageRoll() { return Random.NormalIntRange(2 + legacyDepthAdjustment(1), 8 + legacyDepthAdjustment(0)); }
 		@Override public int attackSkill(Char target) { return 11 + legacyDepthAdjustment(0); }

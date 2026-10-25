@@ -43,8 +43,8 @@ import pd.items.consum.potions.PotionOfFrost;
 import pd.items.consum.potions.PotionOfLiquidFlame;
 import pd.items.quest.Embers;
 import pd.items.consum.scrolls.ScrollOfRecharging;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
-import pd.items.consum.scrolls.ScrollOfTransmutation;
+import pd.items.consum.scrolls.ScrollOfRemoveCurse;
+import pd.utils.Teleport;
 import pd.journal.Catalog;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
@@ -121,7 +121,7 @@ public class SummonElemental extends Spell {
 
 			for (Char ch : Actor.chars()){
 				if (ch instanceof Elemental && ch.buff(InvisAlly.class) != null){
-					ScrollOfTeleportation.appear( ch, Random.element(spawnPoints) );
+					Teleport.appear( ch, Random.element(spawnPoints) );
 					((Elemental) ch).state = ((Elemental) ch).HUNTING;
 					curUser.spendAndNext(Actor.TICK);
 					return;
@@ -133,7 +133,7 @@ public class SummonElemental extends Spell {
 			Buff.affect(elemental, InvisAlly.class);
 			elemental.setSummonedALly();
 			elemental.HP = elemental.HT;
-			ScrollOfTeleportation.appear( elemental, Random.element(spawnPoints) );
+			Teleport.appear( elemental, Random.element(spawnPoints) );
 			Invisibility.dispel(curUser);
 			curUser.sprite.operate(curUser.pos);
 			curUser.spendAndNext(Actor.TICK);
@@ -205,7 +205,7 @@ public class SummonElemental extends Spell {
 			return item.isIdentified() && (item instanceof PotionOfLiquidFlame
 					|| item instanceof PotionOfFrost
 					|| item instanceof ScrollOfRecharging
-					|| item instanceof ScrollOfTransmutation);
+					|| item instanceof ScrollOfRemoveCurse);
 		}
 
 		@Override
@@ -234,7 +234,7 @@ public class SummonElemental extends Spell {
 				summonClass = Elemental.ShockElemental.class;
 				image = ConsumScrollAmuletCrystalDict.SUMMON_ELE_0;
 
-			} else if (item instanceof ScrollOfTransmutation){
+			} else if (item instanceof ScrollOfRemoveCurse){
 				Sample.INSTANCE.play(Assets.Sounds.READ);
 				curUser.sprite.emitter().burst( RainbowParticle.BURST, 12 );
 				summonClass = Elemental.ChaosElemental.class;

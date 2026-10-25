@@ -26,7 +26,7 @@ import pd.actors.Char;
 import pd.actors.mobs.Mob;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.equipment.weapon.Weapon;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
@@ -53,7 +53,7 @@ public class Displacing extends Weapon.Enchantment {
 		if (Random.Float() < procChance && !defender.properties().contains(Char.Property.IMMOVABLE)){
 
 			int oldpos = defender.pos;
-			if (ScrollOfTeleportation.teleportChar(defender)){
+			if (Teleport.teleportChar(defender)){
 				if (Dungeon.level.heroFOV[oldpos]) {
 					CellEmitter.get( oldpos ).start( Speck.factory( Speck.LIGHT ), 0.2f, 3 );
 				}

@@ -41,7 +41,7 @@ import pd.effects.Splash;
 import pd.items.Item;
 import pd.items.quest.DarkGold;
 import pd.items.quest.Pickaxe;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.equipment.wands.WandOfBlastWave;
 import pd.levels.CellFlags;
 import pd.levels.Level;
@@ -491,12 +491,12 @@ public class GnollGeomancer extends Mob {
 
 					if (!candidates.isEmpty()){
 						int newSapperPos = Random.element(candidates);
-						ScrollOfTeleportation.appear(closest, newSapperPos);
+						Teleport.appear(closest, newSapperPos);
 						closest.spawnPos = newSapperPos;
 						candidates.remove((Integer)newSapperPos);
 
 						if (guard instanceof GnollGuard && !candidates.isEmpty()){
-							ScrollOfTeleportation.appear((GnollGuard)guard, Random.element(candidates));
+							Teleport.appear((GnollGuard)guard, Random.element(candidates));
 						}
 
 					}

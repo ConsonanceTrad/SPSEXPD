@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package pd.items.consum.scrolls.exotic;
+package pd.items.consum.scrolls;
 
 import pd.Assets;
 import pd.Dungeon;
@@ -51,7 +51,7 @@ import java.util.LinkedHashMap;
 import java.util.Set;
 import pd.messages.InlineText;
 
-public class ScrollOfMetamorphosis extends ExoticScroll {
+public class ScrollOfMetamorphosis extends Scroll {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(ScrollOfMetamorphosis.class)

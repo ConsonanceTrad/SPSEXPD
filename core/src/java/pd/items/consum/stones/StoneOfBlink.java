@@ -25,7 +25,7 @@ import pd.atlas.items.ConsumScrollAmuletAmuletDict;
 
 import pd.actors.Actor;
 import pd.actors.hero.Hero;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.mechanics.Ballistica;
 import pd.messages.InlineText;
 
@@ -63,6 +63,6 @@ public class StoneOfBlink extends Runestone {
 	
 	@Override
 	protected void activate(int cell) {
-		ScrollOfTeleportation.teleportToLocation(curUser, cell);
+		Teleport.teleportToLocation(curUser, cell);
 	}
 }

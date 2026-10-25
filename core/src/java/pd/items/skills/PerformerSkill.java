@@ -13,7 +13,6 @@ import pd.items.equipment.artifacts.Artifact;
 import pd.items.equipment.bags.Bag;
 import pd.items.equipment.bombs.DungeonBomb;
 import pd.items.equipment.rings.Ring;
-import pd.items.consum.scrolls.ScrollOfTransmutation;
 import pd.items.equipment.wands.Wand;
 import pd.items.equipment.weapon.Weapon;
 import pd.levels.GroundItems;
@@ -84,7 +83,7 @@ public class PerformerSkill extends ClassSkill {
 		}
 		@Override public void onSelect(Item item) {
 			if (item == null) return;
-			Item result = ScrollOfTransmutation.changeItem(item);
+			Item result = pd.utils.Transmutation.changeItem(item);
 			if (result == null) return;
 			item.detach(Dungeon.hero.belongings.backpack);
 			if (!result.collect()) dropAtHero(result);

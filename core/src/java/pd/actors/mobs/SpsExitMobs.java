@@ -54,8 +54,7 @@ import pd.items.consum.food.staplefood.OverpricedRation;
 import pd.items.consum.food.vegetable.NutVegetable;
 import pd.items.consum.potions.PotionOfFrost;
 import pd.items.consum.potions.PotionOfToxicGas;
-import pd.items.consum.scrolls.ScrollOfLullaby;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.equipment.wands.Wand;
 import pd.items.equipment.wands.WandOfAcid;
 import pd.items.equipment.wands.WandOfFreeze;
@@ -413,7 +412,6 @@ public final class SpsExitMobs {
 			spriteClass = SuccubusSprite.class;
 			HP = HT = 150 + legacyDepthAdjustment(0) * Random.NormalIntRange(5, 7);
 			defenseSkill = 30 + legacyDepthAdjustment(1); viewDistance = 8;
-			EXP = 14; maxLvl = 35; loot = ScrollOfLullaby.class; lootChance = 0.05f;
 			properties.add(Property.DEMONIC);
 			immunities.add(Sleep.class); immunities.add(FireEffectDamage.class);
 		}
@@ -445,7 +443,7 @@ public final class SpsExitMobs {
 				if (candidates.isEmpty()) { blinkDelay = 5; return; }
 				cell = Random.element(candidates);
 			}
-			ScrollOfTeleportation.appear(this, cell);
+			Teleport.appear(this, cell);
 			blinkDelay = 5;
 		}
 		@Override public void storeInBundle(Bundle b) { super.storeInBundle(b); b.put(BLINK_DELAY, blinkDelay); }

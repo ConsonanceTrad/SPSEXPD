@@ -21,6 +21,7 @@
 
 package pd.items.consum.scrolls;
 
+import pd.utils.Teleport;
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -160,7 +161,7 @@ public class ScrollOfMirrorImage extends Scroll {
 			MirrorImage mob = new MirrorImage();
 			mob.duplicate( hero );
 			GameScene.add( mob );
-			ScrollOfTeleportation.appear( mob, respawnPoints.get( index ) );
+			Teleport.appear( mob, respawnPoints.get( index ) );
 			
 			respawnPoints.remove( index );
 			nImages--;

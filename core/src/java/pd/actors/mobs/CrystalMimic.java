@@ -35,7 +35,7 @@ import pd.items.Honeypot;
 import pd.items.Item;
 import pd.items.equipment.artifacts.Artifact;
 import pd.items.equipment.rings.Ring;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.equipment.trinkets.MimicTooth;
 import pd.items.equipment.wands.Wand;
 import pd.mechanics.pathfind.PathFinder;
@@ -149,7 +149,7 @@ public class CrystalMimic extends Mimic {
 			}
 
 			if (!candidates.isEmpty()){
-				ScrollOfTeleportation.appear(enemy, Random.element(candidates));
+				Teleport.appear(enemy, Random.element(candidates));
 			}
 
 			if (alignment == Alignment.ENEMY) state = FLEEING;

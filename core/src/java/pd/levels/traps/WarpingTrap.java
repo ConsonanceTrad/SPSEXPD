@@ -10,7 +10,7 @@ import pd.effects.Speck;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.equipment.artifacts.TimekeepersHourglass;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.messages.Messages;
 import pd.scenes.InterlevelScene;
 import pd.utils.GLog;
@@ -68,7 +68,7 @@ public class WarpingTrap extends Trap {
 		} else if (target != null) {
 			int destination = legacyDestination(target);
 			if (destination == -1) {
-				GLog.w(Messages.get(ScrollOfTeleportation.class, "no_tele"));
+				GLog.w(Messages.get(Teleport.class, "no_tele"));
 			} else {
 				target.pos = destination;
 				if (target.sprite != null) {

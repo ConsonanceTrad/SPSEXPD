@@ -22,7 +22,7 @@ import pd.items.Generator;
 import pd.items.Item;
 import pd.items.StoneOre;
 import pd.items.consum.food.WaterItem;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
@@ -128,13 +128,13 @@ public final class SpsCaveMobs {
 		@Override public int damageRoll() { return Random.NormalIntRange(14, 20 + legacyDepthAdjustment(0)); }
 		@Override public int attackSkill(Char target) { return 16 + legacyDepthAdjustment(0); }
 		@Override public int drRoll() { return Random.NormalIntRange(0, 4); }
-		@Override public int attackProc(Char enemy, int damage) { enemy.damage(damageRoll(), DamageType.ENERGY_DAMAGE); if (Dungeon.level != null && enemy.isAlive() && Random.Int(5) == 1) ScrollOfTeleportation.teleportChar(enemy); return 0; }
+		@Override public int attackProc(Char enemy, int damage) { enemy.damage(damageRoll(), DamageType.ENERGY_DAMAGE); if (Dungeon.level != null && enemy.isAlive() && Random.Int(5) == 1) Teleport.teleportChar(enemy); return 0; }
 		@Override public void damage(int damage, Object src) {
 			if (!escaped && HP - damage < HT / 2) {
 				escaped = true; damage = 0; Buff.affect(this, WatchOut.class, 200f);
 				ArrayList<Integer> cells = new ArrayList<>();
 				for (int cell = 0; cell < Dungeon.level.length(); cell++) if (Dungeon.level.passable[cell] && Actor.findChar(cell) == null && (Dungeon.hero == null || !Dungeon.level.adjacent(cell, Dungeon.hero.pos))) cells.add(cell);
-				if (!cells.isEmpty()) ScrollOfTeleportation.teleportToLocation(this, Random.element(cells));
+				if (!cells.isEmpty()) Teleport.teleportToLocation(this, Random.element(cells));
 				yell(Messages.get(this, "yell"));
 				if (sprite != null && Dungeon.level.heroFOV[pos]) { CellEmitter.get(pos).burst(Speck.factory(Speck.WOOL), 6); Sample.INSTANCE.play(Assets.Sounds.PUFF); }
 			}

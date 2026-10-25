@@ -9,7 +9,7 @@ import pd.actors.damagetype.SpsMagicDamage;
 import pd.actors.mobs.Mob;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
@@ -81,7 +81,7 @@ public class MageSkill extends ClassSkill {
 	}
 
 	@Override public void doSpecial3() {
-		if (Dungeon.level != null && curUser.sprite != null) ScrollOfTeleportation.teleportChar(curUser);
+		if (Dungeon.level != null && curUser.sprite != null) Teleport.teleportChar(curUser);
 		if (curUser.lvl > 1) {
 			curUser.lvl--;
 			curUser.HTBoost += 5;

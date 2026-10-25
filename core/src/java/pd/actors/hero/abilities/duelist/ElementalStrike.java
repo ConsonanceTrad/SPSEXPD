@@ -59,7 +59,7 @@ import pd.items.Item;
 import pd.items.KindOfWeapon;
 import pd.items.equipment.armor.ClassArmor;
 import pd.items.equipment.bombs.Bomb;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.equipment.trinkets.WondrousResin;
 import pd.items.equipment.wands.CursedWand;
 import pd.items.equipment.wands.WandOfBlastWave;
@@ -569,7 +569,7 @@ public class ElementalStrike extends ArmorAbility {
 			for (Char ch : affected){
 				if (Random.Float() < 0.5f*powerMulti){
 					int oldpos = ch.pos;
-					if (ScrollOfTeleportation.teleportChar(ch)){
+					if (Teleport.teleportChar(ch)){
 						if (Dungeon.level.heroFOV[oldpos]) {
 							CellEmitter.get( oldpos ).start( Speck.factory( Speck.LIGHT ), 0.2f, 3 );
 						}

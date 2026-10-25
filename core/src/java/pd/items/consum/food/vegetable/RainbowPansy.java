@@ -2,7 +2,7 @@ package pd.items.consum.food.vegetable;
 
 import pd.Dungeon;
 import pd.actors.buffs.*;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.plants.*;
 
 import pd.actors.buffs.Bless;

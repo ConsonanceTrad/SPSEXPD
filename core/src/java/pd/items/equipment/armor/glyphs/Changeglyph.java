@@ -11,7 +11,7 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.NormalCell;
 import pd.actors.mobs.npcs.MirrorImage;
 import pd.items.equipment.armor.Armor;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
@@ -57,7 +57,7 @@ public class Changeglyph extends SpsGlyph {
 			decoy = new NormalCell();
 		}
 		GameScene.add(decoy);
-		ScrollOfTeleportation.appear(decoy, Random.element(cells));
+		Teleport.appear(decoy, Random.element(cells));
 	}
 
 	private static void teleportDefender(Armor armor, Char defender) {
@@ -65,7 +65,7 @@ public class Changeglyph extends SpsGlyph {
 		for (int i = 0; i < attempts; i++) {
 			int cell = Random.Int(Dungeon.level.length());
 			if (Dungeon.level.heroFOV[cell] && Dungeon.level.passable[cell] && Actor.findChar(cell) == null) {
-				ScrollOfTeleportation.appear(defender, cell);
+				Teleport.appear(defender, cell);
 				Buff.affect(defender, Invisibility.class, 5f);
 				Dungeon.observe();
 				return;

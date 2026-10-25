@@ -27,7 +27,6 @@ import pd.items.equipment.armor.normalarmor.BaseArmor;
 import pd.items.equipment.armor.normalarmor.RubberArmor;
 import pd.items.equipment.armor.normalarmor.WoodenArmor;
 import pd.items.specific.journalpages.Vault;
-import pd.items.consum.scrolls.ScrollOfPsionicBlast;
 import pd.items.equipment.wands.fusion.WandOfFlow;
 import pd.items.equipment.weapon.melee.normalweapon.FightGloves;
 import pd.items.equipment.weapon.melee.normalweapon.Knuckles;
@@ -75,7 +74,6 @@ public class YearBeast extends Mob {
 		flying = true;
 		resistances.add(ToxicGas.class);
 		resistances.add(Poison.class);
-		resistances.add(ScrollOfPsionicBlast.class);
 		immunities.add(Charm.class);
 		immunities.add(Sleep.class);
 		immunities.add(Terror.class);

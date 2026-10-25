@@ -2,9 +2,9 @@
 package pd.actors.mobs;
 
 import pd.items.Item;
+import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.items.equipment.artifacts.ChaliceOfBlood;
 import pd.items.consum.potions.PotionOfInvisibility;
-import pd.items.consum.scrolls.ScrollOfRage;
 import pd.sprites.ThiefImpSprite;
 import render.utils.math.Random;
 import pd.messages.InlineText;
@@ -29,10 +29,10 @@ public class ThiefImp extends SpsHallsMobs.ThiefImp {
 
 	@Override
 	public Item SupercreateLoot() {
-		return Random.oneOf(new PotionOfInvisibility(), new ScrollOfRage(), new ChaliceOfBlood());
+		return Random.oneOf(new PotionOfInvisibility(), new ScrollOfRecharging(), new ChaliceOfBlood());
 	}
 
 	public static Class<?>[] specialLootTypes() {
-		return new Class<?>[]{PotionOfInvisibility.class, ScrollOfRage.class, ChaliceOfBlood.class};
+		return new Class<?>[]{PotionOfInvisibility.class, ScrollOfRecharging.class, ChaliceOfBlood.class};
 	}
 }

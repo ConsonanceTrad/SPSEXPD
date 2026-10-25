@@ -52,7 +52,6 @@ import pd.effects.Speck;
 import pd.items.equipment.armor.glyphs.Viscosity;
 import pd.items.equipment.artifacts.HolyTome;
 import pd.items.consum.potions.elixirs.ElixirOfAquaticRejuvenation;
-import pd.items.consum.scrolls.exotic.ScrollOfChallenge;
 import pd.items.equipment.weapon.enchantments.Kinetic;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
@@ -163,7 +162,6 @@ public class MnemonicPrayer extends TargetedClericSpell {
 				else if (b instanceof ToxicImbue)       ((ToxicImbue) b).extend(extension);
 				else if (b instanceof WellFed)          ((WellFed) b).extend(extension);
 				else if (b instanceof ElixirOfAquaticRejuvenation.AquaHealing)  ((ElixirOfAquaticRejuvenation.AquaHealing) b).extend(extension);
-				else if (b instanceof ScrollOfChallenge.ChallengeArena)         ((ScrollOfChallenge.ChallengeArena) b).extend(extension);
 				else if (b instanceof ShieldBuff)               ((ShieldBuff) b).delay(extension);
 				else if (b instanceof Kinetic.ConservedDamage)  ((Kinetic.ConservedDamage) b).delay(extension);
 				else if (b instanceof Sungrass.Health)          ((Sungrass.Health) b).boost((int) extension);

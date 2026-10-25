@@ -44,7 +44,7 @@ import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.items.Item;
 import pd.items.equipment.armor.ClassArmor;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -154,7 +154,7 @@ public class SmokeBomb extends ArmorAbility {
 			}
 
 			CellEmitter.get( hero.pos ).burst( Speck.factory( Speck.WOOL ), 10 );
-			ScrollOfTeleportation.appear( hero, target );
+			Teleport.appear( hero, target );
 			Sample.INSTANCE.play( Assets.Sounds.PUFF );
 			Dungeon.level.occupyCell( hero );
 			Dungeon.observe();

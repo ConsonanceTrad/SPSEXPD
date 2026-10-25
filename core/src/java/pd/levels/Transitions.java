@@ -13,6 +13,7 @@
 
 package pd.levels;
 
+import pd.items.consum.scrolls.ScrollOfChallenge;
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -20,7 +21,6 @@ import pd.actors.buffs.Awareness;
 import pd.actors.hero.Talent;
 import pd.actors.hero.spells.Stasis;
 import pd.items.equipment.artifacts.TimekeepersHourglass;
-import pd.items.consum.scrolls.exotic.ScrollOfChallenge;
 import pd.levels.features.LevelTransition;
 import pd.messages.Messages;
 import pd.plants.Swiftthistle;

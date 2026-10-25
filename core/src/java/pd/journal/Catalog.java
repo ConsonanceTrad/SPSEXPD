@@ -103,7 +103,6 @@ import pd.items.ground.remains.BrokenStaff;
 import pd.items.ground.remains.CloakScrap;
 import pd.items.ground.remains.SealShard;
 import pd.items.ground.remains.TornPage;
-import pd.items.consum.scrolls.exotic.ExoticScroll;
 import pd.items.consum.spells.Alchemize;
 import pd.items.consum.spells.BeaconOfReturning;
 import pd.items.consum.spells.CurseInfusion;
@@ -260,8 +259,6 @@ public enum Catalog {
 				SupplyRation.class, Blandfruit.class, PhantomMeat.class, MeatPie.class, RawFish.class );
 
 		EXOTIC_POTIONS.addItems(ExoticPotion.exoToReg.keySet().toArray(new Class[0]));
-
-		EXOTIC_SCROLLS.addItems(ExoticScroll.exoToReg.keySet().toArray(new Class[0]));
 
 		BOMBS.addItems( Bomb.class, FrostBomb.class, Firebomb.class, SmokeBomb.class, RegrowthBomb.class,
 				WoollyBomb.class, Noisemaker.class, FlashBangBomb.class, HolyBomb.class, ArcaneBomb.class, ShrapnelBomb.class);

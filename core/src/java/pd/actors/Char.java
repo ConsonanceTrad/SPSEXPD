@@ -178,10 +178,7 @@ import pd.items.equipment.artifacts.TimekeepersHourglass;
 import pd.items.consum.potions.exotic.PotionOfCleansing;
 import pd.items.quest.Pickaxe;
 import pd.items.equipment.rings.RingOfElements;
-import pd.items.consum.scrolls.ScrollOfPsionicBlast;
-import pd.items.consum.scrolls.ScrollOfRetribution;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
-import pd.items.consum.scrolls.exotic.ScrollOfChallenge;
+import pd.utils.Teleport;
 import pd.items.equipment.trinkets.FerretTuft;
 import pd.items.equipment.wands.Wand;
 import pd.items.equipment.wands.WandOfAcid;
@@ -360,8 +357,8 @@ public abstract class Char extends Actor {
 			}
 			pos = newPos;
 			c.pos = oldPos;
-			ScrollOfTeleportation.appear(this, newPos);
-			ScrollOfTeleportation.appear(c, oldPos);
+			Teleport.appear(this, newPos);
+			Teleport.appear(c, oldPos);
 			Dungeon.observe();
 			GameScene.updateFog();
 			return true;
@@ -548,10 +545,6 @@ public abstract class Char extends Actor {
 			endure = enemy.buff(Endure.EndureTracker.class);
 			if (endure != null){
 				dmg = endure.adjustDamageTaken(dmg);
-			}
-
-			if (enemy.buff(ScrollOfChallenge.ChallengeArena.class) != null){
-				dmg *= 0.67f;
 			}
 
 			if (Dungeon.hero.alignment == enemy.alignment
@@ -1621,7 +1614,7 @@ public abstract class Char extends Actor {
 	}
 
 	public enum Property{
-		BOSS ( new HashSet<Class>( Arrays.asList(Grim.class, GrimTrap.class, ScrollOfRetribution.class, ScrollOfPsionicBlast.class)),
+		BOSS ( new HashSet<Class>( Arrays.asList(Grim.class, GrimTrap.class)),
 				new HashSet<Class>( Arrays.asList(AllyBuff.class, Dread.class) )),
 		MINIBOSS ( new HashSet<Class>(),
 				new HashSet<Class>( Arrays.asList(AllyBuff.class, Dread.class) )),

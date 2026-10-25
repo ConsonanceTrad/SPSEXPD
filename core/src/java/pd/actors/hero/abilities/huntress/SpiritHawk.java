@@ -38,7 +38,7 @@ import pd.actors.mobs.npcs.DirectableAlly;
 import pd.effects.Speck;
 import pd.effects.particles.ShaftParticle;
 import pd.items.equipment.armor.ClassArmor;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.levels.FieldOfView;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
@@ -129,7 +129,7 @@ public class SpiritHawk extends ArmorAbility {
 				ally.pos = Random.element(spawnPoints);
 				GameScene.add(ally);
 
-				ScrollOfTeleportation.appear(ally, ally.pos);
+				Teleport.appear(ally, ally.pos);
 				Dungeon.observe();
 
 				Invisibility.dispel();

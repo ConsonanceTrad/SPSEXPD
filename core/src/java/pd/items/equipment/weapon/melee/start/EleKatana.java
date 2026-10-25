@@ -14,7 +14,7 @@ import pd.actors.buffs.Shocked;
 import pd.actors.buffs.Silent;
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.equipment.weapon.melee.normalweapon.NormalMeleeWeapon;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
@@ -102,7 +102,7 @@ public class EleKatana extends NormalMeleeWeapon {
 		if (hero.sprite == null) {
 			hero.move(destination, false);
 			Dungeon.level.occupyCell(hero);
-		} else if (!ScrollOfTeleportation.teleportToLocation(hero, destination)) return false;
+		} else if (!Teleport.teleportToLocation(hero, destination)) return false;
 		charge -= ZAP_COST;
 		Invisibility.dispel(hero);
 		Sample.INSTANCE.play(Assets.Sounds.ZAP);

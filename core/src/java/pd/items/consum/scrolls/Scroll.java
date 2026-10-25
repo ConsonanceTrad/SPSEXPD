@@ -43,8 +43,6 @@ import pd.items.ItemStatusHandler;
 import pd.items.Recipe;
 import pd.atlas.items.ConsumScrollAmuletScrollDict;
 import pd.items.equipment.artifacts.UnstableSpellbook;
-import pd.items.consum.scrolls.exotic.ExoticScroll;
-import pd.items.consum.scrolls.exotic.ScrollOfAntiMagic;
 import pd.items.consum.stones.Runestone;
 import pd.items.consum.stones.StoneOfAggression;
 import pd.items.consum.stones.StoneOfAugmentation;
@@ -174,11 +172,7 @@ public abstract class Scroll extends Item {
 	public static void saveSelectively( Bundle bundle, ArrayList<Item> items ) {
 		ArrayList<Class<?extends Item>> classes = new ArrayList<>();
 		for (Item i : items){
-			if (i instanceof ExoticScroll){
-				if (!classes.contains(ExoticScroll.exoToReg.get(i.getClass()))){
-					classes.add(ExoticScroll.exoToReg.get(i.getClass()));
-				}
-			} else if (i instanceof Scroll){
+			if (i instanceof Scroll){
 				if (!classes.contains(i.getClass())){
 					classes.add(i.getClass());
 				}
@@ -242,7 +236,7 @@ public abstract class Scroll extends Item {
 				GLog.w( Messages.get(this, "blinded") );
 			} else if (hero.buff(UnstableSpellbook.bookRecharge.class) != null
 					&& hero.buff(UnstableSpellbook.bookRecharge.class).isCursed()
-					&& !(this instanceof ScrollOfRemoveCurse || this instanceof ScrollOfAntiMagic)){
+					&& !(this instanceof ScrollOfRemoveCurse)){
 				GLog.n( Messages.get(this, "cursed") );
 			} else {
 				doRead();
@@ -369,8 +363,7 @@ public abstract class Scroll extends Item {
 		
 		@Override
 		public boolean isSimilar(Item item) {
-			return ExoticScroll.regToExo.containsKey(item.getClass())
-					|| ExoticScroll.regToExo.containsValue(item.getClass());
+			return false;
 		}
 		
 		@Override
@@ -387,16 +380,9 @@ public abstract class Scroll extends Item {
 		private static HashMap<Class<?extends Scroll>, Class<?extends Runestone>> stones = new HashMap<>();
 		static {
 			stones.put(ScrollOfIdentify.class,      StoneOfIntuition.class);
-			stones.put(ScrollOfLullaby.class,       StoneOfDeepSleep.class);
 			stones.put(ScrollOfMagicMapping.class,  StoneOfClairvoyance.class);
-			stones.put(ScrollOfMirrorImage.class,   StoneOfFlock.class);
-			stones.put(ScrollOfRetribution.class,   StoneOfBlast.class);
-			stones.put(ScrollOfRage.class,          StoneOfAggression.class);
 			stones.put(ScrollOfRecharging.class,    StoneOfShock.class);
 			stones.put(ScrollOfRemoveCurse.class,   StoneOfDetectMagic.class);
-			stones.put(ScrollOfTeleportation.class, StoneOfBlink.class);
-			stones.put(ScrollOfTerror.class,        StoneOfFear.class);
-			stones.put(ScrollOfTransmutation.class, StoneOfAugmentation.class);
 			stones.put(ScrollOfUpgrade.class,       StoneOfEnchantment.class);
 		}
 		

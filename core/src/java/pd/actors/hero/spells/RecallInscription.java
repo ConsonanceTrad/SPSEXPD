@@ -30,10 +30,6 @@ import pd.effects.Enchanting;
 import pd.items.Item;
 import pd.items.equipment.artifacts.HolyTome;
 import pd.items.consum.scrolls.Scroll;
-import pd.items.consum.scrolls.ScrollOfTransmutation;
-import pd.items.consum.scrolls.exotic.ExoticScroll;
-import pd.items.consum.scrolls.exotic.ScrollOfEnchantment;
-import pd.items.consum.scrolls.exotic.ScrollOfMetamorphosis;
 import pd.items.consum.stones.InventoryStone;
 import pd.items.consum.stones.Runestone;
 import pd.items.consum.stones.StoneOfAugmentation;
@@ -117,24 +113,16 @@ public class RecallInscription extends ClericSpell {
 	public float chargeUse(Hero hero) {
 		if (hero.buff(UsedItemTracker.class) != null){
 			Class<? extends Item> item = hero.buff(UsedItemTracker.class).item;
-			if (ExoticScroll.class.isAssignableFrom(item)){
-				if (item == ScrollOfMetamorphosis.class || item == ScrollOfEnchantment.class){
-					return 8;
-				} else {
-					return 4;
-				}
-			} else if (Scroll.class.isAssignableFrom(item)){
-				if (item == ScrollOfTransmutation.class){
-					return 6;
-				} else {
-					return 3;
-				}
+			if (Scroll.class.isAssignableFrom(item)){
+				return 6;
 			} else if (Runestone.class.isAssignableFrom(item)){
 				if (item == StoneOfAugmentation.class || item == StoneOfEnchantment.class){
 					return 4;
 				} else {
 					return 2;
 				}
+			} else {
+				return 3;
 			}
 		}
 		return 0;

@@ -188,4 +188,12 @@ public class ScrollOfUpgrade extends InventoryScroll {
 	public int energyVal() {
 		return isKnown() ? 10 * quantity : super.energyVal();
 	}
+
+	/** SPSEXPD: 可否被附魔（原密卷 ScrollOfEnchantment 的同名判定，密卷取消后由升级卷轴承载）。 */
+	public static boolean enchantable( Item item ){
+		//SPSEXPD: 拆卸下来的破损纹章也可以被附魔（刻印）
+		if (item instanceof pd.items.BrokenSeal) return true;
+		return (item instanceof pd.items.equipment.weapon.Weapon || item instanceof pd.items.equipment.armor.Armor)
+				&& (item.isUpgradable() || item instanceof pd.items.equipment.weapon.SpiritBow);
+	}
 }

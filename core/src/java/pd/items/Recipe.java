@@ -44,7 +44,6 @@ import pd.items.consum.potions.elixirs.ElixirOfMight;
 import pd.items.consum.potions.elixirs.ElixirOfToxicEssence;
 import pd.items.consum.potions.exotic.ExoticPotion;
 import pd.items.consum.scrolls.Scroll;
-import pd.items.consum.scrolls.exotic.ExoticScroll;
 import pd.items.consum.spells.Alchemize;
 import pd.items.consum.spells.BeaconOfReturning;
 import pd.items.consum.spells.CurseInfusion;
@@ -193,7 +192,6 @@ public abstract class Recipe {
 		//SPSEXPD: 合剂/魔药/秘药的一步直换全部撤下（docs/alchemy-rework.md §7）——
 		//合剂与魔药改由「主材 + 本局两味」产出，秘药也并入同一体系，
 		//所以 ExoticPotion.PotionToExotic、各 Brew.Recipe、各 ElixirOf*.Recipe 不再注册。
-		new ExoticScroll.ScrollToExotic(),
 		new ArcaneResin.Recipe(),
 		new LiquidMetal.Recipe(),
 		new MagicalInfusion.Recipe(),

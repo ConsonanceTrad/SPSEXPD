@@ -27,7 +27,7 @@ import pd.items.Heap;
 import pd.items.Item;
 import pd.items.Towel;
 import pd.items.specific.keys.IronKey;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.journal.Notes;
 import pd.levels.features.LevelTransition;
@@ -187,7 +187,7 @@ public class SokobanIntroLevel extends Level implements SpsSokobanLevel {
 		super.occupyCell(ch);
 		if (ch == Dungeon.hero) {
 			if (map[ch.pos] == Terrain.PORT_WELL && portalDestination > 0) {
-				ScrollOfTeleportation.teleportToLocation(ch, portalDestination);
+				Teleport.teleportToLocation(ch, portalDestination);
 			} else if (map[ch.pos] == Terrain.FLEECING_TRAP) {
 				Hero hero = (Hero) ch;
 				if (FleecingTrap.destroyArmor(hero)) {
@@ -224,7 +224,7 @@ public class SokobanIntroLevel extends Level implements SpsSokobanLevel {
 		while (Notes.remove(key)) {
 		}
 		createActiveSheep();
-		ScrollOfTeleportation.teleportToLocation(hero, ENTRANCE);
+		Teleport.teleportToLocation(hero, ENTRANCE);
 		GameScene.updateMap();
 	}
 

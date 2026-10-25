@@ -26,7 +26,7 @@ import pd.actors.hero.Hero;
 import pd.actors.hero.Talent;
 import pd.actors.hero.abilities.cleric.AscendedForm;
 import pd.items.equipment.artifacts.HolyTome;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.messages.Messages;
 import pd.ui.HeroIcon;
 import pd.utils.GLog;
@@ -86,7 +86,7 @@ public class Flash extends TargetedClericSpell {
 			return;
 		}
 
-		if (ScrollOfTeleportation.teleportToLocation(hero, target)){
+		if (Teleport.teleportToLocation(hero, target)){
 			hero.spendAndNext( 1f );
 			onSpellCast(tome, hero);
 			hero.buff(AscendedForm.AscendBuff.class).flashCasts++;

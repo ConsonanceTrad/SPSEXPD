@@ -25,7 +25,7 @@ import pd.atlas.items.ConsumScrollAmuletCrystalDict;
 
 import pd.Dungeon;
 import pd.actors.hero.Hero;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.consum.spells.Spell;
 import pd.journal.Catalog;
 import pd.sprites.ItemSprite;
@@ -52,7 +52,7 @@ public class VaultBeacon extends Spell {
 
 	@Override
 	protected void onCast(Hero hero) {
-		if (ScrollOfTeleportation.teleportToLocation(hero, Dungeon.level.entrance())){
+		if (Teleport.teleportToLocation(hero, Dungeon.level.entrance())){
 			hero.spendAndNext( 1f );
 			Catalog.countUse(getClass());
 			detach(hero.belongings.backpack);

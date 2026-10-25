@@ -15,7 +15,6 @@ import pd.items.consum.potions.brews.Brew;
 import pd.items.consum.potions.elixirs.Elixir;
 import pd.items.equipment.rings.Ring;
 import pd.items.consum.scrolls.Scroll;
-import pd.items.consum.scrolls.ScrollOfTransmutation;
 import pd.items.consum.stones.Runestone;
 import pd.items.equipment.trinkets.Trinket;
 import pd.items.equipment.wands.Wand;
@@ -107,7 +106,7 @@ public class TransmutationBall extends Item {
 
 	/** SPSEXPD: 转换球与转换笼蔬菜共用的转换逻辑。 */
 	public static Item changeItem(Item item) {
-		return item instanceof StrBottle ? new MitBottle() : ScrollOfTransmutation.changeItem(item);
+		return item instanceof StrBottle ? new MitBottle() : pd.utils.Transmutation.changeItem(item);
 	}
 
 	@Override public boolean isUpgradable() { return false; }

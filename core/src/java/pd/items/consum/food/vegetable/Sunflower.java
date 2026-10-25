@@ -2,7 +2,7 @@ package pd.items.consum.food.vegetable;
 
 import pd.Dungeon;
 import pd.actors.buffs.*;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.plants.*;
 
 import pd.actors.buffs.Buff;
@@ -22,6 +22,6 @@ public class Sunflower extends Vegetable {
 	{ image = pd.atlas.items.ConsumPotionSeedSeedDict.SUNFLOWER; }
 	@Override protected void onEat(Hero hero) {
 		int target = FullMoonStrength.isNightNow() ? Dungeon.level.randomRespawnCell(hero) : Dungeon.level.entrance();
-		ScrollOfTeleportation.appear(hero, target);
+		Teleport.appear(hero, target);
 	}
 }

@@ -138,15 +138,10 @@ import pd.items.consum.potions.PotionOfShield;
 import pd.items.consum.potions.PotionOfStrength;
 import pd.items.equipment.rings.Ring;
 import pd.items.consum.scrolls.ScrollOfIdentify;
-import pd.items.consum.scrolls.ScrollOfLullaby;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
 import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
-import pd.items.consum.scrolls.ScrollOfMirrorImage;
-import pd.items.consum.scrolls.ScrollOfPsionicBlast;
-import pd.items.consum.scrolls.ScrollOfRage;
 import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.items.consum.scrolls.ScrollOfRemoveCurse;
-import pd.items.consum.scrolls.ScrollOfTerror;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.items.skills.ClassSkill;
 import pd.items.equipment.wands.CannonOfMage;
@@ -510,7 +505,7 @@ public enum HeroClass {
 					(h, i) -> ((pd.items.consum.scrolls.Scroll) i).setKnown()).unidentified();
 		}
 		if ((challenges & Challenges.ELE_STOME) != 0) {
-			l.backpack(() -> new ScrollOfPsionicBlast(), 0, 1, -1,
+			l.backpack(() -> new ScrollOfRecharging(), 0, 1, -1,
 					(h, i) -> ((pd.items.consum.scrolls.Scroll) i).setKnown()).unidentified();
 			l.backpack(() -> new PotionOfShield(), 0, 1, -1,
 					(h, i) -> ((pd.items.consum.potions.Potion) i).setKnown()).unidentified();
@@ -1233,7 +1228,7 @@ public enum HeroClass {
 					l.equip(ItemSlot.WEAPON, () -> new ElfBow(), 0, null);
 					l.equip(ItemSlot.ARMOR, () -> new VestArmor(), 0, null);
 					l.backpack(() -> new JumpM());
-					l.backpack(() -> new pd.items.consum.scrolls.ScrollOfRegrowth());
+					l.backpack(() -> new pd.items.consum.scrolls.ScrollOfRecharging());
 					break;
 				case 5:
 					break;
@@ -1447,7 +1442,7 @@ public enum HeroClass {
 					l.backpack(() -> new StormBomb());
 					l.backpack(() -> new DungeonBomb());
 					l.backpack(() -> new DungeonBomb());
-					l.backpack(() -> new ScrollOfLullaby());
+					l.backpack(() -> new ScrollOfRecharging());
 					break;
 				case 4:
 					l.equip(ItemSlot.WEAPON, () -> new pd.items.equipment.weapon.melee.Mace(), 0, null);
@@ -1487,7 +1482,7 @@ public enum HeroClass {
 					l.backpack(() -> new StormBomb());
 					l.backpack(() -> new DungeonBomb());
 					l.backpack(() -> new DungeonBomb());
-					l.backpack(() -> new ScrollOfLullaby());
+					l.backpack(() -> new ScrollOfRecharging());
 					break;
 			}
 		}

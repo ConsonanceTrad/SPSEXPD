@@ -10,7 +10,7 @@ import pd.actors.buffs.Buff;
 import pd.actors.buffs.InfJump;
 import pd.actors.hero.Hero;
 import pd.items.Item;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.mechanics.Ballistica;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
@@ -85,7 +85,7 @@ public class JumpM extends Item {
 		}
 		if (landingIndex <= 0 || cell == hero.pos || Actor.findChar(cell) != null) return false;
 
-		if (hero.sprite != null) ScrollOfTeleportation.appear(hero, cell);
+		if (hero.sprite != null) Teleport.appear(hero, cell);
 		else hero.move(cell, false);
 		Dungeon.level.pressCell(cell);
 		Dungeon.observe();

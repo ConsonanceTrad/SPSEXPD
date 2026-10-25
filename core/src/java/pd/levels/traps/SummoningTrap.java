@@ -26,7 +26,7 @@ import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.mobs.Mob;
 import pd.items.Heap;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.journal.Bestiary;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
@@ -115,7 +115,7 @@ public class SummoningTrap extends Trap {
 				Bestiary.countEncounter(t.getClass());
 				t.activate();
 			}
-			ScrollOfTeleportation.appear(mob, mob.pos);
+			Teleport.appear(mob, mob.pos);
 			Dungeon.level.occupyCell(mob);
 		}
 

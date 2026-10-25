@@ -26,7 +26,7 @@ import pd.items.Generator;
 import pd.items.Item;
 import pd.items.equipment.artifacts.RobotDMT;
 import pd.items.consum.food.MysteryMeat;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.levels.Terrain;
 import pd.levels.features.Door;
 import pd.mechanics.Ballistica;
@@ -307,7 +307,7 @@ public class SpiderQueen extends Mob {
 				if (candidates.isEmpty()) { delay = BLINK_DELAY; return; }
 				cell = Random.element(candidates);
 			}
-			ScrollOfTeleportation.appear(this, cell);
+			Teleport.appear(this, cell);
 			delay = BLINK_DELAY;
 		}
 

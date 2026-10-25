@@ -1,10 +1,10 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.levels;
 
+import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.items.Item;
 import pd.items.misc.AutoPotion;
 import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
-import pd.items.consum.scrolls.ScrollOfRegrowth;
 import pd.plants.ReNepenth;
 import pd.plants.Starflower;
 
@@ -76,7 +76,7 @@ public class SokobanTeleportLevel extends SokobanCastle {
 			case 6: return new Starflower.Seed();
 			case 3:
 			case 4: return new ScrollOfMagicalInfusion();
-			case 5: return new ScrollOfRegrowth();
+			case 5: return new ScrollOfRecharging();
 			default: return null;
 		}
 	}

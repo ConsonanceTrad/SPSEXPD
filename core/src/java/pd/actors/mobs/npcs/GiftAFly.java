@@ -3,10 +3,10 @@ package pd.actors.mobs.npcs;
 
 import pd.actors.hero.Hero;
 import pd.items.Item;
+import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.items.consum.food.AflyFood;
 import pd.items.consum.food.completefood.CompleteFood;
 import pd.items.consum.potions.PotionOfMindVision;
-import pd.items.consum.scrolls.ScrollOfPsionicBlast;
 import pd.messages.InlineText;
 
 public class GiftAFly extends GiftNpc {
@@ -32,7 +32,7 @@ public class GiftAFly extends GiftNpc {
 	@Override public boolean acceptsGift(Item item) { return item instanceof CompleteFood; }
 	@Override protected GiftResult reward(Hero hero) {
 		if (friendship() == 100) return result("reward2", new AflyFood(), new AflyFood(), new AflyFood());
-		if (friendship() % 30 == 0) return result("reward1", new ScrollOfPsionicBlast(), new PotionOfMindVision());
+		if (friendship() % 30 == 0) return result("reward1", new ScrollOfRecharging(), new PotionOfMindVision());
 		return result("thank1");
 	}
 }

@@ -23,7 +23,7 @@ import pd.effects.MagicMissile;
 import pd.effects.SpellSprite;
 import pd.items.equipment.bombs.Bomb;
 import pd.items.consum.scrolls.ScrollOfRecharging;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.equipment.weapon.melee.MagesStaff;
 import pd.levels.Level;
 import pd.levels.Terrain;
@@ -70,7 +70,7 @@ public class WandOfError extends Wand {
 		switch (effect) {
 			case 0:
 				if (target == curUser) {
-					ScrollOfTeleportation.teleportChar(curUser);
+					Teleport.teleportChar(curUser);
 				} else if (target != null && !(target instanceof NPC)) {
 					int destination = -1;
 					for (int tries = 0; tries < 10 && destination < 0; tries++) {
@@ -79,7 +79,7 @@ public class WandOfError extends Wand {
 					if (destination < 0) {
 						GLog.w(Messages.get(this, "no_teleport"));
 					} else {
-						ScrollOfTeleportation.appear(target, destination);
+						Teleport.appear(target, destination);
 						Dungeon.level.occupyCell(target);
 						GLog.i(Messages.get(this, "teleported", curUser.name(), target.name()));
 					}
@@ -101,7 +101,7 @@ public class WandOfError extends Wand {
 				else if (Actor.findChar(bolt.sourcePos) != null && bolt.dist > 1) {
 					destination = bolt.path.get(bolt.dist - 2);
 				}
-				ScrollOfTeleportation.appear(curUser, destination);
+				Teleport.appear(curUser, destination);
 				Dungeon.level.occupyCell(curUser);
 				Dungeon.observe();
 				break;

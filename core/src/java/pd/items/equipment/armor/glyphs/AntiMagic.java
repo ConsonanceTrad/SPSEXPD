@@ -47,9 +47,7 @@ import pd.items.equipment.armor.Armor;
 import pd.items.equipment.artifacts.ChaliceOfBlood;
 import pd.items.equipment.bombs.ArcaneBomb;
 import pd.items.equipment.bombs.HolyBomb;
-import pd.items.consum.scrolls.ScrollOfPsionicBlast;
-import pd.items.consum.scrolls.ScrollOfRetribution;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.equipment.wands.CursedWand;
 import pd.items.equipment.wands.WandOfBlastWave;
 import pd.items.equipment.wands.WandOfDisintegration;
@@ -100,9 +98,7 @@ public class AntiMagic extends Armor.Glyph {
 
 		RESISTS.add( ArcaneBomb.class );
 		RESISTS.add( HolyBomb.HolyDamage.class );
-		RESISTS.add( ScrollOfRetribution.class );
-		RESISTS.add( ScrollOfPsionicBlast.class );
-		RESISTS.add( ScrollOfTeleportation.class );
+		RESISTS.add( Teleport.class );
 
 		RESISTS.add( GuidingLight.class );
 		RESISTS.add( HolyWeapon.class );

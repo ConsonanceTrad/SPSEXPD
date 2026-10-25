@@ -60,14 +60,9 @@ import pd.items.equipment.rings.Ring;
 import pd.items.equipment.rings.RingOfForce;
 import pd.items.equipment.rings.RingOfMight;
 import pd.items.equipment.rings.RingOfWealth;
-import pd.items.consum.scrolls.ScrollOfLullaby;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
-import pd.items.consum.scrolls.ScrollOfMirrorImage;
 import pd.items.consum.scrolls.ScrollOfRecharging;
-import pd.items.consum.scrolls.ScrollOfRetribution;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
-import pd.items.consum.scrolls.ScrollOfTerror;
-import pd.items.consum.scrolls.ScrollOfTransmutation;
+import pd.utils.Teleport;
 import pd.items.consum.stones.StoneOfAggression;
 import pd.items.consum.stones.StoneOfAugmentation;
 import pd.items.consum.stones.StoneOfBlast;
@@ -452,7 +447,6 @@ public class VaultLevel extends CityLevel {
 			consumableLoot.get(0).addAll(Arrays.asList(
 					Reflection.newInstance(Random.oneOf(PotionOfFrost.class, PotionOfLevitation.class)),
 					Reflection.newInstance(Random.oneOf(Dreamfoil.Seed.class, Icecap.Seed.class, Stormvine.Seed.class)),
-					Reflection.newInstance(Random.oneOf(ScrollOfMirrorImage.class, ScrollOfTeleportation.class)),
 					Reflection.newInstance(Random.oneOf(StoneOfFlock.class, StoneOfShock.class, StoneOfFear.class))));
 			Collections.shuffle(consumableLoot.get(0));
 			//first item in each tier is always a potion of healing (except T3, which has one randomly)
@@ -464,7 +458,6 @@ public class VaultLevel extends CityLevel {
 			consumableLoot.get(1).addAll(Arrays.asList(
 					Reflection.newInstance(Random.oneOf(PotionOfToxicGas.class, PotionOfParalyticGas.class)),
 					Reflection.newInstance(Random.oneOf(Firebloom.Seed.class, Sorrowmoss.Seed.class, Blindweed.Seed.class)),
-					Reflection.newInstance(Random.oneOf(ScrollOfRecharging.class, ScrollOfTerror.class)),
 					Reflection.newInstance(Random.oneOf(StoneOfDeepSleep.class, StoneOfClairvoyance.class, StoneOfAggression.class))));
 			Collections.shuffle(consumableLoot.get(1));
 			consumableLoot.get(1).add(0, new PotionOfHealing());
@@ -475,7 +468,6 @@ public class VaultLevel extends CityLevel {
 			consumableLoot.get(2).addAll(Arrays.asList(
 					Reflection.newInstance(Random.oneOf(PotionOfMindVision.class, PotionOfLiquidFlame.class)),
 					Reflection.newInstance(Random.oneOf(Swiftthistle.Seed.class, Sungrass.Seed.class)),
-					Reflection.newInstance(Random.oneOf(ScrollOfLullaby.class, ScrollOfMagicMapping.class)),
 					Reflection.newInstance(Random.oneOf(StoneOfBlast.class, StoneOfBlink.class))));
 			Collections.shuffle(consumableLoot.get(2));
 			consumableLoot.get(2).add(0, new PotionOfHealing());
@@ -486,7 +478,6 @@ public class VaultLevel extends CityLevel {
 			consumableLoot.get(3).addAll(Arrays.asList(
 					Reflection.newInstance(Random.oneOf(PotionOfExperience.class, PotionOfInvisibility.class)),
 					Reflection.newInstance(Random.oneOf(Earthroot.Seed.class, Starflower.Seed.class)),
-					Reflection.newInstance(Random.oneOf(ScrollOfRetribution.class, ScrollOfTransmutation.class)),
 					Reflection.newInstance(Random.oneOf(StoneOfEnchantment.class, StoneOfAugmentation.class)),
 					new PotionOfHealing()));
 			Collections.shuffle(consumableLoot.get(3));

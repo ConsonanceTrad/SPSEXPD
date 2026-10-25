@@ -27,17 +27,10 @@ import pd.actors.hero.Hero;
 import pd.items.Item;
 import pd.items.consum.scrolls.Scroll;
 import pd.items.consum.scrolls.ScrollOfIdentify;
-import pd.items.consum.scrolls.ScrollOfLullaby;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
-import pd.items.consum.scrolls.ScrollOfMirrorImage;
-import pd.items.consum.scrolls.ScrollOfRage;
 import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.items.consum.scrolls.ScrollOfRemoveCurse;
-import pd.items.consum.scrolls.ScrollOfRetribution;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
-import pd.items.consum.scrolls.ScrollOfTerror;
-import pd.items.consum.scrolls.ScrollOfTransmutation;
-import pd.items.consum.scrolls.exotic.ExoticScroll;
+import pd.utils.Teleport;
 import pd.items.consum.stones.Runestone;
 import pd.journal.Catalog;
 import render.utils.math.Random;
@@ -68,14 +61,7 @@ public class UnstableSpell extends Spell {
 		scrollChances.put( ScrollOfIdentify.class,      3f );
 		scrollChances.put( ScrollOfRemoveCurse.class,   2f );
 		scrollChances.put( ScrollOfMagicMapping.class,  2f );
-		scrollChances.put( ScrollOfMirrorImage.class,   2f );
 		scrollChances.put( ScrollOfRecharging.class,    2f );
-		scrollChances.put( ScrollOfLullaby.class,       2f );
-		scrollChances.put( ScrollOfRetribution.class,   2f );
-		scrollChances.put( ScrollOfRage.class,          2f );
-		scrollChances.put( ScrollOfTeleportation.class, 2f );
-		scrollChances.put( ScrollOfTerror.class,        2f );
-		scrollChances.put( ScrollOfTransmutation.class, 1f );
 	}
 
 	private static HashSet<Class<? extends Scroll>> nonCombatScrolls = new HashSet<>();
@@ -84,20 +70,11 @@ public class UnstableSpell extends Spell {
 		nonCombatScrolls.add( ScrollOfRemoveCurse.class );
 		nonCombatScrolls.add( ScrollOfMagicMapping.class );
 		nonCombatScrolls.add( ScrollOfRecharging.class );
-		nonCombatScrolls.add( ScrollOfLullaby.class );
-		nonCombatScrolls.add( ScrollOfTeleportation.class );
-		nonCombatScrolls.add( ScrollOfTransmutation.class );
 	}
 
 	private static HashSet<Class<? extends Scroll>> combatScrolls = new HashSet<>();
 	static {
-		combatScrolls.add( ScrollOfMirrorImage.class );
 		combatScrolls.add( ScrollOfRecharging.class );
-		combatScrolls.add( ScrollOfLullaby.class );
-		combatScrolls.add( ScrollOfRetribution.class );
-		combatScrolls.add( ScrollOfRage.class );
-		combatScrolls.add( ScrollOfTeleportation.class );
-		combatScrolls.add( ScrollOfTerror.class );
 	}
 	
 	@Override
@@ -150,8 +127,7 @@ public class UnstableSpell extends Spell {
 				if (i instanceof Runestone){
 					stone = true;
 					//if it is a regular or exotic potion
-				} else if (ExoticScroll.regToExo.containsKey(i.getClass())
-						|| ExoticScroll.regToExo.containsValue(i.getClass())) {
+				} else if (i instanceof Scroll) {
 					scroll = true;
 				}
 			}

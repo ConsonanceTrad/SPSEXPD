@@ -12,7 +12,7 @@ import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.effects.MagicMissile;
 import pd.items.Item;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.levels.Level;
 import pd.levels.Transitions;
 import pd.mechanics.Ballistica;
@@ -165,7 +165,7 @@ public class Pylon extends Artifact {
 	public boolean returnToPoint(Hero hero) {
 		if (returnDepth == -1) return false;
 		if (returnDepth == Dungeon.depth && returnBranch == Dungeon.branch) {
-			if (!ScrollOfTeleportation.teleportToLocation(hero, returnPos)) return false;
+			if (!Teleport.teleportToLocation(hero, returnPos)) return false;
 			return true;
 		}
 		Transitions.beforeTransition();
@@ -231,7 +231,7 @@ public class Pylon extends Artifact {
 			updateQuickslot();
 
 			if (Actor.findChar(target) == curUser) {
-				ScrollOfTeleportation.teleportChar(curUser);
+				Teleport.teleportChar(curUser);
 				curUser.spendAndNext(1f);
 				return;
 			}
@@ -239,7 +239,7 @@ public class Pylon extends Artifact {
 			final Ballistica bolt = new Ballistica(curUser.pos, target, Ballistica.MAGIC_BOLT);
 			final Char ch = Actor.findChar(bolt.collisionPos);
 			if (ch == curUser) {
-				ScrollOfTeleportation.teleportChar(curUser);
+				Teleport.teleportChar(curUser);
 				curUser.spendAndNext(1f);
 				return;
 			}

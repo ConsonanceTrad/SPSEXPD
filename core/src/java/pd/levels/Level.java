@@ -83,7 +83,6 @@ import pd.items.misc.LuckyBadge;
 import pd.items.consum.potions.PotionOfStrength;
 import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
-import pd.items.consum.scrolls.exotic.ScrollOfChallenge;
 import pd.items.consum.stones.StoneOfEnchantment;
 import pd.items.consum.stones.StoneOfIntuition;
 import pd.items.equipment.trinkets.DimensionalSundial;

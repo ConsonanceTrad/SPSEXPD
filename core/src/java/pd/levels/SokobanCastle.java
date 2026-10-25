@@ -1,6 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.levels;
 
+import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -22,8 +23,7 @@ import pd.items.misc.Spectacles;
 import pd.items.consum.potions.PotionOfLiquidFlame;
 import pd.items.quest.AdventureJournal;
 import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
-import pd.items.consum.scrolls.ScrollOfRegrowth;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.journal.Notes;
 import pd.levels.features.LevelTransition;
@@ -210,7 +210,7 @@ public class SokobanCastle extends Level implements SpsSokobanLevel {
 			case 2: return new ReNepenth.Seed();
 			case 3:
 			case 4: return new ScrollOfMagicalInfusion();
-			case 5: return new ScrollOfRegrowth();
+			case 5: return new ScrollOfRecharging();
 			default: return null;
 		}
 	}
@@ -265,7 +265,7 @@ public class SokobanCastle extends Level implements SpsSokobanLevel {
 		int[] portals = portalCells();
 		for (int i = 0; i < portals.length; i++) {
 			if (ch.pos == portals[i] && portalDestinations[i] > 0) {
-				ScrollOfTeleportation.teleportToLocation(ch, portalDestinations[i]);
+				Teleport.teleportToLocation(ch, portalDestinations[i]);
 				return;
 			}
 		}
@@ -304,7 +304,7 @@ public class SokobanCastle extends Level implements SpsSokobanLevel {
 		while (Notes.remove(key)) {
 		}
 		createActiveMobs();
-		ScrollOfTeleportation.teleportToLocation(hero, entranceCell());
+		Teleport.teleportToLocation(hero, entranceCell());
 		GameScene.updateMap();
 	}
 

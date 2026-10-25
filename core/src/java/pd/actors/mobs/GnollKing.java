@@ -25,7 +25,6 @@ import pd.items.Gold;
 import pd.items.Heap;
 import pd.items.misc.GnollMark;
 import pd.items.quest.GnollClothes;
-import pd.items.consum.scrolls.ScrollOfPsionicBlast;
 import pd.items.equipment.weapon.enchantments.EnchantmentDark;
 import pd.levels.FieldBossLevel;
 import pd.mechanics.pathfind.PathFinder;
@@ -75,7 +74,6 @@ public class GnollKing extends Mob {
 		immunities.add(Sleep.class);
 		immunities.add(Burning.class);
 		immunities.add(ToxicGas.class);
-		immunities.add(ScrollOfPsionicBlast.class);
 		immunities.add(Vertigo.class);
 		immunities.add(Paralysis.class);
 		immunities.add(Bleeding.class);

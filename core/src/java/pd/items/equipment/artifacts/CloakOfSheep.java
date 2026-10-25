@@ -6,7 +6,7 @@ import pd.actors.Actor;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.DecoySheep;
 import pd.atlas.items.SpecificPlaceHolderDict;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.messages.Messages;
 import pd.scenes.CellSelector;
 import pd.scenes.GameScene;
@@ -153,7 +153,7 @@ public class CloakOfSheep extends Artifact {
 		sheep.pos = hero.pos;
 		GameScene.add(sheep);
 
-		ScrollOfTeleportation.appear(hero, cell);
+		Teleport.appear(hero, cell);
 		GLog.i(Messages.get(this, "baa"));
 		hero.spendAndNext(0.5f);
 		Dungeon.observe();

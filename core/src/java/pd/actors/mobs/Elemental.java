@@ -44,7 +44,6 @@ import pd.items.consum.potions.PotionOfFrost;
 import pd.items.consum.potions.PotionOfLiquidFlame;
 import pd.items.quest.Embers;
 import pd.items.consum.scrolls.ScrollOfRecharging;
-import pd.items.consum.scrolls.ScrollOfTransmutation;
 import pd.items.equipment.trinkets.RatSkull;
 import pd.items.equipment.wands.CursedWand;
 import pd.items.equipment.weapon.enchantments.Shocking;
@@ -583,7 +582,6 @@ public abstract class Elemental extends Mob {
 		{
 			spriteClass = ElementalSprite.Chaos.class;
 			
-			loot = ScrollOfTransmutation.class;
 			lootChance = 1f;
 		}
 		

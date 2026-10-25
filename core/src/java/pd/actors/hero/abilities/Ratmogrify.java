@@ -21,6 +21,8 @@
 
 package pd.actors.hero.abilities;
 
+import pd.items.consum.scrolls.ScrollOfSirensSong;
+import pd.actors.buffs.Charm;
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -38,8 +40,7 @@ import pd.actors.mobs.Statue;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.items.equipment.armor.ClassArmor;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
-import pd.items.consum.scrolls.exotic.ScrollOfSirensSong;
+import pd.utils.Teleport;
 import pd.journal.Bestiary;
 import pd.journal.Notes;
 import pd.mechanics.pathfind.PathFinder;
@@ -127,7 +128,7 @@ public class Ratmogrify extends ArmorAbility {
 					rat.state = rat.HUNTING;
 					Buff.affect(rat, AscensionChallenge.AscensionBuffBlocker.class);
 					GameScene.add( rat );
-					ScrollOfTeleportation.appear( rat, spawnPoints.get( index ) );
+					Teleport.appear( rat, spawnPoints.get( index ) );
 
 					spawnPoints.remove( index );
 					ratsToSpawn--;

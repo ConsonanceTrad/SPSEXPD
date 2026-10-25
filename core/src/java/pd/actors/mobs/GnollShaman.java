@@ -3,9 +3,9 @@ package pd.actors.mobs;
 
 import pd.actors.blobs.Electricity;
 import pd.items.Item;
+import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.items.equipment.artifacts.SandalsOfNature;
 import pd.items.consum.potions.PotionOfLevitation;
-import pd.items.consum.scrolls.ScrollOfRegrowth;
 import pd.sprites.GnollShamanSprite;
 import render.utils.math.Random;
 import pd.messages.InlineText;
@@ -31,10 +31,10 @@ public class GnollShaman extends SpsCaveMobs.GnollShaman {
 
 	@Override
 	public Item SupercreateLoot() {
-		return Random.oneOf(new ScrollOfRegrowth(), new PotionOfLevitation(), new SandalsOfNature());
+		return Random.oneOf(new ScrollOfRecharging(), new PotionOfLevitation(), new SandalsOfNature());
 	}
 
 	public static Class<?>[] specialLootTypes() {
-		return new Class<?>[]{ScrollOfRegrowth.class, PotionOfLevitation.class, SandalsOfNature.class};
+		return new Class<?>[]{ScrollOfRecharging.class, PotionOfLevitation.class, SandalsOfNature.class};
 	}
 }

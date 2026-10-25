@@ -31,7 +31,7 @@ import pd.actors.hero.HeroSubClass;
 import pd.actors.mobs.Mob;
 import pd.effects.CellEmitter;
 import pd.effects.Speck;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.equipment.weapon.missiles.arrows.SmokeFruit;
 import pd.levels.Level;
 import pd.levels.Transitions;
@@ -77,13 +77,13 @@ public class Fadeleaf extends Plant {
 				Game.switchScene( InterlevelScene.class );
 				
 			} else {
-				ScrollOfTeleportation.teleportChar(ch, Fadeleaf.class);
+				Teleport.teleportChar(ch, Fadeleaf.class);
 			}
 			
 		} else if (ch instanceof Mob && !ch.properties().contains(Char.Property.IMMOVABLE)) {
 
 			Buff.prolong(ch, Trap.HazardAssistTracker.class, Trap.HazardAssistTracker.DURATION);
-			ScrollOfTeleportation.teleportChar(ch, Fadeleaf.class);
+			Teleport.teleportChar(ch, Fadeleaf.class);
 
 		}
 		

@@ -29,7 +29,7 @@ import pd.actors.Actor;
 import pd.actors.hero.Hero;
 import pd.actors.mobs.Mob;
 import pd.items.Item;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.levels.Level;
 import pd.levels.Transitions;
 import pd.mechanics.pathfind.PathFinder;
@@ -140,7 +140,7 @@ public class LloydsBeacon extends Item {
 
 		} else if (AC_RETURN.equals(action)) {
 			if (returnDepth == Dungeon.depth) {
-				ScrollOfTeleportation.appear(hero, returnPos);
+				Teleport.appear(hero, returnPos);
 				for (Mob mob : Dungeon.level.mobs()) {
 					if (mob.pos == hero.pos) {
 						for (int offset : PathFinder.NEIGHBOURS8) {

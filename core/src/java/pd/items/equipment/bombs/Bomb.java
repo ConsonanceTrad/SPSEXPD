@@ -42,8 +42,6 @@ import pd.items.consum.potions.PotionOfInvisibility;
 import pd.items.consum.potions.PotionOfLiquidFlame;
 import pd.items.quest.GooBlob;
 import pd.items.quest.MetalShard;
-import pd.items.consum.scrolls.ScrollOfMirrorImage;
-import pd.items.consum.scrolls.ScrollOfRage;
 import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.items.consum.scrolls.ScrollOfRemoveCurse;
 import pd.journal.Catalog;
@@ -376,10 +374,8 @@ public class Bomb extends Item {
 		public static final LinkedHashMap<Class<?extends Item>, Class<?extends Bomb>> validIngredients = new LinkedHashMap<>();
 		static {
 			validIngredients.put(PotionOfFrost.class,           FrostBomb.class);
-			validIngredients.put(ScrollOfMirrorImage.class,     WoollyBomb.class);
 			
 			validIngredients.put(PotionOfLiquidFlame.class,     Firebomb.class);
-			validIngredients.put(ScrollOfRage.class,            Noisemaker.class);
 			
 			validIngredients.put(PotionOfInvisibility.class,    SmokeBomb.class);
 			validIngredients.put(ScrollOfRecharging.class,      FlashBangBomb.class);

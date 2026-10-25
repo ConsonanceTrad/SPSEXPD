@@ -10,6 +10,7 @@
 
 package pd.levels;
 
+import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.Assets;
 import pd.Badges;
 import pd.Dungeon;
@@ -61,7 +62,6 @@ import pd.items.quest.DarkGold;
 import pd.items.quest.Mushroom;
 import pd.items.specific.reward.BoundReward;
 import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
-import pd.items.consum.scrolls.ScrollOfRegrowth;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.items.equipment.wands.WandOfMagicMissile;
 import pd.items.equipment.weapon.melee.fusion.Flute;
@@ -413,7 +413,7 @@ public class TownLevel extends Level {
 	private Item bombStoreItem() {
 		int roll = Random.Int(12);
 		if (roll == 0) return new Ankh();
-		if (roll == 11) return new ScrollOfRegrowth();
+		if (roll == 11) return new ScrollOfRecharging();
 		switch (Random.Int(11)) {
 			case 0: return new Bomb();
 			case 1: return new ArcaneBomb();

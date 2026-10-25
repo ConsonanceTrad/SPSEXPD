@@ -23,7 +23,7 @@ import pd.items.Gold;
 import pd.items.Item;
 import pd.items.specific.keys.SpsSkeletonKey;
 import pd.items.misc.MissileShield;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.equipment.weapon.rockcode.Gleaf;
 import pd.levels.CellFlags;
 import pd.mechanics.Ballistica;
@@ -223,7 +223,7 @@ public class SewerHeart extends LegacyDualLootMob {
 		king.state = king.WANDERING;
 		king.pos = pos;
 		GameScene.add(king, 1f);
-		ScrollOfTeleportation.appear(king, king.pos);
+		Teleport.appear(king, king.pos);
 		if (Dungeon.hero != null && Dungeon.hero.heroClass == HeroClass.PERFORMER && Dungeon.hero.skin == 7) {
 			Dungeon.level.drop(new Gleaf(), Dungeon.hero.pos).sprite.drop();
 		}

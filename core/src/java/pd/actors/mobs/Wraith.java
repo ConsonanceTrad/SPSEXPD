@@ -37,7 +37,6 @@ import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
 import pd.effects.particles.ShadowParticle;
 import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
-import pd.items.consum.scrolls.ScrollOfPsionicBlast;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
@@ -224,7 +223,6 @@ public class Wraith extends LegacyDualLootMob {
 		immunities.add(Charm.class);
 		immunities.add(Sleep.class);
 		immunities.add(ToxicGas.class);
-		immunities.add(ScrollOfPsionicBlast.class);
 		immunities.add(Vertigo.class);
 		immunities.add(Burning.class);
 		immunities.add(Paralysis.class);

@@ -60,7 +60,7 @@ import pd.items.equipment.artifacts.DriedRose;
 import pd.items.specific.journal.Guidebook;
 import pd.items.consum.potions.Potion;
 import pd.items.consum.scrolls.InventoryScroll;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.equipment.trinkets.DimensionalSundial;
 import pd.items.equipment.trinkets.TrinketCatalyst;
 import pd.items.equipment.weapon.melee.MeleeWeapon;
@@ -679,7 +679,7 @@ public class GameScene extends PixelScene {
 		switch (InterlevelScene.mode) {
 			case RESURRECT:
 				Sample.INSTANCE.play(Assets.Sounds.TELEPORT);
-				ScrollOfTeleportation.appearVFX( Dungeon.hero );
+				Teleport.appearVFX( Dungeon.hero );
 				SpellSprite.show(Dungeon.hero, SpellSprite.ANKH);
 				new Flare( 5, 16 ).color( 0xFFFF00, true ).show( hero, 4f ) ;
 				break;
@@ -689,11 +689,11 @@ public class GameScene extends PixelScene {
 					ShatteredPixelDungeon.runOnRenderThread(new Callback() {
 						@Override
 						public void call() {
-							ScrollOfTeleportation.appearVFX(Dungeon.hero);
+							Teleport.appearVFX(Dungeon.hero);
 						}
 					});
 				} else {
-					ScrollOfTeleportation.appearVFX(Dungeon.hero);
+					Teleport.appearVFX(Dungeon.hero);
 				}
 				break;
 			case DESCEND:

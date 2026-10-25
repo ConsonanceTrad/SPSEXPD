@@ -36,7 +36,7 @@ import pd.actors.mobs.Thief;
 import pd.actors.mobs.npcs.MirrorImage;
 import pd.actors.mobs.npcs.NPC;
 import pd.items.equipment.armor.Armor;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.ItemSprite;
@@ -112,7 +112,7 @@ public class Multiplicity extends Armor.Glyph {
 					if (!spawnPoints.isEmpty()) {
 						m.pos = Random.element(spawnPoints);
 						GameScene.add(m);
-						ScrollOfTeleportation.appear(m, m.pos);
+						Teleport.appear(m, m.pos);
 					}
 				}
 

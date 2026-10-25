@@ -19,8 +19,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package pd.items.consum.scrolls;
+package pd.utils;
 
+import pd.items.consum.scrolls.ScrollOfMagicMapping;
 import pd.Assets;
 import pd.Dungeon;
 import pd.actors.Actor;
@@ -53,45 +54,27 @@ import render.utils.math.Random;
 import java.util.ArrayList;
 import pd.messages.InlineText;
 
-public class ScrollOfTeleportation extends Scroll {
-	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
+/** SPSEXPD: 传送工具（原来挂在传送卷轴上，卷轴下架后独立成工具类）。 */
+public final class Teleport {
+
+	private Teleport() {}
+
+	//SPSEXPD: 中文内联文案（原传送卷轴的提示文本）
 	static {
-		InlineText.of(ScrollOfTeleportation.class)
-			.t("name", "传送卷轴")
+		InlineText.of(Teleport.class)
 			.t("tele", "眨眼之间你就被传送到本层的另外一个位置。")
 			.t("no_tele", "传送魔法失败了。")
 			.t("cant_reach", "你不能传送到那个位置。")
-			.t("prompt", "选择想要传送的地点")
-			.t("desc", "羊皮纸上的咒语能立刻让阅读者传送到本层的另一处。卷轴会优先选择阅读者还未探索的地方，但无法将人传送到门被锁或被路障堵住入口的密室中。不过，它能帮助发现通向未知区域的隐藏门。");
+			.t("prompt", "选择想要传送的地点");
 	}
 
-
-
-
-	{
-		icon = ItemIconSheet.SCROLL_TELEPORT;
-	}
-
-	@Override
-	public void doRead() {
-
-		detach(curUser.belongings.backpack);
-		Sample.INSTANCE.play( Assets.Sounds.READ );
-		
-		if (teleportPreferringUnseen( curUser )){
-			readAnimation();
-		}
-		identify();
-
-	}
-	
 	public static boolean teleportToLocation(Char ch, int pos){
 		PathFinder.buildDistanceMap(pos, BArray.or(Dungeon.level.passable, Dungeon.level.avoid, null));
 		if (PathFinder.distance[ch.pos] == Integer.MAX_VALUE
 				|| (!Dungeon.level.passable[pos] && !Dungeon.level.avoid[pos])
 				|| (Actor.findChar(pos) != null && Actor.findChar(pos) != ch)){
 			if (ch == Dungeon.hero){
-				GLog.w( Messages.get(ScrollOfTeleportation.class, "cant_reach") );
+				GLog.w( Messages.get(Teleport.class, "cant_reach") );
 			}
 			return false;
 		}
@@ -107,24 +90,8 @@ public class ScrollOfTeleportation extends Scroll {
 		
 	}
 
-	@Override
-	public void empoweredRead() {
-		if (Dungeon.bossLevel()) {
-			GLog.w(Messages.get(this, "no_tele"));
-			return;
-		}
-		GameScene.selectCell(new CellSelector.Listener() {
-			@Override public void onSelect(Integer target) {
-				if (target != null) teleportToLocation(curUser, target);
-			}
-			@Override public String prompt() {
-				return Messages.get(ScrollOfTeleportation.class, "prompt");
-			}
-		});
-	}
-
 	public static boolean teleportChar( Char ch ) {
-		return teleportChar( ch, ScrollOfTeleportation.class );
+		return teleportChar( ch, Teleport.class );
 	}
 
 	public static boolean teleportChar( Char ch, Class source ) {
@@ -135,7 +102,7 @@ public class ScrollOfTeleportation extends Scroll {
 		}
 
 		if (Char.hasProp(ch, Char.Property.IMMOVABLE) || ch.isImmune(source)){
-			GLog.w( Messages.get(ScrollOfTeleportation.class, "no_tele") );
+			GLog.w( Messages.get(Teleport.class, "no_tele") );
 			return false;
 		}
 		
@@ -150,7 +117,7 @@ public class ScrollOfTeleportation extends Scroll {
 		
 		if (pos == -1) {
 			
-			GLog.w( Messages.get(ScrollOfTeleportation.class, "no_tele") );
+			GLog.w( Messages.get(Teleport.class, "no_tele") );
 			return false;
 			
 		} else {
@@ -160,7 +127,7 @@ public class ScrollOfTeleportation extends Scroll {
 			Buff.detach(ch, Roots.class);
 			
 			if (ch == Dungeon.hero) {
-				GLog.i( Messages.get(ScrollOfTeleportation.class, "tele") );
+				GLog.i( Messages.get(Teleport.class, "tele") );
 				
 				Dungeon.observe();
 				GameScene.updateFog();
@@ -230,7 +197,7 @@ public class ScrollOfTeleportation extends Scroll {
 					}
 				}
 			}
-			GLog.i( Messages.get(ScrollOfTeleportation.class, "tele") );
+			GLog.i( Messages.get(Teleport.class, "tele") );
 			appear( hero, pos );
 			Dungeon.level.occupyCell( hero );
 			Buff.detach(hero, Roots.class);
@@ -253,7 +220,7 @@ public class ScrollOfTeleportation extends Scroll {
 	private static boolean teleportInNonRegularLevel(Char ch, boolean preferNotSeen ){
 
 		if (Char.hasProp(ch, Char.Property.IMMOVABLE)){
-			GLog.w( Messages.get(ScrollOfTeleportation.class, "no_tele") );
+			GLog.w( Messages.get(Teleport.class, "no_tele") );
 			return false;
 		}
 
@@ -292,7 +259,7 @@ public class ScrollOfTeleportation extends Scroll {
 		} else if (!visibleValid.isEmpty()){
 			pos = Random.element(visibleValid);
 		} else {
-			GLog.w( Messages.get(ScrollOfTeleportation.class, "no_tele") );
+			GLog.w( Messages.get(Teleport.class, "no_tele") );
 			return false;
 		}
 
@@ -302,7 +269,7 @@ public class ScrollOfTeleportation extends Scroll {
 		Buff.detach(ch, Roots.class);
 
 		if (ch == Dungeon.hero) {
-			GLog.i( Messages.get(ScrollOfTeleportation.class, "tele") );
+			GLog.i( Messages.get(Teleport.class, "tele") );
 
 			Dungeon.observe();
 			GameScene.updateFog();
@@ -370,10 +337,5 @@ public class ScrollOfTeleportation extends Scroll {
 		if (Dungeon.level.heroFOV[ch.pos]) {
 			ch.sprite.emitter().start(Speck.factory(Speck.LIGHT), 0.2f, 3);
 		}
-	}
-	
-	@Override
-	public int value() {
-		return isKnown() ? 30 * quantity : super.value();
 	}
 }

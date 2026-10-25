@@ -34,7 +34,7 @@ import pd.effects.CellEmitter;
 import pd.effects.MagicMissile;
 import pd.effects.Pushing;
 import pd.items.equipment.armor.ClassArmor;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.levels.Level;
 import pd.levels.Transitions;
 import pd.mechanics.pathfind.PathFinder;
@@ -185,20 +185,20 @@ public class WarpBeacon extends ArmorAbility {
 									Random.shuffle(candidates);
 
 									if (!candidates.isEmpty()){
-										ScrollOfTeleportation.appear(hero, tracker.pos);
+										Teleport.appear(hero, tracker.pos);
 										Actor.add( new Pushing( toPush, toPush.pos, candidates.get(0) ));
 
 										toPush.pos = candidates.get(0);
 										Dungeon.level.occupyCell(toPush);
 										hero.next();
 									} else {
-										GLog.w( Messages.get(ScrollOfTeleportation.class, "no_tele") );
+										GLog.w( Messages.get(Teleport.class, "no_tele") );
 									}
 								} else {
-									ScrollOfTeleportation.appear(hero, tracker.pos);
+									Teleport.appear(hero, tracker.pos);
 								}
 							} else {
-								ScrollOfTeleportation.appear(hero, tracker.pos);
+								Teleport.appear(hero, tracker.pos);
 							}
 
 							Invisibility.dispel();
@@ -210,7 +210,7 @@ public class WarpBeacon extends ArmorAbility {
 						} else {
 
 							if (!Dungeon.interfloorTeleportAllowed()){
-								GLog.w( Messages.get(ScrollOfTeleportation.class, "no_tele") );
+								GLog.w( Messages.get(Teleport.class, "no_tele") );
 								return;
 							}
 

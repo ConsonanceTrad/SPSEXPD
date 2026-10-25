@@ -18,7 +18,7 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.npcs.AdventureGuide;
 import pd.actors.mobs.npcs.SokobanBlock;
 import pd.items.quest.AdventureJournal;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.levels.builders.Builder;
 import pd.levels.builders.LineBuilder;
 import pd.levels.features.LevelTransition;
@@ -391,7 +391,7 @@ public class AdventureLevel extends RegularLevel {
 		if (blocks.size() != puzzleStartPositions.length) return;
 
 		for (SokobanBlock block : blocks) block.pos = -1;
-		ScrollOfTeleportation.appear(hero, entrance());
+		Teleport.appear(hero, entrance());
 
 		ArrayList<Integer> availableStarts = new ArrayList<>();
 		for (int start : puzzleStartPositions) availableStarts.add(start);
@@ -433,7 +433,7 @@ public class AdventureLevel extends RegularLevel {
 		if (portalActive && block.pos == portalFrom) {
 			int arrival = portalTo - width();
 			if (passable[arrival] && Actor.findChar(arrival) == null) {
-				ScrollOfTeleportation.appear(block, arrival);
+				Teleport.appear(block, arrival);
 			}
 		}
 		checkPuzzleSolved();
@@ -442,7 +442,7 @@ public class AdventureLevel extends RegularLevel {
 	private void teleportHeroFromPortal(Hero hero) {
 		int target = hero.pos == portalFrom ? portalTo : hero.pos == portalTo ? portalFrom : -1;
 		if (target >= 0 && Actor.findChar(target) == null) {
-			ScrollOfTeleportation.appear(hero, target);
+			Teleport.appear(hero, target);
 		}
 	}
 

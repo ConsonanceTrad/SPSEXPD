@@ -72,14 +72,11 @@ import pd.effects.particles.ShadowParticle;
 import pd.effects.particles.SparkParticle;
 import pd.items.EquipableItem;
 import pd.items.Generator;
+import pd.actors.buffs.Charm;
 import pd.items.Item;
 import pd.items.equipment.bombs.Bomb;
-import pd.items.consum.scrolls.ScrollOfMirrorImage;
 import pd.items.consum.scrolls.ScrollOfRecharging;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
-import pd.items.consum.scrolls.exotic.ScrollOfChallenge;
-import pd.items.consum.scrolls.exotic.ScrollOfMetamorphosis;
-import pd.items.consum.scrolls.exotic.ScrollOfSirensSong;
+import pd.utils.Teleport;
 import pd.items.equipment.trinkets.WondrousResin;
 import pd.levels.GroundItems;
 import pd.levels.Level;
@@ -289,14 +286,14 @@ public class CursedWand {
 			Char target = Actor.findChar( bolt.collisionPos );
 			//can only teleport target if positive only
 			if (target != null && !Char.hasProp(target, Char.Property.IMMOVABLE) && (positiveOnly || Random.Int(2) == 0)){
-				ScrollOfTeleportation.teleportChar(target);
+				Teleport.teleportChar(target);
 				tryForWandProc(target, origin);
 				return true;
 			} else {
 				if (positiveOnly || user == null || Char.hasProp(user, Char.Property.IMMOVABLE)){
 					return false;
 				} else {
-					ScrollOfTeleportation.teleportChar(user);
+					Teleport.teleportChar(user);
 					return true;
 				}
 			}
@@ -674,12 +671,7 @@ public class CursedWand {
 				mob.beckon( user.pos );
 			}
 			user.sprite.centerEmitter().start( Speck.factory( Speck.SCREAM ), 0.3f, 3 );
-			if (positiveOnly){
-				Buff.affect(user, ScrollOfChallenge.ChallengeArena.class).setup(user.pos);
-				Sample.INSTANCE.play( Assets.Sounds.CHALLENGE );
-			} else {
-				Sample.INSTANCE.play(Assets.Sounds.ALERT);
-			}
+			Sample.INSTANCE.play(positiveOnly ? Assets.Sounds.CHALLENGE : Assets.Sounds.ALERT);
 			return true;
 		}
 	}
@@ -797,7 +789,7 @@ public class CursedWand {
 
 			//scroll of teleportation if positive only, or inter-floor teleport disallowed
 			} else {
-				ScrollOfTeleportation.teleportChar(user);
+				Teleport.teleportChar(user);
 
 			}
 			return true;
@@ -809,11 +801,7 @@ public class CursedWand {
 		@Override
 		public boolean effect(Item origin, Char user, Ballistica bolt, boolean positiveOnly) {
 			//mirror images if positive only and user is hero
-			if (positiveOnly && user == Dungeon.hero){
-				ScrollOfMirrorImage.spawnImages(Dungeon.hero, bolt.collisionPos, 2);
-			} else {
-				new SummoningTrap().set(bolt.collisionPos).activate();
-			}
+			new SummoningTrap().set(bolt.collisionPos).activate();
 			return true;
 		}
 	}
@@ -1100,7 +1088,7 @@ public class CursedWand {
 
 			//mimic is enthralled, but also contains no extra reward, if positive only
 			if (positiveOnly){
-				Buff.affect(mimic, ScrollOfSirensSong.Enthralled.class);
+				Buff.affect(mimic, Charm.class);
 			} else {
 				Item reward;
 				do {
@@ -1181,8 +1169,7 @@ public class CursedWand {
 		public boolean effect(Item origin, Char user, Ballistica bolt, boolean positiveOnly) {
 			//triggers metamorph effect if positive only
 			if (positiveOnly){
-				GameScene.show(new ScrollOfMetamorphosis.WndMetamorphChoose());
-				return true;
+				return false;
 			}
 
 			//skips this effect if there is no item to transmogrify

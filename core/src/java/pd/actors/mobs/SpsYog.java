@@ -26,7 +26,6 @@ import pd.effects.particles.ShadowParticle;
 import pd.items.Item;
 import pd.items.PuddingCup;
 import pd.items.specific.keys.SpsSkeletonKey;
-import pd.items.consum.scrolls.ScrollOfPsionicBlast;
 import pd.items.equipment.weapon.enchantments.EnchantmentDark;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
@@ -79,7 +78,6 @@ public class SpsYog extends Mob {
 		resistances.add(Burning.class);
 		resistances.add(ToxicGas.class);
 		resistances.add(EnchantmentDark.class);
-		resistances.add(ScrollOfPsionicBlast.class);
 		resistances.add(Amok.class);
 		resistances.add(Terror.class);
 		resistances.add(Charm.class);
@@ -287,7 +285,6 @@ public class SpsYog extends Mob {
 			HP = HT = 1000;
 			resistances.add(Burning.class);
 			resistances.add(Fire.class);
-			resistances.add(ScrollOfPsionicBlast.class);
 		}
 		@Override public int damageRoll() { return Random.NormalIntRange(40, 52); }
 		@Override public int attackSkill(Char target) { return 36; }
@@ -326,7 +323,6 @@ public class SpsYog extends Mob {
 			spriteClass = SpsYogSprites.Pinning.class;
 			HP = HT = 1000;
 			resistances.add(Burning.class);
-			resistances.add(ScrollOfPsionicBlast.class);
 		}
 		@Override public int damageRoll() { return Random.NormalIntRange(30, 42); }
 		@Override public int attackSkill(Char target) { return 36; }

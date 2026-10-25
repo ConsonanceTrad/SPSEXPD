@@ -9,7 +9,7 @@ import pd.effects.CellEmitter;
 import pd.effects.Speck;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.messages.Messages;
 import pd.plants.Fadeleaf;
 import pd.utils.GLog;
@@ -41,12 +41,12 @@ public class TeleportationTrap extends Trap {
 
 		Char target = Actor.findChar(pos);
 		if (target instanceof Hero) {
-			ScrollOfTeleportation.teleportChar(target);
+			Teleport.teleportChar(target);
 			((Hero)target).curAction = null;
 		} else if (target != null) {
 			int destination = legacyDestination(target);
 			if (destination == -1 || Dungeon.bossLevel()) {
-				GLog.w(Messages.get(ScrollOfTeleportation.class, "no_tele"));
+				GLog.w(Messages.get(Teleport.class, "no_tele"));
 			} else {
 				target.pos = destination;
 				if (target.sprite != null) {

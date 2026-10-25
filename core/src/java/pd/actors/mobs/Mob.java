@@ -90,7 +90,6 @@ import pd.items.consum.potions.exotic.ExoticPotion;
 import pd.items.equipment.rings.Ring;
 import pd.items.equipment.rings.RingOfWealth;
 import pd.items.equipment.rings.fusion.RingOfKnowledge;
-import pd.items.consum.scrolls.exotic.ExoticScroll;
 import pd.items.consum.stones.StoneOfAggression;
 import pd.items.equipment.trinkets.ExoticCrystals;
 import pd.items.equipment.trinkets.ShardOfOblivion;
@@ -1378,10 +1377,6 @@ public abstract class Mob extends Char {
 			if (ExoticPotion.regToExo.containsKey(loot)){
 				if (Random.Float() < ExoticCrystals.consumableExoticChance()){
 					return Generator.random(ExoticPotion.regToExo.get(loot));
-				}
-			} else if (ExoticScroll.regToExo.containsKey(loot)){
-				if (Random.Float() < ExoticCrystals.consumableExoticChance()){
-					return Generator.random(ExoticScroll.regToExo.get(loot));
 				}
 			}
 

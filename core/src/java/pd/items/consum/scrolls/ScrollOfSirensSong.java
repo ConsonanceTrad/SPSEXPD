@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package pd.items.consum.scrolls.exotic;
+package pd.items.consum.scrolls;
 
 import pd.Assets;
 import pd.Dungeon;
@@ -40,7 +40,7 @@ import pd.utils.GLog;
 import render.noosa.audio.Sample;
 import pd.messages.InlineText;
 
-public class ScrollOfSirensSong extends ExoticScroll {
+public class ScrollOfSirensSong extends Scroll {
 	//SPSEXPD: inline Chinese text (generated from messages/items/zh)
 	static {
 		InlineText.of(ScrollOfSirensSong.class)

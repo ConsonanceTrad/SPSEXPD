@@ -216,21 +216,12 @@ import pd.items.equipment.rings.fusion.RingOfKnowledge;
 import pd.items.equipment.rings.fusion.RingOfMagic;
 import pd.items.consum.scrolls.Scroll;
 import pd.items.consum.scrolls.ScrollOfIdentify;
-import pd.items.consum.scrolls.ScrollOfLullaby;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
 import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
-import pd.items.consum.scrolls.ScrollOfMirrorImage;
-import pd.items.consum.scrolls.ScrollOfPsionicBlast;
-import pd.items.consum.scrolls.ScrollOfRage;
 import pd.items.consum.scrolls.ScrollOfRecharging;
-import pd.items.consum.scrolls.ScrollOfRegrowth;
 import pd.items.consum.scrolls.ScrollOfRemoveCurse;
-import pd.items.consum.scrolls.ScrollOfRetribution;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
-import pd.items.consum.scrolls.ScrollOfTerror;
-import pd.items.consum.scrolls.ScrollOfTransmutation;
+import pd.utils.Teleport;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
-import pd.items.consum.scrolls.exotic.ExoticScroll;
 import pd.items.specific.sellitem.SellMushroom;
 import pd.items.consum.spells.Spell;
 import pd.items.consum.stones.Runestone;
@@ -552,7 +543,7 @@ public class Generator {
 			subOrderings.put(Trinket.class, new ArrayList<>(Arrays.asList(Trinket.class, TrinketCatalyst.class)));
 			subOrderings.put(MissileWeapon.class, new ArrayList<>(Arrays.asList(MissileWeapon.class, Bomb.class)));
 			subOrderings.put(Potion.class, new ArrayList<>(Arrays.asList(Waterskin.class, Potion.class, ExoticPotion.class, Brew.class, Elixir.class, LiquidMetal.class)));
-			subOrderings.put(Scroll.class, new ArrayList<>(Arrays.asList(Scroll.class, ExoticScroll.class, Spell.class, ArcaneResin.class)));
+			subOrderings.put(Scroll.class, new ArrayList<>(Arrays.asList(Scroll.class, Spell.class, ArcaneResin.class)));
 		}
 
 		//in case there are multiple matches, this will return the latest match
@@ -722,16 +713,10 @@ public class Generator {
 			};
 			
 			SCROLL.classes = new Class<?>[]{
-					ScrollOfIdentify.class, ScrollOfTeleportation.class,
-					ScrollOfRemoveCurse.class, ScrollOfUpgrade.class,
-					ScrollOfRecharging.class, ScrollOfMagicMapping.class,
-					ScrollOfRage.class, ScrollOfTerror.class,
-					ScrollOfLullaby.class, ScrollOfMagicalInfusion.class,
-					ScrollOfPsionicBlast.class, ScrollOfMirrorImage.class,
-					ScrollOfRegrowth.class,
-					ScrollOfRetribution.class, ScrollOfTransmutation.class
+					ScrollOfIdentify.class, ScrollOfRemoveCurse.class, ScrollOfUpgrade.class,
+					ScrollOfRecharging.class, ScrollOfMagicMapping.class, ScrollOfMagicalInfusion.class
 			};
-			SCROLL.defaultProbs = new float[]{30, 10, 15, 3, 10, 20, 10, 8, 8, 3, 3, 6, 6, 3, 3};
+			SCROLL.defaultProbs = new float[]{30, 15, 3, 10, 20, 3};
 			SCROLL.defaultProbs2 = null;
 			SCROLL.probs = SCROLL.defaultProbs.clone();
 			
@@ -1285,10 +1270,6 @@ public class Generator {
 					if (Random.Float() < ExoticCrystals.consumableExoticChance()){
 						itemCls = ExoticPotion.regToExo.get(itemCls);
 					}
-				} else if (ExoticScroll.regToExo.containsKey(itemCls)){
-					if (Random.Float() < ExoticCrystals.consumableExoticChance()){
-						itemCls = ExoticScroll.regToExo.get(itemCls);
-					}
 				}
 
 				return roll(cat, itemCls);
@@ -1310,10 +1291,6 @@ public class Generator {
 			if (ExoticPotion.regToExo.containsKey(itemCls)){
 				if (Random.Float() < ExoticCrystals.consumableExoticChance()){
 					itemCls = ExoticPotion.regToExo.get(itemCls);
-				}
-			} else if (ExoticScroll.regToExo.containsKey(itemCls)){
-				if (Random.Float() < ExoticCrystals.consumableExoticChance()){
-					itemCls = ExoticScroll.regToExo.get(itemCls);
 				}
 			}
 

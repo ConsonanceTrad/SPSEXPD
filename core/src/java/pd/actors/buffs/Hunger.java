@@ -26,7 +26,6 @@ import pd.Challenges;
 import pd.Dungeon;
 import pd.SPDSettings;
 import pd.actors.hero.Hero;
-import pd.items.consum.scrolls.exotic.ScrollOfChallenge;
 import pd.items.equipment.trinkets.SaltCube;
 import pd.journal.Document;
 import pd.levels.VaultLevel;
@@ -63,7 +62,8 @@ public class Hunger extends Buff implements Hero.Doom {
 	public static final float STARVING	= 900f;
 
 	private float level;
-	private float partialDamage;
+	private float partialDamage;
+
 	//SPSEXPD: 饥饿掉血的回合计数（每 3~6 回合扣 1 点）
 	private int starvingTimer = Random.IntRange( 3, 6 );
 
@@ -89,8 +89,7 @@ public class Hunger extends Buff implements Hero.Doom {
 
 		if (Dungeon.level.locked
 				|| target.buff(WellFed.class) != null
-				|| SPDSettings.intro()
-				|| target.buff(ScrollOfChallenge.ChallengeArena.class) != null){
+				|| SPDSettings.intro()){
 			spend(TICK);
 			return true;
 		}

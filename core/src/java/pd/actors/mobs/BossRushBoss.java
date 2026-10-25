@@ -16,7 +16,6 @@ import pd.actors.buffs.Poison;
 import pd.actors.buffs.Sleep;
 import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
-import pd.items.consum.scrolls.ScrollOfPsionicBlast;
 import pd.levels.BossRushLevel;
 import pd.scenes.GameScene;
 import pd.ui.BossHealthBar;
@@ -44,7 +43,6 @@ public abstract class BossRushBoss extends Mob {
 		immunities.add(Sleep.class);
 		immunities.add(Burning.class);
 		immunities.add(ToxicGas.class);
-		immunities.add(ScrollOfPsionicBlast.class);
 		immunities.add(Vertigo.class);
 		immunities.add(Paralysis.class);
 		immunities.add(Bleeding.class);

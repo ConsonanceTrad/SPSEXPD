@@ -50,7 +50,7 @@ import pd.items.KingsCrown;
 import pd.items.equipment.armor.glyphs.Viscosity;
 import pd.items.equipment.artifacts.DriedRose;
 import pd.items.equipment.rings.RingOfForce;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.equipment.wands.Wand;
 import pd.items.equipment.wands.WandOfLightning;
 import pd.journal.Bestiary;
@@ -447,7 +447,7 @@ public class DwarfKing extends Mob {
 				}
 			}
 
-			if (bestPos != enemy.pos) ScrollOfTeleportation.appear(furthest, bestPos);
+			if (bestPos != enemy.pos) Teleport.appear(furthest, bestPos);
 			yell(Messages.get(this, "teleport_" + Random.IntRange(1, 2)));
 			return true;
 		}
@@ -520,7 +520,7 @@ public class DwarfKing extends Mob {
 			if (HP <= (Dungeon.isChallenged(Challenges.STRONGER_BOSSES) ? 100 : 50)) {
 				HP = (Dungeon.isChallenged(Challenges.STRONGER_BOSSES) ? 100 : 50);
 				sprite.showStatus(CharSprite.POSITIVE, Messages.get(this, "invulnerable"));
-				ScrollOfTeleportation.appear(this, CityBossLevel.throne);
+				Teleport.appear(this, CityBossLevel.throne);
 				properties.add(Property.IMMOVABLE);
 				phase = 2;
 				summonsMade = 0;

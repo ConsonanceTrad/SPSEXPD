@@ -152,13 +152,13 @@ public abstract class LegacyPet extends DirectableAlly {
 						|| item instanceof pd.items.consum.potions.PotionOfMindVision;
 			case RED_DRAGON:
 				return item instanceof pd.items.consum.potions.PotionOfLiquidFlame
-						|| item instanceof pd.items.consum.scrolls.ScrollOfRage;
+						|| item instanceof pd.items.consum.scrolls.ScrollOfRecharging;
 			case SHADOW_DRAGON:
-				return item instanceof pd.items.consum.scrolls.ScrollOfTerror
+				return item instanceof pd.items.consum.scrolls.ScrollOfRecharging
 						|| item instanceof pd.items.consum.potions.PotionOfInvisibility;
 			case VIOLET_DRAGON:
 				return item instanceof pd.items.consum.potions.PotionOfToxicGas
-						|| item instanceof pd.items.consum.scrolls.ScrollOfRegrowth;
+						|| item instanceof pd.items.consum.scrolls.ScrollOfRecharging;
 			case GOLD_DRAGON: case HARO:
 				return item instanceof pd.items.consum.food.completefood.CompleteFood;
 			case BLUE_GIRL: case SCORPION:

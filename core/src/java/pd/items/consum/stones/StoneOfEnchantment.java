@@ -21,6 +21,7 @@
 
 package pd.items.consum.stones;
 
+import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.atlas.items.ConsumScrollAmuletAmuletDict;
 
 import pd.actors.hero.Belongings;
@@ -30,7 +31,6 @@ import pd.effects.Speck;
 import pd.items.Item;
 import pd.items.BrokenSeal;
 import pd.items.equipment.armor.Armor;
-import pd.items.consum.scrolls.exotic.ScrollOfEnchantment;
 import pd.items.equipment.weapon.Weapon;
 import pd.journal.Catalog;
 import pd.messages.Messages;
@@ -61,7 +61,7 @@ public class StoneOfEnchantment extends InventoryStone {
 
 	@Override
 	protected boolean usableOnItem(Item item) {
-		return ScrollOfEnchantment.enchantable(item);
+		return ScrollOfUpgrade.enchantable(item);
 	}
 	
 	@Override

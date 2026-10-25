@@ -16,7 +16,7 @@ import pd.items.Item;
 import pd.items.StoneOre;
 import pd.items.equipment.artifacts.GlassTotem;
 import pd.items.equipment.bombs.DungeonBomb;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.equipment.wands.WandOfDisintegration;
 import pd.items.equipment.weapon.enchantments.EnchantmentDark;
 import pd.items.equipment.weapon.melee.fusion.Harp;
@@ -135,7 +135,7 @@ public class LichDancer extends Mob {
 		LinkBomb bomb = new LinkBomb();
 		bomb.pos = Random.element(cells);
 		GameScene.add(bomb);
-		ScrollOfTeleportation.appear(bomb, bomb.pos);
+		Teleport.appear(bomb, bomb.pos);
 	}
 
 	@Override

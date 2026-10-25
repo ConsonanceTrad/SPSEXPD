@@ -33,7 +33,7 @@ import pd.effects.FloatingText;
 import pd.effects.Pushing;
 import pd.items.Item;
 import pd.items.consum.potions.PotionOfHealing;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -268,7 +268,7 @@ public class Necromancer extends Mob {
 				}
 			}
 		} else {
-			ScrollOfTeleportation.appear(mySkeleton, summoningPos);
+			Teleport.appear(mySkeleton, summoningPos);
 		}
 		((NecromancerSprite)sprite).finishSummoning();
 	}

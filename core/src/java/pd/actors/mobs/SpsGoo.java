@@ -30,7 +30,7 @@ import pd.items.UpgradeBlobViolet;
 import pd.items.specific.keys.SpsSkeletonKey;
 import pd.items.misc.CopyBall;
 import pd.items.misc.LuckyBadge;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.equipment.wands.WandOfFirebolt;
 import pd.items.equipment.weapon.enchantments.EnchantmentDark2;
 import pd.items.equipment.weapon.enchantments.EnchantmentDark;
@@ -237,7 +237,7 @@ public class SpsGoo extends Mob {
 		king.state = king.WANDERING;
 		king.pos = pos;
 		GameScene.add(king, 1f);
-		ScrollOfTeleportation.appear(king, king.pos);
+		Teleport.appear(king, king.pos);
 
 		finishFightIfClear(pos);
 		yell(Messages.get(this, "die"));

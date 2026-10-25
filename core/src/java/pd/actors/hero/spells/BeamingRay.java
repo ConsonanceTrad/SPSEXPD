@@ -36,7 +36,7 @@ import pd.actors.mobs.Mob;
 import pd.actors.mobs.npcs.DirectableAlly;
 import pd.effects.Beam;
 import pd.items.equipment.artifacts.HolyTome;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
@@ -165,7 +165,7 @@ public class BeamingRay extends TargetedClericSpell {
 		}
 
 		hero.sprite.zap(telePos);
-		ScrollOfTeleportation.appear(ally, telePos);
+		Teleport.appear(ally, telePos);
 
 		if (chTarget == null){
 			for (Char ch : Actor.chars()){

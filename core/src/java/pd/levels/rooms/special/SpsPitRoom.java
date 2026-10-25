@@ -5,7 +5,7 @@ import pd.items.Ankh;
 import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.levels.GroundItems;
 import pd.levels.Level;
 import pd.levels.Terrain;
@@ -55,7 +55,7 @@ public class SpsPitRoom extends SpecialRoom {
 		level.pitSign = candidates.remove(0);
 		level.map[level.pitSign] = Terrain.SIGN;
 
-		level.drop(new ScrollOfTeleportation(), remains).type = Heap.Type.SKELETON;
+		level.drop(new pd.items.consum.scrolls.ScrollOfRecharging(), remains).type = Heap.Type.SKELETON;
 		level.drop(equipmentPrize(), remains);
 		level.drop(new Ankh(), remains);
 		level.drop(new Fadeleaf.Seed(), remains);

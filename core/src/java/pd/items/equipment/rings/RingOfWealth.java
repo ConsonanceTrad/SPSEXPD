@@ -21,6 +21,7 @@
 
 package pd.items.equipment.rings;
 
+import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.Challenges;
 import pd.Dungeon;
 import pd.actors.Char;
@@ -39,9 +40,6 @@ import pd.items.consum.potions.PotionOfExperience;
 import pd.items.consum.potions.brews.UnstableBrew;
 import pd.items.consum.potions.exotic.ExoticPotion;
 import pd.items.consum.potions.exotic.PotionOfDivineInspiration;
-import pd.items.consum.scrolls.ScrollOfTransmutation;
-import pd.items.consum.scrolls.exotic.ExoticScroll;
-import pd.items.consum.scrolls.exotic.ScrollOfMetamorphosis;
 import pd.items.consum.spells.UnstableSpell;
 import pd.items.consum.stones.StoneOfEnchantment;
 import pd.items.equipment.trinkets.ExoticCrystals;
@@ -264,11 +262,7 @@ public class RingOfWealth extends Ring {
 				}
 			case 2:
 				i = Generator.randomUsingDefaults(Generator.Category.SCROLL);
-				if (!(i instanceof ExoticScroll)){
-					return Reflection.newInstance(ExoticScroll.regToExo.get(i.getClass()));
-				} else {
-					return Reflection.newInstance(i.getClass());
-				}
+				return Reflection.newInstance(i.getClass());
 			case 3:
 				return Random.Int(2) == 0 ? new UnstableBrew() : new UnstableSpell();
 			case 4:
@@ -292,7 +286,7 @@ public class RingOfWealth extends Ring {
 			case 2:
 				return Random.Float() < ExoticCrystals.consumableExoticChance() ? new PotionOfDivineInspiration() : new PotionOfExperience();
 			case 3:
-				return Random.Float() < ExoticCrystals.consumableExoticChance() ? new ScrollOfMetamorphosis() : new ScrollOfTransmutation();
+				return new ScrollOfRecharging();
 		}
 	}
 

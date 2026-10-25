@@ -28,7 +28,6 @@ import pd.actors.hero.Talent;
 import pd.items.Item;
 import pd.items.equipment.armor.Armor;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
-import pd.items.consum.scrolls.exotic.ScrollOfEnchantment;
 import pd.items.equipment.weapon.Weapon;
 import pd.journal.Catalog;
 import pd.messages.Messages;
@@ -68,7 +67,7 @@ public class StoneOfAugmentation extends InventoryStone {
 
 	@Override
 	protected boolean usableOnItem(Item item) {
-		return ScrollOfEnchantment.enchantable(item);
+		return ScrollOfUpgrade.enchantable(item);
 	}
 
 	@Override

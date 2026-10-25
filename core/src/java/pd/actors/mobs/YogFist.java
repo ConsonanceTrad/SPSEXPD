@@ -47,7 +47,7 @@ import pd.effects.FloatingText;
 import pd.effects.Speck;
 import pd.effects.particles.LeafParticle;
 import pd.items.equipment.armor.glyphs.Viscosity;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.equipment.weapon.melee.Sickle;
 import pd.levels.Level;
 import pd.levels.Terrain;
@@ -579,7 +579,7 @@ public abstract class YogFist extends Mob {
 						|| Dungeon.level.solid[i]
 						|| Actor.findChar(i) != null
 						|| PathFinder.getStep(i, Dungeon.level.exit(), Dungeon.level.passable) == -1);
-				ScrollOfTeleportation.appear(this, i);
+				Teleport.appear(this, i);
 				state = WANDERING;
 				GameScene.flash(0x80FFFFFF);
 				GLog.w( Messages.get( this, "teleport" ));
@@ -652,7 +652,7 @@ public abstract class YogFist extends Mob {
 						|| Dungeon.level.solid[i]
 						|| Actor.findChar(i) != null
 						|| PathFinder.getStep(i, Dungeon.level.exit(), Dungeon.level.passable) == -1);
-				ScrollOfTeleportation.appear(this, i);
+				Teleport.appear(this, i);
 				state = WANDERING;
 				GameScene.flash(0, false);
 				GLog.w( Messages.get( this, "teleport" ));

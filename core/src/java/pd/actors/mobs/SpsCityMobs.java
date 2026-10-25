@@ -46,7 +46,6 @@ import pd.items.consum.medicine.GreenSpore;
 import pd.items.consum.medicine.JackOLantern;
 import pd.items.consum.medicine.PixieParasol;
 import pd.items.consum.potions.PotionOfHealing;
-import pd.items.consum.scrolls.ScrollOfPsionicBlast;
 import pd.items.equipment.wands.Wand;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
@@ -390,7 +389,6 @@ public final class SpsCityMobs {
 			immunities.add(Paralysis.class);
 			immunities.add(Roots.class);
 			immunities.add(Frost.class);
-			immunities.add(ScrollOfPsionicBlast.class);
 			adjustStats(Math.max(1, Dungeon.legacyDepth()));
 		}
 		@Override public int damageRoll() { return Random.NormalIntRange(1, 3 + level); }

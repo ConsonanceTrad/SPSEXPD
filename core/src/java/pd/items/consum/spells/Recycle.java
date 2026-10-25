@@ -34,8 +34,6 @@ import pd.items.consum.potions.brews.Brew;
 import pd.items.consum.potions.elixirs.Elixir;
 import pd.items.consum.potions.exotic.ExoticPotion;
 import pd.items.consum.scrolls.Scroll;
-import pd.items.consum.scrolls.ScrollOfTransmutation;
-import pd.items.consum.scrolls.exotic.ExoticScroll;
 import pd.items.consum.stones.Runestone;
 import pd.messages.Messages;
 import pd.plants.MiniSeed;
@@ -84,9 +82,6 @@ public class Recycle extends InventorySpell {
 				}
 			} else if (item instanceof Scroll) {
 				result = Generator.randomUsingDefaults(Generator.Category.SCROLL);
-				if (item instanceof ExoticScroll){
-					result = Reflection.newInstance(ExoticScroll.regToExo.get(result.getClass()));
-				}
 			} else if (item instanceof Plant.Seed) {
 				result = Generator.randomUsingDefaults(Generator.Category.SEED);
 			} else if (item instanceof Runestone) {
@@ -121,7 +116,6 @@ public class Recycle extends InventorySpell {
 		private static final int OUT_QUANTITY = 12;
 		
 		{
-			inputs =  new Class[]{ScrollOfTransmutation.class};
 			inQuantity = new int[]{1};
 			
 			cost = 12;

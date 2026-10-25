@@ -27,7 +27,7 @@ import pd.actors.Char;
 import pd.actors.buffs.Corruption;
 import pd.actors.hero.spells.ClericSpell;
 import pd.items.consum.food.PhantomMeat;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.equipment.wands.Wand;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
@@ -78,7 +78,7 @@ public class PhantomPiranha extends Piranha {
 						}
 					}
 					if (!candidates.isEmpty()) {
-						ScrollOfTeleportation.appear(this, Random.element(candidates));
+						Teleport.appear(this, Random.element(candidates));
 						aggro(dmgSource);
 					} else {
 						teleportAway();
@@ -122,10 +122,10 @@ public class PhantomPiranha extends Piranha {
 
 		if (!outFOVCandidates.isEmpty()){
 			if (Dungeon.level.heroFOV[pos]) GLog.i(Messages.get(this, "teleport_away"));
-			ScrollOfTeleportation.appear(this, Random.element(outFOVCandidates));
+			Teleport.appear(this, Random.element(outFOVCandidates));
 			return true;
 		} else if (!inFOVCandidates.isEmpty()){
-			ScrollOfTeleportation.appear(this, Random.element(inFOVCandidates));
+			Teleport.appear(this, Random.element(inFOVCandidates));
 			return true;
 		}
 

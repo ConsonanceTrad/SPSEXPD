@@ -75,7 +75,6 @@ import pd.items.consum.potions.elixirs.WishPotion;
 import pd.items.consum.potions.exotic.ExoticPotion;
 import pd.items.consum.scrolls.Scroll;
 import pd.items.consum.scrolls.ScrollOfIdentify;
-import pd.items.consum.scrolls.exotic.ExoticScroll;
 import pd.items.consum.spells.Alchemize;
 import pd.items.consum.spells.BeaconOfReturning;
 import pd.items.consum.spells.CurseInfusion;
@@ -444,15 +443,7 @@ public class QuickRecipe extends Component {
 				}
 				return result;
 			case "Exotic_Scrolls":
-				r = new ExoticScroll.ScrollToExotic();
-				for (Class<?> cls : Generator.Category.SCROLL.classes){
-					Scroll scroll = (Scroll) Reflection.newInstance(cls);
-					ArrayList<Item> in = new ArrayList<>(Arrays.asList(scroll));
-					Item exoticScroll = r.sampleOutput(in);
-					//SPSXPD: 没有合剂对应的卷轴（如测试卷轴）不显示，避免空条目/崩溃
-					if (exoticScroll == null) continue;
-					result.add(new QuickRecipe( r, in, exoticScroll));
-				}
+				//SPSEXPD: 密卷体系已整体取消，指南里不再有这一栏
 				return result;
 			case "Bombs":
 				r = new Bomb.EnhanceBomb();

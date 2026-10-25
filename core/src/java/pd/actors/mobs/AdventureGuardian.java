@@ -24,7 +24,7 @@ import pd.actors.buffs.Vertigo;
 import pd.actors.buffs.Vulnerable;
 import pd.actors.buffs.Weakness;
 import pd.items.quest.AdventureJournal;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
 import pd.messages.Messages;
@@ -298,7 +298,7 @@ public class AdventureGuardian extends Mob {
 		}
 		if (destination == 10 || destination == 16 || destination == 18
 				|| destination == 20 || destination == 22 || destination == 24) {
-			ScrollOfTeleportation.teleportChar(this);
+			Teleport.teleportChar(this);
 		}
 	}
 

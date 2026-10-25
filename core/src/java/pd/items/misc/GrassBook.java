@@ -1,6 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.misc;
 
+import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.atlas.items.SpecificPlaceHolderDict;
 
 import pd.Dungeon;
@@ -11,7 +12,6 @@ import pd.actors.hero.Hero;
 import pd.items.Generator;
 import pd.items.Heap;
 import pd.items.Item;
-import pd.items.consum.scrolls.ScrollOfRegrowth;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.mechanics.pathfind.PathFinder;
@@ -75,7 +75,7 @@ public class GrassBook extends Item {
 	public Item randomNaturalItem() {
 		if (Random.Int(5) == 1) return Generator.random(Generator.Category.MUSHROOM);
 		if (Random.Int(4) == 1) return Generator.random(Generator.Category.SPS_BERRY);
-		if (Random.Int(3) == 1) return new ScrollOfRegrowth();
+		if (Random.Int(3) == 1) return new ScrollOfRecharging();
 		return Generator.random(Generator.Category.SPS_SEED);
 	}
 

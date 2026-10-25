@@ -35,7 +35,6 @@ import pd.items.Gold;
 import pd.items.Heap;
 import pd.items.Item;
 import pd.items.equipment.artifacts.TimekeepersHourglass;
-import pd.items.consum.scrolls.ScrollOfPsionicBlast;
 import pd.items.equipment.trinkets.MimicTooth;
 import pd.messages.Messages;
 import pd.plants.Swiftthistle;
@@ -91,7 +90,6 @@ public class Mimic extends Mob {
 			properties.remove(Property.DEMONIC);
 			alignment = Alignment.ENEMY;
 			state = SLEEPING;
-			immunities.add(ScrollOfPsionicBlast.class);
 		}
 	}
 

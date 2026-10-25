@@ -1,6 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items.unique.items;
 
+import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.Dungeon;
 import pd.actors.Char;
 import pd.actors.hero.Belongings;
@@ -12,7 +13,6 @@ import pd.effects.particles.PurpleParticle;
 import pd.items.BrokenSeal;
 import pd.items.Item;
 import pd.items.consum.scrolls.ScrollOfRemoveCurse;
-import pd.items.consum.scrolls.exotic.ScrollOfEnchantment;
 import pd.items.equipment.armor.Armor;
 import pd.items.equipment.bags.Bag;
 import pd.items.equipment.wands.Wand;
@@ -156,7 +156,7 @@ public class MythrilStaff extends MagesStaff implements UniqueItem {
 		@Override public String textPrompt() { return Messages.get(MythrilStaff.class, "select"); }
 		@Override public Class<? extends Bag> preferredBag() { return Belongings.Backpack.class; }
 		@Override public boolean itemSelectable(Item item) {
-			return charge >= FULL_CHARGE && ScrollOfEnchantment.enchantable(item);
+			return charge >= FULL_CHARGE && ScrollOfUpgrade.enchantable(item);
 		}
 		@Override public void onSelect(Item item) {
 			if (item == null || charge < FULL_CHARGE) return;

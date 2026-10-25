@@ -23,7 +23,7 @@ package pd.items.equipment.armor.curses;
 
 import pd.actors.Char;
 import pd.items.equipment.armor.Armor;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.sprites.ItemSprite;
 import render.utils.math.Random;
 import pd.messages.InlineText;
@@ -46,7 +46,7 @@ public class Displacement extends Armor.Glyph {
 
 		float procChance = 1/20f * procChanceMultiplier(defender);
 		if ( Random.Float() < procChance ) {
-			ScrollOfTeleportation.teleportChar(defender);
+			Teleport.teleportChar(defender);
 			return 0;
 		}
 

@@ -44,7 +44,7 @@ import pd.actors.mobs.npcs.DirectableAlly;
 import pd.effects.Speck;
 import pd.effects.particles.ShaftParticle;
 import pd.items.equipment.armor.ClassArmor;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.equipment.wands.WandOfLivingEarth;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -184,7 +184,7 @@ public class PowerOfMany extends ArmorAbility {
 				ch = new LightAlly(hero.lvl);
 				ch.pos = target;
 				GameScene.add((Mob) ch);
-				ScrollOfTeleportation.appear(ch, ch.pos);
+				Teleport.appear(ch, ch.pos);
 			}
 
 			Buff.affect(ch, PowerBuff.class, 100f);

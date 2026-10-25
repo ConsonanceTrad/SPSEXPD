@@ -51,13 +51,8 @@ import pd.items.misc.SkillOfMig;
 import pd.items.equipment.rings.RingOfEnergy;
 import pd.items.consum.scrolls.Scroll;
 import pd.items.consum.scrolls.ScrollOfIdentify;
-import pd.items.consum.scrolls.ScrollOfLullaby;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
-import pd.items.consum.scrolls.ScrollOfRage;
 import pd.items.consum.scrolls.ScrollOfRemoveCurse;
-import pd.items.consum.scrolls.ScrollOfTerror;
-import pd.items.consum.scrolls.ScrollOfTransmutation;
-import pd.items.consum.scrolls.exotic.ExoticScroll;
 import pd.journal.Catalog;
 import pd.messages.Messages;
 import pd.scenes.GameScene;
@@ -139,7 +134,6 @@ public class UnstableSpellbook extends Artifact {
 
 			i = Random.chances(probs);
 		}
-		scrolls.remove(ScrollOfTransmutation.class);
 	}
 
 	@Override
@@ -189,8 +183,7 @@ public class UnstableSpellbook extends Artifact {
 				|| ((candidate instanceof ScrollOfIdentify ||
 				candidate instanceof ScrollOfRemoveCurse ||
 				candidate instanceof ScrollOfMagicMapping) && Random.Int(2) == 0)
-				|| (candidate instanceof pd.items.consum.scrolls.ScrollOfTeleportation
-				&& Dungeon.bossLevel())) continue;
+				) continue;
 			scroll = candidate;
 		}
 		if (scroll == null) scroll = new ScrollOfIdentify();
@@ -266,17 +259,11 @@ public class UnstableSpellbook extends Artifact {
 
 	private void checkForArtifactProc(Hero user, Scroll scroll){
 		//if the base scroll (exotics all match) is an AOE effect, then also trigger illuminate
-		if (scroll instanceof ScrollOfLullaby
-				|| scroll instanceof ScrollOfRemoveCurse || scroll instanceof ScrollOfTerror) {
+		if (scroll instanceof ScrollOfRemoveCurse) {
 			for (Mob mob : Dungeon.level.mobs().toArray( new Mob[0] )) {
 				if (Dungeon.level.heroFOV[mob.pos]) {
 					artifactProc(mob, visiblyUpgraded(), 1);
 				}
-			}
-		//except rage, which affects everything even if it isn't visible
-		} else if (scroll instanceof ScrollOfRage){
-			for (Mob mob : Dungeon.level.mobs().toArray( new Mob[0] )) {
-				artifactProc(mob, visiblyUpgraded(), 1);
 			}
 		}
 	}

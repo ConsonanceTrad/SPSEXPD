@@ -34,8 +34,7 @@ import pd.actors.buffs.Sleep;
 import pd.effects.Speck;
 import pd.items.Item;
 import pd.items.consum.food.MysteryMeat;
-import pd.items.consum.scrolls.ScrollOfLullaby;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.equipment.wands.WandOfCharm;
 import pd.mechanics.Ballistica;
 import pd.mechanics.pathfind.PathFinder;
@@ -71,7 +70,6 @@ public class Succubus extends Mob {
 		EXP = 12;
 		maxLvl = 35;
 		
-		loot = ScrollOfLullaby.class;
 		lootChance = 0.05f;
 
 		properties.add(Property.DEMONIC);
@@ -147,7 +145,7 @@ public class Succubus extends Mob {
 			}
 		}
 		
-		ScrollOfTeleportation.appear( this, cell );
+		Teleport.appear( this, cell );
 
 		blinkCooldown = BLINK_DELAY;
 		return true;

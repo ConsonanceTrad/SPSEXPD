@@ -9,9 +9,9 @@ import pd.actors.hero.HeroSubClass;
 import pd.actors.mobs.npcs.DirectableAlly;
 import pd.effects.Pushing;
 import pd.items.Item;
+import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.items.consum.food.completefood.PetFood;
 import pd.items.consum.food.fusion.Nut;
-import pd.items.consum.scrolls.ScrollOfMirrorImage;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
 import pd.sprites.RibbonRatSprite;
@@ -37,7 +37,7 @@ public class RibbonRat extends PET {
 	{spriteClass=RibbonRatSprite.class;cooldown=50;properties.add(Property.BEAST);updateStats(true);}
 	@Override protected Kind kind(){return Kind.RIBBON_RAT;}
 	@Override public boolean lovefood(Item item){return item instanceof PetFood||item instanceof Nut;}
-	@Override public Item SupercreateLoot(){return new ScrollOfMirrorImage();}
+	@Override public Item SupercreateLoot(){return new ScrollOfRecharging();}
 	@Override public void updateStats(boolean refill){int old=HT;HT=150+petLevel()*2;defenseSkill=petLevel();if(refill)HP=HT;else if(HT>old)HP=Math.min(HT,HP+HT-old);}
 	@Override public int damageRoll(){return Random.NormalIntRange(5+petLevel(),5+petLevel()*2);}
 	@Override public int drRoll(){return Random.IntRange(0,petLevel()*2);}

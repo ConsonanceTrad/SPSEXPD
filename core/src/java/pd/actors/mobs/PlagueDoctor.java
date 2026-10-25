@@ -30,7 +30,7 @@ import pd.items.StoneOre;
 import pd.items.equipment.artifacts.AlchemistsToolkit;
 import pd.items.specific.keys.SpsSkeletonKey;
 import pd.items.misc.PotionOfMage;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.equipment.wands.WandOfLight;
 import pd.items.equipment.weapon.rockcode.Dpotion;
 import pd.mechanics.pathfind.PathFinder;
@@ -174,7 +174,7 @@ public class PlagueDoctor extends LegacyDualLootMob {
 		king.state = king.WANDERING;
 		king.pos = pos;
 		GameScene.add(king, 1f);
-		ScrollOfTeleportation.appear(king, king.pos);
+		Teleport.appear(king, king.pos);
 		if (Dungeon.hero != null && Dungeon.hero.heroClass == HeroClass.PERFORMER && Dungeon.hero.skin == 7) {
 			Dungeon.level.drop(new Dpotion(), Dungeon.hero.pos).sprite.drop();
 		}

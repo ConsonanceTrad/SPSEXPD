@@ -32,7 +32,7 @@ import pd.effects.Speck;
 import pd.items.Heap;
 import pd.items.Honeypot;
 import pd.items.Item;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.mechanics.pathfind.PathFinder;
 import render.noosa.audio.Sample;
 import render.utils.math.Random;
@@ -69,7 +69,7 @@ public class GatewayTrap extends Trap {
 			for (int i : PathFinder.NEIGHBOURS9){
 				Char ch = Actor.findChar(pos + i);
 				if (ch != null){
-					if (ScrollOfTeleportation.teleportChar(ch)) {
+					if (Teleport.teleportChar(ch)) {
 						if (ch instanceof Mob && ((Mob) ch).state == ((Mob) ch).HUNTING) {
 							((Mob) ch).state = ((Mob) ch).WANDERING;
 							Buff.prolong(ch, Trap.HazardAssistTracker.class, HazardAssistTracker.DURATION);
@@ -135,7 +135,7 @@ public class GatewayTrap extends Trap {
 						telePositions.remove((Integer)newPos);
 						largeCharPositions.remove((Integer)newPos);
 
-						if (ScrollOfTeleportation.teleportToLocation(ch, newPos)){
+						if (Teleport.teleportToLocation(ch, newPos)){
 							if (ch instanceof Mob && ((Mob) ch).state == ((Mob) ch).HUNTING) {
 								((Mob) ch).state = ((Mob) ch).WANDERING;
 							}

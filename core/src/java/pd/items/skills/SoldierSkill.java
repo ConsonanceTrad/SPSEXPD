@@ -13,7 +13,7 @@ import pd.actors.mobs.npcs.MirrorImage;
 import pd.items.Generator;
 import pd.items.Item;
 import pd.items.equipment.bombs.DungeonBomb;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.mechanics.pathfind.PathFinder;import pd.scenes.GameScene;
 import pd.sprites.BMirrorSprite;
 import render.utils.math.Random;
@@ -58,7 +58,7 @@ public class SoldierSkill extends ClassSkill {
 			bomb.HP = bomb.HT = 100;
 			bomb.pos = cells.remove(index);
 			GameScene.add(bomb);
-			if (bomb.sprite != null) ScrollOfTeleportation.appear(bomb, bomb.pos);
+			if (bomb.sprite != null) Teleport.appear(bomb, bomb.pos);
 		}
 		if (curUser.lvl > 55) {
 			Buff.detach(curUser, Poison.class);

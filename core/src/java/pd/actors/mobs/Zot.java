@@ -21,7 +21,6 @@ import pd.effects.Speck;
 import pd.items.Heap;
 import pd.items.SoulCollect;
 import pd.items.misc.AutoPotion;
-import pd.items.consum.scrolls.ScrollOfPsionicBlast;
 import pd.items.equipment.weapon.enchantments.EnchantmentDark;
 import pd.levels.ZotBossLevel;
 import pd.mechanics.Ballistica;
@@ -74,7 +73,6 @@ public class Zot extends Mob {
 		immunities.add(Sleep.class);
 		immunities.add(Burning.class);
 		immunities.add(ToxicGas.class);
-		immunities.add(ScrollOfPsionicBlast.class);
 		immunities.add(Vertigo.class);
 		immunities.add(Paralysis.class);
 	}

@@ -60,8 +60,6 @@ import pd.items.Item;
 import pd.items.equipment.armor.Armor;
 import pd.items.equipment.bags.Bag;
 import pd.items.equipment.rings.RingOfEnergy;
-import pd.items.consum.scrolls.ScrollOfPsionicBlast;
-import pd.items.consum.scrolls.ScrollOfRetribution;
 import pd.items.equipment.weapon.Weapon;
 import pd.items.equipment.weapon.melee.MeleeWeapon;
 import pd.items.equipment.weapon.melee.special.WraithBreath;
@@ -867,7 +865,6 @@ public class DriedRose extends Artifact {
 		{
 			immunities.add( ToxicGas.class );
 			immunities.add( Burning.class );
-			immunities.add( ScrollOfPsionicBlast.class );
 		}
 
 		@Override

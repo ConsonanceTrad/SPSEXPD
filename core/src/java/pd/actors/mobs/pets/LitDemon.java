@@ -3,9 +3,9 @@ package pd.actors.mobs.pets;
 
 import pd.actors.Char;
 import pd.items.Item;
+import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.items.consum.food.completefood.PetFood;
 import pd.items.consum.potions.PotionOfHealing;
-import pd.items.consum.scrolls.ScrollOfRage;
 import pd.sprites.LitDemonSprite;
 import render.utils.math.Random;
 import pd.messages.InlineText;
@@ -25,7 +25,7 @@ public class LitDemon extends PET {
 	}
 	@Override protected Kind kind() { return Kind.LIT_DEMON; }
 	@Override public boolean lovefood(Item item) { return item instanceof PetFood || item instanceof PotionOfHealing; }
-	@Override public Item SupercreateLoot() { return new ScrollOfRage(); }
+	@Override public Item SupercreateLoot() { return new ScrollOfRecharging(); }
 	@Override public void updateStats(boolean refill) {
 		int old = HT; HT = 150 + petLevel() * 2; defenseSkill = petLevel();
 		if (refill) HP = HT; else if (HT > old) HP = Math.min(HT, HP + HT - old);

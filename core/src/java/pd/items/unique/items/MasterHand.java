@@ -4,7 +4,7 @@ package pd.items.unique.items;
 import pd.Dungeon;
 import pd.actors.hero.Hero;
 import pd.atlas.items.SpecificPlaceHolderDict;
-import pd.items.consum.scrolls.ScrollOfTeleportation;
+import pd.utils.Teleport;
 import pd.items.unique.UniqueItemId;
 import pd.messages.InlineText;
 import pd.messages.Messages;
@@ -79,7 +79,7 @@ public class MasterHand extends GreatHand {
 				GLog.w(Messages.get(this, "blink_bad"));
 				return;
 			}
-			ScrollOfTeleportation.appear(hero, cell);
+			Teleport.appear(hero, cell);
 			Dungeon.observe();
 			GameScene.updateFog();
 			GLog.p(Messages.get(this, "blinked"));
