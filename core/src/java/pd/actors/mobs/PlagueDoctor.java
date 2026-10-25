@@ -75,7 +75,7 @@ public class PlagueDoctor extends LegacyDualLootMob {
 		baseSpeed = 0.75f;
 		EXP = 30;
 		maxLvl = 35;
-		setupLegacyDualLoot(AlchemistsToolkit.class, 0.2f, Generator.Category.POTION, 1f);
+		setupLegacyDualLoot(pd.items.equipment.bags.AlchemyBench.class, 0.2f, Generator.Category.POTION, 1f);
 		FLEEING = new Fleeing();
 		properties.add(Property.HUMAN);
 		properties.add(Property.BOSS);

@@ -1029,13 +1029,13 @@ public class Generator {
 					//SPSEXPD: 荆棘斗篷已移除（其提高种子掉落的效果并入自然之鞋）
 					HeartOfSatan.class,
 					CloakOfShadows.class,
-					HornOfPlenty.class,
+					//SPSEXPD: 已改为包裹强化组件，移出神器池
 					//SPSEXPD: 魔术之手法杖已改造为普通法杖，移出神器池
 					SandalsOfNature.class,
 					TalismanOfForesight.class,
 					TimekeepersHourglass.class,
 					UnstableSpellbook.class,
-					AlchemistsToolkit.class,
+					//SPSEXPD: 已改为包裹强化组件，移出神器池
 					RobotDMT.class,
 					EyeOfSkadi.class,
 					EtherealChains.class,
@@ -1051,7 +1051,7 @@ public class Generator {
 					GoddessRadiance.class,
 					CloakOfSheep.class
 			};
-			ARTIFACT.defaultProbs = new float[]{1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1};
+			ARTIFACT.defaultProbs = new float[]{1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1};
 			ARTIFACT.probs = ARTIFACT.defaultProbs.clone();
 
 			//Trinkets are unique like artifacts, but unlike them you can only have one at once

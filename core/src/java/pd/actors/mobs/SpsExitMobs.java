@@ -399,7 +399,7 @@ public final class SpsExitMobs {
 			return damage;
 		}
 		@Override public void damage(int damage, Object src) { super.damage(cap(damage, HT), src); }
-		@Override public Item SupercreateLoot() { return Random.oneOf(Generator.random(Generator.Category.HIGHFOOD), new HornOfPlenty()); }
+		@Override public Item SupercreateLoot() { return Random.oneOf(Generator.random(Generator.Category.HIGHFOOD), new pd.items.equipment.bags.PlentyHorn()); }
 		@Override public void rollToDropLoot() { super.rollToDropLoot(); if (Random.Float() < 0.4f) dropBonus(this, new OverpricedRation()); }
 		@Override public void storeInBundle(Bundle b) { super.storeInBundle(b); b.put(SKILL_USED, skillUsed); }
 		@Override public void restoreFromBundle(Bundle b) { super.restoreFromBundle(b); skillUsed = b.getBoolean(SKILL_USED); }
