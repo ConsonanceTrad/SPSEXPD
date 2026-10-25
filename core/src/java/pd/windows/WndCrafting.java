@@ -136,7 +136,9 @@ public class WndCrafting extends Window {
 			.t("title_distill", "蒸馏压片机")
 			.t("title_fill", "分装灌液机")
 			.t("title_cook", "平底煎锅")
-			.t("title_board", "菜板");
+			.t("title_board", "菜板")
+			.t("label_main", "主材料")
+			.t("label_adjuvant", "副材料");
 	}
 
 	/** SPSEXPD: 打开指定模式的加工窗口（炼金釜 / 蒸馏 / 分装 / 平底锅 / 菜板）。 */
@@ -302,7 +304,8 @@ public class WndCrafting extends Window {
 
 		//SPSEXPD: 材料格布局——炼金釜是「主材 + 辅材 2×2」，其余工具（蒸馏/分装/平底锅/菜板）改成单列三格
 		boolean singleColumn = singleColumnLayout();
-		float gapX = Math.max(4, Math.min(20, (pw - 74 - QUICK_COL_W) - 2*BTN_SIZE));
+		//SPSEXPD: 辅材四格之间用小间距；主材与辅材之间留大间距，并在两区上方各加一行文字标记
+		float gapX = 6;
 		float inputW = singleColumn ? BTN_SIZE : 2*BTN_SIZE + gapX;
 		float slotsX0;
 		float slotsX1;
@@ -312,20 +315,37 @@ public class WndCrafting extends Window {
 			slotsX1 = slotsX0;
 			slotsMainX = slotsX0;
 		} else {
-			slotsX0 = left + 6 + (hasQuickColumn() ? QUICK_COL_W : 0);
+			float slotsBlockW = 2*BTN_SIZE + gapX;
+			float blockX = Math.round((w - slotsBlockW) / 2f);
+			slotsX0 = blockX;
 			slotsX1 = slotsX0 + BTN_SIZE + gapX;
-			slotsMainX = slotsX0 + (inputW - BTN_SIZE)/2f;
+			slotsMainX = Math.round((w - BTN_SIZE) / 2f);
 		}
 
 		pos += 4;
 
-		float slotsY0 = pos;
-		float slotsY1 = slotsY0 + BTN_SIZE + 6;
+		float labelH = singleColumn ? 0 : 10;
+		float slotsY0 = pos + labelH;
+		//主材到辅材之间额外留出间距（含辅材标签高度）
+		float slotsY1 = slotsY0 + BTN_SIZE + (singleColumn ? 6 : 20);
 		float slotsY2 = slotsY1 + BTN_SIZE + 6;
 		//单列模式下槽区的实际底边按格数算
 		float slotsLastY = singleColumn
 				? slotsY0 + (Math.max(1, activeInputCount) - 1) * (BTN_SIZE + 6)
 				: slotsY2;
+
+		if (!singleColumn) {
+			//SPSEXPD: 主材料 / 副材料 文字标记
+			RenderedTextBlock mainLabel = PixelScene.renderTextBlock(Messages.get(this, "label_main"), 6);
+			mainLabel.setPos(slotsMainX + (BTN_SIZE - mainLabel.width())/2f, slotsY0 - labelH);
+			mainLabel.hardlight(0xCCCCCC);
+			add(mainLabel);
+
+			RenderedTextBlock adjuvantLabel = PixelScene.renderTextBlock(Messages.get(this, "label_adjuvant"), 6);
+			adjuvantLabel.setPos(slotsX0 + (inputW - adjuvantLabel.width())/2f, slotsY1 - labelH);
+			adjuvantLabel.hardlight(0xCCCCCC);
+			add(adjuvantLabel);
+		}
 
 		NinePatch inputBG = Chrome.get(Chrome.Type.TOAST_TR);
 		if (singleColumn) {
@@ -354,9 +374,9 @@ public class WndCrafting extends Window {
 		//SPSEXPD: 合成按钮 + 输出槽在材料区右侧，纵向居中
 		craftRowY = slotsMiddleY;
 
-		//左侧快速添加按钮列：加水 / 加火种 / 药水箱 / 种子袋 / 购物车
+		//左侧快速添加按钮列：加水 / 加火种 / 药水箱 / 种子袋 / 购物车（紧贴材料块左侧）
 		if (hasQuickColumn()) {
-			float quickX = left + 6;
+			float quickX = Math.max(4, slotsX0 - QUICK_COL_W - 4);
 			float quickY = slotsTop;
 			addQuickButton(quickX, quickY + 0*(QUICK_BTN + 4),
 					EquipmentNonEquipDict.PURE_DEWDROP_WATER, this::quickAddWater);
