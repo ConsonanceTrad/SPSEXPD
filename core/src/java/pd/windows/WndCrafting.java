@@ -328,10 +328,25 @@ public class WndCrafting extends Window {
 				: slotsY2;
 
 		NinePatch inputBG = Chrome.get(Chrome.Type.TOAST_TR);
-		inputBG.x = slotsX0 - 4;
-		inputBG.y = slotsY0 - 4;
-		inputBG.size(inputW + 8, (slotsLastY + BTN_SIZE) - slotsY0 + 8);
-		add(inputBG);
+		if (singleColumn) {
+			//单列布局：整列一个外框
+			inputBG.x = slotsX0 - 4;
+			inputBG.y = slotsY0 - 4;
+			inputBG.size(inputW + 8, (slotsLastY + BTN_SIZE) - slotsY0 + 8);
+			add(inputBG);
+		} else {
+			//SPSEXPD: 炼金釜——主材单独一个外框，辅材单独一个外框（不再框在一起）
+			inputBG.x = slotsMainX - 4;
+			inputBG.y = slotsY0 - 4;
+			inputBG.size(BTN_SIZE + 8, BTN_SIZE + 8);
+			add(inputBG);
+
+			NinePatch adjuvantBG = Chrome.get(Chrome.Type.TOAST_TR);
+			adjuvantBG.x = slotsX0 - 4;
+			adjuvantBG.y = slotsY1 - 4;
+			adjuvantBG.size(inputW + 8, (slotsY2 + BTN_SIZE) - slotsY1 + 8);
+			add(adjuvantBG);
+		}
 
 		slotsTop = slotsY0 - 4;
 		slotsBottom = slotsLastY + BTN_SIZE + 4;
