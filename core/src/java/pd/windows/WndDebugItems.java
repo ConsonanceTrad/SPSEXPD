@@ -360,6 +360,11 @@ public class WndDebugItems extends Window {
 				pd.items.consum.food.MagicJuice.class));
 		potions.add(Entry.of(() -> pd.items.consum.food.MagicCandy.of(pd.items.consum.food.vegetable.Apple.class),
 				pd.items.consum.food.MagicCandy.class));
+		//SPSEXPD: 胡萝卜（高草掉落，不在蔬菜清单里）也能直接榨汁
+		potions.add(Entry.of(() -> pd.items.consum.food.MagicJuice.of(pd.items.consum.food.vegetable.Carrot.class),
+				pd.items.consum.food.MagicJuice.class));
+		potions.add(Entry.of(() -> pd.items.consum.food.MagicCandy.of(pd.items.consum.food.vegetable.Carrot.class),
+				pd.items.consum.food.MagicCandy.class));
 		//SPSEXPD: 五色浆果同理（不在蔬菜清单里，但能直接榨汁）
 		for (Class<?> berry : Generator.Category.SPS_BERRY.classes) {
 			if (berry == null || !Item.class.isAssignableFrom(berry)) continue;

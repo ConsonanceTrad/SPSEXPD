@@ -62,6 +62,7 @@ public class MagicJuice extends Food {
 		SOURCE_NAMES.put(pd.items.consum.food.vegetable.NutVegetable.class, "坚果果汁瓶");
 		SOURCE_NAMES.put(pd.items.consum.food.vegetable.QuartzFlower.class, "辉耀水晶瓶");
 		SOURCE_NAMES.put(pd.items.consum.food.vegetable.Radish.class, "萝卜汁");
+		SOURCE_NAMES.put(pd.items.consum.food.vegetable.Carrot.class, "胡萝卜汁");
 		SOURCE_NAMES.put(pd.items.consum.food.vegetable.RainbowPansy.class, "混乱原浆瓶");
 		SOURCE_NAMES.put(pd.items.consum.food.vegetable.Sorrel.class, "韵魔速行瓶");
 		SOURCE_NAMES.put(pd.items.consum.food.vegetable.StarEaterFlower.class, "酸蚀恶水瓶");

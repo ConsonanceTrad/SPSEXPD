@@ -489,6 +489,7 @@ public final class SpsBrewRecipes {
 		List<Recipe> recipes = new ArrayList<>();
 		recipes.add(new MagicJuiceBrew());
 		recipes.add(new SimpleJuiceBrew(pd.items.consum.food.vegetable.Radish.class));
+		recipes.add(new SimpleJuiceBrew(pd.items.consum.food.vegetable.Carrot.class));
 		recipes.add(new SimpleJuiceBrew(pd.items.consum.food.vegetable.Truffles.class));
 		recipes.add(new SimpleJuiceBrew(pd.items.consum.food.vegetable.Lettuce.class));
 		recipes.add(new SimpleJuiceBrew(pd.items.consum.food.vegetable.Apple.class));
