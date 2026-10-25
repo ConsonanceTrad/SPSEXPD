@@ -255,6 +255,101 @@ public class WndDebugItems extends Window {
 		return map;
 	}
 
+	//SPSEXPD: 新增内容分组——条目带「形态」，用于列出粗制/标准/药片/缓释片/安瓶等同一类的不同形态
+	public static final class Entry {
+		final Class<? extends Item> type;
+		final pd.items.consum.potions.PotionForm form;
+
+		Entry(Class<? extends Item> type) {
+			this(type, null);
+		}
+
+		Entry(Class<? extends Item> type, pd.items.consum.potions.PotionForm form) {
+			this.type = type;
+			this.form = form;
+		}
+
+		Item create() throws Exception {
+			Item item = type.getDeclaredConstructor().newInstance();
+			if (form != null && item instanceof pd.items.consum.potions.Potion) {
+				((pd.items.consum.potions.Potion) item).form = form;
+			}
+			return item;
+		}
+
+		String label() {
+			try {
+				return create().name();
+			} catch (Exception e) {
+				return form == null ? type.getSimpleName() : type.getSimpleName() + "#" + form;
+			}
+		}
+	}
+
+	private static LinkedHashMap<String, ArrayList<Entry>> extraGroups;
+
+	/** SPSEXPD: 调试器最前面的几组「新增内容」——法杖 / 药品 / 工具 / 包裹组件。 */
+	public static LinkedHashMap<String, ArrayList<Entry>> extraGroups() {
+		if (extraGroups != null) return extraGroups;
+		LinkedHashMap<String, ArrayList<Entry>> map = new LinkedHashMap<>();
+
+		//法杖：全部法杖（含新加的 8 根）
+		ArrayList<Entry> wands = new ArrayList<>();
+		for (Class<?> c : Generator.Category.WAND.classes) {
+			if (c != null && Item.class.isAssignableFrom(c)) wands.add(new Entry((Class<? extends Item>) c));
+		}
+		map.put("法杖", wands);
+
+		//药品：只列新体系的形态（粗制/标准/药片/缓释片/安瓶）+ 合剂/魔药 + 魔法果汁，不含 NORMAL 原始药剂
+		ArrayList<Entry> potions = new ArrayList<>();
+		pd.items.consum.potions.PotionForm[] forms = {
+				pd.items.consum.potions.PotionForm.CRUDE,
+				pd.items.consum.potions.PotionForm.STANDARD,
+				pd.items.consum.potions.PotionForm.PILL,
+				pd.items.consum.potions.PotionForm.TABLET,
+				pd.items.consum.potions.PotionForm.AMPOULE
+		};
+		for (Class<?> c : Generator.Category.POTION.classes) {
+			if (c == null || !pd.items.consum.potions.Potion.class.isAssignableFrom(c)) continue;
+			//排除合剂/魔药族（它们另有条目），只留普通药剂
+			if (pd.items.consum.potions.exotic.ExoticPotion.class.isAssignableFrom(c)) continue;
+			if (pd.items.consum.potions.brews.Brew.class.isAssignableFrom(c)) continue;
+			for (pd.items.consum.potions.PotionForm form : forms) {
+				potions.add(new Entry((Class<? extends Item>) c, form));
+			}
+		}
+		potions.add(new Entry(pd.items.consum.food.MagicJuice.class));
+		map.put("药品", potions);
+
+		//工具：蒸馏压片机 / 分装灌液机 / 菜板 / 平底煎锅
+		ArrayList<Entry> tools = new ArrayList<>();
+		tools.add(new Entry(pd.items.equipment.artifacts.ProcessTool.Distiller.class));
+		tools.add(new Entry(pd.items.equipment.artifacts.ProcessTool.AmpouleFiller.class));
+		tools.add(new Entry(pd.items.equipment.tools.CuttingBoard.class));
+		tools.add(new Entry(pd.items.equipment.weapon.melee.special.MeleePan.class));
+		map.put("工具", tools);
+
+		//包裹组件：10 种拓展 + 3 种强化
+		ArrayList<Entry> components = new ArrayList<>();
+		components.add(new Entry(pd.items.equipment.bags.StorageGem.class));
+		components.add(new Entry(pd.items.equipment.bags.PouchExpand.class));
+		components.add(new Entry(pd.items.equipment.bags.ScrollBundle.class));
+		components.add(new Entry(pd.items.equipment.bags.PotionBox.class));
+		components.add(new Entry(pd.items.equipment.bags.SpaceRing.class));
+		components.add(new Entry(pd.items.equipment.bags.KeyLoop.class));
+		components.add(new Entry(pd.items.equipment.bags.AmmoCase.class));
+		components.add(new Entry(pd.items.equipment.bags.BambooFrame.class));
+		components.add(new Entry(pd.items.equipment.bags.SecondHeart.class));
+		components.add(new Entry(pd.items.equipment.bags.ShoppingCloth.class));
+		components.add(new Entry(pd.items.equipment.bags.AlchemyBench.class));
+		components.add(new Entry(pd.items.equipment.bags.PlentyHorn.class));
+		components.add(new Entry(pd.items.equipment.bags.GreenVial.class));
+		map.put("包裹组件", components);
+
+		extraGroups = map;
+		return map;
+	}
+
 	//---- 组选择页 ----
 
 	/**
@@ -369,6 +464,158 @@ public class WndDebugItems extends Window {
 	}
 
 	//---- 物品网格页 ----
+
+	/** SPSEXPD: 「新增内容」组——条目带形态。 */
+	private WndDebugItems(final String title, ArrayList<Entry> items, int page) {
+		super();
+
+		float pos = 0;
+
+		RedButton backButton = new RedButton(Messages.get(this, "back")) {
+			@Override
+			protected void onClick() {
+				hide();
+				GameScene.show(new WndDebugItems());
+			}
+		};
+		backButton.setRect(0, pos, WIDTH / 2 - 1, 15);
+		add(backButton);
+
+		RedButton titleButton = new RedButton(title) {
+			@Override
+			protected void onClick() {}
+		};
+		titleButton.textColor(Window.TITLE_COLOR);
+		titleButton.enable(false);
+		titleButton.setRect(backButton.right() + 2, pos, WIDTH / 2 - 1, 15);
+		add(titleButton);
+		pos = titleButton.bottom() + 2;
+
+		final ArrayList<Entry> list = new ArrayList<>(items);
+		final int pageSize = COLS * PAGE_ROWS;
+		int pageCount = (list.size() + pageSize - 1) / pageSize;
+		if (pageCount == 0) pageCount = 1;
+		final int pages = pageCount;
+		final int cur = Math.max(0, Math.min(page, pages - 1));
+
+		float x = 0;
+		float rowY = pos;
+		int from = cur * pageSize;
+		int to = Math.min(list.size(), from + pageSize);
+		for (int i = from; i < to; i++) {
+			EntryBtn btn = new EntryBtn(list.get(i));
+			btn.setRect(x, rowY, CELL - 2, CELL - 2);
+			add(btn);
+
+			x += CELL;
+			if (x + CELL - 2 > WIDTH) {
+				x = 0;
+				rowY += CELL;
+			}
+		}
+		if (x > 0) rowY += CELL;
+
+		if (pages > 1) {
+			RedButton prev = new RedButton("<") {
+				@Override
+				protected void onClick() {
+					hide();
+					GameScene.show(new WndDebugItems(title, list, cur - 1));
+				}
+			};
+			prev.enable(cur > 0);
+			prev.setRect(0, rowY + 2, 20, 15);
+			add(prev);
+
+			RedButton counter = new RedButton((cur + 1) + "/" + pages) {
+				@Override
+				protected void onClick() {}
+			};
+			counter.textColor(Window.TITLE_COLOR);
+			counter.enable(false);
+			counter.setRect(prev.right() + 2, rowY + 2, WIDTH - 44, 15);
+			add(counter);
+
+			RedButton next = new RedButton(">") {
+				@Override
+				protected void onClick() {
+					hide();
+					GameScene.show(new WndDebugItems(title, list, cur + 1));
+				}
+			};
+			next.enable(cur < pages - 1);
+			next.setRect(counter.right() + 2, rowY + 2, 20, 15);
+			add(next);
+
+			rowY = next.bottom();
+		} else {
+			rowY += 2;
+		}
+
+		resize(WIDTH, (int) rowY + 2);
+	}
+
+	private class EntryBtn extends Button {
+
+		private final Entry entry;
+		private final ItemSprite sprite;
+		private final String itemName;
+
+		EntryBtn(Entry entry) {
+			this.entry = entry;
+			String name;
+			ItemSprite s;
+			try {
+				Item item = entry.create();
+				name = item.name();
+				s = new ItemSprite(item);
+			} catch (Exception e) {
+				name = entry.type.getSimpleName();
+				s = new ItemSprite();
+			}
+			this.itemName = name;
+			this.sprite = s;
+			add(sprite);
+		}
+
+		@Override
+		protected void layout() {
+			super.layout();
+			sprite.x = x + (width - sprite.width()) / 2f;
+			sprite.y = y + (height - sprite.height()) / 2f;
+		}
+
+		@Override
+		protected void onClick() {
+			give(1);
+		}
+
+		@Override
+		protected boolean onLongClick() {
+			give(10);
+			return true;
+		}
+
+		private void give(int qty) {
+			try {
+				for (int i = 0; i < qty; i++) {
+					Item item = entry.create();
+					item.identify(true);
+					if (!item.collect(Dungeon.hero.belongings.backpack)) {
+						Dungeon.level.drop(item, Dungeon.hero.pos);
+					}
+				}
+				GLog.h(Messages.get(WndDebugItems.class, "received", itemName, qty));
+			} catch (Exception e) {
+				Game.reportException(e);
+			}
+		}
+
+		@Override
+		protected String hoverText() {
+			return itemName;
+		}
+	}
 
 	private WndDebugItems(final String title, Collection<Class<? extends Item>> items, int page) {
 		super();
