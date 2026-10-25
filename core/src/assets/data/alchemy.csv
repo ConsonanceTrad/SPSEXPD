@@ -36,5 +36,4 @@ FIX-ARC,1,PotionOfHealing#CRUDE,Item,Item,Item,FIXED,ElixirOfArcaneArmor,1,0,合
 FIX-MGT,1,PotionOfStrength#STANDARD,Item,Item,Item,FIXED,ElixirOfMight,1,0,魔药层·秘药：力量标准药水+本局两味 → 力量秘药
 FIX-HNY,1,PotionOfHealing#STANDARD,Item,Item,Item,FIXED,ElixirOfHoneyedHealing,1,0,魔药层·秘药：治疗标准药水+本局两味 → 蜂蜜治疗秘药
 XR-01,1,ScrollOfIdentify,WaterItem,,,ITEM,EyeOfTruth,1,0,结晶：鉴定卷轴+水 → 真实之眼
-JUI-01,1,Vegetable,Fruit,WaterItem,,ITEM,MagicJuice,1,0,魔法果汁：蔬菜+任意果实+水
 FLK-01,1,WaterItem,,,,ITEM,EnergyFlask,1,4,能量瓶：水+4炼金能量 → 炼金能量瓶
