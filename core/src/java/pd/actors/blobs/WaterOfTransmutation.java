@@ -25,7 +25,6 @@ import pd.items.equipment.artifacts.Artifact;
 import pd.items.consum.potions.Potion;
 import pd.items.equipment.rings.Ring;
 import pd.items.consum.scrolls.Scroll;
-import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.items.equipment.wands.Wand;
 import pd.items.equipment.weapon.Weapon;
@@ -144,8 +143,6 @@ public class WaterOfTransmutation extends WellWater {
 	}
 
 	private Scroll changeScroll(Scroll source) {
-		if (source instanceof ScrollOfUpgrade) return new ScrollOfMagicalInfusion();
-		if (source instanceof ScrollOfMagicalInfusion) return new ScrollOfUpgrade();
 		for (int i = 0; i < MAX_REROLLS; i++) {
 			Item result = Generator.random(Generator.Category.SCROLL);
 			if (result instanceof Scroll && result.getClass() != source.getClass()) return (Scroll)result;

@@ -1,6 +1,7 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.items;
 
+import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.items.consum.food.WaterItem;
 import pd.items.consum.food.completefood.FruitCandy;
 import pd.items.consum.food.completefood.Gel;
@@ -16,7 +17,6 @@ import pd.items.consum.medicine.Timepill2;
 import pd.items.consum.potions.Potion;
 import pd.items.consum.scrolls.Scroll;
 import pd.items.consum.scrolls.ScrollOfIdentify;
-import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.items.consum.scrolls.ScrollOfRemoveCurse;
 import pd.items.consum.stones.StoneOfAugmentation;
 import pd.items.equipment.artifacts.AlienBag;
@@ -78,7 +78,7 @@ public class IronMakerRecipes extends Recipe {
 		if (items.size() == 2 && count(items, StoneOfAugmentation.class) == 1
 				&& count(items, Stylus.class) == 1) return new GreatRune();
 		if (items.size() == 2 && water == 1 && meatfoods == 1) return new Mediummeat();
-		if (items.size() == 1 && count(items, ScrollOfMagicalInfusion.class) == 1) return new GreatRune();
+		if (items.size() == 1 && count(items, ScrollOfUpgrade.class) == 1) return new GreatRune();
 		if (items.size() == 1 && count(items, Gel.class) == 1) return new Torch();
 		if (items.size() == 2 && equipment == 2 && items.get(0).getClass() == items.get(1).getClass()) {
 			Item result = Reflection.newInstance((Class<? extends Item>)items.get(0).getClass());

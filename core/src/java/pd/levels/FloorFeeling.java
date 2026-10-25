@@ -21,7 +21,6 @@ import pd.items.Torch;
 import pd.items.Weightstone;
 import pd.items.misc.LuckyBadge;
 import pd.items.consum.potions.PotionOfHealing;
-import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.items.consum.stones.StoneOfEnchantment;
 import pd.items.consum.stones.StoneOfIntuition;
@@ -65,7 +64,7 @@ public final class FloorFeeling {
 					//SPSEXPD: 稀有奖励改三选一，升级/魔力灌注卷轴作为高稀有刷新物
 					GroundItems.addItemToSpawn( level, Random.oneOf(
 							new ScrollOfUpgrade(),
-							new ScrollOfMagicalInfusion(),
+							new ScrollOfUpgrade(),
 							new PotionOfHealing()) );
 				}
 			} else {
@@ -74,7 +73,7 @@ public final class FloorFeeling {
 					//SPSEXPD: 稀有奖励改三选一，升级/魔力灌注卷轴作为高稀有刷新物
 					GroundItems.addItemToSpawn( level, Random.oneOf(
 							new ScrollOfUpgrade(),
-							new ScrollOfMagicalInfusion(),
+							new ScrollOfUpgrade(),
 							new PotionOfHealing()) );
 				}
 

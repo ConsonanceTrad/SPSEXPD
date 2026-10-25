@@ -61,7 +61,6 @@ import pd.items.nornstone.YellowNornStone;
 import pd.items.quest.DarkGold;
 import pd.items.quest.Mushroom;
 import pd.items.specific.reward.BoundReward;
-import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.items.equipment.wands.WandOfMagicMissile;
 import pd.items.equipment.weapon.melee.fusion.Flute;
@@ -389,7 +388,7 @@ public class TownLevel extends Level {
 	private Item equipmentStoreItem() {
 		switch (Random.Int(12)) {
 			case 0: return new ScrollOfUpgrade();
-			case 1: return new ScrollOfMagicalInfusion();
+			case 1: return new ScrollOfUpgrade();
 			case 2:
 			case 9: return Generator.random(Generator.Category.MISSILE);
 			case 3: return Generator.random(Generator.Category.WAND);

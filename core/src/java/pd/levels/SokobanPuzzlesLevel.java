@@ -1,11 +1,11 @@
 /* Special Surprise Pixel Dungeon, GPLv3 or later. */
 package pd.levels;
 
+import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.items.Item;
 import pd.items.KnowledgeBook;
 import pd.items.consum.eggs.Egg;
 import pd.items.consum.potions.PotionOfLiquidFlame;
-import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.plants.ReNepenth;
 import pd.plants.StarEater;
 import pd.plants.Starflower;
@@ -58,7 +58,7 @@ public class SokobanPuzzlesLevel extends SokobanCastle {
 		switch (id) {
 			case 0: return new KnowledgeBook();
 			case 1:
-			case 8: return new ScrollOfMagicalInfusion();
+			case 8: return new ScrollOfUpgrade();
 			case 2: return new Egg();
 			case 3:
 			case 6: return new ReNepenth.Seed();

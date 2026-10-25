@@ -36,7 +36,6 @@ import pd.actors.buffs.Sleep;
 import pd.actors.buffs.Terror;
 import pd.actors.buffs.Vertigo;
 import pd.effects.particles.ShadowParticle;
-import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.mechanics.pathfind.PathFinder;
 import pd.scenes.GameScene;
@@ -73,14 +72,14 @@ public class Wraith extends LegacyDualLootMob {
 		EXP = 1;
 		
 		flying = true;
-		setupLegacyDualLoot(ScrollOfMagicalInfusion.class, 0.06f,
+		setupLegacyDualLoot(ScrollOfUpgrade.class, 0.06f,
 				ScrollOfUpgrade.class, 0.09f);
 
 		properties.add(Property.UNDEAD);
 	}
 
 	static Class<?>[] legacyLootTypes() {
-		return new Class<?>[]{ScrollOfMagicalInfusion.class, ScrollOfUpgrade.class};
+		return new Class<?>[]{ScrollOfUpgrade.class, ScrollOfUpgrade.class};
 	}
 
 	static float[] legacyLootChances() {

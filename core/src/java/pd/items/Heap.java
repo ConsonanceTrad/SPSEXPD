@@ -64,7 +64,6 @@ import pd.items.nornstone.NornStone;
 import pd.items.consum.potions.Potion;
 import pd.items.equipment.rings.RingOfWealth;
 import pd.items.consum.scrolls.Scroll;
-import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.items.equipment.wands.Wand;
 import pd.items.equipment.weapon.Weapon;
@@ -409,7 +408,7 @@ public class Heap implements Bundlable {
 		boolean changed = false;
 		for (Item item : items.toArray(new Item[0])) {
 			if (item instanceof Scroll && !(item instanceof ScrollOfUpgrade)
-					&& !(item instanceof ScrollOfMagicalInfusion)) {
+					&& !(item instanceof ScrollOfUpgrade)) {
 				items.remove(item);
 				changed = true;
 			} else if (item instanceof Egg) {

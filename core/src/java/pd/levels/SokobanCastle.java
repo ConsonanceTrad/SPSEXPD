@@ -22,7 +22,6 @@ import pd.items.specific.keys.IronKey;
 import pd.items.misc.Spectacles;
 import pd.items.consum.potions.PotionOfLiquidFlame;
 import pd.items.quest.AdventureJournal;
-import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.utils.Teleport;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.journal.Notes;
@@ -209,7 +208,7 @@ public class SokobanCastle extends Level implements SpsSokobanLevel {
 			case 1: return new Starflower.Seed();
 			case 2: return new ReNepenth.Seed();
 			case 3:
-			case 4: return new ScrollOfMagicalInfusion();
+			case 4: return new ScrollOfUpgrade();
 			case 5: return new ScrollOfRecharging();
 			default: return null;
 		}

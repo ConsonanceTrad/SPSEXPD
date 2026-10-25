@@ -38,7 +38,6 @@ import pd.items.consum.potions.Potion;
 import pd.items.quest.DarkGold;
 import pd.items.consum.scrolls.Scroll;
 import pd.items.consum.scrolls.ScrollOfIdentify;
-import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.items.consum.scrolls.ScrollOfRemoveCurse;
 import pd.items.consum.stones.StoneOfAugmentation;
 import pd.messages.Messages;

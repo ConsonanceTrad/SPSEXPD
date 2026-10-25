@@ -21,6 +21,7 @@
 
 package pd.actors.mobs;
 
+import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.Dungeon;
 import pd.actors.Actor;
 import pd.actors.Char;
@@ -30,7 +31,6 @@ import pd.actors.buffs.Poison;
 import pd.effects.Pushing;
 import pd.items.Generator;
 import pd.items.Item;
-import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.scenes.GameScene;
 import pd.sprites.SwarmSprite;
 import render.utils.math.Random;
@@ -149,11 +149,11 @@ public class Swarm extends Mob {
 
 	@Override
 	public Item SupercreateLoot() {
-		return new ScrollOfMagicalInfusion();
+		return new ScrollOfUpgrade();
 	}
 
 	public static Class<?> specialLootType() {
-		return ScrollOfMagicalInfusion.class;
+		return ScrollOfUpgrade.class;
 	}
 
 	@Override

@@ -217,7 +217,6 @@ import pd.items.equipment.rings.fusion.RingOfMagic;
 import pd.items.consum.scrolls.Scroll;
 import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
-import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.items.consum.scrolls.ScrollOfRemoveCurse;
 import pd.utils.Teleport;
@@ -714,9 +713,10 @@ public class Generator {
 			
 			SCROLL.classes = new Class<?>[]{
 					ScrollOfIdentify.class, ScrollOfRemoveCurse.class, ScrollOfUpgrade.class,
-					ScrollOfRecharging.class, ScrollOfMagicMapping.class, ScrollOfMagicalInfusion.class
+					ScrollOfRecharging.class, ScrollOfMagicMapping.class
 			};
-			SCROLL.defaultProbs = new float[]{30, 15, 3, 10, 20, 3};
+			//SPSEXPD: 灌注卷轴已并入升级卷轴（升级卷轴可升级神器），权重合并到升级
+			SCROLL.defaultProbs = new float[]{30, 15, 6, 10, 20};
 			SCROLL.defaultProbs2 = null;
 			SCROLL.probs = SCROLL.defaultProbs.clone();
 			
@@ -1201,12 +1201,11 @@ public class Generator {
 	//SPSEXPD: 禁咒挑战（Challenges.NO_SCROLLS）下升级/魔力灌注卷轴不再保底，
 	// 挑战效果改为随机抽取时半数替换为同池其它卷轴（期望减半，不额外占用 deck 名额）
 	private static Class<?> applyNoScrollsThinning( Class<?> itemCls ){
-		if (itemCls != ScrollOfUpgrade.class && itemCls != ScrollOfMagicalInfusion.class) return itemCls;
+		if (itemCls != ScrollOfUpgrade.class) return itemCls;
 		if (!Dungeon.isChallenged(Challenges.NO_SCROLLS) || Random.Int(2) == 0) return itemCls;
 		float[] probs = Category.SCROLL.defaultProbs.clone();
 		for (int i = 0; i < Category.SCROLL.classes.length; i++){
-			if (Category.SCROLL.classes[i] == ScrollOfUpgrade.class
-					|| Category.SCROLL.classes[i] == ScrollOfMagicalInfusion.class) probs[i] = 0f;
+			if (Category.SCROLL.classes[i] == ScrollOfUpgrade.class) probs[i] = 0f;
 		}
 		return Category.SCROLL.classes[Random.chances(probs)];
 	}

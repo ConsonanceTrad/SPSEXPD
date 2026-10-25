@@ -139,7 +139,6 @@ import pd.items.consum.potions.PotionOfStrength;
 import pd.items.equipment.rings.Ring;
 import pd.items.consum.scrolls.ScrollOfIdentify;
 import pd.items.consum.scrolls.ScrollOfMagicMapping;
-import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.items.consum.scrolls.ScrollOfRecharging;
 import pd.items.consum.scrolls.ScrollOfRemoveCurse;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
@@ -501,7 +500,7 @@ public enum HeroClass {
 		if ((challenges & Challenges.ABRASION) != 0) {
 			l.backpack(() -> new ScrollOfUpgrade(), 0, 1, -1,
 					(h, i) -> ((pd.items.consum.scrolls.Scroll) i).setKnown()).unidentified();
-			l.backpack(() -> new ScrollOfMagicalInfusion(), 0, 1, -1,
+			l.backpack(() -> new ScrollOfUpgrade(), 0, 1, -1,
 					(h, i) -> ((pd.items.consum.scrolls.Scroll) i).setKnown()).unidentified();
 		}
 		if ((challenges & Challenges.ELE_STOME) != 0) {

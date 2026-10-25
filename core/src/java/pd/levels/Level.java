@@ -81,7 +81,6 @@ import pd.items.equipment.artifacts.TimekeepersHourglass;
 import pd.items.equipment.bombs.Bomb;
 import pd.items.misc.LuckyBadge;
 import pd.items.consum.potions.PotionOfStrength;
-import pd.items.consum.scrolls.ScrollOfMagicalInfusion;
 import pd.items.consum.scrolls.ScrollOfUpgrade;
 import pd.items.consum.stones.StoneOfEnchantment;
 import pd.items.consum.stones.StoneOfIntuition;
