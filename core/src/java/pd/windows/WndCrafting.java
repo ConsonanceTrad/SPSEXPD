@@ -317,13 +317,13 @@ public class WndCrafting extends Window {
 			slotsX1 = slotsX0;
 			slotsMainX = slotsX0;
 		} else {
-			//SPSEXPD: 快速加料列与材料块作为一个整体水平居中，避免左侧留大片空白
-			float slotsBlockW = 2*BTN_SIZE + gapX;
+			//SPSEXPD: 内容左对齐——快速加料列贴左内边距，材料块紧随其后，按钮与输出槽紧跟材料块右侧
 			float quickW = hasQuickColumn() ? QUICK_COL_W : 0;
-			float blockLeft = Math.round((w - (quickW + slotsBlockW)) / 2f);
+			float blockLeft = 8;
 			slotsX0 = blockLeft + quickW;
 			slotsX1 = slotsX0 + BTN_SIZE + gapX;
-			slotsMainX = Math.round((w - BTN_SIZE) / 2f);
+			//主材格水平居中于材料块
+			slotsMainX = Math.round(slotsX0 + (2*BTN_SIZE + gapX - BTN_SIZE) / 2f);
 			quickColumnX = blockLeft;
 		}
 
@@ -586,7 +586,7 @@ public class WndCrafting extends Window {
 
 			if (i == 0){
 				//SPSEXPD: 合成按钮 + 输出槽在材料区右侧，纵向居中
-				combines[i].setRect(slotsX1 + BTN_SIZE + 8, slotsMiddleY + 5, 30, BTN_SIZE - 10);
+				combines[i].setRect(slotsX1 + BTN_SIZE + 10, slotsMiddleY + 5, 30, BTN_SIZE - 10);
 				outputs[i].setRect(combines[i].left() + 34, slotsMiddleY, BTN_SIZE, BTN_SIZE);
 			} else {
 				combines[i].visible = false;
