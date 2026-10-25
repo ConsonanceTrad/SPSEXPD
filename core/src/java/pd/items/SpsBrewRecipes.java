@@ -470,9 +470,7 @@ public final class SpsBrewRecipes {
 		} else {
 			recipes.addAll(builtin());
 		}
-		//SPSEXPD: 果汁公式必须始终注册——CSV 的 ITEM 规则只能反射 new 出通用物品，
-		//传不了「是哪一种蔬菜/浆果」，所以按来源区分的果汁只能由内置公式产出。
-		recipes.addAll(juiceRecipes());
+
 		//蒸馏压片机 / 分装灌液机 专用公式（由 AlchemyScene.spsMode 过滤）
 		recipes.add(new DistillBrew());
 		recipes.add(new FillBrew());
@@ -510,16 +508,18 @@ public final class SpsBrewRecipes {
 	/** 内置公式：CSV 不可用时的兜底，数值应与 assets/data/alchemy.csv 保持一致。
 	 * 注意：秘药并入（FIXED 行）只在 CSV 里，兜底缺这一段（CSV 是主路径）。 */
 	public static List<Recipe> builtin() {
-		return Arrays.asList(
+		List<Recipe> recipes = new ArrayList<>(Arrays.asList(
 				new EnergyFlaskBrew(),
 				new CrudeBrew(),
 				new StandardBrew(),
 				new MixBrew(),
 				new ElixirBrew(),
-				//SPSEXPD: 果汁公式（MagicJuiceBrew + SimpleJuiceBrew 各种）统一由 juiceRecipes() 提供，
-				//在 all() 里始终追加，见那里的注释
 				new EyeCrystal()
-		);
+		));
+		//SPSEXPD: 果汁公式兜底（CSV 缺失时才用；CSV 正常时由 alchemy.csv 的 JUI-01..09 提供，
+		//这里再加会导致界面出现两条一模一样的分支）
+		recipes.addAll(juiceRecipes());
+		return recipes;
 	}
 
 	private SpsBrewRecipes() {
