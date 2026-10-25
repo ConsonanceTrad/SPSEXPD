@@ -216,7 +216,7 @@ public class WndCrafting extends Window {
 	//炼金釜用大号；蒸馏/分装/平底锅/菜板没有快速加料列与能量条，用小号（见 windowWidth/windowHeight）
 	private static final int WIN_W = 216;
 	private static final int WIN_H = 170;
-	private static final int SMALL_W = 150;
+	private static final int SMALL_W = 120;
 	private static final int SMALL_H_2SLOT = 110;
 	private static final int SMALL_H_3SLOT = 134;
 
