@@ -233,7 +233,8 @@ public final class SpsBrewRecipes {
 
 		@Override
 		protected Item successOutput(Slots ingredients) {
-			return new MagicJuice();
+			//SPSEXPD: 果汁按蔬菜分——把主材（蔬菜）的类记进去
+			return pd.items.consum.food.MagicJuice.of(ingredients.main == null ? null : ingredients.main.getClass());
 		}
 	}
 
@@ -271,7 +272,10 @@ public final class SpsBrewRecipes {
 		@Override
 		protected Item successOutput(Slots ingredients) {
 			Item main = ingredients.main;
-			if (main instanceof MagicJuice) return new MagicCandy();
+			if (main instanceof MagicJuice) {
+				//SPSEXPD: 硬糖同样按蔬菜分，继承果汁的蔬菜类
+				return pd.items.consum.food.MagicCandy.of(((MagicJuice) main).vegetable);
+			}
 			Potion potion = (Potion) main;
 			if (potion.form == PotionForm.PILL) {
 				Potion tablet = variantAny(potion, PotionForm.TABLET);

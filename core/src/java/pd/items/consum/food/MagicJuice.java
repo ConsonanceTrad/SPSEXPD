@@ -22,27 +22,102 @@
 package pd.items.consum.food;
 
 import pd.atlas.items.SpecificPlaceHolderDict;
-import pd.messages.InlineText;
+import pd.actors.hero.Hero;
 import pd.items.Item;
+import pd.messages.InlineText;
+import pd.messages.Messages;
+import render.utils.serialize.Bundle;
+import render.utils.serialize.Reflection;
 
 /**
- * SPSEXPD: 魔法果汁——蔬菜 + 水 + 任意果实 的炼金产物（docs/alchemy-rework.md §4）。
+ * SPSEXPD: 魔法果汁——每种蔬菜各产一种（docs/alchemy-rework.md §4）。
  *
- * <p>饮用可回一点饱食度；它是「蒸馏 → 魔法硬糖」的前体（后续批次）。
+ * <p>名称、描述与食用效果都跟着「是哪一种蔬菜」走（如辣椒果汁会让人着火并获得火焰免疫），
+ * 不同蔬菜榨出的果汁不会堆叠。硬糖（{@link MagicCandy}）是它的浓缩形态，同样按蔬菜分。
  */
 public class MagicJuice extends Food {
 
 	static {
 		InlineText.of(MagicJuice.class)
-			.t("name", "魔法果汁")
-			.t("desc", "把蔬菜与果实一起榨出的浓稠汁液，带着一点草木的清香。可以直接喝，也能拿去蒸馏成硬糖。");
+				.t("name", "魔法果汁")
+				.t("name_pattern", "%s果汁")
+				.t("desc", "把蔬菜与果实一起榨出的浓稠汁液，带着一点草木的清香。")
+				.t("desc_pattern", "用%s榨出的浓稠汁液，颜色和气味都跟它很像。喝下去会重现那份效果。")
+				.t("desc_suffix", "可以直接喝，也能拿去蒸馏成硬糖。");
 	}
+
+	/** 榨汁用的蔬菜类；null 表示旧存档里的通用果汁。 */
+	public Class<? extends Item> vegetable = null;
+
+	private static final String VEGETABLE = "vegetable";
 
 	{
 		//SPSEXPD: 图标先占位，等所有批次完成后统一绘制
 		image = SpecificPlaceHolderDict.SOMETHING_0;
 		energy = 15f;
 		hornValue = 2;
+	}
+
+	public static MagicJuice of(Class<? extends Item> vegetable) {
+		MagicJuice juice = new MagicJuice();
+		juice.vegetable = vegetable;
+		juice.image = vegetable == null ? SpecificPlaceHolderDict.SOMETHING_0 : produceImage(vegetable);
+		return juice;
+	}
+
+	/** 借用对应蔬菜的图标（等统一绘制后再换正式图）。 */
+	private static pd.atlas.IconEntry produceImage(Class<? extends Item> vegetable) {
+		Item veg = Reflection.newInstance(vegetable);
+		return veg == null ? SpecificPlaceHolderDict.SOMETHING_0 : veg.image;
+	}
+
+	@Override
+	public String name() {
+		if (vegetable == null) return Messages.get(this, "name");
+		return Messages.get(this, "name_pattern", Messages.titleCase(Messages.get(vegetable, "name")));
+	}
+
+	@Override
+	public String desc() {
+		if (vegetable == null) {
+			return Messages.get(this, "desc") + "\n\n" + Messages.get(this, "desc_suffix");
+		}
+		return Messages.get(this, "desc_pattern", Messages.titleCase(Messages.get(vegetable, "name")))
+				+ "\n\n" + Messages.get(this, "desc_suffix");
+	}
+
+	/** 只有同一种蔬菜榨出的果汁才堆叠。 */
+	@Override
+	public boolean isSimilar(Item item) {
+		return item instanceof MagicJuice && ((MagicJuice) item).vegetable == this.vegetable;
+	}
+
+	@Override
+	protected void satisfy(Hero hero) {
+		super.satisfy(hero);
+		FoodEffects.applyVegetableEffect(vegetable, hero);
+	}
+
+	@Override
+	public void storeInBundle(Bundle bundle) {
+		super.storeInBundle(bundle);
+		bundle.put(VEGETABLE, vegetable == null ? "" : vegetable.getName());
+	}
+
+	@Override
+	public void restoreFromBundle(Bundle bundle) {
+		super.restoreFromBundle(bundle);
+		String name = bundle.getString(VEGETABLE);
+		vegetable = name == null || name.isEmpty() ? null : resolve(name);
+	}
+
+	private static Class<? extends Item> resolve(String className) {
+		Class<?> cls = Reflection.forName(className);
+		if (cls != null && Item.class.isAssignableFrom(cls)) {
+			//noinspection unchecked
+			return (Class<? extends Item>) cls;
+		}
+		return null;
 	}
 
 	@Override
