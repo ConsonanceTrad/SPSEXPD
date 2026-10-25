@@ -222,25 +222,6 @@ public final class SpsBrewRecipes {
 	 */
 	public static final class MagicJuiceBrew extends BrewRecipe {
 
-		private static final java.util.Map<Class<? extends Item>, Class<? extends Item>> LEGACY_BOTTLES =
-				new java.util.LinkedHashMap<>();
-
-		static {
-			LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.Chili.class,
-					pd.items.consum.medicine.JackOLantern.class);
-			LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.DewSpore.class,
-					pd.items.consum.medicine.GreenSpore.class);
-			LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.DreamLeaf.class,
-					pd.items.consum.medicine.PixieParasol.class);
-			LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.HealGrass.class,
-					pd.items.consum.medicine.BlueMilk.class);
-			LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.Marigold.class,
-					pd.items.consum.medicine.Earthstar.class);
-			LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.ToxicEggplant.class,
-					pd.items.consum.medicine.DeathCap.class);
-			LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.Tulip.class,
-					pd.items.consum.medicine.GoldenJelly.class);
-		}
 
 		public MagicJuiceBrew() {
 			mainMaterial = Vegetable.class;
@@ -257,12 +238,7 @@ public final class SpsBrewRecipes {
 		protected Item successOutput(Slots ingredients) {
 			//SPSEXPD: 果汁按蔬菜分——7 种效果对应的蔬菜产旧菌类改造来的果汁瓶，其余产普通蔬菜果汁
 			Class<? extends Item> veg = ingredients.main == null ? null : ingredients.main.getClass();
-			Class<? extends Item> bottle = LEGACY_BOTTLES.get(veg);
-			if (bottle != null) {
-				Item out = render.utils.serialize.Reflection.newInstance(bottle);
-				if (out != null) return out;
-			}
-			return pd.items.consum.food.MagicJuice.of(veg);
+			return pd.items.consum.food.MagicJuice.produce(veg);
 		}
 	}
 

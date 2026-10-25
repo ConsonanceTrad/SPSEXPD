@@ -36,4 +36,13 @@ FIX-ARC,1,PotionOfHealing#CRUDE,Item,Item,Item,FIXED,ElixirOfArcaneArmor,1,0,合
 FIX-MGT,1,PotionOfStrength#STANDARD,Item,Item,Item,FIXED,ElixirOfMight,1,0,魔药层·秘药：力量标准药水+本局两味 → 力量秘药
 FIX-HNY,1,PotionOfHealing#STANDARD,Item,Item,Item,FIXED,ElixirOfHoneyedHealing,1,0,魔药层·秘药：治疗标准药水+本局两味 → 蜂蜜治疗秘药
 XR-01,1,ScrollOfIdentify,WaterItem,,,ITEM,EyeOfTruth,1,0,结晶：鉴定卷轴+水 → 真实之眼
+JUI-01,1,Vegetable,Fruit,WaterItem,,JUICE,MagicJuice,1,0,果汁：蔬菜+任意果实+水 → 对应果汁
+JUI-02,1,Radish,,,,JUICE,MagicJuice,1,0,萝卜汁：单个萝卜即可
+JUI-03,1,Truffles,,,,JUICE,MagicJuice,1,0,松露汁：单个松露即可
+JUI-04,1,Lettuce,,,,JUICE,MagicJuice,1,0,莴苣汁：单颗莴苣即可
+JUI-05,1,Apple,,,,JUICE,MagicJuice,1,0,苹果汁：单个苹果即可
+JUI-06,1,Blackberry,,,,JUICE,MagicJuice,1,0,浆果汁：单颗黑莓即可
+JUI-07,1,Blueberry,,,,JUICE,MagicJuice,1,0,浆果汁：单颗蓝莓即可
+JUI-08,1,Cloudberry,,,,JUICE,MagicJuice,1,0,浆果汁：单颗云莓即可
+JUI-09,1,Moonberry,,,,JUICE,MagicJuice,1,0,浆果汁：单颗月莓即可
 FLK-01,1,WaterItem,,,,ITEM,EnergyFlask,1,4,能量瓶：水+4炼金能量 → 炼金能量瓶

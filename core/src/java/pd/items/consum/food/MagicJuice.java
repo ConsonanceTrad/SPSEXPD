@@ -92,6 +92,36 @@ public class MagicJuice extends Food {
 		hornValue = 2;
 	}
 
+	/** SPSEXPD: 7 种蔬菜的效果分别对应旧菌类改造来的果汁瓶，产果汁时优先出那些瓶子。 */
+	private static final Map<Class<? extends Item>, Class<? extends Item>> LEGACY_BOTTLES = new LinkedHashMap<>();
+
+	static {
+		LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.Chili.class,
+				pd.items.consum.medicine.JackOLantern.class);
+		LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.DewSpore.class,
+				pd.items.consum.medicine.GreenSpore.class);
+		LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.DreamLeaf.class,
+				pd.items.consum.medicine.PixieParasol.class);
+		LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.HealGrass.class,
+				pd.items.consum.medicine.BlueMilk.class);
+		LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.Marigold.class,
+				pd.items.consum.medicine.Earthstar.class);
+		LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.ToxicEggplant.class,
+				pd.items.consum.medicine.DeathCap.class);
+		LEGACY_BOTTLES.put(pd.items.consum.food.vegetable.Tulip.class,
+				pd.items.consum.medicine.GoldenJelly.class);
+	}
+
+	/** 榨汁统一入口：命中旧瓶映射就产旧瓶，否则产普通果汁。 */
+	public static Item produce(Class<? extends Item> source) {
+		Class<? extends Item> bottle = LEGACY_BOTTLES.get(source);
+		if (bottle != null) {
+			Item out = Reflection.newInstance(bottle);
+			if (out != null) return out;
+		}
+		return of(source);
+	}
+
 	public static MagicJuice of(Class<? extends Item> vegetable) {
 		MagicJuice juice = new MagicJuice();
 		juice.vegetable = vegetable;

@@ -139,6 +139,14 @@ public class TableBrewRecipe extends BrewRecipe {
 				return SpsBrewRecipes.variantOf(ingredients.main, PotionForm.TABLET);
 			case "INJECTOR":
 				return SpsBrewRecipes.variantOf(ingredients.main, PotionForm.INJECTOR);
+			//SPSEXPD: JUICE —— 果汁按主材（蔬菜/浆果）实例化
+			//（ITEM 规则只能反射 new 出通用 MagicJuice，传不了「是哪一种」）
+			case "JUICE": {
+				if (ingredients.main == null) return null;
+				Item juice = pd.items.consum.food.MagicJuice.produce(ingredients.main.getClass());
+				applyQty(juice);
+				return juice;
+			}
 			default: {
 				if (outputType == null) return null;
 				Item item = Reflection.newInstance(outputType);
