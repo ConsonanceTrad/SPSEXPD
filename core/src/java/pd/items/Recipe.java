@@ -288,9 +288,9 @@ public abstract class Recipe {
 		//SPSEXPD: 灵能弓（含灵能袖箭等子类）是女猎手专属永久武器，不参与炼金
 		//（isSpecialItem 里已排除一次，这里再拦一道，避免以后调整特殊道具清单时漏掉）
 		if (item instanceof SpiritBow) return false;
-		//SPSEXPD: 食材蔬菜（胡萝卜/莴苣/松露）只是食物，不参与炼金
-		//——例外：能直接榨汁的这几种（松露/莴苣/苹果）必须能放进炼金釜，见 SimpleJuiceBrew
-		if (item instanceof pd.items.consum.food.vegetable.Truffles
+		//SPSEXPD: 能直接榨汁的这几种（萝卜/松露/莴苣/苹果）必须能放进炼金釜，见 SimpleJuiceBrew
+		if (item instanceof pd.items.consum.food.vegetable.Radish
+				|| item instanceof pd.items.consum.food.vegetable.Truffles
 				|| item instanceof pd.items.consum.food.vegetable.Lettuce
 				|| item instanceof pd.items.consum.food.vegetable.Apple) return true;
 		if (item instanceof FoodVegetable) return false;

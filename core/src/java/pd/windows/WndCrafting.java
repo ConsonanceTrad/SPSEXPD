@@ -133,6 +133,7 @@ public class WndCrafting extends Window {
 			.t("no_material", "背包里没有这种材料。")
 			.t("no_space", "没有空闲的辅材格了。")
 			.t("no_bag", "你还没有这个包裹。")
+			.t("cannot_take", "取不出来：它不在背包或包裹里。")
 			.t("title_distill", "蒸馏压片机")
 			.t("title_fill", "分装灌液机")
 			.t("title_cook", "平底煎锅")
@@ -744,7 +745,13 @@ public class WndCrafting extends Window {
 						//SPSEXPD: 格子可能已被窗口销毁置空，跳过
 						if (inputs[i] == null) continue;
 						if (inputs[i].item() == null) {
-							inputs[i].item(takeFromCarried(item));
+							Item taken = takeFromCarried(item);
+							if (taken == null) {
+								//SPSEXPD: 取不出来时给出提示，别再静默失败
+								GLog.w(Messages.get(WndCrafting.class, "cannot_take"));
+							} else {
+								inputs[i].item(taken);
+							}
 							break;
 						}
 					}
