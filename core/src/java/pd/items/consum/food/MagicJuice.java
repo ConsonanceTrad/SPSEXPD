@@ -69,6 +69,7 @@ public class MagicJuice extends Food {
 		SOURCE_NAMES.put(pd.items.consum.food.vegetable.TransmuteCage.class, "韵魔原液瓶");
 		SOURCE_NAMES.put(pd.items.consum.food.vegetable.Truffles.class, "松露汁");
 		SOURCE_NAMES.put(pd.items.consum.food.vegetable.Lettuce.class, "莴苣汁");
+		SOURCE_NAMES.put(pd.items.consum.food.vegetable.Apple.class, "苹果汁");
 	}
 
 	/** 榨汁用的蔬菜类；null 表示旧存档里的通用果汁。 */

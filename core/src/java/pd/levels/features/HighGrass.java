@@ -267,6 +267,8 @@ public class HighGrass {
 		if (Random.Float() < 0.02f) dropLoot(level, new WillOWisp(), pos);
 		if (Random.Float() < 0.02f) dropLoot(level, new Carrot(), pos);
 		if (Random.Float() < 0.02f) dropLoot(level, new Lettuce(), pos);
+		//SPSEXPD: 野苹果——纯食材，但能直接榨汁（单蔬菜汁配方）
+		if (Random.Float() < 0.02f) dropLoot(level, new pd.items.consum.food.vegetable.Apple(), pos);
 		if (!seedGrown && Random.Float() < 0.02f) dropLoot(level, new GrassSeed(), pos);
 		//SPSEXPD: 高草提高原石掉落几率（docs/alchemy-rework.md §7.6 盐/炼金材料的供给，裁决 #5）
 		if (Random.Float() < 0.06f) dropLoot(level, new StoneOre(), pos);

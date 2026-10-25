@@ -289,6 +289,10 @@ public abstract class Recipe {
 		//（isSpecialItem 里已排除一次，这里再拦一道，避免以后调整特殊道具清单时漏掉）
 		if (item instanceof SpiritBow) return false;
 		//SPSEXPD: 食材蔬菜（胡萝卜/莴苣/松露）只是食物，不参与炼金
+		//——例外：能直接榨汁的这几种（松露/莴苣/苹果）必须能放进炼金釜，见 SimpleJuiceBrew
+		if (item instanceof pd.items.consum.food.vegetable.Truffles
+				|| item instanceof pd.items.consum.food.vegetable.Lettuce
+				|| item instanceof pd.items.consum.food.vegetable.Apple) return true;
 		if (item instanceof FoodVegetable) return false;
 		if (item instanceof EquipableItem){
 			//SPSEXPD: 投掷果实（SpsFruit 家族）是炼金主材，但它继承自 MissileWeapon（EquipableItem），

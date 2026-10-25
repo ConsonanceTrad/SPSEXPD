@@ -266,6 +266,28 @@ public final class SpsBrewRecipes {
 		}
 	}
 
+	/**
+	 * SPSEXPD: 单蔬菜汁——萝卜 / 松露 / 莴苣 / 苹果这些本身就是食材的蔬菜，不用水和果实，
+	 * 单独放进炼金釜就能榨汁。
+	 */
+	public static final class SimpleJuiceBrew extends BrewRecipe {
+
+		private final Class<? extends Item> vegetable;
+
+		public SimpleJuiceBrew(Class<? extends Item> vegetable) {
+			this.vegetable = vegetable;
+			mainMaterial = vegetable;
+			//零辅材：只要主材
+			adjuvantOptions = new AdjuvantSet[0];
+			energyCost = 0;
+		}
+
+		@Override
+		protected Item successOutput(Slots ingredients) {
+			return pd.items.consum.food.MagicJuice.of(vegetable);
+		}
+	}
+
 	//*** 再加工（蒸馏压片机 / 分装灌液机）
 
 	/**
@@ -488,6 +510,11 @@ public final class SpsBrewRecipes {
 				new MixBrew(),
 				new ElixirBrew(),
 				new MagicJuiceBrew(),
+				//SPSEXPD: 单蔬菜汁（萝卜 / 松露 / 莴苣 / 苹果，不用水和果实）
+				new SimpleJuiceBrew(pd.items.consum.food.vegetable.Radish.class),
+				new SimpleJuiceBrew(pd.items.consum.food.vegetable.Truffles.class),
+				new SimpleJuiceBrew(pd.items.consum.food.vegetable.Lettuce.class),
+				new SimpleJuiceBrew(pd.items.consum.food.vegetable.Apple.class),
 				new EyeCrystal()
 		);
 	}
