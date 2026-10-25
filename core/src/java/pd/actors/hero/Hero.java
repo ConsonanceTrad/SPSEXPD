@@ -1276,6 +1276,16 @@ public class Hero extends Char {
 	 * 于是「走一步神木圆盾回 2 充能」。改到时间维度后与 act 次数无关。
 	 */
 	private void onTurnCharge() {
+		//SPSEXPD: 炼药工具台（药水箱组件）随时间积攒炼金能量
+		if (belongings != null) {
+			for (pd.items.equipment.bags.Bag bag : belongings.getBags()) {
+				for (Item it : bag.items) {
+					if (it instanceof pd.items.equipment.bags.AlchemyBench) {
+						((pd.items.equipment.bags.AlchemyBench) it).onHeroTurn();
+					}
+				}
+			}
+		}
 		//SPSXPD: 宠物能力特质（献祭获得）的每回合触发
 		pd.actors.hero.perks.pets.PetAbilityPerk.dispatchTurn(this);
 

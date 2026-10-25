@@ -78,6 +78,28 @@ public interface BagComponent {
 			}
 		}
 
+		/** 组件拾取：归位到目标容器（没有则主背包）；同类已存在则转 5 暗金矿。返回 true 表示已处理。 */
+		public static boolean collectComponent(Item item, Bag container) {
+			BagComponent comp = of(item);
+			if (comp == null) return false;
+			if (Dungeon.hero == null || Dungeon.hero.belongings == null) return false;
+			Bag target = findTargetBag(comp);
+			if (target == null) target = Dungeon.hero.belongings.backpack;
+
+			if (hasSameComponent(target, item)) {
+				pd.items.quest.DarkGold gold = new pd.items.quest.DarkGold();
+				gold.quantity(5);
+				if (Dungeon.level != null) {
+					Dungeon.level.drop(gold, Dungeon.hero.pos);
+				}
+				return true;
+			}
+
+			insertInto(item, target);
+			Item.updateQuickslot();
+			return true;
+		}
+
 		public static boolean hasSameComponent(Bag target, Item item) {
 			for (Item i : target.items) {
 				if (i != item && i.getClass() == item.getClass()) return true;

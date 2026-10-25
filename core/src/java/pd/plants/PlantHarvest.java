@@ -118,6 +118,27 @@ public final class PlantHarvest {
 		return species == null ? null : species.vegetable;
 	}
 
+	/** SPSEXPD: 按「种子类」取对应的投掷果实（Seed.plantClass 是 protected，外部只能走这里）。 */
+	public static Class<? extends Item> fruitForVariant(Class<? extends Plant.Seed> seedClass) {
+		if (seedClass == null) return null;
+		Plant.Seed seed = Reflection.newInstance(seedClass);
+		if (seed == null) return null;
+		Species species = speciesFor(seedPlantClass(seed));
+		return species == null ? null : species.fruit;
+	}
+
+	/** SPSEXPD: 反射读取 Seed.plantClass（该字段是 protected，同包外不能直接取）。 */
+	private static Class<? extends Plant> seedPlantClass(Plant.Seed seed) {
+		try {
+			java.lang.reflect.Field f = Plant.Seed.class.getDeclaredField("plantClass");
+			f.setAccessible(true);
+			//noinspection unchecked
+			return (Class<? extends Plant>) f.get(seed);
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
 	/** SPSEXPD: 该植物对应的大型果实（幸运把掉落的果实升为大型时用）。 */
 	public static Class<? extends Item> largeFruitFor(Class<?> plantClass) {
 		Species species = speciesFor(plantClass);

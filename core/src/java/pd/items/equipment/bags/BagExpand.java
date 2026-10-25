@@ -29,6 +29,12 @@ public abstract class BagExpand extends Bag implements BagComponent {
 	}
 
 	@Override
+	public boolean collect(pd.items.equipment.bags.Bag container) {
+		//SPSEXPD: 拓展组件不走普通包裹拾取——归位到目标包裹（没有则留在主背包且不生效）
+		return BagComponent.Components.collectComponent(this, container);
+	}
+
+	@Override
 	public int componentOrder() {
 		return COMPONENT_ORDER_EXPAND;
 	}

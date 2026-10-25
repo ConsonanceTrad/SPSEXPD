@@ -888,6 +888,8 @@ public class WndCrafting extends Window {
 			if (toolkit != null){
 				availableEnergy += toolkit.availableEnergy();
 			}
+			//SPSEXPD: 炼药工具台（药水箱组件）的能量同样可用
+			availableEnergy += benchEnergy();
 
 			combines[i].visible = true;
 			combines[i].setRect(combines[0].left(), outputs[i].top()+5, 30, BTN_SIZE - 10);
@@ -933,6 +935,8 @@ public class WndCrafting extends Window {
 			if (toolkit != null){
 				cost = toolkit.consumeEnergy(cost);
 			}
+			//SPSEXPD: 先用炼药工具台积攒的能量
+			cost = consumeBenchEnergy(cost);
 			Catalog.countUses(EnergyCrystal.class, cost);
 			Dungeon.energy -= cost;
 
@@ -1529,6 +1533,30 @@ public class WndCrafting extends Window {
 	}
 
 	private static AlchemistsToolkit toolkit;
+
+	//SPSEXPD: 炼药工具台（药水箱组件）也能供能——查它并合并进可用能量/消耗
+	private static pd.items.equipment.bags.AlchemyBench activeBench() {
+		if (Dungeon.hero == null || Dungeon.hero.belongings == null) return null;
+		for (pd.items.equipment.bags.Bag bag : Dungeon.hero.belongings.getBags()) {
+			for (Item it : bag.items) {
+				if (it instanceof pd.items.equipment.bags.AlchemyBench) {
+					pd.items.equipment.bags.AlchemyBench bench = (pd.items.equipment.bags.AlchemyBench) it;
+					if (bench.active()) return bench;
+				}
+			}
+		}
+		return null;
+	}
+
+	private static int benchEnergy() {
+		pd.items.equipment.bags.AlchemyBench bench = activeBench();
+		return bench == null ? 0 : bench.availableEnergy();
+	}
+
+	private static int consumeBenchEnergy(int cost) {
+		pd.items.equipment.bags.AlchemyBench bench = activeBench();
+		return bench == null ? cost : bench.consumeEnergy(cost);
+	}
 
 	private static AlchemistsToolkit activeToolkit() {
 		if (toolkit != null) return toolkit;
