@@ -373,8 +373,10 @@ public abstract class SpsRegularLevel extends RegularLevel {
 
 	private static boolean fitsLegacyRoom(Room room, Type type) {
 		SpecialRoom painter = specialRoomPainter(type);
+		//SPSEXPD: 尺寸参数覆写(SpsRoomTemplates.SIZES)优先于 painter 默认
 		if (painter == null) return true;
-		return room.width() >= painter.minWidth() && room.height() >= painter.minHeight();
+		return room.width() >= SpsRoomTemplates.minW(type.name(), painter.minWidth())
+				&& room.height() >= SpsRoomTemplates.minH(type.name(), painter.minHeight());
 	}
 
 	private void placeLegacyDoors() {
@@ -964,13 +966,21 @@ public abstract class SpsRegularLevel extends RegularLevel {
 			return;
 		}
 
+		//SPSEXPD: 固定布局模板优先（编辑器「房间模板」页维护，SpsRoomTemplates）——
+		//登记了模板的类型按门对齐铺满模板；房间容不下（或门对齐后溢出）则继续走原 painter
+		if (paintRoomTemplate(room, legacyDoor)) return;
+
 		//SPSEXPD: 破碎（Shattered）房间按各自的最小/最大尺寸绘制（水晶三房还会向两侧铺开
 		//6 个子房），SPS 房间本身为 8-10 格设计、保持原样。破碎房间把绘制矩形收紧到它允许的
 		//尺寸：门所在的边与房间轮廓对齐，另一维以门为中心展开；房间容不下该门位时按普通房间绘制。
 		painter.set(room.left, room.top, room.right, room.bottom);
 		if (!isSpsRoom(painter)) {
-			int roomW = Math.max(painter.minWidth(), Math.min(room.width(), painter.maxWidth()));
-			int roomH = Math.max(painter.minHeight(), Math.min(room.height(), painter.maxHeight()));
+			//SPSEXPD: 尺寸读 SpsRoomTemplates.SIZES 覆写(缺省用 painter 自身定义)
+			String typeName = room.type.name();
+			int roomW = Math.max(SpsRoomTemplates.minW(typeName, painter.minWidth()),
+					Math.min(room.width(), SpsRoomTemplates.maxW(typeName, painter.maxWidth())));
+			int roomH = Math.max(SpsRoomTemplates.minH(typeName, painter.minHeight()),
+					Math.min(room.height(), SpsRoomTemplates.maxH(typeName, painter.maxHeight())));
 			int left;
 			int top;
 			if (legacyDoor.x <= room.left || legacyDoor.x >= room.right) {
@@ -1010,6 +1020,47 @@ public abstract class SpsRegularLevel extends RegularLevel {
 		} else {
 			legacyDoor.set(convertDoorType(door.type));
 		}
+	}
+
+	/**
+	 * SPSEXPD: 固定布局模板绘制(SpsRoomTemplates)。
+	 * 挑一张能容下当前房间的模板,按门对齐规则在房间内展开(与破碎房间的收紧对齐同构:
+	 * 门所在的边贴房间外侧边,另一维以门为中心);门对齐溢出视为放不下,返回 false 落回原 painter。
+	 * 模板自带完整边框墙;门口格最后由 paintLegacyDoors/paintDoors 流程覆标。
+	 */
+	private boolean paintRoomTemplate(Room room, Door legacyDoor) {
+		int[] tpl = SpsRoomTemplates.pick(room.type.name(), room.width(), room.height());
+		if (tpl == null) return false;
+		int w = tpl[0];
+		int h = tpl[1];
+		int left;
+		int top;
+		if (legacyDoor.x <= room.left || legacyDoor.x >= room.right) {
+			int naturalTop = legacyDoor.y - h / 2;
+			if (naturalTop < room.top || naturalTop > room.bottom - h) return false;
+			left = legacyDoor.x <= room.left ? room.left : room.right - w;
+			top = naturalTop;
+		} else {
+			int naturalLeft = legacyDoor.x - w / 2;
+			if (naturalLeft < room.left || naturalLeft > room.right - w) return false;
+			top = legacyDoor.y <= room.top ? room.top : room.bottom - h;
+			left = naturalLeft;
+		}
+		fill(room, Terrain.WALL);
+		for (int y = 0; y < h; y++) {
+			for (int x = 0; x < w; x++) {
+				map[(left + x) + (top + y) * width()] = tpl[2 + y * w + x];
+			}
+		}
+
+		if (room.type == Type.PRISON_PIT) {
+			legacyDoor.set(Door.Type.ONEWAY);
+		} else if (isHidden(room.type)) {
+			legacyDoor.set(Door.Type.HIDDEN);
+		} else {
+			legacyDoor.set(Door.Type.REGULAR);
+		}
+		return true;
 	}
 
 	/**
