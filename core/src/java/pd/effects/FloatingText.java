@@ -231,6 +231,8 @@ public class FloatingText extends RenderedTextBlock {
 	public static int MISS_RUN  = reason( R_RUN );
 
 	private Image icon;
+	//SPSEXPD: 主图标是否为「12x12 帧缩放显示」（用于数字间距区分：缩放帧加 1px、7x8 原帧不加）
+	private boolean iconScaled;
 	//SPSEXPD: 命中/闪避原因角标（拼接显示，跟主图标右侧）
 	private Image reasonIcon;
 	private boolean iconLeft;
@@ -308,8 +310,9 @@ public class FloatingText extends RenderedTextBlock {
 	public float width() {
 		float width = super.width();
 		if (icon != null){
-			//SPSEXPD: 图标与伤害数字之间隔 1px（原版为 -0.5px 轻重叠，用户定稿改为 1px 间隔）
-			width += icon.width() + 1f;
+			//SPSEXPD: 数字间距区分——12x12 缩放帧与数字间隔 1px；
+			//7x8 原帧（法术等）帧内自带留白，保持原版轻重叠 0.5px
+			width += icon.width() + (iconScaled ? 1f : -0.5f);
 		}
 		return width;
 	}
@@ -354,7 +357,8 @@ public class FloatingText extends RenderedTextBlock {
 			if (entry != null){
 				icon = pd.atlas.AtlasReader.image(entry);
 				float rawW = icon.width(), rawH = icon.height();
-				if (rawW > ICON_WIDTH || rawH > ICON_HEIGHT){
+				iconScaled = rawW > ICON_WIDTH || rawH > ICON_HEIGHT;
+				if (iconScaled){
 					//SPSEXPD: 12x12 帧等比缩放到 7x7（用户定稿；7x8 帧原尺寸直用）
 					icon.scale.set(7f / rawW, 7f / rawH);
 				}
@@ -365,6 +369,7 @@ public class FloatingText extends RenderedTextBlock {
 				}
 			} else {
 				icon = null;
+				iconScaled = false;
 			}
 		} else {
 			icon = null;
