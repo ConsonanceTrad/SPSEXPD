@@ -310,9 +310,9 @@ public class FloatingText extends RenderedTextBlock {
 	public float width() {
 		float width = super.width();
 		if (icon != null){
-			//SPSEXPD: 数字间距区分——12x12 缩放帧与数字间隔 1px；
+			//SPSEXPD: 数字间距区分——12x12 缩放帧与数字间隔 0.25px（用户定稿）；
 			//7x8 原帧（法术等）帧内自带留白，保持原版轻重叠 0.5px
-			width += icon.width() + (iconScaled ? 1f : -0.5f);
+			width += icon.width() + (iconScaled ? 0.25f : -0.5f);
 		}
 		return width;
 	}
