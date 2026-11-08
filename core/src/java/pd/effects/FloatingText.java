@@ -289,7 +289,7 @@ public class FloatingText extends RenderedTextBlock {
 			if (iconLeft){
 				icon.x = left();
 			} else {
-				icon.x = left() + width() - icon.width() - (reasonIcon != null ? reasonIcon.width() : 0);
+				icon.x = left() + width() - icon.width();
 			}
 			icon.x = PixelScene.align(Camera.main, icon.x);
 			icon.y = PixelScene.align(Camera.main, top());
@@ -383,9 +383,13 @@ public class FloatingText extends RenderedTextBlock {
 			if (rSet == ICON_SET_EXTRA && rIdx < EXTRA_TABLE.length)      rEntry = EXTRA_TABLE[rIdx];
 			else if (rSet == ICON_SET_REASON && rIdx < REASON_TABLE.length) rEntry = REASON_TABLE[rIdx];
 			if (rEntry != null){
-				//SPSEXPD: 原因角标不缩放——reason 帧内容本来就只画在右下角预留区
-				//（其余透明），按原尺寸 12x12 以右下角对叠在主图标上即可
+				//SPSEXPD: 角标缩放口径 —— 12x12 缩放主帧时角标跟随主帧缩放系数
+				//（相当于缩放前在 12x12 域内对位、再一起缩，角标内容落在主帧右下小区域）；
+				//7x8 主帧则原尺寸直用（reason 帧内容本就在右下透明预留区）
 				reasonIcon = pd.atlas.AtlasReader.image(rEntry);
+				if (iconScaled){
+					reasonIcon.scale.set(icon.scale.x, icon.scale.y);
+				}
 				add(reasonIcon);
 			} else {
 				reasonIcon = null;
