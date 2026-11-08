@@ -350,7 +350,8 @@ public class FloatingText extends RenderedTextBlock {
 				icon = pd.atlas.AtlasReader.image(entry);
 				float rawW = icon.width(), rawH = icon.height();
 				if (rawW > ICON_WIDTH || rawH > ICON_HEIGHT){
-					icon.scale.set(ICON_WIDTH / rawW, ICON_HEIGHT / rawH);
+					//SPSEXPD: 12x12 帧等比缩放到 7x7（用户定稿；7x8 帧原尺寸直用）
+					icon.scale.set(7f / rawW, 7f / rawH);
 				}
 				add(icon);
 				iconLeft = left;
@@ -375,7 +376,8 @@ public class FloatingText extends RenderedTextBlock {
 				reasonIcon = pd.atlas.AtlasReader.image(rEntry);
 				float rawW = reasonIcon.width(), rawH = reasonIcon.height();
 				if (rawW > ICON_WIDTH || rawH > ICON_HEIGHT){
-					reasonIcon.scale.set(ICON_WIDTH / rawW, ICON_HEIGHT / rawH);
+					//SPSEXPD: 12x12 帧等比缩放到 7x7（用户定稿）
+					reasonIcon.scale.set(7f / rawW, 7f / rawH);
 				}
 				add(reasonIcon);
 			} else {
