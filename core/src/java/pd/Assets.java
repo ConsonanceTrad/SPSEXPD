@@ -170,7 +170,8 @@ public class Assets {
 	}
 
 	public static class Music {
-		public static final String SPS_THEME            = "music/sps_theme.mp3";
+		//SPSEXPD: 首页 BGM 改用 easy bgm.mp3（原 sps_theme.mp3 文件保留在本目录）
+		public static final String SPS_THEME            = "music/easy bgm.mp3";
 		public static final String SPS_GAME             = "music/sps_game.mp3";
 		public static final String SPS_SURFACE          = "music/sps_surface.mp3";
 
