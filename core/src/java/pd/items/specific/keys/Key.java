@@ -44,6 +44,9 @@ public abstract class Key extends Item {
 
 	//TODO currently keys can only appear on branch = 0, add branch support here if that changes
 	public int depth;
+
+	//SPSEXPD: 钥匙补记支线定位（0=主线；旧档缺键视为主线，兼容）
+	public int branch;
 	
 	@Override
 	public boolean isSimilar( Item item ) {
@@ -56,6 +59,8 @@ public abstract class Key extends Item {
 		Statistics.itemTypesDiscovered.add(getClass());
 		GameScene.pickUpJournal(this, pos);
 		WndJournal.last_index = 0;
+		//SPSEXPD: 拾取时锁定所在支线（主线钥匙仍为 0），供日志/备注按「分叉层·序号」定位
+		branch = pd.Dungeon.branch;
 		Notes.add(this);
 		Sample.INSTANCE.play( Assets.Sounds.ITEM );
 		hero.spendAndNext( pickupDelay() );
@@ -69,17 +74,21 @@ public abstract class Key extends Item {
 	}
 
 	private static final String DEPTH = "depth";
-	
+	//SPSEXPD: 钥匙支线 branch 的存键
+	private static final String BRANCH = "branch";
+
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
 		bundle.put( DEPTH, depth );
+		bundle.put( BRANCH, branch );
 	}
-	
+
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle( bundle );
 		depth = bundle.getInt( DEPTH );
+		branch = bundle.getInt( BRANCH );
 	}
 	
 	@Override

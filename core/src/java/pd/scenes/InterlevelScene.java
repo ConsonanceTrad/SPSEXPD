@@ -37,6 +37,7 @@ import pd.items.LostBackpack;
 import pd.items.equipment.artifacts.SkeletonKey;
 import pd.journal.Document;
 import pd.journal.Notes;
+import pd.floors.FloorRegistry;
 import pd.levels.Level;
 import pd.levels.Terrain;
 import pd.levels.Transitions;
@@ -194,8 +195,9 @@ public class InterlevelScene extends PixelScene {
 		}
 
 		//flush the texture cache whenever moving between regions, helps reduce memory load
-		//SPSEXPD: 每章 8 层——章节号按 chapterIndex 计算
-		int region = loadingDepth > 0 ? Dungeon.chapterIndex(loadingDepth) + 1 : 1;
+		//SPSEXPD: 每章 8 层——章节号由楼层注册表判定（主线按 depth，支线归属分叉锚点所在章）
+		int loadingBranch = curTransition != null ? curTransition.destBranch : Dungeon.branch;
+		int region = FloorRegistry.chapterFor(loadingDepth, loadingBranch);
 		if (region != lastRegion){
 			TextureCache.clear();
 			TitleBackground.reset();

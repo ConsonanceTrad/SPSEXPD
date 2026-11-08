@@ -171,12 +171,12 @@ public class GameScene extends PixelScene {
 	//SPSEXPD: inline Chinese text (generated from messages/scenes/zh)
 	static {
 		InlineText.of(GameScene.class)
-			.t("descend", "你降入了地牢的第%d层。")
+			.t("descend", "你降入了地牢的第%s层。")
 			.t("spawner_warn", "你感觉自己上方有一个恶魔能量的供给源...")
 			.t("spawner_warn_final", "你能感觉到恶魔能量从楼上辐射到了这里！")
 			.t("warp", "你四周的墙壁开始扭曲变换！")
-			.t("return", "你回到了地牢的第%d层。")
-			.t("resurrect", "你出现在了第%d层的某处。")
+			.t("return", "你回到了地牢的第%s层。")
+			.t("resurrect", "你出现在了第%s层的某处。")
 			.t("secret_hint", "直觉告诉你这层的某处一定存在着一个隐藏的房间...")
 			.t("choose_examine", "选择检查目标")
 			.t("multiple_examine", "这里引人注意的东西不止一件，你想检查哪个？")
@@ -743,7 +743,8 @@ public class GameScene extends PixelScene {
 				// The legacy tutorial starts without a normal floor-transition message.
 			} else if (displayDepth >= Statistics.deepestFloor
 					&& (InterlevelScene.mode == InterlevelScene.Mode.DESCEND || InterlevelScene.mode == InterlevelScene.Mode.FALL)) {
-				GLog.h(Messages.get(this, "descend"), displayDepth);
+				//SPSEXPD: 楼层显示走注册表单点（支线带「分叉层·序号」）；深层判定仍用 displayDepth
+				GLog.h(Messages.get(this, "descend"), Dungeon.displayLabel());
 				Sample.INSTANCE.play(Assets.Sounds.DESCEND);
 				
 				for (Char ch : Actor.chars()){
@@ -773,9 +774,10 @@ public class GameScene extends PixelScene {
 			} else if (InterlevelScene.mode == InterlevelScene.Mode.RESET) {
 				GLog.h(Messages.get(this, "warp"));
 			} else if (InterlevelScene.mode == InterlevelScene.Mode.RESURRECT) {
-				GLog.h(Messages.get(this, "resurrect"), displayDepth);
+				//SPSEXPD: 楼层显示走注册表单点（支线带「分叉层·序号」）
+				GLog.h(Messages.get(this, "resurrect"), Dungeon.displayLabel());
 			} else {
-				GLog.h(Messages.get(this, "return"), displayDepth);
+				GLog.h(Messages.get(this, "return"), Dungeon.displayLabel());
 			}
 
 			if (Dungeon.hero.hasTalent(Talent.ROGUES_FORESIGHT)

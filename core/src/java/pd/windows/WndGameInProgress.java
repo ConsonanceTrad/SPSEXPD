@@ -162,8 +162,8 @@ public class WndGameInProgress extends Window {
 		
 		pos += GAP;
 		statSlot( Messages.get(this, "gold"), info.goldCollected );
-		//SPSEXPD: 当前楼层从存档槽位移到这里显示
-		statSlot( Messages.get(this, "current_depth"), info.depth );
+		//SPSEXPD: 当前楼层从存档槽位移到这里显示；编号走注册表单点（支线带「分叉层·序号」）
+		statSlot( Messages.get(this, "current_depth"), pd.floors.FloorRegistry.displayLabel(info.depth, info.branch) );
 		statSlot( Messages.get(this, "depth"), info.maxDepth );
 		if (info.daily) {
 			if (info.dailyReplay) {

@@ -612,6 +612,11 @@ public class Dungeon {
 		return legacyDepth();
 	}
 
+	/** SPSEXPD: 玩家可见楼层编号单点 —— 主线纯数字、分段支线「分叉层·序号」（见 pd.floors.FloorRegistry.displayLabel）。 */
+	public static String displayLabel() {
+		return FloorRegistry.displayLabel(depth, branch);
+	}
+
 	public static boolean interfloorTeleportAllowed(){
 		if (Dungeon.level.locked
 				//SPSEXPD: 支线禁止跨层传送改由楼层注册表声明
@@ -1139,6 +1144,8 @@ public class Dungeon {
 	
 	public static void preview( GamesInProgress.Info info, Bundle bundle ) {
 		info.depth = bundle.getInt( DEPTH );
+		//SPSEXPD: branch 一直存在于存档 bundle —— 从这里恢复，供槽位楼层显示编号使用
+		info.branch = bundle.getInt( BRANCH );
 		info.version = bundle.getInt( VERSION );
 		info.challenges = bundle.getInt( CHALLENGES );
 		info.seed = bundle.getLong( SEED );

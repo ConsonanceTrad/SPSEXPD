@@ -259,7 +259,8 @@ public class RankingsScene extends PixelScene {
 				level.hardlight( TEXT_LOSE[odd] );
 
 				if (rec.depth != 0){
-					depth.text( Integer.toString(rec.depth) );
+					//SPSEXPD: 楼层显示走注册表单点（主线纯数字、分段支线「分叉层·序号」）
+					depth.text( pd.floors.FloorRegistry.displayLabel(rec.depth, rec.branch) );
 					depth.measure();
 					steps.copy(Icons.STAIRS.get());
 

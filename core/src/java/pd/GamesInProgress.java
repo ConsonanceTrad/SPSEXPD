@@ -176,6 +176,8 @@ public class GamesInProgress {
 		info.lastPlayed = Dungeon.lastPlayed;
 		
 		info.depth = Dungeon.depth;
+		//SPSEXPD: 存档槽补记 branch（往楼层注册表显示编号靠拢）
+		info.branch = Dungeon.branch;
 		info.challenges = Dungeon.challenges;
 
 		info.seed = Dungeon.seed;
@@ -237,6 +239,8 @@ public class GamesInProgress {
 		public String heroName;
 
 		public int depth;
+		//SPSEXPD: 支线编号（0=主线；用于存档槽的楼层显示编号）
+		public int branch;
 		public int version;
 		public int challenges;
 

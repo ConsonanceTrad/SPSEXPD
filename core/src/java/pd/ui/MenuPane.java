@@ -108,7 +108,8 @@ public class MenuPane extends Component {
 		depthIcon = Icons.get(Dungeon.level.feeling);
 		add(depthIcon);
 
-		depthText = new BitmapText( Integer.toString( Dungeon.displayDepth() ), PixelScene.pixelFont);
+		//SPSEXPD: 楼层显示走注册表单点（主线纯数字、分段支线「分叉层·序号」）
+		depthText = new BitmapText( Dungeon.displayLabel(), PixelScene.pixelFont);
 		depthText.hardlight( 0xCACFC2 );
 		depthText.measure();
 		add( depthText );

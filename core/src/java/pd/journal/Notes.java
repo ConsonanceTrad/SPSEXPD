@@ -106,6 +106,13 @@ public class Notes {
 			return depth;
 		}
 
+		//SPSEXPD: 备注补记支线 branch 定位（0=主线；旧档缺键视为主线，兼容）
+		protected int branch;
+
+		public int branch(){
+			return branch;
+		}
+
 		public Image icon() { return Icons.STAIRS.get(); }
 
 		public Visual secondIcon() { return null; }
@@ -127,15 +134,19 @@ public class Notes {
 		}
 		
 		private static final String DEPTH	= "depth";
-		
+		//SPSEXPD: 备注支线 branch 的存键
+		private static final String BRANCH	= "branch";
+
 		@Override
 		public void restoreFromBundle( Bundle bundle ) {
 			depth = bundle.getInt( DEPTH );
+			branch = bundle.getInt( BRANCH );
 		}
 
 		@Override
 		public void storeInBundle( Bundle bundle ) {
 			bundle.put( DEPTH, depth );
+			bundle.put( BRANCH, branch );
 		}
 	}
 	
@@ -436,6 +447,15 @@ public class Notes {
 			body = desc;
 		}
 
+		/** SPSEXPD: 支线楼层备注 —— 附带 branch 定位（0=主线）。 */
+		public CustomRecord(int depth, int branch, String title, String desc) {
+			type = CustomType.DEPTH;
+			this.depth = depth;
+			this.branch = branch;
+			this.title = title;
+			body = desc;
+		}
+
 		public CustomRecord(Class itemCls, String title, String desc) {
 			type = CustomType.ITEM_TYPE;
 			itemClass = itemCls;
@@ -618,6 +638,8 @@ public class Notes {
 	
 	public static boolean add( Key key ){
 		KeyRecord k = new KeyRecord(key);
+		//SPSEXPD: KeyRecord 的支线定位跟随钥匙本体（0=主线）
+		k.branch = key.branch;
 		if (!records.contains(k)){
 			boolean result = records.add(k);
 			Collections.sort(records, comparator);
@@ -681,10 +703,11 @@ public class Notes {
 		return filtered;
 	}
 
-	public static ArrayList<Record> getRecords(int depth){
+	public static ArrayList<Record> getRecords(int depth, int branch){
 		ArrayList<Record> filtered = new ArrayList<>();
 		for (Record rec : records){
-			if (rec.depth() == depth && !(rec instanceof CustomRecord)){
+			//SPSEXPD: 备注按 depth+branch 双键过滤（旧档全部 branch=0，行为等价）
+			if (rec.depth() == depth && rec.branch() == branch && !(rec instanceof CustomRecord)){
 				filtered.add(rec);
 			}
 		}
@@ -692,6 +715,10 @@ public class Notes {
 		Collections.sort(filtered, comparator);
 
 		return filtered;
+	}
+
+	public static ArrayList<Record> getRecords(int depth){
+		return getRecords(depth, 0);
 	}
 
 	public static CustomRecord findCustomRecord( int ID ){

@@ -110,6 +110,8 @@ public class WndJournal extends WndTabbed {
 			.t("$notestab.desc", "随着你在地牢中的旅途逐渐推进，这里会自动为你记录下重要信息。")
 			.t("$notestab.custom_notes", "自定义")
 			.t("$notestab.floor_header", "第%d层")
+			//SPSEXPD: 支线楼层组标头（编号为「分叉层·序号」字符串）
+			.t("$notestab.bfloor_header", "第%s层")
 			.t("$catalogtab.title", "图鉴")
 			.t("$catalogtab.title_equipment", "装备")
 			.t("$catalogtab.title_consumables", "消耗品")
@@ -465,6 +467,43 @@ public class WndJournal extends WndTabbed {
 					}
 
 					grid.addItem(gridItem);
+				}
+			}
+
+			//SPSEXPD: 当前分段支线的楼层组（branch!=0 且条目有固定分段时追加；标头用「分叉层·序号」）
+			pd.floors.FloorDefinition curDef = pd.floors.FloorRegistry.resolve(Dungeon.depth, Dungeon.branch);
+			if (curDef != null && curDef.minDepth >= 0){
+				for (int f = curDef.maxDepth; f >= curDef.minDepth; f--){
+					ArrayList<Notes.Record> recs = Notes.getRecords(f, Dungeon.branch);
+
+					if (f == Dungeon.depth) {
+						grid.addHeader("_" + Messages.get(this, "bfloor_header", pd.floors.FloorRegistry.displayLabel(f, Dungeon.branch)) + "_");
+					} else {
+						grid.addHeader(Messages.get(this, "bfloor_header", pd.floors.FloorRegistry.displayLabel(f, Dungeon.branch)));
+					}
+					for( Notes.Record rec : recs){
+
+						ScrollingGridPane.GridItem gridItem = new ScrollingGridPane.GridItem(rec.icon()){
+							@Override
+							public boolean onClick(float x, float y) {
+								if (inside(x, y)) {
+									GameScene.show(new WndJournalItem(rec.icon(),
+											Messages.titleCase(rec.title()),
+											rec.desc()));
+									return true;
+								} else {
+									return false;
+								}
+							}
+						};
+
+						Visual secondIcon = rec.secondIcon();
+						if (secondIcon != null){
+							gridItem.addSecondIcon( secondIcon );
+						}
+
+						grid.addItem(gridItem);
+					}
 				}
 			}
 

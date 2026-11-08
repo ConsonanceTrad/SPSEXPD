@@ -124,6 +124,8 @@ public enum Rankings {
 		rec.skin        = Dungeon.hero.skin;
 		rec.herolevel	= Dungeon.hero.lvl;
 		rec.depth       = currentRecordDepth();
+		//SPSEXPD: 排行记录补记支线 branch（旧记录缺省 0）
+		rec.branch      = Dungeon.branch;
 		rec.ascending   = false;
 		rec.score       = calculateSpsScore(win, rec.depth);
 		rec.customSeed  = Dungeon.customSeedText;
@@ -442,6 +444,8 @@ public enum Rankings {
 		private static final String SKIN    = "fusion_skin";
 		private static final String LEVEL	= "level";
 		private static final String DEPTH	= "depth";
+		//SPSEXPD: 排行记录的支线 branch 存键
+		private static final String BRANCH	= "branch";
 		private static final String ASCEND	= "ascending";
 		private static final String DATA	= "gameData";
 		private static final String ID      = "gameID";
@@ -459,6 +463,8 @@ public enum Rankings {
 		public int skin;
 		public int herolevel;
 		public int depth;
+		//SPSEXPD: 记录死亡时的支线 branch（旧档记录缺省 0，读取兼容）
+		public int branch;
 		public boolean ascending;
 
 		public Bundle gameData;
@@ -511,6 +517,7 @@ public enum Rankings {
 			skin        = Math.max(0, Math.min(HeroClass.THEME_COUNT - 1, bundle.getInt(SKIN)));
 			herolevel   = bundle.getInt( LEVEL );
 			depth       = bundle.getInt( DEPTH );
+			branch      = bundle.getInt( BRANCH );
 			ascending   = bundle.getBoolean( ASCEND );
 
 			if (bundle.contains( DATE )){
@@ -542,6 +549,7 @@ public enum Rankings {
 			bundle.put( SKIN, skin );
 			bundle.put( LEVEL, herolevel );
 			bundle.put( DEPTH, depth );
+			bundle.put( BRANCH, branch );
 			bundle.put( ASCEND, ascending );
 
 			bundle.put( DATE, date );

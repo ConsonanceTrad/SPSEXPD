@@ -90,7 +90,9 @@ public class MemorySaveScene extends PixelScene {
 
 	private static String label(GamesInProgress.Info info) {
 		String hero = info.subClass != HeroSubClass.NONE ? info.subClass.title() : info.heroClass.title();
-		return Messages.get(MemorySaveScene.class, "slot", info.slot, hero, info.depth, info.level);
+		//SPSEXPD: 槽位楼层显示走注册表单点（支线带「分叉层·序号」）
+		return Messages.get(MemorySaveScene.class, "slot", info.slot, hero,
+				pd.floors.FloorRegistry.displayLabel(info.depth, info.branch), info.level);
 	}
 
 	@Override

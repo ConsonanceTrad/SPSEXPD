@@ -61,7 +61,7 @@ public class CustomNoteButton extends IconButton {
 			.t("new_text_title", "为自定义文本备注拟题：")
 			.t("new_floor", "新建地牢楼层备注")
 			.t("new_floor_prompt", "选择要备注的地牢楼层")
-			.t("new_floor_title", "为_第%d层_的自定义备注拟题：")
+			.t("new_floor_title", "为_%s_的自定义备注拟题：")
 			.t("new_inv", "新建背包物品备注")
 			.t("new_inv_prompt", "选择要备注的背包物品")
 			.t("new_item_title", "为物品_%s_的备注拟题：")
@@ -165,17 +165,47 @@ public class CustomNoteButton extends IconButton {
 					top += 17;
 				}
 				int finalI = i;
-				RedButton btnDepth = new RedButton(Integer.toString(finalI)){
+				//SPSEXPD: 主线按钮标签走注册表单点（保持纯数字）；新构造补 branch=0
+				String btnLabel = pd.floors.FloorRegistry.displayLabel(finalI, 0);
+				RedButton btnDepth = new RedButton(btnLabel){
 					@Override
 					protected void onClick() {
-						addNote(WndDepthSelect.this, new Notes.CustomRecord(finalI, "", ""),
+						addNote(WndDepthSelect.this, new Notes.CustomRecord(finalI, 0, "", ""),
 								Messages.get(CustomNoteButton.class, "new_floor"),
-								Messages.get(CustomNoteButton.class, "new_floor_title", finalI));
+								Messages.get(CustomNoteButton.class, "new_floor_title", btnLabel));
 					}
 				};
 				btnDepth.setRect(left, top, 23, 16);
 				left += 24;
 				add(btnDepth);
+			}
+
+			//SPSEXPD: 当前所在分段支线（branch!=0 且条目有固定分段）追加「分叉层·序号」按钮
+			pd.floors.FloorDefinition curDef = pd.floors.FloorRegistry.resolve(pd.Dungeon.depth, pd.Dungeon.branch);
+			if (curDef != null && curDef.minDepth >= 0){
+				if (left > 0){
+					left = 0;
+					top += 17;
+				}
+				for (int f = curDef.maxDepth; f >= curDef.minDepth; f--){
+					int finalF = f;
+					String btnLabel = pd.floors.FloorRegistry.displayLabel(finalF, pd.Dungeon.branch);
+					RedButton btnDepth = new RedButton(btnLabel){
+						@Override
+						protected void onClick() {
+							addNote(WndDepthSelect.this, new Notes.CustomRecord(finalF, pd.Dungeon.branch, "", ""),
+									Messages.get(CustomNoteButton.class, "new_floor"),
+									Messages.get(CustomNoteButton.class, "new_floor_title", btnLabel));
+						}
+					};
+					btnDepth.setRect(left, top, 23, 16);
+					left += 24;
+					if (left >= 5 * 24){
+						left = 0;
+						top += 17;
+					}
+					add(btnDepth);
+				}
 			}
 
 			resize(width, top + (left == 0 ? 0 : 16));

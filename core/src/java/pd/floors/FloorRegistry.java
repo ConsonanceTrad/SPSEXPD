@@ -102,6 +102,30 @@ public final class FloorRegistry {
 		return legacy < 0 ? depth : legacy;
 	}
 
+	/**
+	 * SPSEXPD: 玩家显示编号单点 —— 主线（含动态借层的临时支线）保持纯数字；
+	 * 有固定分段锚点的支线显示「分叉层·序号」（如矿洞 "17·1"…，用户定稿的紧凑式）。
+	 */
+	public static String displayLabel(int depth, int branch) {
+		if (branch == 0) return Integer.toString(depth);
+		FloorDefinition def = resolve(depth, branch);
+		if (def == null || def.anchorDepth <= 0) return Integer.toString(depth);
+		return def.anchorDepth + "·" + def.indexInFloor(depth);
+	}
+
+	/** 楼层的主题（章节）归属：主线按所在 depth；支线按分叉锚点层所在章（供清缓存/加载画面用）。 */
+	public static int chapterFor(int depth, int branch) {
+		return Dungeon.chapterIndex(anchorOf(depth, branch)) + 1;
+	}
+
+	/** 楼层在主线上的锚点层：主线与动态借层支线返回 depth 本身；分段支线返回分叉层。 */
+	public static int anchorOf(int depth, int branch) {
+		if (branch == 0 || depth <= 0) return Math.max(depth, 0);
+		FloorDefinition def = resolve(depth, branch);
+		if (def == null || def.anchorDepth <= 0) return Math.max(depth, 0);
+		return def.anchorDepth;
+	}
+
 	// ————————————————————— 登记区 ————————————————————— //
 
 	//主线的 boss/商人层公式（每章 8 层：第 7 层 boss，第 8/16/24/32 层与 0 层为商人层）
