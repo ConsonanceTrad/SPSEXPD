@@ -267,11 +267,14 @@ public class FloatingText extends RenderedTextBlock {
 					icon.alpha(p > 0.5f ? 1 : p * 2);
 					icon.y -= yMove;
 				}
-				//SPSEXPD: 原因角标随主图标同步上浮/淡出
+				//SPSEXPD: 原因角标随主图标同步上浮/淡出，叠在主图标右下角（同位不占额外宽）
 				if (reasonIcon != null){
 					reasonIcon.alpha(p > 0.5f ? 1 : p * 2);
 					reasonIcon.y -= yMove;
-					reasonIcon.x = icon != null ? icon.x + icon.width() : reasonIcon.x;
+					if (icon != null){
+						reasonIcon.x = icon.x + icon.width() - reasonIcon.width();
+						reasonIcon.y = icon.y + icon.height() - reasonIcon.height();
+					}
 				}
 			}
 		}
@@ -289,10 +292,15 @@ public class FloatingText extends RenderedTextBlock {
 			icon.x = PixelScene.align(Camera.main, icon.x);
 			icon.y = PixelScene.align(Camera.main, top());
 		}
-		//SPSEXPD: 原因角标排在主图标右侧
+		//SPSEXPD: 原因角标叠在主图标右下角（与 update 同步，同位不占额外宽）
 		if (reasonIcon != null){
-			reasonIcon.x = PixelScene.align(Camera.main, (icon != null ? icon.x + icon.width() : left()));
-			reasonIcon.y = PixelScene.align(Camera.main, top());
+			if (icon != null){
+				reasonIcon.x = PixelScene.align(Camera.main, icon.x + icon.width() - reasonIcon.width());
+				reasonIcon.y = PixelScene.align(Camera.main, icon.y + icon.height() - reasonIcon.height());
+			} else {
+				reasonIcon.x = PixelScene.align(Camera.main, left());
+				reasonIcon.y = PixelScene.align(Camera.main, top());
+			}
 		}
 	}
 
@@ -301,10 +309,6 @@ public class FloatingText extends RenderedTextBlock {
 		float width = super.width();
 		if (icon != null){
 			width += icon.width()-0.5f;
-		}
-		//SPSEXPD: 拼接原因角标占位
-		if (reasonIcon != null){
-			width += reasonIcon.width()-0.25f;
 		}
 		return width;
 	}
@@ -376,8 +380,8 @@ public class FloatingText extends RenderedTextBlock {
 				reasonIcon = pd.atlas.AtlasReader.image(rEntry);
 				float rawW = reasonIcon.width(), rawH = reasonIcon.height();
 				if (rawW > ICON_WIDTH || rawH > ICON_HEIGHT){
-					//SPSEXPD: 12x12 帧等比缩放到 7x7（用户定稿）
-					reasonIcon.scale.set(7f / rawW, 7f / rawH);
+					//SPSEXPD: 无限闪避/原因角标 —— 缩到 4x4 叠在主图标右下角（只盖住一小部分，主帧仍有辨识度）
+					reasonIcon.scale.set(4f / rawW, 4f / rawH);
 				}
 				add(reasonIcon);
 			} else {
