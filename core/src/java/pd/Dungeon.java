@@ -21,6 +21,8 @@
 
 package pd;
 
+import pd.floors.FloorDefinition;
+import pd.floors.FloorRegistry;
 import pd.actors.Actor;
 import pd.actors.Char;
 import pd.actors.buffs.Amok;
@@ -450,133 +452,10 @@ public class Dungeon {
 		Dungeon.level = null;
 		Actor.clear();
 		
-		Level level;
-		if (branch == 0) {
-			switch (depth) {
-				case 0:
-					//SPS: 0 层 = 特殊初始层（学者+商店安全层）
-					level = new BetweenLevel();
-					break;
-				case 1:
-				case 2:
-				case 3:
-				case 4:
-				case 5:
-				case 6:
-					level = new SewerLevel();
-					break;
-				case 7:
-					level = new SpsSewerBossLevel();
-					break;
-				case 8:
-					level = new BetweenLevel();
-					break;
-				case 9:
-				case 10:
-				case 11:
-				case 12:
-				case 13:
-				case 14:
-					level = new PrisonLevel();
-					break;
-				case 15:
-					level = new SpsPrisonBossLevel();
-					break;
-				case 16:
-					level = new BetweenLevel();
-					break;
-				case 17:
-				case 18:
-				case 19:
-				case 20:
-				case 21:
-				case 22:
-					level = new CavesLevel();
-					break;
-				case 23:
-					level = new SpsCavesBossLevel();
-					break;
-				case 24:
-					level = new BetweenLevel();
-					break;
-				case 25:
-				case 26:
-				case 27:
-				case 28:
-				case 29:
-				case 30:
-					level = new CityLevel();
-					break;
-				case 31:
-					level = new SpsCityBossLevel();
-					break;
-				case 32:
-					level = new BetweenLevel();
-					break;
-				case 33:
-				case 34:
-				case 35:
-				case 36:
-				case 37:
-				case 38:
-					level = new HallsLevel();
-					break;
-				case 39:
-					level = new SpsHallsBossLevel();
-					break;
-				case 40:
-					level = new LastLevel();
-					break;
-				default:
-					level = new DeadEndLevel();
-			}
-		} else if (branch == 1) {
-			switch (depth) {
-				case 17:
-				case 18:
-				case 19:
-				case 20:
-				case 21:
-				case 22:
-					level = new MiningLevel();
-					break;
-				case 25:
-				case 26:
-				case 27:
-				case 28:
-				case 29:
-				case 30:
-					level = new VaultLevel();
-					break;
-				default:
-					level = new DeadEndLevel();
-			}
-		} else if (branch == BossRush.BRANCH) {
-			level = new BossRushLevel();
-		} else if (branch == PowerHand.CHAOS_BRANCH) {
-			level = new ChaosLevel();
-		} else if (branch == TreasureMap.BRANCH) {
-			level = new FieldBossLevel();
-		} else if (branch == Palantir.BRANCH) {
-			level = new ZotBossLevel();
-		} else if (ChallengeJournal.isChallengeBranch(branch)) {
-			switch (ChallengeJournal.challengeForBranch(branch)) {
-				case 0: level = new SewerChallengeLevel(); break;
-				case 1: level = new PrisonChallengeLevel(); break;
-				case 2: level = new CaveChallengeLevel(); break;
-				case 3: level = new CityChallengeLevel(); break;
-				case 4: level = new IceChallengeLevel(); break;
-				case 5: level = new TriangleCLevel(); break;
-				case 6: level = new TrianglePLevel(); break;
-				case 7: level = new TriangleWLevel(); break;
-				default: level = new DeadEndLevel(); break;
-			}
-		} else if (AdventureJournal.isAdventureBranch(branch)) {
-			int destination = AdventureJournal.destinationForBranch(branch);
-			level = createAdventureLevel(destination);
-		} else {
-			level = new DeadEndLevel();
-		}
+		//SPSEXPD: 楼层创建改为查楼层注册表（主线与全部支线集中登记，见 pd.floors.FloorRegistry）；
+		//未登记的 branch 回落 DeadEnd（与旧 default 一致）
+		FloorDefinition def = FloorRegistry.resolve(depth, branch);
+		Level level = def != null ? def.factory.create() : new DeadEndLevel();
 
 		//dead end levels get cleared, don't count as generated
 		if (!(level instanceof DeadEndLevel)){
@@ -621,8 +500,9 @@ public class Dungeon {
 		return branch == LEARN_BRANCH || hero != null && hero.heroClass == HeroClass.NEWPLAYER;
 	}
 
-	/** Exact route table for journal destinations. Early fusion-only fallbacks stay unreachable. */
-	static Level createAdventureLevel(int destination) {
+	/** Exact route table for journal destinations. Early fusion-only fallbacks stay unreachable.
+	 *  SPSEXPD: 提为 public 供楼层注册表（pd.floors.FloorRegistry）调用。 */
+	public static Level createAdventureLevel(int destination) {
 		return destination == 0 ? new SafeLevel()
 				: destination == 1 ? new SokobanIntroLevel()
 				: destination == 2 ? new SokobanCastle()
@@ -677,14 +557,36 @@ public class Dungeon {
 	}
 	
 	public static boolean shopOnLevel() {
-		//SPS: 0 层为特殊初始层（带商店）；每章最后推进一层（8/16/24/32）是商人层
+		return shopOnLevel( depth, branch );
+	}
+
+	/** SPSEXPD: 楼层语义判定查注册表；主线与未登记的 branch 沿用每章 8 层公式。 */
+	public static boolean shopOnLevel( int depth, int branch ) {
+		FloorDefinition def = FloorRegistry.resolve( depth, branch );
+		if (def == null || def.isMainline()) return shopOnLevel( depth );
+		return def.shopFloor;
+	}
+
+	/** 主线商店/章首层公式：0 层为特殊初始层（带商店）；每章最后推进一层（8/16/24/32）是商人层。 */
+	private static boolean shopOnLevel( int depth ) {
 		return depth == 0 || (depth % FLOORS_PER_CHAPTER == 0 && depth < LAST_LEVEL_DEPTH);
 	}
-	
+
 	public static boolean bossLevel() {
-		return bossLevel( depth );
+		return bossLevel( depth, branch );
 	}
-	
+
+	/**
+	 * SPSEXPD: 支线 boss 判定查注册表（不再借用主线公式，避免支线借层数字落在 7/15/23 等被误判）；
+	 * 主线与未登记的 branch 沿用每章 8 层公式。
+	 */
+	public static boolean bossLevel( int depth, int branch ) {
+		FloorDefinition def = FloorRegistry.resolve( depth, branch );
+		if (def == null || def.isMainline()) return bossLevel( depth );
+		return def.bossFloor;
+	}
+
+	/** 主线 boss 层公式：每章第 7 层（7/15/23/31/39）。 */
 	public static boolean bossLevel( int depth ) {
 		//SPSEXPD: 每章第 7 层是 boss 层（7/15/23/31/39）
 		return depth > 0 && depth % FLOORS_PER_CHAPTER == FLOORS_PER_CHAPTER - 1;
@@ -700,11 +602,9 @@ public class Dungeon {
 		}
 	}
 
-	/** Returns SPS-PD's separate depth counter for branch-scaled combat and hazards. */
+	/** SPSEXPD: 返回 S-PD 的支线战斗数值借层 —— 映射改由楼层注册表统一声明（Journal 支线仍由 Journal 提供映射）。 */
 	public static int legacyDepth() {
-		int legacyDepth = ChallengeJournal.legacyDepthForBranch(branch);
-		if (legacyDepth < 0) legacyDepth = AdventureJournal.legacyDepthForBranch(branch);
-		return legacyDepth < 0 ? depth : legacyDepth;
+		return FloorRegistry.legacyDepth( depth, branch );
 	}
 
 	/** The floor number SPS-PD exposed to the player. */
@@ -714,11 +614,9 @@ public class Dungeon {
 
 	public static boolean interfloorTeleportAllowed(){
 		if (Dungeon.level.locked
-				//SPSEXPD: 无尽模式（混沌层）里禁止一切跨层传送与返回（含调试入口）
-				|| Dungeon.level instanceof ChaosLevel
-				|| Dungeon.level instanceof MiningLevel || Dungeon.level instanceof VaultLevel
-				|| ChallengeJournal.isChallengeBranch(Dungeon.branch)
-				|| AdventureJournal.isAdventureBranch(Dungeon.branch)
+				//SPSEXPD: 支线禁止跨层传送改由楼层注册表声明
+				//（矿洞/宝库/各临时支线/挑战/冒险支线均登记 noTeleport；无尽混沌层同）
+				|| FloorRegistry.isNoTeleport(Dungeon.depth, Dungeon.branch)
 				|| (Dungeon.hero != null && Dungeon.hero.belongings.getItem(Amulet.class) != null)){
 			return false;
 		}
