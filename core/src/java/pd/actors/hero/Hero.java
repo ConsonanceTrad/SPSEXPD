@@ -992,6 +992,31 @@ public class Hero extends Char {
 		
 		return dr + combatStyle.bonusArmor(lvl);
 	}
+
+	//SPSEXPD: 格挡值 —— 对物理伤害的固定减免（护卫甲派生，伤害类型体系定稿，系数可调）：
+	//主甲/副甲 DRMin 各取 1/3（不加随机 roll 与战姿），装备在副手的神木圆盾按其 drMin 计入
+	@Override
+	protected int blockValue() {
+		int block = 0;
+		if (belongings != null && belongings.armor() != null){
+			block += Math.round(belongings.armor().DRMin() / 3f);
+		}
+		if (belongings != null && belongings.secondArmor() != null){
+			block += Math.round(belongings.secondArmor().DRMin() / 3f);
+		}
+		if (belongings != null && belongings.secondWep() instanceof MissileShield){
+			block += belongings.secondWep().drMin( this );
+		}
+		return block;
+	}
+
+	//SPSEXPD: 法抗值 —— 对法术伤害的固定减免（护卫甲派生，伤害类型体系定稿，系数可调）：
+	//主甲 DRMin 的 1/4（护盾类吸收盾如 MagicArmor/ArcaneArmor 沿用既有独立机制，不重复计算）
+	@Override
+	protected int magicBlock() {
+		if (belongings == null || belongings.armor() == null) return 0;
+		return Math.round(belongings.armor().DRMin() / 4f);
+	}
 	
 	@Override
 	public int damageRoll() {
