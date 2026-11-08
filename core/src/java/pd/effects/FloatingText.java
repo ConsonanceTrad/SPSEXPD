@@ -308,7 +308,8 @@ public class FloatingText extends RenderedTextBlock {
 	public float width() {
 		float width = super.width();
 		if (icon != null){
-			width += icon.width()-0.5f;
+			//SPSEXPD: 图标与伤害数字之间隔 1px（原版为 -0.5px 轻重叠，用户定稿改为 1px 间隔）
+			width += icon.width() + 1f;
 		}
 		return width;
 	}
