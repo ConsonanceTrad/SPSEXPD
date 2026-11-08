@@ -377,12 +377,9 @@ public class FloatingText extends RenderedTextBlock {
 			if (rSet == ICON_SET_EXTRA && rIdx < EXTRA_TABLE.length)      rEntry = EXTRA_TABLE[rIdx];
 			else if (rSet == ICON_SET_REASON && rIdx < REASON_TABLE.length) rEntry = REASON_TABLE[rIdx];
 			if (rEntry != null){
+				//SPSEXPD: 原因角标不缩放——reason 帧内容本来就只画在右下角预留区
+				//（其余透明），按原尺寸 12x12 以右下角对叠在主图标上即可
 				reasonIcon = pd.atlas.AtlasReader.image(rEntry);
-				float rawW = reasonIcon.width(), rawH = reasonIcon.height();
-				if (rawW > ICON_WIDTH || rawH > ICON_HEIGHT){
-					//SPSEXPD: 无限闪避/原因角标 —— 缩到 4x4 叠在主图标右下角（只盖住一小部分，主帧仍有辨识度）
-					reasonIcon.scale.set(4f / rawW, 4f / rawH);
-				}
 				add(reasonIcon);
 			} else {
 				reasonIcon = null;
