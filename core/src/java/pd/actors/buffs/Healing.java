@@ -61,6 +61,16 @@ public class Healing extends Buff {
 	public boolean act(){
 
 		int tick = healingThisTick();
+
+		//SPSEXPD: 治疗伤害（伤害类型体系定稿）——不死族受治疗不再恢复，而是受到「治疗伤害」
+		//（走 Char.damage 的特殊族路径：不吃格挡/法抗等常规减免）
+		if (pd.actors.Char.hasProp(target, pd.actors.Char.Property.UNDEAD)) {
+			target.damage(tick, pd.actors.damagetype.DamageType.HEAL_DAMAGE);
+			healingLeft -= tick;
+			//不加正向飘字/图标：Healing buff 的恢复流程不适用于不死族
+			return true;
+		}
+
 		//SPSXPD: 「血能护盾」—— 不再直接治疗，而是把回复量转为奥术护盾（满血时也转，避免浪费）
 		boolean shielded = pd.actors.hero.perks.BloodShield.convert(target, tick);
 

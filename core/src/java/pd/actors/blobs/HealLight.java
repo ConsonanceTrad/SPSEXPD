@@ -24,8 +24,14 @@ public class HealLight extends Blob {
 				}
 				Char ch = Actor.findChar(cell);
 				if (ch != null && !ch.isImmune(getClass()) && ch.HP < ch.HT) {
-					ch.HP = Math.min(ch.HT, ch.HP + Math.max(1, ch.HT / 25));
-					if (ch.sprite != null) ch.sprite.emitter().start(Speck.factory(Speck.HEALING), 0.4f, 4);
+					//SPSEXPD: 治疗伤害（伤害类型体系定稿）——不死族受治疗光不再恢复，
+					//而是受到等量的「治疗伤害」（走特殊族路径，不吃格挡/法抗等常规减免）
+					if (Char.hasProp(ch, Char.Property.UNDEAD)) {
+						ch.damage(Math.max(1, ch.HT / 25), pd.actors.damagetype.DamageType.HEAL_DAMAGE);
+					} else {
+						ch.HP = Math.min(ch.HT, ch.HP + Math.max(1, ch.HT / 25));
+						if (ch.sprite != null) ch.sprite.emitter().start(Speck.factory(Speck.HEALING), 0.4f, 4);
+					}
 				}
 				Heap heap = Dungeon.level.heaps.get(cell);
 				if (heap != null) heap.lighthit();
