@@ -2,11 +2,27 @@
 package pd.actors.damagetype;
 
 import pd.actors.Char;
+import pd.actors.buffs.AscensionChallenge;
+import pd.actors.buffs.Bleeding;
 import pd.actors.buffs.Buff;
+import pd.actors.buffs.Burning;
+import pd.actors.buffs.Chill;
+import pd.actors.buffs.Corrosion;
+import pd.actors.buffs.Corruption;
+import pd.actors.buffs.Frost;
+import pd.actors.buffs.Hunger;
+import pd.actors.buffs.Ooze;
+import pd.actors.buffs.Poison;
 import pd.actors.blobs.Blob;
+import pd.actors.blobs.Electricity;
+import pd.actors.blobs.StormCloud;
+import pd.actors.blobs.ToxicGas;
 import pd.items.KindOfWeapon;
-import pd.items.equipment.wands.Wand;
 import pd.items.equipment.armor.glyphs.AntiMagic;
+import pd.items.equipment.armor.glyphs.Viscosity;
+import pd.items.equipment.wands.Wand;
+import pd.items.quest.Pickaxe;
+import pd.levels.traps.GeyserTrap;
 
 /**
  * SPSEXPD: 伤害类型族收口 —— 由任意伤害来源解析「类型族」与「物理细分」。
@@ -35,18 +51,109 @@ public final class DamageKind {
 		return PhysicalKind.of(src) != null;
 	}
 
-	/** 法术族判定（法抗值减免的适用范围） */
+	/** 法术族判定（法抗值减免的适用范围）——先按令牌归一，再落旧式魔法判定 */
 	public static boolean isMagic( Object src ) {
 		if (src == null || isSpecial(src)) return false;
-		if (Element.canonicalOf(src) != null) return true;
-		return isLegacyMagic(src);
+		return isMagicToken( canonicalToken(src) );
 	}
 
-	/** 特殊族判定（治疗/干扰/饥饿/疾病/反噬令牌） */
+	/** 类型令牌 → 是否法术族（法术=元素/能量/诅咒，含旧暗/混乱归并） */
+	public static boolean isMagicToken( DamageType token ) {
+		if (token == null) return false;
+		return token instanceof DamageType.Energy || token instanceof DamageType.Curse
+				|| token == DamageType.FIRE_DAMAGE || token == DamageType.ICE_DAMAGE
+				|| token == DamageType.SHOCK_DAMAGE || token == DamageType.LIGHT_DAMAGE
+				|| token == DamageType.POISON_DAMAGE || token == DamageType.ACID_DAMAGE
+				|| token instanceof DamageType.Dark || token instanceof DamageType.Chaos;
+	}
+
+	/** 特殊族判定（治疗/干扰/饥饿/疾病/反噬）——含来源归一后的令牌形态 */
 	public static boolean isSpecial( Object src ) {
-		return src instanceof DamageType.Heal || src instanceof DamageType.Interfere
+		if (src == null) return false;
+		if (src instanceof DamageType.Heal || src instanceof DamageType.Interfere
 				|| src instanceof DamageType.Hunger || src instanceof DamageType.Disease
-				|| src instanceof DamageType.Backlash;
+				|| src instanceof DamageType.Backlash) {
+			return true;
+		}
+		return isSpecialToken( canonicalToken(src) );
+	}
+
+	/** 类型令牌 → 是否特殊族 */
+	public static boolean isSpecialToken( DamageType token ) {
+		if (token == null) return false;
+		return token instanceof DamageType.Heal || token instanceof DamageType.Interfere
+				|| token instanceof DamageType.Hunger || token instanceof DamageType.Disease
+				|| token instanceof DamageType.Backlash;
+	}
+
+	/**
+	 * SPSEXPD: 来源 → 类型令牌的统一归一（伤害类型体系定稿）。
+	 * Buff/Blob/陷阱等来源按映射收口到类型令牌；元素/诅咒/能量令牌与
+	 * 旧暗/混乱（归并能量）原样保留或按 canonical 归并；未覆盖来源返回 null
+	 * （物理普攻/武器细分另走 Weapon.damageKind；旧式魔法来源保持既有判定）。
+	 */
+	public static DamageType canonicalToken( Object src ) {
+		if (src == null) return null;
+		//DOT/状态 → 类型令牌
+		if (src instanceof Burning)                                return DamageType.FIRE_DAMAGE;
+		if (src instanceof Chill || src instanceof Frost)          return DamageType.ICE_DAMAGE;
+		if (src instanceof Electricity)                            return DamageType.SHOCK_DAMAGE;
+		if (src instanceof ToxicGas || src instanceof Poison || src instanceof Ooze)
+		                                                           return DamageType.POISON_DAMAGE;
+		if (src instanceof Corrosion)                              return DamageType.ACID_DAMAGE;
+		if (src instanceof Bleeding)                               return DamageType.DISEASE_DAMAGE;
+		if (src instanceof Corruption)                             return DamageType.CURSE_DAMAGE;
+		if (src instanceof Hunger)                                 return DamageType.HUNGER_DAMAGE;
+		if (src instanceof GeyserTrap || src instanceof StormCloud) return DamageType.IMPACT_DAMAGE;
+		if (src instanceof AscensionChallenge)                     return DamageType.BACKLASH_DAMAGE;
+		if (src instanceof Pickaxe)                                return DamageType.PUNCTURE_DAMAGE;
+		//旧地/风令牌归并到物理细分（钝/冲）
+		if (src.getClass() == DamageType.EARTH_DAMAGE.getClass())  return DamageType.BLUNT_DAMAGE;
+		if (src.getClass() == DamageType.WIND_DAMAGE.getClass())   return DamageType.IMPACT_DAMAGE;
+		//旧暗/混乱令牌归并到能量
+		if (src.getClass() == DamageType.DARK_DAMAGE.getClass() || src.getClass() == DamageType.CHAOS_DAMAGE.getClass())
+		                                                           return DamageType.ENERGY_DAMAGE;
+		//元素/能量/诅咒令牌（含 SpsMagicDamage 按名映射）由 Element 收口层解析
+		if (Element.canonicalOf(src) != null)                      return Element.canonicalOf(src).damageType();
+		//法杖按杖类映射元素（未映射者默认能量）
+		if (src instanceof Wand && !(src instanceof pd.items.equipment.wands.SilverHand)) {
+			return wandOf((Wand) src);
+		}
+		return null;
+	}
+
+	/** SPSEXPD: 法杖 → 元素/类型映射表（伤害类型体系定稿，未列入者默认能量） */
+	public static DamageType wandOf( Wand wand ) {
+		String n = wand.getClass().getSimpleName();
+		switch (n) {
+			//火
+			case "WandOfFirebolt":
+			case "WandOfFireblast":
+			case "WandOfShatteredFireblast":
+			case "WandOfMeteorite":       return DamageType.FIRE_DAMAGE;
+			//冰
+			case "WandOfFreeze":
+			case "WandOfFrost":           return DamageType.ICE_DAMAGE;
+			//雷
+			case "WandOfLightning":       return DamageType.SHOCK_DAMAGE;
+			//光
+			case "WandOfLight":
+			case "WandOfPrismaticLight":
+			case "WandOfDisintegration":  return DamageType.LIGHT_DAMAGE;
+			//毒
+			case "WandOfSwamp":           return DamageType.POISON_DAMAGE;
+			//酸
+			case "WandOfAcid":
+			case "WandOfCorrosion":       return DamageType.ACID_DAMAGE;
+			//物理细分（归并旧地/风）
+			case "WandOfLivingEarth":     return DamageType.BLUNT_DAMAGE;
+			case "WandOfBlastWave":
+			case "WandOfShockwave":       return DamageType.IMPACT_DAMAGE;
+			//诅咒
+			case "WandOfCorruption":      return DamageType.CURSE_DAMAGE;
+			//物理中间变量（用于金属/刺轨等渗入）避免遗漏
+			default:                      return DamageType.ENERGY_DAMAGE;
+		}
 	}
 
 	/**
