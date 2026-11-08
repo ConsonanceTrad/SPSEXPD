@@ -52,7 +52,6 @@ import pd.items.consum.food.fusion.Nut;
 import pd.items.specific.keys.GoldenSkeletonKey;
 import pd.items.misc.SkillOfAtk;
 import pd.items.misc.SkillOfDef;
-import pd.items.misc.SkillOfMig;
 import pd.items.nornstone.BlueNornStone;
 import pd.items.nornstone.GreenNornStone;
 import pd.items.nornstone.OrangeNornStone;
@@ -358,11 +357,10 @@ public class TownLevel extends Level {
 					default: return Generator.random(Generator.Category.EASTERWEAPON);
 				}
 			case 7:
-				switch (Random.Int(6)) {
+				switch (Random.Int(5)) {
 					case 0: return new SkillOfAtk();
 					case 1: return new SkillOfDef();
-					case 2: return new SkillOfMig();
-					case 3: return new KnowledgeBook();
+					case 2: return new KnowledgeBook();
 					default: return musicWeapon();
 				}
 			case 8: return Generator.random(Generator.Category.MEDICINE);

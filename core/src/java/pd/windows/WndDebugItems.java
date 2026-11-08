@@ -198,6 +198,9 @@ public class WndDebugItems extends Window {
 		//SPSEXPD: 许愿魔药（图鉴已登记；这里显式补入，保证调试器始终可取）
 		all.put(WishPotion.class, true);
 
+		//SPSEXPD: 法术之瓶（力量之瓶的同源道具）不在图鉴/生成表里，手动补入调试器
+		all.put(pd.items.SpellBottle.class, true);
+
 		//SPSEXPD: 魔法集露袋（移动时自动收露珠）不在图鉴/生成表里，手动补入调试器
 		all.put(DewBadge.class, true);
 

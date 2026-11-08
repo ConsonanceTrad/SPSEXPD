@@ -171,7 +171,7 @@ public class WandOfFlock extends Wand {
 
 		@Override
 		public int defenseProc(Char enemy, int damage) {
-			enemy.damage(Random.IntRange(1, Math.max(1, wandLevel * 2)),
+			enemy.damage(Wand.spellAmplify(Random.IntRange(1, Math.max(1, wandLevel * 2))),
 					pd.actors.damagetype.DamageType.DARK_DAMAGE);
 			return super.defenseProc(enemy, damage);
 		}
@@ -221,7 +221,7 @@ public class WandOfFlock extends Wand {
 
 		@Override
 		public int defenseProc(Char enemy, int damage) {
-			enemy.damage(Random.IntRange(1, Math.max(1, wandLevel * 4)),
+			enemy.damage(Wand.spellAmplify(Random.IntRange(1, Math.max(1, wandLevel * 4))),
 					pd.actors.damagetype.DamageType.DARK_DAMAGE);
 			return super.defenseProc(enemy, damage);
 		}

@@ -103,6 +103,20 @@ public abstract class Wand extends Item {
 	public static final String AC_ZAP	= "ZAP";
 
 	private static final float TIME_TO_ZAP	= 1f;
+
+	//SPSEXPD: 法术强度统一增幅所有法杖伤害——伤害型法杖的伤害结算一律经由 spellAmplify/ spellAmplifier。
+	//每 1 点法强 +10% 伤害（与此前魔弹等 12 根已接入法杖的口径一致）。
+	public static float spellAmplifier() {
+		Hero hero = Dungeon.hero;
+		return 1f + 0.1f * (hero == null ? 0 : hero.magicSkill());
+	}
+
+	/** 输出端：按法术强度放大一次法杖伤害。 */
+	public static int spellAmplify(int dmg) {
+		if (dmg <= 0) return dmg;
+		return Math.max(1, Math.round(dmg * spellAmplifier()));
+	}
+
 	
 	public int maxCharges = initialCharges();
 	public int curCharges = maxCharges;

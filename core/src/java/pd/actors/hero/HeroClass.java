@@ -581,7 +581,6 @@ public enum HeroClass {
 			hero.STR -= 4;
 			hero.improveAttackSkill(-4);
 			hero.improveDefenseSkill(1);
-			hero.improveMagicSkill(6);
 			Dungeon.gold += 666;
 			applyStartingItems(hero, startingItems(WARRIOR, 2));
 			return;
@@ -614,7 +613,6 @@ public enum HeroClass {
 		//SPSEXPD: 物品部分已抽到 startingItems()（单一真源），这里只留属性与全局副作用
 		if (hero.skin == 1) {
 			hero.STR += 4; Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 4;
-			hero.improveMagicSkill(3);
 			applyStartingItems(hero, startingItems(MAGE, 1));
 			return;
 		}
@@ -623,32 +621,27 @@ public enum HeroClass {
 			hero.updateHT(false);
 			hero.improveAttackSkill(-5);
 			hero.improveDefenseSkill(2);
-			hero.improveMagicSkill(6);
 			applyStartingItems(hero, startingItems(MAGE, 2));
 			return;
 		}
 		if (hero.skin == 3) {
-			hero.improveMagicSkill(3);
 			applyStartingItems(hero, startingItems(MAGE, 3));
 			return;
 		}
 		if (hero.skin == 4) {
-			hero.improveMagicSkill(3);
 			applyStartingItems(hero, startingItems(MAGE, 4));
 			return;
 		}
 		if (hero.skin == 5) {
-			hero.improveMagicSkill(3);
 			applyStartingItems(hero, startingItems(MAGE, 5));
 			return;
 		}
 		if (hero.skin == 6) {
-			hero.improveMagicSkill(3);
 			applyStartingItems(hero, startingItems(MAGE, 6));
 			return;
 		}
 		//经典（skin 0）与留空主题都走默认清单
-		hero.improveMagicSkill(3);
+		//SPSEXPD: 各职业不再开局自带法强，法强由「法术之瓶」获取（法杖伤害统一受其增幅）
 		applyStartingItems(hero, startingItems(MAGE, 0));
 	}
 
@@ -663,7 +656,6 @@ public enum HeroClass {
 			hero.HTBoost -= 20;
 			hero.updateHT(false);
 			hero.improveDefenseSkill(3);
-			hero.improveMagicSkill(3);
 			applyStartingItems(hero, startingItems(ROGUE, 2));
 			return;
 		}
@@ -735,7 +727,6 @@ public enum HeroClass {
 		if (hero.skin == 2) {
 			hero.HTBoost -= 10;
 			hero.updateHT(false);
-			hero.improveMagicSkill(3);
 			hero.improveDefenseSkill(5);
 			hero.STR += 4;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 4;
@@ -763,7 +754,6 @@ public enum HeroClass {
 			hero.HTBoost += 5;
 			hero.updateHT(true);
 			hero.STR += 6;
-			hero.improveMagicSkill(5);
 			hero.improveAttackSkill(-6);
 			hero.improveDefenseSkill(-33);
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 6;
@@ -782,7 +772,6 @@ public enum HeroClass {
 			hero.updateHT(true);
 			hero.STR += 6;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 6;
-			hero.improveMagicSkill(5);
 			hero.improveAttackSkill(-6);
 			hero.improveDefenseSkill(-33);
 		} else {
@@ -809,22 +798,17 @@ public enum HeroClass {
 
 	private static void initAscetic(Hero hero) {
 		//SPSEXPD: 物品部分已抽到 startingItems()（单一真源），这里只留属性与全局副作用
+		//SPSEXPD: 各职业不再开局自带法强，法强由「法术之瓶」获取
 		if (hero.skin == 1) {
 			hero.STR += 4; Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 4;
-			hero.improveMagicSkill(3);
 		} else if (hero.skin == 2) {
 			hero.HTBoost += 10;
 			hero.updateHT(false);
 			hero.improveAttackSkill(4);
 			hero.improveDefenseSkill(2);
-			hero.improveMagicSkill(-3);
-			hero.improveMagicSkill(3);
 		} else if (hero.skin == 3) {
 			hero.STR += 4;
 			Dungeon.LimitedDrops.STRENGTH_POTIONS.count += 4;
-			hero.improveMagicSkill(3);
-		} else {
-			hero.improveMagicSkill(3);
 		}
 		applyStartingItems(hero, startingItems(ASCETIC, hero.skin));
 	}

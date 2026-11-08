@@ -170,12 +170,11 @@ public final class SpsUnstableSpellbookTest {
 				"八级圣歌没有永久增加一点命中和闪避");
 
 		RecordingHero level10 = prepareHero(true);
-		int magic10 = rawSkill(level10, "magicSkill");
 		TestBook book10 = carry(level10, 10);
 		check(book10.singNow(level10), "十级圣歌没有执行");
-		check(rawSkill(level10, "magicSkill") == magic10 + 1
-				&& level10.buff(Invisibility.class) != null && level10.buff(HasteBuff.class) != null,
-				"十级圣歌没有永久法强、隐形或加速效果");
+		//SPSEXPD: 十级圣歌不再提供永久法强（法强唯一来源=法术之瓶），改为隐形与加速
+		check(level10.buff(Invisibility.class) != null && level10.buff(HasteBuff.class) != null,
+				"十级圣歌没有隐形或加速效果");
 	}
 
 	private static void testRechargeAndSaveCompatibility() {

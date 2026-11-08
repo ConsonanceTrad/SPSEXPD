@@ -697,8 +697,11 @@ public final class SpsRegularLevelTest {
 			int weightstone = countQueued(level.captured, Weightstone.class);
 			check(stylus == weightstone && stylus <= 1, 0, -221,
 					"刻印笔与磨刀石没有按旧版成对生成");
-			check(countQueued(level.captured, StrBottle.class) == 1, 0, -221,
-					"应生成力量瓶的楼层仍使用现代力量药剂或没有奖励");
+			//SPSEXPD: 力量之瓶/法术之瓶共享同一限量掉落通道（各 50% 概率），合计应为 1
+			int bottles = countQueued(level.captured, StrBottle.class)
+					+ countQueued(level.captured, pd.items.SpellBottle.class);
+			check(bottles == 1, 0, -221,
+					"应生成力量/法术瓶的楼层没有奖励");
 		} finally {
 			Dungeon.LimitedDrops.reset();
 			Dungeon.level = previousLevel;

@@ -18,7 +18,7 @@ public class GoldenNut extends Fruit {
 		InlineText.of(GoldenNut.class)
 			.t("name", "受hmdzl001祝福的金色坚果")
 			.t("desc", "由hmdzl001亲自种植的秘密坚果，食用后会获得永久祝福。")
-			.t("effect_1", "全技能+1，力量+1，生命上限+40")
+			.t("effect_1", "命中闪避+1，力量+1，生命上限+40")
 			.t("effect_2", "力量+3，生命上限+10");
 	}
 
@@ -36,7 +36,6 @@ public class GoldenNut extends Fruit {
 			hero.HTBoost += 40;
 			hero.STR++;
 			hero.improveCombatSkills(1);
-			hero.improveMagicSkill(1);
 			hero.updateHT(true);
 			if (hero.sprite != null) hero.sprite.showStatus(CharSprite.POSITIVE, Messages.get(this, "effect_1"));
 		} else {

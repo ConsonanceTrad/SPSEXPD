@@ -89,7 +89,7 @@ public class WandOfFinality extends DamageWand {
 			if (!Dungeon.level.heroFOV[ch.pos]) continue;
 
 			wandProc(ch, spent);
-			ch.damage(java.lang.Math.round(damageRoll() * (1f + 0.35f * (spent - 1))), this);
+			ch.damage(Wand.spellAmplify(java.lang.Math.round(damageRoll() * (1f + 0.35f * (spent - 1)))), this);
 			hits++;
 		}
 

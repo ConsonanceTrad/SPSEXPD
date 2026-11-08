@@ -97,7 +97,7 @@ public class WandOfShockwave extends DamageWand {
 							if (ch.alignment == user.alignment) continue;
 
 							wandProc(ch, chargesPerCast());
-							ch.damage(damageRoll(), user);
+							ch.damage(Wand.spellAmplify(damageRoll()), user);
 							if (ch.isAlive()) {
 								Buff.affect(ch, Cripple.class, 5f);
 							}

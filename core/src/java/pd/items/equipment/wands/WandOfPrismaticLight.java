@@ -104,7 +104,7 @@ public class WandOfPrismaticLight extends DamageWand {
 	}
 
 	private void affectTarget(Char ch){
-		int dmg = damageRoll();
+		int dmg = Wand.spellAmplify(damageRoll());
 
 		//three in (5+lvl) chance of failing
 		if (Random.Int(5+buffedLvl()) >= 3) {

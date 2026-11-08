@@ -410,7 +410,7 @@ public class WandOfWarding extends Wand {
 			spend( 1f );
 
 			//always hits
-			int dmg = Hero.heroDamageIntRange( 2 + wandLevel, 8 + 4*wandLevel );
+			int dmg = Wand.spellAmplify(Hero.heroDamageIntRange( 2 + wandLevel, 8 + 4*wandLevel ));
 			Char enemy = this.enemy;
 			enemy.damage( dmg, this );
 			if (enemy.isAlive()){

@@ -47,7 +47,6 @@ import pd.items.equipment.bags.Bag;
 import pd.items.equipment.bags.ScrollHolder;
 import pd.items.misc.SkillOfAtk;
 import pd.items.misc.SkillOfDef;
-import pd.items.misc.SkillOfMig;
 import pd.items.equipment.rings.RingOfEnergy;
 import pd.items.consum.scrolls.Scroll;
 import pd.items.consum.scrolls.ScrollOfIdentify;
@@ -243,10 +242,8 @@ public class UnstableSpellbook extends Artifact {
 			GLog.w(Messages.get(SkillOfDef.class, "skillup"));
 		}
 		if (songLevel >= 10) {
-			hero.improveMagicSkill(1);
 			Buff.affect(hero, Invisibility.class, songLevel * 10f);
 			Buff.affect(hero, HasteBuff.class, songLevel * 3f);
-			GLog.w(Messages.get(SkillOfMig.class, "skillup"));
 		}
 		hero.spendAndNext(1f);
 		detach(hero.belongings.backpack);

@@ -84,7 +84,7 @@ public class WandOfShatteredFireblast extends DamageWand {
 			Char target = Actor.findChar(cell);
 			if (target != null) {
 				wandProc(target, chargesPerCast());
-				target.damage(damageRoll(), this);
+				target.damage(Wand.spellAmplify(damageRoll()), this);
 				if (target.isActive()) {
 					Buff.affect(target, Burning.class).reignite(target);
 					if (chargesPerCast() == 2) Buff.affect(target, Cripple.class, 4f);

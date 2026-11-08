@@ -141,7 +141,7 @@ public class WandOfBlackMeow extends Wand {
 		public int defenseProc(Char enemy, int damage) {
 			int maximum = retaliationMax(wandLevel);
 			if (maximum > 0) {
-				enemy.damage(Random.IntRange(1, maximum),
+				enemy.damage(Wand.spellAmplify(Random.IntRange(1, maximum)),
 						pd.actors.damagetype.DamageType.LIGHT_DAMAGE);
 			}
 			return super.defenseProc(enemy, damage);

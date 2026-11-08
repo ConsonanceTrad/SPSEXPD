@@ -193,7 +193,7 @@ public class WandOfTCloud extends Wand {
 				if (Dungeon.level.water[enemy.pos] && !enemy.flying) {
 					damage = (int)(damage * 1.5f);
 				}
-				enemy.damage(damage, this);
+				enemy.damage(Wand.spellAmplify(damage), this);
 				if (enemy.sprite != null && enemy.sprite.visible) {
 					enemy.sprite.centerEmitter().burst(SparkParticle.FACTORY, 3);
 					enemy.sprite.flash();

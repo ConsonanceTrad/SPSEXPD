@@ -170,7 +170,8 @@ public final class SpsChallengeRewardsTest {
 	private static void checkGoldenNut() {
 		Hero fortified = new Hero();
 		new TestGoldenNut().apply(fortified, 0);
-		check(fortified.HTBoost == 40 && fortified.STR == 11 && fortified.magicSkill() == 1,
+		check(fortified.HTBoost == 40 && fortified.STR == 11 && fortified.magicSkill() == 0,
+				//SPSEXPD: 金色坚果全能力分支不再提供法强（法强唯一来源=法术之瓶）
 				"金色坚果全能力分支错误");
 		Hero strong = new Hero();
 		new TestGoldenNut().apply(strong, 1);

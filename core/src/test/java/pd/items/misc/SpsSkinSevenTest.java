@@ -150,7 +150,8 @@ public final class SpsSkinSevenTest {
 		Pylon pylon = h.belongings.getItem(Pylon.class);
 		check(h.belongings.weapon instanceof NinjaFan && h.belongings.armor instanceof RenBArmor
 				&& h.belongings.artifact instanceof DriedRose && pylon != null && pylon.isEquipped(h)
-				&& has(h, WandOfFirebolt.class) && has(h, JumpW.class) && h.magicSkill() == 3,
+				&& has(h, WandOfFirebolt.class) && has(h, JumpW.class) && h.magicSkill() == 0,
+				//SPSEXPD: 各职业不再开局自带法强
 				"皮肤7谋士开局错误");
 	}
 

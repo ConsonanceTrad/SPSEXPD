@@ -119,7 +119,7 @@ public final class SpsSkinSixTest {
 		check(h.belongings.weapon instanceof ShortSword
 				&& h.belongings.armor instanceof pd.items.equipment.armor.normalarmor.ClothArmor
 				&& has(h, GnollMark.class) && has(h, WandOfLight.class) && has(h, JumpW.class)
-				&& h.magicSkill() == 3, "皮肤6法师开局错误");
+				&& h.magicSkill() == 0, "皮肤6法师开局错误");
 
 		h = start(HeroClass.ROGUE);
 		check(h.STR == Hero.STARTING_STR + 2 && h.belongings.weapon instanceof EleKatana
@@ -140,7 +140,7 @@ public final class SpsSkinSixTest {
 				&& has(h, PPC2.class) && has(h, JumpP.class), "皮肤6演员开局错误");
 
 		h = start(HeroClass.SOLDIER);
-		check(h.HTBoost == 5 && h.STR == Hero.STARTING_STR + 6 && h.magicSkill() == 5
+		check(h.HTBoost == 5 && h.STR == Hero.STARTING_STR + 6 && h.magicSkill() == 0
 				&& h.belongings.weapon instanceof WoodenStaff && h.belongings.armor instanceof BaseArmor
 				&& has(h, ShootGun.class) && has(h, JumpS.class), "皮肤6星兵开局错误");
 
@@ -149,7 +149,7 @@ public final class SpsSkinSixTest {
 				&& quantity(h, Skull.class) == 5 && h.belongings.getAllItems(Ankh.class).size() == 2 && has(h, JumpF.class), "皮肤6信徒开局错误");
 
 		h = start(HeroClass.ASCETIC);
-		check(h.magicSkill() == 3 && has(h, JumpA.class) == false
+		check(h.magicSkill() == 0 && has(h, JumpA.class) == false
 				&& has(h, pd.items.consum.food.completefood.FruitCandy.class), "皮肤6苦修者公共开局错误");
 	}
 

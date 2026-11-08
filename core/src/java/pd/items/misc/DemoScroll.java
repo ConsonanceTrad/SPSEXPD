@@ -90,9 +90,10 @@ public class DemoScroll extends Item {
 				GLog.w(Messages.get(this, "evaup"));
 				break;
 			default:
-				hero.improveMagicSkill(1);
+				hero.HTBoost += 10;
+				hero.updateHT(true);
 				Buff.affect(hero, Recharging.class, 50f);
-				GLog.w(Messages.get(this, "migup"));
+				GLog.w(Messages.get(this, "htup"));
 				break;
 		}
 

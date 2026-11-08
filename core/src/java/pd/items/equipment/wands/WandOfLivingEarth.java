@@ -151,7 +151,7 @@ public class WandOfLivingEarth extends DamageWand {
 				ch.sprite.centerEmitter().burst(MagicMissile.EarthParticle.BURST, 5 + buffedLvl()/2);
 
 				wandProc(ch, chargesPerCast());
-				ch.damage(damage, this);
+				ch.damage(Wand.spellAmplify(damage), this);
 
 				int closest = -1;
 				boolean[] passable = Dungeon.level.passable;
@@ -197,7 +197,7 @@ public class WandOfLivingEarth extends DamageWand {
 				ch.sprite.centerEmitter().burst(MagicMissile.EarthParticle.BURST, 5 + buffedLvl() / 2);
 
 				wandProc(ch, chargesPerCast());
-				ch.damage(damage, this);
+				ch.damage(Wand.spellAmplify(damage), this);
 				Sample.INSTANCE.play( Assets.Sounds.HIT_MAGIC, 1, 0.8f * Random.Float(0.87f, 1.15f) );
 				
 				if (guardian == null) {

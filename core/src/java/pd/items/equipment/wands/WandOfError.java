@@ -88,7 +88,7 @@ public class WandOfError extends Wand {
 			case 1:
 				if (target != null) {
 					boolean moonFury = Dungeon.hero.buff(MoonFury.class) != null;
-					target.damage(quarterLifeDamage(target.HT, moonFury), this);
+					target.damage(Wand.spellAmplify(quarterLifeDamage(target.HT, moonFury)), this);
 					if (moonFury) Buff.detach(Dungeon.hero, MoonFury.class);
 				}
 				break;

@@ -183,7 +183,6 @@ public class Pylon extends Artifact {
 		hero.HTBoost += 5;
 		hero.improveAttackSkill(1);
 		hero.improveDefenseSkill(1);
-		hero.improveMagicSkill(1);
 		level(0);
 		hero.updateHT(true);
 		if (hero.sprite != null) hero.sprite.showStatus(CharSprite.POSITIVE, Messages.get(this, "rankup"));

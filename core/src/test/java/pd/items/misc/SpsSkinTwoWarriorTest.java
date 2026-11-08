@@ -171,7 +171,7 @@ public final class SpsSkinTwoWarriorTest {
 		check(hero.permanentHT() == 66 && hero.HT == 66 && hero.HP == 66, "皮肤2战士初始生命错误");
 		check(hero.STR == Hero.STARTING_STR - 4, "皮肤2战士初始力量错误");
 		check(stats.getInt("attackSkill") == 6 && stats.getInt("defenseSkill") == 6
-				&& stats.getInt("magicSkill") == 6, "皮肤2战士三项技能错误");
+				&& stats.getInt("magicSkill") == 0, "皮肤2战士三项技能错误");
 		check(Dungeon.gold == 666, "皮肤2战士初始金币错误");
 		check(hero.belongings.weapon == null, "皮肤2战士错误装备了近战武器");
 		check(hero.belongings.armor instanceof BaseArmor && hero.belongings.armor.level() == 6
@@ -208,7 +208,7 @@ public final class SpsSkinTwoWarriorTest {
 		Bundle stats = stored(hero);
 		check(hero.permanentHT() == 20 && hero.HT == 20 && hero.HP == 20, "皮肤2法师初始生命错误");
 		check(stats.getInt("attackSkill") == 5 && stats.getInt("defenseSkill") == 7
-				&& stats.getInt("magicSkill") == 6, "皮肤2法师三项技能错误");
+				&& stats.getInt("magicSkill") == 0, "皮肤2法师三项技能错误");
 		check(hero.belongings.weapon instanceof Dagger && hero.belongings.armor instanceof VestArmor,
 				"皮肤2法师匕首或背心错误");
 		check(levelOf(hero, WandOfFirebolt.class) == 1 && levelOf(hero, WandOfFreeze.class) == 1
@@ -242,9 +242,10 @@ public final class SpsSkinTwoWarriorTest {
 				"恶魔契约没有执行每级一次的鲜血交易");
 		check(hero.permanentHT() == oldPermanentHT - 3 && hero.HP == oldHP - 3,
 				"鲜血交易没有按灵能+1同时扣除当前生命与永久生命");
+		//SPSEXPD: 血交易法强档位已改为 +10 生命上限，仍仅提升一项
 		int increases = (after.getInt("attackSkill") - before.getInt("attackSkill"))
-				+ (after.getInt("defenseSkill") - before.getInt("defenseSkill"))
-				+ (after.getInt("magicSkill") - before.getInt("magicSkill"));
+				+ (after.getInt("defenseSkill") - before.getInt("defenseSkill"));
+		if (improved == 2) increases += (after.getInt("htboost") - before.getInt("htboost")) / 10;
 		check(increases == 1, "鲜血交易没有永久提升且仅提升一项技能");
 		check((improved == 0 && hero.buff(Muscle.class) != null)
 				|| (improved == 1 && hero.buff(Rhythm.class) != null)
@@ -387,7 +388,7 @@ public final class SpsSkinTwoWarriorTest {
 		Bundle stats = stored(hero);
 		check(hero.permanentHT() == 10 && hero.HT == 10 && hero.HP == 10, "皮肤2盗贼初始生命错误");
 		check(stats.getInt("attackSkill") == 10 && stats.getInt("defenseSkill") == 8
-				&& stats.getInt("magicSkill") == 3, "皮肤2盗贼三项技能错误");
+				&& stats.getInt("magicSkill") == 0, "皮肤2盗贼三项技能错误");
 		check(hero.stealth() == 14f, "皮肤2盗贼潜行加成错误：" + hero.stealth());
 		check(hero.belongings.weapon instanceof pd.items.equipment.weapon.melee.normalweapon.Dagger
 				&& hero.belongings.armor instanceof pd.items.equipment.armor.normalarmor.ClothArmor,
@@ -608,7 +609,7 @@ public final class SpsSkinTwoWarriorTest {
 		Bundle stats = stored(hero);
 		check(hero.permanentHT() == 20 && hero.HT == 20 && hero.HP == 20, "皮肤2演员初始生命错误");
 		check(hero.STR == Hero.STARTING_STR + 4 && stats.getInt("attackSkill") == 10
-				&& stats.getInt("defenseSkill") == 10 && stats.getInt("magicSkill") == 3,
+				&& stats.getInt("defenseSkill") == 10 && stats.getInt("magicSkill") == 0,
 				"皮肤2演员属性错误");
 		check(Dungeon.LimitedDrops.STRENGTH_POTIONS.count == 4, "皮肤2演员力量药剂补偿错误");
 		check(hero.belongings.weapon instanceof HolyWater && hero.belongings.armor instanceof BaseArmor,
@@ -711,7 +712,7 @@ public final class SpsSkinTwoWarriorTest {
 		Bundle stats = stored(hero);
 		check(hero.permanentHT() == 35 && hero.HT == 35 && hero.HP == 35, "皮肤2星兵初始生命错误");
 		check(hero.STR == Hero.STARTING_STR + 6 && stats.getInt("attackSkill") == 4
-				&& stats.getInt("defenseSkill") == -28 && stats.getInt("magicSkill") == 5,
+				&& stats.getInt("defenseSkill") == -28 && stats.getInt("magicSkill") == 0,
 				"皮肤2星兵属性错误");
 		check(Dungeon.LimitedDrops.STRENGTH_POTIONS.count == 6, "皮肤2星兵力量药剂补偿错误");
 		check(hero.belongings.weapon instanceof GunC && hero.belongings.armor instanceof BaseArmor,
@@ -832,9 +833,9 @@ public final class SpsSkinTwoWarriorTest {
 				"满级水晶塔无法耗竭升阶或没有增加5点永久生命");
 		Bundle after = stored(hero);
 		check(after.getInt("attackSkill") == before.getInt("attackSkill") + 1
-				&& after.getInt("defenseSkill") == before.getInt("defenseSkill") + 1
-				&& after.getInt("magicSkill") == before.getInt("magicSkill") + 1,
-				"水晶塔升阶没有永久提高命中、闪避和魔法能力");
+				&& after.getInt("defenseSkill") == before.getInt("defenseSkill") + 1,
+				//SPSEXPD: 水晶塔升阶不再永久提高法强（法强唯一来源=法术之瓶）
+				"水晶塔升阶没有永久提高命中和闪避");
 
 		TestMob target = mobAt(level, CENTER + 2);
 		int oldPos = target.pos;

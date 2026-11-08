@@ -217,8 +217,8 @@ public final class SpsSkinFourTesterTest {
 		Bundle after = stored(hero);
 		check(hero.permanentHT() == oldPermanentHT + 1
 				&& after.getInt("attackSkill") == before.getInt("attackSkill") + 1
-				&& after.getInt("defenseSkill") == before.getInt("defenseSkill") + 1
-				&& after.getInt("magicSkill") == before.getInt("magicSkill") + 1,
+				&& after.getInt("defenseSkill") == before.getInt("defenseSkill") + 1,
+				//SPSEXPD: 报酬清单全属性提升不再包含法强（法强唯一来源=法术之瓶）
 				"报酬清单全属性提升结果错误");
 	}
 

@@ -56,7 +56,7 @@ public class WandOfFreeze extends DamageWand {
 	public void onZap(Ballistica bolt) {
 		Char target = Actor.findChar(bolt.collisionPos);
 		if (target != null) {
-			int damage = damageRoll();
+			int damage = Wand.spellAmplify(damageRoll());
 			if (target.buff(Frost.class) != null) return;
 
 			wandProc(target, chargesPerCast());

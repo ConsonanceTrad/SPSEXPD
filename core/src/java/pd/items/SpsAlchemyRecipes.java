@@ -47,6 +47,12 @@ public final class SpsAlchemyRecipes {
 	public static final TypedRecipe RATION_TO_SMALL = recipe(3, OverpricedRation.class,
 			NormalRation.class, NormalRation.class);
 
+	/** SPSEXPD: 力量之瓶 ↔ 法术之瓶互换（双向各耗 2 瓶炼金能量），法术之瓶由此并入主流获取途径。 */
+	public static final TypedRecipe STR_TO_SPELL_BOTTLE = recipe(pd.items.SpellBottle.class,
+			StrBottle.class, pd.items.consum.materials.EnergyFlask.class, pd.items.consum.materials.EnergyFlask.class);
+	public static final TypedRecipe SPELL_TO_STR_BOTTLE = recipe(StrBottle.class,
+			pd.items.SpellBottle.class, pd.items.consum.materials.EnergyFlask.class, pd.items.consum.materials.EnergyFlask.class);
+
 	/** SPSEXPD: 通用确定性配方：产物 + 若干输入，数量与顺序无关全匹配。 */
 	public static final class TypedRecipe extends Recipe {
 		private final Class<?>[] inputs;
@@ -191,7 +197,10 @@ public final class SpsAlchemyRecipes {
 			//SPSEXPD: 通用弹匣 —— 原石 + 暗金矿（枪械弹药，见 pd.items.Magazine）
 			recipe(Magazine.class, StoneOre.class, DarkGold.class),
 			//SPSEXPD: 许愿魔药——混乱药剂 + 4 种二次加工产物
-			WISH_POTION
+			WISH_POTION,
+			//SPSEXPD: 力量之瓶 ↔ 法术之瓶互换（双向各耗 2 瓶炼金能量）
+			STR_TO_SPELL_BOTTLE,
+			SPELL_TO_STR_BOTTLE
 	);
 
 

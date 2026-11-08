@@ -58,7 +58,12 @@ public final class FloorFeeling {
 				}
 				if (Dungeon.posNeeded() && !Dungeon.shopOnLevel()) {
 					Dungeon.LimitedDrops.STRENGTH_POTIONS.count++;
-					GroundItems.addItemToSpawn( level, new StrBottle());
+					//SPSEXPD: 永久力量/法强共享同一限量掉落通道，二选一随机发放
+					if (Random.Int(2) == 0) {
+						GroundItems.addItemToSpawn( level, new StrBottle());
+					} else {
+						GroundItems.addItemToSpawn( level, new pd.items.SpellBottle());
+					}
 				}
 				if (Random.Float() < LuckyBadge.rareRewardChance(LuckyBadge.luckBonus(Dungeon.hero))) {
 					//SPSEXPD: 稀有奖励改三选一，升级/魔力灌注卷轴作为高稀有刷新物
@@ -77,10 +82,15 @@ public final class FloorFeeling {
 							new PotionOfHealing()) );
 				}
 
-				//SPSEXPD: 永久力量一律来自力量之瓶（力量药剂已改为临时力量道具，走随机药水池）
+				//SPSEXPD: 永久力量/法强一律来自力量之瓶/法术之瓶（力量药剂已改为临时力量道具，走随机药水池），
+				// 两者共享同一限量掉落通道，二选一随机发放
 				if (Dungeon.posNeeded() && !Dungeon.shopOnLevel()) {
 					Dungeon.LimitedDrops.STRENGTH_POTIONS.count++;
-					GroundItems.addItemToSpawn( level, new StrBottle() );
+					if (Random.Int(2) == 0) {
+						GroundItems.addItemToSpawn( level, new StrBottle() );
+					} else {
+						GroundItems.addItemToSpawn( level, new pd.items.SpellBottle() );
+					}
 				}
 				//SPSEXPD: 升级卷轴保底（souNeeded/UPGRADE_SCROLLS）已移除，升级/魔力灌注卷轴
 				// 改为高稀有刷新物：SCROLL 池权重 3（与嬗变相同）随机刷新，商店走随机卷轴格；

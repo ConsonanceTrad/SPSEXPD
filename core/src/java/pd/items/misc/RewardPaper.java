@@ -142,13 +142,13 @@ public class RewardPaper extends Item {
 		} else if (roll == 47) {
 			hero.improveDefenseSkill(1);
 		} else if (roll == 48) {
-			hero.improveMagicSkill(1);
+			hero.HTBoost++;
+			hero.updateHT(true);
 		} else if (roll == 49) {
 			hero.HTBoost++;
 			hero.updateHT(true);
 			hero.improveAttackSkill(1);
 			hero.improveDefenseSkill(1);
-			hero.improveMagicSkill(1);
 		}
 		hero.spendAndNext(1f);
 		return true;

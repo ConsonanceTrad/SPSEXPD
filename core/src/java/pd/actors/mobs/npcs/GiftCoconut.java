@@ -21,7 +21,7 @@ public class GiftCoconut extends GiftNpc {
 			.t("reward1", "新鲜的炸弹在此。")
 			.t("reward2", "这是新的命中药水，尝一下吧。")
 			.t("reward3", "这是新的闪避凝胶，擦一下吧。")
-			.t("reward4", "这是新的法强发蜡，涂一下吧。")
+			.t("reward4", "这是滋补的人参汤，趁热喝吧。")
 			.t("reward5", "这是杠铃，这是火堆，来，举重吧。");
 	}
 
@@ -37,7 +37,7 @@ public class GiftCoconut extends GiftNpc {
 		switch (friendship()) {
 			case 30: hero.improveAttackSkill(1); return result("reward2");
 			case 50: hero.improveDefenseSkill(1); return result("reward3");
-			case 70: hero.improveMagicSkill(1); return result("reward4");
+			case 70: hero.HTBoost += 10; hero.updateHT(true); return result("reward4");
 			case 100: hero.STR++; return result("reward5");
 			default:
 				return friendship() % 40 == 0 ? result("reward1", new DungeonBomb()) : result("thank1");
