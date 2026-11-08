@@ -345,6 +345,10 @@ public class MeleeWeapon extends Weapon {
 		String statsInfo = statsInfo();
 		if (!statsInfo.equals("")) info += "\n\n" + statsInfo;
 
+		//SPSEXPD: 伤害类型描述行（伤害类型体系定稿）——未收录类型令牌的武器不显示
+		String weaponKindInfo = pd.actors.damagetype.DamageKindText.weaponKindInfo(this);
+		if (!weaponKindInfo.equals("")) info += "\n\n" + weaponKindInfo;
+
 		switch (augment) {
 			case SPEED:
 				info += " " + Messages.get(Weapon.class, "faster");

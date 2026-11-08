@@ -499,6 +499,8 @@ public class GunWeapon extends SpsRangedWeapon implements SpsAutoFire {
 				+ Messages.get(GunWeapon.class, "stats_1",
 						archetype.displayName(), perfectSTR, min(), max())
 				+ "\n\n"
+				//SPSEXPD: 伤害类型描述行（伤害类型体系定稿）——未收录类型令牌的枪械不显示
+				+ pd.actors.damagetype.DamageKindText.weaponKindInfo(this) + "\n\n"
 				+ Messages.get(GunWeapon.class, "stats_2", num(shotBuffer(Dungeon.hero)))
 				+ "\n\n"
 				+ Messages.get(GunWeapon.class, "stats_3", fullCharge, shotsPerFire, num(baseReloadTime), effectiveRange)
