@@ -126,6 +126,16 @@ public final class FloorRegistry {
 		return def.anchorDepth;
 	}
 
+	/**
+	 * SPSEXPD: 楼层推进单点 —— 无 LevelTransition 的直接跳层（如社会升降器、
+	 * 飞轮坠落）统一用这里 ±1。分段支线的进出由各支线 Level 自己的
+	 * LevelTransition 定义；推进越出注册表分段时由 Dungeon.newLevel() 的
+	 * DeadEnd 兜底（与旧行为一致）。
+	 */
+	public static int stepDepth(int depth, int branch, boolean down) {
+		return down ? depth + 1 : depth - 1;
+	}
+
 	// ————————————————————— 登记区 ————————————————————— //
 
 	//主线的 boss/商人层公式（每章 8 层：第 7 层 boss，第 8/16/24/32 层与 0 层为商人层）

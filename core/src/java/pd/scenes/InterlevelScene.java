@@ -696,7 +696,9 @@ public class InterlevelScene extends PixelScene {
 			Dungeon.switchLevel( level, -1 );
 		} else {
 			//SPS: 社会升降器等没有 transition 的直接跳层，此时按当前深度向下推进一层
-			int destDepth = curTransition != null ? curTransition.destDepth : Dungeon.depth + 1;
+			int destDepth = curTransition != null ? curTransition.destDepth
+					//SPSEXPD: 推进单点走楼层注册表（见 FloorRegistry.stepDepth）
+					: FloorRegistry.stepDepth(Dungeon.depth, Dungeon.branch, true);
 			int destBranch = curTransition != null ? curTransition.destBranch : Dungeon.branch;
 			LevelTransition.Type destType = curTransition != null ? curTransition.destType : null;
 
@@ -745,7 +747,8 @@ public class InterlevelScene extends PixelScene {
 		Dungeon.saveAll();
 
 		Level level;
-		Dungeon.depth++;
+		//SPSEXPD: 推进单点走楼层注册表（见 FloorRegistry.stepDepth）
+		Dungeon.depth = FloorRegistry.stepDepth(Dungeon.depth, Dungeon.branch, true);
 		if (Dungeon.levelHasBeenGenerated(Dungeon.depth, Dungeon.branch)) {
 			level = Dungeon.loadLevel( GamesInProgress.curSlot );
 		} else {
@@ -756,7 +759,9 @@ public class InterlevelScene extends PixelScene {
 
 	private void ascend() throws IOException {
 		//SPS: 社会升降器等没有 transition 的直接跳层，此时按当前深度向上推进一层
-		int destDepth = curTransition != null ? curTransition.destDepth : Dungeon.depth - 1;
+		int destDepth = curTransition != null ? curTransition.destDepth
+				//SPSEXPD: 推进单点走楼层注册表（见 FloorRegistry.stepDepth）
+				: FloorRegistry.stepDepth(Dungeon.depth, Dungeon.branch, false);
 		int destBranch = curTransition != null ? curTransition.destBranch : Dungeon.branch;
 		LevelTransition.Type destType = curTransition != null ? curTransition.destType : null;
 
