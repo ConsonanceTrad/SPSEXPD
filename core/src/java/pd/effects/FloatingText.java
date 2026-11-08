@@ -74,82 +74,161 @@ public class FloatingText extends RenderedTextBlock {
 	public static final int ICON_HEIGHT = 8;
 	public static TextureFilm iconFilm = new TextureFilm( Assets.Effects.TEXT_ICONS, ICON_WIDTH, ICON_HEIGHT );
 
-	public static int NO_ICON   = -1;
-
-	//SPSEXPD: 无对应贴图的伤害类型用纯色小方块——iconIdx >= SOLID_ICON_BASE 时取 SOLID_COLORS[idx - BASE]
-	public static final int SOLID_ICON_BASE = 1000;
-	/** SPSEXPD: 纯色图标配色表，按 Element.ordinal() 索引（仅贴图缺项时使用，过渡方案）。 */
-	private static final int[] SOLID_COLORS = {
-			0xFF44CCFF, // ENERGY 能量
-			0xFFFF5522, // FIRE 火
-			0xFF66CCFF, // ICE 冰
-			0xFFFFFF44, // SHOCK 雷
-			0xFFAA8844, // EARTH 地
-			0xFFFFFFCC, // LIGHT 光
-			0xFF8844AA, // DARK 暗
-			0xFF88DDBB, // WIND 风
-			0xFFDD44AA, // CHAOS 混乱
+	//extra/reason 帧表（与 tools/atlas-meta/effects/**/_atlas.json 顺序一致，勿手改，
+	//由 gen-atlas-dict.ps1 生成字典；此表为运行时按帧序引用的固定排布）
+	private static final pd.atlas.IconEntry[] EXTRA_TABLE = {
+			pd.atlas.effects.TextIconsExtraDict.PIERCE,
+			pd.atlas.effects.TextIconsExtraDict.BLUNT,
+			pd.atlas.effects.TextIconsExtraDict.SLASH,
+			pd.atlas.effects.TextIconsExtraDict.IMPACT,
+			pd.atlas.effects.TextIconsExtraDict.CRUSH,
+			pd.atlas.effects.TextIconsExtraDict.CURSE,
+			pd.atlas.effects.TextIconsExtraDict.PURE,
+			pd.atlas.effects.TextIconsExtraDict.ENERGY_DMG,
+			pd.atlas.effects.TextIconsExtraDict.FIRE,
+			pd.atlas.effects.TextIconsExtraDict.ICE,
+			pd.atlas.effects.TextIconsExtraDict.SHOCK,
+			pd.atlas.effects.TextIconsExtraDict.LIGHT,
+			pd.atlas.effects.TextIconsExtraDict.POISON,
+			pd.atlas.effects.TextIconsExtraDict.ACID,
+			pd.atlas.effects.TextIconsExtraDict.HEAL_DAMAGE,
+			pd.atlas.effects.TextIconsExtraDict.INTERFERE,
+			pd.atlas.effects.TextIconsExtraDict.HUNGER_DAMAGE,
+			pd.atlas.effects.TextIconsExtraDict.DISEASE,
+			pd.atlas.effects.TextIconsExtraDict.BACKLASH,
+			pd.atlas.effects.TextIconsExtraDict.HEALING,
+			pd.atlas.effects.TextIconsExtraDict.SHIELDING,
+			pd.atlas.effects.TextIconsExtraDict.EXPERIENCE,
+			pd.atlas.effects.TextIconsExtraDict.STRENGTH,
+			pd.atlas.effects.TextIconsExtraDict.GOLD,
+			pd.atlas.effects.TextIconsExtraDict.ALCHEMY_ENERGY,
+			pd.atlas.effects.TextIconsExtraDict.PERFECT_DODGE,
+			pd.atlas.effects.TextIconsExtraDict.BLOCK
+	};
+	private static final pd.atlas.IconEntry[] REASON_TABLE = {
+			pd.atlas.effects.TextIconsReasonDict.REASON_ARM,
+			pd.atlas.effects.TextIconsReasonDict.REASON_BLS,
+			pd.atlas.effects.TextIconsReasonDict.REASON_SUPR,
+			pd.atlas.effects.TextIconsReasonDict.REASON_DAZE,
+			pd.atlas.effects.TextIconsReasonDict.REASON_HIT_ACC,
+			pd.atlas.effects.TextIconsReasonDict.REASON_MISS_ACC,
+			pd.atlas.effects.TextIconsReasonDict.REASON_HEX,
+			pd.atlas.effects.TextIconsReasonDict.REASON_DANCE,
+			pd.atlas.effects.TextIconsReasonDict.REASON_EVA,
+			pd.atlas.effects.TextIconsReasonDict.REASON_HIT_WEP,
+			pd.atlas.effects.TextIconsReasonDict.REASON_MISS_WEP,
+			pd.atlas.effects.TextIconsReasonDict.REASON_DEF,
+			pd.atlas.effects.TextIconsReasonDict.REASON_TUFT,
+			pd.atlas.effects.TextIconsReasonDict.REASON_RUN
 	};
 
-	//combat damage icons
-	public static int PHYS_DMG          = 0;
-	public static int PHYS_DMG_NO_BLOCK = 1;
-	public static int MAGIC_DMG         = 2;
-	public static int PICK_DMG          = 3;
+	//SPSEXPD: 新图标体系（伤害类型体系定稿）——
+	//帧引用编码为 (set << ICON_SET_SHIFT) | index；set0=text_icons_extra、set1=text_icons_reason。
+	//旧 text_icons.png 的伤害段帧全部退役（金/能量/正面/原因帧全部迁入新图集）。
+	public static final int ICON_SET_EXTRA  = 0;
+	public static final int ICON_SET_REASON = 1;
+	public static final int ICON_SET_SHIFT  = 8;
 
-	//debuff/dot damage icons
-	public static int HUNGER    = 5;
-	public static int BURNING   = 6;
-	public static int SHOCKING  = 7;
-	public static int FROST     = 8;
-	public static int WATER     = 9;
-	public static int BLEEDING  = 10;
-	public static int TOXIC     = 11;
-	public static int CORROSION = 12;
-	public static int POISON    = 13;
-	public static int OOZE      = 14;
-	public static int DEFERRED  = 15;
-	public static int CORRUPTION= 16;
-	public static int AMULET    = 17;
+	public static int NO_ICON = -1;
+
+	//extra 帧序（与 tools/atlas-meta/effects/text_icons_extra/_atlas.json 一致）
+	private static final int IDX_PIERCE = 0, IDX_BLUNT = 1, IDX_SLASH = 2, IDX_IMPACT = 3, IDX_CRUSH = 4;
+	private static final int IDX_CURSE = 5, IDX_PURE = 6, IDX_ENERGY_DMG = 7;
+	private static final int IDX_FIRE = 8, IDX_ICE = 9, IDX_SHOCK = 10, IDX_LIGHT = 11, IDX_POISON = 12, IDX_ACID = 13;
+	private static final int IDX_HEAL_DMG = 14, IDX_INTERFERE = 15, IDX_HUNGER = 16, IDX_DISEASE = 17, IDX_BACKLASH = 18;
+	private static final int IDX_HEALING = 19, IDX_SHIELDING = 20, IDX_EXPERIENCE = 21, IDX_STRENGTH = 22;
+	private static final int IDX_GOLD = 23, IDX_ALCHEMY_ENERGY = 24, IDX_PERFECT_DODGE = 25, IDX_BLOCK = 26;
+
+	//reason 帧序（与 tools/atlas-meta/effects/text_icons_reason/_atlas.json 一致）
+	private static final int R_ARM = 0, R_BLS = 1, R_SUPR = 2, R_DAZE = 3, R_HIT_ACC = 4, R_MISS_ACC = 5;
+	private static final int R_HEX = 6, R_DANCE = 7, R_EVA = 8, R_HIT_WEP = 9, R_MISS_WEP = 10;
+	private static final int R_DEF = 11, R_TUFT = 12, R_RUN = 13;
+
+	private static int extra( int idx ) { return (ICON_SET_EXTRA << ICON_SET_SHIFT) | idx; }
+	private static int reason( int idx ) { return (ICON_SET_REASON << ICON_SET_SHIFT) | idx; }
+
+	//combat damage icons（伤害类型仲裁链 F3 使用；名字保持旧引用兼容）
+	//旧「普通物理/免甲物理」两档替换链在 F3 改为类型仲裁 + reason 拼接
+	public static int PHYS_DMG         = extra( IDX_BLUNT );   //过渡 fallback：未细分物理按钝击帧
+	public static int PHYS_DMG_NO_BLOCK = extra( IDX_PURE );   //纯粹/免甲档
+	public static int MAGIC_DMG        = extra( IDX_ENERGY_DMG );
+	public static int PICK_DMG         = extra( IDX_PIERCE );
+
+	//伤害类型帧（新体系）
+	public static int PUNCTURE_DMG   = extra( IDX_PIERCE );
+	public static int BLUNT_DMG      = extra( IDX_BLUNT );
+	public static int SLASH_DMG      = extra( IDX_SLASH );
+	public static int IMPACT_DMG     = extra( IDX_IMPACT );
+	public static int CRUSH_DMG      = extra( IDX_CRUSH );
+	public static int CURSE_DMG      = extra( IDX_CURSE );
+	public static int PURE_DMG       = extra( IDX_PURE );
+	public static int ENERGY_DMG_I   = extra( IDX_ENERGY_DMG );
+	public static int FIRE_DMG_I     = extra( IDX_FIRE );
+	public static int ICE_DMG_I      = extra( IDX_ICE );
+	public static int SHOCK_DMG_I    = extra( IDX_SHOCK );
+	public static int LIGHT_DMG_I    = extra( IDX_LIGHT );
+	public static int POISON_DMG_I   = extra( IDX_POISON );
+	public static int ACID_DMG_I     = extra( IDX_ACID );
+	public static int HEAL_DMG_I     = extra( IDX_HEAL_DMG );
+	public static int INTERFERE_DMG  = extra( IDX_INTERFERE );
+	public static int HUNGER_DMG_I   = extra( IDX_HUNGER );
+	public static int DISEASE_DMG    = extra( IDX_DISEASE );
+	public static int BACKLASH_DMG   = extra( IDX_BACKLASH );
+
+	//debuff/dot damage icons（归并入类型令牌帧）
+	public static int HUNGER    = extra( IDX_HUNGER );
+	public static int BURNING   = extra( IDX_FIRE );
+	public static int SHOCKING  = extra( IDX_SHOCK );
+	public static int FROST     = extra( IDX_ICE );
+	public static int WATER     = extra( IDX_IMPACT ); //间歇泉/风暴云 → 冲击
+	public static int BLEEDING  = extra( IDX_DISEASE );
+	public static int TOXIC     = extra( IDX_POISON );
+	public static int CORROSION = extra( IDX_ACID );
+	public static int POISON    = extra( IDX_POISON );
+	public static int OOZE      = extra( IDX_POISON );
+	public static int DEFERRED  = extra( IDX_PIERCE ); //F3 改为保留原伤害类型
+	public static int CORRUPTION= extra( IDX_CURSE );
+	public static int AMULET    = extra( IDX_BACKLASH );
 
 	//positive icons
-	public static int HEALING   = 18;
-	public static int SHIELDING = 19;
-	public static int EXPERIENCE= 20;
-	public static int STRENGTH  = 21;
+	public static int HEALING   = extra( IDX_HEALING );
+	public static int SHIELDING = extra( IDX_SHIELDING );
+	public static int EXPERIENCE= extra( IDX_EXPERIENCE );
+	public static int STRENGTH  = extra( IDX_STRENGTH );
 
 	//currency icons
-	public static int GOLD      = 23;
-	public static int ENERGY    = 24;
+	public static int GOLD      = extra( IDX_GOLD );
+	public static int ENERGY    = extra( IDX_ALCHEMY_ENERGY );
+	//SPSEXPD: 完全闪避/格挡（新帧位行5末尾）
+	public static int PERFECT_DODGE = extra( IDX_PERFECT_DODGE );
+	public static int BLOCK = extra( IDX_BLOCK );
 
-	//hit reason icons
-	public static int HIT_WEP   = 36;
-	public static int HIT_ARM   = 37;
-	public static int HIT_BLS   = 38;
-	public static int HIT_HEX   = 39;
-	public static int HIT_DAZE  = 40;
-	public static int HIT_ACC   = 41;
-	public static int HIT_EVA   = 42;
-	public static int HIT_LIQ   = 43;
-	public static int HIT_DANCE = 44;
-	public static int HIT_SUPR  = 45;
-	public static int HIT_PRES  = 46;
-	public static int HIT_MOMEN = 47;
-
-	//extra row for hit icons that are armor-piercing
+	//hit reason icons（迁入 text_icons_reason；HIT/MISS 共用帧按合并语义）
+	public static int HIT_WEP   = reason( R_HIT_WEP );
+	public static int HIT_ARM   = reason( R_ARM );
+	public static int HIT_BLS   = reason( R_BLS );
+	public static int HIT_HEX   = reason( R_HEX );
+	public static int HIT_DAZE  = reason( R_DAZE );
+	public static int HIT_ACC   = reason( R_HIT_ACC );
+	public static int HIT_EVA   = reason( R_EVA );
+	public static int HIT_LIQ   = reason( R_EVA );       //未绘帧借 EVA
+	public static int HIT_DANCE = reason( R_DANCE );
+	public static int HIT_SUPR  = reason( R_SUPR );
+	public static int HIT_PRES  = reason( R_DAZE );      //未绘帧借 DAZE
+	public static int HIT_MOMEN = reason( R_BLS );       //未绘帧借 BLS
 
 	//miss reason icons
-	public static int MISS_WEP  = 72;
-	public static int MISS_ARM  = 73;
-	public static int MISS_BLS  = 74;
-	public static int MISS_HEX  = 75;
-	public static int MISS_DAZE = 76;
-	public static int MISS_ACC  = 77;
-	public static int MISS_EVA  = 78;
-	public static int MISS_LIQ  = 79;
-	public static int MISS_DEF  = 80;
-	public static int MISS_TUFT = 81;
-	public static int MISS_RUN  = 82;
+	public static int MISS_WEP  = reason( R_MISS_WEP );
+	public static int MISS_ARM  = reason( R_ARM );
+	public static int MISS_BLS  = reason( R_BLS );
+	public static int MISS_HEX  = reason( R_HEX );
+	public static int MISS_DAZE = reason( R_DAZE );
+	public static int MISS_ACC  = reason( R_MISS_ACC );
+	public static int MISS_EVA  = reason( R_EVA );
+	public static int MISS_LIQ  = reason( R_EVA );       //未绘帧借 EVA
+	public static int MISS_DEF  = reason( R_DEF );
+	public static int MISS_TUFT = reason( R_TUFT );
+	public static int MISS_RUN  = reason( R_RUN );
 
 	private Image icon;
 	private boolean iconLeft;
@@ -239,22 +318,26 @@ public class FloatingText extends RenderedTextBlock {
 		text( text );
 		hardlight( color );
 
-		if (iconIdx >= SOLID_ICON_BASE){
-			//SPSEXPD: 该伤害类型没有对应贴图 → 用纯色小方块（尺寸与图标帧一致，可控）
-			int solid = Math.max(0, Math.min(SOLID_COLORS.length - 1, iconIdx - SOLID_ICON_BASE));
-			icon = new render.noosa.ColorBlock(ICON_WIDTH, ICON_HEIGHT, SOLID_COLORS[solid]);
-			add(icon);
-			iconLeft = left;
-			if (iconLeft){
-				align(RIGHT_ALIGN);
-			}
-		} else if (iconIdx != NO_ICON){
-			icon = new Image( Assets.Effects.TEXT_ICONS);
-			icon.frame(iconFilm.get(iconIdx));
-			add(icon);
-			iconLeft = left;
-			if (iconLeft){
-				align(RIGHT_ALIGN);
+		if (iconIdx != NO_ICON){
+			//SPSEXPD: 新图标体系 —— 按 (set<<8)|index 从两新图集取帧；12x12 帧显示缩放到 7x8
+			int set = (iconIdx >> ICON_SET_SHIFT) & 0x7F;
+			int idx = iconIdx & 0xFF;
+			pd.atlas.IconEntry entry = null;
+			if (set == ICON_SET_EXTRA && idx < EXTRA_TABLE.length)      entry = EXTRA_TABLE[idx];
+			else if (set == ICON_SET_REASON && idx < REASON_TABLE.length) entry = REASON_TABLE[idx];
+			if (entry != null){
+				icon = pd.atlas.AtlasReader.image(entry);
+				float rawW = icon.width(), rawH = icon.height();
+				if (rawW > ICON_WIDTH || rawH > ICON_HEIGHT){
+					icon.scale.set(ICON_WIDTH / rawW, ICON_HEIGHT / rawH);
+				}
+				add(icon);
+				iconLeft = left;
+				if (iconLeft){
+					align(RIGHT_ALIGN);
+				}
+			} else {
+				icon = null;
 			}
 		} else {
 			icon = null;
@@ -276,14 +359,18 @@ public class FloatingText extends RenderedTextBlock {
 	 * 用纯色小方块（{@link #SOLID_ICON_BASE}）。非元素/魔法来源返回 fallback，保持调用方原图标。
 	 */
 	public static int damageIconFor(Object src, int fallback) {
-		pd.actors.damagetype.Element element = pd.actors.damagetype.Element.of(src);
+		pd.actors.damagetype.Element element = pd.actors.damagetype.Element.canonicalOf(src);
 		if (element == null) return fallback;
 		switch (element) {
-			case FIRE:   return BURNING;
-			case ICE:    return FROST;
-			case SHOCK:  return SHOCKING;
-			case ENERGY: return ENERGY;
-			default:     return SOLID_ICON_BASE + element.ordinal();
+			case FIRE:   return FIRE_DMG_I;
+			case ICE:    return ICE_DMG_I;
+			case SHOCK:  return SHOCK_DMG_I;
+			case ENERGY: return ENERGY_DMG_I;
+			case LIGHT:  return LIGHT_DMG_I;
+			case POISON: return POISON_DMG_I;
+			case ACID:   return ACID_DMG_I;
+			//旧 EARTH/WIND 已归并到物理细分（钝/冲）——由物理族判定段另行出帧
+			default:     return fallback;
 		}
 	}
 

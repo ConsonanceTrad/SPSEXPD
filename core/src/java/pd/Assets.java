@@ -30,6 +30,9 @@ public class Assets {
 		public static final String SPS_SPECKS   = "effects/sps_specks.png";
 		public static final String SPELL_ICONS  = "effects/spell_icons.png";
 		public static final String TEXT_ICONS   = "effects/text_icons.png";
+		//SPSEXPD: 伤害细分/原因飘字图集（伤害类型体系定稿，12px 步长混合网格）
+		public static final String TEXT_ICONS_EXTRA   = "effects/text_icons_extra.png";
+		public static final String TEXT_ICONS_REASON  = "effects/text_icons_reason.png";
 	}
 
 	public static class Environment {
