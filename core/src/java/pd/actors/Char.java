@@ -201,6 +201,9 @@ import pd.items.equipment.weapon.enchantments.Kinetic;
 import pd.items.equipment.weapon.enchantments.Shocking;
 import pd.items.equipment.weapon.enchantments.Vorpal;
 import pd.items.equipment.weapon.melee.MeleeWeapon;
+//SPSEXPD: 格挡帧触发判定来源（圆盾完全防御/连击招架）
+import pd.items.equipment.weapon.melee.RoundShield;
+import pd.actors.buffs.Combo;
 import pd.items.equipment.weapon.melee.Sickle;
 import pd.items.equipment.weapon.missiles.MissileWeapon;
 import pd.levels.FieldOfView;
@@ -599,7 +602,7 @@ public abstract class Char extends Actor {
 				effectiveDamage = Math.max(effectiveDamage - dr, 0);
 
 				if (enemy.buff(Viscosity.ViscosityTracker.class) != null) {
-					effectiveDamage = enemy.buff(Viscosity.ViscosityTracker.class).deferDamage(effectiveDamage);
+					effectiveDamage = enemy.buff(Viscosity.ViscosityTracker.class).deferDamage(effectiveDamage, this);
 					enemy.buff(Viscosity.ViscosityTracker.class).detach();
 				}
 
@@ -709,7 +712,13 @@ public abstract class Char extends Actor {
 					}
 					hitMissIcon = -1;
 				} else {
-					enemy.sprite.showStatus(CharSprite.NEUTRAL, enemy.defenseVerb());
+					//SPSEXPD: 格挡帧 —— 圆盾完全防御 / 连击招架成功时用「格挡」图标
+					if (enemy.buff(RoundShield.GuardTracker.class) != null
+							|| enemy.buff(Combo.ParryTracker.class) != null){
+						enemy.sprite.showStatusWithIcon(CharSprite.NEUTRAL, enemy.defenseVerb(), FloatingText.BLOCK);
+					} else {
+						enemy.sprite.showStatus(CharSprite.NEUTRAL, enemy.defenseVerb());
+					}
 				}
 			}
 			if (visibleFight) {
@@ -1208,51 +1217,47 @@ public abstract class Char extends Actor {
 		}
 		
 		if (sprite != null) {
-			//defaults to normal damage icon if no other ones apply
-			int                                                         icon = FloatingText.PHYS_DMG;
-			if (NO_ARMOR_PHYSICAL_SOURCES.contains(src.getClass()))     icon = FloatingText.PHYS_DMG_NO_BLOCK;
-			if (AntiMagic.RESISTS.contains(src.getClass()))             icon = FloatingText.MAGIC_DMG;
-			if (src instanceof Pickaxe)                                 icon = FloatingText.PICK_DMG;
+			//SPSEXPD: 伤害类型图标仲裁链（伤害类型体系定稿）——
+			//Char 普攻按攻击者武器令牌出帧（镜像/雕像/幽灵同源），
+			//其余来源按 DamageKind.canonicalToken 归一（Buff/Blob/陷阱/DOT→类型令牌），
+			//未识别来源回退默认物理帧
+			int icon;
+			pd.actors.damagetype.DamageType iconToken = pd.actors.damagetype.DamageKind.iconToken(src);
+			if (iconToken == null && src instanceof pd.items.equipment.armor.glyphs.Viscosity.DeferedDamage){
+				//延迟伤害保原类型（记录在 DeferedDamage.srcKindName）
+				iconToken = pd.actors.damagetype.DamageKind.tokenBySimpleName(
+						((pd.items.equipment.armor.glyphs.Viscosity.DeferedDamage) src).srcKindName());
+			}
+			if (iconToken != null) {
+				icon = FloatingText.iconForToken(iconToken, FloatingText.PHYS_DMG);
+			} else if (src instanceof pd.items.quest.Pickaxe) {
+				//镐（环境挖掘伤害）归刺击
+				icon = FloatingText.PICK_DMG;
+			} else {
+				icon = FloatingText.damageIconFor(src, FloatingText.PHYS_DMG);
+			}
 
-			//special case for sniper when using ranged attacks
+			//SPSEXPD: 特例 ——狙击手远程射击/武僧徒手 = 纯粹/免甲档
 			if (src == Dungeon.hero
 					&& Dungeon.hero.subClass == HeroSubClass.SNIPER
 					&& !Dungeon.level.adjacent(Dungeon.hero.pos, pos)
 					&& Dungeon.hero.belongings.attackingWeapon() instanceof MissileWeapon){
 				icon = FloatingText.PHYS_DMG_NO_BLOCK;
 			}
-
-			//special case for monk using unarmed abilities
 			if (src == Dungeon.hero
 					&& Dungeon.hero.buff(MonkEnergy.MonkAbility.UnarmedAbilityTracker.class) != null){
 				icon = FloatingText.PHYS_DMG_NO_BLOCK;
 			}
 
-			if (src instanceof Hunger)                                  icon = FloatingText.HUNGER;
-			if (src instanceof Burning)                                 icon = FloatingText.BURNING;
-			if (src instanceof Chill || src instanceof Frost)           icon = FloatingText.FROST;
-			if (src instanceof GeyserTrap || src instanceof StormCloud) icon = FloatingText.WATER;
-			if (src instanceof Burning)                                 icon = FloatingText.BURNING;
-			if (src instanceof Electricity)                             icon = FloatingText.SHOCKING;
-			if (src instanceof Bleeding)                                icon = FloatingText.BLEEDING;
-			if (src instanceof ToxicGas)                                icon = FloatingText.TOXIC;
-			if (src instanceof Corrosion)                               icon = FloatingText.CORROSION;
-			if (src instanceof Poison)                                  icon = FloatingText.POISON;
-			if (src instanceof Ooze)                                    icon = FloatingText.OOZE;
-			if (src instanceof Viscosity.DeferedDamage)                 icon = FloatingText.DEFERRED;
-			if (src instanceof Corruption)                              icon = FloatingText.CORRUPTION;
-			if (src instanceof AscensionChallenge)                      icon = FloatingText.AMULET;
-
-			//SPSEXPD: 非物理伤害使用对应伤害类型的飘字图标（有贴图用贴图，没有用纯色小方块）
-			icon = FloatingText.damageIconFor(src, icon);
-
-			if ((icon == FloatingText.PHYS_DMG || icon == FloatingText.PHYS_DMG_NO_BLOCK) && hitMissIcon != -1){
-				if (icon == FloatingText.PHYS_DMG_NO_BLOCK) hitMissIcon += 18; //extra row
-				icon = hitMissIcon;
+			//SPSEXPD: 命中/闪避原因帧改为拼接角标（不再替换主图标、不再有 +18 穿甲变体行），
+			//物理族伤害且带原因时主图标 + 原因小角标同框显示
+			int reasonIcon = -1;
+			if (pd.actors.damagetype.DamageKind.isPhysical( src ) && hitMissIcon != -1){
+				reasonIcon = hitMissIcon;
 			}
 			hitMissIcon = -1;
 
-			sprite.showStatusWithIcon(CharSprite.NEGATIVE, Integer.toString(dmg + shielded), icon);
+			sprite.showStatusWithIcon(CharSprite.NEGATIVE, Integer.toString(dmg + shielded), icon, reasonIcon);
 		}
 
 		if (HP < 0) HP = 0;

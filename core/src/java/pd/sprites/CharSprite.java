@@ -213,6 +213,21 @@ public class CharSprite extends MovieClip implements Tweener.Listener, MovieClip
 			}
 		}
 	}
+
+	//SPSEXPD: 主图标 + 命中/闪避原因角标 拼接显示（伤害类型体系定稿）
+	//（非 varargs 精确签名：避免与 (int,String,int,Object...) 的 4 参调用产生重载二义）
+	public void showStatusWithIcon( int color, String text, int icon, int reasonIcon ) {
+		if (visible) {
+			float x = destinationCenter().x;
+			float y = destinationCenter().y - height()/2f;
+			int pos = DungeonTilemap.worldToTile(x, y + height(), Dungeon.level.width());
+			if (ch != null) {
+				FloatingText.show( x, y, pos, text, color, icon, reasonIcon, true );
+			} else {
+				FloatingText.show( x, y, -1, text, color, icon, reasonIcon, true );
+			}
+		}
+	}
 	
 	public void idle() {
 		play(idle);

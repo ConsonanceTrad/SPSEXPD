@@ -231,6 +231,8 @@ public class FloatingText extends RenderedTextBlock {
 	public static int MISS_RUN  = reason( R_RUN );
 
 	private Image icon;
+	//SPSEXPD: 命中/闪避原因角标（拼接显示，跟主图标右侧）
+	private Image reasonIcon;
 	private boolean iconLeft;
 
 	private float timeLeft;
@@ -265,6 +267,12 @@ public class FloatingText extends RenderedTextBlock {
 					icon.alpha(p > 0.5f ? 1 : p * 2);
 					icon.y -= yMove;
 				}
+				//SPSEXPD: 原因角标随主图标同步上浮/淡出
+				if (reasonIcon != null){
+					reasonIcon.alpha(p > 0.5f ? 1 : p * 2);
+					reasonIcon.y -= yMove;
+					reasonIcon.x = icon != null ? icon.x + icon.width() : reasonIcon.x;
+				}
 			}
 		}
 	}
@@ -276,10 +284,15 @@ public class FloatingText extends RenderedTextBlock {
 			if (iconLeft){
 				icon.x = left();
 			} else {
-				icon.x = left() + width() - icon.width();
+				icon.x = left() + width() - icon.width() - (reasonIcon != null ? reasonIcon.width() : 0);
 			}
 			icon.x = PixelScene.align(Camera.main, icon.x);
 			icon.y = PixelScene.align(Camera.main, top());
+		}
+		//SPSEXPD: 原因角标排在主图标右侧
+		if (reasonIcon != null){
+			reasonIcon.x = PixelScene.align(Camera.main, (icon != null ? icon.x + icon.width() : left()));
+			reasonIcon.y = PixelScene.align(Camera.main, top());
 		}
 	}
 
@@ -288,6 +301,10 @@ public class FloatingText extends RenderedTextBlock {
 		float width = super.width();
 		if (icon != null){
 			width += icon.width()-0.5f;
+		}
+		//SPSEXPD: 拼接原因角标占位
+		if (reasonIcon != null){
+			width += reasonIcon.width()-0.25f;
 		}
 		return width;
 	}
@@ -310,6 +327,10 @@ public class FloatingText extends RenderedTextBlock {
 	}
 	
 	public void reset( float x, float y, String text, int color, int iconIdx, boolean left ) {
+		reset(x, y, text, color, iconIdx, NO_ICON, left);
+	}
+
+	public void reset( float x, float y, String text, int color, int iconIdx, int reasonIdx, boolean left ) {
 		
 		revive();
 		
@@ -343,6 +364,27 @@ public class FloatingText extends RenderedTextBlock {
 			icon = null;
 		}
 
+		//SPSEXPD: 命中/闪避原因角标拼接（伤害类型体系定稿）
+		if (reasonIdx != NO_ICON){
+			int rSet = (reasonIdx >> ICON_SET_SHIFT) & 0x7F;
+			int rIdx = reasonIdx & 0xFF;
+			pd.atlas.IconEntry rEntry = null;
+			if (rSet == ICON_SET_EXTRA && rIdx < EXTRA_TABLE.length)      rEntry = EXTRA_TABLE[rIdx];
+			else if (rSet == ICON_SET_REASON && rIdx < REASON_TABLE.length) rEntry = REASON_TABLE[rIdx];
+			if (rEntry != null){
+				reasonIcon = pd.atlas.AtlasReader.image(rEntry);
+				float rawW = reasonIcon.width(), rawH = reasonIcon.height();
+				if (rawW > ICON_WIDTH || rawH > ICON_HEIGHT){
+					reasonIcon.scale.set(ICON_WIDTH / rawW, ICON_HEIGHT / rawH);
+				}
+				add(reasonIcon);
+			} else {
+				reasonIcon = null;
+			}
+		} else {
+			reasonIcon = null;
+		}
+
 		setPos(
 			PixelScene.align( Camera.main, x - width() / 2),
 			PixelScene.align( Camera.main, y - height())
@@ -374,6 +416,39 @@ public class FloatingText extends RenderedTextBlock {
 		}
 	}
 
+	/**
+	 * SPSEXPD: 类型令牌 → 飘字帧（伤害类型仲裁链核心，F3）。
+	 * 物理五细分/能量/诅咒/特殊族/元素按令牌直出；旧地/风与暗/混乱按归并映射。
+	 */
+	public static int iconForToken(pd.actors.damagetype.DamageType token, int fallback) {
+		if (token == null) return fallback;
+		String n = token.getClass().getSimpleName();
+		switch (n) {
+			case "Puncture":  return PUNCTURE_DMG;
+			case "Blunt":     return BLUNT_DMG;
+			case "Slash":     return SLASH_DMG;
+			case "Impact":    return IMPACT_DMG;
+			case "Crush":     return CRUSH_DMG;
+			case "Curse":     return CURSE_DMG;
+			case "Energy":    return ENERGY_DMG_I;
+			case "Dark": case "Chaos": return ENERGY_DMG_I; //归并：暗/混乱→能量
+			case "Fire":      return FIRE_DMG_I;
+			case "Ice":       return ICE_DMG_I;
+			case "Shock":     return SHOCK_DMG_I;
+			case "Light":     return LIGHT_DMG_I;
+			case "Poison":    return POISON_DMG_I;
+			case "Acid":      return ACID_DMG_I;
+			case "Heal":      return HEAL_DMG_I;
+			case "Interfere": return INTERFERE_DMG;
+			case "Hunger":    return HUNGER_DMG_I;
+			case "Disease":   return DISEASE_DMG;
+			case "Backlash":  return BACKLASH_DMG;
+			case "Earth":     return BLUNT_DMG;              //归并：旧地→钝
+			case "Wind":      return IMPACT_DMG;             //归并：旧风→冲
+			default:          return fallback;
+		}
+	}
+
 	public static void show( float x, float y, String text, int color) {
 		show(x, y, -1, text, color, -1, false);
 	}
@@ -383,12 +458,17 @@ public class FloatingText extends RenderedTextBlock {
 	}
 	
 	public static void show( float x, float y, int key, String text, int color, int iconIdx, boolean left ) {
+		show(x, y, key, text, color, iconIdx, NO_ICON, left);
+	}
+
+	public static void show( float x, float y, int key, String text, int color, int iconIdx, int reasonIdx, boolean left ) {
+		final int fReasonIdx = reasonIdx;
 		Game.runOnRenderThread(new Callback() {
 			@Override
 			public void call() {
 				FloatingText txt = GameScene.status();
 				if (txt != null){
-					txt.reset(x, y, text, color, iconIdx, left);
+					txt.reset(x, y, text, color, iconIdx, fReasonIdx, left);
 					if (key != -1) push(txt, key);
 				}
 			}
@@ -558,8 +638,12 @@ public class FloatingText extends RenderedTextBlock {
 		HashMap<Integer, Float> missReasons = new HashMap<>();
 
 		//some guaranteed dodged first
+		//SPSEXPD: 无限闪避打空分帧 —— 液态敏捷走 EVA 帧，其余（武僧守备/完美闪避）用「完全闪避」帧
 		if (defRoll == Char.INFINITE_EVASION && defender.buff(Talent.LiquidAgilEVATracker.class) != null){
 			return MISS_LIQ;
+		}
+		if (defRoll == Char.INFINITE_EVASION){
+			return PERFECT_DODGE;
 		}
 
 		KindOfWeapon wep = null;

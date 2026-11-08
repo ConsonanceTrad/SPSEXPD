@@ -110,6 +110,16 @@ public final class DamageKind {
 		//旧地/风令牌归并到物理细分（钝/冲）
 		if (src.getClass() == DamageType.EARTH_DAMAGE.getClass())  return DamageType.BLUNT_DAMAGE;
 		if (src.getClass() == DamageType.WIND_DAMAGE.getClass())   return DamageType.IMPACT_DAMAGE;
+		//SPSEXPD: 原 NO_ARMOR_PHYSICAL_SOURCES 组（旧「免甲物理」图标语义收口）——
+		//尖刺/落石/冲撞归物理细分（刺/钝/冲），格挡值同样适用（无 armor dr 免减不受影响）
+		if (src instanceof pd.actors.mobs.CrystalSpire.SpireSpike)      return DamageType.PUNCTURE_DAMAGE;
+		if (src instanceof pd.actors.mobs.GnollGeomancer.Boulder
+				|| src instanceof pd.actors.mobs.GnollGeomancer.GnollRockFall
+				|| src instanceof pd.levels.traps.GnollRockfallTrap)    return DamageType.BLUNT_DAMAGE;
+		if (src instanceof pd.actors.mobs.DwarfKing.Summoning)          return DamageType.BLUNT_DAMAGE;
+		if (src instanceof pd.levels.features.Chasm)                    return DamageType.CRUSH_DAMAGE;
+		if (src instanceof pd.items.equipment.wands.WandOfBlastWave.Knockback) return DamageType.IMPACT_DAMAGE;
+		if (src instanceof pd.actors.mobs.Necromancer.SummoningBlockDamage)  return DamageType.ENERGY_DAMAGE;
 		//旧暗/混乱令牌归并到能量
 		if (src.getClass() == DamageType.DARK_DAMAGE.getClass() || src.getClass() == DamageType.CHAOS_DAMAGE.getClass())
 		                                                           return DamageType.ENERGY_DAMAGE;
@@ -186,6 +196,44 @@ public final class DamageKind {
 			return ((pd.items.equipment.weapon.Weapon) w).damageKind();
 		}
 		return null;
+	}
+
+	/**
+	 * SPSEXPD: DamageType 嵌套类 SimpleName → 令牌（延迟伤害 DeferedDamage 保原类型用）。
+	 */
+	public static DamageType tokenBySimpleName( String n ) {
+		if (n == null) return null;
+		for (DamageType t : new DamageType[]{
+				DamageType.ENERGY_DAMAGE, DamageType.FIRE_DAMAGE, DamageType.ICE_DAMAGE, DamageType.SHOCK_DAMAGE, DamageType.LIGHT_DAMAGE,
+				DamageType.POISON_DAMAGE, DamageType.ACID_DAMAGE,
+				DamageType.PUNCTURE_DAMAGE, DamageType.BLUNT_DAMAGE, DamageType.SLASH_DAMAGE, DamageType.IMPACT_DAMAGE, DamageType.CRUSH_DAMAGE,
+				DamageType.CURSE_DAMAGE, DamageType.HEAL_DAMAGE, DamageType.INTERFERE_DAMAGE, DamageType.HUNGER_DAMAGE, DamageType.DISEASE_DAMAGE, DamageType.BACKLASH_DAMAGE,
+				DamageType.EARTH_DAMAGE, DamageType.WIND_DAMAGE, DamageType.DARK_DAMAGE, DamageType.CHAOS_DAMAGE
+		}) {
+			if (t.getClass().getSimpleName().equals(n)) return t;
+		}
+		return null;
+	}
+
+	/**
+	 * SPSEXPD: 图标仲裁用令牌解析 —— Char 来源按其武器令牌出帧（英雄普攻取 attackingWeapon，
+	 * 镜像/雕像/幽灵取持有武器），其余来源按 canonicalToken 归一；都解析不出返回 null。
+	 */
+	public static DamageType iconToken( Object src ) {
+		KindOfWeapon wep = null;
+		if (src instanceof pd.actors.hero.Hero) {
+			pd.actors.hero.Belongings b = ((pd.actors.hero.Hero) src).belongings;
+			wep = b == null ? null : b.attackingWeapon();
+		} else if (src instanceof pd.actors.mobs.npcs.MirrorImage) {
+			wep = pd.Dungeon.hero.belongings.weapon();
+		} else if (src instanceof pd.actors.mobs.Statue) {
+			wep = ((pd.actors.mobs.Statue) src).weapon();
+		} else if (src instanceof pd.items.equipment.artifacts.DriedRose.GhostHero) {
+			wep = ((pd.items.equipment.artifacts.DriedRose.GhostHero) src).weapon();
+		}
+		if (wep != null) return weaponTokenOf(wep);
+		if (src instanceof Char) return null;
+		return canonicalToken(src);
 	}
 
 	/**

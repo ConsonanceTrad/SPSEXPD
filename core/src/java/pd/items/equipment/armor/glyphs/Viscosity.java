@@ -80,6 +80,11 @@ public class Viscosity extends Glyph {
 		private int level = 0;
 
 		public int deferDamage(int dmg){
+			return deferDamage( dmg, null );
+		}
+
+		//SPSEXPD: deferDamage 带来源 —— 延迟伤害保留原始伤害类型（伤害类型体系定稿）
+		public int deferDamage(int dmg, Object src){
 			//account for icon stomach (just skip the glyph)
 			if (target.buff(Talent.WarriorFoodImmunity.class) != null){
 				return dmg;
@@ -100,7 +105,7 @@ public class Viscosity extends Glyph {
 
 			if (amount > 0){
 				DeferedDamage deferred = Buff.affect( target, DeferedDamage.class );
-				deferred.extend( amount );
+				deferred.extend( amount, src );
 
 				target.sprite.showStatus( CharSprite.WARNING, Messages.get(Viscosity.class, "deferred", amount) );
 			}
@@ -122,23 +127,46 @@ public class Viscosity extends Glyph {
 		}
 		
 		protected int damage = 0;
-		
+
+		//SPSEXPD: 延迟伤害的原始伤害类型（DamageType 嵌套类 SimpleName；null=未知）
+		protected String srcKindName;
+
 		private static final String DAMAGE	= "damage";
-		
+		private static final String SRC_KIND	= "src_kind";
+
 		@Override
 		public void storeInBundle( Bundle bundle ) {
 			super.storeInBundle( bundle );
 			bundle.put( DAMAGE, damage );
-			
+			if (srcKindName != null) bundle.put( SRC_KIND, srcKindName );
 		}
-		
+
 		@Override
 		public void restoreFromBundle( Bundle bundle ) {
 			super.restoreFromBundle( bundle );
 			damage = bundle.getInt( DAMAGE );
+			if (bundle.contains(SRC_KIND)) {
+				srcKindName = bundle.getString(SRC_KIND);
+			}
 		}
-		
+
 		public void extend( float damage ) {
+			extend( damage, null );
+		}
+
+		/** SPSEXPD: 延迟伤害的原始伤害类型（DamageType 嵌套SimpleName；null=未知） */
+		public String srcKindName() {
+			return srcKindName;
+		}
+
+		//SPSEXPD: extend 带来源 —— 首次记录延迟伤害的原始伤害类型
+		public void extend( float damage, Object src ) {
+			if (srcKindName == null && src != null){
+				pd.actors.damagetype.DamageType tk = pd.actors.damagetype.DamageKind.iconToken(src);
+				if (tk != null){
+					srcKindName = tk.getClass().getSimpleName();
+				}
+			}
 			if (this.damage == 0){
 				//wait 1 turn before damaging if this is freshly applied
 				postpone(TICK);
