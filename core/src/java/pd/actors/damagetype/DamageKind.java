@@ -168,22 +168,82 @@ public final class DamageKind {
 	}
 
 	/**
-	 * SPSEXPD: 由攻击者普攻解析物理细分 —— 英雄取其当前武器，未分类武器返回 null；
-	 * 非英雄普攻（怪物、镜像等）暂无细分信息，返回 null。
+	 * SPSEXPD: 由攻击者普攻解析物理细分 —— 英雄取其当前武器的伤害类型令牌（物理五档
+	 * 或归并的山川/光源系），未分类武器返回 null；非英雄普攻暂无细分信息，返回 null。
 	 */
 	public static PhysicalKind physicalOf( Object attacker ) {
 		if (attacker instanceof pd.actors.hero.Hero) {
 			pd.actors.hero.Belongings b = ((pd.actors.hero.Hero) attacker).belongings;
-			return ofWeapon(b == null ? null : b.attackingWeapon());
+			DamageType token = weaponTokenOf(b == null ? null : b.attackingWeapon());
+			return token == null ? null : PhysicalKind.of(token);
 		}
 		return null;
 	}
 
-	/** 由武器解析物理细分（未分类武器返回 null） */
-	public static PhysicalKind ofWeapon( KindOfWeapon w ) {
+	/** 由武器解析伤害类型令牌（未收录武器返回 null） */
+	public static DamageType weaponTokenOf( KindOfWeapon w ) {
 		if (w instanceof pd.items.equipment.weapon.Weapon) {
 			return ((pd.items.equipment.weapon.Weapon) w).damageKind();
 		}
 		return null;
+	}
+
+	/**
+	 * SPSEXPD: 武器 → 伤害类型令牌集中映射表（伤害类型体系定稿，按类名收口，
+	 * 个体武器可用 Weapon.damageKind() 覆写优先于本表；未收录返回 null）。
+	 * 相性口径：刺=刺击轻便、钝=重锤/基础冲击、切=切割流星/特殊枪械、
+	 * 冲=炸弹/扇/乐器/音波、挤=超重型碾压，能量=法杖/法器。
+	 */
+	public static DamageType weaponToken( pd.items.equipment.weapon.Weapon weapon ) {
+		String n = weapon.getClass().getSimpleName();
+		switch (n) {
+			//刺击：轻便穿刺类近战与基础/穿甲枪械、刺系投掷
+			case "Dagger": case "Dirk": case "Rapier": case "Sai": case "AssassinsBlade":
+			case "Spear": case "Spork": case "Crossbow":
+			case "Thrower": case "Kunai": case "Shuriken": case "ThrowingKnife":
+			case "ThrowingSpike": case "ThrowingSpear": case "Javelin": case "FishingSpear":
+			case "Trident": case "ElfBow": case "TaurcenBow":
+			case "GunA": case "GunB": case "GunC": case "GunD": case "GunE": case "GunFire":
+			case "GunOfSoldier": case "Liberator": case "HighNoon": case "Garand":
+			case "BorderFN4": case "BorderWolf":
+				return DamageType.PUNCTURE_DAMAGE;
+			//钝击：重锤/基础棍棒拳甲与重型投掷（基础重锤足额）
+			case "Mace": case "Cudgel": case "Quarterstaff": case "Gloves": case "Gauntlet":
+			case "StoneCross": case "ThrowingStone": case "ThrowingClub": case "ThrowingHammer":
+			case "Bolas": case "HeavyBoomerang":
+				return DamageType.BLUNT_DAMAGE;
+			//切割：轻巧单手与重刃斧镰（对无甲大量伤害与流血）
+			case "Sword": case "Shortsword": case "WornShortsword": case "Longsword":
+			case "Greatsword": case "Katana": case "Scimitar": case "RunicBlade":
+			case "Spellblade": case "Glaive": case "BattleAxe": case "HandAxe":
+			case "Greataxe": case "WarScythe": case "Sickle": case "Whip": case "Tomahawk":
+				return DamageType.SLASH_DAMAGE;
+			//冲击：炸弹/扇/乐器/音波/电磁与盾牌类（伤害低且随距离衰减，无视部分护甲）
+			case "Flail": case "Greatshield": case "RoundShield": case "HolyWater":
+			case "CurseBox": case "MirrorDoll": case "HandLight":
+			case "ShootGun": case "Hydra": case "BombLauncher": case "Howl":
+			case "ToyGun": case "LightningM": case "Arc": case "ForceCube": case "MoneyPack":
+				return DamageType.IMPACT_DAMAGE;
+			//挤压：超重型武器的碾压（攻速极慢，无视大部分护甲）
+			case "WarHammer": case "JeffHammer": case "Apok": case "MegaCannon":
+				return DamageType.CRUSH_DAMAGE;
+			//能量：法器类（无属性法术伤害）
+			case "MagesStaff":
+				return DamageType.ENERGY_DAMAGE;
+			//诅咒：诅咒器类（仪式类伤害）
+			case "WandOfCorruption":
+				return DamageType.CURSE_DAMAGE;
+			//毒：毒系投掷
+			case "ShitBall":
+				return DamageType.POISON_DAMAGE;
+			//特殊枪械归属（露珠炮/异端）：按光束切削归类（可后调）
+			case "DewCannon": case "HereticTorment":
+				return DamageType.SLASH_DAMAGE;
+			//驱魔带着仪式感：咒符发射器
+			case "Exorcist":
+				return DamageType.CURSE_DAMAGE;
+			default:
+				return null;
+		}
 	}
 }
