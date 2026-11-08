@@ -17,11 +17,29 @@ package pd.actors.damagetype;
  * 旧 WIND（风）→ {@link #IMPACT}。</p>
  */
 public enum PhysicalKind {
-	PUNCTURE,
-	BLUNT,
-	SLASH,
-	IMPACT,
-	CRUSH;
+	//SPSEXPD: drFactor = 攻击端对目标 drRoll 的护甲相性系数（伤害类型体系定稿，可调参）
+	//刺击对重甲足额、钝击对所有物理防护足额、切割对有甲略差、冲击/挤压无视部分护甲
+	PUNCTURE( 1.00f ),
+	BLUNT   ( 1.00f ),
+	SLASH   ( 0.85f ),
+	IMPACT  ( 0.65f ),
+	CRUSH   ( 0.30f );
+
+	private final float drFactor;
+
+	PhysicalKind( float drFactor ) {
+		this.drFactor = drFactor;
+	}
+
+	/** 攻击端护甲相性：目标 drRoll 的生效系数 */
+	public float drFactor() {
+		return drFactor;
+	}
+
+	/** SPSEXPD: 对无甲目标的伤害加成（切割——对无甲大量伤害） */
+	public float unarmoredDamageBonus() {
+		return this == SLASH ? 1.25f : 1f;
+	}
 
 	/** 对应的来源令牌（打点用） */
 	public DamageType damageType() {

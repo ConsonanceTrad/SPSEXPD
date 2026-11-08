@@ -470,7 +470,14 @@ public abstract class Char extends Actor {
 		} else if (hit( this, enemy, accMulti, false )) {
 			
 			int dr = Math.round(enemy.drRoll() * AscensionChallenge.statModifier(enemy));
-			
+
+			//SPSEXPD: 物理细分护甲相性（伤害类型体系定稿）——冲击/挤压无视部分护甲、切割对有甲略差；
+			//细分来源为攻击者武器（英雄普攻），未分类武器/怪物普攻无细分、不改动旧行为
+			pd.actors.damagetype.PhysicalKind physKind = pd.actors.damagetype.DamageKind.physicalOf(this);
+			if (physKind != null) {
+				dr = Math.round(dr * physKind.drFactor());
+			}
+
 			if (this instanceof Hero){
 				Hero h = (Hero)this;
 				if (h.belongings.attackingWeapon() instanceof MissileWeapon
@@ -504,6 +511,12 @@ public abstract class Char extends Actor {
 
 			//flat damage bonus is affected by multipliers
 			dmg += dmgBonus;
+
+			//SPSEXPD: 切割对无甲目标的大额伤害加成（伤害类型体系定稿，可调参）——
+			//目标无护甲（drRoll=0）且本次攻击为切割细分
+			if (physKind == pd.actors.damagetype.PhysicalKind.SLASH && enemy.drRoll() <= 0) {
+				dmg *= 1.25f;
+			}
 
 			if (enemy.buff(GuidingLight.Illuminated.class) != null){
 				enemy.buff(GuidingLight.Illuminated.class).detach();
@@ -1072,6 +1085,9 @@ public abstract class Char extends Actor {
 			damage *= resist( srcClass );
 		}
 
+		//SPSEXPD: 类型防护 —— 针对特定伤害类型的额外乘区（伤害类型体系定稿挂钩，默认无防护）
+		damage *= typeProtection( srcClass );
+
 		dmg = Math.round(damage);
 		ExProtect exitProtection = buff(ExProtect.class);
 		if (exitProtection != null) {
@@ -1112,6 +1128,17 @@ public abstract class Char extends Actor {
 			dmg -= AntiMagic.drRoll(this, glyphLevel(AntiMagic.class));
 			if (buff(ArcaneArmor.class) != null) {
 				dmg -= Random.NormalIntRange(0, buff(ArcaneArmor.class).level());
+			}
+			if (dmg < 0) dmg = 0;
+		}
+
+		//SPSEXPD: 格挡值/法抗值 —— 对物理/法术伤害的固定减免（伤害类型体系定稿，取值后续批接入）
+		//特殊族（治疗/干扰/饥饿/疾病/反噬）不进本段；纯粹伤害走 PureDamage 独立管线本就不经此
+		if (dmg > 0 && !pd.actors.damagetype.DamageKind.isSpecial( src )) {
+			if (pd.actors.damagetype.DamageKind.isPhysical( src )) {
+				dmg -= blockValue();
+			} else if (pd.actors.damagetype.DamageKind.isMagic( src )) {
+				dmg -= magicBlock();
 			}
 			if (dmg < 0) dmg = 0;
 		}
@@ -1238,8 +1265,8 @@ public abstract class Char extends Actor {
 	}
 
 	private static boolean isLegacyMagicSource(Object src) {
-		return src instanceof Wand || src instanceof Buff || src instanceof Blob || src instanceof SpsMagicDamage
-				|| AntiMagic.RESISTS.contains(src.getClass());
+		//SPSEXPD: 旧式魔法来源清单收口至 DamageKind（避免两处判定漂移）
+		return pd.actors.damagetype.DamageKind.isLegacyMagic(src);
 	}
 
 	//these are misc. sources of physical damage which do not apply armor, they get a different icon
@@ -1538,6 +1565,21 @@ public abstract class Char extends Actor {
 		next();
 	}
 	
+	//SPSEXPD: 格挡值 —— 对物理伤害的固定减免（默认 0；英雄取值由护甲派生，后续批接入 Hero.drRoll 拆分）
+	protected int blockValue() {
+		return 0;
+	}
+
+	//SPSEXPD: 法抗值 —— 对法术伤害的固定减免（默认 0）
+	protected int magicBlock() {
+		return 0;
+	}
+
+	//SPSEXPD: 类型防护 —— 针对特定伤害类型的额外乘区（默认 1f=无防护；按类型防护的怪物/装备后续覆写）
+	public float typeProtection( Class<?> srcClass ) {
+		return 1f;
+	}
+
 	protected final HashSet<Class> resistances = new HashSet<>();
 	
 	//returns percent effectiveness after resistances

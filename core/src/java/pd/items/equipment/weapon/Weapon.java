@@ -180,6 +180,13 @@ abstract public class Weapon extends KindOfWeapon {
 	public boolean showStrength() {
 		return true;
 	}
+
+	//SPSEXPD: 本武器打出的物理伤害细分（伤害类型体系定稿）——
+	//未分类武器返回 null：不参与细分护甲相性与格挡减免（行为与旧体系一致），由各武器子类逐件归类
+	public pd.actors.damagetype.PhysicalKind damageKind() {
+		return null;
+	}
+
 	private int spsDurability = 100;
 	
 	@Override
