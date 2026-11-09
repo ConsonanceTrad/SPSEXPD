@@ -392,7 +392,7 @@ public class Imp extends NPC {
 					rewardOptions.add(((Weapon)Generator.random(Generator.Category.WEP_T4)).enchant().identify(false).level(Random.IntRange(3, 5)));
 				}
 				rewardOptions.add(new PlateArmor().inscribe().identify(false).level(Random.IntRange(2, 4)));
-				Wand w = (Wand) Generator.random(Generator.Category.WAND);
+				Wand w = (Wand) Generator.random(Generator.Category.WAND_RARE);
 				w.identify(false).level(Random.IntRange(2, 4));
 				w.curCharges = w.maxCharges;
 				rewardOptions.add(w);

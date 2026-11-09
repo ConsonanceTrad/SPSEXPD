@@ -73,6 +73,20 @@ public final class SpsSpellbooksTest {
 		check( codex.isTome() == false && tome.isTome() == true, "isTome 分级" );
 		check( codex.targetRequired() && tome.targetRequired(), "伤害型书为定向施法" );
 
+		//完整性：稀有杖表 WAND_RARE 里的每一根常规法杖都有对应书对
+		pd.items.Generator.Category rare = pd.items.Generator.Category.WAND_RARE;
+		if (rare.classes != null) {
+			for (Class<?> c : rare.classes) {
+				if (c == null) continue;
+				@SuppressWarnings("unchecked")
+				Class<? extends pd.items.equipment.wands.Wand> wc = (Class<? extends pd.items.equipment.wands.Wand>) c;
+				check( pd.items.spellbooks.WandBooks.of( wc ) != null, "稀有杖表里的 " + wc.getSimpleName() + " 缺书对" );
+			}
+		}
+
+		//旧档口径：稀有杖表就是原 WAND 生态位的法杖全集（24 类）
+		checkEquals( rare.classes == null ? 0 : rare.classes.length, 24, "稀有杖表 24 类" );
+
 		//抄本施法门槛（onCast 兜底路径 Dungeon.level=null 安全）
 		Hero hero = new Hero();
 		Mana.setFull( hero );

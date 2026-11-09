@@ -383,7 +383,7 @@ public class CursedWand {
 		@Override
 		public void FX(Item origin, Char user, Ballistica bolt, Callback callback) {
 			if (wand == null){
-				wand = (Wand)Generator.randomUsingDefaults(Generator.Category.WAND);
+				wand = (Wand)Generator.randomUsingDefaults(Generator.Category.WAND_RARE);
 			}
 			wand.fx(bolt, callback);
 		}
@@ -391,7 +391,7 @@ public class CursedWand {
 		@Override
 		public boolean effect(Item origin, Char user, Ballistica bolt, boolean positiveOnly) {
 			if (wand == null){
-				wand = (Wand)Generator.randomUsingDefaults(Generator.Category.WAND);
+				wand = (Wand)Generator.randomUsingDefaults(Generator.Category.WAND_RARE);
 			}
 			if (origin instanceof Wand){
 				wand.upgrade(origin.level());
