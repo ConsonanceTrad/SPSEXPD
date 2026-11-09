@@ -49,11 +49,6 @@ public class CrystalConvergenceRitual extends Ritual {
 	@Override
 	public String id() { return "crystal_convergence"; }
 
-	@Override
-	public String name() { return "结晶凝聚阵"; }
-
-	@Override
-	public String desc() { return "青草间的自然灵气在阵中来回折返，最终凝成一枚魔力结晶。\n\n材料：鲜草×3 + 枯草×3。"; }
 
 	@Override
 	public List<RitualMaterial> materials() {

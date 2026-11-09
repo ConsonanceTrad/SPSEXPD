@@ -54,11 +54,6 @@ public class HarvestBasisRitual extends Ritual {
 	@Override
 	public String id() { return "harvest_basis"; }
 
-	@Override
-	public String name() { return "丰收奠基阵"; }
-
-	@Override
-	public String desc() { return "把浆果的甜与青草的青还还给大地：激发后阵中将长出数株高草，并散落一撮草种。\n\n材料：浆果×2 + 鲜草×2。"; }
 
 	@Override
 	public List<RitualMaterial> materials() {

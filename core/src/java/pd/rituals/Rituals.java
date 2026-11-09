@@ -90,6 +90,14 @@ public class Rituals {
 		return render.utils.serialize.Reflection.newInstance( material.itemClass );
 	}
 
+	/** SPSEXPD: 注册表中是否存在允许「以自身为中心」激发的仪式（决定法器是否显示自我激发动作） */
+	public static boolean selfChannelAllowed() {
+		for (Ritual ritual : REGISTRY.values()) {
+			if (ritual != null && ritual.selfChannel()) return true;
+		}
+		return false;
+	}
+
 	public static Collection<Ritual> all() {
 		return Collections.unmodifiableCollection( REGISTRY.values() );
 	}

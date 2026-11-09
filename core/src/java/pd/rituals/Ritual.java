@@ -46,11 +46,16 @@ public abstract class Ritual {
 	/** 讲解页 id / 注册表主键（小写下划线风格，如 "ember_spray"） */
 	public abstract String id();
 
-	/** 仪式名（内联文本） */
-	public abstract String name();
+	/** 仪式名（内联文本，键 {@code name}） */
+	public String name() { return text("name"); }
 
-	/** 仪式描述：材料清单 + 效果说明（内联文本） */
-	public abstract String desc();
+	/** 仪式描述：材料清单 + 效果说明（内联文本，键 {@code desc}） */
+	public String desc() { return text("desc"); }
+
+	/** SPSEXPD: 子类文案统一经 InlineText 内联表查询 */
+	protected final String text( String key ) {
+		return pd.messages.InlineText.get( pd.messages.InlineText.key( getClass(), key ) );
+	}
 
 	/** 材料配方（有序；匹配 = 每条皆满足；上限条目越多越优先命中） */
 	public abstract List<RitualMaterial> materials();

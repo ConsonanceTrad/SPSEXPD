@@ -51,11 +51,6 @@ public class EmberSprayRitual extends Ritual {
 	@Override
 	public String id() { return "ember_spray"; }
 
-	@Override
-	public String name() { return "爆裂余烬阵"; }
-
-	@Override
-	public String desc() { return "以枯枝为薪、火种引燃：布置完成后用法器激发，落点周围五格将燃起短暂而凶猛的火焰。\n\n材料：火种×1 + 枯枝×2。"; }
 
 	@Override
 	public List<RitualMaterial> materials() {

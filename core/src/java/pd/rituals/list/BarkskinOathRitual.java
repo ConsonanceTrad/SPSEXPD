@@ -47,11 +47,6 @@ public class BarkskinOathRitual extends Ritual {
 	@Override
 	public String id() { return "barkskin_oath"; }
 
-	@Override
-	public String name() { return "树皮誓约阵"; }
-
-	@Override
-	public String desc() { return "以草种为誓，草木的坚韧借予施术者：激发后获得一段时间的树肤（增强物理护甲）。\n\n材料：草种×4。"; }
 
 	@Override
 	public List<RitualMaterial> materials() {
