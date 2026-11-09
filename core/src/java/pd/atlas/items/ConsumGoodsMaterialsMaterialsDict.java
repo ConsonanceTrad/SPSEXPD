@@ -68,6 +68,14 @@ public final class ConsumGoodsMaterialsMaterialsDict {
 	public static final IconEntry MATERIALS_C4_R4 = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{48, 48, 8, 16}, 6422);
 	/** semantic alias for MATERIALS_C4_R4 */
 	public static final IconEntry ESCAPE_0 = MATERIALS_C4_R4;
+	/** MANA_CRYSTAL - mana crystal: ritual product, restores mana */
+	public static final IconEntry MATERIALS_C3_R3 = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{35, 35, 10, 12}, 7537);
+	/** semantic alias for MATERIALS_C3_R3 */
+	public static final IconEntry MANA_CRYSTAL = MATERIALS_C3_R3;
+	/** RITUAL_STONE - ritual stone: throwing item that lays out known ritual materials */
+	public static final IconEntry MATERIALS_C4_R3 = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{50, 36, 12, 10}, 7538);
+	/** semantic alias for MATERIALS_C4_R3 */
+	public static final IconEntry RITUAL_STONE = MATERIALS_C4_R3;
 	/** STATUE#0 */
 	public static final IconEntry MATERIALS_C5_R4 = new IconEntry("sprites/items/consum/goods_materials/materials.png", new int[]{64, 48, 10, 16}, 6423);
 	/** semantic alias for MATERIALS_C5_R4 */

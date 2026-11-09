@@ -63,6 +63,11 @@ public class Rituals {
 	/** 注册表：仪式 id（= 讲解页 id）→ 仪式；HashMap 即可（匹配顺序由候选序列保证） */
 	private static final Map<String, Ritual> REGISTRY = new HashMap<>();
 
+	//SPSEXPD: 首批仪式全集经 RitualRegistry 注册（静态块驱动；REGISTRY 声明在前，clinit 顺序安全）
+	static {
+		RitualRegistry.registerAll();
+	}
+
 	public static void register( Ritual ritual ) {
 		if (ritual == null || ritual.id() == null || REGISTRY.containsKey( ritual.id() )) return;
 		REGISTRY.put( ritual.id(), ritual );
@@ -77,6 +82,12 @@ public class Rituals {
 	/** 讲解页 id → 仪式（讲解页 id 直接取仪式 id） */
 	public static Ritual byPage( String page ) {
 		return byId( page );
+	}
+
+	/** SPSEXPD: 材料条目 → 等类新实例（石内收纳/布置物化共用）；实例化失败返回 null */
+	public static Item materialize( RitualMaterial material ) {
+		if (material == null || material.itemClass == null) return null;
+		return render.utils.serialize.Reflection.newInstance( material.itemClass );
 	}
 
 	public static Collection<Ritual> all() {
