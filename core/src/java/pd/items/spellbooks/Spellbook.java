@@ -63,8 +63,10 @@ public abstract class Spellbook extends Item {
 	/** 施法消耗的基础法力 */
 	public abstract int manaCost();
 
-	/** 施法效果（无目标路径；定向书覆写 {@link #castAt}） */
-	public abstract void onCast( Hero hero );
+	/** 施法效果（无目标路径；定向书退回以脚下为落点） */
+	public void onCast( Hero hero ) {
+		castAt( hero, hero.pos );
+	}
 
 	/** SPSEXPD: 是否需要点选目标格（定向书覆写为 true，走基类选点器） */
 	public boolean targetRequired() { return false; }

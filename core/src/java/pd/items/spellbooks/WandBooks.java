@@ -63,6 +63,14 @@ public class WandBooks {
 		register( pd.items.equipment.wands.WandOfFirebolt.class, pd.items.spellbooks.wands.FireboltTome.class, pd.items.spellbooks.wands.FireboltCodex.class );
 		register( pd.items.equipment.wands.WandOfFrost.class, pd.items.spellbooks.wands.FrostTome.class, pd.items.spellbooks.wands.FrostCodex.class );
 		register( pd.items.equipment.wands.WandOfLightning.class, pd.items.spellbooks.wands.LightningTome.class, pd.items.spellbooks.wands.LightningCodex.class );
+		register( pd.items.equipment.wands.WandOfAcid.class, pd.items.spellbooks.wands.AcidTome.class, pd.items.spellbooks.wands.AcidCodex.class );
+		register( pd.items.equipment.wands.WandOfFreeze.class, pd.items.spellbooks.wands.FreezeTome.class, pd.items.spellbooks.wands.FreezeCodex.class );
+		register( pd.items.equipment.wands.WandOfLight.class, pd.items.spellbooks.wands.LightTome.class, pd.items.spellbooks.wands.LightCodex.class );
+		register( pd.items.equipment.wands.WandOfSwamp.class, pd.items.spellbooks.wands.SwampTome.class, pd.items.spellbooks.wands.SwampCodex.class );
+		register( pd.items.equipment.wands.fusion.WandOfBlood.class, pd.items.spellbooks.wands.BloodTome.class, pd.items.spellbooks.wands.BloodCodex.class );
+		register( pd.items.equipment.wands.WandOfCharm.class, pd.items.spellbooks.wands.CharmTome.class, pd.items.spellbooks.wands.CharmCodex.class );
+		register( pd.items.equipment.wands.fusion.WandOfFlow.class, pd.items.spellbooks.wands.FlowTome.class, pd.items.spellbooks.wands.FlowCodex.class );
+		register( pd.items.equipment.wands.WandOfFlock.class, pd.items.spellbooks.wands.FlockTome.class, pd.items.spellbooks.wands.FlockCodex.class );
 	}
 
 	/** 某法杖对应的书对（无则 null） */
