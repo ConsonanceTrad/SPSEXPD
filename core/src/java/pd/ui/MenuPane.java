@@ -79,6 +79,13 @@ public class MenuPane extends Component {
 	//SPSEXPD: 右上角按钮组里的游戏内时间（HH:MM，夜晚转蓝），专责组件 TimeLabel
 	private TimeLabel clock;
 
+	//SPSEXPD: SP 点数（Hero.spp / 专属 SpPointSource）挪到右上角渲染——原血条下的点数格
+	//已让位给法力值（StatusPane）。显示为时间左侧一行：红色「SP」小标签 + 数字。
+	private BitmapText spLabel;
+	private BitmapText spText;
+	private int lastSP = Integer.MIN_VALUE;
+	private int lastSPMax = Integer.MIN_VALUE;
+
 	private Toolbar.PickedUpItem pickedUp;
 
 	private DangerIndicator danger;
@@ -176,6 +183,19 @@ public class MenuPane extends Component {
 		clock = new TimeLabel();
 		add( clock );
 
+		//SPSEXPD: SP 点数渲染在时间左侧（小号「SP」红标签 + 数字，样式沿用原血条下点数格）
+		spLabel = new BitmapText( PixelScene.pixelFont );
+		spLabel.text( "SP" );
+		spLabel.scale.set( 0.6f );
+		spLabel.hardlight( 0xD87070 );
+		spLabel.alpha( 0.7f );
+		add( spLabel );
+
+		spText = new BitmapText( PixelScene.pixelFont );
+		spText.scale.set( 0.6f );
+		spText.alpha( 0.6f );
+		add( spText );
+
 		danger = new DangerIndicator();
 		add( danger );
 
@@ -188,6 +208,24 @@ public class MenuPane extends Component {
 		super.update();
 		if (clock != null) {
 			clock.refresh();
+		}
+		//SPSEXPD: SP 点数刷新——默认 Hero.spp；英雄身上挂着专属来源（如武僧内力）时显示它
+		if (spText != null && Dungeon.hero != null) {
+			int sp = Dungeon.hero.spp;
+			int spMax = -1;
+			pd.actors.hero.SpPointSource spSource = Dungeon.hero.activeSpSource();
+			if (spSource != null) {
+				sp = spSource.value( Dungeon.hero );
+				spMax = spSource.max( Dungeon.hero );
+			}
+			if (sp != lastSP || spMax != lastSPMax) {
+				lastSP = sp;
+				lastSPMax = spMax;
+				spText.text( spMax > 0 ? sp + "/" + spMax : Integer.toString( sp ) );
+				spText.measure();
+				//SPSEXPD: 数字宽度变了，紧挨时间左缘的摆放位要重算
+				layout();
+			}
 		}
 		//SPSEXPD: 视角按钮始终显示——本层还没发现入口/出口时点击不生效（toggleCameraTarget 里
 		//找不到目标会静默返回），但按钮本身不隐藏，避免玩家以为功能时有时无
@@ -239,6 +277,17 @@ public class MenuPane extends Component {
 			//SPSEXPD: 时间文本左移 2px（用户要求，原先 4px 偏左），避免紧贴按钮组右缘
 			clock.setPos( x + WIDTH - clock.width() - 2, belowY );
 			belowY += clock.height() + 1;
+
+			//SPSEXPD: SP 点数落在时间同一行、时间文本左侧（「SP」标签再往左一个小间距）
+			if (spText != null){
+				spText.x = clock.left() - 4 - spText.width();
+				spText.y = clock.top() + (clock.height() - spText.height())/2f;
+				PixelScene.align(spText);
+
+				spLabel.x = spText.x - 2 - spLabel.width();
+				spLabel.y = spText.y;
+				PixelScene.align(spLabel);
+			}
 		}
 
 		//SPSEXPD: 危险指示器顺次下移到时间下方（两者同属框下那一条带，避免重叠）

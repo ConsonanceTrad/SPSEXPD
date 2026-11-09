@@ -64,20 +64,22 @@ public class StatusPane extends Component {
 	private BitmapText hpText;
 	private Button heroInfoOnBar;
 
-	//SPSEXPD: 局内 SP 点数（默认 Hero.spp；英雄有专属来源时改显示它的数值）。
-	//位置与边框格子由背板素材提供（用户绘制），有上限时另画一条黄色进度条
+	//SPSEXPD: 血条下的点数格现在固定渲染「法力值」（见 pd.actors.hero.Mana /批次A）；
+	//SP 点数（Hero.spp / 专属 SpPointSource）已挪到右上角按钮组 MenuPane 渲染。
+	//位置与边框格子由背板素材提供（用户绘制）；法力有上限，占满格内底部的青色进度条
 	private BitmapText spText;
 	private BitmapText spLabel;
 	private ColorBlock spBar;
-	private int lastSP = Integer.MIN_VALUE;
-	private int lastSPMax = Integer.MIN_VALUE;
+	private String lastManaText = null;
+	//SPSEXPD: 青条取值缓存（layoutSpPoint 用）
+	private float lastManaFrac = 0f;
 	/** SP 数字的缩放（与血条数字同规格；背板已提供底色，不需要再放大字号） */
 	private static final float SP_TEXT_SCALE = 0.5f;
 	/** 长数值自动缩字号的下限（再小就读不清了） */
 	private static final float SP_TEXT_SCALE_MIN = 0.35f;
 	/** SP 数字与「SP」标签右缘之间的间距（数字自此向右生长） */
 	private static final float SP_TEXT_OFFSET_X = 2f;
-	//SPSEXPD: 背板素材 status_pane.png 小模式帧里为 SP 预留的格子（帧内坐标，用户绘制）
+	//SPSEXPD: 背板素材 status_pane.png 小模式帧里为点数格预留的格子（帧内坐标，用户绘制）
 	private static final float SP_SLOT_X = 30f;
 	private static final float SP_SLOT_Y = 7f;
 	private static final float SP_SLOT_W = 22f;
@@ -172,16 +174,16 @@ public class StatusPane extends Component {
 		hpText.alpha(0.6f);
 		add(hpText);
 
-		//SPSEXPD: 局内 SP 点数——白色数字 + 有上限时的黄色进度条（底板/边框由背板素材提供）
-		spBar = new ColorBlock(1, 1, 0xFFFF66);
+		//SPSEXPD: 局内点数格——白色数字 + 法力上限青色进度条（底板/边框由背板素材提供）
+		spBar = new ColorBlock(1, 1, 0x6FCBD2);
 		spBar.visible = false;
 		add(spBar);
 
-		//SPSEXPD: 格内最左的「SP」小标签（半透明红），与数字一起说明这是 SP 点数
+		//SPSEXPD: 格内最左的「MP」小标签（半透明蓝），与数字一起说明这是法力值
 		spLabel = new BitmapText(PixelScene.pixelFont);
-		spLabel.text("SP");
+		spLabel.text("MP");
 		spLabel.measure();
-		spLabel.hardlight(0xD87070);
+		spLabel.hardlight(0x7090D8);
 		spLabel.alpha(0.7f);
 		add(spLabel);
 
@@ -385,20 +387,16 @@ public class StatusPane extends Component {
 			oldMax = max;
 		}
 
-		//SPSEXPD: 局内 SP 点数 —— 默认显示 Hero.spp；英雄身上挂着专属来源（如武僧内力）时显示它
-		int sp = Dungeon.hero.spp;
-		int spMax = -1;
-		pd.actors.hero.SpPointSource spSource = Dungeon.hero.activeSpSource();
-		if (spSource != null) {
-			sp = spSource.value( Dungeon.hero );
-			spMax = spSource.max( Dungeon.hero );
-		}
-		if (sp != lastSP || spMax != lastSPMax) {
-			lastSP = sp;
-			lastSPMax = spMax;
-			spText.text( spMax > 0 ? sp + "/" + spMax : Integer.toString( sp ) );
+		//SPSEXPD: 血条下的点数格固定渲染法力值（cur/cap，青条）——SP 点数已挪到 MenuPane
+		int mana = Dungeon.hero.spsMana;
+		int manaCap = Math.max(mana, pd.actors.hero.Mana.cap(Dungeon.hero));
+		String manaText = mana + "/" + manaCap;
+		if (!manaText.equals(lastManaText)) {
+			lastManaText = manaText;
+			lastManaFrac = Math.max(0f, Math.min(1f, mana / (float) manaCap));
+			spText.text( manaText );
 			spText.measure();
-			//SPSEXPD: 文本宽度变了，居中位置与上限条都要跟着重算（黄条用上方刚更新的 lastSP/lastSPMax）
+			//SPSEXPD: 文本宽度变了，居中位置与上限条都要跟着重算（青条用上方刚更新的数值）
 			layoutSpPoint();
 		}
 
@@ -448,8 +446,8 @@ public class StatusPane extends Component {
 		counter.setSweep((1f - Actor.now()%1f)%1f);
 	}
 
-	/** SPSEXPD: 摆放局内 SP 点数 —— 小模式落在背板素材预留的格子里（居中）；
-	 *  有上限时在格内底部再画一条按当前值占比的黄色进度条 */
+	/** SPSEXPD: 摆放血条下的点数格（现为法力值）—— 小模式落在背板素材预留的格子里（居中）；
+	 *  格内底部画一条按当前法力占比的青色进度条 */
 	private void layoutSpPoint(){
 		if (spText == null || spBar == null || hp == null) return;
 
@@ -489,11 +487,10 @@ public class StatusPane extends Component {
 		spText.y = slotY + (slotH - spText.height())/2f;
 		PixelScene.align(spText);
 
-		//SPSEXPD: 上限黄条——只有存在上限（max > 0）时才显示，宽度 = 格内宽 × 当前占比
-		boolean hasMax = lastSPMax > 0;
-		spBar.visible = hasMax;
-		if (hasMax){
-			float frac = Math.max(0f, Math.min(1f, lastSP / (float) lastSPMax));
+		//SPSEXPD: 法力上限青条——恒有上限，始终显示，宽度 = 格内宽 × 当前占比
+		spBar.visible = true;
+		{
+			float frac = lastManaFrac;
 			spBar.size( Math.max(1f, (slotW - 2f) * frac), SP_BAR_H );
 			spBar.x = slotX + 1f;
 			spBar.y = slotY + slotH - SP_BAR_H - 1f;

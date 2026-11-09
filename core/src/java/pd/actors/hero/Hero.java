@@ -397,6 +397,11 @@ public class Hero extends Char {
 	public int petExperience = 0;
 	/** Legacy SPS resource used by several skin-specific weapons. */
 	public int spp = 0;
+	//SPSEXPD: 法力值系统（批次A）——当前法力与升级外的上限加成；数值语义见 pd.actors.hero.Mana
+	public int spsMana = 0;
+	public int spsManaBonusCap = 0;
+	/** SPSEXPD: 法力回复累积器（每 Mana.REGEN_TURNS 个真实回合 +1；不进存档，读档从下一轮算起） */
+	public transient int spsManaRegenTurns = 0;
 	//SPSEXPD: 玩家自定义的角色名（null/空 = 未命名）
 	private String heroName = null;
 	
@@ -416,7 +421,10 @@ public class Hero extends Char {
 		STR = STARTING_STR;
 		
 		belongings = new Belongings( this );
-		
+
+		//SPSEXPD: 新档开局法力满值
+		Mana.setFull( this );
+
 		visibleEnemies = new ArrayList<>();
 	}
 	
@@ -521,6 +529,9 @@ public class Hero extends Char {
 	private static final String PET_LEVEL    = "sps_pet_level";
 	private static final String PET_EXP      = "sps_pet_experience";
 	private static final String SPP          = "sps_power_points";
+	//SPSEXPD: 法力值系统存档键（旧档缺键 → 读档补满）
+	private static final String SPS_MANA      = "sps_mana";
+	private static final String SPS_MANA_BONUS= "sps_mana_bonus_cap";
 	private static final String HTBOOST     = "htboost";
 	
 	//SPSEXPD: 镀金纹章——连击被打断时保留的层数，下次连击开始时继承
@@ -576,6 +587,9 @@ public class Hero extends Char {
 		bundle.put( PET_LEVEL, petLevel );
 		bundle.put( PET_EXP, petExperience );
 		bundle.put( SPP, spp );
+		//SPSEXPD: 法力值随存档
+		bundle.put( SPS_MANA, spsMana );
+		bundle.put( SPS_MANA_BONUS, spsManaBonusCap );
 		
 		bundle.put( HTBOOST, HTBoost );
 		//SPSEXPD: 镀金纹章保留的连击层数
@@ -594,6 +608,11 @@ public class Hero extends Char {
 		petLevel = bundle.getInt(PET_LEVEL);
 		petExperience = bundle.getInt(PET_EXP);
 		spp = Math.max(0, bundle.getInt(SPP));
+		//SPSEXPD: 法力值读档——旧档缺键时补满；上限加成键先读（cap 依赖它）
+		spsManaBonusCap = bundle.contains(SPS_MANA_BONUS) ? bundle.getInt(SPS_MANA_BONUS) : 0;
+		spsMana = bundle.contains(SPS_MANA)
+				? Math.max(0, Math.min(bundle.getInt(SPS_MANA), Mana.cap(this)))
+				: Mana.cap(this);
 
 		HTBoost = bundle.getInt(HTBOOST);
 		//SPSEXPD: 镀金纹章保留的连击层数（旧档没有该键 → 0）
@@ -1301,6 +1320,9 @@ public class Hero extends Char {
 	 * 于是「走一步神木圆盾回 2 充能」。改到时间维度后与 act 次数无关。
 	 */
 	private void onTurnCharge() {
+		//SPSEXPD: 法力值回复——每 Mana.REGEN_TURNS 个真实回合 +1（与 act 次数无关）
+		Mana.regenTick( this );
+
 		//SPSEXPD: 炼药工具台（药水箱组件）随时间积攒炼金能量
 		if (belongings != null) {
 			for (pd.items.equipment.bags.Bag bag : belongings.getBags()) {
