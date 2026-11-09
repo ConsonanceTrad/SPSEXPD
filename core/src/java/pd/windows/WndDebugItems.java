@@ -216,6 +216,16 @@ public class WndDebugItems extends Window {
 		all.put(pd.items.unique.items.ClogArmor.class, true);
 		all.put(pd.items.unique.items.Megaphone.class, true);
 
+		//SPSEXPD: 仪式/施法拓展（批次C-E）新增物品补入全集（布阵石与法术书不在图鉴/生成表里）
+		all.put(pd.items.misc.RitualStone.class, true);
+		all.put(pd.items.consum.materials.ManaCrystal.class, true);
+		all.put(pd.items.specific.journal.RitualPage.class, true);
+		all.put(pd.items.spellbooks.GaleCodex.class, true);
+		all.put(pd.items.spellbooks.VeilCodex.class, true);
+		all.put(pd.items.spellbooks.EmberpillarTome.class, true);
+		all.put(pd.items.spellbooks.StarfallTome.class, true);
+		all.put(pd.items.unique.items.BlueMagicNotes.class, true);
+
 		//SPSEXPD: 作物相关物品（种子/蔬菜/二次产物/果实）登记进调试器全集
 		for (Class<?> t : CROP_ORDER) all.put((Class<? extends Item>) t, true);
 
@@ -421,6 +431,26 @@ public class WndDebugItems extends Window {
 		components.add(new Entry(pd.items.equipment.bags.PlentyHorn.class));
 		components.add(new Entry(pd.items.equipment.bags.GreenVial.class));
 		map.put("包裹组件", components);
+
+		//SPSEXPD: 仪式与施法（仪式/施法拓展批次C-E）——布阵石/魔力结晶/仪式讲解残页/法术书/青魔法笔记
+		ArrayList<Entry> magic = new ArrayList<>();
+		magic.add(new Entry(pd.items.misc.RitualStone.class));
+		magic.add(new Entry(pd.items.consum.materials.ManaCrystal.class));
+		//仪式讲解残页：每个已注册仪式一张（页 id = 仪式 id，捡起即登记该仪式的讲解页）
+		for (pd.rituals.Ritual ritual : pd.rituals.Rituals.all()) {
+			final String pageId = ritual.id();
+			magic.add(Entry.of(() -> {
+				pd.items.specific.journal.RitualPage page = new pd.items.specific.journal.RitualPage();
+				page.page(pageId);
+				return page;
+			}, pd.items.specific.journal.RitualPage.class));
+		}
+		magic.add(new Entry(pd.items.spellbooks.GaleCodex.class));
+		magic.add(new Entry(pd.items.spellbooks.VeilCodex.class));
+		magic.add(new Entry(pd.items.spellbooks.EmberpillarTome.class));
+		magic.add(new Entry(pd.items.spellbooks.StarfallTome.class));
+		magic.add(new Entry(pd.items.unique.items.BlueMagicNotes.class));
+		map.put("仪式与施法", magic);
 
 		extraGroups = map;
 		return map;
