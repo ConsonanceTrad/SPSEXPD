@@ -30,7 +30,7 @@ import pd.Dungeon;
 
 /**
  * SPSEXPD: 原典《星落原典》（批次E）——耗法力以自身为中心，5×5 内所有敌方目标被星辉击落
- * （纯粹伤害，法强加成）。持有超过 1 本原典时施法过载（见 Spellbook）。
+ * （纯粹伤害，法强加成）。
  */
 public class StarfallTome extends Spellbook {
 
@@ -38,7 +38,7 @@ public class StarfallTome extends Spellbook {
 	static {
 		InlineText.of(StarfallTome.class)
 			.t("name", "星落原典")
-			.t("desc", "书页间嵌着几粒不肯熄灭的星光。合上书时，它们落回原处。\n\n施法（消耗 12 法力）：以自身为中心，五格内的所有敌方目标被星辉击中，受到一段_纯粹伤害_（无视护甲与抗性，受_法强_加成）。\n\n_原典_：效果强大，但同时持有超过一本原典会让每次施法过载（效果打折、额外多耗法力）。");
+			.t("desc", "书页间嵌着几粒不肯熄灭的星光。合上书时，它们落回原处。\n\n施法（消耗 5 法力）：以自身为中心，五格内的所有敌方目标被星辉击中，受到一段_纯粹伤害_（无视护甲与抗性，受_法强_加成）。\n\n_原典_：效果强大。");
 	}
 
 	{
@@ -49,7 +49,7 @@ public class StarfallTome extends Spellbook {
 	public boolean isTome() { return true; }
 
 	@Override
-	public int manaCost() { return 12; }
+	public int manaCost() { return 5; }
 
 	@Override
 	public void onCast( Hero hero ) {

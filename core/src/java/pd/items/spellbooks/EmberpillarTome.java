@@ -40,7 +40,6 @@ import pd.utils.GLog;
 
 /**
  * SPSEXPD: 原典《焰柱原典》（批次E）——耗法力点选目标格，3×3 焰柱轰击（法强加成）。
- * 持有超过 1 本原典时施法过载（效果打折、多耗法力，见 Spellbook）。
  */
 public class EmberpillarTome extends Spellbook {
 
@@ -49,7 +48,7 @@ public class EmberpillarTome extends Spellbook {
 		InlineText.of(EmberpillarTome.class)
 			.t("name", "焰柱原典")
 			.t("cast_prompt", "选择焰柱轰落的位置")
-			.t("desc", "封皮像烧红的铁，翻开时指尖能听见火焰的呼吸。\n\n施法（消耗 8 法力）：点选一处位置，3×3 范围内燃起焰柱，对其中所有敌方目标造成火系伤害并留下烈焰。伤害受_法强_加成。\n\n_原典_：效果强大，但同时持有超过一本原典会让每次施法过载（效果打折、额外多耗法力）。");
+			.t("desc", "封皮像烧红的铁，翻开时指尖能听见火焰的呼吸。\n\n施法（消耗 5 法力）：点选一处位置，3×3 范围内燃起焰柱，对其中所有敌方目标造成火系伤害并留下烈焰。伤害受_法强_加成。\n\n_原典_：效果强大。");
 	}
 
 	{
@@ -60,7 +59,7 @@ public class EmberpillarTome extends Spellbook {
 	public boolean isTome() { return true; }
 
 	@Override
-	public int manaCost() { return 8; }
+	public int manaCost() { return 5; }
 
 	@Override
 	public void execute( Hero hero, String action ) {
@@ -113,13 +112,10 @@ public class EmberpillarTome extends Spellbook {
 		@Override
 		public void onSelect( Integer target ) {
 			if (target == null || curUser == null || curBook == null) return;
-			int cost = curBook.manaCost() + extraCost( curUser );
+			int cost = curBook.manaCost();
 			if (!Mana.has( curUser, cost )) {
 				GLog.w( Messages.get( Spellbook.class, "no_mana" ) );
 				return;
-			}
-			if (overloaded( curUser )) {
-				GLog.w( Messages.get( Spellbook.class, "overload" ) );
 			}
 			Mana.spend( curUser, cost );
 			curBook.slam( curUser, target );

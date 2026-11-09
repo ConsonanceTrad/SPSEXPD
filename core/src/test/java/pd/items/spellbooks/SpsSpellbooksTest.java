@@ -43,7 +43,6 @@ public final class SpsSpellbooksTest {
 	public static void main(String[] args) {
 		try {
 			testManaBasics();
-			testTomeOverload();
 			testCastGate();
 
 			System.out.println( "SpsSpellbooksTest PASS (" + checks + " checks)" );
@@ -82,44 +81,25 @@ public final class SpsSpellbooksTest {
 		hero.lvl = 1;
 	}
 
-	private static void testTomeOverload() {
-		Hero hero = new Hero();
-		Mana.setFull( hero );
-
-		FakeCodex codex = new FakeCodex();
-		hero.belongings.backpack.items.add( codex );
-		checkEquals( Spellbook.heldTomes( hero ), 0, "仅抄本不计原典" );
-		check( !Spellbook.overloaded( hero ), "单抄本不过载" );
-		checkEquals( Spellbook.overloadScale( hero ), 1.0f, "不过载效果全额" );
-		checkEquals( Spellbook.extraCost( hero ), 0, "不过载无额外消耗" );
-
-		hero.belongings.backpack.items.add( new FakeTome() );
-		checkEquals( Spellbook.heldTomes( hero ), 1, "一本原典" );
-		check( !Spellbook.overloaded( hero ), "单本原典不过载（超过 1 本才过载）" );
-
-		hero.belongings.backpack.items.add( new FakeTome() );
-		check( Spellbook.overloaded( hero ), "两本原典过载" );
-		checkEquals( Spellbook.extraCost( hero ), 2, "过载额外法力 +2" );
-		check( Spellbook.overloadScale( hero ) < 1f, "过载效果打折" );
-	}
-
 	private static void testCastGate() {
 		Hero hero = new Hero();
 		Mana.setFull( hero ); //10 法力
 
-		//1 本原典（不过载）+ 1 抄本 → 施法消耗 3；拒绝分支的 GLog 文案走 Messages（无头不触），这里只验门槛本身
-		hero.belongings.backpack.items.add( new FakeTome() );
+		//抄本固定耗 3（测试本），无任何附加惩罚；拒绝分支的 GLog 文案走 Messages（无头不触），这里只验门槛本身
 		FakeCodex codex = new FakeCodex();
 		hero.belongings.backpack.items.add( codex );
 
-		check( !Spellbook.overloaded( hero ), "单原典配置不过载" );
+		//多本原典不再有任何过载效果（机制已按裁决移除）——塞两本原典不影响消耗
+		hero.belongings.backpack.items.add( new FakeTome() );
+		hero.belongings.backpack.items.add( new FakeTome() );
+
 		check( codex.tryCast( hero ), "法力足够施法成功" );
 		checkEquals( codex.fired, 1, "onCast 结算一次" );
-		checkEquals( Mana.cur( hero ), 10 - 3, "施法扣 3 法力" );
+		checkEquals( Mana.cur( hero ), 10 - 3, "施法只扣抄本自身法力（无附加消耗）" );
 
 		//耗干法力后的门槛语义
 		Mana.spend( hero, Mana.cur( hero ) );
-		int cost = codex.manaCost() + Spellbook.extraCost( hero );
+		int cost = codex.manaCost();
 		check( !Mana.has( hero, cost ), "法力不足时门槛判定为不可施法" );
 		checkEquals( codex.fired, 1, "门槛拦截下效果不结算" );
 	}

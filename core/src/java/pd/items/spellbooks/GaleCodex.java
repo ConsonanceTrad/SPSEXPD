@@ -37,7 +37,7 @@ public class GaleCodex extends Spellbook {
 	static {
 		InlineText.of(GaleCodex.class)
 			.t("name", "疾风抄本")
-			.t("desc", "一册薄薄的抄本，页脚的风纹会随阅读轻轻鼓动。\n\n施法（消耗 4 法力）：在 20 回合内获得疾速，移动更加迅捷。\n\n_抄本_：效果稳定，但不及其原典。");
+			.t("desc", "一册薄薄的抄本，页脚的风纹会随阅读轻轻鼓动。\n\n施法（消耗 2 法力）：在 20 回合内获得疾速，移动更加迅捷。\n\n_抄本_：效果稳定，但不及其原典。");
 	}
 
 	{
@@ -48,7 +48,7 @@ public class GaleCodex extends Spellbook {
 	public boolean isTome() { return false; }
 
 	@Override
-	public int manaCost() { return 4; }
+	public int manaCost() { return 2; }
 
 	@Override
 	public void onCast( Hero hero ) {

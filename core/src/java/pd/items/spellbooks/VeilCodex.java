@@ -36,7 +36,7 @@ public class VeilCodex extends Spellbook {
 	static {
 		InlineText.of(VeilCodex.class)
 			.t("name", "帷幕抄本")
-			.t("desc", "夹页间垂着一缕化不开的暗色，像一幕随时可以落下的帷幕。\n\n施法（消耗 5 法力）：在 10 回合内隐身。\n\n_抄本_：效果稳定，但不及其原典。");
+			.t("desc", "夹页间垂着一缕化不开的暗色，像一幕随时可以落下的帷幕。\n\n施法（消耗 2 法力）：在 10 回合内隐身。\n\n_抄本_：效果稳定，但不及其原典。");
 	}
 
 	{
@@ -47,7 +47,7 @@ public class VeilCodex extends Spellbook {
 	public boolean isTome() { return false; }
 
 	@Override
-	public int manaCost() { return 5; }
+	public int manaCost() { return 2; }
 
 	@Override
 	public void onCast( Hero hero ) {
