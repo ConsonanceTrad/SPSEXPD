@@ -55,10 +55,10 @@ public final class SpsSpellbooksTest {
 		System.exit( 0 );
 	}
 
-	/** SPSEXPD: 法术书化批次1——映射表登记、统一法力 2/5、抄本施法门槛 */
+	/** SPSEXPD: 法术书化批次3——映射表全量登记、统一法力 2/5、抄本施法门槛 */
 	private static void testWandBooks() {
-		checkEquals( pd.items.spellbooks.WandBooks.all().size(), 3, "批次1登记 3 对书目" );
-		checkEquals( pd.items.spellbooks.WandBooks.bookClasses().size(), 6, "书目类表 6 本" );
+		checkEquals( pd.items.spellbooks.WandBooks.all().size(), 25, "全量登记 25 对书目（24 常规池杖 + 冰霜法杖）" );
+		checkEquals( pd.items.spellbooks.WandBooks.bookClasses().size(), 50, "书目类表 50 本" );
 
 		pd.items.spellbooks.WandBooks.Pair pair =
 				pd.items.spellbooks.WandBooks.of( pd.items.equipment.wands.WandOfFirebolt.class );

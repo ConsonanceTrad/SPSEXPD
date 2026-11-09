@@ -76,6 +76,15 @@ public class WandBooks {
 		register( pd.items.equipment.wands.WandOfMeteorite.class, pd.items.spellbooks.wands.MeteoriteTome.class, pd.items.spellbooks.wands.MeteoriteCodex.class );
 		register( pd.items.equipment.wands.WandOfError.class, pd.items.spellbooks.wands.ErrorTome.class, pd.items.spellbooks.wands.ErrorCodex.class );
 		register( pd.items.equipment.wands.WandOfTCloud.class, pd.items.spellbooks.wands.TCloudTome.class, pd.items.spellbooks.wands.TCloudCodex.class );
+		register( pd.items.equipment.wands.WandOfShockwave.class, pd.items.spellbooks.wands.ShockwaveTome.class, pd.items.spellbooks.wands.ShockwaveCodex.class );
+		register( pd.items.equipment.wands.WandOfShadow.class, pd.items.spellbooks.wands.ShadowTome.class, pd.items.spellbooks.wands.ShadowCodex.class );
+		register( pd.items.equipment.wands.WandOfSmokeBomb.class, pd.items.spellbooks.wands.SmokeBombTome.class, pd.items.spellbooks.wands.SmokeBombCodex.class );
+		register( pd.items.equipment.wands.WandOfSpiritHawk.class, pd.items.spellbooks.wands.SpiritHawkTome.class, pd.items.spellbooks.wands.SpiritHawkCodex.class );
+		register( pd.items.equipment.wands.WandOfFeint.class, pd.items.spellbooks.wands.FeintTome.class, pd.items.spellbooks.wands.FeintCodex.class );
+		register( pd.items.equipment.wands.WandOfFinality.class, pd.items.spellbooks.wands.FinalityTome.class, pd.items.spellbooks.wands.FinalityCodex.class );
+		register( pd.items.equipment.wands.WandOfWildRune.class, pd.items.spellbooks.wands.WildRuneTome.class, pd.items.spellbooks.wands.WildRuneCodex.class );
+		register( pd.items.equipment.wands.WandOfChaosTeleport.class, pd.items.spellbooks.wands.ChaosTeleportTome.class, pd.items.spellbooks.wands.ChaosTeleportCodex.class );
+		register( pd.items.equipment.artifacts.MasterThievesArmband.class, pd.items.spellbooks.wands.SleightTome.class, pd.items.spellbooks.wands.SleightCodex.class );
 	}
 
 	/** 某法杖对应的书对（无则 null） */
