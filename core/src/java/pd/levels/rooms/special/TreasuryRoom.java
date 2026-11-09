@@ -86,7 +86,7 @@ public class TreasuryRoom extends SpecialRoom {
 
 	private static Item prizeUncursed() {
 		Item item = Generator.random(Random.oneOf(
-				Generator.Category.WAND, Generator.Category.RING, Generator.Category.ARTIFACT));
+				Generator.Category.WAND_RARE, Generator.Category.RING, Generator.Category.ARTIFACT));
 		if (item.cursed && item.isUpgradable()) {
 			item.cursed = false;
 			if (item.level() < 0) item.upgrade(-item.level());

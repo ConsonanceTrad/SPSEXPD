@@ -506,7 +506,10 @@ public class Generator {
 		RANGEWEAPON( 0, 0, MissileWeapon.class ),
 		ARROWS( 0, 0, Arrows.class ),
 		MUSICWEAPON( 0, 0, Weapon.class ),
-		GUNWEAPON( 0, 0, Weapon.class );
+		GUNWEAPON( 0, 0, Weapon.class ),
+
+		//SPSEXPD: 法杖稀有化（批次2）——稀有杖来源专用表（追加在末尾以保序号兼容旧档）
+		WAND_RARE( 0, 0, Wand.class );
 		
 		public Class<?>[] classes;
 
@@ -745,7 +748,17 @@ public class Generator {
 			STONE.defaultProbs = new float[]{ 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0 };
 			STONE.probs = STONE.defaultProbs.clone();
 
-			WAND.classes = new Class<?>[]{
+			//SPSEXPD: 法术书化（批次2）——WAND 生态位改为「常规法术」原典/抄本
+			//（约 30 处常规生成点：商店/普通宝箱/萨满术士邪眼掉落/嬗变水等全部改掉书）；
+			//书目随 WandBooks 映射表扩充（批次1先有火弹/冰霜/雷霆三对，批次3补齐）
+			WAND.classes = pd.items.spellbooks.WandBooks.bookClasses().toArray( new Class<?>[0] );
+			WAND.defaultProbs = new float[WAND.classes.length];
+			for (int i = 0; i < WAND.defaultProbs.length; i++) WAND.defaultProbs[i] = 2;
+			WAND.probs = WAND.defaultProbs.clone();
+
+			//SPSEXPD: 法杖稀有化（批次2）——常规法杖只从稀有来源出（水晶匣/宝库/深层/许愿），
+			//充能模型不变（自储存充能，与法强/法力零交互）
+			WAND_RARE.classes = new Class<?>[]{
 					WandOfAcid.class,
 					WandOfFreeze.class,
 					WandOfFirebolt.class,
@@ -767,8 +780,8 @@ public class Generator {
 					WandOfShockwave.class, WandOfShadow.class, WandOfSmokeBomb.class,
 					WandOfSpiritHawk.class, WandOfFeint.class, WandOfFinality.class,
 					WandOfWildRune.class, WandOfChaosTeleport.class };
-			WAND.defaultProbs = new float[]{ 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 0, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4 };
-			WAND.probs = WAND.defaultProbs.clone();
+			WAND_RARE.defaultProbs = new float[]{ 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 0, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4 };
+			WAND_RARE.probs = WAND_RARE.defaultProbs.clone();
 			
 			// SPS-PD 0.9.8's complete 60-weapon pool. Shattered weapons remain compiled but hidden.
 			WEAPON.classes = new Class<?>[]{

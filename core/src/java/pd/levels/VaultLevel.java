@@ -364,7 +364,7 @@ public class VaultLevel extends CityLevel {
 
 		//wand (some wands are banned)
 		do {
-			loot = Generator.randomUsingDefaults(Generator.Category.WAND);
+			loot = Generator.randomUsingDefaults(Generator.Category.WAND_RARE);
 		} while (generatedClasses.contains(loot.getClass()) || loot instanceof WandOfRegrowth
 				|| loot instanceof WandOfTransfusion || loot instanceof WandOfCorruption);
 		generatedClasses.add(loot.getClass());

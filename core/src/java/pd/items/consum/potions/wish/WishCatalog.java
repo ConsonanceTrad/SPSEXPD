@@ -85,7 +85,7 @@ public final class WishCatalog {
 		TIERS.put(Category.GUNWEAPON, 3);
 		TIERS.put(Category.MUSICWEAPON, 3);
 		TIERS.put(Category.ARMOR, 3);
-		TIERS.put(Category.WAND, 3);
+		TIERS.put(Category.WAND_RARE, 3);
 		TIERS.put(Category.RING, 3);
 		TIERS.put(Category.ARTIFACT, 4);
 		TIERS.put(Category.TRINKET, 2);
@@ -116,7 +116,7 @@ public final class WishCatalog {
 		KINDS.put(Category.GUNWEAPON, WishType.RANGED);
 		KINDS.put(Category.MUSICWEAPON, WishType.RANGED);
 		KINDS.put(Category.ARMOR, WishType.ARMOR);
-		KINDS.put(Category.WAND, WishType.WAND);
+		KINDS.put(Category.WAND_RARE, WishType.WAND);
 		KINDS.put(Category.RING, WishType.RING);
 		KINDS.put(Category.ARTIFACT, WishType.ARTIFACT);
 		KINDS.put(Category.TRINKET, WishType.TRINKET);

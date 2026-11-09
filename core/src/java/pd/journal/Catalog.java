@@ -236,6 +236,9 @@ public enum Catalog {
 		// Shattered-only enchantments and glyphs remain implemented but hidden
 		// until their SPS counterparts and catalog rules have been ported.
 
+		//SPSEXPD: 法杖稀有化（批次2）——法杖组改读稀有杖表 WAND_RARE；
+		//常规法术书目（WAND 生态位的新主人）也并入本组图鉴
+		WANDS.addItems(Generator.Category.WAND_RARE.classes);
 		WANDS.addItems(Generator.Category.WAND.classes);
 
 		RINGS.addItems(Generator.Category.RING.classes);

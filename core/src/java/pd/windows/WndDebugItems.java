@@ -330,7 +330,8 @@ public class WndDebugItems extends Window {
 		//法杖：全部法杖（含新加的 8 根）
 		ArrayList<Entry> wands = new ArrayList<>();
 		//WAND.classes 在 Generator 初始化后才赋值，这里必须判空
-		Class<?>[] wandClasses = Generator.Category.WAND.classes;
+		//SPSEXPD: 法杖稀有化（批次2）——调试器「法杖」组改读稀有杖表 WAND_RARE
+		Class<?>[] wandClasses = Generator.Category.WAND_RARE.classes;
 		if (wandClasses != null) {
 			for (Class<?> c : wandClasses) {
 				if (c != null && Item.class.isAssignableFrom(c)) wands.add(new Entry((Class<? extends Item>) c));
