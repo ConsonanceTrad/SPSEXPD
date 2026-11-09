@@ -71,6 +71,11 @@ public class WandBooks {
 		register( pd.items.equipment.wands.WandOfCharm.class, pd.items.spellbooks.wands.CharmTome.class, pd.items.spellbooks.wands.CharmCodex.class );
 		register( pd.items.equipment.wands.fusion.WandOfFlow.class, pd.items.spellbooks.wands.FlowTome.class, pd.items.spellbooks.wands.FlowCodex.class );
 		register( pd.items.equipment.wands.WandOfFlock.class, pd.items.spellbooks.wands.FlockTome.class, pd.items.spellbooks.wands.FlockCodex.class );
+		register( pd.items.equipment.wands.WandOfMagicMissile.class, pd.items.spellbooks.wands.MagicMissileTome.class, pd.items.spellbooks.wands.MagicMissileCodex.class );
+		register( pd.items.equipment.wands.WandOfDisintegration.class, pd.items.spellbooks.wands.DisintegrationTome.class, pd.items.spellbooks.wands.DisintegrationCodex.class );
+		register( pd.items.equipment.wands.WandOfMeteorite.class, pd.items.spellbooks.wands.MeteoriteTome.class, pd.items.spellbooks.wands.MeteoriteCodex.class );
+		register( pd.items.equipment.wands.WandOfError.class, pd.items.spellbooks.wands.ErrorTome.class, pd.items.spellbooks.wands.ErrorCodex.class );
+		register( pd.items.equipment.wands.WandOfTCloud.class, pd.items.spellbooks.wands.TCloudTome.class, pd.items.spellbooks.wands.TCloudCodex.class );
 	}
 
 	/** 某法杖对应的书对（无则 null） */

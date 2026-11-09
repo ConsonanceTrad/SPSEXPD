@@ -52,11 +52,16 @@ public abstract class DamageSpellbook extends pd.items.spellbooks.Spellbook {
 		castAt( hero, hero.pos );
 	}
 
+	/** SPSEXPD: 弹道属性（默认 PROJECTILE 停在指定点；穿透型书覆写如 WONT_STOP） */
+	protected int boltProperties() {
+		return pd.mechanics.Ballistica.PROJECTILE;
+	}
+
 	@Override
 	public void castAt( Hero hero, int cell ) {
 		if (pd.Dungeon.level == null) return;
-		//弹道碰撞点：与常规法杖同口径（PROJECTILE 停在指定点）
-		pd.mechanics.Ballistica shot = new pd.mechanics.Ballistica( hero.pos, cell, Ballistica.PROJECTILE );
+		//弹道碰撞点：与常规法杖同口径
+		pd.mechanics.Ballistica shot = new pd.mechanics.Ballistica( hero.pos, cell, boltProperties() );
 		int hit = shot.collisionPos;
 
 		int base = render.utils.math.Random.NormalIntRange( min( castLevel() ), max( castLevel() ) );
