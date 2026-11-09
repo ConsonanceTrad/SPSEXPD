@@ -1982,6 +1982,15 @@ project(':core') {
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
+	tasks.register('verifySpsRituals', JavaExec) {
+		group = 'verification'
+		description = '无图形验证仪式机制核心：材料匹配规则与仪式讲解册知识判定门槛。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = coreTestClass('rituals.SpsRitualsTest')
+		workingDir = file('src/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
 	tasks.register('verifySpsStartingItems', JavaExec) {
 		group = 'verification'
 		description = '无图形验证开局物品单一真源：每个职业×主题的清单可用、槽位类型相符、留空主题等同经典。'

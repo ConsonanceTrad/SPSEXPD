@@ -52,6 +52,21 @@ public enum Document {
 	ADVENTURERS_GUIDE(SpecificPagesDict.GUIDE_PAGE_0, false),
 	ALCHEMY_GUIDE(SpecificPagesDict.ALCH_PAGE_0, false),
 
+	//SPSEXPD: 仪式讲解（仪式/施法拓展批次B）——每页对应一个仪式；页 id = 仪式 id。
+	//标题/正文不在内联表里，而是从仪式注册表取（覆写 pageTitle/pageBody）。
+	RITUAL_GUIDE(SpecificPagesDict.GUIDE_PAGE_0, true) {
+		@Override
+		public String pageTitle( String page ){
+			pd.rituals.Ritual ritual = pd.rituals.Rituals.byPage( page );
+			return ritual != null ? ritual.name() : super.pageTitle(page);
+		}
+
+		@Override
+		public String pageBody( String page ){
+			pd.rituals.Ritual ritual = pd.rituals.Rituals.byPage( page );
+			return ritual != null ? ritual.desc() : super.pageBody(page);
+		}
+	},
 	INTROS(Icons.STAIRS, true),
 	SEWERS_GUARD(SpecificPagesDict.SEWER_PAGE_0, true),
 	PRISON_WARDEN(SpecificPagesDict.PRISON_PAGE_0, true),
@@ -223,7 +238,10 @@ public enum Document {
 			.t("halls_king.thing.title", "彼物")
 			.t("halls_king.thing.body", "有麻烦了，虽然和提穆尔没什么关系，他苍白无力的抵抗早已被迅速扑灭，不过朕在外位面的探索似乎吸引到了不必要的注意。\n\n一个...“存在”...被引到了本位面，祂正在逼近城市厅堂的最下层。麻烦的事情在于，那也正好是朕存放护符的区域！真是个可憎的造物，为何放着外位面充盈的能量不要，专门跑来试图夺走朕的东西？\n\n纵是强大如朕，也无法亲征讨伐此怪。其真实实力不可估量，但朕也有可行之策。朕必会守住护符！")
 			.t("halls_king.attrition.title", "拉锯")
-			.t("halls_king.attrition.body", "朕已有一计可应对此孽。诚然其力量几近无限，然其蚕食本位面的能力受限颇多。祂仍需其恶魔爪牙与化身的协助才能积蓄力量，一举夺走护符。\n\n护符虽不在身旁，但其神力仍寄宿于朕。掌控矮人都城本身也意味着朕有压倒性的人数优势。将兵力源源不断地送入大厅，朕就能阻止其攫取护符，通过消耗战赢得胜利！\n\nYog-Dzewa！朕，Rodney，矮人之王，才 会 笑 到 最 后！");
+			.t("halls_king.attrition.body", "朕已有一计可应对此孽。诚然其力量几近无限，然其蚕食本位面的能力受限颇多。祂仍需其恶魔爪牙与化身的协助才能积蓄力量，一举夺走护符。\n\n护符虽不在身旁，但其神力仍寄宿于朕。掌控矮人都城本身也意味着朕有压倒性的人数优势。将兵力源源不断地送入大厅，朕就能阻止其攫取护符，通过消耗战赢得胜利！\n\nYog-Dzewa！朕，Rodney，矮人之王，才 会 笑 到 最 后！")
+			//SPSEXPD: 仪式讲解（批次B）——标题与提示；页标题/正文来自仪式注册表
+			.t("ritual_guide.title", "仪式讲解")
+			.t("ritual_guide.discover_hint", "获得某仪式的讲解残页后在事件记录里阅读，即可布置该仪式。");
 	}
 
 
@@ -312,6 +330,12 @@ public enum Document {
 			}
 		}
 		return true;
+	}
+
+	/** SPSEXPD: 仪式讲解册专用——注册仪式讲解页（页 id = 仪式 id；debug 档直接已读） */
+	public void registerPage( String page ) {
+		if (pagesStates.containsKey(page)) return;
+		pagesStates.put( page, DeviceCompat.isDebug() ? READ : NOT_FOUND );
 	}
 
 	public boolean readPage( String page ) {
