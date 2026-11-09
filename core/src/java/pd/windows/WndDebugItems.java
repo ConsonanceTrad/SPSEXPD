@@ -225,6 +225,10 @@ public class WndDebugItems extends Window {
 		all.put(pd.items.spellbooks.EmberpillarTome.class, true);
 		all.put(pd.items.spellbooks.StarfallTome.class, true);
 		all.put(pd.items.unique.items.BlueMagicNotes.class, true);
+		//SPSEXPD: 法术书化（批次1起）——映射表书目批量补入全集
+		for (Class<? extends Item> bc : pd.items.spellbooks.WandBooks.bookClasses()) {
+			all.put(bc, true);
+		}
 
 		//SPSEXPD: 作物相关物品（种子/蔬菜/二次产物/果实）登记进调试器全集
 		for (Class<?> t : CROP_ORDER) all.put((Class<? extends Item>) t, true);
@@ -450,6 +454,11 @@ public class WndDebugItems extends Window {
 		magic.add(new Entry(pd.items.spellbooks.EmberpillarTome.class));
 		magic.add(new Entry(pd.items.spellbooks.StarfallTome.class));
 		magic.add(new Entry(pd.items.unique.items.BlueMagicNotes.class));
+		//SPSEXPD: 法术书化（批次1起）——映射表里的原典/抄本逐对列出
+		for (pd.items.spellbooks.WandBooks.Pair pair : pd.items.spellbooks.WandBooks.all()) {
+			magic.add(new Entry(pair.tome));
+			magic.add(new Entry(pair.codex));
+		}
 		map.put("仪式与施法", magic);
 
 		extraGroups = map;

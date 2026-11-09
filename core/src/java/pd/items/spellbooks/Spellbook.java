@@ -46,7 +46,8 @@ public abstract class Spellbook extends Item {
 	//SPSEXPD: inline Chinese text
 	static {
 		InlineText.of(Spellbook.class)
-			.t("no_mana", "你的法力不够支撑这本法术书的消耗。");
+			.t("no_mana", "你的法力不够支撑这本法术书的消耗。")
+			.t("cast_prompt_default", "选择施法位置");
 	}
 
 	/** SPSEXPD: 施法动作（子类的定向施法也要引用） */
@@ -62,8 +63,52 @@ public abstract class Spellbook extends Item {
 	/** 施法消耗的基础法力 */
 	public abstract int manaCost();
 
-	/** 施法效果（材料已被判定，法力已扣除） */
+	/** 施法效果（无目标路径；定向书覆写 {@link #castAt}） */
 	public abstract void onCast( Hero hero );
+
+	/** SPSEXPD: 是否需要点选目标格（定向书覆写为 true，走基类选点器） */
+	public boolean targetRequired() { return false; }
+
+	/** SPSEXPD: 定向施法的落点结算（选点回调里、法力已扣除后调用）；默认退回无目标效果 */
+	public void castAt( Hero hero, int cell ) {
+		onCast( hero );
+	}
+
+	/** SPSEXPD: 弹道特效类型（定向书覆写，如 MagicMissile.FIRE / FROST） */
+	protected int missileType() {
+		return pd.effects.MagicMissile.MAGIC_MISSILE;
+	}
+
+	/** SPSEXPD: 选点提示（子类可注册自己的 cast_prompt 键） */
+	public String castPrompt() {
+		return pd.messages.InlineText.get( pd.messages.InlineText.key( getClass(), "cast_prompt" ) ) != null
+				? pd.messages.InlineText.get( pd.messages.InlineText.key( getClass(), "cast_prompt" ) )
+				: Messages.get( Spellbook.class, "cast_prompt_default" );
+	}
+
+	//SPSEXPD: 通用定向选点器——先扣法力（拒绝则不施放），弹道 FX 走完后结算 castAt
+	private static Hero dirUser;
+	private static Spellbook dirBook;
+
+	private final pd.scenes.CellSelector.Listener dirCaster = new pd.scenes.CellSelector.Listener() {
+
+		@Override
+		public void onSelect( Integer target ) {
+			if (target == null || dirUser == null || dirBook == null) return;
+			if (!dirBook.spendFor( dirUser )) return;
+			pd.effects.MagicMissile.boltFromChar( dirUser.sprite.parent, dirBook.missileType(),
+					dirUser.sprite, target, () -> {
+						dirBook.castAt( dirUser, target );
+						//SPSEXPD: 施法耗 1 回合（FX 走完再结算，与法杖 zap 同节奏）
+						dirUser.spendAndNext( 1f );
+					} );
+		}
+
+		@Override
+		public String prompt() {
+			return dirBook != null ? dirBook.castPrompt() : Messages.get( Spellbook.class, "cast_prompt_default" );
+		}
+	};
 
 	@Override
 	public ArrayList<String> actions( Hero hero ) {
@@ -76,7 +121,12 @@ public abstract class Spellbook extends Item {
 	public void execute( Hero hero, String action ) {
 		//SPSEXPD: 施法——法力不足直接拒绝；成功走 spendAndNext 防回合卡死
 		if (action.equals( AC_CAST ) && hero != null) {
-			if (tryCast( hero )) {
+			if (targetRequired()) {
+				//SPSEXPD: 定向书——进选点器（法力在选点回调里扣）
+				dirUser = hero;
+				dirBook = this;
+				pd.scenes.GameScene.selectCell( dirCaster );
+			} else if (tryCast( hero )) {
 				hero.spendAndNext( 1f );
 			}
 		} else {
@@ -84,14 +134,19 @@ public abstract class Spellbook extends Item {
 		}
 	}
 
-	/** SPSEXPD: 施法单点（供动作/选点回调共用）；成功返回 true（已扣法力） */
-	public boolean tryCast( Hero hero ) {
-		int cost = manaCost();
-		if (!Mana.has( hero, cost )) {
+	/** SPSEXPD: 仅扣除法力并提示不足（不结算效果）；供 tryCast 与定向选点器共用 */
+	final boolean spendFor( Hero hero ) {
+		if (!Mana.has( hero, manaCost() )) {
 			GLog.w( Messages.get( Spellbook.class, "no_mana" ) );
 			return false;
 		}
-		Mana.spend( hero, cost );
+		Mana.spend( hero, manaCost() );
+		return true;
+	}
+
+	/** SPSEXPD: 施法单点（无目标路径）；成功返回 true（已扣法力） */
+	public boolean tryCast( Hero hero ) {
+		if (!spendFor( hero )) return false;
 		onCast( hero );
 		return true;
 	}

@@ -44,6 +44,7 @@ public final class SpsSpellbooksTest {
 		try {
 			testManaBasics();
 			testCastGate();
+			testWandBooks();
 
 			System.out.println( "SpsSpellbooksTest PASS (" + checks + " checks)" );
 		} catch (Throwable t) {
@@ -52,6 +53,31 @@ public final class SpsSpellbooksTest {
 		}
 		System.out.flush();
 		System.exit( 0 );
+	}
+
+	/** SPSEXPD: 法术书化批次1——映射表登记、统一法力 2/5、抄本施法门槛 */
+	private static void testWandBooks() {
+		checkEquals( pd.items.spellbooks.WandBooks.all().size(), 3, "批次1登记 3 对书目" );
+		checkEquals( pd.items.spellbooks.WandBooks.bookClasses().size(), 6, "书目类表 6 本" );
+
+		pd.items.spellbooks.WandBooks.Pair pair =
+				pd.items.spellbooks.WandBooks.of( pd.items.equipment.wands.WandOfFirebolt.class );
+		check( pair != null, "火弹法杖有对应书对" );
+		check( pair.tome != null && pair.codex != null, "原典/抄本类非空" );
+
+		//统一法力：抄本 2 / 原典 5
+		pd.items.spellbooks.Spellbook codex = render.utils.serialize.Reflection.newInstance( pair.codex );
+		pd.items.spellbooks.Spellbook tome = render.utils.serialize.Reflection.newInstance( pair.tome );
+		checkEquals( codex.manaCost(), 2, "抄本法力 2" );
+		checkEquals( tome.manaCost(), 5, "原典法力 5" );
+		check( codex.isTome() == false && tome.isTome() == true, "isTome 分级" );
+		check( codex.targetRequired() && tome.targetRequired(), "伤害型书为定向施法" );
+
+		//抄本施法门槛（onCast 兜底路径 Dungeon.level=null 安全）
+		Hero hero = new Hero();
+		Mana.setFull( hero );
+		check( codex.tryCast( hero ), "抄本施法成功" );
+		checkEquals( Mana.cur( hero ), 10 - 2, "施法扣 2 法力" );
 	}
 
 	private static void testManaBasics() {
