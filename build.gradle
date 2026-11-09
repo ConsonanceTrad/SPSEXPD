@@ -1991,6 +1991,15 @@ project(':core') {
 		workingDir = file('src/assets')
 		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
 	}
+	tasks.register('verifySpsSpellbooks', JavaExec) {
+		group = 'verification'
+		description = '无图形验证施法系统拓展核心：法力值系统与法术书原典过载门槛。'
+		dependsOn testClasses
+		classpath = sourceSets.test.runtimeClasspath
+		mainClass = coreTestClass('items.spellbooks.SpsSpellbooksTest')
+		workingDir = file('src/assets')
+		jvmArgs '-Dfile.encoding=UTF-8', '-Dstdout.encoding=UTF-8', '-Dstderr.encoding=UTF-8'
+	}
 	tasks.register('verifySpsStartingItems', JavaExec) {
 		group = 'verification'
 		description = '无图形验证开局物品单一真源：每个职业×主题的清单可用、槽位类型相符、留空主题等同经典。'
