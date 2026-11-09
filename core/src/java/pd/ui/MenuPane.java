@@ -224,7 +224,9 @@ public class MenuPane extends Component {
 				spText.text( spMax > 0 ? sp + "/" + spMax : Integer.toString( sp ) );
 				spText.measure();
 				//SPSEXPD: 数字宽度变了，紧挨时间左缘的摆放位要重算
-				layout();
+				//（只重摆 SP，不能整窗 layout——layout 尾部 danger 的 setPos/setSize 是
+				// 顺序自指的，二次执行会把危险标签（追踪敌人按钮）漂到屏幕左上角）
+				layoutSpPoint();
 			}
 		}
 		//SPSEXPD: 视角按钮始终显示——本层还没发现入口/出口时点击不生效（toggleCameraTarget 里
@@ -278,22 +280,30 @@ public class MenuPane extends Component {
 			clock.setPos( x + WIDTH - clock.width() - 2, belowY );
 			belowY += clock.height() + 1;
 
-			//SPSEXPD: SP 点数落在时间同一行、时间文本左侧（「SP」标签再往左一个小间距）
-			if (spText != null){
-				spText.x = clock.left() - 4 - spText.width();
-				spText.y = clock.top() + (clock.height() - spText.height())/2f;
-				PixelScene.align(spText);
-
-				spLabel.x = spText.x - 2 - spLabel.width();
-				spLabel.y = spText.y;
-				PixelScene.align(spLabel);
-			}
+			layoutSpPoint();
 		}
 
-		//SPSEXPD: 危险指示器顺次下移到时间下方（两者同属框下那一条带，避免重叠）
+		//SPSEXPD: 危险指示器顺次下移到时间下方（两者同属框下那一条带，避免重叠）。
+		//⚠️ 这两行的先后顺序是刻意的：setPos 依赖 danger.width() 仍是 16（标签原始宽），
+		//之后 setSize 把点击区宽度撑到近乎全屏。因此本方法不能在运行中被反复调用
+		//（update 里只允许调 layoutSpPoint，见下）——否则 setPos 会用撑大的宽度算出负偏移，
+		//危险标签（点击追踪敌人）就会漂到屏幕左上角。
 		danger.setPos( x + WIDTH - danger.width(), belowY );
 
 		danger.setSize( camera.width - danger.width(), danger.height());
+	}
+
+	/** SPSEXPD: 只重摆 SP 点数（时间左侧）——update 里数值变化时用，避免整窗 layout 把
+	 *  danger 的自指 setPos/setSize 顺序重放（见 layout() 尾部注释） */
+	private void layoutSpPoint() {
+		if (clock == null || spText == null) return;
+		spText.x = clock.left() - 4 - spText.width();
+		spText.y = clock.top() + (clock.height() - spText.height())/2f;
+		PixelScene.align(spText);
+
+		spLabel.x = spText.x - 2 - spLabel.width();
+		spLabel.y = spText.y;
+		PixelScene.align(spLabel);
 	}
 
 	//SPSEXPD: 视角切换按钮 —— 与「菜单/事件记录」同款按钮底图（hardlight 成红底）+ 用户绘制的
