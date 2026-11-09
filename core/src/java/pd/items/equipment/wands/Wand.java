@@ -94,13 +94,21 @@ public abstract class Wand extends Item {
 			.t("curse_discover", "这根%s是诅咒的！")
 			.t("prompt", "选择要释放魔法的位置")
 			.t("$placeholder.name", "法杖")
-			.t("silent", "沉默状态下无法使用法杖。");
+			.t("silent", "沉默状态下无法使用法杖。")
+			//SPSEXPD: 法器化（批次D）——仪式激发动作文案
+			.t("ac_channel", "仪式激发")
+			.t("ac_channel_self", "自我激发")
+			.t("channel_prompt", "选择激发仪式的位置")
+			.t("channel_none", "这里没有可以激发的仪式材料。");
 	}
 
 
 
 
 	public static final String AC_ZAP	= "ZAP";
+	//SPSEXPD: 法器化（批次D）——仪式激发（弹道落点）/ 自我激发（以自身为中心）
+	public static final String AC_CHANNEL	= "CHANNEL";
+	public static final String AC_CHANNEL_SELF	= "CHANNEL_SELF";
 
 	private static final float TIME_TO_ZAP	= 1f;
 
@@ -147,8 +155,33 @@ public abstract class Wand extends Item {
 		if (curCharges > 0 || !curChargeKnown) {
 			actions.add( AC_ZAP );
 		}
+		//SPSEXPD: 法器化——仪式激发动作（不耗充能、不耗法力；无命中材料时给提示）
+		if (canChannelRitual()) {
+			actions.add( AC_CHANNEL );
+			if (pd.rituals.Rituals.selfChannelAllowed()) {
+				actions.add( AC_CHANNEL_SELF );
+			}
+		}
 
 		return actions;
+	}
+
+	/** SPSEXPD: 法器化钩子——该法器是否可用于激发仪式（默认全部法器可用；特殊法器可覆写关闭） */
+	public boolean canChannelRitual() {
+		return true;
+	}
+
+	/** SPSEXPD: 法器护主（批次D）——该法器在背包内时是否提供受击护主被动（默认无；演示：闪电法器） */
+	public boolean guardOwner() {
+		return false;
+	}
+
+	/**
+	 * SPSEXPD: 法器护主结算——受击时调用；实现应自行检查充能并消耗，
+	 * 返回对攻击者造成的伤害（0 = 本次未护主）。每次受击至多一件法器护主。
+	 */
+	public int guardOwnerProc( Hero owner, Char attacker, int dmgTaken ) {
+		return 0;
 	}
 	
 	@Override
@@ -161,13 +194,59 @@ public abstract class Wand extends Item {
 		super.execute( hero, action );
 
 		if (action.equals( AC_ZAP )) {
-			
+
 			curUser = hero;
 			curItem = this;
 			GameScene.selectCell( zapper );
-			
+
+		}
+
+		//SPSEXPD: 法器化——仪式激发（弹道落点为锚点）/ 自我激发（自身为锚点）；不耗充能与法力
+		if (action.equals( AC_CHANNEL )) {
+			curUser = hero;
+			curItem = this;
+			GameScene.selectCell( channeler );
+		}
+		if (action.equals( AC_CHANNEL_SELF )) {
+			curUser = hero;
+			curItem = this;
+			channelAt( hero, hero.pos );
 		}
 	}
+
+	/** SPSEXPD: 仪式激发单点——锚点（弹道落点或自身格）匹配到仪式则结算，消耗 1 回合；无命中给提示 */
+	protected void channelAt( Hero hero, int cell ) {
+		if (Dungeon.level == null || hero == null) return;
+		if (pd.rituals.Rituals.channel( hero, cell ) != null) {
+			hero.spendAndNext( TIME_TO_ZAP );
+		} else {
+			GLog.w( Messages.get( Wand.class, "channel_none" ) );
+		}
+	}
+
+	//SPSEXPD: 法器化——仪式激发的选点器（弹道碰撞点为激发锚点）
+	protected static CellSelector.Listener channeler = new CellSelector.Listener() {
+
+		@Override
+		public void onSelect( Integer target ) {
+			if (target == null) return;
+
+			final Wand curWand = curItem instanceof Wand ? (Wand) curItem : null;
+			if (curWand == null) return;
+
+			int cell = target;
+			if (target != curUser.pos) {
+				Ballistica shot = new Ballistica( curUser.pos, target, curWand.collisionProperties(target) );
+				cell = shot.collisionPos;
+			}
+			curWand.channelAt( curUser, cell );
+		}
+
+		@Override
+		public String prompt() {
+			return Messages.get( Wand.class, "channel_prompt" );
+		}
+	};
 
 	@Override
 	public int targetingPos(Hero user, int dst) {

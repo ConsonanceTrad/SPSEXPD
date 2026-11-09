@@ -2495,6 +2495,16 @@ public class Hero extends Char {
 
 		int preHP = HP + shielding();
 		if (src instanceof Hunger) preHP -= shielding();
+
+		//SPSEXPD: 法器护主（批次D）——受击时背包里的护主法器反噬攻击者（每次受击至多一件）
+		if (dmg > 0 && src instanceof Char && ((Char) src).alignment != Char.Alignment.ALLY) {
+			for (Item item : belongings.getAllItems(Wand.class)) {
+				Wand guardWand = (Wand) item;
+				if (guardWand.guardOwner() && guardWand.guardOwnerProc(this, (Char) src, dmg) > 0) {
+					break;
+				}
+			}
+		}
 		super.damage( dmg, src );
 		int postHP = HP + shielding();
 		if (src instanceof Hunger) postHP -= shielding();

@@ -21,8 +21,6 @@
 
 package pd.actors.hero;
 
-import pd.actors.buffs.Arcane;
-
 /**
  * SPSEXPD: 法力值系统（仪式/施法拓展批次 A）。
  *
@@ -42,8 +40,6 @@ public class Mana {
 	public static final int CAP_PER_LEVEL = 1;
 	/** 每间隔这么多回合回复 1 点法力 */
 	public static final int REGEN_TURNS = 6;
-	/** 处于奥术强化（Arcane）状态时的法术强度加成 */
-	public static final float ARCANE_SPELL_POWER = 0.20f;
 
 	/** 法力上限 = 基础 + (等级-1)×每级 + 升级外的额外加成 */
 	public static int cap( Hero hero ) {
@@ -92,15 +88,11 @@ public class Mana {
 
 	/**
 	 * SPSEXPD: 法术强度（法强）——只对「消耗法力值」的法术类效果生效。
-	 * 基础 100%，随总等级每级 +0.5%，奥术强化状态下再 +20%。
-	 * 特质级修正留待后续批次经此处统一接入。
+	 * 与项目法强收口（commit 3494478af）同源：法强 = {@code Hero.magicSkill()}，
+	 * 每 1 点法强 +10% 效果量，直接委托 {@code Wand.spellAmplifier()}，不另起炉灶；
+	 * 法器（Wand）自身的伤害增幅沿用收口时的既定接入，本方法不改变法器行为。
 	 */
 	public static float spellStrength( Hero hero ) {
-		float strength = 1f;
-		if (hero != null) {
-			strength += Math.max(0, hero.lvl - 1) * 0.005f;
-			if (hero.buff( Arcane.class ) != null) strength += ARCANE_SPELL_POWER;
-		}
-		return strength;
+		return pd.items.equipment.wands.Wand.spellAmplifier();
 	}
 }

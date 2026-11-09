@@ -19,7 +19,14 @@ import render.utils.data.Callback;
 import render.utils.math.Random;
 
 import java.util.ArrayList;
+import pd.Assets;
+import pd.Dungeon;
+import pd.actors.hero.Hero;
+import pd.effects.CellEmitter;
+import pd.effects.Lightning;
+import pd.effects.particles.SparkParticle;
 import pd.messages.InlineText;
+import render.noosa.audio.Sample;
 
 /** The original SPS-PD chaining lightning wand. */
 public class WandOfLightning extends DamageWand {
@@ -50,6 +57,30 @@ public class WandOfLightning extends DamageWand {
 
 	@Override public int min(int level) { return 5 + level; }
 	@Override public int max(int level) { return Math.round(10 + level * level / 4f); }
+
+	//SPSEXPD: 法器护主演示（批次D）——雷霆法器带在包里时，受击会耗 1 充能反电攻击者
+	@Override
+	public boolean guardOwner() {
+		return true;
+	}
+
+	@Override
+	public int guardOwnerProc( Hero owner, Char attacker, int dmgTaken ) {
+		if (curCharges < 1 || attacker == null) return 0;
+		curCharges--;
+		int dealt = Math.max(1, Math.round(dmgTaken * 0.5f));
+		attacker.damage( dealt, this );
+		if (attacker.sprite != null) {
+			attacker.sprite.centerEmitter().burst( SparkParticle.FACTORY, 8 );
+			attacker.sprite.flash();
+		}
+		if (Dungeon.level != null && Dungeon.level.heroFOV != null
+				&& Dungeon.level.heroFOV[owner.pos]) {
+			CellEmitter.center( owner.pos ).burst( SparkParticle.FACTORY, 5 );
+			Sample.INSTANCE.play( Assets.Sounds.LIGHTNING );
+		}
+		return dealt;
+	}
 
 	public static float chainMultiplier(int targets, boolean targetInWater) {
 		if (targets <= 0) return 0f;
